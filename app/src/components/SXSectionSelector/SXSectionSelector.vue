@@ -8,17 +8,18 @@
   >
     <template slot="header">
       <div class="sx-selector__header pa-4">
-        <div class="row justify-start ma-0 pb-3">
-          <div class="col">
+        <mw-row class="ma-0 pb-3">
+          <mw-col>
             <h6
               v-i18n:cx-sx-section-selector-title
               class="sx-selector__header-text ma-0"
-            ></h6>
-            <h2 class="sx-selector__title ma-0 py-0">
-              {{ suggestion.sourceTitle }}
-            </h2>
-          </div>
-          <div class="col shrink justify-end">
+            />
+            <h2
+              class="sx-selector__title ma-0 py-0"
+              v-text="suggestion.sourceTitle"
+            />
+          </mw-col>
+          <mw-col shrink class="justify-end">
             <mw-button
               class="pa-0"
               :large="true"
@@ -26,108 +27,116 @@
               :icon="mwIconClose"
               @click="onClose()"
             />
-          </div>
-        </div>
-        <h4 v-i18n:cx-sx-section-selector-subtitle class="pt-0 ma-0"></h4>
-        <p v-i18n:cx-sx-section-selector-desc class="ma-0"></p>
+          </mw-col>
+        </mw-row>
+        <h4 v-i18n:cx-sx-section-selector-subtitle class="pt-0 ma-0" />
+        <p v-i18n:cx-sx-section-selector-desc class="ma-0" />
       </div>
     </template>
-    <div class="sx-selector__body">
+    <section class="sx-selector__body">
       <sx-article-language-selector />
-      <div class="sx-selector__missing-sections py-2">
+      <section class="sx-selector__missing-sections py-2">
         <h4
           v-i18n:cx-sx-section-selector-missing-sections-title="[
             targetLanguageAutonym
           ]"
           class="sx-selector__list-title mb-0 pb-0 py-3 px-4"
-        ></h4>
+        />
         <ul
           v-if="!emptyMissingSections"
           class="sx-selector__missing-sections-list ma-0 pa-0"
         >
-          <li
+          <mw-row
             v-for="(targetSection, sourceSection) in suggestion.missingSections"
             :key="sourceSection"
-            class="row ma-0"
+            tag="li"
+            class="ma-0"
           >
             <mw-button
-              class="col-12 justify-between py-3 px-4"
+              class="col justify-between py-3 px-4"
               :indicator="mwIconArrowForward"
               :label="sourceSection"
               type="text"
               :outlined="false"
               @click="selectSection(sourceSection)"
             />
-          </li>
+          </mw-row>
         </ul>
-        <div
+        <mw-row
           v-if="emptyMissingSections"
-          class="sx-selector__empty-missing-sections row px-4 my-0"
+          class="sx-selector__empty-missing-sections px-4 my-0"
         >
-          <div class="col py-6 justify-center" v-html="sadRobotSVG" />
-          <div class="sx-selector__empty-missing-sections-details col-12 pa-0">
+          <mw-col class="py-6 justify-center" v-html="sadRobotSVG" />
+          <mw-col
+            cols="12"
+            class="sx-selector__empty-missing-sections-details pa-0"
+          >
             <h6 v-i18n:cx-sx-section-selector-empty-missing-sections-title />
-          </div>
-          <div
-            class="sx-selector__empty-missing-sections-details col-12 pa-0 mb-2"
+          </mw-col>
+          <mw-col
+            cols="12"
+            class="sx-selector__empty-missing-sections-details pa-0 mb-2"
           >
             <p v-i18n:cx-sx-section-selector-empty-missing-sections-desc />
-          </div>
-          <div class="col-12 pa-0 mb-2">
+          </mw-col>
+          <mw-col cols="12" class="pa-0 mb-2">
             <mw-button
               v-i18n:cx-sx-section-selector-pick-other-translation-button-label
               class="sx-selector__empty-missing-sections__close-button px-0"
               type="text"
               @click="onClose()"
-            ></mw-button>
-          </div>
-        </div>
-      </div>
-      <div class="sx-selector__present-sections py-2">
+            />
+          </mw-col>
+        </mw-row>
+      </section>
+      <section class="sx-selector__present-sections py-2">
         <h4
           v-i18n:cx-sx-section-selector-present-sections-title="[
             targetLanguageAutonym
           ]"
           class="sx-selector__list-title mb-0 pb-0 py-3 px-4"
-        ></h4>
+        />
         <ul class="sx-selector__present-sections-list ma-0 pa-0">
-          <li
+          <mw-row
             v-for="(targetSection, sourceSection) in suggestion.presentSections"
             :key="sourceSection"
-            class="row ma-0"
+            tag="li"
+            class="ma-0"
             @click="selectSection(sourceSection)"
           >
             <mw-button
-              class="col-12 justify-between items-center py-3 px-4"
+              class="col justify-between items-center py-3 px-4"
               :indicator="mwIconArrowForward"
               type="text"
               :outlined="false"
             >
               <div class="sx-selector__present-section-button-content">
-                <h5 class="sx-selector__present-section-button-source">
-                  {{ sourceSection }}
-                </h5>
-                <h6 class="sx-selector__present-section-button-target">
-                  {{ targetSection }}
-                </h6>
+                <h5
+                  class="sx-selector__present-section-button-source"
+                  v-text="sourceSection"
+                />
+                <h6
+                  class="sx-selector__present-section-button-target"
+                  v-text="targetSection"
+                />
               </div>
             </mw-button>
-          </li>
+          </mw-row>
         </ul>
-      </div>
-      <div class="py-2">
+      </section>
+      <section class=" py-2">
         <h4
           v-i18n:cx-sx-section-selector-more-details-title="[
             targetLanguageAutonym
           ]"
           class="sx-selector__list-title mb-0 pb-0 py-3 px-4"
-        ></h4>
+        />
         <ul class="ma-0 pa-0">
-          <li class="row ma-0">
+          <mw-row tag="li" class="ma-0">
             <mw-button
               :href="sourceArticlePath"
               target="_blank"
-              class="col-12 justify-between py-3 px-4"
+              class="col justify-between py-3 px-4"
               :indicator="mwIconLinkExternal"
               :label="
                 $i18n(
@@ -138,12 +147,12 @@
               type="text"
               :outlined="false"
             />
-          </li>
-          <li class="row ma-0">
+          </mw-row>
+          <mw-row tag="li" class="ma-0">
             <mw-button
               :href="targetArticlePath"
               target="_blank"
-              class="col-12 justify-between py-3 px-4"
+              class="col justify-between py-3 px-4"
               :indicator="mwIconLinkExternal"
               :label="
                 $i18n(
@@ -154,46 +163,32 @@
               type="text"
               :outlined="false"
             />
-          </li>
+          </mw-row>
         </ul>
-      </div>
-      <div class="row sx-selector__additional-considerations ma-0">
-        <div class="col-md-6 col-12">
-          <div class="pa-3 pt-5">
-            <h6>
-              <mw-icon :icon="mwIconRobot" />
-              {{
-                $i18n("cx-sx-section-selector-automatic-section-matching-title")
-              }}
-            </h6>
-            <p
-              v-i18n:cx-sx-section-selector-automatic-section-matching-description
-            ></p>
-            <a
-              v-i18n:cx-sx-section-selector-learn-more-anchor-label
-              href="#"
-            ></a>
-          </div>
-        </div>
-        <div class="col-md-6 col-12">
-          <div class="pa-3 pt-5">
-            <h6>
-              <mw-icon :icon="mwIconLabFlask" />
-              {{ $i18n("cx-sx-section-selector-unsupported-sections-title") }}
-            </h6>
-            <p>
-              {{
-                $i18n("cx-sx-section-selector-unsupported-sections-description")
-              }}
-            </p>
-            <a
-              v-i18n:cx-sx-section-selector-learn-more-anchor-label
-              href="#"
-            ></a>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
+      <mw-row class="sx-selector__additional-considerations ma-0">
+        <mw-col cols="12" md="6" class="px-4 pt-5 pb-4">
+          <h6 class="sx-selector__additional-consideration-title">
+            <mw-icon :icon="mwIconRobot" class="pe-2" />
+            {{
+              $i18n("cx-sx-section-selector-automatic-section-matching-title")
+            }}
+          </h6>
+          <p
+            v-i18n:cx-sx-section-selector-automatic-section-matching-description
+          />
+          <a v-i18n:cx-sx-section-selector-learn-more-anchor-label href="#" />
+        </mw-col>
+        <mw-col cols="12" md="6" class="px-4 py-5">
+          <h6 class="sx-selector__additional-consideration-title">
+            <mw-icon :icon="mwIconLabFlask" class="pe-2" />
+            {{ $i18n("cx-sx-section-selector-unsupported-sections-title") }}
+          </h6>
+          <p v-i18n:cx-sx-section-selector-unsupported-sections-description />
+          <a v-i18n:cx-sx-section-selector-learn-more-anchor-label href="#" />
+        </mw-col>
+      </mw-row>
+    </section>
     <sx-content-comparator
       :active.sync="contentComparatorActive"
       :suggestion="suggestion"
@@ -203,22 +198,24 @@
 </template>
 
 <script>
-import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
+import { MwDialog, MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconClose,
   mwIconArrowForward,
   mwIconLinkExternal,
   mwIconRobot,
   mwIconLabFlask
-} from "../lib/mediawiki.ui/components/icons";
-import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
-import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
-import autonymMixin from "../mixins/autonym";
-import SxContentComparator from "./SXContentComparator";
+} from "@/lib/mediawiki.ui/components/icons";
+import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
+import autonymMixin from "../../mixins/autonym";
+import SxContentComparator from "../SXContentComparator";
 
 export default {
   name: "SxSectionSelector",
   components: {
+    MwRow,
+    MwCol,
     SxContentComparator,
     MwIcon,
     MwDialog,
@@ -244,7 +241,7 @@ export default {
     contentComparatorActive: false,
     selectedSectionKey: "",
     sectionToTranslate: null,
-    sadRobotSVG: require("!html-loader!../assets/sad-robot.svg")
+    sadRobotSVG: require("!html-loader!../../assets/sad-robot.svg")
   }),
   computed: {
     sourceLanguageAutonym() {
@@ -275,7 +272,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .sx-selector {
   .sx-selector__header {
@@ -321,6 +318,11 @@ export default {
     // TODO: fix border color to be base80
     border-top: @border-width-base @border-style-base
       @border-color-base--disabled;
+    .sx-selector__additional-consideration-title {
+      .mw-ui-icon {
+        display: inherit;
+      }
+    }
   }
 }
 </style>
