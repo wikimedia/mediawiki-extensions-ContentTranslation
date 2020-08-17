@@ -2,7 +2,6 @@
 @import 'mw.cx.variables.less';
 
 .cx-translation-view-header {
-	.mw-ui-one-whole;
 	padding: 0;
 	min-height: 3em;
 	background-color: #fff;
@@ -12,6 +11,7 @@
 
 	// Adding additional class only to beat OOUI specificity
 	&.oo-ui-panelLayout {
+		display: flex;
 		position: -webkit-sticky;
 		position: sticky;
 		top: 0;
@@ -42,7 +42,6 @@
 	}
 
 	.cx-header__translation-center {
-		.mw-ui-one-third;
 		min-height: 3em;
 		margin: 0 !important; /* stylelint-disable-line declaration-no-important */
 		padding: 0;
@@ -61,7 +60,7 @@
 	}
 
 	.cx-header-draft-status {
-		.mw-ui-one-third;
+		flex-grow: 1;
 		color: @colorGray5;
 		padding: 0;
 		line-height: 3;
