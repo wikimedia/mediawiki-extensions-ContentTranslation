@@ -7,6 +7,7 @@
 			"Bulgu",
 			"Captantrips",
 			"Dual",
+			"Gokalpselamet",
 			"Grkn gll",
 			"HakanIST",
 			"Hedda",
@@ -367,5 +368,6 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "$1 içindeki sunum",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 içindeki bölüm",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. <br /> Bölümler ilgili değilse bunu atın.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|her $1 hafta ziyaret|0=Bunda ziyaret yok}}"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|her $1 hafta ziyaret|0=Bunda ziyaret yok}}",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Orijinal"
 }

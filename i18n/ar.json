@@ -334,5 +334,6 @@
 	"sx-quick-tutorial-translate-button-label": "ابدأ الترجمة",
 	"cx-sx-sentence-selector-header-title": "قسم الترجمة",
 	"cx-sx-sentence-selector-edit-translation-button-label": "عدل الترجمة",
-	"cx-sx-content-comparator-target-selector-full-article-title": "المقالة كاملة في $1"
+	"cx-sx-content-comparator-target-selector-full-article-title": "المقالة كاملة في $1",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "الأصل"
 }

@@ -58,7 +58,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-limit": "Alınacak maksimum çeviri önerisi sayısı.",
 	"apihelp-query+contenttranslationsuggestions-param-offset": "Sayfalandırılmış sonuçlar için ofset.",
 	"apihelp-query+contenttranslationsuggestions-param-seed": "Varsayılan olarak öneriler rastgele sırayla döndürülür. Limit ve ofset kullanırken her bir öneriyi yalnızca bir kez döndürmek istiyorsanız, tüm istekler için bir tohum belirtmelisiniz.",
-	"apihelp-query+contenttranslationsuggestions-example-1": "İngilizce (en)'den İspanyolca (s)'ya çeviri için önerilen sayfaları getir.",
+	"apihelp-query+contenttranslationsuggestions-example-1": "İngilizceden (en) İspanyolcaya (es) çeviri için önerilen sayfaları getir.",
 	"apihelp-query+cxpublishedtranslations-description": "Tüm yayınlanmış çeviri bilgisini getir",
 	"apihelp-query+cxpublishedtranslations-summary": "Yayınlanan tüm çeviri bilgilerini alın.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kaynak dil kodu.",
