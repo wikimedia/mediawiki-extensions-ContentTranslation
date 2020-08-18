@@ -30,11 +30,16 @@ export default {
     tag: {
       type: String,
       default: "div"
+    },
+    direction: {
+      type: String,
+      default: "row",
+      validator: str => ["row", "column"].includes(str)
     }
   },
   computed: {
     classes() {
-      return ["row", `items-${this.align}`, `justify-${this.justify}`];
+      return [this.direction, `items-${this.align}`, `justify-${this.justify}`];
     }
   }
 };

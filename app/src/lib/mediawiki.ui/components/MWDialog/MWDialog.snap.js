@@ -20,6 +20,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
       <mw-row-stub
         align="center"
         class="mw-ui-dialog__header"
+        direction="row"
         justify="start"
         tag="div"
       >
