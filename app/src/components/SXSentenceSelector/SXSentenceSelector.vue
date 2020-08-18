@@ -1,43 +1,49 @@
 <template>
   <mw-dialog v-if="active" class="sx-sentence-selector">
     <template slot="header">
-      <div class="row sx-sentence-selector__header ma-0 py-2 items-center">
-        <div class="col shrink">
+      <mw-row class="sx-sentence-selector__header ma-0 py-2">
+        <mw-col shrink>
           <mw-button
             class="px-3"
             type="icon"
             :icon="mwIconArrowPrevious"
             @click="onClose"
           />
-        </div>
-        <div class="col grow px-1">
+        </mw-col>
+        <mw-col grow class="px-1">
           <h4
             v-i18n:cx-sx-sentence-selector-header-title
             class="sx-sentence-selector__header--title"
           />
-        </div>
-        <div class="col shrink px-3">
+        </mw-col>
+        <mw-col shrink class="px-3">
           <mw-button
             :label="$i18n('cx-sx-sentence-selector-done-button-label')"
           />
-        </div>
-      </div>
+        </mw-col>
+      </mw-row>
     </template>
-    <section class="sx-sentence-selector__section fill-height column ma-0">
-      <div class="sx-sentence-selector__section-header pa-5 col shrink">
+    <mw-row
+      tag="section"
+      direction="column"
+      align="start"
+      class="sx-sentence-selector__section fill-height ma-0"
+    >
+      <mw-col shrink class="sx-sentence-selector__section-header pa-5">
         <a
           :href="sourceArticlePath"
           target="_blank"
           class="sx-sentence-selector__section-article-title mb-1"
         >
-          <strong> {{ suggestion.sourceTitle }} </strong>
-          <mw-icon :icon="mwIconLinkExternal" class="ml-1"></mw-icon>
+          <strong v-text="suggestion.sourceTitle" />
+          <mw-icon :icon="mwIconLinkExternal" class="ms-1" size="14" />
         </a>
-        <h2 class="sx-sentence-selector__section-title pa-0 ma-0">
-          {{ sectionSourceTitle }}
-        </h2>
-      </div>
-      <div class="sx-sentence-selector__section-contents px-4 col grow">
+        <h2
+          class="sx-sentence-selector__section-title pa-0 ma-0"
+          v-text="sectionSourceTitle"
+        />
+      </mw-col>
+      <mw-col grow class="sx-sentence-selector__section-contents px-4">
         <span
           v-for="(sentence, index) in sentences"
           :key="`sentence-${index}`"
@@ -49,25 +55,31 @@
           @click="selectSentence(index)"
           v-html="formatSentence(sentence, index)"
         />
-      </div>
-      <section class="sx-sentence-selector__proposed-translation col shrink">
+      </mw-col>
+      <mw-col
+        tag="section"
+        shrink
+        class="sx-sentence-selector__proposed-translation"
+      >
         <div class="sx-sentence-selector__proposed-translation-body pa-5">
-          <div
-            class="sx-sentence-selector__proposed-translation-header row ma-0 pb-4"
+          <mw-row
+            class="sx-sentence-selector__proposed-translation-header ma-0 pb-4"
           >
-            <h6
-              class="sx-sentence-selector__proposed-translation-title col grow pa-0 ma-0 pe-4"
+            <mw-col
+              tag="h6"
+              grow
+              class="sx-sentence-selector__proposed-translation-title pa-0 ma-0 pe-4"
               v-text="mtOptionLabel"
             />
-            <div class="col shrink">
+            <mw-col shrink>
               <mw-button
                 :icon="mwIconEllipsis"
                 type="icon"
                 class="sx-sentence-selector__translation-more-options-button pa-0"
                 @click="configureTranslationOptions"
               />
-            </div>
-          </div>
+            </mw-col>
+          </mw-row>
           <div
             class="sx-sentence-selector__proposed-translation-contents pb-4"
             v-html="proposedSentenceTranslation"
@@ -81,7 +93,7 @@
             class="sx-sentence-selector__translation-edit-button pa-0"
           />
         </div>
-        <div class="sx-sentence-selector__translation-action-buttons row ma-0">
+        <mw-row class="sx-sentence-selector__translation-action-buttons ma-0">
           <mw-button
             :icon="mwIconPrevious"
             type="icon"
@@ -102,9 +114,9 @@
             "
             class="col shrink pa-4"
           />
-        </div>
-      </section>
-    </section>
+        </mw-row>
+      </mw-col>
+    </mw-row>
     <sx-translation-selector
       :active.sync="translationOptionsActive"
       :provider.sync="selectedProvider"
@@ -116,7 +128,7 @@
 </template>
 
 <script>
-import { MwDialog, MwButton, MwIcon } from "../lib/mediawiki.ui";
+import { MwDialog, MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
   mwIconLinkExternal,
@@ -125,14 +137,21 @@ import {
   mwIconPrevious,
   mwIconArrowForward,
   mwIconClose
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 
-import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
-import MTProviderGroup from "../wiki/mw/models/mtProviderGroup";
-import SxTranslationSelector from "@/components/SXTranslationSelector";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import SxTranslationSelector from "@/components/SXSentenceSelector/SXTranslationSelector";
 export default {
   name: "SxSentenceSelector",
-  components: { SxTranslationSelector, MwButton, MwDialog, MwIcon },
+  components: {
+    MwRow,
+    MwCol,
+    SxTranslationSelector,
+    MwButton,
+    MwDialog,
+    MwIcon
+  },
   props: {
     suggestion: {
       type: SectionSuggestion,
@@ -218,10 +237,10 @@ export default {
     extraMTOptionLabels() {
       return {
         [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.$i18n(
-            "cx-sx-sentence-selector-translation-options-original-card-title"
+          "cx-sx-sentence-selector-translation-options-original-card-title"
         ),
         [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: this.$i18n(
-            "cx-sx-sentence-selector-translation-options-empty-card-title"
+          "cx-sx-sentence-selector-translation-options-empty-card-title"
         )
       };
     }
@@ -290,7 +309,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-sentence-selector {
   .sx-sentence-selector__header {
     background-color: @background-color-base--disabled;
@@ -302,7 +321,8 @@ export default {
   .sx-sentence-selector__section {
     .sx-sentence-selector__section-header {
       .sx-sentence-selector__section-article-title {
-        // TODO: User UI typography here instead of hardcoding font-size values in px
+        // TODO: User UI typography here instead of hardcoding font-size values in px.
+        // "Complementary" class cannot be applied here, as it only applies to paragraphs (<p>)
         font-size: 14px;
         // TODO: Fix this to be @base20 color - currently base30
         color: @color-base--subtle;

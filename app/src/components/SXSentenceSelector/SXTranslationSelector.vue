@@ -71,8 +71,8 @@
 </template>
 
 <script>
-import { MwDialog, MwButton, MwCard, MwInput } from "../lib/mediawiki.ui";
-import MTProviderGroup from "../wiki/mw/models/mtProviderGroup";
+import { MwDialog, MwButton, MwCard, MwInput } from "../../lib/mediawiki.ui";
+import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 
@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-sentence-selector__translation-options {
   .mw-ui-dialog__header {
     h6 {
