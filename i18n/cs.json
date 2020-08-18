@@ -52,7 +52,7 @@
 	"cx-lost-session-draft": "Vaše relace vypršela. Vaše úpravy nemůžou být uloženy, dokud se nepřihlásíte znovu v jiném okně.",
 	"cx-lost-session-publish": "Vaše relace vypršela. Váš překlad nemůže být zveřejněn, dokud se nepřihlásíte znovu v jiném okně.",
 	"cx-lost-session-dashboard": "Chcete-li provést tuto akci, přihlaste se prosím znovu.",
-	"cx-publish-summary": "Vytvořeno překladem stránky „$1“",
+	"cx-publish-summary": "vytvořeno překladem stránky „$1“",
 	"cx-translation-add-translation": "Přidat překlad",
 	"cx-translation-target-page-exists": "Stránka s názvem [$1 $2] v cílové wiki existuje. Zvažte pro stránku jiný název.",
 	"tag-contenttranslation": "editace z rozšíření [[{{MediaWiki:cx-descriptionpagelink}}|Překlad]]",
