@@ -6,29 +6,40 @@
     @close="onClose()"
   >
     <template slot="header">
-      <div class="row sx-article-selector__header ma-0 pa-2">
-        <div class="col shrink pe-2">
+      <mw-row
+        class="sx-article-selector__header ma-0 pa-2"
+        align="stretch"
+        justify="start"
+      >
+        <mw-col shrink class="pe-2">
           <mw-thumbnail
             class="sx-article-selector__header-thumbnail"
             :thumbnail="sourceArticleThumbnail"
             :icon-size="48"
           />
-        </div>
-        <div class="col">
-          <div
-            class="sx-article-selector__header-title column justify-between ma-0"
+        </mw-col>
+        <mw-col>
+          <mw-row
+            direction="column"
+            justify="between"
+            align="start"
+            class="sx-article-selector__header-title ma-0"
           >
-            <h5 class="col pa-0 ma-0">{{ sourceTitle }}</h5>
-            <p class="col shrink complementary sx-article-selector__stats ma-0">
+            <mw-col tag="h5" class="pa-0 ma-0" v-text="sourceTitle" />
+            <mw-col
+              tag="p"
+              shrink
+              class="complementary sx-article-selector__stats ma-0"
+            >
               <span class="pe-3">
                 <mw-icon :icon="mwIconLanguage" />
                 {{ langLinksCount }}
               </span>
               <span v-i18n:cx-sx-article-selector-views-count="[weeklyViews]" />
-            </p>
-          </div>
-        </div>
-        <div class="col shrink items-start">
+            </mw-col>
+          </mw-row>
+        </mw-col>
+        <mw-col shrink align="start">
           <mw-button
             class="pa-0"
             type="icon"
@@ -42,66 +53,60 @@
             :icon="mwIconClose"
             @click="onClose()"
           />
-        </div>
-      </div>
+        </mw-col>
+      </mw-row>
     </template>
-    <div class="sx-article-selector__body">
+    <section class="sx-article-selector__body">
       <sx-article-language-selector />
-      <div
+      <mw-row
         v-if="translationExists"
-        class="sx-article-selector__translation-status row pa-4 ma-0"
+        class="sx-article-selector__translation-status pa-4 ma-0"
+        justify="between"
       >
         <!-- Font weight bold -->
-        <div
+        <mw-col
           v-i18n:cx-sx-existing-translation-status="[targetLanguageAutonym]"
-          class="col-8"
-        ></div>
-        <div class="col-4 justify-end">
-          <a v-i18n:cx-sx-view-translation-anchor href="#"></a>
-        </div>
-      </div>
-      <div v-if="translationExists" class="row pa-4 pb-0 ma-0">
-        <div class="col-12">
+        />
+        <mw-col shrink>
+          <a v-i18n:cx-sx-view-translation-anchor href="#" />
+        </mw-col>
+      </mw-row>
+      <mw-row v-if="translationExists" class="pa-4 pb-0 ma-0">
+        <mw-col>
           <span
             v-i18n:cx-sx-existing-translation-additional-info="[
               targetLanguageAutonym
             ]"
-          ></span>
-          <a v-i18n:cx-sx-existing-translation-learn-more href="#"></a>
-        </div>
-      </div>
-      <div class="row sx-article-selector__action justify-center pt-4 pb-3">
+          />
+          &nbsp;
+          <a v-i18n:cx-sx-existing-translation-learn-more href="#" />
+        </mw-col>
+      </mw-row>
+      <mw-row class="sx-article-selector__action pt-4 pb-3" justify="center">
         <mw-button
-          v-if="translationExists"
           :large="true"
           :progressive="true"
           :disabled="missingSectionsCount === 0"
-          :label="$i18n('cx-sx-select-section')"
+          :label="actionButtonLabel"
           @click="onSectionSelectorClick()"
-        ></mw-button>
-        <mw-button
-          v-else
-          :large="true"
-          :progressive="true"
-          :label="$i18n('cx-sx-start-translation-button-label')"
-          @click="onSectionSelectorClick()"
-        ></mw-button>
-      </div>
-      <div
+        />
+      </mw-row>
+      <mw-row
         v-if="missingSectionsCount"
         v-i18n:cx-sx-missing-section-stats="[
           missingSectionsCount,
           targetLanguageAutonym
         ]"
-        class="row sx-article-selector__action justify-center pb-2 mb-4"
-      ></div>
-      <div class="row sx-article-selector__license justify-center ma-0">
+        justify="center"
+        class="sx-article-selector__action pb-2 mb-4"
+      />
+      <mw-row justify="center" class="sx-article-selector__license ma-0">
         <p class="pa-3">
           <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
-          <small v-i18n-html:cx-license-agreement></small>
+          <small v-i18n-html:cx-license-agreement />
         </p>
-      </div>
-    </div>
+      </mw-row>
+    </section>
     <sx-section-selector
       v-if="currentSectionSuggestion"
       :active="showSectionTranslation"
@@ -113,21 +118,30 @@
 
 <script>
 import { mapState } from "vuex";
-import SxSectionSelector from "./SXSectionSelector";
-import { MwButton, MwIcon, MwDialog, MwThumbnail } from "../lib/mediawiki.ui";
-import SxArticleLanguageSelector from "./SXArticleLanguageSelector";
+import SxSectionSelector from "../SXSectionSelector";
+import {
+  MwButton,
+  MwIcon,
+  MwDialog,
+  MwThumbnail,
+  MwRow,
+  MwCol
+} from "@/lib/mediawiki.ui";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import {
   mwIconClose,
   mwIconExpand,
   mwIconLanguage,
   mwIconBookmarkOutline,
   mwIconArrowNext
-} from "../lib/mediawiki.ui/components/icons";
-import autonymMixin from "../mixins/autonym";
+} from "@/lib/mediawiki.ui/components/icons";
+import autonymMixin from "../../mixins/autonym";
 
 export default {
   name: "SxArticleSelector",
   components: {
+    MwRow,
+    MwCol,
     MwDialog,
     MwIcon,
     MwThumbnail,
@@ -155,6 +169,11 @@ export default {
       currentSectionSuggestion: state =>
         state.suggestions.currentSectionSuggestion
     }),
+    actionButtonLabel() {
+      return this.translationExists
+        ? this.$i18n("cx-sx-select-section")
+        : this.$i18n("cx-sx-start-translation-button-label");
+    },
     targetLanguageAutonym() {
       return this.getAutonym(this.targetLanguage);
     },
@@ -232,7 +251,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .sx-article-selector {
   .sx-article-selector__header {
