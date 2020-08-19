@@ -6,8 +6,8 @@
     :fullscreen="true"
     :header="false"
   >
-    <div class="sx-quick-tutorial__body-container column ma-0">
-      <div class="sx-quick-tutorial__main-point py-9 px-7">
+    <mw-row direction="column" class="sx-quick-tutorial__body-container ma-0">
+      <section class="sx-quick-tutorial__main-point py-9 px-7">
         <transition name="fade" mode="out-in">
           <h2
             v-if="isActiveStep(1)"
@@ -22,8 +22,8 @@
             class="ma-0 pa-0"
           />
         </transition>
-      </div>
-      <div class="sx-quick-tutorial__illustration">
+      </section>
+      <section class="sx-quick-tutorial__illustration">
         <transition name="fade" mode="out-in">
           <div
             v-if="isActiveStep(1)"
@@ -36,7 +36,7 @@
             v-html="tutorialSvgSections"
           />
         </transition>
-      </div>
+      </section>
       <div class="sx-quick-tutorial__step-indicator py-3">
         <span
           v-for="step in totalSteps"
@@ -45,7 +45,7 @@
           :class="{ 'dot-active': isActiveStep(step) }"
         ></span>
       </div>
-      <div class="sx-quick-tutorial__secondary-point py-4 px-6">
+      <section class="sx-quick-tutorial__secondary-point py-4 px-6">
         <transition name="fade" mode="out-in">
           <h3
             v-if="isActiveStep(1)"
@@ -60,7 +60,7 @@
             class="ma-0"
           />
         </transition>
-      </div>
+      </section>
       <div class="sx-quick-tutorial__action-button pa-4 pb-6">
         <transition name="fade" mode="out-in">
           <mw-button
@@ -70,28 +70,29 @@
             :icon="mwIconArrowForward"
             :progressive="true"
             @click="goToNextStep"
-          ></mw-button>
+          />
           <mw-button
             v-if="isActiveStep(2)"
             key="button-2"
             :label="$i18n('sx-quick-tutorial-translate-button-label')"
             :progressive="true"
             @click="completeTutorial"
-          ></mw-button>
+          />
         </transition>
       </div>
-    </div>
+    </mw-row>
   </mw-dialog>
 </template>
 
 <script>
-import { MwDialog, MwButton } from "../lib/mediawiki.ui";
-import { mwIconArrowForward } from "../lib/mediawiki.ui/components/icons";
+import { MwDialog, MwButton, MwRow } from "@/lib/mediawiki.ui";
+import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 export default {
   name: "SxQuickTutorial",
   components: {
     MwButton,
-    MwDialog
+    MwDialog,
+    MwRow
   },
   props: {
     active: {
@@ -103,8 +104,8 @@ export default {
     mwIconArrowForward,
     totalSteps: 2,
     activeStep: 1,
-    tutorialSvgMT: require("!html-loader!../assets/tutorial-mt.svg"),
-    tutorialSvgSections: require("!html-loader!../assets/tutorial-sections.svg")
+    tutorialSvgMT: require("!html-loader!../../assets/tutorial-mt.svg"),
+    tutorialSvgSections: require("!html-loader!../../assets/tutorial-sections.svg")
   }),
   methods: {
     goToNextStep() {
@@ -122,7 +123,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .sx-quick-tutorial {
   .sx-quick-tutorial__body-container {

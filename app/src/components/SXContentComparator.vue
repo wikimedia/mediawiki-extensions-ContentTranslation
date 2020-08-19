@@ -179,9 +179,13 @@
         />
       </div>
       <section class="pa-4" v-html="targetSectionContent" />
-      <section class="sx-content-comparator__new-section-placeholder--present pa-4 px-7">
+      <section
+        class="sx-content-comparator__new-section-placeholder--present pa-4 px-7"
+      >
         <h5 v-i18n:cx-sx-content-comparator-present-section-placeholder-title />
-        <p v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle />
+        <p
+          v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle
+        />
       </section>
     </section>
     <sx-quick-tutorial
@@ -206,16 +210,16 @@ import {
   mwIconTrash,
   mwIconLinkExternal,
   mwIconUndo
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 import {
   MwButton,
   MwDialog,
   MwIcon,
   MwButtonGroup,
   MwSpinner
-} from "../lib/mediawiki.ui";
-import autonymMixin from "../mixins/autonym";
-import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+} from "@/lib/mediawiki.ui";
+import autonymMixin from "@/mixins/autonym";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxQuickTutorial from "./SXQuickTutorial";
 import SxSentenceSelector from "./SXSentenceSelector";
 
@@ -506,7 +510,8 @@ export default {
     background-color: @background-color-primary;
     color: @color-primary--active;
     // No color for accent-50 with 0.5 opacity present in UI library
-    box-shadow: 0 1px 3px rgba(51, 102, 204, 0.5), 0 -1px 3px rgba(51, 102, 204, 0.5);
+    box-shadow: 0 1px 3px rgba(51, 102, 204, 0.5),
+      0 -1px 3px rgba(51, 102, 204, 0.5);
     h5 {
       color: @color-primary--active;
     }
