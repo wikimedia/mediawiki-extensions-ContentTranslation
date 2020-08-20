@@ -369,5 +369,7 @@
 	"cx-sx-sentence-selector-translation-options-header-title": "Comece com uma tradução diferente",
 	"cx-sx-sentence-selector-translation-options-header-text": "Escolha a opção de tradução para os textos atuais e seguintes.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
-	"cx-sx-sentence-selector-translation-options-empty-card-title": "Comece com um texto vazio"
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Comece com um texto vazio",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Sua tradução será adicionada aqui",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Ao publicar, você pode decidir substituir o conteúdo existente."
 }

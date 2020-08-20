@@ -367,5 +367,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Obecna w $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sekcja w $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Twoje tłumaczenie rozszerzy istniejącą sekcję. <br /> Zakończ tłumaczenie, jeśli sekcje nie są powiązane.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Jedna wizyta|$1 wizyty|$1 wizyt|Brak wizyt}} w tym tygodniu"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Jedna wizyta|$1 wizyty|$1 wizyt|Brak wizyt}} w tym tygodniu",
+	"cx-sx-content-comparator-discarded-section-clarifications": "Twoje tłumaczenie zostanie opublikowane jako niezależna nowa sekcja.",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Twoje tłumaczenie zostanie dodane tutaj"
 }

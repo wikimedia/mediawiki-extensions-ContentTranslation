@@ -360,5 +360,7 @@
 	"cx-sx-sentence-selector-translation-options-header-title": "להתחיל עם תרגום שונה",
 	"cx-sx-sentence-selector-translation-options-header-text": "{{GENDER:|בחר|בחרי|בחרו}} איך לתרגם את המשפט הזה ואת הבאים.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "מקורי",
-	"cx-sx-sentence-selector-translation-options-empty-card-title": "להתחיל עם משפט ריק"
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "להתחיל עם משפט ריק",
+	"cx-sx-content-comparator-present-section-placeholder-title": "התרגום שלך יתווסף כאן",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "בעת הפרסום {{GENDER:|תוכל|תוכלי}} להחליט להחליף את התוכן הנוכחי."
 }

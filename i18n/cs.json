@@ -14,6 +14,7 @@
 			"Janbery",
 			"Ján Kepler",
 			"Littledogboy",
+			"Luklos",
 			"Martin Urbanec",
 			"Matěj Suchánek",
 			"Mormegil",
@@ -309,5 +310,7 @@
 	"cx-preference-enable-entrypoints": "K [[$1|zahájení překladu]] přistupte na stránce s příspěvky.",
 	"cx-feature-discovery-title": "Překládejte kdykoliv",
 	"cx-feature-discovery-content": "Můžete začít nebo pokračovat v překladu kdykoliv ze stránky {{int: mycontris}}",
-	"cx-feature-discovery-dismiss": "Dobře, chápu"
+	"cx-feature-discovery-dismiss": "Dobře, chápu",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Tvůj překlad bude přidán",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Při publikování se můžete místo toho rozhodnout nahradit stávající obsah."
 }

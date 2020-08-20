@@ -369,5 +369,12 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 içindeki bölüm",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. <br /> Bölümler ilgili değilse bunu atın.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|her $1 hafta ziyaret|0=Bunda ziyaret yok}}",
-	"cx-sx-sentence-selector-translation-options-original-card-title": "Orijinal"
+	"cx-sx-content-comparator-discarded-section-clarifications": "Çeviriniz bağımsız yeni bir bölüm olarak yayımlanacaktır.",
+	"cx-sx-content-comparator-discarded-section-label": "(atlandı)",
+	"cx-sx-sentence-selector-translation-options-header-title": "Farklı bir çeviriyle başlayın",
+	"cx-sx-sentence-selector-translation-options-header-text": "Mevcut ve sonraki cümleler için çeviri seçeneğini seçin.",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Orijinal",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Boş bir cümleyle başlayın",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Çeviriniz buraya eklenecek",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Yayımlarken bunun yerine mevcut içerikleri değiştirmeye karar verebilirsiniz."
 }
