@@ -57,15 +57,15 @@
 </template>
 
 <script>
-import { MwThumbnail, MwIcon } from "../lib/mediawiki.ui";
-import autonym from "../mixins/autonym";
-import Translation from "../wiki/cx/models/translation";
+import { MwThumbnail, MwIcon } from "@/lib/mediawiki.ui";
+import autonym from "@/mixins/autonym";
+import Translation from "@/wiki/cx/models/translation";
 import {
   mwIconEdit,
   mwIconTrash,
   mwIconArrowForward,
   mwIconArrowNext
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 
 export default {
   name: "CxTranslationWork",
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .cx-translation {
   /* TODO: Fix border color to be base80*/

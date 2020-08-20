@@ -23,8 +23,8 @@
 
 <script>
 import CxTranslationWork from "./CXTranslationWork";
-import { MwSpinner, MwCard } from "../lib/mediawiki.ui";
-import autonymMixin from "../mixins/autonym";
+import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
+import autonymMixin from "@/mixins/autonym";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import { mapState } from "vuex";
 

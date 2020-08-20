@@ -78,12 +78,12 @@ import {
   MwDialog,
   MwIcon,
   MwButton
-} from "../lib/mediawiki.ui";
-import autonymMixin from "../mixins/autonym";
+} from "@/lib/mediawiki.ui";
+import autonymMixin from "@/mixins/autonym";
 import {
   mwIconArrowNext,
   mwIconExpand
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 
 export default {
   name: "SxTranslationListLanguageSelector",
@@ -144,7 +144,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-translation-list-language-selector {
   border-top: @border-width-base @border-style-base
     @background-color-notice--framed;

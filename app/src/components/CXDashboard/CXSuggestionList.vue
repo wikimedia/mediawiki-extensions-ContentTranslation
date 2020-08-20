@@ -69,13 +69,13 @@
 
 <script>
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
-import SxArticleSelector from "./SXArticleSelector";
-import { MwSpinner, MwCard, MwButton } from "../lib/mediawiki.ui";
-import { mwIconRefresh } from "../lib/mediawiki.ui/components/icons";
+import SxArticleSelector from "../SXArticleSelector";
+import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
+import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
 import { mapState, mapActions } from "vuex";
-import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import autonymMixin from "../mixins/autonym";
+import autonymMixin from "@/mixins/autonym";
 
 export default {
   name: "CxSuggestionList",
@@ -284,7 +284,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .cx-translation-list--suggestions {
   .mw-ui-card__title {

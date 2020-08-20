@@ -34,12 +34,12 @@
 <script>
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
-import { MwButtonGroup, MwBottomNavigation } from "../lib/mediawiki.ui";
+import { MwButtonGroup, MwBottomNavigation } from "@/lib/mediawiki.ui";
 import {
   mwIconArticleCheck,
   mwIconLightBulb,
   mwIconEdit
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 
 export default {
   name: "CxDashboard",

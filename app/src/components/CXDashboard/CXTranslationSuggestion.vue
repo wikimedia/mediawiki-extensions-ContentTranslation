@@ -45,13 +45,13 @@
 </template>
 
 <script>
-import { MwIcon, MwThumbnail } from "../lib/mediawiki.ui";
-import autonym from "../mixins/autonym";
+import { MwIcon, MwThumbnail } from "@/lib/mediawiki.ui";
+import autonym from "@/mixins/autonym";
 import {
   mwIconStar,
   mwIconArrowForward
-} from "../lib/mediawiki.ui/components/icons";
-import ArticleSuggestion from "../wiki/cx/models/articleSuggestion";
+} from "@/lib/mediawiki.ui/components/icons";
+import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 
 export default {
   name: "CxTranslationSuggestion",
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .cx-suggestion {
   // Not sure if @background-color-notice-frame variable is ok to use here
