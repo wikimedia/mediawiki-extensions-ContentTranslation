@@ -226,8 +226,8 @@ import {
 } from "@/lib/mediawiki.ui";
 import autonymMixin from "@/mixins/autonym";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SxQuickTutorial from "./SXQuickTutorial";
-import SxSentenceSelector from "./SXSentenceSelector";
+import SxQuickTutorial from "../SXQuickTutorial";
+import SxSentenceSelector from "../SXSentenceSelector";
 
 export default {
   name: "SxContentComparator",
@@ -464,7 +464,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-content-comparator {
   .sx-content-comparator-header__section-title {
     border: none;
