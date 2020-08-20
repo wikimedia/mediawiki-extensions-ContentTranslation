@@ -17,57 +17,61 @@
           :outlined="false"
           @click="$emit('update:active', false)"
         />
-        <div class="row my-1 py-2 mx-0">
-          <div class="col grow">
+        <mw-row class="my-1 py-2 mx-0">
+          <mw-col grow>
             <h4 class="pa-0 sx-content-comparator-header__article-title">
               {{ suggestion.sourceTitle }}
             </h4>
             <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
               {{ activeSectionSourceTitle }}
             </h2>
-          </div>
-          <mw-button
-            class="pa-0 pe-1"
-            type="icon"
-            :icon="mwIconPrevious"
-            @click="previousSection"
-          />
-          <mw-button
-            class="pa-0 ps-1"
-            type="icon"
-            :icon="mwIconArrowForward"
-            @click="nextSection"
-          />
-        </div>
-        <div class="py-2 mb-1">
-          <mw-button
-            :icon="mwIconEdit"
-            :progressive="true"
-            :label="
-              $i18n('cx-sx-content-comparator-translation-section-button-label')
-            "
-            @click="translateSection"
-          />
-        </div>
-        <div
+          </mw-col>
+          <mw-col cols="2" class="items-center justify-end">
+            <mw-button
+              class="pa-0 pe-1"
+              type="icon"
+              :icon="mwIconPrevious"
+              @click="previousSection"
+            />
+            <mw-button
+              class="pa-0 ps-1"
+              type="icon"
+              :icon="mwIconArrowForward"
+              @click="nextSection"
+            />
+          </mw-col>
+          <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
+            <mw-button
+              :icon="mwIconEdit"
+              :progressive="true"
+              :label="
+                $i18n(
+                  'cx-sx-content-comparator-translation-section-button-label'
+                )
+              "
+              @click="translateSection"
+            />
+          </mw-col>
+        </mw-row>
+        <mw-row
           v-if="isCurrentSectionMissing"
-          class="sx-content-comparator-header__review-contents flex py-2"
+          align="start"
+          class="sx-content-comparator-header__review-contents mx-0"
         >
-          <div class="shrink pe-2">
+          <mw-col shrink class="pe-2">
             <mw-icon :icon="mwIconEye" />
-          </div>
-          <div>
-            <p class="ma-0">
-              <strong v-i18n:cx-sx-content-comparator-review-contents-title />
-              <span v-i18n:cx-sx-content-comparator-review-contents-rest />
-            </p>
-          </div>
-        </div>
+          </mw-col>
+          <mw-col class="ma-0">
+            <strong v-i18n:cx-sx-content-comparator-review-contents-title />
+            <br />
+            <span v-i18n:cx-sx-content-comparator-review-contents-rest />
+          </mw-col>
+        </mw-row>
         <div v-else class="sx-content-comparator-header__mapped-section">
-          <div
-            class="sx-content-comparator-header__mapped-section-header row pa-2 ma-0"
+          <mw-row
+            class="sx-content-comparator-header__mapped-section-header pa-2 ma-0"
           >
-            <div class="col grow">
+            <mw-col grow>
               <h6
                 class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
               >
@@ -90,8 +94,8 @@
               >
                 {{ activeSectionTargetTitle }}
               </h6>
-            </div>
-            <div class="col shrink">
+            </mw-col>
+            <mw-col shrink>
               <mw-button
                 v-if="!isCurrentSectionDiscarded"
                 class="pa-0"
@@ -106,8 +110,8 @@
                 type="icon"
                 @click="undoDiscard"
               />
-            </div>
-          </div>
+            </mw-col>
+          </mw-row>
           <p
             v-if="!isCurrentSectionDiscarded"
             v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
@@ -120,20 +124,20 @@
           />
         </div>
       </div>
+      <div class="sx-content-comparator__source-target-selector">
+        <mw-button-group
+          :items="listSelector"
+          :active="sourceVsTargetSelection"
+          @select="sourceVsTargetSelection = $event"
+        />
+      </div>
     </template>
-    <div class="sx-content-comparator__source-target-selector">
-      <mw-button-group
-        :items="listSelector"
-        :active="sourceVsTargetSelection"
-        @select="sourceVsTargetSelection = $event"
-      />
-    </div>
     <section
       v-if="sourceVsTargetSelection === 'source_section'"
-      class="sx-content-comparator__source-content"
+      class="sx-content-comparator__source-content pa-4"
     >
-      <div
-        class="sx-content-comparator__content-header justify-between mx-4 pt-4 pb-2"
+      <mw-row
+        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
       >
         <h3 v-text="activeSectionSourceTitle" />
         <mw-button
@@ -143,14 +147,14 @@
           :href="sourceSectionPath"
           target="_blank"
         />
-      </div>
-      <div class="pt-2" v-html="sourceSectionContent"></div>
+      </mw-row>
+      <section class="pt-2" v-html="sourceSectionContent"></section>
     </section>
     <section
       v-else-if="sourceVsTargetSelection === 'target_article'"
       class="sx-content-comparator__source-content pa-4"
     >
-      <div
+      <mw-row
         class="sx-content-comparator__content-header justify-between ma-0 pb-2"
       >
         <h3 v-text="suggestion.targetTitle" />
@@ -161,9 +165,9 @@
           :href="targetArticlePath"
           target="_blank"
         />
-      </div>
+      </mw-row>
       <mw-spinner v-if="!targetPage.content" />
-      <div v-html="targetPage.content"></div>
+      <article v-html="targetPage.content"></article>
     </section>
     <section v-else class="sx-content-comparator__source-content pa-4">
       <div
@@ -212,6 +216,8 @@ import {
   mwIconUndo
 } from "@/lib/mediawiki.ui/components/icons";
 import {
+  MwCol,
+  MwRow,
   MwButton,
   MwDialog,
   MwIcon,
@@ -226,6 +232,8 @@ import SxSentenceSelector from "./SXSentenceSelector";
 export default {
   name: "SxContentComparator",
   components: {
+    MwCol,
+    MwRow,
     MwButtonGroup,
     MwIcon,
     MwButton,
