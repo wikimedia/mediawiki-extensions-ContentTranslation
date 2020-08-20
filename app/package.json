@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20200812",
+  "version": "0.1.0+20200820",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -55,11 +55,11 @@
   "bundlesize": [
     {
       "path": "dist/js/cxdashboard.js",
-      "maxSize": "21.00KB"
+      "maxSize": "22.00KB"
     },
     {
       "path": "dist/js/cxdashboard.libs.js",
-      "maxSize": "69.00KB"
+      "maxSize": "72.00KB"
     },
     {
       "path": "dist/js/mediawiki.ui.js",
