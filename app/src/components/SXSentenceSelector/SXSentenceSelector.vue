@@ -352,6 +352,7 @@ export default {
   .sx-sentence-selector__proposed-translation {
     border-radius: 2px 2px 0 0;
     background-color: @background-color-base;
+    width: 100%;
     // TODO: Fix these with variables(?)
     box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
     .sx-sentence-selector__proposed-translation-title {
