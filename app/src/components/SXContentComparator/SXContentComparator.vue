@@ -1,137 +1,126 @@
 <template>
-  <mw-dialog
-    v-if="active"
-    class="sx-content-comparator"
-    animation="slide-left"
-    :fullscreen="true"
-  >
-    <template slot="header">
-      <div class="sx-content-comparator__header pa-4">
-        <mw-button
-          class="py-2 pa-0"
-          :icon="mwIconArrowPrevious"
-          :label="
-            $i18n('cx-sx-content-comparator-back-to-sections-button-label')
-          "
-          type="text"
-          :outlined="false"
-          @click="$emit('update:active', false)"
-        />
-        <mw-row class="my-1 py-2 mx-0">
-          <mw-col grow>
-            <h4 class="pa-0 sx-content-comparator-header__article-title">
-              {{ suggestion.sourceTitle }}
-            </h4>
-            <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
-              {{ activeSectionSourceTitle }}
-            </h2>
-          </mw-col>
-          <mw-col cols="2" class="items-center justify-end">
-            <mw-button
-              class="pa-0 pe-1"
-              type="icon"
-              :icon="mwIconPrevious"
-              @click="previousSection"
-            />
-            <mw-button
-              class="pa-0 ps-1"
-              type="icon"
-              :icon="mwIconArrowForward"
-              @click="nextSection"
-            />
-          </mw-col>
-          <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
-            <mw-button
-              :icon="mwIconEdit"
-              :progressive="true"
-              :label="
-                $i18n(
-                  'cx-sx-content-comparator-translation-section-button-label'
-                )
-              "
-              @click="translateSection"
-            />
-          </mw-col>
-        </mw-row>
+  <section class="sx-content-comparator">
+    <div class="sx-content-comparator__header pa-4">
+      <mw-button
+        class="py-2 pa-0"
+        :icon="mwIconArrowPrevious"
+        :label="$i18n('cx-sx-content-comparator-back-to-sections-button-label')"
+        type="text"
+        :outlined="false"
+        @click="close"
+      />
+      <mw-row class="my-1 py-2 mx-0">
+        <mw-col grow>
+          <h4 class="pa-0 sx-content-comparator-header__article-title">
+            {{ suggestion.sourceTitle }}
+          </h4>
+          <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
+            {{ sourceSectionTitle }}
+          </h2>
+        </mw-col>
+        <mw-col cols="2" class="items-center justify-end">
+          <mw-button
+            class="pa-0 pe-1"
+            type="icon"
+            :icon="mwIconPrevious"
+            @click="previousSection"
+          />
+          <mw-button
+            class="pa-0 ps-1"
+            type="icon"
+            :icon="mwIconArrowForward"
+            @click="nextSection"
+          />
+        </mw-col>
+        <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
+          <mw-button
+            :icon="mwIconEdit"
+            :progressive="true"
+            :label="
+              $i18n('cx-sx-content-comparator-translation-section-button-label')
+            "
+            @click="translateSection"
+          />
+        </mw-col>
+      </mw-row>
+      <mw-row
+        v-if="isCurrentSectionMissing"
+        align="start"
+        class="sx-content-comparator-header__review-contents mx-0"
+      >
+        <mw-col shrink class="pe-2">
+          <mw-icon :icon="mwIconEye" />
+        </mw-col>
+        <mw-col class="ma-0">
+          <strong v-i18n:cx-sx-content-comparator-review-contents-title />
+          <br />
+          <span v-i18n:cx-sx-content-comparator-review-contents-rest />
+        </mw-col>
+      </mw-row>
+      <div v-else class="sx-content-comparator-header__mapped-section">
         <mw-row
-          v-if="isCurrentSectionMissing"
-          align="start"
-          class="sx-content-comparator-header__review-contents mx-0"
+          class="sx-content-comparator-header__mapped-section-header pa-2 ma-0"
         >
-          <mw-col shrink class="pe-2">
-            <mw-icon :icon="mwIconEye" />
+          <mw-col grow>
+            <h6
+              class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
+            >
+              {{
+                $i18n(
+                  "cx-sx-content-comparator-mapped-section-header-title",
+                  getAutonym(suggestion.targetLanguage)
+                )
+              }}
+              <span
+                v-if="isCurrentSectionDiscarded"
+                v-i18n:cx-sx-content-comparator-discarded-section-label
+              />
+            </h6>
+            <h6
+              class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
+              :class="{
+                'sx-content-comparator-header__mapped-section-target-title--discarded': isCurrentSectionDiscarded
+              }"
+            >
+              {{ activeSectionTargetTitle }}
+            </h6>
           </mw-col>
-          <mw-col class="ma-0">
-            <strong v-i18n:cx-sx-content-comparator-review-contents-title />
-            <br />
-            <span v-i18n:cx-sx-content-comparator-review-contents-rest />
+          <mw-col shrink>
+            <mw-button
+              v-if="!isCurrentSectionDiscarded"
+              class="pa-0"
+              :icon="mwIconTrash"
+              type="icon"
+              @click="discardMapping"
+            />
+            <mw-button
+              v-else
+              class="pa-0"
+              :icon="mwIconUndo"
+              type="icon"
+              @click="undoDiscard"
+            />
           </mw-col>
         </mw-row>
-        <div v-else class="sx-content-comparator-header__mapped-section">
-          <mw-row
-            class="sx-content-comparator-header__mapped-section-header pa-2 ma-0"
-          >
-            <mw-col grow>
-              <h6
-                class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
-              >
-                {{
-                  $i18n(
-                    "cx-sx-content-comparator-mapped-section-header-title",
-                    getAutonym(suggestion.targetLanguage)
-                  )
-                }}
-                <span
-                  v-if="isCurrentSectionDiscarded"
-                  v-i18n:cx-sx-content-comparator-discarded-section-label
-                />
-              </h6>
-              <h6
-                class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
-                :class="{
-                  'sx-content-comparator-header__mapped-section-target-title--discarded': isCurrentSectionDiscarded
-                }"
-              >
-                {{ activeSectionTargetTitle }}
-              </h6>
-            </mw-col>
-            <mw-col shrink>
-              <mw-button
-                v-if="!isCurrentSectionDiscarded"
-                class="pa-0"
-                :icon="mwIconTrash"
-                type="icon"
-                @click="discardMapping"
-              />
-              <mw-button
-                v-else
-                class="pa-0"
-                :icon="mwIconUndo"
-                type="icon"
-                @click="undoDiscard"
-              />
-            </mw-col>
-          </mw-row>
-          <p
-            v-if="!isCurrentSectionDiscarded"
-            v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
-            class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-          />
-          <p
-            v-else
-            v-i18n-html:cx-sx-content-comparator-discarded-section-clarifications
-            class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-          />
-        </div>
-      </div>
-      <div class="sx-content-comparator__source-target-selector">
-        <mw-button-group
-          :items="listSelector"
-          :active="sourceVsTargetSelection"
-          @select="sourceVsTargetSelection = $event"
+        <p
+          v-if="!isCurrentSectionDiscarded"
+          v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
+          class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
+        />
+        <p
+          v-else
+          v-i18n-html:cx-sx-content-comparator-discarded-section-clarifications
+          class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
         />
       </div>
-    </template>
+    </div>
+    <div class="sx-content-comparator__source-target-selector">
+      <mw-button-group
+        :items="listSelector"
+        :active="sourceVsTargetSelection"
+        @select="sourceVsTargetSelection = $event"
+      />
+    </div>
     <section
       v-if="sourceVsTargetSelection === 'source_section'"
       class="sx-content-comparator__source-content pa-4"
@@ -139,7 +128,7 @@
       <mw-row
         class="sx-content-comparator__content-header justify-between ma-0 pb-2"
       >
-        <h3 v-text="activeSectionSourceTitle" />
+        <h3 v-text="sourceSectionTitle" />
         <mw-button
           class="pa-0 pe-2"
           :icon="mwIconLinkExternal"
@@ -166,8 +155,8 @@
           target="_blank"
         />
       </mw-row>
-      <mw-spinner v-if="!targetPage.content" />
-      <article v-html="targetPage.content"></article>
+      <mw-spinner v-if="!targetPageContent" />
+      <article v-html="targetPageContent"></article>
     </section>
     <section v-else class="sx-content-comparator__source-content pa-4">
       <div
@@ -192,16 +181,7 @@
         />
       </section>
     </section>
-    <sx-quick-tutorial
-      :active.sync="tutorialActive"
-      @tutorial-completed="goToSentenceSelector"
-    />
-    <sx-sentence-selector
-      :suggestion="suggestion"
-      :section-source-title="activeSectionSourceTitle"
-      :active.sync="selectSentenceActive"
-    />
-  </mw-dialog>
+  </section>
 </template>
 
 <script>
@@ -219,15 +199,12 @@ import {
   MwCol,
   MwRow,
   MwButton,
-  MwDialog,
   MwIcon,
   MwButtonGroup,
   MwSpinner
 } from "@/lib/mediawiki.ui";
 import autonymMixin from "@/mixins/autonym";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SxQuickTutorial from "../SXQuickTutorial";
-import SxSentenceSelector from "../SXSentenceSelector";
+import { mapState } from "vuex";
 
 export default {
   name: "SxContentComparator",
@@ -237,42 +214,28 @@ export default {
     MwButtonGroup,
     MwIcon,
     MwButton,
-    MwDialog,
-    MwSpinner,
-    SxQuickTutorial,
-    SxSentenceSelector
+    MwSpinner
   },
   mixins: [autonymMixin],
-  props: {
-    active: {
-      type: Boolean,
-      default: false
-    },
-    suggestion: {
-      type: SectionSuggestion,
-      required: true
-    },
-    activeSectionSourceTitle: {
-      type: String,
-      required: true
-    }
+  data() {
+    return {
+      mwIconEye,
+      mwIconEdit,
+      mwIconPrevious,
+      mwIconArrowForward,
+      mwIconArrowPrevious,
+      mwIconTrash,
+      mwIconLinkExternal,
+      mwIconUndo,
+      sourceVsTargetSelection: "source_section",
+      discardedSections: [],
+      sourceSectionTitle: this.$route.params.sourceSectionTitle
+    };
   },
-  data: () => ({
-    mwIconEye,
-    mwIconEdit,
-    mwIconPrevious,
-    mwIconArrowForward,
-    mwIconArrowPrevious,
-    mwIconTrash,
-    mwIconLinkExternal,
-    mwIconUndo,
-    contentComparatorActive: false,
-    sourceVsTargetSelection: "source_section",
-    tutorialActive: false,
-    selectSentenceActive: false,
-    discardedSections: []
-  }),
   computed: {
+    ...mapState({
+      suggestion: state => state.suggestions.currentSectionSuggestion
+    }),
     targetArticlePath() {
       return `https://${this.suggestion.targetLanguage}.wikipedia.org/wiki/${this.suggestion.targetTitle}`;
     },
@@ -280,7 +243,7 @@ export default {
       return `${this.targetArticlePath}#${this.targetSection?.anchor}`;
     },
     sourceSectionPath() {
-      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}#${this.sourceSection.anchor}`;
+      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}#${this.sourceSection?.anchor}`;
     },
     /**
      * @return {PageSection[]}
@@ -303,8 +266,11 @@ export default {
     targetPage() {
       return this.$store.getters["mediawiki/getPage"](
         this.suggestion.targetLanguage,
-        this.suggestion.targetTitle
+        this.targetTitle
       );
+    },
+    targetPageContent() {
+      return this.targetPage?.content;
     },
     // Needed so that it can be easily watched
     targetTitle() {
@@ -315,13 +281,13 @@ export default {
     },
     activeSectionTargetTitle() {
       return (
-        this.missingSections[this.activeSectionSourceTitle] ||
-        this.suggestion.presentSections[this.activeSectionSourceTitle]
+        this.missingSections[this.sourceSectionTitle] ||
+        this.suggestion.presentSections[this.sourceSectionTitle]
       );
     },
     sourceSection() {
       return (this.sourcePageSections || []).find(
-        section => section.line === this.activeSectionSourceTitle
+        section => section.line === this.sourceSectionTitle
       );
     },
     targetSection() {
@@ -336,7 +302,7 @@ export default {
       return this.targetSection?.text;
     },
     isCurrentSectionMissing() {
-      return this.missingSections.hasOwnProperty(this.activeSectionSourceTitle);
+      return this.missingSections.hasOwnProperty(this.sourceSectionTitle);
     },
     isCurrentSectionMapped() {
       return !this.isCurrentSectionMissing && !this.isCurrentSectionDiscarded;
@@ -395,19 +361,25 @@ export default {
     targetPage() {
       this.$store.dispatch("mediawiki/fetchPageSections", {
         language: this.suggestion.targetLanguage,
-        title: this.suggestion.targetTitle
+        title: this.targetTitle
       });
     },
     // watch for target title as it is not provided when the proxy suggestion object is created
     // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
-    targetTitle() {
-      this.$store.dispatch("mediawiki/fetchPageContent", {
-        language: this.suggestion.targetLanguage,
-        title: this.suggestion.targetTitle
-      });
+    targetTitle: {
+      immediate: true,
+      handler: function() {
+        this.$store.dispatch("mediawiki/fetchPageContent", {
+          language: this.suggestion.targetLanguage,
+          title: this.targetTitle
+        });
+      }
     }
   },
   methods: {
+    close() {
+      this.$router.go(-1);
+    },
     translateSection() {
       if (this.$store.getters["translator/hasSectionTranslations"]()) {
         this.goToSentenceSelector();
@@ -416,36 +388,38 @@ export default {
       this.goToTutorial();
     },
     goToTutorial() {
-      this.tutorialActive = true;
+      this.$router.push({
+        name: "sx-quick-tutorial",
+        params: { sourceSectionTitle: this.sourceSectionTitle }
+      });
     },
     goToSentenceSelector() {
-      this.selectSentenceActive = true;
+      this.$router.push({
+        name: "sx-sentence-selector",
+        params: { sourceSectionTitle: this.sourceSectionTitle }
+      });
     },
     previousSection() {
       const currentIndex = this.sectionSourceTitles.indexOf(
-        this.activeSectionSourceTitle
+        this.sourceSectionTitle
       );
       const previousIndex =
         currentIndex === 0
           ? this.sectionSourceTitles.length - 1
           : currentIndex - 1;
-      this.$emit(
-        "update:active-section-source-title",
-        this.sectionSourceTitles[previousIndex]
-      );
+
+      this.sourceSectionTitle = this.sectionSourceTitles[previousIndex];
     },
     nextSection() {
       const currentIndex = this.sectionSourceTitles.indexOf(
-        this.activeSectionSourceTitle
+        this.sourceSectionTitle
       );
       const nextIndex =
         currentIndex === this.sectionSourceTitles.length - 1
           ? 0
           : currentIndex + 1;
-      this.$emit(
-        "update:active-section-source-title",
-        this.sectionSourceTitles[nextIndex]
-      );
+
+      this.sourceSectionTitle = this.sectionSourceTitles[nextIndex];
     },
     discardMapping() {
       if (!this.isCurrentSectionDiscarded) {

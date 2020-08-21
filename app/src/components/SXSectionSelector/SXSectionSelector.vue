@@ -1,38 +1,30 @@
 <template>
-  <mw-dialog
-    v-show="active"
-    class="sx-selector"
-    animation="slide-up"
-    :fullscreen="true"
-    @close="onClose()"
-  >
-    <template slot="header">
-      <div class="sx-selector__header pa-4">
-        <mw-row class="ma-0 pb-3">
-          <mw-col>
-            <h6
-              v-i18n:cx-sx-section-selector-title
-              class="sx-selector__header-text ma-0"
-            />
-            <h2
-              class="sx-selector__title ma-0 py-0"
-              v-text="suggestion.sourceTitle"
-            />
-          </mw-col>
-          <mw-col shrink class="justify-end">
-            <mw-button
-              class="pa-0"
-              :large="true"
-              type="icon"
-              :icon="mwIconClose"
-              @click="onClose()"
-            />
-          </mw-col>
-        </mw-row>
-        <h4 v-i18n:cx-sx-section-selector-subtitle class="pt-0 ma-0" />
-        <p v-i18n:cx-sx-section-selector-desc class="ma-0" />
-      </div>
-    </template>
+  <section class="sx-selector">
+    <div class="sx-selector__header pa-4">
+      <mw-row class="ma-0 pb-3">
+        <mw-col>
+          <h6
+            v-i18n:cx-sx-section-selector-title
+            class="sx-selector__header-text ma-0"
+          />
+          <h2
+            class="sx-selector__title ma-0 py-0"
+            v-text="suggestion.sourceTitle"
+          />
+        </mw-col>
+        <mw-col shrink class="justify-end">
+          <mw-button
+            class="pa-0"
+            :large="true"
+            type="icon"
+            :icon="mwIconClose"
+            @click="onClose()"
+          />
+        </mw-col>
+      </mw-row>
+      <h4 v-i18n:cx-sx-section-selector-subtitle class="pt-0 ma-0" />
+      <p v-i18n:cx-sx-section-selector-desc class="ma-0" />
+    </div>
     <section class="sx-selector__body">
       <sx-article-language-selector />
       <section class="sx-selector__missing-sections py-2">
@@ -189,16 +181,11 @@
         </mw-col>
       </mw-row>
     </section>
-    <sx-content-comparator
-      :active.sync="contentComparatorActive"
-      :suggestion="suggestion"
-      :active-section-source-title.sync="selectedSectionKey"
-    />
-  </mw-dialog>
+  </section>
 </template>
 
 <script>
-import { MwDialog, MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconClose,
   mwIconArrowForward,
@@ -206,44 +193,32 @@ import {
   mwIconRobot,
   mwIconLabFlask
 } from "@/lib/mediawiki.ui/components/icons";
-import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import autonymMixin from "../../mixins/autonym";
-import SxContentComparator from "../SXContentComparator";
+import { mapState } from "vuex";
 
 export default {
   name: "SxSectionSelector",
   components: {
     MwRow,
     MwCol,
-    SxContentComparator,
     MwIcon,
-    MwDialog,
     MwButton,
     SxArticleLanguageSelector
   },
   mixins: [autonymMixin],
-  props: {
-    active: {
-      type: Boolean,
-      default: false
-    },
-    suggestion: {
-      type: SectionSuggestion
-    }
-  },
   data: () => ({
     mwIconClose,
     mwIconArrowForward,
     mwIconLinkExternal,
     mwIconRobot,
     mwIconLabFlask,
-    contentComparatorActive: false,
-    selectedSectionKey: "",
-    sectionToTranslate: null,
     sadRobotSVG: require("!html-loader!../../assets/sad-robot.svg")
   }),
   computed: {
+    ...mapState({
+      suggestion: state => state.suggestions.currentSectionSuggestion
+    }),
     sourceLanguageAutonym() {
       return this.getAutonym(this.suggestion.sourceLanguage);
     },
@@ -262,11 +237,13 @@ export default {
   },
   methods: {
     onClose() {
-      this.$emit("close");
+      this.$router.go(-1);
     },
     selectSection(sourceSection) {
-      this.contentComparatorActive = true;
-      this.selectedSectionKey = sourceSection;
+      this.$router.push({
+        name: "sx-content-comparator",
+        params: { sourceSectionTitle: sourceSection }
+      });
     }
   }
 };

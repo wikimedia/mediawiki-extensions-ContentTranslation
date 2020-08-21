@@ -1,11 +1,5 @@
 <template>
-  <mw-dialog
-    v-if="active"
-    class="sx-quick-tutorial"
-    animation="slide-up"
-    :fullscreen="true"
-    :header="false"
-  >
+  <section class="sx-quick-tutorial">
     <mw-row direction="column" class="sx-quick-tutorial__body-container ma-0">
       <section class="sx-quick-tutorial__main-point py-9 px-7">
         <transition name="fade" mode="out-in">
@@ -81,24 +75,17 @@
         </transition>
       </div>
     </mw-row>
-  </mw-dialog>
+  </section>
 </template>
 
 <script>
-import { MwDialog, MwButton, MwRow } from "@/lib/mediawiki.ui";
+import { MwButton, MwRow } from "@/lib/mediawiki.ui";
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 export default {
   name: "SxQuickTutorial",
   components: {
     MwButton,
-    MwDialog,
     MwRow
-  },
-  props: {
-    active: {
-      type: Boolean,
-      required: true
-    }
   },
   data: () => ({
     mwIconArrowForward,
@@ -115,8 +102,10 @@ export default {
       return step === this.activeStep;
     },
     completeTutorial() {
-      this.$emit("update:active", false);
-      this.$emit("tutorial-completed");
+      this.$router.push({
+        name: "sx-sentence-selector",
+        params: { sourceSectionTitle: this.$route.params.sourceSectionTitle }
+      });
     }
   }
 };

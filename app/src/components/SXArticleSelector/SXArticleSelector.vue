@@ -1,61 +1,54 @@
 <template>
-  <mw-dialog
-    v-show="active"
-    class="sx-article-selector"
-    :fullscreen="true"
-    @close="onClose()"
-  >
-    <template slot="header">
-      <mw-row
-        class="sx-article-selector__header ma-0 pa-2"
-        align="stretch"
-        justify="start"
-      >
-        <mw-col shrink class="pe-2">
-          <mw-thumbnail
-            class="sx-article-selector__header-thumbnail"
-            :thumbnail="sourceArticleThumbnail"
-            :icon-size="48"
-          />
-        </mw-col>
-        <mw-col>
-          <mw-row
-            direction="column"
-            justify="between"
-            align="start"
-            class="sx-article-selector__header-title ma-0"
+  <section class="sx-article-selector">
+    <mw-row
+      class="sx-article-selector__header ma-0 pa-2"
+      align="stretch"
+      justify="start"
+    >
+      <mw-col shrink class="pe-2">
+        <mw-thumbnail
+          class="sx-article-selector__header-thumbnail"
+          :thumbnail="sourceArticleThumbnail"
+          :icon-size="48"
+        />
+      </mw-col>
+      <mw-col>
+        <mw-row
+          direction="column"
+          justify="between"
+          align="start"
+          class="sx-article-selector__header-title ma-0"
+        >
+          <mw-col tag="h5" class="pa-0 ma-0" v-text="sourceTitle" />
+          <mw-col
+            tag="p"
+            shrink
+            class="complementary sx-article-selector__stats ma-0"
           >
-            <mw-col tag="h5" class="pa-0 ma-0" v-text="sourceTitle" />
-            <mw-col
-              tag="p"
-              shrink
-              class="complementary sx-article-selector__stats ma-0"
-            >
-              <span class="pe-3">
-                <mw-icon :icon="mwIconLanguage" />
-                {{ langLinksCount }}
-              </span>
-              <span v-i18n:cx-sx-article-selector-views-count="[weeklyViews]" />
-            </mw-col>
-          </mw-row>
-        </mw-col>
-        <mw-col shrink align="start">
-          <mw-button
-            class="pa-0"
-            type="icon"
-            :large="true"
-            :icon="mwIconBookmarkOutline"
-          />
-          <mw-button
-            class="pa-0"
-            type="icon"
-            :large="true"
-            :icon="mwIconClose"
-            @click="onClose()"
-          />
-        </mw-col>
-      </mw-row>
-    </template>
+            <span class="pe-3">
+              <mw-icon :icon="mwIconLanguage" />
+              {{ langLinksCount }}
+            </span>
+            <span v-i18n:cx-sx-article-selector-views-count="[weeklyViews]" />
+          </mw-col>
+        </mw-row>
+      </mw-col>
+      <mw-col shrink align="start">
+        <mw-button
+          class="pa-0"
+          type="icon"
+          :large="true"
+          :icon="mwIconBookmarkOutline"
+        />
+        <mw-button
+          class="pa-0"
+          type="icon"
+          :large="true"
+          :icon="mwIconClose"
+          @click="onClose()"
+        />
+      </mw-col>
+    </mw-row>
     <section class="sx-article-selector__body">
       <sx-article-language-selector />
       <mw-row
@@ -107,22 +100,14 @@
         </p>
       </mw-row>
     </section>
-    <sx-section-selector
-      v-if="currentSectionSuggestion"
-      :active="showSectionTranslation"
-      :suggestion="currentSectionSuggestion"
-      @close="onSectionSelectorDialogClose"
-    />
-  </mw-dialog>
+  </section>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import SxSectionSelector from "../SXSectionSelector";
 import {
   MwButton,
   MwIcon,
-  MwDialog,
   MwThumbnail,
   MwRow,
   MwCol
@@ -142,27 +127,18 @@ export default {
   components: {
     MwRow,
     MwCol,
-    MwDialog,
     MwIcon,
     MwThumbnail,
-    SxSectionSelector,
     SxArticleLanguageSelector,
     MwButton
   },
   mixins: [autonymMixin],
-  props: {
-    active: {
-      type: Boolean,
-      default: false
-    }
-  },
   data: () => ({
     mwIconClose,
     mwIconExpand,
     mwIconLanguage,
     mwIconBookmarkOutline,
-    mwIconArrowNext,
-    showSectionTranslation: false
+    mwIconArrowNext
   }),
   computed: {
     ...mapState({
@@ -220,7 +196,7 @@ export default {
   },
   methods: {
     onClose() {
-      this.$emit("close");
+      this.$router.go(-1);
     },
     setURLParams() {
       if (!history.pushState) {
@@ -237,15 +213,9 @@ export default {
       history.replaceState({ url: url }, null, url);
     },
     onSectionSelectorClick() {
-      this.$emit("section-translation-article-select");
-      this.showSectionTranslation = true;
+      this.$router.push({ name: "sx-section-selector" });
       this.setURLParams();
       this.$emit("section-listing-open");
-    },
-    onSectionSelectorDialogClose() {
-      this.showSectionTranslation = false;
-      this.$emit("section-listing-close");
-      this.$emit("close");
     }
   }
 };

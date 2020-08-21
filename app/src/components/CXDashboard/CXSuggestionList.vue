@@ -59,17 +59,11 @@
         @click="showMoreSuggestions"
       />
     </div>
-    <sx-article-selector
-      v-if="currentSectionSuggestion"
-      :active="showSxArticleSelector"
-      @close="onSectionTranslationDialogClose"
-    />
   </div>
 </template>
 
 <script>
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
-import SxArticleSelector from "../SXArticleSelector";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
 import { mapState, mapActions } from "vuex";
@@ -82,7 +76,6 @@ export default {
   components: {
     SxTranslationListLanguageSelector,
     CxTranslationSuggestion,
-    SxArticleSelector,
     MwCard,
     MwButton,
     MwSpinner
@@ -106,7 +99,6 @@ export default {
     mwIconRefresh,
     pageSuggestionsLoaded: false,
     sectionSuggestionsLoaded: true,
-    showSxArticleSelector: false,
     paginationIndex: 0,
     pageSize: 3,
     selectedSourceLanguage: "",
@@ -114,8 +106,6 @@ export default {
   }),
   computed: {
     ...mapState({
-      currentSectionSuggestion: state =>
-        state.suggestions.currentSectionSuggestion,
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || []
     }),
@@ -214,13 +204,13 @@ export default {
     }
   },
   mounted: function() {
-    this.selectedSourceLanguage = this.initialSourceLanguage;
-    this.selectedTargetLanguage = this.initialTargetLanguage;
     const urlParams = new URLSearchParams(location.search);
     const isSectionTranslation = urlParams.get("sx");
     const sourceLanguage = urlParams.get("from");
     const targetLanguage = urlParams.get("to");
     const sourceTitle = urlParams.get("page");
+    this.selectedSourceLanguage = sourceLanguage || this.initialSourceLanguage;
+    this.selectedTargetLanguage = targetLanguage || this.initialTargetLanguage;
     if (isSectionTranslation && sourceTitle) {
       const suggestion = new SectionSuggestion({
         sourceLanguage,
@@ -228,7 +218,7 @@ export default {
         sourceTitle,
         missing: {}
       });
-      this.startSectionTranslation(suggestion);
+      // this.startSectionTranslation(suggestion);
       this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
     }
   },
@@ -273,11 +263,8 @@ export default {
      * @param {SectionSuggestion} suggestion
      */
     startSectionTranslation(suggestion) {
-      this.showSxArticleSelector = true;
+      this.$router.push({ name: "sx-article-selector" });
       this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);
-    },
-    onSectionTranslationDialogClose() {
-      this.showSxArticleSelector = false;
     }
   }
 };

@@ -1,28 +1,26 @@
 <template>
-  <mw-dialog v-if="active" class="sx-sentence-selector">
-    <template slot="header">
-      <mw-row class="sx-sentence-selector__header ma-0 py-2">
-        <mw-col shrink>
-          <mw-button
-            class="px-3"
-            type="icon"
-            :icon="mwIconArrowPrevious"
-            @click="onClose"
-          />
-        </mw-col>
-        <mw-col grow class="px-1">
-          <h4
-            v-i18n:cx-sx-sentence-selector-header-title
-            class="sx-sentence-selector__header--title"
-          />
-        </mw-col>
-        <mw-col shrink class="px-3">
-          <mw-button
-            :label="$i18n('cx-sx-sentence-selector-done-button-label')"
-          />
-        </mw-col>
-      </mw-row>
-    </template>
+  <section class="sx-sentence-selector fill-height column ma-0 no-wrap">
+    <mw-row class="sx-sentence-selector__header ma-0 py-2">
+      <mw-col shrink>
+        <mw-button
+          class="px-3"
+          type="icon"
+          :icon="mwIconArrowPrevious"
+          @click="onClose"
+        />
+      </mw-col>
+      <mw-col grow class="px-1">
+        <h4
+          v-i18n:cx-sx-sentence-selector-header-title
+          class="sx-sentence-selector__header--title"
+        />
+      </mw-col>
+      <mw-col shrink class="px-3">
+        <mw-button
+          :label="$i18n('cx-sx-sentence-selector-done-button-label')"
+        />
+      </mw-col>
+    </mw-row>
     <mw-row
       tag="section"
       direction="column"
@@ -40,7 +38,7 @@
         </a>
         <h2
           class="sx-sentence-selector__section-title pa-0 ma-0"
-          v-text="sectionSourceTitle"
+          v-text="sourceSectionTitle"
         />
       </mw-col>
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
@@ -124,11 +122,11 @@
       :source-language="suggestion.sourceLanguage"
       :target-language="suggestion.targetLanguage"
     />
-  </mw-dialog>
+  </section>
 </template>
 
 <script>
-import { MwDialog, MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
   mwIconLinkExternal,
@@ -139,9 +137,9 @@ import {
   mwIconClose
 } from "@/lib/mediawiki.ui/components/icons";
 
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import SxTranslationSelector from "@/components/SXSentenceSelector/SXTranslationSelector";
+import { mapState } from "vuex";
 export default {
   name: "SxSentenceSelector",
   components: {
@@ -149,36 +147,27 @@ export default {
     MwCol,
     SxTranslationSelector,
     MwButton,
-    MwDialog,
     MwIcon
   },
-  props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true
-    },
-    sectionSourceTitle: {
-      type: String,
-      required: true
-    },
-    active: {
-      type: Boolean,
-      default: false
-    }
+  data() {
+    return {
+      mwIconArrowPrevious,
+      mwIconLinkExternal,
+      mwIconEllipsis,
+      mwIconEdit,
+      mwIconPrevious,
+      mwIconArrowForward,
+      mwIconClose,
+      selectedProvider: "",
+      translation: null,
+      translationOptionsActive: false,
+      sourceSectionTitle: this.$route.params.sourceSectionTitle
+    };
   },
-  data: () => ({
-    mwIconArrowPrevious,
-    mwIconLinkExternal,
-    mwIconEllipsis,
-    mwIconEdit,
-    mwIconPrevious,
-    mwIconArrowForward,
-    mwIconClose,
-    selectedProvider: null,
-    translation: null,
-    translationOptionsActive: false
-  }),
   computed: {
+    ...mapState({
+      suggestion: state => state.suggestions.currentSectionSuggestion
+    }),
     defaultMTProvider() {
       return this.$store.getters["mediawiki/getDefaultMTProvider"](
         this.suggestion.sourceLanguage,
@@ -204,7 +193,7 @@ export default {
       return this.$store.getters["mediawiki/getPageSection"](
         this.suggestion.sourceLanguage,
         this.suggestion.sourceTitle,
-        this.sectionSourceTitle
+        this.sourceSectionTitle
       );
     },
     sectionSourceContent() {
@@ -281,18 +270,18 @@ export default {
         sourceLanguage: this.suggestion.sourceLanguage,
         targetLanguage: this.suggestion.targetLanguage,
         sourceTitle: this.suggestion.sourceTitle,
-        sectionTitle: this.sectionSourceTitle,
+        sectionTitle: this.sourceSectionTitle,
         provider
       });
     },
     onClose() {
-      this.$emit("update:active", false);
+      this.$router.go(-1);
     },
     selectSentence(sentenceIndex) {
       this.$store.dispatch("mediawiki/selectSentenceForPageSection", {
         sourceLanguage: this.suggestion.sourceLanguage,
         sourceTitle: this.suggestion.sourceTitle,
-        sectionTitle: this.sectionSourceTitle,
+        sectionTitle: this.sourceSectionTitle,
         sentenceIndex
       });
     },
