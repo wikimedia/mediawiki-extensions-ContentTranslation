@@ -1,5 +1,5 @@
 <template>
-  <transition :name="`mw-ui-dialog-${animation}`">
+  <transition :name="`mw-ui-animation-${animation}`">
     <div
       class="mw-ui-dialog"
       :class="classes"
@@ -103,6 +103,7 @@ export default {
 </script>
 <style lang="less">
 @import "../../variables/wikimedia-ui-base.less";
+@import "../../components/MWLayout/animations.less";
 
 .mw-ui-dialog {
   display: flex;
@@ -169,46 +170,6 @@ export default {
   .mw-ui-dialog__footer:not(:empty) {
     border-top: @border-width-base @border-style-base @border-color-base;
     max-height: 2em;
-  }
-}
-
-.mw-ui-dialog- {
-  &slide-left-enter-active,
-  &slide-left-leave-active,
-  &slide-right-enter-active,
-  &slide-right-leave-active,
-  &slide-up-enter-active,
-  &slide-up-leave-active,
-  &slide-down-enter-active,
-  &slide-down-leave-active {
-    transition-duration: 0.3s;
-    transition-property: height, opacity, transform;
-    transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-    overflow: hidden;
-  }
-
-  &slide-left-enter,
-  &slide-left-leave-active {
-    opacity: 0;
-    transform: translate(100vw, 0);
-  }
-
-  &slide-right-enter,
-  &slide-right-leave-active {
-    opacity: 0;
-    transform: translate(-100vw, 0);
-  }
-
-  &slide-up-enter,
-  &slide-up-leave-active {
-    opacity: 0;
-    transform: translate(0, 100vw);
-  }
-
-  &slide-down-leave-active,
-  &slide-down-enter {
-    opacity: 0;
-    transform: translate(0, -100vw);
   }
 }
 </style>

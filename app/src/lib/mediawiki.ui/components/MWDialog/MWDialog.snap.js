@@ -2,7 +2,7 @@
 
 exports[`MWDialog.vue renders dialog with given properties 1`] = `
 <transition-stub
-  name="mw-ui-dialog-slide-left"
+  name="mw-ui-animation-slide-left"
 >
   <div
     aria-fullscreen="true"
