@@ -135,6 +135,7 @@ export default {
     }
   }
   .sx-quick-tutorial__illustration {
+    width: 100%;
     text-align: center;
     background-color: @background-color-framed;
     svg {
@@ -168,7 +169,7 @@ export default {
     }
   }
   .sx-quick-tutorial__action-button {
-    text-align: end;
+    align-self: end;
     margin-top: auto;
   }
   .fade-enter-active,
