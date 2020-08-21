@@ -362,5 +362,12 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "Avsnitt på $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. <br /> Stäng detta om avsnitten inte är relaterade.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besök varje vecka|0=Inga besök denna vecka}}",
-	"cx-sx-sentence-selector-translation-options-original-card-title": "Original"
+	"cx-sx-content-comparator-discarded-section-clarifications": "Din översättning kommer att publiceras som ett oberoende nytt avsnitt.",
+	"cx-sx-content-comparator-discarded-section-label": "(bortkastad)",
+	"cx-sx-sentence-selector-translation-options-header-title": "Börja på en annan översättning",
+	"cx-sx-sentence-selector-translation-options-header-text": "Välj översättningsalternativet för nuvarande och följande meningar.",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Börja med en tom mening",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Din översättning kommer att läggas till här",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "När du publicerar kan du istället välja att ersätta de befintliga innehållen."
 }

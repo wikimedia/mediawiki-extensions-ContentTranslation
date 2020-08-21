@@ -8,6 +8,7 @@
 			"Max20091",
 			"Minh Nguyen",
 			"Nguyên Lê",
+			"Nguyễn Mạnh An",
 			"Phjtieudoc",
 			"Prenn",
 			"Quenhitran",
@@ -251,5 +252,7 @@
 	"cx-publish-destination-namespace-draft": "Bản nháp cộng đồng",
 	"cx-linkcontextitem-missing-link-title": "Liên kết bị thiếu",
 	"cx-linkcontextitem-missing-title-description": "Trang này chưa tồn tại",
-	"cx-mt-abuse-publish-error": "Không thể đăng bản dịch của bạn vì nó chứa quá nhiều văn bản chưa được biên tập."
+	"cx-mt-abuse-publish-error": "Không thể đăng bản dịch của bạn vì nó chứa quá nhiều văn bản chưa được biên tập.",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Bản dịch của bạn sẽ được thêm vào đây",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Khi xuất bản, bạn có thể quyết định thay thế các nội dung hiện có."
 }
