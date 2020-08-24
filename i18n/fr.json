@@ -385,8 +385,12 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section en $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. <br /> Abandonner cela si les sections n’ont pas de rapport.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Pas de visite cette}} semaine",
+	"cx-sx-content-comparator-discarded-section-clarifications": "Votre traduction sera publiée sous forme d’une nouvelle section indépendante.",
 	"cx-sx-content-comparator-discarded-section-label": "(annulé)",
+	"cx-sx-sentence-selector-translation-options-header-title": "Commencer avec une autre traduction",
+	"cx-sx-sentence-selector-translation-options-header-text": "Choisir l’option de traduction pour les phrases actuelle et suivante.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Commencer avec une phrase vide",
-	"cx-sx-content-comparator-present-section-placeholder-title": "Votre traduction sera ajoutée ici"
+	"cx-sx-content-comparator-present-section-placeholder-title": "Votre traduction sera ajoutée ici",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "En publiant, vous pouvez décider de remplacer plutôt le contenu existant."
 }
