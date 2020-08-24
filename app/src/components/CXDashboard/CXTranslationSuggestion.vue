@@ -52,6 +52,7 @@ import {
   mwIconArrowForward
 } from "@/lib/mediawiki.ui/components/icons";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "CxTranslationSuggestion",
@@ -59,7 +60,8 @@ export default {
   mixins: [autonym],
   props: {
     suggestion: {
-      type: ArticleSuggestion
+      type: [ArticleSuggestion, SectionSuggestion],
+      required: true
     }
   },
   data: () => ({ mwIconStar, mwIconArrowForward }),
