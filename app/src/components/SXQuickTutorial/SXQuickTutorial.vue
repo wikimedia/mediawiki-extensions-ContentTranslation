@@ -18,7 +18,7 @@
         </transition>
       </section>
       <section class="sx-quick-tutorial__illustration">
-        <transition name="fade" mode="out-in">
+        <transition name="mw-ui-animation-slide-left">
           <div
             v-if="isActiveStep(1)"
             key="illustration-1"
@@ -37,6 +37,8 @@
           :key="`dot-${step}`"
           class="dot mx-1"
           :class="{ 'dot-active': isActiveStep(step) }"
+          role="button"
+          @click="activeStep = step"
         ></span>
       </div>
       <section class="sx-quick-tutorial__secondary-point py-4 px-6">
@@ -91,12 +93,14 @@ export default {
     mwIconArrowForward,
     totalSteps: 2,
     activeStep: 1,
-    tutorialSvgMT: require("!html-loader!../../assets/tutorial-mt.svg"),
-    tutorialSvgSections: require("!html-loader!../../assets/tutorial-sections.svg")
+    tutorialSvgMT: require("!html-loader!@/assets/tutorial-mt.svg"),
+    tutorialSvgSections: require("!html-loader!@/assets/tutorial-sections.svg")
   }),
   methods: {
     goToNextStep() {
-      this.activeStep = 2;
+      if (this.activeStep < this.totalSteps) {
+        this.activeStep++;
+      }
     },
     isActiveStep(step) {
       return step === this.activeStep;
@@ -112,7 +116,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/components/MWLayout/animations.less";
 
 .sx-quick-tutorial {
   .sx-quick-tutorial__body-container {
@@ -127,9 +132,16 @@ export default {
     width: 100%;
     text-align: center;
     background-color: @background-color-framed;
-    svg {
-      height: 100%;
-      max-width: 100%;
+    // Should be set, since absolute children lead to heightless section
+    height: 200px;
+    div {
+      // Should be absolute so that svgs "stack" one on top of the other, for the transition to work well
+      position: absolute;
+      width: 100%;
+      svg {
+        height: 100%;
+        max-width: 100%;
+      }
     }
   }
   .sx-quick-tutorial__step-indicator {
@@ -140,6 +152,7 @@ export default {
       height: 8px;
       border-radius: 50%;
       border: solid 1px @border-color-base--active;
+      cursor: pointer;
       &.dot-active {
         // Should we create a background variable for this color?
         background-color: @color-base;
@@ -163,7 +176,7 @@ export default {
   }
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
   }
   .fade-enter,
   .fade-leave-to {
