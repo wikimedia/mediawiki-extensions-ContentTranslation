@@ -8,7 +8,7 @@ export default {
   parameters: { layout: "centered" }
 };
 
-export const DismissableInformationDialog = () => ({
+export const DismissableInformationDialog = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false
@@ -43,7 +43,7 @@ export const DismissableInformationDialog = () => ({
   }
 });
 
-export const DialogWithButtonsInFooter = () => ({
+export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false,
@@ -84,7 +84,7 @@ export const DialogWithButtonsInFooter = () => ({
   }
 });
 
-export const DialogWithoutHeaderOrFooter = () => ({
+export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false,
@@ -98,7 +98,7 @@ export const DialogWithoutHeaderOrFooter = () => ({
   },
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog :fullscreen="fullscreen"  v-show="showDialog" v-on:close="onDialogClose()">
+    <mw-dialog :fullscreen="fullscreen" v-show="showDialog" v-on:close="onDialogClose()">
     <template v-slot:default><img :src="bodyImage"/></template>
     </mw-dialog>
     </div>`,
@@ -112,7 +112,7 @@ export const DialogWithoutHeaderOrFooter = () => ({
   }
 });
 
-export const DialogInteractionWithEscapeKey = () => ({
+export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false
@@ -147,7 +147,7 @@ export const DialogInteractionWithEscapeKey = () => ({
   }
 });
 
-export const DialogWithCustomHeader = () => ({
+export const DialogWithCustomHeader = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false,
@@ -197,21 +197,14 @@ export const DialogWithCustomHeader = () => ({
 });
 
 const animations = ["slide-right", "slide-left", "slide-up", "slide-down"];
-export const Animations = () => ({
+export const Animations = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false,
     bodyImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
-  props: {
-    fullscreen: {
-      default: boolean("Fullscreen", false)
-    },
-    animation: {
-      default: select("Animation", animations, "slide-left")
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
     <mw-dialog :fullscreen="fullscreen" v-show="showDialog" v-on:close="onDialogClose()" :animation="animation">
@@ -227,3 +220,12 @@ export const Animations = () => ({
     }
   }
 });
+Animations.argTypes = {
+  animation: {
+    type: "string",
+    control: {
+      type: "select",
+      options: animations
+    }
+  }
+};

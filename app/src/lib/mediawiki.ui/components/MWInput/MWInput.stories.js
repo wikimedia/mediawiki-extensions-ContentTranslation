@@ -4,12 +4,12 @@ import * as icons from "../icons";
 import MwInput from "./MWInput.vue";
 
 export default {
-  title: "Components",
+  title: "Components/Inputs",
   component: MwInput,
   parameters: { layout: "centered" }
 };
 
-export const Inputs = () => ({
+export const InputAndTextArea = () => ({
   components: { MwInput },
   data: () => ({
     icons

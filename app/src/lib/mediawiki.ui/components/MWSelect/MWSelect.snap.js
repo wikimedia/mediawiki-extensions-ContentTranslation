@@ -9,11 +9,9 @@ exports[`MWSelect.vue renders with given slots and options 1`] = `
   >
     <mw-icon-stub
       class="mw-ui-select__icon shrink"
-      height="0"
       icon="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"
       iconcolor="currentColor"
       size="24"
-      width="0"
     />
      
     <input
@@ -25,11 +23,9 @@ exports[`MWSelect.vue renders with given slots and options 1`] = `
      
     <mw-icon-stub
       class="mw-ui-select__indicator shrink"
-      height="0"
       icon="M17.5 4.75l-7.5 7.5-7.5-7.5L1 6.25l9 9 9-9z"
       iconcolor="currentColor"
       size="24"
-      width="0"
     />
   </div>
    

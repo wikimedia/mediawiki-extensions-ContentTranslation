@@ -4,11 +4,11 @@ import * as icons from "../icons";
 import MwDropdown from "./MWDropdown.vue";
 
 export default {
-  title: "Components",
+  title: "Components/Dropdown",
   component: MwDropdown
 };
 
-export const Dropdown = () => ({
+export const CreatingDropdownFromValues = () => ({
   components: { MwDropdown },
   data: () => ({
     icons,

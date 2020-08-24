@@ -4,7 +4,7 @@ import { MwSelect } from "../..";
 import * as icons from "../icons";
 
 export default {
-  title: "Components",
+  title: "Components/Select",
   component: MwSelect,
   parameters: { layout: "centered" }
 };

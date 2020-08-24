@@ -2,12 +2,12 @@ import { MwButtonGroup } from "../..";
 import * as icons from "../icons";
 
 export default {
-  title: "Components",
+  title: "Components/ButtonGroup",
   component: MwButtonGroup,
   parameters: { layout: "centered" }
 };
 
-export const ButtonGroup = () => ({
+export const ExampleButtonGroup = () => ({
   components: { MwButtonGroup },
   data: () => ({
     icons,

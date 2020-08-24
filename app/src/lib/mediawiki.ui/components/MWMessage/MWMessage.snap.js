@@ -8,11 +8,9 @@ exports[`MwMessage.vue renders correctly 1`] = `
 >
   <mw-icon-stub
     class="col shrink mw-ui-message__icon pa-1 items-start"
-    height="0"
     icon="[object Object]"
     iconcolor="currentColor"
     size="24"
-    width="0"
   />
    
   <span

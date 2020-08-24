@@ -5,6 +5,7 @@
       aria-haspopup="listbox"
       @click.stop="toggle()"
     >
+      <!-- @slot Icon slot -->
       <slot name="icon">
         <mw-icon
           v-if="icon"
@@ -13,6 +14,7 @@
           class="mw-ui-select__icon shrink"
         ></mw-icon
       ></slot>
+      <!-- @slot The trigger slot - works as the label too -->
       <slot name="trigger" v-bind="{ selectedOption }">
         <span
           ref="trigger"
@@ -26,6 +28,7 @@
           v-text="label"
         />
       </slot>
+      <!-- @slot The Indicator slot -->
       <slot name="indicator">
         <mw-icon
           v-if="indicator"
@@ -67,22 +70,37 @@ export default {
     MwIcon
   },
   props: {
+    /**
+     * Whether the dropdown is disabled or not
+     *
+     */
     disabled: Boolean,
     /**
      * Make use of v-model
      * Options for the dropdown.
      *
      */
-    value: {},
-    label: String,
-    /* If the passed options are array of objects,
+    value: {
+      type: [Array, Object],
+      default: () => []
+    },
+    /**
+     * Label
+     **/
+    label: {
+      type: String,
+      default: "label"
+    },
+    /**
+     * If the passed options are array of objects,
      * the label will be taken from this key
      */
     optionLabel: {
       type: String,
       default: "label"
     },
-    /* If the passed options are array of objects,
+    /**
+     * If the passed options are array of objects,
      * the label will be taken from this key
      */
     optionValue: {
@@ -313,7 +331,6 @@ export default {
     vertical-align: middle;
     position: absolute;
     z-index: 1;
-    top: 2.5em;
     left: 0;
     overflow: hidden;
     white-space: nowrap;

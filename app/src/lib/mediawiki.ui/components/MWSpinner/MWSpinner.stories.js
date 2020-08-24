@@ -1,7 +1,7 @@
 import MwSpinner from "./MWSpinner.vue";
 
 export default {
-  title: "Components",
+  title: "Components/Spinner",
   component: MwSpinner,
   parameters: { layout: "centered" }
 };

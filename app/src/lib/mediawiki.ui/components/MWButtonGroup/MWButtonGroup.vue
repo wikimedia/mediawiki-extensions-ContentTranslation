@@ -1,5 +1,5 @@
 <template>
-  <div :id="id" class="row mw-ui-button-group ma-0 pa-0" :class="classes">
+  <div class="row mw-ui-button-group ma-0 pa-0">
     <mw-button
       v-for="item in items"
       :key="item.value"
@@ -22,15 +22,20 @@ export default {
     MwButton
   },
   props: {
-    items: Array,
-    id: String,
-    active: String
-  },
-  computed: {
-    classes() {
-      return {
-        "mw-ui-button-group": true
-      };
+    /**
+     * Array of objects that are options for building a button.
+     * Example: { value: "ButtonLabel", props: { button props}}
+     **/
+    items: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Value of the button that should be active
+     **/
+    active: {
+      type: String,
+      default: null
     }
   }
 };

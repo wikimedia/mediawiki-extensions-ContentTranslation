@@ -1,6 +1,7 @@
 <template>
   <footer class="mw-ui-bottom-navigation row ma-0 justify-center">
     <div class="col-12 ma-0 pa-0">
+      <!-- @slot Default bottom navigation content -->
       <slot>
         <mw-button-group
           class="mw-ui-bottom-navigation__button-group"
@@ -19,9 +20,21 @@ export default {
   name: "MwUiBottomNavigation",
   components: { MwButtonGroup },
   props: {
-    items: Array,
-    id: String,
-    active: String
+    /**
+     * Array of objects that are options for building a button.
+     * Example: { value: "ButtonLabel", props: { button props}}
+     **/
+    items: {
+      type: Array,
+      default: () => []
+    },
+    /**
+     * Value of the button that should be active
+     **/
+    active: {
+      type: String,
+      default: null
+    }
   }
 };
 </script>

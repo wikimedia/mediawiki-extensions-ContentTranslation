@@ -49,6 +49,10 @@ export default {
     MwDivider
   },
   props: {
+    /**
+     * Animation
+     * @values slide-right, slide-left, slide-up, slide-down
+     **/
     animation: {
       type: String,
       default: "slide-left",

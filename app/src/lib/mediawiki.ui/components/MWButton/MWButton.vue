@@ -1,7 +1,6 @@
 <template>
   <component
     :is="component"
-    :id="id"
     :class="classes"
     :href="href"
     :disabled="disabled"
@@ -43,12 +42,26 @@ export default {
     MwIcon
   },
   props: {
-    id: String,
-    label: String,
+    /**
+     * Button label
+     */
+    label: {
+      type: String,
+      default: null
+    },
+    /**
+     * Whether to disable button
+     */
     disabled: Boolean,
     depressed: Boolean,
+    /**
+     * Whether to have large button
+     */
     large: Boolean,
-    icon: [Object, String],
+    icon: {
+      type: [Object, String],
+      default: null
+    },
     iconSize: {
       type: [Number, String],
       default: 20
@@ -57,15 +70,32 @@ export default {
       type: [Number, String],
       default: 12
     },
-    indicator: [Object, String],
+    indicator: {
+      type: [Object, String],
+      default: null
+    },
     href: {
       type: String,
       default: null
     },
-    accessKey: String,
     outlined: Boolean,
-    progressive: Boolean,
-    destructive: Boolean,
+    /**
+     * Progressive button used for primary, constructive actions
+     */
+    progressive: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Progressive button used for primary, destructive actions
+     */
+    destructive: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Type of the button. Can be one of "button", "toggle", "icon" or "text"
+     */
     type: {
       type: String,
       default: "button",
@@ -105,6 +135,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * Passthrough click event
+     * @type {Event}
+     */
     handleClick(e) {
       this.$emit("click", e);
     }
@@ -180,25 +214,46 @@ export default {
   }
 
   // Buttons that act like links
-  &.mw-ui-button--icon,
   &.mw-ui-button--text {
     color: @color-base;
-    border-color: transparent;
     background-color: transparent;
-    min-width: 0;
-
+    border-color: transparent;
     &:hover {
       background-color: transparent;
       color: @color-primary--hover;
     }
-
     &:active {
       color: @color-primary--active;
     }
-
     &:focus {
       background-color: transparent;
       color: @color-primary--focus;
+    }
+  }
+
+  &.mw-ui-button--icon {
+    min-width: 0;
+    border-color: transparent;
+    background-color: transparent;
+    &.mw-ui-button--progressive {
+      color: @color-primary;
+    }
+
+    &.mw-ui-button--destructive {
+      color: @color-destructive;
+    }
+
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:active {
+      background-color: transparent;
+      border-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+      border-color: transparent;
     }
   }
 
@@ -213,7 +268,7 @@ export default {
   // Big buttons
   // Styleguide 2.1.4.
   &.mw-ui-button--large {
-    font-size: 1.3em;
+    font-size: 1.25em; // 20px
   }
 }
 </style>

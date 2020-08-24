@@ -2,8 +2,8 @@
   <span :class="classes" class="notranslate">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      :width="width || size"
-      :height="height || size"
+      :width="size"
+      :height="size"
       viewBox="0 0 20 20"
       :aria-labelledby="iconName"
       aria-hidden="true"
@@ -22,6 +22,9 @@
 export default {
   name: "MWIcon",
   props: {
+    /**
+     * Icon - An svg path or an object with path and flippable properties.
+     **/
     icon: {
       type: [String, Object],
       default: null
@@ -30,18 +33,16 @@ export default {
       type: String,
       default: null
     },
+    /**
+     * Icon color
+     **/
     iconColor: {
       type: String,
       default: "currentColor"
     },
-    width: {
-      type: [Number, String],
-      default: 0
-    },
-    height: {
-      type: [Number, String],
-      default: 0
-    },
+    /**
+     * Icon size
+     **/
     size: {
       type: [Number, String],
       default: 20

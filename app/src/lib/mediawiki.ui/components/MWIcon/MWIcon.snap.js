@@ -3,14 +3,16 @@
 exports[`MWIcon.vue matches the snapshot with an HTML element passed as slot 1`] = `
 <span
   class="notranslate mw-ui-icon"
+  height="24"
+  width="48"
 >
   <svg
     aria-hidden="true"
     aria-labelledby="trash"
-    height="24"
+    height="20"
     role="presentation"
     viewBox="0 0 20 20"
-    width="48"
+    width="20"
     xmlns="http://www.w3.org/2000/svg"
   >
     <title

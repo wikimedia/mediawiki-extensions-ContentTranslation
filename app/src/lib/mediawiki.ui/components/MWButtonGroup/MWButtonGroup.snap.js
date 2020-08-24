@@ -2,7 +2,7 @@
 
 exports[`MwButtonGroup.vue renders correctly 1`] = `
 <div
-  class="row mw-ui-button-group ma-0 pa-0 mw-ui-button-group"
+  class="row mw-ui-button-group ma-0 pa-0"
 >
   <mw-button-stub
     aria-selected="true"

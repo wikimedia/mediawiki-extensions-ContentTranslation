@@ -1,9 +1,13 @@
 <template>
-  <div :id="id" class="mw-ui-card">
+  <div class="mw-ui-card">
+    <!-- @slot Card header -->
     <slot name="header">
       <div class="mw-ui-card__title title" v-text="title" />
     </slot>
-    <div class="mw-ui-card__content"><slot></slot></div>
+    <div class="mw-ui-card__content">
+      <!-- @slot Card content -->
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -11,11 +15,13 @@
 export default {
   name: "MwCard",
   props: {
-    id: {
+    /**
+     * Card title
+     **/
+    title: {
       type: String,
       default: null
-    },
-    title: String
+    }
   }
 };
 </script>

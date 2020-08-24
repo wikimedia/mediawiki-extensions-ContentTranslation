@@ -7,6 +7,7 @@
     :aria-labelledby="`${id}-label`"
     :role="type === 'error' && 'alert'"
   >
+    <!-- @slot Use this slot for custom icon -->
     <slot name="icon">
       <mw-icon
         :icon="icon"
@@ -18,8 +19,10 @@
       :id="`${id}-label`"
       class="col grow items-center mw-ui-message__label"
     >
+      <!-- @slot Message content -->
       <slot />
     </span>
+    <!-- @slot Use this slot for custom action for the message -->
     <slot name="action">
       <mw-button
         v-if="dismissable"
@@ -47,6 +50,10 @@ export default {
   name: "MwMessage",
   components: { MwIcon, MwButton },
   props: {
+    /**
+     * Type of the message.
+     * @values notice, error, success, warning
+     **/
     type: {
       type: String,
       default: "notice",
@@ -54,10 +61,16 @@ export default {
         return ["notice", "error", "success", "warning"].indexOf(value) !== -1;
       }
     },
+    /**
+     * Inline messages does not have borders
+     **/
     inline: {
       type: Boolean,
       default: false
     },
+    /**
+     * Whether the message can be dismissed by clicking the close button.
+     **/
     dismissable: {
       type: Boolean,
       default: false

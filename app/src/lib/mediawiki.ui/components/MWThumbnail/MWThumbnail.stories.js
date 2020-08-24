@@ -1,11 +1,11 @@
 import MwThumbnail from "./MWThumbnail.vue";
 
 export default {
-  title: "Components",
+  title: "Components/Thumbnail",
   component: MwThumbnail
 };
 
-export const Thumbnail = () => ({
+export const ThumbnailExample = () => ({
   components: { MwThumbnail },
   template: `
     <main class="container">

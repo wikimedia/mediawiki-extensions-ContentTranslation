@@ -2,12 +2,12 @@ import * as icons from "../icons";
 import { MwBottomNavigation, MwButtonGroup } from "../..";
 
 export default {
-  title: "Components",
+  title: "Components/BottomNavigation",
   component: MwBottomNavigation,
   parameters: { layout: "centered" }
 };
 
-export const BottomNavigation = () => ({
+export const SimpleBottomNavigation = () => ({
   components: { MwBottomNavigation, MwButtonGroup },
   data: () => ({
     icons,
@@ -36,6 +36,14 @@ export const BottomNavigation = () => ({
       }
     ]
   }),
-  template: `<div class="container">
-    <mw-bottom-navigation><mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group></mw-bottom-navigation></div>`
+  template: `
+  <div class="container">
+    <mw-bottom-navigation>
+      <mw-button-group
+        :items="items"
+        :active="active"
+        v-on:select="active = $event"
+      ></mw-button-group>
+    </mw-bottom-navigation>
+  </div>`
 });

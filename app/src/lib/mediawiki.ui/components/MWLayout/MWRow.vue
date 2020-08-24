@@ -22,7 +22,8 @@ export default {
     justify: {
       type: String,
       default: "start",
-      validator: str => ["start", "end", "between", "around", "center"].includes(str)
+      validator: str =>
+        ["start", "end", "center", "between", "around"].includes(str)
     },
     /**
      * Specify a custom tag used on the root element.

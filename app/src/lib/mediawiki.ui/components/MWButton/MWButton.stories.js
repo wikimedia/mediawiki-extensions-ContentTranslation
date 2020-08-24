@@ -9,6 +9,106 @@ export default {
   parameters: { layout: "centered" }
 };
 
+export const Progressive = () => ({
+  components: { MwButton },
+  template: `<mw-button progressive label="Click me"/>`
+});
+
+export const Destructive = () => ({
+  components: { MwButton },
+  template: `<mw-button destructive label="Click me"/>`
+});
+
+export const TextButton = () => ({
+  components: { MwButton },
+  template: `<mw-button type="text" label="Click me"/>`
+});
+
+export const IconButton = () => ({
+  components: { MwButton },
+  data: () => ({
+    icons
+  }),
+  template: `
+    <section>
+      <mw-button type="icon" :icon="icons.mwIconAdd"/>
+      <mw-button type="icon" progressive :icon="icons.mwIconAdd"/>
+      <mw-button type="icon" destructive :icon="icons.mwIconAdd"/>
+    </section>
+  `
+});
+
+export const LargeButton = () => ({
+  components: { MwButton },
+  data: () => ({
+    icons
+  }),
+  template: `
+  <section>
+    <mw-button large label="Click me"/>
+    <mw-button large progressive label="Click me"/>
+    <mw-button large destructive :icon="icons.mwIconTrash" label="Click me"/>
+  </section>
+  `
+});
+
+export const Link = () => ({
+  components: { MwButton },
+  data: () => ({
+    icons
+  }),
+  template: `
+      <mw-button
+        type="text"
+        href="http://wikipedia.org"
+        :icon="icons.mwIconWikipedia"
+        label="Wikipedia"
+      />
+  `
+});
+
+export const ButtonWithIcons = () => ({
+  components: { MwButton },
+  data: () => ({
+    icons
+  }),
+  template: `
+    <section>
+      <mw-button
+        type="button"
+        :icon="icons.mwIconAdd"
+        :indicator="icons.mwIconExpand"
+        label="Click me"/>
+      <mw-button
+        progressive
+        type="button"
+        :icon="icons.mwIconAdd"
+        :indicator="icons.mwIconExpand"
+        label="Click me"/>
+      <mw-button
+        destructive
+        type="button"
+        :icon="icons.mwIconAdd"
+        :indicator="icons.mwIconExpand"
+        label="Click me"/>
+      <mw-button
+        type="button"
+        :icon="icons.mwIconAdd"
+        />
+      <mw-button
+        progressive
+        type="button"
+        :icon="icons.mwIconAdd"
+        />
+      <mw-button
+        destructive
+        type="button"
+        :icon="icons.mwIconAdd"
+        />
+    </section>
+  `
+});
+
 export const DifferentButtons = () => ({
   components: { MwButton },
   data: () => ({
@@ -55,5 +155,21 @@ export const DifferentButtons = () => ({
       action("indicator-click")(`Clicked`);
     }
   },
-  template: `<mw-button :large="large" :progressive="progressive" :destructive="destructive" :outlined="outlined" :type="type" :icon="icons[icon]"  :indicator="icons[indicator]" :href="href" :label="label" v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"></mw-button>`
+  template: `
+    <section>
+    <p>Play with different properties using <strong>Knobs</strong></p>
+    <mw-button
+      :large="large"
+      :progressive="progressive"
+      :destructive="destructive"
+      :outlined="outlined"
+      :type="type"
+      :icon="icons[icon]"
+      :indicator="icons[indicator]"
+      :href="href"
+      :label="label"
+      v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"
+    ></mw-button>
+    </section>
+  `
 });

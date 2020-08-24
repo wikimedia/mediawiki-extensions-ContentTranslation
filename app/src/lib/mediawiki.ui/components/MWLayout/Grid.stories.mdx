@@ -1,0 +1,377 @@
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
+import {MwGrid, MwCol, MwRow} from "./"
+import "./grid-story.less";
+
+<Meta
+title="Layout/Grid"
+argTypes={{
+    paddingDirection: {
+      type: 'string',
+      control: { type: 'select', options:dirPrefixes }
+    },
+    marginDirection: {
+      type: 'string',
+      control: { type: 'select', options:dirPrefixes }
+    },
+    padding: {
+      type: 'number',
+      control: { type: 'range',min:1, max:12, step:1 }
+    },
+    margin : {
+      type: 'number',
+      control: { type: 'range', min:1, max:12, step:1 }
+    },
+    scriptDirection : {
+      type: 'string',
+      control: { type: 'select', options:{'Left to Right':'ltr', 'Right to Left': 'rtl'} }
+    }
+  }}
+/>
+
+# Layout
+
+Layouting utilities allows you the control the display of content. Logical division of the available screen space as rows and columns is one of the common ways to achieve this. This layout is also responsive to viewport sizes. We use `flexbox` to achieve these features.
+
+## Breakpoints
+
+The grid contains 5 types of media breakpoints that are used for targeting specific screen sizes or orientations, `xs`, `sm`, `md`, `lg` and `xl`. These resolutions are defined in table below:
+
+| Code | Devices | Range |
+|----|----|----|
+|xs|extra small: small to large mobiles|300px-599px|
+|sm|small to medium tablet|600px-959px|
+|md|medium: large tablet to laptop|960px-1263px|
+|lg|large: desktop|12640px-1903px|
+|xl|extra large: 4k and ultra-wides|1904px and above|
+
+## CSS Helper classes
+
+A row is divided into 12 equal width columns.
+
+<Canvas>
+  <Story name="Equal width 12 columns">
+    {{
+      template: `
+        <main class="container storybook-grid">
+          <div class="row">
+            <div v-for="n in 12"
+            :key="n"
+            class="col-1"
+            >
+              col-1
+            </div>
+          </div>
+        </main>`
+      }}
+  </Story>
+</Canvas>
+
+The space taken in each column can be indicated using `col-n` class
+
+<Canvas>
+  <Story name="Columns with different widths">
+    {{
+      template: `
+        <main class="container storybook-grid">
+          <div class="row">
+              <div class="col-1">col-1</div>
+              <div class="col-3">col-3</div>
+              <div class="col-6">col-6</div>
+              <div class="col-2">col-2</div>
+            </div>
+        </main>`
+    }}
+  </Story>
+</Canvas>
+
+Rows can be nested in columns.
+
+<Canvas>
+  <Story name="Nested Rows">
+    {{
+      template: `
+        <main class="container storybook-grid">
+          <div class="row">
+              <div class="col-4">col-4</div>
+              <div class="col-8">
+                <div class="row">
+                  <div class="col-4">col-4</div>
+                  <div class="col-4">col-4</div>
+                  <div class="col-4">col-4</div>
+                </div>
+              </div>
+            </div>
+        </main>`
+    }}
+  </Story>
+</Canvas>
+
+Columns with variable width using `col` class. Available space is shared equally between columns with variable width.
+
+<Canvas>
+  <Story name="Variable with Colums">
+    {{
+      template: `
+          <main class="container storybook-grid">
+            <div class="row">
+                <div class="col">Variable width</div>
+                <div class="col-8">
+                  col-8
+                </div>
+                <div class="col">Variable width</div>
+              </div>
+              <div class="row">
+                <div class="col">Variable width</div>
+                <div class="col-7">
+                  col-7
+                </div>
+                <div class="col">Variable width</div>
+              </div>
+          </main>`
+    }}
+  </Story>
+</Canvas>
+
+ ## Responsive column widths
+
+ Please use the viewport configuration in the storybook UI to see how the columns are responsing to viewport changes:
+
+<Canvas>
+  <Story name="Responsive column widths">
+    {{
+      components: {
+        MwGrid
+      },
+      template: `
+        <main class="container storybook-grid">
+          <div class="row">
+            <div
+              class="col-xs-12 col-md-6 col-lg-3"
+            >
+              col-xs-12 col-md-6 col-lg-3
+            </div>
+          </div>
+        </main>`
+    }}
+  </Story>
+</Canvas>
+
+ The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, it will have 6 column units.
+
+ If breakpoints are not using in column class like col-6, it means the width is same in all breakpoints.
+
+## Hiding columns in a given breakpoint
+
+To hide a column in a given breakpoint use the class format col-hidden-breakpoint
+
+<Canvas>
+  <Story name="Hiding columns in breakpoints">
+    {{
+      components: {
+        MwGrid
+      },
+      template: `
+        <main class="container storybook-grid">
+          <div class="row">
+            <div class="col-xs-12 col-md-hidden col-lg-3">col-xs-12 col-md-hidden col-lg-3</div>
+          </div>
+        </main>`
+    }}
+  </Story>
+</Canvas>
+
+The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, the column will be hidden.
+
+## Gird Components
+
+Apart from css helper classes, we have three Vue components to build the layout.
+
+* MwGrid for Grid
+* MwRow for Row
+* MwCol for Column
+
+<Canvas>
+  <Story name="Layout components">
+    {{
+      components: {
+        MwGrid, MwCol, MwRow
+      },
+      template: `
+        <mw-grid class="storybook-grid">
+          <mw-row>
+            <mw-col
+              v-for="n in 12"
+              :key="n"
+              cols="1"
+            >
+              col-1
+            </mw-col>
+          </mw-row>
+        </mw-grid>`,
+    }}
+  </Story>
+</Canvas>
+
+### Component properties
+
+<ArgsTable components={{ MwGrid, MwCol, MwRow }} />
+
+### Column spacing and alignment
+
+The columns can be distributed in a row using different spacing options "start", "center", "end", "around" or "between". Similary the columns can be aligned with in the row space.
+
+<Canvas>
+  <Story name="Column spacing and alignment">
+    {{
+      components: {
+        MwGrid,
+        MwCol,
+        MwRow
+      },
+      template: `
+      <mw-grid class="storybook-grid spacing-demo">
+          <mw-row align="center" justify="start">
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+          </mw-row>
+          <mw-row align="center" justify="center">
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+          </mw-row>
+          <mw-row align="center" justify="end">
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+          </mw-row>
+          <mw-row align="center" justify="between">
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+          </mw-row>
+          <mw-row align="center" justify="around">
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+            <mw-col cols="2">col-2</mw-col>
+          </mw-row>
+      </mw-grid>`
+    }}
+  </Story>
+</Canvas>
+
+### Classes to help hiding elements
+
+A set of helper classes are provided to control the display of elements. In general they are prefixed with d to denote display and h to denote hidden. They can be used with viewport classes as illustrated below
+<Canvas>
+  <Story name="Display Helper Classes">
+    {{
+      components: {
+          MwGrid
+      },
+      template: `
+        <mw-grid>
+          <div class="h-xs"><code>h-xs</code> -Hidden only in xs viewports.</div>
+          <div class="h-sm"><code>h-sm</code> -Hidden only in sm viewports.</div>
+          <div class="h-md"><code>h-md</code> -Hidden only in md viewports.</div>
+          <div class="h-lg"><code>h-lg</code> -Hidden only in lg viewports.</div>
+          <div class="h-xl"><code>h-xl</code> -Hidden only in xl viewports.</div>
+          <div class="h-sm-and-up"><code>h-sm-up</code> -Hidden in sm and up viewports.</div>
+          <div class="h-md-and-up"><code>h-md-up</code> -Hidden in md and up viewports.</div>
+          <div class="h-lg-and-up"><code>h-lg-up</code> -Hidden in lg and up viewports.</div>
+          <div class="h-sm-and-down"><code>h-sm-down</code> -Hidden in sm and down viewports.</div>
+          <div class="h-md-and-down"><code>h-md-down</code> -Hidden in md and down viewports.</div>
+          <div class="h-lg-and-down"><<code>code>h-lg-down</code> -Hidden in lg and down viewports.</div>
+        </mw-grid>`
+      }}
+  </Story>
+</Canvas>
+
+
+export const dirPrefixes = {
+  Start: "s",
+  End: "e",
+  Top: "t",
+  Bottom: "b",
+  Horizontal: "x",
+  Vertical: "y",
+  All: "a"
+};
+
+## Margin and Padding
+
+export const PaddingMarginTemplate = (args, { argTypes }) => ({
+  components: { MwGrid, MwRow, MwCol },
+  props: Object.keys(argTypes),
+  computed: {
+    paddingClass() {
+      return ["p", this.paddingDirection, "-" + this.padding].join("");
+    },
+    marginClass() {
+      return ["m", this.marginDirection, "-" + this.margin].join("");
+    }
+  },
+  template: `
+  <main :dir="scriptDirection" class="storybook-grid">
+    <mw-grid >
+      <mw-row style="background-color:orange;">
+        <mw-col
+          :class="paddingClass + ' ' + marginClass" style="width:100%; background-color:yellowgreen;"
+          v-for="n in 3"
+          :key="n"
+        >
+          <code
+            style="background-color:whitesmoke;"
+            class="justify-center">{{paddingClass}} {{marginClass}}
+          </code>
+        </mw-col>
+      </mw-row>
+    </mw-grid>
+  </main>`
+})
+
+
+You can add padding and margin to your components without writing custom styles. Spacing helpers are useful for modifying the padding and margin of an element. Note that elements having these spacing helper classes should be under an element with `row` class.
+
+<Story
+  name="Padding and Margin"
+  args={{
+      paddingDirection: 'a',
+      marginDirection: 'a',
+      margin: 2,
+      padding: 2,
+      scriptDirection: 'ltr'
+  }}
+ >
+   {PaddingMarginTemplate.bind({})}
+</Story>
+
+<ArgsTable story="Padding and Margin" />
+
+Padding helper classes has the format of `p{direction}-{unit}`. Similarly, margin helper classes has the format of `m{direction}-{unit}`.
+
+### Spacing Directions
+
+* s - Start
+* e - End
+* t - Top
+* b - Bottom
+* a - All directions
+* x - Horizontal - x axis - Left and right
+* y - Vertical - y axis - Top and Bottom
+
+### Script Direction
+
+The helper classes are script direction(Left to right or right to left) agnostic. This means, in an left to right context ps-4 will mean padding-start css style. In RTL, it will automatically become padding-end.
+
+### Spacing units
+
+Spacing units are multiples of 4 units. So `pa-2` means `padding: 8px`. The values can be between 1 to 12. `pt-12` means `padding-top: 48px`
+
+### Breakpoints
+
+Spacing units can be set specifically for each breakpoints. Please see the responsiveness section to learn about breakpoints. To use breakpoints in spacing helper classes, use the format `p{direction}{breakpoint}-{unit}`
+
+For example `pa-xs-4` sets `padding: 16px` in xs(mobile) viewports and has no effect on other viewports. And `ma-lg-2` sets `8px` margin on lg(large) viewports.
+
+

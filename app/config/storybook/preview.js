@@ -37,5 +37,6 @@ const customViewports = {
 };
 
 export const parameters = {
-  viewport: { viewports: customViewports }
+  viewport: { viewports: customViewports },
+  controls: { expanded: true }
 };
