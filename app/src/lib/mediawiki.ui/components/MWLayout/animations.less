@@ -14,26 +14,26 @@
   }
 
   &slide-left-enter,
-  &slide-left-leave-active {
+  &slide-right-leave-active {
     opacity: 0;
-    transform: translate(100vw, 0);
+    transform: translateX(100vw);
   }
 
   &slide-right-enter,
-  &slide-right-leave-active {
+  &slide-left-leave-active {
     opacity: 0;
-    transform: translate(-100vw, 0);
+    transform: translateX(-100vw);
   }
 
   &slide-up-enter,
-  &slide-up-leave-active {
+  &slide-down-leave-active {
     opacity: 0;
-    transform: translate(0, 100vw);
+    transform: translateY(100vw);
   }
 
   &slide-down-leave-active,
-  &slide-down-enter {
+  &slide-up-enter {
     opacity: 0;
-    transform: translate(0, -100vw);
+    transform: translateY(-100vw);
   }
 }

@@ -3,7 +3,7 @@
     <cx-header />
     <mw-row class="cxdashboard-container">
       <mw-col cols="12">
-        <transition name="mw-ui-animation-slide-left">
+        <transition :name="transitionName">
           <router-view />
         </transition>
       </mw-col>
@@ -18,7 +18,21 @@ import CxHeader from "./components/CXHeader";
 
 export default {
   name: "CxDashboardApp",
-  components: { MwGrid, MwCol, MwRow, CxHeader }
+  components: { MwGrid, MwCol, MwRow, CxHeader },
+  data: () => ({
+    transitionName: ""
+  }),
+  // watch the `$route` to determine the transition to use
+  watch: {
+    $route(to, from) {
+      const toStep = to.meta.workflowStep;
+      const fromStep = from.meta.workflowStep;
+      this.transitionName =
+        toStep < fromStep
+          ? "mw-ui-animation-slide-right"
+          : "mw-ui-animation-slide-left";
+    }
+  }
 };
 </script>
 
