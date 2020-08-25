@@ -6,10 +6,7 @@
 
 <script>
 import Vue from "vue";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
 import SxQuickTutorial from "@/components/SXQuickTutorial";
-
-Vue.use(BreakpointsPlugin);
 
 export default {
   name: "SxContentComparatorView",

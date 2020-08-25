@@ -7,9 +7,6 @@
 <script>
 import Vue from "vue";
 import SxSectionSelector from "@/components/SXSectionSelector";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
-
-Vue.use(BreakpointsPlugin);
 
 export default {
   name: "SxSectionSelectorView",

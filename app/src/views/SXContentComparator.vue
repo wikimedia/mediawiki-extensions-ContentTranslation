@@ -7,9 +7,6 @@
 <script>
 import Vue from "vue";
 import SxContentComparator from "@/components/SXContentComparator";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
-
-Vue.use(BreakpointsPlugin);
 
 export default {
   name: "SxContentComparatorView",

@@ -7,9 +7,6 @@
 <script>
 import Vue from "vue";
 import SxArticleSelector from "@/components/SXArticleSelector";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
-
-Vue.use(BreakpointsPlugin);
 
 export default {
   name: "SxArticleSelectorView",

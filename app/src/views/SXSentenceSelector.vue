@@ -6,10 +6,7 @@
 
 <script>
 import Vue from "vue";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
 import SxSentenceSelector from "@/components/SXSentenceSelector";
-
-Vue.use(BreakpointsPlugin);
 
 export default {
   name: "SxSentenceSelectorView",
