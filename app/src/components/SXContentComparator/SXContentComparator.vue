@@ -3,7 +3,6 @@
     <sx-content-comparator-header
       :suggestion="suggestion"
       :target-section-title="activeSectionTargetTitle"
-      :source-section-title.sync="sourceSectionTitle"
       :discarded-sections.sync="discardedSections"
       :is-missing-section="isCurrentSectionMissing"
       :section-source-titles="sectionSourceTitles"
@@ -11,13 +10,10 @@
       @close="close"
     />
     <sx-content-comparator-content-header
-      ref="contentHeader"
       :source-vs-target-selection.sync="sourceVsTargetSelection"
       :suggestion="suggestion"
       :is-mapped-section="isCurrentSectionMapped"
-      :source-section-title="sourceSectionTitle"
       :target-section-title="activeSectionTargetTitle"
-      :source-section-anchor="sourceSectionAnchor"
       :target-section-anchor="targetSectionAnchor"
       @translation-button-clicked="translateSection"
     />
@@ -48,7 +44,7 @@
 
 <script>
 import { MwSpinner } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import SxContentComparatorContentHeader from "@/components/SXContentComparator/SXContentComparatorContentHeader";
 import SxContentComparatorHeader from "@/components/SXContentComparator/SXContentComparatorHeader";
 
@@ -62,25 +58,19 @@ export default {
   data() {
     return {
       sourceVsTargetSelection: "source_section",
-      discardedSections: [],
-      sourceSectionTitle: this.$route.params.sourceSectionTitle
+      discardedSections: []
     };
   },
   computed: {
     ...mapState({
-      suggestion: state => state.suggestions.currentSectionSuggestion
+      suggestion: state => state.application.currentSectionSuggestion,
+      sourceSection: state => state.application.currentSourceSection
     }),
-    sourceSectionAnchor() {
-      return (this.sourceSection?.title || "").replace(/ /g, "_");
-    },
+    ...mapGetters({
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
+    }),
     targetSectionAnchor() {
       return (this.targetSection?.title || "").replace(/ /g, "_");
-    },
-    /**
-     * @return {PageSection[]}
-     */
-    sourcePageSections() {
-      return this.sourcePage?.sections;
     },
     sourcePage() {
       return this.$store.getters["mediawiki/getPage"](
@@ -107,13 +97,8 @@ export default {
     activeSectionTargetTitle() {
       return (
         this.missingSections[this.sourceSectionTitle] ||
-        this.suggestion.presentSections[this.sourceSectionTitle]
-      );
-    },
-    sourceSection() {
-      return this.$store.getters["mediawiki/getPageSection"](
-        this.sourcePage,
-        this.sourceSectionTitle
+        this.suggestion.presentSections[this.sourceSectionTitle] ||
+        ""
       );
     },
     targetSection() {
@@ -145,16 +130,6 @@ export default {
     }
   },
   watch: {
-    sourcePage() {
-      this.$store.dispatch("mediawiki/fetchPageSections", this.suggestion);
-    },
-    targetPage() {
-      this.$store.dispatch("mediawiki/fetchPageSections", {
-        sourceLanguage: this.suggestion.targetLanguage,
-        targetLanguage: this.suggestion.sourceLanguage,
-        sourceTitle: this.suggestion.targetTitle
-      });
-    },
     // watch for target title as it is not provided when the proxy suggestion object is created
     // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
     targetTitle: {
@@ -180,16 +155,10 @@ export default {
       this.goToTutorial();
     },
     goToTutorial() {
-      this.$router.push({
-        name: "sx-quick-tutorial",
-        params: { sourceSectionTitle: this.sourceSectionTitle }
-      });
+      this.$router.push({ name: "sx-quick-tutorial" });
     },
     goToSentenceSelector() {
-      this.$router.push({
-        name: "sx-sentence-selector",
-        params: { sourceSectionTitle: this.sourceSectionTitle }
-      });
+      this.$router.push({ name: "sx-sentence-selector" });
     }
   }
 };

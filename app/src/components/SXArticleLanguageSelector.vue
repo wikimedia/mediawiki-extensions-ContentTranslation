@@ -103,7 +103,7 @@ export default {
   computed: {
     ...mapState({
       currentSectionSuggestion: state =>
-        state.suggestions.currentSectionSuggestion,
+        state.application.currentSectionSuggestion,
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || []
     }),
@@ -189,7 +189,7 @@ export default {
         return;
       }
 
-      this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);
+      this.$store.commit("application/setCurrentSectionSuggestion", suggestion);
     },
     onSourceLanguageDialogClose() {
       this.sourceLanguageSelectOn = false;

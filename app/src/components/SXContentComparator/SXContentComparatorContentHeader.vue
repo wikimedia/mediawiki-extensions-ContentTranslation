@@ -55,6 +55,7 @@ import {
   mwIconEdit,
   mwIconLinkExternal
 } from "@/lib/mediawiki.ui/components/icons";
+import { mapGetters } from "vuex";
 export default {
   name: "SxContentComparatorContentHeader",
   components: {
@@ -73,20 +74,12 @@ export default {
       type: SectionSuggestion,
       required: true
     },
-    sourceSectionTitle: {
-      type: String,
-      required: true
-    },
     targetSectionTitle: {
       type: String,
       required: true
     },
     isMappedSection: {
       type: Boolean,
-      required: true
-    },
-    sourceSectionAnchor: {
-      type: String,
       required: true
     },
     targetSectionAnchor: {
@@ -100,6 +93,10 @@ export default {
     isSticky: false
   }),
   computed: {
+    ...mapGetters({
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
+      sourceSectionAnchor: "application/getCurrentSourceSectionAnchor"
+    }),
     activeContentTitle() {
       switch (this.sourceVsTargetSelection) {
         case "source_section":

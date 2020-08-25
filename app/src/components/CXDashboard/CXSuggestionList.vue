@@ -264,7 +264,7 @@ export default {
      */
     startSectionTranslation(suggestion) {
       this.$router.push({ name: "sx-article-selector" });
-      this.$store.commit("suggestions/setCurrentSectionSuggestion", suggestion);
+      this.$store.commit("application/setCurrentSectionSuggestion", suggestion);
     }
   }
 };

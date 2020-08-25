@@ -1,11 +1,27 @@
 import SXContentComparatorHeaderNavigation from "./SXContentComparatorHeaderNavigation";
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
+import Vuex from "vuex";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("SXContentComparator Header Navigation test", () => {
   const sectionSourceTitles = ["title 0", "title 1", "title 2"];
+  const store = new Vuex.Store({
+    modules: {
+      application: {
+        namespaced: true,
+        getters: {
+          getCurrentSourceSectionTitle: state => sectionSourceTitles[0]
+        }
+      }
+    }
+  });
+  store.dispatch = jest.fn();
   const wrapper = mount(SXContentComparatorHeaderNavigation, {
+    store,
+    localVue,
     propsData: {
-      sourceSectionTitle: sectionSourceTitles[0],
       sectionSourceTitles
     }
   });
@@ -16,10 +32,10 @@ describe("SXContentComparator Header Navigation test", () => {
 
   it("Previous section method emitting update event correctly", () => {
     wrapper.find("button").trigger("click");
-    expect(wrapper.emitted("update:sourceSectionTitle")).toBeTruthy();
-    expect(wrapper.emitted("update:sourceSectionTitle")[0]).toEqual([
-      sectionSourceTitles[2]
-    ]);
+    expect(store.dispatch).toHaveBeenCalledWith(
+      "application/selectPageSection",
+      { sectionTitle: sectionSourceTitles[2] }
+    );
   });
 
   it("Next section method emitting update event correctly", () => {
@@ -27,9 +43,10 @@ describe("SXContentComparator Header Navigation test", () => {
       .findAll("button")
       .at(1)
       .trigger("click");
-    expect(wrapper.emitted("update:sourceSectionTitle")).toBeTruthy();
-    expect(wrapper.emitted("update:sourceSectionTitle")[1]).toEqual([
-      sectionSourceTitles[1]
-    ]);
+
+    expect(store.dispatch).toHaveBeenCalledWith(
+      "application/selectPageSection",
+      { sectionTitle: sectionSourceTitles[1] }
+    );
   });
 });

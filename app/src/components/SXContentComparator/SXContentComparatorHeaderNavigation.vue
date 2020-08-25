@@ -21,6 +21,7 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "SxContentComparatorHeaderNavigation",
   components: {
@@ -28,10 +29,6 @@ export default {
     MwButton
   },
   props: {
-    sourceSectionTitle: {
-      type: String,
-      required: true
-    },
     sectionSourceTitles: {
       type: Array,
       required: true
@@ -41,34 +38,31 @@ export default {
     mwIconPrevious,
     mwIconArrowForward
   }),
+  computed: {
+    ...mapGetters({
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
+    }),
+    currentTitleIndex() {
+      return this.sectionSourceTitles.indexOf(this.sourceSectionTitle);
+    }
+  },
   methods: {
     previousSection() {
-      const currentIndex = this.sectionSourceTitles.indexOf(
-        this.sourceSectionTitle
-      );
       const previousIndex =
-        currentIndex === 0
-          ? this.sectionSourceTitles.length - 1
-          : currentIndex - 1;
+        (this.currentTitleIndex - 1 + this.sectionSourceTitles.length) %
+        this.sectionSourceTitles.length;
 
-      this.$emit(
-        "update:sourceSectionTitle",
-        this.sectionSourceTitles[previousIndex]
-      );
+      this.$store.dispatch("application/selectPageSection", {
+        sectionTitle: this.sectionSourceTitles[previousIndex]
+      });
     },
     nextSection() {
-      const currentIndex = this.sectionSourceTitles.indexOf(
-        this.sourceSectionTitle
-      );
       const nextIndex =
-        currentIndex === this.sectionSourceTitles.length - 1
-          ? 0
-          : currentIndex + 1;
+        (this.currentTitleIndex + 1) % this.sectionSourceTitles.length;
 
-      this.$emit(
-        "update:sourceSectionTitle",
-        this.sectionSourceTitles[nextIndex]
-      );
+      this.$store.dispatch("application/selectPageSection", {
+        sectionTitle: this.sectionSourceTitles[nextIndex]
+      });
     }
   }
 };

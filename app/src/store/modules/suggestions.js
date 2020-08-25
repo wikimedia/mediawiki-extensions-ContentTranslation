@@ -3,8 +3,7 @@ import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
 const state = {
   pageSuggestions: [],
   sectionSuggestions: [],
-  favorites: {},
-  currentSectionSuggestion: null
+  favorites: {}
 };
 
 const mutations = {
@@ -13,9 +12,6 @@ const mutations = {
   },
   addSectionSuggestion(state, suggestion) {
     state.sectionSuggestions.push(suggestion);
-  },
-  setCurrentSectionSuggestion(state, suggestion) {
-    state.currentSectionSuggestion = suggestion;
   }
 };
 
@@ -126,7 +122,9 @@ const actions = {
       );
     }
 
-    commit("setCurrentSectionSuggestion", suggestion);
+    dispatch("application/setCurrentSectionSuggestion", suggestion, {
+      root: true
+    });
   }
 };
 

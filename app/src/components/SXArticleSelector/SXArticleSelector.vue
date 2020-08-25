@@ -67,7 +67,7 @@ export default {
   computed: {
     ...mapState({
       currentSectionSuggestion: state =>
-        state.suggestions.currentSectionSuggestion
+        state.application.currentSectionSuggestion
     }),
     actionButtonLabel() {
       return this.translationExists

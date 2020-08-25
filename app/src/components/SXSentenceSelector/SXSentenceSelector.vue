@@ -112,14 +112,17 @@ export default {
       selectedProvider: "",
       translation: null,
       translationOptionsActive: false,
-      sourceSectionTitle: this.$route.params.sourceSectionTitle,
       proposedTranslationBounce: false
     };
   },
   computed: {
     ...mapState({
-      suggestion: state => state.suggestions.currentSectionSuggestion
+      suggestion: state => state.application.currentSectionSuggestion,
+      currentPageSection: state => state.application.currentSourceSection
     }),
+    sourceSectionTitle() {
+      return this.currentPageSection?.title;
+    },
     defaultMTProvider() {
       return this.$store.getters["mediawiki/getDefaultMTProvider"](
         this.suggestion.sourceLanguage,
@@ -138,15 +141,6 @@ export default {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](
         this.suggestion.sourceLanguage,
         this.suggestion.targetLanguage
-      );
-    },
-    /**
-     * @return PageSection
-     */
-    currentPageSection() {
-      return this.$store.getters["mediawiki/getPageSection"](
-        this.sourcePage,
-        this.sourceSectionTitle
       );
     },
     sourcePage() {
@@ -172,9 +166,7 @@ export default {
       }
     },
     selectedSentence() {
-      if (this.selectedSentence) {
-        this.translateSelectedSentence(this.selectedProvider);
-      }
+      this.translateSelectedSentence(this.selectedProvider);
     },
     selectedProvider() {
       if (this.selectedProvider) {
@@ -203,6 +195,9 @@ export default {
       }, 100);
     },
     async translateSelectedSentence(provider) {
+      if (!this.selectedSentence) {
+        return;
+      }
       this.$store.dispatch("mediawiki/translateSelectedSentence", {
         sourceLanguage: this.suggestion.sourceLanguage,
         targetLanguage: this.suggestion.targetLanguage,
@@ -278,9 +273,6 @@ export default {
     width: 100%;
     // TODO: Fix these with variables(?)
     box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
-  }
-
-  .sx-sentence-selector__proposed-translation {
     transition: margin-bottom 0.1s;
     &.bounce {
       margin-bottom: 1rem;

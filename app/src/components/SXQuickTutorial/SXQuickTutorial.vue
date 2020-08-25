@@ -106,10 +106,7 @@ export default {
       return step === this.activeStep;
     },
     completeTutorial() {
-      this.$router.push({
-        name: "sx-sentence-selector",
-        params: { sourceSectionTitle: this.$route.params.sourceSectionTitle }
-      });
+      this.$router.push({ name: "sx-sentence-selector" });
     }
   }
 };

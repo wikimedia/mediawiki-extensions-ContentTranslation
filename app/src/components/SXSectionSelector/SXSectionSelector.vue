@@ -89,7 +89,7 @@ export default {
   }),
   computed: {
     ...mapState({
-      suggestion: state => state.suggestions.currentSectionSuggestion
+      suggestion: state => state.application.currentSectionSuggestion
     }),
     sourceLanguageAutonym() {
       return this.getAutonym(this.suggestion.sourceLanguage);
@@ -126,11 +126,13 @@ export default {
     onClose() {
       this.$router.go(-1);
     },
-    selectSection(sourceSection) {
-      this.$router.push({
-        name: "sx-content-comparator",
-        params: { sourceSectionTitle: sourceSection }
+    selectSection(sourceSectionTitle) {
+      this.$store.dispatch("application/selectPageSection", {
+        language: this.suggestion.sourceLanguage,
+        title: this.suggestion.sourceTitle,
+        sectionTitle: sourceSectionTitle
       });
+      this.$router.push({ name: "sx-content-comparator" });
     }
   }
 };

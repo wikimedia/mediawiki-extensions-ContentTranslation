@@ -19,9 +19,7 @@
       </mw-col>
       <sx-content-comparator-header-navigation
         cols="2"
-        :source-section-title="sourceSectionTitle"
         :section-source-titles="sectionSourceTitles"
-        @update:sourceSectionTitle="$emit('update:sourceSectionTitle', $event)"
       />
       <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
         <mw-button
@@ -68,6 +66,7 @@ import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection";
+import { mapGetters } from "vuex";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -82,10 +81,6 @@ export default {
   props: {
     suggestion: {
       type: SectionSuggestion,
-      required: true
-    },
-    sourceSectionTitle: {
-      type: String,
       required: true
     },
     targetSectionTitle: {
@@ -109,7 +104,12 @@ export default {
     mwIconArrowPrevious,
     mwIconEdit,
     mwIconEye
-  })
+  }),
+  computed: {
+    ...mapGetters({
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
+    })
+  }
 };
 </script>
 

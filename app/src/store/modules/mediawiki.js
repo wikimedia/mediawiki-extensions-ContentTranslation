@@ -155,13 +155,25 @@ const actions = {
         /** @type Page */ responsePage => (page.content = responsePage.content)
       );
   },
+  /**
+   * Returns a promise so that it can be awaited for
+   * @param getters
+   * @param commit
+   * @param sourceLanguage
+   * @param targetLanguage
+   * @param sourceTitle
+   * @return {Promise<PageSection[]>}
+   */
   async fetchPageSections(
     { getters, commit },
     { sourceLanguage, targetLanguage, sourceTitle }
   ) {
     const page = getters.getPage(sourceLanguage, sourceTitle);
+    if (!page) {
+      return;
+    }
 
-    pageApi
+    return pageApi
       .fetchPageSections(sourceLanguage, targetLanguage, sourceTitle)
       .then(sections => commit("setPageSections", { page, sections }));
   },
@@ -174,7 +186,7 @@ const actions = {
    * Translate selected sentence for a section defined
    * by given source language, title and section title,
    * from source language to given target language.
-   * @param getters
+   * @param rootGetters
    * @param {String} sourceLanguage
    * @param {String} targetLanguage
    * @param {String} sourceTitle
