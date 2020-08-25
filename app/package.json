@@ -55,23 +55,23 @@
   },
   "bundlesize": [
     {
-      "path": "dist/js/cxdashboard.js",
+      "path": "dist/js/cx.js",
       "maxSize": "22.00KB"
     },
     {
-      "path": "dist/js/cxdashboard.libs.js",
+      "path": "dist/js/cx.libs.js",
       "maxSize": "82.00KB"
     },
     {
-      "path": "dist/js/mediawiki.ui.js",
+      "path": "dist/js/cx.ui.js",
       "maxSize": "9.00KB"
     },
     {
-      "path": "dist/css/mediawiki.ui.css",
+      "path": "dist/css/cx.ui.css",
       "maxSize": "18.00KB"
     },
     {
-      "path": "dist/css/dashboard.css",
+      "path": "dist/css/cx.css",
       "maxSize": "2.00KB"
     }
   ]

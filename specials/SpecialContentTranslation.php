@@ -179,7 +179,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			}
 		} else {
 			if ( $this->isVueDashboard() ) {
-				$out->addModules( 'mw.cx.dashboard' );
+				$out->addModules( 'mw.cx3' );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
 			}

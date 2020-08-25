@@ -21,13 +21,13 @@ module.exports = {
           devServer.port
         }/`,
   pages: {
-    dashboard: "src/main.js"
+    cx: "src/main.js"
   },
   filenameHashing: false,
   devServer,
   configureWebpack: {
     output: {
-      filename: "js/cxdashboard.js",
+      filename: "js/cx.js",
       hotUpdateChunkFilename: "hot/hot-update.js",
       hotUpdateMainFilename: "hot/hot-update.json"
     },
@@ -52,12 +52,12 @@ module.exports = {
         cacheGroups: {
           mediawiki_ui: {
             test: /[\\/]lib\/mediawiki.ui[\\/]/,
-            name: "mediawiki.ui",
+            name: "cx.ui",
             chunks: "all"
           },
           libs: {
             test: /[\\/]node_modules[\\/]/,
-            name: "cxdashboard.libs",
+            name: "cx.libs",
             chunks: "all"
           }
         }
