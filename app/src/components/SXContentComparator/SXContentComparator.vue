@@ -1,176 +1,37 @@
 <template>
   <section class="sx-content-comparator">
-    <div class="sx-content-comparator__header pa-4">
-      <mw-button
-        class="py-2 pa-0"
-        :icon="mwIconArrowPrevious"
-        :label="$i18n('cx-sx-content-comparator-back-to-sections-button-label')"
-        type="text"
-        :outlined="false"
-        @click="close"
-      />
-      <mw-row class="my-1 py-2 mx-0">
-        <mw-col grow>
-          <h4 class="pa-0 sx-content-comparator-header__article-title">
-            {{ suggestion.sourceTitle }}
-          </h4>
-          <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
-            {{ sourceSectionTitle }}
-          </h2>
-        </mw-col>
-        <mw-col cols="2" class="items-center justify-end">
-          <mw-button
-            class="pa-0 pe-1"
-            type="icon"
-            :icon="mwIconPrevious"
-            @click="previousSection"
-          />
-          <mw-button
-            class="pa-0 ps-1"
-            type="icon"
-            :icon="mwIconArrowForward"
-            @click="nextSection"
-          />
-        </mw-col>
-        <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
-          <mw-button
-            :icon="mwIconEdit"
-            :progressive="true"
-            :label="
-              $i18n('cx-sx-content-comparator-translation-section-button-label')
-            "
-            @click="translateSection"
-          />
-        </mw-col>
-      </mw-row>
-      <mw-row
-        v-if="isCurrentSectionMissing"
-        align="start"
-        class="sx-content-comparator-header__review-contents mx-0"
-      >
-        <mw-col shrink class="pe-2">
-          <mw-icon :icon="mwIconEye" />
-        </mw-col>
-        <mw-col class="ma-0">
-          <strong v-i18n:cx-sx-content-comparator-review-contents-title />
-          <br />
-          <span v-i18n:cx-sx-content-comparator-review-contents-rest />
-        </mw-col>
-      </mw-row>
-      <div v-else class="sx-content-comparator-header__mapped-section">
-        <mw-row
-          class="sx-content-comparator-header__mapped-section-header pa-2 ma-0"
-        >
-          <mw-col grow>
-            <h6
-              class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
-            >
-              {{
-                $i18n(
-                  "cx-sx-content-comparator-mapped-section-header-title",
-                  getAutonym(suggestion.targetLanguage)
-                )
-              }}
-              <span
-                v-if="isCurrentSectionDiscarded"
-                v-i18n:cx-sx-content-comparator-discarded-section-label
-              />
-            </h6>
-            <h6
-              class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
-              :class="{
-                'sx-content-comparator-header__mapped-section-target-title--discarded': isCurrentSectionDiscarded
-              }"
-            >
-              {{ activeSectionTargetTitle }}
-            </h6>
-          </mw-col>
-          <mw-col shrink>
-            <mw-button
-              v-if="!isCurrentSectionDiscarded"
-              class="pa-0"
-              :icon="mwIconTrash"
-              type="icon"
-              @click="discardMapping"
-            />
-            <mw-button
-              v-else
-              class="pa-0"
-              :icon="mwIconUndo"
-              type="icon"
-              @click="undoDiscard"
-            />
-          </mw-col>
-        </mw-row>
-        <p
-          v-if="!isCurrentSectionDiscarded"
-          v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
-          class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-        />
-        <p
-          v-else
-          v-i18n-html:cx-sx-content-comparator-discarded-section-clarifications
-          class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
-        />
-      </div>
-    </div>
-    <div class="sx-content-comparator__source-target-selector">
-      <mw-button-group
-        :items="listSelector"
-        :active="sourceVsTargetSelection"
-        @select="sourceVsTargetSelection = $event"
-      />
-    </div>
+    <sx-content-comparator-header
+      :suggestion="suggestion"
+      :target-section-title="activeSectionTargetTitle"
+      :source-section-title.sync="sourceSectionTitle"
+      :discarded-sections.sync="discardedSections"
+      :is-missing-section="isCurrentSectionMissing"
+      :section-source-titles="sectionSourceTitles"
+      @close="close"
+    />
+    <sx-content-comparator-content-header
+      :source-vs-target-selection.sync="sourceVsTargetSelection"
+      :suggestion="suggestion"
+      :is-mapped-section="isCurrentSectionMapped"
+      :source-section-title="sourceSectionTitle"
+      :target-section-title="activeSectionTargetTitle"
+      :source-section-anchor="sourceSectionAnchor"
+      :target-section-anchor="targetSectionAnchor"
+    />
     <section
       v-if="sourceVsTargetSelection === 'source_section'"
-      class="sx-content-comparator__source-content pa-4"
+      class="sx-content-comparator__source-content px-4"
     >
-      <mw-row
-        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
-      >
-        <h3 v-text="sourceSectionTitle" />
-        <mw-button
-          class="pa-0 pe-2"
-          :icon="mwIconLinkExternal"
-          type="icon"
-          :href="sourceSectionPath"
-          target="_blank"
-        />
-      </mw-row>
-      <section class="pt-2" v-html="sourceSectionContent"></section>
+      <section class="pt-2" v-html="sourceSectionContent" />
     </section>
     <section
       v-else-if="sourceVsTargetSelection === 'target_article'"
-      class="sx-content-comparator__source-content pa-4"
+      class="sx-content-comparator__source-content px-4"
     >
-      <mw-row
-        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
-      >
-        <h3 v-text="suggestion.targetTitle" />
-        <mw-button
-          class="pa-0 pe-2"
-          :icon="mwIconLinkExternal"
-          type="icon"
-          :href="targetArticlePath"
-          target="_blank"
-        />
-      </mw-row>
       <mw-spinner v-if="!targetPageContent" />
-      <article v-html="targetPageContent"></article>
+      <article v-html="targetPageContent" />
     </section>
-    <section v-else class="sx-content-comparator__source-content pa-4">
-      <div
-        class="sx-content-comparator__content-header justify-between ma-0 pb-2"
-      >
-        <h3 v-text="activeSectionTargetTitle" />
-        <mw-button
-          class="pa-0 pe-2"
-          :icon="mwIconLinkExternal"
-          type="icon"
-          :href="targetSectionPath"
-          target="_blank"
-        />
-      </div>
+    <section v-else class="sx-content-comparator__source-content px-4">
       <section class="pa-4" v-html="targetSectionContent" />
       <section
         class="sx-content-comparator__new-section-placeholder--present pa-4 px-7"
@@ -185,48 +46,20 @@
 </template>
 
 <script>
-import {
-  mwIconPrevious,
-  mwIconArrowForward,
-  mwIconArrowPrevious,
-  mwIconEdit,
-  mwIconEye,
-  mwIconTrash,
-  mwIconLinkExternal,
-  mwIconUndo
-} from "@/lib/mediawiki.ui/components/icons";
-import {
-  MwCol,
-  MwRow,
-  MwButton,
-  MwIcon,
-  MwButtonGroup,
-  MwSpinner
-} from "@/lib/mediawiki.ui";
-import autonymMixin from "@/mixins/autonym";
+import { MwSpinner } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
+import SxContentComparatorContentHeader from "@/components/SXContentComparator/SXContentComparatorContentHeader";
+import SxContentComparatorHeader from "@/components/SXContentComparator/SXContentComparatorHeader";
 
 export default {
   name: "SxContentComparator",
   components: {
-    MwCol,
-    MwRow,
-    MwButtonGroup,
-    MwIcon,
-    MwButton,
+    SxContentComparatorHeader,
+    SxContentComparatorContentHeader,
     MwSpinner
   },
-  mixins: [autonymMixin],
   data() {
     return {
-      mwIconEye,
-      mwIconEdit,
-      mwIconPrevious,
-      mwIconArrowForward,
-      mwIconArrowPrevious,
-      mwIconTrash,
-      mwIconLinkExternal,
-      mwIconUndo,
       sourceVsTargetSelection: "source_section",
       discardedSections: [],
       sourceSectionTitle: this.$route.params.sourceSectionTitle
@@ -236,14 +69,11 @@ export default {
     ...mapState({
       suggestion: state => state.suggestions.currentSectionSuggestion
     }),
-    targetArticlePath() {
-      return `https://${this.suggestion.targetLanguage}.wikipedia.org/wiki/${this.suggestion.targetTitle}`;
+    sourceSectionAnchor() {
+      return this.sourceSection?.anchor || "";
     },
-    targetSectionPath() {
-      return `${this.targetArticlePath}#${this.targetSection?.anchor}`;
-    },
-    sourceSectionPath() {
-      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}#${this.sourceSection?.anchor}`;
+    targetSectionAnchor() {
+      return this.targetSection?.anchor || "";
     },
     /**
      * @return {PageSection[]}
@@ -310,40 +140,6 @@ export default {
     isCurrentSectionDiscarded() {
       return this.discardedSections.includes(this.activeSectionTargetTitle);
     },
-    listSelector() {
-      const sourceSelectorItem = {
-        value: "source_section",
-        props: {
-          label: this.$i18n(
-            "cx-sx-content-comparator-source-selector-title",
-            this.getAutonym(this.suggestion.sourceLanguage)
-          ),
-          type: "text"
-        }
-      };
-      const targetSelectorItem = this.isCurrentSectionMapped
-        ? {
-            value: "target_section",
-            props: {
-              label: this.$i18n(
-                "cx-sx-content-comparator-target-selector-target-section-title",
-                this.getAutonym(this.suggestion.targetLanguage)
-              ),
-              type: "text"
-            }
-          }
-        : {
-            value: "target_article",
-            props: {
-              label: this.$i18n(
-                "cx-sx-content-comparator-target-selector-full-article-title",
-                this.getAutonym(this.suggestion.targetLanguage)
-              ),
-              type: "text"
-            }
-          };
-      return [sourceSelectorItem, targetSelectorItem];
-    },
     sectionSourceTitles() {
       return [
         ...Object.keys(this.missingSections),
@@ -398,40 +194,6 @@ export default {
         name: "sx-sentence-selector",
         params: { sourceSectionTitle: this.sourceSectionTitle }
       });
-    },
-    previousSection() {
-      const currentIndex = this.sectionSourceTitles.indexOf(
-        this.sourceSectionTitle
-      );
-      const previousIndex =
-        currentIndex === 0
-          ? this.sectionSourceTitles.length - 1
-          : currentIndex - 1;
-
-      this.sourceSectionTitle = this.sectionSourceTitles[previousIndex];
-    },
-    nextSection() {
-      const currentIndex = this.sectionSourceTitles.indexOf(
-        this.sourceSectionTitle
-      );
-      const nextIndex =
-        currentIndex === this.sectionSourceTitles.length - 1
-          ? 0
-          : currentIndex + 1;
-
-      this.sourceSectionTitle = this.sectionSourceTitles[nextIndex];
-    },
-    discardMapping() {
-      if (!this.isCurrentSectionDiscarded) {
-        this.discardedSections.push(this.activeSectionTargetTitle);
-      }
-    },
-    undoDiscard() {
-      if (this.isCurrentSectionDiscarded) {
-        this.discardedSections = this.discardedSections.filter(
-          sectionTitle => sectionTitle !== this.activeSectionTargetTitle
-        );
-      }
     }
   }
 };
@@ -440,54 +202,10 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-content-comparator {
-  .sx-content-comparator-header__section-title {
-    border: none;
-  }
-
-  .sx-content-comparator-header__review-contents {
-    color: @color-base;
-  }
-  .sx-content-comparator-header__mapped-section {
-    background-color: @background-color-base--disabled;
-    border-radius: @border-radius-base;
-    .sx-content-comparator-header__mapped-section-header {
-      border-bottom: @border-width-base @border-style-base
-        @border-color-base--disabled;
-      .sx-content-comparator-header__mapped-section-header-title {
-        // No typography style for this font-size in UI library
-        font-size: 14px;
-        // TODO: Fix this to be base20
-        color: @color-base--subtle;
-      }
-      .sx-content-comparator-header__mapped-section-target-title {
-        color: @color-base;
-        &.sx-content-comparator-header__mapped-section-target-title--discarded {
-          text-decoration: line-through;
-        }
-      }
-    }
-    .sx-content-comparator-header__mapped-section-clarifications {
-      color: @color-base;
-      line-height: 1.3;
-    }
-  }
-  .sx-content-comparator__source-target-selector {
-    .mw-ui-button-group {
-      background: @background-color-framed;
-      color: @color-base;
-    }
-  }
   .sx-content-comparator__source-content {
     line-height: 1.3;
   }
-  .sx-content-comparator__content-header {
-    // Not border style defined in specifications
-    border-bottom: @border-style-base @border-width-base
-      @border-color-base--disabled;
-    .mw-ui-icon {
-      color: @color-base--subtle;
-    }
-  }
+
   .sx-content-comparator__new-section-placeholder--present {
     background-color: @background-color-primary;
     color: @color-primary--active;
