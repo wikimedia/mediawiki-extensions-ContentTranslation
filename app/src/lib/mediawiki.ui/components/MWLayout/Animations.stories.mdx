@@ -1,0 +1,70 @@
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs/blocks';
+import {MwGrid, MwCol, MwRow, MwButton} from "./";
+import "./animations.less";
+
+<Meta
+title="Layout/Animations"
+argTypes={{
+    animation : {
+      type: 'string',
+      control: { type: 'select', options:{'Slide':'slide', 'Blind': 'blind'} }
+    },
+    animationDirection : {
+      type: 'string',
+      control: { type: 'select', options:['left','right','up', 'down'] }
+    }
+  }}
+/>
+
+# Animations
+
+Animation helpers provide convinient CSS classes to use with Vue transitions.
+
+
+export const AnimationsTemplate = (args, { argTypes }) => ({
+data:()=>({show:false}),
+  props: Object.keys(argTypes),
+  computed: {
+    transitionName() {
+      return `mw-ui-animation-${this.animation}-${this.animationDirection}`;
+    }
+  },
+  template: `
+    <main class="container">
+        <div class="row justify-center items-center"
+          style="min-height: 40vh;background:wheat"
+        >
+            <transition :name="transitionName">
+                <div
+                  v-if="show"
+                  class="col-6 justify-center items-center"
+                  style="min-height:20vh;background:grey"
+                ><code>{{transitionName}}</code></div>
+            </transition>
+        </div>
+        <div class="row justify-center">
+            <button class="col-2 justify-center" @click="show=!show">Show/Hide</button>
+        </div>
+    </main>`
+})
+
+
+The following animations are provided:
+
+
+* Blind - Like a window blind - the elements appear from a direction and disappear to the originated direction. For example, a dialog comes from top and on close, disappear to top, just like a window blind operates.
+* Slide - Elements slides across the screen like a carousal
+
+They can be used with animation directions, as illustrated below:
+
+<Story
+  name="Animation Demo"
+  args={{
+      animation: 'slide',
+      animationDirection: 'right'
+  }}
+ >
+   {AnimationsTemplate.bind({})}
+</Story>
+
+<ArgsTable story="Animation Demo" />
