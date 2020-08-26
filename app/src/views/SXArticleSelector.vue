@@ -36,5 +36,6 @@ export default {
   height: 100vh;
   top: 0;
   left: 0;
+  overflow-y: auto;
 }
 </style>
