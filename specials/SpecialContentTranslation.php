@@ -234,13 +234,14 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	 */
 	protected function afterExecute( $subPage ) {
 		$campaign = $this->getRequest()->getVal( 'campaign' );
+		$user = $this->getUser();
 
-		if ( $campaign === null ) {
+		// Anonymous users cannot have global preferences
+		if ( $campaign === null || $user->isAnon() ) {
 			return;
 		}
 
 		$persistentEntrypointCampaigns = [ 'contributions-page', 'contributionsmenu' ];
-		$user = $this->getUser();
 		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) !== 'shown' ) {
 			if ( in_array( $campaign, $persistentEntrypointCampaigns ) ) {
 				// The user accessed CX using a persistent invitation.
