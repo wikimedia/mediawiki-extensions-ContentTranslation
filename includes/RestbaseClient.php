@@ -9,6 +9,9 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
+use ParsoidVirtualRESTService;
+use RequestContext;
+use RestbaseVirtualRESTService;
 
 class RestbaseClient {
 
@@ -42,32 +45,52 @@ class RestbaseClient {
 	 * elseif $wgVirtualRestConfig['modules']['parsoid'] is defined, use Parsoid,
 	 * else RESTBase is used.
 	 *
+	 * See ApiParsoidTrait::getVRSObject() in VisualEditor (which should
+	 * eventually be upstreamed to core, T261310).
+	 *
 	 * @return \VirtualRESTService the VirtualRESTService object to use
 	 */
 	private function getVRSObject() {
+		global $wgVisualEditorParsoidAutoConfig;
+		$context = RequestContext::getMain();
 		// the params array to create the service object with
 		$params = [];
-		// the VRS class to use, defaults to RESTBase
-		$class = 'RestbaseVirtualRESTService';
-		// the global virtual rest service config object, if any
+		// the VRS class to use, defaults to Parsoid
+		$class = ParsoidVirtualRESTService::class;
+		// The global virtual rest service config object, if any
 		$vrs = $this->config->get( 'VirtualRestConfig' );
 		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
 			// if restbase is available, use it
 			$params = $vrs['modules']['restbase'];
-			$params['parsoidCompat'] = false; // backward compatibility
+			// backward compatibility
+			$params['parsoidCompat'] = false;
+			$class = RestbaseVirtualRESTService::class;
 		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
 			// there's a global parsoid config, use it next
 			$params = $vrs['modules']['parsoid'];
 			$params['restbaseCompat'] = true;
-			$class = 'ParsoidVirtualRESTService';
-		} else {
-			// no global modules defined, fall back to old defaults
+		} elseif ( $this->config->has( 'ContentTranslationRESTBase' ) ) {
 			$params = $this->config->get( 'ContentTranslationRESTBase' );
 			$params['parsoidCompat'] = false;
+		} elseif ( $wgVisualEditorParsoidAutoConfig ) {
+			$params = $vrs['modules']['parsoid'] ?? [];
+			$params['restbaseCompat'] = true;
+			// forward cookies on private wikis
+			$params['forwardCookies'] = !MediaWikiServices::getInstance()
+				->getPermissionManager()->isEveryoneAllowed( 'read' );
+		} else {
+			// No global modules defined, so no way to contact the document server.
+			throw new \MWException( 'Parsoid/RESTBase unconfigured' );
 		}
 		// merge the global and service-specific params
 		if ( isset( $vrs['global'] ) ) {
 			$params = array_merge( $vrs['global'], $params );
+		}
+		// set up cookie forwarding
+		if ( $params['forwardCookies'] ) {
+			$params['forwardCookies'] = $context->getRequest()->getHeader( 'Cookie' );
+		} else {
+			$params['forwardCookies'] = false;
 		}
 		// create the VRS object and return it
 		return new $class( $params );
