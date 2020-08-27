@@ -56,7 +56,7 @@
     "terser-webpack-plugin": "^3.0.6",
     "vue-cli-plugin-storybook": "^1.2.2",
     "vue-template-compiler": "^2.6.10",
-    "wikimedia-ui-base": "^0.16.0"
+    "wikimedia-ui-base": "^0.17.0"
   },
   "bundlesize": [
     {
