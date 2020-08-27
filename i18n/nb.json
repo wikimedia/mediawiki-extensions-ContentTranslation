@@ -361,5 +361,7 @@
 	"cx-sx-sentence-selector-translation-options-header-title": "Start med en annen oversettelse",
 	"cx-sx-sentence-selector-translation-options-header-text": "Velg oversettelsesalternativet for den nåværende og påfølgende setninger.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
-	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start med en tom setning"
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start med en tom setning",
+	"cx-sx-content-comparator-present-section-placeholder-title": "Oversettelsen din blir lagt til her",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Når du publiserer kan du bestemme om den skal erstatte eksisterende innhold i stedet."
 }
