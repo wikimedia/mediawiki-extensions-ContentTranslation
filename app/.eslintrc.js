@@ -3,7 +3,7 @@ module.exports = {
   globals: {
     mw: true
   },
-  extends: ["plugin:vue/recommended", "@vue/prettier"],
+  extends: ["plugin:vue/recommended", "@vue/prettier",   "plugin:cypress/recommended"],
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
@@ -11,6 +11,7 @@ module.exports = {
   parserOptions: {
     parser: "babel-eslint"
   },
+  plugins: ["cypress"],
   overrides: [
     {
       files: ["**/tests/unit/**/*.{j,t}s?(x)"],
