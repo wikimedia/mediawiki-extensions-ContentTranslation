@@ -20,6 +20,6 @@ Vue.use(i18n, {
 new Vue({
   store,
   router,
-  el: "#cxdashboard",
+  el: "#contenttranslation",
   render: h => h(App)
 });

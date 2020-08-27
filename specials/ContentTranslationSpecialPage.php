@@ -108,7 +108,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		if ( $this->isVueDashboard() ) {
 			$out->addHTML( Html::element(
 				'div',
-				[ 'id' => 'cxdashboard' ]
+				[ 'id' => 'contenttranslation' ]
 			) );
 		} else {
 			// Display notification tools from Echo extension and ULS.

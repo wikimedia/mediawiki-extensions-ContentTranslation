@@ -1,7 +1,7 @@
 <template>
-  <mw-grid id="cxdashboard">
+  <mw-grid id="contenttranslation">
     <cx-header />
-    <mw-row class="cxdashboard-container">
+    <mw-row class="cx-container">
       <mw-col cols="12">
         <transition :name="transitionName">
           <router-view />
@@ -17,7 +17,7 @@ import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
 import CxHeader from "./components/CXHeader";
 
 export default {
-  name: "CxDashboardApp",
+  name: "ContentTranslationApp",
   components: { MwGrid, MwCol, MwRow, CxHeader },
   data: () => ({
     transitionName: ""
