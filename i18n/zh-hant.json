@@ -357,5 +357,13 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "目前在$1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "在$1的章節",
 	"cx-sx-content-comparator-mapped-section-clarifications": "您的翻譯將會擴充現有的章節。<br />若章節各不相關，則放棄此操作。",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|每週有 $1 次訪問|每週有 $1 次訪問|0=本週沒有訪問}}"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|每週有 $1 次訪問|每週有 $1 次訪問|0=本週沒有訪問}}",
+	"cx-sx-content-comparator-discarded-section-clarifications": "您的翻譯將會以獨立的新章節發布。",
+	"cx-sx-content-comparator-discarded-section-label": "（捨棄）",
+	"cx-sx-sentence-selector-translation-options-header-title": "以不同翻譯開始",
+	"cx-sx-sentence-selector-translation-options-header-text": "挑選目前與後續句子的翻譯選項。",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "原始",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "以空句子開始。",
+	"cx-sx-content-comparator-present-section-placeholder-title": "您的翻譯會被添加於此",
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "當發佈時，您可以決定替換現有的內容。"
 }
