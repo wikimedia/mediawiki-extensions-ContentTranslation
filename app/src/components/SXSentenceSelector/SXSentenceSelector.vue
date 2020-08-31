@@ -58,6 +58,7 @@
         tag="section"
         shrink
         class="sx-sentence-selector__proposed-translation"
+        :class="{ bounce: proposedTranslationBounce }"
       >
         <sx-sentence-selector-proposed-translation-body
           :mt-provider="selectedProvider"
@@ -108,7 +109,8 @@ export default {
       selectedProvider: "",
       translation: null,
       translationOptionsActive: false,
-      sourceSectionTitle: this.$route.params.sourceSectionTitle
+      sourceSectionTitle: this.$route.params.sourceSectionTitle,
+      proposedTranslationBounce: false
     };
   },
   computed: {
@@ -159,6 +161,9 @@ export default {
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);
+    },
+    selectedSentenceIndex() {
+      return this.sentences.findIndex(sentence => sentence.selected);
     }
   },
   watch: {
@@ -192,6 +197,12 @@ export default {
     });
   },
   methods: {
+    bounceTranslation() {
+      this.proposedTranslationBounce = true;
+      setTimeout(() => {
+        this.proposedTranslationBounce = false;
+      }, 100);
+    },
     async translateSelectedSentence(provider) {
       this.$store.dispatch("mediawiki/translateSelectedSentence", {
         sourceLanguage: this.suggestion.sourceLanguage,
@@ -205,6 +216,9 @@ export default {
       this.$router.go(-1);
     },
     selectSentence(sentenceIndex) {
+      if (this.selectedSentenceIndex === sentenceIndex) {
+        this.bounceTranslation();
+      }
       this.$store.dispatch("mediawiki/selectSentenceForPageSection", {
         sourceLanguage: this.suggestion.sourceLanguage,
         sourceTitle: this.suggestion.sourceTitle,
@@ -271,6 +285,13 @@ export default {
     width: 100%;
     // TODO: Fix these with variables(?)
     box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .sx-sentence-selector__proposed-translation {
+    transition: margin-bottom 0.1s;
+    &.bounce {
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>
