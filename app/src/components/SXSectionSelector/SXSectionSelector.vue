@@ -3,12 +3,12 @@
     <sx-section-selector-header :suggestion="suggestion" @close="onClose" />
     <section class="sx-section-selector__body">
       <sx-article-language-selector />
-      <sx-section-selector-missing-sections
+      <sx-section-selector-section-list-missing
         :suggestion="suggestion"
         @select-section="selectSection"
         @close="onClose"
       />
-      <sx-section-selector-present-sections
+      <sx-section-selector-section-list-present
         :suggestion="suggestion"
         @select-section="selectSection"
       />
@@ -64,22 +64,22 @@ import autonymMixin from "@/mixins/autonym";
 import { mapState } from "vuex";
 
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
-import SxSectionSelectorMissingSections from "./SXSectionSelectorMissingSections";
-import SxSectionSelectorPresentSections from "./SXSectionSelectorPresentSections";
 import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem";
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
+import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
+import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 
 export default {
   name: "SxSectionSelector",
   components: {
+    SxSectionSelectorSectionListPresent,
+    SxSectionSelectorSectionListMissing,
     SxSectionSelectorHeader,
     SxSectionSelectorViewArticleItem,
     MwRow,
     MwCol,
     MwIcon,
-    SxArticleLanguageSelector,
-    SxSectionSelectorPresentSections,
-    SxSectionSelectorMissingSections
+    SxArticleLanguageSelector
   },
   mixins: [autonymMixin],
   data: () => ({

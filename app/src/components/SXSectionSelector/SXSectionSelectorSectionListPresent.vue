@@ -6,47 +6,33 @@
       ]"
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
-    <ul class="sx-section-selector__present-sections-list ma-0 pa-0">
-      <mw-row
-        v-for="(targetSection, sourceSection) in suggestion.presentSections"
-        :key="sourceSection"
-        tag="li"
-        class="ma-0"
-        @click="$emit('select-section', sourceSection)"
-      >
-        <mw-button
-          class="col justify-between items-center py-3 px-4"
-          :indicator="mwIconArrowForward"
-          type="text"
-          :outlined="false"
-        >
-          <div class="sx-section-selector__present-section-button-content">
-            <h5
-              class="sx-section-selector__present-section-button-source"
-              v-text="sourceSection"
-            />
-            <h6
-              class="sx-section-selector__present-section-button-target"
-              v-text="targetSection"
-            />
-          </div>
-        </mw-button>
-      </mw-row>
-    </ul>
+    <sx-section-selector-section-list :sections="suggestion.presentSections">
+      <template v-slot="{ sourceSection, targetSection }">
+        <div class="sx-section-selector__present-section-button-content">
+          <h5
+            class="sx-section-selector__present-section-button-source"
+            v-text="sourceSection"
+          />
+          <h6
+            class="sx-section-selector__present-section-button-target"
+            v-text="targetSection"
+          />
+        </div>
+      </template>
+    </sx-section-selector-section-list>
   </section>
 </template>
 
 <script>
-import { MwButton, MwRow } from "@/lib/mediawiki.ui";
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 import autonymMixin from "@/mixins/autonym";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList";
 
 export default {
-  name: "SxSectionSelectorPresentSections",
+  name: "SxSectionSelectorSectionListPresent",
   components: {
-    MwRow,
-    MwButton
+    SxSectionSelectorSectionList
   },
   mixins: [autonymMixin],
   props: {

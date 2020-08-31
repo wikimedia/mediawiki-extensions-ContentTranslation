@@ -62,7 +62,7 @@ import autonymMixin from "@/mixins/autonym";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
 export default {
-  name: "SxSectionSelectorMissingSections",
+  name: "SxSectionSelectorSectionListMissing",
   components: {
     MwRow,
     MwCol,
