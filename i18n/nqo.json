@@ -103,6 +103,7 @@
 	"cx-suggestionlist-favorite": "ߞߐߝߍ߬",
 	"cx-suggestionlist-title": "ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ ߟߎ߬",
 	"cx-suggestionlist-empty-title": "ߞߎ߲߬ߦߌ߬ߘߊ߬ߟߌ߬ ߕߴߦߋ߲߬ ߕߊ߲߬",
+	"cx-suggestionlist-featured": "ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬",
 	"cx-suggestionlist-view-source-page": "ߞߐߜߍ ߛߎ߲ ߦߋ߫",
 	"cx-create-new-translation": "ߘߟߊߡߌߘߊߟߌ߫ ߞߎߘߊ",
 	"cx-translation-filter-label-all-languages": "ߊ߬ ߓߍ߯",
@@ -115,6 +116,7 @@
 	"cx-contributions-new-contributions": "ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲߫ ߞߎߘߊ",
 	"cx-contributions-new-article": "ߞߐߜߍ߫ ߞߎߘߊ",
 	"cx-contributions-translation": "ߘߟߊߡߌߘߊߟߌ",
+	"cx-contributions-upload": "ߡߋߘߌߦߊ ߟߊߦߟߍ߬",
 	"cx-contributions-new-article-tooltip": "ߘߐߜߍ߫ ߞߎߘߊ߫ ߛߓߍ ߘߊߡߌ߬ߣߊ߬",
 	"cx-contributions-translation-tooltip": "ߛߋ߲߬ߠߊ߫ ߞߐߜߍ ߟߎ߬ ߘߟߊߡߌ߬ߘߊ߬",
 	"cx-contributions-upload-tooltip": "ߖߌ߬ߦߊ߬ߖߟߎ ߟߎ߬ ߟߊߦߟߍ߬߸ ߊ߬ ߣߌ߫ ߡߍ߲ߞߊ߲ ߣߌ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߟߎ߫ ߞߵߊ߬ ߟߊߓߊ߯ߙߊ߫ ߞߐߜߍ ߣߌ߲߬ ߠߊ߫.",
@@ -282,5 +284,13 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
 	"cx-sx-section-selector-unsupported-sections-title": "ߕߍߕߍ߯ ߟߊߘߤߊ߬ߓߊߟߌ",
 	"cx-sx-section-selector-unsupported-sections-description": "ߕߎ߬ߡߊ߬ߘߐ߫ ߕߍߕߍ߮ ߘߏ߫ ߟߎ߫ ߕߍ߫ ߣߊ߬ ߦߌ߬ߘߊ߬ ߟߊ߫ ߛߙߍߘߍ ߘߐ߫߸ ߓߊߏ߬ ߊ߬ߟߎ߬ ߦߙߌߞߊ ߟߊߘߌ߬ߢߍ߬ߣߍ߲߬ ߕߍ߫ ߡߎߣߎ߲߬.",
-	"cx-suggestion-list-new-pages-division": "ߞߐߜߍ߫ ߞߎߘߊ ߟߎ߬"
+	"cx-suggestion-list-new-pages-division": "ߞߐߜߍ߫ ߞߎߘߊ ߟߎ߬",
+	"cx-translation-list-all-languages-option-label": "ߊ߬ ߓߍ߯",
+	"cx-sx-content-comparator-back-to-sections-button-label": "ߌ ߞߐߛߊ߬ߦߌ߬ ߕߍߕߍ߮ ߓߍ߯ ߡߊ߬",
+	"cx-sx-content-comparator-translation-section-button-label": "ߕߍߕߍ߮ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬",
+	"cx-sx-content-comparator-review-contents-title": "ߞߣߐߘߐ ߟߎ߬ ߦߌ߬ߘߊ߬ ߞߊ߲߫ ߝߌ߬ߟߊ߬ ߘߐ߫.",
+	"cx-sx-content-comparator-review-contents-rest": "ߞߣߐߘߐ ߡߍ߲ ߦߋ߫ ߕߍߕߍ߮ ߓߊߕߐ߬ߡߐ߲߬ߣߍ߲ ߘߐ߫߸ ߕߎ߬ߡߊ߬ߘߐ߫ ߏ߬ ߘߌ߫ ߞߍ߫ ߕߊ߯ߦߙߐ߫ ߞߎߡߘߊ ߘߐ߫.",
+	"cx-sx-content-comparator-source-selector-title": "ߕߍߕߍ߮ ߡߍ߲ ߦߋ߫ $1 ߘߐ߫",
+	"sx-quick-tutorial-main-point-step-1": "ߕߍߕߍ߯ ߞߎߘߊ߫ ߘߟߊߡߌߘߊ ߣߐ߰ߡߊ߲߬ߓߊ ߟߋ߬߸ ߊ߬ ߞߊߟߌߡߊ߲߫߸ ߊ߬ ߣߴߊ߬ ߢߊߥߙߍ߫߹",
+	"sx-quick-tutorial-main-point-step-2": "ߌ ߟߐߕߊ߫ ߕߍߕߍ߮ ߘߐߥߙߊ߬ ߛߋ߲߬ߧߊ߬ ߞߋߟߋ߲߫."
 }

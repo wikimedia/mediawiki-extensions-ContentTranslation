@@ -337,5 +337,6 @@
 	"cx-sx-sentence-selector-done-button-label": "완료",
 	"cx-sx-sentence-selector-edit-translation-button-label": "번역 편집",
 	"cx-sx-sentence-selector-apply-translation-button-label": "적용",
-	"cx-sx-sentence-selector-skip-translation-button-label": "건너뛰기"
+	"cx-sx-sentence-selector-skip-translation-button-label": "건너뛰기",
+	"cx-sx-content-comparator-present-section-placeholder-title": "여기에 번역이 추가됩니다"
 }

@@ -25,11 +25,13 @@
 	"cx-campaign-contributionsmenu-mycontributions": "ኣበርክቶታት",
 	"cx-campaign-contributionsmenu-mytranslations": "ትርጉማት",
 	"echo-category-title-cx": "ትርጉማት",
+	"cx-tools-link-internal-link": "ገጻት ድለይ",
 	"cx-tools-link-apply": "ተወዲኡ",
 	"cx-personaltools-user": "ተጠቃሚ",
 	"cx-personaltools-anon": "ብመንነት ኣይኣተወን",
 	"cx-tools-linter-learn-more": "ተወሳኺ ፍለጥ",
 	"cx-tools-linter-restart-translation-cancel": "ኣትርፍ",
 	"cx-tools-mt-new-provider": "ሓድሽ",
-	"cx-publish-destination-namespace-main": "ሓድሽ ገጽ"
+	"cx-publish-destination-namespace-main": "ሓድሽ ገጽ",
+	"cx-sx-language-selector-dialog-title": "ቋንቋ ድለይ"
 }

@@ -158,7 +158,7 @@
 	"cx-publishing-dialog-title": "既存のページを上書きしますか？",
 	"cx-publishing-dialog-sub-title": "あなたの翻訳で現在のページを上書きします。ほんとうに現在の内容と入れ換えてよいかどうか、再度確認してください。",
 	"cx-publishing-with-issues-dialog-title": "問題を未解決のまま公開しますか？",
-	"cx-publishing-with-issues-dialog-message": "投稿を改善すると査読者の労力を減らすことができます。",
+	"cx-publishing-with-issues-dialog-message": "投稿を改善すると査読者の労力を減らせます。",
 	"cx-overwriting-with-issues": "問題が残ったままの内容で既存のページを上書きしようとしています。公開する前に問題点を修正してください。",
 	"cx-discard-translation": "翻訳を破棄する",
 	"cx-translation-status-draft": "進行中",
