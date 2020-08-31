@@ -59,60 +59,12 @@
         shrink
         class="sx-sentence-selector__proposed-translation"
       >
-        <div class="sx-sentence-selector__proposed-translation-body pa-5">
-          <mw-row
-            class="sx-sentence-selector__proposed-translation-header ma-0 pb-4"
-          >
-            <mw-col
-              tag="h6"
-              grow
-              class="sx-sentence-selector__proposed-translation-title pa-0 ma-0 pe-4"
-              v-text="mtOptionLabel"
-            />
-            <mw-col shrink>
-              <mw-button
-                :icon="mwIconEllipsis"
-                type="icon"
-                class="sx-sentence-selector__translation-more-options-button pa-0"
-                @click="configureTranslationOptions"
-              />
-            </mw-col>
-          </mw-row>
-          <div
-            class="sx-sentence-selector__proposed-translation-contents pb-4"
-            v-html="proposedSentenceTranslation"
-          />
-          <mw-button
-            :icon="mwIconEdit"
-            type="text"
-            :label="
-              $i18n('cx-sx-sentence-selector-edit-translation-button-label')
-            "
-            class="sx-sentence-selector__translation-edit-button pa-0"
-          />
-        </div>
-        <mw-row class="sx-sentence-selector__translation-action-buttons ma-0">
-          <mw-button
-            :icon="mwIconPrevious"
-            type="icon"
-            class="col shrink pa-4"
-          />
-          <mw-button
-            type="text"
-            :label="
-              $i18n('cx-sx-sentence-selector-apply-translation-button-label')
-            "
-            class="sx-sentence-selector__translation-apply-button col grow pa-4"
-          />
-          <mw-button
-            type="text"
-            :indicator="mwIconArrowForward"
-            :label="
-              $i18n('cx-sx-sentence-selector-skip-translation-button-label')
-            "
-            class="col shrink pa-4"
-          />
-        </mw-row>
+        <sx-sentence-selector-proposed-translation-body
+          :mt-provider="selectedProvider"
+          :translation="proposedSentenceTranslation"
+          @configure-options="configureTranslationOptions"
+        />
+        <sx-sentence-selector-action-buttons />
       </mw-col>
     </mw-row>
     <sx-translation-selector
@@ -130,19 +82,18 @@ import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowPrevious,
   mwIconLinkExternal,
-  mwIconEllipsis,
-  mwIconEdit,
-  mwIconPrevious,
-  mwIconArrowForward,
   mwIconClose
 } from "@/lib/mediawiki.ui/components/icons";
 
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import SxTranslationSelector from "@/components/SXSentenceSelector/SXTranslationSelector";
+import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState } from "vuex";
+import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
+import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 export default {
   name: "SxSentenceSelector",
   components: {
+    SxSentenceSelectorProposedTranslationBody,
+    SxSentenceSelectorActionButtons,
     MwRow,
     MwCol,
     SxTranslationSelector,
@@ -153,10 +104,6 @@ export default {
     return {
       mwIconArrowPrevious,
       mwIconLinkExternal,
-      mwIconEllipsis,
-      mwIconEdit,
-      mwIconPrevious,
-      mwIconArrowForward,
       mwIconClose,
       selectedProvider: "",
       translation: null,
@@ -175,7 +122,9 @@ export default {
       );
     },
     proposedSentenceTranslation() {
-      return this.selectedSentence.proposedTranslations[this.selectedProvider];
+      return (
+        this.selectedSentence.proposedTranslations[this.selectedProvider] || ""
+      );
     },
     sentences() {
       return this.currentPageSection.sentences;
@@ -210,28 +159,6 @@ export default {
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);
-    },
-    mtOptionLabel() {
-      if (
-        Object.keys(this.extraMTOptionLabels).includes(this.selectedProvider)
-      ) {
-        return this.extraMTOptionLabels[this.selectedProvider];
-      }
-
-      return this.$i18n(
-        "cx-sx-sentence-selector-proposed-translation-title",
-        this.selectedProvider
-      );
-    },
-    extraMTOptionLabels() {
-      return {
-        [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.$i18n(
-          "cx-sx-sentence-selector-translation-options-original-card-title"
-        ),
-        [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: this.$i18n(
-          "cx-sx-sentence-selector-translation-options-empty-card-title"
-        )
-      };
     }
   },
   watch: {
@@ -344,32 +271,6 @@ export default {
     width: 100%;
     // TODO: Fix these with variables(?)
     box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
-    .sx-sentence-selector__proposed-translation-title {
-      // TODO: Fix this to be base20 (currently base30)
-      color: @color-base--subtle;
-    }
-    .sx-sentence-selector__translation-more-options-button {
-      color: @color-base--subtle;
-    }
-    .sx-sentence-selector__proposed-translation-contents {
-      color: @color-base;
-    }
-    .sx-sentence-selector__translation-edit-button {
-      color: @color-primary;
-    }
-    .sx-sentence-selector__translation-action-buttons {
-      border-top: @border-style-base @border-width-base
-        @border-color-base--disabled;
-      button {
-        // Icon and text buttons have a minimum width of 0. Not sure if there is any reason for that rule or we can remove it.
-        min-width: max-content;
-        &.sx-sentence-selector__translation-apply-button {
-          // TODO: Fix these to be base80. Currently base70.
-          border-left: @border-style-base @border-width-base @wmui-color-base80;
-          border-right: @border-style-base @border-width-base @wmui-color-base80;
-        }
-      }
-    }
   }
 }
 </style>
