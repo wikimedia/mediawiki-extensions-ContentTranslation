@@ -292,5 +292,11 @@
 	"cx-sx-content-comparator-review-contents-rest": "ߞߣߐߘߐ ߡߍ߲ ߦߋ߫ ߕߍߕߍ߮ ߓߊߕߐ߬ߡߐ߲߬ߣߍ߲ ߘߐ߫߸ ߕߎ߬ߡߊ߬ߘߐ߫ ߏ߬ ߘߌ߫ ߞߍ߫ ߕߊ߯ߦߙߐ߫ ߞߎߡߘߊ ߘߐ߫.",
 	"cx-sx-content-comparator-source-selector-title": "ߕߍߕߍ߮ ߡߍ߲ ߦߋ߫ $1 ߘߐ߫",
 	"sx-quick-tutorial-main-point-step-1": "ߕߍߕߍ߯ ߞߎߘߊ߫ ߘߟߊߡߌߘߊ ߣߐ߰ߡߊ߲߬ߓߊ ߟߋ߬߸ ߊ߬ ߞߊߟߌߡߊ߲߫߸ ߊ߬ ߣߴߊ߬ ߢߊߥߙߍ߫߹",
-	"sx-quick-tutorial-main-point-step-2": "ߌ ߟߐߕߊ߫ ߕߍߕߍ߮ ߘߐߥߙߊ߬ ߛߋ߲߬ߧߊ߬ ߞߋߟߋ߲߫."
+	"sx-quick-tutorial-main-point-step-2": "ߌ ߟߐߕߊ߫ ߕߍߕߍ߮ ߘߐߥߙߊ߬ ߛߋ߲߬ߧߊ߬ ߞߋߟߋ߲߫.",
+	"sx-quick-tutorial-translate-button-label": "ߘߟߊߡߌߘߊߟߌ ߘߊߡߌ߬ߣߊ߬",
+	"cx-sx-sentence-selector-header-title": "ߕߍߕߍ߮ ߘߟߊߡߌ߬ߘߊ߬",
+	"cx-sx-sentence-selector-done-button-label": "ߊ߬ ߓߘߊ߫ ߞߍ߫",
+	"cx-sx-sentence-selector-edit-translation-button-label": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߡߊߦߟߍ߬ߡߊ߲߫",
+	"cx-sx-sentence-selector-skip-translation-button-label": "ߊ߬ ߟߊߜߊ߲߫",
+	"cx-sx-content-comparator-target-selector-full-article-title": "ߞߎߡߘߊ ߘߝߊߣߍ߲ $1 ߘߐ߫"
 }

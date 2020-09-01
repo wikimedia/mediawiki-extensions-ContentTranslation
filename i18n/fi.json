@@ -196,7 +196,7 @@
 	"echo-pref-tooltip-cx": "Ilmoita minulle käännöksistäni, jotka on luotu Sisällön kääntäminen -työkalulla.",
 	"cx-notification-deleted-draft": "Käännöksesi sivusta <strong>$1</strong> on poistettu, koska sen sisältö oli yli vuoden vanhaa. Aloita uusi käännös tuoreella sisällöllä milloin vain.",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 käännöstä}} poistettiin, koska niiden sisältö oli yli vuoden vanhaa. Aloita ne tuoreella sisällöllä milloin tahansa.",
-	"cx-contributions-link": "Muokkauksesi",
+	"cx-contributions-link": "Omat muokkaukset",
 	"cx-your-translations-link": "{{GENDER:$1|Käännöksesi}}",
 	"cx-translationlist-empty-title": "Ei mitään käännettävää?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Aloita}} käännöksesi nyt ja jatka sitä milloin vain.",
