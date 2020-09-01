@@ -7,6 +7,7 @@
       :discarded-sections.sync="discardedSections"
       :is-missing-section="isCurrentSectionMissing"
       :section-source-titles="sectionSourceTitles"
+      @translation-button-clicked="translateSection"
       @close="close"
     />
     <sx-content-comparator-content-header
