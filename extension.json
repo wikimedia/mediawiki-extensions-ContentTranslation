@@ -415,7 +415,8 @@
 				"cx-sx-sentence-selector-translation-options-original-card-title",
 				"cx-sx-sentence-selector-translation-options-empty-card-title",
 				"cx-sx-content-comparator-present-section-placeholder-title",
-				"cx-sx-content-comparator-present-section-placeholder-subtitle"
+				"cx-sx-content-comparator-present-section-placeholder-subtitle",
+				"cx-sx-content-comparator-content-header-translate-button-label"
 			],
 			"noflip": true
 		},

@@ -377,5 +377,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Title of card with original sentence inside translation options of sentence selector component",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Title of card with empty sentence inside translation options of sentence selector component",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Title for the placeholder where the new section will be added inside the existing section in target language, in the screen where translators compare source and target section contents for an article existing in both languages.",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Subtitle for the placeholder where the new section will be added inside the existing section in target language, in the screen where translators compare source and target section contents for an article existing in both languages."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Subtitle for the placeholder where the new section will be added inside the existing section in target language, in the screen where translators compare source and target section contents for an article existing in both languages.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Label for translation button that appears when content header becomes sticky inside screen where user can compare the contents of source/target sections."
 }

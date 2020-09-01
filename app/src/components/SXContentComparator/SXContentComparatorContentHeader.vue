@@ -1,5 +1,11 @@
 <template>
-  <mw-row direction="column" align="stretch" class="ma-0">
+  <mw-row
+    ref="contentHeader"
+    class="sx-content-comparator__content-header ma-0 pt-1"
+    direction="column"
+    align="stretch"
+    :class="{ sticky: isSticky }"
+  >
     <div class="sx-content-comparator__source-target-selector">
       <mw-button-group
         :items="listSelector"
@@ -9,14 +15,26 @@
     </div>
     <mw-row
       justify="between"
-      class="sx-content-comparator__content-header mx-4 my-0 pt-4 pb-2"
+      class="sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
     >
       <mw-col>
         <h3 v-text="activeContentTitle" />
       </mw-col>
       <mw-col shrink>
         <mw-button
-          class="pa-0 pe-2"
+          v-if="isSticky"
+          :icon="mwIconEdit"
+          :progressive="true"
+          :label="
+            $i18n(
+              'cx-sx-content-comparator-content-header-translate-button-label'
+            )
+          "
+          @click="$emit('translation-button-clicked')"
+        />
+        <mw-button
+          v-else
+          class="sx-content-comparator__open-content-link-button pa-0 pe-2"
           :icon="mwIconLinkExternal"
           type="icon"
           :href="activeContentPath"
@@ -31,7 +49,10 @@
 import { MwRow, MwCol, MwButton, MwButtonGroup } from "@/lib/mediawiki.ui";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import autonymMixin from "@/mixins/autonym";
-import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
+import {
+  mwIconEdit,
+  mwIconLinkExternal
+} from "@/lib/mediawiki.ui/components/icons";
 export default {
   name: "SxContentComparatorContentHeader",
   components: {
@@ -72,7 +93,9 @@ export default {
     }
   },
   data: () => ({
-    mwIconLinkExternal
+    mwIconLinkExternal,
+    mwIconEdit,
+    isSticky: false
   }),
   computed: {
     activeContentTitle() {
@@ -139,6 +162,14 @@ export default {
       return [sourceSelectorItem, targetSelectorItem];
     }
   },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([e]) => (this.isSticky = e.intersectionRatio < 1),
+      { threshold: [1] }
+    );
+
+    observer.observe(this.$refs.contentHeader.$el);
+  },
   methods: {
     updateSelection(selection) {
       this.$emit("update:sourceVsTargetSelection", selection);
@@ -149,18 +180,35 @@ export default {
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-.sx-content-comparator__source-target-selector {
-  .mw-ui-button-group {
-    background: @background-color-framed;
-    color: @color-base;
-  }
-}
 .sx-content-comparator__content-header {
-  // Not border style defined in specifications
-  border-bottom: @border-style-base @border-width-base
-    @border-color-base--disabled;
-  .mw-ui-icon {
-    color: @color-base--subtle;
+  .sx-content-comparator__content-header-title {
+    // No border style defined in specifications
+    border-bottom: @border-style-base @border-width-base
+      @border-color-base--disabled;
+    .mw-ui-icon.sx-content-comparator__open-content-link-button {
+      color: @color-base--subtle;
+    }
+  }
+  &.sticky {
+    position: sticky;
+    top: -4px;
+    flex-flow: column-reverse;
+    background-color: @background-color-base;
+    box-shadow: @box-shadow-card;
+    .sx-content-comparator__content-header-title {
+      border-bottom: none;
+    }
+  }
+  .sx-content-comparator__source-target-selector {
+    // Color should be base80
+    border-top: @border-style-base @border-width-base
+      @border-color-base--disabled;
+    border-bottom: @border-style-base @border-width-base
+      @border-color-base--disabled;
+    .mw-ui-button-group {
+      background: @background-color-framed;
+      color: @color-base;
+    }
   }
 }
 </style>

@@ -11,6 +11,7 @@
       @close="close"
     />
     <sx-content-comparator-content-header
+      ref="contentHeader"
       :source-vs-target-selection.sync="sourceVsTargetSelection"
       :suggestion="suggestion"
       :is-mapped-section="isCurrentSectionMapped"
@@ -18,30 +19,29 @@
       :target-section-title="activeSectionTargetTitle"
       :source-section-anchor="sourceSectionAnchor"
       :target-section-anchor="targetSectionAnchor"
+      @translation-button-clicked="translateSection"
     />
-    <section
-      v-if="sourceVsTargetSelection === 'source_section'"
-      class="sx-content-comparator__source-content px-4"
-    >
-      <section class="pt-2" v-html="sourceSectionContent" />
-    </section>
-    <section
-      v-else-if="sourceVsTargetSelection === 'target_article'"
-      class="sx-content-comparator__source-content px-4"
-    >
-      <mw-spinner v-if="!targetPageContent" />
-      <article v-html="targetPageContent" />
-    </section>
-    <section v-else class="sx-content-comparator__source-content px-4">
-      <section class="pa-4" v-html="targetSectionContent" />
-      <section
-        class="sx-content-comparator__new-section-placeholder--present pa-4 px-7"
-      >
-        <h5 v-i18n:cx-sx-content-comparator-present-section-placeholder-title />
-        <p
-          v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle
-        />
-      </section>
+    <section class="sx-content-comparator__source-content px-4">
+      <template v-if="sourceVsTargetSelection === 'source_section'">
+        <section class="pt-2" v-html="sourceSectionContent" />
+      </template>
+      <template v-else-if="sourceVsTargetSelection === 'target_article'">
+        <mw-spinner v-if="!targetPageContent" />
+        <article v-html="targetPageContent" />
+      </template>
+      <template v-else>
+        <section class="pa-4" v-html="targetSectionContent" />
+        <section
+          class="sx-content-comparator__new-section-placeholder--present pa-4 px-7"
+        >
+          <h5
+            v-i18n:cx-sx-content-comparator-present-section-placeholder-title
+          />
+          <p
+            v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle
+          />
+        </section>
+      </template>
     </section>
   </section>
 </template>
