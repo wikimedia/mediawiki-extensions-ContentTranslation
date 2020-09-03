@@ -28,7 +28,7 @@ mw.cx.ui.CategoryInputWidget = function CategoryInputWidget( categoryWidget, con
 
 	// Parent constructor
 	mw.cx.ui.CategoryInputWidget.super.call( this, categoryWidget, $.extend( {
-		api: siteMapper.getApi( targetLanguage )
+		api: siteMapper.getApi( targetLanguage, { parameters: { formatversion: 2 } } )
 	}, config.input ) );
 
 	requestManager.getNamespaceAlias( targetLanguage, 'Category' ).done( function ( prefix ) {
