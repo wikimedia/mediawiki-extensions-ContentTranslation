@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Elliot",
 			"Geitost",
 			"Inkowik",
 			"Kghbln",
@@ -362,5 +363,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Beginne mit einem leeren Satz",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Deine Übersetzung wird hier hinzugefügt",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Bei der Veröffentlichung kannst du entscheiden, stattdessen die vorhandenen Inhalte zu ersetzen."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Bei der Veröffentlichung kannst du entscheiden, stattdessen die vorhandenen Inhalte zu ersetzen.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Übersetze"
 }

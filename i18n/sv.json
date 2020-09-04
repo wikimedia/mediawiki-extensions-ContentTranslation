@@ -369,5 +369,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Börja med en tom mening",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Din översättning kommer att läggas till här",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "När du publicerar kan du istället välja att ersätta de befintliga innehållen."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "När du publicerar kan du istället välja att ersätta de befintliga innehållen.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Översätt"
 }

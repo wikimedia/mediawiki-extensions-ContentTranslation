@@ -4,6 +4,7 @@
 			"Aursani",
 			"Indus Asia",
 			"JogiAsad",
+			"Kaleem Bhatti",
 			"Mehtab ahmed",
 			"Sindhu"
 		]
@@ -219,5 +220,6 @@
 	"cx-linkcontextitem-missing-link-title": "کٽل ڳنڍڻو",
 	"cx-linkcontextitem-missing-title-description": "اڃا اهو صفحو وجود نہ ٿو رکي",
 	"cx-unreviewed-translation-category": "اڻ نظرثاني ٿيل ترجمن سان صفحا",
-	"cx-feature-discovery-dismiss": "ٺيڪ، سمجھي ويس"
+	"cx-feature-discovery-dismiss": "ٺيڪ، سمجھي ويس",
+	"cx-sx-content-comparator-content-header-translate-button-label": "ترجمو ڪريو"
 }

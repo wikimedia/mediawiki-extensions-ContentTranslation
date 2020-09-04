@@ -288,5 +288,6 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Secciones no admitidas",
 	"cx-suggestion-list-new-pages-division": "Páginas nuevas",
 	"cx-sx-content-comparator-translation-section-button-label": "Traducir esta sección",
-	"cx-sx-content-comparator-review-contents-title": "Revisa el contenido en ambos idiomas"
+	"cx-sx-content-comparator-review-contents-title": "Revisa el contenido en ambos idiomas",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Traducir"
 }
