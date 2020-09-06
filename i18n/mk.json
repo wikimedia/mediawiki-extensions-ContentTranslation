@@ -354,5 +354,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Изворно",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Започни со празна реченица",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Вашиот превод ќе биде додаден тука",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Кога објавувате, можете се решите за замена на постоечките содржини."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Кога објавувате, можете се решите за замена на постоечките содржини.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Преведи"
 }

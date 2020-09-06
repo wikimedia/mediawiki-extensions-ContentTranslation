@@ -376,5 +376,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Orijinal",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Boş bir cümleyle başlayın",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Çeviriniz buraya eklenecek",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Yayımlarken bunun yerine mevcut içerikleri değiştirmeye karar verebilirsiniz."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Yayımlarken bunun yerine mevcut içerikleri değiştirmeye karar verebilirsiniz.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Çevir"
 }

@@ -297,5 +297,6 @@
 	"cx-sx-sentence-selector-done-button-label": "Fatto",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Modifica traduzione",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Applica",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Salta"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Salta",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Traduci"
 }

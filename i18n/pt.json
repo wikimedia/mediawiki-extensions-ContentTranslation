@@ -47,7 +47,7 @@
 	"cx-lost-session-draft": "A sua sessão expirou. As suas edições não podem ser gravadas, a menos que inicie sessão novamente noutra janela.",
 	"cx-lost-session-publish": "A sua sessão expirou. Não pode publicar a tradução, a menos que inicie sessão novamente noutra janela.",
 	"cx-lost-session-dashboard": "Para realizar esta ação autentique-se novamente, por favor.",
-	"cx-publish-summary": "Criado ao traduzir a página \"$1\"",
+	"cx-publish-summary": "Criada por tradução da página \"$1\"",
 	"cx-translation-add-translation": "Adicionar tradução",
 	"cx-translation-target-page-exists": "Já existe na wiki uma página com o título [$1 $2]. Considere dar um título diferente à página.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
@@ -365,5 +365,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Começar com uma frase vazia",
 	"cx-sx-content-comparator-present-section-placeholder-title": "A sua tradução será acrescentada aqui",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Ao publicar pode decidir substituir antes o conteúdo existente."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Ao publicar pode decidir substituir antes o conteúdo existente.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Traduzir"
 }
