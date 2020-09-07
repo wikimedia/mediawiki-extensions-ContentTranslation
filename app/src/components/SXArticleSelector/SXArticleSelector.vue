@@ -1,80 +1,15 @@
 <template>
   <section class="sx-article-selector">
-    <mw-row
-      class="sx-article-selector__header ma-0 pa-2"
-      align="stretch"
-      justify="start"
-    >
-      <mw-col shrink class="pe-2">
-        <mw-thumbnail
-          class="sx-article-selector__header-thumbnail"
-          :thumbnail="sourceArticleThumbnail"
-          :icon-size="48"
-        />
-      </mw-col>
-      <mw-col>
-        <mw-row
-          direction="column"
-          justify="between"
-          align="start"
-          class="sx-article-selector__header-title ma-0"
-        >
-          <mw-col tag="h5" class="pa-0 ma-0" v-text="sourceTitle" />
-          <mw-col
-            tag="p"
-            shrink
-            class="complementary sx-article-selector__stats ma-0"
-          >
-            <span class="pe-3">
-              <mw-icon :icon="mwIconLanguage" />
-              {{ langLinksCount }}
-            </span>
-            <span v-i18n:cx-sx-article-selector-views-count="[weeklyViews]" />
-          </mw-col>
-        </mw-row>
-      </mw-col>
-      <mw-col shrink align="start">
-        <mw-button
-          class="pa-0"
-          type="icon"
-          :large="true"
-          :icon="mwIconBookmarkOutline"
-        />
-        <mw-button
-          class="pa-0"
-          type="icon"
-          :large="true"
-          :icon="mwIconClose"
-          @click="onClose()"
-        />
-      </mw-col>
-    </mw-row>
+    <sx-article-selector-header
+      :section-suggestion="currentSectionSuggestion"
+      :source-article="sourceArticle"
+      @close="onClose"
+    />
     <section class="sx-article-selector__body">
       <sx-article-language-selector />
-      <mw-row
-        v-if="translationExists"
-        class="sx-article-selector__translation-status pa-4 ma-0"
-        justify="between"
-      >
-        <!-- Font weight bold -->
-        <mw-col
-          v-i18n:cx-sx-existing-translation-status="[targetLanguageAutonym]"
-        />
-        <mw-col shrink>
-          <a v-i18n:cx-sx-view-translation-anchor href="#" />
-        </mw-col>
-      </mw-row>
-      <mw-row v-if="translationExists" class="pa-4 pb-0 ma-0">
-        <mw-col>
-          <span
-            v-i18n:cx-sx-existing-translation-additional-info="[
-              targetLanguageAutonym
-            ]"
-          />
-          &nbsp;
-          <a v-i18n:cx-sx-existing-translation-learn-more href="#" />
-        </mw-col>
-      </mw-row>
+      <sx-article-selector-existing-translation-banner
+        :section-suggestion="currentSectionSuggestion"
+      />
       <mw-row class="sx-article-selector__action pt-4 pb-3" justify="center">
         <mw-button
           :large="true"
@@ -105,39 +40,28 @@
 
 <script>
 import { mapState } from "vuex";
-import {
-  MwButton,
-  MwIcon,
-  MwThumbnail,
-  MwRow,
-  MwCol
-} from "@/lib/mediawiki.ui";
+import { MwButton, MwRow } from "@/lib/mediawiki.ui";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import {
-  mwIconClose,
   mwIconExpand,
-  mwIconLanguage,
-  mwIconBookmarkOutline,
   mwIconArrowNext
 } from "@/lib/mediawiki.ui/components/icons";
-import autonymMixin from "../../mixins/autonym";
+import autonymMixin from "@/mixins/autonym";
+import SxArticleSelectorHeader from "@/components/SXArticleSelector/SXArticleSelectorHeader";
+import SxArticleSelectorExistingTranslationBanner from "@/components/SXArticleSelector/ExistingTranslationBanner";
 
 export default {
   name: "SxArticleSelector",
   components: {
+    SxArticleSelectorExistingTranslationBanner,
+    SxArticleSelectorHeader,
     MwRow,
-    MwCol,
-    MwIcon,
-    MwThumbnail,
     SxArticleLanguageSelector,
     MwButton
   },
   mixins: [autonymMixin],
   data: () => ({
-    mwIconClose,
     mwIconExpand,
-    mwIconLanguage,
-    mwIconBookmarkOutline,
     mwIconArrowNext
   }),
   computed: {
@@ -156,9 +80,6 @@ export default {
     translationExists() {
       return this.currentSectionSuggestion?.presentSectionsCount;
     },
-    langLinksCount() {
-      return this.sourceArticle?.langLinksCount;
-    },
     sourceArticle() {
       return this.$store.getters["mediawiki/getPage"](
         this.sourceLanguage,
@@ -176,16 +97,6 @@ export default {
     },
     missingSectionsCount() {
       return this.currentSectionSuggestion?.missingSectionsCount;
-    },
-    sourceArticleThumbnail() {
-      return this.sourceArticle?.thumbnail;
-    },
-    weeklyViews() {
-      const pageViews = this.sourceArticle?.pageviews || {};
-      return Object.values(pageViews).reduce(
-        (sum, dayViews) => sum + dayViews,
-        0
-      );
     }
   },
   mounted: function() {
@@ -238,10 +149,6 @@ export default {
       // TODO: Fix this to be @base20 color - currently base30
       color: @color-base--subtle;
     }
-  }
-
-  .sx-article-selector__translation-status {
-    background-color: @background-color-warning--framed;
   }
 
   .sx-article-selector__license {
