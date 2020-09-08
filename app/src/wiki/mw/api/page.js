@@ -1,7 +1,7 @@
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
-import PageSection from "@/wiki/cx/models/pageSection";
-import segmentedContentConverter from "@/utils/segmentedContentConverter";
+import PageSection from "../../../wiki/cx/models/pageSection";
+import segmentedContentConverter from "../../../utils/segmentedContentConverter";
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects

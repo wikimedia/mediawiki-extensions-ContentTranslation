@@ -34,7 +34,7 @@ const html = `
 `;
 
 import segmentedContentConverter from "./segmentedContentConverter";
-import PageSection from "@/wiki/cx/models/pageSection";
+import PageSection from "../wiki/cx/models/pageSection";
 
 describe("SegmentedContentConverter test", () => {
   it("convertSegmentedContentToPageSections method creates and returns expected array of pageSection models", () => {

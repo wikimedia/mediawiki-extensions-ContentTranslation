@@ -1,5 +1,5 @@
-import PageSection from "@/wiki/cx/models/pageSection";
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import PageSection from "../wiki/cx/models/pageSection";
+import SectionSentence from "../wiki/cx/models/sectionSentence";
 
 /**
  * This function receives html segmented content as it is returned
