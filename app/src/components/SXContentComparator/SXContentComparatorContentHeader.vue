@@ -49,6 +49,8 @@
 import { MwRow, MwCol, MwButton, MwButtonGroup } from "@/lib/mediawiki.ui";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import autonymMixin from "@/mixins/autonym";
+const sitemapper = new mw.cx.SiteMapper();
+
 import {
   mwIconEdit,
   mwIconLinkExternal
@@ -111,7 +113,10 @@ export default {
     activeContentPath() {
       switch (this.sourceVsTargetSelection) {
         case "source_section":
-          return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}#${this.sourceSectionAnchor}`;
+          return `${sitemapper.getPageUrl(
+            this.suggestion.sourceLanguage,
+            this.suggestion.sourceTitle
+          )}#${this.sourceSectionAnchor}`;
         case "target_article":
           return this.targetArticlePath;
         default:
@@ -119,7 +124,10 @@ export default {
       }
     },
     targetArticlePath() {
-      return `https://${this.suggestion.targetLanguage}.wikipedia.org/wiki/${this.suggestion.targetTitle}`;
+      return sitemapper.getPageUrl(
+        this.suggestion.targetLanguage,
+        this.suggestion.targetTitle
+      );
     },
     listSelector() {
       const sourceSelectorItem = {

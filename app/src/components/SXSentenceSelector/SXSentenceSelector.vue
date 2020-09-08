@@ -91,6 +91,8 @@ import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState } from "vuex";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
+const sitemapper = new mw.cx.SiteMapper();
+
 export default {
   name: "SxSentenceSelector",
   components: {
@@ -154,7 +156,10 @@ export default {
       );
     },
     sourceArticlePath() {
-      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}`;
+      return sitemapper.getPageUrl(
+        this.suggestion.sourceLanguage,
+        this.suggestion.sourceTitle
+      );
     },
     selectedSentence() {
       return this.sentences.find(sentence => sentence.selected);

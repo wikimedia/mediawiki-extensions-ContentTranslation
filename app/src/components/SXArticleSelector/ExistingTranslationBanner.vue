@@ -30,6 +30,7 @@
 import { MwCol, MwRow } from "@/lib/mediawiki.ui";
 import autonymMixin from "@/mixins/autonym";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+const sitemapper = new mw.cx.SiteMapper();
 
 export default {
   name: "SxArticleSelectorExistingTranslationBanner",
@@ -46,7 +47,10 @@ export default {
   },
   computed: {
     targetArticlePath() {
-      return `https://${this.sectionSuggestion.targetLanguage}.wikipedia.org/wiki/${this.sectionSuggestion?.targetTitle}`;
+      return sitemapper.getPageUrl(
+        this.sectionSuggestion.targetLanguage,
+        this.sectionSuggestion.targetTitle
+      );
     },
     targetLanguageAutonym() {
       return this.getAutonym(this.sectionSuggestion.targetLanguage);

@@ -68,6 +68,7 @@ import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
+const sitemapper = new mw.cx.SiteMapper();
 
 export default {
   name: "SxSectionSelector",
@@ -97,10 +98,16 @@ export default {
       return this.getAutonym(this.suggestion.targetLanguage);
     },
     sourceArticlePath() {
-      return `https://${this.suggestion.sourceLanguage}.wikipedia.org/wiki/${this.suggestion.sourceTitle}`;
+      return sitemapper.getPageUrl(
+        this.suggestion.sourceLanguage,
+        this.suggestion.sourceTitle
+      );
     },
     targetArticlePath() {
-      return `https://${this.suggestion.targetLanguage}.wikipedia.org/wiki/${this.suggestion.targetTitle}`;
+      return sitemapper.getPageUrl(
+        this.suggestion.targetLanguage,
+        this.suggestion.targetTitle
+      );
     },
     viewArticleItems() {
       return [

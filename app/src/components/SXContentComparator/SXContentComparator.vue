@@ -71,10 +71,10 @@ export default {
       suggestion: state => state.suggestions.currentSectionSuggestion
     }),
     sourceSectionAnchor() {
-      return this.sourceSection?.anchor || "";
+      return (this.sourceSection?.title || "").replace(/ /g, "_");
     },
     targetSectionAnchor() {
-      return this.targetSection?.anchor || "";
+      return (this.targetSection?.title || "").replace(/ /g, "_");
     },
     /**
      * @return {PageSection[]}
