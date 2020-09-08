@@ -161,8 +161,9 @@ export default {
       immediate: true,
       handler: function() {
         this.$store.dispatch("mediawiki/fetchPageContent", {
-          language: this.suggestion.targetLanguage,
-          title: this.targetTitle
+          sourceLanguage: this.suggestion.targetLanguage,
+          targetLanguage: this.suggestion.sourceLanguage,
+          sourceTitle: this.targetTitle
         });
       }
     }

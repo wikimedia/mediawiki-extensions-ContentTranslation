@@ -4,6 +4,8 @@ import Language from "../../wiki/mw/models/language";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 import translatorApi from "../../wiki/cx/api/translator";
 import Vue from "vue";
+import Page from "../../wiki/mw/models/page";
+
 const state = {
   /** @type {Page[]} */
   pages: [],
@@ -129,12 +131,18 @@ const actions = {
       commit("setSupportedLanguageCodes", languageCodes);
     });
   },
-  async fetchPageContent({ commit, getters, dispatch }, { language, title }) {
-    let page = getters.getPage(language, title);
-
+  async fetchPageContent(
+    { commit, getters, dispatch },
+    { sourceLanguage, targetLanguage, sourceTitle }
+  ) {
+    let page = getters.getPage(sourceLanguage, sourceTitle);
     if (!page) {
-      await dispatch("fetchPageMetadata", { language, titles: [title] });
-      page = getters.getPage(language, title);
+      page = await pageApi.fetchPageContent(
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle
+      );
+      commit("addPage", page);
     }
 
     if (page.content) {
@@ -142,8 +150,10 @@ const actions = {
     }
 
     pageApi
-      .fetchPageContent(language, title)
-      .then(content => (page.content = content));
+      .fetchPageContent(sourceLanguage, targetLanguage, sourceTitle)
+      .then(
+        /** @type Page */ responsePage => (page.content = responsePage.content)
+      );
   },
   async fetchPageSections(
     { getters, commit },

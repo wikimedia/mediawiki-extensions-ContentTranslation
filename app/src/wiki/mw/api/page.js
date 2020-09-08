@@ -82,28 +82,30 @@ function fetchLanguageTitles(language, title) {
 }
 
 /**
- * Fetches content for a given page and returns a promise that resolves to
- * a string containing the page content (or null if page not found)
- * @param {String} language
- * @param {String} title
- * @returns {Promise<String|null>}
+ * Fetches segmented content of a page for given source language,
+ * target language and source title. It returns a promise that
+ * resolves to a Page object with sections and content properties set.
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String} sourceTitle
+ * @returns {Promise<Page>}
  */
-function fetchPageContent(language, title) {
-  const params = {
-    action: "parse",
-    format: "json",
-    formatversion: 2,
-    prop: "text",
-    page: title,
-    origin: "*",
-    redirects: true
-  };
-  const sitemapper = new mw.cx.SiteMapper();
-  const mwApi = sitemapper.getApi(language);
-  return mwApi
-    .get(params)
-    .then(response => response.parse.text)
-    .catch(error => null);
+function fetchPageContent(sourceLanguage, targetLanguage, sourceTitle) {
+  return fetchSegmentedContent(
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle
+  ).then(
+    segmentedContent =>
+      new Page({
+        sections: segmentedContentConverter.convertSegmentedContentToPageSections(
+          segmentedContent
+        ),
+        content: segmentedContent,
+        pagelanguage: sourceLanguage,
+        title: sourceTitle
+      })
+  );
 }
 
 /**
@@ -116,20 +118,35 @@ function fetchPageContent(language, title) {
  * @returns {Promise<PageSection[]>}
  */
 function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
+  return fetchSegmentedContent(
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle
+  ).then(segmentedContent =>
+    segmentedContentConverter.convertSegmentedContentToPageSections(
+      segmentedContent
+    )
+  );
+}
+
+/**
+ * Fetches segmented content of a page for given source language,
+ * target language and source title.
+ * @param sourceLanguage
+ * @param targetLanguage
+ * @param sourceTitle
+ * @return {Promise<String>}
+ */
+const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
   const sitemapper = new mw.cx.SiteMapper();
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
   const cxserverAPI = sitemapper.getCXServerUrl(
     `/page/${sourceLanguage}/${targetLanguage}/${sourceTitle}`
   );
-
   return fetch(cxserverAPI)
     .then(response => response.json())
-    .then(response =>
-      segmentedContentConverter.convertSegmentedContentToPageSections(
-        response.segmentedContent
-      )
-    );
-}
+    .then(response => response.segmentedContent);
+};
 
 export default {
   fetchPages,
