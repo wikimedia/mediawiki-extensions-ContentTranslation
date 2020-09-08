@@ -325,5 +325,6 @@
 	"cx-sx-section-selector-automatic-section-matching-description": "Разделы были подобраны автоматически, и результаты могут быть не точны.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Узнать больше",
 	"cx-sx-section-selector-unsupported-sections-title": "Неподтверждённые разделы",
-	"cx-sx-section-selector-unsupported-sections-description": "Некоторые разделы могут не отображаться в данном списке, так как их содержимое пока не подтверждено."
+	"cx-sx-section-selector-unsupported-sections-description": "Некоторые разделы могут не отображаться в данном списке, так как их содержимое пока не подтверждено.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Перевести"
 }
