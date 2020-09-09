@@ -363,5 +363,6 @@
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Start med en tom setning",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Oversettelsen din blir lagt til her",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Når du publiserer kan du bestemme om den skal erstatte eksisterende innhold i stedet."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Når du publiserer kan du bestemme om den skal erstatte eksisterende innhold i stedet.",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Oversett"
 }

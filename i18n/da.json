@@ -289,5 +289,6 @@
 	"cx-sx-sentence-selector-done-button-label": "Udført",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Redigér oversættelse",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Anvend",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Spring over"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Spring over",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Oversæt"
 }
