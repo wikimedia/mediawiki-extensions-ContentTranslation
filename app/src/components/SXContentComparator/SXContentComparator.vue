@@ -17,26 +17,23 @@
       :target-section-anchor="targetSectionAnchor"
       @translation-button-clicked="translateSection"
     />
-    <section class="sx-content-comparator__source-content px-4">
+    <section class="sx-content-comparator__source-content">
       <template v-if="sourceVsTargetSelection === 'source_section'">
-        <section class="pt-2" v-html="sourceSectionContent" />
+        <mw-spinner v-if="!sourceSectionContent" />
+        <section class="pt-2 px-4" v-html="sourceSectionContent" />
       </template>
       <template v-else-if="sourceVsTargetSelection === 'target_article'">
         <mw-spinner v-if="!targetPageContent" />
-        <article v-html="targetPageContent" />
+        <article class="px-4" v-html="targetPageContent" />
+        <sx-content-comparator-new-section-placeholder
+          :is-mapped-section="isCurrentSectionMapped"
+        />
       </template>
       <template v-else>
         <section class="pa-4" v-html="targetSectionContent" />
-        <section
-          class="sx-content-comparator__new-section-placeholder--present pa-4 px-7"
-        >
-          <h5
-            v-i18n:cx-sx-content-comparator-present-section-placeholder-title
-          />
-          <p
-            v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle
-          />
-        </section>
+        <sx-content-comparator-new-section-placeholder
+          :is-mapped-section="isCurrentSectionMapped"
+        />
       </template>
     </section>
   </section>
@@ -47,10 +44,12 @@ import { MwSpinner } from "@/lib/mediawiki.ui";
 import { mapGetters, mapState } from "vuex";
 import SxContentComparatorContentHeader from "@/components/SXContentComparator/SXContentComparatorContentHeader";
 import SxContentComparatorHeader from "@/components/SXContentComparator/SXContentComparatorHeader";
+import SxContentComparatorNewSectionPlaceholder from "@/components/SXContentComparator/NewSectionPlaceholder";
 
 export default {
   name: "SxContentComparator",
   components: {
+    SxContentComparatorNewSectionPlaceholder,
     SxContentComparatorHeader,
     SxContentComparatorContentHeader,
     MwSpinner

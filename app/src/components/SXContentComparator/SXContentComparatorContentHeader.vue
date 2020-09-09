@@ -175,7 +175,11 @@ export default {
      * longer a valid option.
      */
     isMappedSection() {
-      if (!this.listSelector.map(item => item.value).includes(this.sourceVsTargetSelection)) {
+      if (
+        !this.listSelector
+          .map(item => item.value)
+          .includes(this.sourceVsTargetSelection)
+      ) {
         this.updateSelection(this.listSelector[0].value);
       }
     }
