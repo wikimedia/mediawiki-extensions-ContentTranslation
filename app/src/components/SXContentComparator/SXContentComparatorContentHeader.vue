@@ -170,6 +170,19 @@ export default {
       return [sourceSelectorItem, targetSelectorItem];
     }
   },
+  watch: {
+    /**
+     * Watch for isMappedSection prop so that we can update
+     * sourceVsTarget selection accordingly, when isMappedSection
+     * is updated and previous sourceVsTarget selection is no
+     * longer a valid option.
+     */
+    isMappedSection() {
+      if (!this.listSelector.map(item => item.value).includes(this.sourceVsTargetSelection)) {
+        this.updateSelection(this.listSelector[0].value);
+      }
+    }
+  },
   mounted() {
     const observer = new IntersectionObserver(
       ([e]) => (this.isSticky = e.intersectionRatio < 1),
