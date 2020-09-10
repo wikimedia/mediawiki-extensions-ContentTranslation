@@ -319,5 +319,6 @@
 	"cx-sx-sentence-selector-header-title": "Prevođenje odlomka",
 	"cx-sx-sentence-selector-done-button-label": "Gotovo",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Uredi prijevod",
-	"cx-sx-sentence-selector-apply-translation-button-label": "Primijeni"
+	"cx-sx-sentence-selector-apply-translation-button-label": "Primijeni",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Prevedi"
 }

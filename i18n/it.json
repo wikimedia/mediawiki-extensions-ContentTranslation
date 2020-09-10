@@ -234,7 +234,7 @@
 	"cx-tools-linter-abuse-filter": "Il filtro anti abusi ha identificato del contenuto problematico nella tua traduzione",
 	"cx-tools-linter-title": "Problemi con il contenuto: $1",
 	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
-	"cx-tools-linter-view-details": "Visualizza dettagli",
+	"cx-tools-linter-view-details": "Vedi dettagli",
 	"cx-tools-linter-hide-details": "Nascondi dettagli",
 	"cx-tools-linter-page-exists": "Pagina già esistente",
 	"cx-tools-linter-page-exists-message": "Una pagina dal titolo $1 già esiste. Pubblicando la tua traduzione, ne sovrascriverai l'attuale contenuto\n\nControlla che sia corretto sostituire la pagina esistente, o prendi in considerazione di cambiare titolo alla tua traduzione.",
