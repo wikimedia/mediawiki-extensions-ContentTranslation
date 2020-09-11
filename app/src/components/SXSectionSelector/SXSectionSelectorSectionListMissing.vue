@@ -6,26 +6,15 @@
       ]"
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
-    <ul
+    <sx-section-selector-section-list
       v-if="!emptySections"
-      class="sx-section-selector__missing-sections-list ma-0 pa-0"
+      :sections="suggestion.missingSections"
+      v-on="$listeners"
     >
-      <mw-row
-        v-for="(targetSection, sourceSection) in suggestion.missingSections"
-        :key="sourceSection"
-        tag="li"
-        class="ma-0"
-      >
-        <mw-button
-          class="col justify-between py-3 px-4"
-          :indicator="mwIconArrowForward"
-          :label="sourceSection"
-          type="text"
-          :outlined="false"
-          @click="$emit('select-section', sourceSection)"
-        />
-      </mw-row>
-    </ul>
+      <template v-slot="{ sourceSection }">
+        <h5 class="ma-0" v-text="sourceSection" />
+      </template>
+    </sx-section-selector-section-list>
     <mw-row
       v-if="emptySections"
       class="sx-section-selector__empty-missing-sections px-4 my-0"
@@ -60,10 +49,12 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 import autonymMixin from "@/mixins/autonym";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList";
 
 export default {
   name: "SxSectionSelectorSectionListMissing",
   components: {
+    SxSectionSelectorSectionList,
     MwRow,
     MwCol,
     MwButton

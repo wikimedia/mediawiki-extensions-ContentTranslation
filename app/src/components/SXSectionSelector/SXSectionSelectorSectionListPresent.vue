@@ -6,7 +6,10 @@
       ]"
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
-    <sx-section-selector-section-list :sections="suggestion.presentSections">
+    <sx-section-selector-section-list
+      :sections="suggestion.presentSections"
+      v-on="$listeners"
+    >
       <template v-slot="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
           <h5
