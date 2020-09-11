@@ -42,16 +42,11 @@
         />
       </mw-col>
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
-        <span
+        <sx-sentence-selector-sentence
           v-for="sentence in sentences"
           :key="`sentence-${sentence.id}`"
-          class="sx-sentence-selector__section-sentence"
-          :class="{
-            'sx-sentence-selector__section-sentence--selected':
-              sentence.selected
-          }"
-          @click="selectSentence(sentence)"
-          v-html="sentence.content"
+          :sentence="sentence"
+          @sentence-selected="onSentenceSelected"
         />
       </mw-col>
       <mw-col
@@ -65,7 +60,9 @@
           :translation="proposedSentenceTranslation"
           @configure-options="configureTranslationOptions"
         />
-        <sx-sentence-selector-action-buttons />
+        <sx-sentence-selector-action-buttons
+          :translation="proposedSentenceTranslation"
+        />
       </mw-col>
     </mw-row>
     <sx-translation-selector
@@ -91,11 +88,13 @@ import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState } from "vuex";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
+import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
 const sitemapper = new mw.cx.SiteMapper();
 
 export default {
   name: "SxSentenceSelector",
   components: {
+    SxSentenceSelectorSentence,
     SxSentenceSelectorProposedTranslationBody,
     SxSentenceSelectorActionButtons,
     MwRow,
@@ -209,15 +208,10 @@ export default {
     onClose() {
       this.$router.go(-1);
     },
-    selectSentence(sentence) {
+    onSentenceSelected(sentence) {
       if (this.selectedSentence === sentence) {
         this.bounceTranslation();
       }
-      this.$store.dispatch("application/selectSentenceForPageSection", {
-        page: this.sourcePage,
-        sectionTitle: this.sourceSectionTitle,
-        id: sentence.id
-      });
     },
     configureTranslationOptions() {
       this.translationOptionsActive = true;
@@ -227,7 +221,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-sentence-selector {
   .sx-sentence-selector__header {
     background-color: @background-color-base--disabled;
@@ -252,19 +246,6 @@ export default {
     }
     .sx-sentence-selector__section-contents {
       overflow: auto;
-      .sx-sentence-selector__section-sentence {
-        cursor: pointer;
-        // TODO: Fix this to be base20 (currently base30)
-        color: @color-base--subtle;
-        &.sx-sentence-selector__section-sentence--selected {
-          // Should we create a background variable for this color? Documentation refers to this color as Yellow90
-          background-color: @wmui-color-yellow90;
-          color: @color-base;
-        }
-        .sx-sentence-selector__section-sentence--translated {
-          color: @color-base;
-        }
-      }
     }
   }
   .sx-sentence-selector__proposed-translation {

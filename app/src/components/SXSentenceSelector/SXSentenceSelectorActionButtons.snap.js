@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Action Buttons Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`] = `
 <div
   class="sx-sentence-selector__translation-action-buttons ma-0 row items-center justify-start"
 >
   <button
-    class="col shrink pa-4 mw-ui-button mw-ui-button--icon"
+    class="sx-sentence-selector__previous-sentence-button col shrink pa-4 mw-ui-button mw-ui-button--icon"
   >
     <span
       class="mw-ui-button__content"
@@ -42,7 +40,7 @@ exports[
   </button>
    
   <button
-    class="sx-sentence-selector__translation-apply-button col grow pa-4 mw-ui-button mw-ui-button--text"
+    class="sx-sentence-selector__apply-translation-button col grow pa-4 mw-ui-button mw-ui-button--text"
   >
     <span
       class="mw-ui-button__content"
@@ -60,7 +58,7 @@ exports[
   </button>
    
   <button
-    class="col shrink pa-4 mw-ui-button mw-ui-button--text"
+    class="sx-sentence-selector__skip-translation-button col shrink pa-4 mw-ui-button mw-ui-button--text"
   >
     <span
       class="mw-ui-button__content"

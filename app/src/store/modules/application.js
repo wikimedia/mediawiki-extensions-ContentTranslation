@@ -16,23 +16,27 @@ const mutations = {
   setCurrentSourceSection(state, section) {
     state.currentSourceSection = section;
   },
-  clearSentenceSelection(state, { page, sectionTitle }) {
-    const section = page.sections.find(
-      section => section.title === sectionTitle
+  clearSentenceSelection(state) {
+    const sentence = state.currentSourceSection.sentences.find(
+      sentence => sentence.selected
     );
-
-    const sentence = section.sentences.find(sentence => sentence.selected);
 
     if (sentence) {
       sentence.selected = false;
     }
   },
-  selectSentence(state, { page, sectionTitle, id }) {
-    const section = page.sections.find(
-      section => section.title === sectionTitle
+  selectSentence(state, id) {
+    const sentence = state.currentSourceSection.sentences.find(
+      sentence => sentence.id === id
     );
-    const sentence = section.sentences.find(sentence => sentence.id === id);
     sentence.selected = true;
+  },
+  setSelectedSentenceTranslation(state, translation) {
+    /** @type {SectionSentence} */
+    const selectedSentence = state.currentSourceSection.sentences.find(
+      sentence => sentence.selected
+    );
+    selectedSentence.translatedContent = translation;
   }
 };
 
@@ -61,7 +65,13 @@ const getters = {
   getCurrentSourceSectionTitle: state =>
     state.currentSourceSection?.title || "",
   getCurrentSourceSectionAnchor: (state, getters) =>
-    (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_")
+    (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
+  getCurrentSourceSectionSentences: state =>
+    state.currentSourceSection.sentences,
+  isCurrentSentenceFirst: (state, getters) =>
+    getters.getCurrentSourceSectionSentences.findIndex(
+      sentence => sentence.selected
+    ) === 0
 };
 
 const actions = {
@@ -86,9 +96,31 @@ const actions = {
     }
     commit("setCurrentSourceSection", section);
   },
-  selectSentenceForPageSection({ commit }, { page, sectionTitle, id }) {
-    commit("clearSentenceSelection", { page, sectionTitle });
-    commit("selectSentence", { page, sectionTitle, id });
+  selectSentenceForCurrentSection({ commit }, { id }) {
+    commit("clearSentenceSelection");
+    commit("selectSentence", id);
+  },
+  applyTranslationToSelectedSentence({ commit, dispatch }, { translation }) {
+    commit("setSelectedSentenceTranslation", translation);
+    dispatch("selectNextSentence");
+  },
+  selectNextSentence({ getters, commit }) {
+    const sentences = getters.getCurrentSourceSectionSentences;
+    let selectedIndex = sentences.findIndex(sentence => sentence.selected);
+    commit("clearSentenceSelection");
+    if (selectedIndex < sentences.length - 1) {
+      selectedIndex++;
+      commit("selectSentence", sentences[selectedIndex].id);
+    }
+  },
+  selectPreviousSentence({ getters, commit }) {
+    const sentences = getters.getCurrentSourceSectionSentences;
+    let selectedIndex = sentences.findIndex(sentence => sentence.selected);
+    commit("clearSentenceSelection");
+    if (selectedIndex > 1) {
+      selectedIndex--;
+      commit("selectSentence", sentences[selectedIndex].id);
+    }
   }
 };
 

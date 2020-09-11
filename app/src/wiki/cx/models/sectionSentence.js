@@ -28,4 +28,8 @@ export default class SectionSentence {
   get content() {
     return this.translatedContent || this.originalContent;
   }
+
+  get isTranslated() {
+    return this.translatedContent !== "";
+  }
 }
