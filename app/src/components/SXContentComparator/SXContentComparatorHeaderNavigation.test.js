@@ -1,7 +1,6 @@
 import SXContentComparatorHeaderNavigation from "./SXContentComparatorHeaderNavigation";
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 

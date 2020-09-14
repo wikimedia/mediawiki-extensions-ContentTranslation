@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import SXSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 import VueBananaI18n from "vue-banana-i18n";
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 
 const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
@@ -15,6 +15,7 @@ describe("SXSentenceSelector Action Buttons", () => {
       translation: translationContent
     }
   });
+
   it("Component output matches snapshot", () => {
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -14,7 +14,7 @@ describe("SXSectionSelector View Article Item", () => {
         path: "my.test.url",
         autonym: "English"
       }
-    })
+    });
     expect(wrapper.element).toMatchSnapshot();
-  })
-})
+  });
+});
