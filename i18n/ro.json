@@ -7,6 +7,7 @@
 			"KlaudiuMihaila",
 			"Macofe",
 			"Minisarm",
+			"NGC 54",
 			"Strainu",
 			"Wintereu",
 			"XXN"
@@ -203,5 +204,6 @@
 	"cx-publish-destination-namespace-main": "Pagină nouă",
 	"cx-publish-destination-namespace-user": "Ciornă personală",
 	"cx-publish-destination-namespace-draft": "Ciornă comună",
-	"cx-sx-section-selector-learn-more-anchor-label": "Învățați mai multe"
+	"cx-sx-section-selector-learn-more-anchor-label": "Învățați mai multe",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Tradu"
 }
