@@ -6,7 +6,8 @@ import {
   SXSectionSelector,
   SXContentComparator,
   SXSentenceSelector,
-  SXQuickTutorial
+  SXQuickTutorial,
+  SXEditor
 } from "@/views";
 
 Vue.use(VueRouter);
@@ -53,6 +54,13 @@ const routes = [
     component: SXSentenceSelector,
     params: true,
     meta: { workflowStep: 4 }
+  },
+  {
+    path: "/sx/sx-editor",
+    name: "sx-editor",
+    component: SXEditor,
+    params: true,
+    meta: { workflowStep: 4.5 }
   },
   {
     path: "*",

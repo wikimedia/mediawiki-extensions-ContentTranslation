@@ -20,11 +20,14 @@
       class="sx-sentence-selector__proposed-translation-contents pb-4"
       v-html="translation"
     />
+    <!--    Edit translation only when translation exists-->
     <mw-button
+      v-if="translation"
       :icon="mwIconEdit"
       type="text"
       :label="$i18n('cx-sx-sentence-selector-edit-translation-button-label')"
       class="sx-sentence-selector__translation-edit-button pa-0"
+      @click="$emit('edit-translation')"
     />
   </div>
 </template>

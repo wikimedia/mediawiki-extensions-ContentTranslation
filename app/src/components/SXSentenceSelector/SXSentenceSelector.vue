@@ -59,6 +59,7 @@
           :mt-provider="selectedProvider"
           :translation="proposedSentenceTranslation"
           @configure-options="configureTranslationOptions"
+          @edit-translation="editTranslation"
         />
         <sx-sentence-selector-action-buttons
           :translation="proposedSentenceTranslation"
@@ -215,6 +216,15 @@ export default {
     },
     configureTranslationOptions() {
       this.translationOptionsActive = true;
+    },
+    editTranslation() {
+      this.$router.push({
+        name: "sx-editor",
+        params: {
+          content: this.proposedSentenceTranslation,
+          language: this.suggestion.targetLanguage
+        }
+      });
     }
   }
 };
