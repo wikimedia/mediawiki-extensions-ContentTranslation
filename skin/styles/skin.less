@@ -1,0 +1,63 @@
+@import 'mediawiki.ui/variables.less';
+@import './menu.less';
+
+body.skin-contenttranslation {
+	height: 100%;
+	font-family: sans-serif;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 8px 40px;
+	background: @colorGray14;
+}
+
+// Small screens - menu adjustment
+@media ( max-width: @width-breakpoint-tablet ) {
+	body.skin-contenttranslation {
+		padding: 4px;
+	}
+}
+
+.printfooter {
+	display: none;
+}
+
+.mw-page-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.mw-header-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0;
+
+	.mw-navigation {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
+
+.mw-logo-page-title {
+	margin-left: 8px;
+	line-height: 1;
+	font-size: 20px;
+	color: @colorGray5;
+}
+
+// Show logo in small screens and wordmark in bigger screens
+.mw-logo-icon {
+	display: none;
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	.mw-logo-wordmark {
+		display: none;
+	}
+
+	.mw-logo-icon {
+		display: inline-flex;
+	}
+}

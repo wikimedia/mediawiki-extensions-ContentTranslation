@@ -28,6 +28,23 @@
 	"ExtensionMessagesFiles": {
 		"ContentTranslationAliases": "ContentTranslation.alias.php"
 	},
+	"ValidSkinNames": {
+		"contenttranslation": {
+			"class": "SkinContentTranslation",
+			"args": [
+				{
+					"name": "contenttranslation",
+					"responsive": true,
+					"styles": [
+						"mw.cx.skin"
+					],
+					"messages": [
+						"cx-javascript"
+					]
+				}
+			]
+		}
+	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
 		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
@@ -93,7 +110,8 @@
 		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
-		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php"
+		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php",
+		"SkinContentTranslation": "skin/SkinContentTranslation.php"
 	},
 	"AutoloadNamespaces": {
 		"ContentTranslation\\": "includes/"
@@ -2218,6 +2236,18 @@
 				"mw.cx.ui",
 				"mediawiki.pulsatingdot"
 			]
+		},
+		"mw.cx.skin": {
+			"class": "ResourceLoaderSkinModule",
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": [
+				"skin/styles/skin.less"
+			],
+			"localBasePath": "",
+			"remoteExtPath": "ContentTranslation"
 		}
 	},
 	"QUnitTestModule": {

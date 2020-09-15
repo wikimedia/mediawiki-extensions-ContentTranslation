@@ -1,0 +1,33 @@
+<nav class="mw-navigation" id="user-tools">
+	{{#data-personal}}
+		<div class="mw-portlet-body">
+			<ul class="cx-skin-menu-content" {{{html-user-language-attributes}}}>{{{html-items}}}</ul>
+		</div>
+	{{/data-personal}}
+	{{#data-personal-dropdown}}
+		<span class="mw-portlet-body cx-skin-menu-dropdown" aria-labelledby="cx-user-menu" role="navigation" {{{html-tooltip}}} {{{html-user-language-attributes}}}>
+			<input type="checkbox" class="cx-skin-menu-checkbox" aria-labelledby="cx-user-menu" />
+			<span id="cx-user-menu" class="cx-skin-menu">
+				<span class="cx-skin-menu-icon"></span>
+				<span class="cx-skin-menu-label">{{user-name}}</span>
+				<span class="cx-skin-menu-indicator"></span>
+			</span>
+			<div class="cx-skin-menu-content">
+				<ul class="cx-skin-menu-content-list" {{{html-user-language-attributes}}}>
+					{{{html-items}}}
+				</ul>
+			</div>
+		</span>
+	{{/data-personal-dropdown}}
+</nav>
+<script>
+// Close the menu if clicked outside of the menu.
+window.onload = function () {
+	var menuCheckbox = document.querySelector( 'input.cx-skin-menu-checkbox' );
+	document.addEventListener( 'click', function ( event ) {
+		if ( event.target !== menuCheckbox ) {
+			menuCheckbox.checked = false;
+		}
+	} );
+};
+</script>

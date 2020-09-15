@@ -1,0 +1,170 @@
+@import 'mediawiki.ui/variables.less';
+
+.mw-portlet-body {
+	margin: 0 4px;
+
+	ul {
+		list-style: none none;
+		margin: 0;
+	}
+
+	li {
+		list-style: none none;
+		margin-left: 0.75em;
+		// `padding-top` instead of `margin-top` necessary for
+		// anonymous user icon position below
+		padding-top: 0.5em;
+		line-height: 1.6;
+	}
+}
+
+.cx-skin-menu-dropdown {
+	display: flex;
+	direction: ltr;
+	cursor: pointer;
+	position: relative;
+	line-height: 1.125em;
+	color: @color-primary;
+	font-weight: bold;
+	background-color: @background-color-base;
+	border: @border-width-base @border-style-base @border-color-base;
+	border-radius: 2px;
+
+	.cx-skin-menu {
+		position: relative;
+		display: flex;
+		font-size: 1em;
+		font-weight: normal;
+		padding: 0.5em;
+
+		&-icon {
+			display: inline-flex;
+			background-image: url( images/user-avatar.svg );
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			opacity: 0.84;
+			padding: 0 4px;
+		}
+
+		&-indicator {
+			display: inline-flex;
+			background-image: url( images/arrow-down.svg );
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			padding: 0 4px;
+			opacity: 0.84;
+		}
+
+		&:hover,
+		&:focus {
+			color: @color-base;
+
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+	// Small screens - menu adjustment
+	@media ( max-width: @width-breakpoint-tablet ) {
+		.cx-skin-menu-icon,
+		.cx-skin-menu-indicator {
+			padding: 0;
+		}
+
+		.cx-skin-menu-label {
+			display: none;
+		}
+	}
+
+	// The menu itself.
+	.cx-skin-menu-content-list {
+		background-color: @background-color-base;
+		list-style: none none;
+		// Match the width of the dropdown "heading"
+		min-width: 100%;
+		position: absolute;
+		top: 2em;
+		// left: -@border-width-base;
+		right: -@border-width-base;
+		margin: 0;
+		border: @border-width-base @border-style-base @border-color-base;
+		padding: 0;
+		margin-top: 4px;
+		border-radius: 0 0 @border-radius-base @border-radius-base;
+		box-shadow: 0 1px 1px 0 rgba( 0, 0, 0, 0.25 );
+		text-align: left;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 100ms;
+		z-index: 2;
+	}
+
+	// Supports: IE8
+	.cx-skin-menu-checkbox:checked ~ .cx-skin-menu-content .cx-skin-menu-content-list {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	li {
+		padding: 0;
+		margin: 0;
+		text-align: left;
+		line-height: 1em;
+
+		a {
+			color: @color-primary;
+			display: block;
+			padding: 0.625em;
+			white-space: nowrap;
+			cursor: pointer;
+			font-size: 0.8125em;
+		}
+
+		&:hover {
+			background-color: @colorGray14;
+		}
+	}
+
+	.selected a,
+	.selected a:visited {
+		color: @color-base;
+		text-decoration: none;
+	}
+}
+
+// Invisible checkbox covering the dropdown menu handle
+.cx-skin-menu-checkbox {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	// Hide the checkbox completely in browsers that don't support :checked
+	display: none;
+
+	:not( :checked ) > & {
+		// When the browser supports :checked, display it
+		display: block;
+	}
+
+	&:checked + .cx-skin-menu {
+		.cx-skin-menu-indicator {
+			transform: scaleY( -1 );
+		}
+	}
+
+	&:focus + .cx-skin-menu-indicator {
+		// Simulate browser focus ring
+		outline: dotted 1px; // Firefox style
+		outline: auto -webkit-focus-ring-color; // Webkit style
+	}
+}

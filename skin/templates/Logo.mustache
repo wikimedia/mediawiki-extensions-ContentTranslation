@@ -1,0 +1,15 @@
+{{#data-logos}}
+	<a href="{{main-page-href}}" class="mw-logo">
+		{{#icon}}
+			{{! alt is provided for valid HTML but given aria-hidden not needed. }}
+			<img class="mw-logo-icon" src="{{.}}" alt="" aria-hidden="true" height="50" width="50">
+		{{/icon}}
+		{{#wordmark}}
+			<img class="mw-logo-wordmark" alt="{{msg-sitetitle}}" src="{{src}}" width="{{width}}" height="{{height}}">
+		{{/wordmark}}
+		{{^wordmark}}
+			<strong class="mw-logo-wordmark">{{msg-sitetitle}}</strong>
+		{{/wordmark}}
+	</a>
+{{/data-logos}}
+<span class="mw-logo-page-title">{{html-title}}</span>
