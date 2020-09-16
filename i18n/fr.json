@@ -393,5 +393,6 @@
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Commencer avec une phrase vide",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Votre traduction sera ajoutée ici",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "En publiant, vous pouvez décider de remplacer plutôt le contenu existant.",
-	"cx-sx-content-comparator-content-header-translate-button-label": "Traduire"
+	"cx-sx-content-comparator-content-header-translate-button-label": "Traduire",
+	"cx-sx-content-comparator-missing-section-placeholder-title": "La nouvelle section sera ajoutée ici une fois la traduction achevée."
 }

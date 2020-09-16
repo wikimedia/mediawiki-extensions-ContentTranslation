@@ -109,7 +109,7 @@
 	"cx-translation-filter-draft-translations": "Iesākti",
 	"cx-translation-filter-suggested-translations": "Ieteikumi",
 	"cx-suggestionlist-favorite": "Vēlākam laikam",
-	"cx-suggestionlist-title": "Ieteiktās lapas",
+	"cx-suggestionlist-title": "Ieteikumi",
 	"cx-suggestionlist-empty-title": "Šobrīd nav ieteikumu",
 	"cx-suggestionlist-empty-desc": "Mēs neatradām ieteikumus. Tu vari mēģināt vēlreiz vēlāk vai atrast atbilstošas lapas, izmantojot mūsu rekomendāciju rīku (eksperimentāls).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Apskatīt ieteikumus (eksperimentāls)",
@@ -305,5 +305,6 @@
 	"cx-sx-sentence-selector-done-button-label": "Gatavs",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Labot tulkojumu",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
-	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist"
+	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā"
 }

@@ -366,5 +366,6 @@
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "以空句子開始。",
 	"cx-sx-content-comparator-present-section-placeholder-title": "您的翻譯會被添加於此",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "當發佈時，您可以決定替換現有的內容。",
-	"cx-sx-content-comparator-content-header-translate-button-label": "翻譯"
+	"cx-sx-content-comparator-content-header-translate-button-label": "翻譯",
+	"cx-sx-content-comparator-missing-section-placeholder-title": "一旦您完成了翻譯，此新章節會被添加在此"
 }
