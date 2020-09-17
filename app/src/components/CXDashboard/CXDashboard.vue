@@ -55,7 +55,7 @@ export default {
     mwIconEdit,
     active: "suggestions",
     sourceLanguage: "en",
-    targetLanguage: "ml"
+    targetLanguage: "es"
   }),
   computed: {
     listSelector() {
