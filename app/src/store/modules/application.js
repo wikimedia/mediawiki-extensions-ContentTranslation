@@ -2,7 +2,9 @@ const state = {
   /** @type SectionSuggestion */
   currentSectionSuggestion: null,
   /** @type PageSection */
-  currentSourceSection: null
+  currentSourceSection: null,
+  /** @type String */
+  currentEditedSentenceTranslation: null
 };
 
 const mutations = {
@@ -37,6 +39,12 @@ const mutations = {
       sentence => sentence.selected
     );
     selectedSentence.translatedContent = translation;
+  },
+  setCurrentEditedTranslation(state, translation) {
+    state.currentEditedSentenceTranslation = translation;
+  },
+  clearCurrentEditedTranslation(state) {
+    state.currentEditedSentenceTranslation = null;
   }
 };
 
@@ -98,29 +106,26 @@ const actions = {
   },
   selectSentenceForCurrentSection({ commit }, { id }) {
     commit("clearSentenceSelection");
-    commit("selectSentence", id);
+    commit("clearCurrentEditedTranslation");
+    if (id) {
+      commit("selectSentence", id);
+    }
   },
   applyTranslationToSelectedSentence({ commit, dispatch }, { translation }) {
     commit("setSelectedSentenceTranslation", translation);
     dispatch("selectNextSentence");
   },
-  selectNextSentence({ getters, commit }) {
+  selectNextSentence({ getters, dispatch }) {
     const sentences = getters.getCurrentSourceSectionSentences;
     let selectedIndex = sentences.findIndex(sentence => sentence.selected);
-    commit("clearSentenceSelection");
-    if (selectedIndex < sentences.length - 1) {
-      selectedIndex++;
-      commit("selectSentence", sentences[selectedIndex].id);
-    }
+    selectedIndex = (selectedIndex + 1) % sentences.length;
+    dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
   },
-  selectPreviousSentence({ getters, commit }) {
+  selectPreviousSentence({ getters, dispatch }) {
     const sentences = getters.getCurrentSourceSectionSentences;
     let selectedIndex = sentences.findIndex(sentence => sentence.selected);
-    commit("clearSentenceSelection");
-    if (selectedIndex > 1) {
-      selectedIndex--;
-      commit("selectSentence", sentences[selectedIndex].id);
-    }
+    selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;
+    dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
   }
 };
 

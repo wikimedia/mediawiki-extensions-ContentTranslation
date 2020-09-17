@@ -44,12 +44,12 @@
       >
         <sx-sentence-selector-proposed-translation-body
           :mt-provider="selectedProvider"
-          :translation="proposedSentenceTranslation"
+          :translation="sentenceTranslationPreview"
           @configure-options="configureTranslationOptions"
           @edit-translation="editTranslation"
         />
         <sx-sentence-selector-action-buttons
-          :translation="proposedSentenceTranslation"
+          :translation="sentenceTranslationPreview"
         />
       </mw-col>
     </mw-row>
@@ -87,19 +87,19 @@ export default {
     SxTranslationSelector,
     MwButton
   },
-  data() {
-    return {
-      mwIconArrowPrevious,
-      selectedProvider: "",
-      translation: null,
-      translationOptionsActive: false,
-      proposedTranslationBounce: false
-    };
-  },
+  data: () => ({
+    mwIconArrowPrevious,
+    selectedProvider: "",
+    translation: null,
+    translationOptionsActive: false,
+    proposedTranslationBounce: false
+  }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection
+      currentPageSection: state => state.application.currentSourceSection,
+      currentEditedTranslation: state =>
+        state.application.currentEditedSentenceTranslation
     }),
     sourceSectionTitle() {
       return this.currentPageSection?.title;
@@ -110,9 +110,29 @@ export default {
         this.suggestion.targetLanguage
       );
     },
+    /**
+     * Machine translation for currently selected MT provider
+     */
     proposedSentenceTranslation() {
       return (
         this.selectedSentence?.proposedTranslations[this.selectedProvider] || ""
+      );
+    },
+    /**
+     * This computed property returns a preview of the translation of a sentence
+     * that will be applied to that sentence if user clicks "Apply translation"
+     * button. If sentence is already translated, current applied translation
+     * will be returned, else if machine translation for this sentence has been
+     * edited by user (inside SXEditor) this edited translation will be returned.
+     * Machine translation for currently selected MT provider will be returned
+     * otherwise.
+     * @return {String}
+     */
+    sentenceTranslationPreview() {
+      return (
+        this.selectedSentence?.translatedContent ||
+        this.currentEditedTranslation ||
+        this.proposedSentenceTranslation
       );
     },
     sentences() {
@@ -206,7 +226,7 @@ export default {
       this.$router.push({
         name: "sx-editor",
         params: {
-          content: this.proposedSentenceTranslation,
+          content: this.sentenceTranslationPreview,
           language: this.suggestion.targetLanguage,
           originalContent: this.selectedSentence.originalContent
         }

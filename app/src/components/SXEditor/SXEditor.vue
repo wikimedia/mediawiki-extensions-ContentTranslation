@@ -44,7 +44,13 @@ export default {
     onEditorClosed() {
       this.$router.replace({ name: "sx-sentence-selector" });
     },
-    onEditCompleted(editedContent) {}
+    onEditCompleted(editedContent) {
+      this.$store.commit(
+        "application/setCurrentEditedTranslation",
+        editedContent
+      );
+      this.$router.replace({ name: "sx-sentence-selector" });
+    }
   }
 };
 </script>
