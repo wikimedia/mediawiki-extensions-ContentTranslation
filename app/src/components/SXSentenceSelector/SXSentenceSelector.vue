@@ -186,6 +186,16 @@ export default {
       sourceLanguage: this.suggestion.sourceLanguage,
       targetLanguage: this.suggestion.targetLanguage
     });
+    /**
+     * When component is mounted, a sentence should always be selected.
+     * Select first sentence from array if no sentence is selected at
+     * that point.
+     */
+    if (!this.selectedSentence && this.sentences?.[0]) {
+      this.$store.dispatch("application/selectSentenceForCurrentSection", {
+        id: this.sentences[0].id
+      });
+    }
   },
   methods: {
     bounceTranslation() {
