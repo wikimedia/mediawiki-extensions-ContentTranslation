@@ -185,8 +185,15 @@ export default {
     }
   },
   mounted() {
+    /**
+     * Only watch for vertical intersection, as horizontal
+     * intersection is happening when component is being mounted
+     * due to router transitions, inserting UI glitches.
+     */
     const observer = new IntersectionObserver(
-      ([e]) => (this.isSticky = e.intersectionRatio < 1),
+      ([e]) => {
+        this.isSticky = e.intersectionRect.height < e.boundingClientRect.height;
+      },
       { threshold: [1] }
     );
 
