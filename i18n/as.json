@@ -6,7 +6,8 @@
 			"Dibya Dutta",
 			"Gitartha.bordoloi",
 			"Onubadok",
-			"Paradox"
+			"Paradox",
+			"Simbu123"
 		]
 	},
 	"cx": "পৃষ্ঠা অনুবাদ কৰক",
@@ -50,6 +51,7 @@
 	"cx-tools-mt-dont-use": "এটা খালী পেৰাগ্ৰাফেৰে আৰম্ভ কৰক",
 	"cx-tools-mt-set-default": "পূৰ্ব-নিৰ্ধাৰিত হিচাপে ৰাখক",
 	"cx-stats-title": "বিষয়বস্তুৰ অনুবাদৰ পৰিসংখ্যা",
+	"cx-dashboard-sidebar-stats": "পৰিসংখ্যা",
 	"cx-suggestionlist-favorite": "পিছৰ বাবে",
 	"cx-suggestionlist-title": "অধিক পৰামৰ্শ",
 	"cx-contributions-new-contributions": "নতুন বৰঙণি",
@@ -57,5 +59,6 @@
 	"cx-contributions-upload": "মিডিয়া আপল'ড কৰক",
 	"cx-campaign-contributionsmenu-mycontributions": "বৰঙণি",
 	"cx-campaign-contributionsmenu-mytranslations": "অনুবাদ",
-	"cx-campaign-contributionsmenu-myuploads": "আপল'ড কৰা মিডিয়া"
+	"cx-campaign-contributionsmenu-myuploads": "আপল'ড কৰা মিডিয়া",
+	"cx-translator-header": "আপোনাৰ পৰিসংখ্যা"
 }
