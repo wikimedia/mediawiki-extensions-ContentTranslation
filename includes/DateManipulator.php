@@ -8,8 +8,8 @@ use Wikimedia\Timestamp\ConvertibleTimestamp;
  * @author Niklas Laxström
  */
 class DateManipulator {
-	const WEEK = 'week';
-	const MONTH = 'month';
+	public const WEEK = 'week';
+	public const MONTH = 'month';
 
 	/** @var string */
 	private $interval;

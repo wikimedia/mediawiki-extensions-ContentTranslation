@@ -5,11 +5,11 @@ namespace ContentTranslation;
 class SuggestionList {
 	// List types. Make sure to add them in ext.cx.suggestionlist.js to
 	// achieve wanted display order.
-	const TYPE_DEFAULT = 0;
-	const TYPE_FEATURED = 1;
-	const TYPE_DISCARDED = 2;
-	const TYPE_FAVORITE = 3;
-	const TYPE_CATEGORY = 4;
+	public const TYPE_DEFAULT = 0;
+	public const TYPE_FEATURED = 1;
+	public const TYPE_DISCARDED = 2;
+	public const TYPE_FAVORITE = 3;
+	public const TYPE_CATEGORY = 4;
 
 	protected $id;
 	protected $name;

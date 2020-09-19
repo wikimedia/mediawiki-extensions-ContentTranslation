@@ -12,10 +12,10 @@ use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
 class CorporaLookup {
-	const TYPE_SOURCE = 'source';
-	const TYPE_MT = 'mt';
-	const TYPE_USER = 'user';
-	const CATEGORIES = 'CX_CATEGORY_METADATA';
+	public const TYPE_SOURCE = 'source';
+	public const TYPE_MT = 'mt';
+	public const TYPE_USER = 'user';
+	private const CATEGORIES = 'CX_CATEGORY_METADATA';
 
 	/**
 	 * @var IDatabase

@@ -13,8 +13,9 @@ namespace ContentTranslation;
 use Wikimedia\Rdbms\IDatabase;
 
 class CategoriesStorageManager {
-	const TYPE_SOURCE = 'source';
-	const TYPE_USER = 'user';
+	private const TYPE_SOURCE = 'source';
+	private const TYPE_USER = 'user';
+
 	private static $CATEGORIES_SECTION = [
 		'cxc_section_id' => 'CX_CATEGORY_METADATA'
 	];

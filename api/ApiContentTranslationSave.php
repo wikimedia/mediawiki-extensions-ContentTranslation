@@ -17,7 +17,10 @@ use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 
 class ApiContentTranslationSave extends ApiBase {
-	const SQL_BLOB_MAX_SIZE = 65535; // 64KB
+	/**
+	 * 64KB
+	 */
+	private const SQL_BLOB_MAX_SIZE = 65535;
 
 	public function execute() {
 		$params = $this->extractRequestParams();
