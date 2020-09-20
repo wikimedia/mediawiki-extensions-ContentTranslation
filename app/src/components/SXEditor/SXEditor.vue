@@ -1,5 +1,6 @@
 <template>
   <section class="sx-editor">
+    <sx-editor-original-content :original-content="originalContent" />
     <mw-spinner v-if="!editorReady" />
     <visual-editor
       :content="content"
@@ -12,11 +13,16 @@
 </template>
 
 <script>
-import MwSpinner from "@/lib/mediawiki.ui/components/MWSpinner/MWSpinner";
 import VisualEditor from "@/plugins/ve/components/VisualEditor";
+import { MwSpinner } from "@/lib/mediawiki.ui";
+import SxEditorOriginalContent from "@/components/SXEditor/SXEditorOriginalContent";
 export default {
   name: "SxEditor",
-  components: { VisualEditor, MwSpinner },
+  components: {
+    SxEditorOriginalContent,
+    VisualEditor,
+    MwSpinner
+  },
   data: () => ({
     editorReady: false
   }),
@@ -26,6 +32,9 @@ export default {
     },
     language() {
       return this.$route.params.language;
+    },
+    originalContent() {
+      return this.$route.params.originalContent;
     }
   },
   methods: {

@@ -232,7 +232,8 @@ export default {
         name: "sx-editor",
         params: {
           content: this.proposedSentenceTranslation,
-          language: this.suggestion.targetLanguage
+          language: this.suggestion.targetLanguage,
+          originalContent: this.selectedSentence.originalContent
         }
       });
     }
