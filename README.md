@@ -22,7 +22,7 @@ see [Contributing][]. Patch submissions are reviewed and managed with
 
 ## Copyright
 
-The ContentTranslation extension, including those listed in the AUTHORS.txt file,
+The ContentTranslation extension, including those listed in the [AUTHORS.txt](https://github.com/wikimedia/mediawiki-extensions-ContentTranslation/blob/master/AUTHORS.txt),
 hold the copyright to this work. It is free software released under
 the GNU General Public License version 2 or later.
 See the files AUTHORS.txt and LICENSE.txt.
