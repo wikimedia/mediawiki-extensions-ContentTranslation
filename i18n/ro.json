@@ -36,6 +36,7 @@
 	"cx-translation-target-page-exists": "O pagină cu titlul [$1 $2] există deja pe wikiul țintă. Încercați să furnizați paginii un alt titlu.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traducerea conținutului]]",
 	"tag-contenttranslation-description": "Conținutul a fost tradus dintr-o limbă străină folosind unealta „Traducerea conținutului”.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Traducerea conținutului 2]]",
 	"cx-source-loading": "Se încarcă $1",
 	"cx-beta": "Traducerea conținutului",
 	"cx-beta-desc": "O unealtă care permite traducerea rapidă a paginilor în limba dumnevoastră. Începeți traducerile accesându-vă [[Special:MyContributions|pagina de contribuții]] și modificați-le cu ajutorul editorului cu ferestre alăturate special conceput pentru traduceri. Unele instrumente pot fi disponibile doar pentru anumite limbi.",
