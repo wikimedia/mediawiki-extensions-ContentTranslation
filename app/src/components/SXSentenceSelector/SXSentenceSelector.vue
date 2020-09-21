@@ -27,20 +27,7 @@
       align="start"
       class="sx-sentence-selector__section fill-height ma-0"
     >
-      <mw-col shrink class="sx-sentence-selector__section-header pa-5">
-        <a
-          :href="sourceArticlePath"
-          target="_blank"
-          class="sx-sentence-selector__section-article-title mb-1"
-        >
-          <strong v-text="suggestion.sourceTitle" />
-          <mw-icon :icon="mwIconLinkExternal" class="ms-1" size="14" />
-        </a>
-        <h2
-          class="sx-sentence-selector__section-title pa-0 ma-0"
-          v-text="sourceSectionTitle"
-        />
-      </mw-col>
+      <sx-sentence-selector-content-header />
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
         <sx-sentence-selector-sentence
           v-for="sentence in sentences"
@@ -78,37 +65,31 @@
 </template>
 
 <script>
-import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import {
-  mwIconArrowPrevious,
-  mwIconLinkExternal,
-  mwIconClose
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState } from "vuex";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
-const sitemapper = new mw.cx.SiteMapper();
+import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 
 export default {
   name: "SxSentenceSelector",
   components: {
+    SxSentenceSelectorContentHeader,
     SxSentenceSelectorSentence,
     SxSentenceSelectorProposedTranslationBody,
     SxSentenceSelectorActionButtons,
     MwRow,
     MwCol,
     SxTranslationSelector,
-    MwButton,
-    MwIcon
+    MwButton
   },
   data() {
     return {
       mwIconArrowPrevious,
-      mwIconLinkExternal,
-      mwIconClose,
       selectedProvider: "",
       translation: null,
       translationOptionsActive: false,
@@ -145,12 +126,6 @@ export default {
     },
     sourcePage() {
       return this.$store.getters["mediawiki/getPage"](
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle
-      );
-    },
-    sourceArticlePath() {
-      return sitemapper.getPageUrl(
         this.suggestion.sourceLanguage,
         this.suggestion.sourceTitle
       );
@@ -252,19 +227,6 @@ export default {
     }
   }
   .sx-sentence-selector__section {
-    .sx-sentence-selector__section-header {
-      .sx-sentence-selector__section-article-title {
-        // TODO: User UI typography here instead of hardcoding font-size values in px.
-        // "Complementary" class cannot be applied here, as it only applies to paragraphs (<p>)
-        font-size: 14px;
-        // TODO: Fix this to be @base20 color - currently base30
-        color: @color-base--subtle;
-      }
-      .sx-sentence-selector__section-title {
-        border-bottom: none;
-        font-family: @font-family-heading-main;
-      }
-    }
     .sx-sentence-selector__section-contents {
       overflow: auto;
     }
