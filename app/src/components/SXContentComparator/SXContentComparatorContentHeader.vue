@@ -210,11 +210,11 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-content-comparator__content-header {
-  .sx-content-comparator__content-header-title {
+  &-title {
     // No border style defined in specifications
     border-bottom: @border-style-base @border-width-base
       @border-color-base--disabled;
-    .mw-ui-icon.sx-content-comparator__open-content-link-button {
+    .mw-ui-button.sx-content-comparator__open-content-link-button {
       color: @color-base--subtle;
     }
   }
