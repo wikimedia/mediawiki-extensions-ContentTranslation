@@ -21,7 +21,13 @@ export const Destructive = () => ({
 
 export const TextButton = () => ({
   components: { MwButton },
-  template: `<mw-button type="text" label="Click me"/>`
+  template: `
+    <section>
+      <mw-button type="text" label="Click me"/>
+      <mw-button type="text" progressive label="Click me"/>
+      <mw-button type="text" destructive label="Click me"/>
+    </section>
+  `
 });
 
 export const IconButton = () => ({

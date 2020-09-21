@@ -150,6 +150,20 @@ export default {
 @import "./buttons.less";
 @import "../../variables/wikimedia-ui-base.less";
 
+.mw-ui-button-text-colors(@color, @highlightColor, @activeColor, @focusColor ) {
+  background-color: transparent;
+  border-color: transparent;
+  color: @color;
+  &:hover {
+    color: @highlightColor;
+  }
+  &:active {
+    color: @activeColor;
+  }
+  &:focus {
+    color: @focusColor;
+  }
+}
 // Neutral button styling
 //
 // These are the main actions on the page/workflow. The page should have only one of progressive and destructive buttons, the rest being quiet.
@@ -215,19 +229,27 @@ export default {
 
   // Buttons that act like links
   &.mw-ui-button--text {
-    color: @color-base;
-    background-color: transparent;
-    border-color: transparent;
-    &:hover {
-      background-color: transparent;
-      color: @color-primary--hover;
+    .mw-ui-button-text-colors(
+      @color-base,
+      @color-primary--hover,
+      @color-primary--active,
+      @color-primary--focus
+    );
+    &.mw-ui-button--progressive {
+      .mw-ui-button-text-colors(
+        @color-primary,
+        @color-primary--hover,
+        @color-primary--active,
+        @color-primary--focus
+      );
     }
-    &:active {
-      color: @color-primary--active;
-    }
-    &:focus {
-      background-color: transparent;
-      color: @color-primary--focus;
+    &.mw-ui-button--destructive {
+      .mw-ui-button-text-colors(
+        @color-destructive,
+        @color-destructive--hover,
+        @color-destructive--active,
+        @color-destructive--focus
+      );
     }
   }
 
