@@ -18,6 +18,7 @@ use Maintenance;
 use MediaWiki\MediaWikiServices;
 use RawMessage;
 use stdClass;
+use WikiMap;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
@@ -99,11 +100,42 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 		if ( $notifyAgeInDays ) {
 			$remindersBefore = $this->getCutoffTime( $notifyAgeInDays );
-			$after = $dbr->selectField( 'cx_notification_log', 'MAX(cxn_newest)', [], __METHOD__ );
+
+			// TEMPORARY BC CHECK: index might not exist yet
+			if ( $dbr->indexExists( 'cx_notification_log', 'cxn_wiki_id_newest' ) ) {
+				$after = $dbr->selectField(
+					'cx_notification_log',
+					'MAX(cxn_newest)',
+					[ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ],
+					__METHOD__
+				);
+
+				// TEMPORARY BC CODE: before the first run of the code with the new index, there
+				// may not be a wiki-specific value. Use the old global one.
+				if ( !$after ) {
+					$this->output( "Falling back to global previous notification timestamp (no value)\n" );
+					$after = $dbr->selectField(
+						'cx_notification_log',
+						'MAX(cxn_newest)',
+						[ 'cxn_wiki_id' => null ],
+						__METHOD__
+					);
+				}
+
+			} else {
+				$this->output( "Falling back to global previous notification timestamp (no index)\n" );
+				$after = $dbr->selectField(
+					'cx_notification_log',
+					'MAX(cxn_newest)',
+					[],
+					__METHOD__
+				);
+			}
 
 			if ( $after ) {
 				$remindersAfter = new DateTime( $after );
 			} else {
+				$this->output( "No previous notification timestamp (using 15 days)\n" );
 				// $after is null if there are no entries in cx_notification_log table.
 				// Indicative of first run after implementing notifications for old drafts. See T89707
 				$remindersAfter = $this->getCutoffTime( $notifyAgeInDays + 15 );
@@ -113,7 +145,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$afterTs = $remindersAfter->format( 'Y-m-d' );
 
 			$this->output(
-				"Notifying users to continue their old translations\n" .
+				"== Notifying users to continue their old translations ==\n" .
 				"Selecting drafts with last modified timestamp between $afterTs and $beforeTs\n"
 			);
 			$draftsIterator = $this->getOldDrafts( $dbr, $remindersBefore, $remindersAfter, $language );
@@ -131,7 +163,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$purgeCutoff = $this->getCutoffTime( $ageInDays );
 		$purgeTs = $purgeCutoff->format( 'Y-m-d' );
 		$this->output(
-			"Purging old drafts\n" .
+			"== Purging old drafts ==\n" .
 			"Selecting drafts with last modified timestamp before $purgeTs\n"
 		);
 		$draftsIterator = $this->getOldDrafts( $dbr, $purgeCutoff, null, $language );
@@ -294,7 +326,13 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$values = [
 			'cxn_date' => $dt->format( 'Y-m-d' ),
 			'cxn_newest' => $lastDraft->translation_last_updated_timestamp,
+			'cxn_wiki_id' => WikiMap::getCurrentWikiId(),
 		];
+
+		// TEMPORARY BC CODE:
+		if ( !$dbw->indexExists( 'cx_notification_log', 'cxn_wiki_id_newest' ) ) {
+			unset( $values['cxn_wiki_id'] );
+		}
 
 		$dbw->insert( 'cx_notification_log', $values, __METHOD__ );
 	}

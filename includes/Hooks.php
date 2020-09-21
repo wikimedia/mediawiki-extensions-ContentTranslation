@@ -125,6 +125,11 @@ class Hooks {
 			'cx_translation_ref',
 			"$dir/sql/patch-update-cx-unique-index.sql"
 		);
+		$updater->addExtensionField(
+			'cx_notification_log',
+			'cxn_wiki_id',
+			"$dir/sql/patch-2020-09-21-notification-log-add-wikiid.sql"
+		);
 	}
 
 	/**

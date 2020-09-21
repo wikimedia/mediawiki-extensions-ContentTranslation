@@ -4,10 +4,13 @@ CREATE TABLE /*_*/cx_notification_log (
     -- Date when notification script was run
     cxn_date varchar(14) binary not null,
     -- Newest draft which was updated with this script run
-    cxn_newest varchar(14) binary not null
+    cxn_newest varchar(14) binary not null,
+    -- Wiki ID of draft notification sent by the script
+    cxn_wiki_id varchar(64) binary
 ) /*$wgDBTableOptions*/;
 
-CREATE UNIQUE INDEX /*i*/cx_notification_log_index ON /*_*/cx_notification_log (
-    cxn_date,
+-- Support query: SELECT MAX(cxn_newest) WHERE cxn_wiki_id = 'X'
+CREATE INDEX /*i*/cxn_wiki_id_newest ON /*_*/cx_notification_log (
+    cxn_wiki_id,
     cxn_newest
 );
