@@ -22,7 +22,7 @@ describe("SXSentenceSelector Action Buttons", () => {
 
   it("Component emits 'configure-options' event on ellipsis icon button click", async () => {
     const button = wrapper.find(
-      ".sx-sentence-selector__translation-more-options-button"
+      ".sx-sentence-selector__proposed-translation-more-options-button"
     );
     await button.trigger("click");
     expect(wrapper.emitted("configure-options")).toBeTruthy();

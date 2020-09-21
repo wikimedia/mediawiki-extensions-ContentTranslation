@@ -11,7 +11,7 @@
         <mw-button
           :icon="mwIconEllipsis"
           type="icon"
-          class="sx-sentence-selector__translation-more-options-button pa-0"
+          class="sx-sentence-selector__proposed-translation-more-options-button pa-0"
           @click="$emit('configure-options')"
         />
       </mw-col>
@@ -26,7 +26,8 @@
       :icon="mwIconEdit"
       type="text"
       :label="$i18n('cx-sx-sentence-selector-edit-translation-button-label')"
-      class="sx-sentence-selector__translation-edit-button pa-0"
+      class="sx-sentence-selector__proposed-translation-edit-button pa-0"
+      progressive
       @click="$emit('edit-translation')"
     />
   </div>
@@ -88,19 +89,18 @@ export default {
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-.sx-sentence-selector__proposed-translation-body {
-  .sx-sentence-selector__proposed-translation-title {
-    // TODO: Fix this to be base20 (currently base30)
-    color: @color-base--subtle;
-  }
-  .sx-sentence-selector__translation-more-options-button {
-    color: @color-base--subtle;
-  }
-  .sx-sentence-selector__proposed-translation-contents {
-    color: @color-base;
-  }
-  .sx-sentence-selector__translation-edit-button {
-    color: @color-primary;
+.sx-sentence-selector__proposed-translation {
+  &-body {
+    &-title {
+      // TODO: Fix this to be base20 (currently base30)
+      color: @color-base--subtle;
+    }
+    &-more-options-button {
+      color: @color-base--subtle;
+    }
+    &-contents {
+      color: @color-base;
+    }
   }
 }
 </style>
