@@ -167,7 +167,7 @@
 	"cx-publishing-dialog-keep-button": "Mantener ambas versiones",
 	"cx-publishing-dialog-publish-anyway-button": "Publicar de todos modos",
 	"cx-publishing-dialog-title": "¿Quieres sobrescribir la página existente?",
-	"cx-publishing-dialog-sub-title": "La traducción sobrescribirá la página existente. Por favor, asegúrate de que sea apropiado sustituir el contenido existente.",
+	"cx-publishing-dialog-sub-title": "La traducción sobrescribirá la página existente. Cerciórate de que sea apropiado sustituir el contenido existente.",
 	"cx-publishing-with-issues-dialog-title": "¿Quieres publicar con los problemas existentes?",
 	"cx-publishing-with-issues-dialog-message": "Tu traducción tiene problemas potenciales.\nPor favor, considera revisar los problemas antes de publicar.\n\nLos editores que revisen tu contribución agradecerán tus mejoras.",
 	"cx-overwriting-with-issues": "To traducción sobreescribirá la página existente con contenido que aún presenta problemas potenciales. Por favor considera revisar los problemas antes de publicar.",
