@@ -69,7 +69,7 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
@@ -101,11 +101,15 @@ export default {
       currentEditedTranslation: state =>
         state.application.currentEditedSentenceTranslation
     }),
+    ...mapGetters({
+      getDefaultMTProvider: "mediawiki/getDefaultMTProvider",
+      getSupportedMTProviders: "mediawiki/getSupportedMTProviders"
+    }),
     sourceSectionTitle() {
       return this.currentPageSection?.title;
     },
     defaultMTProvider() {
-      return this.$store.getters["mediawiki/getDefaultMTProvider"](
+      return this.getDefaultMTProvider(
         this.suggestion.sourceLanguage,
         this.suggestion.targetLanguage
       );
@@ -139,7 +143,7 @@ export default {
       return this.currentPageSection?.sentences || [];
     },
     mtProviders() {
-      return this.$store.getters["mediawiki/getSupportedMTProviders"](
+      return this.getSupportedMTProviders(
         this.suggestion.sourceLanguage,
         this.suggestion.targetLanguage
       );
@@ -217,6 +221,10 @@ export default {
     onSentenceSelected(sentence) {
       if (this.selectedSentence === sentence) {
         this.bounceTranslation();
+      } else {
+        this.$store.dispatch("application/selectSentenceForCurrentSection", {
+          id: sentence.id
+        });
       }
     },
     configureTranslationOptions() {

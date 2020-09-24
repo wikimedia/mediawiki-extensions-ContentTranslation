@@ -28,12 +28,6 @@ describe("SXSentenceSelector Sentence", () => {
 
   it("Component dispatches events and actions correctly on click", () => {
     wrapper.find("span").trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectSentenceForCurrentSection",
-      {
-        id: sentence.id
-      }
-    );
     expect(wrapper.emitted("sentence-selected")).toBeTruthy();
   });
 

@@ -32,9 +32,6 @@ export default {
   },
   methods: {
     selectSentence() {
-      this.$store.dispatch("application/selectSentenceForCurrentSection", {
-        id: this.sentence.id
-      });
       this.$emit("sentence-selected", this.sentence);
     }
   }
