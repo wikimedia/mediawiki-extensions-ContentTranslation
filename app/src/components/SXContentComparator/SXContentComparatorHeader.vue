@@ -33,7 +33,7 @@
       </mw-col>
     </mw-row>
     <mw-row
-      v-if="isMissingSection"
+      v-if="isCurrentSectionMissing"
       align="start"
       class="sx-content-comparator-header__review-contents mx-0"
     >
@@ -47,7 +47,7 @@
       </mw-col>
     </mw-row>
     <sx-content-comparator-header-mapped-section
-      v-else
+      v-if="isCurrentSectionPresent"
       :suggestion="suggestion"
       :target-section-title="targetSectionTitle"
       :discarded-sections="discardedSections"
@@ -87,10 +87,6 @@ export default {
       type: String,
       required: true
     },
-    isMissingSection: {
-      type: Boolean,
-      required: true
-    },
     discardedSections: {
       type: Array,
       required: true
@@ -107,8 +103,13 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
-    })
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
+      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing",
+      isCurrentSectionPresent: "application/isCurrentSourceSectionPresent"
+    }),
+    isCurrentSectionMappedOrDiscarded() {
+      return this.discardedSections.includes(this.activeSectionTargetTitle);
+    }
   }
 };
 </script>

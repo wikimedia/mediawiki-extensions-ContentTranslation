@@ -4,7 +4,6 @@
       :suggestion="suggestion"
       :target-section-title="activeSectionTargetTitle"
       :discarded-sections.sync="discardedSections"
-      :is-missing-section="isCurrentSectionMissing"
       :section-source-titles="sectionSourceTitles"
       @translation-button-clicked="translateSection"
       @close="close"
@@ -54,19 +53,18 @@ export default {
     SxContentComparatorContentHeader,
     MwSpinner
   },
-  data() {
-    return {
-      sourceVsTargetSelection: "source_section",
-      discardedSections: []
-    };
-  },
+  data: () => ({
+    sourceVsTargetSelection: "source_section",
+    discardedSections: []
+  }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       sourceSection: state => state.application.currentSourceSection
     }),
     ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
+      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
+      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing"
     }),
     targetSectionAnchor() {
       return (this.targetSection?.title || "").replace(/ /g, "_");
@@ -90,12 +88,9 @@ export default {
     targetTitle() {
       return this.suggestion.targetTitle;
     },
-    missingSections() {
-      return this.suggestion.missingSections;
-    },
     activeSectionTargetTitle() {
       return (
-        this.missingSections[this.sourceSectionTitle] ||
+        this.suggestion.missingSections[this.sourceSectionTitle] ||
         this.suggestion.presentSections[this.sourceSectionTitle] ||
         ""
       );
@@ -112,9 +107,6 @@ export default {
     targetSectionContent() {
       return this.targetSection?.html;
     },
-    isCurrentSectionMissing() {
-      return this.missingSections.hasOwnProperty(this.sourceSectionTitle);
-    },
     isCurrentSectionMapped() {
       return !this.isCurrentSectionMissing && !this.isCurrentSectionDiscarded;
     },
@@ -123,7 +115,7 @@ export default {
     },
     sectionSourceTitles() {
       return [
-        ...Object.keys(this.missingSections),
+        ...Object.keys(this.suggestion.missingSections),
         ...Object.keys(this.suggestion.presentSections)
       ];
     }

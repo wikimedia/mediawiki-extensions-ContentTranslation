@@ -79,7 +79,15 @@ const getters = {
   isCurrentSentenceFirst: (state, getters) =>
     getters.getCurrentSourceSectionSentences.findIndex(
       sentence => sentence.selected
-    ) === 0
+    ) === 0,
+  isCurrentSourceSectionMissing: (state, getters) =>
+    state.currentSectionSuggestion?.missingSections.hasOwnProperty(
+      getters.getCurrentSourceSectionTitle
+    ),
+  isCurrentSourceSectionPresent: (state, getters) =>
+    state.currentSectionSuggestion?.presentSections.hasOwnProperty(
+      getters.getCurrentSourceSectionTitle
+    )
 };
 
 const actions = {
