@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jon Harald Søby (WMNO)"
+			"Jon Harald Søby (WMNO)",
+			"Yupik"
 		]
 	},
+	"cx-tools-link-title": "Liŋka",
 	"cx-campaign-contributionsmenu-mycontributions": "Rievdadusat",
 	"cx-campaign-contributionsmenu-mytranslations": "Jorgalusat",
 	"cx-campaign-contributionsmenu-myuploads": "Mediafiillat"

@@ -373,5 +373,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Sua tradução será adicionada aqui",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Ao publicar, você pode decidir substituir o conteúdo existente.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduzir",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "A nova seção será adicionada aqui assim que você completar a tradução"
+	"cx-sx-content-comparator-missing-section-placeholder-title": "A nova seção será adicionada aqui assim que você completar a tradução",
+	"cx-sx-editor-original-panel-label": "Original"
 }

@@ -365,5 +365,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Deine Übersetzung wird hier hinzugefügt",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Bei der Veröffentlichung kannst du entscheiden, stattdessen die vorhandenen Inhalte zu ersetzen.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Übersetze",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "Der neue Abschnitt wird hier hinzugefügt, sobald du die Übersetzung abgeschlossen hast."
+	"cx-sx-content-comparator-missing-section-placeholder-title": "Der neue Abschnitt wird hier hinzugefügt, sobald du die Übersetzung abgeschlossen hast.",
+	"cx-sx-editor-original-panel-label": "Original"
 }

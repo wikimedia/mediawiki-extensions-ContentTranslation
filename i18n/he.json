@@ -364,5 +364,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "התרגום שלך יתווסף כאן",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "בעת הפרסום {{GENDER:|תוכל|תוכלי}} להחליט להחליף את התוכן הנוכחי.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "לתרגם",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "הפִסקה החדשה תתווסף כאן {{GENDER:|כשתשלים|כשתשלימי}} את התרגום"
+	"cx-sx-content-comparator-missing-section-placeholder-title": "הפִסקה החדשה תתווסף כאן {{GENDER:|כשתשלים|כשתשלימי}} את התרגום",
+	"cx-sx-editor-original-panel-label": "מקור"
 }

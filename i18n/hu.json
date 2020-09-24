@@ -5,6 +5,7 @@
 			"Csega",
 			"Dorgan",
 			"Grin",
+			"Hanna Tardos",
 			"Liuxinyu970226",
 			"Máté",
 			"Pasztilla",
@@ -314,5 +315,6 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Fordítás szerkesztése",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Alkalmaz",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Kihagy",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Egy|$1|0=Nulla}} megtekintés hetente"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Egy|$1|0=Nulla}} megtekintés hetente",
+	"cx-sx-editor-original-panel-label": "Eredeti"
 }

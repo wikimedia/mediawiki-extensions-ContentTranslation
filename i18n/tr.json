@@ -379,5 +379,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Çeviriniz buraya eklenecek",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Yayımlarken bunun yerine mevcut içerikleri değiştirmeye karar verebilirsiniz.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Çevir",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "Çeviriyi tamamladığınızda yeni bölüm buraya eklenecektir"
+	"cx-sx-content-comparator-missing-section-placeholder-title": "Çeviriyi tamamladığınızda yeni bölüm buraya eklenecektir",
+	"cx-sx-editor-original-panel-label": "Orijinal"
 }
