@@ -356,5 +356,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Вашиот превод ќе биде додаден тука",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Кога објавувате, можете се решите за замена на постоечките содржини.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Преведи",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "Тука ќе се појави новиот поднаслов штом завршите со преведување"
+	"cx-sx-content-comparator-missing-section-placeholder-title": "Тука ќе се појави новиот поднаслов штом завршите со преведување",
+	"cx-sx-editor-original-panel-label": "Извор"
 }

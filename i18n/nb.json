@@ -365,5 +365,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Oversettelsen din blir lagt til her",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Når du publiserer kan du bestemme om den skal erstatte eksisterende innhold i stedet.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Oversett",
-	"cx-sx-content-comparator-missing-section-placeholder-title": "Den nye seksjonen blir lagt til her når du er ferdig med oversettelsen"
+	"cx-sx-content-comparator-missing-section-placeholder-title": "Den nye seksjonen blir lagt til her når du er ferdig med oversettelsen",
+	"cx-sx-editor-original-panel-label": "Original"
 }
