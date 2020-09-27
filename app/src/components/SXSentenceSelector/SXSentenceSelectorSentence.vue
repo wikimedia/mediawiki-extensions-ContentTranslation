@@ -1,6 +1,6 @@
 <template>
   <span
-    class="sx-sentence-selector__section-sentence py-1"
+    class="sx-sentence-selector__section-sentence py-1 me-1"
     :class="sentenceClass"
     @click="selectSentence"
     v-html="sentence.content"
@@ -52,7 +52,6 @@ export default {
 
   &--selected {
     box-decoration-break: clone;
-    margin-left: 0;
     color: @color-base;
     background-color: @wmui-color-yellow90;
     box-shadow: @padding 0 0 @wmui-color-yellow90,
@@ -60,16 +59,10 @@ export default {
   }
   &--translated {
     box-decoration-break: clone;
-    margin-left: 0;
     color: @color-base;
     background-color: @background-color-primary;
     box-shadow: @padding 0 0 @background-color-primary,
       -@padding 0 0 @background-color-primary;
-  }
-  &--selected + &:not(&--translated):not(&--selected),
-  &--translated + &:not(&--translated):not(&--selected) {
-    margin-left: @padding;
-    box-decoration-break: clone;
   }
 }
 </style>

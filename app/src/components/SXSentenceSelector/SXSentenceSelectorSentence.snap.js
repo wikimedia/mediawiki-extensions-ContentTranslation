@@ -2,7 +2,7 @@
 
 exports[`SXSentenceSelector Sentence Component output matches snapshot 1`] = `
 <span
-  class="sx-sentence-selector__section-sentence py-1"
+  class="sx-sentence-selector__section-sentence py-1 me-1"
 >
   Test content
 </span>
