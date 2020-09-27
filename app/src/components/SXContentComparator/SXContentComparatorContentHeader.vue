@@ -6,13 +6,11 @@
     align="stretch"
     :class="{ sticky: isSticky }"
   >
-    <div class="sx-content-comparator__source-target-selector">
-      <mw-button-group
-        :items="listSelector"
-        :active="sourceVsTargetSelection"
-        @select="updateSelection"
-      />
-    </div>
+    <sx-content-comparator-source-vs-target-selector
+      :is-mapped-section="isMappedSection"
+      :selection="sourceVsTargetSelection"
+      @update:selection="updateSelection"
+    />
     <mw-row
       justify="between"
       class="sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
@@ -46,32 +44,26 @@
 </template>
 
 <script>
-import { MwRow, MwCol, MwButton, MwButtonGroup } from "@/lib/mediawiki.ui";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import autonymMixin from "@/mixins/autonym";
+import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui";
 const sitemapper = new mw.cx.SiteMapper();
 
 import {
   mwIconEdit,
   mwIconLinkExternal
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
+import SxContentComparatorSourceVsTargetSelector from "@/components/SXContentComparator/SourceVsTargetSelector";
 export default {
   name: "SxContentComparatorContentHeader",
   components: {
+    SxContentComparatorSourceVsTargetSelector,
     MwRow,
     MwCol,
-    MwButton,
-    MwButtonGroup
+    MwButton
   },
-  mixins: [autonymMixin],
   props: {
     sourceVsTargetSelection: {
       type: String,
-      required: true
-    },
-    suggestion: {
-      type: SectionSuggestion,
       required: true
     },
     targetSectionTitle: {
@@ -93,6 +85,9 @@ export default {
     isSticky: false
   }),
   computed: {
+    ...mapState({
+      suggestion: state => state.application.currentSectionSuggestion
+    }),
     ...mapGetters({
       sourceSectionTitle: "application/getCurrentSourceSectionTitle",
       sourceSectionAnchor: "application/getCurrentSourceSectionAnchor"
@@ -125,63 +120,6 @@ export default {
         this.suggestion.targetLanguage,
         this.suggestion.targetTitle
       );
-    },
-    listSelector() {
-      const sourceSelectorItem = {
-        value: "source_section",
-        props: {
-          label: this.$i18n(
-            "cx-sx-content-comparator-source-selector-title",
-            this.getAutonym(this.suggestion.sourceLanguage)
-          ),
-          type: "text"
-        }
-      };
-
-      let targetSelectorItem;
-      switch (true) {
-        case this.isMappedSection:
-          targetSelectorItem = {
-            value: "target_section",
-            props: {
-              label: this.$i18n(
-                "cx-sx-content-comparator-target-selector-target-section-title",
-                this.getAutonym(this.suggestion.targetLanguage)
-              ),
-              type: "text"
-            }
-          };
-          break;
-        default:
-          targetSelectorItem = {
-            value: "target_article",
-            props: {
-              label: this.$i18n(
-                "cx-sx-content-comparator-target-selector-full-article-title",
-                this.getAutonym(this.suggestion.targetLanguage)
-              ),
-              type: "text"
-            }
-          };
-      }
-      return [sourceSelectorItem, targetSelectorItem];
-    }
-  },
-  watch: {
-    /**
-     * Watch for isMappedSection prop so that we can update
-     * sourceVsTarget selection accordingly, when isMappedSection
-     * is updated and previous sourceVsTarget selection is no
-     * longer a valid option.
-     */
-    isMappedSection() {
-      if (
-        !this.listSelector
-          .map(item => item.value)
-          .includes(this.sourceVsTargetSelection)
-      ) {
-        this.updateSelection(this.listSelector[0].value);
-      }
     }
   },
   mounted() {
@@ -226,17 +164,6 @@ export default {
     box-shadow: @box-shadow-card;
     .sx-content-comparator__content-header-title {
       border-bottom: none;
-    }
-  }
-  .sx-content-comparator__source-target-selector {
-    // Color should be base80
-    border-top: @border-style-base @border-width-base
-      @border-color-base--disabled;
-    border-bottom: @border-style-base @border-width-base
-      @border-color-base--disabled;
-    .mw-ui-button-group {
-      background: @background-color-framed;
-      color: @color-base;
     }
   }
 }

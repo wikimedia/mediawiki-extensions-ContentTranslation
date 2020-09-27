@@ -10,7 +10,6 @@
     />
     <sx-content-comparator-content-header
       :source-vs-target-selection.sync="sourceVsTargetSelection"
-      :suggestion="suggestion"
       :is-mapped-section="isCurrentSectionMapped"
       :target-section-title="activeSectionTargetTitle"
       :target-section-anchor="targetSectionAnchor"
