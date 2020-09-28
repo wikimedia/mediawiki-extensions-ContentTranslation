@@ -249,5 +249,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Kompletten Artikel op $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt op $1",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Är Iwwersetzung gëtt hei derbäigesat",
-	"cx-sx-content-comparator-content-header-translate-button-label": "Iwwersetzen"
+	"cx-sx-content-comparator-content-header-translate-button-label": "Iwwersetzen",
+	"cx-sx-editor-original-panel-label": "Original"
 }

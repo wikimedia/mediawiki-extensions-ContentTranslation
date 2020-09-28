@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"2nd-player",
+			"A2y4",
 			"Afaz",
 			"Aphaia",
 			"Fryed-peach",
@@ -338,5 +339,7 @@
 	"cx-sx-sentence-selector-proposed-translation-title": "$1 による翻訳案",
 	"cx-sx-sentence-selector-edit-translation-button-label": "翻訳を編集",
 	"cx-sx-sentence-selector-apply-translation-button-label": "適用",
-	"cx-sx-sentence-selector-skip-translation-button-label": "スキップ"
+	"cx-sx-sentence-selector-skip-translation-button-label": "スキップ",
+	"cx-sx-content-comparator-content-header-translate-button-label": "翻訳",
+	"cx-sx-editor-original-panel-label": "オリジナル"
 }
