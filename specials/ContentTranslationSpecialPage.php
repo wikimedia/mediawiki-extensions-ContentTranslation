@@ -10,43 +10,65 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * @ingroup SpecialPage
  */
 abstract class ContentTranslationSpecialPage extends SpecialPage {
 	final public function execute( $parameters ) {
 		global $wgULSPosition;
-
 		$out = $this->getOutput();
-		$skin = $this->getSkin();
-
-		// Since we are essentially a custom skin, trick ULS to appear in the personal bar
-		$wgULSPosition = 'personal';
 
 		if ( !$this->canUserProceed() ) {
 			return;
 		}
 
-		$this->setHeaders();
-		$out->setArticleBodyOnly( true );
+		if ( $this->isVueDashboard() ) {
+			parent::execute( $parameters );
+			// Use custom 'contenttranslation' skin
+			$skinFactory = MediaWikiServices::getInstance()->getSkinFactory();
+			/** @var MutableContext $context */
+			$context = $out->getContext();
+			'@phan-var MutableContext $context';
+			$context->setSkin(
+				$skinFactory->makeSkin( 'contenttranslation' )
+			);
+			$out->addHTML( Html::element(
+				'div',
+				[ 'id' => 'contenttranslation' ]
+			) );
+			// Run the extendable chunks from the sub class.
+			$this->initModules();
+			$this->addJsConfigVars();
+		} else {
+			$out = $this->getOutput();
+			$skin = $this->getSkin();
 
-		// Preloading to avoid FOUC
-		$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
-		// Run the extendable chunks from the sub class.
-		$this->initModules();
-		$this->addJsConfigVars();
+			// Since we are essentially a custom skin, trick ULS to appear in the personal bar
+			$wgULSPosition = 'personal';
 
-		// Based on OutputPage::output, which will still get called for real.
-		// The below is a copy of its non-ArticleBodyOnly branch only.
-		$out->loadSkinModules( $skin );
-		Hooks::runWithoutAbort( 'BeforePageDisplay', [ &$out, &$skin ] );
+			$this->setHeaders();
+			$out->setArticleBodyOnly( true );
 
-		// Substitute for BaseTemplate::execute, based on VectorTemplate::execute.
-		$this->createHeaderHtml();
-		// Based on BaseTemplate::getTrail
-		$out->addHTML( MWDebug::getDebugHTML( $this->getContext() ) );
-		$out->addHTML( $skin->bottomScripts() );
-		$out->addHTML( '</body></html>' );
+			// Preloading to avoid FOUC
+			$out->addModuleStyles( 'mw.cx.ui.Header.skin' );
+			// Run the extendable chunks from the sub class.
+			$this->initModules();
+			$this->addJsConfigVars();
+
+			// Based on OutputPage::output, which will still get called for real.
+			// The below is a copy of its non-ArticleBodyOnly branch only.
+			$out->loadSkinModules( $skin );
+			Hooks::runWithoutAbort( 'BeforePageDisplay', [ &$out, &$skin ] );
+
+			// Substitute for BaseTemplate::execute, based on VectorTemplate::execute.
+			$this->createHeaderHtml();
+			// Based on BaseTemplate::getTrail
+			$out->addHTML( MWDebug::getDebugHTML( $this->getContext() ) );
+			$out->addHTML( $skin->bottomScripts() );
+			$out->addHTML( '</body></html>' );
+		}
 	}
 
 	/**
@@ -105,21 +127,14 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			$this->msg( 'cx-javascript' )->text()
 		) );
 
-		if ( $this->isVueDashboard() ) {
-			$out->addHTML( Html::element(
-				'div',
-				[ 'id' => 'contenttranslation' ]
-			) );
-		} else {
-			// Display notification tools from Echo extension and ULS.
-			// Intended to display ULS, alerts and notices.
-			// Initially hidden, until rest of DOM elements are rendered through JavaScript.
-			$out->addHTML( Html::rawElement(
-				'div',
-				[ 'class' => 'cx-header__personal' ],
-				Html::rawElement( 'ul', [], $skin->makePersonalToolsList( $personalTools ) )
-			) );
-		}
+		// Display notification tools from Echo extension and ULS.
+		// Intended to display ULS, alerts and notices.
+		// Initially hidden, until rest of DOM elements are rendered through JavaScript.
+		$out->addHTML( Html::rawElement(
+			'div',
+			[ 'class' => 'cx-header__personal' ],
+			Html::rawElement( 'ul', [], $skin->makePersonalToolsList( $personalTools ) )
+		) );
 		$wordmark = $this->getProjectWordmark();
 		if ( $wordmark ) {
 			$out->addHTML( $wordmark );

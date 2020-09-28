@@ -182,8 +182,8 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				$out->addModules( 'mw.cx3' );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
+				$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 			}
-			$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
 		}
 	}
 

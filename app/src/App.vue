@@ -1,6 +1,5 @@
 <template>
   <mw-grid id="contenttranslation">
-    <cx-header />
     <mw-row class="cx-container">
       <mw-col cols="12">
         <transition :name="transitionName">
@@ -14,11 +13,10 @@
 
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
-import CxHeader from "./components/CXHeader";
 
 export default {
   name: "ContentTranslationApp",
-  components: { MwGrid, MwCol, MwRow, CxHeader },
+  components: { MwGrid, MwCol, MwRow },
   data: () => ({
     transitionName: ""
   }),
