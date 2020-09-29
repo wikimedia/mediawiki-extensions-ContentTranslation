@@ -7,7 +7,8 @@ import {
   SXContentComparator,
   SXSentenceSelector,
   SXQuickTutorial,
-  SXEditor
+  SXEditor,
+  SXPublisher
 } from "@/views";
 
 Vue.use(VueRouter);
@@ -61,6 +62,13 @@ const routes = [
     component: SXEditor,
     params: true,
     meta: { workflowStep: 4.5 }
+  },
+  {
+    path: "/sx/sx-publisher",
+    name: "sx-publisher",
+    component: SXPublisher,
+    params: true,
+    meta: { workflowStep: 5 }
   },
   {
     path: "*",

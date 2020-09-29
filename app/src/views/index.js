@@ -5,6 +5,7 @@ import SXContentComparator from "./SXContentComparator";
 import SXSentenceSelector from "./SXSentenceSelector";
 import SXQuickTutorial from "./SXQuickTutorial";
 import SXEditor from "./SXEditor";
+import SXPublisher from "./SXPublisher";
 export {
   Dashboard,
   SXArticleSelector,
@@ -12,5 +13,6 @@ export {
   SXContentComparator,
   SXSentenceSelector,
   SXQuickTutorial,
-  SXEditor
+  SXEditor,
+  SXPublisher
 };

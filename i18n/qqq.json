@@ -381,5 +381,9 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Subtitle for the placeholder where the new section will be added inside the existing section in target language, in the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Label for translation button that appears when content header becomes sticky inside screen where user can compare the contents of source/target sections.",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Title for the placeholder where the new section will be added inside full article in target language, in the screen where translators compare source and target section contents for an article existing in both languages.",
-	"cx-sx-editor-original-panel-label": "Title for original sentence panel, where user can navigates between lines of the original sentence, inside sentence translation editor screen."
+	"cx-sx-editor-original-panel-label": "Title for original sentence panel, where user can navigates between lines of the original sentence, inside sentence translation editor screen.",
+	"cx-sx-publisher-header-title": "Title for header of 'Preview and publish section translation' screen",
+	"cx-sx-publisher-publish-panel-new-section-status": "Status for publish panel inside 'Preview and publish' screen for new section",
+	"cx-sx-publisher-publish-panel-new-section-result": "Description of expected result of publishing new section inside 'Preview and publish' screen",
+	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation"
 }

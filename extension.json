@@ -436,7 +436,11 @@
 				"cx-sx-content-comparator-present-section-placeholder-subtitle",
 				"cx-sx-content-comparator-content-header-translate-button-label",
 				"cx-sx-content-comparator-missing-section-placeholder-title",
-				"cx-sx-editor-original-panel-label"
+				"cx-sx-editor-original-panel-label",
+				"cx-sx-publisher-header-title",
+				"cx-sx-publisher-publish-panel-new-section-status",
+				"cx-sx-publisher-publish-panel-new-section-result",
+				"cx-sx-publisher-review-info"
 			],
 			"noflip": true
 		},

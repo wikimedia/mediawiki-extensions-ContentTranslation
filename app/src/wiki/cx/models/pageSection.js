@@ -17,4 +17,11 @@ export default class PageSection {
       ""
     );
   }
+
+  get translationHtml() {
+    return this.sentences.reduce(
+      (htmlContent, sentence) => htmlContent + sentence.content,
+      ""
+    );
+  }
 }

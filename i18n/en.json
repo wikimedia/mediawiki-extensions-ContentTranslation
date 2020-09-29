@@ -368,5 +368,9 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "When publishing you can decide to replace the existing contents instead.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Translate",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "The new section will be added here once you complete the translation",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-header-title": "Confirm publication",
+	"cx-sx-publisher-publish-panel-new-section-status": "Ready to publish?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Your translation will be <strong>added to the article as a new section.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Check the whole translation before publishing</strong> and make sure that you included all the relevant information from the original section."
 }

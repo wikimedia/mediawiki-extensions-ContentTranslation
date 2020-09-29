@@ -18,6 +18,7 @@
       <mw-col shrink class="px-3">
         <mw-button
           :label="$i18n('cx-sx-sentence-selector-done-button-label')"
+          @click="previewTranslation"
         />
       </mw-col>
     </mw-row>
@@ -238,6 +239,11 @@ export default {
           language: this.suggestion.targetLanguage,
           originalContent: this.selectedSentence.originalContent
         }
+      });
+    },
+    previewTranslation() {
+      this.$router.push({
+        name: "sx-publisher"
       });
     }
   }
