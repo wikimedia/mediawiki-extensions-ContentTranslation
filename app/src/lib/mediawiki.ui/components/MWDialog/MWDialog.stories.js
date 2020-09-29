@@ -1,4 +1,4 @@
-import { boolean, select, text } from "@storybook/addon-knobs";
+import { boolean, select, text, number, color } from "@storybook/addon-knobs";
 import { MwButton, MwDialog } from "../..";
 import { mwIconPrevious } from "../icons";
 
@@ -184,6 +184,54 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
       </div>
     </template>
     <template v-slot:default><img :src="bodyImage"/></template>
+    </mw-dialog>
+    </div>`,
+  methods: {
+    openDialog() {
+      this.showDialog = true;
+    },
+    onDialogClose() {
+      this.showDialog = false;
+    }
+  }
+});
+
+export const DialogWithCustomOverlay = () => ({
+  components: { MwDialog, MwButton },
+  data: () => ({
+    showDialog: false
+  }),
+  props: {
+    title: {
+      default: text("Dialog title", "Did you know?")
+    },
+    bodyText: {
+      default: text(
+        "Dialog body content",
+        "The moai heads of Easter Island have bodies."
+      )
+    },
+    fullscreen: {
+      default: boolean("Fullscreen", false)
+    },
+    overlaycolor: {
+      default: color("Overlay color", "#202122")
+    },
+    overlayopacity: {
+      default: number("Overlay opacity", 0.7)
+    }
+  },
+  template: `<div class="container">
+    <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+    <mw-dialog 
+        v-show="showDialog" 
+        v-on:close="onDialogClose()" 
+        :fullscreen="fullscreen" 
+        :title="title" 
+        :overlay-color="overlaycolor"
+        :overlay-opacity="overlayopacity"
+    >
+      {{bodyText}}
     </mw-dialog>
     </div>`,
   methods: {

@@ -12,6 +12,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
   >
     <div
       class="mw-ui-dialog__overlay"
+      style="background-color: rgb(255, 255, 255); opacity: 1;"
     />
      
     <div

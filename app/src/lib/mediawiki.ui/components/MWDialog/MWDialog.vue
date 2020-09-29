@@ -8,7 +8,11 @@
       aria-fullscreen="true"
       @keyup.esc="closeOnEscapeKey && close()"
     >
-      <div class="mw-ui-dialog__overlay" @click="close()" />
+      <div
+        class="mw-ui-dialog__overlay"
+        :style="overlayStyles"
+        @click="close()"
+      />
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
           <mw-row class="mw-ui-dialog__header">
@@ -80,6 +84,14 @@ export default {
     header: {
       type: Boolean,
       default: true
+    },
+    overlayColor: {
+      type: String,
+      default: "#fff"
+    },
+    overlayOpacity: {
+      type: Number,
+      default: 1.0
     }
   },
   data: () => ({
@@ -90,6 +102,12 @@ export default {
       return {
         "mw-ui-dialog": true,
         "mw-ui-dialog--fullscreen": this.fullscreen
+      };
+    },
+    overlayStyles() {
+      return {
+        "background-color": this.overlayColor,
+        opacity: this.overlayOpacity
       };
     }
   },
@@ -138,7 +156,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: @background-color-base;
   }
 
   .mw-ui-dialog__shell {
