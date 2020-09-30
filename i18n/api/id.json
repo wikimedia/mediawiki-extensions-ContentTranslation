@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Daud I.F. Argana",
 			"Fate Kage",
 			"Ilham",
 			"Iwan Novirion",
@@ -90,5 +91,33 @@
 	"apihelp-query+cxtranslatorstats-description": "Mengambil statistik terjemahan untuk pengguna yang diberikan.",
 	"apihelp-query+cxtranslatorstats-summary": "Mengambil statistik terjemahan untuk pengguna yang diberikan.",
 	"apihelp-query+cxtranslatorstats-param-translator": "Nama pengguna penerjemah. Parameter ini opsional. Jika tidak diberikan, pengguna yang saat ini sedang masuk log akan digunakan.",
-	"apihelp-cxsave-param-sourcerevision": "Revisi dari halaman sumber."
+	"apihelp-query+cxtranslatorstats-example-1": "Mengambil statistik terjemahan untuk pengguna yang diberikan.",
+	"apihelp-cxsave-param-sourcerevision": "Revisi dari halaman sumber.",
+	"apihelp-cxsave-param-from": "Kode bahasa sumber.",
+	"apihelp-cxsave-param-to": "Kode bahasa tujuan.",
+	"apihelp-cxsave-param-sourcetitle": "Judul halaman sumber.",
+	"apihelp-cxsave-param-cxversion": "Versi penyunting yang digunakan untuk membuat draf terjemahan.",
+	"apierror-cx-docserverexception": "Kesalahan ketika mengubah HTML menjadi teks wiki: $1",
+	"apierror-cx-inuse": "Pengguna lain sedang menerjemahkan artikel ini.",
+	"apierror-cx-invalidlanguage": "Bahasa tidak valid.",
+	"apierror-cx-invalidsectioncontent": "Konten bagian tidak valid.",
+	"apierror-cx-invalidsectiondata": "Data bagian tidak valid.",
+	"apierror-cx-invalidsourcelanguage": "Bahasa sumber tidak valid.",
+	"apierror-cx-invalidtargetlanguage": "Bahasa target tidak valid.",
+	"apierror-cx-invalidtranslator": "Nama penerjemah tidak valid",
+	"apierror-cx-jwtmissing": "JWT tidak dipasang.",
+	"apierror-cx-missingdraft": "Draf tidak ada.",
+	"apierror-cx-mustbeloggedin-suggestions": "Anda harus masuk log untuk mengelola saran Anda.",
+	"apierror-cx-mustbeloggedin-get-suggestions": "Anda harus masuk log untuk mendapatkan saran terjemahan.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Untuk melihat terjemahan Anda, Anda harus masuk log.",
+	"apierror-cx-samelanguages": "Bahasa sumber dan tujuan tidak boleh sama.",
+	"apierror-cx-suggestionsdisabled": "Saran tidak diaktifkan untuk wiki ini.",
+	"apierror-cx-translationnotfound": "Terjemahan tidak ditemukan.",
+	"apihelp-query+langlinkscount-description": "Dapatkan banyak bahasa lain di mana artikel itu ada.",
+	"apihelp-query+langlinkscount-summary": "Dapatkan banyak versi bahasa lain.",
+	"apihelp-query+langlinkscount-example-1": "Dapatkan banyak versi bahasa lain dari halaman 'Dog'",
+	"apihelp-query+cxdeletedtranslations-description": "Dapatkan banyak terjemahan Anda yang diterbitkan di ruang nama yang dihapus setelah tanggal tertentu.",
+	"apihelp-query+cxdeletedtranslations-summary": "Dapatkan banyak terjemahan Anda yang diterbitkan dan telah dihapus.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Ruang nama di mana terjemahan yang dihapus sebelumnya diterbitkan. Bakunya adalah ruang nama utama.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Dapatkan banyak terjemahan Anda yang dihapus, yang diterbitkan ke ruang nama utama dan dihapus setelah 2019-04-07 16:24:44"
 }
