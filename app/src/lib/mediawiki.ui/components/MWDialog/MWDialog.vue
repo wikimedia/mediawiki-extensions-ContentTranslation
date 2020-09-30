@@ -69,26 +69,44 @@ export default {
         );
       }
     },
+    /**
+     * Whether the dialog should be shown fullscreen or not.
+     **/
     fullscreen: {
       type: Boolean,
       default: false
     },
+    /**
+     * Title of the dialog
+     **/
     title: {
       type: String,
       default: null
     },
+    /**
+     * Whether the dialog should have closed on `escape` key press or not.
+     **/
     closeOnEscapeKey: {
       type: Boolean,
       default: true
     },
+    /**
+     * Whether the dialog should have header or not.
+     **/
     header: {
       type: Boolean,
       default: true
     },
+    /**
+     * Color of the overlay
+     **/
     overlayColor: {
       type: String,
       default: "#fff"
     },
+    /**
+     * Opacity of the overlay
+     **/
     overlayOpacity: {
       type: Number,
       default: 1.0

@@ -1,10 +1,22 @@
-import { boolean, select, text, number, color } from "@storybook/addon-knobs";
 import { MwButton, MwDialog } from "../..";
 import { mwIconPrevious } from "../icons";
 
+const animations = ["slide-right", "slide-left", "slide-up", "slide-down"];
+const argTypes = {
+  animation: {
+    type: "string",
+    control: {
+      type: "select",
+      options: animations
+    }
+  },
+  overlayColor: { control: { type: "color" } },
+  overlayOpacity: { control: { type: "range", min: 0, max: 1, step: 0.1 } }
+};
 export default {
   title: "Components/Dialog",
   component: MwDialog,
+  argTypes,
   parameters: { layout: "centered" }
 };
 
@@ -13,20 +25,7 @@ export const DismissableInformationDialog = (args, { argTypes }) => ({
   data: () => ({
     showDialog: false
   }),
-  props: {
-    title: {
-      default: text("Dialog title", "Did you know?")
-    },
-    bodyText: {
-      default: text(
-        "Dialog body content",
-        "The moai heads of Easter Island have bodies."
-      )
-    },
-    fullscreen: {
-      default: boolean("Fullscreen", false)
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
     <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :title="title">
@@ -43,6 +42,12 @@ export const DismissableInformationDialog = (args, { argTypes }) => ({
   }
 });
 
+DismissableInformationDialog.args = {
+  fullscreen: false,
+  title: "Did you know",
+  bodyText: "The moai heads of Easter Island have bodies."
+};
+
 export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
@@ -50,14 +55,7 @@ export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
     bodyImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
-  props: {
-    title: {
-      default: text("Dialog title", "Did you know?")
-    },
-    fullscreen: {
-      default: boolean("Fullscreen", false)
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
   <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
   <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :title="title">
@@ -83,6 +81,11 @@ export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
     }
   }
 });
+DialogWithButtonsInFooter.args = {
+  fullscreen: false,
+  title: "Did you know",
+  bodyText: "The moai heads of Easter Island have bodies."
+};
 
 export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
@@ -91,11 +94,7 @@ export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
     bodyImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
-  props: {
-    fullscreen: {
-      default: boolean("Fullscreen", true)
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
     <mw-dialog :fullscreen="fullscreen" v-show="showDialog" v-on:close="onDialogClose()">
@@ -117,23 +116,10 @@ export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
   data: () => ({
     showDialog: false
   }),
-  props: {
-    fullscreen: {
-      default: boolean("Fullscreen", true)
-    },
-    closeOnEscapeKey: {
-      default: boolean("Close on escape key press", true)
-    },
-    bodyText: {
-      default: text(
-        "Dialog body content",
-        "The moai heads of Easter Island have bodies."
-      )
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
       <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-      <mw-dialog :fullscreen="fullscreen" :closeOnEscapeKey="closeOnEscapeKey" v-show="showDialog" v-on:close="onDialogClose()">
+      <mw-dialog :fullscreen="fullscreen" :closeOnEscapeKey="closeOnEscapeKey" v-show="showDialog" v-on:close="onDialogClose()" :title="title">
           <template v-slot:default>{{bodyText}}</template>
       </mw-dialog>
       </div>`,
@@ -147,6 +133,12 @@ export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
   }
 });
 
+DialogInteractionWithEscapeKey.args = {
+  closeOnEscapeKey: true,
+  title: "Did you know",
+  bodyText: "The moai heads of Easter Island have bodies."
+};
+
 export const DialogWithCustomHeader = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
@@ -155,23 +147,7 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
     bodyImage:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
-  props: {
-    title: {
-      default: text("Dialog title", "Did you know?")
-    },
-    bodyText: {
-      default: text(
-        "Dialog body content",
-        "The moai heads of Easter Island have bodies."
-      )
-    },
-    fullscreen: {
-      default: boolean("Fullscreen", false)
-    },
-    header: {
-      default: boolean("Header", true)
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
     <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :header="header">
@@ -195,41 +171,27 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
     }
   }
 });
+DialogWithCustomHeader.args = {
+  header: true,
+  title: "Did you know",
+  bodyText: "The moai heads of Easter Island have bodies."
+};
 
-export const DialogWithCustomOverlay = () => ({
+export const DialogWithCustomOverlay = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
     showDialog: false
   }),
-  props: {
-    title: {
-      default: text("Dialog title", "Did you know?")
-    },
-    bodyText: {
-      default: text(
-        "Dialog body content",
-        "The moai heads of Easter Island have bodies."
-      )
-    },
-    fullscreen: {
-      default: boolean("Fullscreen", false)
-    },
-    overlaycolor: {
-      default: color("Overlay color", "#202122")
-    },
-    overlayopacity: {
-      default: number("Overlay opacity", 0.7)
-    }
-  },
+  props: Object.keys(argTypes),
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog 
-        v-show="showDialog" 
-        v-on:close="onDialogClose()" 
-        :fullscreen="fullscreen" 
-        :title="title" 
-        :overlay-color="overlaycolor"
-        :overlay-opacity="overlayopacity"
+    <mw-dialog
+        v-show="showDialog"
+        v-on:close="onDialogClose()"
+        :fullscreen="fullscreen"
+        :title="title"
+        :overlay-color="overlayColor"
+        :overlay-opacity="overlayOpacity"
     >
       {{bodyText}}
     </mw-dialog>
@@ -244,7 +206,14 @@ export const DialogWithCustomOverlay = () => ({
   }
 });
 
-const animations = ["slide-right", "slide-left", "slide-up", "slide-down"];
+DialogWithCustomOverlay.args = {
+  overlayColor: "#202122",
+  overlayOpacity: 0.7,
+  fullscreen: false,
+  title: "Did you know",
+  bodyText: "The moai heads of Easter Island have bodies."
+};
+
 export const Animations = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
@@ -268,12 +237,3 @@ export const Animations = (args, { argTypes }) => ({
     }
   }
 });
-Animations.argTypes = {
-  animation: {
-    type: "string",
-    control: {
-      type: "select",
-      options: animations
-    }
-  }
-};
