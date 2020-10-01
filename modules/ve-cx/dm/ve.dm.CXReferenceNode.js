@@ -120,6 +120,11 @@ ve.dm.CXReferenceNode.prototype.onDetach = function ( parent ) {
 	}
 };
 
+/**
+ * Get the adaptation info supplied by cxserver
+ *
+ * @return {Object} The adaptation info
+ */
 ve.dm.CXReferenceNode.prototype.getAdaptationInfo = function () {
 	var nodeGroup, kinNodes, contentsUsed,
 		cxData = {};
@@ -136,7 +141,7 @@ ve.dm.CXReferenceNode.prototype.getAdaptationInfo = function () {
 		kinNodes = nodeGroup && nodeGroup.keyedNodes[ this.getAttribute( 'listKey' ) ];
 		// See if there is any kin nodes and if so, use the first one.
 		if ( kinNodes && kinNodes.length > 0 ) {
-			cxData = kinNodes[ 0 ].getAttribute( 'cx' );
+			cxData = kinNodes[ 0 ].getAttribute( 'cx' ) || {};
 		}
 	}
 	return cxData;
