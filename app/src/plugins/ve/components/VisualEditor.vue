@@ -41,27 +41,32 @@ export default {
         log: console.log,
         sectionId: 0,
         onBack: this.closeEditor,
-        onNext: this.onNext
+        onNext: this.onNext,
+        language: this.language,
+        siteMapper: new mw.cx.SiteMapper()
       };
     }
   },
   mounted() {
     // Section selector can also start loading them anticipating
     // a confirmation from translator.
+
     mw.loader
       .using([
         "ext.visualEditor.targetLoader",
-        "ext.visualEditor.articleTarget",
-        "ext.visualEditor.core.desktop"
+        "ext.visualEditor.mobileArticleTarget"
       ])
       .then(() => {
+        // Enforce mobile target for all devices to support
+        // mobile-first design.
+        OO.ui.isMobile = () => true;
         mw.libs.ve.targetLoader.loadModules("visual").then(() => {
           require("../tools/BackTool");
           require("../tools/NextTool");
           require("../commands/BackCommand");
           require("../commands/NextCommand");
           const SectionTranslationTarget = require("../target/SectionTranslationTarget");
-          const overlay = this.$refs.sxeditor;
+          const overlay = this.getVEOverlay();
           const config = this.editorConfig;
           this.veTarget = new SectionTranslationTarget(overlay, config);
           this.onTargetReady();
@@ -82,6 +87,13 @@ export default {
       this.veTarget.setSurface(this.veSurface);
       this.veSurface.initialize();
     },
+    getVEOverlay() {
+      // This is a quick and dirty version for VisualEditorOverlay
+      // in MobileFrontend. May require enhancement to a separate class.
+      const overlay = this.$refs.sxeditor;
+      overlay.$el = $(this.$refs.sxeditor);
+      return overlay;
+    },
     onTargetReady() {
       this.$emit("ready");
       this.init();
@@ -95,3 +107,19 @@ export default {
   }
 };
 </script>
+<style lang="less">
+.visual-editor {
+  .overlay-header .toolbar {
+    display: flex;
+    width: 100%;
+    .ve-ui-toolbar {
+      width: 100%;
+    }
+    .ve-ui-targetToolbar-mobile .oo-ui-toolbar-tools {
+      display: flex;
+      align-items: center;
+      height: 48px;
+    }
+  }
+}
+</style>

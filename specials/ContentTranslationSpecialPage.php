@@ -34,6 +34,9 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			$context->setSkin(
 				$skinFactory->makeSkin( 'contenttranslation' )
 			);
+			// Enforce mobile target for all devices to support
+			// mobile-first design.
+			$out->setTarget( 'mobile' );
 			$out->addHTML( Html::element(
 				'div',
 				[ 'id' => 'contenttranslation' ]
