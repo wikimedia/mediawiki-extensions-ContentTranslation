@@ -122,7 +122,7 @@
 	"cx-selected-source-page-error-title-in-use": "El título de la página nueva [$1 ya está en uso]",
 	"cx-favorite-added-for-later": "¡Añadido para más tarde!",
 	"cx-favorite-added-for-later-detail": "¡Añadido para más tarde! Consulta las sugerencias en cualquier momento.",
-	"cx-favorite-removed": "¡Eliminado de la lista de favoritos!",
+	"cx-favorite-removed": "Se quitó de la lista de favoritos.",
 	"cx-page-missing-in-target-language": "No disponible en $1",
 	"cx-page-number-of-languages": "Número de idiomas",
 	"cx-mt-abuse-error-title": "Parte de tu traducción {{PLURAL:$1|contiene}} un total de $1% de texto sin modificar",
