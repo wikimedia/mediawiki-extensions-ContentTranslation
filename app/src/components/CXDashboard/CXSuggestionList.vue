@@ -218,8 +218,8 @@ export default {
         sourceTitle,
         missing: {}
       });
-      // this.startSectionTranslation(suggestion);
       this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
+      this.startSectionTranslation(suggestion);
     }
   },
   methods: {

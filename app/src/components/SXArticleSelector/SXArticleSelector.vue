@@ -1,6 +1,7 @@
 <template>
   <section class="sx-article-selector">
     <sx-article-selector-header
+      v-if="sourceArticle"
       :section-suggestion="currentSectionSuggestion"
       :source-article="sourceArticle"
       @close="onClose"
