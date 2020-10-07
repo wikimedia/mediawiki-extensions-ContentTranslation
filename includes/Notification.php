@@ -2,6 +2,7 @@
 
 namespace ContentTranslation;
 
+use MWException;
 use Title;
 
 class Notification {
@@ -75,11 +76,16 @@ class Notification {
 	public static function draftNotification(
 		$type, $recipientId, $title, $sourceLanguage, $targetLanguage
 	) {
-		$title = Title::newFromText( $title );
+		$titleObj = Title::newFromText( $title );
+		if ( !$titleObj ) {
+			// PurgeUnpublishedDrafts only catches MWException
+			// See also https://phabricator.wikimedia.org/T264855
+			throw new MWException( "'$title' is not a valid title" );
+		}
 
 		\EchoEvent::create( [
 			'type' => $type,
-			'title' => $title,
+			'title' => $titleObj,
 			'extra' => [
 				'recipient' => $recipientId,
 				'source' => $sourceLanguage,
