@@ -238,7 +238,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		// TODO: consider adding an index for target_language and last_updated_timestamp if
 		// these queries need to be sped up.
 		if ( $language ) {
-			$conds[ 'translation_target_language ' ] = $language;
+			$conds[ 'translation_target_language' ] = $language;
 		}
 
 		$options = [
