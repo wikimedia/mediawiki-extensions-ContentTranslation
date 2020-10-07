@@ -300,7 +300,10 @@
 	"cx-sx-section-selector-present-sections-title": "$1 valodā esošās sadaļas",
 	"cx-sx-section-selector-more-details-title": "Vairāk informācijas",
 	"cx-sx-section-selector-view-article-button-label": "Skatīt rakstu $1 valodā",
+	"cx-sx-section-selector-unsupported-sections-title": "Neatbalstītās sadaļas",
+	"cx-sx-section-selector-unsupported-sections-description": "Dažas sadaļas var neparādīties sarakstā, jo to saturs vēl netiek atbalstīts.",
 	"cx-suggestion-list-new-pages-division": "Jaunas lapas",
+	"cx-translation-list-all-languages-option-label": "Visas",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Atpakaļ uz visām sadaļām",
 	"cx-sx-content-comparator-translation-section-button-label": "Tulkot šo sadaļu",
 	"cx-sx-content-comparator-review-contents-title": "Pārskati saturu abās valodās",
@@ -314,5 +317,6 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Labot tulkojumu",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā"
+	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā",
+	"cx-sx-editor-original-panel-label": "Oriģināls"
 }
