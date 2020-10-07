@@ -129,5 +129,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "{{doc-apihelp-summary|query+cxdeletedtranslations}}",
 	"apihelp-query+cxdeletedtranslations-param-after": "{{doc-apihelp-param|query+cxdeletedtranslations|after}}",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "{{doc-apihelp-param|query+cxdeletedtranslations|namespace}}",
-	"apihelp-query+cxdeletedtranslations-example-1": "{{doc-apihelp-example|query+cxdeletedtranslations}}"
+	"apihelp-query+cxdeletedtranslations-example-1": "{{doc-apihelp-example|query+cxdeletedtranslations}}",
+	"apihelp-cxpublishsection-description": "{{doc-apihelp-description|cxpublishsection}}",
+	"apihelp-cxpublishsection-summary": "{{doc-apihelp-summary|cxpublishsection}}",
+	"apihelp-cxpublishsection-param-title": "{{doc-apihelp-param|cxpublishsection|title}}",
+	"apihelp-cxpublishsection-param-html": "{{doc-apihelp-param|cxpublishsection|html}}",
+	"apihelp-cxpublishsection-param-sourcelanguage": "{{doc-apihelp-param|cxpublishsection|sourcelanguage}}",
+	"apihelp-cxpublishsection-param-targetlanguage": "{{doc-apihelp-param|cxpublishsection|targetlanguage}}",
+	"apihelp-cxpublishsection-param-sourcetitle": "{{doc-apihelp-param|cxpublishsection|sourcetitle}}",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "{{doc-apihelp-param|cxpublishsection|sourcesectiontitle}}",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "{{doc-apihelp-param|cxpublishsection|targetsectiontitle}}",
+	"apihelp-cxpublishsection-param-sectionnumber": "{{doc-apihelp-param|cxpublishsection|sectionnumber}}",
+	"apihelp-cxpublishsection-param-sourcerevid": "{{doc-apihelp-param|cxpublishsection|sourcerevid}}",
+	"apihelp-cxpublishsection-param-captchaid": "{{doc-apihelp-param|cxpublishsection|captchaid}}",
+	"apihelp-cxpublishsection-param-captchaword": "{{doc-apihelp-param|cxpublishsection|captchaword}}"
 }

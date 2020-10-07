@@ -391,5 +391,6 @@
 	"cx-sx-publisher-success-animation-title": "Title of animation dialog that shows up when translation is published successfully",
 	"cx-sx-publisher-success-animation-clarification": "Clarification of animation dialog that shows up when translation is published successfully",
 	"cx-sx-publisher-failure-animation-title": "Title of animation dialog that shows up when translation publishing fails",
-	"cx-sx-publisher-failure-animation-clarification": "Clarification of animation dialog that shows up when translation publishing fails"
+	"cx-sx-publisher-failure-animation-clarification": "Clarification of animation dialog that shows up when translation publishing fails",
+	"cx-sx-publish-summary":  "This is an automatic edit summary for pages where a new section was added by [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source section title\n* $2 - the source page name"
 }

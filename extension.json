@@ -63,6 +63,12 @@
 		"cxconfiguration": "ApiContentTranslationConfiguration",
 		"cxdelete": "ApiContentTranslationDelete",
 		"cxpublish": "ApiContentTranslationPublish",
+		"cxpublishsection": {
+			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationPublish",
+			"services": [
+				"TitleFactory"
+			]
+		},
 		"cxsave": "ApiContentTranslationSave",
 		"cxsuggestionlist": "ApiContentTranslationSuggestionList",
 		"cxtoken": "ApiContentTranslationToken"
@@ -96,6 +102,7 @@
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
 		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
 		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
+		"ContentTranslation\\ActionApi\\ApiSectionTranslationPublish": "api/ApiSectionTranslationPublish.php",
 		"ApiContentTranslationSave": "api/ApiContentTranslationSave.php",
 		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",

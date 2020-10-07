@@ -132,5 +132,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Get the number of your published translations that were deleted.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Timestamp to get only newer deletions.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Namespace in which the deleted translations were published. Defaults to the main namespace.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Get the number of your deleted translations, which were published to main namespace and deleted after 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Get the number of your deleted translations, which were published to main namespace and deleted after 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Save a section created using the Content Translation extension's section translation feature.",
+	"apihelp-cxpublishsection-summary": "Save a page created using the Content Translation extension's section translation feature.",
+	"apihelp-cxpublishsection-param-title": "The title of the page to perform actions on.",
+	"apihelp-cxpublishsection-param-html": "The content to save.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "The source language code.",
+	"apihelp-cxpublishsection-param-targetlanguage": "The target language code.",
+	"apihelp-cxpublishsection-param-sourcetitle": "The title of the source page.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "The title of the source section.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "The title of the target section.",
+	"apihelp-cxpublishsection-param-sectionnumber": "The position of section to be in the new revision of page.",
+	"apihelp-cxpublishsection-param-sourcerevid": "The source page revision id.",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (when saving with a captcha response).",
+	"apihelp-cxpublishsection-param-captchaword": "Answer to the captcha (when saving with a captcha response)."
 }

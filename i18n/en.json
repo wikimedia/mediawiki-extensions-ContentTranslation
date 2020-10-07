@@ -378,5 +378,6 @@
 	"cx-sx-publisher-success-animation-title": "Published!",
 	"cx-sx-publisher-success-animation-clarification": "Opening the page…",
 	"cx-sx-publisher-failure-animation-title": "Publishing failed",
-	"cx-sx-publisher-failure-animation-clarification": "Check the error messages"
+	"cx-sx-publisher-failure-animation-clarification": "Check the error messages",
+	"cx-sx-publish-summary": "Created by translating the section \"$1\" from page \"$2\""
 }
