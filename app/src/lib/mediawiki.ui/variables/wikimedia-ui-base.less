@@ -1,1 +1,13 @@
 @import "~wikimedia-ui-base/wikimedia-ui-base.less";
+
+/* Application specific overrides */
+
+// Respect reduced motion modes. Remove animations
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    /* Very short durations means JavaScript that relies on events still works */
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
