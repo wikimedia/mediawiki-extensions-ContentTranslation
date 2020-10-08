@@ -29,8 +29,8 @@ export default {
       const fromStep = from.meta.workflowStep;
       this.transitionName =
         toStep < fromStep
-          ? "mw-ui-animation-slide-right"
-          : "mw-ui-animation-slide-left";
+          ? "mw-ui-animation-slide-end"
+          : "mw-ui-animation-slide-start";
     }
   }
 };

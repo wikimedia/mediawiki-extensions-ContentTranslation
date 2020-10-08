@@ -1,16 +1,16 @@
 .mw-ui-animation- {
-  &slide-left-enter-active,
-  &slide-left-leave-active,
-  &slide-right-enter-active,
-  &slide-right-leave-active,
+  &slide-start-enter-active,
+  &slide-start-leave-active,
+  &slide-end-enter-active,
+  &slide-end-leave-active,
   &slide-up-enter-active,
   &slide-up-leave-active,
   &slide-down-enter-active,
   &slide-down-leave-active,
-  &blind-left-enter-active,
-  &blind-left-leave-active,
-  &blind-right-enter-active,
-  &blind-right-leave-active,
+  &blind-start-enter-active,
+  &blind-start-leave-active,
+  &blind-end-enter-active,
+  &blind-end-leave-active,
   &blind-up-enter-active,
   &blind-up-leave-active,
   &blind-down-enter-active,
@@ -21,14 +21,14 @@
     overflow: hidden;
   }
 
-  &slide-left-enter,
-  &slide-right-leave-active {
+  &slide-start-enter,
+  &slide-end-leave-active {
     opacity: 0;
     transform: translateX(100vw);
   }
 
-  &slide-right-enter,
-  &slide-left-leave-active {
+  &slide-end-enter,
+  &slide-start-leave-active {
     opacity: 0;
     transform: translateX(-100vw);
   }
@@ -45,14 +45,14 @@
     transform: translateY(-100vh);
   }
 
-  &blind-left-enter,
-  &blind-left-leave-active {
+  &blind-start-enter,
+  &blind-start-leave-active {
     opacity: 0;
     transform: translateX(100vw);
   }
 
-  &blind-right-enter,
-  &blind-right-leave-active {
+  &blind-end-enter,
+  &blind-end-leave-active {
     opacity: 0;
     transform: translateX(-100vw);
   }
@@ -67,5 +67,27 @@
   &blind-down-enter {
     opacity: 0;
     transform: translateY(-100vh);
+  }
+}
+
+[dir="rtl"] .mw-ui-animation- {
+  &slide-start-enter,
+  &slide-end-leave-active {
+    transform: translateX(-100vw);
+  }
+
+  &slide-end-enter,
+  &slide-start-leave-active {
+    transform: translateX(100vw);
+  }
+
+  &blind-start-enter,
+  &blind-start-leave-active {
+    transform: translateX(-100vw);
+  }
+
+  &blind-end-enter,
+  &blind-end-leave-active {
+    transform: translateX(100vw);
   }
 }

@@ -11,7 +11,7 @@ argTypes={{
     },
     animationDirection : {
       type: 'string',
-      control: { type: 'select', options:['left','right','up', 'down'] }
+      control: { type: 'select', options:['start','end','up', 'down'] }
     }
   }}
 />
@@ -61,7 +61,7 @@ They can be used with animation directions, as illustrated below:
   name="Animation Demo"
   args={{
       animation: 'slide',
-      animationDirection: 'right'
+      animationDirection: 'end'
   }}
  >
    {AnimationsTemplate.bind({})}
