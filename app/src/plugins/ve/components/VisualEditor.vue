@@ -121,5 +121,8 @@ export default {
       height: 48px;
     }
   }
+  .surface {
+    font-size: 1.125rem;
+  }
 }
 </style>
