@@ -453,7 +453,13 @@
 				"cx-sx-publisher-success-animation-title",
 				"cx-sx-publisher-success-animation-clarification",
 				"cx-sx-publisher-failure-animation-title",
-				"cx-sx-publisher-failure-animation-clarification"
+				"cx-sx-publisher-failure-animation-clarification",
+				"cx-sx-publisher-preview-options-title",
+				"cx-sx-publisher-new-section-option-label",
+				"cx-sx-publisher-new-section-option-details",
+				"cx-sx-publisher-sandbox-option-label",
+				"cx-sx-publisher-sandbox-option-details",
+				"cx-sx-publisher-publish-panel-sandbox-section-result"
 			],
 			"noflip": true
 		},

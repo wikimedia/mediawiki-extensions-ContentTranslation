@@ -6,10 +6,7 @@
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
         class="mb-2"
       />
-      <h6
-        v-i18n-html:cx-sx-publisher-publish-panel-new-section-result
-        class="mb-2"
-      />
+      <h6 class="mb-2" v-html="panelResult" />
       <mw-row justify="end" class="ma-0">
         <mw-col shrink>
           <mw-button
@@ -43,6 +40,10 @@
       </mw-row>
       <div v-html="currentPageSection.translationHtml" />
     </section>
+    <sx-publish-option-selector
+      :active.sync="publishOptionsOn"
+      :selected-option.sync="publishOption"
+    />
     <sx-publisher-animation-dialog
       :active="publishDialog"
       :status="publishStatus"
@@ -60,10 +61,12 @@ import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
 import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
+import SxPublishOptionSelector from "./SXPublishOptionSelector";
 
 export default {
   name: "SxPublisher",
   components: {
+    SxPublishOptionSelector,
     SxPublisherAnimationDialog,
     MwButton,
     SxPublisherHeader,
@@ -76,18 +79,24 @@ export default {
     mwIconEye,
     mwIconEdit,
     publishDialog: false,
-    publishStatus: "pending"
+    publishStatus: "pending",
+    publishOptionsOn: false,
+    publishOption: "new_section"
   }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection
     }),
-    sourceSectionTitle: vm => vm.currentPageSection?.title
+    sourceSectionTitle: vm => vm.currentPageSection?.title,
+    panelResult: vm =>
+      vm.publishOption === "new_section"
+        ? vm.$i18n("cx-sx-publisher-publish-panel-new-section-result")
+        : vm.$i18n("cx-sx-publisher-publish-panel-sandbox-section-result")
   },
   methods: {
     configureTranslationOptions() {
-      // TODO: Add method implementation
+      this.publishOptionsOn = true;
     }
   }
 };
