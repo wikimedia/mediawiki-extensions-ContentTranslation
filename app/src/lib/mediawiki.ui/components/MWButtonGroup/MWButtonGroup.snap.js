@@ -6,16 +6,16 @@ exports[`MwButtonGroup.vue renders correctly 1`] = `
 >
   <mw-button-stub
     aria-selected="true"
-    class="ma-0 col-6"
-    depressed="true"
+    class="ma-0 mw-ui-button--selected "
     iconsize="20"
     indicatorsize="12"
     label="buttonLabel1"
+    style="border-bottom-color: #202122;"
     type="button"
     value="item1"
   />
   <mw-button-stub
-    class="ma-0 col-6"
+    class="ma-0"
     iconsize="20"
     indicatorsize="12"
     label="buttonLabel2"

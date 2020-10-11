@@ -45,3 +45,28 @@ export const ExampleButtonGroup = () => ({
   }),
   template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`
 });
+
+export const ButtonGroupWithTextButtons = () => ({
+  components: { MwButtonGroup },
+  data: () => ({
+    icons,
+    active: "source_section",
+    items: [
+      {
+        value: "source_section",
+        props: {
+          label: "Source Section",
+          type: "text"
+        }
+      },
+      {
+        value: "target_section",
+        props: {
+          label: "Target Section",
+          type: "text"
+        }
+      }
+    ]
+  }),
+  template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`
+});

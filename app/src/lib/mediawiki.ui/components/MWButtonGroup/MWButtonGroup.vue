@@ -3,11 +3,12 @@
     <mw-button
       v-for="item in items"
       :key="item.value"
-      :class="`ma-0 col-${12 / items.length}`"
       :value="item.value"
-      :aria-selected="active === item.value"
-      :depressed="active === item.value"
+      :aria-selected="isActive(item)"
       v-bind="item.props"
+      class="ma-0"
+      :class="buttonClasses(item)"
+      :style="activeIndicatorStyle(item)"
       @click="$emit('select', item.value)"
     />
   </div>
@@ -36,6 +37,27 @@ export default {
     active: {
       type: String,
       default: null
+    },
+    activeIndicatorColor: {
+      type: String,
+      required: false,
+      default: "#202122"
+    }
+  },
+  methods: {
+    isActive(item) {
+      return this.active === item.value;
+    },
+    activeIndicatorStyle(item) {
+      return this.isActive(item)
+        ? { "border-bottom-color": this.activeIndicatorColor }
+        : {};
+    },
+    buttonClasses(item) {
+      return {
+        "mw-ui-button--selected": this.isActive(item),
+        [item.props.class || ""]: true
+      };
     }
   }
 };
@@ -46,8 +68,19 @@ export default {
 .mw-ui-button-group {
   background-color: white;
   min-height: 56px;
-  .mw-ui-button--depressed {
-    border-bottom: 2px solid @color-primary--hover;
+  .mw-ui-button {
+    &:hover,
+    &:focus {
+      color: inherit;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      outline: none;
+      box-shadow: none;
+    }
+    &--selected {
+      border-bottom: 3px @border-style-base;
+    }
   }
 }
 </style>
