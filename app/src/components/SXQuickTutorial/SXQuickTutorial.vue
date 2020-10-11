@@ -57,19 +57,20 @@
           />
         </transition>
       </section>
-      <div class="sx-quick-tutorial__action-button pa-4 pb-6">
+      <div class="sx-quick-tutorial__action-button pt-4 pb-6">
         <transition name="fade" mode="out-in">
           <mw-button
             v-if="isActiveStep(1)"
-            key="button-1"
-            class="px-8"
+            key="quick-tutorial-action-button-1"
+            class="px-8 mx-4"
             :icon="mwIconArrowForward"
             :progressive="true"
             @click="goToNextStep"
           />
           <mw-button
             v-if="isActiveStep(2)"
-            key="button-2"
+            key="quick-tutorial-action-button-2"
+            class="mx-4"
             :label="$i18n('sx-quick-tutorial-translate-button-label')"
             :progressive="true"
             @click="completeTutorial"
@@ -131,12 +132,14 @@ export default {
     background-color: @background-color-framed;
     // Should be set, since absolute children lead to heightless section
     height: 200px;
+    max-height: 25vh;
     div {
       // Should be absolute so that svgs "stack" one on top of the other, for the transition to work well
       position: absolute;
       width: 100%;
       svg {
         height: 100%;
+        max-height: 25vh;
         max-width: 100%;
       }
     }
@@ -168,8 +171,10 @@ export default {
     }
   }
   .sx-quick-tutorial__action-button {
-    align-self: end;
-    margin-top: auto;
+    width: 100%;
+    text-align: end;
+    position: fixed;
+    bottom: 0;
   }
   .fade-enter-active,
   .fade-leave-active {
