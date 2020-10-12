@@ -4,6 +4,7 @@
       <mw-button-group
         :items="listSelector"
         :active="active"
+        class="justify-around"
         @select="active = $event"
       />
     </nav>

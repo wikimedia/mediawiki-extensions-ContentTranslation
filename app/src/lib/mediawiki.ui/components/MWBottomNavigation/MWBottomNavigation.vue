@@ -4,7 +4,7 @@
       <!-- @slot Default bottom navigation content -->
       <slot>
         <mw-button-group
-          class="mw-ui-bottom-navigation__button-group"
+          class="mw-ui-bottom-navigation__button-group justify-around"
           :active="active"
           :items="items"
           @select="$emit('update:active', $event)"
