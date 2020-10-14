@@ -13,7 +13,7 @@ import MwMessage from "./MWMessage";
 import MwSelect from "./MWSelect";
 import MwSpinner from "./MWSpinner";
 import MwThumbnail from "./MWThumbnail";
-
+import { MwRadio, MwRadioGroup } from "./MWRadioGroup";
 export {
   MwButton,
   MwDialog,
@@ -31,5 +31,7 @@ export {
   MwDropdown,
   MwGrid,
   MwRow,
-  MwCol
+  MwCol,
+  MwRadio,
+  MwRadioGroup
 };
