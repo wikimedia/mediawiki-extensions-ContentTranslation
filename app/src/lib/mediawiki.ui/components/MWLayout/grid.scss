@@ -5,92 +5,9 @@
  based responsive grid implementations.
 */
 
-$cols: 12;
-$gutter: 8px;
-$container-width: 100%;
-
-// Break points
-$breakpoints: (
-  xs: 300px,
-  sm: 600px,
-  md: 960px,
-  lg: 1264px,
-  xl: 1904px
-);
-
-$viewports: (
-  "print": "only print",
-  "screen": "only screen",
-  "xs": "only screen and (max-width: #{map-get($breakpoints, sm ) - 1})",
-  "sm":
-    "only screen and (min-width: #{map-get($breakpoints, sm)}) and (max-width: #{map-get($breakpoints, md) - 1})",
-  "sm-and-down": "only screen and (max-width: #{map-get($breakpoints, md) - 1})",
-  "sm-and-up": "only screen and (min-width: #{map-get($breakpoints, sm)})",
-  "md":
-    "only screen and (min-width: #{map-get($breakpoints, md)}) and (max-width: #{map-get($breakpoints, lg) - 1})",
-  "md-and-down": "only screen and (max-width: #{map-get($breakpoints,lg) - 1})",
-  "md-and-up": "only screen and (min-width: #{map-get($breakpoints, md)})",
-  "lg":
-    "only screen and (min-width: #{map-get($breakpoints, lg)}) and (max-width: #{map-get($breakpoints, xl) - 1})",
-  "lg-and-down": "only screen and (max-width: #{map-get($breakpoints, xl) - 1})",
-  "lg-and-up": "only screen and (min-width: #{map-get($breakpoints, lg)})",
-  "xl": "only screen and (min-width: #{map-get($breakpoints, xl)})"
-);
-
-// Export $viewports to javascript via sass-loader
-:export {
-  @each $name, $media_query in $viewports {
-    #{$name}: #{$media_query};
-  }
-}
-
-@function replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace +
-      replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
-  }
-  @return $string;
-}
-
-@mixin mediaQuery($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media only screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
-      @content;
-    }
-  } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Please make sure it is defined in `$breakpoints` map.";
-  }
-}
-
-// Generate LTR and RTL style for a given property and value. Replaces 'left' by 'right' and vice versa
-@mixin bidi($property, $value) {
-  [dir="ltr"] & {
-    #{$property}: unquote($value);
-  }
-  $flipped-property-l2r: replace($property, "left", "right");
-  $flipped-property: if(
-    $flipped-property-l2r==$property,
-    replace($property, "right", "left"),
-    $flipped-property-l2r
-  );
-  $flipped-value-l2r: replace($value, "left", "right");
-  $flipped-value: if(
-    $flipped-value-l2r==$value,
-    replace($value, "right", "left"),
-    $flipped-value-l2r
-  );
-
-  [dir="rtl"] & {
-    #{$flipped-property}: unquote($flipped-value);
-  }
-}
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "helpers" as *;
 
 // Generate style with responsive columns
 @mixin generateResponsiveCols($counter, $media) {
@@ -105,64 +22,6 @@ $viewports: (
 
     .col-offset-#{$mediaKey}#{$counter} {
       @include bidi("margin-left", "#{$width}%");
-    }
-  }
-}
-
-// Generate margin and padding style for different breakpoints.
-@mixin generateSpacing($counter, $media) {
-  @for $counter from 0 through $cols {
-    $width: $counter * 4;
-
-    $mediaKey: if($media == "", "", "#{$media}-");
-
-    .ps-#{$mediaKey}#{$counter} {
-      @include bidi("padding-left", #{$width}px);
-    }
-    .ms-#{$mediaKey}#{$counter} {
-      @include bidi("margin-left", #{$width}px);
-    }
-    .pe-#{$mediaKey}#{$counter} {
-      @include bidi("padding-right", #{$width}px);
-    }
-    .me-#{$mediaKey}#{$counter} {
-      @include bidi("margin-right", #{$width}px);
-    }
-
-    .px-#{$mediaKey}#{$counter} {
-      padding-right: #{$width}px;
-      padding-left: #{$width}px;
-    }
-    .py-#{$mediaKey}#{$counter} {
-      padding-top: #{$width}px;
-      padding-bottom: #{$width}px;
-    }
-    .mx-#{$mediaKey}#{$counter} {
-      margin-right: #{$width}px;
-      margin-left: #{$width}px;
-    }
-    .my-#{$mediaKey}#{$counter} {
-      margin-top: #{$width}px;
-      margin-bottom: #{$width}px;
-    }
-
-    .pt-#{$mediaKey}#{$counter} {
-      padding-top: #{$width}px;
-    }
-    .mt-#{$mediaKey}#{$counter} {
-      margin-top: #{$width}px;
-    }
-    .pb-#{$mediaKey}#{$counter} {
-      padding-bottom: #{$width}px;
-    }
-    .mb-#{$mediaKey}#{$counter} {
-      margin-bottom: #{$width}px;
-    }
-    .pa-#{$mediaKey}#{$counter} {
-      padding: #{$width}px;
-    }
-    .ma-#{$mediaKey}#{$counter} {
-      margin: #{$width}px;
     }
   }
 }
@@ -199,12 +58,10 @@ $viewports: (
     }
 
     @include generateResponsiveCols($cols, "");
-    @include generateSpacing($cols, "");
 
     @each $breakpoint, $value in $breakpoints {
       @include mediaQuery($breakpoint) {
         @include generateResponsiveCols($cols, $breakpoint);
-        @include generateSpacing($cols, $breakpoint);
       }
     }
   }

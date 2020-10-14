@@ -5,6 +5,7 @@
 </template>
 <script>
 import "./grid.scss";
+import "./spacing.scss";
 import "./typography.scss";
 export default {
   name: "MWGrid",

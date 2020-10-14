@@ -1,4 +1,4 @@
-import breakpoints from "../components/MWLayout/grid.scss";
+import breakpoints from "../components/MWLayout/_breakpoints.scss";
 import Vue from "vue";
 
 function resizeHandler() {

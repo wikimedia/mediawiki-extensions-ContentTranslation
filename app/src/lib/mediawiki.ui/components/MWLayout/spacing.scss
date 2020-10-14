@@ -1,0 +1,74 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "helpers" as *;
+
+// Generate margin and padding style for different breakpoints.
+@mixin generateSpacing($counter, $media) {
+  @for $counter from 0 through $cols {
+    $width: $counter * 4;
+
+    $mediaKey: if($media == "", "", "#{$media}-");
+
+    .ps-#{$mediaKey}#{$counter} {
+      @include bidi("padding-left", #{$width}px);
+    }
+    .ms-#{$mediaKey}#{$counter} {
+      @include bidi("margin-left", #{$width}px);
+    }
+    .pe-#{$mediaKey}#{$counter} {
+      @include bidi("padding-right", #{$width}px);
+    }
+    .me-#{$mediaKey}#{$counter} {
+      @include bidi("margin-right", #{$width}px);
+    }
+
+    .px-#{$mediaKey}#{$counter} {
+      padding-right: #{$width}px;
+      padding-left: #{$width}px;
+    }
+    .py-#{$mediaKey}#{$counter} {
+      padding-top: #{$width}px;
+      padding-bottom: #{$width}px;
+    }
+    .mx-#{$mediaKey}#{$counter} {
+      margin-right: #{$width}px;
+      margin-left: #{$width}px;
+    }
+    .my-#{$mediaKey}#{$counter} {
+      margin-top: #{$width}px;
+      margin-bottom: #{$width}px;
+    }
+
+    .pt-#{$mediaKey}#{$counter} {
+      padding-top: #{$width}px;
+    }
+    .mt-#{$mediaKey}#{$counter} {
+      margin-top: #{$width}px;
+    }
+    .pb-#{$mediaKey}#{$counter} {
+      padding-bottom: #{$width}px;
+    }
+    .mb-#{$mediaKey}#{$counter} {
+      margin-bottom: #{$width}px;
+    }
+    .pa-#{$mediaKey}#{$counter} {
+      padding: #{$width}px;
+    }
+    .ma-#{$mediaKey}#{$counter} {
+      margin: #{$width}px;
+    }
+  }
+}
+
+.container {
+  .row,
+  .column {
+    @include generateSpacing($cols, "");
+
+    @each $breakpoint, $value in $breakpoints {
+      @include mediaQuery($breakpoint) {
+        @include generateSpacing($cols, $breakpoint);
+      }
+    }
+  }
+}
