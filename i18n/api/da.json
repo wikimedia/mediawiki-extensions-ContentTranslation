@@ -41,6 +41,7 @@
 	"apierror-cx-invalidlanguage": "Ugyldigt sprog.",
 	"apierror-cx-invalidprogress": "Ugyldig fremgang.",
 	"apierror-cx-invalidsourcelanguage": "Ugyldigt kildesprog.",
+	"apierror-cx-invalidtargetlanguage": "Ugyldigt målsprog.",
 	"apierror-cx-jwtmissing": "JWT er ikke installeret.",
 	"apierror-cx-missingdraft": "Kladden findes ikke.",
 	"apierror-cx-translationnotfound": "Oversættelse ikke fundet."
