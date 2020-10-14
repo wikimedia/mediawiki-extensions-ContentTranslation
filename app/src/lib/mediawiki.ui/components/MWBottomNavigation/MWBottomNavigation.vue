@@ -54,12 +54,20 @@ export default {
     .mw-ui-button {
       border: none;
       padding: 12px 0;
+      color: @wmui-color-base20;
+      &--selected {
+        color: @color-primary;
+      }
       .mw-ui-button__content {
         display: block;
         margin: 0;
+        font-size: 14px;
+        font-weight: normal;
       }
       .mw-ui-button__icon {
-        display: block;
+        display: flex;
+        margin-bottom: 4px;
+        padding: 0;
       }
       .mw-ui-button__label {
         padding: 0;
