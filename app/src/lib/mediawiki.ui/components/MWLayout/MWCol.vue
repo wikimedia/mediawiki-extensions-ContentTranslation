@@ -20,7 +20,7 @@ const breakpointProps = breakpoints.reduce(
 );
 
 export default {
-  name: "MWCol",
+  name: "MwCol",
   props: {
     ...breakpointProps,
     /**

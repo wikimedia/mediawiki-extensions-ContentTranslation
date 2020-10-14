@@ -6,7 +6,7 @@
 <script>
 import "./grid.scss";
 export default {
-  name: "MWRow",
+  name: "MwRow",
   props: {
     /**
      * Applies the align-items css property.
