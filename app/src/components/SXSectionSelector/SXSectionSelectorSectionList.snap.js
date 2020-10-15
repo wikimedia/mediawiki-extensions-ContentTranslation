@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot for specified props with slot 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot for specified props with slot 1`] = `
 <ul
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
@@ -109,9 +107,7 @@ exports[
 </ul>
 `;
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot for specified sections with label 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot for specified sections with label 1`] = `
 <ul
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
@@ -133,7 +129,7 @@ exports[
         </span>
          
         <span
-          class="notranslate mw-ui-button__indicator mw-ui-icon"
+          class="notranslate mw-ui-button__indicator mw-ui-icon ps-2"
         >
           <svg
             aria-hidden="true"
@@ -175,7 +171,7 @@ exports[
         </span>
          
         <span
-          class="notranslate mw-ui-button__indicator mw-ui-icon"
+          class="notranslate mw-ui-button__indicator mw-ui-icon ps-2"
         >
           <svg
             aria-hidden="true"
@@ -217,7 +213,7 @@ exports[
         </span>
          
         <span
-          class="notranslate mw-ui-button__indicator mw-ui-icon"
+          class="notranslate mw-ui-button__indicator mw-ui-icon ps-2"
         >
           <svg
             aria-hidden="true"
@@ -259,7 +255,7 @@ exports[
         </span>
          
         <span
-          class="notranslate mw-ui-button__indicator mw-ui-icon"
+          class="notranslate mw-ui-button__indicator mw-ui-icon ps-2"
         >
           <svg
             aria-hidden="true"

@@ -50,10 +50,18 @@ export const LargeButton = () => ({
     icons
   }),
   template: `
-  <section>
-    <mw-button large label="Click me"/>
-    <mw-button large progressive label="Click me"/>
-    <mw-button large destructive :icon="icons.mwIconTrash" label="Click me"/>
+  <section class="container">
+    <div class="row">
+      <div class="col mx-1">
+        <mw-button large label="Click me"/>
+      </div>
+      <div class="col mx-1">
+        <mw-button large progressive label="Click me"/>
+      </div>
+      <div class="col mx-1">
+        <mw-button large destructive :icon="icons.mwIconTrash" label="Click me"/>
+      </div>
+    </div>
   </section>
   `
 });
@@ -79,38 +87,55 @@ export const ButtonWithIcons = () => ({
     icons
   }),
   template: `
-    <section>
-      <mw-button
-        type="button"
-        :icon="icons.mwIconAdd"
-        :indicator="icons.mwIconExpand"
-        label="Click me"/>
-      <mw-button
-        progressive
-        type="button"
-        :icon="icons.mwIconAdd"
-        :indicator="icons.mwIconExpand"
-        label="Click me"/>
-      <mw-button
-        destructive
-        type="button"
-        :icon="icons.mwIconAdd"
-        :indicator="icons.mwIconExpand"
-        label="Click me"/>
-      <mw-button
-        type="button"
-        :icon="icons.mwIconAdd"
-        />
-      <mw-button
-        progressive
-        type="button"
-        :icon="icons.mwIconAdd"
-        />
-      <mw-button
-        destructive
-        type="button"
-        :icon="icons.mwIconAdd"
-        />
+    <section class="container">
+      <div class="row">
+        <div class="col mx-1">
+          <mw-button
+            type="button"
+            :icon="icons.mwIconAdd"
+            :indicator="icons.mwIconExpand"
+            label="Click me"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            progressive
+            type="button"
+            :icon="icons.mwIconAdd"
+            :indicator="icons.mwIconExpand"
+            label="Click me"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            destructive
+            type="button"
+            :icon="icons.mwIconAdd"
+            :indicator="icons.mwIconExpand"
+            label="Click me"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            type="button"
+            :icon="icons.mwIconAdd"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            progressive
+            type="button"
+            :icon="icons.mwIconAdd"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            destructive
+            type="button"
+            :icon="icons.mwIconAdd"
+          />
+        </div>
+      </div>
     </section>
   `
 });
@@ -162,20 +187,26 @@ export const DifferentButtons = () => ({
     }
   },
   template: `
-    <section>
-    <p>Play with different properties using <strong>Knobs</strong></p>
-    <mw-button
-      :large="large"
-      :progressive="progressive"
-      :destructive="destructive"
-      :outlined="outlined"
-      :type="type"
-      :icon="icons[icon]"
-      :indicator="icons[indicator]"
-      :href="href"
-      :label="label"
-      v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"
-    ></mw-button>
+    <section class="container">
+      <div class="row">
+        <div class="col-12">
+          <p>Play with different properties using <strong>Knobs</strong></p>
+        </div>
+        <div class="col-12">
+          <mw-button
+            :large="large"
+            :progressive="progressive"
+            :destructive="destructive"
+            :outlined="outlined"
+            :type="type"
+            :icon="icons[icon]"
+            :indicator="icons[indicator]"
+            :href="href"
+            :label="label"
+            v-on="hasIndicatorClickListener ? { 'indicator-icon-clicked': onIndicatorClick } : {}"
+          />
+        </div>
+      </div>
     </section>
   `
 });

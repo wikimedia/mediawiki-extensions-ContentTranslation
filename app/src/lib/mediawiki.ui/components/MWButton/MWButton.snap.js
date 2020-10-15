@@ -16,7 +16,7 @@ exports[`MWButton.vue matches the snapshot with an HTML label 1`] = `
     </span>
      
     <mw-icon-stub
-      class="mw-ui-button__indicator"
+      class="mw-ui-button__indicator ps-2"
       icon="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"
       iconcolor="currentColor"
       size="28"

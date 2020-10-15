@@ -13,7 +13,8 @@
           :icon="icon"
           :size="large ? 28 : iconSize"
           class="mw-ui-button__icon"
-        ></mw-icon>
+          :class="iconClass"
+        />
         <span
           v-if="!isIcon && label"
           class="mw-ui-button__label"
@@ -24,10 +25,11 @@
           :icon="indicator"
           :size="large ? 28 : indicatorSize"
           class="mw-ui-button__indicator"
+          :class="indicatorClass"
           @click.stop="
             hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
           "
-        ></mw-icon>
+        />
       </span>
     </slot>
   </component>
@@ -106,33 +108,23 @@ export default {
     }
   },
   computed: {
-    component() {
-      if (this.href) {
-        return "a";
-      } else {
-        return "button";
-      }
-    },
-    classes() {
-      return {
-        "mw-ui-button": true,
-        "mw-ui-button--depressed": this.depressed || this.outlined,
-        "mw-ui-button--disabled": this.disabled,
-        "mw-ui-button--fab": this.fab,
-        "mw-ui-button--large": this.large,
-        "mw-ui-button--progressive": this.progressive,
-        "mw-ui-button--destructive": this.destructive,
-        "mw-ui-button--icon": this.isIcon,
-        "mw-ui-button--outlined": this.outlined,
-        "mw-ui-button--text": this.type === "text"
-      };
-    },
-    hasIndicatorClickListener() {
-      return !!this.$listeners["indicator-icon-clicked"];
-    },
-    isIcon() {
-      return this.type === "icon";
-    }
+    component: vm => (vm.href ? "a" : "button"),
+    classes: vm => ({
+      "mw-ui-button": true,
+      "mw-ui-button--depressed": vm.depressed || vm.outlined,
+      "mw-ui-button--disabled": vm.disabled,
+      "mw-ui-button--fab": vm.fab,
+      "mw-ui-button--large": vm.large,
+      "mw-ui-button--progressive": vm.progressive,
+      "mw-ui-button--destructive": vm.destructive,
+      "mw-ui-button--icon": vm.isIcon,
+      "mw-ui-button--outlined": vm.outlined,
+      "mw-ui-button--text": vm.type === "text"
+    }),
+    hasIndicatorClickListener: vm => !!vm.$listeners["indicator-icon-clicked"],
+    isIcon: vm => vm.type === "icon",
+    iconClass: vm => !vm.isIcon && "pe-2",
+    indicatorClass: vm => !vm.isIcon && "ps-2"
   },
   methods: {
     /**
@@ -186,15 +178,6 @@ export default {
       @color-primary--hover,
       @color-primary--active
     );
-  }
-
-  &:not(.mw-ui-button--icon) {
-    .mw-ui-button__icon {
-      padding-right: 8px;
-    }
-    .mw-ui-button__indicator {
-      padding-left: 8px;
-    }
   }
 
   .mw-ui-button__content {

@@ -68,7 +68,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
       class="mw-ui-button__content"
     >
       <span
-        class="notranslate mw-ui-button__icon mw-ui-icon"
+        class="notranslate mw-ui-button__icon mw-ui-icon pe-2"
       >
         <svg
           aria-hidden="true"
