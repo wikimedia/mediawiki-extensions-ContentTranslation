@@ -111,6 +111,9 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$personalTools = $skin->getStructuredPersonalTools();
 
 		if ( $this->getUser()->isAnon() ) {
+			// JS will add custom implementation for this
+			unset( $personalTools['anonuserpage'] );
+
 			// Reorder personal tools for anonymous user.
 			$personalTools = $this->reorderPersonalTools( $personalTools,
 				[ 'createaccount', 'login', 'anontalk', 'anoncontribs' ]
