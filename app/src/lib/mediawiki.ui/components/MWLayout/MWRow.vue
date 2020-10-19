@@ -36,11 +36,27 @@ export default {
       type: String,
       default: "row",
       validator: str => ["row", "column"].includes(str)
+    },
+    /**
+     * If set to true, elements inside row (or column if direction is set to "column")
+     * are rendered in reverse order by setting flex-direction property accordingly
+     */
+    reverse: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     classes() {
-      return [this.direction, `items-${this.align}`, `justify-${this.justify}`];
+      const classes = [
+        this.direction,
+        `items-${this.align}`,
+        `justify-${this.justify}`
+      ];
+      if (this.reverse) {
+        classes.push("reverse");
+      }
+      return classes;
     }
   }
 };

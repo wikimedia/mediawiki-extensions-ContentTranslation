@@ -260,6 +260,45 @@ The columns can be distributed in a row using different spacing options "start",
   </Story>
 </Canvas>
 
+### Using direction property
+
+Content can also be distributed vertically instead of horizontally (default) by setting
+"direction" property to "column"
+<Canvas>
+  <Story name="Row as a vertical column">
+    {{
+      components: { MwRow, MwCol },
+      template: `
+        <main class="container storybook-grid">
+          <mw-row direction="column">
+            <mw-col v-for="n in 4" cols="3">
+              cols-3
+            </mw-col>
+          </mw-row>
+        </main>`
+      }}
+  </Story>
+</Canvas>
+
+### Using reverse property
+
+Content can also be distributed in reverse order by setting "reverse" property to true
+<Canvas>
+  <Story name="Row with reverse order">
+    {{
+      components: { MwRow, MwCol },
+      template: `
+        <main class="container storybook-grid">
+          <mw-row :reverse=true>
+            <mw-col v-for="n in 4" cols="3">
+              Column {{ n }}
+            </mw-col>
+          </mw-row>
+        </main>`
+      }}
+  </Story>
+</Canvas>
+
 ### Classes to help hiding elements
 
 A set of helper classes are provided to control the display of elements. In general they are prefixed with d to denote display and h to denote hidden. They can be used with viewport classes as illustrated below
