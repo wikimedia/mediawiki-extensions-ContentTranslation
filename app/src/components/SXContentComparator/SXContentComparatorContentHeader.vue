@@ -5,6 +5,7 @@
     direction="column"
     align="stretch"
     :class="{ sticky: isSticky }"
+    :reverse="isSticky"
   >
     <sx-content-comparator-source-vs-target-selector
       :is-mapped-section="isMappedSection"
@@ -16,7 +17,7 @@
       class="sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
     >
       <mw-col>
-        <h3 v-text="activeContentTitle" />
+        <h3 class="ma-0 pa-0" v-text="activeContentTitle" />
       </mw-col>
       <mw-col shrink>
         <mw-button
@@ -159,7 +160,6 @@ export default {
   &.sticky {
     position: sticky;
     top: -4px;
-    flex-flow: column-reverse;
     background-color: @background-color-base;
     box-shadow: @box-shadow-card;
     .sx-content-comparator__content-header-title {
