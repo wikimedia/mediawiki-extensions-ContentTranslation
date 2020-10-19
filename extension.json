@@ -926,7 +926,7 @@
 				}
 			],
 			"dependencies": [
-				"ext.uls.init"
+				"ext.uls.common"
 			]
 		},
 		"ext.cx.interlanguagelink": {
@@ -946,7 +946,7 @@
 				"ext.cx.util",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-interactions",
-				"ext.uls.init",
+				"ext.uls.common",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg"
 			]
