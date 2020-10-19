@@ -385,5 +385,11 @@
 	"cx-sx-publisher-header-title": "Title for header of 'Preview and publish section translation' screen",
 	"cx-sx-publisher-publish-panel-new-section-status": "Status for publish panel inside 'Preview and publish' screen for new section",
 	"cx-sx-publisher-publish-panel-new-section-result": "Description of expected result of publishing new section inside 'Preview and publish' screen",
-	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation"
+	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation",
+	"cx-sx-publisher-launching-animation-title": "Title of animation dialog that opens when user tries to publish a translation",
+	"cx-sx-publisher-launching-animation-clarification": "Clarification of animation dialog that opens when user tries to publish a translation",
+	"cx-sx-publisher-success-animation-title": "Title of animation dialog that shows up when translation is published successfully",
+	"cx-sx-publisher-success-animation-clarification": "Clarification of animation dialog that shows up when translation is published successfully",
+	"cx-sx-publisher-failure-animation-title": "Title of animation dialog that shows up when translation publishing fails",
+	"cx-sx-publisher-failure-animation-clarification": "Clarification of animation dialog that shows up when translation publishing fails"
 }

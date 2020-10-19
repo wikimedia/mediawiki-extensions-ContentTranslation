@@ -440,7 +440,13 @@
 				"cx-sx-publisher-header-title",
 				"cx-sx-publisher-publish-panel-new-section-status",
 				"cx-sx-publisher-publish-panel-new-section-result",
-				"cx-sx-publisher-review-info"
+				"cx-sx-publisher-review-info",
+				"cx-sx-publisher-launching-animation-title",
+				"cx-sx-publisher-launching-animation-clarification",
+				"cx-sx-publisher-success-animation-title",
+				"cx-sx-publisher-success-animation-clarification",
+				"cx-sx-publisher-failure-animation-title",
+				"cx-sx-publisher-failure-animation-clarification"
 			],
 			"noflip": true
 		},

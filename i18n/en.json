@@ -372,5 +372,11 @@
 	"cx-sx-publisher-header-title": "Confirm publication",
 	"cx-sx-publisher-publish-panel-new-section-status": "Ready to publish?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Your translation will be <strong>added to the article as a new section.</strong>",
-	"cx-sx-publisher-review-info": "<strong>Check the whole translation before publishing</strong> and make sure that you included all the relevant information from the original section."
+	"cx-sx-publisher-review-info": "<strong>Check the whole translation before publishing</strong> and make sure that you included all the relevant information from the original section.",
+	"cx-sx-publisher-launching-animation-title": "Publish translation...",
+	"cx-sx-publisher-launching-animation-clarification": "Thanks for expanding the content available in your language",
+	"cx-sx-publisher-success-animation-title": "Published!",
+	"cx-sx-publisher-success-animation-clarification": "Opening the page…",
+	"cx-sx-publisher-failure-animation-title": "Publishing failed",
+	"cx-sx-publisher-failure-animation-clarification": "Check the error messages"
 }

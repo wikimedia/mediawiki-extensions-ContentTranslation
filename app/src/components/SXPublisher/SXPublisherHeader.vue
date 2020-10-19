@@ -10,7 +10,12 @@
     </mw-col>
     <mw-col v-i18n:cx-sx-publisher-header-title grow tag="h5" class="ma-0" />
     <mw-col shrink>
-      <mw-button progressive type="button" :icon="mwIconCheck" />
+      <mw-button
+        progressive
+        type="button"
+        :icon="mwIconCheck"
+        @click="$emit('publish-translation')"
+      />
     </mw-col>
   </mw-row>
 </template>

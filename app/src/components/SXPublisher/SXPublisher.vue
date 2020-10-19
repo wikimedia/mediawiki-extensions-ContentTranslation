@@ -1,6 +1,6 @@
 <template>
   <section class="sx-publisher">
-    <sx-publisher-header />
+    <sx-publisher-header @publish-translation="publishDialog = true" />
     <div class="sx-publisher__publish-panel pa-4">
       <h5
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
@@ -43,6 +43,10 @@
       </mw-row>
       <div v-html="currentPageSection.translationHtml" />
     </section>
+    <sx-publisher-animation-dialog
+      :active="publishDialog"
+      :status="publishStatus"
+    />
   </section>
 </template>
 
@@ -52,17 +56,27 @@ import {
   mwIconEye,
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
-import SxPublisherHeader from "@/components/SXPublisher/SXPublisherHeader";
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
+import SxPublisherHeader from "./SXPublisherHeader";
+import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 
 export default {
   name: "SxPublisher",
-  components: { MwButton, SxPublisherHeader, MwRow, MwCol, MwIcon },
+  components: {
+    SxPublisherAnimationDialog,
+    MwButton,
+    SxPublisherHeader,
+    MwRow,
+    MwCol,
+    MwIcon
+  },
   data: () => ({
     mwIconSettings,
     mwIconEye,
-    mwIconEdit
+    mwIconEdit,
+    publishDialog: false,
+    publishStatus: "pending"
   }),
   computed: {
     ...mapState({
