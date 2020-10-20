@@ -1,11 +1,12 @@
 <template>
   <transition :name="`mw-ui-animation-${animation}`">
     <div
+      v-show="value"
       class="mw-ui-dialog"
       :class="classes"
       tabindex="0"
       role="dialog"
-      aria-fullscreen="true"
+      aria-modal="true"
       @keyup.esc="closeOnEscapeKey && close()"
     >
       <div
@@ -110,6 +111,10 @@ export default {
     overlayOpacity: {
       type: Number,
       default: 1.0
+    },
+    value: {
+      type: Boolean,
+      default: true
     }
   },
   data: () => ({
@@ -129,13 +134,18 @@ export default {
       };
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.$el.focus();
-    });
+  watch: {
+    value() {
+      if (this.value) {
+        this.$nextTick(() => {
+          this.$el.focus();
+        });
+      }
+    }
   },
   methods: {
     close() {
+      this.$emit("input", false);
       this.$emit("close");
     }
   }

@@ -5,7 +5,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
   name="mw-ui-animation-slide-left"
 >
   <div
-    aria-fullscreen="true"
+    aria-modal="true"
     class="mw-ui-dialog mw-ui-dialog"
     role="dialog"
     tabindex="0"

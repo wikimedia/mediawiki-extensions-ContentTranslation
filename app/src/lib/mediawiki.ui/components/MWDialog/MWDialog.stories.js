@@ -26,18 +26,16 @@ export const DismissableInformationDialog = (args, { argTypes }) => ({
     showDialog: false
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
-    <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :title="title">
-    {{bodyText}}
-    </mw-dialog>
+  template: `
+    <div class="container">
+      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+      <mw-dialog v-model="showDialog" :fullscreen="fullscreen" :title="title">
+        {{bodyText}}
+      </mw-dialog>
     </div>`,
   methods: {
     openDialog() {
       this.showDialog = true;
-    },
-    onDialogClose() {
-      this.showDialog = false;
     }
   }
 });
@@ -56,21 +54,22 @@ export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
-  <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-  <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :title="title">
-    <template v-slot:header-icon><img :src="bodyImage"/></template>
-    <template v-slot:footer>
-    <div class="row justify-end">
-    <span class="col-4 justify-end">
-    <mw-button v-on:click="onDialogClose()" label="Cancel"/>
-    </span>
-    <span class="col-4 justify-end">
-    <mw-button progressive v-on:click="onDialogClose()" label="Apply"/>
-    </span>
-    </div>
-    </template>
-    </mw-dialog>
+  template: `
+    <div class="container">
+      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+      <mw-dialog v-model="showDialog" :fullscreen="fullscreen" :title="title">
+        <template v-slot:header-icon><img :src="bodyImage"/></template>
+        <template v-slot:footer>
+          <div class="row justify-end">
+            <span class="col-4 justify-end">
+              <mw-button v-on:click="onDialogClose()" label="Cancel"/>
+            </span>
+            <span class="col-4 justify-end">
+              <mw-button progressive v-on:click="onDialogClose()" label="Apply"/>
+            </span>
+          </div>
+        </template>
+      </mw-dialog>
     </div>`,
   methods: {
     openDialog() {
@@ -95,18 +94,16 @@ export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
-    <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog :fullscreen="fullscreen" v-show="showDialog" v-on:close="onDialogClose()">
-    <template v-slot:default><img :src="bodyImage"/></template>
-    </mw-dialog>
+  template: `
+    <div class="container">
+      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+      <mw-dialog :fullscreen="fullscreen" v-model="showDialog">
+        <template v-slot:default><img :src="bodyImage"/></template>
+      </mw-dialog>
     </div>`,
   methods: {
     openDialog() {
       this.showDialog = true;
-    },
-    onDialogClose() {
-      this.showDialog = false;
     }
   }
 });
@@ -117,18 +114,16 @@ export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
     showDialog: false
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
+  template: `
+    <div class="container">
       <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-      <mw-dialog :fullscreen="fullscreen" :closeOnEscapeKey="closeOnEscapeKey" v-show="showDialog" v-on:close="onDialogClose()" :title="title">
+      <mw-dialog :fullscreen="fullscreen" :closeOnEscapeKey="closeOnEscapeKey" v-model="showDialog" :title="title">
           <template v-slot:default>{{bodyText}}</template>
       </mw-dialog>
-      </div>`,
+    </div>`,
   methods: {
     openDialog() {
       this.showDialog = true;
-    },
-    onDialogClose() {
-      this.showDialog = false;
     }
   }
 });
@@ -148,19 +143,20 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
-    <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog v-show="showDialog" v-on:close="onDialogClose()" :fullscreen="fullscreen" :header="header">
-    <template v-slot:header>
-      <div class="row">
-        <span class="col-1">
-          <mw-button type="icon" :icon="mwIconPrevious" v-on:click="onDialogClose()"></mw-button>
-        </span>
-        <span class="col-10 justify-start items-center">{{title}}</span>
-      </div>
-    </template>
-    <template v-slot:default><img :src="bodyImage"/></template>
-    </mw-dialog>
+  template: `
+    <div class="container">
+      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+      <mw-dialog v-model="showDialog" :fullscreen="fullscreen" :header="header">
+        <template v-slot:header>
+          <div class="row">
+            <span class="col-1">
+              <mw-button type="icon" :icon="mwIconPrevious" v-on:click="onDialogClose()"></mw-button>
+            </span>
+            <span class="col-10 justify-start items-center">{{title}}</span>
+          </div>
+        </template>
+        <template v-slot:default><img :src="bodyImage"/></template>
+      </mw-dialog>
     </div>`,
   methods: {
     openDialog() {
@@ -186,8 +182,7 @@ export const DialogWithCustomOverlay = (args, { argTypes }) => ({
   template: `<div class="container">
     <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
     <mw-dialog
-        v-show="showDialog"
-        v-on:close="onDialogClose()"
+        v-model="showDialog"
         :fullscreen="fullscreen"
         :title="title"
         :overlay-color="overlayColor"
@@ -199,9 +194,6 @@ export const DialogWithCustomOverlay = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    },
-    onDialogClose() {
-      this.showDialog = false;
     }
   }
 });
@@ -222,18 +214,16 @@ export const Animations = (args, { argTypes }) => ({
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
   }),
   props: Object.keys(argTypes),
-  template: `<div class="container">
-    <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-    <mw-dialog :fullscreen="fullscreen" v-show="showDialog" v-on:close="onDialogClose()" :animation="animation">
-    <template v-slot:default><img  :src="bodyImage"/></template>
-    </mw-dialog>
+  template: `
+    <div class="container">
+      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
+      <mw-dialog :fullscreen="fullscreen" v-model="showDialog" :animation="animation">
+        <template v-slot:default><img  :src="bodyImage"/></template>
+      </mw-dialog>
     </div>`,
   methods: {
     openDialog() {
       this.showDialog = true;
-    },
-    onDialogClose() {
-      this.showDialog = false;
     }
   }
 });
