@@ -14,7 +14,8 @@ const messages = mw.messages.values || {};
 Vue.use(i18n, {
   locale,
   finalFallback,
-  messages
+  messages,
+  wikilinks: true
 });
 
 new Vue({
