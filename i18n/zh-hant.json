@@ -368,5 +368,15 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "當發佈時，您可以決定替換現有的內容。",
 	"cx-sx-content-comparator-content-header-translate-button-label": "翻譯",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "一旦您完成了翻譯，此新章節會被添加在此",
-	"cx-sx-editor-original-panel-label": "原始"
+	"cx-sx-editor-original-panel-label": "原始",
+	"cx-sx-publisher-header-title": "確認發布",
+	"cx-sx-publisher-publish-panel-new-section-status": "準備好發布？",
+	"cx-sx-publisher-publish-panel-new-section-result": "您的翻譯將會被<strong>作為新章節添加到條目裡。</strong>",
+	"cx-sx-publisher-review-info": "<strong>在發布之前檢查整體翻譯內容</strong>，並確認您有包含到原有章節裡所有相關資訊。",
+	"cx-sx-publisher-launching-animation-title": "發布翻譯…",
+	"cx-sx-publisher-launching-animation-clarification": "感謝以您使用的語言擴充可用內容",
+	"cx-sx-publisher-success-animation-title": "已發布！",
+	"cx-sx-publisher-success-animation-clarification": "開啟頁面…",
+	"cx-sx-publisher-failure-animation-title": "發布失敗",
+	"cx-sx-publisher-failure-animation-clarification": "檢查錯誤訊息"
 }

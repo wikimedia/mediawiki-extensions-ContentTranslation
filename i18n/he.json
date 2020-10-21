@@ -365,5 +365,15 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "בעת הפרסום {{GENDER:|תוכל|תוכלי}} להחליט להחליף את התוכן הנוכחי.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "לתרגם",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "הפִסקה החדשה תתווסף כאן {{GENDER:|כשתשלים|כשתשלימי}} את התרגום",
-	"cx-sx-editor-original-panel-label": "מקור"
+	"cx-sx-editor-original-panel-label": "מקור",
+	"cx-sx-publisher-header-title": "אישור הפרסום",
+	"cx-sx-publisher-publish-panel-new-section-status": "האם ברצונך לפרסם?",
+	"cx-sx-publisher-publish-panel-new-section-result": "התרגום שלך <strong>יתווסף לערך בתור פסקה חדשה.</strong>",
+	"cx-sx-publisher-review-info": "<strong>יש לבדוק את כל התרגום לפני הפרסום</strong> ולוודא שכל המידע הרלוונטי מהפסקה המקורית נכלל.",
+	"cx-sx-publisher-launching-animation-title": "פרסום התרגום...",
+	"cx-sx-publisher-launching-animation-clarification": "תודה שהרחבת את התוכן שזמין בשפה שלך",
+	"cx-sx-publisher-success-animation-title": "פורסם!",
+	"cx-sx-publisher-success-animation-clarification": "הדף נפתח…",
+	"cx-sx-publisher-failure-animation-title": "הפרסום נכשל",
+	"cx-sx-publisher-failure-animation-clarification": "בדיקת הודעות השגיאה"
 }

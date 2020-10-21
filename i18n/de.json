@@ -366,5 +366,15 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Bei der Veröffentlichung kannst du entscheiden, stattdessen die vorhandenen Inhalte zu ersetzen.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Übersetze",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Der neue Abschnitt wird hier hinzugefügt, sobald du die Übersetzung abgeschlossen hast.",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-header-title": "Veröffentlichung bestätigen",
+	"cx-sx-publisher-publish-panel-new-section-status": "Bereit zur Veröffentlichung?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Deine Übersetzung wird <strong>dem Artikel als neuer Abschnitt hinzugefügt.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Prüfe die gesamte Übersetzung vor der Veröffentlichung</strong> und stelle sicher, dass du alle relevanten Informationen aus dem Originalabschnitt übernommen hast.",
+	"cx-sx-publisher-launching-animation-title": "Übersetzung veröffentlichen …",
+	"cx-sx-publisher-launching-animation-clarification": "Vielen Dank für die Erweiterung des Inhalts in deiner Sprache.",
+	"cx-sx-publisher-success-animation-title": "Veröffentlicht!",
+	"cx-sx-publisher-success-animation-clarification": "Öffnen der Seite …",
+	"cx-sx-publisher-failure-animation-title": "Veröffentlichung fehlgeschlagen",
+	"cx-sx-publisher-failure-animation-clarification": "Prüfe die Fehlermeldungen"
 }

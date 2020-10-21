@@ -192,5 +192,14 @@
 	"cx-publish-destination-tooltip": "Dewisiwch y parthenw lle cyhoeddir y gwaith",
 	"cx-publish-destination-namespace-main": "Dalen newydd",
 	"cx-publish-destination-namespace-user": "Drafft bersonol",
-	"cx-publish-destination-namespace-draft": "Drafft y gymuned"
+	"cx-publish-destination-namespace-draft": "Drafft y gymuned",
+	"cx-sx-publisher-header-title": "Cadarnhewch eich bod am gyhoeddi",
+	"cx-sx-publisher-publish-panel-new-section-status": "Barod i gyhoeddi?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Bydd eich cyfieithiad yn cael ei <strong>ychwanegu \ni'r erthygl fel adran newydd.</strong>",
+	"cx-sx-publisher-launching-animation-title": "Cyhoeddi'r cyfieithiad...",
+	"cx-sx-publisher-launching-animation-clarification": "Diolch am ychwanegu at y gwaith sydd ar gael yn eich iaith chi.",
+	"cx-sx-publisher-success-animation-title": "Cyhoeddwyd!",
+	"cx-sx-publisher-success-animation-clarification": "Wrthi'n agor y dudalen...",
+	"cx-sx-publisher-failure-animation-title": "Methwyd a chyhoeddi",
+	"cx-sx-publisher-failure-animation-clarification": "Gwirwch y gwallau"
 }

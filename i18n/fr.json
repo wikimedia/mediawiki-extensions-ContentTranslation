@@ -395,5 +395,15 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "En publiant, vous pouvez décider de remplacer plutôt le contenu existant.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduire",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "La nouvelle section sera ajoutée ici une fois la traduction achevée.",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-header-title": "Confirmer la publication",
+	"cx-sx-publisher-publish-panel-new-section-status": "Prêt à publier ?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Votre traduction sera <strong>ajoutée à l’article comme une nouvelle section.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Vérifiez la traduction entière avant la publication</strong> et assurez-vous d’y avoir inclus toutes les informations appropriées de la section originale.",
+	"cx-sx-publisher-launching-animation-title": "Publication de la traduction...",
+	"cx-sx-publisher-launching-animation-clarification": "Merci d’avoir étendu le contenu disponible dans votre langue",
+	"cx-sx-publisher-success-animation-title": "Publié !",
+	"cx-sx-publisher-success-animation-clarification": "Ouverture de la page...",
+	"cx-sx-publisher-failure-animation-title": "La publication a échoué",
+	"cx-sx-publisher-failure-animation-clarification": "Vérifiez les messages d’erreur"
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Aranka",
 			"Arent",
 			"AvatarTeam",
 			"Bdijkstra",
@@ -277,5 +278,12 @@
 	"cx-sx-section-selector-more-details-title": "Meer details",
 	"cx-sx-section-selector-learn-more-anchor-label": "Leer meer",
 	"cx-suggestion-list-new-pages-division": "Nieuwe pagina's",
-	"cx-translation-list-all-languages-option-label": "Alle"
+	"cx-translation-list-all-languages-option-label": "Alle",
+	"cx-sx-publisher-header-title": "Publicatie bevestigen",
+	"cx-sx-publisher-publish-panel-new-section-status": "Klaar voor publicatie?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Uw vertaling zal <strong>aan het artikel worden toegevoegd als een nieuwe sectie.</strong>",
+	"cx-sx-publisher-launching-animation-title": "Vertaling publiceren...",
+	"cx-sx-publisher-success-animation-clarification": "De pagina openen...",
+	"cx-sx-publisher-failure-animation-title": "Publiceren mislukt",
+	"cx-sx-publisher-failure-animation-clarification": "De foutmeldingen controleren"
 }

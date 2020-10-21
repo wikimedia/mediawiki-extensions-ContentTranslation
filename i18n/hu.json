@@ -317,5 +317,11 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "Kihagy",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Egy|$1|0=Nulla}} megtekintés hetente",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Itt jelenik meg az új szakasz, amint végeztél a fordítással",
-	"cx-sx-editor-original-panel-label": "Eredeti"
+	"cx-sx-editor-original-panel-label": "Eredeti",
+	"cx-sx-publisher-header-title": "Közzététel megerősítése",
+	"cx-sx-publisher-launching-animation-title": "Fordítás közzététele...",
+	"cx-sx-publisher-success-animation-title": "Közzétéve!",
+	"cx-sx-publisher-success-animation-clarification": "Oldal megnyitása...",
+	"cx-sx-publisher-failure-animation-title": "Közzététel sikertelen",
+	"cx-sx-publisher-failure-animation-clarification": "Ellenőrizd a hibaüzeneteket"
 }

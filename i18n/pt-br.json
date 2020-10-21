@@ -374,5 +374,15 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Ao publicar, você pode decidir substituir o conteúdo existente.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduzir",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "A nova seção será adicionada aqui assim que você completar a tradução",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-header-title": "Confirmar publicação",
+	"cx-sx-publisher-publish-panel-new-section-status": "Pronto para publicar?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Sua tradução será <strong>adicionada ao artigo como uma nova seção.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Verifique toda a tradução antes de publicar</strong> e certifique-se de incluir todas as informações relevantes da seção original.",
+	"cx-sx-publisher-launching-animation-title": "Publicar tradução...",
+	"cx-sx-publisher-launching-animation-clarification": "Obrigado por expandir o conteúdo disponível em seu idioma",
+	"cx-sx-publisher-success-animation-title": "Publicado!",
+	"cx-sx-publisher-success-animation-clarification": "Abrindo a página…",
+	"cx-sx-publisher-failure-animation-title": "A publicação falhou",
+	"cx-sx-publisher-failure-animation-clarification": "Verifique as mensagens de erro"
 }
