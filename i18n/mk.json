@@ -357,5 +357,16 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Кога објавувате, можете се решите за замена на постоечките содржини.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Преведи",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Тука ќе се појави новиот поднаслов штом завршите со преведување",
-	"cx-sx-editor-original-panel-label": "Извор"
+	"cx-sx-editor-original-panel-label": "Извор",
+	"cx-sx-publisher-header-title": "Потврди објавување",
+	"cx-sx-publisher-publish-panel-new-section-status": "Спремно за објавување?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Вашиот превод ќе биде <strong>придодаден кон статијата како нов поднасов.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Проверете го целиот превод пред да го објавите</strong> и видете дали сте ги вклучиле сите релевантни информации од изворниот поднаслов.",
+	"cx-sx-publisher-launching-animation-title": "Објави превод...",
+	"cx-sx-publisher-launching-animation-clarification": "Ви благодариме што ја проширивте содржината на вашиот јазик",
+	"cx-sx-publisher-success-animation-title": "Објавено!",
+	"cx-sx-publisher-success-animation-clarification": "Ја отворам страницата...",
+	"cx-sx-publisher-failure-animation-title": "Објавувањето не успеа",
+	"cx-sx-publisher-failure-animation-clarification": "Проверете ги грешките",
+	"cx-sx-publish-summary": "Создадено со преведување на поднасловот „$1“ од страницата „$2“"
 }

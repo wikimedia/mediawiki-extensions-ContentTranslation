@@ -392,5 +392,6 @@
 	"cx-sx-publisher-success-animation-title": "Yayımlandı!",
 	"cx-sx-publisher-success-animation-clarification": "Sayfa açılıyor…",
 	"cx-sx-publisher-failure-animation-title": "Yayımlama başarısız oldu",
-	"cx-sx-publisher-failure-animation-clarification": "Hata mesajları kontrol edin"
+	"cx-sx-publisher-failure-animation-clarification": "Hata mesajları kontrol edin",
+	"cx-sx-publish-summary": "\"$1\" bölümü \"$2\" sayfasından çevrilerek oluşturulmuştur"
 }

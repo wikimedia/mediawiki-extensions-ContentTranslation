@@ -405,5 +405,6 @@
 	"cx-sx-publisher-success-animation-title": "Publié !",
 	"cx-sx-publisher-success-animation-clarification": "Ouverture de la page...",
 	"cx-sx-publisher-failure-animation-title": "La publication a échoué",
-	"cx-sx-publisher-failure-animation-clarification": "Vérifiez les messages d’erreur"
+	"cx-sx-publisher-failure-animation-clarification": "Vérifiez les messages d’erreur",
+	"cx-sx-publish-summary": "Créé en traduisant la section « $1 » de la page « $2 »"
 }

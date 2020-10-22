@@ -126,5 +126,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "קבלת מספר התרגומים שלך שפורסמו ונמחקו.",
 	"apihelp-query+cxdeletedtranslations-param-after": "חותם־זמן לקבלת מחיקות חדשות יותר בלבד.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "מרחב השם שבו התרגומים המחוקים פורסמו. ברירת המחדל היא המרחב הראשי.",
-	"apihelp-query+cxdeletedtranslations-example-1": "קבלת מספר התרגומים שלך, שפורסמו במרחב הראשי ונמחקו אחרי 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "קבלת מספר התרגומים שלך, שפורסמו במרחב הראשי ונמחקו אחרי 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "שמירת פסקה שנוצרה באמצעות תכונת תרגום הפסקאות של כלי תרגום התוכן.",
+	"apihelp-cxpublishsection-summary": "שמירת דף שנוצר באמצעות תכונת תרגום הפסקאות של כלי תרגום התוכן.",
+	"apihelp-cxpublishsection-param-title": "כותרת הדף שעליו יבוצעו הפעולות.",
+	"apihelp-cxpublishsection-param-html": "התוכן לשמירה.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "קוד שפת המקור.",
+	"apihelp-cxpublishsection-param-targetlanguage": "קוד שפת היעד.",
+	"apihelp-cxpublishsection-param-sourcetitle": "כותרת דף המקור.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "כותרת פסקת המקור.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "כותרת פסקת היעד.",
+	"apihelp-cxpublishsection-param-sectionnumber": "מיקום הפסקה שתהיה בגרסה חדשה של הדף.",
+	"apihelp-cxpublishsection-param-sourcerevid": "מזהה הגרסה של דף המקור.",
+	"apihelp-cxpublishsection-param-captchaid": "מזהה Captcha (בעת שמירה עם תשובת captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "תשובה ל־captcha (בעת שמירה עם תשובת captcha)."
 }

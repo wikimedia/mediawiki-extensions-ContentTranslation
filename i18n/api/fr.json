@@ -136,5 +136,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Obtenir le nombre de vos traductions publiées qui ont été supprimées.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Horodatage pour obtenir seulement les suppressions les plus récentes.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espace de noms dans lequel les traductions supprimées seront publiées. Par défaut, l’espace de noms principal.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Obtenir le nombre de vos traductions supprimées, qui ont été publiées vers l’espace de noms principal et supprimées après le 07/04/2019 à 16h24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Obtenir le nombre de vos traductions supprimées, qui ont été publiées vers l’espace de noms principal et supprimées après le 07/04/2019 à 16h24:44",
+	"apihelp-cxpublishsection-description": "Enregistrer une section créée en utilisant la fonctionnalité de traduction de section de l’extension Traduction de contenu.",
+	"apihelp-cxpublishsection-summary": "Enregistrer une page créée en utilisant la fonctionnalité de traduction de section de l’extension Traduction de contenu.",
+	"apihelp-cxpublishsection-param-title": "Le titre de la page sur laquelle effectuer les actions.",
+	"apihelp-cxpublishsection-param-html": "Le contenu à enregistrer.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Le code langue de la source.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Le code langue de la cible.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Le titre de la page source.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Le titre de la section source.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Le titre de la section cible.",
+	"apihelp-cxpublishsection-param-sectionnumber": "La position où doit être la section dans la nouvelle révision de la page.",
+	"apihelp-cxpublishsection-param-sourcerevid": "L’id de révision de la page source.",
+	"apihelp-cxpublishsection-param-captchaid": "ID du captcha (en enregistrant avec une réponse de captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "Réponse au captcha (en enregistrant avec une réponse de captcha)."
 }

@@ -376,5 +376,6 @@
 	"cx-sx-publisher-success-animation-title": "Veröffentlicht!",
 	"cx-sx-publisher-success-animation-clarification": "Öffnen der Seite …",
 	"cx-sx-publisher-failure-animation-title": "Veröffentlichung fehlgeschlagen",
-	"cx-sx-publisher-failure-animation-clarification": "Prüfe die Fehlermeldungen"
+	"cx-sx-publisher-failure-animation-clarification": "Prüfe die Fehlermeldungen",
+	"cx-sx-publish-summary": "Erstellt durch Übersetzung des Abschnitts „$1“ von der Seite „$2“."
 }

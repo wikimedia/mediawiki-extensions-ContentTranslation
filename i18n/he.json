@@ -375,5 +375,6 @@
 	"cx-sx-publisher-success-animation-title": "פורסם!",
 	"cx-sx-publisher-success-animation-clarification": "הדף נפתח…",
 	"cx-sx-publisher-failure-animation-title": "הפרסום נכשל",
-	"cx-sx-publisher-failure-animation-clarification": "בדיקת הודעות השגיאה"
+	"cx-sx-publisher-failure-animation-clarification": "בדיקת הודעות השגיאה",
+	"cx-sx-publish-summary": "נוצר באמצעות תרגום הפסקה \"$1\" מהדף \"$2\""
 }

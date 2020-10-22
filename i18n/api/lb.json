@@ -52,5 +52,7 @@
 	"apierror-cx-translationnotfound": "Iwwersetzung net fonnt.",
 	"apihelp-query+langlinkscount-description": "D'Zuel vun den anere Sproochen an deenen et den Artikel gëtt.",
 	"apihelp-query+langlinkscount-summary": "D'Zuel vun den anere Sproochversioune kréien.",
-	"apihelp-query+langlinkscount-example-1": "D'Zuel vun den anere Sproochversioune vun der Säit 'Hond' kréien"
+	"apihelp-query+langlinkscount-example-1": "D'Zuel vun den anere Sproochversioune vun der Säit 'Hond' kréien",
+	"apihelp-cxpublishsection-param-html": "Den Inhalt fir ze späicheren.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Den Titel vun der Quellsäit."
 }

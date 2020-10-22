@@ -5,6 +5,7 @@
 			"Darellur",
 			"Halibutt",
 			"Lantuszka",
+			"Rail",
 			"Tar Lócesilion",
 			"The Polish"
 		]
@@ -82,5 +83,18 @@
 	"apierror-cx-missingdraft": "Wersja robocza nie istnieje.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Aby zobaczyć swoje tłumaczenia, musisz się zalogować.",
 	"apierror-cx-samelanguages": "Język źródłowy i docelowy nie może być taki sam.",
-	"apierror-cx-translationnotfound": "Nie znaleziono tłumaczenia."
+	"apierror-cx-translationnotfound": "Nie znaleziono tłumaczenia.",
+	"apihelp-cxpublishsection-description": "Zapisz sekcję stworzoną przy użyciu funkcji tłumaczenia sekcji rozszerzenia ContentTranslation.",
+	"apihelp-cxpublishsection-summary": "Zapisz stronę stworzoną przy użyciu funkcji tłumaczenia sekcji rozszerzenia ContentTranslation.",
+	"apihelp-cxpublishsection-param-title": "Tytuł strony, na której będą dokonywane dalsze działania.",
+	"apihelp-cxpublishsection-param-html": "Treść do zapisania.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Kod języka źródłowego.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Kod języka docelowego.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Tytuł strony źródłowej.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Tytuł sekcji źródłowej.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Tytuł docelowej sekcji.",
+	"apihelp-cxpublishsection-param-sectionnumber": "Pozycja sekcji do dodania w nowej wersji strony.",
+	"apihelp-cxpublishsection-param-sourcerevid": "ID wersji na stronie źródłowej.",
+	"apihelp-cxpublishsection-param-captchaid": "CAPTCHA ID (przy zapisywaniu odpowiedzi CAPTCHA).",
+	"apihelp-cxpublishsection-param-captchaword": "Odpowiedź na CAPTCHA (przy zapisywaniu odpowiedzi CAPTCHA)."
 }

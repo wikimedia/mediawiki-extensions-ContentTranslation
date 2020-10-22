@@ -299,5 +299,7 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Applica",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Salta",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduci",
-	"cx-sx-editor-original-panel-label": "Originale"
+	"cx-sx-editor-original-panel-label": "Originale",
+	"cx-sx-publisher-publish-panel-new-section-status": "Pronto per pubblicare?",
+	"cx-sx-publisher-success-animation-title": "Pubblicato!"
 }
