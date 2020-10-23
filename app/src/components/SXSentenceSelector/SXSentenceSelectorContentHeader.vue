@@ -10,6 +10,8 @@
     </a>
     <h2
       class="sx-sentence-selector__section-title pa-0 ma-0"
+      :class="titleClass"
+      @click="$emit('update:is-section-title-selected', true)"
       v-text="sourceSectionTitle"
     />
   </mw-col>
@@ -24,6 +26,12 @@ const sitemapper = new mw.cx.SiteMapper();
 export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
+  props: {
+    isSectionTitleSelected: {
+      type: Boolean,
+      required: true
+    }
+  },
   data: () => ({
     mwIconLinkExternal
   }),
@@ -32,21 +40,26 @@ export default {
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection
     }),
-    sourceSectionTitle() {
-      return this.currentPageSection?.title;
-    },
-    sourceArticlePath() {
-      return sitemapper.getPageUrl(
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle
-      );
-    }
+    sourceSectionTitle: vm => vm.currentPageSection?.title,
+    sourceArticlePath: vm =>
+      sitemapper.getPageUrl(
+        vm.suggestion.sourceLanguage,
+        vm.suggestion.sourceTitle
+      ),
+    isSectionTitleTranslated: vm => !!vm.currentPageSection?.translatedTitle,
+    titleClass: vm => ({
+      "sx-sentence-selector__section-title--selected":
+        vm.isSectionTitleSelected,
+      "sx-sentence-selector__section-title--translated":
+        vm.isSectionTitleTranslated
+    })
   }
 };
 </script>
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@padding: 4px;
 
 .sx-sentence-selector__section-header {
   .sx-sentence-selector__section-article-title {
@@ -61,6 +74,20 @@ export default {
   .sx-sentence-selector__section-title {
     border-bottom: none;
     font-family: @font-family-heading-main;
+    &--selected {
+      box-decoration-break: clone;
+      color: @color-base;
+      background-color: @wmui-color-yellow90;
+      box-shadow: @padding 0 0 @wmui-color-yellow90,
+        -@padding 0 0 @wmui-color-yellow90;
+    }
+    &--translated {
+      box-decoration-break: clone;
+      color: @color-base;
+      background-color: @background-color-primary;
+      box-shadow: @padding 0 0 @background-color-primary,
+        -@padding 0 0 @background-color-primary;
+    }
   }
 }
 </style>

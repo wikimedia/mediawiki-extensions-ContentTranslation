@@ -4,21 +4,22 @@
       :icon="mwIconPrevious"
       type="icon"
       class="sx-sentence-selector__previous-sentence-button col shrink pa-4"
-      :disabled="isStartingSentence"
-      @click="selectPreviousSentence"
+      :disabled="isSectionTitleSelected"
+      @click="$emit('select-previous-segment')"
     />
     <mw-button
       type="text"
       :label="$i18n('cx-sx-sentence-selector-apply-translation-button-label')"
       class="sx-sentence-selector__apply-translation-button col grow pa-4"
-      @click="applyTranslation"
+      @click="$emit('apply-translation')"
     />
     <mw-button
       type="text"
       :indicator="mwIconArrowForward"
       :label="$i18n('cx-sx-sentence-selector-skip-translation-button-label')"
       class="sx-sentence-selector__skip-translation-button col shrink pa-4"
-      @click="skipTranslation"
+      :disabled="isLastSentence"
+      @click="$emit('skip-translation')"
     />
   </mw-row>
 </template>
@@ -37,8 +38,8 @@ export default {
     MwButton
   },
   props: {
-    translation: {
-      type: String,
+    isSectionTitleSelected: {
+      type: Boolean,
       required: true
     }
   },
@@ -48,21 +49,8 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      isStartingSentence: "application/isCurrentSentenceFirst"
+      isLastSentence: "application/isCurrentSentenceLast"
     })
-  },
-  methods: {
-    applyTranslation() {
-      this.$store.dispatch("application/applyTranslationToSelectedSentence", {
-        translation: this.translation
-      });
-    },
-    skipTranslation() {
-      this.$store.dispatch("application/selectNextSentence");
-    },
-    selectPreviousSentence() {
-      this.$store.dispatch("application/selectPreviousSentence");
-    }
   }
 };
 </script>

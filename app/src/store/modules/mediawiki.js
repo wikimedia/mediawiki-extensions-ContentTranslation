@@ -84,7 +84,7 @@ const getters = {
       mtProviderGroup =>
         mtProviderGroup.sourceLanguage === sourceLanguage &&
         mtProviderGroup.targetLanguage === targetLanguage
-    )?.providers,
+    )?.providers || [],
   getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
     getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0]
 };
@@ -177,8 +177,15 @@ const actions = {
       .fetchPageSections(sourceLanguage, targetLanguage, sourceTitle)
       .then(sections => commit("setPageSections", { page, sections }));
   },
-  fetchMTProviders({ commit }, { sourceLanguage, targetLanguage }) {
-    siteApi
+  /**
+   * A promise is returned so that action can be awaited
+   * @param commit
+   * @param sourceLanguage
+   * @param targetLanguage
+   * @return {Promise<Readonly<MTProviderGroup>>}
+   */
+  async fetchMTProviders({ commit }, { sourceLanguage, targetLanguage }) {
+    return siteApi
       .fetchSupportedMTProviders(sourceLanguage, targetLanguage)
       .then(mtProviderGroup => commit("addMtProviderGroup", mtProviderGroup));
   },
@@ -204,28 +211,61 @@ const actions = {
 
     if (
       !selectedSentence ||
-      provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+      provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY ||
+      selectedSentence.proposedTranslations[provider]
     ) {
       return;
     }
 
-    if (!selectedSentence.proposedTranslations[provider]) {
-      let translation;
-      try {
-        translation = await translatorApi.fetchSentenceTranslation(
-          sourceLanguage,
-          targetLanguage,
-          provider,
-          selectedSentence.originalContent
-        );
-      } catch (error) {
-        // Fall back to original content
-        translation = selectedSentence.originalContent;
-      }
+    const translation = await translateSegment(
+      sourceLanguage,
+      targetLanguage,
+      provider,
+      selectedSentence.originalContent
+    );
+    Vue.set(selectedSentence.proposedTranslations, provider, translation);
+  },
+  async translateSectionTitle({ rootState }, { provider }) {
+    const {
+      sourceLanguage,
+      targetLanguage
+    } = rootState.application.currentSectionSuggestion;
 
-      Vue.set(selectedSentence.proposedTranslations, provider, translation);
+    const section = rootState.application.currentSourceSection;
+
+    if (section.translatedTitle) {
+      return;
     }
+
+    const translation = await translateSegment(
+      sourceLanguage,
+      targetLanguage,
+      provider,
+      section.originalTitle
+    );
+    Vue.set(section.proposedTitleTranslations, provider, translation);
   }
+};
+
+const translateSegment = async (
+  sourceLanguage,
+  targetLanguage,
+  provider,
+  originalContent
+) => {
+  let translation;
+  try {
+    translation = await translatorApi.fetchSegmentTranslation(
+      sourceLanguage,
+      targetLanguage,
+      provider,
+      originalContent
+    );
+  } catch (error) {
+    // Fall back to original content
+    translation = originalContent;
+  }
+  return translation;
 };
 
 export default {

@@ -36,7 +36,7 @@ async function fetchTranslations(offset) {
  * @param sentence
  * @return {Promise<String>}
  */
-async function fetchSentenceTranslation(
+async function fetchSegmentTranslation(
   sourceLanguage,
   targetLanguage,
   provider,
@@ -52,7 +52,6 @@ async function fetchSentenceTranslation(
     relativeUrl += `/${provider}`;
   }
   const cxserverAPI = sitemapper.getCXServerUrl(relativeUrl);
-
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
@@ -67,5 +66,6 @@ async function fetchSentenceTranslation(
 
 export default {
   fetchTranslations,
-  fetchSentenceTranslation
+  fetchSegmentTranslation
 };
+// publishTranslation

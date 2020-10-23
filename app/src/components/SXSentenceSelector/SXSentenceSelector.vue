@@ -28,7 +28,9 @@
       align="start"
       class="sx-sentence-selector__section fill-height ma-0"
     >
-      <sx-sentence-selector-content-header />
+      <sx-sentence-selector-content-header
+        :is-section-title-selected.sync="isSectionTitleSelected"
+      />
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
         <sx-sentence-selector-sentence
           v-for="sentence in sentences"
@@ -45,12 +47,15 @@
       >
         <sx-sentence-selector-proposed-translation-body
           :mt-provider="selectedProvider"
-          :translation="sentenceTranslationPreview"
+          :translation="translationPreview"
           @configure-options="configureTranslationOptions"
           @edit-translation="editTranslation"
         />
         <sx-sentence-selector-action-buttons
-          :translation="sentenceTranslationPreview"
+          :is-section-title-selected="isSectionTitleSelected"
+          @apply-translation="applyTranslation"
+          @skip-translation="skipTranslation"
+          @select-previous-segment="selectPreviousSegment"
         />
       </mw-col>
     </mw-row>
@@ -93,7 +98,8 @@ export default {
     selectedProvider: "",
     translation: null,
     translationOptionsActive: false,
-    proposedTranslationBounce: false
+    proposedTranslationBounce: false,
+    isSectionTitleSelected: false
   }),
   computed: {
     ...mapState({
@@ -104,107 +110,138 @@ export default {
     }),
     ...mapGetters({
       getDefaultMTProvider: "mediawiki/getDefaultMTProvider",
-      getSupportedMTProviders: "mediawiki/getSupportedMTProviders"
+      getSupportedMTProviders: "mediawiki/getSupportedMTProviders",
+      isCurrentSentenceFirst: "application/isCurrentSentenceFirst"
     }),
-    sourceSectionTitle() {
-      return this.currentPageSection?.title;
-    },
-    defaultMTProvider() {
-      return this.getDefaultMTProvider(
-        this.suggestion.sourceLanguage,
-        this.suggestion.targetLanguage
-      );
-    },
+    sourceSectionTitle: vm => vm.currentPageSection?.title,
+    defaultMTProvider: vm =>
+      vm.getDefaultMTProvider(
+        vm.suggestion.sourceLanguage,
+        vm.suggestion.targetLanguage
+      ),
     /**
-     * Machine translation for currently selected MT provider
+     * Machine translation of sentence for currently selected MT provider
      */
-    proposedSentenceTranslation() {
-      return (
-        this.selectedSentence?.proposedTranslations[this.selectedProvider] || ""
-      );
-    },
+    proposedSentenceTranslation: vm =>
+      vm.selectedSentence?.proposedTranslations[vm.selectedProvider] || "",
+    /**
+     * Machine translation of title for currently selected MT provider
+     */
+    proposedTitleTranslation: vm =>
+      vm.currentPageSection?.proposedTitleTranslations[vm.selectedProvider] ||
+      "",
     /**
      * This computed property returns a preview of the translation of a sentence
-     * that will be applied to that sentence if user clicks "Apply translation"
-     * button. If sentence is already translated, current applied translation
-     * will be returned, else if machine translation for this sentence has been
-     * edited by user (inside SXEditor) this edited translation will be returned.
-     * Machine translation for currently selected MT provider will be returned
-     * otherwise.
+     * or section title that will be applied to that sentence if user clicks
+     * "Apply translation" button. If this segment is already  translated, current
+     * applied translation will be returned, else if machine translation for this
+     * segment has been edited by user (inside SXEditor), this edited translation
+     * will be returned. Machine translation for currently selected MT provider
+     * will be returned otherwise.
      * @return {String}
      */
-    sentenceTranslationPreview() {
-      return (
-        this.selectedSentence?.translatedContent ||
-        this.currentEditedTranslation ||
-        this.proposedSentenceTranslation
-      );
-    },
-    sentences() {
-      return this.currentPageSection?.sentences || [];
-    },
-    mtProviders() {
-      return this.getSupportedMTProviders(
-        this.suggestion.sourceLanguage,
-        this.suggestion.targetLanguage
-      );
-    },
-    sourcePage() {
-      return this.$store.getters["mediawiki/getPage"](
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle
-      );
-    },
-    selectedSentence() {
-      return this.sentences.find(sentence => sentence.selected);
-    }
+    translationPreview: vm =>
+      vm.titleTranslationPreview || vm.sentenceTranslationPreview,
+    sentences: vm => vm.currentPageSection?.sentences || [],
+    mtProviders: vm =>
+      vm.getSupportedMTProviders(
+        vm.suggestion.sourceLanguage,
+        vm.suggestion.targetLanguage
+      ),
+    sourcePage: vm =>
+      vm.$store.getters["mediawiki/getPage"](
+        vm.suggestion.sourceLanguage,
+        vm.suggestion.sourceTitle
+      ),
+    selectedSentence: vm => vm.sentences.find(sentence => sentence.selected),
+    /**
+     * If section title is not selected for translation, false will be returned
+     */
+    titleTranslationPreview: vm =>
+      vm.isSectionTitleSelected &&
+      (vm.currentPageSection.translatedTitle ||
+        vm.currentEditedTranslation ||
+        vm.proposedTitleTranslation),
+    sentenceTranslationPreview: vm =>
+      vm.selectedSentence?.translatedContent ||
+      vm.currentEditedTranslation ||
+      vm.proposedSentenceTranslation,
+    originalSegmentContent: vm =>
+      vm.isSectionTitleSelected
+        ? vm.currentPageSection.originalTitle
+        : vm.selectedSentence.originalContent
   },
   watch: {
-    mtProviders() {
-      if (!this.selectedProvider) {
-        this.selectedProvider = this.defaultMTProvider;
+    isSectionTitleSelected() {
+      if (this.isSectionTitleSelected) {
+        this.$store.dispatch("application/clearSentenceSelection");
+        this.translateSelectedSegment(this.selectedProvider);
       }
     },
     selectedSentence() {
-      this.translateSelectedSentence(this.selectedProvider);
+      this.translateSelectedSegment(this.selectedProvider);
     },
     selectedProvider() {
       if (this.selectedProvider) {
-        this.translateSelectedSentence(this.selectedProvider);
+        this.translateSelectedSegment(this.selectedProvider);
       }
     },
     translationOptionsActive() {
       if (this.translationOptionsActive) {
         this.mtProviders.forEach(provider =>
-          this.translateSelectedSentence(provider)
+          this.translateSelectedSegment(provider)
         );
       }
     }
   },
-  mounted() {
-    this.$store.dispatch("mediawiki/fetchMTProviders", {
+  async mounted() {
+    await this.$store.dispatch("mediawiki/fetchMTProviders", {
       sourceLanguage: this.suggestion.sourceLanguage,
       targetLanguage: this.suggestion.targetLanguage
     });
+    this.selectedProvider = this.defaultMTProvider;
     /**
-     * When component is mounted, a sentence should always be selected.
-     * Select first sentence from array if no sentence is selected at
-     * that point.
+     * When component is mounted and no sentence is selected, translation
+     * should start with section title.
      */
-    if (!this.selectedSentence && this.sentences?.[0]) {
-      this.$store.dispatch("application/selectSentenceForCurrentSection", {
-        id: this.sentences[0].id
-      });
+    if (!this.selectedSentence) {
+      this.isSectionTitleSelected = true;
     }
   },
   methods: {
+    applyTranslation() {
+      this.$store.dispatch("application/applyTranslationToSelectedSegment", {
+        isSentence: !this.isSectionTitleSelected,
+        translation: this.translationPreview
+      });
+      this.isSectionTitleSelected = false;
+    },
+    skipTranslation() {
+      this.$store.dispatch("application/selectNextSentence", {
+        isSentence: this.isSectionTitleSelected
+      });
+      this.isSectionTitleSelected = false;
+    },
+    selectPreviousSegment() {
+      if (this.isCurrentSentenceFirst) {
+        this.isSectionTitleSelected = true;
+        return;
+      }
+      this.$store.dispatch("application/selectPreviousSentence");
+    },
     bounceTranslation() {
       this.proposedTranslationBounce = true;
       setTimeout(() => {
         this.proposedTranslationBounce = false;
       }, 100);
     },
-    async translateSelectedSentence(provider) {
+    async translateSelectedSegment(provider) {
+      if (this.isSectionTitleSelected) {
+        this.$store.dispatch("mediawiki/translateSectionTitle", {
+          provider
+        });
+        return;
+      }
       if (!this.selectedSentence) {
         return;
       }
@@ -220,6 +257,7 @@ export default {
       this.$router.go(-1);
     },
     onSentenceSelected(sentence) {
+      this.isSectionTitleSelected = false;
       if (this.selectedSentence === sentence) {
         this.bounceTranslation();
       } else {
@@ -235,9 +273,9 @@ export default {
       this.$router.push({
         name: "sx-editor",
         params: {
-          content: this.sentenceTranslationPreview,
+          content: this.translationPreview,
           language: this.suggestion.targetLanguage,
-          originalContent: this.selectedSentence.originalContent
+          originalContent: this.originalSegmentContent
         }
       });
     },

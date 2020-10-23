@@ -4,6 +4,7 @@ import SectionSentence from "../../wiki/cx/models/sectionSentence";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
@@ -26,14 +27,16 @@ describe("SXSentenceSelector Sentence", () => {
       }
     },
     getters: {
-      isCurrentSentenceFirst: () => false
+      isCurrentSentenceLast: () => false
     }
   };
   const mediawikiModule = {
     namespaced: true,
     state: {},
     getters: {
-      getSupportedMTProviders: state => () => []
+      getSupportedMTProviders: state => () => [],
+      getDefaultMTProvider: state => () =>
+        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
     }
   };
   const store = new Vuex.Store({

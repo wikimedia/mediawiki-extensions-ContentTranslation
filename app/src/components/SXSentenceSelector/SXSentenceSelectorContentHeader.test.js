@@ -27,7 +27,10 @@ describe("SXSentenceSelector Section Content Header", () => {
   });
   const wrapper = mount(SXSentenceSelectorContentHeader, {
     store,
-    localVue
+    localVue,
+    propsData: {
+      isSectionTitleSelected: false
+    }
   });
 
   it("Component output matches snapshot", () => {

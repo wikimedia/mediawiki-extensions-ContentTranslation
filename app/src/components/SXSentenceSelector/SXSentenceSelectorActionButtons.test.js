@@ -7,27 +7,21 @@ localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
 describe("SXSentenceSelector Action Buttons", () => {
-  const state = {
-    isFirstSentence: false
-  };
   const store = new Vuex.Store({
     modules: {
       application: {
         namespaced: true,
-        state,
         getters: {
-          isCurrentSentenceFirst: state => state.isFirstSentence
+          isCurrentSentenceLast: state => false
         }
       }
     }
   });
-  store.dispatch = jest.fn();
-  const translation = "Test translation";
   const wrapper = mount(SXSentenceSelectorActionButtons, {
     store,
     localVue,
     propsData: {
-      translation
+      isSectionTitleSelected: false
     }
   });
 
@@ -40,32 +34,25 @@ describe("SXSentenceSelector Action Buttons", () => {
       ".sx-sentence-selector__previous-sentence-button"
     );
     previousSentenceButton.trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectPreviousSentence"
-    );
+    expect(wrapper.emitted("select-previous-segment")).toBeTruthy();
 
     const applyTranslationButton = wrapper.find(
       ".sx-sentence-selector__apply-translation-button"
     );
     applyTranslationButton.trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/applyTranslationToSelectedSentence",
-      {
-        translation
-      }
-    );
+    expect(wrapper.emitted("apply-translation")).toBeTruthy();
 
     const skipTranslationButton = wrapper.find(
       ".sx-sentence-selector__skip-translation-button"
     );
     skipTranslationButton.trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectNextSentence"
-    );
+    expect(wrapper.emitted("skip-translation")).toBeTruthy();
   });
 
   it("Previous button is disabled when sentence is first in array", async () => {
-    state.isFirstSentence = true;
+    wrapper.setProps({
+      isSectionTitleSelected: true
+    });
     /** Wait for DOM to be updated **/
     await wrapper.vm.$nextTick();
     const skipButton = wrapper.find("button");

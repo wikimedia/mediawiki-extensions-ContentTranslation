@@ -1,3 +1,5 @@
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+
 /**
  * This model represents a translation section belonging to a Page model.
  * It stores section content through section sentences property, section
@@ -7,8 +9,22 @@
 export default class PageSection {
   constructor({ id, title = null, sentences = [] } = {}) {
     this.id = id;
-    this.title = title;
+    this.proposedTitleTranslations = {
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+    };
+    this.translatedTitle = "";
     this.sentences = sentences;
+  }
+
+  get originalTitle() {
+    return this.proposedTitleTranslations[
+      MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
+    ];
+  }
+
+  get title() {
+    return this.translatedTitle || this.originalTitle;
   }
 
   get html() {
