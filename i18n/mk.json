@@ -368,5 +368,11 @@
 	"cx-sx-publisher-success-animation-clarification": "Ја отворам страницата...",
 	"cx-sx-publisher-failure-animation-title": "Објавувањето не успеа",
 	"cx-sx-publisher-failure-animation-clarification": "Проверете ги грешките",
-	"cx-sx-publish-summary": "Создадено со преведување на поднасловот „$1“ од страницата „$2“"
+	"cx-sx-publish-summary": "Создадено со преведување на поднасловот „$1“ од страницата „$2“",
+	"cx-sx-publisher-preview-options-title": "Можности за објавување",
+	"cx-sx-publisher-new-section-option-label": "Објави како нов поднаслов",
+	"cx-sx-publisher-new-section-option-details": "Додај нов поднаслов во статијата",
+	"cx-sx-publisher-sandbox-option-label": "Објави во Песочникот",
+	"cx-sx-publisher-sandbox-option-details": "Објави во мојот личен простор за да го прегледувам и потоа прекопирам.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Преводот ќе биде <strong> додаден во вашиот песочник.</strong>"
 }

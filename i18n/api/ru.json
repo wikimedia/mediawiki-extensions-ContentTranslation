@@ -7,6 +7,7 @@
 			"Happy13241",
 			"INS Pirat",
 			"Kaganer",
+			"Megakott",
 			"Metastasis",
 			"Movses",
 			"Okras",
@@ -131,5 +132,9 @@
 	"apierror-cx-translationnotfound": "Перевод не найден.",
 	"apihelp-query+langlinkscount-description": "Получить число других языков, на которых существует эта статья.",
 	"apihelp-query+langlinkscount-summary": "Получить число других языковых версий",
-	"apihelp-query+langlinkscount-example-1": "Получить число других языковых версий страницы «Dog»"
+	"apihelp-query+langlinkscount-example-1": "Получить число других языковых версий страницы «Dog»",
+	"apihelp-cxpublishsection-param-title": "Заголовок страницы, над которой нужно выполнить действия.",
+	"apihelp-cxpublishsection-param-html": "Содержание для сохранения.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Код целевого языка.",
+	"apihelp-cxpublishsection-param-sourcerevid": "ID версии исходного кода страницы."
 }

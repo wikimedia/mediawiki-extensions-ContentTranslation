@@ -393,5 +393,11 @@
 	"cx-sx-publisher-success-animation-clarification": "Sayfa açılıyor…",
 	"cx-sx-publisher-failure-animation-title": "Yayımlama başarısız oldu",
 	"cx-sx-publisher-failure-animation-clarification": "Hata mesajları kontrol edin",
-	"cx-sx-publish-summary": "\"$1\" bölümü \"$2\" sayfasından çevrilerek oluşturulmuştur"
+	"cx-sx-publish-summary": "\"$1\" bölümü \"$2\" sayfasından çevrilerek oluşturulmuştur",
+	"cx-sx-publisher-preview-options-title": "Yayımlama seçenekleri",
+	"cx-sx-publisher-new-section-option-label": "Yeni bir bölüm olarak yayımla",
+	"cx-sx-publisher-new-section-option-details": "Maddeye yeni bir bölüm ekleyin",
+	"cx-sx-publisher-sandbox-option-label": "Deneme tahtanıza yayımlayın",
+	"cx-sx-publisher-sandbox-option-details": "Başka bir yerde incelenip kopyalamanız için kişisel alanınızda yayımlayın.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Çeviriniz <strong>deneme tahtanıza eklenecektir.</strong>"
 }

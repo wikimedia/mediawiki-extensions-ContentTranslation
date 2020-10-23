@@ -97,5 +97,14 @@
 	"apierror-cx-mustbeloggedin-viewtranslations": "Per vedere le tue traduzioni, devi accedere.",
 	"apierror-cx-samelanguages": "Le lingue di origine e destinazione non possono essere le stesse.",
 	"apierror-cx-suggestionsdisabled": "I suggerimenti non sono abilitati per questo wiki.",
-	"apierror-cx-translationnotfound": "Traduzione non trovata."
+	"apierror-cx-translationnotfound": "Traduzione non trovata.",
+	"apihelp-cxpublishsection-param-title": "Il titolo della pagina su cui eseguire le azioni.",
+	"apihelp-cxpublishsection-param-html": "Il contenuto da salvare.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Il codice della lingua di origine.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Il codice della lingua di destinazione.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Il titolo della pagina di origine.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Il titolo della sezione di origine.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Il titolo della sezione di destinazione.",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (quando stai salvando con una risposta captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "Rispondi al captcha (quando salvi con una risposta captcha)."
 }

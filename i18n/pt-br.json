@@ -384,5 +384,12 @@
 	"cx-sx-publisher-success-animation-title": "Publicado!",
 	"cx-sx-publisher-success-animation-clarification": "Abrindo a página…",
 	"cx-sx-publisher-failure-animation-title": "A publicação falhou",
-	"cx-sx-publisher-failure-animation-clarification": "Verifique as mensagens de erro"
+	"cx-sx-publisher-failure-animation-clarification": "Verifique as mensagens de erro",
+	"cx-sx-publish-summary": "Criado traduzindo a seção \"$1\" da página \"$2\"",
+	"cx-sx-publisher-preview-options-title": "Opções de publicação",
+	"cx-sx-publisher-new-section-option-label": "Publicar como uma nova seção",
+	"cx-sx-publisher-new-section-option-details": "Adicione uma nova seção ao artigo",
+	"cx-sx-publisher-sandbox-option-label": "Publique na sua página de teste",
+	"cx-sx-publisher-sandbox-option-details": "Publique em seu espaço pessoal para você revisar e copiar em outro lugar.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Sua tradução será <strong> adicionado à sua página de teste.</strong>"
 }

@@ -389,5 +389,11 @@
 	"cx-sx-publisher-success-animation-clarification": "Otwieranie strony…",
 	"cx-sx-publisher-failure-animation-title": "Publikacja nie powiodła się",
 	"cx-sx-publisher-failure-animation-clarification": "Sprawdź komunikat błędu",
-	"cx-sx-publish-summary": "Utworzono poprzez przetłumaczenie sekcji „$1” na stronie „$2”"
+	"cx-sx-publish-summary": "Utworzono poprzez przetłumaczenie sekcji „$1” na stronie „$2”",
+	"cx-sx-publisher-preview-options-title": "Opcje publikacji",
+	"cx-sx-publisher-new-section-option-label": "Opublikuj jako nową sekcję",
+	"cx-sx-publisher-new-section-option-details": "Dodaj nową sekcję do artykułu",
+	"cx-sx-publisher-sandbox-option-label": "Opublikuj w brudnopisie",
+	"cx-sx-publisher-sandbox-option-details": "Opublikuj w swojej osobistej przestrzeni, w której będziesz mógł przejrzeć tłumaczenie i skopiować je gdzieś indziej.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Twoje tłumaczenie zostanie <strong>dodane do Twojego brudnopisu.</strong>"
 }

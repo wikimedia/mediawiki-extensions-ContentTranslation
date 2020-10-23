@@ -378,5 +378,12 @@
 	"cx-sx-publisher-success-animation-title": "已發布！",
 	"cx-sx-publisher-success-animation-clarification": "開啟頁面…",
 	"cx-sx-publisher-failure-animation-title": "發布失敗",
-	"cx-sx-publisher-failure-animation-clarification": "檢查錯誤訊息"
+	"cx-sx-publisher-failure-animation-clarification": "檢查錯誤訊息",
+	"cx-sx-publish-summary": "透過翻譯來自於頁面「$2」的章節「$1」所建立",
+	"cx-sx-publisher-preview-options-title": "發布選項",
+	"cx-sx-publisher-new-section-option-label": "發布成一個新章節",
+	"cx-sx-publisher-new-section-option-details": "新增章節至此條目",
+	"cx-sx-publisher-sandbox-option-label": "發布到您的沙盒",
+	"cx-sx-publisher-sandbox-option-details": "發布到您的個人空間，來讓您可以隨處查看與複製。",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "您的翻譯將會<strong>添加到您的沙盒。</strong>"
 }

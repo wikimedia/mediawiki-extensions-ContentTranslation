@@ -377,5 +377,11 @@
 	"cx-sx-publisher-success-animation-clarification": "Öffnen der Seite …",
 	"cx-sx-publisher-failure-animation-title": "Veröffentlichung fehlgeschlagen",
 	"cx-sx-publisher-failure-animation-clarification": "Prüfe die Fehlermeldungen",
-	"cx-sx-publish-summary": "Erstellt durch Übersetzung des Abschnitts „$1“ von der Seite „$2“."
+	"cx-sx-publish-summary": "Erstellt durch Übersetzung des Abschnitts „$1“ von der Seite „$2“.",
+	"cx-sx-publisher-preview-options-title": "Veröffentlichungsoptionen",
+	"cx-sx-publisher-new-section-option-label": "Als neue Abschnitt veröffentlichen",
+	"cx-sx-publisher-new-section-option-details": "Einen neuen Abschnitt zum Artikel hinzufügen",
+	"cx-sx-publisher-sandbox-option-label": "Auf deiner Spielwiese veröffentlichen",
+	"cx-sx-publisher-sandbox-option-details": "In einem persönlichen Bereich veröffenutlichen, damit du es an anderer Stelle überprüfen und kopieren kannst.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Deine Übersetzung wird <strong>deinem Sandkasten hinzugefügt.</strong>"
 }
