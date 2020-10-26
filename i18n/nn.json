@@ -291,5 +291,9 @@
 	"cx-sx-section-selector-missing-sections-title": "Det er manglande avsnitt i $1",
 	"cx-sx-section-selector-present-sections-title": "Avsnitt presentert på $1",
 	"cx-sx-section-selector-more-details-title": "Fleire detaljar",
-	"cx-sx-section-selector-view-article-button-label": "Vis artikkel på $1"
+	"cx-sx-section-selector-view-article-button-label": "Vis artikkel på $1",
+	"cx-sx-publisher-header-title": "Stadfest publisering",
+	"cx-sx-publisher-launching-animation-title": "Publiser omsetjinga...",
+	"cx-sx-publisher-success-animation-clarification": "Opnar sida...",
+	"cx-sx-publisher-failure-animation-title": "Publiseringa mislukkast"
 }

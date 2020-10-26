@@ -44,5 +44,7 @@
 	"apierror-cx-invalidtargetlanguage": "Ugyldigt målsprog.",
 	"apierror-cx-jwtmissing": "JWT er ikke installeret.",
 	"apierror-cx-missingdraft": "Kladden findes ikke.",
-	"apierror-cx-translationnotfound": "Oversættelse ikke fundet."
+	"apierror-cx-translationnotfound": "Oversættelse ikke fundet.",
+	"apihelp-cxpublishsection-param-html": "Det indhold der skal gemmes.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Sprogkoden på kilden."
 }

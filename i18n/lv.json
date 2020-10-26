@@ -304,6 +304,7 @@
 	"cx-sx-section-selector-present-sections-title": "$1 valodā esošās sadaļas",
 	"cx-sx-section-selector-more-details-title": "Vairāk informācijas",
 	"cx-sx-section-selector-view-article-button-label": "Skatīt rakstu $1 valodā",
+	"cx-sx-section-selector-learn-more-anchor-label": "Uzzināt vairāk",
 	"cx-sx-section-selector-unsupported-sections-title": "Neatbalstītās sadaļas",
 	"cx-sx-section-selector-unsupported-sections-description": "Dažas sadaļas var neparādīties sarakstā, jo to saturs vēl netiek atbalstīts.",
 	"cx-suggestion-list-new-pages-division": "Jaunas lapas",
@@ -322,5 +323,15 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā",
-	"cx-sx-editor-original-panel-label": "Oriģināls"
+	"cx-sx-editor-original-panel-label": "Oriģināls",
+	"cx-sx-publisher-header-title": "Apstiprināt publicēšanu",
+	"cx-sx-publisher-publish-panel-new-section-status": "Gatavs publicēšanai?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Tavs tulkojums tiks <strong>pievienots rakstam kā jauna sadaļa.</strong>",
+	"cx-sx-publisher-launching-animation-title": "Publicē tulkojumu...",
+	"cx-sx-publisher-launching-animation-clarification": "Paldies par tavā valodā pieejamā satura papildināšanu",
+	"cx-sx-publisher-success-animation-title": "Publicēts!",
+	"cx-sx-publisher-success-animation-clarification": "Atver lapu…",
+	"cx-sx-publisher-failure-animation-title": "Publicēšana neizdevās",
+	"cx-sx-publisher-failure-animation-clarification": "Pārbaudi kļūdu paziņojumus",
+	"cx-sx-publish-summary": "Izveidots, tulkojot lapas \"$2\" sadaļu \"$1\""
 }

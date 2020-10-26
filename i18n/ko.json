@@ -340,5 +340,21 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "건너뛰기",
 	"cx-sx-content-comparator-present-section-placeholder-title": "여기에 번역이 추가됩니다",
 	"cx-sx-content-comparator-content-header-translate-button-label": "번역",
-	"cx-sx-editor-original-panel-label": "원본"
+	"cx-sx-editor-original-panel-label": "원본",
+	"cx-sx-publisher-header-title": "게시 확인",
+	"cx-sx-publisher-publish-panel-new-section-status": "게시할 준비가 되었습니까?",
+	"cx-sx-publisher-publish-panel-new-section-result": "번역은 <strong>새 문단으로 문서에 추가됩니다.</strong>",
+	"cx-sx-publisher-review-info": "<strong>게시하기 전에 모든 번역을 살피시고</strong> 원래 문단에 적절한 모든 정보를 포함하였는지 확인하십시오.",
+	"cx-sx-publisher-launching-animation-title": "번역 게시...",
+	"cx-sx-publisher-launching-animation-clarification": "자신의 언어로 이용 가능한 콘텐츠를 확장해 주셔서 고맙습니다",
+	"cx-sx-publisher-success-animation-title": "게시되었습니다!",
+	"cx-sx-publisher-success-animation-clarification": "문서를 여는 중...",
+	"cx-sx-publisher-failure-animation-title": "게시 실패",
+	"cx-sx-publisher-failure-animation-clarification": "오류 메시지 확인",
+	"cx-sx-publisher-preview-options-title": "게시 옵션",
+	"cx-sx-publisher-new-section-option-label": "새 문단으로 게시",
+	"cx-sx-publisher-new-section-option-details": "문서에 새 문단 추가하기",
+	"cx-sx-publisher-sandbox-option-label": "내 연습장에 게시",
+	"cx-sx-publisher-sandbox-option-details": "검토 후 다른 곳에 복사하기 위한 내 개인 공간에 게시합니다.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "내 번역이 <strong>메모장에 추가됩니다.</strong>"
 }
