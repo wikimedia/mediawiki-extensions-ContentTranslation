@@ -1,6 +1,6 @@
 <template>
   <section class="sx-publisher">
-    <sx-publisher-header @publish-translation="publishDialog = true" />
+    <sx-publisher-header @publish-translation="publishTranslation" />
     <div class="sx-publisher__publish-panel pa-4">
       <h5
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
@@ -45,7 +45,7 @@
       :selected-option.sync="publishOption"
     />
     <sx-publisher-animation-dialog
-      :active="publishDialog"
+      :active="isPublishDialogActive"
       :status="publishStatus"
     />
   </section>
@@ -62,6 +62,7 @@ import { mapState } from "vuex";
 import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
+import PublishResult from "@/wiki/cx/publishResult";
 
 export default {
   name: "SxPublisher",
@@ -78,7 +79,7 @@ export default {
     mwIconSettings,
     mwIconEye,
     mwIconEdit,
-    publishDialog: false,
+    isPublishDialogActive: false,
     publishStatus: "pending",
     publishOptionsOn: false,
     publishOption: "new_section"
@@ -97,6 +98,15 @@ export default {
   methods: {
     configureTranslationOptions() {
       this.publishOptionsOn = true;
+    },
+    async publishTranslation() {
+      this.isPublishDialogActive = true;
+      /** @type PublishResult **/
+      const publishResult = await this.$store.dispatch(
+        "translator/publishTranslation"
+      );
+
+      this.publishStatus = publishResult.result;
     }
   }
 };

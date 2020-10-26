@@ -1,5 +1,6 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import PublishResult from "@/wiki/cx/publishResult";
 
 async function fetchTranslations(offset) {
   const params = {
@@ -64,8 +65,56 @@ async function fetchSegmentTranslation(
     .catch(error => Promise.reject(error));
 }
 
+/**
+ * @param {Page} sourcePage
+ * @param {PageSection} section
+ * @param {SectionSuggestion} sectionSuggestion
+ * @return {Promise<PublishResult>}
+ */
+const publishTranslation = (sourcePage, section, sectionSuggestion) => {
+  const params = {
+    action: "cxpublishsection",
+    title: sectionSuggestion.targetTitle,
+    html: section.translationHtml,
+    sourcetitle: sectionSuggestion.sourceTitle,
+    sourcerevid: sourcePage.revision,
+    sourcesectiontitle: section.originalTitle,
+    targetsectiontitle: section.title,
+    sourcelanguage: sectionSuggestion.sourceLanguage,
+    targetlanguage: sectionSuggestion.targetLanguage
+  };
+  /**
+   * Contains the order of the section inside target page,
+   * or -1 if section is not present
+   * @type {Number}
+   */
+  const sectionNumber = sectionSuggestion.getSectionNumber(
+    section.originalTitle
+  );
+
+  // If present is missing, sectionnumber parameter can be omitted as
+  // it defaults to "new" (inside ApiSectionTranslationPublish class)
+  if (sectionNumber > -1) {
+    params.sectionnumber = sectionNumber;
+  }
+  const api = new mw.Api();
+
+  return api
+    .postWithToken("csrf", params)
+    .then(() => {
+      return new PublishResult();
+    })
+    .catch((error, details) => {
+      return new PublishResult({
+        result: "failure",
+        message: details.exception.message,
+        status: details.statusText
+      });
+    });
+};
+
 export default {
   fetchTranslations,
-  fetchSegmentTranslation
+  fetchSegmentTranslation,
+  publishTranslation
 };
-// publishTranslation

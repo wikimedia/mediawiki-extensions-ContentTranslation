@@ -52,6 +52,11 @@ const mutations = {
 };
 
 const getters = {
+  getCurrentPage: (state, getters, rootState, rootGetters) => () =>
+    rootGetters["mediawiki/getPage"](
+      state.currentSectionSuggestion.sourceLanguage,
+      state.currentSectionSuggestion.sourceTitle
+    ),
   /**
    * Get selected sentence for a section defined by
    * the given language, title and source title

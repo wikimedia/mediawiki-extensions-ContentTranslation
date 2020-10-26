@@ -1,5 +1,5 @@
 import cxTranslatorApi from "../../wiki/cx/api/translator";
-
+import PublishResult from "@/wiki/cx/publishResult";
 const state = {
   username: mw.config.get("wgUserName"),
   translations: [],
@@ -80,6 +80,18 @@ const actions = {
         );
       }
     });
+  },
+  async publishTranslation({ rootState, rootGetters }) {
+    const page = rootGetters["application/getCurrentPage"]();
+    const section = rootState.application.currentSourceSection;
+    const sectionSuggestion = rootState.application.currentSectionSuggestion;
+
+    /** @type PublishResult **/
+    return await cxTranslatorApi.publishTranslation(
+      page,
+      section,
+      sectionSuggestion
+    );
   }
 };
 
