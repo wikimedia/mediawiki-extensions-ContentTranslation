@@ -36,7 +36,7 @@
 	"cx-lost-session-draft": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
 	"cx-lost-session-publish": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
 	"cx-lost-session-dashboard": "Za izvedbo tega dejanja se prosim ponovno prijavi.",
-	"cx-publish-summary": "Ustvarjeno s prevodom strani »$1«",
+	"cx-publish-summary": "ustvarjeno s prevodom strani »$1«",
 	"cx-translation-add-translation": "Dodaj prevod",
 	"cx-translation-target-page-exists": "Stran z naslovom [$1 $2] že obstaja. Za končno objavo bo potrebovala nov naslov.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Wikiprevajalec]]",
