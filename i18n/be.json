@@ -59,5 +59,6 @@
 	"cx-contributions-link": "Ваш уклад",
 	"cx-tools-mt-new-providers-available": "з новымі настройкамі",
 	"cx-continue-translation": "Працягваць пераклад",
-	"cx-unreviewed-translation-category": "Старонкі з недагледжанымі перакладамі"
+	"cx-unreviewed-translation-category": "Старонкі з недагледжанымі перакладамі",
+	"cx-preference-enable-entrypoints": "Прапаноўваць [[$1|пачаць пераклад]] са старонкі ўнёску, спісу моў і пры стварэнні новай старонкі."
 }

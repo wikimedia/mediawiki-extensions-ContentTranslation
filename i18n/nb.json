@@ -366,5 +366,22 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Når du publiserer kan du bestemme om den skal erstatte eksisterende innhold i stedet.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Oversett",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Den nye seksjonen blir lagt til her når du er ferdig med oversettelsen",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-header-title": "Bekreft publisering",
+	"cx-sx-publisher-publish-panel-new-section-status": "Klar til å publisere?",
+	"cx-sx-publisher-publish-panel-new-section-result": "Oversettelsen din blir <strong>lagt til i artikkelen som en ny seksjon</strong>.",
+	"cx-sx-publisher-review-info": "<strong>Sjekk hele oversettelsen før du publiserer</strong> og sørg for at du har inkludert all relevant informasjon fra den opprinnelige seksjonen.",
+	"cx-sx-publisher-launching-animation-title": "Publiser oversettelse …",
+	"cx-sx-publisher-launching-animation-clarification": "Takk for at du utvidet innholdet som er tilgjengelig på ditt språk",
+	"cx-sx-publisher-success-animation-title": "Publisert!",
+	"cx-sx-publisher-success-animation-clarification": "Åpner siden …",
+	"cx-sx-publisher-failure-animation-title": "Publisering feilet",
+	"cx-sx-publisher-failure-animation-clarification": "Sjekk feilmeldingene",
+	"cx-sx-publish-summary": "Opprettet via oversettelse av seksjonen «$1» fra siden «$2»",
+	"cx-sx-publisher-preview-options-title": "Publiseringsalternativer",
+	"cx-sx-publisher-new-section-option-label": "Publiser som ny seksjon",
+	"cx-sx-publisher-new-section-option-details": "Legg til en ny seksjon i artikkelen",
+	"cx-sx-publisher-sandbox-option-label": "Publiser til sandkassa di",
+	"cx-sx-publisher-sandbox-option-details": "Publiser til din personlige sandkasse så du kan gjennomgå den og kopiere den til et annet sted.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Oversettelsen din blir <strong>lagt til i sandkassa di</strong>."
 }

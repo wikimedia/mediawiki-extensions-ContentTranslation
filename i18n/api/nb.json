@@ -127,5 +127,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Hent antallet av dine publiserte oversettelser som har blitt slettet.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Tidsstempel for å hente kun nyere slettinger.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Navnerommet der de slettede oversettelsene ble publisert. Standard er hovednavnerommet.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Hent antallet av dine slettede oversettelser som ble publisert i hovednavnerommet og slettet etter 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Hent antallet av dine slettede oversettelser som ble publisert i hovednavnerommet og slettet etter 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Lagre en seksjon opprettet ved bruk av innholdsoversettelsesutvidelsens seksjonsoversettelsesfunksjon.",
+	"apihelp-cxpublishsection-summary": "Lagre en side opprettet ved bruk av innholdsoversettelsesutvidelsen seksjonsoversettelsesfunksjon.",
+	"apihelp-cxpublishsection-param-title": "Tittelen på siden handlinger skal utføres på.",
+	"apihelp-cxpublishsection-param-html": "Innholdet som skal lagres.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Språkkoden til kildespråket.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Språkkoden til målspråket.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Tittelen på kildesiden.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Tittelen på kildeseksjonen.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Tittelen til målseksjonen.",
+	"apihelp-cxpublishsection-param-sectionnumber": "Posisjonen seksjonen skal være på i den nye revisjonen til siden.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Kildesidens revisjons-ID.",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (når man lagrer med captcha-respons).",
+	"apihelp-cxpublishsection-param-captchaword": "Svar på captcha-en (når man lagrer med captcha-respons)."
 }
