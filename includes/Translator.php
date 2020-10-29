@@ -189,7 +189,7 @@ class Translator {
 	/**
 	 * Get the stats for translator count to or from a language.
 	 * @param string $direction source or target
-	 * @return Array Number of translators indexed by language code
+	 * @return array Number of translators indexed by language code
 	 */
 	public static function getTranslatorsCount( $direction ) {
 		$directionField = [
