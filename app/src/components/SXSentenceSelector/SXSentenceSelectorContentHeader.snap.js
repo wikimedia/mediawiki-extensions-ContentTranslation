@@ -14,7 +14,7 @@ exports[`SXSentenceSelector Section Content Header Component output matches snap
     </strong>
      
     <span
-      class="notranslate ms-1 mw-ui-icon"
+      class="mw-ui-icon notranslate ms-1"
     >
       <svg
         aria-hidden="true"

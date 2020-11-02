@@ -1,5 +1,5 @@
 <template>
-  <span :class="classes" class="notranslate">
+  <span class="mw-ui-icon notranslate" :class="classes">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       :width="size"
@@ -49,21 +49,14 @@ export default {
     }
   },
   computed: {
-    classes() {
-      return {
-        "mw-ui-icon": true,
-        "mw-ui-icon--noflip": this.flip ? false : true
-      };
-    },
-    iconImagePath() {
-      return this.icon?.path || this.icon;
-    },
+    classes: vm => ({
+      "mw-ui-icon--noflip": !vm.flip
+    }),
+    iconImagePath: vm => vm.icon?.path || vm.icon,
     /**
      * Whether the icon should be flipped on RTL(Default: true)
      */
-    flip() {
-      return this.icon?.flippable !== false;
-    }
+    flip: vm => vm.icon?.flippable !== false
   },
   methods: {
     handleClick(e) {

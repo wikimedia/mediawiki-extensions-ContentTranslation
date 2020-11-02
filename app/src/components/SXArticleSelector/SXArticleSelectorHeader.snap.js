@@ -32,7 +32,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
           class="pe-3"
         >
           <span
-            class="notranslate mw-ui-icon"
+            class="mw-ui-icon notranslate"
           >
             <svg
               aria-hidden="true"
@@ -75,7 +75,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
         class="mw-ui-button__content"
       >
         <span
-          class="notranslate mw-ui-button__icon mw-ui-icon"
+          class="mw-ui-icon notranslate mw-ui-button__icon"
         >
           <svg
             aria-hidden="true"
@@ -110,7 +110,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
         class="mw-ui-button__content"
       >
         <span
-          class="notranslate mw-ui-button__icon mw-ui-icon"
+          class="mw-ui-icon notranslate mw-ui-button__icon"
         >
           <svg
             aria-hidden="true"

@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXContentComparator Header Navigation test Component output matches snapshot 1`
-] = `
+exports[`SXContentComparator Header Navigation test Component output matches snapshot 1`] = `
 <div
   class="justify-end col items-center"
 >
@@ -13,7 +11,7 @@ exports[
       class="mw-ui-button__content"
     >
       <span
-        class="notranslate mw-ui-button__icon mw-ui-icon"
+        class="mw-ui-icon notranslate mw-ui-button__icon"
       >
         <svg
           aria-hidden="true"
@@ -48,7 +46,7 @@ exports[
       class="mw-ui-button__content"
     >
       <span
-        class="notranslate mw-ui-button__icon mw-ui-icon"
+        class="mw-ui-icon notranslate mw-ui-button__icon"
       >
         <svg
           aria-hidden="true"

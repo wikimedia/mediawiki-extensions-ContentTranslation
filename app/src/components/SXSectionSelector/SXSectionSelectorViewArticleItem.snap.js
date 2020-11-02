@@ -21,7 +21,7 @@ exports[`SXSectionSelector View Article Item Component output matches snapshot f
       </span>
        
       <span
-        class="notranslate mw-ui-button__indicator mw-ui-icon ps-2"
+        class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
       >
         <svg
           aria-hidden="true"
