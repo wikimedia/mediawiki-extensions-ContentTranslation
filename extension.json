@@ -459,7 +459,9 @@
 				"cx-sx-publisher-new-section-option-details",
 				"cx-sx-publisher-sandbox-option-label",
 				"cx-sx-publisher-sandbox-option-details",
-				"cx-sx-publisher-publish-panel-sandbox-section-result"
+				"cx-sx-publisher-publish-panel-sandbox-section-result",
+				"cx-sx-publisher-review-info-error",
+				"cx-sx-publisher-review-info-learn-more"
 			],
 			"noflip": true
 		},

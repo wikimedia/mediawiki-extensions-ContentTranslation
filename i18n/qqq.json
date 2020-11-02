@@ -398,5 +398,7 @@
 	"cx-sx-publisher-new-section-option-details": "Details for publish a new section option",
 	"cx-sx-publisher-sandbox-option-label": "Label for publish section to sandbox option inside the dialog where user can select among publish section translation options",
 	"cx-sx-publisher-sandbox-option-details": "Details for publish section to sandbox option",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Description of expected result of publishing section to user's sandbox, inside 'Preview and publish' screen"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Description of expected result of publishing section to user's sandbox, inside 'Preview and publish' screen",
+	"cx-sx-publisher-review-info-error": "Title for review information for publishing errors inside screen where user can publish the section translation",
+	"cx-sx-publisher-review-info-learn-more": "Label for anchor that displays more information about warnings and errors inside review info panel, inside screen where user can publish the section translation"
 }

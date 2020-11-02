@@ -18,14 +18,7 @@
         </mw-col>
       </mw-row>
     </div>
-    <mw-row align="start" class="sx-publisher__review-info ma-0 pa-4">
-      <mw-col shrink class="pe-3">
-        <mw-icon :icon="mwIconEye" />
-      </mw-col>
-      <mw-col class="ma-0">
-        <p v-i18n-html:cx-sx-publisher-review-info class="complementary ma-0" />
-      </mw-col>
-    </mw-row>
+    <sx-publisher-review-info :result="publishResult" />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
         <mw-col
@@ -54,35 +47,35 @@
 <script>
 import {
   mwIconSettings,
-  mwIconEye,
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
-import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
+import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
 import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
+import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
 import PublishResult from "@/wiki/cx/publishResult";
 
 export default {
   name: "SxPublisher",
   components: {
+    SxPublisherReviewInfo,
     SxPublishOptionSelector,
     SxPublisherAnimationDialog,
     MwButton,
     SxPublisherHeader,
     MwRow,
-    MwCol,
-    MwIcon
+    MwCol
   },
   data: () => ({
     mwIconSettings,
-    mwIconEye,
     mwIconEdit,
     isPublishDialogActive: false,
     publishStatus: "pending",
     publishOptionsOn: false,
-    publishOption: "new_section"
+    publishOption: "new_section",
+    publishResult: new PublishResult()
   }),
   computed: {
     ...mapState({
@@ -99,6 +92,16 @@ export default {
     configureTranslationOptions() {
       this.publishOptionsOn = true;
     },
+    /**
+     * @param {PublishResult} publishResult
+     */
+    handlePublishResult(publishResult) {
+      if (publishResult.isSuccessful) {
+        // TODO: Redirect to contribute again step
+      } else {
+        this.publishResult = publishResult;
+      }
+    },
     async publishTranslation() {
       this.isPublishDialogActive = true;
       /** @type PublishResult **/
@@ -107,6 +110,11 @@ export default {
       );
 
       this.publishStatus = publishResult.result;
+      setTimeout(() => {
+        this.isPublishDialogActive = false;
+        this.publishStatus = "pending";
+        this.handlePublishResult(publishResult);
+      }, 1000);
     }
   }
 };
@@ -120,9 +128,7 @@ export default {
     background-color: @background-color-framed;
     border-bottom: @border-width-base @border-style-base @border-color-heading;
   }
-  &__review-info {
-    border-bottom: @border-width-base @border-style-base @border-color-heading;
-  }
+
   &__section-preview__title {
     border-bottom: none;
     font-family: @font-family-heading-main;
