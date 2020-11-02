@@ -43,7 +43,7 @@
         tag="section"
         shrink
         class="sx-sentence-selector__proposed-translation"
-        :class="{ bounce: proposedTranslationBounce }"
+        :class="{ bounce: shouldProposedTranslationBounce }"
       >
         <sx-sentence-selector-proposed-translation-body
           :mt-provider="selectedProvider"
@@ -61,7 +61,7 @@
     </mw-row>
     <sx-translation-selector
       v-if="selectedSentence"
-      :active.sync="translationOptionsActive"
+      :active.sync="isTranslationOptionsActive"
       :provider.sync="selectedProvider"
       :sentence="selectedSentence"
       :source-language="suggestion.sourceLanguage"
@@ -97,8 +97,8 @@ export default {
     mwIconArrowPrevious,
     selectedProvider: "",
     translation: null,
-    translationOptionsActive: false,
-    proposedTranslationBounce: false,
+    isTranslationOptionsActive: false,
+    shouldProposedTranslationBounce: false,
     isSectionTitleSelected: false
   }),
   computed: {
@@ -186,8 +186,8 @@ export default {
         this.translateSelectedSegment(this.selectedProvider);
       }
     },
-    translationOptionsActive() {
-      if (this.translationOptionsActive) {
+    isTranslationOptionsActive() {
+      if (this.isTranslationOptionsActive) {
         this.mtProviders.forEach(provider =>
           this.translateSelectedSegment(provider)
         );
@@ -230,9 +230,9 @@ export default {
       this.$store.dispatch("application/selectPreviousSentence");
     },
     bounceTranslation() {
-      this.proposedTranslationBounce = true;
+      this.shouldProposedTranslationBounce = true;
       setTimeout(() => {
-        this.proposedTranslationBounce = false;
+        this.shouldProposedTranslationBounce = false;
       }, 100);
     },
     async translateSelectedSegment(provider) {
@@ -267,7 +267,7 @@ export default {
       }
     },
     configureTranslationOptions() {
-      this.translationOptionsActive = true;
+      this.isTranslationOptionsActive = true;
     },
     editTranslation() {
       this.$router.push({
