@@ -1,11 +1,12 @@
 <template>
-  <div
+  <mw-row
     v-if="shown"
     :class="classes"
-    class="row"
+    class="mw-ui-message"
     :aria-live="type !== 'error' && 'polite'"
     :aria-labelledby="`${id}-label`"
     :role="type === 'error' && 'alert'"
+    align="normal"
   >
     <!-- @slot Use this slot for custom icon -->
     <slot name="icon">
@@ -15,30 +16,33 @@
         class="col shrink mw-ui-message__icon pa-1 items-start"
       />
     </slot>
-    <span
+    <mw-col
       :id="`${id}-label`"
-      class="col grow items-center mw-ui-message__label"
+      tag="span"
+      grow
+      align="center"
+      class="mw-ui-message__label"
     >
       <!-- @slot Message content -->
       <slot />
-    </span>
+    </mw-col>
     <!-- @slot Use this slot for custom action for the message -->
-    <slot name="action">
+    <!--    Add hideMessage method as slot prop, so that message can be hidden even when -->
+    <!--    action slot is being overridden -->
+    <slot name="action" :hideMessage="hideMessage">
       <mw-button
         v-if="dismissable"
         class="col shrink items-start mw-ui-message__action py-1"
         type="icon"
         :icon="mwIconClose"
         :icon-size="24"
-        @click="shown = false"
+        @click="hideMessage"
       />
     </slot>
-  </div>
+  </mw-row>
 </template>
 
 <script>
-import MwIcon from "../MWIcon";
-import MwButton from "../MWButton";
 import {
   mwIconClose,
   mwIconAlert,
@@ -46,9 +50,10 @@ import {
   mwIconCheck,
   mwIconError
 } from "../icons";
+import { MwRow, MwCol, MwIcon, MwButton } from "@/lib/mediawiki.ui/components";
 export default {
   name: "MwMessage",
-  components: { MwIcon, MwButton },
+  components: { MwCol, MwRow, MwIcon, MwButton },
   props: {
     /**
      * Type of the message.
@@ -82,32 +87,29 @@ export default {
     id: ""
   }),
   computed: {
-    classes() {
-      return {
-        "mw-ui-message": true,
-        "mw-ui-message--notice": this.type === "notice",
-        "mw-ui-message--warning": this.type === "warning",
-        "mw-ui-message--error": this.type === "error",
-        "mw-ui-message--success": this.type === "success",
-        "mw-ui-message--inline": this.inline
-      };
-    },
-    icon() {
+    classes: vm => ({
+      "mw-ui-message--notice": vm.type === "notice",
+      "mw-ui-message--warning": vm.type === "warning",
+      "mw-ui-message--error": vm.type === "error",
+      "mw-ui-message--success": vm.type === "success",
+      "mw-ui-message--inline": vm.inline
+    }),
+    icon: vm => {
       const iconsMap = {
         notice: mwIconNotice,
         warning: mwIconAlert,
         success: mwIconCheck,
         error: mwIconError
       };
-      return iconsMap[this.type];
+      return iconsMap[vm.type];
     }
   },
   mounted() {
     this.id = this._uid;
   },
   methods: {
-    handleClick(e) {
-      this.$emit("click", e);
+    hideMessage() {
+      this.shown = false;
     }
   }
 };
@@ -151,17 +153,16 @@ export default {
       color: @color-success;
     }
   }
-}
-
-.mw-ui-message--inline.mw-ui-message {
-  border: none;
-  background-color: @background-color-base;
-  font-weight: @font-weight-bold;
-  &--error {
-    color: @color-error;
-  }
-  &--success {
-    color: @color-success;
+  &--inline {
+    border: none;
+    background-color: @background-color-base;
+    font-weight: @font-weight-bold;
+    &.mw-ui-message--error {
+      color: @color-error;
+    }
+    &.mw-ui-message--success {
+      color: @color-success;
+    }
   }
 }
 </style>

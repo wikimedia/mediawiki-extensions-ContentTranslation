@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MwMessage.vue renders correctly 1`] = `
-<div
+<mw-row-stub
+  align="normal"
   aria-labelledby="-label"
-  class="row mw-ui-message mw-ui-message--error"
+  class="mw-ui-message mw-ui-message--error"
+  direction="row"
+  justify="start"
   role="alert"
+  tag="div"
 >
   <mw-icon-stub
     class="col shrink mw-ui-message__icon pa-1 items-start"
@@ -13,12 +17,15 @@ exports[`MwMessage.vue renders correctly 1`] = `
     size="24"
   />
    
-  <span
-    class="col grow items-center mw-ui-message__label"
+  <mw-col-stub
+    align="center"
+    class="mw-ui-message__label"
+    grow="true"
     id="-label"
+    tag="span"
   >
     This is an error message
-  </span>
+  </mw-col-stub>
    
   <mw-button-stub
     class="col shrink items-start mw-ui-message__action py-1"
@@ -27,5 +34,5 @@ exports[`MwMessage.vue renders correctly 1`] = `
     indicatorsize="12"
     type="icon"
   />
-</div>
+</mw-row-stub>
 `;
