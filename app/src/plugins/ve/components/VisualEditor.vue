@@ -99,9 +99,11 @@ export default {
       this.init();
     },
     closeEditor() {
+      this.veSurface.destroy();
       this.$emit("close");
     },
     onNext() {
+      this.veSurface.destroy();
       this.$emit("edit-completed", this.editedContent);
     }
   }
