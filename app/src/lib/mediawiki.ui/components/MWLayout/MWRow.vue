@@ -14,7 +14,8 @@ export default {
     align: {
       type: String,
       default: "center",
-      validator: str => ["start", "end", "center", "stretch"].includes(str)
+      validator: str =>
+        ["normal", "start", "end", "center", "stretch"].includes(str)
     },
     /**
      * Applies the justify-content css property.
