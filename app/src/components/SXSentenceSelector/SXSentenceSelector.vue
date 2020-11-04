@@ -299,6 +299,7 @@ export default {
     }
   }
   .sx-sentence-selector__section {
+    min-height: 80vh;
     .sx-sentence-selector__section-contents {
       overflow: auto;
     }
