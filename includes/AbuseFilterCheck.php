@@ -117,7 +117,7 @@ class AbuseFilterCheck {
 
 		$filters = \AbuseFilter::checkAllFilters( $vars, $this->title );
 		$filters = array_keys( array_filter( $filters ) );
-		$actions = \AbuseFilter::getConsequencesForFilters( $filters, false );
+		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
 
 		$results = [];
 		foreach ( $actions as $key => $val ) {
