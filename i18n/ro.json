@@ -62,6 +62,7 @@
 	"cx-tools-mt-provider-title": "Folosește $1",
 	"cx-tools-mt-dont-use": "Începe cu un paragraf gol",
 	"cx-tools-mt-set-default": "Păstrează ca implicit",
+	"cx-tools-mt-preferred": "implicit",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categorie|$1 categorii|$1 de categorii|0=Nicio categorie}}",
 	"cx-stats-title": "Statistici pentru Traducerea conținutului",
 	"cx-tools-reference-title": "Referință",
@@ -70,6 +71,7 @@
 	"cx-tools-link-instruction-shortcut": "Shift + clic pe orice legătură pentru a o deschide",
 	"cx-warning-unsaved-translation": "Aveți traduceri nesalvate.",
 	"cx-error-page-not-found": "Pagina „$1” nu a fost găsită la Wikipedia în $2",
+	"cx-page-selector-widget-recent-edits-label": "Modificată recent de dvs.",
 	"cx-selected-source-page-start-translation-button": "Începe traducerea",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 vizită pe|$1 vizite pe|$1 de vizite pe|0=Nicio vizită în această}} săptămână",
 	"cx-selected-source-page-error-page-and-title-exist": "Acest titlu este deja folosit în limba [$1 $2] pentru [$3 o altă pagină]",
@@ -79,6 +81,7 @@
 	"cx-mt-abuse-warning-title": "Traducerea dumnevoastră {{PLURAL:$1|conține}} $1% text nemodificat",
 	"cx-mt-abuse-warning-text": "Traducerile automate sunt puse la dispoziție ca punct de plecare. Asigurați-vă că textul conținutului este precis și se citește cursiv în limba dumneavoastră.\n\nTraducerea dumneavoastră poate fi ștearsă dacă este revizuită de alți redactori și considerată neconformă.",
 	"cx-publish-captcha-title": "Verificare că nu sunteți robot",
+	"cx-captcha-dialog-cancel": "Anulare",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Aveți}} nevoie de ajutor pentru a traduce?",
 	"cx-dashboard-sidebar-information": "Aflați mai multe despre această unealtă",
 	"cx-dashboard-sidebar-stats": "Statistici",
@@ -205,6 +208,9 @@
 	"cx-publish-destination-namespace-main": "Pagină nouă",
 	"cx-publish-destination-namespace-user": "Ciornă personală",
 	"cx-publish-destination-namespace-draft": "Ciornă comună",
+	"cx-sx-language-selector-dialog-title": "Caută după o limbă",
+	"cx-sx-existing-translation-learn-more": "Aflați mai multe",
+	"cx-sx-section-selector-more-details-title": "Mai multe detalii",
 	"cx-sx-section-selector-learn-more-anchor-label": "Învățați mai multe",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Tradu"
 }
