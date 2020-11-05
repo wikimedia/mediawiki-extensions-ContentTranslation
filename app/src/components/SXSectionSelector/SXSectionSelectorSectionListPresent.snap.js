@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot 1`] = `
 <section
   class="sx-section-selector__present-sections py-2"
 >
@@ -36,6 +34,29 @@ exports[
             target section 0
           </h6>
         </div>
+         
+        <span
+          class="mw-ui-icon notranslate mw-ui-button__indicator"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            role="presentation"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!---->
+             
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
       </button>
     </li>
     <li
@@ -59,6 +80,29 @@ exports[
             target section 1
           </h6>
         </div>
+         
+        <span
+          class="mw-ui-icon notranslate mw-ui-button__indicator"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            role="presentation"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!---->
+             
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
       </button>
     </li>
     <li
@@ -82,6 +126,29 @@ exports[
             target section 2
           </h6>
         </div>
+         
+        <span
+          class="mw-ui-icon notranslate mw-ui-button__indicator"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            role="presentation"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!---->
+             
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
       </button>
     </li>
     <li
@@ -105,6 +172,29 @@ exports[
             target section 3
           </h6>
         </div>
+         
+        <span
+          class="mw-ui-icon notranslate mw-ui-button__indicator"
+        >
+          <svg
+            aria-hidden="true"
+            height="20"
+            role="presentation"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!---->
+             
+            <g
+              fill="currentColor"
+            >
+              <path
+                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+              />
+            </g>
+          </svg>
+        </span>
       </button>
     </li>
   </ul>

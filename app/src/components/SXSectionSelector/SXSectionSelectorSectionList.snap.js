@@ -27,6 +27,29 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           </h6>
         </div>
       </template>
+       
+      <span
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!---->
+           
+          <g
+            fill="currentColor"
+          >
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
   </li>
   <li
@@ -52,6 +75,29 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           </h6>
         </div>
       </template>
+       
+      <span
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!---->
+           
+          <g
+            fill="currentColor"
+          >
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
   </li>
   <li
@@ -77,6 +123,29 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           </h6>
         </div>
       </template>
+       
+      <span
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!---->
+           
+          <g
+            fill="currentColor"
+          >
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
   </li>
   <li
@@ -102,6 +171,29 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           </h6>
         </div>
       </template>
+       
+      <span
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
+      >
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!---->
+           
+          <g
+            fill="currentColor"
+          >
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
+      </span>
     </button>
   </li>
 </ul>
@@ -117,39 +209,28 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     <button
       class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
     >
+       
       <span
-        class="mw-ui-button__content"
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
-        <!---->
-         
-        <span
-          class="mw-ui-button__label"
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          source section 0
-        </span>
-         
-        <span
-          class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
-        >
-          <svg
-            aria-hidden="true"
-            height="12"
-            role="presentation"
-            viewBox="0 0 20 20"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <!---->
+           
+          <g
+            fill="currentColor"
           >
-            <!---->
-             
-            <g
-              fill="currentColor"
-            >
-              <path
-                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
-              />
-            </g>
-          </svg>
-        </span>
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
       </span>
     </button>
   </li>
@@ -159,39 +240,28 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     <button
       class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
     >
+       
       <span
-        class="mw-ui-button__content"
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
-        <!---->
-         
-        <span
-          class="mw-ui-button__label"
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          source section 1
-        </span>
-         
-        <span
-          class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
-        >
-          <svg
-            aria-hidden="true"
-            height="12"
-            role="presentation"
-            viewBox="0 0 20 20"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <!---->
+           
+          <g
+            fill="currentColor"
           >
-            <!---->
-             
-            <g
-              fill="currentColor"
-            >
-              <path
-                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
-              />
-            </g>
-          </svg>
-        </span>
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
       </span>
     </button>
   </li>
@@ -201,39 +271,28 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     <button
       class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
     >
+       
       <span
-        class="mw-ui-button__content"
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
-        <!---->
-         
-        <span
-          class="mw-ui-button__label"
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          source section 2
-        </span>
-         
-        <span
-          class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
-        >
-          <svg
-            aria-hidden="true"
-            height="12"
-            role="presentation"
-            viewBox="0 0 20 20"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <!---->
+           
+          <g
+            fill="currentColor"
           >
-            <!---->
-             
-            <g
-              fill="currentColor"
-            >
-              <path
-                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
-              />
-            </g>
-          </svg>
-        </span>
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
       </span>
     </button>
   </li>
@@ -243,39 +302,28 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     <button
       class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
     >
+       
       <span
-        class="mw-ui-button__content"
+        class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
-        <!---->
-         
-        <span
-          class="mw-ui-button__label"
+        <svg
+          aria-hidden="true"
+          height="20"
+          role="presentation"
+          viewBox="0 0 20 20"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          source section 3
-        </span>
-         
-        <span
-          class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
-        >
-          <svg
-            aria-hidden="true"
-            height="12"
-            role="presentation"
-            viewBox="0 0 20 20"
-            width="12"
-            xmlns="http://www.w3.org/2000/svg"
+          <!---->
+           
+          <g
+            fill="currentColor"
           >
-            <!---->
-             
-            <g
-              fill="currentColor"
-            >
-              <path
-                d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
-              />
-            </g>
-          </svg>
-        </span>
+            <path
+              d="M7 1L5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
+            />
+          </g>
+        </svg>
       </span>
     </button>
   </li>

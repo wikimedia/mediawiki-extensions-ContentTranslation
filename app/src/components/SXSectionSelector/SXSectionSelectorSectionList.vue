@@ -8,7 +8,6 @@
     >
       <mw-button
         class="col justify-between py-3 px-4"
-        :indicator="mwIconArrowForward"
         :label="sourceSection"
         type="text"
         :outlined="false"
@@ -16,6 +15,7 @@
       >
         <slot :targetSection="targetSection" :sourceSection="sourceSection">
         </slot>
+        <mw-icon :icon="mwIconArrowForward" class="mw-ui-button__indicator" />
       </mw-button>
     </mw-row>
   </ul>
@@ -23,13 +23,14 @@
 
 <script>
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
-import { MwRow, MwButton } from "@/lib/mediawiki.ui";
+import { MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 
 export default {
   name: "SxSectionSelectorSectionList",
   components: {
     MwRow,
-    MwButton
+    MwButton,
+    MwIcon
   },
   props: {
     sections: {
