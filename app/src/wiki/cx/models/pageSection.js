@@ -14,6 +14,7 @@ export default class PageSection {
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
     };
     this.translatedTitle = "";
+    /** @type SectionSentence[] **/
     this.sentences = sentences;
   }
 
@@ -36,7 +37,7 @@ export default class PageSection {
 
   get translationHtml() {
     return this.sentences.reduce(
-      (htmlContent, sentence) => htmlContent + sentence.content,
+      (htmlContent, sentence) => htmlContent + sentence.translatedContent,
       ""
     );
   }
