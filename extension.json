@@ -2314,7 +2314,7 @@
 			"Schemas": {
 				"ContentTranslation": 18999884,
 				"ContentTranslationCTA": 16017678,
-				"ContentTranslationAbuseFilter": 18472730,
+				"ContentTranslationAbuseFilter": "/analytics/legacy/contenttranslationabusefilter/1.0.0",
 				"ContentTranslationSuggestion": 19004928,
 				"ContentTranslationError": 11767097
 			}
