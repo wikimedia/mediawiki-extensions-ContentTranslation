@@ -17,7 +17,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       class="ma-0 row items-center justify-start"
     >
       <button
-        class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+        class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
       >
         <div
           class="sx-section-selector__present-section-button-content"
@@ -63,7 +63,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       class="ma-0 row items-center justify-start"
     >
       <button
-        class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+        class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
       >
         <div
           class="sx-section-selector__present-section-button-content"
@@ -109,7 +109,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       class="ma-0 row items-center justify-start"
     >
       <button
-        class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+        class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
       >
         <div
           class="sx-section-selector__present-section-button-content"
@@ -155,7 +155,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot 1`] = 
       class="ma-0 row items-center justify-start"
     >
       <button
-        class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+        class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
       >
         <div
           class="sx-section-selector__present-section-button-content"

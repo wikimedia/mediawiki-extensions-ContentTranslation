@@ -5,7 +5,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
   class="sx-sentence-selector__translation-action-buttons ma-0 row items-center justify-start"
 >
   <button
-    class="sx-sentence-selector__previous-sentence-button col shrink pa-4 mw-ui-button mw-ui-button--icon"
+    class="mw-ui-button sx-sentence-selector__previous-sentence-button col shrink pa-4 mw-ui-button--icon"
   >
     <span
       class="mw-ui-button__content"
@@ -40,7 +40,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
   </button>
    
   <button
-    class="sx-sentence-selector__apply-translation-button col grow pa-4 mw-ui-button mw-ui-button--text"
+    class="mw-ui-button sx-sentence-selector__apply-translation-button col grow pa-4 mw-ui-button--text"
   >
     <span
       class="mw-ui-button__content"
@@ -58,7 +58,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
   </button>
    
   <button
-    class="sx-sentence-selector__skip-translation-button col shrink pa-4 mw-ui-button mw-ui-button--text"
+    class="mw-ui-button sx-sentence-selector__skip-translation-button col shrink pa-4 mw-ui-button--text"
   >
     <span
       class="mw-ui-button__content"

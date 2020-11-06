@@ -5,7 +5,7 @@ exports[`SXContentComparator Header Navigation test Component output matches sna
   class="justify-end col items-center"
 >
   <button
-    class="pa-0 pe-1 mw-ui-button mw-ui-button--icon"
+    class="mw-ui-button pa-0 pe-1 mw-ui-button--icon"
   >
     <span
       class="mw-ui-button__content"
@@ -40,7 +40,7 @@ exports[`SXContentComparator Header Navigation test Component output matches sna
   </button>
    
   <button
-    class="pa-0 ps-1 mw-ui-button mw-ui-button--icon"
+    class="mw-ui-button pa-0 ps-1 mw-ui-button--icon"
   >
     <span
       class="mw-ui-button__content"

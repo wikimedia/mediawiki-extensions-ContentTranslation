@@ -5,7 +5,7 @@ exports[`SXSectionSelector View Article Item Component output matches snapshot f
   class="ma-0 row items-center justify-start"
 >
   <a
-    class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+    class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     href="my.test.url"
     target="_blank"
   >

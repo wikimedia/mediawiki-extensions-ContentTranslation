@@ -1,6 +1,7 @@
 <template>
   <component
     :is="component"
+    class="mw-ui-button"
     :class="classes"
     :href="href"
     :disabled="disabled"
@@ -110,7 +111,6 @@ export default {
   computed: {
     component: vm => (vm.href ? "a" : "button"),
     classes: vm => ({
-      "mw-ui-button": true,
       "mw-ui-button--depressed": vm.depressed || vm.outlined,
       "mw-ui-button--disabled": vm.disabled,
       "mw-ui-button--fab": vm.fab,
@@ -147,12 +147,18 @@ export default {
   border-color: transparent;
   color: @color;
   &:hover {
+    background-color: transparent;
+    border-color: transparent;
     color: @highlightColor;
   }
   &:active {
+    background-color: transparent;
+    border-color: transparent;
     color: @activeColor;
   }
   &:focus {
+    background-color: transparent;
+    border-color: transparent;
     color: @focusColor;
   }
 }
@@ -212,6 +218,13 @@ export default {
 
   // Buttons that act like links
   &.mw-ui-button--text {
+    &.mw-ui-button--disabled {
+      color: @color-base--disabled;
+      &:hover,
+      &:focus {
+        color: @color-base--disabled;
+      }
+    }
     .mw-ui-button-text-colors(
       @color-base,
       @color-primary--hover,

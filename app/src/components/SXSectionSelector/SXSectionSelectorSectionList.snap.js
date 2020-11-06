@@ -8,7 +8,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
       <template>
         <div
@@ -56,7 +56,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
       <template>
         <div
@@ -104,7 +104,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
       <template>
         <div
@@ -152,7 +152,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
       <template>
         <div
@@ -207,7 +207,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
        
       <span
@@ -238,7 +238,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
        
       <span
@@ -269,7 +269,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
        
       <span
@@ -300,7 +300,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
     class="ma-0 row items-center justify-start"
   >
     <button
-      class="col justify-between py-3 px-4 mw-ui-button mw-ui-button--text"
+      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
     >
        
       <span

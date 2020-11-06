@@ -17,7 +17,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
       class="col shrink"
     >
       <button
-        class="sx-sentence-selector__proposed-translation-more-options-button pa-0 mw-ui-button mw-ui-button--icon"
+        class="mw-ui-button sx-sentence-selector__proposed-translation-more-options-button pa-0 mw-ui-button--icon"
       >
         <span
           class="mw-ui-button__content"
@@ -62,7 +62,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
   </div>
    
   <button
-    class="sx-sentence-selector__proposed-translation-edit-button pa-0 mw-ui-button mw-ui-button--progressive mw-ui-button--text"
+    class="mw-ui-button sx-sentence-selector__proposed-translation-edit-button pa-0 mw-ui-button--progressive mw-ui-button--text"
   >
     <span
       class="mw-ui-button__content"

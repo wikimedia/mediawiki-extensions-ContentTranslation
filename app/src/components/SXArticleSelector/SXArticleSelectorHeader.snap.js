@@ -69,7 +69,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
     class="col shrink items-start"
   >
     <button
-      class="pa-0 mw-ui-button mw-ui-button--large mw-ui-button--icon"
+      class="mw-ui-button pa-0 mw-ui-button--large mw-ui-button--icon"
     >
       <span
         class="mw-ui-button__content"
@@ -104,7 +104,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
     </button>
      
     <button
-      class="pa-0 mw-ui-button mw-ui-button--large mw-ui-button--icon"
+      class="mw-ui-button pa-0 mw-ui-button--large mw-ui-button--icon"
     >
       <span
         class="mw-ui-button__content"

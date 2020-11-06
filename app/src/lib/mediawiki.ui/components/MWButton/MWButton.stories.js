@@ -23,9 +23,10 @@ export const TextButton = () => ({
   components: { MwButton },
   template: `
     <section>
-      <mw-button type="text" label="Click me"/>
-      <mw-button type="text" progressive label="Click me"/>
-      <mw-button type="text" destructive label="Click me"/>
+      <mw-button type="text" label="Text button"/>
+      <mw-button type="text" progressive label="Progressive text"/>
+      <mw-button type="text" destructive label="Destructive text"/>
+      <mw-button type="text" disabled label="Disabled text"/>
     </section>
   `
 });
