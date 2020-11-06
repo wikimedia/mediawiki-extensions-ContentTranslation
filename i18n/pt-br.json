@@ -391,5 +391,7 @@
 	"cx-sx-publisher-new-section-option-details": "Adicione uma nova seção ao artigo",
 	"cx-sx-publisher-sandbox-option-label": "Publique na sua página de teste",
 	"cx-sx-publisher-sandbox-option-details": "Publique em seu espaço pessoal para você revisar e copiar em outro lugar.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Sua tradução será <strong> adicionado à sua página de teste.</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Sua tradução será <strong> adicionado à sua página de teste.</strong>",
+	"cx-sx-publisher-review-info-error": "Sua tradução não pode ser publicada:",
+	"cx-sx-publisher-review-info-learn-more": "Saiba mais"
 }

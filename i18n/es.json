@@ -385,5 +385,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Al publicar, puedes decidir si vas a reemplazar los contenidos ya existentes.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traducir",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "La nueva sección se añadirá una vez que completes la traducción",
-	"cx-sx-editor-original-panel-label": "Original"
+	"cx-sx-editor-original-panel-label": "Original",
+	"cx-sx-publisher-review-info-learn-more": "Más información"
 }

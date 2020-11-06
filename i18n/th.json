@@ -254,5 +254,12 @@
 	"cx-publish-destination-namespace-main": "หน้าใหม่",
 	"cx-publish-destination-namespace-user": "ฉบับร่างส่วนตัว",
 	"cx-publish-destination-namespace-draft": "ฉบับร่างชุมชน",
-	"cx-linkcontextitem-missing-title-description": "ยังไม่มีหน้านี้"
+	"cx-linkcontextitem-missing-title-description": "ยังไม่มีหน้านี้",
+	"cx-sx-language-selector-dialog-title": "ค้นหาภาษา",
+	"cx-sx-start-translation-button-label": "เริ่มการแปล",
+	"cx-sx-view-translation-anchor": "ดู",
+	"cx-sx-existing-translation-learn-more": "เรียนรู้เพิ่มเติม",
+	"cx-sx-section-selector-more-details-title": "รายละเอียดเพิ่มเติม",
+	"cx-sx-section-selector-learn-more-anchor-label": "เรียนรู้เพิ่มเติม",
+	"cx-sx-content-comparator-content-header-translate-button-label": "แปล"
 }

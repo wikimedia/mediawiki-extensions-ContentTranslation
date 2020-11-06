@@ -383,5 +383,7 @@
 	"cx-sx-publisher-new-section-option-details": "Einen neuen Abschnitt zum Artikel hinzufügen",
 	"cx-sx-publisher-sandbox-option-label": "Auf deiner Spielwiese veröffentlichen",
 	"cx-sx-publisher-sandbox-option-details": "In einem persönlichen Bereich veröffenutlichen, damit du es an anderer Stelle überprüfen und kopieren kannst.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Deine Übersetzung wird <strong>deinem Sandkasten hinzugefügt.</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Deine Übersetzung wird <strong>deinem Sandkasten hinzugefügt.</strong>",
+	"cx-sx-publisher-review-info-error": "Deine Übersetzung kann nicht veröffentlicht werden:",
+	"cx-sx-publisher-review-info-learn-more": "Weitere Informationen"
 }
