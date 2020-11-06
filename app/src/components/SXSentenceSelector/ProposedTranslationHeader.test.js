@@ -1,18 +1,16 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import SXSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
+import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import VueBananaI18n from "vue-banana-i18n";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 
 const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
 
-describe("SXSentenceSelector Action Buttons", () => {
-  const translationContent = "<div>Test translation</div>";
-  const wrapper = mount(SXSentenceSelectorProposedTranslationBody, {
+describe("SXSentenceSelector Proposed Translation Header", () => {
+  const wrapper = mount(ProposedTranslationHeader, {
     localVue,
     propsData: {
-      mtProvider: "Apertium",
-      translation: translationContent
+      mtProvider: "Apertium"
     }
   });
 
@@ -22,17 +20,10 @@ describe("SXSentenceSelector Action Buttons", () => {
 
   it("Component emits 'configure-options' event on ellipsis icon button click", async () => {
     const button = wrapper.find(
-      ".sx-sentence-selector__proposed-translation-more-options-button"
+      ".sx-sentence-selector__proposed-translation__header-settings-button"
     );
     await button.trigger("click");
     expect(wrapper.emitted("configure-options")).toBeTruthy();
-  });
-
-  it("Component renders provided translation correctly", () => {
-    const translationElement = wrapper.find(
-      ".sx-sentence-selector__proposed-translation-contents"
-    );
-    expect(translationElement.text()).toBe("Test translation");
   });
 
   it("Component calculates extra MT option labels correctly", () => {

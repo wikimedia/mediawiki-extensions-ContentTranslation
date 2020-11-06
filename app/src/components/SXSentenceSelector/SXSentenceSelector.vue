@@ -12,7 +12,7 @@
       <mw-col grow class="px-1">
         <h4
           v-i18n:cx-sx-sentence-selector-header-title
-          class="sx-sentence-selector__header--title"
+          class="sx-sentence-selector__header-title"
         />
       </mw-col>
       <mw-col shrink class="px-3">
@@ -26,35 +26,33 @@
       tag="section"
       direction="column"
       align="start"
-      class="sx-sentence-selector__section fill-height ma-0"
+      justify="between"
+      class="sx-sentence-selector__body fill-height ma-0"
     >
-      <sx-sentence-selector-content-header />
-      <mw-col grow class="sx-sentence-selector__section-contents px-4">
-        <sx-sentence-selector-sentence
-          v-for="sentence in sentences"
-          :key="`sentence-${sentence.id}`"
-          :sentence="sentence"
-          @sentence-selected="onSentenceSelected"
-        />
+      <mw-col class="sx-sentence-selector__section">
+        <sx-sentence-selector-content-header />
+        <div class="sx-sentence-selector__section-contents px-4">
+          <sx-sentence-selector-sentence
+            v-for="sentence in sentences"
+            :key="`sentence-${sentence.id}`"
+            :sentence="sentence"
+            @sentence-selected="onSentenceSelected"
+          />
+        </div>
       </mw-col>
-      <mw-col
-        tag="section"
-        shrink
-        class="sx-sentence-selector__proposed-translation"
-        :class="{ bounce: shouldProposedTranslationBounce }"
-      >
-        <sx-sentence-selector-proposed-translation-body
-          :mt-provider="selectedProvider"
-          :translation="translationPreview"
-          @configure-options="configureTranslationOptions"
-          @edit-translation="editTranslation"
-        />
-        <sx-sentence-selector-action-buttons
-          @apply-translation="applyTranslation"
-          @skip-translation="skipTranslation"
-          @select-previous-segment="selectPreviousSegment"
-        />
-      </mw-col>
+      <!--      MwCard has a margin-bottom: 1em by default. Since this is -->
+      <!--      the margin that the card jumps to when bouncing, we control-->
+      <!--      card bounce through mb-0 class-->
+      <proposed-translation-card
+        :mt-provider="selectedProvider"
+        :translation="translationPreview"
+        :class="{ 'mb-0': !shouldProposedTranslationBounce }"
+        @configure-options="configureTranslationOptions"
+        @edit-translation="editTranslation"
+        @apply-translation="applyTranslation"
+        @skip-translation="skipTranslation"
+        @select-previous-segment="selectPreviousSegment"
+      />
     </mw-row>
     <sx-translation-selector
       :active.sync="isTranslationOptionsActive"
@@ -69,20 +67,18 @@ import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState, mapGetters, mapMutations } from "vuex";
-import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
-import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
+import ProposedTranslationCard from "./ProposedTranslationCard";
 
 import { loadVEModules } from "@/plugins/ve";
 
 export default {
   name: "SxSentenceSelector",
   components: {
+    ProposedTranslationCard,
     SxSentenceSelectorContentHeader,
     SxSentenceSelectorSentence,
-    SxSentenceSelectorProposedTranslationBody,
-    SxSentenceSelectorActionButtons,
     MwRow,
     MwCol,
     SxTranslationSelector,
@@ -216,7 +212,7 @@ export default {
     selectPreviousSegment() {
       this.$store.dispatch("application/selectPreviousSentence");
     },
-    bounceTranslation() {
+    async bounceTranslation() {
       this.shouldProposedTranslationBounce = true;
       setTimeout(() => {
         this.shouldProposedTranslationBounce = false;
@@ -277,29 +273,18 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-sentence-selector {
-  .sx-sentence-selector__header {
+  &__header {
     background-color: @background-color-base--disabled;
     box-shadow: 0 @border-width-base @border-color-base--disabled;
-    .sx-sentence-selector__header--title {
+    &-title {
       color: @color-base;
     }
   }
-  .sx-sentence-selector__section {
+  &__body {
     min-height: 80vh;
-    .sx-sentence-selector__section-contents {
-      overflow: auto;
-    }
   }
-  .sx-sentence-selector__proposed-translation {
-    border-radius: 2px 2px 0 0;
-    background-color: @background-color-base;
-    width: 100%;
-    // TODO: Fix these with variables(?)
-    box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
-    transition: margin-bottom 0.1s;
-    &.bounce {
-      margin-bottom: 1rem;
-    }
+  &__section {
+    overflow: auto;
   }
 }
 </style>
