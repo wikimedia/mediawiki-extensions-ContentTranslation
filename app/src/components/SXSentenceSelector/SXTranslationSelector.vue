@@ -151,6 +151,9 @@ export default {
 <style lang="less">
 @import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-sentence-selector__translation-options {
+  a {
+    pointer-events: none;
+  }
   .mw-ui-dialog__header {
     h6 {
       color: @color-base;
