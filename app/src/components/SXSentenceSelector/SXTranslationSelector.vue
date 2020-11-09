@@ -1,5 +1,9 @@
 <template>
-  <mw-dialog v-if="active" class="sx-sentence-selector__translation-options">
+  <mw-dialog
+    v-if="active"
+    class="sx-sentence-selector__translation-options"
+    fullscreen
+  >
     <template slot="header">
       <div class="mw-ui-dialog__header pa-4">
         <div class="row ma-0 py-2">
@@ -37,7 +41,7 @@
           class="sx-sentence-selector__translation-options-card-title mb-4"
         />
       </template>
-      <p v-html="sentence.originalContent" />
+      <p v-html="proposedTranslations[originalTextProviderKey]" />
     </mw-card>
     <mw-card
       v-for="mtProvider in apiMtProviders"
@@ -52,7 +56,7 @@
           v-text="mtProvider"
         />
       </template>
-      <p v-html="sentence.proposedTranslations[mtProvider]" />
+      <p v-html="proposedTranslations[mtProvider]" />
     </mw-card>
     <mw-card
       class="sx-sentence-selector__mt-provider-option-card mx-4 pa-5"
@@ -71,10 +75,10 @@
 </template>
 
 <script>
-import { MwDialog, MwButton, MwCard, MwInput } from "../../lib/mediawiki.ui";
-import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
+import { MwDialog, MwButton, MwCard, MwInput } from "@/lib/mediawiki.ui";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import { mapState } from "vuex";
 
 export default {
   name: "SxTranslationSelector",
@@ -88,16 +92,8 @@ export default {
       type: String,
       required: true
     },
-    sentence: {
-      type: SectionSentence,
-      required: true
-    },
-    sourceLanguage: {
-      type: String,
-      required: true
-    },
-    targetLanguage: {
-      type: String,
+    isSectionTitleSelected: {
+      type: Boolean,
       required: true
     }
   },
@@ -107,6 +103,13 @@ export default {
     emptyTextProviderKey: MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
   }),
   computed: {
+    ...mapState({
+      sourceLanguage: state =>
+        state.application.currentSectionSuggestion?.sourceLanguage,
+      targetLanguage: state =>
+        state.application.currentSectionSuggestion?.targetLanguage,
+      currentPageSection: state => state.application.currentSourceSection
+    }),
     mtProviders() {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](
         this.sourceLanguage,
@@ -121,7 +124,17 @@ export default {
       return this.mtProviders.filter(
         provider => !ignoredProviders.includes(provider)
       );
-    }
+    },
+    selectedSentence: vm =>
+      (vm.currentPageSection?.sentences || []).find(
+        sentence => sentence.selected
+      ),
+    proposedTranslations: vm =>
+      vm.isSectionTitleSelected
+        ? vm.currentPageSection.proposedTitleTranslations
+        : vm.selectedSentence.proposedTranslations,
+    originalContent: vm =>
+      vm.currentPageSection?.proposedTitleTranslations[vm.selectedProvider]
   },
   methods: {
     close() {

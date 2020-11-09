@@ -60,12 +60,9 @@
       </mw-col>
     </mw-row>
     <sx-translation-selector
-      v-if="selectedSentence"
       :active.sync="isTranslationOptionsActive"
       :provider.sync="selectedProvider"
-      :sentence="selectedSentence"
-      :source-language="suggestion.sourceLanguage"
-      :target-language="suggestion.targetLanguage"
+      :is-section-title-selected="isSectionTitleSelected"
     />
   </section>
 </template>
