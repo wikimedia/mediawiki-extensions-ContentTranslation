@@ -382,5 +382,7 @@
 	"cx-sx-publisher-new-section-option-details": "הוספת פסקה חדשה לערך",
 	"cx-sx-publisher-sandbox-option-label": "פרסום לארגז החול שלך",
 	"cx-sx-publisher-sandbox-option-details": "פרסום למרחב האישי שלך כדי לסקור ולהעתיק למקום אחר.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "התרגום שלך <strong>יתווסף לארגז החול שלך</strong>."
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "התרגום שלך <strong>יתווסף לארגז החול שלך</strong>.",
+	"cx-sx-publisher-review-info-error": "לא ניתן לפרסם את התרגום שלך:",
+	"cx-sx-publisher-review-info-learn-more": "מידע נוסף"
 }

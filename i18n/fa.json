@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajam",
 			"Alifakoor",
 			"Alirezaaa",
 			"Amire80",
@@ -264,5 +265,8 @@
 	"cx-unreviewed-translation-category": "صفحات با ترجمه بازبینی‌نشده",
 	"cx-sx-select-section": "بخش مورد نظر برای ترجمه را انتخاب کنید",
 	"cx-sx-section-selector-title": "بخش‌ها",
-	"cx-sx-section-selector-subtitle": "یک بخش را برای ترجمه انتخاب کنید"
+	"cx-sx-section-selector-subtitle": "یک بخش را برای ترجمه انتخاب کنید",
+	"cx-sx-publisher-publish-panel-new-section-result": "ترجمه‌ی شما <strong>به عنوان بخشی جدید به این مقاله اضافه خواهد شد</strong>",
+	"cx-sx-publisher-new-section-option-details": "افزودن بخشی جدید به این مقاله",
+	"cx-sx-publisher-review-info-learn-more": "بیشتر بدانید"
 }

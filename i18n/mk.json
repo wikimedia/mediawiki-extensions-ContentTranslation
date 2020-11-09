@@ -374,5 +374,7 @@
 	"cx-sx-publisher-new-section-option-details": "Додај нов поднаслов во статијата",
 	"cx-sx-publisher-sandbox-option-label": "Објави во Песочникот",
 	"cx-sx-publisher-sandbox-option-details": "Објави во мојот личен простор за да го прегледувам и потоа прекопирам.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Преводот ќе биде <strong> додаден во вашиот песочник.</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Преводот ќе биде <strong> додаден во вашиот песочник.</strong>",
+	"cx-sx-publisher-review-info-error": "Вашиот превод не може да се објави:",
+	"cx-sx-publisher-review-info-learn-more": "Дознајте повеќе"
 }

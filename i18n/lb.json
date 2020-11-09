@@ -253,5 +253,8 @@
 	"cx-sx-editor-original-panel-label": "Original",
 	"cx-sx-publisher-launching-animation-title": "Iwwersetzung publizéieren...",
 	"cx-sx-publisher-success-animation-title": "Verëffentlecht!",
-	"cx-sx-publisher-success-animation-clarification": "D'Säit gëtt opgemaach..."
+	"cx-sx-publisher-success-animation-clarification": "D'Säit gëtt opgemaach...",
+	"cx-sx-publisher-failure-animation-clarification": "D'Feelermeldungen nokucken",
+	"cx-sx-publisher-review-info-error": "Är Iwwersetzung kann net verëffentlecht ginn",
+	"cx-sx-publisher-review-info-learn-more": "Fir méi ze wëssen"
 }

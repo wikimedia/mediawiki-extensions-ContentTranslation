@@ -395,5 +395,7 @@
 	"cx-sx-publisher-new-section-option-details": "Dodaj nową sekcję do artykułu",
 	"cx-sx-publisher-sandbox-option-label": "Opublikuj w brudnopisie",
 	"cx-sx-publisher-sandbox-option-details": "Opublikuj w swojej osobistej przestrzeni, w której będziesz mógł przejrzeć tłumaczenie i skopiować je gdzieś indziej.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Twoje tłumaczenie zostanie <strong>dodane do Twojego brudnopisu.</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Twoje tłumaczenie zostanie <strong>dodane do Twojego brudnopisu.</strong>",
+	"cx-sx-publisher-review-info-error": "Twoje tłumaczenie nie może zostać opublikowane:",
+	"cx-sx-publisher-review-info-learn-more": "Dowiedz się więcej"
 }
