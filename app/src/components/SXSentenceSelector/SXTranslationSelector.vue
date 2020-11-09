@@ -69,20 +69,20 @@
           class="sx-sentence-selector__translation-options-card-title mb-4"
         />
       </template>
-      <mw-input type="textarea" />
+      <p class="sx-sentence-selector__empty-sentence-option__cursor">|</p>
     </mw-card>
   </mw-dialog>
 </template>
 
 <script>
-import { MwDialog, MwButton, MwCard, MwInput } from "@/lib/mediawiki.ui";
+import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import { mapState } from "vuex";
 
 export default {
   name: "SxTranslationSelector",
-  components: { MwCard, MwButton, MwDialog, MwInput },
+  components: { MwCard, MwButton, MwDialog },
   props: {
     active: {
       type: Boolean,
@@ -166,5 +166,17 @@ export default {
 }
 .sx-sentence-selector__mt-provider-option-card {
   cursor: pointer;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sx-sentence-selector__empty-sentence-option__cursor {
+  opacity: 0;
+  animation: blink 1s infinite;
 }
 </style>
