@@ -78,6 +78,7 @@ export default {
   .sx-sentence-selector__section-title {
     border-bottom: none;
     font-family: @font-family-heading-main;
+    max-width: max-content;
     &--selected {
       box-decoration-break: clone;
       color: @color-base;
