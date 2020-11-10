@@ -25,7 +25,7 @@
           "
           class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
           progressive
-          :disabled="!translation"
+          :disabled="!isEditable"
           @click="$emit('edit-translation')"
         />
         <sx-sentence-selector-action-buttons v-on="$listeners" />
@@ -42,6 +42,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 
 export default {
   name: "ProposedTranslationCard",
@@ -77,7 +78,10 @@ export default {
   computed: {
     contentsStyle: vm => ({
       "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
-    })
+    }),
+    isEditable: vm =>
+      !!vm.translation ||
+      vm.mtProvider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
   },
   mounted() {
     this.$nextTick(() => {
