@@ -2,7 +2,7 @@
   <div class="mw-ui-card">
     <!-- @slot Card header -->
     <slot name="header">
-      <div class="mw-ui-card__title title" v-text="title" />
+      <div v-if="title" class="mw-ui-card__title title" v-text="title" />
     </slot>
     <div class="mw-ui-card__content">
       <!-- @slot Card content -->
