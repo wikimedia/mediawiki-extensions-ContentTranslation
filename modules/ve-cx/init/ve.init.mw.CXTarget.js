@@ -716,7 +716,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.MTManager.getPreferredProvider().then( function ( provider ) {
 		return this.changeContentSource( model, null, provider );
 	}.bind( this ) ).fail( function () {
-		mw.notify( 'Automatic translation failed!' );
+		mw.notify( mw.msg( 'cx-auto-failed' ) );
 		return this.MTManager.getDefaultNonMTProvider().then( function ( provider ) {
 			return this.changeContentSource( model, null, provider );
 		}.bind( this ) );

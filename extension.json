@@ -1372,6 +1372,7 @@
 				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
+				"cx-mt-failed",
 				"cx-tools-mt-title",
 				"cx-tools-mt-set-default",
 				"cx-tools-mt-reset",
@@ -1642,6 +1643,7 @@
 				"ve-cx/ui/ve.ui.CXPublishTool.js"
 			],
 			"messages": [
+				"cx-auto-failed",
 				"cx-publish-button",
 				"cx-publish-button-publishing",
 				"cx-publish-page-success"

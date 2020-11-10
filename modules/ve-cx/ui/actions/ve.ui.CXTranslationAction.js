@@ -78,12 +78,9 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 				this.afterTranslate( section );
 			}
 		}.bind( this ) ).fail( function () {
-			// TODO: i18n
-			mw.notify( 'Machine translation failed' );
+			mw.notify( mw.msg( 'cx-mt-failed ' ) );
 			this.surface.getModel().emit( 'contextChange' );
 		}.bind( this ) );
-
-	return;
 };
 
 /**
