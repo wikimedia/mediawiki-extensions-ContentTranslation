@@ -218,13 +218,6 @@ export default {
 
   // Buttons that act like links
   &.mw-ui-button--text {
-    &.mw-ui-button--disabled {
-      color: @color-base--disabled;
-      &:hover,
-      &:focus {
-        color: @color-base--disabled;
-      }
-    }
     .mw-ui-button-text-colors(
       @color-base,
       @color-primary--hover,
@@ -246,6 +239,13 @@ export default {
         @color-destructive--active,
         @color-destructive--focus
       );
+    }
+    &.mw-ui-button--disabled {
+      color: @color-base--disabled;
+      &:hover,
+      &:focus {
+        color: @color-base--disabled;
+      }
     }
   }
 
