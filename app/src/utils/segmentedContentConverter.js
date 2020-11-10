@@ -1,5 +1,6 @@
 import PageSection from "../wiki/cx/models/pageSection";
 import SectionSentence from "../wiki/cx/models/sectionSentence";
+import SubSection from "@/wiki/cx/models/subSection";
 
 /**
  * This function receives html segmented content as it is returned
@@ -13,77 +14,71 @@ const convertSegmentedContentToPageSections = htmlContent => {
   /** @type Document **/
   const pageDocument = parser.parseFromString(htmlContent, "text/html");
   /** @type NodeList **/
-  const sectionNodeList = pageDocument.querySelectorAll(
+  const subSectionNodeList = pageDocument.querySelectorAll(
     "section[rel='cx:Section']:not([data-mw-section-number='0'])"
   );
 
   /**
-   * Node group is an object in the following format: { id: 1, nodes: [] }
-   * It groups DOM nodes that have the same mw-section-number attribute
-   * and thus belonging to the same translation section
-   * @type Object[]
+   * sectionNodeGroups is an array of arrays. Each sub-array
+   * contains all sub-section HTML nodes that belong to the
+   * same section
+   * @type Array[]
    **/
-  const nodeGroups = Array.from(sectionNodeList).reduce(
-    addNodeToNodeGroupCollection,
-    []
-  );
+  const sectionNodeGroups = groupSubSectionNodes(subSectionNodeList);
 
-  return nodeGroups.map(nodeGroup => {
+  return sectionNodeGroups.map(sectionNodes => {
     /** First node in array is a DOM node for h2, containing section title */
-    const [h2Node, ...contentNodes] = nodeGroup.nodes;
+    const [h2Node, ...contentNodes] = sectionNodes;
+
+    const subSections = contentNodes.map(
+      node =>
+        new SubSection({
+          sentences: convertNodeToSentences(node),
+          node
+        })
+    );
     return new PageSection({
-      id: nodeGroup.id,
+      id: h2Node.dataset.mwSectionNumber,
       title: h2Node.textContent.trim(),
-      sentences: convertNodesToSentences(contentNodes)
+      subSections
     });
   });
 };
 
 /**
- * Split provided section node to
- * @param sectionNodes
- * @return {SectionSentence[]}
+ * Given a NodeList of all html nodes returned by CX Server, this method
+ * returns an array of arrays. Each nested array contains all html nodes
+ * that belong to the same section.
+ * @param {NodeList} subSectionNodeList
+ * @return Array[]
  */
-const convertNodesToSentences = sectionNodes =>
-  sectionNodes.reduce(
-    (sectionSentences, node) => [
-      ...sectionSentences,
-      ...Array.from(node.getElementsByClassName("cx-segment")).map(
-        sentenceNode =>
-          new SectionSentence({
-            id: sentenceNode.dataset.segmentid,
-            originalContent: sentenceNode.innerHTML,
-            node: sentenceNode
-          })
-      )
-    ],
-    []
+const groupSubSectionNodes = subSectionNodeList => {
+  const groups = Array.from(subSectionNodeList).reduce(
+    (groups, sectionNode) => {
+      const id = sectionNode.dataset.mwSectionNumber;
+      groups[id] = groups[id] ? [...groups[id], sectionNode] : [sectionNode];
+      return groups;
+    },
+    {}
   );
 
-/**
- * Given a collection of node groups and a section DOM node, it adds the section node
- * to the nodes array of the corresponding node group object if it exists. If not,
- * it creates a new node group appropriately and adds it to the collection. It returns
- * the updated node group collection.
- * @param {Object[]} nodeGroups
- * @param {Node} sectionNode
- * @return {Object[]}
- */
-const addNodeToNodeGroupCollection = (nodeGroups, sectionNode) => {
-  const nodeGroup = nodeGroups.find(
-    node => node.id === sectionNode.dataset.mwSectionNumber
-  );
-  if (nodeGroup) {
-    nodeGroup.nodes.push(sectionNode);
-    return nodeGroups;
-  }
-  const newNodeGroup = {
-    id: sectionNode.dataset.mwSectionNumber,
-    nodes: [sectionNode]
-  };
-  nodeGroups.push(newNodeGroup);
-  return nodeGroups;
+  return Object.values(groups);
 };
+
+/**
+ * Split provided section node to
+ * @param node
+ * @return {SectionSentence[]}
+ */
+const convertNodeToSentences = node =>
+  Array.from(node.getElementsByClassName("cx-segment")).map(
+    sentenceNode =>
+      new SectionSentence({
+        id: sentenceNode.dataset.segmentid,
+        originalContent: sentenceNode.innerHTML,
+        node: sentenceNode
+      })
+  );
 
 export default {
   convertSegmentedContentToPageSections

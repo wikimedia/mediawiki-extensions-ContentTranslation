@@ -1,21 +1,21 @@
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-
+import SubSection from "@/wiki/cx/models/subSection";
 /**
  * This model represents a translation section belonging to a Page model.
- * It stores section content through section sentences property, section
- * title and section id, which corresponds to the mw-section-number attribute,
+ * It stores section content through section sub-sections, section title
+ * and section id, which corresponds to the mw-section-number attribute,
  * as provided by cx server's content segmentation action.
  */
 export default class PageSection {
-  constructor({ id, title = null, sentences = [] } = {}) {
+  constructor({ id, title = null, subSections = [] } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
     };
     this.translatedTitle = "";
-    /** @type SectionSentence[] **/
-    this.sentences = sentences;
+    /** @type SubSection[] **/
+    this.subSections = subSections;
     this.editedTranslation = null;
   }
 
@@ -29,9 +29,20 @@ export default class PageSection {
     return this.translatedTitle || this.originalTitle;
   }
 
+  /**
+   * Returns sentences nested into subSections
+   * @return SectionSentence[]
+   */
+  get sentences() {
+    return this.subSections.reduce(
+      (sentences, subSection) => [...sentences, ...subSection.sentences],
+      []
+    );
+  }
+
   get html() {
-    return this.sentences.reduce(
-      (htmlContent, sentence) => htmlContent + sentence.originalContent,
+    return this.subSections.reduce(
+      (htmlContent, subSection) => htmlContent + subSection.originalHtml,
       ""
     );
   }
@@ -39,8 +50,11 @@ export default class PageSection {
   get translationHtml() {
     return (
       this.editedTranslation ||
-      this.sentences.reduce(
-        (htmlContent, sentence) => htmlContent + sentence.translatedContent,
+      this.subSections.reduce(
+        (htmlContent, subSection) =>
+          subSection.isTranslated
+            ? htmlContent + subSection.translatedContent
+            : htmlContent,
         ""
       )
     );

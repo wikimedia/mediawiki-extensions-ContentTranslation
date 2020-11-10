@@ -1,18 +1,20 @@
-import { createLocalVue, mount } from "@vue/test-utils";
+import { createLocalVue, shallowMount } from "@vue/test-utils";
 import SXSentenceSelector from "./SXSentenceSelector.vue";
-import SectionSentence from "../../wiki/cx/models/sectionSentence";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
+import SubSectionModel from "../../wiki/cx/models/subSection";
+import SubSection from "./SubSection";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
+jest.mock("../../plugins/ve");
 
-describe("SXSentenceSelector Sentence", () => {
-  const sentences = [
-    new SectionSentence({ id: 1 }),
-    new SectionSentence({ id: 2, selected: true })
+describe("SXSentenceSelector", () => {
+  const subSections = [
+    new SubSectionModel({ node: { id: 1 } }),
+    new SubSectionModel({ node: { id: 2 } })
   ];
 
   const applicationModule = {
@@ -22,12 +24,10 @@ describe("SXSentenceSelector Sentence", () => {
         sourceLanguage: "",
         targetLanguage: ""
       }),
-      currentSourceSection: {
-        sentences
-      }
+      currentSourceSection: { subSections }
     },
-    getters: {
-      isCurrentSentenceLast: () => false
+    mutations: {
+      setIsSectionTitleSelectedForTranslation: () => {}
     }
   };
   const mediawikiModule = {
@@ -47,25 +47,14 @@ describe("SXSentenceSelector Sentence", () => {
   });
   store.dispatch = jest.fn();
 
-  const wrapper = mount(SXSentenceSelector, {
+  const wrapper = shallowMount(SXSentenceSelector, {
     localVue,
     store
   });
 
-  it("Component should dispatch correct action on new sentence selected", () => {
-    const notSelectedSentence = sentences.find(sentence => !sentence.selected);
-    wrapper.vm.onSentenceSelected(notSelectedSentence);
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectSentenceForCurrentSection",
-      {
-        id: notSelectedSentence.id
-      }
-    );
-  });
-
   it("Component should bounce translation preview when already selected sentence is selected", done => {
-    const selectedSentence = sentences.find(sentence => sentence.selected);
-    wrapper.vm.onSentenceSelected(selectedSentence);
+    const subSectionWrapper = wrapper.findComponent(SubSection);
+    subSectionWrapper.vm.$emit("bounce-translation");
     expect(wrapper.vm.shouldProposedTranslationBounce).toBe(true);
     setTimeout(() => {
       expect(wrapper.vm.shouldProposedTranslationBounce).toBe(false);

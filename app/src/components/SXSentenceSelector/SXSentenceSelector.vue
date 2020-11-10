@@ -32,11 +32,12 @@
       <mw-col class="sx-sentence-selector__section">
         <sx-sentence-selector-content-header />
         <div class="sx-sentence-selector__section-contents px-4">
-          <sx-sentence-selector-sentence
-            v-for="sentence in sentences"
-            :key="`sentence-${sentence.id}`"
-            :sentence="sentence"
-            @sentence-selected="onSentenceSelected"
+          <sub-section
+            v-for="subSection in subSections"
+            :id="subSection.id"
+            :key="`sub-section-${subSection.id}`"
+            :sub-section="subSection"
+            @bounce-translation="bounceTranslation"
           />
         </div>
       </mw-col>
@@ -67,9 +68,9 @@ import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
 import { mapState, mapGetters, mapMutations } from "vuex";
-import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 import ProposedTranslationCard from "./ProposedTranslationCard";
+import SubSection from "./SubSection";
 
 import { loadVEModules } from "@/plugins/ve";
 
@@ -77,8 +78,8 @@ export default {
   name: "SxSentenceSelector",
   components: {
     ProposedTranslationCard,
+    SubSection,
     SxSentenceSelectorContentHeader,
-    SxSentenceSelectorSentence,
     MwRow,
     MwCol,
     SxTranslationSelector,
@@ -131,7 +132,7 @@ export default {
      */
     translationPreview: vm =>
       vm.titleTranslationPreview || vm.sentenceTranslationPreview,
-    sentences: vm => vm.currentPageSection?.sentences || [],
+    subSections: vm => vm.currentPageSection?.subSections,
     mtProviders: vm =>
       vm.getSupportedMTProviders(
         vm.suggestion.sourceLanguage,
@@ -142,7 +143,10 @@ export default {
         vm.suggestion.sourceLanguage,
         vm.suggestion.sourceTitle
       ),
-    selectedSentence: vm => vm.sentences.find(sentence => sentence.selected),
+    selectedSentence: vm =>
+      (vm.currentPageSection?.sentences || []).find(
+        sentence => sentence.selected
+      ),
     /**
      * If section title is not selected for translation, false will be returned
      */
@@ -212,7 +216,7 @@ export default {
     selectPreviousSegment() {
       this.$store.dispatch("application/selectPreviousSentence");
     },
-    async bounceTranslation() {
+    bounceTranslation() {
       this.shouldProposedTranslationBounce = true;
       setTimeout(() => {
         this.shouldProposedTranslationBounce = false;
@@ -238,15 +242,6 @@ export default {
     },
     onClose() {
       this.$router.go(-1);
-    },
-    onSentenceSelected(sentence) {
-      if (this.selectedSentence === sentence) {
-        this.bounceTranslation();
-      } else {
-        this.$store.dispatch("application/selectSentenceForCurrentSection", {
-          id: sentence.id
-        });
-      }
     },
     configureTranslationOptions() {
       this.isTranslationOptionsActive = true;

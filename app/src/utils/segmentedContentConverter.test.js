@@ -15,18 +15,18 @@ const html = `
       </h2>
     </section>
     <section data-mw-section-number="1" id="cxSourceSection3" rel="cx:Section">
-      <p id="mwGw">
+      <p id="mwGw-0">
         <span class="cx-segment" data-segmentid="123">${testContent0}</span>
     </section>
     <section data-mw-section-number="2" id="cxSourceSection4" rel="cx:Section">
       <h2><span class="cx-segment" data-segmentid="141">${testTitle1}</span></h2>
     </section>
     <section data-mw-section-number="2" id="cxSourceSection5" rel="cx:Section">
-      <p id="mwGw">
+      <p id="mwGw-1">
         <span class="cx-segment" data-segmentid="142">${testContent1}</span>
     </section>
     <section data-mw-section-number="2" id="cxSourceSection6" rel="cx:Section">
-      <p id="mwGw">
+      <p id="mwGw-2">
         <span class="cx-segment" data-segmentid="143">${testContent2}</span>
     </section>
   </body>
@@ -46,7 +46,5 @@ describe("SegmentedContentConverter test", () => {
     ).toBe(true);
     expect(pageSections[0].title).toBe(testTitle0);
     expect(pageSections[1].title).toBe(testTitle1);
-    expect(pageSections[0].html).toBe(testContent0);
-    expect(pageSections[1].html).toBe(testContent1 + testContent2);
   });
 });
