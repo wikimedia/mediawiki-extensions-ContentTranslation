@@ -86,7 +86,16 @@ const getters = {
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers || [],
   getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
-    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0]
+    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0],
+  isValidProviderForTranslation: (state, getters) => (
+    sourceLanguage,
+    targetLanguage,
+    provider
+  ) =>
+    getters
+      .getSupportedMTProviders(sourceLanguage, targetLanguage)
+      .providers.includes(provider) &&
+    provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
 };
 
 const actions = {
@@ -202,18 +211,23 @@ const actions = {
    * @return {Promise<void>}
    */
   async translateSelectedSentence(
-    { rootGetters },
+    { rootGetters, getters },
     { sourceLanguage, targetLanguage, sourceTitle, sectionTitle, provider }
   ) {
+    const isValidProvider = getters.isValidProviderForTranslation(
+      sourceLanguage,
+      targetLanguage,
+      provider
+    );
+    if (isValidProvider) {
+      return;
+    }
+
     const selectedSentence = rootGetters[
       "application/getSelectedSentenceForPageSection"
     ](sourceLanguage, sourceTitle, sectionTitle);
 
-    if (
-      !selectedSentence ||
-      provider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY ||
-      selectedSentence.proposedTranslations[provider]
-    ) {
+    if (!selectedSentence || selectedSentence.proposedTranslations[provider]) {
       return;
     }
 
@@ -225,11 +239,20 @@ const actions = {
     );
     Vue.set(selectedSentence.proposedTranslations, provider, translation);
   },
-  async translateSectionTitle({ rootState }, { provider }) {
+  async translateSectionTitle({ rootState, getters }, { provider }) {
     const {
       sourceLanguage,
       targetLanguage
     } = rootState.application.currentSectionSuggestion;
+
+    const isValidProvider = getters.isValidProviderForTranslation(
+      sourceLanguage,
+      targetLanguage,
+      provider
+    );
+    if (isValidProvider) {
+      return;
+    }
 
     const section = rootState.application.currentSourceSection;
 

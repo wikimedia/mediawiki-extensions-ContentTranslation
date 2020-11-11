@@ -48,10 +48,10 @@ async function fetchSegmentTranslation(
   }
   const sitemapper = new mw.cx.SiteMapper();
   let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
-
   if (provider !== MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY) {
     relativeUrl += `/${provider}`;
   }
+
   const cxserverAPI = sitemapper.getCXServerUrl(relativeUrl);
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json" },
