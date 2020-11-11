@@ -1,6 +1,9 @@
 <template>
   <section class="sx-editor">
-    <sx-editor-original-content :original-content="originalContent" />
+    <sx-editor-original-content
+      v-if="originalContent"
+      :original-content="originalContent"
+    />
     <mw-spinner v-if="!editorReady" />
     <visual-editor
       :content="content"
@@ -27,15 +30,10 @@ export default {
     editorReady: false
   }),
   computed: {
-    content() {
-      return this.$route.params.content;
-    },
-    language() {
-      return this.$route.params.language;
-    },
-    originalContent() {
-      return this.$route.params.originalContent;
-    }
+    content: vm => vm.$route.params.content,
+    language: vm => vm.$route.params.language,
+    originalContent: vm => vm.$route.params.originalContent,
+    isFinal: vm => !!vm.$route.params.isFinalEdit
   },
   methods: {
     onEditorReady() {
@@ -45,11 +43,19 @@ export default {
       this.$router.replace({ name: "sx-sentence-selector" });
     },
     onEditCompleted(editedContent) {
-      this.$store.commit(
-        "application/setCurrentEditedTranslation",
-        editedContent
-      );
-      this.$router.replace({ name: "sx-sentence-selector" });
+      if (this.isFinal) {
+        this.$store.commit(
+          "application/setCurrentSourceSectionEditedTranslation",
+          editedContent
+        );
+        this.$router.replace({ name: "sx-publisher" });
+      } else {
+        this.$store.commit(
+          "application/setCurrentEditedTranslation",
+          editedContent
+        );
+        this.$router.replace({ name: "sx-sentence-selector" });
+      }
     }
   }
 };

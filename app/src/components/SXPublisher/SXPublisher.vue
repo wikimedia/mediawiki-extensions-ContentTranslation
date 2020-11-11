@@ -28,7 +28,7 @@
           v-text="sourceSectionTitle"
         />
         <mw-col shrink>
-          <mw-button :icon="mwIconEdit" type="icon" />
+          <mw-button :icon="mwIconEdit" type="icon" @click="editTranslation" />
         </mw-col>
       </mw-row>
       <div v-html="currentPageSection.translationHtml" />
@@ -115,6 +115,16 @@ export default {
         this.publishStatus = "pending";
         this.handlePublishResult(publishResult);
       }, 1000);
+    },
+    editTranslation() {
+      this.$router.push({
+        name: "sx-editor",
+        params: {
+          content: this.currentPageSection.translationHtml,
+          language: this.suggestion.targetLanguage,
+          isFinalEdit: true
+        }
+      });
     }
   }
 };

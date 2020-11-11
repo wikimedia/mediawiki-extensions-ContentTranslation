@@ -103,8 +103,8 @@ export default {
       this.$emit("close");
     },
     onNext() {
-      this.veSurface.destroy();
       this.$emit("edit-completed", this.editedContent);
+      this.veSurface.destroy();
     }
   }
 };

@@ -16,6 +16,7 @@ export default class PageSection {
     this.translatedTitle = "";
     /** @type SectionSentence[] **/
     this.sentences = sentences;
+    this.editedTranslation = null;
   }
 
   get originalTitle() {
@@ -36,9 +37,12 @@ export default class PageSection {
   }
 
   get translationHtml() {
-    return this.sentences.reduce(
-      (htmlContent, sentence) => htmlContent + sentence.translatedContent,
-      ""
+    return (
+      this.editedTranslation ||
+      this.sentences.reduce(
+        (htmlContent, sentence) => htmlContent + sentence.translatedContent,
+        ""
+      )
     );
   }
 }

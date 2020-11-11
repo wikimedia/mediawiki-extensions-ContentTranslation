@@ -21,6 +21,9 @@ const mutations = {
   setCurrentSourceSectionTitleTranslation(state, translation) {
     state.currentSourceSection.translatedTitle = translation;
   },
+  setCurrentSourceSectionEditedTranslation(state, translation) {
+    state.currentSourceSection.editedTranslation = translation;
+  },
   clearSentenceSelection(state) {
     const sentence = state.currentSourceSection.sentences.find(
       sentence => sentence.selected
