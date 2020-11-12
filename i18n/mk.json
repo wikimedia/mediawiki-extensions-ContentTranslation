@@ -294,6 +294,8 @@
 	"cx-linkcontextitem-missing-link-title": "Врската недостига",
 	"cx-linkcontextitem-missing-title-description": "Оваа страница сè уште не постои",
 	"cx-mt-abuse-publish-error": "Вашиот превод не може да се објави бидејќи содржи премногу неизменет текст.",
+	"cx-auto-failed": "Автоматскиот превод не успеа",
+	"cx-mt-failed": "Машинскиот превод не успеа",
 	"cx-unreviewed-translation-category": "Страници со непрегледан превод",
 	"cx-unreviewed-translation-category-desc": "Страници преведени со алатката „Превод на содржини“ кои имаат значајно количество непрегледана содржина",
 	"cx-preference-enable-entrypoints": "Пристап до [[$1|отпочнување на нов превод]] од страницата со придонеси, списокот на јазици и новосоздадените страници.",

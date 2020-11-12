@@ -315,7 +315,7 @@
 	"cx-publish-destination-namespace-main-description": "En el espacio de nombres principal para que todos puedan leer",
 	"cx-publish-destination-namespace-main-exists": "Reemplazar la página existente",
 	"cx-publish-destination-namespace-user": "Borrador personal",
-	"cx-publish-destination-namespace-user-description": "Debajo del espacio de nombres de usuario para que puedas mejorar",
+	"cx-publish-destination-namespace-user-description": "En el espacio de nombres de usuario para que puedas mejorar",
 	"cx-publish-destination-namespace-draft": "Borrador comunitario",
 	"cx-publish-destination-namespace-draft-description": "En el espacio de nombres de borrador para que la comunidad revise y mejore",
 	"cx-publish-destination-namespace-changed": "El destino de publicación cambió a borrador personal. Puedes cambiar las preferencias de publicación en cualquier momento.",

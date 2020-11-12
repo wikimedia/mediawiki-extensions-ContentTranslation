@@ -316,6 +316,8 @@
 	"cx-linkcontextitem-missing-link-title": "Brakujący link",
 	"cx-linkcontextitem-missing-title-description": "Ta strona jeszcze nie istnieje",
 	"cx-mt-abuse-publish-error": "Twoje tłumaczenie nie może zostać opublikowane, ponieważ zawiera zbyt dużo niezmodyfikowanego tekstu.",
+	"cx-auto-failed": "Automatyczne tłumaczenie nie powiodło się",
+	"cx-mt-failed": "Tłumaczenie maszynowe nie powiodło się",
 	"cx-unreviewed-translation-category": "Strony z nieprzejrzanymi tłumaczeniami",
 	"cx-unreviewed-translation-category-desc": "Strony przetłumaczone narzędziem tłumaczenia treści zawierające duże ilości nieprzejrzanej treści",
 	"cx-preference-enable-entrypoints": "Dostęp do [[$1|rozpoczynania tłumaczeń]] w stronie wkładu, liście języków i podczas tworzenia nowych stron.",

@@ -303,6 +303,8 @@
 	"cx-linkcontextitem-missing-link-title": "Manglende lenke",
 	"cx-linkcontextitem-missing-title-description": "Denne siden finnes ikke ennå",
 	"cx-mt-abuse-publish-error": "Oversettelsen din kan ikke publiseres fordi den inneholder for mye uendret tekst.",
+	"cx-auto-failed": "Automatisk oversetting mislyktes",
+	"cx-mt-failed": "Maskinoversetting mislyktes",
 	"cx-unreviewed-translation-category": "Sider uten gjennomgåtte oversettelser",
 	"cx-unreviewed-translation-category-desc": "Sider oversatt med innholdsoversettelsesverktøyet som inneholder en stor andel innhold som ikke er gjennomgått",
 	"cx-preference-enable-entrypoints": "Tilgang til å [[$1|starte en oversettelse]], fra bidragssiden, språklista og lista over nye sider.",
@@ -383,5 +385,7 @@
 	"cx-sx-publisher-new-section-option-details": "Legg til en ny seksjon i artikkelen",
 	"cx-sx-publisher-sandbox-option-label": "Publiser til sandkassa di",
 	"cx-sx-publisher-sandbox-option-details": "Publiser til din personlige sandkasse så du kan gjennomgå den og kopiere den til et annet sted.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "Oversettelsen din blir <strong>lagt til i sandkassa di</strong>."
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Oversettelsen din blir <strong>lagt til i sandkassa di</strong>.",
+	"cx-sx-publisher-review-info-error": "Oversettelsen din kan ikke publiseres:",
+	"cx-sx-publisher-review-info-learn-more": "Lær mer"
 }

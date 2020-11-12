@@ -306,6 +306,8 @@
 	"cx-linkcontextitem-missing-link-title": "遺失連結",
 	"cx-linkcontextitem-missing-title-description": "此頁面尚未存在",
 	"cx-mt-abuse-publish-error": "因包含太多未更改過文字緣故，無法發布您的翻譯",
+	"cx-auto-failed": "自動翻譯失敗",
+	"cx-mt-failed": "機器翻譯失敗",
 	"cx-unreviewed-translation-category": "有未審閱翻譯的頁面",
 	"cx-unreviewed-translation-category-desc": "頁面以內容翻譯工具做出翻譯，且包含大量未審查過的內容",
 	"cx-preference-enable-entrypoints": "從貢獻頁面、語言清單、和建立新頁面來[[$1|開始翻譯]]。",
@@ -386,5 +388,7 @@
 	"cx-sx-publisher-new-section-option-details": "新增章節至此條目",
 	"cx-sx-publisher-sandbox-option-label": "發布到您的沙盒",
 	"cx-sx-publisher-sandbox-option-details": "發布到您的個人空間，來讓您可以隨處查看與複製。",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "您的翻譯將會<strong>添加到您的沙盒。</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "您的翻譯將會<strong>添加到您的沙盒。</strong>",
+	"cx-sx-publisher-review-info-error": "您的翻譯無法發布：",
+	"cx-sx-publisher-review-info-learn-more": "了解更多"
 }

@@ -4,6 +4,7 @@
 			"Amire80",
 			"Ananth subray",
 			"M G Harish",
+			"Mahadevaiah Siddaiah",
 			"Omshivaprakash",
 			"Teju2friends",
 			"VASANTH S.N.",
@@ -102,5 +103,8 @@
 	"cx-tools-link-external-link": "ಬಾಹ್ಯ",
 	"cx-tools-link-external-link-placeholder": "ಬಾಹ್ಯ ಸಂಪರ್ಕ ಸೇರಿಸು",
 	"cx-tools-link-apply": "ಮುಗಿಯಿತು",
-	"mw-pageselector-missing": "ಪುಟವು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ"
+	"mw-pageselector-missing": "ಪುಟವು ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ",
+	"cx-mt-failed": "ಯಂತ್ರ ಅನುವಾದ ವಿಫಲವಾಗಿದೆ",
+	"cx-sx-publisher-review-info-error": "ನಿಮ್ಮ ಅನುವಾದವನ್ನು ಪ್ರಕಟಿಸಲಾಗುವುದಿಲ್ಲ:",
+	"cx-sx-publisher-review-info-learn-more": "ಹೆಚ್ಚು ತಿಳಿ"
 }
