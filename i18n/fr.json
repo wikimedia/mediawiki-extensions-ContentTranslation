@@ -332,6 +332,8 @@
 	"cx-linkcontextitem-missing-link-title": "Lien manquant",
 	"cx-linkcontextitem-missing-title-description": "Cette page n’existe pas encore",
 	"cx-mt-abuse-publish-error": "Votre traduction ne peut pas être publiée parce qu’elle contient trop de texte non modifié.",
+	"cx-auto-failed": "Échec de la traduction automatique",
+	"cx-mt-failed": "Échec de la traduction par la machine",
 	"cx-unreviewed-translation-category": "Pages avec des traductions non relues",
 	"cx-unreviewed-translation-category-desc": "Pages traduites par l’outil de traduction de contenu ayant une grande quantité de contenu non relu",
 	"cx-preference-enable-entrypoints": "Accéder à [[$1|démarrer une traduction]], depuis la page de contributions et la liste des langues et créations de nouvelles pages.",
