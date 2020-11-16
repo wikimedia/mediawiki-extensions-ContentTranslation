@@ -11,6 +11,9 @@ describe("SXSentenceSelector Action Buttons", () => {
     modules: {
       application: {
         namespaced: true,
+        state: {
+          isSectionTitleSelectedForTranslation: false
+        },
         getters: {
           isCurrentSentenceLast: state => false
         }
@@ -19,10 +22,7 @@ describe("SXSentenceSelector Action Buttons", () => {
   });
   const wrapper = mount(SXSentenceSelectorActionButtons, {
     store,
-    localVue,
-    propsData: {
-      isSectionTitleSelected: false
-    }
+    localVue
   });
 
   it("Component output matches snapshot", () => {
@@ -50,9 +50,7 @@ describe("SXSentenceSelector Action Buttons", () => {
   });
 
   it("Previous button is disabled when sentence is first in array", async () => {
-    wrapper.setProps({
-      isSectionTitleSelected: true
-    });
+    store.state.application.isSectionTitleSelectedForTranslation = true;
     /** Wait for DOM to be updated **/
     await wrapper.vm.$nextTick();
     const skipButton = wrapper.find("button");

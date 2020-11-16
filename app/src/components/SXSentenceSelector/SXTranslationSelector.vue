@@ -91,10 +91,6 @@ export default {
     provider: {
       type: String,
       required: true
-    },
-    isSectionTitleSelected: {
-      type: Boolean,
-      required: true
     }
   },
   data: () => ({
@@ -108,7 +104,9 @@ export default {
         state.application.currentSectionSuggestion?.sourceLanguage,
       targetLanguage: state =>
         state.application.currentSectionSuggestion?.targetLanguage,
-      currentPageSection: state => state.application.currentSourceSection
+      currentPageSection: state => state.application.currentSourceSection,
+      isSectionTitleSelected: state =>
+        state.application.isSectionTitleSelectedForTranslation
     }),
     mtProviders() {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](

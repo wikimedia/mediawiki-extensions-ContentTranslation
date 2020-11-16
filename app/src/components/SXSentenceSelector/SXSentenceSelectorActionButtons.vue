@@ -30,24 +30,22 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "SxSentenceSelectorActionButtons",
   components: {
     MwRow,
     MwButton
   },
-  props: {
-    isSectionTitleSelected: {
-      type: Boolean,
-      required: true
-    }
-  },
   data: () => ({
     mwIconPrevious,
     mwIconArrowForward
   }),
   computed: {
+    ...mapState({
+      isSectionTitleSelected: state =>
+        state.application.isSectionTitleSelectedForTranslation
+    }),
     ...mapGetters({
       isLastSentence: "application/isCurrentSentenceLast"
     })

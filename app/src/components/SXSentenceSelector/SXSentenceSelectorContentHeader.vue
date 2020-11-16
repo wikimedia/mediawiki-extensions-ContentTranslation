@@ -11,7 +11,7 @@
     <h2
       class="sx-sentence-selector__section-title pa-0 ma-0"
       :class="titleClass"
-      @click="$emit('update:is-section-title-selected', true)"
+      @click="selectSectionTitle"
       v-text="sourceSectionTitle"
     />
   </mw-col>
@@ -26,19 +26,15 @@ const sitemapper = new mw.cx.SiteMapper();
 export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
-  props: {
-    isSectionTitleSelected: {
-      type: Boolean,
-      required: true
-    }
-  },
   data: () => ({
     mwIconLinkExternal
   }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection
+      currentPageSection: state => state.application.currentSourceSection,
+      isSectionTitleSelected: state =>
+        state.application.isSectionTitleSelectedForTranslation
     }),
     sourceSectionTitle: vm => vm.currentPageSection?.title,
     sourceArticlePath: vm =>
@@ -53,6 +49,14 @@ export default {
       "sx-sentence-selector__section-title--translated":
         vm.isSectionTitleTranslated
     })
+  },
+  methods: {
+    selectSectionTitle() {
+      this.$store.commit(
+        "application/setIsSectionTitleSelectedForTranslation",
+        true
+      );
+    }
   }
 };
 </script>

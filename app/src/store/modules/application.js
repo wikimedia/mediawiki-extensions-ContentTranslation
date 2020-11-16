@@ -4,7 +4,9 @@ const state = {
   /** @type PageSection */
   currentSourceSection: null,
   /** @type String */
-  currentEditedSentenceTranslation: null
+  currentEditedSentenceTranslation: null,
+  /** @type Boolean */
+  isSectionTitleSelectedForTranslation: false
 };
 
 const mutations = {
@@ -85,6 +87,14 @@ const mutations = {
    */
   clearCurrentEditedTranslation(state) {
     state.currentEditedSentenceTranslation = null;
+  },
+
+  /**
+   * @param state
+   * @param value
+   */
+  setIsSectionTitleSelectedForTranslation: (state, value) => {
+    state.isSectionTitleSelectedForTranslation = value;
   }
 };
 
@@ -176,19 +186,19 @@ const actions = {
   selectSentenceForCurrentSection({ commit }, { id }) {
     commit("clearSentenceSelection");
     commit("clearCurrentEditedTranslation");
+    commit("setIsSectionTitleSelectedForTranslation", false);
     if (id) {
       commit("selectSentence", id);
     }
   },
 
   applyTranslationToSelectedSegment(
-    { commit, dispatch },
-    { translation, isSentence }
+    { state, commit, dispatch },
+    { translation }
   ) {
-    const mutation = isSentence
-      ? "setSelectedSentenceTranslation"
-      : "setCurrentSourceSectionTitleTranslation";
-
+    const mutation = state.isSectionTitleSelectedForTranslation
+      ? "setCurrentSourceSectionTitleTranslation"
+      : "setSelectedSentenceTranslation";
     commit(mutation, translation);
     dispatch("selectNextSentence");
   },
@@ -198,14 +208,20 @@ const actions = {
    * and first sentence in array will be selected
    * @param getters
    * @param dispatch
+   * @param commit
    */
-  selectNextSentence({ getters, dispatch }) {
+  selectNextSentence({ getters, dispatch, commit }) {
+    commit("setIsSectionTitleSelectedForTranslation", false);
     const sentences = getters.getCurrentSourceSectionSentences;
     const nextIndex = sentences.findIndex(sentence => sentence.selected) + 1;
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
 
-  selectPreviousSentence({ getters, dispatch }) {
+  selectPreviousSentence({ getters, dispatch, commit }) {
+    if (getters.isCurrentSentenceFirst) {
+      commit("setIsSectionTitleSelectedForTranslation", true);
+      return;
+    }
     const sentences = getters.getCurrentSourceSectionSentences;
     let selectedIndex = sentences.findIndex(sentence => sentence.selected);
     selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;

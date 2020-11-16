@@ -15,7 +15,8 @@ describe("SXSentenceSelector Section Content Header", () => {
     }),
     currentSourceSection: new PageSection({
       title: sourceSectionTitle
-    })
+    }),
+    isSectionTitleSelectedForTranslation: false
   };
   const store = new Vuex.Store({
     modules: {
@@ -27,10 +28,7 @@ describe("SXSentenceSelector Section Content Header", () => {
   });
   const wrapper = mount(SXSentenceSelectorContentHeader, {
     store,
-    localVue,
-    propsData: {
-      isSectionTitleSelected: false
-    }
+    localVue
   });
 
   it("Component output matches snapshot", () => {

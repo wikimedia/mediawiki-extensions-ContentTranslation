@@ -28,9 +28,7 @@
       align="start"
       class="sx-sentence-selector__section fill-height ma-0"
     >
-      <sx-sentence-selector-content-header
-        :is-section-title-selected.sync="isSectionTitleSelected"
-      />
+      <sx-sentence-selector-content-header />
       <mw-col grow class="sx-sentence-selector__section-contents px-4">
         <sx-sentence-selector-sentence
           v-for="sentence in sentences"
@@ -52,7 +50,6 @@
           @edit-translation="editTranslation"
         />
         <sx-sentence-selector-action-buttons
-          :is-section-title-selected="isSectionTitleSelected"
           @apply-translation="applyTranslation"
           @skip-translation="skipTranslation"
           @select-previous-segment="selectPreviousSegment"
@@ -62,7 +59,6 @@
     <sx-translation-selector
       :active.sync="isTranslationOptionsActive"
       :provider.sync="selectedProvider"
-      :is-section-title-selected="isSectionTitleSelected"
     />
   </section>
 </template>
@@ -72,7 +68,7 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapMutations } from "vuex";
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorProposedTranslationBody";
 import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
@@ -95,20 +91,20 @@ export default {
     selectedProvider: "",
     translation: null,
     isTranslationOptionsActive: false,
-    shouldProposedTranslationBounce: false,
-    isSectionTitleSelected: false
+    shouldProposedTranslationBounce: false
   }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection,
       currentEditedTranslation: state =>
-        state.application.currentEditedSentenceTranslation
+        state.application.currentEditedSentenceTranslation,
+      isSectionTitleSelected: state =>
+        state.application.isSectionTitleSelectedForTranslation
     }),
     ...mapGetters({
       getDefaultMTProvider: "mediawiki/getDefaultMTProvider",
-      getSupportedMTProviders: "mediawiki/getSupportedMTProviders",
-      isCurrentSentenceFirst: "application/isCurrentSentenceFirst"
+      getSupportedMTProviders: "mediawiki/getSupportedMTProviders"
     }),
     sourceSectionTitle: vm => vm.currentPageSection?.title,
     defaultMTProvider: vm =>
@@ -202,28 +198,23 @@ export default {
      * should start with section title.
      */
     if (!this.selectedSentence) {
-      this.isSectionTitleSelected = true;
+      this.setIsSectionTitleSelected(true);
     }
   },
   methods: {
+    ...mapMutations({
+      setIsSectionTitleSelected:
+        "application/setIsSectionTitleSelectedForTranslation"
+    }),
     applyTranslation() {
       this.$store.dispatch("application/applyTranslationToSelectedSegment", {
-        isSentence: !this.isSectionTitleSelected,
         translation: this.translationPreview
       });
-      this.isSectionTitleSelected = false;
     },
     skipTranslation() {
-      this.$store.dispatch("application/selectNextSentence", {
-        isSentence: this.isSectionTitleSelected
-      });
-      this.isSectionTitleSelected = false;
+      this.$store.dispatch("application/selectNextSentence");
     },
     selectPreviousSegment() {
-      if (this.isCurrentSentenceFirst) {
-        this.isSectionTitleSelected = true;
-        return;
-      }
       this.$store.dispatch("application/selectPreviousSentence");
     },
     bounceTranslation() {
@@ -254,7 +245,6 @@ export default {
       this.$router.go(-1);
     },
     onSentenceSelected(sentence) {
-      this.isSectionTitleSelected = false;
       if (this.selectedSentence === sentence) {
         this.bounceTranslation();
       } else {
