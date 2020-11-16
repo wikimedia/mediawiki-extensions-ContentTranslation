@@ -50,9 +50,11 @@ export default {
         );
         this.$router.replace({ name: "sx-publisher" });
       } else {
-        this.$store.commit(
-          "application/setCurrentEditedTranslation",
-          editedContent
+        this.$store.dispatch(
+          "application/applyEditedTranslationToSelectedSegment",
+          {
+            translation: editedContent
+          }
         );
         this.$router.replace({ name: "sx-sentence-selector" });
       }

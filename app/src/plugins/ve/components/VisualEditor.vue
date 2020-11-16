@@ -97,6 +97,8 @@ export default {
       this.$emit("close");
     },
     onNext() {
+      // Event with content payload should be emitted before
+      // VE surface is destroyed
       this.$emit("edit-completed", this.editedContent);
       this.veSurface.destroy();
     }

@@ -3,8 +3,6 @@ const state = {
   currentSectionSuggestion: null,
   /** @type PageSection */
   currentSourceSection: null,
-  /** @type String */
-  currentEditedSentenceTranslation: null,
   /** @type Boolean */
   isSectionTitleSelectedForTranslation: false
 };
@@ -72,21 +70,6 @@ const mutations = {
       sentence => sentence.selected
     );
     selectedSentence.translatedContent = translation;
-  },
-
-  /**
-   * @param state
-   * @param {String} translation
-   */
-  setCurrentEditedTranslation(state, translation) {
-    state.currentEditedSentenceTranslation = translation;
-  },
-
-  /**
-   * @param state
-   */
-  clearCurrentEditedTranslation(state) {
-    state.currentEditedSentenceTranslation = null;
   },
 
   /**
@@ -185,7 +168,6 @@ const actions = {
 
   selectSentenceForCurrentSection({ commit }, { id }) {
     commit("clearSentenceSelection");
-    commit("clearCurrentEditedTranslation");
     commit("setIsSectionTitleSelectedForTranslation", false);
     if (id) {
       commit("selectSentence", id);
@@ -201,6 +183,10 @@ const actions = {
       : "setSelectedSentenceTranslation";
     commit(mutation, translation);
     dispatch("selectNextSentence");
+  },
+
+  applyEditedTranslationToSelectedSegment({ dispatch }, { translation }) {
+    dispatch("applyTranslationToSelectedSegment", { translation });
   },
 
   /**

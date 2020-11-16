@@ -99,8 +99,6 @@ export default {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection,
-      currentEditedTranslation: state =>
-        state.application.currentEditedSentenceTranslation,
       isSectionTitleSelected: state =>
         state.application.isSectionTitleSelectedForTranslation
     }),
@@ -154,13 +152,9 @@ export default {
      */
     titleTranslationPreview: vm =>
       vm.isSectionTitleSelected &&
-      (vm.currentPageSection.translatedTitle ||
-        vm.currentEditedTranslation ||
-        vm.proposedTitleTranslation),
+      (vm.currentPageSection.translatedTitle || vm.proposedTitleTranslation),
     sentenceTranslationPreview: vm =>
-      vm.selectedSentence?.translatedContent ||
-      vm.currentEditedTranslation ||
-      vm.proposedSentenceTranslation,
+      vm.selectedSentence?.translatedContent || vm.proposedSentenceTranslation,
     originalSegmentContent: vm =>
       vm.isSectionTitleSelected
         ? vm.currentPageSection.originalTitle
