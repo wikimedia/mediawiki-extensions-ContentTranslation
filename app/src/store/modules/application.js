@@ -11,6 +11,7 @@ const mutations = {
   setCurrentSectionSuggestion(state, suggestion) {
     state.currentSectionSuggestion = suggestion;
   },
+
   /**
    * @param state
    * @param {PageSection} section
@@ -18,12 +19,26 @@ const mutations = {
   setCurrentSourceSection(state, section) {
     state.currentSourceSection = section;
   },
+
+  /**
+   * @param state
+   * @param {String} translation
+   */
   setCurrentSourceSectionTitleTranslation(state, translation) {
     state.currentSourceSection.translatedTitle = translation;
   },
+
+  /**
+   * @param state
+   * @param {String} translation
+   */
   setCurrentSourceSectionEditedTranslation(state, translation) {
     state.currentSourceSection.editedTranslation = translation;
   },
+
+  /**
+   * @param state
+   */
   clearSentenceSelection(state) {
     const sentence = state.currentSourceSection.sentences.find(
       sentence => sentence.selected
@@ -33,12 +48,22 @@ const mutations = {
       sentence.selected = false;
     }
   },
+
+  /**
+   * @param state
+   * @param {String} id
+   */
   selectSentence(state, id) {
     const sentence = state.currentSourceSection.sentences.find(
       sentence => sentence.id === id
     );
     sentence.selected = true;
   },
+
+  /**
+   * @param state
+   * @param {String} translation
+   */
   setSelectedSentenceTranslation(state, translation) {
     /** @type {SectionSentence} */
     const selectedSentence = state.currentSourceSection.sentences.find(
@@ -46,9 +71,18 @@ const mutations = {
     );
     selectedSentence.translatedContent = translation;
   },
+
+  /**
+   * @param state
+   * @param {String} translation
+   */
   setCurrentEditedTranslation(state, translation) {
     state.currentEditedSentenceTranslation = translation;
   },
+
+  /**
+   * @param state
+   */
   clearCurrentEditedTranslation(state) {
     state.currentEditedSentenceTranslation = null;
   }
@@ -60,6 +94,7 @@ const getters = {
       state.currentSectionSuggestion.sourceLanguage,
       state.currentSectionSuggestion.sourceTitle
     ),
+
   /**
    * Get selected sentence for a section defined by
    * the given language, title and source title
@@ -81,12 +116,16 @@ const getters = {
     }
     return section.sentences.find(sentence => sentence.selected);
   },
+
   getCurrentSourceSectionTitle: state =>
     state.currentSourceSection?.title || "",
+
   getCurrentSourceSectionAnchor: (state, getters) =>
     (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
+
   getCurrentSourceSectionSentences: state =>
     state.currentSourceSection.sentences,
+
   isCurrentSentenceLast: (state, getters) => {
     const sentences = getters.getCurrentSourceSectionSentences;
     return (
@@ -94,14 +133,17 @@ const getters = {
       sentences.length - 1
     );
   },
+
   isCurrentSentenceFirst: (state, getters) =>
     getters.getCurrentSourceSectionSentences.findIndex(
       sentence => sentence.selected
     ) === 0,
+
   isCurrentSourceSectionMissing: (state, getters) =>
     state.currentSectionSuggestion?.missingSections.hasOwnProperty(
       getters.getCurrentSourceSectionTitle
     ),
+
   isCurrentSourceSectionPresent: (state, getters) =>
     state.currentSectionSuggestion?.presentSections.hasOwnProperty(
       getters.getCurrentSourceSectionTitle
@@ -130,6 +172,7 @@ const actions = {
     }
     commit("setCurrentSourceSection", section);
   },
+
   selectSentenceForCurrentSection({ commit }, { id }) {
     commit("clearSentenceSelection");
     commit("clearCurrentEditedTranslation");
@@ -137,6 +180,7 @@ const actions = {
       commit("selectSentence", id);
     }
   },
+
   applyTranslationToSelectedSegment(
     { commit, dispatch },
     { translation, isSentence }
@@ -148,6 +192,7 @@ const actions = {
     commit(mutation, translation);
     dispatch("selectNextSentence");
   },
+
   /**
    * If no sentence is selected, findIndex will return -1
    * and first sentence in array will be selected
@@ -159,12 +204,14 @@ const actions = {
     const nextIndex = sentences.findIndex(sentence => sentence.selected) + 1;
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
+
   selectPreviousSentence({ getters, dispatch }) {
     const sentences = getters.getCurrentSourceSectionSentences;
     let selectedIndex = sentences.findIndex(sentence => sentence.selected);
     selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;
     dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
   },
+
   clearSentenceSelection({ commit }) {
     commit("clearSentenceSelection");
   }

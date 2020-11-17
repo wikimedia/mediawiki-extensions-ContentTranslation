@@ -20,21 +20,26 @@ const mutations = {
   addPage(state, page) {
     state.pages.push(page);
   },
+
   addLanguageTitleGroup(state, group) {
     state.languageTitleGroups.push(group);
   },
+
   setLanguages(state, languages) {
     state.languages = languages;
   },
+
   setSupportedLanguageCodes(state, languageCodes) {
     state.supportedLanguageCodes = languageCodes;
   },
+
   /**
    * @param mtProviderGroup
    */
   addMtProviderGroup(state, mtProviderGroup) {
     state.supportedMTProviderGroups.push(mtProviderGroup);
   },
+
   setPageSections(state, { page, sections }) {
     Vue.set(page, "sections", sections);
   }
@@ -48,22 +53,27 @@ const getters = {
         page.language === language &&
         (page.title === title || page.alias === title)
     ),
+
   getLanguageTitleGroup: state => (language, title) =>
     state.languageTitleGroups.find(group =>
       group.titles.find(
         groupTitle => groupTitle.lang === language && groupTitle.title === title
       )
     ),
+
   getLanguageTitleGroupByWikidataId: state => wikidataId =>
     state.languageTitleGroups.find(group => group.wikidataId === wikidataId),
+
   titleExistsInLanguageForGroup: (state, getters) => (wikidataId, language) =>
     (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).some(
       title => title.lang === language
     ),
+
   getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
     (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
       title => title.lang === language
     )?.title,
+
   /**
    * Get the language object for the given language code
    * @param {String} languageCode
@@ -71,8 +81,10 @@ const getters = {
    */
   getLanguage: state => languageCode =>
     state.languages.find(language => language.code === languageCode),
+
   getPageSection: state => (page, sectionTitle) =>
     (page?.sections || []).find(section => section.title === sectionTitle),
+
   /**
    * Get MTProviderGroup for the given language pair
    * @param {String} sourceLanguage
@@ -85,8 +97,10 @@ const getters = {
         mtProviderGroup.sourceLanguage === sourceLanguage &&
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers || [],
+
   getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
     getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0],
+
   isValidProviderForTranslation: (state, getters) => (
     sourceLanguage,
     targetLanguage,
@@ -116,6 +130,7 @@ const actions = {
       });
     }
   },
+
   fetchLanguageTitles({ commit, getters }, { language, title }) {
     if (getters.getLanguageTitleGroup(language, title)) {
       // Already exist in store.
@@ -129,17 +144,20 @@ const actions = {
           commit("addLanguageTitleGroup", languageTitleGroup)
       );
   },
+
   fetchLanguages({ commit }) {
     const userLanguage = mw.config.get("wgUserLanguage");
     siteApi.fetchLanguages(userLanguage).then(languages => {
       commit("setLanguages", languages);
     });
   },
+
   fetchSupportedLanguageCodes({ commit }) {
     siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
       commit("setSupportedLanguageCodes", languageCodes);
     });
   },
+
   async fetchPageContent(
     { commit, getters, dispatch },
     { sourceLanguage, targetLanguage, sourceTitle }
@@ -164,6 +182,7 @@ const actions = {
         /** @type Page */ responsePage => (page.content = responsePage.content)
       );
   },
+
   /**
    * Returns a promise so that it can be awaited for
    * @param getters
@@ -186,6 +205,7 @@ const actions = {
       .fetchPageSections(sourceLanguage, targetLanguage, sourceTitle)
       .then(sections => commit("setPageSections", { page, sections }));
   },
+
   /**
    * A promise is returned so that action can be awaited
    * @param commit
@@ -198,6 +218,7 @@ const actions = {
       .fetchSupportedMTProviders(sourceLanguage, targetLanguage)
       .then(mtProviderGroup => commit("addMtProviderGroup", mtProviderGroup));
   },
+
   /**
    * Translate selected sentence for a section defined
    * by given source language, title and section title,
@@ -239,6 +260,7 @@ const actions = {
     );
     Vue.set(selectedSentence.proposedTranslations, provider, translation);
   },
+
   async translateSectionTitle({ rootState, getters }, { provider }) {
     const {
       sourceLanguage,
