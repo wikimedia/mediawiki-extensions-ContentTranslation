@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Ashok modhvadia",
+			"CptViraj",
 			"Dsvyas",
 			"KartikMistry"
 		]
@@ -282,5 +283,6 @@
 	"cx-feature-discovery-title": "ગમે ત્યારે ભાષાંતર કરો",
 	"cx-feature-discovery-content": "તમે ભાષાંતર {{int:mycontris}} પાનાં પરથી ગમે ત્યારે શરૂ અથવા ફરીથી આગળ ધપાવી શકો છો",
 	"cx-feature-discovery-dismiss": "બરાબર, સમજાઇ ગયું.",
-	"cx-sx-section-selector-title": "વિભાગો"
+	"cx-sx-section-selector-title": "વિભાગો",
+	"cx-sx-publisher-success-animation-title": "પ્રકાશિત!"
 }
