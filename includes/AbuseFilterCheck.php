@@ -25,6 +25,7 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Extension\AbuseFilter\VariableGenerator\VariableGenerator;
 
 class AbuseFilterCheck {
@@ -118,10 +119,12 @@ class AbuseFilterCheck {
 		$filters = \AbuseFilter::checkAllFilters( $vars, $this->title );
 		$filters = array_keys( array_filter( $filters ) );
 		$actions = \AbuseFilter::getConsequencesForFilters( $filters );
+		$filterLookup = AbuseFilterServices::getFilterLookup();
 
 		$results = [];
 		foreach ( $actions as $key => $val ) {
-			$rulename = \AbuseFilter::getFilter( $key )->af_public_comments;
+			[ $filterID, $isGlobal ] = \AbuseFilter::splitGlobalName( $key );
+			$rulename = $filterLookup->getFilter( $filterID, $isGlobal )->getName();
 
 			// No point alerting the user about non-serious actions. T136596
 			$actionsForRule = array_keys( $val );
