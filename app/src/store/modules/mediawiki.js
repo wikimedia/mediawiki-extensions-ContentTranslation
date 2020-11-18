@@ -89,7 +89,7 @@ const getters = {
    * Get MTProviderGroup for the given language pair
    * @param {String} sourceLanguage
    * @param {String} targetLanguage
-   * @returns {MTProviderGroup}
+   * @returns {String[]} - Array of supported providers
    */
   getSupportedMTProviders: state => (sourceLanguage, targetLanguage) =>
     state.supportedMTProviderGroups.find(
@@ -108,7 +108,7 @@ const getters = {
   ) =>
     getters
       .getSupportedMTProviders(sourceLanguage, targetLanguage)
-      .providers.includes(provider) &&
+      .includes(provider) &&
     provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
 };
 
@@ -240,7 +240,8 @@ const actions = {
       targetLanguage,
       provider
     );
-    if (isValidProvider) {
+
+    if (!isValidProvider) {
       return;
     }
 
@@ -272,7 +273,8 @@ const actions = {
       targetLanguage,
       provider
     );
-    if (isValidProvider) {
+
+    if (!isValidProvider) {
       return;
     }
 
