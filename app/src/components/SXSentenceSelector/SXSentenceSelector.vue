@@ -74,6 +74,8 @@ import SxSentenceSelectorProposedTranslationBody from "./SXSentenceSelectorPropo
 import SxSentenceSelectorSentence from "@/components/SXSentenceSelector/SXSentenceSelectorSentence";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 
+import { loadVEModules } from "@/plugins/ve";
+
 export default {
   name: "SxSentenceSelector",
   components: {
@@ -200,6 +202,9 @@ export default {
     if (!this.selectedSentence) {
       this.setIsSectionTitleSelected(true);
     }
+    // Start loading VE in background. Don't wait for it though.
+    // We anticipate that user is going to use editor in next step.
+    loadVEModules();
   },
   methods: {
     ...mapMutations({

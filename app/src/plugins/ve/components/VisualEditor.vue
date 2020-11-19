@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { loadVEModules } from "../index";
+
 export default {
   name: "VisualEditor",
   props: {
@@ -48,30 +50,22 @@ export default {
     }
   },
   mounted() {
-    // Section selector can also start loading them anticipating
-    // a confirmation from translator.
-
-    mw.loader
-      .using([
-        "ext.visualEditor.targetLoader",
-        "ext.visualEditor.mobileArticleTarget"
-      ])
-      .then(() => {
-        // Enforce mobile target for all devices to support
-        // mobile-first design.
-        OO.ui.isMobile = () => true;
-        mw.libs.ve.targetLoader.loadModules("visual").then(() => {
-          require("../tools/BackTool");
-          require("../tools/NextTool");
-          require("../commands/BackCommand");
-          require("../commands/NextCommand");
-          const SectionTranslationTarget = require("../target/SectionTranslationTarget");
-          const overlay = this.getVEOverlay();
-          const config = this.editorConfig;
-          this.veTarget = new SectionTranslationTarget(overlay, config);
-          this.onTargetReady();
-        });
+    loadVEModules().then(() => {
+      // Enforce mobile target for all devices to support
+      // mobile-first design.
+      OO.ui.isMobile = () => true;
+      mw.libs.ve.targetLoader.loadModules("visual").then(() => {
+        require("../tools/BackTool");
+        require("../tools/NextTool");
+        require("../commands/BackCommand");
+        require("../commands/NextCommand");
+        const SectionTranslationTarget = require("../target/SectionTranslationTarget");
+        const overlay = this.getVEOverlay();
+        const config = this.editorConfig;
+        this.veTarget = new SectionTranslationTarget(overlay, config);
+        this.onTargetReady();
       });
+    });
   },
   methods: {
     init() {
