@@ -32,7 +32,7 @@ export default {
   }),
   computed: {
     editedContent() {
-      return this.veSurface.$element[0].innerHTML;
+      return this.veSurface.getHtml();
     },
     editable() {
       return true;
