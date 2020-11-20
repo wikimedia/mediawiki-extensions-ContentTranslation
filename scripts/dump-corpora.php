@@ -324,8 +324,7 @@ class CXCorporaDump extends Maintenance {
 			return new JsonDumpFormatter();
 		} else {
 			list( $sourceLanguage, $targetLanguage ) = explode( '2', $pairName );
-			$sourceLanguage === '_' ? '*all*' : $sourceLanguage;
-			return new TmxDumpFormatter( $sourceLanguage );
+			return new TmxDumpFormatter( $sourceLanguage === '_' ? '*all*' : $sourceLanguage );
 		}
 	}
 }
