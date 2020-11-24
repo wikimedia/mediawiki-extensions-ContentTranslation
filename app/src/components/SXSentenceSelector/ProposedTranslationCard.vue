@@ -1,11 +1,7 @@
 <template>
   <mw-card class="sx-sentence-selector__proposed-translation col shrink pa-0">
     <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
-      <proposed-translation-header
-        ref="header"
-        :mt-provider="mtProvider"
-        v-on="$listeners"
-      />
+      <proposed-translation-header ref="header" v-on="$listeners" />
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :style="contentsStyle"
@@ -43,6 +39,7 @@ import {
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { mapState } from "vuex";
 
 export default {
   name: "ProposedTranslationCard",
@@ -55,10 +52,6 @@ export default {
     SxSentenceSelectorActionButtons
   },
   props: {
-    mtProvider: {
-      type: String,
-      required: true
-    },
     translation: {
       type: String,
       required: true
@@ -76,6 +69,9 @@ export default {
     headerAndFooterHeight: 0
   }),
   computed: {
+    ...mapState({
+      mtProvider: state => state.application.currentMTProvider
+    }),
     contentsStyle: vm => ({
       "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
     }),

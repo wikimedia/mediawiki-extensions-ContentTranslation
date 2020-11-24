@@ -87,10 +87,6 @@ export default {
     active: {
       type: Boolean,
       required: true
-    },
-    provider: {
-      type: String,
-      required: true
     }
   },
   data: () => ({
@@ -106,7 +102,8 @@ export default {
         state.application.currentSectionSuggestion?.targetLanguage,
       currentPageSection: state => state.application.currentSourceSection,
       isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
+        state.application.isSectionTitleSelectedForTranslation,
+      provider: state => state.application.currentMTProvider
     }),
     mtProviders() {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](
@@ -139,7 +136,7 @@ export default {
       this.$emit("update:active", false);
     },
     selectProvider(selectedProvider) {
-      this.$emit("update:provider", selectedProvider);
+      this.$store.commit("application/setCurrentMTProvider", selectedProvider);
       this.close();
     }
   }

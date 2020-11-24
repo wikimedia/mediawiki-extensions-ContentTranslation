@@ -45,7 +45,6 @@
       <!--      the margin that the card jumps to when bouncing, we control-->
       <!--      card bounce through mb-0 class-->
       <proposed-translation-card
-        :mt-provider="selectedProvider"
         :translation="translationPreview"
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
@@ -55,10 +54,7 @@
         @select-previous-segment="selectPreviousSegment"
       />
     </mw-row>
-    <sx-translation-selector
-      :active.sync="isTranslationOptionsActive"
-      :provider.sync="selectedProvider"
-    />
+    <sx-translation-selector :active.sync="isTranslationOptionsActive" />
   </section>
 </template>
 
@@ -87,7 +83,6 @@ export default {
   },
   data: () => ({
     mwIconArrowPrevious,
-    selectedProvider: "",
     translation: null,
     isTranslationOptionsActive: false,
     shouldProposedTranslationBounce: false
@@ -97,18 +92,13 @@ export default {
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection,
       isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
+        state.application.isSectionTitleSelectedForTranslation,
+      selectedProvider: state => state.application.currentMTProvider
     }),
     ...mapGetters({
-      getDefaultMTProvider: "mediawiki/getDefaultMTProvider",
       getSupportedMTProviders: "mediawiki/getSupportedMTProviders"
     }),
     sourceSectionTitle: vm => vm.currentPageSection?.title,
-    defaultMTProvider: vm =>
-      vm.getDefaultMTProvider(
-        vm.suggestion.sourceLanguage,
-        vm.suggestion.targetLanguage
-      ),
     /**
      * Machine translation of sentence for currently selected MT provider
      */
@@ -184,11 +174,8 @@ export default {
     }
   },
   async mounted() {
-    await this.$store.dispatch("mediawiki/fetchMTProviders", {
-      sourceLanguage: this.suggestion.sourceLanguage,
-      targetLanguage: this.suggestion.targetLanguage
-    });
-    this.selectedProvider = this.defaultMTProvider;
+    this.$store.dispatch("application/initializeMTProviders");
+
     /**
      * When component is mounted and no sentence is selected, translation
      * should start with section title.

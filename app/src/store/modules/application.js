@@ -4,7 +4,9 @@ const state = {
   /** @type PageSection */
   currentSourceSection: null,
   /** @type Boolean */
-  isSectionTitleSelectedForTranslation: false
+  isSectionTitleSelectedForTranslation: false,
+  /** @type String */
+  currentMTProvider: ""
 };
 
 const mutations = {
@@ -78,6 +80,14 @@ const mutations = {
    */
   setIsSectionTitleSelectedForTranslation: (state, value) => {
     state.isSectionTitleSelectedForTranslation = value;
+  },
+
+  /**
+   * @param state
+   * @param provider
+   */
+  setCurrentMTProvider: (state, provider) => {
+    state.currentMTProvider = provider;
   }
 };
 
@@ -216,6 +226,20 @@ const actions = {
 
   clearSentenceSelection({ commit }) {
     commit("clearSentenceSelection");
+  },
+
+  async initializeMTProviders({ state, dispatch, rootGetters, commit }) {
+    const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+    await dispatch(
+      "mediawiki/fetchMTProviders",
+      { sourceLanguage, targetLanguage },
+      { root: true }
+    );
+    const defaultProvider = rootGetters["mediawiki/getDefaultMTProvider"](
+      sourceLanguage,
+      targetLanguage
+    );
+    commit("setCurrentMTProvider", defaultProvider);
   }
 };
 

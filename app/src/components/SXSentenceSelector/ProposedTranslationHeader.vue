@@ -25,6 +25,7 @@
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { mapState } from "vuex";
 
 export default {
   name: "ProposedTranslationHeader",
@@ -33,16 +34,13 @@ export default {
     MwCol,
     MwButton
   },
-  props: {
-    mtProvider: {
-      type: String,
-      required: true
-    }
-  },
   data: () => ({
     mwIconEllipsis
   }),
   computed: {
+    ...mapState({
+      mtProvider: state => state.application.currentMTProvider
+    }),
     extraMTOptionLabels: vm => ({
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: vm.$i18n(
         "cx-sx-sentence-selector-translation-options-original-card-title"

@@ -3,7 +3,6 @@ import SXSentenceSelector from "./SXSentenceSelector.vue";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
-import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 import SubSectionModel from "../../wiki/cx/models/subSection";
 import SubSection from "./SubSection";
 const localVue = createLocalVue();
@@ -24,7 +23,8 @@ describe("SXSentenceSelector", () => {
         sourceLanguage: "",
         targetLanguage: ""
       }),
-      currentSourceSection: { subSections }
+      currentSourceSection: { subSections },
+      currentMTProvider: "Apertium"
     },
     mutations: {
       setIsSectionTitleSelectedForTranslation: () => {}
@@ -34,9 +34,7 @@ describe("SXSentenceSelector", () => {
     namespaced: true,
     state: {},
     getters: {
-      getSupportedMTProviders: state => () => [],
-      getDefaultMTProvider: state => () =>
-        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
+      getSupportedMTProviders: state => () => []
     }
   };
   const store = new Vuex.Store({
@@ -47,10 +45,7 @@ describe("SXSentenceSelector", () => {
   });
   store.dispatch = jest.fn();
 
-  const wrapper = shallowMount(SXSentenceSelector, {
-    localVue,
-    store
-  });
+  const wrapper = shallowMount(SXSentenceSelector, { localVue, store });
 
   it("Component should bounce translation preview when already selected sentence is selected", done => {
     const subSectionWrapper = wrapper.findComponent(SubSection);

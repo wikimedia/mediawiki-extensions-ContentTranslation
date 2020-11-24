@@ -11,9 +11,7 @@ exports[`SXSentenceSelector Proposed Translation Card Component output matches s
     justify="start"
     tag="div"
   >
-    <proposed-translation-header-stub
-      mtprovider="Apertium"
-    />
+    <proposed-translation-header-stub />
      
     <mw-col-stub
       class="sx-sentence-selector__proposed-translation__contents px-5"

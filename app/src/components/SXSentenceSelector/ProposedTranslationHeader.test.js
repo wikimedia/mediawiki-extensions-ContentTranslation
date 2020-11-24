@@ -2,16 +2,22 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import VueBananaI18n from "vue-banana-i18n";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
+localVue.use(Vuex);
 
 describe("SXSentenceSelector Proposed Translation Header", () => {
+  const applicationModule = {
+    namespaced: true,
+    state: { currentMTProvider: "Apertium" }
+  };
+  const store = new Vuex.Store({ modules: { application: applicationModule } });
+
   const wrapper = mount(ProposedTranslationHeader, {
     localVue,
-    propsData: {
-      mtProvider: "Apertium"
-    }
+    store
   });
 
   it("Component output matches snapshot", () => {
@@ -43,9 +49,8 @@ describe("SXSentenceSelector Proposed Translation Header", () => {
   });
 
   it("Component calculates mtOptionLabel correctly for extra MT option label", () => {
-    wrapper.setProps({
-      mtProvider: MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
-    });
+    store.state.application.currentMTProvider =
+      MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
     expect(wrapper.vm.mtOptionLabel).toBe(
       "cx-sx-sentence-selector-translation-options-original-card-title"
     );
