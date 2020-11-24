@@ -156,11 +156,9 @@ export default {
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-.sx-content-comparator {
-  .sx-content-comparator__source-content {
-    line-height: 1.3;
-  }
+@import "@/styles/page.less";
 
+.sx-content-comparator {
   .sx-content-comparator__new-section-placeholder--present {
     background-color: @background-color-primary;
     color: @color-primary--active;

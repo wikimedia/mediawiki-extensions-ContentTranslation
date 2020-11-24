@@ -267,6 +267,8 @@ export default {
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "@/styles/page.less";
+
 .sx-sentence-selector {
   &__header {
     background-color: @background-color-base--disabled;

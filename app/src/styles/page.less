@@ -1,0 +1,14 @@
+// Styles to customize the mediawiki pages
+
+// Clear the floating of images and tables.
+section {
+  table,
+  figure[typeof~="mw:Image/Thumb"],
+  figure[typeof~="mw:Video/Thumb"],
+  figure[typeof~="mw:Audio/Thumb"],
+  figure[typeof~="mw:Image/Frame"],
+  figure[typeof~="mw:Video/Frame"],
+  figure[typeof~="mw:Audio/Frame"] {
+    float: none;
+  }
+}
