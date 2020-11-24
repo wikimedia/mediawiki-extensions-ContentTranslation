@@ -5,6 +5,7 @@ import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 import SubSectionModel from "../../wiki/cx/models/subSection";
 import SubSection from "./SubSection";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
@@ -26,16 +27,13 @@ describe("SXSentenceSelector", () => {
       currentSourceSection: { subSections },
       currentMTProvider: "Apertium"
     },
-    mutations: {
-      setIsSectionTitleSelectedForTranslation: () => {}
-    }
+    getters: { getCurrentSelectedSentence: () => new SectionSentence() },
+    mutations: { setIsSectionTitleSelectedForTranslation: () => {} }
   };
   const mediawikiModule = {
     namespaced: true,
     state: {},
-    getters: {
-      getSupportedMTProviders: state => () => []
-    }
+    getters: { getSupportedMTProviders: state => () => [] }
   };
   const store = new Vuex.Store({
     modules: {

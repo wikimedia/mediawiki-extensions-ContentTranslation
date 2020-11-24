@@ -63,7 +63,7 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
-import { mapState, mapGetters, mapMutations } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
@@ -96,9 +96,8 @@ export default {
       selectedProvider: state => state.application.currentMTProvider
     }),
     ...mapGetters({
-      getSupportedMTProviders: "mediawiki/getSupportedMTProviders"
+      selectedSentence: "application/getCurrentSelectedSentence"
     }),
-    sourceSectionTitle: vm => vm.currentPageSection?.title,
     /**
      * Machine translation of sentence for currently selected MT provider
      */
@@ -114,28 +113,17 @@ export default {
      * This computed property returns a preview of the translation of a sentence
      * or section title that will be applied to that sentence if user clicks
      * "Apply translation" button. If this segment is already  translated, current
-     * applied translation will be returned, else if machine translation for this
-     * segment has been edited by user (inside SXEditor), this edited translation
-     * will be returned. Machine translation for currently selected MT provider
-     * will be returned otherwise.
+     * applied translation will be returned. Machine translation for currently
+     * selected MT provider will be returned otherwise.
      * @return {String}
      */
     translationPreview: vm =>
       vm.titleTranslationPreview || vm.sentenceTranslationPreview,
     subSections: vm => vm.currentPageSection?.subSections,
-    mtProviders: vm =>
-      vm.getSupportedMTProviders(
-        vm.suggestion.sourceLanguage,
-        vm.suggestion.targetLanguage
-      ),
     sourcePage: vm =>
       vm.$store.getters["mediawiki/getPage"](
         vm.suggestion.sourceLanguage,
         vm.suggestion.sourceTitle
-      ),
-    selectedSentence: vm =>
-      (vm.currentPageSection?.sentences || []).find(
-        sentence => sentence.selected
       ),
     /**
      * If section title is not selected for translation, false will be returned
@@ -150,58 +138,22 @@ export default {
         ? vm.currentPageSection.originalTitle
         : vm.selectedSentence.originalContent
   },
-  watch: {
-    isSectionTitleSelected() {
-      if (this.isSectionTitleSelected) {
-        this.$store.dispatch("application/clearSentenceSelection");
-        this.translateSelectedSegment(this.selectedProvider);
-      }
-    },
-    selectedSentence() {
-      this.translateSelectedSegment(this.selectedProvider);
-    },
-    selectedProvider() {
-      if (this.selectedProvider) {
-        this.translateSelectedSegment(this.selectedProvider);
-      }
-    },
-    isTranslationOptionsActive() {
-      if (this.isTranslationOptionsActive) {
-        this.mtProviders.forEach(provider =>
-          this.translateSelectedSegment(provider)
-        );
-      }
-    }
-  },
   async mounted() {
-    this.$store.dispatch("application/initializeMTProviders");
-
-    /**
-     * When component is mounted and no sentence is selected, translation
-     * should start with section title.
-     */
-    if (!this.selectedSentence) {
-      this.setIsSectionTitleSelected(true);
-    }
+    await this.$store.dispatch("application/initializeMTProviders");
+    this.$store.dispatch("application/selectInitialTranslationSegment");
     // Start loading VE in background. Don't wait for it though.
     // We anticipate that user is going to use editor in next step.
     loadVEModules();
   },
   methods: {
-    ...mapMutations({
-      setIsSectionTitleSelected:
-        "application/setIsSectionTitleSelectedForTranslation"
+    ...mapActions({
+      skipTranslation: "application/selectNextSentence",
+      selectPreviousSegment: "application/selectPreviousSegment"
     }),
     applyTranslation() {
       this.$store.dispatch("application/applyTranslationToSelectedSegment", {
         translation: this.translationPreview
       });
-    },
-    skipTranslation() {
-      this.$store.dispatch("application/selectNextSentence");
-    },
-    selectPreviousSegment() {
-      this.$store.dispatch("application/selectPreviousSentence");
     },
     bounceTranslation() {
       this.shouldProposedTranslationBounce = true;
@@ -209,29 +161,12 @@ export default {
         this.shouldProposedTranslationBounce = false;
       }, 100);
     },
-    async translateSelectedSegment(provider) {
-      if (this.isSectionTitleSelected) {
-        this.$store.dispatch("mediawiki/translateSectionTitle", {
-          provider
-        });
-        return;
-      }
-      if (!this.selectedSentence) {
-        return;
-      }
-      this.$store.dispatch("mediawiki/translateSelectedSentence", {
-        sourceLanguage: this.suggestion.sourceLanguage,
-        targetLanguage: this.suggestion.targetLanguage,
-        sourceTitle: this.suggestion.sourceTitle,
-        sectionTitle: this.sourceSectionTitle,
-        provider
-      });
-    },
     onClose() {
       this.$router.go(-1);
     },
     configureTranslationOptions() {
       this.isTranslationOptionsActive = true;
+      this.$store.dispatch("application/translateSegmentForAllProviders");
     },
     editTranslation() {
       this.$router.push({

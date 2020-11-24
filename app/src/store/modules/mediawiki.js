@@ -220,20 +220,19 @@ const actions = {
   },
 
   /**
-   * Translate selected sentence for a section defined
-   * by given source language, title and section title,
-   * from source language to given target language.
-   * @param rootGetters
-   * @param {String} sourceLanguage
-   * @param {String} targetLanguage
-   * @param {String} sourceTitle
-   * @param {String} sectionTitle
-   * @param {String} provider
-   * @return {Promise<void>}
+   * Translates HTML content for a given language pair
+   * and MT provider, and returns a promise that resolves
+   * to a string containing the translation.
+   * @param getters
+   * @param sourceLanguage
+   * @param targetLanguage
+   * @param provider
+   * @param originalContent
+   * @return {Promise<String>}
    */
-  async translateSelectedSentence(
-    { rootGetters, getters },
-    { sourceLanguage, targetLanguage, sourceTitle, sectionTitle, provider }
+  async translateSegment(
+    { getters },
+    { sourceLanguage, targetLanguage, provider, originalContent }
   ) {
     const isValidProvider = getters.isValidProviderForTranslation(
       sourceLanguage,
@@ -245,74 +244,18 @@ const actions = {
       return;
     }
 
-    const selectedSentence = rootGetters[
-      "application/getSelectedSentenceForPageSection"
-    ](sourceLanguage, sourceTitle, sectionTitle);
-
-    if (!selectedSentence || selectedSentence.proposedTranslations[provider]) {
-      return;
+    try {
+      return await translatorApi.fetchSegmentTranslation(
+        sourceLanguage,
+        targetLanguage,
+        provider,
+        originalContent
+      );
+    } catch (error) {
+      // Fall back to original content
+      return originalContent;
     }
-
-    const translation = await translateSegment(
-      sourceLanguage,
-      targetLanguage,
-      provider,
-      selectedSentence.originalContent
-    );
-    Vue.set(selectedSentence.proposedTranslations, provider, translation);
-  },
-
-  async translateSectionTitle({ rootState, getters }, { provider }) {
-    const {
-      sourceLanguage,
-      targetLanguage
-    } = rootState.application.currentSectionSuggestion;
-
-    const isValidProvider = getters.isValidProviderForTranslation(
-      sourceLanguage,
-      targetLanguage,
-      provider
-    );
-
-    if (!isValidProvider) {
-      return;
-    }
-
-    const section = rootState.application.currentSourceSection;
-
-    if (section.translatedTitle) {
-      return;
-    }
-
-    const translation = await translateSegment(
-      sourceLanguage,
-      targetLanguage,
-      provider,
-      section.originalTitle
-    );
-    Vue.set(section.proposedTitleTranslations, provider, translation);
   }
-};
-
-const translateSegment = async (
-  sourceLanguage,
-  targetLanguage,
-  provider,
-  originalContent
-) => {
-  let translation;
-  try {
-    translation = await translatorApi.fetchSegmentTranslation(
-      sourceLanguage,
-      targetLanguage,
-      provider,
-      originalContent
-    );
-  } catch (error) {
-    // Fall back to original content
-    translation = originalContent;
-  }
-  return translation;
 };
 
 export default {

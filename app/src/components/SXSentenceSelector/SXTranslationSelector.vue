@@ -78,7 +78,7 @@
 import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "SxTranslationSelector",
@@ -105,6 +105,9 @@ export default {
         state.application.isSectionTitleSelectedForTranslation,
       provider: state => state.application.currentMTProvider
     }),
+    ...mapGetters({
+      selectedSentence: "application/getCurrentSelectedSentence"
+    }),
     mtProviders() {
       return this.$store.getters["mediawiki/getSupportedMTProviders"](
         this.sourceLanguage,
@@ -120,10 +123,6 @@ export default {
         provider => !ignoredProviders.includes(provider)
       );
     },
-    selectedSentence: vm =>
-      (vm.currentPageSection?.sentences || []).find(
-        sentence => sentence.selected
-      ),
     proposedTranslations: vm =>
       vm.isSectionTitleSelected
         ? vm.currentPageSection.proposedTitleTranslations
@@ -136,7 +135,9 @@ export default {
       this.$emit("update:active", false);
     },
     selectProvider(selectedProvider) {
-      this.$store.commit("application/setCurrentMTProvider", selectedProvider);
+      this.$store.dispatch("application/updateMTProvider", {
+        provider: selectedProvider
+      });
       this.close();
     }
   }

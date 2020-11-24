@@ -20,7 +20,7 @@
 <script>
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 const sitemapper = new mw.cx.SiteMapper();
 
 export default {
@@ -51,12 +51,9 @@ export default {
     })
   },
   methods: {
-    selectSectionTitle() {
-      this.$store.commit(
-        "application/setIsSectionTitleSelectedForTranslation",
-        true
-      );
-    }
+    ...mapActions({
+      selectSectionTitle: "application/selectSectionTitleForTranslation"
+    })
   }
 };
 </script>

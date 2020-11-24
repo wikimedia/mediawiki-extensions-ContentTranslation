@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const state = {
   /** @type SectionSuggestion */
   currentSectionSuggestion: null,
@@ -127,20 +129,14 @@ const getters = {
     (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
 
   getCurrentSourceSectionSentences: state =>
-    state.currentSourceSection.sentences,
+    state.currentSourceSection?.sentences || [],
 
-  isCurrentSentenceLast: (state, getters) => {
-    const sentences = getters.getCurrentSourceSectionSentences;
-    return (
-      sentences.findIndex(sentence => sentence.selected) ===
-      sentences.length - 1
-    );
-  },
+  isCurrentSentenceLast: (state, getters) =>
+    getters.getCurrentSelectedSentenceIndex ===
+    getters.getCurrentSourceSectionSentences.length - 1,
 
   isCurrentSentenceFirst: (state, getters) =>
-    getters.getCurrentSourceSectionSentences.findIndex(
-      sentence => sentence.selected
-    ) === 0,
+    getters.getCurrentSelectedSentenceIndex === 0,
 
   isCurrentSourceSectionMissing: (state, getters) =>
     state.currentSectionSuggestion?.missingSections.hasOwnProperty(
@@ -150,6 +146,16 @@ const getters = {
   isCurrentSourceSectionPresent: (state, getters) =>
     state.currentSectionSuggestion?.presentSections.hasOwnProperty(
       getters.getCurrentSourceSectionTitle
+    ),
+
+  getCurrentSelectedSentence: (state, getters) =>
+    getters.getCurrentSourceSectionSentences.find(
+      sentence => sentence.selected
+    ),
+
+  getCurrentSelectedSentenceIndex: (state, getters) =>
+    getters.getCurrentSourceSectionSentences.findIndex(
+      sentence => sentence.selected
     )
 };
 
@@ -176,11 +182,20 @@ const actions = {
     commit("setCurrentSourceSection", section);
   },
 
-  selectSentenceForCurrentSection({ commit }, { id }) {
+  /**
+   * @param commit
+   * @param dispatch
+   * @param state
+   * @param id
+   */
+  selectSentenceForCurrentSection({ commit, dispatch, state }, { id }) {
     commit("clearSentenceSelection");
     commit("setIsSectionTitleSelectedForTranslation", false);
     if (id) {
       commit("selectSentence", id);
+      dispatch("translateSelectedSentence", {
+        provider: state.currentMTProvider
+      });
     }
   },
 
@@ -213,7 +228,7 @@ const actions = {
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
 
-  selectPreviousSentence({ getters, dispatch, commit }) {
+  selectPreviousSegment({ getters, dispatch, commit }) {
     if (getters.isCurrentSentenceFirst) {
       commit("setIsSectionTitleSelectedForTranslation", true);
       return;
@@ -222,10 +237,6 @@ const actions = {
     let selectedIndex = sentences.findIndex(sentence => sentence.selected);
     selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;
     dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
-  },
-
-  clearSentenceSelection({ commit }) {
-    commit("clearSentenceSelection");
   },
 
   async initializeMTProviders({ state, dispatch, rootGetters, commit }) {
@@ -240,6 +251,131 @@ const actions = {
       targetLanguage
     );
     commit("setCurrentMTProvider", defaultProvider);
+  },
+
+  /**
+   * @param commit
+   * @param dispatch
+   * @param provider
+   */
+  updateMTProvider({ commit, dispatch }, { provider }) {
+    commit("setCurrentMTProvider", provider);
+    dispatch("translateSelectedSegment", provider);
+  },
+
+  /**
+   * Dispatched when SXSentenceSelector SFC is mounted
+   * to set section title as selected translation segment
+   * when no sentence is already selected.
+   * @param getters
+   * @param commit
+   * @param state
+   * @param dispatch
+   */
+  selectInitialTranslationSegment({ getters, commit, state, dispatch }) {
+    /**
+     * When component is mounted and no sentence is selected, translation
+     * should start with section title.
+     */
+    if (!getters.getCurrentSelectedSentence) {
+      commit("setIsSectionTitleSelectedForTranslation", true);
+      dispatch("translateSectionTitle", { provider: state.currentMTProvider });
+    }
+  },
+
+  /**
+   * Dispatched when section title is being clicked
+   * inside "Pick a sentence" step
+   * @param commit
+   */
+  selectSectionTitleForTranslation({ commit }) {
+    commit("clearSentenceSelection");
+    commit("setIsSectionTitleSelectedForTranslation", true);
+  },
+
+  /**
+   * @param getters
+   * @param commit
+   * @param state
+   * @param dispatch
+   * @param provider
+   */
+  translateSelectedSegment({ getters, commit, state, dispatch }, { provider }) {
+    if (state.isSectionTitleSelectedForTranslation) {
+      dispatch("translateSectionTitle", { provider });
+      return;
+    }
+
+    dispatch("translateSelectedSentence", { provider });
+  },
+
+  /**
+   * @param state
+   * @param getters
+   * @param dispatch
+   * @param provider
+   * @return {Promise<void>}
+   */
+  async translateSectionTitle({ state, getters, dispatch }, { provider }) {
+    if (state.currentSourceSection.translatedTitle) {
+      return;
+    }
+    const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+    const originalContent = state.currentSourceSection.originalTitle;
+    const translation = await dispatch(
+      "mediawiki/translateSegment",
+      { sourceLanguage, targetLanguage, provider, originalContent },
+      { root: true }
+    );
+
+    Vue.set(
+      state.currentSourceSection.proposedTitleTranslations,
+      provider,
+      translation
+    );
+  },
+
+  /**
+   * @param getters
+   * @param dispatch
+   * @param {String} provider
+   * @return {Promise<void>}
+   */
+  async translateSelectedSentence({ getters, dispatch }, { provider }) {
+    const selectedSentence = getters.getCurrentSelectedSentence;
+
+    if (!selectedSentence || selectedSentence.proposedTranslations[provider]) {
+      return;
+    }
+
+    const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+    const { originalContent } = selectedSentence;
+
+    const translation = await dispatch(
+      "mediawiki/translateSegment",
+      { sourceLanguage, targetLanguage, provider, originalContent },
+      { root: true }
+    );
+
+    Vue.set(selectedSentence.proposedTranslations, provider, translation);
+  },
+
+  /**
+   * Dispatched when translation for all available MT providers
+   * is needed (e.g. when user wants to select among available
+   * MT translations)
+   * @param rootGetters
+   * @param dispatch
+   */
+  translateSegmentForAllProviders({ rootGetters, dispatch }) {
+    const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+    const mtProviders = rootGetters["mediawiki/getSupportedMTProviders"](
+      sourceLanguage,
+      targetLanguage
+    );
+    mtProviders.forEach(provider =>
+      dispatch("translateSelectedSegment", { provider })
+    );
   }
 };
 
