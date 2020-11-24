@@ -193,7 +193,7 @@ const actions = {
     commit("setIsSectionTitleSelectedForTranslation", false);
     if (id) {
       commit("selectSentence", id);
-      dispatch("translateSelectedSentence", {
+      dispatch("translateSelectedSegment", {
         provider: state.currentMTProvider
       });
     }
@@ -224,7 +224,7 @@ const actions = {
   selectNextSentence({ getters, dispatch, commit }) {
     commit("setIsSectionTitleSelectedForTranslation", false);
     const sentences = getters.getCurrentSourceSectionSentences;
-    const nextIndex = sentences.findIndex(sentence => sentence.selected) + 1;
+    const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
 
@@ -234,7 +234,7 @@ const actions = {
       return;
     }
     const sentences = getters.getCurrentSourceSectionSentences;
-    let selectedIndex = sentences.findIndex(sentence => sentence.selected);
+    let selectedIndex = getters.getCurrentSelectedSentenceIndex;
     selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;
     dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
   },
@@ -279,7 +279,9 @@ const actions = {
      */
     if (!getters.getCurrentSelectedSentence) {
       commit("setIsSectionTitleSelectedForTranslation", true);
-      dispatch("translateSectionTitle", { provider: state.currentMTProvider });
+      dispatch("translateSelectedSegment", {
+        provider: state.currentMTProvider
+      });
     }
   },
 
@@ -301,6 +303,7 @@ const actions = {
    * @param provider
    */
   translateSelectedSegment({ getters, commit, state, dispatch }, { provider }) {
+    dispatch("translateFollowingSentence", { provider });
     if (state.isSectionTitleSelectedForTranslation) {
       dispatch("translateSectionTitle", { provider });
       return;
@@ -358,6 +361,31 @@ const actions = {
     );
 
     Vue.set(selectedSentence.proposedTranslations, provider, translation);
+  },
+
+  /**
+   * @param getters
+   * @param dispatch
+   * @param provider
+   * @return {Promise<void>}
+   */
+  async translateFollowingSentence({ getters, dispatch }, { provider }) {
+    const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
+    const sentences = getters.getCurrentSourceSectionSentences;
+    if (nextIndex >= sentences.length) {
+      return;
+    }
+
+    const nextSentence = sentences[nextIndex];
+    const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+    const { originalContent } = nextSentence;
+
+    const translation = await dispatch(
+      "mediawiki/translateSegment",
+      { sourceLanguage, targetLanguage, provider, originalContent },
+      { root: true }
+    );
+    Vue.set(nextSentence.proposedTranslations, provider, translation);
   },
 
   /**
