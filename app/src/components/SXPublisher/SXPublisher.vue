@@ -103,6 +103,11 @@ export default {
       }
     },
     async publishTranslation() {
+      /**
+       * Set initial publish status to "pending" before
+       * publish request
+       */
+      this.publishStatus = "pending";
       this.isPublishDialogActive = true;
       /** @type PublishResult **/
       const publishResult = await this.$store.dispatch(
@@ -110,9 +115,13 @@ export default {
       );
 
       this.publishStatus = publishResult.result;
+      /**
+       * Show feedback animation to user for 1 second
+       * before closing the dialog and handling the
+       * publishing result
+       */
       setTimeout(() => {
         this.isPublishDialogActive = false;
-        this.publishStatus = "pending";
         this.handlePublishResult(publishResult);
       }, 1000);
     },

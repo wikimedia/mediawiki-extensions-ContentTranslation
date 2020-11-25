@@ -1,6 +1,6 @@
 import Translation from "../models/translation";
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import PublishResult from "@/wiki/cx/publishResult";
+import MTProviderGroup from "../../mw/models/mtProviderGroup";
+import PublishResult from "../../cx/publishResult";
 
 async function fetchTranslations(offset) {
   const params = {
@@ -105,10 +105,23 @@ const publishTranslation = (sourcePage, section, sectionSuggestion) => {
       return new PublishResult();
     })
     .catch((error, details) => {
+      if (details.exception) {
+        return new PublishResult({
+          result: "failure",
+          message: details.exception.message,
+          status: details.statusText
+        });
+      }
+      if (details.error) {
+        return new PublishResult({
+          result: "failure",
+          message: details.error.info,
+          status: details.error.code
+        });
+      }
+      // Unknown error
       return new PublishResult({
-        result: "failure",
-        message: details.exception.message,
-        status: details.statusText
+        result: "failure"
       });
     });
 };
