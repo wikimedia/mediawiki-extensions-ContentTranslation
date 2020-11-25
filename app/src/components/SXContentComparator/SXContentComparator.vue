@@ -159,6 +159,9 @@ export default {
 @import "@/styles/page.less";
 
 .sx-content-comparator {
+  a {
+    pointer-events: none;
+  }
   .sx-content-comparator__new-section-placeholder--present {
     background-color: @background-color-primary;
     color: @color-primary--active;

@@ -93,6 +93,9 @@ export default {
 
 .sx-sentence-selector {
   .sx-sentence-selector__proposed-translation {
+    a {
+      pointer-events: none;
+    }
     max-height: 50%;
     border-radius: @border-radius-base @border-radius-base 0 0;
     width: 100%;

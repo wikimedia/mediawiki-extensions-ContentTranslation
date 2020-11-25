@@ -64,6 +64,9 @@ export default {
 @padding: 4px;
 
 .sx-sentence-selector__section-sentence {
+  a {
+    pointer-events: none;
+  }
   cursor: pointer;
   // TODO: Fix this to be base20 (currently base30)
   color: @color-base--subtle;
