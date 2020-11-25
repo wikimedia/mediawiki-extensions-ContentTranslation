@@ -25,7 +25,7 @@
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
-          v-text="sourceSectionTitle"
+          v-text="translatedTitle"
         />
         <mw-col shrink>
           <mw-button :icon="mwIconEdit" type="icon" @click="editTranslation" />
@@ -82,7 +82,7 @@ export default {
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection
     }),
-    sourceSectionTitle: vm => vm.currentPageSection?.title,
+    translatedTitle: vm => vm.currentPageSection?.title,
     panelResult: vm =>
       vm.publishOption === "new_section"
         ? vm.$i18n("cx-sx-publisher-publish-panel-new-section-result")
@@ -97,7 +97,9 @@ export default {
      */
     handlePublishResult(publishResult) {
       if (publishResult.isSuccessful) {
-        // TODO: Redirect to contribute again step
+        const { origin, pathname } = window.location;
+        const articleTitle = this.suggestion.targetTitle;
+        window.location.href = `${origin}/${pathname}/${articleTitle}#${this.translatedTitle}`;
       } else {
         this.publishResult = publishResult;
       }
