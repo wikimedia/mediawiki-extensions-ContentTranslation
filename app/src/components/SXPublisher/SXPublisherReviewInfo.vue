@@ -91,15 +91,17 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
-.sx-publisher__review-info {
-  border: none;
-  border-bottom: @border-width-base @border-style-base @border-color-heading;
-  &__content {
-    font-weight: normal;
-  }
-  &__learn-more-anchor {
-    font-weight: @font-weight-bold;
-    color: @color-primary;
+.sx-publisher {
+  .sx-publisher__review-info {
+    border: none;
+    border-bottom: @border-width-base @border-style-base @border-color-heading;
+    &__content {
+      font-weight: normal;
+    }
+    &__learn-more-anchor {
+      font-weight: @font-weight-bold;
+      color: @color-primary;
+    }
   }
 }
 </style>

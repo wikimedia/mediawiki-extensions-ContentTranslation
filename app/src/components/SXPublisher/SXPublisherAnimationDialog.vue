@@ -71,7 +71,7 @@ export default {
 
 <style lang="less">
 .sx-publisher {
-  &__publish-animation {
+  .sx-publisher__publish-animation {
     text-align: center;
     .mw-ui-dialog__shell {
       max-width: 100%;
