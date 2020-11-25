@@ -158,7 +158,7 @@
 	"cx-translation-label-published": "תרגומים שפורסמו",
 	"cx-translation-already-in-progress": "זה תרגום שנערך עכשיו {{GENDER:$2|על־ידי}} $1.",
 	"cx-translation-already-in-progress-unknown": "זה תרגום בעבודה של משתמש לא ידוע.",
-	"cx-translation-already-in-progress-collaborate": "אנא {{GENDER:$1|תאם|תאמי}} עם המשתמש שהתחיל את התרגום הנוכחי.",
+	"cx-translation-already-in-progress-collaborate": "אנא {{GENDER:|תאם|תאמי}} עם {{GENDER:$1|המשתמש שהתחיל|המשתמשת שהתחילה}} את התרגום הנוכחי.",
 	"cx-publishing-dialog-publish-draft-button": "לפרסם כטיוטה",
 	"cx-feedback-link": "שליחת משוב",
 	"cx-stats-published-translations-title": "תרגומים שפורסמו",
