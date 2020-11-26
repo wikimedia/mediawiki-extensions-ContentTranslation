@@ -82,6 +82,8 @@ span.mw-ui-icon {
   transition: ~"0.3s cubic-bezier(0.25, 0.8, 0.5, 1), visibility 0s";
   vertical-align: middle;
   user-select: none;
+  min-height: unset;
+  min-width: unset;
 }
 
 [dir="rtl"] .mw-ui-icon:not(.mw-ui-icon--noflip) svg {
