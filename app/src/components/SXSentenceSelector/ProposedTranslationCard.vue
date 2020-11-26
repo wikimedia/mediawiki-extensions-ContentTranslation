@@ -4,9 +4,13 @@
       <proposed-translation-header ref="header" v-on="$listeners" />
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
+        :class="{
+          'sx-sentence-selector__proposed-translation__contents--empty': !translation
+        }"
         :style="contentsStyle"
       >
-        <section v-html="translation" />
+        <section v-if="translation" v-html="translation" />
+        <mw-spinner v-else />
       </mw-col>
       <mw-col
         ref="footer"
@@ -31,7 +35,7 @@
 </template>
 
 <script>
-import { MwButton, MwRow, MwCol, MwCard } from "@/lib/mediawiki.ui";
+import { MwButton, MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import {
   mwIconEdit,
   mwIconEllipsis
@@ -44,6 +48,7 @@ import { mapState } from "vuex";
 export default {
   name: "ProposedTranslationCard",
   components: {
+    MwSpinner,
     MwCard,
     ProposedTranslationHeader,
     MwRow,
@@ -110,6 +115,10 @@ export default {
 
     &__contents {
       color: @color-base;
+      // When contents are empty align spinner to the middle (horizontally)
+      &--empty {
+        align-self: center;
+      }
       section {
         overflow-y: auto;
         max-height: 100%;
