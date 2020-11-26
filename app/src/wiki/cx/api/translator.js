@@ -1,6 +1,10 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
+import PageSection from "../../cx/models/pageSection";
+import SectionSuggestion from "../../cx/models/sectionSuggestion";
+import Page from "../../mw/models/page";
 import PublishResult from "../../cx/publishResult";
+import { cleanupHtml } from "../../../utils/contentCleaner";
 
 async function fetchTranslations(offset) {
   const params = {
@@ -75,7 +79,7 @@ const publishTranslation = (sourcePage, section, sectionSuggestion) => {
   const params = {
     action: "cxpublishsection",
     title: sectionSuggestion.targetTitle,
-    html: section.translationHtml,
+    html: cleanupHtml(section.translationHtml),
     sourcetitle: sectionSuggestion.sourceTitle,
     sourcerevid: sourcePage.revision,
     sourcesectiontitle: section.originalTitle,

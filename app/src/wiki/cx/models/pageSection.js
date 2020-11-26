@@ -1,5 +1,6 @@
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import SubSection from "@/wiki/cx/models/subSection";
+import MTProviderGroup from "../../mw/models/mtProviderGroup";
+import SubSection from "../../cx/models/subSection";
+
 /**
  * This model represents a translation section belonging to a Page model.
  * It stores section content through section sub-sections, section title
