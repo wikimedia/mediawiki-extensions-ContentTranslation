@@ -28,6 +28,7 @@
           :label="
             $i18n('cx-sx-content-comparator-translation-section-button-label')
           "
+          :disabled="!sourceSectionContent"
           @click="$emit('translation-button-clicked')"
         />
       </mw-col>
@@ -63,10 +64,9 @@ import {
   mwIconEye
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -79,19 +79,7 @@ export default {
     MwIcon
   },
   props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true
-    },
-    targetSectionTitle: {
-      type: String,
-      required: true
-    },
     discardedSections: {
-      type: Array,
-      required: true
-    },
-    sectionSourceTitles: {
       type: Array,
       required: true
     }
@@ -102,14 +90,26 @@ export default {
     mwIconEye
   }),
   computed: {
+    ...mapState({
+      suggestion: state => state.application.currentSectionSuggestion,
+      sourceSection: state => state.application.currentSourceSection
+    }),
     ...mapGetters({
       sourceSectionTitle: "application/getCurrentSourceSectionTitle",
       isCurrentSectionMissing: "application/isCurrentSourceSectionMissing",
       isCurrentSectionPresent: "application/isCurrentSourceSectionPresent"
     }),
-    isCurrentSectionMappedOrDiscarded() {
-      return this.discardedSections.includes(this.activeSectionTargetTitle);
-    }
+    isCurrentSectionMappedOrDiscarded: vm =>
+      vm.discardedSections.includes(vm.activeSectionTargetTitle),
+    sourceSectionContent: vm => vm.sourceSection?.html,
+    sectionSourceTitles: vm => [
+      ...Object.keys(vm.suggestion.missingSections),
+      ...Object.keys(vm.suggestion.presentSections)
+    ],
+    targetSectionTitle: vm =>
+      vm.suggestion.missingSections[vm.sourceSectionTitle] ||
+      vm.suggestion.presentSections[vm.sourceSectionTitle] ||
+      ""
   }
 };
 </script>

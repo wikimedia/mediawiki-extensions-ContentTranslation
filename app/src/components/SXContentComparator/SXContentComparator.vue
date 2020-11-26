@@ -1,10 +1,7 @@
 <template>
   <section class="sx-content-comparator">
     <sx-content-comparator-header
-      :suggestion="suggestion"
-      :target-section-title="activeSectionTargetTitle"
       :discarded-sections.sync="discardedSections"
-      :section-source-titles="sectionSourceTitles"
       @translation-button-clicked="translateSection"
       @close="close"
     />
@@ -111,12 +108,6 @@ export default {
     },
     isCurrentSectionDiscarded() {
       return this.discardedSections.includes(this.activeSectionTargetTitle);
-    },
-    sectionSourceTitles() {
-      return [
-        ...Object.keys(this.suggestion.missingSections),
-        ...Object.keys(this.suggestion.presentSections)
-      ];
     }
   },
   watch: {
