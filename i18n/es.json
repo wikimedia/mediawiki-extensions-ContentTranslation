@@ -335,7 +335,7 @@
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección|$ secciones}} falta en $2",
 	"cx-sx-section-selector-title": "Secciones",
 	"cx-sx-section-selector-subtitle": "Seleccionar sección para traducir",
-	"cx-sx-section-selector-desc": "Elige una sección abajo y comprueba los contenidos en ambos idiomas para decidir qué traducir.",
+	"cx-sx-section-selector-desc": "Elige una sección a continuación y comprueba los contenidos en ambos idiomas para decidir qué traducir.",
 	"cx-sx-language-selector-dialog-title": "Buscar un idioma",
 	"cx-sx-existing-translation-status": "Ya existe en $1",
 	"cx-sx-existing-translation-additional-info": "Expandir los contenidos ya existentes traduciendo secciones nuevas.",
