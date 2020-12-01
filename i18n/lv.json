@@ -319,6 +319,7 @@
 	"sx-quick-tutorial-translate-button-label": "Sākt tulkošanu",
 	"cx-sx-sentence-selector-header-title": "Tulkot sadaļu",
 	"cx-sx-sentence-selector-done-button-label": "Gatavs",
+	"cx-sx-sentence-selector-proposed-translation-title": "Piedāvātais tulkojums no $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Labot tulkojumu",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
