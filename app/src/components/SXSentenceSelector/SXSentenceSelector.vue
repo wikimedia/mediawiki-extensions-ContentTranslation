@@ -6,7 +6,7 @@
           class="px-3"
           type="icon"
           :icon="mwIconArrowPrevious"
-          @click="onClose"
+          @click="goToContentComparator"
         />
       </mw-col>
       <mw-col grow class="px-1">
@@ -162,8 +162,8 @@ export default {
         this.shouldProposedTranslationBounce = false;
       }, 100);
     },
-    onClose() {
-      this.$router.go(-1);
+    goToContentComparator() {
+      this.$router.push({ name: "sx-content-comparator" });
     },
     configureTranslationOptions() {
       this.isTranslationOptionsActive = true;
