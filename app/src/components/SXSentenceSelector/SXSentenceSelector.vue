@@ -18,6 +18,7 @@
       <mw-col shrink class="px-3">
         <mw-button
           :label="$i18n('cx-sx-sentence-selector-done-button-label')"
+          :disabled="!currentPageSection.isTranslated"
           @click="previewTranslation"
         />
       </mw-col>

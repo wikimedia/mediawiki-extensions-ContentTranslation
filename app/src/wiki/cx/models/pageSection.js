@@ -60,4 +60,8 @@ export default class PageSection {
       )
     );
   }
+
+  get isTranslated() {
+    return this.subSections.some(subSection => subSection.isTranslated);
+  }
 }
