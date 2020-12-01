@@ -1,6 +1,6 @@
 <template>
   <main class="sx-editor-view" :class="classes">
-    <sx-editor />
+    <sx-editor :from-route="fromRoute" />
   </main>
 </template>
 
@@ -12,12 +12,16 @@ export default {
   components: {
     SxEditor
   },
+  data: () => ({
+    fromRoute: ""
+  }),
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.fromRoute = from.name;
+    });
+  },
   computed: {
-    classes() {
-      return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
-      };
-    }
+    classes: vm => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
   }
 };
 </script>

@@ -9,7 +9,7 @@
       :content="content"
       :language="language"
       @ready="onEditorReady"
-      @close="onEditorClosed"
+      @close="closeEditor"
       @edit-completed="onEditCompleted"
     />
   </section>
@@ -26,6 +26,12 @@ export default {
     VisualEditor,
     MwSpinner
   },
+  props: {
+    fromRoute: {
+      type: String,
+      required: true
+    }
+  },
   data: () => ({
     editorReady: false
   }),
@@ -39,8 +45,8 @@ export default {
     onEditorReady() {
       this.editorReady = true;
     },
-    onEditorClosed() {
-      this.$router.replace({ name: "sx-sentence-selector" });
+    closeEditor() {
+      this.$router.replace({ name: this.fromRoute });
     },
     onEditCompleted(editedContent) {
       if (this.isFinal) {
@@ -56,7 +62,7 @@ export default {
             translation: editedContent
           }
         );
-        this.$router.replace({ name: "sx-sentence-selector" });
+        this.closeEditor();
       }
     }
   }
