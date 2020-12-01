@@ -3,7 +3,7 @@
     <sx-content-comparator-header
       :discarded-sections.sync="discardedSections"
       @translation-button-clicked="translateSection"
-      @close="close"
+      @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
       :source-vs-target-selection.sync="sourceVsTargetSelection"
@@ -125,8 +125,8 @@ export default {
     }
   },
   methods: {
-    close() {
-      this.$router.go(-1);
+    goToSectionSelector() {
+      this.$router.push({ name: "sx-section-selector" });
     },
     translateSection() {
       if (this.$store.getters["translator/hasSectionTranslations"]()) {

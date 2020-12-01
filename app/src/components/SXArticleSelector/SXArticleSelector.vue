@@ -108,7 +108,14 @@ export default {
   },
   methods: {
     onClose() {
-      this.$router.go(-1);
+      /**
+       * This won't actually redirect to dashboard, as URL params
+       * stay the same and will force re-redirection to article
+       * selector screen. Should be revisited once other entry
+       * points to the application are added (currently only
+       * available through URL params)
+       */
+      this.$router.push({ name: "dashboard" });
     },
     setURLParams() {
       if (!history.pushState) {

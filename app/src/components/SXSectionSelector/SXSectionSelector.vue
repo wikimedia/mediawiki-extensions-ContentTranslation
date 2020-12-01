@@ -1,12 +1,15 @@
 <template>
   <section class="sx-section-selector">
-    <sx-section-selector-header :suggestion="suggestion" @close="onClose" />
+    <sx-section-selector-header
+      :suggestion="suggestion"
+      @close="goToArticleSelector"
+    />
     <section class="sx-section-selector__body">
       <sx-article-language-selector />
       <sx-section-selector-section-list-missing
         :suggestion="suggestion"
         @select-section="selectSection"
-        @close="onClose"
+        @close="goToArticleSelector"
       />
       <sx-section-selector-section-list-present
         :suggestion="suggestion"
@@ -123,8 +126,8 @@ export default {
     }
   },
   methods: {
-    onClose() {
-      this.$router.go(-1);
+    goToArticleSelector() {
+      this.$router.push({ name: "sx-article-selector" });
     },
     selectSection(sourceSectionTitle) {
       this.$store.dispatch("application/selectPageSection", {
