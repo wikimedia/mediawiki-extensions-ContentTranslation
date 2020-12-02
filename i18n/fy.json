@@ -26,7 +26,7 @@
 	"cx-publish-error-readonly": "Skriuwen nei de wiki is net tastien.",
 	"cx-publish-error-spam-blacklist": "Der is potinsjele spamynhâld ûntdutsen yn jo oersetting. Bysûnderheden: $1",
 	"cx-publish-error-title-blacklist": "De titel dy't jo yntype stiet op 'e swarte list. Graach in oare namme foar jo oersetting kieze.",
-	"cx-publish-error-unknown": "Der die him in ûnbekende ûnwerstelbere flater foar. Bysûnderheden flater: $1",
+	"cx-publish-error-unknown": "Der die him in ûnbekende, net op te helpen flater foar. Bysûnderheden flater: $1",
 	"cx-publish-button": "Publisearje",
 	"cx-publish-button-publishing": "Publisearjen ...",
 	"cx-lost-session": "Jo sesje is ferrûn",
