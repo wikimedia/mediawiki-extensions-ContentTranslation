@@ -70,12 +70,18 @@ async function fetchSegmentTranslation(
  * @param {Page} sourcePage
  * @param {PageSection} section
  * @param {SectionSuggestion} sectionSuggestion
+ * @param {String} targetTitle
  * @return {Promise<PublishResult>}
  */
-const publishTranslation = (sourcePage, section, sectionSuggestion) => {
+const publishTranslation = (
+  sourcePage,
+  section,
+  sectionSuggestion,
+  targetTitle
+) => {
   const params = {
     action: "cxpublishsection",
-    title: sectionSuggestion.targetTitle,
+    title: targetTitle,
     html: cleanupHtml(section.translationHtml),
     sourcetitle: sectionSuggestion.sourceTitle,
     sourcerevid: sourcePage.revision,

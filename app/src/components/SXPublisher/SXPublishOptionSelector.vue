@@ -78,7 +78,8 @@ export default {
     },
     selectedOption: {
       type: String,
-      required: true
+      required: true,
+      validator: value => ["NEW_SECTION", "SANDBOX_SECTION"].includes(value)
     }
   },
   data: () => ({
@@ -89,12 +90,12 @@ export default {
       {
         label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
         details: vm.$i18n("cx-sx-publisher-new-section-option-details"),
-        value: "new_section"
+        value: "NEW_SECTION"
       },
       {
         label: vm.$i18n("cx-sx-publisher-sandbox-option-label"),
         details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
-        value: "sandbox_section"
+        value: "SANDBOX_SECTION"
       }
     ],
     overlayColor: vm => vm.$mwui.colors.base10

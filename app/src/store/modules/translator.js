@@ -1,5 +1,7 @@
 import cxTranslatorApi from "../../wiki/cx/api/translator";
-import PublishResult from "@/wiki/cx/publishResult";
+import PublishResult from "../../wiki/cx/publishResult";
+import { getTitleForPublishOption } from "../../utils/publishTitleFactory";
+
 const state = {
   username: mw.config.get("wgUserName"),
   translations: [],
@@ -81,16 +83,21 @@ const actions = {
       }
     });
   },
-  async publishTranslation({ rootState, rootGetters }) {
+  async publishTranslation({ rootState, rootGetters }, publishOption) {
     const page = rootGetters["application/getCurrentPage"];
     const section = rootState.application.currentSourceSection;
     const sectionSuggestion = rootState.application.currentSectionSuggestion;
 
+    const targetTitle = getTitleForPublishOption(
+      sectionSuggestion.targetTitle,
+      publishOption
+    );
     /** @type PublishResult **/
     return await cxTranslatorApi.publishTranslation(
       page,
       section,
-      sectionSuggestion
+      sectionSuggestion,
+      targetTitle
     );
   }
 };

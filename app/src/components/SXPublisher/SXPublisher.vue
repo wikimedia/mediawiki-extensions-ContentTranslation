@@ -57,6 +57,8 @@ import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
 import PublishResult from "@/wiki/cx/publishResult";
 import { getUrl } from "@/utils/articleUrlFactory";
+import { getTitleForPublishOption } from "@/utils/publishTitleFactory";
+
 export default {
   name: "SxPublisher",
   components: {
@@ -74,7 +76,7 @@ export default {
     isPublishDialogActive: false,
     publishStatus: "pending",
     publishOptionsOn: false,
-    publishOption: "new_section",
+    publishOption: "NEW_SECTION",
     publishResult: new PublishResult()
   }),
   computed: {
@@ -84,7 +86,7 @@ export default {
     }),
     translatedTitle: vm => vm.currentPageSection?.title,
     panelResult: vm =>
-      vm.publishOption === "new_section"
+      vm.publishOption === "NEW_SECTION"
         ? vm.$i18n("cx-sx-publisher-publish-panel-new-section-result")
         : vm.$i18n("cx-sx-publisher-publish-panel-sandbox-section-result")
   },
@@ -100,8 +102,11 @@ export default {
         this.publishResult = publishResult;
         return;
       }
-      const newSectionPath = `${this.suggestion.targetTitle}#${this.translatedTitle}`;
-      window.location.href = getUrl(newSectionPath);
+      const articleTitle = getTitleForPublishOption(
+        this.suggestion.targetTitle,
+        this.publishOption
+      );
+      window.location.href = getUrl(`${articleTitle}#${this.translatedTitle}`);
     },
     async publishTranslation() {
       /**
@@ -112,7 +117,8 @@ export default {
       this.isPublishDialogActive = true;
       /** @type PublishResult **/
       const publishResult = await this.$store.dispatch(
-        "translator/publishTranslation"
+        "translator/publishTranslation",
+        this.publishOption
       );
 
       this.publishStatus = publishResult.result;
