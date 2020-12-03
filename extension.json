@@ -147,13 +147,8 @@
 			}
 		},
 		"ContentTranslationRESTBase": {
-			"value": {
-				"url": "https://en.wikipedia.org/api/rest_#version#",
-				"fixedUrl": true,
-				"timeout": 100000,
-				"HTTPProxy": false,
-				"forwardCookies": false
-			}
+			"description": "You can override default Restbase/parsoid configuration by explicitly defining the parameters for RestbaseVirtualRESTService constructor.",
+			"value": false
 		},
 		"ContentTranslationDatabase": {
 			"value": false

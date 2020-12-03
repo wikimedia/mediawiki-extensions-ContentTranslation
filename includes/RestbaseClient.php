@@ -38,12 +38,7 @@ class RestbaseClient {
 	}
 
 	/**
-	 * Creates the virtual REST service object to be used in CX's API calls. The
-	 * method determines whether to instantiate a ParsoidVirtualRESTService or a
-	 * RestbaseVirtualRESTService object based on configuration directives:
-	 * if $wgVirtualRestConfig['modules']['restbase'] is defined, use RESTBase,
-	 * elseif $wgVirtualRestConfig['modules']['parsoid'] is defined, use Parsoid,
-	 * else RESTBase is used.
+	 * Creates the virtual REST service object to be used in CX's API calls.
 	 *
 	 * See ApiParsoidTrait::getVRSObject() in VisualEditor (which should
 	 * eventually be upstreamed to core, T261310).
@@ -51,29 +46,29 @@ class RestbaseClient {
 	 * @return \VirtualRESTService the VirtualRESTService object to use
 	 */
 	private function getVRSObject() {
-		global $wgVisualEditorParsoidAutoConfig;
-		$context = RequestContext::getMain();
-		// the params array to create the service object with
-		$params = [];
-		// the VRS class to use, defaults to Parsoid
-		$class = ParsoidVirtualRESTService::class;
-		// The global virtual rest service config object, if any
+		// The global virtual rest service config object
 		$vrs = $this->config->get( 'VirtualRestConfig' );
-		if ( isset( $vrs['modules'] ) && isset( $vrs['modules']['restbase'] ) ) {
-			// if restbase is available, use it
+		// CX specific configuration override (local testing and development)
+		$cxs = $this->config->get( 'ContentTranslationRESTBase' );
+
+		if ( $cxs ) {
+			$class = RestbaseVirtualRESTService::class;
+			$params = $cxs;
+		} elseif ( isset( $vrs['modules']['restbase'] ) ) {
+			$class = RestbaseVirtualRESTService::class;
 			$params = $vrs['modules']['restbase'];
 			// backward compatibility
 			$params['parsoidCompat'] = false;
-			$class = RestbaseVirtualRESTService::class;
-		} elseif ( isset( $vrs['modules'] ) && isset( $vrs['modules']['parsoid'] ) ) {
-			// there's a global parsoid config, use it next
+		} elseif ( isset( $vrs['modules']['parsoid'] ) ) {
+			$class = ParsoidVirtualRESTService::class;
 			$params = $vrs['modules']['parsoid'];
 			$params['restbaseCompat'] = true;
-		} elseif ( $this->config->has( 'ContentTranslationRESTBase' ) ) {
-			$params = $this->config->get( 'ContentTranslationRESTBase' );
-			$params['parsoidCompat'] = false;
-		} elseif ( $wgVisualEditorParsoidAutoConfig ) {
-			$params = $vrs['modules']['parsoid'] ?? [];
+		} elseif (
+			$this->config->has( 'VisualEditorParsoidAutoConfig' ) &&
+			$this->config->get( 'VisualEditorParsoidAutoConfig' )
+		) {
+			$class = ParsoidVirtualRESTService::class;
+			$params = [];
 			$params['restbaseCompat'] = true;
 			// forward cookies on private wikis
 			$params['forwardCookies'] = !MediaWikiServices::getInstance()
@@ -82,17 +77,16 @@ class RestbaseClient {
 			// No global modules defined, so no way to contact the document server.
 			throw new \MWException( 'Parsoid/RESTBase unconfigured' );
 		}
-		// merge the global and service-specific params
-		if ( isset( $vrs['global'] ) ) {
-			$params = array_merge( $vrs['global'], $params );
-		}
-		// set up cookie forwarding
-		if ( $params['forwardCookies'] ) {
+
+		// Merge the global and service-specific params
+		$params = array_merge( $vrs['global'] ?? [], $params );
+
+		// Set up cookie forwarding
+		if ( ( $params['forwardCookies'] ?? false ) === true ) {
+			$context = RequestContext::getMain();
 			$params['forwardCookies'] = $context->getRequest()->getHeader( 'Cookie' );
-		} else {
-			$params['forwardCookies'] = false;
 		}
-		// create the VRS object and return it
+
 		return new $class( $params );
 	}
 
