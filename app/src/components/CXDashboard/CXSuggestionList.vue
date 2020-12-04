@@ -211,16 +211,27 @@ export default {
     const sourceTitle = urlParams.get("page");
     this.selectedSourceLanguage = sourceLanguage || this.initialSourceLanguage;
     this.selectedTargetLanguage = targetLanguage || this.initialTargetLanguage;
-    if (isSectionTranslation && sourceTitle) {
-      const suggestion = new SectionSuggestion({
+
+    if (!isSectionTranslation || !sourceTitle) {
+      return;
+    }
+
+    /** Get corresponding suggestion for requested language pair and article title, if exists */
+    let suggestion = this.$store.getters[
+      "suggestions/getSectionSuggestionsForArticle"
+    ](sourceLanguage, targetLanguage, sourceTitle);
+
+    if (!suggestion) {
+      suggestion = new SectionSuggestion({
         sourceLanguage,
         targetLanguage,
         sourceTitle,
         missing: {}
       });
       this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
-      this.startSectionTranslation(suggestion);
     }
+
+    this.startSectionTranslation(suggestion);
   },
   methods: {
     ...mapActions({
