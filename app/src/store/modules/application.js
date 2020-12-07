@@ -233,7 +233,16 @@ const actions = {
     dispatch("applyTranslationToSelectedSegment", { translation });
   },
 
-  applyEditedTranslationToSelectedSegment({ dispatch }, { translation }) {
+  applyEditedTranslationToSelectedSegment(
+    { state, dispatch },
+    { translation }
+  ) {
+    if (state.isSectionTitleSelectedForTranslation) {
+      const div = document.createElement("div");
+      div.innerHTML = translation;
+      translation = div.innerText;
+    }
+
     dispatch("applyTranslationToSelectedSegment", { translation });
   },
 
