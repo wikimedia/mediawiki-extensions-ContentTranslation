@@ -271,6 +271,13 @@ const actions = {
     dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
   },
 
+  /**
+   * Checks if current MT provider exists and is valid for the
+   * given language pair. If not, selects the first provider
+   * among the supported ones and sets it as the current MT
+   * provider.
+   * @return {Promise<void>}
+   */
   async initializeMTProviders({ state, dispatch, rootGetters, commit }) {
     const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
     await dispatch(
@@ -278,11 +285,17 @@ const actions = {
       { sourceLanguage, targetLanguage },
       { root: true }
     );
-    const defaultProvider = rootGetters["mediawiki/getDefaultMTProvider"](
+    const supportedProviders = rootGetters["mediawiki/getSupportedMTProviders"](
       sourceLanguage,
       targetLanguage
     );
-    commit("setCurrentMTProvider", defaultProvider);
+
+    const currentProvider = state.currentMTProvider;
+    if (currentProvider && supportedProviders.includes(currentProvider)) {
+      return;
+    }
+
+    commit("setCurrentMTProvider", supportedProviders[0]);
   },
 
   /**

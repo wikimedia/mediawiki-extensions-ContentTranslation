@@ -53,9 +53,9 @@ describe("SXSentenceSelector SubSection component", () => {
     namespaced: true,
     state: {},
     getters: {
-      getSupportedMTProviders: state => () => [],
-      getDefaultMTProvider: state => () =>
+      getSupportedMTProviders: state => () => [
         MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
+      ]
     }
   };
   const store = new Vuex.Store({

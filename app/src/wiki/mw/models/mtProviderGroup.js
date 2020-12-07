@@ -6,7 +6,7 @@ export default class MTProviderGroup {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.providers = [
-      ...providers,
+      ...(providers || []),
       this.constructor.ORIGINAL_TEXT_PROVIDER_KEY,
       this.constructor.EMPTY_TEXT_PROVIDER_KEY
     ];

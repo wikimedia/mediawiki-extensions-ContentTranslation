@@ -98,9 +98,6 @@ const getters = {
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers || [],
 
-  getDefaultMTProvider: (state, getters) => (sourceLanguage, targetLanguage) =>
-    getters.getSupportedMTProviders(sourceLanguage, targetLanguage)[0],
-
   isValidProviderForTranslation: (state, getters) => (
     sourceLanguage,
     targetLanguage,
@@ -207,16 +204,31 @@ const actions = {
   },
 
   /**
-   * A promise is returned so that action can be awaited
+   * For a given language pair, this method checks for already existing
+   * MT providers in the store, and if none, it fetches supported MT
+   * providers and saves them to the store.
    * @param commit
+   * @param getters
    * @param sourceLanguage
    * @param targetLanguage
-   * @return {Promise<Readonly<MTProviderGroup>>}
+   * @return {Promise<void>}
    */
-  async fetchMTProviders({ commit }, { sourceLanguage, targetLanguage }) {
-    return siteApi
-      .fetchSupportedMTProviders(sourceLanguage, targetLanguage)
-      .then(mtProviderGroup => commit("addMtProviderGroup", mtProviderGroup));
+  async fetchMTProviders(
+    { commit, getters },
+    { sourceLanguage, targetLanguage }
+  ) {
+    if (
+      getters.getSupportedMTProviders(sourceLanguage, targetLanguage).length
+    ) {
+      return;
+    }
+
+    const mtProviderGroup = await siteApi.fetchSupportedMTProviders(
+      sourceLanguage,
+      targetLanguage
+    );
+
+    commit("addMtProviderGroup", mtProviderGroup);
   },
 
   /**
