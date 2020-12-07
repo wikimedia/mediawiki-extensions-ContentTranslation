@@ -306,6 +306,7 @@
 	"cx-linkcontextitem-missing-title-description": "Esta página ainda não existe",
 	"cx-mt-abuse-publish-error": "A sua tradução não pode ser publicada porque contém demasiado texto não modificado.",
 	"cx-auto-failed": "A tradução automática falhou",
+	"cx-mt-failed": "A tradução automática falhou",
 	"cx-unreviewed-translation-category": "Páginas com traduções não revistas",
 	"cx-unreviewed-translation-category-desc": "Páginas traduzidas com a ferramenta Tradução de Conteúdo que têm uma grande quantidade de conteúdo não revisto",
 	"cx-preference-enable-entrypoints": "Acesso a [[$1|iniciar uma tradução]], na página de contribuições, na lista de línguas e nas criações de páginas novas.",

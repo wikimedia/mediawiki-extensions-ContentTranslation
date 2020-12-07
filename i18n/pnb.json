@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Abbas dhothar",
 			"Khalid Mahmood"
 		]
 	},
@@ -10,8 +11,8 @@
 	"cx-error-server-connection": "غلطی: سرور نال نہیں جڑ سکدا۔",
 	"cx-header-translation-center": "بولی وٹاندرا گڑھ",
 	"cx-header-all-translations": "سارے بولی بولی وٹاندرے",
-	"cx-source-view-page": "صفہ ویکھو",
+	"cx-source-view-page": "صفحہ ویکھو",
 	"cx-publish-page-success": "صفہ 1$ تے چھپیا",
-	"cx-publish-page-error": "بولی وٹاندرا چھاپدیاں اک غلطی ہوئی۔ صفہ فیر چھاپن دی کوشش کرو۔ غلطی: $1",
+	"cx-publish-page-error": "بولی وٹاندرا چھاپدیاں اک غلطی ہوئی۔ صفحہ فیر چھاپن دی کوشش کرو۔ غلطی: $1",
 	"cx-publish-button": "بولی وٹاندرا چھاپو"
 }
