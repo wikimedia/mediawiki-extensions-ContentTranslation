@@ -405,6 +405,6 @@
 	"cx-sx-publisher-sandbox-option-label": "Publicar en tu taller de usuario",
 	"cx-sx-publisher-sandbox-option-details": "Publicar en tu espacio personal para que revises y lo copies en el espacio principal",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tu traducción será <strong>añadida a tu taller de usuario.</strong>",
-	"cx-sx-publisher-review-info-error": "Tu traducción no puede publicarse.",
+	"cx-sx-publisher-review-info-error": "Tu traducción no puede publicarse:",
 	"cx-sx-publisher-review-info-learn-more": "Más información"
 }

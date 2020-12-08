@@ -7,7 +7,8 @@
 			"Mehman97",
 			"Otogi",
 			"Sopopruidze",
-			"Tokoko"
+			"Tokoko",
+			"Გიო ოქრო"
 		]
 	},
 	"cx": "გვერდის თარგმნა",
@@ -48,6 +49,10 @@
 	"cx-entrypoint-title": "ამ გვერდის თარგმნა $1-ზე",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ეს გვერდი $1-ზე ჯერ არ არსებობს. {{GENDER:|თქვენ}} გსურთ მისი შექმნა ?",
 	"cx-entrypoint-dialog-button-translate-from": "$1-დან თარგმნა",
+	"cx-campaign-newbytranslation-title": "ამის მაგივრად თარგმნას ხომ არ დაიწყებთ?",
+	"cx-campaign-newbytranslation-notice": "შექმენით ახალი სტატია იმ ენიდან თარგმნით, რომელიც იცით.",
+	"cx-campaign-newbytranslation-search": "სათარგმნად სხვა გვერდის პოვნა",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "დაიწყეთ თარგმნა",
 	"cx-special-login-error": "სატარგმენლად თქვენ სისტემაში უნდა შეხვიდეთ. [$1 შესვლა]",
 	"cx-tools-instructions-text1": "სათარგმნელად პარაგრაფზე {{GENDER:|დააწკაპუნეთ}}",
@@ -62,11 +67,11 @@
 	"cx-tools-link-title": "ბმული",
 	"cx-tools-link-add": "ბმულის დამატება",
 	"cx-tools-link-remove": "ბმულის წაშლა",
-	"cx-tools-mt-title": "ავტომატური თარგმანი",
-	"cx-tools-mt-use-source": "საწყისი ტექსტის გამოყენება",
+	"cx-tools-mt-title": "პირველადი თარგმანი",
+	"cx-tools-mt-use-source": "ორიგინალური შიგთავსის კოპირება",
 	"cx-tools-mt-reset": "თარგმნის დაწყება",
 	"cx-tools-mt-provider-title": "გამოიყენეთ $1",
-	"cx-tools-mt-dont-use": "არ გამოიყენოთ მანქანური თარგმანი",
+	"cx-tools-mt-dont-use": "დაიწყეთ ცარიელი პარაგრაფით",
 	"cx-tools-mt-set-default": "ნაგულისხმევად დამახსოვრება",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 კატეგორია|$1 კატეგორია|0=კატეგორია არ არის}}",
 	"cx-stats-title": "შიგთავსის თარგმანის სტატისტიკა",
@@ -207,6 +212,7 @@
 	"cx-translation-template-add-param": "+ თარგმნის ველი",
 	"cx-translation-template-add-more": "ბევრი ველის დამატება",
 	"cx-translation-template-select-param": "აირჩიეთ სამიზნე ველები",
+	"cx-preference-enable-entrypoints": "[[$1|თარგმნის დაწყებაზე]] წვდომა წვლილის გვერდიდან, ენების სიიდან და ახალი გვერდის შექმნის ფანჯრიდან.",
 	"cx-sx-section-selector-title": "სექციები",
 	"cx-sx-language-selector-dialog-title": "ენის ძებნა"
 }
