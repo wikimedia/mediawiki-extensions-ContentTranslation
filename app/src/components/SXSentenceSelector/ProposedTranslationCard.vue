@@ -5,11 +5,11 @@
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
-          'sx-sentence-selector__proposed-translation__contents--empty': !translation
+          'sx-sentence-selector__proposed-translation__contents--empty': !proposedTranslation
         }"
         :style="contentsStyle"
       >
-        <section v-if="translation" v-html="translation" />
+        <section v-if="proposedTranslation" v-html="proposedTranslation" />
         <mw-spinner v-else />
       </mw-col>
       <mw-col
@@ -43,7 +43,7 @@ import {
 import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   name: "ProposedTranslationCard",
@@ -55,12 +55,6 @@ export default {
     MwCol,
     MwButton,
     SxSentenceSelectorActionButtons
-  },
-  props: {
-    translation: {
-      type: String,
-      required: true
-    }
   },
   data: () => ({
     mwIconEllipsis,
@@ -77,11 +71,14 @@ export default {
     ...mapState({
       mtProvider: state => state.application.currentMTProvider
     }),
+    ...mapGetters({
+      proposedTranslation: "application/getCurrentProposedTranslation"
+    }),
     contentsStyle: vm => ({
       "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
     }),
     isEditable: vm =>
-      !!vm.translation ||
+      !!vm.proposedTranslation ||
       vm.mtProvider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
   },
   mounted() {

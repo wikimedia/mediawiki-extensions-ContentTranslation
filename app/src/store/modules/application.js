@@ -156,7 +156,25 @@ const getters = {
   getCurrentSelectedSentenceIndex: (state, getters) =>
     getters.getCurrentSourceSectionSentences.findIndex(
       sentence => sentence.selected
-    )
+    ),
+  /**
+   * Machine translation of section title for currently selected MT provider
+   */
+  getCurrentProposedTitleTranslation: state =>
+    state.currentSourceSection?.proposedTitleTranslations[
+      state.currentMTProvider
+    ] || "",
+  /**
+   * Machine translation of currently selected sentence for currently selected MT provider
+   */
+  getCurrentProposedSentenceTranslation: (state, getters) =>
+    getters.getCurrentSelectedSentence?.proposedTranslations[
+      state.currentMTProvider
+    ] || "",
+  getCurrentProposedTranslation: (state, getters) =>
+    state.isSectionTitleSelectedForTranslation
+      ? getters.getCurrentProposedTitleTranslation
+      : getters.getCurrentProposedSentenceTranslation
 };
 
 const actions = {
@@ -208,6 +226,11 @@ const actions = {
       : "setSelectedSentenceTranslation";
     commit(mutation, translation);
     dispatch("selectNextSentence");
+  },
+
+  applyProposedTranslationToSelectedSegment({ dispatch, getters }) {
+    const translation = getters.getCurrentProposedTranslation;
+    dispatch("applyTranslationToSelectedSegment", { translation });
   },
 
   applyEditedTranslationToSelectedSegment({ dispatch }, { translation }) {

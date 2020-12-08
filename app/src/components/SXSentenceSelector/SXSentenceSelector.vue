@@ -46,7 +46,6 @@
       <!--      the margin that the card jumps to when bouncing, we control-->
       <!--      card bounce through mb-0 class-->
       <proposed-translation-card
-        :translation="translationPreview"
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
         @edit-translation="editTranslation"
@@ -99,41 +98,12 @@ export default {
     ...mapGetters({
       selectedSentence: "application/getCurrentSelectedSentence"
     }),
-    /**
-     * Machine translation of sentence for currently selected MT provider
-     */
-    proposedSentenceTranslation: vm =>
-      vm.selectedSentence?.proposedTranslations[vm.selectedProvider] || "",
-    /**
-     * Machine translation of title for currently selected MT provider
-     */
-    proposedTitleTranslation: vm =>
-      vm.currentPageSection?.proposedTitleTranslations[vm.selectedProvider] ||
-      "",
-    /**
-     * This computed property returns a preview of the translation of a sentence
-     * or section title that will be applied to that sentence if user clicks
-     * "Apply translation" button. If this segment is already  translated, current
-     * applied translation will be returned. Machine translation for currently
-     * selected MT provider will be returned otherwise.
-     * @return {String}
-     */
-    translationPreview: vm =>
-      vm.titleTranslationPreview || vm.sentenceTranslationPreview,
     subSections: vm => vm.currentPageSection?.subSections,
     sourcePage: vm =>
       vm.$store.getters["mediawiki/getPage"](
         vm.suggestion.sourceLanguage,
         vm.suggestion.sourceTitle
       ),
-    /**
-     * If section title is not selected for translation, false will be returned
-     */
-    titleTranslationPreview: vm =>
-      vm.isSectionTitleSelected &&
-      (vm.currentPageSection.translatedTitle || vm.proposedTitleTranslation),
-    sentenceTranslationPreview: vm =>
-      vm.selectedSentence?.translatedContent || vm.proposedSentenceTranslation,
     originalSegmentContent: vm =>
       vm.isSectionTitleSelected
         ? vm.currentPageSection.originalTitle
@@ -152,9 +122,9 @@ export default {
       selectPreviousSegment: "application/selectPreviousSegment"
     }),
     applyTranslation() {
-      this.$store.dispatch("application/applyTranslationToSelectedSegment", {
-        translation: this.translationPreview
-      });
+      this.$store.dispatch(
+        "application/applyProposedTranslationToSelectedSegment"
+      );
     },
     bounceTranslation() {
       this.shouldProposedTranslationBounce = true;
@@ -173,7 +143,9 @@ export default {
       this.$router.push({
         name: "sx-editor",
         params: {
-          content: this.translationPreview,
+          content: this.$store.getters[
+            "application/getCurrentProposedTranslation"
+          ],
           language: this.suggestion.targetLanguage,
           originalContent: this.originalSegmentContent
         }

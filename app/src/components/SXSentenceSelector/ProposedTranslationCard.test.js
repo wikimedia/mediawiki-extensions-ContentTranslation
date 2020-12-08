@@ -9,20 +9,23 @@ localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 
 describe("SXSentenceSelector Proposed Translation Card", () => {
-  const translationContent = "<div>Test translation</div>";
+  const state = {
+    currentMTProvider: "Apertium",
+    content: "<div>Test translation</div>"
+  };
   const applicationModule = {
     namespaced: true,
-    state: { currentMTProvider: "Apertium" }
+    state,
+    getters: {
+      getCurrentProposedTranslation: () => state.content
+    }
   };
   const store = new Vuex.Store({ modules: { application: applicationModule } });
 
   const wrapper = shallowMount(ProposedTranslationCard, {
     localVue,
     store,
-    propsData: {
-      translation: translationContent,
-      shouldBounce: false
-    }
+    propsData: { shouldBounce: false }
   });
 
   it("Component output matches snapshot", () => {
@@ -37,10 +40,8 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
   });
 
   it("Editing translation is enabled when empty test provider selected", async () => {
-    store.state.application.currentMTProvider =
-      MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
-
-    await wrapper.setProps({ translation: "" });
+    state.content = "";
+    state.currentMTProvider = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
 
     expect(wrapper.vm.isEditable).toBe(true);
   });
