@@ -5,11 +5,11 @@
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
-          'sx-sentence-selector__proposed-translation__contents--empty': !proposedTranslation
+          'sx-sentence-selector__proposed-translation__contents--empty': !hasProposedTranslation
         }"
         :style="contentsStyle"
       >
-        <section v-if="proposedTranslation" v-html="proposedTranslation" />
+        <section v-if="hasProposedTranslation" v-html="proposedTranslation" />
         <mw-spinner v-else />
       </mw-col>
       <mw-col
@@ -25,7 +25,7 @@
           "
           class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
           progressive
-          :disabled="!isEditable"
+          :disabled="!hasProposedTranslation"
           @click="$emit('edit-translation')"
         />
         <sx-sentence-selector-action-buttons v-on="$listeners" />
@@ -77,7 +77,7 @@ export default {
     contentsStyle: vm => ({
       "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
     }),
-    isEditable: vm =>
+    hasProposedTranslation: vm =>
       !!vm.proposedTranslation ||
       vm.mtProvider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
   },

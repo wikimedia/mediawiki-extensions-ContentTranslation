@@ -3,6 +3,7 @@ import ProposedTranslationCard from "./ProposedTranslationCard";
 import VueBananaI18n from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import Vuex from "vuex";
+import { MwSpinner } from "@/lib/mediawiki.ui";
 
 const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
@@ -41,8 +42,22 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
 
   it("Editing translation is enabled when empty test provider selected", async () => {
     state.content = "";
-    state.currentMTProvider = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
+    await wrapper.vm.$nextTick();
+    const editButton = wrapper.find(
+      ".sx-sentence-selector__proposed-translation-edit-button"
+    );
+    expect(editButton.attributes("disabled")).toBe("true");
 
-    expect(wrapper.vm.isEditable).toBe(true);
+    state.currentMTProvider = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
+    await wrapper.vm.$nextTick();
+    expect(editButton.attributes("disabled")).toBeFalsy();
+  });
+
+  it("Loading indicator is hidden when card has no translation", () => {
+    expect(store.state.application.currentMTProvider).toBe(
+      MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+    );
+
+    expect(wrapper.findComponent(MwSpinner).exists()).toBe(false);
   });
 });
