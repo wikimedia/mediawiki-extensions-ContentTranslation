@@ -7,15 +7,18 @@ localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
 describe("SXSentenceSelector Action Buttons", () => {
+  const state = {
+    isSectionTitleSelectedForTranslation: false,
+    proposedTranslation: "Test translation"
+  };
   const store = new Vuex.Store({
     modules: {
       application: {
         namespaced: true,
-        state: {
-          isSectionTitleSelectedForTranslation: false
-        },
+        state,
         getters: {
-          isCurrentSentenceLast: state => false
+          isCurrentSentenceLast: () => false,
+          getCurrentProposedTranslation: state => state.proposedTranslation
         }
       }
     }
@@ -56,5 +59,16 @@ describe("SXSentenceSelector Action Buttons", () => {
     const skipButton = wrapper.find("button");
 
     expect(skipButton.attributes("disabled")).toBe("disabled");
+  });
+
+  it("Apply button is disabled when sentence is first in array", async () => {
+    state.proposedTranslation = "";
+    /** Wait for DOM to be updated **/
+    await wrapper.vm.$nextTick();
+    const applyTranslationButton = wrapper.find(
+      ".sx-sentence-selector__apply-translation-button"
+    );
+
+    expect(applyTranslationButton.attributes("disabled")).toBe("disabled");
   });
 });

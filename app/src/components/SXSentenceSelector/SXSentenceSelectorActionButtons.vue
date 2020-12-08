@@ -11,6 +11,7 @@
       type="text"
       :label="$i18n('cx-sx-sentence-selector-apply-translation-button-label')"
       class="sx-sentence-selector__apply-translation-button col grow pa-4"
+      :disabled="!proposedTranslation"
       @click="$emit('apply-translation')"
     />
     <mw-button
@@ -47,7 +48,8 @@ export default {
         state.application.isSectionTitleSelectedForTranslation
     }),
     ...mapGetters({
-      isLastSentence: "application/isCurrentSentenceLast"
+      isLastSentence: "application/isCurrentSentenceLast",
+      proposedTranslation: "application/getCurrentProposedTranslation"
     })
   }
 };
