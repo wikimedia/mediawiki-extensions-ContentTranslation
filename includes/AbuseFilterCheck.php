@@ -97,7 +97,7 @@ class AbuseFilterCheck {
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
-			->addEditVars( $this->title, \WikiPage::factory( $this->title ) )
+			->addEditVars( $this->title, \WikiPage::factory( $this->title ), $this->user )
 			->getVariableHolder();
 		$vars->setVar( 'action', 'edit' );
 		$vars->setVar( 'old_wikitext', '' );
