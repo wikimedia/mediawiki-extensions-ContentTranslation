@@ -155,7 +155,9 @@ export default {
       color: @color-base;
     }
   }
-  .mw-ui-dialog__shell {
+  // Use class twice to increase specificity so that dialog's
+  // default background color is overwritten.
+  .mw-ui-dialog__shell.mw-ui-dialog__shell {
     background-color: @background-color-base--disabled;
     .sx-sentence-selector__translation-options-card-title {
       // Should we create a variable for this one?
