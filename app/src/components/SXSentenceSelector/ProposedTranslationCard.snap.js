@@ -40,7 +40,7 @@ exports[`SXSentenceSelector Proposed Translation Card Component output matches s
         type="text"
       />
        
-      <sx-sentence-selector-action-buttons-stub />
+      <proposed-translation-action-buttons-stub />
     </mw-col-stub>
   </mw-row-stub>
 </mw-card-stub>

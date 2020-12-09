@@ -28,7 +28,7 @@
           :disabled="!hasProposedTranslation"
           @click="$emit('edit-translation')"
         />
-        <sx-sentence-selector-action-buttons v-on="$listeners" />
+        <proposed-translation-action-buttons v-on="$listeners" />
       </mw-col>
     </mw-row>
   </mw-card>
@@ -40,7 +40,7 @@ import {
   mwIconEdit,
   mwIconEllipsis
 } from "@/lib/mediawiki.ui/components/icons";
-import SxSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mapGetters, mapState } from "vuex";
@@ -54,7 +54,7 @@ export default {
     MwRow,
     MwCol,
     MwButton,
-    SxSentenceSelectorActionButtons
+    ProposedTranslationActionButtons
   },
   data: () => ({
     mwIconEllipsis,

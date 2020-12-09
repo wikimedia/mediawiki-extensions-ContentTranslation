@@ -33,7 +33,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { mapGetters, mapState } from "vuex";
 export default {
-  name: "SxSentenceSelectorActionButtons",
+  name: "ProposedTranslationActionButtons",
   components: {
     MwRow,
     MwButton

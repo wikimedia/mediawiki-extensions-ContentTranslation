@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import SXSentenceSelectorActionButtons from "./SXSentenceSelectorActionButtons";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
 const localVue = createLocalVue();
@@ -23,7 +23,7 @@ describe("SXSentenceSelector Action Buttons", () => {
       }
     }
   });
-  const wrapper = mount(SXSentenceSelectorActionButtons, {
+  const wrapper = mount(ProposedTranslationActionButtons, {
     store,
     localVue
   });
