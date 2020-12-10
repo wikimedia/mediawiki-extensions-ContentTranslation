@@ -5,7 +5,7 @@
 			"Khalid Mahmood"
 		]
 	},
-	"cx": "صفے دا بولی وٹاندرا کرو",
+	"cx": "صفحے دا بولی وٹاندرا کرو",
 	"cx-dashboard-header": "بولی وٹاندرے",
 	"cx-javascript": "ایہ اوزار جاواسکرپٹ بنا کم نہیں کردا۔",
 	"cx-error-server-connection": "غلطی: سرور نال نہیں جڑ سکدا۔",
@@ -15,7 +15,10 @@
 	"cx-publish-page-success": "صفہ 1$ تے چھپیا",
 	"cx-publish-page-error": "بولی وٹاندرا چھاپدیاں اک غلطی ہوئی۔ صفحہ فیر چھاپن دی کوشش کرو۔ غلطی: $1",
 	"cx-publish-button": "بولی وٹاندرا چھاپو",
+	"cx-dashboard-sidebar-stats": "آنکڑے",
 	"cx-tools-linter-learn-more": "ہور سکھو",
+	"cx-tools-linter-hide-details": "تفضیل لُکاؤ",
+	"cx-translator-header": "تواڈے آنکڑے",
 	"cx-sx-existing-translation-learn-more": "ہور سکھو",
 	"cx-sx-section-selector-more-details-title": "ہور تفصیل",
 	"cx-sx-section-selector-learn-more-anchor-label": "ہور سکھو",
