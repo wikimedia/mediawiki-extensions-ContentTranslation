@@ -14,6 +14,8 @@ import MwSelect from "./MWSelect";
 import MwSpinner from "./MWSpinner";
 import MwThumbnail from "./MWThumbnail";
 import { MwRadio, MwRadioGroup } from "./MWRadioGroup";
+import MwProgressBar from "./MWProgressBar";
+
 export {
   MwButton,
   MwDialog,
@@ -33,5 +35,6 @@ export {
   MwRow,
   MwCol,
   MwRadio,
-  MwRadioGroup
+  MwRadioGroup,
+  MwProgressBar
 };
