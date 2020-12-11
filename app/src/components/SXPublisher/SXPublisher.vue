@@ -56,7 +56,7 @@ import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
 import PublishResult from "@/wiki/cx/publishResult";
-
+import { getUrl } from "@/utils/articleUrlFactory";
 export default {
   name: "SxPublisher",
   components: {
@@ -96,13 +96,12 @@ export default {
      * @param {PublishResult} publishResult
      */
     handlePublishResult(publishResult) {
-      if (publishResult.isSuccessful) {
-        const { origin, pathname } = window.location;
-        const articleTitle = this.suggestion.targetTitle;
-        window.location.href = `${origin}/${pathname}/${articleTitle}#${this.translatedTitle}`;
-      } else {
+      if (!publishResult.isSuccessful) {
         this.publishResult = publishResult;
+        return;
       }
+      const newSectionPath = `${this.suggestion.targetTitle}#${this.translatedTitle}`;
+      window.location.href = getUrl(newSectionPath);
     },
     async publishTranslation() {
       /**
