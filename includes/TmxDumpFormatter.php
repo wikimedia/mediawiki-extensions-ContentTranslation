@@ -52,6 +52,7 @@ class TmxDumpFormatter {
 
 	public function close() {
 		$this->xml->endElement(); // body
+		// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
 		$this->xml->endElement(); // tmx
 
 		return $this->xml->flush();
