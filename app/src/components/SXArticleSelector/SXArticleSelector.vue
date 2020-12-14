@@ -8,9 +8,7 @@
     />
     <section class="sx-article-selector__body">
       <sx-article-language-selector />
-      <sx-article-selector-existing-translation-banner
-        :section-suggestion="currentSectionSuggestion"
-      />
+      <existing-article-banner />
       <mw-row class="sx-article-selector__action pt-4 pb-3" justify="center">
         <mw-button
           :large="true"
@@ -48,13 +46,13 @@ import {
   mwIconArrowNext
 } from "@/lib/mediawiki.ui/components/icons";
 import autonymMixin from "@/mixins/autonym";
-import SxArticleSelectorHeader from "@/components/SXArticleSelector/SXArticleSelectorHeader";
-import SxArticleSelectorExistingTranslationBanner from "@/components/SXArticleSelector/ExistingTranslationBanner";
+import SxArticleSelectorHeader from "./SXArticleSelectorHeader";
+import ExistingArticleBanner from "./ExistingArticleBanner";
 
 export default {
   name: "SxArticleSelector",
   components: {
-    SxArticleSelectorExistingTranslationBanner,
+    ExistingArticleBanner,
     SxArticleSelectorHeader,
     MwRow,
     SxArticleLanguageSelector,

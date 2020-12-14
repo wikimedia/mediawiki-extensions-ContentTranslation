@@ -1,4 +1,4 @@
-import ExistingTranslationBanner from "./ExistingTranslationBanner";
+import ExistingArticleBanner from "./ExistingArticleBanner";
 import { mount, createLocalVue } from "@vue/test-utils";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import VueBananaI18n from "vue-banana-i18n";
@@ -14,25 +14,24 @@ describe("SXArticleSelector Existing Translation Banner Navigation test", () => 
     targetLanguage: "en",
     targetTitle: "Test target title"
   });
+  const mediawikiModule = {
+    namespaced: true,
+    state: { languages: [] },
+    getters: { getLanguage: () => languageCode => languageCode }
+  };
+  const applicationModule = {
+    namespaced: true,
+    state: { currentSectionSuggestion: sectionSuggestion }
+  };
   const store = new Vuex.Store({
     modules: {
-      mediawiki: {
-        namespaced: true,
-        state: {
-          languages: []
-        },
-        getters: {
-          getLanguage: state => languageCode => languageCode
-        }
-      }
+      mediawiki: mediawikiModule,
+      application: applicationModule
     }
   });
-  const wrapper = mount(ExistingTranslationBanner, {
+  const wrapper = mount(ExistingArticleBanner, {
     localVue,
-    store,
-    propsData: {
-      sectionSuggestion
-    }
+    store
   });
 
   it("Component output matches snapshot", () => {

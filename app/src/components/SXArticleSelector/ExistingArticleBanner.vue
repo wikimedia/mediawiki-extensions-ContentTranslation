@@ -28,33 +28,28 @@
 
 <script>
 import { MwCol, MwRow } from "@/lib/mediawiki.ui";
+import { mapState } from "vuex";
 import autonymMixin from "@/mixins/autonym";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import siteMapper from "@/utils/siteMapper";
 
 export default {
-  name: "SxArticleSelectorExistingTranslationBanner",
+  name: "ExistingArticleBanner",
   components: {
     MwRow,
     MwCol
   },
   mixins: [autonymMixin],
-  props: {
-    sectionSuggestion: {
-      type: SectionSuggestion,
-      required: true
-    }
-  },
   computed: {
-    targetArticlePath() {
-      return siteMapper.getPageUrl(
-        this.sectionSuggestion.targetLanguage,
-        this.sectionSuggestion.targetTitle
-      );
-    },
-    targetLanguageAutonym() {
-      return this.getAutonym(this.sectionSuggestion.targetLanguage);
-    }
+    ...mapState({
+      sectionSuggestion: state => state.application.currentSectionSuggestion
+    }),
+    targetArticlePath: vm =>
+      siteMapper.getPageUrl(
+        vm.sectionSuggestion.targetLanguage || "",
+        vm.sectionSuggestion.targetTitle || ""
+      ),
+    targetLanguageAutonym: vm =>
+      vm.getAutonym(vm.sectionSuggestion.targetLanguage)
   }
 };
 </script>
