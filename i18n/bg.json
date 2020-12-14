@@ -201,7 +201,7 @@
 	"cx-suggestionlist-collapse": "Показване компактно",
 	"cx-suggestionlist-refresh": "Обновяване на предложенията",
 	"cx-notification-suggestions-available": "На база на предишните {{GENDER:$2|ви}} преводи на '''$1''', сега са достъпни нови предложения за превод.",
-	"cx-infobar-cannot-publish": "Не мога да публикувам превода Ви, защото това е разрешено само за по-опитните редактори на това уики.",
+	"cx-infobar-cannot-publish": "Преводът Ви не може да бъде публикуван, защото това е позволено само на по-опитни редактори в това уики.",
 	"cx-tools-linter-learn-more": "Научете повече",
 	"cx-tools-linter-title": "Проблеми със съдържанието: $1",
 	"cx-tools-linter-content": "Съдържанието не отговаря на [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter ограниченията, наложени от Уикипедия в $1]. Моля, отстранете проблемите, преди да публикувате превода.",
