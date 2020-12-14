@@ -94,33 +94,11 @@ const mutations = {
 };
 
 const getters = {
-  getCurrentPage: (state, getters, rootState, rootGetters) => () =>
+  getCurrentPage: (state, getters, rootState, rootGetters) =>
     rootGetters["mediawiki/getPage"](
       state.currentSectionSuggestion.sourceLanguage,
       state.currentSectionSuggestion.sourceTitle
     ),
-
-  /**
-   * Get selected sentence for a section defined by
-   * the given language, title and source title
-   * @param {String} sourceLanguage
-   * @param {String} sourceTitle
-   * @param {String} sectionTitle
-   * @return {SectionSentence|null}
-   */
-  getSelectedSentenceForPageSection: (
-    state,
-    getters,
-    rootState,
-    rootGetters
-  ) => (sourceLanguage, sourceTitle, sectionTitle) => {
-    const page = rootGetters["mediawiki/getPage"](sourceLanguage, sourceTitle);
-    const section = rootGetters["mediawiki/getPageSection"](page, sectionTitle);
-    if (!section) {
-      return null;
-    }
-    return section.sentences.find(sentence => sentence.selected);
-  },
 
   getCurrentSourceSectionTitle: state =>
     state.currentSourceSection?.title || "",
@@ -182,14 +160,11 @@ const actions = {
     commit("setCurrentSectionSuggestion", suggestion);
   },
   async selectPageSection(
-    { state, commit, dispatch, rootGetters },
+    { state, commit, dispatch, rootGetters, getters },
     { sectionTitle }
   ) {
     const suggestion = state.currentSectionSuggestion;
-    const page = rootGetters["mediawiki/getPage"](
-      suggestion.sourceLanguage,
-      suggestion.sourceTitle
-    );
+    const page = getters.getCurrentPage;
     let section = rootGetters["mediawiki/getPageSection"](page, sectionTitle);
 
     if (!section) {

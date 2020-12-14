@@ -82,7 +82,7 @@ const actions = {
     });
   },
   async publishTranslation({ rootState, rootGetters }) {
-    const page = rootGetters["application/getCurrentPage"]();
+    const page = rootGetters["application/getCurrentPage"];
     const section = rootState.application.currentSourceSection;
     const sectionSuggestion = rootState.application.currentSectionSuggestion;
 
