@@ -163,6 +163,25 @@ const getters = {
 };
 
 const actions = {
+  fetchCurrentSectionSuggestionLanguageTitles({ dispatch, state }) {
+    const { sourceLanguage, sourceTitle } = state.currentSectionSuggestion;
+    const payload = { language: sourceLanguage, title: sourceTitle };
+    dispatch("mediawiki/fetchLanguageTitles", payload, { root: true });
+  },
+  setTranslationURLParams({ state }) {
+    if (!history.pushState) {
+      return;
+    }
+    let url = new URL(location.href);
+    const params = new URLSearchParams(location.search);
+    params.set("page", state.currentSectionSuggestion?.sourceTitle);
+    params.set("from", state.currentSectionSuggestion?.sourceLanguage);
+    params.set("to", state.currentSectionSuggestion?.targetLanguage);
+    params.set("sx", true);
+    url.search = params;
+    url = url.toString();
+    history.replaceState({ url }, null, url);
+  },
   setCurrentSectionSuggestion({ commit }, suggestion) {
     commit("setCurrentSectionSuggestion", suggestion);
   },

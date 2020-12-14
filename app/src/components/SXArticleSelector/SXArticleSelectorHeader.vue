@@ -1,5 +1,6 @@
 <template>
   <mw-row
+    v-if="sourceArticle"
     class="sx-article-selector__header ma-0 pa-2"
     align="stretch"
     justify="start"
@@ -58,13 +59,12 @@ import {
   MwRow,
   MwCol
 } from "@/lib/mediawiki.ui";
-import Page from "@/wiki/mw/models/page";
 import {
   mwIconBookmarkOutline,
   mwIconClose,
   mwIconLanguage
 } from "@/lib/mediawiki.ui/components/icons";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "SxArticleSelectorHeader",
   components: {
@@ -74,38 +74,26 @@ export default {
     MwThumbnail,
     MwButton
   },
-  props: {
-    sourceArticle: {
-      type: Page,
-      required: true
-    },
-    sectionSuggestion: {
-      type: SectionSuggestion,
-      required: true
-    }
-  },
   data: () => ({
     mwIconBookmarkOutline,
     mwIconClose,
     mwIconLanguage
   }),
   computed: {
-    sourceTitle() {
-      return this.sectionSuggestion?.sourceTitle;
-    },
-    sourceArticleThumbnail() {
-      return this.sourceArticle?.thumbnail;
-    },
-    langLinksCount() {
-      return this.sourceArticle?.langLinksCount;
-    },
-    weeklyViews() {
-      const pageViews = this.sourceArticle?.pageviews || {};
-      return Object.values(pageViews).reduce(
+    ...mapState({
+      sectionSuggestion: state => state.application.currentSectionSuggestion
+    }),
+    ...mapGetters({
+      sourceArticle: "application/getCurrentPage"
+    }),
+    sourceTitle: vm => vm.sectionSuggestion?.sourceTitle,
+    sourceArticleThumbnail: vm => vm.sourceArticle?.thumbnail,
+    langLinksCount: vm => vm.sourceArticle?.langLinksCount,
+    weeklyViews: vm =>
+      Object.values(vm.sourceArticle?.pageviews || {}).reduce(
         (sum, dayViews) => sum + dayViews,
         0
-      );
-    }
+      )
   }
 };
 </script>
