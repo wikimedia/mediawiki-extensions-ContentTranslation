@@ -66,6 +66,7 @@ import {
   mwIconArrowForward,
   mwIconArrowNext
 } from "@/lib/mediawiki.ui/components/icons";
+import siteMapper from "@/utils/siteMapper";
 
 export default {
   name: "CxTranslationWork",
@@ -93,14 +94,13 @@ export default {
      * @param {Translation} translation
      */
     startTranslation(translation) {
-      const sitemapper = new mw.cx.SiteMapper();
       // Set CX token as cookie.
-      sitemapper.setCXToken(
+      siteMapper.setCXToken(
         translation.sourceLanguage,
         translation.targetLanguage,
         translation.sourceTitle
       );
-      location.href = sitemapper.getCXUrl(
+      location.href = siteMapper.getCXUrl(
         translation.sourceTitle,
         translation.targetTitle,
         translation.sourceLanguage,

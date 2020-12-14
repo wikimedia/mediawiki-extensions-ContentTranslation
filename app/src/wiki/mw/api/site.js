@@ -1,6 +1,6 @@
 import Language from "../models/language";
 import MTProviderGroup from "../models/mtProviderGroup";
-
+import siteMapper from "../../../utils/siteMapper";
 /**
  * Fetch languages information for the supported languages in wikipedia.
  * The api can be used with any wikipedia since output is same. Hence the
@@ -21,8 +21,7 @@ function fetchLanguages(language = "en", licontinue) {
   if (licontinue) {
     params["licontinue"] = licontinue;
   }
-  const sitemapper = new mw.cx.SiteMapper();
-  const mwApi = sitemapper.getApi(language);
+  const mwApi = siteMapper.getApi(language);
   return mwApi.get(params).then(async response => {
     let licontinue = response.continue?.licontinue;
     let results = response.query.languageinfo;
@@ -40,8 +39,7 @@ function fetchLanguages(language = "en", licontinue) {
 }
 
 async function fetchSupportedLanguageCodes() {
-  const sitemapper = new mw.cx.SiteMapper();
-  return await sitemapper
+  return await siteMapper
     .getLanguagePairs()
     .then(response => response.sourceLanguages);
 }
@@ -54,8 +52,7 @@ async function fetchSupportedLanguageCodes() {
  * @return {Promise<Readonly<MTProviderGroup>>}
  */
 async function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
-  const sitemapper = new mw.cx.SiteMapper();
-  const cxserverAPI = sitemapper.getCXServerUrl(
+  const cxserverAPI = siteMapper.getCXServerUrl(
     `/list/pair/${sourceLanguage}/${targetLanguage}`
   );
 

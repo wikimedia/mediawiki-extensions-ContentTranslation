@@ -1,5 +1,6 @@
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
+import siteMapper from "../../../utils/siteMapper";
 
 /**
  * @param {String} sourceLanguage
@@ -17,8 +18,7 @@ async function fetchSuggestions(
   if (seedArticleTitle) {
     apiModule += `/${seedArticleTitle}`;
   }
-  const sitemapper = new mw.cx.SiteMapper();
-  const apiURL = sitemapper.getRestbaseUrl(targetLanguage, apiModule);
+  const apiURL = siteMapper.getRestbaseUrl(targetLanguage, apiModule);
   const params = new URLSearchParams({ count });
   const suggestedResults = await fetch(`${apiURL}?${params}`)
     .then(response =>
@@ -51,9 +51,8 @@ async function fetchSectionSuggestions(
   sourceTitle,
   targetLanguage
 ) {
-  const sitemapper = new mw.cx.SiteMapper();
   // Example: https://cxserver.wikimedia.org/v2/suggest/sections/Sitar/en/ml
-  const cxserverAPI = sitemapper.getCXServerUrl(
+  const cxserverAPI = siteMapper.getCXServerUrl(
     `/suggest/sections/${sourceTitle}/${sourceLanguage}/${targetLanguage}`
   );
   const suggestedSectionResult = await fetch(cxserverAPI)

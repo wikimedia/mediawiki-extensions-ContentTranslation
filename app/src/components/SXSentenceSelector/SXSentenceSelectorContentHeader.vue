@@ -21,7 +21,7 @@
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
 import { mapActions, mapState } from "vuex";
-const sitemapper = new mw.cx.SiteMapper();
+import siteMapper from "@/utils/siteMapper";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
@@ -38,7 +38,7 @@ export default {
     }),
     sourceSectionTitle: vm => vm.currentPageSection?.title,
     sourceArticlePath: vm =>
-      sitemapper.getPageUrl(
+      siteMapper.getPageUrl(
         vm.suggestion.sourceLanguage,
         vm.suggestion.sourceTitle
       ),

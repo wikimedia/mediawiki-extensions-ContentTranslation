@@ -1,7 +1,7 @@
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
-import PageSection from "../../../wiki/cx/models/pageSection";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
+import siteMapper from "../../../utils/siteMapper";
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
@@ -24,8 +24,7 @@ function fetchPages(language, titles) {
     redirects: true
   };
 
-  const sitemapper = new mw.cx.SiteMapper();
-  const mwApi = sitemapper.getApi(language);
+  const mwApi = siteMapper.getApi(language);
   return mwApi.get(params).then(response => {
     const apiResponse = response.query.pages;
     const redirects = response.query.redirects || [];
@@ -61,8 +60,7 @@ function fetchLanguageTitles(language, title) {
     origin: "*",
     redirects: true
   };
-  const sitemapper = new mw.cx.SiteMapper();
-  const mwApi = sitemapper.getApi(language);
+  const mwApi = siteMapper.getApi(language);
   return mwApi.get(params).then(async response => {
     const pages = response.query.pages;
     // When invalid title is provided a dummy page is return with "missing"
@@ -138,9 +136,8 @@ function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
  * @return {Promise<String>}
  */
 const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
-  const sitemapper = new mw.cx.SiteMapper();
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
-  const cxserverAPI = sitemapper.getCXServerUrl(
+  const cxserverAPI = siteMapper.getCXServerUrl(
     `/page/${sourceLanguage}/${targetLanguage}/${sourceTitle}`
   );
   return fetch(cxserverAPI)

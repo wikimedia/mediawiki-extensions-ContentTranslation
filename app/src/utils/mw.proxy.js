@@ -14,13 +14,6 @@ Api.prototype.ajax = function(params) {
   return fetch(`https://en.wikipedia.org/w/api.php?${q}`).then(r => r.json());
 };
 
-const cx = {
-  SiteMapper: function() {
-    this.getPageUrl = (language, title) =>
-      `https://${language}.wikipedia.org/wiki/${title}`;
-  }
-};
-
 const mw = {
   Api,
   util: {},
@@ -37,8 +30,7 @@ const mw = {
           return null;
       }
     }
-  },
-  cx
+  }
 };
 
 global.mw = mw;

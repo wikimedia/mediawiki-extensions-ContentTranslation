@@ -1,10 +1,8 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
-import PageSection from "../../cx/models/pageSection";
-import SectionSuggestion from "../../cx/models/sectionSuggestion";
-import Page from "../../mw/models/page";
 import PublishResult from "../../cx/publishResult";
 import { cleanupHtml } from "../../../utils/contentCleaner";
+import siteMapper from "../../../utils/siteMapper";
 
 async function fetchTranslations(offset) {
   const params = {
@@ -50,13 +48,12 @@ async function fetchSegmentTranslation(
   if (!sentence) {
     return;
   }
-  const sitemapper = new mw.cx.SiteMapper();
   let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
   if (provider !== MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY) {
     relativeUrl += `/${provider}`;
   }
 
-  const cxserverAPI = sitemapper.getCXServerUrl(relativeUrl);
+  const cxserverAPI = siteMapper.getCXServerUrl(relativeUrl);
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json" },
     method: "POST",

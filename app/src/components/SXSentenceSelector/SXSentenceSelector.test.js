@@ -10,6 +10,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 jest.mock("../../plugins/ve");
+jest.mock("../../utils/siteMapper");
 
 describe("SXSentenceSelector", () => {
   const subSections = [

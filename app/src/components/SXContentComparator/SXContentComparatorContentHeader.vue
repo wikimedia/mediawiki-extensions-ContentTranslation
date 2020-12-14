@@ -46,7 +46,7 @@
 
 <script>
 import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui";
-const sitemapper = new mw.cx.SiteMapper();
+import siteMapper from "@/utils/siteMapper";
 
 import {
   mwIconEdit,
@@ -106,7 +106,7 @@ export default {
     activeContentPath() {
       switch (this.sourceVsTargetSelection) {
         case "source_section":
-          return `${sitemapper.getPageUrl(
+          return `${siteMapper.getPageUrl(
             this.suggestion.sourceLanguage,
             this.suggestion.sourceTitle
           )}#${this.sourceSectionAnchor}`;
@@ -117,7 +117,7 @@ export default {
       }
     },
     targetArticlePath() {
-      return sitemapper.getPageUrl(
+      return siteMapper.getPageUrl(
         this.suggestion.targetLanguage,
         this.suggestion.targetTitle
       );

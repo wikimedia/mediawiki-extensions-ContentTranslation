@@ -71,7 +71,7 @@ import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
-const sitemapper = new mw.cx.SiteMapper();
+import siteMapper from "@/utils/siteMapper";
 
 export default {
   name: "SxSectionSelector",
@@ -101,13 +101,13 @@ export default {
       return this.getAutonym(this.suggestion.targetLanguage);
     },
     sourceArticlePath() {
-      return sitemapper.getPageUrl(
+      return siteMapper.getPageUrl(
         this.suggestion.sourceLanguage,
         this.suggestion.sourceTitle
       );
     },
     targetArticlePath() {
-      return sitemapper.getPageUrl(
+      return siteMapper.getPageUrl(
         this.suggestion.targetLanguage,
         this.suggestion.targetTitle
       );
