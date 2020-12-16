@@ -129,6 +129,7 @@
 	"apihelp-query+langlinkscount-example-1": "Dapatkan banyak versi bahasa lain dari halaman 'Dog'",
 	"apihelp-query+cxdeletedtranslations-description": "Dapatkan banyak terjemahan Anda yang diterbitkan di ruang nama yang dihapus setelah tanggal tertentu.",
 	"apihelp-query+cxdeletedtranslations-summary": "Dapatkan banyak terjemahan Anda yang diterbitkan dan telah dihapus.",
+	"apihelp-query+cxdeletedtranslations-param-after": "''Timestamp'' untuk hanya mendapatkan penghapusan yang lebih baru.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Ruang nama di mana terjemahan yang dihapus sebelumnya diterbitkan. Bakunya adalah ruang nama utama.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Dapatkan banyak terjemahan Anda yang dihapus, yang diterbitkan ke ruang nama utama dan dihapus setelah 2019-04-07 16:24:44",
 	"apihelp-cxpublishsection-description": "Menyimpan bagian yang dibuat menggunakan fitur terjemahan bagian ekstensi Terjemahan Konten.",
