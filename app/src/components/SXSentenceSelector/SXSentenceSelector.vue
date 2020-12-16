@@ -42,10 +42,17 @@
           />
         </div>
       </mw-col>
+      <translated-segment-card
+        v-if="isSelectedSegmentTranslated"
+        @edit-translation="editTranslation"
+        @skip-translation="skipTranslation"
+        @select-previous-segment="selectPreviousSegment"
+      />
       <!--      MwCard has a margin-bottom: 1em by default. Since this is -->
       <!--      the margin that the card jumps to when bouncing, we control-->
       <!--      card bounce through mb-0 class-->
       <proposed-translation-card
+        v-else
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
         @edit-translation="editTranslation"
@@ -69,10 +76,12 @@ import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
 
 import { loadVEModules } from "@/plugins/ve";
+import TranslatedSegmentCard from "./TranslatedSegmentCard";
 
 export default {
   name: "SxSentenceSelector",
   components: {
+    TranslatedSegmentCard,
     ProposedTranslationCard,
     SubSection,
     SxSentenceSelectorContentHeader,
@@ -96,7 +105,8 @@ export default {
       selectedProvider: state => state.application.currentMTProvider
     }),
     ...mapGetters({
-      selectedSentence: "application/getCurrentSelectedSentence"
+      selectedSentence: "application/getCurrentSelectedSentence",
+      isSelectedSegmentTranslated: "application/isSelectedSegmentTranslated"
     }),
     subSections: vm => vm.currentPageSection?.subSections,
     sourcePage: vm =>
@@ -139,13 +149,11 @@ export default {
       this.isTranslationOptionsActive = true;
       this.$store.dispatch("application/translateSegmentForAllProviders");
     },
-    editTranslation() {
+    editTranslation(content) {
       this.$router.push({
         name: "sx-editor",
         params: {
-          content: this.$store.getters[
-            "application/getCurrentProposedTranslation"
-          ],
+          content,
           language: this.suggestion.targetLanguage,
           originalContent: this.originalSegmentContent
         }

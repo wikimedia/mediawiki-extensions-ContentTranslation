@@ -393,5 +393,10 @@
 	"cx-dashboard-experimental-support-banner-title": "Mobile support is experimental",
 	"cx-dashboard-experimental-support-banner-description": "You can expand existing articles by translating a new section. However, some features from desktop are not available yet.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Learn more",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Share your feedback"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Share your feedback",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "No edits by you",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> edited by you",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Your translation",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Sentence",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraph"
 }

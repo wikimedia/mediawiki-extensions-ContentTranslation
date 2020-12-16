@@ -28,7 +28,10 @@ describe("SXSentenceSelector", () => {
       currentSourceSection: { subSections },
       currentMTProvider: "Apertium"
     },
-    getters: { getCurrentSelectedSentence: () => new SectionSentence() },
+    getters: {
+      getCurrentSelectedSentence: () => new SectionSentence(),
+      isSelectedSegmentTranslated: () => false
+    },
     mutations: { setIsSectionTitleSelectedForTranslation: () => {} }
   };
   const mediawikiModule = {

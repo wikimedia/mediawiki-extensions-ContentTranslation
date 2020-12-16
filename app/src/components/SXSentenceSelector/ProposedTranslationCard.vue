@@ -26,7 +26,7 @@
           class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
           progressive
           :disabled="!hasProposedTranslation"
-          @click="$emit('edit-translation')"
+          @click="$emit('edit-translation', proposedTranslation)"
         />
         <proposed-translation-action-buttons v-on="$listeners" />
       </mw-col>
@@ -68,12 +68,12 @@ export default {
     headerAndFooterHeight: 0
   }),
   computed: {
-    ...mapState({
-      mtProvider: state => state.application.currentMTProvider
-    }),
+    ...mapState({ mtProvider: state => state.application.currentMTProvider }),
     ...mapGetters({
       proposedTranslation: "application/getCurrentProposedTranslation"
     }),
+    proposedTranslation: vm =>
+      vm.$store.getters["application/getCurrentProposedTranslation"],
     contentsStyle: vm => ({
       "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
     }),

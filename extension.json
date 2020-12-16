@@ -460,7 +460,13 @@
 				"cx-dashboard-experimental-support-banner-title",
 				"cx-dashboard-experimental-support-banner-description",
 				"cx-dashboard-experimental-support-banner-learn-more-anchor",
-				"cx-dashboard-experimental-support-banner-share-feedback-anchor"
+				"cx-dashboard-experimental-support-banner-share-feedback-anchor",
+				"cx-sx-publisher-review-info-learn-more",
+				"cx-sx-sentence-selector-translated-segment-no-edits-label",
+				"cx-sx-sentence-selector-translated-segment-modification-percentage",
+				"cx-sx-sentence-selector-translated-segment-modification-percentage-header",
+				"cx-sx-sentence-selector-translated-segment-sentence-option",
+				"cx-sx-sentence-selector-translated-segment-paragraph-option"
 			],
 			"noflip": true
 		},

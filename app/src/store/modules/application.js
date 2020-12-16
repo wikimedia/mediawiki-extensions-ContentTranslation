@@ -165,6 +165,9 @@ const getters = {
       getters.getCurrentSourceSectionTitle
     ),
 
+  /**
+   * @return {SectionSentence|null}
+   */
   getCurrentSelectedSentence: (state, getters) =>
     getters.getCurrentSourceSectionSentences.find(
       sentence => sentence.selected
@@ -210,7 +213,15 @@ const getters = {
     rootGetters["mediawiki/getLanguageTitleGroup"](
       state.currentSectionSuggestion.sourceLanguage,
       state.currentSectionSuggestion.sourceTitle
-    )
+    ),
+
+  /**
+   * @return {boolean}
+   */
+  isSelectedSegmentTranslated: (state, getters) =>
+    state.isSectionTitleSelectedForTranslation
+      ? !!state.currentSourceSection.translatedTitle
+      : !!getters.getCurrentSelectedSentence?.isTranslated
 };
 
 const actions = {
@@ -382,6 +393,9 @@ const actions = {
     commit("setIsSectionTitleSelectedForTranslation", false);
     const sentences = getters.getCurrentSourceSectionSentences;
     const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
+    if (nextIndex >= sentences.length) {
+      return;
+    }
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
 
