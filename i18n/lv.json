@@ -338,5 +338,6 @@
 	"cx-sx-publisher-success-animation-clarification": "Atver lapu…",
 	"cx-sx-publisher-failure-animation-title": "Publicēšana neizdevās",
 	"cx-sx-publisher-failure-animation-clarification": "Pārbaudi kļūdu paziņojumus",
-	"cx-sx-publish-summary": "Izveidots, tulkojot lapas \"$2\" sadaļu \"$1\""
+	"cx-sx-publish-summary": "Izveidots, tulkojot lapas \"$2\" sadaļu \"$1\"",
+	"cx-sx-publisher-sandbox-option-details": "Publicē savā personīgajā telpā, lai pārskatītu un pārkopētu citur."
 }
