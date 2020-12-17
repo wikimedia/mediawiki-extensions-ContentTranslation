@@ -24,12 +24,16 @@ export default {
         );
 
         segment.classList.add(sentenceClass, "py-1", "me-1");
-        segment.classList.remove(`${sentenceClass}--selected`);
+        const highLightPostfixes = ["untranslated", "translated"];
+        const selectedPrefix = `${sentenceClass}--selected`;
+        segment.classList.remove(
+          ...highLightPostfixes.map(postfix => `${selectedPrefix}-${postfix}`)
+        );
         if (sentence.selected) {
-          segment.classList.add(`${sentenceClass}--selected`);
-        }
-        if (sentence.isTranslated) {
-          segment.classList.add(`${sentenceClass}--translated`);
+          const highLightPostfix = sentence.isTranslated
+            ? "translated"
+            : "untranslated";
+          segment.classList.add(`${selectedPrefix}-${highLightPostfix}`);
         }
         segment.innerHTML = sentence.content;
       });
@@ -62,7 +66,12 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 @padding: 4px;
-
+.highlight(@color) {
+  box-decoration-break: clone;
+  color: @color-base;
+  background-color: @color;
+  box-shadow: @padding 0 0 @color, -@padding 0 0 @color;
+}
 .sx-sentence-selector__section-sentence {
   a {
     pointer-events: none;
@@ -72,18 +81,12 @@ export default {
   color: @color-base--subtle;
 
   &--selected {
-    box-decoration-break: clone;
-    color: @color-base;
-    background-color: @wmui-color-yellow90;
-    box-shadow: @padding 0 0 @wmui-color-yellow90,
-      -@padding 0 0 @wmui-color-yellow90;
-  }
-  &--translated {
-    box-decoration-break: clone;
-    color: @color-base;
-    background-color: @background-color-primary;
-    box-shadow: @padding 0 0 @background-color-primary,
-      -@padding 0 0 @background-color-primary;
+    &-translated {
+      .highlight(@background-color-primary);
+    }
+    &-untranslated {
+      .highlight(@wmui-color-yellow90);
+    }
   }
 }
 </style>

@@ -38,7 +38,7 @@ exports[`SXSentenceSelector Section Content Header Component output matches snap
   </a>
    
   <h2
-    class="sx-sentence-selector__section-title pa-0 ma-0"
+    class="pa-0 ma-0 sx-sentence-selector__section-title"
   >
     Test source section title
   </h2>

@@ -9,8 +9,8 @@
       <mw-icon :icon="mwIconLinkExternal" class="ms-1" size="12" />
     </a>
     <h2
-      class="sx-sentence-selector__section-title pa-0 ma-0"
-      :class="titleClass"
+      class="pa-0 ma-0"
+      :class="titleClasses"
       @click="selectSectionTitle"
       v-text="sourceSectionTitle"
     />
@@ -27,7 +27,8 @@ export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
   data: () => ({
-    mwIconLinkExternal
+    mwIconLinkExternal,
+    titleClass: "sx-sentence-selector__section-title"
   }),
   computed: {
     ...mapState({
@@ -43,12 +44,15 @@ export default {
         vm.suggestion.sourceTitle
       ),
     isSectionTitleTranslated: vm => !!vm.currentPageSection?.translatedTitle,
-    titleClass: vm => ({
-      "sx-sentence-selector__section-title--selected":
-        vm.isSectionTitleSelected,
-      "sx-sentence-selector__section-title--translated":
-        vm.isSectionTitleTranslated
-    })
+    highLightClassPostfix: vm =>
+      vm.isSectionTitleTranslated ? "translated" : "selected",
+    titleClasses: vm => {
+      const classes = [vm.titleClass];
+      if (vm.isSectionTitleSelected) {
+        classes.push(`${vm.titleClass}--${vm.highLightClassPostfix}`);
+      }
+      return classes;
+    }
   },
   methods: {
     ...mapActions({
