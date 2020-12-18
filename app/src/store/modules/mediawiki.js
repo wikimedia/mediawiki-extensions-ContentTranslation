@@ -82,8 +82,11 @@ const getters = {
   getLanguage: state => languageCode =>
     state.languages.find(language => language.code === languageCode),
 
-  getPageSection: state => (page, sectionTitle) =>
-    (page?.sections || []).find(section => section.title === sectionTitle),
+  getPageSection: state => (page, sectionTitle) => {
+    return (page?.sections || []).find(
+      section => section.originalTitle === sectionTitle
+    );
+  },
 
   /**
    * Get MTProviderGroup for the given language pair

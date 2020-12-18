@@ -101,7 +101,7 @@ const getters = {
     ),
 
   getCurrentSourceSectionTitle: state =>
-    state.currentSourceSection?.title || "",
+    state.currentSourceSection?.originalTitle || "",
 
   getCurrentSourceSectionAnchor: (state, getters) =>
     (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
