@@ -348,11 +348,12 @@ const actions = {
     { state, dispatch },
     { translation }
   ) {
-    if (state.isSectionTitleSelectedForTranslation) {
-      const div = document.createElement("div");
-      div.innerHTML = translation;
-      translation = div.innerText;
-    }
+    const div = document.createElement("div");
+    div.innerHTML = translation;
+    // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
+    // by default when VE initial content is empty).
+    div.querySelectorAll(".sx-edit-dummy-node").forEach(el => el.remove());
+    translation = div.innerHTML;
 
     dispatch("applyTranslationToSelectedSegment", { translation });
   },

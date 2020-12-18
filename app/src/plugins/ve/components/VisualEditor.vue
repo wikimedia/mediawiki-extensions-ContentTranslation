@@ -73,7 +73,10 @@ export default {
       // Create a document model for a new surface
       this.veTarget.clearSurfaces();
       const dmDoc = ve.dm.converter.getModelFromDom(
-        ve.createDocumentFromHtml(this.content),
+        ve.createDocumentFromHtml(
+          // When content is empty, add a dummy span node so that VE doesn't add a new paragraph
+          this.content || "<span class='sx-edit-dummy-node' />"
+        ),
         { lang: this.language, dir: this.dir }
       );
       this.veSurface = this.veTarget.createSurface(dmDoc);
