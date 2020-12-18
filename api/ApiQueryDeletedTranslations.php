@@ -17,7 +17,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 
 	public function execute() {
 		$user = $this->getUser();
-		if ( !$user->isLoggedIn() ) {
+		if ( !$user->isRegistered() ) {
 			$this->dieWithError( 'apierror-mustbeloggedin-generic', 'mustbeloggedin' );
 		}
 

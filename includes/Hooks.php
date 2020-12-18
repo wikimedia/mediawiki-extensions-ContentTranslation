@@ -293,7 +293,7 @@ class Hooks {
 			return;
 		}
 
-		$isValidEditContext = $user->isLoggedIn() &&
+		$isValidEditContext = $user->isRegistered() &&
 			!$newPage->getTitle()->exists() &&
 			$newPage->getTitle()->inNamespace( NS_MAIN );
 

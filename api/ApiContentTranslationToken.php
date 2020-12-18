@@ -16,7 +16,7 @@ class ApiContentTranslationToken extends ApiBase {
 			$this->dieBlocked( $user->getBlock() );
 		}
 
-		if ( !$user->isLoggedIn() ) {
+		if ( !$user->isRegistered() ) {
 			// XXX: Maybe this should use a different error code. Currently it does not
 			// matter, because most likely some other API call will fail first. CX2
 			// is also using assert=user, so this case won't be hit.

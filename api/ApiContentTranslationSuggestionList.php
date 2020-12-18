@@ -15,7 +15,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
-		if ( !$this->getUser()->isLoggedIn() ) {
+		if ( !$this->getUser()->isRegistered() ) {
 			$this->dieWithError( 'apierror-cx-mustbeloggedin-suggestions', 'notloggedin' );
 		}
 
