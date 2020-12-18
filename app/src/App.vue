@@ -13,6 +13,7 @@
 
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
+import { mapGetters } from "vuex";
 
 export default {
   name: "ContentTranslationApp",
@@ -20,6 +21,11 @@ export default {
   data: () => ({
     transitionName: ""
   }),
+  computed: {
+    ...mapGetters({
+      translationInProgressExists: "application/translationInProgressExists"
+    })
+  },
   // watch the `$route` to determine the transition to use
   watch: {
     $route(to, from) {
@@ -30,6 +36,14 @@ export default {
           ? "mw-ui-animation-slide-end"
           : "mw-ui-animation-slide-start";
     }
+  },
+  mounted() {
+    window.addEventListener("beforeunload", e => {
+      if (this.translationInProgressExists) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    });
   }
 };
 </script>

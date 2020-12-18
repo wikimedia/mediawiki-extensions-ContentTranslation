@@ -152,7 +152,14 @@ const getters = {
   getCurrentProposedTranslation: (state, getters) =>
     state.isSectionTitleSelectedForTranslation
       ? getters.getCurrentProposedTitleTranslation
-      : getters.getCurrentProposedSentenceTranslation
+      : getters.getCurrentProposedSentenceTranslation,
+
+  /**
+   * @return {boolean}
+   */
+  translationInProgressExists: state =>
+    !!state.currentSourceSection?.translatedTitle ||
+    !!state.currentSourceSection?.isTranslated
 };
 
 const actions = {
