@@ -229,7 +229,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 					// "User" as menu option for user's page.
 					if ( $key === 'userpage' ) {
 						$menuItem[ 'text' ] =
-							wfMessage( 'cx-personaltools-user' )->inContentLanguage()->text();
+							$this->msg( 'cx-personaltools-user' )->inContentLanguage()->text();
 						$personalMenuItems[ 'user' ] = $menuItem;
 					} else {
 						$personalMenuItems[] = $menuItem;
@@ -283,7 +283,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 			if ( isset( $siteLogos[ 'wordmark' ] ) ) {
 				$attributes = $siteLogos[ 'wordmark' ] + [
 					'id' => 'cx-header__wordmark',
-					'title' => wfMessage( 'tooltip-p-logo' )->inContentLanguage()->text()
+					'title' => $this->msg( 'tooltip-p-logo' )->inContentLanguage()->text()
 				];
 
 				return Html::element( 'img', $attributes );

@@ -104,7 +104,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		$trackingCategoryKey = array_search( $trackingCategoryMsg, $categories );
 		if ( $trackingCategoryKey !== false ) {
-			$cat = wfMessage( $trackingCategoryMsg )->inContentLanguage()->plain();
+			$cat = $this->msg( $trackingCategoryMsg )->inContentLanguage()->plain();
 			$containerCategory = Title::makeTitleSafe( NS_CATEGORY, $cat );
 			if ( $cat !== '-' && $containerCategory ) {
 				// Title without namespace prefix
