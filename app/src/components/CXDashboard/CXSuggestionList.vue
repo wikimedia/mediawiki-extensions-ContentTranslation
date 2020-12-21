@@ -8,21 +8,17 @@
         />
       </template>
       <sx-translation-list-language-selector
-        :selected-source-language.sync="selectedSourceLanguage"
-        :selected-target-language.sync="selectedTargetLanguage"
         :source-languages="availableSourceLanguages"
         :target-languages="availableTargetLanguages"
       />
       <div class="cx-translation-list__division">
-        <h5 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4"></h5>
+        <h5 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4" />
       </div>
       <mw-spinner v-if="!pageSuggestionsLoaded" />
       <cx-translation-suggestion
         v-for="(suggestion, index) in pageSuggestionsForPairSubset"
         :key="`suggestion-${index}`"
         :suggestion="suggestion"
-        :from="selectedSourceLanguage"
-        :to="selectedTargetLanguage"
       />
     </mw-card>
     <mw-card
@@ -30,10 +26,7 @@
       class="cx-translation-list--sx-suggestions pa-0 mb-0"
     >
       <div class="cx-translation-list__division">
-        <h5
-          v-i18n:cx-suggestionlist-expand-sections-title
-          class="ma-0 pa-4"
-        ></h5>
+        <h5 v-i18n:cx-suggestionlist-expand-sections-title class="ma-0 pa-4" />
       </div>
       <mw-spinner v-if="!sectionSuggestionsLoaded" />
       <cx-translation-suggestion
@@ -41,8 +34,6 @@
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
-        :from="suggestion.sourceLanguage"
-        :to="suggestion.targetLanguage"
         @click="startSectionTranslation(suggestion)"
       />
     </mw-card>
@@ -85,14 +76,6 @@ export default {
     active: {
       type: Boolean,
       default: false
-    },
-    initialSourceLanguage: {
-      type: String,
-      required: true
-    },
-    initialTargetLanguage: {
-      type: String,
-      required: true
     }
   },
   data: () => ({
@@ -100,14 +83,14 @@ export default {
     pageSuggestionsLoaded: false,
     sectionSuggestionsLoaded: true,
     paginationIndex: 0,
-    pageSize: 3,
-    selectedSourceLanguage: "",
-    selectedTargetLanguage: ""
+    pageSize: 3
   }),
   computed: {
     ...mapState({
       supportedLanguageCodes: state =>
-        state.mediawiki.supportedLanguageCodes || []
+        state.mediawiki.supportedLanguageCodes || [],
+      selectedSourceLanguage: state => state.application.sourceLanguage,
+      selectedTargetLanguage: state => state.application.targetLanguage
     }),
     availableSourceLanguages() {
       return this.supportedLanguageCodes
@@ -171,22 +154,25 @@ export default {
     sectionSuggestionForPair: function() {
       this.sectionSuggestionsLoaded = true;
     },
-    active: function() {
-      if (this.active) {
-        if (!this.pageSuggestionsForPair?.length) {
-          this.getPageSuggestions({
-            sourceLanguage: this.selectedSourceLanguage,
-            targetLanguage: this.selectedTargetLanguage,
-            seed: this.seedArticleTitle
-          });
+    active: {
+      handler() {
+        if (this.active) {
+          if (!this.pageSuggestionsForPair?.length) {
+            this.getPageSuggestions({
+              sourceLanguage: this.selectedSourceLanguage,
+              targetLanguage: this.selectedTargetLanguage,
+              seed: this.seedArticleTitle
+            });
+          }
+          if (!this.sectionSuggestionForPair?.length) {
+            this.getSectionSuggestions({
+              sourceLanguage: this.selectedSourceLanguage,
+              targetLanguage: this.selectedTargetLanguage
+            });
+          }
         }
-        if (!this.sectionSuggestionForPair?.length) {
-          this.getSectionSuggestions({
-            sourceLanguage: this.selectedSourceLanguage,
-            targetLanguage: this.selectedTargetLanguage
-          });
-        }
-      }
+      },
+      immediate: true
     },
     selectedSourceLanguage() {
       this.getPageSuggestions({
@@ -203,35 +189,12 @@ export default {
       this.pageSuggestionsLoaded = false;
     }
   },
-  mounted: function() {
-    const urlParams = new URLSearchParams(location.search);
-    const isSectionTranslation = urlParams.get("sx");
-    const sourceLanguage = urlParams.get("from");
-    const targetLanguage = urlParams.get("to");
-    const sourceTitle = urlParams.get("page");
-    this.selectedSourceLanguage = sourceLanguage || this.initialSourceLanguage;
-    this.selectedTargetLanguage = targetLanguage || this.initialTargetLanguage;
+  async mounted() {
+    const suggestion = await this.$store.dispatch(
+      "application/loadSectionSuggestionFromUrl"
+    );
 
-    if (!isSectionTranslation || !sourceTitle) {
-      return;
-    }
-
-    /** Get corresponding suggestion for requested language pair and article title, if exists */
-    let suggestion = this.$store.getters[
-      "suggestions/getSectionSuggestionsForArticle"
-    ](sourceLanguage, targetLanguage, sourceTitle);
-
-    if (!suggestion) {
-      suggestion = new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle,
-        missing: {}
-      });
-      this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
-    }
-
-    this.startSectionTranslation(suggestion);
+    suggestion && this.startSectionTranslation(suggestion);
   },
   methods: {
     ...mapActions({

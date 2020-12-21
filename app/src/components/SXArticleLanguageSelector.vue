@@ -14,7 +14,7 @@
           class="mw-ui-autonym"
           :dir="getDirection(sourceLanguage)"
           v-text="getAutonym(sourceLanguage)"
-        ></span>
+        />
       </mw-button>
       <mw-dialog
         v-show="sourceLanguageSelectOn"
@@ -29,7 +29,7 @@
             class="sx-article-language-selector__widget col-12"
             :languages="availableSourceLanguages"
             @select="onSourceLanguageSelected"
-          ></mw-language-selector>
+          />
         </div>
       </mw-dialog>
     </div>
@@ -48,7 +48,7 @@
           class="mw-ui-autonym"
           :dir="getDirection(targetLanguage)"
           v-text="getAutonym(targetLanguage)"
-        ></span>
+        />
       </mw-button>
       <mw-dialog
         v-show="targetLanguageSelectOn"
@@ -63,7 +63,7 @@
             class="sx-article-language-selector__widget col-12"
             :languages="targetLanguages"
             @select="onTargetLanguageSelected"
-          ></mw-language-selector>
+          />
         </div>
       </mw-dialog>
     </div>
@@ -80,9 +80,8 @@ import {
 import {
   mwIconArrowNext,
   mwIconExpand
-} from "../lib/mediawiki.ui/components/icons";
+} from "@/lib/mediawiki.ui/components/icons";
 import { mapState, mapGetters } from "vuex";
-import SectionSuggestion from "../wiki/cx/models/sectionSuggestion";
 import autonymMixin from "../mixins/autonym";
 
 export default {
@@ -105,91 +104,47 @@ export default {
       currentSectionSuggestion: state =>
         state.application.currentSectionSuggestion,
       supportedLanguageCodes: state =>
-        state.mediawiki.supportedLanguageCodes || []
+        state.mediawiki.supportedLanguageCodes || [],
+      sourceLanguage: state => state.application.sourceLanguage,
+      targetLanguage: state => state.application.targetLanguage
     }),
     ...mapGetters({
       titleExistsInLanguageForGroup: "mediawiki/titleExistsInLanguageForGroup",
-      getTitleByLanguageForGroup: "mediawiki/getTitleByLanguageForGroup"
+      getTitleByLanguageForGroup: "mediawiki/getTitleByLanguageForGroup",
+      currentLanguageTitleGroup: "application/getCurrentLanguageTitleGroup"
     }),
-    availableSourceLanguages() {
-      // titles are provided in the following format: { lang: "en", title: "Animal" }
-      // so title.lang contains language code
-      return this.currentLanguageTitleGroup.titles
-        .filter(title => title.lang !== this.sourceLanguage)
-        .map(title => ({
-          name: this.getAutonym(title.lang),
-          code: title.lang
-        }));
-    },
-    sourceLanguage() {
-      return this.currentSectionSuggestion?.sourceLanguage;
-    },
-    targetLanguage() {
-      return this.currentSectionSuggestion?.targetLanguage;
-    },
-    sourceTitle() {
-      return this.currentSectionSuggestion?.sourceTitle;
-    },
-    targetLanguages() {
-      return this.supportedLanguageCodes
-        .filter(languageCode => languageCode !== this.sourceLanguage)
+    // titles are provided in the following format: { lang: "en", title: "Animal" }
+    // so title.lang contains language code
+    availableSourceLanguages: vm =>
+      vm.currentLanguageTitleGroup?.titles
+        .filter(title => title.lang !== vm.sourceLanguage)
+        .map(title => vm.createLanguageOption(title.lang)),
+    sourceTitle: vm => vm.currentSectionSuggestion?.sourceTitle,
+    targetLanguages: vm =>
+      vm.supportedLanguageCodes
+        .filter(languageCode => languageCode !== vm.sourceLanguage)
         .reduce(
           (languages, languageCode) => [
             ...languages,
-            { name: this.getAutonym(languageCode), code: languageCode }
+            vm.createLanguageOption(languageCode)
           ],
           []
-        );
-    },
-    currentLanguageTitleGroup() {
-      return this.$store.getters["mediawiki/getLanguageTitleGroup"](
-        this.sourceLanguage,
-        this.sourceTitle
-      );
-    },
-    currentWikidataId() {
-      return this.currentLanguageTitleGroup.wikidataId;
-    }
+        )
   },
   methods: {
+    createLanguageOption(code) {
+      return { name: this.getAutonym(code), code };
+    },
     openSourceLanguageDialog() {
       this.sourceLanguageSelectOn = true;
     },
     onSourceLanguageSelected(sourceLanguage) {
       this.sourceLanguageSelectOn = false;
-      const targetLanguage =
-        sourceLanguage === this.targetLanguage ? null : this.targetLanguage;
-      const sourceTitle = this.getTitleByLanguageForGroup(
-        this.currentWikidataId,
-        sourceLanguage
-      );
-
-      this.updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle);
+      this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
     },
     onTargetLanguageSelected(targetLanguage) {
       this.targetLanguageSelectOn = false;
-      const { sourceLanguage, sourceTitle } = this.currentSectionSuggestion;
-      this.updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle);
-    },
-    updateSectionSuggestion(sourceLanguage, targetLanguage, sourceTitle) {
-      const suggestion = new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle,
-        missing: {}
-      });
-
-      if (
-        this.titleExistsInLanguageForGroup(
-          this.currentWikidataId,
-          targetLanguage
-        )
-      ) {
-        this.$store.dispatch("suggestions/loadSectionSuggestion", suggestion);
-        return;
-      }
-
-      this.$store.commit("application/setCurrentSectionSuggestion", suggestion);
+      this.$store.dispatch("application/updateTargetLanguage", targetLanguage);
     },
     onSourceLanguageDialogClose() {
       this.sourceLanguageSelectOn = false;

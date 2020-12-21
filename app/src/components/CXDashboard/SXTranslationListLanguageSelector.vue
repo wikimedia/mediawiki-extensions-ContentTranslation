@@ -84,6 +84,7 @@ import {
   mwIconArrowNext,
   mwIconExpand
 } from "@/lib/mediawiki.ui/components/icons";
+import { mapState } from "vuex";
 
 export default {
   name: "SxTranslationListLanguageSelector",
@@ -95,14 +96,6 @@ export default {
   },
   mixins: [autonymMixin],
   props: {
-    selectedSourceLanguage: {
-      type: String,
-      required: true
-    },
-    selectedTargetLanguage: {
-      type: String,
-      required: true
-    },
     sourceLanguages: {
       type: Array,
       required: true
@@ -118,6 +111,12 @@ export default {
     sourceLanguageSelectOn: false,
     targetLanguageSelectOn: false
   }),
+  computed: {
+    ...mapState({
+      selectedSourceLanguage: state => state.application.sourceLanguage,
+      selectedTargetLanguage: state => state.application.targetLanguage
+    })
+  },
   methods: {
     openSourceLanguageDialog() {
       this.sourceLanguageSelectOn = true;
@@ -133,11 +132,11 @@ export default {
     },
     onSourceLanguageSelected(sourceLanguage) {
       this.sourceLanguageSelectOn = false;
-      this.$emit("update:selected-source-language", sourceLanguage);
+      this.$store.commit("application/setSourceLanguage", sourceLanguage);
     },
     onTargetLanguageSelected(targetLanguage) {
       this.targetLanguageSelectOn = false;
-      this.$emit("update:selected-target-language", targetLanguage);
+      this.$store.commit("application/setTargetLanguage", targetLanguage);
     }
   }
 };

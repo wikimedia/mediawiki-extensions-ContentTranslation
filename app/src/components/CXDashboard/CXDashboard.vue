@@ -10,8 +10,6 @@
     </nav>
     <cx-suggestion-list
       class="col-12 pa-0 ma-0"
-      :initial-source-language="sourceLanguage"
-      :initial-target-language="targetLanguage"
       :active="active === 'suggestions'"
     />
     <cx-translation-list
@@ -54,9 +52,7 @@ export default {
     mwIconArticleCheck,
     mwIconLightBulb,
     mwIconEdit,
-    active: "suggestions",
-    sourceLanguage: "en",
-    targetLanguage: "es"
+    active: "suggestions"
   }),
   computed: {
     listSelector() {

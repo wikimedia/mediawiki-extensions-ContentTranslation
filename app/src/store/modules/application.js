@@ -1,4 +1,5 @@
 import Vue from "vue";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
 const state = {
   /** @type SectionSuggestion */
@@ -8,7 +9,24 @@ const state = {
   /** @type Boolean */
   isSectionTitleSelectedForTranslation: false,
   /** @type String */
-  currentMTProvider: ""
+  currentMTProvider: "",
+  /**
+   *
+   * Current source language for sx application.
+   * Currently selected section suggestion also
+   * has the same source language. It can be
+   * changed by using the language selector.
+   * @type String
+   */
+  sourceLanguage: "en",
+  /**
+   * Current target language for sx application.
+   * Currently selected section suggestion also
+   * has the same target language. It can be
+   * changed by using the language selector.
+   * @type String
+   */
+  targetLanguage: "es"
 };
 
 const mutations = {
@@ -90,6 +108,14 @@ const mutations = {
    */
   setCurrentMTProvider: (state, provider) => {
     state.currentMTProvider = provider;
+  },
+
+  setSourceLanguage: (state, language) => {
+    state.sourceLanguage = language;
+  },
+
+  setTargetLanguage: (state, language) => {
+    state.targetLanguage = language;
   }
 };
 
@@ -135,6 +161,7 @@ const getters = {
     getters.getCurrentSourceSectionSentences.findIndex(
       sentence => sentence.selected
     ),
+
   /**
    * Machine translation of section title for currently selected MT provider
    */
@@ -142,6 +169,7 @@ const getters = {
     state.currentSourceSection?.proposedTitleTranslations[
       state.currentMTProvider
     ] || "",
+
   /**
    * Machine translation of currently selected sentence for currently selected MT provider
    */
@@ -149,6 +177,7 @@ const getters = {
     getters.getCurrentSelectedSentence?.proposedTranslations[
       state.currentMTProvider
     ] || "",
+
   getCurrentProposedTranslation: (state, getters) =>
     state.isSectionTitleSelectedForTranslation
       ? getters.getCurrentProposedTitleTranslation
@@ -159,14 +188,95 @@ const getters = {
    */
   translationInProgressExists: state =>
     !!state.currentSourceSection?.translatedTitle ||
-    !!state.currentSourceSection?.isTranslated
+    !!state.currentSourceSection?.isTranslated,
+
+  /**
+   * @return {LanguageTitleGroup}
+   */
+  getCurrentLanguageTitleGroup: (state, getters, rootState, rootGetters) =>
+    rootGetters["mediawiki/getLanguageTitleGroup"](
+      state.currentSectionSuggestion.sourceLanguage,
+      state.currentSectionSuggestion.sourceTitle
+    )
 };
 
 const actions = {
-  fetchCurrentSectionSuggestionLanguageTitles({ dispatch, state }) {
+  updateSourceLanguage({ commit, state, getters, dispatch }, sourceLanguage) {
+    commit("setSourceLanguage", sourceLanguage);
+    if (sourceLanguage === state.targetLanguage) {
+      commit("setTargetLanguage", null);
+    }
+    const sourceTitle = getters.getCurrentLanguageTitleGroup.getTitleForLanguage(
+      sourceLanguage
+    );
+    const suggestion = new SectionSuggestion({
+      sourceLanguage,
+      targetLanguage: state.targetLanguage,
+      sourceTitle,
+      missing: {}
+    });
+
+    if (
+      getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)
+    ) {
+      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
+      return;
+    }
+
+    commit("setCurrentSectionSuggestion", suggestion);
+  },
+  updateTargetLanguage({ commit, state, getters, dispatch }, targetLanguage) {
+    commit("setTargetLanguage", targetLanguage);
+    const suggestion = new SectionSuggestion({
+      sourceLanguage: state.sourceLanguage,
+      targetLanguage,
+      sourceTitle: state.currentSectionSuggestion.sourceTitle,
+      missing: {}
+    });
+
+    if (getters.getCurrentLanguageTitleGroup.hasLanguage(targetLanguage)) {
+      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
+      return;
+    }
+    commit("setCurrentSectionSuggestion", suggestion);
+  },
+  /**
+   * @return {SectionSuggestion|void}
+   */
+  loadSectionSuggestionFromUrl({ commit, rootGetters, state, dispatch }) {
+    const urlParams = new URLSearchParams(location.search);
+    const isSectionTranslation = urlParams.get("sx");
+    const sourceTitle = urlParams.get("page");
+    const sourceLanguage = urlParams.get("from");
+    const targetLanguage = urlParams.get("to");
+    sourceLanguage && commit("setSourceLanguage", sourceLanguage);
+    targetLanguage && commit("setTargetLanguage", targetLanguage);
+    if (!isSectionTranslation || !sourceTitle) {
+      return;
+    }
+
+    /** Get corresponding suggestion for requested language pair and article title, if exists */
+    let suggestion = rootGetters["suggestions/getSectionSuggestionsForArticle"](
+      state.sourceLanguage,
+      state.targetLanguage,
+      sourceTitle
+    );
+
+    if (!suggestion) {
+      suggestion = new SectionSuggestion({
+        sourceLanguage: state.sourceLanguage,
+        targetLanguage: state.targetLanguage,
+        sourceTitle,
+        missing: {}
+      });
+      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
+    }
+    return suggestion;
+  },
+  async fetchCurrentSectionSuggestionLanguageTitles({ dispatch, state }) {
     const { sourceLanguage, sourceTitle } = state.currentSectionSuggestion;
     const payload = { language: sourceLanguage, title: sourceTitle };
-    dispatch("mediawiki/fetchLanguageTitles", payload, { root: true });
+    await dispatch("mediawiki/fetchLanguageTitles", payload, { root: true });
   },
   setTranslationURLParams({ state }) {
     if (!history.pushState) {
