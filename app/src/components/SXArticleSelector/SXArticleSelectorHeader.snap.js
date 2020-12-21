@@ -69,7 +69,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
     class="col shrink items-start"
   >
     <button
-      class="mw-ui-button pa-0 mw-ui-button--large mw-ui-button--icon"
+      class="mw-ui-button pa-0 mw-ui-button--icon"
     >
       <span
         class="mw-ui-button__content"
@@ -79,10 +79,10 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            height="28"
+            height="20"
             role="presentation"
             viewBox="0 0 20 20"
-            width="28"
+            width="20"
             xmlns="http://www.w3.org/2000/svg"
           >
             <!---->
@@ -104,7 +104,7 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
     </button>
      
     <button
-      class="mw-ui-button pa-0 mw-ui-button--large mw-ui-button--icon"
+      class="mw-ui-button pa-0 mw-ui-button--icon"
     >
       <span
         class="mw-ui-button__content"
@@ -114,10 +114,10 @@ exports[`SXArticleSelector Header test Component output matches snapshot 1`] = `
         >
           <svg
             aria-hidden="true"
-            height="28"
+            height="20"
             role="presentation"
             viewBox="0 0 20 20"
-            width="28"
+            width="20"
             xmlns="http://www.w3.org/2000/svg"
           >
             <!---->

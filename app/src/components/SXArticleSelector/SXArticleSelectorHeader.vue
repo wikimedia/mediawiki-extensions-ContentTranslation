@@ -34,16 +34,10 @@
       </mw-row>
     </mw-col>
     <mw-col shrink align="start">
+      <mw-button class="pa-0" type="icon" :icon="mwIconBookmarkOutline" />
       <mw-button
         class="pa-0"
         type="icon"
-        :large="true"
-        :icon="mwIconBookmarkOutline"
-      />
-      <mw-button
-        class="pa-0"
-        type="icon"
-        :large="true"
         :icon="mwIconClose"
         @click="$emit('close')"
       />
