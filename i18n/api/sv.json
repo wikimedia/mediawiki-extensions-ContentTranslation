@@ -130,5 +130,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Hämta antalet av dina publicerade översättningar som raderades.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Tidsstämpel för att endast hämta nyare raderingar.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Namnrymder som de raderade översättningarna publicerades i. Huvudnamnrymden är standard.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Hämta antalet av dina raderade översättningar som publicerades till huvudnamnrymden och raderades efter 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Hämta antalet av dina raderade översättningar som publicerades till huvudnamnrymden och raderades efter 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Spara ett avsnitt som skapades med avsnittsöversättningsfunktionen i tillägget Innehållsöversättning",
+	"apihelp-cxpublishsection-summary": "Spara en sida som skapades med avsnittsöversättningsfunktionen i tillägget Innehållsöversättning",
+	"apihelp-cxpublishsection-param-title": "Sidans titel att utföra åtgärder på.",
+	"apihelp-cxpublishsection-param-html": "Innehållet att spara.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Källans språkkod.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Målets språkkod",
+	"apihelp-cxpublishsection-param-sourcetitle": "Källsidans titel.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Källavsnittets titel.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Målavsnittets titel.",
+	"apihelp-cxpublishsection-param-sectionnumber": "Avsnittets position att vara i sidans nya version.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Källsidans versions-ID.",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (vid sparande med ett captcha-svar).",
+	"apihelp-cxpublishsection-param-captchaword": "Svaret på captcha (vid sparande med ett captcha-svar)."
 }

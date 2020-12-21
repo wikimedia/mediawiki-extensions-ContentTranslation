@@ -21,7 +21,7 @@
 	"cx-publish-page-success": "АгӀо $1 чохь гайтина",
 	"cx-publish-page-error": "АгӀо Ӏалашъеш гӀалат даьлла. Дехар до юха гӀорта",
 	"cx-publish-button": "Гайта гоч",
-	"cx-publish-button-publishing": "Араяхар...",
+	"cx-publish-button-publishing": "Ӏалашъяр...",
 	"cx-publish-summary": "«$1» агӀо гочярца кхоьллина",
 	"cx-translation-add-translation": "ТӀетоха гоч",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ГочЧулацам]]",

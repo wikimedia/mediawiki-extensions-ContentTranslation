@@ -133,5 +133,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das suas traduções publicadas que foram eliminadas.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Obter apenas eliminações feitas após esta data e hora.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaço nominal no qual foram publicadas as traduções eliminadas. Por padrão, o espaço nominal principal.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das suas traduções eliminadas, que foram publicadas no espaço nominal principal e eliminadas depois de 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das suas traduções eliminadas, que foram publicadas no espaço nominal principal e eliminadas depois de 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Gravar uma secção criada usando a funcionalidade de tradução de secções da extensão Tradutor de Conteúdo.",
+	"apihelp-cxpublishsection-summary": "Gravar uma página criada usando a funcionalidade de tradução de secções da extensão Tradutor de Conteúdo.",
+	"apihelp-cxpublishsection-param-title": "O título da página sobre a qual executar as operações.",
+	"apihelp-cxpublishsection-param-html": "O conteúdo a gravar.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "O código da língua de origem.",
+	"apihelp-cxpublishsection-param-targetlanguage": "O código da língua de destino.",
+	"apihelp-cxpublishsection-param-sourcetitle": "O título da página de origem.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "O título da secção de origem.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "O título da secção de destino.",
+	"apihelp-cxpublishsection-param-sectionnumber": "A posição da futura secção na nova revisão da página.",
+	"apihelp-cxpublishsection-param-sourcerevid": "O identificador da revisão da página de origem.",
+	"apihelp-cxpublishsection-param-captchaid": "Identificador do captcha (ao gravar com uma resposta a um captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "Resposta ao captcha (ao gravar com uma resposta a um captcha)."
 }

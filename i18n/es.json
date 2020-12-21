@@ -332,7 +332,7 @@
 	"cx-feature-discovery-dismiss": "De acuerdo",
 	"cx-suggestionlist-expand-sections-title": "Expandir con nuevas secciones",
 	"cx-sx-select-section": "Seleccionar sección para traducir",
-	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección|$ secciones}} falta en $2",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección falta|$ secciones faltan}} en $2",
 	"cx-sx-section-selector-title": "Secciones",
 	"cx-sx-section-selector-subtitle": "Seleccionar sección para traducir",
 	"cx-sx-section-selector-desc": "Elige una sección a continuación y comprueba los contenidos en ambos idiomas para decidir qué traducir.",
