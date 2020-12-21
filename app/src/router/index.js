@@ -86,10 +86,14 @@ const router = new VueRouter({
 
 /**
  * Checks before each redirect that redirect is coming
- * from last required step. When so previous step exists
+ * from last required step. When no previous step exists
  * it redirects user to the beginning of the workflow (dashboard)
  */
 router.beforeEach((to, from, next) => {
+  if (to.params.force) {
+    next();
+    return;
+  }
   const fromStep = from.meta.workflowStep;
   const toStep = to.meta.workflowStep;
   if (isNaN(fromStep) && toStep > 0) {
