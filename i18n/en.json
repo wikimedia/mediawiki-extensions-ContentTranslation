@@ -395,5 +395,8 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "No sections missing. Check existing ones.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "No sections available to translate. Start a new translation to replace the existing page.",
 	"cx-sx-translation-confirmer-action-view-section": "View section to translate",
-	"cx-sx-translation-confirmer-action-new-translation": "New translation"
+	"cx-sx-translation-confirmer-action-new-translation": "New translation",
+	"cx-sx-translation-confirmer-more-sections-button-label": "More sections",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Translate section",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Section"
 }

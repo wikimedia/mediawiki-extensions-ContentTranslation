@@ -1,6 +1,13 @@
 <template>
-  <section class="sx-translation-confirmer__body pa-4">
-    <section v-if="translationExists" class="mt-1">
+  <section class="sx-translation-confirmer-body pb-4">
+    <section
+      v-if="!!preFilledSectionTitle"
+      class="sx-translation-confirmer-body__pre-filled-banner pa-4 ma-0"
+    >
+      <h6 v-i18n:cx-sx-translation-confirmer-prefilled-section-heading />
+      <h5 class="ma-0" v-text="preFilledSectionTitle" />
+    </section>
+    <section v-else-if="translationExists" class="mt-1 px-4 pt-4">
       <mw-row
         class="sx-translation-confirmer__translation-status ma-0 pb-2"
         justify="between"
@@ -27,15 +34,27 @@
       </mw-row>
     </section>
     <mw-row
-      class="sx-translation-confirmer__action pt-5 pb-2 ma-0"
-      justify="center"
+      class="sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4"
+      :justify="!!preFilledSectionTitle ? 'between' : 'center'"
     >
-      <mw-button
-        large
-        :progressive="isProgressiveButton"
-        :label="actionButtonLabel"
-        @click="onSectionSelectorClick"
-      />
+      <mw-col v-if="preFilledSectionTitle" shrink>
+        <mw-button
+          v-i18n:cx-sx-translation-confirmer-more-sections-button-label
+          large
+          progressive
+          type="text"
+          :label="actionButtonLabel"
+          @click="onMoreSectionsClick"
+        />
+      </mw-col>
+      <mw-col shrink>
+        <mw-button
+          large
+          :progressive="isProgressiveButton"
+          :label="actionButtonLabel"
+          @click="onSectionSelectorClick"
+        />
+      </mw-col>
     </mw-row>
   </section>
 </template>
@@ -60,6 +79,7 @@ export default {
   setup(props, context) {
     const store = context.root.$store;
     const router = context.root.$router;
+
     const sectionSuggestion = computed(
       () => store.state.application.currentSectionSuggestion
     );
@@ -68,19 +88,32 @@ export default {
       () => sectionSuggestion.value.translationExists
     );
 
+    const urlParams = new URLSearchParams(location.search);
+    const preFilledSectionTitle = urlParams.get("section");
+
     const actionButtonLabel = computed(() => {
-      return context.root.$i18n(getActionButtonLabel(sectionSuggestion.value));
+      return context.root.$i18n(
+        getActionButtonLabel(sectionSuggestion.value, !!preFilledSectionTitle)
+      );
     });
 
     const onSectionSelectorClick = async () => {
-      if (sectionSuggestion.value.translationExists) {
+      if (!!preFilledSectionTitle) {
+        store.dispatch(
+          "application/selectPageSectionByTitle",
+          preFilledSectionTitle
+        );
+        router.push({
+          name: "sx-content-comparator",
+          params: { force: true }
+        });
+      } else if (sectionSuggestion.value.translationExists) {
         router.push({ name: "sx-section-selector" });
-        store.dispatch("application/setTranslationURLParams");
-
-        return;
+      } else {
+        await store.dispatch("application/selectPageSectionByIndex", 0);
+        router.push({ name: "sx-quick-tutorial", params: { force: true } });
       }
-      await store.dispatch("application/selectPageSectionByIndex", 0);
-      router.push({ name: "sx-quick-tutorial", params: { force: true } });
+      store.dispatch("application/setTranslationURLParams");
     };
 
     const targetArticlePath = computed(() =>
@@ -106,9 +139,14 @@ export default {
 
     const isProgressiveButton = computed(
       () =>
-        !sectionSuggestion.value.translationExists ||
+        !translationExists.value ||
         sectionSuggestion.value?.missingSectionsCount > 0
     );
+
+    const onMoreSectionsClick = () => {
+      router.push({ name: "sx-section-selector" });
+      store.dispatch("application/setTranslationURLParams");
+    };
 
     return {
       actionButtonLabel,
@@ -116,7 +154,9 @@ export default {
       firstMissingSection,
       isProgressiveButton,
       mwIconLinkExternal,
+      onMoreSectionsClick,
       onSectionSelectorClick,
+      preFilledSectionTitle,
       targetArticlePath,
       targetLanguageAutonym,
       translationExists
@@ -124,3 +164,17 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+
+.sx-translation-confirmer-body__pre-filled-banner {
+  background-color: @background-color-primary;
+  h6 {
+    font-weight: @font-weight-bold;
+    color: @wmui-color-base20;
+    // TODO: Should we have typography helper for this one?
+    font-size: 14px;
+  }
+}
+</style>

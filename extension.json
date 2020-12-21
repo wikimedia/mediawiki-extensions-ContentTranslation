@@ -539,7 +539,10 @@
 				"cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
 				"cx-sx-translation-confirmer-action-message-none-missing-none-present",
 				"cx-sx-translation-confirmer-action-view-section",
-				"cx-sx-translation-confirmer-action-new-translation"
+				"cx-sx-translation-confirmer-action-new-translation",
+				"cx-sx-translation-confirmer-more-sections-button-label",
+				"cx-sx-translation-confirmer-translate-prefilled-section-button-label",
+				"cx-sx-translation-confirmer-prefilled-section-heading"
 			],
 			"noflip": true
 		},

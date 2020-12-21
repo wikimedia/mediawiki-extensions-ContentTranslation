@@ -2,10 +2,10 @@
 
 exports[`SXTranslationConfirmer Action Panel test Component output matches snapshot 1`] = `
 <section
-  class="sx-translation-confirmer__body pa-4"
+  class="sx-translation-confirmer-body pb-4"
 >
   <section
-    class="mt-1"
+    class="mt-1 px-4 pt-4"
   >
     <div
       class="sx-translation-confirmer__translation-status ma-0 pb-2 row items-center justify-between"
@@ -63,25 +63,31 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
   </section>
    
   <div
-    class="sx-translation-confirmer__action pt-5 pb-2 ma-0 row items-center justify-center"
+    class="sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4 row items-center justify-center"
   >
-    <button
-      class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
+    <!---->
+     
+    <div
+      class="col shrink"
     >
-      <span
-        class="mw-ui-button__content"
+      <button
+        class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
       >
-        <!---->
-         
         <span
-          class="mw-ui-button__label"
+          class="mw-ui-button__content"
         >
-          cx-sx-select-section
+          <!---->
+           
+          <span
+            class="mw-ui-button__label"
+          >
+            cx-sx-select-section
+          </span>
+           
+          <!---->
         </span>
-         
-        <!---->
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
 </section>
 `;
