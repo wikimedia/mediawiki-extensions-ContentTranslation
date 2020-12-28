@@ -297,6 +297,7 @@
 	"cx-sx-missing-section-stats": "$2 valodā trūkst {{PLURAL:$1|$1 sadaļas|$1 sadaļa|$1 sadaļas}}",
 	"cx-sx-section-selector-title": "Sadaļas",
 	"cx-sx-section-selector-subtitle": "Izvēlies tulkojamo sadaļu",
+	"cx-sx-section-selector-desc": "Zemāk izvēlies sadaļu un pārbaudi saturu abās valodās, lai izlemtu, ko tulkot.",
 	"cx-sx-language-selector-dialog-title": "Meklēt valodu",
 	"cx-sx-existing-translation-status": "Jau pastāv $1 valodā",
 	"cx-sx-existing-translation-additional-info": "Paplašini esošo saturu, iztulkojot jaunas sadaļas.",
@@ -339,5 +340,12 @@
 	"cx-sx-publisher-failure-animation-title": "Publicēšana neizdevās",
 	"cx-sx-publisher-failure-animation-clarification": "Pārbaudi kļūdu paziņojumus",
 	"cx-sx-publish-summary": "Izveidots, tulkojot lapas \"$2\" sadaļu \"$1\"",
-	"cx-sx-publisher-sandbox-option-details": "Publicē savā personīgajā telpā, lai pārskatītu un pārkopētu citur."
+	"cx-sx-publisher-preview-options-title": "Publicēšanas iespējas",
+	"cx-sx-publisher-new-section-option-label": "Publicēt kā jaunu sadaļu",
+	"cx-sx-publisher-new-section-option-details": "Pievienot jaunu sadaļu rakstam",
+	"cx-sx-publisher-sandbox-option-label": "Publicēt tavā smilškastē",
+	"cx-sx-publisher-sandbox-option-details": "Publicē savā personīgajā telpā, lai pārskatītu un pārkopētu citur.",
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tavs tulkojums tiks <strong>pievienots tavai smilškastei.</strong>",
+	"cx-sx-publisher-review-info-error": "Tavu tulkojumu nevar publicēt:",
+	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk"
 }
