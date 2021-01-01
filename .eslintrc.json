@@ -7,9 +7,7 @@
 	],
 	"globals": {
 		"ve": "readonly",
-		"moment": "readonly",
-		"OO": "readonly",
-		"require": "readonly"
+		"moment": "readonly"
 	},
 	"rules": {
 		"max-len": "off",
