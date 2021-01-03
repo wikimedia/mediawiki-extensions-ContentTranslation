@@ -58,14 +58,12 @@ class AbuseFilterCheck {
 			return $this->titleResults;
 		}
 
-		$vars = new \AbuseFilterVariableHolder();
-
-		$vars->setVar( 'action', 'edit' );
-		$gen = new VariableGenerator( $vars );
+		$gen = new VariableGenerator();
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
 			->getVariableHolder();
+		$vars->setVar( 'action', 'edit' );
 
 		$this->titleResults = $this->getResults( $vars );
 
@@ -94,7 +92,7 @@ class AbuseFilterCheck {
 		// But not passing title will cause content filters with namespace rules
 		// not to produce results. We will attempt to filter out title errors
 		// away with array_diff_key.
-		$gen = new VariableGenerator( new \AbuseFilterVariableHolder() );
+		$gen = new VariableGenerator();
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
