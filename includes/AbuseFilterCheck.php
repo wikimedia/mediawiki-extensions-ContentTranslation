@@ -27,7 +27,6 @@ namespace ContentTranslation;
 
 use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Extension\AbuseFilter\GlobalNameUtils;
-use MediaWiki\Extension\AbuseFilter\VariableGenerator\VariableGenerator;
 
 class AbuseFilterCheck {
 	protected $user;
@@ -58,7 +57,7 @@ class AbuseFilterCheck {
 			return $this->titleResults;
 		}
 
-		$gen = new VariableGenerator();
+		$gen = AbuseFilterServices::getVariableGeneratorFactory()->newGenerator();
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
@@ -92,7 +91,7 @@ class AbuseFilterCheck {
 		// But not passing title will cause content filters with namespace rules
 		// not to produce results. We will attempt to filter out title errors
 		// away with array_diff_key.
-		$gen = new VariableGenerator();
+		$gen = AbuseFilterServices::getVariableGeneratorFactory()->newGenerator();
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
