@@ -4,7 +4,7 @@
     class="sx-publisher__publish-options"
     title="Publish options"
     :overlay-opacity="0.7"
-    overlay-color="#202122"
+    :overlay-color="overlayColor"
     @close="onPublishOptionsClose"
   >
     <template #header>
@@ -96,7 +96,8 @@ export default {
         details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
         value: "sandbox_section"
       }
-    ]
+    ],
+    overlayColor: vm => vm.$mwui.colors.base10
   },
   methods: {
     optionMarginBottom(index) {

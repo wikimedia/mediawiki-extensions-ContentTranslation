@@ -5,8 +5,9 @@ import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import i18n from "vue-banana-i18n";
-import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
+import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
 Vue.use(BreakpointsPlugin);
+Vue.use(ColorsPlugin);
 
 const locale = mw.config.get("wgUserLanguage");
 const finalFallback = "en";

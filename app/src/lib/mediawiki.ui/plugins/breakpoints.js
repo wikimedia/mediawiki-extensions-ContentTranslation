@@ -28,14 +28,13 @@ let properties = {};
 const install = function(Vue) {
   // Init reactive component
   const viewportReactor = new Vue({
-    data: () => ({
-      properties
-    })
+    data: () => ({ properties })
   });
   Vue.mixin({
     computed: {
       $mwui() {
         return {
+          ...(viewportReactor.$mwui || {}),
           breakpoint: viewportReactor.properties
         };
       }

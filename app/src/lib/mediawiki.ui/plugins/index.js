@@ -1,2 +1,3 @@
 import BreakpointsPlugin from "./breakpoints";
-export { BreakpointsPlugin };
+import ColorsPlugin from "./colors";
+export { BreakpointsPlugin, ColorsPlugin };
