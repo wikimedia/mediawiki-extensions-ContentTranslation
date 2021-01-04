@@ -125,5 +125,13 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Pigghie 'u numere de le traduziune tune pubblecate ca onne state scangellate.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Orarie de stambe da pigghià sulamende pe le urteme scangellaziune.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "'U namespace jndr'à 'u quale le traduziune scangellate avèrene state pubblecate. Predefinite jè 'u namespace prengepàle.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Pigghie 'u numere de le traduziune tune scangellate, ca avèrene state pubblecate jndr'à 'u namespace prengèpale e scangellate apprisse 'u 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Pigghie 'u numere de le traduziune tune scangellate, ca avèrene state pubblecate jndr'à 'u namespace prengèpale e scangellate apprisse 'u 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-param-title": "'U titole d'a pàgene addò s'onne fà le aziune.",
+	"apihelp-cxpublishsection-param-html": "'U condenute da reggistrà.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "'U codece d'a lènghe de origgine.",
+	"apihelp-cxpublishsection-param-targetlanguage": "'U codece d'a lènghe de destinazione.",
+	"apihelp-cxpublishsection-param-sourcetitle": "'U titole d'a lènghe de origgine.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "'U titole d'a sezione de origgine.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "'U titole d'a sezione de destinazione.",
+	"apihelp-cxpublishsection-param-sectionnumber": "'A posizione d'a sezione ca adda essere jndr'à versiona nove d'a pàgene."
 }
