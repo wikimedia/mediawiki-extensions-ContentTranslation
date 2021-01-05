@@ -285,8 +285,9 @@ export default {
 
   // Big buttons
   // Styleguide 2.1.4.
+  // Font size for all large buttons in our application is set to 18px
   &.mw-ui-button--large {
-    font-size: 1.25em; // 20px
+    font-size: 1.125em; // 18px
   }
 }
 </style>
