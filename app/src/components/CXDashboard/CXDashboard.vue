@@ -1,6 +1,17 @@
 <template>
-  <main class="cx-translation-dashboard">
-    <nav class="h-sm-and-down">
+  <div>
+    <mw-row class="ma-0">
+      <mw-button
+        progressive
+        :icon="mwIconAdd"
+        :label="$i18n('cx-create-new-translation')"
+        class="col-md-4 col-xs-12 col-lg-3 mb-4 mt-4"
+      />
+    </mw-row>
+    <!--    TODO: Check if we need to adjust the breakpoint to mdAndDown as this is the breakpoint that is used to determine if -->
+    <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
+    <!--    breakpoint.js-->
+    <nav v-if="$mwui.breakpoint.mdAndUp">
       <mw-button-group
         :items="listSelector"
         :active="active"
@@ -8,33 +19,34 @@
         @select="active = $event"
       />
     </nav>
-    <cx-suggestion-list
-      class="col-12 pa-0 ma-0"
-      :active="active === 'suggestions'"
-    />
+    <cx-suggestion-list :active="active === 'suggestions'" />
     <cx-translation-list
-      class="col-12 pa-0 ma-0"
       translation-status="published"
       :active="active === 'published'"
     />
     <cx-translation-list
-      class="col-12 pa-0 ma-0"
       translation-status="draft"
       :active="active === 'draft'"
     />
     <mw-bottom-navigation
-      class="h-md-and-up"
+      v-if="$mwui.breakpoint.smAndDown"
       :items="listSelector"
       :active.sync="active"
-    ></mw-bottom-navigation>
-  </main>
+    />
+  </div>
 </template>
 
 <script>
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
-import { MwButtonGroup, MwBottomNavigation } from "@/lib/mediawiki.ui";
 import {
+  MwButtonGroup,
+  MwBottomNavigation,
+  MwButton,
+  MwRow
+} from "@/lib/mediawiki.ui";
+import {
+  mwIconAdd,
   mwIconArticleCheck,
   mwIconLightBulb,
   mwIconEdit
@@ -43,46 +55,47 @@ import {
 export default {
   name: "CxDashboard",
   components: {
+    MwRow,
     CxSuggestionList,
     CxTranslationList,
     MwButtonGroup,
-    MwBottomNavigation
+    MwBottomNavigation,
+    MwButton
   },
   data: () => ({
+    mwIconAdd,
     mwIconArticleCheck,
     mwIconLightBulb,
     mwIconEdit,
     active: "suggestions"
   }),
   computed: {
-    listSelector() {
-      return [
-        {
-          value: "suggestions",
-          props: {
-            label: this.$i18n("cx-translation-filter-suggested-translations"),
-            icon: mwIconLightBulb,
-            type: "text"
-          }
-        },
-        {
-          value: "draft",
-          props: {
-            label: this.$i18n("cx-translation-filter-draft-translations"),
-            icon: mwIconEdit,
-            type: "text"
-          }
-        },
-        {
-          value: "published",
-          props: {
-            label: this.$i18n("cx-translation-filter-published-translations"),
-            icon: mwIconArticleCheck,
-            type: "text"
-          }
+    listSelector: vm => [
+      {
+        value: "suggestions",
+        props: {
+          label: vm.$i18n("cx-translation-filter-suggested-translations"),
+          icon: mwIconLightBulb,
+          type: "text"
         }
-      ];
-    }
+      },
+      {
+        value: "draft",
+        props: {
+          label: vm.$i18n("cx-translation-filter-draft-translations"),
+          icon: mwIconEdit,
+          type: "text"
+        }
+      },
+      {
+        value: "published",
+        props: {
+          label: vm.$i18n("cx-translation-filter-published-translations"),
+          icon: mwIconArticleCheck,
+          type: "text"
+        }
+      }
+    ]
   },
   watch: {
     active: function() {
