@@ -330,6 +330,8 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Tulkot",
+	"cx-sx-content-comparator-missing-section-placeholder-title": "Jaunā sadaļa tiks pievienota šeit, kad tulkojums būs pabeigts",
 	"cx-sx-editor-original-panel-label": "Oriģināls",
 	"cx-sx-publisher-header-title": "Apstiprināt publicēšanu",
 	"cx-sx-publisher-publish-panel-new-section-status": "Gatavs publicēšanai?",
