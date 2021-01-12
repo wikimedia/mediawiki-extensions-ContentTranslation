@@ -456,7 +456,11 @@
 				"cx-sx-publisher-sandbox-option-details",
 				"cx-sx-publisher-publish-panel-sandbox-section-result",
 				"cx-sx-publisher-review-info-error",
-				"cx-sx-publisher-review-info-learn-more"
+				"cx-sx-publisher-review-info-learn-more",
+				"cx-dashboard-experimental-support-banner-title",
+				"cx-dashboard-experimental-support-banner-description",
+				"cx-dashboard-experimental-support-banner-learn-more-anchor",
+				"cx-dashboard-experimental-support-banner-share-feedback-anchor"
 			],
 			"noflip": true
 		},

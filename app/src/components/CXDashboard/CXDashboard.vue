@@ -1,5 +1,6 @@
 <template>
   <div>
+    <experimental-support-banner />
     <mw-row class="ma-0">
       <mw-button
         progressive
@@ -51,11 +52,13 @@ import {
   mwIconLightBulb,
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
+import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
 
 export default {
   name: "CxDashboard",
   components: {
     MwRow,
+    ExperimentalSupportBanner,
     CxSuggestionList,
     CxTranslationList,
     MwButtonGroup,

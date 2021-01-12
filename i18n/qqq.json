@@ -403,5 +403,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Details for publish section to sandbox option",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Description of expected result of publishing section to user's sandbox, inside 'Preview and publish' screen",
 	"cx-sx-publisher-review-info-error": "Title for review information for publishing errors inside screen where user can publish the section translation",
-	"cx-sx-publisher-review-info-learn-more": "Label for anchor that displays more information about warnings and errors inside review info panel, inside screen where user can publish the section translation"
+	"cx-sx-publisher-review-info-learn-more": "Label for anchor that displays more information about warnings and errors inside review info panel, inside screen where user can publish the section translation",
+	"cx-dashboard-experimental-support-banner-title": "Title for banner inside Dashboard, that indicates to the user that mobile support is currently experimental",
+	"cx-dashboard-experimental-support-banner-description": "Description for banner inside Dashboard, that indicates to the user that mobile support is currently experimental",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Label for anchor that navigates to the Section Translation project page, inside experimental support banner in Dashboard screen",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Label for anchor that navigates to the Section Translation talk page, inside experimental support banner in Dashboard screen"
 }
