@@ -1,7 +1,7 @@
 <template>
   <div>
-    <experimental-support-banner />
-    <mw-row class="ma-0">
+    <experimental-support-banner v-if="incompleteVersion" class="mb-4" />
+    <mw-row v-if="!incompleteVersion" class="ma-0">
       <mw-button
         progressive
         :icon="mwIconAdd"
@@ -12,7 +12,7 @@
     <!--    TODO: Check if we need to adjust the breakpoint to mdAndDown as this is the breakpoint that is used to determine if -->
     <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
     <!--    breakpoint.js-->
-    <nav v-if="$mwui.breakpoint.mdAndUp">
+    <nav v-if="!incompleteVersion && $mwui.breakpoint.mdAndUp">
       <mw-button-group
         :items="listSelector"
         :active="active"
@@ -22,15 +22,17 @@
     </nav>
     <cx-suggestion-list :active="active === 'suggestions'" />
     <cx-translation-list
+      v-if="!incompleteVersion"
       translation-status="published"
       :active="active === 'published'"
     />
     <cx-translation-list
+      v-if="!incompleteVersion"
       translation-status="draft"
       :active="active === 'draft'"
     />
     <mw-bottom-navigation
-      v-if="$mwui.breakpoint.smAndDown"
+      v-if="!incompleteVersion && $mwui.breakpoint.smAndDown"
       :items="listSelector"
       :active.sync="active"
     />
@@ -70,7 +72,11 @@ export default {
     mwIconArticleCheck,
     mwIconLightBulb,
     mwIconEdit,
-    active: "suggestions"
+    active: "suggestions",
+    /**
+     * Indicates that application is still under development and mobile support is experimental
+     */
+    incompleteVersion: true
   }),
   computed: {
     listSelector: vm => [
