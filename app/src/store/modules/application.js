@@ -1,5 +1,6 @@
 import Vue from "vue";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
+import router from "../../router";
 
 const state = {
   /** @type SectionSuggestion */
@@ -222,10 +223,63 @@ const getters = {
   isSelectedSegmentTranslated: (state, getters) =>
     state.isSectionTitleSelectedForTranslation
       ? !!state.currentSourceSection.translatedTitle
-      : !!getters.getCurrentSelectedSentence?.isTranslated
+      : !!getters.getCurrentSelectedSentence?.isTranslated,
+
+  /**
+   * @return {ArticleSuggestion[]}
+   */
+  getCurrentPageSuggestions: (state, getters, rootState, rootGetters) =>
+    rootGetters["suggestions/getPageSuggestionsForPair"](
+      state.sourceLanguage,
+      state.targetLanguage
+    ),
+
+  /**
+   * @return {SectionSuggestion[]}
+   */
+  getCurrentSectionSuggestions: (state, getters, rootState, rootGetters) =>
+    rootGetters["suggestions/getSectionSuggestionsForPair"](
+      state.sourceLanguage,
+      state.targetLanguage
+    ),
+
+  /**
+   * @return {Translation[]}
+   */
+  getCurrentPublishedTranslations: (state, getters, rootState, rootGetters) =>
+    rootGetters["translator/getPublishedTranslationsForLanguagePair"](
+      state.sourceLanguage,
+      state.targetLanguage
+    )
 };
 
 const actions = {
+  async initializeDashboardContext({ dispatch, state }) {
+    dispatch("mediawiki/fetchLanguages", {}, { root: true });
+    dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
+    const suggestion = await dispatch("loadSectionSuggestionFromUrl");
+    if (suggestion) {
+      dispatch("startSectionTranslation", suggestion);
+      return;
+    }
+
+    await dispatch("translator/fetchTranslations", {}, { root: true });
+
+    const { sourceLanguage, targetLanguage } = state;
+    dispatch(
+      "suggestions/fetchSuggestions",
+      { sourceLanguage, targetLanguage },
+      { root: true }
+    );
+  },
+  /**
+   * @param commit
+   * @param {SectionSuggestion} suggestion
+   */
+  startSectionTranslation({ commit }, suggestion) {
+    router.push({ name: "sx-article-selector" });
+    commit("setCurrentSectionSuggestion", suggestion);
+  },
   updateSourceLanguage({ commit, state, getters, dispatch }, sourceLanguage) {
     commit("setSourceLanguage", sourceLanguage);
     if (sourceLanguage === state.targetLanguage) {

@@ -4,6 +4,7 @@ import { getTitleForPublishOption } from "../../utils/publishTitleFactory";
 
 const state = {
   username: mw.config.get("wgUserName"),
+  /** @type Translation[] */
   translations: [],
   translationsLoaded: false
 };
@@ -56,31 +57,25 @@ const getters = {
 };
 
 const actions = {
-  init({ dispatch }) {
-    dispatch("getTanslations");
-  },
-  getTanslations({ commit, dispatch }) {
-    cxTranslatorApi.fetchTranslations().then(translations => {
-      const queue = {};
-      for (let i = 0; i < translations.length; i++) {
-        const translation = translations[i];
-        commit("addTranslation", translation);
-        queue[translation.sourceLanguage] =
-          queue[translation.sourceLanguage] || [];
-        queue[translation.sourceLanguage].push(translation.sourceTitle);
-      }
-      commit("setTranslationsLoaded", true);
-      // Fetch metadata for each source article.
-      for (let sourceLanguage in queue) {
-        dispatch(
-          "mediawiki/fetchPageMetadata",
-          {
-            language: sourceLanguage,
-            titles: queue[sourceLanguage]
-          },
-          { root: true }
-        );
-      }
+  async fetchTranslations({ commit, dispatch }) {
+    /** @type {Translation[]} */
+    const translations = await cxTranslatorApi.fetchTranslations();
+    translations.forEach(translation => commit("addTranslation", translation));
+
+    const queue = translations.reduce((queue, translation) => {
+      const language = translation.sourceLanguage;
+      queue[language] = queue[language] || [];
+      queue[language].push(translation.sourceTitle);
+      return queue;
+    }, {});
+    commit("setTranslationsLoaded", true);
+
+    Object.keys(queue).forEach(sourceLanguage => {
+      dispatch(
+        "mediawiki/fetchPageMetadata",
+        { language: sourceLanguage, titles: queue[sourceLanguage] },
+        { root: true }
+      );
     });
   },
   async publishTranslation({ rootState, rootGetters }) {

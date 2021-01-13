@@ -6,7 +6,8 @@ import siteMapper from "../../../utils/siteMapper";
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String} seedArticleTitle
- * @param {Number} count How many suggestions to fetch. 24 is default.
+ * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @return {Promise<ArticleSuggestion[]>}
  */
 async function fetchSuggestions(
   sourceLanguage,
@@ -20,13 +21,13 @@ async function fetchSuggestions(
   }
   const apiURL = siteMapper.getRestbaseUrl(targetLanguage, apiModule);
   const params = new URLSearchParams({ count });
-  const suggestedResults = await fetch(`${apiURL}?${params}`)
-    .then(response =>
-      response.ok
-        ? response.json()
-        : Promise.reject(new Error("Failed to load data from server"))
-    )
-    .then(response => response?.items || []);
+
+  const response = await fetch(`${apiURL}?${params}`);
+  if (!response.ok) {
+    throw new Error("Failed to load data from server");
+  }
+
+  const suggestedResults = (await response.json())?.items || [];
 
   return suggestedResults.map(
     item =>
@@ -68,28 +69,30 @@ async function fetchSectionSuggestions(
     : null;
 }
 
-async function getSxSuggestionsFromPublishedArticles(publishedTranslations) {
-  const suggestedTitles = [];
-  for (let i = 0; i < publishedTranslations.length; i++) {
-    const translation = publishedTranslations[i];
-    const missingSectionsResult = await fetchSectionSuggestions(
-      translation.sourceLanguage,
-      translation.sourceTitle,
-      translation.targetLanguage
+/**
+ * @param {Translation[]} seeds
+ * @return {Promise<SectionSuggestion[]>}
+ */
+async function fetchSectionSuggestionsBySeeds(seeds) {
+  const sectionSuggestions = [];
+  for (const seed of seeds) {
+    /** @type {SectionSuggestion|null} */
+    const newSectionSuggestion = await fetchSectionSuggestions(
+      seed.sourceLanguage,
+      seed.sourceTitle,
+      seed.targetLanguage
     );
-    if (missingSectionsResult) {
-      suggestedTitles.push(missingSectionsResult);
-    }
-    if (suggestedTitles.length === 5) {
+    newSectionSuggestion && sectionSuggestions.push(newSectionSuggestion);
+    if (sectionSuggestions.length === 5) {
       break;
     }
   }
 
-  return suggestedTitles;
+  return sectionSuggestions;
 }
 
 export default {
   fetchSuggestions,
   fetchSectionSuggestions,
-  getSxSuggestionsFromPublishedArticles
+  fetchSectionSuggestionsBySeeds
 };

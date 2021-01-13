@@ -56,8 +56,7 @@
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
-import { mapState, mapActions } from "vuex";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import { mapState, mapActions, mapGetters } from "vuex";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import autonymMixin from "@/mixins/autonym";
 
@@ -91,6 +90,11 @@ export default {
       selectedSourceLanguage: state => state.application.sourceLanguage,
       selectedTargetLanguage: state => state.application.targetLanguage
     }),
+    ...mapGetters({
+      pageSuggestionsForPair: "application/getCurrentPageSuggestions",
+      sectionSuggestionForPair: "application/getCurrentSectionSuggestions",
+      publishedTranslations: "application/getCurrentPublishedTranslations"
+    }),
     availableSourceLanguages() {
       return this.supportedLanguageCodes
         .filter(languageCode => languageCode !== this.selectedTargetLanguage)
@@ -113,28 +117,12 @@ export default {
           []
         );
     },
-    pageSuggestionsForPair() {
-      return this.$store.getters["suggestions/getPageSuggestionsForPair"](
-        this.selectedSourceLanguage,
-        this.selectedTargetLanguage
-      );
-    },
-    sectionSuggestionForPair() {
-      return this.$store.getters["suggestions/getSectionSuggestionsForPair"](
-        this.selectedSourceLanguage,
-        this.selectedTargetLanguage
-      );
-    },
+    /** @return {ArticleSuggestion[]} */
     pageSuggestionsForPairSubset() {
       return this.pageSuggestionsForPair.slice(
         this.paginationIndex * this.pageSize,
         this.paginationIndex * this.pageSize + this.pageSize
       );
-    },
-    publishedTranslations() {
-      return this.$store.getters[
-        "translator/getPublishedTranslationsForLanguagePair"
-      ](this.selectedSourceLanguage, this.selectedTargetLanguage);
     },
     seedArticleTitle() {
       if (this.paginationIndex < this.publishedTranslations.length) {
@@ -153,52 +141,25 @@ export default {
     sectionSuggestionForPair: function() {
       this.sectionSuggestionsLoaded = true;
     },
-    active: {
-      handler() {
-        if (this.active) {
-          if (!this.pageSuggestionsForPair?.length) {
-            this.getPageSuggestions({
-              sourceLanguage: this.selectedSourceLanguage,
-              targetLanguage: this.selectedTargetLanguage,
-              seed: this.seedArticleTitle
-            });
-          }
-          if (!this.sectionSuggestionForPair?.length) {
-            this.getSectionSuggestions({
-              sourceLanguage: this.selectedSourceLanguage,
-              targetLanguage: this.selectedTargetLanguage
-            });
-          }
-        }
-      },
-      immediate: true
-    },
     selectedSourceLanguage() {
-      this.getPageSuggestions({
+      this.fetchPageSuggestions({
         sourceLanguage: this.selectedSourceLanguage,
         targetLanguage: this.selectedTargetLanguage
       });
       this.pageSuggestionsLoaded = false;
     },
     selectedTargetLanguage() {
-      this.getPageSuggestions({
+      this.fetchPageSuggestions({
         sourceLanguage: this.selectedSourceLanguage,
         targetLanguage: this.selectedTargetLanguage
       });
       this.pageSuggestionsLoaded = false;
     }
   },
-  async mounted() {
-    const suggestion = await this.$store.dispatch(
-      "application/loadSectionSuggestionFromUrl"
-    );
-
-    suggestion && this.startSectionTranslation(suggestion);
-  },
   methods: {
     ...mapActions({
-      getPageSuggestions: "suggestions/getPageSuggestions",
-      getSectionSuggestions: "suggestions/getSectionSuggestions"
+      fetchPageSuggestions: "suggestions/fetchPageSuggestions",
+      startSectionTranslation: "application/startSectionTranslation"
     }),
     showMoreSuggestions() {
       // 1. Get X(=24) suggestions using the sourceTitle of the I(=0)th most
@@ -224,20 +185,13 @@ export default {
         // seed article. These suggesions will appear after the previous
         // suggestions are shown.
         if (this.seedArticleTitle) {
-          this.$store.dispatch("suggestions/getPageSuggestions", {
+          this.fetchPageSuggestions({
             sourceLanguage: this.selectedSourceLanguage,
             targetLanguage: this.selectedTargetLanguage,
             seed: this.seedArticleTitle
           });
         }
       }
-    },
-    /**
-     * @param {SectionSuggestion} suggestion
-     */
-    startSectionTranslation(suggestion) {
-      this.$router.push({ name: "sx-article-selector" });
-      this.$store.commit("application/setCurrentSectionSuggestion", suggestion);
     }
   }
 };

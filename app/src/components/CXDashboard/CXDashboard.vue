@@ -115,9 +115,7 @@ export default {
     }
   },
   created: function() {
-    this.$store.dispatch("translator/init");
-    this.$store.dispatch("mediawiki/fetchLanguages");
-    this.$store.dispatch("mediawiki/fetchSupportedLanguageCodes");
+    this.$store.dispatch("application/initializeDashboardContext");
   }
 };
 </script>

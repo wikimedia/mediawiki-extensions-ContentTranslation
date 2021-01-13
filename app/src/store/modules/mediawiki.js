@@ -1,10 +1,8 @@
 import pageApi from "../../wiki/mw/api/page";
 import siteApi from "../../wiki/mw/api/site";
-import Language from "../../wiki/mw/models/language";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
 import translatorApi from "../../wiki/cx/api/translator";
 import Vue from "vue";
-import Page from "../../wiki/mw/models/page";
 
 const state = {
   /** @type {Page[]} */

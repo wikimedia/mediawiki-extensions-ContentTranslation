@@ -4,6 +4,10 @@ import PublishResult from "../../cx/publishResult";
 import { cleanupHtml } from "../../../utils/contentCleaner";
 import siteMapper from "../../../utils/siteMapper";
 
+/**
+ * @param {String} offset
+ * @return {Promise<Translation[]>}
+ */
 async function fetchTranslations(offset) {
   const params = {
     action: "query",

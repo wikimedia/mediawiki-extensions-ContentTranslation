@@ -1,7 +1,9 @@
 import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
 
 const state = {
+  /** @type ArticleSuggestion[] */
   pageSuggestions: [],
+  /** @type SectionSuggestion[] */
   sectionSuggestions: [],
   favorites: {}
 };
@@ -42,51 +44,56 @@ const getters = {
 };
 
 const actions = {
-  getPageSuggestions(
+  async fetchPageSuggestions(
     { commit, dispatch },
     { sourceLanguage, targetLanguage, seed }
   ) {
-    cxSuggestionsApi
-      .fetchSuggestions(sourceLanguage, targetLanguage, seed)
-      .then(suggestions => {
-        let titles = [];
-
-        for (let i = 0; i < suggestions.length; i++) {
-          commit("addPageSuggestion", suggestions[i]);
-          titles.push(suggestions[i].sourceTitle);
-        }
-        if (titles.length) {
-          dispatch(
-            "mediawiki/fetchPageMetadata",
-            { language: sourceLanguage, titles },
-            { root: true }
-          );
-        }
-      });
+    /** @type {ArticleSuggestion[]} */
+    const suggestions = await cxSuggestionsApi.fetchSuggestions(
+      sourceLanguage,
+      targetLanguage,
+      seed
+    );
+    suggestions.forEach(suggestion => commit("addPageSuggestion", suggestion));
+    const titles = suggestions.map(suggestion => suggestion.sourceTitle);
+    titles.length &&
+      dispatch(
+        "mediawiki/fetchPageMetadata",
+        { language: sourceLanguage, titles },
+        { root: true }
+      );
   },
-  async getSectionSuggestions(
-    { commit, dispatch, rootGetters },
-    suggestionRequest
+  async fetchSectionSuggestions(
+    { commit, dispatch, rootGetters, getters },
+    { sourceLanguage, targetLanguage }
   ) {
-    let titles = [];
     const publishedTranslations = rootGetters[
       "translator/getPublishedTranslationsForLanguagePair"
-    ](suggestionRequest.sourceLanguage, suggestionRequest.targetLanguage);
-    const suggestions = await cxSuggestionsApi.getSxSuggestionsFromPublishedArticles(
+    ](sourceLanguage, targetLanguage);
+
+    if (!publishedTranslations.length) {
+      return;
+    }
+
+    /** @type {SectionSuggestion[]} */
+    const suggestions = await cxSuggestionsApi.fetchSectionSuggestionsBySeeds(
       publishedTranslations
     );
 
-    for (let i = 0; i < suggestions.length; i++) {
-      commit("addSectionSuggestion", suggestions[i]);
-      titles.push(suggestions[i].sourceTitle);
+    if (!suggestions.length) {
+      return;
     }
-    if (titles.length) {
-      dispatch(
-        "mediawiki/fetchPageMetadata",
-        { language: suggestionRequest.sourceLanguage, titles },
-        { root: true }
-      );
-    }
+
+    suggestions.forEach(suggestion =>
+      commit("addSectionSuggestion", suggestion)
+    );
+
+    const titles = suggestions.map(suggestion => suggestion.sourceTitle);
+    dispatch(
+      "mediawiki/fetchPageMetadata",
+      { language: sourceLanguage, titles },
+      { root: true }
+    );
   },
 
   async loadSectionSuggestion(
@@ -124,6 +131,26 @@ const actions = {
 
     dispatch("application/setCurrentSectionSuggestion", suggestion, {
       root: true
+    });
+  },
+  async fetchSuggestions(
+    { rootGetters, dispatch },
+    { sourceLanguage, targetLanguage }
+  ) {
+    const publishedTranslations = rootGetters[
+      "translator/getPublishedTranslationsForLanguagePair"
+    ](sourceLanguage, targetLanguage);
+    const seed = (publishedTranslations?.[0] || {})?.sourceTitle;
+
+    dispatch("fetchPageSuggestions", {
+      sourceLanguage,
+      targetLanguage,
+      seed
+    });
+
+    dispatch("fetchSectionSuggestions", {
+      sourceLanguage,
+      targetLanguage
     });
   }
 };
