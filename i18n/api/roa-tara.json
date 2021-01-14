@@ -126,6 +126,8 @@
 	"apihelp-query+cxdeletedtranslations-param-after": "Orarie de stambe da pigghià sulamende pe le urteme scangellaziune.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "'U namespace jndr'à 'u quale le traduziune scangellate avèrene state pubblecate. Predefinite jè 'u namespace prengepàle.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Pigghie 'u numere de le traduziune tune scangellate, ca avèrene state pubblecate jndr'à 'u namespace prengèpale e scangellate apprisse 'u 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Reggìstre 'na sezione ccrejate ausanne 'a funzione de traduzione d'a sezione de l'estenzione Traduzione d'u Condenute.",
+	"apihelp-cxpublishsection-summary": "Reggìstre 'na pàgene ccrejate ausanne 'a funzione de traduzione d'a sezione de l'estenzione Traduzione d'u Condenute.",
 	"apihelp-cxpublishsection-param-title": "'U titole d'a pàgene addò s'onne fà le aziune.",
 	"apihelp-cxpublishsection-param-html": "'U condenute da reggistrà.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "'U codece d'a lènghe de origgine.",
@@ -133,5 +135,8 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "'U titole d'a lènghe de origgine.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "'U titole d'a sezione de origgine.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "'U titole d'a sezione de destinazione.",
-	"apihelp-cxpublishsection-param-sectionnumber": "'A posizione d'a sezione ca adda essere jndr'à versiona nove d'a pàgene."
+	"apihelp-cxpublishsection-param-sectionnumber": "'A posizione d'a sezione ca adda essere jndr'à versiona nove d'a pàgene.",
+	"apihelp-cxpublishsection-param-sourcerevid": "L'ID d'a versione d'a pàgena sorgende",
+	"apihelp-cxpublishsection-param-captchaid": "ID d'u captcha (quanne ste reggìstre cu 'na resposte de captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "Resposte a 'u captcha (quanne ste reggìstre 'na resposte de captcha)."
 }

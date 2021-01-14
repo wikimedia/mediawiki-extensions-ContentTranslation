@@ -398,7 +398,7 @@
 	"cx-sx-publish-summary": "This is an automatic edit summary for pages where a new section was added by [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source section title\n* $2 - the source page name",
 	"cx-sx-publisher-preview-options-title": "Title of dialog where user can select where the translation will be published. This is a noun phrase \"options for publishing\", there is no verb.",
 	"cx-sx-publisher-new-section-option-label": "Label for publish a new section option inside the dialog where user can select among publish section translation options",
-	"cx-sx-publisher-new-section-option-details": "Details for publish a new section option",
+	"cx-sx-publisher-new-section-option-details": "Details for \"publish a new section\" option.",
 	"cx-sx-publisher-sandbox-option-label": "Label for publish section to sandbox option inside the dialog where user can select among publish section translation options",
 	"cx-sx-publisher-sandbox-option-details": "Details for publish section to sandbox option",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Description of expected result of publishing section to user's sandbox, inside 'Preview and publish' screen",
