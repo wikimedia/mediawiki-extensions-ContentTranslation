@@ -83,14 +83,15 @@ const actions = {
       }
     });
   },
-  async publishTranslation({ rootState, rootGetters }, publishOption) {
+  async publishTranslation({ rootState, rootGetters }) {
     const page = rootGetters["application/getCurrentPage"];
     const section = rootState.application.currentSourceSection;
     const sectionSuggestion = rootState.application.currentSectionSuggestion;
+    const publishTarget = rootState.application.publishTarget;
 
     const targetTitle = getTitleForPublishOption(
       sectionSuggestion.targetTitle,
-      publishOption
+      publishTarget
     );
     /** @type PublishResult **/
     return await cxTranslatorApi.publishTranslation(

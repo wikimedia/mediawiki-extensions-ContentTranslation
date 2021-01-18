@@ -33,10 +33,7 @@
       </mw-row>
       <div v-html="currentPageSection.translationHtml" />
     </section>
-    <sx-publish-option-selector
-      :active.sync="publishOptionsOn"
-      :selected-option.sync="publishOption"
-    />
+    <sx-publish-option-selector :active.sync="publishOptionsOn" />
     <sx-publisher-animation-dialog
       :active="isPublishDialogActive"
       :status="publishStatus"
@@ -76,17 +73,17 @@ export default {
     isPublishDialogActive: false,
     publishStatus: "pending",
     publishOptionsOn: false,
-    publishOption: "NEW_SECTION",
     publishResult: new PublishResult()
   }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection
+      currentPageSection: state => state.application.currentSourceSection,
+      publishTarget: state => state.application.publishTarget
     }),
     translatedTitle: vm => vm.currentPageSection?.title,
     panelResult: vm =>
-      vm.publishOption === "NEW_SECTION"
+      vm.publishTarget === "NEW_SECTION"
         ? vm.$i18n("cx-sx-publisher-publish-panel-new-section-result")
         : vm.$i18n("cx-sx-publisher-publish-panel-sandbox-section-result")
   },
@@ -104,8 +101,10 @@ export default {
       }
       const articleTitle = getTitleForPublishOption(
         this.suggestion.targetTitle,
-        this.publishOption
+        this.publishTarget
       );
+      /** Remove warning about leaving SX */
+      window.removeEventListener("beforeunload");
       window.location.href = getUrl(`${articleTitle}#${this.translatedTitle}`);
     },
     async publishTranslation() {
@@ -117,8 +116,7 @@ export default {
       this.isPublishDialogActive = true;
       /** @type PublishResult **/
       const publishResult = await this.$store.dispatch(
-        "translator/publishTranslation",
-        this.publishOption
+        "translator/publishTranslation"
       );
 
       this.publishStatus = publishResult.result;

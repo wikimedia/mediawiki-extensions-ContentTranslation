@@ -1,10 +1,11 @@
 <template>
   <mw-dialog
-    v-model="active"
+    :value="active"
     class="sx-publisher__publish-options"
     title="Publish options"
     :overlay-opacity="0.7"
     :overlay-color="overlayColor"
+    @input="$emit('update:active', $event)"
     @close="onPublishOptionsClose"
   >
     <template #header>
@@ -61,6 +62,7 @@ import {
   MwRadio,
   MwRadioGroup
 } from "@/lib/mediawiki.ui";
+import { mapState } from "vuex";
 
 export default {
   name: "SxPublishOptionSelector",
@@ -75,17 +77,15 @@ export default {
     active: {
       type: Boolean,
       required: true
-    },
-    selectedOption: {
-      type: String,
-      required: true,
-      validator: value => ["NEW_SECTION", "SANDBOX_SECTION"].includes(value)
     }
   },
   data: () => ({
     mwIconArrowPrevious
   }),
   computed: {
+    ...mapState({
+      selectedOption: state => state.application.publishTarget
+    }),
     publishOptions: vm => [
       {
         label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
@@ -109,7 +109,7 @@ export default {
       this.$emit("update:active", false);
     },
     updateOption(option) {
-      this.$emit("update:selected-option", option);
+      this.$store.commit("application/setPublishTarget", option);
       this.onPublishOptionsClose();
     }
   }
