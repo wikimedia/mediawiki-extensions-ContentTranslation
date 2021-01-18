@@ -105,7 +105,12 @@ export default {
       );
       /** Remove warning about leaving SX */
       this.$store.commit("application/setTranslationInProgress", false);
-      window.location.href = getUrl(`${articleTitle}#${this.translatedTitle}`);
+
+      // sx-published-section query param will trigger 'sx.publishing.followup'
+      // module to be loaded inside target article's page, after redirection
+      window.location.href = getUrl(`${articleTitle}`, {
+        "sx-published-section": this.translatedTitle
+      });
     },
     async publishTranslation() {
       /**

@@ -398,5 +398,6 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> edited by you",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Your translation",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Sentence",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraph"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraph",
+	"cx-sx-followup-feedback-new-indicator": "new"
 }

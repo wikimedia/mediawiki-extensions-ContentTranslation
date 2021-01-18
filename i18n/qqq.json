@@ -412,5 +412,6 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "Content of machine translation modification rate, inside the card where the user can see extra information for their applied sentence translation.\n\nParameters:\n* $1 - percentage of translation modified by the user",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Header for machine translation modification rate, inside the card where the user can see extra information for their applied sentence translation.",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Label for sentence option, inside translated segment card header, where user can choose to display information about the translated sentence or the whole paragraph",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Label for paragraph option, inside translated segment card header, where user can choose to display information about the translated sentence or the whole paragraph"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Label for paragraph option, inside translated segment card header, where user can choose to display information about the translated sentence or the whole paragraph",
+	"cx-sx-followup-feedback-new-indicator": "Content of indicator for the just published section inside target article page, after redirection upon successful Section Translation publishing"
 }

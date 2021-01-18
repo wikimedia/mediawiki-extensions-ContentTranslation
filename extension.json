@@ -47,7 +47,10 @@
 	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
-		"BeforePageDisplay": "ContentTranslation\\Hooks::addModules",
+		"BeforePageDisplay": [
+			"ContentTranslation\\Hooks::addModules",
+			"ContentTranslation\\Hooks::addSXPublishingFollowupModule"
+		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
 		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
@@ -346,6 +349,17 @@
 				"cx-translation-filter-published-translations",
 				"cx-translation-filter-suggested-translations"
 			]
+		},
+		"sx.publishing.followup": {
+			"localBasePath": "app",
+			"remoteExtPath": "ContentTranslation/app",
+			"packageFiles": [
+				"modules/sx.publishing.followup.js"
+			],
+			"messages": [
+				"cx-sx-followup-feedback-new-indicator"
+			],
+			"targets": [ "desktop", "mobile" ]
 		},
 		"mw.cx3": {
 			"localBasePath": "app",

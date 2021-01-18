@@ -28,6 +28,23 @@ use WikiMap;
 class Hooks {
 
 	/**
+	 * Add 'sx.publishing.followup' module when output page is article page
+	 * and "sx-published-section" query params exists. This is the case for
+	 * redirections to target article page after Section Translation
+	 * successful publishing
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 */
+	public static function addSXPublishingFollowupModule( OutputPage $out, Skin $skin ): void {
+		$sxPublishedQueryParam = $out->getRequest()->getVal( "sx-published-section" );
+		$isContentPage = $out->getTitle()->isContentPage();
+
+		if ( $isContentPage && $sxPublishedQueryParam !== null ) {
+			$out->addModules( 'sx.publishing.followup' );
+		}
+	}
+
+	/**
 	 * Check whether the current user is a potential translator
 	 *
 	 * @param User $user
