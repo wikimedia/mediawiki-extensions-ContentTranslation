@@ -385,9 +385,9 @@ const actions = {
     dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
   },
 
-  selectPreviousSegment({ getters, dispatch, commit }) {
+  selectPreviousSegment({ getters, dispatch }) {
     if (getters.isCurrentSentenceFirst) {
-      commit("setIsSectionTitleSelectedForTranslation", true);
+      dispatch("selectSectionTitleForTranslation");
       return;
     }
     const sentences = getters.getCurrentSourceSectionSentences;
