@@ -116,6 +116,8 @@ export const ButtonWithIcons = () => ({
             label="Click me"
           />
         </div>
+      </div>
+      <div class="row" style="margin-top: 1rem">
         <div class="col mx-1">
           <mw-button
             type="button"
@@ -134,6 +136,31 @@ export const ButtonWithIcons = () => ({
             destructive
             type="button"
             :icon="icons.mwIconAdd"
+          />
+        </div>
+      </div>
+      <div class="row" style="margin-top: 1rem">
+        <div class="col mx-1">
+          <mw-button
+            type="text"
+            :indicator="icons.mwIconArrowForward"
+            label="Text button"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            type="text"
+            progressive
+            :indicator="icons.mwIconArrowForward"
+            label="Text button"
+          />
+        </div>
+        <div class="col mx-1">
+          <mw-button
+            type="text"
+            destructive
+            :indicator="icons.mwIconArrowForward"
+            label="Text button"
           />
         </div>
       </div>

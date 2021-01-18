@@ -27,9 +27,7 @@
           :size="large ? 28 : indicatorSize"
           class="mw-ui-button__indicator"
           :class="indicatorClass"
-          @click.stop="
-            hasIndicatorClickListener ? $emit('indicator-icon-clicked') : null
-          "
+          @[indicatorClickEvent].stop="$emit('indicator-icon-clicked')"
         />
       </span>
     </slot>
@@ -124,7 +122,8 @@ export default {
     hasIndicatorClickListener: vm => !!vm.$listeners["indicator-icon-clicked"],
     isIcon: vm => vm.type === "icon",
     iconClass: vm => !vm.isIcon && "pe-2",
-    indicatorClass: vm => !vm.isIcon && "ps-2"
+    indicatorClass: vm => !vm.isIcon && "ps-2",
+    indicatorClickEvent: vm => (vm.hasIndicatorClickListener ? "click" : null)
   },
   methods: {
     /**
