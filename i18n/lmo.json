@@ -216,7 +216,7 @@
 	"cx-draft-restore-failed": "Caregamemt di traduzzion salvade falladǃ",
 	"cx-suggestionlist-expand": "Fà vedè tusscoss",
 	"cx-suggestionlist-collapse": "Fà vedè de men",
-	"cx-suggestionlist-refresh": "Asgiorna i sugeriment",
+	"cx-suggestionlist-refresh": "Sgiorna i sugeriment",
 	"cx-notification-suggestions-available": "I sugeriment noeuv fondad sora la {{GENDER:$2|toa}} traduzzion precedenta de '''$1''' adess a inn disponibil.",
 	"cx-infobar-view-issues": "Fà vedè i problema",
 	"cx-infobar-cannot-publish": "La toa traduzzion la po vesser minga publicada perchè l'è permetud doma ai editor pussee prategh del mester in questa wiki chì.",
@@ -372,5 +372,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Publica ind el to spazzi personal per revisionall e copiall ind un'altra part.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "La toa traduzzion la sarà <strong>sgiontada a la topa sabiera.</strong>",
 	"cx-sx-publisher-review-info-error": "A l'è stad minga possibil publicà la toa traduzzionː",
-	"cx-sx-publisher-review-info-learn-more": "Per savenn pussee"
+	"cx-sx-publisher-review-info-learn-more": "Per savenn pussee",
+	"cx-dashboard-experimental-support-banner-title": "El suport per i dispositiv modbil l'è sperimental",
+	"cx-dashboard-experimental-support-banner-description": "Te podet espand i articoi esistent cont el tradù una sezzion noeuva. Tutamanch, di fonzion del desktop a inn nananmò disponibil.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Per savenn pussee",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Spartiss in gir el to parer"
 }

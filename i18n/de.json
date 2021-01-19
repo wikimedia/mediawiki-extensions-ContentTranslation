@@ -387,5 +387,9 @@
 	"cx-sx-publisher-sandbox-option-details": "In einem persönlichen Bereich veröffenutlichen, damit du es an anderer Stelle überprüfen und kopieren kannst.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Deine Übersetzung wird <strong>deinem Sandkasten hinzugefügt.</strong>",
 	"cx-sx-publisher-review-info-error": "Deine Übersetzung kann nicht veröffentlicht werden:",
-	"cx-sx-publisher-review-info-learn-more": "Weitere Informationen"
+	"cx-sx-publisher-review-info-learn-more": "Weitere Informationen",
+	"cx-dashboard-experimental-support-banner-title": "Mobile Unterstützung ist experimentell",
+	"cx-dashboard-experimental-support-banner-description": "Du kannst bestehende Artikel erweitern, indem du einen neuen Abschnitt übersetzet. Einige Funktionen vom Desktop sind jedoch noch nicht verfügbar.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Weitere Informationen",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Schreibe dein Feedback"
 }
