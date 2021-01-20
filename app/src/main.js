@@ -12,6 +12,12 @@ Vue.use(ColorsPlugin);
 const locale = mw.config.get("wgUserLanguage");
 const finalFallback = "en";
 const messages = mw.messages.values || {};
+
+/**
+ * Indicates that application is still under development and mobile support is experimental
+ */
+Vue.prototype.$incompleteVersion = true;
+
 Vue.use(i18n, {
   locale,
   finalFallback,

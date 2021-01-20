@@ -11,6 +11,8 @@
         :source-languages="availableSourceLanguages"
         :target-languages="availableTargetLanguages"
       />
+    </mw-card>
+    <mw-card v-if="!$incompleteVersion" class="pa-0 mb-0">
       <div class="cx-translation-list__division">
         <h5 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4" />
       </div>
@@ -21,10 +23,7 @@
         :suggestion="suggestion"
       />
     </mw-card>
-    <mw-card
-      v-if="sectionSuggestionForPair.length"
-      class="cx-translation-list--sx-suggestions pa-0 mb-0"
-    >
+    <mw-card class="cx-translation-list--sx-suggestions pa-0 mb-0">
       <div class="cx-translation-list__division">
         <h5 v-i18n:cx-suggestionlist-expand-sections-title class="ma-0 pa-4" />
       </div>
@@ -81,7 +80,7 @@ export default {
   data: () => ({
     mwIconRefresh,
     pageSuggestionsLoaded: false,
-    sectionSuggestionsLoaded: true,
+    sectionSuggestionsLoaded: false,
     paginationIndex: 0,
     pageSize: 3
   }),
