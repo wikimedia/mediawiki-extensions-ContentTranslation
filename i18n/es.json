@@ -406,5 +406,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Publicar en tu espacio personal para que revises y lo copies en el espacio principal",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tu traducción será <strong>añadida a tu taller de usuario.</strong>",
 	"cx-sx-publisher-review-info-error": "Tu traducción no puede publicarse:",
-	"cx-sx-publisher-review-info-learn-more": "Más información"
+	"cx-sx-publisher-review-info-learn-more": "Más información",
+	"cx-dashboard-experimental-support-banner-title": "El soporte en dispositivos móviles es experimental",
+	"cx-dashboard-experimental-support-banner-description": "Puedes ampliar artículos ya existentes traduciendo una sección nueva. Sin embargo, algunas características de escritorio todavía no están disponibles.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Más información",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Comparte tu opinión"
 }

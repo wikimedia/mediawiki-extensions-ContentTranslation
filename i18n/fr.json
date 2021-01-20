@@ -416,5 +416,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Publier vers votre espace personnel pour pouvoir le relire et le copier ailleurs.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Votre traduction sera <strong> ajoutée à votre bac à sable.</strong>",
 	"cx-sx-publisher-review-info-error": "Votre traduction ne peut être publiée :",
-	"cx-sx-publisher-review-info-learn-more": "En savoir plus"
+	"cx-sx-publisher-review-info-learn-more": "En savoir plus",
+	"cx-dashboard-experimental-support-banner-title": "Le support sur mobile est expérimental",
+	"cx-dashboard-experimental-support-banner-description": "Vous pouvez développer des articles existants en traduisant une nouvelle section. Toutefois, certaines fonctionnalités de la version de bureau ne sont pas encore disponibles",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "En savoir plus",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Partager votre ressenti"
 }

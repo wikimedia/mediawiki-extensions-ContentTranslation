@@ -395,5 +395,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Publique em seu espaço pessoal para você revisar e copiar em outro lugar.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Sua tradução será <strong> adicionado à sua página de teste.</strong>",
 	"cx-sx-publisher-review-info-error": "Sua tradução não pode ser publicada:",
-	"cx-sx-publisher-review-info-learn-more": "Saiba mais"
+	"cx-sx-publisher-review-info-learn-more": "Saiba mais",
+	"cx-dashboard-experimental-support-banner-title": "O suporte móvel é experimental",
+	"cx-dashboard-experimental-support-banner-description": "Você pode expandir os artigos existentes traduzindo uma nova seção. No entanto, alguns recursos do desktop ainda não estão disponíveis.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Saiba mais",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Compartilhe seu feedback"
 }
