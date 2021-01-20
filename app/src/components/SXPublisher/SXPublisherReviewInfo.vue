@@ -13,7 +13,10 @@
     </template>
     <div class="sx-publisher__review-info__content">
       <template v-if="status === 'default'">
-        <p v-i18n-html:cx-sx-publisher-review-info class="complementary ma-0" />
+        <p
+          v-i18n-html-safe:cx-sx-publisher-review-info
+          class="complementary ma-0"
+        />
       </template>
       <template v-if="status === 'warning'">
         <!--      TODO: Add warnings -->

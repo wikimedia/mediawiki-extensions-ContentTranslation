@@ -6,6 +6,7 @@ import store from "./store";
 import router from "./router";
 import i18n from "vue-banana-i18n";
 import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
+import i18nDirective from "./directives/i18n.safe";
 Vue.use(BreakpointsPlugin);
 Vue.use(ColorsPlugin);
 

@@ -6,7 +6,7 @@
     <mw-row justify="center" class="sx-article-selector__license ma-0">
       <p class="pa-3">
         <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
-        <small v-i18n-html:cx-license-agreement />
+        <small v-i18n-html-safe:cx-license-agreement />
       </p>
     </mw-row>
   </section>

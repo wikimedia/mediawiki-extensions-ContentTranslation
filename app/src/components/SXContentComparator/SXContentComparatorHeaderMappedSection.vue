@@ -41,12 +41,12 @@
     </mw-row>
     <p
       v-if="!isDiscardedSection"
-      v-i18n-html:cx-sx-content-comparator-mapped-section-clarifications
+      v-i18n:cx-sx-content-comparator-mapped-section-clarifications
       class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
     />
     <p
       v-else
-      v-i18n-html:cx-sx-content-comparator-discarded-section-clarifications
+      v-i18n:cx-sx-content-comparator-discarded-section-clarifications
       class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
     />
   </div>
