@@ -1,5 +1,5 @@
 var nextUntil = function(element, selector) {
-  const siblings = [];
+  var siblings = [];
   element = element.nextElementSibling;
   while (element) {
     if (element.matches(selector)) break;
@@ -19,7 +19,7 @@ var highlightElement = function(element) {
 };
 
 var createNewIndicator = function() {
-  const span = document.createElement("span");
+  var span = document.createElement("span");
   span.innerText = mw.message("cx-sx-followup-feedback-new-indicator");
   span.style.background = "#fdedd1";
   span.style.color = "#ac6600";

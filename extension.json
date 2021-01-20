@@ -354,12 +354,20 @@
 			"localBasePath": "app",
 			"remoteExtPath": "ContentTranslation/app",
 			"packageFiles": [
-				"modules/sx.publishing.followup.js"
+				"modules/index.js",
+				"modules/sx.publishing.followup.highlight.js",
+				"modules/sx.publishing.followup.confirmation.js",
+				"modules/PublishFeedback.vue"
 			],
 			"messages": [
-				"cx-sx-followup-feedback-new-indicator"
+				"cx-sx-followup-feedback-new-indicator",
+				"cx-sx-published-section-confirmation-header",
+				"cx-sx-published-section-confirmation-content"
 			],
-			"targets": [ "desktop", "mobile" ]
+			"targets": [ "desktop", "mobile" ],
+			"dependencies": [
+				"vue"
+			]
 		},
 		"mw.cx3": {
 			"localBasePath": "app",
