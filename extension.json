@@ -1430,7 +1430,8 @@
 				"ve-cx/ce/styles/ve.ce.CXReferenceNode.less"
 			],
 			"dependencies": [
-				"mw.cx.visualEditor.base"
+				"mw.cx.visualEditor.base",
+				"ext.cite.visualEditor"
 			],
 			"messages": [
 				"cx-tools-linter-template",
