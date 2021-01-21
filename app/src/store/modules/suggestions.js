@@ -1,11 +1,12 @@
 import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
-
+import Vue from "vue";
 const state = {
   /** @type ArticleSuggestion[] */
   pageSuggestions: [],
   /** @type SectionSuggestion[] */
   sectionSuggestions: [],
-  favorites: {}
+  favorites: {},
+  sectionSuggestionsLoaded: false
 };
 
 const mutations = {
@@ -14,6 +15,9 @@ const mutations = {
   },
   addSectionSuggestion(state, suggestion) {
     state.sectionSuggestions.push(suggestion);
+  },
+  setSectionSuggestionsLoaded(state, value) {
+    state.sectionSuggestionsLoaded = value;
   }
 };
 
@@ -63,32 +67,39 @@ const actions = {
         { root: true }
       );
   },
-  async fetchSectionSuggestions(
-    { commit, dispatch, rootGetters, getters },
-    { sourceLanguage, targetLanguage }
+  async fetchSectionSuggestionsBySeeds(
+    { commit, dispatch, state },
+    { seeds, sourceLanguage }
   ) {
-    const publishedTranslations = rootGetters[
-      "translator/getPublishedTranslationsForLanguagePair"
-    ](sourceLanguage, targetLanguage);
-
-    if (!publishedTranslations.length) {
+    if (!seeds.length) {
       return;
     }
 
-    /** @type {SectionSuggestion[]} */
-    const suggestions = await cxSuggestionsApi.fetchSectionSuggestionsBySeeds(
-      publishedTranslations
-    );
+    for (const seed of seeds) {
+      /** @type {SectionSuggestion} */
+      const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+        seed.sourceLanguage,
+        seed.sourceTitle,
+        seed.targetLanguage
+      );
 
-    if (!suggestions.length) {
+      if (suggestion) {
+        commit("addSectionSuggestion", suggestion);
+      }
+
+      if (state.sectionSuggestions.length === 5) {
+        break;
+      }
+    }
+
+    commit("setSectionSuggestionsLoaded", true);
+    if (!state.sectionSuggestions.length) {
       return;
     }
 
-    suggestions.forEach(suggestion =>
-      commit("addSectionSuggestion", suggestion)
+    const titles = state.sectionSuggestions.map(
+      suggestion => suggestion.sourceTitle
     );
-
-    const titles = suggestions.map(suggestion => suggestion.sourceTitle);
     dispatch(
       "mediawiki/fetchPageMetadata",
       { language: sourceLanguage, titles },
@@ -137,21 +148,32 @@ const actions = {
     { rootGetters, dispatch },
     { sourceLanguage, targetLanguage }
   ) {
-    const publishedTranslations = rootGetters[
+    // Published translations
+    let seeds = rootGetters[
       "translator/getPublishedTranslationsForLanguagePair"
     ](sourceLanguage, targetLanguage);
-    const seed = (publishedTranslations?.[0] || {})?.sourceTitle;
 
-    dispatch("fetchPageSuggestions", {
-      sourceLanguage,
-      targetLanguage,
-      seed
-    });
+    // For users that haven't published any translation with CX,
+    // fetch seeds for section suggestions with additional request
+    if (!seeds.length) {
+      seeds = await cxSuggestionsApi.fetchSuggestionSeeds(
+        sourceLanguage,
+        targetLanguage
+      );
+    }
+    dispatch("fetchSectionSuggestionsBySeeds", { seeds, sourceLanguage });
 
-    dispatch("fetchSectionSuggestions", {
-      sourceLanguage,
-      targetLanguage
-    });
+    // Disable fetch page suggestions action until we properly support
+    // it in the Dashboard
+    if (!new Vue().$incompleteVersion) {
+      const seed = (seeds?.[0] || {})?.sourceTitle;
+
+      dispatch("fetchPageSuggestions", {
+        sourceLanguage,
+        targetLanguage,
+        seed
+      });
+    }
   }
 };
 

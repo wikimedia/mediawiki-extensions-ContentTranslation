@@ -27,7 +27,6 @@
       <div class="cx-translation-list__division">
         <h5 v-i18n:cx-suggestionlist-expand-sections-title class="ma-0 pa-4" />
       </div>
-      <mw-spinner v-if="!sectionSuggestionsLoaded" />
       <cx-translation-suggestion
         v-for="(suggestion, index) in sectionSuggestionForPair"
         :key="`suggestion-${index}`"
@@ -35,6 +34,7 @@
         :suggestion="suggestion"
         @click="startSectionTranslation(suggestion)"
       />
+      <mw-spinner v-if="!sectionSuggestionsLoaded" />
     </mw-card>
     <div
       class="cx-suggestion-list__refresh-button-container d-flex justify-center"
@@ -79,7 +79,6 @@ export default {
   data: () => ({
     mwIconRefresh,
     pageSuggestionsLoaded: false,
-    sectionSuggestionsLoaded: false,
     paginationIndex: 0,
     pageSize: 3
   }),
@@ -88,7 +87,9 @@ export default {
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || [],
       selectedSourceLanguage: state => state.application.sourceLanguage,
-      selectedTargetLanguage: state => state.application.targetLanguage
+      selectedTargetLanguage: state => state.application.targetLanguage,
+      sectionSuggestionsLoaded: state =>
+        state.suggestions.sectionSuggestionsLoaded
     }),
     ...mapGetters({
       pageSuggestionsForPair: "application/getCurrentPageSuggestions",
@@ -137,9 +138,6 @@ export default {
   watch: {
     pageSuggestionsForPair: function() {
       this.pageSuggestionsLoaded = true;
-    },
-    sectionSuggestionForPair: function() {
-      this.sectionSuggestionsLoaded = true;
     },
     selectedSourceLanguage() {
       this.fetchPageSuggestions({

@@ -70,29 +70,52 @@ async function fetchSectionSuggestions(
 }
 
 /**
- * @param {Translation[]} seeds
- * @return {Promise<SectionSuggestion[]>}
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @return {Promise<Array>}
  */
-async function fetchSectionSuggestionsBySeeds(seeds) {
-  const sectionSuggestions = [];
-  for (const seed of seeds) {
-    /** @type {SectionSuggestion|null} */
-    const newSectionSuggestion = await fetchSectionSuggestions(
-      seed.sourceLanguage,
-      seed.sourceTitle,
-      seed.targetLanguage
-    );
-    newSectionSuggestion && sectionSuggestions.push(newSectionSuggestion);
-    if (sectionSuggestions.length === 5) {
-      break;
-    }
-  }
+async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
+  const query = {
+    action: "query",
+    format: "json",
+    list: "cxpublishedtranslations",
+    from: sourceLanguage,
+    to: targetLanguage,
+    limit: 200
+  };
+  const mwApi = siteMapper.getApi(sourceLanguage);
+  try {
+    const response = await mwApi.get(query);
+    // Shuffle array so that users do not get the same suggestions every time
+    const translations = shuffleArray(response.result.translations);
 
-  return sectionSuggestions;
+    return translations.filter(translation => {
+      // For some reason, the above query provides non-encoded urls. Encode them before comparing
+      const targetUrl = mw.util.wikiUrlencode(translation.targetURL);
+      // if translation has been published properly to production wiki then page url calculated
+      // by siteMapper should be equal to (encoded) targetUrl
+      return (
+        siteMapper.getPageUrl(targetLanguage, translation.targetTitle) ===
+        targetUrl
+      );
+    });
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }
+
+// Fisher–Yates shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+const shuffleArray = array => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 export default {
   fetchSuggestions,
   fetchSectionSuggestions,
-  fetchSectionSuggestionsBySeeds
+  fetchSuggestionSeeds
 };
