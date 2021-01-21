@@ -393,5 +393,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Publicera till ditt personliga rymd så du kan granska och kopiera den någon annan stans.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Din översättning kommer att <strong>läggas till i din sandlåda.</strong>",
 	"cx-sx-publisher-review-info-error": "Din översättning kan inte publiceras:",
-	"cx-sx-publisher-review-info-learn-more": "Läs mer"
+	"cx-sx-publisher-review-info-learn-more": "Läs mer",
+	"cx-dashboard-experimental-support-banner-title": "Stöd för mobiler är experimentellt",
+	"cx-dashboard-experimental-support-banner-description": "Du kan utöka befintliga artiklar genom att översätta ett nytt avsnitt. Vissa funktioner från datorversionen är ännu inte tillgängliga.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Läs mer",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Dela din återkoppling"
 }

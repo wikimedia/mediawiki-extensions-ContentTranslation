@@ -378,5 +378,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Објави во мојот личен простор за да го прегледувам и потоа прекопирам.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Преводот ќе биде <strong> додаден во вашиот песочник.</strong>",
 	"cx-sx-publisher-review-info-error": "Вашиот превод не може да се објави:",
-	"cx-sx-publisher-review-info-learn-more": "Дознајте повеќе"
+	"cx-sx-publisher-review-info-learn-more": "Дознајте повеќе",
+	"cx-dashboard-experimental-support-banner-title": "Мобилната поддршка е експериментална",
+	"cx-dashboard-experimental-support-banner-description": "Можете да збогатите постоечки статии преведувајќи нов поднаслов. Извесни столни можности од засега не се достапни.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Дознајте повеќе",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Дајте ваше мислење"
 }
