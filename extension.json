@@ -237,8 +237,8 @@
 				"Translations": true
 			}
 		},
-		"ContentTranslationVueDashboard": {
-			"description": "Whether mobile friendly modern dashboard to be used or not.",
+		"ContentTranslationEnableSectionTranslation": {
+			"description": "Whether section translated is enabled",
 			"value": false
 		},
 		"DraftMaxAge": {
@@ -365,7 +365,6 @@
 			"localBasePath": "app",
 			"remoteExtPath": "ContentTranslation/app",
 			"targets": [
-				"desktop",
 				"mobile"
 			],
 			"scripts": [

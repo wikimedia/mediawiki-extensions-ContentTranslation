@@ -12,6 +12,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Services\NoSuchServiceException;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -151,9 +152,14 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	protected function isVueDashboard() {
-		$config = $this->getConfig();
-		return $config->get( 'ContentTranslationVueDashboard' ) &&
-			!$this->onTranslationView();
+		$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
+		$services = MediaWikiServices::getInstance();
+		try {
+			$context = $services->getService( 'MobileFrontend.Context' );
+			return $isSXEnabled && $context->shouldDisplayMobileView() && !$this->onTranslationView();
+		} catch ( NoSuchServiceException $e ) {
+			return false;
+		}
 	}
 
 	/**
