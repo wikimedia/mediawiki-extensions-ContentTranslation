@@ -10,6 +10,7 @@
 
 <script>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
+import { mapState } from "vuex";
 
 export default {
   name: "TranslatedSegmentCardHeader",
@@ -21,6 +22,10 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      isSectionTitleSelected: state =>
+        state.application.isSectionTitleSelectedForTranslation
+    }),
     scopeOptions: vm => [
       {
         value: "sentence",
@@ -43,7 +48,8 @@ export default {
             "cx-sx-sentence-selector-translated-segment-paragraph-option"
           ),
           type: "text",
-          class: "px-0 py-4 mx-4"
+          class: "px-0 py-4 mx-4",
+          disabled: vm.isSectionTitleSelected
         }
       }
     ]

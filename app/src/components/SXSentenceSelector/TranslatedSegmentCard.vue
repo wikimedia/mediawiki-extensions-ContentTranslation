@@ -42,6 +42,7 @@
           </mw-col>
         </mw-row>
         <mw-button
+          v-if="showSentenceTab"
           :icon="mwIconEdit"
           type="text"
           :label="
@@ -106,21 +107,36 @@ export default {
       currentPageSection: state => state.application.currentSourceSection
     }),
     ...mapGetters({
-      selectedSentence: "application/getCurrentSelectedSentence"
+      selectedSentence: "application/getCurrentSelectedSentence",
+      mtTranslation: "application/getCurrentProposedTranslation"
     }),
+    showSentenceTab: vm => vm.scopeSelection === "sentence",
+    currentSubSection: vm =>
+      vm.currentPageSection.subSections.find(subSection =>
+        subSection.sentences.some(
+          sentence => sentence.id === vm.selectedSentence.id
+        )
+      ),
+    proposedMTTranslation: vm =>
+      vm.showSentenceTab
+        ? vm.mtTranslation
+        : vm.currentSubSection.getProposedTranslation(vm.mtProvider),
     progressBarBackgroundColor: vm => vm.$mwui.colors.base80,
     errorColor: vm => vm.$mwui.colors.red50,
     userIconColor: vm => vm.iconColors[vm.modificationStatus],
     mtScore: vm =>
-      mtScoreCalculator.calculateScore(vm.translation, vm.mtTranslation),
-    translation: vm =>
-      vm.isSectionTitleSelected
-        ? vm.currentPageSection.translatedTitle
-        : vm.selectedSentence.translatedContent,
-    mtTranslation: vm =>
-      vm.isSectionTitleSelected
-        ? vm.currentPageSection.proposedTitleTranslations[vm.mtProvider]
-        : vm.selectedSentence.proposedTranslations[vm.mtProvider],
+      mtScoreCalculator.calculateScore(
+        vm.translation,
+        vm.proposedMTTranslation
+      ),
+    translation: vm => {
+      if (vm.isSectionTitleSelected) {
+        return vm.currentPageSection.translatedTitle;
+      } else if (vm.showSentenceTab) {
+        return vm.selectedSentence.translatedContent;
+      }
+      return vm.currentSubSection.translatedContent;
+    },
     modificationStatus: vm => mtScoreCalculator.getScoreStatus(vm.mtScore),
     modificationPercentageClass: vm =>
       `translated-segment-card__modification-stats__percentage--${vm.modificationStatus}`,

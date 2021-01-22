@@ -39,6 +39,15 @@ export default class SubSection {
     return subSectionNode.innerHTML;
   }
 
+  getProposedTranslation(mtProvider) {
+    return this.sentences.reduce((mtTranslation, sentence) => {
+      if (sentence.isTranslated) {
+        mtTranslation += sentence.proposedTranslations[mtProvider];
+      }
+      return mtTranslation;
+    }, "");
+  }
+
   get isTranslated() {
     return this.sentences.some(sentence => sentence.isTranslated);
   }
