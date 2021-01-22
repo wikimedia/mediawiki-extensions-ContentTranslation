@@ -5,21 +5,23 @@
 			"Amire80",
 			"Bjh21",
 			"Chase me ladies, I'm the Cavalry",
+			"Ed g2s",
 			"Pierpao",
 			"Shirayuki"
 		]
 	},
-	"cx": "TRANSLATE PAGE",
-	"cx-dashboard-header": "TRANSLATIONS",
+	"cx": "Translate page",
+	"cx-dashboard-header": "Translations",
 	"cx-javascript": ".",
 	"cx-license-agreement": "By continuing, you agree to the [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licence] and the [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-header-translation-center": "Translation centre",
-	"cx-header-all-translations": "ALL TRANSLATIONS",
+	"cx-header-all-translations": "All translations",
 	"cx-source-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1!",
-	"cx-publish-button": "PUBLISH",
+	"cx-publish-button": "Publish",
 	"cx-publish-button-publishing": "Publishing…",
 	"cx-lost-session": "Your session has expired!",
-	"cx-translation-add-translation": "ADD TRANSLATION",
-	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages."
+	"cx-translation-add-translation": "Add translation",
+	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
+	"cx-favorite-removed": "Removed from list of favourites!"
 }
