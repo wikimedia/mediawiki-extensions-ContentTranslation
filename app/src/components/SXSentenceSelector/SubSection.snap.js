@@ -10,7 +10,7 @@ exports[`SXSentenceSelector SubSection component Component output matches snapsh
     
         
     <span
-      class="cx-segment sx-sentence-selector__section-sentence py-1 me-1"
+      class="cx-segment sx-sentence-selector__section-sentence py-1 me-1 sx-sentence-selector__section-sentence--untranslated"
       data-segmentid="109"
     >
       
@@ -22,7 +22,7 @@ exports[`SXSentenceSelector SubSection component Component output matches snapsh
     
         
     <span
-      class="cx-segment sx-sentence-selector__section-sentence py-1 me-1"
+      class="cx-segment sx-sentence-selector__section-sentence py-1 me-1 sx-sentence-selector__section-sentence--untranslated"
       data-segmentid="111"
     >
       

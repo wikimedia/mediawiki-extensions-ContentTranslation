@@ -22,19 +22,19 @@ export default {
         const sentence = this.subSection.getSentenceById(
           segment.dataset.segmentid
         );
-
         segment.classList.add(sentenceClass, "py-1", "me-1");
-        const highLightPostfixes = ["untranslated", "translated"];
-        const selectedPrefix = `${sentenceClass}--selected`;
-        segment.classList.remove(
-          ...highLightPostfixes.map(postfix => `${selectedPrefix}-${postfix}`)
+        const sentenceClasses = ["untranslated", "translated", "selected"].map(
+          postfix => `${sentenceClass}--${postfix}`
         );
+        segment.classList.remove(...sentenceClasses);
         if (sentence.selected) {
-          const highLightPostfix = sentence.isTranslated
-            ? "translated"
-            : "untranslated";
-          segment.classList.add(`${selectedPrefix}-${highLightPostfix}`);
+          segment.classList.add(`${sentenceClass}--selected`);
         }
+
+        const highLightPostfix = sentence.isTranslated
+          ? "translated"
+          : "untranslated";
+        segment.classList.add(`${sentenceClass}--${highLightPostfix}`);
         segment.innerHTML = sentence.content;
       });
 
@@ -77,14 +77,16 @@ export default {
     pointer-events: none;
   }
   cursor: pointer;
-  // TODO: Fix this to be base20 (currently base30)
-  color: @color-base--subtle;
 
+  &--untranslated {
+    // TODO: Create color variable for base20
+    color: @wmui-color-base20;
+  }
   &--selected {
-    &-translated {
+    &.sx-sentence-selector__section-sentence--translated {
       .highlight(@background-color-primary);
     }
-    &-untranslated {
+    &.sx-sentence-selector__section-sentence--untranslated {
       .highlight(@wmui-color-yellow90);
     }
   }
