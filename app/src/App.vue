@@ -13,7 +13,7 @@
 
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "ContentTranslationApp",
@@ -22,8 +22,8 @@ export default {
     transitionName: ""
   }),
   computed: {
-    ...mapGetters({
-      translationInProgressExists: "application/translationInProgressExists"
+    ...mapState({
+      translationInProgress: state => state.application.translationInProgress
     })
   },
   // watch the `$route` to determine the transition to use
@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
     window.addEventListener("beforeunload", e => {
-      if (this.translationInProgressExists) {
+      if (this.translationInProgress) {
         e.preventDefault();
         e.returnValue = "";
       }

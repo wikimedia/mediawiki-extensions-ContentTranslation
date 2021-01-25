@@ -104,7 +104,7 @@ export default {
         this.publishTarget
       );
       /** Remove warning about leaving SX */
-      window.removeEventListener("beforeunload");
+      this.$store.commit("application/setTranslationInProgress", false);
       window.location.href = getUrl(`${articleTitle}#${this.translatedTitle}`);
     },
     async publishTranslation() {

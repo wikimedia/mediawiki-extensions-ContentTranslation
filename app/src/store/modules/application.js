@@ -27,7 +27,12 @@ const state = {
    * @type String
    */
   targetLanguage: "es",
-  publishTarget: "NEW_SECTION"
+  publishTarget: "NEW_SECTION",
+  /**
+   * Indicates whether user translation is in progress
+   * @type Boolean
+   */
+  translationInProgress: false
 };
 
 const mutations = {
@@ -129,6 +134,9 @@ const mutations = {
       throw "Invalid publish target";
     }
     state.publishTarget = target;
+  },
+  setTranslationInProgress: (state, value) => {
+    state.translationInProgress = value;
   }
 };
 
@@ -198,13 +206,6 @@ const getters = {
     state.isSectionTitleSelectedForTranslation
       ? getters.getCurrentProposedTitleTranslation
       : getters.getCurrentProposedSentenceTranslation,
-
-  /**
-   * @return {boolean}
-   */
-  translationInProgressExists: state =>
-    !!state.currentSourceSection?.translatedTitle ||
-    !!state.currentSourceSection?.isTranslated,
 
   /**
    * @return {LanguageTitleGroup}
@@ -356,6 +357,7 @@ const actions = {
     { state, commit, dispatch },
     { translation }
   ) {
+    commit("setTranslationInProgress", true);
     const mutation = state.isSectionTitleSelectedForTranslation
       ? "setCurrentSourceSectionTitleTranslation"
       : "setSelectedSentenceTranslation";
