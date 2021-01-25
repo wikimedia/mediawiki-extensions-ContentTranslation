@@ -5,8 +5,8 @@
 			"Janezdrilc"
 		]
 	},
-	"apihelp-cxpublish-description": "Shranite stran, ki je bila ustvarjena s pomočjo Wikiprevajalnika.",
-	"apihelp-cxpublish-summary": "Shranite stran, ki je bila ustvarjena s pomočjo Wikiprevajalnika.",
+	"apihelp-cxpublish-description": "Shranite stran, ki je bila ustvarjena z Wikiprevajalnikom.",
+	"apihelp-cxpublish-summary": "Shranite stran, ki je bila ustvarjena z Wikiprevajalnikom.",
 	"apihelp-cxpublish-param-title": "Naslov strani, na kateri se izvršijo dejanja.",
 	"apihelp-cxpublish-param-html": "Vsebina za shranitev.",
 	"apihelp-cxpublish-param-from": "Koda izvirnega jezika.",
@@ -39,8 +39,8 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Koda ciljnega jezika.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Koda izvirnega jezika.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Koda ciljnega jezika.",
-	"apihelp-cxdelete-description": "Izbrišite osnutek prevoda, ki je bil ustvarjen s pomočjo Wikiprevajalnika.",
-	"apihelp-cxdelete-summary": "Izbrišite osnutek prevoda, ki je bil ustvarjen s pomočjo Wikiprevajalnika.",
+	"apihelp-cxdelete-description": "Izbrišite osnutek prevoda, ki je bil ustvarjen z Wikiprevajalnikom.",
+	"apihelp-cxdelete-summary": "Izbrišite osnutek prevoda, ki je bil ustvarjen z Wikiprevajalnikom.",
 	"apihelp-cxdelete-param-from": "Koda izvirnega jezika.",
 	"apihelp-cxdelete-param-to": "Koda ciljnega jezika.",
 	"apihelp-cxdelete-param-sourcetitle": "Naslov izvirne strani.",

@@ -393,5 +393,9 @@
 	"cx-sx-publisher-sandbox-option-details": "Опублікувати до Вашого особистого простору для перевірки та копіювання в інше місце.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш переклад буде <strong>додано до Вашої чернетки.</strong>",
 	"cx-sx-publisher-review-info-error": "Ваш переклад не може бути опубліковано:",
-	"cx-sx-publisher-review-info-learn-more": "Дізнатися більше"
+	"cx-sx-publisher-review-info-learn-more": "Дізнатися більше",
+	"cx-dashboard-experimental-support-banner-title": "Підтримка мобільного вигляду є експериментальною",
+	"cx-dashboard-experimental-support-banner-description": "Ви можете розширити дійсні статті переклавши новий розділ. Однак, деякі функції зі стаціонарного вигляду ще не доступні.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Дізнатися більше",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Залишити свої відгуки"
 }

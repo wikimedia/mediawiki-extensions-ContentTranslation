@@ -356,5 +356,8 @@
 	"cx-sx-publisher-new-section-option-details": "문서에 새 문단 추가하기",
 	"cx-sx-publisher-sandbox-option-label": "내 연습장에 게시",
 	"cx-sx-publisher-sandbox-option-details": "검토 후 다른 곳에 복사하기 위한 내 개인 공간에 게시합니다.",
-	"cx-sx-publisher-publish-panel-sandbox-section-result": "내 번역이 <strong>메모장에 추가됩니다.</strong>"
+	"cx-sx-publisher-publish-panel-sandbox-section-result": "내 번역이 <strong>메모장에 추가됩니다.</strong>",
+	"cx-dashboard-experimental-support-banner-title": "모바일 지원은 실험 기능입니다",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "더 알아보기",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "의견 공유하기"
 }
