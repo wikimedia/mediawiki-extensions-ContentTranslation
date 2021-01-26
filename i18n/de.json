@@ -391,5 +391,10 @@
 	"cx-dashboard-experimental-support-banner-title": "Mobile Unterstützung ist experimentell",
 	"cx-dashboard-experimental-support-banner-description": "Du kannst bestehende Artikel erweitern, indem du einen neuen Abschnitt übersetzet. Einige Funktionen vom Desktop sind jedoch noch nicht verfügbar.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Weitere Informationen",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Schreibe dein Feedback"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Schreibe dein Feedback",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Keine Bearbeitungen von dir",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> von dir bearbeitet",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Deine Übersetzung",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Satz",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Absatz"
 }

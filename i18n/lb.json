@@ -257,5 +257,9 @@
 	"cx-sx-publisher-failure-animation-clarification": "D'Feelermeldungen nokucken",
 	"cx-sx-publisher-review-info-error": "Är Iwwersetzung kann net verëffentlecht ginn",
 	"cx-sx-publisher-review-info-learn-more": "Fir méi ze wëssen",
-	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Fir méi ze wëssen"
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Fir méi ze wëssen",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Keng Ännerunge vun Iech",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Är Iwwersetzung",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Saz",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Abschnitt"
 }

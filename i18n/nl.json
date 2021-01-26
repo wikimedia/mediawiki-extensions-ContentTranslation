@@ -285,5 +285,6 @@
 	"cx-sx-publisher-launching-animation-title": "Vertaling publiceren...",
 	"cx-sx-publisher-success-animation-clarification": "De pagina openen...",
 	"cx-sx-publisher-failure-animation-title": "Publiceren mislukt",
-	"cx-sx-publisher-failure-animation-clarification": "De foutmeldingen controleren"
+	"cx-sx-publisher-failure-animation-clarification": "De foutmeldingen controleren",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Uw vertaling"
 }

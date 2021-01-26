@@ -338,6 +338,7 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "번역 편집",
 	"cx-sx-sentence-selector-apply-translation-button-label": "적용",
 	"cx-sx-sentence-selector-skip-translation-button-label": "건너뛰기",
+	"cx-sx-content-comparator-mapped-section-clarifications": "번역이 기존 문단을 확장합니다. 문단과 관련이 없다면 이것을 제거하십시오.",
 	"cx-sx-content-comparator-present-section-placeholder-title": "여기에 번역이 추가됩니다",
 	"cx-sx-content-comparator-content-header-translate-button-label": "번역",
 	"cx-sx-editor-original-panel-label": "원본",
@@ -359,5 +360,8 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "내 번역이 <strong>메모장에 추가됩니다.</strong>",
 	"cx-dashboard-experimental-support-banner-title": "모바일 지원은 실험 기능입니다",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "더 알아보기",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "의견 공유하기"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "의견 공유하기",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "내 번역",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "문장",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "문단"
 }

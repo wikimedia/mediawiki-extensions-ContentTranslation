@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aboubacar.banamoridou.toure",
 			"Lancine.kounfantoh.fofana"
 		]
 	},
@@ -341,5 +342,10 @@
 	"cx-sx-publisher-sandbox-option-details": "ߊ߬ ߟߊߥߊ߲߬ߞߊ߫ ߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ ߞߣߍ ߞߊ߲߬ ߞߵߊ߬ ߡߊߝߟߍ߫ ߕߎ߲߯߸ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߓߊߦߟߍ߬ߡߊ߲߫.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "ߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߌ߫ ߣߊ߬ <strong>ߝߙߊ߬ ߌ ߟߊ߫ ߕߌ߬ߢߍ߬ߞߏ߲ߞߏ ߡߊ߬</strong>",
 	"cx-sx-publisher-review-info-error": "ߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߕߍߣߊ߬ ߛߋ߫ ߟߊ߫ ߟߊߥߊ߲߬ߞߊ߫ ߟߊ߫.",
-	"cx-sx-publisher-review-info-learn-more": "ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬"
+	"cx-sx-publisher-review-info-learn-more": "ߘߏߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "ߊ߬ ߡߊ߫ ߡߊߦߟߍ߬ߡߊ߲߫ ߌߟߋ ߓߟߏ߫",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1</span>ߊ߬ ߡߊߦߟߍ߬ߡߊ߲߬ߠߌ߲߬ ߌߟߋ ߟߋ߬ ߓߟߏ߫",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌߟߊ",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "ߞߎߡߦߊ",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "ߛߌ߰ߘߊ߬ߟߋ߲"
 }
