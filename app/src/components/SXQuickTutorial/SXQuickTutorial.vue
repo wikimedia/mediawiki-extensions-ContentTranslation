@@ -1,7 +1,7 @@
 <template>
   <section class="sx-quick-tutorial">
     <mw-row direction="column" class="sx-quick-tutorial__body-container ma-0">
-      <section class="sx-quick-tutorial__main-point py-9 px-7">
+      <section class="sx-quick-tutorial__main-point py-9 px-6">
         <transition name="fade" mode="out-in">
           <h2
             v-if="isActiveStep(1)"
@@ -22,12 +22,12 @@
           <div
             v-if="isActiveStep(1)"
             key="illustration-1"
-            v-html="tutorialSvgMT"
+            v-html="tutorialSvgSections"
           />
           <div
             v-if="isActiveStep(2)"
             key="illustration-2"
-            v-html="tutorialSvgSections"
+            v-html="tutorialSvgMT"
           />
         </transition>
       </section>
@@ -122,8 +122,10 @@ export default {
     height: 100%;
   }
   .sx-quick-tutorial__main-point {
+    align-self: start;
     h2 {
       border-bottom: none;
+      font-weight: @font-weight-bold;
     }
   }
   .sx-quick-tutorial__illustration {
