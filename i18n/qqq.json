@@ -365,7 +365,7 @@
 	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial",
 	"cx-sx-sentence-selector-header-title": "Title for header inside sentence selector.\n\nThis is a title and ''not'' an action, so it shouldn't be translated with an imperative or an infinitive.",
 	"cx-sx-sentence-selector-done-button-label": "Label for done button inside sentence selector header",
-	"cx-sx-sentence-selector-proposed-translation-title": "Title for proposed sentence translation section inside sentence selector. \n\nParameters:\n* $1 - Name of selected MT provider",
+	"cx-sx-sentence-selector-suggested-translation-title": "Title for suggested sentence translation section inside sentence selector. \n\nParameters:\n* $1 - Name of selected MT provider",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Label for edit sentence translation button inside sentence selector",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Label for apply sentence translation button inside sentence selector",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Label for skip sentence translation button inside sentence selector",

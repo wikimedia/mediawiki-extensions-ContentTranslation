@@ -10,7 +10,7 @@ exports[`SXSentenceSelector Proposed Translation Header Component output matches
     <h6
       class="sx-sentence-selector__proposed-translation__header-title pa-0 ma-0 pe-4 col grow"
     >
-      cx-sx-sentence-selector-proposed-translation-title
+      cx-sx-sentence-selector-suggested-translation-title
     </h6>
      
     <div

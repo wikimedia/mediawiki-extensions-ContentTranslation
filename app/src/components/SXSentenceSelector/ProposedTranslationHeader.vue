@@ -52,7 +52,7 @@ export default {
     mtOptionLabel: vm =>
       vm.extraMTOptionLabels[vm.mtProvider] ||
       vm.$i18n(
-        "cx-sx-sentence-selector-proposed-translation-title",
+        "cx-sx-sentence-selector-suggested-translation-title",
         vm.mtProvider
       )
   }

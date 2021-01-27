@@ -10,7 +10,7 @@ exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`]
     <h6
       class="sx-sentence-selector__proposed-translation-title pa-0 ma-0 pe-4 col grow"
     >
-      cx-sx-sentence-selector-proposed-translation-title
+      cx-sx-sentence-selector-suggested-translation-title
     </h6>
      
     <div

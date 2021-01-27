@@ -44,7 +44,7 @@ describe("SXSentenceSelector Proposed Translation Header", () => {
 
   it("Component calculates mtOptionLabel correctly for regular mtProvider (e.g. OpusMT, Apertium, Google, Yandex)", () => {
     expect(wrapper.vm.mtOptionLabel).toBe(
-      "cx-sx-sentence-selector-proposed-translation-title"
+      "cx-sx-sentence-selector-suggested-translation-title"
     );
   });
 
