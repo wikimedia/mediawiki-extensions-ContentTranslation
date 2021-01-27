@@ -362,7 +362,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Fullständig artikel på $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Finns på $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Avsnitt på $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. <br /> Stäng detta om avsnitten inte är relaterade.",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Din översättning kommer att utvidga det befintliga avsnittet. Stäng detta om avsnitten inte är relaterade.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besök varje vecka|0=Inga besök denna vecka}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Din översättning kommer att publiceras som ett oberoende nytt avsnitt.",
 	"cx-sx-content-comparator-discarded-section-label": "(bortkastad)",
@@ -397,5 +397,10 @@
 	"cx-dashboard-experimental-support-banner-title": "Stöd för mobiler är experimentellt",
 	"cx-dashboard-experimental-support-banner-description": "Du kan utöka befintliga artiklar genom att översätta ett nytt avsnitt. Vissa funktioner från datorversionen är ännu inte tillgängliga.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Läs mer",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Dela din återkoppling"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Dela din återkoppling",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Inga redigering av dig",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> redigerades av dig",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Din översättning",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Mening",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Stycke"
 }

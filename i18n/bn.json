@@ -12,6 +12,7 @@
 			"Sibabrata Banerjee",
 			"Tauhid16",
 			"Titodutta",
+			"ZI Jony",
 			"আফতাবুজ্জামান"
 		]
 	},
@@ -353,7 +354,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "$1-তে সম্পূর্ণ নিবন্ধ",
 	"cx-sx-content-comparator-mapped-section-header-title": "$1-তে উপস্থিত",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1-র অনুচ্ছেদ",
-	"cx-sx-content-comparator-mapped-section-clarifications": "আপনার অনুবাদ এই অনুচ্ছেদকে সম্প্রসারিত করবে।<br /> অনুচ্ছেদগুলির মধ্যে কোনো সম্পর্ক না থাকলে এটি বর্জন করতে পারেন।",
+	"cx-sx-content-comparator-mapped-section-clarifications": "আপনার অনুবাদ এই অনুচ্ছেদকে সম্প্রসারিত করবে। অনুচ্ছেদগুলির মধ্যে কোনো সম্পর্ক না থাকলে এটি বর্জন করতে পারেন।",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "আপনার অনুবাদ করা তথ্য, নতুন একটি অনুচ্ছেদ রূপে প্রকাশিত হবে।",
 	"cx-sx-content-comparator-discarded-section-label": "(বর্জিত)",

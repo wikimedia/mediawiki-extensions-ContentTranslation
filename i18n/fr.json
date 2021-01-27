@@ -385,7 +385,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Article complet en $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Présent en $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section en $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. <br /> Abandonner cela si les sections n’ont pas de rapport.",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Votre traduction développera la section existante. Abandonner cela si les sections n’ont pas de rapport.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite par|$1 visites par|0=Pas de visite cette}} semaine",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Votre traduction sera publiée sous forme d’une nouvelle section indépendante.",
 	"cx-sx-content-comparator-discarded-section-label": "(annulé)",
@@ -420,5 +420,10 @@
 	"cx-dashboard-experimental-support-banner-title": "Le support sur mobile est expérimental",
 	"cx-dashboard-experimental-support-banner-description": "Vous pouvez développer des articles existants en traduisant une nouvelle section. Toutefois, certaines fonctionnalités de la version de bureau ne sont pas encore disponibles",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "En savoir plus",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Partager votre ressenti"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Partager votre ressenti",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Aucune modification de votre part",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> modifié par vous",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Votre traduction",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Phrase",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraphe"
 }

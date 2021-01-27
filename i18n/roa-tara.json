@@ -294,5 +294,9 @@
 	"cx-preference-enable-entrypoints": "Tràse jndr'à [[$1|accuminze 'na traduzione]], da 'a pàgene de le condrebbute, l'elenghe de le lènghe, e ccrejaziune de pàggene nuève.",
 	"cx-feature-discovery-title": "Traduce quanne vuè",
 	"cx-feature-discovery-content": "Puè accumenzà o condinuà a traducere quanne vuè da 'a pàgene {{int:mycontris}}",
-	"cx-feature-discovery-dismiss": "Apposte, pigghiate"
+	"cx-feature-discovery-dismiss": "Apposte, pigghiate",
+	"cx-sx-section-selector-title": "Seziune",
+	"cx-sx-view-translation-anchor": "'Ndruche",
+	"cx-sx-existing-translation-learn-more": "'Mbare de cchiù",
+	"cx-translation-list-all-languages-option-label": "Tutte"
 }

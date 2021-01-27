@@ -308,7 +308,7 @@
 	"cx-sx-start-translation-button-label": "Taca a tradù",
 	"cx-sx-view-translation-anchor": "Varda",
 	"cx-sx-existing-translation-learn-more": "Per savenn pussee",
-	"cx-sx-section-selector-missing-sections-title": "Sezzion che manche in $1",
+	"cx-sx-section-selector-missing-sections-title": "Sezzion ch'i manchen in $1",
 	"cx-sx-section-selector-present-sections-title": "Sezzion present in $1",
 	"cx-sx-section-selector-more-details-title": "Di alter detali",
 	"cx-sx-section-selector-view-article-button-label": "Varda la vos in $1",
@@ -341,7 +341,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Articol complet in $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Present in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sezzion in $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "La toa traduzzion la sgrandirà la sezzion esistenta. <br /> Scartala se i sezzion a inn minga correlade.",
+	"cx-sx-content-comparator-mapped-section-clarifications": "La toa traduzzion la slargherà foeura la sezzion esistenta. Bandonala se i sezzion a inn minga correlade.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visita a la setimana|$1 visite a la setimana|0=Nissuna visita questa setimana chì}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "La toa traduzzion la sarà publicada come una sezzion noeuva in deperlee.",
 	"cx-sx-content-comparator-discarded-section-label": "(trada via)",
@@ -376,5 +376,10 @@
 	"cx-dashboard-experimental-support-banner-title": "El suport per i dispositiv modbil l'è sperimental",
 	"cx-dashboard-experimental-support-banner-description": "Te podet espand i articoi esistent cont el tradù una sezzion noeuva. Tutamanch, di fonzion del desktop a inn nananmò disponibil.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Per savenn pussee",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Spartiss in gir el to parer"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Spartiss in gir el to parer",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Nissuna toa modifica",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> modificad de te",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "La toa traduzzion",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Fras",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraf"
 }

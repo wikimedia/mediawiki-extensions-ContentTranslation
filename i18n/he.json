@@ -355,7 +355,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-content-comparator-mapped-section-header-title": "קיים ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-content-comparator-target-selector-target-section-title": "פרק ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים <br /> אפשר להתעלם מזה אם הפרקים אינם קשורים.",
+	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים. אפשר להתעלם מזה אם הפרקים אינם קשורים.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|ביקור אחד לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "התרגום שלך יתפרסם בתור פרק עצמאי חדש.",
 	"cx-sx-content-comparator-discarded-section-label": "(נזרקה)",
@@ -390,5 +390,7 @@
 	"cx-dashboard-experimental-support-banner-title": "התמיכה במכשירים ניידים ניסיונית",
 	"cx-dashboard-experimental-support-banner-description": "באפשרותך להרחיב ערכים באמצעות תרגום פרק חדש. עם זאת, חלק מהאפשרויות שיש במחשבים אינן זמינות כאן עדיין.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "מידע נוסף",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "{{GENDER:|שתף|שתפי}} את המשוב שלך"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "{{GENDER:|שתף|שתפי}} את המשוב שלך",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "אין עריכות שלך",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "משפט"
 }
