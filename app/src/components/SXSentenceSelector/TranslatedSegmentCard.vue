@@ -142,8 +142,8 @@ export default {
       `translated-segment-card__modification-stats__percentage--${vm.modificationStatus}`,
     iconColors: vm => ({
       error: null,
-      warning: vm.$mwui.colors.yellow50,
-      success: vm.$mwui.colors.green50
+      warning: vm.$mwui.colors.yellow30,
+      success: vm.$mwui.colors.green30
     })
   }
 };
@@ -162,12 +162,12 @@ export default {
     &__percentage {
       &--warning {
         span {
-          color: @wmui-color-yellow50;
+          color: @wmui-color-yellow30;
         }
       }
       &--success {
         span {
-          color: @wmui-color-green50;
+          color: @wmui-color-green30;
         }
       }
     }
