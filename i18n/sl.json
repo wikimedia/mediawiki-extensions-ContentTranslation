@@ -35,7 +35,7 @@
 	"cx-lost-session": "Tvoja seja je potekla",
 	"cx-lost-session-draft": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
 	"cx-lost-session-publish": "Tvoja seja je potekla. Za shranitev svojih urejanj se moraš ponovno prijaviti v novem oknu.",
-	"cx-lost-session-dashboard": "Za izvedbo tega dejanja se prosim ponovno prijavi.",
+	"cx-lost-session-dashboard": "Za izvedbo tega dejanja se morate znova prijaviti.",
 	"cx-publish-summary": "ustvarjeno s prevodom strani »$1«",
 	"cx-translation-add-translation": "Dodaj prevod",
 	"cx-translation-target-page-exists": "Stran z naslovom [$1 $2] že obstaja. Za končno objavo bo potrebovala nov naslov.",
@@ -54,7 +54,7 @@
 	"cx-campaign-newbytranslation-notice": "Ustvari nov članek s pomočjo prevajanja iz jezika, ki ga razumeš.",
 	"cx-campaign-newbytranslation-search": "Najdi katero drugo stran za prevajanje",
 	"cx-campaign-newbytranslation-start": "Začni prevajanje",
-	"cx-special-login-error": "Za prevajanje strani se moraš prijaviti. [$1 Prijava]",
+	"cx-special-login-error": "Za prevajanje strani se morate prijaviti. [$1 Prijava]",
 	"cx-tools-instructions-text1": "Za prevajanje {{GENDER:|kliknite}} odstavek",
 	"cx-tools-instructions-text2": "Ni {{GENDER:|vam}} treba dodati vseh.",
 	"cx-tools-instructions-text3": "{{GENDER:|Poskrbite}}, da bo besedilo teklo čim bolj tekoče",
@@ -308,5 +308,6 @@
 	"cx-sx-existing-translation-status": "Že obstaja v jeziku $1",
 	"cx-sx-view-translation-anchor": "Prikaži",
 	"cx-sx-existing-translation-learn-more": "Več o tem",
-	"cx-sx-section-selector-more-details-title": "Več podrobnosti"
+	"cx-sx-section-selector-more-details-title": "Več podrobnosti",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Delite povratno informacijo"
 }

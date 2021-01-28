@@ -295,7 +295,9 @@
 	"cx-feature-discovery-title": "Traduce quanne vuè",
 	"cx-feature-discovery-content": "Puè accumenzà o condinuà a traducere quanne vuè da 'a pàgene {{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "Apposte, pigghiate",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|'Na sezione|$1 seziune}} mangande jndr'à $2",
 	"cx-sx-section-selector-title": "Seziune",
+	"cx-sx-section-selector-subtitle": "Scacchie 'na sezione de traducere",
 	"cx-sx-view-translation-anchor": "'Ndruche",
 	"cx-sx-existing-translation-learn-more": "'Mbare de cchiù",
 	"cx-translation-list-all-languages-option-label": "Tutte"

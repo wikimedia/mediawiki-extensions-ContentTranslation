@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Base",
 			"Piramidion",
 			"Vlad5250",
 			"Ата"
@@ -127,5 +128,18 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Отримати кількість ваших опублікованих перекладів, які було вилучено.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Часова мітка для отримання лише новіших вилучень.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Простір назв, у якому були опубліковані вилучені переклади. Стандартно це основний простір назв.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Отримати кількість своїх вилучених перекладів, які були опубліковані в основному просторі назв і вилучені після 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Отримати кількість своїх вилучених перекладів, які були опубліковані в основному просторі назв і вилучені після 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-description": "Зберегти розділ створений функцією перекладу розділу розширення Переклад вмісту",
+	"apihelp-cxpublishsection-summary": "Зберегти сторінку створену функцією перекладу розділу розширення Переклад вмісту.",
+	"apihelp-cxpublishsection-param-title": "Назва сторінки щодо якої вчинити дії.",
+	"apihelp-cxpublishsection-param-html": "Вміст до збереження.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Вихідний код мови.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Цільовий код мови.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Назва вихідної сторінки.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Назва вихідного розділу.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Назва цільового розділу.",
+	"apihelp-cxpublishsection-param-sectionnumber": "Розташування розділу в новій версії сторінки.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Ідентифікатор версії вихідної сторінки.",
+	"apihelp-cxpublishsection-param-captchaid": "Ідентифікатор CAPTCHA (при збереженні з відповіддю CAPTCHA)",
+	"apihelp-cxpublishsection-param-captchaword": "Відповідь CAPTCHA (при збереженні з відповіддю CAPTCHA)."
 }

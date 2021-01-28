@@ -11,6 +11,7 @@
 			"Ronel1",
 			"Steeve815",
 			"Strayblues",
+			"YaronSh",
 			"Yona b",
 			"Петар Петковић",
 			"דגש חזק",
@@ -392,5 +393,8 @@
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "מידע נוסף",
 	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "{{GENDER:|שתף|שתפי}} את המשוב שלך",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "אין עריכות שלך",
-	"cx-sx-sentence-selector-translated-segment-sentence-option": "משפט"
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> של תוכן {{PLURAL:$1|נערך|נערכו}} {{GENDER:|על־ידיך|על־ידייך}}",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "התרגום שלך",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "משפט",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "פסקה"
 }

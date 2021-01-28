@@ -323,5 +323,10 @@
 	"cx-sx-publisher-success-animation-title": "Közzétéve!",
 	"cx-sx-publisher-success-animation-clarification": "Oldal megnyitása...",
 	"cx-sx-publisher-failure-animation-title": "Közzététel sikertelen",
-	"cx-sx-publisher-failure-animation-clarification": "Ellenőrizd a hibaüzeneteket"
+	"cx-sx-publisher-failure-animation-clarification": "Ellenőrizd a hibaüzeneteket",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Nem hajtottál végre szerkesztést",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> az általad szerkesztett mennyiség",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Fordításod",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Mondat",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Bekezdés"
 }

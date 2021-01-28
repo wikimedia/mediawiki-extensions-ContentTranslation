@@ -362,7 +362,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Повна стаття мовою $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Наявне мовою $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Розділ мовою $1",
-	"cx-sx-content-comparator-mapped-section-clarifications": "Ваш переклад розширить наявний розділ. <br /> Якщо розділи не пов'язані, то відкиньте це.",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Ваш переклад розширить наявний розділ.\nЯкщо розділи не пов'язані, то відкиньте це.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Ваш переклад буде збережено як новий незалежний розділ.",
 	"cx-sx-content-comparator-discarded-section-label": "(відкинуто)",
@@ -397,5 +397,10 @@
 	"cx-dashboard-experimental-support-banner-title": "Підтримка мобільного вигляду є експериментальною",
 	"cx-dashboard-experimental-support-banner-description": "Ви можете розширити дійсні статті переклавши новий розділ. Однак, деякі функції зі стаціонарного вигляду ще не доступні.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Дізнатися більше",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Залишити свої відгуки"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Залишити свої відгуки",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Вами не зроблено жодних редагувань",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> редаговано Вами",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Ваш переклад",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Речення",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзац"
 }

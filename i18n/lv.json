@@ -356,5 +356,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Publicē savā personīgajā telpā, lai pārskatītu un pārkopētu citur.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tavs tulkojums tiks <strong>pievienots tavai smilškastei.</strong>",
 	"cx-sx-publisher-review-info-error": "Tavu tulkojumu nevar publicēt:",
-	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk"
+	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Teikums",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Rindkopa"
 }
