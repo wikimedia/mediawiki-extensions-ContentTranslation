@@ -44,6 +44,7 @@
 			"ToJack",
 			"Tomasdd",
 			"Vlad5250",
+			"Wileyfoxyx",
 			"Александр Сигачёв",
 			"Лилиә",
 			"Максим777",
@@ -333,6 +334,8 @@
 	"cx-sx-publisher-new-section-option-label": "Опубликовать как новый раздел",
 	"cx-sx-publisher-new-section-option-details": "Добавить новый раздел в статью",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш перевод будет <strong>добавлен в вашу песочницу.</strong>",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Нет правок, сделанных вами",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "Отредактировано вами: <span>$1%</span>",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Ваш перевод",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзац"
 }
