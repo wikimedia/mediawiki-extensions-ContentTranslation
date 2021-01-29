@@ -12,6 +12,7 @@
 	"rules": {
 		"max-len": "off",
 		"no-jquery/no-global-selector": "off",
-		"no-shadow": "warn"
+		"no-shadow": "warn",
+		"compat/compat": "warn"
 	}
 }
