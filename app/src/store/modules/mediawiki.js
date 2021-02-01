@@ -146,8 +146,7 @@ const actions = {
   },
 
   fetchLanguages({ commit }) {
-    const userLanguage = mw.config.get("wgUserLanguage");
-    siteApi.fetchLanguages(userLanguage).then(languages => {
+    siteApi.fetchLanguages().then(languages => {
       commit("setLanguages", languages);
     });
   },
