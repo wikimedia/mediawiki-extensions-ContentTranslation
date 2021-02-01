@@ -27,7 +27,7 @@ const state = {
    * changed by using the language selector.
    * @type String
    */
-  targetLanguage: "es",
+  targetLanguage: mw.config.get("wgSectionTranslationTargetLanguage") || "es",
   publishTarget: "NEW_SECTION",
   /**
    * Indicates whether user translation is in progress
@@ -328,8 +328,17 @@ const actions = {
     const sourceTitle = urlParams.get("page");
     const sourceLanguage = urlParams.get("from");
     const targetLanguage = urlParams.get("to");
-    sourceLanguage && commit("setSourceLanguage", sourceLanguage);
-    targetLanguage && commit("setTargetLanguage", targetLanguage);
+    const targetLanguageConfig = mw.config.get(
+      "wgSectionTranslationTargetLanguage"
+    );
+    if (!targetLanguageConfig) {
+      targetLanguage && commit("setTargetLanguage", targetLanguage);
+    }
+
+    if (sourceLanguage !== targetLanguageConfig) {
+      sourceLanguage && commit("setSourceLanguage", sourceLanguage);
+    }
+
     if (!isSectionTranslation || !sourceTitle) {
       return;
     }

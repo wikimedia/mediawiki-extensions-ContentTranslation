@@ -10,6 +10,8 @@
       <sx-translation-list-language-selector
         :source-languages="availableSourceLanguages"
         :target-languages="availableTargetLanguages"
+        @source-language-selected="updateSourceLanguage"
+        @target-language-selected="updateTargetLanguage"
       />
     </mw-card>
     <mw-card v-if="!$incompleteVersion" class="pa-0 mb-0">
@@ -108,7 +110,16 @@ export default {
         );
     },
     availableTargetLanguages() {
-      return this.supportedLanguageCodes
+      // If SectionTranslationTargetLanguage configuration parameter is set,
+      // target language selection is disabled (only available target
+      // language is the one set in SectionTranslationTargetLanguage).
+      const mwTargetLanguage = mw.config.get(
+        "wgSectionTranslationTargetLanguage"
+      );
+      const supportedCodes = mwTargetLanguage
+        ? [mwTargetLanguage]
+        : this.supportedLanguageCodes;
+      return supportedCodes
         .filter(languageCode => languageCode !== this.selectedSourceLanguage)
         .reduce(
           (languages, languageCode) => [
@@ -190,6 +201,12 @@ export default {
           });
         }
       }
+    },
+    updateSourceLanguage(sourceLanguage) {
+      this.$store.commit("application/setSourceLanguage", sourceLanguage);
+    },
+    updateTargetLanguage(targetLanguage) {
+      this.$store.commit("application/setTargetLanguage", targetLanguage);
     }
   }
 };

@@ -62,11 +62,6 @@ const getters = {
   getLanguageTitleGroupByWikidataId: state => wikidataId =>
     state.languageTitleGroups.find(group => group.wikidataId === wikidataId),
 
-  titleExistsInLanguageForGroup: (state, getters) => (wikidataId, language) =>
-    (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).some(
-      title => title.lang === language
-    ),
-
   getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
     (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
       title => title.lang === language

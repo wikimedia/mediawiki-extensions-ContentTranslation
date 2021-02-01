@@ -186,6 +186,9 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		} else {
 			if ( $this->isVueDashboard() ) {
 				$out->addModules( 'mw.cx3' );
+				$out->addJsConfigVars( [
+					'wgSectionTranslationTargetLanguage' => $this->getConfig()->get( 'SectionTranslationTargetLanguage' )
+				] );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
 				$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );

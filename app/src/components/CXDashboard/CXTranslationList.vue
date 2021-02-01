@@ -84,22 +84,35 @@ export default {
           ]
         );
     },
+    // If SectionTranslationTargetLanguage configuration parameter is set,
+    // target language selection is disabled (only available target
+    // language is the one set in SectionTranslationTargetLanguage).
     availableTargetLanguages() {
-      return this.translations
-        .map(translation => translation.targetLanguage)
-        .filter((language, index, self) => self.indexOf(language) === index)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            { name: this.getAutonym(languageCode), code: languageCode }
-          ],
-          [
-            {
-              name: this.labelForAllTranslationsOption,
-              code: this.labelForAllTranslationsOption
-            }
-          ]
+      let translationLanguages = this.translations.map(
+        translation => translation.targetLanguage
+      );
+      const mwTargetLanguage = mw.config.get(
+        "wgSectionTranslationTargetLanguage"
+      );
+
+      if (!!mwTargetLanguage) {
+        translationLanguages = translationLanguages.filter(
+          language => language === mwTargetLanguage
         );
+      }
+
+      return [...new Set(translationLanguages)].reduce(
+        (languages, languageCode) => [
+          ...languages,
+          { name: this.getAutonym(languageCode), code: languageCode }
+        ],
+        [
+          {
+            name: this.labelForAllTranslationsOption,
+            code: this.labelForAllTranslationsOption
+          }
+        ]
+      );
     },
     translations() {
       if (this.translationStatus === "published") {

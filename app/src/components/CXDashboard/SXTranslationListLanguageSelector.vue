@@ -14,7 +14,7 @@
           class="mw-ui-autonym"
           :dir="getDirection(selectedSourceLanguage)"
           v-text="getAutonym(selectedSourceLanguage)"
-        ></span>
+        />
       </mw-button>
       <mw-dialog
         v-show="sourceLanguageSelectOn"
@@ -29,7 +29,7 @@
             class="sx-translation-list-language-selector__widget col-12"
             :languages="sourceLanguages"
             @select="onSourceLanguageSelected"
-          ></mw-language-selector>
+          />
         </div>
       </mw-dialog>
     </div>
@@ -44,13 +44,14 @@
         :outlined="false"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
+        :disabled="targetLanguages.length < 2"
         @click.stop="openTargetLanguageDialog"
       >
         <span
           class="mw-ui-autonym"
           :dir="getDirection(selectedTargetLanguage)"
           v-text="getAutonym(selectedTargetLanguage)"
-        ></span>
+        />
       </mw-button>
       <mw-dialog
         v-show="targetLanguageSelectOn"
@@ -65,7 +66,7 @@
             class="sx-translation-list-language-selector__widget col-12"
             :languages="targetLanguages"
             @select="onTargetLanguageSelected"
-          ></mw-language-selector>
+          />
         </div>
       </mw-dialog>
     </div>
@@ -132,11 +133,11 @@ export default {
     },
     onSourceLanguageSelected(sourceLanguage) {
       this.sourceLanguageSelectOn = false;
-      this.$store.commit("application/setSourceLanguage", sourceLanguage);
+      this.$emit("source-language-selected", sourceLanguage);
     },
     onTargetLanguageSelected(targetLanguage) {
       this.targetLanguageSelectOn = false;
-      this.$store.commit("application/setTargetLanguage", targetLanguage);
+      this.$emit("target-language-selected", targetLanguage);
     }
   }
 };

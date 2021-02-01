@@ -71,9 +71,7 @@ const actions = {
     { commit, dispatch, state },
     { seeds, sourceLanguage }
   ) {
-    if (!seeds.length) {
-      return;
-    }
+    commit("setSectionSuggestionsLoaded", false);
 
     for (const seed of seeds) {
       /** @type {SectionSuggestion} */
