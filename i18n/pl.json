@@ -362,7 +362,7 @@
 	"sx-quick-tutorial-translate-button-label": "Rozpocznij tłumaczenie",
 	"cx-sx-sentence-selector-header-title": "Przetłumacz sekcję",
 	"cx-sx-sentence-selector-done-button-label": "Gotowe",
-	"cx-sx-sentence-selector-proposed-translation-title": "Proponowane tłumaczenie z $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Proponowane tłumaczenie z $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Edytuj tłumaczenie",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Zastosuj",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Pomiń",

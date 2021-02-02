@@ -336,7 +336,7 @@
 	"sx-quick-tutorial-translate-button-label": "翻訳を開始",
 	"cx-sx-sentence-selector-header-title": "セクションを翻訳",
 	"cx-sx-sentence-selector-done-button-label": "完了",
-	"cx-sx-sentence-selector-proposed-translation-title": "$1 による翻訳案",
+	"cx-sx-sentence-selector-suggested-translation-title": "$1 による翻訳案",
 	"cx-sx-sentence-selector-edit-translation-button-label": "翻訳を編集",
 	"cx-sx-sentence-selector-apply-translation-button-label": "適用",
 	"cx-sx-sentence-selector-skip-translation-button-label": "スキップ",

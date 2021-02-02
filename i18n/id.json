@@ -354,7 +354,7 @@
 	"sx-quick-tutorial-translate-button-label": "Mulai menerjemahkan",
 	"cx-sx-sentence-selector-header-title": "Bagian terjemahan",
 	"cx-sx-sentence-selector-done-button-label": "Selesai",
-	"cx-sx-sentence-selector-proposed-translation-title": "Saran terjemahan dari $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Saran terjemahan dari $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Terapkan",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Lewati",

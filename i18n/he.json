@@ -349,7 +349,7 @@
 	"sx-quick-tutorial-translate-button-label": "להתחיל לתרגם",
 	"cx-sx-sentence-selector-header-title": "תרגום פרק",
 	"cx-sx-sentence-selector-done-button-label": "בוצע",
-	"cx-sx-sentence-selector-proposed-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-sentence-selector-suggested-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-sentence-selector-edit-translation-button-label": "עריכת התרגום",
 	"cx-sx-sentence-selector-apply-translation-button-label": "החלה",
 	"cx-sx-sentence-selector-skip-translation-button-label": "לדלג",

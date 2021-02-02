@@ -349,7 +349,7 @@
 	"sx-quick-tutorial-translate-button-label": "Übersetzen beginnen",
 	"cx-sx-sentence-selector-header-title": "Abschnitt übersetzen",
 	"cx-sx-sentence-selector-done-button-label": "Fertig",
-	"cx-sx-sentence-selector-proposed-translation-title": "Vorgeschlagene Übersetzung ab $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Vorgeschlagene Übersetzung von $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Übersetzung bearbeiten",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Anwenden",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Überspringen",
@@ -396,5 +396,6 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> von dir bearbeitet",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Deine Übersetzung",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Satz",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Absatz"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Absatz",
+	"cx-sx-followup-feedback-new-indicator": "neu"
 }

@@ -339,7 +339,7 @@
 	"sx-quick-tutorial-translate-button-label": "Aloita kääntäminen",
 	"cx-sx-sentence-selector-header-title": "Käännä osio",
 	"cx-sx-sentence-selector-done-button-label": "Valmis",
-	"cx-sx-sentence-selector-proposed-translation-title": "Ehdotettu käännös ($1)",
+	"cx-sx-sentence-selector-suggested-translation-title": "Ehdotettu käännös ($1)",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Muokkaa käännöstä",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Käytä",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Ohita",

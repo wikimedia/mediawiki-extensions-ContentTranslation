@@ -355,7 +355,7 @@
 	"sx-quick-tutorial-translate-button-label": "Почати переклад",
 	"cx-sx-sentence-selector-header-title": "Перекласти розділ",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
-	"cx-sx-sentence-selector-proposed-translation-title": "Пропонований переклад від $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Пропонований переклад від $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редагувати переклад",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Застосувати",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Пропустити",

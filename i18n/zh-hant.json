@@ -352,7 +352,7 @@
 	"sx-quick-tutorial-translate-button-label": "開始翻譯",
 	"cx-sx-sentence-selector-header-title": "翻譯章節",
 	"cx-sx-sentence-selector-done-button-label": "完成",
-	"cx-sx-sentence-selector-proposed-translation-title": "來自於 $1 的建議翻譯",
+	"cx-sx-sentence-selector-suggested-translation-title": "來自於 $1 的建議翻譯",
 	"cx-sx-sentence-selector-edit-translation-button-label": "編輯翻譯",
 	"cx-sx-sentence-selector-apply-translation-button-label": "套用",
 	"cx-sx-sentence-selector-skip-translation-button-label": "跳過",

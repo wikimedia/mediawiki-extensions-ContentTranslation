@@ -325,7 +325,7 @@
 	"sx-quick-tutorial-translate-button-label": "Sākt tulkošanu",
 	"cx-sx-sentence-selector-header-title": "Tulkot sadaļu",
 	"cx-sx-sentence-selector-done-button-label": "Gatavs",
-	"cx-sx-sentence-selector-proposed-translation-title": "Piedāvātais tulkojums no $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Piedāvātais tulkojums no $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Labot tulkojumu",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Pielietot",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Izlaist",
@@ -333,6 +333,8 @@
 	"cx-sx-content-comparator-discarded-section-label": "(atmesta)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Sākt atšķirīgu tulkojumu",
 	"cx-sx-sentence-selector-translation-options-header-text": "Izvēlies tulkošanas iespēju šim un nākamajiem teikumiem.",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "Oriģināls",
+	"cx-sx-sentence-selector-translation-options-empty-card-title": "Sākt ar tukšu teikumu",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Tavs tulkojums tiks pievienots šeit",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Publicēšanas brīdī tu vari izvēlēties aizvietot esošo saturu.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Tulkot",
@@ -357,6 +359,8 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tavs tulkojums tiks <strong>pievienots tavai smilškastei.</strong>",
 	"cx-sx-publisher-review-info-error": "Tavu tulkojumu nevar publicēt:",
 	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> tevis laboti",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Tavs tulkojums",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Teikums",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Rindkopa"
 }

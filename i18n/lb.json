@@ -244,7 +244,7 @@
 	"sx-quick-tutorial-translate-button-label": "Ufänke mat iwwersetzen",
 	"cx-sx-sentence-selector-header-title": "Abschnitt iwwersetzen",
 	"cx-sx-sentence-selector-done-button-label": "Fäerdeg",
-	"cx-sx-sentence-selector-proposed-translation-title": "Proposéiert Iwwersetzung vum $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Proposéiert Iwwersetzung vum $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Iwwersetzung änneren",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Iwwersprangen",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Kompletten Artikel op $1",

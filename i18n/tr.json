@@ -367,7 +367,7 @@
 	"sx-quick-tutorial-translate-button-label": "Çevirmeye başla",
 	"cx-sx-sentence-selector-header-title": "Bölümü çevir",
 	"cx-sx-sentence-selector-done-button-label": "Yapıldı",
-	"cx-sx-sentence-selector-proposed-translation-title": "$1 üzerinden önerilen çeviri",
+	"cx-sx-sentence-selector-suggested-translation-title": "$1 üzerinden önerilen çeviri",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi düzenle",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Uygula",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Atla",
@@ -409,5 +409,11 @@
 	"cx-dashboard-experimental-support-banner-title": "Mobil destek deneyseldir",
 	"cx-dashboard-experimental-support-banner-description": "Yeni bir bölümü çevirerek mevcut makaleleri genişletebilirsiniz. Ancak, masaüstündeki bazı özellikler henüz mevcut değildir.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Daha fazla bilgi edin",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Geri bildiriminizi paylaşın"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Geri bildiriminizi paylaşın",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Değişikliğiniz yok",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> sizin tarafınızdan değiştirilmiş",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Çeviriniz",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Cümle",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraf",
+	"cx-sx-followup-feedback-new-indicator": "yeni"
 }
