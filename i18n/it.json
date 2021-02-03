@@ -63,6 +63,7 @@
 	"cx-entrypoint-title": "Traduci questa pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Questa pagina non esiste ancora in $1. {{GENDER:|Vuoi}} crearla?",
 	"cx-entrypoint-dialog-button-translate-from": "Traduci da $1",
+	"cx-entrypoint-dialog-desc": "Puoi aiutare Wikipedia traducendo questa pagina. Le traduzioni costituiscono un metodo semplice per creare nuovi contenuti nella tua lingua.",
 	"cx-campaign-newbytranslation-title": "Inizia invece con una traduzione?",
 	"cx-campaign-newbytranslation-notice": "Crea una nuova voce traducendo da un'altra lingua che conosci.",
 	"cx-campaign-newbytranslation-search": "Trova un'altra pagina da tradurre",
