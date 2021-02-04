@@ -47,13 +47,13 @@ var highlightPublishedSection = function() {
    * @type {URLSearchParams}
    */
   var urlParams = new URLSearchParams(location.search);
+
+  var highlightedTitleId = urlParams.get(newSectionParam).replace(/ +/g, "_");
   /**
    * Find element with id equal to the newly translated section title
    * @type {HTMLElement}
    */
-  var highlightedTitleSpan = document.getElementById(
-    urlParams.get(newSectionParam)
-  );
+  var highlightedTitleSpan = document.getElementById(highlightedTitleId);
   if (!highlightedTitleSpan) {
     return;
   }
