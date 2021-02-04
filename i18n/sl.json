@@ -204,7 +204,7 @@
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 prevodov je bilo zavrženih}}, saj je bila njihova vsebina neposodobljena že več kot eno leto. Zaželeno je, da narediš nov prevod z aktualno vsebino.",
 	"cx-notification-continue-translation": "Odkar ste začeli prevajati stran <strong>$1</strong>, je minilo že nekaj mesecev. Poskusite jo objaviti, preden bo preteklo eno leto, ko se bo osnutek samodejno izbrisal.",
 	"cx-notification-continue-translation-bundle": "Odkar si začel s {{PLURAL:$1|$1 prevodi}}, je preteklo že nekaj mesecev. Poskusi jih objaviti preden preteče eno leto, ko so osnutki samodejno izbrisani.",
-	"cx-contributions-link": "Tvoji prispevki",
+	"cx-contributions-link": "Vaši prispevki",
 	"cx-your-translations-link": "{{GENDER:$1|Tvoji prevodi}}",
 	"cx-translationlist-empty-title": "Ni ničesar za prevesti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Začnite}} prevajanje zdaj in nadaljujte kadar koli pozneje.",

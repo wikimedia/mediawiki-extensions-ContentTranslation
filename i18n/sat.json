@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dulal Kisku",
+			"Durga Soren",
 			"Fagunkoyel Hansdah",
 			"Ramjit Tudu"
 		]
@@ -89,5 +90,6 @@
 	"cx-tools-mt-new-provider": "ᱱᱟᱶᱟ",
 	"cx-tools-template-title": "ᱪᱷᱟᱸᱪ",
 	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
-	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ"
+	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ",
+	"cx-sx-followup-feedback-new-indicator": "ᱱᱟᱸᱣᱟ"
 }

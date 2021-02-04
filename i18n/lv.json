@@ -359,8 +359,13 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tavs tulkojums tiks <strong>pievienots tavai smilškastei.</strong>",
 	"cx-sx-publisher-review-info-error": "Tavu tulkojumu nevar publicēt:",
 	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk",
+	"cx-dashboard-experimental-support-banner-title": "Mobilo ierīču atbalsts ir eksperimentāls",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Uzzināt vairāk",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Atstāt atsauksmes",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Nav tavu labojumu",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> tevis laboti",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Tavs tulkojums",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Teikums",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Rindkopa"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Rindkopa",
+	"cx-sx-followup-feedback-new-indicator": "jauns"
 }

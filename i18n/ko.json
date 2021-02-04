@@ -19,6 +19,7 @@
 			"Namoroka",
 			"Priviet",
 			"Revi",
+			"Rodney Araujo",
 			"SeoJeongHo",
 			"Tyey",
 			"Yearning",
@@ -366,5 +367,6 @@
 	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "의견 공유하기",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "내 번역",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "문장",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "문단"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "문단",
+	"cx-sx-followup-feedback-new-indicator": "새"
 }
