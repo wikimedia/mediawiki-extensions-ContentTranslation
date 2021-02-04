@@ -136,9 +136,14 @@ function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
  * @return {Promise<String>}
  */
 const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
+  const cxServerParams = [
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle
+  ].map(param => encodeURIComponent(param));
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
   const cxserverAPI = siteMapper.getCXServerUrl(
-    `/page/${sourceLanguage}/${targetLanguage}/${sourceTitle}`
+    `/page/${cxServerParams.join("/")}`
   );
   return fetch(cxserverAPI)
     .then(response => response.json())

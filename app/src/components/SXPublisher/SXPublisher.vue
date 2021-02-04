@@ -25,7 +25,7 @@
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
-          v-text="translatedTitle"
+          v-html="translatedTitle"
         />
         <mw-col shrink>
           <mw-button :icon="mwIconEdit" type="icon" @click="editTranslation" />
@@ -88,6 +88,11 @@ export default {
         : vm.$i18n("cx-sx-publisher-publish-panel-sandbox-section-result")
   },
   methods: {
+    decodeHtml: html => {
+      const template = document.createElement("div");
+      template.innerHTML = html;
+      return template.innerText;
+    },
     configureTranslationOptions() {
       this.publishOptionsOn = true;
     },
@@ -109,7 +114,10 @@ export default {
       // sx-published-section query param will trigger 'sx.publishing.followup'
       // module to be loaded inside target article's page, after redirection
       window.location.href = getUrl(`${articleTitle}`, {
-        "sx-published-section": this.translatedTitle
+        "sx-published-section": this.decodeHtml(this.translatedTitle),
+        "sx-source-page-title": this.decodeHtml(this.suggestion.sourceTitle),
+        "sx-source-language": this.suggestion.sourceLanguage,
+        "sx-target-language": this.suggestion.targetLanguage
       });
     },
     async publishTranslation() {

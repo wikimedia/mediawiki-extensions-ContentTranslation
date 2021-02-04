@@ -12,7 +12,7 @@
       class="pa-0 ma-0"
       :class="titleClasses"
       @click="selectSectionTitle"
-      v-text="sourceSectionTitle"
+      v-html="sourceSectionTitle"
     />
   </mw-col>
 </template>

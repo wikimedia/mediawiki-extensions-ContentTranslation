@@ -52,9 +52,14 @@ async function fetchSectionSuggestions(
   sourceTitle,
   targetLanguage
 ) {
+  const cxServerParams = [
+    sourceTitle,
+    sourceLanguage,
+    targetLanguage
+  ].map(param => encodeURIComponent(param));
   // Example: https://cxserver.wikimedia.org/v2/suggest/sections/Sitar/en/ml
   const cxserverAPI = siteMapper.getCXServerUrl(
-    `/suggest/sections/${sourceTitle}/${sourceLanguage}/${targetLanguage}`
+    `/suggest/sections/${cxServerParams.join("/")}`
   );
   const suggestedSectionResult = await fetch(cxserverAPI)
     .then(response =>

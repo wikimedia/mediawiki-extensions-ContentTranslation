@@ -362,11 +362,15 @@
 			"messages": [
 				"cx-sx-followup-feedback-new-indicator",
 				"cx-sx-published-section-confirmation-header",
-				"cx-sx-published-section-confirmation-content"
+				"cx-sx-published-section-confirmation-content",
+				"cx-sx-published-section-invitation-title",
+				"cx-sx-published-section-invitation-missing-sections-info"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"dependencies": [
-				"vue"
+				"vue",
+				"mw.cx.SiteMapper",
+				"mw.cx.util"
 			]
 		},
 		"mw.cx3": {

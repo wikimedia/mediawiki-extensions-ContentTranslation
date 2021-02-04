@@ -401,5 +401,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraph",
 	"cx-sx-followup-feedback-new-indicator": "new",
 	"cx-sx-published-section-confirmation-header": "New section added",
-	"cx-sx-published-section-confirmation-content": "Your translation was published. Consider editing the contents further, or adding another section."
+	"cx-sx-published-section-confirmation-content": "Your translation was published. Consider editing the contents further, or adding another section.",
+	"cx-sx-published-section-invitation-title": "Translate another section",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|and $2 more are missing|0=is missing}}"
 }

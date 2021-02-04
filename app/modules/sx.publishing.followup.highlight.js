@@ -47,7 +47,6 @@ var highlightPublishedSection = function() {
    * @type {URLSearchParams}
    */
   var urlParams = new URLSearchParams(location.search);
-
   var highlightedTitleId = urlParams.get(newSectionParam).replace(/ +/g, "_");
   /**
    * Find element with id equal to the newly translated section title
@@ -83,10 +82,10 @@ var highlightPublishedSection = function() {
    */
   var newIndicator = createNewIndicator();
 
-  // Add new section indicator immediately after title span
+  // Add new section indicator immediately after .mw-headline span
   highlightedHeader.insertBefore(
     newIndicator,
-    highlightedTitleSpan.nextSibling
+    highlightedHeader.querySelector(".mw-headline").nextSibling
   );
 
   // Highlight all section nodes

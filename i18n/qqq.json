@@ -415,5 +415,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Label for paragraph option, inside translated segment card header, where user can choose to display information about the translated sentence or the whole paragraph",
 	"cx-sx-followup-feedback-new-indicator": "Content of indicator for the just published section inside target article page, after redirection upon successful Section Translation publishing",
 	"cx-sx-published-section-confirmation-header": "Header of confirmation panel about newly published section translation, inside target article's content page",
-	"cx-sx-published-section-confirmation-content": "Content of confirmation panel about newly published section translation, inside target article's content page"
+	"cx-sx-published-section-confirmation-content": "Content of confirmation panel about newly published section translation, inside target article's content page",
+	"cx-sx-published-section-invitation-title": "Title of invitation panel for new section translation, inside target article's content page after redirection upon successful Section Translation publishing",
+	"cx-sx-published-section-invitation-missing-sections-info": "Content of invitation panel for new section translation, inside target article's content page after redirection upon successful Section Translation publishing\n\nParameters:\n* $1 - the title of first missing section \n* $2 - number of remaining missing sections"
 }
