@@ -18,7 +18,9 @@ const calculateScore = (actualTranslation, proposedTranslation) => {
   const resultText = htmlToElement(actualTranslation).innerText;
   const proposedText = htmlToElement(proposedTranslation).innerText;
   const distance = levenshtein.get(resultText, proposedText);
-  return parseInt(100 * (distance / proposedText.length));
+  return proposedText.length
+    ? Math.ceil(100 * (distance / proposedText.length))
+    : 100;
 };
 
 const getScoreStatus = score =>
