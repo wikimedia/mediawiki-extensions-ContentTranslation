@@ -7,6 +7,7 @@
 			"Arthurteb303",
 			"Dianakc",
 			"Eduardo Addad de Oliveira",
+			"Eduardoaddad",
 			"Fasouzafreitas",
 			"Felipe L. Ewald",
 			"He7d3r",
@@ -357,7 +358,7 @@
 	"sx-quick-tutorial-translate-button-label": "Começar a traduzir",
 	"cx-sx-sentence-selector-header-title": "Traduzir seção",
 	"cx-sx-sentence-selector-done-button-label": "Feito",
-	"cx-sx-sentence-selector-suggested-translation-title": "Tradução proposta de $1",
+	"cx-sx-sentence-selector-suggested-translation-title": "Tradução sugerida de $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Editar tradução",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Aplicar",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Pular",
@@ -404,5 +405,6 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> editado por você",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Sua tradução",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Parágrafo"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Parágrafo",
+	"cx-sx-followup-feedback-new-indicator": "novo"
 }

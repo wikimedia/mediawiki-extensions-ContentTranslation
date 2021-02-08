@@ -308,6 +308,8 @@
 	"cx-sx-section-selector-present-sections-title": "$1 valodā esošās sadaļas",
 	"cx-sx-section-selector-more-details-title": "Vairāk informācijas",
 	"cx-sx-section-selector-view-article-button-label": "Skatīt rakstu $1 valodā",
+	"cx-sx-section-selector-automatic-section-matching-title": "Automātiska sadaļu salāgošana",
+	"cx-sx-section-selector-automatic-section-matching-description": "Sadaļas tiek salāgotas automātiski un rezultāts ne vienmēr ir precīzs.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Uzzināt vairāk",
 	"cx-sx-section-selector-unsupported-sections-title": "Neatbalstītās sadaļas",
 	"cx-sx-section-selector-unsupported-sections-description": "Dažas sadaļas var neparādīties sarakstā, jo to saturs vēl netiek atbalstīts.",

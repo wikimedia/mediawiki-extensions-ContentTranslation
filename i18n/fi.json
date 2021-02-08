@@ -370,5 +370,11 @@
 	"cx-sx-publisher-sandbox-option-details": "Julkaise henkilökohtaiseen tilaasi, jossa se voidaan tarkistaa ja siirtää muualle.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Käännös lisätään <strong>henkilökohtaiseen hiekkalaatikkoosi.</strong>",
 	"cx-sx-publisher-review-info-error": "Käännöksen julkaisu epäonnistui:",
-	"cx-sx-publisher-review-info-learn-more": "Lisätietoja"
+	"cx-sx-publisher-review-info-learn-more": "Lisätietoja",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Et ole tehnyt muutoksia",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> sinun muokkaamaasi",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Käännöksesi",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Virke",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Kappale",
+	"cx-sx-followup-feedback-new-indicator": "uusi"
 }
