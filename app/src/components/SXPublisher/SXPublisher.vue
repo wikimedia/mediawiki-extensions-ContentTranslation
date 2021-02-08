@@ -53,7 +53,7 @@ import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
 import PublishResult from "@/wiki/cx/publishResult";
-import { getUrl } from "@/utils/articleUrlFactory";
+import { getUrl } from "@/utils/urlFactory";
 import { getTitleForPublishOption } from "@/utils/publishTitleFactory";
 
 export default {

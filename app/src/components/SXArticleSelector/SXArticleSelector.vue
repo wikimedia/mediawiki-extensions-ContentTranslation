@@ -18,6 +18,7 @@ import autonymMixin from "@/mixins/autonym";
 import ExistingArticleBody from "./ExistingArticleBody";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxArticleSelectorHeader from "./SXArticleSelectorHeader";
+import { getUrl } from "@/utils/urlFactory";
 
 export default {
   name: "SxArticleSelector",
@@ -35,13 +36,12 @@ export default {
   },
   methods: {
     onClose() {
-      /**
-       * This won't actually redirect to dashboard, as URL params
-       * stay the same and will force re-redirection to article
-       * selector screen. Should be revisited once other entry
-       * points to the application are added (currently only
-       * available through URL params)
-       */
+      // Remove URL params so that section translation doesn't restart, leading to endless loop
+      history.replaceState(
+        {},
+        document.title,
+        getUrl("Special:ContentTranslation")
+      );
       this.$router.push({ name: "dashboard" });
     }
   }
