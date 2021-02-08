@@ -36,7 +36,7 @@
         :suggestion="suggestion"
         @click="startSectionTranslation(suggestion)"
       />
-      <mw-spinner v-if="!sectionSuggestionsLoaded" />
+      <mw-spinner v-if="sectionSuggestionsLoading" />
     </mw-card>
     <div
       class="cx-suggestion-list__refresh-button-container d-flex justify-center"
@@ -89,15 +89,15 @@ export default {
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || [],
       selectedSourceLanguage: state => state.application.sourceLanguage,
-      selectedTargetLanguage: state => state.application.targetLanguage,
-      sectionSuggestionsLoaded: state =>
-        state.suggestions.sectionSuggestionsLoaded
+      selectedTargetLanguage: state => state.application.targetLanguage
     }),
     ...mapGetters({
       pageSuggestionsForPair: "application/getCurrentPageSuggestions",
       sectionSuggestionForPair: "application/getCurrentSectionSuggestions",
       publishedTranslations: "application/getCurrentPublishedTranslations"
     }),
+    sectionSuggestionsLoading: vm =>
+      vm.$store.state.suggestions.sectionSuggestionsLoadingCount > 0,
     availableSourceLanguages() {
       return this.supportedLanguageCodes
         .filter(languageCode => languageCode !== this.selectedTargetLanguage)
@@ -203,10 +203,10 @@ export default {
       }
     },
     updateSourceLanguage(sourceLanguage) {
-      this.$store.commit("application/setSourceLanguage", sourceLanguage);
+      this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
     },
     updateTargetLanguage(targetLanguage) {
-      this.$store.commit("application/setTargetLanguage", targetLanguage);
+      this.$store.dispatch("application/updateTargetLanguage", targetLanguage);
     }
   }
 };

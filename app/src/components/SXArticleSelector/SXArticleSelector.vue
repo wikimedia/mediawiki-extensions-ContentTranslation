@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     onClose() {
+      this.$store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       history.replaceState(
         {},

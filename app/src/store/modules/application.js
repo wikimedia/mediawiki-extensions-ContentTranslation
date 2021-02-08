@@ -338,6 +338,17 @@ const actions = {
     if (sourceLanguage === state.targetLanguage) {
       commit("setTargetLanguage", null);
     }
+
+    // If translation has not started yet, re-fetch suggestions
+    if (!state.currentSectionSuggestion) {
+      dispatch(
+        "suggestions/fetchSuggestions",
+        { sourceLanguage, targetLanguage: state.targetLanguage },
+        { root: true }
+      );
+      return;
+    }
+
     const sourceTitle = getters.getCurrentLanguageTitleGroup.getTitleForLanguage(
       sourceLanguage
     );
@@ -359,6 +370,17 @@ const actions = {
   },
   updateTargetLanguage({ commit, state, getters, dispatch }, targetLanguage) {
     commit("setTargetLanguage", targetLanguage);
+
+    // If translation has not started yet, re-fetch suggestions
+    if (!state.currentSectionSuggestion) {
+      dispatch(
+        "suggestions/fetchSuggestions",
+        { sourceLanguage: state.sourceLanguage, targetLanguage },
+        { root: true }
+      );
+      return;
+    }
+
     const suggestion = new SectionSuggestion({
       sourceLanguage: state.sourceLanguage,
       targetLanguage,
@@ -706,6 +728,10 @@ const actions = {
     mtProviders.forEach(provider =>
       dispatch("translateSelectedSegment", { provider })
     );
+  },
+
+  clearCurrentSectionSuggestion({ commit }) {
+    commit("setCurrentSectionSuggestion", null);
   }
 };
 
