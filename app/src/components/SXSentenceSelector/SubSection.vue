@@ -73,9 +73,6 @@ export default {
   box-shadow: @padding 0 0 @color, -@padding 0 0 @color;
 }
 .sx-sentence-selector__section-sentence {
-  a {
-    pointer-events: none;
-  }
   cursor: pointer;
 
   &--untranslated {

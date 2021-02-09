@@ -185,6 +185,11 @@ export default {
   }
   &__section {
     overflow: auto;
+    &-contents {
+      a {
+        pointer-events: none;
+      }
+    }
   }
 }
 </style>
