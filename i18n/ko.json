@@ -368,5 +368,6 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "내 번역",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "문장",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "문단",
-	"cx-sx-followup-feedback-new-indicator": "새"
+	"cx-sx-followup-feedback-new-indicator": "새",
+	"cx-sx-published-section-confirmation-header": "새 문단 추가됨"
 }

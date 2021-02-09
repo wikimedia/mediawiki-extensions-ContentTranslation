@@ -249,7 +249,7 @@
 	"cx-tools-linter-cannot-publish-title": "Objavljanje dovoljeno samo izkušenim uporabnikom",
 	"cx-tools-linter-cannot-publish-action-label": "Pripravljeno za shranitev kot osnutka",
 	"cx-tools-linter-template": "Predloga ni na voljo",
-	"cx-tools-linter-template-block-message": "Izvirna stran vsebuje predlogo, ki je ciljna wiki nima.\n\nPredloga je zato bila izpuščena, lahko pa manjkajočo vsebino dodaš kako drugače.",
+	"cx-tools-linter-template-block-message": "Izvorna stran vsebuje predlogo, ki je v ciljnem wikiju ni.\n\nPredloga je bila zato izpuščena, lahko pa manjkajočo vsebino dodate kako drugače.",
 	"cx-tools-linter-template-inline-message": "Izvirna stran vsebuje predloge, od katerih jih nekaj v ciljnem vikiju ni na voljo.\n\nVsebino manjkajočih predlog lahko dodate kot golo besedilo. Besedilo pred objavo preglejte.",
 	"cx-tools-linter-template-add-new": "Dodaj novo predlogo",
 	"cx-tools-linter-incomplete-template": "Nedokončana predloga",

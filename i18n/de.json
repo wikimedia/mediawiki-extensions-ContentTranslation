@@ -397,5 +397,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Deine Übersetzung",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Satz",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Absatz",
-	"cx-sx-followup-feedback-new-indicator": "neu"
+	"cx-sx-followup-feedback-new-indicator": "neu",
+	"cx-sx-published-section-confirmation-header": "Neuer Abschnitt hinzugefügt",
+	"cx-sx-published-section-confirmation-content": "Deine Übersetzung wurde veröffentlicht. Du kannst den Inhalt weiter bearbeiten oder einen weiteren Abschnitt hinzuzufügen."
 }

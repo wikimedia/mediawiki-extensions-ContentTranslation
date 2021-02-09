@@ -406,5 +406,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Sua tradução",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Parágrafo",
-	"cx-sx-followup-feedback-new-indicator": "novo"
+	"cx-sx-followup-feedback-new-indicator": "novo",
+	"cx-sx-published-section-confirmation-header": "Nova seção adicionada",
+	"cx-sx-published-section-confirmation-content": "Sua tradução foi publicada. Considere editar o conteúdo posteriormente ou adicionar outra seção."
 }
