@@ -76,10 +76,12 @@ describe("SXSentenceSelector SubSection component", () => {
   });
 
   it("Component should bounce translation preview when already selected sentence is selected", async () => {
-    const sentence = wrapper.find(".cx-segment");
-    sentence.trigger("click");
-    await Vue.nextTick();
-    sentence.trigger("click");
+    let sentence = wrapper.find(".cx-segment");
+    await sentence.trigger("click");
+    // Find specific sentence again as content has
+    // been re-rendered
+    sentence = wrapper.find(".cx-segment");
+    await sentence.trigger("click");
     expect(wrapper.emitted("bounce-translation")).toBeTruthy();
   });
 
