@@ -399,5 +399,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Absatz",
 	"cx-sx-followup-feedback-new-indicator": "neu",
 	"cx-sx-published-section-confirmation-header": "Neuer Abschnitt hinzugefügt",
-	"cx-sx-published-section-confirmation-content": "Deine Übersetzung wurde veröffentlicht. Du kannst den Inhalt weiter bearbeiten oder einen weiteren Abschnitt hinzuzufügen."
+	"cx-sx-published-section-confirmation-content": "Deine Übersetzung wurde veröffentlicht. Du kannst den Inhalt weiter bearbeiten oder einen weiteren Abschnitt hinzuzufügen.",
+	"cx-sx-published-section-invitation-title": "Anderen Abschnitt übersetzen",
+	"cx-sx-published-section-invitation-missing-sections-info": "„$1“ {{PLURAL:$2|und $2 weitere fehlen|0=fehlt}}"
 }

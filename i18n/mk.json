@@ -388,5 +388,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Ваш превод",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Реченица",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Пасус",
-	"cx-sx-followup-feedback-new-indicator": "ново"
+	"cx-sx-followup-feedback-new-indicator": "ново",
+	"cx-sx-published-section-confirmation-header": "Додаден нов поднаслов",
+	"cx-sx-published-section-confirmation-content": "Вашиот превод е објавен. Препорачуваме да продолжите со уредување на содржините или да додадете друг поднасов."
 }

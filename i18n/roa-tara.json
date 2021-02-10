@@ -384,5 +384,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "'A traduziona toje",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragrafe",
-	"cx-sx-followup-feedback-new-indicator": "nuève"
+	"cx-sx-followup-feedback-new-indicator": "nuève",
+	"cx-sx-published-section-confirmation-header": "Seziona nove aggiunde",
+	"cx-sx-published-section-confirmation-content": "'A traduziona toje ha state pubblecate. Conzidere, pe le cangiaminde future, de aggiungere 'n'otra sezione."
 }

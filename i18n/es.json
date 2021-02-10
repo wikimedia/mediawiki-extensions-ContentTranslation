@@ -418,5 +418,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Párrafo",
 	"cx-sx-followup-feedback-new-indicator": "nueva",
 	"cx-sx-published-section-confirmation-header": "Nueva sección añadida",
-	"cx-sx-published-section-confirmation-content": "Tu traducción ha sido publicada. Considera editar los contenidos más adelante, o añadir otra sección."
+	"cx-sx-published-section-confirmation-content": "Tu traducción ha sido publicada. Considera editar los contenidos más adelante, o añadir otra sección.",
+	"cx-sx-published-section-invitation-title": "Traducir otra sección",
+	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|y $2 más faltan|0=falta}}"
 }
