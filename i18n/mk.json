@@ -390,5 +390,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Пасус",
 	"cx-sx-followup-feedback-new-indicator": "ново",
 	"cx-sx-published-section-confirmation-header": "Додаден нов поднаслов",
-	"cx-sx-published-section-confirmation-content": "Вашиот превод е објавен. Препорачуваме да продолжите со уредување на содржините или да додадете друг поднасов."
+	"cx-sx-published-section-confirmation-content": "Вашиот превод е објавен. Препорачуваме да продолжите со уредување на содржините или да додадете друг поднасов.",
+	"cx-sx-published-section-invitation-title": "Преведи друг поднаслов",
+	"cx-sx-published-section-invitation-missing-sections-info": "{{PLURAL:$2|Недостасуваа„$1“ и уште $2|0=Недостасува „$1“}}"
 }

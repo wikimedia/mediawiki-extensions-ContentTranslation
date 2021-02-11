@@ -386,5 +386,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragrafe",
 	"cx-sx-followup-feedback-new-indicator": "nuève",
 	"cx-sx-published-section-confirmation-header": "Seziona nove aggiunde",
-	"cx-sx-published-section-confirmation-content": "'A traduziona toje ha state pubblecate. Conzidere, pe le cangiaminde future, de aggiungere 'n'otra sezione."
+	"cx-sx-published-section-confirmation-content": "'A traduziona toje ha state pubblecate. Conzidere, pe le cangiaminde future, de aggiungere 'n'otra sezione.",
+	"cx-sx-published-section-invitation-title": "Traduce 'n'otra sezione",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|w $2 de cchiù mangane|0=manghe}}"
 }

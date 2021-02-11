@@ -415,5 +415,9 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Çeviriniz",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Cümle",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraf",
-	"cx-sx-followup-feedback-new-indicator": "yeni"
+	"cx-sx-followup-feedback-new-indicator": "yeni",
+	"cx-sx-published-section-confirmation-header": "Yeni bölüm eklendi",
+	"cx-sx-published-section-confirmation-content": "Çeviriniz yayımlandı. İçeriği daha fazla değiştirmeyi, ya da yeni bir bölüm eklemeyi düşünün.",
+	"cx-sx-published-section-invitation-title": "Başka bir bölümü çevirin",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ve diğer $2 tane eksik|0=eksik}}"
 }
