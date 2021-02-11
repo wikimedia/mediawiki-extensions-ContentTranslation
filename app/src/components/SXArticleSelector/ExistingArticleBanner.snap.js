@@ -35,7 +35,8 @@ exports[`SXArticleSelector Existing Translation Banner Navigation test Component
        
       
       <a
-        href="#"
+        href="https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Section_translation"
+        target="_blank"
       >
         cx-sx-existing-translation-learn-more
       </a>

@@ -20,7 +20,11 @@
           ]"
         />
         &nbsp;
-        <a v-i18n:cx-sx-existing-translation-learn-more href="#" />
+        <a
+          v-i18n:cx-sx-existing-translation-learn-more
+          target="_blank"
+          href="https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Section_translation"
+        />
       </mw-col>
     </mw-row>
   </section>
