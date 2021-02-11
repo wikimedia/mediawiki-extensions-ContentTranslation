@@ -1,5 +1,8 @@
 <template>
-  <section class="sx-sentence-selector fill-height column ma-0 no-wrap">
+  <section
+    class="sx-sentence-selector fill-height column ma-0 no-wrap"
+    :style="sentenceSelectorStyle"
+  >
     <mw-row class="sx-sentence-selector__header ma-0 py-2">
       <mw-col shrink>
         <mw-button
@@ -94,7 +97,8 @@ export default {
     mwIconArrowPrevious,
     translation: null,
     isTranslationOptionsActive: false,
-    shouldProposedTranslationBounce: false
+    shouldProposedTranslationBounce: false,
+    screenHeight: "100%"
   }),
   computed: {
     ...mapState({
@@ -117,11 +121,15 @@ export default {
     originalSegmentContent: vm =>
       vm.isSectionTitleSelected
         ? vm.currentPageSection.originalTitle
-        : vm.selectedSentence.originalContent
+        : vm.selectedSentence.originalContent,
+    sentenceSelectorStyle: vm => ({
+      height: isNaN(vm.screenHeight) ? vm.screenHeight : `${vm.screenHeight}px`
+    })
   },
   async mounted() {
     await this.$store.dispatch("application/initializeMTProviders");
     this.$store.dispatch("application/selectInitialTranslationSegment");
+    this.screenHeight = window.innerHeight;
     // Start loading VE in background. Don't wait for it though.
     // We anticipate that user is going to use editor in next step.
     loadVEModules();
