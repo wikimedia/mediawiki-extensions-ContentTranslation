@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eafoð",
 			"Salvemm el lombard"
 		]
 	},
@@ -109,7 +110,7 @@
 	"cx-translation-filter-suggested-translations": "Sugeriment",
 	"cx-suggestionlist-favorite": "Per dopo",
 	"cx-suggestionlist-title": "Sugeriment",
-	"cx-suggestionlist-empty-title": "Dessadess nissun sugeriment",
+	"cx-suggestionlist-empty-title": "Nissun sugeriment dessadess",
 	"cx-suggestionlist-empty-desc": "A l'è stad trovad nissun sugeriment. Te podet controlà pussée tard o trovà di pagine rilevant cont el trovà el noster istrument de racomandazzion (sperimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Varda sugeriment (sperimental)",
 	"cx-suggestionlist-featured": "In vedrina",

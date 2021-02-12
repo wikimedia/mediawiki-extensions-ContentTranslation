@@ -389,5 +389,6 @@
 	"cx-dashboard-experimental-support-banner-title": "মোবাইলে পরীক্ষামূলকভাবে উপলব্ধ",
 	"cx-dashboard-experimental-support-banner-description": "অনুবাদের মাধ্যমে নতুন অনুচ্ছেদ যোগ করে বিদ্যমান পাতা প্রসারিত করা যাবে। কিন্তু ডেস্কটপ ব্যবহারকালে এই প্রক্রিয়ার সব বৈশিষ্ট্য উপলব্ধ নাও হতে পারে।",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "আরও জানুন",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "আপনার মতামত জানান"
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "আপনার মতামত জানান",
+	"cx-sx-published-section-invitation-title": "আরেকটি অনুচ্ছেদ অনুবাদ করুন"
 }

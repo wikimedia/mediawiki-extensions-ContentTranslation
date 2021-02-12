@@ -13,6 +13,7 @@
 			"Psychoslave",
 			"Robin van der Vliet",
 			"Surfo",
+			"Wierzbowski",
 			"Yekrats"
 		]
 	},
@@ -275,5 +276,6 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Apliki",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Preterpasi",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduki",
-	"cx-sx-publisher-review-info-learn-more": "Lerni plu"
+	"cx-sx-publisher-review-info-learn-more": "Lerni plu",
+	"cx-sx-followup-feedback-new-indicator": "nova"
 }
