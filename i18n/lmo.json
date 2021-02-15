@@ -385,5 +385,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraf",
 	"cx-sx-followup-feedback-new-indicator": "noeuv",
 	"cx-sx-published-section-confirmation-header": "Sezzion noeuva sgiontada",
-	"cx-sx-published-section-confirmation-content": "La toa traduzzion l'è stada missa foeura. Ten in cunt la possibilità de modificà anmò i contegud, o de sgiontà una sezzion noeuva."
+	"cx-sx-published-section-confirmation-content": "La toa traduzzion l'è stada missa foeura. Ten in cunt la possibilità de modificà anmò i contegud, o de sgiontà una sezzion noeuva.",
+	"cx-sx-published-section-invitation-title": "Traduss un'altra sezzion",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 anmò inn mancant|0=mancant}}"
 }

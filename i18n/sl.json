@@ -175,7 +175,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "Naložene datoteke",
 	"cx-no-source-categories": "Manjkajo kategorije",
 	"cx-no-target-categories": "Manjkajo kategorije. Za boljšo klasifikacijo teme je dobro dodati vsak katero.",
-	"cx-no-adapted-categories": "Izvirne kategorije ne obstajajo v tem jeziku. Preišči obstoječe kategorije, da bodo čimbolje opredelile temo.",
+	"cx-no-adapted-categories": "Izvorne kategorije v tem jeziku ne obstajajo. Za boljši opis teme raziščite druge kategorije.",
 	"cx-trend-deletions": "Izbrisani prevodi",
 	"cx-trend-translations-to": "Prevodi v: $1",
 	"cx-stats-try-contenttranslation": "Wikiprevajalnik je orodje za ustvarjanje novih strani s prevodom že obstoječih. [$1 Preizkusi ga]",

@@ -329,5 +329,9 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> az általad szerkesztett mennyiség",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Fordításod",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Mondat",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Bekezdés"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Bekezdés",
+	"cx-sx-followup-feedback-new-indicator": "új",
+	"cx-sx-published-section-confirmation-header": "Új szakasz hozzáadva",
+	"cx-sx-published-section-confirmation-content": "Fordításod publikálva. Folytathatod a szerkesztést vagy hozzáadhatsz új szakaszt.",
+	"cx-sx-published-section-invitation-title": "Újabb szakasz fordítása"
 }

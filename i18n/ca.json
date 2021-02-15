@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Adriabages",
+			"Alan Mena",
 			"Alvaro Vidal-Abarca",
 			"Amire80",
 			"Davidpar",
@@ -258,5 +259,8 @@
 	"cx-linkcontextitem-missing-link-title": "Hi manca l'enllaç",
 	"cx-linkcontextitem-missing-title-description": "La pàgina encara no existeix",
 	"cx-mt-abuse-publish-error": "No es pot publicar la traducció perquè conté massa text no modificat.",
-	"cx-unreviewed-translation-category": "Pàgines amb traduccions sense revisar"
+	"cx-unreviewed-translation-category": "Pàgines amb traduccions sense revisar",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> editat per tu",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paràgraf"
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"KlaudiuMihaila",
+			"NGC 54",
 			"Strainu"
 		]
 	},
@@ -45,5 +46,11 @@
 	"apierror-cx-invalidlanguage": "Limbă incorectă.",
 	"apierror-cx-invalidsourcelanguage": "Limbă sursă incorectă.",
 	"apierror-cx-invalidtargetlanguage": "Limbă destinație incorectă.",
-	"apierror-cx-jwtmissing": "JWT nu este instalat."
+	"apierror-cx-jwtmissing": "JWT nu este instalat.",
+	"apihelp-cxpublishsection-param-html": "Conținutul de salvat.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Codul limbii sursă.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Codul limbii țintă.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Titlul paginii sursă.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Titlul secțiunii sursă.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Titlul secțiunii țintă."
 }
