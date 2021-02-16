@@ -9,8 +9,12 @@ const state = {
   pages: [],
   /** @type {Language[]} */
   languages: [],
+  /** @type {Boolean} */
+  languagesRequested: false,
   languageTitleGroups: [],
   supportedLanguageCodes: [],
+  /** @type {Boolean} */
+  supportedLanguageCodesRequested: false,
   supportedMTProviderGroups: []
 };
 
@@ -40,6 +44,14 @@ const mutations = {
 
   setPageSections(state, { page, sections }) {
     Vue.set(page, "sections", sections);
+  },
+
+  setLanguagesRequested(state, value) {
+    state.languagesRequested = value;
+  },
+
+  setSupportedLanguageCodesRequested(state, value) {
+    state.supportedLanguageCodesRequested = value;
   }
 };
 
@@ -111,15 +123,17 @@ const actions = {
    * @param {Array<String>} titles
    * @returns {Promise<void>}
    */
-  async fetchPageMetadata({ getters, commit }, { language, titles }) {
+  fetchPageMetadata({ getters, commit }, { language, titles }) {
     titles = titles.filter(title => !getters.getPage(language, title));
 
     const chunkSize = 50;
     for (let i = 0; i < titles.length; i += chunkSize) {
       let titlesSubset = titles.slice(i, i + chunkSize);
-      const metadataList = await pageApi.fetchPages(language, titlesSubset);
-      metadataList.forEach(page => {
-        commit("addPage", page);
+      // Avoid async/await here, so that requests can be sent in parallel
+      pageApi.fetchPages(language, titlesSubset).then(metadataList => {
+        metadataList.forEach(page => {
+          commit("addPage", page);
+        });
       });
     }
   },
@@ -138,16 +152,27 @@ const actions = {
       );
   },
 
-  fetchLanguages({ commit }) {
-    siteApi.fetchLanguages().then(languages => {
-      commit("setLanguages", languages);
-    });
+  fetchLanguages({ commit, state }) {
+    // If languages have already been fetched, then skip
+    if (!state.languages.length && !state.languagesRequested) {
+      commit("setLanguagesRequested", true);
+      siteApi.fetchLanguages().then(languages => {
+        commit("setLanguages", languages);
+      });
+    }
   },
 
-  fetchSupportedLanguageCodes({ commit }) {
-    siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
-      commit("setSupportedLanguageCodes", languageCodes);
-    });
+  fetchSupportedLanguageCodes({ commit, state }) {
+    // If supported language codes have already been fetched, then skip
+    if (
+      !state.supportedLanguageCodes.length &&
+      !state.supportedLanguageCodesRequested
+    ) {
+      commit("setSupportedLanguageCodesRequested", true);
+      siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
+        commit("setSupportedLanguageCodes", languageCodes);
+      });
+    }
   },
 
   async fetchPageContent(

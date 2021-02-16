@@ -57,7 +57,11 @@ const getters = {
 };
 
 const actions = {
-  async fetchTranslations({ commit, dispatch }) {
+  async fetchTranslations({ commit, dispatch, state }) {
+    // If translations have already been fetched, then skip
+    if (state.translations.length) {
+      return;
+    }
     /** @type {Translation[]} */
     const translations = await cxTranslatorApi.fetchTranslations();
     translations.forEach(translation => commit("addTranslation", translation));
