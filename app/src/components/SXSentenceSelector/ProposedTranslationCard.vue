@@ -81,11 +81,26 @@ export default {
       !!vm.proposedTranslation ||
       vm.mtProvider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
   },
+  watch: {
+    // Card title can take different number of text lines
+    // depending on MT provider's name length in smaller screens.
+    // Watch mtProvider to update headerAndFooterHeight when needed,
+    // since Element.clientHeight property is not reactive
+    mtProvider() {
+      this.setHeaderAndFooterHeight();
+    }
+  },
   mounted() {
-    this.$nextTick(() => {
-      this.headerAndFooterHeight =
-        this.$refs.header.$el.clientHeight + this.$refs.footer.$el.clientHeight;
-    });
+    this.setHeaderAndFooterHeight();
+  },
+  methods: {
+    setHeaderAndFooterHeight() {
+      this.$nextTick(() => {
+        this.headerAndFooterHeight =
+          this.$refs.header.$el.clientHeight +
+          this.$refs.footer.$el.clientHeight;
+      });
+    }
   }
 };
 </script>
