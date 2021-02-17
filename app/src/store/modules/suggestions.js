@@ -393,6 +393,19 @@ const actions = {
         seed
       });
     }
+  },
+
+  async fetchNextSectionSuggestionsPage({ dispatch, rootState, commit }) {
+    const targetLanguage = rootState.application.targetLanguage;
+    const sourceLanguage = rootState.application.sourceLanguage;
+    commit("increaseSectionSuggestionsLoadingCount");
+    const seeds = await dispatch("getSectionSuggestionSeeds", {
+      sourceLanguage,
+      targetLanguage
+    });
+    commit("decreaseSectionSuggestionsLoadingCount");
+
+    return dispatch("fetchSectionSuggestionsBySeeds", seeds);
   }
 };
 

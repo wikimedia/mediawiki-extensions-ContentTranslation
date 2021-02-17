@@ -30,7 +30,7 @@
         <h5 v-i18n:cx-suggestionlist-expand-sections-title class="ma-0 pa-4" />
       </div>
       <cx-translation-suggestion
-        v-for="(suggestion, index) in sectionSuggestionForPair"
+        v-for="(suggestion, index) in sectionSuggestionsForPairSubset"
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
@@ -42,13 +42,13 @@
       class="cx-suggestion-list__refresh-button-container d-flex justify-center"
     >
       <mw-button
-        v-if="pageSuggestionsLoaded"
+        v-if="showRefreshButton"
         class="ma-0 pa-4"
         type="text"
         :label="$i18n('cx-suggestionlist-refresh')"
         :outlined="false"
         :icon="mwIconRefresh"
-        @click="showMoreSuggestions"
+        @click="onSuggestionRefresh"
       />
     </div>
   </div>
@@ -81,21 +81,27 @@ export default {
   data: () => ({
     mwIconRefresh,
     pageSuggestionsLoaded: false,
-    paginationIndex: 0,
-    pageSize: 3
+    currentSectionSuggestionsSliceIndex: 0,
+    currentPageSuggestionsSliceIndex: 0,
+    maxSlices: 4
   }),
   computed: {
     ...mapState({
       supportedLanguageCodes: state =>
         state.mediawiki.supportedLanguageCodes || [],
       selectedSourceLanguage: state => state.application.sourceLanguage,
-      selectedTargetLanguage: state => state.application.targetLanguage
+      selectedTargetLanguage: state => state.application.targetLanguage,
+      maxSuggestionsPerSlice: state => state.suggestions.maxSuggestionsPerSlice
     }),
     ...mapGetters({
       pageSuggestionsForPair: "application/getCurrentPageSuggestions",
       sectionSuggestionForPair: "application/getCurrentSectionSuggestions",
       publishedTranslations: "application/getCurrentPublishedTranslations"
     }),
+    showRefreshButton: vm =>
+      vm.$incompleteVersion
+        ? !vm.sectionSuggestionsLoading
+        : !vm.pageSuggestionsLoaded,
     sectionSuggestionsLoading: vm =>
       vm.$store.state.suggestions.sectionSuggestionsLoadingCount > 0,
     availableSourceLanguages() {
@@ -132,25 +138,43 @@ export default {
     /** @return {ArticleSuggestion[]} */
     pageSuggestionsForPairSubset() {
       return this.pageSuggestionsForPair.slice(
-        this.paginationIndex * this.pageSize,
-        this.paginationIndex * this.pageSize + this.pageSize
+        this.currentPageSuggestionsSliceIndex * this.maxSuggestionsPerSlice,
+        this.currentPageSuggestionsSliceIndex * this.maxSuggestionsPerSlice +
+          this.maxSuggestionsPerSlice
+      );
+    },
+    /** @return {SectionSuggestion[]} */
+    sectionSuggestionsForPairSubset() {
+      return this.getSectionSuggestionsPage(
+        this.currentSectionSuggestionsSliceIndex
       );
     },
     seedArticleTitle() {
-      if (this.paginationIndex < this.publishedTranslations.length) {
+      if (
+        this.currentPageSuggestionsSliceIndex <
+        this.publishedTranslations.length
+      ) {
         // Use one of the published translation's source title as seed title.
         // The recommendation api will give articles similar to this title
         // from source language to translate to target language.
-        return this.publishedTranslations[this.paginationIndex].sourceTitle;
+        return this.publishedTranslations[this.currentPageSuggestionsSliceIndex]
+          .sourceTitle;
       }
       return null;
     }
   },
   watch: {
     pageSuggestionsForPair: function() {
+      if (this.$incompleteVersion) {
+        return;
+      }
+
       this.pageSuggestionsLoaded = true;
     },
     selectedSourceLanguage() {
+      if (this.$incompleteVersion) {
+        return;
+      }
       this.fetchPageSuggestions({
         sourceLanguage: this.selectedSourceLanguage,
         targetLanguage: this.selectedTargetLanguage
@@ -158,6 +182,9 @@ export default {
       this.pageSuggestionsLoaded = false;
     },
     selectedTargetLanguage() {
+      if (this.$incompleteVersion) {
+        return;
+      }
       this.fetchPageSuggestions({
         sourceLanguage: this.selectedSourceLanguage,
         targetLanguage: this.selectedTargetLanguage
@@ -170,6 +197,51 @@ export default {
       fetchPageSuggestions: "suggestions/fetchPageSuggestions",
       startSectionTranslation: "application/startSectionTranslation"
     }),
+    onSuggestionRefresh() {
+      this.$incompleteVersion
+        ? this.showMoreSectionSuggestions()
+        : this.showMoreSuggestions();
+    },
+    // Much like showMoreSuggestions method below, this method refreshes
+    // section suggestions page. Basically that can be split in these scenarios:
+    // 1. Section suggestion page is not full (less than 5 suggestions are displayed to the user
+    //    In this case, refreshing suggestions will add enough suggestions to fill this suggestion page
+    // 2. Section suggestion page is full. In this case another whole section suggestion page will be
+    //    fetched (5 more suggestions)
+    // 3. Section suggestion page is full and total number of suggestion pages is 4 (20 section suggestions
+    //    have been fetched). In this case, no new suggestions are being fetched, instead first section
+    //    suggestions page is being shown. If user keeps refreshing, suggestion page will continue to be updated
+    //    but no new suggestions will be fetched, only already fetched suggestions will be displayed.
+    async showMoreSectionSuggestions() {
+      const currentSectionSuggestions = this.getSectionSuggestionsPage(
+        this.currentSectionSuggestionsSliceIndex
+      );
+      const isCurrentPageFull = !(
+        currentSectionSuggestions.length % this.maxSuggestionsPerSlice
+      );
+
+      const nextIndex =
+        (this.currentSectionSuggestionsSliceIndex + 1) % this.maxSlices;
+
+      // If next page has not been fetched yet, fetch it now
+      if (
+        !isCurrentPageFull ||
+        !this.getSectionSuggestionsPage(nextIndex).length
+      ) {
+        await this.$store.dispatch(
+          "suggestions/fetchNextSectionSuggestionsPage"
+        );
+      }
+      isCurrentPageFull &&
+        (this.currentSectionSuggestionsSliceIndex = nextIndex);
+    },
+    getSectionSuggestionsPage(pageIndex) {
+      const pageStart = pageIndex * this.maxSuggestionsPerSlice;
+      return this.sectionSuggestionForPair.slice(
+        pageStart,
+        pageStart + this.maxSuggestionsPerSlice
+      );
+    },
     showMoreSuggestions() {
       // 1. Get X(=24) suggestions using the sourceTitle of the I(=0)th most
       //    recent published translation
@@ -181,13 +253,14 @@ export default {
       // 5. Since no seed is available, once all suggestions are shown,
       //    go to first set of suggestions based on first seed we used.
       if (
-        this.paginationIndex * this.pageSize + this.pageSize >=
+        this.currentPageSuggestionsSliceIndex * this.maxSuggestionsPerSlice +
+          this.maxSuggestionsPerSlice >=
         this.pageSuggestionsForPair.length
       ) {
         // Start over
-        this.paginationIndex = 0;
+        this.currentPageSuggestionsSliceIndex = 0;
       } else {
-        this.paginationIndex++;
+        this.currentPageSuggestionsSliceIndex++;
         // There is a seed article, So fetch suggestions based on that.
         // But it will be appended to the list of suggestions.
         // So, refreshing does not mean fetching suggestions from next
