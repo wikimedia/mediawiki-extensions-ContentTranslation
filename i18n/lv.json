@@ -369,5 +369,9 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Tavs tulkojums",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Teikums",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Rindkopa",
-	"cx-sx-followup-feedback-new-indicator": "jauns"
+	"cx-sx-followup-feedback-new-indicator": "jauns",
+	"cx-sx-published-section-confirmation-header": "Pievienota jauna sadaļa",
+	"cx-sx-published-section-confirmation-content": "Tavs tulkojums tika publicēts. Apsver tālāku satura labošanu vai jaunas sadaļas pievienošanu.",
+	"cx-sx-published-section-invitation-title": "Tulkot citu sadaļu",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst"
 }
