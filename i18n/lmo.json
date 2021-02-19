@@ -118,7 +118,7 @@
 	"cx-create-new-translation": "Traduzzion noeuva",
 	"cx-translation-filter-label-all-languages": "Tusscoss",
 	"cx-translation-filter-uls-all-languages": "Tute i lengove",
-	"cx-save-draft-save-success": "Salvad {{PLURAL:$1|un minut fa|$1 minut fa|0=adesedess}}",
+	"cx-save-draft-save-success": "Salvad {{PLURAL:$1|un minut fa|$1 minut fa|0=propi adess}}",
 	"cx-save-draft-saving": "Adree a salvà...",
 	"cx-save-draft-shortcut-label": "Salva el sbozz",
 	"cx-save-draft-tooltip": "I sbozz de traduzzion a inn salvad in automatich",
