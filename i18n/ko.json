@@ -7,6 +7,7 @@
 			"Ellif",
 			"Freebiekr",
 			"Garam",
+			"Gustmd7410",
 			"HDNua",
 			"Hwangjy9",
 			"Idh0854",
@@ -370,5 +371,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "문단",
 	"cx-sx-followup-feedback-new-indicator": "새",
 	"cx-sx-published-section-confirmation-header": "새 문단 추가됨",
-	"cx-sx-published-section-invitation-title": "다른 문단 번역하기"
+	"cx-sx-published-section-confirmation-content": "당신의 변역이 게시되었습니다. 내용을 더 편집하거나, 다른 문단을 만드는 것을 고려해 보세요.",
+	"cx-sx-published-section-invitation-title": "다른 문단 번역하기",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|과 $2 등이 존재하지 않음|0=이(가) 존재하지 않음}}"
 }

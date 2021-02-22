@@ -1,11 +1,41 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Rodney Araujo"
 		]
 	},
+	"cx-license-agreement": "Si continúa, usted acepta las [https://foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permite, de manera irrevocable, distribuir sus contribuciones bajo la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL].",
+	"cx-publish-summary": "Se creó al traducir la página «$1»",
 	"cx-publishing-dialog-sub-title": "La traducción sobrescribirá la página existente. Cerciórese de que sea apropiado sustituir el contenido existente.",
-	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nEdite la plantilla en la traducción para completar la información que falta.",
+	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nDebe editar la plantilla en la traducción para completar la información que falta.",
 	"cx-feature-discovery-title": "Traduzca en cualquier momento",
-	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Comparta su opinión"
+	"cx-sx-select-section": "Selecciona una sección para traducir",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección falta|$1 secciones faltan}} en $2",
+	"cx-sx-section-selector-subtitle": "Selecione una sección para traducir",
+	"cx-sx-section-selector-desc": "Elija una de las secciones que se encuentran a continuación y verifique los contenidos de ambos idiomas para que decida que va a traducir.",
+	"cx-sx-language-selector-dialog-title": "Busque un idioma",
+	"cx-sx-existing-translation-status": "Ya se encuentra en $1",
+	"cx-sx-existing-translation-additional-info": "Expanda los contenidos que ya existan al traducir secciones nuevas.",
+	"cx-sx-start-translation-button-label": "Comienze la traducción",
+	"cx-sx-existing-translation-learn-more": "Sepa más",
+	"cx-sx-content-comparator-translation-section-button-label": "Traduzca esta sección",
+	"cx-sx-content-comparator-review-contents-title": "Revise el contenido de ambos idiomas.",
+	"sx-quick-tutorial-secondary-point-step-1": "Usted traducirá y publicará una sección a la vez.",
+	"sx-quick-tutorial-secondary-point-step-2": "Las traducciones sugeridas necesitan de su revisión para que se lean de forma natural.",
+	"sx-quick-tutorial-translate-button-label": "Comienze la traducción",
+	"cx-sx-sentence-selector-suggested-translation-title": "Sugerencia de traducción de $1",
+	"cx-sx-publisher-launching-animation-clarification": "Agradecemos por expandir el contenido disponible en su idioma.",
+	"cx-sx-publisher-success-animation-clarification": "La página se está abriendo...",
+	"cx-sx-publisher-failure-animation-clarification": "Verifique los mensajes de error",
+	"cx-sx-publish-summary": "Se creó al traducir la sección «$1» de la página «$2»",
+	"cx-sx-publisher-preview-options-title": "Opciones para publicar",
+	"cx-sx-publisher-review-info-error": "Su traducción no puede ser publicada:",
+	"cx-sx-publisher-review-info-learn-more": "Sepa más",
+	"cx-dashboard-experimental-support-banner-description": "Puede ampliar artículos que ya existan al traducir una sección nueva. Sin embargo, algunas características de escritorio aún no se encuentran disponibles.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Sepa más",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Comparta su opinión",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Su traducción",
+	"cx-sx-published-section-confirmation-content": "Se publicó su traducción. Considera que edite los contenidos más adelante, o que añada otra sección.",
+	"cx-sx-published-section-invitation-title": "Traduzca otra sección"
 }

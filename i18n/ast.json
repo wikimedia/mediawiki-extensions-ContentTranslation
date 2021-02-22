@@ -4,6 +4,7 @@
 			"Esbardu",
 			"Fitoschido",
 			"Macofe",
+			"Tokvo",
 			"Xuacu",
 			"Петар Петковић"
 		]
@@ -112,7 +113,7 @@
 	"cx-translation-filter-draft-translations": "En progresu",
 	"cx-translation-filter-suggested-translations": "Suxerencies",
 	"cx-suggestionlist-favorite": "Pa más sero",
-	"cx-suggestionlist-title": "Páxines suxeríes",
+	"cx-suggestionlist-title": "Suxerencies",
 	"cx-suggestionlist-empty-title": "De momentu nun hai suxerencies",
 	"cx-suggestionlist-empty-desc": "Nun atopamos nenguna suxerencia. Puedes intentalo más sero o atopar páxines relevantes usando la ferramienta de recomendación (esperimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Ver suxerencies (esperimental)",
