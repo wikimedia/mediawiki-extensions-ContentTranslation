@@ -65,8 +65,16 @@ async function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
     );
 }
 
+function fetchCXServerToken() {
+  return new mw.Api().postWithToken("csrf", {
+    action: "cxtoken",
+    assert: "user"
+  });
+}
+
 export default {
   fetchLanguages,
   fetchSupportedLanguageCodes,
-  fetchSupportedMTProviders
+  fetchSupportedMTProviders,
+  fetchCXServerToken
 };

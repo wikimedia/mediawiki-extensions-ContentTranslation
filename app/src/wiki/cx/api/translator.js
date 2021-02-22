@@ -41,13 +41,15 @@ async function fetchTranslations(offset) {
  * @param targetLanguage
  * @param provider
  * @param sentence
+ * @param {String} token
  * @return {Promise<String>}
  */
 async function fetchSegmentTranslation(
   sourceLanguage,
   targetLanguage,
   provider,
-  sentence
+  sentence,
+  token
 ) {
   if (!sentence) {
     return;
@@ -59,7 +61,7 @@ async function fetchSegmentTranslation(
 
   const cxserverAPI = siteMapper.getCXServerUrl(relativeUrl);
   return fetch(cxserverAPI, {
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Authorization: token },
     method: "POST",
     body: JSON.stringify({ html: `<div>${sentence}</div>` })
   })

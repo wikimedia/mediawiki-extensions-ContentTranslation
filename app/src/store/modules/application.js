@@ -1,6 +1,7 @@
 import Vue from "vue";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import router from "../../router";
+import siteApi from "../../wiki/mw/api/site";
 
 const state = {
   /** @type SectionSuggestion */
@@ -33,7 +34,12 @@ const state = {
    * Indicates whether user translation is in progress
    * @type Boolean
    */
-  translationInProgress: false
+  translationInProgress: false,
+  /**
+   * The cxserver token, mainly used for accessing external machine translation services.
+   * @type String
+   */
+  cxServerToken: null
 };
 
 const mutations = {
@@ -138,6 +144,9 @@ const mutations = {
   },
   setTranslationInProgress: (state, value) => {
     state.translationInProgress = value;
+  },
+  setCXServerToken: (state, token) => {
+    state.cxServerToken = token;
   }
 };
 
@@ -254,6 +263,48 @@ const getters = {
 };
 
 const actions = {
+  /**
+   * @param dispatch
+   * @param state
+   * @param commit
+   * @return {Promise<String>}
+   */
+  async getCXServerToken({ dispatch, state, commit }) {
+    if (!state.cxServerToken) {
+      await siteApi.fetchCXServerToken().then(
+        token => {
+          // Make sure token.age is configured to a valid value.
+          if (token.age <= 30) {
+            // Set the default token age
+            token.age = 3600;
+          }
+          const now = Math.floor(Date.now() / 1000);
+          // We use `age` instead of `exp` because it is more reliable, as user's
+          // clocks might be set to wrong time.
+          token.refreshAt = now + token.age - 30;
+          commit("setCXServerToken", token);
+        },
+        errorCode => {
+          if (errorCode === "token-impossible") {
+            // Likely CX extension has not been configured properly.
+            // To make development and testing easier, assume that
+            // no token is needed.
+            const now = Math.floor(Date.now() / 1000);
+            // Set a dummy token with higher `refreshAt` time
+            commit("setCXServerToken", { jwt: "", refreshAt: now + 3600 * 10 });
+          }
+        }
+      );
+    }
+
+    const now = Math.floor(Date.now() / 1000);
+    if (state.cxServerToken?.refreshAt <= now) {
+      commit("setCXServerToken", null);
+      return dispatch("getCXServerToken");
+    }
+    return state.cxServerToken?.jwt;
+  },
+
   async initializeDashboardContext({ dispatch, state }) {
     dispatch("mediawiki/fetchLanguages", {}, { root: true });
     dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
@@ -272,11 +323,13 @@ const actions = {
       { root: true }
     );
   },
+
   /**
    * @param commit
    * @param {SectionSuggestion} suggestion
    */
-  startSectionTranslation({ commit }, suggestion) {
+  startSectionTranslation({ commit, dispatch }, suggestion) {
+    dispatch("getCXServerToken");
     router.push({ name: "sx-article-selector" });
     commit("setCurrentSectionSuggestion", suggestion);
   },

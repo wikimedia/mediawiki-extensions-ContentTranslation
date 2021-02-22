@@ -238,7 +238,7 @@ const actions = {
    * @return {Promise<String>}
    */
   async translateSegment(
-    { getters },
+    { getters, rootGetters, dispatch },
     { sourceLanguage, targetLanguage, provider, originalContent }
   ) {
     const isValidProvider = getters.isValidProviderForTranslation(
@@ -252,11 +252,17 @@ const actions = {
     }
 
     try {
+      const token = await dispatch(
+        "application/getCXServerToken",
+        {},
+        { root: true }
+      );
       return await translatorApi.fetchSegmentTranslation(
         sourceLanguage,
         targetLanguage,
         provider,
-        originalContent
+        originalContent,
+        token
       );
     } catch (error) {
       // Fall back to original content
