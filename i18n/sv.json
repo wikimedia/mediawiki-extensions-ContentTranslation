@@ -402,5 +402,9 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> redigerades av dig",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Din översättning",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Mening",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Stycke"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Stycke",
+	"cx-sx-published-section-confirmation-header": "Nytt avsnitt tillagt",
+	"cx-sx-published-section-confirmation-content": "Din översättning publicerades. Överväg att fortsätta redigera innehållet, eller lägga till ett till avsnitt.",
+	"cx-sx-published-section-invitation-title": "Översätt ett annat avsnitt",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|och $2 till saknas|0=saknas}}"
 }
