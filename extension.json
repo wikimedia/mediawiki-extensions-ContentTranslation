@@ -99,7 +99,12 @@
 	},
 	"SpecialPages": {
 		"ContentTranslation": "SpecialContentTranslation",
-		"ContentTranslationStats": "SpecialContentTranslationStats"
+		"ContentTranslationStats": {
+			"class": "SpecialContentTranslationStats",
+			"services": [
+				"SkinFactory"
+			]
+		}
 	},
 	"AutoloadClasses": {
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
@@ -1089,7 +1094,6 @@
 				"mediawiki.language",
 				"mediawiki.user",
 				"moment",
-				"mw.cx.ui.Header",
 				"user.options"
 			],
 			"messages": [

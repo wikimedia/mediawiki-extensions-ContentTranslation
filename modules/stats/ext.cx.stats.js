@@ -856,23 +856,18 @@
 	};
 
 	$( function () {
-		var cxLink, cxstats, header, $header, $container;
+		var cxLink, cxstats, $container;
 
-		$header = $( '<div>' ).addClass( 'cx-widget__header' );
 		$container = $( '<div>' ).addClass( 'cx-stats-container' );
 
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
-		$( 'body' ).append(
+		$( '.mw-body-content' ).append(
 			$( '<div>' ).addClass( 'cx-widget' ).append(
-				$header, $container
+				$container
 			)
 		);
-		header = new mw.cx.ui.Header( {
-			siteMapper: this.siteMapper,
-			titleText: mw.msg( 'cx-stats-title' )
-		} );
-		$header.append( header.$element );
+
 		cxstats = new CXStats( $container, {
 			siteMapper: new mw.cx.SiteMapper()
 		} );

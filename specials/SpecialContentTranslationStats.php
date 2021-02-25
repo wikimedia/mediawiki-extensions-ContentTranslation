@@ -8,10 +8,35 @@
 
 /**
  * Shows some metrics about ContentTranslation usage.
+ * @ingroup SpecialPage
  */
-class SpecialContentTranslationStats extends ContentTranslationSpecialPage {
-	public function __construct() {
+class SpecialContentTranslationStats extends SpecialPage {
+
+	/**
+	 * @var \SkinFactory
+	 */
+	private $skinFactory;
+
+	/**
+	 * @param \SkinFactory $skinFactory
+	 */
+	public function __construct( \SkinFactory $skinFactory ) {
 		parent::__construct( 'ContentTranslationStats' );
+		$this->skinFactory = $skinFactory;
+	}
+
+	final public function execute( $parameters ) {
+		parent::execute( $parameters );
+		// Use custom 'contenttranslation' skin
+		/** @var MutableContext $context */
+		$context = $this->getContext();
+		'@phan-var MutableContext $context';
+		$context->setSkin(
+			$this->skinFactory->makeSkin( 'contenttranslation' )
+		);
+		// Run the extendable chunks from the sub class.
+		$this->initModules();
+		$this->addJsConfigVars();
 	}
 
 	public function getDescription() {

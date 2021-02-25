@@ -1,6 +1,14 @@
 @import '../../ui/styles/mw.cx.mixins.less';
 @import '../../ui/styles/mw.cx.common.less';
 
+body.skin-contenttranslation {
+	// Override defaults for the skin to get maximum width.
+	// This pages has too much data to show.
+	margin: 0;
+	padding: 0;
+	max-width: none;
+}
+
 .cx-widget {
 	background-color: @colorGray15;
 }
@@ -17,12 +25,9 @@
 		margin-top: 1em;
 		margin-bottom: 0;
 		clear: both;
+		padding-top: 0.5em;
+		padding-bottom: 0.17em;
 	}
-}
-
-.cx-header__publish {
-	// Do not display the publish button in stats page
-	display: none;
 }
 
 .cx-stats-tabs-container {
@@ -220,13 +225,5 @@
 			color: @colorGray5;
 			font-size: 1em;
 		}
-	}
-}
-
-.skin-timeless {
-	margin: 0;
-
-	h2 {
-		padding-top: 1em;
 	}
 }
