@@ -334,6 +334,7 @@
 	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن.",
 	"cx-suggestion-list-new-pages-division": "الصفحات الجديدة",
 	"cx-sx-content-comparator-translation-section-button-label": "ترجمة هذا القسم",
+	"sx-quick-tutorial-main-point-step-2": "الترجمات المقترحة",
 	"sx-quick-tutorial-translate-button-label": "ابدأ الترجمة",
 	"cx-sx-sentence-selector-header-title": "قسم الترجمة",
 	"cx-sx-sentence-selector-done-button-label": "تم",
@@ -343,5 +344,7 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "ترجمتك ستضاف هنا",
 	"cx-sx-publisher-preview-options-title": "خيارات النشر",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "معرفة المزيد",
-	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ترجمتك"
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ترجمتك",
+	"cx-sx-published-section-confirmation-header": "أضيف قسم جديد",
+	"cx-sx-published-section-invitation-title": "ترجم قسمًا آخر"
 }
