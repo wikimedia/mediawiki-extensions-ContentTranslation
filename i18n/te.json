@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arjunaraoc",
 			"Chaduvari",
 			"Praveen Illa",
 			"Veeven",
@@ -118,7 +119,7 @@
 	"cx-save-draft-shortcut-label": "చిత్తుప్రతిని భద్రపరచు",
 	"cx-save-draft-tooltip": "అనువాద చితుప్రతులు ఆటోమాటిగ్గా భద్రమౌతాయి",
 	"cx-save-draft-error": "పేజీని భద్రపరచేటపుడు ఏదో లోపం దొర్లింది.",
-	"cx-contributions-new-contributions": "కొత్త తోడ్పాటు",
+	"cx-contributions-new-contributions": "కొత్త కృషి",
 	"cx-contributions-new-article": "కొత్త పేజీ",
 	"cx-contributions-translation": "అనువాదం",
 	"cx-contributions-upload": "మీడియా ఎక్కింపు",
