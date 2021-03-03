@@ -409,7 +409,7 @@ export default {
    * @param {String} provider
    * @return {Promise<void>}
    */
-  async translateSelectedSentence({ getters, dispatch }, { provider }) {
+  async translateSelectedSentence({ getters, dispatch, state }, { provider }) {
     const selectedSentence = getters.getCurrentSelectedSentence;
 
     if (!selectedSentence || selectedSentence.proposedTranslations[provider]) {
@@ -434,7 +434,7 @@ export default {
    * @param provider
    * @return {Promise<void>}
    */
-  async translateFollowingSentence({ getters, dispatch }, { provider }) {
+  async translateFollowingSentence({ getters, dispatch, state }, { provider }) {
     const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
     const sentences = getters.getCurrentSourceSectionSentences;
     if (nextIndex >= sentences.length) {
