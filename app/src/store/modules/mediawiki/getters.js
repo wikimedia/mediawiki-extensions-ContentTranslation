@@ -1,62 +1,9 @@
-import pageApi from "../../wiki/mw/api/page";
-import siteApi from "../../wiki/mw/api/site";
-import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
-import translatorApi from "../../wiki/cx/api/translator";
-import Vue from "vue";
+import pageApi from "../../../wiki/mw/api/page";
+import siteApi from "../../../wiki/mw/api/site";
+import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
+import translatorApi from "../../../wiki/cx/api/translator";
 
-const state = {
-  /** @type {Page[]} */
-  pages: [],
-  /** @type {Language[]} */
-  languages: [],
-  /** @type {Boolean} */
-  languagesRequested: false,
-  languageTitleGroups: [],
-  supportedLanguageCodes: [],
-  /** @type {Boolean} */
-  supportedLanguageCodesRequested: false,
-  supportedMTProviderGroups: []
-};
-
-const mutations = {
-  addPage(state, page) {
-    state.pages.push(page);
-  },
-
-  addLanguageTitleGroup(state, group) {
-    state.languageTitleGroups.push(group);
-  },
-
-  setLanguages(state, languages) {
-    state.languages = languages;
-  },
-
-  setSupportedLanguageCodes(state, languageCodes) {
-    state.supportedLanguageCodes = languageCodes;
-  },
-
-  /**
-   * @param mtProviderGroup
-   */
-  addMtProviderGroup(state, mtProviderGroup) {
-    state.supportedMTProviderGroups.push(mtProviderGroup);
-  },
-
-  setPageSections(state, { page, sections }) {
-    Vue.set(page, "sections", sections);
-  },
-
-  setLanguagesRequested(state, value) {
-    state.languagesRequested = value;
-  },
-
-  setSupportedLanguageCodesRequested(state, value) {
-    state.supportedLanguageCodesRequested = value;
-  }
-};
-
-// Computed properties for stores.
-const getters = {
+export default {
   getPage: state => (language, title) =>
     state.pages.find(
       page =>
@@ -294,12 +241,4 @@ const actions = {
       return originalContent;
     }
   }
-};
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
 };
