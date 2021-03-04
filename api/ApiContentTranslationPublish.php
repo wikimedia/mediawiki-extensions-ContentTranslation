@@ -17,6 +17,7 @@
  */
 
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -51,7 +52,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			$wikitext .= $categoryText;
 		}
 
-		$sourceLink = '[[:' . $params['from']
+		$sourceLink = '[[:' . Sitemapper::getDomainCode( $params['from'] )
 			. ':Special:Redirect/revision/'
 			. $this->translation->translation['sourceRevisionId']
 			. '|' . $params['sourcetitle'] . ']]';
