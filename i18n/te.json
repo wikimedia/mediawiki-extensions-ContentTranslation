@@ -190,6 +190,7 @@
 	"cx-translationlist-empty-title": "అనువదించడానికి ఏమీలేదా?",
 	"cx-translationlist-empty-desc": "మీ అనువాదాన్ని {{GENDER:|మొదలుపెట్టి}} మీ వీలునుబట్టి చేస్తూ ఉండండి.",
 	"cx-tools-link-internal-link": "పేజీలను వెతకండి",
+	"cx-tools-link-external-link-placeholder": "బయటి లింకు చేర్చండి",
 	"cx-tools-link-apply": "పూర్తయ్యింది",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 లోపం|$1 లోపాలు}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 హెచ్చరిక|$1 హెచ్చరికలు}}",
