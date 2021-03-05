@@ -16,7 +16,7 @@
 	"cx": "Traducere pagină",
 	"cx-dashboard-header": "Traduceri",
 	"cx-javascript": "Această unealtă nu funcționează fără JavaScript. JavaScript este dezactivat, nu a funcționat, sau browserul nu este suportat.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traducerea conținutului]] este o unealtă ce vă permite să traduceți rapid pagini în limba dumneavoastră. [$1 Încercați-l acum!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traducerea conținutului]] este o unealtă ce vă permite să traduceți rapid pagini în limba dumneavoastră. [$1 Încercați-o acum!]",
 	"cx-license-agreement": "Continuând, sunteți de acord cu [https://foundation.wikimedia.org/wiki/Terms_of_Use Termenii de utilizare] și acceptați în mod irevocabil să vă eliberați contribuțiile cu unealta de traducere sub licențele [https://creativecommons.org/licenses/by-sa/3.0/deed.ro CC BY-SA 3.0] și [https://ro.wikipedia.org/wiki/Wikipedia:GNU_FDL GFDL].",
 	"cx-error-server-connection": "Eroare: Nu se poate conecta la server.",
 	"cx-desc": "Uşurează [[Special:ContentTranslation|traducerea]] paginilor de conținut",
