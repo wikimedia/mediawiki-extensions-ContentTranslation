@@ -9,6 +9,9 @@ import siteMapper from "../../../utils/siteMapper";
  * @return {Promise<Translation[]>}
  */
 async function fetchTranslations(offset) {
+  if (mw.user.isAnon()) {
+    return Promise.resolve([]);
+  }
   const params = {
     action: "query",
     format: "json",
