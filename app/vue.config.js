@@ -43,7 +43,7 @@ module.exports = {
             output: {
               // Prevent ResourceLoader minification
               preamble: "/*@nomin*/",
-              comments: "false"
+              comments: false
             }
           }
         })
