@@ -1,26 +1,26 @@
-import levenshtein from "fast-levenshtein";
+import { calculateUnmodifiedContent } from "./mtHelper";
 
 /**
  * Default general MT threshold
  * Should be open to overwrite by the specific thresholds configured for
  * each wiki. In current case publishing is not permitted for translations
- * with MT used for over 80% of the translation
+ * with MT used for over 95% of the translation
  */
-const publishingThreshold = 80;
+const publishingThreshold = 95;
+const warningThreshold = 85;
 
 const thresholds = [
-  { status: "error", value: 0 },
-  { status: "warning", value: 100 - (publishingThreshold - 10) },
+  { status: "failure", value: 100 - publishingThreshold },
+  { status: "warning", value: 100 - warningThreshold },
   { status: "success", value: 100 }
 ];
 
 const calculateScore = (actualTranslation, proposedTranslation) => {
-  const resultText = htmlToElement(actualTranslation).innerText;
-  const proposedText = htmlToElement(proposedTranslation).innerText;
-  const distance = levenshtein.get(resultText, proposedText);
-  return proposedText.length
-    ? Math.ceil(100 * (distance / proposedText.length))
-    : 100;
+  const resultText = htmlToElement(actualTranslation).textContent;
+  const proposedText = htmlToElement(proposedTranslation).textContent;
+  const distance =
+    100 - 100 * calculateUnmodifiedContent(proposedText, resultText);
+  return Math.ceil(distance);
 };
 
 const getScoreStatus = score =>

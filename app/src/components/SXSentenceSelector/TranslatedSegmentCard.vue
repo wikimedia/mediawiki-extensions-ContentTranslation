@@ -9,7 +9,7 @@
               v-i18n:cx-sx-sentence-selector-translated-segment-modification-percentage-header
             />
             <p
-              v-if="modificationStatus === 'error'"
+              v-if="mtScore === 0"
               v-i18n:cx-sx-sentence-selector-translated-segment-no-edits-label
               :style="{ color: errorColor }"
             />
@@ -78,8 +78,7 @@ import {
 import { mapGetters, mapState } from "vuex";
 import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons";
-import mtScoreCalculator from "@/utils/mtScoreCalculator";
-
+import mtValidator from "@/utils/mtValidator";
 export default {
   name: "TranslatedSegmentCard",
   components: {
@@ -125,10 +124,7 @@ export default {
     errorColor: vm => vm.$mwui.colors.red50,
     userIconColor: vm => vm.iconColors[vm.modificationStatus],
     mtScore: vm =>
-      mtScoreCalculator.calculateScore(
-        vm.translation,
-        vm.proposedMTTranslation
-      ),
+      mtValidator.calculateScore(vm.translation, vm.proposedMTTranslation),
     translation: vm => {
       if (vm.isSectionTitleSelected) {
         return vm.currentPageSection.translatedTitle;
@@ -137,11 +133,11 @@ export default {
       }
       return vm.currentSubSection.translatedContent;
     },
-    modificationStatus: vm => mtScoreCalculator.getScoreStatus(vm.mtScore),
+    modificationStatus: vm => mtValidator.getScoreStatus(vm.mtScore),
     modificationPercentageClass: vm =>
       `translated-segment-card__modification-stats__percentage--${vm.modificationStatus}`,
     iconColors: vm => ({
-      error: null,
+      failure: vm.mtScore === 0 ? null : vm.$mwui.colors.yellow30,
       warning: vm.$mwui.colors.yellow30,
       success: vm.$mwui.colors.green30
     })
@@ -160,6 +156,11 @@ export default {
   }
   &__modification-stats {
     &__percentage {
+      &--failure {
+        span {
+          color: @wmui-color-yellow30;
+        }
+      }
       &--warning {
         span {
           color: @wmui-color-yellow30;

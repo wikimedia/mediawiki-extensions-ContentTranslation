@@ -18,7 +18,8 @@ export default {
   props: {
     selection: {
       type: String,
-      required: true
+      required: true,
+      validator: value => ["sentence", "paragraph"].includes(value)
     }
   },
   computed: {
