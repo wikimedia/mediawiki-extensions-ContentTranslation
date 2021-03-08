@@ -428,35 +428,35 @@ class Hooks {
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
+			'presentation-model' => EchoNotificationPresentationModel::class,
 		] + $userLocator;
 
 		$notifications['cx-tenth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
+			'presentation-model' => EchoNotificationPresentationModel::class,
 		] + $userLocator;
 
 		$notifications['cx-hundredth-translation'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
+			'presentation-model' => EchoNotificationPresentationModel::class,
 		] + $userLocator;
 
 		$notifications['cx-suggestions-available'] = [
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\EchoNotificationPresentationModel',
+			'presentation-model' => EchoNotificationPresentationModel::class,
 		] + $userLocator;
 
 		$notifications['cx-deleted-draft'] = [
 			'category' => 'cx',
 			'group' => 'negative',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
+			'presentation-model' => DraftNotificationPresentationModel::class,
 			'bundle' => [ 'web' => true, 'expandable' => true ]
 		] + $userLocator;
 
@@ -464,7 +464,7 @@ class Hooks {
 			'category' => 'cx',
 			'group' => 'positive',
 			'section' => 'message',
-			'presentation-model' => 'ContentTranslation\\DraftNotificationPresentationModel',
+			'presentation-model' => DraftNotificationPresentationModel::class,
 			'bundle' => [ 'web' => true, 'expandable' => true ]
 		] + $userLocator;
 
