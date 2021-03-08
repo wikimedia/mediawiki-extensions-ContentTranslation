@@ -12,7 +12,7 @@
           v-html="animationSvg"
         />
         <h2 v-text="animationTitle" />
-        <p class="ma-0" v-text="animationClarification" />
+        <p class="ma-0" v-text="animationSubtitle" />
       </mw-col>
     </mw-row>
   </mw-dialog>
@@ -32,31 +32,33 @@ export default {
     status: {
       type: String,
       required: true,
-      validator: value => ["pending", "success", "failure"].includes(value)
+      validator: value =>
+        ["pending", "success", "failure", "warning"].includes(value)
     }
   },
   data: vm => ({
     animations: {
       pending: {
         svg: "publishing-launching.svg",
-        title: vm.$i18n("cx-sx-publisher-launching-animation-title"),
-        clarification: vm.$i18n(
-          "cx-sx-publisher-launching-animation-clarification"
+        title: vm.$i18n("cx-sx-publisher-animation-publishing-indicator-title"),
+        subtitle: vm.$i18n(
+          "cx-sx-publisher-animation-publishing-indicator-subtitle"
         )
       },
       success: {
         svg: "publishing-success.svg",
-        title: vm.$i18n("cx-sx-publisher-success-animation-title"),
-        clarification: vm.$i18n(
-          "cx-sx-publisher-success-animation-clarification"
-        )
+        title: vm.$i18n("cx-sx-publisher-animation-success-message-title"),
+        subtitle: vm.$i18n("cx-sx-publisher-animation-success-message-subtitle")
       },
       failure: {
         svg: "publishing-failure.svg",
-        title: vm.$i18n("cx-sx-publisher-failure-animation-title"),
-        clarification: vm.$i18n(
-          "cx-sx-publisher-failure-animation-clarification"
-        )
+        title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
+        subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
+      },
+      warning: {
+        svg: "publishing-failure.svg",
+        title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
+        subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
       }
     }
   }),
@@ -64,7 +66,7 @@ export default {
     animationSvg: vm =>
       require(`!html-loader!@/assets/${vm.animations[vm.status].svg}`),
     animationTitle: vm => vm.animations[vm.status].title,
-    animationClarification: vm => vm.animations[vm.status].clarification
+    animationSubtitle: vm => vm.animations[vm.status].subtitle
   }
 };
 </script>
