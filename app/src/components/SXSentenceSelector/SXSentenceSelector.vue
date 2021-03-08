@@ -127,6 +127,7 @@ export default {
     })
   },
   async mounted() {
+    this.$store.dispatch("application/resetPublishResult");
     await this.$store.dispatch("application/initializeMTProviders");
     this.$store.dispatch("application/selectInitialTranslationSegment");
     this.screenHeight = window.innerHeight;

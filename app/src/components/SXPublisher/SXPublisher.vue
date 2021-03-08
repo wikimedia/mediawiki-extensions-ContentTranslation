@@ -18,7 +18,7 @@
         </mw-col>
       </mw-row>
     </div>
-    <sx-publisher-review-info :result="publishResult" />
+    <sx-publisher-review-info />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
         <mw-col
@@ -52,7 +52,6 @@ import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import PublishResult from "@/wiki/cx/publishResult";
 import { getUrl } from "@/utils/urlFactory";
 import { getTitleForPublishOption } from "@/utils/publishTitleFactory";
 
@@ -72,14 +71,14 @@ export default {
     mwIconEdit,
     isPublishDialogActive: false,
     publishStatus: "pending",
-    publishOptionsOn: false,
-    publishResult: new PublishResult()
+    publishOptionsOn: false
   }),
   computed: {
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection,
-      publishTarget: state => state.application.publishTarget
+      publishTarget: state => state.application.publishTarget,
+      publishResult: state => state.application.currentPublishResult
     }),
     translatedTitle: vm => vm.currentPageSection?.title,
     panelResult: vm =>
@@ -96,12 +95,8 @@ export default {
     configureTranslationOptions() {
       this.publishOptionsOn = true;
     },
-    /**
-     * @param {PublishResult} publishResult
-     */
-    handlePublishResult(publishResult) {
-      if (!publishResult.isSuccessful) {
-        this.publishResult = publishResult;
+    handlePublishResult() {
+      if (!this.publishResult.isSuccessful) {
         return;
       }
       const articleTitle = getTitleForPublishOption(
@@ -128,11 +123,9 @@ export default {
       this.publishStatus = "pending";
       this.isPublishDialogActive = true;
       /** @type PublishResult **/
-      const publishResult = await this.$store.dispatch(
-        "translator/publishTranslation"
-      );
+      await this.$store.dispatch("translator/publishTranslation");
 
-      this.publishStatus = publishResult.result;
+      this.publishStatus = this.publishResult.result;
       /**
        * Show feedback animation to user for 1 second
        * before closing the dialog and handling the
@@ -140,7 +133,7 @@ export default {
        */
       setTimeout(() => {
         this.isPublishDialogActive = false;
-        this.handlePublishResult(publishResult);
+        this.handlePublishResult();
       }, 1000);
     },
     editTranslation() {

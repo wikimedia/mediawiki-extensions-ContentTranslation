@@ -1,4 +1,5 @@
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
+import PublishResult from "../../../wiki/cx/models/publishResult";
 
 export default {
   /** @type SectionSuggestion */
@@ -36,5 +37,11 @@ export default {
    * The cxserver token, mainly used for accessing external machine translation services.
    * @type String
    */
-  cxServerToken: null
+  cxServerToken: null,
+  /**
+   * Current publish result for application. When publish action fails,
+   * this result is being updated to contain warnings/errors inside messages property
+   * @type {PublishResult}
+   */
+  currentPublishResult: new PublishResult()
 };

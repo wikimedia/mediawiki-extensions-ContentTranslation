@@ -37,13 +37,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { MwIcon, MwMessage } from "@/lib/mediawiki.ui";
 import {
   mwIconEye,
   mwIconAlert,
   mwIconBlock
 } from "@/lib/mediawiki.ui/components/icons";
-import PublishResult from "@/wiki/cx/publishResult";
 
 export default {
   name: "SxPublisherReviewInfo",
@@ -51,18 +51,15 @@ export default {
     MwMessage,
     MwIcon
   },
-  props: {
-    result: {
-      type: PublishResult,
-      required: true
-    }
-  },
   data: () => ({
     mwIconEye,
     mwIconAlert,
     mwIconBlock
   }),
   computed: {
+    ...mapState({
+      publishResult: state => state.application.currentPublishResult
+    }),
     infoText: vm => {
       return vm.result.isSuccessful ? null : vm.result.message;
     },

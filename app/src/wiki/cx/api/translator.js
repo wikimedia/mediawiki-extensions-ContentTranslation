@@ -1,6 +1,6 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
-import PublishResult from "../../cx/publishResult";
+import PublishResult from "../../cx/models/publishResult";
 import { cleanupHtml } from "../../../utils/contentCleaner";
 import siteMapper from "../../../utils/siteMapper";
 

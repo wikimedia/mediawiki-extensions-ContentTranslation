@@ -1,4 +1,18 @@
+import PublishResult from "../../../wiki/cx/models/publishResult";
+
 export default {
+  resetPublishResult(state) {
+    state.currentPublishResult = new PublishResult();
+  },
+
+  /**
+   * @param state
+   * @param {PublishResult} result
+   */
+  setPublishResult(state, result) {
+    state.currentPublishResult = new PublishResult(result);
+  },
+
   setCurrentSectionSuggestion(state, suggestion) {
     state.currentSectionSuggestion = suggestion;
   },

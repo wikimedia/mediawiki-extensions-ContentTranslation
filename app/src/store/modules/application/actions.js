@@ -473,5 +473,17 @@ export default {
 
   clearCurrentSectionSuggestion({ commit }) {
     commit("setCurrentSectionSuggestion", null);
+  },
+
+  /**
+   * @param commit
+   * @param {PublishResult} result
+   */
+  setPublishResult({ commit }, result) {
+    commit("setPublishResult", result);
+  },
+
+  resetPublishResult({ commit }) {
+    commit("resetPublishResult");
   }
 };
