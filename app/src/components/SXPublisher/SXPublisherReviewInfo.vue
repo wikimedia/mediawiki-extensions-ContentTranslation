@@ -18,19 +18,26 @@
           class="complementary ma-0"
         />
       </template>
-      <template v-if="status === 'warning'">
-        <!--      TODO: Add warnings -->
-      </template>
-      <template v-if="status === 'error'">
-        <div>
-          <h5 v-i18n:cx-sx-publisher-review-info-error />
-          <p v-text="infoText" />
-          <a
-            v-i18n:cx-sx-publisher-review-info-learn-more
-            class="sx-publisher__review-info__learn-more-anchor"
-            href="#"
-          />
-        </div>
+      <template v-else>
+        <h5 v-text="messageTitle" />
+        <p v-text="messageText" />
+        <mw-row justify="between" class="ma-0">
+          <mw-col>
+            <a
+              v-i18n:cx-sx-publisher-review-info-learn-more
+              class="sx-publisher__review-info__learn-more-anchor"
+              href="#"
+            />
+          </mw-col>
+          <mw-col v-if="publishResult.isWarning" shrink>
+            <mw-button
+              class="sx-publisher__review-info__suppress-warning-button"
+              type="icon"
+              :icon="mwIconCheck"
+              @click="suppressWarning"
+            />
+          </mw-col>
+        </mw-row>
       </template>
     </div>
   </mw-message>
@@ -42,19 +49,26 @@ import { MwIcon, MwMessage } from "@/lib/mediawiki.ui";
 import {
   mwIconEye,
   mwIconAlert,
-  mwIconBlock
+  mwIconBlock,
+  mwIconCheck
 } from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui/components";
 
 export default {
   name: "SxPublisherReviewInfo",
   components: {
+    MwButton,
+    MwCol,
+    MwRow,
     MwMessage,
     MwIcon
   },
   data: () => ({
     mwIconEye,
     mwIconAlert,
-    mwIconBlock
+    mwIconBlock,
+    mwIconCheck,
+    activeMessageIndex: 0
   }),
   computed: {
     ...mapState({
@@ -65,27 +79,34 @@ export default {
         ? null
         : vm.publishResult.messages?.[0]?.text;
     },
-    status: vm => {
-      if (vm.publishResult.isSuccessful) {
-        return "default";
-      } else {
-        // TODO: Case for warning messages not added yet
-        return "error";
-      }
-    },
+    // Currently activeMessage doesn't change. Introduced so that we can
+    // easily implement message navigation
+    activeMessage: vm =>
+      vm.publishResult.messages.filter(message => !message.suppressed)?.[
+        vm.activeMessageIndex
+      ],
+    status: vm => vm.publishResult.reviewInfoStatus,
     reviewIcon: vm => {
       switch (vm.status) {
-        case "default":
-          return vm.mwIconEye;
         case "warning":
           return vm.mwIconAlert;
         case "error":
           return vm.mwIconBlock;
+        default:
+          return vm.mwIconEye;
       }
     },
     reviewInfoClass: vm => `sx-publisher__review-info--${vm.messageType}`,
     isMessageInline: vm => vm.status === "default",
-    messageType: vm => (vm.isMessageInline ? "notice" : vm.status)
+    messageType: vm => (vm.isMessageInline ? "notice" : vm.status),
+    messageText: vm => vm.activeMessage?.text,
+    messageTitle: vm =>
+      vm.activeMessage?.title || vm.$i18n("cx-sx-publisher-review-info-error")
+  },
+  methods: {
+    suppressWarning() {
+      this.activeMessage.suppressed = true;
+    }
   }
 };
 </script>
@@ -99,6 +120,11 @@ export default {
     border-bottom: @border-width-base @border-style-base @border-color-heading;
     &__content {
       font-weight: normal;
+      .sx-publisher__review-info__suppress-warning-button {
+        .mw-ui-icon {
+          color: @color-primary;
+        }
+      }
     }
     &__learn-more-anchor {
       font-weight: @font-weight-bold;

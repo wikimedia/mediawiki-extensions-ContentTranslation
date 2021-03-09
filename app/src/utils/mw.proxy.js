@@ -30,7 +30,13 @@ const mw = {
           return null;
       }
     }
-  }
+  },
+  message: message => ({
+    toString: () => message,
+    params: param => ({ parse: () => message }),
+    parse: () => message
+  }),
+  Message: class {}
 };
 
 global.mw = mw;
