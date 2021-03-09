@@ -17,7 +17,6 @@
 ve.ui.CXTranslationAction = function VeUiCXTranslationAction() {
 	// Parent constructor
 	ve.ui.CXTranslationAction.super.apply( this, arguments );
-	this.beforeTranslationData = {};
 };
 
 /* Inheritance */
@@ -62,7 +61,8 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 
 	originalSource = section.getOriginalContentSource();
 
-	this.beforeTranslate( section );
+	// Emit Pre-translate event
+	section.emit( 'beforeTranslation' );
 
 	if ( source === 'reset-translation' ) {
 		promise = target.changeContentSource( section, null, originalSource, { noCache: true } );
@@ -72,37 +72,16 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 
 	promise
 		.always( function () {
-			// Recalculate the section, since the instance got distroyed in content change
+			// Recalculate the section, since the instance got destroyed in content change
 			section = target.getTargetSectionNode( section.getSectionId() );
 			if ( section ) {
-				this.afterTranslate( section );
+				// Emit Post-translate event
+				section.emit( 'afterTranslation' );
 			}
-		}.bind( this ) ).fail( function () {
+		} ).fail( function () {
 			mw.notify( mw.msg( 'cx-mt-failed ' ) );
 			this.surface.getModel().emit( 'contextChange' );
 		}.bind( this ) );
-};
-
-/**
- * Pre-translate handler
- *
- * @param {ve.dm.CXSectionNode} section
- */
-ve.ui.CXTranslationAction.prototype.beforeTranslate = function ( section ) {
-	// Save scroll position before changing section content
-	this.beforeTranslationData.scrollTop = this.surface.view.$window.scrollTop();
-	section.emit( 'beforeTranslation' );
-};
-
-/**
- * Post-translate handler
- *
- * @param {ve.dm.CXSectionNode} section
- */
-ve.ui.CXTranslationAction.prototype.afterTranslate = function ( section ) {
-	// Restore scroll position after changing content
-	this.surface.view.$window.scrollTop( this.beforeTranslationData.scrollTop );
-	section.emit( 'afterTranslation' );
 };
 
 /* Registration */
