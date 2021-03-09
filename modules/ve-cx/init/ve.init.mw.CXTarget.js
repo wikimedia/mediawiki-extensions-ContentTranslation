@@ -781,11 +781,13 @@ ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
  * @param {string} source Original content source
  */
 ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, source ) {
-	var pasteDoc, newCursorRange, newRange, tx, docLen,
+	var pasteDoc, newCursorRange, newRange, tx, docLen, scrollTop,
 		surfaceModel = this.getSurface().getModel(),
 		doc = surfaceModel.getDocument(),
 		cxid = section.getSectionId(),
 		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
+
+	scrollTop = this.getSurface().view.$window.scrollTop();
 
 	/**
 	 * Fix internal list indexes for duplicated references in a newFromDocumentInsertion transaction.
@@ -858,6 +860,11 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( newRange.start, 1 ) );
 	if ( newRange.containsRange( newCursorRange ) ) {
 		surfaceModel.setLinearSelection( newCursorRange );
+	}
+	// Restore scroll top
+	if ( this.getSurface().view.$window.scrollTop() !== scrollTop ) {
+		this.getSurface().view.$window.scrollTop( scrollTop );
+		mw.log( '[CX] Scroll position restored to ' + scrollTop );
 	}
 };
 
