@@ -62,11 +62,11 @@
   "bundlesize": [
     {
       "path": "dist/js/cx.js",
-      "maxSize": "38.00KB"
+      "maxSize": "36.00KB"
     },
     {
       "path": "dist/js/cx.libs.js",
-      "maxSize": "82.00KB"
+      "maxSize": "66.00KB"
     },
     {
       "path": "dist/js/cx.ui.js",
