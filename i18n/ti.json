@@ -17,6 +17,7 @@
 	"cx-tools-mt-preferred": "ንቡር",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 መደብ|$1 መደባት|0=መደባት የለዉን}}",
 	"cx-tools-reference-title": "መወከሲ",
+	"cx-page-number-of-languages": "ቍጽሪ ቋንቋታት",
 	"cx-captcha-dialog-cancel": "ኣትርፍ",
 	"cx-dashboard-sidebar-stats": "ስታቲስቲክስ",
 	"cx-dashboard-sidebar-feedback": "ርእይቶኻ ሃበና",
@@ -45,6 +46,7 @@
 	"cx-no-source-categories": "መደባት የለዉን",
 	"cx-stats-tabs-expand": "ኩሎም ቋንቋታት ርኣይ",
 	"echo-category-title-cx": "ትርጉማት",
+	"cx-your-translations-link": "{{GENDER:$1|ትርጉማትካ|ትርጉማትኪ}}",
 	"cx-tools-link-internal-link": "ገጻት ድለይ",
 	"cx-tools-link-apply": "ተወዲኡ",
 	"cx-personaltools-user": "ተጠቃሚ",
@@ -62,6 +64,8 @@
 	"cx-tools-template-title": "ሞደል",
 	"cx-template-not-available": "ኣብ $1 ኣይርከብን",
 	"cx-publish-destination-namespace-main": "ሓድሽ ገጽ",
+	"cx-feature-discovery-dismiss": "ሕራይ፣ ተረዲኡኒ",
+	"cx-sx-section-selector-title": "ክፋላት",
 	"cx-sx-language-selector-dialog-title": "ቋንቋ ድለይ",
 	"cx-sx-view-translation-anchor": "ርኣይ",
 	"cx-sx-existing-translation-learn-more": "ተወሳኺ ፍለጥ",
@@ -71,5 +75,11 @@
 	"cx-suggestion-list-new-pages-division": "ሓደሽቲ ገጻት",
 	"cx-translation-list-all-languages-option-label": "ኩሎም",
 	"cx-sx-sentence-selector-apply-translation-button-label": "ኣተግብር",
-	"cx-sx-content-comparator-content-header-translate-button-label": "ተርጉም"
+	"cx-sx-content-comparator-content-header-translate-button-label": "ተርጉም",
+	"cx-sx-publisher-review-info-learn-more": "ተወሳኺ ፍለጥ",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "ተወሳኺ ፍለጥ",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ትርጉምካ",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "ምሉእ ሓሳብ",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "ሕጡበ ጽሑፍ",
+	"cx-sx-followup-feedback-new-indicator": "ሓድሽ"
 }
