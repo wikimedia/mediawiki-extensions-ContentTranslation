@@ -49,6 +49,7 @@
 	"cx-entrypoint-title": "ამ გვერდის თარგმნა $1-ზე",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "ეს გვერდი $1-ზე ჯერ არ არსებობს. {{GENDER:|თქვენ}} გსურთ მისი შექმნა ?",
 	"cx-entrypoint-dialog-button-translate-from": "$1-დან თარგმნა",
+	"cx-entrypoint-dialog-desc": "თქვენ ამ გვერდის თარგმნით შეგიძლიათ დაეხმაროთ ვიკიპედიას. თარგმნა თქვენ ენაზე ახალი სტატიის შექმნის ადვილი გზაა.",
 	"cx-campaign-newbytranslation-title": "ამის მაგივრად თარგმნას ხომ არ დაიწყებთ?",
 	"cx-campaign-newbytranslation-notice": "შექმენით ახალი სტატია იმ ენიდან თარგმნით, რომელიც იცით.",
 	"cx-campaign-newbytranslation-search": "სათარგმნად სხვა გვერდის პოვნა",
