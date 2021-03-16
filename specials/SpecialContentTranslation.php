@@ -8,9 +8,6 @@
 
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
-use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
-use ContentTranslation\Translator;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Services\NoSuchServiceException;
 
@@ -171,12 +168,7 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		$out = $this->getOutput();
 
 		if ( $this->onTranslationView() ) {
-			$initModule = 'mw.cx.init.legacy';
-			if ( $this->shouldUseNewVersion() ) {
-				// Change init module to use CX2
-				$initModule = 'mw.cx.init';
-			}
-			$out->addModules( $initModule );
+			$out->addModules( 'mw.cx.init' );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
 			if ( $wgContentTranslationTranslateInTarget
@@ -205,14 +197,13 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 			$wgContentTranslationExcludedNamespaces,
 			$wgContentTranslationPublishRequirements,
 			$wgContentTranslationEnableSuggestions,
-			$wgContentTranslationTargetNamespace,
 			$wgRecommendToolAPIURL,
 			$wgContentTranslationEnableMT;
 
 		$out = $this->getOutput();
 
 		if ( $this->onTranslationView() ) {
-			$version = $this->shouldUseNewVersion() ? 2 : 1;
+			$version = 2;
 
 			$out->addJsConfigVars( [
 				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
@@ -223,12 +214,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				'wgContentTranslationEnableMT' => $wgContentTranslationEnableMT
 			] );
 
-			if ( $version === 1 ) {
-				$out->addJsConfigVars(
-					'wgContentTranslationTargetNamespace',
-					$wgContentTranslationTargetNamespace
-				);
-			}
 		} else {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
@@ -264,31 +249,5 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 				PreferenceHelper::setGlobalPreference( $user, 'cx-entrypoint-fd-status', 'pending' );
 			}
 		}
-	}
-
-	/**
-	 * Determine whether CX2 should be used.
-	 *
-	 * @return bool True if we should ship version 2 of Content Translation
-	 */
-	private function shouldUseNewVersion() {
-		$request = $this->getRequest();
-		$translator = new Translator( $this->getUser() );
-		$work = new TranslationWork(
-			$request->getVal( 'page' ),
-			$request->getVal( 'from' ),
-			$request->getVal( 'to' )
-		);
-		$translation = Translation::findForTranslator( $work, $translator );
-
-		if ( !$translation ) {
-			return true;
-		}
-
-		if ( $translation->translation['status'] === 'deleted' ) {
-			return true;
-		}
-
-		return $translation->translation['cxVersion'] === 2;
 	}
 }
