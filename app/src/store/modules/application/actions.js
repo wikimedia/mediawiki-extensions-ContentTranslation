@@ -66,15 +66,25 @@ export default {
   },
 
   /**
-   * @param commit
    * @param {SectionSuggestion} suggestion
    */
   startSectionTranslation({ commit, dispatch }, suggestion) {
-    dispatch("getCXServerToken");
+    dispatch("initializeSectionTranslation", suggestion);
     router.push({ name: "sx-article-selector" });
+  },
+
+  /**
+   * @param {SectionSuggestion} suggestion
+   */
+  initializeSectionTranslation({ commit, dispatch }, suggestion) {
+    dispatch("getCXServerToken");
     commit("setCurrentSectionSuggestion", suggestion);
   },
-  updateSourceLanguage({ commit, state, getters, dispatch }, sourceLanguage) {
+
+  async updateSourceLanguage(
+    { commit, state, getters, dispatch },
+    sourceLanguage
+  ) {
     commit("setSourceLanguage", sourceLanguage);
     if (sourceLanguage === state.targetLanguage) {
       commit("setTargetLanguage", null);
@@ -93,7 +103,7 @@ export default {
     const sourceTitle = getters.getCurrentLanguageTitleGroup.getTitleForLanguage(
       sourceLanguage
     );
-    const suggestion = new SectionSuggestion({
+    let suggestion = new SectionSuggestion({
       sourceLanguage,
       targetLanguage: state.targetLanguage,
       sourceTitle,
@@ -103,13 +113,19 @@ export default {
     if (
       getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)
     ) {
-      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
-      return;
+      suggestion = await dispatch(
+        "suggestions/loadSectionSuggestion",
+        suggestion,
+        { root: true }
+      );
     }
 
-    commit("setCurrentSectionSuggestion", suggestion);
+    dispatch("initializeSectionTranslation", suggestion);
   },
-  updateTargetLanguage({ commit, state, getters, dispatch }, targetLanguage) {
+  async updateTargetLanguage(
+    { commit, state, getters, dispatch },
+    targetLanguage
+  ) {
     commit("setTargetLanguage", targetLanguage);
 
     // If translation has not started yet, re-fetch suggestions
@@ -122,7 +138,7 @@ export default {
       return;
     }
 
-    const suggestion = new SectionSuggestion({
+    let suggestion = new SectionSuggestion({
       sourceLanguage: state.sourceLanguage,
       targetLanguage,
       sourceTitle: state.currentSectionSuggestion.sourceTitle,
@@ -130,15 +146,18 @@ export default {
     });
 
     if (getters.getCurrentLanguageTitleGroup.hasLanguage(targetLanguage)) {
-      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
-      return;
+      suggestion = await dispatch(
+        "suggestions/loadSectionSuggestion",
+        suggestion,
+        { root: true }
+      );
     }
-    commit("setCurrentSectionSuggestion", suggestion);
+    dispatch("initializeSectionTranslation", suggestion);
   },
   /**
    * @return {SectionSuggestion|void}
    */
-  loadSectionSuggestionFromUrl({ commit, rootGetters, state, dispatch }) {
+  async loadSectionSuggestionFromUrl({ commit, rootGetters, state, dispatch }) {
     const urlParams = new URLSearchParams(location.search);
     const isSectionTranslation = urlParams.get("sx");
     const sourceTitle = urlParams.get("page");
@@ -173,7 +192,11 @@ export default {
         sourceTitle,
         missing: {}
       });
-      dispatch("suggestions/loadSectionSuggestion", suggestion, { root: true });
+      suggestion = await dispatch(
+        "suggestions/loadSectionSuggestion",
+        suggestion,
+        { root: true }
+      );
     }
     return suggestion;
   },

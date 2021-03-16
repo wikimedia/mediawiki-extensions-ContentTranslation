@@ -258,10 +258,7 @@ const actions = {
         { root: true }
       );
     }
-
-    dispatch("application/setCurrentSectionSuggestion", suggestion, {
-      root: true
-    });
+    return suggestion;
   },
 
   /**
