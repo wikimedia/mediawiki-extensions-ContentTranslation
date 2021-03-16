@@ -76,9 +76,12 @@ export default {
   /**
    * @param {SectionSuggestion} suggestion
    */
-  initializeSectionTranslation({ commit, dispatch }, suggestion) {
+  initializeSectionTranslation({ commit, dispatch, state }, suggestion) {
     dispatch("getCXServerToken");
     commit("setCurrentSectionSuggestion", suggestion);
+    dispatch("suggestions/fetchAppendixSectionTitles", state.targetLanguage, {
+      root: true
+    });
   },
 
   async updateSourceLanguage(

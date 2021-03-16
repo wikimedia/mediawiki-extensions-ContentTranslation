@@ -1,6 +1,7 @@
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
 import siteMapper from "../../../utils/siteMapper";
+import appendixSectionTitlesInEnglish from "../../../utils/appendixSectionTitlesInEnglish";
 
 /**
  * @param {String} sourceLanguage
@@ -119,8 +120,37 @@ const shuffleArray = array => {
   return array;
 };
 
+/**
+ * This api action fetches and returns appendix section titles
+ * for the given target language. In case of failure, errors
+ * will be suppressed and an empty array will be returned
+ * @param {string} targetLanguage
+ * @return {Promise<String[]>}
+ */
+function fetchAppendixTargetSectionTitles(targetLanguage) {
+  const titleQueryParams = appendixSectionTitlesInEnglish
+    .map(title => encodeURIComponent(title))
+    .join("|");
+  const cxserverAPI = siteMapper.getCXServerUrl(
+    `/suggest/sections/titles/en/${targetLanguage}?titles=${titleQueryParams}`
+  );
+  return fetch(cxserverAPI)
+    .then(response =>
+      response.ok
+        ? response.json()
+        : Promise.reject(
+            new Error(
+              `Failed to load appendix target section titles for language: ${targetLanguage}`
+            )
+          )
+    )
+    .then(response => Object.values(response).flat())
+    .catch(error => []);
+}
+
 export default {
   fetchSuggestions,
   fetchSectionSuggestions,
-  fetchSuggestionSeeds
+  fetchSuggestionSeeds,
+  fetchAppendixTargetSectionTitles
 };

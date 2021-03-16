@@ -26,7 +26,12 @@ const state = {
    * unnecessary requests to fetch seeds every time they are needed
    * @type SectionSuggestionSeedCollection[]
    */
-  sectionSuggestionSeedCollections: []
+  sectionSuggestionSeedCollections: [],
+  /**
+   * Stores appendix section titles, grouped by language
+   * @type Object - { language1: [titles1], ... }
+   */
+  appendixSectionTitles: {}
 };
 
 const mutations = {
@@ -70,6 +75,9 @@ const mutations = {
     seedCollection.seeds = seedCollection.seeds.filter(
       existingSeed => existingSeed.sourceTitle !== seed.sourceTitle
     );
+  },
+  addAppendixSectionTitlesForLanguage(state, { language, titles }) {
+    state.appendixSectionTitles[language] = titles;
   }
 };
 
@@ -403,6 +411,16 @@ const actions = {
     commit("decreaseSectionSuggestionsLoadingCount");
 
     return dispatch("fetchSectionSuggestionsBySeeds", seeds);
+  },
+
+  async fetchAppendixSectionTitles({ commit }, language) {
+    const appendixTitles = await cxSuggestionsApi.fetchAppendixTargetSectionTitles(
+      language
+    );
+    commit("addAppendixSectionTitlesForLanguage", {
+      language,
+      titles: appendixTitles
+    });
   }
 };
 
