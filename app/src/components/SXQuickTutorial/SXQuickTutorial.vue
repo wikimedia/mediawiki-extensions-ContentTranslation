@@ -46,13 +46,13 @@
           <h3
             v-if="isActiveStep(1)"
             key="secondary-point-1"
-            v-i18n-html-safe:sx-quick-tutorial-secondary-point-step-1
+            v-i18n:sx-quick-tutorial-secondary-point-step-1
             class="ma-0"
           />
           <h3
             v-if="isActiveStep(2)"
             key="secondary-point-2"
-            v-i18n-html-safe:sx-quick-tutorial-secondary-point-step-2
+            v-i18n:sx-quick-tutorial-secondary-point-step-2
             class="ma-0"
           />
         </transition>
