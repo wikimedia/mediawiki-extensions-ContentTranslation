@@ -77,6 +77,40 @@ async function fetchSegmentTranslation(
 }
 
 /**
+ * Given a page title and a section number, this method returns
+ * a promise which resolves to the contents of the section in the
+ * given position, inside the given page. To fetch these contents,
+ * a parse request to Action API is being send. Since a Promise is
+ * being return, caller method is responsible to handle any Promise
+ * rejection.
+ * @param {String} pageTitle - The title of the requested page
+ * @param {Number} sectionNumber - A number that indicates the requested section position within the page sections
+ * @return {Promise<string|null>}
+ */
+const getSectionContents = async (pageTitle, sectionNumber) => {
+  const params = {
+    action: "parse",
+    page: pageTitle,
+    format: "json",
+    section: sectionNumber,
+    disabletoc: true,
+    disablelimitreport: true,
+    disableeditsection: true,
+    disablestylededuplication: true,
+    formatversion: 2
+  };
+  const api = new mw.Api();
+  try {
+    // Sample request: https://en.wikipedia.org/w/api.php?action=parse&page=Oxygen&format=json&formatversion=2&section=2&disabletoc=true&disablelimitreport=true&disableeditsection=true&disablestylededuplication=true
+    const response = await api.get(params);
+    // Successful responses are always expected to contain "parse.text" path. Add checks anyway.
+    return response?.parse?.text;
+  } catch (error) {
+    return null;
+  }
+};
+
+/**
  * @param {Page} sourcePage
  * @param {PageSection} section
  * @param {SectionSuggestion} sectionSuggestion
