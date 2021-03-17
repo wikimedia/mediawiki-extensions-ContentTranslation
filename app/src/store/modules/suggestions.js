@@ -125,7 +125,24 @@ const getters = {
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage &&
         suggestionItem.sourceTitle === sourceTitle
-    )
+    ),
+  /**
+   * This getter returns the first (by order of appearance) appendix section
+   * title found inside target article page, in english. Appendix section title
+   * mappings from english to other languages are stored in appendixSectionTitles
+   * state variable. Such titles are "References" and similar section titles.
+   * If none such section is found, it returns null
+   * @param state
+   * @param {SectionSuggestion} sectionSuggestion
+   * @return {String|null}
+   */
+  getFirstAppendixTitleBySectionSuggestion: state => sectionSuggestion => {
+    const appendixTitles =
+      state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
+    return sectionSuggestion.targetSections.find(title =>
+      appendixTitles.includes(title)
+    );
+  }
 };
 
 const actions = {

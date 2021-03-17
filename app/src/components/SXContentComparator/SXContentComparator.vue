@@ -20,9 +20,6 @@
       <template v-else-if="sourceVsTargetSelection === 'target_article'">
         <mw-spinner v-if="!targetPageContent" />
         <article class="px-4" v-html="targetPageContent" />
-        <sx-content-comparator-new-section-placeholder
-          :is-mapped-section="isCurrentSectionMapped"
-        />
       </template>
       <template v-else>
         <section class="pa-4" v-html="targetSectionContent" />
@@ -37,10 +34,10 @@
 <script>
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import { mapGetters, mapState } from "vuex";
-import SxContentComparatorContentHeader from "@/components/SXContentComparator/SXContentComparatorContentHeader";
-import SxContentComparatorHeader from "@/components/SXContentComparator/SXContentComparatorHeader";
-import SxContentComparatorNewSectionPlaceholder from "@/components/SXContentComparator/NewSectionPlaceholder";
-
+import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader";
+import SxContentComparatorHeader from "./SXContentComparatorHeader";
+import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
+import Vue from "vue";
 export default {
   name: "SxContentComparator",
   components: {
@@ -60,7 +57,9 @@ export default {
     }),
     ...mapGetters({
       sourceSectionTitle: "application/getCurrentSourceSectionTitle",
-      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing"
+      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing",
+      getFirstAppendixTitleBySectionSuggestion:
+        "suggestions/getFirstAppendixTitleBySectionSuggestion"
     }),
     targetSectionAnchor() {
       return (this.targetSection?.title || "").replace(/ /g, "_");
@@ -78,7 +77,34 @@ export default {
       );
     },
     targetPageContent() {
-      return this.targetPage?.content;
+      // Create new div with target page content
+      const contentDiv = document.createElement("div");
+      contentDiv.innerHTML = this.targetPage?.content;
+
+      const placeholderEl = this.createNewSectionPlaceholderElement();
+      // If "References" section (or a similar one - e.g "See also" etc)
+      // is present, position new section placeholder before that section
+      const firstAppendixTitle = this.getFirstAppendixTitleBySectionSuggestion(
+        this.suggestion
+      );
+      if (firstAppendixTitle) {
+        // Find first appendix section header element
+        const matchedHeaders = Array.from(
+          contentDiv.querySelectorAll("h2")
+        ).filter(h2 => h2.textContent.match(firstAppendixTitle));
+        const firstAppendixSectionHeader = matchedHeaders[0].parentNode;
+
+        // Insert placeholder element before first appendix section header
+        firstAppendixSectionHeader.parentNode.insertBefore(
+          placeholderEl,
+          firstAppendixSectionHeader
+        );
+      } else {
+        // If no "References" or similar section exists in target article,
+        // append new section placeholder to the end of the target article
+        contentDiv.appendChild(placeholderEl);
+      }
+      return contentDiv.innerHTML;
     },
     // Needed so that it can be easily watched
     targetTitle() {
@@ -125,6 +151,18 @@ export default {
     }
   },
   methods: {
+    createNewSectionPlaceholderElement() {
+      const PlaceholderClass = Vue.extend(
+        SxContentComparatorNewSectionPlaceholder
+      );
+
+      const placeholderInstance = new PlaceholderClass({
+        props: {
+          isMappedSection: this.isCurrentSectionMapped
+        }
+      });
+      return placeholderInstance.$mount().$el;
+    },
     goToSectionSelector() {
       this.$router.push({ name: "sx-section-selector" });
     },
@@ -152,16 +190,6 @@ export default {
 .sx-content-comparator {
   a {
     pointer-events: none;
-  }
-  .sx-content-comparator__new-section-placeholder--present {
-    background-color: @background-color-primary;
-    color: @color-primary--active;
-    // No color for accent-50 with 0.5 opacity present in UI library
-    box-shadow: 0 1px 3px rgba(51, 102, 204, 0.5),
-      0 -1px 3px rgba(51, 102, 204, 0.5);
-    h5 {
-      color: @color-primary--active;
-    }
   }
 }
 </style>
