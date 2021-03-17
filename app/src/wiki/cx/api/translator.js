@@ -112,39 +112,48 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
 };
 
 /**
- * @param {String} html - HTML to be published
- * @param {Page} sourcePage
- * @param {PageSection} section
- * @param {SectionSuggestion} sectionSuggestion
- * @param {String} targetTitle
- * @param {Number} sectionNumber
+ * Given the appropriate publish parameters (html, source/target page titles,
+ * source/target section titles, source/target languages, revision, section
+ * position number), this method publishes a new section to the target page,
+ * and returns a promise resolving to a PublishResult model representing either
+ * success status or the corresponding failure messages.
+ *
+ * @param {Object} publishParams
+ * @param {String} publishParams.html - HTML to be published
+ * @param {String} publishParams.sourceTitle
+ * @param {String} publishParams.targetTitle
+ * @param {String} publishParams.sourceSectionTitle
+ * @param {String} publishParams.targetSectionTitle
+ * @param {String} publishParams.sourceLanguage
+ * @param {String} publishParams.targetLanguage
+ * @param {Number} publishParams.revision
+ * @param {Number|"new"} publishParams.sectionNumber
  * @return {Promise<PublishResult>}
  */
-const publishTranslation = (
+const publishTranslation = ({
   html,
-  sourcePage,
-  section,
-  sectionSuggestion,
+  sourceTitle,
   targetTitle,
+  sourceSectionTitle,
+  targetSectionTitle,
+  sourceLanguage,
+  targetLanguage,
+  revision,
   sectionNumber
-) => {
+}) => {
   const params = {
     action: "cxpublishsection",
     title: targetTitle,
     html,
-    sourcetitle: sectionSuggestion.sourceTitle,
-    sourcerevid: sourcePage.revision,
-    sourcesectiontitle: section.originalTitle,
-    targetsectiontitle: section.title,
-    sourcelanguage: sectionSuggestion.sourceLanguage,
-    targetlanguage: sectionSuggestion.targetLanguage
+    sourcetitle: sourceTitle,
+    sourcerevid: revision,
+    sourcesectiontitle: sourceSectionTitle,
+    targetsectiontitle: targetSectionTitle,
+    sourcelanguage: sourceLanguage,
+    targetlanguage: targetLanguage,
+    sectionnumber: sectionNumber
   };
 
-  // If present is missing, sectionnumber parameter can be omitted as
-  // it defaults to "new" (inside ApiSectionTranslationPublish class)
-  if (sectionNumber > -1) {
-    params.sectionnumber = sectionNumber;
-  }
   const api = new mw.Api();
 
   return api

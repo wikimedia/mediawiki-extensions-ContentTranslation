@@ -134,16 +134,20 @@ const getters = {
    * mappings from english to other languages are stored in appendixSectionTitles
    * state variable. Such titles are "References" and similar section titles.
    * If none such section is found, it returns null
-   * @param state
-   * @param {SectionSuggestion} sectionSuggestion
-   * @return {String|null}
+   * @param {Object} state
+   * @return {function(SectionSuggestion): {String|null}}
    */
-  getFirstAppendixTitleBySectionSuggestion: state => sectionSuggestion => {
-    const appendixTitles =
-      state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
-    return sectionSuggestion.targetSections.find(title =>
-      appendixTitles.includes(title)
-    );
+  getFirstAppendixTitleBySectionSuggestion: state =>
+    /**
+     * @param {SectionSuggestion} sectionSuggestion
+     * @return {String|null}
+     */
+    sectionSuggestion => {
+      const appendixTitles =
+        state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
+      return sectionSuggestion.targetSections.find(title =>
+        appendixTitles.includes(title)
+      );
   },
   appendixTitlesExistForLanguage: state => language =>
     (state.appendixSectionTitles?.[language] || []).length > 0

@@ -3,7 +3,10 @@ import { getTitleForPublishOption } from "../../../utils/publishTitleFactory";
 import mtValidator from "../../../utils/mtValidator";
 import PublishResult from "../../../wiki/cx/models/publishResult";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
-import { cleanupHtml } from "../../../utils/contentCleaner";
+import {
+  calculateHtmlToPublish,
+  calculateNewSectionNumber
+} from "../../../utils/publishHelper";
 
 export default {
   async fetchTranslations({ commit, dispatch, state }) {
@@ -31,6 +34,13 @@ export default {
       );
     });
   },
+
+  /**
+   * @param {Object} rootState
+   * @param {Function} dispatch
+   * @param {Object} rootGetters
+   * @return {Promise<void>}
+   */
   async publishTranslation({ rootState, dispatch, rootGetters }) {
     const isValid = await dispatch("validateMT");
     if (!isValid) {
@@ -38,43 +48,44 @@ export default {
     }
     const sourcePage = rootGetters["application/getCurrentPage"];
     const targetPage = rootGetters["application/getCurrentTargetPage"];
-    /** @var {PageSection} */
-    const section = rootState.application.currentSourceSection;
-    const sectionSuggestion = rootState.application.currentSectionSuggestion;
-    const publishTarget = rootState.application.publishTarget;
+    const { section, sectionSuggestion, publishTarget } = rootState.application;
+
+    const firstAppendixTargetTitle = rootGetters[
+      "suggestions/getFirstAppendixTitleBySectionSuggestion"
+    ](sectionSuggestion);
 
     const targetTitle = getTitleForPublishOption(
       sectionSuggestion.targetTitle,
       publishTarget
     );
 
-    const targetSectionTitle =
-      sectionSuggestion.presentSections[section.originalTitle];
-
-    /**
-     * Contains the order of the section inside target page,
-     * or -1 if section is not present
-     * @type {Number}
-     */
-    const sectionNumber = targetPage.getSectionNumberByTitle(
-      targetSectionTitle
-    );
-
-    /**
-     * HTML To be published
-     * @type {String}
-     */
-    const html = cleanupHtml(section.translationHtml);
-
-    /** @type PublishResult **/
-    const publishResult = await cxTranslatorApi.publishTranslation(
-      html,
-      sourcePage,
-      section,
+    const sectionNumber = calculateNewSectionNumber(
       sectionSuggestion,
-      targetTitle,
-      sectionNumber
+      section,
+      targetPage,
+      firstAppendixTargetTitle
     );
+
+    const html = calculateHtmlToPublish(
+      sectionSuggestion,
+      section,
+      targetPage,
+      firstAppendixTargetTitle
+    );
+    const { sourceTitle, sourceLanguage, targetLanguage } = sectionSuggestion;
+    const { originalTitle, title } = section;
+    /** @type PublishResult **/
+    const publishResult = await cxTranslatorApi.publishTranslation({
+      html,
+      sourceTitle,
+      targetTitle,
+      sourceSectionTitle: originalTitle,
+      targetSectionTitle: title,
+      sourceLanguage,
+      targetLanguage,
+      revision: sourcePage.revision,
+      sectionNumber
+    });
     dispatch("application/setPublishResult", publishResult, { root: true });
   },
   validateMT({ rootState, dispatch }) {
