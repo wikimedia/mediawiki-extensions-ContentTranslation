@@ -293,7 +293,7 @@
 	"cx-sx-section-selector-more-details-title": "Fleire detaljar",
 	"cx-sx-section-selector-view-article-button-label": "Vis artikkel på $1",
 	"cx-sx-publisher-header-title": "Stadfest publisering",
-	"cx-sx-publisher-launching-animation-title": "Publiser omsetjinga...",
-	"cx-sx-publisher-success-animation-clarification": "Opnar sida...",
-	"cx-sx-publisher-failure-animation-title": "Publiseringa mislukkast"
+	"cx-sx-publisher-animation-publishing-indicator-title": "Publiser omsetjinga...",
+	"cx-sx-publisher-animation-success-message-subtitle": "Opnar sida...",
+	"cx-sx-publisher-animation-failure-message-title": "Publiseringa mislukkast"
 }

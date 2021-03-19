@@ -196,10 +196,10 @@
 	"cx-sx-publisher-header-title": "Cadarnhewch eich bod am gyhoeddi",
 	"cx-sx-publisher-publish-panel-new-section-status": "Barod i gyhoeddi?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Bydd eich cyfieithiad yn cael ei <strong>ychwanegu \ni'r erthygl fel adran newydd.</strong>",
-	"cx-sx-publisher-launching-animation-title": "Cyhoeddi'r cyfieithiad...",
-	"cx-sx-publisher-launching-animation-clarification": "Diolch am ychwanegu at y gwaith sydd ar gael yn eich iaith chi.",
-	"cx-sx-publisher-success-animation-title": "Cyhoeddwyd!",
-	"cx-sx-publisher-success-animation-clarification": "Wrthi'n agor y dudalen...",
-	"cx-sx-publisher-failure-animation-title": "Methwyd a chyhoeddi",
-	"cx-sx-publisher-failure-animation-clarification": "Gwirwch y gwallau"
+	"cx-sx-publisher-animation-publishing-indicator-title": "Cyhoeddi'r cyfieithiad...",
+	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Diolch am ychwanegu at y gwaith sydd ar gael yn eich iaith chi.",
+	"cx-sx-publisher-animation-success-message-title": "Cyhoeddwyd!",
+	"cx-sx-publisher-animation-success-message-subtitle": "Wrthi'n agor y dudalen...",
+	"cx-sx-publisher-animation-failure-message-title": "Methwyd a chyhoeddi",
+	"cx-sx-publisher-animation-failure-message-subtitle": "Gwirwch y gwallau"
 }

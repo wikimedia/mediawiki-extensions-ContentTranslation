@@ -282,9 +282,9 @@
 	"cx-sx-publisher-header-title": "Publicatie bevestigen",
 	"cx-sx-publisher-publish-panel-new-section-status": "Klaar voor publicatie?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Uw vertaling zal <strong>aan het artikel worden toegevoegd als een nieuwe sectie.</strong>",
-	"cx-sx-publisher-launching-animation-title": "Vertaling publiceren...",
-	"cx-sx-publisher-success-animation-clarification": "De pagina openen...",
-	"cx-sx-publisher-failure-animation-title": "Publiceren mislukt",
-	"cx-sx-publisher-failure-animation-clarification": "De foutmeldingen controleren",
+	"cx-sx-publisher-animation-publishing-indicator-title": "Vertaling publiceren...",
+	"cx-sx-publisher-animation-success-message-subtitle": "De pagina openen...",
+	"cx-sx-publisher-animation-failure-message-title": "Publiceren mislukt",
+	"cx-sx-publisher-animation-failure-message-subtitle": "De foutmeldingen controleren",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Uw vertaling"
 }

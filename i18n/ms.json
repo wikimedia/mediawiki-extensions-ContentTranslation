@@ -298,6 +298,6 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Rencana penuh dalam $1",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Terjemah",
-	"cx-sx-publisher-success-animation-title": "Diterbitkan!",
-	"cx-sx-publisher-success-animation-clarification": "Membuka laman..."
+	"cx-sx-publisher-animation-success-message-title": "Diterbitkan!",
+	"cx-sx-publisher-animation-success-message-subtitle": "Membuka laman..."
 }

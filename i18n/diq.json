@@ -280,11 +280,11 @@
 	"cx-sx-editor-original-panel-label": "Oricinal",
 	"cx-sx-publisher-header-title": "Neşr kerdışi tesdiq ke",
 	"cx-sx-publisher-publish-panel-new-section-status": "Neşr rê hazıro?",
-	"cx-sx-publisher-launching-animation-title": "Açarnayışi neşr ke...",
-	"cx-sx-publisher-launching-animation-clarification": "Zıwanê ho de yew tadayışi ravêrberdışi rê teşekur keme",
-	"cx-sx-publisher-success-animation-title": "Weşaniya!",
-	"cx-sx-publisher-success-animation-clarification": "Pela abiyena…",
-	"cx-sx-publisher-failure-animation-title": "Neşr xırab biyo",
-	"cx-sx-publisher-failure-animation-clarification": "Mesacanê xıraban kontrol kerê",
+	"cx-sx-publisher-animation-publishing-indicator-title": "Açarnayışi neşr ke...",
+	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Zıwanê ho de yew tadayışi ravêrberdışi rê teşekur keme",
+	"cx-sx-publisher-animation-success-message-title": "Weşaniya!",
+	"cx-sx-publisher-animation-success-message-subtitle": "Pela abiyena…",
+	"cx-sx-publisher-animation-failure-message-title": "Neşr xırab biyo",
+	"cx-sx-publisher-animation-failure-message-subtitle": "Mesacanê xıraban kontrol kerê",
 	"cx-sx-publisher-review-info-learn-more": "Tayêna bımuse"
 }

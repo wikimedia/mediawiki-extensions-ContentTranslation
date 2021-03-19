@@ -289,10 +289,10 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "Bản dịch của bạn sẽ được thêm vào đây",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Khi xuất bản, bạn có thể quyết định thay thế các nội dung hiện có.",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Biên dịch",
-	"cx-sx-publisher-success-animation-title": "Đã xuất bản!",
-	"cx-sx-publisher-success-animation-clarification": "Đang mở trang...",
-	"cx-sx-publisher-failure-animation-title": "XUất bản thất bại",
-	"cx-sx-publisher-failure-animation-clarification": "Kiểm tra thông điệp lỗi",
+	"cx-sx-publisher-animation-success-message-title": "Đã xuất bản!",
+	"cx-sx-publisher-animation-success-message-subtitle": "Đang mở trang...",
+	"cx-sx-publisher-animation-failure-message-title": "XUất bản thất bại",
+	"cx-sx-publisher-animation-failure-message-subtitle": "Kiểm tra thông điệp lỗi",
 	"cx-sx-publisher-review-info-error": "Bản dịch của bạn không thể được xuất bản:",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Tìm hiểu thêm"
 }
