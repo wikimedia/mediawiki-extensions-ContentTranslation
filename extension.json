@@ -243,7 +243,7 @@
 			}
 		},
 		"ContentTranslationEnableSectionTranslation": {
-			"description": "Whether section translated is enabled",
+			"description": "Whether section translation is enabled",
 			"value": false
 		},
 		"SectionTranslationTargetLanguage": {
