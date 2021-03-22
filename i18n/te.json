@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AVVK Chaitanya",
 			"Arjunaraoc",
 			"Chaduvari",
 			"Praveen Illa",
@@ -38,6 +39,8 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|వ్యాసాల అనువాదం]]",
 	"tag-contenttranslation-description": "ఈ పాఠ్యాన్ని అనువాద పరికరం వాడి వేరే భాష నుండి అనువదించారు.",
 	"tag-contenttranslation-v2-description": "ఈ పాఠ్యాన్ని అనువాద పరికరపు రెండవ కూర్పును వాడి వేరే భాష నుండి అనువదించారు.",
+	"tag-sectiontranslation": "[[{{మీడియా వికీ:ఎస్‌ఎక్స్-వివరాల పేజీ లింకు}}|అనువాదం ఎంపిక]]",
+	"tag-sectiontranslation-description": "Content Translationలోని Section Translation అన్న విభాగాన్ని ఉపయోగించి వేరే భాషలో ఉన్న కొంత సమాచారం/విషయం అనువదించడమైంది.",
 	"cx-source-loading": "$1 లోడు చేస్తున్నాం",
 	"cx-beta": "వ్యాసాల అనువాదం",
 	"cx-beta-desc": "పేజీలను మీ భాష లోకి చకచకా అనువదించేందుకు ఇదొక పరికరం. [[Special:MyContributions|మీ రచనలు]] పేజీ నుండే అనువాదాలను మొదలుపెట్టండి. అనువాదాన్ని సులభతరం చేసేందుకు తయారు చేసిన మా పరికరంలోని పక్కపక్కనే ఉండే ఎడిటరులో అనువదించండి. ఇందులోని కొన్ని పనిముట్లు అన్ని భాషలకూ పనిచెయ్యకపోవచ్చు.",
