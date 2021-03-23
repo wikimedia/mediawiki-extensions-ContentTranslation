@@ -61,6 +61,20 @@ export default class PageSection {
     );
   }
 
+  /**
+   * Given an MT provider this method returns the proposed
+   * translation of the PageSection as an HTML string
+   * @param mtProvider
+   * @return {String}
+   */
+  getProposedTranslationHtml(mtProvider) {
+    return this.subSections.reduce(
+      (htmlContent, subSection) =>
+        htmlContent + subSection.getProposedTranslation(mtProvider),
+      ""
+    );
+  }
+
   get isTranslated() {
     return this.subSections.some(subSection => subSection.isTranslated);
   }

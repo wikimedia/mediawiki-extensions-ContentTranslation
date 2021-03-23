@@ -406,5 +406,7 @@
 	"cx-sx-published-section-confirmation-header": "New section added",
 	"cx-sx-published-section-confirmation-content": "Your translation was published. Consider editing the contents further, or adding another section.",
 	"cx-sx-published-section-invitation-title": "Translate another section",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|and $2 more are missing|0=is missing}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|and $2 more are missing|0=is missing}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Your translation contains $1% unmodified text",
+	"cx-sx-publisher-mt-abuse-message-body": "Machine translation is only a starting point. You can still publish, but make sure your translation reads naturally in your language."
 }

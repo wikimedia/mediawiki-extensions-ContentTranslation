@@ -26,10 +26,23 @@ const calculateScore = (actualTranslation, proposedTranslation) => {
 const getScoreStatus = score =>
   thresholds.find(threshold => score <= threshold.value).status;
 
+/**
+ * Given a page section, this method returns the percentage of
+ * modified MT as a score from 0 to 100. The higher the score,
+ * the lower the percentage of unmodified MT is.
+ * @param {PageSection} pageSection
+ * @param mtProvider
+ */
+const getMTScoreForPageSection = (pageSection, mtProvider) =>
+  calculateScore(
+    pageSection.translationHtml,
+    pageSection.getProposedTranslationHtml(mtProvider)
+  );
+
 const htmlToElement = html => {
   const template = document.createElement("div");
   template.innerHTML = html;
   return template;
 };
 
-export default { calculateScore, getScoreStatus };
+export default { calculateScore, getScoreStatus, getMTScoreForPageSection };

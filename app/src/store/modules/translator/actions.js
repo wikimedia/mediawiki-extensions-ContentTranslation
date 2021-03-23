@@ -1,5 +1,8 @@
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import { getTitleForPublishOption } from "../../../utils/publishTitleFactory";
+import mtValidator from "../../../utils/mtValidator";
+import PublishResult from "../../../wiki/cx/models/publishResult";
+import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 
 export default {
   async fetchTranslations({ commit, dispatch, state }) {
@@ -28,6 +31,10 @@ export default {
     });
   },
   async publishTranslation({ rootState, dispatch, rootGetters }) {
+    const isValid = await dispatch("validateMT");
+    if (!isValid) {
+      return;
+    }
     const page = rootGetters["application/getCurrentPage"];
     /** @var {PageSection} */
     const section = rootState.application.currentSourceSection;
@@ -46,5 +53,40 @@ export default {
       targetTitle
     );
     dispatch("application/setPublishResult", publishResult, { root: true });
+  },
+  validateMT({ rootState, dispatch }) {
+    /** @var {PageSection} */
+    const section = rootState.application.currentSourceSection;
+    const mtValidationScore = mtValidator.getMTScoreForPageSection(
+      section,
+      rootState.application.currentMTProvider
+    );
+    const mtValidationStatus = mtValidator.getScoreStatus(mtValidationScore);
+    if (mtValidationStatus === "success") {
+      return true;
+    }
+    const existingPublishResult = rootState.application.currentPublishResult;
+    // Bypass user feedback and try to publish anyway
+    // when user has already suppressed related warnings
+    const bypassUserWarnings =
+      mtValidationStatus === "warning" &&
+      existingPublishResult.hasSuppressedWarnings;
+
+    if (!bypassUserWarnings) {
+      const unmodifiedPercentage = 100 - mtValidationScore;
+      const title = mw.message(
+        "cx-sx-publisher-mt-abuse-message-title",
+        unmodifiedPercentage
+      );
+      const text = mw.message("cx-sx-publisher-mt-abuse-message-body");
+      const message = new PublishFeedbackMessage({ title, text });
+      const result = new PublishResult({
+        result: mtValidationStatus,
+        messages: [message]
+      });
+      dispatch("application/setPublishResult", result, { root: true });
+      return false;
+    }
+    return true;
   }
 };

@@ -420,5 +420,7 @@
 	"cx-sx-published-section-confirmation-header": "Header of confirmation panel about newly published section translation, inside target article's content page",
 	"cx-sx-published-section-confirmation-content": "Content of confirmation panel about newly published section translation, inside target article's content page",
 	"cx-sx-published-section-invitation-title": "Title of invitation panel for new section translation, inside target article's content page after redirection upon successful Section Translation publishing",
-	"cx-sx-published-section-invitation-missing-sections-info": "Content of invitation panel for new section translation, inside target article's content page after redirection upon successful Section Translation publishing\n\nParameters:\n* $1 - the title of first missing section \n* $2 - number of remaining missing sections"
+	"cx-sx-published-section-invitation-missing-sections-info": "Content of invitation panel for new section translation, inside target article's content page after redirection upon successful Section Translation publishing\n\nParameters:\n* $1 - the title of first missing section \n* $2 - number of remaining missing sections",
+	"cx-sx-publisher-mt-abuse-message-title": "Title for message about machine translation abuse after failed publishing, inside review info panel on the screen where user can publish their section translation.\n\nParameters:\n* $1 - percentage of unmodified machine translation",
+	"cx-sx-publisher-mt-abuse-message-body": "Body of message about machine translation abuse after failed publishing, inside review info panel on the screen where user can publish their section translation."
 }

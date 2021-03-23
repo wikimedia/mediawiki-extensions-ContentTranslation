@@ -11,4 +11,12 @@ export default class PublishResult {
   get isSuccessful() {
     return this.result === "success";
   }
+
+  get isWarning() {
+    return this.result === "warning";
+  }
+
+  get hasSuppressedWarnings() {
+    return this.isWarning && this.messages.every(message => message.suppressed);
+  }
 }
