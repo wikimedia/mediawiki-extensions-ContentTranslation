@@ -3,6 +3,7 @@ import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import PublishResult from "../../cx/models/publishResult";
 import { cleanupHtml } from "../../../utils/contentCleaner";
 import siteMapper from "../../../utils/siteMapper";
+import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 
 /**
  * @param {String} offset
@@ -124,14 +125,16 @@ const publishTranslation = (
       if (details.exception) {
         return new PublishResult({
           result: "failure",
-          message: details.exception.message,
+          messages: [
+            new PublishFeedbackMessage({ text: details.exception.message })
+          ],
           status: details.statusText
         });
       }
       if (details.error) {
         return new PublishResult({
           result: "failure",
-          message: details.error.info,
+          messages: [new PublishFeedbackMessage({ text: details.error.info })],
           status: details.error.code
         });
       }

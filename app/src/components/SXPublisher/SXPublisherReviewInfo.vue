@@ -61,7 +61,9 @@ export default {
       publishResult: state => state.application.currentPublishResult
     }),
     infoText: vm => {
-      return vm.publishResult.isSuccessful ? null : vm.publishResult.message;
+      return vm.publishResult.isSuccessful
+        ? null
+        : vm.publishResult.messages?.[0]?.text;
     },
     status: vm => {
       if (vm.publishResult.isSuccessful) {

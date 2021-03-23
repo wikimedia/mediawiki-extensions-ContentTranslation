@@ -1,7 +1,10 @@
+import PublishFeedbackMessage from "./publishFeedbackMessage";
+
 export default class PublishResult {
-  constructor({ result = "success", message = "", status = "" } = {}) {
+  constructor({ result = "success", messages = [], status = "" } = {}) {
     this.result = result;
-    this.message = message;
+    this.messages =
+      messages && messages.map(message => new PublishFeedbackMessage(message));
     this.status = status;
   }
 
