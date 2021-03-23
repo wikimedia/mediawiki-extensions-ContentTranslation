@@ -61,10 +61,10 @@ export default {
       publishResult: state => state.application.currentPublishResult
     }),
     infoText: vm => {
-      return vm.result.isSuccessful ? null : vm.result.message;
+      return vm.publishResult.isSuccessful ? null : vm.publishResult.message;
     },
     status: vm => {
-      if (vm.result.isSuccessful) {
+      if (vm.publishResult.isSuccessful) {
         return "default";
       } else {
         // TODO: Case for warning messages not added yet

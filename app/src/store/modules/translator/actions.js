@@ -27,8 +27,9 @@ export default {
       );
     });
   },
-  async publishTranslation({ rootState, rootGetters }) {
+  async publishTranslation({ rootState, dispatch, rootGetters }) {
     const page = rootGetters["application/getCurrentPage"];
+    /** @var {PageSection} */
     const section = rootState.application.currentSourceSection;
     const sectionSuggestion = rootState.application.currentSectionSuggestion;
     const publishTarget = rootState.application.publishTarget;
@@ -38,11 +39,12 @@ export default {
       publishTarget
     );
     /** @type PublishResult **/
-    return await cxTranslatorApi.publishTranslation(
+    const publishResult = await cxTranslatorApi.publishTranslation(
       page,
       section,
       sectionSuggestion,
       targetTitle
     );
+    dispatch("application/setPublishResult", publishResult, { root: true });
   }
 };
