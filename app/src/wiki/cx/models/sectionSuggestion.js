@@ -41,17 +41,4 @@ export default class SectionSuggestion {
   get presentSectionsCount() {
     return Object.keys(this.presentSections || {}).length;
   }
-
-  /**
-   * For a given section source title it returns the order
-   * of this section inside target page if present or -1 elsewise
-   * @param sectionSourceTitle
-   * @return {Number}
-   */
-  getSectionNumber(sectionSourceTitle) {
-    const sectionTargetTitle = this.presentSections?.[sectionSourceTitle];
-    return this.targetSections.findIndex(
-      sectionTitle => sectionTitle === sectionTargetTitle
-    );
-  }
 }

@@ -36,7 +36,8 @@ export default {
     if (!isValid) {
       return;
     }
-    const page = rootGetters["application/getCurrentPage"];
+    const sourcePage = rootGetters["application/getCurrentPage"];
+    const targetPage = rootGetters["application/getCurrentTargetPage"];
     /** @var {PageSection} */
     const section = rootState.application.currentSourceSection;
     const sectionSuggestion = rootState.application.currentSectionSuggestion;
@@ -47,13 +48,16 @@ export default {
       publishTarget
     );
 
+    const targetSectionTitle =
+      sectionSuggestion.presentSections[section.originalTitle];
+
     /**
      * Contains the order of the section inside target page,
      * or -1 if section is not present
      * @type {Number}
      */
-    const sectionNumber = sectionSuggestion.getSectionNumber(
-      section.originalTitle
+    const sectionNumber = targetPage.getSectionNumberByTitle(
+      targetSectionTitle
     );
 
     /**
@@ -65,7 +69,7 @@ export default {
     /** @type PublishResult **/
     const publishResult = await cxTranslatorApi.publishTranslation(
       html,
-      page,
+      sourcePage,
       section,
       sectionSuggestion,
       targetTitle,

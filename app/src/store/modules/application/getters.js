@@ -7,6 +7,12 @@ export default {
       state.currentSectionSuggestion.sourceTitle
     ),
 
+  getCurrentTargetPage: (state, getters, rootState, rootGetters) =>
+    rootGetters["mediawiki/getPage"](
+      state.currentSectionSuggestion.targetLanguage,
+      state.currentSectionSuggestion.targetTitle
+    ),
+
   getCurrentSourceSectionTitle: state =>
     state.currentSourceSection?.originalTitle || "",
 

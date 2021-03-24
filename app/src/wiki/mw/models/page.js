@@ -27,10 +27,38 @@ export default class Page {
     this.alias = _alias;
     this.wikidataId = pageprops?.wikibase_item;
     this.content = content;
+    /** @type {PageSection[]} */
     this.sections = sections;
   }
 
   get id() {
     return `${this.language}/${this.title}`;
+  }
+
+  /**
+   * For a given target section title it returns the order
+   * of this section inside target page if present or -1 elsewise
+   * @param {String} sectionTitle
+   * @return {Number}
+   */
+  getSectionNumberByTitle(sectionTitle) {
+    const sectionIndex = this.sections.findIndex(
+      section => section.originalTitle === sectionTitle
+    );
+    if (sectionIndex < -1) {
+      return -1;
+    }
+    const precedingSections = this.sections.slice(0, sectionIndex);
+
+    return (
+      precedingSections.reduce(
+        (count, section) =>
+          count +
+          section.subSections.filter(subsection => subsection.isHeadingSection)
+            .length +
+          1,
+        0
+      ) + 1
+    );
   }
 }
