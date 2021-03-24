@@ -83,10 +83,11 @@ async function fetchSegmentTranslation(
  * being return, caller method is responsible to handle any Promise
  * rejection.
  * @param {String} pageTitle - The title of the requested page
+ * @param {String} language - The language of the requested page
  * @param {Number} sectionNumber - A number that indicates the requested section position within the page sections
  * @return {Promise<string|null>}
  */
-const getSectionContents = async (pageTitle, sectionNumber) => {
+const getSectionContents = async (pageTitle, language, sectionNumber) => {
   const params = {
     action: "parse",
     page: pageTitle,
@@ -98,7 +99,8 @@ const getSectionContents = async (pageTitle, sectionNumber) => {
     disablestylededuplication: true,
     formatversion: 2
   };
-  const api = new mw.Api();
+
+  const api = siteMapper.getApi(language);
   try {
     // Sample request: https://en.wikipedia.org/w/api.php?action=parse&page=Oxygen&format=json&formatversion=2&section=2&disabletoc=true&disablelimitreport=true&disableeditsection=true&disablestylededuplication=true
     const response = await api.get(params);
