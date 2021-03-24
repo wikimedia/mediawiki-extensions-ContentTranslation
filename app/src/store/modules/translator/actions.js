@@ -45,12 +45,23 @@ export default {
       sectionSuggestion.targetTitle,
       publishTarget
     );
+
+    /**
+     * Contains the order of the section inside target page,
+     * or -1 if section is not present
+     * @type {Number}
+     */
+    const sectionNumber = sectionSuggestion.getSectionNumber(
+      section.originalTitle
+    );
+
     /** @type PublishResult **/
     const publishResult = await cxTranslatorApi.publishTranslation(
       page,
       section,
       sectionSuggestion,
-      targetTitle
+      targetTitle,
+      sectionNumber
     );
     dispatch("application/setPublishResult", publishResult, { root: true });
   },

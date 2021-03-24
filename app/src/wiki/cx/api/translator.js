@@ -115,13 +115,15 @@ const getSectionContents = async (pageTitle, sectionNumber) => {
  * @param {PageSection} section
  * @param {SectionSuggestion} sectionSuggestion
  * @param {String} targetTitle
+ * @param {Number} sectionNumber
  * @return {Promise<PublishResult>}
  */
 const publishTranslation = (
   sourcePage,
   section,
   sectionSuggestion,
-  targetTitle
+  targetTitle,
+  sectionNumber
 ) => {
   const params = {
     action: "cxpublishsection",
@@ -134,14 +136,6 @@ const publishTranslation = (
     sourcelanguage: sectionSuggestion.sourceLanguage,
     targetlanguage: sectionSuggestion.targetLanguage
   };
-  /**
-   * Contains the order of the section inside target page,
-   * or -1 if section is not present
-   * @type {Number}
-   */
-  const sectionNumber = sectionSuggestion.getSectionNumber(
-    section.originalTitle
-  );
 
   // If present is missing, sectionnumber parameter can be omitted as
   // it defaults to "new" (inside ApiSectionTranslationPublish class)
