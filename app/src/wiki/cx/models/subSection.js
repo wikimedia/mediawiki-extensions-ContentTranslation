@@ -1,4 +1,4 @@
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import SectionSentence from "./sectionSentence";
 
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a
