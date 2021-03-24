@@ -3,6 +3,7 @@ import { getTitleForPublishOption } from "../../../utils/publishTitleFactory";
 import mtValidator from "../../../utils/mtValidator";
 import PublishResult from "../../../wiki/cx/models/publishResult";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
+import { cleanupHtml } from "../../../utils/contentCleaner";
 
 export default {
   async fetchTranslations({ commit, dispatch, state }) {
@@ -55,8 +56,15 @@ export default {
       section.originalTitle
     );
 
+    /**
+     * HTML To be published
+     * @type {String}
+     */
+    const html = cleanupHtml(section.translationHtml);
+
     /** @type PublishResult **/
     const publishResult = await cxTranslatorApi.publishTranslation(
+      html,
       page,
       section,
       sectionSuggestion,

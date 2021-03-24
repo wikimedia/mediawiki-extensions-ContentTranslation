@@ -1,7 +1,6 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import PublishResult from "../../cx/models/publishResult";
-import { cleanupHtml } from "../../../utils/contentCleaner";
 import siteMapper from "../../../utils/siteMapper";
 import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 
@@ -111,6 +110,7 @@ const getSectionContents = async (pageTitle, sectionNumber) => {
 };
 
 /**
+ * @param {String} html - HTML to be published
  * @param {Page} sourcePage
  * @param {PageSection} section
  * @param {SectionSuggestion} sectionSuggestion
@@ -119,6 +119,7 @@ const getSectionContents = async (pageTitle, sectionNumber) => {
  * @return {Promise<PublishResult>}
  */
 const publishTranslation = (
+  html,
   sourcePage,
   section,
   sectionSuggestion,
@@ -128,7 +129,7 @@ const publishTranslation = (
   const params = {
     action: "cxpublishsection",
     title: targetTitle,
-    html: cleanupHtml(section.translationHtml),
+    html,
     sourcetitle: sectionSuggestion.sourceTitle,
     sourcerevid: sourcePage.revision,
     sourcesectiontitle: section.originalTitle,
