@@ -205,7 +205,7 @@
 	"cx-notification-continue-translation": "Odkar ste začeli prevajati stran <strong>$1</strong>, je minilo že nekaj mesecev. Poskusite jo objaviti, preden bo preteklo eno leto, ko se bo osnutek samodejno izbrisal.",
 	"cx-notification-continue-translation-bundle": "Odkar si začel s {{PLURAL:$1|$1 prevodi}}, je preteklo že nekaj mesecev. Poskusi jih objaviti preden preteče eno leto, ko so osnutki samodejno izbrisani.",
 	"cx-contributions-link": "Vaši prispevki",
-	"cx-your-translations-link": "{{GENDER:$1|Tvoji prevodi}}",
+	"cx-your-translations-link": "{{GENDER:$1|Vaši prevodi}}",
 	"cx-translationlist-empty-title": "Ni ničesar za prevesti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Začnite}} prevajanje zdaj in nadaljujte kadar koli pozneje.",
 	"cx-tools-link-internal-link": "Iskanje strani",

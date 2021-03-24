@@ -70,6 +70,8 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traducción de contenido]]",
 	"tag-contenttranslation-description": "El contenido se tradujo de otro idioma usando la herramienta de traducción de contenidos.",
 	"tag-contenttranslation-v2-description": "El contenido se tradujo de otro idioma usando la versión 2 de la herramienta de traducción de contenidos.",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Traducción de sección]]",
+	"tag-sectiontranslation-description": "El contenido fue traducido desde otra sección en otro idioma usando la característica de Traducción de sección de la herramienta de traducción de contenidos.",
 	"cx-source-loading": "Cargando $1",
 	"cx-beta": "Traducción de contenidos",
 	"cx-beta-desc": "Una herramienta para traducir rápidamente páginas a tu idioma. Inicia las traducciones desde [[Special:MyContributions|tu página de contribuciones]], y edítalas con nuestro editor especialmente diseñado para la traducción. Algunas de las herramientas pueden estar disponibles sólo para idiomas específicos.",
