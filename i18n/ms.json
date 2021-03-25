@@ -299,5 +299,6 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Rencana penuh dalam $1",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Terjemah",
 	"cx-sx-publisher-animation-success-message-title": "Diterbitkan!",
-	"cx-sx-publisher-animation-success-message-subtitle": "Membuka laman..."
+	"cx-sx-publisher-animation-success-message-subtitle": "Membuka laman...",
+	"cx-sx-publisher-mt-abuse-message-title": "Terjemahan anda mengandungi $1% teks yang tidak diubah suai"
 }

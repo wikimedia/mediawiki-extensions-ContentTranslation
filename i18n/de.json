@@ -403,5 +403,7 @@
 	"cx-sx-published-section-confirmation-header": "Neuer Abschnitt hinzugefügt",
 	"cx-sx-published-section-confirmation-content": "Deine Übersetzung wurde veröffentlicht. Du kannst den Inhalt weiter bearbeiten oder einen weiteren Abschnitt hinzuzufügen.",
 	"cx-sx-published-section-invitation-title": "Anderen Abschnitt übersetzen",
-	"cx-sx-published-section-invitation-missing-sections-info": "„$1“ {{PLURAL:$2|und $2 weitere fehlen|0=fehlt}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "„$1“ {{PLURAL:$2|und $2 weitere fehlen|0=fehlt}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Deine Übersetzung enthält $1 % unveränderten Text",
+	"cx-sx-publisher-mt-abuse-message-body": "Die maschinelle Übersetzung ist nur ein Ausgangspunkt. Du kannst sie trotzdem veröffentlichen, aber stelle sicher, dass sich deine  Übersetzung in deiner Sprache natürlich liest."
 }

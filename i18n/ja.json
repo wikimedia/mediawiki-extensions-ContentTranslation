@@ -22,6 +22,7 @@
 			"Sujiniku",
 			"Suyama",
 			"Takot",
+			"Tamaki Wakita",
 			"Tmv",
 			"W.CC",
 			"Whym",
@@ -344,5 +345,7 @@
 	"cx-sx-content-comparator-content-header-translate-button-label": "翻訳",
 	"cx-sx-editor-original-panel-label": "オリジナル",
 	"cx-sx-publisher-publish-panel-new-section-status": "公開の準備ができましたか？",
-	"cx-sx-publisher-animation-success-message-title": "公開が完了しました!"
+	"cx-sx-publisher-animation-success-message-title": "公開が完了しました!",
+	"cx-sx-publisher-mt-abuse-message-title": "翻訳に $1% の修正されていないテキストが含まれています",
+	"cx-sx-publisher-mt-abuse-message-body": "機械翻訳は出発点です。引き続き公開できますが、翻訳が自分の言語で自然に読めることを確認してください。"
 }

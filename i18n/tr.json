@@ -421,5 +421,7 @@
 	"cx-sx-published-section-confirmation-header": "Yeni bölüm eklendi",
 	"cx-sx-published-section-confirmation-content": "Çeviriniz yayımlandı. İçeriği daha fazla değiştirmeyi, ya da yeni bir bölüm eklemeyi düşünün.",
 	"cx-sx-published-section-invitation-title": "Başka bir bölümü çevirin",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ve diğer $2 tane eksik|0=eksik}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ve diğer $2 tane eksik|0=eksik}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Çeviriniz %$1 değiştirilmemiş metin içeriyor",
+	"cx-sx-publisher-mt-abuse-message-body": "Makine çevirisi sadece bir başlangıçtır. Bu şekilde yayımlayabilirsiniz, ancak çevirinizin dilinizde doğal bir şekilde okunabildiğinden emin olun."
 }

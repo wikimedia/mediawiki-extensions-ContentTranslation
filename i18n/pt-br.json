@@ -412,5 +412,7 @@
 	"cx-sx-published-section-confirmation-header": "Nova seção adicionada",
 	"cx-sx-published-section-confirmation-content": "Sua tradução foi publicada. Considere editar o conteúdo posteriormente ou adicionar outra seção.",
 	"cx-sx-published-section-invitation-title": "Traduzir outra seção",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 mais estão faltando|0=está faltando}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 mais estão faltando|0=está faltando}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Sua tradução contém $1% de texto não modificado",
+	"cx-sx-publisher-mt-abuse-message-body": "A tradução automática é apenas um ponto de partida. Você ainda pode publicar, mas certifique-se de que sua tradução seja lida naturalmente em seu idioma."
 }

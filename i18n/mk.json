@@ -57,7 +57,7 @@
 	"cx-special-login-error": "Мора да сте најавени за да ја преведете страницава. [$1 Најавете се]",
 	"cx-tools-instructions-text1": "{{GENDER:|Стиснете на}} пасусите за да ги преведете",
 	"cx-tools-instructions-text2": "{{GENDER:|Не мора}} да ги додадете сите",
-	"cx-tools-instructions-text3": "{{GENDER:|Потрудете се}} текстот да се чита природно",
+	"cx-tools-instructions-text3": "{{GENDER:|Потрудете се}} текстот да се делува природно",
 	"cx-tools-instructions-text4": "Машинскиот превод е корисен, но потоа ќе треба да {{GENDER:|го прегледате}} и исправите текстот за да биде како што треба.",
 	"cx-tools-instructions-text5": "{{GENDER:|Објавете}} го преводот",
 	"cx-tools-instructions-text6": "Кога {{GENDER:|ќе бидете}} задоволни со исходот, стиснете на „{{int:cx-publish-button}}“.",
@@ -394,5 +394,7 @@
 	"cx-sx-published-section-confirmation-header": "Додаден нов поднаслов",
 	"cx-sx-published-section-confirmation-content": "Вашиот превод е објавен. Препорачуваме да продолжите со уредување на содржините или да додадете друг поднасов.",
 	"cx-sx-published-section-invitation-title": "Преведи друг поднаслов",
-	"cx-sx-published-section-invitation-missing-sections-info": "{{PLURAL:$2|Недостасуваа„$1“ и уште $2|0=Недостасува „$1“}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "{{PLURAL:$2|Недостасуваа„$1“ и уште $2|0=Недостасува „$1“}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Вашиот превод содржи $1 % неизменет текст",
+	"cx-sx-publisher-mt-abuse-message-body": "Машинскиот превид е само појдовна точка. Секако, можете да го објавите, но проверете дали преводот делува природно на вашиот јазик."
 }
