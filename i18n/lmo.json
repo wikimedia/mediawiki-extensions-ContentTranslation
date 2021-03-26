@@ -37,6 +37,8 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduzzion di vos]]",
 	"tag-contenttranslation-description": "El contegnud l'è stad tradot d'un altra lengua cont el drovà l'istrument de traduzzion di vos.",
 	"tag-contenttranslation-v2-description": "El contegnud l'è stad tradot in d'un'altra lengua cont el drovà la version 2 de l'istrument de traduzzion di vos.",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SezzionTraduzzion]]",
+	"tag-sectiontranslation-description": "El contegnud l'è stad voltad d'una sezzion scrivuda in d'un'altra lengua cont el drovà la fonzion de traduzzion de l'istrument de traduzzion di contegnud.",
 	"cx-source-loading": "Adree a caregà $1",
 	"cx-beta": "Traduzzion di vos",
 	"cx-beta-desc": "Un istroment de tradù a la svèlta i pagine in la toa lengua. Comenza i traduzzion de la [[Special:MyContributions|pagina di to contribuzzion]] e modifighele cont el noster editór progetad a posta per la traduzzion. Un quaivun di istrument el podariss vesser disponibil doma per di lengove specifiche.",
@@ -387,5 +389,7 @@
 	"cx-sx-published-section-confirmation-header": "Sezzion noeuva sgiontada",
 	"cx-sx-published-section-confirmation-content": "La toa traduzzion l'è stada missa foeura. Ten in cunt la possibilità de modificà anmò i contegud, o de sgiontà una sezzion noeuva.",
 	"cx-sx-published-section-invitation-title": "Traduss un'altra sezzion",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 anmò inn mancant|0=mancant}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 anmò inn mancant|0=mancant}}",
+	"cx-sx-publisher-mt-abuse-message-title": "La toa traduzzion la gh'ha denter el $ 1% de test minga modifegad",
+	"cx-sx-publisher-mt-abuse-message-body": "La traduzzion in automatich l'è domà un pont de partenza. Te podet metela foeura, ma prima sicuress che la toa traduzzion la sia legibil in manera natural in la toa lengua."
 }
