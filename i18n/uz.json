@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"6ahodir",
+			"Malikxan",
 			"Nemo bis",
 			"Sociologist",
 			"Таржимон"
@@ -49,6 +50,7 @@
 	"cx-selected-source-page-start-translation-button": "Tarjimani boshlash",
 	"cx-selected-source-page-error-page-exists": "Sahifa $2da [$1 allaqachon mavjud].",
 	"cx-publish-captcha-title": "Xavsizlik savoli",
+	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-translation-filter-published-translations": "Chop etilgan tarjimalar",
 	"cx-translation-filter-draft-translations": "Tarjima etilayatganlar",
 	"cx-create-new-translation": "Yangi tarjima yaratish",

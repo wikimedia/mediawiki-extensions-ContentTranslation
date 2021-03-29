@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Pokno Royal",
 			"Sovichet",
 			"គីមស៊្រុន"
 		]
@@ -190,5 +191,6 @@
 	"cx-tools-linter-restart-translation-cancel": "បោះបង់",
 	"cx-translator-header": "ស្ថិតិ​របស់អ្នក",
 	"cx-translator-month-stats-label": "ខែនេះ",
-	"cx-translator-total-translations-label": "សរុប"
+	"cx-translator-total-translations-label": "សរុប",
+	"cx-sx-publisher-mt-abuse-message-title": "ការបកប្រែរបស់អ្នកមានផ្ទុកអត្ថបទដែលមិនបានកែប្រែរួច $1%"
 }
