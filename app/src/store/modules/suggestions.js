@@ -1,6 +1,8 @@
 import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
 import Vue from "vue";
 import SectionSuggestionSeedCollection from "../../wiki/cx/models/sectionSuggestionSeedCollection";
+import appendixTitles from "../../utils/appendix/appendixTitles.json";
+
 const state = {
   /** @type ArticleSuggestion[] */
   pageSuggestions: [],
@@ -31,7 +33,7 @@ const state = {
    * Stores appendix section titles, grouped by language
    * @type Object - { language1: [titles1], ... }
    */
-  appendixSectionTitles: {}
+  appendixSectionTitles: appendixTitles
 };
 
 const mutations = {
@@ -142,7 +144,9 @@ const getters = {
     return sectionSuggestion.targetSections.find(title =>
       appendixTitles.includes(title)
     );
-  }
+  },
+  appendixTitlesExistForLanguage: state => language =>
+    (state.appendixSectionTitles?.[language] || []).length > 0
 };
 
 const actions = {
@@ -430,7 +434,10 @@ const actions = {
     return dispatch("fetchSectionSuggestionsBySeeds", seeds);
   },
 
-  async fetchAppendixSectionTitles({ commit }, language) {
+  async fetchAppendixSectionTitles({ getters, commit }, language) {
+    if (getters.appendixTitlesExistForLanguage(language)) {
+      return;
+    }
     const appendixTitles = await cxSuggestionsApi.fetchAppendixTargetSectionTitles(
       language
     );

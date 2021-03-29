@@ -1,8 +1,8 @@
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
 import siteMapper from "../../../utils/siteMapper";
-import appendixSectionTitlesInEnglish from "../../../utils/appendixSectionTitlesInEnglish";
-
+import { en } from "../../../utils/appendix/appendixTitles.json";
+const appendixSectionTitlesInEnglish = en;
 /**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
