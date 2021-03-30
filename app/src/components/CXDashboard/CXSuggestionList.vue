@@ -30,7 +30,7 @@
         <h5 v-i18n:cx-suggestionlist-expand-sections-title class="ma-0 pa-4" />
       </div>
       <cx-translation-suggestion
-        v-for="(suggestion, index) in sectionSuggestionsForPairSubset"
+        v-for="(suggestion, index) in currentSectionSuggestionsSlice"
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
@@ -95,7 +95,7 @@ export default {
     }),
     ...mapGetters({
       pageSuggestionsForPair: "application/getCurrentPageSuggestions",
-      sectionSuggestionForPair: "application/getCurrentSectionSuggestions",
+      sectionSuggestionsForPair: "application/getCurrentSectionSuggestions",
       publishedTranslations: "application/getCurrentPublishedTranslations"
     }),
     showRefreshButton: vm =>
@@ -144,11 +144,8 @@ export default {
       );
     },
     /** @return {SectionSuggestion[]} */
-    sectionSuggestionsForPairSubset() {
-      return this.getSectionSuggestionsPage(
-        this.currentSectionSuggestionsSliceIndex
-      );
-    },
+    currentSectionSuggestionsSlice: vm =>
+      vm.getSectionSuggestionsSlice(vm.currentSectionSuggestionsSliceIndex),
     seedArticleTitle() {
       if (
         this.currentPageSuggestionsSliceIndex <
@@ -203,17 +200,17 @@ export default {
         : this.showMoreSuggestions();
     },
     // Much like showMoreSuggestions method below, this method refreshes
-    // section suggestions page. Basically that can be split in these scenarios:
-    // 1. Section suggestion page is not full (less than 5 suggestions are displayed to the user
-    //    In this case, refreshing suggestions will add enough suggestions to fill this suggestion page
-    // 2. Section suggestion page is full. In this case another whole section suggestion page will be
+    // section suggestions slice. Basically that can be split in these scenarios:
+    // 1. Section suggestion slice is not full (less than 5 suggestions are displayed to the user
+    //    In this case, refreshing suggestions will add enough suggestions to fill this suggestion slice
+    // 2. Section suggestion slice is full. In this case another whole section suggestion slice will be
     //    fetched (5 more suggestions)
-    // 3. Section suggestion page is full and total number of suggestion pages is 4 (20 section suggestions
+    // 3. Section suggestion slice is full and total number of suggestion slices is 4 (20 section suggestions
     //    have been fetched). In this case, no new suggestions are being fetched, instead first section
-    //    suggestions page is being shown. If user keeps refreshing, suggestion page will continue to be updated
+    //    suggestions slice is being shown. If user keeps refreshing, suggestion slice will continue to be updated
     //    but no new suggestions will be fetched, only already fetched suggestions will be displayed.
     async showMoreSectionSuggestions() {
-      const currentSectionSuggestions = this.getSectionSuggestionsPage(
+      const currentSectionSuggestions = this.getSectionSuggestionsSlice(
         this.currentSectionSuggestionsSliceIndex
       );
       const isCurrentPageFull = !(
@@ -226,7 +223,7 @@ export default {
       // If next page has not been fetched yet, fetch it now
       if (
         !isCurrentPageFull ||
-        !this.getSectionSuggestionsPage(nextIndex).length
+        !this.getSectionSuggestionsSlice(nextIndex).length
       ) {
         await this.$store.dispatch(
           "suggestions/fetchNextSectionSuggestionsPage"
@@ -235,11 +232,15 @@ export default {
       isCurrentPageFull &&
         (this.currentSectionSuggestionsSliceIndex = nextIndex);
     },
-    getSectionSuggestionsPage(pageIndex) {
-      const pageStart = pageIndex * this.maxSuggestionsPerSlice;
-      return this.sectionSuggestionForPair.slice(
-        pageStart,
-        pageStart + this.maxSuggestionsPerSlice
+    /**
+     * @param {Number} sliceIndex
+     * @return {SectionSuggestion[]}
+     */
+    getSectionSuggestionsSlice(sliceIndex) {
+      const sliceStart = sliceIndex * this.maxSuggestionsPerSlice;
+      return this.sectionSuggestionsForPair.slice(
+        sliceStart,
+        sliceStart + this.maxSuggestionsPerSlice
       );
     },
     showMoreSuggestions() {
