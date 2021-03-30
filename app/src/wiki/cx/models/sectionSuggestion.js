@@ -34,6 +34,13 @@ export default class SectionSuggestion {
     this.targetSections = targetSections;
   }
 
+  /**
+   * @return {string}
+   */
+  get id() {
+    return `${this.sourceLanguage}/${this.targetLanguage}/${this.sourceTitle}`;
+  }
+
   get missingSectionsCount() {
     return Object.keys(this.missingSections).length;
   }

@@ -43,6 +43,15 @@ const mutations = {
   addSectionSuggestion(state, suggestion) {
     state.sectionSuggestions.push(suggestion);
   },
+  /**
+   * @param {Object} state
+   * @param {SectionSuggestion} suggestionToRemove
+   */
+  removeSectionSuggestion(state, suggestionToRemove) {
+    state.sectionSuggestions = state.sectionSuggestions.filter(
+      suggestion => suggestion.id !== suggestionToRemove.id
+    );
+  },
   increaseSectionSuggestionsLoadingCount(state) {
     state.sectionSuggestionsLoadingCount++;
   },
