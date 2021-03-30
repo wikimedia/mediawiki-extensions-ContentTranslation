@@ -150,7 +150,29 @@ const getters = {
       );
   },
   appendixTitlesExistForLanguage: state => language =>
-    (state.appendixSectionTitles?.[language] || []).length > 0
+    (state.appendixSectionTitles?.[language] || []).length > 0,
+  /**
+   * This getter calculates and returns the number of suggestions to fetch,
+   * with maxSuggestionsPerSlice state variable being the maximum. When
+   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
+   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
+   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
+   * @param {Object} state
+   * @param {Object} getters
+   * @return {function(sourceLanguage: string, targetLanguage: string): number}
+   */
+  getNumberOfSuggestionsToFetch: (state, getters) => (
+    sourceLanguage,
+    targetLanguage
+  ) => {
+    const existingSuggestionsForLanguagePair = getters.getSectionSuggestionsForPair(
+      sourceLanguage,
+      targetLanguage
+    );
+
+    const pageSize = state.maxSuggestionsPerSlice;
+    return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
+  }
 };
 
 const actions = {
@@ -208,18 +230,11 @@ const actions = {
         )
     );
 
-    const existingSuggestionsForLanguagePair = getters.getSectionSuggestionsForPair(
+    const numberOfSuggestionsToFetch = getters.getNumberOfSuggestionsToFetch(
       sourceLanguage,
       targetLanguage
     );
 
-    const pageSize = state.maxSuggestionsPerSlice;
-    // Calculate number of suggestions to fetch with maximum 5 suggestions. When
-    // already fetched suggestions do not produce full pages of 5
-    // (i.e. length % 5 !== 0), fetch remaining suggestions to complete the page.
-    // If suggestions page is already full, fetch 5 new.
-    const numberOfSuggestionsToFetch =
-      pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
     let fetchedSuggestionCounter = 0;
     for (const seed of seeds) {
       if (targetLanguage !== rootState.application.targetLanguage) {
