@@ -107,13 +107,10 @@ export default {
     availableSourceLanguages() {
       return this.supportedLanguageCodes
         .filter(languageCode => languageCode !== this.selectedTargetLanguage)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            { name: this.getAutonym(languageCode), code: languageCode }
-          ],
-          []
-        );
+        .map(languageCode => ({
+          name: this.getAutonym(languageCode),
+          code: languageCode
+        }));
     },
     availableTargetLanguages() {
       // If SectionTranslationTargetLanguage configuration parameter is set,
@@ -127,20 +124,17 @@ export default {
         : this.supportedLanguageCodes;
       return supportedCodes
         .filter(languageCode => languageCode !== this.selectedSourceLanguage)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            { name: this.getAutonym(languageCode), code: languageCode }
-          ],
-          []
-        );
+        .map(languageCode => ({
+          name: this.getAutonym(languageCode),
+          code: languageCode
+        }));
     },
     /** @return {ArticleSuggestion[]} */
     pageSuggestionsForPairSubset() {
       return this.pageSuggestionsForPair.slice(
         this.currentPageSuggestionsSliceIndex * this.maxSuggestionsPerSlice,
-        this.currentPageSuggestionsSliceIndex * this.maxSuggestionsPerSlice +
-          this.maxSuggestionsPerSlice
+        this.currentPageSuggestionsSliceIndex *
+          (this.maxSuggestionsPerSlice + 1)
       );
     },
     /** @return {SectionSuggestion[]} */
