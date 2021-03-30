@@ -420,7 +420,7 @@ const actions = {
       return;
     }
 
-    dispatch("fetchNextSectionSuggestionsPage", {
+    dispatch("fetchNextSectionSuggestionsSlice", {
       targetLanguage,
       sourceLanguage
     });

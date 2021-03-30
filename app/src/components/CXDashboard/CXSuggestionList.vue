@@ -58,7 +58,7 @@
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
-import { mapState, mapActions, mapGetters } from "vuex";
+import { mapState, mapActions, mapGetters, mapMutations } from "vuex";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import autonymMixin from "@/mixins/autonym";
 
@@ -186,7 +186,9 @@ export default {
   methods: {
     ...mapActions({
       fetchPageSuggestions: "suggestions/fetchPageSuggestions",
-      startSectionTranslation: "application/startSectionTranslation"
+      startSectionTranslation: "application/startSectionTranslation",
+      fetchNextSectionSuggestionsSlice:
+        "suggestions/fetchNextSectionSuggestionsSlice"
     }),
     onSuggestionRefresh() {
       this.$incompleteVersion
@@ -219,9 +221,7 @@ export default {
         !isCurrentPageFull ||
         !this.getSectionSuggestionsSlice(nextIndex).length
       ) {
-        await this.$store.dispatch(
-          "suggestions/fetchNextSectionSuggestionsPage"
-        );
+        await this.fetchNextSectionSuggestionsSlice({});
       }
       isCurrentPageFull &&
         (this.currentSectionSuggestionsSliceIndex = nextIndex);
