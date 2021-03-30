@@ -152,7 +152,18 @@ export default {
           .sourceTitle;
       }
       return null;
-    }
+    },
+    /** @return {boolean} */
+    isCurrentSectionSuggestionsSliceFull: vm =>
+      vm.currentSectionSuggestionsSlice.length === vm.maxSuggestionsPerSlice,
+    /** @return {Number} */
+    nextSectionSuggestionsSliceIndex: vm =>
+      (vm.currentSectionSuggestionsSliceIndex + 1) % vm.maxSlices,
+    /** @return {boolean} */
+    nextSectionSuggestionSliceFetched: vm =>
+      vm.isCurrentSectionSuggestionsSliceFull &&
+      vm.getSectionSuggestionsSlice(vm.nextSectionSuggestionsSliceIndex)
+        .length > 0
   },
   watch: {
     pageSuggestionsForPair: function() {
@@ -205,26 +216,16 @@ export default {
     //    have been fetched). In this case, no new suggestions are being fetched, instead first section
     //    suggestions slice is being shown. If user keeps refreshing, suggestion slice will continue to be updated
     //    but no new suggestions will be fetched, only already fetched suggestions will be displayed.
-    async showMoreSectionSuggestions() {
-      const currentSectionSuggestions = this.getSectionSuggestionsSlice(
-        this.currentSectionSuggestionsSliceIndex
-      );
-      const isCurrentPageFull = !(
-        currentSectionSuggestions.length % this.maxSuggestionsPerSlice
-      );
-
-      const nextIndex =
-        (this.currentSectionSuggestionsSliceIndex + 1) % this.maxSlices;
-
-      // If next page has not been fetched yet, fetch it now
-      if (
-        !isCurrentPageFull ||
-        !this.getSectionSuggestionsSlice(nextIndex).length
-      ) {
-        await this.fetchNextSectionSuggestionsSlice({});
+    showMoreSectionSuggestions() {
+      // If next slice has not been fetched yet, and max slices not reached, fetch it now
+      const wasSliceFull = this.isCurrentSectionSuggestionsSliceFull;
+      if (!this.nextSectionSuggestionSliceFetched) {
+        this.fetchNextSectionSuggestionsSlice({});
       }
-      isCurrentPageFull &&
-        (this.currentSectionSuggestionsSliceIndex = nextIndex);
+
+      if (wasSliceFull) {
+        this.currentSectionSuggestionsSliceIndex = this.nextSectionSuggestionsSliceIndex;
+      }
     },
     /**
      * @param {Number} sliceIndex
