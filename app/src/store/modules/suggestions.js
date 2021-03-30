@@ -397,17 +397,11 @@ const actions = {
     ) {
       return;
     }
-    // Start showing loading indicator
-    commit("increaseSectionSuggestionsLoadingCount");
 
-    // Get seeds by the next available seed provider
-    const seeds = await dispatch("getSectionSuggestionSeeds", {
-      sourceLanguage,
-      targetLanguage
+    dispatch("fetchNextSectionSuggestionsPage", {
+      targetLanguage,
+      sourceLanguage
     });
-    dispatch("fetchSectionSuggestionsBySeeds", seeds);
-    commit("decreaseSectionSuggestionsLoadingCount");
-
     // Disable fetch page suggestions action until we properly support
     // it in the Dashboard
     if (!new Vue().$incompleteVersion) {
@@ -421,10 +415,30 @@ const actions = {
     }
   },
 
-  async fetchNextSectionSuggestionsPage({ dispatch, rootState, commit }) {
-    const targetLanguage = rootState.application.targetLanguage;
-    const sourceLanguage = rootState.application.sourceLanguage;
+  /**
+   * Given a source/target language pair, this action
+   * fetches next section suggestions slice from suggestions api
+   * and save it to the store. If no languages are provided,
+   * application state source/target languages will be used.
+   *
+   * @param {Object} context
+   * @param {Function} context.dispatch
+   * @param {Object} context.rootState
+   * @param {Function} context.commit
+   * @param {Object} payload
+   * @param {string} [payload.targetLanguage=rootState.application.targetLanguage]
+   * @param {string} [payload.sourceLanguage=rootState.application.sourceLanguage]
+   * @return {Promise<void>}
+   */
+  async fetchNextSectionSuggestionsPage(
+    { dispatch, rootState, commit },
+    { targetLanguage, sourceLanguage }
+  ) {
+    targetLanguage = targetLanguage || rootState.application.targetLanguage;
+    sourceLanguage = sourceLanguage || rootState.application.sourceLanguage;
+    // Start showing loading indicator
     commit("increaseSectionSuggestionsLoadingCount");
+    // Get seeds by the next available seed provider
     const seeds = await dispatch("getSectionSuggestionSeeds", {
       sourceLanguage,
       targetLanguage
