@@ -34,6 +34,7 @@
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
+        @close="discardSuggestion(suggestion)"
         @click.native="startSectionTranslation(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
@@ -201,6 +202,15 @@ export default {
       fetchNextSectionSuggestionsSlice:
         "suggestions/fetchNextSectionSuggestionsSlice"
     }),
+    ...mapMutations({
+      removeSectionSuggestion: "suggestions/removeSectionSuggestion"
+    }),
+    async discardSuggestion(suggestionToDiscard) {
+      this.removeSectionSuggestion(suggestionToDiscard);
+      if (!this.nextSectionSuggestionSliceFetched) {
+        await this.fetchNextSectionSuggestionsSlice({});
+      }
+    },
     onSuggestionRefresh() {
       this.$incompleteVersion
         ? this.showMoreSectionSuggestions()
