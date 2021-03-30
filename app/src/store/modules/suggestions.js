@@ -367,6 +367,8 @@ const actions = {
 
     // if current seed collection is empty
     if (!currentSeedCollection.seeds.length) {
+      commit("increaseSectionSuggestionsLoadingCount");
+
       // Repeat until some seeds are fetched or all seed providers has been consumed
       do {
         // Get next seed provider that has not already been consumed
@@ -393,6 +395,7 @@ const actions = {
         currentSeedCollection.seeds.length === 0 &&
         !currentSeedCollection.allProvidersExhausted
       );
+      commit("decreaseSectionSuggestionsLoadingCount");
     }
     return currentSeedCollection.seeds;
   },
@@ -451,18 +454,16 @@ const actions = {
    */
   async fetchNextSectionSuggestionsPage(
     { dispatch, rootState, commit },
-    { targetLanguage, sourceLanguage }
+    { targetLanguage, sourceLanguage } = {}
   ) {
     targetLanguage = targetLanguage || rootState.application.targetLanguage;
     sourceLanguage = sourceLanguage || rootState.application.sourceLanguage;
     // Start showing loading indicator
-    commit("increaseSectionSuggestionsLoadingCount");
     // Get seeds by the next available seed provider
     const seeds = await dispatch("getSectionSuggestionSeeds", {
       sourceLanguage,
       targetLanguage
     });
-    commit("decreaseSectionSuggestionsLoadingCount");
 
     return dispatch("fetchSectionSuggestionsBySeeds", seeds);
   },
