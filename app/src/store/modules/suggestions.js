@@ -248,7 +248,7 @@ const actions = {
       );
       commit("removeSectionSuggestionSeed", seed);
 
-      if (suggestion) {
+      if (suggestion?.missingSectionsCount) {
         fetchedSuggestionCounter++;
         commit("addSectionSuggestion", suggestion);
       }
