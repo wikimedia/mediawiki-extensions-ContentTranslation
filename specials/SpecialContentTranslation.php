@@ -165,9 +165,14 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	protected function canUserProceed() {
+		$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
+
+		if ( $this->isVueDashboard() && $allowAnonSX ) {
+			return true;
+		}
 
 		// Direct access, isListed only affects Special:SpecialPages
 		if ( !PreferenceHelper::isEnabledForUser( $this->getUser() ) ) {

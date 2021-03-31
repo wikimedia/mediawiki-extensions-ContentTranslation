@@ -40,6 +40,7 @@
             class="pa-0 my-1"
             :label="option.label"
             :input-value="option.value"
+            :disabled="option.disabled"
           />
           <p
             :key="`${option.label}-details`"
@@ -84,18 +85,21 @@ export default {
   }),
   computed: {
     ...mapState({
-      selectedOption: state => state.application.publishTarget
+      selectedOption: state => state.application.publishTarget,
+      isAnon: state => state.translator.isAnon
     }),
     publishOptions: vm => [
       {
         label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
         details: vm.$i18n("cx-sx-publisher-new-section-option-details"),
-        value: "NEW_SECTION"
+        value: "NEW_SECTION",
+        disabled: false
       },
       {
         label: vm.$i18n("cx-sx-publisher-sandbox-option-label"),
         details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
-        value: "SANDBOX_SECTION"
+        value: "SANDBOX_SECTION",
+        disabled: vm.isAnon
       }
     ],
     overlayColor: vm => vm.$mwui.colors.base10
