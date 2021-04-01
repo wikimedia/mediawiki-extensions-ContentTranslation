@@ -12,31 +12,37 @@
       />
     </div>
     <div class="col pe-2">
-      <h5
-        class="mt-0 mb-2 cx-suggestion__source-title"
-        :lang="suggestion.sourceLanguage"
-      >
-        {{ suggestion.sourceTitle }}
-      </h5>
-      <p
-        class="cx-suggestion__source-description complementary"
-        :lang="suggestion.sourceLanguage"
-      >
-        {{ page && page.description }}
-      </p>
-      <div class="mt-2 cx-suggestion__languages text-small">
-        <span
-          class="mw-ui-autonym"
-          :dir="getDirection(suggestion.sourceLanguage)"
-          v-text="getAutonym(suggestion.sourceLanguage)"
-        ></span>
-        <mw-icon :icon="mwIconArrowForward" />
-        <span
-          class="mw-ui-autonym"
-          :dir="getDirection(suggestion.targetLanguage)"
-          v-text="getAutonym(suggestion.targetLanguage)"
-        ></span>
-      </div>
+      <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
+        <mw-col shrink class="mb-2">
+          <h5
+            class="my-0 cx-suggestion__source-title"
+            :lang="suggestion.sourceLanguage"
+          >
+            {{ suggestion.sourceTitle }}
+          </h5>
+        </mw-col>
+        <mw-col shrink>
+          <p
+            class="ma-0 cx-suggestion__source-description complementary"
+            :lang="suggestion.sourceLanguage"
+          >
+            {{ page && page.description }}
+          </p>
+        </mw-col>
+        <mw-col class="cx-suggestion__languages" shrink>
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(suggestion.sourceLanguage)"
+            v-text="getAutonym(suggestion.sourceLanguage)"
+          ></span>
+          <mw-icon :icon="mwIconArrowForward" />
+          <span
+            class="mw-ui-autonym"
+            :dir="getDirection(suggestion.targetLanguage)"
+            v-text="getAutonym(suggestion.targetLanguage)"
+          ></span>
+        </mw-col>
+      </mw-row>
     </div>
     <div class="col-1">
       <mw-icon :icon="mwIconStar" :size="24" />
@@ -45,7 +51,7 @@
 </template>
 
 <script>
-import { MwIcon, MwThumbnail } from "@/lib/mediawiki.ui";
+import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import autonym from "@/mixins/autonym";
 import {
   mwIconStar,
@@ -56,7 +62,7 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
 export default {
   name: "CxTranslationSuggestion",
-  components: { MwThumbnail, MwIcon },
+  components: { MwThumbnail, MwIcon, MwRow, MwCol },
   mixins: [autonym],
   props: {
     suggestion: {
@@ -90,14 +96,22 @@ export default {
     @background-color-notice--framed;
   cursor: pointer;
   min-height: 100px;
+  line-height: normal;
   transition: background-color 100ms, border-color 100ms, transform 1s,
     opacity 1s;
   &:hover {
     background-color: @background-color-primary;
   }
-  .cx-suggestion__thumbnail {
+  &__thumbnail {
     height: 84px;
     width: 84px;
+  }
+  &__source-description {
+    color: @wmui-color-base20;
+  }
+  &__languages {
+    margin-top: auto;
+    color: @color-base--subtle;
   }
 }
 </style>
