@@ -34,7 +34,7 @@
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
-        @click="startSectionTranslation(suggestion)"
+        @click.native="startSectionTranslation(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
     </mw-card>

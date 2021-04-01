@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="suggestion"
-    class="row cx-suggestion pa-4 ma-0"
-    @click="handleClick"
-  >
+  <div v-if="suggestion" class="row cx-suggestion pa-4 ma-0">
     <div class="col shrink pe-4">
       <mw-thumbnail
         class="cx-suggestion__thumbnail"
@@ -45,7 +41,19 @@
       </mw-row>
     </div>
     <div class="col-1">
-      <mw-icon :icon="mwIconStar" :size="24" />
+      <mw-icon
+        v-if="!$incompleteVersion"
+        :icon="mwIconClose"
+        size="24"
+        class="mb-4"
+        @click.stop="$emit('close')"
+      />
+      <mw-icon
+        v-if="!$incompleteVersion"
+        :icon="mwIconBookmarkOutline"
+        size="24"
+        @click.stop="$emit('bookmark')"
+      />
     </div>
   </div>
 </template>
@@ -54,7 +62,8 @@
 import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import autonym from "@/mixins/autonym";
 import {
-  mwIconStar,
+  mwIconClose,
+  mwIconBookmarkOutline,
   mwIconArrowForward
 } from "@/lib/mediawiki.ui/components/icons";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
@@ -70,18 +79,13 @@ export default {
       required: true
     }
   },
-  data: () => ({ mwIconStar, mwIconArrowForward }),
+  data: () => ({ mwIconClose, mwIconBookmarkOutline, mwIconArrowForward }),
   computed: {
     page: function() {
       return this.$store.getters["mediawiki/getPage"](
         this.suggestion.sourceLanguage,
         this.suggestion.sourceTitle
       );
-    }
-  },
-  methods: {
-    handleClick(e) {
-      this.$emit("click", e);
     }
   }
 };
