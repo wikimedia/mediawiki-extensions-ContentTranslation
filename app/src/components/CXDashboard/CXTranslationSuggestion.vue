@@ -25,18 +25,10 @@
             {{ page && page.description }}
           </p>
         </mw-col>
-        <mw-col class="cx-suggestion__languages" shrink>
-          <span
-            class="mw-ui-autonym"
-            :dir="getDirection(suggestion.sourceLanguage)"
-            v-text="getAutonym(suggestion.sourceLanguage)"
-          ></span>
-          <mw-icon :icon="mwIconArrowForward" />
-          <span
-            class="mw-ui-autonym"
-            :dir="getDirection(suggestion.targetLanguage)"
-            v-text="getAutonym(suggestion.targetLanguage)"
-          ></span>
+        <mw-col class="cx-suggestion__missing-sections" shrink>
+          <small
+            v-i18n:cx-sx-translation-suggestion-info="[missingSectionsCount]"
+          />
         </mw-col>
       </mw-row>
     </div>
@@ -60,7 +52,6 @@
 
 <script>
 import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import autonym from "@/mixins/autonym";
 import {
   mwIconClose,
   mwIconBookmarkOutline,
@@ -72,7 +63,6 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 export default {
   name: "CxTranslationSuggestion",
   components: { MwThumbnail, MwIcon, MwRow, MwCol },
-  mixins: [autonym],
   props: {
     suggestion: {
       type: [ArticleSuggestion, SectionSuggestion],
@@ -86,7 +76,8 @@ export default {
         this.suggestion.sourceLanguage,
         this.suggestion.sourceTitle
       );
-    }
+    },
+    missingSectionsCount: vm => vm.suggestion?.missingSectionsCount
   }
 };
 </script>
@@ -113,7 +104,7 @@ export default {
   &__source-description {
     color: @wmui-color-base20;
   }
-  &__languages {
+  &__missing-sections {
     margin-top: auto;
     color: @color-base--subtle;
   }

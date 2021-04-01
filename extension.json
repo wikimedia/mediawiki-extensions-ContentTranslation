@@ -502,7 +502,8 @@
 				"cx-sx-sentence-selector-translated-segment-sentence-option",
 				"cx-sx-sentence-selector-translated-segment-paragraph-option",
 				"cx-sx-publisher-mt-abuse-message-title",
-				"cx-sx-publisher-mt-abuse-message-body"
+				"cx-sx-publisher-mt-abuse-message-body",
+				"cx-sx-translation-suggestion-info"
 			],
 			"noflip": true
 		},
