@@ -4,7 +4,8 @@
 			"Dulal Kisku",
 			"Durga Soren",
 			"Fagunkoyel Hansdah",
-			"Ramjit Tudu"
+			"Ramjit Tudu",
+			"ᱥᱟᱹᱜᱩᱱ ᱗"
 		]
 	},
 	"cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱥᱟᱦᱴᱟ",
@@ -91,5 +92,11 @@
 	"cx-tools-template-title": "ᱪᱷᱟᱸᱪ",
 	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
 	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ",
+	"cx-sx-start-translation-button-label": "ᱛᱚᱨᱡᱚᱢᱟ ᱮᱦᱚᱵ",
+	"cx-sx-view-translation-anchor": "ᱧᱮᱞ ᱢᱮ",
+	"cx-translation-list-all-languages-option-label": "ᱥᱟᱱᱟᱢ",
+	"cx-sx-publisher-animation-publishing-indicator-title": "ᱛᱚᱨᱡᱚᱢᱟ ᱯᱟᱨᱥᱟᱞ…",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ᱟᱢᱟᱜ ᱛᱚᱨᱡᱚᱢᱟ",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "ᱟᱹᱭᱟᱹᱛ",
 	"cx-sx-followup-feedback-new-indicator": "ᱱᱟᱸᱣᱟ"
 }
