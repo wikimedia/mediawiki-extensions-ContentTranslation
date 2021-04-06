@@ -379,5 +379,6 @@
 	"cx-sx-publisher-mt-abuse-message-title": "Your translation contains $1% unmodified text",
 	"cx-sx-publisher-mt-abuse-message-body": "Machine translation is only a starting point. You can still publish, but make sure your translation reads naturally in your language.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 section|$1 sections|0=No sections}}",
-	"cx-sx-article-search-input-placeholder": "Search for a page to translate"
+	"cx-sx-article-search-input-placeholder": "Search for a page to translate",
+	"cx-sx-article-search-recently-edited-title": "Recently edited by you"
 }

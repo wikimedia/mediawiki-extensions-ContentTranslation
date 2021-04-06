@@ -393,5 +393,6 @@
 	"cx-sx-publisher-mt-abuse-message-title": "Title for message about machine translation abuse after failed publishing, inside review info panel on the screen where user can publish their section translation.\n\nParameters:\n* $1 - percentage of unmodified machine translation",
 	"cx-sx-publisher-mt-abuse-message-body": "Body of message about machine translation abuse after failed publishing, inside review info panel on the screen where user can publish their section translation.",
 	"cx-sx-translation-suggestion-info": "Content of information displayed at the bottom of page/section suggestion card inside Dashboard screen",
-	"cx-sx-article-search-input-placeholder": "Placeholder for the search article input field. Used inside \"Search for an article to translation\" screen, where user can search for an article by title"
+	"cx-sx-article-search-input-placeholder": "Placeholder for the search article input field. Used inside \"Search for an article to translation\" screen, where user can search for an article by title",
+	"cx-sx-article-search-recently-edited-title": "Title for the section where translation suggestions based on previous user edits, are displayed. Used inside \"Search for article to translate\" screen."
 }

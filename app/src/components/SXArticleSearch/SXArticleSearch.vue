@@ -17,12 +17,32 @@
       :active="sourceLanguage"
       @select="updateSelection"
     />
+    <!--    Nearby search suggestions will also be added inside this template-->
+    <template v-if="!searchInput">
+      <mw-card
+        v-if="recentEditedPages.length"
+        class="sx-article-search__recently-edited pa-0 mb-0 pa-4"
+      >
+        <template #header>
+          <h5
+            v-i18n:cx-sx-article-search-recently-edited-title
+            class="ma-0 pb-1 sx-article-search__recently-edited-header"
+          />
+        </template>
+        <sx-search-article-suggestion
+          v-for="suggestion in recentEditedPages"
+          :key="suggestion.pageid"
+          :suggestion="suggestion"
+          @click.native="startSectionTranslation(suggestion)"
+        />
+      </mw-card>
+    </template>
   </section>
 </template>
 
 <script>
-import { MwInput, MwButtonGroup } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
+import { MwInput, MwButtonGroup, MwCard } from "@/lib/mediawiki.ui";
+import { mapGetters, mapState } from "vuex";
 import {
   mwIconSearch,
   mwIconClose,
@@ -30,10 +50,12 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import mwConfig from "@/utils/mwConfig";
 import autonymMixin from "@/mixins/autonym";
+import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
+import Page from "@/wiki/mw/models/page";
 
 export default {
   name: "SxArticleSearch",
-  components: { MwInput, MwButtonGroup },
+  components: { SxSearchArticleSuggestion, MwInput, MwButtonGroup, MwCard },
   mixins: [autonymMixin],
   data: () => ({
     mwIconSearch,
@@ -46,6 +68,9 @@ export default {
     ...mapState({
       sourceLanguage: state => state.application.sourceLanguage,
       targetLanguage: state => state.application.targetLanguage
+    }),
+    ...mapGetters({
+      recentEditedPages: "mediawiki/getRecentlyEditedPages"
     }),
 
     /**
@@ -158,6 +183,17 @@ export default {
         return;
       }
       this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
+    },
+    /**
+     * @param {Page} searchSuggestion
+     * @return {Promise<void>}
+     */
+    async startSectionTranslation(searchSuggestion) {
+      const suggestion = await this.$store.dispatch(
+        "application/createNewSectionSuggestion",
+        searchSuggestion.title
+      );
+      this.$store.dispatch("application/startSectionTranslation", suggestion);
     }
   }
 };
@@ -173,6 +209,14 @@ export default {
     }
     border-top: @border-style-base @border-width-base @wmui-color-base80;
     border-bottom: @border-style-base @border-width-base @wmui-color-base80;
+  }
+  &__recently-edited {
+    &.mw-ui-card {
+      box-shadow: none;
+    }
+    &-header {
+      color: @wmui-color-base30;
+    }
   }
 }
 </style>
