@@ -19,8 +19,7 @@
         :placeholder="placeholder"
         v-bind="$attrs"
         :type="type"
-        v-on="$listeners"
-        @input="$emit('update', $event.target.value)"
+        v-on="inputListeners"
         @focus="onFocus"
         @blur="onBlur"
         @click="onClick"
@@ -32,6 +31,7 @@
           :icon="indicator"
           :size="large ? 28 : indicatorSize || iconSize"
           class="mw-ui-input__indicator"
+          @click.stop="$emit('indicator-clicked')"
         ></mw-icon>
       </slot>
     </div>
@@ -90,7 +90,11 @@ export default {
         "mw-ui-input--large": this.large,
         "mw-ui-input--focused": this.focused
       };
-    }
+    },
+    inputListeners: vm => ({
+      ...vm.$listeners,
+      input: event => vm.$emit("input", event.target.value)
+    })
   },
   methods: {
     onClick(e) {

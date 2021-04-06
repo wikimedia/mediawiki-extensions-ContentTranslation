@@ -12,7 +12,8 @@ export default {
 export const InputAndTextArea = () => ({
   components: { MwInput },
   data: () => ({
-    icons
+    icons,
+    value: null
   }),
   props: {
     large: {
@@ -37,6 +38,11 @@ export const InputAndTextArea = () => ({
       default: text("Value", "")
     }
   },
+  watch: {
+    value() {
+      action("input-update")(`Value update: ${this.value}`);
+    }
+  },
   methods: {
     click() {
       action("input-click")(`Clicked`);
@@ -46,9 +52,6 @@ export const InputAndTextArea = () => ({
     },
     blur() {
       action("input-blur")(`Blured`);
-    },
-    update(value) {
-      action("input-update")(`Value update: ${value}`);
     }
   },
   template: `<mw-input
@@ -61,6 +64,33 @@ export const InputAndTextArea = () => ({
      @click="click"
      @focus="focus"
      @blur="blur"
-     @update="update"
     ></mw-input>`
+});
+
+export const SearchInputWithIcons = () => ({
+  components: { MwInput },
+  data: () => ({
+    icons,
+    search: null
+  }),
+  methods: {
+    onIndicatorClick() {
+      action("indicator-clicked")(`Clicked`);
+    }
+  },
+  template: `
+    <section>
+      <mw-input
+        v-model="search"
+        :icon-size="20"
+        :outlined="false"
+        :icon="icons.mwIconSearch"
+        placeholder="Search for an article"
+        type="search"
+        :indicator="icons.mwIconClose"
+        :indicator-size="20"
+        @indicator-clicked="onIndicatorClick"
+      ></mw-input>
+    </section>
+  `
 });
