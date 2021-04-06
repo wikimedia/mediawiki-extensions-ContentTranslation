@@ -486,7 +486,8 @@
 				"cx-sx-sentence-selector-translated-segment-paragraph-option",
 				"cx-sx-publisher-mt-abuse-message-title",
 				"cx-sx-publisher-mt-abuse-message-body",
-				"cx-sx-translation-suggestion-info"
+				"cx-sx-translation-suggestion-info",
+				"cx-sx-article-search-input-placeholder"
 			],
 			"noflip": true
 		},
