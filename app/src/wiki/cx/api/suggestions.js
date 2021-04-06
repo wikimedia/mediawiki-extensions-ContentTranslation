@@ -3,6 +3,7 @@ import SectionSuggestion from "../models/sectionSuggestion";
 import siteMapper from "../../../utils/siteMapper";
 import { en } from "../../../utils/appendix/appendixTitles.json";
 const appendixSectionTitlesInEnglish = en;
+
 /**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage

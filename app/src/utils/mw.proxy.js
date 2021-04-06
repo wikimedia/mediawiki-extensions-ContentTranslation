@@ -36,7 +36,13 @@ const mw = {
     params: param => ({ parse: () => message }),
     parse: () => message
   }),
-  Message: class {}
+  Message: class {},
+  cookie: {
+    get: key =>
+      [{ key: "GeoIP", value: "FI:Helsinki:60.1756:24.9342:v4" }].find(
+        cookie => cookie.key === key
+      ).value
+  }
 };
 
 global.mw = mw;

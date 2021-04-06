@@ -2,6 +2,7 @@ import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
 import siteMapper from "../../../utils/siteMapper";
+import { getUserCoordinates } from "../../../utils/userCoordinatesGetter";
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
@@ -150,9 +151,45 @@ const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
     .then(response => response.segmentedContent);
 };
 
+/**
+ * Fetches nearby articles in given language, based on user location as stored
+ * inside GeoIP cookie and returns an array of Page models
+ * If error during request, an empty array is returned
+ * @param language
+ * @return {Promise<Page[]>}
+ */
+const fetchNearbyPages = async language => {
+  const coords = getUserCoordinates();
+  if (!coords) {
+    return Promise.resolve([]);
+  }
+  const params = {
+    action: "query",
+    prop: ["pageimages", "description", "langlinks", "langlinkscount"],
+    generator: "geosearch",
+    piprop: "thumbnail",
+    pithumbsize: 80,
+    lllang: language,
+    ggscoord: coords,
+    ggsradius: 1000, // Search radius in meters
+    ggslimit: 3,
+    ggsnamespace: mw.config.get("wgNamespaceIds")[""], // Main namespace
+    format: "json",
+    formatversion: 2,
+    origin: "*"
+  };
+  return await siteMapper
+    .getApi(language)
+    .get(params)
+    .then(response => response.query.pages)
+    .then(pages => pages.map(page => new Page(page)))
+    .catch(error => []);
+};
+
 export default {
   fetchPages,
   fetchLanguageTitles,
   fetchPageContent,
-  fetchPageSections
+  fetchPageSections,
+  fetchNearbyPages
 };
