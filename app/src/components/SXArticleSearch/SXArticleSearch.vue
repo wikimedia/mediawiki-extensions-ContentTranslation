@@ -38,6 +38,11 @@
       </mw-card>
       <nearby-suggestions-card @suggestion-clicked="startSectionTranslation" />
     </template>
+    <search-results-card
+      v-else
+      :search-input="searchInput"
+      @suggestion-clicked="startSectionTranslation"
+    />
   </section>
 </template>
 
@@ -52,10 +57,12 @@ import {
 import autonymMixin from "@/mixins/autonym";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
 import NearbySuggestionsCard from "./NearbySuggestionsCard";
+import SearchResultsCard from "./SearchResultsCard";
 
 export default {
   name: "SxArticleSearch",
   components: {
+    SearchResultsCard,
     NearbySuggestionsCard,
     SxSearchArticleSuggestion,
     MwInput,
