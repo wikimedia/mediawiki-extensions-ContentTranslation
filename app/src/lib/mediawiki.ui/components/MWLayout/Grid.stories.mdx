@@ -389,6 +389,35 @@ You can add padding and margin to your components without writing custom styles.
 
 Padding helper classes has the format of `p{direction}-{unit}`. Similarly, margin helper classes has the format of `m{direction}-{unit}`.
 
+### Margin auto
+
+Helper classes for margin "auto" are supported too, for all referred directions and breakpoints, in the following format: `.m{direction}-{breakpoint}-auto`.
+
+Examples: `ms-md-auto`, `me-auto`, `my-xl-auto`.
+
+<Canvas>
+  <Story name="Margin auto">
+    {{
+      components: { MwRow, MwCol },
+      template: `
+        <main class="container storybook-grid">
+          <mw-row>
+            <mw-col shrink class="pa-4" style="background-color: #b0d9ee; min-width: fit-content;">Column shrink 1</mw-col>
+            <mw-col shrink class="pa-4" style="background-color: #b0d9ce; min-width: fit-content;">Column shrink 2</mw-col>
+            <mw-col shrink class="ms-auto pa-4" style="background-color: #13d2ee; min-width: fit-content;">
+                Column 3 - .ms-auto
+            </mw-col>
+          </mw-row>
+          <hr>
+          <mw-row style="min-height: 150px" direction="column">
+            <div class="px-4" style="background-color: #b0d9ee; height: 25px;">Flex column item</div>
+            <div class="px-4 mt-auto" style="background-color: #13d2ee; height: 25px;">Flex column item - .mt-auto</div>
+          </mw-row>
+        </main>`
+      }}
+  </Story>
+</Canvas>
+
 ### Spacing Directions
 
 * s - Start
@@ -409,7 +438,7 @@ Spacing units are multiples of 4 units. So `pa-2` means `padding: 8px`. The valu
 
 ### Breakpoints
 
-Spacing units can be set specifically for each breakpoints. Please see the responsiveness section to learn about breakpoints. To use breakpoints in spacing helper classes, use the format `p{direction}{breakpoint}-{unit}`
+Spacing units can be set specifically for each breakpoints. Please see the responsiveness section to learn about breakpoints. To use breakpoints in spacing helper classes, use the format `p{direction}-{breakpoint}-{unit}`
 
 For example `pa-xs-4` sets `padding: 16px` in xs(mobile) viewports and has no effect on other viewports. And `ma-lg-2` sets `8px` margin on lg(large) viewports.
 

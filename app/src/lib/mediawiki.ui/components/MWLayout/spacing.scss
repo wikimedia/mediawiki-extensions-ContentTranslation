@@ -15,8 +15,14 @@
     .ms-#{$mediaKey}#{$counter} {
       @include bidi("margin-left", #{$width}px);
     }
+    .ms-#{$mediaKey}auto {
+      @include bidi("margin-left", 'auto');
+    }
     .pe-#{$mediaKey}#{$counter} {
       @include bidi("padding-right", #{$width}px);
+    }
+    .me-#{$mediaKey}auto {
+      @include bidi("margin-right", 'auto');
     }
     .me-#{$mediaKey}#{$counter} {
       @include bidi("margin-right", #{$width}px);
@@ -30,9 +36,17 @@
       padding-top: #{$width}px;
       padding-bottom: #{$width}px;
     }
+    .mx-#{$mediaKey}auto {
+      margin-right: auto;
+      margin-left: auto;
+    }
     .mx-#{$mediaKey}#{$counter} {
       margin-right: #{$width}px;
       margin-left: #{$width}px;
+    }
+    .my-#{$mediaKey}auto {
+      margin-top: auto;
+      margin-bottom: auto;
     }
     .my-#{$mediaKey}#{$counter} {
       margin-top: #{$width}px;
@@ -42,11 +56,17 @@
     .pt-#{$mediaKey}#{$counter} {
       padding-top: #{$width}px;
     }
+    .mt-#{$mediaKey}auto {
+      margin-top: auto;
+    }
     .mt-#{$mediaKey}#{$counter} {
       margin-top: #{$width}px;
     }
     .pb-#{$mediaKey}#{$counter} {
       padding-bottom: #{$width}px;
+    }
+    .mb-#{$mediaKey}auto {
+      margin-bottom: auto;
     }
     .mb-#{$mediaKey}#{$counter} {
       margin-bottom: #{$width}px;
