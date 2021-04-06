@@ -488,7 +488,8 @@
 				"cx-sx-publisher-mt-abuse-message-body",
 				"cx-sx-translation-suggestion-info",
 				"cx-sx-article-search-input-placeholder",
-				"cx-sx-article-search-recently-edited-title"
+				"cx-sx-article-search-recently-edited-title",
+				"cx-sx-article-search-nearby-title"
 			],
 			"noflip": true
 		},

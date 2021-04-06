@@ -20,7 +20,7 @@
     <!--    Nearby search suggestions will also be added inside this template-->
     <template v-if="!searchInput">
       <mw-card
-        v-if="recentEditedPages.length"
+        v-if="recentlyEditedPages.length"
         class="sx-article-search__recently-edited pa-0 mb-0 pa-4"
       >
         <template #header>
@@ -30,12 +30,13 @@
           />
         </template>
         <sx-search-article-suggestion
-          v-for="suggestion in recentEditedPages"
+          v-for="suggestion in recentlyEditedPages"
           :key="suggestion.pageid"
           :suggestion="suggestion"
           @click.native="startSectionTranslation(suggestion)"
         />
       </mw-card>
+      <nearby-suggestions-card @suggestion-clicked="startSectionTranslation" />
     </template>
   </section>
 </template>
@@ -50,10 +51,17 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import autonymMixin from "@/mixins/autonym";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
+import NearbySuggestionsCard from "./NearbySuggestionsCard";
 
 export default {
   name: "SxArticleSearch",
-  components: { SxSearchArticleSuggestion, MwInput, MwButtonGroup, MwCard },
+  components: {
+    NearbySuggestionsCard,
+    SxSearchArticleSuggestion,
+    MwInput,
+    MwButtonGroup,
+    MwCard
+  },
   mixins: [autonymMixin],
   data: () => ({
     mwIconSearch,
@@ -68,7 +76,7 @@ export default {
       targetLanguage: state => state.application.targetLanguage
     }),
     ...mapGetters({
-      recentEditedPages: "mediawiki/getRecentlyEditedPages"
+      recentlyEditedPages: "mediawiki/getRecentlyEditedPages"
     }),
 
     /**
@@ -208,7 +216,8 @@ export default {
     border-top: @border-style-base @border-width-base @wmui-color-base80;
     border-bottom: @border-style-base @border-width-base @wmui-color-base80;
   }
-  &__recently-edited {
+  &__recently-edited,
+  &__nearby {
     &.mw-ui-card {
       box-shadow: none;
     }
