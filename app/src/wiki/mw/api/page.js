@@ -3,6 +3,7 @@ import LanguageTitleGroup from "../models/languageTitleGroup";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
 import siteMapper from "../../../utils/siteMapper";
 import { getUserCoordinates } from "../../../utils/userCoordinatesGetter";
+
 /**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
@@ -10,7 +11,7 @@ import { getUserCoordinates } from "../../../utils/userCoordinatesGetter";
  * @param titles
  * @returns {Promise<Page[]>}
  */
-function fetchPages(language, titles) {
+const fetchPages = (language, titles) => {
   const params = {
     action: "query",
     format: "json",
@@ -18,7 +19,7 @@ function fetchPages(language, titles) {
     prop: "info|pageprops|pageimages|description|pageviews|langlinkscount",
     pvipdays: 7, // Last 7 days page views
     piprop: "thumbnail|name|original",
-    pithumbsize: 100,
+    pithumbsize: 80,
     titles: titles.join("|"),
     lllimit: 500, // Max limit
     origin: "*",
@@ -41,7 +42,7 @@ function fetchPages(language, titles) {
       return new Page(page);
     });
   });
-}
+};
 
 /**
  * Fetches titles for pages in all available languages for the given title and language
@@ -50,7 +51,7 @@ function fetchPages(language, titles) {
  * @param {String} title
  * @returns {Promise<LanguageTitleGroup>}
  */
-function fetchLanguageTitles(language, title) {
+const fetchLanguageTitles = (language, title) => {
   const params = {
     action: "query",
     format: "json",
@@ -78,7 +79,7 @@ function fetchLanguageTitles(language, title) {
     }
     return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
   });
-}
+};
 
 /**
  * Fetches segmented content of a page for given source language,
@@ -89,7 +90,7 @@ function fetchLanguageTitles(language, title) {
  * @param {String} sourceTitle
  * @returns {Promise<Page>}
  */
-function fetchPageContent(sourceLanguage, targetLanguage, sourceTitle) {
+const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
   return fetchSegmentedContent(
     sourceLanguage,
     targetLanguage,
@@ -105,7 +106,7 @@ function fetchPageContent(sourceLanguage, targetLanguage, sourceTitle) {
         title: sourceTitle
       })
   );
-}
+};
 
 /**
  * Fetches segmented content of a page for given source language,
@@ -116,7 +117,7 @@ function fetchPageContent(sourceLanguage, targetLanguage, sourceTitle) {
  * @param {String} sourceTitle
  * @returns {Promise<PageSection[]>}
  */
-function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
+const fetchPageSections = (sourceLanguage, targetLanguage, sourceTitle) => {
   return fetchSegmentedContent(
     sourceLanguage,
     targetLanguage,
@@ -126,7 +127,7 @@ function fetchPageSections(sourceLanguage, targetLanguage, sourceTitle) {
       segmentedContent
     )
   );
-}
+};
 
 /**
  * Fetches segmented content of a page for given source language,
@@ -186,10 +187,45 @@ const fetchNearbyPages = async language => {
     .catch(error => []);
 };
 
+/**
+ * Given a query string and a language, this method
+ * is calling Action API to search pages matching
+ * this query and language, and returns an array of Page
+ * models as result. In case of failed request, an empty
+ * array is returned.
+ *
+ * @param {string} query
+ * @param {string} language
+ * @return {Promise<Page[]>}
+ */
+const searchPagesByTitlePrefix = (query, language) => {
+  const titleQuery = query.trim();
+  const params = {
+    action: "query",
+    generator: "prefixsearch",
+    gpssearch: titleQuery,
+    prop: "pageimages|description|langlinkscount",
+    piprop: "thumbnail",
+    pithumbsize: 80,
+    pilimit: 10,
+    format: "json",
+    formatversion: 2,
+    origin: "*"
+  };
+
+  return siteMapper
+    .getApi(language)
+    .get(params)
+    .then(response => response.query.pages)
+    .then(pages => pages.map(page => new Page(page)))
+    .catch(error => []);
+};
+
 export default {
   fetchPages,
   fetchLanguageTitles,
   fetchPageContent,
   fetchPageSections,
-  fetchNearbyPages
+  fetchNearbyPages,
+  searchPagesByTitlePrefix
 };
