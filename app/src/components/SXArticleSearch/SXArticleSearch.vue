@@ -11,23 +11,36 @@
       :indicator-size="20"
       @indicator-clicked="close"
     />
+    <mw-button-group
+      class="sx-article-search__language-button-group"
+      :items="sourceLanguageOptions"
+      :active="sourceLanguage"
+      @select="updateSelection"
+    />
   </section>
 </template>
 
 <script>
-import { MwInput } from "@/lib/mediawiki.ui";
+import { MwInput, MwButtonGroup } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
-import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import {
+  mwIconSearch,
+  mwIconClose,
+  mwIconEllipsis
+} from "@/lib/mediawiki.ui/components/icons";
+import mwConfig from "@/utils/mwConfig";
 import autonymMixin from "@/mixins/autonym";
 
 export default {
   name: "SxArticleSearch",
-  components: { MwInput },
+  components: { MwInput, MwButtonGroup },
   mixins: [autonymMixin],
   data: () => ({
     mwIconSearch,
     mwIconClose,
-    searchInput: ""
+    mwIconEllipsis,
+    searchInput: "",
+    sourceLanguageOptions: []
   }),
   computed: {
     ...mapState({
@@ -113,10 +126,53 @@ export default {
         .slice(0, sliceSize);
     }
   },
+  mounted() {
+    this.sourceLanguageOptions = [
+      ...[this.sourceLanguage, ...this.getSuggestedSourceLanguages].map(
+        language => ({
+          value: language,
+          props: {
+            label: this.getAutonym(language),
+            type: "text",
+            class: "px-0 py-4 mx-4"
+          }
+        })
+      ),
+      {
+        value: "other",
+        props: {
+          icon: mwIconEllipsis,
+          type: "icon",
+          class: "px-0 py-4 me-4 ms-auto"
+        }
+      }
+    ];
+  },
   methods: {
     close() {
       this.$router.go(-1);
+    },
+    updateSelection(sourceLanguage) {
+      if (sourceLanguage === "other") {
+        // TODO: Toggle ULS
+        return;
+      }
+      this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
     }
   }
 };
 </script>
+
+<style lang="less">
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+
+.sx-article-search {
+  &__language-button-group {
+    &.mw-ui-button-group {
+      background-color: @wmui-color-base90;
+    }
+    border-top: @border-style-base @border-width-base @wmui-color-base80;
+    border-bottom: @border-style-base @border-width-base @wmui-color-base80;
+  }
+}
+</style>
