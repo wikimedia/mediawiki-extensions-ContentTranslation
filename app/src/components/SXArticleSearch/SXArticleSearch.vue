@@ -48,10 +48,8 @@ import {
   mwIconClose,
   mwIconEllipsis
 } from "@/lib/mediawiki.ui/components/icons";
-import mwConfig from "@/utils/mwConfig";
 import autonymMixin from "@/mixins/autonym";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
-import Page from "@/wiki/mw/models/page";
 
 export default {
   name: "SxArticleSearch",
