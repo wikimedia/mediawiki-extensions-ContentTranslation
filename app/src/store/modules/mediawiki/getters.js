@@ -1,6 +1,10 @@
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 
 export default {
+  /**
+   * @param {Object} state
+   * @return {function(string, string): Page}
+   */
   getPage: state => (language, title) =>
     state.pages.find(
       page =>
@@ -58,5 +62,30 @@ export default {
     getters
       .getSupportedMTProviders(sourceLanguage, targetLanguage)
       .includes(provider) &&
-    provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+    provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY,
+  /**
+   * Get recently edited cx translations by current user if any,
+   * for the current language pair.
+   *
+   * @param {Object} state
+   * @param {Object} rootGetters
+   * @param {Object} getters
+   * @param {Object} rootState
+   * @return {Page[]}
+   */
+  getRecentlyEditedPages: (state, getters, rootState, rootGetters) => {
+    const sourceLanguage = rootState.application.sourceLanguage;
+    const targetLanguage = rootState.application.targetLanguage;
+    /** @type Translation[] */
+    const translations = rootGetters[
+      "translator/getAllTranslationsForLanguagePair"
+    ](sourceLanguage, targetLanguage);
+    const translationsSlice = translations.slice(
+      0,
+      rootState.suggestions.maxRecentlyEditedSuggestions
+    );
+    return translationsSlice.map(translation =>
+      getters.getPage(sourceLanguage, translation.sourceTitle)
+    );
+  }
 };

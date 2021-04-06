@@ -37,5 +37,18 @@ export default {
   },
   // Function with dummy implementation. Needed to add real functionality later
   hasSectionTranslations: state => () =>
-    state.translations.some(translation => translation.hasSectionTranslations)
+    state.translations.some(translation => translation.hasSectionTranslations),
+  /**
+   * @param state
+   * @return {function(sourceLanguage: string, targetLanguage: string): Translation[]}
+   */
+  getAllTranslationsForLanguagePair: state => (
+    sourceLanguage,
+    targetLanguage
+  ) =>
+    state.translations.filter(
+      translation =>
+        translation.sourceLanguage === sourceLanguage &&
+        translation.targetLanguage === targetLanguage
+    )
 };

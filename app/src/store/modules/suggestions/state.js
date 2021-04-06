@@ -29,5 +29,10 @@ export default {
    * Stores appendix section titles, grouped by language
    * @type Object - { language1: [titles1], ... }
    */
-  appendixSectionTitles: appendixTitles
+  appendixSectionTitles: appendixTitles,
+  /**
+   * Maximum number of suggestions based on user's recently edited translations,
+   * to be displayed inside "search for an article" view
+   */
+  maxRecentlyEditedSuggestions: 3
 };
