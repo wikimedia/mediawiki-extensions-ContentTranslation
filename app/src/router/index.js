@@ -8,7 +8,8 @@ import {
   SXSentenceSelector,
   SXQuickTutorial,
   SXEditor,
-  SXPublisher
+  SXPublisher,
+  SXArticleSearch
 } from "@/views";
 
 Vue.use(VueRouter);
@@ -20,6 +21,13 @@ const routes = [
     component: Dashboard,
     params: true,
     meta: { workflowStep: 0 }
+  },
+  {
+    path: "/sx/article-search",
+    name: "sx-article-search",
+    component: SXArticleSearch,
+    params: true,
+    meta: { workflowStep: 0.5 }
   },
   {
     path: "/sx",

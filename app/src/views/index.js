@@ -6,6 +6,7 @@ import SXSentenceSelector from "./SXSentenceSelector";
 import SXQuickTutorial from "./SXQuickTutorial";
 import SXEditor from "./SXEditor";
 import SXPublisher from "./SXPublisher";
+import SXArticleSearch from "./SXArticleSearch";
 export {
   Dashboard,
   SXArticleSelector,
@@ -14,5 +15,6 @@ export {
   SXSentenceSelector,
   SXQuickTutorial,
   SXEditor,
-  SXPublisher
+  SXPublisher,
+  SXArticleSearch
 };

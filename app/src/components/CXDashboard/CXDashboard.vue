@@ -1,12 +1,13 @@
 <template>
   <div>
     <experimental-support-banner v-if="$incompleteVersion" class="mb-4" />
-    <mw-row v-if="!$incompleteVersion" class="ma-0">
+    <mw-row class="ma-0">
       <mw-button
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
         class="col-md-4 col-xs-12 col-lg-3 mb-4 mt-4"
+        @click="searchTranslation"
       />
     </mw-row>
     <!--    TODO: Check if we need to adjust the breakpoint to mdAndDown as this is the breakpoint that is used to determine if -->
@@ -116,6 +117,11 @@ export default {
   },
   created: function() {
     this.$store.dispatch("application/initializeDashboardContext");
+  },
+  methods: {
+    searchTranslation() {
+      this.$router.push({ name: "sx-article-search" });
+    }
   }
 };
 </script>
