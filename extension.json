@@ -110,7 +110,6 @@
 		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
 		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
 		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
-		"ContentTranslation\\ActionApi\\ApiSectionTranslationPublish": "api/ApiSectionTranslationPublish.php",
 		"ApiContentTranslationSave": "api/ApiContentTranslationSave.php",
 		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
 		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
@@ -129,7 +128,8 @@
 		"SkinContentTranslation": "skin/SkinContentTranslation.php"
 	},
 	"AutoloadNamespaces": {
-		"ContentTranslation\\": "includes/"
+		"ContentTranslation\\": "includes/",
+		"ContentTranslation\\ActionApi\\": "api/"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
