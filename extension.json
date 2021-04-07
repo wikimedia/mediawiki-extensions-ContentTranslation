@@ -63,33 +63,33 @@
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules"
 	},
 	"APIModules": {
-		"cxconfiguration": "ApiContentTranslationConfiguration",
-		"cxdelete": "ApiContentTranslationDelete",
-		"cxpublish": "ApiContentTranslationPublish",
+		"cxconfiguration": "ContentTranslation\\ActionApi\\ApiContentTranslationConfiguration",
+		"cxdelete": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
+		"cxpublish": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
 		"cxpublishsection": {
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationPublish",
 			"services": [
 				"TitleFactory"
 			]
 		},
-		"cxsave": "ApiContentTranslationSave",
-		"cxsuggestionlist": "ApiContentTranslationSuggestionList",
-		"cxtoken": "ApiContentTranslationToken"
+		"cxsave": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
+		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
+		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
 	},
 	"APIListModules": {
-		"contenttranslation": "ApiQueryContentTranslation",
-		"contenttranslationcorpora": "ApiQueryContentTranslationCorpora",
-		"contenttranslationlangtrend": "ApiQueryContentTranslationLanguageTrend",
-		"contenttranslationstats": "ApiQueryContentTranslationStats",
-		"contenttranslationsuggestions": "ApiQueryContentTranslationSuggestions",
-		"cxpublishedtranslations": "ApiQueryPublishedTranslations",
-		"cxtranslatorstats": "ApiQueryTranslatorStats"
+		"contenttranslation": "ContentTranslation\\ActionApi\\ApiQueryContentTranslation",
+		"contenttranslationcorpora": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationCorpora",
+		"contenttranslationlangtrend": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationLanguageTrend",
+		"contenttranslationstats": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationStats",
+		"contenttranslationsuggestions": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
+		"cxpublishedtranslations": "ContentTranslation\\ActionApi\\ApiQueryPublishedTranslations",
+		"cxtranslatorstats": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats"
 	},
 	"APIMetaModules": {
-		"cxdeletedtranslations": "ApiQueryDeletedTranslations"
+		"cxdeletedtranslations": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations"
 	},
 	"APIPropModules": {
-		"langlinkscount": "ApiQueryLangLinksCount"
+		"langlinkscount": "ContentTranslation\\ActionApi\\ApiQueryLangLinksCount"
 	},
 	"MessagesDirs": {
 		"ContentTranslation": [
@@ -107,21 +107,6 @@
 		}
 	},
 	"AutoloadClasses": {
-		"ApiContentTranslationConfiguration": "api/ApiContentTranslationConfiguration.php",
-		"ApiContentTranslationDelete": "api/ApiContentTranslationDelete.php",
-		"ApiContentTranslationPublish": "api/ApiContentTranslationPublish.php",
-		"ApiContentTranslationSave": "api/ApiContentTranslationSave.php",
-		"ApiContentTranslationSuggestionList": "api/ApiContentTranslationSuggestionList.php",
-		"ApiContentTranslationToken": "api/ApiContentTranslationToken.php",
-		"ApiQueryContentTranslation": "api/ApiQueryContentTranslation.php",
-		"ApiQueryContentTranslationCorpora": "api/ApiQueryContentTranslationCorpora.php",
-		"ApiQueryContentTranslationLanguageTrend": "api/ApiQueryContentTranslationLanguageTrend.php",
-		"ApiQueryContentTranslationStats": "api/ApiQueryContentTranslationStats.php",
-		"ApiQueryContentTranslationSuggestions": "api/ApiQueryContentTranslationSuggestions.php",
-		"ApiQueryLangLinksCount": "api/ApiQueryLangLinksCount.php",
-		"ApiQueryDeletedTranslations": "api/ApiQueryDeletedTranslations.php",
-		"ApiQueryPublishedTranslations": "api/ApiQueryPublishedTranslations.php",
-		"ApiQueryTranslatorStats": "api/ApiQueryTranslatorStats.php",
 		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",
 		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
 		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php",

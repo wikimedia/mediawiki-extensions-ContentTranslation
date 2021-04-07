@@ -6,11 +6,17 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
 /**
  * Api module for querying ContentTranslation stats.
  */
+
+use ApiBase;
+use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
+use Language;
 
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 

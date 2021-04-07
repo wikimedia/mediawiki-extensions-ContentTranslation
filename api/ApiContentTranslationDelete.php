@@ -6,6 +6,9 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationWork;

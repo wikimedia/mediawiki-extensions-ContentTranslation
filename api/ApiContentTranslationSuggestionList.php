@@ -4,10 +4,14 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translator;
+use Title;
 
 class ApiContentTranslationSuggestionList extends ApiBase {
 

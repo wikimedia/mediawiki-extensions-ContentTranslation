@@ -6,9 +6,14 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use Exception;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
 
@@ -17,7 +22,6 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 	}
 
 	public function execute() {
-		$result = $this->getResult();
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
@@ -84,12 +88,11 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = [
+		return [
 			'translator' => [
 				ApiBase::PARAM_TYPE => 'string',
 			]
 		];
-		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {

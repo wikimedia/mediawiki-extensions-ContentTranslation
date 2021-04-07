@@ -12,24 +12,28 @@
 
 namespace ContentTranslation\ActionApi;
 
+use ApiBase;
+use ApiMain;
 use ContentTranslation\RestbaseClient;
 use MediaWiki\MediaWikiServices;
+use Title;
+use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
-class ApiSectionTranslationPublish extends \ApiBase {
+class ApiSectionTranslationPublish extends ApiBase {
 
 	/** @var RestbaseClient */
 	protected $restbaseClient;
 
-	/** @var \TitleFactory */
+	/** @var TitleFactory */
 	private $titleFactory;
 
 	/**
-	 * @param \ApiMain $main
+	 * @param ApiMain $main
 	 * @param string $action
-	 * @param \TitleFactory $titleFactory
+	 * @param TitleFactory $titleFactory
 	 */
-	public function __construct( \ApiMain $main, $action, \TitleFactory $titleFactory ) {
+	public function __construct( ApiMain $main, $action, TitleFactory $titleFactory ) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
 		$config = $this->getConfig();
@@ -39,12 +43,12 @@ class ApiSectionTranslationPublish extends \ApiBase {
 	/**
 	 * Attempt to save a given page's wikitext to MediaWiki's storage layer via its API
 	 *
-	 * @param \Title $title The title of the page to write
+	 * @param Title $title The title of the page to write
 	 * @param string $wikitext The wikitext to write
 	 * @param array $params The edit parameters
 	 * @return mixed The result of the save attempt
 	 */
-	protected function saveWikitext( \Title $title, string $wikitext, array $params ) {
+	protected function saveWikitext( Title $title, string $wikitext, array $params ) {
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
 		$sourceLink = "[[:{$from}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 

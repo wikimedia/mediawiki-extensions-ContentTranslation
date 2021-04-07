@@ -7,6 +7,11 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiQuery;
+use ApiQueryBase;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 

@@ -6,6 +6,12 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiPageSet;
+use ApiQueryGeneratorBase;
+use CentralIdLookup;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
 use ContentTranslation\Translation;
@@ -187,9 +193,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$db = Database::getConnection( DB_REPLICA );
 
 		$lookup = new CorporaLookup( $db );
-		$content = $lookup->getByTranslationId( $translation->getTranslationId() );
-
-		return $content;
+		return $lookup->getByTranslationId( $translation->getTranslationId() );
 	}
 
 	public function getAllowedParams() {

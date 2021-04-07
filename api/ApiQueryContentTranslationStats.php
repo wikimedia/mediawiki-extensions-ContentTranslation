@@ -6,6 +6,12 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiQueryBase;
+use ContentTranslation\Translation;
+use ContentTranslation\Translator;
+
 /**
  * Api module for querying ContentTranslation stats.
  */
@@ -20,12 +26,12 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 		$result->addValue(
 			[ 'query', 'contenttranslationstats' ],
 			'pages',
-			ContentTranslation\Translation::getStats()
+			Translation::getStats()
 		);
 		$result->addValue(
 			[ 'query', 'contenttranslationstats' ],
 			'translators',
-			ContentTranslation\Translator::getStats()
+			Translator::getStats()
 		);
 	}
 

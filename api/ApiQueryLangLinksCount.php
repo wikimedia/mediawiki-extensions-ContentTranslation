@@ -6,6 +6,10 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiQueryBase;
+
 class ApiQueryLangLinksCount extends ApiQueryBase {
 	public function execute() {
 		if ( $this->getPageSet()->getGoodTitleCount() < 1 ) {

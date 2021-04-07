@@ -6,8 +6,13 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiQueryBase;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
+use Sanitizer;
 
 /**
  * Api module for querying Content Translation parallel corpora.

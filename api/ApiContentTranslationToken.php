@@ -1,5 +1,8 @@
 <?php
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
 use Firebase\JWT\JWT;
 
 /**

@@ -6,10 +6,17 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiPageSet;
+use ApiQueryGeneratorBase;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use DeferredUpdates;
+use FormatJson;
 use MediaWiki\MediaWikiServices;
 
 /**

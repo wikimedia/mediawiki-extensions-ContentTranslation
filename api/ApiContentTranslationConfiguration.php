@@ -9,6 +9,11 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use Language;
+
 class ApiContentTranslationConfiguration extends ApiBase {
 	public function execute() {
 		$this->getMain()->setCacheMode( 'public' );
@@ -39,8 +44,7 @@ class ApiContentTranslationConfiguration extends ApiBase {
 
 	private static function readConfigurationFile( $filename ) {
 		$json = file_get_contents( $filename );
-		$data = json_decode( $json, true );
-		return $data;
+		return json_decode( $json, true );
 	}
 
 	public function getAllowedParams() {

@@ -6,6 +6,13 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiQueryBase;
+use ContentTranslation\Translation;
+use Language;
+
 class ApiQueryPublishedTranslations extends ApiQueryBase {
 
 	public function __construct( $query, $moduleName ) {
@@ -31,15 +38,15 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		if ( $to !== null && !Language::isValidBuiltInCode( $to ) ) {
 				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
-		$translations = ContentTranslation\Translation::getAllPublishedTranslations(
+		$translations = Translation::getAllPublishedTranslations(
 			$from, $to, $limit, $offset
 		);
-		$resultSize = count( $translations );
+
 		$result->addValue( [ 'result' ], 'translations', $translations );
 	}
 
 	public function getAllowedParams() {
-		$allowedParams = [
+		return [
 			'from' => [
 				ApiBase::PARAM_TYPE => 'string',
 			],
@@ -59,7 +66,6 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			],
 		];
-		return $allowedParams;
 	}
 
 	protected function getExamplesMessages() {

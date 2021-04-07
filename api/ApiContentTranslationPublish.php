@@ -16,12 +16,27 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
+use ApiMain;
+use ChangeTags;
+use ContentTranslation\Notification;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use DeferredUpdates;
+use Deflate;
+use DerivativeRequest;
+use EventLogging;
+use ExtensionRegistry;
+use Language;
 use MediaWiki\MediaWikiServices;
+use MWException;
+use RequestContext;
+use Title;
 
 class ApiContentTranslationPublish extends ApiBase {
 
@@ -194,12 +209,12 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		if ( $wgContentTranslationTranslateInTarget ) {
-			$targetPage = ContentTranslation\SiteMapper::getTargetTitle(
+			$targetPage = SiteMapper::getTargetTitle(
 				$params['title'],
 				$user->getName()
 			);
 
-			$targetURL = ContentTranslation\SiteMapper::getPageURL( $params['to'], $targetPage );
+			$targetURL = SiteMapper::getPageURL( $params['to'], $targetPage );
 		} else {
 			$targetURL = $targetTitle->getCanonicalURL();
 		}
@@ -302,21 +317,21 @@ class ApiContentTranslationPublish extends ApiBase {
 		}
 
 		$user = $this->getUser();
-		$translator = new ContentTranslation\Translator( $user );
+		$translator = new Translator( $user );
 		$translationCount = $translator->getTranslationsCount();
 
 		switch ( $translationCount ) {
 			case 1:
-				ContentTranslation\Notification::firstTranslation( $user );
+				Notification::firstTranslation( $user );
 				break;
 			case 2:
-				ContentTranslation\Notification::suggestionsAvailable( $user, $params['sourcetitle'] );
+				Notification::suggestionsAvailable( $user, $params['sourcetitle'] );
 				break;
 			case 10:
-				ContentTranslation\Notification::tenthTranslation( $user );
+				Notification::tenthTranslation( $user );
 				break;
 			case 100:
-				ContentTranslation\Notification::hundredthTranslation( $user );
+				Notification::hundredthTranslation( $user );
 				break;
 		}
 	}

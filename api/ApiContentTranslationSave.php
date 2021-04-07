@@ -5,6 +5,9 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\ActionApi;
+
+use ApiBase;
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Database;
@@ -15,6 +18,10 @@ use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use Deflate;
+use Exception;
+use FormatJson;
+use Language;
 
 class ApiContentTranslationSave extends ApiBase {
 	/**
@@ -139,8 +146,8 @@ class ApiContentTranslationSave extends ApiBase {
 
 	/**
 	 * @param array $params
-	 * @param ContentTranslation\Translator $translator
-	 * @return ContentTranslation\Translation
+	 * @param Translator $translator
+	 * @return Translation
 	 */
 	protected function saveTranslation( array $params, Translator $translator ) {
 		global $wgContentTranslationVersion;
