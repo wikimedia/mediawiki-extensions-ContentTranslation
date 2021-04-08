@@ -10,7 +10,16 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\Special;
+
+use ConfigException;
+use Hooks;
+use Html;
+use Linker;
 use MediaWiki\MediaWikiServices;
+use MutableContext;
+use MWDebug;
+use SpecialPage;
 
 /**
  * @ingroup SpecialPage
@@ -105,7 +114,7 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 		$out = $this->getOutput();
 		$skin = $this->getSkin();
 
-		'@phan-var SkinTemplate $skin';
+		'@phan-var \SkinTemplate $skin';
 
 		// Get personal tools for the user
 		$personalTools = $skin->getStructuredPersonalTools();

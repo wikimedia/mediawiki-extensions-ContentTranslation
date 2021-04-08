@@ -98,23 +98,21 @@
 		]
 	},
 	"SpecialPages": {
-		"ContentTranslation": "SpecialContentTranslation",
+		"ContentTranslation": "ContentTranslation\\Special\\SpecialContentTranslation",
 		"ContentTranslationStats": {
-			"class": "SpecialContentTranslationStats",
+			"class": "ContentTranslation\\Special\\SpecialContentTranslationStats",
 			"services": [
 				"SkinFactory"
 			]
 		}
 	},
 	"AutoloadClasses": {
-		"ContentTranslationSpecialPage": "specials/ContentTranslationSpecialPage.php",
-		"SpecialContentTranslation": "specials/SpecialContentTranslation.php",
-		"SpecialContentTranslationStats": "specials/SpecialContentTranslationStats.php",
 		"SkinContentTranslation": "skin/SkinContentTranslation.php"
 	},
 	"AutoloadNamespaces": {
 		"ContentTranslation\\": "includes/",
-		"ContentTranslation\\ActionApi\\": "api/"
+		"ContentTranslation\\ActionApi\\": "api/",
+		"ContentTranslation\\Special\\": "specials/"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,

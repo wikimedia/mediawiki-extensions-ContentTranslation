@@ -6,8 +6,14 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\Special;
+
+use MutableContext;
+use SpecialPage;
+
 /**
  * Shows some metrics about ContentTranslation usage.
+ *
  * @ingroup SpecialPage
  */
 class SpecialContentTranslationStats extends SpecialPage {

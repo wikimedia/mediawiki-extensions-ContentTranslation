@@ -6,9 +6,14 @@
  * @license GPL-2.0-or-later
  */
 
+namespace ContentTranslation\Special;
+
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
+use DeferredUpdates;
+use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
+use SpecialPage;
 use Wikimedia\Services\NoSuchServiceException;
 
 /**
