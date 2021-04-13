@@ -157,7 +157,7 @@ const getters = {
       return sectionSuggestion.targetSections.find(title =>
         appendixTitles.includes(title)
       );
-  },
+    },
   appendixTitlesExistForLanguage: state => language =>
     (state.appendixSectionTitles?.[language] || []).length > 0,
   /**
@@ -461,7 +461,7 @@ const actions = {
    * @param {string} [payload.sourceLanguage=rootState.application.sourceLanguage]
    * @return {Promise<void>}
    */
-  async fetchNextSectionSuggestionsPage(
+  async fetchNextSectionSuggestionsSlice(
     { dispatch, rootState, commit },
     { targetLanguage, sourceLanguage } = {}
   ) {
