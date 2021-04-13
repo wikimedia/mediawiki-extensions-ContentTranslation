@@ -49,9 +49,18 @@ export default {
   props: {
     disabled: Boolean,
     large: Boolean,
-    value: {},
-    placeholder: String,
-    icon: String,
+    value: {
+      type: String,
+      default: null
+    },
+    placeholder: {
+      type: String,
+      default: null
+    },
+    icon: {
+      type: String,
+      default: null
+    },
     iconSize: {
       type: [Number, String],
       default: "24"
@@ -60,7 +69,10 @@ export default {
       type: [Number, String],
       default: "24"
     },
-    indicator: String,
+    indicator: {
+      type: String,
+      default: null
+    },
     suggestion: {
       type: [String, Number],
       default: null
