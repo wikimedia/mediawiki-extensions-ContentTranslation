@@ -56,8 +56,11 @@ export default {
     }
 
     await dispatch("translator/fetchTranslations", {}, { root: true });
-
     const { sourceLanguage, targetLanguage } = state;
+    // Fetch now so that appendix section titles are available during suggestion fetching
+    await dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage, {
+      root: true
+    });
     dispatch(
       "suggestions/fetchSuggestions",
       { sourceLanguage, targetLanguage },
@@ -79,9 +82,6 @@ export default {
   initializeSectionTranslation({ commit, dispatch, state }, suggestion) {
     dispatch("getCXServerToken");
     commit("setCurrentSectionSuggestion", suggestion);
-    dispatch("suggestions/fetchAppendixSectionTitles", state.targetLanguage, {
-      root: true
-    });
   },
 
   async updateSourceLanguage(

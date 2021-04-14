@@ -69,11 +69,12 @@ export default {
     );
 
     let fetchedSuggestionCounter = 0;
+
     for (const seed of seeds) {
       if (targetLanguage !== rootState.application.targetLanguage) {
         break;
       }
-      /** @type {SectionSuggestion} */
+      /** @type {SectionSuggestion|null} */
       const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
         sourceLanguage,
         seed.sourceTitle,
@@ -81,7 +82,8 @@ export default {
       );
       commit("removeSectionSuggestionSeed", seed);
 
-      if (suggestion?.missingSectionsCount) {
+      const appendixSourceTitles = state.appendixSectionTitles[sourceLanguage];
+      if (suggestion?.isValid(appendixSourceTitles)) {
         fetchedSuggestionCounter++;
         commit("addSectionSuggestion", suggestion);
       }
