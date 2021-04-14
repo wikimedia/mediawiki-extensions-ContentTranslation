@@ -48,6 +48,7 @@
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prijevod sadržaja.",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Prevoditelj sadržaja 2]]",
 	"tag-contenttranslation-v2-description": "Sadržaj je preveden s drugog jezika uz pomoć druge inačice alata za prijevod sadržaja.",
+	"tag-sectiontranslation-description": "Sadržaj je prevedeni odlomak s drugog jezika uz pomoć mogućnosti prijevoda odlomaka Prevoditelja sadržaja.",
 	"cx-source-loading": "Učitavam $1",
 	"cx-beta": "Prevoditelj sadržaja",
 	"cx-beta-desc": "Alat za brzo prevođenje stranica na svoj jezik. Počnite prevoditi [[Special:MyContributions|Vaše doprinose]] i uređivati ih u uređivaču posebno napravljenom za prevođenje. Određeni alati mogu biti dostupni samo za određene jezike.",
