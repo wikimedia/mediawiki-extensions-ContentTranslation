@@ -323,7 +323,10 @@ const actions = {
    * handler for this provider, i.e. a function that accepts two arguments
    * (source language, target language) and returns a promise that resolves
    * to the actual seeds fetched by this provider
-   * @param {String} providerName
+   * @param {Object} context
+   * @param {Object} context.getters
+   * @param {Object} context.rootGetters
+   * @param {"user-published-translations"|"cx-published-translations"} providerName
    * @return {Function|null}
    */
   getSeedProviderHandlerByName({ getters, rootGetters }, providerName) {

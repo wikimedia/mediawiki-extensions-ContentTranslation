@@ -1,4 +1,4 @@
-const providers = ["cx-published-translations", "user-published-translations"];
+const providers = ["cx-published-translations"];
 
 // This model represents a collection of section suggestion seeds
 // that belong to a specific language pair. It stores information
