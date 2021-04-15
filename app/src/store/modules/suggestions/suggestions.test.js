@@ -1,6 +1,6 @@
-jest.mock("../../utils/siteMapper");
-import suggestionsModule from "./suggestions";
-import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
+jest.mock("../../../utils/siteMapper");
+import suggestionsModule from "./";
+import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 const mutations = suggestionsModule.mutations;
 
 const { removeSectionSuggestion } = mutations;

@@ -1,190 +1,8 @@
-import cxSuggestionsApi from "../../wiki/cx/api/suggestions";
+import cxSuggestionsApi from "../../../wiki/cx/api/suggestions";
+import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSuggestionSeedCollection";
 import Vue from "vue";
-import SectionSuggestionSeedCollection from "../../wiki/cx/models/sectionSuggestionSeedCollection";
-import appendixTitles from "../../utils/appendix/appendixTitles.json";
 
-const state = {
-  /** @type ArticleSuggestion[] */
-  pageSuggestions: [],
-  /** @type SectionSuggestion[] */
-  sectionSuggestions: [],
-  favorites: {},
-  /**
-   * Counter that indicates how many section suggestion fetching
-   * requests are currently in progress
-   * @type Number
-   */
-  sectionSuggestionsLoadingCount: 0,
-  /**
-   * Maximum number of suggestions being displayed in the dashboard
-   * at the same time
-   */
-  maxSuggestionsPerSlice: 5,
-  /**
-   * Stores collections of seeds for different language pairs
-   * Each seed collection corresponds to a specific language pair
-   * and contains all available seeds to be used for section
-   * suggestion fetching. Having this information stored prevents
-   * unnecessary requests to fetch seeds every time they are needed
-   * @type SectionSuggestionSeedCollection[]
-   */
-  sectionSuggestionSeedCollections: [],
-  /**
-   * Stores appendix section titles, grouped by language
-   * @type Object - { language1: [titles1], ... }
-   */
-  appendixSectionTitles: appendixTitles
-};
-
-const mutations = {
-  addPageSuggestion(state, suggestion) {
-    state.pageSuggestions.push(suggestion);
-  },
-  addSectionSuggestion(state, suggestion) {
-    state.sectionSuggestions.push(suggestion);
-  },
-  /**
-   * @param {Object} state
-   * @param {SectionSuggestion} suggestionToRemove
-   */
-  removeSectionSuggestion(state, suggestionToRemove) {
-    state.sectionSuggestions = state.sectionSuggestions.filter(
-      suggestion => suggestion.id !== suggestionToRemove.id
-    );
-  },
-  increaseSectionSuggestionsLoadingCount(state) {
-    state.sectionSuggestionsLoadingCount++;
-  },
-  decreaseSectionSuggestionsLoadingCount(state) {
-    state.sectionSuggestionsLoadingCount--;
-  },
-  /**
-   * @param state
-   * @param {SectionSuggestionSeedCollection} collection
-   */
-  addSectionSuggestionSeedCollection(state, collection) {
-    state.sectionSuggestionSeedCollections.push(collection);
-  },
-  /**
-   * @param state
-   * @param {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}} seed
-   */
-  addSectionSuggestionSeed(state, seed) {
-    const { sourceLanguage, targetLanguage } = seed;
-    const seedCollection = state.sectionSuggestionSeedCollections.find(
-      collection =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    );
-    seedCollection.seeds.push(seed);
-  },
-  removeSectionSuggestionSeed(state, seed) {
-    const { sourceLanguage, targetLanguage } = seed;
-    const seedCollection = state.sectionSuggestionSeedCollections.find(
-      collection =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    );
-    seedCollection.seeds = seedCollection.seeds.filter(
-      existingSeed => existingSeed.sourceTitle !== seed.sourceTitle
-    );
-  },
-  addAppendixSectionTitlesForLanguage(state, { language, titles }) {
-    state.appendixSectionTitles[language] = titles;
-  }
-};
-
-const getters = {
-  /**
-   * @return {SectionSuggestionSeedCollection}
-   */
-  findSectionSuggestionSeedCollection: state => (
-    sourceLanguage,
-    targetLanguage
-  ) =>
-    state.sectionSuggestionSeedCollections.find(collection =>
-      collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    ),
-  getPageSuggestionsForPair: state => (sourceLanguage, targetLanguage) =>
-    state.pageSuggestions.filter(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage
-    ),
-  getSectionSuggestionsForPair: state => (sourceLanguage, targetLanguage) =>
-    state.sectionSuggestions.filter(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage
-    ),
-  getSectionSuggestionsForArticle: state => (
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ) =>
-    state.sectionSuggestions.find(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage &&
-        suggestionItem.sourceTitle === sourceTitle
-    ),
-  sectionSuggestionsForArticleExists: state => (
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ) =>
-    state.sectionSuggestions.some(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage &&
-        suggestionItem.sourceTitle === sourceTitle
-    ),
-  /**
-   * This getter returns the first (by order of appearance) appendix section
-   * title found inside target article page, in english. Appendix section title
-   * mappings from english to other languages are stored in appendixSectionTitles
-   * state variable. Such titles are "References" and similar section titles.
-   * If none such section is found, it returns null
-   * @param {Object} state
-   * @return {function(SectionSuggestion): {String|null}}
-   */
-  getFirstAppendixTitleBySectionSuggestion: state =>
-    /**
-     * @param {SectionSuggestion} sectionSuggestion
-     * @return {String|null}
-     */
-    sectionSuggestion => {
-      const appendixTitles =
-        state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
-      return sectionSuggestion.targetSections.find(title =>
-        appendixTitles.includes(title)
-      );
-    },
-  appendixTitlesExistForLanguage: state => language =>
-    (state.appendixSectionTitles?.[language] || []).length > 0,
-  /**
-   * This getter calculates and returns the number of suggestions to fetch,
-   * with maxSuggestionsPerSlice state variable being the maximum. When
-   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
-   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
-   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
-   * @param {Object} state
-   * @param {Object} getters
-   * @return {function(sourceLanguage: string, targetLanguage: string): number}
-   */
-  getNumberOfSuggestionsToFetch: (state, getters) => (
-    sourceLanguage,
-    targetLanguage
-  ) => {
-    const existingSuggestionsForLanguagePair = getters.getSectionSuggestionsForPair(
-      sourceLanguage,
-      targetLanguage
-    );
-
-    const pageSize = state.maxSuggestionsPerSlice;
-    return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
-  }
-};
-
-const actions = {
+export default {
   async fetchPageSuggestions(
     { commit, dispatch },
     { sourceLanguage, targetLanguage, seed }
@@ -206,6 +24,12 @@ const actions = {
   },
 
   /**
+   * @param {Object} context
+   * @param {Function} context.commit
+   * @param {Function} context.dispatch
+   * @param {Object} context.rootState
+   * @param {Object} context.getters
+   * @param {Object} context.state
    * @param {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} seeds
    * @return {Promise<void>}
    */
@@ -323,6 +147,7 @@ const actions = {
    * handler for this provider, i.e. a function that accepts two arguments
    * (source language, target language) and returns a promise that resolves
    * to the actual seeds fetched by this provider
+   *
    * @param {Object} context
    * @param {Object} context.getters
    * @param {Object} context.rootGetters
@@ -353,8 +178,15 @@ const actions = {
   /**
    * Given a source/target language pair, this action returns an array of
    * seeds to be used for section suggestion fetching
-   * @param sourceLanguage
-   * @param targetLanguage
+   *
+   * @param {Object} context
+   * @param {Function} context.commit
+   * @param {Object} context.rootGetters
+   * @param {Function} context.dispatch
+   * @param {Object} context.getters
+   * @param {Object} payload
+   * @param {string} payload.sourceLanguage
+   * @param {string} payload.targetLanguage
    * @return {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} seeds
    */
   async getSectionSuggestionSeeds(
@@ -492,12 +324,4 @@ const actions = {
       titles: appendixTitles
     });
   }
-};
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
 };
