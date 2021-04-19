@@ -1,5 +1,4 @@
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
-
 export default {
   getCurrentPage: (state, getters, rootState, rootGetters) =>
     rootGetters["mediawiki/getPage"](
