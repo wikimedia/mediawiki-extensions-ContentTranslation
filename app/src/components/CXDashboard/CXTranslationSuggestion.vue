@@ -97,7 +97,7 @@ export default {
   &:hover {
     background-color: @background-color-primary;
   }
-  &__thumbnail {
+  &__thumbnail.mw-ui-thumbnail {
     height: 84px;
     width: 84px;
   }
