@@ -2,12 +2,16 @@ import suggestionsModule from "./";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSuggestionSeedCollection";
 import appendixTitles from "../../../utils/appendix/appendixTitles.json";
+import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
 jest.mock("../../../utils/siteMapper");
 
 const { actions, mutations, getters } = suggestionsModule;
 const { removeSectionSuggestion } = mutations;
-const { fetchSectionSuggestionsBySeeds } = actions;
+const {
+  fetchSectionSuggestionsBySeeds,
+  getSeedProviderHandlerByName
+} = actions;
 const {
   sectionSuggestionsForArticleExists,
   getNumberOfSuggestionsToFetch,
@@ -125,5 +129,32 @@ describe("test suggestion actions", () => {
       sectionSuggestion => sectionSuggestion.sourceTitle
     );
     expect(suggestionTitles).toEqual(["testTitle2"]);
+  });
+
+  it("getSeedProviderHandlerByName", async () => {
+    jest.mock("../../../wiki/cx/api/suggestions");
+    suggestionsApi.fetchSuggestionSeeds = jest
+      .fn()
+      .mockImplementation(() => {});
+    const mockPublishedTranslationGetter = jest
+      .fn()
+      .mockImplementation(() => {});
+    const context = {
+      rootGetters: {
+        "translator/getPublishedTranslationsForLanguagePair": mockPublishedTranslationGetter
+      }
+    };
+    let handler = await getSeedProviderHandlerByName(
+      context,
+      "cx-published-translations"
+    );
+    handler("en", "es");
+    expect(suggestionsApi.fetchSuggestionSeeds).toHaveBeenCalled();
+    handler = await getSeedProviderHandlerByName(
+      context,
+      "user-published-translations"
+    );
+    handler("en", "es");
+    expect(mockPublishedTranslationGetter).toHaveBeenCalled();
   });
 });

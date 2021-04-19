@@ -76,9 +76,12 @@ async function fetchSectionSuggestions(
 }
 
 /**
+ * Given a language pair, this api action returns an array of translations
+ * published to the main namespace of the corresponding wiki
+ *
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
- * @return {Promise<Array>}
+ * @return {Promise<Object[]>}
  */
 async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
   const query = {
@@ -98,7 +101,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
     return translations.filter(translation => {
       // For some reason, the above query provides non-encoded urls. Encode them before comparing
       const targetUrl = mw.util.wikiUrlencode(translation.targetURL);
-      // if translation has been published properly to production wiki then page url calculated
+      // if translation has been published properly to the main namespace then page url calculated
       // by siteMapper should be equal to (encoded) targetUrl
       return (
         siteMapper.getPageUrl(targetLanguage, translation.targetTitle) ===

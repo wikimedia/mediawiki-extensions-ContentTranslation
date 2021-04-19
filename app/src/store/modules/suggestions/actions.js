@@ -151,12 +151,11 @@ export default {
    * to the actual seeds fetched by this provider
    *
    * @param {Object} context
-   * @param {Object} context.getters
    * @param {Object} context.rootGetters
    * @param {"user-published-translations"|"cx-published-translations"} providerName
-   * @return {Function|null}
+   * @return {{function(string, string): Promise<Translation[]|Object[]>}|null}
    */
-  getSeedProviderHandlerByName({ getters, rootGetters }, providerName) {
+  getSeedProviderHandlerByName({ rootGetters }, providerName) {
     // Investigation for optimal way to fetch seeds for section suggestions is not over.
     // For now two providers are being used in this order:
     // 1. use previous CX translations done by the user as seeds
@@ -164,9 +163,19 @@ export default {
     // We can easily add/remove seed providers by modifying below providers object
     // and available providers inside sectionSuggestionSeedCollection model
     const providers = {
-      "user-published-translations": (sourceLanguage, targetLanguage) =>
-        cxSuggestionsApi.fetchSuggestionSeeds(sourceLanguage, targetLanguage),
+      /**
+       * @param sourceLanguage
+       * @param targetLanguage
+       * @return {Promise<Object[]>}
+       */
       "cx-published-translations": (sourceLanguage, targetLanguage) =>
+        cxSuggestionsApi.fetchSuggestionSeeds(sourceLanguage, targetLanguage),
+      /**
+       * @param {string} sourceLanguage
+       * @param {string} targetLanguage
+       * @return {Promise<Translation[]>}
+       */
+      "user-published-translations": (sourceLanguage, targetLanguage) =>
         Promise.resolve(
           rootGetters["translator/getPublishedTranslationsForLanguagePair"](
             sourceLanguage,

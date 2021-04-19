@@ -1,4 +1,8 @@
 export default {
+  /**
+   * @param {Object} state
+   * @return {function(string, string): Translation[]}
+   */
   getPublishedTranslationsForLanguagePair: state => (
     sourceLanguage,
     targetLanguage
