@@ -405,5 +405,6 @@
 	"cx-sx-published-section-invitation-title": "לתרגם פרק אחר",
 	"cx-sx-published-section-invitation-missing-sections-info": "הפרק \"$1\" {{PLURAL:$2|ועוד פרק אחד חסרים|חסר}}",
 	"cx-sx-publisher-mt-abuse-message-title": "התרגום שלך מכיל $1% של טקסט ללא שינוי",
-	"cx-sx-publisher-mt-abuse-message-body": "תרגום המכונה הוא רק נקודת התחלה. {{GENDER:|אתה יכול|את יכולה}} לפרסם, אבל נא לוודא שאפשר לקרוא את התרגום שלך באופן טבעי בשפה שלך."
+	"cx-sx-publisher-mt-abuse-message-body": "תרגום המכונה הוא רק נקודת התחלה. {{GENDER:|אתה יכול|את יכולה}} לפרסם, אבל נא לוודא שאפשר לקרוא את התרגום שלך באופן טבעי בשפה שלך.",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|פרק אחד|$1 פרקים|0=אין פרקים}}"
 }

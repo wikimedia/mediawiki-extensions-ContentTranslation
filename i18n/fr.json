@@ -437,5 +437,6 @@
 	"cx-sx-published-section-invitation-title": "Traduire une autre section",
 	"cx-sx-published-section-invitation-missing-sections-info": "« $1 » {{PLURAL:$2|et $2 autres sont absents|0=est absent}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Votre traduction contient $1 % de texte non modifié",
-	"cx-sx-publisher-mt-abuse-message-body": "La traduction automatique n’est que le point de départ. Vous pouvez encore publier mais assurez-vous que votre traduction est lisible naturellement dans votre langue."
+	"cx-sx-publisher-mt-abuse-message-body": "La traduction automatique n’est que le point de départ. Vous pouvez encore publier mais assurez-vous que votre traduction est lisible naturellement dans votre langue.",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 section|$1 sections|0=Aucune section}}"
 }

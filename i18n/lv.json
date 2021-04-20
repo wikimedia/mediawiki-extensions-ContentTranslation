@@ -381,5 +381,6 @@
 	"cx-sx-published-section-confirmation-header": "Pievienota jauna sadaļa",
 	"cx-sx-published-section-confirmation-content": "Tavs tulkojums tika publicēts. Apsver tālāku satura labošanu vai jaunas sadaļas pievienošanu.",
 	"cx-sx-published-section-invitation-title": "Tulkot citu sadaļu",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst",
+	"cx-sx-publisher-mt-abuse-message-title": "Tavs tulkojums satur $1% nemainīta teksta"
 }
