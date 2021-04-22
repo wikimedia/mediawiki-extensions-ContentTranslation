@@ -18,7 +18,6 @@
 	"cx-header-all-translations": "Ntụgharị asụsụ nile",
 	"cx-source-view-page": "lee ihụakwụkwọ",
 	"cx-publish-page-success": "Ihụakwụkwọ nke ebipụtara na $1",
-	"cx-publish-page-error": "Enwere njehie mgbe a na-ebipụta ntụgharị asụsụ ahụ. Biko nwaa ibipụta ihụakwụkwọ ahụ ọzọ. Mmejọ: $1",
 	"cx-publish-error-abuse-filter": "Nyọ ndezi nke machiinị ahụla ọdịnaya nwere nsogbu na ntụgharị asụsụ gi. Nyọ kụrụ: $1",
 	"cx-publish-error-empty": "Sava azaghachila na-enweghi data.",
 	"cx-publish-error-readonly": "Enweghị edemede na wiki kwere nụ.",

@@ -18,7 +18,6 @@
 	"cx-tools-searchbox-text": "Ėiškuotė žuodė",
 	"cx-tools-link-title": "Nūruoda",
 	"cx-tools-link-add": "Pridietė nūruoda",
-	"cx-tools-link-remove": "Ėšjėmtė nūruoda",
 	"cx-tools-mt-title": "Mašėnėnis pargoldīms",
 	"cx-tools-mt-provider-title": "Ėš $1",
 	"cx-selected-source-page-start-translation-button": "Pradietė pargoldīma",
@@ -36,7 +35,5 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Pargoldīmā",
 	"cx-campaign-contributionsmenu-myuploads": "Ožkrautė abruozdielē",
 	"cx-trend-translations-to": "Pargoldīmā i $1",
-	"echo-category-title-cx": "Pargoldīmā",
-	"cx-tools-link-apply": "Padėrbt",
-	"mw-pageselector-missing": "Tuokė poslapė nie"
+	"echo-category-title-cx": "Pargoldīmā"
 }

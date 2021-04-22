@@ -13,8 +13,6 @@
 	"cx-tools-link-title": "Suglung",
 	"cx-tools-link-add": "Magdagdag suglung",
 	"cx-tools-mt-provider-title": "Ibat $1",
-	"cx-tools-reference-title": "Dalerayan",
-	"cx-tools-reference-add": "Magdagdag dalerayan",
 	"cx-warning-unsaved-translation": "Atin kang e makatalang salin-amanu.",
 	"cx-selected-source-page-start-translation-button": "Magumpisa ning pamaglikas",
 	"cx-create-new-translation": "Mangumpisa ning bayung salin-amanu",
@@ -40,7 +38,5 @@
 	"cx-stats-weekly-published": "Tauling linggu",
 	"cx-stats-local-published-number": "$1 king $2",
 	"cx-stats-local-published": "$1 ($3) king $2",
-	"cx-translationlist-empty-title": "Alang isalin-amanu?",
-	"cx-tools-link-internal-link": "Mayintun bulung",
-	"cx-tools-link-external-link": "Kasusug Kiluwal"
+	"cx-translationlist-empty-title": "Alang isalin-amanu?"
 }

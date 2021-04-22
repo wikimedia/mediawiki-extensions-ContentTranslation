@@ -17,7 +17,6 @@
 	"cx-header-all-translations": "کؤل(گِشت) زوونەل چاوواشآبی",
 	"cx-source-view-page": "مشاهده وةڵگة",
 	"cx-publish-page-success": "وةڵگة ؤة $1 منتشر بیة",
-	"cx-publish-page-error": "خطایی هنگام انتشار ترجمه رخ داد. لطفاً بار دیگر سعی کنید صفحه را منتشر کنید. خطا: $1",
 	"cx-publish-button": "انتشار ترجمه",
 	"cx-publish-button-publishing": "در حال انتشار...",
 	"cx-lost-session-draft": "نشست شما انقضا یافته است. ویرایش‌های شما نمی‌تواند ذخیره شود مگر اینکه در پنجرهٔ دیگری دوباره وارد شوید.",
@@ -25,7 +24,6 @@
 	"cx-publish-summary": "ایجاد شده توسط ترجمهٔ وةڵگة «$1»",
 	"cx-tools-link-title": "لینک",
 	"cx-tools-link-add": "پیوند اضافۀ کۀ",
-	"cx-tools-link-remove": "حذف پیوند",
 	"cx-tools-mt-title": "زوون چاوواشۀگر ماشینی",
 	"cx-selected-source-page-start-translation-button": "شوروع ترجؤمۀ-زوون چاوواشاکردن",
 	"cx-selected-source-page-error-page-and-title-exist": "این عنوان در حال حاضر در [$1 $2] برای [$3 یک صفحهٔ متفاوت] استفاده شده است",
@@ -47,7 +45,5 @@
 	"cx-stats-all-translations-title": "ترجمەل وە کؤل(گشت)زوونەل",
 	"cx-stats-published-source-target": "چاوواشەبیەل إژ",
 	"echo-category-title-cx": "چاوواشە کردنەل",
-	"cx-translationlist-empty-title": "چیزی برای ترجمه وجود ندارد؟",
-	"cx-tools-link-apply": "انجؤم بی",
-	"mw-pageselector-missing": "ئئ وةڵگة هنوز/حالی وجود نِئرێ"
+	"cx-translationlist-empty-title": "چیزی برای ترجمه وجود ندارد؟"
 }

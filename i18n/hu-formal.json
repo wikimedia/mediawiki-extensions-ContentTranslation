@@ -18,9 +18,7 @@
 	"cx-stats-title": "Tartalomfordítási statisztikája",
 	"cx-mt-abuse-warning-title": "A fordítása $1% módosítatlan gépi fordítású szöveget tartalmaz.",
 	"cx-mt-abuse-warning-text": "A gépi fordítás csak kiindulásként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
-	"cx-publishing-dialog-message": "A(z) $1 lap már létezik. A jelenlegi tartalmat felül fogja írni a fordításával. Biztosan közzé akarja tenni?",
 	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
 	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
-	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?",
-	"cx-tools-mt-new-provider": "új"
+	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
 }

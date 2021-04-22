@@ -15,7 +15,6 @@
 	"cx-header-all-translations": "Sado tajamahan",
 	"cx-source-view-page": "caliak laman",
 	"cx-publish-page-success": "Laman ditabikkan di $1",
-	"cx-publish-page-error": "Galat sangkek manyimpan laman.",
 	"cx-publish-button": "Simpan",
 	"cx-publish-button-publishing": "Manabikkan...",
 	"cx-publish-summary": "Dibuek jo manajamahkan laman \"$1\"",
@@ -33,16 +32,12 @@
 	"cx-tools-instructions-text5": "{{GENDER:|Simpan}} tajamahan",
 	"cx-tools-searchbox-text": "Cari kato",
 	"cx-tools-view-guidelines": "{{GENDER:|Caliak}} panduan panajamahan",
-	"cx-tools-dictionary-title": "Definisi",
 	"cx-tools-link-title": "Pautan",
 	"cx-tools-link-add": "Tambahkan pautan",
-	"cx-tools-link-remove": "Hapuih pautan",
 	"cx-tools-mt-title": "Tajamahan masin",
 	"cx-tools-mt-use-source": "Gunoan teks sumber",
 	"cx-tools-mt-provider-title": "Dari $1",
 	"cx-tools-mt-dont-use": "Jan gunoan tajamahan masin",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|0=Indak ado kategori}}",
-	"cx-stats-title": "Statistik panajamahan konten",
-	"cx-tools-reference-title": "Rujuakan",
-	"cx-tools-reference-remove": "Hapuih rujuakan"
+	"cx-stats-title": "Statistik panajamahan konten"
 }

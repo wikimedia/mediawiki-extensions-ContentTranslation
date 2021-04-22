@@ -18,7 +18,6 @@
 	"cx-header-all-translations": "Dhammaan turjumaadda",
 	"cx-source-view-page": "itus bogga",
 	"cx-publish-page-success": "Waxaa bogga lagu faafiyay $1",
-	"cx-publish-page-error": "Waxaa dhacay qalad markii la kaydinayay bogga. Fadlan mar kale isku day faafinta bogga.",
 	"cx-publish-button": "Faafinta turjumidda",
 	"cx-publish-button-publishing": "Faafin...",
 	"cx-publish-summary": "Samee turjumidda bogga \"$1\"",
@@ -65,8 +64,5 @@
 	"cx-stats-published-translations-label": "Turjumaadii waa la faafiyay",
 	"cx-stats-draft-target-source": "Turjumaad ayaa ku socota",
 	"cx-stats-total-published": "Wadarta la faafiyay",
-	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]].",
-	"cx-page-old-revision-loaded": "Qoraalka laga soo turjumayo [$1 bedel] waad sii dhamaystiri kartaa turjumiddiisa ama mar kale baad dib u bilaabi kartaa si aad u turjunto wixii iska bedelay.",
-	"cx-tools-mt-new-provider": "cusub",
-	"cx-tools-mt-new-providers-available": "La socdaan dooqyo cusub"
+	"cx-notification-first-translation": "Hambalyo ku aadan turjumidaadii ugu horaysay! Soo booqo bogagga kale si aad u turjuntid bogga ku jira [[Special:MyContributions|wax qoraalkaada bogga]]."
 }
