@@ -1,10 +1,7 @@
 @import 'mediawiki.ui/variables';
 
 @text-highlight-color: #fef6e7;
-@link-highlight-color: #bdd4ff;
-@connected-link-highlight-color: #d9e6ff;
 
-.cx-highlight, /* Legacy only */
 .cx-sentence-highlight,
 .cx-section-highlight {
 	// Chrome copies the background-color to inline style while it creates new spans or divs
@@ -13,27 +10,6 @@
 	box-shadow: 0 0 0 4px @text-highlight-color;
 }
 
-.cx-highlight--blue {
-	background-color: @link-highlight-color;
-	box-shadow: 0 0 0 2px @link-highlight-color;
-}
-
-.cx-highlight--lightblue {
-	background-color: @connected-link-highlight-color;
-	box-shadow: 0 0 0 2px @connected-link-highlight-color;
-}
-
-.cx-sentence-highlight,
-/* Legacy only */
-.cx-highlight,
-.cx-highlight--blue,
-.cx-highlight--lightblue {
+.cx-sentence-highlight {
 	border-radius: @borderRadius;
-}
-
-// Legacy only
-.cx-highlight,
-.cx-highlight--blue,
-.cx-highlight--lightblue {
-	transition: all 0.25s;
 }
