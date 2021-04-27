@@ -12,13 +12,13 @@
 
 namespace ContentTranslation\Special;
 
-use ConfigException;
 use Hooks;
 use Html;
 use Linker;
 use MediaWiki\MediaWikiServices;
 use MutableContext;
 use MWDebug;
+use ResourceLoaderSkinModule;
 use SpecialPage;
 
 /**
@@ -277,28 +277,19 @@ abstract class ContentTranslationSpecialPage extends SpecialPage {
 	}
 
 	/**
-	 * Try to get project wordmark, if defined. This is a MediaWiki 1.35+ feature,
-	 * but fails gracefully if wgLogos does not have a 'wordmark' key defined, so
-	 * won't cause any issues for older installs.
+	 * Return project wordmark, if configured.
 	 *
 	 * @return string|null HTML string of wordmark <img> or null
 	 */
-	private function getProjectWordmark() {
-		$config = $this->getConfig();
+	private function getProjectWordmark(): ?string {
+		$siteLogos = ResourceLoaderSkinModule::getAvailableLogos( $this->getConfig() );
+		if ( isset( $siteLogos[ 'wordmark' ] ) && is_array( $siteLogos[ 'wordmark'] ) ) {
+			$attributes = $siteLogos[ 'wordmark' ] + [
+				'id' => 'cx-header__wordmark',
+				'title' => $this->msg( 'tooltip-p-logo' )->inContentLanguage()->text()
+			];
 
-		try {
-			$siteLogos = $config->get( 'Logos' );
-
-			if ( isset( $siteLogos[ 'wordmark' ] ) ) {
-				$attributes = $siteLogos[ 'wordmark' ] + [
-					'id' => 'cx-header__wordmark',
-					'title' => $this->msg( 'tooltip-p-logo' )->inContentLanguage()->text()
-				];
-
-				return Html::element( 'img', $attributes );
-			}
-		} catch ( ConfigException $e ) {
-			return null;
+			return Html::element( 'img', $attributes );
 		}
 
 		return null;
