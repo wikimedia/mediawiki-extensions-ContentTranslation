@@ -1,6 +1,6 @@
 import Language from "../models/language";
 import MTProviderGroup from "../models/mtProviderGroup";
-import siteMapper from "../../../utils/siteMapper";
+import { siteMapper } from "../../../utils/mediawikiHelper";
 /**
  * Fetch languages information for the supported languages in wikipedia.
  * The api can be used with any wikipedia since output is same. Hence the

@@ -34,7 +34,7 @@
 import { MwCol, MwRow } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
 import autonymMixin from "@/mixins/autonym";
-import siteMapper from "@/utils/siteMapper";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "ExistingArticleBanner",

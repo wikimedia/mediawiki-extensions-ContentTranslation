@@ -71,7 +71,7 @@ import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
-import siteMapper from "@/utils/siteMapper";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxSectionSelector",

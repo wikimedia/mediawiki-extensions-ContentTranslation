@@ -2,7 +2,6 @@ import actions from "../../actions";
 import PageSection from "../../../../../wiki/cx/models/pageSection";
 import PublishResult from "../../../../../wiki/cx/models/publishResult";
 import PublishFeedbackMessage from "../../../../../wiki/cx/models/publishFeedbackMessage";
-jest.mock("../../../../../utils/siteMapper");
 jest.mock("../../../../../utils/publishHelper", () => {});
 
 const mockScores = {

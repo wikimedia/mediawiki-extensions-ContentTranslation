@@ -46,7 +46,7 @@
 
 <script>
 import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui";
-import siteMapper from "@/utils/siteMapper";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 import {
   mwIconEdit,

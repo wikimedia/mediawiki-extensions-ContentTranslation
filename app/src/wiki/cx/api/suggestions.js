@@ -1,6 +1,6 @@
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
-import siteMapper from "../../../utils/siteMapper";
+import { siteMapper } from "../../../utils/mediawikiHelper";
 import { en } from "../../../utils/appendix/appendixTitles.json";
 const appendixSectionTitlesInEnglish = en;
 

@@ -1,8 +1,7 @@
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
-import siteMapper from "../../../utils/siteMapper";
-import { getUserCoordinates } from "../../../utils/userCoordinatesGetter";
+import { siteMapper, getUserCoordinates } from "../../../utils/mediawikiHelper";
 
 /**
  * Fetches metadata information for pages for the corresponding titles and language

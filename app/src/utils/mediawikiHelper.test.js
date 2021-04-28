@@ -1,4 +1,4 @@
-import { getUserCoordinates } from "./userCoordinatesGetter";
+import { getUserCoordinates } from "./mediawikiHelper";
 
 describe("userCoordinatesGetter test", () => {
   it("getUserCoordinates", () => {

@@ -18,7 +18,7 @@ import autonymMixin from "@/mixins/autonym";
 import ExistingArticleBody from "./ExistingArticleBody";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxArticleSelectorHeader from "./SXArticleSelectorHeader";
-import { getUrl } from "@/utils/urlFactory";
+import { getUrl } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxArticleSelector",

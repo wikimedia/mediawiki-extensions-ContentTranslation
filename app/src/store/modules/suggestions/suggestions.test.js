@@ -4,8 +4,6 @@ import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSugg
 import appendixTitles from "../../../utils/appendix/appendixTitles.json";
 import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
-jest.mock("../../../utils/siteMapper");
-
 const { actions, mutations, getters } = suggestionsModule;
 const { removeSectionSuggestion } = mutations;
 const {

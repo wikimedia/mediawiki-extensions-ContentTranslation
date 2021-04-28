@@ -21,7 +21,7 @@
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
 import { mapActions, mapState } from "vuex";
-import siteMapper from "@/utils/siteMapper";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxSentenceSelectorContentHeader",

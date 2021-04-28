@@ -1,13 +1,23 @@
-// Copied from mw.cx.ui.PageSelectorWidget.js
+/**
+ *  Mediawiki related helper methods
+ */
+
+const siteMapper = new mw.cx.SiteMapper();
+const getUrl = mw.util.getUrl;
+
 const getUserCoordinates = () => {
   let geoIP = mw.cookie.get("GeoIP", ""); // GeoIP format: 'FI:Helsinki:60.1756:24.9342:v4'
+
   const geoIPCoordsMatch = geoIP && geoIP.match(/\d+\.?\d*:\d+\.?\d*/g);
   const geoIPCoords = geoIPCoordsMatch && geoIPCoordsMatch[0].replace(":", "|");
   if (geoIPCoords) {
     return geoIPCoords;
   }
-  const ulsGeo = JSON.parse(mw.cookie.get("ULSGeo")); // Outside Wikimedia, ULS stores geolocation info in 'ULSGeo' cookie
+
+  // Outside Wikimedia, ULS stores geolocation info in 'ULSGeo' cookie
+  const ulsGeo = JSON.parse(mw.cookie.get("ULSGeo"));
+
   return ulsGeo && ulsGeo.latitude + "|" + ulsGeo.longitude;
 };
 
-export { getUserCoordinates };
+export { siteMapper, getUrl, getUserCoordinates };

@@ -52,8 +52,8 @@ import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import { getUrl } from "@/utils/urlFactory";
 import { getTitleForPublishOption } from "@/utils/publishHelper";
+import { getUrl } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxPublisher",

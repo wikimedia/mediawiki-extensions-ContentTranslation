@@ -5,7 +5,6 @@ import Vuex from "vuex";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
-jest.mock("../../utils/siteMapper");
 
 const mockResults = [
   new Page({

@@ -5,7 +5,6 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import PageSection from "@/wiki/cx/models/pageSection";
 const localVue = createLocalVue();
 localVue.use(Vuex);
-jest.mock("../../utils/siteMapper");
 
 describe("SXSentenceSelector Section Content Header", () => {
   const sourceSectionTitle = "Test source section title";

@@ -14,6 +14,16 @@ Api.prototype.ajax = function(params) {
   return fetch(`https://en.wikipedia.org/w/api.php?${q}`).then(r => r.json());
 };
 
+class SiteMapper {
+  getPageUrl(language, title) {
+    return `https://${language}.wikipedia.org/wiki/${title}`;
+  }
+
+  getCXServerUrl(url) {
+    return url;
+  }
+}
+
 const mw = {
   Api,
   util: {},
@@ -42,7 +52,8 @@ const mw = {
       [{ key: "GeoIP", value: "FI:Helsinki:60.1756:24.9342:v4" }].find(
         cookie => cookie.key === key
       ).value
-  }
+  },
+  cx: { SiteMapper }
 };
 
 global.mw = mw;

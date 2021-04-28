@@ -1,7 +1,7 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import PublishResult from "../../cx/models/publishResult";
-import siteMapper from "../../../utils/siteMapper";
+import { siteMapper } from "../../../utils/mediawikiHelper";
 import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 
 /**

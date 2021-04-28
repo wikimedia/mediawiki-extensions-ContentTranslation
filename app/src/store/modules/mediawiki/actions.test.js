@@ -1,6 +1,6 @@
 import actions from "./actions";
 import Page from "../../../wiki/mw/models/page";
-jest.mock("../../../utils/siteMapper");
+jest.mock("../../../utils/mediawikiHelper");
 
 const mockNearbyPages = {
   en: [new Page(), new Page()],

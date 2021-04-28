@@ -66,7 +66,7 @@ import {
   mwIconArrowForward,
   mwIconArrowNext
 } from "@/lib/mediawiki.ui/components/icons";
-import siteMapper from "@/utils/siteMapper";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "CxTranslationWork",
