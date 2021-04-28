@@ -1,11 +1,11 @@
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
-import { getTitleForPublishOption } from "../../../utils/publishTitleFactory";
 import mtValidator from "../../../utils/mtValidator";
 import PublishResult from "../../../wiki/cx/models/publishResult";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import {
   calculateHtmlToPublish,
-  calculateNewSectionNumber
+  calculateNewSectionNumber,
+  getTitleForPublishOption
 } from "../../../utils/publishHelper";
 
 export default {

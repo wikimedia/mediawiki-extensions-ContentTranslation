@@ -53,7 +53,7 @@ import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
 import { getUrl } from "@/utils/urlFactory";
-import { getTitleForPublishOption } from "@/utils/publishTitleFactory";
+import { getTitleForPublishOption } from "@/utils/publishHelper";
 
 export default {
   name: "SxPublisher",
