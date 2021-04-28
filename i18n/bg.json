@@ -198,7 +198,7 @@
 	"cx-personaltools-anon": "Не сте влезли в системата",
 	"cx-draft-restoring": "Зареждане на съхранения превод...",
 	"cx-draft-restored": "Съхраненият превод е зареден.",
-	"cx-draft-restore-failed": "Не може да се зареди запазеният превод!",
+	"cx-draft-restore-failed": "Запазеният превод не може да се зареди!",
 	"cx-suggestionlist-expand": "Преглед на всички",
 	"cx-suggestionlist-collapse": "Показване компактно",
 	"cx-suggestionlist-refresh": "Обновяване на предложенията",
