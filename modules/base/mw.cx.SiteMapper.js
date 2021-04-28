@@ -265,6 +265,7 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
 	var name, options;
 
+	sourceTitle = sourceTitle.replace( / /g, '_' );
 	name = [ 'cx', sourceTitle, sourceLanguage, targetLanguage ].join( '_' );
 
 	options = {
