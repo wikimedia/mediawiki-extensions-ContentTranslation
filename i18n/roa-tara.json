@@ -362,5 +362,6 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|w $2 de cchiù mangane|0=manghe}}",
 	"cx-sx-publisher-mt-abuse-message-title": "'A traduziona toje tène $1% de teste non cangiate",
 	"cx-sx-publisher-mt-abuse-message-body": "'A traduzione automateche jè sulamende 'u punde de inizie. Puè angore pubblecà, ma a essere secure ca 'a traduziona toje se legge naturalmende jndr'à lènga toje.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezione|$1 seziune|0=Niscuna sezione}}"
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezione|$1 seziune|0=Niscuna sezione}}",
+	"cx-sx-article-search-input-placeholder": "Cirche 'na pàgene da traducere"
 }

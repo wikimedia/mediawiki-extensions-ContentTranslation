@@ -96,7 +96,7 @@
 	"cx-source-page-selector-no-search-results": "在 $2 內未找到 \"$1\" 頁面",
 	"cx-selected-source-page-start-translation-button": "開始翻譯",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|每週有 $1 次訪問|每週有 $1 次訪問|0=本週沒有訪問}}",
-	"cx-selected-source-page-error-page-and-title-exist": "此標題於 [$1 $2] 已被使用在 [$3 個不同頁面]",
+	"cx-selected-source-page-error-page-and-title-exist": "此標題在[$1 $2]版已用於[$3 不同頁面]",
 	"cx-selected-source-page-error-page-exists": "$2 的頁面 [$1 已存在]",
 	"cx-selected-source-page-error-title-in-use": "新頁面的標題[$1 已被使用]",
 	"cx-favorite-added-for-later": "已添加供日後翻譯！",

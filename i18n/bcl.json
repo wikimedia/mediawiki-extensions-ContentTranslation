@@ -4,6 +4,7 @@
 			"Amire80",
 			"Brazal.dang",
 			"Geopoet",
+			"Kunokuno",
 			"ShimunUfesoj"
 		]
 	},
@@ -29,5 +30,6 @@
 	"cx-stats-total-published": "Kagabsang naipublikar",
 	"cx-stats-weekly-published": "Nakaaging semana",
 	"cx-stats-local-published": "$1 ($3) sa $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na dakit-taramon|$1 na mga dakit-taramon}}"
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 na dakit-taramon|$1 na mga dakit-taramon}}",
+	"cx-sx-article-search-input-placeholder": "Maghanap nin pahina na ipapalis sa ibang lenggwahe."
 }

@@ -172,7 +172,7 @@
 	"cx-translation-label-published": "Traducciones publicadas",
 	"cx-translation-already-in-progress": "Esta es una traducción en curso {{GENDER:$2|de}} $1.",
 	"cx-translation-already-in-progress-unknown": "Esta es una traducción en curso de un usuario desconocido.",
-	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinar con {{GENDER:$1|el usuario|la usuaria}} que hizo la traducción actual.",
+	"cx-translation-already-in-progress-collaborate": "Por favor, asegúrate de coordinar con {{GENDER:$1|el usuario|la usuaria}} que hizo la traducción actual.",
 	"cx-feedback-link": "Proporcionar comentarios",
 	"cx-stats-published-translations-title": "Traducciones publicadas",
 	"cx-stats-draft-translations-title": "Traducciones en curso",
@@ -394,5 +394,8 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|y $2 más faltan|0=falta}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Tu traducción contiene $1% de texto sin modificar",
 	"cx-sx-publisher-mt-abuse-message-body": "La traducción automática es solamente un punto de partida. Aún puedes publicar, pero asegúrate de que el contenido se lea de forma natural en tu idioma.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sección|$1 secciones|0=Ninguna sección}}"
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sección|$1 secciones|0=Ninguna sección}}",
+	"cx-sx-article-search-input-placeholder": "Buscar una página que traducir",
+	"cx-sx-article-search-recently-edited-title": "Tus ediciones recientes",
+	"cx-sx-article-search-nearby-title": "Cercanos"
 }

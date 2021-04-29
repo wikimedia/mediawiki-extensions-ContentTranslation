@@ -376,5 +376,7 @@
 	"cx-sx-publisher-mt-abuse-message-title": "Deine Übersetzung enthält $1 % unveränderten Text",
 	"cx-sx-publisher-mt-abuse-message-body": "Die maschinelle Übersetzung ist nur ein Ausgangspunkt. Du kannst sie trotzdem veröffentlichen, aber stelle sicher, dass sich deine Übersetzung in deiner Sprache natürlich liest.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|1 Abschnitt|$1 Abschnitte|0=Kein Abschnitt}}",
-	"cx-sx-article-search-input-placeholder": "Nach einer zu übersetzenden Seite suchen"
+	"cx-sx-article-search-input-placeholder": "Nach einer zu übersetzenden Seite suchen",
+	"cx-sx-article-search-recently-edited-title": "Kürzlich von dir bearbeitet",
+	"cx-sx-article-search-nearby-title": "In der Nähe"
 }

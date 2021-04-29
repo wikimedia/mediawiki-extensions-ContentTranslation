@@ -63,6 +63,8 @@
 	"tag-contenttranslation-description": "Zawartość strony przetłumaczono przy pomocy narzędzia Tłumaczenie Treści.",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Tłumaczenie treści v2]]",
 	"tag-contenttranslation-v2-description": "Zawartość strony przetłumaczono z innego języka przy pomocy narzędzia Tłumaczenie Treści w wersji 2.",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Tłumaczenie sekcji]]",
+	"tag-sectiontranslation-description": "Zawartość została przetłumaczona z sekcji w innym języku przy użyciu funkcji tłumaczenia sekcji narzędzia do tłumaczenia treści.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie Treści",
 	"cx-beta-desc": "Narzędzie do szybkiego tłumaczenia stron na Twój język. Rozpocznij tłumaczenie od [[Special:MyContributions|strony Twojego wkładu]] i edytuj je naszym edytorem „okno w okno”, dostosowanym specjalnie do tłumaczeń. Niektóre narzędzia mogą być dostępne tylko dla wybranych języków.",
@@ -326,7 +328,7 @@
 	"cx-sx-content-comparator-source-selector-title": "Sekcja w $1",
 	"sx-quick-tutorial-main-point-step-1": "Sekcja po sekcji",
 	"sx-quick-tutorial-main-point-step-2": "Sugerowane tłumaczenia",
-	"sx-quick-tutorial-secondary-point-step-1": "Tłumacz i publikuj po jednej sekcji na raz.",
+	"sx-quick-tutorial-secondary-point-step-1": "Tłumacz i publikuj po jednej sekcji na raz. To łatwe, szybkie i przyjemne!",
 	"sx-quick-tutorial-secondary-point-step-2": "Przejrzyj sugerowane tłumaczenia, i upewnij się, że brzmią naturalnie.",
 	"sx-quick-tutorial-translate-button-label": "Rozpocznij tłumaczenie",
 	"cx-sx-sentence-selector-header-title": "Przetłumacz sekcję",
@@ -382,5 +384,12 @@
 	"cx-sx-followup-feedback-new-indicator": "nowy",
 	"cx-sx-published-section-confirmation-header": "Dodano nową sekcję",
 	"cx-sx-published-section-confirmation-content": "Twoje tłumaczenie zostało opublikowane. Rozważ dalsze edytowanie treści lub dodanie następnych sekcji.",
-	"cx-sx-published-section-invitation-title": "Przetłumacz inną sekcję"
+	"cx-sx-published-section-invitation-title": "Przetłumacz inną sekcję",
+	"cx-sx-published-section-invitation-missing-sections-info": "Brakuje sekcji „$1” {{PLURAL:$2|oraz jednej innej sekcji|$2 innych sekcji}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Twoje tłumaczenie zawiera $1% niezmienionego tekstu",
+	"cx-sx-publisher-mt-abuse-message-body": "Tłumaczenie maszynowe jest tylko punktem wyjścia. Możesz je opublikować, ale upewnij się, że tekst brzmi naturalnie w twoim języku.",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|Jedna sekcja|$1 sekcje|$1 sekcji|0=Brak sekcji}}",
+	"cx-sx-article-search-input-placeholder": "Wyszukaj stronę do przetłumaczenia",
+	"cx-sx-article-search-recently-edited-title": "Ostatnio edytowane przez Ciebie",
+	"cx-sx-article-search-nearby-title": "W pobliżu"
 }

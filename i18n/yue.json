@@ -3,6 +3,7 @@
 		"authors": [
 			"Hello903hello",
 			"Ktchankt",
+			"Matttest",
 			"Moon0319",
 			"Roy17",
 			"Shinjiman",
@@ -138,5 +139,7 @@
 	"cx-publish-destination-namespace-user": "個人草稿",
 	"cx-unreviewed-translation-category": "含未審閱譯文嘅版",
 	"cx-unreviewed-translation-category-desc": "用咗Content Translation工具而有大段未審閱譯文嘅版",
-	"cx-sx-language-selector-dialog-title": "搵一種話"
+	"cx-sx-language-selector-dialog-title": "搵一種話",
+	"cx-sx-article-search-input-placeholder": "搵一頁來翻譯",
+	"cx-sx-article-search-recently-edited-title": "最近由你改"
 }

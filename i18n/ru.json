@@ -318,5 +318,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "Отредактировано вами: <span>$1%</span>",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Ваш перевод",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Предложение",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзац"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзац",
+	"cx-sx-article-search-recently-edited-title": "Недавно отредактированный вами",
+	"cx-sx-article-search-nearby-title": "Поблизости"
 }

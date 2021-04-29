@@ -3,6 +3,7 @@
 		"authors": [
 			"Amaia",
 			"An13sa",
+			"Gorkaazk",
 			"Iñaki LL",
 			"Mikel Ibaiba",
 			"Sator",
@@ -85,7 +86,7 @@
 	"cx-captcha-dialog-error": "Zure erantzunak ez dirudi zuzena. Mesedez, saiatu berriro.",
 	"cx-captcha-dialog-cancel": "Utzi",
 	"cx-dashboard-sidebar-title": "{{GENDER:|Laguntzarik}} behar itzulpenekin?",
-	"cx-dashboard-sidebar-information": "Jakin gehiago herraminta honen inguruan",
+	"cx-dashboard-sidebar-information": "Jakin gehiago erreminta honen inguruan",
 	"cx-dashboard-sidebar-stats": "Estatistikak",
 	"cx-dashboard-sidebar-feedback": "Egiguzu iruzkina",
 	"cx-translation-filter-published-translations": "Argitaratuak",
