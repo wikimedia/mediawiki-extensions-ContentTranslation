@@ -4,12 +4,18 @@ import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 
 /**
- * @param dispatch
- * @param state
- * @param commit
- * @return {Promise<String>}
+ * This asynchronous action returns the current cxserver jwt token as string.
+ * If no such token or current token is expired an api request to
+ * fetch new token is being sent. If the api request fails, then
+ * an empty string is returned.
+ *
+ * @param {object} context
+ * @param {function} context.dispatch
+ * @param {object} context.state
+ * @param {function} context.commit
+ * @return {Promise<string>}
  */
-async function getCXServerToken({ dispatch, state, commit }) {
+const getCXServerToken = async ({ dispatch, state, commit }) => {
   if (!state.cxServerToken) {
     await siteApi.fetchCXServerToken().then(
       token => {
@@ -36,7 +42,6 @@ async function getCXServerToken({ dispatch, state, commit }) {
       }
     );
   }
-
   const now = Math.floor(Date.now() / 1000);
 
   if (state.cxServerToken?.refreshAt <= now) {
@@ -46,7 +51,7 @@ async function getCXServerToken({ dispatch, state, commit }) {
   }
 
   return state.cxServerToken?.jwt;
-}
+};
 
 async function initializeDashboardContext({ dispatch, state }) {
   dispatch("mediawiki/fetchLanguages", {}, { root: true });
