@@ -265,9 +265,10 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
 	var name, options;
 
-	sourceTitle = sourceTitle.replace( / /g, '_' );
-	name = [ 'cx', sourceTitle, sourceLanguage, targetLanguage ].join( '_' );
-
+	// base64 encode the name to get cookie name.
+	name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );
+	// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
+	name = name.replace( /[()<>@,;\\[\]?={}]/g, '' );
 	options = {
 		prefix: '',
 		expires: 3600

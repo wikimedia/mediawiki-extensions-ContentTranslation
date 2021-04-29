@@ -60,6 +60,17 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 	}
 
 	/**
+	 * JS-compatible encodeURIComponent function
+	 * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+	 * @param string $string
+	 * @return string
+	 */
+	public static function encodeURIComponent( $string ) {
+		$revert = [ '%21' => '!', '%2A' => '*', '%27' => "'", '%28' => '(', '%29' => ')' ];
+		return strtr( rawurlencode( $string ), $revert );
+	}
+
+	/**
 	 * Check if the request has a token to use CX.
 	 * With a valid cx token override beta feature settings.
 	 * @return bool
@@ -79,21 +90,17 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		if ( $title === null ) {
 			return false;
 		}
-
-		$title = strtr( $title, ' ', '_' );
 		$from = $request->getVal( 'from' );
 		$to = $request->getVal( 'to' );
 		if ( $from === null || $to === null ) {
 			return false;
 		}
-		$cookieName = implode( '_', [ 'cx', $title, $from, $to ] );
+		// Cookie name is base64 encoding of parameters that uniquely define a translation.
+		$cookieName = 'cx_' . base64_encode( self::encodeURIComponent( implode( '_', [ $title, $from, $to ] ) ) );
+		// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
+		$cookieName = preg_replace( '/[()<>@,;:\\"\/\[\]?={}]/', '', $cookieName );
 
-		// Old versions of PHP automatically urldecode, newer ones do not. Check for both.
-		// Hashing/base64 would avoid this, but there is no good native support in JS for either.
-		$hasToken = (
-			$request->getCookie( $cookieName, '' )
-			?? $request->getCookie( rawurlencode( $cookieName ), '' )
-		) !== null;
+		$hasToken = $request->getCookie( $cookieName, '' ) !== null;
 
 		// Since we can only publish to the current wiki, enforce that the target language matches
 		// the wiki we are currently on. If not, redirect the user back to dashboard, where he can
