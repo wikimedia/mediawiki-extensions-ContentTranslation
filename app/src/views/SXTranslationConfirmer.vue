@@ -1,17 +1,16 @@
 <template>
-  <main class="sx-article-selector-view" :class="classes">
-    <sx-article-selector />
+  <main class="sx-translation-confirmer-view" :class="classes">
+    <sx-translation-confirmer />
   </main>
 </template>
 
 <script>
-import Vue from "vue";
-import SxArticleSelector from "@/components/SXArticleSelector";
+import SxTranslationConfirmer from "@/components/SXTranslationConfirmer";
 
 export default {
-  name: "SxArticleSelectorView",
+  name: "SxTranslationConfirmerView",
   components: {
-    SxArticleSelector
+    SxTranslationConfirmer
   },
   computed: {
     classes() {
@@ -26,7 +25,7 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
-.sx-article-selector-view {
+.sx-translation-confirmer-view {
   background-color: @background-color-base;
 }
 </style>

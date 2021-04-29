@@ -2,14 +2,14 @@
   <section class="sx-section-selector">
     <sx-section-selector-header
       :suggestion="suggestion"
-      @close="goToArticleSelector"
+      @close="goToTranslationConfirmer"
     />
     <section class="sx-section-selector__body">
       <sx-article-language-selector />
       <sx-section-selector-section-list-missing
         :suggestion="suggestion"
         @select-section="selectSection"
-        @close="goToArticleSelector"
+        @close="goToTranslationConfirmer"
       />
       <sx-section-selector-section-list-present
         :suggestion="suggestion"
@@ -126,8 +126,8 @@ export default {
     }
   },
   methods: {
-    goToArticleSelector() {
-      this.$router.push({ name: "sx-article-selector" });
+    goToTranslationConfirmer() {
+      this.$router.push({ name: "sx-translation-confirmer" });
     },
     selectSection(sourceSectionTitle) {
       this.$store.dispatch("application/selectPageSection", {

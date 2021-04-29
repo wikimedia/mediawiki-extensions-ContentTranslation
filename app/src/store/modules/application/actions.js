@@ -79,7 +79,7 @@ async function initializeDashboardContext({ dispatch, state }) {
  */
 function startSectionTranslation({ commit, dispatch }, suggestion) {
   dispatch("initializeSectionTranslation", suggestion);
-  router.push({ name: "sx-article-selector" });
+  router.push({ name: "sx-translation-confirmer" });
 }
 
 /**

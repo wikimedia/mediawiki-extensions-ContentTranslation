@@ -1,5 +1,5 @@
 import Dashboard from "./Dashboard.vue";
-import SXArticleSelector from "./SXArticleSelector";
+import SXTranslationConfirmer from "./SXTranslationConfirmer";
 import SXSectionSelector from "./SXSectionSelector";
 import SXContentComparator from "./SXContentComparator";
 import SXSentenceSelector from "./SXSentenceSelector";
@@ -9,7 +9,7 @@ import SXPublisher from "./SXPublisher";
 import SXArticleSearch from "./SXArticleSearch";
 export {
   Dashboard,
-  SXArticleSelector,
+  SXTranslationConfirmer,
   SXSectionSelector,
   SXContentComparator,
   SXSentenceSelector,

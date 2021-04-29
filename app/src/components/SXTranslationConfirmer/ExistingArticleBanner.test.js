@@ -8,10 +8,11 @@ const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 
-describe("SXArticleSelector Existing Translation Banner Navigation test", () => {
+describe("SXTranslationConfirmer Existing Translation Banner Navigation test", () => {
   const sectionSuggestion = new SectionSuggestion({
     targetLanguage: "en",
-    targetTitle: "Test target title"
+    targetTitle: "Test target title",
+    missing: {}
   });
   const mediawikiModule = {
     namespaced: true,

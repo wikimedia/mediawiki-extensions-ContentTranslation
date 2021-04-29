@@ -1,7 +1,10 @@
 <template>
-  <section class="sx-article-selector__body">
+  <section class="sx-translation-confirmer__body pa-4">
     <existing-article-banner />
-    <mw-row class="sx-article-selector__action pt-4 pb-3" justify="center">
+    <mw-row
+      class="sx-translation-confirmer__action pt-5 pb-2 ma-0"
+      justify="center"
+    >
       <mw-button
         :large="true"
         :progressive="true"
@@ -10,15 +13,6 @@
         @click="onSectionSelectorClick()"
       />
     </mw-row>
-    <mw-row
-      v-if="missingSectionsCount"
-      v-i18n:cx-sx-missing-section-stats="[
-        missingSectionsCount,
-        targetLanguageAutonym
-      ]"
-      justify="center"
-      class="sx-article-selector__action pb-2 mb-4"
-    />
   </section>
 </template>
 

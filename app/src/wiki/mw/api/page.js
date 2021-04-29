@@ -4,6 +4,12 @@ import segmentedContentConverter from "../../../utils/segmentedContentConverter"
 import { siteMapper, getUserCoordinates } from "../../../utils/mediawikiHelper";
 
 /**
+ * Default size for thumbnail images in pixels
+ * @type {number}
+ */
+const defaultThumbnailSize = 80;
+
+/**
  * Fetches metadata information for pages for the corresponding titles and language
  * and returns a promise that resolves to an array of Page objects
  * @param language
@@ -18,7 +24,7 @@ const fetchPages = (language, titles) => {
     prop: "info|pageprops|pageimages|description|pageviews|langlinkscount",
     pvipdays: 7, // Last 7 days page views
     piprop: "thumbnail|name|original",
-    pithumbsize: 80,
+    pithumbsize: defaultThumbnailSize,
     titles: titles.join("|"),
     lllimit: 500, // Max limit
     origin: "*",
@@ -176,7 +182,7 @@ const fetchNearbyPages = async language => {
     prop: ["pageimages", "description", "langlinks", "langlinkscount"],
     generator: "geosearch",
     piprop: "thumbnail",
-    pithumbsize: 80,
+    pithumbsize: defaultThumbnailSize,
     lllang: language,
     ggscoord: coords,
     ggsradius: 1000, // Search radius in meters
@@ -214,7 +220,7 @@ const searchPagesByTitlePrefix = (query, language) => {
     gpssearch: titleQuery,
     prop: "pageimages|description|langlinkscount",
     piprop: "thumbnail",
-    pithumbsize: 80,
+    pithumbsize: defaultThumbnailSize,
     pilimit: 10,
     format: "json",
     formatversion: 2,

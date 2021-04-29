@@ -1,15 +1,17 @@
-import SXArticleSelectorHeader from "./SXArticleSelectorHeader";
+import SXTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
 import { mount, createLocalVue } from "@vue/test-utils";
 import Page from "../../wiki/mw/models/page";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
+import colors from "../../lib/mediawiki.ui/plugins/colors";
 
 const localVue = createLocalVue();
 localVue.use(VueBananaI18n);
 localVue.use(Vuex);
+localVue.use(colors);
 
-describe("SXArticleSelector Header test", () => {
+describe("SXTranslationConfirmerArticleInformation test", () => {
   const sourceArticle = new Page({
     thumbnail: { source: "test_thumbnail.png" },
     langLinksCount: 100,
@@ -26,7 +28,7 @@ describe("SXArticleSelector Header test", () => {
   const store = new Vuex.Store({
     modules: { application: applicationModule }
   });
-  const wrapper = mount(SXArticleSelectorHeader, {
+  const wrapper = mount(SXTranslationConfirmerArticleInformation, {
     localVue,
     store
   });

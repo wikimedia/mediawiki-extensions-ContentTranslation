@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import {
   Dashboard,
-  SXArticleSelector,
+  SXTranslationConfirmer,
   SXSectionSelector,
   SXContentComparator,
   SXSentenceSelector,
@@ -31,8 +31,8 @@ const routes = [
   },
   {
     path: "/sx",
-    name: "sx-article-selector",
-    component: SXArticleSelector,
+    name: "sx-translation-confirmer",
+    component: SXTranslationConfirmer,
     params: true,
     meta: { workflowStep: 1 }
   },

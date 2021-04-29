@@ -1,29 +1,31 @@
 <template>
-  <section>
+  <section v-if="!!sectionSuggestion.missingSectionsCount" class="mt-1">
     <mw-row
-      class="sx-article-selector__translation-status pa-4 ma-0"
+      class="sx-translation-confirmer__translation-status ma-0 pb-2"
       justify="between"
     >
-      <!-- Font weight bold -->
       <mw-col
         v-i18n:cx-sx-existing-translation-status="[targetLanguageAutonym]"
+        tag="h5"
+        class="ma-0 pe-2"
       />
       <mw-col shrink>
-        <a v-i18n:cx-sx-view-translation-anchor :href="targetArticlePath" />
+        <a :href="targetArticlePath">
+          <mw-icon
+            :icon="mwIconLinkExternal"
+            size="16"
+            :icon-color="$mwui.colors.base30"
+          />
+        </a>
       </mw-col>
     </mw-row>
-    <mw-row class="pa-4 pb-0 ma-0">
+    <mw-row class="ma-0">
       <mw-col>
         <span
           v-i18n:cx-sx-existing-translation-additional-info="[
-            targetLanguageAutonym
+            `&quot;${firstMissingSection}&quot;`,
+            sectionSuggestion.missingSectionsCount - 1
           ]"
-        />
-        &nbsp;
-        <a
-          v-i18n:cx-sx-existing-translation-learn-more
-          target="_blank"
-          href="https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Section_translation"
         />
       </mw-col>
     </mw-row>
@@ -31,18 +33,19 @@
 </template>
 
 <script>
-import { MwCol, MwRow } from "@/lib/mediawiki.ui";
+import { MwCol, MwRow, MwIcon } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
 import autonymMixin from "@/mixins/autonym";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 
 export default {
   name: "ExistingArticleBanner",
-  components: {
-    MwRow,
-    MwCol
-  },
+  components: { MwRow, MwCol, MwIcon },
   mixins: [autonymMixin],
+  data: () => ({
+    mwIconLinkExternal
+  }),
   computed: {
     ...mapState({
       sectionSuggestion: state => state.application.currentSectionSuggestion
@@ -53,15 +56,9 @@ export default {
         vm.sectionSuggestion.targetTitle || ""
       ),
     targetLanguageAutonym: vm =>
-      vm.getAutonym(vm.sectionSuggestion.targetLanguage)
+      vm.getAutonym(vm.sectionSuggestion.targetLanguage),
+    firstMissingSection: vm =>
+      Object.keys(vm.sectionSuggestion.missingSections)[0]
   }
 };
 </script>
-
-<style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-
-.sx-article-selector__translation-status {
-  background-color: @background-color-warning--framed;
-}
-</style>
