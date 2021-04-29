@@ -45,10 +45,11 @@ export default {
     ),
   /**
    * This getter returns the first (by order of appearance) appendix section
-   * title found inside target article page, in english. Appendix section title
-   * mappings from english to other languages are stored in appendixSectionTitles
-   * state variable. Such titles are "References" and similar section titles.
+   * title found inside target article page. Appendix section titles for each
+   * language are stored in appendixSectionTitles state variable.
+   * Such titles are "References" and similar section titles.
    * If none such section is found, it returns null
+   *
    * @param {Object} state
    * @return {function(SectionSuggestion): {String|null}}
    */

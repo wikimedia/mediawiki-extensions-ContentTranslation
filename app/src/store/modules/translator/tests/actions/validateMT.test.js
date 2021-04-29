@@ -35,13 +35,13 @@ describe("vuex store validateMT action", () => {
     application: applicationState
   };
 
-  it("validateMT action with validation score = 99", async () => {
+  it("validateMT action with validation score = 99", () => {
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(dispatch).toHaveBeenCalledTimes(0);
     expect(isValid).toBe(true);
   });
 
-  it("validateMT action with validation score = 10", async () => {
+  it("validateMT action with validation score = 10", () => {
     applicationState.currentSourceSection.id = "test1";
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(isValid).toBe(false);
@@ -63,7 +63,7 @@ describe("vuex store validateMT action", () => {
     );
   });
 
-  it("validateMT action with validation score = 3", async () => {
+  it("validateMT action with validation score = 3", () => {
     applicationState.currentSourceSection.id = "test2";
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(isValid).toBe(false);
