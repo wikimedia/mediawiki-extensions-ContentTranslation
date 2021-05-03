@@ -24,7 +24,7 @@ class Translator {
 	}
 
 	public function addTranslation( $translationId ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$dbw->replace(
 			'cx_translators',
 			[ [ 'translator_user_id', 'translator_translation_id' ] ],
@@ -37,7 +37,7 @@ class Translator {
 	}
 
 	public static function removeTranslation( $translationId ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_translators',
 			[ 'translator_translation_id' => $translationId ],

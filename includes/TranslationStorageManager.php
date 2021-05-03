@@ -70,7 +70,7 @@ class TranslationStorageManager {
 	 * @param int|int[] $translationId
 	 */
 	public static function deleteTranslationData( $translationId ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$conditions = [
 			'cxc_translation_id' => $translationId,
@@ -87,7 +87,7 @@ class TranslationStorageManager {
 	 * @param int $batchSize
 	 */
 	public static function deleteTranslationDataGently( $ids, $batchSize = 1000 ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$table = 'cx_corpora';
 		$conditions = [ 'cxc_translation_id' => $ids ];
@@ -114,7 +114,7 @@ class TranslationStorageManager {
 	 * @param bool $newTranslation Whether these are for a brand new Translation record
 	 */
 	public static function save( TranslationUnit $translationUnit, $newTranslation ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$fname = __METHOD__;
 
 		$dbw->doAtomicSection(

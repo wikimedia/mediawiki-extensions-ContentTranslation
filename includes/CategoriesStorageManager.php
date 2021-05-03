@@ -96,7 +96,7 @@ class CategoriesStorageManager {
 	public static function save(
 		$translationId, $sourceCategories, $targetCategories, $newTranslation
 	) {
-		$db = Database::getConnection( DB_MASTER );
+		$db = Database::getConnection( DB_PRIMARY );
 
 		$db->doAtomicSection(
 			__METHOD__,
@@ -126,7 +126,7 @@ class CategoriesStorageManager {
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {
-		$db = Database::getConnection( DB_MASTER );
+		$db = Database::getConnection( DB_PRIMARY );
 
 		$conditions = [ 'cxc_translation_id' => $translationId ] + self::$CATEGORIES_SECTION;
 

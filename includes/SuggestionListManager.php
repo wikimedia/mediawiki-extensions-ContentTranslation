@@ -10,7 +10,7 @@ class SuggestionListManager {
 	 * @return int Id of the list.
 	 */
 	public function insertList( SuggestionList $list ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$values = [
 			'cxl_id' => $list->getId(),
 			'cxl_owner' => $list->getOwner(),
@@ -34,7 +34,7 @@ class SuggestionListManager {
 	}
 
 	public function deleteList( $id ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_suggestions',
 			[
@@ -56,7 +56,7 @@ class SuggestionListManager {
 			return;
 		}
 
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_suggestions',
 			[
@@ -184,7 +184,7 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function addSuggestions( array $suggestions ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
@@ -221,7 +221,7 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function removeSuggestions( array $suggestions ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		foreach ( $suggestions as $suggestion ) {
 			$values = [

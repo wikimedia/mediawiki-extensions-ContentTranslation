@@ -255,7 +255,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
 
 			if ( !$user ) {
-				$titles = array_map( function ( $d ) {
+				$titles = array_map( static function ( $d ) {
 					return $d->translation_source_title;
 				}, $drafts );
 
@@ -288,7 +288,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	private function logLastNotifiedDraft( $lastDraft ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 		$dt = new DateTime();
 
 		$values = [

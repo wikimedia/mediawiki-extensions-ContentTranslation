@@ -18,7 +18,7 @@ class Translation {
 	}
 
 	public function create( Translator $translator ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$table = 'cx_translations';
 
@@ -62,7 +62,7 @@ class Translation {
 	 * @param Translator $translator
 	 */
 	public function update( ?array $options, Translator $translator ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$table = 'cx_translations';
 
@@ -232,7 +232,7 @@ class Translation {
 	}
 
 	public static function delete( $translationId ) {
-		$dbw = Database::getConnection( DB_MASTER );
+		$dbw = Database::getConnection( DB_PRIMARY );
 
 		$dbw->update(
 			'cx_translations',

@@ -32,7 +32,7 @@ class ApiContentTranslationSave extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( Database::getConnection( DB_MASTER )->isReadOnly() ) {
+		if ( Database::getConnection( DB_PRIMARY )->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

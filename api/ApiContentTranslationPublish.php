@@ -243,7 +243,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				$tags = $this->getTags( $params );
 				// Add the tags post-send, after RC row insertion
 				$revId = intval( $saveresult['edit']['newrevid'] );
-				DeferredUpdates::addCallableUpdate( function () use ( $revId, $tags ) {
+				DeferredUpdates::addCallableUpdate( static function () use ( $revId, $tags ) {
 					ChangeTags::addTags( $tags, null, $revId, null );
 				} );
 			}
