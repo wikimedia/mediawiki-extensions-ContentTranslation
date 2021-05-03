@@ -393,5 +393,8 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ve diğer $2 tane eksik|0=eksik}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Çeviriniz %$1 değiştirilmemiş metin içeriyor",
 	"cx-sx-publisher-mt-abuse-message-body": "Makine çevirisi sadece bir başlangıçtır. Bu şekilde yayımlayabilirsiniz, ancak çevirinizin dilinizde doğal bir şekilde okunabildiğinden emin olun.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 bölüm|$1 bölüm|0=Bölüm yok}}"
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 bölüm|$1 bölüm|0=Bölüm yok}}",
+	"cx-sx-article-search-input-placeholder": "Çevirmek için bir sayfa arayın",
+	"cx-sx-article-search-recently-edited-title": "Son zamanlarda sizin tarafınızdan düzenlendi",
+	"cx-sx-article-search-nearby-title": "Yakındakiler"
 }

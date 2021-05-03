@@ -15,6 +15,7 @@
 			"Duolaimi",
 			"Endermoon",
 			"Fengchao",
+			"Grace03",
 			"Hanyanbo98",
 			"JerryLiu",
 			"Kuailong",
@@ -325,5 +326,8 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "跳过",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "原始消息",
 	"cx-sx-content-comparator-content-header-translate-button-label": "翻译",
-	"cx-sx-editor-original-panel-label": "原始消息"
+	"cx-sx-editor-original-panel-label": "原始消息",
+	"cx-sx-article-search-input-placeholder": "搜索要翻译的页面",
+	"cx-sx-article-search-recently-edited-title": "最近由你编辑",
+	"cx-sx-article-search-nearby-title": "附件"
 }

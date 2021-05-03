@@ -361,5 +361,8 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 anmò inn mancant|0=mancant}}",
 	"cx-sx-publisher-mt-abuse-message-title": "La toa traduzzion la gh'ha denter el $1% de test minga modifegad",
 	"cx-sx-publisher-mt-abuse-message-body": "La traduzzion in automatich l'è domà un pont de partenza. Te podet metela foeura, ma prima sicuress che la toa traduzzion la sia legibil in manera natural in la toa lengua.",
-	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezzion|0=Nissuna sezzion}}"
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezzion|0=Nissuna sezzion}}",
+	"cx-sx-article-search-input-placeholder": "Cerca una pagina de tradù",
+	"cx-sx-article-search-recently-edited-title": "Modifegada de recent de tì",
+	"cx-sx-article-search-nearby-title": "Chì adree"
 }
