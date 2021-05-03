@@ -1,4 +1,16 @@
+/**
+ * Model representing an article suggestion for translation.
+ */
 export default class ArticleSuggestion {
+  /**
+   * @param {Object} options
+   * @param {string} options.sourceLanguage
+   * @param {string} options.targetLanguage
+   * @param {string} options.sourceTitle
+   * @param {string} [options.targetTitle]
+   * @param {number} options.langLinksCount
+   * @param {string} options.wikidataId
+   */
   constructor({
     sourceLanguage,
     targetLanguage,
@@ -6,7 +18,7 @@ export default class ArticleSuggestion {
     targetTitle,
     langLinksCount,
     wikidataId
-  } = {}) {
+  }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.sourceTitle = sourceTitle;
@@ -15,6 +27,9 @@ export default class ArticleSuggestion {
     this.langLinksCount = langLinksCount;
   }
 
+  /**
+   * @returns {string}
+   */
   get id() {
     return `${this.sourceLanguage}/${this.targetLanguage}/${this.sourceTitle}`;
   }

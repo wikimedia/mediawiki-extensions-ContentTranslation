@@ -2,13 +2,18 @@ const ORIGINAL_TEXT_PROVIDER_KEY = "original";
 const EMPTY_TEXT_PROVIDER_KEY = "empty";
 
 export default class MTProviderGroup {
-  constructor(sourceLanguage, targetLanguage, providers) {
+  /**
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
+   * @param {string[]} providers
+   */
+  constructor(sourceLanguage, targetLanguage, providers = []) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.providers = [
-      ...(providers || []),
-      this.constructor.ORIGINAL_TEXT_PROVIDER_KEY,
-      this.constructor.EMPTY_TEXT_PROVIDER_KEY
+      ...providers,
+      ORIGINAL_TEXT_PROVIDER_KEY,
+      EMPTY_TEXT_PROVIDER_KEY
     ];
   }
 

@@ -8,6 +8,13 @@ import SubSection from "../../cx/models/subSection";
  * as provided by cx server's content segmentation action.
  */
 export default class PageSection {
+  /**
+   * Creates an instance of PageSection.
+   * @param {Object} options
+   * @param {string} [options.id]
+   * @param {string} [options.title]
+   * @param {SubSection[]} [options.subSections]
+   */
   constructor({ id, title = null, subSections = [] } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
@@ -15,17 +22,22 @@ export default class PageSection {
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
     };
     this.translatedTitle = "";
-    /** @type SubSection[] **/
     this.subSections = subSections;
     this.editedTranslation = null;
   }
 
+  /**
+   * @return {string}
+   */
   get originalTitle() {
     return this.proposedTitleTranslations[
       MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
     ];
   }
 
+  /**
+   * @return {string}
+   */
   get title() {
     return this.translatedTitle || this.originalTitle;
   }
@@ -41,6 +53,9 @@ export default class PageSection {
     );
   }
 
+  /**
+   * @return {string}
+   */
   get html() {
     return this.subSections.reduce(
       (htmlContent, subSection) => htmlContent + subSection.originalHtml,
@@ -48,6 +63,9 @@ export default class PageSection {
     );
   }
 
+  /**
+   * @return {string}
+   */
   get translationHtml() {
     return (
       this.editedTranslation ||
@@ -65,7 +83,7 @@ export default class PageSection {
    * Given an MT provider this method returns the proposed
    * translation of the PageSection as an HTML string
    * @param mtProvider
-   * @return {String}
+   * @return {string}
    */
   getProposedTranslationHtml(mtProvider) {
     return this.subSections.reduce(
@@ -75,6 +93,9 @@ export default class PageSection {
     );
   }
 
+  /**
+   * @return {boolean}
+   */
   get isTranslated() {
     return this.subSections.some(subSection => subSection.isTranslated);
   }

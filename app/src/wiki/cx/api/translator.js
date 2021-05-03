@@ -159,7 +159,7 @@ const publishTranslation = ({
   return api
     .postWithToken("csrf", params)
     .then(() => {
-      return new PublishResult();
+      return new PublishResult({ result: "success" });
     })
     .catch((error, details) => {
       if (details.exception) {

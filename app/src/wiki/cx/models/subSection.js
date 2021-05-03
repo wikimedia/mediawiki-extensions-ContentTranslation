@@ -7,9 +7,13 @@ import SectionSentence from "./sectionSentence";
  * segmentation action.
  */
 export default class SubSection {
-  constructor({ sentences, node } = {}) {
+  /**
+   * @param {Object} options
+   * @param {SectionSentence[]} options.sentences
+   * @param {HTMLElement} options.node
+   */
+  constructor({ sentences, node }) {
     this.id = node.id;
-    /** @type SectionSentence[] **/
     this.sentences = sentences;
     this.node = node;
   }

@@ -7,7 +7,13 @@
  * response or by MT validation.
  */
 export default class PublishFeedbackMessage {
-  constructor({ text = null, title = null, suppressed = false } = {}) {
+  /**
+   * @param {Object} options
+   * @param {string} [options.text]
+   * @param {string} [options.title]
+   * @param {boolean} [options.suppressed]
+   */
+  constructor({ text = null, title = null, suppressed = false }) {
     this.text = text;
     this.title = title;
     this.suppressed = suppressed;

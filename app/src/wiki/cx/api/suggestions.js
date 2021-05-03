@@ -22,7 +22,7 @@ async function fetchSuggestions(
     apiModule += `/${seedArticleTitle}`;
   }
   const apiURL = siteMapper.getRestbaseUrl(targetLanguage, apiModule);
-  const params = new URLSearchParams({ count });
+  const params = new URLSearchParams({ count: `${count}` });
 
   const response = await fetch(`${apiURL}?${params}`);
   if (!response.ok) {
@@ -38,7 +38,7 @@ async function fetchSuggestions(
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
-        langLinksCount: item.sitelink_count
+        langLinksCount: parseInt(item.sitelink_count)
       })
   );
 }
