@@ -1,12 +1,12 @@
-import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import mtValidator from "../../../utils/mtValidator";
-import PublishResult from "../../../wiki/cx/models/publishResult";
-import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import {
   calculateHtmlToPublish,
   calculateNewSectionNumber,
   getTitleForPublishOption
 } from "../../../utils/publishHelper";
+import cxTranslatorApi from "../../../wiki/cx/api/translator";
+import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
+import PublishResult from "../../../wiki/cx/models/publishResult";
 
 /**
  * This action validates application/currentSourceSection model
@@ -22,7 +22,7 @@ import {
  * @param {function} context.dispatch
  * @return {boolean}
  */
-const validateMT = ({ rootState, dispatch }) => {
+function validateMT({ rootState, dispatch }) {
   /** @var {PageSection} */
   const section = rootState.application.currentSourceSection;
   /**
@@ -79,7 +79,7 @@ const validateMT = ({ rootState, dispatch }) => {
   }
 
   return true;
-};
+}
 
 /**
  * This action validates application/currentSourceSection for MT abuse
@@ -95,7 +95,7 @@ const validateMT = ({ rootState, dispatch }) => {
  * @param {object} context.rootGetters
  * @return {Promise<void>}
  */
-const publishTranslation = async ({ rootState, dispatch, rootGetters }) => {
+async function publishTranslation({ rootState, dispatch, rootGetters }) {
   /**
    * Validate currentSourceSection against MT abuse
    * @type {boolean}
@@ -203,35 +203,37 @@ const publishTranslation = async ({ rootState, dispatch, rootGetters }) => {
   });
 
   dispatch("application/setPublishResult", publishResult, { root: true });
-};
+}
+
+async function fetchTranslations({ commit, dispatch, state }) {
+  // If translations have already been fetched, then skip
+  if (state.translations.length) {
+    return;
+  }
+  /** @type {Translation[]} */
+  const translations = await cxTranslatorApi.fetchTranslations();
+  translations.forEach(translation => commit("addTranslation", translation));
+
+  const queue = translations.reduce((queue, translation) => {
+    const language = translation.sourceLanguage;
+    queue[language] = queue[language] || [];
+    queue[language].push(translation.sourceTitle);
+
+    return queue;
+  }, {});
+  commit("setTranslationsLoaded", true);
+
+  Object.keys(queue).forEach(sourceLanguage => {
+    dispatch(
+      "mediawiki/fetchPageMetadata",
+      { language: sourceLanguage, titles: queue[sourceLanguage] },
+      { root: true }
+    );
+  });
+}
 
 export default {
   validateMT,
   publishTranslation,
-  async fetchTranslations({ commit, dispatch, state }) {
-    // If translations have already been fetched, then skip
-    if (state.translations.length) {
-      return;
-    }
-    /** @type {Translation[]} */
-    const translations = await cxTranslatorApi.fetchTranslations();
-    translations.forEach(translation => commit("addTranslation", translation));
-
-    const queue = translations.reduce((queue, translation) => {
-      const language = translation.sourceLanguage;
-      queue[language] = queue[language] || [];
-      queue[language].push(translation.sourceTitle);
-
-      return queue;
-    }, {});
-    commit("setTranslationsLoaded", true);
-
-    Object.keys(queue).forEach(sourceLanguage => {
-      dispatch(
-        "mediawiki/fetchPageMetadata",
-        { language: sourceLanguage, titles: queue[sourceLanguage] },
-        { root: true }
-      );
-    });
-  }
+  fetchTranslations
 };
