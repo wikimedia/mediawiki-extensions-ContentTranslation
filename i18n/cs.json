@@ -24,6 +24,7 @@
 			"Utar",
 			"Vojtěch Dostál",
 			"Walter Klosse",
+			"Want",
 			"YjM",
 			"Петар Петковић"
 		]
@@ -282,5 +283,6 @@
 	"cx-feature-discovery-content": "Můžete začít nebo pokračovat v překladu kdykoliv ze stránky {{int: mycontris}}",
 	"cx-feature-discovery-dismiss": "Dobře, chápu",
 	"cx-sx-content-comparator-present-section-placeholder-title": "Váš překlad bude přidán sem",
-	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Při publikování se můžete místo toho rozhodnout nahradit stávající obsah."
+	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Při publikování se můžete místo toho rozhodnout nahradit stávající obsah.",
+	"cx-sx-article-search-input-placeholder": "Vyhledat stránku k překladu"
 }

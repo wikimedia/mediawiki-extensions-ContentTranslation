@@ -139,7 +139,7 @@
 	"cx-save-draft-save-success": "Salvo {{PLURAL:$1|há um minuto|há $1 minutos|0=agora}}",
 	"cx-save-draft-saving": "Salvando…",
 	"cx-save-draft-shortcut-label": "Gravar rascunho",
-	"cx-save-draft-tooltip": "Esboços de tradução são salvos automaticamente",
+	"cx-save-draft-tooltip": "Rascunhos de tradução são salvos automaticamente",
 	"cx-save-draft-error": "Ocorreu um erro ao salvar a página.",
 	"cx-contributions-new-contributions": "Nova contribuição",
 	"cx-contributions-new-article": "Nova página",
@@ -384,6 +384,7 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 mais estão faltando|0=está faltando}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Sua tradução contém $1% de texto não modificado",
 	"cx-sx-publisher-mt-abuse-message-body": "A tradução automática é apenas um ponto de partida. Você ainda pode publicar, mas certifique-se de que sua tradução seja lida naturalmente em seu idioma.",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 seção|$1 seções|0=Sem seções}}",
 	"cx-sx-article-search-input-placeholder": "Procurar uma página para traduzir",
 	"cx-sx-article-search-recently-edited-title": "Editado recentemente por você",
 	"cx-sx-article-search-nearby-title": "Próximo"
