@@ -140,5 +140,6 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Modificar la traduccion",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Aplicar",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Article complet en $1",
-	"cx-sx-content-comparator-mapped-section-header-title": "Present en $1"
+	"cx-sx-content-comparator-mapped-section-header-title": "Present en $1",
+	"cx-sx-article-search-nearby-title": "A proximitat"
 }

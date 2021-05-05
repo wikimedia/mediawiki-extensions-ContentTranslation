@@ -4,6 +4,7 @@
 			"Amire80",
 			"Fitoschido",
 			"Gamliel Fishkin",
+			"Jakub Fabijan",
 			"KuboF",
 			"Lucas",
 			"Macofe",
@@ -246,5 +247,6 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "Preterpasi",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduki",
 	"cx-sx-publisher-review-info-learn-more": "Lerni plu",
-	"cx-sx-followup-feedback-new-indicator": "nova"
+	"cx-sx-followup-feedback-new-indicator": "nova",
+	"cx-sx-article-search-input-placeholder": "Serĉi paĝon por traduki"
 }
