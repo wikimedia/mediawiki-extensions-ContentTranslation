@@ -8,6 +8,7 @@
     <visual-editor
       :content="content"
       :language="language"
+      :title="title"
       @ready="onEditorReady"
       @close="closeEditor"
       @edit-completed="onEditCompleted"
@@ -38,6 +39,7 @@ export default {
   computed: {
     content: vm => vm.$route.params.content,
     language: vm => vm.$route.params.language,
+    title: vm => vm.$route.params.title,
     originalContent: vm => vm.$route.params.originalContent,
     isFinal: vm => !!vm.$route.params.isFinalEdit
   },

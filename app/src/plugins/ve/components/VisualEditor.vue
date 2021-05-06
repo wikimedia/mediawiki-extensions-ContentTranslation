@@ -21,6 +21,10 @@ export default {
       type: String,
       required: true
     },
+    title: {
+      type: String,
+      required: true
+    },
     dir: {
       type: String,
       default: "auto"
@@ -45,6 +49,7 @@ export default {
         onBack: this.closeEditor,
         onNext: this.onNext,
         language: this.language,
+        title: this.title,
         siteMapper: new mw.cx.SiteMapper()
       };
     }

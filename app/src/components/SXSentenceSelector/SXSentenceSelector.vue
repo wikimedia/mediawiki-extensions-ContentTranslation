@@ -78,7 +78,6 @@ import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
 
-import { loadVEModules } from "@/plugins/ve";
 import TranslatedSegmentCard from "./TranslatedSegmentCard";
 
 export default {
@@ -131,9 +130,6 @@ export default {
     await this.$store.dispatch("application/initializeMTProviders");
     this.$store.dispatch("application/selectInitialTranslationSegment");
     this.screenHeight = window.innerHeight;
-    // Start loading VE in background. Don't wait for it though.
-    // We anticipate that user is going to use editor in next step.
-    loadVEModules();
   },
   methods: {
     ...mapActions({
@@ -164,7 +160,8 @@ export default {
         params: {
           content,
           language: this.suggestion.targetLanguage,
-          originalContent: this.originalSegmentContent
+          originalContent: this.originalSegmentContent,
+          title: this.suggestion.targetTitle
         }
       });
     },

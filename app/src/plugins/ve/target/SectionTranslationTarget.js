@@ -50,6 +50,16 @@ SectionTranslationTarget.prototype.getContentApi = function(doc, options) {
 };
 
 /**
+ * Get the page name associated with a specific document
+ *
+ * @param {ve.dm.Document} [doc] Document, defaults to current surface's
+ * @return {string} Page name
+ */
+SectionTranslationTarget.prototype.getPageName = function() {
+  return this.config.title;
+};
+
+/**
  * @inheritdoc
  */
 SectionTranslationTarget.prototype.loadFail = function(code, errorDetails) {

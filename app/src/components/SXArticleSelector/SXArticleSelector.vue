@@ -19,6 +19,7 @@ import ExistingArticleBody from "./ExistingArticleBody";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxArticleSelectorHeader from "./SXArticleSelectorHeader";
 import { getUrl } from "@/utils/mediawikiHelper";
+import { loadVEModules } from "@/plugins/ve";
 
 export default {
   name: "SxArticleSelector",
@@ -33,6 +34,9 @@ export default {
     this.$store.dispatch(
       "application/fetchCurrentSectionSuggestionLanguageTitles"
     );
+    // Start loading VE in background. Don't wait for it though.
+    // We anticipate that user is going to use editor in next step.
+    loadVEModules();
   },
   methods: {
     onClose() {

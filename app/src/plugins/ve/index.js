@@ -8,6 +8,7 @@ export default VisualEditor;
 export function loadVEModules() {
   return mw.loader.using([
     "ext.visualEditor.targetLoader",
-    "ext.visualEditor.mobileArticleTarget"
+    "ext.visualEditor.mobileArticleTarget",
+    "ext.cite.visualEditor"
   ]);
 }

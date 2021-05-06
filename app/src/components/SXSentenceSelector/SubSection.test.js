@@ -1,43 +1,58 @@
 import { createLocalVue, mount } from "@vue/test-utils";
-import SubSection from "./SubSection";
-import Vue from "vue";
-import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
+import Vuex from "vuex";
+import segmentedContentConverter from "../../utils/segmentedContentConverter";
 import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
-import segmentedContentConverter from "@/utils/segmentedContentConverter";
+import SubSection from "./SubSection";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
-const subSectionHtml = `
-<html>
-  <body>
-    <section data-mw-section-number="3" id="cxSourceSection17" rel="cx:Section">
-      <h2>
-        <span class="cx-segment" data-segmentid="89">Test title</span>
-      </h2>
-    </section>
-    <section id="cxSourceSection18" data-mw-section-number="3" rel="cx:Section">
-      <p id="mweA">
-        <span class="cx-segment" data-segmentid="109">
-          The Chinese competitive game as stated by FIFA, is the earliest form of
-          football for which there is scientific evidence and appears in a
-          military manual dated to the second and third centuries BC.
-        </span>
-        <span class="cx-segment" data-segmentid="111">
-          It existed during the Han dynasty and possibly the Qin dynasty, in the
-          second and third centuries BC.
-        </span>
-      </p>
-    </section>
-  </body>
-</html>
+const createSectionNode = (nodeHtml, id, sectionNumber) => {
+  const section = document.createElement("section");
+  section.setAttribute("id", id);
+  section.setAttribute("data-mw-section-number", sectionNumber);
+  section.setAttribute("rel", "cx:Section");
+  section.innerHTML = nodeHtml;
+
+  return section;
+};
+
+const nodeHtml1 = `
+  <h2>
+    <span class="cx-segment" data-segmentid="89">Test title</span>
+  </h2>
 `;
 
-const pageSections = segmentedContentConverter.convertSegmentedContentToPageSections(
-  subSectionHtml.trim()
-);
+const nodeHtml2 = `
+  <p id="mweA">
+    <span class="cx-segment" data-segmentid="109">
+      The Chinese competitive game as stated by FIFA, is the earliest form of
+      football for which there is scientific evidence and appears in a
+      military manual dated to the second and third centuries BC.
+    </span>
+    <span class="cx-segment" data-segmentid="111">
+      It existed during the Han dynasty and possibly the Qin dynasty, in the
+      second and third centuries BC.
+    </span>
+  </p>
+`;
+
+const mockNodes = [
+  createSectionNode(nodeHtml1, "cxSourceSection17", 3),
+  createSectionNode(nodeHtml2, "cxSourceSection18", 3)
+];
+
+jest.mock("../../utils/visualEditorHelper", () => ({
+  __esModule: true, // this property makes it work
+  getSubSectionNodes: jest.fn(html => mockNodes)
+}));
+
 describe("SXSentenceSelector SubSection component", () => {
+  const htmlContent = "Dummy (unused) HTML Content";
+  const pageSections = segmentedContentConverter.convertSegmentedContentToPageSections(
+    htmlContent
+  );
   /** @type SubSection **/
   const subSection = pageSections[0].subSections[0];
   const applicationModule = {
