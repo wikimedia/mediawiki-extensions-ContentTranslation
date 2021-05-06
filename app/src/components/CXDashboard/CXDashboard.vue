@@ -115,6 +115,11 @@ export default {
     if (isSectionTranslation) {
       this.active = "suggestions";
     }
+    this.$logEvent({
+      event_type: "dashboard_open",
+      event_source: "direct",
+      content_translation_session_position: 0
+    });
   },
   created: function() {
     this.$store.dispatch("application/initializeDashboardContext");

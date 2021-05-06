@@ -7,8 +7,10 @@ import router from "./router";
 import i18n from "vue-banana-i18n";
 import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
 import i18nDirective from "./directives/i18n.safe";
+import EventLoggingPlugin from "./plugins/eventlogging";
 Vue.use(BreakpointsPlugin);
 Vue.use(ColorsPlugin);
+Vue.use(EventLoggingPlugin);
 
 const locale = mw.config.get("wgUserLanguage");
 const finalFallback = "en";

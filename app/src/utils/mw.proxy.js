@@ -29,6 +29,14 @@ class SiteMapper {
 
 const mw = {
   Api,
+  eventLog: {
+    submit: jest.fn()
+  },
+  user: {
+    sessionId: () => "test-session-id",
+    getName: () => "test-username",
+    isAnon: () => false
+  },
   util: {},
   config: {
     get: name => {
@@ -39,6 +47,14 @@ const mw = {
           return "en";
         case "wgPageName":
           return "Special:ContentTranslation";
+        case "wgDBname":
+          return "test-db";
+        case "skin":
+          return "minerva";
+        case "wgUserEditCount":
+          return 2021;
+        case "wgUserEditCountBucket":
+          return "1000+ edits";
         default:
           return null;
       }
