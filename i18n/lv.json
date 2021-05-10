@@ -352,5 +352,9 @@
 	"cx-sx-published-section-confirmation-content": "Tavs tulkojums tika publicēts. Apsver tālāku satura labošanu vai jaunas sadaļas pievienošanu.",
 	"cx-sx-published-section-invitation-title": "Tulkot citu sadaļu",
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst",
-	"cx-sx-publisher-mt-abuse-message-title": "Tavs tulkojums satur $1% nemainīta teksta"
+	"cx-sx-publisher-mt-abuse-message-title": "Tavs tulkojums satur $1% nemainīta teksta",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sadaļas|$1 sadaļa|$1 sadaļas|0=Nav sadaļu}}",
+	"cx-sx-article-search-input-placeholder": "Meklēt lapu, ko tulkot",
+	"cx-sx-article-search-recently-edited-title": "Nesen tevis laboti",
+	"cx-sx-article-search-nearby-title": "Tuvumā"
 }
