@@ -19,19 +19,23 @@ async function fetchTranslations(offset) {
     formatversion: 2,
     list: "contenttranslation"
   };
+
   if (offset) {
     params["offset"] = offset;
   }
 
   const api = new mw.Api();
+
   //   withCredentials: true
   return api.get(params).then(async response => {
     const apiResponse = response.query.contenttranslation.translations;
     let results = apiResponse.map(item => new Translation(item.translation));
+
     if (response.continue?.offset) {
       const restOfResults = await fetchTranslations(response.continue.offset);
       results = results.concat(restOfResults);
     }
+
     return results;
   });
 }
@@ -58,11 +62,13 @@ async function fetchSegmentTranslation(
     return;
   }
   let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
+
   if (provider !== MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY) {
     relativeUrl += `/${provider}`;
   }
 
   const cxserverAPI = siteMapper.getCXServerUrl(relativeUrl);
+
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json", Authorization: token },
     method: "POST",
@@ -101,9 +107,11 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
   };
 
   const api = siteMapper.getApi(language);
+
   try {
     // Sample request: https://en.wikipedia.org/w/api.php?action=parse&page=Oxygen&format=json&formatversion=2&section=2&disabletoc=true&disablelimitreport=true&disableeditsection=true&disablestylededuplication=true
     const response = await api.get(params);
+
     // Successful responses are always expected to contain "parse.text" path. Add checks anyway.
     return response?.parse?.text;
   } catch (error) {
@@ -171,6 +179,7 @@ const publishTranslation = ({
           status: details.statusText
         });
       }
+
       if (details.error) {
         return new PublishResult({
           result: "failure",
@@ -178,6 +187,7 @@ const publishTranslation = ({
           status: details.error.code
         });
       }
+
       // Unknown error
       return new PublishResult({
         result: "failure"

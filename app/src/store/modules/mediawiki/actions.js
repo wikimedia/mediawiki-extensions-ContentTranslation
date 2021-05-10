@@ -12,6 +12,7 @@ export default {
     titles = titles.filter(title => !getters.getPage(language, title));
 
     const chunkSize = 50;
+
     for (let i = 0; i < titles.length; i += chunkSize) {
       let titlesSubset = titles.slice(i, i + chunkSize);
       // Avoid async/await here, so that requests can be sent in parallel
@@ -65,6 +66,7 @@ export default {
     { sourceLanguage, targetLanguage, sourceTitle }
   ) {
     let page = getters.getPage(sourceLanguage, sourceTitle);
+
     if (!page) {
       page = await pageApi.fetchPageContent(
         sourceLanguage,
@@ -99,6 +101,7 @@ export default {
     { sourceLanguage, targetLanguage, sourceTitle }
   ) {
     const page = getters.getPage(sourceLanguage, sourceTitle);
+
     if (!page) {
       return;
     }
@@ -167,6 +170,7 @@ export default {
         {},
         { root: true }
       );
+
       return await translatorApi.fetchSegmentTranslation(
         sourceLanguage,
         targetLanguage,
@@ -193,6 +197,7 @@ export default {
    */
   async fetchNearbyPages({ commit, rootState, state }) {
     const { sourceLanguage } = rootState.application;
+
     if (state.nearbyPages[sourceLanguage]?.length) {
       return;
     }

@@ -89,6 +89,7 @@ export default {
       // in MobileFrontend. May require enhancement to a separate class.
       const overlay = this.$refs.sxeditor;
       overlay.$el = $(this.$refs.sxeditor);
+
       return overlay;
     },
     onTargetReady() {
@@ -108,6 +109,7 @@ export default {
   }
 };
 </script>
+
 <style lang="less">
 .visual-editor {
   .overlay-header .toolbar {

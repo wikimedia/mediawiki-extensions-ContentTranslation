@@ -12,14 +12,14 @@ export default {
   components: {
     SxEditor
   },
-  data: () => ({
-    fromRoute: ""
-  }),
   beforeRouteEnter(to, from, next) {
     next(vm => {
       vm.fromRoute = from.name;
     });
   },
+  data: () => ({
+    fromRoute: ""
+  }),
   computed: {
     classes: vm => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
   }

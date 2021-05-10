@@ -84,6 +84,7 @@ export default {
       0,
       rootState.suggestions.maxRecentlyEditedSuggestions
     );
+
     return translationsSlice.map(translation =>
       getters.getPage(sourceLanguage, translation.sourceTitle)
     );
@@ -98,6 +99,7 @@ export default {
    */
   getNearbyPages: (state, getters, rootState) => {
     const sourceLanguage = rootState.application.sourceLanguage;
+
     return state.nearbyPages[sourceLanguage];
   }
 };

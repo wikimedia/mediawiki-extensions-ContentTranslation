@@ -101,6 +101,7 @@ export default {
         success: mwIconCheck,
         error: mwIconError
       };
+
       return iconsMap[vm.type];
     }
   },

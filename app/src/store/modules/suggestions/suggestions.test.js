@@ -35,6 +35,7 @@ global.fetch = jest.fn(url => {
   const urlParams = url.replace("/suggest/sections/", "");
   const [sourceTitle, sourceLanguage, targetLanguage] = urlParams.split("/");
   const ok = sourceTitle !== "invalidSeedTitle";
+
   return Promise.resolve({
     ok,
     json: () =>

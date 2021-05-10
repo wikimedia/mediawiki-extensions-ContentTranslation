@@ -6,6 +6,7 @@ SXEditorBackCommand = function SXEditorBackCommand() {
   SXEditorBackCommand.super.call(this, "back");
 };
 OO.inheritClass(SXEditorBackCommand, ve.ui.Command);
+
 SXEditorBackCommand.prototype.execute = function() {
   ve.init.target.back();
 };

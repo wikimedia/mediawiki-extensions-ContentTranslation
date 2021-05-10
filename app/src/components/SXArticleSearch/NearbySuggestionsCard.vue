@@ -7,9 +7,7 @@
       <h5
         v-i18n:cx-sx-article-search-nearby-title
         class="ma-0 pb-1 sx-article-search__nearby-header"
-      >
-        Nearby
-      </h5>
+      ></h5>
     </template>
     <sx-search-article-suggestion
       v-for="suggestion in nearbyPages"

@@ -61,6 +61,7 @@ export default {
     sectionSuggestion => {
       const appendixTitles =
         state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
+
       return sectionSuggestion.targetSections.find(title =>
         appendixTitles.includes(title)
       );
@@ -87,6 +88,7 @@ export default {
     );
 
     const pageSize = state.maxSuggestionsPerSlice;
+
     return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
   }
 };

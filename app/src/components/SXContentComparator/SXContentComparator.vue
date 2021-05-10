@@ -87,6 +87,7 @@ export default {
       const firstAppendixTitle = this.getFirstAppendixTitleBySectionSuggestion(
         this.suggestion
       );
+
       if (firstAppendixTitle) {
         // Find first appendix section header element
         const matchedHeaders = Array.from(
@@ -104,6 +105,7 @@ export default {
         // append new section placeholder to the end of the target article
         contentDiv.appendChild(placeholderEl);
       }
+
       return contentDiv.innerHTML;
     },
     // Needed so that it can be easily watched
@@ -161,6 +163,7 @@ export default {
           isMappedSection: this.isCurrentSectionMapped
         }
       });
+
       return placeholderInstance.$mount().$el;
     },
     goToSectionSelector() {
@@ -169,6 +172,7 @@ export default {
     translateSection() {
       if (this.$store.getters["translator/hasSectionTranslations"]()) {
         this.goToSentenceSelector();
+
         return;
       }
       this.goToTutorial();

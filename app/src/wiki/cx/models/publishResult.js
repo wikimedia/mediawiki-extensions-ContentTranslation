@@ -63,9 +63,11 @@ export default class PublishResult {
     if (this.isSuccessful || (this.isWarning && !this.hasActiveMessages)) {
       return "default";
     }
+
     if (this.isWarning) {
       return "warning";
     }
+
     return "error";
   }
 }

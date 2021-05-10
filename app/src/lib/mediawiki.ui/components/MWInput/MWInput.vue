@@ -73,10 +73,6 @@ export default {
       type: String,
       default: null
     },
-    suggestion: {
-      type: [String, Number],
-      default: null
-    },
     selectAll: {
       type: Boolean,
       default: false
@@ -115,6 +111,7 @@ export default {
     focus() {
       const input = this.$refs.input;
       input.focus();
+
       if (this.selectAll) {
         input.setSelectionRange(0, input.value.length);
       }

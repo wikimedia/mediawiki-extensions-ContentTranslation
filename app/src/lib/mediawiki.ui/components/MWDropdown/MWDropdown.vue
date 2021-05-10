@@ -145,6 +145,7 @@ export default {
       if (this.selectedIndex >= 0) {
         return this.options[this.selectedIndex];
       }
+
       return null;
     },
     selectedValue() {
@@ -168,6 +169,7 @@ export default {
           value: option
         }));
       }
+
       // Check if the values are array of objects
       // Example: [{label:"Apple", value="a"},{label:"Banana", value="b"}]
       // The keys, label and value are configurable using optionLabel and optionValue props.
@@ -189,12 +191,14 @@ export default {
       // The keys, label and value are configurable using optionLabel and optionValue props.
       if (typeof values === "object") {
         const keys = Object.keys(values);
+
         return keys.map(key => ({
           value: key,
           label: values[key]
         }));
       }
       throw new Error("Passed value format is not supported");
+
       return [];
     },
     onClick(e) {

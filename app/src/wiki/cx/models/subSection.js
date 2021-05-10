@@ -41,12 +41,15 @@ export default class SubSection {
 
     segments.forEach(segment => {
       const sentence = this.getSentenceById(segment.dataset.segmentid);
+
       if (sentence.isTranslated) {
         segment.innerHTML = sentence.translatedContent;
+
         return;
       }
       segment.parentNode.removeChild(segment);
     });
+
     return subSectionNode.innerHTML;
   }
 
@@ -55,6 +58,7 @@ export default class SubSection {
       if (sentence.isTranslated) {
         mtTranslation += sentence.proposedTranslations[mtProvider];
       }
+
       return mtTranslation;
     }, "");
   }

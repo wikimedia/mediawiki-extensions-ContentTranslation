@@ -131,6 +131,7 @@ export default {
       } else if (vm.showSentenceTab) {
         return vm.selectedSentence.translatedContent;
       }
+
       return vm.currentSubSection.translatedContent;
     },
     modificationStatus: vm => mtValidator.getScoreStatus(vm.mtScore),

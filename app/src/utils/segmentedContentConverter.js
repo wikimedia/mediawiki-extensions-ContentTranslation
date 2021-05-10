@@ -37,6 +37,7 @@ const convertSegmentedContentToPageSections = htmlContent => {
           node
         })
     );
+
     return new PageSection({
       id: h2Node.dataset.mwSectionNumber,
       title: h2Node.textContent.trim(),
@@ -57,6 +58,7 @@ const groupSubSectionNodes = subSectionNodeList => {
     (groups, sectionNode) => {
       const id = sectionNode.dataset.mwSectionNumber;
       groups[id] = groups[id] ? [...groups[id], sectionNode] : [sectionNode];
+
       return groups;
     },
     {}

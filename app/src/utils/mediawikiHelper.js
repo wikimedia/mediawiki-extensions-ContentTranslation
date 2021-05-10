@@ -10,6 +10,7 @@ const getUserCoordinates = () => {
 
   const geoIPCoordsMatch = geoIP && geoIP.match(/\d+\.?\d*:\d+\.?\d*/g);
   const geoIPCoords = geoIPCoordsMatch && geoIPCoordsMatch[0].replace(":", "|");
+
   if (geoIPCoords) {
     return geoIPCoords;
   }

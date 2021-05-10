@@ -44,8 +44,10 @@ export default {
      * Represents the value of the currently checked button
      * inside a radio button group
      **/
+    // eslint-disable-next-line vue/require-prop-types
     value: {
-      required: false
+      required: false,
+      default: null
     },
     /**
      * Removes the ability to click or target the component.
@@ -65,6 +67,7 @@ export default {
     /**
      * Sets value attribute of current radio button
      **/
+    // eslint-disable-next-line vue/require-prop-types
     inputValue: {
       required: true
     },

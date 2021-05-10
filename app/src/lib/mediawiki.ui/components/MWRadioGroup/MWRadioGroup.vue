@@ -8,6 +8,7 @@ export default {
     /**
      * The value of the currently checked radio button.
      **/
+    // eslint-disable-next-line vue/no-unused-properties
     value: {
       type: [String, Number],
       required: true
@@ -39,6 +40,7 @@ export default {
   },
   render(createElement) {
     let elements = [];
+
     if (this.items.length) {
       elements = this.items.map(item =>
         createElement(MwRadio, {
@@ -62,9 +64,11 @@ export default {
             change: event => this.$emit("input", event)
           };
         }
+
         return vnode;
       });
     }
+
     return createElement("div", { class: "mw-ui-radio-group" }, elements);
   }
 };

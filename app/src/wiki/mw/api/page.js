@@ -26,6 +26,7 @@ const fetchPages = (language, titles) => {
   };
 
   const mwApi = siteMapper.getApi(language);
+
   return mwApi.get(params).then(response => {
     const apiResponse = response.query.pages;
     const redirects = response.query.redirects || [];
@@ -38,6 +39,7 @@ const fetchPages = (language, titles) => {
       page = redirectMap[page.title]
         ? { ...page, _alias: redirectMap[page.title] }
         : page;
+
       return new Page(page);
     });
   });
@@ -62,8 +64,10 @@ const fetchLanguageTitles = (language, title) => {
     redirects: true
   };
   const mwApi = siteMapper.getApi(language);
+
   return mwApi.get(params).then(async response => {
     const pages = response.query.pages;
+
     // When invalid title is provided a dummy page is return with "missing"
     // property equal to true. So we should check also for this one.
     if (!pages || !pages.length || pages[0]?.missing) {
@@ -72,10 +76,12 @@ const fetchLanguageTitles = (language, title) => {
     }
     const titles = [{ lang: language, title }, ...pages[0].langlinks];
     const wikidataId = pages[0].pageprops?.wikibase_item;
+
     // For test articles used in development, wikidataId will be missing. Skip
     if (!wikidataId) {
       return null;
     }
+
     return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
   });
 };
@@ -146,6 +152,7 @@ const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
   const cxserverAPI = siteMapper.getCXServerUrl(
     `/page/${cxServerParams.join("/")}`
   );
+
   return fetch(cxserverAPI)
     .then(response => response.json())
     .then(response => response.segmentedContent);
@@ -160,6 +167,7 @@ const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
  */
 const fetchNearbyPages = async language => {
   const coords = getUserCoordinates();
+
   if (!coords) {
     return Promise.resolve([]);
   }
@@ -178,6 +186,7 @@ const fetchNearbyPages = async language => {
     formatversion: 2,
     origin: "*"
   };
+
   return await siteMapper
     .getApi(language)
     .get(params)

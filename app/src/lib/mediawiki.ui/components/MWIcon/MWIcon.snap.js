@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MWIcon.vue matches the snapshot with an HTML element passed as slot 1`] = `
+exports[
+  `MWIcon.vue matches the snapshot with an HTML element passed as slot 1`
+] = `
 <span
   class="mw-ui-icon notranslate"
   height="24"

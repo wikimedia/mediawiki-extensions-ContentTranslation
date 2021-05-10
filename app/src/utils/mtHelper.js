@@ -78,6 +78,7 @@ const tokenise = function(string, language) {
   if (!string) {
     return [];
   }
+
   if (CJKLanguages.includes(language)) {
     return string.split("");
   }

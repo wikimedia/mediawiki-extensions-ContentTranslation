@@ -31,6 +31,7 @@ const calculateScore = (actualTranslation, proposedTranslation) => {
   const proposedText = htmlToElement(proposedTranslation).textContent;
   const distance =
     100 - 100 * calculateUnmodifiedContent(proposedText, resultText);
+
   return Math.ceil(distance);
 };
 
@@ -59,6 +60,7 @@ const getMTScoreForPageSection = (pageSection, mtProvider) =>
 const htmlToElement = html => {
   const template = document.createElement("div");
   template.innerHTML = html;
+
   return template;
 };
 

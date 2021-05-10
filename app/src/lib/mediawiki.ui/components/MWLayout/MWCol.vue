@@ -3,6 +3,7 @@
     <slot />
   </component>
 </template>
+
 <script>
 import "./grid.scss";
 // no xs
@@ -60,13 +61,16 @@ export default {
   computed: {
     classes() {
       let classList = [];
+
       for (let i = 0; i < breakpoints.length; i++) {
         let propName = breakpoints[i];
         let val = this.$props[propName];
+
         if (val) {
           classList.push(`col-${propName}-${val}`);
         }
       }
+
       if (this.cols) {
         classList.push(`col-${this.cols}`);
       }
@@ -80,6 +84,7 @@ export default {
         shrink: this.shrink,
         [`items-${this.align}`]: this.align
       });
+
       return classList;
     }
   }

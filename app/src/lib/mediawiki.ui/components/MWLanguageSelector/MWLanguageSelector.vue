@@ -1,7 +1,7 @@
 <template>
   <mw-select
     ref="selectElement"
-    v-model="languages"
+    :value="languages"
     class="mw-ui-language-selector"
     :icon="mwIconSearch"
     option-label="name"
@@ -9,7 +9,7 @@
     :placeholder="placeholder"
     @select="onSelect"
   >
-    <template v-slot:option="slotProps">
+    <template #option="slotProps">
       <div class="row">
         <span class="mw-ui-language-selector__result-name col-10">{{
           slotProps.option.label
@@ -32,7 +32,8 @@ export default {
   },
   props: {
     placeholder: {
-      type: String
+      type: String,
+      default: ""
     },
     autofocus: {
       type: Boolean,

@@ -123,6 +123,7 @@ export default {
       const supportedCodes = mwTargetLanguage
         ? [mwTargetLanguage]
         : this.supportedLanguageCodes;
+
       return supportedCodes
         .filter(languageCode => languageCode !== this.selectedSourceLanguage)
         .map(languageCode => ({
@@ -152,6 +153,7 @@ export default {
         return this.publishedTranslations[this.currentPageSuggestionsSliceIndex]
           .sourceTitle;
       }
+
       return null;
     },
     /** @return {boolean} */
@@ -207,6 +209,7 @@ export default {
     }),
     async discardSuggestion(suggestionToDiscard) {
       this.removeSectionSuggestion(suggestionToDiscard);
+
       if (!this.nextSectionSuggestionSliceFetched) {
         await this.fetchNextSectionSuggestionsSlice({});
       }
@@ -229,6 +232,7 @@ export default {
     showMoreSectionSuggestions() {
       // If next slice has not been fetched yet, and max slices not reached, fetch it now
       const wasSliceFull = this.isCurrentSectionSuggestionsSliceFull;
+
       if (!this.nextSectionSuggestionSliceFetched) {
         this.fetchNextSectionSuggestionsSlice({});
       }
@@ -243,6 +247,7 @@ export default {
      */
     getSectionSuggestionsSlice(sliceIndex) {
       const sliceStart = sliceIndex * this.maxSuggestionsPerSlice;
+
       return this.sectionSuggestionsForPair.slice(
         sliceStart,
         sliceStart + this.maxSuggestionsPerSlice
@@ -267,6 +272,7 @@ export default {
         this.currentPageSuggestionsSliceIndex = 0;
       } else {
         this.currentPageSuggestionsSliceIndex++;
+
         // There is a seed article, So fetch suggestions based on that.
         // But it will be appended to the list of suggestions.
         // So, refreshing does not mean fetching suggestions from next

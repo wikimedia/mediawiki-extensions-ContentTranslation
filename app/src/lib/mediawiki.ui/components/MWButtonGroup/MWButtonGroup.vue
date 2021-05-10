@@ -62,6 +62,7 @@ export default {
   }
 };
 </script>
+
 <style lang="less">
 @import "../../variables/wikimedia-ui-base.less";
 

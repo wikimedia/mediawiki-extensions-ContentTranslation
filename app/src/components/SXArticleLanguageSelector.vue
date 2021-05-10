@@ -49,6 +49,7 @@ export default {
       const supportedCodes = mwTargetLanguage
         ? [mwTargetLanguage]
         : vm.supportedLanguageCodes;
+
       return supportedCodes
         .filter(languageCode => languageCode !== vm.sourceLanguage)
         .reduce(

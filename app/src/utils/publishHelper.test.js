@@ -42,6 +42,7 @@ function getTranslatedSection() {
   newSection.translatedTitle = "Formación";
   newSection.editedTranslation =
     '<p id="mw9w"><span class="cx-segment" data-segmentid="414">La Luna formó 4.51 miles de millones años hace,[más bajos-alfa 6] o incluso 100 millones de años más tempranos, algunos 50 millones de años después del origen del Sistema Solar, cuando la búsqueda publicada en 2019 sugiere.</span></p>\n';
+
   return newSection;
 }
 
@@ -68,6 +69,7 @@ function getAppendixSection() {
     sentences: [],
     node: sectionNode
   });
+
   return new PageSection({
     id: "25",
     title: "Véase también",

@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSentenceSelector Action Buttons Component output matches snapshot 1`] = `
+exports[
+  `SXSentenceSelector Action Buttons Component output matches snapshot 1`
+] = `
 <div
   class="sx-sentence-selector__proposed-translation-body pa-5"
 >

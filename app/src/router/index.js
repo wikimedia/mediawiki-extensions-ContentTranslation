@@ -100,12 +100,15 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.params.force) {
     next();
+
     return;
   }
   const fromStep = from.meta.workflowStep;
   const toStep = to.meta.workflowStep;
+
   if (isNaN(fromStep) && toStep > 0) {
     next({ name: "dashboard" });
+
     return;
   }
 
@@ -116,12 +119,14 @@ router.beforeEach((to, from, next) => {
    * already been visited
    */
   const stepsDifference = Math.ceil(toStep) - Math.floor(fromStep);
+
   if (stepsDifference > 1) {
     const previousRequiredStep = Math.ceil(toStep) - 1;
     const previousRequiredRoute = routes.find(
       route => route.meta.workflowStep === previousRequiredStep
     );
     next({ name: previousRequiredRoute.name });
+
     return;
   }
   next();

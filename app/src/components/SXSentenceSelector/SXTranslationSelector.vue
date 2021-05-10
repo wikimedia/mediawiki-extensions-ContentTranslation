@@ -119,6 +119,7 @@ export default {
         this.originalTextProviderKey,
         this.emptyTextProviderKey
       ];
+
       return this.mtProviders.filter(
         provider => !ignoredProviders.includes(provider)
       );

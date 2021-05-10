@@ -113,6 +113,7 @@ export default {
     },
     getImage(language, title) {
       const page = this.getPage(language, title);
+
       return page?.thumbnail;
     }
   }

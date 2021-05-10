@@ -16,6 +16,7 @@ const prependNewSectionToAppendixSection = (newSection, existingSection) => {
   const createHeader = title => {
     const headerElement = document.createElement("h2");
     headerElement.textContent = title;
+
     return headerElement;
   };
   const newSectionHeader = createHeader(newSection.title);
@@ -61,6 +62,7 @@ const calculateNewSectionNumber = (
     // if appendix sections exist
     return targetPage.getSectionNumberByTitle(firstAppendixTargetTitle);
   }
+
   // else-wise append to the end of the target page as "new"
   return "new";
 };
@@ -102,8 +104,10 @@ const calculateHtmlToPublish = (
     const appendixSection = targetPage.sections.find(
       section => section.originalTitle === firstAppendixTargetTitle
     );
+
     return prependNewSectionToAppendixSection(section, appendixSection);
   }
+
   // else-wise append to the end of the target page as "new"
   return cleanupHtml(section.translationHtml);
 };
@@ -123,6 +127,7 @@ const cleanupHtml = html => {
     doc.querySelectorAll("article, section, [data-segmentid]"),
     segment => {
       const parent = segment.parentNode;
+
       // move all children out of the element
       while (segment.firstChild) {
         parent.insertBefore(segment.firstChild, segment);
@@ -135,6 +140,7 @@ const cleanupHtml = html => {
   // Refer ve.ui.CXLinkContextItem#createRedLink
   Array.prototype.forEach.call(doc.querySelectorAll(".cx-link"), link => {
     const dataCX = JSON.parse(link.getAttribute("data-cx") || "{}");
+
     if (dataCX?.adapted === false && dataCX?.targetTitle?.missing !== true) {
       // Replace the link with its inner content.
       link.replaceWith(link.innerHTML);
@@ -187,6 +193,7 @@ const getTitleForPublishOption = (originalTitle, publishOption) => {
     NEW_SECTION: namespaceIds[""],
     SANDBOX_SECTION: namespaceIds.user
   };
+
   return mw.cx.getTitleForNamespace(
     originalTitle,
     namespaceOptions[publishOption]

@@ -48,9 +48,11 @@ export default {
       vm.isSectionTitleTranslated ? "translated" : "selected",
     titleClasses: vm => {
       const classes = [vm.titleClass];
+
       if (vm.isSectionTitleSelected) {
         classes.push(`${vm.titleClass}--${vm.highLightClassPostfix}`);
       }
+
       return classes;
     }
   },

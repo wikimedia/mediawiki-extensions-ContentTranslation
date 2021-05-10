@@ -8,7 +8,7 @@
     :filter-by="languageSearch"
     @select="onSelect"
   >
-    <template v-slot:option="slotProps">
+    <template #option="slotProps">
       <div class="row">
         <span class="mw-ui-language-selector__result-name col-10">{{
           slotProps.option.label.autonym
@@ -33,7 +33,8 @@ export default {
   },
   props: {
     placeholder: {
-      type: String
+      type: String,
+      default: ""
     },
     autofocus: {
       type: Boolean,
@@ -58,6 +59,7 @@ export default {
     }),
     languageOptions() {
       const options = {};
+
       return this.languages.reduce(
         (options, language) => ({
           ...options,

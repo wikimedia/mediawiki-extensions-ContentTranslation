@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXArticleSelector Existing Translation Banner Navigation test Component output matches snapshot 1`] = `
+exports[
+  `SXArticleSelector Existing Translation Banner Navigation test Component output matches snapshot 1`
+] = `
 <section>
   <div
     class="sx-article-selector__translation-status pa-4 ma-0 row items-center justify-between"

@@ -11,7 +11,7 @@
       :sections="suggestion.missingSections"
       v-on="$listeners"
     >
-      <template v-slot="{ sourceSection }">
+      <template #default="{ sourceSection }">
         <h5 class="ma-0" v-text="sourceSection" />
       </template>
     </sx-section-selector-section-list>

@@ -10,7 +10,7 @@
       :sections="suggestion.presentSections"
       v-on="$listeners"
     >
-      <template v-slot="{ sourceSection, targetSection }">
+      <template #default="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
           <h5
             class="sx-section-selector__present-section-button-source"

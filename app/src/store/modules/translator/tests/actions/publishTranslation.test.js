@@ -118,6 +118,7 @@ describe("vuex store publishTranslation action", () => {
 
   it("publishTranslation without current section suggestion throws error", async () => {
     applicationState.currentSectionSuggestion = null;
+
     try {
       await actions.publishTranslation({
         rootState,

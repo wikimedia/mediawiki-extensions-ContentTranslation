@@ -18,6 +18,7 @@ async function fetchSuggestions(
   count = 24
 ) {
   let apiModule = `/data/recommendation/article/creation/translation/${sourceLanguage}`;
+
   if (seedArticleTitle) {
     apiModule += `/${seedArticleTitle}`;
   }
@@ -25,6 +26,7 @@ async function fetchSuggestions(
   const params = new URLSearchParams({ count: `${count}` });
 
   const response = await fetch(`${apiURL}?${params}`);
+
   if (!response.ok) {
     throw new Error("Failed to load data from server");
   }
@@ -71,6 +73,7 @@ async function fetchSectionSuggestions(
     )
     .then(response => response?.sections)
     .catch(error => null);
+
   return suggestedSectionResult
     ? new SectionSuggestion(suggestedSectionResult)
     : null;
@@ -94,6 +97,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
     limit: 200
   };
   const mwApi = siteMapper.getApi(sourceLanguage);
+
   try {
     const response = await mwApi.get(query);
     // Shuffle array so that users do not get the same suggestions every time
@@ -102,6 +106,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
     return translations.filter(translation => {
       // For some reason, the above query provides non-encoded urls. Encode them before comparing
       const targetUrl = mw.util.wikiUrlencode(translation.targetURL);
+
       // if translation has been published properly to the main namespace then page url calculated
       // by siteMapper should be equal to (encoded) targetUrl
       return (
@@ -111,6 +116,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
     });
   } catch (error) {
     console.log(error);
+
     return [];
   }
 }
@@ -121,6 +127,7 @@ const shuffleArray = array => {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+
   return array;
 };
 
@@ -138,6 +145,7 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
   const cxserverAPI = siteMapper.getCXServerUrl(
     `/suggest/sections/titles/en/${targetLanguage}?titles=${titleQueryParams}`
   );
+
   return fetch(cxserverAPI)
     .then(response =>
       response.ok

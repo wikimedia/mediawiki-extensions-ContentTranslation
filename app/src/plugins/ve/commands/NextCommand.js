@@ -6,6 +6,7 @@ SXEditorNextCommand = function SXEditorNextCommand() {
   SXEditorNextCommand.super.call(this, "next");
 };
 OO.inheritClass(SXEditorNextCommand, ve.ui.Command);
+
 SXEditorNextCommand.prototype.execute = function() {
   ve.init.target.next();
 };

@@ -62,6 +62,7 @@ SectionTranslationTarget.prototype.loadFail = function(code, errorDetails) {
 SectionTranslationTarget.prototype.back = function() {
   this.config.onBack();
 };
+
 SectionTranslationTarget.prototype.next = function() {
   this.config.onNext();
 };

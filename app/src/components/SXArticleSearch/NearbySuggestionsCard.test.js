@@ -31,6 +31,7 @@ jest.mock("../../wiki/mw/api/page", () => {
       if (mockNearbyPages[language]) {
         return Promise.resolve(mockNearbyPages[language]);
       }
+
       return Promise.reject();
     }
   };

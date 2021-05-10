@@ -91,8 +91,14 @@ export default {
      * Make use of v-model
      * Options for the dropdown.
      */
-    value: {},
-    placeholder: String,
+    // eslint-disable-next-line vue/require-prop-types
+    value: {
+      required: true
+    },
+    placeholder: {
+      type: String,
+      default: null
+    },
     /* If the passed options are array of objects,
      * the label will be taken from this key
      */
@@ -162,6 +168,7 @@ export default {
       if (this.selectedIndex >= 0) {
         return this.options_[this.selectedIndex];
       }
+
       return null;
     },
     selectedValue() {
@@ -185,6 +192,7 @@ export default {
           value: option
         }));
       }
+
       // Check if the values are array of objects
       // Example: [{label:"Apple", value="a"},{label:"Banana", value="b"}]
       // The keys, label and value are configurable using optionLabel and optionValue props.
@@ -206,6 +214,7 @@ export default {
       // The keys, label and value are configurable using optionLabel and optionValue props.
       if (typeof values === "object") {
         const keys = Object.keys(values);
+
         return keys.map(key => ({
           value: key,
           label: values[key]
@@ -250,6 +259,7 @@ export default {
       if (!query) {
         return options;
       }
+
       return options.filter(option => this.filterBy.call(this, option, query));
     },
     onFocus(event) {
@@ -265,8 +275,10 @@ export default {
     next() {
       if (!this.optionsOpen) {
         this.open();
+
         return;
       }
+
       if (this.selectedIndex < this.options_.length) {
         this.selectedIndex++;
       } else {
@@ -276,8 +288,10 @@ export default {
     prev() {
       if (!this.optionsOpen) {
         this.open();
+
         return;
       }
+
       if (this.selectedIndex > 0) {
         this.selectedIndex--;
       } else {

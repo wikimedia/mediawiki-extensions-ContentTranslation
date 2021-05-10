@@ -107,6 +107,7 @@ export default {
    */
   setPublishTarget: (state, target) => {
     const validTargets = ["NEW_SECTION", "SANDBOX_SECTION"];
+
     if (!validTargets.includes(target)) {
       throw "Invalid publish target";
     }

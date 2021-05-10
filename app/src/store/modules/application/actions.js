@@ -39,10 +39,13 @@ export default {
     }
 
     const now = Math.floor(Date.now() / 1000);
+
     if (state.cxServerToken?.refreshAt <= now) {
       commit("setCXServerToken", null);
+
       return dispatch("getCXServerToken");
     }
+
     return state.cxServerToken?.jwt;
   },
 
@@ -50,8 +53,10 @@ export default {
     dispatch("mediawiki/fetchLanguages", {}, { root: true });
     dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
     const suggestion = await dispatch("loadSectionSuggestionFromUrl");
+
     if (suggestion) {
       dispatch("startSectionTranslation", suggestion);
+
       return;
     }
 
@@ -89,6 +94,7 @@ export default {
     sourceLanguage
   ) {
     commit("setSourceLanguage", sourceLanguage);
+
     if (sourceLanguage === state.targetLanguage) {
       commit("setTargetLanguage", null);
     }
@@ -100,6 +106,7 @@ export default {
         { sourceLanguage, targetLanguage: state.targetLanguage },
         { root: true }
       );
+
       return;
     }
 
@@ -138,6 +145,7 @@ export default {
         { sourceLanguage: state.sourceLanguage, targetLanguage },
         { root: true }
       );
+
       return;
     }
 
@@ -169,6 +177,7 @@ export default {
     const targetLanguageConfig = mw.config.get(
       "wgSectionTranslationTargetLanguage"
     );
+
     if (!targetLanguageConfig) {
       targetLanguage && commit("setTargetLanguage", targetLanguage);
     }
@@ -191,6 +200,7 @@ export default {
     if (!suggestion) {
       suggestion = await dispatch("createNewSectionSuggestion", sourceTitle);
     }
+
     return suggestion;
   },
   /**
@@ -212,6 +222,7 @@ export default {
       suggestion,
       { root: true }
     );
+
     return suggestion;
   },
   async fetchCurrentSectionSuggestionLanguageTitles({ dispatch, state }) {
@@ -261,6 +272,7 @@ export default {
   selectSentenceForCurrentSection({ commit, dispatch, state }, { id }) {
     commit("clearSentenceSelection");
     commit("setIsSectionTitleSelectedForTranslation", false);
+
     if (id) {
       commit("selectSentence", id);
       dispatch("translateSelectedSegment", {
@@ -311,6 +323,7 @@ export default {
     commit("setIsSectionTitleSelectedForTranslation", false);
     const sentences = getters.getCurrentSourceSectionSentences;
     const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
+
     if (nextIndex >= sentences.length) {
       return;
     }
@@ -320,6 +333,7 @@ export default {
   selectPreviousSegment({ getters, dispatch }) {
     if (getters.isCurrentSentenceFirst) {
       dispatch("selectSectionTitleForTranslation");
+
       return;
     }
     const sentences = getters.getCurrentSourceSectionSentences;
@@ -348,6 +362,7 @@ export default {
     );
 
     const currentProvider = state.currentMTProvider;
+
     if (currentProvider && supportedProviders.includes(currentProvider)) {
       return;
     }
@@ -406,8 +421,10 @@ export default {
    */
   translateSelectedSegment({ getters, commit, state, dispatch }, { provider }) {
     dispatch("translateFollowingSentence", { provider });
+
     if (state.isSectionTitleSelectedForTranslation) {
       dispatch("translateSectionTitle", { provider });
+
       return;
     }
 
@@ -474,6 +491,7 @@ export default {
   async translateFollowingSentence({ getters, dispatch, state }, { provider }) {
     const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
     const sentences = getters.getCurrentSourceSectionSentences;
+
     if (nextIndex >= sentences.length) {
       return;
     }

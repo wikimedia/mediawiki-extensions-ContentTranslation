@@ -2,6 +2,7 @@ import Vue from "vue";
 
 Vue.directive("i18n-html-safe", function(el, binding) {
   let message;
+
   if (Array.isArray(binding.value)) {
     if (binding.arg === undefined) {
       // v-i18n-html-safe="[ ...params ]" (error)

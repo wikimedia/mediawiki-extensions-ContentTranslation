@@ -2,7 +2,7 @@
   <mw-dialog
     :value="active"
     class="sx-publisher__publish-options"
-    title="Publish options"
+    :title="$i18n('cx-sx-publisher-preview-options-title')"
     :overlay-opacity="0.7"
     :overlay-color="overlayColor"
     @input="$emit('update:active', $event)"
@@ -103,6 +103,7 @@ export default {
   methods: {
     optionMarginBottom(index) {
       const isLastOption = index === this.publishOptions.length - 1;
+
       return isLastOption ? "mb-1" : "mb-4";
     },
     onPublishOptionsClose() {

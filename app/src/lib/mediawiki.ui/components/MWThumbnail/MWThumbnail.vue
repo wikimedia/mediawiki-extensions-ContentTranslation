@@ -34,6 +34,7 @@ export default {
           "background-image": `url(${this.thumbnail.source})`
         };
       }
+
       return {};
     }
   },

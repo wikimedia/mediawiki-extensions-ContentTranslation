@@ -111,6 +111,7 @@ export default {
   mounted: function() {
     const urlParams = new URLSearchParams(window.location.search);
     const isSectionTranslation = urlParams.get("sx");
+
     if (isSectionTranslation) {
       this.active = "suggestions";
     }

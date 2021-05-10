@@ -63,6 +63,7 @@ export default class Page {
     const sectionIndex = this.sections.findIndex(
       section => section.originalTitle === sectionTitle
     );
+
     if (sectionIndex < -1) {
       return -1;
     }

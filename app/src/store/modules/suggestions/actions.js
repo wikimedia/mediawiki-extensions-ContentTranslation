@@ -83,6 +83,7 @@ export default {
       commit("removeSectionSuggestionSeed", seed);
 
       const appendixSourceTitles = state.appendixSectionTitles[sourceLanguage];
+
       if (suggestion?.isValid(appendixSourceTitles)) {
         fetchedSuggestionCounter++;
         commit("addSectionSuggestion", suggestion);
@@ -141,6 +142,7 @@ export default {
         { root: true }
       );
     }
+
     return suggestion;
   },
 
@@ -183,6 +185,7 @@ export default {
           )
         )
     };
+
     return providers[providerName] || null;
   },
 
@@ -235,6 +238,7 @@ export default {
           "getSeedProviderHandlerByName",
           providerName
         );
+
         // if all available providers are exhausted or invalid providerName is given
         // then there is nothing left to do
         if (seedProviderHandler) {
@@ -252,6 +256,7 @@ export default {
       );
       commit("decreaseSectionSuggestionsLoadingCount");
     }
+
     return currentSeedCollection.seeds;
   },
 
@@ -279,6 +284,7 @@ export default {
       targetLanguage,
       sourceLanguage
     });
+
     // Disable fetch page suggestions action until we properly support
     // it in the Dashboard
     if (!new Vue().$incompleteVersion) {

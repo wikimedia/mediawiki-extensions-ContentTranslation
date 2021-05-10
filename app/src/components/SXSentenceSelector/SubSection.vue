@@ -27,6 +27,7 @@ export default {
           postfix => `${sentenceClass}--${postfix}`
         );
         segment.classList.remove(...sentenceClasses);
+
         if (sentence.selected) {
           segment.classList.add(`${sentenceClass}--selected`);
         }
@@ -51,8 +52,10 @@ export default {
   methods: {
     selectSentence(segmentId) {
       const sentence = this.subSection.getSentenceById(segmentId);
+
       if (sentence.selected) {
         this.$emit("bounce-translation");
+
         return;
       }
       this.$store.dispatch("application/selectSentenceForCurrentSection", {

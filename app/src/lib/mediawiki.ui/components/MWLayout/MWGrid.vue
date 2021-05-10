@@ -3,6 +3,7 @@
     <slot />
   </component>
 </template>
+
 <script>
 import "./grid.scss";
 import "./spacing.scss";

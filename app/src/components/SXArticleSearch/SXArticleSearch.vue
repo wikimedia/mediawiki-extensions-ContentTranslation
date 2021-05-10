@@ -113,6 +113,7 @@ export default {
        * @type {string[]}
        */
       const previousLanguages = [];
+
       try {
         previousLanguages.push(
           ...JSON.parse(localStorage.getItem("uls-previous-languages"))

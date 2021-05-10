@@ -87,6 +87,7 @@ export default {
     isOriginalContentScrolledToEnd() {
       /** Each segment takes up to two lines **/
       const segmentsLength = Math.ceil(this.originalContentLinesLength / 2);
+
       return this.originalContentSegmentIndex === segmentsLength - 1;
     }
   },
@@ -134,6 +135,7 @@ export default {
     handleArrowUpClick() {
       if (!this.originalContentCollapsed) {
         this.toggleOriginalContent();
+
         return;
       }
       /** Scroll to previous sentence segment (two previous lines) **/

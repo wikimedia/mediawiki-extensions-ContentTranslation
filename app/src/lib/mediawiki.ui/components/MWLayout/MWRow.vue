@@ -3,6 +3,7 @@
     <slot />
   </component>
 </template>
+
 <script>
 import "./grid.scss";
 export default {
@@ -54,9 +55,11 @@ export default {
         `items-${this.align}`,
         `justify-${this.justify}`
       ];
+
       if (this.reverse) {
         classes.push("reverse");
       }
+
       return classes;
     }
   }

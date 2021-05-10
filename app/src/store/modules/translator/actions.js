@@ -74,8 +74,10 @@ const validateMT = ({ rootState, dispatch }) => {
       messages: [message]
     });
     dispatch("application/setPublishResult", result, { root: true });
+
     return false;
   }
+
   return true;
 };
 
@@ -99,6 +101,7 @@ const publishTranslation = async ({ rootState, dispatch, rootGetters }) => {
    * @type {boolean}
    */
   const isValid = await dispatch("validateMT");
+
   if (!isValid) {
     return;
   }
@@ -218,6 +221,7 @@ export default {
       const language = translation.sourceLanguage;
       queue[language] = queue[language] || [];
       queue[language].push(translation.sourceTitle);
+
       return queue;
     }, {});
     commit("setTranslationsLoaded", true);

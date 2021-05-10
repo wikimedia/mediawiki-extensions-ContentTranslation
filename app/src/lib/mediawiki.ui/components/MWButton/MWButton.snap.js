@@ -25,7 +25,9 @@ exports[`MWButton.vue matches the snapshot with an HTML label 1`] = `
 </button>
 `;
 
-exports[`MWButton.vue matches the snapshot with an destructive type icon button 1`] = `
+exports[
+  `MWButton.vue matches the snapshot with an destructive type icon button 1`
+] = `
 <button
   class="mw-ui-button mw-ui-button--destructive mw-ui-button--icon"
 >

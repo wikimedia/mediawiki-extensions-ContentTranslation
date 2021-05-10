@@ -2,6 +2,7 @@ const fs = require("fs");
 const TerserPlugin = require("terser-webpack-plugin");
 
 let devServer = {};
+
 if (process.env.NODE_ENV === "development") {
   if (fs.existsSync("./devserver.config.js")) {
     devServer = require("./devserver.config");

@@ -45,6 +45,7 @@ export default {
       };
 
       let targetSelectorItem;
+
       switch (true) {
         case this.isMappedSection:
           targetSelectorItem = {
@@ -72,6 +73,7 @@ export default {
             }
           };
       }
+
       return [sourceSelectorItem, targetSelectorItem];
     }
   },
