@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Alexmar983",
 			"Amire80",
 			"Annibale covini gerolamo",
@@ -248,7 +249,7 @@
 	"cx-sx-select-section": "Seleziona sezione da tradurre",
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sezione|$1 sezioni}} mancanti in $2",
 	"cx-sx-section-selector-title": "Sezioni",
-	"cx-sx-section-selector-subtitle": "Seleziona una sezione da tradurre",
+	"cx-sx-section-selector-subtitle": "Scegli una sezione",
 	"cx-sx-existing-translation-status": "Esiste già in $1",
 	"cx-sx-start-translation-button-label": "Inizia traduzione",
 	"cx-sx-view-translation-anchor": "Visualizza",

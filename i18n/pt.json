@@ -4,6 +4,7 @@
 			"Amire80",
 			"Athena in Wonderland",
 			"CaiusSPQR",
+			"Emma Franzen",
 			"Fabulous",
 			"Fernandofelippe",
 			"Fúlvio",
@@ -289,7 +290,7 @@
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Falta uma secção|Faltam $1 secções}} em $2",
 	"cx-sx-section-selector-title": "Secções",
 	"cx-sx-section-selector-subtitle": "Selecionar uma secção para traduzir",
-	"cx-sx-section-selector-desc": "Escolha uma secção abaixo e verifique o conteúdo em ambas as línguas para decidir o que traduzir.",
+	"cx-sx-section-selector-desc": "Voce vai comparar o conteudo em ambos os idiomas.",
 	"cx-sx-language-selector-dialog-title": "Pesquisar uma língua",
 	"cx-sx-existing-translation-status": "Já existe em $1",
 	"cx-sx-existing-translation-additional-info": "Expanda o conteúdo existente traduzindo novas secções.",
@@ -312,7 +313,7 @@
 	"cx-translation-list-all-languages-option-label": "Todas",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Voltar a todas as secções",
 	"cx-sx-content-comparator-translation-section-button-label": "Traduzir esta secção",
-	"cx-sx-content-comparator-review-contents-title": "Rever o conteúdo nas duas línguas.",
+	"cx-sx-content-comparator-review-contents-title": "Verifica se ha sobreposicao",
 	"cx-sx-content-comparator-review-contents-rest": "O conteúdo da secção selecionada já pode ter sido coberto no artigo de destino.",
 	"cx-sx-content-comparator-source-selector-title": "Secção em $1",
 	"sx-quick-tutorial-main-point-step-1": "Secção a secção",
@@ -365,5 +366,8 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "A sua tradução",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Parágrafo",
-	"cx-sx-followup-feedback-new-indicator": "nova"
+	"cx-sx-followup-feedback-new-indicator": "nova",
+	"cx-sx-article-search-input-placeholder": "Procure uma página para traduzir",
+	"cx-sx-article-search-recently-edited-title": "Editado recentemente por você",
+	"cx-sx-article-search-nearby-title": "Próxima\nPróximo"
 }
