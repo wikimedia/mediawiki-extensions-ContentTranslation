@@ -588,7 +588,6 @@ export default {
   setTranslationURLParams,
   startSectionTranslation,
   translateFollowingSentence,
-  translateFollowingSentence,
   translateSectionTitle,
   translateSegmentForAllProviders,
   translateSelectedSegment,
