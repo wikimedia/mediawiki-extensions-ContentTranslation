@@ -344,9 +344,7 @@ export default {
   fetchAppendixSectionTitles,
   fetchNextSectionSuggestionsSlice,
   fetchSectionSuggestionsBySeeds,
-  fetchSuggestions,
   getSectionSuggestionSeeds,
   getSeedProviderHandlerByName,
-  loadSectionSuggestion,
-  getSeedProviderHandlerByName
+  loadSectionSuggestion
 };
