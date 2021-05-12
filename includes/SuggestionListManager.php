@@ -210,7 +210,7 @@ class SuggestionListManager {
 			);
 
 			// TODO: This should really wait for replication on the
-			// Database returned by Database::getConnection( DB_MASTER );
+			// Database returned by Database::getConnection( DB_PRIMARY );
 			$lbFactory->waitForReplication();
 		}
 	}
