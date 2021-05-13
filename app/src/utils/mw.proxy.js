@@ -45,6 +45,8 @@ const mw = {
           return "MWProxyUser";
         case "wgUserLanguage":
           return "en";
+        case "wgContentLanguage":
+          return "en";
         case "wgPageName":
           return "Special:ContentTranslation";
         case "wgDBname":

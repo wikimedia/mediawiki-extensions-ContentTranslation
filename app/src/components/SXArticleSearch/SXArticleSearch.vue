@@ -93,7 +93,7 @@ export default {
      *
      * @return {string[]}
      */
-    getSuggestedSourceLanguages: vm => {
+    suggestedSourceLanguages: vm => {
       /**
        * According to design specification, language selector inside
        * "search for an article" screen, contains three options, including
@@ -127,7 +127,6 @@ export default {
        * @type {string}
        */
       const browserLanguage = (navigator.language || "").split("-")[0];
-
       /**
        * Browser accept-languages. Accept language codes can be like "en" or "en_US",
        * so we need to split them by hyphen and only keep first segment
@@ -167,7 +166,7 @@ export default {
   },
   mounted() {
     this.sourceLanguageOptions = [
-      ...[this.sourceLanguage, ...this.getSuggestedSourceLanguages].map(
+      ...[this.sourceLanguage, ...this.suggestedSourceLanguages].map(
         language => ({
           value: language,
           props: {

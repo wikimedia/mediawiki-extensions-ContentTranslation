@@ -49,6 +49,12 @@ describe("SearchResultsCard", () => {
     );
   });
 
+  it("suggestion-clicked event is emitted when search result is clicked", async () => {
+    const searchResult = wrapper.find(".cx-search-suggestion");
+    await searchResult.trigger("click");
+    expect(wrapper.emitted("suggestion-clicked")).toBeTruthy();
+  });
+
   it("Search for articles method is called when search input is updated", async () => {
     wrapper.vm.debouncedSearchForArticles = jest.fn(() => {});
 
