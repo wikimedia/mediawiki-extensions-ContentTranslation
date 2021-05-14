@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chinamoonroll",
 			"NoiX180"
 		]
 	},
@@ -8,5 +9,8 @@
 	"cx-publish-page-success": "Kaca kasobyahang ring $1",
 	"cx-publish-button": "Sobyahang",
 	"cx-publish-button-publishing": "Nyobyahang...",
-	"cx-tools-searchbox-text": "Rereh kruna"
+	"cx-tools-searchbox-text": "Rereh kruna",
+	"cx-no-source-categories": "Tanpa kategori",
+	"cx-sx-language-selector-dialog-title": "Rereh antuk basa",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Tanpa asil uahan olih Ida"
 }

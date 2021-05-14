@@ -208,6 +208,8 @@
 	"cx-feature-discovery-dismiss": "OK, ech hu verstanen",
 	"cx-sx-select-section": "Abschnitt eraussiche fir z'iwwerwsetzen",
 	"cx-sx-section-selector-title": "Abschnitter",
+	"cx-sx-section-selector-subtitle": "Sicht en Abschnitt eraus",
+	"cx-sx-section-selector-desc": "Dir vergläicht Inhalt an den zwou Sproochen",
 	"cx-sx-language-selector-dialog-title": "No enger Sprooch sichen",
 	"cx-sx-start-translation-button-label": "Iwwersetzung ufänken",
 	"cx-sx-view-translation-anchor": "Weisen",
@@ -252,5 +254,6 @@
 	"cx-sx-followup-feedback-new-indicator": "nei",
 	"cx-sx-published-section-confirmation-header": "Neien Abschnitt derbäigesat",
 	"cx-sx-published-section-invitation-title": "Een aneren Abschnitt iwwersetzen",
+	"cx-sx-article-search-input-placeholder": "Sicht no enger Säit fir z'iwwersetzen",
 	"cx-sx-article-search-nearby-title": "Nobäi"
 }
