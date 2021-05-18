@@ -20,13 +20,13 @@ const targetLanguage = "es";
 
 const dummyMissingSections = {
   testTitle0: {
-    References: "",
-    "See also": "",
-    Notes: ""
+    References: "Referencias",
+    "See also": "Véase también",
+    Notes: "Notas"
   },
   testTitle1: {},
   testTitle2: {
-    References: "",
+    References: "Referencias",
     "Early life": ""
   },
   invalidSeedTitle: {}

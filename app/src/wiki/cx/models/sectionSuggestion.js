@@ -43,26 +43,27 @@ export default class SectionSuggestion {
    * sections for the current section suggestion
    *
    * @internal
-   * @param {string[]} appendixSourceTitles
+   * @param {string[]} appendixTargetTitles
    * @return {number}
    */
-  missingCoreSectionsCount(appendixSourceTitles) {
-    return Object.keys(this.missingSections).filter(
-      sourceSectionTitle => !appendixSourceTitles.includes(sourceSectionTitle)
+  missingCoreSectionsCount(appendixTargetTitles) {
+    return Object.values(this.missingSections).filter(
+      targetSectionTitle => !appendixTargetTitles.includes(targetSectionTitle)
     ).length;
   }
 
   /**
-   * Returns a boolean indicating if current section suggestion
+   * Given an array of appendix section titles in target language,
+   * this method returns a boolean indicating if current section suggestion
    * is valid (should be stored and displayed to the user) by
    * checking if suggestion has at least one core (non-appendix)
    * missing section
    *
-   * @param {string[]} appendixSourceTitles
+   * @param {string[]} appendixTargetTitles
    * @return {boolean}
    */
-  isValid(appendixSourceTitles) {
-    return this.missingCoreSectionsCount(appendixSourceTitles) > 0;
+  isValid(appendixTargetTitles) {
+    return this.missingCoreSectionsCount(appendixTargetTitles) > 0;
   }
 
   /**

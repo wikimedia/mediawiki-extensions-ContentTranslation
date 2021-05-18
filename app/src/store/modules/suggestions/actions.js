@@ -81,9 +81,10 @@ async function fetchSectionSuggestionsBySeeds(
     );
     commit("removeSectionSuggestionSeed", seed);
 
-    const appendixSourceTitles = state.appendixSectionTitles[sourceLanguage];
+    const appendixTargetTitles =
+      state.appendixSectionTitles[targetLanguage] || [];
 
-    if (suggestion?.isValid(appendixSourceTitles)) {
+    if (suggestion?.isValid(appendixTargetTitles)) {
       fetchedSuggestionCounter++;
       commit("addSectionSuggestion", suggestion);
     }
@@ -275,6 +276,11 @@ async function fetchSuggestions(
   ) {
     return;
   }
+
+  // Fetch now so that appendix section titles are available during suggestion fetching
+  await dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage, {
+    root: true
+  });
 
   dispatch("fetchNextSectionSuggestionsSlice", {
     targetLanguage,
