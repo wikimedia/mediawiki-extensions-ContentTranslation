@@ -43,7 +43,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|Klickt op}} d'Abschnitter fir z'iwwersetzen",
 	"cx-tools-instructions-text2": "{{GENDER:|Dir}} musst se net all dobäisetzen",
 	"cx-tools-instructions-text3": "{{GENDER:|Maacht}} den Text natierlech liesbar",
-	"cx-tools-instructions-text4": "Maschinell Iwwersetzung ass nëtzlech awer {{GENDER:|Dir}} musst d'Iwwersetzung nokucke fir dat se wierklech passt.",
+	"cx-tools-instructions-text4": "Maschinell Iwwersetzung ass nëtzlech, awer {{GENDER:|Dir}} musst d'Iwwersetzung nokucken, ob se wierklech passt.",
 	"cx-tools-instructions-text5": "D'Iwwersetzung {{GENDER:|publizéieren}}",
 	"cx-tools-instructions-text6": "Wann {{GENDER:|Dir}} mam Resultat zefridde sidd, da klickt op \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "E Wuert sichen",
