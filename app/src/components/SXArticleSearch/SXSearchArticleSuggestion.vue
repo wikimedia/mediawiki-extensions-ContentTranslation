@@ -66,7 +66,7 @@ export default {
 .cx-search-suggestion {
   cursor: pointer;
   line-height: normal;
-  &__thumbnail {
+  &__thumbnail.mw-ui-thumbnail {
     height: 56px;
     width: 56px;
   }
