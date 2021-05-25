@@ -1,5 +1,6 @@
 <template>
-  <mw-card class="sx-article-search__results pa-0 mb-0 pa-4">
+  <mw-card class="sx-article-search__results mb-0 pa-4">
+    <mw-spinner v-if="loading" />
     <sx-search-article-suggestion
       v-for="suggestion in searchResultsSlice"
       :key="suggestion.pageid"
@@ -11,14 +12,14 @@
 
 <script>
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
-import { MwCard } from "@/lib/mediawiki.ui";
+import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import pageApi from "@/wiki/mw/api/page";
 import debounce from "lodash/debounce";
 import { mapState } from "vuex";
 
 export default {
   name: "SearchResultsCard",
-  components: { SxSearchArticleSuggestion, MwCard },
+  components: { SxSearchArticleSuggestion, MwCard, MwSpinner },
   props: {
     searchInput: {
       type: String,
@@ -28,7 +29,8 @@ export default {
   data: () => ({
     /** @type {Page[]} */
     searchResults: [],
-    maxSearchResults: 4
+    maxSearchResults: 4,
+    loading: false
   }),
   computed: {
     ...mapState({
@@ -37,7 +39,7 @@ export default {
     searchResultsSlice: vm => vm.searchResults.slice(0, vm.maxSearchResults)
   },
   watch: {
-    async searchInput() {
+    searchInput() {
       this.debouncedSearchForArticles();
     }
   },
@@ -46,13 +48,17 @@ export default {
   },
   methods: {
     async searchForArticles() {
-      /**
-       * @type {Page[]}
-       */
-      this.searchResults = await pageApi.searchPagesByTitlePrefix(
-        this.searchInput,
-        this.sourceLanguage
-      );
+      this.loading = true;
+
+      try {
+        /** @type {Page[]} */
+        this.searchResults = await pageApi.searchPagesByTitlePrefix(
+          this.searchInput,
+          this.sourceLanguage
+        );
+      } finally {
+        this.loading = false;
+      }
     }
   }
 };

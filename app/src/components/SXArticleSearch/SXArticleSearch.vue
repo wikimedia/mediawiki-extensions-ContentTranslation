@@ -39,7 +39,7 @@
       <nearby-suggestions-card @suggestion-clicked="startSectionTranslation" />
     </template>
     <search-results-card
-      v-else
+      v-show="!!searchInput"
       :search-input="searchInput"
       @suggestion-clicked="startSectionTranslation"
     />
