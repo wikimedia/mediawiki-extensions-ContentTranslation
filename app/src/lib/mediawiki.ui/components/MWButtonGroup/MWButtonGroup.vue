@@ -9,7 +9,7 @@
       class="ma-0"
       :class="buttonClasses(item)"
       :style="activeIndicatorStyle(item)"
-      @click="$emit('select', item.value)"
+      @click.stop="$emit('select', item.value)"
     />
   </div>
 </template>

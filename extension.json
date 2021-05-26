@@ -490,7 +490,8 @@
 				"cx-sx-translation-suggestion-info",
 				"cx-sx-article-search-input-placeholder",
 				"cx-sx-article-search-recently-edited-title",
-				"cx-sx-article-search-nearby-title"
+				"cx-sx-article-search-nearby-title",
+				"sx-article-search-language-selector-dialog-title"
 			],
 			"noflip": true
 		},

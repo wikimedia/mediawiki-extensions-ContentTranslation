@@ -318,5 +318,90 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
       </div>
     </div>
   </div>
+   
+  <transition-stub
+    name="mw-ui-animation-slide-up"
+    style="display: none;"
+  >
+    <div
+      aria-modal="true"
+      class="mw-ui-dialog mw-ui-dialog mw-ui-dialog--fullscreen"
+      role="dialog"
+      tabindex="0"
+    >
+      <div
+        class="mw-ui-dialog__overlay"
+        style="background-color: rgb(255, 255, 255); opacity: 1;"
+      />
+       
+      <div
+        class="mw-ui-dialog__shell items-stretch"
+      >
+        <div
+          class="mw-ui-dialog__header row items-center justify-start"
+        >
+          <div
+            class="items-center mw-ui-dialog__header-title justify-start col grow"
+          >
+            sx-article-search-language-selector-dialog-title
+          </div>
+           
+          <div
+            class="justify-center col shrink"
+          >
+            <button
+              class="mw-ui-button mw-ui-button--icon"
+            >
+              <span
+                class="mw-ui-button__content"
+              >
+                <span
+                  class="mw-ui-icon notranslate mw-ui-button__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    height="20"
+                    role="presentation"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!---->
+                     
+                    <g
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                 
+                <!---->
+                 
+                <!---->
+              </span>
+            </button>
+          </div>
+        </div>
+         
+        <div
+          class="mw-ui-divider row"
+        />
+         
+        <div
+          class="mw-ui-dialog__body"
+        >
+          <div
+            class="row"
+          >
+            <!---->
+          </div>
+        </div>
+         
+      </div>
+    </div>
+  </transition-stub>
 </section>
 `;

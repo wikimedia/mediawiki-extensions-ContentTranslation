@@ -43,11 +43,33 @@
       :search-input="searchInput"
       @suggestion-clicked="startSectionTranslation"
     />
+    <mw-dialog
+      v-show="sourceLanguageSelectOn"
+      :title="$i18n('sx-article-search-language-selector-dialog-title')"
+      animation="slide-up"
+      :fullscreen="true"
+      @close="onSourceLanguageDialogClose"
+    >
+      <div class="row">
+        <mw-language-selector
+          v-if="sourceLanguageSelectOn"
+          class="sx-article-search-language-selector__widget col-12"
+          :languages="availableSourceLanguages"
+          @select="onSourceLanguageSelected"
+        />
+      </div>
+    </mw-dialog>
   </section>
 </template>
 
 <script>
-import { MwInput, MwButtonGroup, MwCard } from "@/lib/mediawiki.ui";
+import {
+  MwButtonGroup,
+  MwCard,
+  MwDialog,
+  MwInput,
+  MwLanguageSelector
+} from "@/lib/mediawiki.ui";
 import { mapGetters, mapState } from "vuex";
 import {
   mwIconSearch,
@@ -66,6 +88,8 @@ export default {
     NearbySuggestionsCard,
     SxSearchArticleSuggestion,
     MwInput,
+    MwLanguageSelector,
+    MwDialog,
     MwButtonGroup,
     MwCard
   },
@@ -75,17 +99,35 @@ export default {
     mwIconClose,
     mwIconEllipsis,
     searchInput: "",
-    sourceLanguageOptions: []
+    /**
+     * Previously used languages by user. These languages are set in local
+     * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
+     * these items are set in local storage, these languages are allowed
+     * to be empty
+     *
+     * @type {string[]}
+     */
+    previousLanguages: [],
+    sourceLanguageSelectOn: false
   }),
   computed: {
     ...mapState({
       sourceLanguage: state => state.application.sourceLanguage,
-      targetLanguage: state => state.application.targetLanguage
+      targetLanguage: state => state.application.targetLanguage,
+      supportedLanguageCodes: state =>
+        state.mediawiki.supportedLanguageCodes || []
     }),
     ...mapGetters({
       recentlyEditedPages: "mediawiki/getRecentlyEditedPages"
     }),
-
+    availableSourceLanguages() {
+      return this.supportedLanguageCodes
+        .filter(languageCode => languageCode !== this.selectedTargetLanguage)
+        .map(languageCode => ({
+          name: this.getAutonym(languageCode),
+          code: languageCode
+        }));
+    },
     /**
      * Returns an array of suggested language codes
      * based on a list of criteria. Based on mw.uls.getFrequentLanguageList
@@ -103,22 +145,6 @@ export default {
        * @type {number}
        */
       const sliceSize = 2;
-
-      /**
-       * Previously used languages by user. These languages are set in local
-       * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
-       * these items are set in local storage, these languages are allowed
-       * to be empty
-       *
-       * @type {string[]}
-       */
-      const previousLanguages = [];
-
-      try {
-        previousLanguages.push(
-          ...JSON.parse(localStorage.getItem("uls-previous-languages"))
-        );
-      } catch (e) {}
 
       /**
        * Browser user interface language or the system language.
@@ -144,7 +170,7 @@ export default {
         // Current wiki's content language
         mw.config.get("wgContentLanguage"),
         browserLanguage,
-        ...previousLanguages,
+        ...vm.previousLanguages,
         ...acceptLanguages
       ];
 
@@ -162,29 +188,42 @@ export default {
             vm.getAutonym(language) !== language
         )
         .slice(0, sliceSize);
+    },
+    /**
+     * Quick list of languages to select from based on previous selections.
+     * This is a computed propery since the list should be updated when a new
+     * language is selected.
+     * @type {string[]}
+     */
+    sourceLanguageOptions: vm => {
+      return [
+        ...[vm.sourceLanguage, ...vm.suggestedSourceLanguages].map(
+          language => ({
+            value: language,
+            props: {
+              label: vm.getAutonym(language),
+              type: "text",
+              class: "px-0 py-4 mx-4"
+            }
+          })
+        ),
+        {
+          value: "other",
+          props: {
+            icon: mwIconEllipsis,
+            type: "icon",
+            class: "px-0 py-4 me-4 ms-auto"
+          }
+        }
+      ];
     }
   },
   mounted() {
-    this.sourceLanguageOptions = [
-      ...[this.sourceLanguage, ...this.suggestedSourceLanguages].map(
-        language => ({
-          value: language,
-          props: {
-            label: this.getAutonym(language),
-            type: "text",
-            class: "px-0 py-4 mx-4"
-          }
-        })
-      ),
-      {
-        value: "other",
-        props: {
-          icon: mwIconEllipsis,
-          type: "icon",
-          class: "px-0 py-4 me-4 ms-auto"
-        }
-      }
-    ];
+    try {
+      this.previousLanguages.push(
+        ...JSON.parse(localStorage.getItem("uls-previous-languages"))
+      );
+    } catch (e) {}
   },
   methods: {
     close() {
@@ -192,7 +231,8 @@ export default {
     },
     updateSelection(sourceLanguage) {
       if (sourceLanguage === "other") {
-        // TODO: Toggle ULS
+        this.openSourceLanguageDialog();
+
         return;
       }
       this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
@@ -207,6 +247,21 @@ export default {
         searchSuggestion.title
       );
       this.$store.dispatch("application/startSectionTranslation", suggestion);
+    },
+    openSourceLanguageDialog() {
+      this.sourceLanguageSelectOn = true;
+    },
+    onSourceLanguageDialogClose() {
+      this.sourceLanguageSelectOn = false;
+    },
+    /**
+     * Language selection handler
+     * @param {string} sourceLanguage
+     */
+    onSourceLanguageSelected(sourceLanguage) {
+      this.sourceLanguageSelectOn = false;
+      this.previousLanguages.push(sourceLanguage);
+      this.updateSelection(sourceLanguage);
     }
   }
 };
