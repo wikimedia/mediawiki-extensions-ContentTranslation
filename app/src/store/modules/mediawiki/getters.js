@@ -27,14 +27,6 @@ export default {
       title => title.lang === language
     )?.title,
 
-  /**
-   * Get the language object for the given language code
-   * @param {String} languageCode
-   * @returns {Language}
-   */
-  getLanguage: state => languageCode =>
-    state.languages.find(language => language.code === languageCode),
-
   getPageSection: state => (page, sectionTitle) => {
     return (page?.sections || []).find(
       section => section.originalTitle === sectionTitle

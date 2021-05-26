@@ -14,6 +14,7 @@
     "test:bundle": "bash ./scripts/check_bundle.sh"
   },
   "dependencies": {
+    "@wikimedia/language-data": "1.0.2",
     "vue": "^2.6.12",
     "vue-banana-i18n": "^1.3.0",
     "vue-router": "^3.5.1",
@@ -61,11 +62,11 @@
   "bundlesize": [
     {
       "path": "dist/js/cx.js",
-      "maxSize": "40.00KB"
+      "maxSize": "41.00KB"
     },
     {
       "path": "dist/js/cx.libs.js",
-      "maxSize": "66.00KB"
+      "maxSize": "80.00KB"
     },
     {
       "path": "dist/js/cx.ui.js",

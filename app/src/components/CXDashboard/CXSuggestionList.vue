@@ -61,7 +61,6 @@ import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
 import { mapState, mapActions, mapGetters, mapMutations } from "vuex";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import autonymMixin from "@/mixins/autonym";
 
 export default {
   name: "CxSuggestionList",
@@ -72,7 +71,6 @@ export default {
     MwButton,
     MwSpinner
   },
-  mixins: [autonymMixin],
   props: {
     active: {
       type: Boolean,
@@ -106,12 +104,9 @@ export default {
     sectionSuggestionsLoading: vm =>
       vm.$store.state.suggestions.sectionSuggestionsLoadingCount > 0,
     availableSourceLanguages() {
-      return this.supportedLanguageCodes
-        .filter(languageCode => languageCode !== this.selectedTargetLanguage)
-        .map(languageCode => ({
-          name: this.getAutonym(languageCode),
-          code: languageCode
-        }));
+      return this.supportedLanguageCodes.filter(
+        languageCode => languageCode !== this.selectedTargetLanguage
+      );
     },
     availableTargetLanguages() {
       // If SectionTranslationTargetLanguage configuration parameter is set,
@@ -124,12 +119,9 @@ export default {
         ? [mwTargetLanguage]
         : this.supportedLanguageCodes;
 
-      return supportedCodes
-        .filter(languageCode => languageCode !== this.selectedSourceLanguage)
-        .map(languageCode => ({
-          name: this.getAutonym(languageCode),
-          code: languageCode
-        }));
+      return supportedCodes.filter(
+        languageCode => languageCode !== this.selectedSourceLanguage
+      );
     },
     /** @return {ArticleSuggestion[]} */
     pageSuggestionsForPairSubset() {

@@ -10,7 +10,6 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
-import autonymMixin from "../mixins/autonym";
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector";
 
 export default {
@@ -18,7 +17,6 @@ export default {
   components: {
     SxTranslationListLanguageSelector
   },
-  mixins: [autonymMixin],
   computed: {
     ...mapState({
       supportedLanguageCodes: state =>
@@ -34,7 +32,7 @@ export default {
     availableSourceLanguages: vm =>
       vm.currentLanguageTitleGroup?.titles
         .filter(title => title.lang !== vm.targetLanguage)
-        .map(title => vm.createLanguageOption(title.lang)) || [],
+        .map(title => title.lang) || [],
 
     /**
      * If SectionTranslationTargetLanguage configuration parameter is set,
@@ -50,21 +48,12 @@ export default {
         ? [mwTargetLanguage]
         : vm.supportedLanguageCodes;
 
-      return supportedCodes
-        .filter(languageCode => languageCode !== vm.sourceLanguage)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            vm.createLanguageOption(languageCode)
-          ],
-          []
-        );
+      return supportedCodes.filter(
+        languageCode => languageCode !== vm.sourceLanguage
+      );
     }
   },
   methods: {
-    createLanguageOption(code) {
-      return { name: this.getAutonym(code), code };
-    },
     onSourceLanguageSelected(sourceLanguage) {
       this.$store.dispatch("application/updateSourceLanguage", sourceLanguage);
     },

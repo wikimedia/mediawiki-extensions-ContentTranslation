@@ -8,7 +8,6 @@ import MwDropdown from "./MWDropdown";
 import { MwCol, MwGrid, MwRow } from "./MWLayout";
 import MwIcon from "./MWIcon";
 import MwInput from "./MWInput";
-import MwLanguageSelector from "./MWLanguageSelector";
 import MwMessage from "./MWMessage";
 import MwSelect from "./MWSelect";
 import MwSpinner from "./MWSpinner";
@@ -23,7 +22,6 @@ export {
   MwCard,
   MwBottomNavigation,
   MwSelect,
-  MwLanguageSelector,
   MwSpinner,
   MwMessage,
   MwThumbnail,

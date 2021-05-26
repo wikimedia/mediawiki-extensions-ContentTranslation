@@ -77,7 +77,7 @@ import {
   mwIconClose,
   mwIconEllipsis
 } from "@/lib/mediawiki.ui/components/icons";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
 import NearbySuggestionsCard from "./NearbySuggestionsCard";
 import SearchResultsCard from "./SearchResultsCard";
@@ -94,7 +94,6 @@ export default {
     MwButtonGroup,
     MwCard
   },
-  mixins: [autonymMixin],
   data: () => ({
     mwIconSearch,
     mwIconClose,
@@ -186,7 +185,7 @@ export default {
           language =>
             language !== vm.sourceLanguage &&
             language !== vm.targetLanguage &&
-            vm.getAutonym(language) !== language
+            getAutonym(language) !== language
         )
         .slice(0, sliceSize);
     },
@@ -202,7 +201,7 @@ export default {
           language => ({
             value: language,
             props: {
-              label: vm.getAutonym(language),
+              label: getAutonym(language),
               type: "text",
               class: "px-0 py-4 mx-4"
             }

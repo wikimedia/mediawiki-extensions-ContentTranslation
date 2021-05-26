@@ -102,7 +102,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
         <span
           class="mw-ui-button__label"
         >
-          Bengali
+          বাংলা
         </span>
          
         <!---->

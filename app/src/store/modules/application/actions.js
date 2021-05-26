@@ -54,7 +54,6 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
 };
 
 async function initializeDashboardContext({ dispatch, state }) {
-  dispatch("mediawiki/fetchLanguages", {}, { root: true });
   dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
   const suggestion = await dispatch("loadSectionSuggestionFromUrl");
 

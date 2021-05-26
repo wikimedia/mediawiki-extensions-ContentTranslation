@@ -55,7 +55,7 @@
 <script>
 import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
 
 export default {
@@ -65,7 +65,6 @@ export default {
     MwCol,
     MwButton
   },
-  mixins: [autonymMixin],
   props: {
     suggestion: {
       type: SectionSuggestion,
@@ -91,7 +90,7 @@ export default {
     mappedSectionHeaderTitle() {
       return this.$i18n(
         "cx-sx-content-comparator-mapped-section-header-title",
-        this.getAutonym(this.suggestion.targetLanguage)
+        getAutonym(this.suggestion.targetLanguage)
       );
     }
   },

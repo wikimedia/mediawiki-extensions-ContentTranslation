@@ -12,7 +12,7 @@
       >
         <span
           class="mw-ui-autonym"
-          :dir="getDirection(selectedSourceLanguage)"
+          :dir="getDir(selectedSourceLanguage)"
           v-text="getAutonym(selectedSourceLanguage)"
         />
       </mw-button>
@@ -49,7 +49,7 @@
       >
         <span
           class="mw-ui-autonym"
-          :dir="getDirection(selectedTargetLanguage)"
+          :dir="getDir(selectedTargetLanguage)"
           v-text="getAutonym(selectedTargetLanguage)"
         />
       </mw-button>
@@ -74,13 +74,9 @@
 </template>
 
 <script>
-import {
-  MwLanguageSelector,
-  MwDialog,
-  MwIcon,
-  MwButton
-} from "@/lib/mediawiki.ui";
-import autonymMixin from "@/mixins/autonym";
+import { MwDialog, MwIcon, MwButton } from "@/lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import MwLanguageSelector from "../MWLanguageSelector";
 import {
   mwIconArrowNext,
   mwIconExpand
@@ -95,7 +91,6 @@ export default {
     MwIcon,
     MwButton
   },
-  mixins: [autonymMixin],
   props: {
     sourceLanguages: {
       type: Array,
@@ -119,6 +114,8 @@ export default {
     })
   },
   methods: {
+    getAutonym,
+    getDir,
     openSourceLanguageDialog() {
       this.sourceLanguageSelectOn = true;
     },

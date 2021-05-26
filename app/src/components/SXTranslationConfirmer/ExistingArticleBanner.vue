@@ -35,14 +35,13 @@
 <script>
 import { MwCol, MwRow, MwIcon } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 
 export default {
   name: "ExistingArticleBanner",
   components: { MwRow, MwCol, MwIcon },
-  mixins: [autonymMixin],
   data: () => ({
     mwIconLinkExternal
   }),
@@ -56,7 +55,7 @@ export default {
         vm.sectionSuggestion.targetTitle || ""
       ),
     targetLanguageAutonym: vm =>
-      vm.getAutonym(vm.sectionSuggestion.targetLanguage),
+      getAutonym(vm.sectionSuggestion.targetLanguage),
     firstMissingSection: vm =>
       Object.keys(vm.sectionSuggestion.missingSections)[0]
   }

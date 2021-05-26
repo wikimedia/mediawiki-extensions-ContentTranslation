@@ -20,7 +20,7 @@
 import { MwButton, MwRow } from "@/lib/mediawiki.ui";
 import ExistingArticleBanner from "./ExistingArticleBanner";
 import { mapState } from "vuex";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 
 export default {
   name: "ExistingArticleBody",
@@ -29,7 +29,6 @@ export default {
     MwButton,
     MwRow
   },
-  mixins: [autonymMixin],
   computed: {
     ...mapState({
       currentSectionSuggestion: state =>
@@ -43,7 +42,7 @@ export default {
     missingSectionsCount: vm =>
       vm.currentSectionSuggestion?.missingSectionsCount,
     targetLanguage: vm => vm.currentSectionSuggestion?.targetLanguage,
-    targetLanguageAutonym: vm => vm.getAutonym(vm.targetLanguage)
+    targetLanguageAutonym: vm => getAutonym(vm.targetLanguage)
   },
   methods: {
     onSectionSelectorClick() {

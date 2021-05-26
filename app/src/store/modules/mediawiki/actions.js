@@ -37,16 +37,6 @@ function fetchLanguageTitles({ commit, getters }, { language, title }) {
     );
 }
 
-function fetchLanguages({ commit, state }) {
-  // If languages have already been fetched, then skip
-  if (!state.languages.length && !state.languagesRequested) {
-    commit("setLanguagesRequested", true);
-    siteApi.fetchLanguages().then(languages => {
-      commit("setLanguages", languages);
-    });
-  }
-}
-
 function fetchSupportedLanguageCodes({ commit, state }) {
   // If supported language codes have already been fetched, then skip
   if (
@@ -205,7 +195,6 @@ async function fetchNearbyPages({ commit, rootState, state }) {
 }
 
 export default {
-  fetchLanguages,
   fetchLanguageTitles,
   fetchMTProviders,
   fetchNearbyPages,

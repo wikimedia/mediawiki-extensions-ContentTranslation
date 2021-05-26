@@ -9,10 +9,6 @@ export default {
     state.languageTitleGroups.push(group);
   },
 
-  setLanguages(state, languages) {
-    state.languages = languages;
-  },
-
   setSupportedLanguageCodes(state, languageCodes) {
     state.supportedLanguageCodes = languageCodes;
   },

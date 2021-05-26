@@ -9,14 +9,13 @@
 </template>
 
 <script>
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import { mapState } from "vuex";
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
 
 export default {
   name: "SxContentComparatorSourceVsTargetSelector",
   components: { MwButtonGroup },
-  mixins: [autonymMixin],
   props: {
     selection: {
       type: String,
@@ -37,7 +36,7 @@ export default {
         props: {
           label: this.$i18n(
             "cx-sx-content-comparator-source-selector-title",
-            this.getAutonym(this.suggestion.sourceLanguage)
+            getAutonym(this.suggestion.sourceLanguage)
           ),
           type: "text",
           class: "px-0 py-4 mx-4"
@@ -53,7 +52,7 @@ export default {
             props: {
               label: this.$i18n(
                 "cx-sx-content-comparator-target-selector-target-section-title",
-                this.getAutonym(this.suggestion.targetLanguage)
+                getAutonym(this.suggestion.targetLanguage)
               ),
               type: "text",
               class: "px-0 py-4 mx-4"
@@ -66,7 +65,7 @@ export default {
             props: {
               label: this.$i18n(
                 "cx-sx-content-comparator-target-selector-full-article-title",
-                this.getAutonym(this.suggestion.targetLanguage)
+                getAutonym(this.suggestion.targetLanguage)
               ),
               type: "text",
               class: "px-0 py-4 mx-4"

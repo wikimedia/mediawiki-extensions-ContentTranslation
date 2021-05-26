@@ -1,7 +1,7 @@
 <template>
   <mw-select
     ref="selectElement"
-    v-model="languageOptions"
+    :value="languages"
     class="mw-ui-language-selector"
     :icon="mwIconSearch"
     :placeholder="placeholder"
@@ -10,11 +10,13 @@
   >
     <template #option="slotProps">
       <div class="row">
-        <span class="mw-ui-language-selector__result-name col-10">{{
-          slotProps.option.label.autonym
-        }}</span>
+        <span
+          class="mw-ui-language-selector__result-name col-10"
+          :dir="getDir(slotProps.option.value)"
+          >{{ getAutonym(slotProps.option.value) }}</span
+        >
         <span class="mw-ui-language-selector__result-code col-2 justify-end">{{
-          slotProps.option.value
+          slotProps.option.label
         }}</span>
       </div>
     </template>
@@ -24,7 +26,7 @@
 <script>
 import { mwIconSearch } from "../lib/mediawiki.ui/components/icons";
 import { MwSelect } from "../lib/mediawiki.ui";
-import { mapGetters } from "vuex";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 
 export default {
   name: "MwLanguageSelector",
@@ -53,20 +55,6 @@ export default {
       return {
         "mw-ui-language-selector": true
       };
-    },
-    ...mapGetters({
-      getLanguage: "mediawiki/getLanguage"
-    }),
-    languageOptions() {
-      const options = {};
-
-      return this.languages.reduce(
-        (options, language) => ({
-          ...options,
-          [language.code]: this.getLanguage(language.code)
-        }),
-        {}
-      );
     }
   },
   mounted() {
@@ -75,14 +63,16 @@ export default {
     }
   },
   methods: {
+    getAutonym,
+    getDir,
     onSelect(event) {
       this.$emit("select", event);
     },
     languageSearch({ value, label }, query) {
       return (
-        (label.autonym + "").toLowerCase().startsWith(query.toLowerCase()) ||
-        // Search by language name in current user language
-        (label.name + "").toLowerCase().startsWith(query.toLowerCase()) ||
+        getAutonym(value)
+          .toLowerCase()
+          .startsWith(query.toLowerCase()) ||
         // Search by language code
         (value + "").toLowerCase().startsWith(query.toLowerCase())
       );

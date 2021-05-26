@@ -1,10 +1,8 @@
 import { mount, createLocalVue } from "@vue/test-utils";
 import SXSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
-import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 const localVue = createLocalVue();
-localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 import "html-loader";
 
@@ -19,22 +17,7 @@ describe("SXSectionSelector Section List", () => {
     }
   });
 
-  const store = new Vuex.Store({
-    modules: {
-      mediawiki: {
-        namespaced: true,
-        state: {
-          languages: []
-        },
-        getters: {
-          getLanguage: state => languageCode => languageCode
-        }
-      }
-    }
-  });
-
   const wrapper = mount(SXSectionSelectorSectionListPresent, {
-    store,
     localVue,
     propsData: {
       suggestion

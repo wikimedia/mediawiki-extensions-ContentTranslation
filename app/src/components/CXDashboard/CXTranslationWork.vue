@@ -40,13 +40,13 @@
           <div class="cx-translation__languages col grow">
             <span
               class="mw-ui-autonym"
-              :dir="getDirection(translation.sourceLanguage)"
+              :dir="getDir(translation.sourceLanguage)"
               v-text="getAutonym(translation.sourceLanguage)"
             ></span>
             <mw-icon :icon="mwIconArrowNext" class="mx-1" />
             <span
               class="mw-ui-autonym"
-              :dir="getDirection(translation.targetLanguage)"
+              :dir="getDir(translation.targetLanguage)"
               v-text="getAutonym(translation.targetLanguage)"
             ></span>
           </div>
@@ -58,7 +58,7 @@
 
 <script>
 import { MwThumbnail, MwIcon } from "@/lib/mediawiki.ui";
-import autonym from "@/mixins/autonym";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 import Translation from "@/wiki/cx/models/translation";
 import {
   mwIconEdit,
@@ -71,7 +71,6 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 export default {
   name: "CxTranslationWork",
   components: { MwThumbnail, MwIcon },
-  mixins: [autonym],
   props: {
     translation: {
       type: Translation,
@@ -85,6 +84,8 @@ export default {
     mwIconArrowNext
   }),
   methods: {
+    getAutonym,
+    getDir,
     onClick(e) {
       this.$emit("click", e);
       this.startTranslation(this.translation);

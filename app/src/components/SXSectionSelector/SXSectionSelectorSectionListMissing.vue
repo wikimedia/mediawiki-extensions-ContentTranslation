@@ -47,7 +47,7 @@
 <script>
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList";
 
@@ -59,7 +59,6 @@ export default {
     MwCol,
     MwButton
   },
-  mixins: [autonymMixin],
   props: {
     suggestion: {
       type: SectionSuggestion,
@@ -72,7 +71,7 @@ export default {
   }),
   computed: {
     targetLanguageAutonym() {
-      return this.getAutonym(this.suggestion.targetLanguage);
+      return getAutonym(this.suggestion.targetLanguage);
     },
     emptySections() {
       return Object.keys(this.suggestion.missingSections).length === 0;

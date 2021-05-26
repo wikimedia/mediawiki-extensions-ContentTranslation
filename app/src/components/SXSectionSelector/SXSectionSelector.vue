@@ -63,9 +63,8 @@ import {
   mwIconRobot,
   mwIconLabFlask
 } from "@/lib/mediawiki.ui/components/icons";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import { mapState } from "vuex";
-
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem";
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
@@ -85,7 +84,6 @@ export default {
     MwIcon,
     SxArticleLanguageSelector
   },
-  mixins: [autonymMixin],
   data: () => ({
     mwIconRobot,
     mwIconLabFlask
@@ -95,10 +93,10 @@ export default {
       suggestion: state => state.application.currentSectionSuggestion
     }),
     sourceLanguageAutonym() {
-      return this.getAutonym(this.suggestion.sourceLanguage);
+      return getAutonym(this.suggestion.sourceLanguage);
     },
     targetLanguageAutonym() {
-      return this.getAutonym(this.suggestion.targetLanguage);
+      return getAutonym(this.suggestion.targetLanguage);
     },
     sourceArticlePath() {
       return siteMapper.getPageUrl(

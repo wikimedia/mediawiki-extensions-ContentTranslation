@@ -14,18 +14,13 @@ describe("SXTranslationConfirmer Existing Translation Banner Navigation test", (
     targetTitle: "Test target title",
     missing: {}
   });
-  const mediawikiModule = {
-    namespaced: true,
-    state: { languages: [] },
-    getters: { getLanguage: () => languageCode => languageCode }
-  };
+
   const applicationModule = {
     namespaced: true,
     state: { currentSectionSuggestion: sectionSuggestion }
   };
   const store = new Vuex.Store({
     modules: {
-      mediawiki: mediawikiModule,
       application: applicationModule
     }
   });

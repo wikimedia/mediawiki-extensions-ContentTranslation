@@ -24,7 +24,7 @@
 <script>
 import CxTranslationWork from "./CXTranslationWork";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
-import autonymMixin from "@/mixins/autonym";
+import { getAutonym } from "@wikimedia/language-data";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import { mapState } from "vuex";
 
@@ -36,7 +36,6 @@ export default {
     MwSpinner,
     SxTranslationListLanguageSelector
   },
-  mixins: [autonymMixin],
   props: {
     active: {
       type: Boolean,
@@ -75,7 +74,7 @@ export default {
         .reduce(
           (languages, languageCode) => [
             ...languages,
-            { name: this.getAutonym(languageCode), code: languageCode }
+            { name: getAutonym(languageCode), code: languageCode }
           ],
           [
             {
@@ -105,7 +104,7 @@ export default {
       return [...new Set(translationLanguages)].reduce(
         (languages, languageCode) => [
           ...languages,
-          { name: this.getAutonym(languageCode), code: languageCode }
+          { name: getAutonym(languageCode), code: languageCode }
         ],
         [
           {
