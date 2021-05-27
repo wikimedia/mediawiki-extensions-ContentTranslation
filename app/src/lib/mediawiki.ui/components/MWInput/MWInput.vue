@@ -207,8 +207,8 @@ export default {
   }
 
   &.mw-ui-input--focused {
-    border-color: @border-color-base;
-    box-shadow: inset 0 0 0 1px @color-primary;
+    border-color: @border-color-base--focus;
+    box-shadow: @box-shadow-base--focus;
     outline: 0;
   }
 
