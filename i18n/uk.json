@@ -332,7 +332,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Наявне мовою $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Розділ мовою $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Ваш переклад розширить наявний розділ.\nЯкщо розділи не пов'язані, то відкиньте це.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 відвідування на тиждень|$1 відвідування на тиждень|$1 відвідувань на тиждень|0=Жодних відвідувань цього тижня}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Ваш переклад буде збережено як новий незалежний розділ.",
 	"cx-sx-content-comparator-discarded-section-label": "(відкинуто)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Почати з іншого перекладу",

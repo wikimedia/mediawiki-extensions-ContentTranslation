@@ -285,7 +285,7 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Fordítás szerkesztése",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Alkalmaz",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Kihagy",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Egy|$1|0=Nulla}} megtekintés hetente",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Egy|$1|0=Nulla}} megtekintés hetente",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Itt jelenik meg az új szakasz, amint végeztél a fordítással",
 	"cx-sx-editor-original-panel-label": "Eredeti",
 	"cx-sx-publisher-header-title": "Közzététel megerősítése",

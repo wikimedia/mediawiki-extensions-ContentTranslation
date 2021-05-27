@@ -338,7 +338,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "موجود در $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "بخش در $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "ترجمهٔ شما، بخش از پیش موجود را گسترش خواهد داد. در صورتی که بخش‌ها مرتبط نیستند، این تغییر را دور بریزید.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 بازدید در|$1 بازدید در|0=بدون بازدید در این}} هفته",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 بازدید در|$1 بازدید در|0=بدون بازدید در این}} هفته",
 	"cx-sx-content-comparator-discarded-section-clarifications": "ترجمهٔ شما در قالب یک بخش جدید و مستقل منتشر خواهد شد.",
 	"cx-sx-content-comparator-discarded-section-label": "(دو ریخته شده)",
 	"cx-sx-sentence-selector-translation-options-header-title": "آغاز یک ترجمهٔ متفاوت",

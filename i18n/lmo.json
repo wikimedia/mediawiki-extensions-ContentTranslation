@@ -314,7 +314,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Present in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sezzion in $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "La toa traduzzion la slargherà foeura la sezzion esistenta. Bandonala se i sezzion a inn minga correlade.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visita a la setimana|$1 visite a la setimana|0=Nissuna visita questa setimana chì}}",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita a la setimana|$1 visite a la setimana|0=Nissuna visita questa setimana chì}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "La toa traduzzion la sarà publicada come una sezzion noeuva in deperlee.",
 	"cx-sx-content-comparator-discarded-section-label": "(trada via)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Comenza cont un'altra traduzzion",

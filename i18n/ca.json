@@ -229,7 +229,7 @@
 	"cx-linkcontextitem-missing-title-description": "La pàgina encara no existeix",
 	"cx-mt-abuse-publish-error": "No es pot publicar la traducció perquè conté massa text no modificat.",
 	"cx-unreviewed-translation-category": "Pàgines amb traduccions sense revisar",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visita per|$1 visites per|0=Cap visita aquesta}} setmana",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita per|$1 visites per|0=Cap visita aquesta}} setmana",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> editat per tu",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paràgraf"

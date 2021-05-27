@@ -326,7 +326,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Til stede på $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Seksjon på $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Oversettelsen din vil utvide den eksisterende seksjonen. Forkast dette hvis seksjonene ikke har noe med hverandre å gjøre.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 besøk i|0=Ingen besøk denne}} uka",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Oversettelsen din blir publisert som en ny, uavhengig seksjon.",
 	"cx-sx-content-comparator-discarded-section-label": "(forkastet)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Start med en annen oversettelse",

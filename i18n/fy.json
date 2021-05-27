@@ -286,7 +286,7 @@
 	"cx-sx-content-comparator-translation-section-button-label": "Dizze seksje oersette",
 	"sx-quick-tutorial-translate-button-label": "Mei oersetten begjinne",
 	"cx-sx-sentence-selector-done-button-label": "Klear",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 besite yn 'e|$1 besites yn 'e|0=Gjin besite dizze}} wike",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 besite yn 'e|$1 besites yn 'e|0=Gjin besite dizze}} wike",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Publisearjen fan 'e oersetting ...",
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Tankjewol foar it útwreidzjen fan 'e ynhâld beskikber yn jo taal",
 	"cx-sx-publisher-animation-success-message-title": "Publisearre!",

@@ -346,7 +346,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "$1 içindeki sunum",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 içindeki bölüm",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. Bölümler ilgili değilse bunu kaydetmeyin.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|Her $1 hafta ziyaret|0=Bunda ziyaret yok}}",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Her $1 hafta ziyaret|0=Bunda ziyaret yok}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Çeviriniz bağımsız yeni bir bölüm olarak yayımlanacaktır.",
 	"cx-sx-content-comparator-discarded-section-label": "(atlandı)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Farklı bir çeviriyle başlayın",

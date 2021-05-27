@@ -331,7 +331,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Ada dalam $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Bagian dalam $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Terjemahan Anda akan memperluas bagian yang sudah ada. <br /> Buang ini apabila bagiannya tidak terkait.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 kunjungan per pekan|$1 kunjungan per pekan|0=Tidak ada kunjungan pekan ini}}",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 kunjungan per pekan|$1 kunjungan per pekan|0=Tidak ada kunjungan pekan ini}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Terjemahan Anda akan diterbitkan sebagai bagian baru yang berdiri sendiri.",
 	"cx-sx-content-comparator-discarded-section-label": "(dibuang)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Mulai dengan terjemahan yang berbeda",

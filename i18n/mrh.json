@@ -14,6 +14,6 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Saoh",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Khôsai",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 liata bo",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Reihpalei"
 }

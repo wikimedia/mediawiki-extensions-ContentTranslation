@@ -331,7 +331,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presente em $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Secção em $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "A sua tradução expandirá a secção existente. Descarte isto se as secções não estiverem relacionadas.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
 	"cx-sx-content-comparator-discarded-section-clarifications": "A sua tradução será publicada como uma secção nova e independente.",
 	"cx-sx-content-comparator-discarded-section-label": "(descartado)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Começar com uma tradução diferente",

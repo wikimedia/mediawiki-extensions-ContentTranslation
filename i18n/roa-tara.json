@@ -315,7 +315,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presende jndr'à $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sezione jndr'à $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "'A traduziona toje spanne 'a sezione esistende. Scitte quiste ce le seziune no sò collegate.",
-	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 visite pe|0=Nisciuna visite sta}} sumàne",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visite pe|0=Nisciuna visite sta}} sumàne",
 	"cx-sx-content-comparator-discarded-section-clarifications": "'A traduziona toje avène pubblecate cumme 'na seziona nove indipendende.",
 	"cx-sx-content-comparator-discarded-section-label": "(scettate)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Accuminze cu 'na traduzione diverse",
