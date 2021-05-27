@@ -1,6 +1,7 @@
 <template>
   <section class="sx-article-search">
     <mw-input
+      ref="search-input"
       v-model="searchInput"
       :icon-size="20"
       :outlined="false"
@@ -224,6 +225,7 @@ export default {
         ...JSON.parse(localStorage.getItem("uls-previous-languages"))
       );
     } catch (e) {}
+    this.$refs["search-input"].focus();
   },
   methods: {
     close() {

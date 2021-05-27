@@ -5,7 +5,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
   class="sx-article-search"
 >
   <div
-    class="mw-ui-input container"
+    class="mw-ui-input container mw-ui-input--focused"
   >
     <div
       class="mw-ui-input__content"
