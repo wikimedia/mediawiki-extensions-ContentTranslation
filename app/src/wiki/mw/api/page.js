@@ -231,7 +231,11 @@ const searchPagesByTitlePrefix = (query, language) => {
     .getApi(language)
     .get(params)
     .then(response => response.query.pages)
-    .then(pages => pages.map(page => new Page(page)))
+    .then(pages =>
+      pages
+        .sort((page1, page2) => page1.index - page2.index)
+        .map(page => new Page(page))
+    )
     .catch(error => []);
 };
 
