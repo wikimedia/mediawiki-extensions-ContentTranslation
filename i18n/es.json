@@ -309,8 +309,8 @@
 	"cx-sx-section-selector-subtitle": "Escoge una sección",
 	"cx-sx-section-selector-desc": "Vas a comparar el contenido en ambos idiomas",
 	"cx-sx-language-selector-dialog-title": "Buscar un idioma",
-	"cx-sx-existing-translation-status": "Ya existe en $1",
-	"cx-sx-existing-translation-additional-info": "Expandir los contenidos ya existentes traduciendo secciones nuevas.",
+	"cx-sx-existing-translation-status": "Disponible en $1",
+	"cx-sx-existing-translation-additional-info": "Expandir con $1{{PLURAL:$2|y $2 sección más|y $2 secciones más|0=}}",
 	"cx-sx-start-translation-button-label": "¡Comienza a traducir!",
 	"cx-sx-view-translation-anchor": "Ver",
 	"cx-sx-existing-translation-learn-more": "Más información",
@@ -348,6 +348,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presente en $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sección en $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Tu traducción va a ampliar la sección existente. Descarta esto si las secciones no están relacionadas.",
+	"cx-sx-translation-confirmer-title": "Traducción nueva",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Ninguna visita esta}} semana",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Tu traducción será publicada como una sección nueva independiente.",
 	"cx-sx-content-comparator-discarded-section-label": "(descartada)",
@@ -398,5 +399,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sección|$1 secciones|0=Ninguna sección}}",
 	"cx-sx-article-search-input-placeholder": "Buscar una página que traducir",
 	"cx-sx-article-search-recently-edited-title": "Tus ediciones recientes",
-	"cx-sx-article-search-nearby-title": "Cercanos"
+	"cx-sx-article-search-nearby-title": "Cercanos",
+	"sx-article-search-language-selector-dialog-title": "Buscar un idioma"
 }

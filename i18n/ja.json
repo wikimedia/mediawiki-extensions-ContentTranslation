@@ -24,6 +24,7 @@
 			"Takot",
 			"Tamaki Wakita",
 			"Tmv",
+			"UsagiNeko",
 			"W.CC",
 			"Whym",
 			"Yusuke1109",
@@ -64,6 +65,7 @@
 	"tag-contenttranslation-description": "このページの内容はコンテンツ翻訳ツールを使用して他の言語から翻訳されました。",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|コンテンツ翻訳バージョン2]]",
 	"tag-contenttranslation-v2-description": "この内容はコンテンツ翻訳バージョン2を利用して他言語から翻訳したものです。",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|セクション翻訳]]",
 	"cx-source-loading": "$1 を読み込み中",
 	"cx-beta": "コンテンツ翻訳",
 	"cx-beta-desc": "ページをあなたがお使いの言語にすばやく翻訳するツールです。 [[Special:MyContributions|あなたの投稿記録]]から翻訳を始めてください。翻訳用に設計された二画面エディタで編集してみましょう。一部の言語にしか使用できないツールもある場合がありますのでご了承ください。",
@@ -316,5 +318,6 @@
 	"cx-sx-publisher-publish-panel-new-section-status": "公開の準備ができましたか？",
 	"cx-sx-publisher-animation-success-message-title": "公開が完了しました!",
 	"cx-sx-publisher-mt-abuse-message-title": "翻訳に $1% の修正されていないテキストが含まれています",
-	"cx-sx-publisher-mt-abuse-message-body": "機械翻訳は出発点です。引き続き公開できますが、翻訳が自分の言語で自然に読めることを確認してください。"
+	"cx-sx-publisher-mt-abuse-message-body": "機械翻訳は出発点です。引き続き公開できますが、翻訳が自分の言語で自然に読めることを確認してください。",
+	"sx-article-search-language-selector-dialog-title": "言語を検索"
 }

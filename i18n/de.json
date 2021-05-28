@@ -379,5 +379,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|1 Abschnitt|$1 Abschnitte|0=Kein Abschnitt}}",
 	"cx-sx-article-search-input-placeholder": "Nach einer zu übersetzenden Seite suchen",
 	"cx-sx-article-search-recently-edited-title": "Kürzlich von dir bearbeitet",
-	"cx-sx-article-search-nearby-title": "In der Nähe"
+	"cx-sx-article-search-nearby-title": "In der Nähe",
+	"sx-article-search-language-selector-dialog-title": "Nach einer Sprache suchen"
 }

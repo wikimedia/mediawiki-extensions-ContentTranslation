@@ -60,6 +60,7 @@
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-notification-suggestions-available": "Segun {{GENDER:$2|vua}} antea traduko de '''$1''', nova sugestaji esas nun disponebla.",
 	"cx-tools-linter-learn-more": "Lernez pluse",
+	"cx-unreviewed-translation-category": "Pagini kun tradukuri sen revizo",
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-translation-list-all-languages-option-label": "Omni",
 	"cx-sx-content-comparator-translation-section-button-label": "Tradukar ca segmento",

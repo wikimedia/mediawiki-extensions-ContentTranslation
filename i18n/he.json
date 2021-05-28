@@ -291,7 +291,7 @@
 	"cx-sx-section-selector-desc": "{{GENDER:|אתה תשווה|את תשווי}} בשתי השפות",
 	"cx-sx-language-selector-dialog-title": "חיפוש שפה",
 	"cx-sx-existing-translation-status": "זמין ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-existing-translation-additional-info": "{{GENDER:|הרחב|הרחיבי}} באמצעות הוספת {{PLURAL:$2|$1 ועוד פרק|$1 ועוד $2 פרקים|=$1}}",
+	"cx-sx-existing-translation-additional-info": "{{GENDER:|הרחב|הרחיבי}} באמצעות הוספת {{PLURAL:$2|$1 ועוד פרק|$1 ועוד $2 פרקים|0=$1}}",
 	"cx-sx-start-translation-button-label": "להתחיל לתרגם",
 	"cx-sx-view-translation-anchor": "הצגה",
 	"cx-sx-existing-translation-learn-more": "מידע נוסף",
@@ -380,5 +380,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|פרק אחד|$1 פרקים|0=אין פרקים}}",
 	"cx-sx-article-search-input-placeholder": "חיפוש דף לתרגום",
 	"cx-sx-article-search-recently-edited-title": "ערכת את זה לאחרונה",
-	"cx-sx-article-search-nearby-title": "בסביבה"
+	"cx-sx-article-search-nearby-title": "בסביבה",
+	"sx-article-search-language-selector-dialog-title": "חיפוש שפה"
 }
