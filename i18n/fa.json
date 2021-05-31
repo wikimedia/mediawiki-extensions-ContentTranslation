@@ -299,7 +299,7 @@
 	"cx-sx-section-selector-subtitle": "یک بخش را برای ترجمه انتخاب کنید",
 	"cx-sx-section-selector-desc": "یک بخش را در زیر انتخاب کنید و برای انتخاب چیزی که می‌خواهید ترجمه کنید، محتوا را در هر دو زبان بررسی کنید.",
 	"cx-sx-language-selector-dialog-title": "جستجوی یک زبان",
-	"cx-sx-existing-translation-status": "از پیش در $1 موجود است",
+	"cx-sx-existing-translation-status": "در $1 در دسترس است",
 	"cx-sx-existing-translation-additional-info": "با ترجمهٔ بخش‌های جدید، محتوای از پیش موجود را گسترش دهید.",
 	"cx-sx-start-translation-button-label": "شروع ترجمه",
 	"cx-sx-view-translation-anchor": "مشاهده",
@@ -338,6 +338,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "موجود در $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "بخش در $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "ترجمهٔ شما، بخش از پیش موجود را گسترش خواهد داد. در صورتی که بخش‌ها مرتبط نیستند، این تغییر را دور بریزید.",
+	"cx-sx-translation-confirmer-title": "ترجمهٔ تازه",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 بازدید در|$1 بازدید در|0=بدون بازدید در این}} هفته",
 	"cx-sx-content-comparator-discarded-section-clarifications": "ترجمهٔ شما در قالب یک بخش جدید و مستقل منتشر خواهد شد.",
 	"cx-sx-content-comparator-discarded-section-label": "(دو ریخته شده)",
@@ -388,5 +389,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 بخش|$1 بخش|0=هیچ بخشی موجود نیست}}",
 	"cx-sx-article-search-input-placeholder": "جستجو برای یک صفحه به‌منظور ترجمه",
 	"cx-sx-article-search-recently-edited-title": "ویرایش‌های اخیر شما",
-	"cx-sx-article-search-nearby-title": "در نزدیکی"
+	"cx-sx-article-search-nearby-title": "در نزدیکی",
+	"sx-article-search-language-selector-dialog-title": "جستجوی یک زبان"
 }

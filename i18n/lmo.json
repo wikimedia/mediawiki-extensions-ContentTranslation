@@ -275,8 +275,8 @@
 	"cx-sx-section-selector-subtitle": "Cata foeura una sezzion",
 	"cx-sx-section-selector-desc": "Te confrontareet ti el contegnud in tucc do i lengove",
 	"cx-sx-language-selector-dialog-title": "Cerca una lengua",
-	"cx-sx-existing-translation-status": "A l'esist sgiamò in $1",
-	"cx-sx-existing-translation-additional-info": "Sgrandiss i contegnud esistent cont el tradù di sezzion neouve",
+	"cx-sx-existing-translation-status": "Disponibil in $1",
+	"cx-sx-existing-translation-additional-info": "Slarga foeura con $1{{PLURAL:$2| e $2 sezzion anmò| e $2 sezzion anmò|0=}}",
 	"cx-sx-start-translation-button-label": "Taca a tradù",
 	"cx-sx-view-translation-anchor": "Varda",
 	"cx-sx-existing-translation-learn-more": "Per savenn pussee",
@@ -314,6 +314,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Present in $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sezzion in $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "La toa traduzzion la slargherà foeura la sezzion esistenta. Bandonala se i sezzion a inn minga correlade.",
+	"cx-sx-translation-confirmer-title": "Noeuva traduzzion",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita a la setimana|$1 visite a la setimana|0=Nissuna visita questa setimana chì}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "La toa traduzzion la sarà publicada come una sezzion noeuva in deperlee.",
 	"cx-sx-content-comparator-discarded-section-label": "(trada via)",
@@ -364,5 +365,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sezzion|0=Nissuna sezzion}}",
 	"cx-sx-article-search-input-placeholder": "Cerca una pagina de tradù",
 	"cx-sx-article-search-recently-edited-title": "Modifegada de recent de tì",
-	"cx-sx-article-search-nearby-title": "Chì adree"
+	"cx-sx-article-search-nearby-title": "Chì adree",
+	"sx-article-search-language-selector-dialog-title": "Cerca una lengova"
 }

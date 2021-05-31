@@ -298,7 +298,7 @@
 	"cx-sx-section-selector-subtitle": "Selecione uma seção",
 	"cx-sx-section-selector-desc": "Você vai comparar conteúdo em ambos os idiomas",
 	"cx-sx-language-selector-dialog-title": "Procurar por um idioma",
-	"cx-sx-existing-translation-status": "Já existe em $1",
+	"cx-sx-existing-translation-status": "Disponível em $1",
 	"cx-sx-existing-translation-additional-info": "Expanda o conteúdo existente traduzindo novas seções.",
 	"cx-sx-start-translation-button-label": "Iniciar tradução",
 	"cx-sx-view-translation-anchor": "Visualizar",
@@ -337,6 +337,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Presente em $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Seção em $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Sua tradução expandirá a seção existente. Descarte isso se as seções não estiverem relacionadas.",
+	"cx-sx-translation-confirmer-title": "Nova tradução",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita por|$1 visitas por|0=Não houve visitas esta}} semana",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Sua tradução será publicada como uma nova seção independente.",
 	"cx-sx-content-comparator-discarded-section-label": "(descartado)",
@@ -387,5 +388,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 seção|$1 seções|0=Sem seções}}",
 	"cx-sx-article-search-input-placeholder": "Procurar uma página para traduzir",
 	"cx-sx-article-search-recently-edited-title": "Editado recentemente por você",
-	"cx-sx-article-search-nearby-title": "Próximo"
+	"cx-sx-article-search-nearby-title": "Próximo",
+	"sx-article-search-language-selector-dialog-title": "Procurar por um idioma"
 }
