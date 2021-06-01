@@ -1,6 +1,7 @@
 import Vue from "vue";
 import cxSuggestionsApi from "../../../wiki/cx/api/suggestions";
 import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSuggestionSeedCollection";
+import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 
 async function fetchPageSuggestions(
   { commit, dispatch },
@@ -110,10 +111,33 @@ async function fetchSectionSuggestionsBySeeds(
   );
 }
 
+/**
+ * Given a language pair and an article title this action:
+ * 1. If matching sectionSuggestion model exists in state, returns it
+ * 2. If no such model exists, it fetches sectionSuggestion model from API.
+ *    If API response is valid, it stores the model in vuex state, fetches
+ *    corresponding page metadata for source article and returns the model.
+ * 3. If the API response is empty, then page metadata are fetched and a
+ *    new sectionSuggestion model is created and returned to support creation
+ *    of new article by translating the lead section.
+ * If page metadata cannot be loaded, an Error with appropriate message
+ * is being thrown.
+ *
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.getters
+ * @param {object} payload
+ * @param {string} payload.sourceLanguage
+ * @param {string} payload.targetLanguage
+ * @param {string} payload.sourceTitle
+ * @return {Promise<SectionSuggestion>}
+ */
 async function loadSectionSuggestion(
   { commit, dispatch, getters },
   { sourceLanguage, targetLanguage, sourceTitle }
 ) {
+  /** @type {SectionSuggestion|null} */
   let suggestion = getters.getSectionSuggestionsForArticle(
     sourceLanguage,
     targetLanguage,
@@ -128,19 +152,26 @@ async function loadSectionSuggestion(
       targetLanguage
     );
 
-    if (!suggestion) {
-      return;
-    }
+    try {
+      await dispatch(
+        "mediawiki/fetchPageMetadata",
+        { language: sourceLanguage, titles: [sourceTitle] },
+        { root: true }
+      );
 
+      if (!suggestion) {
+        suggestion = new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle
+        });
+      }
+    } catch (e) {
+      throw new Error(
+        `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}`
+      );
+    }
     commit("addSectionSuggestion", suggestion);
-    dispatch(
-      "mediawiki/fetchPageMetadata",
-      {
-        language: sourceLanguage,
-        titles: [sourceTitle]
-      },
-      { root: true }
-    );
   }
 
   return suggestion;

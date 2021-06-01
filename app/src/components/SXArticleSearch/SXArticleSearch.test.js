@@ -84,7 +84,7 @@ describe("SXArticleSearch", () => {
     sourceTitle: mockTitle
   });
   store.dispatch = jest.fn(action => {
-    if (action === "application/createNewSectionSuggestion") {
+    if (action === "suggestions/loadSectionSuggestion") {
       return Promise.resolve(mockSectionSuggestion);
     }
   });
@@ -133,8 +133,12 @@ describe("SXArticleSearch", () => {
     await searchResultWrapper.trigger("click");
     expect(searchResultsCard.emitted("suggestion-clicked")).toBeTruthy();
     expect(store.dispatch).toHaveBeenCalledWith(
-      "application/createNewSectionSuggestion",
-      searchResultWrapper.vm.suggestion.title
+      "suggestions/loadSectionSuggestion",
+      {
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: searchResultWrapper.vm.suggestion.title
+      }
     );
     expect(store.dispatch).toHaveBeenCalledWith(
       "application/startSectionTranslation",

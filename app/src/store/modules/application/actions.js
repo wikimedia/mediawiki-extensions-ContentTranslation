@@ -203,29 +203,16 @@ async function loadSectionSuggestionFromUrl({
   );
 
   if (!suggestion) {
-    suggestion = await dispatch("createNewSectionSuggestion", sourceTitle);
+    suggestion = await dispatch(
+      "suggestions/loadSectionSuggestion",
+      {
+        sourceLanguage: state.sourceLanguage,
+        targetLanguage: state.targetLanguage,
+        sourceTitle
+      },
+      { root: true }
+    );
   }
-
-  return suggestion;
-}
-
-/**
- * @param {Object} context
- * @param {Function} context.dispatch
- * @param {Object} context.state
- * @param {String} title
- * @return {Promise<SectionSuggestion>}
- */
-async function createNewSectionSuggestion({ dispatch, state }, title) {
-  let suggestion = new SectionSuggestion({
-    sourceLanguage: state.sourceLanguage,
-    targetLanguage: state.targetLanguage,
-    sourceTitle: title,
-    missing: {}
-  });
-  suggestion = await dispatch("suggestions/loadSectionSuggestion", suggestion, {
-    root: true
-  });
 
   return suggestion;
 }
@@ -570,7 +557,6 @@ export default {
   applyProposedTranslationToSelectedSegment,
   applyTranslationToSelectedSegment,
   clearCurrentSectionSuggestion,
-  createNewSectionSuggestion,
   fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
   initializeDashboardContext,

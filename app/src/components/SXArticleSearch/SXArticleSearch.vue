@@ -244,8 +244,12 @@ export default {
      */
     async startSectionTranslation(searchSuggestion) {
       const suggestion = await this.$store.dispatch(
-        "application/createNewSectionSuggestion",
-        searchSuggestion.title
+        "suggestions/loadSectionSuggestion",
+        {
+          sourceLanguage: this.sourceLanguage,
+          targetLanguage: this.targetLanguage,
+          sourceTitle: searchSuggestion.title
+        }
       );
       this.$store.dispatch("application/startSectionTranslation", suggestion);
     },
