@@ -16,21 +16,21 @@
           v-text="getAutonym(selectedSourceLanguage)"
         />
       </mw-button>
+
       <mw-dialog
-        v-show="sourceLanguageSelectOn"
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
+        v-if="sourceLanguageSelectOn"
         animation="slide-up"
-        :fullscreen="true"
+        :title="$i18n('sx-translation-list-language-selector-dialog-title')"
+        fullscreen
         @close="onSourceLanguageDialogClose"
       >
-        <div class="row">
-          <mw-language-selector
-            v-if="sourceLanguageSelectOn"
-            class="sx-translation-list-language-selector__widget col-12"
-            :languages="sourceLanguages"
-            @select="onSourceLanguageSelected"
-          />
-        </div>
+        <mw-language-selector
+          class="sx-translation-list-language-selector__widget col-12"
+          :placeholder="$i18n('cx-sx-language-selector-placeholder')"
+          :languages="sourceLanguages"
+          @select="onSourceLanguageSelected"
+          @close="onSourceLanguageDialogClose"
+        />
       </mw-dialog>
     </div>
     <div
@@ -54,27 +54,26 @@
         />
       </mw-button>
       <mw-dialog
-        v-show="targetLanguageSelectOn"
-        :title="$i18n('cx-sx-language-selector-dialog-title')"
+        v-if="targetLanguageSelectOn"
         animation="slide-up"
         :fullscreen="true"
+        :title="$i18n('sx-translation-list-language-selector-dialog-title')"
         @close="onTargetLanguageDialogClose"
       >
-        <div class="row">
-          <mw-language-selector
-            v-if="targetLanguageSelectOn"
-            class="sx-translation-list-language-selector__widget col-12"
-            :languages="targetLanguages"
-            @select="onTargetLanguageSelected"
-          />
-        </div>
+        <mw-language-selector
+          class="sx-translation-list-language-selector__widget col-12"
+          :placeholder="$i18n('cx-sx-language-selector-placeholder')"
+          :languages="targetLanguages"
+          @select="onTargetLanguageSelected"
+          @close="onTargetLanguageDialogClose"
+        />
       </mw-dialog>
     </div>
   </div>
 </template>
 
 <script>
-import { MwDialog, MwIcon, MwButton } from "@/lib/mediawiki.ui";
+import { MwIcon, MwButton, MwDialog } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import MwLanguageSelector from "../MWLanguageSelector";
 import {
@@ -147,5 +146,13 @@ export default {
     @background-color-notice--framed;
   border-bottom: @border-width-base @border-style-base
     @background-color-notice--framed;
+  .mw-ui-dialog.mw-ui-dialog--fullscreen {
+    .mw-ui-dialog__header {
+      margin: 12px 16px;
+      button {
+        padding: 0;
+      }
+    }
+  }
 }
 </style>

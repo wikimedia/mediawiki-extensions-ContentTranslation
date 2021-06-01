@@ -45,32 +45,27 @@
       @suggestion-clicked="startSectionTranslation"
     />
     <mw-dialog
-      v-show="sourceLanguageSelectOn"
-      :title="$i18n('sx-article-search-language-selector-dialog-title')"
+      v-if="sourceLanguageSelectOn"
+      class="sx-article-search-language-selector"
       animation="slide-up"
       :fullscreen="true"
+      :title="$i18n('sx-article-search-language-selector-dialog-title')"
       @close="onSourceLanguageDialogClose"
     >
-      <div class="row">
-        <mw-language-selector
-          v-if="sourceLanguageSelectOn"
-          class="sx-article-search-language-selector__widget col-12"
-          :languages="availableSourceLanguages"
-          @select="onSourceLanguageSelected"
-        />
-      </div>
+      <mw-language-selector
+        class="sx-article-search-language-selector__widget col-12"
+        :languages="availableSourceLanguages"
+        :suggestions="suggestedSourceLanguages"
+        :placeholder="$i18n('cx-sx-language-selector-placeholder')"
+        @select="onSourceLanguageSelected"
+        @close="onSourceLanguageDialogClose"
+      />
     </mw-dialog>
   </section>
 </template>
 
 <script>
-import {
-  MwButtonGroup,
-  MwCard,
-  MwDialog,
-  MwInput,
-  MwLanguageSelector
-} from "@/lib/mediawiki.ui";
+import { MwButtonGroup, MwDialog, MwCard, MwInput } from "@/lib/mediawiki.ui";
 import { mapGetters, mapState } from "vuex";
 import {
   mwIconSearch,
@@ -81,6 +76,7 @@ import { getAutonym } from "@wikimedia/language-data";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
 import NearbySuggestionsCard from "./NearbySuggestionsCard";
 import SearchResultsCard from "./SearchResultsCard";
+import MwLanguageSelector from "../MWLanguageSelector";
 
 export default {
   name: "SxArticleSearch",
@@ -89,8 +85,8 @@ export default {
     NearbySuggestionsCard,
     SxSearchArticleSuggestion,
     MwInput,
-    MwLanguageSelector,
     MwDialog,
+    MwLanguageSelector,
     MwButtonGroup,
     MwCard
   },
@@ -121,12 +117,9 @@ export default {
       recentlyEditedPages: "mediawiki/getRecentlyEditedPages"
     }),
     availableSourceLanguages() {
-      return this.supportedLanguageCodes
-        .filter(languageCode => languageCode !== this.selectedTargetLanguage)
-        .map(languageCode => ({
-          name: this.getAutonym(languageCode),
-          code: languageCode
-        }));
+      return this.supportedLanguageCodes.filter(
+        languageCode => languageCode !== this.selectedTargetLanguage
+      );
     },
     /**
      * Returns an array of suggested language codes
@@ -136,16 +129,6 @@ export default {
      * @return {string[]}
      */
     suggestedSourceLanguages: vm => {
-      /**
-       * According to design specification, language selector inside
-       * "search for an article" screen, contains three options, including
-       * current source language. So we need exactly 2 additional suggested
-       * source languages to display.
-       *
-       * @type {number}
-       */
-      const sliceSize = 2;
-
       /**
        * Browser user interface language or the system language.
        * This language code can be like "en" or "en_US", so we need
@@ -174,20 +157,15 @@ export default {
         ...acceptLanguages
       ];
 
-      // Filter out duplicate languages using Set.
-      // Also filter out source, target and invalid
-      // languages (i.e. languages that do not have
-      // a valid autonym).
-      // Finally return a slice of these languages
-      // equal to sliceSize (current value is 2)
-      return [...new Set(suggestedLanguages)]
-        .filter(
-          language =>
-            language !== vm.sourceLanguage &&
-            language !== vm.targetLanguage &&
-            getAutonym(language) !== language
-        )
-        .slice(0, sliceSize);
+      // Filter out duplicate languages using Set. Also filter out
+      // source, target and invalid languages (i.e. languages that
+      // do not have a valid autonym).
+      return [...new Set(suggestedLanguages)].filter(
+        language =>
+          language !== vm.sourceLanguage &&
+          language !== vm.targetLanguage &&
+          getAutonym(language) !== language
+      );
     },
     /**
      * Quick list of languages to select from based on previous selections.
@@ -196,17 +174,28 @@ export default {
      * @type {string[]}
      */
     sourceLanguageOptions: vm => {
+      /**
+       * According to design specification, language selector inside
+       * "search for an article" screen, contains three options, including
+       * current source language. So we need exactly 2 additional suggested
+       * source languages to display.
+       *
+       * @type {number}
+       */
+      const sliceSize = 2;
+
       return [
-        ...[vm.sourceLanguage, ...vm.suggestedSourceLanguages].map(
-          language => ({
-            value: language,
-            props: {
-              label: getAutonym(language),
-              type: "text",
-              class: "px-0 py-4 mx-4"
-            }
-          })
-        ),
+        ...[
+          vm.sourceLanguage,
+          ...vm.suggestedSourceLanguages.slice(0, sliceSize)
+        ].map(language => ({
+          value: language,
+          props: {
+            label: getAutonym(language),
+            type: "text",
+            class: "px-0 py-4 mx-4"
+          }
+        })),
         {
           value: "other",
           props: {
@@ -290,6 +279,14 @@ export default {
     }
     &-header {
       color: @wmui-color-base30;
+    }
+  }
+  &-language-selector.mw-ui-dialog.mw-ui-dialog--fullscreen {
+    .mw-ui-dialog__header {
+      margin: 12px 16px;
+      button {
+        padding: 0;
+      }
     }
   }
 }
