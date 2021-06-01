@@ -80,4 +80,14 @@ export default class Page {
       ) + 1
     );
   }
+
+  /**
+   * @param {string} sectionTitle
+   * @return {PageSection|null}
+   */
+  getSectionByTitle(sectionTitle) {
+    return (this.sections || []).find(
+      section => section.originalTitle === sectionTitle
+    );
+  }
 }

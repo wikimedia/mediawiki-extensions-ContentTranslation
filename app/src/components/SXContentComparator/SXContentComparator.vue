@@ -120,10 +120,7 @@ export default {
       );
     },
     targetSection() {
-      return this.$store.getters["mediawiki/getPageSection"](
-        this.targetPage,
-        this.activeSectionTargetTitle
-      );
+      return this.targetPage.getSectionByTitle(this.activeSectionTargetTitle);
     },
     sourceSectionContent() {
       return this.sourceSection?.html;

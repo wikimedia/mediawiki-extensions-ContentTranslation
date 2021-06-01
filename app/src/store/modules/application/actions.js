@@ -259,17 +259,17 @@ function setCurrentSectionSuggestion({ commit }, suggestion) {
 }
 
 async function selectPageSection(
-  { state, commit, dispatch, rootGetters, getters },
+  { state, commit, dispatch, getters },
   { sectionTitle }
 ) {
   const suggestion = state.currentSectionSuggestion;
   const page = getters.getCurrentPage;
-  let section = rootGetters["mediawiki/getPageSection"](page, sectionTitle);
+  let section = page.getSectionByTitle(sectionTitle);
 
   if (!section) {
     await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
 
-    section = rootGetters["mediawiki/getPageSection"](page, sectionTitle);
+    section = page.getSectionByTitle(sectionTitle);
   }
   commit("setCurrentSourceSection", section);
 }

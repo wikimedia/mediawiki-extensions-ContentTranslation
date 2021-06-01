@@ -27,12 +27,6 @@ export default {
       title => title.lang === language
     )?.title,
 
-  getPageSection: state => (page, sectionTitle) => {
-    return (page?.sections || []).find(
-      section => section.originalTitle === sectionTitle
-    );
-  },
-
   /**
    * Get MTProviderGroup for the given language pair
    * @param {String} sourceLanguage
