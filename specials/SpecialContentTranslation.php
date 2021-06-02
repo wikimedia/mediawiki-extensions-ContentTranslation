@@ -11,8 +11,12 @@ namespace ContentTranslation\Special;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
 use DeferredUpdates;
+use DerivativeContext;
 use ExtensionRegistry;
+use Html;
 use MediaWiki\MediaWikiServices;
+use MutableContext;
+use SkinFactory;
 use SpecialPage;
 use Wikimedia\Services\NoSuchServiceException;
 
@@ -20,13 +24,58 @@ use Wikimedia\Services\NoSuchServiceException;
  * Implements the core of the Content Translation extension:
  * a special page that shows Content Translation user interface.
  */
-class SpecialContentTranslation extends ContentTranslationSpecialPage {
-	public function __construct() {
+class SpecialContentTranslation extends SpecialPage {
+	/**
+	 * @var SkinFactory
+	 */
+	private $skinFactory;
+
+	/**
+	 * @param SkinFactory $skinFactory
+	 */
+	public function __construct( \SkinFactory $skinFactory ) {
 		parent::__construct( 'ContentTranslation' );
+		$this->skinFactory = $skinFactory;
 	}
 
 	public function getDescription() {
 		return $this->msg( 'cx' )->text();
+	}
+
+	public function execute( $parameters ) {
+		parent::execute( $parameters );
+
+		// Use custom 'contenttranslation' skin
+		/** @var MutableContext $context */
+		$context = $this->getContext();
+		if ( !$context instanceof MutableContext ) {
+			// Need to be able to change the skin
+			$context = new DerivativeContext( $context );
+			$this->setContext( $context );
+		}
+
+		'@phan-var MutableContext $context';
+		$context->setSkin(
+			$this->skinFactory->makeSkin( 'contenttranslation' )
+		);
+
+		if ( !$this->canUserProceed() ) {
+			return;
+		}
+
+		if ( $this->isVueDashboard() ) {
+			// Enforce mobile target for all devices to support
+			// mobile-first design.
+			$out = $this->getOutput();
+			$out->setTarget( 'mobile' );
+			$out->addHTML( Html::element(
+				'div',
+				[ 'id' => 'contenttranslation' ]
+			) );
+		}
+		// Run the extendable chunks from the sub class.
+		$this->initModules();
+		$this->addJsConfigVars();
 	}
 
 	public function isListed() {
@@ -115,9 +164,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		return $hasToken;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function canUserProceed() {
 		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
@@ -171,9 +217,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function initModules() {
 		global $wgContentTranslationTranslateInTarget;
 
@@ -200,9 +243,6 @@ class SpecialContentTranslation extends ContentTranslationSpecialPage {
 		}
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function addJsConfigVars() {
 		global $wgContentTranslationUnmodifiedMTThresholdForPublish,
 			$wgContentTranslationCampaigns,

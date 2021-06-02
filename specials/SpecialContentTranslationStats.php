@@ -49,30 +49,10 @@ class SpecialContentTranslationStats extends SpecialPage {
 		return $this->msg( 'cx-stats-title' )->text();
 	}
 
-	/**
-	 * @inheritDoc
-	 */
-	protected function canUserProceed() {
-		return true;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function isVueDashboard() {
-		return false;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	protected function initModules() {
 		$this->getOutput()->addModules( 'ext.cx.stats' );
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function addJsConfigVars() {
 		global $wgContentTranslationCampaigns;
 

@@ -5,7 +5,6 @@
  * @param {Object} [config] Configuration object
  */
 mw.cx.ui.TranslationView = function ( config ) {
-	this.header = new mw.cx.ui.Header( config );
 	this.infobar = new mw.cx.ui.Infobar( config );
 	this.sourceColumn = new mw.cx.ui.SourceColumn( config.siteMapper, config.sourceLanguage, config.sourceTitle );
 	this.targetColumn = new mw.cx.ui.TargetColumn( config.siteMapper, config.targetLanguage, config.targetTitle );
@@ -43,7 +42,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	this.config = $.extend( {}, config, {
 		continuous: true,
 		expanded: false,
-		items: [ this.header, this.columns ],
+		items: [ this.columns ],
 		classes: [ 'cx-translation-view' ],
 		scrollable: false,
 		padded: false

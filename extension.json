@@ -98,7 +98,12 @@
 		]
 	},
 	"SpecialPages": {
-		"ContentTranslation": "ContentTranslation\\Special\\SpecialContentTranslation",
+		"ContentTranslation": {
+			"class": "ContentTranslation\\Special\\SpecialContentTranslation",
+			"services": [
+				"SkinFactory"
+			]
+		},
 		"ContentTranslationStats": {
 			"class": "ContentTranslation\\Special\\SpecialContentTranslationStats",
 			"services": [
@@ -334,7 +339,6 @@
 				"mediawiki.ui.button",
 				"mediawiki.Uri",
 				"mw.cx.dashboard.lists",
-				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-content",
@@ -1461,7 +1465,6 @@
 				"mw.cx.SiteMapper",
 				"ext.cx.widgets.spinner",
 				"mw.cx.ui",
-				"mw.cx.ui.Header",
 				"mw.cx.ui.Infobar",
 				"mw.cx.util",
 				"mw.cx.dm.PageTitleModel",
@@ -1491,30 +1494,6 @@
 			],
 			"dependencies": [
 				"ext.visualEditor.core.desktop"
-			]
-		},
-		"mw.cx.ui.Header": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"ui/mw.cx.ui.Header.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.Header.less"
-			],
-			"messages": [
-				"cx",
-				"cx-personaltools-anon",
-				"login"
-			],
-			"dependencies": [
-				"mediawiki.user",
-				"mw.cx.ui",
-				"oojs-ui.styles.icons-wikimedia",
-				"oojs-ui.styles.icons-user",
-				"mw.cx.ui.PersonalMenuWidget"
 			]
 		},
 		"mw.cx.ui.Header.skin": {
@@ -1847,32 +1826,6 @@
 				"mw.cx.ui",
 				"oojs",
 				"oojs-ui.styles.icons-interactions"
-			]
-		},
-		"mw.cx.ui.PersonalMenuWidget": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.PersonalMenuWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.less"
-			],
-			"skinStyles": {
-				"vector": [
-					"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.vector.less"
-				],
-				"monobook": [
-					"ui/styles/widgets/mw.cx.ui.PersonalMenuWidget.monobook.less"
-				]
-			},
-			"dependencies": [
-				"mw.cx.ui",
-				"mediawiki.user",
-				"mediawiki.widgets",
-				"oojs-ui"
 			]
 		},
 		"mw.cx.ui.FeatureDiscoveryWidget": {

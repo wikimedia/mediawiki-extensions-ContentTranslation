@@ -223,8 +223,6 @@
 	"cx-your-translations-link": "Text of the link to view your translations. $1 is the name of the user viewing the notification, can be used for GENDER",
 	"cx-translationlist-empty-title": "Title text shown when there is no translations by the current user",
 	"cx-translationlist-empty-desc": "A brief description shown when there is no translation by current user",
-	"cx-personaltools-user": "Label displayed in personal tools menu on Content Translation pages, used in customized personal tools header. Provides link to User page.\n{{Identical|User}}",
-	"cx-personaltools-anon": "Label displayed in personal tools menu handle on Content Translation pages, used to indicate user is anonymous.\n{{Identical|Not logged in}}",
 	"cx-draft-restoring": "Message indicating the saved translation being fetched.",
 	"cx-draft-restored": "Message indicating that the saved translation was fetched.",
 	"cx-draft-restore-failed": "Message indicating that the fetching of saved translation failed.",

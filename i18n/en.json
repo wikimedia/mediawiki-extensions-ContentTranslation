@@ -208,8 +208,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Your translations}}",
 	"cx-translationlist-empty-title": "Nothing to translate?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Start}} your translation now and continue it anytime.",
-	"cx-personaltools-user": "User",
-	"cx-personaltools-anon": "Not logged in",
 	"cx-draft-restoring": "Loading the saved translation...",
 	"cx-draft-restored": "Saved translation loaded.",
 	"cx-draft-restore-failed": "Failed to load the saved translation!",
