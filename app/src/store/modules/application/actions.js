@@ -520,12 +520,17 @@ async function translateFollowingSentence(
 
 /**
  * Dispatched when translation for all available MT providers
- * is needed (e.g. when user wants to select among available
- * MT translations)
- * @param rootGetters
- * @param dispatch
+ * is needed (i.e. when user wants to select among available
+ * MT translations), this action translates currently selected
+ * segment (title or sentence) for all supported MT providers,
+ * by dispatching "translateSelectedSegment" action .
+ *
+ * @param {object} context
+ * @param {object} rootGetters
+ * @param {function} dispatch
+ * @param {object} state
  */
-function translateSegmentForAllProviders({ rootGetters, dispatch }) {
+function translateSegmentForAllProviders({ rootGetters, dispatch, state }) {
   const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
   const mtProviders = rootGetters["mediawiki/getSupportedMTProviders"](
     sourceLanguage,
