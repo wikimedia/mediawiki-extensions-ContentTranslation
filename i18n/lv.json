@@ -267,7 +267,7 @@
 	"cx-sx-select-section": "Izvēlies tulkojamo sadaļu",
 	"cx-sx-missing-section-stats": "$2 valodā trūkst {{PLURAL:$1|$1 sadaļas|$1 sadaļa|$1 sadaļas}}",
 	"cx-sx-section-selector-title": "Sadaļas",
-	"cx-sx-section-selector-subtitle": "Izvēlies tulkojamo sadaļu",
+	"cx-sx-section-selector-subtitle": "Izvēlies sadaļu",
 	"cx-sx-section-selector-desc": "Zemāk izvēlies sadaļu un pārbaudi saturu abās valodās, lai izlemtu, ko tulkot.",
 	"cx-sx-language-selector-dialog-title": "Meklēt valodu",
 	"cx-sx-existing-translation-status": "Pieejams $1 valodā",
@@ -291,7 +291,7 @@
 	"cx-translation-list-all-languages-option-label": "Visas",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Atpakaļ uz visām sadaļām",
 	"cx-sx-content-comparator-translation-section-button-label": "Tulkot šo sadaļu",
-	"cx-sx-content-comparator-review-contents-title": "Pārskati saturu abās valodās",
+	"cx-sx-content-comparator-review-contents-title": "Pārbaudi pārklāšanos",
 	"cx-sx-content-comparator-review-contents-rest": "Izvēlētās sadaļas saturs jau var būt nosegts mērķa rakstā.",
 	"cx-sx-content-comparator-source-selector-title": "Sadaļa $1 valodā",
 	"sx-quick-tutorial-main-point-step-1": "Sadaļu pa sadaļai",
@@ -357,5 +357,6 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 sadaļas|$1 sadaļa|$1 sadaļas|0=Nav sadaļu}}",
 	"cx-sx-article-search-input-placeholder": "Meklēt lapu, ko tulkot",
 	"cx-sx-article-search-recently-edited-title": "Nesen tevis laboti",
-	"cx-sx-article-search-nearby-title": "Tuvumā"
+	"cx-sx-article-search-nearby-title": "Tuvumā",
+	"sx-article-search-language-selector-dialog-title": "Meklēt valodu"
 }

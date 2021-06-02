@@ -276,7 +276,7 @@
 	"cx-sx-section-selector-desc": "Te confrontareet ti el contegnud in tucc do i lengove",
 	"cx-sx-language-selector-dialog-title": "Cerca una lengua",
 	"cx-sx-existing-translation-status": "Disponibil in $1",
-	"cx-sx-existing-translation-additional-info": "Slarga foeura con $1{{PLURAL:$2| e $2 sezzion anmò| e $2 sezzion anmò|0=}}",
+	"cx-sx-existing-translation-additional-info": "Sgrandiss con $1{{PLURAL:$2| e $2 sezzion anmò|0=}}",
 	"cx-sx-start-translation-button-label": "Taca a tradù",
 	"cx-sx-view-translation-anchor": "Varda",
 	"cx-sx-existing-translation-learn-more": "Per savenn pussee",
