@@ -120,7 +120,7 @@ export default {
       );
     },
     targetSection() {
-      return this.targetPage.getSectionByTitle(this.activeSectionTargetTitle);
+      return this.targetPage?.getSectionByTitle(this.activeSectionTargetTitle);
     },
     sourceSectionContent() {
       return this.sourceSection?.html;
