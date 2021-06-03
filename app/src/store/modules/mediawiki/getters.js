@@ -71,9 +71,11 @@ export default {
       rootState.suggestions.maxRecentlyEditedSuggestions
     );
 
-    return translationsSlice.map(translation =>
-      getters.getPage(sourceLanguage, translation.sourceTitle)
-    );
+    return translationsSlice
+      .map(translation =>
+        getters.getPage(sourceLanguage, translation.sourceTitle)
+      )
+      .filter(page => !!page);
   },
   /**
    * Get nearby articles (based on user location) in current source language

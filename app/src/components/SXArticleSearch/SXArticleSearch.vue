@@ -32,7 +32,7 @@
         </template>
         <sx-search-article-suggestion
           v-for="suggestion in recentlyEditedPages"
-          :key="suggestion.pageid"
+          :key="suggestion.pageId"
           :suggestion="suggestion"
           @click.native="startSectionTranslation(suggestion)"
         />
@@ -214,6 +214,9 @@ export default {
       );
     } catch (e) {}
     this.$refs["search-input"].focus();
+  },
+  created: function() {
+    this.$store.dispatch("application/initializeDashboardContext");
   },
   methods: {
     close() {

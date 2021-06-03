@@ -106,7 +106,7 @@ router.beforeEach((to, from, next) => {
   const fromStep = from.meta.workflowStep;
   const toStep = to.meta.workflowStep;
 
-  if (isNaN(fromStep) && toStep > 0) {
+  if (isNaN(fromStep) && toStep >= 1) {
     next({ name: "dashboard" });
 
     return;
