@@ -403,5 +403,6 @@
 	"cx-sx-language-selector-all-languages": "Header text in language selector when all languages are displayed.",
 	"cx-sx-language-selector-suggestions": "Header text in language selector when suggested languages are displayed.",
 	"cx-sx-language-selector-no-search-results": "Text to display for no results found",
-	"sx-translation-list-language-selector-dialog-title": "Title of language selector dialog window inside translation list language selector component"
+	"sx-translation-list-language-selector-dialog-title": "Title of language selector dialog window inside translation list language selector component",
+	"cx-sx-article-search-header": "Title inside header of 'Search for an article to translate' screen"
 }

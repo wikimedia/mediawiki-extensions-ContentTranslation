@@ -1,5 +1,23 @@
 <template>
   <section class="sx-article-search">
+    <mw-row
+      class="sx-article-search__header ma-0 py-3"
+      align="stretch"
+      justify="start"
+    >
+      <mw-col grow class="px-4" align="center">
+        <h5 v-i18n:cx-sx-article-search-header class="mb-0" />
+      </mw-col>
+      <mw-col shrink align="start" class="pe-4">
+        <mw-button
+          class="pa-0"
+          type="icon"
+          :icon="mwIconClose"
+          :icon-size="20"
+          @click="close"
+        />
+      </mw-col>
+    </mw-row>
     <mw-input
       ref="search-input"
       v-model="searchInput"
@@ -8,9 +26,6 @@
       :icon="mwIconSearch"
       :placeholder="$i18n('cx-sx-article-search-input-placeholder')"
       type="search"
-      :indicator="mwIconClose"
-      :indicator-size="20"
-      @indicator-clicked="close"
     />
     <mw-button-group
       class="sx-article-search__language-button-group"
@@ -65,7 +80,15 @@
 </template>
 
 <script>
-import { MwButtonGroup, MwDialog, MwCard, MwInput } from "@/lib/mediawiki.ui";
+import {
+  MwButtonGroup,
+  MwCard,
+  MwDialog,
+  MwInput,
+  MwRow,
+  MwCol,
+  MwButton
+} from "@/lib/mediawiki.ui";
 import { mapGetters, mapState } from "vuex";
 import {
   mwIconSearch,
@@ -88,7 +111,10 @@ export default {
     MwDialog,
     MwLanguageSelector,
     MwButtonGroup,
-    MwCard
+    MwCard,
+    MwRow,
+    MwCol,
+    MwButton
   },
   data: () => ({
     mwIconSearch,
@@ -116,11 +142,13 @@ export default {
     ...mapGetters({
       recentlyEditedPages: "mediawiki/getRecentlyEditedPages"
     }),
-    availableSourceLanguages() {
-      return this.supportedLanguageCodes.filter(
-        languageCode => languageCode !== this.selectedTargetLanguage
-      );
-    },
+    /**
+     * @return {string[]}
+     */
+    availableSourceLanguages: vm =>
+      vm.supportedLanguageCodes.filter(
+        languageCode => languageCode !== vm.selectedTargetLanguage
+      ),
     /**
      * Returns an array of suggested language codes
      * based on a list of criteria. Based on mw.uls.getFrequentLanguageList

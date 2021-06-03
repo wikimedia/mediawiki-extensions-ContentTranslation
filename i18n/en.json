@@ -388,5 +388,6 @@
 	"cx-sx-language-selector-all-languages": "All languages",
 	"cx-sx-language-selector-suggestions": "Suggested",
 	"cx-sx-language-selector-no-search-results": "No results",
-	"sx-translation-list-language-selector-dialog-title": "Languages"
+	"sx-translation-list-language-selector-dialog-title": "Languages",
+	"cx-sx-article-search-header": "New translation"
 }

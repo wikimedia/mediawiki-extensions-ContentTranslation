@@ -496,7 +496,8 @@
 				"cx-sx-language-selector-all-languages",
 				"cx-sx-language-selector-suggestions",
 				"cx-sx-language-selector-no-search-results",
-				"sx-translation-list-language-selector-dialog-title"
+				"sx-translation-list-language-selector-dialog-title",
+				"cx-sx-article-search-header"
 			],
 			"noflip": true
 		},

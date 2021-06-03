@@ -5,6 +5,59 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
   class="sx-article-search"
 >
   <div
+    class="sx-article-search__header ma-0 py-3 row items-stretch justify-start"
+  >
+    <div
+      class="px-4 col grow items-center"
+    >
+      <h5
+        class="mb-0"
+      >
+        cx-sx-article-search-header
+      </h5>
+    </div>
+     
+    <div
+      class="pe-4 col shrink items-start"
+    >
+      <button
+        class="mw-ui-button pa-0 mw-ui-button--icon"
+      >
+        <span
+          class="mw-ui-button__content"
+        >
+          <span
+            class="mw-ui-icon notranslate mw-ui-button__icon"
+          >
+            <svg
+              aria-hidden="true"
+              height="20"
+              role="presentation"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!---->
+               
+              <g
+                fill="currentColor"
+              >
+                <path
+                  d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
+                />
+              </g>
+            </svg>
+          </span>
+           
+          <!---->
+           
+          <!---->
+        </span>
+      </button>
+    </div>
+  </div>
+   
+  <div
     class="mw-ui-input container mw-ui-input--focused"
   >
     <div
@@ -42,28 +95,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
         bar
       </input>
        
-      <span
-        class="mw-ui-icon notranslate mw-ui-input__indicator"
-      >
-        <svg
-          aria-hidden="true"
-          height="20"
-          role="presentation"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!---->
-           
-          <g
-            fill="currentColor"
-          >
-            <path
-              d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
-            />
-          </g>
-        </svg>
-      </span>
+      <!---->
     </div>
   </div>
    
