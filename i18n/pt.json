@@ -289,7 +289,7 @@
 	"cx-sx-select-section": "Selecionar a secção a traduzir",
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Falta uma secção|Faltam $1 secções}} em $2",
 	"cx-sx-section-selector-title": "Secções",
-	"cx-sx-section-selector-subtitle": "Selecionar uma secção para traduzir",
+	"cx-sx-section-selector-subtitle": "Escolhe uma secção",
 	"cx-sx-section-selector-desc": "Voce vai comparar o conteudo em ambos os idiomas.",
 	"cx-sx-language-selector-dialog-title": "Pesquisar uma língua",
 	"cx-sx-existing-translation-status": "Já existe em $1",
