@@ -121,12 +121,9 @@ export default {
     mwIconClose
   }),
   computed: {
-    classes() {
-      return {
-        "mw-ui-dialog": true,
-        "mw-ui-dialog--fullscreen": this.fullscreen
-      };
-    },
+    classes: vm => ({
+      "mw-ui-dialog--fullscreen": vm.fullscreen
+    }),
     overlayStyles() {
       return {
         "background-color": this.overlayColor,

@@ -325,7 +325,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
   >
     <div
       aria-modal="true"
-      class="mw-ui-dialog mw-ui-dialog mw-ui-dialog--fullscreen"
+      class="mw-ui-dialog mw-ui-dialog--fullscreen"
       role="dialog"
       tabindex="0"
     >
