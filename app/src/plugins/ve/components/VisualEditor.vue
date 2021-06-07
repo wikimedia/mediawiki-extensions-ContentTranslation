@@ -8,10 +8,12 @@
 </template>
 
 <script>
-import { loadVEModules } from "../index";
+import { computed, onMounted, ref } from "@vue/composition-api";
+import { getTarget, getSurface } from "../target/integration";
 
 export default {
   name: "VisualEditor",
+
   props: {
     content: {
       type: String,
@@ -30,87 +32,54 @@ export default {
       default: "auto"
     }
   },
-  data: () => ({
-    veTarget: null,
-    veSurface: null
-  }),
-  computed: {
-    editedContent() {
-      return this.veSurface.getHtml();
-    },
-    editable() {
-      return true;
-    },
-    editorConfig() {
-      return {
-        placeholder: false,
-        log: console.log,
-        sectionId: 0,
-        onBack: this.closeEditor,
-        onNext: this.onNext,
-        language: this.language,
-        title: this.title,
-        siteMapper: new mw.cx.SiteMapper()
-      };
-    }
-  },
-  mounted() {
-    loadVEModules().then(() => {
-      // Enforce mobile target for all devices to support
-      // mobile-first design.
-      OO.ui.isMobile = () => true;
-      mw.libs.ve.targetLoader.loadModules("visual").then(() => {
-        require("../tools/BackTool");
-        require("../tools/NextTool");
-        require("../commands/BackCommand");
-        require("../commands/NextCommand");
-        const SectionTranslationTarget = require("../target/SectionTranslationTarget");
-        const overlay = this.getVEOverlay();
-        const config = this.editorConfig;
-        this.veTarget = new SectionTranslationTarget(overlay, config);
-        this.onTargetReady();
-      });
-    });
-  },
-  methods: {
-    init() {
-      this.$refs.sxeditor.appendChild(this.veTarget.$element[0]);
-      // Create a document model for a new surface
-      this.veTarget.clearSurfaces();
-      const dmDoc = ve.dm.converter.getModelFromDom(
-        ve.createDocumentFromHtml(
-          // When content is empty, add a dummy span node so that VE doesn't add a new paragraph
-          this.content || "<span class='sx-edit-dummy-node' />"
-        ),
-        { lang: this.language, dir: this.dir }
-      );
-      this.veSurface = this.veTarget.createSurface(dmDoc);
-      this.veTarget.surfaces.push(this.veSurface);
-      this.veTarget.setSurface(this.veSurface);
-      this.veSurface.initialize();
-    },
-    getVEOverlay() {
-      // This is a quick and dirty version for VisualEditorOverlay
-      // in MobileFrontend. May require enhancement to a separate class.
-      const overlay = this.$refs.sxeditor;
-      overlay.$el = $(this.$refs.sxeditor);
 
-      return overlay;
-    },
-    onTargetReady() {
-      this.$emit("ready");
-      this.init();
-    },
-    closeEditor() {
-      this.veSurface.destroy();
-      this.$emit("close");
-    },
-    onNext() {
+  emits: ["ready", "close", "edit-completed"],
+
+  setup(props, context) {
+    // Vue 3 way of accessing references to template elements. equivalent of this.$refs in Vue 2
+    const sxeditor = ref(null);
+    let veSurface = null;
+    const editedContent = computed(() => veSurface.getHtml());
+
+    const closeEditor = () => {
+      veSurface.destroy();
+      context.emit("close");
+    };
+
+    const onNext = () => {
       // Event with content payload should be emitted before
       // VE surface is destroyed
-      this.$emit("edit-completed", this.editedContent);
-      this.veSurface.destroy();
-    }
+      context.emit("edit-completed", editedContent.value);
+      veSurface.destroy();
+    };
+
+    const editorConfig = {
+      placeholder: false,
+      log: console.log,
+      sectionId: 0,
+      onBack: closeEditor,
+      onNext: onNext,
+      language: props.language,
+      title: props.title,
+      siteMapper: new mw.cx.SiteMapper()
+    };
+
+    const init = async () => {
+      const veTarget = await getTarget(editorConfig, sxeditor.value);
+      context.emit("ready");
+      sxeditor.value.appendChild(veTarget.$element[0]);
+
+      veSurface = getSurface(
+        veTarget,
+        props.content,
+        props.language,
+        props.dir
+      );
+    };
+
+    onMounted(init);
+
+    return { sxeditor };
   }
 };
 </script>
