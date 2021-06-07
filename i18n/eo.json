@@ -230,7 +230,7 @@
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Sekcio|$1 sekcioj}} mankas en $2",
 	"cx-sx-section-selector-title": "Sekcioj",
 	"cx-sx-language-selector-dialog-title": "Serĉi lingvon",
-	"cx-sx-existing-translation-status": "Jam ekzistas en $1",
+	"cx-sx-existing-translation-status": "Disponebla en $1",
 	"cx-sx-start-translation-button-label": "Komenci tradukon",
 	"cx-sx-view-translation-anchor": "Vidi",
 	"cx-sx-existing-translation-learn-more": "Lerni plu",

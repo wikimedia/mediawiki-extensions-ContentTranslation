@@ -299,7 +299,7 @@
 	"cx-sx-section-selector-desc": "Você vai comparar conteúdo em ambos os idiomas",
 	"cx-sx-language-selector-dialog-title": "Procurar por um idioma",
 	"cx-sx-existing-translation-status": "Disponível em $1",
-	"cx-sx-existing-translation-additional-info": "Expanda o conteúdo existente traduzindo novas seções.",
+	"cx-sx-existing-translation-additional-info": "Expandir com $1{{PLURAL:$2| e mais $2 seção| e $2 mais seções|0=}}",
 	"cx-sx-start-translation-button-label": "Iniciar tradução",
 	"cx-sx-view-translation-anchor": "Visualizar",
 	"cx-sx-existing-translation-learn-more": "Saiba mais",
