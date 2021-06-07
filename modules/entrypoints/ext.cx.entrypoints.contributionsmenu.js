@@ -9,13 +9,27 @@
 
 	var CAMPAIGN = 'contributionsmenu';
 
-	function getTranslationsItem() {
+	/**
+	 * @return {boolean}
+	 */
+	function isUserMenuDropdown() {
+		return mw.config.get( 'skin' ) === 'vector' &&
+			// eslint-disable-next-line no-jquery/no-class-state
+			$( '.mw-portlet-personal.vector-menu-dropdown' ).length;
+	}
+
+	/**
+	 * @param {boolean} useIcons whether to use icons
+	 * @return {jQuery.Object}
+	 */
+	function getTranslationsItem( useIcons ) {
 		var $link, cxUrlParams = {
 			campaign: CAMPAIGN,
 			to: mw.config.get( 'wgContentLanguage' )
 		};
 
 		$link = $( '<a>' )
+			.addClass( useIcons ? 'mw-ui-icon mw-ui-icon-before mw-ui-icon-cx-language' : '' )
 			.text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) );
 
@@ -26,7 +40,7 @@
 
 	function attachMenu( $trigger ) {
 		var $myContributions, $myTranslations, $myUploads,
-			$menu, callout;
+			useCallout = !isUserMenuDropdown();
 
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
@@ -35,7 +49,7 @@
 				.attr( 'href', $trigger.find( 'a' ).attr( 'href' ) )
 			);
 
-		$myTranslations = getTranslationsItem();
+		$myTranslations = getTranslationsItem( !useCallout );
 
 		if ( $( '.mw-special-Preferences' ).length ) {
 			$myTranslations.addClass( 'cx-campaign-new-beta-feature' );
@@ -45,11 +59,30 @@
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
 				.text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
+				.addClass( useCallout ? '' : 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-logoWikimediaCommons' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 			);
 
-		$menu = $( '<ul>' )
-			.append( $myContributions, $myTranslations, $myUploads );
+		if ( useCallout ) {
+			// eslint-disable-next-line no-use-before-define
+			attachCallout( $trigger, $myContributions, $myTranslations, $myUploads );
+		} else {
+			// In future consider using mw.util.addPortletLink
+			$myTranslations.insertAfter( '#pt-mycontris' );
+			$myUploads.insertAfter( $myTranslations );
+		}
+	}
+
+	/**
+	 * @param {jQuery.Object} $trigger with 'callout' data value.
+	 * @param {jQuery.Object} $myContributions list item element.
+	 * @param {jQuery.Object} $myTranslations list item element.
+	 * @param {jQuery.Object} $myUploads list item element.
+	 */
+	function attachCallout( $trigger, $myContributions, $myTranslations, $myUploads ) {
+		var callout,
+			$menu = $( '<ul>' )
+				.append( $myContributions, $myTranslations, $myUploads );
 
 		$trigger.callout( {
 			trigger: 'hover',
