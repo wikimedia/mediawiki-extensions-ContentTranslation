@@ -29,7 +29,14 @@ const convertSegmentedContentToPageSections = htmlContent => {
     sectionNodes => {
       /** First node in array is a DOM node for h2, containing section title */
       const [h2Node, ...contentNodes] = sectionNodes;
+      let title = "";
+      const id = h2Node.dataset.mwSectionNumber;
 
+      if (h2Node.querySelector("h2")) {
+        title = h2Node.textContent.trim();
+      } else {
+        contentNodes.unshift(h2Node);
+      }
       const subSections = contentNodes.map(
         /**
          * @param {Node} node
@@ -42,11 +49,7 @@ const convertSegmentedContentToPageSections = htmlContent => {
           })
       );
 
-      return new PageSection({
-        id: h2Node.dataset.mwSectionNumber,
-        title: h2Node.textContent.trim(),
-        subSections
-      });
+      return new PageSection({ id, title, subSections });
     }
   );
 };
