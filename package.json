@@ -1,9 +1,10 @@
 {
 	"private": true,
 	"scripts": {
-		"test:cxdashboardapp": "cd app && npm run test",
-		"precommit": "npm run test",
-		"test": "grunt test && npm run test:cxdashboardapp"
+		"test:cx3": "cd app && npm run test",
+		"test:cx2": "grunt test",
+		"precommit": "npm run test:cx2 && git diff --name-only --staged --exit-code app || npm run test:cx3",
+		"test": "npm run test:cx2 && npm run test:cx3"
 	},
 	"pre-commit": "precommit",
 	"devDependencies": {
