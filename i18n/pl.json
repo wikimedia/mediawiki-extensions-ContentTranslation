@@ -391,5 +391,12 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|Jedna sekcja|$1 sekcje|$1 sekcji|0=Brak sekcji}}",
 	"cx-sx-article-search-input-placeholder": "Wyszukaj stronę do przetłumaczenia",
 	"cx-sx-article-search-recently-edited-title": "Ostatnio edytowane przez Ciebie",
-	"cx-sx-article-search-nearby-title": "W pobliżu"
+	"cx-sx-article-search-nearby-title": "W pobliżu",
+	"sx-article-search-language-selector-dialog-title": "Języki",
+	"cx-sx-language-selector-placeholder": "Szukaj języka",
+	"cx-sx-language-selector-all-languages": "Wszystkie języki",
+	"cx-sx-language-selector-suggestions": "Sugerowane",
+	"cx-sx-language-selector-no-search-results": "Brak wyników",
+	"sx-translation-list-language-selector-dialog-title": "Języki",
+	"cx-sx-article-search-header": "Nowe tłumaczenie"
 }

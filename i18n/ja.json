@@ -4,6 +4,7 @@
 			"2nd-player",
 			"A2y4",
 			"Afaz",
+			"Ajeje Brazorf",
 			"Aphaia",
 			"Fryed-peach",
 			"Fumi37s",
@@ -343,5 +344,9 @@
 	"cx-sx-publisher-animation-success-message-title": "公開が完了しました!",
 	"cx-sx-publisher-mt-abuse-message-title": "翻訳に $1% の修正されていないテキストが含まれています",
 	"cx-sx-publisher-mt-abuse-message-body": "機械翻訳は出発点です。引き続き公開できますが、翻訳が自分の言語で自然に読めることを確認してください。",
-	"sx-article-search-language-selector-dialog-title": "言語を検索"
+	"sx-article-search-language-selector-dialog-title": "言語",
+	"cx-sx-language-selector-all-languages": "すべての言語",
+	"cx-sx-language-selector-no-search-results": "結果なし",
+	"sx-translation-list-language-selector-dialog-title": "言語",
+	"cx-sx-article-search-header": "新しい翻訳"
 }

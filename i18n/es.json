@@ -400,5 +400,11 @@
 	"cx-sx-article-search-input-placeholder": "Buscar una página que traducir",
 	"cx-sx-article-search-recently-edited-title": "Tus ediciones recientes",
 	"cx-sx-article-search-nearby-title": "Cercanos",
-	"sx-article-search-language-selector-dialog-title": "Buscar un idioma"
+	"sx-article-search-language-selector-dialog-title": "Idiomas",
+	"cx-sx-language-selector-placeholder": "Buscar un idioma",
+	"cx-sx-language-selector-all-languages": "Todos los idiomas",
+	"cx-sx-language-selector-suggestions": "Sugeridos",
+	"cx-sx-language-selector-no-search-results": "Sin resultados",
+	"sx-translation-list-language-selector-dialog-title": "Idiomas",
+	"cx-sx-article-search-header": "Traducción nueva"
 }

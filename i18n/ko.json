@@ -350,5 +350,11 @@
 	"cx-sx-publisher-mt-abuse-message-body": "기계 번역은 단지 시작점일 뿐입니다. 그대로 게시할 수 있지만 여러분의 번역이 여러분의 언어로 자연스럽게 읽히도록 만들어 주십시오.",
 	"cx-sx-article-search-input-placeholder": "번역할 문서를 검색합니다",
 	"cx-sx-article-search-recently-edited-title": "내가 최근에 편집함",
-	"cx-sx-article-search-nearby-title": "근처"
+	"cx-sx-article-search-nearby-title": "근처",
+	"sx-article-search-language-selector-dialog-title": "언어",
+	"cx-sx-language-selector-placeholder": "언어 검색",
+	"cx-sx-language-selector-all-languages": "모든 언어",
+	"cx-sx-language-selector-no-search-results": "결과 없음",
+	"sx-translation-list-language-selector-dialog-title": "언어",
+	"cx-sx-article-search-header": "새 번역"
 }

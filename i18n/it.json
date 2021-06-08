@@ -290,5 +290,11 @@
 	"cx-sx-followup-feedback-new-indicator": "nuovo",
 	"cx-sx-published-section-invitation-title": "Traduci un'altra sezione",
 	"cx-sx-article-search-input-placeholder": "Cerca una pagina da tradurre",
-	"cx-sx-article-search-nearby-title": "Nelle vicinanze"
+	"cx-sx-article-search-nearby-title": "Nelle vicinanze",
+	"sx-article-search-language-selector-dialog-title": "Lingue",
+	"cx-sx-language-selector-placeholder": "Cerca una lingua",
+	"cx-sx-language-selector-all-languages": "Tutte le lingue",
+	"cx-sx-language-selector-no-search-results": "Nessun risultato",
+	"sx-translation-list-language-selector-dialog-title": "Lingue",
+	"cx-sx-article-search-header": "Nuova traduzione"
 }

@@ -8,5 +8,7 @@
 	"cx-stats-local-published-number": "$1 pre $2",
 	"cx-stats-local-published": "$1 ($3) pre $2",
 	"cx-publish-destination-namespace-main": "Nevi sera",
-	"cx-sx-followup-feedback-new-indicator": "nevo"
+	"cx-sx-followup-feedback-new-indicator": "nevo",
+	"sx-article-search-language-selector-dialog-title": "Čhiba",
+	"sx-translation-list-language-selector-dialog-title": "Čhiba"
 }

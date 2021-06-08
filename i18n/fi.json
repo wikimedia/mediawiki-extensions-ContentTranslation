@@ -4,6 +4,7 @@
 			"01miki10",
 			"Antsa",
 			"Kyykaarme",
+			"MITO",
 			"Mikahama",
 			"MrTapsa",
 			"Nike",
@@ -278,7 +279,7 @@
 	"cx-sx-section-selector-subtitle": "Valitse käännettävä osio",
 	"cx-sx-section-selector-desc": "Valitse käännettävä osio alta ja tarkista sisältö molemmilla kielillä, jotta voit päättää mitä kannattaa kääntää.",
 	"cx-sx-language-selector-dialog-title": "Etsi kieltä",
-	"cx-sx-existing-translation-status": "On jo olemassa kielellä $1",
+	"cx-sx-existing-translation-status": "Saatavilla kielellä $1",
 	"cx-sx-existing-translation-additional-info": "Laajenna olemassa olevaa sisältöä kääntämällä uusia osioita.",
 	"cx-sx-start-translation-button-label": "Aloita käännös",
 	"cx-sx-view-translation-anchor": "Näytä",
@@ -317,6 +318,7 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Osio kielellä $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Osio kielellä $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Käännöksesi lisätään olemassa olevaan osioon. Hylkää tämä huomautus, jos osiot eivät liity toisiinsa.",
+	"cx-sx-translation-confirmer-title": "Uusi käännös",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Käännöksesi julkaistaan omana osionaan.",
 	"cx-sx-content-comparator-discarded-section-label": "(hylätty)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Aloita toisella käännöksellä",
@@ -347,5 +349,11 @@
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Virke",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Kappale",
 	"cx-sx-followup-feedback-new-indicator": "uusi",
-	"cx-sx-article-search-nearby-title": "Lähistöllä"
+	"cx-sx-article-search-nearby-title": "Lähistöllä",
+	"sx-article-search-language-selector-dialog-title": "Kielet",
+	"cx-sx-language-selector-placeholder": "Etsi kieltä",
+	"cx-sx-language-selector-all-languages": "Kaikki kielet",
+	"cx-sx-language-selector-no-search-results": "Ei tuloksia",
+	"sx-translation-list-language-selector-dialog-title": "Kielet",
+	"cx-sx-article-search-header": "Uusi käännös"
 }
