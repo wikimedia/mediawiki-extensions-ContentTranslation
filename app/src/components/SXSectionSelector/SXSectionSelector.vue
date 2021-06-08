@@ -128,11 +128,10 @@ export default {
       this.$router.push({ name: "sx-translation-confirmer" });
     },
     selectSection(sourceSectionTitle) {
-      this.$store.dispatch("application/selectPageSection", {
-        language: this.suggestion.sourceLanguage,
-        title: this.suggestion.sourceTitle,
-        sectionTitle: sourceSectionTitle
-      });
+      this.$store.dispatch(
+        "application/selectPageSectionByTitle",
+        sourceSectionTitle
+      );
       this.$router.push({ name: "sx-content-comparator" });
     }
   }

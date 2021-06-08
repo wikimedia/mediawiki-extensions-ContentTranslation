@@ -32,8 +32,8 @@ describe("SXContentComparator Header Navigation test", () => {
   it("Previous section method emitting update event correctly", () => {
     wrapper.find("button").trigger("click");
     expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectPageSection",
-      { sectionTitle: sectionSourceTitles[2] }
+      "application/selectPageSectionByIndex",
+      2
     );
   });
 
@@ -44,8 +44,8 @@ describe("SXContentComparator Header Navigation test", () => {
       .trigger("click");
 
     expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectPageSection",
-      { sectionTitle: sectionSourceTitles[1] }
+      "application/selectPageSectionByIndex",
+      1
     );
   });
 });

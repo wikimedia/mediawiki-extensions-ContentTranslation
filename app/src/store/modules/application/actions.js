@@ -245,9 +245,25 @@ function setCurrentSectionSuggestion({ commit }, suggestion) {
   commit("setCurrentSectionSuggestion", suggestion);
 }
 
-async function selectPageSection(
+/**
+ * Given a section title this action, sets the page section
+ * with the matching title as current page section, if exists.
+ * If not, the action fetches page sections from the API, then
+ * sets the corresponding page section as current. In case when
+ * no page section with the given title exists, null is set as
+ * currentPageSection
+ *
+ * @param {object} context
+ * @param {object} context.state
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.getters
+ * @param {string} sectionTitle
+ * @return {Promise<void>}
+ */
+async function selectPageSectionByTitle(
   { state, commit, dispatch, getters },
-  { sectionTitle }
+  sectionTitle
 ) {
   const suggestion = state.currentSectionSuggestion;
   const page = getters.getCurrentPage;
@@ -257,6 +273,36 @@ async function selectPageSection(
     await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
 
     section = page.getSectionByTitle(sectionTitle);
+  }
+  commit("setCurrentSourceSection", section);
+}
+
+/**
+ * Given the index of a page section inside the current page's sections array,
+ * this action sets the corresponding page section as current page section,
+ * if exists. If not, the action fetches page sections from the API, then
+ * sets the corresponding page section as current. In case when no page section
+ * with the given index, null is set as currentPageSection
+ *
+ * @param {object} context
+ * @param {object} context.state
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.getters
+ * @param {number} index
+ * @return {Promise<void>}
+ */
+async function selectPageSectionByIndex(
+  { state, commit, dispatch, getters },
+  index
+) {
+  const suggestion = state.currentSectionSuggestion;
+  const page = getters.getCurrentPage;
+  let section = page.sections?.[index];
+
+  if (!section) {
+    await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
+    section = page.sections?.[index];
   }
   commit("setCurrentSourceSection", section);
 }
@@ -553,7 +599,8 @@ export default {
   loadSectionSuggestionFromUrl,
   resetPublishResult,
   selectNextSentence,
-  selectPageSection,
+  selectPageSectionByTitle,
+  selectPageSectionByIndex,
   selectPreviousSegment,
   selectSectionTitleForTranslation,
   selectSentenceForCurrentSection,

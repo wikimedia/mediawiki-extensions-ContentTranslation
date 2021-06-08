@@ -52,17 +52,16 @@ export default {
         (this.currentTitleIndex - 1 + this.sectionSourceTitles.length) %
         this.sectionSourceTitles.length;
 
-      this.$store.dispatch("application/selectPageSection", {
-        sectionTitle: this.sectionSourceTitles[previousIndex]
-      });
+      this.$store.dispatch(
+        "application/selectPageSectionByIndex",
+        previousIndex
+      );
     },
     nextSection() {
       const nextIndex =
         (this.currentTitleIndex + 1) % this.sectionSourceTitles.length;
 
-      this.$store.dispatch("application/selectPageSection", {
-        sectionTitle: this.sectionSourceTitles[nextIndex]
-      });
+      this.$store.dispatch("application/selectPageSectionByIndex", nextIndex);
     }
   }
 };
