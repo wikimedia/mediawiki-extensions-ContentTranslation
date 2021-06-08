@@ -379,35 +379,18 @@ function updateMTProvider({ commit, dispatch }, { provider }) {
 }
 
 /**
- * Dispatched when SXSentenceSelector SFC is mounted
- * to set section title as selected translation segment
- * when no sentence is already selected.
- * @param getters
- * @param commit
- * @param state
- * @param dispatch
+ * Dispatched when sentence selector screen is loaded for first time or
+ * when section title is being clicked inside "Pick a sentence" step
+ *
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.state
  */
-function selectInitialTranslationSegment({ getters, commit, state, dispatch }) {
-  /**
-   * When component is mounted and no sentence is selected, translation
-   * should start with section title.
-   */
-  if (!getters.getCurrentSelectedSentence) {
-    commit("setIsSectionTitleSelectedForTranslation", true);
-    dispatch("translateSelectedSegment", {
-      provider: state.currentMTProvider
-    });
-  }
-}
-
-/**
- * Dispatched when section title is being clicked
- * inside "Pick a sentence" step
- * @param commit
- */
-function selectSectionTitleForTranslation({ commit }) {
+function selectSectionTitleForTranslation({ commit, dispatch, state }) {
   commit("clearSentenceSelection");
   commit("setIsSectionTitleSelectedForTranslation", true);
+  dispatch("translateSelectedSegment", { provider: state.currentMTProvider });
 }
 
 /**
@@ -569,7 +552,6 @@ export default {
   initializeSectionTranslation,
   loadSectionSuggestionFromUrl,
   resetPublishResult,
-  selectInitialTranslationSegment,
   selectNextSentence,
   selectPageSection,
   selectPreviousSegment,

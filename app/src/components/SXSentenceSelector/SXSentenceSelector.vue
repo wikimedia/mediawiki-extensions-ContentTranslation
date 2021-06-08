@@ -128,19 +128,19 @@ export default {
   async mounted() {
     this.$store.dispatch("application/resetPublishResult");
     await this.$store.dispatch("application/initializeMTProviders");
-    this.$store.dispatch("application/selectInitialTranslationSegment");
+
+    // If no sentence is selected, select title
+    this.selectedSentence || this.selectSectionTitleForTranslation();
     this.screenHeight = window.innerHeight;
   },
   methods: {
     ...mapActions({
       skipTranslation: "application/selectNextSentence",
-      selectPreviousSegment: "application/selectPreviousSegment"
+      selectPreviousSegment: "application/selectPreviousSegment",
+      applyTranslation: "application/applyProposedTranslationToSelectedSegment",
+      selectSectionTitleForTranslation:
+        "application/selectSectionTitleForTranslation"
     }),
-    applyTranslation() {
-      this.$store.dispatch(
-        "application/applyProposedTranslationToSelectedSegment"
-      );
-    },
     bounceTranslation() {
       this.shouldProposedTranslationBounce = true;
       setTimeout(() => {
