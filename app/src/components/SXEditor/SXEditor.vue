@@ -17,56 +17,62 @@
 </template>
 
 <script>
+import { ref } from "@vue/composition-api";
 import VisualEditor from "@/plugins/ve/components/VisualEditor";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import SxEditorOriginalContent from "@/components/SXEditor/SXEditorOriginalContent";
+
 export default {
   name: "SxEditor",
+
   components: {
     SxEditorOriginalContent,
     VisualEditor,
     MwSpinner
   },
+
   props: {
     fromRoute: {
       type: String,
       required: true
     }
   },
-  data: () => ({
-    editorReady: false
-  }),
-  computed: {
-    content: vm => vm.$route.params.content,
-    language: vm => vm.$route.params.language,
-    title: vm => vm.$route.params.title,
-    originalContent: vm => vm.$route.params.originalContent,
-    isFinal: vm => !!vm.$route.params.isFinalEdit
-  },
-  methods: {
-    onEditorReady() {
-      this.editorReady = true;
-    },
-    closeEditor() {
-      this.$router.replace({ name: this.fromRoute });
-    },
-    onEditCompleted(editedContent) {
-      if (this.isFinal) {
-        this.$store.commit(
+
+  setup(props, context) {
+    const editorReady = ref(false);
+    const router = context.root.$router;
+    const route = context.root.$route;
+    const store = context.root.$store;
+
+    const onEditorReady = () => (editorReady.value = true);
+    const closeEditor = () => router.replace({ name: props.fromRoute });
+    const isFinal = !!route.params.isFinalEdit;
+
+    const onEditCompleted = translation => {
+      if (isFinal) {
+        store.commit(
           "application/setCurrentSourceSectionEditedTranslation",
-          editedContent
+          translation
         );
-        this.$router.replace({ name: "sx-publisher" });
+        router.replace({ name: "sx-publisher" });
       } else {
-        this.$store.dispatch(
-          "application/applyEditedTranslationToSelectedSegment",
-          {
-            translation: editedContent
-          }
-        );
-        this.closeEditor();
+        store.dispatch("application/applyEditedTranslationToSelectedSegment", {
+          translation
+        });
+        router.replace({ name: props.fromRoute });
       }
-    }
+    };
+
+    return {
+      content: route.params.content,
+      editorReady,
+      closeEditor,
+      language: route.params.language,
+      onEditorReady,
+      onEditCompleted,
+      originalContent: route.params.originalContent,
+      title: route.params.title
+    };
   }
 };
 </script>
