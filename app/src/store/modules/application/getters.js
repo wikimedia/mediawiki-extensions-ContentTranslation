@@ -1,9 +1,15 @@
-import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 export default {
+  /**
+   * @param {object} state
+   * @param {object} getters
+   * @param {object} rootState
+   * @param {object} rootGetters
+   * @return {Page|null}
+   */
   getCurrentPage: (state, getters, rootState, rootGetters) =>
     rootGetters["mediawiki/getPage"](
-      state.currentSectionSuggestion.sourceLanguage,
-      state.currentSectionSuggestion.sourceTitle
+      state.currentSectionSuggestion?.sourceLanguage,
+      state.currentSectionSuggestion?.sourceTitle
     ),
 
   getCurrentTargetPage: (state, getters, rootState, rootGetters) =>
@@ -73,12 +79,12 @@ export default {
       : getters.getCurrentProposedSentenceTranslation,
 
   /**
-   * @return {LanguageTitleGroup}
+   * @return {LanguageTitleGroup|null}
    */
   getCurrentLanguageTitleGroup: (state, getters, rootState, rootGetters) =>
     rootGetters["mediawiki/getLanguageTitleGroup"](
-      state.currentSectionSuggestion.sourceLanguage,
-      state.currentSectionSuggestion.sourceTitle
+      state.currentSectionSuggestion?.sourceLanguage,
+      state.currentSectionSuggestion?.sourceTitle
     ),
 
   /**
