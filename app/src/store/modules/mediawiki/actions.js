@@ -3,8 +3,16 @@ import pageApi from "../../../wiki/mw/api/page";
 import siteApi from "../../../wiki/mw/api/site";
 
 /**
- * @param {String} language
- * @param {Array<String>} titles
+ * Given a language and an array of titles, this action fetches
+ * page metadata for each title and returns a promise that is being
+ * resolved when all metadata have been fetched and stored in the state
+ *
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {function} context.commit
+ * @param {object} payload
+ * @param {string} payload.language
+ * @param {string[]} payload.titles
  * @returns {Promise<void>}
  */
 function fetchPageMetadata({ getters, commit }, { language, titles }) {
@@ -12,15 +20,19 @@ function fetchPageMetadata({ getters, commit }, { language, titles }) {
 
   const chunkSize = 50;
 
+  const promises = [];
+
   for (let i = 0; i < titles.length; i += chunkSize) {
-    let titlesSubset = titles.slice(i, i + chunkSize);
-    // Avoid async/await here, so that requests can be sent in parallel
-    pageApi.fetchPages(language, titlesSubset).then(metadataList => {
-      metadataList.forEach(page => {
-        commit("addPage", page);
-      });
-    });
+    const titlesSubset = titles.slice(i, i + chunkSize);
+    const promise = pageApi
+      .fetchPages(language, titlesSubset)
+      .then(metadataList =>
+        metadataList.forEach(page => commit("addPage", page))
+      );
+    promises.push(promise);
   }
+
+  return Promise.all(promises);
 }
 
 function fetchLanguageTitles({ commit, getters }, { language, title }) {
@@ -83,7 +95,7 @@ async function fetchPageContent(
  * @param sourceLanguage
  * @param targetLanguage
  * @param sourceTitle
- * @return {Promise<PageSection[]>}
+ * @return {Promise<void>}
  */
 async function fetchPageSections(
   { getters, commit },
