@@ -12,6 +12,10 @@ export default {
         (page.title === title || page.alias === title)
     ),
 
+  /**
+   * @param {object} state
+   * @return {function(string, string): LanguageTitleGroup|null}
+   */
   getLanguageTitleGroup: state => (language, title) =>
     state.languageTitleGroups.find(group =>
       group.titles.find(

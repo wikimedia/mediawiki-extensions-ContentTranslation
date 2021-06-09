@@ -59,7 +59,7 @@ export default {
   },
   setup(props, context) {
     const store = context.root.$store;
-
+    const router = context.root.$router;
     const sectionSuggestion = computed(
       () => store.state.application.currentSectionSuggestion
     );
@@ -72,9 +72,15 @@ export default {
       return context.root.$i18n(getActionButtonLabel(sectionSuggestion.value));
     });
 
-    const onSectionSelectorClick = () => {
-      context.root.$router.push({ name: "sx-section-selector" });
-      store.dispatch("application/setTranslationURLParams");
+    const onSectionSelectorClick = async () => {
+      if (sectionSuggestion.value.translationExists) {
+        router.push({ name: "sx-section-selector" });
+        store.dispatch("application/setTranslationURLParams");
+
+        return;
+      }
+      await store.dispatch("application/selectPageSectionByIndex", 0);
+      router.push({ name: "sx-quick-tutorial", params: { force: true } });
     };
 
     const targetArticlePath = computed(() =>

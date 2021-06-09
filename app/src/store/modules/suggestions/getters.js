@@ -21,6 +21,10 @@ export default {
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage
     ),
+  /**
+   * @param state
+   * @return {function(string, string, string): SectionSuggestion}
+   */
   getSectionSuggestionsForArticle: state => (
     sourceLanguage,
     targetLanguage,
