@@ -288,7 +288,7 @@
 	"cx-sx-section-selector-desc": "কী অনুবাদ করবেন তা সিদ্ধান্ত নেওয়ার জন্য নীচে একটি অনুচ্ছেদ বাছুন এবং উভয় ভাষার সামগ্রীগুলি পরীক্ষা করুন।",
 	"cx-sx-language-selector-dialog-title": "একটি ভাষা খুঁজুন",
 	"cx-sx-existing-translation-status": "$1 ভাষায় বিদ্যমান",
-	"cx-sx-existing-translation-additional-info": "নতুন অনুচ্ছেদ অনুবাদ করে বিদ্যমান বিষয়বস্তু সম্প্রসারণ করুন।",
+	"cx-sx-existing-translation-additional-info": "$1{{PLURAL:$2|ও আরও $2টি অনুচ্ছেদ|0=}} সহকারে সম্প্রসারণ করুন",
 	"cx-sx-start-translation-button-label": "অনুবাদ শুরু করুন",
 	"cx-sx-view-translation-anchor": "দেখুন",
 	"cx-sx-existing-translation-learn-more": "আরও জানুন",
@@ -372,9 +372,17 @@
 	"cx-sx-published-section-confirmation-content": "আপনার অনুবাদ প্রকাশিত হয়েছে। দয়া করে বিষয়বস্তুটি আরও সম্পাদনা করুন, অথবা অন্য একটি অনুচ্ছেদ যুক্ত করুন।",
 	"cx-sx-published-section-invitation-title": "আরেকটি অনুচ্ছেদ অনুবাদ করুন",
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ও আরও $2টি অনুচ্ছেদ এই নিবন্ধে নেই|0=অনুচ্ছেদটি এই নিবন্ধে নেই}}",
+	"cx-sx-publisher-mt-abuse-message-title": "আপনার অনুবাদে $1% অপরিবর্তিত পাঠ্য রয়েছে, দয়া করে সংশোধন করুন",
+	"cx-sx-publisher-mt-abuse-message-body": "যান্ত্রিক অনুবাদ কেবল একটি প্রারম্ভিক বিন্দু হিসেবে কাজ করে। দয়া করে প্রদত্ত যান্ত্রিক অনুবাদ সংশোধন করুন, বোধগম্য করে লিখুন, যেন অন্য আরেকজন এই লেখা পড়ে বুঝতে পারেন।",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1টি অনুচ্ছেদ|0=কোনও অনুচ্ছেদ নেই}}",
 	"cx-sx-article-search-input-placeholder": "অনুবাদের জন্য পাতা অনুসন্ধান করুন",
 	"cx-sx-article-search-recently-edited-title": "সম্প্রতি আপনার দ্বারা সম্পাদিত",
 	"cx-sx-article-search-nearby-title": "কাছাকাছি",
-	"sx-article-search-language-selector-dialog-title": "ভাষা অনুসন্ধান করুন"
+	"sx-article-search-language-selector-dialog-title": "ভাষা",
+	"cx-sx-language-selector-placeholder": "একটি ভাষা খুঁজুন",
+	"cx-sx-language-selector-all-languages": "সকল ভাষা",
+	"cx-sx-language-selector-suggestions": "পরামর্শকৃত",
+	"cx-sx-language-selector-no-search-results": "কোনও ফলাফল নেই",
+	"sx-translation-list-language-selector-dialog-title": "ভাষা",
+	"cx-sx-article-search-header": "নতুন অনুবাদ"
 }

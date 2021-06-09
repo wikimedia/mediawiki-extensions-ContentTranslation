@@ -371,5 +371,11 @@
 	"cx-sx-article-search-input-placeholder": "Пребарајте страница за преведување",
 	"cx-sx-article-search-recently-edited-title": "Неодамна уредено од вас",
 	"cx-sx-article-search-nearby-title": "Во близина",
-	"sx-article-search-language-selector-dialog-title": "Пребарување на јазик"
+	"sx-article-search-language-selector-dialog-title": "Јазици",
+	"cx-sx-language-selector-placeholder": "Пребарување на јазик",
+	"cx-sx-language-selector-all-languages": "Сите јазици",
+	"cx-sx-language-selector-suggestions": "Предложени",
+	"cx-sx-language-selector-no-search-results": "Нема исход",
+	"sx-translation-list-language-selector-dialog-title": "Јазици",
+	"cx-sx-article-search-header": "Нов превод"
 }

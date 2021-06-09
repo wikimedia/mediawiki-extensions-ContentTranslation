@@ -418,6 +418,7 @@
 	"sx-article-search-language-selector-dialog-title": "Langues",
 	"cx-sx-language-selector-placeholder": "Rechercher une langue",
 	"cx-sx-language-selector-all-languages": "Toutes les langues",
+	"cx-sx-language-selector-suggestions": "Suggéré",
 	"cx-sx-language-selector-no-search-results": "Aucun résultat",
 	"sx-translation-list-language-selector-dialog-title": "Langues",
 	"cx-sx-article-search-header": "Nouvelle traduction"

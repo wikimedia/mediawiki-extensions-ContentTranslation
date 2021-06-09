@@ -366,5 +366,11 @@
 	"cx-sx-article-search-input-placeholder": "Cerca una pagina de tradù",
 	"cx-sx-article-search-recently-edited-title": "Modifegada de recent de tì",
 	"cx-sx-article-search-nearby-title": "Chì adree",
-	"sx-article-search-language-selector-dialog-title": "Cerca una lengova"
+	"sx-article-search-language-selector-dialog-title": "Lengove",
+	"cx-sx-language-selector-placeholder": "Cerca una lengua",
+	"cx-sx-language-selector-all-languages": "Tucce i lengove",
+	"cx-sx-language-selector-suggestions": "Sugeride",
+	"cx-sx-language-selector-no-search-results": "Nanca un risultad",
+	"sx-translation-list-language-selector-dialog-title": "Lengove",
+	"cx-sx-article-search-header": "Noeuva traduzzion"
 }
