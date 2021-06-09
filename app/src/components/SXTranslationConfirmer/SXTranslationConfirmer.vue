@@ -1,7 +1,6 @@
 <template>
   <section class="sx-translation-confirmer">
     <mw-row
-      v-if="sourceArticle"
       class="sx-translation-confirmer__header ma-0 py-3"
       align="stretch"
       justify="start"
