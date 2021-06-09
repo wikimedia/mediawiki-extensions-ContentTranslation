@@ -7,6 +7,7 @@
         :icon="mwIconSearch"
         :icon-size="20"
         :placeholder="placeholder"
+        :autofocus="autofocus"
         @input="onInput"
         @keydown.enter.prevent="onEnter"
         @keydown.down.prevent="next"
@@ -75,23 +76,27 @@
 </template>
 
 <script>
+import { ref, watch, onMounted, computed } from "@vue/composition-api";
+import {
+  searchByQuery,
+  getSearchApi,
+  getSearchResultsByScript,
+  getResultsDisplayClass
+} from "./languagesearch";
 import {
   mwIconSearch,
   mwIconClose
-} from "../lib/mediawiki.ui/components/icons";
-import { MwInput } from "../lib/mediawiki.ui";
-import {
-  getAutonym,
-  getDir,
-  getScript,
-  sortByAutonym
-} from "@wikimedia/language-data";
+} from "../../lib/mediawiki.ui/components/icons";
+import { MwInput } from "../../lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 
 export default {
   name: "MwLanguageSelector",
+
   components: {
     MwInput
   },
+
   props: {
     placeholder: {
       type: String,
@@ -121,193 +126,138 @@ export default {
      */
     searchAPI: {
       type: String,
-      default: () => {
-        const apiURL = new URL("https://en.wikipedia.org/w/api.php");
-        apiURL.searchParams.set("action", "languagesearch");
-        apiURL.searchParams.set("format", "json");
-        apiURL.searchParams.set("origin", "*");
-        apiURL.searchParams.set("formatversion", 2);
-
-        return apiURL.toString();
-      }
+      default: getSearchApi
     }
   },
-  data: () => ({
-    mwIconSearch,
-    mwIconClose,
-    searchQuery: "",
-    selectedLanguage: "",
-    selectedIndex: -1,
-    searchResults: []
-  }),
-  computed: {
-    searchResultsByScript: vm => {
-      let chunkSize;
-      const languagesByScript = [...vm.searchResults.sort(sortByAutonym)];
-      const resultsCount = vm.searchResults.length;
-      if (resultsCount < 10) chunkSize = resultsCount;
-      if (resultsCount < 30) chunkSize = 10;
-      if (resultsCount >= 30) chunkSize = 15;
-      const chunks = [];
 
-      while (languagesByScript.length) {
-        chunks.push(languagesByScript.splice(0, chunkSize));
+  emits: ["select", "close"],
+
+  setup(props, context) {
+    const searchInputElement = ref(null);
+    const langSelectorContainer = ref(null);
+    const searchQuery = ref("");
+    const selectedLanguage = ref("");
+    const selectedIndex = ref(-1);
+    const searchResults = ref([]);
+
+    const searchResultsByScript = computed(() =>
+      getSearchResultsByScript(searchResults.value)
+    );
+
+    const resultsDisplayClass = computed(() =>
+      getResultsDisplayClass(searchResults.value)
+    );
+
+    const shownLanguages = computed(() =>
+      !!searchQuery.value
+        ? searchResults.value
+        : [...props.suggestions, ...searchResults.value]
+    );
+
+    const select = language => context.emit("select", language);
+    const close = () => context.emit("close");
+
+    const next = () => {
+      selectedIndex.value++;
+
+      if (selectedIndex.value >= shownLanguages.value.length) {
+        selectedIndex.value = 0;
       }
+    };
 
-      return chunks;
-    },
-    resultsDisplayClass: vm => {
-      const resultsCount = vm.searchResults.length;
-      if (resultsCount < 10) return "few-results";
-      if (resultsCount < 30) return "some-results";
-      if (resultsCount >= 30) return "many-results";
-    },
-    shownLanguages: vm =>
-      !!vm.searchQuery
-        ? vm.searchResults
-        : [...vm.suggestions, ...vm.searchResults]
-  },
-  watch: {
-    /**
-     * @param {string} query
-     */
-    searchQuery: async function(query) {
-      this.searchResults = await this.search(query);
-    },
-    selectedIndex: function() {
-      if (this.selectedIndex < 0) {
-        // Reset
-        this.selectedLanguage = "";
+    const prev = () => {
+      selectedIndex.value--;
 
-        return;
+      if (selectedIndex.value < 0) {
+        selectedIndex.value = 0;
       }
-      this.selectedLanguage = this.shownLanguages[this.selectedIndex];
-      this.$refs.langSelectorContainer
-        .querySelectorAll(`.language[lang="${this.selectedLanguage}"]`)[0]
-        ?.scrollIntoView(false);
-    }
-  },
-  mounted: async function() {
-    if (this.autofocus) {
-      this.$refs.searchInputElement.focus();
-    }
-    // Initialize with an empty search
-    this.searchResults = await this.search();
-  },
-  methods: {
-    getAutonym,
-    getDir,
-    select(language) {
-      this.$emit("select", language);
-    },
-    onInput(value) {
-      this.searchQuery = value;
-      this.selectedIndex = -1;
-    },
-    onEnter() {
+    };
+
+    const onInput = value => {
+      searchQuery.value = value;
+      selectedIndex.value = -1;
+    };
+
+    const onEnter = () => {
       // If the search value is a known language, select it
-      if (this.searchQuery && this.languages.includes(this.searchQuery)) {
-        this.select(this.searchQuery);
+      if (searchQuery.value && props.languages.includes(searchQuery.value)) {
+        select(searchQuery.value);
 
         return;
       }
 
       // If there is an actively selected language, select it
-      if (this.selectedLanguage) {
-        this.select(this.selectedLanguage);
+      if (selectedLanguage.value) {
+        select(selectedLanguage.value);
 
         return;
       }
 
       // If there is only one search result, select it
-      if (this.searchResults.length === 1) {
-        this.select(this.searchResults[0]);
+      if (searchResults.value.length === 1) {
+        select(searchResults.value[0]);
 
         return;
       }
-    },
-    close() {
-      this.$emit("close");
-    },
-    next() {
-      this.selectedIndex++;
+    };
 
-      if (this.selectedIndex >= this.shownLanguages.length) {
-        this.selectedIndex = 0;
-      }
-    },
-    prev() {
-      this.selectedIndex--;
-
-      if (this.selectedIndex < 0) {
-        this.selectedIndex = 0;
-      }
-    },
-
-    /**
-     * @param {string} [query]
-     * @return {Promise<string[]>}
-     */
-    search: async function(query) {
-      if (!query || query.trim().length === 0) {
-        return this.languages;
-      }
-
-      // See if the search query is a language code
-      const exactMatch = this.languages.filter(
-        code => query.toLowerCase() === code.toLowerCase()
+    watch(searchQuery, async query => {
+      searchResults.value = await searchByQuery(
+        props.languages,
+        query,
+        props.searchAPI
       );
+    });
 
-      if (exactMatch.length) {
-        return exactMatch;
+    watch(selectedIndex, async () => {
+      if (selectedIndex.value < 0) {
+        // Reset
+        selectedLanguage.value = "";
+
+        return;
       }
+      selectedLanguage.value = shownLanguages.value[selectedIndex.value];
+      langSelectorContainer.value
+        .querySelectorAll(`.language[lang="${selectedLanguage.value}"]`)[0]
+        ?.scrollIntoView(false);
+    });
 
-      const filterResults = this.languages.filter(
-        code =>
-          // Search using autonym
-          getAutonym(code)
-            .toLowerCase()
-            .includes(query.toLowerCase()) ||
-          // Search using script name
-          getScript(code)
-            .toLowerCase()
-            .includes(query.toLowerCase())
+    onMounted(async () => {
+      if (props.autofocus) {
+        searchInputElement.value.focus();
+      }
+      // Initialize with an empty search
+      searchResults.value = await searchByQuery(
+        props.languages,
+        "",
+        props.searchAPI
       );
+    });
 
-      if (filterResults.length) {
-        return filterResults;
-      }
-
-      // We did not find any results from client side search.
-      // Attempt a search using the given search API
-      if (this.searchAPI) {
-        const searchApiResults = await this.searchWithAPI(this.searchQuery);
-
-        // Remove the languages not known to this selector.
-        return searchApiResults.filter(code => this.languages.includes(code));
-      }
-
-      return [];
-    },
-
-    /**
-     * @param {string} query
-     * @return {Promise<string[]>}
-     */
-    searchWithAPI: function(query) {
-      const apiURL = new URL(this.searchAPI);
-      apiURL.searchParams.set("search", query);
-
-      return fetch(apiURL.toString())
-        .then(response => response.json())
-        .then(result => Object.keys(result.languagesearch || {}));
-    }
+    return {
+      close,
+      getAutonym,
+      getDir,
+      langSelectorContainer,
+      mwIconClose,
+      mwIconSearch,
+      onEnter,
+      onInput,
+      resultsDisplayClass,
+      searchQuery,
+      select,
+      prev,
+      next,
+      searchInputElement,
+      searchResultsByScript,
+      selectedLanguage
+    };
   }
 };
 </script>
 
 <style lang="less">
-@import "../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .mw-ui-language-selector {
   &__search {
