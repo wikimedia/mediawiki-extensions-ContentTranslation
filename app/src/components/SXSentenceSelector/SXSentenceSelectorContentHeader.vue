@@ -20,7 +20,7 @@
 <script>
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
@@ -31,13 +31,17 @@ export default {
     titleClass: "sx-sentence-selector__section-title"
   }),
   computed: {
+    ...mapGetters({
+      currentPage: "application/getCurrentPage"
+    }),
     ...mapState({
       suggestion: state => state.application.currentSectionSuggestion,
       currentPageSection: state => state.application.currentSourceSection,
       isSectionTitleSelected: state =>
         state.application.isSectionTitleSelectedForTranslation
     }),
-    sourceSectionTitle: vm => vm.currentPageSection?.title,
+    sourceSectionTitle: vm =>
+      vm.currentPageSection?.title || vm.currentPage.title,
     sourceArticlePath: vm =>
       siteMapper.getPageUrl(
         vm.suggestion.sourceLanguage,

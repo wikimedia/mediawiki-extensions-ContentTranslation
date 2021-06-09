@@ -2,6 +2,7 @@ import Vue from "vue";
 import router from "../../../router";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
+import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -304,6 +305,15 @@ async function selectPageSectionByIndex(
     await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
     section = page.sections?.[index];
   }
+
+  // If lead section set source page title as proposed page title
+  if (index === 0) {
+    Vue.set(
+      section.proposedTitleTranslations,
+      MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY,
+      page.title
+    );
+  }
   commit("setCurrentSourceSection", section);
 }
 
@@ -319,9 +329,7 @@ function selectSentenceForCurrentSection({ commit, dispatch, state }, { id }) {
 
   if (id) {
     commit("selectSentence", id);
-    dispatch("translateSelectedSegment", {
-      provider: state.currentMTProvider
-    });
+    dispatch("translateSelectedSegment", state.currentMTProvider);
   }
 }
 
@@ -436,47 +444,55 @@ function updateMTProvider({ commit, dispatch }, { provider }) {
 function selectSectionTitleForTranslation({ commit, dispatch, state }) {
   commit("clearSentenceSelection");
   commit("setIsSectionTitleSelectedForTranslation", true);
-  dispatch("translateSelectedSegment", { provider: state.currentMTProvider });
+
+  // Dispatch translateSelectedSegment instead of translateSectionTitle,
+  // so that following sentence is translated too
+  dispatch("translateSelectedSegment", state.currentMTProvider);
 }
 
 /**
- * @param getters
- * @param commit
- * @param state
- * @param dispatch
- * @param provider
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {object} context.state
+ * @param {function} context.dispatch
+ * @param {string} provider
  */
-function translateSelectedSegment(
-  { getters, commit, state, dispatch },
-  { provider }
-) {
-  dispatch("translateFollowingSentence", { provider });
+function translateSelectedSegment({ getters, state, dispatch }, provider) {
+  dispatch("translateFollowingSentence", provider);
 
   if (state.isSectionTitleSelectedForTranslation) {
-    dispatch("translateSectionTitle", { provider });
+    dispatch("translateSectionTitle", provider);
 
     return;
   }
 
-  dispatch("translateSelectedSentence", { provider });
+  dispatch("translateSelectedSentence", provider);
 }
 
 /**
- * @param state
- * @param getters
- * @param dispatch
- * @param provider
+ * @param {object} context
+ * @param {object} context.state
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {string} provider
  * @return {Promise<void>}
  */
-async function translateSectionTitle(
-  { state, getters, dispatch },
-  { provider }
-) {
+async function translateSectionTitle({ state, getters, dispatch }, provider) {
   if (state.currentSourceSection.translatedTitle) {
     return;
   }
-  const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
-  const originalContent = state.currentSourceSection.originalTitle;
+  const {
+    sourceLanguage,
+    targetLanguage,
+    translationExists
+  } = state.currentSectionSuggestion;
+
+  const page = getters.getCurrentPage;
+
+  const originalContent = translationExists
+    ? state.currentSourceSection.originalTitle
+    : page.title;
+
   const translation = await dispatch(
     "mediawiki/translateSegment",
     { sourceLanguage, targetLanguage, provider, originalContent },
@@ -491,14 +507,16 @@ async function translateSectionTitle(
 }
 
 /**
- * @param getters
- * @param dispatch
- * @param {String} provider
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {object} context.state
+ * @param {string} provider
  * @return {Promise<void>}
  */
 async function translateSelectedSentence(
   { getters, dispatch, state },
-  { provider }
+  provider
 ) {
   const selectedSentence = getters.getCurrentSelectedSentence;
 
@@ -519,14 +537,16 @@ async function translateSelectedSentence(
 }
 
 /**
- * @param getters
- * @param dispatch
- * @param provider
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {object} context.state
+ * @param {string} provider
  * @return {Promise<void>}
  */
 async function translateFollowingSentence(
   { getters, dispatch, state },
-  { provider }
+  provider
 ) {
   const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
   const sentences = getters.getCurrentSourceSectionSentences;
@@ -566,7 +586,7 @@ function translateSegmentForAllProviders({ rootGetters, dispatch, state }) {
     targetLanguage
   );
   mtProviders.forEach(provider =>
-    dispatch("translateSelectedSegment", { provider })
+    dispatch("translateSelectedSegment", provider)
   );
 }
 

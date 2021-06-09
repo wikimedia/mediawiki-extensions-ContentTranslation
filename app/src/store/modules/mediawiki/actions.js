@@ -142,11 +142,16 @@ async function fetchMTProviders(
  * Translates HTML content for a given language pair
  * and MT provider, and returns a promise that resolves
  * to a string containing the translation.
- * @param getters
- * @param sourceLanguage
- * @param targetLanguage
- * @param provider
- * @param originalContent
+ *
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {object} context.rootGetters
+ * @param {function} context.dispatch
+ * @param {object} payload
+ * @param {string} payload.sourceLanguage
+ * @param {string} payload.targetLanguage
+ * @param {string} payload.provider
+ * @param {string} payload.originalContent
  * @return {Promise<String>}
  */
 async function translateSegment(
@@ -160,7 +165,7 @@ async function translateSegment(
   );
 
   if (!isValidProvider) {
-    return;
+    return Promise.resolve();
   }
 
   try {

@@ -12,10 +12,16 @@ export default class PageSection {
    * Creates an instance of PageSection.
    * @param {Object} options
    * @param {string} [options.id]
-   * @param {string} [options.title]
+   * @param {string|null} [options.title]
+   * @param {boolean} [options.isLeadSection]
    * @param {SubSection[]} [options.subSections]
    */
-  constructor({ id, title = null, subSections = [] } = {}) {
+  constructor({
+    id,
+    title = null,
+    subSections = [],
+    isLeadSection = false
+  } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
@@ -24,6 +30,7 @@ export default class PageSection {
     this.translatedTitle = "";
     this.subSections = subSections;
     this.editedTranslation = null;
+    this.isLeadSection = isLeadSection;
   }
 
   /**

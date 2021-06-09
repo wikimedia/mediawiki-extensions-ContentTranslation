@@ -73,11 +73,13 @@ export default {
       state.currentMTProvider
     ] || "",
 
-  getCurrentProposedTranslation: (state, getters) =>
-    state.isSectionTitleSelectedForTranslation
-      ? getters.getCurrentProposedTitleTranslation
-      : getters.getCurrentProposedSentenceTranslation,
-
+  getCurrentProposedTranslation: (state, getters) => {
+    if (state.isSectionTitleSelectedForTranslation) {
+      return getters.getCurrentProposedTitleTranslation;
+    } else {
+      return getters.getCurrentProposedSentenceTranslation;
+    }
+  },
   /**
    * @return {LanguageTitleGroup|null}
    */
@@ -90,11 +92,13 @@ export default {
   /**
    * @return {boolean}
    */
-  isSelectedSegmentTranslated: (state, getters) =>
-    state.isSectionTitleSelectedForTranslation
-      ? !!state.currentSourceSection.translatedTitle
-      : !!getters.getCurrentSelectedSentence?.isTranslated,
-
+  isSelectedSegmentTranslated: (state, getters) => {
+    if (state.isSectionTitleSelectedForTranslation) {
+      return !!state.currentSourceSection.translatedTitle;
+    } else {
+      return !!getters.getCurrentSelectedSentence?.isTranslated;
+    }
+  },
   /**
    * @return {ArticleSuggestion[]}
    */

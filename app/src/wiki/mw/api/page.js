@@ -80,7 +80,7 @@ const fetchLanguageTitles = (language, title) => {
       // Page not present
       return null;
     }
-    const titles = [{ lang: language, title }, ...pages[0].langlinks];
+    const titles = [{ lang: language, title }, ...(pages[0].langlinks || [])];
     const wikidataId = pages[0].pageprops?.wikibase_item;
 
     // For test articles used in development, wikidataId will be missing. Skip
