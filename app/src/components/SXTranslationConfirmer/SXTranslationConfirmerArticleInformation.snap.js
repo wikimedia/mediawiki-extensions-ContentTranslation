@@ -8,10 +8,12 @@ exports[`SXTranslationConfirmerArticleInformation test Component output matches 
     class="col"
   >
     <div
-      class="sx-translation-confirmer__article-information__title ma-0 mb-2 row items-start justify-between"
+      class="sx-translation-confirmer__article-information__header ma-0 mb-2 row items-center justify-between"
     >
-      <div
-        class="pa-0 pe-4 flex col"
+      <a
+        class="pa-0 pe-4 flex sx-translation-confirmer__article-information__title col"
+        href="https://.wikipedia.org/wiki/Test Title"
+        target="_blank"
       >
         <h5
           class=" ma-0  me-1"
@@ -19,34 +21,29 @@ exports[`SXTranslationConfirmerArticleInformation test Component output matches 
           Test Title
         </h5>
          
-        <a
-          href="https://.wikipedia.org/wiki/Test Title"
-          target="_blank"
+        <span
+          class="mw-ui-icon notranslate"
         >
-          <span
-            class="mw-ui-icon notranslate"
+          <svg
+            aria-hidden="true"
+            height="10"
+            role="presentation"
+            viewBox="0 0 20 20"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              aria-hidden="true"
-              height="10"
-              role="presentation"
-              viewBox="0 0 20 20"
-              width="10"
-              xmlns="http://www.w3.org/2000/svg"
+            <!---->
+             
+            <g
+              fill="currentColor"
             >
-              <!---->
-               
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
-                />
-              </g>
-            </svg>
-          </span>
-        </a>
-      </div>
+              <path
+                d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
+              />
+            </g>
+          </svg>
+        </span>
+      </a>
        
       <div
         class="col shrink items-start"

@@ -8,18 +8,20 @@
     <mw-col>
       <mw-row
         justify="between"
-        align="start"
-        class="sx-translation-confirmer__article-information__title ma-0 mb-2"
+        class="sx-translation-confirmer__article-information__header ma-0 mb-2"
       >
-        <mw-col class="pa-0 pe-4 flex">
+        <mw-col
+          class="pa-0 pe-4 flex sx-translation-confirmer__article-information__title"
+          tag="a"
+          :href="sourceArticlePath"
+          target="_blank"
+        >
           <h5 class=" ma-0  me-1" v-text="sourceTitle"></h5>
-          <a :href="sourceArticlePath" target="_blank">
-            <mw-icon
-              :icon="mwIconLinkExternal"
-              size="10"
-              :icon-color="$mwui.colors.base30"
-            />
-          </a>
+          <mw-icon
+            :icon="mwIconLinkExternal"
+            size="10"
+            :icon-color="$mwui.colors.base30"
+          />
         </mw-col>
         <!--        TODO: Support "bookmarking article" functionality -->
         <mw-col shrink align="start">
@@ -89,6 +91,12 @@ export default {
 @import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-translation-confirmer__article-information {
   color: @color-base;
+  &__title.col.col {
+    max-width: fit-content;
+    align-items: baseline;
+    text-decoration: none;
+    color: inherit;
+  }
   &__stats {
     color: @wmui-color-base20;
   }

@@ -10,7 +10,7 @@
         class="ma-0 pe-2"
       />
       <mw-col shrink>
-        <a :href="targetArticlePath">
+        <a :href="targetArticlePath" target="_blank">
           <mw-icon
             :icon="mwIconLinkExternal"
             size="16"
