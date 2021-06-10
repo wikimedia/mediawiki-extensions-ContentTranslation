@@ -237,5 +237,8 @@
 	"cx-sx-publisher-review-info-learn-more": "अधिक जानिए",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "अधिक जानिए",
 	"cx-sx-followup-feedback-new-indicator": "नया",
-	"cx-sx-article-search-nearby-title": "निकट"
+	"cx-sx-article-search-nearby-title": "निकट",
+	"sx-article-search-language-selector-dialog-title": "भाषाएँ",
+	"cx-sx-language-selector-all-languages": "सभी भाषाएँ",
+	"sx-translation-list-language-selector-dialog-title": "भाषाएँ"
 }

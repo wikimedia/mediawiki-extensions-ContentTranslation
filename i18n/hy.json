@@ -189,5 +189,10 @@
 	"cx-sx-translation-confirmer-title": "Նոր թարգմանություն",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Թարգմանել",
 	"cx-sx-article-search-nearby-title": "Մոտակայքում",
-	"sx-translation-list-language-selector-dialog-title": "Լեզուներ"
+	"sx-article-search-language-selector-dialog-title": "Լեզուներ",
+	"cx-sx-language-selector-placeholder": "Լեզվի որոնում",
+	"cx-sx-language-selector-all-languages": "Բոլոր լեզուները",
+	"cx-sx-language-selector-no-search-results": "Գտնված չէ",
+	"sx-translation-list-language-selector-dialog-title": "Լեզուներ",
+	"cx-sx-article-search-header": "Նոր թարգմանություն"
 }
