@@ -1,19 +1,31 @@
 <template>
   <div ref="langSelectorContainer" class="mw-ui-language-selector">
     <slot name="search">
-      <mw-input
-        ref="searchInputElement"
-        class="mw-ui-language-selector__search pa-4"
-        :icon="mwIconSearch"
-        :icon-size="20"
-        :placeholder="placeholder"
-        :autofocus="autofocus"
-        @input="onInput"
-        @keydown.enter.prevent="onEnter"
-        @keydown.down.prevent="next"
-        @keydown.up.prevent="prev"
-        @keydown.esc.prevent="close"
-      />
+      <div class="mw-ui-language-selector__inputcontainer  pa-4 mb-4">
+        <mw-input
+          ref="searchInputElement"
+          v-model="autocompletion"
+          :icon="mwIconSearch"
+          :icon-size="20"
+          class="mw-ui-language-selector__autocomplete pa-4"
+          :disabled="true"
+        />
+        <mw-input
+          ref="searchInputElement"
+          v-model="searchQuery"
+          class="mw-ui-language-selector__search pa-4"
+          :icon="mwIconSearch"
+          :icon-size="20"
+          :placeholder="placeholder"
+          :autofocus="autofocus"
+          @input="onInput"
+          @keydown.enter.prevent="onEnter"
+          @keydown.down.prevent="next"
+          @keydown.up.prevent="prev"
+          @keydown.esc.prevent="close"
+          @keydown.tab.prevent="onTabSelect"
+        />
+      </div>
     </slot>
     <slot v-if="suggestions.length && !searchQuery" name="suggestions">
       <section class="results px-3 pt-4">
@@ -83,6 +95,7 @@ import {
   getSearchResultsByScript,
   getResultsDisplayClass
 } from "./languagesearch";
+import autocomplete from "./autocompletion";
 import {
   mwIconSearch,
   mwIconClose
@@ -139,7 +152,6 @@ export default {
     const selectedLanguage = ref("");
     const selectedIndex = ref(-1);
     const searchResults = ref([]);
-
     const searchResultsByScript = computed(() =>
       getSearchResultsByScript(searchResults.value)
     );
@@ -173,8 +185,7 @@ export default {
       }
     };
 
-    const onInput = value => {
-      searchQuery.value = value;
+    const onInput = () => {
       selectedIndex.value = -1;
     };
 
@@ -235,6 +246,7 @@ export default {
     });
 
     return {
+      ...autocomplete(searchQuery, searchResults),
       close,
       getAutonym,
       getDir,
@@ -260,9 +272,14 @@ export default {
 @import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
 .mw-ui-language-selector {
+  &__autocomplete,
   &__search {
     box-shadow: 0 @border-width-base 2px rgba(0, 0, 0, 0.25);
     border: 0;
+    background-color: transparent;
+    .mw-ui-input__input {
+      background-color: transparent;
+    }
     .mw-ui-input__content {
       margin: 0;
       .mw-ui-input__input {
@@ -271,6 +288,7 @@ export default {
       }
     }
   }
+
   &__results {
     padding: 1em;
     overflow-y: auto;
@@ -312,6 +330,18 @@ export default {
 
   h3 {
     color: @wmui-color-base30;
+  }
+
+  &__inputcontainer {
+    position: relative;
+  }
+
+  &__search,
+  &__autocomplete {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   @media (max-width: 600px) {
