@@ -90,7 +90,6 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
         class="mw-ui-input__input"
         placeholder="cx-sx-article-search-input-placeholder"
         type="search"
-        value="bar"
       >
         bar
       </input>

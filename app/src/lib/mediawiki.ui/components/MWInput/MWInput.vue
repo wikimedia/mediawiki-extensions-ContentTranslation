@@ -15,7 +15,7 @@
         class="mw-ui-input__input"
         :disabled="disabled"
         :aria-disabled="disabled"
-        :value.sync="value"
+        :value.prop="value"
         :placeholder="placeholder"
         v-bind="$attrs"
         :type="type"
