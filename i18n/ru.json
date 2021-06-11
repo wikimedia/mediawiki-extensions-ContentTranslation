@@ -35,6 +35,7 @@
 			"Pacha Tchernof",
 			"Purodha",
 			"Putnik",
+			"Rivka Silinsky",
 			"Sealle",
 			"Shaleych",
 			"Stjn",
@@ -307,6 +308,7 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редактировать перевод",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Применить",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Пропустить",
+	"cx-sx-translation-confirmer-title": "Новый перевод",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Перевести",
 	"cx-sx-publisher-publish-panel-new-section-status": "Готовы к публикации?",
 	"cx-sx-publisher-animation-success-message-title": "Опубликовано!",
@@ -320,5 +322,11 @@
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Предложение",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Абзац",
 	"cx-sx-article-search-recently-edited-title": "Недавно отредактированный вами",
-	"cx-sx-article-search-nearby-title": "Поблизости"
+	"cx-sx-article-search-nearby-title": "Поблизости",
+	"sx-article-search-language-selector-dialog-title": "Языки",
+	"cx-sx-language-selector-placeholder": "Поиск языка",
+	"cx-sx-language-selector-all-languages": "Все языки",
+	"cx-sx-language-selector-no-search-results": "Ничего не найдено",
+	"sx-translation-list-language-selector-dialog-title": "Языки",
+	"cx-sx-article-search-header": "Новый перевод"
 }
