@@ -202,7 +202,7 @@
 				targetTitle: targetTitle,
 				cxVersion: mw.cx.getCXVersion(),
 				filterType: filterType,
-				filterId: filterId
+				filterId: parseInt( filterId )
 			} );
 		},
 
