@@ -18,7 +18,6 @@
           :icon-size="20"
           :placeholder="placeholder"
           :autofocus="autofocus"
-          @input="onInput"
           @keydown.enter.prevent="onEnter"
           @keydown.down.prevent="next"
           @keydown.up.prevent="prev"
@@ -96,6 +95,7 @@ import {
   getResultsDisplayClass
 } from "./languagesearch";
 import autocomplete from "./autocompletion";
+import keyboardNavigation from "./keyboardnav";
 import {
   mwIconSearch,
   mwIconClose
@@ -147,10 +147,7 @@ export default {
 
   setup(props, context) {
     const searchInputElement = ref(null);
-    const langSelectorContainer = ref(null);
     const searchQuery = ref("");
-    const selectedLanguage = ref("");
-    const selectedIndex = ref(-1);
     const searchResults = ref([]);
     const searchResultsByScript = computed(() =>
       getSearchResultsByScript(searchResults.value)
@@ -160,34 +157,19 @@ export default {
       getResultsDisplayClass(searchResults.value)
     );
 
-    const shownLanguages = computed(() =>
-      !!searchQuery.value
-        ? searchResults.value
-        : [...props.suggestions, ...searchResults.value]
-    );
-
     const select = language => context.emit("select", language);
     const close = () => context.emit("close");
 
-    const next = () => {
-      selectedIndex.value++;
-
-      if (selectedIndex.value >= shownLanguages.value.length) {
-        selectedIndex.value = 0;
-      }
-    };
-
-    const prev = () => {
-      selectedIndex.value--;
-
-      if (selectedIndex.value < 0) {
-        selectedIndex.value = 0;
-      }
-    };
-
-    const onInput = () => {
-      selectedIndex.value = -1;
-    };
+    const { autocompletion, onTabSelect } = autocomplete(
+      searchQuery,
+      searchResults
+    );
+    const {
+      next,
+      prev,
+      langSelectorContainer,
+      selectedLanguage
+    } = keyboardNavigation(searchQuery, searchResults, props.suggestions);
 
     const onEnter = () => {
       // If the search value is a known language, select it
@@ -220,19 +202,6 @@ export default {
       );
     });
 
-    watch(selectedIndex, async () => {
-      if (selectedIndex.value < 0) {
-        // Reset
-        selectedLanguage.value = "";
-
-        return;
-      }
-      selectedLanguage.value = shownLanguages.value[selectedIndex.value];
-      langSelectorContainer.value
-        .querySelectorAll(`.language[lang="${selectedLanguage.value}"]`)[0]
-        ?.scrollIntoView(false);
-    });
-
     onMounted(async () => {
       if (props.autofocus) {
         searchInputElement.value.focus();
@@ -246,22 +215,22 @@ export default {
     });
 
     return {
-      ...autocomplete(searchQuery, searchResults),
+      autocompletion,
       close,
       getAutonym,
       getDir,
       langSelectorContainer,
       mwIconClose,
       mwIconSearch,
-      onEnter,
-      onInput,
-      resultsDisplayClass,
-      searchQuery,
-      select,
-      prev,
       next,
+      onEnter,
+      onTabSelect,
+      prev,
+      resultsDisplayClass,
       searchInputElement,
+      searchQuery,
       searchResultsByScript,
+      select,
       selectedLanguage
     };
   }
