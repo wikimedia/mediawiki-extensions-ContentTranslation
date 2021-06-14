@@ -254,7 +254,7 @@
 	"cx-unreviewed-translation-category": "Sider uden gennemgået oversættelser",
 	"cx-feature-discovery-dismiss": "OK, modtaget",
 	"cx-sx-language-selector-dialog-title": "Søg efter et sprog",
-	"cx-sx-existing-translation-status": "Findes allerede på $1",
+	"cx-sx-existing-translation-status": "Tilgængelig på $1",
 	"cx-sx-start-translation-button-label": "Start oversættelse",
 	"cx-sx-existing-translation-learn-more": "Lær mere",
 	"cx-sx-section-selector-more-details-title": "Flere detaljer",
@@ -272,5 +272,11 @@
 	"cx-sx-content-comparator-content-header-translate-button-label": "Oversæt",
 	"cx-sx-publisher-review-info-learn-more": "Lær mere",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Lær mere",
-	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Din oversættelse"
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Din oversættelse",
+	"sx-article-search-language-selector-dialog-title": "Sprog",
+	"cx-sx-language-selector-placeholder": "Søg efter et sprog",
+	"cx-sx-language-selector-all-languages": "Alle sprog",
+	"cx-sx-language-selector-no-search-results": "Ingen resultater",
+	"sx-translation-list-language-selector-dialog-title": "Sprog",
+	"cx-sx-article-search-header": "Ny oversættelse"
 }

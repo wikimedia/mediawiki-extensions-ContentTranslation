@@ -18,7 +18,10 @@
 	"cx-tools-link-title": "Pranala",
 	"cx-tools-link-add": "Tambahin pranala",
 	"cx-tools-mt-provider-title": "Anggén $1",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategori|0=Tanpa kategori}}",
 	"cx-page-selector-widget-nearby-label": "Nampek",
+	"cx-source-page-selector-input-placeholder": "Rereh kaca antuk kaalih basa",
+	"cx-source-page-selector-no-search-results": "Nénten wénten kaca katemu antuk \"$1\" ring $2",
 	"cx-selected-source-page-start-translation-button": "Ngawit pangalihan basa",
 	"cx-page-number-of-languages": "Akéh basa",
 	"cx-captcha-dialog-cancel": "Wangdé",
@@ -30,6 +33,8 @@
 	"cx-contributions-new-article": "Kaca anyar",
 	"cx-contributions-translation": "Pangalihan Basa",
 	"cx-contributions-upload": "Unggah média",
+	"cx-contributions-translation-tooltip": "Kaca pasalinan basa sampun wénten",
+	"cx-contributions-upload-tooltip": "Unggah gambar, swara miwah vidéo antuk kaanggén ring kaca",
 	"cx-translation-status-deleted": "Kausap",
 	"cx-draft-cancel-button-label": "Wangdé",
 	"cx-campaign-no-thanks": "Nénten, suksma",
@@ -38,6 +43,10 @@
 	"cx-no-source-categories": "Tanpa kategori",
 	"cx-stats-tabs-expand": "Cingak makasami basa",
 	"cx-sx-language-selector-dialog-title": "Rereh antuk basa",
+	"cx-suggestion-list-new-pages-division": "Kaca anyar",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Tanpa asil uahan olih Ida",
-	"sx-article-search-language-selector-dialog-title": "Rereh antuk basa"
+	"cx-sx-article-search-input-placeholder": "Rereh kaca antuk kaalih basa",
+	"sx-article-search-language-selector-dialog-title": "Basa",
+	"cx-sx-language-selector-placeholder": "Rereh basa",
+	"cx-sx-language-selector-no-search-results": "Tanpa asil"
 }
