@@ -74,8 +74,7 @@ export default class Page {
         (count, section) =>
           count +
           section.subSections.filter(subsection => subsection.isHeadingSection)
-            .length +
-          1,
+            .length,
         0
       ) + 1
     );

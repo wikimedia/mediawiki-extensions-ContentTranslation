@@ -139,6 +139,10 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
     publishTarget
   );
 
+  const sourceSectionTitle = currentSourceSection.originalTitle;
+  const targetSectionTitle =
+    currentSectionSuggestion.presentSections?.[sourceSectionTitle] || "";
+
   /**
    * Get position where the new section will be published
    * inside target article. If target section is already
@@ -154,8 +158,7 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
    * @type {number|"new"}
    */
   const sectionNumber = calculateNewSectionNumber(
-    currentSectionSuggestion,
-    currentSourceSection,
+    targetSectionTitle,
     firstAppendixTargetTitle,
     targetPage
   );

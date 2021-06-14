@@ -85,8 +85,7 @@ describe("vuex store publishTranslation action", () => {
     );
     expect(calculateNewSectionNumber).toHaveBeenCalledTimes(1);
     expect(calculateNewSectionNumber).toHaveBeenCalledWith(
-      expect.any(SectionSuggestion),
-      expect.any(PageSection),
+      expect.any(String),
       expect.any(String),
       expect.any(Page)
     );

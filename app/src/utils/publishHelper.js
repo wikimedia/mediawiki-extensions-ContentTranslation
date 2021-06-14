@@ -28,10 +28,10 @@ const prependNewSectionToAppendixSection = (newSection, existingSection) => {
 };
 
 /**
- * Given a section suggestion, a source section, a target page
- * and the first appendix title in this page, this method
- * returns the appropriate number indicating the position in
- * which the new section will be published inside target page.
+ * Given a target section title, a target page and the first
+ * appendix title in this page, this method returns the
+ * appropriate number indicating the position in which the
+ * new section will be published inside target page.
  *
  * 1. If section is present inside target article, then:
  *    sectionNumber equals the index of the section inside target article.
@@ -40,21 +40,16 @@ const prependNewSectionToAppendixSection = (newSection, existingSection) => {
  *       it equals to the index of the first appendix section (in order of appearance)
  *    b. If not, it's equal to "new".
  *
- * @param {SectionSuggestion} sectionSuggestion
- * @param {PageSection} section
- * @param {String} firstAppendixTargetTitle
+ * @param {string} targetSectionTitle
+ * @param {string} firstAppendixTargetTitle
  * @param {Page} targetPage
- * @return {Number|"new"}
+ * @return {number|"new"}
  */
 const calculateNewSectionNumber = (
-  sectionSuggestion,
-  section,
+  targetSectionTitle,
   firstAppendixTargetTitle,
   targetPage
 ) => {
-  const targetSectionTitle =
-    sectionSuggestion.presentSections[section.originalTitle];
-
   // if section is present
   if (targetSectionTitle) {
     return targetPage.getSectionNumberByTitle(targetSectionTitle);
