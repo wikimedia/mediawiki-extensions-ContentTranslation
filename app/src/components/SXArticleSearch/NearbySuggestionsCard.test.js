@@ -32,7 +32,7 @@ jest.mock("../../wiki/mw/api/page", () => {
         return Promise.resolve(mockNearbyPages[language]);
       }
 
-      return Promise.reject();
+      return Promise.resolve([]);
     }
   };
 });
