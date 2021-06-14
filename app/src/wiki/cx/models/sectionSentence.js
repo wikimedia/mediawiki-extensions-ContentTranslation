@@ -16,7 +16,7 @@ export default class SectionSentence {
     node = null,
     proposedTranslations = {},
     selected = false
-  }) {
+  } = {}) {
     this.id = id;
     this.translatedContent = translatedContent;
     // TODO Node object does not seem to be used anywhere. Remove? */
