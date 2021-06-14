@@ -19,17 +19,16 @@
 	}
 
 	/**
-	 * @param {boolean} useIcons whether to use icons
 	 * @return {jQuery.Object}
 	 */
-	function getTranslationsItem( useIcons ) {
+	function getTranslationsItem() {
 		var $link, cxUrlParams = {
 			campaign: CAMPAIGN,
 			to: mw.config.get( 'wgContentLanguage' )
 		};
 
 		$link = $( '<a>' )
-			.addClass( useIcons ? 'mw-ui-icon mw-ui-icon-before mw-ui-icon-cx-language' : '' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-cx-language' )
 			.text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) );
 
@@ -45,6 +44,7 @@
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
 			.append( $( '<a>' )
+				.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-userContributions' )
 				.text( mw.msg( 'cx-campaign-contributionsmenu-mycontributions' ) )
 				.attr( 'href', $trigger.find( 'a' ).attr( 'href' ) )
 			);
@@ -59,7 +59,7 @@
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
 				.text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
-				.addClass( useCallout ? '' : 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-logoWikimediaCommons' )
+				.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-logoWikimediaCommons' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 			);
 

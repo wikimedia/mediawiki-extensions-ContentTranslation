@@ -23,30 +23,15 @@
 		}
 
 		a {
-			background-position: left 8px center;
-			background-repeat: no-repeat;
-			background-size: 20px;
 			color: @colorGray2;
 			display: block;
-			padding: 8px 8px 8px 32px;
+			padding: 8px;
 			text-decoration: none;
 			.transition( ~'background-color 100ms' );
 		}
 
 		&:hover {
 			background-color: @colorGray14;
-		}
-
-		&.cx-campaign-contributions a {
-			.background-image( '../images/userAvatar.svg' );
-		}
-
-		&.cx-campaign-uploads a {
-			.background-image( '../images/wikimediaCommons.svg' );
-		}
-
-		&.cx-campaign-translations a {
-			.background-image( '../images/translation.svg' );
 		}
 
 		.cx-campaign-contributionsmenu__expansion {
@@ -61,12 +46,4 @@
 			font-size: small;
 		}
 	}
-}
-
-.cx-campaign-uploads a.mw-ui-icon:before {
-	.background-image( '../images/wikimediaCommons.svg' );
-}
-
-.cx-campaign-translations a.mw-ui-icon:before {
-	.background-image( '../images/translation.svg' );
 }

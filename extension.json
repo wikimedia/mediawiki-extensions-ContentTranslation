@@ -294,6 +294,19 @@
 				"cx-feedback-link"
 			]
 		},
+		"ext.cx.icons": {
+			"selectorWithVariant": ".mw-ui-icon-cx-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-cx-{name}:before",
+			"useDataURI": false,
+			"defaultColor": "#000",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": [],
+			"icons": [
+				"logoWikimediaCommons",
+				"language",
+				"userContributions"
+			]
+		},
 		"ext.cx.dashboard": {
 			"targets": [
 				"desktop",
@@ -926,6 +939,8 @@
 				"entrypoints/styles/ext.cx.entrypoints.contributionsmenu.less"
 			],
 			"dependencies": [
+				"ext.cx.icons",
+				"mediawiki.ui.icon",
 				"ext.cx.widgets.callout",
 				"mediawiki.jqueryMsg",
 				"mediawiki.util"
