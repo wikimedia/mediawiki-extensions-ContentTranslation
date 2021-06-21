@@ -73,6 +73,14 @@ function getUserEditCountBucket(editCount) {
  * @returns {Promise}
  */
 function logEvent(event) {
+  if (!mw.eventLog) {
+    // Eventlogging extension not installed or enabled.
+    // We don't want it as a hard dependency. Skip.
+    mw.log({ event });
+
+    return Promise.resolve();
+  }
+
   const accessMethod =
     mw.config.get("skin") === "minerva" ? "mobile web" : "desktop";
   const wikiDB = mw.config.get("wgDBname");
