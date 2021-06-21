@@ -33,6 +33,7 @@ mw.cx.MachineTranslationManager = function MwCxMachineTranslationManager(
  */
 mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider ) {
 	var labels = {
+		Elia: mw.msg( 'cx-tools-mt-provider-title', 'Elia.eus' ),
 		Google: mw.msg( 'cx-tools-mt-provider-title', 'Google Translate' ),
 		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
 		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
