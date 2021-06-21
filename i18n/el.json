@@ -3,6 +3,7 @@
 		"authors": [
 			"Babispan",
 			"Geraki",
+			"Giannaras99",
 			"Glavkos",
 			"KATRINE1993",
 			"NikosLikomitros",
@@ -105,7 +106,7 @@
 	"cx-translation-filter-draft-translations": "Σε εξέλιξη",
 	"cx-translation-filter-suggested-translations": "Προτάσεις",
 	"cx-suggestionlist-favorite": "Για αργότερα",
-	"cx-suggestionlist-title": "Προτεινόμενες σελίδες",
+	"cx-suggestionlist-title": "Προτάσεις",
 	"cx-suggestionlist-empty-title": "Δεν υπάρχουν προτάσεις για την ώρα",
 	"cx-suggestionlist-empty-desc": "Δε βρήκαμε προτάσεις. Μπορείτε να ελέγξετε αργότερα ή να βρείτε σχετικές σελίδες χρησιμοποιώντας  εργαλείο που συστήνουμε (σε πειραματικό στάδιο).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Δείτε προτάσεις (σε πειραματικό στάδιο)",

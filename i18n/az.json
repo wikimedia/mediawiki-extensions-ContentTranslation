@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Mavrikant",
+			"NMW03",
 			"Toghrul Rahimli",
 			"Vesely35",
 			"Wertuose"
@@ -34,6 +35,7 @@
 	"cx-draft-discard-button-label": "Tərcüməni sil",
 	"echo-category-title-cx": "Tərcümələr",
 	"echo-pref-tooltip-cx": "Məzmun tərcüməsi aləti ilə yaradılmış məqalələrim haqqında mənə bildiriş göndər.",
+	"cx-notification-hundredth-translation": "100 tərcümə etdiniz! Bu əlamətdar bir nailiyyətdir. Bunu digər redaktorlarla paylaşın.",
 	"cx-contributions-link": "Töhfələriniz",
 	"cx-sx-language-selector-dialog-title": "Dil axtarın",
 	"cx-sx-section-selector-empty-missing-sections-title": "Tərcümə üçün bölüm tapılmadı",

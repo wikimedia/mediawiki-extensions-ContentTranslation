@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Sarvaturi"
 		]
 	},
 	"cx-header-all-translations": "Tutti li traduzzioni",
-	"cx-entrypoint-title": "Traduci sta pàggina n $1"
+	"cx-entrypoint-title": "Traduci sta pàggina n $1",
+	"cx-tools-template-title": "Template"
 }
