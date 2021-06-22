@@ -3,6 +3,7 @@
     <mw-spinner v-if="loading" />
     <sx-search-article-suggestion
       v-for="suggestion in searchResultsSlice"
+      v-else
       :key="suggestion.pageid"
       :suggestion="suggestion"
       @click.native="$emit('suggestion-clicked', suggestion)"

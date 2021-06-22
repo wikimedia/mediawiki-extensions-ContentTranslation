@@ -205,8 +205,6 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
     <div
       class="mw-ui-card__content"
     >
-      <!---->
-       
       <div
         class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
       >
