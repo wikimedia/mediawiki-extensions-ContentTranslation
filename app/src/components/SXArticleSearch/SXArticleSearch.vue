@@ -34,24 +34,18 @@
       @select="updateSelection"
     />
     <template v-if="!searchInput">
-      <mw-card
-        v-if="recentlyEditedPages.length"
-        class="sx-article-search__recently-edited pa-0 mb-0 pa-4"
-      >
-        <template #header>
-          <h5
-            v-i18n:cx-sx-article-search-recently-edited-title
-            class="ma-0 pb-1 sx-article-search__recently-edited-header"
-          />
-        </template>
-        <sx-search-article-suggestion
-          v-for="suggestion in recentlyEditedPages"
-          :key="suggestion.pageId"
-          :suggestion="suggestion"
-          @click.native="startSectionTranslation(suggestion)"
-        />
-      </mw-card>
-      <nearby-suggestions-card @suggestion-clicked="startSectionTranslation" />
+      <article-suggestions-card
+        v-if="recentlyEditedPages && recentlyEditedPages.length"
+        :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
+        :suggestions="recentlyEditedPages"
+        @suggestion-clicked="startSectionTranslation"
+      />
+      <article-suggestions-card
+        v-else-if="nearbyPages && nearbyPages.length"
+        :card-title="$i18n('cx-sx-article-search-nearby-title')"
+        :suggestions="nearbyPages"
+        @suggestion-clicked="startSectionTranslation"
+      />
     </template>
     <search-results-card
       v-show="!!searchInput"
@@ -81,7 +75,6 @@
 <script>
 import {
   MwButtonGroup,
-  MwCard,
   MwDialog,
   MwInput,
   MwRow,
@@ -90,24 +83,22 @@ import {
 } from "@/lib/mediawiki.ui";
 import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
-import NearbySuggestionsCard from "./NearbySuggestionsCard";
 import SearchResultsCard from "./SearchResultsCard";
 import MwLanguageSelector from "../MWLanguageSelector";
-import { ref, onMounted, computed } from "@vue/composition-api";
+import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
+import { ref, onMounted, computed, watch } from "@vue/composition-api";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import getSuggestedSourceLanguages from "./suggestedSourceLanguages";
 
 export default {
   name: "SxArticleSearch",
   components: {
+    ArticleSuggestionsCard,
     SearchResultsCard,
-    NearbySuggestionsCard,
-    SxSearchArticleSuggestion,
     MwInput,
     MwDialog,
     MwLanguageSelector,
     MwButtonGroup,
-    MwCard,
     MwRow,
     MwCol,
     MwButton
@@ -191,6 +182,10 @@ export default {
       store.dispatch("application/updateSourceLanguage", updatedLanguage);
     };
 
+    watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
+      immediate: true
+    });
+
     /**
      * @param {Page} searchSuggestion
      * @return {Promise<void>}
@@ -225,11 +220,16 @@ export default {
       () => store.getters["mediawiki/getRecentlyEditedPages"]
     );
 
+    const nearbyPages = computed(
+      () => store.getters["mediawiki/getNearbyPages"]
+    );
+
     return {
       availableSourceLanguages,
       close,
       mwIconClose,
       mwIconSearch,
+      nearbyPages,
       onSourceLanguageDialogClose,
       onSourceLanguageSelected,
       recentlyEditedPages,

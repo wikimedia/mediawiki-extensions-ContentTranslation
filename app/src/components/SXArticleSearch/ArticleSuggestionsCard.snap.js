@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NearbySuggestionsCard Component output matches snapshot 1`] = `
+exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
 <div
-  class="mw-ui-card sx-article-search__nearby pa-0 mb-0 pa-4"
+  class="mw-ui-card sx-article-search__suggestions mb-0 pa-4"
 >
   <h5
-    class="ma-0 pb-1 sx-article-search__nearby-header"
+    class="ma-0 pb-1 sx-article-search__suggestions-header"
   >
-    cx-sx-article-search-nearby-title
+    Recently edited
   </h5>
    
   <div
