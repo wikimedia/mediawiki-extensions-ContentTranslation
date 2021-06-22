@@ -100,7 +100,7 @@
 	"apihelp-cxsave-param-cxversion": "Versioni i redaktorit që përdoret për të krijuar përkthimin e draftit.",
 	"apihelp-cxsave-param-sourcecategories": "Një grup i koduar i kategorive burimore JSON që do të ruhen me përkthimin e draftit.",
 	"apihelp-cxsave-param-targetcategories": "Një grup i koduar JSON i kategorive të synuara që do të ruhen me përkthimin e draftit.",
-	"apierror-cx-docserverexception": "Gabim në shndërrimin HTML në wikitext: $ 1",
+	"apierror-cx-docserverexception": "Ka gabim në konvertimin e HTML-së në wikitekstː$1",
 	"apierror-cx-inuse": "Një përdorues tjetër tashmë po e përkthen këtë artikull.",
 	"apierror-cx-invalidsourcecategories": "Një grup i pavlefshëm i koduar JSON i kategorive të burimit.",
 	"apierror-cx-invalidtargetcategories": "Një grup i pavlefshëm i koduar JSON i kategorive të synuara.",
