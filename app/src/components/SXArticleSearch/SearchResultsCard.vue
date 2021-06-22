@@ -3,10 +3,18 @@
     <mw-spinner v-if="loading" />
     <sx-search-article-suggestion
       v-for="suggestion in searchResultsSlice"
-      v-else
+      v-else-if="searchResultsSlice.length"
       :key="suggestion.pageid"
       :suggestion="suggestion"
       @click.native="$emit('suggestion-clicked', suggestion)"
+    />
+    <p
+      v-else
+      v-i18n:cx-sx-article-search-no-search-results-message="[
+        searchInput,
+        getAutonym(sourceLanguage)
+      ]"
+      class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
     />
   </mw-card>
 </template>
@@ -17,6 +25,7 @@ import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import pageApi from "@/wiki/mw/api/page";
 import debounce from "lodash/debounce";
 import { mapState } from "vuex";
+import { getAutonym } from "@wikimedia/language-data";
 
 export default {
   name: "SearchResultsCard",
@@ -48,6 +57,7 @@ export default {
     this.debouncedSearchForArticles = debounce(this.searchForArticles, 500);
   },
   methods: {
+    getAutonym,
     async searchForArticles() {
       this.loading = true;
 
@@ -64,3 +74,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.sx-article-search__empty-search-results-message {
+  text-align: center;
+}
+</style>

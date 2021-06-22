@@ -46,6 +46,11 @@
         :suggestions="nearbyPages"
         @suggestion-clicked="startSectionTranslation"
       />
+      <p
+        v-else
+        v-i18n:cx-sx-article-search-no-suggestions-message
+        class="sx-article-search__empty-suggestions-message mt-12 pa-4 mb-0"
+      />
     </template>
     <search-results-card
       v-show="!!searchInput"
@@ -82,7 +87,6 @@ import {
   MwButton
 } from "@/lib/mediawiki.ui";
 import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
 import SearchResultsCard from "./SearchResultsCard";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
@@ -263,8 +267,12 @@ export default {
       box-shadow: none;
     }
     &-header {
-      color: @wmui-color-base30;
+      color: @color-base--subtle;
     }
+  }
+  &__empty-suggestions-message {
+    text-align: center;
+    color: @color-base--subtle;
   }
   &-language-selector.mw-ui-dialog.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__header {

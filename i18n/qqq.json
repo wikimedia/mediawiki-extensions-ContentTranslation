@@ -402,5 +402,7 @@
 	"cx-sx-language-selector-suggestions": "Header text in language selector when suggested languages are displayed.",
 	"cx-sx-language-selector-no-search-results": "Text to display for no results found",
 	"sx-translation-list-language-selector-dialog-title": "Title of language selector dialog window inside translation list language selector component\n{{identical|Language}}",
-	"cx-sx-article-search-header": "Title inside header of 'Search for an article to translate' screen"
+	"cx-sx-article-search-header": "Title inside header of 'Search for an article to translate' screen",
+	"cx-sx-article-search-no-suggestions-message": "Message that is being displayed to the user when no article suggestions exist inside \"Search for an article\" screen",
+	"cx-sx-article-search-no-search-results-message": "Message that is being displayed to the user when no search results are found for a specific query inside \"Search for an article\" screen"
 }

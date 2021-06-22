@@ -387,5 +387,7 @@
 	"cx-sx-language-selector-suggestions": "Suggested",
 	"cx-sx-language-selector-no-search-results": "No results",
 	"sx-translation-list-language-selector-dialog-title": "Languages",
-	"cx-sx-article-search-header": "New translation"
+	"cx-sx-article-search-header": "New translation",
+	"cx-sx-article-search-no-suggestions-message": "Think of any topic of your interest. You don’t need to be an expert to create a great translation.",
+	"cx-sx-article-search-no-search-results-message": "No pages found for \"$1\" in $2"
 }

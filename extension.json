@@ -514,7 +514,9 @@
 				"cx-sx-language-selector-suggestions",
 				"cx-sx-language-selector-no-search-results",
 				"sx-translation-list-language-selector-dialog-title",
-				"cx-sx-article-search-header"
+				"cx-sx-article-search-header",
+				"cx-sx-article-search-no-suggestions-message",
+				"cx-sx-article-search-no-search-results-message"
 			],
 			"noflip": true
 		},
