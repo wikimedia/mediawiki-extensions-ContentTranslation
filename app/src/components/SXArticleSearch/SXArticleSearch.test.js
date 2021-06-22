@@ -5,8 +5,10 @@ import SXArticleSearch from "./SXArticleSearch";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
+import CompositionApi from "@vue/composition-api";
 
 const localVue = createLocalVue();
+localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
