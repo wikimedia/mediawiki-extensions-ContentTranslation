@@ -1,6 +1,6 @@
 <template>
   <section class="sx-publisher">
-    <sx-publisher-header @publish-translation="publishTranslation" />
+    <sx-publisher-header @publish-translation="doPublish" />
     <div class="sx-publisher__publish-panel pa-4">
       <h5
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
@@ -47,14 +47,12 @@ import {
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
 import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import { getTitleForPublishOption } from "@/utils/publishHelper";
-import { getUrl } from "@/utils/mediawikiHelper";
-
+import { computed, ref } from "@vue/composition-api";
+import publishTranslation from "./publishTranslation";
 export default {
   name: "SxPublisher",
   components: {
@@ -66,87 +64,62 @@ export default {
     MwRow,
     MwCol
   },
-  data: () => ({
-    mwIconSettings,
-    mwIconEdit,
-    isPublishDialogActive: false,
-    publishStatus: "pending",
-    publishOptionsOn: false
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection,
-      publishTarget: state => state.application.publishTarget,
-      publishResult: state => state.application.currentPublishResult
-    }),
-    translatedTitle: vm => vm.currentPageSection?.title,
-    panelResult: vm =>
-      vm.publishTarget === "NEW_SECTION"
-        ? vm.$i18n("cx-sx-publisher-publish-panel-new-section-result")
-        : vm.$i18n("cx-sx-publisher-publish-panel-sandbox-section-result")
-  },
-  methods: {
-    decodeHtml: html => {
-      const template = document.createElement("div");
-      template.innerHTML = html;
+  setup(props, context) {
+    const applicationState = context.root.$store.state.application;
+    const isPublishDialogActive = ref(false);
+    const publishStatus = ref("pending");
+    const publishOptionsOn = ref(false);
 
-      return template.innerText;
-    },
-    configureTranslationOptions() {
-      this.publishOptionsOn = true;
-    },
-    handlePublishResult() {
-      if (!this.publishResult.isSuccessful) {
-        return;
-      }
-      const articleTitle = getTitleForPublishOption(
-        this.suggestion.targetTitle,
-        this.publishTarget
-      );
-      /** Remove warning about leaving SX */
-      this.$store.commit("application/setTranslationInProgress", false);
+    const currentPageSection = computed(
+      () => applicationState.currentSourceSection
+    );
+    const publishTarget = computed(() => applicationState.publishTarget);
+    const translatedTitle = computed(() => currentPageSection.value?.title);
 
-      // sx-published-section query param will trigger 'sx.publishing.followup'
-      // module to be loaded inside target article's page, after redirection
-      window.location.href = getUrl(`${articleTitle}`, {
-        "sx-published-section": this.decodeHtml(this.translatedTitle),
-        "sx-source-page-title": this.decodeHtml(this.suggestion.sourceTitle),
-        "sx-source-language": this.suggestion.sourceLanguage,
-        "sx-target-language": this.suggestion.targetLanguage
-      });
-    },
-    async publishTranslation() {
-      /**
-       * Set initial publish status to "pending" before
-       * publish request
-       */
-      this.publishStatus = "pending";
-      this.isPublishDialogActive = true;
-      /** @type PublishResult **/
-      await this.$store.dispatch("translator/publishTranslation");
+    const panelResult = computed(() =>
+      publishTarget.value === "NEW_SECTION"
+        ? context.root.$i18n("cx-sx-publisher-publish-panel-new-section-result")
+        : context.root.$i18n(
+            "cx-sx-publisher-publish-panel-sandbox-section-result"
+          )
+    );
 
-      this.publishStatus = this.publishResult.result;
-      /**
-       * Show feedback animation to user for 1 second
-       * before closing the dialog and handling the
-       * publishing result
-       */
-      setTimeout(() => {
-        this.isPublishDialogActive = false;
-        this.handlePublishResult();
-      }, 1000);
-    },
-    editTranslation() {
-      this.$router.push({
+    const configureTranslationOptions = () => {
+      publishOptionsOn.value = true;
+    };
+
+    const editTranslation = () => {
+      const router = context.root.$router;
+      router.push({
         name: "sx-editor",
         params: {
-          content: this.currentPageSection.translationHtml,
-          language: this.suggestion.targetLanguage,
+          content: currentPageSection.value.translationHtml,
+          language: applicationState.currentSectionSuggestion.targetLanguage,
           isFinalEdit: true
         }
       });
-    }
+    };
+
+    const doPublish = () =>
+      publishTranslation(
+        context.root.$store,
+        publishStatus,
+        isPublishDialogActive
+      );
+
+    return {
+      configureTranslationOptions,
+      currentPageSection,
+      doPublish,
+      editTranslation,
+      isPublishDialogActive,
+      mwIconEdit,
+      mwIconSettings,
+      panelResult,
+      publishOptionsOn,
+      publishStatus,
+      translatedTitle
+    };
   }
 };
 </script>
