@@ -43,6 +43,7 @@
 <script>
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
+import { ref, watch, computed, onMounted } from "@vue/composition-api";
 import {
   MwButtonGroup,
   MwBottomNavigation,
@@ -68,19 +69,16 @@ export default {
     MwBottomNavigation,
     MwButton
   },
-  data: () => ({
-    mwIconAdd,
-    mwIconArticleCheck,
-    mwIconLightBulb,
-    mwIconEdit,
-    active: "suggestions"
-  }),
-  computed: {
-    listSelector: vm => [
+  setup(props, context) {
+    const active = ref("suggestions");
+
+    const listSelector = computed(() => [
       {
         value: "suggestions",
         props: {
-          label: vm.$i18n("cx-translation-filter-suggested-translations"),
+          label: context.root.$i18n(
+            "cx-translation-filter-suggested-translations"
+          ),
           icon: mwIconLightBulb,
           type: "text"
         }
@@ -88,7 +86,7 @@ export default {
       {
         value: "draft",
         props: {
-          label: vm.$i18n("cx-translation-filter-draft-translations"),
+          label: context.root.$i18n("cx-translation-filter-draft-translations"),
           icon: mwIconEdit,
           type: "text"
         }
@@ -96,38 +94,45 @@ export default {
       {
         value: "published",
         props: {
-          label: vm.$i18n("cx-translation-filter-published-translations"),
+          label: context.root.$i18n(
+            "cx-translation-filter-published-translations"
+          ),
           icon: mwIconArticleCheck,
           type: "text"
         }
       }
-    ]
-  },
-  watch: {
-    active: function() {
-      window.scrollTo(0, 0);
-    }
-  },
-  mounted: function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isSectionTranslation = urlParams.get("sx");
+    ]);
+    onMounted(() => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isSectionTranslation = urlParams.get("sx");
 
-    if (isSectionTranslation) {
-      this.active = "suggestions";
-    }
-    this.$logEvent({
-      event_type: "dashboard_open",
-      event_source: "direct",
-      content_translation_session_position: 0
+      if (isSectionTranslation) {
+        active.value = "suggestions";
+      }
+
+      context.root.$logEvent({
+        event_type: "dashboard_open",
+        event_source: "direct",
+        content_translation_session_position: 0
+      });
     });
-  },
-  created: function() {
-    this.$store.dispatch("application/initializeDashboardContext");
-  },
-  methods: {
-    searchTranslation() {
-      this.$router.push({ name: "sx-article-search" });
-    }
+
+    const searchTranslation = () =>
+      context.root.$router.push({ name: "sx-article-search" });
+
+    watch(active, () => window.scrollTo(0, 0));
+
+    context.root.$store.dispatch("application/initializeDashboardContext");
+
+    return {
+      mwIconAdd,
+      mwIconArticleCheck,
+      mwIconLightBulb,
+      mwIconEdit,
+      searchTranslation,
+      listSelector,
+      active
+    };
   }
 };
 </script>
