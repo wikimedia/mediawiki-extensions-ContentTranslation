@@ -50,8 +50,14 @@ const calculateNewSectionNumber = (
   firstAppendixTargetTitle,
   targetPage
 ) => {
-  // if section is present
+  // if target page doesn't exist, lead section is being translated/published
+  // and a new article should be created
+  if (!targetPage) {
+    return 0;
+  }
+
   if (targetSectionTitle) {
+    // if section is present
     return targetPage.getSectionNumberByTitle(targetSectionTitle);
   } else if (!!firstAppendixTargetTitle) {
     // if appendix sections exist
@@ -76,21 +82,18 @@ const calculateNewSectionNumber = (
  *       contents with appendix section clean contents
  *    b. If not, it's equal to the new section clean contents.
  *
- * @param {SectionSuggestion} sectionSuggestion
+ * @param {string} targetSectionTitle
  * @param {PageSection} section
  * @param {Page} targetPage
  * @param {String} firstAppendixTargetTitle
  * @return {String} - HTML to be published
  */
 const calculateHtmlToPublish = (
-  sectionSuggestion,
+  targetSectionTitle,
   section,
   targetPage,
   firstAppendixTargetTitle
 ) => {
-  const targetSectionTitle =
-    sectionSuggestion.presentSections[section.originalTitle];
-
   // if section is present
   if (targetSectionTitle) {
     return cleanupHtml(section.translationHtml);
@@ -178,7 +181,7 @@ const cleanupHtml = html => {
  * Construct a valid mediawiki title from given title and namespace option
  *
  * @param {string} originalTitle Title provided by the user
- * @param {string} publishOption Publishing target selected by user.
+ * @param {"NEW_SECTION"|"SANDBOX_SECTION"} publishOption Publishing target selected by user.
  * @returns {string} constructed title
  **/
 const getTitleForPublishOption = (originalTitle, publishOption) => {

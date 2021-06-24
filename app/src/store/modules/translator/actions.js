@@ -1,8 +1,7 @@
 import mtValidator from "../../../utils/mtValidator";
 import {
   calculateHtmlToPublish,
-  calculateNewSectionNumber,
-  getTitleForPublishOption
+  calculateNewSectionNumber
 } from "../../../utils/publishHelper";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
@@ -93,9 +92,15 @@ function validateMT({ rootState, dispatch }) {
  * @param {object} context.rootState
  * @param {function} context.dispatch
  * @param {object} context.rootGetters
+ * @param {object} context.getters
  * @return {Promise<void>}
  */
-async function publishTranslation({ rootState, dispatch, rootGetters }) {
+async function publishTranslation({
+  rootState,
+  dispatch,
+  rootGetters,
+  getters
+}) {
   /**
    * Validate currentSourceSection against MT abuse
    * @type {boolean}
@@ -112,8 +117,7 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
     /** @type {PageSection} */
     currentSourceSection,
     /** @type {SectionSuggestion} */
-    currentSectionSuggestion,
-    publishTarget
+    currentSectionSuggestion
   } = rootState.application;
 
   if (!currentSectionSuggestion) {
@@ -134,14 +138,8 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
    * publish target (which corresponds to a specific namespace)
    * @type {string}
    */
-  const targetTitle = getTitleForPublishOption(
-    currentSectionSuggestion.targetTitle,
-    publishTarget
-  );
-
-  const sourceSectionTitle = currentSourceSection.originalTitle;
-  const targetSectionTitle =
-    currentSectionSuggestion.presentSections?.[sourceSectionTitle] || "";
+  const targetTitle = getters.getArticleTitleForPublishing;
+  const targetSectionTitle = getters.getSectionTitleForPublishing;
 
   /**
    * Get position where the new section will be published
@@ -176,7 +174,7 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
    * @type {string}
    */
   const html = calculateHtmlToPublish(
-    currentSectionSuggestion,
+    targetSectionTitle,
     currentSourceSection,
     targetPage,
     firstAppendixTargetTitle
@@ -187,7 +185,6 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
     sourceLanguage,
     targetLanguage
   } = currentSectionSuggestion;
-  const { originalTitle, title } = currentSourceSection;
 
   /**
    * Publish translation and get publish result containing success/error messages
@@ -197,8 +194,8 @@ async function publishTranslation({ rootState, dispatch, rootGetters }) {
     html,
     sourceTitle,
     targetTitle,
-    sourceSectionTitle: originalTitle,
-    targetSectionTitle: title,
+    sourceSectionTitle: currentSourceSection.originalTitle,
+    targetSectionTitle,
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,

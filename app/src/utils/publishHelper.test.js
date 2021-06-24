@@ -94,6 +94,12 @@ describe("publish helper test", () => {
     expect(calculateNewSectionNumber("", "Appendix1", targetPage)).toBe(6);
     expect(calculateNewSectionNumber("", "", targetPage)).toBe("new");
   });
+
+  it("calculateNewSectionNumber with empty target page", () => {
+    expect(
+      calculateNewSectionNumber("Random title", "Random appendix", undefined)
+    ).toBe(0);
+  });
 });
 
 /**

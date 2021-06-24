@@ -1,4 +1,3 @@
-import { getTitleForPublishOption } from "@/utils/publishHelper";
 import { getUrl } from "@/utils/mediawikiHelper";
 
 const decodeHtml = html => {
@@ -11,7 +10,6 @@ const decodeHtml = html => {
 const handlePublishResult = (store, isPublishDialogActive) => {
   const applicationState = store.state.application;
   const suggestion = applicationState.currentSectionSuggestion;
-  const { publishTarget } = applicationState;
   const publishResult = applicationState.currentPublishResult;
   const translatedTitle = applicationState.currentSourceSection?.title;
 
@@ -20,10 +18,7 @@ const handlePublishResult = (store, isPublishDialogActive) => {
 
     return;
   }
-  const articleTitle = getTitleForPublishOption(
-    suggestion.targetTitle,
-    publishTarget
-  );
+  const articleTitle = store.getters["translator/getArticleTitleForPublishing"];
   /** Remove warning about leaving SX */
   store.commit("application/setTranslationInProgress", false);
 

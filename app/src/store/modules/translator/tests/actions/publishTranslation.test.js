@@ -6,8 +6,7 @@ import Page from "../../../../../wiki/mw/models/page";
 import SectionSuggestion from "../../../../../wiki/cx/models/sectionSuggestion";
 import {
   calculateHtmlToPublish,
-  calculateNewSectionNumber,
-  getTitleForPublishOption
+  calculateNewSectionNumber
 } from "../../../../../utils/publishHelper";
 
 const mockPublishHtml = "<div>Test</div>";
@@ -15,8 +14,7 @@ let mockSectionNumber = 4;
 jest.mock("../../../../../utils/publishHelper", () => {
   return {
     calculateHtmlToPublish: jest.fn(() => mockPublishHtml),
-    calculateNewSectionNumber: jest.fn(() => mockSectionNumber),
-    getTitleForPublishOption: jest.fn(() => "test target title")
+    calculateNewSectionNumber: jest.fn(() => mockSectionNumber)
   };
 });
 
@@ -59,13 +57,19 @@ describe("vuex store publishTranslation action", () => {
     "suggestions/getFirstAppendixTitleBySectionSuggestion": () => "Notas"
   };
 
+  const getters = {
+    getArticleTitleForPublishing: "Test target article title",
+    getSectionTitleForPublishing: "Test target section title"
+  };
+
   it("publishTranslation with valid section (no MT abuse)", async () => {
     applicationState.currentSourceSection.translatedTitle =
       "test translated section title";
     await actions.publishTranslation({
       rootState,
       dispatch,
-      rootGetters
+      rootGetters,
+      getters
     });
 
     expect(dispatch).toHaveBeenCalledTimes(2);
@@ -78,7 +82,7 @@ describe("vuex store publishTranslation action", () => {
     );
     expect(calculateHtmlToPublish).toHaveBeenCalledTimes(1);
     expect(calculateHtmlToPublish).toHaveBeenCalledWith(
-      expect.any(SectionSuggestion),
+      "Test target section title",
       expect.any(PageSection),
       expect.any(Page),
       expect.any(String)
@@ -89,14 +93,13 @@ describe("vuex store publishTranslation action", () => {
       expect.any(String),
       expect.any(Page)
     );
-    expect(getTitleForPublishOption).toHaveBeenCalledTimes(1);
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledTimes(1);
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
       html: mockPublishHtml,
       sourceTitle: "test source title",
-      targetTitle: "test target title",
+      targetTitle: "Test target article title",
       sourceSectionTitle: "test section title",
-      targetSectionTitle: "test translated section title",
+      targetSectionTitle: "Test target section title",
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 77,
@@ -109,7 +112,8 @@ describe("vuex store publishTranslation action", () => {
     await actions.publishTranslation({
       rootState,
       dispatch,
-      rootGetters
+      rootGetters,
+      getters
     });
     expect(dispatch).toHaveBeenCalledTimes(3);
     expect(dispatch).toHaveBeenNthCalledWith(3, "validateMT");
@@ -122,7 +126,8 @@ describe("vuex store publishTranslation action", () => {
       await actions.publishTranslation({
         rootState,
         dispatch,
-        rootGetters
+        rootGetters,
+        getters
       });
     } catch (e) {
       expect(e.message).toBe(

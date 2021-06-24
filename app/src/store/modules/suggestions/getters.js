@@ -66,7 +66,7 @@ export default {
       const appendixTitles =
         state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
 
-      return sectionSuggestion.targetSections.find(title =>
+      return (sectionSuggestion.targetSections || []).find(title =>
         appendixTitles.includes(title)
       );
     },
