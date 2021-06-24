@@ -196,8 +196,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vaši prevodi}}",
 	"cx-translationlist-empty-title": "Ni ničesar za prevesti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Začnite}} prevajanje zdaj in nadaljujte kadar koli pozneje.",
-	"cx-personaltools-user": "Uporabnik",
-	"cx-personaltools-anon": "Nisi prijavljen",
 	"cx-draft-restoring": "Nalaganje shranjenega prevoda ...",
 	"cx-draft-restored": "Naloženi shranjeni prevod",
 	"cx-draft-restore-failed": "Neuspela naložitev shranjenega prevoda!",

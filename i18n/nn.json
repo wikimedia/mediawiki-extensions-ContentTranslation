@@ -189,8 +189,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Omsetjingane dine}}",
 	"cx-translationlist-empty-title": "Inkje å setja om?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Byrj}} omsetjinga di no og held fram kva tid som helst.",
-	"cx-personaltools-user": "Brukar",
-	"cx-personaltools-anon": "Ikkje innlogga",
 	"cx-draft-restoring": "Lastar lagra omsetjing…",
 	"cx-draft-restored": "Lasta inn lagra omsetjing.",
 	"cx-draft-restore-failed": "Kunne ikkje lasta den lagra omsetjinga.",

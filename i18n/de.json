@@ -205,8 +205,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Deine Übersetzungen}}",
 	"cx-translationlist-empty-title": "Nichts zu übersetzen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Beginne}} jetzt deine Übersetzung und mache jederzeit weiter.",
-	"cx-personaltools-user": "Benutzer",
-	"cx-personaltools-anon": "Nicht angemeldet",
 	"cx-draft-restoring": "Lade die gespeicherte Übersetzung …",
 	"cx-draft-restored": "Gespeicherte Übersetzung geladen.",
 	"cx-draft-restore-failed": "Das Laden der gespeicherten Übersetzung ist fehlgeschlagen!",

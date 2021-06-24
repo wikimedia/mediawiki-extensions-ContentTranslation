@@ -148,8 +148,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|आपली भाषांतरे}}",
 	"cx-translationlist-empty-title": "भाषांतरासाठी काहीच शिल्लक नाही?",
 	"cx-translationlist-empty-desc": "आपले भाषांतर आताच {{GENDER:|सुरु करा}} व आपण त्यास कधीही पुढे चालू करु शकता.",
-	"cx-personaltools-user": "सदस्य",
-	"cx-personaltools-anon": "आल्याची नोंद केलेली नाही(लॉग इन केलेले नाही)",
 	"cx-draft-restoring": "जतन केलेल्या भाषांतराचे भारण करीत आहे...",
 	"cx-draft-restored": "जतन केलेल्या भाषांतराचे भारण केले.",
 	"cx-draft-restore-failed": "जतन केलेल्या भाषांतराचे भारण करण्यात अयशस्वी.",

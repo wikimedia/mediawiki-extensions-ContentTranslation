@@ -223,8 +223,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|あなたの翻訳}}",
 	"cx-translationlist-empty-title": "翻訳するページが見つかりませんか？",
 	"cx-translationlist-empty-desc": "今すぐ翻訳を{{GENDER:|始めて}}、いつでも翻訳を再開",
-	"cx-personaltools-user": "利用者",
-	"cx-personaltools-anon": "ログインしていません",
 	"cx-draft-restoring": "保存された翻訳を読み込み中...",
 	"cx-draft-restored": "保存された翻訳を読み込みました。",
 	"cx-draft-restore-failed": "保存された翻訳の読み込みに失敗しました！",

@@ -219,8 +219,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Twoje tłumaczenia}}",
 	"cx-translationlist-empty-title": "Nie ma nic do przetłumaczenia?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Rozpocznij}} tłumaczenie i kontynuuj je później.",
-	"cx-personaltools-user": "Użytkownik",
-	"cx-personaltools-anon": "Nie jesteś zalogowany/a",
 	"cx-draft-restoring": "Wczytywanie zapisanego tłumaczenia...",
 	"cx-draft-restored": "Wczytano zapisane tłumaczenie.",
 	"cx-draft-restore-failed": "Nie udało się wczytać zapisanego tłumaczenia!",

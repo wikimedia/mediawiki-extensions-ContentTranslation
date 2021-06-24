@@ -201,8 +201,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vaši prijevodi}}",
 	"cx-translationlist-empty-title": "Ništa za prevesti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Započnite}} vaš prijevod sada i nastavite ga bilo kada.",
-	"cx-personaltools-user": "Suradnik",
-	"cx-personaltools-anon": "Niste prijavljeni",
 	"cx-draft-restoring": "Učitavanje spremljenog prijevoda...",
 	"cx-draft-restored": "Spremljeni prijevod je učitan.",
 	"cx-draft-restore-failed": "Nije moguće učitati spremljeni prijevod!",

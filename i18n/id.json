@@ -210,8 +210,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Kontribusi Anda}}",
 	"cx-translationlist-empty-title": "Tak ada yang diterjemahkan?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Mulai}} terjemahan Anda sekarang dan lanjutkan kapan pun.",
-	"cx-personaltools-user": "Pengguna",
-	"cx-personaltools-anon": "Belum masuk log",
 	"cx-draft-restoring": "Memuat terjemahan yang disimpan...",
 	"cx-draft-restored": "Terjemahan yang disimpan berhasil dimuat.",
 	"cx-draft-restore-failed": "Gagal memuat terjemahan yang disimpan!",

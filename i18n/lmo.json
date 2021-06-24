@@ -192,8 +192,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|I to traduzzion}}",
 	"cx-translationlist-empty-title": "Nagot de tradù?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comenza}} adess la toa traduzzion e và adree quand che te voeuret.",
-	"cx-personaltools-user": "Utent",
-	"cx-personaltools-anon": "Minga coness",
 	"cx-draft-restoring": "Adree a caredgà i traduzzion salvade...",
 	"cx-draft-restored": "Traduzzion salvade caregade.",
 	"cx-draft-restore-failed": "Caregamemt di traduzzion salvade falladǃ",

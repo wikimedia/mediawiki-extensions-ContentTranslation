@@ -195,8 +195,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Вашите преводи}}",
 	"cx-translationlist-empty-title": "Няма нищо за превод?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Започнете}} своя превод сега и го довършете по-късно.",
-	"cx-personaltools-user": "Потребител",
-	"cx-personaltools-anon": "Не сте влезли в системата",
 	"cx-draft-restoring": "Зареждане на съхранения превод...",
 	"cx-draft-restored": "Съхраненият превод е зареден.",
 	"cx-draft-restore-failed": "Запазеният превод не може да се зареди!",

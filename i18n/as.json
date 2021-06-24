@@ -198,8 +198,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|আপোনাৰ অনুবাদ}}",
 	"cx-translationlist-empty-title": "অনুবাদ কৰিবলৈ একো নাই?",
 	"cx-translationlist-empty-desc": "আপোনাৰ অনুবাদ এতিয়া {{GENDER:|আৰম্ভ কৰক}} আৰু যিকোনো সময়তে ইয়াক অব্যাহত ৰাখক।",
-	"cx-personaltools-user": "সদস্য",
-	"cx-personaltools-anon": "প্ৰৱেশ কৰা নাই",
 	"cx-draft-restoring": "সংৰক্ষিত অনুবাদ ল'ড হৈছে আছে...",
 	"cx-draft-restored": "সংৰক্ষিত অনুবাদ ল'ড কৰা হ'ল।",
 	"cx-draft-restore-failed": "সংৰক্ষিত অনুবাদ ল'ড কৰাত ব্যৰ্থ হ'ল।",

@@ -192,8 +192,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Uw vertalingen}}",
 	"cx-translationlist-empty-title": "Niets te vertalen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Begin}} nu met vertalen en ga op elk moment verder.",
-	"cx-personaltools-user": "Gebruiker",
-	"cx-personaltools-anon": "Niet aangemeld",
 	"cx-draft-restoring": "Opgeslagen vertaling laden...",
 	"cx-draft-restored": "Opgeslagen vertaling geladen.",
 	"cx-draft-restore-failed": "Er is een fout opgetreden tijdens het ophalen van de opgeslagen vertaling!",

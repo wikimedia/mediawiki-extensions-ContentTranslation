@@ -203,8 +203,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Dine oversettelser}}",
 	"cx-translationlist-empty-title": "Ingenting å oversette?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Begynn}} på en oversettelse nå og fortsett når det måtte passe.",
-	"cx-personaltools-user": "Bruker",
-	"cx-personaltools-anon": "Ikke innlogget",
 	"cx-draft-restoring": "Laster den lagrede oversettelsen…",
 	"cx-draft-restored": "Lagret oversettelse ble hentet.",
 	"cx-draft-restore-failed": "Klarte ikke hente den lagrede oversettelsen!",

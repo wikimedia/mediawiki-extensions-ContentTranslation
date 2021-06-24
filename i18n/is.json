@@ -184,8 +184,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Þýðingarnar þínar}}",
 	"cx-translationlist-empty-title": "Ekkert til þess að þýða?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Byrjaðu}} á þýðingunni núna og haltu áfram með hana hvenær sem er.",
-	"cx-personaltools-user": "Notandi",
-	"cx-personaltools-anon": "Ekki skráð(ur) inn",
 	"cx-draft-restoring": "Hleð inn vistaðri þýðingu...",
 	"cx-draft-restored": "Vistaðri þýðingu hlaðið inn.",
 	"cx-draft-restore-failed": "Mistókst að hlaða inn vistaðri þýðingu!",

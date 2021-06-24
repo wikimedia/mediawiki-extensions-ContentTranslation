@@ -193,8 +193,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Le traduziune tune}}",
 	"cx-translationlist-empty-title": "Ninde da traducere?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Accuminze}} mò 'a traduziona toje e condinue quanne vuè.",
-	"cx-personaltools-user": "Utende",
-	"cx-personaltools-anon": "Non ge sì collegate",
 	"cx-draft-restoring": "Stoche a careche 'a traduzione reggistrate...",
 	"cx-draft-restored": "Traduzione reggistrate carecate.",
 	"cx-draft-restore-failed": "Non g'ha state possibbele carecà le traduziune reggistrate!",

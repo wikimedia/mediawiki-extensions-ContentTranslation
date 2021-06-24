@@ -194,8 +194,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|آپ کی شراکتیں}}",
 	"cx-translationlist-empty-title": "کچھ ترجمے کے لیے نہیں؟",
 	"cx-translationlist-empty-desc": "ابھی {{GENDER:|ابتداء}} کریں ترجمہ کی اور پھر کسی بھی وقت جاری رکھیں۔",
-	"cx-personaltools-user": "صارف",
-	"cx-personaltools-anon": "آپ لاگ ان نہیں!",
 	"cx-draft-restoring": "محفوظ کردہ ترجمہ لوڈ ہو رہا ہے۔۔۔",
 	"cx-draft-restored": "محفوظ شدہ ترجمہ لوڈ ہو گیا ہے۔",
 	"cx-draft-restore-failed": "محفوظ شدہ ترجمہ لوڈ ہو نہیں سکا!",

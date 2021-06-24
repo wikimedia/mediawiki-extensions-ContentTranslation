@@ -189,8 +189,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|E to tradussioin}}",
 	"cx-translationlist-empty-title": "Ninte da tradue?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comensa}} oua a to tradussion e continnoila quande ti voeu.",
-	"cx-personaltools-user": "Utente",
-	"cx-personaltools-anon": "Accesso non effettuou",
 	"cx-draft-restoring": "Caregamento de tradussioin sarvæ...",
 	"cx-draft-restored": "Tradussioin sarvæ caregæ.",
 	"cx-draft-restore-failed": "No l'è stæto poscibbile de caregâ e tradussioin sarvæ!",

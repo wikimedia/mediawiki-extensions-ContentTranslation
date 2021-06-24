@@ -209,8 +209,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваші переклади}}",
 	"cx-translationlist-empty-title": "Ні́чого перекладати?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Почніть}} свій переклад зараз і продовжіть його у будь-який час.",
-	"cx-personaltools-user": "Користувач",
-	"cx-personaltools-anon": "Ви не увійшли до системи",
 	"cx-draft-restoring": "Завантаження збереженого перекладу…",
 	"cx-draft-restored": "Збережений переклад завантажено.",
 	"cx-draft-restore-failed": "Не вдалося завантажити збережений переклад!",

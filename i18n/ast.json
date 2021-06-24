@@ -193,8 +193,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Les tos traducciones}}",
 	"cx-translationlist-empty-title": "¿Nun hai nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Anicia}} agora una traducción y sigui en cualquier otru momentu.",
-	"cx-personaltools-user": "Usuariu",
-	"cx-personaltools-anon": "Nun aniciasti sesión",
 	"cx-draft-restoring": "Cargando la traducción guardada...",
 	"cx-draft-restored": "Cargóse la traducción guardada.",
 	"cx-draft-restore-failed": "Nun pudo cargase la traducción guardada.",

@@ -169,8 +169,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ang iyong mga ambag}}",
 	"cx-translationlist-empty-title": "Walang isasalinwika?",
 	"cx-translationlist-empty-desc": "Simulan na ngayon ang iyong pagsasalinwika at ituloy ito sa kahit na anong oras.",
-	"cx-personaltools-user": "Tagagamit",
-	"cx-personaltools-anon": "Hindi nakalagda",
 	"cx-draft-restoring": "Ikinakarga ang itinalang salinwika...",
 	"cx-draft-restored": "Naikarga na ang itinalang salinwika.",
 	"cx-draft-restore-failed": "Hindi matagumpay sa pagkarga ng itinalang salinwika!",

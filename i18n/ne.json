@@ -188,8 +188,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|तपाईँको अनुवादहरू}}",
 	"cx-translationlist-empty-title": "अनुवाद गर्नलाई केही छैन ?",
 	"cx-translationlist-empty-desc": "अनुवाद {{GENDER:|शुरु}} गर्नुहोस् र कुनै पनि बेला जारी राख्न सक्नुहुन्छ।",
-	"cx-personaltools-user": "प्रयोगकर्ता",
-	"cx-personaltools-anon": "प्रवेश नगरिएको",
 	"cx-draft-restoring": "सङ्ग्रह गरिएको अनुवाद खोल्दै...",
 	"cx-draft-restored": "सङ्ग्रह गरिएको अनुवाद खोलियो",
 	"cx-draft-restore-failed": "सङ्ग्रह गरिएको अनुवाद खोल्न सकिएन!",

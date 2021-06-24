@@ -215,8 +215,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Suas traduções}}",
 	"cx-translationlist-empty-title": "Nada para traduzir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Inicie}} sua tradução agora e continue quando quiser.",
-	"cx-personaltools-user": "Usuário",
-	"cx-personaltools-anon": "Não está logado",
 	"cx-draft-restoring": "Carregando tradução salva…",
 	"cx-draft-restored": "Tradução salva carregada.",
 	"cx-draft-restore-failed": "Ocorreu um erro ao carregar a tradução salva!",

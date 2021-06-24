@@ -156,8 +156,6 @@
 	"cx-your-translations-link": "$1 Эн тылбааһыҥ",
 	"cx-translationlist-empty-title": "Тугу тылбаастыыргын билбэккин дуо?",
 	"cx-translationlist-empty-desc": "Тылбааһы билигин {{GENDER:|саҕалаа}}, онтон хаһан баҕарар салгыаххын сөп.",
-	"cx-personaltools-user": "Кыттааччы",
-	"cx-personaltools-anon": "Бэлиэ-аатынан киирбэтэххин",
 	"cx-draft-restoring": "Бигэргэтиллибити киллэрии...",
 	"cx-draft-restored": "Бигэргэтиллибит тылбаас угулунна.",
 	"cx-draft-restore-failed": "Бигэргэтиллибит тылбаас сатаан угуллубата!",

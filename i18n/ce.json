@@ -126,8 +126,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Хьан гочдарш}}",
 	"cx-translationlist-empty-title": "ХӀума дац гочдан?",
 	"cx-translationlist-empty-desc": "ХӀинца гочдар {{GENDER:|долина}}, муьлхачу хенахь чекхдаккха.",
-	"cx-personaltools-user": "Декъашхо",
-	"cx-personaltools-anon": "Системин чохь болх беш бац",
 	"cx-suggestionlist-expand": "Хьажа йерриге",
 	"cx-suggestionlist-collapse": "Гайта компактан",
 	"cx-infobar-view-issues": "Хьажа проблемаш",

@@ -209,8 +209,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|ترجماتك|ترجماتكِ}}",
 	"cx-translationlist-empty-title": "أما من مواد للترجمة؟",
 	"cx-translationlist-empty-desc": "{{GENDER:|أنشئ|أنشئي}} ترجمتك الآن {{GENDER:|وأكملها|وأكمليها}} متى شئت.",
-	"cx-personaltools-user": "المستخدم",
-	"cx-personaltools-anon": "غير مسجل الدخول",
 	"cx-draft-restoring": "تحميل الترجمة المحفوظة...",
 	"cx-draft-restored": "حملت الترجمة المحفوظة.",
 	"cx-draft-restore-failed": "لم تحمل الترجمة المحفوظة!",

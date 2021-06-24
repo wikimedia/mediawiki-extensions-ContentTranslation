@@ -158,8 +158,6 @@
 	"cx-your-translations-link": "Traducerile {{GENDER:$1|dumneavoastră}}",
 	"cx-translationlist-empty-title": "Nimic de tradus?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Începeți}} traducerea acum și continuați-o oricând.",
-	"cx-personaltools-user": "Utilizator",
-	"cx-personaltools-anon": "Neautentificat",
 	"cx-draft-restoring": "Se încarcă traducerea salvată...",
 	"cx-draft-restored": "Traducerea salvată încărcată.",
 	"cx-draft-restore-failed": "Nu se poate încărca traducerea salvată!",

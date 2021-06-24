@@ -153,8 +153,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|توھان جا ترجما}}",
 	"cx-translationlist-empty-title": "ڪجھ بہ ترجمو ڪرڻ لاءِ نہ آھي؟",
 	"cx-translationlist-empty-desc": "پنھنجو ترجمو ھاڻي {{GENDER:|شروع ڪريو}} ڪريو ۽ ان کي ڪنھن بہ وقت جاري رکو.",
-	"cx-personaltools-user": "واپرائيندڙ",
-	"cx-personaltools-anon": "داخل ٿيل ناھيو",
 	"cx-draft-restoring": "سانڍيل ترجمو اتاريو پيو وڃي...",
 	"cx-draft-restored": "سانڍيل ترجمو اتاريو ويو.",
 	"cx-draft-restore-failed": "سانڍيل ترجمو لھي نہ سگھيو!",

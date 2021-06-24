@@ -176,8 +176,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|သင်၏ ဘာသာပြန်များ}}",
 	"cx-translationlist-empty-title": "ဘာသာပြန်ရန် တစ်ခုမှ မရှိတော့ဘူးလား?",
 	"cx-translationlist-empty-desc": "သင်၏ဘာသာပြန်မှုကို ယခုပင် {{GENDER:|စတင်လိုက်ပြီး}} မည်သည့်အချိန်တွင်မဆို ဆက်လုပ်ပါ။",
-	"cx-personaltools-user": "အသုံးပြုသူ",
-	"cx-personaltools-anon": "အကောင့် မဝင်ထားပါ",
 	"cx-draft-restoring": "သိမ်းထားသော ဘာသာပြန်ကို ဝန်ဆွဲတင်နေသည်...",
 	"cx-draft-restored": "သိမ်းထားသော ဘာသာပြန်ကို ဝန်ဆွဲတင်ခဲ့သည်",
 	"cx-draft-restore-failed": "သိမ်းထားသော ဘာသာပြန်ကို ဝန်ဆွဲတင်ခြင်းမအောင်မြင်ပါ",

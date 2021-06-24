@@ -171,8 +171,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Zure itzulpenak}}",
 	"cx-translationlist-empty-title": "Itzultzeko ezer ez?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Hasi}} orain zure itzulpena, eta jarraitu edonoiz.",
-	"cx-personaltools-user": "Erabiltzailea",
-	"cx-personaltools-anon": "Saioa ez da hasi",
 	"cx-draft-restoring": "Gordetako itzulpena kargatzen...",
 	"cx-draft-restored": "Gorde kargatutako itzulpena.",
 	"cx-draft-restore-failed": "Ezin izan da gordetako itzulpena kargatu!",

@@ -161,8 +161,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vaše príspevky}}",
 	"cx-translationlist-empty-title": "Nie je čo prekladať?",
 	"cx-translationlist-empty-desc": "Začni prekladať teraz a pokračuj kedykoľvek budeš mať príležitosť.",
-	"cx-personaltools-user": "Redaktor",
-	"cx-personaltools-anon": "Nie ste prihlásený/á",
 	"cx-draft-restoring": "Načítavanie uloženého prekladu...",
 	"cx-draft-restored": "Uložený preklad načítaný.",
 	"cx-draft-restore-failed": "Nepodarilo sa nahrať uložený preklad!",

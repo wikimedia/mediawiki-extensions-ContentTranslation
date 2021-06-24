@@ -193,8 +193,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Jo oersettings}}",
 	"cx-translationlist-empty-title": "Neat oer te setten?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Begjin}} jo oersetting no, en gean op elk stuit fierder.",
-	"cx-personaltools-user": "Meidogger",
-	"cx-personaltools-anon": "Net oanmeld",
 	"cx-draft-restoring": "Laden fan 'e bewarre oersetting ...",
 	"cx-draft-restored": "Bewarre oersetting laden.",
 	"cx-draft-restore-failed": "Laden fan 'e bewarre oersetting mislearre!",

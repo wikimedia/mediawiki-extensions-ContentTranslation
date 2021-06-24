@@ -206,8 +206,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|התרגומים שלך}}",
 	"cx-translationlist-empty-title": "לא מצאת מה לתרגם?",
 	"cx-translationlist-empty-desc": "{{GENDER:|התחל|התחילי}} את התרגום שלך עכשיו {{GENDER:|והמשך|והמשיכי}} אותו בכל זמן.",
-	"cx-personaltools-user": "משתמש",
-	"cx-personaltools-anon": "לא נכנסת לחשבון",
 	"cx-draft-restoring": "טעינת תרגום שמור...",
 	"cx-draft-restored": "תרגום שמור נטען.",
 	"cx-draft-restore-failed": "טעינת תרגום שמור לא עבדה!",

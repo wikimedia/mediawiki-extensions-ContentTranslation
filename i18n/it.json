@@ -199,8 +199,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Le tue traduzioni}}",
 	"cx-translationlist-empty-title": "Niente da tradurre?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Inizia}} ora la tua traduzione e continuala quando vuoi.",
-	"cx-personaltools-user": "Utente",
-	"cx-personaltools-anon": "Accesso non effettuato",
 	"cx-draft-restoring": "Caricamento delle traduzioni salvate...",
 	"cx-draft-restored": "Traduzioni salvate caricate.",
 	"cx-draft-restore-failed": "Non è stato possibile caricare le traduzioni salvate!",

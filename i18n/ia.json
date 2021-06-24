@@ -147,7 +147,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Tu traductiones}}",
 	"cx-translationlist-empty-title": "Nihil a traducer?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comencia}} ora un traduction tue e continua lo quando tu vole.",
-	"cx-personaltools-user": "Usator",
 	"cx-draft-restoring": "Carga le traduction salveguardate...",
 	"cx-draft-restored": "Traduction salveguardate cargate.",
 	"cx-draft-restore-failed": "Impossibile cargar le traduction salveguardate!",

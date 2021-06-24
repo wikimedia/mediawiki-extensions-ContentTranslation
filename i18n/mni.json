@@ -51,8 +51,6 @@
 	"cx-stats-local-published": "$2ꯗ $1($3)",
 	"cx-contributions-link": "ꯅꯪꯅꯥ ꯈꯣꯝꯒꯠꯂꯛꯄꯁꯤꯡ",
 	"cx-translationlist-empty-title": "ꯍꯟꯇꯗꯣꯛꯅꯕ ꯌꯥꯎꯗ꯭ꯔꯦ?",
-	"cx-personaltools-user": "ꯁꯤꯖꯤꯟꯅꯔꯤꯕ",
-	"cx-personaltools-anon": "ꯂꯣꯒ ꯏꯟ ꯇꯧꯗꯦ",
 	"cx-suggestionlist-expand": "ꯎꯠꯂꯨ ꯂꯣꯏꯅꯥ",
 	"cx-suggestionlist-collapse": "ꯈꯖꯤꯛꯇꯪ ꯎꯠꯂꯨ",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 ꯑꯔꯥꯟꯕ|$1 ꯑꯔꯥꯟꯕꯁꯤꯡ}}",

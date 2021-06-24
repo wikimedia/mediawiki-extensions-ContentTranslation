@@ -200,8 +200,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|As túas traducións}}",
 	"cx-translationlist-empty-title": "Non hai nada que traducir?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Comece}} a súa tradución agora e continúe en calquera momento.",
-	"cx-personaltools-user": "Usuario",
-	"cx-personaltools-anon": "Non conectado",
 	"cx-draft-restoring": "Cargando a tradución gardada...",
 	"cx-draft-restored": "Cargouse a tradución gardada.",
 	"cx-draft-restore-failed": "Erro ó cargar a tradución gardada!",

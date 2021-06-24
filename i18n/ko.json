@@ -217,8 +217,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|당신의 번역}}",
 	"cx-translationlist-empty-title": "번역할 것이 없습니까?",
 	"cx-translationlist-empty-desc": "지금 번역을 시작하고 언제든지 이어가세요.",
-	"cx-personaltools-user": "사용자",
-	"cx-personaltools-anon": "로그인하지 않음",
 	"cx-draft-restoring": "저장된 번역 불러오는 중...",
 	"cx-draft-restored": "저장된 번역을 불러왔습니다.",
 	"cx-draft-restore-failed": "저장된 번역을 불러오지 못했습니다!",

@@ -180,8 +180,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|การแปลของคุณ}}",
 	"cx-translationlist-empty-title": "ยังไม่มีอะไรแปลงั้นหรือ?",
 	"cx-translationlist-empty-desc": "เริ่มการแปลเดี๋ยวนี้และดำเนินการต่อได้ทุกเมื่อ",
-	"cx-personaltools-user": "ผู้ใช้",
-	"cx-personaltools-anon": "ยังไม่ได้เข้าสู่ระบบ",
 	"cx-draft-restoring": "กำลังโหลดการแปลที่บันทึกไว้...",
 	"cx-draft-restored": "โหลดการแปลที่บันทึกไว้เรียบร้อยแล้ว",
 	"cx-draft-restore-failed": "การโหลดการแปลที่บันทึกไว้ล้มเหลว!",

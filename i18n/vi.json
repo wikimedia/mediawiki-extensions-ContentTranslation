@@ -199,8 +199,6 @@
 	"cx-your-translations-link": "Những đóng góp của {{GENDER:$1}}bạn",
 	"cx-translationlist-empty-title": "Không còn gì để dịch?",
 	"cx-translationlist-empty-desc": "Bắt đầu bản dịch ngay bây giờ và lúc nào dịch tiếp.",
-	"cx-personaltools-user": "Người dùng",
-	"cx-personaltools-anon": "Chưa đăng nhập",
 	"cx-draft-restoring": "Đang tải bản dịch đã lưu…",
 	"cx-draft-restored": "Đã tải bản dịch đã lưu.",
 	"cx-draft-restore-failed": "Thất bại khi tải bản dịch đã lưu!",

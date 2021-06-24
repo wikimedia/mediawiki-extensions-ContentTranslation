@@ -198,8 +198,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваши преводи}}",
 	"cx-translationlist-empty-title": "Ништа за превести?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Започните}} превођење и наставите кад год желите.",
-	"cx-personaltools-user": "Корисник",
-	"cx-personaltools-anon": "Нисте пријављени",
 	"cx-draft-restoring": "Учитавање сачуваног превода…",
 	"cx-draft-restored": "Сачувани превод учитан.",
 	"cx-draft-restore-failed": "Није могуће учитати сачувани превод.",

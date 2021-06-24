@@ -159,8 +159,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ձեր թարգմանությունները}}",
 	"cx-translationlist-empty-title": "Չգիտե՞ս ինչ թարգմանել:",
 	"cx-translationlist-empty-desc": "Սկսիր թարգմանությունը հիմա և շարունակիր երբ կցանկանաս:",
-	"cx-personaltools-user": "Մասնակից",
-	"cx-personaltools-anon": "Համակարգ մուտք չգործած",
 	"cx-draft-restoring": "Պահպանված թարգմանությունը բեռնվում է…",
 	"cx-draft-restored": "Պահպանված թարգմանությունը բեռնված է։",
 	"cx-draft-restore-failed": "Պահպանված թարգմանության բեռնումը ձախողվեց։",

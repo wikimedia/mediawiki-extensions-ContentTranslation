@@ -162,8 +162,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Är Iwwersetzungen}}",
 	"cx-translationlist-empty-title": "Näischt z'iwwersetzen?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Fänkt}} Är Iwwersetzung elo un a fuert da viru wann Dir Zäit hutt.",
-	"cx-personaltools-user": "Benotzer",
-	"cx-personaltools-anon": "Net ageloggt",
 	"cx-draft-restoring": "Déi gespäichert Iwwersetzung lueden...",
 	"cx-draft-restored": "Gespäichert Iwwersetzung gelueden.",
 	"cx-draft-restore-failed": "Déi gespäichert Iwwersetzung konnt net geluede ginn!",

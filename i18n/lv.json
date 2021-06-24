@@ -191,8 +191,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Tavi tulkojumi}}",
 	"cx-translationlist-empty-title": "Nav nekā tulkojama?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Sāc}} tulkot tagad un turpini jebkurā brīdī.",
-	"cx-personaltools-user": "Lietotājs",
-	"cx-personaltools-anon": "Nav pieslēdzies",
 	"cx-draft-restoring": "Ielādē saglabāto tulkojumu...",
 	"cx-draft-restored": "Saglabātais tulkojums ielādēts.",
 	"cx-draft-restore-failed": "Neizdevās ielādēt saglabāto tulkojumu!",

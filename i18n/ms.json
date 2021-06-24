@@ -196,8 +196,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Terjemahan-terjemahan anda}}",
 	"cx-translationlist-empty-title": "Tiada apa untuk menterjemah?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Mulakan}} terjemahan anda sekarang dan sambungkannya bila-bila masa.",
-	"cx-personaltools-user": "Pengguna",
-	"cx-personaltools-anon": "Belum log masuk",
 	"cx-draft-restoring": "Sedang memuat terjemahan yang disimpan...",
 	"cx-draft-restored": "Terjemahan yang disimpan termuat.",
 	"cx-draft-restore-failed": "Gagal memuatkan terjemahan yang disimpan!",

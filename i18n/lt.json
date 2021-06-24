@@ -167,8 +167,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Jūsų vertimai}}",
 	"cx-translationlist-empty-title": "Nėra, ko versti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Pradėkite}} savo vertimą dabar ir pratęskite bet kuriuo metu.",
-	"cx-personaltools-user": "Naudotojas",
-	"cx-personaltools-anon": "Neprisijungęs",
 	"cx-draft-restoring": "Įkeliamas išsaugotas vertimas...",
 	"cx-draft-restored": "Išsaugotas vertimas pakrautas.",
 	"cx-draft-restore-failed": "Nepavyko įkelti išsaugoto vertimo!",

@@ -233,8 +233,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваши переводы}}",
 	"cx-translationlist-empty-title": "Нечего переводить?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Начните}} ваш перевод сейчас и продолжите его в любое время.",
-	"cx-personaltools-user": "Участник",
-	"cx-personaltools-anon": "Не выполнен вход",
 	"cx-draft-restoring": "Загрузка сохранённых переводов…",
 	"cx-draft-restored": "Сохранённые переводы загружены.",
 	"cx-draft-restore-failed": "Не удалось загрузить сохранённый перевод!",

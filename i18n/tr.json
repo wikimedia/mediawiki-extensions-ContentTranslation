@@ -226,8 +226,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Sizin çevirileriniz}}",
 	"cx-translationlist-empty-title": "Çevirecek bir şey yok mu?",
 	"cx-translationlist-empty-desc": "Şimdi çevirmeye başlayın ve dilediğiniz zaman devam edin.",
-	"cx-personaltools-user": "Kullanıcı",
-	"cx-personaltools-anon": "Oturum açık değil",
 	"cx-draft-restoring": "Kaydedilen çeviri yükleniyor...",
 	"cx-draft-restored": "Kaydedilen çeviri yüklendi.",
 	"cx-draft-restore-failed": "Kaydedilen çeviri yüklenemedi!",

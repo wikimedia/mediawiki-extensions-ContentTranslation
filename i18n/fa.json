@@ -216,8 +216,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|ترجمه‌های شما}}",
 	"cx-translationlist-empty-title": "چیزی برای ترجمه وجود ندارد؟",
 	"cx-translationlist-empty-desc": "ترجمهٔ خود را حالا {{GENDER:|آغاز کنید}} و در هر زمانی ادامه دهید.",
-	"cx-personaltools-user": "کاربر",
-	"cx-personaltools-anon": "وارد نشده",
 	"cx-draft-restoring": "بارگیری ترجمهٔ ذخیره‌شده...",
 	"cx-draft-restored": "ترجمهٔ ذخیره‌شده بارگیری شد.",
 	"cx-draft-restore-failed": "ناتوان در بارگیری ترجمهٔ ذخیره‌شده!",

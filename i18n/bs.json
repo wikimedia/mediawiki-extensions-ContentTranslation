@@ -161,8 +161,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vaši prijevodi}}",
 	"cx-translationlist-empty-title": "Ništa za prevesti?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Počnite}} svoj prijevod sada i nastavite ga bilo kada.",
-	"cx-personaltools-user": "Korisnik",
-	"cx-personaltools-anon": "Niste prijavljeni",
 	"cx-draft-restoring": "Učitavam sačuvani prijevod...",
 	"cx-draft-restored": "Sačuvani prijevod učitan.",
 	"cx-draft-restore-failed": "Neuspjelo učitavanje sačuvanog prijevoda!",

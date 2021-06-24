@@ -172,8 +172,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Pertalanmu}}",
 	"cx-translationlist-empty-title": "Ora arep mertal?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Wiwiti}} pertalané saiki lan banjuraké mengko sawayah-wayah.",
-	"cx-personaltools-user": "Naraguna",
-	"cx-personaltools-anon": "Durung mlebu log",
 	"cx-draft-restoring": "Ngamot pertalan kang kasimpen...",
 	"cx-draft-restored": "Pertalan kang kasimpen kasil dimot.",
 	"cx-draft-restore-failed": "Wurung ngamot pertalan kang kasimpen!",

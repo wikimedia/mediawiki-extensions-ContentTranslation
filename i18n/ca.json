@@ -179,8 +179,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Les vostres traduccions}}",
 	"cx-translationlist-empty-title": "Res per traduir?",
 	"cx-translationlist-empty-desc": "Comenceu la traducció i continueu-la en qualsevol moment.",
-	"cx-personaltools-user": "Usuari",
-	"cx-personaltools-anon": "No heu iniciat una sessió",
 	"cx-draft-restoring": "S'està carregant la traducció desada...",
 	"cx-draft-restored": "S'ha carregat la traducció desada.",
 	"cx-draft-restore-failed": "No s'ha pogut carregar la traducció desada!",

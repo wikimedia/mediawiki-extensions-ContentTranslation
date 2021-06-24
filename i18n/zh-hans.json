@@ -231,8 +231,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|您的翻译}}",
 	"cx-translationlist-empty-title": "没有要翻译的内容吗？",
 	"cx-translationlist-empty-desc": "现在{{GENDER:|开始}}您的翻译，并随时继续。",
-	"cx-personaltools-user": "用户",
-	"cx-personaltools-anon": "未登录",
 	"cx-draft-restoring": "正在加载保存的翻译...",
 	"cx-draft-restored": "保存的翻译已加载。",
 	"cx-draft-restore-failed": "无法加载保存的翻译！",

@@ -194,8 +194,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Sinu}} tõlked",
 	"cx-translationlist-empty-title": "Kas pole midagi tõlkida?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Alusta}} praegu tõlkimist ja jätka millal tahes.",
-	"cx-personaltools-user": "Kasutaja",
-	"cx-personaltools-anon": "Sisse logimata",
 	"cx-draft-restoring": "Salvestatud tõlke laadimine...",
 	"cx-draft-restored": "Laaditi salvestatud tõlge.",
 	"cx-draft-restore-failed": "Salvestatud tõlget ei õnnestunud laadida!",

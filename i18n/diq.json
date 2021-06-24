@@ -169,8 +169,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Çarnayışê (tadayışê) şıma}}",
 	"cx-translationlist-empty-title": "Theba çıniyo açerneyo?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Enewke}} açarnayış bıkerê,  çı mahal wazenê dewam kerê.",
-	"cx-personaltools-user": "Karber",
-	"cx-personaltools-anon": "Nêkewt cı",
 	"cx-draft-restoring": "Staryaye açarnayışi benë bar...",
 	"cx-draft-restored": "Staryaye açarnayışi bar bi.",
 	"cx-draft-restore-failed": "Staryaye açarnayışi bar nëbi yë",

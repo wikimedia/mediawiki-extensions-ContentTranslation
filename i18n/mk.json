@@ -196,8 +196,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Ваши преводи}}",
 	"cx-translationlist-empty-title": "Немате ништо за преведување?",
 	"cx-translationlist-empty-desc": "{{GENDER:|Започнете}} со преводот сега и продолжете во било кое време",
-	"cx-personaltools-user": "Корисник",
-	"cx-personaltools-anon": "Не сте најавени",
 	"cx-draft-restoring": "Го вчитувам зачуваниот превод...",
 	"cx-draft-restored": "Зачуваниот превод е вчитан.",
 	"cx-draft-restore-failed": "Не успеав да вчитам зачуваниот превод!",
