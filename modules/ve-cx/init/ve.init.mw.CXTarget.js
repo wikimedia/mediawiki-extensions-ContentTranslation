@@ -406,7 +406,7 @@ ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 
 	// Don't cover the top header with overlay when the user is at the top of the viewport
 	// See T193587
-	headerHeight = this.translationView.header.$element.outerHeight();
+	headerHeight = $( 'header.cx-header' ).outerHeight();
 	scrollPosition = $( this.getElementWindow() ).scrollTop();
 
 	if ( scrollPosition === 0 ) {
