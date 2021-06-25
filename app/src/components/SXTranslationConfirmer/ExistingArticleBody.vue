@@ -10,7 +10,7 @@
         :progressive="true"
         :disabled="missingSectionsCount === 0"
         :label="actionButtonLabel"
-        @click="onSectionSelectorClick()"
+        @click="onSectionSelectorClick"
       />
     </mw-row>
   </section>
@@ -21,6 +21,7 @@ import { MwButton, MwRow } from "@/lib/mediawiki.ui";
 import ExistingArticleBanner from "./ExistingArticleBanner";
 import { mapState } from "vuex";
 import { getAutonym } from "@wikimedia/language-data";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "ExistingArticleBody",
@@ -29,26 +30,34 @@ export default {
     MwButton,
     MwRow
   },
-  computed: {
-    ...mapState({
-      currentSectionSuggestion: state =>
-        state.application.currentSectionSuggestion
-    }),
-    translationExists: vm => vm.currentSectionSuggestion?.presentSectionsCount,
-    actionButtonLabel: vm =>
-      vm.translationExists
-        ? vm.$i18n("cx-sx-select-section")
-        : vm.$i18n("cx-sx-start-translation-button-label"),
-    missingSectionsCount: vm =>
-      vm.currentSectionSuggestion?.missingSectionsCount,
-    targetLanguage: vm => vm.currentSectionSuggestion?.targetLanguage,
-    targetLanguageAutonym: vm => getAutonym(vm.targetLanguage)
-  },
-  methods: {
-    onSectionSelectorClick() {
-      this.$router.push({ name: "sx-section-selector" });
-      this.$store.dispatch("application/setTranslationURLParams");
-    }
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const missingSectionsCount = computed(() => {
+      const { currentSectionSuggestion } = store.state.application;
+
+      return currentSectionSuggestion?.missingSectionsCount;
+    });
+
+    const actionButtonLabel = computed(() => {
+      const { currentSectionSuggestion } = store.state.application;
+      const translationExists = currentSectionSuggestion?.presentSectionsCount;
+
+      return translationExists
+        ? context.root.$i18n("cx-sx-select-section")
+        : context.root.$i18n("cx-sx-start-translation-button-label");
+    });
+
+    const onSectionSelectorClick = () => {
+      context.root.$router.push({ name: "sx-section-selector" });
+      store.dispatch("application/setTranslationURLParams");
+    };
+
+    return {
+      actionButtonLabel,
+      missingSectionsCount,
+      onSectionSelectorClick
+    };
   }
 };
 </script>

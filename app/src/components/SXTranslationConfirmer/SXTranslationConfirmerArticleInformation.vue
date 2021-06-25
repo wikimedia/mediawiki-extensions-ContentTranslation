@@ -1,6 +1,5 @@
 <template>
   <mw-row
-    v-if="sourceArticle"
     class="sx-translation-confirmer__article-information ma-0 pa-4"
     align="stretch"
     justify="start"
@@ -32,9 +31,7 @@
         class="complementary sx-translation-confirmer__article-information__stats ma-0 flex"
       >
         <mw-icon :icon="mwIconLanguage" size="16" class="me-1" />
-        <span class="pe-3">
-          {{ langLinksCount }}
-        </span>
+        <span class="pe-3" v-text="langLinksCount" />
         <span v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]" />
       </p>
     </mw-col>
@@ -48,8 +45,8 @@ import {
   mwIconLanguage,
   mwIconLinkExternal
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import { computed } from "@vue/composition-api";
 export default {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
@@ -58,31 +55,43 @@ export default {
     MwIcon,
     MwButton
   },
-  data: () => ({
-    mwIconBookmarkOutline,
-    mwIconLanguage,
-    mwIconLinkExternal
-  }),
-  computed: {
-    ...mapState({
-      sectionSuggestion: state => state.application.currentSectionSuggestion
-    }),
-    ...mapGetters({
-      sourceArticle: "application/getCurrentPage"
-    }),
-    sourceArticlePath: vm =>
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const sectionSuggestion = computed(
+      () => store.state.application.currentSectionSuggestion
+    );
+
+    const sourceArticle = computed(
+      () => store.getters["application/getCurrentPage"]
+    );
+    const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
+    const sourceArticlePath = computed(() =>
       siteMapper.getPageUrl(
-        vm.sectionSuggestion.sourceLanguage || "",
-        vm.sourceTitle || ""
-      ),
-    sourceTitle: vm => vm.sectionSuggestion?.sourceTitle,
-    sourceArticleThumbnail: vm => vm.sourceArticle?.thumbnail,
-    langLinksCount: vm => vm.sourceArticle?.langLinksCount,
-    weeklyViews: vm =>
-      Object.values(vm.sourceArticle?.pageviews || {}).reduce(
+        sectionSuggestion.value.sourceLanguage || "",
+        sourceTitle.value || ""
+      )
+    );
+
+    const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);
+
+    const weeklyViews = computed(() =>
+      Object.values(sourceArticle.value?.pageviews || {}).reduce(
         (sum, dayViews) => sum + dayViews,
         0
       )
+    );
+
+    return {
+      langLinksCount,
+      mwIconBookmarkOutline,
+      mwIconLanguage,
+      mwIconLinkExternal,
+      sourceArticle,
+      sourceArticlePath,
+      sourceTitle,
+      weeklyViews
+    };
   }
 };
 </script>

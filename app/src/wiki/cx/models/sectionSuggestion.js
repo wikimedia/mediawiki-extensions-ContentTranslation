@@ -70,7 +70,7 @@ export default class SectionSuggestion {
    * @return {number}
    */
   get missingSectionsCount() {
-    return Object.keys(this.missingSections).length;
+    return Object.keys(this.missingSections || {}).length;
   }
 
   /**

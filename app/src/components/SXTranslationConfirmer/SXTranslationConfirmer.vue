@@ -45,12 +45,12 @@ import ExistingArticleBody from "./ExistingArticleBody";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
 import { getUrl } from "@/utils/mediawikiHelper";
-import { mapGetters } from "vuex";
 import {
   mwIconClose,
   mwIconArticle
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
+import { computed, onMounted } from "@vue/composition-api";
 
 export default {
   name: "SxTranslationConfirmer",
@@ -63,35 +63,38 @@ export default {
     SxArticleLanguageSelector,
     ExistingArticleBody
   },
-  data: () => ({
-    mwIconClose,
-    mwIconArticle
-  }),
-  computed: {
-    ...mapGetters({
-      sourceArticle: "application/getCurrentPage"
-    }),
-    articleImageSource: vm => vm.sourceArticle?.image?.source
-  },
-  mounted: function() {
-    this.$store.dispatch(
-      "application/fetchCurrentSectionSuggestionLanguageTitles"
-    );
-    // Start loading VE in background. Don't wait for it though.
-    // We anticipate that user is going to use editor in next step.
-    loadVEModules();
-  },
-  methods: {
-    onClose() {
-      this.$store.dispatch("application/clearCurrentSectionSuggestion");
+  setup(props, context) {
+    const store = context.root.$store;
+    const articleImageSource = computed(() => {
+      const sourceArticle = store.getters["application/getCurrentPage"];
+
+      return sourceArticle?.image?.source;
+    });
+
+    onMounted(() => {
+      store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
+      // Start loading VE in background. Don't wait for it though.
+      // We anticipate that user is going to use editor in next step.
+      loadVEModules();
+    });
+
+    const onClose = () => {
+      store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       history.replaceState(
         {},
         document.title,
         getUrl("Special:ContentTranslation")
       );
-      this.$router.push({ name: "dashboard" });
-    }
+      context.root.$router.push({ name: "dashboard" });
+    };
+
+    return {
+      articleImageSource,
+      mwIconArticle,
+      mwIconClose,
+      onClose
+    };
   }
 };
 </script>
