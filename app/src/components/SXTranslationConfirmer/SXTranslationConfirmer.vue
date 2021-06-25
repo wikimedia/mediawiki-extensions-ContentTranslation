@@ -29,7 +29,7 @@
     </div>
     <sx-translation-confirmer-article-information />
     <sx-article-language-selector />
-    <existing-article-body />
+    <sx-translation-confirmer-action-panel />
     <mw-row justify="center" class="sx-translation-confirmer__license ma-0">
       <p class="ma-3">
         <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
@@ -41,7 +41,7 @@
 
 <script>
 import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import ExistingArticleBody from "./ExistingArticleBody";
+import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
 import { getUrl } from "@/utils/mediawikiHelper";
@@ -61,7 +61,7 @@ export default {
     MwCol,
     MwButton,
     SxArticleLanguageSelector,
-    ExistingArticleBody
+    SxTranslationConfirmerActionPanel
   },
   setup(props, context) {
     const store = context.root.$store;

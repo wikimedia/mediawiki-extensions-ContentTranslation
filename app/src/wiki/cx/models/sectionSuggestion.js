@@ -79,4 +79,11 @@ export default class SectionSuggestion {
   get presentSectionsCount() {
     return Object.keys(this.presentSections || {}).length;
   }
+
+  /**
+   * @return {boolean}
+   */
+  get translationExists() {
+    return !!this.targetTitle;
+  }
 }

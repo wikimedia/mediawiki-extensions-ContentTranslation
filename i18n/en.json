@@ -389,5 +389,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Languages",
 	"cx-sx-article-search-header": "New translation",
 	"cx-sx-article-search-no-suggestions-message": "Think of any topic of your interest. You don’t need to be an expert to create a great translation.",
-	"cx-sx-article-search-no-search-results-message": "No pages found for \"$1\" in $2"
+	"cx-sx-article-search-no-search-results-message": "No pages found for \"$1\" in $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Expand with $1 or check existing sections",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Expand with $1 section.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "No sections missing. Check existing ones.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "No sections available to translate. Start a new translation to replace the existing page.",
+	"cx-sx-translation-confirmer-action-view-section": "View section to translate",
+	"cx-sx-translation-confirmer-action-new-translation": "New translation"
 }

@@ -1,4 +1,4 @@
-import ExistingArticleBanner from "./ExistingArticleBanner";
+import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import { mount, createLocalVue } from "@vue/test-utils";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import VueBananaI18n from "vue-banana-i18n";
@@ -12,7 +12,7 @@ localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 localVue.use(colors);
 
-describe("SXTranslationConfirmer Existing Translation Banner Navigation test", () => {
+describe("SXTranslationConfirmer Action Panel test", () => {
   const sectionSuggestion = new SectionSuggestion({
     targetLanguage: "en",
     targetTitle: "Test target title",
@@ -32,7 +32,7 @@ describe("SXTranslationConfirmer Existing Translation Banner Navigation test", (
       application: applicationModule
     }
   });
-  const wrapper = mount(ExistingArticleBanner, {
+  const wrapper = mount(SxTranslationConfirmerActionPanel, {
     localVue,
     store
   });
@@ -41,7 +41,11 @@ describe("SXTranslationConfirmer Existing Translation Banner Navigation test", (
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("missing sections count is computed correctly", () => {
-    expect(wrapper.vm.missingSectionsCount).toBe(3);
+  it("First missing section title is computed correctly", () => {
+    expect(wrapper.vm.firstMissingSection).toBe("source1");
+  });
+
+  it("translationExists property is computed correctly", () => {
+    expect(wrapper.vm.translationExists).toBe(true);
   });
 });

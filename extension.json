@@ -516,7 +516,13 @@
 				"sx-translation-list-language-selector-dialog-title",
 				"cx-sx-article-search-header",
 				"cx-sx-article-search-no-suggestions-message",
-				"cx-sx-article-search-no-search-results-message"
+				"cx-sx-article-search-no-search-results-message",
+				"cx-sx-translation-confirmer-action-message-single-missing-multiple-present",
+				"cx-sx-translation-confirmer-action-message-single-missing-none-present",
+				"cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
+				"cx-sx-translation-confirmer-action-message-none-missing-none-present",
+				"cx-sx-translation-confirmer-action-view-section",
+				"cx-sx-translation-confirmer-action-new-translation"
 			],
 			"noflip": true
 		},

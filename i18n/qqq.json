@@ -306,7 +306,7 @@
 	"cx-sx-section-selector-desc": "Description of the screen listing missing sections to selector for translating.",
 	"cx-sx-language-selector-dialog-title": "Title of language selector dialog window",
 	"cx-sx-existing-translation-status": "Text for status of article with pre-existing translation. \n\nParameters:\n* $1 - Autonym of the target article language",
-	"cx-sx-existing-translation-additional-info": "Text for additional information for article with pre-existing translation.\n\n* $1 is the heading of the suggested section.\n* $2 is the number of additional suggested sections.",
+	"cx-sx-existing-translation-additional-info": "Text for additional information for article with pre-existing translation.\n\nParameters:\n* $1 is the heading of the suggested section.\n* $2 is the number of additional suggested sections.",
 	"cx-sx-start-translation-button-label": "Label for start translation button",
 	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation",
 	"cx-sx-existing-translation-learn-more": "Text for anchor that redirects to page with additional information regarding section translation",
@@ -404,5 +404,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Title of language selector dialog window inside translation list language selector component\n{{identical|Language}}",
 	"cx-sx-article-search-header": "Title inside header of 'Search for an article to translate' screen",
 	"cx-sx-article-search-no-suggestions-message": "Message that is being displayed to the user when no article suggestions exist inside \"Search for an article\" screen",
-	"cx-sx-article-search-no-search-results-message": "Message that is being displayed to the user when no search results are found for a specific query inside \"Search for an article\" screen"
+	"cx-sx-article-search-no-search-results-message": "Message that is being displayed to the user when no search results are found for a specific query inside \"Search for an article\" screen",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Message with explanatory information regarding action button inside \"Confirm Translation\" screen for the case when exactly one missing and at least one present section exist.\n\nParameters:\n* $1 is the title of the missing section.",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Message with explanatory information regarding action button inside \"Confirm Translation\" screen for the case when exactly one missing and none present section exist.\n\nParameters:\n* $1 is the title of the missing section.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Message with explanatory information regarding action button inside \"Confirm Translation\" screen for the case when none missing and at least one present section exist.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Message with explanatory information regarding action button inside \"Confirm Translation\" screen for the case when none missing and none present section exist.",
+	"cx-sx-translation-confirmer-action-view-section": "Label of action button inside \"Confirm Translation\" screen for the case when exactly one missing and none present section exist",
+	"cx-sx-translation-confirmer-action-new-translation": "Label of action button inside \"Confirm Translation\" screen for the case when none missing and none present section exist"
 }
