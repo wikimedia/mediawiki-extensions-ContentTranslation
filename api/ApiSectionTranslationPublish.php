@@ -14,7 +14,9 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
+use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\MediaWikiServices;
 use Title;
 use TitleFactory;
@@ -28,14 +30,19 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var TitleFactory */
 	private $titleFactory;
 
+	/** @var HookContainer */
+	private $hookContainer;
+
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
 	 * @param TitleFactory $titleFactory
+	 * @param HookContainer $hookContainer
 	 */
-	public function __construct( ApiMain $main, $action, TitleFactory $titleFactory ) {
+	public function __construct( ApiMain $main, $action, TitleFactory $titleFactory, HookContainer $hookContainer ) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
+		$this->hookContainer = $hookContainer;
 		$config = $this->getConfig();
 		$this->restbaseClient = new RestbaseClient( $config );
 	}
@@ -132,9 +139,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
 		}
 
+		$targetLanguage = $params['targetlanguage'];
+
+		$hookRunner = new ContentTranslationHookRunner( $this->hookContainer );
+		'@phan-var \Title $targetTitle';
+		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $this->getUser() );
+
 		$html = $params['html'];
 		$wikitext = null;
-		'@phan-var \Title $targetTitle';
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
 				$targetTitle,

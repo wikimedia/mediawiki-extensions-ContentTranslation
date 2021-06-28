@@ -45,6 +45,17 @@
 			]
 		}
 	},
+	"HookHandlers": {
+		"sxbeforepublish": {
+			"class": "ContentTranslation\\SectionTranslationBeforePublishHandler",
+			"services": [
+				"ContentHandlerFactory",
+				"HttpRequestFactory",
+				"WikiPageFactory",
+				"MainConfig"
+			]
+		}
+	},
 	"Hooks": {
 		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
 		"BeforePageDisplay": [
@@ -60,7 +71,8 @@
 		"UserSaveOptions": "ContentTranslation\\Hooks::onSaveOptions",
 		"EditPage::showEditForm:initial": "ContentTranslation\\Hooks::newArticleCampaign",
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
-		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules"
+		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
+		"SectionTranslationBeforePublish": "sxbeforepublish"
 	},
 	"APIModules": {
 		"cxconfiguration": "ContentTranslation\\ActionApi\\ApiContentTranslationConfiguration",
@@ -69,7 +81,8 @@
 		"cxpublishsection": {
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationPublish",
 			"services": [
-				"TitleFactory"
+				"TitleFactory",
+				"HookContainer"
 			]
 		},
 		"cxsave": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
@@ -237,6 +250,10 @@
 		"SectionTranslationTargetLanguage": {
 			"description": "If set, section translation will be only available for the specified target language",
 			"value": null
+		},
+		"ContentTranslationContentImportForSectionTranslation": {
+			"description": "Whether to auto import existing pages from production wikis to local wiki before publishing section translation. Useful for development and testing",
+			"value": false
 		},
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
