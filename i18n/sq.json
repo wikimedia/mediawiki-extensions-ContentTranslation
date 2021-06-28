@@ -24,7 +24,7 @@
 	"cx-error-server-connection": "Gabim: Nuk mund të lidheni me serverin.",
 	"cx-desc": "E bën më të lehtë [[Special:ContentTranslation|përkthimin]] e përmbajtjes së faqeve",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|i përkthyer}}",
-	"cx-header-progressbar-text-mt": "($1% prej {{PLURAL:$1|(përkthim automatik)}})",
+	"cx-header-progressbar-text-mt": "($1% prej {{PLURAL:$1|përkthim automatik}})",
 	"cx-header-translation-center": "Qendra e përkthimit",
 	"cx-header-all-translations": "Të gjitha përkthimet",
 	"cx-source-view-page": "shikoni faqen",

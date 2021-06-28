@@ -255,8 +255,10 @@
 	"cx-sx-published-section-invitation-title": "Een aneren Abschnitt iwwersetzen",
 	"cx-sx-article-search-input-placeholder": "Sicht no enger Säit fir z'iwwersetzen",
 	"cx-sx-article-search-nearby-title": "Nobäi",
+	"sx-article-search-language-selector-dialog-title": "Sproochen",
 	"cx-sx-language-selector-placeholder": "No enger Sprooch sichen",
 	"cx-sx-language-selector-all-languages": "All Sproochen",
 	"cx-sx-language-selector-no-search-results": "Keng Resultater",
-	"sx-translation-list-language-selector-dialog-title": "Sproochen"
+	"sx-translation-list-language-selector-dialog-title": "Sproochen",
+	"cx-sx-article-search-header": "Nei Iwwersetzung"
 }

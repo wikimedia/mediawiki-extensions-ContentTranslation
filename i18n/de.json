@@ -384,5 +384,7 @@
 	"cx-sx-language-selector-suggestions": "Vorgeschlagen",
 	"cx-sx-language-selector-no-search-results": "Keine Ergebnisse",
 	"sx-translation-list-language-selector-dialog-title": "Sprachen",
-	"cx-sx-article-search-header": "Neue Übersetzung"
+	"cx-sx-article-search-header": "Neue Übersetzung",
+	"cx-sx-article-search-no-suggestions-message": "Denke an ein beliebiges Thema, das dich interessiert. Du musst kein Experte sein, um eine gute Übersetzung zu erstellen.",
+	"cx-sx-article-search-no-search-results-message": "Keine Seiten für „$1“ auf $2 gefunden"
 }
