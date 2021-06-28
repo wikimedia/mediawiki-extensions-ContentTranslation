@@ -281,7 +281,8 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	public function notifyUsersAboutDrafts( $draftsPerUser, $notificationType ) {
-		$centralIdLookup = \CentralIdLookup::factory();
+		$services = MediaWikiServices::getInstance();
+		$centralIdLookup = $services->getCentralIdLookup();
 
 		foreach ( $draftsPerUser as $globalUserId => $drafts ) {
 			$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
