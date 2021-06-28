@@ -11,7 +11,6 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ApiPageSet;
 use ApiQueryGeneratorBase;
-use CentralIdLookup;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
 use ContentTranslation\Translation;
@@ -161,16 +160,16 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// Add name and gender information to the returned result. The UI can use this
 		// to display the conflict message.
 		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
-		$centralIdLookup = CentralIdLookup::factory();
+		$centralIdLookup = $services->getCentralIdLookup();
 		// $user can be null if the local user does not exist. This should never happen
 		// in our case because we redirect translators to the target wiki, and they cannot
 		// do translations without logging in.
 		// $user can also be null, if the current user has no permission to see the user name.
 		// For whatever reason, fallback gracefully.
-		$user = $centralIdLookup->localUserFromCentralId( $globalUserId );
-		if ( $user ) {
-			$gender = $services->getGenderCache()->getGenderOf( $user, __METHOD__ );
-			$translation->translation['translatorName'] = $user->getName();
+		$userIdentity = $centralIdLookup->localUserFromCentralId( $globalUserId );
+		if ( $userIdentity ) {
+			$gender = $services->getGenderCache()->getGenderOf( $userIdentity, __METHOD__ );
+			$translation->translation['translatorName'] = $userIdentity->getName();
 			$translation->translation['translatorGender'] = $gender;
 		}
 
