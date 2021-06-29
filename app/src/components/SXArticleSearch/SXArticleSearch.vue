@@ -174,7 +174,7 @@ export default {
     });
 
     const close = () => {
-      context.root.$router.go(-1);
+      context.root.$router.push({ name: "dashboard" });
     };
 
     const updateSelection = updatedLanguage => {
