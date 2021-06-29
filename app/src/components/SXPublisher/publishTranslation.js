@@ -8,7 +8,7 @@ const decodeHtml = html => {
   return template.innerText;
 };
 
-const handlePublishResult = store => {
+const handlePublishResult = (store, isPublishDialogActive) => {
   const applicationState = store.state.application;
   const suggestion = applicationState.currentSectionSuggestion;
   const { publishTarget } = applicationState;
@@ -16,6 +16,8 @@ const handlePublishResult = store => {
   const translatedTitle = applicationState.currentSourceSection?.title;
 
   if (!publishResult.isSuccessful) {
+    isPublishDialogActive.value = false;
+
     return;
   }
   const articleTitle = getTitleForPublishOption(
@@ -58,12 +60,10 @@ const publishTranslation = async (
   publishStatus.value = applicationState.currentPublishResult.result;
   /**
    * Show feedback animation to user for 1 second
-   * before closing the dialog and handling the
-   * publishing result
+   * before handling the publishing result
    */
   setTimeout(() => {
-    isPublishDialogActive.value = false;
-    handlePublishResult(store);
+    handlePublishResult(store, isPublishDialogActive);
   }, 1000);
 };
 
