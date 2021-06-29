@@ -393,5 +393,7 @@
 	"cx-sx-language-selector-suggestions": "Sugerido",
 	"cx-sx-language-selector-no-search-results": "Sem resultados",
 	"sx-translation-list-language-selector-dialog-title": "Idiomas",
-	"cx-sx-article-search-header": "Nova tradução"
+	"cx-sx-article-search-header": "Nova tradução",
+	"cx-sx-article-search-no-suggestions-message": "Pense em qualquer assunto do seu interesse. Não precisa de ser especialista para criar uma boa tradução.",
+	"cx-sx-article-search-no-search-results-message": "Não foi encontrada nenhuma página com \"$1\" em $2"
 }

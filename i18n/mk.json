@@ -375,5 +375,7 @@
 	"cx-sx-language-selector-suggestions": "Предложени",
 	"cx-sx-language-selector-no-search-results": "Нема исход",
 	"sx-translation-list-language-selector-dialog-title": "Јазици",
-	"cx-sx-article-search-header": "Нов превод"
+	"cx-sx-article-search-header": "Нов превод",
+	"cx-sx-article-search-no-suggestions-message": "Помислете на некоја тема што ве интересира. Не мора да се стручњак за да направите одличен превод.",
+	"cx-sx-article-search-no-search-results-message": "Не пронајдов страници за „$1“ на $2"
 }

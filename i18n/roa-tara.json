@@ -371,5 +371,7 @@
 	"cx-sx-language-selector-suggestions": "Suggerite",
 	"cx-sx-language-selector-no-search-results": "Nisciune resultate",
 	"sx-translation-list-language-selector-dialog-title": "Lènghe",
-	"cx-sx-article-search-header": "Traduziona nove"
+	"cx-sx-article-search-header": "Traduziona nove",
+	"cx-sx-article-search-no-suggestions-message": "Pinze a 'n'argomende ca te 'nderesse. Non ge è abbesogne de essere 'n'esperte pe ccrejà 'na traduziona granne.",
+	"cx-sx-article-search-no-search-results-message": "Nisicuna pàgene acchiate pe \"$1\" jndr'à $2"
 }

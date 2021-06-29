@@ -294,5 +294,6 @@
 	"cx-sx-language-selector-all-languages": "Tutte le lingue",
 	"cx-sx-language-selector-no-search-results": "Nessun risultato",
 	"sx-translation-list-language-selector-dialog-title": "Lingue",
-	"cx-sx-article-search-header": "Nuova traduzione"
+	"cx-sx-article-search-header": "Nuova traduzione",
+	"cx-sx-article-search-no-search-results-message": "Nessuna pagina trovata per \"$1\" in $2"
 }

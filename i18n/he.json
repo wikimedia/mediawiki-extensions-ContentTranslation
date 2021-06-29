@@ -385,5 +385,7 @@
 	"cx-sx-language-selector-suggestions": "מוצעות",
 	"cx-sx-language-selector-no-search-results": "אין תוצאות",
 	"sx-translation-list-language-selector-dialog-title": "שפות",
-	"cx-sx-article-search-header": "תרגום חדש"
+	"cx-sx-article-search-header": "תרגום חדש",
+	"cx-sx-article-search-no-suggestions-message": "{{GENDER:|תחשוב|תחשבי}} על נושא שמעניין אותך. אין צורך להיות מומחה כדי ליצור תרגום מצוין.",
+	"cx-sx-article-search-no-search-results-message": "לא נמצאו דפים עבור \"$1\" ב{{GRAMMAR:תחילית|$2}}"
 }

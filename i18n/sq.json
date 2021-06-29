@@ -381,5 +381,7 @@
 	"cx-sx-language-selector-suggestions": "Sugjerohet",
 	"cx-sx-language-selector-no-search-results": "Nuk ka rezultate",
 	"sx-translation-list-language-selector-dialog-title": "Gjuhët",
-	"cx-sx-article-search-header": "Përkthim i ri"
+	"cx-sx-article-search-header": "Përkthim i ri",
+	"cx-sx-article-search-no-suggestions-message": "Mendoni për një temë për të cilën keni interes. Ju nuk keni nevojë të jeni ekspert për të krijuar një përkthim të shkëlqyer.",
+	"cx-sx-article-search-no-search-results-message": "Asnjë faqe nuk u gjet për \"$1\" në $2"
 }
