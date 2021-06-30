@@ -388,5 +388,13 @@
 	"cx-sx-article-search-input-placeholder": "جستجو برای یک صفحه به‌منظور ترجمه",
 	"cx-sx-article-search-recently-edited-title": "ویرایش‌های اخیر شما",
 	"cx-sx-article-search-nearby-title": "در نزدیکی",
-	"sx-article-search-language-selector-dialog-title": "جستجوی یک زبان"
+	"sx-article-search-language-selector-dialog-title": "جستجوی یک زبان",
+	"cx-sx-article-search-no-suggestions-message": "به هر موضوعی که بدان علاقه‌مندید بیندیشید. لازم نیست شما متخصص باشید تا ترجمه‌ای عالی انجام دهید.",
+	"cx-sx-article-search-no-search-results-message": "هیچ صفحه‌ای برای «$1» به زبان $2 یافت نشد",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "گسترش با $1 یا بررسی بخش‌های موجود",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "گسترش با بخش $1.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "هیچکدام از بخش‌های ناموجود نیستند. بخش‌های موجود را بررسی کنید.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "هیچ بخشی برای ترجمه موجود نیست. برای جایگزینی صفحهٔ موجود، ترجمه‌ای تازه را آغاز کنید.",
+	"cx-sx-translation-confirmer-action-view-section": "مشاهدهٔ بخث برای ترجمه",
+	"cx-sx-translation-confirmer-action-new-translation": "ترجمهٔ تازه"
 }

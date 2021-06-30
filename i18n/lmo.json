@@ -370,5 +370,13 @@
 	"cx-sx-language-selector-suggestions": "Sugeride",
 	"cx-sx-language-selector-no-search-results": "Nanca un risultad",
 	"sx-translation-list-language-selector-dialog-title": "Lengove",
-	"cx-sx-article-search-header": "Noeuva traduzzion"
+	"cx-sx-article-search-header": "Noeuva traduzzion",
+	"cx-sx-article-search-no-suggestions-message": "Pénsegh a 'n argoment che 'l te interessa. Te gh'hee minga de vesser vun super-prategh del mester per fà ona bela traduzzion.",
+	"cx-sx-article-search-no-search-results-message": "Trovada nanca ona pagina per \"$1\" in $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Sgrandiss con la sezzion $1 o controla i sezzion esistente",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Sgrandiss con la sezzion ̰$1",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "A ghe cala nanca 'na sezzion. Controla quei che i esisten.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nanca ona sezzion siponibil de voltà. Comenza ona traduzzion noeuva de meter al post de la pagina che la gh'è.",
+	"cx-sx-translation-confirmer-action-view-section": "Varda la sezzion de tradù",
+	"cx-sx-translation-confirmer-action-new-translation": "Noeuva traduzzion"
 }

@@ -387,5 +387,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Sprachen",
 	"cx-sx-article-search-header": "Neue Übersetzung",
 	"cx-sx-article-search-no-suggestions-message": "Denke an ein beliebiges Thema, das dich interessiert. Du musst kein Experte sein, um eine gute Übersetzung zu erstellen.",
-	"cx-sx-article-search-no-search-results-message": "Keine Seiten für „$1“ auf $2 gefunden"
+	"cx-sx-article-search-no-search-results-message": "Keine Seiten für „$1“ auf $2 gefunden",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "$1 um neue Abschnitte erweitern oder prüfe vorhandene Abschnitte",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "$1 um neue Abschnitte erweitern",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Es fehlen keine Abschnitte. Vorhandene prüfen.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Keine Abschnitte zum Übersetzen vorhanden. Starte eine neue Übersetzung, um die vorhandene Seite zu ersetzen.",
+	"cx-sx-translation-confirmer-action-view-section": "Abschnitt zum Übersetzen anzeigen",
+	"cx-sx-translation-confirmer-action-new-translation": "Neue Übersetzung"
 }

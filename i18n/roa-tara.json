@@ -373,5 +373,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Lènghe",
 	"cx-sx-article-search-header": "Traduziona nove",
 	"cx-sx-article-search-no-suggestions-message": "Pinze a 'n'argomende ca te 'nderesse. Non ge è abbesogne de essere 'n'esperte pe ccrejà 'na traduziona granne.",
-	"cx-sx-article-search-no-search-results-message": "Nisicuna pàgene acchiate pe \"$1\" jndr'à $2"
+	"cx-sx-article-search-no-search-results-message": "Nisicuna pàgene acchiate pe \"$1\" jndr'à $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Spanne cu $1 o condrolle le seziune esistende",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Spanne cu $1 sezione.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Nisciuna sezione mangande. Condrolle ce ne ste une.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nisciuna sezione disponibbele pe essere tradotte. Accuminze 'na traduziona nove pe sostituì 'a pàgene esistende.",
+	"cx-sx-translation-confirmer-action-view-section": "'Ndruche 'a sezione da traducere",
+	"cx-sx-translation-confirmer-action-new-translation": "Traduziona nove"
 }

@@ -88,7 +88,7 @@
 	"cx-page-missing-in-target-language": "Manglar på $1",
 	"cx-page-number-of-languages": "Tal på språk",
 	"cx-mt-abuse-error-title": "Omsetjinga di {{PLURAL:$1|inneheld}} $1% uendra tekst",
-	"cx-mt-abuse-error-sections": "Omsetjinga din inneheld større delar uendra tekst",
+	"cx-mt-abuse-error-sections": "Omsetjinga di inneheld større delar uendra tekst",
 	"cx-mt-abuse-error-text": "Automatisk omsetjing er berre gjeven som eit utgangspunkt. Sørg for at innhaldet er nøyaktig og flyt godt på språket ditt.\n\nOmsetjiga di kan ikkje publiserast utan grundig gjennomgang.",
 	"cx-mt-abuse-warning-title": "Omsetjinga di {{PLURAL:$1|inneheld}} $1% uendra tekst",
 	"cx-mt-abuse-warning-text": "Automatisk omsetjing er berre gjeven som eit utgangspunkt. Sørg for at innhaldet er nøyaktig og flyt godt på språket ditt.\n\nDet er sannsynleg at omsetjinga di vil slettast når andre bidragsytarar går gjennom henne.",
