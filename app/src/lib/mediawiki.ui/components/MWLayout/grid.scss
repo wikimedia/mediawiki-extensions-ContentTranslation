@@ -4,6 +4,7 @@
  Inspired by Vuetify Grid, Boostrap grid, and similar flexbox
  based responsive grid implementations.
 */
+@use "sass:math";
 
 @use "variables" as *;
 @use "breakpoints" as *;
@@ -12,7 +13,7 @@
 // Generate style with responsive columns
 @mixin generateResponsiveCols($counter, $media) {
   @for $counter from 1 through $cols {
-    $width: ($counter / $cols) * 100;
+    $width: math.div($counter, $cols) * 100;
     $mediaKey: if($media == "", "", "#{$media}-");
 
     .col-#{$mediaKey}#{$counter} {
@@ -53,8 +54,8 @@
       box-sizing: border-box;
       flex-grow: 0;
       flex-shrink: 0;
-      padding-right: $gutter / 2;
-      padding-left: $gutter / 2;
+      padding-right: math.div($gutter, 2);
+      padding-left: math.div($gutter, 2);
     }
 
     @include generateResponsiveCols($cols, "");
