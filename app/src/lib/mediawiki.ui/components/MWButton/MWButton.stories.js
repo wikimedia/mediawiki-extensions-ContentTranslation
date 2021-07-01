@@ -1,5 +1,4 @@
 import { action } from "@storybook/addon-actions";
-import { boolean, select, text } from "@storybook/addon-knobs";
 import * as icons from "../icons";
 import MwButton from "./MWButton.vue";
 
@@ -168,47 +167,12 @@ export const ButtonWithIcons = () => ({
   `
 });
 
-export const DifferentButtons = () => ({
+export const DifferentButtons = (args, { argTypes }) => ({
   components: { MwButton },
   data: () => ({
     icons
   }),
-  props: {
-    large: {
-      default: boolean("Large button", false)
-    },
-    label: {
-      default: text("Button label", "Button label")
-    },
-    href: {
-      default: text("Button click target(href)", "")
-    },
-    outlined: {
-      default: boolean("Outlined", false)
-    },
-    icon: {
-      default: select("Icon", Object.keys(icons), "")
-    },
-    indicator: {
-      default: select("Indicator", Object.keys(icons), "")
-    },
-    progressive: {
-      default: boolean("Progressive", true)
-    },
-    destructive: {
-      default: boolean("Destructive", false)
-    },
-    type: {
-      default: select(
-        "Button type",
-        ["button", "toggle", "icon", "text"],
-        "button"
-      )
-    },
-    hasIndicatorClickListener: {
-      default: boolean("Indicator click event listener", true)
-    }
-  },
+  props: Object.keys(argTypes),
   methods: {
     onIndicatorClick() {
       action("indicator-click")(`Clicked`);
@@ -218,7 +182,7 @@ export const DifferentButtons = () => ({
     <section class="container">
       <div class="row">
         <div class="col-12">
-          <p>Play with different properties using <strong>Knobs</strong></p>
+          <p>Play with different properties using <strong>controls</strong></p>
         </div>
         <div class="col-12">
           <mw-button
@@ -238,3 +202,31 @@ export const DifferentButtons = () => ({
     </section>
   `
 });
+
+DifferentButtons.args = {
+  large: false,
+  label: "Button label",
+  href: "#",
+  outlined: false,
+  icon: "",
+  indicator: "",
+  progressive: true,
+  destructive: false,
+  type: "button",
+  hasIndicatorClickListener: true
+};
+
+DifferentButtons.argTypes = {
+  icon: {
+    type: "option",
+    options: Object.keys(icons)
+  },
+  indicator: {
+    type: "option",
+    options: Object.keys(icons)
+  },
+  type: {
+    type: "option",
+    options: ["button", "toggle", "icon", "text"]
+  }
+};

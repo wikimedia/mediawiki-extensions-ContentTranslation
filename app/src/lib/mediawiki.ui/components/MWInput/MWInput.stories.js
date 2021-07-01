@@ -1,5 +1,4 @@
 import { action } from "@storybook/addon-actions";
-import { boolean, select, text } from "@storybook/addon-knobs";
 import * as icons from "../icons";
 import MwInput from "./MWInput.vue";
 
@@ -9,48 +8,26 @@ export default {
   parameters: { layout: "centered" }
 };
 
-export const InputAndTextArea = () => ({
+export const InputAndTextArea = (args, { argTypes }) => ({
   components: { MwInput },
   data: () => ({
     icons,
     value: null
   }),
-  props: {
-    large: {
-      default: boolean("Large input", false)
-    },
-    selectall: {
-      default: boolean("Select content on focus", false)
-    },
-    icon: {
-      default: select("Icon", Object.keys(icons))
-    },
-    indicator: {
-      default: select("Indicator", Object.keys(icons))
-    },
-    type: {
-      default: select("Input type", ["input", "textarea"], "input")
-    },
-    placeholder: {
-      default: text("Placeholder", "Enter some content")
-    },
-    value: {
-      default: text("Value", "")
-    }
-  },
+  props: Object.keys(argTypes),
   watch: {
     value() {
       action("input-update")(`Value update: ${this.value}`);
     }
   },
   methods: {
-    click() {
+    clickHandler() {
       action("input-click")(`Clicked`);
     },
-    focus() {
+    focusHandler() {
       action("input-focus")(`Focused`);
     },
-    blur() {
+    blurHandler() {
       action("input-blur")(`Blured`);
     }
   },
@@ -61,11 +38,36 @@ export const InputAndTextArea = () => ({
      :icon="icons[icon]"
      :indicator="icons[indicator]"
      v-model="value"
-     @click="click"
-     @focus="focus"
-     @blur="blur"
+     @click="clickHandler"
+     @focus="focusHandler"
+     @blur="blurHandler"
     ></mw-input>`
 });
+
+InputAndTextArea.args = {
+  large: false,
+  selectAll: false,
+  icon: "",
+  indicator: "",
+  type: "input",
+  placeholder: "Enter some content",
+  value: ""
+};
+
+InputAndTextArea.argTypes = {
+  icon: {
+    type: "option",
+    options: Object.keys(icons)
+  },
+  indicator: {
+    type: "option",
+    options: Object.keys(icons)
+  },
+  type: {
+    type: "option",
+    options: ["input", "textarea"]
+  }
+};
 
 export const SearchInputWithIcons = () => ({
   components: { MwInput },

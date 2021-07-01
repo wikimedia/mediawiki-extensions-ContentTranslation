@@ -1,37 +1,11 @@
-import { select } from "@storybook/addon-knobs";
 import "./typography.scss";
 
 export default {
   title: "Layout/Typography"
 };
 
-export const Typography = () => ({
-  props: {
-    language: {
-      default: select(
-        "Language",
-        {
-          English: "en",
-          Persian: "fa",
-          Bengali: "bn",
-          Odia: "or",
-          Hindi: "hi",
-          Marathi: "mr",
-          Nepali: "ne",
-          Assamese: "as",
-          Maithili: "mai",
-          "Southern Kurdish": "sdh",
-          Azerbaijani: "azb",
-          "Southern Balochi": "bcc",
-          "Western Balochi": "bgn",
-          "Kazakh(Arabic script)": "kk-arab",
-          "Northern Luri": "lrc",
-          "Southern Luri": "luz"
-        },
-        "en"
-      )
-    }
-  },
+export const Typography = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   template: `
   <main :lang="language" dir="auto" style="margin: 2em auto; max-width: 75ch;">
     <h1>Typography</h1>
@@ -214,3 +188,32 @@ font-size: 14px;</pre>
 </main>
   `
 });
+
+Typography.args = {
+  language: "en"
+};
+
+Typography.argTypes = {
+  language: {
+    type: "option",
+    description: "Language for the content",
+    options: {
+      English: "en",
+      Persian: "fa",
+      Bengali: "bn",
+      Odia: "or",
+      Hindi: "hi",
+      Marathi: "mr",
+      Nepali: "ne",
+      Assamese: "as",
+      Maithili: "mai",
+      "Southern Kurdish": "sdh",
+      Azerbaijani: "azb",
+      "Southern Balochi": "bcc",
+      "Western Balochi": "bgn",
+      "Kazakh(Arabic script)": "kk-arab",
+      "Northern Luri": "lrc",
+      "Southern Luri": "luz"
+    }
+  }
+};

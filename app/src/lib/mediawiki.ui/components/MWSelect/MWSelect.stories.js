@@ -1,5 +1,4 @@
 import { action } from "@storybook/addon-actions";
-import { select, text } from "@storybook/addon-knobs";
 import { MwSelect } from "../..";
 import * as icons from "../icons";
 
@@ -9,7 +8,7 @@ export default {
   parameters: { layout: "centered" }
 };
 
-export const Select = () => ({
+export const Select = (args, { argTypes }) => ({
   components: { MwSelect },
   data: () => ({
     icons,
@@ -37,22 +36,12 @@ export const Select = () => ({
       "₹": "Rupees"
     }
   }),
-  props: {
-    icon: {
-      default: select("Icon", Object.keys(icons), "mwIconSearch")
-    },
-    indicator: {
-      default: select("Indicator", Object.keys(icons))
-    },
-    placeholder: {
-      default: text("Placeholder", "Search items")
-    }
-  },
+  props: Object.keys(argTypes),
   methods: {
-    click() {
+    clickHandler() {
       action("input-click")(`Clicked`);
     },
-    focus() {
+    focusHandler() {
       action("input-focus")(`Focused`);
     },
     selectCity(value) {
@@ -77,8 +66,8 @@ export const Select = () => ({
         :icon="icons[icon]"
         :indicator="icons[indicator]"
         v-model="cities"
-        @click="click"
-        @focus="focus"
+        @click="clickHandler"
+        @focus="focusHandler"
         @select="selectCity"
       ></mw-select>
     {{selectedCity}}
@@ -93,8 +82,8 @@ export const Select = () => ({
         v-model="languages"
         optionLabel="name"
         optionValue="code"
-        @click="click"
-        @focus="focus"
+        @click="clickHandler"
+        @focus="focusHandler"
         @select="selectLanguage"
       >
     <template v-slot:option="slotProps">
@@ -112,8 +101,8 @@ export const Select = () => ({
         :icon="icons[icon]"
         :indicator="icons[indicator]"
         v-model="currencies"
-        @click="click"
-        @focus="focus"
+        @click="clickHandler"
+        @focus="focusHandler"
         @select="selectCurrency"
       >
     </mw-select>
@@ -121,3 +110,28 @@ export const Select = () => ({
     </section>
     </main>`
 });
+
+Select.args = {
+  disabled: false,
+  filterBy: null,
+  icon: "",
+  iconSize: 24,
+  indicator: "",
+  indicatorSize: 24,
+  noResultsMessages: "No results found",
+  optionLabel: "Option label",
+  optionValue: "Option value",
+  placeholder: "Enter some content",
+  value: ""
+};
+
+Select.argTypes = {
+  icon: {
+    type: "option",
+    options: Object.keys(icons)
+  },
+  indicator: {
+    type: "option",
+    options: Object.keys(icons)
+  }
+};

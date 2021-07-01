@@ -1,4 +1,3 @@
-import { text } from "@storybook/addon-knobs";
 import MwCard from "./MWCard.vue";
 
 export default {
@@ -7,15 +6,15 @@ export default {
   parameters: { layout: "centered" }
 };
 
-export const CardWithAnImage = () => ({
+export const CardWithAnImage = (args, { argTypes }) => ({
   components: { MwCard },
-  props: {
-    title: {
-      default: text("Card title", "Beautiful image")
-    }
-  },
+  props: Object.keys(argTypes),
   template: `
   <mw-card :title="title">
     <img src="https://picsum.photos/300"/>
   </mw-card>`
 });
+
+CardWithAnImage.args = {
+  title: "Beautiful image"
+};
