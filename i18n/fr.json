@@ -421,5 +421,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Langues",
 	"cx-sx-article-search-header": "Nouvelle traduction",
 	"cx-sx-article-search-no-suggestions-message": "Pensez à un sujet qui vous intéresse. Vous n’avez pas besoin d’être un expert pour créer une bonne traduction.",
-	"cx-sx-article-search-no-search-results-message": "Aucune page trouvée pour « $1 » dans $2"
+	"cx-sx-article-search-no-search-results-message": "Aucune page trouvée pour « $1 » dans $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Étendre avec $1 ou vérifier les sections existantes",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Étendre avec la section $1.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Aucune section manquante. Vérifier les existantes.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Aucune section disponible à traduire. Commencer une nouvelle traduction pour remplacer la page existante.",
+	"cx-sx-translation-confirmer-action-view-section": "Afficher la section à traduire",
+	"cx-sx-translation-confirmer-action-new-translation": "Nouvelle traduction"
 }
