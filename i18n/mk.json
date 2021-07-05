@@ -377,5 +377,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Јазици",
 	"cx-sx-article-search-header": "Нов превод",
 	"cx-sx-article-search-no-suggestions-message": "Помислете на некоја тема што ве интересира. Не мора да се стручњак за да направите одличен превод.",
-	"cx-sx-article-search-no-search-results-message": "Не пронајдов страници за „$1“ на $2"
+	"cx-sx-article-search-no-search-results-message": "Не пронајдов страници за „$1“ на $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Прошири со $1 или провери постоечки поднаслови",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Прошири со поднасловот $1.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Не недостасуваат поднаслови. Проверете ги постоечките.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Нема достапни поднаслови за преведување. Отпочнете нов превод за да ја замените постоечката страница.",
+	"cx-sx-translation-confirmer-action-view-section": "Погледај поднаслов за преведување",
+	"cx-sx-translation-confirmer-action-new-translation": "Нов превод"
 }

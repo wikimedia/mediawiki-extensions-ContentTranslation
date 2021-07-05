@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ideophagous",
 			"Reda Benkhadra"
 		]
 	},
 	"cx-page-selector-widget-nearby-label": "قريب من هنا",
-	"cx-linkcontextitem-missing-title-description": "هاد صفحة مازال ماكاينة"
+	"cx-linkcontextitem-missing-title-description": "هاد صفحة مازال ماكاينة",
+	"cx-sx-article-search-no-search-results-message": "$2 حتا پاج ماتلقات ب \"$1\" ف"
 }
