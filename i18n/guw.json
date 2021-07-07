@@ -13,5 +13,7 @@
 	"cx-sx-language-selector-no-search-results": "Kodeton matin",
 	"sx-translation-list-language-selector-dialog-title": "Ogbe le",
 	"cx-sx-article-search-header": "Ledogbedevo yoyo",
-	"cx-sx-article-search-no-search-results-message": "Weda depope mayin mimọ na$1 to $2 me"
+	"cx-sx-article-search-no-search-results-message": "Weda depope mayin mimọ na$1 to $2 me",
+	"cx-sx-translation-confirmer-action-view-section": "Pọn ada lo nado ledogbedevome",
+	"cx-sx-translation-confirmer-action-new-translation": "Ledogbedevo yoyo"
 }
