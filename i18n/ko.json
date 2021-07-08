@@ -354,5 +354,6 @@
 	"cx-sx-language-selector-all-languages": "모든 언어",
 	"cx-sx-language-selector-no-search-results": "결과 없음",
 	"sx-translation-list-language-selector-dialog-title": "언어",
-	"cx-sx-article-search-header": "새 번역"
+	"cx-sx-article-search-header": "새 번역",
+	"cx-sx-translation-confirmer-action-new-translation": "새 번역"
 }
