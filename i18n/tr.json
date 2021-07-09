@@ -404,5 +404,7 @@
 	"cx-sx-language-selector-suggestions": "Önerilen",
 	"cx-sx-language-selector-no-search-results": "Sonuç yok",
 	"sx-translation-list-language-selector-dialog-title": "Diller",
-	"cx-sx-article-search-header": "Yeni çeviri"
+	"cx-sx-article-search-header": "Yeni çeviri",
+	"cx-sx-article-search-no-suggestions-message": "İlgilendiğiniz herhangi bir konuyu düşünün. Mükemmel bir çeviri oluşturmak için uzman olmanız gerekmez.",
+	"cx-sx-article-search-no-search-results-message": "$2 dilinde \"$1\" için sonuç bulunmadı"
 }
