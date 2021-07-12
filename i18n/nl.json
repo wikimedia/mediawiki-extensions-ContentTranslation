@@ -36,7 +36,7 @@
 	"cx": "Pagina vertalen",
 	"cx-dashboard-header": "Vertalingen",
 	"cx-javascript": "Dit hulpmiddel werkt niet zonder JavaScript. JavaScript is uitgeschakeld of werkt niet, of deze browser wordt niet ondersteund.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] is een programma om snel pagina's mee te vertalen in uw taal. [$1 Probeer het nu uit!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] is een hulpmiddel om snel pagina's mee te vertalen in uw taal. [$1 Probeer het eens uit!]",
 	"cx-license-agreement": "Door verder te gaan gaat u akkoord met de [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaarden] en gaat u onherroepelijk akkoord met het vrijgeven van uw bijdragen onder de [https://creativecommons.org/licenses/by-sa/3.0/ licentie CC BY-SA 3.0] en de [//nl.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Fout: verbinden met de server was niet mogelijk.",
 	"cx-desc": "Maakt het eenvoudig om inhoudelijke pagina's te [[Special:ContentTranslation|vertalen]]",
@@ -46,7 +46,7 @@
 	"cx-header-all-translations": "Alle vertalingen",
 	"cx-source-view-page": "pagina bekijken",
 	"cx-publish-page-success": "Pagina gepubliceerd op $1",
-	"cx-publish-error-abuse-filter": "Automatische bewerkingsfilters hebben problematische inhoud gevonden in uw vertaling. Details: $1",
+	"cx-publish-error-abuse-filter": "Automatische bewerkingsfilters hebben problematische inhoud in uw vertaling gedetecteerd. Het filter vond: $1",
 	"cx-publish-error-readonly": "Wijzigen op deze wiki is niet toegestaan.",
 	"cx-publish-error-spam-blacklist": "Mogelijke spam gedetecteerd in uw vertaling. Details: $1",
 	"cx-publish-error-title-blacklist": "De gekozen titel staat op de zwarte lijst. Kies een ander naam voor uw vertaling.",
@@ -85,7 +85,7 @@
 	"cx-tools-mt-provider-title": "$1 gebruiken",
 	"cx-tools-mt-dont-use": "Beginnen met een lege alinea",
 	"cx-tools-mt-set-default": "Houd het standaard",
-	"cx-tools-mt-noservices": "Vertaaldiensten zijn niet beschikbaar voor de geselecteerde talen.\n[[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Waarom?]]",
+	"cx-tools-mt-noservices": "Er zijn geen vertaaldiensten beschikbaar voor de gekozen talen.\n[[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Waarom?]]",
 	"cx-tools-mt-preferred": "standaard",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categorie|$1 categorieën|0=Geen categorieën}}",
 	"cx-stats-title": "Statistieken van Content Translation",
@@ -267,5 +267,5 @@
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Zin",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Alinea",
 	"cx-sx-followup-feedback-new-indicator": "nieuw",
-	"sx-article-search-language-selector-dialog-title": "Zoeken naar een taal"
+	"sx-article-search-language-selector-dialog-title": "Talen"
 }

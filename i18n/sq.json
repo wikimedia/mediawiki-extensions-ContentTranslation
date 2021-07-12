@@ -383,5 +383,11 @@
 	"sx-translation-list-language-selector-dialog-title": "Gjuhët",
 	"cx-sx-article-search-header": "Përkthim i ri",
 	"cx-sx-article-search-no-suggestions-message": "Mendoni për një temë për të cilën keni interes. Ju nuk keni nevojë të jeni ekspert për të krijuar një përkthim të shkëlqyer.",
-	"cx-sx-article-search-no-search-results-message": "Asnjë faqe nuk u gjet për \"$1\" në $2"
+	"cx-sx-article-search-no-search-results-message": "Asnjë faqe nuk u gjet për \"$1\" në $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Zgjeroni me $1 ose kontrolloni seksionet ekzistuese",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Zgjeroni me seksionin $1.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Nuk mungojnë seksionet. Kontrolloni ato ekzistuese.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nuk ka seksione në dispozicion për t'u përkthyer. Filloni një përkthim të ri për të zëvendësuar faqen ekzistuese.",
+	"cx-sx-translation-confirmer-action-view-section": "Shikoni seksionin për të përkthyer",
+	"cx-sx-translation-confirmer-action-new-translation": "Përkthim i ri"
 }

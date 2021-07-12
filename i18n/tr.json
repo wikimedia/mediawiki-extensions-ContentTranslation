@@ -406,5 +406,8 @@
 	"sx-translation-list-language-selector-dialog-title": "Diller",
 	"cx-sx-article-search-header": "Yeni çeviri",
 	"cx-sx-article-search-no-suggestions-message": "İlgilendiğiniz herhangi bir konuyu düşünün. Mükemmel bir çeviri oluşturmak için uzman olmanız gerekmez.",
-	"cx-sx-article-search-no-search-results-message": "$2 dilinde \"$1\" için sonuç bulunmadı"
+	"cx-sx-article-search-no-search-results-message": "$2 dilinde \"$1\" için sonuç bulunmadı",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "$1 ile genişletin veya mevcut bölümleri kontrol edin",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "$1 bölümüyle genişletin.",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Eksik bölüm yok. Mevcut olanları kontrol edin."
 }
