@@ -590,7 +590,7 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
-		documentNodeChildren, alignSectionPair, articleNode;
+		documentNodeChildren, alignSectionPair, articleNode, scrollPosition;
 
 	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
 	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
@@ -623,6 +623,11 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	}
 
 	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
+	// Save the scroll position. The alignment openration need to reset the heights
+	// of sections. If the asynchronous content changes from templates happen
+	// during that time, we will have a different scroll position at the end
+	// of this alignment. So we lock the scroll position.
+	scrollPosition = $( this.getElementWindow() ).scrollTop();
 	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
@@ -635,6 +640,8 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 			mw.log.warn( '[CX] Invalid source section ' + id + ' found. Alignment may go wrong' );
 		}
 	} );
+	// Restore scroll position
+	$( this.getElementWindow() ).scrollTop( scrollPosition );
 };
 
 /**
