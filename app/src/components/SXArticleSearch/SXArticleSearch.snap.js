@@ -90,9 +90,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
         class="mw-ui-input__input"
         placeholder="cx-sx-article-search-input-placeholder"
         type="search"
-      >
-        bar
-      </input>
+      />
        
       <!---->
     </div>
@@ -194,17 +192,19 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
     </button>
   </div>
    
-  <!---->
-   
   <div
-    class="mw-ui-card sx-article-search__results mb-0 pa-4"
-    style=""
+    class="mw-ui-card sx-article-search__suggestions mb-0 pa-4"
   >
-    <!---->
+    <h5
+      class="ma-0 pb-1 sx-article-search__suggestions-header"
+    >
+      cx-sx-article-search-recently-edited-title
+    </h5>
      
     <div
       class="mw-ui-card__content"
     >
+       
       <div
         class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
       >
@@ -345,6 +345,24 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+   
+  <div
+    class="mw-ui-card sx-article-search__results mb-0 pa-4"
+    style="display: none;"
+  >
+    <!---->
+     
+    <div
+      class="mw-ui-card__content"
+    >
+      <p
+        class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
+      >
+        cx-sx-article-search-no-search-results-message
+      </p>
+       
     </div>
   </div>
    

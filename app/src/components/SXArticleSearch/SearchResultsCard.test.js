@@ -2,9 +2,16 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import Page from "../../wiki/mw/models/page";
 import SearchResultsCard from "./SearchResultsCard";
 import Vuex from "vuex";
+import CompositionApi from "@vue/composition-api";
+import VueBananaI18n from "vue-banana-i18n";
+import debounce from "lodash/debounce";
+jest.mock("lodash/debounce");
+debounce.mockImplementation(fn => fn);
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(CompositionApi);
+localVue.use(VueBananaI18n);
 
 const mockResults = [
   new Page({
@@ -21,6 +28,12 @@ const mockResults = [
   })
 ];
 
+jest.mock("../../wiki/mw/api/page", () => {
+  return {
+    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults))
+  };
+});
+
 describe("SearchResultsCard", () => {
   const sourceLanguage = "en";
 
@@ -35,12 +48,18 @@ describe("SearchResultsCard", () => {
 
   const wrapper = mount(SearchResultsCard, {
     localVue,
-    store
+    store,
+    propsData: {
+      searchInput: ""
+    }
   });
 
-  it("Component output matches snapshot", () => {
-    wrapper.vm.searchResults = mockResults;
-    expect(wrapper.element).toMatchSnapshot();
+  it("Search for articles method is called when search input is updated", async () => {
+    await wrapper.setProps({
+      searchInput: "test 1"
+    });
+
+    expect(wrapper.vm.searchResultsSlice).toStrictEqual(mockResults);
   });
 
   it("Search results length is valid", () => {
@@ -49,19 +68,13 @@ describe("SearchResultsCard", () => {
     );
   });
 
+  it("Component output matches snapshot", () => {
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
   it("suggestion-clicked event is emitted when search result is clicked", async () => {
     const searchResult = wrapper.find(".cx-search-suggestion");
     await searchResult.trigger("click");
     expect(wrapper.emitted("suggestion-clicked")).toBeTruthy();
-  });
-
-  it("Search for articles method is called when search input is updated", async () => {
-    wrapper.vm.debouncedSearchForArticles = jest.fn(() => {});
-
-    await wrapper.setProps({
-      searchInput: "test 1"
-    });
-
-    expect(wrapper.vm.debouncedSearchForArticles).toHaveBeenCalledTimes(1);
   });
 });

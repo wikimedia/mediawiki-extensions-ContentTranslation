@@ -29,7 +29,7 @@ const autonyms = {
   bn: "Bengali"
 };
 
-const mockResults = [
+const mockPages = [
   new Page({
     thumbnail: { source: "/thumbnail1.jpg" },
     title: "Test page1",
@@ -52,6 +52,7 @@ jest.mock("../../wiki/mw/api/page", () => {
 
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
 getItemSpy.mockImplementation(getLocalStorageItem);
+
 describe("SXArticleSearch", () => {
   const sourceLanguage = "en";
   const targetLanguage = "es";
@@ -68,8 +69,8 @@ describe("SXArticleSearch", () => {
         autonym: autonyms[languageCode],
         dir: "ltr"
       }),
-      getRecentlyEditedPages: () => [],
-      getNearbyPages: () => []
+      getRecentlyEditedPages: () => mockPages,
+      getNearbyPages: () => mockPages
     },
     actions: {
       fetchNearbyPages: jest.fn()
@@ -79,15 +80,15 @@ describe("SXArticleSearch", () => {
   const store = new Vuex.Store({
     modules: { application: applicationModule, mediawiki: mediawikiModule }
   });
-  const mockTitle = "Test search result";
-  const mockSectionSuggestion = new SectionSuggestion({
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle: mockTitle
-  });
-  store.dispatch = jest.fn(action => {
+  store.dispatch = jest.fn((action, payload) => {
     if (action === "suggestions/loadSectionSuggestion") {
-      return Promise.resolve(mockSectionSuggestion);
+      return Promise.resolve(
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: payload.sourceTitle
+        })
+      );
     }
   });
 
@@ -96,31 +97,7 @@ describe("SXArticleSearch", () => {
     store
   });
 
-  it("Search results are being rendered properly when search input is updated", async done => {
-    await wrapper.setData({ searchInput: "foo" });
-    const searchResultsCard = wrapper.find(".sx-article-search__results");
-    expect(searchResultsCard.exists()).toBe(true);
-    searchResultsCard.vm.debouncedSearchForArticles =
-      searchResultsCard.vm.searchForArticles;
-
-    await wrapper.setData({ searchInput: "bar" });
-
-    expect(pageApi.searchPagesByTitlePrefix).toHaveBeenCalledTimes(1);
-
-    wrapper.vm.$nextTick(async () => {
-      await searchResultsCard.vm.$nextTick();
-      expect(searchResultsCard.vm.searchResults).toBe(mockResults);
-
-      const searchResultWrapper = searchResultsCard.find(
-        ".cx-search-suggestion"
-      );
-      expect(searchResultWrapper.exists()).toBe(true);
-      done();
-    });
-  });
-
   it("Component output matches snapshot", async () => {
-    await wrapper.setData({ searchInput: "bar" });
     expect(wrapper.element).toMatchSnapshot();
   });
 
@@ -129,22 +106,28 @@ describe("SXArticleSearch", () => {
   });
 
   it("startSectionTranslation action is dispatched when suggestion-clicked event is emitted", async () => {
-    const searchResultsCard = wrapper.find(".sx-article-search__results");
-    const searchResultWrapper = wrapper.find(".cx-search-suggestion");
+    const suggestionsCard = wrapper.find(".sx-article-search__suggestions");
+    const suggestionWrapper = wrapper.find(".cx-search-suggestion");
 
-    await searchResultWrapper.trigger("click");
-    expect(searchResultsCard.emitted("suggestion-clicked")).toBeTruthy();
-    expect(store.dispatch).toHaveBeenCalledWith(
+    await suggestionWrapper.trigger("click");
+    expect(suggestionsCard.emitted("suggestion-clicked")).toBeTruthy();
+    expect(store.dispatch).toHaveBeenNthCalledWith(
+      3,
       "suggestions/loadSectionSuggestion",
       {
         sourceLanguage,
         targetLanguage,
-        sourceTitle: searchResultWrapper.vm.suggestion.title
+        sourceTitle: "Test page1"
       }
     );
-    expect(store.dispatch).toHaveBeenCalledWith(
+    expect(store.dispatch).toHaveBeenNthCalledWith(
+      4,
       "application/startSectionTranslation",
-      mockSectionSuggestion
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: "Test page1"
+      })
     );
   });
 });
