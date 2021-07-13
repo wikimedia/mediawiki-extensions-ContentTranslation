@@ -19,8 +19,9 @@ class ApiContentTranslationDelete extends ApiBase {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
-		if ( $user->isBlocked() ) {
-			$this->dieBlocked( $user->getBlock() );
+		$block = $user->getBlock();
+		if ( $block && $block->isSitewide() ) {
+			$this->dieBlocked( $block );
 		}
 
 		$translator = new Translator( $user );

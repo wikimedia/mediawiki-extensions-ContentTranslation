@@ -37,8 +37,9 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		$user = $this->getUser();
-		if ( $this->getUser()->isBlocked() ) {
-			$this->dieBlocked( $user->getBlock() );
+		$block = $user->getBlock();
+		if ( $block && $block->isSitewide() ) {
+			$this->dieBlocked( $block );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {

@@ -170,8 +170,9 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( $this->getUser()->isBlocked() ) {
-			$this->dieBlocked( $this->getUser()->getBlock() );
+		$block = $this->getUser()->getBlock();
+		if ( $block && $block->isSitewide() ) {
+			$this->dieBlocked( $block );
 		}
 
 		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {

@@ -15,8 +15,9 @@ class ApiContentTranslationToken extends ApiBase {
 	public function execute() {
 		$user = $this->getUser();
 
-		if ( $user->isBlocked() ) {
-			$this->dieBlocked( $user->getBlock() );
+		$block = $user->getBlock();
+		if ( $block && $block->isSitewide() ) {
+			$this->dieBlocked( $block );
 		}
 
 		if ( !$user->isRegistered() ) {

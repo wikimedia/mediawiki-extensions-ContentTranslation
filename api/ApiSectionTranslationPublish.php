@@ -104,8 +104,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$params = $this->extractRequestParams();
 		$languageNameUtils = MediaWikiServices::getInstance()->getLanguageNameUtils();
 
-		if ( $this->getUser()->isBlocked() ) {
-			$this->dieBlocked( $this->getUser()->getBlock() );
+		$block = $this->getUser()->getBlock();
+		if ( $block && $block->isSitewide() ) {
+			$this->dieBlocked( $block );
 		}
 
 		if ( !$languageNameUtils->isKnownLanguageTag( $params['sourcelanguage'] ) ) {
