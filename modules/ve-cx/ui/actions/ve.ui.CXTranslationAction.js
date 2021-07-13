@@ -79,7 +79,7 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 				section.emit( 'afterTranslation' );
 			}
 		} ).fail( function () {
-			mw.notify( mw.msg( 'cx-mt-failed ' ) );
+			mw.notify( mw.msg( 'cx-mt-failed' ) );
 			this.surface.getModel().emit( 'contextChange' );
 		}.bind( this ) );
 };
