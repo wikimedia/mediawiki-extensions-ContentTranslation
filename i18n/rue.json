@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Gramo6",
 			"Tkalyn"
 		]
 	},
@@ -11,5 +12,7 @@
 	"cx-tools-link-add": "Придати одказ",
 	"cx-campaign-contributionsmenu-mycontributions": "Приспівкы",
 	"cx-campaign-contributionsmenu-mytranslations": "Переклады",
-	"cx-campaign-contributionsmenu-myuploads": "Наладованы файлы"
+	"cx-campaign-contributionsmenu-myuploads": "Наладованы файлы",
+	"cx-sx-translation-confirmer-action-view-section": "Побзерати уддїл на товмаченя",
+	"cx-sx-translation-confirmer-action-new-translation": "Новоє товмаченя"
 }

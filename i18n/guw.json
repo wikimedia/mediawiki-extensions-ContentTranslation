@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anthonymodec"
+			"Anthonymodec",
+			"Samatics"
 		]
 	},
 	"cx-sx-existing-translation-status": "Tin to $1",
-	"cx-sx-translation-confirmer-title": "Ledogbedevo yoyo",
+	"cx-sx-translation-confirmer-title": "Lẹdogbedevo yoyo",
 	"sx-article-search-language-selector-dialog-title": "Ogbe le",
 	"cx-sx-language-selector-placeholder": "Din ogbe de",
 	"cx-sx-language-selector-all-languages": "Ogbe lepo",
@@ -14,6 +15,6 @@
 	"sx-translation-list-language-selector-dialog-title": "Ogbe le",
 	"cx-sx-article-search-header": "Ledogbedevo yoyo",
 	"cx-sx-article-search-no-search-results-message": "Weda depope mayin mimọ na$1 to $2 me",
-	"cx-sx-translation-confirmer-action-view-section": "Pọn ada lo nado ledogbedevome",
-	"cx-sx-translation-confirmer-action-new-translation": "Ledogbedevo yoyo"
+	"cx-sx-translation-confirmer-action-view-section": "Pọn ada lo nado lẹdogbedevomẹ",
+	"cx-sx-translation-confirmer-action-new-translation": "Lẹdogbedevo yoyo"
 }
