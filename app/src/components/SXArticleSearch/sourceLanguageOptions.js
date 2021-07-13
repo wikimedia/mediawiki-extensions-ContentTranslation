@@ -1,12 +1,15 @@
 import { getAutonym } from "@wikimedia/language-data";
 import { computed } from "@vue/composition-api";
 import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
+import useApplicationState from "@/composables/useApplicationState";
 
 /**
- * @type {function(string, ComputedRef, ComputedRef): function(function): string[]}
+ * @type {function(ComputedRef<string[]>): ComputedRef<string[]>}
  */
-const getSourceLanguageOptions = (sourceLanguage, suggestedSourceLanguages) =>
+const getSourceLanguageOptions = suggestedSourceLanguages =>
   computed(() => {
+    const { sourceLanguage } = useApplicationState();
+
     /**
      * According to design specification, language selector inside
      * "search for an article" screen, contains three options, including

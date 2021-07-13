@@ -38,13 +38,13 @@
         v-if="recentlyEditedPages && recentlyEditedPages.length"
         :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
         :suggestions="recentlyEditedPages"
-        @suggestion-clicked="startSectionTranslation"
+        @suggestion-clicked="startRecentlyEditedSectionTranslation"
       />
       <article-suggestions-card
         v-else-if="nearbyPages && nearbyPages.length"
         :card-title="$i18n('cx-sx-article-search-nearby-title')"
         :suggestions="nearbyPages"
-        @suggestion-clicked="startSectionTranslation"
+        @suggestion-clicked="startNearbySectionTranslation"
       />
       <p
         v-else
@@ -55,7 +55,7 @@
     <search-results-card
       v-show="!!searchInput"
       :search-input="searchInput"
-      @suggestion-clicked="startSectionTranslation"
+      @suggestion-clicked="startSearchResultSectionTranslation"
     />
     <mw-dialog
       v-if="sourceLanguageSelectOn"
@@ -93,6 +93,7 @@ import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 import { ref, onMounted, computed, watch } from "@vue/composition-api";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import getSuggestedSourceLanguages from "./suggestedSourceLanguages";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxArticleSearch",
@@ -109,6 +110,7 @@ export default {
   },
   setup(props, context) {
     const searchInput = ref("");
+    const searchInputUsed = ref(false);
     const searchInputRef = ref(null);
     const sourceLanguageSelectOn = ref(false);
     /**
@@ -122,11 +124,10 @@ export default {
     const previousLanguages = ref([]);
 
     const store = context.root.$store;
-    const applicationStore = store.state.application;
     const mediawikiStore = store.state.mediawiki;
 
-    const sourceLanguage = computed(() => applicationStore.sourceLanguage);
-    const targetLanguage = computed(() => applicationStore.targetLanguage);
+    const { sourceLanguage, targetLanguage } = useApplicationState();
+
     /** @type {string[]} */
     const supportedLanguageCodes = computed(
       () => mediawikiStore.supportedLanguageCodes || []
@@ -147,9 +148,7 @@ export default {
      * @type {string[]}
      */
     const suggestedSourceLanguages = getSuggestedSourceLanguages(
-      previousLanguages,
-      sourceLanguage,
-      targetLanguage
+      previousLanguages
     );
     /**
      * Quick list of languages to select from based on previous selections.
@@ -158,7 +157,6 @@ export default {
      * @type {string[]}
      */
     const sourceLanguageOptions = getSourceLanguageOptions(
-      sourceLanguage,
       suggestedSourceLanguages
     );
 
@@ -190,20 +188,52 @@ export default {
       immediate: true
     });
 
+    // Log "dashboard_search" event only for the first time user types a search query.
+    watch(searchInput, () => {
+      if (!searchInputUsed.value) {
+        searchInputUsed.value = true;
+        context.root.$logEvent({ event_type: "dashboard_search" });
+      }
+    });
+
     /**
-     * @param {Page} searchSuggestion
+     * @param {Page} suggestedPage
      * @return {Promise<void>}
      */
-    const startSectionTranslation = async searchSuggestion => {
+    const startSectionTranslation = async suggestedPage => {
       const suggestion = await store.dispatch(
         "suggestions/loadSectionSuggestion",
         {
           sourceLanguage: sourceLanguage.value,
           targetLanguage: targetLanguage.value,
-          sourceTitle: searchSuggestion.title
+          sourceTitle: suggestedPage.title
         }
       );
       store.dispatch("application/startSectionTranslation", suggestion);
+    };
+
+    const startRecentlyEditedSectionTranslation = suggestedPage => {
+      startSectionTranslation(suggestedPage);
+      context.root.$logEvent({
+        event_type: "dashboard_translation_start",
+        event_source: "suggestion_recent_edit"
+      });
+    };
+
+    const startNearbySectionTranslation = suggestedPage => {
+      startSectionTranslation(suggestedPage);
+      context.root.$logEvent({
+        event_type: "dashboard_translation_start",
+        event_source: "suggestion_nearby"
+      });
+    };
+
+    const startSearchResultSectionTranslation = suggestedPage => {
+      startSectionTranslation(suggestedPage);
+      context.root.$logEvent({
+        event_type: "dashboard_translation_start",
+        event_source: "search_result"
+      });
     };
 
     const onSourceLanguageDialogClose = () => {
@@ -212,12 +242,12 @@ export default {
 
     /**
      * Language selection handler
-     * @param {string} sourceLanguage
+     * @param {string} updatedSourceLanguage
      */
-    const onSourceLanguageSelected = sourceLanguage => {
+    const onSourceLanguageSelected = updatedSourceLanguage => {
       sourceLanguageSelectOn.value = false;
-      previousLanguages.value.push(sourceLanguage);
-      updateSelection(sourceLanguage);
+      previousLanguages.value.push(updatedSourceLanguage);
+      updateSelection(updatedSourceLanguage);
     };
 
     const recentlyEditedPages = computed(
@@ -242,7 +272,9 @@ export default {
       sourceLanguage,
       sourceLanguageOptions,
       sourceLanguageSelectOn,
-      startSectionTranslation,
+      startNearbySectionTranslation,
+      startRecentlyEditedSectionTranslation,
+      startSearchResultSectionTranslation,
       suggestedSourceLanguages,
       updateSelection
     };
