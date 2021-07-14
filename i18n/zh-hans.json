@@ -413,5 +413,8 @@
 	"sx-translation-list-language-selector-dialog-title": "语言",
 	"cx-sx-article-search-header": "新翻译",
 	"cx-sx-article-search-no-suggestions-message": "思考您感兴趣的任何话题。您不需要成为专家便可做出出色的翻译。",
-	"cx-sx-article-search-no-search-results-message": "在$2中找不到与“$1”相关的页面"
+	"cx-sx-article-search-no-search-results-message": "在$2中找不到与“$1”相关的页面",
+	"cx-sx-translation-confirmer-more-sections-button-label": "更多章节",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "翻译章节",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "章节"
 }

@@ -383,5 +383,8 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Не недостасуваат поднаслови. Проверете ги постоечките.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Нема достапни поднаслови за преведување. Отпочнете нов превод за да ја замените постоечката страница.",
 	"cx-sx-translation-confirmer-action-view-section": "Погледај поднаслов за преведување",
-	"cx-sx-translation-confirmer-action-new-translation": "Нов превод"
+	"cx-sx-translation-confirmer-action-new-translation": "Нов превод",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Повеќе поднаслови",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Преведи поднаслов",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Поднаслов"
 }
