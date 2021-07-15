@@ -299,7 +299,7 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		this.processValidationQueue();
 	}
 
-	this.attachOnBlurListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
+	this.attachOnFocusListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
 };
 
 /**
@@ -307,14 +307,14 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
  *
  * @param {ve.dm.CXSectionNode[]} sections
  */
-mw.cx.TranslationTracker.prototype.attachOnBlurListeners = function ( sections ) {
-	// Register event listeners for 'blur' event on restored sections
+mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function ( sections ) {
+	// Register event listeners for 'focus' event on restored sections
 	sections.map( function ( sectionModel ) {
 		return sectionModel.getId();
-	} ).forEach( this.registerOnBlurListenerForSection.bind( this ) );
+	} ).forEach( this.registerOnFocusListenerForSection.bind( this ) );
 
-	// Register event listeners for 'blur' event for every newly added section
-	this.veTarget.connect( this, { changeContentSource: 'registerOnBlurListenerForSection' } );
+	// Register event listeners for 'focus' event for every newly added section
+	this.veTarget.connect( this, { changeContentSource: 'registerOnFocusListenerForSection' } );
 };
 
 /**
@@ -655,10 +655,19 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 /**
  * @param {number} sectionNumber
  */
-mw.cx.TranslationTracker.prototype.registerOnBlurListenerForSection = function ( sectionNumber ) {
+mw.cx.TranslationTracker.prototype.registerOnFocusListenerForSection = function ( sectionNumber ) {
 	var sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
 
-	sectionNode.connect( this, { blur: 'processValidationQueue' } );
+	sectionNode.connect( this, { focus: function () {
+		// Validate every sections except the current section
+		var index = this.validationDelayQueue.indexOf( sectionNumber );
+		if ( index > -1 ) {
+			this.validationDelayQueue.splice( index, 1 );
+		}
+		this.processValidationQueue();
+		// Put the section number back in queue
+		this.validationDelayQueue.push( sectionNumber );
+	} } );
 };
 
 /**
