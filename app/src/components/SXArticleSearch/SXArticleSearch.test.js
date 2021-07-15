@@ -11,6 +11,7 @@ const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
+localVue.prototype.$logEvent = jest.fn();
 
 const getLocalStorageItem = jest.fn(item => JSON.stringify(["en", "bn"]));
 Object.defineProperty(global.navigator, "language", {
