@@ -34,7 +34,7 @@
         :key="`suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
-        @close="discardSuggestion(suggestion)"
+        @close="discardSectionSuggestion(suggestion)"
         @click.native="startSectionTranslation(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
@@ -149,15 +149,30 @@ export default {
       store.dispatch("application/updateTargetLanguage", targetLanguage);
     };
 
+    /**
+     * @param {SectionSuggestion} suggestion
+     */
     const startSectionTranslation = suggestion => {
       store.dispatch("application/startSectionTranslation", suggestion);
+      context.root.$logEvent({
+        event_type: "dashboard_translation_start",
+        event_source: "suggestion_no_seed"
+      });
+    };
+
+    /**
+     * @param {SectionSuggestion} suggestion
+     */
+    const discardSectionSuggestion = suggestion => {
+      context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
+      discardSuggestion(suggestion);
     };
 
     return {
       availableSourceLanguages,
       availableTargetLanguages,
       currentSectionSuggestionsSlice,
-      discardSuggestion,
+      discardSectionSuggestion,
       mwIconRefresh,
       onSuggestionRefresh,
       pageSuggestionsForPairSubset,
