@@ -29,7 +29,7 @@ function getGlobalEditCount(userName) {
     .then(response => response.query.globaluserinfo.editcount)
     .catch(error => {
       // Eventlogging errors are not critical error to handle and interrupt users.
-      console.error("Error while fetching global edit count for user. ", error);
+      mw.log.error("Error while fetching global edit count for user. ", error);
     });
 }
 
