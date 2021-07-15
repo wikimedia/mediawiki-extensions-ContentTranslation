@@ -85,7 +85,7 @@ export default {
     );
 
     const translationExists = computed(
-      () => sectionSuggestion.value.translationExists
+      () => !!sectionSuggestion.value?.translationExists
     );
 
     const urlParams = new URLSearchParams(location.search);
@@ -107,7 +107,7 @@ export default {
           name: "sx-content-comparator",
           params: { force: true }
         });
-      } else if (sectionSuggestion.value.translationExists) {
+      } else if (translationExists.value) {
         router.push({ name: "sx-section-selector" });
       } else {
         await store.dispatch("application/selectPageSectionByIndex", 0);

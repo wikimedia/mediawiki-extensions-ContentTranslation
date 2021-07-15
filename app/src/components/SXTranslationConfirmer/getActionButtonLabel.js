@@ -1,10 +1,10 @@
 /**
- * @param {SectionSuggestion} sectionSuggestion
+ * @param {SectionSuggestion|null} sectionSuggestion
  * @param {boolean} isPrefilledSection
  * @return {string}
  */
 export default (sectionSuggestion, isPrefilledSection) => {
-  const translationExists = sectionSuggestion.translationExists;
+  const translationExists = sectionSuggestion?.translationExists;
 
   if (isPrefilledSection) {
     return "cx-sx-translation-confirmer-translate-prefilled-section-button-label";

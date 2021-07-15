@@ -59,9 +59,8 @@
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
-import { mapActions, mapMutations } from "vuex";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import { computed, watch } from "@vue/composition-api";
+import { computed, watch, ref } from "@vue/composition-api";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import useApplicationState from "@/composables/useApplicationState";
@@ -90,7 +89,7 @@ export default {
     const pageSuggestionsLoaded = ref(false);
 
     const showRefreshButton = computed(() =>
-      this.$incompleteVersion
+      context.root.$incompleteVersion
         ? !sectionSuggestionsLoading.value
         : !pageSuggestionsLoaded.value
     );
@@ -115,13 +114,13 @@ export default {
     } = useSuggestions(store);
 
     const onSuggestionRefresh = () => {
-      this.$incompleteVersion
+      context.root.$incompleteVersion
         ? showMoreSectionSuggestions()
         : showMoreSuggestions();
     };
 
     watch(pageSuggestionsForPair, () => {
-      if (this.$incompleteVersion) {
+      if (context.root.$incompleteVersion) {
         return;
       }
 
@@ -129,7 +128,7 @@ export default {
     });
 
     const updatePageSuggestions = () => {
-      if (this.$incompleteVersion) {
+      if (context.root.$incompleteVersion) {
         return;
       }
       store.dispatch("suggestions/fetchPageSuggestions", {
@@ -150,8 +149,9 @@ export default {
       store.dispatch("application/updateTargetLanguage", targetLanguage);
     };
 
-    const startSectionTranslation = () =>
-      store.dispatch("application/startSectionTranslation");
+    const startSectionTranslation = suggestion => {
+      store.dispatch("application/startSectionTranslation", suggestion);
+    };
 
     return {
       availableSourceLanguages,

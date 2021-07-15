@@ -47,6 +47,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 export default {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
@@ -58,9 +59,9 @@ export default {
   setup(props, context) {
     const store = context.root.$store;
 
-    const sectionSuggestion = computed(
-      () => store.state.application.currentSectionSuggestion
-    );
+    const {
+      currentSectionSuggestion: sectionSuggestion
+    } = useApplicationState();
 
     const sourceArticle = computed(
       () => store.getters["application/getCurrentPage"]
@@ -68,7 +69,7 @@ export default {
     const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
     const sourceArticlePath = computed(() =>
       siteMapper.getPageUrl(
-        sectionSuggestion.value.sourceLanguage || "",
+        sectionSuggestion.value?.sourceLanguage || "",
         sourceTitle.value || ""
       )
     );

@@ -1,4 +1,4 @@
-import { computed } from "@vue/composition-api";
+import { computed, ref } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
 
 const useSuggestions = store => {
@@ -35,7 +35,7 @@ const useSuggestions = store => {
 
   /** @type {ComputedRef<SectionSuggestion[]>} */
   const currentSectionSuggestionsSlice = computed(() =>
-    getSectionSuggestionsSlice(currentSectionSuggestionsSliceIndex.value)
+    getSectionSuggestionsSliceByIndex(currentSectionSuggestionsSliceIndex.value)
   );
 
   const seedArticleTitle = computed(() => {
@@ -58,23 +58,20 @@ const useSuggestions = store => {
     () => currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice
   );
 
-  /** @return {Number} */
+  /** @return {number} */
   const nextSectionSuggestionsSliceIndex = computed(
-    () => (currentSectionSuggestionsSlice.value + 1) % maxSlices
+    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSlices
   );
 
   /**
    * @param {number} sliceIndex
    * @return {SectionSuggestion[]}
    */
-  const getSectionSuggestionsSliceByIndex = sliceIndex => {
-    const sliceStart = sliceIndex * maxSuggestionsPerSlice;
-
-    return sectionSuggestionsForPair.value.slice(
-      sliceStart,
-      sliceStart + maxSuggestionsPerSlice
+  const getSectionSuggestionsSliceByIndex = sliceIndex =>
+    sectionSuggestionsForPair.value.slice(
+      maxSuggestionsPerSlice * sliceIndex,
+      maxSuggestionsPerSlice * (sliceIndex + 1)
     );
-  };
 
   /** @type {ComputedRef<boolean>} */
   const nextSectionSuggestionSliceFetched = computed(
