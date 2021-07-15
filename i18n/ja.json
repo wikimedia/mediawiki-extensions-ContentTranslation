@@ -14,6 +14,7 @@
 			"Linuxmetel",
 			"Liuxinyu970226",
 			"Marine-Blue",
+			"MathXplore",
 			"Mfuji",
 			"Object＊tofu",
 			"Omotecho",
@@ -346,5 +347,10 @@
 	"cx-sx-language-selector-all-languages": "すべての言語",
 	"cx-sx-language-selector-no-search-results": "結果なし",
 	"sx-translation-list-language-selector-dialog-title": "言語",
-	"cx-sx-article-search-header": "新しい翻訳"
+	"cx-sx-article-search-header": "新しい翻訳",
+	"cx-sx-translation-confirmer-action-view-section": "翻訳するセクションを表示する",
+	"cx-sx-translation-confirmer-action-new-translation": "新しい翻訳",
+	"cx-sx-translation-confirmer-more-sections-button-label": "より多くのオプション",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "セクションを翻訳する",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "節"
 }

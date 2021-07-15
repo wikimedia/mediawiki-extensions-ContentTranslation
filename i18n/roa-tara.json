@@ -379,5 +379,8 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Nisciuna sezione mangande. Condrolle ce ne ste une.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nisciuna sezione disponibbele pe essere tradotte. Accuminze 'na traduziona nove pe sostituì 'a pàgene esistende.",
 	"cx-sx-translation-confirmer-action-view-section": "'Ndruche 'a sezione da traducere",
-	"cx-sx-translation-confirmer-action-new-translation": "Traduziona nove"
+	"cx-sx-translation-confirmer-action-new-translation": "Traduziona nove",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Cchiù seziune",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Traduce 'a sezione",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Sezione"
 }
