@@ -276,5 +276,6 @@
 	"cx-sx-language-selector-all-languages": "Alle sprog",
 	"cx-sx-language-selector-no-search-results": "Ingen resultater",
 	"sx-translation-list-language-selector-dialog-title": "Sprog",
-	"cx-sx-article-search-header": "Ny oversættelse"
+	"cx-sx-article-search-header": "Ny oversættelse",
+	"cx-sx-translation-confirmer-action-new-translation": "Ny oversættelse"
 }
