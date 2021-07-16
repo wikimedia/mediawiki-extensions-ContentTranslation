@@ -2,14 +2,14 @@
   <section class="sx-section-selector">
     <sx-section-selector-header
       :suggestion="suggestion"
-      @close="goToTranslationConfirmer"
+      @close="goToDashboard"
     />
     <section class="sx-section-selector__body">
       <sx-article-language-selector />
       <sx-section-selector-section-list-missing
         :suggestion="suggestion"
         @select-section="selectSection"
-        @close="goToTranslationConfirmer"
+        @close="goToDashboard"
       />
       <sx-section-selector-section-list-present
         :suggestion="suggestion"
@@ -70,7 +70,7 @@ import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
-import { siteMapper } from "@/utils/mediawikiHelper";
+import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxSectionSelector",
@@ -112,20 +112,20 @@ export default {
     },
     viewArticleItems() {
       return [
-        {
-          path: this.sourceArticlePath,
-          autonym: this.sourceLanguageAutonym
-        },
-        {
-          path: this.targetArticlePath,
-          autonym: this.targetLanguageAutonym
-        }
+        { path: this.sourceArticlePath, autonym: this.sourceLanguageAutonym },
+        { path: this.targetArticlePath, autonym: this.targetLanguageAutonym }
       ];
     }
   },
   methods: {
-    goToTranslationConfirmer() {
-      this.$router.push({ name: "sx-translation-confirmer" });
+    goToDashboard() {
+      // Remove URL params so that section translation doesn't restart, leading to endless loop
+      history.replaceState(
+        {},
+        document.title,
+        getUrl("Special:ContentTranslation")
+      );
+      this.$router.push({ name: "dashboard" });
     },
     selectSection(sourceSectionTitle) {
       this.$store.dispatch(
