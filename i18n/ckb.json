@@ -60,6 +60,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "ئەم سەرناوە لە [$1 $2]دا بۆ [$3 پەڕەیەکی جیاواز] بە کار ھێنراوە",
 	"cx-selected-source-page-error-page-exists": "ئەم پەڕەیە لە $2دا [$1 ھەیە]",
 	"cx-selected-source-page-error-title-in-use": "سەرناوەکە بۆ پەڕەیە نوێکە [$1 پێشتر بە کار ھێنراوە]",
+	"cx-page-number-of-languages": "ژمارەی زمانەکان",
 	"cx-mt-abuse-error-title": "وەرگێڕانەکەت سەرجەمی $1% دەقی نەگۆڕدراو {{PLURAL:$1|لەخۆدەگرێت}}",
 	"cx-mt-abuse-warning-title": "بەشی وەرگێڕانەکەت $1% دەقی نەگۆڕدراو {{PLURAL:$1|لەخۆدەگرێت}}",
 	"cx-publish-captcha-title": "لێکۆڵینەوە لەوەی تۆ رۆبۆت نیت",
@@ -76,6 +77,7 @@
 	"cx-suggestionlist-empty-desc": "پێشنیارێکمان نەدۆزیەوە. دەتوانیت دواتر سەر بدەیتەوە یان بە یارمەتیی ئامرازی پێشنیاردەر، پەڕەی پەیوەندیدار بدۆزیتەوە (تاقی کردنەوەیی).",
 	"cx-suggestionlist-featured": "ھەڵبژێرراو",
 	"cx-create-new-translation": "وەرگێڕانی نوێ",
+	"cx-translation-filter-uls-all-languages": "ھەموو زمانەکان",
 	"cx-save-draft-save-success": "{{PLURAL:$1|خولەکێک لەمەوبەر|$1 خولەک لەمەوبەر|0=ھەر ئێستا}} پاشەکەوت کراوە",
 	"cx-save-draft-saving": "خەریکە پاشەکەوت دەبێت...",
 	"cx-save-draft-tooltip": "ڕەشنووسەکانی وەرگێڕان ئۆتۆماتیکی پاشەکەوت دەکرێن",
@@ -168,5 +170,8 @@
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "ڕستە",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "پەڕەگراف",
 	"cx-sx-followup-feedback-new-indicator": "نوێ",
-	"cx-sx-published-section-confirmation-header": "بەشی نوێ زیاد کرا"
+	"cx-sx-published-section-confirmation-header": "بەشی نوێ زیاد کرا",
+	"sx-article-search-language-selector-dialog-title": "زمانەکان",
+	"cx-sx-language-selector-all-languages": "ھەموو زمانەکان",
+	"sx-translation-list-language-selector-dialog-title": "زمانەکان"
 }

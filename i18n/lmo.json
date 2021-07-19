@@ -378,5 +378,8 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "A ghe cala nanca 'na sezzion. Controla quei che i esisten.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nanca ona sezzion siponibil de voltà. Comenza ona traduzzion noeuva de meter al post de la pagina che la gh'è.",
 	"cx-sx-translation-confirmer-action-view-section": "Varda la sezzion de tradù",
-	"cx-sx-translation-confirmer-action-new-translation": "Noeuva traduzzion"
+	"cx-sx-translation-confirmer-action-new-translation": "Noeuva traduzzion",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Pussee de sezzion",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Tradùss la sezzion",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Sezzion"
 }
