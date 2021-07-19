@@ -41,9 +41,7 @@
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
     </mw-card>
-    <div
-      class="cx-suggestion-list__refresh-button-container d-flex justify-center"
-    >
+    <div class="cx-suggestion-list__refresh-button-container justify-center">
       <mw-button
         v-if="showRefreshButton"
         class="ma-0 pa-4"

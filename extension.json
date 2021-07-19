@@ -546,7 +546,10 @@
 				"cx-sx-translation-confirmer-action-new-translation",
 				"cx-sx-translation-confirmer-more-sections-button-label",
 				"cx-sx-translation-confirmer-translate-prefilled-section-button-label",
-				"cx-sx-translation-confirmer-prefilled-section-heading"
+				"cx-sx-translation-confirmer-prefilled-section-heading",
+				"sx-editor-feedback-overlay-title",
+				"sx-editor-feedback-overlay-clarification",
+				"sx-editor-feedback-overlay-stats"
 			],
 			"noflip": true
 		},

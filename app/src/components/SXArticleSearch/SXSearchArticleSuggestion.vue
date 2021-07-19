@@ -9,7 +9,7 @@
       />
       <div
         v-else
-        class="cx-search-suggestion__thumbnail-placeholder d-flex justify-center"
+        class="cx-search-suggestion__thumbnail-placeholder justify-center"
       >
         <mw-icon size="30" :icon="mwIconArticle" />
       </div>
