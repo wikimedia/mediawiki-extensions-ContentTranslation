@@ -1,6 +1,6 @@
 import suggestionsModule from "./";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
-import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSuggestionSeedCollection";
+import SuggestionSeedCollection from "../../../wiki/cx/models/suggestionSeedCollection";
 import appendixTitles from "../../../utils/appendix/appendixTitles.json";
 import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
@@ -12,7 +12,7 @@ const {
 } = actions;
 const {
   sectionSuggestionsForArticleExists,
-  getNumberOfSuggestionsToFetch,
+  getNumberOfSectionSuggestionsToFetch,
   getSectionSuggestionsForPair
 } = getters;
 const sourceLanguage = "en";
@@ -95,7 +95,7 @@ describe("test suggestion actions", () => {
       sectionSuggestions: [],
       appendixSectionTitles: appendixTitles,
       sectionSuggestionSeedCollections: [
-        new SectionSuggestionSeedCollection({
+        new SuggestionSeedCollection({
           sourceLanguage,
           targetLanguage,
           seeds
@@ -108,7 +108,7 @@ describe("test suggestion actions", () => {
       ),
       getSectionSuggestionsForPair: getSectionSuggestionsForPair(state)
     };
-    getters.getNumberOfSuggestionsToFetch = getNumberOfSuggestionsToFetch(
+    getters.getNumberOfSectionSuggestionsToFetch = getNumberOfSectionSuggestionsToFetch(
       state,
       getters
     );

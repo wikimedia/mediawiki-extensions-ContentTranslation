@@ -1,12 +1,19 @@
 export default {
   /**
-   * @return {SectionSuggestionSeedCollection}
+   * @return {SuggestionSeedCollection}
    */
   findSectionSuggestionSeedCollection: state => (
     sourceLanguage,
     targetLanguage
   ) =>
     state.sectionSuggestionSeedCollections.find(collection =>
+      collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
+    ),
+  /**
+   * @return {SuggestionSeedCollection}
+   */
+  findPageSuggestionSeedCollection: state => (sourceLanguage, targetLanguage) =>
+    state.pageSuggestionSeedCollections.find(collection =>
       collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
     ),
   getPageSuggestionsForPair: state => (sourceLanguage, targetLanguage) =>
@@ -21,6 +28,7 @@ export default {
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage
     ),
+
   /**
    * @param state
    * @return {function(string, string, string): SectionSuggestion}
@@ -82,7 +90,7 @@ export default {
    * @param {Object} getters
    * @return {function(sourceLanguage: string, targetLanguage: string): number}
    */
-  getNumberOfSuggestionsToFetch: (state, getters) => (
+  getNumberOfSectionSuggestionsToFetch: (state, getters) => (
     sourceLanguage,
     targetLanguage
   ) => {

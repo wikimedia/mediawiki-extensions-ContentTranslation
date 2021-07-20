@@ -124,5 +124,33 @@ export default {
     rootGetters["translator/getPublishedTranslationsForLanguagePair"](
       state.sourceLanguage,
       state.targetLanguage
+    ),
+
+  /**
+   * @param state
+   * @param getters
+   * @param rootState
+   * @return {function(number): SectionSuggestion[]}
+   */
+  getSectionSuggestionsSliceByIndex: (
+    state,
+    getters,
+    rootState
+  ) => sliceIndex =>
+    getters.getCurrentSectionSuggestions.slice(
+      rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
+      rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
+    ),
+
+  /**
+   * @param state
+   * @param getters
+   * @param rootState
+   * @return {function(number): ArticleSuggestion[]}
+   */
+  getPageSuggestionsSliceByIndex: (state, getters, rootState) => sliceIndex =>
+    getters.getCurrentPageSuggestions.slice(
+      rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
+      rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
     )
 };

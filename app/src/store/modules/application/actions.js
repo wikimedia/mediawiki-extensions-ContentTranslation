@@ -54,7 +54,7 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
   return state.cxServerToken?.jwt;
 };
 
-async function initializeDashboardContext({ dispatch, state }) {
+async function initializeDashboardContext({ dispatch, state, getters }) {
   dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
   const suggestion = await dispatch("loadSectionSuggestionFromUrl");
 
@@ -65,13 +65,7 @@ async function initializeDashboardContext({ dispatch, state }) {
   }
 
   await dispatch("translator/fetchTranslations", {}, { root: true });
-  const { sourceLanguage, targetLanguage } = state;
-
-  dispatch(
-    "suggestions/fetchSuggestions",
-    { sourceLanguage, targetLanguage },
-    { root: true }
-  );
+  dispatch("suggestions/initializeSuggestions", {}, { root: true });
 }
 
 /**
@@ -102,11 +96,7 @@ async function updateSourceLanguage(
 
   // If translation has not started yet, re-fetch suggestions
   if (!state.currentSectionSuggestion) {
-    dispatch(
-      "suggestions/fetchSuggestions",
-      { sourceLanguage, targetLanguage: state.targetLanguage },
-      { root: true }
-    );
+    dispatch("suggestions/initializeSuggestions", {}, { root: true });
 
     return;
   }
@@ -140,11 +130,7 @@ async function updateTargetLanguage(
 
   // If translation has not started yet, re-fetch suggestions
   if (!state.currentSectionSuggestion) {
-    dispatch(
-      "suggestions/fetchSuggestions",
-      { sourceLanguage: state.sourceLanguage, targetLanguage },
-      { root: true }
-    );
+    dispatch("suggestions/initializeSuggestions", {}, { root: true });
 
     return;
   }

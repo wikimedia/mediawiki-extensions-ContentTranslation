@@ -11,7 +11,7 @@ const appendixSectionTitlesInEnglish = en;
  * @param {Number} count - How many suggestions to fetch. 24 is default.
  * @return {Promise<ArticleSuggestion[]>}
  */
-async function fetchSuggestions(
+async function fetchPageSuggestions(
   sourceLanguage,
   targetLanguage,
   seedArticleTitle,
@@ -167,7 +167,7 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
 }
 
 export default {
-  fetchSuggestions,
+  fetchPageSuggestions,
   fetchSectionSuggestions,
   fetchSuggestionSeeds,
   fetchAppendixTargetSectionTitles

@@ -1,163 +1,167 @@
 import { computed, ref } from "@vue/composition-api";
-import useApplicationState from "@/composables/useApplicationState";
 
 const useSuggestions = store => {
-  const { state, getters } = store;
-
-  const maxSlices = 4;
-
-  const { sourceLanguage, targetLanguage } = useApplicationState();
-
-  const maxSuggestionsPerSlice = state.suggestions.maxSuggestionsPerSlice;
-
-  const pageSuggestionsForPair = computed(
-    () => getters["application/getCurrentPageSuggestions"]
+  const sectionSuggestionsLoading = computed(
+    () => store.state.suggestions.sectionSuggestionsLoadingCount > 0
+  );
+  const pageSuggestionsLoading = computed(
+    () => store.state.suggestions.pageSuggestionsLoadingCount > 0
   );
 
+  const showRefreshButton = computed(
+    () => !sectionSuggestionsLoading.value && !pageSuggestionsLoading.value
+  );
+
+  /**
+   * Current index of section suggestions slice to be displayed inside the Dashboard
+   * @type {Ref<number>}
+   */
   const currentSectionSuggestionsSliceIndex = ref(0);
+  /**
+   * Current index of section suggestions slice to be displayed inside the Dashboard
+   * @type {Ref<number>}
+   */
   const currentPageSuggestionsSliceIndex = ref(0);
 
-  const sectionSuggestionsForPair = computed(
-    () => getters["application/getCurrentSectionSuggestions"]
+  const { maxSuggestionsPerSlice } = store.state.suggestions;
+
+  /**
+   * Maximum number of different suggestion slices to be displayed inside the Dashboard.
+   * Once, user suggestion refreshes reaches this limit, the first suggestion slice is
+   * displayed again.
+   *
+   * @type {number}
+   */
+  const maxSuggestionsSlices = 4;
+
+  const nextSectionSuggestionsSliceIndex = computed(
+    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
+  );
+  const nextPageSuggestionsSliceIndex = computed(
+    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
   );
 
-  const publishedTranslations = computed(
-    () => getters["application/getCurrentPublishedTranslations"]
-  );
-
-  /** @type {ComputedRef<ArticleSuggestion[]>} */
-  const pageSuggestionsForPairSubset = computed(() =>
-    pageSuggestionsForPair.value.slice(
-      currentPageSuggestionsSliceIndex.value * maxSuggestionsPerSlice,
-      currentPageSuggestionsSliceIndex.value * (maxSuggestionsPerSlice + 1)
+  const currentSectionSuggestionsSlice = computed(() =>
+    store.getters["application/getSectionSuggestionsSliceByIndex"](
+      currentSectionSuggestionsSliceIndex.value
     )
   );
 
-  /** @type {ComputedRef<SectionSuggestion[]>} */
-  const currentSectionSuggestionsSlice = computed(() =>
-    getSectionSuggestionsSliceByIndex(currentSectionSuggestionsSliceIndex.value)
+  const currentPageSuggestionsSlice = computed(() =>
+    store.getters["application/getPageSuggestionsSliceByIndex"](
+      currentPageSuggestionsSliceIndex.value
+    )
   );
 
-  const seedArticleTitle = computed(() => {
-    if (
-      currentPageSuggestionsSliceIndex.value <
-      publishedTranslations.value.length
-    ) {
-      // Use one of the published translation's source title as seed title.
-      // The recommendation api will give articles similar to this title
-      // from source language to translate to target language.
-      return publishedTranslations.value[currentPageSuggestionsSliceIndex.value]
-        .sourceTitle;
-    }
-
-    return null;
-  });
-
-  /** @return {boolean} */
   const isCurrentSectionSuggestionsSliceFull = computed(
     () => currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice
   );
 
-  /** @return {number} */
-  const nextSectionSuggestionsSliceIndex = computed(
-    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSlices
+  const isCurrentPageSuggestionsSliceFull = computed(
+    () => currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice
   );
 
-  /**
-   * @param {number} sliceIndex
-   * @return {SectionSuggestion[]}
-   */
-  const getSectionSuggestionsSliceByIndex = sliceIndex =>
-    sectionSuggestionsForPair.value.slice(
-      maxSuggestionsPerSlice * sliceIndex,
-      maxSuggestionsPerSlice * (sliceIndex + 1)
-    );
-
-  /** @type {ComputedRef<boolean>} */
   const nextSectionSuggestionSliceFetched = computed(
     () =>
       isCurrentSectionSuggestionsSliceFull.value &&
-      getSectionSuggestionsSliceByIndex(nextSectionSuggestionsSliceIndex.value)
-        .length > 0
+      store.getters["application/getSectionSuggestionsSliceByIndex"](
+        nextPageSuggestionsSliceIndex.value
+      ).length > 0
+  );
+
+  const nextPageSuggestionSliceFetched = computed(
+    () =>
+      isCurrentPageSuggestionsSliceFull.value &&
+      store.getters["application/getPageSuggestionsSliceByIndex"](
+        nextPageSuggestionsSliceIndex.value
+      ).length > 0
   );
 
   /**
-   * Much like showMoreSuggestions method below, this method refreshes
-   * section suggestions slice. Basically that can be split in these scenarios:
-   * 1. Section suggestion slice is not full (less than 5 suggestions are displayed to the user
-   * In this case, refreshing suggestions will add enough suggestions to fill this suggestion slice
-   * 2. Section suggestion slice is full. In this case another whole section suggestion slice will be
-   * fetched (5 more suggestions)
-   * 3. Section suggestion slice is full and total number of suggestion slices is 4 (20 section suggestions
-   * have been fetched). In this case, no new suggestions are being fetched, instead first section
-   * suggestions slice is being shown. If user keeps refreshing, suggestion slice will continue to be updated
-   * but no new suggestions will be fetched, only already fetched suggestions will be displayed.
+   * This action refreshes section and page suggestions current slice.
+   *
+   * 1. If current page or section suggestion slice is not full (less than 3 suggestions are displayed to the user),
+   * this action will add enough suggestions to fill the suggestion slices.
+   * 2. If current suggestion slices are full, current suggestion slices will be replaced by new ones.
+   * 3. If maximum slices limit has been reached, the same suggestions are being shown starting from the beginning.
    */
-  const showMoreSectionSuggestions = () => {
+  const onSuggestionRefresh = () => {
     // If next slice has not been fetched yet, and max slices not reached, fetch it now
-    if (!nextSectionSuggestionSliceFetched.value) {
-      store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
-    }
+    fetchNextSectionSuggestionSlice();
+    fetchNextPageSuggestionSlice();
+  };
 
-    if (isCurrentSectionSuggestionsSliceFull.value) {
-      currentSectionSuggestionsSliceIndex.value =
-        nextSectionSuggestionsSliceIndex.value;
+  const fetchNextSectionSuggestionSlice = () => {
+    if (!nextSectionSuggestionSliceFetched.value) {
+      store.dispatch("suggestions/fetchNextSectionSuggestionsSlice", {
+        nextIndex: nextSectionSuggestionsSliceIndex.value
+      });
+      isCurrentSectionSuggestionsSliceFull.value &&
+        increaseCurrentSectionSuggestionsSliceIndex();
     }
   };
 
-  const showMoreSuggestions = maxSuggestionsPerSlice => {
-    // 1. Get X(=24) suggestions using the sourceTitle of the I(=0)th most
-    //    recent published translation
-    // 2. Keep showing those suggestions 3 at a time
-    // 3. Once we run out of suggestions, load X more suggestions
-    //    using the sourceTitle of the I++th most recent published translation.
-    //    This will append to what pageSuggestionsForPair (and pageSuggestionsForPairSubset) returns.
-    // 4. Repeat until we have gone over all published translations
-    // 5. Since no seed is available, once all suggestions are shown,
-    //    go to first set of suggestions based on first seed we used.
-    if (
-      maxSuggestionsPerSlice * (currentPageSuggestionsSliceIndex.value + 1) >=
-      pageSuggestionsForPair.value.length
-    ) {
-      // Start over
-      currentPageSuggestionsSliceIndex.value = 0;
-    } else {
-      currentPageSuggestionsSliceIndex.value++;
-
-      // There is a seed article, So fetch suggestions based on that.
-      // But it will be appended to the list of suggestions.
-      // So, refreshing does not mean fetching suggestions from next
-      // seed article. These suggestions will appear after the previous
-      // suggestions are shown.
-      if (seedArticleTitle.value) {
-        store.dispatch("suggestions/fetchPageSuggestions", {
-          sourceLanguage: sourceLanguage.value,
-          targetLanguage: targetLanguage.value,
-          seed: seedArticleTitle.value
-        });
-      }
+  const fetchNextPageSuggestionSlice = () => {
+    if (!nextPageSuggestionSliceFetched.value) {
+      store.dispatch("suggestions/fetchNextPageSuggestionsSlice", {
+        nextIndex: nextPageSuggestionsSliceIndex.value
+      });
+      isCurrentPageSuggestionsSliceFull.value &&
+        increaseCurrentPageSuggestionsSliceIndex();
     }
   };
 
   /**
-   * @param {SectionSuggestion} suggestionToDiscard
-   * @return {Promise<void>}
+   * @param {SectionSuggestion} suggestion
    */
-  const discardSuggestion = async suggestionToDiscard => {
-    store.commit("suggestions/removeSectionSuggestion", suggestionToDiscard);
-
-    if (!nextSectionSuggestionSliceFetched.value) {
-      await store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
-    }
+  const discardSectionSuggestion = suggestion => {
+    context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
+    store.commit("application/discardSectionSuggestion", suggestion);
+    fetchNextSectionSuggestionSlice();
   };
 
+  /**
+   * @param {SectionSuggestion} suggestion
+   */
+  const discardPageSuggestion = suggestion => {
+    context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
+    store.commit("application/discardPageSuggestion", suggestion);
+    fetchNextPageSuggestionSlice();
+  };
+
+  /**
+   * Current suggestions slice index belongs to [0, state.maxSuggestionsSlices - 1] range.
+   * That is because user can get at most "maxSuggestionsSlices" suggestion pages. After
+   * that limit has been reached, same suggestions are being displayed starting from the
+   * first ones again.
+   *
+   * @return {number}
+   */
+  const increaseCurrentSectionSuggestionsSliceIndex = () =>
+    (currentSectionSuggestionsSliceIndex.value =
+      (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
+
+  /**
+   * Current suggestions slice index belongs to [0, state.maxSuggestionsSlices - 1] range.
+   * That is because user can get at most "maxSuggestionsSlices" suggestion pages. After
+   * that limit has been reached, same suggestions are being displayed starting from the
+   * first ones again.
+   *
+   * @return {number}
+   */
+  const increaseCurrentPageSuggestionsSliceIndex = () =>
+    (currentPageSuggestionsSliceIndex.value =
+      (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
+
   return {
+    currentPageSuggestionsSlice,
     currentSectionSuggestionsSlice,
-    discardSuggestion,
-    pageSuggestionsForPair,
-    pageSuggestionsForPairSubset,
-    showMoreSectionSuggestions,
-    showMoreSuggestions
+    discardPageSuggestion,
+    discardSectionSuggestion,
+    onSuggestionRefresh,
+    pageSuggestionsLoading,
+    sectionSuggestionsLoading,
+    showRefreshButton
   };
 };
 

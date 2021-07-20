@@ -113,9 +113,11 @@ export default {
     }
     state.publishTarget = target;
   },
+
   setTranslationInProgress: (state, value) => {
     state.translationInProgress = value;
   },
+
   setCXServerToken: (state, token) => {
     state.cxServerToken = token;
   }

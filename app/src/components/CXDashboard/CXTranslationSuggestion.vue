@@ -25,7 +25,11 @@
             {{ page && page.description }}
           </p>
         </mw-col>
-        <mw-col class="cx-suggestion__missing-sections" shrink>
+        <mw-col
+          v-if="isSectionSuggestion"
+          class="cx-suggestion__missing-sections"
+          shrink
+        >
           <small
             v-i18n:cx-sx-translation-suggestion-info="[missingSectionsCount]"
           />
@@ -34,7 +38,6 @@
     </div>
     <div class="col-1">
       <mw-icon
-        v-if="!$incompleteVersion"
         :icon="mwIconClose"
         size="24"
         class="mb-4"
@@ -77,6 +80,7 @@ export default {
         this.suggestion.sourceTitle
       );
     },
+    isSectionSuggestion: vm => vm.suggestion instanceof SectionSuggestion,
     missingSectionsCount: vm => vm.suggestion?.missingSectionsCount
   }
 };

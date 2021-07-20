@@ -14,16 +14,18 @@
         @target-language-selected="updateTargetLanguage"
       />
     </mw-card>
-    <mw-card v-if="!$incompleteVersion" class="pa-0 mb-0">
+    <mw-card class="pa-0 mb-0">
       <div class="cx-translation-list__division">
         <h5 v-i18n:cx-suggestion-list-new-pages-division class="ma-0 pa-4" />
       </div>
-      <mw-spinner v-if="!pageSuggestionsLoaded" />
       <cx-translation-suggestion
-        v-for="(suggestion, index) in pageSuggestionsForPairSubset"
-        :key="`suggestion-${index}`"
+        v-for="(suggestion, index) in currentPageSuggestionsSlice"
+        :key="`page-suggestion-${index}`"
         :suggestion="suggestion"
+        @close="discardPageSuggestion(suggestion)"
+        @click.native="startPageTranslation(suggestion)"
       />
+      <mw-spinner v-if="pageSuggestionsLoading" />
     </mw-card>
     <mw-card class="cx-translation-list--sx-suggestions pa-0 mb-0">
       <div class="cx-translation-list__division">
@@ -31,7 +33,7 @@
       </div>
       <cx-translation-suggestion
         v-for="(suggestion, index) in currentSectionSuggestionsSlice"
-        :key="`suggestion-${index}`"
+        :key="`section-suggestion-${index}`"
         class="ma-0"
         :suggestion="suggestion"
         @close="discardSectionSuggestion(suggestion)"
@@ -60,10 +62,8 @@ import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import { computed, watch, ref } from "@vue/composition-api";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
-import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "CxSuggestionList",
@@ -83,71 +83,16 @@ export default {
   setup(props, context) {
     const store = context.root.$store;
 
-    const sectionSuggestionsLoading = computed(
-      () => store.state.suggestions.sectionSuggestionsLoadingCount > 0
-    );
-    const pageSuggestionsLoaded = ref(false);
-
-    const showRefreshButton = computed(() =>
-      context.root.$incompleteVersion
-        ? !sectionSuggestionsLoading.value
-        : !pageSuggestionsLoaded.value
-    );
-
-    const {
-      sourceLanguage: selectedSourceLanguage,
-      targetLanguage: selectedTargetLanguage
-    } = useApplicationState();
-
     const {
       availableSourceLanguages,
       availableTargetLanguages
     } = useSuggestionListLanguages();
 
-    const {
-      currentSectionSuggestionsSlice,
-      discardSuggestion,
-      pageSuggestionsForPair,
-      pageSuggestionsForPairSubset,
-      showMoreSectionSuggestions,
-      showMoreSuggestions
-    } = useSuggestions(store);
-
-    const onSuggestionRefresh = () => {
-      context.root.$incompleteVersion
-        ? showMoreSectionSuggestions()
-        : showMoreSuggestions();
-    };
-
-    watch(pageSuggestionsForPair, () => {
-      if (context.root.$incompleteVersion) {
-        return;
-      }
-
-      pageSuggestionsLoaded.value = true;
-    });
-
-    const updatePageSuggestions = () => {
-      if (context.root.$incompleteVersion) {
-        return;
-      }
-      store.dispatch("suggestions/fetchPageSuggestions", {
-        sourceLanguage: selectedSourceLanguage.value,
-        targetLanguage: selectedTargetLanguage.value
-      });
-      pageSuggestionsLoaded.value = false;
-    };
-
-    watch(selectedSourceLanguage, updatePageSuggestions);
-    watch(selectedTargetLanguage, updatePageSuggestions);
-
-    const updateSourceLanguage = sourceLanguage => {
+    const updateSourceLanguage = sourceLanguage =>
       store.dispatch("application/updateSourceLanguage", sourceLanguage);
-    };
 
-    const updateTargetLanguage = targetLanguage => {
+    const updateTargetLanguage = targetLanguage =>
       store.dispatch("application/updateTargetLanguage", targetLanguage);
-    };
 
     /**
      * @param {SectionSuggestion} suggestion
@@ -160,26 +105,34 @@ export default {
       });
     };
 
-    /**
-     * @param {SectionSuggestion} suggestion
-     */
-    const discardSectionSuggestion = suggestion => {
-      context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
-      discardSuggestion(suggestion);
-    };
+    const startPageTranslation = suggestion =>
+      store.dispatch("application/startSectionTranslation", suggestion);
+
+    const {
+      currentPageSuggestionsSlice,
+      currentSectionSuggestionsSlice,
+      discardPageSuggestion,
+      discardSectionSuggestion,
+      onSuggestionRefresh,
+      pageSuggestionsLoading,
+      sectionSuggestionsLoading,
+      showRefreshButton
+    } = useSuggestions(store);
 
     return {
       availableSourceLanguages,
       availableTargetLanguages,
+      currentPageSuggestionsSlice,
       currentSectionSuggestionsSlice,
+      discardPageSuggestion,
       discardSectionSuggestion,
       mwIconRefresh,
       onSuggestionRefresh,
-      pageSuggestionsForPairSubset,
-      pageSuggestionsLoaded,
+      pageSuggestionsLoading,
       sectionSuggestionsLoading,
       showRefreshButton,
       startSectionTranslation,
+      startPageTranslation,
       updateSourceLanguage,
       updateTargetLanguage
     };
