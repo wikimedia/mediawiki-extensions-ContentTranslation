@@ -397,5 +397,7 @@
 	"cx-sx-language-selector-no-search-results": "Brak wyników",
 	"sx-translation-list-language-selector-dialog-title": "Języki",
 	"cx-sx-article-search-header": "Nowe tłumaczenie",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Więcej sekcji",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Przetłumacz sekcję",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sekcja"
 }
