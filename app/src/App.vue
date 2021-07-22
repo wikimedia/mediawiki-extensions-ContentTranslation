@@ -71,4 +71,9 @@ body {
   overflow-y: auto;
   z-index: 1;
 }
+
+// mw.ui.* resets specific for this app
+.mw-ui-icon:before {
+  display: none;
+}
 </style>
