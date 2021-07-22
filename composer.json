@@ -11,7 +11,7 @@
 	"authors": [],
 	"support": {
 		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-contenttranslation/",
-		"irc": "irc://irc.freenode.net/mediawiki-i18n",
+		"irc": "irc://irc.libera.chat/mediawiki-i18n",
 		"wiki": "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
 		"forum": "https://www.mediawiki.org/wiki/Extension_talk:ContentTranslation"
 	},
