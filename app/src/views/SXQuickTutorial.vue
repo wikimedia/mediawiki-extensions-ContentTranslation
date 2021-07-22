@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import SxQuickTutorial from "@/components/SXQuickTutorial";
 
 export default {
