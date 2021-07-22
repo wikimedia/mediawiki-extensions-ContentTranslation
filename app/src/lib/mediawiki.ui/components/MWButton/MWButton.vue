@@ -111,7 +111,6 @@ export default {
     classes: vm => ({
       "mw-ui-button--depressed": vm.depressed || vm.outlined,
       "mw-ui-button--disabled": vm.disabled,
-      "mw-ui-button--fab": vm.fab,
       "mw-ui-button--large": vm.large,
       "mw-ui-button--progressive": vm.progressive,
       "mw-ui-button--destructive": vm.destructive,
