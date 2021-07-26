@@ -250,7 +250,7 @@
 	"cx-linkcontextitem-missing-title-description": "Trang này chưa tồn tại",
 	"cx-mt-abuse-publish-error": "Không thể đăng bản dịch của bạn vì nó chứa quá nhiều văn bản chưa được biên tập.",
 	"cx-auto-failed": "Dịch tự động thất bại",
-	"cx-mt-failed": "Dịch máy thất bại",
+	"cx-mt-failed": "Dịch tự động thất bại",
 	"cx-unreviewed-translation-category": "Trang có bản dịch chưa được xem lại",
 	"cx-feature-discovery-dismiss": "Hiểu rồi",
 	"cx-suggestionlist-expand-sections-title": "Mở rộng đoạn mới",

@@ -6,6 +6,7 @@
 			"Base",
 			"Bunyk",
 			"Ckromnaya",
+			"DDPAT",
 			"Dars",
 			"Green Zero",
 			"Liuxinyu970226",
@@ -392,5 +393,14 @@
 	"sx-translation-list-language-selector-dialog-title": "Мови",
 	"cx-sx-article-search-header": "Новий переклад",
 	"cx-sx-article-search-no-suggestions-message": "Подумайте про будь-яку тему, яка може вас зацікавити. Вам не треба бути експертом, щоб зробити чудовий переклад.",
-	"cx-sx-article-search-no-search-results-message": "Для запиту «$1» мовою «$2» сторінок не знайдено"
+	"cx-sx-article-search-no-search-results-message": "Для запиту «$1» мовою «$2» сторінок не знайдено",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Розгорніть $1 або перевірте наявні розділи",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Розгорніть розділ $1",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Немає розділів. Перевірте існуючі.",
+	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Немає розділів, доступних для перекладу. Почніть новий переклад, щоб замінити існуючу сторінку.",
+	"cx-sx-translation-confirmer-action-view-section": "Переглянути розділ для перекладу",
+	"cx-sx-translation-confirmer-action-new-translation": "Новий переклад",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Більше розділів",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Перекласти розділ",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Розділ"
 }
