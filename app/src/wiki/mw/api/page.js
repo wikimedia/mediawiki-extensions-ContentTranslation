@@ -26,7 +26,6 @@ const fetchPages = (language, titles) => {
     piprop: "thumbnail|name|original",
     pithumbsize: defaultThumbnailSize,
     titles: titles.join("|"),
-    lllimit: 500, // Max limit
     origin: "*",
     redirects: true
   };

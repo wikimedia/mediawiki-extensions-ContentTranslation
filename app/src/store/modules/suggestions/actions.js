@@ -4,23 +4,29 @@ import SectionSuggestionSeedCollection from "../../../wiki/cx/models/sectionSugg
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 
 async function fetchPageSuggestions(
-  { commit, dispatch },
+  { commit, dispatch, state },
   { sourceLanguage, targetLanguage, seed }
 ) {
   /** @type {ArticleSuggestion[]} */
   const suggestions = await cxSuggestionsApi.fetchSuggestions(
     sourceLanguage,
     targetLanguage,
-    seed
+    seed,
+    state.maxSuggestionsPerSlice
   );
+
   suggestions.forEach(suggestion => commit("addPageSuggestion", suggestion));
   const titles = suggestions.map(suggestion => suggestion.sourceTitle);
-  titles.length &&
-    dispatch(
-      "mediawiki/fetchPageMetadata",
-      { language: sourceLanguage, titles },
-      { root: true }
-    );
+
+  if (!titles.length) {
+    return;
+  }
+
+  dispatch(
+    "mediawiki/fetchPageMetadata",
+    { language: sourceLanguage, titles },
+    { root: true }
+  );
 }
 
 /**
