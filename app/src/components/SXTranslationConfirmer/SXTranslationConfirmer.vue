@@ -33,7 +33,7 @@
     <mw-row justify="center" class="sx-translation-confirmer__license ma-0">
       <p class="ma-3">
         <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
-        <small v-i18n-html-safe:cx-license-agreement />
+        <small v-i18n-html:cx-license-agreement />
       </p>
     </mw-row>
   </section>

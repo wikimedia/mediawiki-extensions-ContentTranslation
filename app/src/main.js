@@ -7,7 +7,6 @@ import router from "./router";
 import VueCompositionAPI from "@vue/composition-api";
 import i18n from "vue-banana-i18n";
 import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
-import i18nDirective from "./directives/i18n.safe";
 import EventLoggingPlugin from "./plugins/eventlogging";
 Vue.use(BreakpointsPlugin);
 Vue.use(ColorsPlugin);

@@ -15,7 +15,7 @@
             />
             <p
               v-else
-              v-i18n-html-safe:cx-sx-sentence-selector-translated-segment-modification-percentage="[
+              v-i18n-html:cx-sx-sentence-selector-translated-segment-modification-percentage="[
                 mtScore
               ]"
               :class="modificationPercentageClass"

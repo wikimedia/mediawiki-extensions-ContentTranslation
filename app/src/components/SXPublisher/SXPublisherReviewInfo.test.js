@@ -1,7 +1,6 @@
 import SXPublisherReviewInfo from "./SXPublisherReviewInfo";
 import { mount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
-import i18nDirective from "../../directives/i18n.safe";
 import VueBananaI18n from "vue-banana-i18n";
 
 import PublishResult from "@/wiki/cx/models/publishResult";
