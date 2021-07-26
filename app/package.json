@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20210715",
+  "version": "0.1.0+20210726",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -14,7 +14,7 @@
     "test:bundle": "bash ./scripts/check_bundle.sh"
   },
   "dependencies": {
-    "@wikimedia/language-data": "1.0.2",
+    "@wikimedia/language-data": "1.0.3",
     "vue": "^2.6.14",
     "vue-banana-i18n": "^1.4.0",
     "vue-router": "^3.5.2",
@@ -67,7 +67,7 @@
     },
     {
       "path": "dist/js/cx.libs.js",
-      "maxSize": "68.00KB"
+      "maxSize": "69.00KB"
     },
     {
       "path": "dist/js/cx.ui.js",
