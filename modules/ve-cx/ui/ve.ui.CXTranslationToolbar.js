@@ -22,13 +22,6 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
 
-	this.setAsDefault = new OO.ui.ButtonWidget( {
-		framed: false,
-		classes: [ 've-cx-toolbar-mt-setdefault' ],
-		label: mw.msg( 'cx-tools-mt-set-default' ),
-		icon: 'pushPin'
-	} ).connect( this, { click: 'onSetAsDefault' } );
-
 	this.noMTServices = new OO.ui.LabelWidget( {
 		classes: [ 've-cx-toolbar-mt-noservices' ],
 		label: mw.message( 'cx-tools-mt-noservices' ).parseDom()
@@ -37,13 +30,11 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 
 	this.$element
 		.addClass( 've-cx-toolbar-mt' )
-		.prepend( $title, this.noMTServices.$element )
-		.append( this.setAsDefault.$element );
+		.prepend( $title, this.noMTServices.$element );
 
 	// Hide initially, because there is no selection initially
 	this.$element.toggle( false );
-	// Only show this when user has changed selection
-	this.setAsDefault.toggle( false );
+
 };
 
 /* Inheritance */
@@ -108,10 +99,6 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			// TODO: How to handle case that stored provider is no longer valid?
 			source = section.getOriginalContentSource() || defaultProvider;
 			this.setActive( this.getName() === source );
-			// Hits localstorage, so caching might be needed if this gets too expensive.
-			this.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
-				this.toolbar.setAsDefault.toggle( source !== preferredProvider );
-			}.bind( this ) );
 		};
 
 		ve.ui[ toolClassName ].prototype.setIsPreferred = function ( toggle ) {
@@ -187,7 +174,6 @@ ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
 ve.ui.CXTranslationToolbar.prototype.onGroupDisable = function ( disabled ) {
 	// If the toolgroup is disabled, hide the toolbar
 	this.$element.toggle( !disabled );
-	this.setAsDefault.toggle( !disabled );
 };
 
 /**
@@ -201,29 +187,4 @@ ve.ui.CXTranslationToolbar.prototype.getCommands = function () {
 	// list of commands for the surface
 	// TODO: Fix it in ve.ui.Surface#getCommands
 	return this.getSurface().commandRegistry.getNames();
-};
-
-/**
- * Save the currently selected provider as the preferred provider for new sections.
- */
-ve.ui.CXTranslationToolbar.prototype.onSetAsDefault = function () {
-	// There should ever be only 0..1 active tools
-	this.toolGroup.getItems().forEach( function ( tool ) {
-		if ( tool.isActive() ) {
-			this.MTManager.setPreferredProvider( tool.getName() );
-		}
-
-		if ( tool.setIsPreferred ) {
-			tool.setIsPreferred( tool.isActive() );
-		}
-	}, this );
-
-	this.setAsDefault.toggle( false );
-	this.$element.addClass( 've-cx-toolbar-mt--highlight' );
-	setTimeout(
-		function () {
-			this.$element.removeClass( 've-cx-toolbar-mt--highlight' );
-		}.bind( this ),
-		2000 // Leave time for animation to complete.
-	);
 };

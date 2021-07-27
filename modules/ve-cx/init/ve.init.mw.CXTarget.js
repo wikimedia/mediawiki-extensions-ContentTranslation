@@ -57,6 +57,7 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// complex dialog to reset these classes, since complex dialogs can be nested. See T193587
 	this.complexDialogOpened = false;
 	this.contextStack = [];
+	this.mtToolbar = null;
 
 	this.$element
 		.addClass( 've-init-mw-cxTarget' )
@@ -137,6 +138,12 @@ ve.init.mw.CXTarget.static.translationToolbarGroups = [
 		name: 'cx-mt',
 		type: 'menu',
 		include: [ { group: 'mt' } ]
+	},
+	{
+		name: 'cx-mt-set-default',
+		type: 'bar',
+		invisibleLabel: false,
+		include: [ 'save-mt-preference' ]
 	}
 ];
 
@@ -577,6 +584,7 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 		mtToolbar.setup( this.constructor.static.translationToolbarGroups, this.targetSurface );
 		this.translationView.toolsColumn.mtToolbarContainer.$element.append( mtToolbar.$element );
 		mtToolbar.initialize();
+		this.mtToolbar = mtToolbar;
 	}.bind( this ) );
 };
 

@@ -33,7 +33,7 @@ ve.ui.CXTranslationAction.static.name = 'translation';
  * @static
  * @property
  */
-ve.ui.CXTranslationAction.static.methods = [ 'translate' ];
+ve.ui.CXTranslationAction.static.methods = [ 'translate', 'savePreference' ];
 
 /* Methods */
 
@@ -82,6 +82,43 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 			mw.notify( mw.msg( 'cx-mt-failed' ) );
 			this.surface.getModel().emit( 'contextChange' );
 		}.bind( this ) );
+};
+
+/**
+ * Save the currently selected provider as the preferred provider for new sections.
+ *
+ * @return {boolean} False if action is cancelled.
+ */
+ve.ui.CXTranslationAction.prototype.savePreference = function () {
+	var section, toolName, currentMTProvider,
+		mtManager = ve.init.target.config.MTManager,
+		mtToolbar = ve.init.target.mtToolbar,
+		mtProviderTools = {},
+		selection = this.surface.getModel().getSelection();
+
+	if ( !( selection instanceof ve.dm.LinearSelection ) ) {
+		return false;
+	}
+
+	section = mw.cx.getParentSectionForSelection( this.surface, selection );
+
+	if ( !section ) {
+		mw.log.error( '[CX] Could not find a CX Section as parent for the context.' );
+		return false;
+	}
+
+	currentMTProvider = section.getOriginalContentSource();
+	mtManager.setPreferredProvider( currentMTProvider );
+
+	// Fix up the default provider indicator in the MT menu.
+	mtProviderTools = mtToolbar.getToolGroupByName( 'cx-mt' ).tools;
+	for ( toolName in mtProviderTools ) {
+		if ( mtProviderTools[ toolName ].setIsPreferred ) {
+			mtProviderTools[ toolName ].setIsPreferred( toolName === currentMTProvider );
+		}
+	}
+	// Toggle the tool
+	mtToolbar.getToolGroupByName( 'cx-mt-set-default' ).tools[ 'save-mt-preference' ].toggle();
 };
 
 /* Registration */
