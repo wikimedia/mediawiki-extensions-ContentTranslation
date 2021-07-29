@@ -11,7 +11,7 @@
 	},
 	"cx": "Səhifəni tərcümə et",
 	"cx-dashboard-header": "Tərcümələr",
-	"cx-javascript": "Bu alət JavaScript olmadan işləmir.",
+	"cx-javascript": "Bu alət JavaScript olmadan işləmir. JavaScript söndürülüb, işləyə bilmir və ya bu brauzer onu dəstəkləmir.",
 	"cx-error-server-connection": "Səhv: Serverə qoşulmaq mümkün olmadı.",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Tərcümə}} $1% icra edilib",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|maşın tərcüməsi}})",

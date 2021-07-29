@@ -413,5 +413,8 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "No hay secciones faltantes. Comprueba las ya existentes.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "No hay secciones disponibles para traducir. Comienza una traducción nueva para reemplazar la página ya existente.",
 	"cx-sx-translation-confirmer-action-view-section": "Ver sección para traducir",
-	"cx-sx-translation-confirmer-action-new-translation": "Traducción nueva"
+	"cx-sx-translation-confirmer-action-new-translation": "Traducción nueva",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Más secciones",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Traducir sección",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Sección"
 }
