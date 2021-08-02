@@ -78,7 +78,8 @@ export const mwIconNotice = {
   path: "M10 0a10 10 0 1010 10A10 10 0 0010 0zm1 16H9v-2h2zm0-4H9V4h2z"
 };
 export const mwIconCheck = {
-  path: "M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z"
+  path: "M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z",
+  flippable: false
 };
 export const mwIconError = {
   path:
