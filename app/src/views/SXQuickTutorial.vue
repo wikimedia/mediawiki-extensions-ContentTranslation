@@ -27,6 +27,5 @@ export default {
 
 .sx-quick-tutorial-view {
   background-color: @background-color-base;
-  display: flex;
 }
 </style>
