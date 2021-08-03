@@ -84,15 +84,24 @@ function initializeSectionTranslation({ commit, dispatch, state }, suggestion) {
   commit("setCurrentSectionSuggestion", suggestion);
 }
 
+/**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {object} context.state
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {string} newSourceLanguage
+ * @return {Promise<void>}
+ */
 async function updateSourceLanguage(
   { commit, state, getters, dispatch },
-  sourceLanguage
+  newSourceLanguage
 ) {
-  commit("setSourceLanguage", sourceLanguage);
-
-  if (sourceLanguage === state.targetLanguage) {
-    commit("setTargetLanguage", null);
+  // If newly selected source language is same as target language, swap languages
+  if (newSourceLanguage === state.targetLanguage) {
+    commit("setTargetLanguage", state.sourceLanguage);
   }
+  commit("setSourceLanguage", newSourceLanguage);
 
   // If translation has not started yet, re-fetch suggestions
   if (!state.currentSectionSuggestion) {
@@ -105,7 +114,7 @@ async function updateSourceLanguage(
     sourceLanguage
   );
   let suggestion = new SectionSuggestion({
-    sourceLanguage,
+    sourceLanguage: state.sourceLanguage,
     targetLanguage: state.targetLanguage,
     sourceTitle,
     missing: {}
@@ -122,11 +131,25 @@ async function updateSourceLanguage(
   dispatch("initializeSectionTranslation", suggestion);
 }
 
+/**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {object} context.state
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {string} newTargetLanguage
+ * @return {Promise<void>}
+ */
 async function updateTargetLanguage(
   { commit, state, getters, dispatch },
-  targetLanguage
+  newTargetLanguage
 ) {
-  commit("setTargetLanguage", targetLanguage);
+  // If newly selected target language is same as source language, swap languages
+  if (newTargetLanguage === state.sourceLanguage) {
+    commit("setSourceLanguage", state.targetLanguage);
+  }
+
+  commit("setTargetLanguage", newTargetLanguage);
 
   // If translation has not started yet, re-fetch suggestions
   if (!state.currentSectionSuggestion) {
@@ -137,7 +160,7 @@ async function updateTargetLanguage(
 
   let suggestion = new SectionSuggestion({
     sourceLanguage: state.sourceLanguage,
-    targetLanguage,
+    targetLanguage: state.targetLanguage,
     sourceTitle: state.currentSectionSuggestion.sourceTitle,
     missing: {}
   });

@@ -8,7 +8,7 @@
         />
       </template>
       <sx-translation-list-language-selector
-        :source-languages="availableSourceLanguages"
+        :source-languages="supportedLanguageCodes"
         :target-languages="availableTargetLanguages"
         @source-language-selected="updateSourceLanguage"
         @target-language-selected="updateTargetLanguage"
@@ -84,7 +84,7 @@ export default {
     const store = context.root.$store;
 
     const {
-      availableSourceLanguages,
+      supportedLanguageCodes,
       availableTargetLanguages
     } = useSuggestionListLanguages();
 
@@ -120,7 +120,6 @@ export default {
     } = useSuggestions(store);
 
     return {
-      availableSourceLanguages,
       availableTargetLanguages,
       currentPageSuggestionsSlice,
       currentSectionSuggestionsSlice,
@@ -133,6 +132,7 @@ export default {
       showRefreshButton,
       startSectionTranslation,
       startPageTranslation,
+      supportedLanguageCodes,
       updateSourceLanguage,
       updateTargetLanguage
     };

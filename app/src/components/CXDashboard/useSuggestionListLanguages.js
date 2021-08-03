@@ -1,20 +1,8 @@
 import { computed } from "@vue/composition-api";
-import useApplicationState from "@/composables/useApplicationState";
 import useMediawikiState from "@/composables/useMediawikiState";
 
 export default () => {
-  const {
-    sourceLanguage: selectedSourceLanguage,
-    targetLanguage: selectedTargetLanguage
-  } = useApplicationState();
-
   const { supportedLanguageCodes } = useMediawikiState();
-
-  const availableSourceLanguages = computed(() => {
-    return supportedLanguageCodes.value.filter(
-      languageCode => languageCode !== selectedTargetLanguage.value
-    );
-  });
 
   const availableTargetLanguages = computed(() => {
     // If SectionTranslationTargetLanguage configuration parameter is set,
@@ -23,17 +11,12 @@ export default () => {
     const mwTargetLanguage = mw.config.get(
       "wgSectionTranslationTargetLanguage"
     );
-    const supportedCodes = mwTargetLanguage
-      ? [mwTargetLanguage]
-      : supportedLanguageCodes.value;
 
-    return supportedCodes.filter(
-      languageCode => languageCode !== selectedSourceLanguage.value
-    );
+    return mwTargetLanguage ? [mwTargetLanguage] : supportedLanguageCodes.value;
   });
 
   return {
-    availableSourceLanguages,
+    supportedLanguageCodes,
     availableTargetLanguages
   };
 };

@@ -30,9 +30,7 @@ export default {
     // titles are provided in the following format: { lang: "en", title: "Animal" }
     // so title.lang contains language code
     availableSourceLanguages: vm =>
-      vm.currentLanguageTitleGroup?.titles
-        .filter(title => title.lang !== vm.targetLanguage)
-        .map(title => title.lang) || [],
+      vm.currentLanguageTitleGroup?.titles.map(title => title.lang) || [],
 
     /**
      * If SectionTranslationTargetLanguage configuration parameter is set,
@@ -44,13 +42,8 @@ export default {
       const mwTargetLanguage = mw.config.get(
         "wgSectionTranslationTargetLanguage"
       );
-      const supportedCodes = mwTargetLanguage
-        ? [mwTargetLanguage]
-        : vm.supportedLanguageCodes;
 
-      return supportedCodes.filter(
-        languageCode => languageCode !== vm.sourceLanguage
-      );
+      return mwTargetLanguage ? [mwTargetLanguage] : vm.supportedLanguageCodes;
     }
   },
   methods: {
