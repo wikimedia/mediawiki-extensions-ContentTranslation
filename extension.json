@@ -262,6 +262,12 @@
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
+		},
+		"ContentTranslationMFLanguageSearchEntrypointTargetLanguages": {
+			"description": "Enable these Target languages for language search entrypoints in Mobilefrontend. Wiki for these languages should have CX with mobile support.",
+			"value": [
+				"bn"
+			]
 		}
 	},
 	"ResourceModules": {
@@ -941,6 +947,28 @@
 		"ext.cx.entrypoints.newarticle.veloader": {
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
+			]
+		},
+		"ext.cx.entrypoints.languagesearcher.init": {
+			"targets": [
+				"mobile"
+			],
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.languagesearcher.init.js"
+			]
+		},
+		"ext.cx.entrypoints.languagesearcher": {
+			"targets": [
+				"mobile"
+			],
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.languagesearcher.js"
+			],
+			"dependencies": [
+				"jquery.uls.data"
+			],
+			"messages": [
+				"cx-campaign-mflanguagesearcher-invite"
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {

@@ -139,7 +139,8 @@ class Hooks {
 	 * @param Skin $skin
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
-		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
+		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns,
+			$wgContentTranslationMFLanguageSearchEntrypointTargetLanguages;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -196,6 +197,12 @@ class Hooks {
 		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
 			// A translation was initialized based on a campaign. Show the feature discovery
 			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
+		}
+
+		if ( !empty( $wgContentTranslationMFLanguageSearchEntrypointTargetLanguages ) ) {
+			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
+			$out->addJsConfigVars( 'wgContentTranslationMFLanguageSearchEntrypointTargetLanguages',
+				$wgContentTranslationMFLanguageSearchEntrypointTargetLanguages );
 		}
 	}
 

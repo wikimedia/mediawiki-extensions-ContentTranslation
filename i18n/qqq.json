@@ -416,5 +416,6 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Heading of the prefilled section banner inside \"Confirm Translation\" screen, visible when a section has been preselected for translation through URL parameters",
 	"sx-editor-feedback-overlay-title": "Title of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation\n\n{{identical|Thanks}}",
 	"sx-editor-feedback-overlay-clarification": "Clarification of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation",
-	"sx-editor-feedback-overlay-stats": "The modification percentage message of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation"
+	"sx-editor-feedback-overlay-stats": "The modification percentage message of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation",
+	"cx-campaign-mflanguagesearcher-invite": "Message shown in language selector when no language is found for search and when it is possible to create article in that language by translation."
 }
