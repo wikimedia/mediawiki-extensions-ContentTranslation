@@ -182,7 +182,7 @@ To hide a column in a given breakpoint use the class format col-hidden-breakpoin
 
 The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, the column will be hidden.
 
-## Gird Components
+## Grid Components
 
 Apart from css helper classes, we have three Vue components to build the layout.
 
@@ -356,7 +356,7 @@ export const PaddingMarginTemplate = (args, { argTypes }) => ({
       <mw-row style="background-color:orange;">
         <mw-col
           :class="paddingClass + ' ' + marginClass" style="width:100%; background-color:yellowgreen;"
-          v-for="n in 3"
+          v-for="n in 2"
           :key="n"
         >
           <code

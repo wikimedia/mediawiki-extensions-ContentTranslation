@@ -1,19 +1,21 @@
 // Generate LTR and RTL style for a given property and value. Replaces 'left' by 'right' and vice versa
 @mixin bidi($property, $value) {
-  #{$property}: unquote($value);
   $flipped-property-l2r: replace($property, "left", "right");
   $flipped-property: if(
-                  $flipped-property-l2r==$property,
-                  replace($property, "right", "left"),
-                  $flipped-property-l2r
+    $flipped-property-l2r==$property,
+    replace($property, "right", "left"),
+    $flipped-property-l2r
   );
   $flipped-value-l2r: replace($value, "left", "right");
   $flipped-value: if(
-                  $flipped-value-l2r==$value,
-                  replace($value, "right", "left"),
-                  $flipped-value-l2r
+    $flipped-value-l2r==$value,
+    replace($value, "right", "left"),
+    $flipped-value-l2r
   );
-
+  // Specificity of ltr and rtl styles should be same.
+  [dir="ltr"] & {
+    #{$property}: unquote($value);
+  }
   [dir="rtl"] & {
     #{$flipped-property}: unquote($flipped-value);
   }
