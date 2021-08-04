@@ -4,6 +4,7 @@
 			"Amire80",
 			"Mavrikant",
 			"NMW03",
+			"Serkanland",
 			"Toghrul Rahimli",
 			"Vesely35",
 			"Wertuose"
@@ -38,6 +39,7 @@
 	"echo-pref-tooltip-cx": "Məzmun tərcüməsi aləti ilə yaradılmış məqalələrim haqqında mənə bildiriş göndər.",
 	"cx-notification-hundredth-translation": "100 tərcümə etdiniz! Bu əlamətdar bir nailiyyətdir. Bunu digər redaktorlarla paylaşın.",
 	"cx-contributions-link": "Töhfələriniz",
+	"cx-preference-enable-entrypoints": "Töhfələr səhifəsindən, dil siyahısından və yeni səhifə yaradıcısından [[$1|tərcüməyə başla]].",
 	"cx-sx-language-selector-dialog-title": "Dil axtarın",
 	"cx-sx-section-selector-empty-missing-sections-title": "Tərcümə üçün bölüm tapılmadı",
 	"cx-sx-section-selector-empty-missing-sections-desc": "Başqa səhifə və ya fərqli dillərlə cəhd edin",
