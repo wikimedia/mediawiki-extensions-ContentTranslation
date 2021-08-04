@@ -54,7 +54,8 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 		$from = $params['from'];
 		$to = $params['to'];
-		if ( $from === $to ) {
+
+		if ( !empty( $from ) && $from === $to ) {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
 		$translator = new Translator( $user );
@@ -89,27 +90,23 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				$translator->getGlobalUserId()
 			);
 
-			// Get non-personalized suggestions
-			$publicSuggestions = $manager->getPublicSuggestions(
-				$from,
-				$to,
-				$params['limit'],
-				$params['offset'],
-				$params['seed']
-			);
+			$data = $personalizedSuggestions;
 
-			// Merge the personal lists to public lists. There won't be duplicates
-			// because the list of lists is an associative array with listId as a key.
-			$data = [
-				'lists' => array_merge(
-					$personalizedSuggestions['lists'],
-					$publicSuggestions['lists']
-				),
-				'suggestions' => array_merge(
-					$personalizedSuggestions['suggestions'],
-					$publicSuggestions['suggestions']
-				),
-			];
+			if ( !empty( $from ) && !empty( $to ) ) {
+				// Get non-personalized suggestions
+				$publicSuggestions = $manager->getPublicSuggestions(
+					$from,
+					$to,
+					$params['limit'],
+					$params['offset'],
+					$params['seed']
+				);
+				// Merge the personal lists to public lists. There won't be duplicates
+				// because the list of lists is an associative array with listId as a key.
+				$data['lists'] = array_merge( $data['lists'], $publicSuggestions['lists'] );
+				$data['suggestions'] = array_merge( $data['suggestions'], $publicSuggestions['suggestions'] );
+
+			}
 		}
 
 		$lists = [];
@@ -249,11 +246,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$allowedParams = [
 			'from' => [
 				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
+				ApiBase::PARAM_REQUIRED => false,
 			],
 			'to' => [
 				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => true,
+				ApiBase::PARAM_REQUIRED => false,
 			],
 			'listid' => [
 				ApiBase::PARAM_TYPE => 'string',
