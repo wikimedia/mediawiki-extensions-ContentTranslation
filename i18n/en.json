@@ -402,5 +402,6 @@
 	"sx-editor-feedback-overlay-title": "Thanks!",
 	"sx-editor-feedback-overlay-clarification": "Learning from your corrections",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> edited by you",
-	"cx-campaign-mflanguagesearcher-invite": "You can translate this page. It’s an easy way to create content in your language."
+	"cx-campaign-mflanguagesearcher-invite": "You can translate this page. It’s an easy way to create content in your language.",
+	"cx-suggestion-list-favorites-division": "For later"
 }

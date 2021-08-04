@@ -555,7 +555,8 @@
 				"cx-sx-translation-confirmer-prefilled-section-heading",
 				"sx-editor-feedback-overlay-title",
 				"sx-editor-feedback-overlay-clarification",
-				"sx-editor-feedback-overlay-stats"
+				"sx-editor-feedback-overlay-stats",
+				"cx-suggestion-list-favorites-division"
 			],
 			"noflip": true
 		},

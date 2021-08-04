@@ -64,11 +64,15 @@ async function initializeDashboardContext({ dispatch, state, getters }) {
     return;
   }
 
+  await dispatch("suggestions/fetchFavorites", {}, { root: true });
   await dispatch("translator/fetchTranslations", {}, { root: true });
   dispatch("suggestions/initializeSuggestions", {}, { root: true });
 }
 
 /**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
  * @param {SectionSuggestion} suggestion
  */
 function startSectionTranslation({ commit, dispatch }, suggestion) {
@@ -76,7 +80,25 @@ function startSectionTranslation({ commit, dispatch }, suggestion) {
   router.push({ name: "sx-translation-confirmer" });
 }
 
+async function startFavoriteSectionTranslation({ commit, dispatch }, favorite) {
+  const suggestion = await dispatch(
+    "suggestions/loadSectionSuggestion",
+    {
+      sourceLanguage: favorite.sourceLanguage,
+      targetLanguage: favorite.targetLanguage,
+      sourceTitle: favorite.title
+    },
+    { root: true }
+  );
+  dispatch("initializeSectionTranslation", suggestion);
+  router.push({ name: "sx-translation-confirmer" });
+}
+
 /**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.state
  * @param {SectionSuggestion} suggestion
  */
 function initializeSectionTranslation({ commit, dispatch, state }, suggestion) {
@@ -636,6 +658,7 @@ export default {
   setCurrentSectionSuggestion,
   setPublishResult,
   setTranslationURLParams,
+  startFavoriteSectionTranslation,
   startSectionTranslation,
   translateFollowingSentence,
   translateSectionTitle,

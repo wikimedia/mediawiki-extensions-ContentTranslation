@@ -85,5 +85,25 @@ export default {
   },
   addAppendixSectionTitlesForLanguage(state, { language, titles }) {
     state.appendixSectionTitles[language] = titles;
+  },
+  /**
+   * @param {object} state
+   * @param {FavoriteSuggestion} favoriteSuggestion
+   */
+  addFavoriteSuggestion(state, favoriteSuggestion) {
+    state.favorites.push(favoriteSuggestion);
+  },
+  /**
+   * @param {object} state
+   * @param {FavoriteSuggestion} favoriteSuggestion
+   */
+  removeFavoriteSuggestion(state, favoriteSuggestion) {
+    const { title, sourceLanguage, targetLanguage } = favoriteSuggestion;
+    state.favorites = state.favorites.filter(
+      favorite =>
+        favorite.title !== title ||
+        favorite.sourceLanguage !== sourceLanguage ||
+        favorite.targetLanguage !== targetLanguage
+    );
   }
 };

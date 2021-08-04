@@ -1,6 +1,8 @@
 import { computed, ref } from "@vue/composition-api";
 
-const useSuggestions = store => {
+const useSuggestions = contextRoot => {
+  const store = contextRoot.$store;
+
   const sectionSuggestionsLoading = computed(
     () => store.state.suggestions.sectionSuggestionsLoadingCount > 0
   );
@@ -115,8 +117,8 @@ const useSuggestions = store => {
    * @param {SectionSuggestion} suggestion
    */
   const discardSectionSuggestion = suggestion => {
-    context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
-    store.commit("application/discardSectionSuggestion", suggestion);
+    contextRoot.$logEvent({ event_type: "dashboard_discard_suggestion" });
+    store.commit("suggestions/removeSectionSuggestion", suggestion);
     fetchNextSectionSuggestionSlice();
   };
 
@@ -124,8 +126,8 @@ const useSuggestions = store => {
    * @param {SectionSuggestion} suggestion
    */
   const discardPageSuggestion = suggestion => {
-    context.root.$logEvent({ event_type: "dashboard_discard_suggestion" });
-    store.commit("application/discardPageSuggestion", suggestion);
+    contextRoot.$logEvent({ event_type: "dashboard_discard_suggestion" });
+    store.commit("suggestions/removePageSuggestion", suggestion);
     fetchNextPageSuggestionSlice();
   };
 

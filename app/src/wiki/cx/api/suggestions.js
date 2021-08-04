@@ -2,6 +2,7 @@ import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 import { en } from "../../../utils/appendix/appendixTitles.json";
+import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 const appendixSectionTitlesInEnglish = en;
 
 /**
@@ -166,9 +167,83 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
     .catch(error => []);
 }
 
+/**
+ *
+ * @param {SectionSuggestion|ArticleSuggestion} suggestion
+ * @return {Promise}
+ */
+const markFavorite = suggestion => {
+  const params = {
+    assert: "user",
+    action: "cxsuggestionlist",
+    listname: "cx-suggestionlist-favorite",
+    listaction: "add",
+    titles: suggestion.sourceTitle,
+    from: suggestion.sourceLanguage,
+    to: suggestion.targetLanguage
+  };
+
+  const api = new mw.Api();
+
+  return Promise.resolve(api.postWithToken("csrf", params)).catch(error => {
+    mw.log.error("Error while marking suggestion as favorite", error);
+  });
+};
+
+/**
+ * Unmark a suggestion as favorite.
+ *
+ * @param  {FavoriteSuggestion} suggestion
+ * @return {Promise}
+ */
+const unmarkFavorite = suggestion => {
+  const params = {
+    assert: "user",
+    action: "cxsuggestionlist",
+    listname: "cx-suggestionlist-favorite",
+    listaction: "remove",
+    titles: suggestion.title,
+    from: suggestion.sourceLanguage,
+    to: suggestion.targetLanguage
+  };
+
+  const api = new mw.Api();
+
+  return Promise.resolve(api.postWithToken("csrf", params)).catch(error => {
+    mw.log.error("Error while unmarking favorite suggestion", error);
+  });
+};
+
+/**
+ * @return {Promise<FavoriteSuggestion[]>}
+ */
+const fetchFavorites = () => {
+  const params = {
+    assert: "user",
+    action: "query",
+    list: "contenttranslationsuggestions"
+  };
+
+  const api = new mw.Api();
+
+  return Promise.resolve(api.postWithToken("csrf", params))
+    .then(response => {
+      const lists = response.query.contenttranslationsuggestions.lists || {};
+      const suggestions = Object.values(lists)?.[0]?.suggestions || [];
+
+      return suggestions.map(favorite => new FavoriteSuggestion(favorite));
+    })
+    .catch(error => {
+      mw.log.error("Error while fetching favorite suggestions", error);
+    });
+};
+
 export default {
+  fetchFavorites,
   fetchPageSuggestions,
   fetchSectionSuggestions,
   fetchSuggestionSeeds,
-  fetchAppendixTargetSectionTitles
+  fetchAppendixTargetSectionTitles,
+  markFavorite,
+  unmarkFavorite
 };

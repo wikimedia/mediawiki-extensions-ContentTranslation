@@ -4,7 +4,8 @@ export default {
   pageSuggestions: [],
   /** @type SectionSuggestion[] */
   sectionSuggestions: [],
-  favorites: {},
+  /** @type FavoriteSuggestion[] */
+  favorites: [],
   /**
    * Counter that indicates how many section suggestion fetching
    * requests are currently in progress
