@@ -342,5 +342,6 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Нет разделов, доступных для перевода. Начните новый перевод, чтобы заменить существующую страницу.",
 	"cx-sx-translation-confirmer-action-view-section": "Просмотреть раздел для перевода",
 	"cx-sx-translation-confirmer-action-new-translation": "Новый перевод",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Раздел"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Раздел",
+	"sx-editor-feedback-overlay-title": "Спасибо!"
 }

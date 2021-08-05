@@ -396,5 +396,8 @@
 	"cx-sx-translation-confirmer-action-new-translation": "תרגום חדש",
 	"cx-sx-translation-confirmer-more-sections-button-label": "פרקים נוספים",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "תרגום פרק",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "פרק"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "פרק",
+	"sx-editor-feedback-overlay-title": "תודה!",
+	"sx-editor-feedback-overlay-clarification": "לימוד מהתיקונים שלך",
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> של תוכן {{PLURAL:$1|נערך|נערכו}} {{GENDER:|על־ידיך|על־ידייך}}"
 }

@@ -386,5 +386,8 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Нов превод",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Повеќе поднаслови",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Преведи поднаслов",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Поднаслов"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Поднаслов",
+	"sx-editor-feedback-overlay-title": "Благодариме!",
+	"sx-editor-feedback-overlay-clarification": "Да научиме од вашите исправки",
+	"sx-editor-feedback-overlay-stats": "<span>$1 %</span> уредено од вас"
 }
