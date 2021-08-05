@@ -125,6 +125,8 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
 
 ve.init.mw.CXTarget.static.name = 'cx';
 
+ve.init.mw.CXTarget.static.integrationType = 'contenttranslation';
+
 ve.init.mw.CXTarget.static.actionGroups = [
 	// Publish settings
 	{
