@@ -382,5 +382,8 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Traduziona nove",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Cchiù seziune",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Traduce 'a sezione",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Sezione"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Sezione",
+	"sx-editor-feedback-overlay-title": "Grazie!",
+	"sx-editor-feedback-overlay-clarification": "'Mbare de le correzziune tune",
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> cangiate da te"
 }

@@ -188,7 +188,7 @@
 	"echo-pref-tooltip-cx": "Notificar me sur mi traductiones create con le instrumento Content Translation.",
 	"cx-notification-first-translation": "Felicitationes pro tu prime traduction! Examina tu contributiones e cerca altere paginas a traducer.",
 	"cx-notification-tenth-translation": "Felicitationes pro tu decime traduction! Tu deveni jam un traductor experte. Continua assi!",
-	"cx-notification-hundredth-translation": "Tu ha justo facite 100 traductiones! Es un prestation remarcabile. Divide le nova con altere redactores.",
+	"cx-notification-hundredth-translation": "Tu ha justo ora facite 100 traductiones! Es un prestation remarcabile. Condivide le nova con altere redactores.",
 	"cx-notification-deleted-draft": "Tu traduction de <strong>$1</strong> ha essite discartate perque su contento es obsolete durante plus de un anno. Tu pote a omne momento recomenciar un nove traduction a base de contento actual.",
 	"cx-notification-deleted-draft-bundle": "$1 traduction{{PLURAL:$1||es}} ha essite discartate perque {{PLURAL:$1|su|lor}} contento es obsolete durante plus de un anno. Tu pote a omne momento recomenciar lo{{PLURAL:$1||s}} a base de contento actual.",
 	"cx-notification-continue-translation": "Tu ha comenciate a traducer <strong>$1</strong> qualque menses retro. Considera publicar lo ante que illo es automaticamente discartate post un anno.",

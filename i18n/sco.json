@@ -3,6 +3,7 @@
 		"authors": [
 			"AmaryllisGardener",
 			"John Reid",
+			"MinecraftAustralia",
 			"Prevodim"
 		]
 	},
@@ -37,5 +38,6 @@
 	"cx-contributions-translation-tooltip": "Translate exeestin pages",
 	"cx-contributions-upload-tooltip": "Uplaid picturs, audio an video tae uise in pages",
 	"cx-stats-cumulative-tab-title": "Tot",
-	"cx-contributions-link": "Yer contreibutions"
+	"cx-contributions-link": "Yer contreibutions",
+	"sx-editor-feedback-overlay-title": "Thank ye!"
 }
