@@ -17,6 +17,7 @@ use EditPage;
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\User\UserIdentity;
 use OutputPage;
 use RequestContext;
 use ResourceLoader;
@@ -371,20 +372,25 @@ class Hooks {
 	}
 
 	/**
-	 * Hook: User::UserSaveOptions
-	 * @param User $user
-	 * @param array &$saveOptions
+	 * Hook: User::SaveUserOptions
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
+	 *
+	 * @param UserIdentity $user
+	 * @param array &$modifiedOptions
+	 * @param array $originalOptions
 	 * @return true
 	 */
-	public static function onSaveOptions( $user, &$saveOptions ) {
+	public static function onSaveOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
 		$out = RequestContext::getMain()->getOutput();
 
-		if ( !isset( $saveOptions['cx'] ) || $saveOptions['cx'] !== 1 ) {
+		$mergedOptions = array_merge( $originalOptions, $modifiedOptions );
+
+		if ( !isset( $mergedOptions['cx'] ) || $mergedOptions['cx'] !== 1 ) {
 			// Not using ContentTranslation; bail.
 			return true;
 		}
 
-		if ( isset( $saveOptions['cx-know'] ) ) {
+		if ( isset( $mergedOptions['cx-know'] ) ) {
 			// The auto-open contribution menu has already been shown; bail.
 			return true;
 		}
@@ -401,7 +407,7 @@ class Hooks {
 			'ext.cx.betafeature.init',
 			'ext.cx.entrypoints.contributionsmenu',
 		] );
-		$saveOptions['cx-know'] = true;
+		$modifiedOptions['cx-know'] = true;
 
 		return true;
 	}

@@ -68,7 +68,7 @@
 		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
 		"ListDefinedTags": "ContentTranslation\\Hooks::registerTags",
 		"ChangeTagsListActive": "ContentTranslation\\Hooks::registerTags",
-		"UserSaveOptions": "ContentTranslation\\Hooks::onSaveOptions",
+		"SaveUserOptions": "ContentTranslation\\Hooks::onSaveOptions",
 		"EditPage::showEditForm:initial": "ContentTranslation\\Hooks::newArticleCampaign",
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
