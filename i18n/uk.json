@@ -402,5 +402,8 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Новий переклад",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Більше розділів",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Перекласти розділ",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Розділ"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Розділ",
+	"sx-editor-feedback-overlay-title": "Дякуємо!",
+	"sx-editor-feedback-overlay-clarification": "Навчання з ваших виправлень",
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> відредаговано вами"
 }

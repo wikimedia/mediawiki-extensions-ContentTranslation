@@ -10,6 +10,7 @@
 			"Dongzn",
 			"EagerLin",
 			"Hello903hello",
+			"Impartial just",
 			"Kly",
 			"LNDDYL",
 			"Liuxinyu970226",
@@ -373,5 +374,6 @@
 	"cx-sx-published-section-confirmation-header": "新章節已添加",
 	"cx-sx-published-section-confirmation-content": "您的翻譯已發布。請考慮編輯進一步內容，或是添加別的章節。",
 	"cx-sx-published-section-invitation-title": "翻譯別的章節",
-	"cx-sx-published-section-invitation-missing-sections-info": "「$1」{{PLURAL:$2|和 $2 個以上章節缺少|0=缺少}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "「$1」{{PLURAL:$2|和 $2 個以上章節缺少|0=缺少}}",
+	"sx-editor-feedback-overlay-title": "感謝！"
 }
