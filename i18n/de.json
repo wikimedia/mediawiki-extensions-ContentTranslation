@@ -399,5 +399,6 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Abschnitt",
 	"sx-editor-feedback-overlay-title": "Vielen Dank!",
 	"sx-editor-feedback-overlay-clarification": "Von deinen Korrekturen lernen",
-	"sx-editor-feedback-overlay-stats": "<span>$1 %</span> von dir bearbeitet"
+	"sx-editor-feedback-overlay-stats": "<span>$1 %</span> von dir bearbeitet",
+	"cx-campaign-mflanguagesearcher-invite": "Du kannst diese Seite übersetzen. Das ist ein einfacher Weg, um Inhalte in deiner Sprache zu erstellen."
 }
