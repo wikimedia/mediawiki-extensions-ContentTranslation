@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
+
 class Translator {
 
 	/**
@@ -14,7 +16,9 @@ class Translator {
 	}
 
 	public function getGlobalUserId() {
-		$lookup = \CentralIdLookup::factory();
+		$lookup = MediaWikiServices::getInstance()
+			->getCentralIdLookupFactory()
+			->getLookup();
 		$id = $lookup->centralIdFromLocalUser( $this->user, \CentralIdLookup::AUDIENCE_RAW );
 		if ( $id === 0 ) {
 			throw new \Exception( 'User account is not global' );

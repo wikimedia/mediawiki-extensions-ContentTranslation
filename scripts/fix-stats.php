@@ -164,7 +164,9 @@ class CxFixStats extends Maintenance {
 			} elseif ( $title->isRedirect() ) {
 				$this->output( "\\- E22 Page is a redirect\n" );
 			} else {
-				$centralIdLookup = CentralIdLookup::factory();
+				$centralIdLookup = MediaWikiServices::getInstance()
+					->getCentralIdLookupFactory()
+					->getLookup();
 				$userName = $centralIdLookup->nameFromCentralId(
 					$row->translation_started_by,
 					CentralIdLookup::AUDIENCE_RAW
