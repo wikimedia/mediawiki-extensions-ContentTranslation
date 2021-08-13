@@ -433,5 +433,6 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Section",
 	"sx-editor-feedback-overlay-title": "Merci !",
 	"sx-editor-feedback-overlay-clarification": "Apprendre de vos collections",
-	"sx-editor-feedback-overlay-stats": "<span>$1%</span> modifié par vous"
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> modifié par vous",
+	"cx-campaign-mflanguagesearcher-invite": "Vous pouvez traduire cette page. C’est une manière facile de créer du contenu dans votre langue."
 }

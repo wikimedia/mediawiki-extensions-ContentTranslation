@@ -399,5 +399,6 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "פרק",
 	"sx-editor-feedback-overlay-title": "תודה!",
 	"sx-editor-feedback-overlay-clarification": "לימוד מהתיקונים שלך",
-	"sx-editor-feedback-overlay-stats": "<span>$1%</span> של תוכן {{PLURAL:$1|נערך|נערכו}} {{GENDER:|על־ידיך|על־ידייך}}"
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> של תוכן {{PLURAL:$1|נערך|נערכו}} {{GENDER:|על־ידיך|על־ידייך}}",
+	"cx-campaign-mflanguagesearcher-invite": "{{GENDER:|אתה יכול|את יכולה}} לתרגם את הדף הזה. זאת דרך קלה ליצור תוכן בשפה שלך."
 }
