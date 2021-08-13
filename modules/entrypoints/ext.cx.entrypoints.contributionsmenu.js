@@ -43,6 +43,11 @@
 		var $myContributions, $myTranslations, $myUploads,
 			useCallout = !isUserMenuDropdown();
 
+		// Make sure we attach this menu only once
+		if ( document.querySelector( 'li.cx-campaign-uploads' ) ) {
+			return;
+		}
+
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
 			.append(
