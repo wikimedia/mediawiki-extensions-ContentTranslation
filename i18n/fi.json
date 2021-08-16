@@ -356,5 +356,7 @@
 	"cx-sx-article-search-header": "Uusi käännös",
 	"cx-sx-translation-confirmer-action-new-translation": "Uusi käännös",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Lisää osioita",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Osio"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Osio",
+	"sx-editor-feedback-overlay-title": "Kiitos!",
+	"cx-campaign-mflanguagesearcher-invite": "Voit kääntää tämän sivun. Se on helppo tapa luoda sisältöä omalla kielelläsi."
 }

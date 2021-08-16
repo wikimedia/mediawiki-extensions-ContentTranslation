@@ -64,5 +64,6 @@
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-translation-list-all-languages-option-label": "Omni",
 	"cx-sx-content-comparator-translation-section-button-label": "Tradukar ca segmento",
-	"cx-sx-content-comparator-source-selector-title": "Seciono en $1"
+	"cx-sx-content-comparator-source-selector-title": "Seciono en $1",
+	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo."
 }

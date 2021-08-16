@@ -389,5 +389,12 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Nuk mungojnë seksionet. Kontrolloni ato ekzistuese.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Nuk ka seksione në dispozicion për t'u përkthyer. Filloni një përkthim të ri për të zëvendësuar faqen ekzistuese.",
 	"cx-sx-translation-confirmer-action-view-section": "Shikoni seksionin për të përkthyer",
-	"cx-sx-translation-confirmer-action-new-translation": "Përkthim i ri"
+	"cx-sx-translation-confirmer-action-new-translation": "Përkthim i ri",
+	"cx-sx-translation-confirmer-more-sections-button-label": "Më shumë seksione",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Përktheni seksionin",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Seksion",
+	"sx-editor-feedback-overlay-title": "Falëminderitǃ",
+	"sx-editor-feedback-overlay-clarification": "Po mësoni nga korregjimet",
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span>redaktuar prej jush",
+	"cx-campaign-mflanguagesearcher-invite": "Mund ta përktheni këtë faqe. Është e lehtë ta krijoni përmbajtjen në gjuhën tuaj."
 }
