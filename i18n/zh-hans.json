@@ -34,6 +34,7 @@
 			"Xiaomingyan",
 			"Xiplus",
 			"Yfdyh000",
+			"Zhang8569",
 			"Петар Петковић",
 			"予弦",
 			"佛壁灯",
@@ -416,5 +417,8 @@
 	"cx-sx-article-search-no-search-results-message": "在$2中找不到与“$1”相关的页面",
 	"cx-sx-translation-confirmer-more-sections-button-label": "更多章节",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "翻译章节",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "章节"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "章节",
+	"sx-editor-feedback-overlay-clarification": "从你的更正中学习",
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由你编辑",
+	"cx-campaign-mflanguagesearcher-invite": "你可以翻译此页面。这是一个简单的方式来在你自己的语言中创造内容。"
 }
