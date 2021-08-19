@@ -397,5 +397,6 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "هیچ بخشی برای ترجمه موجود نیست. برای جایگزینی صفحهٔ موجود، ترجمه‌ای تازه را آغاز کنید.",
 	"cx-sx-translation-confirmer-action-view-section": "مشاهدهٔ بخث برای ترجمه",
 	"cx-sx-translation-confirmer-action-new-translation": "ترجمهٔ تازه",
-	"sx-editor-feedback-overlay-title": "ممنون!"
+	"sx-editor-feedback-overlay-title": "ممنون!",
+	"sx-editor-feedback-overlay-stats": "<span>$1٪</span> توسط شما ویرایش شده‌است"
 }
