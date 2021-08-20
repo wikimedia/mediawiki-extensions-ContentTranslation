@@ -21,6 +21,7 @@
 			"Mpiva",
 			"Nemo bis",
 			"Nivit",
+			"Noretta93",
 			"Pierpao",
 			"Ricordisamoa",
 			"Rodney Araujo",
@@ -301,5 +302,6 @@
 	"cx-sx-article-search-no-search-results-message": "Nessuna pagina trovata per \"$1\" in $2",
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Nessuna sezione mancante. Controlla quelle esistenti.",
 	"cx-sx-translation-confirmer-action-view-section": "Visualizza la sezione da tradurre",
-	"cx-sx-translation-confirmer-action-new-translation": "Nuova traduzione"
+	"cx-sx-translation-confirmer-action-new-translation": "Nuova traduzione",
+	"cx-campaign-mflanguagesearcher-invite": "Puoi tradurre questa pagina. È un modo facile per creare contenuti nella tua lingua."
 }
