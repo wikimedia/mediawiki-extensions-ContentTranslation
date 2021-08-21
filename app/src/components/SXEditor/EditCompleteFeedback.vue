@@ -14,7 +14,7 @@
         class="sx-editor__feedback-overlay-content__clarification mb-1"
       />
       <p
-        v-i18n-html-safe:sx-editor-feedback-overlay-stats="[mtScore]"
+        v-i18n-html:sx-editor-feedback-overlay-stats="[mtScore]"
         class="sx-editor__feedback-overlay-content__stats"
         :class="modificationPercentageClass"
       />
