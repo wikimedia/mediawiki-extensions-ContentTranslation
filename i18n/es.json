@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"-sasha-",
 			"Agent",
 			"AlimanRuna",
 			"Amire80",
@@ -193,7 +194,7 @@
 	"cx-campaign-try": "Prueba la traducción de contenidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuciones",
 	"cx-campaign-contributionsmenu-mytranslations": "Traducciones",
-	"cx-campaign-contributionsmenu-myuploads": "Multimedia subida",
+	"cx-campaign-contributionsmenu-myuploads": "Archivos subidos",
 	"cx-no-source-categories": "No hay categorías",
 	"cx-no-target-categories": "No hay categorías. Considera añadir algunas para clasificar mejor el tema.",
 	"cx-no-adapted-categories": "Las categorías originales no existen en este idioma. Explora más categorías para clasificar mejor el tema.",
