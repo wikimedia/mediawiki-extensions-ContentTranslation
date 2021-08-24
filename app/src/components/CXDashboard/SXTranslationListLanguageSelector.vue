@@ -21,7 +21,9 @@
         v-if="sourceLanguageSelectOn"
         animation="slide-up"
         :title="$i18n('sx-translation-list-language-selector-dialog-title')"
-        fullscreen
+        :fullscreen="fullscreen"
+        :header="fullscreen"
+        :overlay-opacity="0"
         @close="onSourceLanguageDialogClose"
       >
         <mw-language-selector
@@ -56,7 +58,9 @@
       <mw-dialog
         v-if="targetLanguageSelectOn"
         animation="slide-up"
-        :fullscreen="true"
+        :fullscreen="fullscreen"
+        :header="fullscreen"
+        :overlay-opacity="0"
         :title="$i18n('sx-translation-list-language-selector-dialog-title')"
         @close="onTargetLanguageDialogClose"
       >
@@ -110,7 +114,10 @@ export default {
     ...mapState({
       selectedSourceLanguage: state => state.application.sourceLanguage,
       selectedTargetLanguage: state => state.application.targetLanguage
-    })
+    }),
+    fullscreen() {
+      return this.$mwui.breakpoint.mdAndDown;
+    }
   },
   methods: {
     getAutonym,
@@ -152,6 +159,20 @@ export default {
       button {
         padding: 0;
       }
+    }
+  }
+
+  // Custom styling to avoid the dialog jumping across the screen as
+  // search is performced. Dialog get resized depending on the number
+  // of results. But that should not cause its position change.
+  .mw-ui-dialog.mw-ui-dialog--dialog {
+    .mw-ui-dialog__shell {
+      position: absolute;
+      top: 10vh;
+      left: 25vw;
+      min-width: 50vw;
+      min-height: 50vh;
+      max-height: 75vh;
     }
   }
 }

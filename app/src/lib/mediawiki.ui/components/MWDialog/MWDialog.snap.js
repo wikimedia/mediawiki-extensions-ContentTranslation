@@ -6,7 +6,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
 >
   <div
     aria-modal="true"
-    class="mw-ui-dialog"
+    class="mw-ui-dialog mw-ui-dialog--dialog"
     role="dialog"
     tabindex="0"
   >

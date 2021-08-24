@@ -122,7 +122,8 @@ export default {
   }),
   computed: {
     classes: vm => ({
-      "mw-ui-dialog--fullscreen": vm.fullscreen
+      "mw-ui-dialog--fullscreen": vm.fullscreen,
+      "mw-ui-dialog--dialog": !vm.fullscreen
     }),
     overlayStyles() {
       return {

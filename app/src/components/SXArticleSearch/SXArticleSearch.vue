@@ -61,7 +61,9 @@
       v-if="sourceLanguageSelectOn"
       class="sx-article-search-language-selector"
       animation="slide-up"
-      :fullscreen="true"
+      :fullscreen="fullscreen"
+      :header="fullscreen"
+      :overlay-opacity="0"
       :title="$i18n('sx-article-search-language-selector-dialog-title')"
       @close="onSourceLanguageDialogClose"
     >
@@ -113,6 +115,7 @@ export default {
     const searchInputUsed = ref(false);
     const searchInputRef = ref(null);
     const sourceLanguageSelectOn = ref(false);
+
     /**
      * Previously used languages by user. These languages are set in local
      * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
@@ -278,6 +281,11 @@ export default {
       suggestedSourceLanguages,
       updateSelection
     };
+  },
+  computed: {
+    fullscreen() {
+      return this.$mwui.breakpoint.mdAndDown;
+    }
   }
 };
 </script>
@@ -306,12 +314,28 @@ export default {
     text-align: center;
     color: @color-base--subtle;
   }
-  &-language-selector.mw-ui-dialog.mw-ui-dialog--fullscreen {
+}
+.sx-article-search-language-selector {
+  &.mw-ui-dialog.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__header {
       margin: 12px 16px;
       button {
         padding: 0;
       }
+    }
+  }
+
+  // Custom styling to avoid the dialog jumping across the screen as
+  // search is performced. Dialog get resized depending on the number
+  // of results. But that should not cause its position change.
+  &.mw-ui-dialog.mw-ui-dialog--dialog {
+    .mw-ui-dialog__shell {
+      position: absolute;
+      top: 10vh;
+      left: 25vw;
+      min-width: 50vw;
+      min-height: 50vh;
+      max-height: 75vh;
     }
   }
 }
