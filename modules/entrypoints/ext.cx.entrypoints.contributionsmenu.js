@@ -68,7 +68,7 @@
 		$myUploads = $( '<li>' )
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
-				.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-logoWikimediaCommons' )
+				.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-imageGallery' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 				.append(
 					$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )

@@ -334,7 +334,7 @@
 			"class": "ResourceLoaderOOUIIconPackModule",
 			"variants": [],
 			"icons": [
-				"logoWikimediaCommons",
+				"imageGallery",
 				"language",
 				"userContributions"
 			]
