@@ -101,36 +101,12 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		if ( $notifyAgeInDays ) {
 			$remindersBefore = $this->getCutoffTime( $notifyAgeInDays );
 
-			// TEMPORARY BC CHECK: index might not exist yet
-			if ( $dbr->indexExists( 'cx_notification_log', 'cxn_wiki_id_newest' ) ) {
-				$after = $dbr->selectField(
-					'cx_notification_log',
-					'MAX(cxn_newest)',
-					[ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ],
-					__METHOD__
-				);
-
-				// TEMPORARY BC CODE: before the first run of the code with the new index, there
-				// may not be a wiki-specific value. Use the old global one.
-				if ( !$after ) {
-					$this->output( "Falling back to global previous notification timestamp (no value)\n" );
-					$after = $dbr->selectField(
-						'cx_notification_log',
-						'MAX(cxn_newest)',
-						[ 'cxn_wiki_id' => null ],
-						__METHOD__
-					);
-				}
-
-			} else {
-				$this->output( "Falling back to global previous notification timestamp (no index)\n" );
-				$after = $dbr->selectField(
-					'cx_notification_log',
-					'MAX(cxn_newest)',
-					[],
-					__METHOD__
-				);
-			}
+			$after = $dbr->selectField(
+				'cx_notification_log',
+				'MAX(cxn_newest)',
+				[ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ],
+				__METHOD__
+			);
 
 			if ( $after ) {
 				$remindersAfter = new DateTime( $after );
@@ -329,11 +305,6 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			'cxn_newest' => $lastDraft->translation_last_updated_timestamp,
 			'cxn_wiki_id' => WikiMap::getCurrentWikiId(),
 		];
-
-		// TEMPORARY BC CODE:
-		if ( !$dbw->indexExists( 'cx_notification_log', 'cxn_wiki_id_newest' ) ) {
-			unset( $values['cxn_wiki_id'] );
-		}
 
 		$dbw->insert( 'cx_notification_log', $values, __METHOD__ );
 	}
