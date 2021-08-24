@@ -36,7 +36,7 @@
           <li
             v-for="language in suggestions"
             :key="language"
-            class="language pa-1 ps-8"
+            class="language pa-2 ps-8 ma-0"
             :lang="language"
             :dir="getDir(language)"
             :aria-selected="language === selectedLanguage"
@@ -65,7 +65,7 @@
           <li
             v-for="language in chunk"
             :key="language"
-            class="language pa-1 ps-8"
+            class="language pa-2 ps-8 ma-0"
             :lang="language"
             :dir="getDir(language)"
             role="option"
@@ -334,6 +334,7 @@ export default {
     font-size: 1em;
     text-decoration: none;
     max-width: 160px;
+    cursor: pointer;
   }
 }
 </style>
