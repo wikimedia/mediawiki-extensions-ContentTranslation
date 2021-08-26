@@ -390,5 +390,6 @@
 	"sx-editor-feedback-overlay-title": "Благодариме!",
 	"sx-editor-feedback-overlay-clarification": "Да научиме од вашите исправки",
 	"sx-editor-feedback-overlay-stats": "<span>$1 %</span> уредено од вас",
-	"cx-campaign-mflanguagesearcher-invite": "Можете да ја преведете страницава. Ова е лесен начин да создавате содржини на вашиот јазик."
+	"cx-campaign-mflanguagesearcher-invite": "Можете да ја преведете страницава. Ова е лесен начин да создавате содржини на вашиот јазик.",
+	"cx-suggestion-list-favorites-division": "За подоцна"
 }

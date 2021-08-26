@@ -419,5 +419,7 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Bölüm",
 	"sx-editor-feedback-overlay-title": "Teşekkürler!",
 	"sx-editor-feedback-overlay-clarification": "Düzeltmelerinizden öğrenme",
-	"sx-editor-feedback-overlay-stats": "<span>$1%</span>, sizin tarafınızdan düzenlendi"
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span>, sizin tarafınızdan düzenlendi",
+	"cx-campaign-mflanguagesearcher-invite": "Bu sayfayı çevirebilirsiniz. Bu, kendi dilinizde içerik oluşturmanın kolay bir yoludur.",
+	"cx-suggestion-list-favorites-division": "Sonrası için"
 }
