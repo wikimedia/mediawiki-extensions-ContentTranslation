@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"NR Deblocked",
 			"Илья Драконов",
 			"ОйЛ"
 		]
@@ -25,5 +26,6 @@
 	"cx-trend-deletions": "поничьжєнꙑ прѣложєниꙗ",
 	"cx-stats-all-translations-title": "прѣложєниꙗ вьсѩ ѩꙁꙑкꙑ",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 прѣложєниѥ|$1 прѣложєниꙗ|$1 прѣложєнии}}",
-	"echo-category-title-cx": "прѣложєниꙗ"
+	"echo-category-title-cx": "прѣложєниꙗ",
+	"cx-suggestion-list-favorites-division": "​длѧ​ последꙋющего"
 }
