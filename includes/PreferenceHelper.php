@@ -12,6 +12,7 @@ use ExtensionRegistry;
 use GlobalPreferences\GlobalPreferencesFactory;
 use GlobalPreferences\Storage;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\User\UserIdentity;
 use RequestContext;
 use User;
 
@@ -93,11 +94,13 @@ class PreferenceHelper {
 	/**
 	 * If CX is not beta feature and user unchecked the preference
 	 * to avoid seeing entry points, disable all entrypoints
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
 	public static function isCXEntrypointDisabled( $user ) {
 		global $wgContentTranslationAsBetaFeature;
-		return !$wgContentTranslationAsBetaFeature && !$user->getBoolOption( 'cx-enable-entrypoints' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		return !$wgContentTranslationAsBetaFeature &&
+			!$userOptionsLookup->getBoolOption( $user, 'cx-enable-entrypoints' );
 	}
 }
