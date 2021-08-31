@@ -174,8 +174,10 @@ export default {
       searchInputRef.value.focus();
     });
 
+    const router = context.root.$router;
+
     const close = () => {
-      context.root.$router.push({ name: "dashboard" });
+      router.push({ name: "dashboard" });
     };
 
     const updateSelection = updatedLanguage => {
@@ -212,7 +214,9 @@ export default {
           sourceTitle: suggestedPage.title
         }
       );
-      store.dispatch("application/startSectionTranslation", suggestion);
+
+      store.dispatch("application/initializeSectionTranslation", suggestion);
+      router.push({ name: "sx-translation-confirmer" });
     };
 
     const startRecentlyEditedSectionTranslation = suggestedPage => {

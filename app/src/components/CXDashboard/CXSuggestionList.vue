@@ -113,19 +113,24 @@ export default {
     const updateTargetLanguage = targetLanguage =>
       store.dispatch("application/updateTargetLanguage", targetLanguage);
 
+    const router = context.root.$router;
+
     /**
      * @param {SectionSuggestion} suggestion
      */
     const startSectionTranslation = suggestion => {
-      store.dispatch("application/startSectionTranslation", suggestion);
+      store.dispatch("application/initializeSectionTranslation", suggestion);
+      router.push({ name: "sx-translation-confirmer" });
       contextRoot.$logEvent({
         event_type: "dashboard_translation_start",
         event_source: "suggestion_no_seed"
       });
     };
 
-    const startPageTranslation = suggestion =>
-      store.dispatch("application/startSectionTranslation", suggestion);
+    const startPageTranslation = suggestion => {
+      store.dispatch("application/initializeSectionTranslation", suggestion);
+      router.push({ name: "sx-translation-confirmer" });
+    };
 
     const {
       currentPageSuggestionsSlice,
@@ -156,8 +161,10 @@ export default {
     const unmarkFavoriteSectionSuggestion = async suggestion =>
       store.dispatch("suggestions/removeFavoriteSuggestion", suggestion);
 
-    const startFavoriteTranslation = suggestion =>
+    const startFavoriteTranslation = suggestion => {
       store.dispatch("application/startFavoriteSectionTranslation", suggestion);
+      router.push({ name: "sx-translation-confirmer" });
+    };
 
     return {
       availableTargetLanguages,

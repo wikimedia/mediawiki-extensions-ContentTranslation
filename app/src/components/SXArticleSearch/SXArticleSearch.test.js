@@ -123,7 +123,7 @@ describe("SXArticleSearch", () => {
     );
     expect(store.dispatch).toHaveBeenNthCalledWith(
       4,
-      "application/startSectionTranslation",
+      "application/initializeSectionTranslation",
       new SectionSuggestion({
         sourceLanguage,
         targetLanguage,

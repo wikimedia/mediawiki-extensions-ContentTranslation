@@ -117,12 +117,23 @@ export default {
       });
     });
 
-    const searchTranslation = () =>
-      context.root.$router.push({ name: "sx-article-search" });
+    const router = context.root.$router;
+    const searchTranslation = () => router.push({ name: "sx-article-search" });
 
     watch(active, () => window.scrollTo(0, 0));
 
-    context.root.$store.dispatch("application/initializeDashboardContext");
+    const initializeDashboard = async () => {
+      /** @type {SectionSuggestion|undefined} */
+      const suggestion = await context.root.$store.dispatch(
+        "application/initializeDashboardContext"
+      );
+
+      if (suggestion) {
+        router.push({ name: "sx-translation-confirmer" });
+      }
+    };
+
+    initializeDashboard();
 
     return {
       mwIconAdd,

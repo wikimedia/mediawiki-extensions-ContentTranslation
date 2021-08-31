@@ -61,10 +61,10 @@
 
 <script>
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
-import { computed } from "@vue/composition-api";
+import { computed, ref } from "@vue/composition-api";
 import { getAutonym } from "@wikimedia/language-data";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { siteMapper } from "@/utils/mediawikiHelper";
+import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
 import getActionInformationMessageArgs from "./getActionInformationMessageArgs";
 import getActionButtonLabel from "./getActionButtonLabel";
 
@@ -89,24 +89,40 @@ export default {
     );
 
     const urlParams = new URLSearchParams(location.search);
-    const preFilledSectionTitle = urlParams.get("section");
+    const preFilledSectionTitle = ref(urlParams.get("section"));
 
     const actionButtonLabel = computed(() => {
       return context.root.$i18n(
-        getActionButtonLabel(sectionSuggestion.value, !!preFilledSectionTitle)
+        getActionButtonLabel(
+          sectionSuggestion.value,
+          !!preFilledSectionTitle.value
+        )
       );
     });
 
     const onSectionSelectorClick = async () => {
-      if (!!preFilledSectionTitle) {
-        store.dispatch(
+      if (!!preFilledSectionTitle.value) {
+        const section = await store.dispatch(
           "application/selectPageSectionByTitle",
-          preFilledSectionTitle
+          preFilledSectionTitle.value
         );
-        router.push({
-          name: "sx-content-comparator",
-          params: { force: true }
-        });
+
+        if (section) {
+          router.push({
+            name: "sx-content-comparator",
+            params: { force: true }
+          });
+        } else {
+          preFilledSectionTitle.value = null;
+          const urlParams = new URLSearchParams(location.search);
+          urlParams.delete("section");
+
+          history.replaceState(
+            {},
+            document.title,
+            getUrl("Special:ContentTranslation", Object.fromEntries(urlParams))
+          );
+        }
       } else if (translationExists.value) {
         router.push({ name: "sx-section-selector" });
       } else {

@@ -1,5 +1,4 @@
 import Vue from "vue";
-import router from "../../../router";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
@@ -54,30 +53,24 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
   return state.cxServerToken?.jwt;
 };
 
-async function initializeDashboardContext({ dispatch, state, getters }) {
+/**
+ * @param {function} dispatch
+ * @return {Promise<SectionSuggestion>}
+ */
+async function initializeDashboardContext({ dispatch }) {
   dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
+  /** @type {SectionSuggestion} */
   const suggestion = await dispatch("loadSectionSuggestionFromUrl");
 
   if (suggestion) {
-    dispatch("startSectionTranslation", suggestion);
+    dispatch("initializeSectionTranslation", suggestion);
 
-    return;
+    return suggestion;
   }
 
   await dispatch("suggestions/fetchFavorites", {}, { root: true });
   await dispatch("translator/fetchTranslations", {}, { root: true });
   dispatch("suggestions/initializeSuggestions", {}, { root: true });
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {SectionSuggestion} suggestion
- */
-function startSectionTranslation({ commit, dispatch }, suggestion) {
-  dispatch("initializeSectionTranslation", suggestion);
-  router.push({ name: "sx-translation-confirmer" });
 }
 
 async function startFavoriteSectionTranslation({ commit, dispatch }, favorite) {
@@ -91,7 +84,6 @@ async function startFavoriteSectionTranslation({ commit, dispatch }, favorite) {
     { root: true }
   );
   dispatch("initializeSectionTranslation", suggestion);
-  router.push({ name: "sx-translation-confirmer" });
 }
 
 /**
@@ -306,7 +298,10 @@ async function selectPageSectionByTitle(
 
     section = page.getSectionByTitle(sectionTitle);
   }
+
   commit("setCurrentSourceSection", section);
+
+  return section;
 }
 
 /**
@@ -659,7 +654,6 @@ export default {
   setPublishResult,
   setTranslationURLParams,
   startFavoriteSectionTranslation,
-  startSectionTranslation,
   translateFollowingSentence,
   translateSectionTitle,
   translateSegmentForAllProviders,
