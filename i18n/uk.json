@@ -405,5 +405,7 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Розділ",
 	"sx-editor-feedback-overlay-title": "Дякуємо!",
 	"sx-editor-feedback-overlay-clarification": "Навчання з ваших виправлень",
-	"sx-editor-feedback-overlay-stats": "<span>$1%</span> відредаговано вами"
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> відредаговано вами",
+	"cx-campaign-mflanguagesearcher-invite": "Ви можете перекласти цю сторінку. Це простий спосіб створення вмісту вашою мовою.",
+	"cx-suggestion-list-favorites-division": "На потім"
 }
