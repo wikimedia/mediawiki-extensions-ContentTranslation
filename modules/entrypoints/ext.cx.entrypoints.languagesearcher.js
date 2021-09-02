@@ -41,7 +41,9 @@
 			actionsElement,
 			cxUrlParams = {
 				campaign: CAMPAIGN,
-				to: mw.config.get( 'wgContentLanguage' )
+				from: mw.config.get( 'wgContentLanguage' ),
+				page: mw.config.get( 'wgTitle' ),
+				sx: true
 			};
 
 		invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
