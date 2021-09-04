@@ -62,7 +62,7 @@ class SectionTranslationBeforePublishHandler implements SectionTranslationBefore
 		$updater->saveRevision( CommentStoreComment::newUnsavedComment( $editMessage ) );
 	}
 
-	protected function doAPIRequest( string $url ) : ?string {
+	protected function doAPIRequest( string $url ): ?string {
 		$response = $this->httpRequestFactory->create( $url, [], __METHOD__ );
 		$status = $response->execute();
 		if ( !$status->isOK() ) {
@@ -71,7 +71,7 @@ class SectionTranslationBeforePublishHandler implements SectionTranslationBefore
 		return $response->getContent();
 	}
 
-	public function getPageContent( string $title, string $language ) : ?string {
+	public function getPageContent( string $title, string $language ): ?string {
 		$baseUrl = SiteMapper::getApiURL( $language );
 		$query = [
 			'action' => 'query',

@@ -16,7 +16,7 @@ class SkinContentTranslation extends SkinMustache {
 	/**
 	 * @inheritDoc
 	 */
-	public function getTemplateData() : array {
+	public function getTemplateData(): array {
 		$config = $this->getConfig();
 
 		// is-vue parameter seems unused project-wide
@@ -34,7 +34,7 @@ class SkinContentTranslation extends SkinMustache {
 	/**
 	 * @return array of portlet data for navigation
 	 */
-	private function getNavigationTemplateData() : array {
+	private function getNavigationTemplateData(): array {
 		$personalToolsUrls = $this->buildPersonalUrls();
 
 		// Extract some of the items to a separate list.
