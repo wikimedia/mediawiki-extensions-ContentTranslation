@@ -1481,7 +1481,13 @@
 		"ve.init.mw.CXTarget": {
 			"scripts": [
 				"ve-cx/init/ve.init.mw.CXTarget.js",
-				"ve-cx/ui/ve.ui.CXPublishTool.js"
+				"ve-cx/ui/ve.ui.CXPublishTool.js",
+				"ve-cx/ui/ve.ui.CXSurface.js",
+				"ve-cx/ui/ve.ui.CXDesktopContext.js"
+			],
+			"styles": [
+				"ve-cx/ui/styles/ve.ui.CXSurface.less",
+				"ve-cx/ui/styles/ve.ui.CXDesktopContext.less"
 			],
 			"messages": [
 				"cx-auto-failed",
@@ -1497,8 +1503,7 @@
 				"mw.cx.dm.Translation",
 				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.util",
-				"ve.ui.CXSurface",
-				"ve.ui.CXDesktopContext"
+				"ext.visualEditor.core.desktop"
 			]
 		},
 		"mw.cx.ui.TranslationView": {
@@ -1538,28 +1543,6 @@
 				"mw.cx.tools.IssueTrackingTool",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-interactions"
-			]
-		},
-		"ve.ui.CXSurface": {
-			"scripts": [
-				"ve-cx/ui/ve.ui.CXSurface.js"
-			],
-			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXSurface.less"
-			],
-			"dependencies": [
-				"ext.visualEditor.core.desktop"
-			]
-		},
-		"ve.ui.CXDesktopContext": {
-			"scripts": [
-				"ve-cx/ui/ve.ui.CXDesktopContext.js"
-			],
-			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXDesktopContext.less"
-			],
-			"dependencies": [
-				"ext.visualEditor.core.desktop"
 			]
 		},
 		"mw.cx.ui.Header.skin": {
