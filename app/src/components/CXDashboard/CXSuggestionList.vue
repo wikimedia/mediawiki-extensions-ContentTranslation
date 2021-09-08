@@ -161,8 +161,11 @@ export default {
     const unmarkFavoriteSectionSuggestion = async suggestion =>
       store.dispatch("suggestions/removeFavoriteSuggestion", suggestion);
 
-    const startFavoriteTranslation = suggestion => {
-      store.dispatch("application/startFavoriteSectionTranslation", suggestion);
+    const startFavoriteTranslation = async suggestion => {
+      await store.dispatch(
+        "application/startFavoriteSectionTranslation",
+        suggestion
+      );
       router.push({ name: "sx-translation-confirmer" });
     };
 

@@ -73,7 +73,13 @@ async function initializeDashboardContext({ dispatch }) {
   dispatch("suggestions/initializeSuggestions", {}, { root: true });
 }
 
-async function startFavoriteSectionTranslation({ commit, dispatch }, favorite) {
+/**
+ * @param {object} context
+ * @param {function} context.dispatch
+ * @param {FavoriteSuggestion} favorite
+ * @return {Promise<void>}
+ */
+async function startFavoriteSectionTranslation({ dispatch }, favorite) {
   const suggestion = await dispatch(
     "suggestions/loadSectionSuggestion",
     {
@@ -90,10 +96,9 @@ async function startFavoriteSectionTranslation({ commit, dispatch }, favorite) {
  * @param {object} context
  * @param {function} context.commit
  * @param {function} context.dispatch
- * @param {object} context.state
  * @param {SectionSuggestion} suggestion
  */
-function initializeSectionTranslation({ commit, dispatch, state }, suggestion) {
+function initializeSectionTranslation({ commit, dispatch }, suggestion) {
   dispatch("getCXServerToken");
   commit("setCurrentSectionSuggestion", suggestion);
 }
