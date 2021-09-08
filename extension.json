@@ -1551,10 +1551,12 @@
 				"mobile"
 			],
 			"scripts": [
-				"ui/mw.cx.ui.Infobar.js"
+				"ui/mw.cx.ui.Infobar.js",
+				"ui/widgets/mw.cx.ui.MessageWidget.js"
 			],
 			"styles": [
-				"ui/styles/mw.cx.ui.Infobar.less"
+				"ui/styles/mw.cx.ui.Infobar.less",
+				"ui/styles/widgets/mw.cx.ui.MessageWidget.less"
 			],
 			"messages": [
 				"cx-create-new-translation",
@@ -1563,9 +1565,11 @@
 				"cx-translation-target-page-exists"
 			],
 			"dependencies": [
-				"mw.cx.ui.MessageWidget",
 				"mw.cx.ui",
-				"mw.cx.util"
+				"mw.cx.util",
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-interactions"
 			]
 		},
 		"mw.cx.ui.CategoryMultiselectWidget": {
@@ -1797,24 +1801,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-interactions"
-			]
-		},
-		"mw.cx.ui.MessageWidget": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.MessageWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.MessageWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-interactions"
 			]
 		},
