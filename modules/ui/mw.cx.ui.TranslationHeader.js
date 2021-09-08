@@ -52,27 +52,8 @@ mw.cx.ui.TranslationHeader.prototype.listen = function () {
 	mw.hook( 'mw.cx.draft.restored' ).add(
 		this.setStatusMessage.bind( this, mw.msg( 'cx-draft-restored' ) )
 	);
-
-	if ( !mw.cx.supportsSticky() ) {
-		$( window ).on( 'scroll resize', OO.ui.throttle( this.onWindowScroll.bind( this ), 100 ) );
-	}
 };
 
 mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {
 	this.statusbar.setLabel( message );
-};
-
-mw.cx.ui.TranslationHeader.prototype.onWindowScroll = function () {
-	var scrollTop = window.pageYOffset,
-		$parent = this.$element.parent(),
-		top = $parent.position().top;
-
-	if ( scrollTop > top ) {
-		this.$element.addClass( 'sticky' );
-		// Adjust parent size with padding (in place for floated translation header) to avoid jumpiness
-		$parent.css( 'padding-top', top );
-	} else {
-		this.$element.removeClass( 'sticky' );
-		$parent.css( 'padding-top', 0 );
-	}
 };
