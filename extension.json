@@ -75,7 +75,6 @@
 		"SectionTranslationBeforePublish": "sxbeforepublish"
 	},
 	"APIModules": {
-		"cxconfiguration": "ContentTranslation\\ActionApi\\ApiContentTranslationConfiguration",
 		"cxdelete": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
 		"cxpublish": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
 		"cxpublishsection": {
