@@ -84,20 +84,21 @@ export default {
           ]
         );
     },
-    // If SectionTranslationTargetLanguage configuration parameter is set,
-    // target language selection is disabled (only available target
-    // language is the one set in SectionTranslationTargetLanguage).
+    // If SectionTranslationTargetLanguages configuration parameter is set,
+    // target language selection is limited to these languages
     availableTargetLanguages() {
       let translationLanguages = this.translations.map(
         translation => translation.targetLanguage
       );
-      const mwTargetLanguage = mw.config.get(
-        "wgSectionTranslationTargetLanguage"
+      const mwTargetLanguages = mw.config.get(
+        "wgSectionTranslationTargetLanguages"
       );
 
-      if (!!mwTargetLanguage) {
+      const defaultTargetLanguage = mwTargetLanguages?.[0];
+
+      if (!!defaultTargetLanguage) {
         translationLanguages = translationLanguages.filter(
-          language => language === mwTargetLanguage
+          language => language === defaultTargetLanguage
         );
       }
 

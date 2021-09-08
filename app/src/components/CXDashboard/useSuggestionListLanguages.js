@@ -5,14 +5,13 @@ export default () => {
   const { supportedLanguageCodes } = useMediawikiState();
 
   const availableTargetLanguages = computed(() => {
-    // If SectionTranslationTargetLanguage configuration parameter is set,
-    // target language selection is disabled (only available target
-    // language is the one set in SectionTranslationTargetLanguage).
-    const mwTargetLanguage = mw.config.get(
-      "wgSectionTranslationTargetLanguage"
+    // If SectionTranslationTargetLanguages configuration parameter is set,
+    // target language selection is limited to these languages
+    const mwTargetLanguages = mw.config.get(
+      "wgSectionTranslationTargetLanguages"
     );
 
-    return mwTargetLanguage ? [mwTargetLanguage] : supportedLanguageCodes.value;
+    return mwTargetLanguages || supportedLanguageCodes.value;
   });
 
   return {

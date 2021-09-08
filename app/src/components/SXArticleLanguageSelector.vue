@@ -33,17 +33,17 @@ export default {
       vm.currentLanguageTitleGroup?.titles.map(title => title.lang) || [],
 
     /**
-     * If SectionTranslationTargetLanguage configuration parameter is set,
-     * target language selection is disabled (only available target
-     * language is the one set in SectionTranslationTargetLanguage).
+     * If SectionTranslationTargetLanguages configuration parameter is set,
+     * target language selection is limited to these languages
+     *
      * @return {Object[]} - Array of available target language options
      */
     targetLanguages: vm => {
-      const mwTargetLanguage = mw.config.get(
-        "wgSectionTranslationTargetLanguage"
+      const mwTargetLanguages = mw.config.get(
+        "wgSectionTranslationTargetLanguages"
       );
 
-      return mwTargetLanguage ? [mwTargetLanguage] : vm.supportedLanguageCodes;
+      return mwTargetLanguages || vm.supportedLanguageCodes;
     }
   },
   methods: {

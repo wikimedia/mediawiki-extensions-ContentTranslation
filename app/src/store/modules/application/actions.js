@@ -208,15 +208,17 @@ async function loadSectionSuggestionFromUrl({
   const sourceTitle = urlParams.get("page");
   const sourceLanguage = urlParams.get("from");
   const targetLanguage = urlParams.get("to");
-  const targetLanguageConfig = mw.config.get(
-    "wgSectionTranslationTargetLanguage"
+  const enabledTargetLanguagesByConfig = mw.config.get(
+    "wgSectionTranslationTargetLanguages"
   );
 
-  if (!targetLanguageConfig) {
+  const defaultTargetLanguage = enabledTargetLanguagesByConfig?.[0];
+
+  if (!defaultTargetLanguage) {
     targetLanguage && commit("setTargetLanguage", targetLanguage);
   }
 
-  if (sourceLanguage !== targetLanguageConfig) {
+  if (sourceLanguage !== defaultTargetLanguage) {
     sourceLanguage && commit("setSourceLanguage", sourceLanguage);
   }
 
