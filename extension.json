@@ -559,18 +559,6 @@
 			],
 			"noflip": true
 		},
-		"ext.cx.util": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"util/ext.cx.util.js"
-			],
-			"dependencies": [
-				"ext.cx.model"
-			]
-		},
 		"mw.cx.util": {
 			"targets": [
 				"desktop",
@@ -775,7 +763,6 @@
 			],
 			"dependencies": [
 				"mw.cx.SiteMapper",
-				"ext.cx.util",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-interactions",
 				"ext.uls.common",
@@ -803,7 +790,6 @@
 				"jquery.uls.data",
 				"moment",
 				"ext.cx.progressbar",
-				"ext.cx.util",
 				"ext.cx.widgets.spinner",
 				"mediawiki.user",
 				"mediawiki.widgets",
@@ -877,7 +863,6 @@
 			"dependencies": [
 				"chart.js",
 				"mw.cx.SiteMapper",
-				"ext.cx.util",
 				"ext.cx.widgets.callout",
 				"ext.cx.widgets.spinner",
 				"jquery.uls.data",
@@ -1498,7 +1483,6 @@
 				"mediawiki.jqueryMsg",
 				"ext.cx.model",
 				"mw.cx.SiteMapper",
-				"ext.cx.util",
 				"mw.cx.dm.Translation",
 				"mw.cx.tools.TranslationToolFactory",
 				"mw.cx.util",
