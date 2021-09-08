@@ -71,7 +71,6 @@
 	"cx-tools-instructions-text4": "Machine translation is useful but {{GENDER:|you'll}} need to revise the text to make it accurate.",
 	"cx-tools-instructions-text5": "{{GENDER:|Publish}} the translation",
 	"cx-tools-instructions-text6": "When {{GENDER:|you}} are happy with the result, press \"{{int:cx-publish-button}}\".",
-	"cx-tools-searchbox-text": "Search for a word",
 	"cx-tools-view-guidelines": "{{GENDER:|View}} translation guidelines",
 	"cx-tools-view-guidelines-link": "https://en.wikipedia.org/wiki/Project:Translation#How_to_translate",
 	"cx-tools-link-title": "Link",

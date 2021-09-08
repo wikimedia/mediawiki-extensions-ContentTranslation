@@ -86,7 +86,6 @@
 	"cx-tools-instructions-text4": "Help text for the translation tools pane on Special:ContentTranslation.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text3}}.",
 	"cx-tools-instructions-text5": "Help text for the translation tools pane on Special:ContentTranslation.\n\nFollowed by the body {{msg-mw|Cx-tools-instructions-text6}}.",
 	"cx-tools-instructions-text6": "Help text for the translation tools pane on Special:ContentTranslation.\n\nPreceded by the heading {{msg-mw|Cx-tools-instructions-text5}}.\n\nRefers to {{msg-mw|Cx-publish-button}}.",
-	"cx-tools-searchbox-text": "Placeholder text for the search box on the translation tools column.",
 	"cx-tools-view-guidelines": "Shown at the bottom of the instructions text. A hyperlink to the URL specified in the message MediaWiki:Cx-tools-view-guidelines-link. By default this points to the translation guidelines in the English Wikipedia. To change the target URL for your local wiki, edit the message MediaWiki:Cx-tools-view-guidelines-link '''on your local wiki''' and ''not'' on translatewiki.",
 	"cx-tools-view-guidelines-link": "{{notranslate}}\n\nLink to translation guideline in the target language wiki. Give the absolute URL of a translation guidelines page in target language.\n\nTo change the URL shown to users in your wiki, get an administrator in your wiki to change the local message MediaWiki:Cx-tools-view-guidelines-link there. Don't edit this message on translatewiki, it has no effect.",
 	"cx-tools-link-title": "Title of link tool card.\n{{Identical|Link}}",

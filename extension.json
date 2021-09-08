@@ -1681,7 +1681,6 @@
 		"mw.cx.tools": {
 			"dependencies": [
 				"mw.cx.tools.InstructionsTool",
-				"mw.cx.tools.SearchTool",
 				"mw.cx.tools.TemplateTool"
 			]
 		},
@@ -1721,20 +1720,6 @@
 				"cx-template-action-adapt",
 				"cx-template-action-keep-original",
 				"cx-template-action-skip"
-			],
-			"dependencies": [
-				"mw.cx.tools.TranslationTool"
-			]
-		},
-		"mw.cx.tools.SearchTool": {
-			"scripts": [
-				"tools/mw.cx.tools.SearchTool.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.SearchTool.less"
-			],
-			"messages": [
-				"cx-tools-searchbox-text"
 			],
 			"dependencies": [
 				"mw.cx.tools.TranslationTool"
