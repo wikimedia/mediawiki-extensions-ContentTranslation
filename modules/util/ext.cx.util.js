@@ -10,18 +10,6 @@
 	'use strict';
 
 	/**
-	 * Return array with duplicate items removed
-	 *
-	 * @param {Array} list List of strings, numbers or boolean
-	 * @return {Array}
-	 */
-	mw.cx.unique = function ( list ) {
-		return list.filter( function ( element, index ) {
-			return list.indexOf( element ) === index;
-		} );
-	};
-
-	/**
 	 * Detect if the browser supports position: sticky
 	 * Support: IE, Edge<16, Chrome<56, Firefox<32, Safari<6.1
 	 *

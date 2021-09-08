@@ -78,7 +78,10 @@ function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
 	var $newItem, count = 0, maxListSize = 3;
 
 	// Remove duplicates
-	suggestedTargetLanguages = mw.cx.unique( suggestedTargetLanguages );
+	suggestedTargetLanguages = suggestedTargetLanguages.filter( function ( element, index ) {
+		return suggestedTargetLanguages.indexOf( element ) === index;
+	} );
+
 	suggestedTargetLanguages.some( function ( code ) {
 		$newItem = mw.cx.createCXInterlanguageItem( code );
 		$pLangList.prepend( $newItem );
