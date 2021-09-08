@@ -265,7 +265,7 @@ class Translation {
 			[
 				'translation_source_language as sourceLanguage',
 				'translation_target_language as targetLanguage',
-				'translation_status as status',
+				"'draft' as status",
 				'COUNT(*) AS count',
 				'COUNT(DISTINCT translation_started_by) AS translators',
 			],
