@@ -269,9 +269,12 @@ mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguag
 	name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );
 	// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
 	name = name.replace( /[()<>@,;\\[\]?={}]/g, '' );
+	// sameSite set to None and secure set to true to make the cookie visible on cross-domain requests.
 	options = {
 		prefix: '',
-		expires: 3600
+		expires: 3600,
+		sameSite: 'None',
+		secure: true
 	};
 
 	// BC with old default behavior
