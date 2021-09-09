@@ -140,7 +140,7 @@ class Hooks {
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
 		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns,
-			$wgContentTranslationMFLanguageSearchEntrypointTargetLanguages;
+			$wgSectionTranslationTargetLanguages;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -199,10 +199,10 @@ class Hooks {
 			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
 		}
 
-		if ( !empty( $wgContentTranslationMFLanguageSearchEntrypointTargetLanguages ) ) {
+		if ( !empty( $wgSectionTranslationTargetLanguages ) ) {
 			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
-			$out->addJsConfigVars( 'wgContentTranslationMFLanguageSearchEntrypointTargetLanguages',
-				$wgContentTranslationMFLanguageSearchEntrypointTargetLanguages );
+			$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
+				$wgSectionTranslationTargetLanguages );
 		}
 	}
 

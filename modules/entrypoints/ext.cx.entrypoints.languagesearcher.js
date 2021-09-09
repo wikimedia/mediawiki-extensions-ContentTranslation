@@ -131,7 +131,7 @@
 	 */
 	function showTranslationCTA( searchQuery, noResultsContainer ) {
 		searchWithAPI( searchQuery ).then( function ( results ) {
-			var matches, enabledTargets = mw.config.get( 'wgContentTranslationMFLanguageSearchEntrypointTargetLanguages' );
+			var matches, enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
 			matches = results.filter( function ( code ) {
 				return enabledTargets.indexOf( code ) >= 0;
