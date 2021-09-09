@@ -54,7 +54,6 @@
 	"cx-tools-instructions-text4": "การแปลอัตโนมัตินั้นมีประโยชน์ แต่{{GENDER:|คุณ}}จะต้องตรวจทานข้อความให้ถูกต้องแม่นยำ",
 	"cx-tools-instructions-text5": "{{GENDER:|เผยแพร่}}การแปล",
 	"cx-tools-instructions-text6": "เมื่อ{{GENDER:|คุณ}}พึงพอใจกับผลลัพธ์แล้ว กดปุ่ม \"{{int:cx-publish-button}}\"",
-	"cx-tools-searchbox-text": "ค้นหาคำ",
 	"cx-tools-view-guidelines": "{{GENDER:|ดู}}แนวทางการแปล",
 	"cx-tools-link-title": "ลิงก์",
 	"cx-tools-link-add": "เพิ่มลิงก์",

@@ -11,8 +11,6 @@
 	"apihelp-cxpublish-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxpublish-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-cxpublish-param-sourcetitle": "ماخذ صفحہ کا عنوان",
-	"apihelp-cxconfiguration-param-from": "ماخذ زبان کا کوڈ",
-	"apihelp-cxconfiguration-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-query+cxpublishedtranslations-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-query+cxpublishedtranslations-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-query+cxpublishedtranslations-example-1": "تمام شائع شدہ تراجم حاصل کریں",

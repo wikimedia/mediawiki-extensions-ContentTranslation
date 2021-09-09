@@ -12,8 +12,6 @@
 	"apihelp-query+contenttranslation-param-to": "Код на целевия език.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Заглавие на изходната страница.",
 	"apihelp-query+contenttranslation-param-type": "Състояние на превода.",
-	"apihelp-cxconfiguration-param-from": "Код на изходния език.",
-	"apihelp-cxconfiguration-param-to": "Код на целевия език.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Код на изходния език.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Код на целевия език.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Код на изходния език.",

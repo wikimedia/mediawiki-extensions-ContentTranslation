@@ -28,8 +28,6 @@
 	"apihelp-query+contenttranslationstats-description": "Prikaži statistiko Wikiprevajalnika.",
 	"apihelp-query+contenttranslationstats-summary": "Prikaži statistiko Wikiprevajalnika.",
 	"apihelp-query+contenttranslationstats-example-1": "Prikaži statistiko Wikiprevajalnika za vse jezike.",
-	"apihelp-cxconfiguration-param-from": "Koda izvirnega jezika.",
-	"apihelp-cxconfiguration-param-to": "Koda ciljnega jezika.",
 	"apihelp-query+contenttranslationsuggestions-description": "Prikaži seznam predlogov Wikiprevajalnika.",
 	"apihelp-query+contenttranslationsuggestions-summary": "Prikaži seznam predlogov Wikiprevajalnika.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Koda izvirnega jezika.",

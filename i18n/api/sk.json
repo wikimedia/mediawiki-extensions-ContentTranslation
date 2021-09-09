@@ -19,8 +19,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Názov zdrojového článku.",
 	"apihelp-query+contenttranslation-param-type": "Stav prekladu.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID prekladu.",
-	"apihelp-cxconfiguration-param-from": "Kód zdrojového jazyka.",
-	"apihelp-cxconfiguration-param-to": "Kód cieľového jazyka.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kód zdrojového jazyka.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kód cieľového jazyka.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kód zdrojového jazyka.",

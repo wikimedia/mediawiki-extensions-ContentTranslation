@@ -26,8 +26,6 @@
 	"apihelp-query+contenttranslationstats-description": "مواد جي ترجمي جا انگ-اکر وٺو.",
 	"apihelp-query+contenttranslationstats-summary": "موادجي ترجمي جا انگ اکر حاصل ڪريو.",
 	"apihelp-query+contenttranslationstats-example-1": "مواد جي ترجمي جا انگ-اکر سڀني ٻولين لاءِ وٺو.",
-	"apihelp-cxconfiguration-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
-	"apihelp-cxconfiguration-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-listid": "صلاحون رڳو ڪنھن خاص فھرست مان واپس آڻيو",

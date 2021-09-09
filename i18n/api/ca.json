@@ -26,8 +26,6 @@
 	"apihelp-query+contenttranslation-example-1": "Obtén les traduccions iniciades per l'usuari actual.",
 	"apihelp-query+contenttranslation-example-2": "Obtén l'esborrany de traduccions per identificació.",
 	"apihelp-query+contenttranslation-example-3": "Troba traduccions per al títol donat entre un parell de llengües donades",
-	"apihelp-cxconfiguration-param-from": "El codi de la llengua d'origen.",
-	"apihelp-cxconfiguration-param-to": "El codi de la llengua de destí.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "El codi de la llengua d'origen.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "El codi de la llengua de destí.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Codi de la llengua d'origen.",

@@ -10,8 +10,6 @@
 	"apihelp-cxpublish-param-sourcetitle": "स्रोत लेखको शीर्षक ।",
 	"apihelp-query+contenttranslation-param-translationid": "अनुवाद ID ।",
 	"apihelp-query+contenttranslation-example-2": "अनुवाद ड्राफ्ट ID को आधारमा लिनुहोस्",
-	"apihelp-cxconfiguration-param-from": "स्रोत भाषाको कोड ।",
-	"apihelp-cxconfiguration-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-example-1": "सबै प्रकाशित अनुवादहरू खोज्नुहोस्",

@@ -102,7 +102,6 @@
 	"cx-tools-instructions-text4": "Автоматический перевод полезен, но {{GENDER:|вам}} нужно будет уточнить результат.",
 	"cx-tools-instructions-text5": "{{GENDER:|Опубликовать}} перевод",
 	"cx-tools-instructions-text6": "Когда {{GENDER:|вы}} будете довольны результатом, нажмите «{{int:cx-publish-button}}».",
-	"cx-tools-searchbox-text": "Искать слово",
 	"cx-tools-view-guidelines": "{{GENDER:|Посмотреть}} рекомендации по переводу",
 	"cx-tools-link-title": "Ссылка",
 	"cx-tools-link-add": "Добавить ссылку",

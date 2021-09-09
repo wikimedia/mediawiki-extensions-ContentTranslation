@@ -14,8 +14,6 @@
 	"apihelp-query+contenttranslation-param-translationid": "Аударма ID-і.",
 	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез-келген аударманы берілген атаудан табу",
 	"apihelp-query+contenttranslationstats-example-1": "Барлық тілтердің Мазмұн аударма статистикаларын алу.",
-	"apihelp-cxconfiguration-param-from": "Қайнар тіл коды.",
-	"apihelp-cxconfiguration-param-to": "Нысана тіл коды.",
 	"apihelp-query+cxpublishedtranslations-description": "Барлық аударылған мәліметтерден таңдау",
 	"apihelp-query+cxpublishedtranslations-param-from": "Қайнар тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Нысана тіл коды.",

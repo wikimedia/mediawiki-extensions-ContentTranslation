@@ -19,8 +19,6 @@
 	"apihelp-query+contenttranslation-example-2": "Ստանալ թարգմանության սևագիրը ID-ով։",
 	"apihelp-query+contenttranslation-example-3": "Տվյալ վերնագրի համար գտնել ցանկացած թարգմանություն տվյալ լեզուների զույգի միջև:",
 	"apihelp-query+contenttranslationstats-example-1": "Ստանալ Բովանդակության թարգմանության բոլոր լեզուների վիճակագրությունը:",
-	"apihelp-cxconfiguration-param-from": "Բնօրինակ լեզվի կոդը։",
-	"apihelp-cxconfiguration-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-query+cxpublishedtranslations-param-from": "Բնօրինակ լեզվի կոդը։",
 	"apihelp-query+cxpublishedtranslations-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-query+cxpublishedtranslations-example-1": "Ընտրել բոլոր հրապարակված թարգմանությունները",

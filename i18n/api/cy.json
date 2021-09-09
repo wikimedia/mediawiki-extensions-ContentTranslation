@@ -27,8 +27,6 @@
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID y cyfieithiad.",
 	"apihelp-query+contenttranslationstats-description": "Cyrchu ystadegau'r Cymhorthydd Cyfieithu.",
 	"apihelp-query+contenttranslationstats-summary": "Cyrchu ystadegau'r Cymhorthydd Cyfieithu.",
-	"apihelp-cxconfiguration-param-from": "Cod yr iaith wreiddiol.",
-	"apihelp-cxconfiguration-param-to": "Cod yr iaith darged.",
 	"apihelp-query+contenttranslationsuggestions-summary": "Cyrchu rhestr o awgrymiadau ar gyfer y Cymhorthydd.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Cod yr iaith wreiddiol.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Cod yr iaith darged.",

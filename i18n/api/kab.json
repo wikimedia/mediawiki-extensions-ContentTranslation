@@ -26,8 +26,6 @@
 	"apihelp-query+contenttranslationstats-description": "Awi tidaddanin n tsuqilt n ugbur.",
 	"apihelp-query+contenttranslationstats-summary": "Awi tidaddanin n tsuqilt n ugbur.",
 	"apihelp-query+contenttranslationstats-example-1": "Awi tidaddanin n tsuqilt n ugbur i tutlayin meṛṛa.",
-	"apihelp-cxconfiguration-param-from": "Tangalt n tutlayt n uɣbalu.",
-	"apihelp-cxconfiguration-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Tangalt n tutlayt n uɣbalu.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Tangalt n tutlayt n usaḍas.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Tangalt n tutlayt n uɣbalu.",

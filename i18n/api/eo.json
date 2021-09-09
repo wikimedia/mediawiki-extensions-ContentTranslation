@@ -24,8 +24,6 @@
 	"apihelp-query+contenttranslation-example-2": "Ricevi tradukajn malnetojn laŭ identigilo.",
 	"apihelp-query+contenttranslation-example-3": "Trovi ajnan tradukon por la petita titolo inter la petita lingva paro",
 	"apihelp-query+contenttranslationstats-example-1": "Ricevi statistikojn de tradukado de enhavo por ĉiuj lingvoj.",
-	"apihelp-cxconfiguration-param-from": "Lingvokodo de la fonta lingvo.",
-	"apihelp-cxconfiguration-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Lingvokodo de la fonta lingvo.",

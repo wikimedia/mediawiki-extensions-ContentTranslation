@@ -16,8 +16,6 @@
 	"apihelp-query+contenttranslation-param-from": "Kóði frummálsins.",
 	"apihelp-query+contenttranslation-param-to": "Kóði markmálsins.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titill upprunalegu greinarinnar.",
-	"apihelp-cxconfiguration-param-from": "Kóði frummálsins.",
-	"apihelp-cxconfiguration-param-to": "Kóði markmálsins.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kóði frummálsins.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kóði frummálsins.",

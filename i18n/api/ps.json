@@ -14,8 +14,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "د سرچينې مخ سرليک.",
 	"apihelp-query+contenttranslation-example-2": "د پېژند له مخې د ژباړې گارليکونه ترلاسه کول.",
 	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
-	"apihelp-cxconfiguration-param-from": "د سرچينې د ژبې کوډ.",
-	"apihelp-cxconfiguration-param-to": "د موخې د ژبې کوډ.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "د موخې د ژبې کوډ.",
 	"apihelp-query+cxpublishedtranslations-description": "د ټولو خپرو شويو ژباړو مالومات راغونډول",

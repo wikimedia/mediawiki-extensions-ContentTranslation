@@ -15,8 +15,6 @@
 	"apihelp-query+contenttranslation-param-translationid": "ભાષાંતર ઓળખ.",
 	"apihelp-query+contenttranslation-example-1": "હાલના સભ્ય દ્વારા શરુ કરેલ ભાષાંતરો મેળવો.",
 	"apihelp-query+contenttranslation-example-2": "ઓળખ વડે ભાષાંતરો મેળવો.",
-	"apihelp-cxconfiguration-param-from": "સ્રોત ભાષા કોડ.",
-	"apihelp-cxconfiguration-param-to": "લક્ષ્ય ભાષા કોડ.",
 	"apihelp-query+cxpublishedtranslations-description": "બધાં પ્રકાશિત ભાષાંતરોની માહિતી મેળવો",
 	"apihelp-query+cxpublishedtranslations-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "લક્ષ્ય ભાષા કોડ.",

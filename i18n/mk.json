@@ -60,7 +60,6 @@
 	"cx-tools-instructions-text4": "Машинскиот превод е корисен, но потоа ќе треба да {{GENDER:|го прегледате}} и исправите текстот за да биде како што треба.",
 	"cx-tools-instructions-text5": "{{GENDER:|Објавете}} го преводот",
 	"cx-tools-instructions-text6": "Кога {{GENDER:|ќе бидете}} задоволни со исходот, стиснете на „{{int:cx-publish-button}}“.",
-	"cx-tools-searchbox-text": "Пребарајте збор",
 	"cx-tools-view-guidelines": "{{GENDER:|Погледајте ги}} напатствијата за преведување",
 	"cx-tools-link-title": "Врска",
 	"cx-tools-link-add": "Додај врска",

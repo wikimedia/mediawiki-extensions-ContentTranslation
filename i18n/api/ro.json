@@ -22,8 +22,6 @@
 	"apihelp-query+contenttranslationstats-description": "Statistici pentru Traducerea conținutului.",
 	"apihelp-query+contenttranslationstats-summary": "Statistici pentru Traducerea conținutului.",
 	"apihelp-query+contenttranslationstats-example-1": "Obține statistici pentru Traducerea conținutului în toate limbile.",
-	"apihelp-cxconfiguration-param-from": "Codul limbii sursă.",
-	"apihelp-cxconfiguration-param-to": "Codul limbii destinație.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Codul limbii sursă.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Codul limbii destinație.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Codul limbii sursă.",

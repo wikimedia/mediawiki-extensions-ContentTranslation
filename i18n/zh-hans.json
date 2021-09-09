@@ -97,7 +97,6 @@
 	"cx-tools-instructions-text4": "机器翻译很有用，但{{GENDER:|您仍需}}校订文本以使其准确无误。",
 	"cx-tools-instructions-text5": "{{GENDER:|发布}}翻译",
 	"cx-tools-instructions-text6": "如果{{GENDER:|您}}满意这个结果，请按“{{int:cx-publish-button}}”。",
-	"cx-tools-searchbox-text": "搜索字词",
 	"cx-tools-view-guidelines": "{{GENDER:|查看}}翻译指引",
 	"cx-tools-link-title": "链接",
 	"cx-tools-link-add": "添加链接",

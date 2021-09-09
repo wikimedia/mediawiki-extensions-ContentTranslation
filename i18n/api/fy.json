@@ -7,8 +7,6 @@
 	},
 	"apihelp-cxpublish-param-from": "De koade fan de boarnetaal.",
 	"apihelp-cxpublish-param-to": "De koade fan de doeltaal.",
-	"apihelp-cxconfiguration-param-from": "De koade fan de boarnetaal.",
-	"apihelp-cxconfiguration-param-to": "De koade fan de doeltaal.",
 	"apihelp-query+cxpublishedtranslations-param-from": "De koade fan de boarnetaal.",
 	"apihelp-query+cxpublishedtranslations-param-to": "De koade fan de doeltaal.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "De koade fan de boarnetaal.",

@@ -20,8 +20,6 @@
 	"apihelp-query+contenttranslation-example-1": "Hent oversættelser startet af den aktuelle bruger.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID for oversættelsen.",
 	"apihelp-query+contenttranslationstats-example-1": "Hent statistik på indholdsoversættelser for alle sprog.",
-	"apihelp-cxconfiguration-param-from": "Sprogkoden på kilden.",
-	"apihelp-cxconfiguration-param-to": "Sprogkoden på målet.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Sprogkoden på kilden.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Sprogkoden på målet.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Sprogkoden på kilden.",

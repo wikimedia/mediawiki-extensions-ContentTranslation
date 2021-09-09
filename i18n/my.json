@@ -53,7 +53,6 @@
 	"cx-tools-instructions-text4": "စက်ဘာသာပြန်က စွမ်းအားမြင့်၏ သို့သော် စာသားတိကျရန် ပြန်လည်ဆန်းစစ်ဖို့ လိုအပ်ပါလိမ့်မည်။",
 	"cx-tools-instructions-text5": "ဘာသာပြန်ကို {{GENDER:|လွှင့်တင်ရန်}}",
 	"cx-tools-instructions-text6": "ရလဒ်နှင့်ပတ်သက်၍ {{GENDER:|သင်}} ပျော်ရွှင်ပါက \"{{int:cx-publish-button}}\" ကိုနှိပ်ပါ။",
-	"cx-tools-searchbox-text": "စကားလုံးတစ်ခုအတွက် ရှာဖွေရန်",
 	"cx-tools-view-guidelines": "ဘာသာပြန် လမ်းညွှန်များကို {{GENDER:|ကြည့်ရှု}}ပါ",
 	"cx-tools-link-title": "လင့်",
 	"cx-tools-link-add": "လင့်ခ် ပေါင်းထည့်ရန်",
@@ -329,5 +328,6 @@
 	"sx-editor-feedback-overlay-title": "ကျေးဇူးတင်ပါသည်",
 	"sx-editor-feedback-overlay-clarification": "သင်၏အမှားပြင်ဆင်ချက်များမှ သင်ယူခြင်း",
 	"sx-editor-feedback-overlay-stats": "သင်တည်းဖြတ်ထားသော <span>$1%</span>",
-	"cx-campaign-mflanguagesearcher-invite": "ဤစာမျက်နှာအား ဘာသာပြန်နိုင်ပါသည်။ သင်၏ဘာသာစကားတွင် အကြောင်းအရာများ ဖန်တီးရန်လွယ်ကူပါသည်။"
+	"cx-campaign-mflanguagesearcher-invite": "ဤစာမျက်နှာအား ဘာသာပြန်နိုင်ပါသည်။ သင်၏ဘာသာစကားတွင် အကြောင်းအရာများ ဖန်တီးရန်လွယ်ကူပါသည်။",
+	"cx-suggestion-list-favorites-division": "နောင်အတွက်"
 }

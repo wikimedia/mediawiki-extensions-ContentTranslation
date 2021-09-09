@@ -88,7 +88,6 @@
 	"cx-tools-instructions-text4": "機械翻訳も有用ではありますが、機械翻訳を使った後は{{GENDER:|}}翻訳を正確なものにするために翻訳結果の誤りを自分で訂正する必要があります。",
 	"cx-tools-instructions-text5": "翻訳を{{GENDER:|公開}}してください。",
 	"cx-tools-instructions-text6": "{{GENDER:|}}結果に問題がない場合は、「{{int:cx-publish-button}}」を押してください。",
-	"cx-tools-searchbox-text": "単語検索",
 	"cx-tools-view-guidelines": "翻訳ガイドラインを{{GENDER:|閲覧}}",
 	"cx-tools-link-title": "リンク",
 	"cx-tools-link-add": "リンクを追加",

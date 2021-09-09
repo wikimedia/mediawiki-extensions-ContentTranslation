@@ -21,8 +21,6 @@
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Itzulpenaren IDa.",
 	"apihelp-query+contenttranslationstats-description": "Content Translation estatistikak atera.",
 	"apihelp-query+contenttranslationstats-example-1": "Content Translation estatistikak hizkuntza guztietarako atera.",
-	"apihelp-cxconfiguration-param-from": "Jatorrizko hizkuntzaren kodea",
-	"apihelp-cxconfiguration-param-to": "Helburu den hizkuntzaren kodea",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Helburu den hizkuntzaren kodea",
 	"apihelp-query+cxpublishedtranslations-param-from": "Jatorrizko hizkuntzaren kodea",

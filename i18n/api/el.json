@@ -20,8 +20,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Ο τίτλος της σελίδας προέλευσης.",
 	"apihelp-query+contenttranslation-param-type": "Η κατάσταση της μετάφρασης.",
 	"apihelp-query+contenttranslation-example-1": "Δείτε τις μεταφράσεις που ξεκίνησε ο τρέχων χρήστης.",
-	"apihelp-cxconfiguration-param-from": "Ο κωδικός της γλώσσας πηγής.",
-	"apihelp-cxconfiguration-param-to": "Ο κωδικός της γλώσσας στόχου.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Ο κωδικός της γλώσσας στόχου.",
 	"apihelp-cxdelete-description": "Διαγράψετε μια πρόχειρη μετάφραση που δημιουργήθηκε χρησιμοποιώντας την επέκταση Μετάφραση Περιεχομένου.",
 	"apihelp-cxdelete-param-from": "Ο κωδικός της γλώσσας πηγής.",
