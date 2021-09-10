@@ -14,19 +14,6 @@
         @target-language-selected="updateTargetLanguage"
       />
     </mw-card>
-    <mw-card v-if="!!favorites.length" class="pa-0 mb-0">
-      <h5
-        v-i18n:cx-suggestion-list-favorites-division
-        class="cx-translation-list__division-title ma-0 pa-4"
-      />
-      <cx-translation-suggestion
-        v-for="(suggestion, index) in favorites"
-        :key="`favorite-${index}`"
-        :suggestion="suggestion"
-        @click.native="startFavoriteTranslation(suggestion)"
-        @bookmark="unmarkFavoriteSectionSuggestion(suggestion)"
-      />
-    </mw-card>
     <mw-card class="pa-0 mb-0">
       <h5
         v-i18n:cx-suggestion-list-new-pages-division
@@ -79,7 +66,7 @@ import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
-import { computed } from "@vue/composition-api";
+import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
 
 export default {
   name: "CxSuggestionList",
@@ -99,8 +86,6 @@ export default {
   setup(props, context) {
     const contextRoot = context.root;
     const store = contextRoot.$store;
-
-    const favorites = computed(() => store.state.suggestions.favorites || []);
 
     const {
       supportedLanguageCodes,
@@ -155,27 +140,12 @@ export default {
     const markFavoritePageSuggestion = async suggestion =>
       store.dispatch("suggestions/addPageSuggestionAsFavorite", suggestion);
 
-    /**
-     * @param {FavoriteSuggestion} suggestion
-     */
-    const unmarkFavoriteSectionSuggestion = async suggestion =>
-      store.dispatch("suggestions/removeFavoriteSuggestion", suggestion);
-
-    const startFavoriteTranslation = async suggestion => {
-      await store.dispatch(
-        "application/startFavoriteSectionTranslation",
-        suggestion
-      );
-      router.push({ name: "sx-translation-confirmer" });
-    };
-
     return {
       availableTargetLanguages,
       currentPageSuggestionsSlice,
       currentSectionSuggestionsSlice,
       discardPageSuggestion,
       discardSectionSuggestion,
-      favorites,
       mwIconRefresh,
       markFavoritePageSuggestion,
       markFavoriteSectionSuggestion,
@@ -184,7 +154,6 @@ export default {
       pageSuggestionsLoading,
       sectionSuggestionsLoading,
       showRefreshButton,
-      startFavoriteTranslation,
       startSectionTranslation,
       startPageTranslation,
       supportedLanguageCodes,

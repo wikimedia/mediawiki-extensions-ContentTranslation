@@ -6,7 +6,7 @@
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
-        class="col-md-4 col-xs-12 col-lg-3 mb-4 mt-4"
+        class="col-md-4 col-xs-12 col-lg-3 my-4"
         @click="searchTranslation"
       />
     </mw-row>
@@ -21,6 +21,7 @@
         @select="active = $event"
       />
     </nav>
+    <cx-favorite-list />
     <cx-suggestion-list :active="active === 'suggestions'" />
     <cx-translation-list
       v-if="!$incompleteVersion"
@@ -43,6 +44,7 @@
 <script>
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
+import CxFavoriteList from "./CXFavoriteList";
 import { ref, watch, computed, onMounted } from "@vue/composition-api";
 import {
   MwButtonGroup,
@@ -61,13 +63,14 @@ import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
 export default {
   name: "CxDashboard",
   components: {
-    MwRow,
-    ExperimentalSupportBanner,
+    CxFavoriteList,
     CxSuggestionList,
     CxTranslationList,
-    MwButtonGroup,
+    ExperimentalSupportBanner,
     MwBottomNavigation,
-    MwButton
+    MwButton,
+    MwButtonGroup,
+    MwRow
   },
   setup(props, context) {
     const active = ref("suggestions");
@@ -117,14 +120,16 @@ export default {
       });
     });
 
+    const store = context.root.$store;
     const router = context.root.$router;
+
     const searchTranslation = () => router.push({ name: "sx-article-search" });
 
     watch(active, () => window.scrollTo(0, 0));
 
     const initializeDashboard = async () => {
       /** @type {SectionSuggestion|undefined} */
-      const suggestion = await context.root.$store.dispatch(
+      const suggestion = await store.dispatch(
         "application/initializeDashboardContext"
       );
 
@@ -136,13 +141,13 @@ export default {
     initializeDashboard();
 
     return {
+      active,
+      listSelector,
       mwIconAdd,
       mwIconArticleCheck,
       mwIconLightBulb,
       mwIconEdit,
-      searchTranslation,
-      listSelector,
-      active
+      searchTranslation
     };
   }
 };
