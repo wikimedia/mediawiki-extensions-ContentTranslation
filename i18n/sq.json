@@ -395,5 +395,6 @@
 	"sx-editor-feedback-overlay-title": "Falëminderitǃ",
 	"sx-editor-feedback-overlay-clarification": "Po mësoni nga korregjimet",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span>redaktuar prej jush",
-	"cx-campaign-mflanguagesearcher-invite": "Mund ta përktheni këtë faqe. Është e lehtë ta krijoni përmbajtjen në gjuhën tuaj."
+	"cx-campaign-mflanguagesearcher-invite": "Mund ta përktheni këtë faqe. Është e lehtë ta krijoni përmbajtjen në gjuhën tuaj.",
+	"cx-suggestion-list-favorites-division": "Për më vonë"
 }
