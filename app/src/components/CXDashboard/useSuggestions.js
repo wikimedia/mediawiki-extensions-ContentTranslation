@@ -43,12 +43,18 @@ const useSuggestions = contextRoot => {
     () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
   );
 
+  /**
+   * @type {ComputedRef<SectionSuggestion>}
+   */
   const currentSectionSuggestionsSlice = computed(() =>
     store.getters["application/getSectionSuggestionsSliceByIndex"](
       currentSectionSuggestionsSliceIndex.value
     )
   );
 
+  /**
+   * @type {ComputedRef<ArticleSuggestion>}
+   */
   const currentPageSuggestionsSlice = computed(() =>
     store.getters["application/getPageSuggestionsSliceByIndex"](
       currentPageSuggestionsSliceIndex.value
@@ -123,7 +129,7 @@ const useSuggestions = contextRoot => {
   };
 
   /**
-   * @param {SectionSuggestion} suggestion
+   * @param {ArticleSuggestion} suggestion
    */
   const discardPageSuggestion = suggestion => {
     contextRoot.$logEvent({ event_type: "dashboard_discard_suggestion" });

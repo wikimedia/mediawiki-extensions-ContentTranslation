@@ -67,7 +67,7 @@ import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
 import getActionInformationMessageArgs from "./getActionInformationMessageArgs";
 import getActionButtonLabel from "./getActionButtonLabel";
-
+import useApplicationState from "@/composables/useApplicationState";
 export default {
   name: "SxTranslationConfirmerActionPanel",
   components: {
@@ -80,9 +80,9 @@ export default {
     const store = context.root.$store;
     const router = context.root.$router;
 
-    const sectionSuggestion = computed(
-      () => store.state.application.currentSectionSuggestion
-    );
+    const {
+      currentSectionSuggestion: sectionSuggestion
+    } = useApplicationState();
 
     const translationExists = computed(
       () => !!sectionSuggestion.value?.translationExists

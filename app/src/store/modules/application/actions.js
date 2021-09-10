@@ -55,7 +55,7 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
 
 /**
  * @param {function} dispatch
- * @return {Promise<SectionSuggestion>}
+ * @return {Promise<SectionSuggestion|void>}
  */
 async function initializeDashboardContext({ dispatch }) {
   dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
@@ -96,7 +96,7 @@ async function startFavoriteSectionTranslation({ dispatch }, favorite) {
  * @param {object} context
  * @param {function} context.commit
  * @param {function} context.dispatch
- * @param {SectionSuggestion} suggestion
+ * @param {SectionSuggestion|ArticleSuggestion} suggestion
  */
 function initializeSectionTranslation({ commit, dispatch }, suggestion) {
   dispatch("getCXServerToken");
@@ -195,7 +195,7 @@ async function updateTargetLanguage(
 }
 
 /**
- * @return {SectionSuggestion|void}
+ * @return {Promise<SectionSuggestion|void>}
  */
 async function loadSectionSuggestionFromUrl({
   commit,
@@ -268,10 +268,6 @@ function setTranslationURLParams({ state }) {
   url.search = params;
   url = url.toString();
   history.replaceState({ url }, null, url);
-}
-
-function setCurrentSectionSuggestion({ commit }, suggestion) {
-  commit("setCurrentSectionSuggestion", suggestion);
 }
 
 /**
@@ -655,7 +651,6 @@ export default {
   selectPreviousSegment,
   selectSectionTitleForTranslation,
   selectSentenceForCurrentSection,
-  setCurrentSectionSuggestion,
   setPublishResult,
   setTranslationURLParams,
   startFavoriteSectionTranslation,

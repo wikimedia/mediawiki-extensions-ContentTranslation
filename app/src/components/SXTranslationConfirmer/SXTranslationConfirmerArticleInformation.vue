@@ -22,9 +22,14 @@
             :icon-color="$mwui.colors.base30"
           />
         </mw-col>
-        <!--        TODO: Support "bookmarking article" functionality -->
         <mw-col shrink align="start">
-          <mw-button class="pa-0" type="icon" :icon="mwIconBookmarkOutline" />
+          <mw-button
+            class="pa-0"
+            type="icon"
+            :icon="bookmarkIcon"
+            :progressive="isFavorite"
+            @click="toggleFavorite"
+          />
         </mw-col>
       </mw-row>
       <p
@@ -41,6 +46,7 @@
 <script>
 import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
+  mwIconBookmark,
   mwIconBookmarkOutline,
   mwIconLanguage,
   mwIconLinkExternal
@@ -48,6 +54,7 @@ import {
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
+import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 export default {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
@@ -62,6 +69,41 @@ export default {
     const {
       currentSectionSuggestion: sectionSuggestion
     } = useApplicationState();
+
+    const favorites = computed(() => store.state.suggestions.favorites || []);
+
+    const isFavorite = computed(() =>
+      favorites.value.some(
+        favorite =>
+          sectionSuggestion.value.sourceTitle === favorite.title &&
+          sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
+          sectionSuggestion.value.targetLanguage === favorite.targetLanguage
+      )
+    );
+
+    const unmarkSuggestionAsFavorite = async () =>
+      store.dispatch(
+        "suggestions/removeFavoriteSuggestion",
+        new FavoriteSuggestion({
+          title: sectionSuggestion.value.sourceTitle,
+          sourceLanguage: sectionSuggestion.value.sourceLanguage,
+          targetLanguage: sectionSuggestion.value.targetLanguage
+        })
+      );
+
+    const markSuggestionAsFavorite = async () =>
+      store.dispatch(
+        "suggestions/doMarkSuggestionAsFavorite",
+        sectionSuggestion.value
+      );
+
+    const bookmarkIcon = computed(() =>
+      isFavorite.value ? mwIconBookmark : mwIconBookmarkOutline
+    );
+
+    const toggleFavorite = computed(() =>
+      isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite
+    );
 
     const sourceArticle = computed(
       () => store.getters["application/getCurrentPage"]
@@ -84,13 +126,15 @@ export default {
     );
 
     return {
+      bookmarkIcon,
+      isFavorite,
       langLinksCount,
-      mwIconBookmarkOutline,
       mwIconLanguage,
       mwIconLinkExternal,
       sourceArticle,
       sourceArticlePath,
       sourceTitle,
+      toggleFavorite,
       weeklyViews
     };
   }

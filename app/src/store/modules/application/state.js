@@ -1,4 +1,3 @@
-import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import PublishResult from "../../../wiki/cx/models/publishResult";
 
 export default {

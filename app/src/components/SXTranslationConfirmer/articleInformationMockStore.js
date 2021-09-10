@@ -18,8 +18,13 @@ const applicationModule = {
   getters: { getCurrentPage: () => sourceArticle }
 };
 
+const suggestionsModule = {
+  namespaced: true,
+  state: { favorites: [] }
+};
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: { application: applicationModule }
+  modules: { application: applicationModule, suggestions: suggestionsModule }
 });

@@ -428,18 +428,7 @@ async function addSectionSuggestionAsFavorite(
 ) {
   commit("removeSectionSuggestion", sectionSuggestion);
   dispatch("fetchNextSectionSuggestionsSlice");
-  await cxSuggestionsApi.markFavorite(sectionSuggestion);
-  const {
-    sourceTitle: title,
-    sourceLanguage,
-    targetLanguage
-  } = sectionSuggestion;
-  const favoriteSuggestion = new FavoriteSuggestion({
-    title,
-    sourceLanguage,
-    targetLanguage
-  });
-  commit("addFavoriteSuggestion", favoriteSuggestion);
+  dispatch("doMarkSuggestionAsFavorite", sectionSuggestion);
 }
 
 /**
@@ -453,8 +442,19 @@ async function addPageSuggestionAsFavorite(
 ) {
   commit("removePageSuggestion", pageSuggestion);
   dispatch("fetchNextPageSuggestionsSlice");
-  await cxSuggestionsApi.markFavorite(pageSuggestion);
-  const { sourceTitle: title, sourceLanguage, targetLanguage } = pageSuggestion;
+  dispatch("doMarkSuggestionAsFavorite", pageSuggestion);
+}
+
+/**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {SectionSuggestion|ArticleSuggestion} suggestion
+ * @return {Promise<void>}
+ */
+async function doMarkSuggestionAsFavorite({ commit, dispatch }, suggestion) {
+  await cxSuggestionsApi.markFavorite(suggestion);
+  const { sourceTitle: title, sourceLanguage, targetLanguage } = suggestion;
   const favoriteSuggestion = new FavoriteSuggestion({
     title,
     sourceLanguage,
@@ -526,6 +526,7 @@ async function fetchFavorites({ commit, dispatch, state }) {
 export default {
   addPageSuggestionAsFavorite,
   addSectionSuggestionAsFavorite,
+  doMarkSuggestionAsFavorite,
   fetchFavorites,
   fetchAppendixSectionTitles,
   fetchNextPageSuggestionsSlice,

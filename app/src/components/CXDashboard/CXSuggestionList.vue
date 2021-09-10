@@ -24,7 +24,7 @@
         :key="`page-suggestion-${index}`"
         :suggestion="suggestion"
         @close="discardPageSuggestion(suggestion)"
-        @click.native="startPageTranslation(suggestion)"
+        @click.native="startTranslation(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
       <mw-spinner v-if="pageSuggestionsLoading" />
@@ -40,7 +40,7 @@
         class="ma-0"
         :suggestion="suggestion"
         @close="discardSectionSuggestion(suggestion)"
-        @click.native="startSectionTranslation(suggestion)"
+        @click.native="startTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
@@ -101,20 +101,15 @@ export default {
     const router = context.root.$router;
 
     /**
-     * @param {SectionSuggestion} suggestion
+     * @param {SectionSuggestion|ArticleSuggestion} suggestion
      */
-    const startSectionTranslation = suggestion => {
+    const startTranslation = suggestion => {
       store.dispatch("application/initializeSectionTranslation", suggestion);
       router.push({ name: "sx-translation-confirmer" });
       contextRoot.$logEvent({
         event_type: "dashboard_translation_start",
         event_source: "suggestion_no_seed"
       });
-    };
-
-    const startPageTranslation = suggestion => {
-      store.dispatch("application/initializeSectionTranslation", suggestion);
-      router.push({ name: "sx-translation-confirmer" });
     };
 
     const {
@@ -154,8 +149,7 @@ export default {
       pageSuggestionsLoading,
       sectionSuggestionsLoading,
       showRefreshButton,
-      startSectionTranslation,
-      startPageTranslation,
+      startTranslation,
       supportedLanguageCodes,
       updateSourceLanguage,
       updateTargetLanguage
