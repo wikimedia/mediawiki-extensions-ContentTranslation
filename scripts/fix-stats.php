@@ -171,6 +171,11 @@ class CxFixStats extends Maintenance {
 					$row->translation_started_by,
 					CentralIdLookup::AUDIENCE_RAW
 				);
+				if ( $userName === null ) {
+					$userId = $row->translation_started_by;
+					$this->output( "\\- E26 No central id found for #$userId.\n" );
+					return;
+				}
 				$revId = $this->findRevisionToTag(
 					$title,
 					$userName,

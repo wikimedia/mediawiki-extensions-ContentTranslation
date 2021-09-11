@@ -53,15 +53,15 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$this->addOption(
 			'age-in-days',
 			'Purge unpublished drafts older than this',
-			$required = false,
-			$hasArg = true
+			/* required */ false,
+			/* hasArg */ true
 		);
 
 		$this->addOption(
 			'notify-age-in-days',
 			'Notify users about unpublished drafts older than this',
-			$required = false,
-			$hasArg = true
+			/* required */ false,
+			/* hasArg */ true
 		);
 	}
 
