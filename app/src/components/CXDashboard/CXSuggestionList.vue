@@ -198,11 +198,6 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 
-.cx-translation-list--suggestions {
-  .mw-ui-card__title {
-    height: auto;
-  }
-}
 .cx-translation-list__division-title {
   background: @background-color-framed;
   color: @color-accessory;

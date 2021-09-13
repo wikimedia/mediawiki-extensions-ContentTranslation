@@ -37,7 +37,6 @@ export default {
   padding: 8px;
   box-shadow: @box-shadow-card;
   .mw-ui-card__title {
-    height: 2em;
     color: @color-base;
   }
 }

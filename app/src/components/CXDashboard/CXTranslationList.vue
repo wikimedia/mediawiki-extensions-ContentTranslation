@@ -139,13 +139,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-.cx-translation-list--draft,
-.cx-translation-list--published {
-  // Override the card title style to adjust height
-  &.mw-ui-card > .mw-ui-card__title {
-    height: auto;
-  }
-}
-</style>
