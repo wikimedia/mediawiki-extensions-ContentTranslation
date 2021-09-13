@@ -77,6 +77,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "ဤခေါင်းစဉ်မှာ [$3 ကွဲပြားသော စာမျက်နှာတစ်ခု]အတွက် [$1 $2]တွင် အသုံးပြုပြီးဖြစ်ပါသည်",
 	"cx-selected-source-page-error-page-exists": "$2 ထဲတွင် စာမျက်နှာသည် [$1 ရှိနှင့်ပြီးဖြစ်သည်]",
 	"cx-selected-source-page-error-title-in-use": "စာမျက်နှာသစ်အတွက် ခေါင်းစဉ်မှာ [$1 အသုံးပြုပြီးသားဖြစ်သည်]",
+	"cx-favorite-added-for-later": "နောင်အတွက် ပေါင်းထည့်ပြီး",
 	"cx-page-missing-in-target-language": "$1တွင် ပျောက်ကွယ်နေသည်",
 	"cx-page-number-of-languages": "ဘာသာစကားများ အရေအတွက်",
 	"cx-mt-abuse-error-title": "သင်၏ဘာသာပြန်တွင် မပြုပြင်ထားသောစာသား $1% {{PLURAL:$1|ပါဝင်}}နေပါသည်။",
