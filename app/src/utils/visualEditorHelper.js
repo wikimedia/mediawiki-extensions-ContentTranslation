@@ -33,16 +33,25 @@ const createDummyVESurface = htmlContent => {
 
 /**
  * @param {string} htmlContent
+ * @param {boolean} resolveReferences Whether to resolve references in article
+ *   content internal to sections
  * @return {jQuery}
  */
-const getSubSectionNodes = htmlContent => {
-  const surface = createDummyVESurface(htmlContent);
+const getSubSectionNodes = (htmlContent, resolveReferences) => {
+  let surface, subSectionCeNodeList;
+
+  if (resolveReferences) {
+    surface = createDummyVESurface(htmlContent);
+    subSectionCeNodeList = surface.$element.find(
+      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
+    );
+  } else {
+    subSectionCeNodeList = $(htmlContent).find(
+      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
+    );
+  }
 
   /** @type jQuery **/
-  const subSectionCeNodeList = surface.$element.find(
-    "section[rel='cx:Section']:not([data-mw-section-number='0'])"
-  );
-
   const subSectionNodeList = subSectionCeNodeList.map((i, subSectionCeNode) => {
     const model = $(subSectionCeNode)
       .data("view")
@@ -57,7 +66,10 @@ const getSubSectionNodes = htmlContent => {
       ).body.children[0];
     }
   });
-  surface.destroy();
+
+  if (surface) {
+    surface.destroy();
+  }
 
   return subSectionNodeList;
 };

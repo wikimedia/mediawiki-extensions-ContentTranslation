@@ -109,7 +109,8 @@ const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
     segmentedContent =>
       new Page({
         sections: segmentedContentConverter.convertSegmentedContentToPageSections(
-          segmentedContent
+          segmentedContent,
+          false // No need to resolve references. This is target langauge article.
         ),
         content: segmentedContent,
         pagelanguage: sourceLanguage,
@@ -134,7 +135,8 @@ const fetchPageSections = (sourceLanguage, targetLanguage, sourceTitle) => {
     sourceTitle
   ).then(segmentedContent =>
     segmentedContentConverter.convertSegmentedContentToPageSections(
-      segmentedContent
+      segmentedContent,
+      true // resolve references
     )
   );
 };

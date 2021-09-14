@@ -7,12 +7,19 @@ import { getSubSectionNodes } from "./visualEditorHelper";
  * This function receives html segmented content as it is returned
  * from cxserver and converts it to an array of PageSection objects
  *
- * @param htmlContent
+ * @param {string} htmlContent
+ * @param {boolean} resolveReferences Whether to resolve references in article
+ *   content internal to sections
  * @return {PageSection[]}
  */
-const convertSegmentedContentToPageSections = htmlContent => {
+const convertSegmentedContentToPageSections = (
+  htmlContent,
+  resolveReferences
+) => {
   /** @type {Node[]} */
-  const subSectionNodeList = Array.from(getSubSectionNodes(htmlContent));
+  const subSectionNodeList = Array.from(
+    getSubSectionNodes(htmlContent, resolveReferences)
+  );
   /**
    * sectionNodeGroups is an array of arrays. Each sub-array
    * contains all sub-section HTML nodes that belong to the
