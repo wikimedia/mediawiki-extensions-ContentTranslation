@@ -86,4 +86,36 @@ export default class SectionSuggestion {
   get translationExists() {
     return !!this.targetTitle;
   }
+
+  /**
+   * @return {{targetTitle: string, sourceTitle: string}[]}
+   */
+  get orderedMissingSections() {
+    return Object.entries(this.missingSections || {})
+      .map(missing => ({
+        sourceTitle: missing[0],
+        targetTitle: missing[1]
+      }))
+      .sort(
+        (section1, section2) =>
+          this.sourceSections.indexOf(section1.sourceTitle) -
+          this.sourceSections.indexOf(section2.sourceTitle)
+      );
+  }
+
+  /**
+   * @return {{targetTitle: string, sourceTitle: string}[]}
+   */
+  get orderedPresentSections() {
+    return Object.entries(this.presentSections || {})
+      .map(present => ({
+        sourceTitle: present[0],
+        targetTitle: present[1]
+      }))
+      .sort(
+        (section1, section2) =>
+          this.sourceSections.indexOf(section1.sourceTitle) -
+          this.sourceSections.indexOf(section2.sourceTitle)
+      );
+  }
 }

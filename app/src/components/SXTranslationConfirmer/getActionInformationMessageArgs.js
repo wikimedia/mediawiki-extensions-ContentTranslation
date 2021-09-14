@@ -7,9 +7,8 @@ export default sectionSuggestion => {
 
   const missingCount = sectionSuggestion.missingSectionsCount;
   const presentCount = sectionSuggestion.presentSectionsCount;
-  const firstMissingSectionTitle = Object.keys(
-    sectionSuggestion?.missingSections || {}
-  )?.[0];
+  const firstMissingSectionTitle =
+    sectionSuggestion.orderedMissingSections?.[0]?.sourceTitle;
 
   if (missingCount > 1) {
     i18nArgs = [

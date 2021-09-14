@@ -8,6 +8,7 @@ describe("getActionButtonLabel test", () => {
       [firstMissingSectionTitle]: "test",
       "Test missing section 2": "test"
     },
+    sourceSections: [firstMissingSectionTitle, "Test missing section 2"],
     present: {}
   });
   it("case: missing > 1", () => {

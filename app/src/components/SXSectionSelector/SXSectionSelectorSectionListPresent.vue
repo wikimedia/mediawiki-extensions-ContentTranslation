@@ -7,7 +7,7 @@
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
     <sx-section-selector-section-list
-      :sections="suggestion.presentSections"
+      :sections="suggestion.orderedPresentSections"
       v-on="$listeners"
     >
       <template #default="{ sourceSection, targetSection }">

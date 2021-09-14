@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import SxSectionSelector from "@/components/SXSectionSelector";
 
 export default {

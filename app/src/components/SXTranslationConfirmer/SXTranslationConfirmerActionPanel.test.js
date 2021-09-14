@@ -1,6 +1,5 @@
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import { mount, createLocalVue } from "@vue/test-utils";
-import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
 import colors from "../../lib/mediawiki.ui/plugins/colors";

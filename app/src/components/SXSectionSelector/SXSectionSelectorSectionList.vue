@@ -1,19 +1,22 @@
 <template>
   <ul class="sx-section-selector__sections-list ma-0 pa-0">
     <mw-row
-      v-for="(targetSection, sourceSection) in sections"
-      :key="sourceSection"
+      v-for="section in sections"
+      :key="section.sourceTitle"
       tag="li"
       class="ma-0"
     >
       <mw-button
         class="col justify-between py-3 px-4"
-        :label="sourceSection"
+        :label="section.sourceTitle"
         type="text"
         :outlined="false"
-        @click="$emit('select-section', sourceSection)"
+        @click="$emit('select-section', section.sourceTitle)"
       >
-        <slot :targetSection="targetSection" :sourceSection="sourceSection">
+        <slot
+          :targetSection="section.targetTitle"
+          :sourceSection="section.sourceTitle"
+        >
         </slot>
         <mw-icon :icon="mwIconArrowForward" class="mw-ui-button__indicator" />
       </mw-button>
@@ -33,13 +36,14 @@ export default {
     MwIcon
   },
   props: {
+    /**
+     * @type {{targetTitle: string, sourceTitle: string}[]}
+     */
     sections: {
-      type: Object,
+      type: Array,
       required: true
     }
   },
   data: () => ({ mwIconArrowForward })
 };
 </script>
-
-<style scoped></style>

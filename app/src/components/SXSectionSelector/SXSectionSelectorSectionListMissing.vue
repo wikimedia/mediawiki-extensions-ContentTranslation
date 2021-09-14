@@ -8,7 +8,7 @@
     />
     <sx-section-selector-section-list
       v-if="!emptySections"
-      :sections="suggestion.missingSections"
+      :sections="suggestion.orderedMissingSections"
       v-on="$listeners"
     >
       <template #default="{ sourceSection }">

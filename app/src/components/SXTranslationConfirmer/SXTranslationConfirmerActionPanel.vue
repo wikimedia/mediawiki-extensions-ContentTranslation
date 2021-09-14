@@ -144,7 +144,9 @@ export default {
     );
 
     const firstMissingSection = computed(
-      () => Object.keys(sectionSuggestion.value?.missingSections || {})?.[0]
+      () =>
+        (sectionSuggestion.value?.orderedMissingSections || [])?.[0]
+          ?.sourceTitle
     );
 
     const actionInformationMessage = computed(() =>
