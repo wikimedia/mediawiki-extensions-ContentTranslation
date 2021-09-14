@@ -76,16 +76,6 @@ async function fetchPageContent(
     );
     commit("addPage", page);
   }
-
-  if (page.content) {
-    return;
-  }
-
-  pageApi
-    .fetchPageContent(sourceLanguage, targetLanguage, sourceTitle)
-    .then(
-      /** @type Page */ responsePage => (page.content = responsePage.content)
-    );
 }
 
 /**
