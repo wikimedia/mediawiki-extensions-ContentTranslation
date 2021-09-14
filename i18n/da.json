@@ -87,7 +87,7 @@
 	"cx-selected-source-page-start-translation-button": "Start oversættelse",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 besøg per|0=Ingen besøg i denne}} uge",
 	"cx-selected-source-page-error-page-and-title-exist": "Denne titel bruges allerede i [$1 $2] til [$3 en anden side]",
-	"cx-selected-source-page-error-page-exists": "Siden [$1 findes allerede] i $2",
+	"cx-selected-source-page-error-page-exists": "Siden [$1 findes allerede] på $2",
 	"cx-selected-source-page-error-title-in-use": "Titlen på den nye side er [$1 allerede i brug]",
 	"cx-favorite-added-for-later": "Gemt til senere!",
 	"cx-favorite-added-for-later-detail": "Gemt til senere! Tjek forslagene når som helst.",
