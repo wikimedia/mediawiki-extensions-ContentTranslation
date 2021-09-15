@@ -63,6 +63,8 @@
 	"apierror-cx-invalidprogress": "Ongeldige voortgang.",
 	"apierror-cx-invalidsourcelanguage": "Ongeldige brontaal.",
 	"apierror-cx-invalidtargetlanguage": "Ongeldige doeltaal.",
+	"apierror-cx-jwtmissing": "JWT is niet geïnstalleerd",
+	"apierror-cx-keynotconfigured": "Sleutel niet geconfigureerd.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Om uw vertalingen te kunnen bekijken moet u aangemeld zijn.",
 	"apierror-cx-samelanguages": "De bron- en doeltaal kunnen niet hetzelfde zijn.",
 	"apierror-cx-translationnotfound": "De vertaling is niet gevonden."
