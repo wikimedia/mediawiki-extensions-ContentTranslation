@@ -6,7 +6,6 @@
           <router-view />
         </transition>
       </mw-col>
-      <aside />
     </mw-row>
   </mw-grid>
 </template>
