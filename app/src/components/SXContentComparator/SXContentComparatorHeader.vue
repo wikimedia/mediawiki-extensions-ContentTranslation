@@ -50,7 +50,7 @@
     <sx-content-comparator-header-mapped-section
       v-if="isCurrentSectionPresent"
       :suggestion="suggestion"
-      :target-section-title="targetSectionTitle"
+      :target-section-title="activeSectionTargetTitle"
       :discarded-sections="discardedSections"
       @update:discardedSections="$emit('update:discardedSections', $event)"
     />
@@ -66,7 +66,9 @@ import {
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection";
-import { mapGetters, mapState } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+import useCompareContents from "@/components/SXContentComparator/useCompareContents";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -84,32 +86,44 @@ export default {
       required: true
     }
   },
-  data: () => ({
-    mwIconArrowPrevious,
-    mwIconEdit,
-    mwIconEye
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion,
-      sourceSection: state => state.application.currentSourceSection
-    }),
-    ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
-      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing",
-      isCurrentSectionPresent: "application/isCurrentSourceSectionPresent"
-    }),
-    isCurrentSectionMappedOrDiscarded: vm =>
-      vm.discardedSections.includes(vm.activeSectionTargetTitle),
-    sourceSectionContent: vm => vm.sourceSection?.html,
-    sectionSourceTitles: vm => [
-      ...Object.keys(vm.suggestion.missingSections),
-      ...Object.keys(vm.suggestion.presentSections)
-    ],
-    targetSectionTitle: vm =>
-      vm.suggestion.missingSections[vm.sourceSectionTitle] ||
-      vm.suggestion.presentSections[vm.sourceSectionTitle] ||
-      ""
+  setup(props, context) {
+    const {
+      currentSectionSuggestion: suggestion,
+      currentSourceSection: sourceSection
+    } = useApplicationState();
+
+    const store = context.root.$store;
+
+    const sourceSectionTitle = computed(
+      () => store.getters["application/getCurrentSourceSectionTitle"]
+    );
+    const isCurrentSectionMissing = computed(
+      () => store.getters["application/isCurrentSourceSectionMissing"]
+    );
+    const isCurrentSectionPresent = computed(
+      () => store.getters["application/isCurrentSourceSectionPresent"]
+    );
+
+    const { activeSectionTargetTitle } = useCompareContents();
+
+    const sourceSectionContent = computed(() => sourceSection.value?.html);
+    const sectionSourceTitles = computed(() => [
+      ...Object.keys(suggestion.value.missingSections),
+      ...Object.keys(suggestion.value.presentSections)
+    ]);
+
+    return {
+      activeSectionTargetTitle,
+      isCurrentSectionMissing,
+      isCurrentSectionPresent,
+      mwIconArrowPrevious,
+      mwIconEdit,
+      mwIconEye,
+      sectionSourceTitles,
+      sourceSectionContent,
+      sourceSectionTitle,
+      suggestion
+    };
   }
 };
 </script>

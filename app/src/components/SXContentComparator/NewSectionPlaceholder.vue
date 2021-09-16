@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { computed } from "@vue/composition-api";
+
 export default {
   name: "SxContentComparatorNewSectionPlaceholder",
   props: {
@@ -19,16 +21,18 @@ export default {
       required: true
     }
   },
-  computed: {
-    placeholderTitle() {
-      return this.isMappedSection
-        ? this.$i18n(
+  setup(props, context) {
+    const placeholderTitle = computed(() =>
+      props.isMappedSection
+        ? context.root.$i18n(
             "cx-sx-content-comparator-present-section-placeholder-title"
           )
-        : this.$i18n(
+        : context.root.$i18n(
             "cx-sx-content-comparator-missing-section-placeholder-title"
-          );
-    }
+          )
+    );
+
+    return { placeholderTitle };
   }
 };
 </script>

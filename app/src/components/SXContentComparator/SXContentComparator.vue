@@ -6,10 +6,8 @@
       @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
-      :source-vs-target-selection.sync="sourceVsTargetSelection"
       :is-mapped-section="isCurrentSectionMapped"
-      :target-section-title="activeSectionTargetTitle"
-      :target-section-anchor="targetSectionAnchor"
+      :source-vs-target-selection.sync="sourceVsTargetSelection"
       @translation-button-clicked="translateSection"
     />
     <section class="sx-content-comparator__source-content">
@@ -33,11 +31,12 @@
 
 <script>
 import { MwSpinner } from "@/lib/mediawiki.ui";
-import { mapGetters, mapState } from "vuex";
 import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader";
 import SxContentComparatorHeader from "./SXContentComparatorHeader";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
-import Vue from "vue";
+import useCompareContents from "./useCompareContents";
+import { ref } from "@vue/composition-api";
+
 export default {
   name: "SxContentComparator",
   components: {
@@ -46,140 +45,44 @@ export default {
     SxContentComparatorContentHeader,
     MwSpinner
   },
-  data: () => ({
-    sourceVsTargetSelection: "source_section",
-    discardedSections: []
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion,
-      sourceSection: state => state.application.currentSourceSection
-    }),
-    ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
-      isCurrentSectionMissing: "application/isCurrentSourceSectionMissing",
-      getFirstAppendixTitleBySectionSuggestion:
-        "suggestions/getFirstAppendixTitleBySectionSuggestion"
-    }),
-    targetSectionAnchor() {
-      return (this.targetSection?.title || "").replace(/ /g, "_");
-    },
-    sourcePage() {
-      return this.$store.getters["mediawiki/getPage"](
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle
-      );
-    },
-    targetPage() {
-      return this.$store.getters["mediawiki/getPage"](
-        this.suggestion.targetLanguage,
-        this.targetTitle
-      );
-    },
-    targetPageContent() {
-      // Create new div with target page content
-      const contentDiv = document.createElement("div");
-      contentDiv.innerHTML = this.targetPage?.content;
+  setup(props, context) {
+    const store = context.root.$store;
+    const router = context.root.$router;
 
-      const placeholderEl = this.createNewSectionPlaceholderElement();
-      // If "References" section (or a similar one - e.g "See also" etc)
-      // is present, position new section placeholder before that section
-      const firstAppendixTitle = this.getFirstAppendixTitleBySectionSuggestion(
-        this.suggestion
-      );
+    const sourceVsTargetSelection = ref("source_section");
 
-      if (firstAppendixTitle) {
-        // Find first appendix section header element
-        const matchedHeaders = Array.from(
-          contentDiv.querySelectorAll("h2")
-        ).filter(h2 => h2.textContent.match(firstAppendixTitle));
-        const firstAppendixSectionHeader = matchedHeaders[0].parentNode;
+    const goToSectionSelector = () =>
+      router.push({ name: "sx-section-selector" });
 
-        // Insert placeholder element before first appendix section header
-        firstAppendixSectionHeader.parentNode.insertBefore(
-          placeholderEl,
-          firstAppendixSectionHeader
-        );
-      } else {
-        // If no "References" or similar section exists in target article,
-        // append new section placeholder to the end of the target article
-        contentDiv.appendChild(placeholderEl);
-      }
-
-      return contentDiv.innerHTML;
-    },
-    // Needed so that it can be easily watched
-    targetTitle() {
-      return this.suggestion.targetTitle;
-    },
-    activeSectionTargetTitle() {
-      return (
-        this.suggestion.missingSections[this.sourceSectionTitle] ||
-        this.suggestion.presentSections[this.sourceSectionTitle] ||
-        ""
-      );
-    },
-    targetSection() {
-      return this.targetPage?.getSectionByTitle(this.activeSectionTargetTitle);
-    },
-    sourceSectionContent() {
-      return this.sourceSection?.html;
-    },
-    targetSectionContent() {
-      return this.targetSection?.html;
-    },
-    isCurrentSectionMapped() {
-      return !this.isCurrentSectionMissing && !this.isCurrentSectionDiscarded;
-    },
-    isCurrentSectionDiscarded() {
-      return this.discardedSections.includes(this.activeSectionTargetTitle);
-    }
-  },
-  watch: {
-    // watch for target title as it is not provided when the proxy suggestion object is created
-    // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
-    targetTitle: {
-      immediate: true,
-      handler: function() {
-        this.$store.dispatch("mediawiki/fetchPageContent", {
-          sourceLanguage: this.suggestion.targetLanguage,
-          targetLanguage: this.suggestion.sourceLanguage,
-          sourceTitle: this.targetTitle
-        });
-      }
-    }
-  },
-  methods: {
-    createNewSectionPlaceholderElement() {
-      const PlaceholderClass = Vue.extend(
-        SxContentComparatorNewSectionPlaceholder
-      );
-
-      const placeholderInstance = new PlaceholderClass({
-        props: {
-          isMappedSection: this.isCurrentSectionMapped
-        }
-      });
-
-      return placeholderInstance.$mount().$el;
-    },
-    goToSectionSelector() {
-      this.$router.push({ name: "sx-section-selector" });
-    },
-    translateSection() {
-      if (this.$store.getters["translator/hasSectionTranslations"]()) {
-        this.goToSentenceSelector();
+    const translateSection = () => {
+      if (store.getters["translator/hasSectionTranslations"]) {
+        router.push({ name: "sx-sentence-selector" });
 
         return;
       }
-      this.goToTutorial();
-    },
-    goToTutorial() {
-      this.$router.push({ name: "sx-quick-tutorial" });
-    },
-    goToSentenceSelector() {
-      this.$router.push({ name: "sx-sentence-selector" });
-    }
+      router.push({ name: "sx-quick-tutorial" });
+    };
+
+    const {
+      activeSectionTargetTitle,
+      discardedSections,
+      isCurrentSectionMapped,
+      sourceSectionContent,
+      targetPageContent,
+      targetSectionContent
+    } = useCompareContents();
+
+    return {
+      activeSectionTargetTitle,
+      discardedSections,
+      goToSectionSelector,
+      isCurrentSectionMapped,
+      sourceSectionContent,
+      sourceVsTargetSelection,
+      targetPageContent,
+      targetSectionContent,
+      translateSection
+    };
   }
 };
 </script>

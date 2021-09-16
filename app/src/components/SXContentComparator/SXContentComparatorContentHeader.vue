@@ -52,8 +52,11 @@ import {
   mwIconEdit,
   mwIconLinkExternal
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
-import SxContentComparatorSourceVsTargetSelector from "@/components/SXContentComparator/SourceVsTargetSelector";
+import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector";
+import useApplicationState from "@/composables/useApplicationState";
+import useCompareContents from "./useCompareContents";
+import { ref, computed, onMounted } from "@vue/composition-api";
+
 export default {
   name: "SxContentComparatorContentHeader",
   components: {
@@ -67,81 +70,93 @@ export default {
       type: String,
       required: true
     },
-    targetSectionTitle: {
-      type: String,
-      required: true
-    },
     isMappedSection: {
       type: Boolean,
       required: true
-    },
-    targetSectionAnchor: {
-      type: String,
-      required: true
     }
   },
-  data: () => ({
-    mwIconLinkExternal,
-    mwIconEdit,
-    isSticky: false
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion
-    }),
-    ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle",
-      sourceSectionAnchor: "application/getCurrentSourceSectionAnchor"
-    }),
-    activeContentTitle() {
-      switch (this.sourceVsTargetSelection) {
-        case "source_section":
-          return this.sourceSectionTitle;
-        case "target_article":
-          return this.suggestion.targetTitle;
-        default:
-          return this.targetSectionTitle;
-      }
-    },
-    activeContentPath() {
-      switch (this.sourceVsTargetSelection) {
-        case "source_section":
-          return `${siteMapper.getPageUrl(
-            this.suggestion.sourceLanguage,
-            this.suggestion.sourceTitle
-          )}#${this.sourceSectionAnchor}`;
-        case "target_article":
-          return this.targetArticlePath;
-        default:
-          return `${this.targetArticlePath}#${this.targetSectionAnchor}`;
-      }
-    },
-    targetArticlePath() {
-      return siteMapper.getPageUrl(
-        this.suggestion.targetLanguage,
-        this.suggestion.targetTitle
-      );
-    }
-  },
-  mounted() {
-    /**
-     * Only watch for vertical intersection, as horizontal
-     * intersection is happening when component is being mounted
-     * due to router transitions, inserting UI glitches.
-     */
-    const observer = new IntersectionObserver(
-      ([e]) => {
-        this.isSticky = e.intersectionRect.height < e.boundingClientRect.height;
-      },
-      { threshold: [1] }
+  emits: ["update:sourceVsTargetSelection", "translation-button-clicked"],
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const isSticky = ref(false);
+    const { currentSectionSuggestion: suggestion } = useApplicationState();
+
+    const sourceSectionTitle = computed(
+      () => store.getters["application/getCurrentSourceSectionTitle"]
+    );
+    const sourceSectionAnchor = computed(
+      () => store.getters["application/getCurrentSourceSectionAnchor"]
     );
 
-    observer.observe(this.$refs.contentHeader.$el);
-  },
-  methods: {
-    updateSelection(selection) {
-      this.$emit("update:sourceVsTargetSelection", selection);
-    }
+    const updateSelection = selection =>
+      context.emit("update:sourceVsTargetSelection", selection);
+
+    const {
+      activeSectionTargetTitle,
+      targetSectionAnchor
+    } = useCompareContents();
+
+    const activeContentTitle = computed(() => {
+      switch (props.sourceVsTargetSelection) {
+        case "source_section":
+          return sourceSectionTitle.value;
+        case "target_article":
+          return suggestion.value.targetTitle;
+        default:
+          return activeSectionTargetTitle.value;
+      }
+    });
+
+    const activeContentPath = computed(() => {
+      switch (props.sourceVsTargetSelection) {
+        case "source_section":
+          return `${siteMapper.getPageUrl(
+            suggestion.value.sourceLanguage,
+            suggestion.value.sourceTitle
+          )}#${sourceSectionAnchor.value}`;
+        case "target_article":
+          return targetArticlePath.value;
+        default:
+          return `${targetArticlePath.value}#${targetSectionAnchor.value}`;
+      }
+    });
+
+    const targetArticlePath = computed(() =>
+      siteMapper.getPageUrl(
+        suggestion.value.targetLanguage,
+        suggestion.value.targetTitle
+      )
+    );
+
+    const contentHeader = ref(null);
+
+    onMounted(() => {
+      /**
+       * Only watch for vertical intersection, as horizontal
+       * intersection is happening when component is being mounted
+       * due to router transitions, inserting UI glitches.
+       */
+      const observer = new IntersectionObserver(
+        ([e]) => {
+          isSticky.value =
+            e.intersectionRect.height < e.boundingClientRect.height;
+        },
+        { threshold: [1] }
+      );
+
+      observer.observe(contentHeader.value.$el);
+    });
+
+    return {
+      activeContentTitle,
+      activeContentPath,
+      contentHeader,
+      isSticky,
+      mwIconLinkExternal,
+      mwIconEdit,
+      updateSelection
+    };
   }
 };
 </script>

@@ -4,13 +4,13 @@
       class="pa-0 pe-1"
       type="icon"
       :icon="mwIconPrevious"
-      @click="previousSection"
+      @click="goToPreviousSection"
     />
     <mw-button
       class="pa-0 ps-1"
       type="icon"
       :icon="mwIconArrowForward"
-      @click="nextSection"
+      @click="goToNextSection"
     />
   </mw-col>
 </template>
@@ -21,7 +21,9 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
+import { computed } from "@vue/composition-api";
+import useCompareContents from "./useCompareContents";
+
 export default {
   name: "SxContentComparatorHeaderNavigation",
   components: {
@@ -34,35 +36,34 @@ export default {
       required: true
     }
   },
-  data: () => ({
-    mwIconPrevious,
-    mwIconArrowForward
-  }),
-  computed: {
-    ...mapGetters({
-      sourceSectionTitle: "application/getCurrentSourceSectionTitle"
-    }),
-    currentTitleIndex() {
-      return this.sectionSourceTitles.indexOf(this.sourceSectionTitle);
-    }
-  },
-  methods: {
-    previousSection() {
+  setup(props, context) {
+    const store = context.root.$store;
+    const { sourceSectionTitle } = useCompareContents();
+    const currentTitleIndex = computed(() =>
+      props.sectionSourceTitles.indexOf(sourceSectionTitle.value)
+    );
+
+    const goToPreviousSection = () => {
       const previousIndex =
-        (this.currentTitleIndex - 1 + this.sectionSourceTitles.length) %
-        this.sectionSourceTitles.length;
+        (currentTitleIndex.value - 1 + props.sectionSourceTitles.length) %
+        props.sectionSourceTitles.length;
 
-      this.$store.dispatch(
-        "application/selectPageSectionByIndex",
-        previousIndex
-      );
-    },
-    nextSection() {
+      store.dispatch("application/selectPageSectionByIndex", previousIndex);
+    };
+
+    const goToNextSection = () => {
       const nextIndex =
-        (this.currentTitleIndex + 1) % this.sectionSourceTitles.length;
+        (currentTitleIndex.value + 1) % props.sectionSourceTitles.length;
 
-      this.$store.dispatch("application/selectPageSectionByIndex", nextIndex);
-    }
+      store.dispatch("application/selectPageSectionByIndex", nextIndex);
+    };
+
+    return {
+      goToNextSection,
+      goToPreviousSection,
+      mwIconPrevious,
+      mwIconArrowForward
+    };
   }
 };
 </script>
