@@ -1,5 +1,5 @@
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import Vuex from "vuex";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import Vue from "vue";
 
 const sectionSuggestion = new SectionSuggestion({

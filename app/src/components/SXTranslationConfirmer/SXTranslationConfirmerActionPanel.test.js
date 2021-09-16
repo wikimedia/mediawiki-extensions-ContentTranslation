@@ -24,8 +24,15 @@ describe("SXTranslationConfirmer Action Panel test", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("First missing section title is computed correctly", () => {
-    expect(wrapper.vm.firstMissingSection).toBe("source1");
+  it("Action information message is computed correctly", () => {
+    const i18nArgs = [
+      "cx-sx-existing-translation-additional-info",
+      `"source1"`,
+      2
+    ];
+    expect(wrapper.vm.actionInformationMessage).toBe(
+      wrapper.vm.$i18n(...i18nArgs)
+    );
   });
 
   it("translationExists property is computed correctly", () => {

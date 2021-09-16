@@ -62,12 +62,11 @@
 <script>
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
 import { computed, ref } from "@vue/composition-api";
-import { getAutonym } from "@wikimedia/language-data";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
-import getActionInformationMessageArgs from "./getActionInformationMessageArgs";
-import getActionButtonLabel from "./getActionButtonLabel";
+import { getUrl } from "@/utils/mediawikiHelper";
+import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
+
 export default {
   name: "SxTranslationConfirmerActionPanel",
   components: {
@@ -80,25 +79,22 @@ export default {
     const store = context.root.$store;
     const router = context.root.$router;
 
-    const {
-      currentSectionSuggestion: sectionSuggestion
-    } = useApplicationState();
+    const { targetLanguageAutonym } = useApplicationState();
 
-    const translationExists = computed(
-      () => !!sectionSuggestion.value?.translationExists
-    );
+    const {
+      actionInformationMessageArgs,
+      getActionButtonLabel,
+      isProgressiveButton,
+      targetArticlePath,
+      translationExists
+    } = useActionPanel();
 
     const urlParams = new URLSearchParams(location.search);
     const preFilledSectionTitle = ref(urlParams.get("section"));
 
-    const actionButtonLabel = computed(() => {
-      return context.root.$i18n(
-        getActionButtonLabel(
-          sectionSuggestion.value,
-          !!preFilledSectionTitle.value
-        )
-      );
-    });
+    const actionButtonLabel = computed(() =>
+      context.root.$i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
+    );
 
     const onSectionSelectorClick = async () => {
       if (!!preFilledSectionTitle.value) {
@@ -132,33 +128,8 @@ export default {
       store.dispatch("application/setTranslationURLParams");
     };
 
-    const targetArticlePath = computed(() =>
-      siteMapper.getPageUrl(
-        sectionSuggestion.value?.targetLanguage || "",
-        sectionSuggestion.value?.targetTitle || ""
-      )
-    );
-
-    const targetLanguageAutonym = computed(() =>
-      getAutonym(sectionSuggestion.value?.targetLanguage)
-    );
-
-    const firstMissingSection = computed(
-      () =>
-        (sectionSuggestion.value?.orderedMissingSections || [])?.[0]
-          ?.sourceTitle
-    );
-
     const actionInformationMessage = computed(() =>
-      context.root.$i18n(
-        ...getActionInformationMessageArgs(sectionSuggestion.value)
-      )
-    );
-
-    const isProgressiveButton = computed(
-      () =>
-        !translationExists.value ||
-        sectionSuggestion.value?.missingSectionsCount > 0
+      context.root.$i18n(...actionInformationMessageArgs.value)
     );
 
     const onMoreSectionsClick = () => {
@@ -169,7 +140,6 @@ export default {
     return {
       actionButtonLabel,
       actionInformationMessage,
-      firstMissingSection,
       isProgressiveButton,
       mwIconLinkExternal,
       onMoreSectionsClick,
