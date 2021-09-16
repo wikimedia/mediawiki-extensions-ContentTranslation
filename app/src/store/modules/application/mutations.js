@@ -26,7 +26,12 @@ export default {
    */
   setCurrentSectionSuggestion(state, suggestion) {
     state.currentSectionSuggestion =
-      suggestion && new SectionSuggestion(suggestion);
+      suggestion &&
+      new SectionSuggestion({
+        ...suggestion,
+        missing: suggestion?.missingSections || {},
+        present: suggestion?.presentSections || {}
+      });
   },
 
   /**
