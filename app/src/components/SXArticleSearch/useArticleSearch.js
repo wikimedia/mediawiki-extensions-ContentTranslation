@@ -1,7 +1,7 @@
 import pageApi from "@/wiki/mw/api/page";
-import debounce from "lodash/debounce";
 import { computed, ref, watch } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
+import debounce from "@/utils/debounce";
 
 const useSearchArticles = searchInput => {
   /**
@@ -19,8 +19,9 @@ const useSearchArticles = searchInput => {
     searchResults.value.slice(0, maxSearchResults)
   );
 
-  const debouncedSearchForArticles = debounce(async () => {
+  const debouncedSearchForArticles = async () => {
     searchResultsLoading.value = true;
+    searchResults.value = [];
 
     try {
       /** @type {Page[]} */
@@ -31,9 +32,9 @@ const useSearchArticles = searchInput => {
     } finally {
       searchResultsLoading.value = false;
     }
-  }, 500);
+  };
 
-  watch(searchInput, debouncedSearchForArticles);
+  watch(searchInput, debounce(debouncedSearchForArticles, 500));
 
   return {
     searchResultsLoading,

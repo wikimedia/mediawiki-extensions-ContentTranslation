@@ -4,8 +4,8 @@ import SearchResultsCard from "./SearchResultsCard";
 import Vuex from "vuex";
 import CompositionApi from "@vue/composition-api";
 import VueBananaI18n from "vue-banana-i18n";
-import debounce from "lodash/debounce";
-jest.mock("lodash/debounce");
+import debounce from "@/utils/debounce";
+jest.mock("@/utils/debounce");
 debounce.mockImplementation(fn => fn);
 
 const localVue = createLocalVue();
