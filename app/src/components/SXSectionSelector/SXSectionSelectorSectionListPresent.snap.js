@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot 1`] = `
 <section
   class="sx-section-selector__present-sections py-2"
 >

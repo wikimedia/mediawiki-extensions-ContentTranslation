@@ -14,7 +14,13 @@ describe("SXSectionSelector Section List", () => {
       "source section 1": "target section 1",
       "source section 2": "target section 2",
       "source section 3": "target section 3"
-    }
+    },
+    sourceSections: [
+      "source section 0",
+      "source section 1",
+      "source section 2",
+      "source section 3"
+    ]
   });
 
   const wrapper = mount(SXSectionSelectorSectionListPresent, {

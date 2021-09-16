@@ -20,7 +20,6 @@ describe("SXSectionSelector Section List", () => {
     const wrapper = createWrapper();
     expect(wrapper.element).toMatchSnapshot();
   });
-
   it("Component output matches snapshot for specified props with slot", () => {
     const slotTemplate = `
       <template v-slot="{ targetSection, sourceSection }">
@@ -36,7 +35,6 @@ describe("SXSectionSelector Section List", () => {
           </div>
       </template>
     `;
-
     const wrapper = createWrapper({
       scopedSlots: {
         default: slotTemplate

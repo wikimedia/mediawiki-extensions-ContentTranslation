@@ -63,14 +63,14 @@ import {
   mwIconRobot,
   mwIconLabFlask
 } from "@/lib/mediawiki.ui/components/icons";
-import { getAutonym } from "@wikimedia/language-data";
-import { mapState } from "vuex";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem";
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "SxSectionSelector",
@@ -84,56 +84,61 @@ export default {
     MwIcon,
     SxArticleLanguageSelector
   },
-  data: () => ({
-    mwIconRobot,
-    mwIconLabFlask
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion
-    }),
-    sourceLanguageAutonym() {
-      return getAutonym(this.suggestion.sourceLanguage);
-    },
-    targetLanguageAutonym() {
-      return getAutonym(this.suggestion.targetLanguage);
-    },
-    sourceArticlePath() {
-      return siteMapper.getPageUrl(
-        this.suggestion.sourceLanguage,
-        this.suggestion.sourceTitle
-      );
-    },
-    targetArticlePath() {
-      return siteMapper.getPageUrl(
-        this.suggestion.targetLanguage,
-        this.suggestion.targetTitle
-      );
-    },
-    viewArticleItems() {
-      return [
-        { path: this.sourceArticlePath, autonym: this.sourceLanguageAutonym },
-        { path: this.targetArticlePath, autonym: this.targetLanguageAutonym }
-      ];
-    }
-  },
-  methods: {
-    goToDashboard() {
+  setup(props, context) {
+    const {
+      currentSectionSuggestion: suggestion,
+      sourceLanguageAutonym,
+      targetLanguageAutonym
+    } = useApplicationState();
+
+    const sourceArticlePath = computed(() =>
+      siteMapper.getPageUrl(
+        suggestion.value.sourceLanguage,
+        suggestion.value.sourceTitle
+      )
+    );
+
+    const targetArticlePath = computed(() =>
+      siteMapper.getPageUrl(
+        suggestion.value.targetLanguage,
+        suggestion.value.targetTitle
+      )
+    );
+    /**
+     * @type {ComputedRef<[{path: string, autonym: string}, {path: string, autonym: string}]>}
+     */
+    const viewArticleItems = computed(() => [
+      { path: sourceArticlePath.value, autonym: sourceLanguageAutonym.value },
+      { path: targetArticlePath.value, autonym: targetLanguageAutonym.value }
+    ]);
+
+    const goToDashboard = () => {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       history.replaceState(
         {},
         document.title,
         getUrl("Special:ContentTranslation")
       );
-      this.$router.push({ name: "dashboard" });
-    },
-    selectSection(sourceSectionTitle) {
-      this.$store.dispatch(
+      context.root.$router.push({ name: "dashboard" });
+    };
+
+    const selectSection = sourceSectionTitle => {
+      context.root.$store.dispatch(
         "application/selectPageSectionByTitle",
         sourceSectionTitle
       );
-      this.$router.push({ name: "sx-content-comparator" });
-    }
+      context.root.$router.push({ name: "sx-content-comparator" });
+    };
+
+    return {
+      goToDashboard,
+      mwIconRobot,
+      mwIconLabFlask,
+      selectSection,
+      suggestion,
+      targetLanguageAutonym,
+      viewArticleItems
+    };
   }
 };
 </script>
