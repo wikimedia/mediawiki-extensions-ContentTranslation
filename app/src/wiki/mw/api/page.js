@@ -231,7 +231,7 @@ const searchPagesByTitlePrefix = (query, language) => {
   return siteMapper
     .getApi(language)
     .get(params)
-    .then(response => response.query.pages)
+    .then(response => response.query?.pages || [])
     .then(pages =>
       pages
         .sort((page1, page2) => page1.index - page2.index)
