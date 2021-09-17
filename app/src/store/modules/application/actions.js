@@ -184,7 +184,7 @@ async function updateTargetLanguage(
     missing: {}
   });
 
-  if (getters.getCurrentLanguageTitleGroup.hasLanguage(targetLanguage)) {
+  if (getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)) {
     suggestion = await dispatch(
       "suggestions/loadSectionSuggestion",
       suggestion,
