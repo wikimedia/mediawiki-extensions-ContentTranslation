@@ -2,17 +2,17 @@ import { computed } from "@vue/composition-api";
 import { getAutonym } from "@wikimedia/language-data";
 import useApplicationState from "@/composables/useApplicationState";
 
-const useListSelector = $i18n => {
+/**
+ * @return {ComputedRef<[]>}
+ */
+const useListSelector = (props, contextRoot) => {
   const { currentSectionSuggestion: suggestion } = useApplicationState();
 
-  /**
-   * @type {ComputedRef<[]>}
-   */
-  const listSelector = computed(() => {
+  return computed(() => {
     const sourceSelectorItem = {
       value: "source_section",
       props: {
-        label: $i18n(
+        label: contextRoot.$i18n(
           "cx-sx-content-comparator-source-selector-title",
           getAutonym(suggestion.value.sourceLanguage)
         ),
@@ -28,7 +28,7 @@ const useListSelector = $i18n => {
         targetSelectorItem = {
           value: "target_section",
           props: {
-            label: $i18n(
+            label: contextRoot.$i18n(
               "cx-sx-content-comparator-target-selector-target-section-title",
               getAutonym(suggestion.value.targetLanguage)
             ),
@@ -41,7 +41,7 @@ const useListSelector = $i18n => {
         targetSelectorItem = {
           value: "target_article",
           props: {
-            label: $i18n(
+            label: contextRoot.$i18n(
               "cx-sx-content-comparator-target-selector-full-article-title",
               getAutonym(suggestion.value.targetLanguage)
             ),
@@ -53,8 +53,6 @@ const useListSelector = $i18n => {
 
     return [sourceSelectorItem, targetSelectorItem];
   });
-
-  return listSelector;
 };
 
 export default useListSelector;

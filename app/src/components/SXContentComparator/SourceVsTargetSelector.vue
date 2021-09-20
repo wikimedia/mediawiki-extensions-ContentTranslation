@@ -31,7 +31,7 @@ export default {
     const updateSelection = selection =>
       context.emit("update:selection", selection);
 
-    const listSelector = useListSelector(context.root.$i18n);
+    const listSelector = useListSelector(props, context.root);
 
     /**
      * Watch for isMappedSection prop so that we can update
