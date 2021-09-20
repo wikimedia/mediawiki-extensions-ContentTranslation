@@ -8,6 +8,23 @@ body.skin-contenttranslation {
 	margin: 0 auto;
 	padding: 8px 40px;
 	background: @colorGray14;
+
+	// Default style from boilerplate style of ResourceLoaderSkinModule does not follow
+	// Design style guide https://design.wikimedia.org/style-guide/components/links.html
+	a {
+		text-decoration: none;
+		color: #36c;
+		background: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&.new {
+			color: #ba0000;
+		}
+	}
 }
 
 // Small screens - menu adjustment
