@@ -9,7 +9,12 @@
         }"
         :style="contentsStyle"
       >
-        <section v-if="hasProposedTranslation" v-html="proposedTranslation" />
+        <section
+          v-if="hasProposedTranslation"
+          :lang="targetLanguage"
+          :dir="getDir(targetLanguage)"
+          v-html="proposedTranslation"
+        />
         <mw-spinner v-else />
       </mw-col>
       <mw-col
@@ -40,6 +45,7 @@ import {
   mwIconEdit,
   mwIconEllipsis
 } from "@/lib/mediawiki.ui/components/icons";
+import { getDir } from "@wikimedia/language-data";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
@@ -62,7 +68,7 @@ export default {
 
     const headerAndFooterHeight = ref(0);
 
-    const { currentMTProvider } = useApplicationState();
+    const { currentMTProvider, targetLanguage } = useApplicationState();
 
     const proposedTranslation = computed(
       () => store.getters["application/getCurrentProposedTranslation"]
@@ -96,10 +102,12 @@ export default {
     });
 
     return {
+      getDir,
       mwIconEllipsis,
       mwIconEdit,
       proposedTranslation,
       hasProposedTranslation,
+      targetLanguage,
       contentsStyle
     };
   }
