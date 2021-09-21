@@ -43,7 +43,8 @@ import {
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { mapGetters, mapState } from "vuex";
+import { ref, onMounted, computed, watch } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "ProposedTranslationCard",
@@ -56,51 +57,51 @@ export default {
     MwButton,
     ProposedTranslationActionButtons
   },
-  data: () => ({
-    mwIconEllipsis,
-    mwIconEdit,
-    /**
-     * This data property stores total height
-     * for footer and header of card, so that
-     * we can calculate max-height for proposed
-     * translation contents
-     */
-    headerAndFooterHeight: 0
-  }),
-  computed: {
-    ...mapState({ mtProvider: state => state.application.currentMTProvider }),
-    ...mapGetters({
-      proposedTranslation: "application/getCurrentProposedTranslation"
-    }),
-    proposedTranslation: vm =>
-      vm.$store.getters["application/getCurrentProposedTranslation"],
-    contentsStyle: vm => ({
-      "max-height": `calc(100% - ${vm.headerAndFooterHeight}px)`
-    }),
-    hasProposedTranslation: vm =>
-      !!vm.proposedTranslation ||
-      vm.mtProvider === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
-  },
-  watch: {
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const headerAndFooterHeight = ref(0);
+
+    const { currentMTProvider } = useApplicationState();
+
+    const proposedTranslation = computed(
+      () => store.getters["application/getCurrentProposedTranslation"]
+    );
+
+    const contentsStyle = computed(() => ({
+      "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`
+    }));
+
+    const hasProposedTranslation = computed(
+      () =>
+        !!proposedTranslation.value ||
+        currentMTProvider.value === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+    );
+
+    const setHeaderAndFooterHeight = () => {
+      headerAndFooterHeight.value =
+        context.refs.header.$el.clientHeight +
+        context.refs.footer.$el.clientHeight;
+    };
+
     // Card title can take different number of text lines
     // depending on MT provider's name length in smaller screens.
-    // Watch mtProvider to update headerAndFooterHeight when needed,
+    // Watch currentMTProvider to update headerAndFooterHeight when needed,
     // since Element.clientHeight property is not reactive
-    mtProvider() {
-      this.setHeaderAndFooterHeight();
-    }
-  },
-  mounted() {
-    this.setHeaderAndFooterHeight();
-  },
-  methods: {
-    setHeaderAndFooterHeight() {
-      this.$nextTick(() => {
-        this.headerAndFooterHeight =
-          this.$refs.header.$el.clientHeight +
-          this.$refs.footer.$el.clientHeight;
-      });
-    }
+    watch(currentMTProvider, setHeaderAndFooterHeight);
+
+    onMounted(async () => {
+      await context.root.$nextTick();
+      setHeaderAndFooterHeight();
+    });
+
+    return {
+      mwIconEllipsis,
+      mwIconEdit,
+      proposedTranslation,
+      hasProposedTranslation,
+      contentsStyle
+    };
   }
 };
 </script>
