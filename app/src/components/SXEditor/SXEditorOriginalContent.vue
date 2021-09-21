@@ -9,6 +9,8 @@
         <div
           ref="originalContent"
           class="sx-editor__original-sentence-panel__content mb-5"
+          :lang="language"
+          :dir="dir"
           :class="{
             'sx-editor__original-sentence-panel__content--collapsed': originalContentCollapsed
           }"
@@ -56,6 +58,14 @@ export default {
   components: { MwButton, MwCol, MwRow },
   props: {
     originalContent: {
+      type: String,
+      required: true
+    },
+    language: {
+      type: String,
+      required: true
+    },
+    dir: {
       type: String,
       required: true
     }

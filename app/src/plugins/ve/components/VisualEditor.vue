@@ -1,5 +1,5 @@
 <template>
-  <div ref="sxeditor" class="visual-editor">
+  <div ref="sxeditor" :lang="language" :dir="dir" class="visual-editor">
     <div class="overlay-header header initial-header">
       <div class="toolbar"></div>
     </div>

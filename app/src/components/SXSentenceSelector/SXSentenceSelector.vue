@@ -159,7 +159,8 @@ export default {
         name: "sx-editor",
         params: {
           content,
-          language: this.suggestion.targetLanguage,
+          sourceLanguage: this.suggestion.sourceLanguage,
+          targetLanguage: this.suggestion.targetLanguage,
           originalContent: this.originalSegmentContent,
           title: this.suggestion.targetTitle
         }

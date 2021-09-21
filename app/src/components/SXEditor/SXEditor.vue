@@ -7,6 +7,8 @@
   >
     <sx-editor-original-content
       v-if="originalContent"
+      :language="sourceLanguage"
+      :dir="getDir(sourceLanguage)"
       :original-content="originalContent"
     />
     <mw-spinner v-if="!editorReady" />
@@ -17,7 +19,8 @@
       />
       <visual-editor
         :content="content"
-        :language="language"
+        :language="targetLanguage"
+        :dir="getDir(targetLanguage)"
         :title="title"
         @ready="onEditorReady"
         @close="closeEditor"
@@ -31,6 +34,7 @@
 import { ref } from "@vue/composition-api";
 import VisualEditor from "@/plugins/ve/components/VisualEditor";
 import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
+import { getDir } from "@wikimedia/language-data";
 import SxEditorOriginalContent from "@/components/SXEditor/SXEditorOriginalContent";
 import EditCompleteFeedback from "@/components/SXEditor/EditCompleteFeedback";
 
@@ -96,7 +100,9 @@ export default {
       content: proposedTranslation,
       editedTranslation,
       editorReady,
-      language: route.params.language,
+      getDir,
+      sourceLanguage: route.params.sourceLanguage,
+      targetLanguage: route.params.targetLanguage,
       onEditorReady,
       onEditCompleted,
       originalContent,
