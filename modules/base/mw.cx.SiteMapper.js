@@ -234,11 +234,17 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 
 	cxPage = 'Special:ContentTranslation';
 	queryParams = $.extend( {
-		page: sourceTitle,
 		from: sourceLanguage,
-		to: targetLanguage,
-		targettitle: targetTitle
+		to: targetLanguage
 	}, extra );
+
+	if ( sourceTitle ) {
+		queryParams.page = sourceTitle;
+	}
+
+	if ( targetTitle ) {
+		queryParams.targettitle = targetTitle;
+	}
 
 	if ( this.translateInTarget ) {
 		uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
