@@ -17,7 +17,12 @@
       class="sx-content-comparator__content-header-title mx-4 my-0 pt-4 pb-2"
     >
       <mw-col>
-        <h3 class="ma-0 pa-0" v-text="activeContentTitle" />
+        <h3
+          :lang="activeContent.lang"
+          :dir="activeContent.dir"
+          class="ma-0 pa-0"
+          v-text="activeContent.title"
+        />
       </mw-col>
       <mw-col shrink>
         <mw-button
@@ -36,7 +41,7 @@
           class="sx-content-comparator__open-content-link-button pa-0 pe-2"
           :icon="mwIconLinkExternal"
           type="icon"
-          :href="activeContentPath"
+          :href="activeContent.path"
           target="_blank"
         />
       </mw-col>
@@ -55,6 +60,7 @@ import {
 import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector";
 import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "./useCompareContents";
+import { getDir } from "@wikimedia/language-data";
 import { ref, computed, onMounted } from "@vue/composition-api";
 
 export default {
@@ -97,28 +103,30 @@ export default {
       targetSectionAnchor
     } = useCompareContents();
 
-    const activeContentTitle = computed(() => {
+    const activeContent = computed(() => {
       switch (props.sourceVsTargetSelection) {
         case "source_section":
-          return sourceSectionTitle.value;
+          return {
+            title: sourceSectionTitle.value,
+            path: `${siteMapper.getPageUrl(
+              suggestion.value.sourceLanguage,
+              suggestion.value.sourceTitle
+            )}#${sourceSectionAnchor.value}`,
+            lang: suggestion.value.sourceLanguage,
+            dir: getDir(suggestion.value.sourceLanguage)
+          };
         case "target_article":
-          return suggestion.value.targetTitle;
+          return {
+            title: suggestion.value.targetTitle,
+            path: targetArticlePath.value,
+            lang: suggestion.value.targetLanguage,
+            dir: getDir(suggestion.value.targetLanguage)
+          };
         default:
-          return activeSectionTargetTitle.value;
-      }
-    });
-
-    const activeContentPath = computed(() => {
-      switch (props.sourceVsTargetSelection) {
-        case "source_section":
-          return `${siteMapper.getPageUrl(
-            suggestion.value.sourceLanguage,
-            suggestion.value.sourceTitle
-          )}#${sourceSectionAnchor.value}`;
-        case "target_article":
-          return targetArticlePath.value;
-        default:
-          return `${targetArticlePath.value}#${targetSectionAnchor.value}`;
+          return {
+            title: activeSectionTargetTitle.value,
+            path: `${targetArticlePath.value}#${targetSectionAnchor.value}`
+          };
       }
     });
 
@@ -149,8 +157,7 @@ export default {
     });
 
     return {
-      activeContentTitle,
-      activeContentPath,
+      activeContent,
       contentHeader,
       isSticky,
       mwIconLinkExternal,

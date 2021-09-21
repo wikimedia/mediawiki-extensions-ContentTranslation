@@ -13,11 +13,21 @@
     <section class="sx-content-comparator__source-content">
       <template v-if="sourceVsTargetSelection === 'source_section'">
         <mw-spinner v-if="!sourceSectionContent" />
-        <section class="pt-2 px-4" v-html="sourceSectionContent" />
+        <section
+          :lang="sourceLanguage"
+          :dir="getDir(sourceLanguage)"
+          class="pt-2 px-4"
+          v-html="sourceSectionContent"
+        />
       </template>
       <template v-else-if="sourceVsTargetSelection === 'target_article'">
         <mw-spinner v-if="!targetPageContent" />
-        <article class="px-4" v-html="targetPageContent" />
+        <article
+          :lang="targetLanguage"
+          :dir="getDir(targetLanguage)"
+          class="px-4"
+          v-html="targetPageContent"
+        />
       </template>
       <template v-else>
         <section class="pa-4" v-html="targetSectionContent" />
@@ -35,7 +45,9 @@ import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader
 import SxContentComparatorHeader from "./SXContentComparatorHeader";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
 import useCompareContents from "./useCompareContents";
-import { ref } from "@vue/composition-api";
+import { getDir } from "@wikimedia/language-data";
+import { ref, computed } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxContentComparator",
@@ -72,7 +84,12 @@ export default {
       targetSectionContent
     } = useCompareContents();
 
+    const { currentSectionSuggestion: suggestion } = useApplicationState();
+    const sourceLanguage = computed(() => suggestion.value.sourceLanguage);
+    const targetLanguage = computed(() => suggestion.value.targetLanguage);
+
     return {
+      getDir,
       activeSectionTargetTitle,
       discardedSections,
       goToSectionSelector,
@@ -81,7 +98,9 @@ export default {
       sourceVsTargetSelection,
       targetPageContent,
       targetSectionContent,
-      translateSection
+      translateSection,
+      sourceLanguage,
+      targetLanguage
     };
   }
 };
