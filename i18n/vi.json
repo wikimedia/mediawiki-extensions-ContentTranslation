@@ -102,7 +102,7 @@
 	"cx-page-missing-in-target-language": "Không có sẵn trong $1",
 	"cx-page-number-of-languages": "Số ngôn ngữ",
 	"cx-mt-abuse-error-title": "Bản dịch của bạn {{PLURAL:$1}}chứa tổng cộng $1% nội dung chưa sửa đổi",
-	"cx-mt-abuse-error-sections": "Bản dịch của bạn chứa các phần nội dung chưa sửa đổi đáng kể",
+	"cx-mt-abuse-error-sections": "Bản dịch của bạn chứa các phần nội dung chưa chỉnh sửa đáng kể",
 	"cx-mt-abuse-error-text": "Văn bản dịch tự động chỉ được cung cấp làm một khởi điểm. Hãy chắc chắn rằng nội dung là chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.\n\nBản dịch của bạn không thể được xuất bản nếu không được sửa đổi thêm.",
 	"cx-mt-abuse-warning-title": "Bản dịch của bạn có $1% là văn bản chưa biên tập",
 	"cx-mt-abuse-warning-text": "Văn bản dịch máy chỉ được cung cấp như một khởi điểm. Hãy chắc chắn rằng nội dung chính xác và được diễn đạt tự nhiên trong ngôn ngữ của bạn.\n\nBản dịch của bạn rất có thể bị xóa khi người khác xem lại nó.",
