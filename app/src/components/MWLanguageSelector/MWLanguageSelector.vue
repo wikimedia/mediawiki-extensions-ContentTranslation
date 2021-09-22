@@ -104,6 +104,7 @@ import {
 } from "../../lib/mediawiki.ui/components/icons";
 import { MwInput } from "../../lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
+import debounce from "@/utils/debounce";
 
 export default {
   name: "MwLanguageSelector",
@@ -196,13 +197,15 @@ export default {
       }
     };
 
-    watch(searchQuery, async query => {
+    const onQueryChange = async () => {
       searchResults.value = await searchByQuery(
         props.languages,
-        query,
+        searchQuery.value,
         props.searchAPI
       );
-    });
+    };
+
+    watch(searchQuery, debounce(onQueryChange, 300));
 
     onMounted(async () => {
       if (props.autofocus) {
