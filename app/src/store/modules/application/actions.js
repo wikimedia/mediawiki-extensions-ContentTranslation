@@ -2,6 +2,7 @@ import Vue from "vue";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -118,7 +119,15 @@ async function updateSourceLanguage(
 ) {
   // If newly selected source language is same as target language, swap languages
   if (newSourceLanguage === state.targetLanguage) {
-    commit("setTargetLanguage", state.sourceLanguage);
+    window.location.href = siteMapper.getCXUrl(
+      null,
+      null,
+      newSourceLanguage,
+      state.sourceLanguage,
+      {}
+    );
+
+    return;
   }
   commit("setSourceLanguage", newSourceLanguage);
 
@@ -130,7 +139,7 @@ async function updateSourceLanguage(
   }
 
   const sourceTitle = getters.getCurrentLanguageTitleGroup.getTitleForLanguage(
-    sourceLanguage
+    state.sourceLanguage
   );
   let suggestion = new SectionSuggestion({
     sourceLanguage: state.sourceLanguage,
@@ -154,44 +163,27 @@ async function updateSourceLanguage(
  * @param {object} context
  * @param {function} context.commit
  * @param {object} context.state
- * @param {object} context.getters
  * @param {function} context.dispatch
  * @param {string} newTargetLanguage
  * @return {Promise<void>}
  */
 async function updateTargetLanguage(
-  { commit, state, getters, dispatch },
+  { state, dispatch, commit },
   newTargetLanguage
 ) {
   // If newly selected target language is same as source language, swap languages
-  if (newTargetLanguage === state.sourceLanguage) {
-    commit("setSourceLanguage", state.targetLanguage);
-  }
+  const sourceLanguage =
+    newTargetLanguage === state.sourceLanguage
+      ? state.targetLanguage
+      : state.sourceLanguage;
 
-  commit("setTargetLanguage", newTargetLanguage);
-
-  // If translation has not started yet, re-fetch suggestions
-  if (!state.currentSectionSuggestion) {
-    dispatch("suggestions/initializeSuggestions", {}, { root: true });
-
-    return;
-  }
-
-  let suggestion = new SectionSuggestion({
-    sourceLanguage: state.sourceLanguage,
-    targetLanguage: state.targetLanguage,
-    sourceTitle: state.currentSectionSuggestion.sourceTitle,
-    missing: {}
-  });
-
-  if (getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)) {
-    suggestion = await dispatch(
-      "suggestions/loadSectionSuggestion",
-      suggestion,
-      { root: true }
-    );
-  }
-  dispatch("initializeSectionTranslation", suggestion);
+  window.location.href = siteMapper.getCXUrl(
+    state.currentSectionSuggestion?.sourceTitle,
+    null,
+    sourceLanguage,
+    newTargetLanguage,
+    { sx: true }
+  );
 }
 
 /**
