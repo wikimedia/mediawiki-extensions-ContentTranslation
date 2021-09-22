@@ -325,6 +325,10 @@ export default {
         padding: 0;
       }
     }
+
+    .mw-ui-language-selector__resultscontainer {
+      height: calc(100vh - 8em);
+    }
   }
 
   // Custom styling to avoid the dialog jumping across the screen as

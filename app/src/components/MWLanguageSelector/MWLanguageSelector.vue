@@ -26,63 +26,65 @@
         />
       </div>
     </slot>
-    <slot v-if="suggestions.length && !searchQuery" name="suggestions">
-      <section class="results px-3 pt-4">
-        <p
-          v-i18n:cx-sx-language-selector-suggestions
-          class="results-header ps-8 pb-2"
-        />
-        <ul class="results-languages--suggestions pa-0 ma-0">
-          <li
-            v-for="language in suggestions"
-            :key="language"
-            class="language pa-2 ps-8 ma-0"
-            :lang="language"
-            :dir="getDir(language)"
-            :aria-selected="language === selectedLanguage"
-            :class="language === selectedLanguage ? 'language--selected' : ''"
-            tabindex="-1"
-            role="option"
-            @click="select(language)"
-            v-text="getAutonym(language)"
+    <section class="mw-ui-language-selector__resultscontainer pa-0 ma-0">
+      <slot v-if="suggestions.length && !searchQuery" name="suggestions">
+        <section class="results px-3 pt-4">
+          <p
+            v-i18n:cx-sx-language-selector-suggestions
+            class="results-header ps-8 pb-2"
           />
-        </ul>
-      </section>
-    </slot>
-    <slot v-if="searchResultsByScript.length" name="search">
-      <section class="results px-3 pt-4">
-        <p
-          v-if="suggestions.length && !searchQuery"
-          v-i18n:cx-sx-language-selector-all-languages
-          class="results-header ps-8 pb-2"
-        />
-        <ul
-          v-for="(chunk, cindex) in searchResultsByScript"
-          :key="cindex"
-          class="results-languages pa-0 ma-0 mb-6"
-          :class="resultsDisplayClass"
-        >
-          <li
-            v-for="language in chunk"
-            :key="language"
-            class="language pa-2 ps-8 ma-0"
-            :lang="language"
-            :dir="getDir(language)"
-            role="option"
-            :aria-selected="language === selectedLanguage"
-            tabindex="-1"
-            :class="language === selectedLanguage ? 'language--selected' : ''"
-            @click="select(language)"
-            v-text="getAutonym(language)"
+          <ul class="results-languages--suggestions pa-0 ma-0">
+            <li
+              v-for="language in suggestions"
+              :key="language"
+              class="language pa-2 ps-8 ma-0"
+              :lang="language"
+              :dir="getDir(language)"
+              :aria-selected="language === selectedLanguage"
+              :class="language === selectedLanguage ? 'language--selected' : ''"
+              tabindex="-1"
+              role="option"
+              @click="select(language)"
+              v-text="getAutonym(language)"
+            />
+          </ul>
+        </section>
+      </slot>
+      <slot v-if="searchResultsByScript.length" name="search">
+        <section class="results px-3 pt-4">
+          <p
+            v-if="suggestions.length && !searchQuery"
+            v-i18n:cx-sx-language-selector-all-languages
+            class="results-header ps-8 pb-2"
           />
-        </ul>
-      </section>
-    </slot>
-    <slot v-else name="noresults">
-      <section class="no-results px-3 py-4">
-        <h3 v-i18n:cx-sx-language-selector-no-search-results class="ps-8" />
-      </section>
-    </slot>
+          <ul
+            v-for="(chunk, cindex) in searchResultsByScript"
+            :key="cindex"
+            class="results-languages pa-0 ma-0 mb-6"
+            :class="resultsDisplayClass"
+          >
+            <li
+              v-for="language in chunk"
+              :key="language"
+              class="language pa-2 ps-8 ma-0"
+              :lang="language"
+              :dir="getDir(language)"
+              role="option"
+              :aria-selected="language === selectedLanguage"
+              tabindex="-1"
+              :class="language === selectedLanguage ? 'language--selected' : ''"
+              @click="select(language)"
+              v-text="getAutonym(language)"
+            />
+          </ul>
+        </section>
+      </slot>
+      <slot v-else name="noresults">
+        <section class="no-results px-3 py-4">
+          <h3 v-i18n:cx-sx-language-selector-no-search-results class="ps-8" />
+        </section>
+      </slot>
+    </section>
   </div>
 </template>
 
@@ -263,9 +265,13 @@ export default {
     overflow-y: auto;
   }
 
+  &__resultscontainer {
+    overflow: auto;
+    height: 50vh;
+  }
+
   .no-results,
   .results {
-    overflow: auto;
     &-header {
       color: @color-base--subtle;
     }
@@ -303,6 +309,7 @@ export default {
 
   &__inputcontainer {
     position: relative;
+    height: 1em;
   }
 
   &__search,
