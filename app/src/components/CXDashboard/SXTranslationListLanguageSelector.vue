@@ -18,7 +18,7 @@
       </mw-button>
 
       <mw-dialog
-        v-if="sourceLanguageSelectOn"
+        v-model="sourceLanguageSelectOn"
         animation="slide-up"
         :title="$i18n('sx-translation-list-language-selector-dialog-title')"
         :fullscreen="fullscreen"
@@ -56,7 +56,7 @@
         />
       </mw-button>
       <mw-dialog
-        v-if="targetLanguageSelectOn"
+        v-model="targetLanguageSelectOn"
         animation="slide-up"
         :fullscreen="fullscreen"
         :header="fullscreen"

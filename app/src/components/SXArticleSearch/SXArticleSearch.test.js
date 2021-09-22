@@ -6,14 +6,32 @@ import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import CompositionApi from "@vue/composition-api";
+import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
 
 const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
+localVue.use(BreakpointsPlugin);
 localVue.prototype.$logEvent = jest.fn();
 
 const getLocalStorageItem = jest.fn(item => JSON.stringify(["en", "bn"]));
+
+// Mock matchMedia as per
+// https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // Deprecated
+    removeListener: jest.fn(), // Deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn()
+  }))
+});
 Object.defineProperty(global.navigator, "language", {
   value: "en-US",
   writable: false

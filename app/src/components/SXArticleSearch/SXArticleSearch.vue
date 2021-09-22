@@ -58,7 +58,7 @@
       @suggestion-clicked="startSearchResultSectionTranslation"
     />
     <mw-dialog
-      v-if="sourceLanguageSelectOn"
+      v-model="sourceLanguageSelectOn"
       class="sx-article-search-language-selector"
       animation="slide-up"
       :fullscreen="fullscreen"
@@ -171,7 +171,7 @@ export default {
           ...JSON.parse(localStorage.getItem("uls-previous-languages"))
         );
       } catch (e) {}
-      searchInputRef.value.focus();
+      searchInputRef.value?.focus();
     });
 
     const router = context.root.$router;
@@ -265,9 +265,12 @@ export default {
       () => store.getters["mediawiki/getNearbyPages"]
     );
 
+    const fullscreen = computed(() => context.root.$mwui.breakpoint.mdAndDown);
+
     return {
       availableSourceLanguages,
       close,
+      fullscreen,
       mwIconClose,
       mwIconSearch,
       nearbyPages,
@@ -285,11 +288,6 @@ export default {
       suggestedSourceLanguages,
       updateSelection
     };
-  },
-  computed: {
-    fullscreen() {
-      return this.$mwui.breakpoint.mdAndDown;
-    }
   }
 };
 </script>

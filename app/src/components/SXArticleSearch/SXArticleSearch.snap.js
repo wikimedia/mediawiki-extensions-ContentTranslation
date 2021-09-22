@@ -366,6 +366,11 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
     </div>
   </div>
    
-  <!---->
+  <transition-stub
+    class="sx-article-search-language-selector"
+    name="mw-ui-animation-slide-up"
+  >
+    <!---->
+  </transition-stub>
 </section>
 `;
