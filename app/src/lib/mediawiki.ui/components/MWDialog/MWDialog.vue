@@ -1,18 +1,18 @@
 <template>
   <transition :name="`mw-ui-animation-${animation}`">
     <div
-      v-show="value"
+      v-if="value"
       class="mw-ui-dialog"
       :class="classes"
       tabindex="0"
       role="dialog"
       aria-modal="true"
-      @keyup.esc="closeOnEscapeKey && close()"
+      @keyup.esc="closeOnEscapeKey && close"
     >
       <div
         class="mw-ui-dialog__overlay"
         :style="overlayStyles"
-        @click="close()"
+        @click="close"
       />
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
@@ -23,7 +23,7 @@
               v-html="title"
             />
             <mw-col shrink class="justify-center">
-              <mw-button type="icon" :icon="mwIconClose" @click="close()" />
+              <mw-button type="icon" :icon="mwIconClose" @click="close" />
             </mw-col>
           </mw-row>
           <mw-divider />
@@ -44,6 +44,7 @@ import MwDivider from "../MWDivider";
 import { MwRow, MwCol } from "../MWLayout";
 
 import { mwIconClose } from "../icons";
+import { computed, watch } from "@vue/composition-api";
 
 export default {
   name: "MwDialog",
@@ -117,35 +118,46 @@ export default {
       default: true
     }
   },
-  data: () => ({
-    mwIconClose
-  }),
-  computed: {
-    classes: vm => ({
-      "mw-ui-dialog--fullscreen": vm.fullscreen,
-      "mw-ui-dialog--dialog": !vm.fullscreen
-    }),
-    overlayStyles() {
-      return {
-        "background-color": this.overlayColor,
-        opacity: this.overlayOpacity
-      };
-    }
-  },
-  watch: {
-    value() {
-      if (this.value) {
-        this.$nextTick(() => {
-          this.$el.focus();
-        });
+  emits: ["input", "close"],
+  setup(props, context) {
+    const classes = computed(() => ({
+      "mw-ui-dialog--fullscreen": props.fullscreen,
+      "mw-ui-dialog--dialog": !props.fullscreen
+    }));
+
+    const overlayStyles = computed(() => ({
+      "background-color": props.overlayColor,
+      opacity: props.overlayOpacity
+    }));
+
+    const close = () => {
+      document.body.classList.remove("mw-ui-dialog--open");
+      context.emit("input", false);
+      context.emit("close");
+    };
+
+    const onOpen = () => {
+      document.body.classList.add("mw-ui-dialog--open");
+    };
+
+    watch(
+      () => props.value,
+      isOpen => {
+        if (isOpen) {
+          onOpen();
+          context.root.$nextTick(() => {
+            context.root.$el.focus();
+          });
+        }
       }
-    }
-  },
-  methods: {
-    close() {
-      this.$emit("input", false);
-      this.$emit("close");
-    }
+    );
+
+    return {
+      close,
+      classes,
+      overlayStyles,
+      mwIconClose
+    };
   }
 };
 </script>
@@ -219,5 +231,9 @@ export default {
     border-top: @border-width-base @border-style-base @border-color-base;
     max-height: 2em;
   }
+}
+
+body.mw-ui-dialog--open {
+  overflow: hidden;
 }
 </style>
