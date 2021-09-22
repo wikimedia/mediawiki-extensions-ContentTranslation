@@ -72,7 +72,12 @@ body {
 }
 
 // mw.ui.* resets specific for this app
-.mw-ui-icon:before {
-  display: none;
+.mw-ui-icon {
+  width: unset;
+  height: unset;
+  flex-basis: unset;
+  &:before {
+    display: none;
+  }
 }
 </style>
