@@ -26,7 +26,8 @@ import CxTranslationWork from "./CXTranslationWork";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import { getAutonym } from "@wikimedia/language-data";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
-import { mapState } from "vuex";
+import { ref, computed } from "@vue/composition-api";
+import useMediawikiState from "@/composables/useMediawikiState";
 
 export default {
   name: "CxTranslationList",
@@ -50,53 +51,54 @@ export default {
       }
     }
   },
-  data() {
-    return {
-      labelForAllTranslationsOption: this.$i18n(
-        "cx-translation-list-all-languages-option-label"
-      ),
-      selectedSourceLanguage: this.$i18n(
-        "cx-translation-list-all-languages-option-label"
-      ),
-      selectedTargetLanguage: this.$i18n(
-        "cx-translation-list-all-languages-option-label"
+  setup(props, context) {
+    const labelForAllTranslations = context.root.$i18n(
+      "cx-translation-list-all-languages-option-label"
+    );
+    const selectedSourceLanguage = ref(labelForAllTranslations);
+    const selectedTargetLanguage = ref(labelForAllTranslations);
+
+    const store = context.root.$store;
+
+    const loaded = computed(() => store.state.translator.translationsLoaded);
+
+    const { enabledTargetLanguages } = useMediawikiState();
+
+    const translations = computed(() => {
+      if (props.translationStatus === "published") {
+        return store.getters["translator/getPublishedTranslations"]();
+      } else {
+        return store.getters["translator/getDraftTranslations"]();
+      }
+    });
+
+    const isActiveForAllSourceLanguages = computed(
+      () => selectedSourceLanguage.value === labelForAllTranslations
+    );
+    const isActiveForAllTargetLanguages = computed(
+      () => selectedTargetLanguage.value === labelForAllTranslations
+    );
+
+    const activeTranslations = computed(() =>
+      translations.value.filter(
+        translation =>
+          (isActiveForAllSourceLanguages.value ||
+            translation.sourceLanguage === selectedSourceLanguage.value) &&
+          (isActiveForAllTargetLanguages.value ||
+            translation.targetLanguage === selectedTargetLanguage.value)
       )
-    };
-  },
-  computed: {
-    ...mapState({
-      loaded: state => state.translator.translationsLoaded,
-      enabledTargetLanguages: state => state.mediawiki.enabledTargetLanguages
-    }),
-    availableSourceLanguages() {
-      return this.translations
-        .map(translation => translation.sourceLanguage)
-        .filter((language, index, self) => self.indexOf(language) === index)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            { name: getAutonym(languageCode), code: languageCode }
-          ],
-          [
-            {
-              name: this.labelForAllTranslationsOption,
-              code: this.labelForAllTranslationsOption
-            }
-          ]
-        );
-    },
+    );
+
     // If SectionTranslationTargetLanguages configuration parameter is set,
     // target language selection is limited to these languages
-    availableTargetLanguages() {
-      let translationLanguages = this.translations.map(
+    const availableTargetLanguages = computed(() => {
+      let translationLanguages = translations.value.map(
         translation => translation.targetLanguage
       );
 
-      const defaultTargetLanguage = this.enabledTargetLanguages?.[0];
-
-      if (!!defaultTargetLanguage) {
-        translationLanguages = translationLanguages.filter(
-          language => language === defaultTargetLanguage
+      if (!!enabledTargetLanguages.value) {
+        translationLanguages = translationLanguages.filter(language =>
+          enabledTargetLanguages.value.includes(language)
         );
       }
 
@@ -105,36 +107,31 @@ export default {
           ...languages,
           { name: getAutonym(languageCode), code: languageCode }
         ],
-        [
-          {
-            name: this.labelForAllTranslationsOption,
-            code: this.labelForAllTranslationsOption
-          }
-        ]
+        [{ name: labelForAllTranslations, code: labelForAllTranslations }]
       );
-    },
-    translations() {
-      if (this.translationStatus === "published") {
-        return this.$store.getters["translator/getPublishedTranslations"]();
-      } else {
-        return this.$store.getters["translator/getDraftTranslations"]();
-      }
-    },
-    activeTranslations() {
-      return this.translations.filter(
-        translation =>
-          (this.isActiveForAllSourceLanguages ||
-            translation.sourceLanguage === this.selectedSourceLanguage) &&
-          (this.isActiveForAllTargetLanguages ||
-            translation.targetLanguage === this.selectedTargetLanguage)
-      );
-    },
-    isActiveForAllSourceLanguages() {
-      return this.selectedSourceLanguage === this.labelForAllTranslationsOption;
-    },
-    isActiveForAllTargetLanguages() {
-      return this.selectedTargetLanguage === this.labelForAllTranslationsOption;
-    }
+    });
+
+    const availableSourceLanguages = computed(() =>
+      translations.value
+        .map(translation => translation.sourceLanguage)
+        .filter((language, index, self) => self.indexOf(language) === index)
+        .reduce(
+          (languages, languageCode) => [
+            ...languages,
+            { name: getAutonym(languageCode), code: languageCode }
+          ],
+          [{ name: labelForAllTranslations, code: labelForAllTranslations }]
+        )
+    );
+
+    return {
+      activeTranslations,
+      availableSourceLanguages,
+      availableTargetLanguages,
+      loaded,
+      selectedSourceLanguage,
+      selectedTargetLanguage
+    };
   }
 };
 </script>
