@@ -13,5 +13,6 @@ export default {
    * Format: {{ en: Page[], es: Page[], ... }}
    * @type {Object}
    */
-  nearbyPages: {}
+  nearbyPages: {},
+  enabledTargetLanguages: mw.config.get("wgSectionTranslationTargetLanguages")
 };

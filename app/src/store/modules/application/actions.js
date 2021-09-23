@@ -193,16 +193,16 @@ async function loadSectionSuggestionFromUrl({
   commit,
   rootGetters,
   state,
-  dispatch
+  dispatch,
+  rootState
 }) {
   const urlParams = new URLSearchParams(location.search);
   const isSectionTranslation = urlParams.get("sx");
   const sourceTitle = urlParams.get("page");
   const sourceLanguage = urlParams.get("from");
   const targetLanguage = urlParams.get("to");
-  const enabledTargetLanguagesByConfig = mw.config.get(
-    "wgSectionTranslationTargetLanguages"
-  );
+  const enabledTargetLanguagesByConfig =
+    rootState.mediawiki.enabledTargetLanguages;
 
   const defaultTargetLanguage = enabledTargetLanguagesByConfig?.[0];
 

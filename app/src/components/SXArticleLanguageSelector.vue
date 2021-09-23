@@ -19,7 +19,10 @@ export default {
     SxTranslationListLanguageSelector
   },
   setup(props, context) {
-    const { supportedLanguageCodes } = useMediawikiState();
+    const {
+      supportedLanguageCodes,
+      enabledTargetLanguages
+    } = useMediawikiState();
     const store = context.root.$store;
 
     const currentLanguageTitleGroup = computed(
@@ -33,18 +36,14 @@ export default {
         currentLanguageTitleGroup.value?.titles.map(title => title.lang) || []
     );
     /**
-     * If SectionTranslationTargetLanguages configuration parameter is set,
+     * If enabledTargetLanguages are set,
      * target language selection is limited to these languages
      *
      * @return {Object[]} - Array of available target language options
      */
-    const targetLanguages = computed(() => {
-      const mwTargetLanguages = mw.config.get(
-        "wgSectionTranslationTargetLanguages"
-      );
-
-      return mwTargetLanguages || supportedLanguageCodes.value;
-    });
+    const targetLanguages = computed(
+      () => enabledTargetLanguages.value || supportedLanguageCodes.value
+    );
 
     const onSourceLanguageSelected = sourceLanguage =>
       store.dispatch("application/updateSourceLanguage", sourceLanguage);

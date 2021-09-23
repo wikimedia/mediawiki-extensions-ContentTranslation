@@ -6,7 +6,12 @@ export default function() {
     () => store.state.mediawiki.supportedLanguageCodes || []
   );
 
+  const enabledTargetLanguages = computed(
+    () => store.state.mediawiki.enabledTargetLanguages
+  );
+
   return {
+    enabledTargetLanguages,
     supportedLanguageCodes
   };
 }

@@ -65,7 +65,8 @@ export default {
   },
   computed: {
     ...mapState({
-      loaded: state => state.translator.translationsLoaded
+      loaded: state => state.translator.translationsLoaded,
+      enabledTargetLanguages: state => state.mediawiki.enabledTargetLanguages
     }),
     availableSourceLanguages() {
       return this.translations
@@ -90,11 +91,8 @@ export default {
       let translationLanguages = this.translations.map(
         translation => translation.targetLanguage
       );
-      const mwTargetLanguages = mw.config.get(
-        "wgSectionTranslationTargetLanguages"
-      );
 
-      const defaultTargetLanguage = mwTargetLanguages?.[0];
+      const defaultTargetLanguage = this.enabledTargetLanguages?.[0];
 
       if (!!defaultTargetLanguage) {
         translationLanguages = translationLanguages.filter(
