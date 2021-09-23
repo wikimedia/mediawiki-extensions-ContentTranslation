@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"NMW03"
+		]
+	},
+	"apihelp-cxpublish-description": "Məzmun Tərcüməsi uzantısı istifadə edərək səhifə yaradın.",
+	"apihelp-cxpublish-summary": "Məzmun Tərcüməsi uzantısı istifadə edərək səhifə yaradın.",
+	"apihelp-cxpublish-param-title": "Fəaliyyətlərin icra ediləcəyi səhifə başlığı",
+	"apihelp-cxpublish-param-html": "Saxlanılacaq məzmun.",
+	"apihelp-cxpublish-param-from": "Mənbə dil kodu",
+	"apihelp-cxpublish-param-to": "Hədəf dili kodu.",
+	"apihelp-cxpublish-param-sourcetitle": "Mənbə səhifəsinin başlığı.",
+	"apihelp-cxpublish-param-categories": "Yayımlanacaq səhifəyə yerləşdiriləcək kateqoriyalar.",
+	"apihelp-cxpublish-param-publishtags": "Yayımlanacaq səhifəyə yerləşdiriləcək redaktə etiketləri.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha nömrəsi (captcha cavabı ilə yadda saxlayarkən).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Captcha-ya cavab (captcha cavabı ilə yadda saxlayarkən).",
+	"apihelp-cxpublish-param-cxversion": "Tərcüməni yayımlayarkən istifadə olunan redaktorun versiyası",
+	"apihelp-query+contenttranslation-description": "Tərcümələr üçün Query Content Translation verilənlər bazası.",
+	"apihelp-query+contenttranslation-summary": "Tərcümələr üçün Query Content Translation verilənlər bazası.",
+	"apihelp-query+contenttranslation-param-translationid": "Tərcümə ID.",
+	"apihelp-query+contenttranslation-param-from": "Mənbə dil kodu.",
+	"apihelp-query+contenttranslation-param-to": "Hədəf dili kodu.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Mənbə səhifəsinin başlığı.",
+	"apihelp-query+contenttranslation-param-limit": "Alınacaq maksimum tərcümə sayı.",
+	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
+	"apihelp-query+contenttranslation-param-type": "Tərcümənin vəziyyəti.",
+	"apihelp-query+contenttranslation-example-1": "Cari istifadəçi tərəfindən başladılan tərcümələr."
+}

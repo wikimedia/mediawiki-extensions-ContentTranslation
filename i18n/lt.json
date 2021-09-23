@@ -76,6 +76,7 @@
 	"cx-selected-source-page-error-page-exists": "Puslapis [$1 jau egzistuoja] $2",
 	"cx-selected-source-page-error-title-in-use": " Naujo puslapio pavadinimas yra [$1 jau naudojamas]",
 	"cx-favorite-added-for-later": "Išsaugota ateičiai!",
+	"cx-favorite-removed": "Pašalinta iš mėgstamiausių sąrašo!",
 	"cx-page-missing-in-target-language": "Trūkstamas $1",
 	"cx-page-number-of-languages": "Kalbų skaičius",
 	"cx-mt-abuse-warning-title": "Dalis jūsų vertimo {{PLURAL:$1|yra}} $1% nemodifikuoto teksto",
@@ -198,5 +199,19 @@
 	"cx-publish-destination-namespace-user": "Asmeninis juodraštis",
 	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis",
 	"cx-linkcontextitem-missing-link-title": "Trūkstama nuoroda",
-	"cx-feature-discovery-dismiss": "Gerai, supratau"
+	"cx-linkcontextitem-missing-title-description": "Puslapis dar neegzistuoja",
+	"cx-unreviewed-translation-category": "Puslapiai su neperžiūrėtais vertimais",
+	"cx-feature-discovery-dismiss": "Gerai, supratau",
+	"cx-sx-start-translation-button-label": "Pradėkite versti",
+	"cx-sx-translation-confirmer-title": "Naujas vertimas",
+	"cx-sx-publisher-animation-success-message-title": "Paskelbta!",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Jūsų vertimas",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Pastraipa",
+	"sx-article-search-language-selector-dialog-title": "Kalbos",
+	"cx-sx-language-selector-placeholder": "Ieškoti kalbos",
+	"cx-sx-language-selector-all-languages": "Visos kalbos",
+	"cx-sx-language-selector-suggestions": "Siūloma",
+	"cx-sx-language-selector-no-search-results": "Nėra rezultatų",
+	"sx-translation-list-language-selector-dialog-title": "Kalbos",
+	"cx-sx-article-search-header": "Naujas vertimas"
 }
