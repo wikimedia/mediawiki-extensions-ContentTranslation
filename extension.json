@@ -605,9 +605,12 @@
 				"mobile"
 			],
 			"scripts": [
+				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
+				"ui/widgets/mw.cx.ui.TitleOptionWidget.js",
 				"source/mw.cx.SourcePageSelector.js"
 			],
 			"styles": [
+				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less",
 				"source/styles/mw.cx.SourcePageSelector.less"
 			],
 			"dependencies": [
@@ -621,15 +624,21 @@
 				"mediawiki.storage",
 				"mediawiki.language",
 				"mediawiki.ui.button",
+				"mediawiki.widgets",
+				"mw.cx.ui",
 				"mw.cx.ui.LanguageFilter",
-				"mw.cx.ui.PageSelectorWidget",
 				"mw.cx.util",
+				"oojs",
 				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-source-page-selector-input-placeholder",
 				"cx-source-page-selector-no-suggestions",
-				"cx-source-page-selector-no-search-results"
+				"cx-source-page-selector-no-search-results",
+				"cx-page-selector-widget-recent-edits-label",
+				"cx-page-selector-widget-nearby-label",
+				"cx-page-missing-in-target-language",
+				"cx-page-number-of-languages"
 			]
 		},
 		"mw.cx.SelectedSourcePage": {
@@ -701,23 +710,6 @@
 				"cx-translation-filter-uls-all-languages"
 			]
 		},
-		"ext.cx.progressbar": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": "widgets/progressbar/ext.cx.progressbar.js",
-			"styles": [
-				"widgets/progressbar/ext.cx.progressbar.less"
-			],
-			"messages": [
-				"cx-header-progressbar-text",
-				"cx-header-progressbar-text-mt"
-			],
-			"dependencies": [
-				"mediawiki.jqueryMsg"
-			]
-		},
 		"ext.cx.wikibase.link": {
 			"scripts": [
 				"publish/ext.cx.wikibase.link.js"
@@ -770,6 +762,7 @@
 				"mobile"
 			],
 			"scripts": [
+				"widgets/progressbar/ext.cx.progressbar.js",
 				"dashboard/ext.cx.recommendtool.client.js",
 				"dashboard/mw.cx.DashboardList.js",
 				"dashboard/mw.cx.TranslationList.js",
@@ -777,14 +770,15 @@
 				"eventlogging/ext.cx.eventlogging.dashboard.js"
 			],
 			"styles": [
+				"widgets/progressbar/ext.cx.progressbar.less",
 				"dashboard/styles/mw.cx.TranslationList.less",
 				"dashboard/styles/mw.cx.SuggestionList.less"
 			],
 			"dependencies": [
 				"jquery.uls.data",
 				"moment",
-				"ext.cx.progressbar",
 				"ext.cx.widgets.spinner",
+				"mediawiki.jqueryMsg",
 				"mediawiki.user",
 				"mediawiki.widgets",
 				"mw.cx.util",
@@ -823,7 +817,9 @@
 				"cx-suggestionlist-view-source-page",
 				"cx-suggestionlist-title",
 				"cx-lost-session",
-				"cx-lost-session-dashboard"
+				"cx-lost-session-dashboard",
+				"cx-header-progressbar-text",
+				"cx-header-progressbar-text-mt"
 			]
 		},
 		"ext.cx.translation.conflict": {
@@ -1485,6 +1481,7 @@
 		},
 		"mw.cx.ui.TranslationView": {
 			"scripts": [
+				"ui/widgets/mw.cx.ui.PageTitleWidget.js",
 				"ui/mw.cx.ui.TranslationHeader.js",
 				"ui/mw.cx.ui.ArticleColumn.js",
 				"ui/mw.cx.ui.TranslationView.js",
@@ -1493,6 +1490,7 @@
 				"ui/mw.cx.ui.ToolsColumn.js"
 			],
 			"styles": [
+				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less",
 				"ui/styles/mw.cx.ui.TranslationHeader.less",
 				"ui/styles/mw.cx.ui.Columns.less",
 				"ui/styles/mw.cx.ui.SourceColumn.less",
@@ -1506,7 +1504,14 @@
 				"cx-source-loading",
 				"cx-source-view-page",
 				"cx-translation-add-translation",
-				"cx"
+				"cx",
+				"cx-tools-linter-empty-title",
+				"cx-tools-linter-empty-title-message",
+				"cx-tools-linter-invalid-character",
+				"cx-tools-linter-invalid-character-action",
+				"cx-tools-linter-invalid-character-message",
+				"cx-tools-linter-page-exists",
+				"cx-tools-linter-page-exists-message"
 			],
 			"dependencies": [
 				"ext.cx.model",
@@ -1516,10 +1521,11 @@
 				"mw.cx.ui.Infobar",
 				"mw.cx.util",
 				"mw.cx.dm.PageTitleModel",
-				"mw.cx.ui.PageTitleWidget",
 				"mw.cx.tools.IssueTrackingTool",
+				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-alerts",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui.styles.icons-interactions",
+				"ve.ce.CXLintableNode"
 			]
 		},
 		"mw.cx.ui.Infobar": {
@@ -1549,15 +1555,17 @@
 				"oojs-ui.styles.icons-interactions"
 			]
 		},
-		"mw.cx.ui.CategoryMultiselectWidget": {
+		"mw.cx.ui.Categories": {
 			"scripts": [
 				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js",
 				"ui/widgets/mw.cx.ui.CategoryInputWidget.js",
-				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js"
+				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js",
+				"ui/mw.cx.ui.Categories.js"
 			],
 			"styles": [
 				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less",
-				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less"
+				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less",
+				"ui/styles/mw.cx.ui.Categories.less"
 			],
 			"skinStyles": {
 				"monobook": [
@@ -1566,27 +1574,13 @@
 			},
 			"dependencies": [
 				"ext.visualEditor.mwmeta",
-				"mw.cx.ui",
-				"oojs-ui"
-			],
-			"messages": [
-				"categories"
-			]
-		},
-		"mw.cx.ui.Categories": {
-			"scripts": [
-				"ui/mw.cx.ui.Categories.js"
-			],
-			"styles": [
-				"ui/styles/mw.cx.ui.Categories.less"
-			],
-			"dependencies": [
 				"mw.cx.dm.Translation",
 				"mw.cx.ui",
-				"mw.cx.ui.CategoryMultiselectWidget",
+				"oojs-ui",
 				"oojs-ui.styles.icons-content"
 			],
 			"messages": [
+				"categories",
 				"cx-no-source-categories",
 				"cx-no-target-categories",
 				"cx-no-adapted-categories",
@@ -1716,15 +1710,8 @@
 		},
 		"mw.cx.tools.TranslationTool": {
 			"scripts": [
+				"ui/widgets/mw.cx.ui.TranslationToolWidget.js",
 				"tools/mw.cx.tools.TranslationTool.js"
-			],
-			"dependencies": [
-				"mw.cx.ui.TranslationToolWidget"
-			]
-		},
-		"mw.cx.ui.TranslationToolWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.TranslationToolWidget.js"
 			],
 			"styles": [
 				"ui/styles/widgets/mw.cx.ui.TranslationToolWidget.less"
@@ -1732,29 +1719,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui-widgets"
-			]
-		},
-		"mw.cx.ui.PageTitleWidget": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.PageTitleWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"mw.cx.util",
-				"ve.ce.CXLintableNode",
-				"oojs-ui-widgets"
-			],
-			"messages": [
-				"cx-tools-linter-empty-title",
-				"cx-tools-linter-empty-title-message",
-				"cx-tools-linter-invalid-character",
-				"cx-tools-linter-invalid-character-action",
-				"cx-tools-linter-invalid-character-message",
-				"cx-tools-linter-page-exists",
-				"cx-tools-linter-page-exists-message"
 			]
 		},
 		"mw.cx.ui.PublishSettingsWidget": {
@@ -1778,33 +1742,6 @@
 			"dependencies": [
 				"mw.cx.ui",
 				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-interactions"
-			]
-		},
-		"mw.cx.ui.PageSelectorWidget": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
-				"ui/widgets/mw.cx.ui.TitleOptionWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less"
-			],
-			"messages": [
-				"cx-page-selector-widget-recent-edits-label",
-				"cx-page-selector-widget-nearby-label",
-				"cx-page-missing-in-target-language",
-				"cx-page-number-of-languages"
-			],
-			"dependencies": [
-				"mw.cx.SiteMapper",
-				"jquery.uls.data",
-				"mediawiki.widgets",
-				"mw.cx.ui",
-				"oojs",
 				"oojs-ui.styles.icons-interactions"
 			]
 		},
