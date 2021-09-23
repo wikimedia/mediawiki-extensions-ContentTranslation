@@ -199,10 +199,16 @@ class Hooks {
 			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
 		}
 
-		if ( !empty( $wgSectionTranslationTargetLanguages ) ) {
-			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
-			$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
-				$wgSectionTranslationTargetLanguages );
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+
+			if ( $mobileContext->shouldDisplayMobileView() &&
+				$wgSectionTranslationTargetLanguages
+			) {
+				$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
+				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
+					$wgSectionTranslationTargetLanguages );
+			}
 		}
 	}
 
