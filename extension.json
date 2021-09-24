@@ -1722,30 +1722,6 @@
 				"oojs-ui-widgets"
 			]
 		},
-		"mw.cx.ui.PublishSettingsWidget": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"ui/widgets/mw.cx.ui.PublishSettingsWidget.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.PublishSettingsWidget.less"
-			],
-			"messages": [
-				"cx-publish-destination-header",
-				"cx-publish-destination-tooltip",
-				"cx-publish-destination-namespace-main",
-				"cx-publish-destination-namespace-user",
-				"cx-publish-destination-namespace-draft"
-			],
-			"dependencies": [
-				"mw.cx.ui",
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-interactions"
-			]
-		},
 		"mw.cx.ui.FeatureDiscoveryWidget": {
 			"targets": [
 				"desktop",
