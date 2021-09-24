@@ -37,14 +37,10 @@
 	function onLanguageMatch( results, noResultsContainer ) {
 		var languageIndex, invitationElement, noResultsMsgElement,
 			languageButtons = [],
+			sitemapper = new mw.cx.SiteMapper(),
 			moreButton,
 			actionsElement,
-			cxUrlParams = {
-				campaign: CAMPAIGN,
-				from: mw.config.get( 'wgContentLanguage' ),
-				page: mw.config.get( 'wgTitle' ),
-				sx: true
-			};
+			cxUrl;
 
 		invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
 		if ( !invitationElement ) {
@@ -71,11 +67,17 @@
 		}
 
 		for ( languageIndex = 0; languageIndex < results.length; languageIndex++ ) {
-			cxUrlParams.to = results[ languageIndex ];
+			cxUrl = sitemapper.getCXUrl(
+				mw.config.get( 'wgTitle' ),
+				null,
+				mw.config.get( 'wgContentLanguage' ),
+				results[ languageIndex ],
+				{ campaign: CAMPAIGN, sx: true }
+			);
 			languageButtons.push( new OO.ui.ButtonWidget( {
 				label: $.uls.data.getAutonym( results[ languageIndex ] ),
 				icon: 'add',
-				href: mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ),
+				href: cxUrl,
 				target: '_blank',
 				framed: false,
 				classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn' ]
@@ -93,9 +95,16 @@
 		for ( languageIndex = 0; languageIndex < languageButtons.length; languageIndex++ ) {
 			actionsElement.appendChild( languageButtons[ languageIndex ].$element[ 0 ] );
 		}
+
+		cxUrl = mw.util.getUrl( 'Special:ContentTranslation', {
+			campaign: CAMPAIGN,
+			from: mw.config.get( 'wgContentLanguage' ),
+			page: mw.config.get( 'wgTitle' ),
+			sx: true
+		} );
 		moreButton = new OO.ui.ButtonWidget( {
 			icon: 'ellipsis',
-			href: mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ),
+			href: cxUrl,
 			target: '_blank',
 			framed: false,
 			classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn-more' ]

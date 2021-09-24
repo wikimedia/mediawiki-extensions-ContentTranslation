@@ -940,7 +940,8 @@
 				"entrypoints/ext.cx.entrypoints.languagesearcher.js"
 			],
 			"dependencies": [
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"mw.cx.SiteMapper"
 			],
 			"messages": [
 				"cx-campaign-mflanguagesearcher-invite"
