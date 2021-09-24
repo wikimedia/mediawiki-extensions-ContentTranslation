@@ -16,7 +16,7 @@
   "dependencies": {
     "@wikimedia/language-data": "1.0.3",
     "vue": "^2.6.14",
-    "vue-banana-i18n": "^1.5.0",
+    "vue-banana-i18n": "^1.5.1",
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2"
   },
@@ -67,7 +67,7 @@
     },
     {
       "path": "dist/js/cx.libs.js",
-      "maxSize": "67.10KB"
+      "maxSize": "68.50KB"
     },
     {
       "path": "dist/js/cx.ui.js",
