@@ -1116,115 +1116,22 @@
 			]
 		},
 		"mw.cx.visualEditor": {
-			"dependencies": [
-				"mw.cx.visualEditor.base",
-				"mw.cx.visualEditor.sentence",
-				"mw.cx.visualEditor.section",
-				"mw.cx.visualEditor.link",
-				"mw.cx.visualEditor.content",
-				"mw.cx.visualEditor.mt",
-				"mw.cx.visualEditor.publishSettings"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.sentence": {
 			"scripts": [
+				"ve-cx/dm/ve.dm.CXTranslationUnitModel.js",
+				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js",
 				"ve-cx/dm/ve.dm.CXSentenceSegmentAnnotation.js",
-				"ve-cx/ce/ve.ce.CXSentenceSegmentAnnotation.js"
-			],
-			"styles": [
-				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less"
-			],
-			"dependencies": [
-				"mw.cx.visualEditor.base"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.publishSettings": {
-			"scripts": [
-				"ve-cx/ui/ve.ui.CXPublishSettingsDialog.js",
-				"ve-cx/ui/ve.ui.CXPublishSettingsTool.js"
-			],
-			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXPublishSettingsDialog.less"
-			],
-			"dependencies": [
-				"ext.visualEditor.core"
-			],
-			"messages": [
-				"cx-publish-settings",
-				"cx-publish-destination-namespace-main",
-				"cx-publish-destination-namespace-main-description",
-				"cx-publish-destination-namespace-main-exists",
-				"cx-publish-destination-namespace-user",
-				"cx-publish-destination-namespace-user-description",
-				"cx-publish-destination-namespace-draft",
-				"cx-publish-destination-namespace-draft-description",
-				"cx-publish-destination-header",
-				"cx-publish-destination-tooltip"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.mt": {
-			"scripts": [
-				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
-				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js",
-				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.js",
-				"ve-cx/ui/tools/ve.ui.CXSaveMTPreferenceTool.js"
-			],
-			"styles": [
-				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less",
-				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.less",
-				"ve-cx/ui/tools/ve.ui.CXSaveMTPreferenceTool.less"
-			],
-			"dependencies": [
-				"mw.cx.visualEditor.base",
-				"oojs-ui.styles.icons-moderation"
-			],
-			"messages": [
-				"cx-mt-failed",
-				"cx-tools-mt-title",
-				"cx-tools-mt-set-default",
-				"cx-tools-mt-reset",
-				"cx-tools-mt-preferred",
-				"cx-tools-mt-noservices"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.link": {
-			"scripts": [
+				"ve-cx/ce/ve.ce.CXSentenceSegmentAnnotation.js",
+				"ve-cx/ce/mixins/ve.ce.CXPendingNode.js",
+				"ve-cx/ce/ve.ce.CXSectionNode.js",
+				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
+				"ve-cx/dm/ve.dm.CXPlaceholderNode.js",
+				"ve-cx/dm/ve.dm.CXSectionNode.js",
 				"ve-cx/dm/ve.dm.CXLinkAnnotation.js",
 				"ve-cx/ce/ve.ce.CXLinkAnnotation.js",
 				"ve-cx/ui/ve.ui.CXLinkContextItem.js",
 				"ve-cx/ui/ve.ui.CXLinkAnnotationInspector.js",
 				"ve-cx/ui/ve.ui.CXInternalLinkAnnotationWidget.js",
-				"ve-cx/ui/ve.ui.CXTextSelectionContextItem.js"
-			],
-			"styles": [
-				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
-				"ve-cx/ui/styles/ve.ui.CXLinkContextItem.less"
-			],
-			"dependencies": [
-				"mw.cx.visualEditor.base"
-			],
-			"messages": [
-				"cx-linkcontextitem-missing-link-title",
-				"cx-linkcontextitem-missing-title-description"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.content": {
-			"scripts": [
+				"ve-cx/ui/ve.ui.CXTextSelectionContextItem.js",
 				"ve-cx/dm/ve.dm.CXBlockImageNode.js",
 				"ve-cx/dm/ve.dm.CXImageCaptionNode.js",
 				"ve-cx/dm/ve.dm.CXReferenceNode.js",
@@ -1235,16 +1142,57 @@
 				"ve-cx/ce/ve.ce.CXTransclusionNode.js",
 				"ve-cx/ui/ve.ui.CXTransclusionContextItem.js",
 				"ve-cx/ui/ve.ui.CXReferenceContextItem.js",
-				"ve-cx/ui/ve.ui.CXReferenceDialog.js"
+				"ve-cx/ui/ve.ui.CXReferenceDialog.js",
+				"ve-cx/ui/ve.ui.CXTranslationToolbar.js",
+				"ve-cx/ui/actions/ve.ui.CXTranslationAction.js",
+				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.js",
+				"ve-cx/ui/tools/ve.ui.CXSaveMTPreferenceTool.js",
+				"ve-cx/ui/ve.ui.CXPublishSettingsDialog.js",
+				"ve-cx/ui/ve.ui.CXPublishSettingsTool.js"
 			],
 			"styles": [
-				"ve-cx/ce/styles/ve.ce.CXReferenceNode.less"
+				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
+				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
+				"ve-cx/ce/mixins/ve.ce.CXPendingNode.less",
+				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
+				"ve-cx/ce/styles/ve.ce.CXLinkAnnotation.less",
+				"ve-cx/ui/styles/ve.ui.CXLinkContextItem.less",
+				"ve-cx/ce/styles/ve.ce.CXReferenceNode.less",
+				"ve-cx/ui/styles/ve.ui.CXTranslationToolbar.less",
+				"ve-cx/ui/tools/ve.ui.CXResetSectionTool.less",
+				"ve-cx/ui/tools/ve.ui.CXSaveMTPreferenceTool.less",
+				"ve-cx/ui/styles/ve.ui.CXPublishSettingsDialog.less"
 			],
 			"dependencies": [
-				"mw.cx.visualEditor.base",
-				"ext.cite.visualEditor"
+				"ext.cite.visualEditor",
+				"ext.visualEditor.core",
+				"ext.visualEditor.mediawiki",
+				"ext.visualEditor.desktopTarget",
+				"ext.visualEditor.mwextensions.desktop",
+				"ext.visualEditor.core.desktop",
+				"oojs-ui.styles.icons-moderation",
+				"ve.ce.CXLintableNode",
+				"ve.dm.CXLintableNode"
 			],
 			"messages": [
+				"cx-linkcontextitem-missing-link-title",
+				"cx-linkcontextitem-missing-title-description",
+				"cx-publish-settings",
+				"cx-publish-destination-namespace-main",
+				"cx-publish-destination-namespace-main-description",
+				"cx-publish-destination-namespace-main-exists",
+				"cx-publish-destination-namespace-user",
+				"cx-publish-destination-namespace-user-description",
+				"cx-publish-destination-namespace-draft",
+				"cx-publish-destination-namespace-draft-description",
+				"cx-publish-destination-header",
+				"cx-publish-destination-tooltip",
+				"cx-mt-failed",
+				"cx-tools-mt-title",
+				"cx-tools-mt-set-default",
+				"cx-tools-mt-reset",
+				"cx-tools-mt-preferred",
+				"cx-tools-mt-noservices",
 				"cx-tools-linter-template",
 				"cx-tools-linter-template-add-new",
 				"cx-tools-linter-template-block-message",
@@ -1255,33 +1203,7 @@
 				"cx-tools-linter-reference",
 				"cx-tools-linter-reference-message",
 				"cx-tools-linter-incomplete-reference",
-				"cx-tools-linter-incomplete-reference-message"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.visualEditor.section": {
-			"scripts": [
-				"ve-cx/ce/mixins/ve.ce.CXPendingNode.js",
-				"ve-cx/ce/ve.ce.CXSectionNode.js",
-				"ve-cx/ce/ve.ce.CXPlaceholderNode.js",
-				"ve-cx/dm/ve.dm.CXPlaceholderNode.js",
-				"ve-cx/dm/ve.dm.CXSectionNode.js"
-			],
-			"styles": [
-				"ve-cx/ce/styles/ve.ce.CXPlaceholderNode.less",
-				"ve-cx/ce/mixins/ve.ce.CXPendingNode.less",
-				"ve-cx/ce/styles/ve.ce.CXSectionNode.less",
-				"ve-cx/ce/styles/ve.ce.CXSentenceSegmentAnnotation.less",
-				"ve-cx/ce/styles/ve.ce.CXSectionNode.less"
-			],
-			"dependencies": [
-				"mw.cx.visualEditor.base",
-				"ve.ce.CXLintableNode",
-				"ve.dm.CXLintableNode"
-			],
-			"messages": [
+				"cx-tools-linter-incomplete-reference-message",
 				"cx-tools-link-title",
 				"cx-tools-link-add",
 				"cx-tools-missing-link-text",
@@ -1309,21 +1231,6 @@
 			"dependencies": [
 				"ext.visualEditor.core",
 				"mw.cx.dm.TranslationIssue"
-			]
-		},
-		"mw.cx.visualEditor.base": {
-			"scripts": [
-				"ve-cx/dm/ve.dm.CXTranslationUnitModel.js",
-				"ve-cx/ui/ve.ui.CXTranslationUnitContextItem.js"
-			],
-			"dependencies": [
-				"ext.visualEditor.mediawiki",
-				"ext.visualEditor.desktopTarget",
-				"ext.visualEditor.mwextensions.desktop",
-				"ext.visualEditor.core.desktop"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"mw.cx.init": {
