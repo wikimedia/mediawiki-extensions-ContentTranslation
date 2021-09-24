@@ -1255,6 +1255,17 @@
 		},
 		"mw.cx.init.Translation": {
 			"scripts": [
+				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js",
+				"ui/widgets/mw.cx.ui.CategoryInputWidget.js",
+				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js",
+				"ui/mw.cx.ui.Categories.js",
+				"ui/widgets/mw.cx.ui.PageTitleWidget.js",
+				"ui/mw.cx.ui.TranslationHeader.js",
+				"ui/mw.cx.ui.ArticleColumn.js",
+				"ui/mw.cx.ui.TranslationView.js",
+				"ui/mw.cx.ui.SourceColumn.js",
+				"ui/mw.cx.ui.TargetColumn.js",
+				"ui/mw.cx.ui.ToolsColumn.js",
 				"mw.cx.init.Translation.js",
 				"mw.cx.TargetArticle.js",
 				"mw.cx.TranslationController.js",
@@ -1263,11 +1274,29 @@
 				"eventlogging/ext.cx.eventlogging.translation.js"
 			],
 			"styles": [
+				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less",
+				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less",
+				"ui/styles/mw.cx.ui.Categories.less",
+				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less",
+				"ui/styles/mw.cx.ui.TranslationHeader.less",
+				"ui/styles/mw.cx.ui.Columns.less",
+				"ui/styles/mw.cx.ui.SourceColumn.less",
+				"ui/styles/mw.cx.ui.TargetColumn.less",
+				"ui/styles/mw.cx.ui.ToolsColumn.less",
+				"ui/styles/mw.cx.ui.TranslationView.less",
 				"ui/styles/mw.cx.init.Translation.less"
 			],
+			"skinStyles": {
+				"monobook": [
+					"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less"
+				]
+			},
 			"messages": [
+				"categories",
+				"cx",
 				"cx-captcha-unsupported-type",
 				"cx-draft-cancel-button-label",
+				"cx-draft-restored",
 				"cx-draft-restore-failed",
 				"cx-draft-restoring",
 				"cx-error-page-not-found",
@@ -1276,13 +1305,24 @@
 				"cx-infobar-view-issues",
 				"cx-infobar-cannot-publish",
 				"cx-infobar-old-version",
+				"cx-no-adapted-categories",
+				"cx-no-source-categories",
+				"cx-no-target-categories",
 				"cx-publish-destination-namespace-changed",
+				"cx-tools-categories-count-message",
 				"cx-tools-linter-cannot-publish-action-label",
 				"cx-tools-linter-cannot-publish-message",
 				"cx-tools-linter-cannot-publish-title",
+				"cx-tools-linter-empty-title",
+				"cx-tools-linter-empty-title-message",
+				"cx-tools-linter-invalid-character",
+				"cx-tools-linter-invalid-character-action",
+				"cx-tools-linter-invalid-character-message",
 				"cx-tools-linter-old-revision",
 				"cx-tools-linter-old-revision-label",
 				"cx-tools-linter-old-revision-message",
+				"cx-tools-linter-page-exists",
+				"cx-tools-linter-page-exists-message",
 				"cx-tools-linter-restart-translation-cancel",
 				"cx-tools-linter-restart-translation-message",
 				"cx-tools-linter-restart-translation-title",
@@ -1309,24 +1349,40 @@
 				"cx-save-draft-save-success",
 				"cx-save-draft-saving",
 				"cx-save-draft-shortcut-label",
+				"cx-save-draft-tooltip",
+				"cx-source-loading",
+				"cx-source-view-page",
 				"cx-tools-linter-abuse-filter",
 				"cx-tools-view-guidelines-link",
+				"cx-translation-add-translation",
 				"cx-warning-unsaved-translation",
 				"title-invalid-characters"
 			],
 			"dependencies": [
-				"mw.cx.dm",
-				"mw.cx.util",
+				"ext.cx.model",
+				"ext.cx.widgets.spinner",
+				"ext.visualEditor.mwmeta",
+				"jquery.uls.data",
 				"mediawiki.user",
 				"mediawiki.api",
 				"mediawiki.language",
-				"jquery.uls.data",
 				"mediawiki.deflate",
+				"mw.cx.SiteMapper",
+				"mw.cx.dm",
+				"mw.cx.dm.PageTitleModel",
 				"mw.cx.dm.Translation",
-				"mw.cx.ui.Categories",
-				"mw.cx.ui.TranslationView",
+				"mw.cx.tools.IssueTrackingTool",
+				"mw.cx.ui",
+				"mw.cx.ui.Infobar",
+				"mw.cx.util",
 				"ve.init.mw.CXTarget",
-				"oojs-ui-windows"
+				"oojs-ui",
+				"oojs-ui.styles.icons-alerts",
+				"oojs-ui.styles.icons-content",
+				"oojs-ui.styles.icons-interactions",
+				"oojs-ui-widgets",
+				"oojs-ui-windows",
+				"ve.ce.CXLintableNode"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {
@@ -1387,55 +1443,6 @@
 				"ext.visualEditor.core.desktop"
 			]
 		},
-		"mw.cx.ui.TranslationView": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.PageTitleWidget.js",
-				"ui/mw.cx.ui.TranslationHeader.js",
-				"ui/mw.cx.ui.ArticleColumn.js",
-				"ui/mw.cx.ui.TranslationView.js",
-				"ui/mw.cx.ui.SourceColumn.js",
-				"ui/mw.cx.ui.TargetColumn.js",
-				"ui/mw.cx.ui.ToolsColumn.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.PageTitleWidget.less",
-				"ui/styles/mw.cx.ui.TranslationHeader.less",
-				"ui/styles/mw.cx.ui.Columns.less",
-				"ui/styles/mw.cx.ui.SourceColumn.less",
-				"ui/styles/mw.cx.ui.TargetColumn.less",
-				"ui/styles/mw.cx.ui.ToolsColumn.less",
-				"ui/styles/mw.cx.ui.TranslationView.less"
-			],
-			"messages": [
-				"cx-draft-restored",
-				"cx-save-draft-tooltip",
-				"cx-source-loading",
-				"cx-source-view-page",
-				"cx-translation-add-translation",
-				"cx",
-				"cx-tools-linter-empty-title",
-				"cx-tools-linter-empty-title-message",
-				"cx-tools-linter-invalid-character",
-				"cx-tools-linter-invalid-character-action",
-				"cx-tools-linter-invalid-character-message",
-				"cx-tools-linter-page-exists",
-				"cx-tools-linter-page-exists-message"
-			],
-			"dependencies": [
-				"ext.cx.model",
-				"mw.cx.SiteMapper",
-				"ext.cx.widgets.spinner",
-				"mw.cx.ui",
-				"mw.cx.ui.Infobar",
-				"mw.cx.util",
-				"mw.cx.dm.PageTitleModel",
-				"mw.cx.tools.IssueTrackingTool",
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-alerts",
-				"oojs-ui.styles.icons-interactions",
-				"ve.ce.CXLintableNode"
-			]
-		},
 		"mw.cx.ui.Infobar": {
 			"targets": [
 				"desktop",
@@ -1461,38 +1468,6 @@
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-interactions"
-			]
-		},
-		"mw.cx.ui.Categories": {
-			"scripts": [
-				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js",
-				"ui/widgets/mw.cx.ui.CategoryInputWidget.js",
-				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js",
-				"ui/mw.cx.ui.Categories.js"
-			],
-			"styles": [
-				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less",
-				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less",
-				"ui/styles/mw.cx.ui.Categories.less"
-			],
-			"skinStyles": {
-				"monobook": [
-					"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.monobook.less"
-				]
-			},
-			"dependencies": [
-				"ext.visualEditor.mwmeta",
-				"mw.cx.dm.Translation",
-				"mw.cx.ui",
-				"oojs-ui",
-				"oojs-ui.styles.icons-content"
-			],
-			"messages": [
-				"categories",
-				"cx-no-source-categories",
-				"cx-no-target-categories",
-				"cx-no-adapted-categories",
-				"cx-tools-categories-count-message"
 			]
 		},
 		"mw.cx.ui.CaptchaDialog": {
