@@ -31,6 +31,7 @@
 	"ValidSkinNames": {
 		"contenttranslation": {
 			"class": "SkinContentTranslation",
+			"skippable": true,
 			"args": [
 				{
 					"name": "contenttranslation",
