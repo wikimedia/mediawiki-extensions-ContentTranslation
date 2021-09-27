@@ -38,37 +38,34 @@ const createDummyVESurface = htmlContent => {
  * @return {jQuery}
  */
 const getSubSectionNodes = (htmlContent, resolveReferences) => {
-  let surface, subSectionCeNodeList;
+  let surface, subSectionNodeList;
 
   if (resolveReferences) {
     surface = createDummyVESurface(htmlContent);
-    subSectionCeNodeList = surface.$element.find(
+    const subSectionCeNodeList = surface.$element.find(
       "section[rel='cx:Section']:not([data-mw-section-number='0'])"
     );
-  } else {
-    subSectionCeNodeList = $(htmlContent).find(
-      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
-    );
-  }
 
-  /** @type jQuery **/
-  const subSectionNodeList = subSectionCeNodeList.map((i, subSectionCeNode) => {
-    const model = $(subSectionCeNode)
-      .data("view")
-      .getModel();
+    /** @type jQuery **/
+    subSectionNodeList = subSectionCeNodeList.map((i, subSectionCeNode) => {
+      const model = $(subSectionCeNode)
+        .data("view")
+        .getModel();
 
-    if (model) {
-      return ve.dm.converter.getDomFromNode(
-        model,
-        // CLIPBOARD_MODE helps to copy the data-mw from elsewhere to
-        // to the local nodes
-        ve.dm.Converter.static.CLIPBOARD_MODE
-      ).body.children[0];
-    }
-  });
-
-  if (surface) {
+      if (model) {
+        return ve.dm.converter.getDomFromNode(
+          model,
+          // CLIPBOARD_MODE helps to copy the data-mw from elsewhere to
+          // to the local nodes
+          ve.dm.Converter.static.CLIPBOARD_MODE
+        ).body.children[0];
+      }
+    });
     surface.destroy();
+  } else {
+    subSectionNodeList = $(htmlContent).filter(
+      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
+    );
   }
 
   return subSectionNodeList;
