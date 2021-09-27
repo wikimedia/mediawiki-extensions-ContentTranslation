@@ -46,7 +46,7 @@ import SxContentComparatorHeader from "./SXContentComparatorHeader";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
-import { ref, computed } from "@vue/composition-api";
+import { ref, computed, watch } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
 
 export default {
@@ -84,9 +84,26 @@ export default {
       targetSectionContent
     } = useCompareContents();
 
-    const { currentSectionSuggestion: suggestion } = useApplicationState();
-    const sourceLanguage = computed(() => suggestion.value.sourceLanguage);
-    const targetLanguage = computed(() => suggestion.value.targetLanguage);
+    const {
+      currentSectionSuggestion: suggestion,
+      sourceLanguage,
+      targetLanguage
+    } = useApplicationState();
+
+    const targetTitle = computed(() => suggestion.value.targetTitle);
+
+    // watch for target title as it is not provided when the proxy suggestion object is created
+    // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
+    watch(
+      targetTitle,
+      () =>
+        store.dispatch("mediawiki/fetchPageContent", {
+          sourceLanguage: targetLanguage.value,
+          targetLanguage: sourceLanguage.value,
+          sourceTitle: targetTitle.value
+        }),
+      { immediate: true }
+    );
 
     return {
       getDir,

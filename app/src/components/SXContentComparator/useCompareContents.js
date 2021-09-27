@@ -104,20 +104,6 @@ const useCompareContents = () => {
       !discardedSections.value.includes(activeSectionTargetTitle.value)
   );
 
-  // watch for target title as it is not provided when the proxy suggestion object is created
-  // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
-  watch(
-    targetTitle,
-    () => {
-      store.dispatch("mediawiki/fetchPageContent", {
-        sourceLanguage: suggestion.value.targetLanguage,
-        targetLanguage: suggestion.value.sourceLanguage,
-        sourceTitle: targetTitle.value
-      });
-    },
-    { immediate: true }
-  );
-
   return {
     activeSectionTargetTitle,
     discardedSections,
