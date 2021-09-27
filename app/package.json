@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20210920",
+  "version": "0.1.0+20210927",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
