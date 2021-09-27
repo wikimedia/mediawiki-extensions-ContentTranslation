@@ -1095,13 +1095,6 @@
 				"mw.cx.dm"
 			]
 		},
-		"mw.cx.dm.PageTitleModel": {
-			"scripts": "dm/mw.cx.dm.PageTitleModel.js",
-			"dependencies": [
-				"mw.cx.dm",
-				"ve.dm.CXLintableNode"
-			]
-		},
 		"mw.cx.ui": {
 			"targets": [
 				"desktop",
@@ -1255,6 +1248,9 @@
 		},
 		"mw.cx.init.Translation": {
 			"scripts": [
+				"tools/mw.cx.tools.IssueTrackingTool.js",
+				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js",
+				"dm/mw.cx.dm.PageTitleModel.js",
 				"ui/widgets/mw.cx.ui.CategoryMultiselectWidget.js",
 				"ui/widgets/mw.cx.ui.CategoryInputWidget.js",
 				"ui/widgets/mw.cx.ui.CategoryTagItemWidget.js",
@@ -1274,6 +1270,8 @@
 				"eventlogging/ext.cx.eventlogging.translation.js"
 			],
 			"styles": [
+				"tools/styles/mw.cx.tools.IssueTrackingTool.less",
+				"ui/styles/widgets/mw.cx.ui.TranslationIssueWidget.less",
 				"ui/styles/widgets/mw.cx.ui.CategoryMultiselectWidget.less",
 				"ui/styles/widgets/mw.cx.ui.CategoryTagItemWidget.less",
 				"ui/styles/mw.cx.ui.Categories.less",
@@ -1315,9 +1313,15 @@
 				"cx-tools-linter-cannot-publish-title",
 				"cx-tools-linter-empty-title",
 				"cx-tools-linter-empty-title-message",
+				"cx-tools-linter-errors-count",
+				"cx-tools-linter-generic-title",
 				"cx-tools-linter-invalid-character",
 				"cx-tools-linter-invalid-character-action",
 				"cx-tools-linter-invalid-character-message",
+				"cx-tools-linter-issues",
+				"cx-tools-linter-issues-count",
+				"cx-tools-linter-learn-more",
+				"cx-tools-linter-mark-as-resolved",
 				"cx-tools-linter-old-revision",
 				"cx-tools-linter-old-revision-label",
 				"cx-tools-linter-old-revision-message",
@@ -1326,6 +1330,7 @@
 				"cx-tools-linter-restart-translation-cancel",
 				"cx-tools-linter-restart-translation-message",
 				"cx-tools-linter-restart-translation-title",
+				"cx-tools-linter-warnings-count",
 				"cx-lost-session-publish",
 				"cx-mt-abuse-publish-error",
 				"cx-mt-abuse-error-text",
@@ -1369,9 +1374,8 @@
 				"mediawiki.deflate",
 				"mw.cx.SiteMapper",
 				"mw.cx.dm",
-				"mw.cx.dm.PageTitleModel",
 				"mw.cx.dm.Translation",
-				"mw.cx.tools.IssueTrackingTool",
+				"mw.cx.tools.TranslationTool",
 				"mw.cx.ui",
 				"mw.cx.ui.Infobar",
 				"mw.cx.util",
@@ -1382,7 +1386,8 @@
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
-				"ve.ce.CXLintableNode"
+				"ve.ce.CXLintableNode",
+				"ve.dm.CXLintableNode"
 			]
 		},
 		"mw.cx.MwApiRequestManager": {
@@ -1523,30 +1528,6 @@
 			"dependencies": [
 				"mw.cx.tools.InstructionsTool",
 				"mw.cx.tools.TemplateTool"
-			]
-		},
-		"mw.cx.tools.IssueTrackingTool": {
-			"scripts": [
-				"tools/mw.cx.tools.IssueTrackingTool.js",
-				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js"
-			],
-			"styles": [
-				"tools/styles/mw.cx.tools.IssueTrackingTool.less",
-				"ui/styles/widgets/mw.cx.ui.TranslationIssueWidget.less"
-			],
-			"dependencies": [
-				"oojs-ui-widgets",
-				"mw.cx.ui",
-				"mw.cx.tools.TranslationTool"
-			],
-			"messages": [
-				"cx-tools-linter-issues",
-				"cx-tools-linter-issues-count",
-				"cx-tools-linter-errors-count",
-				"cx-tools-linter-warnings-count",
-				"cx-tools-linter-generic-title",
-				"cx-tools-linter-learn-more",
-				"cx-tools-linter-mark-as-resolved"
 			]
 		},
 		"mw.cx.tools.TemplateTool": {
