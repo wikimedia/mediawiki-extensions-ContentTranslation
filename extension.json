@@ -605,17 +605,20 @@
 				"mobile"
 			],
 			"scripts": [
+				"tools/ext.cx.tools.validator.js",
+				"source/mw.cx.SelectedSourcePage.js",
+				"source/mw.cx.SelectedSourcePageDialog.js",
 				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
 				"ui/widgets/mw.cx.ui.TitleOptionWidget.js",
 				"source/mw.cx.SourcePageSelector.js"
 			],
 			"styles": [
+				"source/styles/mw.cx.SelectedSourcePage.less",
 				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less",
 				"source/styles/mw.cx.SourcePageSelector.less"
 			],
 			"dependencies": [
 				"mw.cx.SiteMapper",
-				"mw.cx.SelectedSourcePage",
 				"ext.uls.common",
 				"ext.uls.mediawiki",
 				"jquery.suggestions",
@@ -629,45 +632,8 @@
 				"mw.cx.ui.LanguageFilter",
 				"mw.cx.util",
 				"oojs",
-				"oojs-ui.styles.icons-interactions"
-			],
-			"messages": [
-				"cx-source-page-selector-input-placeholder",
-				"cx-source-page-selector-no-suggestions",
-				"cx-source-page-selector-no-search-results",
-				"cx-page-selector-widget-recent-edits-label",
-				"cx-page-selector-widget-nearby-label",
-				"cx-page-missing-in-target-language",
-				"cx-page-number-of-languages"
-			]
-		},
-		"mw.cx.SelectedSourcePage": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"source/mw.cx.SelectedSourcePage.js",
-				"source/mw.cx.SelectedSourcePageDialog.js"
-			],
-			"styles": [
-				"source/styles/mw.cx.SelectedSourcePage.less"
-			],
-			"dependencies": [
-				"mw.cx.SiteMapper",
-				"ext.cx.tools.validator",
-				"ext.uls.common",
-				"ext.uls.mediawiki",
-				"jquery.suggestions",
-				"mediawiki.jqueryMsg",
-				"mediawiki.storage",
-				"mediawiki.language",
-				"mediawiki.ui.button",
-				"mw.cx.ui.LanguageFilter",
-				"mw.cx.util",
 				"oojs-ui.styles.icons-editing-advanced",
-				"oojs-ui.styles.icons-interactions",
-				"oojs"
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"cx-selected-source-page-start-translation-button",
@@ -678,7 +644,14 @@
 				"cx-favorite-added-for-later-detail",
 				"cx-favorite-removed",
 				"cx-selected-source-page-view-count",
-				"cx-license-agreement"
+				"cx-license-agreement",
+				"cx-source-page-selector-input-placeholder",
+				"cx-source-page-selector-no-suggestions",
+				"cx-source-page-selector-no-search-results",
+				"cx-page-selector-widget-recent-edits-label",
+				"cx-page-selector-widget-nearby-label",
+				"cx-page-missing-in-target-language",
+				"cx-page-number-of-languages"
 			]
 		},
 		"mw.cx.ui.LanguageFilter": {
@@ -997,18 +970,6 @@
 				"cx-feature-discovery-dismiss",
 				"mycontris",
 				"quotation-marks"
-			]
-		},
-		"ext.cx.tools.validator": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"tools/ext.cx.tools.validator.js"
-			],
-			"dependencies": [
-				"mw.cx.SiteMapper"
 			]
 		},
 		"ext.cx.widgets.spinner": {
