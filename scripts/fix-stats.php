@@ -238,7 +238,7 @@ class CxFixStats extends Maintenance {
 		$dbr = wfGetDB( DB_REPLICA );
 
 		// Allow one minute slack
-		$ts = wfTimestamp( TS_UNIX, $timestamp ) + 60;
+		$ts = (int)wfTimestamp( TS_UNIX, $timestamp ) + 60;
 
 		$actorWhere = ActorMigration::newMigration()
 			->getWhere( $dbr, 'rev_user', User::newFromName( $name, false ) );

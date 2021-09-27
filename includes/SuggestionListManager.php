@@ -337,7 +337,7 @@ class SuggestionListManager {
 	/**
 	 * Get the suggestions by list id
 	 *
-	 * @param string $listId List id.
+	 * @param int $listId List id.
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
 	 * @param int $limit How many suggestions to fetch.

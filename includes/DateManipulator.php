@@ -36,14 +36,14 @@ class DateManipulator {
 		if ( $this->interval === self::WEEK ) {
 			// We use Sundays to indicate a given week from Monday to Sunday.
 			// Take the current day of the week (0 (for Sunday) through 6 (for Saturday))
-			$dow = $datetime->format( 'w' );
+			$dow = (int)$datetime->format( 'w' );
 			if ( $dow > 0 ) {
 				$n = 7 - $dow;
 				$datetime->modify( "+$n days" );
 			}
 		} elseif ( $this->interval === self::MONTH ) {
 			// Use the first day of the month to identify a month
-			$n = $datetime->format( 'j' ) - 1;
+			$n = (int)$datetime->format( 'j' ) - 1;
 			$datetime->modify( "-$n days" );
 		}
 

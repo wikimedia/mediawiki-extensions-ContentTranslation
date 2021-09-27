@@ -395,7 +395,7 @@ class Translation {
 	 * @param string|null $target Target language code
 	 * @param string $status Status of translation. Either 'published' or 'draft'
 	 * @param string $interval 'weekly' or 'monthly' trend
-	 * @param string|null $translatorId
+	 * @param int|null $translatorId
 	 * @return array
 	 */
 	public static function getTrendByStatus(
