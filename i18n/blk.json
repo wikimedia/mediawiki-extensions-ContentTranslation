@@ -4,5 +4,7 @@
 			"咽頭べさ"
 		]
 	},
-	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 တမာချက်|$1 တမာချက်ဖုံႏ}}"
+	"cx-suggestionlist-expand": "ထွားလို့တာႏ",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 တမာချက်|$1 တမာချက်ဖုံႏ}}",
+	"cx-translation-list-all-languages-option-label": "ကားကအဝ်ႏ"
 }
