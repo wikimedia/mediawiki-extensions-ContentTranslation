@@ -134,6 +134,7 @@
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
+		"cx": false,
 		"cx-enable-entrypoints": true,
 		"cx-entrypoint-fd-status": "notshown",
 		"cx_campaign_newarticle_shown": false
