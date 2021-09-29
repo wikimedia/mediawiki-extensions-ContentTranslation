@@ -301,24 +301,6 @@
 				"base/ext.cx.model.js"
 			]
 		},
-		"ext.cx.feedback": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"dependencies": [
-				"ext.cx.model"
-			],
-			"scripts": [
-				"widgets/feedback/ext.cx.feedback.js"
-			],
-			"styles": [
-				"widgets/feedback/styles/ext.cx.feedback.less"
-			],
-			"messages": [
-				"cx-feedback-link"
-			]
-		},
 		"ext.cx.icons": {
 			"selectorWithVariant": ".mw-ui-icon-cx-{name}-{variant}:before",
 			"selectorWithoutVariant": ".mw-ui-icon-cx-{name}:before",
@@ -338,9 +320,31 @@
 				"mobile"
 			],
 			"scripts": [
+				"widgets/feedback/ext.cx.feedback.js",
+				"tools/ext.cx.tools.validator.js",
+				"source/mw.cx.SelectedSourcePage.js",
+				"source/mw.cx.SelectedSourcePageDialog.js",
+				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
+				"ui/widgets/mw.cx.ui.TitleOptionWidget.js",
+				"source/mw.cx.SourcePageSelector.js",
+				"widgets/progressbar/ext.cx.progressbar.js",
+				"dashboard/ext.cx.recommendtool.client.js",
+				"dashboard/mw.cx.DashboardList.js",
+				"dashboard/mw.cx.TranslationList.js",
+				"dashboard/mw.cx.SuggestionList.js",
+				"eventlogging/ext.cx.eventlogging.dashboard.js",
+				"widgets/translator/ext.cx.translator.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
 			"styles": [
+				"widgets/feedback/styles/ext.cx.feedback.less",
+				"source/styles/mw.cx.SelectedSourcePage.less",
+				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less",
+				"source/styles/mw.cx.SourcePageSelector.less",
+				"widgets/progressbar/ext.cx.progressbar.less",
+				"dashboard/styles/mw.cx.TranslationList.less",
+				"dashboard/styles/mw.cx.SuggestionList.less",
+				"widgets/translator/ext.cx.translator.less",
 				"dashboard/styles/ext.cx.dashboard.less"
 			],
 			"skinStyles": {
@@ -349,34 +353,97 @@
 				]
 			},
 			"dependencies": [
-				"ext.cx.feedback",
 				"ext.cx.model",
-				"mw.cx.SiteMapper",
-				"mw.cx.SourcePageSelector",
-				"ext.cx.widgets.translator",
+				"ext.cx.widgets.spinner",
+				"ext.uls.common",
 				"ext.uls.mediawiki",
+				"jquery.suggestions",
+				"jquery.uls.data",
+				"mediawiki.api",
+				"mediawiki.jqueryMsg",
+				"mediawiki.language",
 				"mediawiki.storage",
 				"mediawiki.ui.button",
+				"mediawiki.user",
+				"mediawiki.widgets",
 				"mediawiki.Uri",
-				"mw.cx.dashboard.lists",
+				"moment",
+				"mw.cx.SiteMapper",
+				"mw.cx.ui",
 				"mw.cx.ui.Infobar",
+				"mw.cx.ui.LanguageFilter",
+				"mw.cx.util",
+				"oojs",
+				"oojs-ui.styles.icons-moderation",
 				"oojs-ui.styles.icons-alerts",
 				"oojs-ui.styles.icons-content",
+				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-editing-core",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui.styles.icons-media",
+				"oojs-ui-widgets",
+				"oojs-ui-windows",
 				"user.options"
 			],
 			"messages": [
+				"ellipsis",
+				"login",
+				"cx-continue-translation",
 				"cx-create-new-translation",
+				"cx-dashboard-header",
 				"cx-dashboard-sidebar-feedback",
 				"cx-dashboard-sidebar-information",
 				"cx-dashboard-sidebar-stats",
 				"cx-dashboard-sidebar-title",
+				"cx-discard-translation",
+				"cx-draft-discard-confirmation-message",
+				"cx-draft-cancel-button-label",
+				"cx-draft-discard-button-label",
 				"cx-error-server-connection",
+				"cx-favorite-added-for-later",
+				"cx-favorite-added-for-later-detail",
+				"cx-favorite-removed",
+				"cx-feedback-link",
+				"cx-header-progressbar-text",
+				"cx-header-progressbar-text-mt",
+				"cx-license-agreement",
+				"cx-lost-session",
+				"cx-lost-session-dashboard",
+				"cx-page-missing-in-target-language",
+				"cx-page-number-of-languages",
+				"cx-page-selector-widget-recent-edits-label",
+				"cx-page-selector-widget-nearby-label",
+				"cx-selected-source-page-start-translation-button",
+				"cx-selected-source-page-error-page-and-title-exist",
+				"cx-selected-source-page-error-page-exists",
+				"cx-selected-source-page-error-title-in-use",
+				"cx-selected-source-page-view-count",
+				"cx-source-page-selector-input-placeholder",
+				"cx-source-page-selector-no-suggestions",
+				"cx-source-page-selector-no-search-results",
+				"cx-suggestionlist-collapse",
+				"cx-suggestionlist-empty-desc",
+				"cx-suggestionlist-empty-desc-recommend-link-text",
+				"cx-suggestionlist-empty-title",
+				"cx-suggestionlist-expand",
+				"cx-suggestionlist-favorite",
+				"cx-suggestionlist-featured",
+				"cx-suggestionlist-refresh",
+				"cx-suggestionlist-title",
+				"cx-suggestionlist-view-source-page",
 				"cx-translation-filter-draft-translations",
 				"cx-translation-filter-published-translations",
-				"cx-translation-filter-suggested-translations"
+				"cx-translation-filter-suggested-translations",
+				"cx-translation-status-draft",
+				"cx-translation-status-deleted",
+				"cx-translation-status-published",
+				"cx-translation-label-draft",
+				"cx-translation-label-published",
+				"cx-translationlist-empty-title",
+				"cx-translationlist-empty-desc",
+				"cx-translator-header",
+				"cx-translator-month-stats-label",
+				"cx-translator-total-translations-label"
 			]
 		},
 		"sx.publishing.followup": {
@@ -599,61 +666,6 @@
 				"mediawiki.user"
 			]
 		},
-		"mw.cx.SourcePageSelector": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"tools/ext.cx.tools.validator.js",
-				"source/mw.cx.SelectedSourcePage.js",
-				"source/mw.cx.SelectedSourcePageDialog.js",
-				"ui/widgets/mw.cx.ui.PageSelectorWidget.js",
-				"ui/widgets/mw.cx.ui.TitleOptionWidget.js",
-				"source/mw.cx.SourcePageSelector.js"
-			],
-			"styles": [
-				"source/styles/mw.cx.SelectedSourcePage.less",
-				"ui/styles/widgets/mw.cx.ui.TitleOptionWidget.less",
-				"source/styles/mw.cx.SourcePageSelector.less"
-			],
-			"dependencies": [
-				"mw.cx.SiteMapper",
-				"ext.uls.common",
-				"ext.uls.mediawiki",
-				"jquery.suggestions",
-				"jquery.uls.data",
-				"mediawiki.jqueryMsg",
-				"mediawiki.storage",
-				"mediawiki.language",
-				"mediawiki.ui.button",
-				"mediawiki.widgets",
-				"mw.cx.ui",
-				"mw.cx.ui.LanguageFilter",
-				"mw.cx.util",
-				"oojs",
-				"oojs-ui.styles.icons-editing-advanced",
-				"oojs-ui.styles.icons-interactions"
-			],
-			"messages": [
-				"cx-selected-source-page-start-translation-button",
-				"cx-selected-source-page-error-page-and-title-exist",
-				"cx-selected-source-page-error-page-exists",
-				"cx-selected-source-page-error-title-in-use",
-				"cx-favorite-added-for-later",
-				"cx-favorite-added-for-later-detail",
-				"cx-favorite-removed",
-				"cx-selected-source-page-view-count",
-				"cx-license-agreement",
-				"cx-source-page-selector-input-placeholder",
-				"cx-source-page-selector-no-suggestions",
-				"cx-source-page-selector-no-search-results",
-				"cx-page-selector-widget-recent-edits-label",
-				"cx-page-selector-widget-nearby-label",
-				"cx-page-missing-in-target-language",
-				"cx-page-number-of-languages"
-			]
-		},
 		"mw.cx.ui.LanguageFilter": {
 			"targets": [
 				"desktop",
@@ -727,72 +739,6 @@
 				"ext.uls.common",
 				"jquery.uls.data",
 				"mediawiki.jqueryMsg"
-			]
-		},
-		"mw.cx.dashboard.lists": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"widgets/progressbar/ext.cx.progressbar.js",
-				"dashboard/ext.cx.recommendtool.client.js",
-				"dashboard/mw.cx.DashboardList.js",
-				"dashboard/mw.cx.TranslationList.js",
-				"dashboard/mw.cx.SuggestionList.js",
-				"eventlogging/ext.cx.eventlogging.dashboard.js"
-			],
-			"styles": [
-				"widgets/progressbar/ext.cx.progressbar.less",
-				"dashboard/styles/mw.cx.TranslationList.less",
-				"dashboard/styles/mw.cx.SuggestionList.less"
-			],
-			"dependencies": [
-				"jquery.uls.data",
-				"moment",
-				"ext.cx.widgets.spinner",
-				"mediawiki.jqueryMsg",
-				"mediawiki.user",
-				"mediawiki.widgets",
-				"mw.cx.util",
-				"mw.cx.ui.LanguageFilter",
-				"oojs",
-				"oojs-ui-widgets",
-				"oojs-ui-windows",
-				"oojs-ui.styles.icons-interactions",
-				"oojs-ui.styles.icons-moderation",
-				"oojs-ui.styles.icons-editing-core"
-			],
-			"messages": [
-				"ellipsis",
-				"login",
-				"cx-continue-translation",
-				"cx-dashboard-header",
-				"cx-discard-translation",
-				"cx-translation-status-draft",
-				"cx-translation-status-deleted",
-				"cx-translation-status-published",
-				"cx-translation-label-draft",
-				"cx-translation-label-published",
-				"cx-draft-discard-confirmation-message",
-				"cx-draft-cancel-button-label",
-				"cx-draft-discard-button-label",
-				"cx-translationlist-empty-title",
-				"cx-translationlist-empty-desc",
-				"cx-suggestionlist-collapse",
-				"cx-suggestionlist-empty-desc",
-				"cx-suggestionlist-empty-title",
-				"cx-suggestionlist-expand",
-				"cx-suggestionlist-favorite",
-				"cx-suggestionlist-featured",
-				"cx-suggestionlist-refresh",
-				"cx-suggestionlist-empty-desc-recommend-link-text",
-				"cx-suggestionlist-view-source-page",
-				"cx-suggestionlist-title",
-				"cx-lost-session",
-				"cx-lost-session-dashboard",
-				"cx-header-progressbar-text",
-				"cx-header-progressbar-text-mt"
 			]
 		},
 		"ext.cx.translation.conflict": {
@@ -1003,28 +949,6 @@
 					"widgets/callout/ext.cx.callout.vector.less"
 				]
 			}
-		},
-		"ext.cx.widgets.translator": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
-			"scripts": [
-				"widgets/translator/ext.cx.translator.js"
-			],
-			"styles": [
-				"widgets/translator/ext.cx.translator.less"
-			],
-			"messages": [
-				"cx-translator-header",
-				"cx-translator-month-stats-label",
-				"cx-translator-total-translations-label"
-			],
-			"dependencies": [
-				"ext.cx.model",
-				"mediawiki.api",
-				"mediawiki.language"
-			]
 		},
 		"mw.cx.dm": {
 			"scripts": [
