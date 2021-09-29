@@ -8,6 +8,8 @@ $cfg['directory_list'] = array_merge(
 		'api/',
 		'specials/',
 		'scripts/',
+		'includes/',
+		'skin/',
 		'../../extensions/AbuseFilter',
 		'../../extensions/BetaFeatures',
 		'../../extensions/CentralAuth',
