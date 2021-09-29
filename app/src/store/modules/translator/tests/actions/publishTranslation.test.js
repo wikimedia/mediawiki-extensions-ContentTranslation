@@ -4,19 +4,6 @@ import PublishResult from "../../../../../wiki/cx/models/publishResult";
 import cxTranslatorApi from "../../../../../wiki/cx/api/translator";
 import Page from "../../../../../wiki/mw/models/page";
 import SectionSuggestion from "../../../../../wiki/cx/models/sectionSuggestion";
-import {
-  calculateHtmlToPublish,
-  calculateNewSectionNumber
-} from "../../../../../utils/publishHelper";
-
-const mockPublishHtml = "<div>Test</div>";
-let mockSectionNumber = 4;
-jest.mock("../../../../../utils/publishHelper", () => {
-  return {
-    calculateHtmlToPublish: jest.fn(() => mockPublishHtml),
-    calculateNewSectionNumber: jest.fn(() => mockSectionNumber)
-  };
-});
 
 const mockPublishResult = new PublishResult();
 jest.mock("../../../../../wiki/cx/api/translator", () => {
@@ -35,11 +22,10 @@ describe("vuex store publishTranslation action", () => {
 
   const applicationState = {
     sourceLanguage: "en",
+    targetLanguage: "es",
     currentSourceSection: new PageSection({ title: "test section title" }),
     currentSectionSuggestion: new SectionSuggestion({
-      sourceTitle: "test source title",
-      sourceLanguage: "en",
-      targetLanguage: "es"
+      sourceTitle: "test source title"
     }),
     publishTarget: "NEW_SECTION"
   };
@@ -59,7 +45,9 @@ describe("vuex store publishTranslation action", () => {
 
   const getters = {
     getArticleTitleForPublishing: "Test target article title",
-    getSectionTitleForPublishing: "Test target section title"
+    getSectionTitleForPublishing: "Test target section title",
+    getSectionNumberForPublishing: 4,
+    getCleanHTMLForPublishing: "<div>Test</div>"
   };
 
   it("publishTranslation with valid section (no MT abuse)", async () => {
@@ -80,22 +68,10 @@ describe("vuex store publishTranslation action", () => {
       mockPublishResult,
       { root: true }
     );
-    expect(calculateHtmlToPublish).toHaveBeenCalledTimes(1);
-    expect(calculateHtmlToPublish).toHaveBeenCalledWith(
-      "Test target section title",
-      expect.any(PageSection),
-      expect.any(Page),
-      expect.any(String)
-    );
-    expect(calculateNewSectionNumber).toHaveBeenCalledTimes(1);
-    expect(calculateNewSectionNumber).toHaveBeenCalledWith(
-      expect.any(String),
-      expect.any(String),
-      expect.any(Page)
-    );
+
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledTimes(1);
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
-      html: mockPublishHtml,
+      html: "<div>Test</div>",
       sourceTitle: "test source title",
       targetTitle: "Test target article title",
       sourceSectionTitle: "test section title",

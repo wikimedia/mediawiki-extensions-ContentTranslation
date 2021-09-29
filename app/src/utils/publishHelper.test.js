@@ -1,11 +1,9 @@
 import {
   prependNewSectionToAppendixSection,
-  cleanupHtml,
-  calculateNewSectionNumber
+  cleanupHtml
 } from "./publishHelper";
 import PageSection from "../wiki/cx/models/pageSection";
 import SubSection from "../wiki/cx/models/subSection";
-import Page from "../wiki/mw/models/page";
 
 const cleanNewContent = `<p id="mw9w">La Luna formó 4.51 miles de millones años hace,[más bajos-alfa 6] o incluso 100 millones de años más tempranos, algunos 50 millones de años después del origen del Sistema Solar, cuando la búsqueda publicada en 2019 sugiere.</p>\n`;
 
@@ -33,72 +31,6 @@ describe("publish helper test", () => {
         getAppendixSection()
       )
     ).toEqual(expected);
-  });
-
-  it("calculateNewSectionNumber test", () => {
-    const createEl = tag => {
-      const root = document.createElement("section");
-      const child = document.createElement(tag);
-      root.appendChild(child);
-
-      return root;
-    };
-    const sections = [
-      new PageSection({
-        id: 1,
-        title: "Test title 1",
-        subSections: [
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("div") })
-        ]
-      }),
-      new PageSection({
-        id: 2,
-        title: "Test title 2",
-        subSections: [
-          new SubSection({ node: createEl("h1") }),
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("h2") }),
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("h3") }),
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("h3") }),
-          new SubSection({ node: createEl("div") })
-        ]
-      }),
-      new PageSection({
-        id: 3,
-        title: "Test title 3",
-        subSections: [
-          new SubSection({ node: createEl("h1") }),
-          new SubSection({ node: createEl("div") }),
-          new SubSection({ node: createEl("div") })
-        ]
-      }),
-      new PageSection({
-        id: 4,
-        title: "Appendix1"
-      }),
-      new PageSection({
-        id: 5,
-        title: "Appendix2"
-      })
-    ];
-    const targetPage = new Page({
-      sections
-    });
-    expect(
-      calculateNewSectionNumber("Test title 3", "Appendix1", targetPage)
-    ).toBe(5);
-    expect(calculateNewSectionNumber("", "Appendix1", targetPage)).toBe(6);
-    expect(calculateNewSectionNumber("", "", targetPage)).toBe("new");
-  });
-
-  it("calculateNewSectionNumber with empty target page", () => {
-    expect(
-      calculateNewSectionNumber("Random title", "Random appendix", undefined)
-    ).toBe(0);
   });
 });
 

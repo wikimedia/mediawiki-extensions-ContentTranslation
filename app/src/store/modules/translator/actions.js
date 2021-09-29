@@ -1,8 +1,4 @@
 import mtValidator from "../../../utils/mtValidator";
-import {
-  calculateHtmlToPublish,
-  calculateNewSectionNumber
-} from "../../../utils/publishHelper";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import PublishResult from "../../../wiki/cx/models/publishResult";
@@ -112,12 +108,13 @@ async function publishTranslation({
   }
 
   const sourcePage = rootGetters["application/getCurrentPage"];
-  const targetPage = rootGetters["application/getCurrentTargetPage"];
   const {
     /** @type {PageSection} */
     currentSourceSection,
     /** @type {SectionSuggestion} */
-    currentSectionSuggestion
+    currentSectionSuggestion,
+    sourceLanguage,
+    targetLanguage
   } = rootState.application;
 
   if (!currentSectionSuggestion) {
@@ -125,81 +122,19 @@ async function publishTranslation({
   }
 
   /**
-   * Get first appendix title inside target article page
-   * or null if none
-   * @type {string|null}
-   */
-  const firstAppendixTargetTitle = rootGetters[
-    "suggestions/getFirstAppendixTitleBySectionSuggestion"
-  ](currentSectionSuggestion);
-
-  /**
-   * Get publishing title for current section for the given
-   * publish target (which corresponds to a specific namespace)
-   * @type {string}
-   */
-  const targetTitle = getters.getArticleTitleForPublishing;
-  const targetSectionTitle = getters.getSectionTitleForPublishing;
-
-  /**
-   * Get position where the new section will be published
-   * inside target article. If target section is already
-   * present inside target article, this number equals its
-   * position inside target article. If section is new,
-   * according to current approach it should be published
-   * before first appendix section, and this number equals
-   * the position of the first appendix section. If no
-   * appendix section exists, the section will be published
-   * at the bottom of the target article and this number
-   * equals to "new"
-   *
-   * @type {number|"new"}
-   */
-  const sectionNumber = calculateNewSectionNumber(
-    targetSectionTitle,
-    firstAppendixTargetTitle,
-    targetPage
-  );
-
-  /**
-   * Get clean HTML to be published.
-   *
-   * Since Action API doesn't support publishing section to
-   * desired position out of the box, if the section is to
-   * be published before appendix sections, we have to replace
-   * first appendix section contents with a new HTML string
-   * containing both new section contents and appendix section
-   * contents.
-   *
-   * @type {string}
-   */
-  const html = calculateHtmlToPublish(
-    targetSectionTitle,
-    currentSourceSection,
-    targetPage,
-    firstAppendixTargetTitle
-  );
-
-  const {
-    sourceTitle,
-    sourceLanguage,
-    targetLanguage
-  } = currentSectionSuggestion;
-
-  /**
    * Publish translation and get publish result containing success/error messages
    * @type {PublishResult}
    */
   const publishResult = await cxTranslatorApi.publishTranslation({
-    html,
-    sourceTitle,
-    targetTitle,
+    html: getters.getCleanHTMLForPublishing,
+    sourceTitle: currentSectionSuggestion.sourceTitle,
+    targetTitle: getters.getArticleTitleForPublishing,
     sourceSectionTitle: currentSourceSection.originalTitle,
-    targetSectionTitle,
+    targetSectionTitle: getters.getSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,
-    sectionNumber
+    sectionNumber: getters.getSectionNumberForPublishing
   });
 
   dispatch("application/setPublishResult", publishResult, { root: true });

@@ -1,4 +1,8 @@
-import { getTitleForPublishOption } from "../../../utils/publishHelper";
+import {
+  cleanupHtml,
+  getTitleForPublishOption,
+  prependNewSectionToAppendixSection
+} from "../../../utils/publishHelper";
 
 export default {
   /**
@@ -23,12 +27,23 @@ export default {
   },
 
   /**
+   * This getter returns the proper title of the newly translated section,
+   * to be used for the publishing functionality.
+   *
+   * Target section title should be empty when section is missing and
+   * appendix sections exist. That is because in this case we manually
+   * add the section title inside HTML that is being published. Section
+   * title should also be empty for lead sections, since these sections
+   * do not have any title. In all other cases, the appropriate section
+   * title should be returned.
+   *
    * @param {object} state
    * @param {object} getters
    * @param {object} rootState
+   * @param {object} rootGetters
    * @return {string}
    */
-  getSectionTitleForPublishing: (state, getters, rootState) => {
+  getSectionTitleForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
       currentSourceSection
@@ -38,12 +53,143 @@ export default {
       return "";
     }
 
-    return (
+    const firstAppendixTargetTitle = rootGetters[
+      "suggestions/getFirstAppendixTitleBySectionSuggestion"
+    ](currentSectionSuggestion);
+
+    const presentSectionTitle =
       currentSectionSuggestion.presentSections[
         currentSourceSection.originalTitle
-      ] || ""
+      ];
+
+    // If section is present, or missing and appendix sections DO NOT exist
+    if (!presentSectionTitle && !firstAppendixTargetTitle) {
+      return currentSourceSection.title;
+    } else if (presentSectionTitle) {
+      return presentSectionTitle;
+    } else {
+      // section is missing and appendix sections DO exist
+      return "";
+    }
+  },
+
+  /**
+   * This getter returns the appropriate number indicating the position in which the
+   * new section will be published inside target page.
+   *
+   * 1. If section is a lead section then its position should be equal to 0.
+   * 2. If section is present inside target article, then:
+   *    sectionNumber equals the index of the section inside target article.
+   * 3. If not present, then
+   *    a. If at least one appendix section exists then:
+   *       it equals to the index of the first appendix section (in order of appearance)
+   *    b. If not, it's equal to "new".
+   *
+   * @param {object} state
+   * @param {object} getters
+   * @param {object} rootState
+   * @param {object} rootGetters
+   * @return {number|"new"}
+   */
+  getSectionNumberForPublishing: (state, getters, rootState, rootGetters) => {
+    const {
+      currentSectionSuggestion,
+      currentSourceSection
+    } = rootState.application;
+
+    // if current section is a lead section, its position should be 0
+    if (currentSourceSection.isLeadSection) {
+      return 0;
+    }
+
+    const targetPage = rootGetters["application/getCurrentTargetPage"];
+    const firstAppendixTargetTitle = rootGetters[
+      "suggestions/getFirstAppendixTitleBySectionSuggestion"
+    ](currentSectionSuggestion);
+
+    const presentSectionTargetTitle =
+      currentSectionSuggestion.presentSections[
+        currentSourceSection.originalTitle
+      ];
+
+    if (!!presentSectionTargetTitle) {
+      return targetPage.getSectionNumberByTitle(presentSectionTargetTitle);
+    } else if (!!firstAppendixTargetTitle) {
+      // if appendix sections exist, the new section should be positioned exactly
+      // above the first appendix section. For this reason, the HTML to be published
+      // should contain: 1. the new section title, 2. the new section contents,
+      // 3. the first appendix section and title and 4. the contents of the first
+      // appendix section. Therefore, the position of the section to be published
+      // should be equal to the position of the first appendix section
+      return targetPage.getSectionNumberByTitle(firstAppendixTargetTitle);
+    }
+
+    // if section is missing and no appendix sections exist, the section should be
+    // published as a "new" section
+    return "new";
+  },
+
+  /**
+   * This getter returns the appropriate HTML to be published inside
+   * target page for this new section.
+   *
+   * 1. If section is a lead section, then:
+   *    html equals the new section clean contents
+   * 2. If section is present inside target article, then:
+   *    html equals the new section clean contents
+   * 3. If section is missing, then
+   *    a. If at least one appendix section exists then:
+   *       Since Action API doesn't support publishing section to
+   *       the desired position out of the box, if the section is to
+   *       be published before appendix sections, we have to replace
+   *       first appendix section contents with a new HTML string
+   *       containing both new section contents and appendix section
+   *       contents. Therefore, the HTML string should equal the
+   *       concatenation of the new section clean contents with appendix
+   *       section clean contents
+   *    b. If not, it's equal to the new section clean contents.
+   *
+   * @param {object} state
+   * @param {object} getters
+   * @param {object} rootState
+   * @param {object} rootGetters
+   * @return {String} - HTML to be published
+   */
+  getCleanHTMLForPublishing: (state, getters, rootState, rootGetters) => {
+    const {
+      currentSectionSuggestion,
+      currentSourceSection
+    } = rootState.application;
+
+    const isPresentSection = !!currentSectionSuggestion.presentSections[
+      currentSourceSection.originalTitle
+    ];
+
+    const firstAppendixTargetTitle = rootGetters[
+      "suggestions/getFirstAppendixTitleBySectionSuggestion"
+    ](currentSectionSuggestion);
+
+    // if section is lead section or present or NO appendix section exists
+    if (
+      currentSourceSection.isLeadSection ||
+      isPresentSection ||
+      !firstAppendixTargetTitle
+    ) {
+      return cleanupHtml(currentSourceSection.translationHtml);
+    }
+
+    const targetPage = rootGetters["application/getCurrentTargetPage"];
+    // if section is missing and appendix sections DO exist
+    const appendixSection = targetPage.sections.find(
+      section => section.originalTitle === firstAppendixTargetTitle
+    );
+
+    return prependNewSectionToAppendixSection(
+      currentSourceSection,
+      appendixSection
     );
   },
+
   /**
    * @param {Object} state
    * @return {function(string, string): Translation[]}

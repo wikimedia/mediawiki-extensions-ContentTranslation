@@ -11,7 +11,7 @@ export default class Page {
    * @param {string} [options.pageviews]
    * @param {string} [options.thumbnail]
    * @param {string} [options.title]
-   * @param {string} [options._alias] The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
+   * @param {string|null} [options._alias] The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
    * @param {string} [options.content]
    * @param {PageSection[]} [options.sections]
    */
@@ -55,7 +55,11 @@ export default class Page {
 
   /**
    * For a given target section title it returns the order
-   * of this section inside target page if present or -1 elsewise
+   * of this section inside target page if present or -1 elsewise.
+   *
+   * The section number is the sum of all preceding page sections,
+   * plus all subsections that are heading sections (h3, h4, etc),
+   * plus 1.
    * @param {string} sectionTitle
    * @return {number}
    */
@@ -64,19 +68,17 @@ export default class Page {
       section => section.originalTitle === sectionTitle
     );
 
-    if (sectionIndex < -1) {
+    if (sectionIndex < 0) {
       return -1;
     }
     const precedingSections = this.sections.slice(0, sectionIndex);
 
-    return (
-      precedingSections.reduce(
-        (count, section) =>
-          count +
-          section.subSections.filter(subsection => subsection.isHeadingSection)
-            .length,
-        0
-      ) + 1
+    return precedingSections.reduce(
+      (count, section) =>
+        count +
+        section.subSections.filter(subsection => subsection.isHeadingSection)
+          .length,
+      sectionIndex + 1
     );
   }
 

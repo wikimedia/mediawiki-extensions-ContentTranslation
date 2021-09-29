@@ -2,14 +2,16 @@ import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 
 export default {
   /**
+   * In case of a null or empty title, this getter should
+   * return null
    * @param {Object} state
-   * @return {function(string, string): Page}
+   * @return {function(string, string|null): Page|null}
    */
   getPage: state => (language, title) =>
     state.pages.find(
       page =>
         page.language === language &&
-        (page.title === title || page.alias === title)
+        (page.title === title || (page.alias !== null && page.alias === title))
     ),
 
   /**
