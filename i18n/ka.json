@@ -178,10 +178,6 @@
 	"cx-translator-month-stats-label": "ეს თვე",
 	"cx-translator-total-translations-label": "სულ",
 	"cx-continue-translation": "თარგმნის გაგრძელება",
-	"cx-tools-template-title": "თარგი",
-	"cx-template-action-adapt": "გამოიყენეთ ექვივალენტი თარგი",
-	"cx-template-action-keep-original": "თავდაპირველი თარგის შენახვა",
-	"cx-template-action-skip": "თარგის გამოტოვება",
 	"cx-preference-enable-entrypoints": "[[$1|თარგმნის დაწყებაზე]] წვდომა წვლილის გვერდიდან, ენების სიიდან და ახალი გვერდის შექმნის ფანჯრიდან.",
 	"cx-sx-section-selector-title": "სექციები",
 	"cx-sx-language-selector-dialog-title": "ენის ძებნა"

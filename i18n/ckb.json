@@ -210,7 +210,6 @@
 	"cx-translator-month-stats-label": "ئەم مانگە",
 	"cx-translator-total-translations-label": "سەرجەم",
 	"cx-continue-translation": "بەردەوام بە لە وەرگێڕان",
-	"cx-tools-template-title": "داڕێژە",
 	"cx-mt-failed": "وەرگێڕانی مەکینە شکستی ھێنا",
 	"cx-preference-enable-entrypoints": "لە پەڕەی بەشدارییەکان، پێڕستی زمانەکە، و دروستکردنی پەڕە نوێکان [[$1|دەست بە وەرگێڕان بکە]].",
 	"cx-sx-existing-translation-status": "پێشتر بوونی هەیە لە $1",

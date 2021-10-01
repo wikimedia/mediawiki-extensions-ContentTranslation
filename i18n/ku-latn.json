@@ -115,7 +115,6 @@
 	"cx-translator-month-stats-label": "Vê mehê",
 	"cx-translator-total-translations-label": "Hemû",
 	"cx-continue-translation": "Wergerandinê bidomîne",
-	"cx-tools-template-title": "Şablon",
 	"cx-sx-existing-translation-status": "Berdest e bi $1",
 	"cx-sx-existing-translation-additional-info": "Berfireh bike bi $1 {{PLURAL:$2| û $2 beşê din| û $2 beşên din|0=}}.",
 	"cx-sx-start-translation-button-label": "Dest bi wergerandinê bike",
