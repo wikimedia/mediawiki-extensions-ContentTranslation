@@ -5,31 +5,15 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import Vuex from "vuex";
 import CompositionApi from "@vue/composition-api";
 import { MwSpinner } from "@/lib/mediawiki.ui";
-
+import mockStore from "./proposedTranslationCardMockStore";
 const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 
-const applicationModule = {
-  namespaced: true,
-  state: {
-    currentMTProvider: "Apertium",
-    content: "<div>Test translation</div>"
-  },
-  getters: {
-    getCurrentProposedTranslation: state => state.content
-  },
-  mutations: {
-    setCurrentMTProvider: (state, provider) => {
-      state.currentMTProvider = provider;
-    }
-  }
-};
-
-const mockStore = new Vuex.Store({
-  modules: { application: applicationModule }
-});
+jest.mock("../../store", () =>
+  jest.requireActual("./proposedTranslationCardMockStore")
+);
 
 describe("SXSentenceSelector Proposed Translation Card", () => {
   const wrapper = shallowMount(ProposedTranslationCard, {
