@@ -25,6 +25,7 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Extension\AbuseFilter\AbuseFilter;
 use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Extension\AbuseFilter\GlobalNameUtils;
 
@@ -114,7 +115,7 @@ class AbuseFilterCheck {
 	protected function getResults( \AbuseFilterVariableHolder $vars ) {
 		static $seriousActions = [ 'warn', 'block', 'disallow', 'degroup' ];
 
-		$filters = \AbuseFilter::checkAllFilters( $vars, $this->title );
+		$filters = AbuseFilter::checkAllFilters( $vars, $this->title );
 		$filters = array_keys( array_filter( $filters ) );
 		$actions = AbuseFilterServices::getConsequencesLookup()->getConsequencesForFilters( $filters );
 		$filterLookup = AbuseFilterServices::getFilterLookup();
