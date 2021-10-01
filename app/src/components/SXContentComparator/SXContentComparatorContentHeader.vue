@@ -171,6 +171,7 @@ export default {
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 .sx-content-comparator__content-header {
+  z-index: 1;
   &-title {
     // No border style defined in specifications
     border-bottom: @border-style-base @border-width-base
