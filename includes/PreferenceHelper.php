@@ -7,10 +7,10 @@
  */
 namespace ContentTranslation;
 
-use BetaFeatures;
 use ExtensionRegistry;
 use GlobalPreferences\GlobalPreferencesFactory;
 use GlobalPreferences\Storage;
+use MediaWiki\Extension\BetaFeatures\BetaFeatures;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\User\UserIdentity;
 use RequestContext;
