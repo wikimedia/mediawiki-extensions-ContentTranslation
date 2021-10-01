@@ -49,16 +49,23 @@ function fetchLanguageTitles({ commit, getters }, { language, title }) {
     );
 }
 
-function fetchSupportedLanguageCodes({ commit, state }) {
+/**
+ * This action fetches all language codes supported by cxserver,
+ * that can be used as source/target languages.
+ *
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {object} context.state
+ */
+async function fetchSupportedLanguageCodes({ commit, state }) {
   // If supported language codes have already been fetched, then skip
   if (
     !state.supportedLanguageCodes.length &&
     !state.supportedLanguageCodesRequested
   ) {
     commit("setSupportedLanguageCodesRequested", true);
-    siteApi.fetchSupportedLanguageCodes().then(languageCodes => {
-      commit("setSupportedLanguageCodes", languageCodes);
-    });
+    const languageCodes = await siteApi.fetchSupportedLanguageCodes();
+    commit("setSupportedLanguageCodes", languageCodes);
   }
 }
 

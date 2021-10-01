@@ -217,7 +217,7 @@ mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
  * according to given source and target title and the target language.
  *
  * @param {string} sourceTitle
- * @param {string} targetTitle
+ * @param {string|null} targetTitle
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
  * @param {Object} [extra] Additional query parameters

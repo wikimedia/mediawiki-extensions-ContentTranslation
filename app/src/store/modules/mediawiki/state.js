@@ -4,6 +4,11 @@ export default {
   /** @type {Boolean} */
   languagesRequested: false,
   languageTitleGroups: [],
+  /**
+   * All language codes that are supported by cxserver
+   * and can be used as source/target languages
+   * @type {string[]}
+   */
   supportedLanguageCodes: [],
   /** @type {Boolean} */
   supportedLanguageCodesRequested: false,

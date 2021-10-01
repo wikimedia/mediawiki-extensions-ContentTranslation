@@ -1,10 +1,5 @@
 import PublishResult from "../../../wiki/cx/models/publishResult";
 
-const enabledTargetLanguagesByConfig = mw.config.get(
-  "wgSectionTranslationTargetLanguages"
-);
-const targetLanguage = enabledTargetLanguagesByConfig?.[0] || "es";
-
 export default {
   /** @type SectionSuggestion */
   currentSectionSuggestion: null,
@@ -20,17 +15,17 @@ export default {
    * Currently selected section suggestion also
    * has the same source language. It can be
    * changed by using the language selector.
-   * @type String
+   * @type {String|null}
    */
-  sourceLanguage: "en",
+  sourceLanguage: null,
   /**
    * Current target language for sx application.
    * Currently selected section suggestion also
    * has the same target language. It can be
    * changed by using the language selector.
-   * @type String
+   * @type {String|null}
    */
-  targetLanguage,
+  targetLanguage: null,
   publishTarget: "NEW_SECTION",
   /**
    * Indicates whether user translation is in progress
