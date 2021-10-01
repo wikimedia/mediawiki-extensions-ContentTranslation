@@ -967,13 +967,6 @@
 				"mw.cx.dm"
 			]
 		},
-		"mw.cx.dm.WikiPage": {
-			"scripts": "dm/mw.cx.dm.WikiPage.js",
-			"dependencies": [
-				"jquery.uls.data",
-				"mw.cx.dm"
-			]
-		},
 		"mw.cx.dm.TranslationIssue": {
 			"scripts": "dm/mw.cx.dm.TranslationIssue.js",
 			"dependencies": [
@@ -1113,26 +1106,13 @@
 		},
 		"mw.cx.init": {
 			"scripts": [
-				"mw.cx.init.js"
-			],
-			"dependencies": [
-				"ext.cx.model",
-				"mw.cx.SiteMapper",
-				"mw.cx.MwApiRequestManager",
-				"mw.cx.MachineTranslation",
-				"mw.cx.dm.WikiPage",
-				"mw.cx.init.Translation"
-			],
-			"messages": [
-				"cx-beta-feature-enabled-notification",
-				"cx-init-critical-error"
-			],
-			"targets": [
-				"desktop"
-			]
-		},
-		"mw.cx.init.Translation": {
-			"scripts": [
+				"mw.cx.MachineTranslationManager.js",
+				"mw.cx.MachineTranslationService.js",
+				"cache/mw.cx.ApiResponseCache.js",
+				"cache/mw.cx.CategoryCache.js",
+				"cache/mw.cx.NamespaceCache.js",
+				"cache/mw.cx.TitlePairCache.js",
+				"mw.cx.MwApiRequestManager.js",
 				"tools/mw.cx.tools.IssueTrackingTool.js",
 				"ui/widgets/mw.cx.ui.TranslationIssueWidget.js",
 				"dm/mw.cx.dm.PageTitleModel.js",
@@ -1152,7 +1132,9 @@
 				"mw.cx.TranslationController.js",
 				"mw.cx.TranslationTracker.js",
 				"dm/mw.cx.dm.SectionState.js",
-				"eventlogging/ext.cx.eventlogging.translation.js"
+				"eventlogging/ext.cx.eventlogging.translation.js",
+				"dm/mw.cx.dm.WikiPage.js",
+				"mw.cx.init.js"
 			],
 			"styles": [
 				"tools/styles/mw.cx.tools.IssueTrackingTool.less",
@@ -1177,6 +1159,7 @@
 			"messages": [
 				"categories",
 				"cx",
+				"cx-beta-feature-enabled-notification",
 				"cx-captcha-unsupported-type",
 				"cx-draft-cancel-button-label",
 				"cx-draft-restored",
@@ -1188,6 +1171,7 @@
 				"cx-infobar-view-issues",
 				"cx-infobar-cannot-publish",
 				"cx-infobar-old-version",
+				"cx-init-critical-error",
 				"cx-no-adapted-categories",
 				"cx-no-source-categories",
 				"cx-no-target-categories",
@@ -1243,6 +1227,10 @@
 				"cx-source-loading",
 				"cx-source-view-page",
 				"cx-tools-linter-abuse-filter",
+				"cx-tools-mt-use-source",
+				"cx-tools-mt-reset",
+				"cx-tools-mt-provider-title",
+				"cx-tools-mt-dont-use",
 				"cx-tools-view-guidelines-link",
 				"cx-translation-add-translation",
 				"cx-warning-unsaved-translation",
@@ -1255,11 +1243,13 @@
 				"jquery.uls.data",
 				"mediawiki.user",
 				"mediawiki.api",
-				"mediawiki.language",
 				"mediawiki.deflate",
+				"mediawiki.language",
+				"mediawiki.storage",
 				"mw.cx.SiteMapper",
 				"mw.cx.dm",
 				"mw.cx.dm.Translation",
+				"ext.cx.model",
 				"mw.cx.tools.TranslationTool",
 				"mw.cx.ui",
 				"mw.cx.ui.Infobar",
@@ -1272,38 +1262,11 @@
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
 				"ve.ce.CXLintableNode",
-				"ve.dm.CXLintableNode"
-			]
-		},
-		"mw.cx.MwApiRequestManager": {
-			"scripts": [
-				"cache/mw.cx.ApiResponseCache.js",
-				"cache/mw.cx.CategoryCache.js",
-				"cache/mw.cx.NamespaceCache.js",
-				"cache/mw.cx.TitlePairCache.js",
-				"mw.cx.MwApiRequestManager.js"
-			],
-			"dependencies": [
+				"ve.dm.CXLintableNode",
 				"ve.init.mw.CXTarget"
 			],
 			"targets": [
 				"desktop"
-			]
-		},
-		"mw.cx.MachineTranslation": {
-			"scripts": [
-				"mw.cx.MachineTranslationManager.js",
-				"mw.cx.MachineTranslationService.js"
-			],
-			"messages": [
-				"cx-tools-mt-use-source",
-				"cx-tools-mt-reset",
-				"cx-tools-mt-provider-title",
-				"cx-tools-mt-dont-use"
-			],
-			"dependencies": [
-				"ext.cx.model",
-				"mediawiki.storage"
 			]
 		},
 		"ve.init.mw.CXTarget": {
@@ -1498,9 +1461,7 @@
 			"ext.cx.model",
 			"mw.cx.SiteMapper",
 			"mw.cx.dm.Translation",
-			"mw.cx.init.Translation",
-			"mw.cx.MachineTranslation",
-			"mw.cx.MwApiRequestManager",
+			"mw.cx.init",
 			"mw.cx.ui.Infobar",
 			"mw.cx.util",
 			"ve.init.mw.CXTarget"

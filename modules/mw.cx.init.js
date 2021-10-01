@@ -58,6 +58,9 @@
 		mw.config.set( 'wgVisualEditorConfig', VEConfig );
 	}
 
-	// On document ready, initialize.
-	$( initCX );
+	// On document ready, initialize, but not during QUnit tests, when this code is loaded
+	// only because another file in this module has tests
+	if ( !window.QUnit ) {
+		$( initCX );
+	}
 }() );
