@@ -4,6 +4,7 @@
 			"咽頭べさ"
 		]
 	},
+	"cx-dashboard-header": "ဘာႏသာႏပြန်ႏဖုံႏ",
 	"cx-suggestionlist-expand": "ထွားလို့တာႏ",
 	"cx-suggestionlist-refresh": "ထိုမ်ႏစဲစ်ချာယင်း ဖေႏကျံႏညဏ်ႏချက်ဖုံႏ",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 တမာချက်|$1 တမာချက်ဖုံႏ}}",

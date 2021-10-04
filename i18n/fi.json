@@ -15,6 +15,7 @@
 			"Putputi",
 			"Pxos",
 			"Pyscowicz",
+			"Rönttönen",
 			"Silvonen",
 			"Stryn",
 			"Valtlait"
@@ -294,7 +295,7 @@
 	"cx-translation-list-all-languages-option-label": "Kaikki",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Takaisin osiovalintaan",
 	"cx-sx-content-comparator-translation-section-button-label": "Käännä tämä osio",
-	"cx-sx-content-comparator-review-contents-title": "Käy sisältö läpi molemmilla kielillä.",
+	"cx-sx-content-comparator-review-contents-title": "Tarkista päällekkäisyyksien varalta.",
 	"cx-sx-content-comparator-review-contents-rest": "Valitun osion sisältö saattaa olla jo käsitelty kohdeartikkelissa.",
 	"cx-sx-content-comparator-source-selector-title": "Osio kielellä $1",
 	"sx-quick-tutorial-main-point-step-1": "Osio kerrallaan",
