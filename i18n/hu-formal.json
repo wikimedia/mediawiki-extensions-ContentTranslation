@@ -5,7 +5,7 @@
 			"Tacsipacsi"
 		]
 	},
-	"cx-license-agreement": "A „$1” gombra való kattintással elfogadja a [https://foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulását a fordítói eszközzel nyilvánosságra hozza a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt, azzal a kitétellel, hogy a hivatkozás vagy URL elegendő a CC BY-SA 3.0-ban foglalt Nevezd meg! feltételnek.",
+	"cx-license-agreement": "A folytatással elfogadja a [https://foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulásait a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt hozza nyilvánosságra.",
 	"cx-translation-target-page-exists": "Egy [$1 $2] című lap már létezik a célwikin. Fontolja meg, hogy egy másik címet ad neki.",
 	"cx-beta-desc": "Egy eszköz, mellyel gyorsan lefordíthat lapokat az anyanyelvére. Kezdje el a fordítását a [[Special:MyContributions|közreműködési lapján]], majd szerkessze meg a kifejezetten fordítási célra kifejlesztett szerkesztőnkkel. Néhány eszköz esetleg csak bizonyos nyelveken elérhető.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ez az oldal még nem létezik $1 nyelven. Létre akarja hozni?",
@@ -16,9 +16,9 @@
 	"cx-tools-instructions-text4": "A gépi fordítás hasznos, de vizsgálja felül a szöveget, hogy pontos-e.",
 	"cx-tools-instructions-text6": "Amikor elégedett az eredménnyel, kattintson a „{{int:cx-publish-button}}” gombra.",
 	"cx-stats-title": "Tartalomfordítási statisztikája",
-	"cx-mt-abuse-warning-title": "A fordítása $1% módosítatlan gépi fordítású szöveget tartalmaz.",
+	"cx-mt-abuse-warning-title": "A fordításának egy része $1% módosítatlan {{PLURAL:$1|szöveget}} tartalmaz",
 	"cx-mt-abuse-warning-text": "A gépi fordítás csak kiindulásként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
-	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a felhasználóval, aki a jelenlegi fordítást készítette.",
+	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a {{GENDER:$1|felhasználóval}}, aki a jelenlegi fordítást készítette.",
 	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
-	"cx-campaign-newarticle-notice": "Most már létrehozhat új tartalmat <b>fordítással</b> is! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
+	"cx-campaign-newarticle-notice": "Most sokkal egyszerűbben készíthet új szócikkeket <strong>fordítással</strong>! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
 }
