@@ -59,6 +59,7 @@ import {
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
+import initializeDashboard from "@/composables/useDashboardInitialization";
 
 export default {
   name: "CxDashboard",
@@ -120,28 +121,13 @@ export default {
       });
     });
 
-    const store = context.root.$store;
     const router = context.root.$router;
 
     const searchTranslation = () => router.push({ name: "sx-article-search" });
 
     watch(active, () => window.scrollTo(0, 0));
 
-    const initializeDashboard = async () => {
-      /** @type {SectionSuggestion|undefined} */
-      const suggestion = await store.dispatch(
-        "application/initializeDashboardContext"
-      );
-
-      if (suggestion) {
-        router.push({
-          name: "sx-translation-confirmer",
-          params: { previousRoute: "dashboard" }
-        });
-      }
-    };
-
-    initializeDashboard();
+    initializeDashboard(router);
 
     return {
       active,

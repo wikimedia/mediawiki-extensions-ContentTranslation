@@ -96,6 +96,7 @@ import { ref, onMounted, computed, watch } from "@vue/composition-api";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import getSuggestedSourceLanguages from "./suggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
+import initializeDashboard from "@/composables/useDashboardInitialization";
 
 export default {
   name: "SxArticleSearch",
@@ -122,7 +123,7 @@ export default {
      * these items are set in local storage, these languages are allowed
      * to be empty
      *
-     * @type {string[]}
+     * @type {Ref<string[]>}
      */
     const previousLanguages = ref([]);
 
@@ -131,12 +132,12 @@ export default {
 
     const { sourceLanguage, targetLanguage } = useApplicationState();
 
-    /** @type {string[]} */
+    /** @type {ComputedRef<string[]>} */
     const supportedLanguageCodes = computed(
       () => mediawikiStore.supportedLanguageCodes || []
     );
 
-    /** @type {string[]} */
+    /** @type {ComputedRef<string[]>} */
     const availableSourceLanguages = computed(() =>
       supportedLanguageCodes.value.filter(
         languageCode => languageCode !== targetLanguage.value
@@ -148,23 +149,24 @@ export default {
      * Based on mw.uls.getFrequentLanguageList
      * NOTE: Suggested language codes based on user territory is not supported
      *
-     * @type {string[]}
+     * @type {ComputedRef<string[]>}
      */
     const suggestedSourceLanguages = getSuggestedSourceLanguages(
       previousLanguages
     );
     /**
      * Quick list of languages to select from based on previous selections.
-     * This is a computed propery since the list should be updated when a new
+     * This is a computed property since the list should be updated when a new
      * language is selected.
-     * @type {string[]}
+     * @type {ComputedRef<string[]>}
      */
     const sourceLanguageOptions = getSourceLanguageOptions(
       suggestedSourceLanguages
     );
+    const router = context.root.$router;
 
     onMounted(() => {
-      store.dispatch("application/initializeDashboardContext");
+      initializeDashboard(router);
 
       try {
         previousLanguages.value.push(
@@ -173,8 +175,6 @@ export default {
       } catch (e) {}
       searchInputRef.value?.focus();
     });
-
-    const router = context.root.$router;
 
     const close = () => {
       router.push({ name: "dashboard" });

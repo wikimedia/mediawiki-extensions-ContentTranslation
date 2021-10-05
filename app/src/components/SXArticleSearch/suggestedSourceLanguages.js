@@ -7,7 +7,7 @@ import useApplicationState from "@/composables/useApplicationState";
  * based on a list of criteria. Based on mw.uls.getFrequentLanguageList
  * NOTE: Suggested language codes based on user territory is not supported
  *
- * @return {function(ComputedRef<string[]>): ComputedRef<string[]>}
+ * @type {function(ComputedRef<string[]>): ComputedRef<string[]>}
  */
 const getSuggestedSourceLanguages = previousLanguages =>
   computed(() => {

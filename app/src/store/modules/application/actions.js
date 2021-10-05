@@ -2,7 +2,7 @@ import Vue from "vue";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
-import { siteMapper } from "@/utils/mediawikiHelper";
+import { siteMapper } from "../../../utils/mediawikiHelper";
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -53,27 +53,6 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
 
   return state.cxServerToken?.jwt;
 };
-
-/**
- * @param {function} dispatch
- * @return {Promise<SectionSuggestion|void>}
- */
-async function initializeDashboardContext({ dispatch }) {
-  await dispatch("mediawiki/fetchSupportedLanguageCodes", {}, { root: true });
-  await dispatch("initializeLanguages");
-  /** @type {SectionSuggestion} */
-  const suggestion = await dispatch("loadSectionSuggestionFromUrl");
-
-  if (suggestion) {
-    dispatch("initializeSectionTranslation", suggestion);
-
-    return suggestion;
-  }
-
-  await dispatch("suggestions/fetchFavorites", {}, { root: true });
-  await dispatch("translator/fetchTranslations", {}, { root: true });
-  dispatch("suggestions/initializeSuggestions", {}, { root: true });
-}
 
 /**
  * @param {object} context
@@ -185,136 +164,6 @@ async function updateTargetLanguage(
     newTargetLanguage,
     { sx: true }
   );
-}
-
-/**
- * This action initializes the source and target languages for the current session.
- * These languages are initially declared as null in the vuex state, but should be
- * properly initialized for the Section Translation application to work properly.
- *
- * Target language is initialized based on the below logic:
- * 1. If "to" URL parameter exists and is a CX/SX supported and enabled language code then
- * it is set as target language.
- * 2. If step 1 is not the case, and current wiki language is a CX/SX supported and enabled
- * language code then it is set as target language
- * 3. If not, the first enabled language code is selected as target language
- * 4. If SX enabled languages are empty, the default target language is selected ("es")
- *
- * Source language is initialized based on the below logic:
- * 1. If "from" URL parameter exists and is a CX/SX supported and enabled language code, and
- * (the already set) target language is not equal to this language code, then it is set as
- * source language.
- * 2. If step 1 is not the case, and the target language is not equal to the default source
- * language ("en"), then source language is set to "en"
- * 4. If not, and the current wiki language is a CX/SX supported and enabled language code,
- * and not equal to the target language, then it is set as source language
- * 4. If none of the cases above stands, then we should target language is set to "en" and
- * source language should be set to "es" as a fallback.
- *
- * @return {void}
- */
-function initializeLanguages({ rootState, commit }) {
-  const {
-    enabledTargetLanguages,
-    supportedLanguageCodes
-  } = rootState.mediawiki;
-
-  const urlParams = new URLSearchParams(location.search);
-  const urlSourceLanguage = urlParams.get("from");
-  const urlTargetLanguage = urlParams.get("to");
-  const urlSourceArticleTitle = urlParams.get("page");
-  const urlSourceSectionTitle = urlParams.get("section");
-
-  const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
-  const translateInTarget = mw.config.get(
-    "wgContentTranslationTranslateInTarget"
-  );
-
-  const isEnabledLanguage = language =>
-    !enabledTargetLanguages ||
-    (Array.isArray(enabledTargetLanguages) &&
-      enabledTargetLanguages.includes(language));
-
-  const isSupportedLanguage = language =>
-    supportedLanguageCodes.includes(language);
-
-  const defaultLanguages = {
-    sourceLanguage: "en",
-    targetLanguage: "es"
-  };
-
-  let targetLanguage;
-
-  if (
-    urlTargetLanguage &&
-    isEnabledLanguage(urlTargetLanguage) &&
-    isSupportedLanguage(urlTargetLanguage)
-  ) {
-    targetLanguage = urlTargetLanguage;
-  } else if (
-    isEnabledLanguage(urlTargetLanguage) &&
-    isSupportedLanguage(wikiLanguage)
-  ) {
-    targetLanguage = wikiLanguage;
-  } else {
-    targetLanguage =
-      enabledTargetLanguages?.[0] || defaultLanguages.targetLanguage;
-  }
-
-  const defaultSourceLanguages = [
-    urlSourceLanguage,
-    defaultLanguages.sourceLanguage,
-    wikiLanguage,
-    defaultLanguages.targetLanguage
-  ];
-
-  let sourceLanguage = defaultSourceLanguages
-    .filter(language => isSupportedLanguage(language))
-    .find(language => language !== targetLanguage);
-
-  if (!translateInTarget || targetLanguage === wikiLanguage) {
-    commit("setSourceLanguage", sourceLanguage);
-    commit("setTargetLanguage", targetLanguage);
-  } else {
-    window.location.href = siteMapper.getCXUrl(
-      urlSourceArticleTitle,
-      null,
-      sourceLanguage,
-      targetLanguage,
-      { sx: true, section: urlSourceSectionTitle }
-    );
-  }
-}
-
-/**
- * @return {Promise<SectionSuggestion|void>}
- */
-async function loadSectionSuggestionFromUrl({ rootGetters, state, dispatch }) {
-  const urlParams = new URLSearchParams(location.search);
-  const isSectionTranslation = urlParams.get("sx");
-  const sourceTitle = urlParams.get("page");
-  const { sourceLanguage, targetLanguage } = state;
-
-  if (!isSectionTranslation || !sourceTitle) {
-    return;
-  }
-
-  /** Get corresponding suggestion for requested language pair and article title, if exists */
-  let suggestion = rootGetters["suggestions/getSectionSuggestionsForArticle"](
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  );
-
-  if (!suggestion) {
-    suggestion = await dispatch(
-      "suggestions/loadSectionSuggestion",
-      { sourceLanguage, targetLanguage, sourceTitle },
-      { root: true }
-    );
-  }
-
-  return suggestion;
 }
 
 async function fetchCurrentSectionSuggestionLanguageTitles({
@@ -712,11 +561,8 @@ export default {
   clearCurrentSectionSuggestion,
   fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
-  initializeLanguages,
-  initializeDashboardContext,
   initializeMTProviders,
   initializeSectionTranslation,
-  loadSectionSuggestionFromUrl,
   resetPublishResult,
   selectNextSentence,
   selectPageSectionByTitle,
