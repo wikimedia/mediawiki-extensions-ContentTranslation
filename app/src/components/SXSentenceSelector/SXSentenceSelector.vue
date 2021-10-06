@@ -73,12 +73,13 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 
 import SxTranslationSelector from "./SXTranslationSelector";
-import { mapState, mapGetters, mapActions } from "vuex";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
 
 import TranslatedSegmentCard from "./TranslatedSegmentCard";
+import { computed, onMounted, ref } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxSentenceSelector",
@@ -92,85 +93,106 @@ export default {
     SxTranslationSelector,
     MwButton
   },
-  data: () => ({
-    mwIconArrowPrevious,
-    translation: null,
-    isTranslationOptionsActive: false,
-    shouldProposedTranslationBounce: false,
-    screenHeight: "100%"
-  }),
-  computed: {
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection,
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation,
-      selectedProvider: state => state.application.currentMTProvider
-    }),
-    ...mapGetters({
-      selectedSentence: "application/getCurrentSelectedSentence",
-      isSelectedSegmentTranslated: "application/isSelectedSegmentTranslated"
-    }),
-    subSections: vm => vm.currentPageSection?.subSections,
-    sourcePage: vm =>
-      vm.$store.getters["mediawiki/getPage"](
-        vm.suggestion.sourceLanguage,
-        vm.suggestion.sourceTitle
-      ),
-    originalSegmentContent: vm =>
-      vm.isSectionTitleSelected
-        ? vm.currentPageSection.originalTitle
-        : vm.selectedSentence.originalContent,
-    sentenceSelectorStyle: vm => ({
-      height: isNaN(vm.screenHeight) ? vm.screenHeight : `${vm.screenHeight}px`
-    })
-  },
-  async mounted() {
-    this.$store.dispatch("application/resetPublishResult");
-    await this.$store.dispatch("application/initializeMTProviders");
+  setup(props, context) {
+    const isTranslationOptionsActive = ref(false);
+    const shouldProposedTranslationBounce = ref(false);
+    const screenHeight = ref("100%");
 
-    // If no sentence is selected, select title
-    this.selectedSentence || this.selectSectionTitleForTranslation();
-    this.screenHeight = window.innerHeight;
-  },
-  methods: {
-    ...mapActions({
-      skipTranslation: "application/selectNextSentence",
-      selectPreviousSegment: "application/selectPreviousSegment",
-      applyTranslation: "application/applyProposedTranslationToSelectedSegment",
-      selectSectionTitleForTranslation:
-        "application/selectSectionTitleForTranslation"
-    }),
-    bounceTranslation() {
-      this.shouldProposedTranslationBounce = true;
+    const store = context.root.$store;
+
+    const {
+      currentSectionSuggestion: suggestion,
+      currentSourceSection: currentPageSection
+    } = useApplicationState();
+
+    const isSectionTitleSelected = computed(
+      () => store.state.application.isSectionTitleSelectedForTranslation
+    );
+
+    const selectedSentence = computed(
+      () => store.getters["application/getCurrentSelectedSentence"]
+    );
+    const isSelectedSegmentTranslated = computed(
+      () => store.getters["application/isSelectedSegmentTranslated"]
+    );
+
+    const subSections = computed(() => currentPageSection.value?.subSections);
+
+    const originalSegmentContent = computed(() =>
+      isSectionTitleSelected.value
+        ? currentPageSection.value.originalTitle
+        : selectedSentence.value.originalContent
+    );
+
+    const sentenceSelectorStyle = computed(() =>
+      isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
+    );
+
+    onMounted(async () => {
+      store.dispatch("application/resetPublishResult");
+      store.dispatch("application/initializeMTProviders");
+
+      // If no sentence is selected, select title
+      if (!selectedSentence.value) {
+        store.dispatch("application/selectSectionTitleForTranslation");
+      }
+      screenHeight.value = window.innerHeight;
+    });
+
+    const skipTranslation = () =>
+      store.dispatch("application/selectNextSentence");
+    const selectPreviousSegment = () =>
+      store.dispatch("application/selectPreviousSegment");
+    const applyTranslation = () =>
+      store.dispatch("application/applyProposedTranslationToSelectedSegment");
+
+    const bounceTranslation = () => {
+      shouldProposedTranslationBounce.value = true;
       setTimeout(() => {
-        this.shouldProposedTranslationBounce = false;
+        shouldProposedTranslationBounce.value = false;
       }, 100);
-    },
-    goToContentComparator() {
-      this.$router.push({ name: "sx-content-comparator" });
-    },
-    configureTranslationOptions() {
-      this.isTranslationOptionsActive = true;
-      this.$store.dispatch("application/translateSegmentForAllProviders");
-    },
-    editTranslation(content) {
-      this.$router.push({
+    };
+    const router = context.root.$router;
+
+    const goToContentComparator = () =>
+      router.push({ name: "sx-content-comparator" });
+
+    const configureTranslationOptions = () => {
+      isTranslationOptionsActive.value = true;
+      store.dispatch("application/translateSegmentForAllProviders");
+    };
+
+    const editTranslation = content =>
+      router.push({
         name: "sx-editor",
         params: {
           content,
-          sourceLanguage: this.suggestion.sourceLanguage,
-          targetLanguage: this.suggestion.targetLanguage,
-          originalContent: this.originalSegmentContent,
-          title: this.suggestion.targetTitle
+          sourceLanguage: suggestion.value.sourceLanguage,
+          targetLanguage: suggestion.value.targetLanguage,
+          originalContent: originalSegmentContent.value,
+          title: suggestion.value.targetTitle
         }
       });
-    },
-    previewTranslation() {
-      this.$router.push({
-        name: "sx-publisher"
-      });
-    }
+
+    const previewTranslation = () => router.push({ name: "sx-publisher" });
+
+    return {
+      applyTranslation,
+      bounceTranslation,
+      configureTranslationOptions,
+      currentPageSection,
+      editTranslation,
+      goToContentComparator,
+      isSelectedSegmentTranslated,
+      isTranslationOptionsActive,
+      mwIconArrowPrevious,
+      previewTranslation,
+      selectPreviousSegment,
+      sentenceSelectorStyle,
+      shouldProposedTranslationBounce,
+      skipTranslation,
+      subSections
+    };
   }
 };
 </script>
