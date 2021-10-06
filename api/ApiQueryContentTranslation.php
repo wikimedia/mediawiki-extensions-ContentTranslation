@@ -49,7 +49,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$user = $this->getUser();
 
 		// Case A: Find a translation for given work from anonymous context
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			if ( $params['translationid'] ) {
 				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
 			}

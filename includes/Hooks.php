@@ -274,7 +274,7 @@ class Hooks {
 				$wgContentTranslationCampaigns['newarticle'] &&
 				!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' ) &&
 				$title->inNamespace( NS_MAIN ) &&
-				!$user->isAnon() &&
+				$user->isRegistered() &&
 				$permissionManager->userCan( 'edit', $user, $title, PermissionManager::RIGOR_QUICK )
 			) {
 				$out->addModules( 'ext.cx.entrypoints.newarticle.veloader' );
@@ -336,10 +336,10 @@ class Hooks {
 	/**
 	 * Hook: SpecialContributionsBeforeMainOutput
 	 * @param int $id
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param SpecialPage $page
 	 */
-	public static function addNewContributionButton( $id, User $user, SpecialPage $page ) {
+	public static function addNewContributionButton( $id, UserIdentity $user, SpecialPage $page ) {
 		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
 			return;
 		}

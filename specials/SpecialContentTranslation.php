@@ -99,7 +99,7 @@ class SpecialContentTranslation extends SpecialPage {
 	public function isValidCampaign( $campaign ) {
 		$contentTranslationCampaigns = $this->getConfig()->get( 'ContentTranslationCampaigns' );
 
-		if ( $this->getUser()->isAnon() ) {
+		if ( !$this->getUser()->isRegistered() ) {
 			// Campaigns are only for logged in users.
 			return false;
 		}
@@ -127,7 +127,7 @@ class SpecialContentTranslation extends SpecialPage {
 	private function hasValidToken() {
 		$request = $this->getRequest();
 
-		if ( $this->getUser()->isAnon() ) {
+		if ( !$this->getUser()->isRegistered() ) {
 			// Tokens are valid only for logged in users.
 			return false;
 		}
@@ -281,7 +281,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$user = $this->getUser();
 
 		// Anonymous users cannot have global preferences
-		if ( $campaign === null || $user->isAnon() ) {
+		if ( $campaign === null || !$user->isRegistered() ) {
 			return;
 		}
 

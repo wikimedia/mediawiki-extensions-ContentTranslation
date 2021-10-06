@@ -19,11 +19,11 @@ use User;
 class PreferenceHelper {
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 *
 	 * @return bool
 	 */
-	public static function isBetaFeatureEnabled( User $user ) {
+	public static function isBetaFeatureEnabled( UserIdentity $user ) {
 		return ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
 			&& BetaFeatures::isFeatureEnabled( $user, 'cx' );
 	}
@@ -33,14 +33,14 @@ class PreferenceHelper {
 	 * Currently it checks that if CX is a beta feature, whether the user has
 	 * enabled it. Otherwise it is always enabled.
 	 *
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public static function isEnabledForUser( User $user ) {
+	public static function isEnabledForUser( UserIdentity $user ) {
 		global $wgContentTranslationAsBetaFeature;
 
 		// CX is currently restricted to only logged in users
-		if ( $user->isAnon() ) {
+		if ( !$user->isRegistered() ) {
 			return false;
 		}
 
@@ -97,7 +97,7 @@ class PreferenceHelper {
 	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public static function isCXEntrypointDisabled( $user ) {
+	public static function isCXEntrypointDisabled( UserIdentity $user ) {
 		global $wgContentTranslationAsBetaFeature;
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		return !$wgContentTranslationAsBetaFeature &&
