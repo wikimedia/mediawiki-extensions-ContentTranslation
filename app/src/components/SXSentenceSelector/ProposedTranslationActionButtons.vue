@@ -31,26 +31,36 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
+import { computed } from "@vue/composition-api";
+
 export default {
   name: "ProposedTranslationActionButtons",
   components: {
     MwRow,
     MwButton
   },
-  data: () => ({
-    mwIconPrevious,
-    mwIconArrowForward
-  }),
-  computed: {
-    ...mapState({
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
-    }),
-    ...mapGetters({
-      isLastSentence: "application/isCurrentSentenceLast",
-      proposedTranslation: "application/getCurrentProposedTranslation"
-    })
+  emits: ["select-previous-segment", "apply-translation", "skip-translation"],
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const isSectionTitleSelected = computed(
+      () => store.state.application.isSectionTitleSelectedForTranslation
+    );
+
+    const isLastSentence = computed(
+      () => store.getters["application/isCurrentSentenceLast"]
+    );
+    const proposedTranslation = computed(
+      () => store.getters["application/getCurrentProposedTranslation"]
+    );
+
+    return {
+      isLastSentence,
+      isSectionTitleSelected,
+      mwIconPrevious,
+      mwIconArrowForward,
+      proposedTranslation
+    };
   }
 };
 </script>

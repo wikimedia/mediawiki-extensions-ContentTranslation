@@ -2,7 +2,10 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import ProposedTranslationActionButtons from "../ProposedTranslationActionButtons";
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
+import CompositionApi from "@vue/composition-api";
+
 const localVue = createLocalVue();
+localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
