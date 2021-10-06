@@ -9,7 +9,6 @@
  */
 
 /**
- *
  * @class
  * @extends ve.ce.MWTransclusionNode
  * @constructor

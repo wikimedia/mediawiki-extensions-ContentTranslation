@@ -193,7 +193,7 @@ class Translator {
 	/**
 	 * Get the stats for translator count to or from a language.
 	 * @param string $direction source or target
-	 * @return array Number of translators indexed by language code
+	 * @return int[] Number of translators indexed by language code
 	 */
 	public static function getTranslatorsCount( $direction ) {
 		$directionField = [
@@ -218,7 +218,7 @@ class Translator {
 		$result = [];
 
 		foreach ( $rows as $row ) {
-			$result[$row->language] = $row->translators;
+			$result[$row->language] = (int)$row->translators;
 		}
 
 		return $result;

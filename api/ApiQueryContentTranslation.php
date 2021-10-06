@@ -10,6 +10,7 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiPageSet;
+use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\Database;
@@ -22,6 +23,11 @@ use MediaWiki\MediaWikiServices;
  * Api module for querying ContentTranslation.
  */
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
+
+	/**
+	 * @param ApiQuery $query
+	 * @param string $moduleName
+	 */
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName );
 	}

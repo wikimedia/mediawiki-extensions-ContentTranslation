@@ -1,5 +1,4 @@
 /**
- *
  * It is assumed that `this` is a ve.dm.Model that belongs to a translation unit
  *
  * @class

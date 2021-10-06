@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */

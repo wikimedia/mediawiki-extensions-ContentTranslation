@@ -10,6 +10,7 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiPageSet;
+use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\SuggestionListManager;
@@ -23,6 +24,11 @@ use MediaWiki\MediaWikiServices;
  * Api module for querying translation suggestions.
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
+
+	/**
+	 * @param ApiQuery $query
+	 * @param string $moduleName
+	 */
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName );
 	}

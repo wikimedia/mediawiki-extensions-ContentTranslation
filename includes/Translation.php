@@ -141,7 +141,7 @@ class Translation {
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 * @param string|string[] $titles
-	 * @return Translation|Translation[]|null Translation
+	 * @return Translation|Translation[]|null
 	 */
 	public static function find( $sourceLanguage, $targetLanguage, $titles ) {
 		if ( $titles === null || empty( $titles ) ) {
