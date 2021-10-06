@@ -24,7 +24,7 @@
 		}
 
 		// Reject titles with pipe in the name, as it has special meaning in the api
-		if ( /\|/.test( title ) ) {
+		if ( title.indexOf( '|' ) !== -1 ) {
 			return $.Deferred().resolve( false ).promise();
 		}
 

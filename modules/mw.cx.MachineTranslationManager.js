@@ -32,16 +32,14 @@ mw.cx.MachineTranslationManager = function MwCxMachineTranslationManager(
  * @return {string} Translated label
  */
 mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider ) {
-	var labels = {
-		Elia: mw.msg( 'cx-tools-mt-provider-title', 'Elia.eus' ),
-		Google: mw.msg( 'cx-tools-mt-provider-title', 'Google Translate' ),
-		Yandex: mw.msg( 'cx-tools-mt-provider-title', 'Yandex.Translate' ),
-		scratch: mw.msg( 'cx-tools-mt-dont-use' ),
-		source: mw.msg( 'cx-tools-mt-use-source' ),
-		reset: mw.msg( 'cx-tools-mt-reset' )
-	};
-
-	return labels[ provider ] || mw.msg( 'cx-tools-mt-provider-title', provider );
+	return mw.msg.apply( null, {
+		Elia: [ 'cx-tools-mt-provider-title', 'Elia.eus' ],
+		Google: [ 'cx-tools-mt-provider-title', 'Google Translate' ],
+		Yandex: [ 'cx-tools-mt-provider-title', 'Yandex.Translate' ],
+		scratch: [ 'cx-tools-mt-dont-use' ],
+		source: [ 'cx-tools-mt-use-source' ],
+		reset: [ 'cx-tools-mt-reset' ]
+	}[ provider ] || [ 'cx-tools-mt-provider-title', provider ] );
 };
 
 /* Public methods */
