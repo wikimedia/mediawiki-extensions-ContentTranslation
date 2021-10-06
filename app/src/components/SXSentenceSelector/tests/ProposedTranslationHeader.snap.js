@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Proposed Translation Header Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Proposed Translation Header Component output matches snapshot 1`] = `
 <div
   class="sx-sentence-selector__proposed-translation__header pt-5 shrink col"
 >

@@ -25,7 +25,7 @@
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { mapState } from "vuex";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "ProposedTranslationHeader",
@@ -34,27 +34,35 @@ export default {
     MwCol,
     MwButton
   },
-  data: () => ({
-    mwIconEllipsis
-  }),
-  computed: {
-    ...mapState({
-      mtProvider: state => state.application.currentMTProvider
-    }),
-    extraMTOptionLabels: vm => ({
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: vm.$i18n(
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const mtProvider = computed(
+      () => store.state.application.currentMTProvider
+    );
+
+    const extraMTOptionLabels = computed(() => ({
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: context.root.$i18n(
         "cx-sx-sentence-selector-translation-options-original-card-title"
       ),
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: vm.$i18n(
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: context.root.$i18n(
         "cx-sx-sentence-selector-translation-options-empty-card-title"
       )
-    }),
-    mtOptionLabel: vm =>
-      vm.extraMTOptionLabels[vm.mtProvider] ||
-      vm.$i18n(
-        "cx-sx-sentence-selector-suggested-translation-title",
-        vm.mtProvider
-      )
+    }));
+
+    const mtOptionLabel = computed(
+      () =>
+        extraMTOptionLabels.value[mtProvider.value] ||
+        context.root.$i18n(
+          "cx-sx-sentence-selector-suggested-translation-title",
+          mtProvider.value
+        )
+    );
+
+    return {
+      mwIconEllipsis,
+      mtOptionLabel
+    };
   }
 };
 </script>
@@ -64,10 +72,12 @@ export default {
 
 .sx-sentence-selector__proposed-translation__header {
   width: 100%;
+
   &-title {
     color: @wmui-color-base20;
     font-weight: @font-weight-bold;
   }
+
   &-settings-button {
     color: @wmui-color-base20;
   }
