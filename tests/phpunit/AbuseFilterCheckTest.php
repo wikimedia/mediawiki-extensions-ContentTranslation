@@ -38,7 +38,7 @@ class AbuseFilterCheckTest extends \MediaWikiTestCase {
 	/**
 	 * @inheritDoc
 	 */
-	public function setUp(): void {
+	protected function setUp(): void {
 		parent::setUp();
 		if ( !\ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
 			$this->markTestSkipped( 'Can only run test with AbuseFilter enabled' );
