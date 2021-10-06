@@ -24,7 +24,7 @@ class SkinContentTranslation extends SkinMustache {
 		$skinData = parent::getTemplateData() + [
 			'cx-version' => $config->get( 'ContentTranslationVersion' ),
 			'is-vue' => $config->get( 'ContentTranslationEnableSectionTranslation' ),
-			'main-page-href' => Skin::makeMainPageUrl(),
+			'main-page-href' => Title::newMainPage()->getLinkURL(),
 			'user-name' => $this->getUser()->getName(),
 		] + $this->getNavigationTemplateData();
 
