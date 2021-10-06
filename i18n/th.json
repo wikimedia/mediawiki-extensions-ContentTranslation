@@ -6,6 +6,7 @@
 			"B20180",
 			"Horus",
 			"Myesd",
+			"NP-chaonay",
 			"Octahedron80",
 			"Taweetham",
 			"กิ๊ฟ เลิกล่ะ สายแข็ง"
@@ -24,7 +25,7 @@
 	"cx-header-all-translations": "การแปลทั้งหมด",
 	"cx-source-view-page": "ดูหน้า",
 	"cx-publish-page-success": "เผยแพร่หน้าแล้วที่ $1",
-	"cx-publish-error-abuse-filter": "ตัวกรองการแก้ไขอัตโนมัติได้ระบุเนื้อหาที่เป็นปัญหาในการแปลของคุณ รายละเอียด: $1",
+	"cx-publish-error-abuse-filter": "ตัวกรองการแก้ไขอัตโนมัติได้ระบุเนื้อหาที่เป็นปัญหาในการแปลของคุณ ตัวกรองที่ตรงกัน: $1",
 	"cx-publish-error-empty": "เซิร์ฟเวอร์ได้ตอบกลับโดยไม่มีข้อมูล",
 	"cx-publish-error-readonly": "ไม่ได้รับอนุญาตให้เขียนลงวิกิ",
 	"cx-publish-error-spam-blacklist": "ตรวจพบเนื้อหาที่อาจเป็นสแปมในการแปลของคุณ รายละเอียด: $1",
@@ -50,6 +51,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "แปลจากภาษา$1",
 	"cx-entrypoint-dialog-desc": "คุณสามารถช่วยวิกิพีเดียได้ด้วยการแปลหน้านี้ การแปลเป็นวิธีการที่ง่ายในการสร้างเนื้อหาใหม่ในภาษาคุณ",
 	"cx-campaign-newbytranslation-title": "เริ่มด้วยการแปลแทน?",
+	"cx-campaign-newbytranslation-start": "เริ่มแปล",
 	"cx-special-login-error": "คุณต้องเข้าสู่ระบบเพื่อที่จะแปลหน้านี้ [$1 เข้าสู่ระบบ]",
 	"cx-tools-instructions-text1": "{{GENDER:|คลิก}}ย่อหน้าต่าง ๆ เพื่อแปล",
 	"cx-tools-instructions-text2": "{{GENDER:|คุณ}}ไม่จำเป็นต้องเพิ่มหมดทุกอย่าง",
@@ -228,5 +230,6 @@
 	"cx-sx-existing-translation-learn-more": "เรียนรู้เพิ่มเติม",
 	"cx-sx-section-selector-more-details-title": "รายละเอียดเพิ่มเติม",
 	"cx-sx-section-selector-learn-more-anchor-label": "เรียนรู้เพิ่มเติม",
-	"cx-sx-content-comparator-content-header-translate-button-label": "แปล"
+	"cx-sx-content-comparator-content-header-translate-button-label": "แปล",
+	"cx-sx-article-search-nearby-title": "ที่ใกล้เคียง"
 }
