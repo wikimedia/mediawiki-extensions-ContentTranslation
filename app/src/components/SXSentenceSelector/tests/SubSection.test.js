@@ -4,7 +4,10 @@ import Vuex from "vuex";
 import segmentedContentConverter from "@/utils/segmentedContentConverter";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import SubSection from "../SubSection";
+import CompositionApi from "@vue/composition-api";
+
 const localVue = createLocalVue();
+localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 

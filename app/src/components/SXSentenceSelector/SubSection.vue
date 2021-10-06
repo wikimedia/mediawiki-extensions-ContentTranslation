@@ -2,7 +2,9 @@
 
 <script>
 import SubSection from "@/wiki/cx/models/subSection";
-const sentenceClass = "sx-sentence-selector__section-sentence";
+import useSubSectionContent from "./useSubSectionContent";
+import { onMounted, ref } from "@vue/composition-api";
+
 export default {
   name: "SubSection",
   props: {
@@ -11,57 +13,36 @@ export default {
       required: true
     }
   },
-  computed: {
-    content() {
-      const cloneNode = this.subSection.node.cloneNode(true);
-      const segments = Array.from(
-        cloneNode.getElementsByClassName("cx-segment")
-      );
+  setup(props, context) {
+    const subSectionRoot = ref(null);
+    const content = useSubSectionContent(props.subSection);
 
-      segments.forEach(segment => {
-        const sentence = this.subSection.getSentenceById(
-          segment.dataset.segmentid
-        );
-        segment.classList.add(sentenceClass, "py-1", "me-1");
-        const sentenceClasses = ["untranslated", "translated", "selected"].map(
-          postfix => `${sentenceClass}--${postfix}`
-        );
-        segment.classList.remove(...sentenceClasses);
-
-        if (sentence.selected) {
-          segment.classList.add(`${sentenceClass}--selected`);
+    onMounted(() => {
+      subSectionRoot.value.addEventListener("click", event => {
+        if (event.target.classList.contains("cx-segment")) {
+          selectSentence(event.target.dataset.segmentid);
         }
-
-        const highLightPostfix = sentence.isTranslated
-          ? "translated"
-          : "untranslated";
-        segment.classList.add(`${sentenceClass}--${highLightPostfix}`);
-        segment.innerHTML = sentence.content;
       });
-
-      return cloneNode.innerHTML;
-    }
-  },
-  mounted() {
-    this.$refs.subSectionRoot.addEventListener("click", event => {
-      if (event.target.classList.contains("cx-segment")) {
-        this.selectSentence(event.target.dataset.segmentid);
-      }
     });
-  },
-  methods: {
-    selectSentence(segmentId) {
-      const sentence = this.subSection.getSentenceById(segmentId);
+    const store = context.root.$store;
+
+    const selectSentence = segmentId => {
+      const sentence = props.subSection.getSentenceById(segmentId);
 
       if (sentence.selected) {
-        this.$emit("bounce-translation");
+        context.emit("bounce-translation");
 
         return;
       }
-      this.$store.dispatch("application/selectSentenceForCurrentSection", {
+      store.dispatch("application/selectSentenceForCurrentSection", {
         id: segmentId
       });
-    }
+    };
+
+    return {
+      content,
+      subSectionRoot
+    };
   }
 };
 </script>
