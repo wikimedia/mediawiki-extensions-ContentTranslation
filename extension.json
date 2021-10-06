@@ -1271,6 +1271,7 @@
 		},
 		"ve.init.mw.CXTarget": {
 			"scripts": [
+				"tools/mw.cx.tools.TranslationToolFactory.js",
 				"ve-cx/init/ve.init.mw.CXTarget.js",
 				"ve-cx/ui/ve.ui.CXPublishTool.js",
 				"ve-cx/ui/ve.ui.CXSurface.js",
@@ -1291,7 +1292,7 @@
 				"ext.cx.model",
 				"mw.cx.SiteMapper",
 				"mw.cx.dm.Translation",
-				"mw.cx.tools.TranslationToolFactory",
+				"mw.cx.ui",
 				"mw.cx.util",
 				"ext.visualEditor.core.desktop"
 			]
@@ -1361,14 +1362,6 @@
 			],
 			"dependencies": [
 				"mediawiki.util",
-				"mw.cx.ui"
-			]
-		},
-		"mw.cx.tools.TranslationToolFactory": {
-			"scripts": [
-				"tools/mw.cx.tools.TranslationToolFactory.js"
-			],
-			"dependencies": [
 				"mw.cx.ui"
 			]
 		},
