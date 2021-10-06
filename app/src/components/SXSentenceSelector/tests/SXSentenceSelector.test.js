@@ -1,8 +1,8 @@
 import { createLocalVue, shallowMount } from "@vue/test-utils";
-import SXSentenceSelector from "./SXSentenceSelector.vue";
+import SXSentenceSelector from "../SXSentenceSelector";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
-import SubSection from "./SubSection";
+import SubSection from "../SubSection";
 import mockStore from "./sentenceSelectorMockStore";
 import CompositionApi from "@vue/composition-api";
 
@@ -11,11 +11,9 @@ localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 
-jest.mock("../../store", () =>
-  jest.requireActual("./sentenceSelectorMockStore")
-);
+jest.mock("@/store", () => jest.requireActual("./sentenceSelectorMockStore"));
 
-jest.mock("../../plugins/ve");
+jest.mock("@/plugins/ve");
 
 describe("SXSentenceSelector", () => {
   const wrapper = shallowMount(SXSentenceSelector, {

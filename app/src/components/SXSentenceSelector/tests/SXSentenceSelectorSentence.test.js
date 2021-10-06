@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from "@vue/test-utils";
-import SXSentenceSelectorSentence from "./SXSentenceSelectorSentence.vue";
-import SectionSentence from "../../wiki/cx/models/sectionSentence";
+import SXSentenceSelectorSentence from "../SXSentenceSelectorSentence";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import Vuex from "vuex";
 const localVue = createLocalVue();
 localVue.use(Vuex);

@@ -1,5 +1,5 @@
 import { createLocalVue, shallowMount } from "@vue/test-utils";
-import ProposedTranslationCard from "./ProposedTranslationCard";
+import ProposedTranslationCard from "../ProposedTranslationCard";
 import VueBananaI18n from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import Vuex from "vuex";
@@ -11,7 +11,7 @@ localVue.use(CompositionApi);
 localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 
-jest.mock("../../store", () =>
+jest.mock("@/store", () =>
   jest.requireActual("./proposedTranslationCardMockStore")
 );
 

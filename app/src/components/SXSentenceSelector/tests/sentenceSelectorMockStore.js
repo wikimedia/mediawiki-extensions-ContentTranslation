@@ -1,8 +1,8 @@
 import Vuex from "vuex";
 import Vue from "vue";
-import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
-import SectionSentence from "../../wiki/cx/models/sectionSentence";
-import SubSectionModel from "../../wiki/cx/models/subSection";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import SubSectionModel from "@/wiki/cx/models/subSection";
 
 Vue.use(Vuex);
 

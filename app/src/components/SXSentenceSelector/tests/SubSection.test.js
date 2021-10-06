@@ -1,9 +1,9 @@
 import { createLocalVue, mount } from "@vue/test-utils";
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
-import segmentedContentConverter from "../../utils/segmentedContentConverter";
-import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
-import SubSection from "./SubSection";
+import segmentedContentConverter from "@/utils/segmentedContentConverter";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import SubSection from "../SubSection";
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
@@ -43,7 +43,7 @@ const mockNodes = [
   createSectionNode(nodeHtml2, "cxSourceSection18", 3)
 ];
 
-jest.mock("../../utils/visualEditorHelper", () => ({
+jest.mock("@/utils/visualEditorHelper", () => ({
   __esModule: true, // this property makes it work
   getSubSectionNodes: jest.fn(html => mockNodes)
 }));

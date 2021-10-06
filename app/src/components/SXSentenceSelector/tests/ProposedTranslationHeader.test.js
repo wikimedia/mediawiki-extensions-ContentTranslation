@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import ProposedTranslationHeader from "./ProposedTranslationHeader";
+import ProposedTranslationHeader from "../ProposedTranslationHeader";
 import VueBananaI18n from "vue-banana-i18n";
-import MTProviderGroup from "../../wiki/mw/models/mtProviderGroup";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import Vuex from "vuex";
 
 const localVue = createLocalVue();
