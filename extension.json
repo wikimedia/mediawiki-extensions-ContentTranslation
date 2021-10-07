@@ -969,12 +969,6 @@
 				"mw.cx.dm"
 			]
 		},
-		"mw.cx.dm.TranslationIssue": {
-			"scripts": "dm/mw.cx.dm.TranslationIssue.js",
-			"dependencies": [
-				"mw.cx.dm"
-			]
-		},
 		"mw.cx.ui": {
 			"targets": [
 				"desktop",
@@ -1099,11 +1093,12 @@
 		},
 		"ve.dm.CXLintableNode": {
 			"scripts": [
+				"dm/mw.cx.dm.TranslationIssue.js",
 				"ve-cx/dm/mixins/ve.dm.CXLintableNode.js"
 			],
 			"dependencies": [
 				"ext.visualEditor.core",
-				"mw.cx.dm.TranslationIssue"
+				"mw.cx.dm"
 			]
 		},
 		"mw.cx.init": {
