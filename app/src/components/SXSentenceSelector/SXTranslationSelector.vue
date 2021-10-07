@@ -99,12 +99,9 @@ export default {
     const {
       sourceLanguage,
       targetLanguage,
-      currentSourceSection: currentPageSection
+      currentSourceSection: currentPageSection,
+      isSectionTitleSelected
     } = useApplicationState();
-
-    const isSectionTitleSelected = computed(
-      () => store.state.application.isSectionTitleSelectedForTranslation
-    );
 
     const selectedSentence = computed(
       () => store.getters["application/getCurrentSelectedSentence"]

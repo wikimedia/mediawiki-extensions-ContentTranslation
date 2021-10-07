@@ -75,10 +75,12 @@ import {
   mwIconRobot,
   mwIconUserAvatar
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
 import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons";
 import mtValidator from "@/utils/mtValidator";
+import { computed, ref } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
+
 export default {
   name: "TranslatedSegmentCard",
   components: {
@@ -91,57 +93,89 @@ export default {
     MwCol,
     MwButton
   },
-  data: () => ({
-    mwIconEllipsis,
-    mwIconEdit,
-    mwIconRobot,
-    mwIconUserAvatar,
-    scopeSelection: "sentence"
-  }),
-  computed: {
-    ...mapState({
-      mtProvider: state => state.application.currentMTProvider,
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation,
-      currentPageSection: state => state.application.currentSourceSection
-    }),
-    ...mapGetters({
-      selectedSentence: "application/getCurrentSelectedSentence",
-      mtTranslation: "application/getCurrentProposedTranslation"
-    }),
-    showSentenceTab: vm => vm.scopeSelection === "sentence",
-    currentSubSection: vm =>
-      vm.currentPageSection.subSections.find(subSection =>
+  emits: ["edit-translation"],
+  setup(props, context) {
+    const scopeSelection = ref("sentence");
+    const store = context.root.$store;
+
+    const {
+      currentMTProvider: mtProvider,
+      isSectionTitleSelected,
+      currentSourceSection: currentPageSection
+    } = useApplicationState();
+
+    const selectedSentence = computed(
+      () => store.getters["application/getCurrentSelectedSentence"]
+    );
+
+    const mtTranslation = computed(
+      () => store.getters["application/getCurrentProposedTranslation"]
+    );
+
+    const showSentenceTab = computed(() => scopeSelection.value === "sentence");
+
+    const currentSubSection = computed(() =>
+      currentPageSection.value.subSections.find(subSection =>
         subSection.sentences.some(
-          sentence => sentence.id === vm.selectedSentence.id
+          sentence => sentence.id === selectedSentence.value.id
         )
-      ),
-    proposedMTTranslation: vm =>
-      vm.showSentenceTab
-        ? vm.mtTranslation
-        : vm.currentSubSection.getProposedTranslation(vm.mtProvider),
-    progressBarBackgroundColor: vm => vm.$mwui.colors.base80,
-    errorColor: vm => vm.$mwui.colors.red50,
-    userIconColor: vm => vm.iconColors[vm.modificationStatus],
-    mtScore: vm =>
-      mtValidator.calculateScore(vm.translation, vm.proposedMTTranslation),
-    translation: vm => {
-      if (vm.isSectionTitleSelected) {
-        return vm.currentPageSection.translatedTitle;
-      } else if (vm.showSentenceTab) {
-        return vm.selectedSentence.translatedContent;
+      )
+    );
+
+    const proposedMTTranslation = computed(() =>
+      showSentenceTab.value
+        ? mtTranslation.value
+        : currentSubSection.value.getProposedTranslation(mtProvider.value)
+    );
+
+    const progressBarBackgroundColor = context.root.$mwui.colors.base80;
+    const errorColor = context.root.$mwui.colors.red50;
+
+    const translation = computed(() => {
+      if (isSectionTitleSelected.value) {
+        return currentPageSection.value.translatedTitle;
+      } else if (showSentenceTab.value) {
+        return selectedSentence.value.translatedContent;
       }
 
-      return vm.currentSubSection.translatedContent;
-    },
-    modificationStatus: vm => mtValidator.getScoreStatus(vm.mtScore),
-    modificationPercentageClass: vm =>
-      `translated-segment-card__modification-stats__percentage--${vm.modificationStatus}`,
-    iconColors: vm => ({
-      failure: vm.mtScore === 0 ? null : vm.$mwui.colors.yellow30,
-      warning: vm.$mwui.colors.yellow30,
-      success: vm.$mwui.colors.green30
-    })
+      return currentSubSection.value.translatedContent;
+    });
+    const mtScore = computed(() =>
+      mtValidator.calculateScore(translation.value, proposedMTTranslation.value)
+    );
+    const modificationStatus = computed(() =>
+      mtValidator.getScoreStatus(mtScore.value)
+    );
+
+    const modificationPercentageClass = computed(
+      () =>
+        `translated-segment-card__modification-stats__percentage--${modificationStatus.value}`
+    );
+
+    const iconColors = computed(() => ({
+      failure: mtScore.value === 0 ? null : context.root.$mwui.colors.yellow30,
+      warning: context.root.$mwui.colors.yellow30,
+      success: context.root.$mwui.colors.green30
+    }));
+
+    const userIconColor = computed(
+      () => iconColors.value[modificationStatus.value]
+    );
+
+    return {
+      errorColor,
+      modificationPercentageClass,
+      mtScore,
+      mwIconEdit,
+      mwIconEllipsis,
+      mwIconRobot,
+      mwIconUserAvatar,
+      progressBarBackgroundColor,
+      scopeSelection,
+      showSentenceTab,
+      translation,
+      userIconColor
+    };
   }
 };
 </script>

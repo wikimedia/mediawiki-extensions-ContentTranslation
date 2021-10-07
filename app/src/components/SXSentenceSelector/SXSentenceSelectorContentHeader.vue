@@ -35,13 +35,10 @@ export default {
       () => store.getters["application/getCurrentPage"]
     );
 
-    const isSectionTitleSelected = computed(
-      () => store.state.application.isSectionTitleSelectedForTranslation
-    );
-
     const {
       currentSectionSuggestion: suggestion,
-      currentSourceSection: currentPageSection
+      currentSourceSection: currentPageSection,
+      isSectionTitleSelected
     } = useApplicationState();
 
     const sourceSectionTitle = computed(

@@ -25,10 +25,15 @@ export default function() {
     getAutonym(currentSectionSuggestion.value.targetLanguage)
   );
 
+  const isSectionTitleSelected = computed(
+    () => store.state.application.isSectionTitleSelectedForTranslation
+  );
+
   return {
     currentMTProvider,
     currentSectionSuggestion,
     currentSourceSection,
+    isSectionTitleSelected,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,
