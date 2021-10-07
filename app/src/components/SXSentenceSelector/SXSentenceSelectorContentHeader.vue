@@ -22,48 +22,69 @@ import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
 import { mapActions, mapGetters, mapState } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import { computed } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
-  data: () => ({
-    mwIconLinkExternal,
-    titleClass: "sx-sentence-selector__section-title"
-  }),
-  computed: {
-    ...mapGetters({
-      currentPage: "application/getCurrentPage"
-    }),
-    ...mapState({
-      suggestion: state => state.application.currentSectionSuggestion,
-      currentPageSection: state => state.application.currentSourceSection,
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
-    }),
-    sourceSectionTitle: vm =>
-      vm.currentPageSection?.title || vm.currentPage.title,
-    sourceArticlePath: vm =>
-      siteMapper.getPageUrl(
-        vm.suggestion.sourceLanguage,
-        vm.suggestion.sourceTitle
-      ),
-    isSectionTitleTranslated: vm => !!vm.currentPageSection?.translatedTitle,
-    highLightClassPostfix: vm =>
-      vm.isSectionTitleTranslated ? "translated" : "selected",
-    titleClasses: vm => {
-      const classes = [vm.titleClass];
+  setup(props, context) {
+    const store = context.root.$store;
 
-      if (vm.isSectionTitleSelected) {
-        classes.push(`${vm.titleClass}--${vm.highLightClassPostfix}`);
+    const titleClass = "sx-sentence-selector__section-title";
+    const currentPage = computed(
+      () => store.getters["application/getCurrentPage"]
+    );
+
+    const isSectionTitleSelected = computed(
+      () => store.state.application.isSectionTitleSelectedForTranslation
+    );
+
+    const {
+      currentSectionSuggestion: suggestion,
+      currentSourceSection: currentPageSection
+    } = useApplicationState();
+
+    const sourceSectionTitle = computed(
+      () => currentPageSection.value?.title || currentPage.value.title
+    );
+
+    const sourceArticlePath = computed(() =>
+      siteMapper.getPageUrl(
+        suggestion.value.sourceLanguage,
+        suggestion.value.sourceTitle
+      )
+    );
+
+    const isSectionTitleTranslated = computed(
+      () => !!currentPageSection.value?.translatedTitle
+    );
+
+    const highLightClassPostfix = computed(() =>
+      isSectionTitleTranslated.value ? "translated" : "selected"
+    );
+
+    const titleClasses = computed(() => {
+      const classes = [titleClass];
+
+      if (isSectionTitleSelected.value) {
+        classes.push(`${titleClass}--${highLightClassPostfix.value}`);
       }
 
       return classes;
-    }
-  },
-  methods: {
-    ...mapActions({
-      selectSectionTitle: "application/selectSectionTitleForTranslation"
-    })
+    });
+
+    const selectSectionTitle = () =>
+      store.dispatch("application/selectSectionTitleForTranslation");
+
+    return {
+      mwIconLinkExternal,
+      selectSectionTitle,
+      sourceArticlePath,
+      sourceSectionTitle,
+      suggestion,
+      titleClasses
+    };
   }
 };
 </script>
