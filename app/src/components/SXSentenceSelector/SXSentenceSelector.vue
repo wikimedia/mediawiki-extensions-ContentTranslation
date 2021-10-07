@@ -130,7 +130,7 @@ export default {
 
     onMounted(async () => {
       store.dispatch("application/resetPublishResult");
-      store.dispatch("application/initializeMTProviders");
+      await store.dispatch("application/initializeMTProviders");
 
       // If no sentence is selected, select title
       if (!selectedSentence.value) {
