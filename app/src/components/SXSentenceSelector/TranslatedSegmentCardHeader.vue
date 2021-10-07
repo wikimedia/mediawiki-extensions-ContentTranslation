@@ -10,7 +10,8 @@
 
 <script>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "TranslatedSegmentCardHeader",
@@ -22,43 +23,37 @@ export default {
       validator: value => ["sentence", "paragraph"].includes(value)
     }
   },
-  computed: {
-    ...mapState({
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
-    }),
-    scopeOptions: vm => [
+  setup(props, context) {
+    const { isSectionTitleSelected } = useApplicationState();
+    const scopeOptions = computed(() => [
       {
         value: "sentence",
         props: {
-          label: vm.$i18n(
+          label: context.root.$i18n(
             "cx-sx-sentence-selector-translated-segment-sentence-option"
           ),
           type: "text",
           class: "px-0 py-4 mx-4"
         }
       },
-      /**
-       * This options doesn't work at the moment. Functionality will be added in following
-       * patches
-       */
+
       {
         value: "paragraph",
         props: {
-          label: vm.$i18n(
+          label: context.root.$i18n(
             "cx-sx-sentence-selector-translated-segment-paragraph-option"
           ),
           type: "text",
           class: "px-0 py-4 mx-4",
-          disabled: vm.isSectionTitleSelected
+          disabled: isSectionTitleSelected.value
         }
       }
-    ]
-  },
-  methods: {
-    updateSelection(selection) {
-      this.$emit("update:selection", selection);
-    }
+    ]);
+
+    const updateSelection = selection =>
+      context.emit("update:selection", selection);
+
+    return { scopeOptions, updateSelection };
   }
 };
 </script>
