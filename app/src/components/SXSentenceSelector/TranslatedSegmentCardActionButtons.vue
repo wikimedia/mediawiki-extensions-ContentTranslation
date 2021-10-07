@@ -23,7 +23,8 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "TranslatedSegmentCardActionButtons",
@@ -31,18 +32,21 @@ export default {
     MwRow,
     MwButton
   },
-  data: () => ({
-    mwIconPrevious,
-    mwIconArrowForward
-  }),
-  computed: {
-    ...mapState({
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation
-    }),
-    ...mapGetters({
-      isLastSentence: "application/isCurrentSentenceLast"
-    })
+  emits: ["select-previous-segment", "skip-translation"],
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const { isSectionTitleSelected } = useApplicationState();
+    const isLastSentence = computed(
+      () => store.getters["application/isCurrentSentenceLast"]
+    );
+
+    return {
+      mwIconArrowForward,
+      mwIconPrevious,
+      isLastSentence,
+      isSectionTitleSelected
+    };
   }
 };
 </script>
