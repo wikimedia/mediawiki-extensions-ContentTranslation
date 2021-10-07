@@ -78,7 +78,8 @@
 import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import { mapGetters, mapState } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "SxTranslationSelector",
@@ -89,58 +90,62 @@ export default {
       required: true
     }
   },
-  data: () => ({
-    mwIconClose,
-    originalTextProviderKey: MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY,
-    emptyTextProviderKey: MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
-  }),
-  computed: {
-    ...mapState({
-      sourceLanguage: state =>
-        state.application.currentSectionSuggestion?.sourceLanguage,
-      targetLanguage: state =>
-        state.application.currentSectionSuggestion?.targetLanguage,
-      currentPageSection: state => state.application.currentSourceSection,
-      isSectionTitleSelected: state =>
-        state.application.isSectionTitleSelectedForTranslation,
-      provider: state => state.application.currentMTProvider
-    }),
-    ...mapGetters({
-      selectedSentence: "application/getCurrentSelectedSentence"
-    }),
-    mtProviders() {
-      return this.$store.getters["mediawiki/getSupportedMTProviders"](
-        this.sourceLanguage,
-        this.targetLanguage
-      );
-    },
-    apiMtProviders() {
-      const ignoredProviders = [
-        this.originalTextProviderKey,
-        this.emptyTextProviderKey
-      ];
+  emits: ["update:active"],
+  setup(props, context) {
+    const emptyTextProviderKey = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
+    const originalTextProviderKey = MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
+    const store = context.root.$store;
 
-      return this.mtProviders.filter(
+    const {
+      sourceLanguage,
+      targetLanguage,
+      currentSourceSection: currentPageSection
+    } = useApplicationState();
+
+    const isSectionTitleSelected = computed(
+      () => store.state.application.isSectionTitleSelectedForTranslation
+    );
+
+    const selectedSentence = computed(
+      () => store.getters["application/getCurrentSelectedSentence"]
+    );
+
+    const mtProviders = computed(() =>
+      store.getters["mediawiki/getSupportedMTProviders"](
+        sourceLanguage.value,
+        targetLanguage.value
+      )
+    );
+
+    const apiMtProviders = computed(() => {
+      const ignoredProviders = [originalTextProviderKey, emptyTextProviderKey];
+
+      return mtProviders.value.filter(
         provider => !ignoredProviders.includes(provider)
       );
-    },
-    proposedTranslations: vm =>
-      vm.isSectionTitleSelected
-        ? vm.currentPageSection.proposedTitleTranslations
-        : vm.selectedSentence.proposedTranslations,
-    originalContent: vm =>
-      vm.currentPageSection?.proposedTitleTranslations[vm.selectedProvider]
-  },
-  methods: {
-    close() {
-      this.$emit("update:active", false);
-    },
-    selectProvider(selectedProvider) {
-      this.$store.dispatch("application/updateMTProvider", {
-        provider: selectedProvider
-      });
-      this.close();
-    }
+    });
+
+    const proposedTranslations = computed(() =>
+      isSectionTitleSelected.value
+        ? currentPageSection.value.proposedTitleTranslations
+        : selectedSentence.value.proposedTranslations
+    );
+
+    const selectProvider = provider => {
+      store.dispatch("application/updateMTProvider", { provider });
+      close();
+    };
+    const close = () => context.emit("update:active", false);
+
+    return {
+      apiMtProviders,
+      close,
+      emptyTextProviderKey,
+      mwIconClose,
+      originalTextProviderKey,
+      proposedTranslations,
+      selectProvider
+    };
   }
 };
 </script>
