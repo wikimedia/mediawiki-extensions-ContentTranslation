@@ -2,7 +2,10 @@ import { createLocalVue, mount } from "@vue/test-utils";
 import SXSentenceSelectorSentence from "../SXSentenceSelectorSentence";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import Vuex from "vuex";
+import CompositionApi from "@vue/composition-api";
+
 const localVue = createLocalVue();
+localVue.use(CompositionApi);
 localVue.use(Vuex);
 
 describe("SXSentenceSelector Sentence", () => {

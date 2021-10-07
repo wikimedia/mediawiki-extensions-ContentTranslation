@@ -9,6 +9,7 @@
 
 <script>
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import { computed } from "@vue/composition-api";
 
 export default {
   name: "SxSentenceSelectorSentence",
@@ -18,22 +19,22 @@ export default {
       required: true
     }
   },
-  computed: {
-    sentenceClass() {
-      switch (true) {
-        case this.sentence.isTranslated:
-          return "sx-sentence-selector__section-sentence--translated";
-        case this.sentence.selected:
-          return "sx-sentence-selector__section-sentence--selected";
-        default:
-          return "";
+  setup(props, context) {
+    const sentenceClass = computed(() => {
+      if (props.sentence.isTranslated) {
+        return "sx-sentence-selector__section-sentence--translated";
+      } else if (props.sentence.selected) {
+        return "sx-sentence-selector__section-sentence--selected";
+      } else {
+        return "";
       }
-    }
-  },
-  methods: {
-    selectSentence() {
-      this.$emit("sentence-selected", this.sentence);
-    }
+    });
+
+    const selectSentence = () => {
+      context.emit("sentence-selected", props.sentence);
+    };
+
+    return { selectSentence, sentenceClass };
   }
 };
 </script>

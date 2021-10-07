@@ -20,7 +20,6 @@
 <script>
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
-import { mapActions, mapGetters, mapState } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
