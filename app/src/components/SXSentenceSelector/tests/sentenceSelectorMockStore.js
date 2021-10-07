@@ -18,27 +18,16 @@ const applicationModule = {
       sourceLanguage: "",
       targetLanguage: ""
     }),
-    currentSourceSection: { subSections },
-    currentMTProvider: "Apertium"
+    currentSourceSection: { subSections }
   },
   getters: {
     getCurrentSelectedSentence: () => new SectionSentence(),
     isSelectedSegmentTranslated: () => false
-  },
-  mutations: { setIsSectionTitleSelectedForTranslation: () => {} }
-};
-
-const mediawikiModule = {
-  namespaced: true,
-  state: {},
-  getters: { getSupportedMTProviders: state => () => [] }
+  }
 };
 
 const store = new Vuex.Store({
-  modules: {
-    application: applicationModule,
-    mediawiki: mediawikiModule
-  }
+  modules: { application: applicationModule }
 });
 
 store.dispatch = jest.fn();
