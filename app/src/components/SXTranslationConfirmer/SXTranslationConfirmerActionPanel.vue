@@ -61,11 +61,12 @@
 
 <script>
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
-import { computed, ref } from "@vue/composition-api";
+import { computed } from "@vue/composition-api";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
+import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
 
 export default {
   name: "SxTranslationConfirmerActionPanel",
@@ -76,10 +77,17 @@ export default {
     MwIcon
   },
   setup(props, context) {
-    const store = context.root.$store;
     const router = context.root.$router;
 
-    const { targetLanguageAutonym } = useApplicationState();
+    const {
+      targetLanguageAutonym,
+      currentSectionSuggestion
+    } = useApplicationState();
+
+    const {
+      onSectionSelectorClick,
+      preFilledSectionTitle
+    } = useSectionSelectorClickHandler(router);
 
     const {
       actionInformationMessageArgs,
@@ -89,40 +97,9 @@ export default {
       translationExists
     } = useActionPanel();
 
-    const urlParams = new URLSearchParams(location.search);
-    const preFilledSectionTitle = ref(urlParams.get("section"));
-
     const actionButtonLabel = computed(() =>
       context.root.$i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
     );
-
-    const onSectionSelectorClick = async () => {
-      if (!!preFilledSectionTitle.value) {
-        const section = await store.dispatch(
-          "application/selectPageSectionByTitle",
-          preFilledSectionTitle.value
-        );
-
-        if (section) {
-          router.push({
-            name: "sx-content-comparator",
-            params: { force: true }
-          });
-        } else {
-          preFilledSectionTitle.value = null;
-          const urlParams = new URLSearchParams(location.search);
-          urlParams.delete("section");
-
-          replaceUrl(Object.fromEntries(urlParams));
-        }
-      } else if (translationExists.value) {
-        router.push({ name: "sx-section-selector" });
-      } else {
-        await store.dispatch("application/selectPageSectionByIndex", 0);
-        router.push({ name: "sx-quick-tutorial", params: { force: true } });
-      }
-      setTranslationURLParams(currentSectionSuggestion.value);
-    };
 
     const actionInformationMessage = computed(() =>
       context.root.$i18n(...actionInformationMessageArgs.value)
