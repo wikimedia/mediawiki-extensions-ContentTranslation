@@ -385,6 +385,12 @@
 	"cx-sx-article-search-recently-edited-title": "ویرایش‌های اخیر شما",
 	"cx-sx-article-search-nearby-title": "در نزدیکی",
 	"sx-article-search-language-selector-dialog-title": "زبان‌ها",
+	"cx-sx-language-selector-placeholder": "جستجوی زبان",
+	"cx-sx-language-selector-all-languages": "تمام زبان‌ها",
+	"cx-sx-language-selector-suggestions": "پیشنهادی",
+	"cx-sx-language-selector-no-search-results": "بدون نتیجه",
+	"sx-translation-list-language-selector-dialog-title": "زبان‌ها",
+	"cx-sx-article-search-header": "ترجمهٔ تازه",
 	"cx-sx-article-search-no-suggestions-message": "به هر موضوعی که بدان علاقه‌مندید بیندیشید. لازم نیست شما متخصص باشید تا ترجمه‌ای عالی انجام دهید.",
 	"cx-sx-article-search-no-search-results-message": "هیچ صفحه‌ای برای «$1» به زبان $2 یافت نشد",
 	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "گسترش با $1 یا بررسی بخش‌های موجود",
@@ -393,6 +399,10 @@
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "هیچ بخشی برای ترجمه موجود نیست. برای جایگزینی صفحهٔ موجود، ترجمه‌ای تازه را آغاز کنید.",
 	"cx-sx-translation-confirmer-action-view-section": "مشاهدهٔ بخث برای ترجمه",
 	"cx-sx-translation-confirmer-action-new-translation": "ترجمهٔ تازه",
+	"cx-sx-translation-confirmer-more-sections-button-label": "بخش‌های بیشتر",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "ترجمهٔ بخش",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "بخش",
 	"sx-editor-feedback-overlay-title": "ممنون!",
-	"sx-editor-feedback-overlay-stats": "<span>$1٪</span> توسط شما ویرایش شده‌است"
+	"sx-editor-feedback-overlay-stats": "<span>$1٪</span> توسط شما ویرایش شده‌است",
+	"cx-suggestion-list-favorites-division": "برای بعداً"
 }
