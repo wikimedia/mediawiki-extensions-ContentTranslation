@@ -44,7 +44,7 @@ import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
-import { getUrl } from "@/utils/mediawikiHelper";
+import { replaceUrl } from "@/utils/urlHandler";
 import {
   mwIconClose,
   mwIconArticle
@@ -81,11 +81,7 @@ export default {
     const onClose = () => {
       store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
-      history.replaceState(
-        {},
-        document.title,
-        getUrl("Special:ContentTranslation")
-      );
+      replaceUrl(null);
       context.root.$router.push({ name: "dashboard" });
     };
 

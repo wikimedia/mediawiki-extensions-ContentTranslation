@@ -68,7 +68,8 @@ import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem
 import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
-import { getUrl, siteMapper } from "@/utils/mediawikiHelper";
+import { siteMapper } from "@/utils/mediawikiHelper";
+import { replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "@vue/composition-api";
 
@@ -114,11 +115,7 @@ export default {
 
     const goToDashboard = () => {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
-      history.replaceState(
-        {},
-        document.title,
-        getUrl("Special:ContentTranslation")
-      );
+      replaceUrl(null);
       context.root.$router.push({ name: "dashboard" });
     };
 

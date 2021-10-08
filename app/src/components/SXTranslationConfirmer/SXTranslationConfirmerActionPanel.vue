@@ -63,7 +63,7 @@
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
 import { computed, ref } from "@vue/composition-api";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { getUrl } from "@/utils/mediawikiHelper";
+import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
 
@@ -113,11 +113,7 @@ export default {
           const urlParams = new URLSearchParams(location.search);
           urlParams.delete("section");
 
-          history.replaceState(
-            {},
-            document.title,
-            getUrl("Special:ContentTranslation", Object.fromEntries(urlParams))
-          );
+          replaceUrl(Object.fromEntries(urlParams));
         }
       } else if (translationExists.value) {
         router.push({ name: "sx-section-selector" });
@@ -125,7 +121,7 @@ export default {
         await store.dispatch("application/selectPageSectionByIndex", 0);
         router.push({ name: "sx-quick-tutorial", params: { force: true } });
       }
-      store.dispatch("application/setTranslationURLParams");
+      setTranslationURLParams(currentSectionSuggestion.value);
     };
 
     const actionInformationMessage = computed(() =>
@@ -134,7 +130,7 @@ export default {
 
     const onMoreSectionsClick = () => {
       router.push({ name: "sx-section-selector" });
-      store.dispatch("application/setTranslationURLParams");
+      setTranslationURLParams(currentSectionSuggestion.value);
     };
 
     return {

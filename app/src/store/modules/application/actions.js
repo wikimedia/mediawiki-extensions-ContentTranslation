@@ -326,21 +326,6 @@ async function fetchCurrentSectionSuggestionLanguageTitles({
   await dispatch("mediawiki/fetchLanguageTitles", payload, { root: true });
 }
 
-function setTranslationURLParams({ state }) {
-  if (!history.pushState) {
-    return;
-  }
-  let url = new URL(location.href);
-  const params = new URLSearchParams(location.search);
-  params.set("page", state.currentSectionSuggestion?.sourceTitle);
-  params.set("from", state.currentSectionSuggestion?.sourceLanguage);
-  params.set("to", state.currentSectionSuggestion?.targetLanguage);
-  params.set("sx", true);
-  url.search = params;
-  url = url.toString();
-  history.replaceState({ url }, null, url);
-}
-
 /**
  * Given a section title this action, sets the page section
  * with the matching title as current page section, if exists.
@@ -724,7 +709,6 @@ export default {
   selectSectionTitleForTranslation,
   selectSentenceForCurrentSection,
   setPublishResult,
-  setTranslationURLParams,
   startFavoriteSectionTranslation,
   translateFollowingSentence,
   translateSectionTitle,
