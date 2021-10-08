@@ -1,6 +1,7 @@
 import translatorApi from "../../../wiki/cx/api/translator";
 import pageApi from "../../../wiki/mw/api/page";
 import siteApi from "../../../wiki/mw/api/site";
+import segmentedContentConverter from "@/utils/segmentedContentConverter";
 
 /**
  * Given a language and an array of titles, this action fetches
@@ -73,40 +74,70 @@ async function fetchPageContent(
   { commit, getters, dispatch },
   { sourceLanguage, targetLanguage, sourceTitle }
 ) {
-  let page = getters.getPage(sourceLanguage, sourceTitle);
+  let existingPage = getters.getPage(sourceLanguage, sourceTitle);
 
-  if (!page) {
-    page = await pageApi.fetchPageContent(
-      sourceLanguage,
-      targetLanguage,
-      sourceTitle
-    );
-    commit("addPage", page);
+  if (existingPage && existingPage.content) {
+    return;
+  }
+
+  const fetchedPage = await pageApi.fetchPageContent(
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle
+  );
+
+  if (!existingPage) {
+    commit("addPage", fetchedPage);
+  } else if (!existingPage.content) {
+    existingPage.content = fetchedPage.content;
+    commit("setPageSections", {
+      page: existingPage,
+      sections: fetchedPage.sections
+    });
   }
 }
 
 /**
- * Returns a promise so that it can be awaited for
- * @param getters
- * @param commit
- * @param sourceLanguage
- * @param targetLanguage
- * @param sourceTitle
- * @return {Promise<void>}
+ * This action uses the page contents, as stored inside the vuex state,
+ * and updates the pages sections to include resolved references. Since,
+ * this is natively a synchronous operation, it is wrapped inside a setTimeout
+ * callback with zero waiting time, so that it is executed once the JS call stack
+ * is empty. Finally, a promise, which is resolved once the asynchronous callback
+ * is executed, is returned from this action.
+ *
+ * @param {object} context
+ * @param {object} context.getters
+ * @param {function} context.commit
+ * @param {object} payload
+ * @param {string} payload.sourceLanguage
+ * @param {string} payload.sourceTitle
+ * @return {Promise|void}
  */
-async function fetchPageSections(
+function resolvePageContentReferences(
   { getters, commit },
-  { sourceLanguage, targetLanguage, sourceTitle }
+  { sourceLanguage, sourceTitle }
 ) {
-  const page = getters.getPage(sourceLanguage, sourceTitle);
+  const existingPage = getters.getPage(sourceLanguage, sourceTitle);
 
-  if (!page) {
+  if (!existingPage) {
     return;
   }
 
-  return pageApi
-    .fetchPageSections(sourceLanguage, targetLanguage, sourceTitle)
-    .then(sections => commit("setPageSections", { page, sections }));
+  return new Promise(resolve => {
+    // Add reference resolution as a setTimeout callback,
+    // to make it asynchronous.
+    setTimeout(() => {
+      commit("setPageSections", {
+        page: existingPage,
+        sections: segmentedContentConverter.convertSegmentedContentToPageSections(
+          existingPage.content,
+          true // resolve references
+        )
+      });
+
+      resolve();
+    }, 0);
+  });
 }
 
 /**
@@ -214,7 +245,7 @@ export default {
   fetchNearbyPages,
   fetchPageContent,
   fetchPageMetadata,
-  fetchPageSections,
   fetchSupportedLanguageCodes,
+  resolvePageContentReferences,
   translateSegment
 };

@@ -110,34 +110,12 @@ const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
       new Page({
         sections: segmentedContentConverter.convertSegmentedContentToPageSections(
           segmentedContent,
-          false // No need to resolve references. This is target langauge article.
+          false // No need to resolve references. Content can be used as it is
         ),
         content: segmentedContent,
         pagelanguage: sourceLanguage,
         title: sourceTitle
       })
-  );
-};
-
-/**
- * Fetches segmented content of a page for given source language,
- * target language and source title. Returns a promise that resolves
- * to a string containing HTML segmented content.
- * @param {String} sourceLanguage
- * @param {String} targetLanguage
- * @param {String} sourceTitle
- * @returns {Promise<PageSection[]>}
- */
-const fetchPageSections = (sourceLanguage, targetLanguage, sourceTitle) => {
-  return fetchSegmentedContent(
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ).then(segmentedContent =>
-    segmentedContentConverter.convertSegmentedContentToPageSections(
-      segmentedContent,
-      true // resolve references
-    )
   );
 };
 
@@ -244,7 +222,7 @@ export default {
   fetchPages,
   fetchLanguageTitles,
   fetchPageContent,
-  fetchPageSections,
+  fetchSegmentedContent,
   fetchNearbyPages,
   searchPagesByTitlePrefix
 };

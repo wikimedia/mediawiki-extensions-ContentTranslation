@@ -348,17 +348,23 @@ async function selectPageSectionByTitle(
 ) {
   const suggestion = state.currentSectionSuggestion;
   const page = getters.getCurrentPage;
-  let section = page.getSectionByTitle(sectionTitle);
 
-  if (!section) {
-    await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
+  const setCurrentSectionByTitle = () => {
+    const section = page.getSectionByTitle(sectionTitle);
+    commit("setCurrentSourceSection", section);
+  };
 
-    section = page.getSectionByTitle(sectionTitle);
+  if (!page.getSectionByTitle(sectionTitle)) {
+    await dispatch("mediawiki/fetchPageContent", suggestion, { root: true });
+
+    // Asynchronously resolve references and update page sections to
+    // include this resolved references
+    dispatch("mediawiki/resolvePageContentReferences", suggestion, {
+      root: true
+    }).then(() => setCurrentSectionByTitle());
   }
 
-  commit("setCurrentSourceSection", section);
-
-  return section;
+  setCurrentSectionByTitle();
 }
 
 /**
@@ -382,22 +388,32 @@ async function selectPageSectionByIndex(
 ) {
   const suggestion = state.currentSectionSuggestion;
   const page = getters.getCurrentPage;
-  let section = page.sections?.[index];
 
-  if (!section) {
-    await dispatch("mediawiki/fetchPageSections", suggestion, { root: true });
-    section = page.sections?.[index];
+  const setCurrentSectionByIndex = () => {
+    const section = page.sections?.[index];
+
+    // If lead section set source page title as proposed page title
+    if (index === 0) {
+      Vue.set(
+        section.proposedTitleTranslations,
+        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY,
+        page.title
+      );
+    }
+    commit("setCurrentSourceSection", section);
+  };
+
+  if (!page.sections?.[index]) {
+    await dispatch("mediawiki/fetchPageContent", suggestion, { root: true });
+
+    // Asynchronously resolve references and update page sections to
+    // include this resolved references
+    dispatch("mediawiki/resolvePageContentReferences", suggestion, {
+      root: true
+    }).then(() => setCurrentSectionByIndex());
   }
 
-  // If lead section set source page title as proposed page title
-  if (index === 0) {
-    Vue.set(
-      section.proposedTitleTranslations,
-      MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY,
-      page.title
-    );
-  }
-  commit("setCurrentSourceSection", section);
+  setCurrentSectionByIndex();
 }
 
 /**
