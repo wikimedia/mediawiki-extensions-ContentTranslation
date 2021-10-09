@@ -158,6 +158,18 @@ class Hooks {
 			return;
 		}
 
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+
+			if ( $mobileContext->shouldDisplayMobileView() &&
+				$wgSectionTranslationTargetLanguages
+			) {
+				$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
+				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
+					$wgSectionTranslationTargetLanguages );
+			}
+		}
+
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 
 		// Load the new article campaign for VisualEditor if it's relevant.
@@ -197,18 +209,6 @@ class Hooks {
 		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
 			// A translation was initialized based on a campaign. Show the feature discovery
 			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
-		}
-
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-
-			if ( $mobileContext->shouldDisplayMobileView() &&
-				$wgSectionTranslationTargetLanguages
-			) {
-				$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
-				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
-					$wgSectionTranslationTargetLanguages );
-			}
 		}
 	}
 
