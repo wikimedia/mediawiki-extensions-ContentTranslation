@@ -134,7 +134,10 @@ export default {
       );
 
       if (suggestion) {
-        router.push({ name: "sx-translation-confirmer" });
+        router.push({
+          name: "sx-translation-confirmer",
+          params: { previousRoute: "dashboard" }
+        });
       }
     };
 

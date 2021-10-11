@@ -105,7 +105,10 @@ export default {
      */
     const startTranslation = suggestion => {
       store.dispatch("application/initializeSectionTranslation", suggestion);
-      router.push({ name: "sx-translation-confirmer" });
+      router.push({
+        name: "sx-translation-confirmer",
+        params: { previousRoute: "dashboard" }
+      });
       contextRoot.$logEvent({
         event_type: "dashboard_translation_start",
         event_source: "suggestion_no_seed"

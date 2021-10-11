@@ -82,7 +82,8 @@ export default {
       store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
-      context.root.$router.push({ name: "dashboard" });
+      const { previousRoute } = context.root.$route.params;
+      context.root.$router.push({ name: previousRoute });
     };
 
     return {

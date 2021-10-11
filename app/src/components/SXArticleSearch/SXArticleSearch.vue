@@ -216,7 +216,10 @@ export default {
       );
 
       store.dispatch("application/initializeSectionTranslation", suggestion);
-      router.push({ name: "sx-translation-confirmer" });
+      router.push({
+        name: "sx-translation-confirmer",
+        params: { previousRoute: "sx-article-search" }
+      });
     };
 
     const startRecentlyEditedSectionTranslation = suggestedPage => {
