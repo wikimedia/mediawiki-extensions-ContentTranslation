@@ -18,11 +18,11 @@ export default function() {
   );
 
   const sourceLanguageAutonym = computed(() =>
-    getAutonym(currentSectionSuggestion.value.sourceLanguage)
+    getAutonym(sourceLanguage.value)
   );
 
   const targetLanguageAutonym = computed(() =>
-    getAutonym(currentSectionSuggestion.value.targetLanguage)
+    getAutonym(targetLanguage.value)
   );
 
   const isSectionTitleSelected = computed(
