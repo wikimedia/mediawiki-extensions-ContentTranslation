@@ -10,7 +10,7 @@ use ContentTranslation\AbuseFilterCheck;
  * @group Database
  * @group ContentTranslation
  */
-class AbuseFilterCheckTest extends \MediaWikiTestCase {
+class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @inheritDoc
 	 */
