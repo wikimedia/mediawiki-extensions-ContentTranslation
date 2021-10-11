@@ -19,10 +19,7 @@ const useSearchArticles = searchInput => {
     searchResults.value.slice(0, maxSearchResults)
   );
 
-  const debouncedSearchForArticles = async () => {
-    searchResultsLoading.value = true;
-    searchResults.value = [];
-
+  const debouncedSearchForArticles = debounce(async () => {
     try {
       /** @type {Page[]} */
       searchResults.value = await pageApi.searchPagesByTitlePrefix(
@@ -32,9 +29,14 @@ const useSearchArticles = searchInput => {
     } finally {
       searchResultsLoading.value = false;
     }
-  };
+  }, 500);
 
-  watch(searchInput, debounce(debouncedSearchForArticles, 500));
+  watch(searchInput, () => {
+    searchResultsLoading.value = true;
+    searchResults.value = [];
+
+    debouncedSearchForArticles();
+  });
 
   return {
     searchResultsLoading,
