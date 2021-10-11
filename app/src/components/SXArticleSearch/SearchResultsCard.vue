@@ -21,7 +21,6 @@
 <script>
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
 import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
-import { getAutonym } from "@wikimedia/language-data";
 import { computed } from "@vue/composition-api";
 import useSearchArticles from "./useArticleSearch";
 import useApplicationState from "@/composables/useApplicationState";
@@ -35,9 +34,8 @@ export default {
     }
   },
   setup(props) {
-    const { sourceLanguage } = useApplicationState();
+    const { sourceLanguageAutonym } = useApplicationState();
     const searchInput = computed(() => props.searchInput);
-    const sourceLanguageAutonym = getAutonym(sourceLanguage.value);
 
     const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
       searchInput
@@ -45,7 +43,7 @@ export default {
 
     return {
       searchResultsLoading,
-      /** @type {Ref<Page[]>} */
+      /** @type {ComputedRef<Page[]>} */
       searchResultsSlice,
       sourceLanguageAutonym
     };
