@@ -78,7 +78,6 @@
 				label: $.uls.data.getAutonym( results[ languageIndex ] ),
 				icon: 'add',
 				href: cxUrl,
-				target: '_blank',
 				framed: false,
 				classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn' ]
 			} )
@@ -105,7 +104,6 @@
 		moreButton = new OO.ui.ButtonWidget( {
 			icon: 'ellipsis',
 			href: cxUrl,
-			target: '_blank',
 			framed: false,
 			classes: [ 'cx-entrypoint-mflanguagesearcher-ctabtn-more' ]
 		} );
