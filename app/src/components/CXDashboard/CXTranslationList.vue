@@ -66,9 +66,9 @@ export default {
 
     const translations = computed(() => {
       if (props.translationStatus === "published") {
-        return store.getters["translator/getPublishedTranslations"]();
+        return store.getters["translator/getPublishedTranslations"];
       } else {
-        return store.getters["translator/getDraftTranslations"]();
+        return store.getters["translator/getDraftTranslations"];
       }
     });
 
