@@ -61,9 +61,9 @@
 
 <script>
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
-import { computed } from "@vue/composition-api";
+import { computed, onMounted } from "@vue/composition-api";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
+import { setTranslationURLParams } from "@/utils/urlHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
 import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
@@ -85,6 +85,7 @@ export default {
     } = useApplicationState();
 
     const {
+      clearPreFilledSection,
       onSectionSelectorClick,
       preFilledSectionTitle
     } = useSectionSelectorClickHandler(router);
@@ -109,6 +110,17 @@ export default {
       router.push({ name: "sx-section-selector" });
       setTranslationURLParams(currentSectionSuggestion.value);
     };
+
+    onMounted(() => {
+      const preFilledSection = preFilledSectionTitle.value;
+
+      if (
+        !!preFilledSection &&
+        !currentSectionSuggestion.value.hasSectionTitle(preFilledSection)
+      ) {
+        clearPreFilledSection();
+      }
+    });
 
     return {
       actionButtonLabel,

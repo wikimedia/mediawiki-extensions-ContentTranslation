@@ -16,6 +16,13 @@ export default router => {
     () => !!sectionSuggestion.value?.translationExists
   );
 
+  const clearPreFilledSection = () => {
+    preFilledSectionTitle.value = null;
+    urlParams.delete("section");
+
+    replaceUrl(Object.fromEntries(urlParams));
+  };
+
   /**
    * 1. If "section" URL parameter exists, then try to select this section
    * as current source section. If this section title is valid, navigate
@@ -41,10 +48,7 @@ export default router => {
           params: { force: true }
         });
       } else {
-        preFilledSectionTitle.value = null;
-        urlParams.delete("section");
-
-        replaceUrl(Object.fromEntries(urlParams));
+        clearPreFilledSection();
       }
     } else if (translationExists.value) {
       router.push({ name: "sx-section-selector" });
@@ -56,6 +60,7 @@ export default router => {
   };
 
   return {
+    clearPreFilledSection,
     onSectionSelectorClick,
     preFilledSectionTitle
   };

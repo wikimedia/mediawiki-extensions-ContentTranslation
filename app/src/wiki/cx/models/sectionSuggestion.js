@@ -118,4 +118,12 @@ export default class SectionSuggestion {
           this.sourceSections.indexOf(section2.sourceTitle)
       );
   }
+
+  /**
+   * @param {string} sectionTitle
+   * @return {boolean}
+   */
+  hasSectionTitle(sectionTitle) {
+    return this.sourceSections.includes(sectionTitle);
+  }
 }
