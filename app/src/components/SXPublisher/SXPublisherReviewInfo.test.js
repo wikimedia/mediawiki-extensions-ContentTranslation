@@ -1,10 +1,12 @@
-import SXPublisherReviewInfo from "./SXPublisherReviewInfo";
+import SXPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { mount, createLocalVue } from "@vue/test-utils";
+import PublishResult from "@/wiki/cx/models/publishResult";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
+import CompositionApi from "@vue/composition-api";
 
-import PublishResult from "@/wiki/cx/models/publishResult";
 const localVue = createLocalVue();
+localVue.use(CompositionApi);
 localVue.use(VueBananaI18n);
 localVue.use(Vuex);
 import {

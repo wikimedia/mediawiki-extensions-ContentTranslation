@@ -70,4 +70,12 @@ export default class PublishResult {
 
     return "error";
   }
+
+  /**
+   * @param {number} index
+   * @return {string|null}
+   */
+  getUnsuppressedMessageByIndex(index) {
+    return this.messages.filter(message => !message.suppressed)?.[index];
+  }
 }

@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import { MwIcon, MwMessage } from "@/lib/mediawiki.ui";
 import {
   mwIconEye,
@@ -50,6 +49,7 @@ import {
   mwIconCheck
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui/components";
+import { computed, ref } from "@vue/composition-api";
 
 export default {
   name: "SxPublisherReviewInfo",
@@ -60,50 +60,72 @@ export default {
     MwMessage,
     MwIcon
   },
-  data: () => ({
-    mwIconEye,
-    mwIconAlert,
-    mwIconBlock,
-    mwIconCheck,
-    activeMessageIndex: 0
-  }),
-  computed: {
-    ...mapState({
-      publishResult: state => state.application.currentPublishResult
-    }),
-    infoText: vm => {
-      return vm.publishResult.isSuccessful
-        ? null
-        : vm.publishResult.messages?.[0]?.text;
-    },
+  setup(props, context) {
+    const store = context.root.$store;
+
+    const activeMessageIndex = ref(0);
+    const publishResult = computed(
+      () => store.state.application.currentPublishResult
+    );
+
     // Currently activeMessage doesn't change. Introduced so that we can
     // easily implement message navigation
-    activeMessage: vm =>
-      vm.publishResult.messages.filter(message => !message.suppressed)?.[
-        vm.activeMessageIndex
-      ],
-    status: vm => vm.publishResult.reviewInfoStatus,
-    reviewIcon: vm => {
-      switch (vm.status) {
+    const activeMessage = computed(() =>
+      publishResult.value.getUnsuppressedMessageByIndex(
+        activeMessageIndex.value
+      )
+    );
+
+    const status = computed(() => publishResult.value.reviewInfoStatus);
+
+    const reviewIcon = computed(() => {
+      switch (status.value) {
         case "warning":
-          return vm.mwIconAlert;
+          return mwIconAlert;
         case "error":
-          return vm.mwIconBlock;
+          return mwIconBlock;
         default:
-          return vm.mwIconEye;
+          return mwIconEye;
       }
-    },
-    reviewInfoClass: vm => `sx-publisher__review-info--${vm.messageType}`,
-    isMessageInline: vm => vm.status === "default",
-    messageType: vm => (vm.isMessageInline ? "notice" : vm.status),
-    messageText: vm => vm.activeMessage?.text,
-    messageTitle: vm =>
-      vm.activeMessage?.title || vm.$i18n("cx-sx-publisher-review-info-error")
-  },
-  methods: {
-    suppressWarning() {
-      this.activeMessage.suppressed = true;
-    }
+    });
+    const isMessageInline = computed(() => status.value === "default");
+
+    const messageType = computed(() =>
+      isMessageInline.value ? "notice" : status.value
+    );
+    const reviewInfoClass = computed(
+      () => `sx-publisher__review-info--${messageType.value}`
+    );
+
+    const messageText = computed(() => activeMessage.value?.text);
+    const messageTitle = computed(
+      () =>
+        activeMessage.value?.title ||
+        context.root.$i18n("cx-sx-publisher-review-info-error")
+    );
+
+    const suppressWarning = () => {
+      if (!activeMessage.value) {
+        return;
+      }
+      activeMessage.value.suppressed = true;
+    };
+
+    return {
+      isMessageInline,
+      messageText,
+      messageTitle,
+      messageType,
+      mwIconEye,
+      mwIconAlert,
+      mwIconBlock,
+      mwIconCheck,
+      reviewIcon,
+      reviewInfoClass,
+      publishResult,
+      status,
+      suppressWarning
+    };
   }
 };
 </script>

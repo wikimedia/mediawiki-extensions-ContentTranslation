@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXPublisher review info panel test Component output matches snapshot 1`
-] = `
+exports[`SXPublisher review info panel test Component output matches snapshot 1`] = `
 <div
   activemessageindex="0"
-  aria-labelledby="4-label"
+  aria-labelledby="5-label"
   aria-live="polite"
   class="mw-ui-message sx-publisher__review-info ma-0 pa-4 row items-normal justify-start mw-ui-message--notice mw-ui-message--inline sx-publisher__review-info--notice"
   mwiconalert="[object Object]"
@@ -38,7 +36,7 @@ exports[
    
   <span
     class="mw-ui-message__label col grow items-center"
-    id="4-label"
+    id="5-label"
   >
      
     <div
