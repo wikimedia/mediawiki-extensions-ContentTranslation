@@ -304,8 +304,8 @@
 			]
 		},
 		"ext.cx.icons": {
-			"selectorWithVariant": ".mw-ui-icon-cx-{name}-{variant}:before",
-			"selectorWithoutVariant": ".mw-ui-icon-cx-{name}:before",
+			"selectorWithVariant": ".mw-ui-icon-vector-gadget-cx-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-vector-gadget-cx-{name}:before",
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",

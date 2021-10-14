@@ -28,7 +28,6 @@
 		};
 
 		$link = $( '<a>' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-cx-language' )
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) )
 			.append(
 				$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
@@ -41,8 +40,10 @@
 
 	function attachMenu( $trigger ) {
 		var $myContributions, $myTranslations, $myUploads,
+			nextNode = document.getElementById( 'pt-mycontris' ),
 			useCallout = !isUserMenuDropdown();
 
+		nextNode = nextNode ? nextNode.nextSibling : null;
 		// Make sure we attach this menu only once
 		if ( document.querySelector( 'li.cx-campaign-uploads' ) ) {
 			return;
@@ -52,7 +53,6 @@
 			.addClass( 'cx-campaign-contributions' )
 			.append(
 				$( '<a>' )
-					.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-userContributions' )
 					.attr( 'href', $trigger.find( 'a' ).attr( 'href' ) )
 					.append(
 						$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-mycontributions' ) )
@@ -68,7 +68,6 @@
 		$myUploads = $( '<li>' )
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
-				.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-cx-imageGallery' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 				.append(
 					$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
@@ -79,9 +78,24 @@
 			// eslint-disable-next-line no-use-before-define
 			attachCallout( $trigger, $myContributions, $myTranslations, $myUploads );
 		} else {
-			// In future consider using mw.util.addPortletLink
-			$myTranslations.insertAfter( '#pt-mycontris' );
-			$myUploads.insertAfter( $myTranslations );
+			mw.util.addPortletLink(
+				'p-personal',
+				$myTranslations.find( 'a' ).attr( 'href' ),
+				$myTranslations.text(),
+				'cx-language',
+				null,
+				null,
+				nextNode
+			);
+			mw.util.addPortletLink(
+				'p-personal',
+				$myUploads.find( 'a' ).attr( 'href' ),
+				$myUploads.text(),
+				'cx-imageGallery',
+				null,
+				null,
+				nextNode
+			);
 		}
 	}
 
