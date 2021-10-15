@@ -14,6 +14,7 @@
         progressive
         type="button"
         :icon="mwIconCheck"
+        :disabled="errorExists"
         @click="$emit('publish-translation')"
       />
     </mw-col>
@@ -23,12 +24,20 @@
 <script>
 import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwButton, MwRow } from "@/lib/mediawiki.ui";
+import { computed } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxPublisherHeader",
   components: { MwCol, MwButton, MwRow },
   emits: ["publish-translation"],
   setup(props, context) {
+    const { publishResult } = useApplicationState();
+
+    const errorExists = computed(
+      () => publishResult.value?.reviewInfoStatus === "error"
+    );
+
     const onClose = () => {
       const router = context.root.$router;
       router.push({
@@ -37,6 +46,7 @@ export default {
     };
 
     return {
+      errorExists,
       mwIconCheck,
       mwIconClose,
       onClose
