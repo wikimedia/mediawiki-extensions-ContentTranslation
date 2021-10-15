@@ -51,8 +51,10 @@ import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import { computed, ref } from "@vue/composition-api";
-import publishTranslation from "./publishTranslation";
+import { computed } from "@vue/composition-api";
+import usePublishTranslation from "./usePublishTranslation";
+import useApplicationState from "@/composables/useApplicationState";
+
 export default {
   name: "SxPublisher",
   components: {
@@ -65,14 +67,12 @@ export default {
     MwCol
   },
   setup(props, context) {
+    const {
+      currentSourceSection: currentPageSection,
+      currentSectionSuggestion
+    } = useApplicationState();
     const applicationState = context.root.$store.state.application;
-    const isPublishDialogActive = ref(false);
-    const publishStatus = ref("pending");
-    const publishOptionsOn = ref(false);
 
-    const currentPageSection = computed(
-      () => applicationState.currentSourceSection
-    );
     const publishTarget = computed(() => applicationState.publishTarget);
     const translatedTitle = computed(() => currentPageSection.value?.title);
 
@@ -84,28 +84,25 @@ export default {
           )
     );
 
-    const configureTranslationOptions = () => {
-      publishOptionsOn.value = true;
-    };
-
     const editTranslation = () => {
       const router = context.root.$router;
       router.push({
         name: "sx-editor",
         params: {
           content: currentPageSection.value.translationHtml,
-          language: applicationState.currentSectionSuggestion.targetLanguage,
+          language: currentSectionSuggestion.value.targetLanguage,
           isFinalEdit: true
         }
       });
     };
 
-    const doPublish = () =>
-      publishTranslation(
-        context.root.$store,
-        publishStatus,
-        isPublishDialogActive
-      );
+    const {
+      configureTranslationOptions,
+      doPublish,
+      isPublishDialogActive,
+      publishOptionsOn,
+      publishStatus
+    } = usePublishTranslation();
 
     return {
       configureTranslationOptions,

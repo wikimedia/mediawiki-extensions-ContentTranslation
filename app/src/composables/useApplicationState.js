@@ -29,11 +29,16 @@ export default function() {
     () => store.state.application.isSectionTitleSelectedForTranslation
   );
 
+  const publishResult = computed(
+    () => store.state.application.currentPublishResult
+  );
+
   return {
     currentMTProvider,
     currentSectionSuggestion,
     currentSourceSection,
     isSectionTitleSelected,
+    publishResult,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,

@@ -15,7 +15,7 @@ export default class PublishResult {
     this.result = result;
     // TODO: Construct PublishFeedbackMessage while creating PublishResult instead of
     // creating them here.
-    /* @type {PublishFeedbackMessage[]} */
+    /** @type {PublishFeedbackMessage[]} */
     this.messages =
       messages && messages.map(message => new PublishFeedbackMessage(message));
     this.status = status;
