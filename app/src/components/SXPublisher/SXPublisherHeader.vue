@@ -23,19 +23,24 @@
 <script>
 import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwButton, MwRow } from "@/lib/mediawiki.ui";
+
 export default {
   name: "SxPublisherHeader",
   components: { MwCol, MwButton, MwRow },
-  data: () => ({
-    mwIconClose,
-    mwIconCheck
-  }),
-  methods: {
-    onClose() {
-      this.$router.push({
+  emits: ["publish-translation"],
+  setup(props, context) {
+    const onClose = () => {
+      const router = context.root.$router;
+      router.push({
         name: "sx-sentence-selector"
       });
-    }
+    };
+
+    return {
+      mwIconCheck,
+      mwIconClose,
+      onClose
+    };
   }
 };
 </script>
