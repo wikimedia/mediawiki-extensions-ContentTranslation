@@ -335,7 +335,7 @@
 	"cx-sx-translation-confirmer-title": "ترجمهٔ تازه",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 بازدید در|$1 بازدید در|0=بدون بازدید در این}} هفته",
 	"cx-sx-content-comparator-discarded-section-clarifications": "ترجمهٔ شما در قالب یک بخش جدید و مستقل منتشر خواهد شد.",
-	"cx-sx-content-comparator-discarded-section-label": "(دو ریخته شده)",
+	"cx-sx-content-comparator-discarded-section-label": "(دور ریخته شده)",
 	"cx-sx-sentence-selector-translation-options-header-title": "آغاز یک ترجمهٔ متفاوت",
 	"cx-sx-sentence-selector-translation-options-header-text": "گزینهٔ ترجمه برای جمله‌های کنونی و بعدی را انتخاب کنید.",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "اصلی",
@@ -403,6 +403,8 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "ترجمهٔ بخش",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "بخش",
 	"sx-editor-feedback-overlay-title": "ممنون!",
+	"sx-editor-feedback-overlay-clarification": "در حال آموختن از اصلاحات شما",
 	"sx-editor-feedback-overlay-stats": "<span>$1٪</span> توسط شما ویرایش شده‌است",
+	"cx-campaign-mflanguagesearcher-invite": "می‌توانید این صفحه را ترجمه کنید. این راهی آسان برای ایجاد محتوا به زبان خودتان است.",
 	"cx-suggestion-list-favorites-division": "برای بعداً"
 }

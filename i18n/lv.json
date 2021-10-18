@@ -359,6 +359,7 @@
 	"cx-sx-article-search-header": "Jauns tulkojums",
 	"cx-sx-article-search-no-search-results-message": "Meklējot pēc \"$1\" $2 valodā neatrada nevienu lapu",
 	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Paplašināt ar sadaļu \"$1\"",
+	"cx-sx-translation-confirmer-action-view-section": "Skatīt tulkojamo sadaļu",
 	"cx-sx-translation-confirmer-action-new-translation": "Jauns tulkojums",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Vairāk sadaļu",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Tulkot sadaļu",
