@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20211011",
+  "version": "0.1.0+20211018",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -63,7 +63,7 @@
   "bundlesize": [
     {
       "path": "dist/js/cx.js",
-      "maxSize": "46.00KB"
+      "maxSize": "46.10KB"
     },
     {
       "path": "dist/js/cx.libs.js",
