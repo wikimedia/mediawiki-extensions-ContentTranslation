@@ -53,8 +53,8 @@ const loadSectionSuggestionFromUrl = async () => {
   }
 
   return await store.dispatch("suggestions/loadSectionSuggestion", {
-    sourceLanguage,
-    targetLanguage,
+    sourceLanguage: sourceLanguage.value,
+    targetLanguage: targetLanguage.value,
     sourceTitle
   });
 };
