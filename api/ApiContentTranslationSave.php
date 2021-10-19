@@ -133,7 +133,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$sectionHTML = $translationUnit->getContent();
 		$results = [];
 		// We need to catch any exceptions here - For example, if restbase is down
-		// it should not affect the saving of transations.
+		// it should not affect the saving of translations.
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.
 			$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
@@ -303,7 +303,7 @@ class ApiContentTranslationSave extends ApiBase {
 			],
 			'cxversion' => [
 				ApiBase::PARAM_TYPE => 'integer',
-				// Making this required immediately would cause issues for on-going translations
+				// Making this required immediately would cause issues for ongoing translations
 				// during deployment. Maybe this doesn't ever need to be required.
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_RANGE_ENFORCE => true,
