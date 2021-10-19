@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXArticleSearch Component output matches snapshot 1`] = `
+exports[`SXArticleSearch component test Component output matches snapshot 1`] = `
 <section
   class="sx-article-search"
 >
@@ -139,7 +139,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
     </button>
     <button
       class="mw-ui-button ma-0 mw-ui-button--text px-0 py-4 mx-4"
-      value="de"
+      value="ar"
     >
       <span
         class="mw-ui-button__content"
@@ -149,7 +149,7 @@ exports[`SXArticleSearch Component output matches snapshot 1`] = `
         <span
           class="mw-ui-button__label"
         >
-          Deutsch
+          العربية
         </span>
          
         <!---->

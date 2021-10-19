@@ -94,7 +94,7 @@ import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 import { ref, onMounted, computed, watch } from "@vue/composition-api";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
-import getSuggestedSourceLanguages from "./suggestedSourceLanguages";
+import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
 import initializeDashboard from "@/composables/useDashboardInitialization";
 
@@ -151,7 +151,7 @@ export default {
      *
      * @type {ComputedRef<string[]>}
      */
-    const suggestedSourceLanguages = getSuggestedSourceLanguages(
+    const suggestedSourceLanguages = useSuggestedSourceLanguages(
       previousLanguages
     );
     /**

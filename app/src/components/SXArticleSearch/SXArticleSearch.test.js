@@ -2,19 +2,17 @@ import { mount, createLocalVue } from "@vue/test-utils";
 import SXArticleSearch from "./SXArticleSearch";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
-import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
-import CompositionApi from "@vue/composition-api";
-import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins";
-import mockStore from "../../store";
-import router from "../../router";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import CompositionApi, { computed as mockComputed } from "@vue/composition-api";
+import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
+import mockStore from "@/store";
+import router from "@/router";
 const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
 localVue.use(BreakpointsPlugin);
 localVue.prototype.$logEvent = jest.fn();
-
-const getLocalStorageItem = jest.fn(item => JSON.stringify(["en", "bn"]));
 
 // Mock matchMedia as per
 // https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
@@ -31,42 +29,43 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: jest.fn()
   }))
 });
-Object.defineProperty(global.navigator, "language", {
-  value: "en-US",
-  writable: false
-});
-Object.defineProperty(global.navigator, "languages", {
-  value: ["en-US", "en", "es", "de"],
-  writable: false
-});
 
-jest.mock("../../wiki/mw/api/page", () => {
+jest.mock("@/wiki/mw/api/page", () => {
   return {
     searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults))
   };
 });
 
+const getLocalStorageItem = jest.fn(item => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
 getItemSpy.mockImplementation(getLocalStorageItem);
 
-jest.mock("../../store", () => jest.requireActual("./articleSearchMockStore"));
+// Application state: { sourceLanguage: "en", targetLanguage: "es" }
+jest.mock("@/store", () => jest.requireActual("./articleSearchMockStore"));
+jest.mock("./useSuggestedSourceLanguages", () =>
+  jest
+    .fn()
+    .mockImplementation(previousLanguages =>
+      mockComputed(() => [...previousLanguages.value, "ar", "ko"])
+    )
+);
 
-describe("SXArticleSearch", () => {
-  const sourceLanguage = "en";
-  const targetLanguage = "es";
+const sourceLanguage = "en";
+const targetLanguage = "es";
 
-  mockStore.dispatch = jest.fn((action, payload) => {
-    if (action === "suggestions/loadSectionSuggestion") {
-      return Promise.resolve(
-        new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle: payload.sourceTitle
-        })
-      );
-    }
-  });
+mockStore.dispatch = jest.fn((action, payload) => {
+  if (action === "suggestions/loadSectionSuggestion") {
+    return Promise.resolve(
+      new SectionSuggestion({
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle: payload.sourceTitle
+      })
+    );
+  }
+});
 
+describe("SXArticleSearch component test", () => {
   const wrapper = mount(SXArticleSearch, {
     localVue,
     store: mockStore,
@@ -77,11 +76,15 @@ describe("SXArticleSearch", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("test suggestedSourceLanguages computed property", () => {
-    expect(wrapper.vm.suggestedSourceLanguages).toStrictEqual(["bn", "de"]);
+  it("should use composable to get suggestedSourceLanguages computed property", () => {
+    expect(wrapper.vm.suggestedSourceLanguages).toStrictEqual([
+      "bn",
+      "ar",
+      "ko"
+    ]);
   });
 
-  it("startSectionTranslation action is dispatched when suggestion-clicked event is emitted", async () => {
+  it("should dispatch startSectionTranslation action when suggestion-clicked event is emitted", async () => {
     const suggestionsCard = wrapper.find(".sx-article-search__suggestions");
     const suggestionWrapper = wrapper.find(".cx-search-suggestion");
 

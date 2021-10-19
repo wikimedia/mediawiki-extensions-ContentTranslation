@@ -9,18 +9,18 @@ import useApplicationState from "@/composables/useApplicationState";
  *
  * @type {function(ComputedRef<string[]>): ComputedRef<string[]>}
  */
-const getSuggestedSourceLanguages = previousLanguages =>
+const useSuggestedSourceLanguages = previousLanguages =>
   computed(() => {
     const { sourceLanguage, targetLanguage } = useApplicationState();
     /**
      * Browser user interface language or the system language.
-     * This language code can be like "en" or "en_US", so we need
+     * This language code can be like "en" or "en-US", so we need
      * to split it by hyphen and only keep first segment
      * @type {string}
      */
     const browserLanguage = (navigator.language || "").split("-")[0];
     /**
-     * Browser accept-languages. Accept language codes can be like "en" or "en_US",
+     * Browser accept-languages. Accept language codes can be like "en" or "en-US",
      * so we need to split them by hyphen and only keep first segment
      * @type {string[]}
      */
@@ -51,4 +51,4 @@ const getSuggestedSourceLanguages = previousLanguages =>
     );
   });
 
-export default getSuggestedSourceLanguages;
+export default useSuggestedSourceLanguages;

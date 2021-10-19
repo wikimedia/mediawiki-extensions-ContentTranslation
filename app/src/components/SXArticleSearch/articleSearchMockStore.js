@@ -28,7 +28,11 @@ const mockPages = [
 
 const applicationModule = {
   namespaced: true,
-  state: { sourceLanguage, targetLanguage }
+  state: { sourceLanguage, targetLanguage },
+  mutations: {
+    setSourceLanguage: () => {},
+    setTargetLanguage: () => {}
+  }
 };
 
 const mediawikiModule = {
