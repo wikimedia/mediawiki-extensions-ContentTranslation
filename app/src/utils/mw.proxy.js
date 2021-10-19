@@ -25,6 +25,10 @@ class SiteMapper {
   getCXServerUrl(url) {
     return url;
   }
+
+  getCurrentWikiLanguageCode() {
+    return "en";
+  }
 }
 
 const mw = {

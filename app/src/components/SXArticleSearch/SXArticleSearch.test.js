@@ -88,7 +88,7 @@ describe("SXArticleSearch", () => {
     await suggestionWrapper.trigger("click");
     expect(suggestionsCard.emitted("suggestion-clicked")).toBeTruthy();
     expect(mockStore.dispatch).toHaveBeenNthCalledWith(
-      3,
+      6,
       "suggestions/loadSectionSuggestion",
       {
         sourceLanguage,
@@ -97,7 +97,7 @@ describe("SXArticleSearch", () => {
       }
     );
     expect(mockStore.dispatch).toHaveBeenNthCalledWith(
-      4,
+      7,
       "application/initializeSectionTranslation",
       new SectionSuggestion({
         sourceLanguage,
