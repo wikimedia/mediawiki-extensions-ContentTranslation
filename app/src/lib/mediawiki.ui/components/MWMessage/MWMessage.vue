@@ -129,28 +129,28 @@ export default {
   &--notice {
     background-color: @background-color-notice--framed;
     border: @border-notice;
-    .mw-ui-icon {
+    .mw-ui-message__icon {
       color: @color-notice;
     }
   }
   &--warning {
     background-color: @background-color-warning--framed;
     border: @border-warning;
-    .mw-ui-icon {
+    .mw-ui-message__icon {
       color: @wmui-color-yellow50;
     }
   }
   &--error {
     background-color: @background-color-error--framed;
     border: @border-error;
-    .mw-ui-icon {
+    .mw-ui-message__icon {
       color: @color-error;
     }
   }
   &--success {
     background-color: @background-color-success--framed;
     border: @border-success;
-    .mw-ui-icon {
+    .mw-ui-message__icon {
       color: @color-success;
     }
   }
