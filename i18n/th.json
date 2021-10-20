@@ -9,6 +9,7 @@
 			"NP-chaonay",
 			"Octahedron80",
 			"Taweetham",
+			"Thas Tayapongsak",
 			"กิ๊ฟ เลิกล่ะ สายแข็ง"
 		]
 	},
@@ -43,6 +44,8 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|การแปลเนื้อหา]]",
 	"tag-contenttranslation-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหา",
 	"tag-contenttranslation-v2-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหาเวอร์ชัน 2",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|การแปลส่วน]]",
+	"tag-sectiontranslation-description": "เนื้อหาส่วนนี้ถูกแปลจากภาษาอื่นผ่านการฟีเจอร์การแปลส่วนของเครื่องมือแปลเนื้อหา",
 	"cx-source-loading": "กำลังโหลด $1",
 	"cx-beta": "การแปลเนื้อหา",
 	"cx-beta-desc": "เครื่องมือที่ใช้แปลหน้าเป็นภาษาของคุณได้อย่างรวดเร็ว เริ่มการแปลจาก[[Special:MyContributions|หน้าที่คุณเขียน]] และแก้ไขด้วยตัวแก้ไขขนาบซ้ายขวาซึ่งออกแบบมาเพื่อการแปลโดยเฉพาะ เครื่องมือบางอย่างอาจมีให้ใช้ได้เฉพาะบางภาษา",
@@ -51,6 +54,7 @@
 	"cx-entrypoint-dialog-button-translate-from": "แปลจากภาษา$1",
 	"cx-entrypoint-dialog-desc": "คุณสามารถช่วยวิกิพีเดียได้ด้วยการแปลหน้านี้ การแปลเป็นวิธีการที่ง่ายในการสร้างเนื้อหาใหม่ในภาษาคุณ",
 	"cx-campaign-newbytranslation-title": "เริ่มด้วยการแปลแทน?",
+	"cx-campaign-newbytranslation-notice": "สร้างบทความใหม่ด้วยการแปลจากภาษาอื่นที่คุณรู้",
 	"cx-campaign-newbytranslation-start": "เริ่มแปล",
 	"cx-special-login-error": "คุณต้องเข้าสู่ระบบเพื่อที่จะแปลหน้านี้ [$1 เข้าสู่ระบบ]",
 	"cx-tools-instructions-text1": "{{GENDER:|คลิก}}ย่อหน้าต่าง ๆ เพื่อแปล",

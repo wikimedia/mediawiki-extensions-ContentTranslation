@@ -10,6 +10,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] နဝ်ꩻ နာꩻဘာႏသာႏငဝ်းငွါ တဝ်းလဲ့ လိတ်မဲ့ငါဖုံႏယို အမွိုင်တဗာႏ ပြန်ႏဖေႏဒါႏဘာႏသာႏ ကိရိယာႏ။ [$1 တဗာႏဒျာႏသွူ]",
 	"cx-license-agreement": "ခွုမ်မာꩻသွုပ်ထဲင်းယင်းတဲင် နာꩻနဝ်ꩻ သꩻဖော်ꩻတူႏထွူ ကေားသွုံꩻသား [https://foundation.wikimedia.org/wiki/Terms_of_Use အွဉ်ႏထွော့ချက်ဖုံႏ]နဝ်ꩻသွူ၊ တွမ်ႏဘာႏသာႏပြန်ႏကိရိယာႏတဲင် နာꩻစွဲးကမ်းမုꩻဖုံႏယို အွဉ်ႏနယ် [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 လုဲင်သိဉ်]ဆꩻလ့တာႏ သꩻဖော်ꩻတူႏထွူ hyperlink တဝ်းလဲ့ URL နဝ်ꩻ  CC BY-SA 3.0 attribution တာႏ လိုမ်းကိုမ်ႏဒျာႏကရိုꩻနဝ်ꩻ သေနာႏထွူခါ သꩻဖော်ꩻတူႏဒျာႏ  [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] နဝ်ꩻသွူ။",
 	"cx-error-server-connection": "အမာႏ: ဆွိုက်နွောင်ꩻတဝ်း သာဗာ။",
+	"cx-desc": "အကျောင်ꩻခရာႏ လိတ်မဲ့ငါဖုံႏယို ချာႏပြန်ႏအီ [[Special:ContentTranslation|ဘာႏသာႏတာႏ]] ယိုꩻအီနဝ်ꩻသွူ။",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1| ပြန်ႏလဲဉ်းဘာႏသာႏ}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|အဝ်ႏစက်ဘာႏသာႏပြန်ႏမုꩻ}})",
 	"cx-header-translation-center": "ဘာႏသာႏပြန်ႏ ခင်ႏလမ်း",
