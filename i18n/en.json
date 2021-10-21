@@ -349,7 +349,7 @@
 	"cx-sx-publisher-animation-success-message-subtitle": "Opening the page…",
 	"cx-sx-publisher-animation-failure-message-title": "Publishing failed",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Check the error messages",
-	"cx-sx-publish-summary": "Created by translating the section \"$1\" from page \"$2\"",
+	"cx-sx-publish-summary": "Created by translating the section \"$1\" from the page \"$2\"",
 	"cx-sx-publisher-preview-options-title": "Publish options",
 	"cx-sx-publisher-new-section-option-label": "Publish as a new section",
 	"cx-sx-publisher-new-section-option-details": "Add a new section to the article",
