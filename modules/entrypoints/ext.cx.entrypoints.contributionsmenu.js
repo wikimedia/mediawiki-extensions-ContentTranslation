@@ -29,6 +29,7 @@
 
 		$link = $( '<a>' )
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) )
+			.attr( 'title', mw.msg( 'cx-campaign-contributionsmenu-mytranslations-tooltip' ) )
 			.append(
 				$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
 			);
@@ -69,6 +70,7 @@
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
+				.attr( 'title', mw.msg( 'cx-campaign-contributionsmenu-myuploads-tooltip' ) )
 				.append(
 					$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
 				)
@@ -83,7 +85,7 @@
 				$myTranslations.find( 'a' ).attr( 'href' ),
 				$myTranslations.text(),
 				'cx-language',
-				null,
+				$myTranslations.find( 'a' ).attr( 'title' ),
 				null,
 				nextNode
 			);
@@ -92,6 +94,7 @@
 				$myUploads.find( 'a' ).attr( 'href' ),
 				$myUploads.text(),
 				'cx-imageGallery',
+				$myUploads.find( 'a' ).attr( 'title' ),
 				null,
 				null,
 				nextNode

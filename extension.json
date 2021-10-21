@@ -912,7 +912,9 @@
 			"messages": [
 				"cx-campaign-contributionsmenu-mycontributions",
 				"cx-campaign-contributionsmenu-mytranslations",
+				"cx-campaign-contributionsmenu-mytranslations-tooltip",
 				"cx-campaign-contributionsmenu-myuploads",
+				"cx-campaign-contributionsmenu-myuploads-tooltip",
 				"cx-feature-discovery-title",
 				"cx-feature-discovery-content",
 				"cx-feature-discovery-dismiss",
