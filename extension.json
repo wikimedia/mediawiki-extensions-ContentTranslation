@@ -61,7 +61,8 @@
 		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
 		"BeforePageDisplay": [
 			"ContentTranslation\\Hooks::addModules",
-			"ContentTranslation\\Hooks::addSXPublishingFollowupModule"
+			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
+			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -820,6 +821,16 @@
 			"scripts": [
 				"chart.js/Chart.js"
 			]
+		},
+		"ext.cx.entrypoints.recenttranslation": {
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.recenttranslation/index.js"
+			],
+			"messages": [],
+			"targets": [
+				"mobile"
+			],
+			"dependencies": []
 		},
 		"ext.cx.entrypoints.newarticle": {
 			"scripts": [

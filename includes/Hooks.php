@@ -46,6 +46,98 @@ class Hooks {
 	}
 
 	/**
+	 * This hook adds "ext.cx.entrypoints.recenttranslation" module, to support
+	 * entrypoint inside articles, that encourages users to review recently
+	 * translated articles, if the appropriate conditions are met.
+	 * These conditions are:
+	 * 1. SectionTranslation is enabled for current wiki
+	 * 2. User is accessing the mobile web version of the article
+	 * 3. User is logged-in
+	 * 4. The article was published as a new page by Content or Section Translation
+	 * 5. The article was published in the last 10 days
+	 * 6. The article has less than 5 edits since it was published
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @throws \Exception
+	 */
+	public static function addRecentTranslationEntrypoint( OutputPage $out, Skin $skin ): void {
+		$isMobileView = false;
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+
+		// This entrypoint should only be enabled for mobile web version
+		if ( !$isMobileView ) {
+			return;
+		}
+
+		// This entrypoint should only be enabled for logged-in users
+		$user = $out->getUser();
+		if ( $user->isAnon() ) {
+			return;
+		}
+
+		// This entrypoint should only be enabled for article pages
+		$isContentPage = $out->getTitle()->isContentPage();
+		if ( !$isContentPage ) {
+			return;
+		}
+
+		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
+		// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
+		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' );
+		$isSXEnabled = is_array( $enabledLanguages ) && in_array( $currentLanguageCode, $enabledLanguages );
+		if ( !$isSXEnabled ) {
+			return;
+		}
+
+		// This entrypoint should only be enabled:
+		// a. for pages that are created using Content or Section Translation
+		// b. for pages that were published in the last 10 days
+		// "cx_translations" table is expected to be smaller than "revision"
+		// table, so we query this table first.
+		$translation = Translation::findByPublishedTitle( $out->getPageTitle(), $currentLanguageCode );
+
+		// If translation not found inside the table, meaning this article has
+		// not been created using Content or Section Translation, return
+		if ( $translation === null ) {
+			return;
+		}
+		$translationData = $translation->getData();
+		$creationDate = new \DateTime( $translationData['lastUpdateTimestamp'] );
+		// Check if translation was published within the last 10 days
+		$createdWithin10Days = (bool)$creationDate->diff( new \DateTime( '-10 days' ) )->invert;
+		if ( !$createdWithin10Days ) {
+			return;
+		}
+
+		// This entrypoint should only be enabled for pages that have less than 5 edits.
+		$pageId = $out->getWikiPage()->getId();
+		// Find all revisions for this page
+		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+		$dbr = $lb->getConnectionRef( DB_REPLICA );
+		$revisionsCount = MediaWikiServices::getInstance()
+			->getRevisionStore()
+			->countRevisionsByPageId( $dbr, $pageId );
+
+		// If article has at least 5 edits, return
+		if ( $revisionsCount >= 5 ) {
+			return;
+		}
+
+		// If all the above conditions are met, add 'ext.cx.entrypoints.recenttranslation' entrypoint
+		$out->addModules( 'ext.cx.entrypoints.recenttranslation' );
+		// Add Javascript variables for translation source title and source language,
+		// so that they can be used inside UI
+		$out->addJsConfigVars( 'wgSectionTranslationSourceTitle',
+			$translationData['sourceTitle'] );
+		$out->addJsConfigVars( 'wgSectionTranslationSourceLanguage',
+			$translationData['sourceLanguage'] );
+	}
+
+	/**
 	 * Check whether the current user is a potential translator
 	 *
 	 * @param User $user
