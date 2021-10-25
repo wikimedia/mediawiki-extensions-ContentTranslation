@@ -823,14 +823,43 @@
 			]
 		},
 		"ext.cx.entrypoints.recenttranslation": {
-			"scripts": [
-				"entrypoints/ext.cx.entrypoints.recenttranslation/index.js"
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.recenttranslation/index.js",
+				"entrypoints/ext.cx.entrypoints.recenttranslation/RecentTranslationEntrypointDialog.vue"
 			],
-			"messages": [],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.recenttranslation.less"
+			],
+			"messages": [
+				"sx-recent-translation-entrypoint-banner-header",
+				"sx-recent-translation-entrypoint-banner-details",
+				"sx-recent-translation-entrypoint-dialog-header",
+				"sx-recent-translation-entrypoint-dialog-review-switch-text",
+				"sx-recent-translation-entrypoint-dialog-add-section-switch-text",
+				"sx-recent-translation-entrypoint-dialog-review-lead-text",
+				"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header",
+				"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details",
+				"sx-recent-translation-entrypoint-dialog-references-list-item-header",
+				"sx-recent-translation-entrypoint-dialog-references-list-item-details",
+				"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header",
+				"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details",
+				"sx-recent-translation-entrypoint-dialog-edit-button-label",
+				"sx-recent-translation-entrypoint-dialog-original-page-anchor",
+				"sx-recent-translation-entrypoint-dialog-add-sections-lead-text",
+				"sx-recent-translation-entrypoint-dialog-translate-button-label",
+				"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing",
+				"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing",
+				"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing"
+			],
 			"targets": [
 				"mobile"
 			],
-			"dependencies": []
+			"dependencies": [
+				"vue",
+				"mw.cx.SiteMapper",
+				"mw.cx.util",
+				"jquery.uls.data"
+			]
 		},
 		"ext.cx.entrypoints.newarticle": {
 			"scripts": [

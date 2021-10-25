@@ -1,0 +1,45 @@
+@import 'mediawiki.ui/variables';
+
+.sx-recent-translation-entrypoint .sx-recent-translation-banner {
+	background: @colorGray15;
+	margin-bottom: 16px;
+	padding: 8px;
+	cursor: pointer;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 1 auto;
+	flex-wrap: wrap;
+
+	&__icon {
+		background: center / contain no-repeat url( ../images/article-icon.svg );
+		margin-top: 2px;
+
+		[ dir='ltr' ] & {
+			margin-right: 8px;
+		}
+
+		[ dir='rtl' ] & {
+			margin-left: 8px;
+		}
+	}
+
+	&__content {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+
+		&-header {
+			padding: 0;
+			margin-bottom: 4px;
+			font-size: 14px;
+			font-weight: bold;
+			color: @color-primary;
+		}
+
+		&-details {
+			margin: 0;
+			font-size: 14px;
+			color: @colorGray5;
+		}
+	}
+}
