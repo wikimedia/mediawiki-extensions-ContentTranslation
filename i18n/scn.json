@@ -9,10 +9,13 @@
 	"cx-entrypoint-title": "Traduci sta pàggina n $1",
 	"cx-captcha-dialog-cancel": "Annulla",
 	"cx-dashboard-sidebar-stats": "Statìstichi",
+	"cx-stats-cumulative-tab-title": "Tutali",
 	"cx-draft-cancel-button-label": "Annulla",
 	"cx-draft-discard-button-label": "Cancella traduzzioni",
+	"cx-campaign-no-thanks": "No, grazzi",
 	"cx-campaign-contributionsmenu-mycontributions": "Cuntribbuti",
 	"cx-stats-weekly-published": "Ùrtima simana",
 	"cx-contributions-link": "Li tò cuntribbuti",
-	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 erruri|$1 errura}}"
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 erruri|$1 errura}}",
+	"cx-translator-total-translations-label": "Tutali"
 }
