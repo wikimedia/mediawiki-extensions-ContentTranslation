@@ -189,6 +189,7 @@
 	"cx-campaign-try": "コンテンツ翻訳を試します",
 	"cx-campaign-contributionsmenu-mycontributions": "投稿記録",
 	"cx-campaign-contributionsmenu-mytranslations": "翻訳",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "新しい翻訳を追加",
 	"cx-campaign-contributionsmenu-myuploads": "アップロードされたメディア",
 	"cx-no-source-categories": "カテゴリなし",
 	"cx-no-target-categories": "カテゴリが選ばれていません。話題の分類を進めるため、何か付いてください。",

@@ -14,6 +14,7 @@
 	"cx-draft-discard-button-label": "Cancella traduzzioni",
 	"cx-campaign-no-thanks": "No, grazzi",
 	"cx-campaign-contributionsmenu-mycontributions": "Cuntribbuti",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Agghiunci na traduzzioni nova",
 	"cx-stats-weekly-published": "Ùrtima simana",
 	"cx-contributions-link": "Li tò cuntribbuti",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 erruri|$1 errura}}",

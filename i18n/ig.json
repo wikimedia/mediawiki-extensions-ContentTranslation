@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Olugold",
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba"
@@ -83,6 +84,8 @@
 	"cx-campaign-try": "Nwaa ntụgharị ọdịnaya",
 	"cx-campaign-contributionsmenu-mycontributions": "Mmètàrà",
 	"cx-campaign-contributionsmenu-mytranslations": "Ntụgharị",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Tinye ntụgharị asụsụ ọhụrụ",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "ndepụta gị nke ihe ntaakuko ebugoro",
 	"cx-trend-deletions": "Ntụgharị ndị a kagbụrụ",
 	"cx-trend-translations-to": "Ntụgharị ruo $1",
 	"cx-stats-all-translations-title": "Ntụgharị n'asụsụ niile",

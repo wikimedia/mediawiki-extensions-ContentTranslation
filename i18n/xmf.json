@@ -7,6 +7,8 @@
 		]
 	},
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|თანგილი რე}}",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "ახალი თანგუაშ გეძინა",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "თქვან ენახარგა ფაილეფიშ ერკებული",
 	"cx-stats-tabs-expand": "არძო ნინაშ ძირაფა",
 	"cx-stats-total-published": "ედომუშამო გობჟინაფილი",
 	"cx-stats-weekly-published": "ულირ მარა",
