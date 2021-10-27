@@ -37,7 +37,7 @@ describe("vuex store validateMT action", () => {
 
   it("validateMT action with validation score = 99", () => {
     const isValid = actions.validateMT({ rootState, dispatch });
-    expect(dispatch).toHaveBeenCalledTimes(0);
+    expect(dispatch).toHaveBeenCalledTimes(1);
     expect(isValid).toBe(true);
   });
 
@@ -45,7 +45,7 @@ describe("vuex store validateMT action", () => {
     applicationState.currentSourceSection.id = "test1";
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(isValid).toBe(false);
-    expect(dispatch).toHaveBeenCalledTimes(1);
+    expect(dispatch).toHaveBeenCalledTimes(2);
     expect(dispatch).toHaveBeenCalledWith(
       "application/setPublishResult",
       expect.objectContaining({
@@ -67,9 +67,9 @@ describe("vuex store validateMT action", () => {
     applicationState.currentSourceSection.id = "test2";
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(isValid).toBe(false);
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(dispatch).toHaveBeenCalledTimes(3);
     expect(dispatch).toHaveBeenNthCalledWith(
-      2,
+      3,
       "application/setPublishResult",
       expect.objectContaining({
         result: "failure",
@@ -94,6 +94,6 @@ describe("vuex store validateMT action", () => {
     });
     const isValid = actions.validateMT({ rootState, dispatch });
     expect(isValid).toBe(true);
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });

@@ -38,6 +38,8 @@ function validateMT({ rootState, dispatch }) {
   // If machine translation has been modified above threshold percentage
   // this section is valid for publishing
   if (mtValidationStatus === "success") {
+    dispatch("application/resetPublishResult", null, { root: true });
+
     return true;
   }
 
