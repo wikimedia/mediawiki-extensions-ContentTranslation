@@ -1,7 +1,6 @@
 import store from "@/store";
 import router from "@/router";
 import useApplicationState from "@/composables/useApplicationState";
-import { logEvent } from "@/plugins/eventlogging";
 
 /**
  * @param {string} title
@@ -19,11 +18,7 @@ const startSectionTranslation = async (title, eventSource) => {
   store.dispatch("application/initializeSectionTranslation", suggestion);
   router.push({
     name: "sx-translation-confirmer",
-    params: { previousRoute: "sx-article-search" }
-  });
-  logEvent({
-    event_type: "dashboard_translation_start",
-    event_source: eventSource
+    params: { previousRoute: "sx-article-search", eventSource }
   });
 };
 

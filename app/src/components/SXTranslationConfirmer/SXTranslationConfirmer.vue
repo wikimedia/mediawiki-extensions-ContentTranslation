@@ -71,8 +71,15 @@ export default {
       return sourceArticle?.image?.source;
     });
 
+    const { previousRoute, eventSource } = context.root.$route.params;
+
     onMounted(() => {
       store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
+      context.root.$logEvent({
+        event_type: "dashboard_translation_start",
+        event_source: eventSource
+      });
+
       // Start loading VE in background. Don't wait for it though.
       // We anticipate that user is going to use editor in next step.
       loadVEModules();
@@ -82,7 +89,7 @@ export default {
       store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
-      const { previousRoute } = context.root.$route.params;
+
       context.root.$router.push({ name: previousRoute });
     };
 
