@@ -54,8 +54,7 @@ describe("vuex store validateMT action", () => {
         messages: expect.arrayContaining([
           {
             title: expect.any(Object),
-            text: expect.any(Object),
-            suppressed: false
+            text: expect.any(Object)
           }
         ])
       }),
@@ -77,23 +76,11 @@ describe("vuex store validateMT action", () => {
         messages: expect.arrayContaining([
           {
             title: expect.any(Object),
-            text: expect.any(Object),
-            suppressed: false
+            text: expect.any(Object)
           }
         ])
       }),
       { root: true }
     );
-  });
-
-  it("validateMT action with validation score = 10 and suppressed warnings", async () => {
-    applicationState.currentSourceSection.id = "test1";
-    applicationState.currentPublishResult = new PublishResult({
-      result: "warning",
-      messages: [new PublishFeedbackMessage({ suppressed: true })]
-    });
-    const isValid = actions.validateMT({ rootState, dispatch });
-    expect(isValid).toBe(true);
-    expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });

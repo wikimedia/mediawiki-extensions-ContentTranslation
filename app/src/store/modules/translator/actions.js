@@ -8,8 +8,7 @@ import PublishResult from "../../../wiki/cx/models/publishResult";
  * for Machine Translation abuse, using mtValidator module, and
  * returns a boolean indicating whether this section is valid for
  * translation or not.
- * If validation status is "success", or validation status is "warning"
- * and existing warnings have been suppressed then true is returned.
+ * If validation status is "success", then true is returned.
  * If else, currentPublishResult is updated accordingly and false is returned
  *
  * @param {object} context
@@ -43,39 +42,22 @@ function validateMT({ rootState, dispatch }) {
     return true;
   }
 
-  // if user has already tried to publish, then currentPublishResult holds
-  // information about user suppressing warning messages.
-  // NOTE: This implementation may change once a more sophisticated approach
-  // regarding publish warnings is followed
-  const existingPublishResult = rootState.application.currentPublishResult;
-  // If user has already suppressed MT warnings,
-  // then this section is valid for publishing
-  const bypassUserWarnings =
-    mtValidationStatus === "warning" &&
-    existingPublishResult.hasSuppressedWarnings;
+  // If validation status is "failure" or "warning" and warnings, then update
+  // currentPublishResult with related warnings/errors and return false
+  const unmodifiedPercentage = 100 - mtValidationScore;
+  const title = mw.message(
+    "cx-sx-publisher-mt-abuse-message-title",
+    unmodifiedPercentage
+  );
+  const text = mw.message("cx-sx-publisher-mt-abuse-message-body");
+  const message = new PublishFeedbackMessage({ title, text });
+  const result = new PublishResult({
+    result: mtValidationStatus,
+    messages: [message]
+  });
+  dispatch("application/setPublishResult", result, { root: true });
 
-  // If validation status is "failure" or "warning" and warnings have not
-  // been suppressed by the user, then update currentPublishResult with
-  // related warnings/errors and return false, as this section is not valid
-  // for publishing
-  if (!bypassUserWarnings) {
-    const unmodifiedPercentage = 100 - mtValidationScore;
-    const title = mw.message(
-      "cx-sx-publisher-mt-abuse-message-title",
-      unmodifiedPercentage
-    );
-    const text = mw.message("cx-sx-publisher-mt-abuse-message-body");
-    const message = new PublishFeedbackMessage({ title, text });
-    const result = new PublishResult({
-      result: mtValidationStatus,
-      messages: [message]
-    });
-    dispatch("application/setPublishResult", result, { root: true });
-
-    return false;
-  }
-
-  return true;
+  return false;
 }
 
 /**

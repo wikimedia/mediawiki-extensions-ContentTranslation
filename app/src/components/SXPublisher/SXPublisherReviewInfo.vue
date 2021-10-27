@@ -26,14 +26,6 @@
               href="#"
             />
           </mw-col>
-          <mw-col v-if="publishResult.isWarning" shrink>
-            <mw-button
-              class="sx-publisher__review-info__suppress-warning-button"
-              type="icon"
-              :icon="mwIconCheck"
-              @click="suppressWarning"
-            />
-          </mw-col>
         </mw-row>
       </template>
     </div>
@@ -70,10 +62,8 @@ export default {
 
     // Currently activeMessage doesn't change. Introduced so that we can
     // easily implement message navigation
-    const activeMessage = computed(() =>
-      publishResult.value.getUnsuppressedMessageByIndex(
-        activeMessageIndex.value
-      )
+    const activeMessage = computed(
+      () => publishResult.value?.messages?.[activeMessageIndex.value]
     );
 
     const status = computed(() => publishResult.value.reviewInfoStatus);
@@ -104,13 +94,6 @@ export default {
         context.root.$i18n("cx-sx-publisher-review-info-error")
     );
 
-    const suppressWarning = () => {
-      if (!activeMessage.value) {
-        return;
-      }
-      activeMessage.value.suppressed = true;
-    };
-
     return {
       isMessageInline,
       messageText,
@@ -123,8 +106,7 @@ export default {
       reviewIcon,
       reviewInfoClass,
       publishResult,
-      status,
-      suppressWarning
+      status
     };
   }
 };
@@ -139,11 +121,6 @@ export default {
     border-bottom: @border-width-base @border-style-base @border-color-heading;
     &__content {
       font-weight: normal;
-      .sx-publisher__review-info__suppress-warning-button {
-        .mw-ui-icon {
-          color: @color-primary;
-        }
-      }
     }
     &__learn-more-anchor {
       font-weight: @font-weight-bold;

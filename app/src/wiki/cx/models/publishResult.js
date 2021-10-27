@@ -4,7 +4,7 @@ export default class PublishResult {
   /**
    * @param {Object} options
    * @param {string} options.result
-   * @param {{text: string, title: string, suppressed: boolean}[]} [options.messages]
+   * @param {{text: string, title: string}[]} [options.messages]
    * @param {string} [options.status]
    */
   constructor(
@@ -36,46 +36,15 @@ export default class PublishResult {
   }
 
   /**
-   * @return {boolean}
-   */
-  get hasSuppressedWarnings() {
-    return this.isWarning && this.messages.every(message => message.suppressed);
-  }
-
-  /**
-   * @return {PublishFeedbackMessage[]}
-   */
-  get activeMessages() {
-    return this.messages.filter(message => !message.suppressed);
-  }
-
-  /**
-   * @return {boolean}
-   */
-  get hasActiveMessages() {
-    return this.activeMessages.length > 0;
-  }
-
-  /**
    * @return {string}
    */
   get reviewInfoStatus() {
-    if (this.isSuccessful || (this.isWarning && !this.hasActiveMessages)) {
+    if (this.isSuccessful) {
       return "default";
-    }
-
-    if (this.isWarning) {
+    } else if (this.isWarning) {
       return "warning";
+    } else {
+      return "error";
     }
-
-    return "error";
-  }
-
-  /**
-   * @param {number} index
-   * @return {string|null}
-   */
-  getUnsuppressedMessageByIndex(index) {
-    return this.messages.filter(message => !message.suppressed)?.[index];
   }
 }

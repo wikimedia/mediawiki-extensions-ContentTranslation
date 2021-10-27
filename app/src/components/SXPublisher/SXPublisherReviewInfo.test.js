@@ -72,13 +72,4 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.vm.messageTitle).toBe("Warning title");
     expect(wrapper.vm.messageText).toBe("Warning text");
   });
-
-  it("Warning is suppressed when check button clicked", async () => {
-    const checkButtonWrapper = wrapper.find(
-      ".sx-publisher__review-info__suppress-warning-button"
-    );
-    checkButtonWrapper.trigger("click");
-    await wrapper.vm.$nextTick();
-    expect(wrapper.vm.activeMessage).toBe(undefined);
-  });
 });

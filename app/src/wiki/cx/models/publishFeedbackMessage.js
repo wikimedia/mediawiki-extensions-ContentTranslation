@@ -11,11 +11,9 @@ export default class PublishFeedbackMessage {
    * @param {Object} options
    * @param {string} [options.text]
    * @param {string} [options.title]
-   * @param {boolean} [options.suppressed]
    */
-  constructor({ text = null, title = null, suppressed = false }) {
+  constructor({ text = null, title = null }) {
     this.text = text;
     this.title = title;
-    this.suppressed = suppressed;
   }
 }
