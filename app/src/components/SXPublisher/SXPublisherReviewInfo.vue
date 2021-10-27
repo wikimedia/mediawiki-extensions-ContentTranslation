@@ -26,6 +26,24 @@
               href="#"
             />
           </mw-col>
+          <mw-col
+            v-if="publishFeedbackMessages.length > 1"
+            class="sx-publisher__review-info__navigation-buttons justify-end"
+            align="center"
+          >
+            <mw-button
+              class="pa-0 pe-1"
+              type="icon"
+              :icon="mwIconPrevious"
+              @click="goToPreviousMessage"
+            />
+            <mw-button
+              class="pa-0 ps-1"
+              type="icon"
+              :icon="mwIconArrowForward"
+              @click="goToNextMessage"
+            />
+          </mw-col>
         </mw-row>
       </template>
     </div>
@@ -33,12 +51,13 @@
 </template>
 
 <script>
-import { MwIcon, MwMessage } from "@/lib/mediawiki.ui";
+import { MwIcon, MwMessage, MwButton } from "@/lib/mediawiki.ui";
 import {
   mwIconEye,
   mwIconAlert,
   mwIconBlock,
-  mwIconCheck
+  mwIconPrevious,
+  mwIconArrowForward
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
 import { computed, ref } from "@vue/composition-api";
@@ -46,6 +65,7 @@ import { computed, ref } from "@vue/composition-api";
 export default {
   name: "SxPublisherReviewInfo",
   components: {
+    MwButton,
     MwCol,
     MwRow,
     MwMessage,
@@ -91,15 +111,29 @@ export default {
         context.root.$i18n("cx-sx-publisher-review-info-error")
     );
 
+    const goToPreviousMessage = () => {
+      const messagesLength = publishFeedbackMessages.value.length;
+      activeMessageIndex.value =
+        (activeMessageIndex.value - 1 + messagesLength) % messagesLength;
+    };
+
+    const goToNextMessage = () => {
+      activeMessageIndex.value =
+        (activeMessageIndex.value + 1) % publishFeedbackMessages.value.length;
+    };
+
     return {
+      goToNextMessage,
+      goToPreviousMessage,
       isMessageInline,
       messageText,
       messageTitle,
       messageType,
-      mwIconEye,
       mwIconAlert,
+      mwIconArrowForward,
       mwIconBlock,
-      mwIconCheck,
+      mwIconEye,
+      mwIconPrevious,
       reviewIcon,
       reviewInfoClass,
       publishFeedbackMessages,

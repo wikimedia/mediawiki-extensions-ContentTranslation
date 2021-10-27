@@ -78,4 +78,19 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.vm.messageTitle).toBe("Warning title");
     expect(wrapper.vm.messageText).toBe("Warning text");
   });
+
+  it("should navigate to previous message when previous button clicked", async () => {
+    store.state.application.publishFeedbackMessages = [
+      new PublishFeedbackMessage({ title: "1", status: "error" }),
+      new PublishFeedbackMessage({ title: "2", status: "warning" }),
+      new PublishFeedbackMessage({ title: "3", status: "warning" })
+    ];
+    await wrapper.vm.$nextTick();
+    const previousButtonWrapper = wrapper.find(
+      ".sx-publisher__review-info__navigation-buttons > .mw-ui-button"
+    );
+    previousButtonWrapper.trigger("click");
+    await wrapper.vm.$nextTick();
+    expect(wrapper.vm.messageTitle).toBe("3");
+  });
 });
