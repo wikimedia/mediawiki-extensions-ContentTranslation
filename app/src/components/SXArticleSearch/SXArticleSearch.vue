@@ -96,7 +96,7 @@ import { ref, onMounted, computed, watch } from "@vue/composition-api";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
-import initializeDashboard from "@/composables/useDashboardInitialization";
+import initializeLanguages from "@/composables/useLanguageInitialization";
 
 export default {
   name: "SxArticleSearch",
@@ -165,8 +165,9 @@ export default {
     );
     const router = context.root.$router;
 
-    onMounted(() => {
-      initializeDashboard(router);
+    onMounted(async () => {
+      await initializeLanguages();
+      store.dispatch("translator/fetchTranslations");
 
       try {
         previousLanguages.value.push(
