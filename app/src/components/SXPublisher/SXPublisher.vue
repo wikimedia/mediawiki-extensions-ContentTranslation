@@ -51,7 +51,7 @@ import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import { computed } from "@vue/composition-api";
+import { computed, onMounted } from "@vue/composition-api";
 import usePublishTranslation from "./usePublishTranslation";
 import useApplicationState from "@/composables/useApplicationState";
 
@@ -83,6 +83,8 @@ export default {
             "cx-sx-publisher-publish-panel-sandbox-section-result"
           )
     );
+
+    onMounted(() => context.root.$store.dispatch("translator/validateMT"));
 
     const editTranslation = () => {
       const router = context.root.$router;
