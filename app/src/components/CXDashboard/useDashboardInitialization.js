@@ -1,38 +1,29 @@
 import store from "@/store";
 import initializeLanguages from "@/composables/useLanguageInitialization";
-import useApplicationState from "@/composables/useApplicationState";
+import startSectionTranslation from "@/composables/useSectionTranslationStart";
 
 /**
- * @return {Promise<SectionSuggestion|null>}
+ * @return {string|null}
  */
-const loadSectionSuggestionFromUrl = async () => {
+const getPageTitleFromUrl = () => {
   const urlParams = new URLSearchParams(location.search);
   const isSectionTranslation = urlParams.get("sx");
   const sourceTitle = urlParams.get("page");
-  const { sourceLanguage, targetLanguage } = useApplicationState();
 
   if (!isSectionTranslation || !sourceTitle) {
     return null;
   }
 
-  return await store.dispatch("suggestions/loadSectionSuggestion", {
-    sourceLanguage: sourceLanguage.value,
-    targetLanguage: targetLanguage.value,
-    sourceTitle
-  });
+  return sourceTitle;
 };
 
-const initializeDashboard = async router => {
+const initializeDashboard = async () => {
   await initializeLanguages();
-  /** @type {SectionSuggestion|null} */
-  const suggestion = await loadSectionSuggestionFromUrl();
 
-  if (suggestion) {
-    store.dispatch("application/initializeSectionTranslation", suggestion);
-    router.push({
-      name: "sx-translation-confirmer",
-      params: { previousRoute: "dashboard" }
-    });
+  const pageTitle = getPageTitleFromUrl();
+
+  if (pageTitle) {
+    startSectionTranslation(pageTitle, "dashboard", "direct_preselect");
 
     return;
   }

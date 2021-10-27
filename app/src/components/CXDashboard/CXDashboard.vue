@@ -127,7 +127,7 @@ export default {
 
     watch(active, () => window.scrollTo(0, 0));
 
-    initializeDashboard(router);
+    initializeDashboard();
 
     return {
       active,
