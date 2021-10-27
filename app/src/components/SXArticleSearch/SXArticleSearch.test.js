@@ -5,8 +5,11 @@ import VueBananaI18n from "vue-banana-i18n";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import CompositionApi, { computed as mockComputed } from "@vue/composition-api";
 import { BreakpointsPlugin } from "@/lib/mediawiki.ui/plugins";
-import mockStore from "@/store";
+import mockStore from "./articleSearchMockStore";
 import router from "@/router";
+import { startRecentlyEditedSectionTranslation } from "./usePageTranslationStart";
+
+import Page from "@/wiki/mw/models/page";
 const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(Vuex);
@@ -33,6 +36,14 @@ Object.defineProperty(window, "matchMedia", {
 jest.mock("@/wiki/mw/api/page", () => {
   return {
     searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults))
+  };
+});
+
+jest.mock("./usePageTranslationStart", () => {
+  return {
+    startRecentlyEditedSectionTranslation: jest.fn(),
+    startNearbySectionTranslation: jest.fn(),
+    startSearchResultSectionTranslation: jest.fn()
   };
 });
 
@@ -84,28 +95,18 @@ describe("SXArticleSearch component test", () => {
     ]);
   });
 
-  it("should dispatch startSectionTranslation action when suggestion-clicked event is emitted", async () => {
+  it("should execute startRecentlyEditedSectionTranslation method when suggestion-clicked event is emitted on a recently edited suggestion", async () => {
     const suggestionsCard = wrapper.find(".sx-article-search__suggestions");
     const suggestionWrapper = wrapper.find(".cx-search-suggestion");
 
     await suggestionWrapper.trigger("click");
     expect(suggestionsCard.emitted("suggestion-clicked")).toBeTruthy();
-    expect(mockStore.dispatch).toHaveBeenNthCalledWith(
-      4,
-      "suggestions/loadSectionSuggestion",
-      {
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle: "Test page1"
-      }
-    );
-    expect(mockStore.dispatch).toHaveBeenNthCalledWith(
-      5,
-      "application/initializeSectionTranslation",
-      new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle: "Test page1"
+    expect(startRecentlyEditedSectionTranslation).toHaveBeenCalledWith(
+      new Page({
+        thumbnail: { source: "/thumbnail1.jpg" },
+        title: "Test page1",
+        description: "Test description1",
+        langLinksCount: 5
       })
     );
   });

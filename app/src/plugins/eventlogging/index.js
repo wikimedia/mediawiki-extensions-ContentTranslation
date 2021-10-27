@@ -124,3 +124,5 @@ const EventLogging = {
 };
 
 export default EventLogging;
+
+export { logEvent };

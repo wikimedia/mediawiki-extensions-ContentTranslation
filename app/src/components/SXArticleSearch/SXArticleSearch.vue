@@ -97,6 +97,11 @@ import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
 import initializeLanguages from "@/composables/useLanguageInitialization";
+import {
+  startRecentlyEditedSectionTranslation,
+  startNearbySectionTranslation,
+  startSearchResultSectionTranslation
+} from "./usePageTranslationStart";
 
 export default {
   name: "SxArticleSearch",
@@ -201,51 +206,6 @@ export default {
         context.root.$logEvent({ event_type: "dashboard_search" });
       }
     });
-
-    /**
-     * @param {Page} suggestedPage
-     * @return {Promise<void>}
-     */
-    const startSectionTranslation = async suggestedPage => {
-      const suggestion = await store.dispatch(
-        "suggestions/loadSectionSuggestion",
-        {
-          sourceLanguage: sourceLanguage.value,
-          targetLanguage: targetLanguage.value,
-          sourceTitle: suggestedPage.title
-        }
-      );
-
-      store.dispatch("application/initializeSectionTranslation", suggestion);
-      router.push({
-        name: "sx-translation-confirmer",
-        params: { previousRoute: "sx-article-search" }
-      });
-    };
-
-    const startRecentlyEditedSectionTranslation = suggestedPage => {
-      startSectionTranslation(suggestedPage);
-      context.root.$logEvent({
-        event_type: "dashboard_translation_start",
-        event_source: "suggestion_recent_edit"
-      });
-    };
-
-    const startNearbySectionTranslation = suggestedPage => {
-      startSectionTranslation(suggestedPage);
-      context.root.$logEvent({
-        event_type: "dashboard_translation_start",
-        event_source: "suggestion_nearby"
-      });
-    };
-
-    const startSearchResultSectionTranslation = suggestedPage => {
-      startSectionTranslation(suggestedPage);
-      context.root.$logEvent({
-        event_type: "dashboard_translation_start",
-        event_source: "search_result"
-      });
-    };
 
     const onSourceLanguageDialogClose = () => {
       sourceLanguageSelectOn.value = false;
