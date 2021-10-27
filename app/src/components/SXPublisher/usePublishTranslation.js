@@ -19,7 +19,7 @@ const handlePublishResult = isPublishDialogActive => {
 
   const translatedTitle = currentSourceSection?.title;
 
-  if (!publishResult.isSuccessful) {
+  if (!publishResult.value.isSuccessful) {
     isPublishDialogActive.value = false;
 
     return;
@@ -53,7 +53,7 @@ const usePublishTranslation = () => {
     isPublishDialogActive.value = true;
     await store.dispatch("translator/publishTranslation");
 
-    publishStatus.value = publishResult.result;
+    publishStatus.value = publishResult.value.result;
     /**
      * Show feedback animation to user for 1 second
      * before handling the publishing result
