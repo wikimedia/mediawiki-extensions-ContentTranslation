@@ -50,7 +50,7 @@ describe("vuex store publishTranslation action", () => {
     getCleanHTMLForPublishing: "<div>Test</div>"
   };
 
-  it("publishTranslation with valid section (no MT abuse)", async () => {
+  it("publishTranslation with valid section", async () => {
     applicationState.currentSourceSection.translatedTitle =
       "test translated section title";
     await actions.publishTranslation({
@@ -60,10 +60,9 @@ describe("vuex store publishTranslation action", () => {
       getters
     });
 
-    expect(dispatch).toHaveBeenCalledTimes(2);
-    expect(dispatch).toHaveBeenNthCalledWith(1, "validateMT");
+    expect(dispatch).toHaveBeenCalledTimes(1);
     expect(dispatch).toHaveBeenNthCalledWith(
-      2,
+      1,
       "application/setPublishResult",
       mockPublishResult,
       { root: true }
@@ -81,18 +80,6 @@ describe("vuex store publishTranslation action", () => {
       revision: 77,
       sectionNumber: 4
     });
-  });
-
-  it("publishTranslation with MT abuse", async () => {
-    mockValidMT = false;
-    await actions.publishTranslation({
-      rootState,
-      dispatch,
-      rootGetters,
-      getters
-    });
-    expect(dispatch).toHaveBeenCalledTimes(3);
-    expect(dispatch).toHaveBeenNthCalledWith(3, "validateMT");
   });
 
   it("publishTranslation without current section suggestion throws error", async () => {

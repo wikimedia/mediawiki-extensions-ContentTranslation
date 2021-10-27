@@ -99,16 +99,6 @@ async function publishTranslation({
   rootGetters,
   getters
 }) {
-  /**
-   * Validate currentSourceSection against MT abuse
-   * @type {boolean}
-   */
-  const isValid = await dispatch("validateMT");
-
-  if (!isValid) {
-    return;
-  }
-
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
