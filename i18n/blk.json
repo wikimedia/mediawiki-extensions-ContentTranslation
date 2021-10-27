@@ -1,21 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
+			"Khun Kt",
 			"咽頭べさ"
 		]
 	},
 	"cx": "ပြန်ႏလိတ်မဲ့ငါဘာႏသာႏ",
 	"cx-dashboard-header": "ဘာႏသာႏပြန်ႏဖုံႏ",
-	"cx-javascript": "ကိရိယာႏယိုနဝ်ꩻ JavaScript မိဉ်ႏအဝ်ႏတဝ်း အမာꩻတဝ်းထာꩻမာꩻသွူ။ ပေ့ꩻခါꩻ JavaScript တဝ်းလဲ့ ဗရောင်သာ စွဲးကမ်းမုꩻ မိဉ်ႏအဝ်ႏတဝ်းလဲ့ အမာꩻတဝ်းထာꩻမာꩻနေနေသွူ။",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] နဝ်ꩻ နာꩻဘာႏသာႏငဝ်းငွါ တဝ်းလဲ့ လိတ်မဲ့ငါဖုံႏယို အမွိုင်တဗာႏ ပြန်ႏဖေႏဒါႏဘာႏသာႏ ကိရိယာႏ။ [$1 တဗာႏဒျာႏသွူ]",
-	"cx-license-agreement": "ခွုမ်မာꩻသွုပ်ထဲင်းယင်းတဲင် နာꩻနဝ်ꩻ သꩻဖော်ꩻတူႏထွူ ကေားသွုံꩻသား [https://foundation.wikimedia.org/wiki/Terms_of_Use အွဉ်ႏထွော့ချက်ဖုံႏ]နဝ်ꩻသွူ၊ တွမ်ႏဘာႏသာႏပြန်ႏကိရိယာႏတဲင် နာꩻစွဲးကမ်းမုꩻဖုံႏယို အွဉ်ႏနယ် [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 လုဲင်သိဉ်]ဆꩻလ့တာႏ သꩻဖော်ꩻတူႏထွူ hyperlink တဝ်းလဲ့ URL နဝ်ꩻ  CC BY-SA 3.0 attribution တာႏ လိုမ်းကိုမ်ႏဒျာႏကရိုꩻနဝ်ꩻ သေနာႏထွူခါ သꩻဖော်ꩻတူႏဒျာႏ  [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] နဝ်ꩻသွူ။",
+	"cx-javascript": "ကိရိယာႏယိုနဝ်ꩻ JavaScript မိဉ်ႏအဝ်ႏတဝ်း အမာꩻတဝ်းထာꩻမာꩻသွူ။ ပေ့ꩻခါꩻ JavaScript မွေးတဝ်းလဲ့ ဗရောင်သာ စွဲးကမ်းမုꩻ မိဉ်ႏအဝ်ႏတဝ်းလဲ့ အမာꩻတဝ်းထာꩻမာꩻနေနေသွူ။",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] နဝ်ꩻ အဝ်ႏလိတ်မဲ့ငါဖုံႏယို အမွိုင်တဗာႏ ပြန်ႏလွေꩻဖေႏဒါႏဘာႏသာႏ နာꩻဘာႏသာႏငဝ်းငွါကို ကိရိယာႏတဗာႏဒျာႏသွူ။ [$1 စမ်ꩻစိမ်ꩻခန်းယိုခါလုဲင်း!]",
+	"cx-license-agreement": "ခွုမ်မာꩻသွုပ်ထဲင်းယင်းတဲင် နာꩻနဝ်ꩻ သꩻဖော်ꩻတူႏထွူ ကေားသွုံꩻသား [https://foundation.wikimedia.org/wiki/Terms_of_Use အွဉ်ႏထွော့ချက်ဖုံႏ]နဝ်ꩻသွူ၊ တွမ်ႏဘာႏသာႏပြန်ႏကိရိယာႏတဲင် နာꩻစွဲးကမ်းမုꩻဖုံႏယို အွဉ်ႏနယ် [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 လုဲင်သိဉ်]ဆꩻလ့တာႏ သꩻဖော်ꩻတူႏထွူ hyperlink မွေးတဝ်းလဲ့ URL နဝ်ꩻ  CC BY-SA 3.0 attribution တာႏ လိုမ်းကိုမ်ႏဒျာႏကရိုꩻနဝ်ꩻ သေနာႏထွူခါ သꩻဖော်ꩻတူႏဒျာႏ  [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] နဝ်ꩻသွူ။",
 	"cx-error-server-connection": "အမာႏ: ဆွိုက်နွောင်ꩻတဝ်း သာဗာ။",
 	"cx-desc": "အကျောင်ꩻခရာႏ လိတ်မဲ့ငါဖုံႏယို ချာႏပြန်ႏအီ [[Special:ContentTranslation|ဘာႏသာႏတာႏ]] ယိုꩻအီနဝ်ꩻသွူ။",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1| ပြန်ႏလဲဉ်းဘာႏသာႏ}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|အဝ်ႏစက်ဘာႏသာႏပြန်ႏမုꩻ}})",
 	"cx-header-translation-center": "ဘာႏသာႏပြန်ႏ ခင်ႏလမ်း",
-	"cx-header-all-translations": "ဘာႏသာႏပြန်ႏမုꩻကားကအဝ်ႏ",
-	"cx-source-view-page": "ထွားလိတ်မဲ့ငါတာႏ",
+	"cx-header-all-translations": "ဘာႏသာႏပြန်ႏကားကအဝ်ႏ",
+	"cx-source-view-page": "ထွားလိတ်မဲ့ငါ",
 	"cx-publish-page-success": "ဒင်ႏထင်ႏလိတ်မဲ့ငါ $1 ကို",
 	"cx-publish-error-empty": "အဝ်ႏသာဗာ ပြန်ႏနွောင်ꩻတဝ်းဒေတာ",
 	"cx-publish-error-readonly": "ဝီခီကို တဲမ်းသော့ꩻမုꩻဖုံႏ ဖေႏခွင်ꩻတဝ်း။",
