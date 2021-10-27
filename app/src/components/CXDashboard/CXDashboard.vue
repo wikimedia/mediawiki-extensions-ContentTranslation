@@ -113,12 +113,6 @@ export default {
       if (isSectionTranslation) {
         active.value = "suggestions";
       }
-
-      context.root.$logEvent({
-        event_type: "dashboard_open",
-        event_source: "direct",
-        content_translation_session_position: 0
-      });
     });
 
     const router = context.root.$router;

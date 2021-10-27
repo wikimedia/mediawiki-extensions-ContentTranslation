@@ -1,6 +1,7 @@
 import store from "@/store";
+import { logEvent } from "@/plugins/eventlogging";
 import initializeLanguages from "@/composables/useLanguageInitialization";
-import startSectionTranslation from "@/composables/useSectionTranslationStart";
+import startSectionTranslationFromUrl from "./useUrlTranslationStart";
 
 /**
  * @return {string|null}
@@ -23,10 +24,15 @@ const initializeDashboard = async () => {
   const pageTitle = getPageTitleFromUrl();
 
   if (pageTitle) {
-    startSectionTranslation(pageTitle, "dashboard", "direct_preselect");
+    startSectionTranslationFromUrl(pageTitle);
 
     return;
   }
+  logEvent({
+    event_type: "dashboard_open",
+    event_source: source,
+    content_translation_session_position: 0
+  });
 
   await store.dispatch("suggestions/fetchFavorites");
   await store.dispatch("translator/fetchTranslations");
