@@ -59,7 +59,7 @@ import {
   mwIconEdit
 } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
-import initializeDashboard from "@/composables/useDashboardInitialization";
+import initializeDashboard from "./useDashboardInitialization";
 
 export default {
   name: "CxDashboard",
