@@ -152,5 +152,7 @@ export default {
     getters.getCurrentPageSuggestions.slice(
       rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
       rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
-    )
+    ),
+  isPublishingDisabled: state =>
+    state.publishFeedbackMessages.some(message => message.isError)
 };

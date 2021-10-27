@@ -55,17 +55,15 @@ export default {
     const store = context.root.$store;
 
     const activeMessageIndex = ref(0);
-    const publishResult = computed(
-      () => store.state.application.currentPublishResult
+    const publishFeedbackMessages = computed(
+      () => store.state.application.publishFeedbackMessages
     );
 
-    // Currently activeMessage doesn't change. Introduced so that we can
-    // easily implement message navigation
     const activeMessage = computed(
-      () => publishResult.value?.messages?.[activeMessageIndex.value]
+      () => publishFeedbackMessages.value?.[activeMessageIndex.value]
     );
 
-    const status = computed(() => publishResult.value.reviewInfoStatus);
+    const status = computed(() => activeMessage.value?.status || "default");
 
     const reviewIcon = computed(() => {
       switch (status.value) {
@@ -104,7 +102,7 @@ export default {
       mwIconCheck,
       reviewIcon,
       reviewInfoClass,
-      publishResult,
+      publishFeedbackMessages,
       status
     };
   }

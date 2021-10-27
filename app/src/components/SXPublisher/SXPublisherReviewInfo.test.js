@@ -1,6 +1,6 @@
 import SXPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { mount, createLocalVue } from "@vue/test-utils";
-import PublishResult from "@/wiki/cx/models/publishResult";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import Vuex from "vuex";
 import VueBananaI18n from "vue-banana-i18n";
 import CompositionApi from "@vue/composition-api";
@@ -17,13 +17,11 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 
 describe("SXPublisher review info panel test", () => {
-  const publishResult = new PublishResult();
-  const state = { currentPublishResult: publishResult };
   const store = new Vuex.Store({
     modules: {
       application: {
         namespaced: true,
-        state
+        state: { publishFeedbackMessages: [] }
       }
     }
   });
@@ -43,17 +41,21 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Computed props are calculated correctly for default status", () => {
+  it("should compute status, reviewIcon and messageType correctly when no publishFeedbackMessages exist", () => {
     expect(wrapper.vm.status).toStrictEqual("default");
     expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconEye);
     expect(wrapper.vm.messageType).toBe("notice");
   });
 
-  it("Computed props are calculated correctly for error status", () => {
-    state.currentPublishResult = new PublishResult({
-      result: "failure",
-      messages: [{ title: "Error title", text: "Error text" }]
-    });
+  it(`should compute status, reviewIcon, messageType, messageTitle and messageText correctly when
+   the active message is an error`, () => {
+    store.state.application.publishFeedbackMessages = [
+      new PublishFeedbackMessage({
+        title: "Error title",
+        text: "Error text",
+        status: "error"
+      })
+    ];
     expect(wrapper.vm.status).toStrictEqual("error");
     expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconBlock);
     expect(wrapper.vm.messageType).toBe("error");
@@ -61,11 +63,15 @@ describe("SXPublisher review info panel test", () => {
     expect(wrapper.vm.messageText).toBe("Error text");
   });
 
-  it("Computed props are calculated correctly for warning status", () => {
-    state.currentPublishResult = new PublishResult({
-      result: "warning",
-      messages: [{ title: "Warning title", text: "Warning text" }]
-    });
+  it(`should compute status, reviewIcon, messageType, messageTitle and messageText correctly when
+   the active message is a warning`, () => {
+    store.state.application.publishFeedbackMessages = [
+      new PublishFeedbackMessage({
+        title: "Warning title",
+        text: "Warning text",
+        status: "warning"
+      })
+    ];
     expect(wrapper.vm.status).toStrictEqual("warning");
     expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconAlert);
     expect(wrapper.vm.messageType).toBe("warning");

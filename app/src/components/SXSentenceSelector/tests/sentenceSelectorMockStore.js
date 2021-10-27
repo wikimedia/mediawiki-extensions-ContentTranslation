@@ -20,6 +20,9 @@ const applicationModule = {
     }),
     currentSourceSection: { subSections }
   },
+  mutations: {
+    clearPublishFeedbackMessages: () => {}
+  },
   getters: {
     getCurrentSelectedSentence: () => new SectionSentence(),
     isSelectedSegmentTranslated: () => false

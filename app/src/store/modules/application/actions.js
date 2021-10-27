@@ -542,18 +542,6 @@ function clearCurrentSectionSuggestion({ commit }) {
   commit("setCurrentSectionSuggestion", null);
 }
 
-/**
- * @param commit
- * @param {PublishResult} result
- */
-function setPublishResult({ commit }, result) {
-  commit("setPublishResult", result);
-}
-
-function resetPublishResult({ commit }) {
-  commit("resetPublishResult");
-}
-
 export default {
   applyEditedTranslationToSelectedSegment,
   applyProposedTranslationToSelectedSegment,
@@ -563,14 +551,12 @@ export default {
   getCXServerToken,
   initializeMTProviders,
   initializeSectionTranslation,
-  resetPublishResult,
   selectNextSentence,
   selectPageSectionByTitle,
   selectPageSectionByIndex,
   selectPreviousSegment,
   selectSectionTitleForTranslation,
   selectSentenceForCurrentSection,
-  setPublishResult,
   startFavoriteSectionTranslation,
   translateFollowingSentence,
   translateSectionTitle,

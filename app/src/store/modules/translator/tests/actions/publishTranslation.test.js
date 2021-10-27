@@ -1,33 +1,41 @@
 import actions from "../../actions";
-import PageSection from "../../../../../wiki/cx/models/pageSection";
-import PublishResult from "../../../../../wiki/cx/models/publishResult";
-import cxTranslatorApi from "../../../../../wiki/cx/api/translator";
-import Page from "../../../../../wiki/mw/models/page";
-import SectionSuggestion from "../../../../../wiki/cx/models/sectionSuggestion";
+import PageSection from "@/wiki/cx/models/pageSection";
+import cxTranslatorApi from "@/wiki/cx/api/translator";
+import Page from "@/wiki/mw/models/page";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import applicationMutations from "@/store/modules/application/mutations";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
-const mockPublishResult = new PublishResult();
-jest.mock("../../../../../wiki/cx/api/translator", () => {
-  return {
-    publishTranslation: jest.fn(() => mockPublishResult)
-  };
+const mockMessage = new PublishFeedbackMessage({
+  text: "Test error",
+  status: "error"
 });
 
+jest.mock("@/wiki/cx/api/translator", () => ({
+  publishTranslation: jest.fn(({ sectionNumber }) => {
+    if (sectionNumber === 1) {
+      return null;
+    } else if (sectionNumber === 2) {
+      return mockMessage;
+    }
+  })
+}));
+
 describe("vuex store publishTranslation action", () => {
-  let mockValidMT = true;
-  const mockActions = {
-    validateMT: jest.fn(() => mockValidMT),
-    "application/setPublishResult": jest.fn()
-  };
-  const dispatch = jest.fn(action => mockActions[action]());
+  const commit = jest.fn((mutation, payload) => {
+    if (mutation === "application/addPublishFeedbackMessage") {
+      applicationMutations.addPublishFeedbackMessage(applicationState, payload);
+    }
+  });
 
   const applicationState = {
     sourceLanguage: "en",
     targetLanguage: "es",
-    currentSourceSection: new PageSection({ title: "test section title" }),
+    currentSourceSection: new PageSection({ title: "Test section title 1" }),
     currentSectionSuggestion: new SectionSuggestion({
-      sourceTitle: "test source title"
+      sourceTitle: "Test source title 1"
     }),
-    publishTarget: "NEW_SECTION"
+    publishFeedbackMessages: []
   };
 
   const rootState = {
@@ -35,60 +43,80 @@ describe("vuex store publishTranslation action", () => {
   };
 
   const rootGetters = {
-    "application/getCurrentPage": new Page({
-      title: "test source page",
-      lastrevid: 77
-    }),
-    "application/getCurrentTargetPage": new Page(),
-    "suggestions/getFirstAppendixTitleBySectionSuggestion": () => "Notas"
+    "application/getCurrentPage": new Page({ lastrevid: 11 })
   };
 
   const getters = {
-    getArticleTitleForPublishing: "Test target article title",
-    getSectionTitleForPublishing: "Test target section title",
-    getSectionNumberForPublishing: 4,
-    getCleanHTMLForPublishing: "<div>Test</div>"
+    getArticleTitleForPublishing: "Test target article title 1",
+    getSectionTitleForPublishing: "Test target section title 1",
+    getSectionNumberForPublishing: 1,
+    getCleanHTMLForPublishing: "<div>Test 1</div>"
   };
 
-  it("publishTranslation with valid section", async () => {
-    applicationState.currentSourceSection.translatedTitle =
-      "test translated section title";
+  it("should call api publishTranslation method with the proper payload", async () => {
     await actions.publishTranslation({
       rootState,
-      dispatch,
+      commit,
       rootGetters,
       getters
     });
 
-    expect(dispatch).toHaveBeenCalledTimes(1);
-    expect(dispatch).toHaveBeenNthCalledWith(
-      1,
-      "application/setPublishResult",
-      mockPublishResult,
-      { root: true }
-    );
-
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledTimes(1);
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
-      html: "<div>Test</div>",
-      sourceTitle: "test source title",
-      targetTitle: "Test target article title",
-      sourceSectionTitle: "test section title",
-      targetSectionTitle: "Test target section title",
+      html: "<div>Test 1</div>",
+      sourceTitle: "Test source title 1",
+      targetTitle: "Test target article title 1",
+      sourceSectionTitle: "Test section title 1",
+      targetSectionTitle: "Test target section title 1",
       sourceLanguage: "en",
       targetLanguage: "es",
-      revision: 77,
-      sectionNumber: 4
+      revision: 11,
+      sectionNumber: 1
     });
   });
 
-  it("publishTranslation without current section suggestion throws error", async () => {
+  it("should not add any publish feedback message on successful publishing", async () => {
+    await actions.publishTranslation({
+      rootState,
+      commit,
+      rootGetters,
+      getters
+    });
+
+    expect(applicationState.publishFeedbackMessages).toStrictEqual([]);
+  });
+
+  it("should add the publish feedback message that is returned by publishTranslation api method, when publishing fails", async () => {
+    getters.getSectionNumberForPublishing = 2;
+    await actions.publishTranslation({
+      rootState,
+      commit,
+      rootGetters,
+      getters
+    });
+    expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
+      html: "<div>Test 1</div>",
+      sourceTitle: "Test source title 1",
+      targetTitle: "Test target article title 1",
+      sourceSectionTitle: "Test section title 1",
+      targetSectionTitle: "Test target section title 1",
+      sourceLanguage: "en",
+      targetLanguage: "es",
+      revision: 11,
+      sectionNumber: 2
+    });
+    expect(applicationState.publishFeedbackMessages).toStrictEqual([
+      mockMessage
+    ]);
+  });
+
+  it("should throw and error when no current section suggestion exists", async () => {
     applicationState.currentSectionSuggestion = null;
 
     try {
       await actions.publishTranslation({
         rootState,
-        dispatch,
+        commit,
         rootGetters,
         getters
       });

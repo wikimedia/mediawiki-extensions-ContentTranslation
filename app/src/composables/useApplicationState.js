@@ -29,8 +29,8 @@ export default function() {
     () => store.state.application.isSectionTitleSelectedForTranslation
   );
 
-  const publishResult = computed(
-    () => store.state.application.currentPublishResult
+  const publishFeedbackMessages = computed(
+    () => store.state.application.publishFeedbackMessages
   );
 
   return {
@@ -38,7 +38,7 @@ export default function() {
     currentSectionSuggestion,
     currentSourceSection,
     isSectionTitleSelected,
-    publishResult,
+    publishFeedbackMessages,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,

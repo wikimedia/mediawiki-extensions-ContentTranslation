@@ -1,8 +1,8 @@
 import actions from "../../actions";
-import PageSection from "../../../../../wiki/cx/models/pageSection";
-import PublishResult from "../../../../../wiki/cx/models/publishResult";
-import PublishFeedbackMessage from "../../../../../wiki/cx/models/publishFeedbackMessage";
-jest.mock("../../../../../utils/publishHelper", () => {});
+import PageSection from "@/wiki/cx/models/pageSection";
+import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
+jest.mock("@/utils/publishHelper", () => {});
+import applicationMutations from "@/store/modules/application/mutations";
 
 const mockScores = {
   3: "failure",
@@ -15,7 +15,7 @@ const mockSectionScores = {
   test1: 10,
   test2: 3
 };
-jest.mock("../../../../../utils/mtValidator", () => {
+jest.mock("@/utils/mtValidator", () => {
   return {
     getMTScoreForPageSection: (section, mtProvider) => {
       return mockSectionScores[section.id];
@@ -24,63 +24,56 @@ jest.mock("../../../../../utils/mtValidator", () => {
   };
 });
 
-describe("vuex store validateMT action", () => {
-  const dispatch = jest.fn();
+mw.message = (...args) => args.join(" - ");
+
+describe("vuex store validateMT action test", () => {
   const applicationState = {
     sourceLanguage: "en",
     currentSourceSection: new PageSection({ id: "test0" }),
-    currentPublishResult: new PublishResult()
+    publishFeedbackMessages: [new PublishFeedbackMessage({ type: "mt" })]
   };
+  const commit = jest.fn((mutation, payload) => {
+    if (mutation === "application/clearMTPublishFeedbackMessages") {
+      applicationMutations.clearMTPublishFeedbackMessages(applicationState);
+    } else if (mutation === "application/addMTPublishFeedbackMessage") {
+      applicationMutations.addMTPublishFeedbackMessage(
+        applicationState,
+        payload
+      );
+    }
+  });
   const rootState = {
     application: applicationState
   };
 
-  it("validateMT action with validation score = 99", () => {
-    const isValid = actions.validateMT({ rootState, dispatch });
-    expect(dispatch).toHaveBeenCalledTimes(1);
-    expect(isValid).toBe(true);
+  it("should not add any publish feedback messages when: validation score (distance) > 15 (publishing threshold)", () => {
+    actions.validateMT({ rootState, commit });
+    expect(applicationState.publishFeedbackMessages).toStrictEqual([]);
   });
 
-  it("validateMT action with validation score = 10", () => {
+  it("should add an MT warning publish feedback message when: 15 (warning threshold) > validation score (distance) > 5 (publishing threshold)", () => {
     applicationState.currentSourceSection.id = "test1";
-    const isValid = actions.validateMT({ rootState, dispatch });
-    expect(isValid).toBe(false);
-    expect(dispatch).toHaveBeenCalledTimes(2);
-    expect(dispatch).toHaveBeenCalledWith(
-      "application/setPublishResult",
-      expect.objectContaining({
-        result: "warning",
-        status: "",
-        messages: expect.arrayContaining([
-          {
-            title: expect.any(Object),
-            text: expect.any(Object)
-          }
-        ])
-      }),
-      { root: true }
-    );
+    actions.validateMT({ rootState, commit });
+    expect(applicationState.publishFeedbackMessages).toStrictEqual([
+      new PublishFeedbackMessage({
+        title: mw.message("cx-sx-publisher-mt-abuse-message-title", 100 - 10),
+        text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
+        status: "warning",
+        type: "mt"
+      })
+    ]);
   });
 
-  it("validateMT action with validation score = 3", () => {
+  it("should add an MT error publish feedback message when: 5 (publishing threshold) > validation score (distance)", () => {
     applicationState.currentSourceSection.id = "test2";
-    const isValid = actions.validateMT({ rootState, dispatch });
-    expect(isValid).toBe(false);
-    expect(dispatch).toHaveBeenCalledTimes(3);
-    expect(dispatch).toHaveBeenNthCalledWith(
-      3,
-      "application/setPublishResult",
-      expect.objectContaining({
-        result: "failure",
-        status: "",
-        messages: expect.arrayContaining([
-          {
-            title: expect.any(Object),
-            text: expect.any(Object)
-          }
-        ])
-      }),
-      { root: true }
-    );
+    actions.validateMT({ rootState, commit });
+    expect(applicationState.publishFeedbackMessages).toStrictEqual([
+      new PublishFeedbackMessage({
+        title: mw.message("cx-sx-publisher-mt-abuse-message-title", 100 - 3),
+        text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
+        status: "error",
+        type: "mt"
+      })
+    ]);
   });
 });

@@ -13,13 +13,14 @@ const decodeHtml = html => {
 const handlePublishResult = isPublishDialogActive => {
   const {
     currentSectionSuggestion: suggestion,
-    currentSourceSection,
-    publishResult
+    currentSourceSection
   } = useApplicationState();
 
   const translatedTitle = currentSourceSection?.title;
 
-  if (!publishResult.value.isSuccessful) {
+  const errorExists = store.getters["application/isPublishingDisabled"];
+
+  if (errorExists) {
     isPublishDialogActive.value = false;
 
     return;
@@ -39,7 +40,6 @@ const handlePublishResult = isPublishDialogActive => {
 };
 
 const usePublishTranslation = () => {
-  const { publishResult } = useApplicationState();
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
@@ -53,7 +53,8 @@ const usePublishTranslation = () => {
     isPublishDialogActive.value = true;
     await store.dispatch("translator/publishTranslation");
 
-    publishStatus.value = publishResult.value.result;
+    const errorExists = store.getters["application/isPublishingDisabled"];
+    publishStatus.value = errorExists ? "failure" : "success";
     /**
      * Show feedback animation to user for 1 second
      * before handling the publishing result

@@ -1,6 +1,5 @@
 import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
-import PublishResult from "../../cx/models/publishResult";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 
@@ -123,8 +122,8 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * Given the appropriate publish parameters (html, source/target page titles,
  * source/target section titles, source/target languages, revision, section
  * position number), this method publishes a new section to the target page,
- * and returns a promise resolving to a PublishResult model representing either
- * success status or the corresponding failure messages.
+ * and returns a promise resolving to a PublishFeedbackMessage model in case
+ * of error, or to null in case of successful publishing.
  *
  * @param {Object} publishParams
  * @param {String} publishParams.html - HTML to be published
@@ -136,7 +135,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.targetLanguage
  * @param {Number} publishParams.revision
  * @param {Number|"new"} publishParams.sectionNumber
- * @return {Promise<PublishResult>}
+ * @return {Promise<PublishFeedbackMessage|null>}
  */
 const publishTranslation = ({
   html,
@@ -166,32 +165,19 @@ const publishTranslation = ({
 
   return api
     .postWithToken("csrf", params)
-    .then(() => {
-      return new PublishResult({ result: "success" });
-    })
+    .then(() => null)
     .catch((error, details) => {
+      let text;
+
       if (details.exception) {
-        return new PublishResult({
-          result: "failure",
-          messages: [
-            new PublishFeedbackMessage({ text: details.exception.message })
-          ],
-          status: details.statusText
-        });
+        text = details.exception.message;
+      } else if (details.error) {
+        text = details.error.info;
+      } else {
+        text = "Unknown error";
       }
 
-      if (details.error) {
-        return new PublishResult({
-          result: "failure",
-          messages: [new PublishFeedbackMessage({ text: details.error.info })],
-          status: details.error.code
-        });
-      }
-
-      // Unknown error
-      return new PublishResult({
-        result: "failure"
-      });
+      return new PublishFeedbackMessage({ text, status: "error" });
     });
 };
 
