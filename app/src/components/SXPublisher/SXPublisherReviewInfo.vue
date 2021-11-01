@@ -40,13 +40,12 @@ import {
   mwIconBlock,
   mwIconCheck
 } from "@/lib/mediawiki.ui/components/icons";
-import { MwRow, MwCol, MwButton } from "@/lib/mediawiki.ui/components";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
 import { computed, ref } from "@vue/composition-api";
 
 export default {
   name: "SxPublisherReviewInfo",
   components: {
-    MwButton,
     MwCol,
     MwRow,
     MwMessage,
