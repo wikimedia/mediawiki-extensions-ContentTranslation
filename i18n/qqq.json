@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Amire80",
 			"Ans",
 			"Arthur2e5",
@@ -305,7 +306,7 @@
 	"cx-sx-existing-translation-status": "Text for status of article with pre-existing translation. \n\nParameters:\n* $1 - Autonym of the target article language",
 	"cx-sx-existing-translation-additional-info": "Text for additional information for article with pre-existing translation.\n\nParameters:\n* $1 is the heading of the suggested section.\n* $2 is the number of additional suggested sections.",
 	"cx-sx-start-translation-button-label": "Label for start translation button",
-	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation",
+	"cx-sx-view-translation-anchor": "Text for anchor that redirects to already existing translation\n\n{{Identical|View}}",
 	"cx-sx-existing-translation-learn-more": "Text for anchor that redirects to page with additional information regarding section translation",
 	"cx-sx-section-selector-missing-sections-title": "Title for missing sections list in pick a section step. This can be also translated as \"Sections that are missing in $1\".\n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|cx-sx-section-selector-present-sections-title}}.",
 	"cx-sx-section-selector-present-sections-title": "Title for present sections list in pick a section step. \n\nParameters:\n* $1 - Autonym of the target article language\n\nSimilar to: {{msg-mw|cx-sx-section-selector-missing-sections-title}}.",
@@ -332,7 +333,7 @@
 	"sx-quick-tutorial-secondary-point-step-2": "Content of the secondary point in second step of the quick tutorial.\n\nThe part inside <nowiki><mark></nowiki> tags will be shown as highlighted.",
 	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial",
 	"cx-sx-sentence-selector-header-title": "Title for header inside sentence selector.\n\nThis is a title and ''not'' an action, so it shouldn't be translated with an imperative or an infinitive.",
-	"cx-sx-sentence-selector-done-button-label": "Label for done button inside sentence selector header",
+	"cx-sx-sentence-selector-done-button-label": "Label for done button inside sentence selector header\n\n{{Identical|Done}}",
 	"cx-sx-sentence-selector-suggested-translation-title": "Title for suggested sentence translation section inside sentence selector. \n\nParameters:\n* $1 - Name of selected MT provider",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Label for edit sentence translation button inside sentence selector",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Label for apply sentence translation button inside sentence selector",

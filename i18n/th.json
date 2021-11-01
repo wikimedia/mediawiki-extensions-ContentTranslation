@@ -328,5 +328,7 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "การแปลของคุณจะเพิ่มตรงนี้",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "เมื่อเผยแพร่การแปล คุณสามารถเลือกที่จะแทนที่เนื้อหาที่มีอยู่แล้วก็ได้",
 	"cx-sx-content-comparator-content-header-translate-button-label": "แปล",
-	"cx-sx-article-search-nearby-title": "ที่ใกล้เคียง"
+	"cx-sx-publisher-animation-success-message-subtitle": "กำลังเปิดหน้า...",
+	"cx-sx-article-search-nearby-title": "ที่ใกล้เคียง",
+	"sx-translation-list-language-selector-dialog-title": "ภาษา"
 }

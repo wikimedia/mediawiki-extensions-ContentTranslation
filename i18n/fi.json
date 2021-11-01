@@ -175,6 +175,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Käännökset",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Lisää uusi käännös",
 	"cx-campaign-contributionsmenu-myuploads": "Tallennettu aineisto",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Luettelo tallentamastasi mediasta",
 	"cx-no-source-categories": "Ei luokkia",
 	"cx-no-target-categories": "Ei luokkia. Harkitse niiden lisäämistä aiheen luokittelemiseksi.",
 	"cx-no-adapted-categories": "Alkuperäisiä luokkia ei ole olemassa tällä kielellä. Etsi lisää luokkia kuvaillaksesi aihetta paremmin.",
