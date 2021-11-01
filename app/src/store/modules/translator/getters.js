@@ -31,11 +31,11 @@ export default {
    * to be used for the publishing functionality.
    *
    * Target section title should be empty when section is missing and
-   * appendix sections exist. That is because in this case we manually
-   * add the section title inside HTML that is being published. Section
-   * title should also be empty for lead sections, since these sections
-   * do not have any title. In all other cases, the appropriate section
-   * title should be returned.
+   * appendix sections exist, and publish target is the main namespace.
+   * That is because in this case we manually add the section title inside
+   * HTML that is being published. Section title should also be empty for
+   * lead sections, since these sections do not have any title. In all
+   * other cases, the appropriate section title should be returned.
    *
    * @param {object} state
    * @param {object} getters
@@ -46,7 +46,8 @@ export default {
   getSectionTitleForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection
+      currentSourceSection,
+      publishTarget
     } = rootState.application;
 
     if (currentSourceSection.isLeadSection) {
@@ -62,11 +63,16 @@ export default {
         currentSourceSection.originalTitle
       ];
 
-    // If section is present, or missing and appendix sections DO NOT exist
-    if (!presentSectionTitle && !firstAppendixTargetTitle) {
-      return currentSourceSection.title;
-    } else if (presentSectionTitle) {
+    // If section is present
+    if (presentSectionTitle) {
       return presentSectionTitle;
+    } else if (
+      !firstAppendixTargetTitle ||
+      publishTarget === "SANDBOX_SECTION"
+    ) {
+      // If section is missing and appendix sections DO NOT exist,
+      // or if publish target is "sandbox"
+      return currentSourceSection.title;
     } else {
       // section is missing and appendix sections DO exist
       return "";
@@ -77,10 +83,12 @@ export default {
    * This getter returns the appropriate number indicating the position in which the
    * new section will be published inside target page.
    *
-   * 1. If section is a lead section then its position should be equal to 0.
-   * 2. If section is present inside target article, then:
+   * 1. If publish target is sandbox, i.e. section should be published to
+   *    user's sandbox, then the section position should be "new"
+   * 2. If section is a lead section then its position should be equal to 0.
+   * 3. If section is present inside target article, then:
    *    sectionNumber equals the index of the section inside target article.
-   * 3. If not present, then
+   * 4. If not present, then
    *    a. If at least one appendix section exists then:
    *       it equals to the index of the first appendix section (in order of appearance)
    *    b. If not, it's equal to "new".
@@ -94,8 +102,13 @@ export default {
   getSectionNumberForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection
+      currentSourceSection,
+      publishTarget
     } = rootState.application;
+
+    if (publishTarget === "SANDBOX_SECTION") {
+      return "new";
+    }
 
     // if current section is a lead section, its position should be 0
     if (currentSourceSection.isLeadSection) {
@@ -133,11 +146,14 @@ export default {
    * This getter returns the appropriate HTML to be published inside
    * target page for this new section.
    *
-   * 1. If section is a lead section, then:
+   * 1. If publish target is sandbox (i.e. section should be published to
+   *    user's sandbox), then:
    *    html equals the new section clean contents
-   * 2. If section is present inside target article, then:
+   * 2. If section is a lead section, then:
    *    html equals the new section clean contents
-   * 3. If section is missing, then
+   * 3. If section is present inside target article, then:
+   *    html equals the new section clean contents
+   * 4. If section is missing, then
    *    a. If at least one appendix section exists then:
    *       Since Action API doesn't support publishing section to
    *       the desired position out of the box, if the section is to
@@ -158,7 +174,8 @@ export default {
   getCleanHTMLForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection
+      currentSourceSection,
+      publishTarget
     } = rootState.application;
 
     const isPresentSection = !!currentSectionSuggestion.presentSections[
@@ -169,8 +186,10 @@ export default {
       "suggestions/getFirstAppendixTitleBySectionSuggestion"
     ](currentSectionSuggestion);
 
-    // if section is lead section or present or NO appendix section exists
+    // if section should be published to sandbox or section is lead section
+    // or section is present or NO appendix section exists
     if (
+      publishTarget === "SANDBOX_SECTION" ||
       currentSourceSection.isLeadSection ||
       isPresentSection ||
       !firstAppendixTargetTitle
