@@ -113,6 +113,16 @@
 			$menu = $( '<ul>' )
 				.append( $myContributions, $myTranslations, $myUploads );
 
+		// Technical debt:
+		// Add icons to call out.
+		// This is not officially supported by legacy Vector and may break in future.
+		// https://phabricator.wikimedia.org/T294656
+		$myContributions.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-userContributions' );
+		$myTranslations.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-vector-gadget-cx-language' );
+		$myUploads.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-imageGallery' );
 		$trigger.callout( {
 			trigger: 'hover',
 			classes: 'cx-campaign-contributionsmenu',
