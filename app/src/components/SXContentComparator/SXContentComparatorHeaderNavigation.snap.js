@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXContentComparator Header Navigation test Component output matches snapshot 1`] = `
+exports[
+  `SXContentComparator Header Navigation test Component output matches snapshot 1`
+] = `
 <div
   class="justify-end col items-center"
 >

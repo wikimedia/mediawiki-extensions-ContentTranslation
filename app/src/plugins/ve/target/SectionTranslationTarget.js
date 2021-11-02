@@ -42,7 +42,7 @@ OO.inheritClass(SectionTranslationTarget, ve.init.mw.MobileArticleTarget);
 
 /* Static Properties */
 
-SectionTranslationTarget.static.integrationType = 'contenttranslation';
+SectionTranslationTarget.static.integrationType = "contenttranslation";
 
 /* Methods */
 

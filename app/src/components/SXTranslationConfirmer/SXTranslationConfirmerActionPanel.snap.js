@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXTranslationConfirmer Action Panel test Component output matches snapshot 1`] = `
+exports[
+  `SXTranslationConfirmer Action Panel test Component output matches snapshot 1`
+] = `
 <section
   class="sx-translation-confirmer-body pb-4"
 >

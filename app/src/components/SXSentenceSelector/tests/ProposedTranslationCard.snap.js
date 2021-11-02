@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSentenceSelector Proposed Translation Card Component output matches snapshot 1`] = `
+exports[
+  `SXSentenceSelector Proposed Translation Card Component output matches snapshot 1`
+] = `
 <mw-card-stub
   class="sx-sentence-selector__proposed-translation col shrink pa-0"
 >

@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXTranslationConfirmerArticleInformation test Component output matches snapshot 1`] = `
+exports[
+  `SXTranslationConfirmerArticleInformation test Component output matches snapshot 1`
+] = `
 <div
   class="sx-translation-confirmer__article-information ma-0 pa-4 row items-stretch justify-start"
 >

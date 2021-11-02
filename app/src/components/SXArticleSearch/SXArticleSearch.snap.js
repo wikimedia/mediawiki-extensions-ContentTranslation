@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXArticleSearch component test Component output matches snapshot 1`] = `
+exports[
+  `SXArticleSearch component test Component output matches snapshot 1`
+] = `
 <section
   class="sx-article-search"
 >

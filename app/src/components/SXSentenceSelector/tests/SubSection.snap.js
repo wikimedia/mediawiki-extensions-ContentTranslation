@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSentenceSelector SubSection component Component output matches snapshot 1`] = `
+exports[
+  `SXSentenceSelector SubSection component Component output matches snapshot 1`
+] = `
 <div>
   
   
