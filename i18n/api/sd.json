@@ -16,7 +16,7 @@
 	"apihelp-cxpublish-param-categories": "اهي زمرا جن ۾ شايع ٿيل صفحو رکڻو آهي.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ڪيپچا آءِڊي (جڏھن ڪنھن ڪيپچا جواب سان سانڍيندي).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "ڪيپچا جو جواب ڏيو (جڏھن ڪيپچا جواب سان سانڍيندي)",
-	"apihelp-query+contenttranslation-param-translationid": "ترجمي جي آءِڊي.",
+	"apihelp-query+contenttranslation-param-translationid": "ترجمي جي آئڊي.",
 	"apihelp-query+contenttranslation-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+contenttranslation-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "ذريعاتي صفحي جو عنوان.",
