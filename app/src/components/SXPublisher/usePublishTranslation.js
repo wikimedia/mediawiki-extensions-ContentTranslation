@@ -1,4 +1,5 @@
 import { getUrl } from "@/utils/mediawikiHelper";
+import siteApi from "../../wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import store from "@/store";
 import { ref } from "@vue/composition-api";
@@ -10,13 +11,13 @@ const decodeHtml = html => {
   return template.innerText;
 };
 
-const handlePublishResult = isPublishDialogActive => {
+const handlePublishResult = async isPublishDialogActive => {
   const {
     currentSectionSuggestion: suggestion,
     currentSourceSection
   } = useApplicationState();
 
-  const translatedTitle = currentSourceSection?.title;
+  const translatedTitle = currentSourceSection?.value.title;
 
   const errorExists = store.getters["application/isPublishingDisabled"];
 
@@ -24,6 +25,17 @@ const handlePublishResult = isPublishDialogActive => {
     isPublishDialogActive.value = false;
 
     return;
+  }
+
+  // Publishing is Successful
+  if (currentSourceSection.value.isLeadSection) {
+    // Add wikibase link, wait for it, but failure is acceptable
+    await siteApi.addWikibaseLink(
+      suggestion.value.sourceLanguage,
+      suggestion.value.targetLanguage,
+      suggestion.value.sourceTitle,
+      translatedTitle
+    );
   }
   const articleTitle = store.getters["translator/getArticleTitleForPublishing"];
   /** Remove warning about leaving SX */
@@ -33,9 +45,9 @@ const handlePublishResult = isPublishDialogActive => {
   // module to be loaded inside target article's page, after redirection
   window.location.href = getUrl(`${articleTitle}`, {
     "sx-published-section": decodeHtml(translatedTitle),
-    "sx-source-page-title": decodeHtml(suggestion.sourceTitle),
-    "sx-source-language": suggestion.sourceLanguage,
-    "sx-target-language": suggestion.targetLanguage
+    "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
+    "sx-source-language": suggestion.value.sourceLanguage,
+    "sx-target-language": suggestion.value.targetLanguage
   });
 };
 
