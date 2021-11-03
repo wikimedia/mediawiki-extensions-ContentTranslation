@@ -41,6 +41,7 @@ const mw = {
     getName: () => "test-username",
     isAnon: () => false
   },
+  log: () => {},
   util: {},
   config: {
     get: name => {

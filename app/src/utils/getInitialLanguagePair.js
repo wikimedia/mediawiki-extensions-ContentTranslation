@@ -53,6 +53,14 @@ const getInitialLanguagePair = (
 
   let targetLanguage;
 
+  mw.log(enabledTargetLanguages, supportedLanguageCodes);
+  mw.log(urlTargetLanguage, wikiLanguage);
+  mw.log(
+    isEnabledLanguage(urlTargetLanguage),
+    isSupportedLanguage(urlTargetLanguage)
+  );
+  mw.log(isEnabledLanguage(wikiLanguage), isSupportedLanguage(wikiLanguage));
+
   if (
     urlTargetLanguage &&
     isEnabledLanguage(urlTargetLanguage) &&
