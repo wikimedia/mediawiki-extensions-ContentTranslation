@@ -485,6 +485,12 @@ async function fetchFavorites({ commit, dispatch, state }) {
   }
   /** @type {FavoriteSuggestion[]} */
   const favorites = await cxSuggestionsApi.fetchFavorites();
+
+  if (!favorites || !favorites.length) {
+    // No favorites for Anon users. And logged-in users can also have no favorites.
+    return;
+  }
+
   const favoritesGroupedByLanguage = {};
 
   for (const favorite of favorites) {
