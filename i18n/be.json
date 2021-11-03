@@ -8,7 +8,8 @@
 			"Maksim L.",
 			"Mechanizatar",
 			"Prevodim",
-			"SamGold"
+			"SamGold",
+			"ZlyiLev"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -44,8 +45,11 @@
 	"cx-create-new-translation": "Новы пераклад",
 	"cx-translation-filter-label-all-languages": "Усе",
 	"cx-translation-filter-uls-all-languages": "Усе мовы",
+	"cx-contributions-new-contributions": "Новы ўклад",
+	"cx-contributions-new-article": "Новы артыкул",
 	"cx-contributions-translation": "Пераклад",
 	"cx-contributions-upload": "Загрузіць медыяфайлы",
+	"cx-contributions-new-article-tooltip": "Пачаць новы артыкул",
 	"cx-contributions-upload-tooltip": "Загрузіць выявы, аўдыё і відэа для выкарыстання на старонках",
 	"cx-campaign-newarticle-notice": "Цяпер стварэнне новых старонак праз <strong>пераклад</strong> стала прасцей! Хочаце паспрабаваць бэта-версію інструмента перакладу?",
 	"cx-campaign-no-thanks": "Не, дзякуй",
