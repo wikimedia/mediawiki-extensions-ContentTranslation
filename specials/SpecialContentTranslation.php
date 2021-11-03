@@ -238,7 +238,8 @@ class SpecialContentTranslation extends SpecialPage {
 			if ( $this->isVueDashboard() ) {
 				$out->addModules( 'mw.cx3' );
 				$out->addJsConfigVars( [
-					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' )
+					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' ),
+					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
 				] );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
