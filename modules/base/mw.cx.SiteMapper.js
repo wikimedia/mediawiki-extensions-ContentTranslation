@@ -91,6 +91,23 @@ mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 };
 
 /**
+ * This method returns a boolean indicating whether
+ * the current domain is a mobile production wiki domain.
+ *
+ * Mobile versions of production wiki domains contain the
+ * ".m." part. The method checks if the ".m." part
+ * is present inside the domain of the current URL.
+ * This method doesn't affect development environments
+ * or Mediawiki installations that use a different
+ * mobile URL template than the default.
+ *
+ * @return {boolean}
+ */
+mw.cx.SiteMapper.prototype.isMobileDomain = function () {
+	return location.hostname.indexOf( '.m.' ) > 0;
+};
+
+/**
  * Get a URL to an article in a wiki for a given language.
  *
  * @param {string} language Language code
@@ -101,7 +118,8 @@ mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 	var domain,
 		base = this.siteTemplates.view,
-		extra = '';
+		extra = '',
+		prefix;
 
 	domain = this.getWikiDomainCode( language );
 	if ( params && !$.isEmptyObject( params ) ) {
@@ -109,8 +127,14 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 		extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
 	}
 
+	prefix = domain.replace( /\$/g, '$$$$' );
+
+	if ( this.isMobileDomain() ) {
+		prefix += '.m';
+	}
+
 	return base
-		.replace( '$1', domain.replace( /\$/g, '$$$$' ) )
+		.replace( '$1', prefix )
 		.replace( '$2', mw.util.wikiUrlencode( title ).replace( /\$/g, '$$$$' ) ) + extra;
 };
 
