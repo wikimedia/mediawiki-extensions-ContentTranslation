@@ -7,7 +7,8 @@
 ( function () {
 	'use strict';
 
-	var CAMPAIGN = 'contributionsmenu';
+	var CAMPAIGN = 'contributionsmenu',
+		isMenuAttached = false;
 
 	/**
 	 * @return {boolean}
@@ -46,9 +47,10 @@
 
 		nextNode = nextNode ? nextNode.nextSibling : null;
 		// Make sure we attach this menu only once
-		if ( document.querySelector( 'li.cx-campaign-uploads' ) ) {
+		if ( isMenuAttached ) {
 			return;
 		}
+		isMenuAttached = true;
 
 		$myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
