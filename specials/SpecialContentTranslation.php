@@ -97,15 +97,15 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function isValidCampaign( $campaign ) {
-		global $wgContentTranslationCampaigns;
+		$contentTranslationCampaigns = $this->getConfig()->get( 'ContentTranslationCampaigns' );
 
 		if ( $this->getUser()->isAnon() ) {
 			// Campaigns are only for logged in users.
 			return false;
 		}
 		return $campaign !== null
-			&& isset( $wgContentTranslationCampaigns[$campaign] )
-			&& $wgContentTranslationCampaigns[$campaign];
+			&& isset( $contentTranslationCampaigns[$campaign] )
+			&& $contentTranslationCampaigns[$campaign];
 	}
 
 	/**
@@ -125,8 +125,6 @@ class SpecialContentTranslation extends SpecialPage {
 	 * @return bool
 	 */
 	private function hasValidToken() {
-		global $wgContentTranslationTranslateInTarget;
-
 		$request = $this->getRequest();
 
 		if ( $this->getUser()->isAnon() ) {
@@ -154,7 +152,8 @@ class SpecialContentTranslation extends SpecialPage {
 		// Since we can only publish to the current wiki, enforce that the target language matches
 		// the wiki we are currently on. If not, redirect the user back to dashboard, where he can
 		// start again with parameters filled (and redirected to the correct wiki).
-		if ( $wgContentTranslationTranslateInTarget ) {
+		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
+		if ( $contentTranslationTranslateInTarget ) {
 			$tokenIsValid = $to === SiteMapper::getCurrentLanguageCode();
 			return $hasToken && $tokenIsValid;
 		}
@@ -223,15 +222,15 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	protected function initModules() {
-		global $wgContentTranslationTranslateInTarget;
-
+		$config = $this->getConfig();
 		$out = $this->getOutput();
 
+		$contentTranslationTranslateInTarget = $config->get( 'ContentTranslationTranslateInTarget' );
 		if ( $this->onTranslationView() ) {
 			$out->addModules( 'mw.cx.init' );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
-			if ( $wgContentTranslationTranslateInTarget
+			if ( $contentTranslationTranslateInTarget
 				&& ExtensionRegistry::getInstance()->isLoaded( 'WikibaseClient' ) ) {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
@@ -239,7 +238,7 @@ class SpecialContentTranslation extends SpecialPage {
 			if ( $this->isVueDashboard() ) {
 				$out->addModules( 'mw.cx3' );
 				$out->addJsConfigVars( [
-					'wgSectionTranslationTargetLanguages' => $this->getConfig()->get( 'SectionTranslationTargetLanguages' )
+					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' )
 				] );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
@@ -249,14 +248,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	protected function addJsConfigVars() {
-		global $wgContentTranslationUnmodifiedMTThresholdForPublish,
-			$wgContentTranslationCampaigns,
-			$wgContentTranslationExcludedNamespaces,
-			$wgContentTranslationPublishRequirements,
-			$wgContentTranslationEnableSuggestions,
-			$wgRecommendToolAPIURL,
-			$wgContentTranslationEnableMT;
-
+		$config = $this->getConfig();
 		$out = $this->getOutput();
 
 		if ( $this->onTranslationView() ) {
@@ -264,18 +256,18 @@ class SpecialContentTranslation extends SpecialPage {
 
 			$out->addJsConfigVars( [
 				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
-					$wgContentTranslationUnmodifiedMTThresholdForPublish,
-				'wgContentTranslationCampaigns' => $wgContentTranslationCampaigns,
-				'wgContentTranslationPublishRequirements' => $wgContentTranslationPublishRequirements,
+					$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' ),
+				'wgContentTranslationCampaigns' => $config->get( 'ContentTranslationCampaigns' ),
+				'wgContentTranslationPublishRequirements' => $config->get( 'ContentTranslationPublishRequirements' ),
 				'wgContentTranslationVersion' => $version,
-				'wgContentTranslationEnableMT' => $wgContentTranslationEnableMT
+				'wgContentTranslationEnableMT' => $config->get( 'ContentTranslationEnableMT' )
 			] );
 
 		} else {
 			$out->addJsConfigVars( [
-				'wgContentTranslationEnableSuggestions' => $wgContentTranslationEnableSuggestions,
-				'wgRecommendToolAPIURL' => $wgRecommendToolAPIURL,
-				'wgContentTranslationExcludedNamespaces' => $wgContentTranslationExcludedNamespaces
+				'wgContentTranslationEnableSuggestions' => $config->get( 'ContentTranslationEnableSuggestions' ),
+				'wgRecommendToolAPIURL' => $config->get( 'RecommendToolAPIURL' ),
+				'wgContentTranslationExcludedNamespaces' => $config->get( 'ContentTranslationExcludedNamespaces' )
 			] );
 		}
 	}
