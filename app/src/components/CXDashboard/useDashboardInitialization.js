@@ -30,7 +30,7 @@ const initializeDashboard = async () => {
   }
   logEvent({
     event_type: "dashboard_open",
-    event_source: source,
+    event_source: "direct",
     content_translation_session_position: 0
   });
 
