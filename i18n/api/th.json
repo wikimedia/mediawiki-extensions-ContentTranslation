@@ -3,7 +3,8 @@
 		"authors": [
 			"Aefgh39622",
 			"NP-chaonay",
-			"Octahedron80"
+			"Octahedron80",
+			"Patsagorn Y."
 		]
 	},
 	"apihelp-cxpublish-description": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
@@ -14,8 +15,10 @@
 	"apihelp-cxpublish-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxpublish-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",
 	"apihelp-cxpublish-param-categories": "หมวดหมู่ที่จะเพิ่มไปยังหน้าที่เผยแพร่",
+	"apihelp-cxpublish-param-publishtags": "แท็กแก้ไขที่จะเพิ่มเมื่อเผยแพร่หน้า",
 	"apihelp-cxpublish-param-wpCaptchaId": "ไอดีแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "คำตอบของแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
+	"apihelp-cxpublish-param-cxversion": "รุ่นของตัวแก้ไขที่จะใช้เมื่อเผยแพร่การแปล",
 	"apihelp-query+contenttranslation-description": "สอบถามฐานข้อมูลการแปลเนื้อหาสำหรับการแปลต่าง ๆ",
 	"apihelp-query+contenttranslation-param-translationid": "ไอดีการแปล",
 	"apihelp-query+contenttranslation-param-from": "รหัสภาษาต้นทาง",
