@@ -302,5 +302,12 @@
 	"cx-sx-translation-confirmer-action-view-section": "Visualizza la sezione da tradurre",
 	"cx-sx-translation-confirmer-action-new-translation": "Nuova traduzione",
 	"cx-campaign-mflanguagesearcher-invite": "Puoi tradurre questa pagina. È un modo facile per creare contenuti nella tua lingua.",
-	"cx-suggestion-list-favorites-division": "Per dopo"
+	"cx-suggestion-list-favorites-division": "Per dopo",
+	"sx-recent-translation-entrypoint-banner-header": "Questa pagina è stata tradotta recentemente",
+	"sx-recent-translation-entrypoint-banner-details": "Aiuta a migliorare i contenuti",
+	"sx-recent-translation-entrypoint-dialog-header": "Migliora la traduzione",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Confronta con l'originale",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Modifica la pagina",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduci una nuova sezione",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduci \"$1\""
 }

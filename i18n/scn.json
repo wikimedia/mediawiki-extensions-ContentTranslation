@@ -82,5 +82,11 @@
 	"cx-sx-translation-confirmer-more-sections-button-label": "Àutri sizziona",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Traduci sizzioni",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sizzioni",
-	"sx-editor-feedback-overlay-title": "Grazzi!"
+	"sx-editor-feedback-overlay-title": "Grazzi!",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Agghiunci sizzioni novi",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Cancia la pàggina",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduci na sizzioni nova",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduci \"$1\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduci \"$1\" e \"$2\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduci \"$1\", \"$2\" e àutri"
 }

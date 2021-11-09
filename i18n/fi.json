@@ -358,5 +358,15 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Osio",
 	"sx-editor-feedback-overlay-title": "Kiitos!",
 	"cx-campaign-mflanguagesearcher-invite": "Voit kääntää tämän sivun. Se on helppo tapa luoda sisältöä omalla kielelläsi.",
-	"cx-suggestion-list-favorites-division": "Myöhemmin"
+	"cx-suggestion-list-favorites-division": "Myöhemmin",
+	"sx-recent-translation-entrypoint-banner-header": "Tämä sivu on juuri käännetty",
+	"sx-recent-translation-entrypoint-banner-details": "Auta parantamaan sisältöä",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Näytä sisältö",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Lisää uusi osio",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Tarkasta lähteet",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Muokkaa sivua",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Käännä uusi osio",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Käännä \"$1\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Käännä \"$1\" ja \"$2\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Käännä \"$1\", \"$2\" ja muuta"
 }

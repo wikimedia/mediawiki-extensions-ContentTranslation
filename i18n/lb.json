@@ -270,5 +270,12 @@
 	"sx-editor-feedback-overlay-clarification": "Vun äre Verbesserunge léieren",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> vun Iech geännert",
 	"cx-campaign-mflanguagesearcher-invite": "Dir kënnt dës Säit iwwersetzen. Et ass eng einfach Manéier fir Inhalt an Ärer Sprooch ze schafen.",
-	"cx-suggestion-list-favorites-division": "Fir méi spéit"
+	"cx-suggestion-list-favorites-division": "Fir méi spéit",
+	"sx-recent-translation-entrypoint-banner-details": "Fir d'Inhalter ze verbesseren",
+	"sx-recent-translation-entrypoint-dialog-header": "D'Iwwersetzung verbesseren",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Inhalter nokucken",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Setzt nei Abschnitter derbäi",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Iwwerpréift d'Referenzen",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "D'Säit änneren",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Iwwersetzt \"$1\""
 }

@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"DaSupremo"
+		]
+	},
+	"sx-recent-translation-entrypoint-banner-header": "Dem translate dis page recently",
+	"sx-recent-translation-entrypoint-banner-details": "Make you help improve de contents",
+	"sx-recent-translation-entrypoint-dialog-header": "Make you improve de translation",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Make you review contents",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "Make de content read natural",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Edit sentences so say e go reorder or replace words wey dem need.",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Readers fit access references so say dem go check de facts. Review de format of references den add references wey be relevant for your language inside.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Compare plus de original",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Make you edit de page",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Make you open de original page for $1 inside.",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Make you expand dis page by translating sections wey be available for other languages you kno inside.",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Translate fresh section",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Make you translate \"$1\""
+}
