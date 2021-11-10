@@ -82,6 +82,13 @@
 			"services": [
 				"ActionFactory"
 			]
+		},
+		"recentEditEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\RecentEditEntrypointRegistrationHandler",
+			"services": [
+				"ContentTranslation.RecentSignificantEditStore",
+				"ContentTranslation.WikidataIdFetcher"
+			]
 		}
 	},
 	"Hooks": {
@@ -93,7 +100,8 @@
 			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
 			"mfFrequentLanguagesEntrypointRegistrar",
 			"ulsRelevantLanguagesEntrypointRegistrar",
-			"ulsQuickActionEntrypointRegistrar"
+			"ulsQuickActionEntrypointRegistrar",
+			"recentEditEntrypointRegistrar"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -936,6 +944,15 @@
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
 				"chart.js/Chart.js"
+			]
+		},
+		"ext.cx.entrypoints.recentedit": {
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.recentedit/index.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
 			]
 		},
 		"ext.cx.entrypoints.recenttranslation": {

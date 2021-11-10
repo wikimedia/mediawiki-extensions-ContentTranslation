@@ -7,6 +7,7 @@ namespace ContentTranslation\Store;
 use ContentTranslation\Entity\RecentSignificantEdit;
 use ContentTranslation\LoadBalancer;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class RecentSignificantEditStore {
 	// Array of supported wiki families for the 'recent significant edit' entrypoint
@@ -160,6 +161,54 @@ class RecentSignificantEditStore {
 		}
 
 		return $this->createEditFromRow( $row );
+	}
+
+	/**
+	 * Given a user id, a page wikidata id and a language code,
+	 * this static method returns an array containing at most
+	 * 10 instances of this class. These objects represent
+	 * edits stored inside the table that:
+	 * 1. were done by the given user,
+	 * 2. were done to an article with the given wikidata page id
+	 * 3. were done in a language different that the given one
+	 *
+	 * @param int $userId
+	 * @param int $wikidataId
+	 * @param string $language
+	 * @return RecentSignificantEdit[]
+	 */
+	public function findEditsForPotentialSuggestions( int $userId, int $wikidataId, string $language ): array {
+		$conditions = [
+			'cxse_global_user_id' => $userId,
+			'cxse_page_wikidata_id' => $wikidataId,
+			"cxse_language != '$language'",
+			"cxse_wiki_family" => $this->currentWikiFamilyKey
+		];
+
+		$replicaDb = $this->lb->getConnection( DB_REPLICA );
+		$result = $replicaDb->newSelectQueryBuilder()
+			->select( [
+				'cxse_id',
+				'cxse_global_user_id',
+				'cxse_page_wikidata_id',
+				'cxse_language',
+				'cxse_wiki_family',
+				'cxse_page_title',
+				'cxse_section_titles',
+				'cxse_timestamp'
+			] )
+			->from( self::TABLE_NAME )
+			->where( $conditions )
+			->orderBy( 'cxse_timestamp', SelectQueryBuilder::SORT_DESC )
+			->limit( 10 )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$edits = [];
+		foreach ( $result as $row ) {
+			$edits[] = $this->createEditFromRow( $row );
+		}
+		return $edits;
 	}
 
 	/**
