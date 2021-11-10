@@ -7,12 +7,14 @@
 	],
 	"globals": {
 		"ve": "readonly",
-		"moment": "readonly"
+		"moment": "readonly",
+		"Promise": "readonly"
 	},
 	"rules": {
 		"max-len": "off",
 		"no-jquery/no-global-selector": "off",
 		"no-shadow": "warn",
-		"compat/compat": "warn"
+		"compat/compat": "warn",
+		"es/no-promise": "warn"
 	}
 }

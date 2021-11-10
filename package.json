@@ -1,18 +1,20 @@
 {
 	"private": true,
 	"scripts": {
+		"lint": "npm -s run lint:i18n && npm -s run lint:js && npm -s run lint:css",
+		"lint:js": "eslint --cache .",
+		"lint:css": "stylelint '**/*.less'",
+		"lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
 		"test:cx3": "cd app && npm run test",
-		"test:cx2": "grunt test",
+		"test:cx2": "npm -s run lint",
 		"precommit": "npm run test:cx2 && git diff --name-only --staged --exit-code app || npm run test:cx3",
 		"test": "npm run test:cx2 && npm run test:cx3"
 	},
 	"pre-commit": "precommit",
 	"devDependencies": {
+		"eslint": "^7.32.0",
 		"eslint-config-wikimedia": "0.20.0",
-		"grunt": "1.4.0",
 		"grunt-banana-checker": "0.9.0",
-		"grunt-eslint": "23.0.0",
-		"grunt-stylelint": "0.16.0",
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.11.1"
 	}
