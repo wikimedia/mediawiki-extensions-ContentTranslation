@@ -48,6 +48,7 @@
 	"cx-campaign-try": "Probez automata tradukilo",
 	"cx-campaign-contributionsmenu-mycontributions": "Kontributadi",
 	"cx-campaign-contributionsmenu-mytranslations": "Tradukuri",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Adjuntar nova tradukuro",
 	"cx-campaign-contributionsmenu-myuploads": "Arkivi sendita",
 	"cx-trend-deletions": "Efacita tradukuri",
 	"cx-trend-translations-to": "Tradukuri a $1",
@@ -68,8 +69,17 @@
 	"cx-unreviewed-translation-category": "Pagini kun tradukuri sen revizo",
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-sx-language-selector-dialog-title": "Serchar ula linguo",
+	"cx-suggestion-list-new-pages-division": "Kreez nova pagini",
 	"cx-translation-list-all-languages-option-label": "Omni",
 	"cx-sx-content-comparator-translation-section-button-label": "Tradukar ca segmento",
 	"cx-sx-content-comparator-source-selector-title": "Seciono en $1",
-	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo."
+	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo.",
+	"sx-recent-translation-entrypoint-banner-details": "Helpez plubonigar kontenaji",
+	"sx-recent-translation-entrypoint-dialog-header": "Plubonigar la tradukuro",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Revizar kontenajo",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Redaktar la pagino",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Apertar originala pagino che $1",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Tradukar nova seciono",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Tradukar \"$1\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\""
 }

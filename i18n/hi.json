@@ -234,5 +234,6 @@
 	"sx-article-search-language-selector-dialog-title": "भाषाएँ",
 	"cx-sx-language-selector-all-languages": "सभी भाषाएँ",
 	"sx-translation-list-language-selector-dialog-title": "भाषाएँ",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "अनुभाग"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "अनुभाग",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "अनुवाद करें \"$1\""
 }
