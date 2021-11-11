@@ -7,7 +7,9 @@ namespace ContentTranslation\HookHandler;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\WikidataIdFetcher;
+use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\MediaWikiServices;
 use OutputPage;
 use Skin;
 
@@ -46,6 +48,17 @@ class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 	 * @param Skin $skin
 	 */
 	public function onBeforePageDisplay( $out, $skin ): void {
+		$isMobileView = false;
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+
+		// This entrypoint should only be enabled for mobile web version
+		if ( !$isMobileView ) {
+			return;
+		}
+
 		// This entrypoint should only be enabled for logged-in users
 		$user = $out->getUser();
 		if ( $user->isAnon() ) {

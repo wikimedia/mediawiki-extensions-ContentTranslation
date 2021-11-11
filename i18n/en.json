@@ -439,6 +439,10 @@
 	"cx-uls-relevant-languages-panel-message": "This page is missing in some languages you may know. You can translate it in minutes!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "This will be <strong>the first section in the new article!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Translate this page",
+	"sx-recent-edit-entrypoint-top-banner-header": "Contribute from other languages",
+	"sx-recent-edit-entrypoint-top-banner-content": "A section you recently edited in $1 is missing in $2. Consider translating it.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Translate \"$1\"",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 section|$1 sections}} missing in $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Checking that you are not a robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publish"
 }

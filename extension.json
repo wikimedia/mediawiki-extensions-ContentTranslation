@@ -947,12 +947,25 @@
 			]
 		},
 		"ext.cx.entrypoints.recentedit": {
+			"es6": true,
 			"packageFiles": [
-				"entrypoints/ext.cx.entrypoints.recentedit/index.js"
+				"entrypoints/ext.cx.entrypoints.recentedit/index.js",
+				"entrypoints/ext.cx.entrypoints.recentedit/RecentEditEntrypointInvitation.vue"
+			],
+			"messages": [
+				"sx-recent-edit-entrypoint-top-banner-header",
+				"sx-recent-edit-entrypoint-top-banner-content",
+				"sx-recent-edit-entrypoint-invitation-button-label",
+				"sx-recent-edit-entrypoint-invitation-button-details"
 			],
 			"targets": [
-				"desktop",
 				"mobile"
+			],
+			"dependencies": [
+				"vue",
+				"mw.cx.SiteMapper",
+				"mw.cx.util",
+				"jquery.uls.data"
 			]
 		},
 		"ext.cx.entrypoints.recenttranslation": {
