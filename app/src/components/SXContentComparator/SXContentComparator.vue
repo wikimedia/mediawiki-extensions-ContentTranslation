@@ -13,24 +13,30 @@
     <section class="sx-content-comparator__source-content">
       <template v-if="sourceVsTargetSelection === 'source_section'">
         <mw-spinner v-if="!sourceSectionContent" />
+        <!-- eslint-disable vue/no-v-html -->
         <section
           :lang="sourceLanguage"
           :dir="getDir(sourceLanguage)"
           class="pt-2 px-4"
           v-html="sourceSectionContent"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </template>
       <template v-else-if="sourceVsTargetSelection === 'target_article'">
         <mw-spinner v-if="!targetPageContent" />
+        <!-- eslint-disable vue/no-v-html -->
         <article
           :lang="targetLanguage"
           :dir="getDir(targetLanguage)"
           class="px-4"
           v-html="targetPageContent"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </template>
       <template v-else>
+        <!-- eslint-disable vue/no-v-html -->
         <section class="pa-4" v-html="targetSectionContent" />
+        <!-- eslint-enable vue/no-v-html -->
         <sx-content-comparator-new-section-placeholder
           :is-mapped-section="isCurrentSectionMapped"
         />

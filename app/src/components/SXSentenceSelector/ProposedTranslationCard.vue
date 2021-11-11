@@ -9,12 +9,14 @@
         }"
         :style="contentsStyle"
       >
+        <!--eslint-disable vue/no-v-html -->
         <section
           v-if="hasProposedTranslation"
           :lang="targetLanguage"
           :dir="getDir(targetLanguage)"
           v-html="proposedTranslation"
         />
+        <!--eslint-enable vue/no-v-html -->
         <mw-spinner v-else />
       </mw-col>
       <mw-col

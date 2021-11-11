@@ -1,4 +1,8 @@
-<template><div ref="subSectionRoot" v-html="content"/></template>
+<template>
+  <!-- eslint-disable vue/no-v-html -->
+  <div ref="subSectionRoot" v-html="content" />
+  <!--eslint-enable vue/no-v-html -->
+</template>
 
 <script>
 import SubSection from "@/wiki/cx/models/subSection";

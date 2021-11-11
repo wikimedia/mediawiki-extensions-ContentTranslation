@@ -6,6 +6,7 @@
           v-i18n:cx-sx-editor-original-panel-label
           class="sx-editor__original-sentence-panel__header mb-2"
         />
+        <!-- eslint-disable vue/no-v-html -->
         <div
           ref="originalContent"
           class="sx-editor__original-sentence-panel__content mb-5"
@@ -16,6 +17,7 @@
           }"
           v-html="originalContent"
         />
+        <!-- eslint-enable vue/no-v-html -->
       </mw-col>
       <mw-col shrink class="ps-3">
         <mw-button

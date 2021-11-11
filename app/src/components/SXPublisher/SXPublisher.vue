@@ -6,7 +6,9 @@
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
         class="mb-2"
       />
+      <!-- eslint-disable vue/no-v-html -->
       <h6 class="mb-2" v-html="panelResult" />
+      <!-- eslint-enable vue/no-v-html -->
       <mw-row justify="end" class="ma-0">
         <mw-col shrink>
           <mw-button
@@ -21,17 +23,21 @@
     <sx-publisher-review-info />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
+        <!--eslint-disable vue/no-v-html -->
         <mw-col
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
           v-html="translatedTitle"
         />
+        <!--eslint-enable vue/no-v-html -->
         <mw-col shrink>
           <mw-button :icon="mwIconEdit" type="icon" @click="editTranslation" />
         </mw-col>
       </mw-row>
+      <!--eslint-disable vue/no-v-html -->
       <div v-html="currentPageSection.translationHtml" />
+      <!--eslint-enable vue/no-v-html -->
     </section>
     <sx-publish-option-selector :active.sync="publishOptionsOn" />
     <sx-publisher-animation-dialog

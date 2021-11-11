@@ -41,7 +41,9 @@
           class="sx-sentence-selector__translation-options-card-title mb-4"
         />
       </template>
+      <!-- eslint-disable vue/no-v-html -->
       <p v-html="proposedTranslations[originalTextProviderKey]" />
+      <!--eslint-enable vue/no-v-html -->
     </mw-card>
     <mw-card
       v-for="mtProvider in apiMtProviders"
@@ -56,7 +58,9 @@
           v-text="mtProvider"
         />
       </template>
+      <!-- eslint-disable vue/no-v-html -->
       <p v-html="proposedTranslations[mtProvider]" />
+      <!--eslint-enable vue/no-v-html -->
     </mw-card>
     <mw-card
       class="sx-sentence-selector__mt-provider-option-card mx-4 pa-5"

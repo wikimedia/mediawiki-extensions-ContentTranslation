@@ -8,12 +8,14 @@
       <strong v-text="suggestion.sourceTitle" />
       <mw-icon :icon="mwIconLinkExternal" class="ms-1" size="12" />
     </a>
+    <!--eslint-disable vue/no-v-html -->
     <h2
       class="pa-0 ma-0"
       :class="titleClasses"
       @click="selectSectionTitle"
       v-html="sourceSectionTitle"
     />
+    <!--eslint-enable vue/no-v-html -->
   </mw-col>
 </template>
 

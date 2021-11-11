@@ -7,10 +7,12 @@
   >
     <mw-row class="ma-4">
       <mw-col>
+        <!--eslint-disable vue/no-v-html -->
         <div
           class="sx-publisher__publish-animation-icon mb-4"
           v-html="animationSvg"
         />
+        <!--eslint-enable vue/no-v-html -->
         <h2 v-text="animationTitle" />
         <p class="ma-0" v-text="animationSubtitle" />
       </mw-col>

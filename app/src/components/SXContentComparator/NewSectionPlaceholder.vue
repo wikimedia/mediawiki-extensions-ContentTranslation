@@ -2,7 +2,9 @@
   <section
     class="sx-content-comparator__new-section-placeholder--present mt-4 py-4 px-7"
   >
+    <!-- eslint-disable vue/no-v-html -->
     <h5 v-html="placeholderTitle" />
+    <!-- eslint-enable vue/no-v-html -->
     <p
       v-if="isMappedSection"
       v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle

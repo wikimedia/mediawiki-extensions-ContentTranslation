@@ -19,6 +19,7 @@
       </section>
       <section class="sx-quick-tutorial__illustration">
         <transition name="mw-ui-animation-slide-left">
+          <!--eslint-disable vue/no-v-html -->
           <div
             v-if="isActiveStep(1)"
             key="illustration-1"
@@ -29,6 +30,7 @@
             key="illustration-2"
             v-html="tutorialSvgMT"
           />
+          <!--eslint-enable vue/no-v-html -->
         </transition>
       </section>
       <div class="sx-quick-tutorial__step-indicator py-3">

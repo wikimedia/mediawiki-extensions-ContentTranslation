@@ -17,11 +17,13 @@
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
           <mw-row class="mw-ui-dialog__header">
+            <!-- eslint-disable vue/no-v-html -->
             <mw-col
               grow
               class="items-center mw-ui-dialog__header-title justify-start"
               v-html="title"
             />
+            <!--eslint-enable vue/no-v-html -->
             <mw-col shrink class="justify-center">
               <mw-button type="icon" :icon="mwIconClose" @click="close" />
             </mw-col>

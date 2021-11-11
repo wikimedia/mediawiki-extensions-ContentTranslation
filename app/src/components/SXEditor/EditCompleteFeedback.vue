@@ -1,10 +1,12 @@
 <template>
   <div v-if="showFeedback" class="sx-editor__feedback-overlay fill-height">
     <div class="sx-editor__feedback-overlay-content px-4">
+      <!-- eslint-disable vue/no-v-html -->
       <div
         class="sx-editor__feedback-overlay-content__happy-robot mb-4"
         v-html="happyRobotSVG"
       />
+      <!-- eslint-enable vue/no-v-html -->
       <h2
         v-i18n:sx-editor-feedback-overlay-title
         class="sx-editor__feedback-overlay-content__title"

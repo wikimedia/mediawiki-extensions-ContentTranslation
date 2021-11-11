@@ -1,10 +1,12 @@
 <template>
+  <!--eslint-disable vue/no-v-html -->
   <span
     class="sx-sentence-selector__section-sentence py-1 me-1"
     :class="sentenceClass"
     @click="selectSentence"
     v-html="sentence.content"
   />
+  <!--eslint-enable vue/no-v-html -->
 </template>
 
 <script>
