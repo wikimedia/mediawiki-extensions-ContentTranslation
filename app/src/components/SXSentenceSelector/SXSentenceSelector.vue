@@ -78,7 +78,7 @@ import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
 
 import TranslatedSegmentCard from "./TranslatedSegmentCard";
-import { computed, onMounted, ref } from "@vue/composition-api";
+import { computed, onMounted, ref, watch } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
 
 export default {
@@ -174,6 +174,18 @@ export default {
       });
 
     const previewTranslation = () => router.push({ name: "sx-publisher" });
+
+    watch(selectedSentence, () => {
+      // Move the current selected sentence to viewport
+      const segmentId = selectedSentence.value.id;
+      document
+        .querySelector(`[data-segmentid='${segmentId}']`)
+        ?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest"
+        });
+    });
 
     return {
       applyTranslation,
