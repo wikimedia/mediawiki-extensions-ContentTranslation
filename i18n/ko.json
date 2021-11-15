@@ -393,6 +393,15 @@
 	"sx-editor-feedback-overlay-title": "감사합니다!",
 	"cx-campaign-mflanguagesearcher-invite": "이 문서를 번역할 수 있습니다. 자신의 언어로 콘텐츠를 만들기 쉬운 방법입니다.",
 	"sx-recent-translation-entrypoint-banner-header": "이 페이지는 최근에 번역되었습니다.",
+	"sx-recent-translation-entrypoint-banner-details": "내용 개선 도움말",
+	"sx-recent-translation-entrypoint-dialog-header": "번역 개선",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "새 문단 추가",
 	"sx-recent-translation-entrypoint-dialog-review-lead-text": "번역으로 다른 편집자들이 외국어로 작성한 페이지의 정보를 재사용할 수 있습니다. 하지만, 어떤 정보들은 번역을 하는 과정에서 변형되거나 생략됩니다. 당신이 이것을 해결하는 데 도울 수 있습니다:",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" 와 \"$2\" 을 번역"
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "내용을 자연스럽게 읽히도록 만드세요",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "원본과 비교",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "문서 편집하기",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "새 문단 번역하기",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" 번역하기",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" 와 \"$2\" 을 번역",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" 등을 번역하기"
 }

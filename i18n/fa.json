@@ -406,5 +406,18 @@
 	"sx-editor-feedback-overlay-clarification": "در حال آموختن از اصلاحات شما",
 	"sx-editor-feedback-overlay-stats": "<span>$1٪</span> توسط شما ویرایش شده‌است",
 	"cx-campaign-mflanguagesearcher-invite": "می‌توانید این صفحه را ترجمه کنید. این راهی آسان برای ایجاد محتوا به زبان خودتان است.",
-	"cx-suggestion-list-favorites-division": "برای بعداً"
+	"cx-suggestion-list-favorites-division": "برای بعداً",
+	"sx-recent-translation-entrypoint-banner-header": "این صفحه اخیراً ترجمه شده‌است",
+	"sx-recent-translation-entrypoint-banner-details": "کمک به بهبود محتوا",
+	"sx-recent-translation-entrypoint-dialog-header": "بهبود ترجمه",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "بازبینی محتوا",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "افزودن بخش‌های تازه",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "بررسی ارجاع‌ها",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "مقایسه با اصلی",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ویرایش صفحه",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "گشودن صفحهٔ اصلی در $1",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "ترجمهٔ یک بخش تازه",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ترجمهٔ «$1»",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "ترجمهٔ «$1» و «$2»",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "ترجمهٔ «$1»، «$2» و موارد بیشتر"
 }

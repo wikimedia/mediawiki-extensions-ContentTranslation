@@ -353,5 +353,6 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Перевести раздел",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Раздел",
 	"sx-editor-feedback-overlay-title": "Спасибо!",
-	"cx-suggestion-list-favorites-division": "На потом"
+	"cx-suggestion-list-favorites-division": "На потом",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перевести \"$1\" и \"$2\""
 }

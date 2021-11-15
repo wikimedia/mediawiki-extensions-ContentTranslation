@@ -136,5 +136,7 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "လွူꩻထွားထဲင်းတာႏ",
 	"cx-translation-list-all-languages-option-label": "ကားကအဝ်ႏ",
 	"sx-quick-tutorial-translate-button-label": "ပြန်ႏစသွူဘာႏသာႏ",
-	"cx-sx-sentence-selector-skip-translation-button-label": "ကာႏထိုꩻ"
+	"cx-sx-sentence-selector-skip-translation-button-label": "ကာႏထိုꩻ",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ခြပ်ချော်ꩻလိတ်မဲ့ငါ",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ပြန်ႏ \"$1\" ဘာႏသာႏ"
 }
