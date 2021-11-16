@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"ProudBatak",
 			"Salomo Christian Hutajulu"
 		]
 	},
-	"cx-sx-section-selector-learn-more-anchor-label": "Parsiajari muse"
+	"cx-sx-section-selector-learn-more-anchor-label": "Parsiajari muse",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Patota alaman on"
 }
