@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"AC Krah"
+			"AC Krah",
+			"Robertjamal12"
 		]
 	},
 	"sx-recent-translation-entrypoint-banner-header": "Ɛnkyɛeɛ bia na wɔsesaa saa nsɛm yi",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Hwɛ beaɛ a yɛnya mmoa firi",
-	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Sesa beaɛ no",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Sesa biribi wɔ kratafa no so",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Kyerɛ $1 mu"
 }

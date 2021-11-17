@@ -379,5 +379,9 @@
 	"cx-sx-language-selector-no-search-results": "কোনও ফলাফল নেই",
 	"sx-translation-list-language-selector-dialog-title": "ভাষা",
 	"cx-sx-article-search-header": "নতুন অনুবাদ",
-	"sx-editor-feedback-overlay-title": "ধন্যবাদ!"
+	"sx-editor-feedback-overlay-title": "ধন্যবাদ!",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "বিষয়বস্তু পরীক্ষা করুন",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" অনুবাদ করুন",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" ও \"$2\" অনুবাদ করুন",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" ও আরও অনুবাদ করুন"
 }
