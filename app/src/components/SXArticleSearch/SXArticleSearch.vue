@@ -303,7 +303,7 @@ export default {
       position: absolute;
       top: 10vh;
       left: 25vw;
-      min-width: 50vw;
+      min-width: ~"min(50vw, 600px)";
       min-height: 50vh;
       max-height: 75vh;
     }
