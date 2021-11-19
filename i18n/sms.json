@@ -5,9 +5,13 @@
 		]
 	},
 	"cx-header-all-translations": "Puk jåårǥlâttmõõžž",
+	"cx-publish-button": "Õlmstââʹtt",
 	"cx-tools-link-title": "Liŋkk",
 	"cx-publish-captcha-title": "Nââneet, što jiõk leäkku robott.",
 	"cx-dashboard-sidebar-stats": "Statistiikk",
 	"cx-translation-filter-label-all-languages": "Puk",
-	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}"
+	"cx-save-draft-shortcut-label": "Ruõkk hämmaz",
+	"cx-translation-status-published": "Õlmstõttum",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
+	"cx-publish-settings": "Õlmstâʹttemasetõõzz"
 }
