@@ -4,7 +4,7 @@
 		<div class="sx-recent-translation-dialog__shell">
 			<div class="sx-recent-translation-dialog__header row">
 				<div class="sx-recent-translation-dialog__header-text col">
-					<h3 v-text="$i18n('sx-recent-translation-entrypoint-dialog-header')"></h3>
+					<h3 v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-header' )"></h3>
 				</div>
 				<span class="sx-recent-translation-dialog__header-close-icon mw-ui-icon" @click="closeDialog"></span>
 			</div>
@@ -13,13 +13,13 @@
 					class="sx-recent-translation-dialog__action-switch"
 					:class="{ 'sx-recent-translation-dialog__action-switch--enabled': isReviewSelected }"
 					@click="selectedOption = 'review'"
-					v-text="$i18n('sx-recent-translation-entrypoint-dialog-review-switch-text')"
+					v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-review-switch-text' )"
 				></button>
 				<button
 					class="sx-recent-translation-dialog__action-switch"
 					:class="{ 'sx-recent-translation-dialog__action-switch--enabled': isAddSelected }"
 					@click="selectedOption = 'add'"
-					v-text="$i18n('sx-recent-translation-entrypoint-dialog-add-section-switch-text')"
+					v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-add-section-switch-text' )"
 				></button>
 			</div>
 			<div
@@ -30,28 +30,28 @@
 				<div v-show="isReviewSelected" class="sx-recent-translation-dialog__review-tab">
 					<p
 						class="sx-recent-translation-dialog__review-lead-text"
-						v-text="$i18n('sx-recent-translation-entrypoint-dialog-review-lead-text')"
+						v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-review-lead-text' )"
 					></p>
 					<ol class="sx-recent-translation-dialog__review-list">
 						<li class="sx-recent-translation-dialog__review-list-item">
-							<h4 v-text="$i18n('sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header')"></h4>
-							<p v-text="$i18n('sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details')"></p>
+							<h4 v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header' )"></h4>
+							<p v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details' )"></p>
 						</li>
 						<li class="sx-recent-translation-dialog__review-list-item">
-							<h4 v-text="$i18n('sx-recent-translation-entrypoint-dialog-references-list-item-header')"></h4>
-							<p v-text="$i18n('sx-recent-translation-entrypoint-dialog-references-list-item-details')">
+							<h4 v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-references-list-item-header' )"></h4>
+							<p v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-references-list-item-details' )">
 							</p>
 						</li>
 						<li class="sx-recent-translation-dialog__review-list-item">
-							<h4 v-text="$i18n('sx-recent-translation-entrypoint-dialog-compare-original-list-item-header')"></h4>
-							<p v-text="$i18n('sx-recent-translation-entrypoint-dialog-compare-original-list-item-details')">
+							<h4 v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-compare-original-list-item-header' )"></h4>
+							<p v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-compare-original-list-item-details' )">
 							</p>
 						</li>
 					</ol>
 					<button class="sx-recent-translation-dialog__edit-button mw-ui-button mw-ui-progressive" @click="openVE">
 						<span class="sx-recent-translation-dialog__edit-icon mw-ui-icon">
 						</span>
-						<span v-text="$i18n('sx-recent-translation-entrypoint-dialog-edit-button-label')"></span>
+						<span v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-edit-button-label' )"></span>
 					</button>
 					<div class="sx-recent-translation-dialog__original-page-link row">
 						<a
@@ -72,12 +72,12 @@
 				<div v-show="isAddSelected" class="sx-recent-translation-dialog__add-sections-tab">
 					<p
 						class="sx-recent-translation-dialog__add-sections-tab__lead-text"
-						v-text="$i18n('sx-recent-translation-entrypoint-dialog-add-sections-lead-text')"
+						v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-add-sections-lead-text' )"
 					></p>
 					<button class="sx-recent-translation-dialog__translate-button mw-ui-button mw-ui-progressive" @click="goToSX">
 						<span class="sx-recent-translation-dialog__language-icon mw-ui-icon">
 						</span>
-						<span v-text="$i18n('sx-recent-translation-entrypoint-dialog-translate-button-label')"></span>
+						<span v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-translate-button-label' )"></span>
 					</button>
 					<div
 						class="sx-recent-translation-dialog__translate-secondary-notice"
@@ -92,6 +92,7 @@
 <script>
 var siteMapper = new mw.cx.SiteMapper();
 
+// @vue/component
 module.exports = {
 	name: 'RecentTranslationEntrypointDialog',
 	data: function () {
@@ -105,13 +106,6 @@ module.exports = {
 			targetLanguage: siteMapper.getCurrentWikiLanguageCode(),
 			targetTitle: mw.config.get( 'wgTitle' )
 		};
-	},
-	mounted: function () {
-		var that = this;
-		this.$nextTick( function () {
-			that.contentHeight = Math.max( that.contentHeight, that.$refs.content.clientHeight );
-		} );
-		this.getSectionSuggestions();
 	},
 	computed: {
 		contentStyle: function () {
@@ -192,6 +186,13 @@ module.exports = {
 				{ campaign: 'mfrecenttranslation', sx: true }
 			);
 		}
+	},
+	mounted: function () {
+		var that = this;
+		this.$nextTick( function () {
+			that.contentHeight = Math.max( that.contentHeight, that.$refs.content.clientHeight );
+		} );
+		this.getSectionSuggestions();
 	}
 };
 </script>

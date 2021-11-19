@@ -58,7 +58,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
 	currentTitle = currentTitleObj.getMainText();
 	if ( currentNamespace === mw.config.get( 'wgNamespaceIds' ).user ) {
 		// User namespace. Get the title part alone after removing User:username/ part
-		currentTitle = currentTitle.substr( currentTitle.indexOf( '/' ) + 1 );
+		currentTitle = currentTitle.slice( currentTitle.indexOf( '/' ) + 1 );
 	}
 
 	if ( newNamespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {

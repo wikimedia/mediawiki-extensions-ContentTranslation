@@ -77,7 +77,7 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle,
-				trace: JSON.stringify( trace ).substring( 0, 500 )
+				trace: JSON.stringify( trace ).slice( 0, 500 )
 			} );
 			mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
 			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );

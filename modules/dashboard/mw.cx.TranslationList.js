@@ -11,7 +11,7 @@
  *
  * @class
  * @constructor
- * @extends {mw.cx.DashboardList}
+ * @extends mw.cx.DashboardList
  * @mixins OO.EventEmitter
  *
  * @param {jQuery} $container

@@ -36,7 +36,7 @@
 	 *     It is also possible to give a preferred direction using $.fn.callout.autoDirection
 	 *     Example: $.fn.callout.autoDirection( '0' )
 	 *     This will make the callout below the trigger with its tip pointing upwards
-	 *            *
+	 *            +
 	 *     ______/\______
 	 *     |             |
 	 *     _______________
@@ -44,7 +44,7 @@
 	 *     Example: $.fn.callout.autoDirection( '0' )
 	 *      ______
 	 *      |     |
-	 *      |      > *
+	 *      |      > +
 	 *      |_____|
 	 *     Auto direction will change direction if screen space is not available.
 	 * @param {number} options.offset Offset of the dialog from the trigger

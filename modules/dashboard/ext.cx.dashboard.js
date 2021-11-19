@@ -173,7 +173,7 @@
 	 * Initialize the components
 	 */
 	CXDashboard.prototype.initLists = function () {
-		var locationHash = location.hash.substring( 1 ),
+		var locationHash = location.hash.slice( 1 ),
 			lists = [ 'draft', 'published' ];
 
 		this.renderTranslations();

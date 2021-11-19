@@ -63,7 +63,7 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
  *
  * @param {HTMLDocument} doc
  * @return {HTMLDocument} Cleaned up document.
- **/
+ */
 mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
 	Array.prototype.forEach.call( doc.body.querySelectorAll( 'article, section, [data-segmentid]' ), function ( segment ) {
 		var parent = segment.parentNode;

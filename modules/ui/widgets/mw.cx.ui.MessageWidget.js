@@ -6,8 +6,8 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {mediawiki.Message|string} [message] Main message.
- * @cfg {mediawiki.Message|string} [details] Additional details.
+ * @cfg {mw.Message|string} [message] Main message.
+ * @cfg {mw.Message|string} [details] Additional details.
  * @cfg {OO.ui.ButtonWidget[]} [buttons] Array of additional buttons.
  */
 mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {

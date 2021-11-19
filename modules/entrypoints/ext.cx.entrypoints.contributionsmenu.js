@@ -15,7 +15,6 @@
 	 */
 	function isUserMenuDropdown() {
 		return mw.config.get( 'skin' ) === 'vector' &&
-			// eslint-disable-next-line no-jquery/no-class-state
 			$( '.mw-portlet-personal.vector-menu-dropdown' ).length;
 	}
 

@@ -9,7 +9,7 @@
 /**
  * @class
  * @constructor
- * @extends {mw.cx.DashboardList}
+ * @extends mw.cx.DashboardList
  *
  * @param {jQuery} $container The container for this suggestion list
  * @param {mw.cx.SiteMapper} siteMapper

@@ -31,7 +31,7 @@ ve.ui.CXTranslationAction.static.name = 'translation';
  * List of allowed methods for the action.
  *
  * @static
- * @property
+ * @property {string[]}
  */
 ve.ui.CXTranslationAction.static.methods = [ 'translate', 'savePreference' ];
 

@@ -81,7 +81,7 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle,
-				trace: JSON.stringify( trace ).substring( 0, 500 )
+				trace: JSON.stringify( trace ).slice( 0, 500 )
 			} );
 			mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
 			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );
@@ -106,7 +106,7 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle,
-				trace: trace.substring( 0, 500 )
+				trace: trace.slice( 0, 500 )
 			} );
 			mw.track( 'counter.MediaWiki.cx.save.fail', 1 );
 		},
@@ -130,7 +130,7 @@
 				targetLanguage: targetLanguage,
 				sourceTitle: sourceTitle,
 				targetTitle: targetTitle,
-				trace: trace.substring( 0, 500 )
+				trace: trace.slice( 0, 500 )
 			} );
 			mw.track( 'counter.MediaWiki.cx.restore.fail', 1 );
 		},

@@ -26,7 +26,7 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 			assert.deepEqual( providers, [ 'Provider1', 'Provider2' ], 'Correct providers are returned' );
 		} )
 		.fail( function () {
-			assert.ok( false, 'Unexpected error' );
+			assert.true( false, 'Unexpected error' );
 		} )
 		.always( function () {
 			done1();
@@ -44,7 +44,7 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 			assert.deepEqual( providers, [], 'Case of no providers is handled.' );
 		} )
 		.fail( function () {
-			assert.ok( false, 'Unexpected error' );
+			assert.true( false, 'Unexpected error' );
 		} )
 		.always( function () {
 			done2();
@@ -60,10 +60,10 @@ QUnit.test( 'fetchProviders', function ( assert ) {
 	new mw.cx.MachineTranslationService( 'fi', 'sv', this.siteMapper )
 		.fetchProviders()
 		.done( function () {
-			assert.ok( false, 'Unexpected success' );
+			assert.true( false, 'Unexpected success' );
 		} )
 		.fail( function () {
-			assert.ok( true, 'Failure causes promise to be rejected' );
+			assert.true( true, 'Failure causes promise to be rejected' );
 		} )
 		.always( function () {
 			done3();
@@ -88,7 +88,7 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 			assert.strictEqual( provider, 'Provider1', 'The first provider is suggested.' );
 		} )
 		.fail( function () {
-			assert.ok( false, 'Unexpected error' );
+			assert.true( false, 'Unexpected error' );
 		} )
 		.always( function () {
 			done1();
@@ -106,7 +106,7 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 			assert.strictEqual( provider, null, 'If no providers, no suggested provider.' );
 		} )
 		.fail( function () {
-			assert.ok( false, 'Unexpected error' );
+			assert.true( false, 'Unexpected error' );
 		} )
 		.always( function () {
 			done2();
@@ -124,7 +124,7 @@ QUnit.test( 'getSuggestedDefaultProvider', function ( assert ) {
 			assert.strictEqual( provider, null, 'Source mt suggested by the server respected' );
 		} )
 		.fail( function () {
-			assert.ok( false, 'Unexpected error' );
+			assert.true( false, 'Unexpected error' );
 		} )
 		.always( function () {
 			done3();

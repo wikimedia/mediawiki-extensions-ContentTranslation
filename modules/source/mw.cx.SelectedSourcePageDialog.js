@@ -12,7 +12,7 @@
  * SelectedSourcePageDialog
  *
  * @class
- * @extends {OO.ui.Dialog}
+ * @extends OO.ui.Dialog
  */
 mw.cx.SelectedSourcePageDialog = function () {
 	// Parent method
