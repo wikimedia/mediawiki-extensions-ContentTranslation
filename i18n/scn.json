@@ -10,6 +10,7 @@
 	"cx-source-view-page": "talìa la pàggina",
 	"cx-entrypoint-title": "Traduci sta pàggina n $1",
 	"cx-tools-link-add": "Agghiunci liami",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 catigurìa|$1 catigurìi|0=Nudda catigurìa}}",
 	"cx-page-number-of-languages": "Nùmmiru di lingui",
 	"cx-captcha-dialog-cancel": "Annulla",
 	"cx-dashboard-sidebar-stats": "Statìstichi",
