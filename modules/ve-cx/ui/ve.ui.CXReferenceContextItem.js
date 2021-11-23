@@ -1,46 +1,38 @@
-'use strict';
+( function () {
+	'use strict';
 
-/**
- * Context item for reference nodes.
- *
- * @copyright See AUTHORS.txt
- * @license GPL-2.0-or-later
- *
- * @class
- * @constructor
- * @extends ve.ui.MWReferenceContextItem
- *
- * @param {ve.ui.Context} context Context item is in
- * @param {ve.dm.Model} model Model item is related to
- * @param {Object} config Configuration options
- */
-ve.ui.CXReferenceContextItem = function VeUiCXReferenceContextItem() {
-	// Parent constructor
-	ve.ui.CXReferenceContextItem.super.apply( this, arguments );
-};
+	function addCxSubclass( parentContextItem ) {
+		var contextItem = function CXGeneratedMWCitationContextItem() {
+			// Parent constructor
+			parentContextItem.apply( this, arguments );
+		};
 
-/* Inheritance */
+		OO.inheritClass( contextItem, parentContextItem );
 
-OO.inheritClass( ve.ui.CXReferenceContextItem, ve.ui.MWReferenceContextItem );
+		contextItem.prototype.getRendering = function () {
+			var cxData = this.model.getAttribute( 'cx' ) || {};
 
-/* Methods */
+			if ( cxData.adapted === false ) {
+				// Reference is not adapted. Use an empty div as content with the same
+				// CSS class that parent class uses for such empty content.
+				return $( '<div>' )
+					.addClass( 've-ui-mwReferenceContextItem-muted' );
+			}
+			return contextItem.super.prototype.getRendering.apply( this, arguments );
+		};
 
-/**
- * @inheritdoc
- */
-ve.ui.CXReferenceContextItem.prototype.getRendering = function () {
-	var cxData = this.model.getAttribute( 'cx' ) || {};
-
-	if ( cxData.adapted === false ) {
-		// Reference is not adapted. Use an empty div as content with the same
-		// CSS class that parent class uses for such empty content.
-		return $( '<div>' )
-			.addClass( 've-ui-mwReferenceContextItem-muted' );
+		ve.ui.contextItemFactory.register( contextItem );
 	}
 
-	return ve.ui.CXReferenceContextItem.super.prototype.getRendering.apply( this, arguments );
-};
+	// Note: Don't iterate directly with `for ( name in ve.ui.contextItemFactory.registry )`,
+	// because we're modifying that object in the loop body
+	var names = Object.keys( ve.ui.contextItemFactory.registry );
+	for ( var i = 0; i < names.length; i++ ) {
+		var name = names[ i ];
+		if ( name.slice( 0, 5 ) === 'cite-' ) {
+			var parentContextItem = ve.ui.contextItemFactory.lookup( name );
+			addCxSubclass( parentContextItem );
+		}
+	}
 
-/* Registration */
-
-ve.ui.contextItemFactory.register( ve.ui.CXReferenceContextItem );
+}() );
