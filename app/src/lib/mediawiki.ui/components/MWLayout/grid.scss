@@ -8,7 +8,6 @@
 
 @use "variables" as *;
 @use "breakpoints" as *;
-@use "helpers" as *;
 
 // Generate style with responsive columns
 @mixin generateResponsiveCols($counter, $media) {
@@ -22,7 +21,7 @@
     }
 
     .col-offset-#{$mediaKey}#{$counter} {
-      @include bidi("margin-left", "#{$width}%");
+      margin-inline-start: unquote("#{$width}%");
     }
   }
 }

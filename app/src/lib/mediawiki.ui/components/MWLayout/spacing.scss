@@ -1,6 +1,5 @@
 @use "variables" as *;
 @use "breakpoints" as *;
-@use "helpers" as *;
 
 // Generate margin and padding style for different breakpoints.
 @mixin generateSpacing($counter, $media) {
@@ -10,66 +9,60 @@
     $mediaKey: if($media == "", "", "#{$media}-");
 
     .ps-#{$mediaKey}#{$counter} {
-      @include bidi("padding-left", #{$width}px);
+      padding-inline-start: #{$width}px;
     }
     .ms-#{$mediaKey}#{$counter} {
-      @include bidi("margin-left", #{$width}px);
+      margin-inline-start: #{$width}px;
     }
     .ms-#{$mediaKey}auto {
-      @include bidi("margin-left", 'auto');
+      margin-inline-start: auto;
     }
     .pe-#{$mediaKey}#{$counter} {
-      @include bidi("padding-right", #{$width}px);
+      padding-inline-end: #{$width}px;
     }
     .me-#{$mediaKey}auto {
-      @include bidi("margin-right", 'auto');
+      margin-inline-end: auto
     }
     .me-#{$mediaKey}#{$counter} {
-      @include bidi("margin-right", #{$width}px);
+      margin-inline-end: #{$width}px;
     }
 
     .px-#{$mediaKey}#{$counter} {
-      padding-right: #{$width}px;
-      padding-left: #{$width}px;
+      padding-inline: #{$width}px;
     }
     .py-#{$mediaKey}#{$counter} {
-      padding-top: #{$width}px;
-      padding-bottom: #{$width}px;
+      padding-block: #{$width}px;
     }
     .mx-#{$mediaKey}auto {
-      margin-right: auto;
-      margin-left: auto;
+      margin-inline: auto;
     }
     .mx-#{$mediaKey}#{$counter} {
-      margin-right: #{$width}px;
-      margin-left: #{$width}px;
+      margin-inline: #{$width}px;
     }
     .my-#{$mediaKey}auto {
-      margin-top: auto;
-      margin-bottom: auto;
+      margin-block: auto;
     }
     .my-#{$mediaKey}#{$counter} {
-      margin-top: #{$width}px;
-      margin-bottom: #{$width}px;
+      margin-block: #{$width}px;
     }
 
     .pt-#{$mediaKey}#{$counter} {
-      padding-top: #{$width}px;
+      padding-block-start: #{$width}px;
     }
     .mt-#{$mediaKey}auto {
-      margin-top: auto;
+      margin-block-start: auto
     }
     .mt-#{$mediaKey}#{$counter} {
-      margin-top: #{$width}px;
+      margin-block-start: #{$width}px;
     }
     .pb-#{$mediaKey}#{$counter} {
-      padding-bottom: #{$width}px;
+      padding-block-end: #{$width}px;
     }
     .mb-#{$mediaKey}auto {
-      margin-bottom: auto;
+      margin-block-end: auto;
     }
     .mb-#{$mediaKey}#{$counter} {
-      margin-bottom: #{$width}px;
+      margin-block-end: #{$width}px;
     }
     .pa-#{$mediaKey}#{$counter} {
       padding: #{$width}px;
