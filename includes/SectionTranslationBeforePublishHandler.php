@@ -53,7 +53,8 @@ class SectionTranslationBeforePublishHandler implements SectionTranslationBefore
 		if ( $pageContent === null ) {
 			return;
 		}
-		$content = $this->contentHandlerFactory->getContentHandler( CONTENT_MODEL_WIKITEXT )->unserializeContent( $pageContent );
+		$contentHandler = $this->contentHandlerFactory->getContentHandler( CONTENT_MODEL_WIKITEXT );
+		$content = $contentHandler->unserializeContent( $pageContent );
 		$editMessage = 'Auto-created by SectionTranslation:onSectionTranslationBeforePublish';
 
 		$page = $this->wikiPageFactory->newFromTitle( $title->toPageIdentity() );
