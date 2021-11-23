@@ -10,27 +10,33 @@ use Wikimedia\Rdbms\IDatabase;
 
 class RecentSignificantEditStore {
 	// Array of supported wiki families for the 'recent significant edit' entrypoint
+	// The order of the entries should never change in production, as the indexes of this array
+	// are used to populate the "cxse_wiki_family" field inside "cx_significant_edits" table.
 	private const SUPPORTED_WIKI_FAMILIES = [
 		'wikipedia',
 	];
 	private const TABLE_NAME = 'cx_significant_edits';
+	private const DEFAULT_WIKI_FAMILY = 'wikipedia';
 
 	/**
-	 * The wiki family of the current wiki.
-	 * @var string|null
+	 * The index of the wiki family of the current wiki inside SUPPORTED_WIKI_FAMILIES array.
+	 * Used to populate "cxse_wiki_family" field inside "cx_significant_edits" table.
+	 *
+	 * @var int|false
 	 */
-	private $currentWikiFamily;
+	private $currentWikiFamilyKey;
 
 	/** @var LoadBalancer */
 	private $lb;
 
 	public function __construct( LoadBalancer $lb, ?string $currentWikiFamily ) {
 		$this->lb = $lb;
-		$this->currentWikiFamily = $currentWikiFamily;
+		$currentWikiFamily = $currentWikiFamily ?? self::DEFAULT_WIKI_FAMILY;
+		$this->currentWikiFamilyKey = array_search( $currentWikiFamily, self::SUPPORTED_WIKI_FAMILIES );
 	}
 
 	public function isCurrentWikiFamilySupported(): bool {
-		return (bool)array_search( $this->currentWikiFamily, self::SUPPORTED_WIKI_FAMILIES );
+		return $this->currentWikiFamilyKey !== false;
 	}
 
 	/**
@@ -112,7 +118,10 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsByUser( int $userId ): array {
-		$conditions = [ 'cxse_global_user_id' => $userId, 'cxse_wiki_family' => $this->currentWikiFamily ];
+		$conditions = [
+			'cxse_global_user_id' => $userId,
+			'cxse_wiki_family' => $this->currentWikiFamilyKey
+		];
 		$options = [ 'ORDER BY' => 'cxse_timestamp asc' ];
 
 		$replicaDb = $this->lb->getConnection( DB_REPLICA );
@@ -140,7 +149,7 @@ class RecentSignificantEditStore {
 			'cxse_global_user_id' => $userId,
 			"cxse_page_wikidata_id" => $pageWikidataId,
 			"cxse_language" => $language,
-			'cxse_wiki_family' => $this->currentWikiFamily
+			'cxse_wiki_family' => $this->currentWikiFamilyKey
 		];
 
 		$replicaDb = $this->lb->getConnection( DB_REPLICA );
@@ -187,7 +196,7 @@ class RecentSignificantEditStore {
 			'cxse_global_user_id' => $edit->getUserId(),
 			'cxse_page_wikidata_id' => $edit->getPageWikidataId(),
 			'cxse_language' => $edit->getLanguage(),
-			'cxse_wiki_family' => $this->currentWikiFamily,
+			'cxse_wiki_family' => $this->currentWikiFamilyKey,
 			'cxse_page_title' => $edit->getPageTitle(),
 			'cxse_section_titles' => json_encode( $edit->getSectionTitles() ),
 			'cxse_timestamp' => $edit->getTimestamp(),

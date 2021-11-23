@@ -12,10 +12,9 @@ use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
+use ContentTranslation\WikidataIdFetcher;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
-use Wikibase\Lib\SettingsArray;
-use Wikibase\Lib\Store\SiteLinkLookup;
 use Wikimedia\Services\NoSuchServiceException;
 
 /** @phpcs-require-sorted-array */
@@ -89,16 +88,6 @@ return [
 				$services->getService( 'ContentTranslation.LoadBalancer' )
 			);
 		},
-	'ContentTranslation.SiteLinkLookup' =>
-		/** @phan-suppress-next-line PhanUndeclaredTypeReturnType */
-		static function ( MediaWikiServices $services ): ?SiteLinkLookup {
-			try {
-				$wikibaseClientStore = $services->getService( 'WikibaseClient.Store' );
-				return $wikibaseClientStore->getSiteLinkLookup();
-			} catch ( NoSuchServiceException $exception ) {
-				return null;
-			}
-		},
 	'ContentTranslation.TranslationCorporaStore' =>
 		static function ( MediaWikiServices $services ): TranslationCorporaStore {
 			return new TranslationCorporaStore(
@@ -113,13 +102,8 @@ return [
 				$services->getService( 'ContentTranslation.RestbaseClient' )
 			);
 		},
-	'ContentTranslation.WikibaseClient.Settings' =>
-		/** @phan-suppress-next-line PhanUndeclaredTypeReturnType */
-		static function ( MediaWikiServices $services ): ?SettingsArray {
-			try {
-				return $services->getService( 'WikibaseClient.Settings' );
-			} catch ( NoSuchServiceException $exception ) {
-				return null;
-			}
+	'ContentTranslation.WikidataIdFetcher' =>
+		static function ( MediaWikiServices $services ): WikidataIdFetcher {
+			return new WikidataIdFetcher( $services->getHttpRequestFactory() );
 		}
 ];
