@@ -32,7 +32,7 @@
 	"cx-publish-summary": "Vytvorené prekladom stránky „$1“",
 	"cx-translation-add-translation": "Pridať preklad",
 	"cx-translation-target-page-exists": "Článok s názvom [$1 $2] už na danej Wikipédii existuje. Zvážte zmenu názvu.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Preklad obsahu]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|preklad obsahu]]",
 	"tag-contenttranslation-description": "Obsah stránky bol preložený z iného jazyka pomocou nástroja Content Translation.",
 	"tag-contenttranslation-v2-description": "Obsah bol preložený z iného jazyka pomocou verzie 2 nástroja Preklad obsahu.",
 	"cx-source-loading": "$1 sa načítava",

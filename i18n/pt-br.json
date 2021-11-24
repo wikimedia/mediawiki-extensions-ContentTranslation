@@ -406,5 +406,7 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Seção",
 	"sx-editor-feedback-overlay-title": "Obrigado!",
 	"sx-editor-feedback-overlay-clarification": "Aprendendo com suas correções",
-	"cx-campaign-mflanguagesearcher-invite": "Você pode traduzir esta página. É uma maneira fácil de criar conteúdo em seu idioma."
+	"sx-editor-feedback-overlay-stats": "<span>$1%</span> editado por você",
+	"cx-campaign-mflanguagesearcher-invite": "Você pode traduzir esta página. É uma maneira fácil de criar conteúdo em seu idioma.",
+	"cx-suggestion-list-favorites-division": "Para mais tarde"
 }

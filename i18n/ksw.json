@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"SawJaemin"
+		]
+	},
+	"cx-dashboard-sidebar-title": "{{GENDER:|လိၣ်ဘၣ်}} တၢ်မၤစၢၤလၢ်ကကျိာ်ထံတၢ်ဧါ?",
+	"cx-translation-filter-label-all-languages": "ခဲလၢာ်",
+	"cx-translation-filter-uls-all-languages": "ကျိာ်ခဲလၢာ်",
+	"cx-suggestionlist-refresh": "မၤသီထီၣ်တၢ်ဟ့ၣ်ကူၣ်တဖၣ်",
+	"cx-sx-language-selector-all-languages": "ကျိာ်ခဲလၢာ်"
+}

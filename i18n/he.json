@@ -324,7 +324,7 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "לדלג",
 	"cx-sx-content-comparator-target-selector-full-article-title": "ערך שלם ב{{GRAMMAR:תחילית|$1}}",
 	"cx-sx-content-comparator-mapped-section-header-title": "קיים ב{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-content-comparator-target-selector-target-section-title": "פרק ב{{GRAMMAR:תחילית|$1}}",
+	"cx-sx-content-comparator-target-selector-target-section-title": "פרק בדף $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים. אפשר להתעלם מזה אם הפרקים אינם קשורים.",
 	"cx-sx-translation-confirmer-title": "תרגום חדש",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|ביקור אחד לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}",
