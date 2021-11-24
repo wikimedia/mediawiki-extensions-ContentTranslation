@@ -32,6 +32,7 @@ SectionTranslationTarget = function SectionTranslationTarget(overlay, config) {
   // Parent constructor
   SectionTranslationTarget.super.call(this, overlay, config);
   this.section = config.section;
+
   // Initialization
   this.$element.addClass("sx-ve-translation-target");
 };

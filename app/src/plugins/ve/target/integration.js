@@ -35,6 +35,37 @@ function getSurface(veTarget, content, lang, dir) {
 }
 
 /**
+ * Override for ve.ui.MWReferenceContextItem.prototype.getRendering as it creates
+ * a ve.ui.MWPreviewElement with default parameters. ve.ui.MWPreviewElement has
+ * useView configuration as false by default and causes not rendering the references
+ * from its DOM model as required for section translation.
+ *
+ * Get a DOM rendering of the reference.
+ *
+ * @private
+ * @return {jQuery} DOM rendering of reference
+ */
+function getReferenceRendering() {
+  var refNode = this.getReferenceNode();
+
+  if (refNode) {
+    this.view = new ve.ui.MWPreviewElement(refNode, {
+      useView: true
+    });
+
+    // The $element property may be rendered into asynchronously, update the context's size when the
+    // rendering is complete if that's the case
+    this.view.once("render", this.context.updateDimensions.bind(this.context));
+
+    return this.view.$element;
+  } else {
+    return $("<div>")
+      .addClass("ve-ui-mwReferenceContextItem-muted")
+      .text(ve.msg("cite-ve-referenceslist-missingref"));
+  }
+}
+
+/**
  * Get a VisualEditor editing target
  * @param {Object} editorConfig
  * @param {Element} overlayEl
@@ -56,4 +87,4 @@ async function getTarget(editorConfig, overlayEl) {
   return new SectionTranslationTarget(overlay, editorConfig);
 }
 
-export { getTarget, getSurface };
+export { getTarget, getSurface, getReferenceRendering };

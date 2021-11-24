@@ -9,7 +9,11 @@
 
 <script>
 import { computed, onMounted, ref } from "@vue/composition-api";
-import { getTarget, getSurface } from "../target/integration";
+import {
+  getTarget,
+  getSurface,
+  getReferenceRendering
+} from "../target/integration";
 
 export default {
   name: "VisualEditor",
@@ -75,6 +79,7 @@ export default {
         props.language,
         props.dir
       );
+      ve.ui.MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
     };
 
     onMounted(init);
