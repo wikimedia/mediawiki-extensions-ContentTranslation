@@ -1,5 +1,5 @@
 // Styles to customize the mediawiki pages
-
+@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
 // Clear the floating of images and tables.
 section {
   table,
@@ -10,5 +10,51 @@ section {
   figure[typeof~="mw:Video/Frame"],
   figure[typeof~="mw:Audio/Frame"] {
     float: none;
+  }
+}
+// These styles have been copied from:
+// skins/MinervaNeue/resources/skins.minerva.base.styles/content/hacks.less
+.infobox {
+  font-size: 90%;
+  position: relative;
+  border: 1px solid @wmui-color-base80;
+  margin-bottom: 2em;
+  background-color: @wmui-color-base90;
+  display: flex;
+  flex: 1 1 100%;
+  flex-flow: column nowrap;
+  width: 100% !important;
+  max-width: 100% !important;
+  caption {
+    padding: 10px 10px 0;
+    text-align: center;
+  }
+  th, td {
+    vertical-align: top;
+    border: 0;
+    border-bottom: 1px solid @wmui-color-base80;
+    padding: 7px 10px;
+  }
+  tbody > tr > td,
+  tbody > tr > th {
+    flex: 1 0;
+  }
+  td:only-child,
+  th:only-child {
+    width: 100%;
+  }
+  tr:last-child th,
+  tr:last-child td {
+    border: 0;
+  }
+  & > tbody,
+  & > caption {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  & > tbody > tr {
+    min-width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
   }
 }
