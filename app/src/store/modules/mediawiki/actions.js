@@ -167,56 +167,6 @@ async function fetchMTProviders(
 }
 
 /**
- * Translates HTML content for a given language pair
- * and MT provider, and returns a promise that resolves
- * to a string containing the translation.
- *
- * @param {object} context
- * @param {object} context.getters
- * @param {object} context.rootGetters
- * @param {function} context.dispatch
- * @param {object} payload
- * @param {string} payload.sourceLanguage
- * @param {string} payload.targetLanguage
- * @param {string} payload.provider
- * @param {string} payload.originalContent
- * @return {Promise<String>}
- */
-async function translateSegment(
-  { getters, rootGetters, dispatch },
-  { sourceLanguage, targetLanguage, provider, originalContent }
-) {
-  const isValidProvider = getters.isValidProviderForTranslation(
-    sourceLanguage,
-    targetLanguage,
-    provider
-  );
-
-  if (!isValidProvider) {
-    return Promise.resolve();
-  }
-
-  try {
-    const token = await dispatch(
-      "application/getCXServerToken",
-      {},
-      { root: true }
-    );
-
-    return await translatorApi.fetchSegmentTranslation(
-      sourceLanguage,
-      targetLanguage,
-      provider,
-      originalContent,
-      token
-    );
-  } catch (error) {
-    // Fall back to original content
-    return originalContent;
-  }
-}
-
-/**
  * Fetch nearby suggestions for current source language
  * based on user location, and store them to state, so that they
  * can be reused when "Search for an article" screen is mounted again.
@@ -246,6 +196,5 @@ export default {
   fetchPageContent,
   fetchPageMetadata,
   fetchSupportedLanguageCodes,
-  resolvePageContentReferences,
-  translateSegment
+  resolvePageContentReferences
 };

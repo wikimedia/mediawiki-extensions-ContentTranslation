@@ -429,11 +429,7 @@ async function translateSectionTitle({ state, getters, dispatch }, provider) {
   if (state.currentSourceSection.translatedTitle) {
     return;
   }
-  const {
-    sourceLanguage,
-    targetLanguage,
-    translationExists
-  } = state.currentSectionSuggestion;
+  const { translationExists } = state.currentSectionSuggestion;
 
   const page = getters.getCurrentPage;
 
@@ -442,8 +438,8 @@ async function translateSectionTitle({ state, getters, dispatch }, provider) {
     : page.title;
 
   const translation = await dispatch(
-    "mediawiki/translateSegment",
-    { sourceLanguage, targetLanguage, provider, originalContent },
+    "translator/translateContent",
+    { provider, originalContent },
     { root: true }
   );
 
@@ -472,12 +468,11 @@ async function translateSelectedSentence(
     return;
   }
 
-  const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
   const { originalContent } = selectedSentence;
 
   const translation = await dispatch(
-    "mediawiki/translateSegment",
-    { sourceLanguage, targetLanguage, provider, originalContent },
+    "translator/translateContent",
+    { provider, originalContent },
     { root: true }
   );
 
@@ -504,12 +499,11 @@ async function translateFollowingSentence(
   }
 
   const nextSentence = sentences[nextIndex];
-  const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
   const { originalContent } = nextSentence;
 
   const translation = await dispatch(
-    "mediawiki/translateSegment",
-    { sourceLanguage, targetLanguage, provider, originalContent },
+    "translator/translateContent",
+    { provider, originalContent },
     { root: true }
   );
   Vue.set(nextSentence.proposedTranslations, provider, translation);
