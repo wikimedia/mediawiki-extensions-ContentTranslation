@@ -4,14 +4,21 @@
 			"Yupik"
 		]
 	},
+	"cx-dashboard-header": "Jåårǥlâttmõõžž",
 	"cx-header-all-translations": "Puk jåårǥlâttmõõžž",
 	"cx-publish-button": "Õlmstââʹtt",
 	"cx-tools-link-title": "Liŋkk",
+	"cx-tools-link-add": "Lââʹzzet liiŋk",
 	"cx-publish-captcha-title": "Nââneet, što jiõk leäkku robott.",
 	"cx-dashboard-sidebar-stats": "Statistiikk",
 	"cx-translation-filter-label-all-languages": "Puk",
 	"cx-save-draft-shortcut-label": "Ruõkk hämmaz",
+	"cx-contributions-new-article": "Ođđ seidd",
+	"cx-contributions-translation": "Jåårǥlâttmõš",
 	"cx-translation-status-published": "Õlmstõttum",
+	"cx-translation-status-deleted": "Jaukkuum",
+	"cx-campaign-contributionsmenu-mytranslations": "Jåårǥlâttmõõžž",
+	"cx-trend-deletions": "Jaukkuum jåårǥlâttmõõžž",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
 	"cx-publish-settings": "Õlmstâʹttemasetõõzz"
 }
