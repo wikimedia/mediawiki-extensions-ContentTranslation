@@ -266,42 +266,67 @@ async function selectPageSectionByIndex(
 }
 
 /**
- * @param commit
- * @param dispatch
- * @param state
- * @param id
+ * Given an id, this action selects a translation unit for translation.
+ * Such translation units are the section title and the section sentences.
+ * If the given id is equal to 0, then the section title will be selected.
+ *
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.state
+ * @param {string} id
  */
-function selectSentenceForCurrentSection({ commit, dispatch, state }, { id }) {
-  commit("clearSentenceSelection");
-  commit("setIsSectionTitleSelectedForTranslation", false);
+function selectTranslationUnitById({ commit, dispatch, state }, id) {
+  commit("selectTranslationUnit", id);
+  const { currentSourceSection, currentMTProvider } = state;
+  dispatch("translateTranslationUnitById", {
+    id,
+    provider: currentMTProvider
+  });
+  const { followingSentence } = currentSourceSection;
 
-  if (id) {
-    commit("selectSentence", id);
-    dispatch("translateSelectedSegment", state.currentMTProvider);
+  if (followingSentence) {
+    dispatch("translateTranslationUnitById", {
+      id: followingSentence.id,
+      provider: currentMTProvider
+    });
   }
 }
 
-function applyTranslationToSelectedSegment(
-  { state, commit, dispatch },
-  { translation }
-) {
+/**
+ * @param {object} context
+ * @param {function} context.dispatch
+ * @param {object} context.getters
+ * @param {function} context.commit
+ */
+function applyProposedTranslationToSelectedTranslationUnit({
+  dispatch,
+  getters,
+  commit
+}) {
   commit("setTranslationInProgress", true);
-  const mutation = state.isSectionTitleSelectedForTranslation
-    ? "setCurrentSourceSectionTitleTranslation"
-    : "setSelectedSentenceTranslation";
-  commit(mutation, translation);
+  const translation = getters.getCurrentProposedTranslation;
+  commit("setTranslationForSelectedTranslationUnit", translation);
   dispatch("selectNextSentence");
 }
 
-function applyProposedTranslationToSelectedSegment({ dispatch, getters }) {
-  const translation = getters.getCurrentProposedTranslation;
-  dispatch("applyTranslationToSelectedSegment", { translation });
-}
-
-function applyEditedTranslationToSelectedSegment(
-  { state, dispatch },
-  { translation }
+/**
+ * Given an edited translation string, this action applies this
+ * translation to the selected translation unit, and selects
+ * the next sentence.
+ *
+ * @param context
+ * @param {object} context.state
+ * @param {function} context.dispatch
+ * @param {function} context.commit
+ * @param {string} translation
+ */
+function applyEditedTranslationToSelectedTranslationUnit(
+  { state, dispatch, commit },
+  translation
 ) {
+  commit("setTranslationInProgress", true);
+
   const div = document.createElement("div");
   div.innerHTML = translation;
   // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
@@ -309,37 +334,47 @@ function applyEditedTranslationToSelectedSegment(
   div.querySelectorAll(".sx-edit-dummy-node").forEach(el => el.remove());
   translation = div.innerHTML;
 
-  dispatch("applyTranslationToSelectedSegment", { translation });
+  commit("setTranslationForSelectedTranslationUnit", translation);
+  dispatch("selectNextSentence");
 }
 
 /**
- * If no sentence is selected, findIndex will return -1
- * and first sentence in array will be selected
- * @param getters
- * @param dispatch
- * @param commit
+ * This action clear current selection and selects the following
+ * sentence inside section contents.
+ *
+ * @param {object} context
+ * @param {object} context.state
+ * @param {function} context.dispatch
  */
-function selectNextSentence({ getters, dispatch, commit }) {
-  commit("setIsSectionTitleSelectedForTranslation", false);
-  const sentences = getters.getCurrentSourceSectionSentences;
-  const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
+function selectNextSentence({ state, dispatch }) {
+  const { followingSentence } = state.currentSourceSection;
 
-  if (nextIndex >= sentences.length) {
+  if (!followingSentence) {
     return;
   }
-  dispatch("selectSentenceForCurrentSection", sentences[nextIndex]);
+  dispatch("selectTranslationUnitById", followingSentence.id);
 }
 
-function selectPreviousSegment({ getters, dispatch }) {
-  if (getters.isCurrentSentenceFirst) {
-    dispatch("selectSectionTitleForTranslation");
+/**
+ * This action clears current selection and selects
+ * the previous sentence inside section contents,
+ * or the section title, in case the first section
+ * sentence is currently selected.
+ *
+ * @param {object} context
+ * @param {object} context.state
+ * @param {function} context.dispatch
+ */
+function selectPreviousTranslationUnit({ state, dispatch }) {
+  const { selectedSentenceIndex, sentences } = state.currentSourceSection;
+  const previousIndex = selectedSentenceIndex - 1;
+  // Id for section title
+  let previousId = 0;
 
-    return;
+  if (previousIndex > -1) {
+    previousId = sentences[previousIndex].id;
   }
-  const sentences = getters.getCurrentSourceSectionSentences;
-  let selectedIndex = getters.getCurrentSelectedSentenceIndex;
-  selectedIndex = (selectedIndex + sentences.length - 1) % sentences.length;
-  dispatch("selectSentenceForCurrentSection", sentences[selectedIndex]);
+  dispatch("selectTranslationUnitById", previousId);
 }
 
 /**
@@ -371,164 +406,89 @@ async function initializeMTProviders({ state, dispatch, rootGetters, commit }) {
 }
 
 /**
- * @param commit
- * @param dispatch
- * @param provider
- */
-function updateMTProvider({ commit, dispatch }, { provider }) {
-  commit("setCurrentMTProvider", provider);
-  dispatch("translateSelectedSegment", provider);
-}
-
-/**
- * Dispatched when sentence selector screen is loaded for first time or
- * when section title is being clicked inside "Pick a sentence" step
+ * Given a valid MT provider, this action updates the
+ * currently selected MT provider and translates the
+ * currently selected translation unit (section title
+ * or section sentence) using this MT provider.
  *
  * @param {object} context
  * @param {function} context.commit
  * @param {function} context.dispatch
  * @param {object} context.state
- */
-function selectSectionTitleForTranslation({ commit, dispatch, state }) {
-  commit("clearSentenceSelection");
-  commit("setIsSectionTitleSelectedForTranslation", true);
-
-  // Dispatch translateSelectedSegment instead of translateSectionTitle,
-  // so that following sentence is translated too
-  dispatch("translateSelectedSegment", state.currentMTProvider);
-}
-
-/**
- * @param {object} context
- * @param {object} context.getters
- * @param {object} context.state
- * @param {function} context.dispatch
  * @param {string} provider
  */
-function translateSelectedSegment({ getters, state, dispatch }, provider) {
-  dispatch("translateFollowingSentence", provider);
-
-  if (state.isSectionTitleSelectedForTranslation) {
-    dispatch("translateSectionTitle", provider);
-
-    return;
-  }
-
-  dispatch("translateSelectedSentence", provider);
+function updateMTProvider({ commit, dispatch, state }, provider) {
+  commit("setCurrentMTProvider", provider);
+  const { currentSourceSection } = state;
+  const { selectedTranslationUnitId: id } = currentSourceSection;
+  dispatch("translateTranslationUnitById", { id, provider });
 }
 
 /**
- * @param {object} context
- * @param {object} context.state
- * @param {object} context.getters
- * @param {function} context.dispatch
- * @param {string} provider
- * @return {Promise<void>}
- */
-async function translateSectionTitle({ state, getters, dispatch }, provider) {
-  if (state.currentSourceSection.translatedTitle) {
-    return;
-  }
-  const { translationExists } = state.currentSectionSuggestion;
-
-  const page = getters.getCurrentPage;
-
-  const originalContent = translationExists
-    ? state.currentSourceSection.originalTitle
-    : page.title;
-
-  const translation = await dispatch(
-    "translator/translateContent",
-    { provider, originalContent },
-    { root: true }
-  );
-
-  Vue.set(
-    state.currentSourceSection.proposedTitleTranslations,
-    provider,
-    translation
-  );
-}
-
-/**
- * @param {object} context
- * @param {object} context.getters
- * @param {function} context.dispatch
- * @param {object} context.state
- * @param {string} provider
- * @return {Promise<void>}
- */
-async function translateSelectedSentence(
-  { getters, dispatch, state },
-  provider
-) {
-  const selectedSentence = getters.getCurrentSelectedSentence;
-
-  if (!selectedSentence || selectedSentence.proposedTranslations[provider]) {
-    return;
-  }
-
-  const { originalContent } = selectedSentence;
-
-  const translation = await dispatch(
-    "translator/translateContent",
-    { provider, originalContent },
-    { root: true }
-  );
-
-  Vue.set(selectedSentence.proposedTranslations, provider, translation);
-}
-
-/**
- * @param {object} context
- * @param {object} context.getters
- * @param {function} context.dispatch
- * @param {object} context.state
- * @param {string} provider
- * @return {Promise<void>}
- */
-async function translateFollowingSentence(
-  { getters, dispatch, state },
-  provider
-) {
-  const nextIndex = getters.getCurrentSelectedSentenceIndex + 1;
-  const sentences = getters.getCurrentSourceSectionSentences;
-
-  if (nextIndex >= sentences.length) {
-    return;
-  }
-
-  const nextSentence = sentences[nextIndex];
-  const { originalContent } = nextSentence;
-
-  const translation = await dispatch(
-    "translator/translateContent",
-    { provider, originalContent },
-    { root: true }
-  );
-  Vue.set(nextSentence.proposedTranslations, provider, translation);
-}
-
-/**
- * Dispatched when translation for all available MT providers
- * is needed (i.e. when user wants to select among available
- * MT translations), this action translates currently selected
- * segment (title or sentence) for all supported MT providers,
- * by dispatching "translateSelectedSegment" action .
+ * Given an id and a valid MT provider, this action
+ * translates the original content of the corresponding
+ * translation unit, and sets the proposed translation
+ * for this provider. If the given id is equal to 0,
+ * then the section title is translated.
  *
  * @param {object} context
- * @param {object} rootGetters
- * @param {function} dispatch
- * @param {object} state
+ * @param {function} context.commit
+ * @param {object} context.state
+ * @param {function} context.dispatch
+ * @param {object} payload
+ * @param {string} payload.id
+ * @param {string} payload.provider
  */
-function translateSegmentForAllProviders({ rootGetters, dispatch, state }) {
-  const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+async function translateTranslationUnitById(
+  { commit, state, dispatch },
+  { id, provider }
+) {
+  const { currentSourceSection } = state;
+
+  let originalContent = currentSourceSection.getOriginalContentByTranslationUnitId(
+    id
+  );
+
+  const proposedTranslation = await dispatch(
+    "translator/translateContent",
+    { provider, originalContent },
+    { root: true }
+  );
+
+  commit("setProposedTranslationForTranslationUnitById", {
+    id,
+    provider,
+    proposedTranslation
+  });
+}
+
+/**
+ * This action is dispatched when translation for all available
+ * MT providers is needed (i.e. when user wants to select among
+ * available MT translations). This action translates currently
+ * selected translation unit (title or sentence) for all supported
+ * MT providers, by dispatching "translateTranslationUnitById"
+ * action.
+ *
+ * @param {object} context
+ * @param {object} context.rootGetters
+ * @param {function} context.dispatch
+ * @param {object} context.state
+ */
+function translateSelectedTranslationUnitForAllProviders({
+  rootGetters,
+  dispatch,
+  state
+}) {
+  const { sourceLanguage, targetLanguage, currentSourceSection } = state;
   const mtProviders = rootGetters["mediawiki/getSupportedMTProviders"](
     sourceLanguage,
     targetLanguage
   );
+  const { selectedTranslationUnitId: id } = currentSourceSection;
+
   mtProviders.forEach(provider =>
-    dispatch("translateSelectedSegment", provider)
+    dispatch("translateTranslationUnitById", { id, provider })
   );
 }
 
@@ -537,9 +497,8 @@ function clearCurrentSectionSuggestion({ commit }) {
 }
 
 export default {
-  applyEditedTranslationToSelectedSegment,
-  applyProposedTranslationToSelectedSegment,
-  applyTranslationToSelectedSegment,
+  applyEditedTranslationToSelectedTranslationUnit,
+  applyProposedTranslationToSelectedTranslationUnit,
   clearCurrentSectionSuggestion,
   fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
@@ -548,15 +507,11 @@ export default {
   selectNextSentence,
   selectPageSectionByTitle,
   selectPageSectionByIndex,
-  selectPreviousSegment,
-  selectSectionTitleForTranslation,
-  selectSentenceForCurrentSection,
+  selectPreviousTranslationUnit,
+  selectTranslationUnitById,
   startFavoriteSectionTranslation,
-  translateFollowingSentence,
-  translateSectionTitle,
-  translateSegmentForAllProviders,
-  translateSelectedSegment,
-  translateSelectedSentence,
+  translateTranslationUnitById,
+  translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,
   updateSourceLanguage,
   updateTargetLanguage

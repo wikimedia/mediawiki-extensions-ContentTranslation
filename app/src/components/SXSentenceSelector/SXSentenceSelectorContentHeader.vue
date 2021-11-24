@@ -73,7 +73,7 @@ export default {
     });
 
     const selectSectionTitle = () =>
-      store.dispatch("application/selectSectionTitleForTranslation");
+      store.dispatch("application/selectTranslationUnitById", 0);
 
     return {
       mwIconLinkExternal,

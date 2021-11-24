@@ -88,9 +88,10 @@ export default {
         );
         router.replace({ name: "sx-publisher" });
       } else {
-        store.dispatch("application/applyEditedTranslationToSelectedSegment", {
+        store.dispatch(
+          "application/applyEditedTranslationToSelectedTranslationUnit",
           translation
-        });
+        );
         router.replace({ name: props.fromRoute });
       }
     };

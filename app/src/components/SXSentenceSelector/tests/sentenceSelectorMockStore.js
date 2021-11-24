@@ -25,7 +25,7 @@ const applicationModule = {
   },
   getters: {
     getCurrentSelectedSentence: () => new SectionSentence(),
-    isSelectedSegmentTranslated: () => false
+    isSelectedTranslationUnitTranslated: () => false
   }
 };
 

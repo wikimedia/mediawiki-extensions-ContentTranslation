@@ -101,12 +101,9 @@ export default {
     const {
       currentMTProvider: mtProvider,
       isSectionTitleSelected,
-      currentSourceSection: currentPageSection
+      currentSourceSection: currentPageSection,
+      selectedSentence
     } = useApplicationState();
-
-    const selectedSentence = computed(
-      () => store.getters["application/getCurrentSelectedSentence"]
-    );
 
     const mtTranslation = computed(
       () => store.getters["application/getCurrentProposedTranslation"]

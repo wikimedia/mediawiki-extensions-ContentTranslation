@@ -109,12 +109,9 @@ export default {
       sourceLanguage,
       targetLanguage,
       currentSourceSection: currentPageSection,
-      isSectionTitleSelected
+      isSectionTitleSelected,
+      selectedSentence
     } = useApplicationState();
-
-    const selectedSentence = computed(
-      () => store.getters["application/getCurrentSelectedSentence"]
-    );
 
     const mtProviders = computed(() =>
       store.getters["mediawiki/getSupportedMTProviders"](
@@ -138,7 +135,7 @@ export default {
     );
 
     const selectProvider = provider => {
-      store.dispatch("application/updateMTProvider", { provider });
+      store.dispatch("application/updateMTProvider", provider);
       close();
     };
     const close = () => context.emit("update:active", false);

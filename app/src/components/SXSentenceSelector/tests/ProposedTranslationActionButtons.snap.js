@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[
-  `SXSentenceSelector Action Buttons Component output matches snapshot 1`
+  `SXSentenceSelector Proposed Translation Action Buttons Component output should match snapshot 1`
 ] = `
 <div
   class="sx-sentence-selector__translation-action-buttons ma-0 row items-center justify-start"

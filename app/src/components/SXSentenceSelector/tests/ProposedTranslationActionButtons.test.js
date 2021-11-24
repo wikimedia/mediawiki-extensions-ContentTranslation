@@ -3,39 +3,27 @@ import ProposedTranslationActionButtons from "../ProposedTranslationActionButton
 import VueBananaI18n from "vue-banana-i18n";
 import Vuex from "vuex";
 import CompositionApi from "@vue/composition-api";
+import mockStore from "./proposedTranslationCardMockStore";
 
 const localVue = createLocalVue();
 localVue.use(CompositionApi);
 localVue.use(Vuex);
 localVue.use(VueBananaI18n);
+jest.mock("@/store", () =>
+  jest.requireActual("./proposedTranslationCardMockStore")
+);
 
-describe("SXSentenceSelector Action Buttons", () => {
-  const state = {
-    isSectionTitleSelectedForTranslation: false,
-    proposedTranslation: "Test translation"
-  };
-  const store = new Vuex.Store({
-    modules: {
-      application: {
-        namespaced: true,
-        state,
-        getters: {
-          isCurrentSentenceLast: () => false,
-          getCurrentProposedTranslation: state => state.proposedTranslation
-        }
-      }
-    }
-  });
+describe("SXSentenceSelector Proposed Translation Action Buttons", () => {
   const wrapper = mount(ProposedTranslationActionButtons, {
-    store,
+    store: mockStore,
     localVue
   });
 
-  it("Component output matches snapshot", () => {
+  it("Component output should match snapshot", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Component emits correct actions on action buttons click", () => {
+  it("should emit correct vuex actions on action buttons click", () => {
     const previousSentenceButton = wrapper.find(
       ".sx-sentence-selector__previous-sentence-button"
     );
@@ -55,8 +43,8 @@ describe("SXSentenceSelector Action Buttons", () => {
     expect(wrapper.emitted("skip-translation")).toBeTruthy();
   });
 
-  it("Previous button is disabled when sentence is first in array", async () => {
-    store.state.application.isSectionTitleSelectedForTranslation = true;
+  it("should disable 'Previous' button when sentence is first", async () => {
+    mockStore.commit("application/selectTranslationUnit", 0);
     /** Wait for DOM to be updated **/
     await wrapper.vm.$nextTick();
     const skipButton = wrapper.find("button");
@@ -64,8 +52,8 @@ describe("SXSentenceSelector Action Buttons", () => {
     expect(skipButton.attributes("disabled")).toBe("disabled");
   });
 
-  it("Apply button is disabled when sentence is first in array", async () => {
-    state.proposedTranslation = "";
+  it("should disable the 'Apply' button when sentence is first", async () => {
+    mockStore.state.application.content = "";
     /** Wait for DOM to be updated **/
     await wrapper.vm.$nextTick();
     const applyTranslationButton = wrapper.find(

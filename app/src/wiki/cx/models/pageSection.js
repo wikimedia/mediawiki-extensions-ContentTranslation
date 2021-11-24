@@ -1,5 +1,5 @@
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
-import SubSection from "../../cx/models/subSection";
+import SectionSentence from "./sectionSentence";
 
 /**
  * This model represents a translation section belonging to a Page model.
@@ -20,7 +20,8 @@ export default class PageSection {
     id,
     title = null,
     subSections = [],
-    isLeadSection = false
+    isLeadSection = false,
+    isTitleSelected = false
   } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
@@ -31,6 +32,7 @@ export default class PageSection {
     this.subSections = subSections;
     this.editedTranslation = null;
     this.isLeadSection = isLeadSection;
+    this.isTitleSelected = isTitleSelected;
   }
 
   /**
@@ -58,6 +60,57 @@ export default class PageSection {
       (sentences, subSection) => [...sentences, ...subSection.sentences],
       []
     );
+  }
+
+  /**
+   * @return {SectionSentence|null}
+   */
+  get selectedSentence() {
+    return this.sentences.find(sentence => sentence.selected);
+  }
+
+  /**
+   * @return {number}
+   */
+  get selectedSentenceIndex() {
+    return this.sentences.findIndex(sentence => sentence.selected);
+  }
+
+  /**
+   * @param {string} id
+   * @return {SectionSentence|null}
+   */
+  getSentenceById(id) {
+    return this.sentences.find(sentence => sentence.id === id);
+  }
+
+  /**
+   * Returns the id of the currently selected translation unit.
+   * In case of selected title, 0 is returned
+   * @return {string|0}
+   */
+  get selectedTranslationUnitId() {
+    if (this.isTitleSelected) {
+      return 0;
+    }
+
+    return this.selectedSentence?.id;
+  }
+
+  /**
+   * @return {boolean}
+   */
+  get isSelectedSentenceLast() {
+    return this.selectedSentenceIndex === this.sentences.length - 1;
+  }
+
+  /**
+   * @return {SectionSentence|null}
+   */
+  get followingSentence() {
+    const nextIndex = this.selectedSentenceIndex + 1;
+
+    return this.sentences?.[nextIndex] || null;
   }
 
   /**
@@ -105,5 +158,18 @@ export default class PageSection {
    */
   get isTranslated() {
     return this.subSections.some(subSection => subSection.isTranslated);
+  }
+
+  getOriginalContentByTranslationUnitId(id) {
+    if (id === 0) {
+      return this.originalTitle;
+    }
+    const sentence = this.getSentenceById(id);
+
+    if (sentence instanceof SectionSentence) {
+      return sentence.originalContent;
+    }
+
+    return null;
   }
 }

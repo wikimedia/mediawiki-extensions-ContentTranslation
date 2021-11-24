@@ -61,7 +61,7 @@ describe("SXSentenceSelector SubSection component", () => {
   const applicationModule = {
     namespaced: true,
     actions: {
-      selectSentenceForCurrentSection: ({}, { id }) => {
+      selectTranslationUnitById: ({}, id) => {
         const sentence = subSection.getSentenceById(id);
         sentence.selected = true;
       }
@@ -108,10 +108,8 @@ describe("SXSentenceSelector SubSection component", () => {
     const sentence = wrapper.findAll(".cx-segment").at(1);
     sentence.trigger("click");
     expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectSentenceForCurrentSection",
-      {
-        id: sentence.element.dataset.segmentid
-      }
+      "application/selectTranslationUnitById",
+      sentence.element.dataset.segmentid
     );
   });
 });

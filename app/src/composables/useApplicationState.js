@@ -26,11 +26,19 @@ export default function() {
   );
 
   const isSectionTitleSelected = computed(
-    () => store.state.application.isSectionTitleSelectedForTranslation
+    () => currentSourceSection.value?.isTitleSelected
   );
 
   const publishFeedbackMessages = computed(
     () => store.state.application.publishFeedbackMessages
+  );
+
+  const selectedSentence = computed(
+    () => currentSourceSection.value?.selectedSentence
+  );
+
+  const proposedTranslation = computed(
+    () => store.getters["application/getCurrentProposedTranslation"]
   );
 
   return {
@@ -38,7 +46,9 @@ export default function() {
     currentSectionSuggestion,
     currentSourceSection,
     isSectionTitleSelected,
+    proposedTranslation,
     publishFeedbackMessages,
+    selectedSentence,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,

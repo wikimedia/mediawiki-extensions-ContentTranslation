@@ -32,6 +32,7 @@ import {
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "@vue/composition-api";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "ProposedTranslationActionButtons",
@@ -40,18 +41,15 @@ export default {
     MwButton
   },
   emits: ["select-previous-segment", "apply-translation", "skip-translation"],
-  setup(props, context) {
-    const store = context.root.$store;
-
-    const isSectionTitleSelected = computed(
-      () => store.state.application.isSectionTitleSelectedForTranslation
-    );
+  setup() {
+    const {
+      currentSourceSection,
+      proposedTranslation,
+      isSectionTitleSelected
+    } = useApplicationState();
 
     const isLastSentence = computed(
-      () => store.getters["application/isCurrentSentenceLast"]
-    );
-    const proposedTranslation = computed(
-      () => store.getters["application/getCurrentProposedTranslation"]
+      () => currentSourceSection.value.isSelectedSentenceLast
     );
 
     return {

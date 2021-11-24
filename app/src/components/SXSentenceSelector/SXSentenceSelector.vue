@@ -50,10 +50,10 @@
         </div>
       </mw-col>
       <translated-segment-card
-        v-if="isSelectedSegmentTranslated"
+        v-if="isSelectedTranslationUnitTranslated"
         @edit-translation="editTranslation"
         @skip-translation="skipTranslation"
-        @select-previous-segment="selectPreviousSegment"
+        @select-previous-segment="selectPreviousTranslationUnit"
       />
       <!--      MwCard has a margin-bottom: 1em by default. Since this is -->
       <!--      the margin that the card jumps to when bouncing, we control-->
@@ -65,7 +65,7 @@
         @edit-translation="editTranslation"
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
-        @select-previous-segment="selectPreviousSegment"
+        @select-previous-segment="selectPreviousTranslationUnit"
       />
     </mw-row>
     <sx-translation-selector :active.sync="isTranslationOptionsActive" />
@@ -108,14 +108,12 @@ export default {
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
-      isSectionTitleSelected
+      isSectionTitleSelected,
+      selectedSentence
     } = useApplicationState();
 
-    const selectedSentence = computed(
-      () => store.getters["application/getCurrentSelectedSentence"]
-    );
-    const isSelectedSegmentTranslated = computed(
-      () => store.getters["application/isSelectedSegmentTranslated"]
+    const isSelectedTranslationUnitTranslated = computed(
+      () => store.getters["application/isSelectedTranslationUnitTranslated"]
     );
 
     const subSections = computed(() => currentPageSection.value?.subSections);
@@ -138,17 +136,19 @@ export default {
 
       // If no sentence is selected, select title
       if (!selectedSentence.value) {
-        store.dispatch("application/selectSectionTitleForTranslation");
+        store.dispatch("application/selectTranslationUnitById", 0);
       }
       screenHeight.value = window.innerHeight;
     });
 
     const skipTranslation = () =>
       store.dispatch("application/selectNextSentence");
-    const selectPreviousSegment = () =>
-      store.dispatch("application/selectPreviousSegment");
+    const selectPreviousTranslationUnit = () =>
+      store.dispatch("application/selectPreviousTranslationUnit");
     const applyTranslation = () =>
-      store.dispatch("application/applyProposedTranslationToSelectedSegment");
+      store.dispatch(
+        "application/applyProposedTranslationToSelectedTranslationUnit"
+      );
 
     const bounceTranslation = () => {
       shouldProposedTranslationBounce.value = true;
@@ -163,7 +163,9 @@ export default {
 
     const configureTranslationOptions = () => {
       isTranslationOptionsActive.value = true;
-      store.dispatch("application/translateSegmentForAllProviders");
+      store.dispatch(
+        "application/translateSelectedTranslationUnitForAllProviders"
+      );
     };
 
     const editTranslation = content =>
@@ -181,6 +183,9 @@ export default {
     const previewTranslation = () => router.push({ name: "sx-publisher" });
 
     watch(selectedSentence, () => {
+      if (!selectedSentence.value) {
+        return;
+      }
       // Move the current selected sentence to viewport
       const segmentId = selectedSentence.value.id;
       document
@@ -200,11 +205,11 @@ export default {
       editTranslation,
       getDir,
       goToContentComparator,
-      isSelectedSegmentTranslated,
+      isSelectedTranslationUnitTranslated,
       isTranslationOptionsActive,
       mwIconArrowPrevious,
       previewTranslation,
-      selectPreviousSegment,
+      selectPreviousTranslationUnit,
       sentenceSelectorStyle,
       shouldProposedTranslationBounce,
       skipTranslation,

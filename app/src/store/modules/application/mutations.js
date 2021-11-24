@@ -1,4 +1,6 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import Vue from "vue";
 
 const mutations = {
   /**
@@ -98,47 +100,65 @@ const mutations = {
   },
 
   /**
-   * @param state
+   * Given an id, this mutation selects a translation unit for translation
+   * If the given id is equal to 0, the section title is selected.
+   *
+   * @param {object} state
+   * @param {string|number} id
    */
-  clearSentenceSelection(state) {
-    const sentence = state.currentSourceSection.sentences.find(
-      sentence => sentence.selected
+  selectTranslationUnit(state, id) {
+    state.currentSourceSection.sentences.forEach(
+      subSection => (subSection.selected = false)
     );
 
-    if (sentence) {
-      sentence.selected = false;
+    if (id === 0) {
+      state.currentSourceSection.isTitleSelected = true;
+
+      return;
+    }
+    state.currentSourceSection.isTitleSelected = false;
+    const sentence = state.currentSourceSection.getSentenceById(id);
+
+    if (sentence instanceof SectionSentence) {
+      sentence.selected = true;
+    }
+  },
+
+  setProposedTranslationForTranslationUnitById(
+    state,
+    { id, provider, proposedTranslation }
+  ) {
+    if (id === 0) {
+      Vue.set(
+        state.currentSourceSection.proposedTitleTranslations,
+        provider,
+        proposedTranslation
+      );
+
+      return;
+    }
+    const sentence = state.currentSourceSection.getSentenceById(id);
+
+    if (sentence instanceof SectionSentence) {
+      Vue.set(sentence.proposedTranslations, provider, proposedTranslation);
     }
   },
 
   /**
-   * @param state
-   * @param {String} id
+   * @param {object} state
+   * @param {string} translation
    */
-  selectSentence(state, id) {
-    const sentence = state.currentSourceSection.sentences.find(
-      sentence => sentence.id === id
-    );
-    sentence.selected = true;
-  },
+  setTranslationForSelectedTranslationUnit(state, translation) {
+    if (state.currentSourceSection.isTitleSelected) {
+      state.currentSourceSection.translatedTitle = translation;
 
-  /**
-   * @param state
-   * @param {String} translation
-   */
-  setSelectedSentenceTranslation(state, translation) {
-    /** @type {SectionSentence} */
-    const selectedSentence = state.currentSourceSection.sentences.find(
-      sentence => sentence.selected
-    );
-    selectedSentence.translatedContent = translation;
-  },
+      return;
+    }
+    const { selectedSentence } = state.currentSourceSection;
 
-  /**
-   * @param state
-   * @param value
-   */
-  setIsSectionTitleSelectedForTranslation: (state, value) => {
-    state.isSectionTitleSelectedForTranslation = value;
+    if (selectedSentence instanceof SectionSentence) {
+      selectedSentence.translatedContent = translation;
+    }
   },
 
   /**

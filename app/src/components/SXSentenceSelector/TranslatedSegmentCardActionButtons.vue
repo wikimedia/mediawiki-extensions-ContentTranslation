@@ -33,12 +33,14 @@ export default {
     MwButton
   },
   emits: ["select-previous-segment", "skip-translation"],
-  setup(props, context) {
-    const store = context.root.$store;
+  setup() {
+    const {
+      currentSourceSection,
+      isSectionTitleSelected
+    } = useApplicationState();
 
-    const { isSectionTitleSelected } = useApplicationState();
     const isLastSentence = computed(
-      () => store.getters["application/isCurrentSentenceLast"]
+      () => currentSourceSection.value.isSelectedSentenceLast
     );
 
     return {

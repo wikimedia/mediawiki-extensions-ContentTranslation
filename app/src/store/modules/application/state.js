@@ -3,8 +3,6 @@ export default {
   currentSectionSuggestion: null,
   /** @type PageSection */
   currentSourceSection: null,
-  /** @type Boolean */
-  isSectionTitleSelectedForTranslation: false,
   /** @type String */
   currentMTProvider: "",
   /**

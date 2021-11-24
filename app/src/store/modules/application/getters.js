@@ -1,3 +1,5 @@
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
+
 export default {
   /**
    * @param {object} state
@@ -24,16 +26,6 @@ export default {
   getCurrentSourceSectionAnchor: (state, getters) =>
     (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
 
-  getCurrentSourceSectionSentences: state =>
-    state.currentSourceSection?.sentences || [],
-
-  isCurrentSentenceLast: (state, getters) =>
-    getters.getCurrentSelectedSentenceIndex ===
-    getters.getCurrentSourceSectionSentences.length - 1,
-
-  isCurrentSentenceFirst: (state, getters) =>
-    getters.getCurrentSelectedSentenceIndex === 0,
-
   isCurrentSourceSectionMissing: (state, getters) =>
     state.currentSectionSuggestion?.missingSections.hasOwnProperty(
       getters.getCurrentSourceSectionTitle
@@ -45,40 +37,26 @@ export default {
     ),
 
   /**
-   * @return {SectionSentence|null}
+   * Machine translation of currently selected translation unit (title or sentence)
+   * for currently selected MT provider
    */
-  getCurrentSelectedSentence: (state, getters) =>
-    getters.getCurrentSourceSectionSentences.find(
-      sentence => sentence.selected
-    ),
+  getCurrentProposedTranslation: state => {
+    const { currentSourceSection, currentMTProvider } = state;
 
-  getCurrentSelectedSentenceIndex: (state, getters) =>
-    getters.getCurrentSourceSectionSentences.findIndex(
-      sentence => sentence.selected
-    ),
-
-  /**
-   * Machine translation of section title for currently selected MT provider
-   */
-  getCurrentProposedTitleTranslation: state =>
-    state.currentSourceSection?.proposedTitleTranslations[
-      state.currentMTProvider
-    ] || "",
-
-  /**
-   * Machine translation of currently selected sentence for currently selected MT provider
-   */
-  getCurrentProposedSentenceTranslation: (state, getters) =>
-    getters.getCurrentSelectedSentence?.proposedTranslations[
-      state.currentMTProvider
-    ] || "",
-
-  getCurrentProposedTranslation: (state, getters) => {
-    if (state.isSectionTitleSelectedForTranslation) {
-      return getters.getCurrentProposedTitleTranslation;
-    } else {
-      return getters.getCurrentProposedSentenceTranslation;
+    if (!currentSourceSection) {
+      return null;
     }
+    const { selectedSentence } = state.currentSourceSection;
+
+    if (currentSourceSection.isTitleSelected) {
+      return (
+        currentSourceSection.proposedTitleTranslations[currentMTProvider] || ""
+      );
+    } else if (selectedSentence instanceof SectionSentence) {
+      return selectedSentence.proposedTranslations[currentMTProvider] || "";
+    }
+
+    return null;
   },
   /**
    * @return {LanguageTitleGroup|null}
@@ -92,12 +70,17 @@ export default {
   /**
    * @return {boolean}
    */
-  isSelectedSegmentTranslated: (state, getters) => {
-    if (state.isSectionTitleSelectedForTranslation) {
+  isSelectedTranslationUnitTranslated: state => {
+    if (state.currentSourceSection.isTitleSelected) {
       return !!state.currentSourceSection.translatedTitle;
-    } else {
-      return !!getters.getCurrentSelectedSentence?.isTranslated;
     }
+    const { selectedSentence } = state.currentSourceSection;
+
+    if (selectedSentence instanceof SectionSentence) {
+      return selectedSentence.isTranslated;
+    }
+
+    return false;
   },
   /**
    * @return {ArticleSuggestion[]}

@@ -38,9 +38,7 @@ export default {
 
         return;
       }
-      store.dispatch("application/selectSentenceForCurrentSection", {
-        id: segmentId
-      });
+      store.dispatch("application/selectTranslationUnitById", segmentId);
     };
 
     return {
