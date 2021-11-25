@@ -108,20 +108,17 @@ export default {
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
-      isSectionTitleSelected,
-      selectedSentence
+      selectedContentTranslationUnit
     } = useApplicationState();
 
     const isSelectedTranslationUnitTranslated = computed(
-      () => store.getters["application/isSelectedTranslationUnitTranslated"]
+      () => currentPageSection.value?.isSelectedTranslationUnitTranslated
     );
 
     const subSections = computed(() => currentPageSection.value?.subSections);
 
-    const originalSegmentContent = computed(() =>
-      isSectionTitleSelected.value
-        ? currentPageSection.value.originalTitle
-        : selectedSentence.value.originalContent
+    const originalSegmentContent = computed(
+      () => currentPageSection.value?.selectedTranslationUnitOriginalContent
     );
 
     const sentenceSelectorStyle = computed(() =>
@@ -135,14 +132,14 @@ export default {
       await store.dispatch("application/initializeMTProviders");
 
       // If no sentence is selected, select title
-      if (!selectedSentence.value) {
+      if (!selectedContentTranslationUnit.value) {
         store.dispatch("application/selectTranslationUnitById", 0);
       }
       screenHeight.value = window.innerHeight;
     });
 
     const skipTranslation = () =>
-      store.dispatch("application/selectNextSentence");
+      store.dispatch("application/selectNextTranslationUnit");
     const selectPreviousTranslationUnit = () =>
       store.dispatch("application/selectPreviousTranslationUnit");
     const applyTranslation = () =>
@@ -182,8 +179,11 @@ export default {
 
     const previewTranslation = () => router.push({ name: "sx-publisher" });
 
-    watch(selectedSentence, () => {
-      const segmentId = selectedSentence.value.id;
+    watch(selectedContentTranslationUnit, () => {
+      if (!selectedContentTranslationUnit.value) {
+        return;
+      }
+      const segmentId = selectedContentTranslationUnit.value.id;
       const segment = document.querySelector(`[data-segmentid='${segmentId}']`);
 
       // "segment" variable refers to multi-line inline elements (<span>).
@@ -203,11 +203,10 @@ export default {
         rect => document.elementFromPoint(rect.x, rect.y) === segment
       );
 
-      if (!selectedSentence.value || isInView) {
+      if (isInView) {
         return;
       }
-      // Move the current selected sentence to viewport
-
+      // Move the current selected translation unit to viewport
       segment.scrollIntoView({
         behavior: "smooth",
         block: "center",

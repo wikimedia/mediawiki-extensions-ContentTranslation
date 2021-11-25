@@ -1,5 +1,3 @@
-import SectionSentence from "./sectionSentence";
-
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a
  * Page Section model. It stores section content through section sentences
@@ -16,6 +14,9 @@ export default class SubSection {
     this.id = node.id;
     this.sentences = sentences;
     this.node = node;
+    this.blockTemplateSelected = false;
+    this.blockTemplateTranslatedContent = "";
+    this.blockTemplateProposedTranslations = {};
   }
 
   /**
@@ -29,7 +30,19 @@ export default class SubSection {
     return this.node.outerHTML;
   }
 
+  /**
+   * This getter returns a string containing the translated content
+   * of this subsection. If the subsection is a block template, it
+   * returns the translated contents of this template. If not, it
+   * returns the contents of all translated sentences within this
+   * section.
+   *
+   * @return {string}
+   */
   get translatedContent() {
+    if (this.isBlockTemplate) {
+      return this.blockTemplateTranslatedContent;
+    }
     /**
      * Clone node before modifying it, so that original node
      * is always available
@@ -64,6 +77,10 @@ export default class SubSection {
   }
 
   get isTranslated() {
+    if (this.isBlockTemplate) {
+      return !!this.blockTemplateTranslatedContent;
+    }
+
     return this.sentences.some(sentence => sentence.isTranslated);
   }
 
@@ -74,4 +91,86 @@ export default class SubSection {
   getSentenceById(id) {
     return this.sentences.find(sentence => sentence.id === id);
   }
+
+  /**
+   * This getter returns a boolean indicating whether this subsection
+   * has been selected as a block template or not.
+   *
+   * @type {boolean}
+   */
+  get selected() {
+    return this.isBlockTemplate && this.blockTemplateSelected;
+  }
+
+  /**
+   * This getters returns a boolean indicating whether
+   * this subsection is a block template or not.
+   *
+   * @return {boolean}
+   */
+  get isBlockTemplate() {
+    return !!this.transclusionNode;
+  }
+
+  /**
+   * This getter returns the first transclusion node
+   * inside this subsection, if it exists or null.
+   * otherwise.
+   *
+   * @return {Element|null}
+   */
+  get transclusionNode() {
+    return Array.from(this.node.children).find(node =>
+      isTransclusionNode(node)
+    );
+  }
+
+  /**
+   * If current subsection is a block template, it returns the
+   * source block template name. Otherwise, it returns null.
+   *
+   * @return {string|null}
+   */
+  get sourceBlockTemplateName() {
+    if (!this.isBlockTemplate) {
+      return null;
+    }
+    const mwData = JSON.parse(this.transclusionNode.dataset?.mw || "{}");
+    const templateData = mwData?.parts?.[0]?.template?.target || { wt: null };
+
+    return templateData.wt;
+  }
+
+  /**
+   * This getter returns the translation units, nested inside
+   * this subsection. If the subsection is a block template,
+   * an array containing only the current subsection model is
+   * returned. Otherwise, an array including all nested section
+   * sentences is returned.
+   *
+   * @return {SubSection[]|SectionSentence[]}
+   */
+  get translationUnits() {
+    if (this.isBlockTemplate) {
+      return [this];
+    }
+
+    return this.sentences;
+  }
 }
+
+/**
+ * Given an Element node, this method returns a boolean
+ * indicating whether this node is a transclusion node or not.
+ *
+ * @param {Element} node
+ * @return {boolean}
+ */
+const isTransclusionNode = node =>
+  !!(
+    node.attributes.about ||
+    (node.attributes.typeof &&
+      node
+        .getAttribute("typeof")
+        .match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/))
+  );

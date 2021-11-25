@@ -33,8 +33,8 @@ export default function() {
     () => store.state.application.publishFeedbackMessages
   );
 
-  const selectedSentence = computed(
-    () => currentSourceSection.value?.selectedSentence
+  const selectedContentTranslationUnit = computed(
+    () => currentSourceSection.value?.selectedContentTranslationUnit
   );
 
   const proposedTranslation = computed(
@@ -48,7 +48,7 @@ export default function() {
     isSectionTitleSelected,
     proposedTranslation,
     publishFeedbackMessages,
-    selectedSentence,
+    selectedContentTranslationUnit,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,

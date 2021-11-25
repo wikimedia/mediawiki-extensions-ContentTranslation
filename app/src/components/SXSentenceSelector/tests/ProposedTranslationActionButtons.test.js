@@ -44,7 +44,9 @@ describe("SXSentenceSelector Proposed Translation Action Buttons", () => {
   });
 
   it("should disable 'Previous' button when sentence is first", async () => {
-    mockStore.commit("application/selectTranslationUnit", 0);
+    mockStore.state.application.currentSourceSection.selectTranslationUnitById(
+      0
+    );
     /** Wait for DOM to be updated **/
     await wrapper.vm.$nextTick();
     const skipButton = wrapper.find("button");

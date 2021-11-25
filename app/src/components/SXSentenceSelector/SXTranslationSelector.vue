@@ -110,7 +110,7 @@ export default {
       targetLanguage,
       currentSourceSection: currentPageSection,
       isSectionTitleSelected,
-      selectedSentence
+      selectedContentTranslationUnit
     } = useApplicationState();
 
     const mtProviders = computed(() =>
@@ -131,7 +131,7 @@ export default {
     const proposedTranslations = computed(() =>
       isSectionTitleSelected.value
         ? currentPageSection.value.proposedTitleTranslations
-        : selectedSentence.value.proposedTranslations
+        : selectedContentTranslationUnit.value.proposedTranslations
     );
 
     const selectProvider = provider => {

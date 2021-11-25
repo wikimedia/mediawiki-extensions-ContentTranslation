@@ -277,17 +277,18 @@ async function selectPageSectionByIndex(
  * @param {string} id
  */
 function selectTranslationUnitById({ commit, dispatch, state }, id) {
-  commit("selectTranslationUnit", id);
   const { currentSourceSection, currentMTProvider } = state;
+  currentSourceSection.selectTranslationUnitById(id);
+
   dispatch("translateTranslationUnitById", {
     id,
     provider: currentMTProvider
   });
-  const { followingSentence } = currentSourceSection;
+  const { followingTranslationUnit } = currentSourceSection;
 
-  if (followingSentence) {
+  if (followingTranslationUnit) {
     dispatch("translateTranslationUnitById", {
-      id: followingSentence.id,
+      id: followingTranslationUnit.id,
       provider: currentMTProvider
     });
   }
@@ -298,16 +299,19 @@ function selectTranslationUnitById({ commit, dispatch, state }, id) {
  * @param {function} context.dispatch
  * @param {object} context.getters
  * @param {function} context.commit
+ * @param {object} context.state
  */
 function applyProposedTranslationToSelectedTranslationUnit({
   dispatch,
   getters,
-  commit
+  commit,
+  state
 }) {
   commit("setTranslationInProgress", true);
   const translation = getters.getCurrentProposedTranslation;
-  commit("setTranslationForSelectedTranslationUnit", translation);
-  dispatch("selectNextSentence");
+  const { currentSourceSection } = state;
+  currentSourceSection.setTranslationForSelectedTranslationUnit(translation);
+  dispatch("selectNextTranslationUnit");
 }
 
 /**
@@ -334,8 +338,9 @@ function applyEditedTranslationToSelectedTranslationUnit(
   div.querySelectorAll(".sx-edit-dummy-node").forEach(el => el.remove());
   translation = div.innerHTML;
 
-  commit("setTranslationForSelectedTranslationUnit", translation);
-  dispatch("selectNextSentence");
+  const { currentSourceSection } = state;
+  currentSourceSection.setTranslationForSelectedTranslationUnit(translation);
+  dispatch("selectNextTranslationUnit");
 }
 
 /**
@@ -346,13 +351,13 @@ function applyEditedTranslationToSelectedTranslationUnit(
  * @param {object} context.state
  * @param {function} context.dispatch
  */
-function selectNextSentence({ state, dispatch }) {
-  const { followingSentence } = state.currentSourceSection;
+function selectNextTranslationUnit({ state, dispatch }) {
+  const { followingTranslationUnit } = state.currentSourceSection;
 
-  if (!followingSentence) {
+  if (!followingTranslationUnit) {
     return;
   }
-  dispatch("selectTranslationUnitById", followingSentence.id);
+  dispatch("selectTranslationUnitById", followingTranslationUnit.id);
 }
 
 /**
@@ -366,13 +371,16 @@ function selectNextSentence({ state, dispatch }) {
  * @param {function} context.dispatch
  */
 function selectPreviousTranslationUnit({ state, dispatch }) {
-  const { selectedSentenceIndex, sentences } = state.currentSourceSection;
-  const previousIndex = selectedSentenceIndex - 1;
+  const {
+    selectedContentTranslationUnitIndex,
+    contentTranslationUnits
+  } = state.currentSourceSection;
+  const previousIndex = selectedContentTranslationUnitIndex - 1;
   // Id for section title
   let previousId = 0;
 
   if (previousIndex > -1) {
-    previousId = sentences[previousIndex].id;
+    previousId = contentTranslationUnits[previousIndex].id;
   }
   dispatch("selectTranslationUnitById", previousId);
 }
@@ -504,7 +512,7 @@ export default {
   getCXServerToken,
   initializeMTProviders,
   initializeSectionTranslation,
-  selectNextSentence,
+  selectNextTranslationUnit,
   selectPageSectionByTitle,
   selectPageSectionByIndex,
   selectPreviousTranslationUnit,

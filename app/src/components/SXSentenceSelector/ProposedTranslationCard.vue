@@ -66,15 +66,13 @@ export default {
     ProposedTranslationActionButtons
   },
   setup(props, context) {
-    const store = context.root.$store;
-
     const headerAndFooterHeight = ref(0);
 
-    const { currentMTProvider, targetLanguage } = useApplicationState();
-
-    const proposedTranslation = computed(
-      () => store.getters["application/getCurrentProposedTranslation"]
-    );
+    const {
+      currentMTProvider,
+      targetLanguage,
+      proposedTranslation
+    } = useApplicationState();
 
     const contentsStyle = computed(() => ({
       "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`

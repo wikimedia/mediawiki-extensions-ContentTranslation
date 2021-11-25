@@ -23,22 +23,33 @@ export default {
 
     onMounted(() => {
       subSectionRoot.value.addEventListener("click", event => {
-        if (event.target.classList.contains("cx-segment")) {
-          selectSentence(event.target.dataset.segmentid);
+        let translationUnit;
+
+        if (props.subSection.isBlockTemplate) {
+          translationUnit = props.subSection;
+        } else if (event.target.classList.contains("cx-segment")) {
+          translationUnit = props.subSection.getSentenceById(
+            event.target.dataset.segmentid
+          );
         }
+        selectContentTranslationUnit(translationUnit);
       });
     });
     const store = context.root.$store;
 
-    const selectSentence = segmentId => {
-      const sentence = props.subSection.getSentenceById(segmentId);
-
-      if (sentence.selected) {
+    /**
+     * @param {SubSection|SectionSentence} translationUnit
+     */
+    const selectContentTranslationUnit = translationUnit => {
+      if (translationUnit.selected) {
         context.emit("bounce-translation");
 
         return;
       }
-      store.dispatch("application/selectTranslationUnitById", segmentId);
+      store.dispatch(
+        "application/selectTranslationUnitById",
+        translationUnit.id
+      );
     };
 
     return {

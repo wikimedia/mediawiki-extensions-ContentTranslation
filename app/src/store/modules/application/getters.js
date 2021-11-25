@@ -43,20 +43,9 @@ export default {
   getCurrentProposedTranslation: state => {
     const { currentSourceSection, currentMTProvider } = state;
 
-    if (!currentSourceSection) {
-      return null;
-    }
-    const { selectedSentence } = state.currentSourceSection;
-
-    if (currentSourceSection.isTitleSelected) {
-      return (
-        currentSourceSection.proposedTitleTranslations[currentMTProvider] || ""
-      );
-    } else if (selectedSentence instanceof SectionSentence) {
-      return selectedSentence.proposedTranslations[currentMTProvider] || "";
-    }
-
-    return null;
+    return currentSourceSection?.getProposedTranslationByMtProvider(
+      currentMTProvider
+    );
   },
   /**
    * @return {LanguageTitleGroup|null}
@@ -67,21 +56,6 @@ export default {
       state.currentSectionSuggestion?.sourceTitle
     ),
 
-  /**
-   * @return {boolean}
-   */
-  isSelectedTranslationUnitTranslated: state => {
-    if (state.currentSourceSection.isTitleSelected) {
-      return !!state.currentSourceSection.translatedTitle;
-    }
-    const { selectedSentence } = state.currentSourceSection;
-
-    if (selectedSentence instanceof SectionSentence) {
-      return selectedSentence.isTranslated;
-    }
-
-    return false;
-  },
   /**
    * @return {ArticleSuggestion[]}
    */

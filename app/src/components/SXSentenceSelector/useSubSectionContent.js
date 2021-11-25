@@ -6,6 +6,12 @@ import { computed } from "@vue/composition-api";
  */
 const getContent = subSection =>
   computed(() => {
+    if (subSection.isBlockTemplate) {
+      return subSection.isTranslated
+        ? subSection.translatedContent
+        : subSection.node.innerHTML;
+    }
+
     const sentenceClass = "sx-sentence-selector__section-sentence";
 
     const cloneNode = subSection.node.cloneNode(true);
@@ -13,6 +19,7 @@ const getContent = subSection =>
 
     segments.forEach(segment => {
       const sentence = subSection.getSentenceById(segment.dataset.segmentid);
+
       segment.classList.add(sentenceClass, "py-1", "me-1");
       const sentenceClasses = ["untranslated", "translated", "selected"].map(
         postfix => `${sentenceClass}--${postfix}`

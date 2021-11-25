@@ -1,6 +1,8 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import Vue from "vue";
+import SubSection from "@/wiki/cx/models/subSection";
+import BlockTemplateProposedTranslation from "@/wiki/cx/models/blockTemplateProposedTranslation";
 
 const mutations = {
   /**
@@ -99,31 +101,6 @@ const mutations = {
     state.currentSourceSection.editedTranslation = translation;
   },
 
-  /**
-   * Given an id, this mutation selects a translation unit for translation
-   * If the given id is equal to 0, the section title is selected.
-   *
-   * @param {object} state
-   * @param {string|number} id
-   */
-  selectTranslationUnit(state, id) {
-    state.currentSourceSection.sentences.forEach(
-      subSection => (subSection.selected = false)
-    );
-
-    if (id === 0) {
-      state.currentSourceSection.isTitleSelected = true;
-
-      return;
-    }
-    state.currentSourceSection.isTitleSelected = false;
-    const sentence = state.currentSourceSection.getSentenceById(id);
-
-    if (sentence instanceof SectionSentence) {
-      sentence.selected = true;
-    }
-  },
-
   setProposedTranslationForTranslationUnitById(
     state,
     { id, provider, proposedTranslation }
@@ -137,27 +114,16 @@ const mutations = {
 
       return;
     }
-    const sentence = state.currentSourceSection.getSentenceById(id);
+    const unit = state.currentSourceSection.getContentTranslationUnitById(id);
 
-    if (sentence instanceof SectionSentence) {
-      Vue.set(sentence.proposedTranslations, provider, proposedTranslation);
-    }
-  },
-
-  /**
-   * @param {object} state
-   * @param {string} translation
-   */
-  setTranslationForSelectedTranslationUnit(state, translation) {
-    if (state.currentSourceSection.isTitleSelected) {
-      state.currentSourceSection.translatedTitle = translation;
-
-      return;
-    }
-    const { selectedSentence } = state.currentSourceSection;
-
-    if (selectedSentence instanceof SectionSentence) {
-      selectedSentence.translatedContent = translation;
+    if (unit instanceof SubSection) {
+      Vue.set(
+        unit.blockTemplateProposedTranslations,
+        provider,
+        new BlockTemplateProposedTranslation(proposedTranslation)
+      );
+    } else if (unit instanceof SectionSentence) {
+      Vue.set(unit.proposedTranslations, provider, proposedTranslation);
     }
   },
 

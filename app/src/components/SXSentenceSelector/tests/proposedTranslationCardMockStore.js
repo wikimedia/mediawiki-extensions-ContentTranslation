@@ -32,8 +32,7 @@ const applicationModule = {
   mutations: {
     setCurrentMTProvider: (state, provider) => {
       state.currentMTProvider = provider;
-    },
-    selectTranslationUnit: mutations.selectTranslationUnit
+    }
   }
 };
 

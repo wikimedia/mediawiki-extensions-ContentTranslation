@@ -102,19 +102,16 @@ export default {
       currentMTProvider: mtProvider,
       isSectionTitleSelected,
       currentSourceSection: currentPageSection,
-      selectedSentence
+      selectedContentTranslationUnit,
+      proposedTranslation: mtTranslation
     } = useApplicationState();
-
-    const mtTranslation = computed(
-      () => store.getters["application/getCurrentProposedTranslation"]
-    );
 
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
 
     const currentSubSection = computed(() =>
       currentPageSection.value.subSections.find(subSection =>
         subSection.sentences.some(
-          sentence => sentence.id === selectedSentence.value.id
+          sentence => sentence.id === selectedContentTranslationUnit.value.id
         )
       )
     );
@@ -132,7 +129,7 @@ export default {
       if (isSectionTitleSelected.value) {
         return currentPageSection.value.translatedTitle;
       } else if (showSentenceTab.value) {
-        return selectedSentence.value.translatedContent;
+        return selectedContentTranslationUnit.value.translatedContent;
       }
 
       return currentSubSection.value.translatedContent;

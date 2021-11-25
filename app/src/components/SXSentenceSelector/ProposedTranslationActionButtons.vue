@@ -19,7 +19,7 @@
       :indicator="mwIconArrowForward"
       :label="$i18n('cx-sx-sentence-selector-skip-translation-button-label')"
       class="sx-sentence-selector__skip-translation-button col shrink pa-4"
-      :disabled="isLastSentence"
+      :disabled="isLastTranslationUnit"
       @click="$emit('skip-translation')"
     />
   </mw-row>
@@ -48,12 +48,12 @@ export default {
       isSectionTitleSelected
     } = useApplicationState();
 
-    const isLastSentence = computed(
-      () => currentSourceSection.value.isSelectedSentenceLast
+    const isLastTranslationUnit = computed(
+      () => currentSourceSection.value.isSelectedTranslationUnitLast
     );
 
     return {
-      isLastSentence,
+      isLastTranslationUnit,
       isSectionTitleSelected,
       mwIconPrevious,
       mwIconArrowForward,

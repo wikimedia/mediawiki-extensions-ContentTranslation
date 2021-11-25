@@ -22,10 +22,6 @@ const applicationModule = {
   },
   mutations: {
     clearPublishFeedbackMessages: () => {}
-  },
-  getters: {
-    getCurrentSelectedSentence: () => new SectionSentence(),
-    isSelectedTranslationUnitTranslated: () => false
   }
 };
 

@@ -1,5 +1,6 @@
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import SectionSentence from "./sectionSentence";
+import SubSection from "@/wiki/cx/models/subSection";
 
 /**
  * This model represents a translation section belonging to a Page model.
@@ -52,36 +53,41 @@ export default class PageSection {
   }
 
   /**
-   * Returns sentences nested into subSections
-   * @return SectionSentence[]
+   * This getter returns an array containing all nested
+   * translation units inside the subsections of the current
+   * page section. These translation units can be either
+   * instances of SubSection model (in case a subsection is
+   * a block template), or instances of SectionSentence model.
+   *
+   * @return {(SubSection|SectionSentence)[]}
    */
-  get sentences() {
+  get contentTranslationUnits() {
     return this.subSections.reduce(
-      (sentences, subSection) => [...sentences, ...subSection.sentences],
+      (units, subSection) => [...units, ...subSection.translationUnits],
       []
     );
   }
 
   /**
-   * @return {SectionSentence|null}
+   * @return {SubSection|SectionSentence|null}
    */
-  get selectedSentence() {
-    return this.sentences.find(sentence => sentence.selected);
+  get selectedContentTranslationUnit() {
+    return this.contentTranslationUnits.find(unit => unit.selected);
   }
 
   /**
    * @return {number}
    */
-  get selectedSentenceIndex() {
-    return this.sentences.findIndex(sentence => sentence.selected);
+  get selectedContentTranslationUnitIndex() {
+    return this.contentTranslationUnits.findIndex(unit => unit.selected);
   }
 
   /**
    * @param {string} id
-   * @return {SectionSentence|null}
+   * @return {SubSection|SectionSentence|null}
    */
-  getSentenceById(id) {
-    return this.sentences.find(sentence => sentence.id === id);
+  getContentTranslationUnitById(id) {
+    return this.contentTranslationUnits.find(unit => unit.id === id);
   }
 
   /**
@@ -94,23 +100,26 @@ export default class PageSection {
       return 0;
     }
 
-    return this.selectedSentence?.id;
+    return this.selectedContentTranslationUnit?.id;
   }
 
   /**
    * @return {boolean}
    */
-  get isSelectedSentenceLast() {
-    return this.selectedSentenceIndex === this.sentences.length - 1;
+  get isSelectedTranslationUnitLast() {
+    return (
+      this.selectedContentTranslationUnitIndex ===
+      this.contentTranslationUnits.length - 1
+    );
   }
 
   /**
    * @return {SectionSentence|null}
    */
-  get followingSentence() {
-    const nextIndex = this.selectedSentenceIndex + 1;
+  get followingTranslationUnit() {
+    const nextIndex = this.selectedContentTranslationUnitIndex + 1;
 
-    return this.sentences?.[nextIndex] || null;
+    return this.contentTranslationUnits?.[nextIndex];
   }
 
   /**
@@ -164,12 +173,92 @@ export default class PageSection {
     if (id === 0) {
       return this.originalTitle;
     }
-    const sentence = this.getSentenceById(id);
+    const unit = this.getContentTranslationUnitById(id);
 
-    if (sentence instanceof SectionSentence) {
-      return sentence.originalContent;
+    if (unit instanceof SubSection) {
+      return unit.transclusionNode.outerHTML;
+    } else if (unit instanceof SectionSentence) {
+      return unit.originalContent;
     }
 
     return null;
+  }
+
+  get selectedTranslationUnitOriginalContent() {
+    return this.getOriginalContentByTranslationUnitId(
+      this.selectedTranslationUnitId
+    );
+  }
+
+  resetSelection() {
+    this.isTitleSelected = false;
+    this.contentTranslationUnits.forEach(unit => {
+      if (unit instanceof SubSection) {
+        unit.blockTemplateSelected = false;
+      } else if (unit instanceof SectionSentence) {
+        unit.selected = false;
+      }
+    });
+  }
+
+  selectTranslationUnitById(id) {
+    this.resetSelection();
+
+    if (id === 0) {
+      this.isTitleSelected = true;
+
+      return;
+    }
+    const unit = this.getContentTranslationUnitById(id);
+
+    if (unit instanceof SubSection) {
+      unit.blockTemplateSelected = true;
+    } else if (unit instanceof SectionSentence) {
+      unit.selected = true;
+    }
+  }
+
+  getProposedTranslationByMtProvider(mtProvider) {
+    if (this.isTitleSelected) {
+      return this.proposedTitleTranslations[mtProvider] || "";
+    } else if (this.selectedContentTranslationUnit instanceof SubSection) {
+      return this.selectedContentTranslationUnit
+        .blockTemplateProposedTranslations[mtProvider]?.content;
+    } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
+      return (
+        this.selectedContentTranslationUnit.proposedTranslations[mtProvider] ||
+        ""
+      );
+    }
+
+    return null;
+  }
+
+  /**
+   * @param {string} translation
+   */
+  setTranslationForSelectedTranslationUnit(translation) {
+    if (this.isTitleSelected) {
+      this.translatedTitle = translation;
+
+      return;
+    }
+
+    if (this.selectedContentTranslationUnit instanceof SubSection) {
+      this.selectedContentTranslationUnit.blockTemplateTranslatedContent = translation;
+    } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
+      this.selectedContentTranslationUnit.translatedContent = translation;
+    }
+  }
+
+  /**
+   * @return {boolean}
+   */
+  get isSelectedTranslationUnitTranslated() {
+    if (this.isTitleSelected) {
+      return !!this.translatedTitle;
+    }
+
+    return !!this.selectedContentTranslationUnit?.isTranslated;
   }
 }
