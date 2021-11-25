@@ -42,7 +42,11 @@
         />
       </template>
       <!-- eslint-disable vue/no-v-html -->
-      <p v-html="proposedTranslations[originalTextProviderKey]" />
+      <p
+        :dir="getDir(sourceLanguage)"
+        :lang="sourceLanguage"
+        v-html="proposedTranslations[originalTextProviderKey]"
+      />
       <!--eslint-enable vue/no-v-html -->
     </mw-card>
     <mw-card
@@ -84,6 +88,7 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "@vue/composition-api";
+import { getDir } from "@wikimedia/language-data";
 
 export default {
   name: "SxTranslationSelector",
@@ -142,10 +147,12 @@ export default {
       apiMtProviders,
       close,
       emptyTextProviderKey,
+      getDir,
       mwIconClose,
       originalTextProviderKey,
       proposedTranslations,
-      selectProvider
+      selectProvider,
+      sourceLanguage
     };
   }
 };

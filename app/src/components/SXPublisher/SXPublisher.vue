@@ -98,7 +98,8 @@ export default {
         name: "sx-editor",
         params: {
           content: currentPageSection.value.translationHtml,
-          language: currentSectionSuggestion.value.targetLanguage,
+          sourceLanguage: currentSectionSuggestion.value.sourceLanguage,
+          targetLanguage: currentSectionSuggestion.value.targetLanguage,
           isFinalEdit: true
         }
       });

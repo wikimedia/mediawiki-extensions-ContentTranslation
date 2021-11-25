@@ -33,7 +33,11 @@
       justify="between"
       class="sx-sentence-selector__body fill-height ma-0"
     >
-      <mw-col class="sx-sentence-selector__section">
+      <mw-col
+        :dir="getDir(sourceLanguage)"
+        :lang="sourceLanguage"
+        class="sx-sentence-selector__section"
+      >
         <sx-sentence-selector-content-header />
         <div class="sx-sentence-selector__section-contents px-4">
           <sub-section
@@ -71,6 +75,7 @@
 <script>
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
+import { getDir } from "@wikimedia/language-data";
 
 import SxTranslationSelector from "./SXTranslationSelector";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
@@ -193,6 +198,7 @@ export default {
       configureTranslationOptions,
       currentPageSection,
       editTranslation,
+      getDir,
       goToContentComparator,
       isSelectedSegmentTranslated,
       isTranslationOptionsActive,
@@ -202,6 +208,7 @@ export default {
       sentenceSelectorStyle,
       shouldProposedTranslationBounce,
       skipTranslation,
+      sourceLanguage: suggestion.value.sourceLanguage,
       subSections
     };
   }
