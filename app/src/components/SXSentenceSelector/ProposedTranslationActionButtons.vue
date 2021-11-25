@@ -65,16 +65,19 @@ export default {
 
 <style lang="less">
 @import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
-.sx-sentence-selector__translation-action-buttons {
-  border-top: @border-style-base @border-width-base @border-color-base--disabled;
-  button {
-    // Icon and text buttons have a minimum width of 0. Not sure if there is any reason for that rule or we can remove it.
+.sx-sentence-selector {
+  &__translation-action-buttons {
+    border-top: @border-style-base @border-width-base
+      @border-color-base--disabled;
+  }
+
+  button&__apply-translation-button&__apply-translation-button {
+    border-inline: @border-style-base @border-width-base @wmui-color-base80;
+  }
+
+  & button&__previous-sentence-button,
+  & button&__skip-translation-button {
     min-width: max-content;
-    &.sx-sentence-selector__apply-translation-button {
-      // TODO: Fix these to be base80. Currently base70.
-      border-left: @border-style-base @border-width-base @wmui-color-base80;
-      border-right: @border-style-base @border-width-base @wmui-color-base80;
-    }
   }
 }
 </style>
