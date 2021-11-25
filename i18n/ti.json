@@ -44,6 +44,7 @@
 	"cx-campaign-contributionsmenu-myuploads": "ዝተሰቐለ ሜድያ",
 	"cx-no-source-categories": "መደባት የለዉን",
 	"cx-stats-tabs-expand": "ኩሎም ቋንቋታት ርኣይ",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 ትርጉም|$1 ትርጉማት}}",
 	"echo-category-title-cx": "ትርጉማት",
 	"cx-your-translations-link": "{{GENDER:$1|ትርጉማትካ|ትርጉማትኪ}}",
 	"cx-suggestionlist-expand": "ኩሎም ርኣይ",
