@@ -331,7 +331,7 @@ function applyProposedTranslationToSelectedTranslationUnit({
  * @param {function} context.commit
  * @param {string} translation
  */
-function applyEditedTranslationToSelectedTranslationUnit(
+async function applyEditedTranslationToSelectedTranslationUnit(
   { state, dispatch, commit },
   translation
 ) {
@@ -344,7 +344,24 @@ function applyEditedTranslationToSelectedTranslationUnit(
   div.querySelectorAll(".sx-edit-dummy-node").forEach(el => el.remove());
   translation = div.innerHTML;
 
-  const { currentSourceSection } = state;
+  const { currentSourceSection, targetLanguage } = state;
+  const { selectedContentTranslationUnit } = currentSourceSection;
+
+  if (selectedContentTranslationUnit instanceof SubSection) {
+    const { sourceTitle, targetTitle } = state.currentSectionSuggestion;
+    /** @type {Element} */
+    const templateElement = Array.from(div.children).find(node =>
+      isTransclusionNode(node)
+    );
+
+    if (templateElement) {
+      translation = await translatorApi.parseTemplateWikitext(
+        getWikitextFromTemplate(templateElement),
+        targetLanguage,
+        targetTitle || sourceTitle
+      );
+    }
+  }
   currentSourceSection.setTranslationForSelectedTranslationUnit(translation);
   dispatch("selectNextTranslationUnit");
 }
