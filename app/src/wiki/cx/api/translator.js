@@ -84,6 +84,37 @@ async function fetchSegmentTranslation(
 }
 
 /**
+ * Given a wikitext representing a block template,
+ * a language and a page title, this method returns
+ * the HTML for the rendering of this template.
+ *
+ * @param {string} wikitext
+ * @param {string} language
+ * @param {string} title
+ * @return {Promise<string>}
+ */
+const parseTemplateWikitext = (wikitext, language, title) => {
+  const api = siteMapper.getApi(language);
+
+  return Promise.resolve(
+    api.post({
+      origin: "*",
+      action: "visualeditor",
+      paction: "parsefragment",
+      page: title,
+      wikitext: wikitext,
+      pst: true
+    })
+  )
+    .then(response => response.visualeditor.content)
+    .catch(error => {
+      mw.log.error(error);
+
+      return Promise.reject(error);
+    });
+};
+
+/**
  * Given a page title and a section number, this method returns
  * a promise which resolves to the contents of the section in the
  * given position, inside the given page. To fetch these contents,
@@ -187,5 +218,6 @@ const publishTranslation = ({
 export default {
   fetchTranslations,
   fetchSegmentTranslation,
+  parseTemplateWikitext,
   publishTranslation
 };
