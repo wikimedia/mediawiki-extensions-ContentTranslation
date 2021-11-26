@@ -2,7 +2,6 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import Vue from "vue";
 import SubSection from "@/wiki/cx/models/subSection";
-import BlockTemplateProposedTranslation from "@/wiki/cx/models/blockTemplateProposedTranslation";
 
 const mutations = {
   /**
@@ -120,7 +119,7 @@ const mutations = {
       Vue.set(
         unit.blockTemplateProposedTranslations,
         provider,
-        new BlockTemplateProposedTranslation(proposedTranslation)
+        proposedTranslation
       );
     } else if (unit instanceof SectionSentence) {
       Vue.set(unit.proposedTranslations, provider, proposedTranslation);

@@ -1,3 +1,5 @@
+import { parseTemplateName, isTransclusionNode } from "@/utils/templateHelper";
+
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a
  * Page Section model. It stores section content through section sentences
@@ -135,10 +137,31 @@ export default class SubSection {
     if (!this.isBlockTemplate) {
       return null;
     }
-    const mwData = JSON.parse(this.transclusionNode.dataset?.mw || "{}");
-    const templateData = mwData?.parts?.[0]?.template?.target || { wt: null };
 
-    return templateData.wt;
+    return parseTemplateName(this.transclusionNode);
+  }
+
+  /**
+   * Given an MT provider, this method returns the template
+   * name based on the corresponding proposed translation of
+   * a block template subsection. If no data for this template
+   * name exist, null is returned.
+   *
+   * @param {string} provider MT provider
+   * @return {string|null} Target block template name
+   */
+  getTargetBlockTemplateNameByProvider(provider) {
+    const div = document.createElement("div");
+    div.innerHTML = this.blockTemplateProposedTranslations[provider];
+    const templateDiv = Array.from(div.children).find(node =>
+      isTransclusionNode(node)
+    );
+
+    if (!templateDiv) {
+      return null;
+    }
+
+    return parseTemplateName(templateDiv);
   }
 
   /**
@@ -158,19 +181,3 @@ export default class SubSection {
     return this.sentences;
   }
 }
-
-/**
- * Given an Element node, this method returns a boolean
- * indicating whether this node is a transclusion node or not.
- *
- * @param {Element} node
- * @return {boolean}
- */
-const isTransclusionNode = node =>
-  !!(
-    node.attributes.about ||
-    (node.attributes.typeof &&
-      node
-        .getAttribute("typeof")
-        .match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/))
-  );

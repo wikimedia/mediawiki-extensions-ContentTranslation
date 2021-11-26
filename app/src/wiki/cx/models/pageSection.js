@@ -219,16 +219,14 @@ export default class PageSection {
   }
 
   getProposedTranslationByMtProvider(mtProvider) {
+    const unit = this.selectedContentTranslationUnit;
+
     if (this.isTitleSelected) {
       return this.proposedTitleTranslations[mtProvider] || "";
-    } else if (this.selectedContentTranslationUnit instanceof SubSection) {
-      return this.selectedContentTranslationUnit
-        .blockTemplateProposedTranslations[mtProvider]?.content;
-    } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
-      return (
-        this.selectedContentTranslationUnit.proposedTranslations[mtProvider] ||
-        ""
-      );
+    } else if (unit instanceof SubSection) {
+      return unit.blockTemplateProposedTranslations[mtProvider] || "";
+    } else if (unit instanceof SectionSentence) {
+      return unit.proposedTranslations[mtProvider] || "";
     }
 
     return null;
