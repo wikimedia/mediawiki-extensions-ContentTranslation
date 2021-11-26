@@ -88,7 +88,7 @@ async function fetchSectionSuggestions(
 
 /**
  * Given a language pair, this api action returns an array of translations
- * published to the main namespace of the corresponding wiki
+ * published to the corresponding wiki
  *
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
@@ -107,22 +107,11 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
 
   try {
     const response = await mwApi.get(query);
+
     // Shuffle array so that users do not get the same suggestions every time
-    const translations = shuffleArray(response.result.translations);
-
-    return translations.filter(translation => {
-      // For some reason, the above query provides non-encoded urls. Encode them before comparing
-      const targetUrl = mw.util.wikiUrlencode(translation.targetURL);
-
-      // if translation has been published properly to the main namespace then page url calculated
-      // by siteMapper should be equal to (encoded) targetUrl
-      return (
-        siteMapper.getPageUrl(targetLanguage, translation.targetTitle) ===
-        targetUrl
-      );
-    });
+    return shuffleArray(response.result.translations);
   } catch (error) {
-    console.log(error);
+    mw.log.error("Error while fetching suggestion seeds", error);
 
     return [];
   }
