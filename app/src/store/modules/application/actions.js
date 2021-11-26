@@ -1,8 +1,14 @@
 import Vue from "vue";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
+import translatorApi from "../../../wiki/cx/api/translator";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 import { siteMapper } from "../../../utils/mediawikiHelper";
+import SubSection from "../../../wiki/cx/models/subSection";
+import {
+  getWikitextFromTemplate,
+  isTransclusionNode
+} from "../../../utils/templateHelper";
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -444,24 +450,66 @@ function updateMTProvider({ commit, dispatch, state }, provider) {
  * @param {object} context.state
  * @param {function} context.dispatch
  * @param {object} payload
- * @param {string} payload.id
+ * @param {string|0} payload.id
  * @param {string} payload.provider
  */
 async function translateTranslationUnitById(
   { commit, state, dispatch },
   { id, provider }
 ) {
-  const { currentSourceSection } = state;
+  const {
+    currentSectionSuggestion,
+    currentSourceSection: sourceSection,
+    targetLanguage
+  } = state;
 
-  let originalContent = currentSourceSection.getOriginalContentByTranslationUnitId(
-    id
-  );
+  if (sourceSection.hasProposedTranslationByTranslationUnitId(id, provider)) {
+    return;
+  }
 
-  const proposedTranslation = await dispatch(
+  const { sourceTitle, targetTitle } = currentSectionSuggestion;
+  let originalContent = sourceSection.getOriginalContentByTranslationUnitId(id);
+
+  const translationUnit = sourceSection.getContentTranslationUnitById(id);
+
+  // The content of this variable will ultimately be stored as proposed
+  // translation for the given translation unit and the given MT provider
+  let proposedTranslation;
+
+  /** @type {string} */
+  proposedTranslation = await dispatch(
     "translator/translateContent",
-    { provider, originalContent },
+    { originalContent, provider },
     { root: true }
   );
+
+  // If the given translation unit is a block template, get the
+  // nested transclusion node, and use it to parse the template
+  // wikitext in order to get an HTML string containing both
+  // the template definition and the HTML string that renders
+  // the template
+  if (translationUnit instanceof SubSection) {
+    const div = document.createElement("div");
+    div.innerHTML = proposedTranslation;
+    /** @type {Element|null} */
+    const templateElement = Array.from(div.children).find(node =>
+      isTransclusionNode(node)
+    );
+
+    // If no nested transclusion node continue without doing anything
+    if (templateElement) {
+      /**
+       * An HTML string containing both the template definition
+       * and the HTML string that renders the template
+       * @type {string}
+       */
+      proposedTranslation = await translatorApi.parseTemplateWikitext(
+        getWikitextFromTemplate(templateElement),
+        targetLanguage,
+        targetTitle || sourceTitle
+      );
+    }
+  }
 
   commit("setProposedTranslationForTranslationUnitById", {
     id,

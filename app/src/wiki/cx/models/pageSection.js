@@ -218,6 +218,34 @@ export default class PageSection {
     }
   }
 
+  /**
+   * Given a translation unit id (or 0 for section title)
+   * and an MT provider, this method returns a boolean
+   * indicating whether the corresponding translation
+   * unit has a proposed translation for this MT provider.
+   * This method is used inside "translateTranslationUnitById"
+   * action, to make sure we don't fetch translation for
+   * translation units that have already been translated.
+   *
+   * @param {string|0} id
+   * @param {string} mtProvider
+   * @return {boolean}
+   */
+  hasProposedTranslationByTranslationUnitId(id, mtProvider) {
+    if (id === 0) {
+      return this.proposedTitleTranslations.hasOwnProperty(mtProvider);
+    }
+    const unit = this.getContentTranslationUnitById(id);
+
+    if (unit instanceof SubSection) {
+      return !!unit.blockTemplateProposedTranslations.hasOwnProperty(
+        mtProvider
+      );
+    } else if (unit instanceof SectionSentence) {
+      return unit.proposedTranslations.hasOwnProperty(mtProvider);
+    }
+  }
+
   getProposedTranslationByMtProvider(mtProvider) {
     const unit = this.selectedContentTranslationUnit;
 
