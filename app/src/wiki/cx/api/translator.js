@@ -74,9 +74,12 @@ async function fetchSegmentTranslation(
     body: JSON.stringify({ html: `<div>${sentence}</div>` })
   })
     .then(response => response.json())
-    .then(
-      data => /<div>(?<content>.*)<\/div>/.exec(data.contents).groups.content
-    )
+    .then(data => {
+      // Remove root div that was added by cxserver
+      const regExp = /<div>(?<content>(.|\s)*)<\/div>/;
+
+      return regExp.exec(data.contents)?.groups?.content;
+    })
     .catch(error => Promise.reject(error));
 }
 
