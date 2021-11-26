@@ -3,7 +3,9 @@
 exports[
   `SXSentenceSelector SubSection component Component output matches snapshot 1`
 ] = `
-<div>
+<div
+  class="sx-sentence-selector__subsection"
+>
   
   
   <p

@@ -50,7 +50,7 @@
         </div>
       </mw-col>
       <translated-segment-card
-        v-if="isSelectedTranslationUnitTranslated"
+        v-if="!isBlockTemplateSelected && isSelectedTranslationUnitTranslated"
         @edit-translation="editTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
@@ -59,9 +59,16 @@
       <!--      the margin that the card jumps to when bouncing, we control-->
       <!--      card bounce through mb-0 class-->
       <proposed-translation-card
-        v-else
+        v-else-if="!isBlockTemplateSelected"
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
+        @edit-translation="editTranslation"
+        @apply-translation="applyTranslation"
+        @skip-translation="skipTranslation"
+        @select-previous-segment="selectPreviousTranslationUnit"
+      />
+      <block-template-adaptation-card
+        v-else
         @edit-translation="editTranslation"
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
@@ -81,14 +88,16 @@ import SxTranslationSelector from "./SXTranslationSelector";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
 import ProposedTranslationCard from "./ProposedTranslationCard";
 import SubSection from "./SubSection";
-
+import BlockTemplateAdaptationCard from "./BlockTemplateAdaptationCard";
 import TranslatedSegmentCard from "./TranslatedSegmentCard";
+import SubSectionModel from "@/wiki/cx/models/subSection";
 import { computed, onMounted, ref, watch } from "@vue/composition-api";
 import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxSentenceSelector",
   components: {
+    BlockTemplateAdaptationCard,
     TranslatedSegmentCard,
     ProposedTranslationCard,
     SubSection,
@@ -159,6 +168,10 @@ export default {
       router.push({ name: "sx-content-comparator" });
 
     const configureTranslationOptions = () => {
+      // Disable MT provider change when block template is selected
+      if (isBlockTemplateSelected.value) {
+        return;
+      }
       isTranslationOptionsActive.value = true;
       store.dispatch(
         "application/translateSelectedTranslationUnitForAllProviders"
@@ -184,8 +197,10 @@ export default {
         return;
       }
       const segmentId = selectedContentTranslationUnit.value.id;
-      const segment = document.querySelector(`[data-segmentid='${segmentId}']`);
 
+      const segment = isBlockTemplateSelected.value
+        ? document.getElementById(segmentId)
+        : document.querySelector(`[data-segmentid='${segmentId}']`);
       // "segment" variable refers to multi-line inline elements (<span>).
       // Such elements have multiple border boxes (one around each line).
       // For this reason we need to check if all these border boxes are
@@ -214,6 +229,10 @@ export default {
       });
     });
 
+    const isBlockTemplateSelected = computed(
+      () => selectedContentTranslationUnit.value instanceof SubSectionModel
+    );
+
     return {
       applyTranslation,
       bounceTranslation,
@@ -222,6 +241,7 @@ export default {
       editTranslation,
       getDir,
       goToContentComparator,
+      isBlockTemplateSelected,
       isSelectedTranslationUnitTranslated,
       isTranslationOptionsActive,
       mwIconArrowPrevious,

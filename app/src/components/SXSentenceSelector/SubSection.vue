@@ -1,13 +1,18 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <div ref="subSectionRoot" v-html="content" />
+  <div
+    ref="subSectionRoot"
+    class="sx-sentence-selector__subsection"
+    :class="rootClasses"
+    v-html="content"
+  />
   <!--eslint-enable vue/no-v-html -->
 </template>
 
 <script>
 import SubSection from "@/wiki/cx/models/subSection";
 import useSubSectionContent from "./useSubSectionContent";
-import { onMounted, ref } from "@vue/composition-api";
+import { onMounted, ref, computed } from "@vue/composition-api";
 
 export default {
   name: "SubSection",
@@ -52,8 +57,14 @@ export default {
       );
     };
 
+    const rootClasses = computed(() => ({
+      "sx-sentence-selector__subsection--block-selected":
+        props.subSection.selected
+    }));
+
     return {
       content,
+      rootClasses,
       subSectionRoot
     };
   }
@@ -69,19 +80,25 @@ export default {
   background-color: @color;
   box-shadow: @padding 0 0 @color, -@padding 0 0 @color;
 }
-.sx-sentence-selector__section-sentence {
-  cursor: pointer;
-
-  &--untranslated {
-    // TODO: Create color variable for base20
-    color: @wmui-color-base20;
-  }
-  &--selected {
-    &.sx-sentence-selector__section-sentence--translated {
-      .highlight(@background-color-primary);
+.sx-sentence-selector__subsection {
+  &--block-selected&--block-selected&--block-selected {
+    .highlight(@background-color-warning--framed);
+    .infobox {
+      .highlight(@background-color-warning--framed);
     }
-    &.sx-sentence-selector__section-sentence--untranslated {
-      .highlight(@wmui-color-yellow90);
+  }
+  .sx-sentence-selector__section-sentence {
+    cursor: pointer;
+    &--untranslated {
+      color: @color-accessory;
+    }
+    &--selected {
+      &.sx-sentence-selector__section-sentence--translated {
+        .highlight(@background-color-primary);
+      }
+      &.sx-sentence-selector__section-sentence--untranslated {
+        .highlight(@background-color-warning--framed);
+      }
     }
   }
 }

@@ -96,7 +96,6 @@ export default {
   emits: ["edit-translation"],
   setup(props, context) {
     const scopeSelection = ref("sentence");
-    const store = context.root.$store;
 
     const {
       currentMTProvider: mtProvider,
