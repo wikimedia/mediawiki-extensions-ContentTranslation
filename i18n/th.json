@@ -9,6 +9,7 @@
 			"NP-chaonay",
 			"Octahedron80",
 			"Patsagorn Y.",
+			"Prame Tan",
 			"Taweetham",
 			"Thas Tayapongsak",
 			"กิ๊ฟ เลิกล่ะ สายแข็ง"
@@ -393,5 +394,23 @@
 	"sx-editor-feedback-overlay-stats": "<span>$1</span> ถูกแก้ไขโดยคุณ",
 	"cx-campaign-mflanguagesearcher-invite": "คุณสามารถแปลหน้านี้ได้ และเป็นอีกวิธีง่าย ๆ สำหรับการเพิ่มเนื้อหาในภาษาของคุณ",
 	"cx-suggestion-list-favorites-division": "สำหรับภายหลัง",
-	"sx-recent-translation-entrypoint-dialog-review-switch-text": "ตรวจสอบเนื้อหา"
+	"sx-recent-translation-entrypoint-banner-header": "หน้านี้แปลมาไม่นาน",
+	"sx-recent-translation-entrypoint-banner-details": "ช่วยปรับปรุงเนื้อหา",
+	"sx-recent-translation-entrypoint-dialog-header": "ปรับปรุงการแปลนี้",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "ตรวจสอบเนื้อหา",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "เพิ่มส่วนบทความใหม่",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "การแปลนั้นอาศัยบทความที่ทำไว้แล้วจากภาษาอื่น อย่างไรก็ตาม การแปลอาจทำให้สาระบางส่วนสูญเสียไป คุณสามารถช่วยได้โดย:",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "ช่วยปรับปรุงบทความให้อ่านได้อย่างเป็นธรรมชาติ",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "แก้ไขบทความเพื่อเปลี่ยนคำหรือเรียงลำดับใหม่ตามที่สมควร",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "ตรวจสอบรายการอ้างอิง",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "ผู้อ่านบทความใช้ส่วนรายการอ้างอิงเพื่อตรวจสอบข้อเท็จจริง คุณควรตรวจสอบรูปแบบของรายการอ้างอิง และเพิ่มอ้างอิงที่เกี่ยวข้องในภาษาที่คุณใช้",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "เปรียบเทียบกับข้อความต้นฉบับ",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "ตรวจสอบให้มั่นใจว่าเนื้อความดั้งเดิมนั้นไม่ถูกเปลี่ยนแปลงจากการแปล",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "แก้ไขหน้านี้",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "เปิดหน้าต้นฉบับใน $1",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "เพิ่มเนื้อหาสำหรับหน้านี้ โดยแปลส่วนบทความจากภาษาอื่น ๆ ที่คุณรู้",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "แปลส่วนบทความใหม่",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "แปลส่วน \"$1\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "แปลส่วน \"$1\" และ \"$2\"",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "แปลส่วน \"$1\", \"$2\" หรืออื่น ๆ"
 }
