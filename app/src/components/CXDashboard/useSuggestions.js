@@ -44,7 +44,7 @@ const useSuggestions = contextRoot => {
   );
 
   /**
-   * @type {ComputedRef<SectionSuggestion>}
+   * @type {ComputedRef<SectionSuggestion[]>}
    */
   const currentSectionSuggestionsSlice = computed(() =>
     store.getters["application/getSectionSuggestionsSliceByIndex"](
@@ -53,7 +53,7 @@ const useSuggestions = contextRoot => {
   );
 
   /**
-   * @type {ComputedRef<ArticleSuggestion>}
+   * @type {ComputedRef<ArticleSuggestion[]>}
    */
   const currentPageSuggestionsSlice = computed(() =>
     store.getters["application/getPageSuggestionsSliceByIndex"](

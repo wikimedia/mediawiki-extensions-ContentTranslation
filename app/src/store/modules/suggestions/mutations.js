@@ -1,4 +1,8 @@
 export default {
+  /**
+   * @param {object} state
+   * @param {ArticleSuggestion} suggestion
+   */
   addPageSuggestion(state, suggestion) {
     state.pageSuggestions.push(suggestion);
   },

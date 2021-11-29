@@ -2,6 +2,7 @@ import cxSuggestionsApi from "../../../wiki/cx/api/suggestions";
 import SuggestionSeedCollection from "../../../wiki/cx/models/suggestionSeedCollection";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 
 /**
  * @param {Object} context
@@ -95,10 +96,13 @@ async function fetchSectionSuggestionsBySeeds(
  * Given a language pair and an article title this action:
  * 1. If matching sectionSuggestion model exists in state, returns it
  * 2. If no such model exists, it fetches sectionSuggestion model from API.
- *    If API response is valid, it stores the model in vuex state, fetches
- *    corresponding page metadata for source article and returns the model.
- * 3. If the API response is empty, then page metadata are fetched and a
- *    new sectionSuggestion model is created and returned to support creation
+ *    If API response is valid, it stores the model in vuex state inside
+ *    sectionSuggestions state variable, fetches corresponding page metadata
+ *    for source article and returns the model.
+ * 3. If the API response is empty then the suggestion to be loaded is a page
+ *    suggestion. To support this case, page metadata are fetched and a page
+ *    suggestion is stored inside vuex pageSuggestions state variable. Finally,
+ *    a new sectionSuggestion model is created and returned to support creation
  *    of new article by translating the lead section.
  * If page metadata cannot be loaded, an Error with appropriate message
  * is being thrown.
@@ -114,7 +118,7 @@ async function fetchSectionSuggestionsBySeeds(
  * @return {Promise<SectionSuggestion>}
  */
 async function loadSectionSuggestion(
-  { commit, dispatch, getters },
+  { commit, dispatch, getters, rootGetters },
   { sourceLanguage, targetLanguage, sourceTitle }
 ) {
   /** @type {SectionSuggestion|null} */
@@ -145,13 +149,28 @@ async function loadSectionSuggestion(
           targetLanguage,
           sourceTitle
         });
+        const page = rootGetters["mediawiki/getPage"](
+          sourceLanguage,
+          sourceTitle
+        );
+        commit(
+          "addPageSuggestion",
+          new ArticleSuggestion({
+            sourceLanguage,
+            targetLanguage,
+            sourceTitle,
+            langLinksCount: page.langLinksCount,
+            wikidataId: page.wikidataId
+          })
+        );
+      } else {
+        commit("addSectionSuggestion", suggestion);
       }
     } catch (e) {
       throw new Error(
         `No page metadata found for title ${sourceTitle} and language pair ${sourceLanguage}-${targetLanguage}`
       );
     }
-    commit("addSectionSuggestion", suggestion);
   }
 
   return suggestion;
@@ -330,15 +349,52 @@ async function getPageSuggestionSeed(
   return currentSeedCollection.getSeedArticleForSuggestion();
 }
 
-async function initializeSuggestions({ rootGetters, dispatch, rootState }) {
+/**
+ * This action initialize the page and section suggestions
+ * inside SX Dashboard. This action is dispatched whenever
+ * the user visits the dashboard, regardless if its the first
+ * time for this session or not. If suggestions are properly
+ * already initialized, then both page and section suggestion
+ * slices should be full. In this case (if both suggestion
+ * slices are full), this action returns without doing anything.
+ * If at least one slice is not full, then the appendix section
+ * titles for the current target language are fetched (they are
+ * needed during suggestion fetching) and the next slices for
+ * both section and page suggestions are fetched.
+ *
+ * @param {object} context
+ * @param {object} context.rootGetters
+ * @param {function} context.dispatch
+ * @param {object} context.rootState
+ * @param {object} context.state
+ * @return {Promise<void>}
+ */
+async function initializeSuggestions({
+  rootGetters,
+  dispatch,
+  rootState,
+  state
+}) {
   const { targetLanguage } = rootState.application;
 
-  const suggestionsLength =
-    rootGetters["application/getCurrentSectionSuggestions"] +
-    rootGetters["application/getCurrentPageSuggestions"];
+  /** @type {SectionSuggestion[]} */
+  const firstSectionSuggestionsSlice = rootGetters[
+    "application/getSectionSuggestionsSliceByIndex"
+  ](0);
 
-  // If suggestions for current language pair already exist, just return
-  if (!!suggestionsLength) {
+  /** @type {ArticleSuggestion[]} */
+  const firstPageSuggestionsSlice = rootGetters[
+    "application/getPageSuggestionsSliceByIndex"
+  ](0);
+
+  const isFirstSectionSuggestionsSliceFull =
+    firstSectionSuggestionsSlice.length === state.maxSuggestionsPerSlice;
+  const isFirstPageSuggestionsSliceFull =
+    firstPageSuggestionsSlice.length === state.maxSuggestionsPerSlice;
+
+  // If both section suggestion and page suggestion slices inside dashboard
+  // are currently full, return without doing anything
+  if (isFirstSectionSuggestionsSliceFull && isFirstPageSuggestionsSliceFull) {
     return;
   }
   // Fetch now so that appendix section titles are available during suggestion fetching
