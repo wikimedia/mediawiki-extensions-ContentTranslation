@@ -40,7 +40,7 @@ const useSuggestions = contextRoot => {
     () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
   );
   const nextPageSuggestionsSliceIndex = computed(
-    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
+    () => (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
   );
 
   /**
