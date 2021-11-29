@@ -432,8 +432,9 @@ class Hooks {
 
 		$veConfig = MediaWikiServices::getInstance()->getConfigFactory()
 			->makeConfig( 'visualeditor' );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		if ( $veConfig->get( 'VisualEditorShowBetaWelcome' ) &&
-			!$user->getOption( 'visualeditor-hidebetawelcome' )
+			!$userOptionsLookup->getOption( $user, 'visualeditor-hidebetawelcome' )
 		) {
 			// VisualEditorShowBetaWelcome is enabled and user has not
 			// seen the visualeditor yet. So when edit page is loaded
