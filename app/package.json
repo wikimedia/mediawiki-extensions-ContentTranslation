@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20211122",
+  "version": "0.1.0+20211129",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -79,7 +79,7 @@
     },
     {
       "path": "dist/css/cx.css",
-      "maxSize": "4.00KB"
+      "maxSize": "4.10KB"
     }
   ]
 }
