@@ -79,5 +79,8 @@ body {
   &:before {
     display: none;
   }
+  & + span {
+    all: unset;
+  }
 }
 </style>
