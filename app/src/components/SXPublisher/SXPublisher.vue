@@ -75,7 +75,7 @@ export default {
   setup(props, context) {
     const {
       currentSourceSection: currentPageSection,
-      currentSectionSuggestion
+      currentSectionSuggestion: suggestion
     } = useApplicationState();
     const applicationState = context.root.$store.state.application;
 
@@ -98,8 +98,9 @@ export default {
         name: "sx-editor",
         params: {
           content: currentPageSection.value.translationHtml,
-          sourceLanguage: currentSectionSuggestion.value.sourceLanguage,
-          targetLanguage: currentSectionSuggestion.value.targetLanguage,
+          sourceLanguage: suggestion.value.sourceLanguage,
+          targetLanguage: suggestion.value.targetLanguage,
+          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
           isFinalEdit: true
         }
       });

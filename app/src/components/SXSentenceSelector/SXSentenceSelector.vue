@@ -176,7 +176,7 @@ export default {
           sourceLanguage: suggestion.value.sourceLanguage,
           targetLanguage: suggestion.value.targetLanguage,
           originalContent: originalSegmentContent.value,
-          title: suggestion.value.targetTitle
+          title: suggestion.value.targetTitle || suggestion.value.sourceTitle
         }
       });
 
