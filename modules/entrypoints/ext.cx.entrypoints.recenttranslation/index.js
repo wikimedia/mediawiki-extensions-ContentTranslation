@@ -28,15 +28,11 @@
 	}
 
 	function createDialogInstance() {
-		var Vue,
-			RecentTranslationEntrypointDialogComponent,
-			RecentTranslationEntrypointDialogClass;
-		Vue = require( 'vue' );
+		var Vue = require( 'vue' ),
+			RecentTranslationEntrypointDialogComponent =
+				require( './RecentTranslationEntrypointDialog.vue' );
 
-		RecentTranslationEntrypointDialogComponent = require( './RecentTranslationEntrypointDialog.vue' );
-		RecentTranslationEntrypointDialogClass = Vue.extend( RecentTranslationEntrypointDialogComponent );
-
-		return new RecentTranslationEntrypointDialogClass( { el: dialogContainer } );
+		return Vue.createMwApp( RecentTranslationEntrypointDialogComponent ).mount( dialogContainer );
 	}
 
 	// If there are any other existing notices, we should not add the entrypoint banner.
