@@ -119,7 +119,7 @@ export default class SubSection {
    * inside this subsection, if it exists or null.
    * otherwise.
    *
-   * @return {Element|null}
+   * @return {HTMLElement|null}
    */
   get transclusionNode() {
     return Array.from(this.node.children).find(node =>
@@ -144,13 +144,18 @@ export default class SubSection {
   /**
    * Given an MT provider, this method returns the template
    * name based on the corresponding proposed translation of
-   * a block template subsection. If no data for this template
-   * name exist, null is returned.
+   * a block template subsection. If the block template
+   * translation has not yet been fetched, null is returned.
+   * If the translation has been fetched but no template node
+   * can be found, then an empty string is returned.
    *
    * @param {string} provider MT provider
    * @return {string|null} Target block template name
    */
   getTargetBlockTemplateNameByProvider(provider) {
+    if (!this.blockTemplateProposedTranslations[provider]) {
+      return null;
+    }
     const div = document.createElement("div");
     div.innerHTML = this.blockTemplateProposedTranslations[provider];
     const templateDiv = Array.from(div.children).find(node =>
@@ -158,7 +163,7 @@ export default class SubSection {
     );
 
     if (!templateDiv) {
-      return null;
+      return "";
     }
 
     return parseTemplateName(templateDiv);

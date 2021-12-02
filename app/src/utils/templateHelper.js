@@ -32,7 +32,7 @@ const getTemplateData = node => {
  * Given an Element node, this method returns a boolean
  * indicating whether this node is a transclusion node or not.
  *
- * @param {Element} node
+ * @param {HTMLElement} node
  * @return {boolean}
  */
 const isTransclusionNode = node =>
@@ -151,4 +151,24 @@ const escapeParameter = param => {
   return output;
 };
 
-export { isTransclusionNode, parseTemplateName, getWikitextFromTemplate };
+/**
+ * Given a transclusion node, that is returned by cxserver
+ * as a block template translation/adaptation, this method
+ * returns a boolean indicating whether the template exists
+ * in the target language.
+ *
+ * @param {Element} cxTemplateNode
+ * @return {boolean}
+ */
+const targetTemplateExists = cxTemplateNode => {
+  const cxData = JSON.parse(cxTemplateNode.dataset?.cx || "{}");
+
+  return !!cxData?.[0]?.targetExists;
+};
+
+export {
+  isTransclusionNode,
+  parseTemplateName,
+  getWikitextFromTemplate,
+  targetTemplateExists
+};

@@ -34,7 +34,7 @@
         </mw-button>
       </div>
       <div
-        v-else-if="!!proposedBlockTranslation"
+        v-else-if="translationLoaded"
         class="block-template-adaptation-card__body--failure pa-4 mb-4"
       >
         <h5
@@ -89,13 +89,28 @@ export default {
       proposedTranslation: proposedBlockTranslation
     } = useApplicationState();
 
-    const sourceTemplateName = computed(
-      () => selectedSubSection.value?.sourceBlockTemplateName
-    );
     const targetTemplateName = computed(() =>
       selectedSubSection.value?.getTargetBlockTemplateNameByProvider(
         currentMTProvider.value
       )
+    );
+
+    /**
+     * This computed property is true while the proposed
+     * block translation is not yet available, or while
+     * the target template data are being parsed to get
+     * the target template name.
+     *
+     * @type {ComputedRef<boolean>}
+     */
+    const translationLoaded = computed(
+      () =>
+        typeof proposedBlockTranslation.value === "string" &&
+        typeof targetTemplateName.value === "string"
+    );
+
+    const sourceTemplateName = computed(
+      () => selectedSubSection.value?.sourceBlockTemplateName
     );
 
     return {
@@ -104,7 +119,8 @@ export default {
       proposedBlockTranslation,
       sourceTemplateName,
       targetLanguageAutonym,
-      targetTemplateName
+      targetTemplateName,
+      translationLoaded
     };
   }
 };

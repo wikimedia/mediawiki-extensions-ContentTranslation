@@ -7,7 +7,8 @@ import { siteMapper } from "../../../utils/mediawikiHelper";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
   getWikitextFromTemplate,
-  isTransclusionNode
+  isTransclusionNode,
+  targetTemplateExists
 } from "../../../utils/templateHelper";
 
 /**
@@ -508,13 +509,14 @@ async function translateTranslationUnitById(
   if (translationUnit instanceof SubSection) {
     const div = document.createElement("div");
     div.innerHTML = proposedTranslation;
-    /** @type {Element|null} */
+    /** @type {HTMLElement|null} */
     const templateElement = Array.from(div.children).find(node =>
       isTransclusionNode(node)
     );
 
-    // If no nested transclusion node continue without doing anything
-    if (templateElement) {
+    // If no nested transclusion node, or target template doesn't exist
+    // set proposed translation to an empty string
+    if (templateElement && targetTemplateExists(templateElement)) {
       /**
        * An HTML string containing both the template definition
        * and the HTML string that renders the template
@@ -525,6 +527,8 @@ async function translateTranslationUnitById(
         targetLanguage,
         targetTitle || sourceTitle
       );
+    } else {
+      proposedTranslation = "";
     }
   }
 
