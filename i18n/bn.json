@@ -63,7 +63,7 @@
 	"cx-campaign-newbytranslation-start": "অনুবাদ শুরু করুন",
 	"cx-special-login-error": "এই পাতাটি অনুবাদের জন্য আপনাকে অবশ্যই প্রবেশ করতে হবে। [$1 প্রবেশ]",
 	"cx-tools-instructions-text1": "অনুবাদ করতে অনুচ্ছেদে {{GENDER:|ক্লিক করুন}}",
-	"cx-tools-instructions-text2": "{{GENDER:|আপনাকে}} তাদের সব যোগ করতে হবে না",
+	"cx-tools-instructions-text2": "{{GENDER:|আপনার}} পক্ষে যতটুকু সম্ভবত ততটুকু অনুবাদ করুন",
 	"cx-tools-instructions-text3": "লেখাকে বোধগম্য করে {{GENDER:|লিখুন}}",
 	"cx-tools-instructions-text4": "যান্ত্রিক অনুবাদ সহায়ক কিন্তু এটিকে সঠিক করে তুলতে {{GENDER:|আপনাকে}} লেখা সংশোধন করতে হবে।",
 	"cx-tools-instructions-text5": "অনুবাদ {{GENDER:|প্রকাশ করুন}}",
