@@ -18,7 +18,8 @@
 			"Wehwei",
 			"Wwycheuk",
 			"Xiplus",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Impartial just"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -98,12 +99,12 @@
 	"cx-error-page-not-found": "於 $2 維基百科查無 \"$1\" 頁面",
 	"cx-page-selector-widget-recent-edits-label": "最近由您編輯",
 	"cx-page-selector-widget-nearby-label": "附近",
-	"cx-source-page-selector-input-placeholder": "搜尋欲翻譯之頁面",
-	"cx-source-page-selector-no-suggestions": "想想任何您感興趣的主題，您不需要成為專家便可做出了不起的翻譯。",
-	"cx-source-page-selector-no-search-results": "在 $2 內未找到 \"$1\" 頁面",
+	"cx-source-page-selector-input-placeholder": "搜尋要翻譯的頁面",
+	"cx-source-page-selector-no-suggestions": "想想任何您感興趣的主題，您不需要成為專家也能弄出出色的翻譯。",
+	"cx-source-page-selector-no-search-results": "在$2內未找到「$1」頁面",
 	"cx-selected-source-page-start-translation-button": "開始翻譯",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|每週有 $1 次訪問|每週有 $1 次訪問|0=本週沒有訪問}}",
-	"cx-selected-source-page-error-page-and-title-exist": "此標題於 [$1 $2] 已被使用在 [$3 個不同頁面]",
+	"cx-selected-source-page-error-page-and-title-exist": "此標題在[$1 $2]版已用於[$3 不同頁面]",
 	"cx-selected-source-page-error-page-exists": "$2 的頁面 [$1 已存在]",
 	"cx-selected-source-page-error-title-in-use": "新頁面的標題[$1 已被使用]",
 	"cx-favorite-added-for-later": "已添加供日後翻譯！",
@@ -127,7 +128,7 @@
 	"cx-translation-filter-published-translations": "已發布",
 	"cx-translation-filter-draft-translations": "進行中",
 	"cx-translation-filter-suggested-translations": "建議",
-	"cx-suggestionlist-favorite": "稍後翻譯",
+	"cx-suggestionlist-favorite": "稍後",
 	"cx-suggestionlist-title": "建議",
 	"cx-suggestionlist-empty-title": "目前無建議。",
 	"cx-suggestionlist-empty-desc": "我們沒有找到建議，您可稍後檢查或使用我們建議的工具尋找相關頁面 (實驗中)。",
@@ -316,7 +317,7 @@
 	"cx-feature-discovery-title": "隨時翻譯",
 	"cx-feature-discovery-content": "您可以隨時從{{int:mycontris}}頁面開始或繼續翻譯",
 	"cx-feature-discovery-dismiss": "好的，了解",
-	"cx-suggestionlist-expand-sections-title": "展開新章節",
+	"cx-suggestionlist-expand-sections-title": "擴充新章節",
 	"cx-sx-select-section": "選擇要翻譯的章節",
 	"cx-sx-missing-section-stats": "在$2裡缺少{{PLURAL:$1|1個章節|$1個章節}}",
 	"cx-sx-section-selector-title": "章節",
@@ -406,5 +407,7 @@
 	"cx-sx-published-section-confirmation-header": "新章節已添加",
 	"cx-sx-published-section-confirmation-content": "您的翻譯已發布。請考慮編輯進一步內容，或是添加別的章節。",
 	"cx-sx-published-section-invitation-title": "翻譯別的章節",
-	"cx-sx-published-section-invitation-missing-sections-info": "「$1」{{PLURAL:$2|和 $2 個以上章節缺少|0=缺少}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "「$1」{{PLURAL:$2|和 $2 個以上章節缺少|0=缺少}}",
+	"cx-sx-publisher-mt-abuse-message-title": "您的翻譯有 $1% 未修改文字",
+	"cx-sx-publisher-mt-abuse-message-body": "機器翻譯只是一個開始。您仍可以做出發布，但請確認您的翻譯內容能以您的語言閱讀流暢。"
 }

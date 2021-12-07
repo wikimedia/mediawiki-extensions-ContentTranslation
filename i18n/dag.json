@@ -2,10 +2,26 @@
 	"@metadata": {
 		"authors": [
 			"Alhassan Peter",
-			"Sir Amugi"
+			"Sir Amugi",
+			"Dnshitobu",
+			"Munkaila Sulemana"
 		]
 	},
+	"cx": "Lɛbigibu yaɣili",
+	"cx-dashboard-header": "Din lɛbigi",
+	"cx-javascript": "Bin ŋɔ ku tooi tum tuma diyi niŋ ka JavaScript kani. JavaScript ŋɔ kpihimi, bee di zaɣisi la tuma tumbu bee browser ŋɔ m be tumda.",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] nyɛla binshɛli din lɛbigiri tunzuŋ yɛltɔɣa a ya balli ni yomyom. [$1 Lihi mili n-nya pumpɔŋɔ!]",
+	"cx-header-all-translations": "Din pun lɛbigi zaa",
+	"cx-source-view-page": "Lihi mi yaɣili ŋɔ",
+	"cx-publish-button": "Zaŋ wuhi salo",
+	"cx-lost-session": "A saha ŋɔ maa din na naaya",
+	"cx-lost-session-draft": "A saha ŋɔ maa din na naaya. A tohibu ŋɔ maa pala binshɛli din ni tooi pahi yaha naɣila a lan labimi n-kpe",
+	"cx-lost-session-publish": "A saha ŋɔ maa din na naaya. A tohibu ŋɔ maa pala binshɛli din ni tooi pahi yaha hali ka a ti lan labimi n-kpe",
+	"cx-lost-session-dashboard": "A yi bɔri ni a tooi niŋ niŋsim ŋɔ, nyin dimi suɣulo ka labi kpe",
+	"cx-publish-summary": "Di nambu maa yila \"$1\" lɛbigibu ni na",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SectionTranslation]]",
+	"cx-campaign-newbytranslation-title": "A ni pili lɛbigibu bee?",
+	"cx-campaign-newbytranslation-start": "Pilimi lɛbigibu",
 	"cx-sx-publisher-mt-abuse-message-title": "A lahabali lɛbigibu maa malila $1 din lahabali bi taɣi",
 	"cx-sx-publisher-mt-abuse-message-body": "Bashini/mashini lahabali lɛbigibu kuli nyɛla lahibali lɛbigibu piligu. A na ni tooi bahuili pɔhim zuɣu, amaa kpaŋmi a maŋa ka a lahabali shɛli a ni lɛbigi maa ni karim ka ŋmani a balli maa."
 }

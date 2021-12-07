@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Aefgh39622",
-			"Octahedron80"
+			"Octahedron80",
+			"NP-chaonay",
+			"Patsagorn Y."
 		]
 	},
 	"apihelp-cxpublish-description": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
@@ -13,8 +15,10 @@
 	"apihelp-cxpublish-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxpublish-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",
 	"apihelp-cxpublish-param-categories": "หมวดหมู่ที่จะเพิ่มไปยังหน้าที่เผยแพร่",
+	"apihelp-cxpublish-param-publishtags": "แท็กแก้ไขที่จะเพิ่มเมื่อเผยแพร่หน้า",
 	"apihelp-cxpublish-param-wpCaptchaId": "ไอดีแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "คำตอบของแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
+	"apihelp-cxpublish-param-cxversion": "รุ่นของตัวแก้ไขที่จะใช้เมื่อเผยแพร่การแปล",
 	"apihelp-query+contenttranslation-description": "สอบถามฐานข้อมูลการแปลเนื้อหาสำหรับการแปลต่าง ๆ",
 	"apihelp-query+contenttranslation-param-translationid": "ไอดีการแปล",
 	"apihelp-query+contenttranslation-param-from": "รหัสภาษาต้นทาง",
@@ -39,7 +43,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด ที่แปลจากภาษาอังกฤษเป็นภาษาสเปน",
 	"apihelp-query+contenttranslationlangtrend-param-source": "รหัสภาษาต้นทาง",
 	"apihelp-query+contenttranslationlangtrend-param-target": "รหัสภาษาปลายทาง",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "ช่วงเวลาสำหรับการคำนวณแนวโน้ม อาจเป็น 'สัปดาห์' หรือ 'เดือน'",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "ช่วงเวลาสำหรับการคำนวณแนวโน้ม อาจเป็น <kbd>สัปดาห์</kbd> หรือ <kbd>เดือน</kbd>",
 	"apihelp-query+contenttranslationlangtrend-example-1": "ดึงข้อมูลแนวโน้มที่กำลังเผยแพร่ สำหรับคู่ภาษา es-ca ในช่วงเวลารายสัปดาห์",
 	"apihelp-query+contenttranslationlangtrend-example-2": "ดึงข้อมูลแนวโน้มที่กำลังเผยแพร่ สำหรับทุกภาษา",
 	"apihelp-cxdelete-description": "ลบการแปลฉบับร่างที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",

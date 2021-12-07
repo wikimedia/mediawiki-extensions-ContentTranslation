@@ -14,7 +14,8 @@
 			"Prevodim",
 			"Purodha",
 			"Tarjeimo",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Abuluntu"
 		]
 	},
 	"cx": "Oversett side",
@@ -49,6 +50,8 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "Innholdet ble oversatt fra et annet språk med verktøyet Innholdsoversettelse.",
 	"tag-contenttranslation-v2-description": "Innholdet har blitt oversatt fra et annet språk ved hjelp av versjon 2 av innholdsoversettelsesverktøyet.",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Seksjonsoversettelse]]",
+	"tag-sectiontranslation-description": "Innholdet ble oversatt fra en seksjon på et annet språk med innholdsoversetterens seksjonsoversettelsesverktøy.",
 	"cx-source-loading": "Laster $1",
 	"cx-beta": "Innholdsoversettelse",
 	"cx-beta-desc": "Et verktøy for å raskt oversette sider til språket ditt. Start oversettelser fra [[Special:MyContributions|bidragssiden din]] og rediger dem med vår side-ved-side editor som er spesiallagd for oversettelser. Noen av verktøyene kan være begrenset til bestemte språk.",
@@ -387,5 +390,21 @@
 	"cx-sx-publisher-sandbox-option-details": "Publiser til din personlige sandkasse så du kan gjennomgå den og kopiere den til et annet sted.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Oversettelsen din blir <strong>lagt til i sandkassa di</strong>.",
 	"cx-sx-publisher-review-info-error": "Oversettelsen din kan ikke publiseres:",
-	"cx-sx-publisher-review-info-learn-more": "Lær mer"
+	"cx-sx-publisher-review-info-learn-more": "Lær mer",
+	"cx-dashboard-experimental-support-banner-title": "Mobilstøtte er eksperimentelt",
+	"cx-dashboard-experimental-support-banner-description": "Du kan utvide eksisterende artikler ved å oversette en ny seksjon. Noen av funksjonene fra datamaskinversjonen er imidlertid ikke tilgjengelige ennå.",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Lær mer",
+	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Send tilbakemelding",
+	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Ingen redigeringer av deg",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1 %</span> redigert av deg",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Din oversettelse",
+	"cx-sx-sentence-selector-translated-segment-sentence-option": "Setning",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Avsnitt",
+	"cx-sx-followup-feedback-new-indicator": "ny",
+	"cx-sx-published-section-confirmation-header": "Ny seksjon lagt til",
+	"cx-sx-published-section-confirmation-content": "Oversettelsen din ble publisert. Vurder å redigere innholdet videre, eller å legge til enda en seksjon.",
+	"cx-sx-published-section-invitation-title": "Oversett en annen seksjon",
+	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|og $2 til mangler|0=mangler}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Oversettelsen din inneholder $1 % uendret tekst",
+	"cx-sx-publisher-mt-abuse-message-body": "Maskinoversettelse er bare et utgangspunkt. Du kan fortsatt publisere, men sjekk at oversettelsen er lettleselig på ditt språk."
 }

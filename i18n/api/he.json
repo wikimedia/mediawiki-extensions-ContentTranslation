@@ -30,7 +30,7 @@
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
 	"apihelp-query+contenttranslation-example-3": "חיפוש כל תרגום עבור הכותרת הנתונה בין זוג השפות הנתונות",
 	"apihelp-query+contenttranslationcorpora-description": "קבלת טקסט מקביל עם התאמת פסקאות לתרגום נתון. ר' גם <code>list=cxpublishedtranslations</code>. אפשר למצוא גם היטלים בתסדירים שונים למי שצריך גישה בנפחים גדולים.",
-	"apihelp-query+contenttranslationcorpora-summary": "קבלת טקסט מקביל מחולק לפסקאות לתרגום נתון. אפשר לנסות גם <code>list=cxpublishedtranslations</code>. ניתן למצוא העתקים בתסדירים שונים עבור גישה לנפחים גדולים.",
+	"apihelp-query+contenttranslationcorpora-summary": "קבלת טקסט מקביל עם התאמת פסקאות לתרגום נתון. ר' גם <code>list=cxpublishedtranslations</code>. אפשר למצוא גם היטלים בתסדירים שונים למי שצריך גישה בנפחים גדולים.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "מזהה התרגום.",
 	"apihelp-query+contenttranslationcorpora-param-striphtml": "האם לסלק את כל תגי ה־HTML כדי להחזיר טקסט פשוט.",
 	"apihelp-query+contenttranslationcorpora-param-types": "לפי ברירת המחדל יגיעו אליך כל שלושת הדברים הבאים אם הם זמינים: טקסט המקור, תרגום מכונה, והתרגום הערוך של המשתמש. הפרמטר הזה מאפשר לך לא להחזיר כמה מהסוגים האלה.",

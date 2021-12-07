@@ -35,7 +35,11 @@
 			"VegaDark",
 			"Vi00000051",
 			"Wifidel",
-			"Петар Петковић"
+			"Петар Петковић",
+			"-sasha-",
+			"Agent",
+			"Avengium",
+			"Jakeukalane"
 		]
 	},
 	"cx": "Traducir página",
@@ -54,7 +58,7 @@
 	"cx-publish-page-error": "Ocurrió un error al publicar la traducción. Por favor intenta publicarla de nuevo. Error: $1",
 	"cx-publish-error-abuse-filter": "Los filtros de edición automáticos han detectado algún contenido problemático en tu traducción.\nDetecciones del filtro: $1",
 	"cx-publish-error-empty": "El servidor respondió sin enviar ningún dato.",
-	"cx-publish-error-readonly": "No se permiten las operaciones de escritura en el wiki.",
+	"cx-publish-error-readonly": "No se permiten las operaciones de escritura en la wiki.",
 	"cx-publish-error-spam-blacklist": "Es posible que exista ''spam'' en tu traducción. Detalles: $1",
 	"cx-publish-error-title-blacklist": "El título que escribiste está en la lista negra. Por favor, elige otro nombre para la traducción.",
 	"cx-publish-error-unknown": "Se produjo un error desconocido e irrecuperable. Detalles del error: $1",
@@ -66,9 +70,10 @@
 	"cx-lost-session-dashboard": "Debes iniciar sesión de nuevo para realizar la acción solicitada.",
 	"cx-publish-summary": "Creado al traducir la página «$1»",
 	"cx-translation-add-translation": "Añadir traducción",
-	"cx-translation-target-page-exists": "Ya existe una página titulada [$1 $2] en el wiki de destino. Considera cambiar el nombre de la página.",
+	"cx-translation-target-page-exists": "Ya existe una página titulada [$1 $2] en la wiki de destino. Considera cambiar el nombre de la página.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traducción de contenido]]",
 	"tag-contenttranslation-description": "El contenido se tradujo de otro idioma usando la herramienta de traducción de contenidos.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Traducción de contenido, versión 2]]",
 	"tag-contenttranslation-v2-description": "El contenido se tradujo de otro idioma usando la versión 2 de la herramienta de traducción de contenidos.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Traducción de sección]]",
 	"tag-sectiontranslation-description": "El contenido fue traducido desde otra sección en otro idioma usando la característica de Traducción de sección de la herramienta de traducción de contenidos.",
@@ -181,7 +186,7 @@
 	"cx-translation-label-published": "Traducciones publicadas",
 	"cx-translation-already-in-progress": "Esta es una traducción en curso {{GENDER:$2|de}} $1.",
 	"cx-translation-already-in-progress-unknown": "Esta es una traducción en curso de un usuario desconocido.",
-	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinar con {{GENDER:$1|el usuario|la usuaria}} que hizo la traducción actual.",
+	"cx-translation-already-in-progress-collaborate": "Por favor, asegúrate de coordinar con {{GENDER:$1|el usuario|la usuaria}} que hizo la traducción actual.",
 	"cx-publishing-dialog-publish-draft-button": "Publicar como borrador",
 	"cx-feedback-link": "Proporcionar comentarios",
 	"cx-stats-published-translations-title": "Traducciones publicadas",
@@ -201,7 +206,7 @@
 	"cx-campaign-try": "Prueba la traducción de contenidos",
 	"cx-campaign-contributionsmenu-mycontributions": "Contribuciones",
 	"cx-campaign-contributionsmenu-mytranslations": "Traducciones",
-	"cx-campaign-contributionsmenu-myuploads": "Multimedia",
+	"cx-campaign-contributionsmenu-myuploads": "Archivos subidos",
 	"cx-no-source-categories": "No hay categorías",
 	"cx-no-target-categories": "No hay categorías. Considera añadir algunas para clasificar mejor el tema.",
 	"cx-no-adapted-categories": "Las categorías originales no existen en este idioma. Explora más categorías para clasificar mejor el tema.",
@@ -422,5 +427,7 @@
 	"cx-sx-published-section-confirmation-header": "Nueva sección añadida",
 	"cx-sx-published-section-confirmation-content": "Tu traducción ha sido publicada. Considera editar los contenidos más adelante, o añadir otra sección.",
 	"cx-sx-published-section-invitation-title": "Traducir otra sección",
-	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|y $2 más faltan|0=falta}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|y $2 más faltan|0=falta}}",
+	"cx-sx-publisher-mt-abuse-message-title": "Tu traducción contiene $1% de texto sin modificar",
+	"cx-sx-publisher-mt-abuse-message-body": "La traducción automática es solamente un punto de partida. Aún puedes publicar, pero asegúrate de que el contenido se lea de forma natural en tu idioma."
 }

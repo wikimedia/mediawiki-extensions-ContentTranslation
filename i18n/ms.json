@@ -286,11 +286,13 @@
 	"cx-linkcontextitem-missing-link-title": "Pautan hilang",
 	"cx-linkcontextitem-missing-title-description": "Laman ini belum lagi wujud",
 	"cx-unreviewed-translation-category": "Laman-laman dengan terjemahan-terjemahan yang belum disemak",
+	"cx-sx-language-selector-dialog-title": "Cari bahasa",
 	"cx-sx-start-translation-button-label": "Mulakan terjemahan",
 	"cx-sx-view-translation-anchor": "Paparkan",
 	"cx-sx-existing-translation-learn-more": "Ketahui lebih lanjut",
 	"cx-sx-section-selector-more-details-title": "Butiran lanjut",
 	"cx-sx-section-selector-view-article-button-label": "Papar rencana dalam $1",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Cuba dengan halaman lain atau bahasa lain",
 	"cx-sx-section-selector-learn-more-anchor-label": "Ketahui lebih lanjut",
 	"cx-suggestion-list-new-pages-division": "Laman baru",
 	"cx-translation-list-all-languages-option-label": "Semua",
@@ -298,7 +300,9 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Rencana penuh dalam $1",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Terjemah",
+	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Terima kasih kerana mengembangkan kandungan yang terdapat dalam bahasa anda",
 	"cx-sx-publisher-animation-success-message-title": "Diterbitkan!",
 	"cx-sx-publisher-animation-success-message-subtitle": "Membuka laman...",
-	"cx-sx-publisher-mt-abuse-message-title": "Terjemahan anda mengandungi $1% teks yang tidak diubah suai"
+	"cx-sx-publisher-mt-abuse-message-title": "Terjemahan anda mengandungi $1% teks yang tidak diubah suai",
+	"cx-sx-publisher-mt-abuse-message-body": "Penterjemahan mesin hanyalah titik permulaan. Anda masih boleh siarkan, tetapi pastikan terjemahan terbaca kemas dalam bahasa anda."
 }

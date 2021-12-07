@@ -50,6 +50,7 @@
 	"tag-contenttranslation-description": "বিষয়বস্তু অনুবাদ সরঞ্জাম ব্যবহার করে বিষয়বস্তু অন্য ভাষা থেকে অনূদিত হয়।",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|বিষয়বস্তুঅনুবাদ২]]",
 	"tag-contenttranslation-v2-description": "অনুবাদ সরঞ্জামের সংস্করণ ২ ব্যবহার করে বিষয়বস্তুটি অন্য ভাষা থেকে অনুবাদ করা হয়েছে।",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|অনুচ্ছেদঅনুবাদ]]",
 	"cx-source-loading": "$1 লোড হচ্ছে",
 	"cx-beta": "বিষয়বস্তু অনুবাদ",
 	"cx-beta-desc": "আপনার ভাষায় পাতা দ্রুত অনুবাদ করার একটি সরঞ্জাম। [[Special:MyContributions|আপনি আপনার অবদান]] থেকে অনুবাদ শুরু করুন, এবং অনুবাদের জন্য বিশেষভাবে নকশা করা আমাদের 'পাশাপাশি সম্পাদক' দ্বারা সম্পাদনা করুন। কিছু সরঞ্জাম শুধুমাত্র কয়েকটি ভাষার জন্য উপলব্ধ থাকতে পারে।",
@@ -63,7 +64,7 @@
 	"cx-campaign-newbytranslation-start": "অনুবাদ শুরু করুন",
 	"cx-special-login-error": "এই পাতাটি অনুবাদের জন্য আপনাকে অবশ্যই প্রবেশ করতে হবে। [$1 প্রবেশ]",
 	"cx-tools-instructions-text1": "অনুবাদ করতে অনুচ্ছেদে {{GENDER:|ক্লিক করুন}}",
-	"cx-tools-instructions-text2": "{{GENDER:|আপনাকে}} তাদের সব যোগ করতে হবে না",
+	"cx-tools-instructions-text2": "{{GENDER:|আপনার}} পক্ষে যতটুকু সম্ভবত ততটুকু অনুবাদ করুন",
 	"cx-tools-instructions-text3": "লেখাকে বোধগম্য করে {{GENDER:|লিখুন}}",
 	"cx-tools-instructions-text4": "যান্ত্রিক অনুবাদ সহায়ক কিন্তু এটিকে সঠিক করে তুলতে {{GENDER:|আপনাকে}} লেখা সংশোধন করতে হবে।",
 	"cx-tools-instructions-text5": "অনুবাদ {{GENDER:|প্রকাশ করুন}}",
@@ -147,7 +148,7 @@
 	"cx-publishing-dialog-keep-button": "উভয় সংস্করণ রাখুন",
 	"cx-publishing-dialog-publish-anyway-button": "যাইহোক, প্রকাশ করুন",
 	"cx-publishing-dialog-title": "বিদ্যমান পাতাটির উপর লিখবেন?",
-	"cx-publishing-dialog-sub-title": "আপনার অনুবাদ বিদ্যমান পাতাটিকে উপরিলিখন করবে। অনুগ্রহ করে, নিশ্চিত করুন যে বিদ্যমান বিষয়বস্তুর প্রতিস্থাপন সমীচীন।",
+	"cx-publishing-dialog-sub-title": "আপনার অনুবাদ বিদ্যমান পাতাটিকে উপরিলিখন করবে। অনুগ্রহ করে, নিশ্চিত করুন যে বিদ্যমান বিষয়বস্তু প্রতিস্থাপন করা সমীচীন হবে।",
 	"cx-publishing-with-issues-dialog-title": "বিদ্যমান সমস্যাসহ প্রকাশ করবেন?",
 	"cx-publishing-with-issues-dialog-message": "আপনার অনুবাদে এখনও সম্ভাব্য সমস্যা আছে। প্রকাশ করার আগে দয়া করে সমস্যা পরীক্ষা করুন।\n\nনিবন্ধ পর্যালোচনাকারী সম্পাদকগণ আপনার এই উন্নতির প্রশংসা করবেন।",
 	"cx-overwriting-with-issues": "আপনার অনুবাদ বিদ্যমান পাতাটিকে এমন বিষয়বস্তু দিয়ে উপরিলিখন করবে যাতে এখনো সম্ভাব্য সমস্যা আছে। অনুগ্রহ করে প্রকাশ করার আগে সমস্যাগুলি পরীক্ষা করতে বিবেচনা করুন।",
@@ -376,7 +377,7 @@
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "আপনার ভাষায় বিষয়বস্তু সম্প্রসারণ করার জন্য ধন্যবাদ",
 	"cx-sx-publisher-animation-success-message-title": "প্রকাশিত হয়েছে!",
 	"cx-sx-publisher-animation-success-message-subtitle": "পাতাটি খোলা হচ্ছে...",
-	"cx-sx-publisher-animation-failure-message-title": "প্রকাশ করা ব্যর্থ হয়েছে",
+	"cx-sx-publisher-animation-failure-message-title": "প্রকাশকরণ ব্যর্থ হয়েছে",
 	"cx-sx-publisher-animation-failure-message-subtitle": "ত্রুটির বার্তা পরীক্ষা করুন",
 	"cx-sx-publish-summary": "\"$2\" পাতাটির \"$1\" অনুচ্ছেদ অনুবাদ করে যোগ করা হয়েছে",
 	"cx-sx-publisher-preview-options-title": "প্রকাশের বিকল্প",
@@ -400,5 +401,7 @@
 	"cx-sx-published-section-confirmation-header": "নতুন অনুচ্ছেদ যোগ করা হয়েছে",
 	"cx-sx-published-section-confirmation-content": "আপনার অনুবাদ প্রকাশিত হয়েছে। দয়া করে বিষয়বস্তুটি আরও সম্পাদনা করুন, অথবা অন্য একটি অনুচ্ছেদ যুক্ত করুন।",
 	"cx-sx-published-section-invitation-title": "আরেকটি অনুচ্ছেদ অনুবাদ করুন",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ও আরও $2টি অনুচ্ছেদ এই নিবন্ধে নেই|0=অনুচ্ছেদটি এই নিবন্ধে নেই}}"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|ও আরও $2টি অনুচ্ছেদ এই নিবন্ধে নেই|0=অনুচ্ছেদটি এই নিবন্ধে নেই}}",
+	"cx-sx-publisher-mt-abuse-message-title": "আপনার অনুবাদে $1% অপরিবর্তিত পাঠ্য রয়েছে, দয়া করে সংশোধন করুন",
+	"cx-sx-publisher-mt-abuse-message-body": "যান্ত্রিক অনুবাদ কেবল একটি প্রারম্ভিক বিন্দু হিসেবে কাজ করে। দয়া করে প্রদত্ত যান্ত্রিক অনুবাদ সংশোধন করুন, বোধগম্য করে লিখুন, যেন অন্য আরেকজন এই লেখা পড়ে বুঝতে পারেন।"
 }

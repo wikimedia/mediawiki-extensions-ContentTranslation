@@ -4,7 +4,8 @@
 			"Inkowik",
 			"Ljonka",
 			"Metalhead64",
-			"Tiin"
+			"Tiin",
+			"Ameisenigel"
 		]
 	},
 	"apihelp-cxpublish-description": "Speichert eine Seite, die mit der Inhaltsübersetzungs-Erweiterung erstellt wurde.",
@@ -113,5 +114,12 @@
 	"apierror-cx-translationnotfound": "Übersetzung nicht gefunden.",
 	"apihelp-query+langlinkscount-description": "Ruft die Anzahl der anderen Sprachen ab, in denen dieser Artikel vorhanden ist.",
 	"apihelp-query+langlinkscount-summary": "Ruft die Anzahl der anderen Sprachversionen ab.",
-	"apihelp-query+langlinkscount-example-1": "Ruft die Anzahl der anderen Sprachversionen für die Seite „Hund“ ab."
+	"apihelp-query+langlinkscount-example-1": "Ruft die Anzahl der anderen Sprachversionen für die Seite „Hund“ ab.",
+	"apihelp-cxpublishsection-param-title": "Der Titel der Seite, bei der die Aktionen ausgeführt werden sollen.",
+	"apihelp-cxpublishsection-param-html": "Der zu speichernde Inhalt.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Der Quell-Sprachcode.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Der Ziel-Sprachcode.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
+	"apihelp-cxpublishsection-param-captchaword": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort)."
 }

@@ -38,6 +38,7 @@
 	"tag-contenttranslation-description": "Saturs ir tulkots no citas valodas, izmantojot Satura tulkošanas rīku.",
 	"tag-contenttranslation-v2-description": "Saturs ir tulkots no citas valodas, izmantojot Satura tulkošanas rīka 2. versiju.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Sadaļu tulkošana]]",
+	"tag-sectiontranslation-description": "Saturs tika iztulkots no sadaļas citā valodā, izmantojot sadaļu tulkošanas iespēju Satura tulkošanas rīkā.",
 	"cx-source-loading": "Ielādē $1",
 	"cx-beta": "Satura tulkošana",
 	"cx-beta-desc": "Rīks ātrai lapu tulkošanai tavā valodā. Sāc tulkošanu no [[Special:MyContributions|sava devuma lapas]] un labo tās mūsu speciāli tulkošanai pielāgotajā redaktorā. Daži no rīkiem vai būt pieejami tikai atsevišķās valodās.",
@@ -240,6 +241,7 @@
 	"cx-tools-linter-page-exists": "Lapa jau pastāv",
 	"cx-tools-linter-page-exists-message": "Lapa ar nosaukumu $1 jau pastāv. Tava tulkojuma publicēšana pārrakstīs esošo saturu.\n\nPārliecinies, ka ir pieņemami aizvietot esošos lapu vai apsver sava tulkojuma pārsaukšanu.",
 	"cx-tools-linter-cannot-publish-title": "Publicēšana atļauta tikai pieredzējušiem dalībniekiem",
+	"cx-tools-linter-cannot-publish-message": "Šī kopiena ir nolēmusi atļaut tulkojumu publicēšanu tikai pieredzējušiem dalībniekiem.\nTu nevarēsi publicēt šo tulkojumu, kamēr neiegūsi vairāk pieredzes, labojot citas lapas šajā vikivietnē, bet tu vari:<ul><li>Publicēt savu tulkojumu kā melnrakstu un izmantot ierastos labošanas rīkus, lai izveidotu rakstu.</li><li>Tulkot šo rakstu citā valodā bez šī ierobežojuma.</li></ul>",
 	"cx-tools-linter-template": "Veidne nav pieejama",
 	"cx-tools-linter-template-block-message": "Oriģinālā lapa izmanto veidni, kas nav pieejama tulkojuma mērķa vikivietnē.\n\nŠī veidne tika izlaista, bet tu vari pievienot jaunu saturu, lai iekļautu trūkstošo informāciju.",
 	"cx-tools-linter-template-inline-message": "Oriģinālā lapa izmanto veidnes, lai strukturētu saturu, bet dažas no tām nepastāv tulkojuma mērķa vikivietnē.\n\nSaturs no trūkstošajām veidnēm ir pievienots kā vienkāršs teksts. Lūdzu, pārskati rezultātu.",
@@ -338,6 +340,7 @@
 	"cx-sx-content-comparator-target-selector-full-article-title": "Pilns raksts $1 valodā",
 	"cx-sx-content-comparator-mapped-section-header-title": "Atrodams $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Sadaļa $1 valodā",
+	"cx-sx-content-comparator-mapped-section-clarifications": "Tavs tulkojums paplašinās esošo sadaļu. Atmet šo, ja sadaļas nav saistītas.",
 	"cx-sx-article-selector-views-count": "{{PLURAL:$1|$1 skatījumi|$1 skatījums|$1 skatījumi|0=Nav skatījumu šajā}} nedēļā",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Tavs tulkojums tiks publicēts kā jauna neatkarīga sadaļa",
 	"cx-sx-content-comparator-discarded-section-label": "(atmesta)",
@@ -370,6 +373,7 @@
 	"cx-sx-publisher-review-info-error": "Tavu tulkojumu nevar publicēt:",
 	"cx-sx-publisher-review-info-learn-more": "Uzzināt vairāk",
 	"cx-dashboard-experimental-support-banner-title": "Mobilo ierīču atbalsts ir eksperimentāls",
+	"cx-dashboard-experimental-support-banner-description": "Tu vari paplašināt esošos rakstus, iztulkojot jaunu sadaļu. Tomēr vēl nav pieejamas dažas iespējas no darbvirsmas versijas.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Uzzināt vairāk",
 	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "Atstāt atsauksmes",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Nav tavu labojumu",
@@ -381,5 +385,7 @@
 	"cx-sx-published-section-confirmation-header": "Pievienota jauna sadaļa",
 	"cx-sx-published-section-confirmation-content": "Tavs tulkojums tika publicēts. Apsver tālāku satura labošanu vai jaunas sadaļas pievienošanu.",
 	"cx-sx-published-section-invitation-title": "Tulkot citu sadaļu",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|un $2 citas|un $2 cita|un $2 citas}} trūkst",
+	"cx-sx-publisher-mt-abuse-message-title": "Tavs tulkojums satur $1% nemainīta teksta",
+	"cx-sx-publisher-mt-abuse-message-body": "Mašīntulkojums ir tikai iesākums. Tu to vari publicēt, bet vispirms pārliecinies, ka tavā valodā tas izklausās dabiski."
 }

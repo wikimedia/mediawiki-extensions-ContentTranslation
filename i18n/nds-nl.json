@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Servien"
+			"Servien",
+			"Romaine"
 		]
 	},
 	"cx": "Syde oaversetten",
@@ -15,10 +16,10 @@
 	"cx-header-translation-center": "Oaversettingscentrum",
 	"cx-header-all-translations": "Alle oaversettingen",
 	"cx-source-view-page": "syde bekyken",
-	"cx-publish-page-success": "Syde uutbröcht up $1",
+	"cx-publish-page-success": "Syde uutbracht up $1",
 	"cx-publish-page-error": "Der is en faut uptreaden by et uutbrengen van de oaversetting. Probeer de syde upny uut te brengen. Faut: $1",
 	"cx-publish-button": "Uutgeaven",
-	"cx-publish-button-publishing": "Wördt uutbröcht ...",
+	"cx-publish-button-publishing": "Wördt uutbracht ...",
 	"cx-publish-summary": "Maked döär et oaversetten van de syde \"$1\"",
 	"cx-translation-add-translation": "Oaversetting tovogen",
 	"cx-translation-target-page-exists": "n Zied mit de titel [$1 $2] besteet al in de doelwiki. Overweeg de zied n aandere titel te geven.",
@@ -68,8 +69,8 @@
 	"cx-dashboard-sidebar-title": "{{GENDER:|Heb jy}} hülpe nöydig by et oaversetten?",
 	"cx-dashboard-sidebar-information": "Meyr oaver dit warktüüg",
 	"cx-dashboard-sidebar-stats": "Statistiken",
-	"cx-dashboard-sidebar-feedback": "Terugmelding geaven",
-	"cx-translation-filter-published-translations": "Uutbröcht",
+	"cx-dashboard-sidebar-feedback": "Terügmelding geaven",
+	"cx-translation-filter-published-translations": "Uutbracht",
 	"cx-translation-filter-draft-translations": "In uutvoring",
 	"cx-translation-filter-suggested-translations": "Vöärstellen",
 	"cx-suggestionlist-favorite": "Vöär later",
@@ -115,9 +116,9 @@
 	"cx-stats-published-translators-title": "Antal vertalers",
 	"cx-stats-cumulative-tab-title": "Totaal",
 	"cx-stats-weekly-trend-tab-title": "Per weake",
-	"cx-draft-discard-confirmation-message": "Bi'j der wisse van da'j disse vertaling permanent vort willen doon?",
+	"cx-draft-discard-confirmation-message": "Bin jy der wisse van dat jy disse oaversetting permanent vordsmyten willet?",
 	"cx-draft-cancel-button-label": "Afbreaken",
-	"cx-draft-discard-button-label": "Vertaling vortdoon",
+	"cx-draft-discard-button-label": "Oaversetting vordsmyten",
 	"cx-beta-feature-enabled-notification": "Inhoudsvertaling is uutezet op disse wiki",
 	"cx-campaign-newarticle-notice": "Nye syden maken döär <strong>oaver te setten</strong> is nu eynvoldiger! Wil jy de et beta-warktüüg vöär inholdoaversetting uutproberen?",
 	"cx-campaign-no-thanks": "Nee, bedankt",

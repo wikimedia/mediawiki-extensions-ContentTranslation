@@ -31,7 +31,7 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Laot alle uutebröchten vertalingen zien die vertaald bin vanuut t Engels naor t Spaans",
 	"apihelp-query+contenttranslationlangtrend-param-source": "De kode van de brontaal.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "De kode van de doeltaal.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "De interval veur de berekening van de trend. Kan 'weke' of 'maond' ween.",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "De interval vöär de bereakening van de trend. Kan <kbd>weake</kbd> of <kbd>månd</kbd> weasen.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Laot de publikasietrend zien veur de taalkombinasie Spaans-Katalaans mit wekelikse intervals",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Laot de publikasietrend zien veur alle talen",
 	"apihelp-cxdelete-description": "n Konseptvertaling vortdoon, die mit behulp van t inhoudsvertalingshulpmiddel an-emaakt is.",

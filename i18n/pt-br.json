@@ -146,7 +146,7 @@
 	"cx-save-draft-save-success": "Salvo {{PLURAL:$1|há um minuto|há $1 minutos|0=agora}}",
 	"cx-save-draft-saving": "Salvando…",
 	"cx-save-draft-shortcut-label": "Gravar rascunho",
-	"cx-save-draft-tooltip": "Esboços de tradução são salvos automaticamente",
+	"cx-save-draft-tooltip": "Rascunhos de tradução são salvos automaticamente",
 	"cx-save-draft-error": "Ocorreu um erro ao salvar a página.",
 	"cx-contributions-new-contributions": "Nova contribuição",
 	"cx-contributions-new-article": "Nova página",

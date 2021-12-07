@@ -5,7 +5,9 @@
 			"Liuxinyu970226",
 			"WhitePhosphorus",
 			"Yfdyh000",
-			"佛壁灯"
+			"佛壁灯",
+			"Shizhao",
+			"Tranve"
 		]
 	},
 	"apihelp-cxpublish-description": "保存用内容翻译扩展创建的页面。",
@@ -102,7 +104,7 @@
 	"apihelp-cxsave-param-cxversion": "用于创建草稿翻译的编辑器版本。",
 	"apihelp-cxsave-param-sourcecategories": "要带草稿翻译保存的JSON编码来源分类数组。",
 	"apihelp-cxsave-param-targetcategories": "要带草稿翻译保存的JSON编码目标分类数组。",
-	"apierror-cx-docserverexception": "转换HTML至wiki文本时出错：$1",
+	"apierror-cx-docserverexception": "转换HTML至wikitext时出错：$1",
 	"apierror-cx-inuse": "其他用户已经开始翻译此条目。",
 	"apierror-cx-invalidsourcecategories": "无效的JSON编码来源分类数组。",
 	"apierror-cx-invalidtargetcategories": "无效的JSON编码目标分类数组。",
@@ -129,5 +131,17 @@
 	"apihelp-query+cxdeletedtranslations-summary": "获取您被删除译文的数量。",
 	"apihelp-query+cxdeletedtranslations-param-after": "用于获取新删除记录的时间戳。",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "已删除译文原所在的命名空间。默认为主命名空间。",
-	"apihelp-query+cxdeletedtranslations-example-1": "获取您被删除译文的数量，即与 2019-04-07 16:24:44 之后发布在主命名空间且被删除的译文。"
+	"apihelp-query+cxdeletedtranslations-example-1": "获取您被删除译文的数量，即与 2019-04-07 16:24:44 之后发布在主命名空间且被删除的译文。",
+	"apihelp-cxpublishsection-description": "保存使用内容翻译扩展的章节翻译功能创建的章节。",
+	"apihelp-cxpublishsection-summary": "保存使用内容翻译扩展的章节翻译功能创建的页面。",
+	"apihelp-cxpublishsection-param-title": "要对其执行操作的页面标题。",
+	"apihelp-cxpublishsection-param-html": "要保存的内容。",
+	"apihelp-cxpublishsection-param-sourcelanguage": "源语言代码。",
+	"apihelp-cxpublishsection-param-targetlanguage": "目标语言代码。",
+	"apihelp-cxpublishsection-param-sourcetitle": "源页面的标题。",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "源章节的标题。",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "目标章节的标题。",
+	"apihelp-cxpublishsection-param-sourcerevid": "源页面修订版本ID。",
+	"apihelp-cxpublishsection-param-captchaid": "验证码ID（使用验证码响应保存时）。",
+	"apihelp-cxpublishsection-param-captchaword": "回答验证码（使用验证码响应保存时）。"
 }
