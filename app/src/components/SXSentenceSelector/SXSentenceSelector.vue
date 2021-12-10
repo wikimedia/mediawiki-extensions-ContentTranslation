@@ -183,18 +183,36 @@ export default {
     const previewTranslation = () => router.push({ name: "sx-publisher" });
 
     watch(selectedSentence, () => {
-      if (!selectedSentence.value) {
+      const segmentId = selectedSentence.value.id;
+      const segment = document.querySelector(`[data-segmentid='${segmentId}']`);
+
+      // "segment" variable refers to multi-line inline elements (<span>).
+      // Such elements have multiple border boxes (one around each line).
+      // For this reason we need to check if all these border boxes are
+      // visible or not, and we need to use "getClientRects" method instead
+      // of "getBoundingClientRect" method
+      const isInView = Array.from(segment.getClientRects()).every(
+        // use "elementFromPoint" method to get the topmost element
+        // at the coordinates of the border box of each line.
+        // If the line of the segment is inside the viewport and not
+        // hidden by another element (e.g. the proposed translation card),
+        // the returned element should match the "segment" element.
+        // Note that we only check for the top-left corner of the rectangle, so
+        // if a small portion of a line is hidden, the line is still considered
+        // to be visible.
+        rect => document.elementFromPoint(rect.x, rect.y) === segment
+      );
+
+      if (!selectedSentence.value || isInView) {
         return;
       }
       // Move the current selected sentence to viewport
-      const segmentId = selectedSentence.value.id;
-      document
-        .querySelector(`[data-segmentid='${segmentId}']`)
-        ?.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-          inline: "nearest"
-        });
+
+      segment.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest"
+      });
     });
 
     return {
