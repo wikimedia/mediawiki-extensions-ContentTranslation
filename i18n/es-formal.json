@@ -1,9 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Rodney Araujo"
 		]
 	},
-	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nEdite la plantilla en la traducción para completar la información que falta.",
-	"cx-feature-discovery-title": "Traduzca en cualquier momento"
+	"cx-license-agreement": "Si continúa, usted acepta las [https://foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permite, de manera irrevocable, distribuir sus contribuciones bajo la [https://creativecommons.org/licenses/by-sa/3.0/ licencia Creative Commons Atribución Compartir Igual 3.0] y la [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL].",
+	"cx-publish-summary": "Se creó al traducir la página «$1»",
+	"cx-publishing-dialog-sub-title": "La traducción sobrescribirá la página existente. Cerciórese de que sea apropiado sustituir el contenido existente.",
+	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nDebe editar la plantilla en la traducción para completar la información que falta.",
+	"cx-feature-discovery-title": "Traduzca en cualquier momento",
+	"cx-sx-select-section": "Selecciona una sección para traducir",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección falta|$1 secciones faltan}} en $2",
+	"cx-sx-language-selector-dialog-title": "Busque un idioma",
+	"cx-sx-start-translation-button-label": "Comienze la traducción",
+	"cx-sx-existing-translation-learn-more": "Sepa más"
 }

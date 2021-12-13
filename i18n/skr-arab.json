@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Saraiki"
+			"Saraiki",
+			"Kaleem Bhatti"
 		]
 	},
 	"cx": "ترجمے دا ورقہ",
@@ -33,7 +34,7 @@
 	"cx-tools-reference-add": "حوالہ شامل کرو",
 	"cx-tools-reference-remove": "حوالہ ہٹاؤ",
 	"cx-warning-unsaved-translation": "تساں ترجمہ محفوظ کائنی کیتا",
-	"cx-error-page-not-found": "ورقہہ \"$1\" $2 ویکیپیڈیا وچ موجود کائنی",
+	"cx-error-page-not-found": "ورقہ \"$1\" $2 وکیپیڈیا وچ موجود کائنی",
 	"cx-selected-source-page-start-translation-button": "ترجمہ شروع کرو",
 	"cx-publish-captcha-title": "پڑتال کریندا پئے جو تساں بوٹ کائنی",
 	"cx-captcha-dialog-cancel": "منسوخ",
@@ -122,5 +123,6 @@
 	"cx-publish-destination-namespace-main": "نواں ورقہ",
 	"cx-publish-destination-namespace-user": "ذاتی ڈرافٹ",
 	"cx-linkcontextitem-missing-link-title": "غیر موجود ربط",
+	"cx-sx-view-translation-anchor": "ݙیکھو",
 	"cx-sx-section-selector-learn-more-anchor-label": "ٻیا سِکھو"
 }

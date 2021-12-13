@@ -63,5 +63,11 @@
 	"apihelp-cxsuggestionlist-param-from": "Kod bahasa sumber.",
 	"apihelp-cxsuggestionlist-param-to": "Kod bahasa sasaran.",
 	"apihelp-cxsave-param-sourcerevision": "Semakan laman sumber.",
-	"apihelp-cxsave-param-progress": "Maklumat tentang penyelesaian (pengembangan) terjemahan. JSON dengan kunci-kunci <code>any</code>, <code>human</code>, <code>mt</code> dan <code>mtSectionsCount</code>. Nilai kunci-kunci ialah peratusan."
+	"apihelp-cxsave-param-progress": "Maklumat tentang penyelesaian (pengembangan) terjemahan. JSON dengan kunci-kunci <code>any</code>, <code>human</code>, <code>mt</code> dan <code>mtSectionsCount</code>. Nilai kunci-kunci ialah peratusan.",
+	"apihelp-cxsave-param-from": "Kod bahasa punca.",
+	"apierror-cx-invalidlanguage": "Bahasa tidak sah.",
+	"apierror-cx-invalidsourcelanguage": "Bahasa sumber tidak sah.",
+	"apierror-cx-samelanguages": "Bahasa sumber dan sasaran tidak boleh sama.",
+	"apihelp-query+langlinkscount-description": "Dapatkan bilangan bahasa lain bagi rencana berkenaan.",
+	"apihelp-query+langlinkscount-summary": "Dapatkan bilangan versi bahasa lain."
 }

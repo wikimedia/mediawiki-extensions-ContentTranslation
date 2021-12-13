@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"咽頭べさ"
+		]
+	},
+	"cx-dashboard-header": "ကၠာဲဘာသာဂမၠိုင်",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ကဵုသတိ|$1 ကဵုသတိဂမၠိုင်}}"
+}

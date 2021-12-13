@@ -3,7 +3,9 @@
 		"authors": [
 			"Dulal Kisku",
 			"Fagunkoyel Hansdah",
-			"Ramjit Tudu"
+			"Ramjit Tudu",
+			"Durga Soren",
+			"ᱥᱟᱹᱜᱩᱱ ᱗"
 		]
 	},
 	"cx": "ᱛᱚᱨᱡᱚᱢᱟ ᱥᱟᱦᱴᱟ",
@@ -89,5 +91,7 @@
 	"cx-tools-mt-new-provider": "ᱱᱟᱶᱟ",
 	"cx-tools-template-title": "ᱪᱷᱟᱸᱪ",
 	"cx-publish-destination-namespace-main": "ᱱᱟᱣᱟ ᱥᱟᱦᱴᱟ",
-	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ"
+	"cx-linkcontextitem-missing-link-title": "ᱮᱨᱮᱲ ᱡᱚᱱᱚᱲ",
+	"cx-sx-start-translation-button-label": "ᱛᱚᱨᱡᱚᱢᱟ ᱮᱦᱚᱵ",
+	"cx-sx-view-translation-anchor": "ᱧᱮᱞ ᱢᱮ"
 }

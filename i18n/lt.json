@@ -18,7 +18,7 @@
 	"cx": "Versti puslapį",
 	"cx-dashboard-header": "Vertimai",
 	"cx-javascript": "Šis įrankis neveikia be JavaScript. JavaScript yra išjungtas, nesuveikė arba ši naršyklė nėra palaikoma.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Turinio Vertėjas]] - įrankis greitam puslapių vertimui į jūsų kalbą. [$1 Išbandykite dabar!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Turinio Vertėjas]] - tai įrankis greitam puslapių vertimui į Jūsų kalbą. [$1 Išbandykite dabar!]",
 	"cx-license-agreement": "Tęsdami, jūs sutinkate su [https://foundation.wikimedia.org/wiki/Terms_of_Use naudojimo sąlygomis] ir neatšaukiamai sutinkate platinti savo įnašą su vertimo priemone pagal [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 licenciją] ir [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Klaida: nepavyko prisijungti prie serverio.",
 	"cx-desc": "Leidžia lengvai [[Special:ContentTranslation|versti]] puslapių turinį",
@@ -84,6 +84,7 @@
 	"cx-selected-source-page-error-page-exists": "Puslapis [$1 jau egzistuoja] $2",
 	"cx-selected-source-page-error-title-in-use": " Naujo puslapio pavadinimas yra [$1 jau naudojamas]",
 	"cx-favorite-added-for-later": "Išsaugota ateičiai!",
+	"cx-favorite-removed": "Pašalinta iš mėgstamiausių sąrašo!",
 	"cx-page-missing-in-target-language": "Trūkstamas $1",
 	"cx-page-number-of-languages": "Kalbų skaičius",
 	"cx-mt-abuse-warning-title": "Dalis jūsų vertimo {{PLURAL:$1|yra}} $1% nemodifikuoto teksto",
@@ -99,7 +100,7 @@
 	"cx-translation-filter-draft-translations": "Verčiama",
 	"cx-translation-filter-suggested-translations": "Pasiūlymai",
 	"cx-suggestionlist-favorite": "Vėliau",
-	"cx-suggestionlist-title": "Siūlomi puslapiai",
+	"cx-suggestionlist-title": "Pasiūlymai",
 	"cx-suggestionlist-empty-title": "Nėra pasiūlymų kol kas",
 	"cx-suggestionlist-empty-desc": "Neradome jokių pasiūlymų. Galite pasitikrinti vėliau arba ieškoti atitinkamų puslapių naudodami mūsų rekomendacijų įrankiu (eksperimentiniu).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Peržiūrėti pasiūlymus (eksperimentinis)",
@@ -232,5 +233,8 @@
 	"cx-publish-destination-namespace-user": "Asmeninis juodraštis",
 	"cx-publish-destination-namespace-draft": "Bendruomeninis juodraštis",
 	"cx-linkcontextitem-missing-link-title": "Trūkstama nuoroda",
-	"cx-feature-discovery-dismiss": "Gerai, supratau"
+	"cx-linkcontextitem-missing-title-description": "Puslapis dar neegzistuoja",
+	"cx-unreviewed-translation-category": "Puslapiai su neperžiūrėtais vertimais",
+	"cx-feature-discovery-dismiss": "Gerai, supratau",
+	"cx-sx-start-translation-button-label": "Pradėkite versti"
 }

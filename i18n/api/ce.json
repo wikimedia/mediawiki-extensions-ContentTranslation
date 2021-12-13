@@ -4,7 +4,7 @@
 			"Умар"
 		]
 	},
-	"apihelp-cxpublish-description": "Гочдар шордаран гӀоьнца кхоьллина агӀо Ӏалашъяр.",
+	"apihelp-cxpublish-description": "Гочдар шордаран гӀоьнца кхоьллина агӀо Ӏалашйар.",
 	"apihelp-cxpublish-param-html": "Чулацам Ӏалашбан.",
 	"apihelp-cxpublish-param-from": "ДӀаболалун меттан код.",
 	"apihelp-cxpublish-param-to": "Ӏалашонан меттан код",
@@ -19,7 +19,7 @@
 	"apihelp-cxdelete-param-from": "Хьостан меттан код.",
 	"apihelp-cxdelete-param-to": "Ӏалашонан меттан код.",
 	"apihelp-cxdelete-param-sourcetitle": "ДӀайолалун агӀонан цӀе.",
-	"apihelp-cxsuggestionlist-param-titles": "АгӀона цӀе.",
+	"apihelp-cxsuggestionlist-param-titles": "АгӀонийн цӀерш.",
 	"apihelp-cxsuggestionlist-param-from": "ДӀаболалун меттан код.",
 	"apihelp-cxsuggestionlist-param-to": "Ӏалашонан меттан код.",
 	"apihelp-cxsave-param-sourcerevision": "ДӀайолалун агӀонан верси."

@@ -2,10 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Azniv Stepanian",
-			"Kareyac"
+			"Kareyac",
+			"Շահէն"
 		]
 	},
+	"cx-publish-button": "Հրապարակել",
 	"cx-tools-reference-add": "Աւելցնել ծանօթագրութիւն",
+	"cx-feedback-link": "Կարծիք յայտնել",
+	"cx-campaign-no-thanks": "Ոչ, շնորհակալութիւն",
 	"cx-tools-link-external-link-placeholder": "Աւելացնել արտաքին յղում",
 	"cx-tools-link-to-another-page": "Յղել այլ էջի"
 }

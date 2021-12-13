@@ -39,6 +39,7 @@
 	"apihelp-cxsave-param-sourcerevision": "Avota lapas versija.",
 	"apihelp-cxsave-param-from": "Avota valodas kods.",
 	"apihelp-cxsave-param-to": "Mērķa valodas kods.",
+	"apihelp-cxsave-param-sourcetitle": "Avota lapas nosaukums.",
 	"apierror-cx-invalidlanguage": "Nederīga valoda.",
 	"apierror-cx-invalidprogress": "Nederīgs progress.",
 	"apierror-cx-invalidsectioncontent": "Nederīgs sadaļas saturs.",

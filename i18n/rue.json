@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tkalyn"
+			"Tkalyn",
+			"Gramo6"
 		]
 	},
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Переклад обсягу]]",
+	"tag-contenttranslation-description": "Обсяг сторінкы быв перекладеный з іншого языка з помочов інштрумента «Переклад обсягу».",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Переклад обсягу (v2)]]",
+	"tag-contenttranslation-v2-description": "Обсяг сторінкы быв перекладеный з іншого языка з помочов 2. верзії інштрумента «Переклад обсягу».",
 	"cx-tools-link-add": "Придати одказ",
 	"cx-campaign-contributionsmenu-mycontributions": "Приспівкы",
 	"cx-campaign-contributionsmenu-mytranslations": "Переклады",

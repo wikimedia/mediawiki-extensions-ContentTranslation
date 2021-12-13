@@ -26,7 +26,12 @@
 			"Selven",
 			"Statix64",
 			"Wikitoni",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Ajeje Brazorf",
+			"Lorem Ipsum",
+			"Noretta93",
+			"Rodney Araujo",
+			"Stefano"
 		]
 	},
 	"cx": "Traduci pagina",
@@ -63,6 +68,7 @@
 	"cx-entrypoint-title": "Traduci questa pagina in $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Questa pagina non esiste ancora in $1. {{GENDER:|Vuoi}} crearla?",
 	"cx-entrypoint-dialog-button-translate-from": "Traduci da $1",
+	"cx-entrypoint-dialog-desc": "Puoi aiutare Wikipedia traducendo questa pagina. Le traduzioni costituiscono un metodo semplice per creare nuovi contenuti nella tua lingua.",
 	"cx-campaign-newbytranslation-title": "Inizia invece con una traduzione?",
 	"cx-campaign-newbytranslation-notice": "Crea una nuova voce traducendo da un'altra lingua che conosci.",
 	"cx-campaign-newbytranslation-search": "Trova un'altra pagina da tradurre",
@@ -236,8 +242,10 @@
 	"cx-tools-linter-content": "Trovato contenuto che non soddisfa [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter le restrizioni fissate da Wikipedia in $1]. Correggi il problema prima di pubblicare la traduzione.",
 	"cx-tools-linter-view-details": "Visualizza dettagli",
 	"cx-tools-linter-hide-details": "Nascondi dettagli",
+	"cx-tools-linter-invalid-character-message": "Alcuni caratteri non possono essere utilizzati nel titolo delle pagine per motivi tecnici.\n\nPer favore, modifica il titolo per evitare i caratteri problematici.",
 	"cx-tools-linter-page-exists": "Pagina già esistente",
 	"cx-tools-linter-page-exists-message": "Una pagina dal titolo $1 già esiste. Pubblicando la tua traduzione, ne sovrascriverai l'attuale contenuto\n\nControlla che sia corretto sostituire la pagina esistente, o prendi in considerazione di cambiare titolo alla tua traduzione.",
+	"cx-tools-linter-cannot-publish-message": "Questa comunità ha deciso di limitare la pubblicazione delle traduzioni solo a redattori esperti.\nNon puoi pubblicare questa traduzione finché non acquisisci maggiore esperienza di modifica in questa wiki, ma puoi: <ul> <li> Pubblicare la tua traduzione come bozza e utilizzare i normali strumenti di modifica in seguito per la creazione dell'articolo. </li> <li> Traduci questo articolo in un'altra lingua senza questa limitazione. </li> </ul>",
 	"cx-tools-linter-template-add-new": "Aggiungi nuovo template",
 	"cx-tools-linter-template-missing-mandatory": "È stato aggiunto un template senza alcune informazioni obbligatorie.\nI dettagli mancanti non possono essere recuperati automaticamente dal template originale fino a quando la struttura rimane un po' diversa.\n\nModifica il template nella traduzione per completare le informazioni mancanti.",
 	"cx-tools-linter-old-revision": "Traduzione basata sulla vecchia versione della pagina",

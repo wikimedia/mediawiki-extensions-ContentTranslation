@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"apihelp-cxsuggestionlist-param-titles": "Tìtuli di pàggina.",
+	"apierror-cx-invalidlanguage": "Lingua nun vàlidda",
+	"apierror-cx-missingdraft": "L'abbozzu nun esisti."
+}

@@ -27,5 +27,6 @@
 	"apihelp-cxdelete-param-from": "સ્રોત ભાષા કોડ.",
 	"apihelp-cxdelete-param-to": "લક્ષ્ય ભાષા કોડ.",
 	"apihelp-cxdelete-param-sourcetitle": "સ્રોત પાનાનું શીર્ષક.",
-	"apihelp-cxsave-param-sourcerevision": "સ્રોત પાનાંની આવૃત્તિ."
+	"apihelp-cxsave-param-sourcerevision": "સ્રોત પાનાંની આવૃત્તિ.",
+	"apierror-cx-invalidlanguage": "અમાન્ય ભાષા."
 }

@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Chrisportelli",
-			"Leli Forte"
+			"Leli Forte",
+			"ToniSant"
 		]
 	},
 	"cx": "Ittraduċi l-paġna",
@@ -43,8 +44,8 @@
 	"cx-tools-mt-title": "Traduzzjoni awtomatika",
 	"cx-tools-mt-use-source": "Uża t-test tas-sors",
 	"cx-tools-mt-provider-title": "Minn $1",
-	"cx-tools-mt-dont-use": "Tużax traduzzjoni awtomatika",
-	"cx-stats-title": "Statistiki tat-traduzzjoni tal-kontenut",
+	"cx-tools-mt-dont-use": "Ibda b'paragrafu vojt",
+	"cx-stats-title": "Statistika għat-Traduzzjoni tal-Kontenut",
 	"cx-tools-reference-title": "Referenza",
 	"cx-tools-reference-remove": "Neħħi referenza",
 	"cx-tools-link-instruction-shortcut": "Agħfas ix-shift + ikklikkja kwalunkwe ħolqa biex tiftaħha",
@@ -54,6 +55,8 @@
 	"cx-mt-abuse-warning-title": "It-traduzzjoni tiegħek fiha $1% ta' test tradott awtomatikament li mhux modifikat",
 	"cx-mt-abuse-warning-text": "It-traduzzjonijiet awtomatiċi jagħtuk biss abbozz. Trid taċċerta li l-kontenut hu preċiż u jinqara b'mod mexxej bil-lingwa tiegħek.",
 	"cx-publish-captcha-title": "Mistoqsija tas-sigurtà",
+	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-contributions-upload": "Tella' fajl multimedjali",
-	"cx-contributions-link": "Il-kontribuzzjonijiet tiegħek"
+	"cx-contributions-link": "Il-kontribuzzjonijiet tiegħek",
+	"cx-translator-header": "Statistika tiegħek"
 }

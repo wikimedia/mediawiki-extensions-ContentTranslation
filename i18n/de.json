@@ -13,13 +13,15 @@
 			"Purodha",
 			"Tiin",
 			"Umherirrender",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Elliot",
+			"McDutchie"
 		]
 	},
 	"cx": "Seite übersetzen",
 	"cx-dashboard-header": "Übersetzungen",
 	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht. Es ist deaktiviert, funktioniert nicht oder dieser Browser wird nicht unterstützt.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Inhaltsübersetzung]] ist ein Werkzeug zur schnellen Übersetzung von Seiten in deine Sprache. [$1 Teste es jetzt aus!]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Inhaltsübersetzung]] ist ein Werkzeug zum schnellen Übersetzen von Seiten in deine Sprache. [$1 Teste es jetzt!]",
 	"cx-license-agreement": "Mit dem Fortfahren stimmst du den [https://foundation.wikimedia.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
 	"cx-desc": "Erweitert das Wiki um eine [[Special:ContentTranslation|Spezialseite]] mit der Inhalte übersetzt werden können",
@@ -106,7 +108,7 @@
 	"cx-page-number-of-languages": "Anzahl der Sprachen",
 	"cx-mt-abuse-error-title": "Deine Übersetzung {{PLURAL:$1|enthält}} $1 % unveränderten Text.",
 	"cx-mt-abuse-error-sections": "Deine Übersetzung enthält einen deutlichen Anteil unveränderten Text.",
-	"cx-mt-abuse-error-text": "Die automatische Übersetzung dient nur als Anhaltspunkt. Stelle sicher, dass der Inhalt korrekt ist und sich in deiner Sprache gut liest.",
+	"cx-mt-abuse-error-text": "Die automatische Übersetzung dient nur als Anhaltspunkt. Stelle sicher, dass der Inhalt korrekt ist und sich in deiner Sprache gut liest.\n\nDeine Übersetzung kann ohne weitere Bearbeitung nicht veröffentlicht werden.",
 	"cx-mt-abuse-warning-title": "Ein Teil deiner Übersetzung {{PLURAL:$1|enthält}} $1 % des unveränderten Texts",
 	"cx-mt-abuse-warning-text": "Automatische Übersetzungen werden nur als Startpunkt zur Verfügung gestellt. Stelle sicher, dass der Inhalt genau ist und sich in deiner Sprache natürlich lesen lässt.\n\nDeine Übersetzung wird vermutlich gelöscht, wenn sie von anderen Autoren überprüft wird.",
 	"cx-publish-captcha-title": "Überprüfung, dass du kein Roboter bist.",

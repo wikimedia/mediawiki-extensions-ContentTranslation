@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tofeiku"
+		]
+	},
+	"cx": "ترجمهکن لامن",
+	"cx-dashboard-header": "ترجمهن",
+	"cx-header-all-translations": "سموا ترجمهن",
+	"cx-source-view-page": "ليهت لامن",
+	"cx-publish-button": "تربيت",
+	"cx-publish-button-publishing": "منربيتکن…",
+	"cx-tools-link-title": "ڤاءوتن",
+	"cx-page-selector-widget-nearby-label": "بردکتن",
+	"cx-captcha-dialog-cancel": "بطل",
+	"cx-dashboard-sidebar-stats": "ستاتيستيک",
+	"cx-translation-filter-suggested-translations": "چادڠن",
+	"cx-suggestionlist-title": "چادڠن",
+	"cx-translation-filter-label-all-languages": "سموا",
+	"cx-translation-filter-uls-all-languages": "سموا بهاس",
+	"cx-contributions-new-article": "لامن بارو",
+	"cx-contributions-translation": "ترجمهن",
+	"cx-stats-cumulative-tab-title": "جومله",
+	"cx-draft-cancel-button-label": "بطل",
+	"cx-campaign-contributionsmenu-mycontributions": "سومبڠن",
+	"cx-campaign-contributionsmenu-mytranslations": "ترجمهن",
+	"echo-category-title-cx": "ترجمهن",
+	"cx-translator-total-translations-label": "جومله",
+	"cx-publish-destination-namespace-main": "لامن بارو"
+}

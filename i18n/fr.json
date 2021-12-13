@@ -45,7 +45,10 @@
 			"Wyz",
 			"Yodaspirine",
 			"Zarisi",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Ajeje Brazorf",
+			"JenyxGym",
+			"Raphoraph"
 		]
 	},
 	"cx": "Traduire la page",
@@ -79,6 +82,7 @@
 	"cx-translation-target-page-exists": "Une page avec le titre [$1 $2] existe déjà sur le wiki cible. Veuillez donner un autre titre à la page.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduction de contenu]]",
 	"tag-contenttranslation-description": "Le contenu a été traduit dans une autre langue en utilisant l’outil de Traduction de contenu.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Traduction de contenu 2]]",
 	"tag-contenttranslation-v2-description": "Le contenu a été traduit d’une autre langue en utilisant la version 2 de l’outil de Traduction de contenu.",
 	"cx-source-loading": "Chargement de $1",
 	"cx-beta": "Traduction de contenu",
@@ -90,6 +94,7 @@
 	"cx-campaign-newbytranslation-title": "Commencer plutôt une nouvelle traduction ?",
 	"cx-campaign-newbytranslation-notice": "Créer un nouvel article en traduisant depuis une autre langue que vous connaissez.",
 	"cx-campaign-newbytranslation-search": "Trouver une autre page à traduire",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Commencer à traduire",
 	"cx-special-login-error": "Vous devez être connecté pour traduire cette page. [$1 Se connecter]",
 	"cx-tools-instructions-text1": "{{GENDER:|}}Cliquez sur les paragraphes à traduire",
@@ -266,6 +271,7 @@
 	"cx-infobar-cannot-publish": "Votre traduction n’a pas pu être publiée parce que la publication n’est autorisée qu’aux rédacteurs plus expérimentés sur ce wiki.",
 	"cx-infobar-old-version": "Cette traduction est basée sur une version plus ancienne du contenu. La page source peut avoir évolué de manière significative et vous pourriez préférer recommencer la traduction.",
 	"cx-tools-linter-issues": "Problèmes",
+	"cx-tools-linter-issues-count": "$1 / $2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1|0=Aucune}} erreur{{PLURAL:$1||s}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1|0=Aucun}} avertissement{{PLURAL:$1||s}}",
 	"cx-tools-linter-learn-more": "En savoir plus",

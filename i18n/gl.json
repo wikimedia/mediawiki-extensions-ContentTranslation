@@ -12,7 +12,8 @@
 			"Macofe",
 			"Maria zaos",
 			"Prevodim",
-			"Toliño"
+			"Toliño",
+			"ArenaL5"
 		]
 	},
 	"cx": "Traducir unha páxina",
@@ -119,7 +120,7 @@
 	"cx-translation-filter-draft-translations": "En progreso",
 	"cx-translation-filter-suggested-translations": "Suxestións",
 	"cx-suggestionlist-favorite": "Para máis tarde",
-	"cx-suggestionlist-title": "Páxinas suxeridas",
+	"cx-suggestionlist-title": "Suxestións",
 	"cx-suggestionlist-empty-title": "Ningunha suxestión polo momento",
 	"cx-suggestionlist-empty-desc": "Non atopamos ningunha suxestión. Pode intentalo máis tarde ou atopar páxinas relevantes usando a nosa ferramenta de recomendación (experimental).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Ver suxestións (experimental)",

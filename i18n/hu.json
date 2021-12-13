@@ -14,7 +14,8 @@
 			"Urbalazs",
 			"ViDam",
 			"Wolf Rex",
-			"Zizzerus"
+			"Zizzerus",
+			"Hanna Tardos"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -115,7 +116,7 @@
 	"cx-translation-filter-draft-translations": "Folyamatban",
 	"cx-translation-filter-suggested-translations": "Javaslatok",
 	"cx-suggestionlist-favorite": "Később",
-	"cx-suggestionlist-title": "Javasolt lapok",
+	"cx-suggestionlist-title": "Javaslatok",
 	"cx-suggestionlist-empty-title": "Jelenleg nincsenek javaslatok",
 	"cx-suggestionlist-empty-desc": "Nem találtunk javaslatokat. Megpróbálhatod később, vagy a javaslattevő eszközzel megpróbálhatsz releváns lapokat találni (kísérleti).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Javaslatok megtekintése (kísérleti)",
@@ -292,6 +293,7 @@
 	"cx-feature-discovery-title": "Fordíts bármikor",
 	"cx-feature-discovery-content": "Bármikor elkezdheted vagy folytathatod a fordítást a {{int:mycontris}} oldalról",
 	"cx-feature-discovery-dismiss": "Oké, értettem",
+	"cx-suggestionlist-expand-sections-title": "Bővítés további fejezetekkel",
 	"cx-sx-select-section": "Lefordítandó szakasz kiválasztása",
 	"cx-sx-section-selector-title": "Szakaszok",
 	"cx-sx-section-selector-subtitle": "Lefordítandó szakasz kiválasztása",

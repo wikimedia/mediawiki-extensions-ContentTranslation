@@ -25,7 +25,10 @@
 			"Ykhwong",
 			"Петар Петковић",
 			"아라",
-			"콩가루"
+			"콩가루",
+			"Gustmd7410",
+			"Rodney Araujo",
+			"Underbaaar"
 		]
 	},
 	"cx": "문서 번역",
@@ -326,8 +329,19 @@
 	"cx-sx-language-selector-dialog-title": "언어 검색",
 	"cx-sx-existing-translation-status": "$1에 이미 존재합니다",
 	"cx-sx-start-translation-button-label": "번역 시작",
+	"cx-sx-view-translation-anchor": "보기",
 	"cx-sx-existing-translation-learn-more": "더 알아보기",
+	"cx-sx-section-selector-missing-sections-title": "$1에 없는 문단",
+	"cx-sx-section-selector-present-sections-title": "$1에 존재하는 문단",
+	"cx-sx-section-selector-more-details-title": "자세한 정보",
+	"cx-sx-section-selector-view-article-button-label": "$1로 문서 보기",
+	"cx-sx-section-selector-empty-missing-sections-title": "번역할 문단이 없습니다",
+	"cx-sx-section-selector-empty-missing-sections-desc": "다른 문서나 다른 언어로 시도하기",
 	"cx-sx-section-selector-pick-other-translation-button-label": "다른 페이지 선택",
+	"cx-sx-section-selector-automatic-section-matching-title": "자동 문단 일치",
+	"cx-sx-section-selector-automatic-section-matching-description": "문단은 자동으로 식별되며 결과가 늘 정확한 것은 아닙니다.",
 	"cx-sx-section-selector-learn-more-anchor-label": "더 알아보기",
+	"cx-sx-section-selector-unsupported-sections-title": "미지원 문단",
+	"cx-sx-section-selector-unsupported-sections-description": "일부 문단은 내용이 아직 지원되지 않아 목록에 표시되지 않을 수 있습니다.",
 	"cx-suggestion-list-new-pages-division": "새 문서"
 }

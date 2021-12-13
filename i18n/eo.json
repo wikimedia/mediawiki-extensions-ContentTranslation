@@ -13,7 +13,9 @@
 			"Psychoslave",
 			"Robin van der Vliet",
 			"Surfo",
-			"Yekrats"
+			"Yekrats",
+			"Jakub Fabijan",
+			"Wierzbowski"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -90,6 +92,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Tiu ĉi titolo jam estas uzata en [$1 $2] por [$3 alia paĝo]",
 	"cx-selected-source-page-error-page-exists": "La paĝo [$1 jam ekzistas] en $2",
 	"cx-selected-source-page-error-title-in-use": "La titolo por la nova paĝo [$1 jam estas uzata]",
+	"cx-favorite-added-for-later": "Aldonita por poste!",
 	"cx-page-missing-in-target-language": "Mankante en $1",
 	"cx-page-number-of-languages": "Nombro de lingvoj",
 	"cx-mt-abuse-warning-title": "Parto devia traduko {{PLURAL:$1|enhavas}} $1% de nemodifita teksto",
@@ -105,7 +108,7 @@
 	"cx-translation-filter-draft-translations": "Prilaborataj",
 	"cx-translation-filter-suggested-translations": "Proponoj",
 	"cx-suggestionlist-favorite": "Por poste",
-	"cx-suggestionlist-title": "Proponitaj paĝoj",
+	"cx-suggestionlist-title": "Sugestoj",
 	"cx-suggestionlist-empty-title": "Neniuj proponoj por nun",
 	"cx-suggestionlist-empty-desc": "Ni trovis neniun proponon. Vi povas kontroli poste aŭ trovi relevantaj paĝoj per nia rekomendilo (eksperimenta).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Montri proponojn (eksperimenta)",
@@ -256,5 +259,12 @@
 	"cx-feature-discovery-title": "Traduki iam ajn",
 	"cx-feature-discovery-dismiss": "Bone, komprenite",
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Sekcio|$1 sekcioj}} mankas en $2",
-	"cx-sx-section-selector-title": "Sekcioj"
+	"cx-sx-section-selector-title": "Sekcioj",
+	"cx-sx-language-selector-dialog-title": "Serĉi lingvon",
+	"cx-sx-start-translation-button-label": "Komenci tradukon",
+	"cx-sx-view-translation-anchor": "Vidi",
+	"cx-sx-existing-translation-learn-more": "Lerni plu",
+	"cx-sx-section-selector-more-details-title": "Pliaj detaloj",
+	"cx-sx-section-selector-view-article-button-label": "Vidi artikolon en $1",
+	"cx-sx-section-selector-learn-more-anchor-label": "Lerni plu"
 }

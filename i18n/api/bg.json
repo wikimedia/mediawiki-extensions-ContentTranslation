@@ -29,5 +29,6 @@
 	"apihelp-cxsave-param-to": "Код на целевия език.",
 	"apierror-cx-docserverexception": "Грешка при преобразуването на HTML в уикитекст: $1",
 	"apierror-cx-invalidlanguage": "Невалиден език.",
-	"apierror-cx-jwtmissing": "JWT не е инсталиран."
+	"apierror-cx-jwtmissing": "JWT не е инсталиран.",
+	"apierror-cx-translationnotfound": "Преводът не е открит."
 }
