@@ -79,6 +79,7 @@
           ></h5>
         </div>
         <p
+          v-if="!isUserSandbox"
           class="sx-published-section-invitation__description"
           v-text="
             $i18n(
@@ -104,6 +105,7 @@ module.exports = {
       closeIconPath:
         "M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z",
       iconColor: "currentColor",
+      isUserSandbox: false,
       showPanel: true,
       missingSections: [],
       siteMapper: new mw.cx.SiteMapper(),
@@ -113,11 +115,19 @@ module.exports = {
     };
   },
   mounted() {
+    var namespaceIds = mw.config.get("wgNamespaceIds");
+    var currentNamespaceId = mw.config.get("wgNamespaceNumber");
     var urlParams = new URLSearchParams(window.location.search);
     this.sourceTitle = urlParams.get("sx-source-page-title");
     this.sourceLanguage = urlParams.get("sx-source-language");
     this.targetLanguage = urlParams.get("sx-target-language");
+    this.isUserSandbox = currentNamespaceId === namespaceIds.user;
 
+    if (this.isUserSandbox) {
+      // no need to fetch the section suggestions and display the last paragraph of the invite
+      // as these are not needed for the sandbox pages per design.
+      return;
+    }
     var cxServerParams = [
       this.sourceTitle,
       this.sourceLanguage,
@@ -128,7 +138,6 @@ module.exports = {
     var cxServerSectionSuggestionApiUrl = this.siteMapper.getCXServerUrl(
       "/suggest/sections/" + cxServerParams.join("/")
     );
-
     var that = this;
     fetch(cxServerSectionSuggestionApiUrl)
       .then(function(response) {
