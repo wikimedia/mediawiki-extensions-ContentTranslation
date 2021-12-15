@@ -34,22 +34,16 @@ async function fetchPageSuggestions(
 
   const suggestedResults = (await response.json())?.items || [];
 
-  // Recommendation API doesn't limit results to the "count" parameter
-  // (issue being tracked in T287227). Until it is resolved, slice
-  // results to only returns results with length equal (or less) to "count"
-  // TODO: Remove slice once issue is fixed
-  return suggestedResults
-    .map(
-      item =>
-        new ArticleSuggestion({
-          sourceTitle: item.title.replace(/_/g, " "),
-          sourceLanguage,
-          targetLanguage,
-          wikidataId: item.wikidata_id,
-          langLinksCount: parseInt(item.sitelink_count)
-        })
-    )
-    .slice(0, count);
+  return suggestedResults.map(
+    item =>
+      new ArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        langLinksCount: parseInt(item.sitelink_count)
+      })
+  );
 }
 
 /**
