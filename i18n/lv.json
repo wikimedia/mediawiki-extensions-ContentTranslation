@@ -368,6 +368,7 @@
 	"cx-sx-article-search-header": "Jauns tulkojums",
 	"cx-sx-article-search-no-suggestions-message": "Izvēlies kādu interesējošu tēmu. Tev nav jābūt ekspertam, lai izveidotu labu tulkojumu.",
 	"cx-sx-article-search-no-search-results-message": "Meklējot pēc \"$1\" $2 valodā neatrada nevienu lapu",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Paplašini ar $1 vai pārbaudi esošās sadaļas",
 	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Paplašināt ar sadaļu \"$1\"",
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Netrūkst nevienas sadaļas. Pārbaudi esošās sadaļas.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Tulkošanai nav pieejama neviena sadaļa. Sāc jaunu tulkojumu, lai aizvietotu esošo lapu.",
@@ -377,6 +378,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Tulkot sadaļu",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sadaļa",
 	"sx-editor-feedback-overlay-title": "Paldies!",
+	"sx-editor-feedback-overlay-clarification": "Mācās no taviem labojumiem",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> tevis laboti",
 	"cx-campaign-mflanguagesearcher-invite": "Tu vari iztulkot šo lapu. Tas ir vienkāršs veids, kā radīt saturu tavā valodā.",
 	"cx-suggestion-list-favorites-division": "Vēlākam laikam"
