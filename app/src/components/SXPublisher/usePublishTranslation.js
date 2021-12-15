@@ -27,15 +27,21 @@ const handlePublishResult = async isPublishDialogActive => {
     return;
   }
 
+  const isSandboxTarget = store.getters["application/isSandboxTarget"];
+
   // Publishing is Successful
-  if (currentSourceSection.value.isLeadSection) {
+  if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
     // Add wikibase link, wait for it, but failure is acceptable
-    await siteApi.addWikibaseLink(
-      suggestion.value.sourceLanguage,
-      suggestion.value.targetLanguage,
-      suggestion.value.sourceTitle,
-      translatedTitle
-    );
+    try {
+      await siteApi.addWikibaseLink(
+        suggestion.value.sourceLanguage,
+        suggestion.value.targetLanguage,
+        suggestion.value.sourceTitle,
+        translatedTitle
+      );
+    } catch (error) {
+      mw.log.error("Error while adding wikibase link", error);
+    }
   }
   const articleTitle = store.getters["translator/getArticleTitleForPublishing"];
   /** Remove warning about leaving SX */
