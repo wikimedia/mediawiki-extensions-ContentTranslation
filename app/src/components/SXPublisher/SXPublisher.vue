@@ -77,20 +77,22 @@ export default {
       currentSourceSection: currentPageSection,
       currentSectionSuggestion: suggestion
     } = useApplicationState();
-    const applicationState = context.root.$store.state.application;
+    const store = context.root.$store;
 
-    const publishTarget = computed(() => applicationState.publishTarget);
+    const isSandboxTarget = computed(
+      () => store.getters["application/isSandboxTarget"]
+    );
     const translatedTitle = computed(() => currentPageSection.value?.title);
 
     const panelResult = computed(() =>
-      publishTarget.value === "NEW_SECTION"
+      !isSandboxTarget.value
         ? context.root.$i18n("cx-sx-publisher-publish-panel-new-section-result")
         : context.root.$i18n(
             "cx-sx-publisher-publish-panel-sandbox-section-result"
           )
     );
 
-    onMounted(() => context.root.$store.dispatch("translator/validateMT"));
+    onMounted(() => store.dispatch("translator/validateMT"));
 
     const editTranslation = () => {
       const router = context.root.$router;

@@ -46,8 +46,7 @@ export default {
   getSectionTitleForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection,
-      publishTarget
+      currentSourceSection
     } = rootState.application;
 
     if (currentSourceSection.isLeadSection) {
@@ -68,7 +67,7 @@ export default {
       return presentSectionTitle;
     } else if (
       !firstAppendixTargetTitle ||
-      publishTarget === "SANDBOX_SECTION"
+      rootGetters["application/isSandboxTarget"]
     ) {
       // If section is missing and appendix sections DO NOT exist,
       // or if publish target is "sandbox"
@@ -102,17 +101,16 @@ export default {
   getSectionNumberForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection,
-      publishTarget
+      currentSourceSection
     } = rootState.application;
 
-    if (publishTarget === "SANDBOX_SECTION") {
-      return "new";
-    }
-
-    // if current section is a lead section, its position should be 0
+    // if current section is a lead section, its position should always be 0
+    // if current publishing target is user's sandbox, the section should be
+    // added as "new"
     if (currentSourceSection.isLeadSection) {
       return 0;
+    } else if (rootGetters["application/isSandboxTarget"]) {
+      return "new";
     }
 
     const targetPage = rootGetters["application/getCurrentTargetPage"];
@@ -174,8 +172,7 @@ export default {
   getCleanHTMLForPublishing: (state, getters, rootState, rootGetters) => {
     const {
       currentSectionSuggestion,
-      currentSourceSection,
-      publishTarget
+      currentSourceSection
     } = rootState.application;
 
     const isPresentSection = !!currentSectionSuggestion.presentSections[
@@ -189,7 +186,7 @@ export default {
     // if section should be published to sandbox or section is lead section
     // or section is present or NO appendix section exists
     if (
-      publishTarget === "SANDBOX_SECTION" ||
+      rootGetters["application/isSandboxTarget"] ||
       currentSourceSection.isLeadSection ||
       isPresentSection ||
       !firstAppendixTargetTitle
