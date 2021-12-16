@@ -29,6 +29,7 @@ use MediaWiki\Extension\AbuseFilter\AbuseFilter;
 use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Extension\AbuseFilter\GlobalNameUtils;
 use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
+use MediaWiki\MediaWikiServices;
 
 class AbuseFilterCheck {
 	protected $user;
@@ -97,7 +98,10 @@ class AbuseFilterCheck {
 		$vars = $gen
 			->addUserVars( $this->user )
 			->addTitleVars( $this->title, 'page' )
-			->addEditVars( \WikiPage::factory( $this->title ), $this->user )
+			->addEditVars( MediaWikiServices::getInstance()
+					->getWikiPageFactory()
+					->newFromTitle( $this->title ),
+				$this->user )
 			->getVariableHolder();
 		$vars->setVar( 'action', 'edit' );
 		$vars->setVar( 'old_wikitext', '' );
