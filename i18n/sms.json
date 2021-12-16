@@ -17,6 +17,7 @@
 	"cx-publish-captcha-title": "Nââneet, što jiõk leäkku robott.",
 	"cx-dashboard-sidebar-stats": "Statistiikk",
 	"cx-translation-filter-suggested-translations": "Eʹtǩǩõõzz",
+	"cx-create-new-translation": "Ođđ jåårǥlõs",
 	"cx-translation-filter-label-all-languages": "Puk",
 	"cx-save-draft-shortcut-label": "Ruõkk hämmaz",
 	"cx-contributions-new-article": "Ođđ seidd",
@@ -29,5 +30,6 @@
 	"cx-trend-deletions": "Jaukkuum jåårǥlõõzz",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
 	"cx-translator-total-translations-label": "Õhttsa",
-	"cx-publish-settings": "Õlmstâʹttemasetõõzz"
+	"cx-publish-settings": "Õlmstâʹttemasetõõzz",
+	"cx-publish-destination-namespace-main": "Ođđ seidd"
 }
