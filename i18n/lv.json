@@ -390,6 +390,7 @@
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Labo teikumus, lai pārkārtotu tos vai nomainītu izvēlētos vārdus.",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Pārbaudi atsauces",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Salīdzini ar oriģinālu",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Pārliecinies, ka tulkojumā nav mainīta sākotnējā nozīme.",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Labot lapu",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Atvērt oriģinālo lapu $1 valodā",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Paplašini šo lapu, iztulkojot sadaļas, kas pieejamas citās tevis pārvaldītās valodās.",
