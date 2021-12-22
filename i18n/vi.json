@@ -18,7 +18,8 @@
 			"Vinhtantran",
 			"Withoutaname",
 			"Петар Петковић",
-			"NguoiDungKhongDinhDanh"
+			"NguoiDungKhongDinhDanh",
+			"Thingofme"
 		]
 	},
 	"cx": "Dịch trang",
@@ -265,6 +266,7 @@
 	"cx-auto-failed": "Dịch tự động thất bại",
 	"cx-mt-failed": "Dịch tự động thất bại",
 	"cx-unreviewed-translation-category": "Trang có bản dịch chưa được xem lại",
+	"cx-feature-discovery-title": "Dịch bất kể lúc nào",
 	"cx-feature-discovery-dismiss": "Hiểu rồi",
 	"cx-suggestionlist-expand-sections-title": "Mở rộng đoạn mới",
 	"cx-sx-select-section": "Chọn đoạn để dịch",
