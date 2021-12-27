@@ -142,6 +142,7 @@
 	"cx-campaign-try": "စံꩻထွားစံꩻသွော့ အကျောင်ꩻခရာႏဘာႏသာႏပြန်ႏ",
 	"cx-campaign-contributionsmenu-mycontributions": "ခွုမ်မာꩻချက်ဖုံႏ",
 	"cx-campaign-contributionsmenu-mytranslations": "ဘာႏသာႏပြန်ႏဖုံႏ",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "ထဲမ်သော့ꩻ ဘာႏသာႏပြန်ႏတသာ",
 	"cx-campaign-contributionsmenu-myuploads": "ဒင်ႏခါꩻဒါႏမီဒီယာ",
 	"cx-no-source-categories": "ကဏ္ဍဖုံႏ အဝ်ႏတဝ်း",
 	"cx-no-target-categories": "ကဏ္ဍဖိုင်ႏအဝ်ႏတဝ်း။ အကျောင်ꩻခရာႏ ဖေႏကအွောန်ႏထွော့နွောင်ꩻ အစွိုးအမျိုꩻယံထဲင်းတာႏ သော့ꩻဖေႏသွူဏ္ဍယဟန်ႏတဲင် သုင်ꩻသပ်သွော့။",
@@ -323,7 +324,10 @@
 	"sx-editor-feedback-overlay-stats": "နာꩻမွဉ်းဖျင်ခါꩻဒါႏ<span>$1%</span>",
 	"cx-campaign-mflanguagesearcher-invite": "ပြန်ႏနွောင်ꩻဒျာႏ လိတ်မဲ့ငါယိုဘာႏသာႏသွူ။ ဖန်ဆင်ꩻ နာꩻဘာႏသာႏငဝ်းငွါ အကျောင်ꩻခရာႏတာႏ ယိုꩻအီထွာအီအစွဲးအကမ်းသွူ။",
 	"cx-suggestion-list-favorites-division": "ဆုဲင်ꩻအတာႏ",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "ထဲမ်သော့ꩻ အကွို့ꩻတသာ",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "စဲစ်ထွားအာႏကွိုꩻချက်ဖိုင်ႏ",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ခြပ်ချော်ꩻလိတ်မဲ့ငါ",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "ပြန်ႏအကွို့ꩻတသာဘာႏသာႏ",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ပြန်ႏ \"$1\" ဘာႏသာႏ",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "ပြန်ႏသွော့ \"$1\" တောမ်ႏ \"$2\" ဘာႏသာႏသြ"
 }

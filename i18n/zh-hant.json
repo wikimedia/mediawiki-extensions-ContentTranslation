@@ -17,6 +17,7 @@
 			"Spring Roll Conan",
 			"TurboHKG",
 			"Wehwei",
+			"Winston Sung",
 			"Wwycheuk",
 			"Xiplus",
 			"Петар Петковић"
@@ -212,7 +213,7 @@
 	"cx-translationlist-empty-title": "沒什麼好翻譯的？",
 	"cx-translationlist-empty-desc": "現在{{GENDER:|開始}}您的翻譯並隨時繼續。",
 	"cx-draft-restoring": "已儲存的翻譯載入中...",
-	"cx-draft-restored": "儲存的翻譯已載入。",
+	"cx-draft-restored": "已載入儲存的翻譯。",
 	"cx-draft-restore-failed": "載入已儲存的翻譯失敗！",
 	"cx-suggestionlist-expand": "檢視全部",
 	"cx-suggestionlist-collapse": "檢視更少",
