@@ -18,7 +18,8 @@
 			"Nghiemtrongdai VN",
 			"NguoiDungKhongDinhDanh",
 			"Nguyễn Mạnh An",
-			"Prenn"
+			"Prenn",
+			"Thingofme"
 		]
 	},
 	"cx": "Dịch trang",
@@ -295,6 +296,7 @@
 	"cx-linkcontextitem-missing-title-description": "Trang này chưa tồn tại",
 	"cx-mt-abuse-publish-error": "Không thể đăng bản dịch của bạn vì nó chứa quá nhiều văn bản chưa được biên tập.",
 	"cx-unreviewed-translation-category": "Trang có bản dịch chưa được xem lại",
+	"cx-feature-discovery-title": "Dịch bất kể lúc nào",
 	"cx-feature-discovery-dismiss": "Hiểu rồi",
 	"cx-suggestionlist-expand-sections-title": "Mở rộng đoạn mới",
 	"cx-sx-select-section": "Chọn đoạn để dịch",
