@@ -235,6 +235,7 @@
 	"cx-linkcontextitem-missing-link-title": "Trūkstama nuoroda",
 	"cx-linkcontextitem-missing-title-description": "Puslapis dar neegzistuoja",
 	"cx-unreviewed-translation-category": "Puslapiai su neperžiūrėtais vertimais",
+	"cx-preference-enable-entrypoints": "Naudotojo indėlio skiltyje įjungti [[$1|vertimų priemonę]], kalbų sąrašą ir naujai sukurtus puslapius.",
 	"cx-feature-discovery-dismiss": "Gerai, supratau",
 	"cx-sx-start-translation-button-label": "Pradėkite versti",
 	"cx-sx-publisher-animation-success-message-title": "Paskelbta!",

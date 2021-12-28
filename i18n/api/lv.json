@@ -14,6 +14,7 @@
 	"apihelp-query+contenttranslation-param-to": "Mērķa valodas kods.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Avota lapas nosaukums.",
 	"apihelp-query+contenttranslation-param-type": "Tulkojuma stāvoklis.",
+	"apihelp-query+contenttranslation-example-2": "Iegūt tulkojuma melnrakstu pēc ID.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Tulkojuma ID.",
 	"apihelp-query+contenttranslationstats-description": "Iegūt satura tulkošanas statistiku.",
 	"apihelp-query+contenttranslationstats-summary": "Iegūt satura tulkošanas statistiku.",
@@ -50,5 +51,9 @@
 	"apierror-cx-jwtmissing": "JWT nav uzstādīts.",
 	"apierror-cx-keynotconfigured": "Atslēga nav konfigurēta.",
 	"apierror-cx-missingdraft": "Melnrakts nepastāv.",
-	"apierror-cx-translationnotfound": "Tulkojums nav atrasts."
+	"apierror-cx-translationnotfound": "Tulkojums nav atrasts.",
+	"apihelp-cxpublishsection-param-html": "Saglabājamais saturs.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Avota valodas kods.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Mērķa valodas kods.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Avota lapas nosaukums."
 }
