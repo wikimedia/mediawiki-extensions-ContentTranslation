@@ -19,7 +19,8 @@
 			"Xiplus",
 			"Петар Петковић",
 			"Impartial just",
-			"TurboHKG"
+			"TurboHKG",
+			"Winston Sung"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -231,7 +232,7 @@
 	"cx-personaltools-anon": "尚未登入",
 	"mw-pageselector-missing": "頁面不存在",
 	"cx-draft-restoring": "已儲存的翻譯載入中...",
-	"cx-draft-restored": "儲存的翻譯已載入。",
+	"cx-draft-restored": "已載入儲存的翻譯。",
 	"cx-draft-restore-failed": "載入已儲存的翻譯失敗！",
 	"cx-suggestionlist-expand": "檢視全部",
 	"cx-suggestionlist-collapse": "檢視更少",
