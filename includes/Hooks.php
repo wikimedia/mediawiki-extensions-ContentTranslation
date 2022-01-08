@@ -8,13 +8,13 @@
 namespace ContentTranslation;
 
 use Action;
-use CentralAuthUser;
 use DatabaseUpdater;
 use EchoAttributeManager;
 use EchoEvent;
 use EchoUserLocator;
 use EditPage;
 use ExtensionRegistry;
+use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\User\UserIdentity;
