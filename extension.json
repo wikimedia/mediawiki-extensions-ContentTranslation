@@ -277,6 +277,9 @@
 			"skinStyles": {
 				"vector": [
 					"entrypoints/styles/ext.cx.contributions.vector.less"
+				],
+				"vector-2022": [
+					"entrypoints/styles/ext.cx.contributions.vector.less"
 				]
 			},
 			"dependencies": [
