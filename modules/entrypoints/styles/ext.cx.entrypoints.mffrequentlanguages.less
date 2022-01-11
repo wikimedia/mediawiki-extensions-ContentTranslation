@@ -1,0 +1,35 @@
+@import 'mediawiki.ui/variables';
+
+.cx-entrypoint-missing-frequent-languages-container {
+	font-size: unset;
+	font-weight: unset;
+}
+
+.cx-entrypoint-missing-frequent-languages {
+	text-decoration: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.85em;
+	font-weight: normal;
+	padding: 1em;
+	background-color: @colorGray15;
+	color: @colorGray5;
+
+	&:link,
+	&:visited {
+		color: @colorGray5;
+	}
+
+	&__text {
+		span {
+			font-weight: bold;
+		}
+	}
+
+	&__icon {
+		font-size: 0.85em;
+		background: center / contain no-repeat url( ../images/arrow-forward-icon.svg );
+	}
+}

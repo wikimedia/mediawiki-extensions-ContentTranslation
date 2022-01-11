@@ -55,6 +55,12 @@
 				"WikiPageFactory",
 				"MainConfig"
 			]
+		},
+		"mfFrequentLanguagesEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\MfFrequentLanguagesEntrypointRegistrationHandler",
+			"services": [
+				"LanguageFactory"
+			]
 		}
 	},
 	"Hooks": {
@@ -63,7 +69,8 @@
 			"ContentTranslation\\Hooks::addModules",
 			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
 			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint",
-			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation"
+			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
+			"mfFrequentLanguagesEntrypointRegistrar"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -941,6 +948,25 @@
 			],
 			"messages": [
 				"cx-campaign-mflanguagesearcher-invite"
+			]
+		},
+		"ext.cx.entrypoints.mffrequentlanguages": {
+			"targets": [
+				"mobile"
+			],
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.mffrequentlanguages.js"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.mffrequentlanguages.less"
+			],
+			"dependencies": [
+				"mw.cx.SiteMapper"
+			],
+			"messages": [
+				"sx-missing-languages-entrypoint-panel-text-one-missing",
+				"sx-missing-languages-entrypoint-panel-text-two-missing",
+				"sx-missing-languages-entrypoint-panel-text-more-missing"
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {
