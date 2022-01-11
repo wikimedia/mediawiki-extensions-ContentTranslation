@@ -8,12 +8,12 @@
         />
         <!-- eslint-disable vue/no-v-html -->
         <div
-          ref="originalContent"
+          ref="originalContentRef"
           class="sx-editor__original-sentence-panel__content mb-5"
           :lang="language"
           :dir="dir"
           :class="{
-            'sx-editor__original-sentence-panel__content--collapsed': originalContentCollapsed
+            'sx-editor__original-sentence-panel__content--collapsed': isOriginalContentCollapsed
           }"
           v-html="originalContent"
         />
@@ -24,22 +24,22 @@
           type="icon"
           :icon="mwIconCollapse"
           :disabled="
-            originalContentCollapsed && originalContentSegmentIndex === 0
+            isOriginalContentCollapsed && originalContentSegmentIndex === 0
           "
           class="sx-editor__original-sentence__pagination-control pa-0"
           @click="handleArrowUpClick"
         />
         <mw-button
-          v-if="originalContentCollapsed"
+          v-if="isOriginalContentCollapsed"
           type="icon"
           :icon="mwIconExpand"
           class="sx-editor__original-sentence__pagination-control pa-0 mt-5"
           :disabled="isOriginalContentScrolledToEnd"
-          @click="nextOriginalSentenceSegment"
+          @click="scrollToNextSegment"
         />
       </mw-col>
     </mw-row>
-    <div ref="dragIndicator" class="sx-editor__drag-indicator">
+    <div ref="dragIndicatorRef" class="sx-editor__drag-indicator">
       <span
         class="sx-editor__drag-indicator__icon"
         @click="onDragIndicatorClick"
@@ -54,6 +54,7 @@ import {
   mwIconCollapse,
   mwIconExpand
 } from "@/lib/mediawiki.ui/components/icons";
+import { computed, onMounted, ref } from "@vue/composition-api";
 
 export default {
   name: "SxEditorOriginalContent",
@@ -72,20 +73,23 @@ export default {
       required: true
     }
   },
-  data: () => ({
-    mwIconCollapse,
-    mwIconExpand,
-    originalContentCollapsed: true,
-    originalContentSegmentIndex: 0,
-    originalContentScrollHeight: 0,
-    originalContentLineHeight: 0,
-    dragStartHeight: 0,
-    dragStartY: 0,
-    dragIndicatorClickDisabled: false,
-    isDrawing: false
-  }),
-  computed: {
-    originalContentLinesLength() {
+  setup(props, context) {
+    const originalContentRef = ref(null);
+    const dragIndicatorRef = ref(null);
+
+    // style property of HTML elements is not reactive,
+    // so we have to use a ref instead of a computed
+    // property, and manually update its value
+    const isOriginalContentCollapsed = ref(true);
+    const originalContentSegmentIndex = ref(0);
+    const originalContentMinHeight = ref(0);
+    const originalContentMaxHeight = ref(0);
+    const originalContentLineHeight = ref(0);
+    const dragStartHeight = ref(0);
+    const dragStartY = ref(0);
+    const dragIndicatorClickDisabled = ref(false);
+
+    const originalContentLinesLength = computed(() => {
       /**
        * When line height is a decimal (as in our case), browsers can round down
        * line-height value (like Chrome does). So it is safer to round the division
@@ -93,112 +97,130 @@ export default {
        * that we get a valid integer for lines length
        */
       return Math.round(
-        this.originalContentScrollHeight / this.originalContentLineHeight
-      );
-    },
-    isOriginalContentScrolledToEnd() {
-      /** Each segment takes up to two lines **/
-      const segmentsLength = Math.ceil(this.originalContentLinesLength / 2);
-
-      return this.originalContentSegmentIndex === segmentsLength - 1;
-    }
-  },
-  mounted() {
-    /**
-     * Wait for original content to be rendered so that original content
-     * max scrollTop is calculated correctly
-     */
-    this.$nextTick(() => {
-      this.originalContentScrollHeight = this.$refs.originalContent.scrollHeight;
-      this.originalContentLineHeight = parseFloat(
-        document.defaultView
-          .getComputedStyle(this.$refs.originalContent, null)
-          .getPropertyValue("line-height")
+        originalContentMaxHeight.value / originalContentLineHeight.value
       );
     });
-    this.$refs.dragIndicator.addEventListener(
-      "pointerdown",
-      this.initiateDrag,
-      false
-    );
-  },
-  methods: {
-    onDragIndicatorClick() {
-      if (this.dragIndicatorClickDisabled) {
+
+    const isOriginalContentScrolledToEnd = computed(() => {
+      /** Each segment takes up to two lines **/
+      const segmentsLength = Math.ceil(originalContentLinesLength.value / 2);
+
+      return originalContentSegmentIndex.value === segmentsLength - 1;
+    });
+
+    onMounted(async () => {
+      await context.root.$nextTick;
+      /**
+       * Wait for original content to be rendered so that original content
+       * max scrollTop is calculated correctly
+       */
+      originalContentMinHeight.value = originalContentRef.value.clientHeight;
+      originalContentMaxHeight.value = originalContentRef.value.scrollHeight;
+      originalContentLineHeight.value = parseFloat(
+        document.defaultView
+          .getComputedStyle(originalContentRef.value, null)
+          .getPropertyValue("line-height")
+      );
+
+      dragIndicatorRef.value.addEventListener(
+        "pointerdown",
+        initiateDrag,
+        false
+      );
+    });
+
+    const onDragIndicatorClick = () => {
+      if (dragIndicatorClickDisabled.value) {
         return;
       }
-      this.toggleOriginalContent();
-    },
-    toggleOriginalContent() {
-      this.$refs.originalContent.style.removeProperty("height");
-      this.originalContentCollapsed = !this.originalContentCollapsed;
+      collapseOriginalContent();
+    };
 
-      /** Show first sentence sentence for collapsed content **/
-      if (this.originalContentCollapsed) {
-        this.originalContentSegmentIndex = 0;
-        this.scrollOriginalSentence();
+    const collapseOriginalContent = () => {
+      originalContentRef.value.style.removeProperty("height");
+      isOriginalContentCollapsed.value = !isOriginalContentCollapsed.value;
+
+      /** Show first sentence for collapsed content **/
+      if (isOriginalContentCollapsed.value) {
+        originalContentSegmentIndex.value = 0;
+        scrollOriginalSentence();
       }
-    },
+    };
+
+    const scrollOriginalSentence = () => {
+      /** scroll by a segment, i.e. scroll by two lines **/
+      const scrollTop =
+        originalContentSegmentIndex.value * originalContentLineHeight.value * 2;
+      originalContentRef.value.scroll(0, scrollTop);
+    };
+
     /** Scroll to next sentence segment (two next lines) **/
-    nextOriginalSentenceSegment() {
-      this.originalContentSegmentIndex++;
-      this.scrollOriginalSentence();
-    },
-    handleArrowUpClick() {
-      if (!this.originalContentCollapsed) {
-        this.toggleOriginalContent();
+    const scrollToNextSegment = () => {
+      originalContentSegmentIndex.value++;
+      scrollOriginalSentence();
+    };
+
+    const handleArrowUpClick = () => {
+      if (!isOriginalContentCollapsed.value) {
+        collapseOriginalContent();
 
         return;
       }
       /** Scroll to previous sentence segment (two previous lines) **/
-      this.originalContentSegmentIndex--;
-      this.scrollOriginalSentence();
-    },
-    scrollOriginalSentence() {
-      /** scroll by a segment, i.e. scroll by two lines **/
-      const scrollTop =
-        this.originalContentSegmentIndex * this.originalContentLineHeight * 2;
-      this.$refs.originalContent.scroll(0, scrollTop);
-    },
-    initiateDrag(e) {
-      this.dragIndicatorClickDisabled = false;
-      this.dragStartY = e.clientY;
+      originalContentSegmentIndex.value--;
+      scrollOriginalSentence();
+    };
 
-      this.dragStartHeight = parseInt(
-        document.defaultView.getComputedStyle(this.$refs.originalContent)
-          .height,
+    const initiateDrag = e => {
+      dragIndicatorClickDisabled.value = false;
+      dragStartY.value = e.clientY;
+
+      dragStartHeight.value = parseInt(
+        document.defaultView.getComputedStyle(originalContentRef.value).height,
         10
       );
 
-      document.documentElement.addEventListener(
-        "pointermove",
-        this.doDrag,
-        false
-      );
+      document.documentElement.addEventListener("pointermove", doDrag, false);
       document.documentElement.addEventListener(
         "pointerup",
-        this.completeDrag,
+        completeDrag,
         false
       );
-    },
-    doDrag(e) {
-      this.dragIndicatorClickDisabled = true;
-      this.originalContentCollapsed = false;
-      this.$refs.originalContent.style.height =
-        this.dragStartHeight + e.clientY - this.dragStartY + "px";
-    },
-    completeDrag() {
+    };
+
+    const doDrag = e => {
+      dragIndicatorClickDisabled.value = true;
+      isOriginalContentCollapsed.value = false;
+
+      originalContentRef.value.style.height =
+        dragStartHeight.value + e.clientY - dragStartY.value + "px";
+    };
+
+    const completeDrag = () => {
       document.documentElement.removeEventListener(
         "pointermove",
-        this.doDrag,
+        doDrag,
         false
       );
       document.documentElement.removeEventListener(
         "pointerup",
-        this.completeDrag,
+        completeDrag,
         false
       );
-    }
+    };
+
+    return {
+      dragIndicatorRef,
+      handleArrowUpClick,
+      isOriginalContentCollapsed,
+      isOriginalContentScrolledToEnd,
+      mwIconCollapse,
+      mwIconExpand,
+      scrollToNextSegment,
+      onDragIndicatorClick,
+      originalContentRef,
+      originalContentSegmentIndex
+    };
   }
 };
 </script>
