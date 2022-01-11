@@ -286,7 +286,7 @@ class Hooks {
 		if ( $title->inNamespace( NS_MAIN ) &&
 			Action::getActionName( $out->getContext() ) === 'view' &&
 			$title->exists() &&
-			$skin->getSkinName() === 'vector'
+			in_array( $skin->getSkinName(), [ 'vector', 'vector-2022' ] )
 		) {
 			$out->addJsConfigVars( [
 				'wgContentTranslationAsBetaFeature' =>
