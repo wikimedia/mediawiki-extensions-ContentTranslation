@@ -14,6 +14,7 @@
 		]
 	},
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
+	"cx-dashboard-header": "ಅನುವಾದಗಳು",
 	"cx-javascript": "ಈ ಸಾಧನ ಜಾವಾಸ್ಕ್ರಿಪ್ಟ್ ಇಲ್ಲದೆ ಕೆಲಸ ಮಾಡುವುದಿಲ್ಲ.",
 	"cx-license-agreement": "\"$1\" ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸುವುದರ ಮೂಲಕ, ನೀವು [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License]  ಮತ್ತು [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] CC BY-SA 3.0 ವೈಶಿಷ್ಟಗಳಿಗೆ ಹೈಪರ್‌ಲಿಂಕ್ ಅಥವಾ ಯುಆರ್‌ಎಲ್ ಸಾಕಾಗುತ್ತದೆ ಎಂದು ಅರ್ಥಮಾಡಿಕೊಂಡಿರುವುದಾಗಿ ಸಮ್ಮತಿಸುತ್ತೀರಿ .",
 	"cx-error-server-connection": "ದೋಷ: ದತ್ತಸಂಚಯವನ್ನು ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ.",
@@ -100,7 +101,10 @@
 	"cx-campaign-newarticle-notice": "ಈಗ ನೀವು ಹೊಸ ವಿಷಯವನ್ನು <b>ಅನುವಾದದ</b> ಮೂಲಕವೂ ಸೃಷ್ಟಿಸಬಹುದು! ನೀವು ವಿಷಯ ಅನುವಾದ ಬೀಟಾ ಸಲಕರಣೆಯನ್ನು ಪ್ರಯತ್ನಿಸಲು ಬಯಸುವಿರಾ?",
 	"cx-campaign-no-thanks": "ಬೇಡ, ಧನ್ಯವಾದಗಳು",
 	"cx-campaign-try": "ವಿಷಯ ಅನುವಾದ ಪ್ರಯತ್ನಿಸಿ",
+	"cx-campaign-contributionsmenu-mytranslations": "ಅನುವಾದಗಳು",
 	"cx-trend-translations-to": "$1 ಭಾಷೆಗೆ ಅನುವಾದಗಳು",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 ಅನುವಾದ|$1 ಅನುವಾದಗಳು}}",
+	"echo-category-title-cx": "ಅನುವಾದಗಳು",
 	"cx-tools-link-external-link": "ಬಾಹ್ಯ",
 	"cx-tools-link-external-link-placeholder": "ಬಾಹ್ಯ ಸಂಪರ್ಕ ಸೇರಿಸು",
 	"cx-tools-link-apply": "ಮುಗಿಯಿತು",
