@@ -14,7 +14,7 @@
 	 * @return {boolean}
 	 */
 	function isUserMenuDropdown() {
-		return mw.config.get( 'skin' ) === 'vector' &&
+		return [ 'vector', 'vector-2022' ].indexOf( mw.config.get( 'skin', '' ) ) > -1 &&
 			$( '.mw-portlet-personal.vector-menu-dropdown' ).length;
 	}
 
