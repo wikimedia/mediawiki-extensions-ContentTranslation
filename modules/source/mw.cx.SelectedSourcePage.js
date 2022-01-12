@@ -407,6 +407,8 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 	} );
 
 	this.sourceTitle = pageTitle;
+	// Reset target title.
+	this.targetTitle = null;
 	this.initBookmark();
 	this.check();
 };
