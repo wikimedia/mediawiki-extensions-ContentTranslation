@@ -344,6 +344,13 @@ class Hooks {
 			return;
 		}
 
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' )->usingMobileDomain()
+		) {
+			// Contribution buttons should be shown only in desktop
+			return;
+		}
+
 		if ( $user->getId() === $page->getUser()->getId() &&
 			PreferenceHelper::isEnabledForUser( $user )
 		) {
