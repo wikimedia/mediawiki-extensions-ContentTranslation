@@ -13,10 +13,12 @@ import MwSpinner from "./MWSpinner";
 import MwThumbnail from "./MWThumbnail";
 import { MwRadio, MwRadioGroup } from "./MWRadioGroup";
 import MwProgressBar from "./MWProgressBar";
+import MwExpandableContent from "./MWExpandableContent";
 
 export {
   MwButton,
   MwDialog,
+  MwExpandableContent,
   MwInput,
   MwCard,
   MwBottomNavigation,
