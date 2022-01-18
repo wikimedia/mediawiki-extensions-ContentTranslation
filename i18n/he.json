@@ -417,5 +417,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "תרגום פרק חדש",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "תרגום \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "תרגום \"$1\" וגם \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "תרגום \"$1\", \"$2\", ועוד"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "תרגום \"$1\", \"$2\", ועוד",
+	"sx-block-template-adaptation-card-body-header-success": "תבנית מוצעת",
+	"sx-block-template-adaptation-card-edit-button-label": "לסדוק ולערוך את התרגום",
+	"sx-block-template-adaptation-card-body-header-failure": "תבנית מתאימה אינה זמינה עבור השפה $1"
 }
