@@ -171,7 +171,9 @@
 	"cx-campaign-try": "Prøv innholdsoversettelse",
 	"cx-campaign-contributionsmenu-mycontributions": "Bidrag",
 	"cx-campaign-contributionsmenu-mytranslations": "Oversettelser",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Legg til en ny oversettelse",
 	"cx-campaign-contributionsmenu-myuploads": "Opplastede mediefiler",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "En liste over dine opplastinger",
 	"cx-no-source-categories": "Ingen kategorier",
 	"cx-no-target-categories": "Ingen kategorier. Vurder å legge til noen for å klassifisere emnet bedre.",
 	"cx-no-adapted-categories": "Originalkategoriene finnes ikke på dette språket. Utforsk flere kategorier for å beskrive emnet bedre.",
@@ -300,7 +302,7 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "Lær mer",
 	"cx-sx-section-selector-unsupported-sections-title": "Ikke-støttede seksjoner",
 	"cx-sx-section-selector-unsupported-sections-description": "Det kan være at noen seksjoner ikke dukker opp i lista fordi innholdet i dem ikke støttes ennå.",
-	"cx-suggestion-list-new-pages-division": "Nye sider",
+	"cx-suggestion-list-new-pages-division": "Opprett nye sider",
 	"cx-translation-list-all-languages-option-label": "Alle",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Tilbake til alle seksjoner",
 	"cx-sx-content-comparator-translation-section-button-label": "Oversett denne seksjonen",
@@ -396,5 +398,10 @@
 	"sx-editor-feedback-overlay-clarification": "Lærer av dine rettelser",
 	"sx-editor-feedback-overlay-stats": "<span>$1</span> redigert av deg",
 	"cx-campaign-mflanguagesearcher-invite": "Du kan oversette denne siden. Det er en enkel måte å lage innhold på ditt språk.",
-	"cx-suggestion-list-favorites-division": "Til senere"
+	"cx-suggestion-list-favorites-division": "Til senere",
+	"sx-recent-translation-entrypoint-banner-header": "Denne siden har nylig blitt oversatt",
+	"sx-recent-translation-entrypoint-banner-details": "Hjelp til med å forbedre innholdet",
+	"sx-recent-translation-entrypoint-dialog-header": "Forbedre oversettelsen",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Gå gjennom innholdet",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Legg til nye seksjoner"
 }

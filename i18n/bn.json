@@ -14,7 +14,8 @@
 			"Tauhid16",
 			"Titodutta",
 			"ZI Jony",
-			"আফতাবুজ্জামান"
+			"আফতাবুজ্জামান",
+			"খাত্তাব হাসান"
 		]
 	},
 	"cx": "পাতা অনুবাদ করুন",
@@ -409,5 +410,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "একটি নতুন অনুচ্ছেদ অনুবাদ করুন",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" অনুবাদ করুন",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" ও \"$2\" অনুবাদ করুন",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" ও আরও অনুবাদ করুন"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" ও আরও অনুবাদ করুন",
+	"sx-block-template-adaptation-card-body-header-success": "প্রস্তাবিত টেমপ্লেট",
+	"sx-block-template-adaptation-card-edit-button-label": "অনুবাদ পর্যালোচনা এবং সম্পাদনা করুন",
+	"sx-block-template-adaptation-card-body-header-failure": "$1-এর জন্য সমতুল্য টেমপ্লেট উপলব্ধ নয়"
 }

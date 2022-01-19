@@ -451,5 +451,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduire une nouvelle section",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduire « $1 »",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduire « $1 » et « $2 »",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduire « $1 », « $2 » et d’autres"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduire « $1 », « $2 » et d’autres",
+	"sx-block-template-adaptation-card-body-header-success": "Modèle suggéré",
+	"sx-block-template-adaptation-card-edit-button-label": "Relire et modifier la traduction",
+	"sx-block-template-adaptation-card-body-header-failure": "Modèle équivalent non disponible pour $1"
 }

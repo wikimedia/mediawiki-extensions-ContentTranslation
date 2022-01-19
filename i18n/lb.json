@@ -280,5 +280,8 @@
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "D'Säit änneren",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Original Säit op $1 opmaachen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Iwwersetzt \"$1\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" an \"$2\" iwwersetzen"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" an \"$2\" iwwersetzen",
+	"sx-block-template-adaptation-card-body-header-success": "Proposéiert Schabloun",
+	"sx-block-template-adaptation-card-edit-button-label": "D'Iwwersetzung nokucken an änneren",
+	"sx-block-template-adaptation-card-body-header-failure": "Equivalent Schabloun net disponibel fir $1"
 }

@@ -407,5 +407,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Преведете нов поднаслов",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Преведете го „$1“",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Преведете ги „$1“ и „$2“",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Преведете ги „$1“, „$2“ и други"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Преведете ги „$1“, „$2“ и други",
+	"sx-block-template-adaptation-card-body-header-success": "Предложена предлошка",
+	"sx-block-template-adaptation-card-edit-button-label": "Прегледај и уреди го преводот",
+	"sx-block-template-adaptation-card-body-header-failure": "Нема еквивалентна предлошка за $1"
 }
