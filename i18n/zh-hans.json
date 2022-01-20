@@ -17,6 +17,7 @@
 			"FakeGreenHand",
 			"Fengchao",
 			"Grace03",
+			"GraceL",
 			"GuoPC",
 			"Hanyanbo98",
 			"JerryLiu",
@@ -416,5 +417,8 @@
 	"sx-editor-feedback-overlay-title": "谢谢！",
 	"sx-editor-feedback-overlay-clarification": "从你的更正中学习",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由你编辑",
-	"cx-campaign-mflanguagesearcher-invite": "你可以翻译此页面。这是一个简单的方式来在你自己的语言中创造内容。"
+	"cx-campaign-mflanguagesearcher-invite": "你可以翻译此页面。这是一个简单的方式来在你自己的语言中创造内容。",
+	"sx-block-template-adaptation-card-body-header-success": "推荐的模版",
+	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
+	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用"
 }
