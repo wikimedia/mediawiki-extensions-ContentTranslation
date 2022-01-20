@@ -11,7 +11,7 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\CorporaLookup;
-use ContentTranslation\Database;
+use MediaWiki\MediaWikiServices;
 use Sanitizer;
 
 /**
@@ -28,7 +28,9 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
-		$db = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$db = $lb->getConnection( DB_REPLICA );
+
 		$lookup = new CorporaLookup( $db );
 		$data = $lookup->getByTranslationId( $params['translationid'] );
 		$sections = $data[ 'sections' ];

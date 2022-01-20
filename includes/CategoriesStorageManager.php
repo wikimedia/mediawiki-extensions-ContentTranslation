@@ -10,6 +10,7 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
 
 class CategoriesStorageManager {
@@ -96,7 +97,8 @@ class CategoriesStorageManager {
 	public static function save(
 		$translationId, $sourceCategories, $targetCategories, $newTranslation
 	) {
-		$db = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$db = $lb->getConnection( DB_PRIMARY );
 
 		$db->doAtomicSection(
 			__METHOD__,
@@ -126,7 +128,8 @@ class CategoriesStorageManager {
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {
-		$db = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$db = $lb->getConnection( DB_PRIMARY );
 
 		$conditions = [ 'cxc_translation_id' => $translationId ] + self::$CATEGORIES_SECTION;
 

@@ -10,7 +10,8 @@ class SuggestionListManager {
 	 * @return int Id of the list.
 	 */
 	public function insertList( SuggestionList $list ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 		$values = [
 			'cxl_id' => $list->getId(),
 			'cxl_owner' => $list->getOwner(),
@@ -34,7 +35,8 @@ class SuggestionListManager {
 	}
 
 	public function deleteList( $id ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_suggestions',
 			[
@@ -56,7 +58,8 @@ class SuggestionListManager {
 			return;
 		}
 
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_suggestions',
 			[
@@ -68,7 +71,8 @@ class SuggestionListManager {
 	}
 
 	protected function getListByConds( array $conds ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 		$row = $dbr->selectRow( 'cx_lists', '*', $conds, __METHOD__ );
 
 		if ( $row ) {
@@ -149,7 +153,8 @@ class SuggestionListManager {
 	 * @return Suggestion[] Suggestions
 	 */
 	private function getSuggestionsByListName( $owner, $listName, $from = null, $to = null ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 		$suggestions = [];
 		$conds = [
 			'cxl_name' => $listName,
@@ -184,7 +189,8 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function addSuggestions( array $suggestions ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 
@@ -221,7 +227,8 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function removeSuggestions( array $suggestions ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 
 		foreach ( $suggestions as $suggestion ) {
 			$values = [
@@ -245,7 +252,8 @@ class SuggestionListManager {
 	 * @return bool
 	 */
 	public function doesSuggestionExist( Suggestion $suggestion ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$conds = [
 			'cxs_list_id' => $suggestion->getListId(),
@@ -295,12 +303,13 @@ class SuggestionListManager {
 	 * @return array Lists and suggestions
 	 */
 	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
-		$dbw = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$lists = [];
 		$suggestions = [];
 
-		$res = $dbw->select(
+		$res = $dbr->select(
 			'cx_lists',
 			'*',
 			[
@@ -347,7 +356,8 @@ class SuggestionListManager {
 	 */
 	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
 		$suggestions = [];
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$seed = (int)$seed;
 

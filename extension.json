@@ -140,6 +140,9 @@
 		"cx-entrypoint-fd-status": "notshown",
 		"cx_campaign_newarticle_shown": false
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"config": {
 		"ContentTranslationDomainCodeMapping": {
 			"value": {
@@ -162,9 +165,11 @@
 			"value": false
 		},
 		"ContentTranslationDatabase": {
+			"description": "The Database domain ID of the relevant wiki or false for the local wiki",
 			"value": false
 		},
 		"ContentTranslationCluster": {
+			"description": "The external Database cluster name where the database lives or false if not exists",
 			"value": false
 		},
 		"ContentTranslationSiteTemplates": {

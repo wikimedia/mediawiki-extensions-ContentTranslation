@@ -13,7 +13,6 @@ use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
-use ContentTranslation\Database;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -195,7 +194,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 * @return array Associative array with 'translationUnits' and 'categories' data
 	 */
 	protected function getTranslationUnitsAndCategories( Translation $translation ) {
-		$db = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$db = $lb->getConnection( DB_REPLICA );
 
 		$lookup = new CorporaLookup( $db );
 		return $lookup->getByTranslationId( $translation->getTranslationId() );

@@ -28,7 +28,8 @@ class Translator {
 	}
 
 	public function addTranslation( $translationId ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->replace(
 			'cx_translators',
 			[ [ 'translator_user_id', 'translator_translation_id' ] ],
@@ -41,7 +42,8 @@ class Translator {
 	}
 
 	public static function removeTranslation( $translationId ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->delete(
 			'cx_translators',
 			[ 'translator_translation_id' => $translationId ],
@@ -55,7 +57,9 @@ class Translator {
 	 * @return Translation|null
 	 */
 	public function getTranslation( $translationId ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
+
 		$row = $dbr->selectRow(
 			[ 'cx_translators', 'cx_translations' ],
 			'*',
@@ -90,7 +94,8 @@ class Translator {
 		$to = null
 	) {
 		// Note: there is no index on translation_last_updated_timestamp
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$tables = [ 'cx_translations', 'cx_translators' ];
 		$fields = '*';
@@ -130,7 +135,8 @@ class Translator {
 
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$queries = [];
 		foreach ( [ 'source', 'target' ] as $field ) {
@@ -162,7 +168,9 @@ class Translator {
 	 * @return int
 	 */
 	public function getTranslationsCount() {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
+
 		$count = $dbr->selectField(
 			[ 'cx_translators', 'cx_translations' ],
 			'count(*)',
@@ -201,7 +209,8 @@ class Translator {
 			'target' => 'translation_target_language',
 		];
 
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
 		$fields = [
@@ -229,7 +238,8 @@ class Translator {
 	 * @return int Number of translators
 	 */
 	public static function getTotalTranslatorsCount() {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
 		$field = 'COUNT(DISTINCT translation_started_by) AS translators';

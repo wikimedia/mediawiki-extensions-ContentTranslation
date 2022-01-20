@@ -18,7 +18,8 @@ class Translation {
 	}
 
 	public function create( Translator $translator ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 
 		$table = 'cx_translations';
 
@@ -62,7 +63,8 @@ class Translation {
 	 * @param Translator $translator
 	 */
 	public function update( ?array $options, Translator $translator ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 
 		$table = 'cx_translations';
 
@@ -148,7 +150,8 @@ class Translation {
 			return null;
 		}
 
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 		$values = [
 			'translation_source_language' => $sourceLanguage,
 			'translation_target_language' => $targetLanguage,
@@ -190,7 +193,9 @@ class Translation {
 	 * @return Translation|null
 	 */
 	public static function findForTranslator( TranslationWork $work, Translator $translator ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
+
 		$values = [
 			'translation_source_language' => $work->getSourceLanguage(),
 			'translation_target_language' => $work->getTargetLanguage(),
@@ -212,7 +217,9 @@ class Translation {
 	 * @return Translation|null
 	 */
 	public static function findByPublishedTitle( string $publishedTitle, string $targetLanguage ): ?Translation {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
+
 		$conditions = [
 			'translation_target_language' => $targetLanguage,
 			'translation_target_title' => $publishedTitle
@@ -253,7 +260,8 @@ class Translation {
 	}
 
 	public static function delete( $translationId ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
 
 		$dbw->update(
 			'cx_translations',
@@ -279,7 +287,8 @@ class Translation {
 	 * @return array
 	 */
 	public static function getDraftStats() {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$rows = $dbr->select(
 			'cx_translations',
@@ -319,7 +328,8 @@ class Translation {
 	 * @return array
 	 */
 	public static function getPublishedStats() {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$rows = $dbr->select(
 			'cx_translations',
@@ -356,7 +366,8 @@ class Translation {
 	 * @return array<string,array>
 	 */
 	public static function getDeletionTrend( $interval ): array {
-		$dbr = wfGetDB( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$conditions = [
 			'ar_rev_id = ct_rev_id'
@@ -422,7 +433,8 @@ class Translation {
 	public static function getTrendByStatus(
 		$source, $target, $status, $interval, $translatorId
 	) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$conditions = [];
 		if ( $status === 'published' ) {
@@ -517,7 +529,8 @@ class Translation {
 	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 		$conditions = [];
 		$conditions[] = self::getPublishedCondition( $dbr );
 

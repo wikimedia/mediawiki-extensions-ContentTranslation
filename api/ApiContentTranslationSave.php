@@ -9,7 +9,6 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\CategoriesStorageManager;
-use ContentTranslation\Database;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
@@ -21,6 +20,7 @@ use Deflate;
 use Exception;
 use FormatJson;
 use Language;
+use MediaWiki\MediaWikiServices;
 
 class ApiContentTranslationSave extends ApiBase {
 	/**
@@ -31,7 +31,8 @@ class ApiContentTranslationSave extends ApiBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		if ( Database::getConnection( DB_PRIMARY )->isReadOnly() ) {
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		if ( $lb->getConnection( DB_PRIMARY )->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 

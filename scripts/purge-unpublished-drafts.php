@@ -6,7 +6,6 @@
 
 namespace ContentTranslation\Scripts;
 
-use ContentTranslation\Database;
 use ContentTranslation\Notification;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
@@ -76,7 +75,8 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			throw new InvalidArgumentException( 'Purge days must be an integer' );
 		}
 
-		$dbr = Database::getConnection( DB_REPLICA );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbr = $lb->getConnection( DB_REPLICA );
 		$notifyAgeInDays = $this->getOption( 'notify-age-in-days' );
 
 		// Notifications can only be send if the user account exists on the wiki where this
@@ -297,7 +297,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	private function logLastNotifiedDraft( $lastDraft ) {
-		$dbw = Database::getConnection( DB_PRIMARY );
+		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
+		$dbw = $lb->getConnection( DB_PRIMARY );
+
 		$dt = new DateTime();
 
 		$values = [
