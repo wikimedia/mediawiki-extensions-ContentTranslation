@@ -391,5 +391,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Käännä uusi osio",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Käännä \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Käännä \"$1\" ja \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Käännä \"$1\", \"$2\" ja muuta"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Käännä \"$1\", \"$2\" ja muuta",
+	"sx-block-template-adaptation-card-body-header-success": "Ehdotettu malline",
+	"sx-block-template-adaptation-card-edit-button-label": "Tarkista ja muokkaa käännöstä"
 }
