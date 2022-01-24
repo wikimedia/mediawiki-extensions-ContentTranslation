@@ -402,5 +402,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduss on sezzion noeuva",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduss \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduss \"$1\" e \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduss \"$1\", \"$2\" e alter"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduss \"$1\", \"$2\" e alter",
+	"sx-block-template-adaptation-card-body-header-success": "Modell sugerid",
+	"sx-block-template-adaptation-card-edit-button-label": "Varda an'mò e modifega la traduzzion",
+	"sx-block-template-adaptation-card-body-header-failure": "Modell ecuvalent minga disponibil per $1"
 }

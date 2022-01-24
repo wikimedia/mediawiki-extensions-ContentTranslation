@@ -400,5 +400,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Tulkot jaunu sadaļu",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Tulkot \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tulkot \"$1\" un \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Tulkot \"$1\" \"$2\" un vēl"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Tulkot \"$1\" \"$2\" un vēl",
+	"sx-block-template-adaptation-card-body-header-success": "Ieteiktā veidne",
+	"sx-block-template-adaptation-card-edit-button-label": "Pārskati un labo tulkojumu",
+	"sx-block-template-adaptation-card-body-header-failure": "$1 valodā nav pieejama atbilstoša veidne"
 }

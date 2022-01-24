@@ -4,6 +4,7 @@
 			"Amire80",
 			"Artificial123",
 			"Artsiom91",
+			"Chadyka",
 			"Kareyac",
 			"Maksim L.",
 			"Mechanizatar",
@@ -67,5 +68,6 @@
 	"cx-contributions-link": "Ваш уклад",
 	"cx-continue-translation": "Працягваць пераклад",
 	"cx-unreviewed-translation-category": "Старонкі з недагледжанымі перакладамі",
-	"cx-preference-enable-entrypoints": "Прапаноўваць [[$1|пачаць пераклад]] са старонкі ўнёску, спісу моў і пры стварэнні новай старонкі."
+	"cx-preference-enable-entrypoints": "Прапаноўваць [[$1|пачаць пераклад]] са старонкі ўнёску, спісу моў і пры стварэнні новай старонкі.",
+	"cx-feature-discovery-dismiss": "Добра, зразумела"
 }
