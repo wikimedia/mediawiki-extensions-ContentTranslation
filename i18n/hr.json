@@ -13,14 +13,15 @@
 			"Srđan",
 			"Vlad5250",
 			"Zeljko.filipin",
-			"Ponor"
+			"Ponor",
+			"Valerio Bozzolan"
 		]
 	},
 	"cx": "Prevedi stranicu",
 	"cx-dashboard-header": "Prijevodi",
 	"cx-javascript": "Ovo oruđe ne radi bez JavaScripta. JavaScript je onemogućen, zatajio mu je rad ili ovaj preglednik nije podržan.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Prevoditelj sadržaja]] je alat za brzi prijevod stranice na vaš jezik. [$1 Probajte ga upravo sada!]",
-	"cx-license-agreement": "Nastavljanjem pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uvjete upotrebe] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GDFL].",
+	"cx-license-agreement": "Nastavljanjem pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uvjete upotrebe] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Greška: ne mogu se spojiti na poslužitelj.",
 	"cx-desc": "Omogućava jednostavno [[Special:ContentTranslation|prevođenje]] stranica",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

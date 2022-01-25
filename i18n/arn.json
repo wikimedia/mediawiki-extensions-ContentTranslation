@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Manke ruLpa"
+		]
+	},
+	"cx": "Rulpazungun tapülh",
+	"cx-dashboard-header": "Rulpazungukan",
+	"cx-header-all-translations": "Kom rulpazungukan",
+	"cx-source-view-page": "pen tapülh",
+	"cx-publish-page-success": "tapülh entupelu $1 mew",
+	"cx-source-loading": "Püramkülelu $1",
+	"cx-tools-link-title": "Trarintuku",
+	"cx-tools-link-add": "Püñamtun trarintuku",
+	"cx-tools-mt-provider-title": "Pünen $1",
+	"cx-captcha-dialog-cancel": "Katrütun",
+	"cx-create-new-translation": "We rulpazungun",
+	"cx-translation-filter-label-all-languages": "Itrokom",
+	"cx-translation-filter-uls-all-languages": "Kom zungun",
+	"cx-save-draft-saving": "Eltulu...",
+	"cx-contributions-new-contributions": "We kellukonün",
+	"cx-contributions-new-article": "We tapülh",
+	"cx-contributions-translation": "Rulpazungun",
+	"cx-translation-status-draft": "Femkülelu",
+	"cx-draft-cancel-button-label": "Katrütun"
+}

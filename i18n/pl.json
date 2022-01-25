@@ -251,7 +251,7 @@
 	"cx-infobar-view-issues": "Wyświetl problemy",
 	"cx-infobar-cannot-publish": "Twoje tłumaczenie nie mogło zostać zapisane, ponieważ publikowanie jest dostępne tylko dla bardziej doświadczonych edytorów tej wiki.",
 	"cx-infobar-old-version": "To tłumaczenie jest oparte na starszej wersji treści. Strona źródłowa mogła zostać zmieniona w znaczącym stopniu, a ty możesz chcieć rozpocząć tłumaczenie ponownie.",
-	"cx-tools-linter-issues": "Zgłoszenie",
+	"cx-tools-linter-issues": "Problemy",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 błąd|$1 błędy|$1 błędów}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ostrzeżenie|$1 ostrzeżenia|$1 ostrzeżeń}}",
 	"cx-tools-linter-learn-more": "Dowiedz się więcej",
