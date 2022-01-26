@@ -3,14 +3,15 @@
 		"authors": [
 			"Joetaras",
 			"Macofe",
-			"Prevodim"
+			"Prevodim",
+			"Valerio Bozzolan"
 		]
 	},
 	"cx": "Pàgene de traduzione",
 	"cx-dashboard-header": "Traduziune",
 	"cx-javascript": "Stu strumende non ge funzione senze JavaScript. JavaScript jè disabilitate, non ge ste funzione, o 'u browser tune non g'u supporte.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traduziune vôsce]] jè 'nu strumende pe aijutà 'a traduzione jndr'à lènga toje. [$1 Pruèvele mò!]",
-	"cx-license-agreement": "Condinuanne, accette le [https://foundation.wikimedia.org/wiki/Terms_of_Use condiziune d'ause] nuèstre e accette irrevocabbilmende de relascià 'u teste tune in base a le licenze [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA 3.0] e [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GDFL].",
+	"cx-license-agreement": "Condinuanne, accette le [https://foundation.wikimedia.org/wiki/Terms_of_Use condiziune d'ause] nuèstre e accette irrevocabbilmende de relascià 'u teste tune in base a le licenze [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA 3.0] e [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Errore: Non ge te puè collegà a 'u server.",
 	"cx-desc": "Fà devendà facile [[Special:ContentTranslation|traducere]] le vôsce",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradotte}}",
