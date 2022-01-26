@@ -421,5 +421,10 @@
 	"sx-editor-feedback-overlay-clarification": "Aprendiendo de tus correcciones",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> editado por ti",
 	"cx-campaign-mflanguagesearcher-invite": "Puedes traducir esta página. Es una manera fácil de crear contenido en tu idioma.",
-	"cx-suggestion-list-favorites-division": "Para más adelante"
+	"cx-suggestion-list-favorites-division": "Para más adelante",
+	"sx-recent-translation-entrypoint-banner-header": "Esta página fue traducida recientemente",
+	"sx-recent-translation-entrypoint-banner-details": "Ayuda a mejorar los contenidos",
+	"sx-recent-translation-entrypoint-dialog-header": "Mejorar la traducción",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Revisar contenidos",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Añadir nuevas secciones"
 }
