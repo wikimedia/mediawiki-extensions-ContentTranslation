@@ -103,8 +103,7 @@ module.exports = {
 			selectedOption: 'review',
 			sourceLanguage: mw.config.get( 'wgSectionTranslationSourceLanguage' ),
 			sourceTitle: mw.config.get( 'wgSectionTranslationSourceTitle' ),
-			targetLanguage: siteMapper.getCurrentWikiLanguageCode(),
-			targetTitle: mw.config.get( 'wgTitle' )
+			targetLanguage: siteMapper.getCurrentWikiLanguageCode()
 		};
 	},
 	computed: {
@@ -179,7 +178,7 @@ module.exports = {
 		},
 		goToSX: function () {
 			window.location.href = siteMapper.getCXUrl(
-				this.targetTitle,
+				this.sourceTitle,
 				null,
 				this.sourceLanguage,
 				this.targetLanguage,
