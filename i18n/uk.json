@@ -423,5 +423,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Перекласти новий розділ",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Переклад: «$1»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перекласти «$1» і «$2»",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перекласти «$1», «$2» та більше"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перекласти «$1», «$2» та більше",
+	"sx-block-template-adaptation-card-body-header-success": "Запропонований шаблон",
+	"sx-block-template-adaptation-card-edit-button-label": "Перевірити та редагувати переклад",
+	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1"
 }

@@ -422,5 +422,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Översätt ett nytt avsnitt",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Översätt \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Översätt \"$1\" och \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Översätt \"$1\", \"$2\" och fler"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Översätt \"$1\", \"$2\" och fler",
+	"sx-block-template-adaptation-card-body-header-success": "Föreslagen mall",
+	"sx-block-template-adaptation-card-edit-button-label": "Granska och redigera översättningen",
+	"sx-block-template-adaptation-card-body-header-failure": "Motsvarande mall för $1 finns inte tillgänglig"
 }
