@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.1.0+20220118",
+  "version": "0.1.0+20220131",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -14,9 +14,9 @@
     "test:bundle": "bash ./scripts/check_bundle.sh"
   },
   "dependencies": {
-    "@wikimedia/language-data": "1.0.4",
+    "@wikimedia/language-data": "1.0.8",
     "vue": "^2.6.14",
-    "vue-banana-i18n": "^1.5.1",
+    "vue-banana-i18n": "^1.5.2",
     "vue-router": "^3.5.3",
     "vuex": "^3.6.2"
   },
@@ -37,7 +37,7 @@
     "@vue/cli-service": "^4.5.15",
     "@vue/composition-api": "^1.4.0",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.2.1",
+    "@vue/test-utils": "^1.3.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-vue": "^2.0.2",
     "bundlesize": "^0.18.1",
@@ -63,23 +63,23 @@
   "bundlesize": [
     {
       "path": "dist/js/cx.js",
-      "maxSize": "48.50KB"
+      "maxSize": "48.00KB"
     },
     {
       "path": "dist/js/cx.libs.js",
-      "maxSize": "69.35KB"
+      "maxSize": "69.50KB"
     },
     {
       "path": "dist/js/cx.ui.js",
-      "maxSize": "9.22KB"
+      "maxSize": "10.10KB"
     },
     {
       "path": "dist/css/cx.ui.css",
-      "maxSize": "16.00KB"
+      "maxSize": "16.10KB"
     },
     {
       "path": "dist/css/cx.css",
-      "maxSize": "4.20KB"
+      "maxSize": "4.10KB"
     }
   ]
 }
