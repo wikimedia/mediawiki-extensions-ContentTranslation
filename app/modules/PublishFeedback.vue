@@ -51,7 +51,7 @@
     </div>
     <hr class="sx-separation-line" />
     <div
-      v-if="missingSections.length > 0"
+      v-if="isUserSandbox || missingSections.length > 0"
       class="sx-published-section-invitation row pa-4"
       @click="redirectToSX"
     >
