@@ -269,7 +269,7 @@
 	"cx-sx-section-selector-desc": "Tu salīdzināsi saturu abās valodās",
 	"cx-sx-language-selector-dialog-title": "Meklēt valodu",
 	"cx-sx-existing-translation-status": "Pieejams $1 valodā",
-	"cx-sx-existing-translation-additional-info": "Paplašini esošo saturu, iztulkojot jaunas sadaļas.",
+	"cx-sx-existing-translation-additional-info": "Paplašini ar $1{{PLURAL:$2| un $2 citu sadaļu| un $2 citām sadaļām|0=}}",
 	"cx-sx-start-translation-button-label": "Sākt tulkošanu",
 	"cx-sx-view-translation-anchor": "Apskatīt",
 	"cx-sx-existing-translation-learn-more": "Uzzināt vairāk",
