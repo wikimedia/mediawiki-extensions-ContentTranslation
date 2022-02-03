@@ -12,25 +12,17 @@
  */
 mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	// Configuration initialization
-	config = config || {};
+	config = $.extend( {
+		showClose: true
+	}, config );
 
 	config.label = config.label || this.composeMessage( config.message, config.details );
 
 	// Parent constructor
 	mw.cx.ui.MessageWidget.super.call( this, config );
 
-	// Events
-	this.closeButton = new OO.ui.ButtonWidget( {
-		framed: false,
-		icon: 'close',
-		classes: [ 'cx-message-widget-close' ],
-		tabIndex: -1
-	} ).connect( this, { click: 'onCloseClick' } );
-
 	// Initialization
-	this.$element
-		.addClass( 'cx-message-widget' )
-		.append( this.closeButton.$element );
+	this.$element.addClass( 'cx-message-widget' );
 
 	this.addButtons( config.buttons );
 };
@@ -40,13 +32,6 @@ mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 OO.inheritClass( mw.cx.ui.MessageWidget, OO.ui.MessageWidget );
 
 /* Methods */
-
-/**
- * Handle close icon clicks
- */
-mw.cx.ui.MessageWidget.prototype.onCloseClick = function () {
-	this.$element.remove();
-};
 
 mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) {
 	var $message, $details;
