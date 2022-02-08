@@ -35,8 +35,8 @@ class SiteMapper {
 
 		list( , $domain ) = $wgConf->siteFromDB( $wgDBname );
 
-		// Fallback for non-wmf-style farms
-		if ( $domain === '' ) {
+		// Fallback for non-wmf-style farms. $domain can be null or empty string in that case.
+		if ( ( $domain ?? '' ) === '' ) {
 			return MediaWikiServices::getInstance()->getContentLanguage()->getCode();
 		}
 
