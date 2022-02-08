@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Akapochtli"
+			"Akapochtli",
+			"Languaeditor"
 		]
 	},
-	"cx-dashboard-header": "Tlahtolcuepaliztli",
-	"cx-contributions-translation": "Tlahtolcuepaliztli",
-	"cx-campaign-contributionsmenu-mytranslations": "Tlahtolcuepaliztli",
-	"echo-category-title-cx": "Tlahtolcuepaliztli",
+	"cx-dashboard-header": "Tlahtolkwapalistli",
+	"cx-contributions-translation": "Tlahtolkwapalistli",
+	"cx-campaign-contributionsmenu-mytranslations": "Tlahtolkwapalistli",
+	"echo-category-title-cx": "Tlahtolkwapalistli",
 	"cx-personaltools-user": "Tequitiuhqui"
 }
