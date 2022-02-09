@@ -591,11 +591,37 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 };
 
 /**
+ * @param {ve.dm.Transaction} transaction
  * @fires contentChange
  */
-ve.init.mw.CXTarget.prototype.onDocumentTransact = function () {
+ve.init.mw.CXTarget.prototype.onDocumentTransact = function ( transaction ) {
+	var docModel, changedRange, changedNode, changedSectionNode, includeInternalList;
+
 	this.emit( 'contentChange' );
 	this.debounceAlignSectionPairs();
+
+	/** @type {ve.dm.Document} */
+	docModel = this.targetSurface.getModel().getDocument();
+	// Include changes within the internal list
+	includeInternalList = true;
+	changedRange = transaction.getModifiedRange( docModel, includeInternalList );
+	if ( !changedRange ) {
+		return;
+	}
+	changedNode = docModel.getBranchNodeFromOffset( changedRange.start );
+	if ( changedNode ) {
+		changedSectionNode = changedNode.findParent( ve.dm.CXSectionNode );
+	}
+	if ( changedSectionNode ) {
+		changedSectionNode.emitSectionChange();
+	} else {
+		// In case of references, the node affected is internal list item.
+		// It is possible that the reference is used in multiple sections too.
+		// Register change to all sections.
+		docModel.getNodesByType( 'cxSection' ).forEach( function ( section ) {
+			section.emitSectionChange();
+		} );
+	}
 };
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
