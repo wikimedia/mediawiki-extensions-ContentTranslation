@@ -416,7 +416,11 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 		freshTranslation = true;
 	}
 
-	newContent = ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML;
+	// We use CLIPBOARD_MODE below because in PARSER_MODE, we exclude template renderings
+	// and other view-only information that Parsoid doesn't care about.
+	// CLIPBOARD_MODE helps to keep the rendering in the content to be saved and hence helping to restore
+	// them with rendering.
+	newContent = ve.dm.converter.getDomFromNode( sectionModel, ve.dm.Converter.static.CLIPBOARD_MODE ).body.innerHTML;
 	existingContent = sectionState.getUserTranslation();
 	unmodifiedMTContent = sectionState.getUnmodifiedMT();
 	if ( !unmodifiedMTContent.html ) {
