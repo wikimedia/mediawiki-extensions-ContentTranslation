@@ -7,6 +7,7 @@ use ContentTranslation\PreferenceHelper;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
+use Wikibase\Lib\SettingsArray;
 use Wikibase\Lib\Store\SiteLinkLookup;
 use Wikimedia\Services\NoSuchServiceException;
 
@@ -44,6 +45,15 @@ return [
 			try {
 				$wikibaseClientStore = $services->getService( 'WikibaseClient.Store' );
 				return $wikibaseClientStore->getSiteLinkLookup();
+			} catch ( NoSuchServiceException $exception ) {
+				return null;
+			}
+		},
+	'ContentTranslation.WikibaseClient.Settings' =>
+		/** @phan-suppress-next-line PhanUndeclaredTypeReturnType */
+		static function ( MediaWikiServices $services ): ?SettingsArray {
+			try {
+				return $services->getService( 'WikibaseClient.Settings' );
 			} catch ( NoSuchServiceException $exception ) {
 				return null;
 			}
