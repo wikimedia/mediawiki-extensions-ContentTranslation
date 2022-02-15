@@ -7,6 +7,8 @@ use ContentTranslation\PreferenceHelper;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
+use Wikibase\Lib\Store\SiteLinkLookup;
+use Wikimedia\Services\NoSuchServiceException;
 
 /** @phpcs-require-sorted-array */
 return [
@@ -36,4 +38,14 @@ return [
 				$wikiFamily
 			);
 		},
+	'ContentTranslation.SiteLinkLookup' =>
+		/** @phan-suppress-next-line PhanUndeclaredTypeReturnType */
+		static function ( MediaWikiServices $services ): ?SiteLinkLookup {
+			try {
+				$wikibaseClientStore = $services->getService( 'WikibaseClient.Store' );
+				return $wikibaseClientStore->getSiteLinkLookup();
+			} catch ( NoSuchServiceException $exception ) {
+				return null;
+			}
+		}
 ];
