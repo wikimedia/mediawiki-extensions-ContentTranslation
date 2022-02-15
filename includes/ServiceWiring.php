@@ -3,6 +3,7 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
+use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
@@ -39,6 +40,10 @@ return [
 				$filterLookup,
 				$filterRunnerFactory
 			);
+		},
+	'ContentTranslation.EditedSectionFinder' =>
+		static function (): EditedSectionFinder {
+			return new EditedSectionFinder();
 		},
 	'ContentTranslation.LoadBalancer' =>
 		static function ( MediaWikiServices $services ): LoadBalancer {
