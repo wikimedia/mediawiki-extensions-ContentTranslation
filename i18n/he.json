@@ -16,7 +16,8 @@
 			"Петар Петковић",
 			"דגש",
 			"דגש חזק",
-			"ערן"
+			"ערן",
+			"לואיקה"
 		]
 	},
 	"cx": "תרגום דף",
@@ -161,7 +162,7 @@
 	"cx-stats-published-translators-title": "מספר המתרגמים",
 	"cx-stats-cumulative-tab-title": "סה\"כ",
 	"cx-stats-weekly-trend-tab-title": "לשבוע",
-	"cx-draft-discard-confirmation-message": "האם {{GENDER:|אתה בטוח שאתה|את בטוחה שאת}} רוצה למחוק לצמיתות את התרגום הזה?",
+	"cx-draft-discard-confirmation-message": "האם {{GENDER:|אתה בטוח שאתה רוצה|את בטוחה שאת רוצה|ברצונך באמת}} למחוק לצמיתות את התרגום הזה?",
 	"cx-draft-cancel-button-label": "ביטול",
 	"cx-draft-discard-button-label": "מחיקת תרגום",
 	"cx-beta-feature-enabled-notification": "תרגום תוכן הופעל בוויקי הזה.",
@@ -278,7 +279,7 @@
 	"cx-unreviewed-translation-category-desc": "דפים שתורגמו באמצעות כלי תרגום תוכן ושמכילים כמות גדולה של תוכן שלא נסקר",
 	"cx-preference-enable-entrypoints": "גישה ל[[$1|התחלת תרגום]] מדף התרומות, מרשימת השפות, ומיצירת דפים חדשים.",
 	"cx-feature-discovery-title": "לתרגם כשבא לך",
-	"cx-feature-discovery-content": "{{GENDER:|אתה יכול|את יכולה}} להתחיל או להמשיך לתרגם בכל זמן מהדף {{int:mycontris}}",
+	"cx-feature-discovery-content": "{{GENDER:|אתה יכול|את יכולה|ביכולתך}} להתחיל או להמשיך לתרגם בכל עת מהדף {{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "בסדר, הבנתי",
 	"cx-suggestionlist-expand-sections-title": "להרחיב עם פרקים חדשים",
 	"cx-sx-select-section": "בחירת פרק לתרגום",
