@@ -17,6 +17,7 @@
                   <h5
                     class="my-0 cx-suggestion__source-title"
                     :lang="suggestion.sourceLanguage"
+                    :dir="getDir(suggestion.sourceLanguage)"
                     v-text="title"
                   />
                 </mw-col>
@@ -24,6 +25,7 @@
                   <p
                     class="ma-0 cx-suggestion__source-description complementary"
                     :lang="suggestion.sourceLanguage"
+                    :dir="getDir(suggestion.sourceLanguage)"
                     v-text="description"
                   />
                 </mw-col>
@@ -96,7 +98,7 @@ import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { computed } from "@vue/composition-api";
-import { getAutonym } from "@wikimedia/language-data";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 
 export default {
   name: "CxTranslationSuggestion",
@@ -157,6 +159,7 @@ export default {
       bookmarkIcon,
       bookmarkIconColor,
       description,
+      getDir,
       isFavoriteSuggestion,
       isSectionSuggestion,
       missingSectionsCount,
