@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Yupik"
+			"Yupik",
+			"Seipinne"
 		]
 	},
 	"cx-header-all-translations": "Puoh jurgâlusah",
@@ -10,6 +11,9 @@
 	"cx-dashboard-sidebar-stats": "Lovottuvah",
 	"cx-translation-filter-suggested-translations": "Iävtuttâsah",
 	"cx-translation-filter-label-all-languages": "Puoh",
+	"cx-contributions-new-contributions": "Uđđâ siskáldâs",
 	"cx-campaign-no-thanks": "Ij takkâ",
-	"cx-personaltools-anon": "Jieh lah čälittâm jieijâd siisâ"
+	"cx-campaign-contributionsmenu-mycontributions": "Hammiimeh",
+	"cx-personaltools-anon": "Jieh lah čälittâm jieijâd siisâ",
+	"cx-translator-month-stats-label": "Taan máánust"
 }

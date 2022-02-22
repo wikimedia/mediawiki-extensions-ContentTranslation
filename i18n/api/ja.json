@@ -138,6 +138,7 @@
 	"apihelp-cxpublishsection-param-targetlanguage": "翻訳先の言語コード。",
 	"apihelp-cxpublishsection-param-sourcetitle": "翻訳元のページの題名。",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "翻訳先の節の見出し。",
+	"apihelp-cxpublishsection-param-sectionnumber": "改版したページに示す節の位置。",
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)"
 }
