@@ -203,6 +203,7 @@ class Hooks {
 		$updater->addExtensionTable( 'cx_corpora', "$dir/sql/parallel-corpora.sql" );
 		$updater->addExtensionTable( 'cx_notification_log', "$dir/sql/notification-log.sql" );
 		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
+		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
 
 		$updater->addExtensionField(
 			'cx_translations',
