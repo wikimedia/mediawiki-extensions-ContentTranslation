@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AC Krah",
+			"Afrah2000",
 			"Amire80",
 			"Chiefinnocent",
 			"Jemima2019",
@@ -61,7 +62,7 @@
 	"cx-tools-mt-provider-title": "Fa $1",
 	"cx-tools-mt-dont-use": "Fa kasapɛn a hwee nni mu hyɛ aseɛ",
 	"cx-tools-mt-set-default": "Fa no sɛnea ɛteɛ",
-	"cx-tools-mt-noservices": "Kasa nsesaeɛ dwumadie no nni hɔ ma kasa a woayi no. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Adɛn?]]",
+	"cx-tools-mt-noservices": "Kasa nsesaeɛ ahodoɔ yi nni hɔ ma kasa a woayi yi.\n[[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Adɛn?]]",
 	"cx-tools-mt-preferred": "nea ɛteɛ",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 nkyekyɛmu|0=nkyekyɛmu biara nni hɔ}}",
 	"cx-warning-unsaved-translation": "Wowɔ kasa nsesaeɛ a wonsieeɛ.",
@@ -72,7 +73,7 @@
 	"cx-source-page-selector-no-suggestions": "Dwene asɛnti a w'ani gye ho. Wonhia sɛ woakwadare wɔ mu ansa na woayɛ kasa nsesaeɛ a ɛdi mu.",
 	"cx-source-page-selector-no-search-results": "Woanhunu nkrataafa biara ma $1 wɔ $2",
 	"cx-selected-source-page-start-translation-button": "Hyɛ kasa nkyerɛaseɛ ase",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=Wonhia sɛ woba ha}} nnawɔtwe yi",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 nsrahwɛ  per|$1 nsrahwɛ per|0=Wommaa ha}} nnawɔtwe yi",
 	"cx-selected-source-page-error-page-and-title-exist": "Wɔde saa ti asɛm yi adi dwuma dada wɔ [$1 $2] ma [$3 kratafa foforɔ]",
 	"cx-selected-source-page-error-page-exists": "Kratafa yi [$1 wɔ hɔ dada] wɔ $2",
 	"cx-selected-source-page-error-title-in-use": "Kratafa foforɔ yi ti asɛm [$1 redi dwuma]",
@@ -208,5 +209,5 @@
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Hwɛ beaɛ a yɛnya mmoa firi",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Sesa biribi wɔ kratafa no so",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Kyerɛ $1 mu",
-	"sx-block-template-adaptation-card-edit-button-label": "Hwɛ mu na ɛyɛ \"translation\" no"
+	"sx-block-template-adaptation-card-edit-button-label": "Hwɛ mu na yɛ nsesae no"
 }
