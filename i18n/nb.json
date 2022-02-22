@@ -403,5 +403,22 @@
 	"sx-recent-translation-entrypoint-banner-details": "Hjelp til med å forbedre innholdet",
 	"sx-recent-translation-entrypoint-dialog-header": "Forbedre oversettelsen",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Gå gjennom innholdet",
-	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Legg til nye seksjoner"
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Legg til nye seksjoner",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Oversettelser gjenbruker arbeid av bidragsytere på andre språk. Noen aspekter kan imidlertid gå tapt i oversettelsen. Du kan hjelpe til:",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "Gjør at innholdet flyter bra",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Rediger setninger for å omrokkere eller erstatte ord etter behov.",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Sjekk referansene",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Leserne sjekker referanser for å verifisere informasjonen. Gå gjennom formatet på referansene og legg til relevante referanser på ditt språk.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Sammenlign med originalen",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Sjekk at den opprinnelige betydningen ikke har blitt endret i oversettelsen.",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Rediger siden",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Åpne originalsiden på $1",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Utvid denne siden ved å oversette seksjoner som er tilgjengelige på andre språk du kan.",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Oversett en ny seksjon",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Oversett «$1»",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Oversett «$1» og «$2»",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Oversett «$1», «$2» og mer",
+	"sx-block-template-adaptation-card-body-header-success": "Foreslått mal",
+	"sx-block-template-adaptation-card-edit-button-label": "Gå gjennom og rediger oversettelsen",
+	"sx-block-template-adaptation-card-body-header-failure": "Tilsvarende mal er ikke tilgjengelig på $1"
 }

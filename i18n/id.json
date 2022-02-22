@@ -422,5 +422,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Terjemahkan bagian baru",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Terjemahkan \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Terjemahkan \"$1\" dan \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Terjemahkan \"$1\", \"$2\", dan lain-lain"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Terjemahkan \"$1\", \"$2\", dan lain-lain",
+	"sx-block-template-adaptation-card-body-header-success": "Saranan templat",
+	"sx-block-template-adaptation-card-edit-button-label": "Tinjau dan sunting terjemahan",
+	"sx-block-template-adaptation-card-body-header-failure": "Templat yang ekuivalen tidak tersedia untuk $1"
 }
