@@ -135,7 +135,7 @@ ve.dm.CXLintableNode.prototype.resolveTranslationIssues = function ( names ) {
  * Emit events about the state of issues.
  */
 ve.dm.CXLintableNode.prototype.notify = function () {
-	if ( this.getTranslationIssues().length === 0 ) {
+	if ( !this.hasTranslationIssues() ) {
 		this.emit( 'allIssuesResolved' );
 		this.getTranslation().emit( 'issuesResolved', this.getId() );
 	} else {
@@ -176,4 +176,13 @@ ve.dm.CXLintableNode.prototype.hasErrors = function () {
 	return this.getTranslationIssues().some( function ( issue ) {
 		return issue.type === 'error';
 	} );
+};
+
+/**
+ * Check if this node has at least one issue.
+ *
+ * @return {boolean}
+ */
+ve.dm.CXLintableNode.prototype.hasTranslationIssues = function () {
+	return this.getTranslationIssues().length > 0;
 };

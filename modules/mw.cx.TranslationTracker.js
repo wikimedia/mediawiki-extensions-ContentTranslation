@@ -299,22 +299,22 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		this.processValidationQueue();
 	}
 
-	this.attachOnFocusListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
+	this.attachEventListeners( translationModel.targetDoc.getNodesByType( 'cxSection' ) );
 };
 
 /**
- * Attach listeners for 'blur' events on restored sections as well as on newly added sections.
+ * Attach listeners for events on restored sections as well as on newly added sections.
  *
  * @param {ve.dm.CXSectionNode[]} sections
  */
-mw.cx.TranslationTracker.prototype.attachOnFocusListeners = function ( sections ) {
-	// Register event listeners for 'focus' event on restored sections
+mw.cx.TranslationTracker.prototype.attachEventListeners = function ( sections ) {
+	// Register event listeners for 'focus' and 'update' events on restored sections
 	sections.map( function ( sectionModel ) {
 		return sectionModel.getId();
-	} ).forEach( this.registerOnFocusListenerForSection.bind( this ) );
+	} ).forEach( this.registerEventListenersForSection.bind( this ) );
 
 	// Register event listeners for 'focus' event for every newly added section
-	this.veTarget.connect( this, { changeContentSource: 'registerOnFocusListenerForSection' } );
+	this.veTarget.connect( this, { changeContentSource: 'registerEventListenersForSection' } );
 };
 
 /**
@@ -659,10 +659,15 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 /**
  * @param {number} sectionNumber
  */
-mw.cx.TranslationTracker.prototype.registerOnFocusListenerForSection = function ( sectionNumber ) {
-	var sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
+mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function ( sectionNumber ) {
+	var focusHandler, changeHandler, sectionNode, sectionModel;
 
-	sectionNode.connect( this, { focus: function () {
+	/* @type {ve.ce.CXSectionNode} */
+	sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
+	/* @type {ve.dm.CXSectionNode} */
+	sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+
+	focusHandler = function () {
 		// Validate every sections except the current section
 		var index = this.validationDelayQueue.indexOf( sectionNumber );
 		if ( index > -1 ) {
@@ -671,7 +676,19 @@ mw.cx.TranslationTracker.prototype.registerOnFocusListenerForSection = function 
 		this.processValidationQueue();
 		// Put the section number back in queue
 		this.validationDelayQueue.push( sectionNumber );
-	} } );
+	};
+
+	changeHandler = function () {
+		// If the setion has existing issues, validate the issues on every change
+		// So that the translator know when it is getting resolved
+		if ( sectionModel.hasTranslationIssues() ) {
+			// Change events need to be debounced
+			OO.ui.debounce( this.processValidationQueue.bind( this ), 3 * 1000 )();
+		}
+	};
+
+	sectionModel.connect( this, { update: changeHandler } );
+	sectionNode.connect( this, { focus: focusHandler } );
 };
 
 /**
