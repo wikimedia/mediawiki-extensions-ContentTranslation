@@ -32,7 +32,7 @@
 	"cx-entrypoint-title": "Ushbu sahifani $1ga tarjima qilish",
 	"cx-entrypoint-dialog-button-translate-from": "$1dan tarjima qilish",
 	"cx-campaign-newbytranslation-start": "Tarjimani boshlash",
-	"cx-special-login-error": "Ushbu sahifada tarjima qilishingiz uchun tizimga kirgan bo‘lishingiz kerak. [$1 Kirish]",
+	"cx-special-login-error": "Bu sahifada tarjima qilishingiz uchun tizimga kirgan boʻlishingiz kerak. [$1 Kirish]",
 	"cx-tools-instructions-text1": "Tarjima qilish uchun paragraflarni bosing",
 	"cx-tools-instructions-text2": "Siz ularning barchasini qo‘shishingiz shart emas",
 	"cx-tools-instructions-text3": "Matnni {{GENDER:|yaxshilang}}",
