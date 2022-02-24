@@ -101,6 +101,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Deze paginanaam wordt al gebruikt in [$1 $2] voor [$3 een andere pagina]",
 	"cx-selected-source-page-error-page-exists": "De pagina [$1 bestaat al] in $2",
 	"cx-selected-source-page-error-title-in-use": "De naam van de nieuwe pagina [$1 wordt al gebruikt]",
+	"cx-favorite-added-for-later": "Toegevoegd voor later!",
 	"cx-page-missing-in-target-language": "ontbrekend in $1",
 	"cx-page-number-of-languages": "Aantal talen",
 	"cx-mt-abuse-warning-title": "Een deel van uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde tekst",
@@ -354,5 +355,7 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sectie",
 	"sx-editor-feedback-overlay-title": "Bedankt!",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
-	"cx-suggestion-list-favorites-division": "Voor later"
+	"cx-suggestion-list-favorites-division": "Voor later",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",
+	"sx-block-template-adaptation-card-body-header-success": "Voorgesteld sjabloon"
 }
