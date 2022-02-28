@@ -5,9 +5,9 @@
  */
 
 // Standard boilerplate to define $IP
+use ContentTranslation\LoadBalancer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
-use Wikimedia\Rdbms\IDatabase;
 
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
@@ -25,10 +25,8 @@ class CxFixStats extends Maintenance {
 	/** @var array[] */
 	private $tags;
 
-	/** @var IDatabase */
-	private $dbw;
-	/** @var IDatabase */
-	private $dbr;
+	/** @var LoadBalancer */
+	private $lb;
 
 	public function __construct() {
 		parent::__construct();
@@ -44,9 +42,7 @@ class CxFixStats extends Maintenance {
 
 		$this->resets = [];
 		$this->tags = [];
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$this->dbw = $lb->getConnection( DB_PRIMARY );
-		$this->dbr = $lb->getConnection( DB_REPLICA );
+		$this->lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 	}
 
 	public function execute() {
@@ -58,7 +54,8 @@ class CxFixStats extends Maintenance {
 			$this->output( "EXECUTE mode: actions ARE executed\n" );
 		}
 
-		$translations = $this->getRelevantTranslations( $this->dbr );
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$translations = $this->getRelevantTranslations( $dbr );
 
 		foreach ( $translations as $row ) {
 			$name = sprintf(
@@ -92,7 +89,9 @@ class CxFixStats extends Maintenance {
 		}
 
 		$this->output( "$count rows ARE updated to set target_url to null\n" );
-		$this->dbw->update(
+
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw->update(
 			'cx_translations',
 			[ 'translation_target_url' => null ],
 			[ 'translation_id' => $resets ],
@@ -200,13 +199,15 @@ class CxFixStats extends Maintenance {
 			return;
 		}
 
+		$mainLb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+		$dbr = $mainLb->getConnectionRef( DB_REPLICA );
 		$conds = [];
 		# Assuming timestamps are in the correct format already
-		$conds[] = 'log_timestamp > ' . $this->dbr->addQuotes( $row->translation_start_timestamp );
+		$conds[] = 'log_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
 		$conds['log_namespace'] = $title->getNamespace();
 		$conds['log_title'] = $title->getDBkey();
 
-		$field = $this->dbr->selectField( 'logging', 'log_type', $conds, __METHOD__ );
+		$field = $dbr->selectField( 'logging', 'log_type', $conds, __METHOD__ );
 		if ( $field ) {
 			$this->output( "\\- E30 Page doesn't exist but has log entry: $field\n" );
 			return;
@@ -221,6 +222,8 @@ class CxFixStats extends Maintenance {
 	}
 
 	protected function hasCxTag( Title $title, $row ) {
+		$mainLb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+		$dbr = $mainLb->getConnectionRef( DB_REPLICA );
 		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
 		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
@@ -235,21 +238,23 @@ class CxFixStats extends Maintenance {
 		}
 		$var = 'ct_tag_id';
 
-		$field = $this->dbr->selectField( [ 'revision', 'change_tag' ], $var, $conds, __METHOD__ );
+		$field = $dbr->selectField( [ 'revision', 'change_tag' ], $var, $conds, __METHOD__ );
 		return !empty( $field );
 	}
 
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
+		$mainLb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+		$dbr = $mainLb->getConnectionRef( DB_REPLICA );
 		// Allow one minute slack
 		$ts = (int)wfTimestamp( TS_UNIX, $timestamp ) + 60;
 
 		$actorWhere = ActorMigration::newMigration()
-			->getWhere( $this->dbr, 'rev_user', User::newFromName( $name, false ) );
+			->getWhere( $dbr, 'rev_user', User::newFromName( $name, false ) );
 
 		$tables = [ 'revision' ] + $actorWhere['tables'];
 
 		$conds = [];
-		$conds[] = 'rev_timestamp < ' . $this->dbr->addQuotes( $this->dbr->timestamp( $ts ) );
+		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
 		$conds['rev_page'] = $title->getArticleID();
 		$conds[] = $actorWhere['conds'];
 
@@ -260,7 +265,7 @@ class CxFixStats extends Maintenance {
 			'ORDER BY' => 'rev_timestamp ASC'
 		];
 
-		$revId = $this->dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options, $joins );
+		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options, $joins );
 		return $revId;
 	}
 }
