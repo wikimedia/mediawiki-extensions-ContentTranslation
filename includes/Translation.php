@@ -366,8 +366,7 @@ class Translation {
 	 * @return array<string,array>
 	 */
 	public static function getDeletionTrend( $interval ): array {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$conditions = [
 			'ar_rev_id = ct_rev_id'
