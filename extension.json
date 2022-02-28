@@ -756,6 +756,20 @@
 				"publish/ext.cx.wikibase.link.js"
 			]
 		},
+		"ext.cx.uls.quick.actions": {
+			"es6": true,
+			"packageFiles": [
+				"entrypoints/ext.cx.uls.quick.actions.js"
+			],
+			"dependencies": [
+				"oojs-ui.styles.icons-interactions",
+				"mw.cx.SiteMapper",
+				"ext.uls.interface"
+			],
+			"messages": [
+				"cx-uls-translate-page-quick-action-label"
+			]
+		},
 		"ext.cx.eventlogging.campaigns": {
 			"scripts": "eventlogging/ext.cx.eventlogging.campaigns.js",
 			"dependencies": [

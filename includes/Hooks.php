@@ -285,6 +285,7 @@ class Hooks {
 		}
 
 		$out->addModules( 'ext.cx.eventlogging.campaigns' );
+		$out->addModules( 'ext.cx.uls.quick.actions' );
 
 		if ( !$title ||
 			$title->isSpecial( 'ContentTranslation' ) || $title->isSpecial( 'ContentTranslationStats' )
