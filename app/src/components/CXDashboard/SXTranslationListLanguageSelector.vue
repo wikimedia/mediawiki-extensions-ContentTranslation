@@ -12,6 +12,7 @@
       >
         <span
           class="mw-ui-autonym"
+          :lang="selectedSourceLanguage"
           :dir="getDir(selectedSourceLanguage)"
           v-text="getAutonym(selectedSourceLanguage)"
         />
@@ -51,6 +52,7 @@
       >
         <span
           class="mw-ui-autonym"
+          :lang="selectedTargetLanguage"
           :dir="getDir(selectedTargetLanguage)"
           v-text="getAutonym(selectedTargetLanguage)"
         />
