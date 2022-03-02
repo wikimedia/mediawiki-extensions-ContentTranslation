@@ -4,19 +4,8 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-/* global wikibase */
 ( function () {
 	'use strict';
-
-	/**
-	 * @return {mw.Api}
-	 */
-	function getMwApiForRepo() {
-		var repoConfig = mw.config.get( 'wbRepo' ),
-			repoApiEndpoint = repoConfig.url + repoConfig.scriptPath + '/api.php';
-
-		return wikibase.api.getLocationAgnosticMwApi( repoApiEndpoint );
-	}
 
 	/**
 	 * Link the source and target articles in the Wikibase repo
@@ -25,59 +14,45 @@
 	 * @param {string} targetLanguage
 	 * @param {string} sourceTitle
 	 * @param {string} targetTitle
+	 * @return {Promise}
 	 */
-	function addWikibaseLink( sourceLanguage, targetLanguage, sourceTitle, targetTitle ) {
-		var title, sourceApi;
+	function addWikibaseLink(
+		sourceLanguage,
+		targetLanguage,
+		sourceTitle,
+		targetTitle
+	) {
+		var title, params, targetWikiId, api;
 
 		// Link only pages in the main space
 		title = new mw.Title( targetTitle );
 		if ( title.getNamespaceId() !== 0 ) {
-			return;
+			return Promise.resolve();
 		}
 
-		sourceApi = mw.cx.siteMapper.getApi( sourceLanguage );
+		// Current wiki is target wiki since publishing happens at target wiki
+		targetWikiId = mw.config.get( 'wgWikiID' );
+		params = {
+			action: 'wblinktitles',
+			fromsite: targetWikiId.replace( targetLanguage, sourceLanguage ),
+			fromtitle: sourceTitle,
+			tosite: targetWikiId,
+			totitle: targetTitle
+		};
+		api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php' );
+		return Promise.resolve( api.postWithToken( 'csrf', params ).then( function () {
+			var mwApi = new mw.Api();
 
-		// TODO: Use action=query&meta=wikibase API
-		// that expose siteid as per
-		// https://gerrit.wikimedia.org/r/#/c/214517/
-		sourceApi.get( {
-			action: 'query',
-			meta: 'siteinfo',
-			siprop: 'general'
-		} ).done( function ( result ) {
-			var repoApi, targetWikiId, sourceWikiId, pageConnector;
-
-			repoApi = new wikibase.api.RepoApi( getMwApiForRepo() );
-			targetWikiId = mw.config.get( 'wgWikiID' );
-			sourceWikiId = result.query.general.wikiid;
-
-			pageConnector = new wikibase.PageConnector(
-				repoApi,
-				targetWikiId,
-				targetTitle,
-				sourceWikiId,
-				sourceTitle
-			);
-
-			pageConnector.linkPages().done( function () {
-				var api = new mw.Api();
-
-				// Purge the newly-created page after adding the link,
-				// so that they will appear as soon as possible without manual purging
-				api.post( {
-					action: 'purge',
-					titles: targetTitle
-				} );
+			// Purge the newly-created page after adding the link,
+			// so that they will appear as soon as possible without manual purging
+			return mwApi.post( {
+				action: 'purge',
+				titles: targetTitle
 			} );
-		} );
+		} ) );
 	}
 
 	$( function () {
-		mw.loader.using( [
-			'jquery.wikibase.linkitem',
-			'mw.config.values.wbRepo'
-		] ).then( function () {
-			mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
-		} );
+		mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
 	} );
 }() );
