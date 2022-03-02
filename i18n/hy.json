@@ -8,7 +8,8 @@
 			"Lilitik22",
 			"Vadgt",
 			"Աշոտ1997",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"cx": "Թարգմանել էջը",
@@ -147,7 +148,7 @@
 	"cx-trend-deletions": "Ջնջված թարգմանություններ",
 	"cx-trend-translations-to": "$1 թարգմանությունները",
 	"cx-stats-published-translations-label": "Հրապարակված թարգմանություններ",
-	"cx-stats-published-target-source": "Թարգմանություններ դեպի",
+	"cx-stats-published-target-source": "Թարգմանություններ",
 	"cx-stats-weekly-published": "Անցած շաբաթ",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 թարգմանություն|$1 թարգմանություններ}}",
 	"cx-tools-missing-link-text": "Նշել էջը որպես բացակայող ստեղծումը խթանելու նպատակով",

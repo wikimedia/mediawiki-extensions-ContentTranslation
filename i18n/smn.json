@@ -5,6 +5,7 @@
 			"Seipinne"
 		]
 	},
+	"cx-dashboard-header": "Jurgâlusah",
 	"cx-header-all-translations": "Puoh jurgâlusah",
 	"cx-tools-link-title": "Liŋkkâ",
 	"cx-tools-link-add": "Lasseet liiŋkâ",
@@ -14,7 +15,10 @@
 	"cx-contributions-new-contributions": "Uđđâ siskáldâs",
 	"cx-campaign-no-thanks": "Ij takkâ",
 	"cx-campaign-contributionsmenu-mycontributions": "Hammiimeh",
+	"cx-campaign-contributionsmenu-mytranslations": "Jurgâlusah",
+	"echo-category-title-cx": "Jurgâlusah",
 	"cx-translator-month-stats-label": "Taan máánust",
+	"sx-quick-tutorial-main-point-step-2": "Iävtuttum jurgâlusah",
 	"sx-article-search-language-selector-dialog-title": "Kielah",
 	"cx-sx-language-selector-all-languages": "Puoh kielah",
 	"sx-translation-list-language-selector-dialog-title": "Kielah"

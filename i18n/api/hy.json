@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Lilitik22",
-			"Դավիթ Սարոյան"
+			"Դավիթ Սարոյան",
+			"Սերգեյ Սաֆարյան"
 		]
 	},
 	"apihelp-cxpublish-description": "Պահպանել Բովանդակության թարգմանություն հավելումի միջոցով ստեղծված էջը։",
@@ -31,5 +32,6 @@
 	"apihelp-cxdelete-param-to": "Թիրախային լեզվի կոդը։",
 	"apihelp-cxdelete-param-sourcetitle": "Բնօրինակ էջի վերնագիրը։",
 	"apihelp-cxdelete-example-1": "Ջնջել այս վերնագրի և լեզվական զույգի հետ կապված թարգմանության սևագրությունը:",
-	"apihelp-cxsave-param-sourcerevision": "Բնօրինակ էջի վերանայված տարբերակը։"
+	"apihelp-cxsave-param-sourcerevision": "Բնօրինակ էջի վերանայված տարբերակը։",
+	"apierror-cx-invalidtargetlanguage": "Անվավեր նպատակային լեզու։"
 }
