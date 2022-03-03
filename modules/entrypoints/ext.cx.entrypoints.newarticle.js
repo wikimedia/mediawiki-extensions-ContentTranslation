@@ -27,8 +27,8 @@
 			.addClass( 'cx-campaign-newarticle' )
 			.append(
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__logo' ),
-				$( '<div>' ).addClass( 'cx-campaign-newarticle__message' ).html(
-					mw.message( 'cx-campaign-newarticle-notice' ).parse()
+				$( '<div>' ).addClass( 'cx-campaign-newarticle__message' ).append(
+					mw.message( 'cx-campaign-newarticle-notice' ).parseDom()
 				),
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__actions' ).append( $cancel, $tryCX )
 			);

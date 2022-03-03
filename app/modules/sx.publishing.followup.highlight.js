@@ -22,7 +22,7 @@ var highlightElement = function (element) {
 
 var createNewIndicator = function () {
   var span = document.createElement("span");
-  span.innerText = mw.message("cx-sx-followup-feedback-new-indicator");
+  span.innerText = mw.message("cx-sx-followup-feedback-new-indicator").plain();
   span.style.background = "#fdedd1";
   span.style.color = "#ac6600";
   span.style.padding = "8px";

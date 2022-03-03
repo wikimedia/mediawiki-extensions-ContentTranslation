@@ -38,13 +38,13 @@ mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) 
 	$message = $( '<span>' ).addClass( 'cx-message-widget-message' );
 	$details = $( '<span>' ).addClass( 'cx-message-widget-details' );
 	if ( message instanceof mw.Message ) {
-		$message.html( message.parse() );
+		$message.append( message.parseDom() );
 	} else {
 		$message.text( message );
 	}
 	if ( details ) {
 		if ( details instanceof mw.Message ) {
-			$details.html( details.parse() );
+			$details.append( details.parseDom() );
 		} else {
 			$details.text( details );
 		}

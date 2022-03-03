@@ -50,17 +50,15 @@ function validateMT({ rootState, commit }) {
   let title, messageBody;
 
   if (status === "warning") {
-    title = mw.message(
-      "cx-sx-publisher-mt-abuse-message-title",
-      unmodifiedPercentage
-    );
-    messageBody = mw.message("cx-sx-publisher-mt-abuse-message-body");
+    title = mw
+      .message("cx-sx-publisher-mt-abuse-message-title", unmodifiedPercentage)
+      .plain();
+    messageBody = mw.message("cx-sx-publisher-mt-abuse-message-body").plain();
   } else {
-    title = mw.message(
-      "cx-sx-publisher-mt-abuse-error-title",
-      unmodifiedPercentage
-    );
-    messageBody = mw.message("cx-sx-publisher-mt-abuse-error-body");
+    title = mw
+      .message("cx-sx-publisher-mt-abuse-error-title", unmodifiedPercentage)
+      .plain();
+    messageBody = mw.message("cx-sx-publisher-mt-abuse-error-body").plain();
   }
   const message = new PublishFeedbackMessage({
     title,

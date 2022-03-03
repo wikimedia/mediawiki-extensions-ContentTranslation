@@ -54,7 +54,7 @@
 
 		$license = $( '<div>' )
 			.addClass( 'cx-entrypoint-dialog__license' )
-			.html( mw.message( 'cx-license-agreement' ).parse() );
+			.append( mw.message( 'cx-license-agreement' ).parseDom() );
 
 		actions = new OO.ui.HorizontalLayout( {
 			classes: [ 'cx-entrypoint-dialog__actions' ],

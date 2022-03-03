@@ -24,8 +24,6 @@ jest.mock("../../../../../utils/mtValidator", () => {
   };
 });
 
-mw.message = (...args) => args.join(" - ");
-
 describe("vuex store validateMT action test", () => {
   const applicationState = {
     sourceLanguage: "en",
@@ -56,8 +54,10 @@ describe("vuex store validateMT action test", () => {
     actions.validateMT({ rootState, commit });
     expect(applicationState.publishFeedbackMessages).toStrictEqual([
       new PublishFeedbackMessage({
-        title: mw.message("cx-sx-publisher-mt-abuse-message-title", 100 - 10),
-        text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
+        title: mw
+          .message("cx-sx-publisher-mt-abuse-message-title", 100 - 10)
+          .plain(),
+        text: mw.message("cx-sx-publisher-mt-abuse-message-body").plain(),
         status: "warning",
         type: "mt",
       }),
@@ -69,8 +69,10 @@ describe("vuex store validateMT action test", () => {
     actions.validateMT({ rootState, commit });
     expect(applicationState.publishFeedbackMessages).toStrictEqual([
       new PublishFeedbackMessage({
-        title: mw.message("cx-sx-publisher-mt-abuse-error-title", 100 - 3),
-        text: mw.message("cx-sx-publisher-mt-abuse-error-body"),
+        title: mw
+          .message("cx-sx-publisher-mt-abuse-error-title", 100 - 3)
+          .plain(),
+        text: mw.message("cx-sx-publisher-mt-abuse-error-body").plain(),
         status: "error",
         type: "mt",
       }),

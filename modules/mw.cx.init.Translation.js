@@ -536,7 +536,7 @@ mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
 	this.translationModel.addUnattachedIssues( [
 		new mw.cx.dm.TranslationIssue(
 			'cannot-publish', // Issue name
-			mw.message( 'cx-tools-linter-cannot-publish-message' ).parseDom(), // message body
+			mw.message( 'cx-tools-linter-cannot-publish-message' ), // message body
 			{
 				title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
 				type: 'error',

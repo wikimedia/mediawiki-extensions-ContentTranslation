@@ -8,8 +8,8 @@
 export default class PublishFeedbackMessage {
   /**
    * @param {Object} options
-   * @param {string} [options.text]
-   * @param {string} [options.title]
+   * @param {string} [options.text] Plain text (HTML not accepted)
+   * @param {string} [options.title] Plain text (HTML not accepted)
    * @param {"mt"|"generic"} [options.type]
    * @param {"warning"|"error"} [options.status]
    */

@@ -902,6 +902,7 @@
 			],
 			"dependencies": [
 				"ext.cx.widgets.callout",
+				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
 				"mediawiki.util",
 				"oojs-ui-core"

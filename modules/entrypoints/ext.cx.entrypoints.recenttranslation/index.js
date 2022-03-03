@@ -17,10 +17,10 @@
 
 		contentContainer.className = 'sx-recent-translation-banner__content';
 		headerText.className = 'sx-recent-translation-banner__content-header';
-		headerText.innerText = mw.message( 'sx-recent-translation-entrypoint-banner-header' );
+		headerText.innerText = mw.msg( 'sx-recent-translation-entrypoint-banner-header' );
 
 		secondaryText.className = 'sx-recent-translation-banner__content-details';
-		secondaryText.innerText = mw.message( 'sx-recent-translation-entrypoint-banner-details' );
+		secondaryText.innerText = mw.msg( 'sx-recent-translation-entrypoint-banner-details' );
 
 		contentContainer.appendChild( headerText );
 		contentContainer.appendChild( secondaryText );

@@ -70,6 +70,7 @@ const mw = {
     toString: () => message,
     params: (param) => ({ parse: () => message }),
     parse: () => message,
+    plain: () => message,
   }),
   Message: class {},
   cookie: {

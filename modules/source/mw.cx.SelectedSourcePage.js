@@ -130,7 +130,7 @@ mw.cx.SelectedSourcePage.prototype.render = function () {
 
 	$license = $( '<div>' )
 		.addClass( 'cx-selected-source-page__license' )
-		.html( mw.message( 'cx-license-agreement', translateButtonLabel ).parse() );
+		.append( mw.message( 'cx-license-agreement', translateButtonLabel ).parseDom() );
 
 	$license.find( 'a' ).prop( 'target', '_blank' );
 
@@ -679,7 +679,7 @@ mw.cx.SelectedSourcePage.prototype.showTitleInUseError = function ( existingTarg
  */
 mw.cx.SelectedSourcePage.prototype.showMessage = function ( message ) {
 	if ( message instanceof mw.Message ) {
-		this.$messageText.html( message.parse() );
+		this.$messageText.append( message.parseDom() );
 	} else {
 		this.$messageText.text( message );
 	}
