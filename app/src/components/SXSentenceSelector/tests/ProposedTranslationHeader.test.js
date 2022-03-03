@@ -1,25 +1,20 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import ProposedTranslationHeader from "../ProposedTranslationHeader";
-import VueBananaI18n from "vue-banana-i18n";
+import { createI18n } from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import Vuex from "vuex";
-import CompositionApi from "@vue/composition-api";
+import { createStore } from "vuex";
 
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(VueBananaI18n);
-localVue.use(Vuex);
+const i18n = createI18n();
 
 describe("SXSentenceSelector Proposed Translation Header", () => {
   const applicationModule = {
     namespaced: true,
     state: { currentMTProvider: "Apertium" }
   };
-  const store = new Vuex.Store({ modules: { application: applicationModule } });
+  const store = createStore({ modules: { application: applicationModule } });
 
   const wrapper = mount(ProposedTranslationHeader, {
-    localVue,
-    store
+    global: { plugins: [store, i18n] }
   });
 
   it("Component output matches snapshot", () => {

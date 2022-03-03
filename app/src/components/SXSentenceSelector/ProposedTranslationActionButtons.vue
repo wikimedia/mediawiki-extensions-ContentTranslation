@@ -31,8 +31,9 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
 
 export default {
   name: "ProposedTranslationActionButtons",
@@ -46,7 +47,7 @@ export default {
       currentSourceSection,
       proposedTranslation,
       isSectionTitleSelected
-    } = useApplicationState();
+    } = useApplicationState(useStore());
 
     const isLastTranslationUnit = computed(
       () => currentSourceSection.value.isSelectedTranslationUnitLast

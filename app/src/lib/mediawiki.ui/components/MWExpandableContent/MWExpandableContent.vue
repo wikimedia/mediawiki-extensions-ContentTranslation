@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { ref, onMounted, computed } from "@vue/composition-api";
+import { ref, onMounted, computed, nextTick } from "vue";
 import MwButton from "../MWButton";
 import { mwIconCollapse, mwIconExpand } from "../icons";
 import useDrag from "./useDrag";
@@ -66,7 +66,7 @@ export default {
       default: false
     }
   },
-  setup(props, context) {
+  setup(props) {
     const isCollapsed = ref(true);
     const contentRef = ref(null);
     const contentMinHeight = computed(() =>
@@ -116,7 +116,7 @@ export default {
     };
 
     onMounted(async () => {
-      await context.root.$nextTick;
+      await nextTick();
       contentMaxHeight.value = contentRef.value.scrollHeight;
       dragIndicatorRef.value?.addEventListener(
         "pointerdown",

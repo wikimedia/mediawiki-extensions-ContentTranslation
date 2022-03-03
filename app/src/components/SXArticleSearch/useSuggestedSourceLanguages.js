@@ -1,17 +1,22 @@
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { getAutonym } from "@wikimedia/language-data";
-import useApplicationState from "@/composables/useApplicationState";
 
 /**
  * Returns an array of suggested language codes
  * based on a list of criteria. Based on mw.uls.getFrequentLanguageList
  * NOTE: Suggested language codes based on user territory is not supported
  *
- * @type {function(ComputedRef<string[]>): ComputedRef<string[]>}
+ * @param {ComputedRef<string>} sourceLanguage
+ * @param {ComputedRef<string>} targetLanguage
+ * @param {ComputedRef<string[]>} previousLanguages
+ * @return {ComputedRef<string[]>}
  */
-const useSuggestedSourceLanguages = previousLanguages =>
+const useSuggestedSourceLanguages = (
+  sourceLanguage,
+  targetLanguage,
+  previousLanguages
+) =>
   computed(() => {
-    const { sourceLanguage, targetLanguage } = useApplicationState();
     /**
      * Browser user interface language or the system language.
      * This language code can be like "en" or "en-US", so we need

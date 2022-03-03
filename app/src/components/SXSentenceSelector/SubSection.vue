@@ -12,7 +12,8 @@
 <script>
 import SubSection from "@/wiki/cx/models/subSection";
 import useSubSectionContent from "./useSubSectionContent";
-import { onMounted, ref, computed } from "@vue/composition-api";
+import { onMounted, ref, computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "SubSection",
@@ -22,7 +23,8 @@ export default {
       required: true
     }
   },
-  setup(props, context) {
+  emits: ["bounce-translation"],
+  setup(props, { emit }) {
     const subSectionRoot = ref(null);
     const content = useSubSectionContent(props.subSection);
 
@@ -40,14 +42,14 @@ export default {
         selectContentTranslationUnit(translationUnit);
       });
     });
-    const store = context.root.$store;
+    const store = useStore();
 
     /**
      * @param {SubSection|SectionSentence} translationUnit
      */
     const selectContentTranslationUnit = translationUnit => {
       if (translationUnit.selected) {
-        context.emit("bounce-translation");
+        emit("bounce-translation");
 
         return;
       }

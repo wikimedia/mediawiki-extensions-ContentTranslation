@@ -97,8 +97,10 @@ import {
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
-import { computed } from "@vue/composition-api";
-import { getAutonym, getDir } from "@wikimedia/language-data";
+import { computed, inject } from "vue";
+import { getDir } from "@wikimedia/language-data";
+import { useStore } from "vuex";
+import useApplicationState from "../../composables/useApplicationState";
 
 export default {
   name: "CxTranslationSuggestion",
@@ -109,8 +111,9 @@ export default {
       required: true
     }
   },
-  setup(props, context) {
-    const store = context.root.$store;
+  emits: ["close", "bookmark"],
+  setup(props) {
+    const store = useStore();
     const suggestion = computed(() => props.suggestion);
     const title = computed(
       () => suggestion.value.sourceTitle || suggestion.value.title
@@ -137,22 +140,18 @@ export default {
       () => suggestion.value instanceof FavoriteSuggestion
     );
 
-    const sourceLanguageAutonym = computed(() =>
-      getAutonym(suggestion.value.sourceLanguage)
-    );
-
-    const targetLanguageAutonym = computed(() =>
-      getAutonym(suggestion.value.targetLanguage)
-    );
+    const {
+      sourceLanguageAutonym,
+      targetLanguageAutonym
+    } = useApplicationState(store);
 
     const bookmarkIcon = computed(() =>
       isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline
     );
 
+    const colors = inject("colors");
     const bookmarkIconColor = computed(() =>
-      isFavoriteSuggestion.value
-        ? context.root.$mwui.colors.primary
-        : "currentColor"
+      isFavoriteSuggestion.value ? colors.primary : "currentColor"
     );
 
     return {

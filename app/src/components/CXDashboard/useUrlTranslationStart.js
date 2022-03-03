@@ -1,5 +1,4 @@
 import startSectionTranslation from "@/composables/useSectionTranslationStart";
-import { logEvent } from "@/plugins/eventlogging";
 
 /**
  * @return {string|undefined} the event source based on the "campaign" URL param
@@ -17,7 +16,13 @@ const getEventSourceFromUrlCampaign = () => {
   return campaignEventSourcesMap[campaign];
 };
 
-const startSectionTranslationFromUrl = pageTitle => {
+/**
+ * @param {VueRouter} router
+ * @param {Store} store
+ * @param {function} logEvent
+ * @param {string} pageTitle
+ */
+const startSectionTranslationFromUrl = (router, store, logEvent, pageTitle) => {
   // If no campaign exists inside the URL, then the user
   // have preselected the page title inside the URL himself
   const eventSource = getEventSourceFromUrlCampaign() || "direct_preselect";
@@ -26,7 +31,7 @@ const startSectionTranslationFromUrl = pageTitle => {
     event_source: eventSource,
     content_translation_session_position: 0
   });
-  startSectionTranslation(pageTitle, "dashboard", eventSource);
+  startSectionTranslation(router, store, pageTitle, "dashboard", eventSource);
 };
 
 export default startSectionTranslationFromUrl;

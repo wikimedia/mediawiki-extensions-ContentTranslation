@@ -1,6 +1,5 @@
-import Vuex from "vuex";
+import { createStore } from "vuex";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import Vue from "vue";
 
 const sectionSuggestion = new SectionSuggestion({
   targetLanguage: "en",
@@ -18,8 +17,6 @@ const applicationModule = {
   state: { currentSectionSuggestion: sectionSuggestion }
 };
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default new createStore({
   modules: { application: applicationModule }
 });

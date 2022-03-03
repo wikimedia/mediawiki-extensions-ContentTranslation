@@ -26,6 +26,7 @@ export default {
       default: 80
     }
   },
+  emits: ["click"],
   data: () => ({ mwIconImageLayoutFrameless }),
   computed: {
     style() {

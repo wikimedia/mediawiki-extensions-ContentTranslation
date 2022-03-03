@@ -1,4 +1,4 @@
-import { ref, watch, computed } from "@vue/composition-api";
+import { ref, watch, computed } from "vue";
 
 function keyboardNavigation(searchQuery, searchResults, suggestions) {
   const selectedLanguage = ref("");

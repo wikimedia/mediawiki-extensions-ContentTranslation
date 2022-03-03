@@ -52,9 +52,10 @@ import {
   mwIconLinkExternal
 } from "@/lib/mediawiki.ui/components/icons";
 import { siteMapper } from "@/utils/mediawikiHelper";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import { useStore } from "vuex";
 export default {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
@@ -63,12 +64,12 @@ export default {
     MwIcon,
     MwButton
   },
-  setup(props, context) {
-    const store = context.root.$store;
+  setup() {
+    const store = useStore();
 
-    const {
-      currentSectionSuggestion: sectionSuggestion
-    } = useApplicationState();
+    const { currentSectionSuggestion: sectionSuggestion } = useApplicationState(
+      store
+    );
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
 

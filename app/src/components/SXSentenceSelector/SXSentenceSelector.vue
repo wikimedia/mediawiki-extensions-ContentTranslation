@@ -75,7 +75,7 @@
         @select-previous-segment="selectPreviousTranslationUnit"
       />
     </mw-row>
-    <sx-translation-selector :active.sync="isTranslationOptionsActive" />
+    <sx-translation-selector v-model:active="isTranslationOptionsActive" />
   </section>
 </template>
 
@@ -91,8 +91,10 @@ import SubSection from "./SubSection";
 import BlockTemplateAdaptationCard from "./BlockTemplateAdaptationCard";
 import TranslatedSegmentCard from "./TranslatedSegmentCard";
 import SubSectionModel from "@/wiki/cx/models/subSection";
-import { computed, onMounted, ref, watch } from "@vue/composition-api";
+import { computed, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "SxSentenceSelector",
@@ -107,18 +109,18 @@ export default {
     SxTranslationSelector,
     MwButton
   },
-  setup(props, context) {
+  setup() {
     const isTranslationOptionsActive = ref(false);
     const shouldProposedTranslationBounce = ref(false);
     const screenHeight = ref("100%");
 
-    const store = context.root.$store;
+    const store = useStore();
 
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const isSelectedTranslationUnitTranslated = computed(
       () => currentPageSection.value?.isSelectedTranslationUnitTranslated
@@ -162,7 +164,7 @@ export default {
         shouldProposedTranslationBounce.value = false;
       }, 100);
     };
-    const router = context.root.$router;
+    const router = useRouter();
 
     const goToContentComparator = () =>
       router.push({ name: "sx-content-comparator" });

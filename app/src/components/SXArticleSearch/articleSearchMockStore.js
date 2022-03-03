@@ -1,5 +1,4 @@
-import Vuex from "vuex";
-import Vue from "vue";
+import { createStore } from "vuex";
 import Page from "../../wiki/mw/models/page";
 
 const sourceLanguage = "en";
@@ -50,8 +49,6 @@ const mediawikiModule = {
   }
 };
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   modules: { application: applicationModule, mediawiki: mediawikiModule }
 });

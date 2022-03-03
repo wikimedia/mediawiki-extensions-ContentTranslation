@@ -1,17 +1,17 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import { MwMessage } from "..";
 
 describe("MwMessage.vue", () => {
   test("is a Vue instance", () => {
-    const wrapper = shallowMount(MwMessage);
+    const wrapper = mount(MwMessage);
     expect(wrapper.vm).toBeTruthy();
   });
 
   test("renders correctly", () => {
     const dismissable = true;
     const errorMessage = "This is an error message";
-    const wrapper = shallowMount(MwMessage, {
-      propsData: { type: "error", dismissable },
+    const wrapper = mount(MwMessage, {
+      props: { type: "error", dismissable },
       slots: {
         default: errorMessage
       }

@@ -1,7 +1,7 @@
 <template>
   <div v-show="active">
     <mw-card class="cx-translation-list--suggestions pa-0 mb-0">
-      <template slot="header">
+      <template #header>
         <h3
           class="mw-ui-card__title pa-4 pt-5 mb-0"
           v-text="$i18n('cx-suggestionlist-title')"
@@ -24,7 +24,7 @@
         :key="`page-suggestion-${index}`"
         :suggestion="suggestion"
         @close="discardPageSuggestion(suggestion)"
-        @click.native="startTranslation(suggestion)"
+        @click="startTranslation(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
       <mw-spinner v-if="pageSuggestionsLoading" />
@@ -40,7 +40,7 @@
         class="ma-0"
         :suggestion="suggestion"
         @close="discardSectionSuggestion(suggestion)"
-        @click.native="startTranslation(suggestion)"
+        @click="startTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
@@ -67,6 +67,8 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "CxSuggestionList",
@@ -83,9 +85,8 @@ export default {
       default: false
     }
   },
-  setup(props, context) {
-    const contextRoot = context.root;
-    const store = contextRoot.$store;
+  setup() {
+    const store = useStore();
 
     const {
       supportedLanguageCodes,
@@ -98,7 +99,7 @@ export default {
     const updateTargetLanguage = targetLanguage =>
       store.dispatch("application/updateTargetLanguage", targetLanguage);
 
-    const router = context.root.$router;
+    const router = useRouter();
 
     /**
      * @param {SectionSuggestion|ArticleSuggestion} suggestion
@@ -123,7 +124,7 @@ export default {
       pageSuggestionsLoading,
       sectionSuggestionsLoading,
       showRefreshButton
-    } = useSuggestions(contextRoot);
+    } = useSuggestions();
 
     /**
      * @param {SectionSuggestion} suggestion

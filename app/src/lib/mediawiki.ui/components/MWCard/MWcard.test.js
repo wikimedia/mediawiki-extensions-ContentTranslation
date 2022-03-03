@@ -9,7 +9,7 @@ describe("MwCard.vue", () => {
 
   test("renders correctly", () => {
     const title = "Card title";
-    const wrapper = shallowMount(MwCard, { propsData: { title } });
+    const wrapper = shallowMount(MwCard, { props: { title } });
     expect(wrapper.find(".mw-ui-card__title").text()).toMatch(title);
     expect(wrapper.element).toMatchSnapshot();
   });

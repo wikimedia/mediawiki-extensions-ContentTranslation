@@ -5,7 +5,7 @@
         :id="id"
         v-model="inputModel"
         type="radio"
-        :disabled="disabled"
+        :disabled="disabled || null"
         :name="name"
         :value="inputValue"
       />
@@ -30,14 +30,11 @@ export default {
     id: {
       type: String,
       required: false,
-      // Note: Evan You, creator of Vue, discourages the use
-      // of _uid for such purposes as it's intended for internal
-      // use and maybe its behaviour changes in the future.
-      // However, due to lack of a better solution (at least
-      // among simple ones) I decided to go with Vuetify's solution
-      // which is the current one.
       default() {
-        return `radio-button-${this._uid}`;
+        // use a random id
+        const id = Math.floor(Math.random() * 10000);
+
+        return `radio-button-${id}`;
       }
     },
     /**
@@ -81,7 +78,6 @@ export default {
     }
   },
   computed: {
-    computedΝame: vm => vm.name || vm.$parent.name,
     isSelected: vm =>
       vm.value
         ? vm.value === vm.inputValue

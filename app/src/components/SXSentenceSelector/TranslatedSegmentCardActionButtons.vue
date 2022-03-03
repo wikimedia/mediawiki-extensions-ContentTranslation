@@ -24,7 +24,8 @@ import {
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "TranslatedSegmentCardActionButtons",
@@ -37,7 +38,7 @@ export default {
     const {
       currentSourceSection,
       isSectionTitleSelected
-    } = useApplicationState();
+    } = useApplicationState(useStore());
 
     const isLastTranslationUnit = computed(
       () => currentSourceSection.value.isSelectedTranslationUnitLast

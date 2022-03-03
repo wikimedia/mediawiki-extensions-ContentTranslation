@@ -50,7 +50,10 @@ import {
   mwIconArticle
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, onMounted } from "@vue/composition-api";
+import { computed, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { useStore } from "vuex";
+import { useEventLogging } from "../../plugins/eventlogging";
 
 export default {
   name: "SxTranslationConfirmer",
@@ -63,19 +66,20 @@ export default {
     SxArticleLanguageSelector,
     SxTranslationConfirmerActionPanel
   },
-  setup(props, context) {
-    const store = context.root.$store;
+  setup() {
+    const store = useStore();
     const articleImageSource = computed(() => {
       const sourceArticle = store.getters["application/getCurrentPage"];
 
       return sourceArticle?.image?.source;
     });
-
-    const { previousRoute, eventSource } = context.root.$route.params;
+    const route = useRoute();
+    const { previousRoute, eventSource } = route.params;
+    const logEvent = useEventLogging();
 
     onMounted(() => {
       store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
-      context.root.$logEvent({
+      logEvent({
         event_type: "dashboard_translation_start",
         event_source: eventSource
       });
@@ -85,12 +89,14 @@ export default {
       loadVEModules();
     });
 
+    const router = useRouter();
+
     const onClose = () => {
       store.dispatch("application/clearCurrentSectionSuggestion");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
 
-      context.root.$router.push({ name: previousRoute });
+      router.push({ name: previousRoute });
     };
 
     return {

@@ -1,6 +1,6 @@
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import SectionSentence from "./sectionSentence";
-import SubSection from "@/wiki/cx/models/subSection";
+import SubSection from "../../../wiki/cx/models/subSection";
 
 /**
  * This model represents a translation section belonging to a Page model.

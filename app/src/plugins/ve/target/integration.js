@@ -77,14 +77,9 @@ async function getTarget(editorConfig, overlayEl) {
   // mobile-first design.
   OO.ui.isMobile = () => true;
   await mw.libs.ve.targetLoader.loadModules("visual");
-  require("../tools/BackTool");
-  require("../tools/NextTool");
-  require("../commands/BackCommand");
-  require("../commands/NextCommand");
-  const SectionTranslationTarget = require("./SectionTranslationTarget");
   const overlay = getVEOverlay(overlayEl);
 
-  return new SectionTranslationTarget(overlay, editorConfig);
+  return new ve.init.mw.SectionTranslationTarget(overlay, editorConfig);
 }
 
 export { getTarget, getSurface, getReferenceRendering };

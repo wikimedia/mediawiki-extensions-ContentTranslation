@@ -2,6 +2,7 @@
   <transition :name="`mw-ui-animation-${animation}`">
     <div
       v-if="value"
+      ref="root"
       class="mw-ui-dialog"
       :class="classes"
       tabindex="0"
@@ -46,7 +47,7 @@ import MwDivider from "../MWDivider";
 import { MwRow, MwCol } from "../MWLayout";
 
 import { mwIconClose } from "../icons";
-import { computed, watch } from "@vue/composition-api";
+import { computed, watch, ref, nextTick } from "vue";
 
 export default {
   name: "MwDialog",
@@ -122,6 +123,7 @@ export default {
   },
   emits: ["input", "close"],
   setup(props, context) {
+    const root = ref(null);
     const classes = computed(() => ({
       "mw-ui-dialog--fullscreen": props.fullscreen,
       "mw-ui-dialog--dialog": !props.fullscreen
@@ -141,14 +143,13 @@ export default {
     const onOpen = () => {
       document.body.classList.add("mw-ui-dialog--open");
     };
-
     watch(
       () => props.value,
       isOpen => {
         if (isOpen) {
           onOpen();
-          context.root.$nextTick(() => {
-            context.root.$el.focus();
+          nextTick(() => {
+            root.value.focus();
           });
         }
       }
@@ -158,7 +159,8 @@ export default {
       close,
       classes,
       overlayStyles,
-      mwIconClose
+      mwIconClose,
+      root
     };
   }
 };

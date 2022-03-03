@@ -4,8 +4,7 @@
     class="mw-ui-button"
     :class="classes"
     :href="href"
-    :disabled="disabled"
-    @click="handleClick"
+    :disabled="disabled || null"
   >
     <slot>
       <span class="mw-ui-button__content">
@@ -106,6 +105,7 @@ export default {
       }
     }
   },
+  emits: ["indicator-icon-clicked"],
   computed: {
     component: vm => (vm.href ? "a" : "button"),
     classes: vm => ({
@@ -118,20 +118,11 @@ export default {
       "mw-ui-button--outlined": vm.outlined,
       "mw-ui-button--text": vm.type === "text"
     }),
-    hasIndicatorClickListener: vm => !!vm.$listeners["indicator-icon-clicked"],
+    hasIndicatorClickListener: vm => !!vm.$attrs["indicator-icon-clicked"],
     isIcon: vm => vm.type === "icon",
     iconClass: vm => !vm.isIcon && "pe-2",
     indicatorClass: vm => !vm.isIcon && "ps-2",
     indicatorClickEvent: vm => (vm.hasIndicatorClickListener ? "click" : null)
-  },
-  methods: {
-    /**
-     * Passthrough click event
-     * @type {Event}
-     */
-    handleClick(e) {
-      this.$emit("click", e);
-    }
   }
 };
 </script>

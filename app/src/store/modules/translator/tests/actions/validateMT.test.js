@@ -1,8 +1,8 @@
 import actions from "../../actions";
-import PageSection from "@/wiki/cx/models/pageSection";
-import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
-jest.mock("@/utils/publishHelper", () => {});
-import applicationMutations from "@/store/modules/application/mutations";
+import PageSection from "../../../../../wiki/cx/models/pageSection";
+import PublishFeedbackMessage from "../../../../../wiki/cx/models/publishFeedbackMessage";
+jest.mock("../../../../../utils/publishHelper", () => {});
+import applicationMutations from "../../../../../store/modules/application/mutations";
 
 const mockScores = {
   3: "failure",
@@ -15,7 +15,7 @@ const mockSectionScores = {
   test1: 10,
   test2: 3
 };
-jest.mock("@/utils/mtValidator", () => {
+jest.mock("../../../../../utils/mtValidator", () => {
   return {
     getMTScoreForPageSection: (section, mtProvider) => {
       return mockSectionScores[section.id];

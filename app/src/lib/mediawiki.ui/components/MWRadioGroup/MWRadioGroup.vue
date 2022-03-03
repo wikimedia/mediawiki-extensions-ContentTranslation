@@ -1,5 +1,6 @@
 <script>
 import MwRadio from "./MWRadio";
+import { h } from "vue";
 
 export default {
   name: "MwRadioGroup",
@@ -16,7 +17,7 @@ export default {
     /**
      * An array of objects that corresponds to the radio button to be created,
      * in { value: "", text: "", disabled: false } format.
-     * If not provided, radio buttons should be explicitely defined inside
+     * If not provided, radio buttons should be explicitly defined inside
      * default slot
      **/
     items: {
@@ -34,42 +35,30 @@ export default {
       required: true,
       // See explanation inside MWRadio about default id
       default() {
-        return `radio-group-${this._uid}`;
+        const id = Math.floor(Math.random() * 10000);
+
+        return `radio-group-${id}`;
       }
     }
   },
-  render(createElement) {
+  render(props, slots) {
     let elements = [];
 
-    if (this.items.length) {
-      elements = this.items.map(item =>
-        createElement(MwRadio, {
-          props: {
-            key: item.value,
-            disabled: item.disabled,
-            label: item.text,
-            inputValue: item.value,
-            name: this.name
-          },
-          on: {
-            change: event => this.$emit("input", event)
-          }
+    if (props.items.length) {
+      elements = props.items.map(item =>
+        h(MwRadio, {
+          key: item.value,
+          disabled: item.disabled,
+          label: item.text,
+          inputValue: item.value,
+          name: props.name
         })
       );
     } else {
-      elements = this.$slots.default.map(vnode => {
-        if (vnode?.tag?.includes("MwRadio")) {
-          vnode.componentOptions.listeners = {
-            ...vnode.componentOptions.listeners,
-            change: event => this.$emit("input", event)
-          };
-        }
-
-        return vnode;
-      });
+      elements = this.$slots.default();
     }
 
-    return createElement("div", { class: "mw-ui-radio-group" }, elements);
+    return h("div", { class: "mw-ui-radio-group" }, elements);
   }
 };
 </script>

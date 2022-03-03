@@ -1,15 +1,14 @@
 import { getAutonym } from "@wikimedia/language-data";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
-import useApplicationState from "@/composables/useApplicationState";
 
 /**
- * @type {function(ComputedRef<string[]>): ComputedRef<string[]>}
+ * @param {ComputedRef<string>} sourceLanguage
+ * @param {ComputedRef<string[]>} suggestedSourceLanguages
+ * @return {ComputedRef<string[]>}
  */
-const getSourceLanguageOptions = suggestedSourceLanguages =>
+const getSourceLanguageOptions = (sourceLanguage, suggestedSourceLanguages) =>
   computed(() => {
-    const { sourceLanguage } = useApplicationState();
-
     /**
      * According to design specification, language selector inside
      * "search for an article" screen, contains three options, including
@@ -35,7 +34,7 @@ const getSourceLanguageOptions = suggestedSourceLanguages =>
     const languageOptions = sourceLanguages
       .filter(
         (option, index) =>
-          (sourceLanguages.findIndex(language => language === option) === index)
+          sourceLanguages.findIndex(language => language === option) === index
       )
       .map(language => ({
         value: language,

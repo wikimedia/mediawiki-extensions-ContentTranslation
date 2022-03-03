@@ -35,8 +35,8 @@
     />
     <mw-bottom-navigation
       v-if="!$incompleteVersion && $mwui.breakpoint.smAndDown"
+      v-model:active="active"
       :items="listSelector"
-      :active.sync="active"
     />
   </div>
 </template>
@@ -45,7 +45,7 @@
 import CxTranslationList from "./CXTranslationList";
 import CxSuggestionList from "./CXSuggestionList";
 import CxFavoriteList from "./CXFavoriteList";
-import { ref, watch, computed, onMounted } from "@vue/composition-api";
+import { ref, watch, computed, onMounted } from "vue";
 import {
   MwButtonGroup,
   MwBottomNavigation,
@@ -60,6 +60,10 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
 import initializeDashboard from "./useDashboardInitialization";
+import { useEventLogging } from "@/plugins/eventlogging";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "CxDashboard",
@@ -73,14 +77,14 @@ export default {
     MwButtonGroup,
     MwRow
   },
-  setup(props, context) {
+  setup() {
     const active = ref("suggestions");
-
+    const bananaI18n = useI18n();
     const listSelector = computed(() => [
       {
         value: "suggestions",
         props: {
-          label: context.root.$i18n(
+          label: bananaI18n.i18n(
             "cx-translation-filter-suggested-translations"
           ),
           icon: mwIconLightBulb,
@@ -90,7 +94,7 @@ export default {
       {
         value: "draft",
         props: {
-          label: context.root.$i18n("cx-translation-filter-draft-translations"),
+          label: bananaI18n.i18n("cx-translation-filter-draft-translations"),
           icon: mwIconEdit,
           type: "text"
         }
@@ -98,7 +102,7 @@ export default {
       {
         value: "published",
         props: {
-          label: context.root.$i18n(
+          label: bananaI18n.i18n(
             "cx-translation-filter-published-translations"
           ),
           icon: mwIconArticleCheck,
@@ -115,13 +119,13 @@ export default {
       }
     });
 
-    const router = context.root.$router;
+    const router = useRouter();
 
     const searchTranslation = () => router.push({ name: "sx-article-search" });
 
     watch(active, () => window.scrollTo(0, 0));
-
-    initializeDashboard();
+    const store = useStore();
+    initializeDashboard(router, store, useEventLogging());
 
     return {
       active,

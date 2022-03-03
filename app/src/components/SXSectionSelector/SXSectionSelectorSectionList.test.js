@@ -10,7 +10,7 @@ const sections = [
 
 const createWrapper = (options = {}) =>
   mount(SXSectionSelectorSectionList, {
-    propsData: {
+    props: {
       sections
     },
     ...options
@@ -47,7 +47,7 @@ describe("SXSectionSelector Section List", () => {
   it("Component emits select-section event on section item click", async () => {
     const wrapper = createWrapper();
     const randomIndex = Math.floor(Math.random() * (sections.length - 1));
-    const button = wrapper.findAll("button").at(randomIndex);
+    const button = wrapper.findAll("button")[randomIndex];
     await button.trigger("click");
     expect(wrapper.emitted("select-section")[0]).toEqual([
       sections[randomIndex].sourceTitle

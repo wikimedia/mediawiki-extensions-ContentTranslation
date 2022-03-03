@@ -1,8 +1,7 @@
 import { getUrl } from "@/utils/mediawikiHelper";
 import siteApi from "../../wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
-import store from "@/store";
-import { ref } from "@vue/composition-api";
+import { ref } from "vue";
 
 const decodeHtml = html => {
   const template = document.createElement("div");
@@ -11,11 +10,11 @@ const decodeHtml = html => {
   return template.innerText;
 };
 
-const handlePublishResult = async isPublishDialogActive => {
+const handlePublishResult = async (store, isPublishDialogActive) => {
   const {
     currentSectionSuggestion: suggestion,
     currentSourceSection
-  } = useApplicationState();
+  } = useApplicationState(store);
 
   const translatedTitle = currentSourceSection?.value.title;
 
@@ -57,7 +56,7 @@ const handlePublishResult = async isPublishDialogActive => {
   });
 };
 
-const usePublishTranslation = () => {
+const usePublishTranslation = store => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
@@ -78,7 +77,7 @@ const usePublishTranslation = () => {
      * before handling the publishing result
      */
     setTimeout(() => {
-      handlePublishResult(isPublishDialogActive);
+      handlePublishResult(store, isPublishDialogActive);
     }, 1000);
   };
 

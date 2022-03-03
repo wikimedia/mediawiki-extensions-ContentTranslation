@@ -1,17 +1,13 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import Page from "../../wiki/mw/models/page";
 import SearchResultsCard from "./SearchResultsCard";
-import Vuex from "vuex";
-import CompositionApi from "@vue/composition-api";
-import VueBananaI18n from "vue-banana-i18n";
+import { createStore } from "vuex";
+import { createI18n } from "vue-banana-i18n";
 import debounce from "@/utils/debounce";
 jest.mock("@/utils/debounce");
 debounce.mockImplementation(fn => fn);
 
-const localVue = createLocalVue();
-localVue.use(Vuex);
-localVue.use(CompositionApi);
-localVue.use(VueBananaI18n);
+const i18n = createI18n();
 
 const mockResults = [
   new Page({
@@ -42,14 +38,13 @@ describe("SearchResultsCard", () => {
     state: { sourceLanguage }
   };
 
-  const store = new Vuex.Store({
+  const store = createStore({
     modules: { application: applicationModule }
   });
 
   const wrapper = mount(SearchResultsCard, {
-    localVue,
-    store,
-    propsData: {
+    global: { plugins: [store, i18n] },
+    props: {
       searchInput: ""
     }
   });

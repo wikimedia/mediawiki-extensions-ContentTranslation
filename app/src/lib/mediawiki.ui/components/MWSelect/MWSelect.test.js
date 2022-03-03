@@ -4,7 +4,6 @@ import { MwSelect } from "..";
 describe("MWSelect.vue", () => {
   it("renders with given slots and options", async () => {
     const inputClass = "mw-ui-select__input";
-    const value = "InputContent";
     const languages = [
       { label: "English", value: "en" },
       { label: "Spanish", value: "es" },
@@ -12,7 +11,7 @@ describe("MWSelect.vue", () => {
       { label: "French", value: "fr" }
     ];
     const wrapper = shallowMount(MwSelect, {
-      propsData: { value: languages },
+      props: { value: languages },
       slots: {
         "no-results": "<span class='err'>Error! No results!!!</span>",
         "list-header": "<span class='header'>Select from this list</span>",

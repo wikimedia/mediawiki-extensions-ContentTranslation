@@ -7,24 +7,28 @@ exports[
   class="sx-article-search"
 >
   <div
-    class="sx-article-search__header ma-0 py-3 row items-stretch justify-start"
+    class="row items-stretch justify-start sx-article-search__header ma-0 py-3"
   >
+    
     <div
-      class="px-4 col grow items-center"
+      class="col grow items-center px-4"
     >
+      
       <h5
         class="mb-0"
       >
         cx-sx-article-search-header
       </h5>
+      
     </div>
-     
     <div
-      class="pe-4 col shrink items-start"
+      class="col shrink items-start pe-4"
     >
+      
       <button
-        class="mw-ui-button pa-0 mw-ui-button--icon"
+        class="mw-ui-button mw-ui-button--icon pa-0"
       >
+        
         <span
           class="mw-ui-button__content"
         >
@@ -39,8 +43,7 @@ exports[
               width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <!---->
-               
+              <!--v-if-->
               <g
                 fill="currentColor"
               >
@@ -50,21 +53,23 @@ exports[
               </g>
             </svg>
           </span>
-           
-          <!---->
-           
-          <!---->
+          <!--v-if-->
+          <!--v-if-->
         </span>
+        
       </button>
+      
     </div>
+    
   </div>
-   
+  <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
   <div
-    class="mw-ui-input container mw-ui-input--focused"
+    class="mw-ui-input container"
   >
     <div
       class="mw-ui-input__content"
     >
+      
       <span
         class="mw-ui-icon notranslate mw-ui-input__icon"
       >
@@ -76,8 +81,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -87,80 +91,82 @@ exports[
           </g>
         </svg>
       </span>
-       
+      
       <input
         class="mw-ui-input__input"
         placeholder="cx-sx-article-search-input-placeholder"
         type="search"
       />
-       
-      <!---->
+      
+      <!--v-if-->
+      
     </div>
   </div>
-   
   <div
     class="row mw-ui-button-group ma-0 pa-0 sx-article-search__language-button-group"
   >
+    
     <button
       aria-selected="true"
-      class="mw-ui-button ma-0 mw-ui-button--text mw-ui-button--selected px-0 py-4 mx-4"
+      class="mw-ui-button mw-ui-button--text px-0 py-4 mx-4 ma-0 mw-ui-button--selected px-0 py-4 mx-4"
       style="border-bottom-color: #202122;"
       value="en"
     >
+      
       <span
         class="mw-ui-button__content"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="mw-ui-button__label"
         >
           English
         </span>
-         
-        <!---->
+        <!--v-if-->
       </span>
+      
     </button>
     <button
-      class="mw-ui-button ma-0 mw-ui-button--text px-0 py-4 mx-4"
+      class="mw-ui-button mw-ui-button--text px-0 py-4 mx-4 ma-0 px-0 py-4 mx-4"
       value="bn"
     >
+      
       <span
         class="mw-ui-button__content"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="mw-ui-button__label"
         >
           বাংলা
         </span>
-         
-        <!---->
+        <!--v-if-->
       </span>
+      
     </button>
     <button
-      class="mw-ui-button ma-0 mw-ui-button--text px-0 py-4 mx-4"
+      class="mw-ui-button mw-ui-button--text px-0 py-4 mx-4 ma-0 px-0 py-4 mx-4"
       value="ar"
     >
+      
       <span
         class="mw-ui-button__content"
       >
-        <!---->
-         
+        <!--v-if-->
         <span
           class="mw-ui-button__label"
         >
           العربية
         </span>
-         
-        <!---->
+        <!--v-if-->
       </span>
+      
     </button>
     <button
-      class="mw-ui-button ma-0 mw-ui-button--icon px-0 py-4 me-4 ms-auto"
+      class="mw-ui-button mw-ui-button--icon px-0 py-4 me-4 ms-auto ma-0 px-0 py-4 me-4 ms-auto"
       value="other"
     >
+      
       <span
         class="mw-ui-button__content"
       >
@@ -175,8 +181,7 @@ exports[
             width="20"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <!---->
-             
+            <!--v-if-->
             <g
               fill="currentColor"
             >
@@ -186,69 +191,80 @@ exports[
             </g>
           </svg>
         </span>
-         
-        <!---->
-         
-        <!---->
+        <!--v-if-->
+        <!--v-if-->
       </span>
+      
     </button>
+    
   </div>
-   
+  
   <div
     class="mw-ui-card sx-article-search__suggestions mb-0 pa-4"
   >
+    <!-- @slot Card header -->
+    
     <h5
       class="ma-0 pb-1 sx-article-search__suggestions-header"
     >
       cx-sx-article-search-recently-edited-title
     </h5>
-     
+    
     <div
       class="mw-ui-card__content"
     >
-       
+      <!-- @slot Card content -->
+      
+      
       <div
-        class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
+        class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
       >
+        
         <div
           class="col shrink"
         >
+          
           <div
             class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
             style="background-image: url(/thumbnail1.jpg);"
             width="56"
           />
+          
         </div>
-         
         <div
-          class="ms-4 col"
+          class="col ms-4"
         >
+          
           <div
-            class="ma-0 no-wrap fill-height column items-start justify-start"
+            class="column items-start justify-start ma-0 no-wrap fill-height"
           >
+            
             <div
-              class="mb-1 col shrink"
+              class="col shrink mb-1"
             >
+              
               <h5
                 class="my-0 cx-search-suggestion__source-title"
               >
                 Test page1
               </h5>
+              
             </div>
-             
             <div
-              class="mb-1 col shrink"
+              class="col shrink mb-1"
             >
+              
               <p
                 class="ma-0 cx-search-suggestion__source-description complementary"
               >
                 Test description1
               </p>
+              
             </div>
-             
             <div
-              class="cx-search-suggestion__languages col shrink items-center"
+              class="col shrink items-center cx-search-suggestion__languages"
             >
+              
               <span
                 class="mw-ui-icon notranslate me-2"
               >
@@ -260,8 +276,7 @@ exports[
                   width="16"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <g
                     fill="currentColor"
                   >
@@ -271,54 +286,64 @@ exports[
                   </g>
                 </svg>
               </span>
-               
               <small />
+              
             </div>
+            
           </div>
+          
         </div>
+        
       </div>
       <div
-        class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
+        class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
       >
+        
         <div
           class="col shrink"
         >
+          
           <div
             class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
             style="background-image: url(/thumbnail2.jpg);"
             width="56"
           />
+          
         </div>
-         
         <div
-          class="ms-4 col"
+          class="col ms-4"
         >
+          
           <div
-            class="ma-0 no-wrap fill-height column items-start justify-start"
+            class="column items-start justify-start ma-0 no-wrap fill-height"
           >
+            
             <div
-              class="mb-1 col shrink"
+              class="col shrink mb-1"
             >
+              
               <h5
                 class="my-0 cx-search-suggestion__source-title"
               >
                 Test page2
               </h5>
+              
             </div>
-             
             <div
-              class="mb-1 col shrink"
+              class="col shrink mb-1"
             >
+              
               <p
                 class="ma-0 cx-search-suggestion__source-description complementary"
               >
                 Test description2
               </p>
+              
             </div>
-             
             <div
-              class="cx-search-suggestion__languages col shrink items-center"
+              class="col shrink items-center cx-search-suggestion__languages"
             >
+              
               <span
                 class="mw-ui-icon notranslate me-2"
               >
@@ -330,8 +355,7 @@ exports[
                   width="16"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <!---->
-                   
+                  <!--v-if-->
                   <g
                     fill="currentColor"
                   >
@@ -341,38 +365,48 @@ exports[
                   </g>
                 </svg>
               </span>
-               
               <small />
+              
             </div>
+            
           </div>
+          
         </div>
+        
       </div>
+      
+      
     </div>
   </div>
-   
+  
   <div
     class="mw-ui-card sx-article-search__results mb-0 pa-4"
     style="display: none;"
   >
-    <!---->
-     
+    <!-- @slot Card header -->
+    
+    <!--v-if-->
+    
     <div
       class="mw-ui-card__content"
     >
+      <!-- @slot Card content -->
+      
       <p
         class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
       >
         cx-sx-article-search-no-search-results-message
       </p>
-       
+      
+      
+      
     </div>
   </div>
-   
+  <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
   <transition-stub
     class="sx-article-search-language-selector"
-    name="mw-ui-animation-slide-up"
   >
-    <!---->
+    <!--v-if-->
   </transition-stub>
 </section>
 `;

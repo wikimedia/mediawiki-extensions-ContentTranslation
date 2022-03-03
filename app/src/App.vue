@@ -2,9 +2,11 @@
   <mw-grid id="contenttranslation">
     <mw-row class="cx-container">
       <mw-col cols="12">
-        <transition :name="transitionName">
-          <router-view />
-        </transition>
+        <router-view v-slot="{ Component, route }">
+          <transition :name="route.meta.transitionName">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </mw-col>
     </mw-row>
   </mw-grid>
@@ -17,24 +19,10 @@ import { mapState } from "vuex";
 export default {
   name: "ContentTranslationApp",
   components: { MwGrid, MwCol, MwRow },
-  data: () => ({
-    transitionName: ""
-  }),
   computed: {
     ...mapState({
       translationInProgress: state => state.application.translationInProgress
     })
-  },
-  // watch the `$route` to determine the transition to use
-  watch: {
-    $route(to, from) {
-      const toStep = to.meta.workflowStep;
-      const fromStep = from.meta.workflowStep;
-      this.transitionName =
-        toStep < fromStep
-          ? "mw-ui-animation-slide-end"
-          : "mw-ui-animation-slide-start";
-    }
   },
   mounted() {
     window.addEventListener("beforeunload", e => {

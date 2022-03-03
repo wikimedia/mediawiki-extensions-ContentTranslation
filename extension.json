@@ -262,6 +262,10 @@
 			"description": "Whether to auto import existing pages from production wikis to local wiki before publishing section translation. Useful for development and testing",
 			"value": false
 		},
+		"ContentTranslationDevMode": {
+			"description": "Whether Content translation need to run in dev mode with features like Hot Module Replacement",
+			"value": false
+		},
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
@@ -482,14 +486,18 @@
 			"targets": [
 				"mobile"
 			],
-			"scripts": [
-				"dist/js/cx.js",
-				"dist/js/cx.libs.js",
-				"dist/js/cx.ui.js"
+			"packageFiles": [
+				{
+					"name": "dist/cx3.es.js",
+					"callback": "ContentTranslation\\Hooks::devModeCallback",
+					"callbackParam": [
+						"dist/cx3.es.js",
+						"src/main.dev.js"
+					]
+				}
 			],
 			"styles": [
-				"dist/css/cx.css",
-				"dist/css/cx.ui.css"
+				"dist/style.css"
 			],
 			"dependencies": [
 				"mediawiki.user",
@@ -631,6 +639,25 @@
 				"sx-block-template-adaptation-card-body-header-failure"
 			],
 			"noflip": true
+		},
+		"mw.cx3.ve": {
+			"localBasePath": "app",
+			"remoteExtPath": "ContentTranslation/app",
+			"targets": [
+				"mobile"
+			],
+			"scripts": [
+				"src/plugins/ve/tools/BackTool.js",
+				"src/plugins/ve/tools/NextTool.js",
+				"src/plugins/ve/commands/BackCommand.js",
+				"src/plugins/ve/commands/NextCommand.js",
+				"src/plugins/ve/target/SectionTranslationTarget.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.targetLoader",
+				"ext.visualEditor.mobileArticleTarget",
+				"ext.cite.visualEditor"
+			]
 		},
 		"mw.cx.util": {
 			"targets": [

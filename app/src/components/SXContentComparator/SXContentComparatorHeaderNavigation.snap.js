@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXContentComparator Header Navigation test Component output matches snapshot 1`
-] = `
+exports[`SXContentComparator Header Navigation test Component output matches snapshot 1`] = `
 <div
-  class="justify-end col items-center"
+  class="col items-center justify-end"
 >
+  
   <button
-    class="mw-ui-button pa-0 pe-1 mw-ui-button--icon"
+    class="mw-ui-button mw-ui-button--icon pa-0 pe-1"
   >
+    
     <span
       class="mw-ui-button__content"
     >
@@ -23,8 +23,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -34,16 +33,15 @@ exports[
           </g>
         </svg>
       </span>
-       
-      <!---->
-       
-      <!---->
+      <!--v-if-->
+      <!--v-if-->
     </span>
+    
   </button>
-   
   <button
-    class="mw-ui-button pa-0 ps-1 mw-ui-button--icon"
+    class="mw-ui-button mw-ui-button--icon pa-0 ps-1"
   >
+    
     <span
       class="mw-ui-button__content"
     >
@@ -58,8 +56,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -69,11 +66,11 @@ exports[
           </g>
         </svg>
       </span>
-       
-      <!---->
-       
-      <!---->
+      <!--v-if-->
+      <!--v-if-->
     </span>
+    
   </button>
+  
 </div>
 `;

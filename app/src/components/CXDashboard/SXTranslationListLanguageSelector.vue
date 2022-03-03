@@ -17,9 +17,9 @@
           v-text="getAutonym(selectedSourceLanguage)"
         />
       </mw-button>
-
+      <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
       <mw-dialog
-        v-model="sourceLanguageSelectOn"
+        v-model:value="sourceLanguageSelectOn"
         animation="slide-up"
         :title="$i18n('sx-translation-list-language-selector-dialog-title')"
         :fullscreen="fullscreen"
@@ -57,8 +57,9 @@
           v-text="getAutonym(selectedTargetLanguage)"
         />
       </mw-button>
+      <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
       <mw-dialog
-        v-model="targetLanguageSelectOn"
+        v-model:value="targetLanguageSelectOn"
         animation="slide-up"
         :fullscreen="fullscreen"
         :header="fullscreen"
@@ -106,6 +107,7 @@ export default {
       required: true
     }
   },
+  emits: ["source-language-selected", "target-language-selected"],
   data: () => ({
     mwIconArrowNext,
     mwIconExpand,

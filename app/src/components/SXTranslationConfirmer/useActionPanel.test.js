@@ -1,14 +1,13 @@
 import useActionPanel from "./useActionPanel";
-// import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 jest.mock("../../store", () => jest.requireActual("./actionPanelMockStore"));
-import Vue from "vue";
-import CompositionApi from "@vue/composition-api";
-Vue.use(CompositionApi);
 import mockStore from "./actionPanelMockStore";
-
-const { getActionButtonLabel, actionInformationMessageArgs } = useActionPanel();
+import { computed } from "vue";
 
 const sectionSuggestion = mockStore.state.application.currentSectionSuggestion;
+const currentSectionSuggestion = computed(() => sectionSuggestion);
+const { getActionButtonLabel, actionInformationMessageArgs } = useActionPanel(
+  currentSectionSuggestion
+);
 
 describe("actionInformationMessageArgs test", () => {
   it("case: missing > 1", () => {
@@ -62,16 +61,6 @@ describe("actionInformationMessageArgs test", () => {
 });
 
 describe("getActionButtonLabel test", () => {
-  const { getActionButtonLabel } = useActionPanel();
-  // const sectionSuggestion = new SectionSuggestion({
-  //   missing: {
-  //     "Test missing section 1": "test",
-  //     "Test missing section 2": "test"
-  //   },
-  //   present: {},
-  //   targetTitle: "Existing target article"
-  // });
-
   it("case: prefilled section", () => {
     expect(getActionButtonLabel(true)).toBe(
       "cx-sx-translation-confirmer-translate-prefilled-section-button-label"

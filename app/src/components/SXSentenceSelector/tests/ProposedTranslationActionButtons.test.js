@@ -1,22 +1,17 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import ProposedTranslationActionButtons from "../ProposedTranslationActionButtons";
-import VueBananaI18n from "vue-banana-i18n";
-import Vuex from "vuex";
-import CompositionApi from "@vue/composition-api";
+import { createI18n } from "vue-banana-i18n";
 import mockStore from "./proposedTranslationCardMockStore";
+import { nextTick } from "vue";
 
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(Vuex);
-localVue.use(VueBananaI18n);
-jest.mock("@/store", () =>
+const i18n = createI18n();
+jest.mock("../../../store", () =>
   jest.requireActual("./proposedTranslationCardMockStore")
 );
 
 describe("SXSentenceSelector Proposed Translation Action Buttons", () => {
   const wrapper = mount(ProposedTranslationActionButtons, {
-    store: mockStore,
-    localVue
+    global: { plugins: [i18n, mockStore] }
   });
 
   it("Component output should match snapshot", () => {
@@ -48,20 +43,20 @@ describe("SXSentenceSelector Proposed Translation Action Buttons", () => {
       0
     );
     /** Wait for DOM to be updated **/
-    await wrapper.vm.$nextTick();
+    await nextTick();
     const skipButton = wrapper.find("button");
 
-    expect(skipButton.attributes("disabled")).toBe("disabled");
+    expect(skipButton.element.disabled).toBe(true);
   });
 
   it("should disable the 'Apply' button when sentence is first", async () => {
     mockStore.state.application.content = "";
     /** Wait for DOM to be updated **/
-    await wrapper.vm.$nextTick();
+    await nextTick();
     const applyTranslationButton = wrapper.find(
       ".sx-sentence-selector__apply-translation-button"
     );
 
-    expect(applyTranslationButton.attributes("disabled")).toBe("disabled");
+    expect(applyTranslationButton.element.disabled).toBe(true);
   });
 });

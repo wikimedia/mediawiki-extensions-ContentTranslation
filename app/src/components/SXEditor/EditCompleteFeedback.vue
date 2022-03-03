@@ -25,8 +25,10 @@
 </template>
 
 <script>
-import { computed } from "@vue/composition-api";
-import mtValidator from "@/utils/mtValidator";
+import { computed } from "vue";
+import mtValidator from "../../utils/mtValidator";
+import happyRobotSVG from "../../assets/happy-robot.svg?raw";
+import { useRoute } from "vue-router";
 
 export default {
   name: "EditCompleteFeedback",
@@ -40,8 +42,8 @@ export default {
       default: null
     }
   },
-  setup(props, context) {
-    const route = context.root.$route;
+  setup(props) {
+    const route = useRoute();
     const proposedTranslation = route.params.content;
 
     const mtScore = computed(() =>
@@ -60,8 +62,6 @@ export default {
       () =>
         `sx-editor__feedback-overlay-content__stats--${modificationStatus.value}`
     );
-
-    const happyRobotSVG = require("!html-loader!@/assets/happy-robot.svg");
 
     return {
       happyRobotSVG,

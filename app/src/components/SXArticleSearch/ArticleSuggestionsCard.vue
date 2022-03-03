@@ -10,7 +10,7 @@
       v-for="suggestion in suggestions"
       :key="suggestion.pageid"
       :suggestion="suggestion"
-      @click.native="$emit('suggestion-clicked', suggestion)"
+      @click="$emit('suggestion-clicked', suggestion)"
     />
   </mw-card>
 </template>
@@ -18,7 +18,7 @@
 <script>
 import { mapState } from "vuex";
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
-import { MwCard } from "@/lib/mediawiki.ui";
+import { MwCard } from "../../lib/mediawiki.ui";
 
 export default {
   name: "ArticleSuggestionsCard",
@@ -33,6 +33,7 @@ export default {
       required: true
     }
   },
+  emits: ["suggestion-clicked"],
   computed: {
     ...mapState({
       sourceLanguage: state => state.application.sourceLanguage

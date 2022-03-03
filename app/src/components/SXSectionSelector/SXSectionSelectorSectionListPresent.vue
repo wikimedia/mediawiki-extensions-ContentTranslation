@@ -8,7 +8,7 @@
     />
     <sx-section-selector-section-list
       :sections="suggestion.orderedPresentSections"
-      v-on="$listeners"
+      @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
@@ -43,6 +43,7 @@ export default {
       required: true
     }
   },
+  emits: ["select-section"],
   data: () => ({
     mwIconArrowForward
   }),

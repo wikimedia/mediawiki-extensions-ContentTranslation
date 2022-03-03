@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import SxContentComparator from "@/components/SXContentComparator";
 
 export default {

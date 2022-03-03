@@ -24,7 +24,7 @@
       <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
         <mw-button
           :icon="mwIconEdit"
-          :progressive="true"
+          progressive
           :label="
             $i18n('cx-sx-content-comparator-translation-section-button-label')
           "
@@ -68,7 +68,8 @@ import SxContentComparatorHeaderNavigation from "@/components/SXContentComparato
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection";
 import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -86,17 +87,14 @@ export default {
       required: true
     }
   },
-  setup(props, context) {
+  emits: ["close", "translation-button-clicked", "update:discardedSections"],
+  setup() {
+    const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: sourceSection
-    } = useApplicationState();
+    } = useApplicationState(store);
 
-    const store = context.root.$store;
-
-    const sourceSectionTitle = computed(
-      () => store.getters["application/getCurrentSourceSectionTitle"]
-    );
     const isCurrentSectionMissing = computed(
       () => store.getters["application/isCurrentSourceSectionMissing"]
     );
@@ -104,7 +102,9 @@ export default {
       () => store.getters["application/isCurrentSourceSectionPresent"]
     );
 
-    const { activeSectionTargetTitle } = useCompareContents();
+    const { activeSectionTargetTitle, sourceSectionTitle } = useCompareContents(
+      store
+    );
 
     const sourceSectionContent = computed(() => sourceSection.value?.html);
     const sectionSourceTitles = computed(() => [

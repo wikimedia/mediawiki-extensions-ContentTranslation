@@ -1,4 +1,7 @@
-import { parseTemplateName, isTransclusionNode } from "@/utils/templateHelper";
+import {
+  parseTemplateName,
+  isTransclusionNode
+} from "../../../utils/templateHelper";
 
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a

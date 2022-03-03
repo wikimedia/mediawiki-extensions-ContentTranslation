@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 export default {
   addPage(state, page) {
     state.pages.push(page);
@@ -21,8 +19,13 @@ export default {
     state.supportedMTProviderGroups.push(mtProviderGroup);
   },
 
+  /**
+   * @param {object} state
+   * @param {Page} page
+   * @param {PageSection[]} sections
+   */
   setPageSections(state, { page, sections }) {
-    Vue.set(page, "sections", sections);
+    page.sections = sections;
   },
 
   setLanguagesRequested(state, value) {
@@ -42,6 +45,6 @@ export default {
    * @param {Page[]} pages array of nearby pages as Page models
    */
   addNearbyPages(state, { language, pages }) {
-    Vue.set(state.nearbyPages, language, pages);
+    state.nearbyPages[language] = pages;
   }
 };

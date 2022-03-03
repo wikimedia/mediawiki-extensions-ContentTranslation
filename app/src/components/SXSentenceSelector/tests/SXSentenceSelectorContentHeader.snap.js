@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Section Content Header Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Section Content Header Component output matches snapshot 1`] = `
 <div
-  class="sx-sentence-selector__section-header pa-5 col shrink"
+  class="col shrink sx-sentence-selector__section-header pa-5"
 >
+  
   <a
     class="sx-sentence-selector__section-article-title mb-1"
     href="https://en.wikipedia.org/wiki/Test source section title"
@@ -14,7 +13,6 @@ exports[
     <strong>
       Test source section title
     </strong>
-     
     <span
       class="mw-ui-icon notranslate ms-1"
     >
@@ -26,8 +24,7 @@ exports[
         width="12"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <!---->
-         
+        <!--v-if-->
         <g
           fill="currentColor"
         >
@@ -38,11 +35,13 @@ exports[
       </svg>
     </span>
   </a>
-   
+  <!--eslint-disable vue/no-v-html -->
   <h2
     class="pa-0 ma-0 sx-sentence-selector__section-title"
   >
     Test source section title
   </h2>
+  <!--eslint-enable vue/no-v-html -->
+  
 </div>
 `;

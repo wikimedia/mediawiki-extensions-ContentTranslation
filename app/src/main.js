@@ -1,37 +1,33 @@
-/*global mw */
-
-import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import store from "./store";
 import router from "./router";
-import VueCompositionAPI from "@vue/composition-api";
-import i18n from "vue-banana-i18n";
+import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
-import EventLoggingPlugin from "./plugins/eventlogging";
-Vue.use(BreakpointsPlugin);
-Vue.use(ColorsPlugin);
-Vue.use(EventLoggingPlugin);
-Vue.use(VueCompositionAPI);
+import { createEventLogging } from "./plugins/eventlogging";
 
 const locale = mw.config.get("wgUserLanguage");
 const finalFallback = "en";
 const messages = mw.messages.values || {};
 
+const app = createApp(App);
 /**
  * Indicates that application is still under development and mobile support is experimental
  */
-Vue.prototype.$incompleteVersion = true;
+app.config.globalProperties.$incompleteVersion = true;
 
-Vue.use(i18n, {
+const eventLoggingPlugin = createEventLogging();
+app.use(eventLoggingPlugin);
+app.use(router);
+app.use(store);
+app.use(ColorsPlugin);
+app.use(BreakpointsPlugin);
+const i18nPlugin = createI18n({
   locale,
   finalFallback,
   messages,
   wikilinks: true
 });
+app.use(i18nPlugin);
 
-new Vue({
-  store,
-  router,
-  el: "#contenttranslation",
-  render: h => h(App)
-});
+app.mount("#contenttranslation");

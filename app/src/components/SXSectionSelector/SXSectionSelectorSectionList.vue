@@ -44,6 +44,7 @@ export default {
       required: true
     }
   },
+  emits: ["select-section"],
   data: () => ({ mwIconArrowForward })
 };
 </script>

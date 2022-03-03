@@ -7,7 +7,7 @@ describe("MWButton.vue", () => {
     const id = "buttonId";
     const buttonClass = "mw-ui-button";
     const wrapper = shallowMount(MwButton, {
-      propsData: { id }
+      props: { id }
     });
     expect(wrapper.attributes("id")).toMatch(id);
     expect(wrapper.find("button").exists()).toBe(true);
@@ -17,7 +17,7 @@ describe("MWButton.vue", () => {
   it("renders <a> tag when href is passed", () => {
     const href = "wikipedia.org";
     const wrapper = shallowMount(MwButton, {
-      propsData: { href }
+      props: { href }
     });
     expect(wrapper.find("a").exists()).toBe(true);
     expect(wrapper.attributes("href")).toMatch(href);
@@ -26,7 +26,7 @@ describe("MWButton.vue", () => {
   it("renders indicator icon when passed", () => {
     const href = "wikipedia.org";
     const wrapper = shallowMount(MwButton, {
-      propsData: { href, indicator: mwIconTrash, label: "Label" }
+      props: { href, indicator: mwIconTrash, label: "Label" }
     });
     expect(wrapper.find(".mw-ui-button__indicator").exists()).toBe(true);
     expect(wrapper.find(".mw-ui-button__icon").exists()).toBe(false);
@@ -34,7 +34,7 @@ describe("MWButton.vue", () => {
 
   it("matches the snapshot with an HTML label", () => {
     const wrapper = shallowMount(MwButton, {
-      propsData: {
+      props: {
         progressive: true,
         large: true,
         label: "Large button text with <b>html</b>",
@@ -53,7 +53,7 @@ describe("MWButton.vue", () => {
 
   it("matches the snapshot with an destructive type icon button", () => {
     const wrapper = shallowMount(MwButton, {
-      propsData: {
+      props: {
         type: "icon",
         destructive: true,
         icon: mwIconTrash

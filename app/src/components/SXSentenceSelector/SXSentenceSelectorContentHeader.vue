@@ -23,14 +23,15 @@
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
 import { siteMapper } from "@/utils/mediawikiHelper";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
-  setup(props, context) {
-    const store = context.root.$store;
+  setup() {
+    const store = useStore();
 
     const titleClass = "sx-sentence-selector__section-title";
     const currentPage = computed(
@@ -41,7 +42,7 @@ export default {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
       isSectionTitleSelected
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const sourceSectionTitle = computed(
       () => currentPageSection.value?.title || currentPage.value.title

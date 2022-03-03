@@ -1,7 +1,7 @@
 /**
  * Back command
  */
-SXEditorBackCommand = function SXEditorBackCommand() {
+const SXEditorBackCommand = function SXEditorBackCommand() {
   // Parent constructor
   SXEditorBackCommand.super.call(this, "back");
 };
@@ -11,4 +11,3 @@ SXEditorBackCommand.prototype.execute = function() {
   ve.init.target.back();
 };
 ve.ui.commandRegistry.register(new SXEditorBackCommand());
-module.exports = SXEditorBackCommand;

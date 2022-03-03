@@ -4,7 +4,7 @@
       v-for="item in items"
       :key="item.value"
       :value="item.value"
-      :aria-selected="isActive(item)"
+      :aria-selected="isActive(item) || null"
       v-bind="item.props"
       class="ma-0"
       :class="buttonClasses(item)"
@@ -44,6 +44,7 @@ export default {
       default: "#202122"
     }
   },
+  emits: ["select"],
   methods: {
     isActive(item) {
       return this.active === item.value;

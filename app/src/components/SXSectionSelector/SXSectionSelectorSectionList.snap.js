@@ -1,35 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot for specified props with slot 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot for specified props with slot 1`] = `
 <ul
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
+  
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-      <template>
-        <div
-          class="sx-section-selector__present-section-button-content"
-        >
-          <h5
-            class="sx-section-selector__present-section-button-source"
-          >
-            source section 0
-          </h5>
-           
-          <h6
-            class="sx-section-selector__present-section-button-target"
-          >
-            target section 0
-          </h6>
-        </div>
-      </template>
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -41,8 +26,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -52,32 +36,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-      <template>
-        <div
-          class="sx-section-selector__present-section-button-content"
-        >
-          <h5
-            class="sx-section-selector__present-section-button-source"
-          >
-            source section 1
-          </h5>
-           
-          <h6
-            class="sx-section-selector__present-section-button-target"
-          >
-            target section 1
-          </h6>
-        </div>
-      </template>
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -89,8 +61,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -100,32 +71,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-      <template>
-        <div
-          class="sx-section-selector__present-section-button-content"
-        >
-          <h5
-            class="sx-section-selector__present-section-button-source"
-          >
-            source section 2
-          </h5>
-           
-          <h6
-            class="sx-section-selector__present-section-button-target"
-          >
-            target section 2
-          </h6>
-        </div>
-      </template>
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -137,8 +96,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -148,32 +106,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-      <template>
-        <div
-          class="sx-section-selector__present-section-button-content"
-        >
-          <h5
-            class="sx-section-selector__present-section-button-source"
-          >
-            source section 3
-          </h5>
-           
-          <h6
-            class="sx-section-selector__present-section-button-target"
-          >
-            target section 3
-          </h6>
-        </div>
-      </template>
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -185,8 +131,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -196,24 +141,29 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
+  
 </ul>
 `;
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot for specified sections with label 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot for specified sections with label 1`] = `
 <ul
   class="sx-section-selector__sections-list ma-0 pa-0"
 >
+  
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -225,8 +175,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -236,15 +185,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -256,8 +210,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -267,15 +220,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -287,8 +245,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -298,15 +255,20 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
   <li
-    class="ma-0 row items-center justify-start"
+    class="row items-center justify-start ma-0"
   >
+    
     <button
-      class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+      class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     >
-       
+      
+      
+      
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator"
       >
@@ -318,8 +280,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -329,7 +290,10 @@ exports[
           </g>
         </svg>
       </span>
+      
     </button>
+    
   </li>
+  
 </ul>
 `;

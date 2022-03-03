@@ -1,5 +1,5 @@
 <!-- Three bouncing dots based progress indicator. -->
-<template functional>
+<template>
   <div class="mw-ui-spinner">
     <div class="mw-ui-spinner__bounce"></div>
   </div>

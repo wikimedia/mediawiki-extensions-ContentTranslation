@@ -1,7 +1,7 @@
 import translatorApi from "../../../wiki/cx/api/translator";
 import pageApi from "../../../wiki/mw/api/page";
 import siteApi from "../../../wiki/mw/api/site";
-import segmentedContentConverter from "@/utils/segmentedContentConverter";
+import segmentedContentConverter from "../../../utils/segmentedContentConverter";
 
 /**
  * Given a language and an array of titles, this action fetches

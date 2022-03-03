@@ -1,15 +1,11 @@
-import { createLocalVue, mount } from "@vue/test-utils";
-import VueBananaI18n from "vue-banana-i18n";
-import Vuex from "vuex";
+import { mount } from "@vue/test-utils";
+import { createI18n } from "vue-banana-i18n";
+import { createStore } from "vuex";
 import segmentedContentConverter from "@/utils/segmentedContentConverter";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import SubSection from "../SubSection";
-import CompositionApi from "@vue/composition-api";
 
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(Vuex);
-localVue.use(VueBananaI18n);
+const i18n = createI18n();
 
 const createSectionNode = (nodeHtml, id, sectionNumber) => {
   const section = document.createElement("section");
@@ -76,7 +72,7 @@ describe("SXSentenceSelector SubSection component", () => {
       ]
     }
   };
-  const store = new Vuex.Store({
+  const store = createStore({
     modules: {
       mediawiki: mediawikiModule,
       application: applicationModule
@@ -84,16 +80,15 @@ describe("SXSentenceSelector SubSection component", () => {
   });
 
   const wrapper = mount(SubSection, {
-    localVue,
-    store,
-    propsData: { subSection }
+    global: { plugins: [store, i18n] },
+    props: { subSection }
   });
 
   it("Component output matches snapshot", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Component should bounce translation preview when already selected sentence is selected", async () => {
+  it("Component should emit 'bounce-translation' when already selected sentence is selected", async () => {
     let sentence = wrapper.find(".cx-segment");
     await sentence.trigger("click");
     // Find specific sentence again as content has
@@ -105,7 +100,7 @@ describe("SXSentenceSelector SubSection component", () => {
 
   it("Component should dispatch correct action on new sentence selected", () => {
     store.dispatch = jest.fn();
-    const sentence = wrapper.findAll(".cx-segment").at(1);
+    const sentence = wrapper.findAll(".cx-segment")[1];
     sentence.trigger("click");
     expect(store.dispatch).toHaveBeenCalledWith(
       "application/selectTranslationUnitById",

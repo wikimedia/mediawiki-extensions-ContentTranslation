@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Proposed Translation Action Buttons Component output should match snapshot 1`
-] = `
+exports[`SXSentenceSelector Proposed Translation Action Buttons Component output should match snapshot 1`] = `
 <div
-  class="sx-sentence-selector__translation-action-buttons ma-0 row items-center justify-start"
+  class="row items-center justify-start sx-sentence-selector__translation-action-buttons ma-0"
 >
+  
   <button
-    class="mw-ui-button sx-sentence-selector__previous-sentence-button col shrink pa-4 mw-ui-button--icon"
+    class="mw-ui-button mw-ui-button--icon sx-sentence-selector__previous-sentence-button col shrink pa-4"
   >
+    
     <span
       class="mw-ui-button__content"
     >
@@ -23,8 +23,7 @@ exports[
           width="20"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -34,45 +33,41 @@ exports[
           </g>
         </svg>
       </span>
-       
-      <!---->
-       
-      <!---->
+      <!--v-if-->
+      <!--v-if-->
     </span>
+    
   </button>
-   
   <button
-    class="mw-ui-button sx-sentence-selector__apply-translation-button col grow pa-4 mw-ui-button--text"
+    class="mw-ui-button mw-ui-button--text sx-sentence-selector__apply-translation-button col grow pa-4"
   >
+    
     <span
       class="mw-ui-button__content"
     >
-      <!---->
-       
+      <!--v-if-->
       <span
         class="mw-ui-button__label"
       >
         cx-sx-sentence-selector-apply-translation-button-label
       </span>
-       
-      <!---->
+      <!--v-if-->
     </span>
+    
   </button>
-   
   <button
-    class="mw-ui-button sx-sentence-selector__skip-translation-button col shrink pa-4 mw-ui-button--text"
+    class="mw-ui-button mw-ui-button--text sx-sentence-selector__skip-translation-button col shrink pa-4"
   >
+    
     <span
       class="mw-ui-button__content"
     >
-      <!---->
-       
+      <!--v-if-->
       <span
         class="mw-ui-button__label"
       >
         cx-sx-sentence-selector-skip-translation-button-label
       </span>
-       
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
       >
@@ -84,8 +79,7 @@ exports[
           width="12"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -96,6 +90,8 @@ exports[
         </svg>
       </span>
     </span>
+    
   </button>
+  
 </div>
 `;

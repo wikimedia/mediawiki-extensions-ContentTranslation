@@ -10,7 +10,7 @@
             class="ma-0 pa-0"
           />
           <h2
-            v-if="isActiveStep(2)"
+            v-else-if="isActiveStep(2)"
             key="main-point-2"
             v-i18n:sx-quick-tutorial-main-point-step-2
             class="ma-0 pa-0"
@@ -26,7 +26,7 @@
             v-html="tutorialSvgSections"
           />
           <div
-            v-if="isActiveStep(2)"
+            v-else-if="isActiveStep(2)"
             key="illustration-2"
             v-html="tutorialSvgMT"
           />
@@ -52,7 +52,7 @@
             class="ma-0"
           />
           <h3
-            v-if="isActiveStep(2)"
+            v-else-if="isActiveStep(2)"
             key="secondary-point-2"
             v-i18n:sx-quick-tutorial-secondary-point-step-2
             class="ma-0"
@@ -70,7 +70,7 @@
             @click="goToNextStep"
           />
           <mw-button
-            v-if="isActiveStep(2)"
+            v-else-if="isActiveStep(2)"
             key="quick-tutorial-action-button-2"
             class="mx-4"
             :label="$i18n('sx-quick-tutorial-translate-button-label')"
@@ -84,8 +84,11 @@
 </template>
 
 <script>
-import { MwButton, MwRow } from "@/lib/mediawiki.ui";
-import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
+import { MwButton, MwRow } from "../../lib/mediawiki.ui";
+import { mwIconArrowForward } from "../../lib/mediawiki.ui/components/icons";
+import tutorialSvgMT from "../../assets/tutorial-mt.svg?raw";
+import tutorialSvgSections from "../../assets/tutorial-sections.svg?raw";
+
 export default {
   name: "SxQuickTutorial",
   components: {
@@ -96,8 +99,8 @@ export default {
     mwIconArrowForward,
     totalSteps: 2,
     activeStep: 1,
-    tutorialSvgMT: require("!html-loader!@/assets/tutorial-mt.svg"),
-    tutorialSvgSections: require("!html-loader!@/assets/tutorial-sections.svg")
+    tutorialSvgMT,
+    tutorialSvgSections
   }),
   methods: {
     goToNextStep() {

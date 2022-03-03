@@ -1,16 +1,19 @@
 import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed, ref } from "@vue/composition-api";
-import store from "@/store";
+import { computed, ref } from "vue";
 
-export default router => {
+/**
+ * @param {VueRouter} router
+ * @param {Store} store
+ */
+export default (router, store) => {
   const urlParams = new URLSearchParams(location.search);
   const preFilledSectionTitle = ref(urlParams.get("section"));
 
   const {
     currentSourceSection,
     currentSectionSuggestion: sectionSuggestion
-  } = useApplicationState();
+  } = useApplicationState(store);
 
   const translationExists = computed(
     () => !!sectionSuggestion.value?.translationExists

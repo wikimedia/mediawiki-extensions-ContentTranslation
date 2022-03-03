@@ -71,7 +71,9 @@ import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListP
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "SxSectionSelector",
@@ -85,12 +87,13 @@ export default {
     MwIcon,
     SxArticleLanguageSelector
   },
-  setup(props, context) {
+  setup() {
+    const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
       sourceLanguageAutonym,
       targetLanguageAutonym
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const sourceArticlePath = computed(() =>
       siteMapper.getPageUrl(
@@ -113,18 +116,20 @@ export default {
       { path: targetArticlePath.value, autonym: targetLanguageAutonym.value }
     ]);
 
+    const router = useRouter();
+
     const goToDashboard = () => {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
-      context.root.$router.push({ name: "dashboard" });
+      router.push({ name: "dashboard" });
     };
 
     const selectSection = sourceSectionTitle => {
-      context.root.$store.dispatch(
+      store.dispatch(
         "application/selectPageSectionByTitle",
         sourceSectionTitle
       );
-      context.root.$router.push({ name: "sx-content-comparator" });
+      router.push({ name: "sx-content-comparator" });
     };
 
     return {

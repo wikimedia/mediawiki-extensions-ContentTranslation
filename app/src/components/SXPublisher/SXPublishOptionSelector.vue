@@ -34,16 +34,14 @@
         name="publish-options"
         @input="updateOption"
       >
-        <template v-for="option in publishOptions">
+        <template v-for="option in publishOptions" :key="option.label">
           <mw-radio
-            :key="`${option.label}-label`"
             class="pa-0 my-1"
             :label="option.label"
             :input-value="option.value"
             :disabled="option.disabled"
           />
           <p
-            :key="`${option.label}-details`"
             class="complementary ms-7 mt-0 mb-4"
             :class="optionMarginBottom"
             v-text="option.details"
@@ -80,6 +78,7 @@ export default {
       required: true
     }
   },
+  emits: ["update:active"],
   data: () => ({
     mwIconArrowPrevious
   }),
@@ -113,8 +112,9 @@ export default {
     onPublishOptionsClose() {
       this.$emit("update:active", false);
     },
-    updateOption(option) {
-      this.$store.commit("application/setPublishTarget", option);
+    updateOption(event) {
+      const selectedOption = event.target.value;
+      this.$store.commit("application/setPublishTarget", selectedOption);
       this.onPublishOptionsClose();
     }
   }

@@ -3,7 +3,7 @@
     v-if="!!favorites.length"
     class="cx-translation-list--favorites pa-0 mb-4"
   >
-    <template slot="header">
+    <template #header>
       <h3
         v-i18n:cx-suggestion-list-favorites-division
         class="mw-ui-card__title pa-4 pt-5 mb-0"
@@ -13,7 +13,7 @@
       v-for="(suggestion, index) in favorites"
       :key="`favorite-${index}`"
       :suggestion="suggestion"
-      @click.native="startFavoriteTranslation(suggestion)"
+      @click="startFavoriteTranslation(suggestion)"
       @bookmark="unmarkFavoriteSectionSuggestion(suggestion)"
     />
   </mw-card>
@@ -22,8 +22,10 @@
 <script>
 import CxTranslationSuggestion from "./CXTranslationSuggestion";
 import { MwCard } from "@/lib/mediawiki.ui";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "CxFavoriteList",
@@ -31,8 +33,9 @@ export default {
     CxTranslationSuggestion,
     MwCard
   },
-  setup(props, context) {
-    const { $router: router, $store: store } = context.root;
+  setup() {
+    const router = useRouter();
+    const store = useStore();
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
 

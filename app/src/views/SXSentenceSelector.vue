@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from "vue";
 import SxSentenceSelector from "@/components/SXSentenceSelector";
 
 export default {

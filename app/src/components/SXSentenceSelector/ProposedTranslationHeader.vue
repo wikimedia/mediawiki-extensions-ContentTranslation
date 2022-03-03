@@ -25,7 +25,9 @@
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "ProposedTranslationHeader",
@@ -34,18 +36,20 @@ export default {
     MwCol,
     MwButton
   },
-  setup(props, context) {
-    const store = context.root.$store;
+  emits: ["configure-options"],
+  setup() {
+    const store = useStore();
 
     const mtProvider = computed(
       () => store.state.application.currentMTProvider
     );
+    const bananaI18n = useI18n();
 
     const extraMTOptionLabels = computed(() => ({
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: context.root.$i18n(
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
         "cx-sx-sentence-selector-translation-options-original-card-title"
       ),
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: context.root.$i18n(
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
         "cx-sx-sentence-selector-translation-options-empty-card-title"
       )
     }));
@@ -53,7 +57,7 @@ export default {
     const mtOptionLabel = computed(
       () =>
         extraMTOptionLabels.value[mtProvider.value] ||
-        context.root.$i18n(
+        bananaI18n.i18n(
           "cx-sx-sentence-selector-suggested-translation-title",
           mtProvider.value
         )

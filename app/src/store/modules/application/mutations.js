@@ -1,6 +1,5 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
-import Vue from "vue";
 import SubSection from "@/wiki/cx/models/subSection";
 
 const mutations = {
@@ -105,24 +104,18 @@ const mutations = {
     { id, provider, proposedTranslation }
   ) {
     if (id === 0) {
-      Vue.set(
-        state.currentSourceSection.proposedTitleTranslations,
-        provider,
-        proposedTranslation
-      );
+      state.currentSourceSection.proposedTitleTranslations[
+        provider
+      ] = proposedTranslation;
 
       return;
     }
     const unit = state.currentSourceSection.getContentTranslationUnitById(id);
 
     if (unit instanceof SubSection) {
-      Vue.set(
-        unit.blockTemplateProposedTranslations,
-        provider,
-        proposedTranslation
-      );
+      unit.blockTemplateProposedTranslations[provider] = proposedTranslation;
     } else if (unit instanceof SectionSentence) {
-      Vue.set(unit.proposedTranslations, provider, proposedTranslation);
+      unit.proposedTranslations[provider] = proposedTranslation;
     }
   },
 

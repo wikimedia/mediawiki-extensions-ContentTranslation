@@ -1,7 +1,7 @@
 <template>
   <mw-card class="translated-segment-card col shrink pa-0 mb-0">
     <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
-      <translated-segment-card-header :selection.sync="scopeSelection" />
+      <translated-segment-card-header v-model:selection="scopeSelection" />
       <mw-col tag="section" class="translated-segment-card__body pa-5">
         <mw-row class="ma-0">
           <mw-col class="translated-segment-card__modification-stats" grow>
@@ -54,7 +54,7 @@
         />
       </mw-col>
       <mw-col class="translated-segment-card__actions">
-        <translated-segment-card-action-buttons v-on="$listeners" />
+        <translated-segment-card-action-buttons v-bind="$attrs" />
       </mw-col>
     </mw-row>
   </mw-card>
@@ -78,8 +78,9 @@ import {
 import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons";
 import mtValidator from "@/utils/mtValidator";
-import { computed, ref } from "@vue/composition-api";
+import { computed, ref, inject } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
 
 export default {
   name: "TranslatedSegmentCard",
@@ -94,7 +95,7 @@ export default {
     MwButton
   },
   emits: ["edit-translation"],
-  setup(props, context) {
+  setup() {
     const scopeSelection = ref("sentence");
 
     const {
@@ -103,7 +104,7 @@ export default {
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
       proposedTranslation: mtTranslation
-    } = useApplicationState();
+    } = useApplicationState(useStore());
 
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
 
@@ -121,8 +122,10 @@ export default {
         : currentSubSection.value.getProposedTranslation(mtProvider.value)
     );
 
-    const progressBarBackgroundColor = context.root.$mwui.colors.base80;
-    const errorColor = context.root.$mwui.colors.red50;
+    const colors = inject("colors");
+
+    const progressBarBackgroundColor = colors.base80;
+    const errorColor = colors.red50;
 
     const translation = computed(() => {
       if (isSectionTitleSelected.value) {
@@ -146,9 +149,9 @@ export default {
     );
 
     const iconColors = computed(() => ({
-      failure: mtScore.value === 0 ? null : context.root.$mwui.colors.yellow30,
-      warning: context.root.$mwui.colors.yellow30,
-      success: context.root.$mwui.colors.green30
+      failure: mtScore.value === 0 ? null : colors.yellow30,
+      warning: colors.yellow30,
+      success: colors.green30
     }));
 
     const userIconColor = computed(

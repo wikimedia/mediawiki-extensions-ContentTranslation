@@ -15,10 +15,10 @@
           ref="input"
           v-model.trim="query"
           class="mw-ui-select__input grow"
-          :disabled="disabled"
-          :aria-disabled="disabled"
+          :disabled="disabled || null"
+          :aria-disabled="disabled || null"
           aria-autocomplete="list"
-          :aria-expanded="optionsOpen ? 'true' : 'false'"
+          :aria-expanded="optionsOpen || null"
           role="combobox"
           :aria-label="selectedLabel || placeholder"
           :placeholder="selectedLabel || placeholder"
@@ -59,14 +59,13 @@
           :key="i"
           :ref="option.key"
           role="option"
-          v-bind="{ option, index: i, select: this }"
           class="mw-ui-select__option pa-1"
-          :aria-selected="i === selectedIndex"
+          :aria-selected="i === selectedIndex || null"
           :class="i === selectedIndex ? 'mw-ui-select__option--selected' : ''"
           tabindex="-1"
           @click="onOptionClick(i)"
         >
-          <slot name="option" v-bind="{ option, index: i }">
+          <slot name="option" v-bind="{ option }">
             {{ option.label }}
           </slot>
         </li>
@@ -146,6 +145,7 @@ export default {
         ~(value + "").toLowerCase().indexOf(query.toLowerCase())
     }
   },
+  emits: ["select", "focus", "click"],
   data: () => ({
     query: "", //selectedOption && selectedOption.label
     mwIconExpand,

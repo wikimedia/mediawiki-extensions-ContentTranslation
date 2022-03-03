@@ -6,9 +6,5 @@ export default VisualEditor;
  * @returns Promise
  */
 export function loadVEModules() {
-  return mw.loader.using([
-    "ext.visualEditor.targetLoader",
-    "ext.visualEditor.mobileArticleTarget",
-    "ext.cite.visualEditor"
-  ]);
+  return mw.loader.using("mw.cx3.ve");
 }

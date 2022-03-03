@@ -22,7 +22,7 @@
             <mw-icon
               :icon="mwIconLinkExternal"
               size="16"
-              :icon-color="$mwui.colors.base30"
+              :icon-color="colors.base30"
             />
           </a>
         </mw-col>
@@ -61,12 +61,15 @@
 
 <script>
 import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
-import { computed, onMounted } from "@vue/composition-api";
+import { computed, inject, onMounted } from "vue";
 import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { setTranslationURLParams } from "@/utils/urlHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
 import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "SxTranslationConfirmerActionPanel",
@@ -76,19 +79,20 @@ export default {
     MwCol,
     MwIcon
   },
-  setup(props, context) {
-    const router = context.root.$router;
-
+  setup() {
+    const router = useRouter();
+    const store = useStore();
+    const colors = inject("colors");
     const {
       targetLanguageAutonym,
       currentSectionSuggestion
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const {
       clearPreFilledSection,
       onSectionSelectorClick,
       preFilledSectionTitle
-    } = useSectionSelectorClickHandler(router);
+    } = useSectionSelectorClickHandler(router, store);
 
     const {
       actionInformationMessageArgs,
@@ -96,14 +100,16 @@ export default {
       isProgressiveButton,
       targetArticlePath,
       translationExists
-    } = useActionPanel();
+    } = useActionPanel(currentSectionSuggestion);
+
+    const bananaI18n = useI18n();
 
     const actionButtonLabel = computed(() =>
-      context.root.$i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
+      bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
     );
 
     const actionInformationMessage = computed(() =>
-      context.root.$i18n(...actionInformationMessageArgs.value)
+      bananaI18n.i18n(...actionInformationMessageArgs.value)
     );
 
     const onMoreSectionsClick = () => {
@@ -132,7 +138,8 @@ export default {
       preFilledSectionTitle,
       targetArticlePath,
       targetLanguageAutonym,
-      translationExists
+      translationExists,
+      colors
     };
   }
 };

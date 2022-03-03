@@ -8,10 +8,9 @@ npm install
 
 ### Compiles and hot-reloads for development
 
-Copy `devserver.config.example.js` to `devserver.config.js` and edit as per your development environment. Then run:
 
 ```
-npm run serve
+npm run dev
 ```
 
 ### Compiles and minifies for production

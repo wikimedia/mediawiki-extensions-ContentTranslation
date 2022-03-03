@@ -13,13 +13,13 @@
         :is="type === 'textarea' ? type : 'input'"
         ref="input"
         class="mw-ui-input__input"
-        :disabled="disabled"
-        :aria-disabled="disabled"
+        :disabled="disabled || null"
+        :aria-disabled="disabled || null"
         :value.prop="value"
         :placeholder="placeholder"
-        v-bind="$attrs"
+        v-bind="customAttrs"
         :type="type"
-        v-on="inputListeners"
+        @input="$emit('update:value', $event.target.value)"
         @focus="onFocus"
         @blur="onBlur"
         @click="onClick"
@@ -86,6 +86,7 @@ export default {
       }
     }
   },
+  emits: ["click", "focus", "blur", "indicator-clicked"],
   data: () => ({
     focused: false
   }),
@@ -99,10 +100,12 @@ export default {
         "mw-ui-input--focused": this.focused
       };
     },
-    inputListeners: vm => ({
-      ...vm.$listeners,
-      input: event => vm.$emit("input", event.target.value)
-    })
+    customAttrs: vm => {
+      const attrs = { ...vm.$attrs };
+      delete attrs.class;
+
+      return attrs;
+    }
   },
   methods: {
     onClick(e) {

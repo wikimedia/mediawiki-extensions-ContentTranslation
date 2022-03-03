@@ -1,4 +1,4 @@
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { getAutonym } from "@wikimedia/language-data";
 
 function autocomplete(searchQuery, searchResults) {

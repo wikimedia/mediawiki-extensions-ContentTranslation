@@ -8,6 +8,7 @@
 namespace ContentTranslation;
 
 use Action;
+use Config;
 use DatabaseUpdater;
 use EchoAttributeManager;
 use EchoEvent;
@@ -21,6 +22,8 @@ use MediaWiki\User\UserIdentity;
 use OutputPage;
 use RequestContext;
 use ResourceLoader;
+use ResourceLoaderContext;
+use ResourceLoaderFilePath;
 use Skin;
 use SpecialPage;
 use User;
@@ -652,6 +655,23 @@ class Hooks {
 		$preferences['cx_campaign_newarticle_shown'] = [
 			'type' => 'api',
 		];
+	}
+
+	/**
+	 * Integrate Vite's HMR based development workflow if enabled by configuration.
+	 *
+	 * @param ResourceLoaderContext $context
+	 * @param Config $config
+	 * @param array $paths
+	 * @return ResourceLoaderFilePath
+	 */
+	public static function devModeCallback( ResourceLoaderContext $context, Config $config, array $paths ) {
+		list( $buildPath, $devPath ) = $paths;
+		$file = $buildPath;
+		if ( $config->get( 'ContentTranslationDevMode' ) ) {
+			$file = $devPath;
+		}
+		return new ResourceLoaderFilePath( $file );
 	}
 
 }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from "@vue/composition-api";
+import { computed, onMounted, ref } from "vue";
 import {
   getTarget,
   getSurface,

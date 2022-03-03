@@ -9,7 +9,7 @@
     <sx-section-selector-section-list
       v-if="!emptySections"
       :sections="suggestion.orderedMissingSections"
-      v-on="$listeners"
+      @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection }">
         <h5 class="ma-0" v-text="sourceSection" />
@@ -51,6 +51,7 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym } from "@wikimedia/language-data";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList";
+import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 
 export default {
   name: "SxSectionSelectorSectionListMissing",
@@ -66,8 +67,9 @@ export default {
       required: true
     }
   },
+  emits: ["select-section", "close"],
   data: () => ({
-    sadRobotSVG: require("!html-loader!@/assets/sad-robot.svg")
+    sadRobotSVG
   }),
   computed: {
     targetLanguageAutonym() {

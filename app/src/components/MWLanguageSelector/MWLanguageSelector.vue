@@ -2,17 +2,19 @@
   <div ref="langSelectorContainer" class="mw-ui-language-selector">
     <slot name="search">
       <div class="mw-ui-language-selector__inputcontainer  pa-4 mb-4">
+        <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
         <mw-input
           ref="searchInputElement"
-          v-model="autocompletion"
+          v-model:value="autocompletion"
           :icon="mwIconSearch"
           :icon-size="20"
           class="mw-ui-language-selector__autocomplete pa-4"
-          :disabled="true"
+          disabled
         />
+        <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
         <mw-input
           ref="searchInputElement"
-          v-model="searchQuery"
+          v-model:value="searchQuery"
           class="mw-ui-language-selector__search pa-4"
           :icon="mwIconSearch"
           :icon-size="20"
@@ -40,7 +42,7 @@
               class="language pa-2 ps-8 ma-0"
               :lang="language"
               :dir="getDir(language)"
-              :aria-selected="language === selectedLanguage"
+              :aria-selected="language === selectedLanguage || null"
               :class="language === selectedLanguage ? 'language--selected' : ''"
               tabindex="-1"
               role="option"
@@ -70,7 +72,7 @@
               :lang="language"
               :dir="getDir(language)"
               role="option"
-              :aria-selected="language === selectedLanguage"
+              :aria-selected="language === selectedLanguage || null"
               tabindex="-1"
               :class="language === selectedLanguage ? 'language--selected' : ''"
               @click="select(language)"
@@ -89,7 +91,7 @@
 </template>
 
 <script>
-import { ref, watch, onMounted, computed } from "@vue/composition-api";
+import { ref, watch, onMounted, computed } from "vue";
 import {
   searchByQuery,
   getSearchApi,

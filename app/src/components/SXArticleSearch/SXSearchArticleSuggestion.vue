@@ -38,14 +38,14 @@
 </template>
 
 <script>
-import { MwRow, MwCol, MwIcon, MwThumbnail } from "@/lib/mediawiki.ui";
-import Page from "@/wiki/mw/models/page";
+import { MwRow, MwCol, MwIcon, MwThumbnail } from "../../lib/mediawiki.ui";
+import Page from "../../wiki/mw/models/page";
 
 import {
   mwIconStar,
   mwIconLanguage,
   mwIconArticle
-} from "@/lib/mediawiki.ui/components/icons";
+} from "../../lib/mediawiki.ui/components/icons";
 
 export default {
   name: "SxSearchArticleSuggestion",

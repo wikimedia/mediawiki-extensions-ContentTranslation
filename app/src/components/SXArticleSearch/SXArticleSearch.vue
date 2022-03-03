@@ -18,11 +18,11 @@
         />
       </mw-col>
     </mw-row>
+    <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
     <mw-input
       ref="searchInputRef"
-      v-model="searchInput"
+      v-model:value="searchInput"
       :icon-size="20"
-      :outlined="false"
       :icon="mwIconSearch"
       :placeholder="$i18n('cx-sx-article-search-input-placeholder')"
       type="search"
@@ -57,8 +57,9 @@
       :search-input="searchInput"
       @suggestion-clicked="startSearchResultSectionTranslation"
     />
+    <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
     <mw-dialog
-      v-model="sourceLanguageSelectOn"
+      v-model:value="sourceLanguageSelectOn"
       class="sx-article-search-language-selector"
       animation="slide-up"
       :fullscreen="fullscreen"
@@ -92,16 +93,16 @@ import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import SearchResultsCard from "./SearchResultsCard";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
-import { ref, onMounted, computed, watch } from "@vue/composition-api";
+import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
 import initializeLanguages from "@/composables/useLanguageInitialization";
-import {
-  startRecentlyEditedSectionTranslation,
-  startNearbySectionTranslation,
-  startSearchResultSectionTranslation
-} from "./usePageTranslationStart";
+import usePageTranslationStart from "./usePageTranslationStart";
+import useMediawikiState from "../../composables/useMediawikiState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useEventLogging } from "../../plugins/eventlogging";
 
 export default {
   name: "SxArticleSearch",
@@ -116,7 +117,7 @@ export default {
     MwCol,
     MwButton
   },
-  setup(props, context) {
+  setup() {
     const searchInput = ref("");
     const searchInputUsed = ref(false);
     const searchInputRef = ref(null);
@@ -132,15 +133,9 @@ export default {
      */
     const previousLanguages = ref([]);
 
-    const store = context.root.$store;
-    const mediawikiStore = store.state.mediawiki;
-
-    const { sourceLanguage, targetLanguage } = useApplicationState();
-
-    /** @type {ComputedRef<string[]>} */
-    const supportedLanguageCodes = computed(
-      () => mediawikiStore.supportedLanguageCodes || []
-    );
+    const store = useStore();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    const { supportedLanguageCodes } = useMediawikiState();
 
     /** @type {ComputedRef<string[]>} */
     const availableSourceLanguages = computed(() =>
@@ -157,6 +152,8 @@ export default {
      * @type {ComputedRef<string[]>}
      */
     const suggestedSourceLanguages = useSuggestedSourceLanguages(
+      sourceLanguage,
+      targetLanguage,
       previousLanguages
     );
     /**
@@ -166,9 +163,10 @@ export default {
      * @type {ComputedRef<string[]>}
      */
     const sourceLanguageOptions = getSourceLanguageOptions(
+      sourceLanguage,
       suggestedSourceLanguages
     );
-    const router = context.root.$router;
+    const router = useRouter();
 
     onMounted(async () => {
       await initializeLanguages();
@@ -199,11 +197,12 @@ export default {
       immediate: true
     });
 
+    const logEvent = useEventLogging();
     // Log "dashboard_search" event only for the first time user types a search query.
     watch(searchInput, () => {
       if (!searchInputUsed.value) {
         searchInputUsed.value = true;
-        context.root.$logEvent({ event_type: "dashboard_search" });
+        logEvent({ event_type: "dashboard_search" });
       }
     });
 
@@ -229,7 +228,14 @@ export default {
       () => store.getters["mediawiki/getNearbyPages"]
     );
 
-    const fullscreen = computed(() => context.root.$mwui.breakpoint.mdAndDown);
+    const breakpoints = inject("breakpoints");
+    const fullscreen = computed(() => breakpoints.mdAndDown);
+
+    const {
+      startRecentlyEditedSectionTranslation,
+      startNearbySectionTranslation,
+      startSearchResultSectionTranslation
+    } = usePageTranslationStart(router, store);
 
     return {
       availableSourceLanguages,

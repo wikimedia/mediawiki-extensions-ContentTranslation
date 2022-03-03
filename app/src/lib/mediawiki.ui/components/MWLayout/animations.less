@@ -21,73 +21,71 @@
     overflow: hidden;
   }
 
-  &slide-start-enter,
-  &slide-end-leave-active {
+  &slide-start-enter-from, &slide-end-leave-to {
     opacity: 0;
     transform: translateX(100vw);
   }
 
-  &slide-end-enter,
-  &slide-start-leave-active {
+  &slide-end-enter-from, &slide-start-leave-to {
     opacity: 0;
     transform: translateX(-100vw);
   }
 
-  &slide-up-enter,
-  &slide-down-leave-active {
+  &slide-up-enter-from,
+  &slide-down-leave-to {
     opacity: 0;
     transform: translateY(100vh);
   }
 
-  &slide-down-enter,
-  &slide-up-leave-active {
+  &slide-down-enter-from,
+  &slide-up-leave-to {
     opacity: 0;
     transform: translateY(-100vh);
   }
 
-  &blind-start-enter,
-  &blind-start-leave-active {
+  &blind-start-enter-from,
+  &blind-start-leave-to {
     opacity: 0;
     transform: translateX(100vw);
   }
 
-  &blind-end-enter,
-  &blind-end-leave-active {
+  &blind-end-enter-from,
+  &blind-end-leave-to {
     opacity: 0;
     transform: translateX(-100vw);
   }
 
-  &blind-up-enter,
-  &blind-up-leave-active {
+  &blind-up-enter-from,
+  &blind-up-leave-to {
     opacity: 0;
     transform: translateY(100vh);
   }
 
-  &blind-down-leave-active,
-  &blind-down-enter {
+  &blind-down-leave-to,
+  &blind-down-enter-from {
     opacity: 0;
     transform: translateY(-100vh);
   }
 }
 
 [dir="rtl"] .mw-ui-animation- {
-  &slide-start-enter,
-  &slide-end-leave-active {
+  &slide-start-enter-from,
+  &slide-end-leave-to {
     transform: translateX(-100vw);
   }
 
-  &slide-end-enter,
-  &slide-start-leave-active {
+  &slide-end-enter-from,
+  &slide-start-leave-to {
     transform: translateX(100vw);
   }
 
-  &blind-start-enter,
-  &blind-start-leave-active {
+  &blind-start-enter-from,
+  &blind-start-leave-to {
     transform: translateX(-100vw);
   }
 
-  &blind-end-enter,
-  &blind-end-leave-active {
+  &blind-end-enter-from,
+  &blind-end-leave-to {
     transform: translateX(100vw);
   }
 }

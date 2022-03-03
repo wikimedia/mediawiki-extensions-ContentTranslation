@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import {
   Dashboard,
   SXTranslationConfirmer,
@@ -11,8 +10,6 @@ import {
   SXPublisher,
   SXArticleSearch
 } from "@/views";
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -79,7 +76,7 @@ const routes = [
     meta: { workflowStep: 5 }
   },
   {
-    path: "*",
+    path: "/:pathMatch(.*)*",
     name: "404",
     component: Dashboard,
     params: true,
@@ -87,8 +84,8 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
-  mode: "hash",
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
 });
 
@@ -130,6 +127,15 @@ router.beforeEach((to, from, next) => {
     return;
   }
   next();
+});
+
+router.afterEach((to, from) => {
+  const toStep = to.meta.workflowStep;
+  const fromStep = from.meta.workflowStep;
+  to.meta.transitionName =
+    toStep < fromStep
+      ? "mw-ui-animation-slide-end"
+      : "mw-ui-animation-slide-start";
 });
 
 export default router;

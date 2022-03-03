@@ -4,17 +4,16 @@ exports[`MWButton.vue matches the snapshot with an HTML label 1`] = `
 <button
   class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
 >
+  
   <span
     class="mw-ui-button__content"
   >
-    <!---->
-     
+    <!--v-if-->
     <span
       class="mw-ui-button__label"
     >
       Large button text with &lt;b&gt;html&lt;/b&gt;
     </span>
-     
     <mw-icon-stub
       class="mw-ui-button__indicator ps-2"
       icon="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"
@@ -22,15 +21,15 @@ exports[`MWButton.vue matches the snapshot with an HTML label 1`] = `
       size="28"
     />
   </span>
+  
 </button>
 `;
 
-exports[
-  `MWButton.vue matches the snapshot with an destructive type icon button 1`
-] = `
+exports[`MWButton.vue matches the snapshot with an destructive type icon button 1`] = `
 <button
   class="mw-ui-button mw-ui-button--destructive mw-ui-button--icon"
 >
+  
   <span
     class="mw-ui-button__content"
   >
@@ -40,10 +39,9 @@ exports[
       iconcolor="currentColor"
       size="20"
     />
-     
-    <!---->
-     
-    <!---->
+    <!--v-if-->
+    <!--v-if-->
   </span>
+  
 </button>
 `;

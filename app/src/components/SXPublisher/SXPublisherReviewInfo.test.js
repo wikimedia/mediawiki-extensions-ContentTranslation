@@ -1,14 +1,11 @@
 import SXPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
-import Vuex from "vuex";
-import VueBananaI18n from "vue-banana-i18n";
-import CompositionApi from "@vue/composition-api";
+import { createStore } from "vuex";
+import { createI18n } from "vue-banana-i18n";
 
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(VueBananaI18n);
-localVue.use(Vuex);
+const i18n = createI18n();
+
 import {
   mwIconEye,
   mwIconAlert,
@@ -16,8 +13,9 @@ import {
   mwIconCheck
 } from "@/lib/mediawiki.ui/components/icons";
 
+jest.spyOn(global.Math, "random").mockReturnValue(0.1);
 describe("SXPublisher review info panel test", () => {
-  const store = new Vuex.Store({
+  const store = createStore({
     modules: {
       application: {
         namespaced: true,
@@ -26,9 +24,8 @@ describe("SXPublisher review info panel test", () => {
     }
   });
   const wrapper = mount(SXPublisherReviewInfo, {
-    store,
-    localVue,
-    propsData: {
+    global: { plugins: [store, i18n] },
+    props: {
       mwIconEye,
       mwIconAlert,
       mwIconBlock,

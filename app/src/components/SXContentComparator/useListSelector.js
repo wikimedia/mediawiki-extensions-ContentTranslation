@@ -1,20 +1,25 @@
-import { computed } from "@vue/composition-api";
-import { getAutonym } from "@wikimedia/language-data";
+import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 /**
- * @return {ComputedRef<[]>}
+ * @return {ComputedRef<{value: string, props: object}[]>}
  */
-const useListSelector = (props, contextRoot) => {
-  const { currentSectionSuggestion: suggestion } = useApplicationState();
+const useListSelector = props => {
+  const { sourceLanguageAutonym, targetLanguageAutonym } = useApplicationState(
+    useStore()
+  );
+
+  const bananaI18n = useI18n();
 
   return computed(() => {
     const sourceSelectorItem = {
       value: "source_section",
       props: {
-        label: contextRoot.$i18n(
+        label: bananaI18n.i18n(
           "cx-sx-content-comparator-source-selector-title",
-          getAutonym(suggestion.value.sourceLanguage)
+          sourceLanguageAutonym.value
         ),
         type: "text",
         class: "px-0 py-4 mx-4"
@@ -28,9 +33,9 @@ const useListSelector = (props, contextRoot) => {
         targetSelectorItem = {
           value: "target_section",
           props: {
-            label: contextRoot.$i18n(
+            label: bananaI18n.i18n(
               "cx-sx-content-comparator-target-selector-target-section-title",
-              getAutonym(suggestion.value.targetLanguage)
+              targetLanguageAutonym.value
             ),
             type: "text",
             class: "px-0 py-4 mx-4"
@@ -41,9 +46,9 @@ const useListSelector = (props, contextRoot) => {
         targetSelectorItem = {
           value: "target_article",
           props: {
-            label: contextRoot.$i18n(
+            label: bananaI18n.i18n(
               "cx-sx-content-comparator-target-selector-full-article-title",
-              getAutonym(suggestion.value.targetLanguage)
+              targetLanguageAutonym.value
             ),
             type: "text",
             class: "px-0 py-4 mx-4"

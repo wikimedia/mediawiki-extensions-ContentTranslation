@@ -1,26 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Proposed Translation Header Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Proposed Translation Header Component output matches snapshot 1`] = `
 <div
-  class="sx-sentence-selector__proposed-translation__header pt-5 shrink col"
+  class="col sx-sentence-selector__proposed-translation__header pt-5 shrink"
 >
+  
   <div
-    class="ma-0 ps-5 pb-4 row items-center justify-start"
+    class="row items-center justify-start ma-0 ps-5 pb-4"
   >
+    
     <h6
-      class="sx-sentence-selector__proposed-translation__header-title pa-0 ma-0 pe-4 col grow"
+      class="col grow sx-sentence-selector__proposed-translation__header-title pa-0 ma-0 pe-4"
     >
       cx-sx-sentence-selector-suggested-translation-title
     </h6>
-     
     <div
-      class="pe-5 col shrink"
+      class="col shrink pe-5"
     >
+      
       <button
-        class="mw-ui-button sx-sentence-selector__proposed-translation__header-settings-button pa-0 mw-ui-button--icon"
+        class="mw-ui-button mw-ui-button--icon sx-sentence-selector__proposed-translation__header-settings-button pa-0"
       >
+        
         <span
           class="mw-ui-button__content"
         >
@@ -35,8 +36,7 @@ exports[
               width="20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <!---->
-               
+              <!--v-if-->
               <g
                 fill="currentColor"
               >
@@ -46,13 +46,15 @@ exports[
               </g>
             </svg>
           </span>
-           
-          <!---->
-           
-          <!---->
+          <!--v-if-->
+          <!--v-if-->
         </span>
+        
       </button>
+      
     </div>
+    
   </div>
+  
 </div>
 `;

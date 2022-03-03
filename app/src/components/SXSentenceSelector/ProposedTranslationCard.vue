@@ -1,7 +1,10 @@
 <template>
   <mw-card class="sx-sentence-selector__proposed-translation col shrink pa-0">
     <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
-      <proposed-translation-header ref="header" v-on="$listeners" />
+      <proposed-translation-header
+        ref="header"
+        @configure-options="$emit('configure-options')"
+      />
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
@@ -35,7 +38,7 @@
           :disabled="!hasProposedTranslation"
           @click="$emit('edit-translation', proposedTranslation)"
         />
-        <proposed-translation-action-buttons v-on="$listeners" />
+        <proposed-translation-action-buttons v-bind="$attrs" />
       </mw-col>
     </mw-row>
   </mw-card>
@@ -51,8 +54,9 @@ import { getDir } from "@wikimedia/language-data";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import ProposedTranslationHeader from "./ProposedTranslationHeader";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { ref, onMounted, computed, watch } from "@vue/composition-api";
+import { ref, onMounted, computed, watch, nextTick } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
 
 export default {
   name: "ProposedTranslationCard",
@@ -65,14 +69,16 @@ export default {
     MwButton,
     ProposedTranslationActionButtons
   },
-  setup(props, context) {
+  emits: ["edit-translation", "configure-options"],
+  setup() {
     const headerAndFooterHeight = ref(0);
-
+    const header = ref(null);
+    const footer = ref(null);
     const {
       currentMTProvider,
       targetLanguage,
       proposedTranslation
-    } = useApplicationState();
+    } = useApplicationState(useStore());
 
     const contentsStyle = computed(() => ({
       "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`
@@ -86,8 +92,7 @@ export default {
 
     const setHeaderAndFooterHeight = () => {
       headerAndFooterHeight.value =
-        context.refs.header.$el.clientHeight +
-        context.refs.footer.$el.clientHeight;
+        header.value.$el.clientHeight + footer.value.$el.clientHeight;
     };
 
     // Card title can take different number of text lines
@@ -97,12 +102,14 @@ export default {
     watch(currentMTProvider, setHeaderAndFooterHeight);
 
     onMounted(async () => {
-      await context.root.$nextTick();
+      await nextTick();
       setHeaderAndFooterHeight();
     });
 
     return {
+      footer,
       getDir,
+      header,
       mwIconEllipsis,
       mwIconEdit,
       proposedTranslation,

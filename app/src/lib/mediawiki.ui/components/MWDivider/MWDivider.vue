@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="mw-ui-divider row"></div>
 </template>
 

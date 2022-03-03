@@ -1,10 +1,6 @@
-import Vuex from "vuex";
-import Vue from "vue";
+import { createStore } from "vuex";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import SubSectionModel from "@/wiki/cx/models/subSection";
-
-Vue.use(Vuex);
 
 const subSections = [
   new SubSectionModel({ node: { id: 1 } }),
@@ -25,7 +21,7 @@ const applicationModule = {
   }
 };
 
-const store = new Vuex.Store({
+const store = createStore({
   modules: { application: applicationModule }
 });
 

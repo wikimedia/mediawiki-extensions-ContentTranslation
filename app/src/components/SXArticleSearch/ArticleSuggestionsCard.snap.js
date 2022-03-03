@@ -4,58 +4,69 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
 <div
   class="mw-ui-card sx-article-search__suggestions mb-0 pa-4"
 >
+  <!-- @slot Card header -->
+  
   <h5
     class="ma-0 pb-1 sx-article-search__suggestions-header"
   >
     Recently edited
   </h5>
-   
+  
   <div
     class="mw-ui-card__content"
   >
-     
+    <!-- @slot Card content -->
+    
+    
     <div
-      class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
+      class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
     >
+      
       <div
         class="col shrink"
       >
+        
         <div
           class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
           style="background-image: url(/thumbnail1.jpg);"
           width="56"
         />
+        
       </div>
-       
       <div
-        class="ms-4 col"
+        class="col ms-4"
       >
+        
         <div
-          class="ma-0 no-wrap fill-height column items-start justify-start"
+          class="column items-start justify-start ma-0 no-wrap fill-height"
         >
+          
           <div
-            class="mb-1 col shrink"
+            class="col shrink mb-1"
           >
+            
             <h5
               class="my-0 cx-search-suggestion__source-title"
             >
               Test page1
             </h5>
+            
           </div>
-           
           <div
-            class="mb-1 col shrink"
+            class="col shrink mb-1"
           >
+            
             <p
               class="ma-0 cx-search-suggestion__source-description complementary"
             >
               Test description1
             </p>
+            
           </div>
-           
           <div
-            class="cx-search-suggestion__languages col shrink items-center"
+            class="col shrink items-center cx-search-suggestion__languages"
           >
+            
             <span
               class="mw-ui-icon notranslate me-2"
             >
@@ -67,8 +78,7 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
                 width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!---->
-                 
+                <!--v-if-->
                 <g
                   fill="currentColor"
                 >
@@ -78,54 +88,64 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
                 </g>
               </svg>
             </span>
-             
             <small />
+            
           </div>
+          
         </div>
+        
       </div>
+      
     </div>
     <div
-      class="cx-search-suggestion pt-3 ma-0 row items-normal justify-start"
+      class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
     >
+      
       <div
         class="col shrink"
       >
+        
         <div
           class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
           style="background-image: url(/thumbnail2.jpg);"
           width="56"
         />
+        
       </div>
-       
       <div
-        class="ms-4 col"
+        class="col ms-4"
       >
+        
         <div
-          class="ma-0 no-wrap fill-height column items-start justify-start"
+          class="column items-start justify-start ma-0 no-wrap fill-height"
         >
+          
           <div
-            class="mb-1 col shrink"
+            class="col shrink mb-1"
           >
+            
             <h5
               class="my-0 cx-search-suggestion__source-title"
             >
               Test page2
             </h5>
+            
           </div>
-           
           <div
-            class="mb-1 col shrink"
+            class="col shrink mb-1"
           >
+            
             <p
               class="ma-0 cx-search-suggestion__source-description complementary"
             >
               Test description2
             </p>
+            
           </div>
-           
           <div
-            class="cx-search-suggestion__languages col shrink items-center"
+            class="col shrink items-center cx-search-suggestion__languages"
           >
+            
             <span
               class="mw-ui-icon notranslate me-2"
             >
@@ -137,8 +157,7 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
                 width="16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!---->
-                 
+                <!--v-if-->
                 <g
                   fill="currentColor"
                 >
@@ -148,12 +167,17 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
                 </g>
               </svg>
             </span>
-             
             <small />
+            
           </div>
+          
         </div>
+        
       </div>
+      
     </div>
+    
+    
   </div>
 </div>
 `;

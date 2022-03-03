@@ -24,19 +24,23 @@
 <script>
 import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwButton, MwRow } from "@/lib/mediawiki.ui";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "SxPublisherHeader",
   components: { MwCol, MwButton, MwRow },
   emits: ["publish-translation"],
-  setup(props, context) {
+  setup() {
+    const store = useStore();
     const isPublishingDisabled = computed(
-      () => context.root.$store.getters["application/isPublishingDisabled"]
+      () => store.getters["application/isPublishingDisabled"]
     );
 
+    const router = useRouter();
+
     const onClose = () => {
-      const router = context.root.$router;
       router.push({
         name: "sx-sentence-selector"
       });

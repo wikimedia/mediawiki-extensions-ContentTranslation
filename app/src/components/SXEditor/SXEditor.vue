@@ -31,12 +31,14 @@
 </template>
 
 <script>
-import { ref } from "@vue/composition-api";
+import { ref } from "vue";
 import VisualEditor from "@/plugins/ve/components/VisualEditor";
 import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
 import SxEditorOriginalContent from "@/components/SXEditor/SXEditorOriginalContent";
 import EditCompleteFeedback from "@/components/SXEditor/EditCompleteFeedback";
+import { useRouter, useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
   name: "SxEditor",
@@ -56,11 +58,11 @@ export default {
     }
   },
 
-  setup(props, context) {
+  setup(props) {
     const editorReady = ref(false);
-    const router = context.root.$router;
-    const route = context.root.$route;
-    const store = context.root.$store;
+    const router = useRouter();
+    const route = useRoute();
+    const store = useStore();
 
     const onEditorReady = () => (editorReady.value = true);
     const closeEditor = () => router.replace({ name: props.fromRoute });

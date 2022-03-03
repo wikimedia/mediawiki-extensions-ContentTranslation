@@ -5,54 +5,54 @@ exports[`MWRadioGroup.vue renders with given slots and options 1`] = `
   class="mw-ui-radio-group"
 >
   <div
-    class="mw-ui-radio flex items-center py-2 row items-center justify-start mw-ui-radio--selected"
+    class="row items-center justify-start mw-ui-radio flex items-center py-2 mw-ui-radio--selected"
   >
+    
     <div
       class="mw-ui-radio__controls"
     >
       <input
-        id="radio-button-2"
+        id="radio-button-1000"
         name="radio_button_group"
         type="radio"
         value="first_button"
       />
-       
       <span
         class="mw-ui-radio__controls__icon"
       />
     </div>
-     
     <label
       class="ps-2"
-      for="radio-button-2"
+      for="radio-button-1000"
     >
       A radio button
     </label>
+    
   </div>
   <div
-    class="mw-ui-radio flex items-center py-2 row items-center justify-start"
+    class="row items-center justify-start mw-ui-radio flex items-center py-2"
   >
+    
     <div
       class="mw-ui-radio__controls"
     >
       <input
-        id="radio-button-4"
+        id="radio-button-1000"
         name="radio_button_group"
         type="radio"
         value="second_button"
       />
-       
       <span
         class="mw-ui-radio__controls__icon"
       />
     </div>
-     
     <label
       class="ps-2"
-      for="radio-button-4"
+      for="radio-button-1000"
     >
       Another radio button
     </label>
+    
   </div>
 </div>
 `;

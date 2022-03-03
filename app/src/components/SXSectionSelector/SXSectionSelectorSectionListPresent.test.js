@@ -1,9 +1,7 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import SXSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
-import VueBananaI18n from "vue-banana-i18n";
-const localVue = createLocalVue();
-localVue.use(VueBananaI18n);
+import { createI18n } from "vue-banana-i18n";
 import "html-loader";
 
 describe("SXSectionSelector Section List", () => {
@@ -23,9 +21,13 @@ describe("SXSectionSelector Section List", () => {
     ]
   });
 
+  const i18n = createI18n();
+
   const wrapper = mount(SXSectionSelectorSectionListPresent, {
-    localVue,
-    propsData: {
+    global: {
+      plugins: [i18n]
+    },
+    props: {
       suggestion
     }
   });

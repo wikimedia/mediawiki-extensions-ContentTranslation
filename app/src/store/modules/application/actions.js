@@ -1,4 +1,3 @@
-import Vue from "vue";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 import translatorApi from "../../../wiki/cx/api/translator";
@@ -250,11 +249,9 @@ async function selectPageSectionByIndex(
 
     // If lead section set source page title as proposed page title
     if (index === 0) {
-      Vue.set(
-        section.proposedTitleTranslations,
-        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY,
-        page.title
-      );
+      section.proposedTitleTranslations[
+        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
+      ] = page.title;
     }
     commit("setCurrentSourceSection", section);
   };

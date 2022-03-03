@@ -4,7 +4,7 @@
     class="sx-sentence-selector__translation-options"
     fullscreen
   >
-    <template slot="header">
+    <template #header>
       <div class="mw-ui-dialog__header pa-4">
         <div class="row ma-0 py-2">
           <div
@@ -33,9 +33,9 @@
     <mw-card
       class="sx-sentence-selector__mt-provider-option-card mx-4 pa-5"
       role="button"
-      @click.native="selectProvider(originalTextProviderKey)"
+      @click="selectProvider(originalTextProviderKey)"
     >
-      <template slot="header">
+      <template #header>
         <h5
           v-i18n:cx-sx-sentence-selector-translation-options-original-card-title
           class="sx-sentence-selector__translation-options-card-title mb-4"
@@ -54,9 +54,9 @@
       :key="mtProvider"
       class="sx-sentence-selector__mt-provider-option-card mx-4 pa-5"
       role="button"
-      @click.native="selectProvider(mtProvider)"
+      @click="selectProvider(mtProvider)"
     >
-      <template slot="header">
+      <template #header>
         <h5
           class="sx-sentence-selector__translation-options-card-title mb-4"
           v-text="mtProvider"
@@ -69,9 +69,9 @@
     <mw-card
       class="sx-sentence-selector__mt-provider-option-card mx-4 pa-5"
       role="button"
-      @click.native="selectProvider(emptyTextProviderKey)"
+      @click="selectProvider(emptyTextProviderKey)"
     >
-      <template slot="header">
+      <template #header>
         <h5
           v-i18n:cx-sx-sentence-selector-translation-options-empty-card-title
           class="sx-sentence-selector__translation-options-card-title mb-4"
@@ -87,8 +87,9 @@ import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { getDir } from "@wikimedia/language-data";
+import { useStore } from "vuex";
 
 export default {
   name: "SxTranslationSelector",
@@ -103,7 +104,7 @@ export default {
   setup(props, context) {
     const emptyTextProviderKey = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
     const originalTextProviderKey = MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
-    const store = context.root.$store;
+    const store = useStore();
 
     const {
       sourceLanguage,
@@ -111,7 +112,7 @@ export default {
       currentSourceSection: currentPageSection,
       isSectionTitleSelected,
       selectedContentTranslationUnit
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const mtProviders = computed(() =>
       store.getters["mediawiki/getSupportedMTProviders"](

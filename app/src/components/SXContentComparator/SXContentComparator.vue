@@ -1,13 +1,13 @@
 <template>
   <section class="sx-content-comparator">
     <sx-content-comparator-header
-      :discarded-sections.sync="discardedSections"
+      v-model:discarded-sections="discardedSections"
       @translation-button-clicked="translateSection"
       @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
+      v-model:source-vs-target-selection="sourceVsTargetSelection"
       :is-mapped-section="isCurrentSectionMapped"
-      :source-vs-target-selection.sync="sourceVsTargetSelection"
       @translation-button-clicked="translateSection"
     />
     <section class="sx-content-comparator__source-content">
@@ -39,6 +39,7 @@
         <!-- eslint-enable vue/no-v-html -->
         <sx-content-comparator-new-section-placeholder
           :is-mapped-section="isCurrentSectionMapped"
+          :i18n="i18n"
         />
       </template>
     </section>
@@ -52,8 +53,12 @@ import SxContentComparatorHeader from "./SXContentComparatorHeader";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
-import { ref, computed, watch } from "@vue/composition-api";
+import { ref, computed, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import useTargetArticlePreview from "./useTargetArticlePreview";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "SxContentComparator",
@@ -63,9 +68,9 @@ export default {
     SxContentComparatorContentHeader,
     MwSpinner
   },
-  setup(props, context) {
-    const store = context.root.$store;
-    const router = context.root.$router;
+  setup() {
+    const store = useStore();
+    const router = useRouter();
 
     const sourceVsTargetSelection = ref("source_section");
 
@@ -81,20 +86,23 @@ export default {
       router.push({ name: "sx-quick-tutorial" });
     };
 
+    const bananaI18n = useI18n();
+    const i18n = bananaI18n.i18n.bind(bananaI18n);
     const {
       activeSectionTargetTitle,
       discardedSections,
       isCurrentSectionMapped,
       sourceSectionContent,
-      targetPageContent,
       targetSectionContent
-    } = useCompareContents();
+    } = useCompareContents(store);
+
+    const targetPageContent = useTargetArticlePreview(store, i18n);
 
     const {
       currentSectionSuggestion: suggestion,
       sourceLanguage,
       targetLanguage
-    } = useApplicationState();
+    } = useApplicationState(store);
 
     const targetTitle = computed(() => suggestion.value.targetTitle);
 
@@ -112,6 +120,7 @@ export default {
     );
 
     return {
+      i18n,
       getDir,
       activeSectionTargetTitle,
       discardedSections,

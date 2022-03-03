@@ -1,25 +1,18 @@
 import SXTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
-import { mount, createLocalVue } from "@vue/test-utils";
-import VueBananaI18n from "vue-banana-i18n";
-import Vuex from "vuex";
+import { mount } from "@vue/test-utils";
+import { createI18n } from "vue-banana-i18n";
 import colors from "../../lib/mediawiki.ui/plugins/colors";
-import CompositionApi from "@vue/composition-api";
 import mockStore from "./articleInformationMockStore";
 
 jest.mock("../../store", () =>
   jest.requireActual("./articleInformationMockStore")
 );
 
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(VueBananaI18n);
-localVue.use(Vuex);
-localVue.use(colors);
+const i18n = createI18n();
 
 describe("SXTranslationConfirmerArticleInformation test", () => {
   const wrapper = mount(SXTranslationConfirmerArticleInformation, {
-    localVue,
-    store: mockStore
+    global: { plugins: [i18n, colors, mockStore] }
   });
 
   it("Component output matches snapshot", () => {

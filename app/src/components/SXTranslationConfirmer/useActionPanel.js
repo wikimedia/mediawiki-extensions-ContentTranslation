@@ -1,10 +1,10 @@
-import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
-const useActionPanel = () => {
-  const { currentSectionSuggestion: sectionSuggestion } = useApplicationState();
-
+/**
+ * @param {ComputedRef<SectionSuggestion>} sectionSuggestion
+ */
+const useActionPanel = sectionSuggestion => {
   const firstMissingSectionTitle = computed(
     () => sectionSuggestion.value.orderedMissingSections?.[0]?.sourceTitle
   );

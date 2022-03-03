@@ -1,16 +1,18 @@
 import pageApi from "@/wiki/mw/api/page";
-import { computed, ref, watch } from "@vue/composition-api";
-import useApplicationState from "@/composables/useApplicationState";
+import { computed, ref, watch } from "vue";
 import debounce from "@/utils/debounce";
 
-const useSearchArticles = searchInput => {
+/**
+ * @param {ComputedRef<string>} sourceLanguage
+ * @param {ComputedRef<string>} searchInput
+ * @return {{searchResultsSlice: ComputedRef<Page[]>, searchResultsLoading: ComputedRef<boolean>}}
+ */
+const useSearchArticles = (sourceLanguage, searchInput) => {
   /**
    * Max search results to be displayed to the user
    * @type {number}
    */
   const maxSearchResults = 4;
-  const { sourceLanguage } = useApplicationState();
-
   const searchResults = ref([]);
 
   const searchResultsLoading = ref(false);

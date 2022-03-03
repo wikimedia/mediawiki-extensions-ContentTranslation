@@ -10,7 +10,7 @@
 
 <script>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
-import { watch } from "@vue/composition-api";
+import { watch } from "vue";
 import useListSelector from "@/components/SXContentComparator/useListSelector";
 
 export default {
@@ -27,11 +27,10 @@ export default {
     }
   },
   emits: ["update:selection"],
-  setup(props, context) {
-    const updateSelection = selection =>
-      context.emit("update:selection", selection);
+  setup(props, { emit }) {
+    const updateSelection = selection => emit("update:selection", selection);
 
-    const listSelector = useListSelector(props, context.root);
+    const listSelector = useListSelector(props);
 
     /**
      * Watch for isMappedSection prop so that we can update

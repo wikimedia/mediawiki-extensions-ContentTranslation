@@ -20,7 +20,7 @@
 
 <script>
 import { MwExpandableContent } from "@/lib/mediawiki.ui";
-import { ref, onMounted } from "@vue/composition-api";
+import { ref, onMounted } from "vue";
 
 export default {
   name: "SxEditorOriginalContent",

@@ -1,16 +1,13 @@
-import Vue from "vue";
-import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
-import { computed, ref, watch } from "@vue/composition-api";
-import store from "@/store";
+import { computed, ref } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 
-const useCompareContents = () => {
+const useCompareContents = store => {
   const discardedSections = ref([]);
 
   const {
     currentSectionSuggestion: suggestion,
     currentSourceSection: sourceSection
-  } = useApplicationState();
+  } = useApplicationState(store);
 
   const targetTitle = computed(() => suggestion.value.targetTitle);
   const sourceSectionTitle = computed(
@@ -42,58 +39,6 @@ const useCompareContents = () => {
   const sourceSectionContent = computed(() => sourceSection.value?.html);
   const targetSectionContent = computed(() => targetSection.value?.html);
 
-  const getFirstAppendixTitleBySectionSuggestion = suggestion =>
-    store.getters["suggestions/getFirstAppendixTitleBySectionSuggestion"](
-      suggestion
-    );
-
-  const createNewSectionPlaceholderElement = () => {
-    const PlaceholderClass = Vue.extend(
-      SxContentComparatorNewSectionPlaceholder
-    );
-
-    const placeholderInstance = new PlaceholderClass({
-      props: {
-        isMappedSection: isCurrentSectionMapped.value
-      }
-    });
-
-    return placeholderInstance.$mount().$el;
-  };
-
-  const targetPageContent = computed(() => {
-    // Create new div with target page content
-    const contentDiv = document.createElement("div");
-    contentDiv.innerHTML = targetPage.value?.content;
-
-    const placeholderEl = createNewSectionPlaceholderElement();
-    // If "References" section (or a similar one - e.g "See also" etc)
-    // is present, position new section placeholder before that section
-    const firstAppendixTitle = getFirstAppendixTitleBySectionSuggestion(
-      suggestion.value
-    );
-
-    if (firstAppendixTitle) {
-      // Find first appendix section header element
-      const matchedHeaders = Array.from(
-        contentDiv.querySelectorAll("h2")
-      ).filter(h2 => h2.textContent.match(firstAppendixTitle));
-      const firstAppendixSectionHeader = matchedHeaders[0].parentNode;
-
-      // Insert placeholder element before first appendix section header
-      firstAppendixSectionHeader.parentNode.insertBefore(
-        placeholderEl,
-        firstAppendixSectionHeader
-      );
-    } else {
-      // If no "References" or similar section exists in target article,
-      // append new section placeholder to the end of the target article
-      contentDiv.appendChild(placeholderEl);
-    }
-
-    return contentDiv.innerHTML;
-  });
-
   /**
    * A section is mapped if it's neither missing nor discarded
    * @type {ComputedRef<boolean>}
@@ -110,7 +55,7 @@ const useCompareContents = () => {
     isCurrentSectionMapped,
     sourceSectionContent,
     sourceSectionTitle,
-    targetPageContent,
+    targetPage,
     targetSectionAnchor,
     targetSectionContent
   };

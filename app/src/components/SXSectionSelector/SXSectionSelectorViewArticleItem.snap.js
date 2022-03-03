@@ -1,27 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector View Article Item Component output matches snapshot for specified props 1`
-] = `
+exports[`SXSectionSelector View Article Item Component output matches snapshot for specified props 1`] = `
 <li
-  class="ma-0 row items-center justify-start"
+  class="row items-center justify-start ma-0"
 >
+  
   <a
-    class="mw-ui-button col justify-between py-3 px-4 mw-ui-button--text"
+    class="mw-ui-button mw-ui-button--text col justify-between py-3 px-4"
     href="my.test.url"
     target="_blank"
   >
+    
     <span
       class="mw-ui-button__content"
     >
-      <!---->
-       
+      <!--v-if-->
       <span
         class="mw-ui-button__label"
       >
         cx-sx-section-selector-view-article-button-label
       </span>
-       
       <span
         class="mw-ui-icon notranslate mw-ui-button__indicator ps-2"
       >
@@ -33,8 +31,7 @@ exports[
           width="12"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -45,6 +42,8 @@ exports[
         </svg>
       </span>
     </span>
+    
   </a>
+  
 </li>
 `;

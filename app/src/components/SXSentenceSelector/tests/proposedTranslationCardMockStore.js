@@ -1,9 +1,7 @@
-import Vuex from "vuex";
-import Vue from "vue";
+import { createStore } from "vuex";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import SubSection from "@/wiki/cx/models/subSection";
 import PageSection from "@/wiki/cx/models/pageSection";
-import mutations from "@/store/modules/application/mutations";
 
 const applicationModule = {
   namespaced: true,
@@ -36,8 +34,6 @@ const applicationModule = {
   }
 };
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   modules: { application: applicationModule }
 });

@@ -1,24 +1,20 @@
-import { createLocalVue, shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import ProposedTranslationCard from "../ProposedTranslationCard";
-import VueBananaI18n from "vue-banana-i18n";
+import { createI18n } from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import Vuex from "vuex";
-import CompositionApi from "@vue/composition-api";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import mockStore from "./proposedTranslationCardMockStore";
-const localVue = createLocalVue();
-localVue.use(CompositionApi);
-localVue.use(VueBananaI18n);
-localVue.use(Vuex);
+
+const i18n = createI18n();
 
 jest.mock("@/store", () =>
   jest.requireActual("./proposedTranslationCardMockStore")
 );
 
 describe("SXSentenceSelector Proposed Translation Card", () => {
-  const wrapper = shallowMount(ProposedTranslationCard, {
-    localVue,
-    store: mockStore
+  const wrapper = mount(ProposedTranslationCard, {
+    global: { plugins: [i18n, mockStore], renderStubDefaultSlot: true },
+    shallow: true
   });
 
   it("Component output matches snapshot", () => {
@@ -42,7 +38,7 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
       MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
     );
     await wrapper.vm.$nextTick();
-    expect(editButton.attributes("disabled")).toBeFalsy();
+    expect(editButton.attributes("disabled")).toBe("false");
   });
 
   it("Loading indicator is hidden when card has no translation", () => {

@@ -1,5 +1,6 @@
 // EventLogging plugin
 // https://wikitech.wikimedia.org/wiki/Event_Platform
+import { inject } from "vue";
 
 let cachedEditCount = null;
 
@@ -117,12 +118,19 @@ function logEvent(event) {
   }
 }
 
-const EventLogging = {
-  install(Vue) {
-    Vue.prototype.$logEvent = logEvent;
-  }
+const contextSymbol = Symbol("event-logging-context");
+
+const useEventLogging = function() {
+  const logEvent = inject(contextSymbol);
+  if (!logEvent) throw new Error("No event logging method provided!!!");
+
+  return logEvent;
 };
 
-export default EventLogging;
+const createEventLogging = () => ({
+  install: app => {
+    app.provide(contextSymbol, logEvent);
+  }
+});
 
-export { logEvent };
+export { createEventLogging, useEventLogging, logEvent };

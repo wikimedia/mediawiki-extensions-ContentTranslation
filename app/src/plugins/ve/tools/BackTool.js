@@ -1,7 +1,7 @@
 /**
  * Back tool
  */
-SXEditorBackTool = function SXEditorBackTool() {
+const SXEditorBackTool = function SXEditorBackTool() {
   // Parent constructor
   SXEditorBackTool.super.apply(this, arguments);
 };
@@ -25,4 +25,3 @@ SXEditorBackTool.prototype.onUpdateState = function() {
 };
 
 ve.ui.toolFactory.register(SXEditorBackTool);
-module.exports = SXEditorBackTool;

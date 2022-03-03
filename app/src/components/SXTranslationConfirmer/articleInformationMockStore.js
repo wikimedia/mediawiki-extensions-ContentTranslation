@@ -23,8 +23,6 @@ const suggestionsModule = {
   state: { favorites: [] }
 };
 
-Vue.use(Vuex);
-
 export default new Vuex.Store({
   modules: { application: applicationModule, suggestions: suggestionsModule }
 });

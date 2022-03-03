@@ -7,11 +7,11 @@ describe("SXSearchArticleSuggestion", () => {
     thumbnail: { source: "/thumbnail.jpg" },
     title: "Test page",
     description: "Test description",
-    langLinksCount: 5
+    langlinkscount: 5
   });
 
   const wrapper = mount(SXSearchArticleSuggestion, {
-    propsData: {
+    props: {
       suggestion: pageSuggestion
     }
   });
@@ -25,8 +25,10 @@ describe("SXSearchArticleSuggestion", () => {
   });
 
   it("Component renders thumbnail placeholder when thumbnail is missing", async () => {
-    pageSuggestion.thumbnail = null;
-    await wrapper.vm.$nextTick();
+    const updateSuggestion = new Page(pageSuggestion);
+    updateSuggestion.thumbnail = null;
+
+    await wrapper.setProps({ suggestion: updateSuggestion });
     expect(wrapper.find(".mw-ui-thumbnail").exists()).toBe(false);
     expect(
       wrapper.find(".cx-search-suggestion__thumbnail-placeholder")

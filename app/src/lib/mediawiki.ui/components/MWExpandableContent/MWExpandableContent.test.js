@@ -1,15 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
-import Vue from "vue";
-import VueCompositionApi from "@vue/composition-api";
 import MwExpandableContent from "./MWExpandableContent.vue";
-Vue.use(VueCompositionApi);
 
 describe("MwExpandableContent.vue", () => {
   const minHeight = 60;
 
   test("is a Vue instance", () => {
     const wrapper = shallowMount(MwExpandableContent, {
-      propsData: { minHeight }
+      props: { minHeight }
     });
     expect(wrapper.vm).toBeTruthy();
   });
@@ -19,7 +16,7 @@ describe("MwExpandableContent.vue", () => {
       .spyOn(HTMLDivElement.prototype, "scrollHeight", "get")
       .mockImplementation(() => 100);
     const wrapper = shallowMount(MwExpandableContent, {
-      propsData: { minHeight },
+      props: { minHeight },
       slots: {
         default: "<div>This is a sentence</div>"
       }

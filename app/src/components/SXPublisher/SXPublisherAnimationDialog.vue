@@ -22,6 +22,9 @@
 
 <script>
 import { MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import publishingLaunchingSVG from "../../assets/publishing-launching.svg?raw";
+import publishingSuccessSVG from "../../assets/publishing-success.svg?raw";
+import publishingFailureSVG from "../../assets/publishing-failure.svg?raw";
 
 export default {
   name: "SxPublisherAnimationDialog",
@@ -41,32 +44,31 @@ export default {
   data: vm => ({
     animations: {
       pending: {
-        svg: "publishing-launching.svg",
+        svg: publishingLaunchingSVG,
         title: vm.$i18n("cx-sx-publisher-animation-publishing-indicator-title"),
         subtitle: vm.$i18n(
           "cx-sx-publisher-animation-publishing-indicator-subtitle"
         )
       },
       success: {
-        svg: "publishing-success.svg",
+        svg: publishingSuccessSVG,
         title: vm.$i18n("cx-sx-publisher-animation-success-message-title"),
         subtitle: vm.$i18n("cx-sx-publisher-animation-success-message-subtitle")
       },
       failure: {
-        svg: "publishing-failure.svg",
+        svg: publishingFailureSVG,
         title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
         subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
       },
       warning: {
-        svg: "publishing-failure.svg",
+        svg: publishingFailureSVG,
         title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
         subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
       }
     }
   }),
   computed: {
-    animationSvg: vm =>
-      require(`!html-loader!@/assets/${vm.animations[vm.status].svg}`),
+    animationSvg: vm => vm.animations[vm.status].svg,
     animationTitle: vm => vm.animations[vm.status].title,
     animationSubtitle: vm => vm.animations[vm.status].subtitle
   }

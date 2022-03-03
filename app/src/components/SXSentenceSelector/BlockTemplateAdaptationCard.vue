@@ -46,7 +46,7 @@
       </div>
       <mw-spinner v-else />
     </div>
-    <proposed-translation-action-buttons v-on="$listeners" />
+    <proposed-translation-action-buttons v-bind="$attrs" />
   </mw-card>
 </template>
 
@@ -62,7 +62,8 @@ import {
 import { mwIconPuzzle, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "BlockTemplateAdaptationCard",
@@ -75,19 +76,14 @@ export default {
     MwButton,
     ProposedTranslationActionButtons
   },
-  emits: [
-    "edit-translation",
-    "apply-translation",
-    "skip-translation",
-    "select-previous-segment"
-  ],
+  emits: ["edit-translation"],
   setup() {
     const {
       selectedContentTranslationUnit: selectedSubSection,
       targetLanguageAutonym,
       currentMTProvider,
       proposedTranslation: proposedBlockTranslation
-    } = useApplicationState();
+    } = useApplicationState(useStore());
 
     const targetTemplateName = computed(() =>
       selectedSubSection.value?.getTargetBlockTemplateNameByProvider(

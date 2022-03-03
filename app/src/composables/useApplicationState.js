@@ -1,8 +1,10 @@
-import { computed } from "@vue/composition-api";
-import store from "@/store";
+import { computed } from "vue";
 import { getAutonym } from "@wikimedia/language-data";
 
-export default function() {
+/**
+ * @param {Store} store
+ */
+export default function(store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);
   const targetLanguage = computed(() => store.state.application.targetLanguage);
   const currentMTProvider = computed(

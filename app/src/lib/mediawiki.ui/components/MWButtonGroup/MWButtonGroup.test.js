@@ -9,7 +9,7 @@ describe("MwButtonGroup.vue", () => {
 
   test("renders correctly", () => {
     const wrapper = shallowMount(MwButtonGroup, {
-      propsData: {
+      props: {
         active: "item1",
         items: [
           {

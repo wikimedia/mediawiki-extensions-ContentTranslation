@@ -1,28 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXTranslationConfirmerArticleInformation test Component output matches snapshot 1`
-] = `
+exports[`SXTranslationConfirmerArticleInformation test Component output matches snapshot 1`] = `
 <div
-  class="sx-translation-confirmer__article-information ma-0 pa-4 row items-stretch justify-start"
+  class="row items-stretch justify-start sx-translation-confirmer__article-information ma-0 pa-4"
 >
+  
   <div
     class="col"
   >
+    
     <div
-      class="sx-translation-confirmer__article-information__header ma-0 mb-2 row items-center justify-between"
+      class="row items-center justify-between sx-translation-confirmer__article-information__header ma-0 mb-2"
     >
+      
       <a
-        class="pa-0 pe-4 flex sx-translation-confirmer__article-information__title col"
+        class="col pa-0 pe-4 flex sx-translation-confirmer__article-information__title"
         href="https://.wikipedia.org/wiki/Test Title"
         target="_blank"
       >
+        
         <h5
-          class=" ma-0  me-1"
+          class="ma-0 me-1"
         >
           Test Title
         </h5>
-         
         <span
           class="mw-ui-icon notranslate"
         >
@@ -34,10 +35,9 @@ exports[
             width="10"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <!---->
-             
+            <!--v-if-->
             <g
-              fill="currentColor"
+              fill="#72777d"
             >
               <path
                 d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
@@ -45,14 +45,16 @@ exports[
             </g>
           </svg>
         </span>
+        
       </a>
-       
       <div
         class="col shrink items-start"
       >
+        
         <button
-          class="mw-ui-button pa-0 mw-ui-button--icon"
+          class="mw-ui-button mw-ui-button--icon pa-0"
         >
+          
           <span
             class="mw-ui-button__content"
           >
@@ -67,8 +69,7 @@ exports[
                 width="20"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!---->
-                 
+                <!--v-if-->
                 <g
                   fill="currentColor"
                 >
@@ -78,15 +79,15 @@ exports[
                 </g>
               </svg>
             </span>
-             
-            <!---->
-             
-            <!---->
+            <!--v-if-->
+            <!--v-if-->
           </span>
+          
         </button>
+        
       </div>
+      
     </div>
-     
     <p
       class="complementary sx-translation-confirmer__article-information__stats ma-0 flex"
     >
@@ -101,8 +102,7 @@ exports[
           width="16"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!---->
-           
+          <!--v-if-->
           <g
             fill="currentColor"
           >
@@ -112,17 +112,17 @@ exports[
           </g>
         </svg>
       </span>
-       
       <span
         class="pe-3"
       >
         100
       </span>
-       
       <span>
         cx-sx-translation-confirmer-views-count
       </span>
     </p>
+    
   </div>
+  
 </div>
 `;

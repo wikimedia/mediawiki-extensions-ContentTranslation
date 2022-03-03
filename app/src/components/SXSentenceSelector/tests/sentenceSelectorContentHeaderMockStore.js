@@ -1,9 +1,6 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import PageSection from "@/wiki/cx/models/pageSection";
-import Vue from "vue";
-import Vuex from "vuex";
-
-Vue.use(Vuex);
+import { createStore } from "vuex";
 
 const state = {
   currentSectionSuggestion: new SectionSuggestion({
@@ -16,7 +13,7 @@ const state = {
   isSectionTitleSelectedForTranslation: false
 };
 
-export default new Vuex.Store({
+export default createStore({
   modules: {
     application: {
       namespaced: true,

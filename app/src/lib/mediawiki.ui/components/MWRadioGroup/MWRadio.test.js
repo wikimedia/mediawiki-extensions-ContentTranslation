@@ -4,7 +4,7 @@ import MwRadio from "./MWRadio.vue";
 describe("MWRadio.vue", () => {
   it("renders with given slots and options", async () => {
     const wrapper = shallowMount(MwRadio, {
-      propsData: {
+      props: {
         id: "my-test-radio",
         label: "A radio button",
         value: "test-radio",

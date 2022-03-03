@@ -39,7 +39,7 @@
       <div v-html="currentPageSection.translationHtml" />
       <!--eslint-enable vue/no-v-html -->
     </section>
-    <sx-publish-option-selector :active.sync="publishOptionsOn" />
+    <sx-publish-option-selector v-model:active="publishOptionsOn" />
     <sx-publisher-animation-dialog
       :active="isPublishDialogActive"
       :status="publishStatus"
@@ -57,9 +57,12 @@ import SxPublisherHeader from "./SXPublisherHeader";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog";
 import SxPublishOptionSelector from "./SXPublishOptionSelector";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo";
-import { computed, onMounted } from "@vue/composition-api";
+import { computed, onMounted } from "vue";
 import usePublishTranslation from "./usePublishTranslation";
 import useApplicationState from "@/composables/useApplicationState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "SxPublisher",
@@ -72,30 +75,32 @@ export default {
     MwRow,
     MwCol
   },
-  setup(props, context) {
+  setup() {
+    const store = useStore();
     const {
       currentSourceSection: currentPageSection,
       currentSectionSuggestion: suggestion
-    } = useApplicationState();
-    const store = context.root.$store;
+    } = useApplicationState(store);
 
     const isSandboxTarget = computed(
       () => store.getters["application/isSandboxTarget"]
     );
     const translatedTitle = computed(() => currentPageSection.value?.title);
+    const bananaI18n = useI18n();
 
     const panelResult = computed(() =>
       !isSandboxTarget.value
-        ? context.root.$i18n("cx-sx-publisher-publish-panel-new-section-result")
-        : context.root.$i18n(
+        ? bananaI18n.i18n("cx-sx-publisher-publish-panel-new-section-result")
+        : bananaI18n.i18n(
             "cx-sx-publisher-publish-panel-sandbox-section-result"
           )
     );
 
     onMounted(() => store.dispatch("translator/validateMT"));
 
+    const router = useRouter();
+
     const editTranslation = () => {
-      const router = context.root.$router;
       router.push({
         name: "sx-editor",
         params: {
@@ -114,7 +119,7 @@ export default {
       isPublishDialogActive,
       publishOptionsOn,
       publishStatus
-    } = usePublishTranslation();
+    } = usePublishTranslation(store);
 
     return {
       configureTranslationOptions,

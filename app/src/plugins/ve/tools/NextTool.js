@@ -1,7 +1,7 @@
 /**
  * Mobile Next tool
  */
-SXEditorNextTool = function SXEditorNextTool() {
+const SXEditorNextTool = function SXEditorNextTool() {
   // Parent Constructor
   SXEditorNextTool.super.apply(this, arguments);
 };
@@ -23,4 +23,3 @@ SXEditorNextTool.prototype.onUpdateState = function() {
   this.setDisabled(false);
 };
 ve.ui.toolFactory.register(SXEditorNextTool);
-module.exports = SXEditorNextTool;

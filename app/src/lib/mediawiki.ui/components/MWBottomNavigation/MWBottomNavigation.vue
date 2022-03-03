@@ -35,7 +35,8 @@ export default {
       type: String,
       default: null
     }
-  }
+  },
+  emits: ["update:active"]
 };
 </script>
 

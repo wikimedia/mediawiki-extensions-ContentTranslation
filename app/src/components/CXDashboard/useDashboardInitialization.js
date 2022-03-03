@@ -1,5 +1,3 @@
-import store from "@/store";
-import { logEvent } from "@/plugins/eventlogging";
 import initializeLanguages from "@/composables/useLanguageInitialization";
 import startSectionTranslationFromUrl from "./useUrlTranslationStart";
 
@@ -18,13 +16,18 @@ const getPageTitleFromUrl = () => {
   return sourceTitle;
 };
 
-const initializeDashboard = async () => {
+/**
+ * @param {VueRouter} router
+ * @param {Store} store
+ * @param {function} logEvent
+ */
+const initializeDashboard = async (router, store, logEvent) => {
   await initializeLanguages();
 
   const pageTitle = getPageTitleFromUrl();
 
   if (pageTitle) {
-    startSectionTranslationFromUrl(pageTitle);
+    startSectionTranslationFromUrl(router, store, logEvent, pageTitle);
 
     return;
   }

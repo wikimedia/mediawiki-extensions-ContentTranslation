@@ -11,19 +11,20 @@
 <script>
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector";
 import useMediawikiState from "@/composables/useMediawikiState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "SxArticleLanguageSelector",
   components: {
     SxTranslationListLanguageSelector
   },
-  setup(props, context) {
+  setup() {
     const {
       supportedLanguageCodes,
       enabledTargetLanguages
     } = useMediawikiState();
-    const store = context.root.$store;
+    const store = useStore();
 
     const currentLanguageTitleGroup = computed(
       () => store.getters["application/getCurrentLanguageTitleGroup"]

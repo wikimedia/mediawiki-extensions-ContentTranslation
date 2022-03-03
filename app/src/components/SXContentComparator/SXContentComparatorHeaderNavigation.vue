@@ -21,8 +21,9 @@ import {
   mwIconArrowForward,
   mwIconPrevious
 } from "@/lib/mediawiki.ui/components/icons";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import useCompareContents from "./useCompareContents";
+import { useStore } from "vuex";
 
 export default {
   name: "SxContentComparatorHeaderNavigation",
@@ -36,9 +37,11 @@ export default {
       required: true
     }
   },
-  setup(props, context) {
-    const store = context.root.$store;
-    const { sourceSectionTitle } = useCompareContents();
+  setup(props) {
+    const store = useStore();
+    const sourceSectionTitle = computed(
+      () => store.getters["application/getCurrentSourceSectionTitle"]
+    );
     const currentTitleIndex = computed(() =>
       props.sectionSourceTitles.indexOf(sourceSectionTitle.value)
     );

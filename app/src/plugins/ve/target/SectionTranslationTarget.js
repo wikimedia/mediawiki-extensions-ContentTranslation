@@ -18,7 +18,8 @@
  * @param {Object} [config] Configuration options
  * @cfg {string} [section] Number of the section target should scroll to
  */
-SectionTranslationTarget = function SectionTranslationTarget(overlay, config) {
+
+function SectionTranslationTarget(overlay, config) {
   this.overlay = overlay;
   this.$overlaySurface = overlay.querySelector(".surface");
   config = config || {};
@@ -35,7 +36,7 @@ SectionTranslationTarget = function SectionTranslationTarget(overlay, config) {
 
   // Initialization
   this.$element.addClass("sx-ve-translation-target");
-};
+}
 
 /* Inheritance */
 
@@ -99,7 +100,7 @@ SectionTranslationTarget.prototype.setupToolbar = function(surface) {
         include: ["back"]
       }
     ],
-    this.toolbarGroups,
+    originalToolbarGroups,
     [
       {
         name: "next",
@@ -147,4 +148,4 @@ SectionTranslationTarget.prototype.done = function() {
 /* Registration */
 
 ve.init.mw.targetFactory.register(SectionTranslationTarget);
-module.exports = SectionTranslationTarget;
+ve.init.mw.SectionTranslationTarget = SectionTranslationTarget;

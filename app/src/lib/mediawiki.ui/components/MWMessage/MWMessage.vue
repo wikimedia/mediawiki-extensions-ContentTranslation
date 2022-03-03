@@ -3,9 +3,9 @@
     v-if="shown"
     :class="classes"
     class="mw-ui-message"
-    :aria-live="type !== 'error' && 'polite'"
+    :aria-live="type !== 'error' ? 'polite' : null"
     :aria-labelledby="`${id}-label`"
-    :role="type === 'error' && 'alert'"
+    :role="type === 'error' ? 'alert' : null"
     align="normal"
   >
     <!-- @slot Use this slot for custom icon -->
@@ -50,7 +50,7 @@ import {
   mwIconCheck,
   mwIconError
 } from "../icons";
-import { MwRow, MwCol, MwIcon, MwButton } from "@/lib/mediawiki.ui/components";
+import { MwRow, MwCol, MwIcon, MwButton } from "../";
 export default {
   name: "MwMessage",
   components: { MwCol, MwRow, MwIcon, MwButton },
@@ -106,7 +106,7 @@ export default {
     }
   },
   mounted() {
-    this.id = this._uid;
+    this.id = this.type + Math.floor(Math.random() * 100);
   },
   methods: {
     hideMessage() {

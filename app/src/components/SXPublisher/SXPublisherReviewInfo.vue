@@ -5,7 +5,7 @@
     :class="reviewInfoClass"
     :inline="isMessageInline"
   >
-    <template slot="icon">
+    <template #icon>
       <mw-icon
         :icon="reviewIcon"
         class="col shrink mw-ui-message__icon pe-3 items-start"
@@ -60,7 +60,9 @@ import {
   mwIconArrowForward
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
-import { computed, ref } from "@vue/composition-api";
+import { computed, ref } from "vue";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "SxPublisherReviewInfo",
@@ -71,8 +73,8 @@ export default {
     MwMessage,
     MwIcon
   },
-  setup(props, context) {
-    const store = context.root.$store;
+  setup() {
+    const store = useStore();
 
     const activeMessageIndex = ref(0);
     const publishFeedbackMessages = computed(
@@ -104,11 +106,12 @@ export default {
       () => `sx-publisher__review-info--${messageType.value}`
     );
 
+    const bananaI18n = useI18n();
     const messageText = computed(() => activeMessage.value?.text);
     const messageTitle = computed(
       () =>
         activeMessage.value?.title ||
-        context.root.$i18n("cx-sx-publisher-review-info-error")
+        bananaI18n.i18n("cx-sx-publisher-review-info-error")
     );
 
     const goToPreviousMessage = () => {

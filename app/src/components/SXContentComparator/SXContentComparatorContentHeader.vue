@@ -28,7 +28,7 @@
         <mw-button
           v-if="isSticky"
           :icon="mwIconEdit"
-          :progressive="true"
+          progressive
           :label="
             $i18n(
               'cx-sx-content-comparator-content-header-translate-button-label'
@@ -61,7 +61,8 @@ import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector"
 import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
-import { ref, computed, onMounted } from "@vue/composition-api";
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "SxContentComparatorContentHeader",
@@ -83,10 +84,10 @@ export default {
   },
   emits: ["update:sourceVsTargetSelection", "translation-button-clicked"],
   setup(props, context) {
-    const store = context.root.$store;
+    const store = useStore();
 
     const isSticky = ref(false);
-    const { currentSectionSuggestion: suggestion } = useApplicationState();
+    const { currentSectionSuggestion: suggestion } = useApplicationState(store);
 
     const sourceSectionTitle = computed(
       () => store.getters["application/getCurrentSourceSectionTitle"]
@@ -101,7 +102,7 @@ export default {
     const {
       activeSectionTargetTitle,
       targetSectionAnchor
-    } = useCompareContents();
+    } = useCompareContents(store);
 
     const activeContent = computed(() => {
       switch (props.sourceVsTargetSelection) {
@@ -178,6 +179,7 @@ export default {
       @border-color-base--disabled;
     .mw-ui-button.sx-content-comparator__open-content-link-button {
       color: @color-base--subtle;
+      pointer-events: auto;
     }
   }
   &.sticky {

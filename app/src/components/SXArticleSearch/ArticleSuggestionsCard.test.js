@@ -1,11 +1,8 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import Page from "../../wiki/mw/models/page";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
-import Vuex from "vuex";
-import VueBananaI18n from "vue-banana-i18n";
-const localVue = createLocalVue();
-localVue.use(VueBananaI18n);
-localVue.use(Vuex);
+import { createStore } from "vuex";
+import { createI18n } from "vue-banana-i18n";
 
 const suggestions = [
   new Page({
@@ -30,14 +27,16 @@ describe("ArticleSuggestionsCard test", () => {
     state: applicationState
   };
 
-  const store = new Vuex.Store({
+  const store = createStore({
     modules: { application: applicationModule }
   });
 
+  const i18n = createI18n();
   const wrapper = mount(ArticleSuggestionsCard, {
-    localVue,
-    store,
-    propsData: {
+    global: {
+      plugins: [store, i18n]
+    },
+    props: {
       cardTitle: "Recently edited",
       suggestions
     }

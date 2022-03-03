@@ -11,7 +11,9 @@
 <script>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "TranslatedSegmentCardHeader",
@@ -23,13 +25,16 @@ export default {
       validator: value => ["sentence", "paragraph"].includes(value)
     }
   },
-  setup(props, context) {
-    const { isSectionTitleSelected } = useApplicationState();
+  emits: ["update:selection"],
+  setup(props, { emit }) {
+    const { isSectionTitleSelected } = useApplicationState(useStore());
+    const bananaI18n = useI18n();
+
     const scopeOptions = computed(() => [
       {
         value: "sentence",
         props: {
-          label: context.root.$i18n(
+          label: bananaI18n.i18n(
             "cx-sx-sentence-selector-translated-segment-sentence-option"
           ),
           type: "text",
@@ -40,7 +45,7 @@ export default {
       {
         value: "paragraph",
         props: {
-          label: context.root.$i18n(
+          label: bananaI18n.i18n(
             "cx-sx-sentence-selector-translated-segment-paragraph-option"
           ),
           type: "text",
@@ -50,8 +55,7 @@ export default {
       }
     ]);
 
-    const updateSelection = selection =>
-      context.emit("update:selection", selection);
+    const updateSelection = selection => emit("update:selection", selection);
 
     return { scopeOptions, updateSelection };
   }

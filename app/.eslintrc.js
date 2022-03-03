@@ -3,7 +3,7 @@ module.exports = {
   globals: {
     mw: true
   },
-  extends: ["plugin:vue/recommended", "@vue/prettier", "plugin:cypress/recommended"],
+  extends: ["plugin:vue/vue3-recommended", "@vue/prettier", "plugin:cypress/recommended"],
   rules: {
     // Avoid bare strings in templates. In order to be able to internationalize your application,
     // you will need to avoid using plain strings in your templates.
@@ -35,7 +35,6 @@ module.exports = {
       env: {
         mocha: true,
         jest: true
-      }
     }
-  ]
+  }]
 };

@@ -1,7 +1,4 @@
-import EventLogging from "./";
-const Vue = function() {};
-EventLogging.install(Vue);
-
+import { logEvent } from "./";
 global.fetch = jest.fn(url => {
   return Promise.resolve({
     json: () =>
@@ -17,9 +14,8 @@ global.fetch = jest.fn(url => {
 
 describe("Event logging", () => {
   it("Event is being logged properly", async () => {
-    const instance = new Vue();
     const event = { foo: "bar" };
-    await instance.$logEvent(event);
+    await logEvent(event);
     const eventPayload = {
       $schema: "/analytics/mediawiki/content_translation_event/1.0.0",
       translation_type: "section",
