@@ -1,6 +1,13 @@
 <?php
+
+namespace ContentTranslation\Skin;
+
+use SkinMustache;
+use Title;
+
 /**
  * Skin subclass for Content Translation
+ *
  * @ingroup Skins
  * @internal
  */
@@ -21,14 +28,12 @@ class SkinContentTranslation extends SkinMustache {
 
 		// is-vue parameter seems unused project-wide
 		// TODO: Consider removing it
-		$skinData = parent::getTemplateData() + [
+		return parent::getTemplateData() + [
 			'cx-version' => $config->get( 'ContentTranslationVersion' ),
 			'is-vue' => $config->get( 'ContentTranslationEnableSectionTranslation' ),
 			'main-page-href' => Title::newMainPage()->getLinkURL(),
 			'user-name' => $this->getUser()->getName(),
 		] + $this->getNavigationTemplateData();
-
-		return $skinData;
 	}
 
 	/**
@@ -49,10 +54,10 @@ class SkinContentTranslation extends SkinMustache {
 		}
 		return [
 			'data-personal' => $this->getPortletData( 'personal',
-				self::getPersonalToolsForMakeListItem( $personalToolsUrlsPrimary )
+				$this->getPersonalToolsForMakeListItem( $personalToolsUrlsPrimary )
 			),
 			'data-personal-dropdown' => $this->getPortletData( 'personal',
-				self::getPersonalToolsForMakeListItem( $personalToolsUrls )
+				$this->getPersonalToolsForMakeListItem( $personalToolsUrls )
 			)
 		];
 	}

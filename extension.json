@@ -30,7 +30,7 @@
 	},
 	"ValidSkinNames": {
 		"contenttranslation": {
-			"class": "SkinContentTranslation",
+			"class": "ContentTranslation\\Skin\\SkinContentTranslation",
 			"skippable": true,
 			"args": [
 				{
@@ -125,12 +125,10 @@
 			]
 		}
 	},
-	"AutoloadClasses": {
-		"SkinContentTranslation": "skin/SkinContentTranslation.php"
-	},
 	"AutoloadNamespaces": {
 		"ContentTranslation\\": "includes/",
 		"ContentTranslation\\ActionApi\\": "api/",
+		"ContentTranslation\\Skin\\": "skin/",
 		"ContentTranslation\\Special\\": "specials/"
 	},
 	"DefaultUserOptions": {
