@@ -127,9 +127,7 @@
 	},
 	"AutoloadNamespaces": {
 		"ContentTranslation\\": "includes/",
-		"ContentTranslation\\ActionApi\\": "api/",
-		"ContentTranslation\\Skin\\": "skin/",
-		"ContentTranslation\\Special\\": "specials/"
+		"ContentTranslation\\Skin\\": "skin/"
 	},
 	"DefaultUserOptions": {
 		"echo-subscriptions-web-cx": true,
