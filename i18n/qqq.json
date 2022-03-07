@@ -171,7 +171,6 @@
 	"cx-translation-label-published": "Label in header for list of published translations in the Content Translation dashboard",
 	"cx-translation-already-in-progress": "Message shown when a second translator tries to translate the same page between same languages. \n\nParameters:\n* $1 - Username of first translator\n* $2 - Gender of the first translator",
 	"cx-translation-already-in-progress-unknown": "Message shown when a second translator tries to translate the same page between same languages.",
-	"cx-translation-already-in-progress-collaborate": "A message to collaborate with other translator. Shown when there is translation conflict.\n\nParameters:\n* $1 - Gender of the first translator",
 	"cx-feedback-link": "Link text for the link to give feedback. Shown at the bottom of the tools column in the translation interface.",
 	"cx-stats-published-translations-title": "Section title for published translation stats",
 	"cx-stats-draft-translations-title": "Section title for translations in draft (in progress) state stats",

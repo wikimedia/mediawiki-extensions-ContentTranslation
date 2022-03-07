@@ -234,7 +234,8 @@ class Translation {
 
 	/**
 	 * Get conflicting translations for the given translation work.
-	 * Conflicting translations are translations in progress for same language pair and source page.
+	 * Conflicting translations are translations in progress for same language pair
+	 * and source page in last 24 hours.
 	 * Here we assume that the caller already checked that no draft for the user already exists.
 	 * @param TranslationWork $work
 	 * @return array
@@ -250,6 +251,14 @@ class Translation {
 
 		foreach ( $drafts as $index => $draft ) {
 			if ( $draft->getData()['status'] !== 'draft' ) {
+				unset( $drafts[$index] );
+				continue;
+			}
+
+			$lastUpdateTime = new \DateTime( $draft->getData()['lastUpdateTimestamp'] );
+			// Check if translation was updated within the last 24 hours
+			$lastUpdateTimeIn24Hours = (bool)$lastUpdateTime->diff( new \DateTime( '-24 hours' ) )->invert;
+			if ( !$lastUpdateTimeIn24Hours ) {
 				unset( $drafts[$index] );
 			}
 		}

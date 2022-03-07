@@ -330,10 +330,10 @@ mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft
 	// Do not allow two users to start a draft at the same time. The API only
 	// returns a translation with different translatorName if this is the case.
 	if ( draft.translatorName !== mw.user.getName() ) {
-		mw.log( '[CX] Existing translation found. But owned by another translator' );
+		mw.log( '[CX] Existing translation in last 24 hours by another translator found.' );
 		this.translationView.showConflictWarning( draft );
-		// Stop further processing!
-		return $.Deferred().reject().promise();
+		// Stop further processing
+		return $.Deferred().resolve( null ).promise();
 	}
 
 	// Don't restore deleted drafts

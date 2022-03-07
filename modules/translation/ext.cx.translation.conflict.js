@@ -8,56 +8,39 @@
 	'use strict';
 
 	/**
-	 * Show the information about translation conflict with a button
-	 * to create a new translation on another topic.
+	 * Show the information about translation conflict
 	 *
 	 * @param {Object} translation
 	 */
 	function showConflictHandler( translation ) {
-		var $header, $columns, $conflictInfo, $info,
-			$collaborate, $action, name, gender, $userPage;
+		var message, $userPage;
 
-		$columns = $( '.cx-widget__columns' );
-		$header = $( '.cx-header' );
-
-		name = translation.translatorName;
-		gender = translation.translatorGender;
-
-		if ( name ) {
+		if ( translation.translatorName ) {
 			$userPage = $( '<a>' )
-				.text( name )
-				.prop( 'href', mw.util.getUrl( 'User:' + name ) );
+				.text( translation.translatorName )
+				.prop( 'href', mw.util.getUrl( 'User:' + translation.translatorName ) );
 
-			$info = $( '<div>' )
-				.addClass( 'cx-conflict-info' )
-				.msg( 'cx-translation-already-in-progress', $userPage, gender );
-			$collaborate = $( '<div>' )
-				.addClass( 'cx-conflict-info' )
-				.msg( 'cx-translation-already-in-progress-collaborate', gender );
+			message = mw.message( 'cx-translation-already-in-progress',
+				$userPage,
+				translation.translatorGender
+			);
 		} else {
-			$info = $( '<div>' )
-				.addClass( 'cx-conflict-info' )
-				.msg( 'cx-translation-already-in-progress-unknown' );
-			$collaborate = $( '<div>' );
+			message = mw.message( 'cx-translation-already-in-progress-unknown' );
 		}
-		$action = $( '<button>' )
-			.addClass( 'mw-ui-button mw-ui-progressive cx-create-new-translation' )
-			.text( mw.msg( 'cx-create-new-translation' ) );
-		$conflictInfo = $( '<div>' )
-			.addClass( 'cx-conflict' )
-			.append( $info, $collaborate, $action );
-		// Add the conflict warning to the header
-		$header.append( $conflictInfo );
-		// Gray out the columns
-		$columns.addClass( 'cx-disabled' );
-		// Remove the publish and save status from header
-		$( '.cx-header__save-status, .cx-header__publish' ).remove();
-		// Add click handler to "Create new translation button"
-		$action.on( 'click', function () {
-			var uri = new mw.Uri();
 
-			delete uri.query.page;
-			location.href = uri.toString();
+		return OO.ui.getWindowManager().openWindow( 'message', {
+			message: message.parseDom(),
+			actions: [
+				{ action: 'cancel', label: mw.msg( 'cx-create-new-translation' ), flags: 'primary' }
+			]
+		} ).closed.then( function ( data ) {
+			if ( !data || data.action === 'cancel' ) {
+				// Go to dashboard
+				var uri = new mw.Uri();
+
+				delete uri.query.page;
+				location.href = uri.toString();
+			}
 		} );
 	}
 

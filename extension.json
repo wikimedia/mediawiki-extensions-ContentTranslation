@@ -755,16 +755,12 @@
 			"scripts": [
 				"translation/ext.cx.translation.conflict.js"
 			],
-			"styles": [
-				"translation/styles/ext.cx.translation.conflict.less"
-			],
 			"dependencies": [
 				"mediawiki.jqueryMsg"
 			],
 			"messages": [
 				"cx-translation-already-in-progress",
 				"cx-translation-already-in-progress-unknown",
-				"cx-translation-already-in-progress-collaborate",
 				"cx-create-new-translation"
 			]
 		},
