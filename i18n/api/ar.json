@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"FiberAhmed",
 			"Hiba Alshawi",
 			"Maroen1990",
 			"Meno25",
@@ -125,5 +126,6 @@
 	"apihelp-query+cxdeletedtranslations-summary": "احصل على عدد الترجمات المنشورة التي تم حذفها.",
 	"apihelp-query+cxdeletedtranslations-param-after": "الطابع الزمني للحصول على عمليات الحذف الأحدث فقط.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "النطاق حيث تم نشر الترجمات المحذوفة، الافتراضي هو النطاق الرئيسي.",
-	"apihelp-query+cxdeletedtranslations-example-1": "احصل على عدد الترجمات المحذوفة، والتي تم نشرها على النطاق الرئيسي وحذفها بعد 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "احصل على عدد الترجمات المحذوفة، والتي تم نشرها على النطاق الرئيسي وحذفها بعد 2019-04-07 16:24:44",
+	"apihelp-cxpublishsection-param-sourcelanguage": "رمز اللغة المصدر"
 }
