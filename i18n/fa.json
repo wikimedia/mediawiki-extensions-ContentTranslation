@@ -9,6 +9,7 @@
 			"Arash.pt",
 			"Arian Ar",
 			"Armin1392",
+			"Beginneruser",
 			"Calak",
 			"Danialbehzadi",
 			"Darafsh",
@@ -182,7 +183,9 @@
 	"cx-campaign-try": "آزمایش مترجم محتوا",
 	"cx-campaign-contributionsmenu-mycontributions": "مشارکت‌ها",
 	"cx-campaign-contributionsmenu-mytranslations": "ترجمه‌ها",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "افزودن یک ترجمۀ جدید",
 	"cx-campaign-contributionsmenu-myuploads": "رسانه‌های بارگذاری‌شده",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "فهرستی از رسانه‌های بارگذاری شده توسط شما",
 	"cx-no-source-categories": "بدون رده",
 	"cx-no-target-categories": "رده‌ای وجود ندارد. افزودن چند رده به‌منظور دسته‌بندی بهتر موضوع را در نظر داشته‌باشید.",
 	"cx-no-adapted-categories": "رده‌های اصلی در این زبان موجود نیستند. برای توصیف بهتر موضوع، رده‌های بیشتری را جستجو کنید.",
@@ -310,7 +313,7 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "اطلاعات بیشتر",
 	"cx-sx-section-selector-unsupported-sections-title": "بخش‌های پشتیبانی‌نشده",
 	"cx-sx-section-selector-unsupported-sections-description": "بعضی بخش‌ها ممکن است در فهرست پدیدار نشوند؛ زیرا محتوای آن‌ها هنوز پشتیبانی نمی‌شود.",
-	"cx-suggestion-list-new-pages-division": "صفحه‌های تازه",
+	"cx-suggestion-list-new-pages-division": "ایجاد صفحه‌های تازه",
 	"cx-translation-list-all-languages-option-label": "همه",
 	"cx-sx-content-comparator-back-to-sections-button-label": "بازگشت به همهٔ بخش‌ها",
 	"cx-sx-content-comparator-translation-section-button-label": "ترجمهٔ این بخش",
@@ -419,5 +422,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "ترجمهٔ یک بخش تازه",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ترجمهٔ «$1»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "ترجمهٔ «$1» و «$2»",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "ترجمهٔ «$1»، «$2» و موارد بیشتر"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "ترجمهٔ «$1»، «$2» و موارد بیشتر",
+	"sx-block-template-adaptation-card-body-header-success": "الگوی پیشنهاد شده",
+	"sx-block-template-adaptation-card-edit-button-label": "بازبینی و ویرایش ترجمه",
+	"sx-block-template-adaptation-card-body-header-failure": "الگوی معادل برای $1 دردسترس نیست"
 }
