@@ -21,7 +21,8 @@
 			"زكريا",
 			"سامي الرحيلي",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"FiberAhmed"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -333,6 +334,7 @@
 	"cx-sx-section-selector-unsupported-sections-title": "أقسام غير مدعومة",
 	"cx-sx-section-selector-unsupported-sections-description": "قد لا تظهر بعض الأقسام في القائمة لأن محتوياتها غير مدعومة حتى الآن.",
 	"cx-suggestion-list-new-pages-division": "الصفحات الجديدة",
+	"cx-translation-list-all-languages-option-label": "الكل",
 	"cx-sx-content-comparator-back-to-sections-button-label": "العودة إلى كل الأقسام",
 	"cx-sx-content-comparator-translation-section-button-label": "ترجمة هذا القسم",
 	"sx-quick-tutorial-main-point-step-2": "الترجمات المقترحة",
@@ -340,12 +342,18 @@
 	"cx-sx-sentence-selector-header-title": "قسم الترجمة",
 	"cx-sx-sentence-selector-done-button-label": "تم",
 	"cx-sx-sentence-selector-edit-translation-button-label": "عدل الترجمة",
+	"cx-sx-sentence-selector-apply-translation-button-label": "تطبيق",
+	"cx-sx-sentence-selector-skip-translation-button-label": "تَخطَّ",
 	"cx-sx-content-comparator-target-selector-full-article-title": "المقالة كاملة في $1",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "الأصل",
 	"cx-sx-content-comparator-present-section-placeholder-title": "ترجمتك ستضاف هنا",
+	"cx-sx-content-comparator-content-header-translate-button-label": "ترجمة",
+	"cx-sx-editor-original-panel-label": "الأصل",
 	"cx-sx-publisher-preview-options-title": "خيارات النشر",
+	"cx-sx-publisher-review-info-learn-more": "معرفة المزيد",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "معرفة المزيد",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "ترجمتك",
+	"cx-sx-followup-feedback-new-indicator": "جديد",
 	"cx-sx-published-section-confirmation-header": "أضيف قسم جديد",
 	"cx-sx-published-section-invitation-title": "ترجم قسمًا آخر"
 }
