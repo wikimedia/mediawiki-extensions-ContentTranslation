@@ -100,6 +100,26 @@
 				null,
 				nextNode
 			);
+			// Also add them to the sticky header
+			mw.util.addPortletLink(
+				'p-personal-sticky-header',
+				$myTranslations.find( 'a' ).attr( 'href' ),
+				$myTranslations.text(),
+				'cx-language',
+				$myTranslations.find( 'a' ).attr( 'title' ),
+				null,
+				nextNode
+			);
+			mw.util.addPortletLink(
+				'p-personal-sticky-header',
+				$myUploads.find( 'a' ).attr( 'href' ),
+				$myUploads.text(),
+				'cx-imageGallery',
+				$myUploads.find( 'a' ).attr( 'title' ),
+				null,
+				null,
+				nextNode
+			);
 		}
 	}
 
