@@ -156,7 +156,6 @@
 	"cx-translation-label-published": "Julkaistut käännökset",
 	"cx-translation-already-in-progress": "Tämä on käyttäjän {{GENDER:$2|$1}} keskeneräinen käännös.",
 	"cx-translation-already-in-progress-unknown": "Tämä on tuntemattoman käyttäjän keskeneräinen käännös.",
-	"cx-translation-already-in-progress-collaborate": "Sinun täytyy koordinoida keskeneräisen käännöksen tehneen {{GENDER:$1|käyttäjän}} kanssa.",
 	"cx-feedback-link": "Anna palautetta",
 	"cx-stats-published-translations-title": "Julkaistuja käännöstöitä",
 	"cx-stats-draft-translations-title": "Keskeneräisiä käännöstöitä",

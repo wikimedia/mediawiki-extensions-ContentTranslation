@@ -130,7 +130,6 @@
 	"cx-translation-label-draft": "လုပ်ဆောင်နေဆဲ ဘာသာပြန်များ",
 	"cx-translation-label-published": "လွှင့်တင်ပြီး ဘာသာပြန်များ",
 	"cx-translation-already-in-progress": "ဤသည် $1 {{GENDER:$2|မှ}} ဆောင်ရွက်နေသော ဘာသာပြန်ဖုစ်သည်။",
-	"cx-translation-already-in-progress-collaborate": "လက်ရှိ ဘာသာပြန်ခြင်းကို ဘာသာပြန်နေသည့် {{GENDER:$1|အသုံးပြုသူ}}နှင့် ညှိနှိုင်းခြင်းဖြစ်ပါစေ။",
 	"cx-feedback-link": "အကြံပေးရန်",
 	"cx-stats-published-translations-title": "လွှင့်တင်ပြီး ဘာသာပြန်များ",
 	"cx-stats-draft-translations-title": "လုပ်ဆောင်နေဆဲ ဘာသာပြန်များ",

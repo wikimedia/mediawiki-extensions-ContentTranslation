@@ -137,7 +137,6 @@
 	"cx-translation-label-draft": "अनुवाद प्रगतिमा छ",
 	"cx-translation-label-published": "प्रकाशीत अनुवादहरू",
 	"cx-translation-already-in-progress": "$1 {{GENDER:$2|द्वारा}}  अनुवाद हुँदैछ ।",
-	"cx-translation-already-in-progress-collaborate": "कृपया {{GENDER:$1|प्रयोगकर्तासँग}} संयोजन गर्नुहोस् जसद्वारा हालको अनुवाद सिर्जना गरिएको हो।",
 	"cx-feedback-link": "सुझाव दिनुहोस्",
 	"cx-stats-published-translations-title": "प्रकाशीत अनुवादहरू",
 	"cx-stats-draft-translations-title": "अनुवाद प्रगतिमा छ",

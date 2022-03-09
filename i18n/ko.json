@@ -164,7 +164,6 @@
 	"cx-translation-label-published": "게시된 번역",
 	"cx-translation-already-in-progress": "$1 {{GENDER:$2|사용자}}가 진행 중인 번역입니다.",
 	"cx-translation-already-in-progress-unknown": "알 수 없는 사용자에 의해 진행 중인 번역입니다.",
-	"cx-translation-already-in-progress-collaborate": "현재판의 {{GENDER:$1|번역자}}와 협조하도록 해 주세요.",
 	"cx-feedback-link": "피드백 제공",
 	"cx-stats-published-translations-title": "게시된 번역",
 	"cx-stats-draft-translations-title": "진행 중인 번역",

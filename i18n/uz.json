@@ -89,7 +89,6 @@
 	"cx-translation-label-draft": "Davom etayotgan tarjimalar",
 	"cx-translation-label-published": "Chop etilgan tarjimalar",
 	"cx-translation-already-in-progress": "Buni $1 tarjima {{GENDER:$2|qilyapti}}.",
-	"cx-translation-already-in-progress-collaborate": "Iltimos joriy tarjimani bajargan {{GENDER:$1|foydalanuvchi}} bilan muhokama qiling.",
 	"cx-feedback-link": "Murojaat yuborish",
 	"cx-stats-published-translations-title": "Chop etilgan tarjimalar",
 	"cx-stats-draft-translations-title": "Davom etayotgan tarjimalar",

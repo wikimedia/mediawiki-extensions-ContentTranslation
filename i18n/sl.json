@@ -142,7 +142,6 @@
 	"cx-translation-label-published": "Objavljeni prevodi",
 	"cx-translation-already-in-progress": "Na tem prevodu ravnokar dela {{GENDER:$2|uporabnik|uporabnica}} $1.",
 	"cx-translation-already-in-progress-unknown": "To je prevod v delu neznanega uporabnika.",
-	"cx-translation-already-in-progress-collaborate": "Priporočljivo je, da navežeš stik z {{GENDER:$1|uporabnikom|uporabnico}}, ki je {{GENDER:$1|naredil|naredila}} trenutni prevod.",
 	"cx-feedback-link": "Pošljite svoje mnenje",
 	"cx-stats-published-translations-title": "Objavljeni prevodi",
 	"cx-stats-draft-translations-title": "Članki v prevajanju",

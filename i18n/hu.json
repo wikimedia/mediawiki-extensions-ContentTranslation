@@ -142,7 +142,6 @@
 	"cx-translation-label-draft": "Fordítások folyamatban",
 	"cx-translation-label-published": "Közzétett fordítások",
 	"cx-translation-already-in-progress": "Ez egy folyamatban lévő fordítás, {{GENDER:$2|szerzője}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Kérlek, győződj meg arról, hogy együttműködsz azzal a {{GENDER:$1|felhasználóval}}, aki a jelenlegi fordítást készítette.",
 	"cx-feedback-link": "Visszajelzés küldése",
 	"cx-stats-published-translations-title": "Közzétett fordítások",
 	"cx-stats-draft-translations-title": "Fordítás folyamatban",

@@ -139,7 +139,6 @@
 	"cx-translation-label-draft": "Traducciones en cursu",
 	"cx-translation-label-published": "Traducciones publicaes",
 	"cx-translation-already-in-progress": "Esta ye una traducción en progresu {{GENDER:$2|de}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Asegúrate de coordinate {{GENDER:$1|col usuariu|cola usuaria}} que creó la traducción actual.",
 	"cx-feedback-link": "Facer comentarios",
 	"cx-stats-published-translations-title": "Traducciones publicaes",
 	"cx-stats-draft-translations-title": "Traducciones en progresu",

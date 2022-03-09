@@ -138,7 +138,6 @@
 	"cx-translation-label-published": "Traduzzion  misse foeura",
 	"cx-translation-already-in-progress": "Questa chì l'è 'na traduzzion in cors {{GENDER:$2|del $1|de la $1|de $1 }}.",
 	"cx-translation-already-in-progress-unknown": "A gh'è una traduzzion in cors d'un utent conossud de nissun",
-	"cx-translation-already-in-progress-collaborate": "Sicuress de lavoragh adree insema a {{GENDER:$1|l'utent}} che l'hà eseguid la traduzzion atual.",
 	"cx-feedback-link": "Dann el to parer",
 	"cx-stats-published-translations-title": "Traduzzion publicade",
 	"cx-stats-draft-translations-title": "Traduzzion in cors",

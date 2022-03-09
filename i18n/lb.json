@@ -115,7 +115,6 @@
 	"cx-translation-label-draft": "Iwwersetzungen am Gaang",
 	"cx-translation-label-published": "Publizéiert Iwwersetzungen",
 	"cx-translation-already-in-progress": "Dëst ass eng Iwwersetzung {{GENDER:$2|vum}} $1, déi net ofgeschloss ass.",
-	"cx-translation-already-in-progress-collaborate": "Vergewëssert Iech wgl. datt Dir Iech mam {{GENDER:$1|Benotzer}} koordinéiert deen déi aktuell Iwwersetzung gemaach huet.",
 	"cx-feedback-link": "Feedback ginn",
 	"cx-stats-published-translations-title": "Publizéiert Iwwersetzungen",
 	"cx-stats-draft-translations-title": "Iwwersetzungen am Gaang",

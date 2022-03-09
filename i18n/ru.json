@@ -183,7 +183,6 @@
 	"cx-translation-label-draft": "Неоконченные переводы",
 	"cx-translation-label-published": "Опубликованные переводы",
 	"cx-translation-already-in-progress": "Это незаконченный перевод, начатый {{GENDER:$2|участником|участницей}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Пожалуйста, договоритесь с {{GENDER:$1|участником|участницей}}, который начал этот перевод.",
 	"cx-feedback-link": "Отправить отзыв",
 	"cx-stats-published-translations-title": "Опубликованные переводы",
 	"cx-stats-draft-translations-title": "Неоконченные переводы",

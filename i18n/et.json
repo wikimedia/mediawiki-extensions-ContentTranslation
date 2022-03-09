@@ -140,7 +140,6 @@
 	"cx-translation-label-draft": "Pooleli tõlked",
 	"cx-translation-label-published": "Avaldatud tõlked",
 	"cx-translation-already-in-progress": "See on kasutaja {{GENDER:$2|$1}} pooleliolev tõlkemustand.",
-	"cx-translation-already-in-progress-collaborate": "Palun kooskõlasta tegevus {{GENDER:$1|kasutajaga}}, kes on praeguse tõlke autor.",
 	"cx-feedback-link": "Anna tagasisidet",
 	"cx-stats-published-translations-title": "Avaldatud tõlked",
 	"cx-stats-draft-translations-title": "Pooleliolevad tõlked",

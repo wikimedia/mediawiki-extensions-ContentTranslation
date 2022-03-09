@@ -153,7 +153,6 @@
 	"cx-translation-label-published": "প্রকাশিত অনুবাদ",
 	"cx-translation-already-in-progress": "এটি $1 {{GENDER:$2|কর্তৃক}} একটি চলমান অনুবাদ।",
 	"cx-translation-already-in-progress-unknown": "অজানা ব্যবহারকারী দ্বারা এই অনুবাদ পূর্বেই আরম্ভ করা হয়েছে।",
-	"cx-translation-already-in-progress-collaborate": "যে {{GENDER:$1|ব্যবহারকারী}} বর্তমানে লেখাটি অনুবাদ করছেন, অনুগ্রহ করে আপনি তার সাথে সমন্বয় সাধন করুন।",
 	"cx-feedback-link": "মতামত প্রদান করুন",
 	"cx-stats-published-translations-title": "প্রকাশিত অনুবাদ",
 	"cx-stats-draft-translations-title": "অনুবাদ চলছে",

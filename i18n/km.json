@@ -112,7 +112,6 @@
 	"cx-translation-label-draft": "ការបកប្រែដែលកំពុងធ្វើ",
 	"cx-translation-label-published": "ការបកប្រែដែលបានបោះផ្សាយរួច",
 	"cx-translation-already-in-progress": "នេះជាការបកប្រែដែលកំពុងធ្វើឡើង {{GENDER:$2|ដោយ}} $1។",
-	"cx-translation-already-in-progress-collaborate": "សូមប្រាកដថាអ្នកសហការជាមួួយ{{GENDER:$1|អ្នកប្រើប្រាស់}}ដែលបានបកប្រែកំណែបច្ចុប្បន្ននេះ។",
 	"cx-feedback-link": "ផ្ដល់មតិកែលម្អ",
 	"cx-stats-published-translations-title": "ការបកប្រែដែលបានបោះផ្សាយ",
 	"cx-stats-draft-translations-title": "ការបកប្រែដែលកំពុងធ្វើ",

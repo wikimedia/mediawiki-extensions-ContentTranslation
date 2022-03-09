@@ -117,7 +117,6 @@
 	"cx-translation-status-published": "გამოქვეყნდა",
 	"cx-translation-status-deleted": "წაიშალა",
 	"cx-translation-already-in-progress": "ეს მიმდინარე თარგმანი დაიწყო {{GENDER:$2|მომხმარებელმა}} $1.",
-	"cx-translation-already-in-progress-collaborate": "გთხოვთ, მოელაპარეკეთ {{GENDER:$1|მომხმარებელს}}, რომელმაც ეს თარგმანი დაიწყო.",
 	"cx-feedback-link": "უკუკავშირის მიწოდება",
 	"cx-stats-published-translations-title": "გამოქვეყნებული თარგმანები",
 	"cx-stats-draft-translations-title": "ითარგმნება",

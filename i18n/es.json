@@ -176,7 +176,6 @@
 	"cx-translation-label-published": "Traducciones publicadas",
 	"cx-translation-already-in-progress": "Esta es una traducción en curso {{GENDER:$2|de}} $1.",
 	"cx-translation-already-in-progress-unknown": "Esta es una traducción en curso de un usuario desconocido.",
-	"cx-translation-already-in-progress-collaborate": "Por favor, asegúrate de coordinar con {{GENDER:$1|el usuario|la usuaria}} que hizo la traducción actual.",
 	"cx-feedback-link": "Proporcionar comentarios",
 	"cx-stats-published-translations-title": "Traducciones publicadas",
 	"cx-stats-draft-translations-title": "Traducciones en curso",

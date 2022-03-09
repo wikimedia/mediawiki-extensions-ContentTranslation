@@ -142,7 +142,6 @@
 	"cx-translation-label-published": "Terjemahan-terjemahan yang telah diterbitkan",
 	"cx-translation-already-in-progress": "Ini ialah terjemahan yang sedang berlangsung {{GENDER:$2|oleh}} $1.",
 	"cx-translation-already-in-progress-unknown": "Ini adalah terjemahan kini oleh pengguna awanama.",
-	"cx-translation-already-in-progress-collaborate": "Sila pastikan anda menyelaraskan dengan {{GENDER:$1|pengguna}} yang menterjemah terjemahan semasa.",
 	"cx-feedback-link": "Berikan maklum balas",
 	"cx-stats-published-translations-title": "Terjemahan-terjemahan yang telah diterbitkan",
 	"cx-stats-draft-translations-title": "Terjemahan-terjemahan dalam perkembangan",

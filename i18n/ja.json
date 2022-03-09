@@ -171,7 +171,6 @@
 	"cx-translation-label-published": "公開済みの翻訳",
 	"cx-translation-already-in-progress": "これは $1 {{GENDER:$2|によって}}進行中の翻訳です。",
 	"cx-translation-already-in-progress-unknown": "この記事は別の利用者によって翻訳が進行中です。",
-	"cx-translation-already-in-progress-collaborate": "現行版の{{GENDER:$1|翻訳者}}と調整するようにしてください。",
 	"cx-feedback-link": "フィードバックする",
 	"cx-stats-published-translations-title": "公開済みの翻訳",
 	"cx-stats-draft-translations-title": "進行中の翻訳",

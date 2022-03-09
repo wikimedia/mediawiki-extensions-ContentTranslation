@@ -135,7 +135,6 @@
 	"cx-translation-label-published": "Treylyansow dyllys",
 	"cx-translation-already-in-progress": "Hemm yw treylyans ow pos gwrys {{GENDER:$2|gans}} $1.",
 	"cx-translation-already-in-progress-unknown": "Hemm yw treylyans ow pos gwrys gans usyer ankoth.",
-	"cx-translation-already-in-progress-collaborate": "Gwra kesordena gans an {{GENDER:$1|usyer}} a dreylyas an treylyans ma, mar pleg.",
 	"cx-feedback-link": "Ro dasliv",
 	"cx-stats-published-translations-title": "Treylyansow dyllys",
 	"cx-stats-draft-translations-title": "Treylyansow ow pos gwrys",

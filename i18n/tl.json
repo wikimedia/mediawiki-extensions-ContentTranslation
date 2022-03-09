@@ -123,7 +123,6 @@
 	"cx-translation-label-draft": "Isinasagawa ang mga pagsasalinwika",
 	"cx-translation-label-published": "Mga saling itinala",
 	"cx-translation-already-in-progress": "Isa itong ginagawang pagsasalinwika {{GENDER:$2|ni}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Mangyaring tiyakin na nakipag-ugnayan ka sa {{GENDER:$1|tagagamit}} na nagsalinwika ng kasalukuyang pagsalinwika.",
 	"cx-feedback-link": "Magbigay ng komentaryo",
 	"cx-stats-published-translations-title": "Mga saling itinala",
 	"cx-stats-draft-translations-title": "Mga saling isinasagawa",

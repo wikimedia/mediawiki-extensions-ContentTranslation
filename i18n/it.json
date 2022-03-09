@@ -154,7 +154,6 @@
 	"cx-translation-label-draft": "Traduzioni in corso",
 	"cx-translation-label-published": "Traduzioni pubblicate",
 	"cx-translation-already-in-progress": "Questa è una traduzione in corso di {{GENDER:$2|$1}}.",
-	"cx-translation-already-in-progress-collaborate": "Assicurati di coordinarti con {{GENDER:$1|l'utente}} che ha eseguito la traduzione attuale.",
 	"cx-feedback-link": "Dai il tuo feedback",
 	"cx-stats-published-translations-title": "Traduzioni pubblicate",
 	"cx-stats-draft-translations-title": "Traduzioni in corso",

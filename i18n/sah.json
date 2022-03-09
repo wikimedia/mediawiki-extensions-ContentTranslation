@@ -109,7 +109,6 @@
 	"cx-translation-label-draft": "Тылбаастана турар",
 	"cx-translation-label-published": "Бэчээттэммит тылбаастар",
 	"cx-translation-already-in-progress": "Бу ситэритэ суох тылбаас, {{GENDER:$2|кытааччы}} саҕалаабыта $1.",
-	"cx-translation-already-in-progress-collaborate": "Тылбааһы саҕалаабыт {{GENDER:$1|кыттааччыны}} кытары кэпсэт эрэ",
 	"cx-feedback-link": "Санааҕын ыыт",
 	"cx-stats-published-translations-title": "Бэчээттэммит тылбаастар",
 	"cx-stats-draft-translations-title": "Ситэ илик тылбаастар",

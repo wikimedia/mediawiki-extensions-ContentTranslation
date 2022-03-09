@@ -123,7 +123,6 @@
 	"cx-translation-label-draft": "Itzulpena egiten",
 	"cx-translation-label-published": "Argitaratutako itzulpenak",
 	"cx-translation-already-in-progress": "$1{{GENDER:$2|-(e)n}} itzulpena abian",
-	"cx-translation-already-in-progress-collaborate": "Mesedez, ziurtatu Orain arteko itzulpena egin duen {{GENDER:$1|erabiltzailearekin}} koordinatzea.",
 	"cx-feedback-link": "Iritzia eman",
 	"cx-stats-published-translations-title": "Argitaratutako itzulpenak",
 	"cx-stats-draft-translations-title": "Itzulpenak egin bidean",

@@ -150,7 +150,6 @@
 	"cx-translation-label-draft": "Prijevodi u tijeku",
 	"cx-translation-label-published": "Objavljeni prijevodi",
 	"cx-translation-already-in-progress": "Ovo trenutno prevodi {{GENDER:$2|suradnik|suradnica}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Nemojte zaboraviti usuglasiti se sa {{GENDER:$1|suradnikom koji je napravio|suradnicom koja je napravila}} trenutačni prijevod.",
 	"cx-feedback-link": "Pošaljite povratnu informaciju",
 	"cx-stats-published-translations-title": "Objavljeni prijevodi",
 	"cx-stats-draft-translations-title": "Prijevod u tijeku",

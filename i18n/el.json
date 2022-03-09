@@ -139,7 +139,6 @@
 	"cx-translation-label-draft": "Μεταφράσεις σε εξέλιξη",
 	"cx-translation-label-published": "Δημοσιευμένες μεταφράσεις",
 	"cx-translation-already-in-progress": "Αυτό είναι μια εξελισσόμενη μετάφραση από {{GENDER:$2|τον|την}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Παρακαλούμε βεβαιωθείτε ότι συντονίζεστε με {{GENDER:$1|το χρήστη|τη χρήστρια}} που μετέφρασε την τρέχουσα μετάφραση.",
 	"cx-feedback-link": "Παροχή ανατροφοδότησης",
 	"cx-stats-published-translations-title": "Δημοσιευμένες μεταφράσεις",
 	"cx-stats-draft-translations-title": "Μεταφράσεις σε εξέλιξη",

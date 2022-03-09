@@ -18,7 +18,6 @@
 	"cx-stats-title": "Tartalomfordítási statisztikája",
 	"cx-mt-abuse-warning-title": "A fordításának egy része $1% módosítatlan {{PLURAL:$1|szöveget}} tartalmaz",
 	"cx-mt-abuse-warning-text": "A gépi fordítás csak kiindulásként szolgál. Kérem, győződjön meg arról, hogy a tartalma pontos és könnyen értelmezhető a nyelvén.",
-	"cx-translation-already-in-progress-collaborate": "Kérem, győződjön meg arról, hogy együttműködik azzal a {{GENDER:$1|felhasználóval}}, aki a jelenlegi fordítást készítette.",
 	"cx-draft-discard-confirmation-message": "Biztosan szeretné véglegesen törölni ezt a fordítást?",
 	"cx-campaign-newarticle-notice": "Most sokkal egyszerűbben készíthet új szócikkeket <strong>fordítással</strong>! Szeretné kipróbálni a Tartalomfordító béta eszközt?"
 }

@@ -130,7 +130,6 @@
 	"cx-translation-label-draft": "Traduccions en curs",
 	"cx-translation-label-published": "Traduccions publicades",
 	"cx-translation-already-in-progress": "Aquesta és una traducció en curs {{GENDER:$2|per}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Assegureu-vos que us coordineu amb {{GENDER:$1|l'usuari|la usuària}} que va traduir el contingut actual.",
 	"cx-feedback-link": "Doneu la vostra opinió",
 	"cx-stats-published-translations-title": "Traduccions publicades",
 	"cx-stats-draft-translations-title": "Traduccions en curs",

@@ -164,7 +164,6 @@
 	"cx-translation-label-published": "ترجمه‌های منتشرشده",
 	"cx-translation-already-in-progress": "این یک ترجمهٔ در حال انجام {{GENDER:$2|توسط}} $1 است.",
 	"cx-translation-already-in-progress-unknown": "این ترجمه توسط کاربر نامشخص دیگری در حال انجام است.",
-	"cx-translation-already-in-progress-collaborate": "لطفاً اطمینان حاصل کنید که با {{GENDER:$1|کاربری}} که ترجمهٔ فعلی را انجام داده ارتباط برقرار کرده‌اید.",
 	"cx-feedback-link": "بازخورد دهید",
 	"cx-stats-published-translations-title": "ترجمه‌های منتشرشده",
 	"cx-stats-draft-translations-title": "ترجمه‌های در حال انجام",

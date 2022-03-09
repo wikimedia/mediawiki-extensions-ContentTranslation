@@ -145,7 +145,6 @@
 	"cx-translation-label-published": "Yayımlanan tərcümələr",
 	"cx-translation-already-in-progress": "Bu $1 {{GENDER:$2|tərəfindən}} davam etdirilən tərcümədir.",
 	"cx-translation-already-in-progress-unknown": "Bu bilinməyən istifadəçi tərəfindən davam etdirilən tərcümədir.",
-	"cx-translation-already-in-progress-collaborate": "Hal-hazırkı məzmunu tərcümə etmiş {{GENDER:$1|istifadəçi}} ilə əməkdaşlıq etdiyinizə əmin olun.",
 	"cx-feedback-link": "Rəy ver",
 	"cx-stats-published-translations-title": "Yayımlanan tərcümələr",
 	"cx-stats-draft-translations-title": "Bitməmiş tərcümələr",

@@ -97,7 +97,6 @@
 	"cx-translation-status-published": "Cyhoeddwyd",
 	"cx-translation-status-deleted": "Dilewyd",
 	"cx-translation-already-in-progress": "Mae'r cyfieithiad hwn gan $1 ar ei ganol.",
-	"cx-translation-already-in-progress-collaborate": "Sgwrsiwch gyda'r {{GENDER:$1|defnyddiwr}} a gyfieithodd y gwaith.",
 	"cx-feedback-link": "Rhowch adborth",
 	"cx-stats-published-translations-title": "Cyfieithiadau a gyhoeddwyd",
 	"cx-stats-draft-translations-title": "Cyfieithiadau ar waith",

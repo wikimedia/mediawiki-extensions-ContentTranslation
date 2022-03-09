@@ -146,7 +146,6 @@
 	"cx-translation-label-published": "Offentliggjorte oversættelser",
 	"cx-translation-already-in-progress": "Dette er en igangværende oversættelse {{GENDER:$2|af}} $1.",
 	"cx-translation-already-in-progress-unknown": "Dette er en igangværende oversættelse af en ukendt bruger.",
-	"cx-translation-already-in-progress-collaborate": "Vær venlig at koordinere med {{GENDER:$1|brugeren}} som oversatte den nuværende oversættelse.",
 	"cx-feedback-link": "Giv tilbagemelding",
 	"cx-stats-published-translations-title": "Offentliggjorte oversættelser",
 	"cx-stats-draft-translations-title": "Igangværende oversættelser",

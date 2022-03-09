@@ -148,7 +148,6 @@
 	"cx-translation-label-published": "การแปลที่เผยแพร่แล้ว",
 	"cx-translation-already-in-progress": "นี่เป็นการแปลต่อเนื่อง{{GENDER:$2|โดย}} $1",
 	"cx-translation-already-in-progress-unknown": "นี่เป็นคำแปลซึ่งกำลังดำเนินการอยู่ของผู้ใช้คนอื่น",
-	"cx-translation-already-in-progress-collaborate": "โปรดตรวจสอบให้แน่ใจว่าคุณได้ประสานงานกับ{{GENDER:$1|ผู้ใช้}}ที่แปลการแปลปัจจุบันแล้ว",
 	"cx-feedback-link": "ให้คำติชม",
 	"cx-stats-published-translations-title": "การแปลที่เผยแพร่แล้ว",
 	"cx-stats-draft-translations-title": "การแปลที่กำลังดำเนินการ",

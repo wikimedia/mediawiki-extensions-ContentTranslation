@@ -161,7 +161,6 @@
 	"cx-translation-label-published": "Zveřejněné překlady",
 	"cx-translation-already-in-progress": "{{GENDER:$2|Wikipedista|Wikipedistka}} $1 překladá tuto stránku.",
 	"cx-translation-already-in-progress-unknown": "Na tomto překladu pracuje neznámý uživatel.",
-	"cx-translation-already-in-progress-collaborate": "Spolupracujte prosím s {{GENDER:$1|Wikipedistou, který přeložil|Wikipedistkou, která preložila}} současný překlad.",
 	"cx-feedback-link": "Poskytnout zpětnou vazbu",
 	"cx-stats-published-translations-title": "Zveřejněné překlady",
 	"cx-stats-draft-translations-title": "Probíhající překlady",

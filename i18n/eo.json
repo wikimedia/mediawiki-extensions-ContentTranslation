@@ -130,7 +130,6 @@
 	"cx-translation-label-draft": "Prilaborataj tradukoj",
 	"cx-translation-label-published": "Publikigitaj tradukoj",
 	"cx-translation-already-in-progress": "Tio ĉi estas prilaborata traduko komencita {{GENDER:$2|de}} $1",
-	"cx-translation-already-in-progress-collaborate": "Bonvolu kunordiĝi kun la {{GENDER:$1|uzanto}}, kiu tradukis la nunan version.",
 	"cx-feedback-link": "Provizu prijuĝajn rimarkojn",
 	"cx-stats-published-translations-title": "Publikigitaj tradukoj",
 	"cx-stats-draft-translations-title": "Prilaborataj tradukoj",

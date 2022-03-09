@@ -174,7 +174,6 @@
 	"cx-translation-label-published": "Yayınlanmış çeviriler",
 	"cx-translation-already-in-progress": "Bu, $1 {{GENDER:$2|tarafından}} devam eden bir çeviridir.",
 	"cx-translation-already-in-progress-unknown": "Bu, bilinmeyen bir kullanıcı tarafından devam eden bir çeviridir.",
-	"cx-translation-already-in-progress-collaborate": "Lütfen, mevcut çeviriyi çeviren  {{GENDER:$1|kullanıcıyla}} koordinasyon içinde olduğunuzdan emin olun.",
 	"cx-feedback-link": "Geri bildirimde bulunun",
 	"cx-stats-published-translations-title": "Yayımlanan çeviriler",
 	"cx-stats-draft-translations-title": "Devam eden çeviriler",

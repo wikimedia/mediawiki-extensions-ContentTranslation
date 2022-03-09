@@ -165,7 +165,6 @@
 	"cx-translation-label-published": "Opublikowane tłumaczenia",
 	"cx-translation-already-in-progress": "To jest tłumaczenie w toku {{GENDER:$2|autorstwa}} $1.",
 	"cx-translation-already-in-progress-unknown": "To jest tłumaczenie w toku autorstwa nieznanego użytkownika.",
-	"cx-translation-already-in-progress-collaborate": "Upewnij się, że uzgodniłeś zmianę z {{GENDER:$1|użytkownikiem|użytkowniczką}}, {{GENDER:$1|który|która}} {{GENDER:$1|przetłumaczył|przetłumaczyła}} obecną wersję.",
 	"cx-feedback-link": "Prześlij opinię",
 	"cx-stats-published-translations-title": "Opublikowane tłumaczenia",
 	"cx-stats-draft-translations-title": "Tłumaczenia w toku",

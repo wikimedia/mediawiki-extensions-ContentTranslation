@@ -145,7 +145,6 @@
 	"cx-translation-label-published": "Публикувани преводи",
 	"cx-translation-already-in-progress": "Това е текущ превод, започнат {{GENDER:$2|от}} $1.",
 	"cx-translation-already-in-progress-unknown": "Това е текущ превод от неизвестен потребител.",
-	"cx-translation-already-in-progress-collaborate": "Моля, координирайте се с {{GENDER:$1|потребителят, който е започнал|потребителката, която е започнала}} настоящия превод.",
 	"cx-feedback-link": "Дайте ваше мнение",
 	"cx-stats-published-translations-title": "Публикувани преводи",
 	"cx-stats-draft-translations-title": "Незавършени преводи",

@@ -150,7 +150,6 @@
 	"cx-translation-label-published": "Përkthimet e publikuara",
 	"cx-translation-already-in-progress": "Ky është një përkthim në vijim {{GENDER:$2|nga}} $1.",
 	"cx-translation-already-in-progress-unknown": "Kjo është një punë në përkthim e sipër nga një përdorues i panjohur.",
-	"cx-translation-already-in-progress-collaborate": "Ju lutemi, koordinohuni me {{GENDER:$1|përdoruesin i cili|përdoruesen e cila}} e ka përkthyer versionin aktual.",
 	"cx-feedback-link": "Ofroni sugjerime",
 	"cx-stats-published-translations-title": "Përkthimet e publikuara",
 	"cx-stats-draft-translations-title": "Përkthime në progres",

@@ -138,7 +138,6 @@
 	"cx-translation-label-published": "Publiserte omsetjingar",
 	"cx-translation-already-in-progress": "Dette er ei pågåande omsetjing {{GENDER:$2|av}} $1.",
 	"cx-translation-already-in-progress-unknown": "Dette er ei pågåande omsetjing av ein ukjend brukar.",
-	"cx-translation-already-in-progress-collaborate": "Vær venleg å sikra deg om at du koordiner med  {{GENDER:$1|brukaren}} som laga den noverande omsetjinga",
 	"cx-feedback-link": "Gje attendemelding",
 	"cx-stats-published-translations-title": "Publiserte omsetjingar",
 	"cx-stats-draft-translations-title": "Omsetjingar undervegs",

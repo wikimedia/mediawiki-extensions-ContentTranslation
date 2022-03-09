@@ -121,7 +121,6 @@
 	"cx-translation-label-draft": "Vertimai eigoje",
 	"cx-translation-label-published": "Paskelbti vertimai",
 	"cx-translation-already-in-progress": "Tai yra {{GENDER:$2|tebevykstantis}} $1 vertimas.",
-	"cx-translation-already-in-progress-collaborate": "Įsitikinkite, kad suderinote {{GENDER:$1|su vartotoju, kuris|su vartotoja, kuri}} išvertė esamą vertimą.",
 	"cx-feedback-link": "Pateikti atsiliepimą",
 	"cx-stats-published-translations-title": "Paskelbti vertimai",
 	"cx-stats-draft-translations-title": "Vertimų progresas",

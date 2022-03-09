@@ -158,7 +158,6 @@
 	"cx-translation-label-published": "Terjemahan yang diterbitkan",
 	"cx-translation-already-in-progress": "Terdapat terjemahan yang sedang dalam proses {{GENDER:$2|oleh}} $1.",
 	"cx-translation-already-in-progress-unknown": "Terdapat terjemahan yang sedang dalam proses oleh pengguna yang tidak dikenal.",
-	"cx-translation-already-in-progress-collaborate": "Harap pastikan Anda telah berkoordinasi dengan {{GENDER:$1|pengguna}} yang menerjemahkan terjemahan saat ini.",
 	"cx-feedback-link": "Beri umpan balik",
 	"cx-stats-published-translations-title": "Terjemahan yang diterbitkan",
 	"cx-stats-draft-translations-title": "Terjemahan dalam proses",

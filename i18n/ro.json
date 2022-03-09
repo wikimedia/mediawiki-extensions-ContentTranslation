@@ -148,7 +148,6 @@
 	"cx-translation-label-published": "Traduceri publicate",
 	"cx-translation-already-in-progress": "Aceasta este o traducere încă nefinalizată {{GENDER:$2|a utilizatorului|a utilizatoarei}} $1.",
 	"cx-translation-already-in-progress-unknown": "Aceasta este o traducere în curs de un utilizator necunoscut.",
-	"cx-translation-already-in-progress-collaborate": "Asigurați-vă că vă coordonați cu {{GENDER:$1|utilizatorul|utilizatoarea}} care a efectuat traducerea curentă.",
 	"cx-feedback-link": "Trimiteți păreri",
 	"cx-stats-published-translations-title": "Traduceri publicate",
 	"cx-stats-draft-translations-title": "Traduceri în curs",

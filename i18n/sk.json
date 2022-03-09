@@ -115,7 +115,6 @@
 	"cx-translation-label-draft": "Prebiehajúce preklady",
 	"cx-translation-label-published": "Zverejnené preklady",
 	"cx-translation-already-in-progress": "{{GENDER:$2|Redaktor|Redaktorka}} $1 už prekladá túto stránku.",
-	"cx-translation-already-in-progress-collaborate": "Prosím, spolupracujte s {{GENDER:$1|redaktorom, ktorý preložil|redaktorkou, ktorá preložila}} súčasný preklad.",
 	"cx-feedback-link": "Poskytnúť spätnú väzbu",
 	"cx-stats-published-translations-title": "Zverejnené preklady",
 	"cx-stats-draft-translations-title": "Prebiehajúce preklady",

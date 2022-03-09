@@ -155,7 +155,6 @@
 	"cx-translation-label-published": "Bản dịch đã xuất bản",
 	"cx-translation-already-in-progress": "Trang này đang được {{GENDER:$2}}$1 biên dịch.",
 	"cx-translation-already-in-progress-unknown": "Đây là một bản dịch đang tiến hành của một người dùng không định danh.",
-	"cx-translation-already-in-progress-collaborate": "Xin vui lòng hợp tác với {{GENDER:$1}}người dùng đã tạo ra bản dịch hiện tại.",
 	"cx-feedback-link": "Gửi phản hồi",
 	"cx-stats-published-translations-title": "Bản dịch đã xuất bản",
 	"cx-stats-draft-translations-title": "Bản dịch đang tiến hành",

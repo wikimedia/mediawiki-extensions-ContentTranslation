@@ -161,7 +161,6 @@
 	"cx-translation-label-published": "Traduções publicadas",
 	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1.",
 	"cx-translation-already-in-progress-unknown": "Esta é uma tradução em andamento por usuário desconhecido.",
-	"cx-translation-already-in-progress-collaborate": "Por favor, certifique-se de coordenar com {{GENDER:$1|o usuário|a usuária}} que traduziu a tradução atual.",
 	"cx-feedback-link": "Fornecer comentários",
 	"cx-stats-published-translations-title": "Traduções publicadas",
 	"cx-stats-draft-translations-title": "Traduções em andamento",

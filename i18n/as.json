@@ -144,7 +144,6 @@
 	"cx-translation-label-published": "প্ৰকাশিত অনুবাদ",
 	"cx-translation-already-in-progress": "এয়া $1ৰ {{GENDER:$2|দ্বাৰা}} কৰি থকা এক অনুবাদ।",
 	"cx-translation-already-in-progress-unknown": "এয়া অজ্ঞাত সদস্যৰ দ্বাৰা কৰি থকা এক অনুবাদ।",
-	"cx-translation-already-in-progress-collaborate": "অনুগ্ৰহ কৰি সুনিশ্চিত কৰক যে আপুনি বৰ্তমানৰ অনুবাদ কৰা {{GENDER:$1|সদস্যৰ}} সৈতে সমন্বয় স্থাপন কৰিছে।",
 	"cx-feedback-link": "মতামত দিয়ক",
 	"cx-stats-published-translations-title": "প্ৰকাশিত অনুবাদ",
 	"cx-stats-draft-translations-title": "চলি থকা অনুবাদ",

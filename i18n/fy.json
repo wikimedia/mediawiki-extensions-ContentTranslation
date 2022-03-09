@@ -139,7 +139,6 @@
 	"cx-translation-label-published": "Publisearre oersettings",
 	"cx-translation-already-in-progress": "Dit is in rinnende oersetting {{GENDER:$2|fan}} $1.",
 	"cx-translation-already-in-progress-unknown": "Dit is in rinnende oersetting fan in ûnbekende meidogger.",
-	"cx-translation-already-in-progress-collaborate": "Soargje asjebleaft dat jo ôfstimme mei de {{GENDER:$1|meidogger|meidochster}} dy't de hjoeddeiske oersetting makket.",
 	"cx-feedback-link": "Weromkeppeling jaan",
 	"cx-stats-published-translations-title": "Publisearre oersettings",
 	"cx-stats-draft-translations-title": "Oersettings yn tarieding",

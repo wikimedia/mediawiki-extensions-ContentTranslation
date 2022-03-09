@@ -130,7 +130,6 @@
 	"cx-translation-label-draft": "Þýðingar í vinnslu",
 	"cx-translation-label-published": "Útgefnar þýðingar",
 	"cx-translation-already-in-progress": "Þessi þýðing er í vinnslu {{GENDER:$2|hjá}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Vinsamlegast hafðu samband við {{GENDER:$1|notandann}} sem þýddi núverandi þýðingu.",
 	"cx-feedback-link": "Senda ábendingar",
 	"cx-stats-published-translations-title": "Útgefnar þýðingar",
 	"cx-stats-draft-translations-title": "Þýðingar í vinnslu",

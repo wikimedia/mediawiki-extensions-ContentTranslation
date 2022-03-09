@@ -159,7 +159,6 @@
 	"cx-translation-label-published": "Опубліковані переклади",
 	"cx-translation-already-in-progress": "Це поточний переклад {{GENDER:$2|користувача|користувачки}} $1.",
 	"cx-translation-already-in-progress-unknown": "Це поточний переклад невідомого користувача.",
-	"cx-translation-already-in-progress-collaborate": "Будь ласка, переконайтеся, чи зміни узгоджені з {{GENDER:$1|перекладачем|перекладачкою}} поточного  перекладу.",
 	"cx-feedback-link": "Надіслати відгук",
 	"cx-stats-published-translations-title": "Опубліковані переклади",
 	"cx-stats-draft-translations-title": "Переклади в процесі",

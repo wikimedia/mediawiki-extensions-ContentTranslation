@@ -100,7 +100,6 @@
 	"cx-translation-label-draft": "प्रगतीपथावरील भाषांतरे",
 	"cx-translation-label-published": "प्रकाशित भाषांतरे",
 	"cx-translation-already-in-progress": "हे $1 {{GENDER:$2|द्वारे}} करण्यात येत असलेले भाषांतर आहे.",
-	"cx-translation-already-in-progress-collaborate": "याची खात्री करा कि आपण सध्याचे भाषांतर केलेल्या {{GENDER:$1|सदस्याशी}}  समन्वय साधाल.",
 	"cx-feedback-link": "प्रतिसाद द्या",
 	"cx-stats-published-translations-title": "प्रकाशित भाषांतरे",
 	"cx-stats-draft-translations-title": "नविन भाषांतर प्रगतीपथावर आहे",

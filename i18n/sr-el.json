@@ -131,7 +131,6 @@
 	"cx-translation-label-draft": "Prevodi u toku",
 	"cx-translation-label-published": "Objavljeni prevodi",
 	"cx-translation-already-in-progress": "Ovu stranicu već {{GENDER:$2|prevodi}} $1.",
-	"cx-translation-already-in-progress-collaborate": "Nemojte zaboraviti da se uskladite sa {{GENDER:$1|korisnikom}} koji je napravio trenutni prevod.",
 	"cx-feedback-link": "Povratne informacije",
 	"cx-stats-published-translations-title": "Objavljeni prevodi",
 	"cx-stats-draft-translations-title": "Prevodi u toku",

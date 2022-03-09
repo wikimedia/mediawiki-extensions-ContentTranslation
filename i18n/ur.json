@@ -146,7 +146,6 @@
 	"cx-translation-label-draft": "زیرِ تکمیل تراجم",
 	"cx-translation-label-published": "شائع شدہ تراجم",
 	"cx-translation-already-in-progress": "یہ $1 {{GENDER:$2|کا}}جاری ترجمہ ہے۔",
-	"cx-translation-already-in-progress-collaborate": "براہِ کرم اس بات کو یقینی بنائیں کہ آپ موجودہ ترجمہ کے {{GENDER:$1|صارف}} سے مشاورت کریں۔",
 	"cx-feedback-link": "رائے دیں",
 	"cx-stats-published-translations-title": "شائع شدہ تراجم",
 	"cx-stats-draft-translations-title": "جاری تراجم",

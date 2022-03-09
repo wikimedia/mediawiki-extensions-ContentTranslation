@@ -180,7 +180,6 @@
 	"cx-translation-label-published": "已发布的翻译",
 	"cx-translation-already-in-progress": "此页面正在{{GENDER:$2|被}}$1翻译。",
 	"cx-translation-already-in-progress-unknown": "这是一个正在由未知用户进行的翻译",
-	"cx-translation-already-in-progress-collaborate": "请确保您与当前正在翻译的{{GENDER:$1|用户}}协调一致。",
 	"cx-feedback-link": "提供反馈",
 	"cx-stats-published-translations-title": "已发布的翻译",
 	"cx-stats-draft-translations-title": "进行中的翻译",

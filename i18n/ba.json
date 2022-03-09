@@ -146,7 +146,6 @@
 	"cx-translation-label-published": "Баҫтырылған тәржемәләр",
 	"cx-translation-already-in-progress": "{{GENDER:$2|Ҡатнашыусы}} $1 башлаған тәржемә.",
 	"cx-translation-already-in-progress-unknown": "Билдәһеҙ ҡулланыусы тәржемә итә.",
-	"cx-translation-already-in-progress-collaborate": "Был тәржемәне башлаған {{GENDER:$1|ҡатнашыусы}} менән килешегеҙ.",
 	"cx-feedback-link": "Баһалама ебәрергә",
 	"cx-stats-published-translations-title": "Баҫтырылған тәржемәләр",
 	"cx-stats-draft-translations-title": "Тамамланмаған тәржемәләр",
