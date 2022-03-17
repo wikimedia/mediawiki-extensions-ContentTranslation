@@ -248,7 +248,7 @@
 		},
 		"ContentTranslationEnableSectionTranslation": {
 			"description": "Whether section translation is enabled",
-			"value": false
+			"value": true
 		},
 		"ContentTranslationEnableAnonSectionTranslation": {
 			"description": "Whether section translation is enabled for anonymous users",
@@ -597,7 +597,9 @@
 				"cx-sx-sentence-selector-translated-segment-sentence-option",
 				"cx-sx-sentence-selector-translated-segment-paragraph-option",
 				"cx-sx-publisher-mt-abuse-message-title",
+				"cx-sx-publisher-mt-abuse-error-title",
 				"cx-sx-publisher-mt-abuse-message-body",
+				"cx-sx-publisher-mt-abuse-error-body",
 				"cx-sx-translation-suggestion-info",
 				"cx-sx-article-search-input-placeholder",
 				"cx-sx-article-search-recently-edited-title",

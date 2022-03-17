@@ -46,14 +46,26 @@ function validateMT({ rootState, commit }) {
   // If validation status is "failure" or "warning", then add an MT feedback
   // message containing the related warnings/errors
   const unmodifiedPercentage = 100 - mtValidationScore;
-  const title = mw.message(
-    "cx-sx-publisher-mt-abuse-message-title",
-    unmodifiedPercentage
-  );
+  const status = mtValidationStatus === "failure" ? "error" : "warning";
+  let title, messageBody;
+
+  if (status === "warning") {
+    title = mw.message(
+      "cx-sx-publisher-mt-abuse-message-title",
+      unmodifiedPercentage
+    );
+    messageBody = mw.message("cx-sx-publisher-mt-abuse-message-body");
+  } else {
+    title = mw.message(
+      "cx-sx-publisher-mt-abuse-error-title",
+      unmodifiedPercentage
+    );
+    messageBody = mw.message("cx-sx-publisher-mt-abuse-error-body");
+  }
   const message = new PublishFeedbackMessage({
     title,
-    text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
-    status: mtValidationStatus === "failure" ? "error" : "warning",
+    text: messageBody,
+    status,
     type: "mt"
   });
   commit("application/addMTPublishFeedbackMessage", message, { root: true });

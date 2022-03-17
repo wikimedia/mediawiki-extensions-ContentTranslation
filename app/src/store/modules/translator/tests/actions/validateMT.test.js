@@ -69,8 +69,8 @@ describe("vuex store validateMT action test", () => {
     actions.validateMT({ rootState, commit });
     expect(applicationState.publishFeedbackMessages).toStrictEqual([
       new PublishFeedbackMessage({
-        title: mw.message("cx-sx-publisher-mt-abuse-message-title", 100 - 3),
-        text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
+        title: mw.message("cx-sx-publisher-mt-abuse-error-title", 100 - 3),
+        text: mw.message("cx-sx-publisher-mt-abuse-error-body"),
         status: "error",
         type: "mt"
       })
