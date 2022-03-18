@@ -57,7 +57,7 @@
 	"tag-sectiontranslation-description": "Nội dung được biên dịch từ một đoạn từ ngôn ngữ khác sử dụng tính năng Biên dịch đoạn của công cụ Biên dịch nội dung.",
 	"cx-source-loading": "Đang tải $1",
 	"cx-beta": "Biên dịch nội dung",
-	"cx-beta-desc": "Một công cụ để dịch trang ra ngôn ngữ của bạn một cách nhanh nhẹn. Bắt đầu một bản dịch từ [[Special:MyContributions|trang đóng góp của bạn]], và sửa đổi các bản dịch dùng trình soạn thảo hai bên đặc biệt dành cho việc biên dịch. Một số công cụ chỉ thích hợp với một số ngôn ngữ cụ thể.",
+	"cx-beta-desc": "Một công cụ giúp bạn dịch nội dung nhanh chóng. Bắt đầu một bản dịch từ [[Special:MyContributions|trang đóng góp cá nhân]], và sửa đổi bằng trình soạn thảo hai cột đặc biệt được thiết kế riêng cho việc biên dịch. Một số công cụ chỉ có ở những ngôn ngữ cụ thể.",
 	"cx-entrypoint-title": "Dịch trang này ra $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Trang này chưa tồn tại trong $1. Bạn có muốn tạo nó ra?",
 	"cx-entrypoint-dialog-button-translate-from": "Dịch từ $1",
