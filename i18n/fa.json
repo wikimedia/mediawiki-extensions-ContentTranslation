@@ -25,7 +25,8 @@
 			"فلورانس",
 			"Ajam",
 			"Darafsh",
-			"Jeeputer"
+			"Jeeputer",
+			"Beginneruser"
 		]
 	},
 	"cx": "صفحهٔ ترجمه",
@@ -128,7 +129,7 @@
 	"cx-captcha-unsupported-type": "با نوع پشتیبانی‌نشده‌ای از کپچا روبرو شدیم.",
 	"cx-dashboard-sidebar-title": "در ترجمه‌ها به کمک {{GENDER:|نیاز دارید}}؟",
 	"cx-dashboard-sidebar-information": "اطلاعات بیشتر دربارهٔ این ابزار",
-	"cx-dashboard-sidebar-stats": "آمار",
+	"cx-dashboard-sidebar-stats": "آمارها",
 	"cx-dashboard-sidebar-feedback": "به ما بازخورد دهید",
 	"cx-translation-filter-published-translations": "منتشر شده",
 	"cx-translation-filter-draft-translations": "در حال پیشرفت",
