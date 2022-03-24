@@ -248,7 +248,7 @@
 		},
 		"ContentTranslationEnableSectionTranslation": {
 			"description": "Whether section translation is enabled",
-			"value": true
+			"value": false
 		},
 		"ContentTranslationEnableAnonSectionTranslation": {
 			"description": "Whether section translation is enabled for anonymous users",
