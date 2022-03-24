@@ -11,8 +11,8 @@ describe("SXSectionSelector View Article Item", () => {
       global: { plugins: [i18n] },
       props: {
         path: "my.test.url",
-        autonym: "English"
-      }
+        autonym: "English",
+      },
     });
     expect(wrapper.element).toMatchSnapshot();
   });

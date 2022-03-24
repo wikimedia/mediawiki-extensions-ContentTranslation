@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXPublisher review info panel test Component output matches snapshot 1`] = `
+exports[
+  `SXPublisher review info panel test Component output matches snapshot 1`
+] = `
 <div
   activemessageindex="0"
   aria-labelledby="notice10-label"

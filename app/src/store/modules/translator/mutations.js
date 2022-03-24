@@ -4,5 +4,5 @@ export default {
   },
   setTranslationsLoaded: (state, value) => {
     state.translationsLoaded = value;
-  }
+  },
 };

@@ -28,7 +28,7 @@ export default class Page {
     title,
     _alias,
     content = null,
-    sections = []
+    sections = [],
   } = {}) {
     this.language = pagelanguage;
     this.title = title;
@@ -65,7 +65,7 @@ export default class Page {
    */
   getSectionNumberByTitle(sectionTitle) {
     const sectionIndex = this.sections.findIndex(
-      section => section.originalTitle === sectionTitle
+      (section) => section.originalTitle === sectionTitle
     );
 
     if (sectionIndex < 0) {
@@ -76,7 +76,7 @@ export default class Page {
     return precedingSections.reduce(
       (count, section) =>
         count +
-        section.subSections.filter(subsection => subsection.isHeadingSection)
+        section.subSections.filter((subsection) => subsection.isHeadingSection)
           .length,
       sectionIndex + 1
     );
@@ -88,7 +88,7 @@ export default class Page {
    */
   getSectionByTitle(sectionTitle) {
     return (this.sections || []).find(
-      section => section.originalTitle === sectionTitle
+      (section) => section.originalTitle === sectionTitle
     );
   }
 }

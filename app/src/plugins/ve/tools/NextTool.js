@@ -16,7 +16,7 @@ SXEditorNextTool.static.commandName = "next";
 /**
  * On state updated event handler
  */
-SXEditorNextTool.prototype.onUpdateState = function() {
+SXEditorNextTool.prototype.onUpdateState = function () {
   // Parent method
   SXEditorNextTool.super.prototype.onUpdateState.apply(this, arguments);
   this.setActive(true);

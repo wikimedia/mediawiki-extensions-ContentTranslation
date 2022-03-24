@@ -42,7 +42,7 @@ export default {
 
     const onClose = () => {
       router.push({
-        name: "sx-sentence-selector"
+        name: "sx-sentence-selector",
       });
     };
 
@@ -50,9 +50,9 @@ export default {
       isPublishingDisabled,
       mwIconCheck,
       mwIconClose,
-      onClose
+      onClose,
     };
-  }
+  },
 };
 </script>
 

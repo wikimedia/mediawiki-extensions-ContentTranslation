@@ -85,7 +85,7 @@ import { getAutonym, getDir } from "@wikimedia/language-data";
 import MwLanguageSelector from "../MWLanguageSelector";
 import {
   mwIconArrowNext,
-  mwIconExpand
+  mwIconExpand,
 } from "@/lib/mediawiki.ui/components/icons";
 import { mapState } from "vuex";
 
@@ -95,33 +95,33 @@ export default {
     MwLanguageSelector,
     MwDialog,
     MwIcon,
-    MwButton
+    MwButton,
   },
   props: {
     sourceLanguages: {
       type: Array,
-      required: true
+      required: true,
     },
     targetLanguages: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["source-language-selected", "target-language-selected"],
   data: () => ({
     mwIconArrowNext,
     mwIconExpand,
     sourceLanguageSelectOn: false,
-    targetLanguageSelectOn: false
+    targetLanguageSelectOn: false,
   }),
   computed: {
     ...mapState({
-      selectedSourceLanguage: state => state.application.sourceLanguage,
-      selectedTargetLanguage: state => state.application.targetLanguage
+      selectedSourceLanguage: (state) => state.application.sourceLanguage,
+      selectedTargetLanguage: (state) => state.application.targetLanguage,
     }),
     fullscreen() {
       return this.$mwui.breakpoint.mdAndDown;
-    }
+    },
   },
   methods: {
     getAutonym,
@@ -145,8 +145,8 @@ export default {
     onTargetLanguageSelected(targetLanguage) {
       this.targetLanguageSelectOn = false;
       this.$emit("target-language-selected", targetLanguage);
-    }
-  }
+    },
+  },
 };
 </script>
 

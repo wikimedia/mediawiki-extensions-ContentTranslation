@@ -29,7 +29,7 @@
 import { MwRow, MwButton } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowForward,
-  mwIconPrevious
+  mwIconPrevious,
 } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
@@ -39,14 +39,14 @@ export default {
   name: "ProposedTranslationActionButtons",
   components: {
     MwRow,
-    MwButton
+    MwButton,
   },
   emits: ["select-previous-segment", "apply-translation", "skip-translation"],
   setup() {
     const {
       currentSourceSection,
       proposedTranslation,
-      isSectionTitleSelected
+      isSectionTitleSelected,
     } = useApplicationState(useStore());
 
     const isLastTranslationUnit = computed(
@@ -58,9 +58,9 @@ export default {
       isSectionTitleSelected,
       mwIconPrevious,
       mwIconArrowForward,
-      proposedTranslation
+      proposedTranslation,
     };
-  }
+  },
 };
 </script>
 

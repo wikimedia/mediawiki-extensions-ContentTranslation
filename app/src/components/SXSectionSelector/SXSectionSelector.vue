@@ -15,10 +15,10 @@
         :suggestion="suggestion"
         @select-section="selectSection"
       />
-      <section class=" py-2">
+      <section class="py-2">
         <h4
           v-i18n:cx-sx-section-selector-more-details-title="[
-            targetLanguageAutonym
+            targetLanguageAutonym,
           ]"
           class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
         />
@@ -61,7 +61,7 @@
 import { MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import {
   mwIconRobot,
-  mwIconLabFlask
+  mwIconLabFlask,
 } from "@/lib/mediawiki.ui/components/icons";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
 import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem";
@@ -85,14 +85,14 @@ export default {
     MwRow,
     MwCol,
     MwIcon,
-    SxArticleLanguageSelector
+    SxArticleLanguageSelector,
   },
   setup() {
     const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
       sourceLanguageAutonym,
-      targetLanguageAutonym
+      targetLanguageAutonym,
     } = useApplicationState(store);
 
     const sourceArticlePath = computed(() =>
@@ -113,7 +113,7 @@ export default {
      */
     const viewArticleItems = computed(() => [
       { path: sourceArticlePath.value, autonym: sourceLanguageAutonym.value },
-      { path: targetArticlePath.value, autonym: targetLanguageAutonym.value }
+      { path: targetArticlePath.value, autonym: targetLanguageAutonym.value },
     ]);
 
     const router = useRouter();
@@ -124,7 +124,7 @@ export default {
       router.push({ name: "dashboard" });
     };
 
-    const selectSection = sourceSectionTitle => {
+    const selectSection = (sourceSectionTitle) => {
       store.dispatch(
         "application/selectPageSectionByTitle",
         sourceSectionTitle
@@ -139,9 +139,9 @@ export default {
       selectSection,
       suggestion,
       targetLanguageAutonym,
-      viewArticleItems
+      viewArticleItems,
     };
-  }
+  },
 };
 </script>
 

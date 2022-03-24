@@ -19,7 +19,7 @@ export default class SectionSuggestion {
     present,
     missing,
     sourceSections,
-    targetSections
+    targetSections,
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -48,7 +48,7 @@ export default class SectionSuggestion {
    */
   missingCoreSectionsCount(appendixTargetTitles) {
     return Object.values(this.missingSections).filter(
-      targetSectionTitle => !appendixTargetTitles.includes(targetSectionTitle)
+      (targetSectionTitle) => !appendixTargetTitles.includes(targetSectionTitle)
     ).length;
   }
 
@@ -92,9 +92,9 @@ export default class SectionSuggestion {
    */
   get orderedMissingSections() {
     return Object.entries(this.missingSections || {})
-      .map(missing => ({
+      .map((missing) => ({
         sourceTitle: missing[0],
-        targetTitle: missing[1]
+        targetTitle: missing[1],
       }))
       .sort(
         (section1, section2) =>
@@ -108,9 +108,9 @@ export default class SectionSuggestion {
    */
   get orderedPresentSections() {
     return Object.entries(this.presentSections || {})
-      .map(present => ({
+      .map((present) => ({
         sourceTitle: present[0],
-        targetTitle: present[1]
+        targetTitle: present[1],
       }))
       .sort(
         (section1, section2) =>

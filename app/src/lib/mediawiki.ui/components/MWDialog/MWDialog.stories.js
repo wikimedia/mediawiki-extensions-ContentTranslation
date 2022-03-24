@@ -7,23 +7,23 @@ const argTypes = {
     type: "string",
     control: {
       type: "select",
-      options: animations
-    }
+      options: animations,
+    },
   },
   overlayColor: { control: { type: "color" } },
-  overlayOpacity: { control: { type: "range", min: 0, max: 1, step: 0.1 } }
+  overlayOpacity: { control: { type: "range", min: 0, max: 1, step: 0.1 } },
 };
 export default {
   title: "Components/Dialog",
   component: MwDialog,
   argTypes,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const DismissableInformationDialog = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
-    showDialog: false
+    showDialog: false,
   }),
   props: Object.keys(argTypes),
   template: `
@@ -36,14 +36,14 @@ export const DismissableInformationDialog = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    }
-  }
+    },
+  },
 });
 
 DismissableInformationDialog.args = {
   fullscreen: false,
   title: "Did you know",
-  bodyText: "The moai heads of Easter Island have bodies."
+  bodyText: "The moai heads of Easter Island have bodies.",
 };
 
 export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
@@ -51,7 +51,7 @@ export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
   data: () => ({
     showDialog: false,
     bodyImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg",
   }),
   props: Object.keys(argTypes),
   template: `
@@ -77,13 +77,13 @@ export const DialogWithButtonsInFooter = (args, { argTypes }) => ({
     },
     onDialogClose() {
       this.showDialog = false;
-    }
-  }
+    },
+  },
 });
 DialogWithButtonsInFooter.args = {
   fullscreen: false,
   title: "Did you know",
-  bodyText: "The moai heads of Easter Island have bodies."
+  bodyText: "The moai heads of Easter Island have bodies.",
 };
 
 export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
@@ -91,7 +91,7 @@ export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
   data: () => ({
     showDialog: false,
     bodyImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg",
   }),
   props: Object.keys(argTypes),
   template: `
@@ -104,14 +104,14 @@ export const DialogWithoutHeaderOrFooter = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    }
-  }
+    },
+  },
 });
 
 export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
-    showDialog: false
+    showDialog: false,
   }),
   props: Object.keys(argTypes),
   template: `
@@ -124,14 +124,14 @@ export const DialogInteractionWithEscapeKey = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    }
-  }
+    },
+  },
 });
 
 DialogInteractionWithEscapeKey.args = {
   closeOnEscapeKey: true,
   title: "Did you know",
-  bodyText: "The moai heads of Easter Island have bodies."
+  bodyText: "The moai heads of Easter Island have bodies.",
 };
 
 export const DialogWithCustomHeader = (args, { argTypes }) => ({
@@ -140,7 +140,7 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
     showDialog: false,
     mwIconPrevious,
     bodyImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg",
   }),
   props: Object.keys(argTypes),
   template: `
@@ -164,19 +164,19 @@ export const DialogWithCustomHeader = (args, { argTypes }) => ({
     },
     onDialogClose() {
       this.showDialog = false;
-    }
-  }
+    },
+  },
 });
 DialogWithCustomHeader.args = {
   header: true,
   title: "Did you know",
-  bodyText: "The moai heads of Easter Island have bodies."
+  bodyText: "The moai heads of Easter Island have bodies.",
 };
 
 export const DialogWithCustomOverlay = (args, { argTypes }) => ({
   components: { MwDialog, MwButton },
   data: () => ({
-    showDialog: false
+    showDialog: false,
   }),
   props: Object.keys(argTypes),
   template: `<div class="container">
@@ -194,8 +194,8 @@ export const DialogWithCustomOverlay = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    }
-  }
+    },
+  },
 });
 
 DialogWithCustomOverlay.args = {
@@ -203,7 +203,7 @@ DialogWithCustomOverlay.args = {
   overlayOpacity: 0.7,
   fullscreen: false,
   title: "Did you know",
-  bodyText: "The moai heads of Easter Island have bodies."
+  bodyText: "The moai heads of Easter Island have bodies.",
 };
 
 export const Animations = (args, { argTypes }) => ({
@@ -211,7 +211,7 @@ export const Animations = (args, { argTypes }) => ({
   data: () => ({
     showDialog: false,
     bodyImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg",
   }),
   props: Object.keys(argTypes),
   template: `
@@ -224,6 +224,6 @@ export const Animations = (args, { argTypes }) => ({
   methods: {
     openDialog() {
       this.showDialog = true;
-    }
-  }
+    },
+  },
 });

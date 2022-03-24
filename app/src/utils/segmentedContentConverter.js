@@ -33,7 +33,7 @@ const convertSegmentedContentToPageSections = (
      * @param {Node[]} sectionNodes
      * @return {PageSection}
      */
-    sectionNodes => {
+    (sectionNodes) => {
       /** First node in array is a DOM node for h2, containing section title */
       const [firstNode, ...contentNodes] = sectionNodes;
       let title = "";
@@ -52,10 +52,10 @@ const convertSegmentedContentToPageSections = (
          * @param {Node} node
          * @return {SubSection}
          */
-        node =>
+        (node) =>
           new SubSection({
             sentences: convertNodeToSentences(node),
-            node
+            node,
           })
       );
 
@@ -73,7 +73,7 @@ const convertSegmentedContentToPageSections = (
  * @param {Node[]} subSectionNodeList
  * @return {Node[][]}
  */
-const groupSubSectionNodes = subSectionNodeList => {
+const groupSubSectionNodes = (subSectionNodeList) => {
   const groups = subSectionNodeList.reduce((groups, sectionNode) => {
     const id = sectionNode.dataset.mwSectionNumber;
     groups[id] = groups[id] ? [...groups[id], sectionNode] : [sectionNode];
@@ -89,16 +89,16 @@ const groupSubSectionNodes = subSectionNodeList => {
  * @param node
  * @return {SectionSentence[]}
  */
-const convertNodeToSentences = node =>
+const convertNodeToSentences = (node) =>
   Array.from(node.getElementsByClassName("cx-segment")).map(
-    sentenceNode =>
+    (sentenceNode) =>
       new SectionSentence({
         id: sentenceNode.dataset.segmentid,
         originalContent: sentenceNode.innerHTML,
-        node: sentenceNode
+        node: sentenceNode,
       })
   );
 
 export default {
-  convertSegmentedContentToPageSections
+  convertSegmentedContentToPageSections,
 };

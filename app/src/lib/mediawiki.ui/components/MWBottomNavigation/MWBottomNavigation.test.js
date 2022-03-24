@@ -10,8 +10,8 @@ describe("MwBottomNavigation.vue", () => {
   test("renders correctly", () => {
     const wrapper = shallowMount(MwBottomNavigation, {
       slots: {
-        default: "bottom navigation content"
-      }
+        default: "bottom navigation content",
+      },
     });
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -41,7 +41,7 @@ export default {
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
-      isSectionTitleSelected
+      isSectionTitleSelected,
     } = useApplicationState(store);
 
     const sourceSectionTitle = computed(
@@ -82,9 +82,9 @@ export default {
       sourceArticlePath,
       sourceSectionTitle,
       suggestion,
-      titleClasses
+      titleClasses,
     };
-  }
+  },
 };
 </script>
 

@@ -25,7 +25,7 @@ function SectionTranslationTarget(overlay, config) {
   config = config || {};
   config.toolbarConfig = $.extend(
     {
-      actions: false
+      actions: false,
     },
     config.toolbarConfig
   );
@@ -51,7 +51,7 @@ SectionTranslationTarget.static.integrationType = "contenttranslation";
 /**
  * @inheritDoc
  */
-SectionTranslationTarget.prototype.getContentApi = function(doc, options) {
+SectionTranslationTarget.prototype.getContentApi = function (doc, options) {
   return this.config.siteMapper.getApi(this.config.language, options);
 };
 
@@ -61,32 +61,32 @@ SectionTranslationTarget.prototype.getContentApi = function(doc, options) {
  * @param {ve.dm.Document} [doc] Document, defaults to current surface's
  * @return {string} Page name
  */
-SectionTranslationTarget.prototype.getPageName = function() {
+SectionTranslationTarget.prototype.getPageName = function () {
   return this.config.title;
 };
 
 /**
  * @inheritdoc
  */
-SectionTranslationTarget.prototype.loadFail = function(code, errorDetails) {
+SectionTranslationTarget.prototype.loadFail = function (code, errorDetails) {
   // Parent method
   SectionTranslationTarget.super.prototype.loadFail.apply(this, arguments);
   window.history.back();
   mw.notify(this.extractErrorMessages(errorDetails));
 };
 
-SectionTranslationTarget.prototype.back = function() {
+SectionTranslationTarget.prototype.back = function () {
   this.config.onBack();
 };
 
-SectionTranslationTarget.prototype.next = function() {
+SectionTranslationTarget.prototype.next = function () {
   this.config.onNext();
 };
 
 /**
  * @inheritdoc
  */
-SectionTranslationTarget.prototype.setupToolbar = function(surface) {
+SectionTranslationTarget.prototype.setupToolbar = function (surface) {
   var originalToolbarGroups = this.toolbarGroups;
   // We don't want any of these tools to show up in subordinate widgets, so we
   // temporarily add them here. We need to do it _here_ rather than in their
@@ -97,16 +97,16 @@ SectionTranslationTarget.prototype.setupToolbar = function(surface) {
       // Back
       {
         name: "back",
-        include: ["back"]
-      }
+        include: ["back"],
+      },
     ],
     originalToolbarGroups,
     [
       {
         name: "next",
         type: "bar",
-        include: ["showMobileNext"]
-      }
+        include: ["showMobileNext"],
+      },
     ]
   );
   // Parent method
@@ -122,27 +122,23 @@ SectionTranslationTarget.prototype.setupToolbar = function(surface) {
 /**
  * @inheritdoc
  */
-SectionTranslationTarget.prototype.setupToolbarSaveButton = function() {
+SectionTranslationTarget.prototype.setupToolbarSaveButton = function () {
   // pass
 };
 
 /**
  * @inheritdoc
  */
-SectionTranslationTarget.prototype.updateToolbarSaveButtonState = function() {
+SectionTranslationTarget.prototype.updateToolbarSaveButtonState = function () {
   // Pass. We are not saving sections.
 };
 
 /**
  * Done with the editing toolbar
  */
-SectionTranslationTarget.prototype.done = function() {
-  this.getSurface()
-    .getModel()
-    .setNullSelection();
-  this.getSurface()
-    .getView()
-    .blur();
+SectionTranslationTarget.prototype.done = function () {
+  this.getSurface().getModel().setNullSelection();
+  this.getSurface().getView().blur();
 };
 
 /* Registration */

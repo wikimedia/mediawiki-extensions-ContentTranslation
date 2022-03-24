@@ -26,7 +26,7 @@ const i18nPlugin = createI18n({
   locale,
   finalFallback,
   messages,
-  wikilinks: true
+  wikilinks: true,
 });
 app.use(i18nPlugin);
 

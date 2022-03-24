@@ -15,8 +15,8 @@ export default {
     align: {
       type: String,
       default: "center",
-      validator: str =>
-        ["normal", "start", "end", "center", "stretch"].includes(str)
+      validator: (str) =>
+        ["normal", "start", "end", "center", "stretch"].includes(str),
     },
     /**
      * Applies the justify-content css property.
@@ -24,20 +24,20 @@ export default {
     justify: {
       type: String,
       default: "start",
-      validator: str =>
-        ["start", "end", "center", "between", "around"].includes(str)
+      validator: (str) =>
+        ["start", "end", "center", "between", "around"].includes(str),
     },
     /**
      * Specify a custom tag used on the root element.
      **/
     tag: {
       type: String,
-      default: "div"
+      default: "div",
     },
     direction: {
       type: String,
       default: "row",
-      validator: str => ["row", "column"].includes(str)
+      validator: (str) => ["row", "column"].includes(str),
     },
     /**
      * If set to true, elements inside row (or column if direction is set to "column")
@@ -45,15 +45,15 @@ export default {
      */
     reverse: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     classes() {
       const classes = [
         this.direction,
         `items-${this.align}`,
-        `justify-${this.justify}`
+        `justify-${this.justify}`,
       ];
 
       if (this.reverse) {
@@ -61,7 +61,7 @@ export default {
       }
 
       return classes;
-    }
-  }
+    },
+  },
 };
 </script>

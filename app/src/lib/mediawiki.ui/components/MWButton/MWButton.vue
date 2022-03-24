@@ -39,7 +39,7 @@ import MwIcon from "../MWIcon";
 export default {
   name: "MwButton",
   components: {
-    MwIcon
+    MwIcon,
   },
   props: {
     /**
@@ -47,7 +47,7 @@ export default {
      */
     label: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Whether to disable button
@@ -60,23 +60,23 @@ export default {
     large: Boolean,
     icon: {
       type: [Object, String],
-      default: null
+      default: null,
     },
     iconSize: {
       type: [Number, String],
-      default: 20
+      default: 20,
     },
     indicatorSize: {
       type: [Number, String],
-      default: 12
+      default: 12,
     },
     indicator: {
       type: [Object, String],
-      default: null
+      default: null,
     },
     href: {
       type: String,
-      default: null
+      default: null,
     },
     outlined: Boolean,
     /**
@@ -84,14 +84,14 @@ export default {
      */
     progressive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Progressive button used for primary, destructive actions
      */
     destructive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Type of the button. Can be one of "button", "toggle", "icon" or "text"
@@ -99,16 +99,16 @@ export default {
     type: {
       type: String,
       default: "button",
-      validator: value => {
+      validator: (value) => {
         // The value must match one of these strings
         return ["button", "toggle", "icon", "text"].indexOf(value) !== -1;
-      }
-    }
+      },
+    },
   },
   emits: ["indicator-icon-clicked"],
   computed: {
-    component: vm => (vm.href ? "a" : "button"),
-    classes: vm => ({
+    component: (vm) => (vm.href ? "a" : "button"),
+    classes: (vm) => ({
       "mw-ui-button--depressed": vm.depressed || vm.outlined,
       "mw-ui-button--disabled": vm.disabled,
       "mw-ui-button--large": vm.large,
@@ -116,14 +116,15 @@ export default {
       "mw-ui-button--destructive": vm.destructive,
       "mw-ui-button--icon": vm.isIcon,
       "mw-ui-button--outlined": vm.outlined,
-      "mw-ui-button--text": vm.type === "text"
+      "mw-ui-button--text": vm.type === "text",
     }),
-    hasIndicatorClickListener: vm => !!vm.$attrs["indicator-icon-clicked"],
-    isIcon: vm => vm.type === "icon",
-    iconClass: vm => !vm.isIcon && "pe-2",
-    indicatorClass: vm => !vm.isIcon && "ps-2",
-    indicatorClickEvent: vm => (vm.hasIndicatorClickListener ? "click" : null)
-  }
+    hasIndicatorClickListener: (vm) => !!vm.$attrs["indicator-icon-clicked"],
+    isIcon: (vm) => vm.type === "icon",
+    iconClass: (vm) => !vm.isIcon && "pe-2",
+    indicatorClass: (vm) => !vm.isIcon && "ps-2",
+    indicatorClickEvent: (vm) =>
+      vm.hasIndicatorClickListener ? "click" : null,
+  },
 };
 </script>
 

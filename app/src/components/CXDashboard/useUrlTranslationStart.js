@@ -8,7 +8,7 @@ const getEventSourceFromUrlCampaign = () => {
     mflanguagesearcher: "content_language_selector",
     mfrecenttranslation: "recent_translation",
     mfrecentedit: "recent_edit",
-    mffrequentlanguages: "frequent_languages"
+    mffrequentlanguages: "frequent_languages",
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
@@ -29,7 +29,7 @@ const startSectionTranslationFromUrl = (router, store, logEvent, pageTitle) => {
   logEvent({
     event_type: "dashboard_open",
     event_source: eventSource,
-    content_translation_session_position: 0
+    content_translation_session_position: 0,
   });
   startSectionTranslation(router, store, pageTitle, "dashboard", eventSource);
 };

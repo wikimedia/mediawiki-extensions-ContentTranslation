@@ -48,7 +48,7 @@ import {
   mwIconAlert,
   mwIconNotice,
   mwIconCheck,
-  mwIconError
+  mwIconError,
 } from "../icons";
 import { MwRow, MwCol, MwIcon, MwButton } from "../";
 export default {
@@ -62,48 +62,48 @@ export default {
     type: {
       type: String,
       default: "notice",
-      validator: value => {
+      validator: (value) => {
         return ["notice", "error", "success", "warning"].indexOf(value) !== -1;
-      }
+      },
     },
     /**
      * Inline messages does not have borders
      **/
     inline: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Whether the message can be dismissed by clicking the close button.
      **/
     dismissable: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({
     shown: true,
     mwIconClose,
-    id: ""
+    id: "",
   }),
   computed: {
-    classes: vm => ({
+    classes: (vm) => ({
       "mw-ui-message--notice": vm.type === "notice",
       "mw-ui-message--warning": vm.type === "warning",
       "mw-ui-message--error": vm.type === "error",
       "mw-ui-message--success": vm.type === "success",
-      "mw-ui-message--inline": vm.inline
+      "mw-ui-message--inline": vm.inline,
     }),
-    icon: vm => {
+    icon: (vm) => {
       const iconsMap = {
         notice: mwIconNotice,
         warning: mwIconAlert,
         success: mwIconCheck,
-        error: mwIconError
+        error: mwIconError,
       };
 
       return iconsMap[vm.type];
-    }
+    },
   },
   mounted() {
     this.id = this.type + Math.floor(Math.random() * 100);
@@ -111,8 +111,8 @@ export default {
   methods: {
     hideMessage() {
       this.shown = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

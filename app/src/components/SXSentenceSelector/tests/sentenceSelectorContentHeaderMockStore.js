@@ -5,19 +5,19 @@ import { createStore } from "vuex";
 const state = {
   currentSectionSuggestion: new SectionSuggestion({
     sourceLanguage: "en",
-    sourceTitle: "Test source section title"
+    sourceTitle: "Test source section title",
   }),
   currentSourceSection: new PageSection({
-    title: "Test source section title"
+    title: "Test source section title",
   }),
-  isSectionTitleSelectedForTranslation: false
+  isSectionTitleSelectedForTranslation: false,
 };
 
 export default createStore({
   modules: {
     application: {
       namespaced: true,
-      state
-    }
-  }
+      state,
+    },
+  },
 });

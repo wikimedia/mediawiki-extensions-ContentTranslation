@@ -7550,19 +7550,12 @@ const getTitleForPublishOption = (originalTitle, publishOption) => {
 };
 var getters$3 = {
   getArticleTitleForPublishing: (state2, getters2, rootState) => {
-    const {
-      currentSectionSuggestion,
-      publishTarget,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, publishTarget, currentSourceSection } = rootState.application;
     const baseTitle = currentSectionSuggestion.targetTitle || currentSourceSection.title;
     return getTitleForPublishOption(baseTitle, publishTarget);
   },
   getSectionTitleForPublishing: (state2, getters2, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } = rootState.application;
     if (currentSourceSection.isLeadSection) {
       return "";
     }
@@ -7577,10 +7570,7 @@ var getters$3 = {
     }
   },
   getSectionNumberForPublishing: (state2, getters2, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } = rootState.application;
     if (currentSourceSection.isLeadSection) {
       return 0;
     } else if (rootGetters["application/isSandboxTarget"]) {
@@ -7597,10 +7587,7 @@ var getters$3 = {
     return "new";
   },
   getCleanHTMLForPublishing: (state2, getters2, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } = rootState.application;
     const isPresentSection = !!currentSectionSuggestion.presentSections[currentSourceSection.originalTitle];
     const firstAppendixTargetTitle = rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"](currentSectionSuggestion);
     if (rootGetters["application/isSandboxTarget"] || currentSourceSection.isLeadSection || isPresentSection || !firstAppendixTargetTitle) {
@@ -8217,11 +8204,7 @@ function fetchPageSuggestions(sourceLanguage, targetLanguage, seedArticleTitle, 
 }
 function fetchSectionSuggestions(sourceLanguage, sourceTitle, targetLanguage) {
   return __async(this, null, function* () {
-    const cxServerParams = [
-      sourceTitle,
-      sourceLanguage,
-      targetLanguage
-    ].map((param) => encodeURIComponent(param));
+    const cxServerParams = [sourceTitle, sourceLanguage, targetLanguage].map((param) => encodeURIComponent(param));
     const cxserverAPI = siteMapper.getCXServerUrl(`/suggest/sections/${cxServerParams.join("/")}`);
     const suggestedSectionResult = yield fetch(cxserverAPI).then((response) => response.ok ? response.json() : Promise.reject(new Error("Failed to load data from server"))).then((response) => response == null ? void 0 : response.sections).catch((error) => null);
     return suggestedSectionResult ? new SectionSuggestion(suggestedSectionResult) : null;
@@ -9228,11 +9211,7 @@ const fetchPageContent$1 = (sourceLanguage, targetLanguage, sourceTitle) => {
   }));
 };
 const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
-  const cxServerParams = [
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ].map((param) => encodeURIComponent(param));
+  const cxServerParams = [sourceLanguage, targetLanguage, sourceTitle].map((param) => encodeURIComponent(param));
   const cxserverAPI = siteMapper.getCXServerUrl(`/page/${cxServerParams.join("/")}`);
   return fetch(cxserverAPI).then((response) => response.json()).then((response) => response.segmentedContent);
 };
@@ -9663,10 +9642,7 @@ function selectNextTranslationUnit({ state: state2, dispatch: dispatch2 }) {
   dispatch2("selectTranslationUnitById", followingTranslationUnit.id);
 }
 function selectPreviousTranslationUnit({ state: state2, dispatch: dispatch2 }) {
-  const {
-    selectedContentTranslationUnitIndex,
-    contentTranslationUnits
-  } = state2.currentSourceSection;
+  const { selectedContentTranslationUnitIndex, contentTranslationUnits } = state2.currentSourceSection;
   const previousIndex = selectedContentTranslationUnitIndex - 1;
   let previousId = 0;
   if (previousIndex > -1) {
@@ -18118,12 +18094,7 @@ const _sfc_main$W = {
     const select = (language) => context.emit("select", language);
     const close = () => context.emit("close");
     const { autocompletion, onTabSelect } = autocomplete(searchQuery, searchResults);
-    const {
-      next,
-      prev,
-      langSelectorContainer,
-      selectedLanguage
-    } = keyboardNavigation(searchQuery, searchResults, props.suggestions);
+    const { next, prev, langSelectorContainer, selectedLanguage } = keyboardNavigation(searchQuery, searchResults, props.suggestions);
     const onEnter = () => {
       if (searchQuery.value && props.languages.includes(searchQuery.value)) {
         select(searchQuery.value);
@@ -19247,10 +19218,7 @@ const _sfc_main$T = {
     });
     const isSectionSuggestion = computed(() => suggestion.value instanceof SectionSuggestion);
     const isFavoriteSuggestion = computed(() => suggestion.value instanceof FavoriteSuggestion);
-    const {
-      sourceLanguageAutonym,
-      targetLanguageAutonym
-    } = useApplicationState(store2);
+    const { sourceLanguageAutonym, targetLanguageAutonym } = useApplicationState(store2);
     const bookmarkIcon = computed(() => isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline);
     const colors2 = inject("colors");
     const bookmarkIconColor = computed(() => isFavoriteSuggestion.value ? colors2.primary : "currentColor");
@@ -19445,10 +19413,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var CxTranslationSuggestion = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
 var useSuggestionListLanguages = () => {
-  const {
-    supportedLanguageCodes,
-    enabledTargetLanguages
-  } = useMediawikiState();
+  const { supportedLanguageCodes, enabledTargetLanguages } = useMediawikiState();
   const availableTargetLanguages = computed(() => {
     return enabledTargetLanguages.value || supportedLanguageCodes.value;
   });
@@ -19620,10 +19585,7 @@ const _sfc_main$S = {
   },
   setup() {
     const store2 = useStore();
-    const {
-      supportedLanguageCodes,
-      availableTargetLanguages
-    } = useSuggestionListLanguages();
+    const { supportedLanguageCodes, availableTargetLanguages } = useSuggestionListLanguages();
     const updateSourceLanguage2 = (sourceLanguage) => store2.dispatch("application/updateSourceLanguage", sourceLanguage);
     const updateTargetLanguage2 = (targetLanguage) => store2.dispatch("application/updateTargetLanguage", targetLanguage);
     const router2 = useRouter();
@@ -19907,10 +19869,7 @@ const getInitialLanguagePair = (enabledTargetLanguages, supportedLanguageCodes) 
 };
 const initializeLanguages = () => __async(this, null, function* () {
   yield store.dispatch("mediawiki/fetchSupportedLanguageCodes");
-  const {
-    enabledTargetLanguages,
-    supportedLanguageCodes
-  } = useMediawikiState();
+  const { enabledTargetLanguages, supportedLanguageCodes } = useMediawikiState();
   const { sourceLanguage, targetLanguage } = getInitialLanguagePair(enabledTargetLanguages.value, supportedLanguageCodes.value);
   const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
   const translateInTarget = mw.config.get("wgContentTranslationTranslateInTarget");
@@ -20208,10 +20167,7 @@ const useActionPanel = (sectionSuggestion) => {
 var useSectionSelectorClickHandler = (router2, store2) => {
   const urlParams = new URLSearchParams(location.search);
   const preFilledSectionTitle = ref(urlParams.get("section"));
-  const {
-    currentSourceSection,
-    currentSectionSuggestion: sectionSuggestion
-  } = useApplicationState(store2);
+  const { currentSourceSection, currentSectionSuggestion: sectionSuggestion } = useApplicationState(store2);
   const translationExists = computed(() => {
     var _a;
     return !!((_a = sectionSuggestion.value) == null ? void 0 : _a.translationExists);
@@ -20259,10 +20215,7 @@ const _sfc_main$N = {
     const router2 = useRouter();
     const store2 = useStore();
     const colors2 = inject("colors");
-    const {
-      targetLanguageAutonym,
-      currentSectionSuggestion
-    } = useApplicationState(store2);
+    const { targetLanguageAutonym, currentSectionSuggestion } = useApplicationState(store2);
     const {
       clearPreFilledSection,
       onSectionSelectorClick,
@@ -20420,10 +20373,7 @@ const _sfc_main$M = {
     SxTranslationListLanguageSelector
   },
   setup() {
-    const {
-      supportedLanguageCodes,
-      enabledTargetLanguages
-    } = useMediawikiState();
+    const { supportedLanguageCodes, enabledTargetLanguages } = useMediawikiState();
     const store2 = useStore();
     const currentLanguageTitleGroup = computed(() => store2.getters["application/getCurrentLanguageTitleGroup"]);
     const availableSourceLanguages = computed(() => {
@@ -21503,10 +21453,7 @@ const _sfc_main$z = {
     const sourceSectionTitle = computed(() => store2.getters["application/getCurrentSourceSectionTitle"]);
     const sourceSectionAnchor = computed(() => store2.getters["application/getCurrentSourceSectionAnchor"]);
     const updateSelection = (selection) => context.emit("update:sourceVsTargetSelection", selection);
-    const {
-      activeSectionTargetTitle,
-      targetSectionAnchor
-    } = useCompareContents(store2);
+    const { activeSectionTargetTitle, targetSectionAnchor } = useCompareContents(store2);
     const activeContent = computed(() => {
       switch (props.sourceVsTargetSelection) {
         case "source_section":
@@ -22485,11 +22432,7 @@ const _sfc_main$o = {
     const headerAndFooterHeight = ref(0);
     const header = ref(null);
     const footer = ref(null);
-    const {
-      currentMTProvider,
-      targetLanguage,
-      proposedTranslation
-    } = useApplicationState(useStore());
+    const { currentMTProvider, targetLanguage, proposedTranslation } = useApplicationState(useStore());
     const contentsStyle = computed(() => ({
       "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`
     }));
@@ -22837,10 +22780,7 @@ const _sfc_main$k = {
   },
   emits: ["select-previous-segment", "skip-translation"],
   setup() {
-    const {
-      currentSourceSection,
-      isSectionTitleSelected
-    } = useApplicationState(useStore());
+    const { currentSourceSection, isSectionTitleSelected } = useApplicationState(useStore());
     const isLastTranslationUnit = computed(() => currentSourceSection.value.isSelectedTranslationUnitLast);
     return {
       mwIconArrowForward,
@@ -24180,10 +24120,7 @@ const decodeHtml = (html) => {
   return template.innerText;
 };
 const handlePublishResult = (store2, isPublishDialogActive) => __async(this, null, function* () {
-  const {
-    currentSectionSuggestion: suggestion,
-    currentSourceSection
-  } = useApplicationState(store2);
+  const { currentSectionSuggestion: suggestion, currentSourceSection } = useApplicationState(store2);
   const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
   const errorExists = store2.getters["application/isPublishingDisabled"];
   if (errorExists) {

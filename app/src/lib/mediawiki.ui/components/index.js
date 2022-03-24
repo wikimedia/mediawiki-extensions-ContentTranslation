@@ -34,5 +34,5 @@ export {
   MwCol,
   MwRadio,
   MwRadioGroup,
-  MwProgressBar
+  MwProgressBar,
 };

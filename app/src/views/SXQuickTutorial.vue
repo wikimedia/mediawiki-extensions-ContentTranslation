@@ -10,15 +10,15 @@ import SxQuickTutorial from "@/components/SXQuickTutorial";
 export default {
   name: "SxContentComparatorView",
   components: {
-    SxQuickTutorial
+    SxQuickTutorial,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

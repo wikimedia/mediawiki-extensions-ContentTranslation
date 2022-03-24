@@ -6,14 +6,12 @@ import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
 const { actions, mutations, getters } = suggestionsModule;
 const { removeSectionSuggestion } = mutations;
-const {
-  fetchSectionSuggestionsBySeeds,
-  getSeedProviderHandlerByName
-} = actions;
+const { fetchSectionSuggestionsBySeeds, getSeedProviderHandlerByName } =
+  actions;
 const {
   sectionSuggestionsForArticleExists,
   getNumberOfSectionSuggestionsToFetch,
-  getSectionSuggestionsForPair
+  getSectionSuggestionsForPair,
 } = getters;
 const sourceLanguage = "en";
 const targetLanguage = "es";
@@ -22,16 +20,16 @@ const dummyMissingSections = {
   testTitle0: {
     References: "Referencias",
     "See also": "Véase también",
-    Notes: "Notas"
+    Notes: "Notas",
   },
   testTitle1: {},
   testTitle2: {
     References: "Referencias",
-    "Early life": ""
+    "Early life": "",
   },
-  invalidSeedTitle: {}
+  invalidSeedTitle: {},
 };
-global.fetch = jest.fn(url => {
+global.fetch = jest.fn((url) => {
   const urlParams = url.replace("/suggest/sections/", "");
   const [sourceTitle, sourceLanguage, targetLanguage] = urlParams.split("/");
   const ok = sourceTitle !== "invalidSeedTitle";
@@ -48,9 +46,9 @@ global.fetch = jest.fn(url => {
           present: [],
           missing: dummyMissingSections[sourceTitle],
           sourceSections: [],
-          targetSections: []
-        }
-      })
+          targetSections: [],
+        },
+      }),
   });
 });
 
@@ -60,7 +58,7 @@ describe("test suggestion mutations", () => {
     const sectionSuggestion = new SectionSuggestion({
       sourceLanguage,
       targetLanguage,
-      sourceTitle
+      sourceTitle,
     });
 
     const sectionSuggestions = [sectionSuggestion];
@@ -68,7 +66,7 @@ describe("test suggestion mutations", () => {
     const sectionSuggestionClone = new SectionSuggestion({
       sourceLanguage,
       targetLanguage,
-      sourceTitle
+      sourceTitle,
     });
 
     // mock state
@@ -85,10 +83,10 @@ describe("test suggestion actions", () => {
     /**
      * @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]}
      */
-    const seeds = Object.keys(dummyMissingSections).map(sourceTitle => ({
+    const seeds = Object.keys(dummyMissingSections).map((sourceTitle) => ({
       sourceTitle,
       sourceLanguage,
-      targetLanguage
+      targetLanguage,
     }));
     const state = {
       sectionSuggestionsLoadingCount: 0,
@@ -98,34 +96,31 @@ describe("test suggestion actions", () => {
         new SuggestionSeedCollection({
           sourceLanguage,
           targetLanguage,
-          seeds
-        })
-      ]
+          seeds,
+        }),
+      ],
     };
     const getters = {
-      sectionSuggestionsForArticleExists: sectionSuggestionsForArticleExists(
-        state
-      ),
-      getSectionSuggestionsForPair: getSectionSuggestionsForPair(state)
+      sectionSuggestionsForArticleExists:
+        sectionSuggestionsForArticleExists(state),
+      getSectionSuggestionsForPair: getSectionSuggestionsForPair(state),
     };
-    getters.getNumberOfSectionSuggestionsToFetch = getNumberOfSectionSuggestionsToFetch(
-      state,
-      getters
-    );
+    getters.getNumberOfSectionSuggestionsToFetch =
+      getNumberOfSectionSuggestionsToFetch(state, getters);
     const context = {
       commit: (mutation, argument) => mutations[mutation](state, argument),
-      dispatch: function() {},
+      dispatch: function () {},
       rootState: {
         application: {
-          targetLanguage
-        }
+          targetLanguage,
+        },
       },
       getters,
-      state
+      state,
     };
     await fetchSectionSuggestionsBySeeds(context, seeds);
     const suggestionTitles = state.sectionSuggestions.map(
-      sectionSuggestion => sectionSuggestion.sourceTitle
+      (sectionSuggestion) => sectionSuggestion.sourceTitle
     );
     expect(suggestionTitles).toEqual(["testTitle2"]);
   });
@@ -140,8 +135,9 @@ describe("test suggestion actions", () => {
       .mockImplementation(() => {});
     const context = {
       rootGetters: {
-        "translator/getPublishedTranslationsForLanguagePair": mockPublishedTranslationGetter
-      }
+        "translator/getPublishedTranslationsForLanguagePair":
+          mockPublishedTranslationGetter,
+      },
     };
     let handler = await getSeedProviderHandlerByName(
       context,

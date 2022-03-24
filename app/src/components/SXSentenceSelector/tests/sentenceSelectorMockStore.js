@@ -4,7 +4,7 @@ import SubSectionModel from "@/wiki/cx/models/subSection";
 
 const subSections = [
   new SubSectionModel({ node: { id: 1 } }),
-  new SubSectionModel({ node: { id: 2 } })
+  new SubSectionModel({ node: { id: 2 } }),
 ];
 
 const applicationModule = {
@@ -12,17 +12,17 @@ const applicationModule = {
   state: {
     currentSectionSuggestion: new SectionSuggestion({
       sourceLanguage: "",
-      targetLanguage: ""
+      targetLanguage: "",
     }),
-    currentSourceSection: { subSections }
+    currentSourceSection: { subSections },
   },
   mutations: {
-    clearPublishFeedbackMessages: () => {}
-  }
+    clearPublishFeedbackMessages: () => {},
+  },
 };
 
 const store = createStore({
-  modules: { application: applicationModule }
+  modules: { application: applicationModule },
 });
 
 store.dispatch = jest.fn();

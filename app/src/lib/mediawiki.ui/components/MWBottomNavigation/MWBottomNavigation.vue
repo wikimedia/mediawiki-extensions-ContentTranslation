@@ -26,17 +26,17 @@ export default {
      **/
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * Value of the button that should be active
      **/
     active: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
-  emits: ["update:active"]
+  emits: ["update:active"],
 };
 </script>
 

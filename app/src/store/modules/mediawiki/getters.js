@@ -7,9 +7,9 @@ export default {
    * @param {Object} state
    * @return {function(string, string|null): Page|null}
    */
-  getPage: state => (language, title) =>
+  getPage: (state) => (language, title) =>
     state.pages.find(
-      page =>
+      (page) =>
         page.language === language &&
         (page.title === title || (page.alias !== null && page.alias === title))
     ),
@@ -18,19 +18,20 @@ export default {
    * @param {object} state
    * @return {function(string, string): LanguageTitleGroup|null}
    */
-  getLanguageTitleGroup: state => (language, title) =>
-    state.languageTitleGroups.find(group =>
+  getLanguageTitleGroup: (state) => (language, title) =>
+    state.languageTitleGroups.find((group) =>
       group.titles.find(
-        groupTitle => groupTitle.lang === language && groupTitle.title === title
+        (groupTitle) =>
+          groupTitle.lang === language && groupTitle.title === title
       )
     ),
 
-  getLanguageTitleGroupByWikidataId: state => wikidataId =>
-    state.languageTitleGroups.find(group => group.wikidataId === wikidataId),
+  getLanguageTitleGroupByWikidataId: (state) => (wikidataId) =>
+    state.languageTitleGroups.find((group) => group.wikidataId === wikidataId),
 
   getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
     (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
-      title => title.lang === language
+      (title) => title.lang === language
     )?.title,
 
   /**
@@ -39,22 +40,19 @@ export default {
    * @param {String} targetLanguage
    * @returns {String[]} - Array of supported providers
    */
-  getSupportedMTProviders: state => (sourceLanguage, targetLanguage) =>
+  getSupportedMTProviders: (state) => (sourceLanguage, targetLanguage) =>
     state.supportedMTProviderGroups.find(
-      mtProviderGroup =>
+      (mtProviderGroup) =>
         mtProviderGroup.sourceLanguage === sourceLanguage &&
         mtProviderGroup.targetLanguage === targetLanguage
     )?.providers || [],
 
-  isValidProviderForTranslation: (state, getters) => (
-    sourceLanguage,
-    targetLanguage,
-    provider
-  ) =>
-    getters
-      .getSupportedMTProviders(sourceLanguage, targetLanguage)
-      .includes(provider) &&
-    provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY,
+  isValidProviderForTranslation:
+    (state, getters) => (sourceLanguage, targetLanguage, provider) =>
+      getters
+        .getSupportedMTProviders(sourceLanguage, targetLanguage)
+        .includes(provider) &&
+      provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY,
   /**
    * Get recently edited cx translations by current user if any,
    * for the current language pair.
@@ -78,10 +76,10 @@ export default {
     );
 
     return translationsSlice
-      .map(translation =>
+      .map((translation) =>
         getters.getPage(sourceLanguage, translation.sourceTitle)
       )
-      .filter(page => !!page);
+      .filter((page) => !!page);
   },
   /**
    * Get nearby articles (based on user location) in current source language
@@ -95,5 +93,5 @@ export default {
     const sourceLanguage = rootState.application.sourceLanguage;
 
     return state.nearbyPages[sourceLanguage];
-  }
+  },
 };

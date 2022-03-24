@@ -16,7 +16,7 @@
             <p
               v-else
               v-i18n-html:cx-sx-sentence-selector-translated-segment-modification-percentage="[
-                mtScore
+                mtScore,
               ]"
               :class="modificationPercentageClass"
             />
@@ -67,13 +67,13 @@ import {
   MwCol,
   MwRow,
   MwIcon,
-  MwProgressBar
+  MwProgressBar,
 } from "@/lib/mediawiki.ui";
 import {
   mwIconEdit,
   mwIconEllipsis,
   mwIconRobot,
-  mwIconUserAvatar
+  mwIconUserAvatar,
 } from "@/lib/mediawiki.ui/components/icons";
 import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons";
@@ -92,7 +92,7 @@ export default {
     MwCard,
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   emits: ["edit-translation"],
   setup() {
@@ -103,15 +103,15 @@ export default {
       isSectionTitleSelected,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
-      proposedTranslation: mtTranslation
+      proposedTranslation: mtTranslation,
     } = useApplicationState(useStore());
 
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
 
     const currentSubSection = computed(() =>
-      currentPageSection.value.subSections.find(subSection =>
+      currentPageSection.value.subSections.find((subSection) =>
         subSection.sentences.some(
-          sentence => sentence.id === selectedContentTranslationUnit.value.id
+          (sentence) => sentence.id === selectedContentTranslationUnit.value.id
         )
       )
     );
@@ -151,7 +151,7 @@ export default {
     const iconColors = computed(() => ({
       failure: mtScore.value === 0 ? null : colors.yellow30,
       warning: colors.yellow30,
-      success: colors.green30
+      success: colors.green30,
     }));
 
     const userIconColor = computed(
@@ -170,9 +170,9 @@ export default {
       scopeSelection,
       showSentenceTab,
       translation,
-      userIconColor
+      userIconColor,
     };
-  }
+  },
 };
 </script>
 

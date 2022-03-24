@@ -1,7 +1,7 @@
 <template>
   <div ref="langSelectorContainer" class="mw-ui-language-selector">
     <slot name="search">
-      <div class="mw-ui-language-selector__inputcontainer  pa-4 mb-4">
+      <div class="mw-ui-language-selector__inputcontainer pa-4 mb-4">
         <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
         <mw-input
           ref="searchInputElement"
@@ -96,13 +96,13 @@ import {
   searchByQuery,
   getSearchApi,
   getSearchResultsByScript,
-  getResultsDisplayClass
+  getResultsDisplayClass,
 } from "./languagesearch";
 import autocomplete from "./autocompletion";
 import keyboardNavigation from "./keyboardnav";
 import {
   mwIconSearch,
-  mwIconClose
+  mwIconClose,
 } from "../../lib/mediawiki.ui/components/icons";
 import { MwInput } from "../../lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
@@ -112,23 +112,23 @@ export default {
   name: "MwLanguageSelector",
 
   components: {
-    MwInput
+    MwInput,
   },
 
   props: {
     placeholder: {
       type: String,
-      default: ""
+      default: "",
     },
     autofocus: {
       type: Boolean,
-      default: true
+      default: true,
     },
     languages: {
       type: Array,
       default: () => [],
-      validator: languages =>
-        languages.every(language => typeof language === "string")
+      validator: (languages) =>
+        languages.every((language) => typeof language === "string"),
     },
     /**
      * Suggested languages
@@ -136,16 +136,16 @@ export default {
     suggestions: {
       type: Array,
       default: () => [],
-      validator: languages =>
-        languages.every(language => typeof language === "string")
+      validator: (languages) =>
+        languages.every((language) => typeof language === "string"),
     },
     /**
      * Search API URL for language search.
      */
     searchAPI: {
       type: String,
-      default: getSearchApi
-    }
+      default: getSearchApi,
+    },
   },
 
   emits: ["select", "close"],
@@ -162,19 +162,15 @@ export default {
       getResultsDisplayClass(searchResults.value)
     );
 
-    const select = language => context.emit("select", language);
+    const select = (language) => context.emit("select", language);
     const close = () => context.emit("close");
 
     const { autocompletion, onTabSelect } = autocomplete(
       searchQuery,
       searchResults
     );
-    const {
-      next,
-      prev,
-      langSelectorContainer,
-      selectedLanguage
-    } = keyboardNavigation(searchQuery, searchResults, props.suggestions);
+    const { next, prev, langSelectorContainer, selectedLanguage } =
+      keyboardNavigation(searchQuery, searchResults, props.suggestions);
 
     const onEnter = () => {
       // If the search value is a known language, select it
@@ -238,9 +234,9 @@ export default {
       searchQuery,
       searchResultsByScript,
       select,
-      selectedLanguage
+      selectedLanguage,
     };
-  }
+  },
 };
 </script>
 

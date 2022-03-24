@@ -8,8 +8,8 @@ describe("MWRadio.vue", () => {
         id: "my-test-radio",
         label: "A radio button",
         value: "test-radio",
-        inputValue: "test-radio"
-      }
+        inputValue: "test-radio",
+      },
     });
     const trigger = wrapper.find(".mw-ui-radio");
     expect(trigger.exists()).toBe(true);

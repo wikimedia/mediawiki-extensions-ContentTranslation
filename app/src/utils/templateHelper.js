@@ -6,7 +6,7 @@
  * @param {HTMLElement} transclusionNode
  * @return {string|null}
  */
-const parseTemplateName = transclusionNode => {
+const parseTemplateName = (transclusionNode) => {
   const templateData = getTemplateData(transclusionNode);
 
   return templateData?.target?.wt || null;
@@ -22,7 +22,7 @@ const parseTemplateName = transclusionNode => {
  * @param {HTMLElement} node
  * @return {object|null}
  */
-const getTemplateData = node => {
+const getTemplateData = (node) => {
   const mwData = JSON.parse(node.dataset?.mw || "{}");
 
   return mwData?.parts?.[0]?.template || null;
@@ -35,7 +35,7 @@ const getTemplateData = node => {
  * @param {HTMLElement} node
  * @return {boolean}
  */
-const isTransclusionNode = node =>
+const isTransclusionNode = (node) =>
   !!(
     node.attributes.about ||
     (node.attributes.typeof &&
@@ -53,7 +53,7 @@ const isTransclusionNode = node =>
  * @param {HTMLElement} templateNode
  * @return {string|null}
  */
-const getWikitextFromTemplate = templateNode => {
+const getWikitextFromTemplate = (templateNode) => {
   const templateData = getTemplateData(templateNode);
 
   if (!templateData?.target) {
@@ -84,7 +84,7 @@ const getWikitextFromTemplate = templateNode => {
  * @param {string} param Parameter value
  * @return {string} Escaped parameter value
  */
-const escapeParameter = param => {
+const escapeParameter = (param) => {
   let input = param,
     output = "",
     inNowiki = false,
@@ -160,7 +160,7 @@ const escapeParameter = param => {
  * @param {Element} cxTemplateNode
  * @return {boolean}
  */
-const targetTemplateExists = cxTemplateNode => {
+const targetTemplateExists = (cxTemplateNode) => {
   const cxData = JSON.parse(cxTemplateNode.dataset?.cx || "{}");
 
   return !!cxData?.[0]?.targetExists;
@@ -170,5 +170,5 @@ export {
   isTransclusionNode,
   parseTemplateName,
   getWikitextFromTemplate,
-  targetTemplateExists
+  targetTemplateExists,
 };

@@ -6,29 +6,29 @@ const breakpoints = {
   sm: 600,
   md: 960,
   lg: 1264,
-  xl: 1904
+  xl: 1904,
 };
 
 const viewports = {
   print: "only print",
   screen: "only screen",
   xs: `only screen and (max-width: ${breakpoints.sm - 1}px})`,
-  sm: `only screen and (min-width: ${
-    breakpoints.sm
-  }px) and (max-width: ${breakpoints.md - 1}px)`,
+  sm: `only screen and (min-width: ${breakpoints.sm}px) and (max-width: ${
+    breakpoints.md - 1
+  }px)`,
   "sm-and-down": `only screen and (max-width: ${breakpoints.md - 1}px)`,
   "sm-and-up": `only screen and (min-width: ${breakpoints.sm}px)`,
-  md: `only screen and (min-width: ${
-    breakpoints.md
-  }px) and (max-width: ${breakpoints.lg - 1}px)`,
+  md: `only screen and (min-width: ${breakpoints.md}px) and (max-width: ${
+    breakpoints.lg - 1
+  }px)`,
   "md-and-down": `only screen and (max-width: ${breakpoints.lg - 1}px)`,
   "md-and-up": `only screen and (min-width: ${breakpoints.md}px)`,
-  lg: `only screen and (min-width: ${
-    breakpoints.lg
-  }px) and (max-width: ${breakpoints.xl - 1}px)`,
+  lg: `only screen and (min-width: ${breakpoints.lg}px) and (max-width: ${
+    breakpoints.xl - 1
+  }px)`,
   "lg-and-down": `only screen and (max-width: ${breakpoints.xl - 1}px)`,
   "lg-and-up": `only screen and (min-width: ${breakpoints.lg}px)`,
-  xl: `only screen and (min-width: ${breakpoints.xl}px)`
+  xl: `only screen and (min-width: ${breakpoints.xl}px)`,
 };
 
 const handlers = {
@@ -42,11 +42,11 @@ const handlers = {
   lgAndUp: () => matchMedia(viewports["lg-and-up"]).matches,
   smAndDown: () => matchMedia(viewports["sm-and-down"]).matches,
   mdAndDown: () => matchMedia(viewports["md-and-down"]).matches,
-  lgAndDown: () => matchMedia(viewports["lg-and-down"]).matches
+  lgAndDown: () => matchMedia(viewports["lg-and-down"]).matches,
 };
 
 export default {
-  install: app => {
+  install: (app) => {
     const resizeHandler = () => {
       for (let property in handlers) {
         if (handlers.hasOwnProperty(property)) {
@@ -61,9 +61,9 @@ export default {
 
     app.config.globalProperties.$mwui = {
       ...(app.config.globalProperties.$mwui || {}),
-      breakpoint: properties.value
+      breakpoint: properties.value,
     };
 
     app.provide("breakpoints", properties);
-  }
+  },
 };

@@ -66,7 +66,7 @@ function validateMT({ rootState, commit }) {
     title,
     text: messageBody,
     status,
-    type: "mt"
+    type: "mt",
   });
   commit("application/addMTPublishFeedbackMessage", message, { root: true });
 }
@@ -96,7 +96,7 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     /** @type {SectionSuggestion} */
     currentSectionSuggestion,
     sourceLanguage,
-    targetLanguage
+    targetLanguage,
   } = rootState.application;
 
   if (!currentSectionSuggestion) {
@@ -118,7 +118,7 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,
-    sectionNumber: getters.getSectionNumberForPublishing
+    sectionNumber: getters.getSectionNumberForPublishing,
   });
 
   if (!!message) {
@@ -133,7 +133,7 @@ async function fetchTranslations({ commit, dispatch, state }) {
   }
   /** @type {Translation[]} */
   const translations = await cxTranslatorApi.fetchTranslations();
-  translations.forEach(translation => commit("addTranslation", translation));
+  translations.forEach((translation) => commit("addTranslation", translation));
 
   const queue = translations.reduce((queue, translation) => {
     const language = translation.sourceLanguage;
@@ -144,7 +144,7 @@ async function fetchTranslations({ commit, dispatch, state }) {
   }, {});
   commit("setTranslationsLoaded", true);
 
-  Object.keys(queue).forEach(sourceLanguage => {
+  Object.keys(queue).forEach((sourceLanguage) => {
     dispatch(
       "mediawiki/fetchPageMetadata",
       { language: sourceLanguage, titles: queue[sourceLanguage] },
@@ -206,5 +206,5 @@ export default {
   validateMT,
   publishTranslation,
   fetchTranslations,
-  translateContent
+  translateContent,
 };

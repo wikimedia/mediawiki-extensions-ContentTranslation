@@ -17,7 +17,7 @@ import segmentedContentConverter from "../../../utils/segmentedContentConverter"
  * @returns {Promise<void>}
  */
 function fetchPageMetadata({ getters, commit }, { language, titles }) {
-  titles = titles.filter(title => !getters.getPage(language, title));
+  titles = titles.filter((title) => !getters.getPage(language, title));
 
   const chunkSize = 50;
 
@@ -27,8 +27,8 @@ function fetchPageMetadata({ getters, commit }, { language, titles }) {
     const titlesSubset = titles.slice(i, i + chunkSize);
     const promise = pageApi
       .fetchPages(language, titlesSubset)
-      .then(metadataList =>
-        metadataList.forEach(page => commit("addPage", page))
+      .then((metadataList) =>
+        metadataList.forEach((page) => commit("addPage", page))
       );
     promises.push(promise);
   }
@@ -44,7 +44,7 @@ function fetchLanguageTitles({ commit, getters }, { language, title }) {
   pageApi
     .fetchLanguageTitles(language, title)
     .then(
-      languageTitleGroup =>
+      (languageTitleGroup) =>
         languageTitleGroup &&
         commit("addLanguageTitleGroup", languageTitleGroup)
     );
@@ -92,7 +92,7 @@ async function fetchPageContent(
     existingPage.content = fetchedPage.content;
     commit("setPageSections", {
       page: existingPage,
-      sections: fetchedPage.sections
+      sections: fetchedPage.sections,
     });
   }
 }
@@ -123,16 +123,17 @@ function resolvePageContentReferences(
     return;
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     // Add reference resolution as a setTimeout callback,
     // to make it asynchronous.
     setTimeout(() => {
       commit("setPageSections", {
         page: existingPage,
-        sections: segmentedContentConverter.convertSegmentedContentToPageSections(
-          existingPage.content,
-          true // resolve references
-        )
+        sections:
+          segmentedContentConverter.convertSegmentedContentToPageSections(
+            existingPage.content,
+            true // resolve references
+          ),
       });
 
       resolve();
@@ -196,5 +197,5 @@ export default {
   fetchPageContent,
   fetchPageMetadata,
   fetchSupportedLanguageCodes,
-  resolvePageContentReferences
+  resolvePageContentReferences,
 };

@@ -19,5 +19,5 @@ export default {
    * @type {Object}
    */
   nearbyPages: {},
-  enabledTargetLanguages: mw.config.get("wgSectionTranslationTargetLanguages")
+  enabledTargetLanguages: mw.config.get("wgSectionTranslationTargetLanguages"),
 };

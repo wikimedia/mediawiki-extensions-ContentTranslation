@@ -15,7 +15,7 @@ export default class SectionSentence {
     translatedContent = "",
     node = null,
     proposedTranslations = {},
-    selected = false
+    selected = false,
   } = {}) {
     this.id = id;
     this.translatedContent = translatedContent;
@@ -24,7 +24,7 @@ export default class SectionSentence {
     this.proposedTranslations = {
       ...proposedTranslations,
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: originalContent,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
     };
     this.selected = selected;
   }

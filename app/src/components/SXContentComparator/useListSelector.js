@@ -6,7 +6,7 @@ import { useI18n } from "vue-banana-i18n";
 /**
  * @return {ComputedRef<{value: string, props: object}[]>}
  */
-const useListSelector = props => {
+const useListSelector = (props) => {
   const { sourceLanguageAutonym, targetLanguageAutonym } = useApplicationState(
     useStore()
   );
@@ -22,8 +22,8 @@ const useListSelector = props => {
           sourceLanguageAutonym.value
         ),
         type: "text",
-        class: "px-0 py-4 mx-4"
-      }
+        class: "px-0 py-4 mx-4",
+      },
     };
 
     let targetSelectorItem;
@@ -38,8 +38,8 @@ const useListSelector = props => {
               targetLanguageAutonym.value
             ),
             type: "text",
-            class: "px-0 py-4 mx-4"
-          }
+            class: "px-0 py-4 mx-4",
+          },
         };
         break;
       default:
@@ -51,8 +51,8 @@ const useListSelector = props => {
               targetLanguageAutonym.value
             ),
             type: "text",
-            class: "px-0 py-4 mx-4"
-          }
+            class: "px-0 py-4 mx-4",
+          },
         };
     }
 

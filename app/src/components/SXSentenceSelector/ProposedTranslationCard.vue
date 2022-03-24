@@ -8,7 +8,8 @@
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
-          'sx-sentence-selector__proposed-translation__contents--empty': !hasProposedTranslation
+          'sx-sentence-selector__proposed-translation__contents--empty':
+            !hasProposedTranslation,
         }"
         :style="contentsStyle"
       >
@@ -48,7 +49,7 @@
 import { MwButton, MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import {
   mwIconEdit,
-  mwIconEllipsis
+  mwIconEllipsis,
 } from "@/lib/mediawiki.ui/components/icons";
 import { getDir } from "@wikimedia/language-data";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
@@ -67,21 +68,18 @@ export default {
     MwRow,
     MwCol,
     MwButton,
-    ProposedTranslationActionButtons
+    ProposedTranslationActionButtons,
   },
   emits: ["edit-translation", "configure-options"],
   setup() {
     const headerAndFooterHeight = ref(0);
     const header = ref(null);
     const footer = ref(null);
-    const {
-      currentMTProvider,
-      targetLanguage,
-      proposedTranslation
-    } = useApplicationState(useStore());
+    const { currentMTProvider, targetLanguage, proposedTranslation } =
+      useApplicationState(useStore());
 
     const contentsStyle = computed(() => ({
-      "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`
+      "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`,
     }));
 
     const hasProposedTranslation = computed(
@@ -115,9 +113,9 @@ export default {
       proposedTranslation,
       hasProposedTranslation,
       targetLanguage,
-      contentsStyle
+      contentsStyle,
     };
-  }
+  },
 };
 </script>
 

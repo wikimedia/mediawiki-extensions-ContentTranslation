@@ -24,25 +24,25 @@ const getSourceLanguageOptions = (sourceLanguage, suggestedSourceLanguages) =>
       props: {
         icon: mwIconEllipsis,
         type: "icon",
-        class: "px-0 py-4 me-4 ms-auto"
-      }
+        class: "px-0 py-4 me-4 ms-auto",
+      },
     };
     const sourceLanguages = [
       sourceLanguage.value,
-      ...suggestedSourceLanguages.value.slice(0, sliceSize)
+      ...suggestedSourceLanguages.value.slice(0, sliceSize),
     ];
     const languageOptions = sourceLanguages
       .filter(
         (option, index) =>
-          sourceLanguages.findIndex(language => language === option) === index
+          sourceLanguages.findIndex((language) => language === option) === index
       )
-      .map(language => ({
+      .map((language) => ({
         value: language,
         props: {
           label: getAutonym(language),
           type: "text",
-          class: "px-0 py-4 mx-4"
-        }
+          class: "px-0 py-4 mx-4",
+        },
       }));
 
     return [...languageOptions, languageSelectorOption];

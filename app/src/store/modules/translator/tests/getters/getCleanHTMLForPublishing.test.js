@@ -5,40 +5,40 @@ import testGetters from "../../getters";
 
 jest.mock("../../../../../utils/publishHelper", () => {
   return {
-    cleanupHtml: jest.fn(html => `clean:${html}`),
+    cleanupHtml: jest.fn((html) => `clean:${html}`),
     prependNewSectionToAppendixSection: jest.fn(
       (section, appendixSection) =>
         `prepend:${section.title}-${appendixSection.title}`
-    )
+    ),
   };
 });
 
 describe("vuex getCleanHTMLForPublishing getter", () => {
   const currentSourceSection = new PageSection({
     title: "presentSourceSection1",
-    isLeadSection: true
+    isLeadSection: true,
   });
   const rootState = {
     application: {
       currentSectionSuggestion: new SectionSuggestion({
-        present: {}
+        present: {},
       }),
-      currentSourceSection
-    }
+      currentSourceSection,
+    },
   };
 
   const rootGetters = {
     "application/getCurrentTargetPage": new Page(),
-    "suggestions/getFirstAppendixTitleBySectionSuggestion": suggestion =>
-      "appendix1"
+    "suggestions/getFirstAppendixTitleBySectionSuggestion": (suggestion) =>
+      "appendix1",
   };
 
   it("should return the clean HTML of the section's translation, when section is a lead section", () => {
     Object.defineProperty(currentSourceSection, "translationHtml", {
-      get: function() {
+      get: function () {
         return "leadTranslation";
       },
-      configurable: true
+      configurable: true,
     });
 
     expect(
@@ -48,13 +48,13 @@ describe("vuex getCleanHTMLForPublishing getter", () => {
 
   it("should return the clean HTML of the section's translation, when section is a present section", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: { presentSourceSection1: "presentTargetSection1" }
+      present: { presentSourceSection1: "presentTargetSection1" },
     });
     Object.defineProperty(currentSourceSection, "translationHtml", {
-      get: function() {
+      get: function () {
         return "presentTranslation";
       },
-      configurable: true
+      configurable: true,
     });
     currentSourceSection.isLeadSection = false;
     expect(
@@ -64,14 +64,14 @@ describe("vuex getCleanHTMLForPublishing getter", () => {
 
   it("should return the clean HTML of the section's translation, when section is a missing section and no appendix sections exist", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: {}
+      present: {},
     });
     rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"] = () =>
       null;
     Object.defineProperty(currentSourceSection, "translationHtml", {
-      get: function() {
+      get: function () {
         return "noAppendixTranslation";
-      }
+      },
     });
     expect(
       testGetters.getCleanHTMLForPublishing({}, {}, rootState, rootGetters)
@@ -80,7 +80,7 @@ describe("vuex getCleanHTMLForPublishing getter", () => {
 
   it("should return the section header, plus the clean HTML of the section's translation, plus the header of the 1st appendix section, plus the clean HTML of the appendix section contents", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: {}
+      present: {},
     });
 
     rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"] = () =>
@@ -90,7 +90,7 @@ describe("vuex getCleanHTMLForPublishing getter", () => {
     currentSourceSection.translatedTitle = "presentTarget1";
     const sections = [currentSourceSection, appendixSection];
     rootGetters["application/getCurrentTargetPage"] = new Page({
-      sections
+      sections,
     });
     expect(
       testGetters.getCleanHTMLForPublishing({}, {}, rootState, rootGetters)

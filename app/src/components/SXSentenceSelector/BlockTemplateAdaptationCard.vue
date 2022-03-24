@@ -39,7 +39,7 @@
       >
         <h5
           v-i18n:sx-block-template-adaptation-card-body-header-failure="[
-            targetLanguageAutonym
+            targetLanguageAutonym,
           ]"
           class="block-template-adaptation-card__body__header pb-0 mb-0"
         />
@@ -57,7 +57,7 @@ import {
   MwCol,
   MwCard,
   MwIcon,
-  MwSpinner
+  MwSpinner,
 } from "@/lib/mediawiki.ui";
 import { mwIconPuzzle, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
@@ -74,7 +74,7 @@ export default {
     MwRow,
     MwCol,
     MwButton,
-    ProposedTranslationActionButtons
+    ProposedTranslationActionButtons,
   },
   emits: ["edit-translation"],
   setup() {
@@ -82,7 +82,7 @@ export default {
       selectedContentTranslationUnit: selectedSubSection,
       targetLanguageAutonym,
       currentMTProvider,
-      proposedTranslation: proposedBlockTranslation
+      proposedTranslation: proposedBlockTranslation,
     } = useApplicationState(useStore());
 
     const targetTemplateName = computed(() =>
@@ -116,9 +116,9 @@ export default {
       sourceTemplateName,
       targetLanguageAutonym,
       targetTemplateName,
-      translationLoaded
+      translationLoaded,
     };
-  }
+  },
 };
 </script>
 

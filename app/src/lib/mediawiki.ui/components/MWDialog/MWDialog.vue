@@ -55,7 +55,7 @@ export default {
     MwButton,
     MwRow,
     MwCol,
-    MwDivider
+    MwDivider,
   },
   props: {
     /**
@@ -65,73 +65,73 @@ export default {
     animation: {
       type: String,
       default: "slide-left",
-      validator: value => {
+      validator: (value) => {
         // The value must match one of these strings
         return (
           ["slide-right", "slide-left", "slide-up", "slide-down"].indexOf(
             value
           ) !== -1
         );
-      }
+      },
     },
     /**
      * Whether the dialog should be shown fullscreen or not.
      **/
     fullscreen: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Title of the dialog
      **/
     title: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Whether the dialog should have closed on `escape` key press or not.
      **/
     closeOnEscapeKey: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * Whether the dialog should have header or not.
      **/
     header: {
       type: Boolean,
-      default: true
+      default: true,
     },
     /**
      * Color of the overlay
      **/
     overlayColor: {
       type: String,
-      default: "#fff"
+      default: "#fff",
     },
     /**
      * Opacity of the overlay
      **/
     overlayOpacity: {
       type: Number,
-      default: 1.0
+      default: 1.0,
     },
     value: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   emits: ["input", "close"],
   setup(props, context) {
     const root = ref(null);
     const classes = computed(() => ({
       "mw-ui-dialog--fullscreen": props.fullscreen,
-      "mw-ui-dialog--dialog": !props.fullscreen
+      "mw-ui-dialog--dialog": !props.fullscreen,
     }));
 
     const overlayStyles = computed(() => ({
       "background-color": props.overlayColor,
-      opacity: props.overlayOpacity
+      opacity: props.overlayOpacity,
     }));
 
     const close = () => {
@@ -145,7 +145,7 @@ export default {
     };
     watch(
       () => props.value,
-      isOpen => {
+      (isOpen) => {
         if (isOpen) {
           onOpen();
           nextTick(() => {
@@ -160,9 +160,9 @@ export default {
       classes,
       overlayStyles,
       mwIconClose,
-      root
+      root,
     };
-  }
+  },
 };
 </script>
 

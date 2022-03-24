@@ -12,7 +12,7 @@ const warningThreshold = 85;
 const thresholds = [
   { status: "failure", value: 100 - publishingThreshold },
   { status: "warning", value: 100 - warningThreshold },
-  { status: "success", value: 100 }
+  { status: "success", value: 100 },
 ];
 
 /**
@@ -39,8 +39,8 @@ const calculateScore = (actualTranslation, proposedTranslation) => {
  * @param {number} score
  * @return {"failure"|"warning"|"success"}
  */
-const getScoreStatus = score =>
-  thresholds.find(threshold => score <= threshold.value).status;
+const getScoreStatus = (score) =>
+  thresholds.find((threshold) => score <= threshold.value).status;
 
 /**
  * Given a page section, this method returns the percentage of
@@ -57,7 +57,7 @@ const getMTScoreForPageSection = (pageSection, mtProvider) =>
     pageSection.getProposedTranslationHtml(mtProvider)
   );
 
-const htmlToElement = html => {
+const htmlToElement = (html) => {
   const template = document.createElement("div");
   template.innerHTML = html;
 

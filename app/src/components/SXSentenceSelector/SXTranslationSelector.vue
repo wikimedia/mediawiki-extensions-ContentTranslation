@@ -97,8 +97,8 @@ export default {
   props: {
     active: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["update:active"],
   setup(props, context) {
@@ -111,7 +111,7 @@ export default {
       targetLanguage,
       currentSourceSection: currentPageSection,
       isSectionTitleSelected,
-      selectedContentTranslationUnit
+      selectedContentTranslationUnit,
     } = useApplicationState(store);
 
     const mtProviders = computed(() =>
@@ -125,7 +125,7 @@ export default {
       const ignoredProviders = [originalTextProviderKey, emptyTextProviderKey];
 
       return mtProviders.value.filter(
-        provider => !ignoredProviders.includes(provider)
+        (provider) => !ignoredProviders.includes(provider)
       );
     });
 
@@ -135,7 +135,7 @@ export default {
         : selectedContentTranslationUnit.value.proposedTranslations
     );
 
-    const selectProvider = provider => {
+    const selectProvider = (provider) => {
       store.dispatch("application/updateMTProvider", provider);
       close();
     };
@@ -150,9 +150,9 @@ export default {
       originalTextProviderKey,
       proposedTranslations,
       selectProvider,
-      sourceLanguage
+      sourceLanguage,
     };
-  }
+  },
 };
 </script>
 

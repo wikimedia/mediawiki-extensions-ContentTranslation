@@ -1,7 +1,7 @@
 import "./typography.scss";
 
 export default {
-  title: "Layout/Typography"
+  title: "Layout/Typography",
 };
 
 export const Typography = (args, { argTypes }) => ({
@@ -186,11 +186,11 @@ font-size: 14px;</pre>
     </dl>
   </section>
 </main>
-  `
+  `,
 });
 
 Typography.args = {
-  language: "en"
+  language: "en",
 };
 
 Typography.argTypes = {
@@ -213,7 +213,7 @@ Typography.argTypes = {
       "Western Balochi": "bgn",
       "Kazakh(Arabic script)": "kk-arab",
       "Northern Luri": "lrc",
-      "Southern Luri": "luz"
-    }
-  }
+      "Southern Luri": "luz",
+    },
+  },
 };

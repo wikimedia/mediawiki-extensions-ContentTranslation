@@ -4,7 +4,7 @@ import { getAutonym } from "@wikimedia/language-data";
 /**
  * @param {Store} store
  */
-export default function(store) {
+export default function (store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);
   const targetLanguage = computed(() => store.state.application.targetLanguage);
   const currentMTProvider = computed(
@@ -54,6 +54,6 @@ export default function(store) {
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,
-    targetLanguageAutonym
+    targetLanguageAutonym,
   };
 }

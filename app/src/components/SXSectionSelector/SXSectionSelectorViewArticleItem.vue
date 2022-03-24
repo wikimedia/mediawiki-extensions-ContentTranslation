@@ -22,20 +22,20 @@ export default {
   name: "SxSectionSelectorViewArticleItem",
   components: {
     MwRow,
-    MwButton
+    MwButton,
   },
   props: {
     path: {
       type: String,
-      required: true
+      required: true,
     },
     autonym: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    mwIconLinkExternal
-  })
+    mwIconLinkExternal,
+  }),
 };
 </script>

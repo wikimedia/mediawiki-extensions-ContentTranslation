@@ -87,7 +87,7 @@ import {
   MwInput,
   MwRow,
   MwCol,
-  MwButton
+  MwButton,
 } from "@/lib/mediawiki.ui";
 import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import SearchResultsCard from "./SearchResultsCard";
@@ -115,7 +115,7 @@ export default {
     MwButtonGroup,
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   setup() {
     const searchInput = ref("");
@@ -140,7 +140,7 @@ export default {
     /** @type {ComputedRef<string[]>} */
     const availableSourceLanguages = computed(() =>
       supportedLanguageCodes.value.filter(
-        languageCode => languageCode !== targetLanguage.value
+        (languageCode) => languageCode !== targetLanguage.value
       )
     );
 
@@ -184,7 +184,7 @@ export default {
       router.push({ name: "dashboard" });
     };
 
-    const updateSelection = updatedLanguage => {
+    const updateSelection = (updatedLanguage) => {
       if (updatedLanguage === "other") {
         sourceLanguageSelectOn.value = true;
 
@@ -194,7 +194,7 @@ export default {
     };
 
     watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
-      immediate: true
+      immediate: true,
     });
 
     const logEvent = useEventLogging();
@@ -214,7 +214,7 @@ export default {
      * Language selection handler
      * @param {string} updatedSourceLanguage
      */
-    const onSourceLanguageSelected = updatedSourceLanguage => {
+    const onSourceLanguageSelected = (updatedSourceLanguage) => {
       sourceLanguageSelectOn.value = false;
       previousLanguages.value.push(updatedSourceLanguage);
       updateSelection(updatedSourceLanguage);
@@ -234,7 +234,7 @@ export default {
     const {
       startRecentlyEditedSectionTranslation,
       startNearbySectionTranslation,
-      startSearchResultSectionTranslation
+      startSearchResultSectionTranslation,
     } = usePageTranslationStart(router, store);
 
     return {
@@ -256,9 +256,9 @@ export default {
       startRecentlyEditedSectionTranslation,
       startSearchResultSectionTranslation,
       suggestedSourceLanguages,
-      updateSelection
+      updateSelection,
     };
-  }
+  },
 };
 </script>
 

@@ -7,13 +7,13 @@ describe("SXSearchArticleSuggestion", () => {
     thumbnail: { source: "/thumbnail.jpg" },
     title: "Test page",
     description: "Test description",
-    langlinkscount: 5
+    langlinkscount: 5,
   });
 
   const wrapper = mount(SXSearchArticleSuggestion, {
     props: {
-      suggestion: pageSuggestion
-    }
+      suggestion: pageSuggestion,
+    },
   });
 
   it("Component output matches snapshot", () => {

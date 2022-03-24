@@ -10,15 +10,15 @@ import SxPublisher from "@/components/SXPublisher";
 export default {
   name: "SxPublisherView",
   components: {
-    SxPublisher
+    SxPublisher,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

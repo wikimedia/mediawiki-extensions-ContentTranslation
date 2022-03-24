@@ -1,7 +1,7 @@
 import {
   cleanupHtml,
   getTitleForPublishOption,
-  prependNewSectionToAppendixSection
+  prependNewSectionToAppendixSection,
 } from "../../../utils/publishHelper";
 
 export default {
@@ -15,11 +15,8 @@ export default {
    * @return {string}
    */
   getArticleTitleForPublishing: (state, getters, rootState) => {
-    const {
-      currentSectionSuggestion,
-      publishTarget,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, publishTarget, currentSourceSection } =
+      rootState.application;
     const baseTitle =
       currentSectionSuggestion.targetTitle || currentSourceSection.title;
 
@@ -44,10 +41,8 @@ export default {
    * @return {string}
    */
   getSectionTitleForPublishing: (state, getters, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } =
+      rootState.application;
 
     if (currentSourceSection.isLeadSection) {
       return "";
@@ -99,10 +94,8 @@ export default {
    * @return {number|"new"}
    */
   getSectionNumberForPublishing: (state, getters, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } =
+      rootState.application;
 
     // if current section is a lead section, its position should always be 0
     // if current publishing target is user's sandbox, the section should be
@@ -170,14 +163,13 @@ export default {
    * @return {String} - HTML to be published
    */
   getCleanHTMLForPublishing: (state, getters, rootState, rootGetters) => {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection
-    } = rootState.application;
+    const { currentSectionSuggestion, currentSourceSection } =
+      rootState.application;
 
-    const isPresentSection = !!currentSectionSuggestion.presentSections[
-      currentSourceSection.originalTitle
-    ];
+    const isPresentSection =
+      !!currentSectionSuggestion.presentSections[
+        currentSourceSection.originalTitle
+      ];
 
     const firstAppendixTargetTitle = rootGetters[
       "suggestions/getFirstAppendixTitleBySectionSuggestion"
@@ -197,7 +189,7 @@ export default {
     const targetPage = rootGetters["application/getCurrentTargetPage"];
     // if section is missing and appendix sections DO exist
     const appendixSection = targetPage.sections.find(
-      section => section.originalTitle === firstAppendixTargetTitle
+      (section) => section.originalTitle === firstAppendixTargetTitle
     );
 
     return prependNewSectionToAppendixSection(
@@ -210,48 +202,44 @@ export default {
    * @param {Object} state
    * @return {function(string, string): Translation[]}
    */
-  getPublishedTranslationsForLanguagePair: state => (
-    sourceLanguage,
-    targetLanguage
-  ) =>
+  getPublishedTranslationsForLanguagePair:
+    (state) => (sourceLanguage, targetLanguage) =>
+      state.translations.filter(
+        (translationItem) =>
+          translationItem.sourceLanguage === sourceLanguage &&
+          translationItem.targetLanguage === targetLanguage &&
+          translationItem.status === "published"
+      ),
+  getDraftTranslationsForLanguagePair:
+    (state) => (sourceLanguage, targetLanguage) =>
+      state.translations.filter(
+        (translationItem) =>
+          translationItem.sourceLanguage === sourceLanguage &&
+          translationItem.targetLanguage === targetLanguage &&
+          translationItem.status === "draft"
+      ),
+  getPublishedTranslations: (state) =>
     state.translations.filter(
-      translationItem =>
-        translationItem.sourceLanguage === sourceLanguage &&
-        translationItem.targetLanguage === targetLanguage &&
-        translationItem.status === "published"
+      (translationItem) => translationItem.status === "published"
     ),
-  getDraftTranslationsForLanguagePair: state => (
-    sourceLanguage,
-    targetLanguage
-  ) =>
+  getDraftTranslations: (state) =>
     state.translations.filter(
-      translationItem =>
-        translationItem.sourceLanguage === sourceLanguage &&
-        translationItem.targetLanguage === targetLanguage &&
-        translationItem.status === "draft"
-    ),
-  getPublishedTranslations: state =>
-    state.translations.filter(
-      translationItem => translationItem.status === "published"
-    ),
-  getDraftTranslations: state =>
-    state.translations.filter(
-      translationItem => translationItem.status === "draft"
+      (translationItem) => translationItem.status === "draft"
     ),
   // Function with dummy implementation. Needed to add real functionality later
-  hasSectionTranslations: state =>
-    state.translations.some(translation => translation.hasSectionTranslations),
+  hasSectionTranslations: (state) =>
+    state.translations.some(
+      (translation) => translation.hasSectionTranslations
+    ),
   /**
    * @param state
    * @return {function(sourceLanguage: string, targetLanguage: string): Translation[]}
    */
-  getAllTranslationsForLanguagePair: state => (
-    sourceLanguage,
-    targetLanguage
-  ) =>
-    state.translations.filter(
-      translation =>
-        translation.sourceLanguage === sourceLanguage &&
-        translation.targetLanguage === targetLanguage
-    )
+  getAllTranslationsForLanguagePair:
+    (state) => (sourceLanguage, targetLanguage) =>
+      state.translations.filter(
+        (translation) =>
+          translation.sourceLanguage === sourceLanguage &&
+          translation.targetLanguage === targetLanguage
+      ),
 };

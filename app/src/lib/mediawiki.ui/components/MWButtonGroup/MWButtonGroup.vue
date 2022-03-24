@@ -20,7 +20,7 @@ import MwButton from "../MWButton";
 export default {
   name: "MwButtonGroup",
   components: {
-    MwButton
+    MwButton,
   },
   props: {
     /**
@@ -29,20 +29,20 @@ export default {
      **/
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     /**
      * Value of the button that should be active
      **/
     active: {
       type: String,
-      default: null
+      default: null,
     },
     activeIndicatorColor: {
       type: String,
       required: false,
-      default: "#202122"
-    }
+      default: "#202122",
+    },
   },
   emits: ["select"],
   methods: {
@@ -57,10 +57,10 @@ export default {
     buttonClasses(item) {
       return {
         "mw-ui-button--selected": this.isActive(item),
-        [item.props.class || ""]: true
+        [item.props.class || ""]: true,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

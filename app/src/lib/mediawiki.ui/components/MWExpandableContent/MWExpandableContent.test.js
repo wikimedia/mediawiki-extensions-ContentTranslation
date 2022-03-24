@@ -6,7 +6,7 @@ describe("MwExpandableContent.vue", () => {
 
   test("is a Vue instance", () => {
     const wrapper = shallowMount(MwExpandableContent, {
-      props: { minHeight }
+      props: { minHeight },
     });
     expect(wrapper.vm).toBeTruthy();
   });
@@ -18,8 +18,8 @@ describe("MwExpandableContent.vue", () => {
     const wrapper = shallowMount(MwExpandableContent, {
       props: { minHeight },
       slots: {
-        default: "<div>This is a sentence</div>"
-      }
+        default: "<div>This is a sentence</div>",
+      },
     });
     // Wait for two ticks so that onMounted function is complete and
     // contentMinHeight computed property is updated

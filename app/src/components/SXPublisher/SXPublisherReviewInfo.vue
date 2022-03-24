@@ -57,7 +57,7 @@ import {
   mwIconAlert,
   mwIconBlock,
   mwIconPrevious,
-  mwIconArrowForward
+  mwIconArrowForward,
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
 import { computed, ref } from "vue";
@@ -71,7 +71,7 @@ export default {
     MwCol,
     MwRow,
     MwMessage,
-    MwIcon
+    MwIcon,
   },
   setup() {
     const store = useStore();
@@ -140,9 +140,9 @@ export default {
       reviewIcon,
       reviewInfoClass,
       publishFeedbackMessages,
-      status
+      status,
     };
-  }
+  },
 };
 </script>
 

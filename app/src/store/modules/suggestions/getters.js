@@ -2,29 +2,28 @@ export default {
   /**
    * @return {SuggestionSeedCollection}
    */
-  findSectionSuggestionSeedCollection: state => (
-    sourceLanguage,
-    targetLanguage
-  ) =>
-    state.sectionSuggestionSeedCollections.find(collection =>
-      collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    ),
+  findSectionSuggestionSeedCollection:
+    (state) => (sourceLanguage, targetLanguage) =>
+      state.sectionSuggestionSeedCollections.find((collection) =>
+        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
+      ),
   /**
    * @return {SuggestionSeedCollection}
    */
-  findPageSuggestionSeedCollection: state => (sourceLanguage, targetLanguage) =>
-    state.pageSuggestionSeedCollections.find(collection =>
-      collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    ),
-  getPageSuggestionsForPair: state => (sourceLanguage, targetLanguage) =>
+  findPageSuggestionSeedCollection:
+    (state) => (sourceLanguage, targetLanguage) =>
+      state.pageSuggestionSeedCollections.find((collection) =>
+        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
+      ),
+  getPageSuggestionsForPair: (state) => (sourceLanguage, targetLanguage) =>
     state.pageSuggestions.filter(
-      suggestionItem =>
+      (suggestionItem) =>
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage
     ),
-  getSectionSuggestionsForPair: state => (sourceLanguage, targetLanguage) =>
+  getSectionSuggestionsForPair: (state) => (sourceLanguage, targetLanguage) =>
     state.sectionSuggestions.filter(
-      suggestionItem =>
+      (suggestionItem) =>
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage
     ),
@@ -33,28 +32,22 @@ export default {
    * @param state
    * @return {function(string, string, string): SectionSuggestion}
    */
-  getSectionSuggestionsForArticle: state => (
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ) =>
-    state.sectionSuggestions.find(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage &&
-        suggestionItem.sourceTitle === sourceTitle
-    ),
-  sectionSuggestionsForArticleExists: state => (
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ) =>
-    state.sectionSuggestions.some(
-      suggestionItem =>
-        suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage &&
-        suggestionItem.sourceTitle === sourceTitle
-    ),
+  getSectionSuggestionsForArticle:
+    (state) => (sourceLanguage, targetLanguage, sourceTitle) =>
+      state.sectionSuggestions.find(
+        (suggestionItem) =>
+          suggestionItem.sourceLanguage === sourceLanguage &&
+          suggestionItem.targetLanguage === targetLanguage &&
+          suggestionItem.sourceTitle === sourceTitle
+      ),
+  sectionSuggestionsForArticleExists:
+    (state) => (sourceLanguage, targetLanguage, sourceTitle) =>
+      state.sectionSuggestions.some(
+        (suggestionItem) =>
+          suggestionItem.sourceLanguage === sourceLanguage &&
+          suggestionItem.targetLanguage === targetLanguage &&
+          suggestionItem.sourceTitle === sourceTitle
+      ),
   /**
    * This getter returns the first (by order of appearance) appendix section
    * title found inside target article page. Appendix section titles for each
@@ -65,20 +58,21 @@ export default {
    * @param {Object} state
    * @return {function(SectionSuggestion): {String|null}}
    */
-  getFirstAppendixTitleBySectionSuggestion: state =>
+  getFirstAppendixTitleBySectionSuggestion:
+    (state) =>
     /**
      * @param {SectionSuggestion} sectionSuggestion
      * @return {String|null}
      */
-    sectionSuggestion => {
+    (sectionSuggestion) => {
       const appendixTitles =
         state.appendixSectionTitles[sectionSuggestion.targetLanguage] || [];
 
-      return (sectionSuggestion.targetSections || []).find(title =>
+      return (sectionSuggestion.targetSections || []).find((title) =>
         appendixTitles.includes(title)
       );
     },
-  appendixTitlesExistForLanguage: state => language =>
+  appendixTitlesExistForLanguage: (state) => (language) =>
     (state.appendixSectionTitles?.[language] || []).length > 0,
   /**
    * This getter calculates and returns the number of suggestions to fetch,
@@ -90,17 +84,13 @@ export default {
    * @param {Object} getters
    * @return {function(sourceLanguage: string, targetLanguage: string): number}
    */
-  getNumberOfSectionSuggestionsToFetch: (state, getters) => (
-    sourceLanguage,
-    targetLanguage
-  ) => {
-    const existingSuggestionsForLanguagePair = getters.getSectionSuggestionsForPair(
-      sourceLanguage,
-      targetLanguage
-    );
+  getNumberOfSectionSuggestionsToFetch:
+    (state, getters) => (sourceLanguage, targetLanguage) => {
+      const existingSuggestionsForLanguagePair =
+        getters.getSectionSuggestionsForPair(sourceLanguage, targetLanguage);
 
-    const pageSize = state.maxSuggestionsPerSlice;
+      const pageSize = state.maxSuggestionsPerSlice;
 
-    return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
-  }
+      return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
+    },
 };

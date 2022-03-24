@@ -38,7 +38,7 @@ $font-stack-monospace: "Menlo", "Consolas", "Liberation Mono", "Courier New",
 $font-stack: (
   serif: $font-stack-libertine,
   sans: $font-stack-system,
-  monospace: $font-stack-monospace
+  monospace: $font-stack-monospace,
 );
 
 $list-style-type: (
@@ -60,7 +60,7 @@ $list-style-type: (
   luz: persian,
   mzn: persian,
   ckb: arabic-indic,
-  sdh: arabic-indic
+  sdh: arabic-indic,
 );
 
 // Variables

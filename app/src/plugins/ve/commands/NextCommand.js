@@ -7,7 +7,7 @@ const SXEditorNextCommand = function SXEditorNextCommand() {
 };
 OO.inheritClass(SXEditorNextCommand, ve.ui.Command);
 
-SXEditorNextCommand.prototype.execute = function() {
+SXEditorNextCommand.prototype.execute = function () {
   ve.init.target.next();
 };
 ve.ui.commandRegistry.register(new SXEditorNextCommand());

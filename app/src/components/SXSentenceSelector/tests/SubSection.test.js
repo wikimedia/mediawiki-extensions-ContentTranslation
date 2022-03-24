@@ -39,19 +39,20 @@ const nodeHtml2 = `
 
 const mockNodes = [
   createSectionNode(nodeHtml1, "cxSourceSection17", 3),
-  createSectionNode(nodeHtml2, "cxSourceSection18", 3)
+  createSectionNode(nodeHtml2, "cxSourceSection18", 3),
 ];
 
 jest.mock("@/utils/visualEditorHelper", () => ({
   __esModule: true, // this property makes it work
-  getSubSectionNodes: jest.fn(html => mockNodes)
+  getSubSectionNodes: jest.fn((html) => mockNodes),
 }));
 
 describe("SXSentenceSelector SubSection component", () => {
   const htmlContent = "Dummy (unused) HTML Content";
-  const pageSections = segmentedContentConverter.convertSegmentedContentToPageSections(
-    htmlContent
-  );
+  const pageSections =
+    segmentedContentConverter.convertSegmentedContentToPageSections(
+      htmlContent
+    );
   /** @type SubSection **/
   const subSection = pageSections[0].subSections[0];
   const applicationModule = {
@@ -60,28 +61,27 @@ describe("SXSentenceSelector SubSection component", () => {
       selectTranslationUnitById: ({}, id) => {
         const sentence = subSection.getSentenceById(id);
         sentence.selected = true;
-      }
-    }
+      },
+    },
   };
   const mediawikiModule = {
     namespaced: true,
     state: {},
     getters: {
-      getSupportedMTProviders: state => () => [
-        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
-      ]
-    }
+      getSupportedMTProviders: (state) => () =>
+        [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY],
+    },
   };
   const store = createStore({
     modules: {
       mediawiki: mediawikiModule,
-      application: applicationModule
-    }
+      application: applicationModule,
+    },
   });
 
   const wrapper = mount(SubSection, {
     global: { plugins: [store, i18n] },
-    props: { subSection }
+    props: { subSection },
   });
 
   it("Component output matches snapshot", () => {

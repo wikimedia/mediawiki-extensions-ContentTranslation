@@ -1,18 +1,18 @@
-import { Story, Canvas, Meta, ArgsTable } from '@storybook/addon-docs';
+import { Story, Canvas, Meta, ArgsTable } from "@storybook/addon-docs";
 import MwExpandableContent from "./MWExpandableContent";
 
 <Meta
-    title="Components/ExpandableContent"
-    component={MwExpandableContent}
-    parameters={{ layout: "centered" }}
-    argTypes={{
-        minHeight : {
-          control: { type: 'number' }
-        },
-        scroll : {
-          control: { type: 'boolean' }
-        }
-    }}
+  title="Components/ExpandableContent"
+  component={MwExpandableContent}
+  parameters={{ layout: "centered" }}
+  argTypes={{
+    minHeight: {
+      control: { type: "number" },
+    },
+    scroll: {
+      control: { type: "boolean" },
+    },
+  }}
 />
 
 # ExpandableContent
@@ -20,7 +20,6 @@ import MwExpandableContent from "./MWExpandableContent";
 MWExpandableContent provides a content panel that is by default
 collapsed to a given size and can be optionally expanded to its maximum
 content size by dragging a handler.
-
 
 export const ExpandableContentWithScrollButtons = (args, { argTypes }) => ({
   components: { MwExpandableContent },
@@ -39,7 +38,7 @@ export const ExpandableContentWithScrollButtons = (args, { argTypes }) => ({
           This is the eleventh sentence. This is the twelfth sentence.
         </div>
       </mw-expandable-content>
-    `
+    `,
 });
 
 <Canvas>
@@ -47,14 +46,11 @@ export const ExpandableContentWithScrollButtons = (args, { argTypes }) => ({
     name="Expandable Content With Scroll Buttons"
     args={{
       minHeight: 52,
-      scroll: true
+      scroll: true,
     }}
   >
-   {ExpandableContentWithScrollButtons.bind({})}
+    {ExpandableContentWithScrollButtons.bind({})}
   </Story>
 </Canvas>
 
 <ArgsTable of={MwExpandableContent} />
-
-
-

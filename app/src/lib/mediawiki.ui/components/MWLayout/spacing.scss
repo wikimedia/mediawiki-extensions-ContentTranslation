@@ -21,7 +21,7 @@
       padding-inline-end: #{$width}px;
     }
     .me-#{$mediaKey}auto {
-      margin-inline-end: auto
+      margin-inline-end: auto;
     }
     .me-#{$mediaKey}#{$counter} {
       margin-inline-end: #{$width}px;
@@ -50,7 +50,7 @@
       padding-block-start: #{$width}px;
     }
     .mt-#{$mediaKey}auto {
-      margin-block-start: auto
+      margin-block-start: auto;
     }
     .mt-#{$mediaKey}#{$counter} {
       margin-block-start: #{$width}px;

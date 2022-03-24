@@ -8,7 +8,7 @@ import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
 const mockMessage = new PublishFeedbackMessage({
   text: "Test error",
-  status: "error"
+  status: "error",
 });
 
 jest.mock("@/wiki/cx/api/translator", () => ({
@@ -18,7 +18,7 @@ jest.mock("@/wiki/cx/api/translator", () => ({
     } else if (sectionNumber === 2) {
       return mockMessage;
     }
-  })
+  }),
 }));
 
 describe("vuex store publishTranslation action", () => {
@@ -33,24 +33,24 @@ describe("vuex store publishTranslation action", () => {
     targetLanguage: "es",
     currentSourceSection: new PageSection({ title: "Test section title 1" }),
     currentSectionSuggestion: new SectionSuggestion({
-      sourceTitle: "Test source title 1"
+      sourceTitle: "Test source title 1",
     }),
-    publishFeedbackMessages: []
+    publishFeedbackMessages: [],
   };
 
   const rootState = {
-    application: applicationState
+    application: applicationState,
   };
 
   const rootGetters = {
-    "application/getCurrentPage": new Page({ lastrevid: 11 })
+    "application/getCurrentPage": new Page({ lastrevid: 11 }),
   };
 
   const getters = {
     getArticleTitleForPublishing: "Test target article title 1",
     getSectionTitleForPublishing: "Test target section title 1",
     getSectionNumberForPublishing: 1,
-    getCleanHTMLForPublishing: "<div>Test 1</div>"
+    getCleanHTMLForPublishing: "<div>Test 1</div>",
   };
 
   it("should call api publishTranslation method with the proper payload", async () => {
@@ -58,7 +58,7 @@ describe("vuex store publishTranslation action", () => {
       rootState,
       commit,
       rootGetters,
-      getters
+      getters,
     });
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledTimes(1);
@@ -71,7 +71,7 @@ describe("vuex store publishTranslation action", () => {
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      sectionNumber: 1
+      sectionNumber: 1,
     });
   });
 
@@ -80,7 +80,7 @@ describe("vuex store publishTranslation action", () => {
       rootState,
       commit,
       rootGetters,
-      getters
+      getters,
     });
 
     expect(applicationState.publishFeedbackMessages).toStrictEqual([]);
@@ -92,7 +92,7 @@ describe("vuex store publishTranslation action", () => {
       rootState,
       commit,
       rootGetters,
-      getters
+      getters,
     });
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
       html: "<div>Test 1</div>",
@@ -103,10 +103,10 @@ describe("vuex store publishTranslation action", () => {
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      sectionNumber: 2
+      sectionNumber: 2,
     });
     expect(applicationState.publishFeedbackMessages).toStrictEqual([
-      mockMessage
+      mockMessage,
     ]);
   });
 
@@ -118,7 +118,7 @@ describe("vuex store publishTranslation action", () => {
         rootState,
         commit,
         rootGetters,
-        getters
+        getters,
       });
     } catch (e) {
       expect(e.message).toBe(

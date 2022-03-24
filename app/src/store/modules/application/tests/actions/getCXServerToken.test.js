@@ -11,14 +11,14 @@ jest.mock("../../../../../wiki/mw/api/site", () => {
       }
 
       return Promise.reject("token-impossible");
-    }
+    },
   };
 });
 
 describe("vuex application/actions/getCXServerToken tests", () => {
   const state = { cxServerToken: null };
   const mutations = {
-    setCXServerToken: token => (state.cxServerToken = token)
+    setCXServerToken: (token) => (state.cxServerToken = token),
   };
   const commit = jest.fn((mutation, payload) => mutations[mutation](payload));
   const dispatch = jest.fn();
@@ -29,7 +29,7 @@ describe("vuex application/actions/getCXServerToken tests", () => {
     const expectedToken = {
       age: 3600,
       refreshAt: now + 3570,
-      jwt: "test-jwt"
+      jwt: "test-jwt",
     };
     expect(commit).toHaveBeenCalledWith("setCXServerToken", expectedToken);
     expect(jwt).toBe(expectedToken.jwt);
@@ -47,7 +47,7 @@ describe("vuex application/actions/getCXServerToken tests", () => {
     const now = Math.floor(Date.now() / 1000);
     const expectedToken = {
       refreshAt: now + 3600 * 10,
-      jwt: ""
+      jwt: "",
     };
     expect(commit).toHaveBeenCalledWith("setCXServerToken", expectedToken);
     expect(jwt).toBe(expectedToken.jwt);

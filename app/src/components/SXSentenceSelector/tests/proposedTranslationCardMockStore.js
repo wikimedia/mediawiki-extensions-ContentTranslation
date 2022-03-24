@@ -18,22 +18,22 @@ const applicationModule = {
           node: { id: "test-sub-section", children: [] },
           sentences: [
             new SectionSentence({ selected: true }),
-            new SectionSentence({})
-          ]
-        })
-      ]
-    })
+            new SectionSentence({}),
+          ],
+        }),
+      ],
+    }),
   },
   getters: {
-    getCurrentProposedTranslation: state => state.content
+    getCurrentProposedTranslation: (state) => state.content,
   },
   mutations: {
     setCurrentMTProvider: (state, provider) => {
       state.currentMTProvider = provider;
-    }
-  }
+    },
+  },
 };
 
 export default createStore({
-  modules: { application: applicationModule }
+  modules: { application: applicationModule },
 });

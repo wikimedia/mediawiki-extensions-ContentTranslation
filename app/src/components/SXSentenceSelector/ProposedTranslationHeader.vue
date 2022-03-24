@@ -34,7 +34,7 @@ export default {
   components: {
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   emits: ["configure-options"],
   setup() {
@@ -51,7 +51,7 @@ export default {
       ),
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
         "cx-sx-sentence-selector-translation-options-empty-card-title"
-      )
+      ),
     }));
 
     const mtOptionLabel = computed(
@@ -65,9 +65,9 @@ export default {
 
     return {
       mwIconEllipsis,
-      mtOptionLabel
+      mtOptionLabel,
     };
-  }
+  },
 };
 </script>
 

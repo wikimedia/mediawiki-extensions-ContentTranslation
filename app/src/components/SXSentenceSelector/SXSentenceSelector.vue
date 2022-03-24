@@ -107,7 +107,7 @@ export default {
     MwRow,
     MwCol,
     SxTranslationSelector,
-    MwButton
+    MwButton,
   },
   setup() {
     const isTranslationOptionsActive = ref(false);
@@ -119,7 +119,7 @@ export default {
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
-      selectedContentTranslationUnit
+      selectedContentTranslationUnit,
     } = useApplicationState(store);
 
     const isSelectedTranslationUnitTranslated = computed(
@@ -180,7 +180,7 @@ export default {
       );
     };
 
-    const editTranslation = content =>
+    const editTranslation = (content) =>
       router.push({
         name: "sx-editor",
         params: {
@@ -188,8 +188,8 @@ export default {
           sourceLanguage: suggestion.value.sourceLanguage,
           targetLanguage: suggestion.value.targetLanguage,
           originalContent: originalSegmentContent.value,
-          title: suggestion.value.targetTitle || suggestion.value.sourceTitle
-        }
+          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+        },
       });
 
     const previewTranslation = () => router.push({ name: "sx-publisher" });
@@ -217,7 +217,7 @@ export default {
         // Note that we only check for the top-left corner of the rectangle, so
         // if a small portion of a line is hidden, the line is still considered
         // to be visible.
-        rect => document.elementFromPoint(rect.x, rect.y) === segment
+        (rect) => document.elementFromPoint(rect.x, rect.y) === segment
       );
 
       if (isInView) {
@@ -227,7 +227,7 @@ export default {
       segment.scrollIntoView({
         behavior: "smooth",
         block: "center",
-        inline: "nearest"
+        inline: "nearest",
       });
     });
 
@@ -253,9 +253,9 @@ export default {
       shouldProposedTranslationBounce,
       skipTranslation,
       sourceLanguage: suggestion.value.sourceLanguage,
-      subSections
+      subSections,
     };
-  }
+  },
 };
 </script>
 

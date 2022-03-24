@@ -22,12 +22,12 @@ export default class PageSection {
     title = null,
     subSections = [],
     isLeadSection = false,
-    isTitleSelected = false
+    isTitleSelected = false,
   } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
     };
     this.translatedTitle = "";
     this.subSections = subSections;
@@ -72,14 +72,14 @@ export default class PageSection {
    * @return {SubSection|SectionSentence|null}
    */
   get selectedContentTranslationUnit() {
-    return this.contentTranslationUnits.find(unit => unit.selected);
+    return this.contentTranslationUnits.find((unit) => unit.selected);
   }
 
   /**
    * @return {number}
    */
   get selectedContentTranslationUnitIndex() {
-    return this.contentTranslationUnits.findIndex(unit => unit.selected);
+    return this.contentTranslationUnits.findIndex((unit) => unit.selected);
   }
 
   /**
@@ -87,7 +87,7 @@ export default class PageSection {
    * @return {SubSection|SectionSentence|null}
    */
   getContentTranslationUnitById(id) {
-    return this.contentTranslationUnits.find(unit => unit.id === id);
+    return this.contentTranslationUnits.find((unit) => unit.id === id);
   }
 
   /**
@@ -166,7 +166,7 @@ export default class PageSection {
    * @return {boolean}
    */
   get isTranslated() {
-    return this.subSections.some(subSection => subSection.isTranslated);
+    return this.subSections.some((subSection) => subSection.isTranslated);
   }
 
   getOriginalContentByTranslationUnitId(id) {
@@ -192,7 +192,7 @@ export default class PageSection {
 
   resetSelection() {
     this.isTitleSelected = false;
-    this.contentTranslationUnits.forEach(unit => {
+    this.contentTranslationUnits.forEach((unit) => {
       if (unit instanceof SubSection) {
         unit.blockTemplateSelected = false;
       } else if (unit instanceof SectionSentence) {
@@ -271,7 +271,8 @@ export default class PageSection {
     }
 
     if (this.selectedContentTranslationUnit instanceof SubSection) {
-      this.selectedContentTranslationUnit.blockTemplateTranslatedContent = translation;
+      this.selectedContentTranslationUnit.blockTemplateTranslatedContent =
+        translation;
     } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
       this.selectedContentTranslationUnit.translatedContent = translation;
     }

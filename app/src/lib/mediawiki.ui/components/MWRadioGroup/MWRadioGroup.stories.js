@@ -2,7 +2,7 @@ import { MwRadioGroup, MwRadio } from "./";
 const argTypes = {
   value: { control: { type: "string" } },
   items: { control: { type: "array" } },
-  disabled: { control: { type: "boolean" } }
+  disabled: { control: { type: "boolean" } },
 };
 
 export default {
@@ -10,7 +10,7 @@ export default {
   component: MwRadioGroup,
   subcomponents: { MwRadio },
   argTypes,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const RadioButtonGroup = (args, { argTypes }) => ({
@@ -24,15 +24,15 @@ export const RadioButtonGroup = (args, { argTypes }) => ({
         name="radio-button-group"
       ></mw-radio-group>
     </div>
-  `
+  `,
 });
 
 RadioButtonGroup.args = {
   value: "second",
   items: [
     { value: "first", text: "First radio button" },
-    { value: "second", text: "Second radio button" }
-  ]
+    { value: "second", text: "Second radio button" },
+  ],
 };
 
 export const RadioButtonGroupWithCustomSlot = (args, { argTypes }) => ({
@@ -59,10 +59,10 @@ export const RadioButtonGroupWithCustomSlot = (args, { argTypes }) => ({
         </template>
       </mw-radio-group>  
     </div>
-    `
+    `,
 });
 
 RadioButtonGroupWithCustomSlot.args = {
   value: "new_section",
-  disabled: false
+  disabled: false,
 };

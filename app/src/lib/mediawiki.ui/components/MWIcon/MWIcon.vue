@@ -27,42 +27,42 @@ export default {
      **/
     icon: {
       type: [String, Object],
-      default: null
+      default: null,
     },
     iconName: {
       type: String,
-      default: null
+      default: null,
     },
     /**
      * Icon color
      **/
     iconColor: {
       type: String,
-      default: "currentColor"
+      default: "currentColor",
     },
     /**
      * Icon size
      **/
     size: {
       type: [Number, String],
-      default: 20
-    }
+      default: 20,
+    },
   },
   computed: {
-    classes: vm => ({
-      "mw-ui-icon--noflip": !vm.flip
+    classes: (vm) => ({
+      "mw-ui-icon--noflip": !vm.flip,
     }),
-    iconImagePath: vm => vm.icon?.path || vm.icon,
+    iconImagePath: (vm) => vm.icon?.path || vm.icon,
     /**
      * Whether the icon should be flipped on RTL(Default: true)
      */
-    flip: vm => vm.icon?.flippable !== false
+    flip: (vm) => vm.icon?.flippable !== false,
   },
   methods: {
     handleClick(e) {
       this.$emit("click", e);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -20,8 +20,8 @@ export default {
   props: {
     subSection: {
       type: SubSection,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["bounce-translation"],
   setup(props, { emit }) {
@@ -29,7 +29,7 @@ export default {
     const content = useSubSectionContent(props.subSection);
 
     onMounted(() => {
-      subSectionRoot.value.addEventListener("click", event => {
+      subSectionRoot.value.addEventListener("click", (event) => {
         let translationUnit;
 
         if (props.subSection.isBlockTemplate) {
@@ -47,7 +47,7 @@ export default {
     /**
      * @param {SubSection|SectionSentence} translationUnit
      */
-    const selectContentTranslationUnit = translationUnit => {
+    const selectContentTranslationUnit = (translationUnit) => {
       if (translationUnit.selected) {
         emit("bounce-translation");
 
@@ -61,15 +61,15 @@ export default {
 
     const rootClasses = computed(() => ({
       "sx-sentence-selector__subsection--block-selected":
-        props.subSection.selected
+        props.subSection.selected,
     }));
 
     return {
       content,
       rootClasses,
-      subSectionRoot
+      subSectionRoot,
     };
-  }
+  },
 };
 </script>
 

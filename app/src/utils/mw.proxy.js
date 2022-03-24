@@ -1,20 +1,20 @@
-const Api = function() {};
+const Api = function () {};
 
-const toQueryStringValue = value => {
+const toQueryStringValue = (value) => {
   return encodeURIComponent(
     typeof value === "object" ? value.join("|") : value
   );
 };
 
-Api.prototype.ajax = function(params) {
+Api.prototype.ajax = function (params) {
   params["origin"] = "*";
   const q = Object.keys(params)
-    .map(key => {
+    .map((key) => {
       return `${key}=${toQueryStringValue(params[key])}`;
     })
     .join("&");
 
-  return fetch(`https://en.wikipedia.org/w/api.php?${q}`).then(r => r.json());
+  return fetch(`https://en.wikipedia.org/w/api.php?${q}`).then((r) => r.json());
 };
 
 class SiteMapper {
@@ -34,16 +34,16 @@ class SiteMapper {
 const mw = {
   Api,
   eventLog: {
-    submit: jest.fn()
+    submit: jest.fn(),
   },
   user: {
     sessionId: () => "test-session-id",
     getName: () => "test-username",
-    isAnon: () => false
+    isAnon: () => false,
   },
   util: {},
   config: {
-    get: name => {
+    get: (name) => {
       switch (name) {
         case "wgUserName":
           return "MWProxyUser";
@@ -64,21 +64,21 @@ const mw = {
         default:
           return null;
       }
-    }
+    },
   },
-  message: message => ({
+  message: (message) => ({
     toString: () => message,
-    params: param => ({ parse: () => message }),
-    parse: () => message
+    params: (param) => ({ parse: () => message }),
+    parse: () => message,
   }),
   Message: class {},
   cookie: {
-    get: key =>
+    get: (key) =>
       [{ key: "GeoIP", value: "FI:Helsinki:60.1756:24.9342:v4" }].find(
-        cookie => cookie.key === key
-      ).value
+        (cookie) => cookie.key === key
+      ).value,
   },
-  cx: { SiteMapper }
+  cx: { SiteMapper },
 };
 
 global.mw = mw;

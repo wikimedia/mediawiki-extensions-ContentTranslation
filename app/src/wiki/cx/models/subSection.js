@@ -1,6 +1,6 @@
 import {
   parseTemplateName,
-  isTransclusionNode
+  isTransclusionNode,
 } from "../../../utils/templateHelper";
 
 /**
@@ -57,7 +57,7 @@ export default class SubSection {
       subSectionNode.getElementsByClassName("cx-segment")
     );
 
-    segments.forEach(segment => {
+    segments.forEach((segment) => {
       const sentence = this.getSentenceById(segment.dataset.segmentid);
 
       if (sentence.isTranslated) {
@@ -86,7 +86,7 @@ export default class SubSection {
       return !!this.blockTemplateTranslatedContent;
     }
 
-    return this.sentences.some(sentence => sentence.isTranslated);
+    return this.sentences.some((sentence) => sentence.isTranslated);
   }
 
   /**
@@ -94,7 +94,7 @@ export default class SubSection {
    * @return {SectionSentence}
    */
   getSentenceById(id) {
-    return this.sentences.find(sentence => sentence.id === id);
+    return this.sentences.find((sentence) => sentence.id === id);
   }
 
   /**
@@ -125,7 +125,7 @@ export default class SubSection {
    * @return {HTMLElement|null}
    */
   get transclusionNode() {
-    return Array.from(this.node.children).find(node =>
+    return Array.from(this.node.children).find((node) =>
       isTransclusionNode(node)
     );
   }
@@ -161,7 +161,7 @@ export default class SubSection {
     }
     const div = document.createElement("div");
     div.innerHTML = this.blockTemplateProposedTranslations[provider];
-    const templateDiv = Array.from(div.children).find(node =>
+    const templateDiv = Array.from(div.children).find((node) =>
       isTransclusionNode(node)
     );
 

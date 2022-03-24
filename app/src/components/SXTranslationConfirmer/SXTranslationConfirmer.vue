@@ -47,7 +47,7 @@ import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerAr
 import { replaceUrl } from "@/utils/urlHandler";
 import {
   mwIconClose,
-  mwIconArticle
+  mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
 import { computed, onMounted } from "vue";
@@ -64,7 +64,7 @@ export default {
     MwCol,
     MwButton,
     SxArticleLanguageSelector,
-    SxTranslationConfirmerActionPanel
+    SxTranslationConfirmerActionPanel,
   },
   setup() {
     const store = useStore();
@@ -81,7 +81,7 @@ export default {
       store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
       logEvent({
         event_type: "dashboard_translation_start",
-        event_source: eventSource
+        event_source: eventSource,
       });
 
       // Start loading VE in background. Don't wait for it though.
@@ -103,9 +103,9 @@ export default {
       articleImageSource,
       mwIconArticle,
       mwIconClose,
-      onClose
+      onClose,
     };
-  }
+  },
 };
 </script>
 

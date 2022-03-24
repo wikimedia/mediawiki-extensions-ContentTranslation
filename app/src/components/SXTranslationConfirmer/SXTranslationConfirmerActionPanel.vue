@@ -77,21 +77,19 @@ export default {
     MwButton,
     MwRow,
     MwCol,
-    MwIcon
+    MwIcon,
   },
   setup() {
     const router = useRouter();
     const store = useStore();
     const colors = inject("colors");
-    const {
-      targetLanguageAutonym,
-      currentSectionSuggestion
-    } = useApplicationState(store);
+    const { targetLanguageAutonym, currentSectionSuggestion } =
+      useApplicationState(store);
 
     const {
       clearPreFilledSection,
       onSectionSelectorClick,
-      preFilledSectionTitle
+      preFilledSectionTitle,
     } = useSectionSelectorClickHandler(router, store);
 
     const {
@@ -99,7 +97,7 @@ export default {
       getActionButtonLabel,
       isProgressiveButton,
       targetArticlePath,
-      translationExists
+      translationExists,
     } = useActionPanel(currentSectionSuggestion);
 
     const bananaI18n = useI18n();
@@ -139,9 +137,9 @@ export default {
       targetArticlePath,
       targetLanguageAutonym,
       translationExists,
-      colors
+      colors,
     };
-  }
+  },
 };
 </script>
 

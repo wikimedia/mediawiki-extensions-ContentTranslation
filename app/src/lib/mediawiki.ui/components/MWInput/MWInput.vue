@@ -44,51 +44,51 @@ import MwIcon from "../MWIcon";
 export default {
   name: "MwInput",
   components: {
-    MwIcon
+    MwIcon,
   },
   props: {
     disabled: Boolean,
     large: Boolean,
     value: {
       type: String,
-      default: null
+      default: null,
     },
     placeholder: {
       type: String,
-      default: null
+      default: null,
     },
     icon: {
       type: String,
-      default: null
+      default: null,
     },
     iconSize: {
       type: [Number, String],
-      default: "24"
+      default: "24",
     },
     indicatorSize: {
       type: [Number, String],
-      default: "24"
+      default: "24",
     },
     indicator: {
       type: String,
-      default: null
+      default: null,
     },
     selectAll: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
       default: "input",
-      validator: value => {
+      validator: (value) => {
         // The value must match one of these strings
         return ["input", "search", "textarea"].indexOf(value) !== -1;
-      }
-    }
+      },
+    },
   },
   emits: ["click", "focus", "blur", "indicator-clicked"],
   data: () => ({
-    focused: false
+    focused: false,
   }),
   computed: {
     classes() {
@@ -97,15 +97,15 @@ export default {
         container: true, // This is a sub flex system
         "mw-ui-input--disabled": this.disabled,
         "mw-ui-input--large": this.large,
-        "mw-ui-input--focused": this.focused
+        "mw-ui-input--focused": this.focused,
       };
     },
-    customAttrs: vm => {
+    customAttrs: (vm) => {
       const attrs = { ...vm.$attrs };
       delete attrs.class;
 
       return attrs;
-    }
+    },
   },
   methods: {
     onClick(e) {
@@ -126,8 +126,8 @@ export default {
     onFocus(event) {
       this.focused = true;
       this.$emit("focus", event);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -10,15 +10,15 @@ import SxSectionSelector from "@/components/SXSectionSelector";
 export default {
   name: "SxSectionSelectorView",
   components: {
-    SxSectionSelector
+    SxSectionSelector,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

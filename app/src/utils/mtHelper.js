@@ -23,7 +23,7 @@ const CJKLanguages = [
   "zh-mo",
   "zh-my",
   "zh-sg",
-  "zh-tw"
+  "zh-tw",
 ];
 
 /**
@@ -57,7 +57,7 @@ const calculateUnmodifiedContent = (string1, string2, language) => {
   }
 
   // Find the intersection(tokens that did not change) two token sets
-  unmodifiedTokens = bigSet.filter(function(token) {
+  unmodifiedTokens = bigSet.filter(function (token) {
     return smallSet.indexOf(token) >= 0;
   });
 
@@ -74,7 +74,7 @@ const calculateUnmodifiedContent = (string1, string2, language) => {
  * @param {string} language
  * @return {string[]}
  */
-const tokenise = function(string, language) {
+const tokenise = function (string, language) {
   if (!string) {
     return [];
   }

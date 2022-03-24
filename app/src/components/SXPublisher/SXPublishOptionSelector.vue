@@ -59,7 +59,7 @@ import {
   MwDialog,
   MwDivider,
   MwRadio,
-  MwRadioGroup
+  MwRadioGroup,
 } from "@/lib/mediawiki.ui";
 import { mapState } from "vuex";
 
@@ -70,38 +70,38 @@ export default {
     MwRadioGroup,
     MwRadio,
     MwDivider,
-    MwDialog
+    MwDialog,
   },
   props: {
     active: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["update:active"],
   data: () => ({
-    mwIconArrowPrevious
+    mwIconArrowPrevious,
   }),
   computed: {
     ...mapState({
-      selectedOption: state => state.application.publishTarget,
-      isAnon: state => state.translator.isAnon
+      selectedOption: (state) => state.application.publishTarget,
+      isAnon: (state) => state.translator.isAnon,
     }),
-    publishOptions: vm => [
+    publishOptions: (vm) => [
       {
         label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
         details: vm.$i18n("cx-sx-publisher-new-section-option-details"),
         value: "NEW_SECTION",
-        disabled: false
+        disabled: false,
       },
       {
         label: vm.$i18n("cx-sx-publisher-sandbox-option-label"),
         details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
         value: "SANDBOX_SECTION",
-        disabled: vm.isAnon
-      }
+        disabled: vm.isAnon,
+      },
     ],
-    overlayColor: vm => vm.$mwui.colors.base10
+    overlayColor: (vm) => vm.$mwui.colors.base10,
   },
   methods: {
     optionMarginBottom(index) {
@@ -116,8 +116,8 @@ export default {
       const selectedOption = event.target.value;
       this.$store.commit("application/setPublishTarget", selectedOption);
       this.onPublishOptionsClose();
-    }
-  }
+    },
+  },
 };
 </script>
 

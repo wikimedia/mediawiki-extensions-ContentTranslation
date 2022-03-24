@@ -2,7 +2,7 @@ import Page from "./page";
 import PageSection from "../../cx/models/pageSection";
 import SubSection from "../../cx/models/subSection";
 
-const createEl = tag => {
+const createEl = (tag) => {
   const root = document.createElement("section");
   const child = document.createElement(tag);
   root.appendChild(child);
@@ -19,13 +19,13 @@ describe("test Page model", () => {
         subSections: [
           new SubSection({ node: createEl("h3"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
-          new SubSection({ node: createEl("div"), sentences: [] })
-        ]
+          new SubSection({ node: createEl("div"), sentences: [] }),
+        ],
       }),
       new PageSection({
         id: 2,
         title: "Test title 2",
-        subSections: [new SubSection({ node: createEl("div"), sentences: [] })]
+        subSections: [new SubSection({ node: createEl("div"), sentences: [] })],
       }),
       new PageSection({
         id: 3,
@@ -38,22 +38,22 @@ describe("test Page model", () => {
           new SubSection({ node: createEl("h4"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
           new SubSection({ node: createEl("h4"), sentences: [] }),
-          new SubSection({ node: createEl("div"), sentences: [] })
-        ]
+          new SubSection({ node: createEl("div"), sentences: [] }),
+        ],
       }),
       new PageSection({
         id: 4,
         title: "Test title 4",
         subSections: [
           new SubSection({ node: createEl("div"), sentences: [] }),
-          new SubSection({ node: createEl("div"), sentences: [] })
-        ]
+          new SubSection({ node: createEl("div"), sentences: [] }),
+        ],
       }),
-      new PageSection({ id: 4, title: "Appendix1" })
+      new PageSection({ id: 4, title: "Appendix1" }),
     ];
 
     const targetPage = new Page({
-      sections
+      sections,
     });
 
     expect(targetPage.getSectionNumberByTitle("Not existing")).toEqual(-1);

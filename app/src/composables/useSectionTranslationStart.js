@@ -20,7 +20,7 @@ const startSectionTranslation = async (
   const suggestion = await store.dispatch("suggestions/loadSectionSuggestion", {
     sourceLanguage: sourceLanguage.value,
     targetLanguage: targetLanguage.value,
-    sourceTitle: title
+    sourceTitle: title,
   });
 
   if (!suggestion) {
@@ -30,7 +30,7 @@ const startSectionTranslation = async (
   store.dispatch("application/initializeSectionTranslation", suggestion);
   router.push({
     name: "sx-translation-confirmer",
-    params: { previousRoute, eventSource }
+    params: { previousRoute, eventSource },
   });
 };
 

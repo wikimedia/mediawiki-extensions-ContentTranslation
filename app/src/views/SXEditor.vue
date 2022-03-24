@@ -10,19 +10,19 @@ import SxEditor from "@/components/SXEditor";
 export default {
   name: "SxContentComparatorView",
   components: {
-    SxEditor
+    SxEditor,
   },
   beforeRouteEnter(to, from, next) {
-    next(vm => {
+    next((vm) => {
       vm.fromRoute = from.name;
     });
   },
   data: () => ({
-    fromRoute: ""
+    fromRoute: "",
   }),
   computed: {
-    classes: vm => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
-  }
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown }),
+  },
 };
 </script>
 

@@ -17,7 +17,7 @@ import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 // https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
 Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -25,13 +25,13 @@ Object.defineProperty(window, "matchMedia", {
     removeListener: jest.fn(), // Deprecated
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn()
-  }))
+    dispatchEvent: jest.fn(),
+  })),
 });
 
 jest.mock("../../wiki/mw/api/page", () => {
   return {
-    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults))
+    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults)),
   };
 });
 
@@ -40,12 +40,13 @@ jest.mock("./usePageTranslationStart", () => jest.fn());
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
 const mockStartRecentlyEditedSectionTranslation = jest.fn();
 usePageTranslationStart.mockImplementation(() => ({
-  startRecentlyEditedSectionTranslation: mockStartRecentlyEditedSectionTranslation,
+  startRecentlyEditedSectionTranslation:
+    mockStartRecentlyEditedSectionTranslation,
   startNearbySectionTranslation: jest.fn(),
-  startSearchResultSectionTranslation: jest.fn()
+  startSearchResultSectionTranslation: jest.fn(),
 }));
 
-const getLocalStorageItem = jest.fn(item => JSON.stringify(["bn"]));
+const getLocalStorageItem = jest.fn((item) => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
 getItemSpy.mockImplementation(getLocalStorageItem);
 jest.mock("../../store", () => jest.requireActual("./articleSearchMockStore"));
@@ -67,7 +68,7 @@ mockStore.dispatch = jest.fn((action, payload) => {
       new SectionSuggestion({
         sourceLanguage,
         targetLanguage,
-        sourceTitle: payload.sourceTitle
+        sourceTitle: payload.sourceTitle,
       })
     );
   }
@@ -79,8 +80,8 @@ const eventLogging = createEventLogging();
 describe("SXArticleSearch component test", () => {
   const wrapper = mount(SXArticleSearch, {
     global: {
-      plugins: [mockStore, router, i18n, eventLogging, BreakpointsPlugin]
-    }
+      plugins: [mockStore, router, i18n, eventLogging, BreakpointsPlugin],
+    },
   });
 
   beforeEach(async () => {
@@ -96,7 +97,7 @@ describe("SXArticleSearch component test", () => {
     expect(wrapper.vm.suggestedSourceLanguages).toStrictEqual([
       "bn",
       "ar",
-      "ko"
+      "ko",
     ]);
   });
 
@@ -111,7 +112,7 @@ describe("SXArticleSearch component test", () => {
         thumbnail: { source: "/thumbnail1.jpg" },
         title: "Test page1",
         description: "Test description1",
-        langLinksCount: 5
+        langLinksCount: 5,
       })
     );
   });

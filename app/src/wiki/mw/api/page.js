@@ -27,12 +27,12 @@ const fetchPages = (language, titles) => {
     pithumbsize: defaultThumbnailSize,
     titles: titles.join("|"),
     origin: "*",
-    redirects: true
+    redirects: true,
   };
 
   const mwApi = siteMapper.getApi(language);
 
-  return mwApi.get(params).then(response => {
+  return mwApi.get(params).then((response) => {
     const apiResponse = response.query.pages;
     const redirects = response.query.redirects || [];
     const redirectMap = redirects.reduce(
@@ -40,7 +40,7 @@ const fetchPages = (language, titles) => {
       {}
     );
 
-    return apiResponse.map(page => {
+    return apiResponse.map((page) => {
       page = redirectMap[page.title]
         ? { ...page, _alias: redirectMap[page.title] }
         : page;
@@ -66,11 +66,11 @@ const fetchLanguageTitles = (language, title) => {
     titles: title,
     lllimit: 500, // Max limit. We have only ~300 wikis.
     origin: "*",
-    redirects: true
+    redirects: true,
   };
   const mwApi = siteMapper.getApi(language);
 
-  return mwApi.get(params).then(async response => {
+  return mwApi.get(params).then(async (response) => {
     const pages = response.query.pages;
 
     // When invalid title is provided a dummy page is return with "missing"
@@ -106,15 +106,16 @@ const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
     targetLanguage,
     sourceTitle
   ).then(
-    segmentedContent =>
+    (segmentedContent) =>
       new Page({
-        sections: segmentedContentConverter.convertSegmentedContentToPageSections(
-          segmentedContent,
-          false // No need to resolve references. Content can be used as it is
-        ),
+        sections:
+          segmentedContentConverter.convertSegmentedContentToPageSections(
+            segmentedContent,
+            false // No need to resolve references. Content can be used as it is
+          ),
         content: segmentedContent,
         pagelanguage: sourceLanguage,
-        title: sourceTitle
+        title: sourceTitle,
       })
   );
 };
@@ -128,19 +129,17 @@ const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
  * @return {Promise<String>}
  */
 const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
-  const cxServerParams = [
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  ].map(param => encodeURIComponent(param));
+  const cxServerParams = [sourceLanguage, targetLanguage, sourceTitle].map(
+    (param) => encodeURIComponent(param)
+  );
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
   const cxserverAPI = siteMapper.getCXServerUrl(
     `/page/${cxServerParams.join("/")}`
   );
 
   return fetch(cxserverAPI)
-    .then(response => response.json())
-    .then(response => response.segmentedContent);
+    .then((response) => response.json())
+    .then((response) => response.segmentedContent);
 };
 
 /**
@@ -150,7 +149,7 @@ const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
  * @param language
  * @return {Promise<Page[]>}
  */
-const fetchNearbyPages = async language => {
+const fetchNearbyPages = async (language) => {
   const coords = getUserCoordinates();
 
   if (!coords) {
@@ -169,15 +168,15 @@ const fetchNearbyPages = async language => {
     ggsnamespace: mw.config.get("wgNamespaceIds")[""], // Main namespace
     format: "json",
     formatversion: 2,
-    origin: "*"
+    origin: "*",
   };
 
   return await siteMapper
     .getApi(language)
     .get(params)
-    .then(response => response.query.pages)
-    .then(pages => pages.map(page => new Page(page)))
-    .catch(error => []);
+    .then((response) => response.query.pages)
+    .then((pages) => pages.map((page) => new Page(page)))
+    .catch((error) => []);
 };
 
 /**
@@ -203,19 +202,19 @@ const searchPagesByTitlePrefix = (query, language) => {
     pilimit: 10,
     format: "json",
     formatversion: 2,
-    origin: "*"
+    origin: "*",
   };
 
   return siteMapper
     .getApi(language)
     .get(params)
-    .then(response => response.query?.pages || [])
-    .then(pages =>
+    .then((response) => response.query?.pages || [])
+    .then((pages) =>
       pages
         .sort((page1, page2) => page1.index - page2.index)
-        .map(page => new Page(page))
+        .map((page) => new Page(page))
     )
-    .catch(error => []);
+    .catch((error) => []);
 };
 
 export default {
@@ -224,5 +223,5 @@ export default {
   fetchPageContent,
   fetchSegmentedContent,
   fetchNearbyPages,
-  searchPagesByTitlePrefix
+  searchPagesByTitlePrefix,
 };

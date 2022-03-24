@@ -16,7 +16,7 @@ async function fetchTranslations(offset) {
     format: "json",
     assert: "user",
     formatversion: 2,
-    list: "contenttranslation"
+    list: "contenttranslation",
   };
 
   if (offset) {
@@ -26,9 +26,9 @@ async function fetchTranslations(offset) {
   const api = new mw.Api();
 
   //   withCredentials: true
-  return api.get(params).then(async response => {
+  return api.get(params).then(async (response) => {
     const apiResponse = response.query.contenttranslation.translations;
-    let results = apiResponse.map(item => new Translation(item.translation));
+    let results = apiResponse.map((item) => new Translation(item.translation));
 
     if (response.continue?.offset) {
       const restOfResults = await fetchTranslations(response.continue.offset);
@@ -71,16 +71,16 @@ async function fetchSegmentTranslation(
   return fetch(cxserverAPI, {
     headers: { "Content-Type": "application/json", Authorization: token },
     method: "POST",
-    body: JSON.stringify({ html: `<div>${sentence}</div>` })
+    body: JSON.stringify({ html: `<div>${sentence}</div>` }),
   })
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       // Remove root div that was added by cxserver
       const regExp = /<div>(?<content>(.|\s)*)<\/div>/;
 
       return regExp.exec(data.contents)?.groups?.content;
     })
-    .catch(error => Promise.reject(error));
+    .catch((error) => Promise.reject(error));
 }
 
 /**
@@ -103,11 +103,11 @@ const parseTemplateWikitext = (wikitext, language, title) => {
       paction: "parsefragment",
       page: title,
       wikitext: wikitext,
-      pst: true
+      pst: true,
     })
   )
-    .then(response => response.visualeditor.content)
-    .catch(error => {
+    .then((response) => response.visualeditor.content)
+    .catch((error) => {
       mw.log.error(error);
 
       return Promise.reject(error);
@@ -136,7 +136,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
     disablelimitreport: true,
     disableeditsection: true,
     disablestylededuplication: true,
-    formatversion: 2
+    formatversion: 2,
   };
 
   const api = siteMapper.getApi(language);
@@ -180,7 +180,7 @@ const publishTranslation = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber
+  sectionNumber,
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -192,7 +192,7 @@ const publishTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    sectionnumber: sectionNumber
+    sectionnumber: sectionNumber,
   };
 
   const api = new mw.Api();
@@ -219,5 +219,5 @@ export default {
   fetchTranslations,
   fetchSegmentTranslation,
   parseTemplateWikitext,
-  publishTranslation
+  publishTranslation,
 };

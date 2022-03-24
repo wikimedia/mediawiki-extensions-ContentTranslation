@@ -35,13 +35,13 @@ async function fetchPageSuggestions(
   const suggestedResults = (await response.json())?.items || [];
 
   return suggestedResults.map(
-    item =>
+    (item) =>
       new ArticleSuggestion({
         sourceTitle: item.title.replace(/_/g, " "),
         sourceLanguage,
         targetLanguage,
         wikidataId: item.wikidata_id,
-        langLinksCount: parseInt(item.sitelink_count)
+        langLinksCount: parseInt(item.sitelink_count),
       })
   );
 }
@@ -57,23 +57,21 @@ async function fetchSectionSuggestions(
   sourceTitle,
   targetLanguage
 ) {
-  const cxServerParams = [
-    sourceTitle,
-    sourceLanguage,
-    targetLanguage
-  ].map(param => encodeURIComponent(param));
+  const cxServerParams = [sourceTitle, sourceLanguage, targetLanguage].map(
+    (param) => encodeURIComponent(param)
+  );
   // Example: https://cxserver.wikimedia.org/v2/suggest/sections/Sitar/en/ml
   const cxserverAPI = siteMapper.getCXServerUrl(
     `/suggest/sections/${cxServerParams.join("/")}`
   );
   const suggestedSectionResult = await fetch(cxserverAPI)
-    .then(response =>
+    .then((response) =>
       response.ok
         ? response.json()
         : Promise.reject(new Error("Failed to load data from server"))
     )
-    .then(response => response?.sections)
-    .catch(error => null);
+    .then((response) => response?.sections)
+    .catch((error) => null);
 
   return suggestedSectionResult
     ? new SectionSuggestion(suggestedSectionResult)
@@ -95,7 +93,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
     list: "cxpublishedtranslations",
     from: sourceLanguage,
     to: targetLanguage,
-    limit: 200
+    limit: 200,
   };
   const mwApi = siteMapper.getApi(sourceLanguage);
 
@@ -112,7 +110,7 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
 }
 
 // Fisher–Yates shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-const shuffleArray = array => {
+const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -130,14 +128,14 @@ const shuffleArray = array => {
  */
 function fetchAppendixTargetSectionTitles(targetLanguage) {
   const titleQueryParams = appendixSectionTitlesInEnglish
-    .map(title => encodeURIComponent(title))
+    .map((title) => encodeURIComponent(title))
     .join("|");
   const cxserverAPI = siteMapper.getCXServerUrl(
     `/suggest/sections/titles/en/${targetLanguage}?titles=${titleQueryParams}`
   );
 
   return fetch(cxserverAPI)
-    .then(response =>
+    .then((response) =>
       response.ok
         ? response.json()
         : Promise.reject(
@@ -146,8 +144,8 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
             )
           )
     )
-    .then(response => Object.values(response).flat())
-    .catch(error => []);
+    .then((response) => Object.values(response).flat())
+    .catch((error) => []);
 }
 
 /**
@@ -155,7 +153,7 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
  * @param {SectionSuggestion|ArticleSuggestion} suggestion
  * @return {Promise}
  */
-const markFavorite = suggestion => {
+const markFavorite = (suggestion) => {
   const params = {
     assert: "user",
     action: "cxsuggestionlist",
@@ -163,12 +161,12 @@ const markFavorite = suggestion => {
     listaction: "add",
     titles: suggestion.sourceTitle,
     from: suggestion.sourceLanguage,
-    to: suggestion.targetLanguage
+    to: suggestion.targetLanguage,
   };
 
   const api = new mw.Api();
 
-  return Promise.resolve(api.postWithToken("csrf", params)).catch(error => {
+  return Promise.resolve(api.postWithToken("csrf", params)).catch((error) => {
     mw.log.error("Error while marking suggestion as favorite", error);
   });
 };
@@ -179,7 +177,7 @@ const markFavorite = suggestion => {
  * @param  {FavoriteSuggestion} suggestion
  * @return {Promise}
  */
-const unmarkFavorite = suggestion => {
+const unmarkFavorite = (suggestion) => {
   const params = {
     assert: "user",
     action: "cxsuggestionlist",
@@ -187,12 +185,12 @@ const unmarkFavorite = suggestion => {
     listaction: "remove",
     titles: suggestion.title,
     from: suggestion.sourceLanguage,
-    to: suggestion.targetLanguage
+    to: suggestion.targetLanguage,
   };
 
   const api = new mw.Api();
 
-  return Promise.resolve(api.postWithToken("csrf", params)).catch(error => {
+  return Promise.resolve(api.postWithToken("csrf", params)).catch((error) => {
     mw.log.error("Error while unmarking favorite suggestion", error);
   });
 };
@@ -204,19 +202,19 @@ const fetchFavorites = () => {
   const params = {
     assert: "user",
     action: "query",
-    list: "contenttranslationsuggestions"
+    list: "contenttranslationsuggestions",
   };
 
   const api = new mw.Api();
 
   return Promise.resolve(api.postWithToken("csrf", params))
-    .then(response => {
+    .then((response) => {
       const lists = response.query.contenttranslationsuggestions.lists || {};
       const suggestions = Object.values(lists)?.[0]?.suggestions || [];
 
-      return suggestions.map(favorite => new FavoriteSuggestion(favorite));
+      return suggestions.map((favorite) => new FavoriteSuggestion(favorite));
     })
-    .catch(error => {
+    .catch((error) => {
       mw.log.error("Error while fetching favorite suggestions", error);
     });
 };
@@ -228,5 +226,5 @@ export default {
   fetchSuggestionSeeds,
   fetchAppendixTargetSectionTitles,
   markFavorite,
-  unmarkFavorite
+  unmarkFavorite,
 };

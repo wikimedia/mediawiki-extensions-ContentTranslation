@@ -2,7 +2,7 @@ import MwThumbnail from "./MWThumbnail.vue";
 
 export default {
   title: "Components/Thumbnail",
-  component: MwThumbnail
+  component: MwThumbnail,
 };
 
 export const ThumbnailExample = () => ({
@@ -27,5 +27,5 @@ export const ThumbnailExample = () => ({
         </span>
         <span class="col-10">Without image, display placeholder icon.</span>
       </div>
-    </main>`
+    </main>`,
 });

@@ -24,7 +24,7 @@ function autocomplete(searchQuery, searchResults) {
 
   return {
     autocompletion,
-    onTabSelect
+    onTabSelect,
   };
 }
 

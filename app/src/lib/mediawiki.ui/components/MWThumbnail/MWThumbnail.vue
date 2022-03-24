@@ -19,12 +19,12 @@ export default {
   props: {
     thumbnail: {
       type: Object,
-      default: null
+      default: null,
     },
     iconSize: {
       type: Number,
-      default: 80
-    }
+      default: 80,
+    },
   },
   emits: ["click"],
   data: () => ({ mwIconImageLayoutFrameless }),
@@ -32,18 +32,18 @@ export default {
     style() {
       if (this.thumbnail.source) {
         return {
-          "background-image": `url(${this.thumbnail.source})`
+          "background-image": `url(${this.thumbnail.source})`,
         };
       }
 
       return {};
-    }
+    },
   },
   methods: {
     handleClick(e) {
       this.$emit("click", e);
-    }
-  }
+    },
+  },
 };
 </script>
 

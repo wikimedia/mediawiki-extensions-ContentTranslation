@@ -43,22 +43,23 @@ const mockNodes = [
   createSectionNode(nodeHtml2, "cxSourceSection2", 1),
   createSectionNode(nodeHtml3, "cxSourceSection3", 2),
   createSectionNode(nodeHtml4, "cxSourceSection4", 2),
-  createSectionNode(nodeHtml5, "cxSourceSection5", 2)
+  createSectionNode(nodeHtml5, "cxSourceSection5", 2),
 ];
 
 jest.mock("./visualEditorHelper", () => ({
   __esModule: true, // this property makes it work
-  getSubSectionNodes: jest.fn(html => mockNodes)
+  getSubSectionNodes: jest.fn((html) => mockNodes),
 }));
 
 describe("SegmentedContentConverter test", () => {
   it("convertSegmentedContentToPageSections method creates and returns expected array of pageSection models", () => {
     const htmlContent = "Dummy (unused) HTML Content";
-    const pageSections = segmentedContentConverter.convertSegmentedContentToPageSections(
-      htmlContent
-    );
+    const pageSections =
+      segmentedContentConverter.convertSegmentedContentToPageSections(
+        htmlContent
+      );
     expect(
-      pageSections.every(pageSection => pageSection instanceof PageSection)
+      pageSections.every((pageSection) => pageSection instanceof PageSection)
     ).toBe(true);
     expect(pageSections[0].title).toBe(testTitle0);
     expect(pageSections[1].title).toBe(testTitle1);

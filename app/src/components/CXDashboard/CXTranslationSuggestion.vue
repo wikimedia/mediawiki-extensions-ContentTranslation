@@ -75,7 +75,7 @@
             >
               <small
                 v-i18n:cx-sx-translation-suggestion-info="[
-                  missingSectionsCount
+                  missingSectionsCount,
                 ]"
               />
             </mw-col>
@@ -92,7 +92,7 @@ import {
   mwIconClose,
   mwIconBookmark,
   mwIconBookmarkOutline,
-  mwIconArrowNext
+  mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
@@ -108,8 +108,8 @@ export default {
   props: {
     suggestion: {
       type: [ArticleSuggestion, SectionSuggestion, FavoriteSuggestion],
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["close", "bookmark"],
   setup(props) {
@@ -140,10 +140,8 @@ export default {
       () => suggestion.value instanceof FavoriteSuggestion
     );
 
-    const {
-      sourceLanguageAutonym,
-      targetLanguageAutonym
-    } = useApplicationState(store);
+    const { sourceLanguageAutonym, targetLanguageAutonym } =
+      useApplicationState(store);
 
     const bookmarkIcon = computed(() =>
       isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline
@@ -167,9 +165,9 @@ export default {
       page,
       sourceLanguageAutonym,
       targetLanguageAutonym,
-      title
+      title,
     };
-  }
+  },
 };
 </script>
 

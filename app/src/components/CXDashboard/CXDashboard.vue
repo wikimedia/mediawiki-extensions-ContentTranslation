@@ -50,13 +50,13 @@ import {
   MwButtonGroup,
   MwBottomNavigation,
   MwButton,
-  MwRow
+  MwRow,
 } from "@/lib/mediawiki.ui";
 import {
   mwIconAdd,
   mwIconArticleCheck,
   mwIconLightBulb,
-  mwIconEdit
+  mwIconEdit,
 } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
 import initializeDashboard from "./useDashboardInitialization";
@@ -75,7 +75,7 @@ export default {
     MwBottomNavigation,
     MwButton,
     MwButtonGroup,
-    MwRow
+    MwRow,
   },
   setup() {
     const active = ref("suggestions");
@@ -88,16 +88,16 @@ export default {
             "cx-translation-filter-suggested-translations"
           ),
           icon: mwIconLightBulb,
-          type: "text"
-        }
+          type: "text",
+        },
       },
       {
         value: "draft",
         props: {
           label: bananaI18n.i18n("cx-translation-filter-draft-translations"),
           icon: mwIconEdit,
-          type: "text"
-        }
+          type: "text",
+        },
       },
       {
         value: "published",
@@ -106,9 +106,9 @@ export default {
             "cx-translation-filter-published-translations"
           ),
           icon: mwIconArticleCheck,
-          type: "text"
-        }
-      }
+          type: "text",
+        },
+      },
     ]);
     onMounted(() => {
       const urlParams = new URLSearchParams(window.location.search);
@@ -134,8 +134,8 @@ export default {
       mwIconArticleCheck,
       mwIconLightBulb,
       mwIconEdit,
-      searchTranslation
+      searchTranslation,
     };
-  }
+  },
 };
 </script>

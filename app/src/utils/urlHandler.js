@@ -3,7 +3,7 @@ import { getUrl } from "@/utils/mediawikiHelper";
 /**
  * @param {SectionSuggestion|null} sectionSuggestion
  */
-const setTranslationURLParams = sectionSuggestion => {
+const setTranslationURLParams = (sectionSuggestion) => {
   if (!history.pushState) {
     return;
   }
@@ -19,7 +19,7 @@ const setTranslationURLParams = sectionSuggestion => {
  * @param {object} params A mapping of query parameter names to values,
  *  e.g. `{ action: 'edit' }`
  */
-const replaceUrl = params => {
+const replaceUrl = (params) => {
   history.replaceState(
     {},
     document.title,

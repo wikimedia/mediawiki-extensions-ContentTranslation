@@ -37,21 +37,21 @@ export default {
     CxTranslationWork,
     MwCard,
     MwSpinner,
-    SxTranslationListLanguageSelector
+    SxTranslationListLanguageSelector,
   },
   props: {
     active: {
       type: Boolean,
-      default: false
+      default: false,
     },
     translationStatus: {
       type: String,
       required: true,
-      validator: value => {
+      validator: (value) => {
         // The value must match one of these strings
         return ["published", "draft"].indexOf(value) !== -1;
-      }
-    }
+      },
+    },
   },
   setup(props) {
     const bananaI18n = useI18n();
@@ -85,7 +85,7 @@ export default {
 
     const activeTranslations = computed(() =>
       translations.value.filter(
-        translation =>
+        (translation) =>
           (isActiveForAllSourceLanguages.value ||
             translation.sourceLanguage === selectedSourceLanguage.value) &&
           (isActiveForAllTargetLanguages.value ||
@@ -97,11 +97,11 @@ export default {
     // target language selection is limited to these languages
     const availableTargetLanguages = computed(() => {
       let translationLanguages = translations.value.map(
-        translation => translation.targetLanguage
+        (translation) => translation.targetLanguage
       );
 
       if (!!enabledTargetLanguages.value) {
-        translationLanguages = translationLanguages.filter(language =>
+        translationLanguages = translationLanguages.filter((language) =>
           enabledTargetLanguages.value.includes(language)
         );
       }
@@ -109,7 +109,7 @@ export default {
       return [...new Set(translationLanguages)].reduce(
         (languages, languageCode) => [
           ...languages,
-          { name: getAutonym(languageCode), code: languageCode }
+          { name: getAutonym(languageCode), code: languageCode },
         ],
         [{ name: labelForAllTranslations, code: labelForAllTranslations }]
       );
@@ -117,12 +117,12 @@ export default {
 
     const availableSourceLanguages = computed(() =>
       translations.value
-        .map(translation => translation.sourceLanguage)
+        .map((translation) => translation.sourceLanguage)
         .filter((language, index, self) => self.indexOf(language) === index)
         .reduce(
           (languages, languageCode) => [
             ...languages,
-            { name: getAutonym(languageCode), code: languageCode }
+            { name: getAutonym(languageCode), code: languageCode },
           ],
           [{ name: labelForAllTranslations, code: labelForAllTranslations }]
         )
@@ -134,8 +134,8 @@ export default {
       availableTargetLanguages,
       loaded,
       selectedSourceLanguage,
-      selectedTargetLanguage
+      selectedTargetLanguage,
     };
-  }
+  },
 };
 </script>

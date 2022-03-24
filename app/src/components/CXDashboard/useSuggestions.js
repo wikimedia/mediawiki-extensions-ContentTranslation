@@ -105,7 +105,7 @@ const useSuggestions = () => {
   const fetchNextSectionSuggestionSlice = () => {
     if (!nextSectionSuggestionSliceFetched.value) {
       store.dispatch("suggestions/fetchNextSectionSuggestionsSlice", {
-        nextIndex: nextSectionSuggestionsSliceIndex.value
+        nextIndex: nextSectionSuggestionsSliceIndex.value,
       });
       isCurrentSectionSuggestionsSliceFull.value &&
         increaseCurrentSectionSuggestionsSliceIndex();
@@ -115,7 +115,7 @@ const useSuggestions = () => {
   const fetchNextPageSuggestionSlice = () => {
     if (!nextPageSuggestionSliceFetched.value) {
       store.dispatch("suggestions/fetchNextPageSuggestionsSlice", {
-        nextIndex: nextPageSuggestionsSliceIndex.value
+        nextIndex: nextPageSuggestionsSliceIndex.value,
       });
       isCurrentPageSuggestionsSliceFull.value &&
         increaseCurrentPageSuggestionsSliceIndex();
@@ -125,7 +125,7 @@ const useSuggestions = () => {
   /**
    * @param {SectionSuggestion} suggestion
    */
-  const discardSectionSuggestion = suggestion => {
+  const discardSectionSuggestion = (suggestion) => {
     logEvent({ event_type: "dashboard_discard_suggestion" });
     store.commit("suggestions/removeSectionSuggestion", suggestion);
     fetchNextSectionSuggestionSlice();
@@ -134,7 +134,7 @@ const useSuggestions = () => {
   /**
    * @param {ArticleSuggestion} suggestion
    */
-  const discardPageSuggestion = suggestion => {
+  const discardPageSuggestion = (suggestion) => {
     logEvent({ event_type: "dashboard_discard_suggestion" });
     store.commit("suggestions/removePageSuggestion", suggestion);
     fetchNextPageSuggestionSlice();
@@ -172,7 +172,7 @@ const useSuggestions = () => {
     onSuggestionRefresh,
     pageSuggestionsLoading,
     sectionSuggestionsLoading,
-    showRefreshButton
+    showRefreshButton,
   };
 };
 

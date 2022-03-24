@@ -10,10 +10,10 @@ export default {
     docs: {
       description: {
         component:
-          "_Disclaimer_: Depending on zoom of each storybook container, an extra padding of white pixels may appear inside progress bar elements. This should not appear when zoom has integer values."
-      }
-    }
-  }
+          "_Disclaimer_: Depending on zoom of each storybook container, an extra padding of white pixels may appear inside progress bar elements. This should not appear when zoom has integer values.",
+      },
+    },
+  },
 };
 
 /**
@@ -25,7 +25,7 @@ export const ProgressBar = () => ({
     <div class="container" style="width: 10rem;">
       <mw-progress-bar :value="40"></mw-progress-bar>
     </div>
-  `
+  `,
 });
 
 export const IndeterminateProgressBar = () => ({
@@ -34,7 +34,7 @@ export const IndeterminateProgressBar = () => ({
     <div class="container" style="width: 10rem;">
       <mw-progress-bar :value="40" :indeterminate="true"></mw-progress-bar>
     </div>
-  `
+  `,
 });
 
 export const PendingProgressBar = () => ({
@@ -43,7 +43,7 @@ export const PendingProgressBar = () => ({
     <div class="container" style="width: 10rem;">
       <mw-progress-bar :value="40" :pending="true"></mw-progress-bar>
     </div>
-  `
+  `,
 });
 
 export const ThinProgressBar = () => ({
@@ -63,5 +63,5 @@ export const ThinProgressBar = () => ({
         </div>
       </div>
     </div>
-  `
+  `,
 });

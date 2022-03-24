@@ -15,7 +15,7 @@ export default {
    */
   removeSectionSuggestion(state, suggestionToRemove) {
     state.sectionSuggestions = state.sectionSuggestions.filter(
-      suggestion => suggestion.id !== suggestionToRemove.id
+      (suggestion) => suggestion.id !== suggestionToRemove.id
     );
   },
   /**
@@ -24,7 +24,7 @@ export default {
    */
   removePageSuggestion(state, suggestionToRemove) {
     state.pageSuggestions = state.pageSuggestions.filter(
-      suggestion => suggestion.id !== suggestionToRemove.id
+      (suggestion) => suggestion.id !== suggestionToRemove.id
     );
   },
   increaseSectionSuggestionsLoadingCount(state) {
@@ -60,7 +60,7 @@ export default {
   addSectionSuggestionSeed(state, seed) {
     const { sourceLanguage, targetLanguage } = seed;
     const seedCollection = state.sectionSuggestionSeedCollections.find(
-      collection =>
+      (collection) =>
         collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
     );
     seedCollection.seeds.push(seed);
@@ -72,7 +72,7 @@ export default {
   addPageSuggestionSeed(state, seed) {
     const { sourceLanguage, targetLanguage } = seed;
     const seedCollection = state.pageSuggestionSeedCollections.find(
-      collection =>
+      (collection) =>
         collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
     );
     seedCollection.seeds.push(seed);
@@ -80,11 +80,11 @@ export default {
   removeSectionSuggestionSeed(state, seed) {
     const { sourceLanguage, targetLanguage } = seed;
     const seedCollection = state.sectionSuggestionSeedCollections.find(
-      collection =>
+      (collection) =>
         collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
     );
     seedCollection.seeds = seedCollection.seeds.filter(
-      existingSeed => existingSeed.sourceTitle !== seed.sourceTitle
+      (existingSeed) => existingSeed.sourceTitle !== seed.sourceTitle
     );
   },
   addAppendixSectionTitlesForLanguage(state, { language, titles }) {
@@ -104,10 +104,10 @@ export default {
   removeFavoriteSuggestion(state, favoriteSuggestion) {
     const { title, sourceLanguage, targetLanguage } = favoriteSuggestion;
     state.favorites = state.favorites.filter(
-      favorite =>
+      (favorite) =>
         favorite.title !== title ||
         favorite.sourceLanguage !== sourceLanguage ||
         favorite.targetLanguage !== targetLanguage
     );
-  }
+  },
 };

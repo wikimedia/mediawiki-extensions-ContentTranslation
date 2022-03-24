@@ -14,21 +14,21 @@ describe("actionInformationMessageArgs test", () => {
     expect(actionInformationMessageArgs.value).toStrictEqual([
       "cx-sx-existing-translation-additional-info",
       `"source1"`,
-      2
+      2,
     ]);
   });
 
   it("case: missing = 1 & present > 0", () => {
     sectionSuggestion.missingSections = {
-      source1: "target1"
+      source1: "target1",
     };
 
     sectionSuggestion.presentSections = {
-      "Test present section 1": "test"
+      "Test present section 1": "test",
     };
     expect(actionInformationMessageArgs.value).toStrictEqual([
       "cx-sx-translation-confirmer-action-message-single-missing-multiple-present",
-      `"source1"`
+      `"source1"`,
     ]);
   });
 
@@ -37,17 +37,17 @@ describe("actionInformationMessageArgs test", () => {
 
     expect(actionInformationMessageArgs.value).toStrictEqual([
       "cx-sx-translation-confirmer-action-message-single-missing-none-present",
-      `"source1"`
+      `"source1"`,
     ]);
   });
 
   it("case: missing = 0 & present > 0", () => {
     sectionSuggestion.missingSections = {};
     sectionSuggestion.presentSections = {
-      "Test present section 1": "test"
+      "Test present section 1": "test",
     };
     expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-none-missing-multiple-present"
+      "cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
     ]);
   });
 
@@ -55,7 +55,7 @@ describe("actionInformationMessageArgs test", () => {
     sectionSuggestion.missingSections = {};
     sectionSuggestion.presentSections = {};
     expect(actionInformationMessageArgs.value).toStrictEqual([
-      "cx-sx-translation-confirmer-action-message-none-missing-none-present"
+      "cx-sx-translation-confirmer-action-message-none-missing-none-present",
     ]);
   });
 });
@@ -70,7 +70,7 @@ describe("getActionButtonLabel test", () => {
   it("case: missing > 1", () => {
     sectionSuggestion.missingSections = {
       source1: "target1",
-      source2: "target2"
+      source2: "target2",
     };
     expect(getActionButtonLabel(false)).toBe("cx-sx-select-section");
   });

@@ -12,7 +12,7 @@ const i18n = createI18n();
 
 describe("SXTranslationConfirmerArticleInformation test", () => {
   const wrapper = mount(SXTranslationConfirmerArticleInformation, {
-    global: { plugins: [i18n, colors, mockStore] }
+    global: { plugins: [i18n, colors, mockStore] },
   });
 
   it("Component output matches snapshot", () => {

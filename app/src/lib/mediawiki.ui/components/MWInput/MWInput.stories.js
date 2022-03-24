@@ -5,20 +5,20 @@ import MwInput from "./MWInput.vue";
 export default {
   title: "Components/Inputs",
   component: MwInput,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const InputAndTextArea = (args, { argTypes }) => ({
   components: { MwInput },
   data: () => ({
     icons,
-    value: null
+    value: null,
   }),
   props: Object.keys(argTypes),
   watch: {
     value() {
       action("input-update")(`Value update: ${this.value}`);
-    }
+    },
   },
   methods: {
     clickHandler() {
@@ -29,7 +29,7 @@ export const InputAndTextArea = (args, { argTypes }) => ({
     },
     blurHandler() {
       action("input-blur")(`Blured`);
-    }
+    },
   },
   template: `<mw-input
      :large="large"
@@ -41,7 +41,7 @@ export const InputAndTextArea = (args, { argTypes }) => ({
      @click="clickHandler"
      @focus="focusHandler"
      @blur="blurHandler"
-    ></mw-input>`
+    ></mw-input>`,
 });
 
 InputAndTextArea.args = {
@@ -51,34 +51,34 @@ InputAndTextArea.args = {
   indicator: "",
   type: "input",
   placeholder: "Enter some content",
-  value: ""
+  value: "",
 };
 
 InputAndTextArea.argTypes = {
   icon: {
     type: "option",
-    options: Object.keys(icons)
+    options: Object.keys(icons),
   },
   indicator: {
     type: "option",
-    options: Object.keys(icons)
+    options: Object.keys(icons),
   },
   type: {
     type: "option",
-    options: ["input", "textarea"]
-  }
+    options: ["input", "textarea"],
+  },
 };
 
 export const SearchInputWithIcons = () => ({
   components: { MwInput },
   data: () => ({
     icons,
-    search: null
+    search: null,
   }),
   methods: {
     onIndicatorClick() {
       action("indicator-clicked")(`Clicked`);
-    }
+    },
   },
   template: `
     <section>
@@ -94,5 +94,5 @@ export const SearchInputWithIcons = () => ({
         @indicator-clicked="onIndicatorClick"
       ></mw-input>
     </section>
-  `
+  `,
 });

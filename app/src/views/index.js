@@ -16,5 +16,5 @@ export {
   SXQuickTutorial,
   SXEditor,
   SXPublisher,
-  SXArticleSearch
+  SXArticleSearch,
 };

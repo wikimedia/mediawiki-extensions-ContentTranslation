@@ -5,7 +5,7 @@ import * as icons from "../icons";
 export default {
   title: "Components/Select",
   component: MwSelect,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const Select = (args, { argTypes }) => ({
@@ -23,18 +23,18 @@ export const Select = (args, { argTypes }) => ({
       "Barcelona",
       "Texas",
       "Singapore",
-      "Moscow"
+      "Moscow",
     ],
     languages: [
       { name: "English", code: "en" },
       { name: "Spanish", code: "es" },
       { name: "Hindi", code: "hi" },
-      { name: "French", code: "fr" }
+      { name: "French", code: "fr" },
     ],
     currencies: {
       $: "USD",
-      "₹": "Rupees"
-    }
+      "₹": "Rupees",
+    },
   }),
   props: Object.keys(argTypes),
   methods: {
@@ -55,7 +55,7 @@ export const Select = (args, { argTypes }) => ({
     selectCurrency(value) {
       action("input-select")(`Value select: ${value}`);
       this.selectedCurrency = value;
-    }
+    },
   },
   template: `<main class="container">
     <section>
@@ -108,7 +108,7 @@ export const Select = (args, { argTypes }) => ({
     </mw-select>
     {{selectedCurrency}}
     </section>
-    </main>`
+    </main>`,
 });
 
 Select.args = {
@@ -122,16 +122,16 @@ Select.args = {
   optionLabel: "Option label",
   optionValue: "Option value",
   placeholder: "Enter some content",
-  value: ""
+  value: "",
 };
 
 Select.argTypes = {
   icon: {
     type: "option",
-    options: Object.keys(icons)
+    options: Object.keys(icons),
   },
   indicator: {
     type: "option",
-    options: Object.keys(icons)
-  }
+    options: Object.keys(icons),
+  },
 };

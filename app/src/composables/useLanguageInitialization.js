@@ -5,10 +5,8 @@ import store from "@/store";
 
 const initializeLanguages = async () => {
   await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
-  const {
-    enabledTargetLanguages,
-    supportedLanguageCodes
-  } = useMediawikiState();
+  const { enabledTargetLanguages, supportedLanguageCodes } =
+    useMediawikiState();
 
   const { sourceLanguage, targetLanguage } = getInitialLanguagePair(
     enabledTargetLanguages.value,

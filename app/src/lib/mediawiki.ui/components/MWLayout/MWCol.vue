@@ -14,8 +14,8 @@ const breakpointProps = breakpoints.reduce(
     ...props,
     [val]: {
       type: [String, Number],
-      default: null
-    }
+      default: null,
+    },
   }),
   {}
 );
@@ -31,19 +31,20 @@ export default {
     cols: {
       type: [String, Number],
       default: null,
-      validator: val => Number.parseInt(val) >= 1 && Number.parseInt(val) <= 12
+      validator: (val) =>
+        Number.parseInt(val) >= 1 && Number.parseInt(val) <= 12,
     },
     grow: {
       type: Boolean,
-      default: false
+      default: false,
     },
     shrink: {
       type: Boolean,
-      default: false
+      default: false,
     },
     tag: {
       type: String,
-      default: "div"
+      default: "div",
     },
     /**
      * Applies the align-items css property.
@@ -54,9 +55,9 @@ export default {
       // When items* class is present anywhere. After fixing that, we
       // can have a sensible default here.
       default: null,
-      validator: str =>
-        str ? ["start", "end", "center", "stretch"].includes(str) : true
-    }
+      validator: (str) =>
+        str ? ["start", "end", "center", "stretch"].includes(str) : true,
+    },
   },
   computed: {
     classes() {
@@ -74,7 +75,7 @@ export default {
       if (this.cols) {
         classList.push(`col-${this.cols}`);
       }
-      const hasColClasses = classList.some(className =>
+      const hasColClasses = classList.some((className) =>
         className?.startsWith("col-")
       );
 
@@ -82,11 +83,11 @@ export default {
         col: !hasColClasses,
         grow: this.grow,
         shrink: this.shrink,
-        [`items-${this.align}`]: this.align
+        [`items-${this.align}`]: this.align,
       });
 
       return classList;
-    }
-  }
+    },
+  },
 };
 </script>

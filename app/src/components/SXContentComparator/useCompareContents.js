@@ -1,12 +1,12 @@
 import { computed, ref } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 
-const useCompareContents = store => {
+const useCompareContents = (store) => {
   const discardedSections = ref([]);
 
   const {
     currentSectionSuggestion: suggestion,
-    currentSourceSection: sourceSection
+    currentSourceSection: sourceSection,
   } = useApplicationState(store);
 
   const targetTitle = computed(() => suggestion.value.targetTitle);
@@ -57,7 +57,7 @@ const useCompareContents = store => {
     sourceSectionTitle,
     targetPage,
     targetSectionAnchor,
-    targetSectionContent
+    targetSectionContent,
   };
 };
 

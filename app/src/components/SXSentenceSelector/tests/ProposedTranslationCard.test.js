@@ -14,7 +14,7 @@ jest.mock("@/store", () =>
 describe("SXSentenceSelector Proposed Translation Card", () => {
   const wrapper = mount(ProposedTranslationCard, {
     global: { plugins: [i18n, mockStore], renderStubDefaultSlot: true },
-    shallow: true
+    shallow: true,
   });
 
   it("Component output matches snapshot", () => {

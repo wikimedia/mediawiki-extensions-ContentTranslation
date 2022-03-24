@@ -13,7 +13,7 @@ export default class MTProviderGroup {
     this.providers = [
       ...providers,
       ORIGINAL_TEXT_PROVIDER_KEY,
-      EMPTY_TEXT_PROVIDER_KEY
+      EMPTY_TEXT_PROVIDER_KEY,
     ];
   }
 

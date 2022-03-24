@@ -17,7 +17,7 @@ export default class ArticleSuggestion {
     sourceTitle,
     targetTitle,
     langLinksCount,
-    wikidataId
+    wikidataId,
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;

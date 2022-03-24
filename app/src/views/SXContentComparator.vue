@@ -10,15 +10,15 @@ import SxContentComparator from "@/components/SXContentComparator";
 export default {
   name: "SxContentComparatorView",
   components: {
-    SxContentComparator
+    SxContentComparator,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

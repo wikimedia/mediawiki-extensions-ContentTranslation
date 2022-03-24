@@ -4,7 +4,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 /**
  * @param {ComputedRef<SectionSuggestion>} sectionSuggestion
  */
-const useActionPanel = sectionSuggestion => {
+const useActionPanel = (sectionSuggestion) => {
   const firstMissingSectionTitle = computed(
     () => sectionSuggestion.value.orderedMissingSections?.[0]?.sourceTitle
   );
@@ -27,7 +27,7 @@ const useActionPanel = sectionSuggestion => {
     )
   );
 
-  const getActionButtonLabel = isPrefilledSection => {
+  const getActionButtonLabel = (isPrefilledSection) => {
     if (isPrefilledSection) {
       return "cx-sx-translation-confirmer-translate-prefilled-section-button-label";
     }
@@ -57,25 +57,25 @@ const useActionPanel = sectionSuggestion => {
       i18nArgs = [
         "cx-sx-existing-translation-additional-info",
         `"${firstMissingSectionTitle.value}"`,
-        missingCount.value - 1
+        missingCount.value - 1,
       ];
     } else if (missingCount.value === 1 && presentCount.value > 0) {
       i18nArgs = [
         "cx-sx-translation-confirmer-action-message-single-missing-multiple-present",
-        `"${firstMissingSectionTitle.value}"`
+        `"${firstMissingSectionTitle.value}"`,
       ];
     } else if (missingCount.value === 1 && presentCount.value === 0) {
       i18nArgs = [
         "cx-sx-translation-confirmer-action-message-single-missing-none-present",
-        `"${firstMissingSectionTitle.value}"`
+        `"${firstMissingSectionTitle.value}"`,
       ];
     } else if (presentCount.value > 0) {
       i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present"
+        "cx-sx-translation-confirmer-action-message-none-missing-multiple-present",
       ];
     } else {
       i18nArgs = [
-        "cx-sx-translation-confirmer-action-message-none-missing-none-present"
+        "cx-sx-translation-confirmer-action-message-none-missing-none-present",
       ];
     }
 
@@ -93,7 +93,7 @@ const useActionPanel = sectionSuggestion => {
     getActionButtonLabel,
     isProgressiveButton,
     targetArticlePath,
-    translationExists
+    translationExists,
   };
 };
 

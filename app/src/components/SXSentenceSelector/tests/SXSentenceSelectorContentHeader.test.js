@@ -8,7 +8,7 @@ jest.mock("@/store", () =>
 
 describe("SXSentenceSelector Section Content Header", () => {
   const wrapper = mount(SXSentenceSelectorContentHeader, {
-    global: { plugins: [mockStore] }
+    global: { plugins: [mockStore] },
   });
 
   it("Component output matches snapshot", () => {

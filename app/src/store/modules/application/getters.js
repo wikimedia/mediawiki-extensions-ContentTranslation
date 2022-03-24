@@ -20,7 +20,7 @@ export default {
       state.currentSectionSuggestion.targetTitle
     ),
 
-  getCurrentSourceSectionTitle: state =>
+  getCurrentSourceSectionTitle: (state) =>
     state.currentSourceSection?.originalTitle || "",
 
   getCurrentSourceSectionAnchor: (state, getters) =>
@@ -40,7 +40,7 @@ export default {
    * Machine translation of currently selected translation unit (title or sentence)
    * for currently selected MT provider
    */
-  getCurrentProposedTranslation: state => {
+  getCurrentProposedTranslation: (state) => {
     const { currentSourceSection, currentMTProvider } = state;
 
     return currentSourceSection?.getProposedTranslationByMtProvider(
@@ -89,15 +89,12 @@ export default {
    * @param rootState
    * @return {function(number): SectionSuggestion[]}
    */
-  getSectionSuggestionsSliceByIndex: (
-    state,
-    getters,
-    rootState
-  ) => sliceIndex =>
-    getters.getCurrentSectionSuggestions.slice(
-      rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
-      rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
-    ),
+  getSectionSuggestionsSliceByIndex:
+    (state, getters, rootState) => (sliceIndex) =>
+      getters.getCurrentSectionSuggestions.slice(
+        rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
+        rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
+      ),
 
   /**
    * @param state
@@ -105,14 +102,14 @@ export default {
    * @param rootState
    * @return {function(number): ArticleSuggestion[]}
    */
-  getPageSuggestionsSliceByIndex: (state, getters, rootState) => sliceIndex =>
+  getPageSuggestionsSliceByIndex: (state, getters, rootState) => (sliceIndex) =>
     getters.getCurrentPageSuggestions.slice(
       rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
       rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
     ),
 
-  isPublishingDisabled: state =>
-    state.publishFeedbackMessages.some(message => message.isError),
+  isPublishingDisabled: (state) =>
+    state.publishFeedbackMessages.some((message) => message.isError),
 
   /**
    * Returns a boolean indicating whether the current publishing target
@@ -121,5 +118,5 @@ export default {
    * @param {object} state
    * @return {boolean}
    */
-  isSandboxTarget: state => state.publishTarget === "SANDBOX_SECTION"
+  isSandboxTarget: (state) => state.publishTarget === "SANDBOX_SECTION",
 };

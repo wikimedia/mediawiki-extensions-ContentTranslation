@@ -21,17 +21,17 @@ export default {
   components: { MwGrid, MwCol, MwRow },
   computed: {
     ...mapState({
-      translationInProgress: state => state.application.translationInProgress
-    })
+      translationInProgress: (state) => state.application.translationInProgress,
+    }),
   },
   mounted() {
-    window.addEventListener("beforeunload", e => {
+    window.addEventListener("beforeunload", (e) => {
       if (this.translationInProgress) {
         e.preventDefault();
         e.returnValue = "";
       }
     });
-  }
+  },
 };
 </script>
 

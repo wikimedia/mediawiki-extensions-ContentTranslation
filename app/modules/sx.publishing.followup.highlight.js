@@ -1,15 +1,17 @@
-var nextUntil = function(element, selector) {
+var nextUntil = function (element, selector) {
   var siblings = [];
   element = element.nextElementSibling;
+
   while (element) {
     if (element.matches(selector)) break;
     siblings.push(element);
     element = element.nextElementSibling;
   }
+
   return siblings;
 };
 
-var highlightElement = function(element) {
+var highlightElement = function (element) {
   element.style.background = "#fef6e7";
   element.style.marginBottom = 0;
   element.style.marginLeft = "-16px";
@@ -18,7 +20,7 @@ var highlightElement = function(element) {
   element.style.paddingRight = "16px";
 };
 
-var createNewIndicator = function() {
+var createNewIndicator = function () {
   var span = document.createElement("span");
   span.innerText = mw.message("cx-sx-followup-feedback-new-indicator");
   span.style.background = "#fdedd1";
@@ -28,20 +30,21 @@ var createNewIndicator = function() {
   span.style.fontSize = "16px";
   span.style.display = "flex";
   span.style.width = "max-content";
+
   return span;
 };
 
 /**
  * @param {HTMLElement} firstHighlightedParagraph
  */
-var fixFirstParagraphSpacing = function(firstHighlightedParagraph) {
+var fixFirstParagraphSpacing = function (firstHighlightedParagraph) {
   firstHighlightedParagraph.style.paddingTop = "0.5em";
   firstHighlightedParagraph.style.marginTop = 0;
 };
 
 var newSectionParam = "sx-published-section";
 
-var highlightPublishedSection = function() {
+var highlightPublishedSection = function () {
   /**
    * Start by getting URL query params
    * @type {URLSearchParams}
@@ -53,6 +56,7 @@ var highlightPublishedSection = function() {
    * @type {HTMLElement}
    */
   var highlightedTitleSpan = document.getElementById(highlightedTitleId);
+
   if (!highlightedTitleSpan) {
     return;
   }
@@ -89,7 +93,7 @@ var highlightPublishedSection = function() {
   );
 
   // Highlight all section nodes
-  siblings.forEach(function(sectionElement) {
+  siblings.forEach(function (sectionElement) {
     highlightElement(sectionElement);
   });
 };

@@ -1,7 +1,7 @@
 import { computed } from "vue";
 import store from "@/store";
 
-export default function() {
+export default function () {
   const supportedLanguageCodes = computed(
     () => store.state.mediawiki.supportedLanguageCodes || []
   );
@@ -12,6 +12,6 @@ export default function() {
 
   return {
     enabledTargetLanguages,
-    supportedLanguageCodes
+    supportedLanguageCodes,
   };
 }

@@ -5,15 +5,15 @@ const sections = [
   { sourceTitle: "source section 0", targetTitle: "target section 0" },
   { sourceTitle: "source section 1", targetTitle: "target section 1" },
   { sourceTitle: "source section 2", targetTitle: "target section 2" },
-  { sourceTitle: "source section 3", targetTitle: "target section 3" }
+  { sourceTitle: "source section 3", targetTitle: "target section 3" },
 ];
 
 const createWrapper = (options = {}) =>
   mount(SXSectionSelectorSectionList, {
     props: {
-      sections
+      sections,
     },
-    ...options
+    ...options,
   });
 describe("SXSectionSelector Section List", () => {
   it("Component output matches snapshot for specified sections with label", () => {
@@ -37,8 +37,8 @@ describe("SXSectionSelector Section List", () => {
     `;
     const wrapper = createWrapper({
       scopedSlots: {
-        default: slotTemplate
-      }
+        default: slotTemplate,
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();
@@ -50,7 +50,7 @@ describe("SXSectionSelector Section List", () => {
     const button = wrapper.findAll("button")[randomIndex];
     await button.trigger("click");
     expect(wrapper.emitted("select-section")[0]).toEqual([
-      sections[randomIndex].sourceTitle
+      sections[randomIndex].sourceTitle,
     ]);
   });
 });

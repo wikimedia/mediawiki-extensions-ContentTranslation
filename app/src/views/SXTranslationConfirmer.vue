@@ -10,15 +10,15 @@ import SxTranslationConfirmer from "@/components/SXTranslationConfirmer";
 export default {
   name: "SxTranslationConfirmerView",
   components: {
-    SxTranslationConfirmer
+    SxTranslationConfirmer,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

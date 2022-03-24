@@ -13,7 +13,7 @@ export default class LanguageTitleGroup {
    * @return {string|null}
    */
   getTitleForLanguage(language) {
-    return this.titles.find(title => title.lang === language)?.title;
+    return this.titles.find((title) => title.lang === language)?.title;
   }
 
   /**
@@ -21,6 +21,6 @@ export default class LanguageTitleGroup {
    * @return {boolean}
    */
   hasLanguage(language) {
-    return this.titles.some(title => title.lang === language);
+    return this.titles.some((title) => title.lang === language);
   }
 }

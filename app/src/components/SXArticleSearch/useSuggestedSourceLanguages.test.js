@@ -3,14 +3,14 @@ import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 
 Object.defineProperty(global.navigator, "language", {
   value: "ar-dz",
-  writable: false
+  writable: false,
 });
 Object.defineProperty(global.navigator, "languages", {
   value: ["nl-be", "en", "es", "de"],
-  writable: false
+  writable: false,
 });
 
-mw.config.get = name => {
+mw.config.get = (name) => {
   if (name === "wgContentLanguage") {
     return "ab";
   } else if (name === "wgUserLanguage") {
@@ -37,7 +37,7 @@ describe("useSuggestedSourceLanguages test", () => {
       "ig",
       "fr",
       "it",
-      "ja"
+      "ja",
     ]);
   });
 });

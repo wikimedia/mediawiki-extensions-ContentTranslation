@@ -55,7 +55,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 
 import {
   mwIconEdit,
-  mwIconLinkExternal
+  mwIconLinkExternal,
 } from "@/lib/mediawiki.ui/components/icons";
 import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector";
 import useApplicationState from "@/composables/useApplicationState";
@@ -70,17 +70,17 @@ export default {
     SxContentComparatorSourceVsTargetSelector,
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   props: {
     sourceVsTargetSelection: {
       type: String,
-      required: true
+      required: true,
     },
     isMappedSection: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["update:sourceVsTargetSelection", "translation-button-clicked"],
   setup(props, context) {
@@ -96,13 +96,11 @@ export default {
       () => store.getters["application/getCurrentSourceSectionAnchor"]
     );
 
-    const updateSelection = selection =>
+    const updateSelection = (selection) =>
       context.emit("update:sourceVsTargetSelection", selection);
 
-    const {
-      activeSectionTargetTitle,
-      targetSectionAnchor
-    } = useCompareContents(store);
+    const { activeSectionTargetTitle, targetSectionAnchor } =
+      useCompareContents(store);
 
     const activeContent = computed(() => {
       switch (props.sourceVsTargetSelection) {
@@ -114,19 +112,19 @@ export default {
               suggestion.value.sourceTitle
             )}#${sourceSectionAnchor.value}`,
             lang: suggestion.value.sourceLanguage,
-            dir: getDir(suggestion.value.sourceLanguage)
+            dir: getDir(suggestion.value.sourceLanguage),
           };
         case "target_article":
           return {
             title: suggestion.value.targetTitle,
             path: targetArticlePath.value,
             lang: suggestion.value.targetLanguage,
-            dir: getDir(suggestion.value.targetLanguage)
+            dir: getDir(suggestion.value.targetLanguage),
           };
         default:
           return {
             title: activeSectionTargetTitle.value,
-            path: `${targetArticlePath.value}#${targetSectionAnchor.value}`
+            path: `${targetArticlePath.value}#${targetSectionAnchor.value}`,
           };
       }
     });
@@ -163,9 +161,9 @@ export default {
       isSticky,
       mwIconLinkExternal,
       mwIconEdit,
-      updateSelection
+      updateSelection,
     };
-  }
+  },
 };
 </script>
 

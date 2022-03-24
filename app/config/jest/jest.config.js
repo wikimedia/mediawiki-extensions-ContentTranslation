@@ -8,10 +8,10 @@ module.exports = {
   moduleNameMapper: {
     "@/(.*)$": "<rootDir>/src/$1",
     "^.+\\.(css|less|scss)$": "babel-jest",
-    "^.+/(.*\\.svg)\\?raw$": "<rootDir>/config/jest/svg-stub.js"
+    "^.+/(.*\\.svg)\\?raw$": "<rootDir>/config/jest/svg-stub.js",
   },
   transform: {
     "^.+\\.vue$": "@vue/vue3-jest",
-    "^.+\\js$": "babel-jest"
-  }
+    "^.+\\js$": "babel-jest",
+  },
 };

@@ -8,15 +8,15 @@ describe("MWSelect.vue", () => {
       { label: "English", value: "en" },
       { label: "Spanish", value: "es" },
       { label: "Hindi", value: "hi" },
-      { label: "French", value: "fr" }
+      { label: "French", value: "fr" },
     ];
     const wrapper = shallowMount(MwSelect, {
       props: { value: languages },
       slots: {
         "no-results": "<span class='err'>Error! No results!!!</span>",
         "list-header": "<span class='header'>Select from this list</span>",
-        "list-footer": "<span class='footer'>That is the end of options</span>"
-      }
+        "list-footer": "<span class='footer'>That is the end of options</span>",
+      },
     });
     const input = wrapper.find("input");
     expect(input.exists()).toBe(true);

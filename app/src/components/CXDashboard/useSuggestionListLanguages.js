@@ -2,10 +2,8 @@ import { computed } from "vue";
 import useMediawikiState from "@/composables/useMediawikiState";
 
 export default () => {
-  const {
-    supportedLanguageCodes,
-    enabledTargetLanguages
-  } = useMediawikiState();
+  const { supportedLanguageCodes, enabledTargetLanguages } =
+    useMediawikiState();
 
   const availableTargetLanguages = computed(() => {
     // If SectionTranslationTargetLanguages configuration parameter is set,
@@ -15,6 +13,6 @@ export default () => {
 
   return {
     supportedLanguageCodes,
-    availableTargetLanguages
+    availableTargetLanguages,
   };
 };

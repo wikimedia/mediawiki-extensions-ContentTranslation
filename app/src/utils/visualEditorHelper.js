@@ -7,7 +7,7 @@
  * @param {string} htmlContent
  * @returns {ve.ce.Surface}
  */
-const createDummyVESurface = htmlContent => {
+const createDummyVESurface = (htmlContent) => {
   const surfaceEl = document.createElement("div");
   surfaceEl.classList.add("surface");
 
@@ -48,9 +48,7 @@ const getSubSectionNodes = (htmlContent, resolveReferences) => {
 
     /** @type jQuery **/
     subSectionNodeList = subSectionCeNodeList.map((i, subSectionCeNode) => {
-      const model = $(subSectionCeNode)
-        .data("view")
-        .getModel();
+      const model = $(subSectionCeNode).data("view").getModel();
 
       if (model) {
         return ve.dm.converter.getDomFromNode(

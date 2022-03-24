@@ -10,7 +10,7 @@ import {
   mwIconEye,
   mwIconAlert,
   mwIconBlock,
-  mwIconCheck
+  mwIconCheck,
 } from "@/lib/mediawiki.ui/components/icons";
 
 jest.spyOn(global.Math, "random").mockReturnValue(0.1);
@@ -19,9 +19,9 @@ describe("SXPublisher review info panel test", () => {
     modules: {
       application: {
         namespaced: true,
-        state: { publishFeedbackMessages: [] }
-      }
-    }
+        state: { publishFeedbackMessages: [] },
+      },
+    },
   });
   const wrapper = mount(SXPublisherReviewInfo, {
     global: { plugins: [store, i18n] },
@@ -30,8 +30,8 @@ describe("SXPublisher review info panel test", () => {
       mwIconAlert,
       mwIconBlock,
       mwIconCheck,
-      activeMessageIndex: 0
-    }
+      activeMessageIndex: 0,
+    },
   });
 
   it("Component output matches snapshot", () => {
@@ -50,8 +50,8 @@ describe("SXPublisher review info panel test", () => {
       new PublishFeedbackMessage({
         title: "Error title",
         text: "Error text",
-        status: "error"
-      })
+        status: "error",
+      }),
     ];
     expect(wrapper.vm.status).toStrictEqual("error");
     expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconBlock);
@@ -66,8 +66,8 @@ describe("SXPublisher review info panel test", () => {
       new PublishFeedbackMessage({
         title: "Warning title",
         text: "Warning text",
-        status: "warning"
-      })
+        status: "warning",
+      }),
     ];
     expect(wrapper.vm.status).toStrictEqual("warning");
     expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconAlert);
@@ -80,7 +80,7 @@ describe("SXPublisher review info panel test", () => {
     store.state.application.publishFeedbackMessages = [
       new PublishFeedbackMessage({ title: "1", status: "error" }),
       new PublishFeedbackMessage({ title: "2", status: "warning" }),
-      new PublishFeedbackMessage({ title: "3", status: "warning" })
+      new PublishFeedbackMessage({ title: "3", status: "warning" }),
     ];
     await wrapper.vm.$nextTick();
     const previousButtonWrapper = wrapper.find(

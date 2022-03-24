@@ -50,7 +50,7 @@ function getReferenceRendering() {
 
   if (refNode) {
     this.view = new ve.ui.MWPreviewElement(refNode, {
-      useView: true
+      useView: true,
     });
 
     // The $element property may be rendered into asynchronously, update the context's size when the

@@ -3,7 +3,7 @@ export default class FavoriteSuggestion {
     title,
     sourceLanguage,
     targetLanguage,
-    missingSectionsCount = 0
+    missingSectionsCount = 0,
   } = {}) {
     this.title = title;
     this.sourceLanguage = sourceLanguage;

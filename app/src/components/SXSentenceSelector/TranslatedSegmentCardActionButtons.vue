@@ -21,7 +21,7 @@
 import { MwRow, MwButton } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowForward,
-  mwIconPrevious
+  mwIconPrevious,
 } from "@/lib/mediawiki.ui/components/icons";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
@@ -31,14 +31,12 @@ export default {
   name: "TranslatedSegmentCardActionButtons",
   components: {
     MwRow,
-    MwButton
+    MwButton,
   },
   emits: ["select-previous-segment", "skip-translation"],
   setup() {
-    const {
-      currentSourceSection,
-      isSectionTitleSelected
-    } = useApplicationState(useStore());
+    const { currentSourceSection, isSectionTitleSelected } =
+      useApplicationState(useStore());
 
     const isLastTranslationUnit = computed(
       () => currentSourceSection.value.isSelectedTranslationUnitLast
@@ -48,8 +46,8 @@ export default {
       mwIconArrowForward,
       mwIconPrevious,
       isLastTranslationUnit,
-      isSectionTitleSelected
+      isSectionTitleSelected,
     };
-  }
+  },
 };
 </script>

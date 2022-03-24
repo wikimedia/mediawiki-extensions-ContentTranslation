@@ -7,7 +7,7 @@ describe("MWInput.vue", () => {
     const inputClass = "mw-ui-input";
     const value = "InputContent";
     const wrapper = shallowMount(MwInput, {
-      props: { value }
+      props: { value },
     });
     expect(wrapper.find("input").exists()).toBe(true);
     expect(wrapper.find("input").element.value).toMatch(value);
@@ -18,7 +18,7 @@ describe("MWInput.vue", () => {
     const type = "textarea";
     const placeholder = "Enter some text";
     const wrapper = shallowMount(MwInput, {
-      props: { type, placeholder }
+      props: { type, placeholder },
     });
     expect(wrapper.find("textarea").exists()).toBe(true);
     expect(wrapper.find("textarea").attributes("placeholder")).toMatch(
@@ -29,7 +29,7 @@ describe("MWInput.vue", () => {
 
   it("renders icons and indicator when passed", () => {
     const wrapper = shallowMount(MwInput, {
-      props: { icon: mwIconTrash, indicator: mwIconAdd }
+      props: { icon: mwIconTrash, indicator: mwIconAdd },
     });
     expect(wrapper.find(".mw-ui-input__indicator").exists()).toBe(true);
     expect(wrapper.find(".mw-ui-input__icon").exists()).toBe(true);

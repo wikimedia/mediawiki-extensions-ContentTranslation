@@ -42,7 +42,7 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
 
   return {
     searchResultsLoading,
-    searchResultsSlice
+    searchResultsSlice,
   };
 };
 export default useSearchArticles;

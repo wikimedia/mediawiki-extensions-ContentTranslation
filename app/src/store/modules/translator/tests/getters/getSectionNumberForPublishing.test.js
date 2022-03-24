@@ -7,15 +7,15 @@ describe("vuex getSectionNumberForPublishing getter", () => {
   const rootState = {
     application: {
       currentSectionSuggestion: new SectionSuggestion({}),
-      currentSourceSection: new PageSection({ isLeadSection: true })
-    }
+      currentSourceSection: new PageSection({ isLeadSection: true }),
+    },
   };
 
   const getters = {};
   const rootGetters = {
     "application/getCurrentTargetPage": new Page(),
-    "suggestions/getFirstAppendixTitleBySectionSuggestion": suggestion =>
-      "appendix1"
+    "suggestions/getFirstAppendixTitleBySectionSuggestion": (suggestion) =>
+      "appendix1",
   };
 
   it("should return 0 when section is a lead section", () => {
@@ -31,15 +31,15 @@ describe("vuex getSectionNumberForPublishing getter", () => {
 
   it("should return the position of the section, if the section is present", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: { presentSource1: "presentTarget1" }
+      present: { presentSource1: "presentTarget1" },
     });
     rootState.application.currentSourceSection = new PageSection({
-      title: "presentSource1"
+      title: "presentSource1",
     });
 
     const targetPage = new Page();
 
-    targetPage.getSectionNumberByTitle = title => {
+    targetPage.getSectionNumberByTitle = (title) => {
       if (title === "presentTarget1") {
         return 5;
       } else if (title === "appendix1") {
@@ -61,7 +61,7 @@ describe("vuex getSectionNumberForPublishing getter", () => {
 
   it("should return the position of the first appendix section, if the section is missing and appendix sections exist", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: {}
+      present: {},
     });
 
     expect(
@@ -76,7 +76,7 @@ describe("vuex getSectionNumberForPublishing getter", () => {
 
   it("should return 'new', if the section is missing and no appendix sections exist", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: {}
+      present: {},
     });
 
     rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"] = () =>

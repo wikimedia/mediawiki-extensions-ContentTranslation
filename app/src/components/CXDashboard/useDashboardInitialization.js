@@ -34,7 +34,7 @@ const initializeDashboard = async (router, store, logEvent) => {
   logEvent({
     event_type: "dashboard_open",
     event_source: "direct",
-    content_translation_session_position: 0
+    content_translation_session_position: 0,
   });
 
   await store.dispatch("suggestions/fetchFavorites");

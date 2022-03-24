@@ -40,8 +40,8 @@ export default {
     learnMoreUrl:
       "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Section_translation",
     feedbackUrl:
-      "https://www.mediawiki.org/wiki/Talk:Content_translation/Section_translation"
-  })
+      "https://www.mediawiki.org/wiki/Talk:Content_translation/Section_translation",
+  }),
 };
 </script>
 

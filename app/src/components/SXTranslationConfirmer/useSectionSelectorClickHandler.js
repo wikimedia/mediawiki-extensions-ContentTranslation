@@ -10,10 +10,8 @@ export default (router, store) => {
   const urlParams = new URLSearchParams(location.search);
   const preFilledSectionTitle = ref(urlParams.get("section"));
 
-  const {
-    currentSourceSection,
-    currentSectionSuggestion: sectionSuggestion
-  } = useApplicationState(store);
+  const { currentSourceSection, currentSectionSuggestion: sectionSuggestion } =
+    useApplicationState(store);
 
   const translationExists = computed(
     () => !!sectionSuggestion.value?.translationExists
@@ -48,7 +46,7 @@ export default (router, store) => {
       if (!!currentSourceSection.value) {
         router.push({
           name: "sx-content-comparator",
-          params: { force: true }
+          params: { force: true },
         });
       } else {
         clearPreFilledSection();
@@ -65,6 +63,6 @@ export default (router, store) => {
   return {
     clearPreFilledSection,
     onSectionSelectorClick,
-    preFilledSectionTitle
+    preFilledSectionTitle,
   };
 };

@@ -2,7 +2,6 @@ import { mount } from "@vue/test-utils";
 import SXSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import { createI18n } from "vue-banana-i18n";
-import "html-loader";
 
 describe("SXSectionSelector Section List", () => {
   const suggestion = new SectionSuggestion({
@@ -11,25 +10,25 @@ describe("SXSectionSelector Section List", () => {
       "source section 0": "target section 0",
       "source section 1": "target section 1",
       "source section 2": "target section 2",
-      "source section 3": "target section 3"
+      "source section 3": "target section 3",
     },
     sourceSections: [
       "source section 0",
       "source section 1",
       "source section 2",
-      "source section 3"
-    ]
+      "source section 3",
+    ],
   });
 
   const i18n = createI18n();
 
   const wrapper = mount(SXSectionSelectorSectionListPresent, {
     global: {
-      plugins: [i18n]
+      plugins: [i18n],
     },
     props: {
-      suggestion
-    }
+      suggestion,
+    },
   });
 
   it("Component output matches snapshot", () => {

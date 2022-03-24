@@ -19,16 +19,16 @@ export default {
   props: {
     selection: {
       type: String,
-      required: true
+      required: true,
     },
     isMappedSection: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["update:selection"],
   setup(props, { emit }) {
-    const updateSelection = selection => emit("update:selection", selection);
+    const updateSelection = (selection) => emit("update:selection", selection);
 
     const listSelector = useListSelector(props);
 
@@ -42,7 +42,9 @@ export default {
       () => props.isMappedSection,
       () => {
         if (
-          !listSelector.value.map(item => item.value).includes(props.selection)
+          !listSelector.value
+            .map((item) => item.value)
+            .includes(props.selection)
         ) {
           updateSelection(listSelector.value[0].value);
         }
@@ -51,9 +53,9 @@ export default {
 
     return {
       listSelector,
-      updateSelection
+      updateSelection,
     };
-  }
+  },
 };
 </script>
 

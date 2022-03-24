@@ -50,7 +50,7 @@
 <script>
 import {
   mwIconSettings,
-  mwIconEdit
+  mwIconEdit,
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SxPublisherHeader from "./SXPublisherHeader";
@@ -73,13 +73,13 @@ export default {
     MwButton,
     SxPublisherHeader,
     MwRow,
-    MwCol
+    MwCol,
   },
   setup() {
     const store = useStore();
     const {
       currentSourceSection: currentPageSection,
-      currentSectionSuggestion: suggestion
+      currentSectionSuggestion: suggestion,
     } = useApplicationState(store);
 
     const isSandboxTarget = computed(
@@ -108,8 +108,8 @@ export default {
           sourceLanguage: suggestion.value.sourceLanguage,
           targetLanguage: suggestion.value.targetLanguage,
           title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
-          isFinalEdit: true
-        }
+          isFinalEdit: true,
+        },
       });
     };
 
@@ -118,7 +118,7 @@ export default {
       doPublish,
       isPublishDialogActive,
       publishOptionsOn,
-      publishStatus
+      publishStatus,
     } = usePublishTranslation(store);
 
     return {
@@ -132,9 +132,9 @@ export default {
       panelResult,
       publishOptionsOn,
       publishStatus,
-      translatedTitle
+      translatedTitle,
     };
-  }
+  },
 };
 </script>
 

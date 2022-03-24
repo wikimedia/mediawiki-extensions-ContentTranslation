@@ -4,7 +4,7 @@ import { MwBottomNavigation, MwButtonGroup } from "../..";
 export default {
   title: "Components/BottomNavigation",
   component: MwBottomNavigation,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const BottomNavigationWithTextButtonsAndIcons = () => ({
@@ -18,26 +18,26 @@ export const BottomNavigationWithTextButtonsAndIcons = () => ({
         props: {
           label: "Suggestions",
           icon: icons.mwIconLightBulb,
-          type: "text"
-        }
+          type: "text",
+        },
       },
       {
         value: "draft",
         props: {
           label: "In progress",
           icon: icons.mwIconEdit,
-          type: "text"
-        }
+          type: "text",
+        },
       },
       {
         value: "published",
         props: {
           label: "Published",
           icon: icons.mwIconArticleCheck,
-          type: "text"
-        }
-      }
-    ]
+          type: "text",
+        },
+      },
+    ],
   }),
   template: `
   <div class="container" style="transform: scale(1); height: 6rem; width: 100vw; max-width: 100%;">
@@ -49,7 +49,7 @@ export const BottomNavigationWithTextButtonsAndIcons = () => ({
         />
       </div>
     </div>
-  </div>`
+  </div>`,
 });
 
 export const BottomNavigationWithCustomSlot = () => ({
@@ -62,24 +62,24 @@ export const BottomNavigationWithCustomSlot = () => ({
         value: "add",
         props: {
           label: "Add",
-          icon: icons.mwIconAdd
-        }
+          icon: icons.mwIconAdd,
+        },
       },
       {
         value: "remove",
         props: {
           label: "Remove",
-          icon: icons.mwIconTrash
-        }
+          icon: icons.mwIconTrash,
+        },
       },
       {
         value: "edit",
         props: {
           label: "Edit",
-          icon: icons.mwIconEdit
-        }
-      }
-    ]
+          icon: icons.mwIconEdit,
+        },
+      },
+    ],
   }),
   template: `
   <div class="container" style="transform: scale(1); height: 6rem; width: 100vw; max-width: 100%;">
@@ -90,5 +90,5 @@ export const BottomNavigationWithCustomSlot = () => ({
         v-on:select="active = $event"
       />
     </mw-bottom-navigation>
-  </div>`
+  </div>`,
 });

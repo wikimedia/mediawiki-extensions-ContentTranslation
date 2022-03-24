@@ -18,25 +18,25 @@ export default defineConfig({
       template: {
         compilerOptions: {
           compatConfig: {
-            MODE: 3
-          }
-        }
-      }
-    })
+            MODE: 3,
+          },
+        },
+      },
+    }),
   ],
   resolve: {
     alias: [
       {
         find: "@",
-        replacement: path.resolve(__dirname, "src")
+        replacement: path.resolve(__dirname, "src"),
       },
       {
         find: /~(.+)/,
-        replacement: path.join(process.cwd(), "node_modules/$1")
-      }
+        replacement: path.join(process.cwd(), "node_modules/$1"),
+      },
     ],
     // FIXME: Avoid this configuration and change files to use .vue extension.
-    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"]
+    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
   },
   build: {
     chunkSizeWarningLimit: 600,
@@ -45,8 +45,8 @@ export default defineConfig({
     target: "es2015",
     lib: {
       entry: path.resolve(__dirname, "./src/main.js"),
-      name: packageDef.name
-    }
+      name: packageDef.name,
+    },
   },
-  ...localConfig
+  ...localConfig,
 });

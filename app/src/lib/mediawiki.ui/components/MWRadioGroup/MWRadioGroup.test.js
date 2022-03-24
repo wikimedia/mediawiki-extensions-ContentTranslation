@@ -8,11 +8,11 @@ describe("MWRadioGroup.vue", () => {
       props: {
         items: [
           { text: "A radio button", value: "first_button" },
-          { text: "Another radio button", value: "second_button" }
+          { text: "Another radio button", value: "second_button" },
         ],
         value: "first_button",
-        name: "radio_button_group"
-      }
+        name: "radio_button_group",
+      },
     });
     const trigger = wrapper.find(".mw-ui-radio-group");
     expect(trigger.exists()).toBe(true);

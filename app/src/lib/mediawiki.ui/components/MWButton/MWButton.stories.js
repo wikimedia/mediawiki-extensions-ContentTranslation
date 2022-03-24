@@ -5,17 +5,17 @@ import MwButton from "./MWButton.vue";
 export default {
   title: "Components/Button",
   component: MwButton,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const Progressive = () => ({
   components: { MwButton },
-  template: `<mw-button progressive label="Click me"/>`
+  template: `<mw-button progressive label="Click me"/>`,
 });
 
 export const Destructive = () => ({
   components: { MwButton },
-  template: `<mw-button destructive label="Click me"/>`
+  template: `<mw-button destructive label="Click me"/>`,
 });
 
 export const TextButton = () => ({
@@ -27,13 +27,13 @@ export const TextButton = () => ({
       <mw-button type="text" destructive label="Destructive text"/>
       <mw-button type="text" disabled label="Disabled text"/>
     </section>
-  `
+  `,
 });
 
 export const IconButton = () => ({
   components: { MwButton },
   data: () => ({
-    icons
+    icons,
   }),
   template: `
     <section>
@@ -41,13 +41,13 @@ export const IconButton = () => ({
       <mw-button type="icon" progressive :icon="icons.mwIconAdd"/>
       <mw-button type="icon" destructive :icon="icons.mwIconAdd"/>
     </section>
-  `
+  `,
 });
 
 export const LargeButton = () => ({
   components: { MwButton },
   data: () => ({
-    icons
+    icons,
   }),
   template: `
   <section class="container">
@@ -63,13 +63,13 @@ export const LargeButton = () => ({
       </div>
     </div>
   </section>
-  `
+  `,
 });
 
 export const Link = () => ({
   components: { MwButton },
   data: () => ({
-    icons
+    icons,
   }),
   template: `
       <mw-button
@@ -78,13 +78,13 @@ export const Link = () => ({
         :icon="icons.mwIconWikipedia"
         label="Wikipedia"
       />
-  `
+  `,
 });
 
 export const ButtonWithIcons = () => ({
   components: { MwButton },
   data: () => ({
-    icons
+    icons,
   }),
   template: `
     <section class="container">
@@ -164,19 +164,19 @@ export const ButtonWithIcons = () => ({
         </div>
       </div>
     </section>
-  `
+  `,
 });
 
 export const DifferentButtons = (args, { argTypes }) => ({
   components: { MwButton },
   data: () => ({
-    icons
+    icons,
   }),
   props: Object.keys(argTypes),
   methods: {
     onIndicatorClick() {
       action("indicator-click")(`Clicked`);
-    }
+    },
   },
   template: `
     <section class="container">
@@ -200,7 +200,7 @@ export const DifferentButtons = (args, { argTypes }) => ({
         </div>
       </div>
     </section>
-  `
+  `,
 });
 
 DifferentButtons.args = {
@@ -213,20 +213,20 @@ DifferentButtons.args = {
   progressive: true,
   destructive: false,
   type: "button",
-  hasIndicatorClickListener: true
+  hasIndicatorClickListener: true,
 };
 
 DifferentButtons.argTypes = {
   icon: {
     type: "option",
-    options: Object.keys(icons)
+    options: Object.keys(icons),
   },
   indicator: {
     type: "option",
-    options: Object.keys(icons)
+    options: Object.keys(icons),
   },
   type: {
     type: "option",
-    options: ["button", "toggle", "icon", "text"]
-  }
+    options: ["button", "toggle", "icon", "text"],
+  },
 };

@@ -11,6 +11,6 @@ import CxDashboard from "@/components/CXDashboard";
 
 export default {
   name: "DashboardView",
-  components: { CxDashboard }
+  components: { CxDashboard },
 };
 </script>

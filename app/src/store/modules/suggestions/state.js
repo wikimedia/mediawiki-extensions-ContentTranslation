@@ -47,5 +47,5 @@ export default {
    * Maximum number of suggestions based on user's recently edited translations,
    * to be displayed inside "search for an article" view
    */
-  maxRecentlyEditedSuggestions: 3
+  maxRecentlyEditedSuggestions: 3,
 };

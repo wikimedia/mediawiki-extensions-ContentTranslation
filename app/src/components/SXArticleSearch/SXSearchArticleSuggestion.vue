@@ -44,7 +44,7 @@ import Page from "../../wiki/mw/models/page";
 import {
   mwIconStar,
   mwIconLanguage,
-  mwIconArticle
+  mwIconArticle,
 } from "../../lib/mediawiki.ui/components/icons";
 
 export default {
@@ -53,10 +53,10 @@ export default {
   props: {
     suggestion: {
       type: Page,
-      required: true
-    }
+      required: true,
+    },
   },
-  data: () => ({ mwIconStar, mwIconLanguage, mwIconArticle })
+  data: () => ({ mwIconStar, mwIconLanguage, mwIconArticle }),
 };
 </script>
 

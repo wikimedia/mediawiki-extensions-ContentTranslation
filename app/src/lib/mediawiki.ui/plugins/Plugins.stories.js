@@ -4,7 +4,7 @@ import { BreakpointsPlugin } from ".";
 Vue.use(BreakpointsPlugin);
 
 export default {
-  title: "Components/Plugins"
+  title: "Components/Plugins",
 };
 
 export const Breakpoints = () => ({
@@ -18,5 +18,5 @@ export const Breakpoints = () => ({
         $mwui.breakpoint.{{property}}
       </div>
       <p>Resize the viewport and you can see the value of $mwui.breakpoint.* changing. You may use this in your components to use with viewport dependent logic</p>
-    </main>`
+    </main>`,
 });

@@ -10,15 +10,15 @@ import SxSentenceSelector from "@/components/SXSentenceSelector";
 export default {
   name: "SxSentenceSelectorView",
   components: {
-    SxSentenceSelector
+    SxSentenceSelector,
   },
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.mdAndDown,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

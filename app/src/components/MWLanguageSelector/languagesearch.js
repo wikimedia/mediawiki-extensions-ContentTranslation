@@ -11,7 +11,7 @@ async function search(languages, query, searchApi) {
 
   // See if the search query is a language code
   const exactMatch = languages.filter(
-    code => query.toLowerCase() === code.toLowerCase()
+    (code) => query.toLowerCase() === code.toLowerCase()
   );
 
   if (exactMatch.length) {
@@ -19,15 +19,11 @@ async function search(languages, query, searchApi) {
   }
 
   const filterResults = languages.filter(
-    code =>
+    (code) =>
       // Search using autonym
-      getAutonym(code)
-        .toLowerCase()
-        .includes(query.toLowerCase()) ||
+      getAutonym(code).toLowerCase().includes(query.toLowerCase()) ||
       // Search using script name
-      getScript(code)
-        .toLowerCase()
-        .includes(query.toLowerCase())
+      getScript(code).toLowerCase().includes(query.toLowerCase())
   );
 
   if (filterResults.length) {
@@ -40,7 +36,7 @@ async function search(languages, query, searchApi) {
     const searchApiResults = await searchWithAPI(query, searchApi);
 
     // Remove the languages not known to this selector.
-    return searchApiResults.filter(code => languages.includes(code));
+    return searchApiResults.filter((code) => languages.includes(code));
   }
 
   return [];
@@ -67,8 +63,8 @@ function searchWithAPI(query, searchApi) {
   apiURL.searchParams.set("search", query);
 
   return fetch(apiURL.toString())
-    .then(response => response.json())
-    .then(result => Object.keys(result.languagesearch || {}));
+    .then((response) => response.json())
+    .then((result) => Object.keys(result.languagesearch || {}));
 }
 
 function getSearchApi() {
@@ -109,5 +105,5 @@ export {
   getSearchApi,
   searchByQuery,
   getSearchResultsByScript,
-  getResultsDisplayClass
+  getResultsDisplayClass,
 };

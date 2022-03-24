@@ -8,7 +8,7 @@ import {
   SXQuickTutorial,
   SXEditor,
   SXPublisher,
-  SXArticleSearch
+  SXArticleSearch,
 } from "@/views";
 
 const routes = [
@@ -17,76 +17,76 @@ const routes = [
     name: "dashboard",
     component: Dashboard,
     params: true,
-    meta: { workflowStep: 0 }
+    meta: { workflowStep: 0 },
   },
   {
     path: "/sx/article-search",
     name: "sx-article-search",
     component: SXArticleSearch,
     params: true,
-    meta: { workflowStep: 0.5 }
+    meta: { workflowStep: 0.5 },
   },
   {
     path: "/sx",
     name: "sx-translation-confirmer",
     component: SXTranslationConfirmer,
     params: true,
-    meta: { workflowStep: 1 }
+    meta: { workflowStep: 1 },
   },
   {
     path: "/sx/section-selector",
     name: "sx-section-selector",
     component: SXSectionSelector,
     params: true,
-    meta: { workflowStep: 2 }
+    meta: { workflowStep: 2 },
   },
   {
     path: "/sx/content-comparator",
     name: "sx-content-comparator",
     component: SXContentComparator,
     params: true,
-    meta: { workflowStep: 3 }
+    meta: { workflowStep: 3 },
   },
   {
     path: "/sx/quick-tutorial",
     name: "sx-quick-tutorial",
     component: SXQuickTutorial,
     params: true,
-    meta: { workflowStep: 3.5 }
+    meta: { workflowStep: 3.5 },
   },
   {
     path: "/sx/sentence-selector",
     name: "sx-sentence-selector",
     component: SXSentenceSelector,
     params: true,
-    meta: { workflowStep: 4 }
+    meta: { workflowStep: 4 },
   },
   {
     path: "/sx/sx-editor",
     name: "sx-editor",
     component: SXEditor,
     params: true,
-    meta: { workflowStep: 4.5 }
+    meta: { workflowStep: 4.5 },
   },
   {
     path: "/sx/sx-publisher",
     name: "sx-publisher",
     component: SXPublisher,
     params: true,
-    meta: { workflowStep: 5 }
+    meta: { workflowStep: 5 },
   },
   {
     path: "/:pathMatch(.*)*",
     name: "404",
     component: Dashboard,
     params: true,
-    meta: { workflowStep: 0 }
-  }
+    meta: { workflowStep: 0 },
+  },
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 });
 
 /**
@@ -120,7 +120,7 @@ router.beforeEach((to, from, next) => {
   if (stepsDifference > 1) {
     const previousRequiredStep = Math.ceil(toStep) - 1;
     const previousRequiredRoute = routes.find(
-      route => route.meta.workflowStep === previousRequiredStep
+      (route) => route.meta.workflowStep === previousRequiredStep
     );
     next({ name: previousRequiredRoute.name });
 

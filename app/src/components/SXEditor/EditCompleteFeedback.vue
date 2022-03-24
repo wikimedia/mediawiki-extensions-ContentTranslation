@@ -35,12 +35,12 @@ export default {
   props: {
     showFeedback: {
       type: Boolean,
-      required: true
+      required: true,
     },
     editedTranslation: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   setup(props) {
     const route = useRoute();
@@ -66,9 +66,9 @@ export default {
     return {
       happyRobotSVG,
       modificationPercentageClass,
-      mtScore
+      mtScore,
     };
-  }
+  },
 };
 </script>
 

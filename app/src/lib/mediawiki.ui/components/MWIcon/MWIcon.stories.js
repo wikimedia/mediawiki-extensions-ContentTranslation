@@ -4,7 +4,7 @@ import MwIcon from "./MWIcon.vue";
 export default {
   title: "Components/Icons",
   component: MwIcon,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const ListOfAvailableIcons = (args, { argTypes }) => ({
@@ -12,7 +12,7 @@ export const ListOfAvailableIcons = (args, { argTypes }) => ({
   data: () => ({
     mwIconAdd: icons.mwIconAdd,
     icons,
-    iconKeys: Object.keys(icons)
+    iconKeys: Object.keys(icons),
   }),
   props: Object.keys(argTypes),
   template: `
@@ -26,7 +26,7 @@ export const ListOfAvailableIcons = (args, { argTypes }) => ({
       />
         {{icon}}
     </div>
-  </main>`
+  </main>`,
 });
 
 ListOfAvailableIcons.args = { iconColor: "#000", size: 20 };
@@ -39,7 +39,7 @@ ListOfAvailableIcons.argTypes = {
     type: "string",
     control: {
       type: "select",
-      options: { "Left to Right": "ltr", "Right to Left": "rtl" }
-    }
-  }
+      options: { "Left to Right": "ltr", "Right to Left": "rtl" },
+    },
+  },
 };

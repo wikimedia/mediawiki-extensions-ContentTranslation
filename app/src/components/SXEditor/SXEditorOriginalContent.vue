@@ -28,16 +28,16 @@ export default {
   props: {
     originalContent: {
       type: String,
-      required: true
+      required: true,
     },
     language: {
       type: String,
-      required: true
+      required: true,
     },
     dir: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   setup() {
     const originalContentRef = ref(null);
@@ -55,9 +55,9 @@ export default {
 
     return {
       originalContentRef,
-      twoLinesHeight
+      twoLinesHeight,
     };
-  }
+  },
 };
 </script>
 

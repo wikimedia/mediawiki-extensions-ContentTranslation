@@ -17,7 +17,7 @@ SXEditorBackTool.static.commandName = "back";
 /**
  * On state updated event handler
  */
-SXEditorBackTool.prototype.onUpdateState = function() {
+SXEditorBackTool.prototype.onUpdateState = function () {
   // Parent method
   SXEditorBackTool.super.prototype.onUpdateState.apply(this, arguments);
   this.setActive(false);

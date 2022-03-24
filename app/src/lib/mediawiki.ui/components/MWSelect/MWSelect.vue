@@ -82,7 +82,7 @@ import { mwIconExpand, mwIconSearch } from "../icons";
 export default {
   name: "MwSelect",
   components: {
-    MwIcon
+    MwIcon,
   },
   props: {
     disabled: Boolean,
@@ -92,18 +92,18 @@ export default {
      */
     // eslint-disable-next-line vue/require-prop-types
     value: {
-      required: true
+      required: true,
     },
     placeholder: {
       type: String,
-      default: null
+      default: null,
     },
     /* If the passed options are array of objects,
      * the label will be taken from this key
      */
     optionLabel: {
       type: String,
-      default: "label"
+      default: "label",
     },
     /**
      * If the passed options are array of objects,
@@ -111,27 +111,27 @@ export default {
      */
     optionValue: {
       type: String,
-      default: "value"
+      default: "value",
     },
     icon: {
       type: String,
-      default: mwIconSearch
+      default: mwIconSearch,
     },
     iconSize: {
       type: [Number, String],
-      default: "24"
+      default: "24",
     },
     indicatorSize: {
       type: [Number, String],
-      default: "24"
+      default: "24",
     },
     indicator: {
       type: String,
-      default: mwIconExpand
+      default: mwIconExpand,
     },
     noResultsMessage: {
       type: String,
-      default: "No results found"
+      default: "No results found",
     },
     /**
      * Filter function. Should accept two params.
@@ -142,8 +142,8 @@ export default {
       type: Function,
       default: ({ value, label }, query) =>
         ~(label + "").toLowerCase().indexOf(query.toLowerCase()) ||
-        ~(value + "").toLowerCase().indexOf(query.toLowerCase())
-    }
+        ~(value + "").toLowerCase().indexOf(query.toLowerCase()),
+    },
   },
   emits: ["select", "focus", "click"],
   data: () => ({
@@ -151,14 +151,14 @@ export default {
     mwIconExpand,
     optionsOpen: false,
     focused: false,
-    selectedIndex: -1
+    selectedIndex: -1,
   }),
   computed: {
     classes() {
       return {
         "mw-ui-select": true,
         "mw-ui-select--disabled": this.disabled,
-        "mw-ui-select--focused": this.focused
+        "mw-ui-select--focused": this.focused,
       };
     },
     options_() {
@@ -176,7 +176,7 @@ export default {
     },
     selectedLabel() {
       return this.selectedOption?.label;
-    }
+    },
   },
   methods: {
     parseValues(values) {
@@ -187,9 +187,9 @@ export default {
         values.length &&
         typeof values[0] === "string"
       ) {
-        return values.map(option => ({
+        return values.map((option) => ({
           label: option,
-          value: option
+          value: option,
         }));
       }
 
@@ -203,9 +203,9 @@ export default {
         values[0][this.optionLabel] &&
         values[0][this.optionValue]
       ) {
-        return values.map(option => ({
+        return values.map((option) => ({
           label: option[this.optionLabel],
-          value: option[this.optionValue]
+          value: option[this.optionValue],
         }));
       }
 
@@ -215,9 +215,9 @@ export default {
       if (typeof values === "object") {
         const keys = Object.keys(values);
 
-        return keys.map(key => ({
+        return keys.map((key) => ({
           value: key,
-          label: values[key]
+          label: values[key],
         }));
       }
       throw new Error("Passed value format is not supported");
@@ -260,7 +260,9 @@ export default {
         return options;
       }
 
-      return options.filter(option => this.filterBy.call(this, option, query));
+      return options.filter((option) =>
+        this.filterBy.call(this, option, query)
+      );
     },
     onFocus(event) {
       this.focused = true;
@@ -300,8 +302,8 @@ export default {
     },
     removeGlobalMouseEvents() {
       document.removeEventListener("click", this.blur);
-    }
-  }
+    },
+  },
 };
 </script>
 

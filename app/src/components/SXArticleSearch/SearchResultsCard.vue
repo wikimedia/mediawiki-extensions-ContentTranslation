@@ -5,7 +5,7 @@
       v-else-if="searchResultsSlice.length === 0"
       v-i18n:cx-sx-article-search-no-search-results-message="[
         searchInput,
-        sourceLanguageAutonym
+        sourceLanguageAutonym,
       ]"
       class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
     />
@@ -32,8 +32,8 @@ export default {
   props: {
     searchInput: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   emits: ["suggestion-clicked"],
   setup(props) {
@@ -51,9 +51,9 @@ export default {
       searchResultsLoading,
       /** @type {ComputedRef<Page[]>} */
       searchResultsSlice,
-      sourceLanguageAutonym
+      sourceLanguageAutonym,
     };
-  }
+  },
 };
 </script>
 

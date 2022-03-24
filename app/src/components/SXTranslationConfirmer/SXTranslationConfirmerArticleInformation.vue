@@ -15,7 +15,7 @@
           :href="sourceArticlePath"
           target="_blank"
         >
-          <h5 class=" ma-0  me-1" v-text="sourceTitle"></h5>
+          <h5 class="ma-0 me-1" v-text="sourceTitle"></h5>
           <mw-icon
             :icon="mwIconLinkExternal"
             size="10"
@@ -49,7 +49,7 @@ import {
   mwIconBookmark,
   mwIconBookmarkOutline,
   mwIconLanguage,
-  mwIconLinkExternal
+  mwIconLinkExternal,
 } from "@/lib/mediawiki.ui/components/icons";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
@@ -62,20 +62,19 @@ export default {
     MwRow,
     MwCol,
     MwIcon,
-    MwButton
+    MwButton,
   },
   setup() {
     const store = useStore();
 
-    const { currentSectionSuggestion: sectionSuggestion } = useApplicationState(
-      store
-    );
+    const { currentSectionSuggestion: sectionSuggestion } =
+      useApplicationState(store);
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
 
     const isFavorite = computed(() =>
       favorites.value.some(
-        favorite =>
+        (favorite) =>
           sectionSuggestion.value.sourceTitle === favorite.title &&
           sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
           sectionSuggestion.value.targetLanguage === favorite.targetLanguage
@@ -88,7 +87,7 @@ export default {
         new FavoriteSuggestion({
           title: sectionSuggestion.value.sourceTitle,
           sourceLanguage: sectionSuggestion.value.sourceLanguage,
-          targetLanguage: sectionSuggestion.value.targetLanguage
+          targetLanguage: sectionSuggestion.value.targetLanguage,
         })
       );
 
@@ -136,9 +135,9 @@ export default {
       sourceArticlePath,
       sourceTitle,
       toggleFavorite,
-      weeklyViews
+      weeklyViews,
     };
-  }
+  },
 };
 </script>
 

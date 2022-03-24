@@ -5,7 +5,7 @@ import { createStore } from "vuex";
 import { createI18n } from "vue-banana-i18n";
 import debounce from "@/utils/debounce";
 jest.mock("@/utils/debounce");
-debounce.mockImplementation(fn => fn);
+debounce.mockImplementation((fn) => fn);
 
 const i18n = createI18n();
 
@@ -14,19 +14,19 @@ const mockResults = [
     thumbnail: { source: "/thumbnail1.jpg" },
     title: "Test page1",
     description: "Test description1",
-    langLinksCount: 5
+    langLinksCount: 5,
   }),
   new Page({
     thumbnail: { source: "/thumbnail2.jpg" },
     title: "Test page2",
     description: "Test description2",
-    langLinksCount: 10
-  })
+    langLinksCount: 10,
+  }),
 ];
 
 jest.mock("../../wiki/mw/api/page", () => {
   return {
-    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults))
+    searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults)),
   };
 });
 
@@ -35,23 +35,23 @@ describe("SearchResultsCard", () => {
 
   const applicationModule = {
     namespaced: true,
-    state: { sourceLanguage }
+    state: { sourceLanguage },
   };
 
   const store = createStore({
-    modules: { application: applicationModule }
+    modules: { application: applicationModule },
   });
 
   const wrapper = mount(SearchResultsCard, {
     global: { plugins: [store, i18n] },
     props: {
-      searchInput: ""
-    }
+      searchInput: "",
+    },
   });
 
   it("Search for articles method is called when search input is updated", async () => {
     await wrapper.setProps({
-      searchInput: "test 1"
+      searchInput: "test 1",
     });
 
     expect(wrapper.vm.searchResultsSlice).toStrictEqual(mockResults);

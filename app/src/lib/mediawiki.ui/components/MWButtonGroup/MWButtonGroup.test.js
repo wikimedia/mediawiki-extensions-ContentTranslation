@@ -15,17 +15,17 @@ describe("MwButtonGroup.vue", () => {
           {
             value: "item1",
             props: {
-              label: "buttonLabel1"
-            }
+              label: "buttonLabel1",
+            },
           },
           {
             value: "item2",
             props: {
-              label: "buttonLabel2"
-            }
-          }
-        ]
-      }
+              label: "buttonLabel2",
+            },
+          },
+        ],
+      },
     });
     expect(wrapper.findAll("mw-button-stub").length).toBe(2);
     expect(wrapper.element).toMatchSnapshot();

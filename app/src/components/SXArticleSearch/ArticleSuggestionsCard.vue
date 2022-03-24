@@ -26,19 +26,19 @@ export default {
   props: {
     cardTitle: {
       type: String,
-      required: true
+      required: true,
     },
     suggestions: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["suggestion-clicked"],
   computed: {
     ...mapState({
-      sourceLanguage: state => state.application.sourceLanguage
-    })
-  }
+      sourceLanguage: (state) => state.application.sourceLanguage,
+    }),
+  },
 };
 </script>
 

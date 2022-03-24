@@ -5,18 +5,18 @@ jest.mock("../../../utils/mediawikiHelper");
 const mockNearbyPages = {
   en: [new Page(), new Page()],
   es: [new Page(), new Page()],
-  de: []
+  de: [],
 };
 
 jest.mock("../../../wiki/mw/api/page", () => {
   return {
-    fetchNearbyPages: language => {
+    fetchNearbyPages: (language) => {
       if (mockNearbyPages[language]) {
         return Promise.resolve(mockNearbyPages[language]);
       }
 
       return Promise.reject();
-    }
+    },
   };
 });
 
@@ -24,10 +24,10 @@ describe("vuex store mediawiki/actions", () => {
   const commit = jest.fn();
   const applicationState = { sourceLanguage: "en" };
   const rootState = {
-    application: applicationState
+    application: applicationState,
   };
   const state = {
-    nearbyPages: { en: mockNearbyPages.en }
+    nearbyPages: { en: mockNearbyPages.en },
   };
   it("fetchNearbyPages action with existing nearby pages for current language", async () => {
     await actions.fetchNearbyPages({ commit, rootState, state });
@@ -39,7 +39,7 @@ describe("vuex store mediawiki/actions", () => {
     await actions.fetchNearbyPages({ commit, rootState, state });
     expect(commit).toHaveBeenCalledWith("addNearbyPages", {
       language: "es",
-      pages: mockNearbyPages.es
+      pages: mockNearbyPages.es,
     });
   });
 
@@ -48,7 +48,7 @@ describe("vuex store mediawiki/actions", () => {
     await actions.fetchNearbyPages({ commit, rootState, state });
     expect(commit).toHaveBeenCalledWith("addNearbyPages", {
       language: "de",
-      pages: []
+      pages: [],
     });
   });
 });

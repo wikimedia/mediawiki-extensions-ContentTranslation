@@ -35,7 +35,7 @@ export default {
         const id = Math.floor(Math.random() * 10000);
 
         return `radio-button-${id}`;
-      }
+      },
     },
     /**
      * Represents the value of the currently checked button
@@ -44,7 +44,7 @@ export default {
     // eslint-disable-next-line vue/require-prop-types
     value: {
       required: false,
-      default: null
+      default: null,
     },
     /**
      * Removes the ability to click or target the component.
@@ -52,21 +52,21 @@ export default {
     disabled: {
       type: Boolean,
       required: false,
-      default: false
+      default: false,
     },
     /**
      * Sets radio button label
      **/
     label: {
       type: String,
-      required: true
+      required: true,
     },
     /**
      * Sets value attribute of current radio button
      **/
     // eslint-disable-next-line vue/require-prop-types
     inputValue: {
-      required: true
+      required: true,
     },
     /**
      * Sets the name of current radio button
@@ -74,17 +74,17 @@ export default {
     name: {
       type: String,
       required: false,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    isSelected: vm =>
+    isSelected: (vm) =>
       vm.value
         ? vm.value === vm.inputValue
         : vm.$parent.value === vm.inputValue,
-    widgetClass: vm => ({
+    widgetClass: (vm) => ({
       "mw-ui-radio--selected": vm.isSelected,
-      "mw-ui-radio--disabled": vm.disabled
+      "mw-ui-radio--disabled": vm.disabled,
     }),
     inputModel: {
       get() {
@@ -92,9 +92,9 @@ export default {
       },
       set() {
         this.$emit("change", this.inputValue);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

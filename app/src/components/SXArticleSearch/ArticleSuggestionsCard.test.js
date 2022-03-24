@@ -9,14 +9,14 @@ const suggestions = [
     thumbnail: { source: "/thumbnail1.jpg" },
     title: "Test page1",
     description: "Test description1",
-    langLinksCount: 5
+    langLinksCount: 5,
   }),
   new Page({
     thumbnail: { source: "/thumbnail2.jpg" },
     title: "Test page2",
     description: "Test description2",
-    langLinksCount: 10
-  })
+    langLinksCount: 10,
+  }),
 ];
 describe("ArticleSuggestionsCard test", () => {
   const sourceLanguage = "en";
@@ -24,22 +24,22 @@ describe("ArticleSuggestionsCard test", () => {
   const applicationState = { sourceLanguage };
   const applicationModule = {
     namespaced: true,
-    state: applicationState
+    state: applicationState,
   };
 
   const store = createStore({
-    modules: { application: applicationModule }
+    modules: { application: applicationModule },
   });
 
   const i18n = createI18n();
   const wrapper = mount(ArticleSuggestionsCard, {
     global: {
-      plugins: [store, i18n]
+      plugins: [store, i18n],
     },
     props: {
       cardTitle: "Recently edited",
-      suggestions
-    }
+      suggestions,
+    },
   });
 
   it("Component output matches snapshot", () => {

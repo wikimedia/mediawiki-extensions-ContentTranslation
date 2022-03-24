@@ -6,12 +6,12 @@ jest.mock("./mediawikiHelper", () => {
     siteMapper: {
       getCurrentWikiLanguageCode() {
         return mockWikiLanguage;
-      }
-    }
+      },
+    },
   };
 });
 
-mw.config.get = parameter => {
+mw.config.get = (parameter) => {
   if (parameter === "wgContentTranslationTranslateInTarget") {
     return false;
   }
@@ -21,7 +21,7 @@ mw.config.get = parameter => {
 
 let urlFrom;
 let urlTo;
-jest.spyOn(URLSearchParams.prototype, "get").mockImplementation(key => {
+jest.spyOn(URLSearchParams.prototype, "get").mockImplementation((key) => {
   if (key === "from") {
     return urlFrom;
   } else if (key === "to") {

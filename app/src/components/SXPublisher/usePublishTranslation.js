@@ -3,7 +3,7 @@ import siteApi from "../../wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import { ref } from "vue";
 
-const decodeHtml = html => {
+const decodeHtml = (html) => {
   const template = document.createElement("div");
   template.innerHTML = html;
 
@@ -11,10 +11,8 @@ const decodeHtml = html => {
 };
 
 const handlePublishResult = async (store, isPublishDialogActive) => {
-  const {
-    currentSectionSuggestion: suggestion,
-    currentSourceSection
-  } = useApplicationState(store);
+  const { currentSectionSuggestion: suggestion, currentSourceSection } =
+    useApplicationState(store);
 
   const translatedTitle = currentSourceSection?.value.title;
 
@@ -52,11 +50,11 @@ const handlePublishResult = async (store, isPublishDialogActive) => {
     "sx-published-section": decodeHtml(translatedTitle),
     "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
     "sx-source-language": suggestion.value.sourceLanguage,
-    "sx-target-language": suggestion.value.targetLanguage
+    "sx-target-language": suggestion.value.targetLanguage,
   });
 };
 
-const usePublishTranslation = store => {
+const usePublishTranslation = (store) => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
@@ -88,7 +86,7 @@ const usePublishTranslation = store => {
     doPublish,
     isPublishDialogActive,
     publishOptionsOn,
-    publishStatus
+    publishStatus,
   };
 };
 

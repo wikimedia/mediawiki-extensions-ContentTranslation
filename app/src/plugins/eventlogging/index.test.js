@@ -1,14 +1,14 @@
 import { logEvent } from "./";
-global.fetch = jest.fn(url => {
+global.fetch = jest.fn((url) => {
   return Promise.resolve({
     json: () =>
       Promise.resolve({
         query: {
           globaluserinfo: {
-            editcount: 2021
-          }
-        }
-      })
+            editcount: 2021,
+          },
+        },
+      }),
   });
 });
 
@@ -25,7 +25,7 @@ describe("Event logging", () => {
       user_is_anonymous: false,
       content_translation_session_id: `cx_sx_test-session-id_mobile web_test-db`,
       user_global_edit_count: 2021,
-      user_global_edit_count_bucket: "1000+ edits"
+      user_global_edit_count_bucket: "1000+ edits",
     };
     expect(mw.eventLog.submit).toHaveBeenCalledWith(
       "mediawiki.content_translation_event",

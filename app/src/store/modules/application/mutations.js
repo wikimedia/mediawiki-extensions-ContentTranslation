@@ -23,7 +23,7 @@ const mutations = {
    */
   clearMTPublishFeedbackMessages(state) {
     state.publishFeedbackMessages = state.publishFeedbackMessages.filter(
-      message => !message.isMTMessage
+      (message) => !message.isMTMessage
     );
   },
 
@@ -71,7 +71,7 @@ const mutations = {
       new SectionSuggestion({
         ...suggestion,
         missing: suggestion?.missingSections || {},
-        present: suggestion?.presentSections || {}
+        present: suggestion?.presentSections || {},
       });
   },
 
@@ -104,9 +104,8 @@ const mutations = {
     { id, provider, proposedTranslation }
   ) {
     if (id === 0) {
-      state.currentSourceSection.proposedTitleTranslations[
-        provider
-      ] = proposedTranslation;
+      state.currentSourceSection.proposedTitleTranslations[provider] =
+        proposedTranslation;
 
       return;
     }
@@ -154,7 +153,7 @@ const mutations = {
 
   setCXServerToken: (state, token) => {
     state.cxServerToken = token;
-  }
+  },
 };
 
 export default mutations;

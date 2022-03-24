@@ -31,7 +31,7 @@ export default {
   name: "CxFavoriteList",
   components: {
     CxTranslationSuggestion,
-    MwCard
+    MwCard,
   },
   setup() {
     const router = useRouter();
@@ -39,22 +39,22 @@ export default {
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
 
-    const startFavoriteTranslation = async suggestion => {
+    const startFavoriteTranslation = async (suggestion) => {
       await store.dispatch(
         "application/startFavoriteSectionTranslation",
         suggestion
       );
       router.push({
         name: "sx-translation-confirmer",
-        params: { previousRoute: "dashboard" }
+        params: { previousRoute: "dashboard" },
       });
     };
 
     return {
       favorites,
       startFavoriteTranslation,
-      unmarkFavoriteSectionSuggestion
+      unmarkFavoriteSectionSuggestion,
     };
-  }
+  },
 };
 </script>

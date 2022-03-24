@@ -39,5 +39,5 @@ export default {
    * exist, publishing functionality is disabled.
    * @type {PublishFeedbackMessage[]}
    */
-  publishFeedbackMessages: []
+  publishFeedbackMessages: [],
 };

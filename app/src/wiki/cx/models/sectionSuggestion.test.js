@@ -8,7 +8,7 @@ describe("test sectionSuggestion model", () => {
     const sectionSuggestion = new SectionSuggestion({
       sourceLanguage,
       targetLanguage,
-      sourceTitle
+      sourceTitle,
     });
 
     expect(sectionSuggestion.id).toEqual("en/es/testTitle");

@@ -6,7 +6,7 @@ describe("MWIcon.vue", () => {
   it("renders props.iconName when passed", () => {
     const iconName = "trash";
     const wrapper = shallowMount(MwIcon, {
-      props: { iconName }
+      props: { iconName },
     });
     expect(wrapper.find("title").text()).toBe(iconName);
   });
@@ -18,8 +18,8 @@ describe("MWIcon.vue", () => {
         width: 48,
         height: 24,
         icon: mwIconTrash,
-        iconColor: "#ddd"
-      }
+        iconColor: "#ddd",
+      },
     });
 
     expect(wrapper.element).toMatchSnapshot();

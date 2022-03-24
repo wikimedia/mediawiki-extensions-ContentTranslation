@@ -19,7 +19,7 @@ export default class SuggestionSeedCollection {
     sourceLanguage,
     targetLanguage,
     seeds = [],
-    exhaustedProviders = []
+    exhaustedProviders = [],
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -47,7 +47,7 @@ export default class SuggestionSeedCollection {
    * @returns {boolean}
    */
   get allProvidersExhausted() {
-    return providers.every(provider =>
+    return providers.every((provider) =>
       this.exhaustedProviders.includes(provider)
     );
   }
@@ -59,7 +59,7 @@ export default class SuggestionSeedCollection {
    */
   get nextUnexhaustedProvider() {
     return providers.find(
-      provider => !this.exhaustedProviders.includes(provider)
+      (provider) => !this.exhaustedProviders.includes(provider)
     );
   }
 

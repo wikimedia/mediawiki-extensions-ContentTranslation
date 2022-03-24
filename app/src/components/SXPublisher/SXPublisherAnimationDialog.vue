@@ -32,46 +32,52 @@ export default {
   props: {
     active: {
       type: Boolean,
-      required: true
+      required: true,
     },
     status: {
       type: String,
       required: true,
-      validator: value =>
-        ["pending", "success", "failure", "warning"].includes(value)
-    }
+      validator: (value) =>
+        ["pending", "success", "failure", "warning"].includes(value),
+    },
   },
-  data: vm => ({
+  data: (vm) => ({
     animations: {
       pending: {
         svg: publishingLaunchingSVG,
         title: vm.$i18n("cx-sx-publisher-animation-publishing-indicator-title"),
         subtitle: vm.$i18n(
           "cx-sx-publisher-animation-publishing-indicator-subtitle"
-        )
+        ),
       },
       success: {
         svg: publishingSuccessSVG,
         title: vm.$i18n("cx-sx-publisher-animation-success-message-title"),
-        subtitle: vm.$i18n("cx-sx-publisher-animation-success-message-subtitle")
+        subtitle: vm.$i18n(
+          "cx-sx-publisher-animation-success-message-subtitle"
+        ),
       },
       failure: {
         svg: publishingFailureSVG,
         title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
-        subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
+        subtitle: vm.$i18n(
+          "cx-sx-publisher-animation-failure-message-subtitle"
+        ),
       },
       warning: {
         svg: publishingFailureSVG,
         title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
-        subtitle: vm.$i18n("cx-sx-publisher-animation-failure-message-subtitle")
-      }
-    }
+        subtitle: vm.$i18n(
+          "cx-sx-publisher-animation-failure-message-subtitle"
+        ),
+      },
+    },
   }),
   computed: {
-    animationSvg: vm => vm.animations[vm.status].svg,
-    animationTitle: vm => vm.animations[vm.status].title,
-    animationSubtitle: vm => vm.animations[vm.status].subtitle
-  }
+    animationSvg: (vm) => vm.animations[vm.status].svg,
+    animationTitle: (vm) => vm.animations[vm.status].title,
+    animationSubtitle: (vm) => vm.animations[vm.status].subtitle,
+  },
 };
 </script>
 

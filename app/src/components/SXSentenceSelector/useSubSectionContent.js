@@ -4,7 +4,7 @@ import { computed } from "vue";
  * @param {SubSection} subSection
  * @return {ComputedRef<string>}
  */
-const getContent = subSection =>
+const getContent = (subSection) =>
   computed(() => {
     if (subSection.isBlockTemplate) {
       return subSection.isTranslated
@@ -17,12 +17,12 @@ const getContent = subSection =>
     const cloneNode = subSection.node.cloneNode(true);
     const segments = Array.from(cloneNode.getElementsByClassName("cx-segment"));
 
-    segments.forEach(segment => {
+    segments.forEach((segment) => {
       const sentence = subSection.getSentenceById(segment.dataset.segmentid);
 
       segment.classList.add(sentenceClass, "py-1", "me-1");
       const sentenceClasses = ["untranslated", "translated", "selected"].map(
-        postfix => `${sentenceClass}--${postfix}`
+        (postfix) => `${sentenceClass}--${postfix}`
       );
       segment.classList.remove(...sentenceClasses);
 

@@ -61,7 +61,7 @@
 import {
   mwIconArrowPrevious,
   mwIconEdit,
-  mwIconEye
+  mwIconEye,
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation";
@@ -79,20 +79,20 @@ export default {
     MwButton,
     MwCol,
     MwRow,
-    MwIcon
+    MwIcon,
   },
   props: {
     discardedSections: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["close", "translation-button-clicked", "update:discardedSections"],
   setup() {
     const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
-      currentSourceSection: sourceSection
+      currentSourceSection: sourceSection,
     } = useApplicationState(store);
 
     const isCurrentSectionMissing = computed(
@@ -102,14 +102,13 @@ export default {
       () => store.getters["application/isCurrentSourceSectionPresent"]
     );
 
-    const { activeSectionTargetTitle, sourceSectionTitle } = useCompareContents(
-      store
-    );
+    const { activeSectionTargetTitle, sourceSectionTitle } =
+      useCompareContents(store);
 
     const sourceSectionContent = computed(() => sourceSection.value?.html);
     const sectionSourceTitles = computed(() => [
       ...Object.keys(suggestion.value.missingSections),
-      ...Object.keys(suggestion.value.presentSections)
+      ...Object.keys(suggestion.value.presentSections),
     ]);
 
     return {
@@ -122,9 +121,9 @@ export default {
       sectionSourceTitles,
       sourceSectionContent,
       sourceSectionTitle,
-      suggestion
+      suggestion,
     };
-  }
+  },
 };
 </script>
 

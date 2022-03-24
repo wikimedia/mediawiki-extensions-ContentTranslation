@@ -30,7 +30,7 @@ export default class Translation {
     progress = {},
     startedTranslator,
     lastUpdatedTranslator,
-    cxVersion
+    cxVersion,
   }) {
     this.id = id;
     this.cxVersion = cxVersion;

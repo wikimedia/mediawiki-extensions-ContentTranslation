@@ -36,18 +36,18 @@ export default {
   components: {
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   props: {
     suggestion: {
       type: SectionSuggestion,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["close"],
   data: () => ({
-    mwIconClose
-  })
+    mwIconClose,
+  }),
 };
 </script>
 

@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSectionSelector View Article Item Component output matches snapshot for specified props 1`] = `
+exports[
+  `SXSectionSelector View Article Item Component output matches snapshot for specified props 1`
+] = `
 <li
   class="row items-center justify-start ma-0"
 >

@@ -5,5 +5,5 @@ import mediawiki from "./modules/mediawiki";
 import application from "./modules/application";
 
 export default createStore({
-  modules: { translator, suggestions, mediawiki, application }
+  modules: { translator, suggestions, mediawiki, application },
 });

@@ -4,7 +4,7 @@ import * as icons from "../icons";
 export default {
   title: "Components/ButtonGroup",
   component: MwButtonGroup,
-  parameters: { layout: "centered" }
+  parameters: { layout: "centered" },
 };
 
 export const ExampleButtonGroup = () => ({
@@ -17,33 +17,33 @@ export const ExampleButtonGroup = () => ({
         value: "add",
         props: {
           label: "Add",
-          icon: icons.mwIconAdd
-        }
+          icon: icons.mwIconAdd,
+        },
       },
       {
         value: "remove",
         props: {
           label: "Remove",
-          icon: icons.mwIconTrash
-        }
+          icon: icons.mwIconTrash,
+        },
       },
       {
         value: "edit",
         props: {
           label: "Edit",
-          icon: icons.mwIconEdit
-        }
+          icon: icons.mwIconEdit,
+        },
       },
       {
         value: "verify",
         props: {
           label: "Verify",
-          icon: icons.mwIconArticleCheck
-        }
-      }
-    ]
+          icon: icons.mwIconArticleCheck,
+        },
+      },
+    ],
   }),
-  template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`
+  template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`,
 });
 
 export const ButtonGroupWithTextButtons = () => ({
@@ -56,17 +56,17 @@ export const ButtonGroupWithTextButtons = () => ({
         value: "source_section",
         props: {
           label: "Source Section",
-          type: "text"
-        }
+          type: "text",
+        },
       },
       {
         value: "target_section",
         props: {
           label: "Target Section",
-          type: "text"
-        }
-      }
-    ]
+          type: "text",
+        },
+      },
+    ],
   }),
-  template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`
+  template: `<mw-button-group :items="items" :active="active" v-on:select="active = $event"></mw-button-group>`,
 });

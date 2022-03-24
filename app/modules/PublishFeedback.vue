@@ -97,7 +97,7 @@
 <script>
 module.exports = {
   name: "PublishFeedback",
-  data: function() {
+  data: function () {
     return {
       size: 20,
       checkIconPath: "M7 14.17L2.83 10l-1.41 1.41L7 17 19 5l-1.41-1.42z",
@@ -111,7 +111,7 @@ module.exports = {
       siteMapper: new mw.cx.SiteMapper(),
       sourcePageTitle: null,
       sourceLanguage: null,
-      targetLanguage: null
+      targetLanguage: null,
     };
   },
   mounted() {
@@ -131,8 +131,8 @@ module.exports = {
     var cxServerParams = [
       this.sourceTitle,
       this.sourceLanguage,
-      this.targetLanguage
-    ].map(function(param) {
+      this.targetLanguage,
+    ].map(function (param) {
       return encodeURIComponent(param);
     });
     var cxServerSectionSuggestionApiUrl = this.siteMapper.getCXServerUrl(
@@ -140,12 +140,12 @@ module.exports = {
     );
     var that = this;
     fetch(cxServerSectionSuggestionApiUrl)
-      .then(function(response) {
+      .then(function (response) {
         return response.ok
           ? response.json()
           : Promise.reject(new Error("Failed to load data from server"));
       })
-      .then(function(suggestionResult) {
+      .then(function (suggestionResult) {
         if (suggestionResult.sections) {
           that.missingSections = Object.keys(suggestionResult.sections.missing);
         }
@@ -157,7 +157,7 @@ module.exports = {
     },
     remainingMissingSectionLength() {
       return this.missingSections.length - 1;
-    }
+    },
   },
   methods: {
     redirectToSX() {
@@ -168,8 +168,8 @@ module.exports = {
         this.targetLanguage,
         { sx: true }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

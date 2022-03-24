@@ -38,17 +38,17 @@ const getInitialLanguagePair = (
 
   const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
 
-  const isEnabledLanguage = language =>
+  const isEnabledLanguage = (language) =>
     !enabledTargetLanguages ||
     (Array.isArray(enabledTargetLanguages) &&
       enabledTargetLanguages.includes(language));
 
-  const isSupportedLanguage = language =>
+  const isSupportedLanguage = (language) =>
     supportedLanguageCodes.includes(language);
 
   const defaultLanguages = {
     sourceLanguage: "en",
-    targetLanguage: "es"
+    targetLanguage: "es",
   };
 
   let targetLanguage;
@@ -73,12 +73,12 @@ const getInitialLanguagePair = (
     urlSourceLanguage,
     defaultLanguages.sourceLanguage,
     wikiLanguage,
-    defaultLanguages.targetLanguage
+    defaultLanguages.targetLanguage,
   ];
 
   let sourceLanguage = defaultSourceLanguages
-    .filter(language => isSupportedLanguage(language))
-    .find(language => language !== targetLanguage);
+    .filter((language) => isSupportedLanguage(language))
+    .find((language) => language !== targetLanguage);
 
   return { sourceLanguage, targetLanguage };
 };

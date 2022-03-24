@@ -77,26 +77,24 @@ export default {
     CxTranslationSuggestion,
     MwCard,
     MwButton,
-    MwSpinner
+    MwSpinner,
   },
   props: {
     active: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup() {
     const store = useStore();
 
-    const {
-      supportedLanguageCodes,
-      availableTargetLanguages
-    } = useSuggestionListLanguages();
+    const { supportedLanguageCodes, availableTargetLanguages } =
+      useSuggestionListLanguages();
 
-    const updateSourceLanguage = sourceLanguage =>
+    const updateSourceLanguage = (sourceLanguage) =>
       store.dispatch("application/updateSourceLanguage", sourceLanguage);
 
-    const updateTargetLanguage = targetLanguage =>
+    const updateTargetLanguage = (targetLanguage) =>
       store.dispatch("application/updateTargetLanguage", targetLanguage);
 
     const router = useRouter();
@@ -104,14 +102,14 @@ export default {
     /**
      * @param {SectionSuggestion|ArticleSuggestion} suggestion
      */
-    const startTranslation = suggestion => {
+    const startTranslation = (suggestion) => {
       store.dispatch("application/initializeSectionTranslation", suggestion);
       router.push({
         name: "sx-translation-confirmer",
         params: {
           previousRoute: "dashboard",
-          eventSource: "suggestion_no_seed"
-        }
+          eventSource: "suggestion_no_seed",
+        },
       });
     };
 
@@ -123,19 +121,19 @@ export default {
       onSuggestionRefresh,
       pageSuggestionsLoading,
       sectionSuggestionsLoading,
-      showRefreshButton
+      showRefreshButton,
     } = useSuggestions();
 
     /**
      * @param {SectionSuggestion} suggestion
      */
-    const markFavoriteSectionSuggestion = async suggestion =>
+    const markFavoriteSectionSuggestion = async (suggestion) =>
       store.dispatch("suggestions/addSectionSuggestionAsFavorite", suggestion);
 
     /**
      * @param {ArticleSuggestion} suggestion
      */
-    const markFavoritePageSuggestion = async suggestion =>
+    const markFavoritePageSuggestion = async (suggestion) =>
       store.dispatch("suggestions/addPageSuggestionAsFavorite", suggestion);
 
     return {
@@ -155,9 +153,9 @@ export default {
       startTranslation,
       supportedLanguageCodes,
       updateSourceLanguage,
-      updateTargetLanguage
+      updateTargetLanguage,
     };
-  }
+  },
 };
 </script>
 

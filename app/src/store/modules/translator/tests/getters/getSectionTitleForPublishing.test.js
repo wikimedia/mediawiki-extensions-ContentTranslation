@@ -6,13 +6,13 @@ describe("vuex getSectionTitleForPublishing getter", () => {
   const rootState = {
     application: {
       currentSectionSuggestion: new SectionSuggestion({ present: {} }),
-      currentSourceSection: new PageSection({ isLeadSection: true })
-    }
+      currentSourceSection: new PageSection({ isLeadSection: true }),
+    },
   };
 
   const rootGetters = {
-    "suggestions/getFirstAppendixTitleBySectionSuggestion": suggestion =>
-      "appendix1"
+    "suggestions/getFirstAppendixTitleBySectionSuggestion": (suggestion) =>
+      "appendix1",
   };
 
   it("should return an empty string, if section is a lead section", () => {
@@ -23,7 +23,7 @@ describe("vuex getSectionTitleForPublishing getter", () => {
 
   it("should return the current section translated title (or original title if no translation), if section is a missing section and no appendix sections exist", () => {
     rootState.application.currentSourceSection = new PageSection({
-      title: "missingSection1"
+      title: "missingSection1",
     });
 
     rootState.application.currentSourceSection.translatedTitle =
@@ -49,11 +49,11 @@ describe("vuex getSectionTitleForPublishing getter", () => {
 
   it("should return the current section translated title (or original title if no translation), if section is a present section", () => {
     rootState.application.currentSectionSuggestion = new SectionSuggestion({
-      present: { presentSource1: "presentTarget1" }
+      present: { presentSource1: "presentTarget1" },
     });
 
     rootState.application.currentSourceSection = new PageSection({
-      title: "presentSource1"
+      title: "presentSource1",
     });
 
     expect(

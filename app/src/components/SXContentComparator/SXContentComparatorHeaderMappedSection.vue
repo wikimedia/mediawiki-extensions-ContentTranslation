@@ -16,7 +16,8 @@
         <h6
           class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
           :class="{
-            'sx-content-comparator-header__mapped-section-target-title--discarded': isDiscardedSection
+            'sx-content-comparator-header__mapped-section-target-title--discarded':
+              isDiscardedSection,
           }"
         >
           {{ targetSectionTitle }}
@@ -63,25 +64,25 @@ export default {
   components: {
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   props: {
     suggestion: {
       type: SectionSuggestion,
-      required: true
+      required: true,
     },
     targetSectionTitle: {
       type: String,
-      required: true
+      required: true,
     },
     discardedSections: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     mwIconTrash,
-    mwIconUndo
+    mwIconUndo,
   }),
   computed: {
     isDiscardedSection() {
@@ -92,14 +93,14 @@ export default {
         "cx-sx-content-comparator-mapped-section-header-title",
         getAutonym(this.suggestion.targetLanguage)
       );
-    }
+    },
   },
   methods: {
     discardMapping() {
       if (!this.isDiscardedSection) {
         this.$emit("update:discardedSections", [
           ...this.discardedSections,
-          this.targetSectionTitle
+          this.targetSectionTitle,
         ]);
       }
     },
@@ -108,12 +109,12 @@ export default {
         this.$emit(
           "update:discardedSections",
           this.discardedSections.filter(
-            sectionTitle => sectionTitle !== this.targetSectionTitle
+            (sectionTitle) => sectionTitle !== this.targetSectionTitle
           )
         );
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

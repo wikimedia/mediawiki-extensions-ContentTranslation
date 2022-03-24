@@ -7,7 +7,7 @@ const autonyms = {
   en: "English",
   de: "Deutsch",
   es: "Espanol",
-  bn: "Bengali"
+  bn: "Bengali",
 };
 
 const mockPages = [
@@ -15,14 +15,14 @@ const mockPages = [
     thumbnail: { source: "/thumbnail1.jpg" },
     title: "Test page1",
     description: "Test description1",
-    langLinksCount: 5
+    langLinksCount: 5,
   }),
   new Page({
     thumbnail: { source: "/thumbnail2.jpg" },
     title: "Test page2",
     description: "Test description2",
-    langLinksCount: 10
-  })
+    langLinksCount: 10,
+  }),
 ];
 
 const applicationModule = {
@@ -30,25 +30,25 @@ const applicationModule = {
   state: { sourceLanguage, targetLanguage },
   mutations: {
     setSourceLanguage: () => {},
-    setTargetLanguage: () => {}
-  }
+    setTargetLanguage: () => {},
+  },
 };
 
 const mediawikiModule = {
   namespaced: true,
   getters: {
-    getLanguage: () => languageCode => ({
+    getLanguage: () => (languageCode) => ({
       autonym: autonyms[languageCode],
-      dir: "ltr"
+      dir: "ltr",
     }),
     getRecentlyEditedPages: () => mockPages,
-    getNearbyPages: () => mockPages
+    getNearbyPages: () => mockPages,
   },
   actions: {
-    fetchNearbyPages: jest.fn()
-  }
+    fetchNearbyPages: jest.fn(),
+  },
 };
 
 export default createStore({
-  modules: { application: applicationModule, mediawiki: mediawikiModule }
+  modules: { application: applicationModule, mediawiki: mediawikiModule },
 });

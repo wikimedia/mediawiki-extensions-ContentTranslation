@@ -14,10 +14,10 @@ describe("SXTranslationConfirmer Action Panel test", () => {
     global: {
       plugins: [mockStore, router, i18n],
       provide: {
-        colors: {}
-      }
+        colors: {},
+      },
     },
-    store: mockStore
+    store: mockStore,
   });
 
   it("Component output matches snapshot", () => {
@@ -28,7 +28,7 @@ describe("SXTranslationConfirmer Action Panel test", () => {
     const i18nArgs = [
       "cx-sx-existing-translation-additional-info",
       `"source1"`,
-      2
+      2,
     ];
     expect(wrapper.vm.actionInformationMessage).toBe(
       wrapper.vm.$i18n(...i18nArgs)

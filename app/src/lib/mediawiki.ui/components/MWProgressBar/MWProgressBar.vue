@@ -22,59 +22,59 @@ export default {
   props: {
     value: {
       type: Number,
-      required: true
+      required: true,
     },
     minValue: {
       type: Number,
-      default: 0
+      default: 0,
     },
     maxValue: {
       type: Number,
-      default: 100
+      default: 100,
     },
     height: {
       type: String,
-      default: "1rem"
+      default: "1rem",
     },
     width: {
       type: String,
-      default: null
+      default: null,
     },
     color: {
       type: String,
-      default: "#36c"
+      default: "#36c",
     },
     indeterminate: {
       type: Boolean,
-      default: false
+      default: false,
     },
     pending: {
       type: Boolean,
-      default: false
+      default: false,
     },
     background: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    containerStyles: vm => ({
+    containerStyles: (vm) => ({
       height: vm.height,
       width: vm.width || "unset",
-      "background-color": vm.background
+      "background-color": vm.background,
     }),
-    containerClass: vm => ({
-      "mw-progress-bar--pending": vm.pending
+    containerClass: (vm) => ({
+      "mw-progress-bar--pending": vm.pending,
     }),
-    barStyles: vm => ({
+    barStyles: (vm) => ({
       width: `${vm.percentage}%`,
-      "background-color": vm.color
+      "background-color": vm.color,
     }),
-    percentage: vm => (vm.value / vm.maxValue) * 100,
-    barClass: vm => ({
-      "mw-progress-bar__bar--indeterminate": vm.indeterminate
-    })
-  }
+    percentage: (vm) => (vm.value / vm.maxValue) * 100,
+    barClass: (vm) => ({
+      "mw-progress-bar__bar--indeterminate": vm.indeterminate,
+    }),
+  },
 };
 </script>
 

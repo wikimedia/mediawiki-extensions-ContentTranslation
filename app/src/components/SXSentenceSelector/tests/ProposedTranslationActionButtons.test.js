@@ -11,7 +11,7 @@ jest.mock("../../../store", () =>
 
 describe("SXSentenceSelector Proposed Translation Action Buttons", () => {
   const wrapper = mount(ProposedTranslationActionButtons, {
-    global: { plugins: [i18n, mockStore] }
+    global: { plugins: [i18n, mockStore] },
   });
 
   it("Component output should match snapshot", () => {

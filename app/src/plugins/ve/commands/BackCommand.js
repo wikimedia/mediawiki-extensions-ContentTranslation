@@ -7,7 +7,7 @@ const SXEditorBackCommand = function SXEditorBackCommand() {
 };
 OO.inheritClass(SXEditorBackCommand, ve.ui.Command);
 
-SXEditorBackCommand.prototype.execute = function() {
+SXEditorBackCommand.prototype.execute = function () {
   ve.init.target.back();
 };
 ve.ui.commandRegistry.register(new SXEditorBackCommand());

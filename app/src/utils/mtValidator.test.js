@@ -1,7 +1,7 @@
 import mtValidator from "./mtValidator";
 jest.mock("./mtHelper", () => ({
   __esModule: true, // this property makes it work
-  calculateUnmodifiedContent: jest.fn((a, b, c) => a)
+  calculateUnmodifiedContent: jest.fn((a, b, c) => a),
 }));
 
 describe("mtValidator test", () => {

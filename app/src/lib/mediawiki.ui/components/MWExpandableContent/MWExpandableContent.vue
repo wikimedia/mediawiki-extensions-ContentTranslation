@@ -5,7 +5,7 @@
         ref="contentRef"
         class="mw-ui-expandable-content__body"
         :class="{
-          'mw-ui-expandable-content__body--collapsed': isCollapsed
+          'mw-ui-expandable-content__body--collapsed': isCollapsed,
         }"
       >
         <slot></slot>
@@ -47,7 +47,7 @@ import useScroll from "./useScroll";
 export default {
   name: "MwExpandableContent",
   components: {
-    MwButton
+    MwButton,
   },
   props: {
     /**
@@ -55,7 +55,7 @@ export default {
      */
     minHeight: {
       type: Number,
-      required: true
+      required: true,
     },
     /**
      * Controls whether scroll functionality should be enabled
@@ -63,8 +63,8 @@ export default {
     scroll: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
     const isCollapsed = ref(true);
@@ -86,14 +86,14 @@ export default {
       scrollable,
       scrollIndex,
       scrollToStepByIndex,
-      handleArrowUpClick
+      handleArrowUpClick,
     } = useScroll(contentMinHeight, contentMaxHeight, contentRef, isCollapsed);
 
     const scrollToNextStep = () => scrollToStepByIndex(scrollIndex.value + 1);
     const dragIndicatorRef = ref(null);
 
     const cssVars = computed(() => ({
-      "--collapsed-height": contentMinHeight.value + "px"
+      "--collapsed-height": contentMinHeight.value + "px",
     }));
 
     const onWindowResize = () => {
@@ -146,9 +146,9 @@ export default {
       onDragButtonClicked,
       scrollable,
       scrollIndex,
-      scrollToNextStep
+      scrollToNextStep,
     };
-  }
+  },
 };
 </script>
 

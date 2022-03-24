@@ -36,7 +36,7 @@ async function fetchSectionSuggestionsBySeeds(
 
   // Do not fetch section suggestions that already exist
   seeds = seeds.filter(
-    seed =>
+    (seed) =>
       !getters.sectionSuggestionsForArticleExists(
         sourceLanguage,
         targetLanguage,
@@ -44,10 +44,11 @@ async function fetchSectionSuggestionsBySeeds(
       )
   );
 
-  const numberOfSuggestionsToFetch = getters.getNumberOfSectionSuggestionsToFetch(
-    sourceLanguage,
-    targetLanguage
-  );
+  const numberOfSuggestionsToFetch =
+    getters.getNumberOfSectionSuggestionsToFetch(
+      sourceLanguage,
+      targetLanguage
+    );
 
   let fetchedSuggestionCounter = 0;
 
@@ -83,7 +84,7 @@ async function fetchSectionSuggestionsBySeeds(
 
   const titles = getters
     .getSectionSuggestionsForPair(sourceLanguage, targetLanguage)
-    .map(suggestion => suggestion.sourceTitle);
+    .map((suggestion) => suggestion.sourceTitle);
 
   dispatch(
     "mediawiki/fetchPageMetadata",
@@ -147,7 +148,7 @@ async function loadSectionSuggestion(
         suggestion = new SectionSuggestion({
           sourceLanguage,
           targetLanguage,
-          sourceTitle
+          sourceTitle,
         });
         const page = rootGetters["mediawiki/getPage"](
           sourceLanguage,
@@ -160,7 +161,7 @@ async function loadSectionSuggestion(
             targetLanguage,
             sourceTitle,
             langLinksCount: page.langLinksCount,
-            wikidataId: page.wikidataId
+            wikidataId: page.wikidataId,
           })
         );
       } else {
@@ -213,7 +214,7 @@ function getSeedProviderHandlerByName({ rootGetters }, providerName) {
           sourceLanguage,
           targetLanguage
         )
-      )
+      ),
   };
 
   return providers[providerName] || null;
@@ -248,7 +249,7 @@ async function getSectionSuggestionSeeds(
   if (!currentSeedCollection) {
     currentSeedCollection = new SuggestionSeedCollection({
       sourceLanguage,
-      targetLanguage
+      targetLanguage,
     });
     commit("addSectionSuggestionSeedCollection", currentSeedCollection);
   }
@@ -275,7 +276,7 @@ async function getSectionSuggestionSeeds(
         /** @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} */
         const seeds = await seedProviderHandler(sourceLanguage, targetLanguage);
         currentSeedCollection.addExhaustedProvider(providerName);
-        seeds.forEach(seed => commit("addSectionSuggestionSeed", seed));
+        seeds.forEach((seed) => commit("addSectionSuggestionSeed", seed));
       }
     } while (
       currentSeedCollection.seeds.length === 0 &&
@@ -313,7 +314,7 @@ async function getPageSuggestionSeed(
   if (!currentSeedCollection) {
     currentSeedCollection = new SuggestionSeedCollection({
       sourceLanguage,
-      targetLanguage
+      targetLanguage,
     });
     commit("addPageSuggestionSeedCollection", currentSeedCollection);
   }
@@ -338,7 +339,7 @@ async function getPageSuggestionSeed(
         /** @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} */
         const seeds = await seedProviderHandler(sourceLanguage, targetLanguage);
         currentSeedCollection.addExhaustedProvider(providerName);
-        seeds.forEach(seed => commit("addPageSuggestionSeed", seed));
+        seeds.forEach((seed) => commit("addPageSuggestionSeed", seed));
       }
     } while (
       currentSeedCollection.seeds.length === 0 &&
@@ -373,19 +374,17 @@ async function initializeSuggestions({
   rootGetters,
   dispatch,
   rootState,
-  state
+  state,
 }) {
   const { targetLanguage } = rootState.application;
 
   /** @type {SectionSuggestion[]} */
-  const firstSectionSuggestionsSlice = rootGetters[
-    "application/getSectionSuggestionsSliceByIndex"
-  ](0);
+  const firstSectionSuggestionsSlice =
+    rootGetters["application/getSectionSuggestionsSliceByIndex"](0);
 
   /** @type {ArticleSuggestion[]} */
-  const firstPageSuggestionsSlice = rootGetters[
-    "application/getPageSuggestionsSliceByIndex"
-  ](0);
+  const firstPageSuggestionsSlice =
+    rootGetters["application/getPageSuggestionsSliceByIndex"](0);
 
   const isFirstSectionSuggestionsSliceFull =
     firstSectionSuggestionsSlice.length === state.maxSuggestionsPerSlice;
@@ -399,7 +398,7 @@ async function initializeSuggestions({
   }
   // Fetch now so that appendix section titles are available during suggestion fetching
   await dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage, {
-    root: true
+    root: true,
   });
 
   dispatch("fetchNextSectionSuggestionsSlice");
@@ -424,7 +423,7 @@ async function fetchNextSectionSuggestionsSlice({ dispatch, rootState }) {
   // Get seeds by the next available seed provider
   const seeds = await dispatch("getSectionSuggestionSeeds", {
     sourceLanguage,
-    targetLanguage
+    targetLanguage,
   });
 
   return dispatch("fetchSectionSuggestionsBySeeds", seeds);
@@ -434,13 +433,13 @@ async function fetchNextPageSuggestionsSlice({
   commit,
   dispatch,
   state,
-  rootState
+  rootState,
 }) {
   commit("increasePageSuggestionsLoadingCount");
   const { sourceLanguage, targetLanguage } = rootState.application;
   const seed = await dispatch("getPageSuggestionSeed", {
     sourceLanguage,
-    targetLanguage
+    targetLanguage,
   });
   /** @type {ArticleSuggestion[]} */
   const suggestions = await cxSuggestionsApi.fetchPageSuggestions(
@@ -450,8 +449,8 @@ async function fetchNextPageSuggestionsSlice({
     state.maxSuggestionsPerSlice
   );
   commit("decreasePageSuggestionsLoadingCount");
-  suggestions.forEach(suggestion => commit("addPageSuggestion", suggestion));
-  const titles = suggestions.map(suggestion => suggestion.sourceTitle);
+  suggestions.forEach((suggestion) => commit("addPageSuggestion", suggestion));
+  const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
   titles.length &&
     dispatch(
       "mediawiki/fetchPageMetadata",
@@ -464,12 +463,11 @@ async function fetchAppendixSectionTitles({ getters, commit }, language) {
   if (getters.appendixTitlesExistForLanguage(language)) {
     return;
   }
-  const appendixTitles = await cxSuggestionsApi.fetchAppendixTargetSectionTitles(
-    language
-  );
+  const appendixTitles =
+    await cxSuggestionsApi.fetchAppendixTargetSectionTitles(language);
   commit("addAppendixSectionTitlesForLanguage", {
     language,
-    titles: appendixTitles
+    titles: appendixTitles,
   });
 }
 
@@ -514,7 +512,7 @@ async function doMarkSuggestionAsFavorite({ commit, dispatch }, suggestion) {
   const favoriteSuggestion = new FavoriteSuggestion({
     title,
     sourceLanguage,
-    targetLanguage
+    targetLanguage,
   });
   commit("addFavoriteSuggestion", favoriteSuggestion);
 }
@@ -560,14 +558,14 @@ async function fetchFavorites({ commit, dispatch, state }) {
         favorite.targetLanguage
       )
       .then(
-        suggestion =>
+        (suggestion) =>
           (favorite.missingSectionsCount =
             suggestion?.missingSectionsCount || 0)
       );
 
     favoritesGroupedByLanguage[favorite.sourceLanguage] = [
       ...(favoritesGroupedByLanguage[favorite.sourceLanguage] || []),
-      favorite
+      favorite,
     ];
   }
 
@@ -578,7 +576,7 @@ async function fetchFavorites({ commit, dispatch, state }) {
       "mediawiki/fetchPageMetadata",
       {
         language: sourceLanguage,
-        titles: favorites.map(favorite => favorite.title)
+        titles: favorites.map((favorite) => favorite.title),
       },
       { root: true }
     );
@@ -599,5 +597,5 @@ export default {
   getSeedProviderHandlerByName,
   initializeSuggestions,
   loadSectionSuggestion,
-  removeFavoriteSuggestion
+  removeFavoriteSuggestion,
 };

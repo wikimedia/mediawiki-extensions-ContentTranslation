@@ -4,7 +4,7 @@ import { siteMapper } from "../../../utils/mediawikiHelper";
 async function fetchSupportedLanguageCodes() {
   return await siteMapper
     .getLanguagePairs()
-    .then(response => response.sourceLanguages);
+    .then((response) => response.sourceLanguages);
 }
 
 /**
@@ -20,8 +20,8 @@ async function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
   );
 
   return fetch(cxserverAPI)
-    .then(response => response.json())
-    .then(data =>
+    .then((response) => response.json())
+    .then((data) =>
       Object.freeze(
         new MTProviderGroup(sourceLanguage, targetLanguage, data.mt)
       )
@@ -31,7 +31,7 @@ async function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
 function fetchCXServerToken() {
   return new mw.Api().postWithToken("csrf", {
     action: "cxtoken",
-    assert: "user"
+    assert: "user",
   });
 }
 
@@ -62,7 +62,7 @@ function addWikibaseLink(
     fromsite: targetWikiId.replace(targetLanguage, sourceLanguage),
     fromtitle: sourceTitle,
     tosite: targetWikiId,
-    totitle: targetTitle
+    totitle: targetTitle,
   };
 
   const api = new mw.ForeignApi("https://www.wikidata.org/w/api.php");
@@ -74,5 +74,5 @@ export default {
   fetchSupportedLanguageCodes,
   fetchSupportedMTProviders,
   fetchCXServerToken,
-  addWikibaseLink
+  addWikibaseLink,
 };

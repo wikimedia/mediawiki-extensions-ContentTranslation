@@ -14,8 +14,8 @@ describe("SXContentComparator Header Navigation test", () => {
   const wrapper = mount(SXContentComparatorHeaderNavigation, {
     global: { plugins: [mockStore] },
     props: {
-      sectionSourceTitles
-    }
+      sectionSourceTitles,
+    },
   });
 
   it("Component output matches snapshot", () => {

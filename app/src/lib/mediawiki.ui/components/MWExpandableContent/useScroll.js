@@ -17,7 +17,7 @@ const useScroll = (
       contentMaxHeight.value <= contentMinHeight.value * (scrollIndex.value + 1)
   );
 
-  const scrollToStepByIndex = index => {
+  const scrollToStepByIndex = (index) => {
     scrollIndex.value = index;
     contentRef.value.scroll(0, contentMinHeight.value * scrollIndex.value);
   };
@@ -39,7 +39,7 @@ const useScroll = (
     isScrolledToEnd,
     scrollToStepByIndex,
     scrollable,
-    scrollIndex
+    scrollIndex,
   };
 };
 

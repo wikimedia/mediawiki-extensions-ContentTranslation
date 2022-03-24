@@ -66,7 +66,7 @@ export default {
     SxContentComparatorNewSectionPlaceholder,
     SxContentComparatorHeader,
     SxContentComparatorContentHeader,
-    MwSpinner
+    MwSpinner,
   },
   setup() {
     const store = useStore();
@@ -93,7 +93,7 @@ export default {
       discardedSections,
       isCurrentSectionMapped,
       sourceSectionContent,
-      targetSectionContent
+      targetSectionContent,
     } = useCompareContents(store);
 
     const targetPageContent = useTargetArticlePreview(store, i18n);
@@ -101,7 +101,7 @@ export default {
     const {
       currentSectionSuggestion: suggestion,
       sourceLanguage,
-      targetLanguage
+      targetLanguage,
     } = useApplicationState(store);
 
     const targetTitle = computed(() => suggestion.value.targetTitle);
@@ -114,7 +114,7 @@ export default {
         store.dispatch("mediawiki/fetchPageContent", {
           sourceLanguage: targetLanguage.value,
           targetLanguage: sourceLanguage.value,
-          sourceTitle: targetTitle.value
+          sourceTitle: targetTitle.value,
         }),
       { immediate: true }
     );
@@ -132,9 +132,9 @@ export default {
       targetSectionContent,
       translateSection,
       sourceLanguage,
-      targetLanguage
+      targetLanguage,
     };
-  }
+  },
 };
 </script>
 

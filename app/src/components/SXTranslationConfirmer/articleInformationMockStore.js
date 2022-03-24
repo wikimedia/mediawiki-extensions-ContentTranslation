@@ -6,23 +6,23 @@ import Vue from "vue";
 const sourceArticle = new Page({
   thumbnail: { source: "test_thumbnail.png" },
   langlinkscount: 100,
-  pageviews: { 1: 1, 2: 2 }
+  pageviews: { 1: 1, 2: 2 },
 });
 const sectionSuggestion = new SectionSuggestion({
-  sourceTitle: "Test Title"
+  sourceTitle: "Test Title",
 });
 
 const applicationModule = {
   namespaced: true,
   state: { currentSectionSuggestion: sectionSuggestion },
-  getters: { getCurrentPage: () => sourceArticle }
+  getters: { getCurrentPage: () => sourceArticle },
 };
 
 const suggestionsModule = {
   namespaced: true,
-  state: { favorites: [] }
+  state: { favorites: [] },
 };
 
 export default new Vuex.Store({
-  modules: { application: applicationModule, suggestions: suggestionsModule }
+  modules: { application: applicationModule, suggestions: suggestionsModule },
 });

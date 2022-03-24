@@ -7,4 +7,4 @@ var container = document.getElementById("mw-mf-page-center");
 container = container || document.body;
 container.appendChild(panel);
 
-Vue.createMwApp( PublishFeedbackComponent ).mount( panel );
+Vue.createMwApp(PublishFeedbackComponent).mount(panel);

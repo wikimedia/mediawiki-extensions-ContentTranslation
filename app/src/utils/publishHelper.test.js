@@ -1,6 +1,6 @@
 import {
   prependNewSectionToAppendixSection,
-  cleanupHtml
+  cleanupHtml,
 } from "./publishHelper";
 import PageSection from "../wiki/cx/models/pageSection";
 import SubSection from "../wiki/cx/models/subSection";
@@ -67,13 +67,13 @@ function getAppendixSection() {
 
   const subSection = new SubSection({
     sentences: [],
-    node: sectionNode
+    node: sectionNode,
   });
 
   return new PageSection({
     id: "25",
     title: "Véase también",
-    subSections: [subSection]
+    subSections: [subSection],
   });
 }
 

@@ -17,14 +17,14 @@ const useTargetArticlePreview = (store, i18n) => {
       SxContentComparatorNewSectionPlaceholder,
       {
         isMappedSection: isCurrentSectionMapped.value,
-        i18n
+        i18n,
       }
     );
 
     return placeholderInstance.mount(document.createElement("div")).$el;
   };
 
-  const getFirstAppendixTitleBySectionSuggestion = suggestion =>
+  const getFirstAppendixTitleBySectionSuggestion = (suggestion) =>
     store.getters["suggestions/getFirstAppendixTitleBySectionSuggestion"](
       suggestion
     );
@@ -32,9 +32,9 @@ const useTargetArticlePreview = (store, i18n) => {
   // <base> elements mess with Vue Router, affecting history.pushState() calls
   // Reference: https://router.vuejs.org/api/#createwebhashhistory
   // Remove them to avoid complications
-  const removeBaseElements = articleElement => {
+  const removeBaseElements = (articleElement) => {
     const baseElements = articleElement.getElementsByTagName("base");
-    Array.from(baseElements).forEach(baseEl =>
+    Array.from(baseElements).forEach((baseEl) =>
       baseEl.parentNode.removeChild(baseEl)
     );
   };
@@ -56,7 +56,7 @@ const useTargetArticlePreview = (store, i18n) => {
       // Find first appendix section header element
       const matchedHeaders = Array.from(
         contentDiv.querySelectorAll("h2")
-      ).filter(h2 => h2.textContent.match(firstAppendixTitle));
+      ).filter((h2) => h2.textContent.match(firstAppendixTitle));
 
       if (matchedHeaders && matchedHeaders.length) {
         const firstAppendixSectionHeader = matchedHeaders[0].parentNode;

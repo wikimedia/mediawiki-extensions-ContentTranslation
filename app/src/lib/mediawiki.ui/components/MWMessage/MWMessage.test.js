@@ -13,8 +13,8 @@ describe("MwMessage.vue", () => {
     const wrapper = mount(MwMessage, {
       props: { type: "error", dismissable },
       slots: {
-        default: errorMessage
-      }
+        default: errorMessage,
+      },
     });
     expect(wrapper.find(".mw-ui-message--error").text()).toMatch(errorMessage);
     expect(wrapper.element).toMatchSnapshot();

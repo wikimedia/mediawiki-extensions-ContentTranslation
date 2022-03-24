@@ -22,13 +22,13 @@ function getGlobalEditCount(userName) {
     guiprop: "editcount",
     formatversion: 2,
     origin: "*",
-    format: "json"
+    format: "json",
   });
 
   return fetch(`${apiURL}?${queryParams}`)
-    .then(response => response.json())
-    .then(response => response.query.globaluserinfo.editcount)
-    .catch(error => {
+    .then((response) => response.json())
+    .then((response) => response.query.globaluserinfo.editcount)
+    .catch((error) => {
       // Eventlogging errors are not critical error to handle and interrupt users.
       mw.log.error("Error while fetching global edit count for user. ", error);
     });
@@ -97,7 +97,7 @@ function logEvent(event) {
     access_method: accessMethod,
     user_name: userName,
     user_is_anonymous: isAnonUser,
-    content_translation_session_id: sessionId
+    content_translation_session_id: sessionId,
   };
 
   if (isAnonUser) {
@@ -105,13 +105,13 @@ function logEvent(event) {
       mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event))
     );
   } else {
-    return getGlobalEditCount(userName).then(editCount => {
+    return getGlobalEditCount(userName).then((editCount) => {
       cachedEditCount = editCount;
       mw.eventLog.submit(
         streamName,
         Object.assign({}, eventDefaults, event, {
           user_global_edit_count: editCount,
-          user_global_edit_count_bucket: getUserEditCountBucket(editCount)
+          user_global_edit_count_bucket: getUserEditCountBucket(editCount),
         })
       );
     });
@@ -120,7 +120,7 @@ function logEvent(event) {
 
 const contextSymbol = Symbol("event-logging-context");
 
-const useEventLogging = function() {
+const useEventLogging = function () {
   const logEvent = inject(contextSymbol);
   if (!logEvent) throw new Error("No event logging method provided!!!");
 
@@ -128,9 +128,9 @@ const useEventLogging = function() {
 };
 
 const createEventLogging = () => ({
-  install: app => {
+  install: (app) => {
     app.provide(contextSymbol, logEvent);
-  }
+  },
 });
 
 export { createEventLogging, useEventLogging, logEvent };

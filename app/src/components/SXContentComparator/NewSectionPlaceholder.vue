@@ -20,12 +20,12 @@ export default {
   props: {
     isMappedSection: {
       type: Boolean,
-      required: true
+      required: true,
     },
     i18n: {
       type: Function,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
     const placeholderTitle = computed(() =>
@@ -39,7 +39,7 @@ export default {
     );
 
     return { placeholderTitle };
-  }
+  },
 };
 </script>
 

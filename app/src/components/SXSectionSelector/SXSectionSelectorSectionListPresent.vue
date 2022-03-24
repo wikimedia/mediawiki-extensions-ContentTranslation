@@ -2,7 +2,7 @@
   <section class="sx-section-selector__present-sections py-2">
     <h4
       v-i18n:cx-sx-section-selector-present-sections-title="[
-        targetLanguageAutonym
+        targetLanguageAutonym,
       ]"
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
@@ -35,23 +35,23 @@ import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSecti
 export default {
   name: "SxSectionSelectorSectionListPresent",
   components: {
-    SxSectionSelectorSectionList
+    SxSectionSelectorSectionList,
   },
   props: {
     suggestion: {
       type: SectionSuggestion,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["select-section"],
   data: () => ({
-    mwIconArrowForward
+    mwIconArrowForward,
   }),
   computed: {
     targetLanguageAutonym() {
       return getAutonym(this.suggestion.targetLanguage);
-    }
-  }
+    },
+  },
 };
 </script>
 

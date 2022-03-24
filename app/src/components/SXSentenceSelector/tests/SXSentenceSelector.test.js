@@ -17,12 +17,12 @@ describe("SXSentenceSelector", () => {
   const wrapper = mount(SXSentenceSelector, {
     global: {
       plugins: [i18n, mockStore, router],
-      renderStubDefaultSlot: true
+      renderStubDefaultSlot: true,
     },
-    shallow: true
+    shallow: true,
   });
 
-  it("Component should bounce translation preview when already selected sentence is selected", done => {
+  it("Component should bounce translation preview when already selected sentence is selected", (done) => {
     const subSectionWrapper = wrapper.findComponent(SubSection);
     subSectionWrapper.trigger("bounce-translation");
     expect(wrapper.vm.shouldProposedTranslationBounce).toBe(true);

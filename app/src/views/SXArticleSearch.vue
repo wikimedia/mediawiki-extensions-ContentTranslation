@@ -10,11 +10,11 @@ import SxArticleSearch from "@/components/SXArticleSearch";
 export default {
   name: "SxArticleSearchView",
   components: {
-    SxArticleSearch
+    SxArticleSearch,
   },
   computed: {
-    classes: vm => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
-  }
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown }),
+  },
 };
 </script>
 

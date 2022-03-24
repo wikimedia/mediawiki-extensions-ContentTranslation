@@ -19,7 +19,7 @@
 import { MwCol, MwButton } from "@/lib/mediawiki.ui";
 import {
   mwIconArrowForward,
-  mwIconPrevious
+  mwIconPrevious,
 } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
 import useCompareContents from "./useCompareContents";
@@ -29,13 +29,13 @@ export default {
   name: "SxContentComparatorHeaderNavigation",
   components: {
     MwCol,
-    MwButton
+    MwButton,
   },
   props: {
     sectionSourceTitles: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   setup(props) {
     const store = useStore();
@@ -65,8 +65,8 @@ export default {
       goToNextSection,
       goToPreviousSection,
       mwIconPrevious,
-      mwIconArrowForward
+      mwIconArrowForward,
     };
-  }
+  },
 };
 </script>

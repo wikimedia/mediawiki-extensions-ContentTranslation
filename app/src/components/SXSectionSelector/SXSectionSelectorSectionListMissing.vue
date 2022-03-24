@@ -2,7 +2,7 @@
   <section class="sx-section-selector__missing-sections py-2">
     <h4
       v-i18n:cx-sx-section-selector-missing-sections-title="[
-        targetLanguageAutonym
+        targetLanguageAutonym,
       ]"
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
@@ -59,17 +59,17 @@ export default {
     SxSectionSelectorSectionList,
     MwRow,
     MwCol,
-    MwButton
+    MwButton,
   },
   props: {
     suggestion: {
       type: SectionSuggestion,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["select-section", "close"],
   data: () => ({
-    sadRobotSVG
+    sadRobotSVG,
   }),
   computed: {
     targetLanguageAutonym() {
@@ -77,8 +77,8 @@ export default {
     },
     emptySections() {
       return Object.keys(this.suggestion.missingSections).length === 0;
-    }
-  }
+    },
+  },
 };
 </script>
 

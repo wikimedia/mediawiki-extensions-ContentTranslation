@@ -12,7 +12,7 @@ export default {
     // eslint-disable-next-line vue/no-unused-properties
     value: {
       type: [String, Number],
-      required: true
+      required: true,
     },
     /**
      * An array of objects that corresponds to the radio button to be created,
@@ -24,7 +24,7 @@ export default {
       type: Array,
       required: false,
       default: () => [],
-      validator: value => value.every(item => item.hasOwnProperty("value"))
+      validator: (value) => value.every((item) => item.hasOwnProperty("value")),
     },
     /**
      * Sets the name for radio buttons inside group.
@@ -38,20 +38,20 @@ export default {
         const id = Math.floor(Math.random() * 10000);
 
         return `radio-group-${id}`;
-      }
-    }
+      },
+    },
   },
   render(props, slots) {
     let elements = [];
 
     if (props.items.length) {
-      elements = props.items.map(item =>
+      elements = props.items.map((item) =>
         h(MwRadio, {
           key: item.value,
           disabled: item.disabled,
           label: item.text,
           inputValue: item.value,
-          name: props.name
+          name: props.name,
         })
       );
     } else {
@@ -59,6 +59,6 @@ export default {
     }
 
     return h("div", { class: "mw-ui-radio-group" }, elements);
-  }
+  },
 };
 </script>

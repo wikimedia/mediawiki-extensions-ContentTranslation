@@ -46,5 +46,5 @@ export default {
    */
   addNearbyPages(state, { language, pages }) {
     state.nearbyPages[language] = pages;
-  }
+  },
 };

@@ -48,14 +48,14 @@ export default {
     MwRow,
     SxEditorOriginalContent,
     VisualEditor,
-    MwSpinner
+    MwSpinner,
   },
 
   props: {
     fromRoute: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
 
   setup(props) {
@@ -74,13 +74,13 @@ export default {
     const editedTranslation = ref(null);
     const showFeedback = ref(false);
 
-    const onEditCompleted = async translation => {
+    const onEditCompleted = async (translation) => {
       editedTranslation.value = translation;
       showFeedback.value = true;
       /**
        * Show feedback animation to user for 2 seconds
        */
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       showFeedback.value = false;
 
       if (isFinal) {
@@ -110,9 +110,9 @@ export default {
       onEditCompleted,
       originalContent,
       showFeedback,
-      title: route.params.title
+      title: route.params.title,
     };
-  }
+  },
 };
 </script>
 

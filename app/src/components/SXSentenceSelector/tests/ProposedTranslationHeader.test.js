@@ -9,12 +9,12 @@ const i18n = createI18n();
 describe("SXSentenceSelector Proposed Translation Header", () => {
   const applicationModule = {
     namespaced: true,
-    state: { currentMTProvider: "Apertium" }
+    state: { currentMTProvider: "Apertium" },
   };
   const store = createStore({ modules: { application: applicationModule } });
 
   const wrapper = mount(ProposedTranslationHeader, {
-    global: { plugins: [store, i18n] }
+    global: { plugins: [store, i18n] },
   });
 
   it("Component output matches snapshot", () => {

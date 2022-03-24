@@ -7,20 +7,20 @@ import applicationMutations from "../../../../../store/modules/application/mutat
 const mockScores = {
   3: "failure",
   10: "warning",
-  99: "success"
+  99: "success",
 };
 
 const mockSectionScores = {
   test0: 99,
   test1: 10,
-  test2: 3
+  test2: 3,
 };
 jest.mock("../../../../../utils/mtValidator", () => {
   return {
     getMTScoreForPageSection: (section, mtProvider) => {
       return mockSectionScores[section.id];
     },
-    getScoreStatus: score => mockScores[score]
+    getScoreStatus: (score) => mockScores[score],
   };
 });
 
@@ -30,7 +30,7 @@ describe("vuex store validateMT action test", () => {
   const applicationState = {
     sourceLanguage: "en",
     currentSourceSection: new PageSection({ id: "test0" }),
-    publishFeedbackMessages: [new PublishFeedbackMessage({ type: "mt" })]
+    publishFeedbackMessages: [new PublishFeedbackMessage({ type: "mt" })],
   };
   const commit = jest.fn((mutation, payload) => {
     if (mutation === "application/clearMTPublishFeedbackMessages") {
@@ -43,7 +43,7 @@ describe("vuex store validateMT action test", () => {
     }
   });
   const rootState = {
-    application: applicationState
+    application: applicationState,
   };
 
   it("should not add any publish feedback messages when: validation score (distance) > 15 (publishing threshold)", () => {
@@ -59,8 +59,8 @@ describe("vuex store validateMT action test", () => {
         title: mw.message("cx-sx-publisher-mt-abuse-message-title", 100 - 10),
         text: mw.message("cx-sx-publisher-mt-abuse-message-body"),
         status: "warning",
-        type: "mt"
-      })
+        type: "mt",
+      }),
     ]);
   });
 
@@ -72,8 +72,8 @@ describe("vuex store validateMT action test", () => {
         title: mw.message("cx-sx-publisher-mt-abuse-error-title", 100 - 3),
         text: mw.message("cx-sx-publisher-mt-abuse-error-body"),
         status: "error",
-        type: "mt"
-      })
+        type: "mt",
+      }),
     ]);
   });
 });

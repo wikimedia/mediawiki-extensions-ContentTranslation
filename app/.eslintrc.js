@@ -1,9 +1,9 @@
 module.exports = {
   root: true,
   globals: {
-    mw: true
+    mw: true,
   },
-  extends: ["plugin:vue/vue3-recommended", "@vue/prettier", "plugin:cypress/recommended"],
+  extends: ["plugin:vue/vue3-recommended", "@vue/prettier"],
   rules: {
     // Avoid bare strings in templates. In order to be able to internationalize your application,
     // you will need to avoid using plain strings in your templates.
@@ -20,21 +20,21 @@ module.exports = {
       { blankLine: "always", prev: "*", next: "return" },
       { blankLine: "always", prev: "*", next: "function" },
       { blankLine: "always", prev: "*", next: "class" },
-      { blankLine: "always", prev: "*", next: "multiline-block-like" }
+      { blankLine: "always", prev: "*", next: "multiline-block-like" },
     ],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
   },
   parserOptions: {
-    parser: "babel-eslint"
+    parser: "@babel/eslint-parser",
   },
-  plugins: ["cypress"],
   overrides: [
     {
       files: ["**/tests/unit/**/*.{j,t}s?(x)"],
       env: {
         mocha: true,
-        jest: true
-    }
-  }]
+        jest: true,
+      },
+    },
+  ],
 };

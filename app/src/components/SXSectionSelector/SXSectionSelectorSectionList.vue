@@ -33,7 +33,7 @@ export default {
   components: {
     MwRow,
     MwButton,
-    MwIcon
+    MwIcon,
   },
   props: {
     /**
@@ -41,10 +41,10 @@ export default {
      */
     sections: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   emits: ["select-section"],
-  data: () => ({ mwIconArrowForward })
+  data: () => ({ mwIconArrowForward }),
 };
 </script>

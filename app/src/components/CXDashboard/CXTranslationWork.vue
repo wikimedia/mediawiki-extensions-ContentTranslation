@@ -64,7 +64,7 @@ import {
   mwIconEdit,
   mwIconTrash,
   mwIconArrowForward,
-  mwIconArrowNext
+  mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
@@ -74,14 +74,14 @@ export default {
   props: {
     translation: {
       type: Translation,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
     mwIconEdit,
     mwIconTrash,
     mwIconArrowForward,
-    mwIconArrowNext
+    mwIconArrowNext,
   }),
   methods: {
     getAutonym,
@@ -116,8 +116,8 @@ export default {
       const page = this.getPage(language, title);
 
       return page?.thumbnail;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -33,7 +33,7 @@ const useSuggestedSourceLanguages = (
       mw.config.get("wgULSAcceptLanguageList") ||
       navigator.languages ||
       []
-    ).map(languageCode => languageCode.split("-")[0]);
+    ).map((languageCode) => languageCode.split("-")[0]);
 
     const suggestedLanguages = [
       // User's current interface language
@@ -42,14 +42,14 @@ const useSuggestedSourceLanguages = (
       mw.config.get("wgContentLanguage"),
       browserLanguage,
       ...previousLanguages.value,
-      ...acceptLanguages
+      ...acceptLanguages,
     ];
 
     // Filter out duplicate languages using Set. Also filter out
     // source, target and invalid languages (i.e. languages that
     // do not have a valid autonym).
     return [...new Set(suggestedLanguages)].filter(
-      language =>
+      (language) =>
         language !== sourceLanguage.value &&
         language !== targetLanguage.value &&
         getAutonym(language) !== language

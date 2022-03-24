@@ -93,14 +93,14 @@ export default {
   name: "SxQuickTutorial",
   components: {
     MwButton,
-    MwRow
+    MwRow,
   },
   data: () => ({
     mwIconArrowForward,
     totalSteps: 2,
     activeStep: 1,
     tutorialSvgMT,
-    tutorialSvgSections
+    tutorialSvgSections,
   }),
   methods: {
     goToNextStep() {
@@ -113,8 +113,8 @@ export default {
     },
     completeTutorial() {
       this.$router.push({ name: "sx-sentence-selector" });
-    }
-  }
+    },
+  },
 };
 </script>
 

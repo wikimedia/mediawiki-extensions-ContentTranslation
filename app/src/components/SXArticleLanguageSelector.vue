@@ -17,13 +17,11 @@ import { useStore } from "vuex";
 export default {
   name: "SxArticleLanguageSelector",
   components: {
-    SxTranslationListLanguageSelector
+    SxTranslationListLanguageSelector,
   },
   setup() {
-    const {
-      supportedLanguageCodes,
-      enabledTargetLanguages
-    } = useMediawikiState();
+    const { supportedLanguageCodes, enabledTargetLanguages } =
+      useMediawikiState();
     const store = useStore();
 
     const currentLanguageTitleGroup = computed(
@@ -34,7 +32,7 @@ export default {
     // so title.lang contains language code
     const availableSourceLanguages = computed(
       () =>
-        currentLanguageTitleGroup.value?.titles.map(title => title.lang) || []
+        currentLanguageTitleGroup.value?.titles.map((title) => title.lang) || []
     );
     /**
      * If enabledTargetLanguages are set,
@@ -46,18 +44,18 @@ export default {
       () => enabledTargetLanguages.value || supportedLanguageCodes.value
     );
 
-    const onSourceLanguageSelected = sourceLanguage =>
+    const onSourceLanguageSelected = (sourceLanguage) =>
       store.dispatch("application/updateSourceLanguage", sourceLanguage);
-    const onTargetLanguageSelected = targetLanguage =>
+    const onTargetLanguageSelected = (targetLanguage) =>
       store.dispatch("application/updateTargetLanguage", targetLanguage);
 
     return {
       availableSourceLanguages,
       targetLanguages,
       onSourceLanguageSelected,
-      onTargetLanguageSelected
+      onTargetLanguageSelected,
     };
-  }
+  },
 };
 </script>
 

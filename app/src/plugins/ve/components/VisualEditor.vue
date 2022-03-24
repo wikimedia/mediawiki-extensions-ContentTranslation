@@ -12,7 +12,7 @@ import { computed, onMounted, ref } from "vue";
 import {
   getTarget,
   getSurface,
-  getReferenceRendering
+  getReferenceRendering,
 } from "../target/integration";
 
 export default {
@@ -21,20 +21,20 @@ export default {
   props: {
     content: {
       type: String,
-      required: true
+      required: true,
     },
     language: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     dir: {
       type: String,
-      default: "auto"
-    }
+      default: "auto",
+    },
   },
 
   emits: ["ready", "close", "edit-completed"],
@@ -65,7 +65,7 @@ export default {
       onNext: onNext,
       language: props.language,
       title: props.title,
-      siteMapper: new mw.cx.SiteMapper()
+      siteMapper: new mw.cx.SiteMapper(),
     };
 
     const init = async () => {
@@ -79,13 +79,14 @@ export default {
         props.language,
         props.dir
       );
-      ve.ui.MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
+      ve.ui.MWReferenceContextItem.prototype.getRendering =
+        getReferenceRendering;
     };
 
     onMounted(init);
 
     return { sxeditor };
-  }
+  },
 };
 </script>
 

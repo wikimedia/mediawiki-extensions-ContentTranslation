@@ -22,8 +22,8 @@ export default {
     selection: {
       type: String,
       required: true,
-      validator: value => ["sentence", "paragraph"].includes(value)
-    }
+      validator: (value) => ["sentence", "paragraph"].includes(value),
+    },
   },
   emits: ["update:selection"],
   setup(props, { emit }) {
@@ -38,8 +38,8 @@ export default {
             "cx-sx-sentence-selector-translated-segment-sentence-option"
           ),
           type: "text",
-          class: "px-0 py-4 mx-4"
-        }
+          class: "px-0 py-4 mx-4",
+        },
       },
 
       {
@@ -50,15 +50,15 @@ export default {
           ),
           type: "text",
           class: "px-0 py-4 mx-4",
-          disabled: isSectionTitleSelected.value
-        }
-      }
+          disabled: isSectionTitleSelected.value,
+        },
+      },
     ]);
 
-    const updateSelection = selection => emit("update:selection", selection);
+    const updateSelection = (selection) => emit("update:selection", selection);
 
     return { scopeOptions, updateSelection };
-  }
+  },
 };
 </script>
 

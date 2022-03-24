@@ -7,7 +7,7 @@ import SubSection from "../../../wiki/cx/models/subSection";
 import {
   getWikitextFromTemplate,
   isTransclusionNode,
-  targetTemplateExists
+  targetTemplateExists,
 } from "../../../utils/templateHelper";
 
 /**
@@ -25,7 +25,7 @@ import {
 const getCXServerToken = async ({ dispatch, state, commit }) => {
   if (!state.cxServerToken) {
     await siteApi.fetchCXServerToken().then(
-      token => {
+      (token) => {
         // Make sure token.age is configured to a valid value.
         if (token.age <= 30) {
           // Set the default token age
@@ -37,7 +37,7 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
         token.refreshAt = now + token.age - 30;
         commit("setCXServerToken", token);
       },
-      errorCode => {
+      (errorCode) => {
         if (errorCode === "token-impossible") {
           // Likely CX extension has not been configured properly.
           // To make development and testing easier, assume that
@@ -72,7 +72,7 @@ async function startFavoriteSectionTranslation({ dispatch }, favorite) {
     {
       sourceLanguage: favorite.sourceLanguage,
       targetLanguage: favorite.targetLanguage,
-      sourceTitle: favorite.title
+      sourceTitle: favorite.title,
     },
     { root: true }
   );
@@ -131,7 +131,7 @@ async function updateSourceLanguage(
     sourceLanguage: state.sourceLanguage,
     targetLanguage: state.targetLanguage,
     sourceTitle,
-    missing: {}
+    missing: {},
   });
 
   if (getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)) {
@@ -174,7 +174,7 @@ async function updateTargetLanguage(
 
 async function fetchCurrentSectionSuggestionLanguageTitles({
   dispatch,
-  state
+  state,
 }) {
   const { sourceLanguage, sourceTitle } = state.currentSectionSuggestion;
   const payload = { language: sourceLanguage, title: sourceTitle };
@@ -215,7 +215,7 @@ async function selectPageSectionByTitle(
     // Asynchronously resolve references and update page sections to
     // include this resolved references
     dispatch("mediawiki/resolvePageContentReferences", suggestion, {
-      root: true
+      root: true,
     }).then(() => setCurrentSectionByTitle());
   }
 
@@ -262,7 +262,7 @@ async function selectPageSectionByIndex(
     // Asynchronously resolve references and update page sections to
     // include this resolved references
     dispatch("mediawiki/resolvePageContentReferences", suggestion, {
-      root: true
+      root: true,
     }).then(() => setCurrentSectionByIndex());
   }
 
@@ -286,14 +286,14 @@ function selectTranslationUnitById({ commit, dispatch, state }, id) {
 
   dispatch("translateTranslationUnitById", {
     id,
-    provider: currentMTProvider
+    provider: currentMTProvider,
   });
   const { followingTranslationUnit } = currentSourceSection;
 
   if (followingTranslationUnit) {
     dispatch("translateTranslationUnitById", {
       id: followingTranslationUnit.id,
-      provider: currentMTProvider
+      provider: currentMTProvider,
     });
   }
 }
@@ -309,7 +309,7 @@ function applyProposedTranslationToSelectedTranslationUnit({
   dispatch,
   getters,
   commit,
-  state
+  state,
 }) {
   commit("setTranslationInProgress", true);
   const translation = getters.getCurrentProposedTranslation;
@@ -339,7 +339,7 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   div.innerHTML = translation;
   // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
   // by default when VE initial content is empty).
-  div.querySelectorAll(".sx-edit-dummy-node").forEach(el => el.remove());
+  div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
   translation = div.innerHTML;
 
   const { currentSourceSection, targetLanguage } = state;
@@ -348,7 +348,7 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   if (selectedContentTranslationUnit instanceof SubSection) {
     const { sourceTitle, targetTitle } = state.currentSectionSuggestion;
     /** @type {Element} */
-    const templateElement = Array.from(div.children).find(node =>
+    const templateElement = Array.from(div.children).find((node) =>
       isTransclusionNode(node)
     );
 
@@ -392,10 +392,8 @@ function selectNextTranslationUnit({ state, dispatch }) {
  * @param {function} context.dispatch
  */
 function selectPreviousTranslationUnit({ state, dispatch }) {
-  const {
-    selectedContentTranslationUnitIndex,
-    contentTranslationUnits
-  } = state.currentSourceSection;
+  const { selectedContentTranslationUnitIndex, contentTranslationUnits } =
+    state.currentSourceSection;
   const previousIndex = selectedContentTranslationUnitIndex - 1;
   // Id for section title
   let previousId = 0;
@@ -475,7 +473,7 @@ async function translateTranslationUnitById(
   const {
     currentSectionSuggestion,
     currentSourceSection: sourceSection,
-    targetLanguage
+    targetLanguage,
   } = state;
 
   if (sourceSection.hasProposedTranslationByTranslationUnitId(id, provider)) {
@@ -507,7 +505,7 @@ async function translateTranslationUnitById(
     const div = document.createElement("div");
     div.innerHTML = proposedTranslation;
     /** @type {HTMLElement|null} */
-    const templateElement = Array.from(div.children).find(node =>
+    const templateElement = Array.from(div.children).find((node) =>
       isTransclusionNode(node)
     );
 
@@ -532,7 +530,7 @@ async function translateTranslationUnitById(
   commit("setProposedTranslationForTranslationUnitById", {
     id,
     provider,
-    proposedTranslation
+    proposedTranslation,
   });
 }
 
@@ -552,7 +550,7 @@ async function translateTranslationUnitById(
 function translateSelectedTranslationUnitForAllProviders({
   rootGetters,
   dispatch,
-  state
+  state,
 }) {
   const { sourceLanguage, targetLanguage, currentSourceSection } = state;
   const mtProviders = rootGetters["mediawiki/getSupportedMTProviders"](
@@ -561,7 +559,7 @@ function translateSelectedTranslationUnitForAllProviders({
   );
   const { selectedTranslationUnitId: id } = currentSourceSection;
 
-  mtProviders.forEach(provider =>
+  mtProviders.forEach((provider) =>
     dispatch("translateTranslationUnitById", { id, provider })
   );
 }
@@ -588,5 +586,5 @@ export default {
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,
   updateSourceLanguage,
-  updateTargetLanguage
+  updateTargetLanguage,
 };
