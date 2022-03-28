@@ -280,18 +280,17 @@ async function selectPageSectionByIndex(
  * @param {object} context.state
  * @param {string} id
  */
-function selectTranslationUnitById({ commit, dispatch, state }, id) {
+async function selectTranslationUnitById({ commit, dispatch, state }, id) {
   const { currentSourceSection, currentMTProvider } = state;
   currentSourceSection.selectTranslationUnitById(id);
-
-  dispatch("translateTranslationUnitById", {
+  await dispatch("translateTranslationUnitById", {
     id,
     provider: currentMTProvider,
   });
   const { followingTranslationUnit } = currentSourceSection;
 
   if (followingTranslationUnit) {
-    dispatch("translateTranslationUnitById", {
+    await dispatch("translateTranslationUnitById", {
       id: followingTranslationUnit.id,
       provider: currentMTProvider,
     });
