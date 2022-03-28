@@ -9587,20 +9587,22 @@ function selectPageSectionByIndex(_0, _1) {
     setCurrentSectionByIndex();
   });
 }
-function selectTranslationUnitById({ commit: commit2, dispatch: dispatch2, state: state2 }, id) {
-  const { currentSourceSection, currentMTProvider } = state2;
-  currentSourceSection.selectTranslationUnitById(id);
-  dispatch2("translateTranslationUnitById", {
-    id,
-    provider: currentMTProvider
-  });
-  const { followingTranslationUnit } = currentSourceSection;
-  if (followingTranslationUnit) {
-    dispatch2("translateTranslationUnitById", {
-      id: followingTranslationUnit.id,
+function selectTranslationUnitById(_0, _1) {
+  return __async(this, arguments, function* ({ commit: commit2, dispatch: dispatch2, state: state2 }, id) {
+    const { currentSourceSection, currentMTProvider } = state2;
+    currentSourceSection.selectTranslationUnitById(id);
+    yield dispatch2("translateTranslationUnitById", {
+      id,
       provider: currentMTProvider
     });
-  }
+    const { followingTranslationUnit } = currentSourceSection;
+    if (followingTranslationUnit) {
+      yield dispatch2("translateTranslationUnitById", {
+        id: followingTranslationUnit.id,
+        provider: currentMTProvider
+      });
+    }
+  });
 }
 function applyProposedTranslationToSelectedTranslationUnit({
   dispatch: dispatch2,
@@ -18115,7 +18117,7 @@ const _sfc_main$W = {
     watch(searchQuery, debounce(onQueryChange, 300));
     onMounted(() => __async(this, null, function* () {
       if (props.autofocus) {
-        searchInputElement.value.focus();
+        setTimeout(() => searchInputElement.value.focus(), 500);
       }
       searchResults.value = yield searchByQuery(props.languages, "", props.searchAPI);
     }));
@@ -18165,7 +18167,6 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "search", {}, () => [
       createBaseVNode("div", _hoisted_2$t, [
         createVNode(_component_mw_input, {
-          ref: "searchInputElement",
           value: $setup.autocompletion,
           "onUpdate:value": _cache[0] || (_cache[0] = ($event) => $setup.autocompletion = $event),
           icon: $setup.mwIconSearch,
@@ -20600,13 +20601,17 @@ const _sfc_main$K = {
     const sxeditor = ref(null);
     let veSurface = null;
     const editedContent = computed(() => veSurface.getHtml());
-    const closeEditor = () => {
+    const clearVisualEditor = () => {
       veSurface.destroy();
+      sxeditor.value.querySelector(".toolbar").innerHTML = "";
+    };
+    const closeEditor = () => {
+      clearVisualEditor();
       context.emit("close");
     };
     const onNext = () => {
       context.emit("edit-completed", editedContent.value);
-      veSurface.destroy();
+      clearVisualEditor();
     };
     const editorConfig = {
       placeholder: false,
@@ -23586,11 +23591,10 @@ const _sfc_main$c = {
       showFeedback.value = false;
       if (isFinal) {
         store2.commit("application/setCurrentSourceSectionEditedTranslation", translation);
-        router2.replace({ name: "sx-publisher" });
       } else {
         store2.dispatch("application/applyEditedTranslationToSelectedTranslationUnit", translation);
-        router2.replace({ name: props.fromRoute });
       }
+      closeEditor();
     });
     return {
       closeEditor,
