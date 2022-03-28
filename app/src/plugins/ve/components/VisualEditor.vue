@@ -45,8 +45,14 @@ export default {
     let veSurface = null;
     const editedContent = computed(() => veSurface.getHtml());
 
-    const closeEditor = () => {
+    const clearVisualEditor = () => {
       veSurface.destroy();
+      // Clear the contents in the toolbar too.
+      sxeditor.value.querySelector(".toolbar").innerHTML = "";
+    };
+
+    const closeEditor = () => {
+      clearVisualEditor();
       context.emit("close");
     };
 
@@ -54,7 +60,7 @@ export default {
       // Event with content payload should be emitted before
       // VE surface is destroyed
       context.emit("edit-completed", editedContent.value);
-      veSurface.destroy();
+      clearVisualEditor();
     };
 
     const editorConfig = {

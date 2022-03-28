@@ -88,14 +88,13 @@ export default {
           "application/setCurrentSourceSectionEditedTranslation",
           translation
         );
-        router.replace({ name: "sx-publisher" });
       } else {
         store.dispatch(
           "application/applyEditedTranslationToSelectedTranslationUnit",
           translation
         );
-        router.replace({ name: props.fromRoute });
       }
+      closeEditor();
     };
 
     return {
