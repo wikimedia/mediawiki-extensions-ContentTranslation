@@ -4,7 +4,6 @@
       <div class="mw-ui-language-selector__inputcontainer pa-4 mb-4">
         <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
         <mw-input
-          ref="searchInputElement"
           v-model:value="autocompletion"
           :icon="mwIconSearch"
           :icon-size="20"
@@ -207,7 +206,9 @@ export default {
 
     onMounted(async () => {
       if (props.autofocus) {
-        searchInputElement.value.focus();
+        // Focus the search input field, but use a small timeout
+        // to take care of transitions and other competing focus fields in container
+        setTimeout(() => searchInputElement.value.focus(), 500);
       }
       // Initialize with an empty search
       searchResults.value = await searchByQuery(
