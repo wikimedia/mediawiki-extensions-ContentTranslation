@@ -242,7 +242,8 @@ class Hooks {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
-		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
+		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
+		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
@@ -273,7 +274,7 @@ class Hooks {
 		// Done separately from loading the newarticle campaign for the
 		// wiki syntax editor because of the different actions with which
 		// the editing page is loaded.
-		if ( !PreferenceHelper::isEnabledForUser( $user ) ) {
+		if ( !$preferenceHelper->isEnabledForUser( $user ) ) {
 			if (
 				!$title->exists() &&
 				$wgContentTranslationCampaigns['newarticle'] &&
@@ -303,7 +304,7 @@ class Hooks {
 		// Add a hover menu for the contributions link in personal toolbar
 		$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
 
-		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
+		if ( $preferenceHelper->getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
 			// A translation was initialized based on a campaign. Show the feature discovery
 			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
 		}
@@ -345,7 +346,8 @@ class Hooks {
 	 * @param SpecialPage $page
 	 */
 	public static function addNewContributionButton( $id, UserIdentity $user, SpecialPage $page ) {
-		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
+		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
+		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
@@ -356,9 +358,7 @@ class Hooks {
 			return;
 		}
 
-		if ( $user->getId() === $page->getUser()->getId() &&
-			PreferenceHelper::isEnabledForUser( $user )
-		) {
+		if ( $user->getId() === $page->getUser()->getId() && $preferenceHelper->isEnabledForUser( $user ) ) {
 			$page->getOutput()->addModules( [
 				'ext.cx.eventlogging.campaigns',
 				'ext.cx.contributions'
@@ -430,7 +430,8 @@ class Hooks {
 		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
-		if ( PreferenceHelper::isCXEntrypointDisabled( $user ) ) {
+		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
+		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
 		}
 
@@ -463,7 +464,7 @@ class Hooks {
 				'ext.cx.entrypoints.newbytranslation',
 				'ext.cx.eventlogging.campaigns'
 			] );
-			$invitationShown = PreferenceHelper::getGlobalPreference(
+			$invitationShown = $preferenceHelper->getGlobalPreference(
 				$user, 'cx_campaign_newarticle_shown'
 			);
 			$existingTranslator = Translator::isTranslator( $user );
@@ -476,7 +477,7 @@ class Hooks {
 
 		if ( $wgContentTranslationAsBetaFeature &&
 			// CX is a beta feature
-			!PreferenceHelper::isBetaFeatureEnabled( $user ) &&
+			!$preferenceHelper->isBetaFeatureEnabled( $user ) &&
 			$wgContentTranslationCampaigns['newarticle'] &&
 			// The below cookie reading does not use default cookie prefix for historical reasons
 			!$out->getRequest()->getCookie( 'cx_campaign_newarticle_hide', '' )

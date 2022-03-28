@@ -7,25 +7,61 @@
  */
 namespace ContentTranslation;
 
-use ExtensionRegistry;
 use GlobalPreferences\GlobalPreferencesFactory;
 use GlobalPreferences\Storage;
+use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\BetaFeatures\BetaFeatures;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Preferences\PreferencesFactory;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\User\UserOptionsLookup;
 use RequestContext;
 use User;
 
 class PreferenceHelper {
+
+	/** @var bool */
+	private $contentTranslationAsBetaFeature;
+
+	/** @var bool */
+	private $isBetaFeaturesLoaded;
+
+	/** @var bool */
+	private $isGlobalPreferencesLoaded;
+
+	/** @var PreferencesFactory */
+	private $preferencesFactory;
+
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
+
+	/**
+	 * @internal For use by ServiceWiring
+	 */
+	public const CONSTRUCTOR_OPTIONS = [ 'ContentTranslationAsBetaFeature' ];
+
+	public function __construct(
+		PreferencesFactory $preferencesFactory,
+		UserOptionsLookup $userOptionsLookup,
+		ServiceOptions $options,
+		bool $isBetaFeaturesLoaded,
+		bool $isGlobalPreferencesLoaded
+	) {
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+
+		$this->preferencesFactory = $preferencesFactory;
+		$this->userOptionsLookup = $userOptionsLookup;
+		$this->contentTranslationAsBetaFeature = $options->get( 'ContentTranslationAsBetaFeature' );
+		$this->isBetaFeaturesLoaded = $isBetaFeaturesLoaded;
+		$this->isGlobalPreferencesLoaded = $isGlobalPreferencesLoaded;
+	}
 
 	/**
 	 * @param UserIdentity $user
 	 *
 	 * @return bool
 	 */
-	public static function isBetaFeatureEnabled( UserIdentity $user ) {
-		return ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' )
-			&& BetaFeatures::isFeatureEnabled( $user, 'cx' );
+	public function isBetaFeatureEnabled( UserIdentity $user ) {
+		return $this->isBetaFeaturesLoaded && BetaFeatures::isFeatureEnabled( $user, 'cx' );
 	}
 
 	/**
@@ -36,19 +72,17 @@ class PreferenceHelper {
 	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public static function isEnabledForUser( UserIdentity $user ) {
-		global $wgContentTranslationAsBetaFeature;
-
+	public function isEnabledForUser( UserIdentity $user ) {
 		// CX is currently restricted to only logged in users
 		if ( !$user->isRegistered() ) {
 			return false;
 		}
 
-		if ( !$wgContentTranslationAsBetaFeature ) {
+		if ( !$this->contentTranslationAsBetaFeature ) {
 			return true;
 		}
 
-		return self::isBetaFeatureEnabled( $user );
+		return $this->isBetaFeatureEnabled( $user );
 	}
 
 	/**
@@ -57,14 +91,14 @@ class PreferenceHelper {
 	 * @param string $preference
 	 * @param string $value
 	 */
-	public static function setGlobalPreference( User $user, $preference, $value ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
+	public function setGlobalPreference( User $user, $preference, $value ) {
+		if ( !$this->isGlobalPreferencesLoaded ) {
 			// Need GlobalPreferences extension.
 			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not setting preference.' );
 			return;
 		}
 		/** @var GlobalPreferencesFactory $globalPref */
-		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
+		$globalPref = $this->preferencesFactory;
 		'@phan-var GlobalPreferencesFactory $globalPref';
 		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
 		$prefs[$preference] = $value;
@@ -78,17 +112,17 @@ class PreferenceHelper {
 	 * @param string $preference
 	 * @return string|null Preference value
 	 */
-	public static function getGlobalPreference( $user, $preference ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'GlobalPreferences' ) ) {
+	public function getGlobalPreference( $user, $preference ) {
+		if ( !$this->isGlobalPreferencesLoaded ) {
 			// Need GlobalPreferences extension.
 			wfLogWarning( __METHOD__ . ': Need GlobalPreferences extension. Not getting preference.' );
 			return null;
 		}
 		/** @var GlobalPreferencesFactory $globalPref */
-		$globalPref = MediaWikiServices::getInstance()->getPreferencesFactory();
+		$globalPref = $this->preferencesFactory;
 		'@phan-var GlobalPreferencesFactory $globalPref';
 		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
-		return $prefs[$preference] ?? null;
+		return $prefs[ $preference ] ?? null;
 	}
 
 	/**
@@ -97,10 +131,8 @@ class PreferenceHelper {
 	 * @param UserIdentity $user
 	 * @return bool
 	 */
-	public static function isCXEntrypointDisabled( UserIdentity $user ) {
-		global $wgContentTranslationAsBetaFeature;
-		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
-		return !$wgContentTranslationAsBetaFeature &&
-			!$userOptionsLookup->getBoolOption( $user, 'cx-enable-entrypoints' );
+	public function isCXEntrypointDisabled( UserIdentity $user ) {
+		return !$this->contentTranslationAsBetaFeature &&
+			!$this->userOptionsLookup->getBoolOption( $user, 'cx-enable-entrypoints' );
 	}
 }

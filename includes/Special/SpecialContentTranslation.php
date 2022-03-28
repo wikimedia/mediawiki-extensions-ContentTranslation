@@ -31,11 +31,18 @@ class SpecialContentTranslation extends SpecialPage {
 	private $skinFactory;
 
 	/**
-	 * @param SkinFactory $skinFactory
+	 * @var PreferenceHelper
 	 */
-	public function __construct( \SkinFactory $skinFactory ) {
+	private $preferenceHelper;
+
+	/**
+	 * @param SkinFactory $skinFactory
+	 * @param PreferenceHelper $preferenceHelper
+	 */
+	public function __construct( \SkinFactory $skinFactory, PreferenceHelper $preferenceHelper ) {
 		parent::__construct( 'ContentTranslation' );
 		$this->skinFactory = $skinFactory;
+		$this->preferenceHelper = $preferenceHelper;
 	}
 
 	public function getDescription() {
@@ -79,7 +86,7 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	public function isListed() {
-		return PreferenceHelper::isEnabledForUser( $this->getUser() );
+		return $this->preferenceHelper->isEnabledForUser( $this->getUser() );
 	}
 
 	public function enableCXBetaFeature() {
@@ -174,7 +181,7 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		// Direct access, isListed only affects Special:SpecialPages
-		if ( !PreferenceHelper::isEnabledForUser( $this->getUser() ) ) {
+		if ( !$this->preferenceHelper->isEnabledForUser( $this->getUser() ) ) {
 			if ( $hasValidToken || $isCampaign ) {
 				// User has a token or a valid campaign param.
 				// Enable cx for the user in this wiki.
@@ -286,17 +293,17 @@ class SpecialContentTranslation extends SpecialPage {
 		}
 
 		$persistentEntrypointCampaigns = [ 'contributions-page', 'contributionsmenu' ];
-		if ( PreferenceHelper::getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) !== 'shown' ) {
+		if ( $this->preferenceHelper->getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) !== 'shown' ) {
 			if ( in_array( $campaign, $persistentEntrypointCampaigns ) ) {
 				// The user accessed CX using a persistent invitation.
 				// It means, user is aware of the entrypoint. No need to show the feature discovery again
-				PreferenceHelper::setGlobalPreference( $user, 'cx-entrypoint-fd-status', 'shown' );
+				$this->preferenceHelper->setGlobalPreference( $user, 'cx-entrypoint-fd-status', 'shown' );
 			} else {
 				// The user accessed CX using a non-persistent invitation.
 				// Show a one-time indicator to tell user that they can access CX using persistent entrypoints
 				// Set a global preference that the feature discovery is set for the user
 				// This preference has three possible values: `pending`, `shown`, 'notshown'
-				PreferenceHelper::setGlobalPreference( $user, 'cx-entrypoint-fd-status', 'pending' );
+				$this->preferenceHelper->setGlobalPreference( $user, 'cx-entrypoint-fd-status', 'pending' );
 			}
 		}
 	}

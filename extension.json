@@ -115,7 +115,8 @@
 		"ContentTranslation": {
 			"class": "ContentTranslation\\Special\\SpecialContentTranslation",
 			"services": [
-				"SkinFactory"
+				"SkinFactory",
+				"ContentTranslation.PreferenceHelper"
 			]
 		},
 		"ContentTranslationStats": {
