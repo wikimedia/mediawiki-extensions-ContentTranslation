@@ -2,6 +2,8 @@
 
 namespace ContentTranslation\Skin;
 
+use Linker;
+use Sanitizer;
 use SkinMustache;
 use Title;
 
@@ -37,6 +39,30 @@ class SkinContentTranslation extends SkinMustache {
 	}
 
 	/**
+	 * Generate data for a custom p-personal menu
+	 * @param array $items
+	 * @return array
+	 */
+	private function getCustomPortletData( array $items ): array {
+		$data = [
+			'class' => 'mw-portlet ' . Sanitizer::escapeClass( "mw-portlet-personal" ),
+			'html-tooltip' => Linker::tooltip( 'p-personal' ),
+			'html-items' => '',
+			'html-after-portal' => '',
+			'html-before-portal' => '',
+		];
+
+		foreach ( $items as $key => $item ) {
+			$data['html-items'] .= $this->makeListItem( $key, $item );
+		}
+
+		$data['label'] = $this->msg( 'personaltools' )->text();
+		$data['is-empty'] = count( $items ) === 0;
+		$data['class'] .= $data['is-empty'] ? ' emptyPortlet' : '';
+		return $data;
+	}
+
+	/**
 	 * @return array of portlet data for navigation
 	 */
 	private function getNavigationTemplateData(): array {
@@ -53,10 +79,10 @@ class SkinContentTranslation extends SkinMustache {
 			}
 		}
 		return [
-			'data-personal' => $this->getPortletData( 'personal',
+			'data-personal' => $this->getCustomPortletData(
 				$this->getPersonalToolsForMakeListItem( $personalToolsUrlsPrimary )
 			),
-			'data-personal-dropdown' => $this->getPortletData( 'personal',
+			'data-personal-dropdown' => $this->getCustomPortletData(
 				$this->getPersonalToolsForMakeListItem( $personalToolsUrls )
 			)
 		];
