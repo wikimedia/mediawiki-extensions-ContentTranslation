@@ -212,7 +212,9 @@ const searchPagesByTitlePrefix = (query, language) => {
     .then((pages) =>
       pages
         .sort((page1, page2) => page1.index - page2.index)
-        .map((page) => new Page(page))
+        .map(
+          (page) => new Page(Object.assign(page, { pagelanguage: language }))
+        )
     )
     .catch((error) => []);
 };

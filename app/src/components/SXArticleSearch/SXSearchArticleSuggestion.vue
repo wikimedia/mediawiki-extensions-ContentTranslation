@@ -1,5 +1,10 @@
 <template>
-  <mw-row class="cx-search-suggestion pt-3 ma-0" align="normal">
+  <mw-row
+    class="cx-search-suggestion pt-3 ma-0"
+    align="normal"
+    :lang="suggestion.language"
+    :dir="getDir(suggestion.language)"
+  >
     <mw-col shrink>
       <mw-thumbnail
         v-if="suggestion.thumbnail"
@@ -39,6 +44,7 @@
 
 <script>
 import { MwRow, MwCol, MwIcon, MwThumbnail } from "../../lib/mediawiki.ui";
+import { getDir } from "@wikimedia/language-data";
 import Page from "../../wiki/mw/models/page";
 
 import {
@@ -56,7 +62,9 @@ export default {
       required: true,
     },
   },
-  data: () => ({ mwIconStar, mwIconLanguage, mwIconArticle }),
+  setup(props) {
+    return { mwIconStar, mwIconLanguage, mwIconArticle, getDir };
+  },
 };
 </script>
 

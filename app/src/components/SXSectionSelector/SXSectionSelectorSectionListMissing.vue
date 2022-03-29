@@ -12,7 +12,12 @@
       @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection }">
-        <h5 class="ma-0" v-text="sourceSection" />
+        <h5
+          class="ma-0"
+          :lang="suggestion.sourceLanguage"
+          :dir="getDir(suggestion.sourceLanguage)"
+          v-text="sourceSection"
+        />
       </template>
     </sx-section-selector-section-list>
     <mw-row
@@ -48,10 +53,11 @@
 
 <script>
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { getAutonym } from "@wikimedia/language-data";
+import { getAutonym, getDir } from "@wikimedia/language-data";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList";
 import sadRobotSVG from "../../assets/sad-robot.svg?raw";
+import { computed } from "vue";
 
 export default {
   name: "SxSectionSelectorSectionListMissing",
@@ -68,16 +74,21 @@ export default {
     },
   },
   emits: ["select-section", "close"],
-  data: () => ({
-    sadRobotSVG,
-  }),
-  computed: {
-    targetLanguageAutonym() {
-      return getAutonym(this.suggestion.targetLanguage);
-    },
-    emptySections() {
-      return Object.keys(this.suggestion.missingSections).length === 0;
-    },
+  setup(props) {
+    const targetLanguageAutonym = computed(() =>
+      getAutonym(props.suggestion.targetLanguage)
+    );
+    const emptySections = computed(
+      () => Object.keys(props.suggestion.missingSections).length === 0
+    );
+
+    return {
+      sadRobotSVG,
+      getAutonym,
+      getDir,
+      targetLanguageAutonym,
+      emptySections,
+    };
   },
 };
 </script>

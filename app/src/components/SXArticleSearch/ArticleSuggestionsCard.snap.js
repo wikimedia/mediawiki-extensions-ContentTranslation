@@ -20,6 +20,7 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
     
     <div
       class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+      dir="ltr"
     >
       
       <div
@@ -99,6 +100,7 @@ exports[`ArticleSuggestionsCard test Component output matches snapshot 1`] = `
     </div>
     <div
       class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+      dir="ltr"
     >
       
       <div

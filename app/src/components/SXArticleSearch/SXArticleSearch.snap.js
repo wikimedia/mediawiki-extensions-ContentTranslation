@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXArticleSearch component test Component output matches snapshot 1`
-] = `
+exports[`SXArticleSearch component test Component output matches snapshot 1`] = `
 <section
   class="sx-article-search"
 >
@@ -218,6 +216,7 @@ exports[
       
       <div
         class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+        dir="ltr"
       >
         
         <div
@@ -297,6 +296,7 @@ exports[
       </div>
       <div
         class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+        dir="ltr"
       >
         
         <div

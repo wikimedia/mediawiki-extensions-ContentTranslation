@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSectionSelector Section List Component output matches snapshot 1`
-] = `
+exports[`SXSectionSelector Section List Component output matches snapshot 1`] = `
 <section
   class="sx-section-selector__present-sections py-2"
 >
@@ -29,11 +27,14 @@ exports[
         >
           <h5
             class="sx-section-selector__present-section-button-source"
+            dir="ltr"
           >
             source section 0
           </h5>
           <h6
             class="sx-section-selector__present-section-button-target"
+            dir="ltr"
+            lang="en"
           >
             target section 0
           </h6>
@@ -78,11 +79,14 @@ exports[
         >
           <h5
             class="sx-section-selector__present-section-button-source"
+            dir="ltr"
           >
             source section 1
           </h5>
           <h6
             class="sx-section-selector__present-section-button-target"
+            dir="ltr"
+            lang="en"
           >
             target section 1
           </h6>
@@ -127,11 +131,14 @@ exports[
         >
           <h5
             class="sx-section-selector__present-section-button-source"
+            dir="ltr"
           >
             source section 2
           </h5>
           <h6
             class="sx-section-selector__present-section-button-target"
+            dir="ltr"
+            lang="en"
           >
             target section 2
           </h6>
@@ -176,11 +183,14 @@ exports[
         >
           <h5
             class="sx-section-selector__present-section-button-source"
+            dir="ltr"
           >
             source section 3
           </h5>
           <h6
             class="sx-section-selector__present-section-button-target"
+            dir="ltr"
+            lang="en"
           >
             target section 3
           </h6>

@@ -10,10 +10,18 @@
     />
     <mw-row class="my-1 py-2 mx-0">
       <mw-col grow>
-        <h4 class="pa-0 sx-content-comparator-header__article-title">
+        <h4
+          class="pa-0 sx-content-comparator-header__article-title"
+          :lang="suggestion.sourceLanguage"
+          :dir="getDir(suggestion.sourceLanguage)"
+        >
           {{ suggestion.sourceTitle }}
         </h4>
-        <h2 class="sx-content-comparator-header__section-title pa-0 ma-0">
+        <h2
+          class="sx-content-comparator-header__section-title pa-0 ma-0"
+          :lang="suggestion.sourceLanguage"
+          :dir="getDir(suggestion.sourceLanguage)"
+        >
           {{ sourceSectionTitle }}
         </h2>
       </mw-col>
@@ -70,6 +78,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { getDir } from "@wikimedia/language-data";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -122,6 +131,7 @@ export default {
       sourceSectionContent,
       sourceSectionTitle,
       suggestion,
+      getDir,
     };
   },
 };
