@@ -363,7 +363,7 @@
 	"cx-sx-published-section-invitation-title": "Преведи друг поднаслов",
 	"cx-sx-published-section-invitation-missing-sections-info": "{{PLURAL:$2|Недостасуваа„$1“ и уште $2|0=Недостасува „$1“}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Вашиот превод содржи $1 % неизменет текст",
-	"cx-sx-publisher-mt-abuse-message-body": "Машинскиот превид е само појдовна точка. Секако, можете да го објавите, но проверете дали преводот делува природно на вашиот јазик.",
+	"cx-sx-publisher-mt-abuse-message-body": "Машинскиот превид е само појдовна точка. Секако, но потрудете се преводот делува природно на вашиот јазик.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 поднаслов|$1 поднаслови|0=Нема поднаслови}}",
 	"cx-sx-article-search-input-placeholder": "Пребарајте страница за преведување",
 	"cx-sx-article-search-recently-edited-title": "Неодамна уредено од вас",
