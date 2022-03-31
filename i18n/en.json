@@ -428,5 +428,9 @@
 	"sx-block-template-adaptation-card-body-header-failure": "Equivalent template not available for $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Missing in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Missing in <span>$1</span> and <span>$2</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Missing in <span>$1</span>, <span>$2</span> and more"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Missing in <span>$1</span>, <span>$2</span> and more",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Missing in <span>$1</span> and more",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Missing in <span>$1</span>, <span>$2</span> and more",
+	"cx-uls-relevant-languages-panel-header": "Translate this page",
+	"cx-uls-relevant-languages-panel-message": "This page is missing in some languages you may know. You can translate it in minutes!"
 }

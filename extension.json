@@ -61,6 +61,12 @@
 			"services": [
 				"LanguageFactory"
 			]
+		},
+		"ulsRelevantLanguagesEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler",
+			"services": [
+				"ContentTranslation.PreferenceHelper"
+			]
 		}
 	},
 	"Hooks": {
@@ -70,7 +76,8 @@
 			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
 			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint",
 			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
-			"mfFrequentLanguagesEntrypointRegistrar"
+			"mfFrequentLanguagesEntrypointRegistrar",
+			"ulsRelevantLanguagesEntrypointRegistrar"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -967,6 +974,30 @@
 				"sx-missing-languages-entrypoint-panel-text-one-missing",
 				"sx-missing-languages-entrypoint-panel-text-two-missing",
 				"sx-missing-languages-entrypoint-panel-text-more-missing"
+			]
+		},
+		"ext.cx.entrypoints.ulsrelevantlanguages": {
+			"targets": [
+				"desktop"
+			],
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
+				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue"
+			],
+			"dependencies": [
+				"vue",
+				"mw.cx.SiteMapper",
+				"ext.uls.common",
+				"jquery.uls.data"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.uls.relevantlanguages.less"
+			],
+			"messages": [
+				"cx-uls-relevant-languages-banner-text-single-missing",
+				"cx-uls-relevant-languages-banner-text-multiple-missing",
+				"cx-uls-relevant-languages-panel-header",
+				"cx-uls-relevant-languages-panel-message"
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {

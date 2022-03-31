@@ -1,0 +1,219 @@
+<template>
+	<div
+		v-show="showPanel"
+		class="cx-uls-entrypoint"
+	>
+		<div class="cx-uls-entrypoint__header row">
+			<div class="col shrink">
+				<button class="cx-uls-entrypoint__close-button" @click.stop="close">
+					<span>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							:width="size"
+							:height="size"
+							viewBox="0 0 20 20"
+							aria-hidden="true"
+							role="presentation"
+						>
+							<g :fill="iconColor">
+								<path :d="previousIconPath" />
+							</g>
+						</svg>
+					</span>
+				</button>
+			</div>
+			<div class="col grow">
+				<h5
+					class="cx-uls-entrypoint__header-title"
+					:lang="sourceLanguage"
+					:dir="getDir( sourceLanguage )"
+					v-text="$i18n( 'cx-uls-relevant-languages-panel-header' )"
+				>
+				</h5>
+			</div>
+		</div>
+		<div class="cx-uls-entrypoint__body">
+			<p
+				class="cx-uls-entrypoint__body__message"
+				:lang="sourceLanguage"
+				:dir="getDir( sourceLanguage )"
+				v-text="$i18n( 'cx-uls-relevant-languages-panel-message' )"
+			>
+			</p>
+			<div class="cx-uls-entrypoint__body__translation-links row">
+				<button
+					v-for="autonym in slicedAutonyms"
+					:key="'link-' + autonym"
+					class="cx-uls-entrypoint__body__translation-link"
+					@click="redirectToCX( autonym )"
+				>
+					<span class="cx-uls-entrypoint__body__translation-link-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							:width="size"
+							:height="size"
+							viewBox="0 0 20 20"
+							aria-hidden="true"
+							role="presentation"
+						>
+							<g :fill="iconColor">
+								<path :d="plusIconPath" />
+							</g>
+						</svg>
+					</span>
+					<span
+						class="cx-uls-entrypoint__body__translation-link-text"
+						:lang="autonym"
+						:dir="getDir( autonym )"
+						v-text="autonym"
+					></span>
+				</button>
+				<button
+					class="cx-uls-entrypoint__body__translation-link"
+					@click="redirectToCX( autonym )"
+				>
+					<span class="cx-uls-entrypoint__body__translation-link-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							:width="size"
+							:height="size"
+							viewBox="0 0 20 20"
+							aria-hidden="true"
+							role="presentation"
+						>
+							<g :fill="iconColor">
+								<path :d="ellipsisIconPath" />
+							</g>
+						</svg>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+var Vue = require( 'vue' );
+
+// @vue/component
+module.exports = {
+	compatConfig: { MODE: 3 },
+	name: 'CxUlsEntrypoint',
+	props: {
+		autonyms: {
+			type: Array,
+			required: true
+		},
+		onClose: {
+			type: Function,
+			required: true
+		}
+	},
+	setup: function ( props ) {
+		var showPanel = Vue.ref( true );
+		var siteMapper = new mw.cx.SiteMapper();
+		var slicedAutonyms = Vue.computed( function () {
+			return props.autonyms.slice( 0, 2 );
+		} );
+
+		var close = function () {
+			showPanel.value = false;
+			props.onClose();
+		};
+
+		var sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
+		var redirectToCX = function ( targetLanguage ) {
+			var sourceTitle = mw.config.get( 'wgTitle' );
+			location.href = siteMapper.getCXUrl(
+				sourceTitle,
+				'',
+				sourceLanguage,
+				targetLanguage || null
+			);
+		};
+
+		return {
+			close: close,
+			ellipsisIconPath: 'M 19,10 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 M 5,10 A 2,2 0 0 1 3,12 2,2 0 0 1 1,10 2,2 0 0 1 3,8 2,2 0 0 1 5,10 m 7,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2',
+			getDir: $.uls.data.getDir,
+			iconColor: 'currentColor',
+			plusIconPath: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z',
+			previousIconPath: 'M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z',
+			redirectToCX: redirectToCX,
+			showPanel: showPanel,
+			size: 20,
+			slicedAutonyms: slicedAutonyms,
+			sourceLanguage: sourceLanguage
+		};
+	}
+};
+</script>
+
+<style lang="less">
+@import 'mediawiki.ui/variables';
+
+.cx-uls-entrypoint {
+  border: @border-base;
+  .row {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+  }
+  .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  .shrink {
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+  }
+  button {
+    cursor: pointer;
+  }
+  &__header {
+    align-items: center;
+    padding: 12px;
+    border-bottom: @border-base;
+    &-title {
+      font-size: 16px;
+      padding-block: 0;
+      padding-inline: 8px;
+      margin: 0;
+    }
+  }
+  &__close-button {
+    background: none;
+    border: none;
+    align-self: center;
+  }
+  &__body {
+    padding: 16px;
+    &__message {
+      margin: 0;
+      padding-bottom: 8px;
+      padding-inline: 8px;
+      line-height: 1.4;
+    }
+    &__translation-links {
+      align-items: baseline;
+      padding-inline: 8px;
+    }
+    &__translation-link {
+      padding: 4px;
+      margin-inline-end: 4px;
+      background: none;
+      border: none;
+      align-items: center;
+      display: flex;
+      &-icon {
+        padding-inline-end: 4px;
+      }
+      &-text {
+        font-size: 16px;
+      }
+    }
+  }
+}
+</style>
