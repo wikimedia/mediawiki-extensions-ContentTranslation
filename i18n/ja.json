@@ -34,7 +34,8 @@
 			"Yusuke1109",
 			"Петар Петковић",
 			"青子守歌",
-			"아라"
+			"아라",
+			"Yamagata Yusuke"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -169,8 +170,8 @@
 	"cx-translation-status-deleted": "削除",
 	"cx-translation-label-draft": "進行中の翻訳",
 	"cx-translation-label-published": "公開済みの翻訳",
-	"cx-translation-already-in-progress": "これは $1 {{GENDER:$2|によって}}進行中の翻訳です。",
-	"cx-translation-already-in-progress-unknown": "この記事は別の利用者によって翻訳が進行中です。",
+	"cx-translation-already-in-progress": "これは $1 {{GENDER:$2|によって}}進行中の翻訳です。有効な翻訳がある場合は、1日経過したから初めて新しい翻訳を開始できます。 24時間後に再試行するか、現在の翻訳を開始した利用者と調整してください。",
+	"cx-translation-already-in-progress-unknown": "この記事は別の利用者によって翻訳が進行中です。有効な翻訳がある場合は、1日経過したから初めて新しい翻訳を開始できます。 24時間後に再試行するか、現在の翻訳を開始した利用者と調整してください。",
 	"cx-feedback-link": "フィードバックする",
 	"cx-stats-published-translations-title": "公開済みの翻訳",
 	"cx-stats-draft-translations-title": "進行中の翻訳",

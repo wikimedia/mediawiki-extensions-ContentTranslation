@@ -406,5 +406,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traducer un nove section",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traducer \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traducer \"$1\" e \"$2\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traducer \"$1\", \"$2\" e plus"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traducer \"$1\", \"$2\" e plus",
+	"sx-block-template-adaptation-card-body-header-success": "Patrono suggerite",
+	"sx-block-template-adaptation-card-edit-button-label": "Revider e modificar le traduction",
+	"sx-block-template-adaptation-card-body-header-failure": "Patrono equivalente non disponibile pro $1"
 }
