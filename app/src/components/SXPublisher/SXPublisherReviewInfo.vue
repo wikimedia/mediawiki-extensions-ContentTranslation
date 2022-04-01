@@ -19,13 +19,11 @@
         <h5 v-text="messageTitle" />
         <p v-text="messageText" />
         <mw-row justify="between" class="ma-0">
-          <mw-col>
-            <a
-              v-i18n:cx-sx-publisher-review-info-learn-more
-              class="sx-publisher__review-info__learn-more-anchor"
-              href="#"
-            />
-          </mw-col>
+          <mw-col
+            ref="learnMoreContainer"
+            v-i18n-html:cx-sx-publisher-review-info-learn-more
+            class="sx-publisher__review-info__learn-more-anchor"
+          />
           <mw-col
             v-if="publishFeedbackMessages.length > 1"
             class="sx-publisher__review-info__navigation-buttons justify-end"
@@ -60,7 +58,7 @@ import {
   mwIconArrowForward,
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 
@@ -80,7 +78,15 @@ export default {
     const publishFeedbackMessages = computed(
       () => store.state.application.publishFeedbackMessages
     );
+    const learnMoreContainer = ref(null);
+    watch(learnMoreContainer, () => {
+      const container = learnMoreContainer.value?.$el;
 
+      if (container instanceof HTMLElement) {
+        const anchor = container.querySelector("a");
+        anchor && anchor.setAttribute("target", "_blank");
+      }
+    });
     const activeMessage = computed(
       () => publishFeedbackMessages.value?.[activeMessageIndex.value]
     );
@@ -129,6 +135,7 @@ export default {
       goToNextMessage,
       goToPreviousMessage,
       isMessageInline,
+      learnMoreContainer,
       messageText,
       messageTitle,
       messageType,
