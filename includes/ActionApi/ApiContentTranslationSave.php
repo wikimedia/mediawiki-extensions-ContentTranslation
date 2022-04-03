@@ -21,6 +21,7 @@ use Exception;
 use FormatJson;
 use Language;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiContentTranslationSave extends ApiBase {
@@ -309,8 +310,8 @@ class ApiContentTranslationSave extends ApiBase {
 				// during deployment. Maybe this doesn't ever need to be required.
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_RANGE_ENFORCE => true,
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => 2,
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => 2,
 			],
 			'sourcecategories' => [
 				ApiBase::PARAM_TYPE => 'string',

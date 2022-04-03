@@ -37,6 +37,7 @@ use MediaWiki\MediaWikiServices;
 use MWException;
 use RequestContext;
 use Title;
+use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiContentTranslationPublish extends ApiBase {
 
@@ -365,8 +366,8 @@ class ApiContentTranslationPublish extends ApiBase {
 				ApiBase::PARAM_TYPE => 'integer',
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_RANGE_ENFORCE => true,
-				ApiBase::PARAM_MIN => 1,
-				ApiBase::PARAM_MAX => 2,
+				IntegerDef::PARAM_MIN => 1,
+				IntegerDef::PARAM_MAX => 2,
 			],
 		];
 	}
