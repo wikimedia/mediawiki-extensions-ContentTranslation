@@ -21,6 +21,7 @@ use Exception;
 use FormatJson;
 use Language;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiContentTranslationSave extends ApiBase {
 	/**
@@ -321,12 +322,12 @@ class ApiContentTranslationSave extends ApiBase {
 				// Source and target categories are saved in cx_corpora table, whose
 				// content column is MEDIUMBLOB, which has 16MB limit, but we limit
 				// the size of categories at BLOB limit, which is 64KB.
-				ApiBase::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
+				StringDef::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
 			],
 			'targetcategories' => [
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
+				StringDef::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
 			]
 		];
 	}
