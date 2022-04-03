@@ -37,6 +37,7 @@ use MediaWiki\MediaWikiServices;
 use MWException;
 use RequestContext;
 use Title;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiContentTranslationPublish extends ApiBase {
@@ -341,30 +342,30 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'title' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'html' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'from' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'to' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sourcetitle' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'categories' => null,
 			'publishtags' => [
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			/** @todo These should be renamed to something all-lowercase and lacking a "wp" prefix */
 			'wpCaptchaId' => null,
 			'wpCaptchaWord' => null,
 			'cxversion' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
 				ApiBase::PARAM_RANGE_ENFORCE => true,
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => 2,

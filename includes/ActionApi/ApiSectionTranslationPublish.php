@@ -185,7 +185,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'title' => [
-				\ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'html' => [
 				ParamValidator::PARAM_TYPE => 'string',

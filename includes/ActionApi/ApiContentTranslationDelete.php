@@ -13,6 +13,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationDelete extends ApiBase {
 	public function execute() {
@@ -52,13 +53,13 @@ class ApiContentTranslationDelete extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'from' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'to' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sourcetitle' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 		];
 	}

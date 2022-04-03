@@ -17,6 +17,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 /**
@@ -205,31 +206,31 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	public function getAllowedParams() {
 		$allowedParams = [
 			'translationid' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'from' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'to' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'sourcetitle' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'limit' => [
-				ApiBase::PARAM_DFLT => 100,
-				ApiBase::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 100,
+				ParamValidator::PARAM_TYPE => 'limit',
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			],
 			'offset' => [
-				ApiBase::PARAM_DFLT => null,
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'type' => [
-				ApiBase::PARAM_DFLT => null,
-				ApiBase::PARAM_TYPE => [ 'draft', 'published' ],
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => [ 'draft', 'published' ],
 			],
 		];
 		return $allowedParams;

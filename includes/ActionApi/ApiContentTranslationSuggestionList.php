@@ -12,6 +12,7 @@ use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translator;
 use Title;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationSuggestionList extends ApiBase {
 
@@ -87,28 +88,28 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'listname' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'listaction' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => [ 'add', 'remove', 'view' ],
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => [ 'add', 'remove', 'view' ],
 			],
 			'titles' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 			'from' => [
-				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'to' => [
-				ApiBase::PARAM_REQUIRED => false,
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'token' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 		];
 	}

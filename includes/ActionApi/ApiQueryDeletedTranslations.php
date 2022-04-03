@@ -9,11 +9,11 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
 use ApiQuery;
 use ApiQueryBase;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryDeletedTranslations extends ApiQueryBase {
 	public function __construct( ApiQuery $query, $moduleName ) {
@@ -71,10 +71,10 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'after' => [
-				ApiBase::PARAM_TYPE => 'timestamp',
+				ParamValidator::PARAM_TYPE => 'timestamp',
 			],
 			'namespace' => [
-				ApiBase::PARAM_TYPE => 'namespace',
+				ParamValidator::PARAM_TYPE => 'namespace',
 			],
 		];
 	}

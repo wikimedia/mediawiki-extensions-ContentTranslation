@@ -8,11 +8,11 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\CorporaLookup;
 use MediaWiki\MediaWikiServices;
 use Sanitizer;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * Api module for querying Content Translation parallel corpora.
@@ -72,17 +72,17 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 	public function getAllowedParams() {
 		$params = [
 			'translationid' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'striphtml' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DFLT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false,
 			],
 			'types' => [
-				ApiBase::PARAM_TYPE => [ 'source', 'mt', 'user' ],
-				ApiBase::PARAM_DFLT => 'source|mt|user',
-				ApiBase::PARAM_ISMULTI => true,
+				ParamValidator::PARAM_TYPE => [ 'source', 'mt', 'user' ],
+				ParamValidator::PARAM_DEFAULT => 'source|mt|user',
+				ParamValidator::PARAM_ISMULTI => true,
 			],
 		];
 

@@ -8,12 +8,12 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use Exception;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
 
@@ -90,7 +90,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'translator' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			]
 		];
 	}

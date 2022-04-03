@@ -12,6 +12,7 @@ use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\Translation;
 use Language;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiQueryPublishedTranslations extends ApiQueryBase {
@@ -49,21 +50,21 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'from' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'to' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 			'limit' => [
-				ApiBase::PARAM_DFLT => 500,
-				ApiBase::PARAM_TYPE => 'limit',
+				ParamValidator::PARAM_DEFAULT => 500,
+				ParamValidator::PARAM_TYPE => 'limit',
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => ApiBase::LIMIT_BIG1,
 				IntegerDef::PARAM_MAX2 => ApiBase::LIMIT_BIG2
 			],
 			'offset' => [
-				ApiBase::PARAM_DFLT => '',
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_DEFAULT => '',
+				ParamValidator::PARAM_TYPE => 'string',
 				ApiBase::PARAM_HELP_MSG => 'api-help-param-continue',
 			],
 		];

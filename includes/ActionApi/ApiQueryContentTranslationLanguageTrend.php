@@ -12,11 +12,11 @@ namespace ContentTranslation\ActionApi;
  * Api module for querying ContentTranslation stats.
  */
 
-use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
 use Language;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 
@@ -102,16 +102,16 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 	public function getAllowedParams() {
 		$allowedParams = [
 			'source' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'target' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'interval' => [
-				ApiBase::PARAM_DFLT => 'week',
-				ApiBase::PARAM_TYPE => [ 'week','month' ],
+				ParamValidator::PARAM_DEFAULT => 'week',
+				ParamValidator::PARAM_TYPE => [ 'week','month' ],
 			]
 		];
 		return $allowedParams;

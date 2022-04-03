@@ -21,6 +21,7 @@ use Exception;
 use FormatJson;
 use Language;
 use MediaWiki\MediaWikiServices;
+use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
 
@@ -283,51 +284,51 @@ class ApiContentTranslationSave extends ApiBase {
 	public function getAllowedParams() {
 		return [
 			'from' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'to' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sourcetitle' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'title' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'content' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sourcerevision' => [
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'progress' => [
-				ApiBase::PARAM_REQUIRED => true,
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'cxversion' => [
-				ApiBase::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_TYPE => 'integer',
 				// Making this required immediately would cause issues for ongoing translations
 				// during deployment. Maybe this doesn't ever need to be required.
-				ApiBase::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_REQUIRED => false,
 				ApiBase::PARAM_RANGE_ENFORCE => true,
 				IntegerDef::PARAM_MIN => 1,
 				IntegerDef::PARAM_MAX => 2,
 			],
 			'sourcecategories' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 				// We don't always save categories when saving translation. Only save
 				// categories when user changes target categories by reordering,
 				// removing or adding. Source categories are saved only once per
 				// session and target categories are saved for every change.
-				ApiBase::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_REQUIRED => false,
 				// Source and target categories are saved in cx_corpora table, whose
 				// content column is MEDIUMBLOB, which has 16MB limit, but we limit
 				// the size of categories at BLOB limit, which is 64KB.
 				StringDef::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
 			],
 			'targetcategories' => [
-				ApiBase::PARAM_TYPE => 'string',
-				ApiBase::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => false,
 				StringDef::PARAM_MAX_BYTES => self::SQL_BLOB_MAX_SIZE
 			]
 		];
