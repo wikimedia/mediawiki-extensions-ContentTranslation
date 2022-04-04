@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import CxTranslationSuggestion from "./CXTranslationSuggestion";
+import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwCard } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";

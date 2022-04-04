@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
+import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
 import useSearchArticles from "./useArticleSearch";

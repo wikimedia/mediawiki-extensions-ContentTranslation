@@ -1,4 +1,4 @@
-import VisualEditor from "./components/VisualEditor";
+import VisualEditor from "./components/VisualEditor.vue";
 export default VisualEditor;
 
 /**

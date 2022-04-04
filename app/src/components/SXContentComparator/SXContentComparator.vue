@@ -48,9 +48,9 @@
 
 <script>
 import { MwSpinner } from "@/lib/mediawiki.ui";
-import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader";
-import SxContentComparatorHeader from "./SXContentComparatorHeader";
-import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
+import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader.vue";
+import SxContentComparatorHeader from "./SXContentComparatorHeader.vue";
+import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, watch } from "vue";

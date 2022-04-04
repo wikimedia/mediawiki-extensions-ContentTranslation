@@ -72,8 +72,8 @@ import {
   mwIconEye,
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation";
-import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection";
+import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
+import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
 import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import { computed } from "vue";

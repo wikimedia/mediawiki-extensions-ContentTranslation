@@ -35,8 +35,6 @@ export default defineConfig({
         replacement: path.join(process.cwd(), "node_modules/$1"),
       },
     ],
-    // FIXME: Avoid this configuration and change files to use .vue extension.
-    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
   },
   build: {
     chunkSizeWarningLimit: 600,

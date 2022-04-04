@@ -41,9 +41,9 @@
 
 <script>
 import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
-import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
-import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
+import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel.vue";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
+import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
 import { replaceUrl } from "@/utils/urlHandler";
 import {
   mwIconClose,

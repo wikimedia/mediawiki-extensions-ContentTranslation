@@ -75,8 +75,8 @@ import {
   mwIconRobot,
   mwIconUserAvatar,
 } from "@/lib/mediawiki.ui/components/icons";
-import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader";
-import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons";
+import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader.vue";
+import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
 import mtValidator from "@/utils/mtValidator";
 import { computed, ref, inject } from "vue";
 import useApplicationState from "@/composables/useApplicationState";

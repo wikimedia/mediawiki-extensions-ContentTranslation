@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import CxTranslationList from "./CXTranslationList";
-import CxSuggestionList from "./CXSuggestionList";
-import CxFavoriteList from "./CXFavoriteList";
+import CxTranslationList from "./CXTranslationList.vue";
+import CxSuggestionList from "./CXSuggestionList.vue";
+import CxFavoriteList from "./CXFavoriteList.vue";
 import { ref, watch, computed, onMounted } from "vue";
 import {
   MwButtonGroup,
@@ -58,7 +58,7 @@ import {
   mwIconLightBulb,
   mwIconEdit,
 } from "@/lib/mediawiki.ui/components/icons";
-import ExperimentalSupportBanner from "./ExperimentalSupportBanner";
+import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
 import initializeDashboard from "./useDashboardInitialization";
 import { useEventLogging } from "@/plugins/eventlogging";
 import { useRouter } from "vue-router";

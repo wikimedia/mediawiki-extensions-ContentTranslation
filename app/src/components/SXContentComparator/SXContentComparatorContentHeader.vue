@@ -57,7 +57,7 @@ import {
   mwIconEdit,
   mwIconLinkExternal,
 } from "@/lib/mediawiki.ui/components/icons";
-import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector";
+import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector.vue";
 import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";

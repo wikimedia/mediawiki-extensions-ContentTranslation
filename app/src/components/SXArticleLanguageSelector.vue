@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector";
+import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector.vue";
 import useMediawikiState from "@/composables/useMediawikiState";
 import { computed } from "vue";
 import { useStore } from "vuex";

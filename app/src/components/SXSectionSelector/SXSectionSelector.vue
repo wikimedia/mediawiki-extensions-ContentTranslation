@@ -63,11 +63,11 @@ import {
   mwIconRobot,
   mwIconLabFlask,
 } from "@/lib/mediawiki.ui/components/icons";
-import SxArticleLanguageSelector from "../SXArticleLanguageSelector";
-import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem";
-import SxSectionSelectorHeader from "./SXSectionSelectorHeader";
-import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing";
-import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
+import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem.vue";
+import SxSectionSelectorHeader from "./SXSectionSelectorHeader.vue";
+import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing.vue";
+import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent.vue";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";

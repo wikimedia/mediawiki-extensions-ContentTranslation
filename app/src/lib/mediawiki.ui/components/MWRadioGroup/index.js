@@ -1,4 +1,4 @@
-import MwRadioGroup from "./MWRadioGroup";
-import MwRadio from "./MWRadio";
+import MwRadioGroup from "./MWRadioGroup.vue";
+import MwRadio from "./MWRadio.vue";
 
 export { MwRadio, MwRadioGroup };

@@ -1,5 +1,5 @@
 <script>
-import MwRadio from "./MWRadio";
+import MwRadio from "./MWRadio.vue";
 import { h } from "vue";
 
 export default {

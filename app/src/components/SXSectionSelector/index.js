@@ -1,3 +1,3 @@
-import SXSectionSelector from "./SXSectionSelector";
+import SXSectionSelector from "./SXSectionSelector.vue";
 
 export default SXSectionSelector;

@@ -1,5 +1,5 @@
 import { computed, createApp } from "vue";
-import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder";
+import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
 import useCompareContents from "./useCompareContents";
 import useApplicationState from "@/composables/useApplicationState";
 

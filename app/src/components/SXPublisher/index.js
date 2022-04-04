@@ -1,3 +1,3 @@
-import SXPublisher from "./SXPublisher";
+import SXPublisher from "./SXPublisher.vue";
 
 export default SXPublisher;

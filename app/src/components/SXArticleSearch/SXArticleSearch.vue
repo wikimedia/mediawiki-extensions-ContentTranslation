@@ -90,9 +90,9 @@ import {
   MwButton,
 } from "@/lib/mediawiki.ui";
 import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import SearchResultsCard from "./SearchResultsCard";
+import SearchResultsCard from "./SearchResultsCard.vue";
 import MwLanguageSelector from "../MWLanguageSelector";
-import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
+import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
 import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";

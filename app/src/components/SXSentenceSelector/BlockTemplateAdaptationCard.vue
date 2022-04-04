@@ -60,7 +60,7 @@ import {
   MwSpinner,
 } from "@/lib/mediawiki.ui";
 import { mwIconPuzzle, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
-import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";

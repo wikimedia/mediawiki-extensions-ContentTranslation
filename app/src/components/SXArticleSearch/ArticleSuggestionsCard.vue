@@ -17,7 +17,7 @@
 
 <script>
 import { mapState } from "vuex";
-import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion";
+import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard } from "../../lib/mediawiki.ui";
 
 export default {

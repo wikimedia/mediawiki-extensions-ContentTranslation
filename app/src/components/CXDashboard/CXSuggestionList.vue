@@ -60,10 +60,10 @@
 </template>
 
 <script>
-import CxTranslationSuggestion from "./CXTranslationSuggestion";
+import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
 import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
-import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
+import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";

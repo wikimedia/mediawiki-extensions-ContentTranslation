@@ -1,3 +1,3 @@
-import SXSentenceSelector from "./SXSentenceSelector";
+import SXSentenceSelector from "./SXSentenceSelector.vue";
 
 export default SXSentenceSelector;

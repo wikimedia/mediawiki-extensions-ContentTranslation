@@ -1,3 +1,3 @@
-import SXEditor from "./SXEditor";
+import SXEditor from "./SXEditor.vue";
 
 export default SXEditor;

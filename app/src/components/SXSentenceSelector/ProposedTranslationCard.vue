@@ -52,8 +52,8 @@ import {
   mwIconEllipsis,
 } from "@/lib/mediawiki.ui/components/icons";
 import { getDir } from "@wikimedia/language-data";
-import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons";
-import ProposedTranslationHeader from "./ProposedTranslationHeader";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
+import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { ref, onMounted, computed, watch, nextTick } from "vue";
 import useApplicationState from "@/composables/useApplicationState";

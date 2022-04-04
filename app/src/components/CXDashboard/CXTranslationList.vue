@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import CxTranslationWork from "./CXTranslationWork";
+import CxTranslationWork from "./CXTranslationWork.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import { getAutonym } from "@wikimedia/language-data";
-import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector";
+import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
 import useMediawikiState from "@/composables/useMediawikiState";
 import { useStore } from "vuex";

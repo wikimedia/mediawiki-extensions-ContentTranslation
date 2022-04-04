@@ -55,7 +55,7 @@
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList";
+import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList.vue";
 import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 import { computed } from "vue";
 

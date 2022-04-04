@@ -84,12 +84,12 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 import { getDir } from "@wikimedia/language-data";
 
-import SxTranslationSelector from "./SXTranslationSelector";
-import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader";
-import ProposedTranslationCard from "./ProposedTranslationCard";
-import SubSection from "./SubSection";
-import BlockTemplateAdaptationCard from "./BlockTemplateAdaptationCard";
-import TranslatedSegmentCard from "./TranslatedSegmentCard";
+import SxTranslationSelector from "./SXTranslationSelector.vue";
+import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader.vue";
+import ProposedTranslationCard from "./ProposedTranslationCard.vue";
+import SubSection from "./SubSection.vue";
+import BlockTemplateAdaptationCard from "./BlockTemplateAdaptationCard.vue";
+import TranslatedSegmentCard from "./TranslatedSegmentCard.vue";
 import SubSectionModel from "@/wiki/cx/models/subSection";
 import { computed, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";

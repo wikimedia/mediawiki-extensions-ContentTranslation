@@ -1,3 +1,3 @@
-import SXQuickTutorial from "./SXQuickTutorial";
+import SXQuickTutorial from "./SXQuickTutorial.vue";
 
 export default SXQuickTutorial;
