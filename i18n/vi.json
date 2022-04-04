@@ -36,7 +36,7 @@
 	"cx-source-view-page": "xem trang",
 	"cx-publish-page-success": "Trang được xuất bản tại $1",
 	"cx-publish-page-error": "Đã xuất hiện lỗi khi xuất bản bản dịch. Xin vui lòng thử xuất bản trang lần nữa. Lỗi: $1",
-	"cx-publish-error-abuse-filter": "Các bộ lọc sửa đổi tự động đã nhận ra nội dung có vấn đề trong bản dịch của bạn. Chi tiết: $1",
+	"cx-publish-error-abuse-filter": "Các bộ lọc sửa đổi tự động đã phát hiện nội dung có vấn đề trong bản dịch của bạn. Chi tiết: $1",
 	"cx-publish-error-empty": "Lời phản hồi của máy chủ thiếu dữ liệu.",
 	"cx-publish-error-readonly": "Wiki không cho phép ghi nội dung.",
 	"cx-publish-error-spam-blacklist": "Bản dịch của bạn có thể chứa nội dung rác (spam). Chi tiết: $1",
