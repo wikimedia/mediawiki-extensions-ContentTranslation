@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.2.0+20220328",
+  "version": "0.2.0+20220404",
   "private": true,
   "main": "./dist/cx3.umd.js",
   "module": "./dist/cx3.es.js",

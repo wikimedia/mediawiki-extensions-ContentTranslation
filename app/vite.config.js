@@ -48,5 +48,9 @@ export default defineConfig({
       name: packageDef.name,
     },
   },
+  esbuild: {
+    // Avoid ResourceLoader minification
+    banner: "/*@nomin*/",
+  },
   ...localConfig,
 });
