@@ -9,7 +9,7 @@
 	"cx-dashboard-header": "Traduzzion",
 	"cx-javascript": "Quell istrument chì el va no senza el JavaScript. El JavaScript l'è disativad, l'hà fonzionad minga opur quell programa de navigazzion chì l'è minga suportad.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traduzion di vos]] a l'è 'n istrument per facilità la traduzzion in la toa lengua [$1 Provall adess!]",
-	"cx-license-agreement": "A seguità inscì, te acetet tute i [https://foundation.wikimedia.org/wiki/Terms_of_Use condizzion de utilizzazzion] e te acetet per semper de fornì i to contribuzzion second conforma ai licenze [https://creativecommons.org/licenses/by-sa/3.0/deed.it CC BY-SA 3.0] e [//it.wikipedia.org/wiki/Wikipedia:Testo_della_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "A seguità inscì, te acetet tute i [https://foundation.wikimedia.org/wiki/Terms_of_Use condizzion de utilizzazzion] e te acetet per semper de fornì i to contribuzzion sota i licenze [https://creativecommons.org/licenses/by-sa/3.0/deed.it CC BY-SA 3.0] e [//it.wikipedia.org/wiki/Wikipedia:Testo_della_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Erorː impossibil conetess al server.",
 	"cx-desc": "El facilita in del [[Special:ContentTranslation|voltà]] el contegnud di pagine",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradot}}",
