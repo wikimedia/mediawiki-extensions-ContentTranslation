@@ -175,12 +175,16 @@ class SpecialContentTranslation extends SpecialPage {
 		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
+		$user = $this->getUser();
 
-		if ( $this->isVueDashboard() && $allowAnonSX ) {
+		// Allow anonymous users access to SX if enabled.
+		if ( $this->isVueDashboard() && $allowAnonSX && $user->isAnon() ) {
 			return true;
 		}
 
-		// Direct access, isListed only affects Special:SpecialPages
+		// For all logged in user, if CX beta feature is not enabled, and has
+		// valid token or campaign, enable CX beta feature and proceed.
+		// This is applicable for both CX and SX.
 		if ( !$this->preferenceHelper->isEnabledForUser( $this->getUser() ) ) {
 			if ( $hasValidToken || $isCampaign ) {
 				// User has a token or a valid campaign param.
