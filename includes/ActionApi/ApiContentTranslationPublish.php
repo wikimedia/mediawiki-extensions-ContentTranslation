@@ -139,6 +139,8 @@ class ApiContentTranslationPublish extends ApiBase {
 		// Validate and normalize all categories.
 		foreach ( $categories as $index => $category ) {
 			$category = $this->removeApiCategoryNamespacePrefix( $category, $params['to'] );
+			// Also remove the namespace in English, if any. May be from T264490
+			$category = $this->removeApiCategoryNamespacePrefix( $category, 'en' );
 			$title = Title::makeTitleSafe( NS_CATEGORY, $category );
 			if ( $title !== null ) {
 				$categories[$index] = $title->getPrefixedText();

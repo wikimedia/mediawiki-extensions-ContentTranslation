@@ -596,13 +596,6 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	// Source categories aren't retrieved, only saved in cx_corpora for pairing
 	// with target categories.
 	this.targetCategories = JSON.parse( draft.targetCategories );
-
-	// Handle badly stored categories caused by T248302
-	if ( Array.isArray( this.targetCategories ) ) {
-		this.targetCategories = this.targetCategories.map( function ( item ) {
-			return ( item.indexOf( ':' ) > 0 ) ? item : 'Category:' + item;
-		} );
-	}
 };
 
 /**
