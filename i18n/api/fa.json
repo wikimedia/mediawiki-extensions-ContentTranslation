@@ -9,7 +9,8 @@
 			"Mahdy Saffar",
 			"Ommmmid",
 			"Reza1615",
-			"Jeeputer"
+			"Jeeputer",
+			"Beginneruser"
 		]
 	},
 	"apihelp-cxpublish-description": "ذخیرهٔ یک صفحهٔ ایجاد شده توسط افزونهٔ ترجمهٔ محتوا.",
@@ -69,7 +70,7 @@
 	"apihelp-cxdelete-example-1": "یک پیش‌نویس مربوط به جفت زبانی و عنوان داده شده را حذف کن.",
 	"apihelp-cxsuggestionlist-param-listname": "نام فهرست پیشنهادها.",
 	"apihelp-cxsuggestionlist-param-listaction": "فعالیتی که روی فهرست باید انجام شود.",
-	"apihelp-cxsuggestionlist-param-titles": "عنوان صفحات",
+	"apihelp-cxsuggestionlist-param-titles": "عنوان‌های صفحه",
 	"apihelp-cxsuggestionlist-param-from": "کد زبان مبدا",
 	"apihelp-cxsuggestionlist-param-to": "کد زبان مقصد",
 	"apihelp-query+cxtranslatorstats-description": "واکشی آمار ترجمه برای کاربر مشخص‌شده.",

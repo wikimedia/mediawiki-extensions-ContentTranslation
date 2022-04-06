@@ -8,7 +8,8 @@
 			"Minh Nguyen",
 			"Nguyên Lê",
 			"Phjtieudoc",
-			"Quenhitran"
+			"Quenhitran",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"apihelp-cxpublish-description": "Lưu một trang được tạo bởi phần mở rộng Biên dịch nội dung.",
@@ -54,7 +55,7 @@
 	"apihelp-cxdelete-example-1": "Xóa bản nháp liên kết với cặp ngôn ngữ và tiêu đề đã chọn.",
 	"apihelp-cxsuggestionlist-param-from": "Mã ngôn ngữ gốc.",
 	"apihelp-cxsave-param-sourcerevision": "Phiên bản của trang nguồn.",
-	"apihelp-cxsave-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Mỗi chìa khóa có giá trị phần trăm.",
+	"apihelp-cxsave-param-progress": "Thông tin về độ tiến triển bản dịch. JSON có các chìa khóa <code>any</code>, <code>human</code>, <code>mt</code>, và <code>mtSectionsCount</code>. Các chìa khóa có giá trị phần trăm.",
 	"apihelp-cxsave-param-cxversion": "Phiên bản của người sửa được dùng để tạo bản dịch của bài viết nháp này.",
 	"apierror-cx-samelanguages": "Ngôn ngữ nguồn và mục tiêu không thể giống nhau."
 }
