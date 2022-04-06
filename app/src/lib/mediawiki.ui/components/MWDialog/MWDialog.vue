@@ -151,6 +151,8 @@ export default {
           nextTick(() => {
             root.value.focus();
           });
+        } else {
+          close();
         }
       }
     );
