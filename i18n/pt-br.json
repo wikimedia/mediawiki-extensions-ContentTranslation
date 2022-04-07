@@ -25,7 +25,8 @@
 			"TheGabrielZaum",
 			"Vitor Mazuco",
 			"Vitorvicentevalente",
-			"Петар Петковић"
+			"Петар Петковић",
+			"YuriNikolai"
 		]
 	},
 	"cx": "Traduzir página",
@@ -159,8 +160,8 @@
 	"cx-translation-status-deleted": "Excluído",
 	"cx-translation-label-draft": "Traduções em curso",
 	"cx-translation-label-published": "Traduções publicadas",
-	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1.",
-	"cx-translation-already-in-progress-unknown": "Esta é uma tradução em andamento por usuário desconhecido.",
+	"cx-translation-already-in-progress": "Há uma tradução em andamento {{GENDER:$2|por}} $1. Quando há uma tradução ativa, você só pode começar uma nova após um dia. Por favor, tente novamente em 24 horas ou coordene-se com {{GENDER:$2|o usuário|a usuária|o usuário}} que iniciou a tradução atual.",
+	"cx-translation-already-in-progress-unknown": "Esta é uma tradução em andamento por um usuário desconhecido. Quando há uma tradução ativa, você só pode iniciar uma nova após um dia. Por favor, tente novamente em 24 horas ou coordene-se com o usuário que iniciou a tradução atual.",
 	"cx-feedback-link": "Fornecer comentários",
 	"cx-stats-published-translations-title": "Traduções publicadas",
 	"cx-stats-draft-translations-title": "Traduções em andamento",
@@ -404,5 +405,23 @@
 	"sx-editor-feedback-overlay-clarification": "Aprendendo com suas correções",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> editado por você",
 	"cx-campaign-mflanguagesearcher-invite": "Você pode traduzir esta página. É uma maneira fácil de criar conteúdo em seu idioma.",
-	"cx-suggestion-list-favorites-division": "Para mais tarde"
+	"cx-suggestion-list-favorites-division": "Para mais tarde",
+	"sx-recent-translation-entrypoint-banner-header": "Esta página foi traduzida recentemente",
+	"sx-recent-translation-entrypoint-banner-details": "Ajude a melhorar o conteúdo",
+	"sx-recent-translation-entrypoint-dialog-header": "Melhore a tradução",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Revisar o conteúdo",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Adicionar novas seções",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Traduções reusam trabalho de editores de outros idiomas. Entretanto, alguns aspectos podem ser perdidos na tradução. Você pode ajudar:",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "Faça o conteúdo ser legível naturalmente",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Edite frases para reordenar ou substituir palavras como necessário.",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Verifique as referências",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Leitores acessam as referências para checarem os fatos. Verifique o formato das referências e adicione referências relevantes em seu idioma.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Compare com o original",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Certifique-se de que o sentido original não foi alterado na tradução.",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Editar a página",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Abrir página original em $1",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduzir nova seção",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduzir $1",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduzir \"$1\" e \"$2\"",
+	"sx-block-template-adaptation-card-body-header-success": "Predefinição sugerida"
 }

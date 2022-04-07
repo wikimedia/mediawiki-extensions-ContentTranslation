@@ -18,7 +18,8 @@
 			"Rönttönen",
 			"Silvonen",
 			"Stryn",
-			"Valtlait"
+			"Valtlait",
+			"Yupik"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -146,7 +147,7 @@
 	"cx-publishing-dialog-title": "Korvaa olemassaoleva sivu?",
 	"cx-publishing-dialog-sub-title": "Käännöksesi korvaa olemassa olevan sivun. Ole hyvä ja varmistu siitä, että olemassa olevan sisällön korvaaminen on sopivaa.",
 	"cx-publishing-with-issues-dialog-title": "Julkaise nykyisten ongelmien kanssa?",
-	"cx-publishing-with-issues-dialog-message": "Käännöksessäsi on edelleeen mahdollisia ongelmia. Harkitse niiden tarkistamista ennen julkaisua.\n\nMuokkaajat, jotka tarkistavat tekemäsi muutokset, arvostavat parannuksia.",
+	"cx-publishing-with-issues-dialog-message": "Käännöksessäsi on edelleen mahdollisia ongelmia. Harkitse niiden tarkistamista ennen julkaisua.\n\nMuokkaajat, jotka tarkistavat tekemäsi muutokset, arvostavat parannuksia.",
 	"cx-overwriting-with-issues": "Käännöksesi korvaa olemassa olevan sivun, ja siinä on vielä mahdollisia ongelmia. Harkitse niiden tarkistamista ennen julkaisua.",
 	"cx-discard-translation": "Tuhoa käännös",
 	"cx-translation-status-draft": "Keskeneräinen",

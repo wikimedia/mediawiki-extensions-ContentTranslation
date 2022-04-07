@@ -139,7 +139,7 @@
 	"cx-translation-status-deleted": "Kustutatud",
 	"cx-translation-label-draft": "Pooleli tõlked",
 	"cx-translation-label-published": "Avaldatud tõlked",
-	"cx-translation-already-in-progress": "See on kasutaja {{GENDER:$2|$1}} pooleliolev tõlkemustand.",
+	"cx-translation-already-in-progress": "See on kasutaja {{GENDER:$2|$1}} pooleliolev tõlge. Aktiivse tõlke olemasolul saad alustada uut tõlget päeva pärast. Palun proovi uuesti 24 tunni pärast või räägi läbi kasutajaga, kes alustas praegust tõlget.",
 	"cx-feedback-link": "Anna tagasisidet",
 	"cx-stats-published-translations-title": "Avaldatud tõlked",
 	"cx-stats-draft-translations-title": "Pooleliolevad tõlked",

@@ -84,7 +84,7 @@
 	"cx-translation-status-draft": "У працэсе",
 	"cx-translation-status-published": "Апублікаваны",
 	"cx-translation-status-deleted": "Выдалены",
-	"cx-translation-already-in-progress": "Гэта незавершаны пераклад, запачаткаваны {{GENDER:$2|ўдзельнікам|ўдзельніцай}} $1.",
+	"cx-translation-already-in-progress": "Гэта незавершаны пераклад, запачаткаваны {{GENDER:$2|ўдзельнікам|ўдзельніцай}} $1. Калі пераклад у працэсе, новы запачаткаваць можаце толькі празь дзень. Паспрабуйце яшчэ раз праз 24 гадзіны ці скаардынуйцеся з {{GENDER:$2|удзельнікам, які запачаткаваў|удзельніцай, якая запачаткавала}} гэты пераклад.",
 	"cx-feedback-link": "Стварыць водгук",
 	"cx-stats-published-translations-title": "Апублікаваныя пераклады",
 	"cx-stats-draft-translations-title": "Пераклады ў працы",
