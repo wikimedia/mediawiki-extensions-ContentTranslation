@@ -253,6 +253,8 @@
 	"cx-sx-followup-feedback-new-indicator": "nei",
 	"cx-sx-published-section-confirmation-header": "Neien Abschnitt derbäigesat",
 	"cx-sx-published-section-invitation-title": "Een aneren Abschnitt iwwersetzen",
+	"cx-sx-publisher-mt-abuse-message-title": "Är Iwwersetzung huet $1% net verännerten Text",
+	"cx-sx-publisher-mt-abuse-error-title": "Är Iwwersetzung kann net publizéiert ginn: si huet méi wéi $1% net verännerten Text",
 	"cx-sx-article-search-input-placeholder": "Sicht no enger Säit fir z'iwwersetzen",
 	"cx-sx-article-search-nearby-title": "Nobäi",
 	"sx-article-search-language-selector-dialog-title": "Sproochen",
