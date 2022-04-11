@@ -313,7 +313,7 @@
 	"cx-linkcontextitem-missing-link-title": "پیوند ناموجود",
 	"cx-linkcontextitem-missing-title-description": "این صفحه هنوز وجود ندارد.",
 	"cx-mt-abuse-publish-error": "ترجمهٔ شما به‌دلیل وجود مقدار زیادی متن ویرایش نشده امکان انتشار ندارد.",
-	"cx-unreviewed-translation-category": "صفحات با ترجمه بازبینی‌نشده",
+	"cx-unreviewed-translation-category": "صفحه‌های با ترجمه بازبینی‌نشده",
 	"cx-unreviewed-translation-category-desc": "صفحه‌های ترجمه‌شده با ابزار ترجمهٔ محتوا که دارای حجم زیادی از محتوای بازبینی‌نشده هستند",
 	"cx-preference-enable-entrypoints": "دسترسی به [[$1|آغاز یک ترجمه]]، از صفحهٔ مشارکت‌ها، فهرست زبان‌ها و صفحه‌های تازه ایجادشده.",
 	"cx-feature-discovery-title": "ترجمه در هر زمان",
