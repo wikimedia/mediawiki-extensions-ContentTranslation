@@ -5657,6 +5657,8 @@ const _sfc_main$15 = {
         nextTick(() => {
           root.value.focus();
         });
+      } else {
+        close();
       }
     });
     return {
