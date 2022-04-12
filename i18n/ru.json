@@ -51,7 +51,8 @@
 			"Петар Петковић",
 			"Умар",
 			"Rivka Silinsky",
-			"Thothsum"
+			"Thothsum",
+			"Tanzun"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -66,7 +67,7 @@
 	"cx-header-translation-center": "Центр переводов",
 	"cx-header-all-translations": "Все переводы",
 	"cx-source-view-page": "просмотр страницы",
-	"cx-publish-page-success": "Страница опубликована на $1",
+	"cx-publish-page-success": "Страница опубликована как $1",
 	"cx-publish-page-error": "При публикации перевода произошла ошибка. Пожалуйста, попробуйте опубликовать страницу ещё раз. Ошибка: $1",
 	"cx-publish-error-abuse-filter": "Автоматические фильтры правок выявили проблемы в содержимом вашего перевода. Попадание в фильтр: $1",
 	"cx-publish-error-empty": "Нет данных в ответе от сервера.",
