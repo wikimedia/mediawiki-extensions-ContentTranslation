@@ -48,6 +48,44 @@ class Hooks {
 		}
 	}
 
+	public static function addMobileNewByTranslationInvitation( OutputPage $out, Skin $skin ): void {
+		$isMobileView = false;
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+
+		// This entrypoint should only be enabled for mobile web version
+		if ( !$isMobileView ) {
+			return;
+		}
+
+		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
+		// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
+		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' );
+		$isSXEnabled = is_array( $enabledLanguages ) && in_array( $currentLanguageCode, $enabledLanguages );
+		if ( !$isSXEnabled ) {
+			return;
+		}
+
+		// This entrypoint should only be enabled for logged-in users or wikis that
+		// have section translation enabled for anonymous users
+		$user = $out->getUser();
+		$isSxEnabledForAnon = $out->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
+		if ( $user->isAnon() && !$isSxEnabledForAnon ) {
+			return;
+		}
+
+		$isValidContext = !$out->getTitle()->exists() && $out->getTitle()->inNamespace( NS_MAIN );
+
+		if ( !$isValidContext ) {
+			return;
+		}
+
+		$out->addModules( 'ext.cx.entrypoints.newbytranslation.mobile' );
+	}
+
 	/**
 	 * This hook adds "ext.cx.entrypoints.recenttranslation" module, to support
 	 * entrypoint inside articles, that encourages users to review recently

@@ -1,0 +1,59 @@
+@import 'mediawiki.ui/variables';
+
+.sx-new-by-translation-entrypoint {
+	display: flex;
+	position: absolute;
+	bottom: 16px;
+	margin-inline: 16px;
+	padding: 12px;
+	background-color: @colorGray14;
+	width: ~'calc(100% - 32px - 24px)';
+	z-index: 999;
+	border-radius: 2px;
+
+	.sx-suggestion__thumbnail {
+		background-size: cover;
+		height: 64px;
+		width: 64px;
+	}
+
+	.sx-suggestion__body-container {
+		margin-inline: 12px;
+		flex-grow: 1;
+		overflow: hidden;
+
+		&__header {
+			color: @colorGray5;
+			font-size: 14px;
+			font-weight: bold;
+		}
+
+		&__title {
+			color: @colorGray2;
+			font-size: 16px;
+			font-weight: bold;
+		}
+
+		&__description {
+			width: 100%;
+			display: inline-block;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			color: @colorGray5;
+			font-size: 14px;
+		}
+	}
+
+	.sx-suggestion__action-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&__close-icon {
+			height: 20px;
+			width: 20px;
+			background: center / contain no-repeat url( ../images/close-icon.svg );
+		}
+	}
+}

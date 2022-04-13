@@ -62,7 +62,8 @@
 		"BeforePageDisplay": [
 			"ContentTranslation\\Hooks::addModules",
 			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
-			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint"
+			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint",
+			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -962,6 +963,21 @@
 				"cx-campaign-newbytranslation-search",
 				"cx-campaign-newbytranslation-languages",
 				"cx-campaign-newbytranslation-start"
+			]
+		},
+		"ext.cx.entrypoints.newbytranslation.mobile": {
+			"targets": [
+				"mobile"
+			],
+			"scripts": [
+				"entrypoints/ext.cx.entrypoints.newbytranslation.mobile.js"
+			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.newbytranslation.mobile.less"
+			],
+			"dependencies": [
+				"mw.cx.SiteMapper",
+				"mw.cx.util"
 			]
 		},
 		"ext.cx.betafeature.init": {
