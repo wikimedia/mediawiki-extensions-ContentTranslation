@@ -1,4 +1,5 @@
 {
+	"name": "ContentTranslation",
 	"private": true,
 	"scripts": {
 		"test:cxdashboardapp": "cd app && npm run test",
