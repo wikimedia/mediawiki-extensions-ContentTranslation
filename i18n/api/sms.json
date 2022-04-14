@@ -4,5 +4,29 @@
 			"Yupik"
 		]
 	},
-	"apierror-cx-invalidlanguage": "Vââǥǥlaž ǩiõll."
+	"apihelp-cxpublish-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-cxpublish-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxpublish-param-sourcetitle": "Käivvseeid nõmm.",
+	"apihelp-query+contenttranslation-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-query+contenttranslation-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Käivvseeid nõmm.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxdelete-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-cxdelete-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxdelete-param-sourcetitle": "Käivvseeid nõmm.",
+	"apihelp-cxsuggestionlist-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-cxsuggestionlist-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxsave-param-from": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-cxsave-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxsave-param-sourcetitle": "Käivvseeid nõmm.",
+	"apierror-cx-invalidlanguage": "Vââǥǥlaž ǩiõll.",
+	"apierror-cx-translationnotfound": "Jåårǥlâttmõš ij käunnʼjam.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Käivvǩiõl ǩiõllkoodd.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Täävtõsǩiõl ǩiõllkoodd.",
+	"apihelp-cxpublishsection-param-sourcetitle": "Käivvseeid nõmm."
 }

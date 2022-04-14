@@ -24,6 +24,7 @@
 	"cx-dashboard-sidebar-feedback": "Uuʹd maacctõõzz",
 	"cx-translation-filter-suggested-translations": "Eʹtǩǩõõzz",
 	"cx-suggestionlist-title": "Eʹtǩǩõõzz",
+	"cx-suggestionlist-view-source-page": "Čuäʹjet käivvseeid",
 	"cx-create-new-translation": "Ođđ jåårǥlõs",
 	"cx-translation-filter-label-all-languages": "Puk",
 	"cx-translation-filter-uls-all-languages": "Puk ǩiõl",
@@ -53,6 +54,7 @@
 	"cx-sx-publisher-animation-publishing-indicator-title": "Õlmstââʹtt jåårǥlõõzz...",
 	"sx-article-search-language-selector-dialog-title": "Ǩiõl",
 	"cx-sx-language-selector-all-languages": "Puk ǩiõl",
+	"cx-sx-language-selector-no-search-results": "Ni mâiʹd ij käunnʼjam",
 	"sx-translation-list-language-selector-dialog-title": "Ǩiõl",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Jåårǥlââʹtt \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Jåårǥlââʹtt \"$1\" da \"$2\""
