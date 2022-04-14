@@ -9,13 +9,22 @@
 namespace ContentTranslation\ActionApi;
 
 use ApiBase;
+use ApiMain;
+use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationDelete extends ApiBase {
+	/** @var TranslationCorporaStore */
+	private $corporaStore;
+
+	public function __construct( ApiMain $mainModule, $action, TranslationCorporaStore $corporaStore ) {
+		parent::__construct( $mainModule, $action );
+		$this->corporaStore = $corporaStore;
+	}
+
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
@@ -43,7 +52,7 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translationId = $translation->getData()['id'];
 			Translator::removeTranslation( $translationId );
 			Translation::delete( $translationId );
-			TranslationStorageManager::deleteTranslationData( $translationId );
+			$this->corporaStore->deleteTranslationData( $translationId );
 		}
 
 		$result = [ 'result' => 'success' ];

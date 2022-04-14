@@ -9,76 +9,69 @@
 namespace ContentTranslation;
 
 class TranslationUnit {
+	/** @var int|null */
 	protected $translationId;
+	/** @var string */
 	protected $sectionId;
+	/** @var string */
 	protected $origin;
+	/** @var int|null */
 	protected $sequenceId;
+	/** @var string */
 	protected $content;
+	/** @var string */
 	protected $timestamp;
+	/** @var bool|null */
 	protected $validate;
 
-	public function __construct( array $params ) {
-		if ( isset( $params['translationId'] ) ) {
-			$this->translationId = (int)$params['translationId'];
-		}
-
+	public function __construct(
+		string $sectionId,
+		string $origin,
+		?int $sequenceId,
+		string $content,
+		?int $translationId = null,
+		?string $timestamp = null,
+		?bool $validate = false
+	) {
 		// Truncate section id to fit in the database column. The frontend is aware of this
 		// limitation and checks the id from content itself if the length is 30 bytes. Also
 		// cxserver is aware of this limitation and it should not produce ids that are over
 		// 30 bytes. Also, the database does not actually complain unless it is in a strict
 		// mode, which is not yet the case for Wikimedia deployment.
-		$this->sectionId = substr( (string)$params['sectionId'], 0, 30 );
-		$this->origin = (string)$params['origin'];
-		$this->sequenceId = (int)$params['sequenceId'];
-		$this->content = (string)$params['content'];
-		$this->timestamp = $params['timestamp'] ?? wfTimestamp();
-		if ( isset( $params['validate'] ) ) {
-			$this->validate = (bool)$params['validate'];
-		}
+		$this->sectionId = substr( $sectionId, 0, 30 );
+		$this->origin = $origin;
+		$this->sequenceId = $sequenceId;
+		$this->content = $content;
+		$this->translationId = $translationId;
+		$this->timestamp = $timestamp ?? wfTimestamp();
+		$this->validate = $validate;
 	}
 
-	/**
-	 * @param \stdClass $row
-	 * @return TranslationUnit
-	 */
-	public static function newFromRow( $row ) {
-		$params = [
-			'translationId' => $row->cxc_translation_id,
-			'sectionId' => $row->cxc_section_id,
-			'origin' => $row->cxc_origin,
-			'sequenceId' => $row->cxc_sequence_id,
-			'content' => $row->cxc_content,
-			'timestamp' => $row->cxc_timestamp,
-		];
-
-		return new self( $params );
-	}
-
-	public function getTranslationId() {
+	public function getTranslationId(): ?int {
 		return $this->translationId;
 	}
 
-	public function getSectionId() {
+	public function getSectionId(): string {
 		return $this->sectionId;
 	}
 
-	public function getSequenceId() {
+	public function getSequenceId(): ?int {
 		return $this->sequenceId;
 	}
 
-	public function getOrigin() {
+	public function getOrigin(): string {
 		return $this->origin;
 	}
 
-	public function getTimestamp() {
+	public function getTimestamp(): string {
 		return $this->timestamp;
 	}
 
-	public function getContent() {
+	public function getContent(): string {
 		return $this->content;
 	}
 
-	public function getValidate() {
+	public function getValidate(): ?bool {
 		return $this->validate;
 	}
 }

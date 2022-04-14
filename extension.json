@@ -99,7 +99,12 @@
 		"SectionTranslationBeforePublish": "sxbeforepublish"
 	},
 	"APIModules": {
-		"cxdelete": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
+		"cxdelete": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
+			"services": [
+				"ContentTranslation.TranslationCorporaStore"
+			]
+		},
 		"cxpublish": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
 		"cxpublishsection": {
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationPublish",
@@ -108,7 +113,12 @@
 				"HookContainer"
 			]
 		},
-		"cxsave": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
+		"cxsave": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
+			"services": [
+				"ContentTranslation.TranslationCorporaStore"
+			]
+		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
 	},

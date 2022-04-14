@@ -5,6 +5,7 @@ declare( strict_types=1 );
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\Store\RecentSignificantEditStore;
+use ContentTranslation\Store\TranslationCorporaStore;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 use Wikibase\Lib\SettingsArray;
@@ -48,6 +49,13 @@ return [
 			} catch ( NoSuchServiceException $exception ) {
 				return null;
 			}
+		},
+	'ContentTranslation.TranslationCorporaStore' =>
+		static function ( MediaWikiServices $services ): TranslationCorporaStore {
+			return new TranslationCorporaStore(
+				$services->getService( 'ContentTranslation.LoadBalancer' ),
+				$services->getDBLoadBalancerFactory()
+			);
 		},
 	'ContentTranslation.WikibaseClient.Settings' =>
 		/** @phan-suppress-next-line PhanUndeclaredTypeReturnType */

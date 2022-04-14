@@ -7,12 +7,14 @@
 namespace ContentTranslation\ActionApi;
 
 use ApiBase;
+use ApiMain;
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\CategoriesStorageManager;
+use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationStorageManager;
 use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -26,10 +28,18 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiContentTranslationSave extends ApiBase {
+	/** @var TranslationCorporaStore */
+	private $corporaStore;
+
 	/**
 	 * 64KB
 	 */
 	private const SQL_BLOB_MAX_SIZE = 65535;
+
+	public function __construct( ApiMain $mainModule, $action, TranslationCorporaStore $corporaStore ) {
+		parent::__construct( $mainModule, $action );
+		$this->corporaStore = $corporaStore;
+	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -79,10 +89,20 @@ class ApiContentTranslationSave extends ApiBase {
 		if ( !$content->isGood() ) {
 			$this->dieWithError( 'deflate-invaliddeflate', 'invaliddeflate' );
 		}
-		$translationUnits = $this->getTranslationUnits(
-			$content->getValue(),
-			$translationId
-		);
+
+		if ( trim( $content->getValue() ) === '' ) {
+			$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
+		}
+
+		try {
+			$translationUnits = $this->corporaStore->createTranslationUnitsFromContent(
+				$content->getValue(),
+				$translationId
+			);
+		} catch ( InvalidSectionDataException $exception ) {
+			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
+		}
+
 		$this->saveTranslationUnits( $translationUnits, $translation );
 		$validationResults = $this->validateTranslationUnits( $translationUnits, $translation );
 
@@ -198,37 +218,6 @@ class ApiContentTranslationSave extends ApiBase {
 		return $translation;
 	}
 
-	protected function getTranslationUnits( $content, $translationId ) {
-		$translationUnits = [];
-		if ( trim( $content ) === '' ) {
-			$this->dieWithError( [ 'apierror-paramempty', 'content' ], 'invalidcontent' );
-		}
-
-		$units = json_decode( $content, true );
-		foreach ( $units as $tuData ) {
-			if ( !isset( $tuData['sectionId'] ) || !isset( $tuData['origin'] ) ) {
-				$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
-			}
-			'@phan-var array $tuData';
-
-			// Make sure all translation unit fields are defined.
-			if ( !isset( $tuData['sequenceId'] ) ) {
-				$tuData['sequenceId'] = null;
-			}
-			if ( !isset( $tuData['content'] ) ) {
-				// Content can be null in case translator clear the section.
-				$tuData['content'] = null;
-			}
-			if ( !isset( $tuData['validate'] ) ) {
-				$tuData['validate'] = false;
-			}
-			$tuData['translationId'] = $translationId;
-			$translationUnits[] = new TranslationUnit( $tuData );
-		}
-
-		return $translationUnits;
-	}
-
 	/**
 	 * @param array $translationUnits
 	 * @param Translation $translation Recently saved parent translation object
@@ -236,7 +225,7 @@ class ApiContentTranslationSave extends ApiBase {
 	protected function saveTranslationUnits( $translationUnits, Translation $translation ) {
 		$newTranslation = $translation->lastSaveWasCreate();
 		foreach ( $translationUnits as $translationUnit ) {
-			TranslationStorageManager::save( $translationUnit, $newTranslation );
+			$this->corporaStore->save( $translationUnit, $newTranslation );
 		}
 	}
 
