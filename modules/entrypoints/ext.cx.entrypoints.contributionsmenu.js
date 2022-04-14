@@ -78,7 +78,7 @@
 			);
 
 		if ( useCallout ) {
-			// eslint-disable-next-line no-use-before-define
+
 			attachCallout( $trigger, $myContributions, $myTranslations, $myUploads );
 		} else {
 			mw.util.addPortletLink(
