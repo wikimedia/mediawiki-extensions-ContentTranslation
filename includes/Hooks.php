@@ -7,7 +7,6 @@
  */
 namespace ContentTranslation;
 
-use Action;
 use Config;
 use DatabaseUpdater;
 use EchoAttributeManager;
@@ -328,7 +327,7 @@ class Hooks {
 		}
 
 		if ( $title->inNamespace( NS_MAIN ) &&
-			Action::getActionName( $out->getContext() ) === 'view' &&
+			$out->getActionName() === 'view' &&
 			$title->exists() &&
 			in_array( $skin->getSkinName(), [ 'vector', 'vector-2022' ] )
 		) {
