@@ -8,6 +8,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
 use ParsoidVirtualRESTService;
 use RequestContext;
@@ -21,16 +23,37 @@ class RestbaseClient {
 	protected $serviceClient;
 
 	/**
-	 * The Config object from the request context.
-	 * @var \Config
+	 * @internal For use by ServiceWiring
 	 */
-	protected $config;
+	public const CONSTRUCTOR_OPTIONS = [
+		'VirtualRestConfig',
+		'ContentTranslationRESTBase',
+		'VisualEditorParsoidAutoConfig'
+	];
 
-	public function __construct( $config ) {
-		$this->config = $config;
-		$this->serviceClient = new \VirtualRESTServiceClient(
-			MediaWikiServices::getInstance()->getHttpRequestFactory()->createMultiClient()
-		);
+	/**
+	 * The global virtual rest service config object
+	 * @var array
+	 */
+	private $virtualRestConfig;
+
+	/**
+	 * CX specific configuration override (local testing and development)
+	 * @var array
+	 */
+	private $contentTranslationRESTBase;
+
+	/** @var bool */
+	private $visualEditorParsoidAutoConfig;
+
+	public function __construct( HttpRequestFactory $httpRequestFactory, ServiceOptions $options ) {
+		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
+
+		$this->virtualRestConfig = $options->get( 'VirtualRestConfig' );
+		$this->contentTranslationRESTBase = $options->get( 'ContentTranslationRESTBase' );
+		$this->visualEditorParsoidAutoConfig = $options->get( 'VisualEditorParsoidAutoConfig' );
+
+		$this->serviceClient = new \VirtualRESTServiceClient( $httpRequestFactory->createMultiClient() );
 		// Mounted at /restbase/ because it is a service speaking the
 		// RESTBase v1 API -- but the service responding to these API
 		// requests could be either Parsoid or RESTBase.
@@ -46,27 +69,19 @@ class RestbaseClient {
 	 * @return \VirtualRESTService the VirtualRESTService object to use
 	 */
 	private function getVRSObject() {
-		// The global virtual rest service config object
-		$vrs = $this->config->get( 'VirtualRestConfig' );
-		// CX specific configuration override (local testing and development)
-		$cxs = $this->config->get( 'ContentTranslationRESTBase' );
-
-		if ( $cxs ) {
+		if ( $this->contentTranslationRESTBase ) {
 			$class = RestbaseVirtualRESTService::class;
-			$params = $cxs;
-		} elseif ( isset( $vrs['modules']['restbase'] ) ) {
+			$params = $this->contentTranslationRESTBase;
+		} elseif ( isset( $this->virtualRestConfig['modules']['restbase'] ) ) {
 			$class = RestbaseVirtualRESTService::class;
-			$params = $vrs['modules']['restbase'];
+			$params = $this->virtualRestConfig['modules']['restbase'];
 			// backward compatibility
 			$params['parsoidCompat'] = false;
-		} elseif ( isset( $vrs['modules']['parsoid'] ) ) {
+		} elseif ( isset( $this->virtualRestConfig['modules']['parsoid'] ) ) {
 			$class = ParsoidVirtualRESTService::class;
-			$params = $vrs['modules']['parsoid'];
+			$params = $this->virtualRestConfig['modules']['parsoid'];
 			$params['restbaseCompat'] = true;
-		} elseif (
-			$this->config->has( 'VisualEditorParsoidAutoConfig' ) &&
-			$this->config->get( 'VisualEditorParsoidAutoConfig' )
-		) {
+		} elseif ( $this->visualEditorParsoidAutoConfig ) {
 			$class = ParsoidVirtualRESTService::class;
 			$params = [];
 			$params['restbaseCompat'] = true;
@@ -79,7 +94,7 @@ class RestbaseClient {
 		}
 
 		// Merge the global and service-specific params
-		$params = array_merge( $vrs['global'] ?? [], $params );
+		$params = array_merge( $this->virtualRestConfig['global'] ?? [], $params );
 
 		// Set up cookie forwarding
 		if ( ( $params['forwardCookies'] ?? false ) === true ) {

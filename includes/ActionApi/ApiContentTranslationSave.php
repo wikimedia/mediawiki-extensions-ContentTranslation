@@ -11,6 +11,7 @@ use ApiMain;
 use ContentTranslation\AbuseFilterCheck;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
+use ContentTranslation\LoadBalancer;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -22,7 +23,6 @@ use Deflate;
 use Exception;
 use FormatJson;
 use Language;
-use MediaWiki\MediaWikiServices;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
@@ -31,21 +31,34 @@ class ApiContentTranslationSave extends ApiBase {
 	/** @var TranslationCorporaStore */
 	private $corporaStore;
 
+	/** @var RestbaseClient */
+	private $restbaseClient;
+
+	/** @var LoadBalancer */
+	private $lb;
+
 	/**
 	 * 64KB
 	 */
 	private const SQL_BLOB_MAX_SIZE = 65535;
 
-	public function __construct( ApiMain $mainModule, $action, TranslationCorporaStore $corporaStore ) {
+	public function __construct(
+		ApiMain $mainModule,
+		$action,
+		TranslationCorporaStore $corporaStore,
+		LoadBalancer $loadBalancer,
+		RestbaseClient $restbaseClient
+	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
+		$this->restbaseClient = $restbaseClient;
+		$this->lb = $loadBalancer;
 	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
 
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		if ( $lb->getConnection( DB_PRIMARY )->isReadOnly() ) {
+		if ( $this->lb->getConnection( DB_PRIMARY )->isReadOnly() ) {
 			$this->dieReadOnly();
 		}
 
@@ -153,14 +166,13 @@ class ApiContentTranslationSave extends ApiBase {
 	protected function validateTranslationUnit(
 		AbuseFilterCheck $checker, \Title $title, TranslationUnit $translationUnit
 	) {
-		$restbaseClient = new RestbaseClient( $this->getConfig() );
 		$sectionHTML = $translationUnit->getContent();
 		$results = [];
 		// We need to catch any exceptions here - For example, if restbase is down
 		// it should not affect the saving of translations.
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.
-			$text = $restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
+			$text = $this->restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
 			$results = $checker->checkSection( $text );
 		} catch ( Exception $e ) {
 			// Validation failed. But proceed.

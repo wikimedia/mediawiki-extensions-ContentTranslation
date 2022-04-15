@@ -31,30 +31,40 @@ use DeferredUpdates;
 use Deflate;
 use DerivativeRequest;
 use ExtensionRegistry;
+use IBufferingStatsdDataFactory;
 use Language;
 use MediaWiki\Extension\EventLogging\EventLogging;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Languages\LanguageFactory;
 use MWException;
-use RequestContext;
 use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiContentTranslationPublish extends ApiBase {
 
-	/**
-	 * @var RestbaseClient
-	 */
+	/** @var RestbaseClient */
 	protected $restbaseClient;
-	/**
-	 * @var Translation
-	 */
+
+	/** @var Translation */
 	protected $translation;
 
-	public function __construct( ApiMain $main, $name ) {
+	/** @var LanguageFactory */
+	private $languageFactory;
+
+	/** @var IBufferingStatsdDataFactory */
+	private $statsdDataFactory;
+
+	public function __construct(
+		ApiMain $main,
+		$name,
+		RestbaseClient $restbaseClient,
+		LanguageFactory $languageFactory,
+		IBufferingStatsdDataFactory $statsdDataFactory
+	) {
 		parent::__construct( $main, $name );
-		$config = RequestContext::getMain()->getConfig();
-		$this->restbaseClient = new RestbaseClient( $config );
+		$this->restbaseClient = $restbaseClient;
+		$this->languageFactory = $languageFactory;
+		$this->statsdDataFactory = $statsdDataFactory;
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
@@ -128,8 +138,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				// Title without namespace prefix
 				$categories[$trackingCategoryKey] = $containerCategory->getText();
 				// Record using Graphite that the published translation is marked for review
-				MediaWikiServices::getInstance()->getStatsdDataFactory()
-					->increment( 'cx.publish.highmt.' . $params['to'] );
+				$this->statsdDataFactory->increment( 'cx.publish.highmt.' . $params['to'] );
 			} else {
 				wfDebug( __METHOD__ . ": [[MediaWiki:$trackingCategoryMsg]] is not a valid title!\n" );
 				unset( $categories[$trackingCategoryKey] );
@@ -163,7 +172,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	 * @return string
 	 */
 	private function removeApiCategoryNamespacePrefix( $category, $targetLanguage ) {
-		$targetLanguage = MediaWikiServices::getInstance()->getLanguageFactory()->getLanguage( $targetLanguage );
+		$targetLanguage = $this->languageFactory->getLanguage( $targetLanguage );
 		$targetLanguageCategoryPrefix = $targetLanguage->getNsText( NS_CATEGORY ) . ":";
 		if ( substr( $category, 0, strlen( $targetLanguageCategoryPrefix ) ) === $targetLanguageCategoryPrefix ) {
 			return substr( $category, strlen( $targetLanguageCategoryPrefix ) );

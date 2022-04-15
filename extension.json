@@ -105,18 +105,29 @@
 				"ContentTranslation.TranslationCorporaStore"
 			]
 		},
-		"cxpublish": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
+		"cxpublish": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
+			"services": [
+				"ContentTranslation.RestbaseClient",
+				"LanguageFactory",
+				"StatsdDataFactory"
+			]
+		},
 		"cxpublishsection": {
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationPublish",
 			"services": [
 				"TitleFactory",
-				"HookContainer"
+				"HookContainer",
+				"LanguageNameUtils",
+				"ContentTranslation.RestbaseClient"
 			]
 		},
 		"cxsave": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
 			"services": [
-				"ContentTranslation.TranslationCorporaStore"
+				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.RestbaseClient"
 			]
 		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",

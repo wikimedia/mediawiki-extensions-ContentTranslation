@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
+use ContentTranslation\RestbaseClient;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use MediaWiki\Config\ServiceOptions;
@@ -38,6 +39,13 @@ return [
 			return new RecentSignificantEditStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$wikiFamily
+			);
+		},
+	'ContentTranslation.RestbaseClient' =>
+		static function ( MediaWikiServices $services ): RestbaseClient {
+			return new RestbaseClient(
+				$services->getHttpRequestFactory(),
+				new ServiceOptions( RestbaseClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
 		},
 	'ContentTranslation.SiteLinkLookup' =>

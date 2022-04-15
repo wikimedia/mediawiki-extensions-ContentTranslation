@@ -17,15 +17,12 @@ use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
 use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Languages\LanguageNameUtils;
 use Title;
 use TitleFactory;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
-
-	/** @var RestbaseClient */
-	protected $restbaseClient;
 
 	/** @var TitleFactory */
 	private $titleFactory;
@@ -33,18 +30,33 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var HookContainer */
 	private $hookContainer;
 
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
+	/** @var RestbaseClient */
+	protected $restbaseClient;
+
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
 	 * @param TitleFactory $titleFactory
 	 * @param HookContainer $hookContainer
+	 * @param LanguageNameUtils $languageNameUtils
+	 * @param RestbaseClient $restbaseClient
 	 */
-	public function __construct( ApiMain $main, $action, TitleFactory $titleFactory, HookContainer $hookContainer ) {
+	public function __construct(
+		ApiMain $main,
+		$action,
+		TitleFactory $titleFactory,
+		HookContainer $hookContainer,
+		LanguageNameUtils $languageNameUtils,
+		RestbaseClient $restbaseClient
+	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
 		$this->hookContainer = $hookContainer;
-		$config = $this->getConfig();
-		$this->restbaseClient = new RestbaseClient( $config );
+		$this->languageNameUtils = $languageNameUtils;
+		$this->restbaseClient = $restbaseClient;
 	}
 
 	/**
@@ -118,18 +130,17 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
-		$languageNameUtils = MediaWikiServices::getInstance()->getLanguageNameUtils();
 
 		$block = $this->getUser()->getBlock();
 		if ( $block && $block->isSitewide() ) {
 			$this->dieBlocked( $block );
 		}
 
-		if ( !$languageNameUtils->isKnownLanguageTag( $params['sourcelanguage'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['sourcelanguage'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
 		}
 
-		if ( !$languageNameUtils->isKnownLanguageTag( $params['targetlanguage'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['targetlanguage'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
 		}
 
