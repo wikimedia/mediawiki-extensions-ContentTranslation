@@ -2,6 +2,7 @@
 
 declare( strict_types=1 );
 
+use ContentTranslation\AbuseFilterChecker;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
@@ -15,6 +16,28 @@ use Wikimedia\Services\NoSuchServiceException;
 
 /** @phpcs-require-sorted-array */
 return [
+	'ContentTranslation.AbuseFilterChecker' =>
+		static function ( MediaWikiServices $services ): AbuseFilterChecker {
+			try {
+				$variableGeneratorFactory = $services->getService( 'AbuseFilterVariableGeneratorFactory' );
+				$consequencesLookup = $services->getService( 'AbuseFilterConsequencesLookup' );
+				$filterLookup = $services->getService( 'AbuseFilterFilterLookup' );
+				$filterRunnerFactory = $services->getService( 'AbuseFilterRunnerFactory' );
+			} catch ( NoSuchServiceException $exception ) {
+				$variableGeneratorFactory = null;
+				$consequencesLookup = null;
+				$filterLookup = null;
+				$filterRunnerFactory = null;
+			}
+			return new AbuseFilterChecker(
+				ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ),
+				$services->getWikiPageFactory(),
+				$variableGeneratorFactory,
+				$consequencesLookup,
+				$filterLookup,
+				$filterRunnerFactory
+			);
+		},
 	'ContentTranslation.LoadBalancer' =>
 		static function ( MediaWikiServices $services ): LoadBalancer {
 			return new LoadBalancer(

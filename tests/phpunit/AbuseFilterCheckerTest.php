@@ -2,15 +2,16 @@
 
 namespace ContentTranslation\Test\AbuseFilterCheck;
 
-use ContentTranslation\AbuseFilterCheck;
+use ContentTranslation\AbuseFilterChecker;
+use MediaWiki\MediaWikiServices;
 
 /**
- * @covers \ContentTranslation\AbuseFilterCheck
+ * @covers \ContentTranslation\AbuseFilterChecker
  *
  * @group Database
  * @group ContentTranslation
  */
-class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
+class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	/**
 	 * @inheritDoc
 	 */
@@ -27,6 +28,8 @@ class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 	/** ID of the filter created for testing */
 	private const TEST_FILTER = 1;
 
+	private $checker;
+
 	/**
 	 * @inheritDoc
 	 */
@@ -35,6 +38,14 @@ class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 		if ( !\ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
 			$this->markTestSkipped( 'Can only run test with AbuseFilter enabled' );
 		}
+		$this->checker = new AbuseFilterChecker(
+			true,
+			MediaWikiServices::getInstance()->getWikiPageFactory(),
+			MediaWikiServices::getInstance()->getService( 'AbuseFilterVariableGeneratorFactory' ),
+			MediaWikiServices::getInstance()->getService( 'AbuseFilterConsequencesLookup' ),
+			MediaWikiServices::getInstance()->getService( 'AbuseFilterFilterLookup' ),
+			MediaWikiServices::getInstance()->getService( 'AbuseFilterRunnerFactory' )
+		);
 	}
 
 	/**
@@ -85,9 +96,8 @@ class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 	public function testCheckTitle( $rules, $actions, $expected ) {
 		$user = \User::newFromName( self::TEST_USERNAME );
 		$title = \Title::newFromText( self::TEST_TITLE );
-		$abuseFilter = new AbuseFilterCheck( $user, $title );
 		$this->createFilter( $rules, $actions );
-		$this->assertArrayEquals( $expected, $abuseFilter->checkTitle() );
+		$this->assertArrayEquals( $expected, $this->checker->checkTitleForUser( $title, $user ) );
 	}
 
 	/**
@@ -151,9 +161,8 @@ class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 	public function testCheckSection( $text, $rules, $actions, $expected ) {
 		$user = \User::newFromName( self::TEST_USERNAME );
 		$title = \Title::newFromText( self::TEST_TITLE );
-		$abuseFilter = new AbuseFilterCheck( $user, $title );
 		$this->createFilter( $rules, $actions );
-		$this->assertArrayEquals( $expected, $abuseFilter->checkSection( $text ) );
+		$this->assertArrayEquals( $expected, $this->checker->checkSectionForTitleAndUser( $user, $title, $text ) );
 	}
 
 	/**

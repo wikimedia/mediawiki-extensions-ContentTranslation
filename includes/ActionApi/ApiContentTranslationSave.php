@@ -8,7 +8,7 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
-use ContentTranslation\AbuseFilterCheck;
+use ContentTranslation\AbuseFilterChecker;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
@@ -37,6 +37,9 @@ class ApiContentTranslationSave extends ApiBase {
 	/** @var LoadBalancer */
 	private $lb;
 
+	/** @var AbuseFilterChecker */
+	private $abuseFilterChecker;
+
 	/**
 	 * 64KB
 	 */
@@ -47,12 +50,14 @@ class ApiContentTranslationSave extends ApiBase {
 		$action,
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
-		RestbaseClient $restbaseClient
+		RestbaseClient $restbaseClient,
+		AbuseFilterChecker $abuseFilterChecker
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
 		$this->restbaseClient = $restbaseClient;
 		$this->lb = $loadBalancer;
+		$this->abuseFilterChecker = $abuseFilterChecker;
 	}
 
 	public function execute() {
@@ -137,19 +142,16 @@ class ApiContentTranslationSave extends ApiBase {
 			return $validationResults;
 		}
 
-		$checker = new AbuseFilterCheck( $this->getUser(), $title );
-
+		$titleResults = $this->abuseFilterChecker->checkTitleForUser( $title, $this->getUser() );
 		foreach ( $translationUnits as $translationUnit ) {
 			if ( !$translationUnit->getValidate() ) {
 				continue;
 			}
 			$sectionId = $translationUnit->getSectionId();
 			if ( $sectionId === 'mwcx-source-title' ) {
-				$validationResults[$sectionId] =
-					$checker->checkTitle();
+				$validationResults[ $sectionId ] = $titleResults;
 			} else {
-				$validationResults[$sectionId] =
-					$this->validateTranslationUnit( $checker, $title, $translationUnit );
+				$validationResults[ $sectionId ] = $this->validateTranslationUnit( $title, $translationUnit );
 			}
 		}
 
@@ -157,15 +159,12 @@ class ApiContentTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * Validate the section content using AbuseFilterCheck
-	 * @param AbuseFilterCheck $checker
+	 * Validate the section content using AbuseFilterChecker
 	 * @param \Title $title Target title
 	 * @param TranslationUnit $translationUnit
 	 * @return array List of any rule violations
 	 */
-	protected function validateTranslationUnit(
-		AbuseFilterCheck $checker, \Title $title, TranslationUnit $translationUnit
-	) {
+	protected function validateTranslationUnit( \Title $title, TranslationUnit $translationUnit ): array {
 		$sectionHTML = $translationUnit->getContent();
 		$results = [];
 		// We need to catch any exceptions here - For example, if restbase is down
@@ -173,7 +172,7 @@ class ApiContentTranslationSave extends ApiBase {
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.
 			$text = $this->restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
-			$results = $checker->checkSection( $text );
+			$results = $this->abuseFilterChecker->checkSectionForTitleAndUser( $this->getUser(), $title, $text );
 		} catch ( Exception $e ) {
 			// Validation failed. But proceed.
 		}
@@ -186,8 +185,6 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @return Translation
 	 */
 	protected function saveTranslation( array $params, Translator $translator ) {
-		global $wgContentTranslationVersion;
-
 		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
 		$existingTranslation = Translation::findForTranslator( $work, $translator );
 
@@ -217,7 +214,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$data['sourceRevisionId'] = $params['sourcerevision'];
 		$data['status'] = 'draft';
 		$data['progress'] = $params['progress'];
-		$data['cxVersion'] = $params['cxversion'] ?? $wgContentTranslationVersion;
+		$data['cxVersion'] = $params['cxversion'] ?? $this->getConfig()->get( 'ContentTranslationVersion' );
 
 		// Save the translation
 		$translation = new Translation( $data );
