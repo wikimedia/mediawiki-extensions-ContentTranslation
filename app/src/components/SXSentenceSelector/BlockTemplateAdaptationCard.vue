@@ -100,9 +100,7 @@ export default {
      * @type {ComputedRef<boolean>}
      */
     const translationLoaded = computed(
-      () =>
-        typeof proposedBlockTranslation.value === "string" &&
-        typeof targetTemplateName.value === "string"
+      () => typeof proposedBlockTranslation.value === "string"
     );
 
     const sourceTemplateName = computed(
