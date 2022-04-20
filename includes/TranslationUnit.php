@@ -31,11 +31,7 @@ class TranslationUnit {
 		$this->origin = (string)$params['origin'];
 		$this->sequenceId = (int)$params['sequenceId'];
 		$this->content = (string)$params['content'];
-		if ( isset( $params['timestamp'] ) ) {
-			$this->timestamp = $params['timestamp'];
-		} else {
-			$this->timestamp = wfTimestamp();
-		}
+		$this->timestamp = $params['timestamp'] ?? wfTimestamp();
 		if ( isset( $params['validate'] ) ) {
 			$this->validate = (bool)$params['validate'];
 		}

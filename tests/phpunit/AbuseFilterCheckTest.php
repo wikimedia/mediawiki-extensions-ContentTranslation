@@ -20,19 +20,11 @@ class AbuseFilterCheckTest extends \MediaWikiIntegrationTestCase {
 		'user'
 	];
 
-	/**
-	 * @var string Username of the user which performs actions
-	 */
+	/** Username of the user which performs actions */
 	private const TEST_USERNAME = 'ContentTranslator';
-
-	/**
-	 * @var string Title of the test page
-	 */
+	/** Title of the test page */
 	private const TEST_TITLE = 'ContentTranslation AbuseFilter test';
-
-	/**
-	 * @var int ID of the filter created for testing
-	 */
+	/** ID of the filter created for testing */
 	private const TEST_FILTER = 1;
 
 	/**

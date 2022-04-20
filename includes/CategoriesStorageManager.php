@@ -124,7 +124,7 @@ class CategoriesStorageManager {
 	/**
 	 * Find if there are records about source and target categories.
 	 *
-	 * @param int $translationId Translation ID
+	 * @param int $translationId
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {

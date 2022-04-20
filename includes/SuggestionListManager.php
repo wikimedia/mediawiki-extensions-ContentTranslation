@@ -147,7 +147,7 @@ class SuggestionListManager {
 	 * Get the suggestions by list name for the given owner.
 	 *
 	 * @param int $owner Owner's global user id.
-	 * @param string $listName List name.
+	 * @param string $listName
 	 * @param string|null $from Source language code.
 	 * @param string|null $to Target language code.
 	 * @return Suggestion[] Suggestions
@@ -346,7 +346,7 @@ class SuggestionListManager {
 	/**
 	 * Get the suggestions by list id
 	 *
-	 * @param int $listId List id.
+	 * @param int $listId
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
 	 * @param int $limit How many suggestions to fetch.
