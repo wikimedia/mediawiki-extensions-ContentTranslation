@@ -8,7 +8,8 @@
 			"Macofe",
 			"Pato",
 			"Patricio",
-			"Tiberius1701"
+			"Tiberius1701",
+			"DiegoAmbrocio"
 		]
 	},
 	"apihelp-cxpublish-description": "Guardar una página creada con la extensión de traducción de contenidos.",
@@ -102,5 +103,12 @@
 	"apierror-cx-translationnotfound": "Traducción no encontrada.",
 	"apihelp-query+langlinkscount-description": "Obtener el número de idiomas en que este artículo existe.",
 	"apihelp-query+langlinkscount-summary": "Obtener el número de versiones en otros idiomas.",
-	"apihelp-query+langlinkscount-example-1": "Obtener el número de versiones en otros idiomas de la página «Perro»"
+	"apihelp-query+langlinkscount-example-1": "Obtener el número de versiones en otros idiomas de la página «Perro»",
+	"apihelp-cxpublishsection-param-html": "El contenido a guardar.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "El código fuente del lenguaje.",
+	"apihelp-cxpublishsection-param-sourcetitle": "El título de la página de origen.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "El título de la sección de la fuente.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "El título de la sección de destino.",
+	"apihelp-cxpublishsection-param-sourcerevid": "El id de revisión de la página de origen.",
+	"apihelp-cxpublishsection-param-captchaword": "Respuesta al captcha (cuando se guarda con una respuesta al captcha)."
 }
