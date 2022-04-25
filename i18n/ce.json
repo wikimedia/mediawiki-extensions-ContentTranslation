@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Pacha Tchernof",
 			"Tgr",
 			"Исмаил Садуев",
 			"Умар"
@@ -56,6 +57,7 @@
 	"cx-page-selector-widget-nearby-label": "Хьуна гена доцуш",
 	"cx-source-page-selector-input-placeholder": "Гочйан агӀо лахар",
 	"cx-selected-source-page-start-translation-button": "ДӀадоладе гочдар",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 кхачар|0=Кхачарш дац}} кӀирнахь",
 	"cx-favorite-added-for-later": "ТӀаьхьа гочйан тӀетоьхна",
 	"cx-publish-captcha-title": "Къайла хаттар",
 	"cx-captcha-dialog-cancel": "Йухайаккха",
