@@ -22637,7 +22637,7 @@ const _sfc_main$m = {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.getTargetBlockTemplateNameByProvider(currentMTProvider.value);
     });
-    const translationLoaded = computed(() => typeof proposedBlockTranslation.value === "string" && typeof targetTemplateName.value === "string");
+    const translationLoaded = computed(() => typeof proposedBlockTranslation.value === "string");
     const sourceTemplateName = computed(() => {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName;
