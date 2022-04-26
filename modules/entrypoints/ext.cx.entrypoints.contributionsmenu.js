@@ -39,6 +39,46 @@
 			.append( $link );
 	}
 
+	/**
+	 * @param {jQuery.Object} $trigger with 'callout' data value.
+	 * @param {jQuery.Object} $myContributions list item element.
+	 * @param {jQuery.Object} $myTranslations list item element.
+	 * @param {jQuery.Object} $myUploads list item element.
+	 */
+	function attachCallout( $trigger, $myContributions, $myTranslations, $myUploads ) {
+		var callout,
+			$menu = $( '<ul>' )
+				.append( $myContributions, $myTranslations, $myUploads );
+
+		// Technical debt:
+		// Add icons to call out.
+		// This is not officially supported by legacy Vector and may break in future.
+		// https://phabricator.wikimedia.org/T294656
+		$myContributions.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-userContributions' );
+		$myTranslations.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-vector-gadget-cx-language' );
+		$myUploads.find( 'a' )
+			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-imageGallery' );
+		$trigger.callout( {
+			trigger: 'hover',
+			classes: 'cx-campaign-contributionsmenu',
+			direction: $.fn.callout.autoDirection( '1' ),
+			content: $menu
+		} );
+
+		callout = $trigger.data( 'callout' );
+
+		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
+			// Show after a few milliseconds to get all position calculation correct
+			setTimeout( function () {
+				callout.show();
+			}, 500 );
+			mw.hook( 'mw.cx.cta.shown' ).fire( CAMPAIGN );
+		} );
+
+	}
+
 	function attachMenu( $trigger ) {
 		var $myContributions, $myTranslations, $myUploads,
 			nextNode = document.getElementById( 'pt-mycontris' ),
@@ -121,46 +161,6 @@
 				nextNode
 			);
 		}
-	}
-
-	/**
-	 * @param {jQuery.Object} $trigger with 'callout' data value.
-	 * @param {jQuery.Object} $myContributions list item element.
-	 * @param {jQuery.Object} $myTranslations list item element.
-	 * @param {jQuery.Object} $myUploads list item element.
-	 */
-	function attachCallout( $trigger, $myContributions, $myTranslations, $myUploads ) {
-		var callout,
-			$menu = $( '<ul>' )
-				.append( $myContributions, $myTranslations, $myUploads );
-
-		// Technical debt:
-		// Add icons to call out.
-		// This is not officially supported by legacy Vector and may break in future.
-		// https://phabricator.wikimedia.org/T294656
-		$myContributions.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-userContributions' );
-		$myTranslations.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-vector-gadget-cx-language' );
-		$myUploads.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-imageGallery' );
-		$trigger.callout( {
-			trigger: 'hover',
-			classes: 'cx-campaign-contributionsmenu',
-			direction: $.fn.callout.autoDirection( '1' ),
-			content: $menu
-		} );
-
-		callout = $trigger.data( 'callout' );
-
-		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
-			// Show after a few milliseconds to get all position calculation correct
-			setTimeout( function () {
-				callout.show();
-			}, 500 );
-			mw.hook( 'mw.cx.cta.shown' ).fire( CAMPAIGN );
-		} );
-
 	}
 
 	function showFeatureDiscovery( $trigger ) {
