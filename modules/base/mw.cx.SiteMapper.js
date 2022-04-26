@@ -20,10 +20,11 @@ mw.cx.SiteMapper = function ( overrides ) {
 
 	overrides = overrides || {};
 
-	this.siteTemplates = overrides.SiteTemplates || config.SiteTemplates;
-	this.codeMap = overrides.DomainCodeMapping || config.DomainCodeMapping;
-	this.translateInTarget = overrides.TranslateInTarget || config.TranslateInTarget;
-	this.targetNamespace = overrides.TargetNamespace || config.TargetNamespace;
+	var siteMapperConfig = $.extend( config, overrides );
+	this.siteTemplates = siteMapperConfig.SiteTemplates;
+	this.codeMap = siteMapperConfig.DomainCodeMapping;
+	this.translateInTarget = siteMapperConfig.TranslateInTarget;
+	this.targetNamespace = siteMapperConfig.TargetNamespace;
 
 	this.languagePairsPromise = null;
 };
