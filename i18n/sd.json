@@ -34,6 +34,8 @@
 	"cx-translation-target-page-exists": "[$1 $2] نالي صفحو نشاني واري وڪيءَ ۾ وجود رکي ٿو. صفحي کي ٻيو نالو ڏيڻ جو سوچيو.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|موادجوترجمو]]",
 	"tag-contenttranslation-description": "مواد مواد جو ترجمو اوزار کي استعمال ڪندي ھڪ ٻي وڪيءَ مان ترجمو ڪيو ويو ھو.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|موادجوترجمو2]]",
+	"tag-contenttranslation-v2-description": "مواد جو ترجمو اوزار جي ورجن 2 جو استعمال ڪندي مواد کي ڪنھن ٻي ٻوليءَ مان ترجمو ڪيو ويو ھو.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|ڀاڱي-جو-ترجمو]]",
 	"cx-source-loading": "$1 لاهيندي",
 	"cx-beta": "مواد جو ترجمو",
