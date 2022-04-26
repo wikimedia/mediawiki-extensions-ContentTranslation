@@ -43,7 +43,7 @@ const getSubSectionNodes = (htmlContent, resolveReferences) => {
   if (resolveReferences) {
     surface = createDummyVESurface(htmlContent);
     const subSectionCeNodeList = surface.$element.find(
-      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
+      "section[rel='cx:Section']"
     );
 
     /** @type jQuery **/
@@ -61,9 +61,7 @@ const getSubSectionNodes = (htmlContent, resolveReferences) => {
     });
     surface.destroy();
   } else {
-    subSectionNodeList = $(htmlContent).filter(
-      "section[rel='cx:Section']:not([data-mw-section-number='0'])"
-    );
+    subSectionNodeList = $(htmlContent).filter("section[rel='cx:Section']");
   }
 
   return subSectionNodeList;
