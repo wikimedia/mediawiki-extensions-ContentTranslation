@@ -3,6 +3,7 @@
 		"authors": [
 			"AKlapper",
 			"Amire80",
+			"Brettchenweber",
 			"Elliot",
 			"Geitost",
 			"Inkowik",
@@ -422,5 +423,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "„$1“, „$2“ und weitere übersetzen",
 	"sx-block-template-adaptation-card-body-header-success": "Vorgeschlagene Vorlage",
 	"sx-block-template-adaptation-card-edit-button-label": "Überprüfung und Bearbeitung der Übersetzung",
-	"sx-block-template-adaptation-card-body-header-failure": "Entsprechende Vorlage für $1 nicht verfügbar"
+	"sx-block-template-adaptation-card-body-header-failure": "Entsprechende Vorlage für $1 nicht verfügbar",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Fehlt in <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Fehlt in <span>$1</span> und <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren"
 }

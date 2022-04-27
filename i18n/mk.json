@@ -411,5 +411,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Преведете ги „$1“, „$2“ и други",
 	"sx-block-template-adaptation-card-body-header-success": "Предложена предлошка",
 	"sx-block-template-adaptation-card-edit-button-label": "Прегледај и уреди го преводот",
-	"sx-block-template-adaptation-card-body-header-failure": "Нема еквивалентна предлошка за $1"
+	"sx-block-template-adaptation-card-body-header-failure": "Нема еквивалентна предлошка за $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Недостасува на <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Недостасува на <span>$1</span> и <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Недостасува на <span>$1</span>, <span>$2</span> и други"
 }

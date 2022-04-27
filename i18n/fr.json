@@ -456,5 +456,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduire « $1 », « $2 » et d’autres",
 	"sx-block-template-adaptation-card-body-header-success": "Modèle suggéré",
 	"sx-block-template-adaptation-card-edit-button-label": "Relire et modifier la traduction",
-	"sx-block-template-adaptation-card-body-header-failure": "Modèle équivalent non disponible pour $1"
+	"sx-block-template-adaptation-card-body-header-failure": "Modèle équivalent non disponible pour $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Absent en <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Absent en <span>$1</span> et <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Absent en <span>$1</span>, <span>$2</span> et d’autres langues"
 }

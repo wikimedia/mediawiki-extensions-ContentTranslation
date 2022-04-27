@@ -422,5 +422,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "תרגום \"$1\", \"$2\", ועוד",
 	"sx-block-template-adaptation-card-body-header-success": "תבנית מוצעת",
 	"sx-block-template-adaptation-card-edit-button-label": "לסדוק ולערוך את התרגום",
-	"sx-block-template-adaptation-card-body-header-failure": "תבנית מתאימה אינה זמינה עבור השפה $1"
+	"sx-block-template-adaptation-card-body-header-failure": "תבנית מתאימה אינה זמינה עבור השפה $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "חסר ב־<span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "חסר ב־<span>$1</span> וב־<span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "חסר ב־<span>$1</span>, ב־<span>$2</span>, ובעוד שפות"
 }
