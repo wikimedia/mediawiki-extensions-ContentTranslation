@@ -65,6 +65,7 @@
 	"cx-notification-suggestions-available": "Segun {{GENDER:$2|vua}} antea traduko de '''$1''', nova sugestaji esas nun disponebla.",
 	"cx-tools-linter-learn-more": "Lernez pluse",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
+	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-unreviewed-translation-category": "Pagini kun tradukuri sen revizo",
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-sx-language-selector-dialog-title": "Serchar ula linguo",
