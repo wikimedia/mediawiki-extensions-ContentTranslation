@@ -311,5 +311,8 @@
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Confronta con l'originale",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Modifica la pagina",
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduci una nuova sezione",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduci \"$1\""
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduci \"$1\"",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Mancante in <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Mancante in <span>$1</span> e <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri"
 }

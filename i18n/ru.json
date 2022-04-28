@@ -356,5 +356,13 @@
 	"sx-editor-feedback-overlay-title": "Спасибо!",
 	"cx-campaign-mflanguagesearcher-invite": "Вы можете перевести эту страницу. Это доступный способ создания контента на родном языке.",
 	"cx-suggestion-list-favorites-division": "На потом",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перевести \"$1\" и \"$2\""
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Убедитесь, что оригинальный смысл не был искажён в переводе.",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перевести \"$1\" и \"$2\"",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Отсутствует на <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Отсутствует на <span>$1</span> и <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Отсутствует на <span>$1</span>, <span>$2</span> и других",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Отсутствует на <span>$1</span> и других",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Отсутствует на <span>$1</span>, <span>$2</span> и других",
+	"cx-uls-relevant-languages-panel-header": "Переведите эту страницу",
+	"cx-uls-relevant-languages-panel-message": "Эта страница отсутствует на некоторых языках, которые вы, возможно, знаете. Вы можете перевести её за считанные минуты!"
 }

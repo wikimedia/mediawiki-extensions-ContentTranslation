@@ -413,7 +413,7 @@
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Prüfe die Einzelnachweise",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Die Leser greifen auf Einzelnachweise zu, um die Fakten zu überprüfen. Überprüfe das Format der Einzelnachweise und füge relevante Einzelnachweise in deiner Sprache hinzu.",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Vergleiche mit dem Original",
-	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Vergewissere dich, dass der ursprüngliche Sinn in der Übersetzung nicht verändert wurde.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Vergewissere dich, dass der ursprüngliche Sinn in der Übersetzung nicht verändert wird.",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Seite bearbeiten",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Originalseite in $1 öffnen",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Erweitere diese Seite, indem du Abschnitte in andere Sprachen, die du kennst, übersetzt.",
@@ -426,5 +426,9 @@
 	"sx-block-template-adaptation-card-body-header-failure": "Entsprechende Vorlage für $1 nicht verfügbar",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Fehlt in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Fehlt in <span>$1</span> und <span>$2</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Fehlt in <span>$1</span> und weiteren",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Fehlt in <span>$1</span>, <span>$2</span> and weiteren",
+	"cx-uls-relevant-languages-panel-header": "Diese Seite übersetzen",
+	"cx-uls-relevant-languages-panel-message": "Diese Seite fehlt in einigen Sprachen, die du vielleicht kennst. Du kannst sie in wenigen Minuten übersetzen!"
 }
