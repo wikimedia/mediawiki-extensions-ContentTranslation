@@ -8,6 +8,7 @@
 			"Kareyac",
 			"Maksim L.",
 			"Mechanizatar",
+			"No Sleep till Krupki",
 			"Prevodim",
 			"SamGold",
 			"Tomato Cream",
@@ -416,5 +417,11 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перакласці «$1», «$2» і іншыя",
 	"sx-block-template-adaptation-card-body-header-success": "Прапанаваны шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Вычытаць і правіць пераклад",
-	"sx-block-template-adaptation-card-body-header-failure": "Эквівалентны шаблон недаступны на мове «$1»"
+	"sx-block-template-adaptation-card-body-header-failure": "Эквівалентны шаблон недаступны на мове «$1»",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Адсутнічае ў <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Адсутнічае ў <span>$1</span> і <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Адсутнічае ў <span>$1</span>, <span>$2</span> і іншых",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> і іншых",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Адсутнічае ў <span>$1</span>, <span>$2</span> і іншых",
+	"cx-uls-relevant-languages-panel-header": "Перакласці гэтую старонку"
 }

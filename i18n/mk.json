@@ -401,7 +401,7 @@
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Проверете ги наводите",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Читателите ги гледаат наводите за да ги проверат фактите. Прегледајте го форматот на наводите и додајте релевантни наводи на вашиот јазик.",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Споредете со изворната верзија",
-	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Обезбедете изворната смисла да не биде изменета во преводот.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Внимаваје изворната смисла да не биде изменета во преводот.",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Уредете ја страницата",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Отворете ја изворната страница на $1",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Проширете ја страницава преведувајќи поднаслови достапни на други јазици кои ги познавате.",
@@ -414,5 +414,9 @@
 	"sx-block-template-adaptation-card-body-header-failure": "Нема еквивалентна предлошка за $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Недостасува на <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Недостасува на <span>$1</span> и <span>$2</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Недостасува на <span>$1</span>, <span>$2</span> и други"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Недостасува на <span>$1</span>, <span>$2</span> и други",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Недостасува на <span>$1</span> и други",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Недостасува на <span>$1</span>, <span>$2</span> и други",
+	"cx-uls-relevant-languages-panel-header": "Преведете ја страницава",
+	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!"
 }

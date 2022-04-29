@@ -314,5 +314,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduci \"$1\"",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Mancante in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Mancante in <span>$1</span> e <span>$2</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Mancante in <span>$1</span> e altri",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri",
+	"cx-uls-relevant-languages-panel-header": "Traduci questa pagina"
 }

@@ -56,7 +56,7 @@
 	"cx-source-loading": "טעינת $1",
 	"cx-beta": "תרגום תוכן",
 	"cx-beta-desc": "כלי לתרגום מהיר של דפים לשפה שלך. הכניסה לתרגום נעשית מ[[Special:MyContributions|דף התרומות שלך]], והעריכה נעשית בעורך שלנו שמציג שפה לצד שפה ושמעוצב במיוחד עבור תרגומים. חלק מכלי העזר זמינים רק בשפות מסוימות.",
-	"cx-entrypoint-title": "{{GENDER:|תרגם|תרגמי}} את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
+	"cx-entrypoint-title": "לתרגם את הדף הזה ל{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "הדף הזה אינו קיים עדיין ב{{GRAMMAR:תחילית|$1}}. {{GENDER:|האם אתה רוצה|האם את רוצה|רוצה}} ליצור אותו?",
 	"cx-entrypoint-dialog-button-translate-from": "תרגום מ{{GRAMMAR:תחילית|$1}}",
 	"cx-entrypoint-dialog-desc": "{{GENDER:|אתה יכול|את יכולה}} לעזור לוויקיפדיה על־ידי תרגום הדף הזה. תרגום הוא דרך קלה ליצור תוכן בשפה שלך.",
@@ -425,5 +425,9 @@
 	"sx-block-template-adaptation-card-body-header-failure": "תבנית מתאימה אינה זמינה עבור השפה $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "חסר ב־<span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "חסר ב־<span>$1</span> וב־<span>$2</span>",
-	"sx-missing-languages-entrypoint-panel-text-more-missing": "חסר ב־<span>$1</span>, ב־<span>$2</span>, ובעוד שפות"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "חסר ב־<span>$1</span>, ב־<span>$2</span>, ובעוד שפות",
+	"cx-uls-relevant-languages-banner-text-single-missing": "חסר ב־<span>$1</span> ובעוד שפות",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "חסר ב־<span>$1</span>, ב־<span>$2</span>, ובעוד שפות",
+	"cx-uls-relevant-languages-panel-header": "תרגום הדף הזה",
+	"cx-uls-relevant-languages-panel-message": "הדף הזה חסר בכמה שפות {{GENDER:|שאתה אולי יודע. אתה יכול|שאת אולי יודעת. את יכולה}} לתרגם אותו בכמה דקות!"
 }

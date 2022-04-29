@@ -16,6 +16,7 @@
 			"Incelemeelemani",
 			"Jelican9",
 			"Joseph",
+			"Khalvar",
 			"KorkmazO",
 			"Mavrikant",
 			"McAang",
@@ -436,5 +437,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Çevir: \"$1\",\"$2\" ve dahası",
 	"sx-block-template-adaptation-card-body-header-success": "Önerilen taslak",
 	"sx-block-template-adaptation-card-edit-button-label": "Çeviriyi gözden geçir ve düzenle",
-	"sx-block-template-adaptation-card-body-header-failure": "$1 için eşdeğer şablon mevcut değil"
+	"sx-block-template-adaptation-card-body-header-failure": "$1 için eşdeğer şablon mevcut değil",
+	"cx-uls-relevant-languages-panel-header": "Bu sayfayı çevir"
 }

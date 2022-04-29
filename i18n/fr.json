@@ -460,8 +460,8 @@
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Absent en <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Absent en <span>$1</span> et <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Absent en <span>$1</span>, <span>$2</span> et d’autres langues",
-	"cx-uls-relevant-languages-banner-text-single-missing": "Manquant en <span>$1</span> et d’autres",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manquant en <span>$1</span>, <span>$2</span> et d’autres",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Absent en <span>$1</span> et d’autres langues",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Absent en <span>$1</span>, <span>$2</span> et d’autres langues",
 	"cx-uls-relevant-languages-panel-header": "Traduire cette page",
-	"cx-uls-relevant-languages-panel-message": "Cette page est manquante dans certaines langues que vous connaissez. Vous pouvez la traduire en quelques minutes "
+	"cx-uls-relevant-languages-panel-message": "Cette page est manquante dans certaines langues que vous connaissez. Vous pouvez la traduire en quelques minutes !"
 }
