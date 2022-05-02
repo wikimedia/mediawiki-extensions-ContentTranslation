@@ -11,7 +11,8 @@
 			"Kareyac",
 			"ZlyiLev",
 			"Chadyka",
-			"Tomato Cream"
+			"Tomato Cream",
+			"No Sleep till Krupki"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -74,7 +75,7 @@
 	"cx-tools-mt-use-source": "Скапіяваць арыгінальны змест",
 	"cx-tools-mt-reset": "Скінуць пераклад",
 	"cx-tools-mt-provider-title": "Выкарыстоўваць $1",
-	"cx-tools-mt-dont-use": "Пачаць з пустога параграфа",
+	"cx-tools-mt-dont-use": "Пачаць з пустога абзаца",
 	"cx-tools-mt-set-default": "Устанавіць прадвызначаным",
 	"cx-tools-mt-noservices": "Паслугі перакладу недаступныя для выбраных моваў. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Чаму?]]",
 	"cx-tools-mt-preferred": "па змаўчанні",

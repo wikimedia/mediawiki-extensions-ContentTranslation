@@ -15,7 +15,8 @@
 			"Surfo",
 			"Yekrats",
 			"Jakub Fabijan",
-			"Wierzbowski"
+			"Wierzbowski",
+			"YvesNevelsteen"
 		]
 	},
 	"cx": "Tradukado de paĝo",
@@ -133,6 +134,8 @@
 	"cx-publishing-dialog-keep-button": "Teni ambaŭ versiojn",
 	"cx-publishing-dialog-publish-anyway-button": "Tamen publikigi",
 	"cx-publishing-dialog-title": "Ĉu anstataŭigi ekzistantan paĝon?",
+	"cx-publishing-with-issues-dialog-title": "Ĉu publikigi kun ekzistantaj problemoj?",
+	"cx-publishing-with-issues-dialog-message": "Via traduko daŭre havas eblajn problemojn. Konsideru kontroli la problemojn antaŭ ol publikigi.\n\nRedaktoroj kiuj revizias vian kontribuon aprezos la plibonigojn.",
 	"cx-discard-translation": "Forigi tradukon",
 	"cx-translation-status-draft": "Prilaborata",
 	"cx-translation-status-published": "Publikigita",
