@@ -428,7 +428,7 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Fehlt in <span>$1</span> und <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Fehlt in <span>$1</span> und weiteren",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Fehlt in <span>$1</span>, <span>$2</span> and weiteren",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren",
 	"cx-uls-relevant-languages-panel-header": "Diese Seite übersetzen",
 	"cx-uls-relevant-languages-panel-message": "Diese Seite fehlt in einigen Sprachen, die du vielleicht kennst. Du kannst sie in wenigen Minuten übersetzen!"
 }

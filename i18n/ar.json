@@ -335,5 +335,6 @@
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "عرض المحتويات",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "أضف قسمًا جديدًا",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "عدل الصفحة",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ترجم: \"$1\""
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ترجم: \"$1\"",
+	"cx-uls-relevant-languages-panel-header": "ترجمة هذه الصفحة"
 }

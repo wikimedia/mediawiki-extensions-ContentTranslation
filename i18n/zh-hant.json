@@ -401,5 +401,6 @@
 	"sx-editor-feedback-overlay-clarification": "從您的更正中學習",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由您所編輯",
 	"cx-campaign-mflanguagesearcher-invite": "您可以翻譯此頁面。這是一個在您的語言建立內容的簡單方式。",
-	"cx-suggestion-list-favorites-division": "稍後"
+	"cx-suggestion-list-favorites-division": "稍後",
+	"cx-uls-relevant-languages-panel-header": "翻譯此頁面"
 }

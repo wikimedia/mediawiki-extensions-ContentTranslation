@@ -33,6 +33,7 @@
 			"SolidBlock",
 			"SomeyaMako",
 			"VulpesVulpes825",
+			"Winston Sung",
 			"Xiaomingyan",
 			"Xiplus",
 			"Yfdyh000",
@@ -420,5 +421,6 @@
 	"cx-campaign-mflanguagesearcher-invite": "你可以翻译此页面。这是一个简单的方式来在你自己的语言中创造内容。",
 	"sx-block-template-adaptation-card-body-header-success": "推荐的模版",
 	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
-	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用"
+	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用",
+	"cx-uls-relevant-languages-panel-header": "翻译此页面"
 }
