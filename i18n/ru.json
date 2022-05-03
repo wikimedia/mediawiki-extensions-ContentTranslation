@@ -132,7 +132,7 @@
 	"cx-source-page-selector-no-suggestions": "Подумайте о какой-либо теме вашего интереса. Вам не нужно быть экспертом, чтобы создать отличный перевод.",
 	"cx-source-page-selector-no-search-results": "Не найдено страниц по \"$1\" в $2",
 	"cx-selected-source-page-start-translation-button": "Начать перевод",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 посещать в|$1 посещений в|0=Нет посещений}} неделю",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 посещение в неделю|$1 посещения в неделю|$1 посещений в неделю|0=Не было посещений в последнюю неделю}}",
 	"cx-selected-source-page-error-page-and-title-exist": "Это название уже используется в [$1 $2] для [$3 другой страницы]",
 	"cx-selected-source-page-error-page-exists": "Страница [$1 уже существует] на $2",
 	"cx-selected-source-page-error-title-in-use": "Название для новой страницы [$1 уже используется]",

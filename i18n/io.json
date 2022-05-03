@@ -71,6 +71,7 @@
 	"cx-tools-linter-content": "Trovesis kontenaji qui ne satisfacas [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter la restrikti establisita da Wikipedio en $1]. Voluntez korektigar la problemo ante publikigar la tradukuro.",
 	"cx-tools-linter-hide-details": "Celez detali",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
+	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-unreviewed-translation-category": "Pagini kun tradukuri sen revizo",
 	"cx-preference-enable-entrypoints": "Acesar [[$1|komencez tradukuro]], de la pagino di kontributadi, de la listo pri lingui, e listo pri nova pagini.",
 	"cx-sx-language-selector-dialog-title": "Serchar ula linguo",
