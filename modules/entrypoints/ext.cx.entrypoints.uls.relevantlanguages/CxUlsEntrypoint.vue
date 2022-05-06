@@ -42,10 +42,10 @@
 			</p>
 			<div class="cx-uls-entrypoint__body__translation-links row">
 				<button
-					v-for="autonym in slicedAutonyms"
-					:key="'link-' + autonym"
+					v-for="language in slicedLanguages"
+					:key="'link-' + language"
 					class="cx-uls-entrypoint__body__translation-link"
-					@click="redirectToCX( autonym )"
+					@click="redirectToCX( language )"
 				>
 					<span class="cx-uls-entrypoint__body__translation-link-icon">
 						<svg
@@ -63,14 +63,14 @@
 					</span>
 					<span
 						class="cx-uls-entrypoint__body__translation-link-text"
-						:lang="autonym"
-						:dir="getDir( autonym )"
-						v-text="autonym"
+						:lang="language"
+						:dir="getDir( language )"
+						v-text="getAutonym( language )"
 					></span>
 				</button>
 				<button
 					class="cx-uls-entrypoint__body__translation-link"
-					@click="redirectToCX( autonym )"
+					@click="redirectToCX( language )"
 				>
 					<span class="cx-uls-entrypoint__body__translation-link-icon">
 						<svg
@@ -100,7 +100,7 @@ module.exports = {
 	compatConfig: { MODE: 3 },
 	name: 'CxUlsEntrypoint',
 	props: {
-		autonyms: {
+		languages: {
 			type: Array,
 			required: true
 		},
@@ -112,8 +112,8 @@ module.exports = {
 	setup: function ( props ) {
 		var showPanel = Vue.ref( true );
 		var siteMapper = new mw.cx.SiteMapper();
-		var slicedAutonyms = Vue.computed( function () {
-			return props.autonyms.slice( 0, 2 );
+		var slicedLanguages = Vue.computed( function () {
+			return props.languages.slice( 0, 2 );
 		} );
 
 		var close = function () {
@@ -136,13 +136,14 @@ module.exports = {
 			close: close,
 			ellipsisIconPath: 'M 19,10 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 M 5,10 A 2,2 0 0 1 3,12 2,2 0 0 1 1,10 2,2 0 0 1 3,8 2,2 0 0 1 5,10 m 7,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2',
 			getDir: $.uls.data.getDir,
+			getAutonym: $.uls.data.getAutonym,
 			iconColor: 'currentColor',
 			plusIconPath: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z',
 			previousIconPath: 'M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z',
 			redirectToCX: redirectToCX,
 			showPanel: showPanel,
 			size: 20,
-			slicedAutonyms: slicedAutonyms,
+			slicedLanguages: slicedLanguages,
 			sourceLanguage: sourceLanguage
 		};
 	}
