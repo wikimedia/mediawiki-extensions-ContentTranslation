@@ -69,11 +69,8 @@
 			panel.style.width = width + 'px';
 			document.body.appendChild( panel );
 
-			var autonyms = missingRelevantLanguages.map( function ( language ) {
-				return $.uls.data.getAutonym( language );
-			} );
 			Vue.createMwApp( CxUlsEntrypoint, {
-				autonyms: autonyms,
+				languages: missingRelevantLanguages,
 				onClose: uls.show.bind( uls )
 			} ).mount( panel );
 		} );
@@ -87,17 +84,17 @@
 				return;
 			}
 			var uls = $trigger.data( 'uls' );
-			// remove variants
+			// Remove variants, Remove current language
 			var frequentLanguages = mw.uls.getFrequentLanguageList().map( function ( language ) {
 				return language.split( '-' )[ 0 ];
 			} ).filter( function ( language, index, frequentLangs ) {
-				return frequentLangs.indexOf( language ) === index;
+				return frequentLangs.indexOf( language ) === index && language !== mw.config.get( 'wgContentLanguage' );
 			} );
 
-			var existingAutonyms = Object.keys( uls.languages );
+			var existingLanguages = Object.keys( uls.languages );
 
 			var missingRelevantLanguages = frequentLanguages.filter( function ( language ) {
-				return existingAutonyms.indexOf( language ) === -1;
+				return existingLanguages.indexOf( language ) === -1;
 			} );
 
 			if ( !missingRelevantLanguages.length ) {
