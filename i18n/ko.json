@@ -405,5 +405,10 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "새 문단 번역하기",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" 번역하기",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" 와 \"$2\" 을 번역",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" 등을 번역하기"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" 등을 번역하기",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "<span>$1</span>, <span>$2</span> 등에 없는 문서",
+	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> 등에 없는 문서",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> 등에 없는 문서",
+	"cx-uls-relevant-languages-panel-header": "이 문서 번역하기",
+	"cx-uls-relevant-languages-panel-message": "이 문서는 당신이 알 법한 일부 언어로는 존재하지 않습니다. 몇 분만에 번역할 수 있습니다!"
 }

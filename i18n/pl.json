@@ -12,6 +12,7 @@
 			"Matik7",
 			"Matma Rex",
 			"Mazab IZW",
+			"Msz2001",
 			"Py64",
 			"Rail",
 			"Railfail536",
@@ -393,5 +394,7 @@
 	"cx-sx-article-search-header": "Nowe tłumaczenie",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Więcej sekcji",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Przetłumacz sekcję",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Sekcja"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Sekcja",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Nie istnieje w <span>$1</span> i innych",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Nie istnieje w <span>$1</span>, <span>$2</span> i innych"
 }
