@@ -336,5 +336,8 @@
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "أضف قسمًا جديدًا",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "عدل الصفحة",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "ترجم: \"$1\"",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "مفقود في <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "مفقود في <span>$1</span> و<span>$2</span>",
+	"cx-uls-relevant-languages-banner-text-single-missing": "مفقود في <span>$1</span> والمزيد",
 	"cx-uls-relevant-languages-panel-header": "ترجمة هذه الصفحة"
 }

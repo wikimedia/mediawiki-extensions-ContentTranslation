@@ -179,5 +179,12 @@
 	"cx-continue-translation": "თარგმნის გაგრძელება",
 	"cx-preference-enable-entrypoints": "[[$1|თარგმნის დაწყებაზე]] წვდომა წვლილის გვერდიდან, ენების სიიდან და ახალი გვერდის შექმნის ფანჯრიდან.",
 	"cx-sx-section-selector-title": "სექციები",
-	"cx-sx-language-selector-dialog-title": "ენის ძებნა"
+	"cx-sx-language-selector-dialog-title": "ენის ძებნა",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "არ არის შემდეგ ენაზე: <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "არ არის შემდეგ ენებზე: <span>$1</span> და <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "არ არის შემდეგ ენებზე: <span>$1</span>, <span>$2</span> და სხვ.",
+	"cx-uls-relevant-languages-banner-text-single-missing": "არ არის შემდეგ ენებზე: <span>$1</span> და სხვ.",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "არ არის შემდეგ ენებზე: <span>$1</span>, <span>$2</span> და სხვ.",
+	"cx-uls-relevant-languages-panel-header": "გადათარგმნეთ ეს გვერდი",
+	"cx-uls-relevant-languages-panel-message": "ეს გვერდი არ არის ზოგიერთ იმ ენაზე, რომელიც, შესაძლოა, თქვენ იცოდეთ. მისი გადათარგმნა რამდენიმე წუთში შეგიძლიათ!"
 }

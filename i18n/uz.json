@@ -220,5 +220,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Tarjima: „$1“, „$2“ va yana",
 	"sx-block-template-adaptation-card-body-header-success": "Taklif etilgan andoza",
 	"sx-block-template-adaptation-card-edit-button-label": "Tarjimani koʻrib chiqish va tharirlash",
-	"sx-block-template-adaptation-card-body-header-failure": "„$1“ uchun ekvivalent andoza mavjud emas."
+	"sx-block-template-adaptation-card-body-header-failure": "„$1“ uchun ekvivalent andoza mavjud emas.",
+	"cx-uls-relevant-languages-panel-header": "Bu sahifani tarjima qilish"
 }
