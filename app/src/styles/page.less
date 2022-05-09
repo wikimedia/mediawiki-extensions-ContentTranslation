@@ -9,7 +9,10 @@ section {
   figure[typeof~="mw:Image/Frame"],
   figure[typeof~="mw:Video/Frame"],
   figure[typeof~="mw:Audio/Frame"] {
-    float: none;
+    // !important is required here because the figures sometimes has classes
+    // like mw-halign-right to force floating with margins.
+    float: none !important;
+    margin: 0 !important;
   }
 }
 // These styles have been copied from:
