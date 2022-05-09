@@ -63,10 +63,13 @@
 
 			var panel = document.createElement( 'div' );
 			panel.className = 'cx-uls-entrypoint__panel-container';
+			// Copy the positioning from parent ULS Menu
 			Object.keys( position ).forEach( function ( property ) {
 				panel.style[ property ] = position[ property ] + 'px';
 			} );
 			panel.style.width = width + 'px';
+			panel.style.zIndex = uls.$menu.css( 'z-index' );
+			panel.style.position = uls.$menu.css( 'position' );
 			document.body.appendChild( panel );
 
 			Vue.createMwApp( CxUlsEntrypoint, {
