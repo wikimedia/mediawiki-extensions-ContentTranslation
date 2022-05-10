@@ -82,19 +82,26 @@ export default {
       currentSectionSuggestion: suggestion,
     } = useApplicationState(store);
 
-    const isSandboxTarget = computed(
-      () => store.getters["application/isSandboxTarget"]
-    );
     const translatedTitle = computed(() => currentPageSection.value?.title);
     const bananaI18n = useI18n();
 
-    const panelResult = computed(() =>
-      !isSandboxTarget.value
-        ? bananaI18n.i18n("cx-sx-publisher-publish-panel-new-section-result")
-        : bananaI18n.i18n(
-            "cx-sx-publisher-publish-panel-sandbox-section-result"
-          )
-    );
+    const panelResult = computed(() => {
+      const isSandboxTarget = store.getters["application/isSandboxTarget"];
+
+      if (currentPageSection.value.isLeadSection) {
+        return bananaI18n.i18n(
+          "cx-sx-publisher-publish-panel-lead-section-result"
+        );
+      } else if (isSandboxTarget.value) {
+        return bananaI18n.i18n(
+          "cx-sx-publisher-publish-panel-sandbox-section-result"
+        );
+      } else {
+        return bananaI18n.i18n(
+          "cx-sx-publisher-publish-panel-new-section-result"
+        );
+      }
+    });
 
     onMounted(() => store.dispatch("translator/validateMT"));
 

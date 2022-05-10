@@ -433,5 +433,6 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Missing in <span>$1</span> and more",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Missing in <span>$1</span>, <span>$2</span> and more",
 	"cx-uls-relevant-languages-panel-header": "Translate this page",
-	"cx-uls-relevant-languages-panel-message": "This page is missing in some languages you may know. You can translate it in minutes!"
+	"cx-uls-relevant-languages-panel-message": "This page is missing in some languages you may know. You can translate it in minutes!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "This will be <strong>the first section in the new article!</strong>"
 }
