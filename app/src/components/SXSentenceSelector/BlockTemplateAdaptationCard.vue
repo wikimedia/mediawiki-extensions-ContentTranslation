@@ -99,8 +99,10 @@ export default {
      *
      * @type {ComputedRef<boolean>}
      */
-    const translationLoaded = computed(
-      () => typeof proposedBlockTranslation.value === "string"
+    const translationLoaded = computed(() =>
+      selectedSubSection.value.blockTemplateProposedTranslations.hasOwnProperty(
+        currentMTProvider.value
+      )
     );
 
     const sourceTemplateName = computed(
