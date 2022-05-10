@@ -57,13 +57,22 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 */
 	protected function saveWikitext( Title $title, string $wikitext, array $params ) {
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
+		$sectionNumber = $params['sectionnumber'];
 		$sourceLink = "[[:{$from}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 
-		$summary = $this->msg(
-			'cx-sx-publish-summary',
-			$params['sourcesectiontitle'],
-			$sourceLink
-		)->inContentLanguage()->text();
+		// if the published section is a lead section, the summary should be slightly different
+		if ( $sectionNumber === "0" ) {
+			$summary = $this->msg(
+				'cx-sx-publish-lead-section-summary',
+				$sourceLink
+			)->inContentLanguage()->text();
+		} else {
+			$summary = $this->msg(
+				'cx-sx-publish-summary',
+				$params['sourcesectiontitle'],
+				$sourceLink
+			)->inContentLanguage()->text();
+		}
 
 		$apiParams = [
 			'action' => 'edit',
@@ -71,7 +80,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'text' => $wikitext,
 			'summary' => $summary,
 			'sectiontitle' => $params['targetsectiontitle'],
-			'section' => $params['sectionnumber'],
+			'section' => $sectionNumber,
 			'captchaid' => $params['captchaid'],
 			'captchaword' => $params['captchaword'],
 		];
