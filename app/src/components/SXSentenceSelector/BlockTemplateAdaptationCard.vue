@@ -9,16 +9,14 @@
       </mw-row>
       <div
         v-if="!!targetTemplateName"
-        class="block-template-adaptation-card__body--success pa-4 mb-4"
+        class="pa-4 mb-4"
+        :class="adaptedTemplateCardClass"
       >
         <mw-row class="block-template-adaptation-card__body__header ma-0 pb-1">
           <mw-col
             v-i18n:sx-block-template-adaptation-card-body-header-success
             tag="h5"
           />
-          <mw-col shrink>
-            <mw-icon :icon="mwIconCheck" />
-          </mw-col>
         </mw-row>
         <h5
           class="block-template-adaptation-card__body__template-title pb-2"
@@ -30,7 +28,7 @@
           progressive
           @click="$emit('edit-translation', proposedBlockTranslation)"
         >
-          <span v-i18n:sx-block-template-adaptation-card-edit-button-label />
+          <span v-text="editBlockTranslationButtonLabel" />
         </mw-button>
       </div>
       <div
@@ -64,6 +62,7 @@ import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "BlockTemplateAdaptationCard",
@@ -109,7 +108,42 @@ export default {
       () => selectedSubSection.value?.sourceBlockTemplateName
     );
 
+    const adaptationStatus = computed(
+      () =>
+        selectedSubSection.value.blockTemplateAdaptationStatus?.[
+          currentMTProvider.value
+        ]?.[0]
+    );
+
+    const adaptedTemplateCardClass = computed(() => {
+      if (!adaptationStatus.value) {
+        return null;
+      }
+
+      const postfix =
+        adaptationStatus.value.adapted || adaptationStatus.value.partial
+          ? "success"
+          : "warning";
+
+      return "block-template-adaptation-card__body--" + postfix;
+    });
+
+    const bananaI18n = useI18n();
+    const editBlockTranslationButtonLabel = computed(() => {
+      if (!adaptationStatus.value) {
+        return null;
+      }
+
+      return adaptationStatus.value.adapted || adaptationStatus.value.partial
+        ? bananaI18n.i18n("sx-block-template-adaptation-card-edit-button-label")
+        : bananaI18n.i18n(
+            "sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
+          );
+    });
+
     return {
+      adaptedTemplateCardClass,
+      editBlockTranslationButtonLabel,
       mwIconCheck,
       mwIconPuzzle,
       proposedBlockTranslation,
@@ -129,6 +163,7 @@ export default {
     &--success {
       background-color: @background-color-primary;
     }
+    &--warning,
     &--failure {
       background-color: @background-color-base--hover;
     }

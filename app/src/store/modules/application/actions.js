@@ -521,6 +521,12 @@ async function translateTranslationUnitById(
         targetLanguage,
         targetTitle || sourceTitle
       );
+
+      const adaptationStatus = JSON.parse(templateElement.dataset.cx);
+      translationUnit.setBlockTemplateAdaptationStatus(
+        provider,
+        adaptationStatus
+      );
     } else {
       proposedTranslation = "";
     }

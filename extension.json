@@ -653,7 +653,8 @@
 				"sx-block-template-adaptation-card-body-header-success",
 				"sx-block-template-adaptation-card-edit-button-label",
 				"sx-block-template-adaptation-card-body-header-failure",
-				"cx-sx-publisher-publish-panel-lead-section-result"
+				"cx-sx-publisher-publish-panel-lead-section-result",
+				"sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
 			],
 			"noflip": true
 		},

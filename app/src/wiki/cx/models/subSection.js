@@ -22,6 +22,18 @@ export default class SubSection {
     this.blockTemplateSelected = false;
     this.blockTemplateTranslatedContent = "";
     this.blockTemplateProposedTranslations = {};
+    this.blockTemplateAdaptationStatus = {};
+  }
+
+  /**
+   * Sets the adaptation status object as it is calculated by the cxserver
+   * for the given MT provider.
+   *
+   * @param {string} provider
+   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean }} status
+   */
+  setBlockTemplateAdaptationStatus(provider, status) {
+    this.blockTemplateAdaptationStatus[provider] = status;
   }
 
   /**
