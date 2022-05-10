@@ -5,95 +5,6 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 
 /**
- * @param {Object} context
- * @param {Function} context.commit
- * @param {Function} context.dispatch
- * @param {Object} context.rootState
- * @param {Object} context.getters
- * @param {Object} context.state
- * @param {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} seeds
- * @return {Promise<void>}
- */
-async function fetchSectionSuggestionsBySeeds(
-  { commit, dispatch, rootState, getters, state },
-  seeds
-) {
-  // Seeds should always be provided as we cannot fetch a section suggestion
-  // without using a seed. Thus, if no seeds provided or seeds are empty
-  // no suggestion can be fetched and method should return
-  if (!seeds || !seeds.length) {
-    return;
-  }
-
-  // All seeds must belong to the same language pair
-  // Basically this is always the case for our application as of now,
-  // since seeds are being fetched for a given language pair and thus all
-  // grouped seeds belong to the same language pair. We can easily
-  // enforce it in a better way by creating a SectionSuggestionSeed model
-  const sourceLanguage = seeds[0].sourceLanguage;
-  const targetLanguage = seeds[0].targetLanguage;
-  commit("increaseSectionSuggestionsLoadingCount");
-
-  // Do not fetch section suggestions that already exist
-  seeds = seeds.filter(
-    (seed) =>
-      !getters.sectionSuggestionsForArticleExists(
-        sourceLanguage,
-        targetLanguage,
-        seed.sourceTitle
-      )
-  );
-
-  const numberOfSuggestionsToFetch =
-    getters.getNumberOfSectionSuggestionsToFetch(
-      sourceLanguage,
-      targetLanguage
-    );
-
-  let fetchedSuggestionCounter = 0;
-
-  for (const seed of seeds) {
-    if (targetLanguage !== rootState.application.targetLanguage) {
-      break;
-    }
-    /** @type {SectionSuggestion|null} */
-    const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
-      sourceLanguage,
-      seed.sourceTitle,
-      targetLanguage
-    );
-    commit("removeSectionSuggestionSeed", seed);
-
-    const appendixTargetTitles =
-      state.appendixSectionTitles[targetLanguage] || [];
-
-    if (suggestion?.isValid(appendixTargetTitles)) {
-      fetchedSuggestionCounter++;
-      commit("addSectionSuggestion", suggestion);
-    }
-
-    if (fetchedSuggestionCounter === numberOfSuggestionsToFetch) {
-      break;
-    }
-  }
-  commit("decreaseSectionSuggestionsLoadingCount");
-
-  if (targetLanguage !== rootState.application.targetLanguage) {
-    return;
-  }
-
-  const titles = getters
-    .getSectionSuggestionsForPair(sourceLanguage, targetLanguage)
-    .map((suggestion) => suggestion.sourceTitle);
-
-  dispatch(
-    "mediawiki/fetchPageMetadata",
-    { language: sourceLanguage, titles },
-    { root: true }
-  );
-}
-
-/**
  * Given a language pair and an article title this action:
  * 1. If matching sectionSuggestion model exists in state, returns it
  * 2. If no such model exists, it fetches sectionSuggestion model from API.
@@ -406,33 +317,109 @@ async function initializeSuggestions({
 }
 
 /**
- * Given a source/target language pair, this action
- * fetches next section suggestions slice from suggestions api
- * and save it to the store. If no languages are provided,
- * application state source/target languages will be used.
+ * This action fetches the next section suggestions slice from the suggestions api,
+ * for the current language pair and saves it to the store.
  *
  * @param {Object} context
+ * @param {Object} context.state
+ * @param {function} context.commit
+ * @param {Object} context.getters
  * @param {Function} context.dispatch
  * @param {Object} context.rootState
  * @return {Promise<void>}
  */
-async function fetchNextSectionSuggestionsSlice({ dispatch, rootState }) {
+async function fetchNextSectionSuggestionsSlice({
+  state,
+  commit,
+  getters,
+  dispatch,
+  rootState,
+}) {
   const { sourceLanguage, targetLanguage } = rootState.application;
 
   // Start showing loading indicator
   // Get seeds by the next available seed provider
-  const seeds = await dispatch("getSectionSuggestionSeeds", {
+  let seeds = await dispatch("getSectionSuggestionSeeds", {
     sourceLanguage,
     targetLanguage,
   });
 
-  return dispatch("fetchSectionSuggestionsBySeeds", seeds);
+  // Seeds should always be provided as we cannot fetch a section suggestion
+  // without using a seed. Thus, if no seeds provided or seeds are empty
+  // no suggestion can be fetched and method should return
+  if (!seeds || !seeds.length) {
+    return;
+  }
+
+  commit("increaseSectionSuggestionsLoadingCount");
+
+  // Do not fetch section suggestions that already exist
+  seeds = seeds.filter(
+    (seed) =>
+      !getters.sectionSuggestionsForArticleExists(
+        sourceLanguage,
+        targetLanguage,
+        seed.sourceTitle
+      )
+  );
+
+  const numberOfSuggestionsToFetch =
+    getters.getNumberOfSectionSuggestionsToFetch(
+      sourceLanguage,
+      targetLanguage
+    );
+
+  let fetchedSuggestionCounter = 0;
+
+  for (const seed of seeds) {
+    /** @type {SectionSuggestion|null} */
+    const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+      sourceLanguage,
+      seed.sourceTitle,
+      targetLanguage
+    );
+    commit("removeSectionSuggestionSeed", seed);
+
+    const appendixTargetTitles =
+      state.appendixSectionTitles[targetLanguage] || [];
+
+    if (suggestion?.isValid(appendixTargetTitles)) {
+      fetchedSuggestionCounter++;
+      commit("addSectionSuggestion", suggestion);
+    }
+
+    if (fetchedSuggestionCounter === numberOfSuggestionsToFetch) {
+      break;
+    }
+  }
+  commit("decreaseSectionSuggestionsLoadingCount");
+
+  const titles = getters
+    .getSectionSuggestionsForPair(sourceLanguage, targetLanguage)
+    .map((suggestion) => suggestion.sourceTitle);
+
+  dispatch(
+    "mediawiki/fetchPageMetadata",
+    { language: sourceLanguage, titles },
+    { root: true }
+  );
 }
 
+/**
+ * This action fetches the next page suggestions slice from the suggestions api,
+ * for the current language pair and saves it to the store.
+ *
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {object} context.getters
+ * @param {object} context.rootState
+ * @returns {Promise<void>}
+ */
 async function fetchNextPageSuggestionsSlice({
   commit,
   dispatch,
-  state,
+  getters,
   rootState,
 }) {
   commit("increasePageSuggestionsLoadingCount");
@@ -441,22 +428,36 @@ async function fetchNextPageSuggestionsSlice({
     sourceLanguage,
     targetLanguage,
   });
-  /** @type {ArticleSuggestion[]} */
-  const suggestions = await cxSuggestionsApi.fetchPageSuggestions(
+
+  const numberOfSuggestionsToFetch = getters.getNumberOfPageSuggestionsToFetch(
     sourceLanguage,
-    targetLanguage,
-    seed?.sourceTitle,
-    state.maxSuggestionsPerSlice
+    targetLanguage
   );
-  commit("decreasePageSuggestionsLoadingCount");
-  suggestions.forEach((suggestion) => commit("addPageSuggestion", suggestion));
-  const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
-  titles.length &&
-    dispatch(
-      "mediawiki/fetchPageMetadata",
-      { language: sourceLanguage, titles },
-      { root: true }
+
+  // Catch any possible error, so that the loading indicator isn't displayed eternally
+  try {
+    /** @type {ArticleSuggestion[]} */
+    const suggestions = await cxSuggestionsApi.fetchPageSuggestions(
+      sourceLanguage,
+      targetLanguage,
+      seed?.sourceTitle,
+      numberOfSuggestionsToFetch
     );
+
+    suggestions.forEach((suggestion) =>
+      commit("addPageSuggestion", suggestion)
+    );
+    const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
+    titles.length &&
+      dispatch(
+        "mediawiki/fetchPageMetadata",
+        { language: sourceLanguage, titles },
+        { root: true }
+      );
+  } catch (error) {
+    mw.log.error("Page suggestions fetching failed!");
+  }
+  commit("decreasePageSuggestionsLoadingCount");
 }
 
 async function fetchAppendixSectionTitles({ getters, commit }, language) {
@@ -591,7 +592,6 @@ export default {
   fetchAppendixSectionTitles,
   fetchNextPageSuggestionsSlice,
   fetchNextSectionSuggestionsSlice,
-  fetchSectionSuggestionsBySeeds,
   getPageSuggestionSeed,
   getSectionSuggestionSeeds,
   getSeedProviderHandlerByName,

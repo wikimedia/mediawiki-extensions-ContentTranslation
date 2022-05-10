@@ -6,7 +6,7 @@ import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
 const { actions, mutations, getters } = suggestionsModule;
 const { removeSectionSuggestion } = mutations;
-const { fetchSectionSuggestionsBySeeds, getSeedProviderHandlerByName } =
+const { getSeedProviderHandlerByName, fetchNextSectionSuggestionsSlice } =
   actions;
 const {
   sectionSuggestionsForArticleExists,
@@ -107,9 +107,14 @@ describe("test suggestion actions", () => {
     };
     getters.getNumberOfSectionSuggestionsToFetch =
       getNumberOfSectionSuggestionsToFetch(state, getters);
+
     const context = {
       commit: (mutation, argument) => mutations[mutation](state, argument),
-      dispatch: function () {},
+      dispatch: function (action) {
+        if (action === "getSectionSuggestionSeeds") {
+          return Promise.resolve(seeds);
+        }
+      },
       rootState: {
         application: {
           targetLanguage,
@@ -118,7 +123,7 @@ describe("test suggestion actions", () => {
       getters,
       state,
     };
-    await fetchSectionSuggestionsBySeeds(context, seeds);
+    await fetchNextSectionSuggestionsSlice(context);
     const suggestionTitles = state.sectionSuggestions.map(
       (sectionSuggestion) => sectionSuggestion.sourceTitle
     );

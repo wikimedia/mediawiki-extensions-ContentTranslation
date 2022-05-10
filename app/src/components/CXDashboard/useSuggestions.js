@@ -39,13 +39,6 @@ const useSuggestions = () => {
    */
   const maxSuggestionsSlices = 4;
 
-  const nextSectionSuggestionsSliceIndex = computed(
-    () => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
-  );
-  const nextPageSuggestionsSliceIndex = computed(
-    () => (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices
-  );
-
   /**
    * @type {ComputedRef<SectionSuggestion[]>}
    */
@@ -64,30 +57,6 @@ const useSuggestions = () => {
     )
   );
 
-  const isCurrentSectionSuggestionsSliceFull = computed(
-    () => currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice
-  );
-
-  const isCurrentPageSuggestionsSliceFull = computed(
-    () => currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice
-  );
-
-  const nextSectionSuggestionSliceFetched = computed(
-    () =>
-      isCurrentSectionSuggestionsSliceFull.value &&
-      store.getters["application/getSectionSuggestionsSliceByIndex"](
-        nextPageSuggestionsSliceIndex.value
-      ).length > 0
-  );
-
-  const nextPageSuggestionSliceFetched = computed(
-    () =>
-      isCurrentPageSuggestionsSliceFull.value &&
-      store.getters["application/getPageSuggestionsSliceByIndex"](
-        nextPageSuggestionsSliceIndex.value
-      ).length > 0
-  );
-
   /**
    * This action refreshes section and page suggestions current slice.
    *
@@ -103,23 +72,40 @@ const useSuggestions = () => {
   };
 
   const fetchNextSectionSuggestionSlice = () => {
-    if (!nextSectionSuggestionSliceFetched.value) {
-      store.dispatch("suggestions/fetchNextSectionSuggestionsSlice", {
-        nextIndex: nextSectionSuggestionsSliceIndex.value,
-      });
-      isCurrentSectionSuggestionsSliceFull.value &&
-        increaseCurrentSectionSuggestionsSliceIndex();
+    const isCurrentSliceFull =
+      currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+
+    const nextIndex =
+      (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
+
+    const isNextSliceFetched =
+      isCurrentSliceFull &&
+      store.getters["application/getSectionSuggestionsSliceByIndex"](nextIndex)
+        .length > 0;
+
+    if (!isCurrentSliceFull || !isNextSliceFetched) {
+      store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
     }
+    isCurrentSliceFull && increaseCurrentSectionSuggestionsSliceIndex();
   };
 
   const fetchNextPageSuggestionSlice = () => {
-    if (!nextPageSuggestionSliceFetched.value) {
-      store.dispatch("suggestions/fetchNextPageSuggestionsSlice", {
-        nextIndex: nextPageSuggestionsSliceIndex.value,
-      });
-      isCurrentPageSuggestionsSliceFull.value &&
-        increaseCurrentPageSuggestionsSliceIndex();
+    const isCurrentSliceFull =
+      currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+
+    const nextIndex =
+      (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
+
+    const isNextSliceFetched =
+      isCurrentSliceFull &&
+      store.getters["application/getPageSuggestionsSliceByIndex"](nextIndex)
+        .length > 0;
+
+    if (!isCurrentSliceFull || !isNextSliceFetched) {
+      store.dispatch("suggestions/fetchNextPageSuggestionsSlice");
     }
+
+    isCurrentSliceFull && increaseCurrentPageSuggestionsSliceIndex();
   };
 
   /**
