@@ -51,4 +51,23 @@ export default class SectionSentence {
   get isTranslated() {
     return this.translatedContent !== "";
   }
+
+  /**
+   * This method sets the proposed translation for the given MT provider,
+   * inside "proposedTranslations" object property.
+   *
+   * @param {string} mtProvider
+   * @param {string} proposedTranslation
+   */
+  addProposedTranslation(mtProvider, proposedTranslation) {
+    // If space after full stop has been trimmed by the MT provider,
+    // restore the space.
+    if (
+      this.originalContent.endsWith(" ") &&
+      !proposedTranslation.endsWith(" ")
+    ) {
+      proposedTranslation += " ";
+    }
+    this.proposedTranslations[mtProvider] = proposedTranslation;
+  }
 }

@@ -114,7 +114,7 @@ const mutations = {
     if (unit instanceof SubSection) {
       unit.blockTemplateProposedTranslations[provider] = proposedTranslation;
     } else if (unit instanceof SectionSentence) {
-      unit.proposedTranslations[provider] = proposedTranslation;
+      unit.addProposedTranslation(provider, proposedTranslation);
     }
   },
 
