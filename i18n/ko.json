@@ -62,6 +62,7 @@
 	"cx-translation-target-page-exists": "제목이 [$1 $2]인 문서가 대상 위키에 있습니다. 문서에 다른 제목을 붙이십시오.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|내용 번역]]",
 	"tag-contenttranslation-description": "이 글은 내용 번역 도구를 사용하여 다른 언어에서 번역되었습니다.",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|내용 번역 2]]",
 	"tag-contenttranslation-v2-description": "이 내용은 버전 2의 내용 번역 도구를 사용하여 다른 언어에서 번역되었습니다.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|문단 번역]]",
 	"tag-sectiontranslation-description": "문단 내용은 내용 번역 도구의 문단 번역 기능을 사용하여 다른 언어로 번역되었습니다.",

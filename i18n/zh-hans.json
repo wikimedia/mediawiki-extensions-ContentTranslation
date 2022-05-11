@@ -42,7 +42,11 @@
 			"夢蝶葬花",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"GraceL",
+			"Lantx",
+			"Sun8908",
+			"Winston Sung"
 		]
 	},
 	"cx": "翻译页面",
@@ -226,7 +230,7 @@
 	"cx-notification-hundredth-translation": "您做出了100次翻译！这是了不起的成就。请向其他编辑者分享这一新闻吧。",
 	"cx-notification-deleted-draft": "您对<strong>$1</strong>的翻译已丢弃，因为其内容已过时超过一年。随时欢迎您通过新内容开始新的翻译。",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1个翻译}}已丢弃，因为其内容已过时超过一年。随时欢迎您通过新内容开始它们。",
-	"cx-notification-continue-translation": "请考虑将您数月前开始翻译的条目<strong>$1</strong>于 1 年后自动删除前发布。",
+	"cx-notification-continue-translation": "您在数月前开始了翻译<strong>$1</strong>，请考虑在条目一年后被自动舍弃前将翻译内容发布。",
 	"cx-notification-continue-translation-bundle": "请考虑将您数月前开始翻译的{{PLURAL:条目 $1| $1 篇译文}}于 1 年后自动删除前发布。",
 	"cx-contributions-link": "您的贡献",
 	"cx-your-translations-link": "{{GENDER:$1|您的翻译}}",

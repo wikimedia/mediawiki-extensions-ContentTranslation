@@ -63,6 +63,7 @@
 	"cx-translationlist-empty-title": "Kad (existas) nulo por tradukar?",
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-notification-suggestions-available": "Segun {{GENDER:$2|vua}} antea traduko de '''$1''', nova sugestaji esas nun disponebla.",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 eroro|$1 erori}}",
 	"cx-tools-linter-learn-more": "Lernez pluse",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
 	"cx-tools-linter-restart-translation-cancel": "Nuligar",
