@@ -76,7 +76,7 @@ ve.ce.CXTransclusionBlockNode.prototype.isUnadapted = function () {
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.update = function () {
-	if ( this.isUnadapted() ) {
+	if ( !this.getModel() || !this.getModel().isValid() || this.isUnadapted() ) {
 		return;
 	}
 
@@ -88,6 +88,10 @@ ve.ce.CXTransclusionBlockNode.prototype.update = function () {
  */
 ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
 	var iconWhenInvisible = this.constructor.static.iconWhenInvisible;
+
+	if ( !this.getModel() || !this.getModel().isValid() ) {
+		return;
+	}
 
 	if ( this.isUnadapted() ) {
 		// Temporarily set static property to null to avoid displaying icon
@@ -105,6 +109,9 @@ ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.setFocused = function ( value ) {
+	if ( !this.getModel() || !this.getModel().isValid() ) {
+		return;
+	}
 	if ( this.isUnadapted() ) {
 		value = false;
 	}

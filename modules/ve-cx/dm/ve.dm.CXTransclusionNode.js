@@ -55,6 +55,18 @@ ve.dm.CXTransclusionNode.static.toDomElements = function ( dataElement ) {
 };
 
 /**
+ * Due to cxserver bugs in translating and adapting content, it is possible to have
+ * some templates having no data-mw attributes. This can cause various js errors
+ * in VE and prevent translation restore. Prevent such errors by ignoring them
+ * by validating. See T307967
+ *
+ * @return {boolean} True if transclusion has valid definition
+ */
+ve.dm.CXTransclusionNode.prototype.isValid = function () {
+	return this.getAttribute( 'mw' ) && this.getAttribute( 'mw' ).parts;
+};
+
+/**
  * Communicate warnings about unadapted templates.
  *
  * @class
@@ -169,6 +181,9 @@ ve.dm.CXTransclusionBlockNode.prototype.missingInTargetLanguage = function () {
  * @return {boolean} Whether cxserver provided adaptation info or not.
  */
 ve.dm.CXTransclusionBlockNode.prototype.hasAdaptationInfo = function () {
+	if ( !this.isValid() ) {
+		return false;
+	}
 	var cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'adapted' ) !== undefined;
 };
@@ -180,6 +195,9 @@ ve.dm.CXTransclusionBlockNode.prototype.hasAdaptationInfo = function () {
  * @return {boolean} Whether template is adapted or not.
  */
 ve.dm.CXTransclusionBlockNode.prototype.isAdapted = function () {
+	if ( !this.isValid() ) {
+		return false;
+	}
 	var cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'adapted' ) === true;
 };
