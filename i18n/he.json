@@ -367,7 +367,7 @@
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "פסקה",
 	"cx-sx-followup-feedback-new-indicator": "חדש",
 	"cx-sx-published-section-confirmation-header": "פרק חדש נוסף",
-	"cx-sx-published-section-confirmation-content": "התרגום שלך פורסם. {{|GENDER:שקול|שקלי}} לערוך את התוכן עוד או להוסיף עוד פרק.",
+	"cx-sx-published-section-confirmation-content": "התרגום שלך פורסם. {{GENDER:שקול|שקלי}} לערוך את התוכן עוד או להוסיף עוד פרק.",
 	"cx-sx-published-section-invitation-title": "לתרגם פרק אחר",
 	"cx-sx-published-section-invitation-missing-sections-info": "הפרק \"$1\" {{PLURAL:$2|ועוד פרק אחד חסרים|חסר}}",
 	"cx-sx-publisher-mt-abuse-message-title": "התרגום שלך מכיל $1% של טקסט ללא שינוי",
