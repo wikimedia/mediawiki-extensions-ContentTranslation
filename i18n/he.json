@@ -348,6 +348,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "הפרסום נכשל",
 	"cx-sx-publisher-animation-failure-message-subtitle": "בדיקת הודעות השגיאה",
 	"cx-sx-publish-summary": "נוצר באמצעות תרגום הפרק \"$1\" מהדף \"$2\"",
+	"cx-sx-publish-lead-section-summary": "נוצר באמצעות תרגום פרק הפתיחה של הדף \"$1\"",
 	"cx-sx-publisher-preview-options-title": "אפשרויות פרסום",
 	"cx-sx-publisher-new-section-option-label": "פרסום בתור פרק חדש",
 	"cx-sx-publisher-new-section-option-details": "הוספת פרק חדש לערך",

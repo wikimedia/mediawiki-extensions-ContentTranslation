@@ -423,5 +423,6 @@
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Адсутнічае ў <span>$1</span>, <span>$2</span> і іншых",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> і іншых",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Адсутнічае ў <span>$1</span>, <span>$2</span> і іншых",
-	"cx-uls-relevant-languages-panel-header": "Перакласці гэтую старонку"
+	"cx-uls-relevant-languages-panel-header": "Перакласці гэтую старонку",
+	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае на некаторых мовах, якія вы можаце ведаць. Вы можаце перакласці яе за лічаныя хвіліны!"
 }

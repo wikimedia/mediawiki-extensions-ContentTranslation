@@ -349,6 +349,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Veröffentlichung fehlgeschlagen",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Prüfe die Fehlermeldungen",
 	"cx-sx-publish-summary": "Erstellt durch Übersetzung des Abschnitts „$1“ von der Seite „$2“.",
+	"cx-sx-publish-lead-section-summary": "Erstellt durch Übersetzung des ersten Abschnitts der Seite „$1“.",
 	"cx-sx-publisher-preview-options-title": "Veröffentlichungsoptionen",
 	"cx-sx-publisher-new-section-option-label": "Als neue Abschnitt veröffentlichen",
 	"cx-sx-publisher-new-section-option-details": "Einen neuen Abschnitt zum Artikel hinzufügen",

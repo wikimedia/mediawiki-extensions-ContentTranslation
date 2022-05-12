@@ -382,6 +382,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "La publication a échoué",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Vérifiez les messages d’erreur",
 	"cx-sx-publish-summary": "Créé en traduisant la section « $1 » de la page « $2 »",
+	"cx-sx-publish-lead-section-summary": "Créé en traduisant la section d'ouverture de la page « $1 »",
 	"cx-sx-publisher-preview-options-title": "Options de publication",
 	"cx-sx-publisher-new-section-option-label": "Publier comme une nouvelle section",
 	"cx-sx-publisher-new-section-option-details": "Ajouter une nouvelle section à l’article",
