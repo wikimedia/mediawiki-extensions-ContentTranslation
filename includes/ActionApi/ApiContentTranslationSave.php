@@ -8,19 +8,16 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
-use ContentTranslation\AbuseFilterChecker;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
-use ContentTranslation\RestbaseClient;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationUnit;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
+use ContentTranslation\Validator\TranslationUnitValidator;
 use Deflate;
-use Exception;
 use FormatJson;
 use Language;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -31,14 +28,11 @@ class ApiContentTranslationSave extends ApiBase {
 	/** @var TranslationCorporaStore */
 	private $corporaStore;
 
-	/** @var RestbaseClient */
-	private $restbaseClient;
-
 	/** @var LoadBalancer */
 	private $lb;
 
-	/** @var AbuseFilterChecker */
-	private $abuseFilterChecker;
+	/** @var TranslationUnitValidator */
+	private $translationUnitValidator;
 
 	/**
 	 * 64KB
@@ -50,14 +44,12 @@ class ApiContentTranslationSave extends ApiBase {
 		$action,
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
-		RestbaseClient $restbaseClient,
-		AbuseFilterChecker $abuseFilterChecker
+		TranslationUnitValidator $translationUnitValidator
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
-		$this->restbaseClient = $restbaseClient;
 		$this->lb = $loadBalancer;
-		$this->abuseFilterChecker = $abuseFilterChecker;
+		$this->translationUnitValidator = $translationUnitValidator;
 	}
 
 	public function execute() {
@@ -122,7 +114,11 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		$this->saveTranslationUnits( $translationUnits, $translation );
-		$validationResults = $this->validateTranslationUnits( $translationUnits, $translation );
+		$validationResults = $this->translationUnitValidator->validateTranslationUnitsForTitleUser(
+			$translationUnits,
+			$translation->getData()['targetTitle'],
+			$this->getUser()
+		);
 
 		$this->saveCategories( $sourceCategories, $targetCategories, $translation );
 
@@ -132,51 +128,6 @@ class ApiContentTranslationSave extends ApiBase {
 			'translationid' => $translationId
 		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
-	}
-
-	protected function validateTranslationUnits( $translationUnits, Translation $translation ) {
-		$validationResults = [];
-
-		$title = \Title::newFromText( $translation->getData()['targetTitle'] );
-		if ( !$title ) {
-			return $validationResults;
-		}
-
-		$titleResults = $this->abuseFilterChecker->checkTitleForUser( $title, $this->getUser() );
-		foreach ( $translationUnits as $translationUnit ) {
-			if ( !$translationUnit->getValidate() ) {
-				continue;
-			}
-			$sectionId = $translationUnit->getSectionId();
-			if ( $sectionId === 'mwcx-source-title' ) {
-				$validationResults[ $sectionId ] = $titleResults;
-			} else {
-				$validationResults[ $sectionId ] = $this->validateTranslationUnit( $title, $translationUnit );
-			}
-		}
-
-		return $validationResults;
-	}
-
-	/**
-	 * Validate the section content using AbuseFilterChecker
-	 * @param \Title $title Target title
-	 * @param TranslationUnit $translationUnit
-	 * @return array List of any rule violations
-	 */
-	protected function validateTranslationUnit( \Title $title, TranslationUnit $translationUnit ): array {
-		$sectionHTML = $translationUnit->getContent();
-		$results = [];
-		// We need to catch any exceptions here - For example, if restbase is down
-		// it should not affect the saving of translations.
-		try {
-			// The section content is HTML. AbuseFilter need wikitext.
-			$text = $this->restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
-			$results = $this->abuseFilterChecker->checkSectionForTitleAndUser( $this->getUser(), $title, $text );
-		} catch ( Exception $e ) {
-			// Validation failed. But proceed.
-		}
-		return $results;
 	}
 
 	/**
@@ -231,7 +182,7 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @param array $translationUnits
 	 * @param Translation $translation Recently saved parent translation object
 	 */
-	protected function saveTranslationUnits( $translationUnits, Translation $translation ) {
+	protected function saveTranslationUnits( array $translationUnits, Translation $translation ) {
 		$newTranslation = $translation->lastSaveWasCreate();
 		foreach ( $translationUnits as $translationUnit ) {
 			$this->corporaStore->save( $translationUnit, $newTranslation );

@@ -8,6 +8,7 @@ use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\TranslationCorporaStore;
+use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
 use Wikibase\Lib\SettingsArray;
@@ -86,6 +87,13 @@ return [
 			return new TranslationCorporaStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$services->getDBLoadBalancerFactory()
+			);
+		},
+	'ContentTranslation.TranslationUnitValidator' =>
+		static function ( MediaWikiServices $services ): TranslationUnitValidator {
+			return new TranslationUnitValidator(
+				$services->getService( 'ContentTranslation.AbuseFilterChecker' ),
+				$services->getService( 'ContentTranslation.RestbaseClient' )
 			);
 		},
 	'ContentTranslation.WikibaseClient.Settings' =>

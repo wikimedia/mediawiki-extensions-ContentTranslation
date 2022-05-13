@@ -127,8 +127,7 @@
 			"services": [
 				"ContentTranslation.TranslationCorporaStore",
 				"ContentTranslation.LoadBalancer",
-				"ContentTranslation.RestbaseClient",
-				"ContentTranslation.AbuseFilterChecker"
+				"ContentTranslation.TranslationUnitValidator"
 			]
 		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
