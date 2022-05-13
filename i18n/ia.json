@@ -337,6 +337,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Publication fallite",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Verifica le messages de error",
 	"cx-sx-publish-summary": "Create traducente le section \"$1\" del pagina \"$2\"",
+	"cx-sx-publish-lead-section-summary": "Create con traduction del section de apertura del pagina \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Optiones de publication",
 	"cx-sx-publisher-new-section-option-label": "Publicar como un nove section",
 	"cx-sx-publisher-new-section-option-details": "Adder un nove section al articulo",
