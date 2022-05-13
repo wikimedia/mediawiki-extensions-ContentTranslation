@@ -1,7 +1,7 @@
 'use strict';
 
 QUnit.module( 'mw.cx.MachineTranslationService', QUnit.newMwEnvironment( {
-	setup: function () {
+	beforeEach: function () {
 		this.server = this.sandbox.useFakeServer();
 		this.server.respondImmediately = true;
 		this.siteMapper = new mw.cx.SiteMapper();

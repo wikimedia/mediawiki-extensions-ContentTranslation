@@ -1,5 +1,5 @@
 QUnit.module( 'mw.cx.util', QUnit.newMwEnvironment( {
-	setup: function () {
+	beforeEach: function () {
 		mw.config.set( 'wgUserName', 'TestUser' );
 	}
 } ) );
