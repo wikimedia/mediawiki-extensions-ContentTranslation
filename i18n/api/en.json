@@ -86,7 +86,7 @@
 	"apihelp-cxsuggestionlist-param-to": "The target language code.",
 	"apihelp-query+cxtranslatorstats-description": "Fetch the translation statistics for the given user.",
 	"apihelp-query+cxtranslatorstats-summary": "Fetch the translation statistics for the given user.",
-	"apihelp-query+cxtranslatorstats-param-translator": "The translator's user name. This parameter is optional. If not passed, the currently logged-in user will be used.",
+	"apihelp-query+cxtranslatorstats-param-translator": "The translator's username. This parameter is optional. If not passed, the currently logged-in user will be used.",
 	"apihelp-query+cxtranslatorstats-example-1": "Fetch the translation statistics for the given user.",
 	"apihelp-cxsave-description": "This module allows to save draft translations by section to save bandwidth and to collect parallel corpora.",
 	"apihelp-cxsave-summary": "This module allows to save draft translations by section to save bandwidth and to collect parallel corpora.",
