@@ -86,7 +86,7 @@
 	/**
 	 * @param {Object} frequentLanguages object containing the frequently used languages (codes)
 	 * mapped to their respective frequency
-	 * @param {string} deviceLanguage the device language (can be a variant too, e.g. en-gb)
+	 * @param {string|undefined} deviceLanguage the device language (can be a variant too, e.g. en-gb)
 	 * @return {{autonym: string, lang: string, dir: string}[]} array of objects representing languages, ordered by their frequency
 	 */
 	function getMissingFrequentLanguages( frequentLanguages, deviceLanguage ) {
@@ -101,26 +101,26 @@
 			return b.frequency - a.frequency;
 		} );
 
-		index = deviceLanguage.indexOf( '-' );
-		if ( index !== -1 ) {
-			deviceParentLanguage = deviceLanguage.slice( 0, index );
-		}
+		// add device language/variant and parent device language (if exist) on top of this list
+		if ( deviceLanguage ) {
+			index = deviceLanguage.indexOf( '-' );
+			if ( index !== -1 ) {
+				deviceParentLanguage = deviceLanguage.slice( 0, index );
+			}
 
-		// add device language/variant and parent device language (if exists) on top of this list
-		targetedLanguages = targetedLanguages.filter( function ( language ) {
-			return language.lang !== deviceLanguage && language.lang !== deviceParentLanguage;
-		} );
-		if ( deviceParentLanguage ) {
-			targetedLanguages.unshift( { lang: deviceParentLanguage } );
+			targetedLanguages = targetedLanguages.filter( function ( language ) {
+				return language.lang !== deviceLanguage && language.lang !== deviceParentLanguage;
+			} );
+			if ( deviceParentLanguage ) {
+				targetedLanguages.unshift( { lang: deviceParentLanguage } );
+			}
+			targetedLanguages.unshift( { lang: deviceLanguage } );
 		}
-		targetedLanguages.unshift( { lang: deviceLanguage } );
-
 		/**
 		 * @type {{lang: string, autonym: string, dir: string}[]} missingSXLanguages array containing the
 		 * enabled language codes for SX that are missing for the specific article
 		 */
 		var missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
-
 		return missingSXLanguages.filter( function ( missingSXLanguage ) {
 			return targetedLanguages.some( function ( targetLanguage ) {
 				return missingSXLanguage.lang === targetLanguage.lang;
