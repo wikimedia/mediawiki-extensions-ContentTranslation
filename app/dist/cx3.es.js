@@ -8092,6 +8092,11 @@ var getters$2 = {
     const existingSuggestionsForLanguagePair = getters2.getSectionSuggestionsForPair(sourceLanguage, targetLanguage);
     const pageSize = state2.maxSuggestionsPerSlice;
     return pageSize - existingSuggestionsForLanguagePair.length % pageSize;
+  },
+  getNumberOfPageSuggestionsToFetch: (state2, getters2) => (sourceLanguage, targetLanguage) => {
+    const existingSuggestionsForLanguagePair = getters2.getPageSuggestionsForPair(sourceLanguage, targetLanguage);
+    const pageSize = state2.maxSuggestionsPerSlice;
+    return pageSize - existingSuggestionsForLanguagePair.length % pageSize;
   }
 };
 class ArticleSuggestion {
@@ -8329,40 +8334,6 @@ class SuggestionSeedCollection {
     return this.seeds.shift();
   }
 }
-function fetchSectionSuggestionsBySeeds(_0, _1) {
-  return __async(this, arguments, function* ({ commit: commit2, dispatch: dispatch2, rootState, getters: getters2, state: state2 }, seeds) {
-    if (!seeds || !seeds.length) {
-      return;
-    }
-    const sourceLanguage = seeds[0].sourceLanguage;
-    const targetLanguage = seeds[0].targetLanguage;
-    commit2("increaseSectionSuggestionsLoadingCount");
-    seeds = seeds.filter((seed) => !getters2.sectionSuggestionsForArticleExists(sourceLanguage, targetLanguage, seed.sourceTitle));
-    const numberOfSuggestionsToFetch = getters2.getNumberOfSectionSuggestionsToFetch(sourceLanguage, targetLanguage);
-    let fetchedSuggestionCounter = 0;
-    for (const seed of seeds) {
-      if (targetLanguage !== rootState.application.targetLanguage) {
-        break;
-      }
-      const suggestion = yield cxSuggestionsApi.fetchSectionSuggestions(sourceLanguage, seed.sourceTitle, targetLanguage);
-      commit2("removeSectionSuggestionSeed", seed);
-      const appendixTargetTitles = state2.appendixSectionTitles[targetLanguage] || [];
-      if (suggestion == null ? void 0 : suggestion.isValid(appendixTargetTitles)) {
-        fetchedSuggestionCounter++;
-        commit2("addSectionSuggestion", suggestion);
-      }
-      if (fetchedSuggestionCounter === numberOfSuggestionsToFetch) {
-        break;
-      }
-    }
-    commit2("decreaseSectionSuggestionsLoadingCount");
-    if (targetLanguage !== rootState.application.targetLanguage) {
-      return;
-    }
-    const titles = getters2.getSectionSuggestionsForPair(sourceLanguage, targetLanguage).map((suggestion) => suggestion.sourceTitle);
-    dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles }, { root: true });
-  });
-}
 function loadSectionSuggestion(_0, _1) {
   return __async(this, arguments, function* ({ commit: commit2, dispatch: dispatch2, getters: getters2, rootGetters }, { sourceLanguage, targetLanguage, sourceTitle }) {
     let suggestion = getters2.getSectionSuggestionsForArticle(sourceLanguage, targetLanguage, sourceTitle);
@@ -8474,20 +8445,47 @@ function initializeSuggestions(_0) {
   });
 }
 function fetchNextSectionSuggestionsSlice(_0) {
-  return __async(this, arguments, function* ({ dispatch: dispatch2, rootState }) {
+  return __async(this, arguments, function* ({
+    state: state2,
+    commit: commit2,
+    getters: getters2,
+    dispatch: dispatch2,
+    rootState
+  }) {
     const { sourceLanguage, targetLanguage } = rootState.application;
-    const seeds = yield dispatch2("getSectionSuggestionSeeds", {
+    let seeds = yield dispatch2("getSectionSuggestionSeeds", {
       sourceLanguage,
       targetLanguage
     });
-    return dispatch2("fetchSectionSuggestionsBySeeds", seeds);
+    if (!seeds || !seeds.length) {
+      return;
+    }
+    commit2("increaseSectionSuggestionsLoadingCount");
+    seeds = seeds.filter((seed) => !getters2.sectionSuggestionsForArticleExists(sourceLanguage, targetLanguage, seed.sourceTitle));
+    const numberOfSuggestionsToFetch = getters2.getNumberOfSectionSuggestionsToFetch(sourceLanguage, targetLanguage);
+    let fetchedSuggestionCounter = 0;
+    for (const seed of seeds) {
+      const suggestion = yield cxSuggestionsApi.fetchSectionSuggestions(sourceLanguage, seed.sourceTitle, targetLanguage);
+      commit2("removeSectionSuggestionSeed", seed);
+      const appendixTargetTitles = state2.appendixSectionTitles[targetLanguage] || [];
+      if (suggestion == null ? void 0 : suggestion.isValid(appendixTargetTitles)) {
+        fetchedSuggestionCounter++;
+        commit2("addSectionSuggestion", suggestion);
+      }
+      if (fetchedSuggestionCounter === numberOfSuggestionsToFetch) {
+        break;
+      }
+    }
+    commit2("decreaseSectionSuggestionsLoadingCount");
+    const titles = getters2.getSectionSuggestionsForPair(sourceLanguage, targetLanguage).map((suggestion) => suggestion.sourceTitle);
+    dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles }, { root: true });
   });
 }
 function fetchNextPageSuggestionsSlice(_0) {
   return __async(this, arguments, function* ({
     commit: commit2,
     dispatch: dispatch2,
-    state: state2,
+    getters: getters2,
     rootState
   }) {
     commit2("increasePageSuggestionsLoadingCount");
@@ -8496,11 +8494,16 @@ function fetchNextPageSuggestionsSlice(_0) {
       sourceLanguage,
       targetLanguage
     });
-    const suggestions2 = yield cxSuggestionsApi.fetchPageSuggestions(sourceLanguage, targetLanguage, seed == null ? void 0 : seed.sourceTitle, state2.maxSuggestionsPerSlice);
+    const numberOfSuggestionsToFetch = getters2.getNumberOfPageSuggestionsToFetch(sourceLanguage, targetLanguage);
+    try {
+      const suggestions2 = yield cxSuggestionsApi.fetchPageSuggestions(sourceLanguage, targetLanguage, seed == null ? void 0 : seed.sourceTitle, numberOfSuggestionsToFetch);
+      suggestions2.forEach((suggestion) => commit2("addPageSuggestion", suggestion));
+      const titles = suggestions2.map((suggestion) => suggestion.sourceTitle);
+      titles.length && dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles }, { root: true });
+    } catch (error) {
+      mw.log.error("Page suggestions fetching failed!");
+    }
     commit2("decreasePageSuggestionsLoadingCount");
-    suggestions2.forEach((suggestion) => commit2("addPageSuggestion", suggestion));
-    const titles = suggestions2.map((suggestion) => suggestion.sourceTitle);
-    titles.length && dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles }, { root: true });
   });
 }
 function fetchAppendixSectionTitles(_0, _1) {
@@ -8581,7 +8584,6 @@ var actions$2 = {
   fetchAppendixSectionTitles,
   fetchNextPageSuggestionsSlice,
   fetchNextSectionSuggestionsSlice,
-  fetchSectionSuggestionsBySeeds,
   getPageSuggestionSeed,
   getSectionSuggestionSeeds,
   getSeedProviderHandlerByName,
@@ -8773,6 +8775,12 @@ class SectionSentence {
   }
   get isTranslated() {
     return this.translatedContent !== "";
+  }
+  addProposedTranslation(mtProvider, proposedTranslation) {
+    if (this.originalContent.endsWith(" ") && !proposedTranslation.endsWith(" ")) {
+      proposedTranslation += " ";
+    }
+    this.proposedTranslations[mtProvider] = proposedTranslation;
   }
 }
 const parseTemplateName = (transclusionNode) => {
@@ -9777,7 +9785,7 @@ const mutations = {
     if (unit instanceof SubSection$1) {
       unit.blockTemplateProposedTranslations[provider] = proposedTranslation;
     } else if (unit instanceof SectionSentence) {
-      unit.proposedTranslations[provider] = proposedTranslation;
+      unit.addProposedTranslation(provider, proposedTranslation);
     }
   },
   setCurrentMTProvider: (state2, provider) => {
@@ -19517,33 +19525,29 @@ const useSuggestions = () => {
   const currentPageSuggestionsSliceIndex = ref(0);
   const { maxSuggestionsPerSlice } = store2.state.suggestions;
   const maxSuggestionsSlices = 4;
-  const nextSectionSuggestionsSliceIndex = computed(() => (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
-  const nextPageSuggestionsSliceIndex = computed(() => (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
   const currentSectionSuggestionsSlice = computed(() => store2.getters["application/getSectionSuggestionsSliceByIndex"](currentSectionSuggestionsSliceIndex.value));
   const currentPageSuggestionsSlice = computed(() => store2.getters["application/getPageSuggestionsSliceByIndex"](currentPageSuggestionsSliceIndex.value));
-  const isCurrentSectionSuggestionsSliceFull = computed(() => currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice);
-  const isCurrentPageSuggestionsSliceFull = computed(() => currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice);
-  const nextSectionSuggestionSliceFetched = computed(() => isCurrentSectionSuggestionsSliceFull.value && store2.getters["application/getSectionSuggestionsSliceByIndex"](nextPageSuggestionsSliceIndex.value).length > 0);
-  const nextPageSuggestionSliceFetched = computed(() => isCurrentPageSuggestionsSliceFull.value && store2.getters["application/getPageSuggestionsSliceByIndex"](nextPageSuggestionsSliceIndex.value).length > 0);
   const onSuggestionRefresh = () => {
     fetchNextSectionSuggestionSlice();
     fetchNextPageSuggestionSlice();
   };
   const fetchNextSectionSuggestionSlice = () => {
-    if (!nextSectionSuggestionSliceFetched.value) {
-      store2.dispatch("suggestions/fetchNextSectionSuggestionsSlice", {
-        nextIndex: nextSectionSuggestionsSliceIndex.value
-      });
-      isCurrentSectionSuggestionsSliceFull.value && increaseCurrentSectionSuggestionsSliceIndex();
+    const isCurrentSliceFull = currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+    const nextIndex = (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
+    const isNextSliceFetched = isCurrentSliceFull && store2.getters["application/getSectionSuggestionsSliceByIndex"](nextIndex).length > 0;
+    if (!isCurrentSliceFull || !isNextSliceFetched) {
+      store2.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
     }
+    isCurrentSliceFull && increaseCurrentSectionSuggestionsSliceIndex();
   };
   const fetchNextPageSuggestionSlice = () => {
-    if (!nextPageSuggestionSliceFetched.value) {
-      store2.dispatch("suggestions/fetchNextPageSuggestionsSlice", {
-        nextIndex: nextPageSuggestionsSliceIndex.value
-      });
-      isCurrentPageSuggestionsSliceFull.value && increaseCurrentPageSuggestionsSliceIndex();
+    const isCurrentSliceFull = currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+    const nextIndex = (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
+    const isNextSliceFetched = isCurrentSliceFull && store2.getters["application/getPageSuggestionsSliceByIndex"](nextIndex).length > 0;
+    if (!isCurrentSliceFull || !isNextSliceFetched) {
+      store2.dispatch("suggestions/fetchNextPageSuggestionsSlice");
     }
+    isCurrentSliceFull && increaseCurrentPageSuggestionsSliceIndex();
   };
   const discardSectionSuggestion = (suggestion) => {
     logEvent2({ event_type: "dashboard_discard_suggestion" });
@@ -22637,7 +22641,7 @@ const _sfc_main$m = {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.getTargetBlockTemplateNameByProvider(currentMTProvider.value);
     });
-    const translationLoaded = computed(() => typeof proposedBlockTranslation.value === "string");
+    const translationLoaded = computed(() => selectedSubSection.value.blockTemplateProposedTranslations.hasOwnProperty(currentMTProvider.value));
     const sourceTemplateName = computed(() => {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName;
