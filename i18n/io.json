@@ -67,6 +67,7 @@
 	"cx-translationlist-empty-title": "Kad (existas) nulo por tradukar?",
 	"cx-suggestionlist-collapse": "Montrez min",
 	"cx-notification-suggestions-available": "Segun {{GENDER:$2|vua}} antea traduko de '''$1''', nova sugestaji esas nun disponebla.",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 eroro|$1 erori}}",
 	"cx-tools-linter-learn-more": "Lernez pluse",
 	"cx-tools-linter-content": "Trovesis kontenaji qui ne satisfacas [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter la restrikti establisita da Wikipedio en $1]. Voluntez korektigar la problemo ante publikigar la tradukuro.",
 	"cx-tools-linter-hide-details": "Celez detali",
