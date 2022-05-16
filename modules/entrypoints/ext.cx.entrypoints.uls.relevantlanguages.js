@@ -52,8 +52,8 @@
 			missingLanguagesPanelIcon = createArrowIcon();
 
 		missingLanguagesPanel.className = 'cx-uls-relevant-languages-banner';
-		missingLanguagesPanel.append( missingLanguagesPanelText );
-		missingLanguagesPanel.append( missingLanguagesPanelIcon );
+		missingLanguagesPanel.appendChild( missingLanguagesPanelText );
+		missingLanguagesPanel.appendChild( missingLanguagesPanelIcon );
 
 		missingLanguagesPanel.addEventListener( 'click', function () {
 			var Vue = require( 'vue' );

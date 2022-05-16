@@ -67,8 +67,8 @@
 
 		var missingLanguagesPanelText = createPanelTextElement( sxMissingFrequentLanguages );
 		var missingLanguagesPanelIcon = createArrowIcon();
-		missingLanguagesPanel.append( missingLanguagesPanelText );
-		missingLanguagesPanel.append( missingLanguagesPanelIcon );
+		missingLanguagesPanel.appendChild( missingLanguagesPanelText );
+		missingLanguagesPanel.appendChild( missingLanguagesPanelIcon );
 
 		var siteMapper = new mw.cx.SiteMapper();
 		missingLanguagesPanel.href = siteMapper.getCXUrl(
