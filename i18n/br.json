@@ -114,7 +114,7 @@
 	"cx-feature-discovery-dismiss": "Mat eo",
 	"cx-sx-view-translation-anchor": "Gwelet",
 	"cx-sx-existing-translation-learn-more": "Gouzout hiroc'h",
-	"cx-sx-section-selector-more-details-title": "Muioc'h a vunudoù",
+	"cx-sx-section-selector-more-details-title": "Munudoù ouzhpenn",
 	"cx-sx-section-selector-view-article-button-label": "Gwelet ar pennad e $1",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Dibab ur bajenn all",
 	"cx-sx-section-selector-learn-more-anchor-label": "Gouzout hiroc'h",
@@ -145,5 +145,6 @@
 	"sx-translation-list-language-selector-dialog-title": "Yezhoù",
 	"cx-sx-article-search-header": "Troidigezh nevez",
 	"cx-sx-translation-confirmer-action-new-translation": "Troidigezh nevez",
-	"sx-editor-feedback-overlay-title": "Trugarez !"
+	"sx-editor-feedback-overlay-title": "Trugarez !",
+	"cx-uls-relevant-languages-panel-header": "Treiñ ar bajenn-mañ"
 }
