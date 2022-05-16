@@ -886,6 +886,7 @@
 			]
 		},
 		"ext.cx.entrypoints.recenttranslation": {
+			"es6": true,
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.recenttranslation/index.js",
 				"entrypoints/ext.cx.entrypoints.recenttranslation/RecentTranslationEntrypointDialog.vue"
@@ -925,6 +926,7 @@
 			]
 		},
 		"ext.cx.entrypoints.newarticle": {
+			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newarticle.js"
 			],
@@ -945,11 +947,13 @@
 			]
 		},
 		"ext.cx.entrypoints.newarticle.veloader": {
+			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
 			]
 		},
 		"ext.cx.entrypoints.languagesearcher.init": {
+			"es6": true,
 			"targets": [
 				"mobile"
 			],
@@ -958,6 +962,7 @@
 			]
 		},
 		"ext.cx.entrypoints.languagesearcher": {
+			"es6": true,
 			"targets": [
 				"mobile"
 			],
@@ -973,6 +978,7 @@
 			]
 		},
 		"ext.cx.entrypoints.mffrequentlanguages": {
+			"es6": true,
 			"targets": [
 				"mobile"
 			],
@@ -992,6 +998,7 @@
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
+			"es6": true,
 			"targets": [
 				"desktop"
 			],
@@ -1016,6 +1023,7 @@
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {
+			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newbytranslation.js"
 			],
@@ -1038,6 +1046,7 @@
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation.mobile": {
+			"es6": true,
 			"targets": [
 				"mobile"
 			],
@@ -1058,6 +1067,7 @@
 			]
 		},
 		"ext.cx.entrypoints.contributionsmenu": {
+			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.contributionsmenu.js"
 			],
