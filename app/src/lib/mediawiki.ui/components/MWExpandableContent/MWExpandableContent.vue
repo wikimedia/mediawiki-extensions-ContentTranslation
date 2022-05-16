@@ -97,6 +97,9 @@ export default {
     }));
 
     const onWindowResize = () => {
+      if (!contentRef.value) {
+        return;
+      }
       const currentHeight = contentRef.value.style.height;
       contentRef.value.style.removeProperty("height");
       contentMaxHeight.value = contentRef.value.scrollHeight;
