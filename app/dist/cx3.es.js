@@ -6308,6 +6308,9 @@ const _sfc_main$Z = {
       "--collapsed-height": contentMinHeight.value + "px"
     }));
     const onWindowResize = () => {
+      if (!contentRef.value) {
+        return;
+      }
       const currentHeight = contentRef.value.style.height;
       contentRef.value.style.removeProperty("height");
       contentMaxHeight.value = contentRef.value.scrollHeight;
@@ -8877,6 +8880,10 @@ class SubSection$1 {
     this.blockTemplateSelected = false;
     this.blockTemplateTranslatedContent = "";
     this.blockTemplateProposedTranslations = {};
+    this.blockTemplateAdaptationStatus = {};
+  }
+  setBlockTemplateAdaptationStatus(provider, status) {
+    this.blockTemplateAdaptationStatus[provider] = status;
   }
   get isHeadingSection() {
     return this.node.firstElementChild instanceof HTMLHeadingElement;
@@ -9702,6 +9709,8 @@ function translateTranslationUnitById(_0, _1) {
       const templateElement = Array.from(div.children).find((node) => isTransclusionNode(node));
       if (templateElement && targetTemplateExists(templateElement)) {
         proposedTranslation = yield translatorApi.parseTemplateWikitext(getWikitextFromTemplate(templateElement), targetLanguage, targetTitle || sourceTitle);
+        const adaptationStatus = JSON.parse(templateElement.dataset.cx);
+        translationUnit.setBlockTemplateAdaptationStatus(provider, adaptationStatus);
       } else {
         proposedTranslation = "";
       }
@@ -22646,7 +22655,27 @@ const _sfc_main$m = {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName;
     });
+    const adaptationStatus = computed(() => {
+      var _a, _b;
+      return (_b = (_a = selectedSubSection.value.blockTemplateAdaptationStatus) == null ? void 0 : _a[currentMTProvider.value]) == null ? void 0 : _b[0];
+    });
+    const adaptedTemplateCardClass = computed(() => {
+      if (!adaptationStatus.value) {
+        return null;
+      }
+      const postfix = adaptationStatus.value.adapted || adaptationStatus.value.partial ? "success" : "warning";
+      return "block-template-adaptation-card__body--" + postfix;
+    });
+    const bananaI18n2 = useI18n();
+    const editBlockTranslationButtonLabel = computed(() => {
+      if (!adaptationStatus.value) {
+        return null;
+      }
+      return adaptationStatus.value.adapted || adaptationStatus.value.partial ? bananaI18n2.i18n("sx-block-template-adaptation-card-edit-button-label") : bananaI18n2.i18n("sx-block-template-adaptation-card-edit-button-label-no-adapted-params");
+    });
     return {
+      adaptedTemplateCardClass,
+      editBlockTranslationButtonLabel,
       mwIconCheck,
       mwIconPuzzle,
       proposedBlockTranslation,
@@ -22658,10 +22687,7 @@ const _sfc_main$m = {
   }
 };
 const _hoisted_1$e = { class: "block-template-adaptation-card__container pa-4" };
-const _hoisted_2$a = {
-  key: 0,
-  class: "block-template-adaptation-card__body--success pa-4 mb-4"
-};
+const _hoisted_2$a = ["textContent"];
 const _hoisted_3$9 = ["textContent"];
 const _hoisted_4$6 = {
   key: 1,
@@ -22699,25 +22725,22 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
           ], void 0, true),
           _: 1
         }),
-        !!$setup.targetTemplateName ? (openBlock(), createElementBlock("div", _hoisted_2$a, [
+        !!$setup.targetTemplateName ? (openBlock(), createElementBlock("div", {
+          key: 0,
+          class: normalizeClass(["pa-4 mb-4", $setup.adaptedTemplateCardClass])
+        }, [
           createVNode(_component_mw_row, { class: "block-template-adaptation-card__body__header ma-0 pb-1" }, {
             default: withCtx(() => [
               withDirectives(createVNode(_component_mw_col, { tag: "h5" }, null, 512), [
                 [_directive_i18n, void 0, "sx-block-template-adaptation-card-body-header-success"]
-              ]),
-              createVNode(_component_mw_col, { shrink: "" }, {
-                default: withCtx(() => [
-                  createVNode(_component_mw_icon, { icon: $setup.mwIconCheck }, null, 8, ["icon"])
-                ], void 0, true),
-                _: 1
-              })
+              ])
             ], void 0, true),
             _: 1
           }),
           createBaseVNode("h5", {
             class: "block-template-adaptation-card__body__template-title pb-2",
             textContent: toDisplayString($setup.targetTemplateName)
-          }, null, 8, _hoisted_3$9),
+          }, null, 8, _hoisted_2$a),
           createVNode(_component_mw_button, {
             class: "px-0",
             type: "text",
@@ -22725,13 +22748,13 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("edit-translation", $setup.proposedBlockTranslation))
           }, {
             default: withCtx(() => [
-              withDirectives(createBaseVNode("span", null, null, 512), [
-                [_directive_i18n, void 0, "sx-block-template-adaptation-card-edit-button-label"]
-              ])
+              createBaseVNode("span", {
+                textContent: toDisplayString($setup.editBlockTranslationButtonLabel)
+              }, null, 8, _hoisted_3$9)
             ], void 0, true),
             _: 1
           })
-        ])) : $setup.translationLoaded ? (openBlock(), createElementBlock("div", _hoisted_4$6, [
+        ], 2)) : $setup.translationLoaded ? (openBlock(), createElementBlock("div", _hoisted_4$6, [
           withDirectives(createBaseVNode("h5", _hoisted_5$4, null, 512), [
             [_directive_i18n, [
               $setup.targetLanguageAutonym
@@ -24210,13 +24233,21 @@ const _sfc_main$6 = {
       currentSourceSection: currentPageSection,
       currentSectionSuggestion: suggestion
     } = useApplicationState(store2);
-    const isSandboxTarget = computed(() => store2.getters["application/isSandboxTarget"]);
     const translatedTitle = computed(() => {
       var _a;
       return (_a = currentPageSection.value) == null ? void 0 : _a.title;
     });
     const bananaI18n2 = useI18n();
-    const panelResult = computed(() => !isSandboxTarget.value ? bananaI18n2.i18n("cx-sx-publisher-publish-panel-new-section-result") : bananaI18n2.i18n("cx-sx-publisher-publish-panel-sandbox-section-result"));
+    const panelResult = computed(() => {
+      const isSandboxTarget = store2.getters["application/isSandboxTarget"];
+      if (currentPageSection.value.isLeadSection) {
+        return bananaI18n2.i18n("cx-sx-publisher-publish-panel-lead-section-result");
+      } else if (isSandboxTarget.value) {
+        return bananaI18n2.i18n("cx-sx-publisher-publish-panel-sandbox-section-result");
+      } else {
+        return bananaI18n2.i18n("cx-sx-publisher-publish-panel-new-section-result");
+      }
+    });
     onMounted(() => store2.dispatch("translator/validateMT"));
     const router2 = useRouter();
     const editTranslation = () => {
