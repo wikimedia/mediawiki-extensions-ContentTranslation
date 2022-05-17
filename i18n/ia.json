@@ -412,6 +412,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traducer \"$1\", \"$2\" e plus",
 	"sx-block-template-adaptation-card-body-header-success": "Patrono suggerite",
 	"sx-block-template-adaptation-card-edit-button-label": "Revider e modificar le traduction",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Modificar le traduction",
 	"sx-block-template-adaptation-card-body-header-failure": "Patrono equivalente non disponibile pro $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Mancante in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Mancante in <span>$1</span> e <span>$2</span>",
@@ -419,5 +420,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Mancante in <span>$1</span> e alteres",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mancante in <span>$1</span>, <span>$2</span> e alteres",
 	"cx-uls-relevant-languages-panel-header": "Traducer iste pagina",
-	"cx-uls-relevant-languages-panel-message": "Iste pagina manca in certe linguas que tu forsan cognosce. Tu pote traducer lo in qualque minutas!"
+	"cx-uls-relevant-languages-panel-message": "Iste pagina manca in certe linguas que tu forsan cognosce. Tu pote traducer lo in qualque minutas!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Isto essera <strong>le prime section in le nove articulo!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Traducer iste pagina"
 }

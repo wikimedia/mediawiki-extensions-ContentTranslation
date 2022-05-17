@@ -423,6 +423,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "תרגום \"$1\", \"$2\", ועוד",
 	"sx-block-template-adaptation-card-body-header-success": "תבנית מוצעת",
 	"sx-block-template-adaptation-card-edit-button-label": "לסדוק ולערוך את התרגום",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "עריכת התרגום",
 	"sx-block-template-adaptation-card-body-header-failure": "תבנית מתאימה אינה זמינה עבור השפה $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "חסר בשפה: <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "חסר בשפות: <span>$1</span>‏, <span>$2</span>",
@@ -430,5 +431,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "חסר בשפות: <span>$1</span> ועוד",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "חסר בשפות: <span>$1</span>‏, <span>$2</span>, ועוד",
 	"cx-uls-relevant-languages-panel-header": "תרגום הדף הזה",
-	"cx-uls-relevant-languages-panel-message": "הדף הזה חסר בכמה שפות {{GENDER:|שאתה אולי יודע. אתה יכול|שאת אולי יודעת. את יכולה}} לתרגם אותו בכמה דקות!"
+	"cx-uls-relevant-languages-panel-message": "הדף הזה חסר בכמה שפות {{GENDER:|שאתה אולי יודע. אתה יכול|שאת אולי יודעת. את יכולה}} לתרגם אותו בכמה דקות!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "זה יהיה <strong>הפרק הראשון בערך החדש!</strong>",
+	"cx-uls-translate-page-quick-action-label": "תרגום הערך הזה"
 }

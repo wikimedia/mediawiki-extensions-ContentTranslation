@@ -424,6 +424,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "„$1“, „$2“ und weitere übersetzen",
 	"sx-block-template-adaptation-card-body-header-success": "Vorgeschlagene Vorlage",
 	"sx-block-template-adaptation-card-edit-button-label": "Überprüfung und Bearbeitung der Übersetzung",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Übersetzung bearbeiten",
 	"sx-block-template-adaptation-card-body-header-failure": "Entsprechende Vorlage für $1 nicht verfügbar",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Fehlt in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Fehlt in <span>$1</span> und <span>$2</span>",
@@ -431,5 +432,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Fehlt in <span>$1</span> und weiteren",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Fehlt in <span>$1</span>, <span>$2</span> und weiteren",
 	"cx-uls-relevant-languages-panel-header": "Diese Seite übersetzen",
-	"cx-uls-relevant-languages-panel-message": "Diese Seite fehlt in einigen Sprachen, die du vielleicht kennst. Du kannst sie in wenigen Minuten übersetzen!"
+	"cx-uls-relevant-languages-panel-message": "Diese Seite fehlt in einigen Sprachen, die du vielleicht kennst. Du kannst sie in wenigen Minuten übersetzen!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Dies wird <strong>der erste Abschnitt in dem neuen Artikel sein!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Diese Seite übersetzen"
 }

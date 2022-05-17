@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Jonbg",
+			"LoveIceLang",
 			"Maxí",
 			"Snævar",
 			"Sveinn í Felli"
@@ -218,5 +219,7 @@
 	"cx-linkcontextitem-missing-title-description": "Þessi síða er ekki til ennþá",
 	"cx-mt-abuse-publish-error": "Ekki er hægt að gefa út þýðinguna því hún inniheldur of mikinn óbreyttan texta",
 	"cx-unreviewed-translation-category": "Síður með óathuguðum þýðingum",
-	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni"
+	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Breyta þýðingu",
+	"cx-uls-translate-page-quick-action-label": "Þýða þessa síðu"
 }

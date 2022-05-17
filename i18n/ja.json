@@ -364,5 +364,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "セクションを翻訳する",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "節",
 	"sx-editor-feedback-overlay-title": "ありがとうございます!",
-	"cx-uls-relevant-languages-panel-header": "このページを翻訳"
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "翻訳を編集",
+	"cx-uls-relevant-languages-panel-header": "このページを翻訳",
+	"cx-uls-translate-page-quick-action-label": "このページを翻訳"
 }
