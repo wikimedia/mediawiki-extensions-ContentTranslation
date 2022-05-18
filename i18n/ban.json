@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chinamoonroll",
+			"Joseagush",
 			"NoiX180"
 		]
 	},
@@ -59,5 +60,7 @@
 	"cx-sx-article-search-input-placeholder": "Rereh kaca antuk kaalih basa",
 	"sx-article-search-language-selector-dialog-title": "Basa",
 	"cx-sx-language-selector-placeholder": "Rereh basa",
-	"cx-sx-language-selector-no-search-results": "Tanpa asil"
+	"cx-sx-language-selector-no-search-results": "Tanpa asil",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Uah alih basa",
+	"cx-uls-translate-page-quick-action-label": "Alih basa proyék niki"
 }

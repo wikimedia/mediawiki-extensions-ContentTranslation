@@ -412,6 +412,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Преведете ги „$1“, „$2“ и други",
 	"sx-block-template-adaptation-card-body-header-success": "Предложена предлошка",
 	"sx-block-template-adaptation-card-edit-button-label": "Прегледај и уреди го преводот",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Уреди го преводот",
 	"sx-block-template-adaptation-card-body-header-failure": "Нема еквивалентна предлошка за $1",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Недостасува на <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Недостасува на <span>$1</span> и <span>$2</span>",
@@ -419,5 +420,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Недостасува на <span>$1</span> и други",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Недостасува на <span>$1</span>, <span>$2</span> и други",
 	"cx-uls-relevant-languages-panel-header": "Преведете ја страницава",
-	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!"
+	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Ова ќе биде <strong>првиот дел на новата статија!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Преведете ја страницава"
 }

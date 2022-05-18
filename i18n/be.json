@@ -418,6 +418,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перакласці «$1», «$2» і іншыя",
 	"sx-block-template-adaptation-card-body-header-success": "Прапанаваны шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Вычытаць і правіць пераклад",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Правіць пераклад",
 	"sx-block-template-adaptation-card-body-header-failure": "Эквівалентны шаблон недаступны на мове «$1»",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Адсутнічае ў <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Адсутнічае ў <span>$1</span> і <span>$2</span>",
@@ -425,5 +426,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Адсутнічае ў <span>$1</span> і іншых",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Адсутнічае ў <span>$1</span>, <span>$2</span> і іншых",
 	"cx-uls-relevant-languages-panel-header": "Перакласці гэтую старонку",
-	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае на некаторых мовах, якія вы можаце ведаць. Вы можаце перакласці яе за лічаныя хвіліны!"
+	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае на некаторых мовах, якія вы можаце ведаць. Вы можаце перакласці яе за лічаныя хвіліны!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Гэта будзе <strong>першы раздзел у новым артыкуле!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Перакласці гэтую старонку"
 }
