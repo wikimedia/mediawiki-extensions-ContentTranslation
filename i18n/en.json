@@ -359,7 +359,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Publish to your personal space for you to review and copy elsewhere.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Your translation will be <strong>added to your sandbox.</strong>",
 	"cx-sx-publisher-review-info-error": "Your translation cannot be published:",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Learn more]]",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Learn more]",
 	"cx-dashboard-experimental-support-banner-title": "Mobile support is experimental",
 	"cx-dashboard-experimental-support-banner-description": "You can expand existing articles by translating a new section. However, some features from desktop are not available yet.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Learn more",
