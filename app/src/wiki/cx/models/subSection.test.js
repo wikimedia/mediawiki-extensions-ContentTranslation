@@ -2,6 +2,18 @@ import SubSection from "./subSection";
 import SectionSentence from "./sectionSentence";
 
 describe("subSection model test", () => {
+  it("should set the id properly", () => {
+    const subSection = new SubSection({ node: { id: "cxSourceSection101" } });
+    expect(subSection.id).toEqual("101");
+    expect(subSection.node.id).toEqual("cxSourceSection" + subSection.id);
+  });
+
+  it("should return the edited translation as translated content, when it exists", () => {
+    const subSection = new SubSection({ node: { id: "cxSourceSection1" } });
+    subSection.editedTranslation = "Edited translation";
+    expect(subSection.translatedContent).toEqual("Edited translation");
+  });
+
   it("should return the block template translation as translated content, when subsection is a block template", () => {
     const subSectionNode = document.createElement("section", {
       id: "cxSourceSection1",

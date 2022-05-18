@@ -63,6 +63,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import useEditTranslation from "./useEditTranslation";
 
 export default {
   name: "SxPublisher",
@@ -77,10 +78,8 @@ export default {
   },
   setup() {
     const store = useStore();
-    const {
-      currentSourceSection: currentPageSection,
-      currentSectionSuggestion: suggestion,
-    } = useApplicationState(store);
+    const { currentSourceSection: currentPageSection } =
+      useApplicationState(store);
 
     const translatedTitle = computed(() => currentPageSection.value?.title);
     const bananaI18n = useI18n();
@@ -105,21 +104,7 @@ export default {
 
     onMounted(() => store.dispatch("translator/validateMT"));
 
-    const router = useRouter();
-
-    const editTranslation = () => {
-      router.push({
-        name: "sx-editor",
-        params: {
-          content: currentPageSection.value.translationHtml,
-          sourceLanguage: suggestion.value.sourceLanguage,
-          targetLanguage: suggestion.value.targetLanguage,
-          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
-          isFinalEdit: true,
-        },
-      });
-    };
-
+    const { editTranslation } = useEditTranslation(store, useRouter());
     const {
       configureTranslationOptions,
       doPublish,

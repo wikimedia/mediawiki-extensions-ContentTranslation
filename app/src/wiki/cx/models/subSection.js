@@ -17,7 +17,10 @@ export default class SubSection {
    * @param {HTMLElement} options.node
    */
   constructor({ sentences, node }) {
-    this.id = node.id;
+    // Node id is expected to be in the following form: "cxSourceSectionXX"
+    // where XX is a non-negative integer. This integer is stored as id for
+    // the current SubSection instance
+    this.id = node.id.replace(/\D/g, "");
     this.sentences = sentences;
     this.node = node;
     this.blockTemplateSelected = false;
@@ -25,6 +28,7 @@ export default class SubSection {
     this.blockTemplateProposedTranslations = {};
     this.blockTemplateAdaptationStatus = {};
     this.blockTemplateMTProviderUsed = "";
+    this.editedTranslation = null;
   }
 
   /**
@@ -112,6 +116,10 @@ export default class SubSection {
    * @return {string}
    */
   get translatedContent() {
+    if (this.editedTranslation !== null) {
+      return this.editedTranslation;
+    }
+
     if (this.isBlockTemplate) {
       return this.blockTemplateTranslatedContent;
     }
@@ -149,11 +157,19 @@ export default class SubSection {
   }
 
   get isTranslated() {
+    if (this.editedTranslation) {
+      return true;
+    }
+
     if (this.isBlockTemplate) {
       return !!this.blockTemplateTranslatedContent;
     }
 
     return this.sentences.some((sentence) => sentence.isTranslated);
+  }
+
+  get targetSectionId() {
+    return `cxTargetSection${this.id}`;
   }
 
   /**

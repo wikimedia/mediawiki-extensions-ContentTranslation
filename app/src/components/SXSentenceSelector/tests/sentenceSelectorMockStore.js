@@ -3,8 +3,8 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SubSectionModel from "@/wiki/cx/models/subSection";
 
 const subSections = [
-  new SubSectionModel({ node: { id: 1 } }),
-  new SubSectionModel({ node: { id: 2 } }),
+  new SubSectionModel({ node: { id: "cxSourceSection1" } }),
+  new SubSectionModel({ node: { id: "cxSourceSection2" } }),
 ];
 
 const applicationModule = {

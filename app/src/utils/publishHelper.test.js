@@ -24,7 +24,7 @@ const cleanAppendixContent = `
 
 describe("publish helper test", () => {
   it("prepend new section to appendix section", () => {
-    const expected = `<h2>Formación</h2>\n${cleanNewContent}\n<h2>Véase también</h2>${cleanAppendixContent}`;
+    const expected = `<h2>Formación</h2>\n${cleanNewContent}<h2>Véase también</h2>${cleanAppendixContent}`;
     expect(
       prependNewSectionToAppendixSection(
         getTranslatedSection(),
@@ -38,12 +38,19 @@ describe("publish helper test", () => {
  * @return {PageSection}
  */
 function getTranslatedSection() {
-  const newSection = new PageSection();
-  newSection.translatedTitle = "Formación";
-  newSection.editedTranslation =
-    '<p id="mw9w"><span class="cx-segment" data-segmentid="414">La Luna formó 4.51 miles de millones años hace,[más bajos-alfa 6] o incluso 100 millones de años más tempranos, algunos 50 millones de años después del origen del Sistema Solar, cuando la búsqueda publicada en 2019 sugiere.</span></p>\n';
+  const subSection = new SubSection({
+    sentences: [],
+    node: { id: "cxSourceSection1", children: [] },
+  });
 
-  return newSection;
+  subSection.editedTranslation =
+    '<p id="mw9w"><span class="cx-segment" data-segmentid="414">La Luna formó 4.51 miles de millones años hace,[más bajos-alfa 6] o incluso 100 millones de años más tempranos, algunos 50 millones de años después del origen del Sistema Solar, cuando la búsqueda publicada en 2019 sugiere.</span></p>';
+
+  return new PageSection({
+    id: "25",
+    title: "Formación",
+    subSections: [subSection],
+  });
 }
 
 /**

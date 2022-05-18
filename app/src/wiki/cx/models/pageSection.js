@@ -31,7 +31,6 @@ export default class PageSection {
     };
     this.translatedTitle = "";
     this.subSections = subSections;
-    this.editedTranslation = null;
     this.isLeadSection = isLeadSection;
     this.isTitleSelected = isTitleSelected;
   }
@@ -132,19 +131,42 @@ export default class PageSection {
     );
   }
 
+  set editedTranslation(editedTranslation) {
+    const editedElement = document.createElement("div");
+
+    editedElement.innerHTML = editedTranslation;
+    const editedSubSectionNodes = Array.from(editedElement.children);
+
+    /**
+     * @param {SubSection} subSection
+     * @returns {Element}
+     */
+    const findEditedNodeBySubSection = (subSection) =>
+      editedSubSectionNodes.find(
+        (node) => node.id === subSection.targetSectionId
+      );
+
+    this.subSections.forEach((subSection) => {
+      const subSectionNode = findEditedNodeBySubSection(subSection);
+      let subSectionTranslation = "";
+
+      if (subSectionNode) {
+        subSectionTranslation = subSectionNode.innerHTML;
+      }
+      subSection.editedTranslation = subSectionTranslation;
+    });
+  }
+
   /**
    * @return {string}
    */
   get translationHtml() {
-    return (
-      this.editedTranslation ||
-      this.subSections.reduce(
-        (htmlContent, subSection) =>
-          subSection.isTranslated
-            ? htmlContent + subSection.translatedContent
-            : htmlContent,
-        ""
-      )
+    return this.subSections.reduce(
+      (htmlContent, subSection) =>
+        subSection.isTranslated
+          ? htmlContent + subSection.translatedContent
+          : htmlContent,
+      ""
     );
   }
 

@@ -35,8 +35,8 @@ import { ref } from "vue";
 import VisualEditor from "@/plugins/ve/components/VisualEditor.vue";
 import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
-import SxEditorOriginalContent from "@/components/SXEditor/SXEditorOriginalContent.vue";
-import EditCompleteFeedback from "@/components/SXEditor/EditCompleteFeedback.vue";
+import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
+import EditCompleteFeedback from "./EditCompleteFeedback.vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 
