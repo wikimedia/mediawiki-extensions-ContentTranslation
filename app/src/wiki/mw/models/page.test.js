@@ -10,26 +10,26 @@ const createEl = (tag) => {
   return root;
 };
 
-describe("test Page model", () => {
-  it("test getSectionNumberByTitle method", () => {
+describe("Page model", () => {
+  it("section number for a given title should be calculated correctly", () => {
     const sections = [
       new PageSection({
-        id: 1,
-        title: "Test title 1",
+        id: 0,
+        title: "Lead section",
         subSections: [
-          new SubSection({ node: createEl("h3"), sentences: [] }),
+          new SubSection({ node: createEl("table"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
         ],
+      }),
+      new PageSection({
+        id: 1,
+        title: "Test title 1",
+        subSections: [new SubSection({ node: createEl("div"), sentences: [] })],
       }),
       new PageSection({
         id: 2,
         title: "Test title 2",
-        subSections: [new SubSection({ node: createEl("div"), sentences: [] })],
-      }),
-      new PageSection({
-        id: 3,
-        title: "Test title 3",
         subSections: [
           new SubSection({ node: createEl("h3"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
@@ -42,8 +42,8 @@ describe("test Page model", () => {
         ],
       }),
       new PageSection({
-        id: 4,
-        title: "Test title 4",
+        id: 3,
+        title: "Test title 3",
         subSections: [
           new SubSection({ node: createEl("div"), sentences: [] }),
           new SubSection({ node: createEl("div"), sentences: [] }),
@@ -58,9 +58,8 @@ describe("test Page model", () => {
 
     expect(targetPage.getSectionNumberByTitle("Not existing")).toEqual(-1);
     expect(targetPage.getSectionNumberByTitle("Test title 1")).toEqual(1);
-    expect(targetPage.getSectionNumberByTitle("Test title 2")).toEqual(3);
-    expect(targetPage.getSectionNumberByTitle("Test title 3")).toEqual(4);
-    expect(targetPage.getSectionNumberByTitle("Test title 4")).toEqual(9);
-    expect(targetPage.getSectionNumberByTitle("Appendix1")).toEqual(10);
+    expect(targetPage.getSectionNumberByTitle("Test title 2")).toEqual(2);
+    expect(targetPage.getSectionNumberByTitle("Test title 3")).toEqual(7);
+    expect(targetPage.getSectionNumberByTitle("Appendix1")).toEqual(8);
   });
 });
