@@ -332,6 +332,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Publicēšana neizdevās",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Pārbaudi kļūdu paziņojumus",
 	"cx-sx-publish-summary": "Izveidots, tulkojot lapas \"$2\" sadaļu \"$1\"",
+	"cx-sx-publish-lead-section-summary": "Izveidots, tulkojot sākuma sadaļu no lapas \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Publicēšanas iespējas",
 	"cx-sx-publisher-new-section-option-label": "Publicēt kā jaunu sadaļu",
 	"cx-sx-publisher-new-section-option-details": "Pievienot jaunu sadaļu rakstam",
@@ -406,7 +407,10 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Tulkot \"$1\" \"$2\" un vēl",
 	"sx-block-template-adaptation-card-body-header-success": "Ieteiktā veidne",
 	"sx-block-template-adaptation-card-edit-button-label": "Pārskati un labo tulkojumu",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Labot tulkojumu",
 	"sx-block-template-adaptation-card-body-header-failure": "$1 valodā nav pieejama atbilstoša veidne",
 	"cx-uls-relevant-languages-panel-header": "Tulkot šo lapu",
-	"cx-uls-relevant-languages-panel-message": "Šī lapa trūkst dažās tavās pārvaldītās valodās. Tu to vari pārtulkot dažu minūšu laikā!"
+	"cx-uls-relevant-languages-panel-message": "Šī lapa trūkst dažās tavās pārvaldītās valodās. Tu to vari pārtulkot dažu minūšu laikā!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Šī būs <strong>pirmā sadaļa jaunā rakstā!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Tulkot šo lapu"
 }

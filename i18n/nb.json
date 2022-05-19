@@ -347,6 +347,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Publisering feilet",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Sjekk feilmeldingene",
 	"cx-sx-publish-summary": "Opprettet via oversettelse av seksjonen «$1» fra siden «$2»",
+	"cx-sx-publish-lead-section-summary": "Opprettet ved å oversette ingressen fra siden «$1»",
 	"cx-sx-publisher-preview-options-title": "Publiseringsalternativer",
 	"cx-sx-publisher-new-section-option-label": "Publiser som ny seksjon",
 	"cx-sx-publisher-new-section-option-details": "Legg til en ny seksjon i artikkelen",
@@ -421,5 +422,15 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Oversett «$1», «$2» og mer",
 	"sx-block-template-adaptation-card-body-header-success": "Foreslått mal",
 	"sx-block-template-adaptation-card-edit-button-label": "Gå gjennom og rediger oversettelsen",
-	"sx-block-template-adaptation-card-body-header-failure": "Tilsvarende mal er ikke tilgjengelig på $1"
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Rediger oversettelsen",
+	"sx-block-template-adaptation-card-body-header-failure": "Tilsvarende mal er ikke tilgjengelig på $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Mangler på <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Mangler på <span>$1</span> og <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mangler på <span>$1</span>, <span>$2</span> og flere andre",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Mangler på <span>$1</span> og flere andre",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mangler på <span>$1</span>, <span>$2</span> og flere andre",
+	"cx-uls-relevant-languages-panel-header": "Oversett denne siden",
+	"cx-uls-relevant-languages-panel-message": "Denne siden mangler på noen språk du kan. Du kan oversette den på noen minutter!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Dette vil bli <strong>den første seksjonen i den nye artikkelen</strong>!",
+	"cx-uls-translate-page-quick-action-label": "Oversett denne siden"
 }

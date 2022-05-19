@@ -352,6 +352,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Misslyckades att publicera",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Kolla felmeddelanden",
 	"cx-sx-publish-summary": "Skapades genom att översätta avsnittet \"$1\" från sidan \"$2\"",
+	"cx-sx-publish-lead-section-summary": "Skapades genom att översätta det inledande avsnittet från sidan \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Publiceringsalternativ",
 	"cx-sx-publisher-new-section-option-label": "Publicera som ett nytt avsnitt",
 	"cx-sx-publisher-new-section-option-details": "Lägg till ett nytt avsnitt i artikeln",
@@ -426,6 +427,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Översätt \"$1\", \"$2\" och fler",
 	"sx-block-template-adaptation-card-body-header-success": "Föreslagen mall",
 	"sx-block-template-adaptation-card-edit-button-label": "Granska och redigera översättningen",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Redigera översättningen",
 	"sx-block-template-adaptation-card-body-header-failure": "Motsvarande mall för $1 finns inte tillgänglig",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Saknas i <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Saknas i <span>$1</span> och <span>$2</span>",
@@ -433,5 +435,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Saknas i <span>$1</span> och andra",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Saknas i <span>$1</span>, <span>$2</span> och andra",
 	"cx-uls-relevant-languages-panel-header": "Översätt den här sidan",
-	"cx-uls-relevant-languages-panel-message": "Den här sidan saknas på några språk som du kan. Du kan översätta den på bara några minuter!"
+	"cx-uls-relevant-languages-panel-message": "Den här sidan saknas på några språk som du kan. Du kan översätta den på bara några minuter!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Detta kommer att vara <strong>det första avsnittet i den nya artikeln!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Översätt den här sidan"
 }
