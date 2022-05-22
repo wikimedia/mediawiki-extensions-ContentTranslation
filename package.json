@@ -1,4 +1,5 @@
 {
+	"name": "ContentTranslation",
 	"private": true,
 	"scripts": {
 		"lint": "npm -s run lint:i18n && npm -s run lint:js && npm -s run lint:css",
