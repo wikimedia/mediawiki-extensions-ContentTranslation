@@ -350,5 +350,6 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> અને વધુમાં ખૂટે છે",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> અને વધુમાં ખૂટે છે",
 	"cx-uls-relevant-languages-panel-header": "આ પાનાનું ભાષાંતર કરો",
-	"cx-uls-relevant-languages-panel-message": "આ પાનું તમે જાણતા હોવ એવી ભાષાઓમાં ખૂટે છે. તમે તેને સરળતાથી ભાષાંતર કરી શકો છો."
+	"cx-uls-relevant-languages-panel-message": "આ પાનું તમે જાણતા હોવ એવી ભાષાઓમાં ખૂટે છે. તમે તેને સરળતાથી ભાષાંતર કરી શકો છો.",
+	"cx-uls-translate-page-quick-action-label": "આ પાનાનું ભાષાંતર કરો"
 }

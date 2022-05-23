@@ -349,6 +349,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "게시 실패",
 	"cx-sx-publisher-animation-failure-message-subtitle": "오류 메시지 확인",
 	"cx-sx-publish-summary": "\"$2\" 문서의 \"$1\" 문단을 번역함으로써 생성됨",
+	"cx-sx-publish-lead-section-summary": "\"$1\" 문서의 여는 문단을 번역하여 만듦",
 	"cx-sx-publisher-preview-options-title": "게시 옵션",
 	"cx-sx-publisher-new-section-option-label": "새 문단으로 게시",
 	"cx-sx-publisher-new-section-option-details": "문서에 새 문단 추가하기",

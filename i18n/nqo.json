@@ -388,5 +388,15 @@
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "ߕߍߕߍ߯ ߞߎߘߊ ߘߏ߫ ߘߟߊߡߌ߬ߘߊ߬",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" ߘߟߊߡߌ߬ߘߊ߬",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" ߣߌ߫ \"$2\" ߘߟߊߡߌ߬ߘߊ߬",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\"߸ \"$2\" ߟߎ߫ ߘߟߊߡߌ߬ߘߊ߬ ߞߊ߬߸ ߊ߬ ߣߌ߫ ߘߏ߫ ߜߘߍ߫ ߟߎ߫"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\"߸ \"$2\" ߟߎ߫ ߘߟߊߡߌ߬ߘߊ߬ ߞߊ߬߸ ߊ߬ ߣߌ߫ ߘߏ߫ ߜߘߍ߫ ߟߎ߫",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "ߘߟߊߡߌߘߊߟߌ ߡߊߦߟߍ߬ߡߊ߲߫",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "ߕߍ߫ <span>$1</span> ߘߐ߫",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "ߕߍ߫ <span>$1</span> ߣߌ߫ <span>$2</span> ߟߎ߫ ߘߐ߫",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "ߕߍ߫ <span>$1</span> ߣߌ߫ <span>$2</span> ߟߎ߫ ߘߐ߫ ߊ߬ ߣߌ߫ ߘߏߜߘߍ ߟߎ߬",
+	"cx-uls-relevant-languages-banner-text-single-missing": "ߕߍ߫ <span>$1</span> ߣߌ߫ ߘߏ߫ ߜߘߍ ߟߎ߬ ߘߐ߫",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "ߊ߬ ߕߍ߫ <span>$1</span> ߘߐ߫߸ <span>$2</span> ߘߐ߫߸ ߊ߬ ߣߌ߫ ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐ߫",
+	"cx-uls-relevant-languages-panel-header": "ߞߐߜߍ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬",
+	"cx-uls-relevant-languages-panel-message": "ߞߐߜߍ ߣߌ߲߬ ߕߍ߫ ߞߊ߲ ߘߏ߫ ߟߎ߫ ߘߐ߫ ߌ ߣߐ߬ ߘߌ߫ ߞߍ߫ ߡߍ߲ ߠߎ߬ ߟߐ߲߫ ߠߊ߫. ߌ ߘߌ߫ ߛߴߊ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫ ߡߌ߬ߛߍ߲߬ ߘߊ߲ߘߐ߫ ߞߘߐ߫.",
+	"cx-sx-publisher-publish-panel-lead-section-result": "ߏ߬ ߓߊ߯ ߞߍ߫ ߏ߬ ߘߌ߫ ߞߍ߫ <strong>ߕߍߕߍ߯ ߝߟߐ ߘߌ߫ ߞߎߡߘߊ߫ ߞߎߘߊ ߘߐ߫</strong>",
+	"cx-uls-translate-page-quick-action-label": "ߞߐߜߍ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬"
 }
