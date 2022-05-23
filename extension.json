@@ -67,6 +67,12 @@
 			"services": [
 				"ContentTranslation.PreferenceHelper"
 			]
+		},
+		"ulsQuickActionEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\ULSQuickActionEntrypointRegistrationHandler",
+			"services": [
+				"ActionFactory"
+			]
 		}
 	},
 	"Hooks": {
@@ -77,7 +83,8 @@
 			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint",
 			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
 			"mfFrequentLanguagesEntrypointRegistrar",
-			"ulsRelevantLanguagesEntrypointRegistrar"
+			"ulsRelevantLanguagesEntrypointRegistrar",
+			"ulsQuickActionEntrypointRegistrar"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
