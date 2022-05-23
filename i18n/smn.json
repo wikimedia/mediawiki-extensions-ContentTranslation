@@ -23,5 +23,6 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Jurgâlusah",
 	"cx-campaign-contributionsmenu-myuploads": "Vyerkkejum media",
 	"echo-category-title-cx": "Jurgâlusah",
+	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 feilâ|$1 feeilâ|$1 feilâd}}",
 	"cx-translator-month-stats-label": "Taan máánust"
 }
