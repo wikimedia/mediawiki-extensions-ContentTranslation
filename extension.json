@@ -765,7 +765,8 @@
 			"dependencies": [
 				"oojs-ui.styles.icons-interactions",
 				"mw.cx.SiteMapper",
-				"ext.uls.interface"
+				"ext.uls.interface",
+				"ext.uls.common"
 			],
 			"messages": [
 				"cx-uls-translate-page-quick-action-label"
