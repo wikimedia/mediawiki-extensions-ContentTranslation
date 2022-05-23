@@ -20,7 +20,7 @@ mw.cx.SiteMapper = function ( overrides ) {
 
 	overrides = overrides || {};
 
-	var siteMapperConfig = $.extend( config, overrides );
+	var siteMapperConfig = $.extend( {}, config, overrides );
 	this.siteTemplates = siteMapperConfig.SiteTemplates;
 	this.codeMap = siteMapperConfig.DomainCodeMapping;
 	this.translateInTarget = siteMapperConfig.TranslateInTarget;
