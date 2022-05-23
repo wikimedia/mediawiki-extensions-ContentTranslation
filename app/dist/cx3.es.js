@@ -8733,7 +8733,7 @@ class Page {
       return -1;
     }
     const precedingSections = this.sections.slice(0, sectionIndex);
-    return precedingSections.reduce((count, section) => count + section.subSections.filter((subsection) => subsection.isHeadingSection).length, sectionIndex + 1);
+    return precedingSections.reduce((count, section) => count + section.subSections.filter((subsection) => subsection.isHeadingSection).length, sectionIndex);
   }
   getSectionByTitle(sectionTitle) {
     return (this.sections || []).find((section) => section.originalTitle === sectionTitle);
