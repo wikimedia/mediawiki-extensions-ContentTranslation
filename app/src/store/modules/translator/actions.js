@@ -1,6 +1,7 @@
 import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
+import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
 
 /**
  * This action initially clears all existing MT publish feedback
@@ -98,13 +99,46 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     throw new Error("Current source section cannot be empty during publishing");
   }
 
+  const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](
+    sourceLanguage,
+    targetLanguage
+  );
+
+  const baseSectionId = `${sourcePage.revision}_${currentSourceSection.id}`;
+  const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
+  units.forEach((unit) =>
+    validateParallelCorporaPayload(unit, supportedMTProviders)
+  );
+
+  const saveMessage = await cxTranslatorApi.saveTranslation({
+    sourceTitle: currentSectionSuggestion.sourceTitle,
+    targetTitle: getters.getArticleTitleForPublishing,
+    sourceSectionTitle: currentSourceSection.originalTitle,
+    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
+    sourceLanguage,
+    targetLanguage,
+    revision: sourcePage.revision,
+    sectionNumber: getters.getSectionNumberForPublishing,
+    units: units.map((unit) => unit.payload),
+    // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
+    sectionId: baseSectionId,
+  });
+
+  if (!!saveMessage) {
+    commit("application/addPublishFeedbackMessage", saveMessage, {
+      root: true,
+    });
+
+    return;
+  }
+
   /**
    * Publish translation and get a publish feedback error message in case of
    * failure, or null in case of successful publishing
    *
    * @type {PublishFeedbackMessage|null}
    */
-  const message = await cxTranslatorApi.publishTranslation({
+  const publishMessage = await cxTranslatorApi.publishTranslation({
     html: getters.getCleanHTMLForPublishing,
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
@@ -116,8 +150,10 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     sectionNumber: getters.getSectionNumberForPublishing,
   });
 
-  if (!!message) {
-    commit("application/addPublishFeedbackMessage", message, { root: true });
+  if (!!publishMessage) {
+    commit("application/addPublishFeedbackMessage", publishMessage, {
+      root: true,
+    });
   }
 }
 

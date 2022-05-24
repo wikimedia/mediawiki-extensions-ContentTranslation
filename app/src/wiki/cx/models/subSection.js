@@ -271,12 +271,14 @@ export default class SubSection {
     ];
 
     if (this.parallelCorporaMTContent) {
+      const origin =
+        this.blockTemplateMTProviderUsed || this.sentences?.[0]?.mtProviderUsed;
       payloads.push(
         new TranslationUnitPayload({
           baseSectionId,
           subSectionId: this.id,
           content: this.parallelCorporaMTContent,
-          origin: this.sentences?.[0]?.mtProviderUsed,
+          origin,
         })
       );
     }
