@@ -312,8 +312,11 @@ function applyProposedTranslationToSelectedTranslationUnit({
 }) {
   commit("setTranslationInProgress", true);
   const translation = getters.getCurrentProposedTranslation;
-  const { currentSourceSection } = state;
-  currentSourceSection.setTranslationForSelectedTranslationUnit(translation);
+  const { currentSourceSection, currentMTProvider } = state;
+  currentSourceSection.setTranslationForSelectedTranslationUnit(
+    translation,
+    currentMTProvider
+  );
   dispatch("selectNextTranslationUnit");
 }
 
@@ -341,7 +344,7 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
   translation = div.innerHTML;
 
-  const { currentSourceSection, targetLanguage } = state;
+  const { currentSourceSection, targetLanguage, currentMTProvider } = state;
   const { selectedContentTranslationUnit } = currentSourceSection;
 
   if (selectedContentTranslationUnit instanceof SubSection) {
@@ -359,7 +362,10 @@ async function applyEditedTranslationToSelectedTranslationUnit(
       );
     }
   }
-  currentSourceSection.setTranslationForSelectedTranslationUnit(translation);
+  currentSourceSection.setTranslationForSelectedTranslationUnit(
+    translation,
+    currentMTProvider
+  );
   dispatch("selectNextTranslationUnit");
 }
 

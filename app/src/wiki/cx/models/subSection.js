@@ -24,6 +24,7 @@ export default class SubSection {
     this.blockTemplateTranslatedContent = "";
     this.blockTemplateProposedTranslations = {};
     this.blockTemplateAdaptationStatus = {};
+    this.blockTemplateMTProviderUsed = "";
   }
 
   /**

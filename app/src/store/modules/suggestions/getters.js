@@ -56,7 +56,7 @@ export default {
    * If none such section is found, it returns null
    *
    * @param {Object} state
-   * @return {function(SectionSuggestion): {String|null}}
+   * @return {function(SectionSuggestion): String|null}
    */
   getFirstAppendixTitleBySectionSuggestion:
     (state) =>

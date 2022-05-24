@@ -261,9 +261,12 @@ export default class PageSection {
   }
 
   /**
+   * This method sets the applied translation and the MT provider used
+   * for the selected translation unit
    * @param {string} translation
+   * @param {string} provider
    */
-  setTranslationForSelectedTranslationUnit(translation) {
+  setTranslationForSelectedTranslationUnit(translation, provider) {
     if (this.isTitleSelected) {
       this.translatedTitle = translation;
 
@@ -273,8 +276,11 @@ export default class PageSection {
     if (this.selectedContentTranslationUnit instanceof SubSection) {
       this.selectedContentTranslationUnit.blockTemplateTranslatedContent =
         translation;
+      this.selectedContentTranslationUnit.blockTemplateMTProviderUsed =
+        provider;
     } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
       this.selectedContentTranslationUnit.translatedContent = translation;
+      this.selectedContentTranslationUnit.mtProviderUsed = provider;
     }
   }
 
