@@ -3,6 +3,7 @@ import {
   isTransclusionNode,
 } from "../../../utils/templateHelper";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
+import TranslationUnitPayload from "./translationUnitPayload";
 
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a
@@ -51,59 +52,6 @@ export default class SubSection {
 
   get originalHtml() {
     return this.node.outerHTML;
-  }
-
-  /**
-   * This method calculates the most used MT provider for this current subSection
-   * instance and returns the corresponding translation origin to be used inside
-   * the corresponding TranslationUnitPayload DTO. This origin should be a valid
-   * value for the "cxc_origin" field inside "cx_corpora" table.
-   * @returns {string}
-   */
-  get translationOrigin() {
-    const predefinedProviders = {
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "user",
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: "source",
-    };
-    const getOrigin = (mtProvider) =>
-      predefinedProviders[mtProvider] || mtProvider;
-
-    if (this.isBlockTemplate) {
-      return getOrigin(this.blockTemplateMTProviderUsed);
-    }
-
-    /**
-     * An object containing the most used MT provider for the translated sentences
-     * and the count of its usage
-     * @type {{ provider: string, count: number }}
-     */
-    const maxProviderCount = this.sentences
-      .filter((sentence) => sentence.isTranslated)
-      .reduce((providerCounts, sentence) => {
-        const { mtProviderUsed } = sentence;
-        // find the providerCount object for the given mtProvider
-        let providerCount = providerCounts.find(
-          (providerCount) => providerCount.provider === mtProviderUsed
-        );
-
-        // if such object doesn't exist, create it
-        if (!providerCount) {
-          providerCount = { provider: mtProviderUsed, count: 0 };
-          providerCounts.push(providerCount);
-        }
-        // increase the counter for the given mtProvider
-        providerCount.count++;
-
-        return providerCounts;
-      }, [])
-      // find the providerCount object that has the maximum count
-      .reduce((maxProviderCount, providerCount) =>
-        maxProviderCount.count > providerCount.count
-          ? maxProviderCount
-          : providerCount
-      );
-
-    return getOrigin(maxProviderCount.provider);
   }
 
   /**
@@ -296,5 +244,82 @@ export default class SubSection {
     }
 
     return this.sentences;
+  }
+
+  /**
+   *
+   * @param {string} baseSectionId the base section id that will be used as "cxsx_section_id" inside "cx_section_translations"
+   * @returns {TranslationUnitPayload[]}
+   */
+  getParallelCorporaTranslationPayloads(baseSectionId) {
+    const translatedSubSectionNode = this.node.cloneNode(true);
+    translatedSubSectionNode.innerHTML = this.translatedContent;
+
+    const payloads = [
+      new TranslationUnitPayload({
+        baseSectionId,
+        subSectionId: this.id,
+        content: this.originalHtml,
+        origin: "source",
+      }),
+      new TranslationUnitPayload({
+        baseSectionId,
+        subSectionId: this.id,
+        content: translatedSubSectionNode.outerHTML,
+        origin: "user",
+      }),
+    ];
+
+    if (this.parallelCorporaMTContent) {
+      payloads.push(
+        new TranslationUnitPayload({
+          baseSectionId,
+          subSectionId: this.id,
+          content: this.parallelCorporaMTContent,
+          origin: this.sentences?.[0]?.mtProviderUsed,
+        })
+      );
+    }
+
+    return payloads;
+  }
+
+  get parallelCorporaMTContent() {
+    let mtProvider = this.blockTemplateMTProviderUsed;
+    const subSectionNode = this.node.cloneNode(true);
+
+    if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
+      return null;
+    } else if (this.isBlockTemplate) {
+      subSectionNode.innerHTML =
+        this.blockTemplateProposedTranslations[mtProvider];
+    } else {
+      mtProvider = this.sentences?.[0]?.mtProviderUsed;
+      const sameMTProviderUsed = this.sentences.every(
+        (sentence) => sentence.mtProviderUsed === mtProvider
+      );
+
+      if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
+        return null;
+      }
+
+      // Clone node before modifying it, so that original node is always available
+      const segments = Array.from(
+        subSectionNode.getElementsByClassName("cx-segment")
+      );
+
+      segments.forEach((segment) => {
+        const sentence = this.getSentenceById(segment.dataset.segmentid);
+
+        if (sentence.isTranslated) {
+          segment.innerHTML = sentence.mtProposedTranslationUsed;
+
+          return;
+        }
+        segment.parentNode.removeChild(segment);
+      });
+    }
+
+    return subSectionNode.outerHTML;
   }
 }

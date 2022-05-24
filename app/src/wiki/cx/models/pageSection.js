@@ -327,4 +327,26 @@ export default class PageSection {
 
     return !!this.selectedContentTranslationUnit?.isTranslated;
   }
+
+  /**
+   * This getter returns the translation units that should be stored
+   * inside "cx_corpora" table when the current page section is
+   * published. A TranslationUnitPayload DTO is created for each
+   * translated subsection and finally an array of such DTOs is
+   * returned by the getter.
+   *
+   * @param {string} baseSectionId
+   * @returns {TranslationUnitPayload[]}
+   */
+  getParallelCorporaUnits(baseSectionId) {
+    return this.subSections
+      .filter((subSection) => subSection.isTranslated)
+      .reduce(
+        (units, subSection) => [
+          ...units,
+          ...subSection.getParallelCorporaTranslationPayloads(baseSectionId),
+        ],
+        []
+      );
+  }
 }

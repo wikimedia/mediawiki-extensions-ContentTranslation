@@ -24,4 +24,10 @@ export default class MTProviderGroup {
   static get EMPTY_TEXT_PROVIDER_KEY() {
     return EMPTY_TEXT_PROVIDER_KEY;
   }
+
+  static isUserMTProvider(mtProvider) {
+    return [ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY].includes(
+      mtProvider
+    );
+  }
 }
