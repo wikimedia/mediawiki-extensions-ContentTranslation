@@ -112,7 +112,7 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
     sourceSectionTitle: currentSourceSection.originalTitle,
-    targetSectionTitle: getters.getSectionTitleForPublishing,
+    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,

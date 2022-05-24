@@ -24,56 +24,6 @@ export default {
   },
 
   /**
-   * This getter returns the proper title of the newly translated section,
-   * to be used for the publishing functionality.
-   *
-   * Target section title should be empty when section is missing and
-   * appendix sections exist, and publish target is the main namespace.
-   * That is because in this case we manually add the section title inside
-   * HTML that is being published. Section title should also be empty for
-   * lead sections, since these sections do not have any title. In all
-   * other cases, the appropriate section title should be returned.
-   *
-   * @param {object} state
-   * @param {object} getters
-   * @param {object} rootState
-   * @param {object} rootGetters
-   * @return {string}
-   */
-  getSectionTitleForPublishing: (state, getters, rootState, rootGetters) => {
-    const { currentSectionSuggestion, currentSourceSection } =
-      rootState.application;
-
-    if (currentSourceSection.isLeadSection) {
-      return "";
-    }
-
-    const firstAppendixTargetTitle = rootGetters[
-      "suggestions/getFirstAppendixTitleBySectionSuggestion"
-    ](currentSectionSuggestion);
-
-    const presentSectionTitle =
-      currentSectionSuggestion.presentSections[
-        currentSourceSection.originalTitle
-      ];
-
-    // If section is present
-    if (presentSectionTitle) {
-      return presentSectionTitle;
-    } else if (
-      !firstAppendixTargetTitle ||
-      rootGetters["application/isSandboxTarget"]
-    ) {
-      // If section is missing and appendix sections DO NOT exist,
-      // or if publish target is "sandbox"
-      return currentSourceSection.title;
-    } else {
-      // section is missing and appendix sections DO exist
-      return "";
-    }
-  },
-
-  /**
    * This getter returns the appropriate number indicating the position in which the
    * new section will be published inside target page.
    *

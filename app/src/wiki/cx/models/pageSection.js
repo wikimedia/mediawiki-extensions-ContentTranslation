@@ -278,6 +278,10 @@ export default class PageSection {
     }
   }
 
+  get targetSectionTitleForPublishing() {
+    return this.isLeadSection ? "" : this.title;
+  }
+
   /**
    * @return {boolean}
    */

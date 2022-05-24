@@ -37,10 +37,10 @@ describe("vuex store publishTranslation action", () => {
     }),
     publishFeedbackMessages: [],
   };
+  applicationState.currentSourceSection.translatedTitle =
+    "Test target section title 1";
 
-  const rootState = {
-    application: applicationState,
-  };
+  const rootState = { application: applicationState };
 
   const rootGetters = {
     "application/getCurrentPage": new Page({ lastrevid: 11 }),
@@ -48,7 +48,6 @@ describe("vuex store publishTranslation action", () => {
 
   const getters = {
     getArticleTitleForPublishing: "Test target article title 1",
-    getSectionTitleForPublishing: "Test target section title 1",
     getSectionNumberForPublishing: 1,
     getCleanHTMLForPublishing: "<div>Test 1</div>",
   };
