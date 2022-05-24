@@ -7,6 +7,7 @@ use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\Store\RecentSignificantEditStore;
+use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
@@ -70,6 +71,12 @@ return [
 			return new RestbaseClient(
 				$services->getHttpRequestFactory(),
 				new ServiceOptions( RestbaseClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
+			);
+		},
+	'ContentTranslation.SectionTranslationStore' =>
+		static function ( MediaWikiServices $services ): SectionTranslationStore {
+			return new SectionTranslationStore(
+				$services->getService( 'ContentTranslation.LoadBalancer' )
 			);
 		},
 	'ContentTranslation.SiteLinkLookup' =>

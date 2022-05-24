@@ -84,7 +84,7 @@
 			},
 			{
 				"name": "cxsx_section_id",
-				"comment": "Section id. Same id will be used in cx_corpus table",
+				"comment": "Section id. Based on source revision id and cx id of the translated page section",
 				"type": "binary",
 				"options": { "notnull": true, "length": 30 }
 			},
