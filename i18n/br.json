@@ -8,7 +8,8 @@
 			"Fulup",
 			"Pymouss",
 			"Y-M D",
-			"Adriendelucca"
+			"Adriendelucca",
+			"Huñvreüs"
 		]
 	},
 	"cx": "Pajenn hag a c'haller treiñ",
@@ -38,7 +39,7 @@
 	"cx-tools-instructions-text5": "{{GENDER:|Embann}} an droidigezh",
 	"cx-tools-instructions-text6": "Pa vioc'h kontant gant an disoc'h, klikit war {{int:cx-publish-button}}.",
 	"cx-tools-searchbox-text": "Klask ur ger",
-	"cx-tools-view-guidelines": "Gwelet ar sturiadoù treiñ",
+	"cx-tools-view-guidelines": "{{GENDER:|Gwelet}} ar sturiadoù treiñ",
 	"cx-tools-dictionary-title": "Termenadur",
 	"cx-tools-link-title": "Liamm",
 	"cx-tools-link-add": "Ouzhpennañ ul liamm",
@@ -47,7 +48,7 @@
 	"cx-tools-mt-use-source": "Eilañ an endalc'h orin",
 	"cx-tools-mt-reset": "Adverañ an droidigezh",
 	"cx-tools-mt-provider-title": "Implijout $1",
-	"cx-tools-mt-dont-use": "Arabat implijout an treiñ emgefre",
+	"cx-tools-mt-dont-use": "Kregiñ gant ur rannbennad c'houllo.",
 	"cx-tools-mt-set-default": "Mirout evel dre ziouer",
 	"cx-tools-mt-preferred": "dre ziouer",
 	"cx-tools-reference-title": "Daveenn",
@@ -56,7 +57,7 @@
 	"cx-warning-unsaved-translation": "Chom a ra troidigezhioù n'int ket bet enrollet ganeoc'h.",
 	"cx-error-page-not-found": "N'eus ket bet gallet kavout ar bajenn \"$1\" er Wikipedia $2",
 	"cx-selected-source-page-start-translation-button": "Kregiñ da dreiñ",
-	"cx-selected-source-page-error-page-exists": "Bez' ez eus eus ar bajenn [$1] e $2 c'hoazh",
+	"cx-selected-source-page-error-page-exists": "Bez' ez eus [$1 eus ar bajenn] e $2 c'hoazh",
 	"cx-page-number-of-languages": "Niver a yezhoù",
 	"cx-publish-captcha-title": "Goulenn surentez enep robotoù",
 	"cx-captcha-dialog-cancel": "Nullañ",

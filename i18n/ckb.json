@@ -10,7 +10,8 @@
 			"Sarchia",
 			"Épine",
 			"ئارام بکر",
-			"GoRaN"
+			"GoRaN",
+			"Roj im"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
@@ -123,7 +124,7 @@
 	"cx-suggestionlist-empty-desc": "پێشنیارێکمان نەدۆزیەوە. دەتوانیت دواتر سەر بدەیتەوە یان بە یارمەتیی ئامرازی پێشنیاردەر، پەڕەی پەیوەندیدار بدۆزیتەوە (تاقی کردنەوەیی).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "پێشنیارەکان ببینە (تاقیکردنەوەیی)",
 	"cx-suggestionlist-featured": "ھەڵبژێرراو",
-	"cx-suggestionlist-view-source-page": "نیشاندانی پەڕەی سەرچاوە",
+	"cx-suggestionlist-view-source-page": "پەڕەی سەرچاوەکە ببینە",
 	"cx-create-new-translation": "وەرگێڕانی نوێ",
 	"cx-translation-filter-label-all-languages": "هەموو",
 	"cx-translation-filter-uls-all-languages": "ھەموو زمانەکان",
