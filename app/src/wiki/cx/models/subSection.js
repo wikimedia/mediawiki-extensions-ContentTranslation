@@ -2,6 +2,7 @@ import {
   parseTemplateName,
   isTransclusionNode,
 } from "../../../utils/templateHelper";
+import MTProviderGroup from "../../mw/models/mtProviderGroup";
 
 /**
  * This model represents a sub-section (paragraph, h3, h4) belonging to a
@@ -45,6 +46,59 @@ export default class SubSection {
 
   get originalHtml() {
     return this.node.outerHTML;
+  }
+
+  /**
+   * This method calculates the most used MT provider for this current subSection
+   * instance and returns the corresponding translation origin to be used inside
+   * the corresponding TranslationUnitPayload DTO. This origin should be a valid
+   * value for the "cxc_origin" field inside "cx_corpora" table.
+   * @returns {string}
+   */
+  get translationOrigin() {
+    const predefinedProviders = {
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "user",
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: "source",
+    };
+    const getOrigin = (mtProvider) =>
+      predefinedProviders[mtProvider] || mtProvider;
+
+    if (this.isBlockTemplate) {
+      return getOrigin(this.blockTemplateMTProviderUsed);
+    }
+
+    /**
+     * An object containing the most used MT provider for the translated sentences
+     * and the count of its usage
+     * @type {{ provider: string, count: number }}
+     */
+    const maxProviderCount = this.sentences
+      .filter((sentence) => sentence.isTranslated)
+      .reduce((providerCounts, sentence) => {
+        const { mtProviderUsed } = sentence;
+        // find the providerCount object for the given mtProvider
+        let providerCount = providerCounts.find(
+          (providerCount) => providerCount.provider === mtProviderUsed
+        );
+
+        // if such object doesn't exist, create it
+        if (!providerCount) {
+          providerCount = { provider: mtProviderUsed, count: 0 };
+          providerCounts.push(providerCount);
+        }
+        // increase the counter for the given mtProvider
+        providerCount.count++;
+
+        return providerCounts;
+      }, [])
+      // find the providerCount object that has the maximum count
+      .reduce((maxProviderCount, providerCount) =>
+        maxProviderCount.count > providerCount.count
+          ? maxProviderCount
+          : providerCount
+      );
+
+    return getOrigin(maxProviderCount.provider);
   }
 
   /**
