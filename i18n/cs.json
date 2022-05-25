@@ -26,7 +26,9 @@
 			"Walter Klosse",
 			"Want",
 			"YjM",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Adam N.",
+			"Fraxinus.cs"
 		]
 	},
 	"cx": "Přeložit stránku",
@@ -70,6 +72,7 @@
 	"cx-entrypoint-dialog-desc": "Můžete Wikipedii pomoct překladem této stránky. Jde o jednoduchý způsob, jakým vytvoříte nový obsah ve svém jazyce.",
 	"cx-campaign-newbytranslation-title": "Začít místo toho s překladem?",
 	"cx-campaign-newbytranslation-notice": "Vytvořte nový článek překladem z jiného jazyka, který ovládáte.",
+	"cx-campaign-newbytranslation-search": "Najít jinou stránku k překladu",
 	"cx-campaign-newbytranslation-start": "Začít překládat",
 	"cx-special-login-error": "Pro překlad této stránky musíte být přihlášeni. [$1 Přihlásit se]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klikněte}} na odstavec, který {{GENDER:|chcete}} přeložit",
@@ -281,7 +284,7 @@
 	"cx-mt-abuse-publish-error": "Váš překlad nemůže být zveřejněn, protože obsahuje příliš mnoho neupraveného textu.",
 	"cx-unreviewed-translation-category": "Stránky s nekontrolovanými překlady",
 	"cx-unreviewed-translation-category-desc": "Stránky přeložené nástrojem Překlad, které obsahují velké množství nepřezkoumaného obsahu",
-	"cx-preference-enable-entrypoints": "K [[$1|zahájení překladu]] přistupte na stránce s příspěvky.",
+	"cx-preference-enable-entrypoints": "Přístup k [[$1|zahájení překladu]] ze stránky s příspěvky, seznamu jazyků a založení nových stránek.",
 	"cx-feature-discovery-title": "Překládejte kdykoliv",
 	"cx-feature-discovery-content": "Můžete začít nebo pokračovat v překladu kdykoliv ze stránky {{int: mycontris}}",
 	"cx-feature-discovery-dismiss": "Dobře, chápu",
