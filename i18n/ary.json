@@ -6,6 +6,11 @@
 		]
 	},
 	"cx-page-selector-widget-nearby-label": "قريب من هنا",
+	"cx-page-missing-in-target-language": "ناقص ف $1",
 	"cx-linkcontextitem-missing-title-description": "هاد صفحة مازال ماكاينة",
-	"cx-sx-article-search-no-search-results-message": "$2 حتا پاج ماتلقات ب \"$1\" ف"
+	"cx-sx-article-search-no-search-results-message": "$2 حتا پاج ماتلقات ب \"$1\" ف",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "ناقص ف <span>$1</span> ؤ <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "ناقص ف <span>$1</span>، <span>$2</span> ؤ زيد",
+	"cx-uls-relevant-languages-banner-text-single-missing": "ناقص ف <span>$1</span> ؤ زيد",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "ناقص ف <span>$1</span>، <span>$2</span> ؤ زيد"
 }
