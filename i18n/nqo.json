@@ -258,7 +258,7 @@
 	"cx-sx-section-selector-desc": "ߌ ߓߍߣߊ߬ ߞߣߐߘߐ ߟߎ߬ ߟߊ߫ ߢߐ߲߮ߡߊ߬ ߞߊ߲߫ ߝߌ߬ߟߊ߬ ߟߎ߫ ߘߐ߫",
 	"cx-sx-language-selector-dialog-title": "ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫",
 	"cx-sx-existing-translation-status": "ߊ߬ ߦߋ߫ $1 ߘߐ߫",
-	"cx-sx-existing-translation-additional-info": "ߊ߬ ߘߐߦߙߌߥߊ߫ $1 {{PLURAL:|ߣߌ߫ $2 ߕߍߕߍ߯ ߜߘߍ߫ ߟߊ߫|ߊ߬ ߣߌ߫ ߕߍߕߍ߯ ߜߘߍ߫ $2 ߟߎ߫|߀=}}",
+	"cx-sx-existing-translation-additional-info": "ߊ߬ ߘߐߦߙߌߥߊ߫ $1 ߘߌ߫ {{PLURAL:|ߊ߬ ߣߌ߫ $2 ߕߍߕߍ߯ ߜߘߍ߫ ߟߊ߫|ߊ߬ ߣߌ߫ ߕߍߕߍ߯ ߜߘߍ߫ $2 ߟߎ߫|0=}}",
 	"cx-sx-start-translation-button-label": "ߘߟߊߡߌߘߊߟߌ ߘߊߡߌ߬ߣߊ߬",
 	"cx-sx-view-translation-anchor": "ߊ߬ ߡߊߝߟߍ߫",
 	"cx-sx-existing-translation-learn-more": "ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬",
