@@ -87,7 +87,9 @@ import {
   mwIconArrowNext,
   mwIconExpand,
 } from "@/lib/mediawiki.ui/components/icons";
-import { mapState } from "vuex";
+import { useStore } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed, inject, ref } from "vue";
 
 export default {
   name: "SxTranslationListLanguageSelector",
@@ -108,44 +110,54 @@ export default {
     },
   },
   emits: ["source-language-selected", "target-language-selected"],
-  data: () => ({
-    mwIconArrowNext,
-    mwIconExpand,
-    sourceLanguageSelectOn: false,
-    targetLanguageSelectOn: false,
-  }),
-  computed: {
-    ...mapState({
-      selectedSourceLanguage: (state) => state.application.sourceLanguage,
-      selectedTargetLanguage: (state) => state.application.targetLanguage,
-    }),
-    fullscreen() {
-      return this.$mwui.breakpoint.mdAndDown;
-    },
-  },
-  methods: {
-    getAutonym,
-    getDir,
-    openSourceLanguageDialog() {
-      this.sourceLanguageSelectOn = true;
-    },
-    openTargetLanguageDialog() {
-      this.targetLanguageSelectOn = true;
-    },
-    onSourceLanguageDialogClose() {
-      this.sourceLanguageSelectOn = false;
-    },
-    onTargetLanguageDialogClose() {
-      this.targetLanguageSelectOn = false;
-    },
-    onSourceLanguageSelected(sourceLanguage) {
-      this.sourceLanguageSelectOn = false;
-      this.$emit("source-language-selected", sourceLanguage);
-    },
-    onTargetLanguageSelected(targetLanguage) {
-      this.targetLanguageSelectOn = false;
-      this.$emit("target-language-selected", targetLanguage);
-    },
+  setup(props, { emit }) {
+    const {
+      sourceLanguage: selectedSourceLanguage,
+      targetLanguage: selectedTargetLanguage,
+    } = useApplicationState(useStore());
+
+    const breakpoints = inject("breakpoints");
+    const fullscreen = computed(() => breakpoints.value.mdAndDown);
+
+    const sourceLanguageSelectOn = ref(false);
+    const targetLanguageSelectOn = ref(false);
+
+    const openSourceLanguageDialog = () =>
+      (sourceLanguageSelectOn.value = true);
+    const openTargetLanguageDialog = () =>
+      (targetLanguageSelectOn.value = true);
+    const onSourceLanguageDialogClose = () =>
+      (sourceLanguageSelectOn.value = false);
+    const onTargetLanguageDialogClose = () =>
+      (targetLanguageSelectOn.value = false);
+
+    const onSourceLanguageSelected = (sourceLanguage) => {
+      sourceLanguageSelectOn.value = false;
+      emit("source-language-selected", sourceLanguage);
+    };
+
+    const onTargetLanguageSelected = (targetLanguage) => {
+      targetLanguageSelectOn.value = false;
+      emit("target-language-selected", targetLanguage);
+    };
+
+    return {
+      fullscreen,
+      getAutonym,
+      getDir,
+      mwIconArrowNext,
+      mwIconExpand,
+      onSourceLanguageDialogClose,
+      onSourceLanguageSelected,
+      onTargetLanguageDialogClose,
+      onTargetLanguageSelected,
+      openSourceLanguageDialog,
+      openTargetLanguageDialog,
+      selectedSourceLanguage,
+      selectedTargetLanguage,
+      sourceLanguageSelectOn,
+      targetLanguageSelectOn,
+    };
   },
 };
 </script>
