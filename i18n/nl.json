@@ -319,7 +319,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Publiceer naar uw persoonlijke ruimte zodat u deze elders kunt bekijken en kopiëren.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Uw vertaling wordt <strong>toegevoegd aan uw kladblok.</strong>",
 	"cx-sx-publisher-review-info-error": "Uw vertaling kan niet worden gepubliceerd:",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Meer informatie]]",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Meer informatie]",
 	"cx-dashboard-experimental-support-banner-title": "Mobiele ondersteuning is experimenteel",
 	"cx-dashboard-experimental-support-banner-description": "U kunt bestaande artikelen uitbreiden door een nieuwe sectie te vertalen. Sommige functies van desktop zijn echter nog niet beschikbaar.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Meer informatie",
