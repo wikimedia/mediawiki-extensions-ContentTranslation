@@ -85,4 +85,33 @@ describe("ContentCleaner test", () => {
   it("cleanupHtml method removes unwanted tags and attributes", () => {
     expect(cleanupHtml(html)).toBe(cleanedHtml);
   });
+
+  it("should replace cx-links properly", () => {
+    const htmlWithLink = `
+      <div>
+        <a
+          id="mwGQ"
+          href="./Hawaii (agwaetiti)"
+          rel="mw:WikiLink"
+          class="cx-link"
+          data-cx='{"adapted":false,"sourceTitle":{"title":"Hawaii (island)","thumbnail":{"source":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Island_of_Hawai%27i_-_Landsat_mosaic.jpg/80px-Island_of_Hawai%27i_-_Landsat_mosaic.jpg","width":80,"height":80},"description":"Largest of the Hawaiian islands","pageprops":{"wikibase_item":"Q68740"},"pagelanguage":"en"},"targetFrom":"mt"}'
+          data-linkid="132"
+          title="Hawaii (agwaetiti)"
+        >
+          <span id="mwGg">Span text</span>
+          Extra text
+        </a>
+      </div>
+    `;
+
+    const expected = `
+      <div>
+        
+          <span id="mwGg">Span text</span>
+          Extra text
+        
+      </div>
+    `;
+    expect(cleanupHtml(htmlWithLink)).toBe(expected);
+  });
 });

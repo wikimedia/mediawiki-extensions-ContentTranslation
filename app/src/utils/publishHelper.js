@@ -58,7 +58,7 @@ const cleanupHtml = (html) => {
 
     if (dataCX?.adapted === false && dataCX?.targetTitle?.missing !== true) {
       // Replace the link with its inner content.
-      link.replaceWith(link.innerHTML);
+      link.replaceWith(...link.childNodes);
     } else {
       ["data-linkid", "class", "title", "id"].forEach((attr) => {
         link.removeAttribute(attr);
