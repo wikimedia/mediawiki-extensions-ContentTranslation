@@ -7589,7 +7589,7 @@ const cleanupHtml = (html) => {
     var _a;
     const dataCX = JSON.parse(link.getAttribute("data-cx") || "{}");
     if ((dataCX == null ? void 0 : dataCX.adapted) === false && ((_a = dataCX == null ? void 0 : dataCX.targetTitle) == null ? void 0 : _a.missing) !== true) {
-      link.replaceWith(link.innerHTML);
+      link.replaceWith(...link.childNodes);
     } else {
       ["data-linkid", "class", "title", "id"].forEach((attr) => {
         link.removeAttribute(attr);
