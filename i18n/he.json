@@ -144,7 +144,7 @@
 	"cx-contributions-upload": "העלאת מדיה",
 	"cx-contributions-new-article-tooltip": "כתיבת דף חדש",
 	"cx-contributions-translation-tooltip": "תרגום דפים קיימים",
-	"cx-contributions-upload-tooltip": "העלאת תמונות, אודיו ווידאו לדפים",
+	"cx-contributions-upload-tooltip": "העלאת תמונות, קובצי שמע או וידאו לשימוש בדפים",
 	"cx-publishing-dialog-message": "הדף $1 כבר קיים. התוכן הנוכחי יוחלף בתרגום שלך. האם {{GENDER:|אתה|את}} רוצה לפרסם אותו?",
 	"cx-publishing-dialog-keep-button": "לשמור את שתי הגרסאות",
 	"cx-publishing-dialog-publish-anyway-button": "לפרסם בכל־זאת",

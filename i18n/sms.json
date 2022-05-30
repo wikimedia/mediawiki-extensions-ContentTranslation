@@ -47,5 +47,6 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
 	"cx-translator-total-translations-label": "Õhttsa",
 	"cx-publish-settings": "Õlmstâʹttemasetõõzz",
-	"cx-publish-destination-namespace-main": "Ođđ seidd"
+	"cx-publish-destination-namespace-main": "Ođđ seidd",
+	"cx-sx-language-selector-dialog-title": "Ooʒʒ ǩiõl"
 }
