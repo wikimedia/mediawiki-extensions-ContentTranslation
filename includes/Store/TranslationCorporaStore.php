@@ -182,7 +182,7 @@ class TranslationCorporaStore {
 		$translationUnits = [];
 		$units = json_decode( $content, true );
 		foreach ( $units as $translationUnitData ) {
-			if ( !is_string( $translationUnitData['sectionId'] ) || !is_string( $translationUnitData['origin'] ) ) {
+			if ( !isset( $translationUnitData['sectionId'] ) || !is_string( $translationUnitData['origin'] ) ) {
 				throw new InvalidSectionDataException();
 			}
 
@@ -191,7 +191,7 @@ class TranslationCorporaStore {
 			$sequenceId = isset( $translationUnitData['sequenceId'] ) ? (int)$translationUnitData['sequenceId'] : null;
 			'@phan-var ?string $timestamp';
 			$translationUnits[] = new TranslationUnit(
-				$translationUnitData['sectionId'],
+				(string)$translationUnitData['sectionId'],
 				$translationUnitData['origin'],
 				$sequenceId,
 				(string)$translationUnitData['content'], // Content can be null in case translator clear the section.
