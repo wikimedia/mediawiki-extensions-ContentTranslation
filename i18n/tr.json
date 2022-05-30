@@ -79,7 +79,7 @@
 	"cx-source-loading": "$1 yükleniyor",
 	"cx-beta": "İçerik Çevirmeni",
 	"cx-beta-desc": "Başka dildeki sayfaları kendi dilinize kolayca çevirmek için bir araç. [[Special:MyContributions|Kendi katkı sayfanızdan]] çevirilere başlayabilir ve onları çeviri için özel olarak yan yana tasarlanmış düzenleme alanlarıyla düzenleyebilirsiniz. Bazı araçlar yalnızca belli dillerde kullanılabiliyor olabilir.",
-	"cx-entrypoint-title": "Bu sayfayı {{#ifeq:$1|Türkçe|Türkçeye|$1 diline}} çevir",
+	"cx-entrypoint-title": "Bu sayfayı $1 diline çevir",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Bu sayfa, henüz $1 dilinde mevcut değil. Oluşturmak ister misiniz?",
 	"cx-entrypoint-dialog-button-translate-from": "Bu dilden çevir: $1",
 	"cx-entrypoint-dialog-desc": "Bu sayfayı çevirerek Vikipedi'ye yardım edebilirsiniz. Çeviri yapmak, kendi dilinizde yeni içerik oluşturmanın kolay bir yoludur.",

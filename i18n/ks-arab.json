@@ -8,7 +8,7 @@
 	},
 	"cx": "صَفَس کٔرِو تَرجَمہٕ",
 	"cx-dashboard-header": "تَرجَمہٕ",
-	"cx-desc": "اَمہِ سٟتؠ چھِ صٲرِف اَکہِ زَبانہِ شایع مَواد بیٚیِس زَبانہِ مَنٛز [[Special:ContentTranslation|تَرجَمہٕ]] کٔرِتھ ہیکان۔",
+	"cx-desc": "اَمہِ سٟتؠ چھِ صٲرِف اَکہِ زَبانہِ مَنٛز شایع مَواد بیٚیِس زَبانہِ مَنٛز [[Special:ContentTranslation|تَرجَمہٕ]] کٔرِتھ ہیکان۔",
 	"cx-header-all-translations": "سٲری تَرجُمہٕ",
 	"cx-source-view-page": "صَفہٕ وُچھِو",
 	"cx-publish-button": "شایع",
@@ -22,5 +22,6 @@
 	"cx-publish-destination-namespace-main": "نۆو صَفہٕ",
 	"cx-sx-view-translation-anchor": "وُچھِو",
 	"cx-sx-existing-translation-learn-more": "مٔزیٖد وُچھِو",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|بییہٚ زٲنِیوٚ]]"
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality مذیٖد وُچھِو]",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "مٔزیٖد وُچھِو"
 }
