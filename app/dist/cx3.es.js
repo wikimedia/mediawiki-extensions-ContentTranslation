@@ -131,6 +131,11 @@ function looseEqual(a, b) {
   if (aValidType || bValidType) {
     return aValidType && bValidType ? a.getTime() === b.getTime() : false;
   }
+  aValidType = isSymbol(a);
+  bValidType = isSymbol(b);
+  if (aValidType || bValidType) {
+    return a === b;
+  }
   aValidType = isArray(a);
   bValidType = isArray(b);
   if (aValidType || bValidType) {
@@ -199,7 +204,7 @@ const hasOwn = (val, key) => hasOwnProperty.call(val, key);
 const isArray = Array.isArray;
 const isMap = (val) => toTypeString(val) === "[object Map]";
 const isSet = (val) => toTypeString(val) === "[object Set]";
-const isDate = (val) => val instanceof Date;
+const isDate = (val) => toTypeString(val) === "[object Date]";
 const isFunction = (val) => typeof val === "function";
 const isString = (val) => typeof val === "string";
 const isSymbol = (val) => typeof val === "symbol";
@@ -264,11 +269,12 @@ class EffectScope {
   }
   run(fn) {
     if (this.active) {
+      const currentEffectScope = activeEffectScope;
       try {
         activeEffectScope = this;
         return fn();
       } finally {
-        activeEffectScope = this.parent;
+        activeEffectScope = currentEffectScope;
       }
     }
   }
@@ -387,10 +393,15 @@ class ReactiveEffect {
       activeEffect = this.parent;
       shouldTrack = lastShouldTrack;
       this.parent = void 0;
+      if (this.deferStop) {
+        this.stop();
+      }
     }
   }
   stop() {
-    if (this.active) {
+    if (activeEffect === this) {
+      this.deferStop = true;
+    } else if (this.active) {
       cleanupEffect(this);
       if (this.onStop) {
         this.onStop();
@@ -509,18 +520,29 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
   }
 }
 function triggerEffects(dep, debuggerEventExtraInfo) {
-  for (const effect of isArray(dep) ? dep : [...dep]) {
-    if (effect !== activeEffect || effect.allowRecurse) {
-      if (effect.scheduler) {
-        effect.scheduler();
-      } else {
-        effect.run();
-      }
+  const effects = isArray(dep) ? dep : [...dep];
+  for (const effect of effects) {
+    if (effect.computed) {
+      triggerEffect(effect);
+    }
+  }
+  for (const effect of effects) {
+    if (!effect.computed) {
+      triggerEffect(effect);
+    }
+  }
+}
+function triggerEffect(effect, debuggerEventExtraInfo) {
+  if (effect !== activeEffect || effect.allowRecurse) {
+    if (effect.scheduler) {
+      effect.scheduler();
+    } else {
+      effect.run();
     }
   }
 }
 const isNonTrackableKeys = /* @__PURE__ */ makeMap(`__proto__,__v_isRef,__isVue`);
-const builtInSymbols = new Set(Object.getOwnPropertyNames(Symbol).map((key) => Symbol[key]).filter(isSymbol));
+const builtInSymbols = new Set(/* @__PURE__ */ Object.getOwnPropertyNames(Symbol).filter((key) => key !== "arguments" && key !== "caller").map((key) => Symbol[key]).filter(isSymbol));
 const get = /* @__PURE__ */ createGetter();
 const shallowGet = /* @__PURE__ */ createGetter(false, true);
 const readonlyGet = /* @__PURE__ */ createGetter(true);
@@ -577,8 +599,7 @@ function createGetter(isReadonly2 = false, shallow = false) {
       return res;
     }
     if (isRef(res)) {
-      const shouldUnwrap = !targetIsArray || !isIntegerKey(key);
-      return shouldUnwrap ? res.value : res;
+      return targetIsArray && isIntegerKey(key) ? res : res.value;
     }
     if (isObject$1(res)) {
       return isReadonly2 ? readonly(res) : reactive(res);
@@ -662,10 +683,12 @@ function get$1(target, key, isReadonly2 = false, isShallow2 = false) {
   target = target["__v_raw"];
   const rawTarget = toRaw(target);
   const rawKey = toRaw(key);
-  if (key !== rawKey) {
-    !isReadonly2 && track(rawTarget, "get", key);
+  if (!isReadonly2) {
+    if (key !== rawKey) {
+      track(rawTarget, "get", key);
+    }
+    track(rawTarget, "get", rawKey);
   }
-  !isReadonly2 && track(rawTarget, "get", rawKey);
   const { has: has2 } = getProto(rawTarget);
   const wrap = isShallow2 ? toShallow : isReadonly2 ? toReadonly : toReactive;
   if (has2.call(rawTarget, key)) {
@@ -680,10 +703,12 @@ function has$1(key, isReadonly2 = false) {
   const target = this["__v_raw"];
   const rawTarget = toRaw(target);
   const rawKey = toRaw(key);
-  if (key !== rawKey) {
-    !isReadonly2 && track(rawTarget, "has", key);
+  if (!isReadonly2) {
+    if (key !== rawKey) {
+      track(rawTarget, "has", key);
+    }
+    track(rawTarget, "has", rawKey);
   }
-  !isReadonly2 && track(rawTarget, "has", rawKey);
   return key === rawKey ? target.has(key) : target.has(key) || target.has(rawKey);
 }
 function size(target, isReadonly2 = false) {
@@ -1073,7 +1098,6 @@ function computed$1(getterOrOptions, debugOptions, isSSR = false) {
   const cRef = new ComputedRefImpl(getter, setter, onlyGetter || !setter, isSSR);
   return cRef;
 }
-Promise.resolve();
 function callWithErrorHandling(fn, instance, type, args) {
   let res;
   try {
@@ -1099,8 +1123,8 @@ function callWithAsyncErrorHandling(fn, instance, type, args) {
   }
   return values;
 }
-function handleError(err, instance, type, throwInDev = true) {
-  const contextVNode = instance ? instance.vnode : null;
+function handleError(err, instance, type, throwInDev) {
+  instance ? instance.vnode : null;
   if (instance) {
     let cur = instance.parent;
     const exposedInstance = instance.proxy;
@@ -1122,9 +1146,9 @@ function handleError(err, instance, type, throwInDev = true) {
       return;
     }
   }
-  logError(err, type, contextVNode, throwInDev);
+  logError(err);
 }
-function logError(err, type, contextVNode, throwInDev = true) {
+function logError(err, type, contextVNode, throwInDev) {
   {
     console.error(err);
   }
@@ -1139,7 +1163,7 @@ let preFlushIndex = 0;
 const pendingPostFlushCbs = [];
 let activePostFlushCbs = null;
 let postFlushIndex = 0;
-const resolvedPromise = Promise.resolve();
+const resolvedPromise = /* @__PURE__ */ Promise.resolve();
 let currentFlushPromise = null;
 let currentPreFlushParentJob = null;
 function nextTick(fn) {
@@ -1209,6 +1233,7 @@ function flushPreFlushCbs(seen, parentJob = null) {
   }
 }
 function flushPostFlushCbs(seen) {
+  flushPreFlushCbs();
   if (pendingPostFlushCbs.length) {
     const deduped = [...new Set(pendingPostFlushCbs)];
     pendingPostFlushCbs.length = 0;
@@ -1253,6 +1278,8 @@ function flushJobs(seen) {
   }
 }
 function emit$1(instance, event, ...rawArgs) {
+  if (instance.isUnmounted)
+    return;
   const props = instance.vnode.props || EMPTY_OBJ;
   let args = rawArgs;
   const isModelListener2 = event.startsWith("update:");
@@ -1262,7 +1289,8 @@ function emit$1(instance, event, ...rawArgs) {
     const { number, trim } = props[modifiersKey] || EMPTY_OBJ;
     if (trim) {
       args = rawArgs.map((a) => a.trim());
-    } else if (number) {
+    }
+    if (number) {
       args = rawArgs.map(toNumber);
     }
   }
@@ -1407,6 +1435,7 @@ function renderComponentRoot(instance) {
     }
   }
   if (vnode.dirs) {
+    root = cloneVNode(root);
     root.dirs = root.dirs ? root.dirs.concat(vnode.dirs) : vnode.dirs;
   }
   if (vnode.transition) {
@@ -1552,7 +1581,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EM
     deep = true;
   } else if (isArray(source)) {
     isMultiSource = true;
-    forceTrigger = source.some(isReactive);
+    forceTrigger = source.some((s) => isReactive(s) || isShallow(s));
     getter = () => source.map((s) => {
       if (isRef(s)) {
         return s.value;
@@ -1632,13 +1661,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EM
   } else if (flush === "post") {
     scheduler = () => queuePostRenderEffect(job, instance && instance.suspense);
   } else {
-    scheduler = () => {
-      if (!instance || instance.isMounted) {
-        queuePreFlushCb(job);
-      } else {
-        job();
-      }
-    };
+    scheduler = () => queuePreFlushCb(job);
   }
   const effect = new ReactiveEffect(getter, scheduler);
   if (cb) {
@@ -1759,9 +1782,17 @@ const BaseTransitionImpl = {
       if (!children || !children.length) {
         return;
       }
+      let child = children[0];
+      if (children.length > 1) {
+        for (const c of children) {
+          if (c.type !== Comment) {
+            child = c;
+            break;
+          }
+        }
+      }
       const rawProps = toRaw(props);
       const { mode } = rawProps;
-      const child = children[0];
       if (state2.isLeaving) {
         return emptyPlaceholder(child);
       }
@@ -1828,6 +1859,16 @@ function resolveTransitionHooks(vnode, props, state2, instance) {
   const callHook2 = (hook, args) => {
     hook && callWithAsyncErrorHandling(hook, instance, 9, args);
   };
+  const callAsyncHook = (hook, args) => {
+    const done = args[1];
+    callHook2(hook, args);
+    if (isArray(hook)) {
+      if (hook.every((hook2) => hook2.length <= 1))
+        done();
+    } else if (hook.length <= 1) {
+      done();
+    }
+  };
   const hooks = {
     mode,
     persisted,
@@ -1878,10 +1919,7 @@ function resolveTransitionHooks(vnode, props, state2, instance) {
         el._enterCb = void 0;
       };
       if (hook) {
-        hook(el, done);
-        if (hook.length <= 1) {
-          done();
-        }
+        callAsyncHook(hook, [el, done]);
       } else {
         done();
       }
@@ -1913,10 +1951,7 @@ function resolveTransitionHooks(vnode, props, state2, instance) {
       };
       leavingVNodesCache[key2] = vnode;
       if (onLeave) {
-        onLeave(el, done);
-        if (onLeave.length <= 1) {
-          done();
-        }
+        callAsyncHook(onLeave, [el, done]);
       } else {
         done();
       }
@@ -1947,17 +1982,18 @@ function setTransitionHooks(vnode, hooks) {
     vnode.transition = hooks;
   }
 }
-function getTransitionRawChildren(children, keepComment = false) {
+function getTransitionRawChildren(children, keepComment = false, parentKey) {
   let ret = [];
   let keyedFragmentCount = 0;
   for (let i = 0; i < children.length; i++) {
-    const child = children[i];
+    let child = children[i];
+    const key = parentKey == null ? child.key : String(parentKey) + String(child.key != null ? child.key : i);
     if (child.type === Fragment) {
       if (child.patchFlag & 128)
         keyedFragmentCount++;
-      ret = ret.concat(getTransitionRawChildren(child.children, keepComment));
+      ret = ret.concat(getTransitionRawChildren(child.children, keepComment, key));
     } else if (keepComment || child.type !== Comment) {
-      ret.push(child);
+      ret.push(key != null ? cloneVNode(child, { key }) : child);
     }
   }
   if (keyedFragmentCount > 1) {
@@ -2041,6 +2077,262 @@ const onRenderTracked = createHook("rtc");
 function onErrorCaptured(hook, target = currentInstance) {
   injectHook("ec", hook, target);
 }
+function withDirectives(vnode, directives) {
+  const internalInstance = currentRenderingInstance;
+  if (internalInstance === null) {
+    return vnode;
+  }
+  const instance = getExposeProxy(internalInstance) || internalInstance.proxy;
+  const bindings = vnode.dirs || (vnode.dirs = []);
+  for (let i = 0; i < directives.length; i++) {
+    let [dir, value, arg, modifiers = EMPTY_OBJ] = directives[i];
+    if (isFunction(dir)) {
+      dir = {
+        mounted: dir,
+        updated: dir
+      };
+    }
+    if (dir.deep) {
+      traverse(value);
+    }
+    bindings.push({
+      dir,
+      instance,
+      value,
+      oldValue: void 0,
+      arg,
+      modifiers
+    });
+  }
+  return vnode;
+}
+function invokeDirectiveHook(vnode, prevVNode, instance, name) {
+  const bindings = vnode.dirs;
+  const oldBindings = prevVNode && prevVNode.dirs;
+  for (let i = 0; i < bindings.length; i++) {
+    const binding = bindings[i];
+    if (oldBindings) {
+      binding.oldValue = oldBindings[i].value;
+    }
+    let hook = binding.dir[name];
+    if (hook) {
+      pauseTracking();
+      callWithAsyncErrorHandling(hook, instance, 8, [
+        vnode.el,
+        binding,
+        vnode,
+        prevVNode
+      ]);
+      resetTracking();
+    }
+  }
+}
+const COMPONENTS = "components";
+const DIRECTIVES = "directives";
+function resolveComponent(name, maybeSelfReference) {
+  return resolveAsset(COMPONENTS, name, true, maybeSelfReference) || name;
+}
+const NULL_DYNAMIC_COMPONENT = Symbol();
+function resolveDynamicComponent(component) {
+  if (isString(component)) {
+    return resolveAsset(COMPONENTS, component) || component;
+  } else {
+    return component || NULL_DYNAMIC_COMPONENT;
+  }
+}
+function resolveDirective(name) {
+  return resolveAsset(DIRECTIVES, name);
+}
+function resolveAsset(type, name, warnMissing, maybeSelfReference = false) {
+  const instance = currentRenderingInstance || currentInstance;
+  if (instance) {
+    const Component = instance.type;
+    if (type === COMPONENTS) {
+      const selfName = getComponentName(Component);
+      if (selfName && (selfName === name || selfName === camelize(name) || selfName === capitalize(camelize(name)))) {
+        return Component;
+      }
+    }
+    const res = resolve(instance[type] || Component[type], name) || resolve(instance.appContext[type], name);
+    if (!res && maybeSelfReference) {
+      return Component;
+    }
+    return res;
+  }
+}
+function resolve(registry, name) {
+  return registry && (registry[name] || registry[camelize(name)] || registry[capitalize(camelize(name))]);
+}
+function renderList(source, renderItem, cache, index) {
+  let ret;
+  const cached = cache && cache[index];
+  if (isArray(source) || isString(source)) {
+    ret = new Array(source.length);
+    for (let i = 0, l = source.length; i < l; i++) {
+      ret[i] = renderItem(source[i], i, void 0, cached && cached[i]);
+    }
+  } else if (typeof source === "number") {
+    ret = new Array(source);
+    for (let i = 0; i < source; i++) {
+      ret[i] = renderItem(i + 1, i, void 0, cached && cached[i]);
+    }
+  } else if (isObject$1(source)) {
+    if (source[Symbol.iterator]) {
+      ret = Array.from(source, (item, i) => renderItem(item, i, void 0, cached && cached[i]));
+    } else {
+      const keys = Object.keys(source);
+      ret = new Array(keys.length);
+      for (let i = 0, l = keys.length; i < l; i++) {
+        const key = keys[i];
+        ret[i] = renderItem(source[key], key, i, cached && cached[i]);
+      }
+    }
+  } else {
+    ret = [];
+  }
+  if (cache) {
+    cache[index] = ret;
+  }
+  return ret;
+}
+function renderSlot(slots, name, props = {}, fallback, noSlotted) {
+  if (currentRenderingInstance.isCE || currentRenderingInstance.parent && isAsyncWrapper(currentRenderingInstance.parent) && currentRenderingInstance.parent.isCE) {
+    return createVNode("slot", name === "default" ? null : { name }, fallback && fallback());
+  }
+  let slot = slots[name];
+  if (slot && slot._c) {
+    slot._d = false;
+  }
+  openBlock();
+  const validSlotContent = slot && ensureValidVNode(slot(props));
+  const rendered = createBlock(Fragment, { key: props.key || `_${name}` }, validSlotContent || (fallback ? fallback() : []), validSlotContent && slots._ === 1 ? 64 : -2);
+  if (!noSlotted && rendered.scopeId) {
+    rendered.slotScopeIds = [rendered.scopeId + "-s"];
+  }
+  if (slot && slot._c) {
+    slot._d = true;
+  }
+  return rendered;
+}
+function ensureValidVNode(vnodes) {
+  return vnodes.some((child) => {
+    if (!isVNode(child))
+      return true;
+    if (child.type === Comment)
+      return false;
+    if (child.type === Fragment && !ensureValidVNode(child.children))
+      return false;
+    return true;
+  }) ? vnodes : null;
+}
+const getPublicInstance = (i) => {
+  if (!i)
+    return null;
+  if (isStatefulComponent(i))
+    return getExposeProxy(i) || i.proxy;
+  return getPublicInstance(i.parent);
+};
+const publicPropertiesMap = /* @__PURE__ */ extend(/* @__PURE__ */ Object.create(null), {
+  $: (i) => i,
+  $el: (i) => i.vnode.el,
+  $data: (i) => i.data,
+  $props: (i) => i.props,
+  $attrs: (i) => i.attrs,
+  $slots: (i) => i.slots,
+  $refs: (i) => i.refs,
+  $parent: (i) => getPublicInstance(i.parent),
+  $root: (i) => getPublicInstance(i.root),
+  $emit: (i) => i.emit,
+  $options: (i) => resolveMergedOptions(i),
+  $forceUpdate: (i) => i.f || (i.f = () => queueJob(i.update)),
+  $nextTick: (i) => i.n || (i.n = nextTick.bind(i.proxy)),
+  $watch: (i) => instanceWatch.bind(i)
+});
+const PublicInstanceProxyHandlers = {
+  get({ _: instance }, key) {
+    const { ctx, setupState, data, props, accessCache, type, appContext } = instance;
+    let normalizedProps;
+    if (key[0] !== "$") {
+      const n = accessCache[key];
+      if (n !== void 0) {
+        switch (n) {
+          case 1:
+            return setupState[key];
+          case 2:
+            return data[key];
+          case 4:
+            return ctx[key];
+          case 3:
+            return props[key];
+        }
+      } else if (setupState !== EMPTY_OBJ && hasOwn(setupState, key)) {
+        accessCache[key] = 1;
+        return setupState[key];
+      } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
+        accessCache[key] = 2;
+        return data[key];
+      } else if ((normalizedProps = instance.propsOptions[0]) && hasOwn(normalizedProps, key)) {
+        accessCache[key] = 3;
+        return props[key];
+      } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
+        accessCache[key] = 4;
+        return ctx[key];
+      } else if (shouldCacheAccess) {
+        accessCache[key] = 0;
+      }
+    }
+    const publicGetter = publicPropertiesMap[key];
+    let cssModule, globalProperties;
+    if (publicGetter) {
+      if (key === "$attrs") {
+        track(instance, "get", key);
+      }
+      return publicGetter(instance);
+    } else if ((cssModule = type.__cssModules) && (cssModule = cssModule[key])) {
+      return cssModule;
+    } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
+      accessCache[key] = 4;
+      return ctx[key];
+    } else if (globalProperties = appContext.config.globalProperties, hasOwn(globalProperties, key)) {
+      {
+        return globalProperties[key];
+      }
+    } else
+      ;
+  },
+  set({ _: instance }, key, value) {
+    const { data, setupState, ctx } = instance;
+    if (setupState !== EMPTY_OBJ && hasOwn(setupState, key)) {
+      setupState[key] = value;
+      return true;
+    } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
+      data[key] = value;
+      return true;
+    } else if (hasOwn(instance.props, key)) {
+      return false;
+    }
+    if (key[0] === "$" && key.slice(1) in instance) {
+      return false;
+    } else {
+      {
+        ctx[key] = value;
+      }
+    }
+    return true;
+  },
+  has({ _: { data, setupState, accessCache, ctx, appContext, propsOptions } }, key) {
+    let normalizedProps;
+    return !!accessCache[key] || data !== EMPTY_OBJ && hasOwn(data, key) || setupState !== EMPTY_OBJ && hasOwn(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
+  },
+  defineProperty(target, key, descriptor) {
+    if (descriptor.get != null) {
+      target._.accessCache[key] = 0;
+    } else if (hasOwn(descriptor, "value")) {
+      this.set(target, key, descriptor.value, null);
+    }
+    return Reflect.defineProperty(target, key, descriptor);
+  }
+};
 let shouldCacheAccess = true;
 function applyOptions(instance) {
   const options = resolveMergedOptions(instance);
@@ -2176,7 +2468,7 @@ function applyOptions(instance) {
   if (directives)
     instance.directives = directives;
 }
-function resolveInjections(injectOptions, ctx, checkDuplicateProperties = NOOP, unwrapRef = false) {
+function resolveInjections(injectOptions, ctx, checkDuplicateProperties, unwrapRef = false) {
   if (isArray(injectOptions)) {
     injectOptions = normalizeInject(injectOptions);
   }
@@ -2371,6 +2663,9 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
       const propsToUpdate = instance.vnode.dynamicProps;
       for (let i = 0; i < propsToUpdate.length; i++) {
         let key = propsToUpdate[i];
+        if (isEmitListener(instance.emitsOptions, key)) {
+          continue;
+        }
         const value = rawProps[key];
         if (options) {
           if (hasOwn(attrs, key)) {
@@ -2568,6 +2863,9 @@ function getTypeIndex(type, expectedTypes) {
 const isInternalKey = (key) => key[0] === "_" || key === "$stable";
 const normalizeSlotValue = (value) => isArray(value) ? value.map(normalizeVNode) : [normalizeVNode(value)];
 const normalizeSlot$1 = (key, rawSlot, ctx) => {
+  if (rawSlot._n) {
+    return rawSlot;
+  }
   const normalized = withCtx((...args) => {
     return normalizeSlotValue(rawSlot(...args));
   }, ctx);
@@ -2641,56 +2939,6 @@ const updateSlots = (instance, children, optimized) => {
     }
   }
 };
-function withDirectives(vnode, directives) {
-  const internalInstance = currentRenderingInstance;
-  if (internalInstance === null) {
-    return vnode;
-  }
-  const instance = internalInstance.proxy;
-  const bindings = vnode.dirs || (vnode.dirs = []);
-  for (let i = 0; i < directives.length; i++) {
-    let [dir, value, arg, modifiers = EMPTY_OBJ] = directives[i];
-    if (isFunction(dir)) {
-      dir = {
-        mounted: dir,
-        updated: dir
-      };
-    }
-    if (dir.deep) {
-      traverse(value);
-    }
-    bindings.push({
-      dir,
-      instance,
-      value,
-      oldValue: void 0,
-      arg,
-      modifiers
-    });
-  }
-  return vnode;
-}
-function invokeDirectiveHook(vnode, prevVNode, instance, name) {
-  const bindings = vnode.dirs;
-  const oldBindings = prevVNode && prevVNode.dirs;
-  for (let i = 0; i < bindings.length; i++) {
-    const binding = bindings[i];
-    if (oldBindings) {
-      binding.oldValue = oldBindings[i].value;
-    }
-    let hook = binding.dir[name];
-    if (hook) {
-      pauseTracking();
-      callWithAsyncErrorHandling(hook, instance, 8, [
-        vnode.el,
-        binding,
-        vnode,
-        prevVNode
-      ]);
-      resetTracking();
-    }
-  }
-}
 function createAppContext() {
   return {
     app: null,
@@ -2715,6 +2963,9 @@ function createAppContext() {
 let uid = 0;
 function createAppAPI(render, hydrate) {
   return function createApp2(rootComponent, rootProps = null) {
+    if (!isFunction(rootComponent)) {
+      rootComponent = Object.assign({}, rootComponent);
+    }
     if (rootProps != null && !isObject$1(rootProps)) {
       rootProps = null;
     }
@@ -2837,6 +3088,9 @@ function setRef(rawRef, oldRawRef, parentSuspense, vnode, isUnmount = false) {
             if (!isArray(existing)) {
               if (_isString) {
                 refs[ref2] = [refValue];
+                if (hasOwn(setupState, ref2)) {
+                  setupState[ref2] = refs[ref2];
+                }
               } else {
                 ref2.value = [refValue];
                 if (rawRef.k)
@@ -3191,7 +3445,6 @@ function baseCreateRenderer(options, createHydrationFns) {
         instance.update();
       }
     } else {
-      n2.component = n1.component;
       n2.el = n1.el;
       instance.vnode = n2;
     }
@@ -3233,7 +3486,7 @@ function baseCreateRenderer(options, createHydrationFns) {
           const scopedInitialVNode = initialVNode;
           queuePostRenderEffect(() => invokeVNodeHook(vnodeHook, parent, scopedInitialVNode), parentSuspense);
         }
-        if (initialVNode.shapeFlag & 256) {
+        if (initialVNode.shapeFlag & 256 || parent && isAsyncWrapper(parent.vnode) && parent.vnode.shapeFlag & 256) {
           instance.a && queuePostRenderEffect(instance.a, parentSuspense);
         }
         instance.isMounted = true;
@@ -3272,8 +3525,8 @@ function baseCreateRenderer(options, createHydrationFns) {
         }
       }
     };
-    const effect = instance.effect = new ReactiveEffect(componentUpdateFn, () => queueJob(instance.update), instance.scope);
-    const update3 = instance.update = effect.run.bind(effect);
+    const effect = instance.effect = new ReactiveEffect(componentUpdateFn, () => queueJob(update3), instance.scope);
+    const update3 = instance.update = () => effect.run();
     update3.id = instance.uid;
     toggleRecurse(instance, true);
     update3();
@@ -3547,7 +3800,9 @@ function baseCreateRenderer(options, createHydrationFns) {
   const remove2 = (vnode) => {
     const { type, el, anchor, transition } = vnode;
     if (type === Fragment) {
-      removeFragment(el, anchor);
+      {
+        removeFragment(el, anchor);
+      }
       return;
     }
     if (type === Static) {
@@ -3714,42 +3969,6 @@ function getSequence(arr) {
   return result;
 }
 const isTeleport = (type) => type.__isTeleport;
-const COMPONENTS = "components";
-const DIRECTIVES = "directives";
-function resolveComponent(name, maybeSelfReference) {
-  return resolveAsset(COMPONENTS, name, true, maybeSelfReference) || name;
-}
-const NULL_DYNAMIC_COMPONENT = Symbol();
-function resolveDynamicComponent(component) {
-  if (isString(component)) {
-    return resolveAsset(COMPONENTS, component, false) || component;
-  } else {
-    return component || NULL_DYNAMIC_COMPONENT;
-  }
-}
-function resolveDirective(name) {
-  return resolveAsset(DIRECTIVES, name);
-}
-function resolveAsset(type, name, warnMissing = true, maybeSelfReference = false) {
-  const instance = currentRenderingInstance || currentInstance;
-  if (instance) {
-    const Component = instance.type;
-    if (type === COMPONENTS) {
-      const selfName = getComponentName(Component);
-      if (selfName && (selfName === name || selfName === camelize(name) || selfName === capitalize(camelize(name)))) {
-        return Component;
-      }
-    }
-    const res = resolve(instance[type] || Component[type], name) || resolve(instance.appContext[type], name);
-    if (!res && maybeSelfReference) {
-      return Component;
-    }
-    return res;
-  }
-}
-function resolve(registry, name) {
-  return registry && (registry[name] || registry[camelize(name)] || registry[capitalize(camelize(name))]);
-}
 const Fragment = Symbol(void 0);
 const Text = Symbol(void 0);
 const Comment = Symbol(void 0);
@@ -3843,6 +4062,14 @@ function _createVNode(type, props = null, children = null, patchFlag = 0, dynami
     if (children) {
       normalizeChildren(cloned, children);
     }
+    if (isBlockTreeEnabled > 0 && !isBlockNode && currentBlock) {
+      if (cloned.shapeFlag & 6) {
+        currentBlock[currentBlock.indexOf(type)] = cloned;
+      } else {
+        currentBlock.push(cloned);
+      }
+    }
+    cloned.patchFlag |= -2;
     return cloned;
   }
   if (isClassComponent(type)) {
@@ -3904,7 +4131,7 @@ function cloneVNode(vnode, extraProps, mergeRef = false) {
 function createTextVNode(text = " ", flag = 0) {
   return createVNode(Text, null, text, flag);
 }
-function createCommentVNode(text = "", asBlock = false) {
+function createCommentVNode(text, asBlock) {
   return asBlock ? (openBlock(), createBlock(Comment, null, text)) : createVNode(Comment, null, text);
 }
 function normalizeVNode(child) {
@@ -3996,176 +4223,6 @@ function invokeVNodeHook(hook, instance, vnode, prevVNode = null) {
     prevVNode
   ]);
 }
-function renderList(source, renderItem, cache, index) {
-  let ret;
-  const cached = cache && cache[index];
-  if (isArray(source) || isString(source)) {
-    ret = new Array(source.length);
-    for (let i = 0, l = source.length; i < l; i++) {
-      ret[i] = renderItem(source[i], i, void 0, cached && cached[i]);
-    }
-  } else if (typeof source === "number") {
-    ret = new Array(source);
-    for (let i = 0; i < source; i++) {
-      ret[i] = renderItem(i + 1, i, void 0, cached && cached[i]);
-    }
-  } else if (isObject$1(source)) {
-    if (source[Symbol.iterator]) {
-      ret = Array.from(source, (item, i) => renderItem(item, i, void 0, cached && cached[i]));
-    } else {
-      const keys = Object.keys(source);
-      ret = new Array(keys.length);
-      for (let i = 0, l = keys.length; i < l; i++) {
-        const key = keys[i];
-        ret[i] = renderItem(source[key], key, i, cached && cached[i]);
-      }
-    }
-  } else {
-    ret = [];
-  }
-  if (cache) {
-    cache[index] = ret;
-  }
-  return ret;
-}
-function renderSlot(slots, name, props = {}, fallback, noSlotted) {
-  if (currentRenderingInstance.isCE) {
-    return createVNode("slot", name === "default" ? null : { name }, fallback && fallback());
-  }
-  let slot = slots[name];
-  if (slot && slot._c) {
-    slot._d = false;
-  }
-  openBlock();
-  const validSlotContent = slot && ensureValidVNode(slot(props));
-  const rendered = createBlock(Fragment, { key: props.key || `_${name}` }, validSlotContent || (fallback ? fallback() : []), validSlotContent && slots._ === 1 ? 64 : -2);
-  if (!noSlotted && rendered.scopeId) {
-    rendered.slotScopeIds = [rendered.scopeId + "-s"];
-  }
-  if (slot && slot._c) {
-    slot._d = true;
-  }
-  return rendered;
-}
-function ensureValidVNode(vnodes) {
-  return vnodes.some((child) => {
-    if (!isVNode(child))
-      return true;
-    if (child.type === Comment)
-      return false;
-    if (child.type === Fragment && !ensureValidVNode(child.children))
-      return false;
-    return true;
-  }) ? vnodes : null;
-}
-const getPublicInstance = (i) => {
-  if (!i)
-    return null;
-  if (isStatefulComponent(i))
-    return getExposeProxy(i) || i.proxy;
-  return getPublicInstance(i.parent);
-};
-const publicPropertiesMap = extend(/* @__PURE__ */ Object.create(null), {
-  $: (i) => i,
-  $el: (i) => i.vnode.el,
-  $data: (i) => i.data,
-  $props: (i) => i.props,
-  $attrs: (i) => i.attrs,
-  $slots: (i) => i.slots,
-  $refs: (i) => i.refs,
-  $parent: (i) => getPublicInstance(i.parent),
-  $root: (i) => getPublicInstance(i.root),
-  $emit: (i) => i.emit,
-  $options: (i) => resolveMergedOptions(i),
-  $forceUpdate: (i) => () => queueJob(i.update),
-  $nextTick: (i) => nextTick.bind(i.proxy),
-  $watch: (i) => instanceWatch.bind(i)
-});
-const PublicInstanceProxyHandlers = {
-  get({ _: instance }, key) {
-    const { ctx, setupState, data, props, accessCache, type, appContext } = instance;
-    let normalizedProps;
-    if (key[0] !== "$") {
-      const n = accessCache[key];
-      if (n !== void 0) {
-        switch (n) {
-          case 1:
-            return setupState[key];
-          case 2:
-            return data[key];
-          case 4:
-            return ctx[key];
-          case 3:
-            return props[key];
-        }
-      } else if (setupState !== EMPTY_OBJ && hasOwn(setupState, key)) {
-        accessCache[key] = 1;
-        return setupState[key];
-      } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
-        accessCache[key] = 2;
-        return data[key];
-      } else if ((normalizedProps = instance.propsOptions[0]) && hasOwn(normalizedProps, key)) {
-        accessCache[key] = 3;
-        return props[key];
-      } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
-        accessCache[key] = 4;
-        return ctx[key];
-      } else if (shouldCacheAccess) {
-        accessCache[key] = 0;
-      }
-    }
-    const publicGetter = publicPropertiesMap[key];
-    let cssModule, globalProperties;
-    if (publicGetter) {
-      if (key === "$attrs") {
-        track(instance, "get", key);
-      }
-      return publicGetter(instance);
-    } else if ((cssModule = type.__cssModules) && (cssModule = cssModule[key])) {
-      return cssModule;
-    } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
-      accessCache[key] = 4;
-      return ctx[key];
-    } else if (globalProperties = appContext.config.globalProperties, hasOwn(globalProperties, key)) {
-      {
-        return globalProperties[key];
-      }
-    } else
-      ;
-  },
-  set({ _: instance }, key, value) {
-    const { data, setupState, ctx } = instance;
-    if (setupState !== EMPTY_OBJ && hasOwn(setupState, key)) {
-      setupState[key] = value;
-      return true;
-    } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
-      data[key] = value;
-      return true;
-    } else if (hasOwn(instance.props, key)) {
-      return false;
-    }
-    if (key[0] === "$" && key.slice(1) in instance) {
-      return false;
-    } else {
-      {
-        ctx[key] = value;
-      }
-    }
-    return true;
-  },
-  has({ _: { data, setupState, accessCache, ctx, appContext, propsOptions } }, key) {
-    let normalizedProps;
-    return !!accessCache[key] || data !== EMPTY_OBJ && hasOwn(data, key) || setupState !== EMPTY_OBJ && hasOwn(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
-  },
-  defineProperty(target, key, descriptor) {
-    if (descriptor.get != null) {
-      this.set(target, key, descriptor.get(), null);
-    } else if (descriptor.value != null) {
-      this.set(target, key, descriptor.value, null);
-    }
-    return Reflect.defineProperty(target, key, descriptor);
-  }
-};
 const emptyAppContext = createAppContext();
 let uid$1 = 0;
 function createComponentInstance(vnode, parent, suspense) {
@@ -4398,10 +4455,10 @@ function h(type, propsOrChildren, children) {
     return createVNode(type, propsOrChildren, children);
   }
 }
-const version = "3.2.31";
+const version = "3.2.36";
 const svgNS = "http://www.w3.org/2000/svg";
 const doc = typeof document !== "undefined" ? document : null;
-const templateContainer = doc && doc.createElement("template");
+const templateContainer = doc && /* @__PURE__ */ doc.createElement("template");
 const nodeOps = {
   insert: (child, parent, anchor) => {
     parent.insertBefore(child, anchor || null);
@@ -4512,6 +4569,8 @@ function setStyle(style, name, val) {
   if (isArray(val)) {
     val.forEach((v) => setStyle(style, name, v));
   } else {
+    if (val == null)
+      val = "";
     if (name.startsWith("--")) {
       style.setProperty(name, val);
     } else {
@@ -4580,40 +4639,39 @@ function patchDOMProp(el, key, value, prevChildren, parentComponent, parentSuspe
     }
     return;
   }
+  let needRemove = false;
   if (value === "" || value == null) {
     const type = typeof el[key];
     if (type === "boolean") {
-      el[key] = includeBooleanAttr(value);
-      return;
+      value = includeBooleanAttr(value);
     } else if (value == null && type === "string") {
-      el[key] = "";
-      el.removeAttribute(key);
-      return;
+      value = "";
+      needRemove = true;
     } else if (type === "number") {
-      try {
-        el[key] = 0;
-      } catch (_a) {
-      }
-      el.removeAttribute(key);
-      return;
+      value = 0;
+      needRemove = true;
     }
   }
   try {
     el[key] = value;
   } catch (e) {
   }
+  needRemove && el.removeAttribute(key);
 }
-let _getNow = Date.now;
-let skipTimestampCheck = false;
-if (typeof window !== "undefined") {
-  if (_getNow() > document.createEvent("Event").timeStamp) {
-    _getNow = () => performance.now();
+const [_getNow, skipTimestampCheck] = /* @__PURE__ */ (() => {
+  let _getNow2 = Date.now;
+  let skipTimestampCheck2 = false;
+  if (typeof window !== "undefined") {
+    if (Date.now() > document.createEvent("Event").timeStamp) {
+      _getNow2 = performance.now.bind(performance);
+    }
+    const ffMatch = navigator.userAgent.match(/firefox\/(\d+)/i);
+    skipTimestampCheck2 = !!(ffMatch && Number(ffMatch[1]) <= 53);
   }
-  const ffMatch = navigator.userAgent.match(/firefox\/(\d+)/i);
-  skipTimestampCheck = !!(ffMatch && Number(ffMatch[1]) <= 53);
-}
+  return [_getNow2, skipTimestampCheck2];
+})();
 let cachedNow = 0;
-const p = Promise.resolve();
+const p = /* @__PURE__ */ Promise.resolve();
 const reset = () => {
   cachedNow = 0;
 };
@@ -4707,7 +4765,7 @@ function shouldSetAsProp(el, key, value, isSVG) {
     }
     return false;
   }
-  if (key === "spellcheck" || key === "draggable") {
+  if (key === "spellcheck" || key === "draggable" || key === "translate") {
     return false;
   }
   if (key === "form") {
@@ -4747,7 +4805,7 @@ const DOMTransitionPropsValidators = {
   leaveToClass: String
 };
 Transition.props = /* @__PURE__ */ extend({}, BaseTransition.props, DOMTransitionPropsValidators);
-const callHook = (hook, args = []) => {
+const callHook = (hook, args) => {
   if (isArray(hook)) {
     hook.forEach((h2) => h2(...args));
   } else if (hook) {
@@ -4778,6 +4836,8 @@ function resolveTransitionProps(rawProps) {
     done && done();
   };
   const finishLeave = (el, done) => {
+    el._isLeaving = false;
+    removeTransitionClass(el, leaveFromClass);
     removeTransitionClass(el, leaveToClass);
     removeTransitionClass(el, leaveActiveClass);
     done && done();
@@ -4810,11 +4870,15 @@ function resolveTransitionProps(rawProps) {
     onEnter: makeEnterHook(false),
     onAppear: makeEnterHook(true),
     onLeave(el, done) {
+      el._isLeaving = true;
       const resolve2 = () => finishLeave(el, done);
       addTransitionClass(el, leaveFromClass);
       forceReflow();
       addTransitionClass(el, leaveActiveClass);
       nextFrame(() => {
+        if (!el._isLeaving) {
+          return;
+        }
         removeTransitionClass(el, leaveFromClass);
         addTransitionClass(el, leaveToClass);
         if (!hasExplicitCallback(onLeave)) {
@@ -4953,7 +5017,7 @@ function forceReflow() {
   return document.body.offsetHeight;
 }
 const getModelAssigner = (vnode) => {
-  const fn = vnode.props["onUpdate:modelValue"];
+  const fn = vnode.props["onUpdate:modelValue"] || false;
   return isArray(fn) ? (value) => invokeArrayFns(fn, value) : fn;
 };
 const vModelRadio = {
@@ -5056,7 +5120,7 @@ const vShow = {
 function setDisplay(el, value) {
   el.style.display = value ? el._vod : "none";
 }
-const rendererOptions = extend({ patchProp }, nodeOps);
+const rendererOptions = /* @__PURE__ */ extend({ patchProp }, nodeOps);
 let renderer;
 function ensureRenderer() {
   return renderer || (renderer = createRenderer(rendererOptions));
@@ -7808,7 +7872,7 @@ function fetchSegmentTranslation(sourceLanguage, targetLanguage, provider, sente
       body: JSON.stringify({ html: `<div>${sentence}</div>` })
     }).then((response) => response.json()).then((data) => {
       var _a, _b;
-      const regExp = /<div>(?<content>(.|\s)*)<\/div>/;
+      const regExp = new RegExp("<div>(?<content>(.|\\s)*)<\\/div>");
       return (_b = (_a = regExp.exec(data.contents)) == null ? void 0 : _a.groups) == null ? void 0 : _b.content;
     }).catch((error) => Promise.reject(error));
   });
@@ -8190,7 +8254,7 @@ class FavoriteSuggestion {
   }
 }
 const appendixSectionTitlesInEnglish = en;
-function fetchPageSuggestions(sourceLanguage, targetLanguage, seedArticleTitle, count = 24) {
+function fetchPageSuggestions(sourceLanguage, targetLanguage, seedArticleTitle, count) {
   return __async(this, null, function* () {
     var _a;
     let apiModule = `/data/recommendation/article/creation/translation/${sourceLanguage}`;
@@ -9831,7 +9895,7 @@ var store = createStore({
   modules: { translator, suggestions, mediawiki, application }
 });
 /*!
-  * vue-router v4.0.14
+  * vue-router v4.0.15
   * (c) 2022 Eduardo San Martin Morote
   * @license MIT
   */
@@ -10310,7 +10374,7 @@ function tokensToParser(segments, extraOptions) {
           const text = Array.isArray(param) ? param.join("/") : param;
           if (!text) {
             if (optional) {
-              if (segment.length < 2) {
+              if (segment.length < 2 && segments.length > 1) {
                 if (path.endsWith("/"))
                   path = path.slice(0, -1);
                 else
@@ -10973,6 +11037,7 @@ const RouterViewImpl = /* @__PURE__ */ defineComponent({
     },
     route: Object
   },
+  compatConfig: { MODE: 3 },
   setup(props, { attrs, slots }) {
     const injectedRoute = inject(routerViewLocationKey);
     const routeToDisplay = computed(() => props.route || injectedRoute.value);
@@ -11266,6 +11331,8 @@ function createRouter(options) {
   }
   let removeHistoryListener;
   function setupListeners() {
+    if (removeHistoryListener)
+      return;
     removeHistoryListener = routerHistory.listen((to, _from, info) => {
       const toLocation = resolve2(to);
       const shouldRedirect = handleRedirectRecord(toLocation);
@@ -11391,6 +11458,7 @@ function createRouter(options) {
         if (installedApps.size < 1) {
           pendingLocation = START_LOCATION_NORMALIZED;
           removeHistoryListener && removeHistoryListener();
+          removeHistoryListener = null;
           currentRoute.value = START_LOCATION_NORMALIZED;
           started = false;
           ready = false;
@@ -12088,6 +12156,13 @@ const languages = {
     ],
     "\u1A05\u1A14 \u1A15\u1A18\u1A01\u1A17"
   ],
+  bum: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "bulu"
+  ],
   bxr: [
     "Cyrl",
     [
@@ -12479,6 +12554,13 @@ const languages = {
     ],
     "e\u028Begbe"
   ],
+  efi: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "efik"
+  ],
   egl: [
     "Latn",
     [
@@ -12635,6 +12717,13 @@ const languages = {
     ],
     "Fa\u014B"
   ],
+  fat: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "mfantse"
+  ],
   fax: [
     "Latn",
     [
@@ -12740,6 +12829,13 @@ const languages = {
       "EU"
     ],
     "furlan"
+  ],
+  fvr: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "poor\u2019\xED\u014B bel\xE9\u2019\u014B"
   ],
   fy: [
     "Latn",
@@ -13375,6 +13471,13 @@ const languages = {
     ],
     "kabuverdianu"
   ],
+  ken: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "k\u025B\u0301ny\xE1\u014B"
+  ],
   kg: [
     "Latn",
     [
@@ -13551,8 +13654,7 @@ const languages = {
   krj: [
     "Latn",
     [
-      "ME",
-      "EU"
+      "AS"
     ],
     "Kinaray-a"
   ],
@@ -14022,6 +14124,13 @@ const languages = {
     ],
     "innu-aimun"
   ],
+  mos: [
+    "Latn",
+    [
+      "AF"
+    ],
+    "moore"
+  ],
   mr: [
     "Deva",
     [
@@ -14396,7 +14505,6 @@ const languages = {
   olo: [
     "Latn",
     [
-      "AS",
       "EU"
     ],
     "livvinkarjala"
@@ -14779,7 +14887,7 @@ const languages = {
     [
       "AF"
     ],
-    "Kirundi"
+    "ikirundi"
   ],
   ro: [
     "Latn",
@@ -14797,6 +14905,13 @@ const languages = {
       "EU"
     ],
     "tarand\xEDne"
+  ],
+  rsk: [
+    "Cyrl",
+    [
+      "EU"
+    ],
+    "\u0440\u0443\u0441\u043A\u0438"
   ],
   rtm: [
     "Latn",
@@ -14958,6 +15073,27 @@ const languages = {
     ],
     "davvis\xE1megiella"
   ],
+  "se-fi": [
+    "Latn",
+    [
+      "EU"
+    ],
+    "davvis\xE1megiella (Suoma bealde)"
+  ],
+  "se-no": [
+    "Latn",
+    [
+      "EU"
+    ],
+    "davvis\xE1megiella (Norgga bealde)"
+  ],
+  "se-se": [
+    "Latn",
+    [
+      "EU"
+    ],
+    "davvis\xE1megiella (Ruo\u0167a bealde)"
+  ],
   ses: [
     "Latn",
     [
@@ -15023,6 +15159,9 @@ const languages = {
       "AF"
     ],
     "tacawit"
+  ],
+  shy: [
+    "shy-latn"
   ],
   si: [
     "Sinh",
@@ -15446,12 +15585,15 @@ const languages = {
     ],
     "lea faka-Tonga"
   ],
-  tokipona: [
+  tok: [
     "Latn",
     [
       "WW"
     ],
-    "Toki Pona"
+    "toki pona"
+  ],
+  tokipona: [
+    "tok"
   ],
   tpi: [
     "Latn",
@@ -15474,7 +15616,7 @@ const languages = {
     [
       "AS"
     ],
-    "Kokborok (Tripuri)"
+    "Kokborok"
   ],
   tru: [
     "Latn",
@@ -15488,7 +15630,7 @@ const languages = {
     [
       "AS"
     ],
-    "Sediq Taroko"
+    "Seediq"
   ],
   ts: [
     "Latn",
@@ -15637,6 +15779,16 @@ const languages = {
     ],
     "o\u02BBzbekcha"
   ],
+  "uz-cyrl": [
+    "Cyrl",
+    [
+      "AS"
+    ],
+    "\u045E\u0437\u0431\u0435\u043A\u0447\u0430"
+  ],
+  "uz-latn": [
+    "uz"
+  ],
   ve: [
     "Latn",
     [
@@ -15779,12 +15931,7 @@ const languages = {
     "SaiSiyat"
   ],
   ydd: [
-    "Hebr",
-    [
-      "AS",
-      "EU"
-    ],
-    "Eastern Yiddish"
+    "yi"
   ],
   yi: [
     "Hebr",
@@ -16166,6 +16313,7 @@ const territories = {
     "wa"
   ],
   BF: [
+    "mos",
     "fr",
     "ff"
   ],
@@ -16250,14 +16398,43 @@ const territories = {
   CA: [
     "en",
     "fr",
+    "zh",
+    "yue",
+    "es",
+    "pa-guru",
+    "ar",
+    "tl",
     "it",
     "de",
+    "ur",
+    "fa",
+    "pt",
+    "ru",
+    "hi",
+    "ta",
+    "vi",
+    "pl",
+    "ko",
+    "gu",
+    "el",
+    "ro",
+    "bn",
     "pdt",
-    "cr",
-    "yi",
+    "uk",
+    "sr-cyrl",
+    "nl",
+    "ja",
+    "hu",
+    "so",
+    "hr",
     "ike-cans",
+    "tr",
     "moe",
-    "atj"
+    "cr",
+    "mic",
+    "atj",
+    "war",
+    "oka"
   ],
   CC: [
     "ms-arab",
@@ -16305,6 +16482,7 @@ const territories = {
   CM: [
     "fr",
     "en",
+    "bum",
     "ff",
     "bkm",
     "bas",
@@ -16335,6 +16513,7 @@ const territories = {
     "en",
     "ru",
     "vi",
+    "uz-cyrl",
     "uz",
     "lzh"
   ],
@@ -16536,20 +16715,25 @@ const territories = {
     "en",
     "fr",
     "de",
-    "sco",
+    "es",
+    "pl",
     "pa-guru",
+    "ur",
+    "ta",
+    "gu",
+    "sco",
     "cy",
     "bn",
+    "ar",
     "zh-hant",
     "zh",
-    "syl",
-    "el",
     "it",
-    "ks-arab",
-    "gd",
-    "yi",
-    "ml",
+    "lt",
+    "pt",
+    "so",
+    "tr",
     "ga",
+    "gd",
     "kw"
   ],
   GD: [
@@ -17034,7 +17218,8 @@ const territories = {
     "ta"
   ],
   MV: [
-    "dv"
+    "dv",
+    "en"
   ],
   MW: [
     "en",
@@ -17094,6 +17279,7 @@ const territories = {
     "ha",
     "ig",
     "yo",
+    "efi",
     "ha-arab",
     "kcg",
     "ar",
@@ -17117,6 +17303,7 @@ const territories = {
   ],
   NO: [
     "nb",
+    "no",
     "nn",
     "se"
   ],
@@ -17333,6 +17520,7 @@ const territories = {
   SD: [
     "ar",
     "en",
+    "fvr",
     "ha-arab",
     "ha"
   ],
@@ -17582,6 +17770,7 @@ const territories = {
   ],
   UZ: [
     "uz",
+    "uz-cyrl",
     "ru",
     "kaa",
     "tr"
@@ -18273,6 +18462,38 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   ], 512);
 }
 var MwLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
+function useApplicationState(store2) {
+  const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
+  const targetLanguage = computed(() => store2.state.application.targetLanguage);
+  const currentMTProvider = computed(() => store2.state.application.currentMTProvider);
+  const currentSectionSuggestion = computed(() => store2.state.application.currentSectionSuggestion);
+  const currentSourceSection = computed(() => store2.state.application.currentSourceSection);
+  const sourceLanguageAutonym = computed(() => src.getAutonym(sourceLanguage.value));
+  const targetLanguageAutonym = computed(() => src.getAutonym(targetLanguage.value));
+  const isSectionTitleSelected = computed(() => {
+    var _a;
+    return (_a = currentSourceSection.value) == null ? void 0 : _a.isTitleSelected;
+  });
+  const publishFeedbackMessages = computed(() => store2.state.application.publishFeedbackMessages);
+  const selectedContentTranslationUnit = computed(() => {
+    var _a;
+    return (_a = currentSourceSection.value) == null ? void 0 : _a.selectedContentTranslationUnit;
+  });
+  const proposedTranslation = computed(() => store2.getters["application/getCurrentProposedTranslation"]);
+  return {
+    currentMTProvider,
+    currentSectionSuggestion,
+    currentSourceSection,
+    isSectionTitleSelected,
+    proposedTranslation,
+    publishFeedbackMessages,
+    selectedContentTranslationUnit,
+    sourceLanguage,
+    sourceLanguageAutonym,
+    targetLanguage,
+    targetLanguageAutonym
+  };
+}
 var SXTranslationListLanguageSelector_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$V = {
   name: "SxTranslationListLanguageSelector",
@@ -18293,43 +18514,44 @@ const _sfc_main$V = {
     }
   },
   emits: ["source-language-selected", "target-language-selected"],
-  data: () => ({
-    mwIconArrowNext,
-    mwIconExpand,
-    sourceLanguageSelectOn: false,
-    targetLanguageSelectOn: false
-  }),
-  computed: __spreadProps(__spreadValues({}, mapState({
-    selectedSourceLanguage: (state2) => state2.application.sourceLanguage,
-    selectedTargetLanguage: (state2) => state2.application.targetLanguage
-  })), {
-    fullscreen() {
-      return this.$mwui.breakpoint.mdAndDown;
-    }
-  }),
-  methods: {
-    getAutonym: src.getAutonym,
-    getDir: src.getDir,
-    openSourceLanguageDialog() {
-      this.sourceLanguageSelectOn = true;
-    },
-    openTargetLanguageDialog() {
-      this.targetLanguageSelectOn = true;
-    },
-    onSourceLanguageDialogClose() {
-      this.sourceLanguageSelectOn = false;
-    },
-    onTargetLanguageDialogClose() {
-      this.targetLanguageSelectOn = false;
-    },
-    onSourceLanguageSelected(sourceLanguage) {
-      this.sourceLanguageSelectOn = false;
-      this.$emit("source-language-selected", sourceLanguage);
-    },
-    onTargetLanguageSelected(targetLanguage) {
-      this.targetLanguageSelectOn = false;
-      this.$emit("target-language-selected", targetLanguage);
-    }
+  setup(props, { emit }) {
+    const {
+      sourceLanguage: selectedSourceLanguage,
+      targetLanguage: selectedTargetLanguage
+    } = useApplicationState(useStore());
+    const breakpoints2 = inject("breakpoints");
+    const fullscreen = computed(() => breakpoints2.value.smAndDown);
+    const sourceLanguageSelectOn = ref(false);
+    const targetLanguageSelectOn = ref(false);
+    const openSourceLanguageDialog = () => sourceLanguageSelectOn.value = true;
+    const openTargetLanguageDialog = () => targetLanguageSelectOn.value = true;
+    const onSourceLanguageDialogClose = () => sourceLanguageSelectOn.value = false;
+    const onTargetLanguageDialogClose = () => targetLanguageSelectOn.value = false;
+    const onSourceLanguageSelected = (sourceLanguage) => {
+      sourceLanguageSelectOn.value = false;
+      emit("source-language-selected", sourceLanguage);
+    };
+    const onTargetLanguageSelected = (targetLanguage) => {
+      targetLanguageSelectOn.value = false;
+      emit("target-language-selected", targetLanguage);
+    };
+    return {
+      fullscreen,
+      getAutonym: src.getAutonym,
+      getDir: src.getDir,
+      mwIconArrowNext,
+      mwIconExpand,
+      onSourceLanguageDialogClose,
+      onSourceLanguageSelected,
+      onTargetLanguageDialogClose,
+      onTargetLanguageSelected,
+      openSourceLanguageDialog,
+      openTargetLanguageDialog,
+      selectedSourceLanguage,
+      selectedTargetLanguage,
+      sourceLanguageSelectOn,
+      targetLanguageSelectOn
+    };
   }
 };
 const _hoisted_1$F = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
@@ -18346,83 +18568,83 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$F, [
     createBaseVNode("div", _hoisted_2$s, [
       createVNode(_component_mw_button, {
-        indicator: _ctx.mwIconExpand,
+        indicator: $setup.mwIconExpand,
         outlined: false,
         class: "pa-3 sx-translation-list-language-selector__button",
         type: "text",
-        onClick: withModifiers($options.openSourceLanguageDialog, ["stop"])
+        onClick: withModifiers($setup.openSourceLanguageDialog, ["stop"])
       }, {
         default: withCtx(() => [
           createBaseVNode("span", {
             class: "mw-ui-autonym",
-            lang: _ctx.selectedSourceLanguage,
-            dir: $options.getDir(_ctx.selectedSourceLanguage),
-            textContent: toDisplayString($options.getAutonym(_ctx.selectedSourceLanguage))
+            lang: $setup.selectedSourceLanguage,
+            dir: $setup.getDir($setup.selectedSourceLanguage),
+            textContent: toDisplayString($setup.getAutonym($setup.selectedSourceLanguage))
           }, null, 8, _hoisted_3$r)
         ], void 0),
         _: 1
       }, 8, ["indicator", "onClick"]),
       createVNode(_component_mw_dialog, {
-        value: _ctx.sourceLanguageSelectOn,
-        "onUpdate:value": _cache[0] || (_cache[0] = ($event) => _ctx.sourceLanguageSelectOn = $event),
+        value: $setup.sourceLanguageSelectOn,
+        "onUpdate:value": _cache[0] || (_cache[0] = ($event) => $setup.sourceLanguageSelectOn = $event),
         animation: "slide-up",
         title: _ctx.$i18n("sx-translation-list-language-selector-dialog-title"),
-        fullscreen: $options.fullscreen,
-        header: $options.fullscreen,
+        fullscreen: $setup.fullscreen,
+        header: $setup.fullscreen,
         "overlay-opacity": 0,
-        onClose: $options.onSourceLanguageDialogClose
+        onClose: $setup.onSourceLanguageDialogClose
       }, {
         default: withCtx(() => [
           createVNode(_component_mw_language_selector, {
             class: "sx-translation-list-language-selector__widget col-12",
             placeholder: _ctx.$i18n("cx-sx-language-selector-placeholder"),
             languages: $props.sourceLanguages,
-            onSelect: $options.onSourceLanguageSelected,
-            onClose: $options.onSourceLanguageDialogClose
+            onSelect: $setup.onSourceLanguageSelected,
+            onClose: $setup.onSourceLanguageDialogClose
           }, null, 8, ["placeholder", "languages", "onSelect", "onClose"])
         ], void 0),
         _: 1
       }, 8, ["value", "title", "fullscreen", "header", "onClose"])
     ]),
     createBaseVNode("div", _hoisted_4$j, [
-      createVNode(_component_mw_icon, { icon: _ctx.mwIconArrowNext }, null, 8, ["icon"])
+      createVNode(_component_mw_icon, { icon: $setup.mwIconArrowNext }, null, 8, ["icon"])
     ]),
     createBaseVNode("div", _hoisted_5$f, [
       createVNode(_component_mw_button, {
-        indicator: _ctx.mwIconExpand,
+        indicator: $setup.mwIconExpand,
         outlined: false,
         class: "pa-3 sx-translation-list-language-selector__button",
         type: "text",
         disabled: $props.targetLanguages.length < 2,
-        onClick: withModifiers($options.openTargetLanguageDialog, ["stop"])
+        onClick: withModifiers($setup.openTargetLanguageDialog, ["stop"])
       }, {
         default: withCtx(() => [
           createBaseVNode("span", {
             class: "mw-ui-autonym",
-            lang: _ctx.selectedTargetLanguage,
-            dir: $options.getDir(_ctx.selectedTargetLanguage),
-            textContent: toDisplayString($options.getAutonym(_ctx.selectedTargetLanguage))
+            lang: $setup.selectedTargetLanguage,
+            dir: $setup.getDir($setup.selectedTargetLanguage),
+            textContent: toDisplayString($setup.getAutonym($setup.selectedTargetLanguage))
           }, null, 8, _hoisted_6$7)
         ], void 0),
         _: 1
       }, 8, ["indicator", "disabled", "onClick"]),
       createVNode(_component_mw_dialog, {
-        value: _ctx.targetLanguageSelectOn,
-        "onUpdate:value": _cache[1] || (_cache[1] = ($event) => _ctx.targetLanguageSelectOn = $event),
+        value: $setup.targetLanguageSelectOn,
+        "onUpdate:value": _cache[1] || (_cache[1] = ($event) => $setup.targetLanguageSelectOn = $event),
         animation: "slide-up",
-        fullscreen: $options.fullscreen,
-        header: $options.fullscreen,
+        fullscreen: $setup.fullscreen,
+        header: $setup.fullscreen,
         "overlay-opacity": 0,
         title: _ctx.$i18n("sx-translation-list-language-selector-dialog-title"),
-        onClose: $options.onTargetLanguageDialogClose
+        onClose: $setup.onTargetLanguageDialogClose
       }, {
         default: withCtx(() => [
           createVNode(_component_mw_language_selector, {
             class: "sx-translation-list-language-selector__widget col-12",
             placeholder: _ctx.$i18n("cx-sx-language-selector-placeholder"),
             languages: $props.targetLanguages,
-            onSelect: $options.onTargetLanguageSelected,
-            onClose: $options.onTargetLanguageDialogClose
+            onSelect: $setup.onTargetLanguageSelected,
+            onClose: $setup.onTargetLanguageDialogClose
           }, null, 8, ["placeholder", "languages", "onSelect", "onClose"])
         ], void 0),
         _: 1
@@ -18774,7 +18996,7 @@ var bananaI18n = { exports: {} };
       }
       parse(e2, u2) {
         if (e2.includes("{{") || e2.includes("<") || this.wikilinks && e2.includes("[")) {
-          const d2 = function(e3, { wikilinks: u3 = false } = {}) {
+          const d2 = function(e3, { wikilinks: u3 = false }) {
             let d3 = 0;
             function t2(e4) {
               return () => {
@@ -19054,7 +19276,7 @@ function useI18n() {
     throw new Error("No i18n provided!!!");
   return i18n;
 }
-function createI18n(options = { messages: {}, locale: "en", wikilinks: true }) {
+function createI18n(options) {
   const bananai18n = reactive(new Banana(options.locale, options));
   return {
     install: (app2) => {
@@ -19181,38 +19403,6 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var CxTranslationList = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
-function useApplicationState(store2) {
-  const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
-  const targetLanguage = computed(() => store2.state.application.targetLanguage);
-  const currentMTProvider = computed(() => store2.state.application.currentMTProvider);
-  const currentSectionSuggestion = computed(() => store2.state.application.currentSectionSuggestion);
-  const currentSourceSection = computed(() => store2.state.application.currentSourceSection);
-  const sourceLanguageAutonym = computed(() => src.getAutonym(sourceLanguage.value));
-  const targetLanguageAutonym = computed(() => src.getAutonym(targetLanguage.value));
-  const isSectionTitleSelected = computed(() => {
-    var _a;
-    return (_a = currentSourceSection.value) == null ? void 0 : _a.isTitleSelected;
-  });
-  const publishFeedbackMessages = computed(() => store2.state.application.publishFeedbackMessages);
-  const selectedContentTranslationUnit = computed(() => {
-    var _a;
-    return (_a = currentSourceSection.value) == null ? void 0 : _a.selectedContentTranslationUnit;
-  });
-  const proposedTranslation = computed(() => store2.getters["application/getCurrentProposedTranslation"]);
-  return {
-    currentMTProvider,
-    currentSectionSuggestion,
-    currentSourceSection,
-    isSectionTitleSelected,
-    proposedTranslation,
-    publishFeedbackMessages,
-    selectedContentTranslationUnit,
-    sourceLanguage,
-    sourceLanguageAutonym,
-    targetLanguage,
-    targetLanguageAutonym
-  };
-}
 var CXTranslationSuggestion_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$T = {
   name: "CxTranslationSuggestion",
