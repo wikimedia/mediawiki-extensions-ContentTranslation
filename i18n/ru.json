@@ -52,7 +52,8 @@
 			"Максим777",
 			"Петар Петковић",
 			"Умар",
-			"Tanzun"
+			"Tanzun",
+			"NR Deblocked"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -93,8 +94,8 @@
 	"cx-beta": "Перевод содержания",
 	"cx-beta-desc": "Инструмент для быстрого перевода страниц на ваш язык. Начните перевод со страницы [[Special:MyContributions|вашего вклада]], правьте его в нашем редакторе «бок о бок», специально спроектированном для переводов. Некоторые инструменты могут быть доступны только для определённых языков.",
 	"cx-entrypoint-title": "Перевести эту страницу на $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Такой страницы на языке «$1» пока не существует. {{GENDER:|Вы}} хотите создать её?",
-	"cx-entrypoint-dialog-button-translate-from": "Перевести с $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Такой страницы на {{GRAMMAR:prepositional|$1}} пока не существует. {{GENDER:|Хотите}} создать её?",
+	"cx-entrypoint-dialog-button-translate-from": "Перевести с {{GRAMMAR:genitive|$1}}",
 	"cx-entrypoint-dialog-desc": "Вы можете помочь Википедии, переведя эту страницу. Перевод - это простой способ создания нового контента на вашем языке.",
 	"cx-campaign-newbytranslation-title": "Начать вместо этого перевод?",
 	"cx-campaign-newbytranslation-notice": "Создайте новую статью путём перевода с другого языка, который вы знаете.",

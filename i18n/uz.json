@@ -140,7 +140,7 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 ta xato}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ta ogohlantirish}}",
 	"cx-tools-linter-learn-more": "Batafsil maʼlumot",
-	"cx-tools-linter-mark-as-resolved": "Yechilgan sifatida belgilash",
+	"cx-tools-linter-mark-as-resolved": "Yechilgan deb belgilash",
 	"cx-tools-linter-template-add-new": "Yangi andoza qoʻshish",
 	"cx-tools-linter-restart-translation-cancel": "Bekor qilish",
 	"cx-translator-header": "Statistikangiz",
