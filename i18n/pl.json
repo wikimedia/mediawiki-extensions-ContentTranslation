@@ -396,5 +396,8 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Przetłumacz sekcję",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sekcja",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Nie istnieje w <span>$1</span> i innych",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Nie istnieje w <span>$1</span>, <span>$2</span> i innych"
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Nie istnieje w <span>$1</span>, <span>$2</span> i innych",
+	"cx-uls-relevant-languages-panel-header": "Przetłumacz tę stronę",
+	"cx-uls-relevant-languages-panel-message": "Tej strony nie napisano jeszcze w językach, które znasz. Możesz pomóc, tłumacząc w kilka minut!",
+	"cx-uls-translate-page-quick-action-label": "Przetłumacz tę stronę"
 }
