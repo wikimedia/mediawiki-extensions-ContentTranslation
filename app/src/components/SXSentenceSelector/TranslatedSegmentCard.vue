@@ -99,11 +99,9 @@ export default {
     const scopeSelection = ref("sentence");
 
     const {
-      currentMTProvider: mtProvider,
       isSectionTitleSelected,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
-      proposedTranslation: mtTranslation,
     } = useApplicationState(useStore());
 
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
@@ -118,8 +116,8 @@ export default {
 
     const proposedMTTranslation = computed(() =>
       showSentenceTab.value
-        ? mtTranslation.value
-        : currentSubSection.value.getProposedTranslation(mtProvider.value)
+        ? selectedContentTranslationUnit.value.mtProposedTranslationUsed
+        : currentSubSection.value.proposedContentForMTValidation
     );
 
     const colors = inject("colors");

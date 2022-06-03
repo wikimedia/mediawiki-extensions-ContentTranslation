@@ -36,9 +36,8 @@ export default {
 
   /**
    * Get MTProviderGroup for the given language pair
-   * @param {String} sourceLanguage
-   * @param {String} targetLanguage
-   * @returns {String[]} - Array of supported providers
+   * @param {object} state
+   * @returns {function(sourceLanguage: string, targetLanguage: string): string[]} - method returning an array of supported providers
    */
   getSupportedMTProviders: (state) => (sourceLanguage, targetLanguage) =>
     state.supportedMTProviderGroups.find(

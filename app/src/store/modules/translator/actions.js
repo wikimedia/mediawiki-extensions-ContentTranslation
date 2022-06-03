@@ -26,10 +26,7 @@ function validateMT({ rootState, commit }) {
    * as integer from 1 to 100
    * @type {number}
    */
-  const mtValidationScore = mtValidator.getMTScoreForPageSection(
-    section,
-    rootState.application.currentMTProvider
-  );
+  const mtValidationScore = mtValidator.getMTScoreForPageSection(section);
 
   /**
    * Status for the given MT validation score

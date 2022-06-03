@@ -146,14 +146,40 @@ export default class SubSection {
     return subSectionNode.innerHTML;
   }
 
-  getProposedTranslation(mtProvider) {
-    return this.sentences.reduce((mtTranslation, sentence) => {
-      if (sentence.isTranslated) {
-        mtTranslation += sentence.proposedTranslations[mtProvider];
-      }
+  /**
+   * This getter returns the proposed translation that was used for translating
+   * the current subSection. If the current subSection is a block template,
+   * then the proposed translation that was used for this block template is
+   * returned. If not, then the proposed translations that was used for
+   * translating each translated section sentence are returned.
+   *
+   * @returns {string|null}
+   */
+  get proposedContentForMTValidation() {
+    if (this.isBlockTemplate) {
+      return this.blockTemplateProposedTranslations[
+        this.blockTemplateMTProviderUsed
+      ];
+    }
 
-      return mtTranslation;
-    }, "");
+    // Clone node before modifying it, so that original node is always available
+    const subSectionNode = this.node.cloneNode(true);
+    const segments = Array.from(
+      subSectionNode.getElementsByClassName("cx-segment")
+    );
+
+    segments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+
+      if (sentence.isTranslated) {
+        segment.innerHTML = sentence.mtProposedTranslationUsed;
+
+        return;
+      }
+      segment.parentNode.removeChild(segment);
+    });
+
+    return subSectionNode.innerHTML;
   }
 
   get isTranslated() {

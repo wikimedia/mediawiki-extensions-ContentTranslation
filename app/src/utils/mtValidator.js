@@ -48,13 +48,12 @@ const getScoreStatus = (score) =>
  * the lower the percentage of unmodified MT is.
  *
  * @param {PageSection} pageSection
- * @param {string} mtProvider
  * @return {number} modified MT translation score
  */
-const getMTScoreForPageSection = (pageSection, mtProvider) =>
+const getMTScoreForPageSection = (pageSection) =>
   calculateScore(
     pageSection.translationHtml,
-    pageSection.getProposedTranslationHtml(mtProvider)
+    pageSection.proposedTranslationHTMLForMTValidation
   );
 
 const htmlToElement = (html) => {

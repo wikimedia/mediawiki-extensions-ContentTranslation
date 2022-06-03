@@ -161,27 +161,28 @@ export default class PageSection {
    * @return {string}
    */
   get translationHtml() {
-    return this.subSections.reduce(
-      (htmlContent, subSection) =>
-        subSection.isTranslated
-          ? htmlContent + subSection.translatedContent
-          : htmlContent,
-      ""
-    );
+    return this.subSections
+      .filter((subSection) => subSection.isTranslated)
+      .reduce(
+        (htmlContent, subSection) => htmlContent + subSection.translatedContent,
+        ""
+      );
   }
 
   /**
-   * Given an MT provider this method returns the proposed
-   * translation of the PageSection as an HTML string
-   * @param mtProvider
+   * This getter returns the proposed translation of the PageSection as
+   * an HTML string, to be used for calculating the percentage of the modified MT
+   *
    * @return {string}
    */
-  getProposedTranslationHtml(mtProvider) {
-    return this.subSections.reduce(
-      (htmlContent, subSection) =>
-        htmlContent + subSection.getProposedTranslation(mtProvider),
-      ""
-    );
+  get proposedTranslationHTMLForMTValidation() {
+    return this.subSections
+      .filter((subSection) => subSection.isTranslated)
+      .reduce(
+        (htmlContent, subSection) =>
+          htmlContent + subSection.proposedContentForMTValidation,
+        ""
+      );
   }
 
   /**
@@ -268,6 +269,12 @@ export default class PageSection {
     }
   }
 
+  /**
+   * Given an MT provider, this method returns the proposed translation for the
+   * currently selected translation unit (title/block template/sentence).
+   * @param {string} mtProvider
+   * @returns {string|null}
+   */
   getProposedTranslationByMtProvider(mtProvider) {
     const unit = this.selectedContentTranslationUnit;
 

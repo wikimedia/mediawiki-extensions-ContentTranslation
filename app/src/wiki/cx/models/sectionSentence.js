@@ -53,6 +53,10 @@ export default class SectionSentence {
     return this.translatedContent !== "";
   }
 
+  get mtProposedTranslationUsed() {
+    return this.proposedTranslations[this.mtProviderUsed];
+  }
+
   /**
    * This method sets the proposed translation for the given MT provider,
    * inside "proposedTranslations" object property.
