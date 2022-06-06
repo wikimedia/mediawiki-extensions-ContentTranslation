@@ -7,7 +7,9 @@
 			"Prevodim",
 			"Srdjan m",
 			"Zoranzoki21",
-			"Сербијана"
+			"Сербијана",
+			"Kizule",
+			"Srđan"
 		]
 	},
 	"apihelp-cxpublish-description": "Сачувајте страницу направљену помоћу проширења за превод садржаја.",
@@ -74,7 +76,7 @@
 	"apihelp-cxsave-param-sourcetitle": "Наслов изворне стране.",
 	"apierror-cx-invalidlanguage": "Неисправан језик.",
 	"apierror-cx-invalidprogress": "Неисправан процес.",
-	"apierror-cx-invalidsectioncontent": "Неважећи садржај одељка.",
+	"apierror-cx-invalidsectioncontent": "Неважећа садржина одељка.",
 	"apierror-cx-invalidsectiondata": "Неважећи подаци о одељку.",
 	"apierror-cx-invalidsourcelanguage": "Неважећи изворни језик.",
 	"apierror-cx-invalidtargetlanguage": "Неисправан циљни језик.",
