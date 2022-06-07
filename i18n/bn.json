@@ -417,9 +417,13 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" ও আরও অনুবাদ করুন",
 	"sx-block-template-adaptation-card-body-header-success": "প্রস্তাবিত টেমপ্লেট",
 	"sx-block-template-adaptation-card-edit-button-label": "অনুবাদ পর্যালোচনা এবং সম্পাদনা করুন",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "অনুবাদ সম্পাদনা করুন",
 	"sx-block-template-adaptation-card-body-header-failure": "$1-এর জন্য সমতুল্য টেমপ্লেট উপলব্ধ নয়",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "<span>$1</span> ভাষায় অনুপস্থিত",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "<span>$1</span> ও <span>$2</span> ভাষায় অনুপস্থিত",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "<span>$1</span>, <span>$2</span> ও আরও ভাষায় অনুপস্থিত",
-	"cx-uls-relevant-languages-panel-header": "এই পাতাটি অনুবাদ করুন"
+	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> ও আরও ভাষায় অনুপস্থিত",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> ও আরও ভাষায় অনুপস্থিত",
+	"cx-uls-relevant-languages-panel-header": "এই পাতাটি অনুবাদ করুন",
+	"cx-uls-translate-page-quick-action-label": "এই পাতাটি অনুবাদ করুন"
 }

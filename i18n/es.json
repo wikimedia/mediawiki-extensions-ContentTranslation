@@ -27,6 +27,7 @@
 			"Macofe",
 			"MarcoAurelio",
 			"Ncontinanza",
+			"OriginReboot",
 			"Patricio",
 			"Pginer",
 			"PoLuX124",
@@ -444,5 +445,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traducir \"$1\", \"$2\" y más",
 	"sx-block-template-adaptation-card-body-header-success": "Plantilla sugerida",
 	"sx-block-template-adaptation-card-edit-button-label": "Revisar y editar la traducción",
-	"sx-block-template-adaptation-card-body-header-failure": "Plantilla equivalente no disponible por $1"
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Editar la traducción",
+	"sx-block-template-adaptation-card-body-header-failure": "Plantilla equivalente no disponible por $1",
+	"cx-uls-relevant-languages-panel-header": "Traducir esta página",
+	"cx-uls-translate-page-quick-action-label": "Traducir esta página"
 }
