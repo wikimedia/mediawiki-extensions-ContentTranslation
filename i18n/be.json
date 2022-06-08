@@ -11,7 +11,8 @@
 			"SamGold",
 			"ZlyiLev",
 			"Chadyka",
-			"Tomato Cream"
+			"Tomato Cream",
+			"No Sleep till Krupki"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -52,7 +53,7 @@
 	"cx-beta": "Пераклад зместу",
 	"cx-beta-desc": "Інструмент для хуткага перакладу старонак на Вашу мову. Пачніце пераклад са старонкі [[Special:MyContributions|свайго ўкладу]], праўце ў нашым рэдактары «бок у бок», спецыяльна спраектаваным для перакладаў. Некаторыя інструменты могуць быць даступныя толькі для пэўных моў.",
 	"cx-entrypoint-title": "Перакласці гэтую старонку на $1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Гэтая старонка на $1 яшчэ не існуе. {{GENDER:|Вы}} хочаце яе стварыць?",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Старонкі на $1 яшчэ няма. {{GENDER:|Вы}} хочаце яе стварыць?",
 	"cx-entrypoint-dialog-button-translate-from": "Перакласці з $1",
 	"cx-entrypoint-dialog-desc": "Вы можаце дапамагчы Вікіпедыі, пераклаўшы гэтую старонку. Пераклад — просты спосаб стварыць новы змест на вашай мове.",
 	"cx-campaign-newbytranslation-title": "Пачаць замест гэтага з перакладу?",
@@ -88,7 +89,7 @@
 	"cx-selected-source-page-start-translation-button": "Пачаць пераклад",
 	"cx-selected-source-page-view-count": "$1 {{PLURAL:$1|наведванне|наведвання|наведванняў}} у тыдзень.",
 	"cx-selected-source-page-error-page-and-title-exist": "Гэтая назва ўжо выкарыстоўваецца ў мове «[$1 $2]» для [$3 іншай старонкі]",
-	"cx-selected-source-page-error-page-exists": "Гэтая старонка [$1 ўжо існуе] ў мове «$2»",
+	"cx-selected-source-page-error-page-exists": "Старонка [$1 ўжо ёсць] на мове «$2»",
 	"cx-selected-source-page-error-title-in-use": "Назва для новай старонкі [$1 ўжо выкарыстоўваецца]",
 	"cx-favorite-added-for-later": "Дададзена на потым!",
 	"cx-favorite-added-for-later-detail": "Дададзена на потым! Праверце прагляд прапановаў у любы час.",
