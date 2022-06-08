@@ -137,5 +137,18 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "{{doc-apihelp-param|cxpublishsection|sectionnumber}}",
 	"apihelp-cxpublishsection-param-sourcerevid": "{{doc-apihelp-param|cxpublishsection|sourcerevid}}",
 	"apihelp-cxpublishsection-param-captchaid": "{{doc-apihelp-param|cxpublishsection|captchaid}}",
-	"apihelp-cxpublishsection-param-captchaword": "{{doc-apihelp-param|cxpublishsection|captchaword}}"
+	"apihelp-cxpublishsection-param-captchaword": "{{doc-apihelp-param|cxpublishsection|captchaword}}",
+	"apihelp-sxsave-description": "{{doc-apihelp-description|sxsave}}",
+	"apihelp-sxsave-summary": "{{doc-apihelp-summary|sxsave}}",
+	"apihelp-sxsave-param-sourcelanguage": "{{doc-apihelp-param|sxsave|sourcelanguage}}",
+	"apihelp-sxsave-param-targetlanguage": "{{doc-apihelp-param|sxsave|targetlanguage}}",
+	"apihelp-sxsave-param-sourcetitle": "{{doc-apihelp-param|sxsave|sourcetitle}}",
+	"apihelp-sxsave-param-targettitle": "{{doc-apihelp-param|sxsave|title}}",
+	"apihelp-sxsave-param-content": "{{doc-apihelp-param|sxsave|content}}",
+	"apihelp-sxsave-param-sourcesectiontitle": "{{doc-apihelp-param|sxsave|sourcesectiontitle}}",
+	"apihelp-sxsave-param-targetsectiontitle": "{{doc-apihelp-param|sxsave|targetsectiontitle}}",
+	"apihelp-sxsave-param-sectionnumber": "{{doc-apihelp-param|sxsave|sectionnumber}}",
+	"apihelp-sxsave-param-sectionid": "{{doc-apihelp-param|sxsave|sectionid}}",
+	"apihelp-sxsave-param-sourcerevision": "{{doc-apihelp-param|sxsave|sourcerevision}}",
+	"apierror-sxsave-anon-user": "{{doc-apierror}}"
 }

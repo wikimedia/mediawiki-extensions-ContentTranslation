@@ -51,4 +51,8 @@ class SectionTranslation {
 	public function getTargetSectionTitle(): string {
 		return $this->targetSectionTitle;
 	}
+
+	public function setTargetSectionTitle( string $targetSectionTitle ): void {
+		$this->targetSectionTitle = $targetSectionTitle;
+	}
 }

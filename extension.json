@@ -130,6 +130,14 @@
 				"ContentTranslation.TranslationUnitValidator"
 			]
 		},
+		"sxsave": {
+			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationSave",
+			"services": [
+				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.SectionTranslationStore"
+			]
+		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
 	},

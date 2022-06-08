@@ -140,5 +140,18 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "The position of section to be in the new revision of page.",
 	"apihelp-cxpublishsection-param-sourcerevid": "The source page revision id.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (when saving with a captcha response).",
-	"apihelp-cxpublishsection-param-captchaword": "Answer to the captcha (when saving with a captcha response)."
+	"apihelp-cxpublishsection-param-captchaword": "Answer to the captcha (when saving with a captcha response).",
+	"apihelp-sxsave-description": "Save the draft section translation and store the parallel corpora",
+	"apihelp-sxsave-summary": "Save the draft section translation and store the parallel corpora",
+	"apihelp-sxsave-param-sourcelanguage": "The source language code.",
+	"apihelp-sxsave-param-targetlanguage": "The target language code.",
+	"apihelp-sxsave-param-sourcetitle": "The title of the source page.",
+	"apihelp-sxsave-param-targettitle": "The title of the target page.",
+	"apihelp-sxsave-param-content": "JSON-encoded section data. Each section is an object and has the following keys: content, sectionId, origin, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "The title of the source section.",
+	"apihelp-sxsave-param-targetsectiontitle": "The title of the target section.",
+	"apihelp-sxsave-param-sectionnumber": "The position of section to be in the new revision of page.",
+	"apihelp-sxsave-param-sectionid": "The the page section id.",
+	"apihelp-sxsave-param-sourcerevision": "The source page revision id.",
+	"apierror-sxsave-anon-user": "\"sxsave\" API action is not enabled for anonymous users"
 }
