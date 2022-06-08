@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector SubSection component Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector SubSection component Component output matches snapshot 1`] = `
 <div
   data-v-app=""
 >
@@ -35,7 +33,13 @@ exports[
         data-segmentid="111"
       >
         
-      It existed during the Han dynasty and possibly the Qin dynasty, in the
+      It existed during the 
+        <b
+          id="test-b"
+        >
+          Han dynasty
+        </b>
+         and possibly the Qin dynasty, in the
       second and third centuries BC.
     
       </span>

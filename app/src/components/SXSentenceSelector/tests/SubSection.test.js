@@ -31,7 +31,7 @@ const nodeHtml2 = `
       military manual dated to the second and third centuries BC.
     </span>
     <span class="cx-segment" data-segmentid="111">
-      It existed during the Han dynasty and possibly the Qin dynasty, in the
+      It existed during the <b id="test-b">Han dynasty</b> and possibly the Qin dynasty, in the
       second and third centuries BC.
     </span>
   </p>
@@ -88,23 +88,34 @@ describe("SXSentenceSelector SubSection component", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Component should emit 'bounce-translation' when already selected sentence is selected", async () => {
+  it("should emit 'bounce-translation' when already selected sentence is selected", async () => {
     let sentence = wrapper.find(".cx-segment");
     await sentence.trigger("click");
-    // Find specific sentence again as content has
-    // been re-rendered
+
+    // Find specific sentence again as content has been re-rendered
     sentence = wrapper.find(".cx-segment");
     await sentence.trigger("click");
     expect(wrapper.emitted("bounce-translation")).toBeTruthy();
   });
 
-  it("Component should dispatch correct action on new sentence selected", () => {
+  it("should dispatch correct action on new sentence selected", () => {
     store.dispatch = jest.fn();
     const sentence = wrapper.findAll(".cx-segment")[1];
     sentence.trigger("click");
     expect(store.dispatch).toHaveBeenCalledWith(
       "application/selectTranslationUnitById",
       sentence.element.dataset.segmentid
+    );
+  });
+
+  it("should select the sentence when a child node inside it, is clicked", () => {
+    // inside the contents of "nodeHtml2" const, there is a <b> element with "test-b" id
+    // this <b> element is nested inside a .cx-segment element with data-segmentid equal to 111
+    const boldEl = wrapper.find("#test-b");
+    boldEl.trigger("click");
+    expect(store.dispatch).toHaveBeenCalledWith(
+      "application/selectTranslationUnitById",
+      "111" // this is the data-segment id of the sentence that contains the bold element
     );
   });
 });

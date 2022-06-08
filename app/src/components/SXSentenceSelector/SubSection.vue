@@ -34,9 +34,18 @@ export default {
 
         if (props.subSection.isBlockTemplate) {
           translationUnit = props.subSection;
-        } else if (event.target.classList.contains("cx-segment")) {
+        } else {
+          // search among all ancestors of the event target to find the sentence element
+          const sentenceEl = event
+            .composedPath()
+            .find((target) => target.classList.contains("cx-segment"));
+
+          if (!sentenceEl) {
+            return;
+          }
+
           translationUnit = props.subSection.getSentenceById(
-            event.target.dataset.segmentid
+            sentenceEl.dataset.segmentid
           );
         }
         selectContentTranslationUnit(translationUnit);
