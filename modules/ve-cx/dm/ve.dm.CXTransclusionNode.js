@@ -67,6 +67,16 @@ ve.dm.CXTransclusionNode.prototype.isValid = function () {
 };
 
 /**
+ * Check whether the target title is missing for this template
+ *
+ * @return {boolean} Whether the target template is missing or not.
+ */
+ve.dm.CXTransclusionNode.prototype.missingInTargetLanguage = function () {
+	var cxData = this.getAttribute( 'cx' ) || {};
+	return ve.getProp( cxData, 0, 'targetExists' ) === false;
+};
+
+/**
  * Communicate warnings about unadapted templates.
  *
  * @class
@@ -165,16 +175,6 @@ ve.dm.CXTransclusionBlockNode.prototype.onDetach = function ( parent ) {
 	if ( parent instanceof ve.dm.CXSectionNode && parent.isTargetSection() ) {
 		parent.resolveTranslationIssues( [ 'block-template' ] );
 	}
-};
-
-/**
- * Check whether the target title is missing for this template
- *
- * @return {boolean} Whether the target template is missing or not.
- */
-ve.dm.CXTransclusionBlockNode.prototype.missingInTargetLanguage = function () {
-	var cxData = this.getAttribute( 'cx' ) || {};
-	return ve.getProp( cxData, 0, 'targetExists' ) === false;
 };
 
 /**

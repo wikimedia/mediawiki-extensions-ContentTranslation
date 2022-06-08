@@ -27,6 +27,24 @@ OO.inheritClass( ve.ce.CXTransclusionNode, ve.ce.MWTransclusionNode );
 ve.ce.CXTransclusionNode.static.name = 'cxTransclusion';
 
 /**
+ * @return {boolean} True if transclusion node is not adapted by cxserver.
+ */
+ve.ce.CXTransclusionNode.prototype.isUnadapted = function () {
+	return this.getModel() && this.getModel().missingInTargetLanguage();
+};
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionNode.prototype.update = function () {
+	if ( !this.getModel() || !this.getModel().isValid() || this.isUnadapted() ) {
+		return;
+	}
+
+	return ve.ce.CXTransclusionNode.super.prototype.update.apply( this, arguments );
+};
+
+/**
  * XXX: ContentEditable MediaWiki transclusion block node.
  *
  * @class
@@ -63,24 +81,6 @@ ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
 	parentSection.emit( 'afterRender' );
 	// Emit change for the parent section, so that saving is queued.
 	parentSection.emit( 'update' );
-};
-
-/**
- * @return {boolean} True if transclusion node is not adapted by cxserver.
- */
-ve.ce.CXTransclusionBlockNode.prototype.isUnadapted = function () {
-	return this.getModel() && this.getModel().missingInTargetLanguage();
-};
-
-/**
- * @inheritdoc
- */
-ve.ce.CXTransclusionBlockNode.prototype.update = function () {
-	if ( !this.getModel() || !this.getModel().isValid() || this.isUnadapted() ) {
-		return;
-	}
-
-	return ve.ce.CXTransclusionBlockNode.super.prototype.update.apply( this, arguments );
 };
 
 /**
