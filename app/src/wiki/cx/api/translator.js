@@ -215,9 +215,79 @@ const publishTranslation = ({
     });
 };
 
+/**
+ * Given the appropriate parameters (source/target page titles, source/target section titles,
+ * source/target languages, revision, section position number, content containing parallel
+ * corpora translation units and section id of the page section to be saved), this method
+ * sends a request to "sxsave" API action to store the draft translation to the "cx_translations"
+ * database table, persist (if needed) the section translation into the "cx_section_translations"
+ * table and store the parallel corpora translation units inside the "cx_corpora" table.
+ * Finally, it returns a promise resolving to a PublishFeedbackMessage model in case
+ * of error, or to null in case of successful saving.
+ *
+ * @param {object} publishParams
+ * @param {string} publishParams.sourceTitle The title of the source page
+ * @param {string} publishParams.targetTitle The title of the target page
+ * @param {string} publishParams.sourceSectionTitle The title of the source section
+ * @param {string} publishParams.targetSectionTitle The title of the target section
+ * @param {string} publishParams.sourceLanguage The language of the source page
+ * @param {string} publishParams.targetLanguage The language of the target page
+ * @param {number} publishParams.revision The revision of the source page
+ * @param {number|"new"} publishParams.sectionNumber The position where the translated section will be positioned
+ * @param {number|"new"} publishParams.units The parallel corpora translation units
+ * @param {string} publishParams.sectionId The id of the source page section
+ * @return {Promise<PublishFeedbackMessage|null>}
+ */
+const saveTranslation = ({
+  sourceTitle,
+  targetTitle,
+  sourceSectionTitle,
+  targetSectionTitle,
+  sourceLanguage,
+  targetLanguage,
+  revision,
+  sectionNumber,
+  units,
+  sectionId,
+}) => {
+  const params = {
+    action: "sxsave",
+    targettitle: targetTitle,
+    sourcetitle: sourceTitle,
+    sourcerevision: revision,
+    sourcesectiontitle: sourceSectionTitle,
+    targetsectiontitle: targetSectionTitle,
+    sourcelanguage: sourceLanguage,
+    targetlanguage: targetLanguage,
+    sectionnumber: sectionNumber,
+    content: JSON.stringify(units),
+    sectionid: sectionId,
+  };
+
+  const api = new mw.Api();
+
+  return api
+    .postWithToken("csrf", params)
+    .then(() => null)
+    .catch((error, details) => {
+      let text;
+
+      if (details.exception) {
+        text = details.exception.message;
+      } else if (details.error) {
+        text = details.error.info;
+      } else {
+        text = "Unknown error";
+      }
+
+      return new PublishFeedbackMessage({ text, status: "error" });
+    });
+};
+
 export default {
   fetchTranslations,
   fetchSegmentTranslation,
   parseTemplateWikitext,
   publishTranslation,
+  saveTranslation,
 };
