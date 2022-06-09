@@ -129,11 +129,16 @@
 	"apihelp-query+cxdeletedtranslations-param-after": "タイムスタンプでより新しい削除に絞り込む。",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "削除された翻訳がもともと公開された名前空間。既定は標準名前空間を指定。",
 	"apihelp-query+cxdeletedtranslations-example-1": "2019年4月7日 16:24:44以降に削除された、あなたが標準名前空間に公開した翻訳件数を調べる",
+	"apihelp-cxpublishsection-summary": "コンテンツ翻訳拡張機能の節単位翻訳を使って、ページを作成し保存。",
+	"apihelp-cxpublishsection-param-title": "操作対象のページ名。",
+	"apihelp-cxpublishsection-param-html": "保存するコンテンツ。",
 	"apihelp-cxpublishsection-param-sourcelanguage": "翻訳元の言語コード。",
 	"apihelp-cxpublishsection-param-targetlanguage": "翻訳先の言語コード。",
 	"apihelp-cxpublishsection-param-sourcetitle": "翻訳元のページの題名。",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "翻訳元の節の見出し。",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "翻訳先の節の見出し。",
 	"apihelp-cxpublishsection-param-sectionnumber": "改版したページに示す節の位置。",
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
+	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)"
 }
