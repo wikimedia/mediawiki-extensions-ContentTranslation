@@ -59,6 +59,8 @@
 		mw.hook( 'mw.cx.cta.shown' ).fire( campaign );
 	}
 
-	$( showInvitation );
+	if ( !( new URL( location.href ).searchParams.get( 'cxhidebetapopup' ) ) ) {
+		$( showInvitation );
+	}
 
 }() );

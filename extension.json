@@ -968,7 +968,8 @@
 				"mediawiki.jqueryMsg",
 				"mediawiki.ui.button",
 				"mediawiki.util",
-				"oojs-ui-core"
+				"oojs-ui-core",
+				"web2017-polyfills"
 			],
 			"messages": [
 				"cx-campaign-newarticle-notice",
