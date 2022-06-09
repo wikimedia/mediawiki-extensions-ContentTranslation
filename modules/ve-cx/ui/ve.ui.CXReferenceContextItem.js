@@ -51,15 +51,10 @@
 		ve.ui.contextItemFactory.register( contextItem );
 	}
 
-	// Note: Don't iterate directly with `for ( name in ve.ui.contextItemFactory.registry )`,
-	// because we're modifying that object in the loop body
-	var names = Object.keys( ve.ui.contextItemFactory.registry );
-	for ( var i = 0; i < names.length; i++ ) {
-		var name = names[ i ];
-		if ( name.slice( 0, 5 ) === 'cite-' ) {
-			var parentContextItem = ve.ui.contextItemFactory.lookup( name );
-			addCxSubclass( parentContextItem );
-		}
-	}
+	ve.ui.mwCitationTools.forEach( function ( tool ) {
+		var contextName = 'cite-' + tool.name;
+		var parentContextItem = ve.ui.contextItemFactory.lookup( contextName );
+		addCxSubclass( parentContextItem );
+	} );
 
 }() );
