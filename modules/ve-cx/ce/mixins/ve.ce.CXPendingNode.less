@@ -1,5 +1,4 @@
 @import '../../../ui/styles/mw.cx.highlight.less';
-@import 'mediawiki.mixins.animation';
 
 .ve-ce-cxPendingNode-pending {
 	position: relative;
@@ -18,7 +17,7 @@
 }
 
 .ve-ce-cxPendingNode-flash {
-	.animation( cx-section-flash-animation, 1s );
+	animation: cx-section-flash-animation 1s;
 }
 
 .ve-ce-cxPendingNode-flash-animation() {
@@ -29,10 +28,6 @@
 	to {
 		background: default;
 	}
-}
-
-@-webkit-keyframes cx-section-flash-animation {
-	.ve-ce-cxPendingNode-flash-animation;
 }
 
 @keyframes cx-section-flash-animation {

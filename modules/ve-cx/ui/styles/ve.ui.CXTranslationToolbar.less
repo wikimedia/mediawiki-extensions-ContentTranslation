@@ -1,4 +1,3 @@
-@import 'mediawiki.mixins.animation';
 @import '../../../ui/styles/mw.cx.mixins.less';
 
 .ve-cx-toolbar-mt {
@@ -50,7 +49,7 @@
 	}
 
 	&.ve-cx-toolbar-mt--highlight .oo-ui-toolbar-bar {
-		.animation( cx-flash-highlight, 1s );
+		animation: cx-flash-highlight 1s;
 	}
 }
 
@@ -59,10 +58,6 @@
 		background-color: #eaf3ff;
 		color: @colorProgressive;
 	}
-}
-
-@-webkit-keyframes cx-flash-highlight {
-	.cx-flash-highlight;
 }
 
 @keyframes cx-flash-highlight {
