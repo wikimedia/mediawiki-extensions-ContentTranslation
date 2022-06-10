@@ -245,21 +245,7 @@ class Hooks {
 		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
 		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
 
-		$updater->addExtensionField(
-			'cx_translations',
-			'translation_cx_version',
-			"$dir/sql/patch-2018-03-contenttranslation-add-version.sql"
-		);
-		$updater->dropExtensionIndex(
-			'cx_translations',
-			'cx_translation_pair',
-			"$dir/sql/patch-update-cx-unique-index.sql"
-		);
-		$updater->addExtensionIndex(
-			'cx_translations',
-			'cx_translation_ref',
-			"$dir/sql/patch-update-cx-unique-index.sql"
-		);
+		// 1.37
 		$updater->addExtensionField(
 			'cx_notification_log',
 			'cxn_wiki_id',
