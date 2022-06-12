@@ -21,9 +21,9 @@ CREATE TABLE /*_*/cx_translations (
     -- There is no final status. A published translation can be draft again to update again
     translation_status enum('draft', 'published', 'deleted') default null,
     -- Start date of this translation
-    translation_start_timestamp varchar(14) binary not null,
+    translation_start_timestamp binary(14) not null,
     -- Last updated date of this translation
-    translation_last_updated_timestamp varchar(14) binary not null,
+    translation_last_updated_timestamp binary(14) not null,
     -- Progress of the translation - json dump
     translation_progress TINYBLOB not null,
     -- Who started this translation? User id

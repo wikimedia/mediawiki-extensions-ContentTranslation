@@ -12,7 +12,7 @@ CREATE TABLE /*_*/cx_corpora (
     -- Optional sequence id
     cxc_sequence_id int,
     -- Optional timestamp
-    cxc_timestamp varchar(14) binary,
+    cxc_timestamp binary(14),
     -- Content
     cxc_content mediumblob
 ) /*$wgDBTableOptions*/;

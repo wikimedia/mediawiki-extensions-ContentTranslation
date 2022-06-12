@@ -10,8 +10,8 @@ CREATE TABLE /*_*/cx_lists (
     cxl_owner int NOT NULL,
     cxl_public BOOLEAN NOT NULL,
     -- Optional validity period for the list
-    cxl_start_time varchar(14) binary,
-    cxl_end_time varchar(14) binary,
+    cxl_start_time binary(14),
+    cxl_end_time binary(14),
 
     -- Name for the suggestion list
     cxl_name varbinary(512) NOT NULL,
