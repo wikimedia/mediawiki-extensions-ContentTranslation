@@ -237,14 +237,11 @@ class Hooks {
 		$dir = dirname( __DIR__ );
 		$dbType = $updater->getDB()->getType();
 
-		$updater->addExtensionTable( 'cx_translations', "$dir/sql/translations.sql" );
-		$updater->addExtensionTable( 'cx_translators', "$dir/sql/translators.sql" );
-		$updater->addExtensionTable( 'cx_lists', "$dir/sql/lists.sql" );
-		$updater->addExtensionTable( 'cx_suggestions', "$dir/sql/suggestions.sql" );
-		$updater->addExtensionTable( 'cx_corpora', "$dir/sql/parallel-corpora.sql" );
+		// All tables for the extension
+		$updater->addExtensionTable( 'cx_translations', "$dir/sql/$dbType/tables-generated.sql" );
+
+		// 1.35
 		$updater->addExtensionTable( 'cx_notification_log', "$dir/sql/notification-log.sql" );
-		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
-		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
 
 		// 1.37
 		$updater->addExtensionField(
@@ -252,6 +249,10 @@ class Hooks {
 			'cxn_wiki_id',
 			"$dir/sql/patch-2020-09-21-notification-log-add-wikiid.sql"
 		);
+
+		// 1.38
+		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
+		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
 
 		// 1.39
 		if ( $dbType === 'mysql' ) {
@@ -274,6 +275,11 @@ class Hooks {
 				'cx_translations',
 				'translation_last_updated_timestamp',
 				"$dir/sql/patch-cx_translations-timestamps.sql"
+			);
+			$updater->modifyExtensionField(
+				'cx_notification_log',
+				'cxn_wiki_id',
+				"$dir/sql/patch-tables-binary.sql"
 			);
 		}
 	}
