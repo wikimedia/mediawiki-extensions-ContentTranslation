@@ -20,8 +20,8 @@
           :placeholder="placeholder"
           :autofocus="autofocus"
           @keydown.enter.prevent="onEnter"
-          @keydown.down.prevent="next"
-          @keydown.up.prevent="prev"
+          @keydown.down.stop.prevent="next"
+          @keydown.up.stop.prevent="prev"
           @keydown.esc.prevent="close"
           @keydown.tab.prevent="onTabSelect"
         />
