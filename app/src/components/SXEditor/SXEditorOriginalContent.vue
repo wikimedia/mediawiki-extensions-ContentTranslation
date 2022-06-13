@@ -22,6 +22,18 @@
 import { MwExpandableContent } from "@/lib/mediawiki.ui";
 import { ref, onMounted } from "vue";
 
+/**
+ * Make all links open in new tabs
+ * @param {Element} containerEl
+ */
+function fixLinkTargets(containerEl) {
+  var links = containerEl.getElementsByTagName("a");
+
+  for (let i = 0, len = links.length; i < len; i++) {
+    links[i].target = "_blank";
+  }
+}
+
 export default {
   name: "SxEditorOriginalContent",
   components: { MwExpandableContent },
@@ -51,6 +63,7 @@ export default {
 
     onMounted(() => {
       twoLinesHeight.value = 2 * getLineHeight();
+      fixLinkTargets(originalContentRef.value);
     });
 
     return {
