@@ -1,4 +1,19 @@
 /**
+ * The Section nodes in CX has rdfa 'rel=cx:Section'. This is unknown to VE
+ * and will treat the node as unknown node. Here we register this rdfa to
+ * the ve.dm.SectionNode.
+ */
+function registerCXSectionNodes() {
+  // Respect any existing upstream rdfatypes.
+  ve.dm.SectionNode.static.matchRdfaTypes =
+    ve.dm.SectionNode.static.matchRdfaTypes || [];
+  ve.dm.SectionNode.static.matchRdfaTypes.push("cx:Section");
+  // Re-register ve.dm.SectionNode
+  ve.dm.modelRegistry.unregister(ve.dm.SectionNode);
+  ve.dm.modelRegistry.register(ve.dm.SectionNode);
+}
+
+/**
  * Create a dummy VisualEditor surface with given HTML content.
  * This helps us to resolve all references locally in the section.
  * For example, if the reference definition is outside a section, may
@@ -14,7 +29,7 @@ const createDummyVESurface = (htmlContent) => {
   const overlay = document.createElement("div");
   overlay.appendChild(surfaceEl);
   overlay.$el = $(overlay);
-
+  registerCXSectionNodes();
   /** @type {ve.init.mw.MobileArticleTarget} */
   const target = new ve.init.mw.MobileArticleTarget(overlay);
   /** @type {ve.dm.Document} **/
