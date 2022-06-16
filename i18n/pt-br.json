@@ -26,7 +26,8 @@
 			"Vitor Mazuco",
 			"Vitorvicentevalente",
 			"Петар Петковић",
-			"YuriNikolai"
+			"YuriNikolai",
+			"Fúlvio"
 		]
 	},
 	"cx": "Traduzir página",
@@ -182,6 +183,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Traduções",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Adicionar uma nova tradução",
 	"cx-campaign-contributionsmenu-myuploads": "Arquivos enviados",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Uma lista de suas mídias carregadas",
 	"cx-no-source-categories": "Sem categorias",
 	"cx-no-target-categories": "Sem categorias. Pondere adicionar algumas para classificar melhor o assunto.",
 	"cx-no-adapted-categories": "As categorias originais não existem neste idioma. Tente encontrar mais categorias para descrever melhor o assunto.",
@@ -420,8 +422,12 @@
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Certifique-se de que o sentido original não foi alterado na tradução.",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Editar a página",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Abrir página original em $1",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Expanda esta página traduzindo as seções disponíveis em outros idiomas que você conhece.",
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Traduzir nova seção",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Traduzir $1",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduzir \"$1\" e \"$2\"",
-	"sx-block-template-adaptation-card-body-header-success": "Predefinição sugerida"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduzir \"$1\", \"$2\" e mais",
+	"sx-block-template-adaptation-card-body-header-success": "Predefinição sugerida",
+	"sx-block-template-adaptation-card-edit-button-label": "Revisar e editar tradução",
+	"sx-block-template-adaptation-card-body-header-failure": "Predefinição equivalente não disponível em $1"
 }

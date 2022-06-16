@@ -372,5 +372,10 @@
 	"cx-sx-published-section-confirmation-header": "Secção nova adicionada",
 	"cx-sx-published-section-confirmation-content": "A sua tradução foi publicada. Considere a possibilidade de continuar a editar o conteúdo ou de adicionar outra secção.",
 	"cx-sx-published-section-invitation-title": "Traduzir outra secção",
-	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 outra estão|e $2 outras estão|0=está}} em falta"
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|e $2 outra estão|e $2 outras estão|0=está}} em falta",
+	"sx-article-search-language-selector-dialog-title": "Línguas",
+	"sx-translation-list-language-selector-dialog-title": "Línguas",
+	"cx-sx-article-search-header": "Nova tradução",
+	"cx-sx-translation-confirmer-action-new-translation": "Nova tradução",
+	"sx-editor-feedback-overlay-title": "Obrigado!"
 }
