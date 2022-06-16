@@ -258,5 +258,21 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "अर्को पृष्ठ रोज्नुहोस्",
 	"cx-sx-section-selector-learn-more-anchor-label": "थप सिक्नुहोस्",
 	"cx-sx-section-selector-unsupported-sections-title": "असमर्थित खण्डहरू",
-	"cx-sx-section-selector-unsupported-sections-description": "केही खण्डहरू सूचीमा नदेखिन सक्छन् किनकि तिनीहरूको सामग्री अझै समर्थित छैन्।"
+	"cx-sx-section-selector-unsupported-sections-description": "केही खण्डहरू सूचीमा नदेखिन सक्छन् किनकि तिनीहरूको सामग्री अझै समर्थित छैन्।",
+	"sx-recent-translation-entrypoint-banner-header": "यो पृष्ठ हालै अनुवाद गरिएको छ।",
+	"sx-recent-translation-entrypoint-banner-details": "सामग्री सुधार गर्न मद्दत गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-header": "अनुवाद सुधार गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "नयाँ खण्ड थप्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "अनुवादहरू अन्य भाषाका सम्पादकहरूले पुनः प्रयोग गर्छन्। तथापि, अनुवादमा केही पक्षहरू हराउन सक्छन्। तपाईँ मद्दत गर्न सक्नुहुन्छ:",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "सामग्रीलाई प्राकृतिक बनाउनुहोस्",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "शब्दलाई आवश्यकता अनुसार पुन: क्रमबद्ध गर्न वा बदल्न वाक्य सम्पादन गर्नुहोस्।",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "सन्दर्भ जाँच गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "पाठकहरूले तथ्य जाँच गर्न सन्दर्भहरू पहुँच गर्दछन्। सन्दर्भहरूको ढाँचा पुनरावलोकन गर्नुहोस् र तपाईँको भाषामा सम्बन्धित सन्दर्भहरू थप्नुहोस्।",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "वास्तविकसँग जाँच गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "अनुवादमा मौलिक अर्थ परिवर्तन गरिएको छैन भन्ने निश्चित गर्नुहोस्।",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "पृष्ठ सम्पादन गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "मौलिक पृष्ठलाई $1मा खोल्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "तपाईँलाई थाहा भएको अन्य भाषामा उपलब्ध खण्डहरू अनुवाद गरेर यो पृष्ठ विस्तार गर्नुहोस्।",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "नयाँ खण्ड अनुवाद गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "$1, $2 र अन्य अनुवाद गर्नुहोस्"
 }

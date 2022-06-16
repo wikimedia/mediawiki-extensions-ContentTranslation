@@ -20,7 +20,7 @@
 	"cx-dashboard-header": "Преводи",
 	"cx-javascript": "Алатка не ради без јаваскрипта. Он је онемогућен, не функционише или овај прегледач није подржан.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Преводилац садржине]] је алатка за брзо превођење страница на ваш језик. [$1 Испробајте је.]",
-	"cx-license-agreement": "Настављањем прихватате [https://foundation.wikimedia.org/wiki/Terms_of_Use услове употребе] и неопозиво се слажете да објавите свој допринос под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Настављањем прихватате [https://foundation.wikimedia.org/wiki/Terms_of_Use услове коришћења] и неопозиво се слажете да објавите свој допринос под лиценцама [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] и [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Грешка: Не могу да се повежем са сервером.",
 	"cx-desc": "Олакшава [[Special:ContentTranslation|превођење]] страница",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|преведено}}",

@@ -354,6 +354,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Помилка публікації",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Перевірте повідомлення про помилки",
 	"cx-sx-publish-summary": "Створено шляхом перекладу розділу «$1» зі сторінки «$2»",
+	"cx-sx-publish-lead-section-summary": "Створено шляхом перекладу преамбули сторінки «$1»",
 	"cx-sx-publisher-preview-options-title": "Опції публікації",
 	"cx-sx-publisher-new-section-option-label": "Опублікувати як новий розділ",
 	"cx-sx-publisher-new-section-option-details": "Додати новий розділ до статті",
@@ -361,7 +362,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Опублікувати до Вашого особистого простору для перевірки та копіювання в інше місце.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш переклад буде <strong>додано до Вашої чернетки.</strong>",
 	"cx-sx-publisher-review-info-error": "Ваш переклад не може бути опубліковано:",
-	"cx-sx-publisher-review-info-learn-more": "Дізнатися більше",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Дізнатися більше]",
 	"cx-dashboard-experimental-support-banner-title": "Підтримка мобільного вигляду є експериментальною",
 	"cx-dashboard-experimental-support-banner-description": "Ви можете розширити дійсні статті переклавши новий розділ. Однак, деякі функції зі стаціонарного вигляду ще не доступні.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Дізнатися більше",
@@ -428,5 +429,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перекласти «$1», «$2» та більше",
 	"sx-block-template-adaptation-card-body-header-success": "Запропонований шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Перевірити та редагувати переклад",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Редагувати переклад",
 	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1"
 }
