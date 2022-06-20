@@ -186,5 +186,6 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "არ არის შემდეგ ენებზე: <span>$1</span> და სხვ.",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "არ არის შემდეგ ენებზე: <span>$1</span>, <span>$2</span> და სხვ.",
 	"cx-uls-relevant-languages-panel-header": "გადათარგმნეთ ეს გვერდი",
-	"cx-uls-relevant-languages-panel-message": "ეს გვერდი არ არის ზოგიერთ იმ ენაზე, რომელიც, შესაძლოა, თქვენ იცოდეთ. მისი გადათარგმნა რამდენიმე წუთში შეგიძლიათ!"
+	"cx-uls-relevant-languages-panel-message": "ეს გვერდი არ არის ზოგიერთ იმ ენაზე, რომელიც, შესაძლოა, თქვენ იცოდეთ. მისი გადათარგმნა რამდენიმე წუთში შეგიძლიათ!",
+	"cx-uls-translate-page-quick-action-label": "ამ გვერდის გადათარგმნა"
 }
