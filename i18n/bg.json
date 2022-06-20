@@ -230,7 +230,7 @@
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 предупреждение|$1 предупреждения}}",
 	"cx-tools-linter-learn-more": "Научете повече",
 	"cx-tools-linter-mark-as-resolved": "Отбелязване като проверено",
-	"cx-tools-linter-generic-title": "Има проблем с превода",
+	"cx-tools-linter-generic-title": "Има проблем с Вашия превод",
 	"cx-tools-linter-abuse-filter": "Филтрите за злоупотреба са идентифицирали проблемно съдържание в превода",
 	"cx-tools-linter-title": "Проблеми със съдържанието: $1",
 	"cx-tools-linter-content": "Съдържанието не отговаря на [https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Product_Definition/AbuseFilter ограниченията, наложени от Уикипедия в $1]. Моля, отстранете проблемите, преди да публикувате превода.",
