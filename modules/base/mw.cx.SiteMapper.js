@@ -122,6 +122,10 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
 		extra = '',
 		prefix;
 
+	if ( !language ) {
+		// Use current wiki's content language
+		language = mw.config.get( 'wgContentLanguage' );
+	}
 	domain = this.getWikiDomainCode( language );
 	if ( params && !$.isEmptyObject( params ) ) {
 		base = this.siteTemplates.action || this.siteTemplates.view;
