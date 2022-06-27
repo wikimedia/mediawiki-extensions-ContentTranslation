@@ -224,5 +224,10 @@
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita per|$1 visites per|0=Cap visita aquesta}} setmana",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> editat per tu",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
-	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paràgraf"
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paràgraf",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Manca, entre d'altres, en <span>$1</span> i <span>$2</span>",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Manca, entre d'altres, en <span>$1</span>",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manca, entre d'altres, en <span>$1</span> i <span>$2</span>",
+	"cx-uls-relevant-languages-panel-header": "Traduïu aquesta pàgina",
+	"cx-uls-translate-page-quick-action-label": "Traduïu aquesta pàgina"
 }
