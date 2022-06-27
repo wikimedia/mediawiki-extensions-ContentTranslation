@@ -186,12 +186,17 @@ class ApiSectionTranslationPublish extends ApiBase {
 				'result' => 'success',
 				'edit' => $saveresult['edit']
 			];
-			// Add the tags post-send, after RC row insertion
-			$tags = $this->getTags();
-			$revId = intval( $saveresult['edit']['newrevid'] );
-			\DeferredUpdates::addCallableUpdate( static function () use ( $revId, $tags ) {
-				\ChangeTags::addTags( $tags, null, $revId, null );
-			} );
+
+			// newrevid can be unset when publishing already present sections with the exact same
+			// contents as the current revision
+			if ( isset( $saveresult['edit']['newrevid'] ) ) {
+				// Add the tags post-send, after RC row insertion
+				$tags = $this->getTags();
+				$revId = intval( $saveresult['edit']['newrevid'] );
+				\DeferredUpdates::addCallableUpdate( static function () use ( $revId, $tags ) {
+					\ChangeTags::addTags( $tags, null, $revId, null );
+				} );
+			}
 		} else {
 			$result = [
 				'result' => 'error',
