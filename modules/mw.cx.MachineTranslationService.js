@@ -18,7 +18,6 @@ mw.cx.MachineTranslationService = function MwCxMachineTranslationService(
 	this.targetLanguage = targetLanguage;
 	this.siteMapper = siteMapper;
 
-	this.providersPromise = null;
 	this.providers = null;
 };
 
@@ -135,14 +134,6 @@ mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 	return new mw.Api().postWithToken( 'csrf', {
 		action: 'cxtoken',
 		assert: 'user'
-	} );
-};
-
-mw.cx.MachineTranslationService.prototype.validateProvider = function ( provider ) {
-	return this.getProviders().then( function ( providers ) {
-		if ( providers.indexOf( provider ) === -1 ) {
-			return $.Deferred().reject( 'Unknown provider', provider ).promise();
-		}
 	} );
 };
 
