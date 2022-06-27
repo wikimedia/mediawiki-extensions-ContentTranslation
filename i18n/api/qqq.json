@@ -150,5 +150,6 @@
 	"apihelp-sxsave-param-sectionnumber": "{{doc-apihelp-param|sxsave|sectionnumber}}",
 	"apihelp-sxsave-param-sectionid": "{{doc-apihelp-param|sxsave|sectionid}}",
 	"apihelp-sxsave-param-sourcerevision": "{{doc-apihelp-param|sxsave|sourcerevision}}",
-	"apierror-sxsave-anon-user": "{{doc-apierror}}"
+	"apierror-sxsave-anon-user": "{{doc-apierror}}",
+	"apierror-cxpublishsection-translationnotfound": "{{doc-apierror}}"
 }

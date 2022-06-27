@@ -153,5 +153,6 @@
 	"apihelp-sxsave-param-sectionnumber": "The position of section to be in the new revision of page.",
 	"apihelp-sxsave-param-sectionid": "The the page section id.",
 	"apihelp-sxsave-param-sourcerevision": "The source page revision id.",
-	"apierror-sxsave-anon-user": "\"sxsave\" API action is not enabled for anonymous users"
+	"apierror-sxsave-anon-user": "\"sxsave\" API action is not enabled for anonymous users",
+	"apierror-cxpublishsection-translationnotfound": "Translation not found."
 }

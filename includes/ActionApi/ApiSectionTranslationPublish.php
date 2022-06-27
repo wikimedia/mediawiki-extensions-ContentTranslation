@@ -16,10 +16,15 @@ use ApiBase;
 use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SiteMapper;
+use ContentTranslation\Translation;
+use ContentTranslation\TranslationWork;
+use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
 use Title;
 use TitleFactory;
+use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
@@ -153,7 +158,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 	public function publish() {
 		$params = $this->extractRequestParams();
-
 		$targetTitle = $this->titleFactory->newFromText( $params['title'] );
 		if ( !$targetTitle ) {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
@@ -182,9 +186,27 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$editStatus = $saveresult['edit']['result'];
 
 		if ( $editStatus === 'Success' ) {
+			// Add the tags post-send, after RC row insertion
+			$tags = $this->getTags();
+			$newRevId = intval( $saveresult['edit']['newrevid'] );
+			\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
+				\ChangeTags::addTags( $tags, null, $newRevId, null );
+			} );
+
+			[ 'sourcelanguage' => $from, 'targetlanguage' => $to,'sourcetitle' => $sourceTitle ] = $params;
+			$translation = $this->getExistingTranslation( $from, $to, $sourceTitle );
+			if ( $translation === null ) {
+				$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
+			}
+
+			// if translation exists update the "translation_target_revision_id" field for this row
+			'@phan-var Translation $translation';
+			$this->updateTranslation( $translation, $this->getUser(), $newRevId, $params['title'], $targetLanguage );
+
 			$result = [
 				'result' => 'success',
-				'edit' => $saveresult['edit']
+				'edit' => $saveresult['edit'],
+				'translationid' => $translation->getTranslationId()
 			];
 
 			// newrevid can be unset when publishing already present sections with the exact same
@@ -205,6 +227,70 @@ class ApiSectionTranslationPublish extends ApiBase {
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	/**
+	 * This method finds a translation inside "cx_translations" table, that corresponds
+	 * to the source/target languages, the source title and the user of the published
+	 * translation, and returns it. If no such translation exists, the method returns null.
+	 *
+	 * @param string $from
+	 * @param string $to
+	 * @param string $sourceTitle
+	 * @return Translation|null
+	 */
+	private function getExistingTranslation( string $from, string $to, string $sourceTitle ): ?Translation {
+		$translator = new Translator( $this->getUser() );
+		$work = new TranslationWork( $sourceTitle, $from, $to );
+		return Translation::findForTranslator( $work, $translator );
+	}
+
+	/**
+	 * Given an existing Translation model and a new target revision id, this method updates the target
+	 * revision id for this model and saves the corresponding row inside "cx_translations" table.
+	 *
+	 * @param Translation $translation
+	 * @param User $user
+	 * @param int $newRevId
+	 * @param string $targetTitle
+	 * @param string $targetLanguage
+	 * @return void
+	 */
+	private function updateTranslation(
+		Translation $translation,
+		User $user,
+		int $newRevId,
+		string $targetTitle,
+		string $targetLanguage
+	): void {
+		$translator = new Translator( $user );
+		$translation->translation['status'] = 'published';
+		$translation->translation['translation_target_url'] = $this->createTargetUrl(
+			$user,
+			$targetTitle,
+			$targetLanguage
+		);
+		$translation->translation['targetRevisionId'] = $newRevId;
+		$translation->save( $translator );
+	}
+
+	/**
+	 * Given the target page title as a string and the target language of the translation,
+	 * this method returns a string containing the URL of the target page.
+	 *
+	 * @param User $user
+	 * @param string $targetTitleRaw
+	 * @param string $targetLanguage
+	 * @return string
+	 */
+	private function createTargetUrl( User $user, string $targetTitleRaw, string $targetLanguage ): string {
+		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
+		if ( $contentTranslationTranslateInTarget ) {
+			$targetPage = SiteMapper::getTargetTitle( $targetTitleRaw, $user->getName() );
+			return SiteMapper::getPageURL( $targetLanguage, $targetPage );
+		}
+		$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
+		return $targetTitle->getCanonicalURL();
 	}
 
 	public function getAllowedParams() {
