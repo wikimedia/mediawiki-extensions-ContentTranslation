@@ -158,9 +158,11 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 	public function publish() {
 		$params = $this->extractRequestParams();
-		$targetTitle = $this->titleFactory->newFromText( $params['title'] );
+
+		$targetTitleRaw = $params['title'];
+		$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
 		if ( !$targetTitle ) {
-			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
+			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $targetTitleRaw ) ] );
 		}
 
 		$targetLanguage = $params['targetlanguage'];
@@ -186,38 +188,30 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$editStatus = $saveresult['edit']['result'];
 
 		if ( $editStatus === 'Success' ) {
-			// Add the tags post-send, after RC row insertion
-			$tags = $this->getTags();
-			$newRevId = intval( $saveresult['edit']['newrevid'] );
-			\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
-				\ChangeTags::addTags( $tags, null, $newRevId, null );
-			} );
-
-			[ 'sourcelanguage' => $from, 'targetlanguage' => $to,'sourcetitle' => $sourceTitle ] = $params;
-			$translation = $this->getExistingTranslation( $from, $to, $sourceTitle );
-			if ( $translation === null ) {
-				$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
-			}
-
-			// if translation exists update the "translation_target_revision_id" field for this row
-			'@phan-var Translation $translation';
-			$this->updateTranslation( $translation, $this->getUser(), $newRevId, $params['title'], $targetLanguage );
-
 			$result = [
 				'result' => 'success',
-				'edit' => $saveresult['edit'],
-				'translationid' => $translation->getTranslationId()
+				'edit' => $saveresult['edit']
 			];
-
 			// newrevid can be unset when publishing already present sections with the exact same
 			// contents as the current revision
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				// Add the tags post-send, after RC row insertion
 				$tags = $this->getTags();
-				$revId = intval( $saveresult['edit']['newrevid'] );
-				\DeferredUpdates::addCallableUpdate( static function () use ( $revId, $tags ) {
-					\ChangeTags::addTags( $tags, null, $revId, null );
+				$newRevId = intval( $saveresult['edit']['newrevid'] );
+				\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
+					\ChangeTags::addTags( $tags, null, $newRevId, null );
 				} );
+
+				[ 'sourcelanguage' => $from, 'targetlanguage' => $to,'sourcetitle' => $sourceTitle ] = $params;
+				$translation = $this->getExistingTranslation( $from, $to, $sourceTitle );
+				if ( $translation === null ) {
+					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
+				}
+
+				// if translation exists update the "translation_target_revision_id" field for this row
+				'@phan-var Translation $translation';
+				$this->updateTranslation( $translation, $this->getUser(), $newRevId, $targetTitleRaw, $targetLanguage );
+				$result['translationid'] = $translation->getTranslationId();
 			}
 		} else {
 			$result = [
