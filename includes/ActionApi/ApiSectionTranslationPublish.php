@@ -65,31 +65,55 @@ class ApiSectionTranslationPublish extends ApiBase {
 	}
 
 	/**
-	 * Attempt to save a given page's wikitext to MediaWiki's storage layer via its API
-	 *
-	 * @param Title $title The title of the page to write
-	 * @param string $wikitext The wikitext to write
-	 * @param array $params The edit parameters
-	 * @return mixed The result of the save attempt
+	 * @param string $sourceLanguage
+	 * @param string $sourceRevId
+	 * @param string $sourceTitle
+	 * @param string $sectionNumber
+	 * @param string $sourceSectionTitle
+	 * @return string
 	 */
-	protected function saveWikitext( Title $title, string $wikitext, array $params ) {
-		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
-		$sectionNumber = $params['sectionnumber'];
-		$sourceLink = "[[:{$from}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
-
+	private function getPublishSummary(
+		string $sourceLanguage,
+		string $sourceRevId,
+		string $sourceTitle,
+		string $sectionNumber,
+		string $sourceSectionTitle
+	): string {
+		$sourceLink = "[[:{$sourceLanguage}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 		// if the published section is a lead section, the summary should be slightly different
 		if ( $sectionNumber === "0" ) {
-			$summary = $this->msg(
+			return $this->msg(
 				'cx-sx-publish-lead-section-summary',
 				$sourceLink
 			)->inContentLanguage()->text();
 		} else {
-			$summary = $this->msg(
+			return $this->msg(
 				'cx-sx-publish-summary',
-				$params['sourcesectiontitle'],
+				$sourceSectionTitle,
 				$sourceLink
 			)->inContentLanguage()->text();
 		}
+	}
+
+	/**
+	 * Attempt to save a given page's wikitext to MediaWiki's storage layer via its API
+	 *
+	 * @param Title $title The title of the page to write
+	 * @param string $wikitext The wikitext to write
+	 * @return mixed The result of the save attempt
+	 * @throws \ApiUsageException
+	 */
+	protected function submitEditAction( Title $title, string $wikitext ) {
+		$params = $this->extractRequestParams();
+		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
+		$sectionNumber = $params['sectionnumber'];
+		$summary = $this->getPublishSummary(
+			$from,
+			$sourceRevId,
+			$sourceTitle,
+			$sectionNumber,
+			$params['targetsectiontitle']
+		);
 
 		$apiParams = [
 			'action' => 'edit',
@@ -101,14 +125,12 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'captchaid' => $params['captchaid'],
 			'captchaword' => $params['captchaword'],
 		];
-
 		// Pass any unrecognized query parameters to the internal action=edit API request.
 		$allowedParams = array_diff_key(
 			$this->getRequest()->getValues(),
 			$this->getAllowedParams(),
 			$this->getMain()->getAllowedParams()
 		);
-
 		$api = new \ApiMain(
 			new \DerivativeRequest(
 				$this->getRequest(),
@@ -117,17 +139,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 			),
 			/* enable write? */ true
 		);
-
 		$api->execute();
-
 		return $api->getResult()->getResultData();
-	}
-
-	protected function getTags() {
-		return [
-			'contenttranslation',
-			'sectiontranslation'
-		];
 	}
 
 	/**
@@ -165,45 +178,29 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $targetTitleRaw ) ] );
 		}
 
-		$targetLanguage = $params['targetlanguage'];
-
 		$hookRunner = new ContentTranslationHookRunner( $this->hookContainer );
+		$targetLanguage = $params['targetlanguage'];
 		'@phan-var \Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $this->getUser() );
 
-		$html = $params['html'];
-		$wikitext = null;
-		try {
-			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
-				$targetTitle,
-				$html
-			);
-		} catch ( \MWException $e ) {
-			$this->dieWithError(
-				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
-			);
-		}
-
-		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
-		$editStatus = $saveresult['edit']['result'];
+		$editResult = $this->saveWikitext( $params['html'], $targetTitle );
+		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
 			$result = [
 				'result' => 'success',
-				'edit' => $saveresult['edit']
+				'edit' => $editResult
 			];
 			// newrevid can be unset when publishing already present sections with the exact same
 			// contents as the current revision
-			if ( isset( $saveresult['edit']['newrevid'] ) ) {
+			if ( isset( $editResult['newrevid'] ) ) {
 				// Add the tags post-send, after RC row insertion
-				$tags = $this->getTags();
-				$newRevId = intval( $saveresult['edit']['newrevid'] );
-				\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
-					\ChangeTags::addTags( $tags, null, $newRevId, null );
-				} );
+				$newRevId = intval( $editResult['newrevid'] );
+				$this->storeTags( $newRevId );
 
-				[ 'sourcelanguage' => $from, 'targetlanguage' => $to,'sourcetitle' => $sourceTitle ] = $params;
-				$translation = $this->getExistingTranslation( $from, $to, $sourceTitle );
+				[ 'sourcelanguage' => $sourceLanguage,'sourcetitle' => $sourceTitle ] = $params;
+				$translation = $this->getExistingTranslation( $sourceLanguage, $targetLanguage, $sourceTitle );
+
 				if ( $translation === null ) {
 					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
 				}
@@ -216,11 +213,55 @@ class ApiSectionTranslationPublish extends ApiBase {
 		} else {
 			$result = [
 				'result' => 'error',
-				'edit' => $saveresult['edit']
+				'edit' => $editResult
 			];
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
+	}
+
+	/**
+	 * Given the HTML of the published translation and the target page title (as a Title instance),
+	 * this method uses the RestbaseClient service to convert the HTML to wikitext and calls
+	 * the "submitEditAction" method to save the wikitext to MediaWiki's storage layer via its API.
+	 *
+	 * @param string $html
+	 * @param Title $targetTitle
+	 * @return mixed
+	 * @throws \ApiUsageException
+	 */
+	private function saveWikitext( string $html, Title $targetTitle ) {
+		$wikitext = null;
+		try {
+			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
+				$targetTitle,
+				$html
+			);
+		} catch ( \MWException $e ) {
+			$this->dieWithError(
+				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
+			);
+		}
+		$editResult = $this->submitEditAction( $targetTitle, $wikitext );
+		return $editResult['edit'];
+	}
+
+	/**
+	 * Given a new target revision id, this method adds a deferred update to be executed at the end
+	 * of the current request. This update adds the "contenttranslation" and "sectiontranslation" tags
+	 * to the given revision.
+	 *
+	 * @param int $newRevId
+	 * @return void
+	 */
+	private function storeTags( int $newRevId ) {
+		$tags = [
+			'contenttranslation',
+			'sectiontranslation'
+		];
+		\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
+			\ChangeTags::addTags( $tags, null, $newRevId, null );
+		} );
 	}
 
 	/**
