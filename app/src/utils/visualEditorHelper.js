@@ -5,12 +5,16 @@
  */
 function registerCXSectionNodes() {
   // Respect any existing upstream rdfatypes.
+  const cxSectionRDFA = "cx:Section";
   ve.dm.SectionNode.static.matchRdfaTypes =
     ve.dm.SectionNode.static.matchRdfaTypes || [];
-  ve.dm.SectionNode.static.matchRdfaTypes.push("cx:Section");
-  // Re-register ve.dm.SectionNode
-  ve.dm.modelRegistry.unregister(ve.dm.SectionNode);
-  ve.dm.modelRegistry.register(ve.dm.SectionNode);
+
+  if (!ve.dm.SectionNode.static.matchRdfaTypes.includes(cxSectionRDFA)) {
+    ve.dm.SectionNode.static.matchRdfaTypes.push(cxSectionRDFA);
+    // Re-register ve.dm.SectionNode
+    ve.dm.modelRegistry.unregister(ve.dm.SectionNode);
+    ve.dm.modelRegistry.register(ve.dm.SectionNode);
+  }
 }
 
 /**
