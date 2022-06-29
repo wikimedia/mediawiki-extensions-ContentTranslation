@@ -86,5 +86,7 @@
 	"apierror-cx-translationnotfound": "Превод није пронађен.",
 	"apihelp-query+langlinkscount-description": "Број других језика за које постоји верзија чланка.",
 	"apihelp-query+langlinkscount-summary": "Број верзија у другим језицима.",
-	"apihelp-query+langlinkscount-example-1": "Број верзија у другим језицима за страницу 'Dog'"
+	"apihelp-query+langlinkscount-example-1": "Број верзија у другим језицима за страницу 'Dog'",
+	"apihelp-sxsave-param-sourcerevision": "ID измене изворне странице",
+	"apierror-cxpublishsection-translationnotfound": "Превод није пронађен."
 }

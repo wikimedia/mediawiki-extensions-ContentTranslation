@@ -92,5 +92,6 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Pozycja sekcji do dodania w nowej wersji strony.",
 	"apihelp-cxpublishsection-param-sourcerevid": "ID wersji na stronie źródłowej.",
 	"apihelp-cxpublishsection-param-captchaid": "CAPTCHA ID (przy zapisywaniu odpowiedzi CAPTCHA).",
-	"apihelp-cxpublishsection-param-captchaword": "Odpowiedź na CAPTCHA (przy zapisywaniu odpowiedzi CAPTCHA)."
+	"apihelp-cxpublishsection-param-captchaword": "Odpowiedź na CAPTCHA (przy zapisywaniu odpowiedzi CAPTCHA).",
+	"apihelp-sxsave-param-sourcerevision": "ID wersji na stronie źródłowej."
 }
