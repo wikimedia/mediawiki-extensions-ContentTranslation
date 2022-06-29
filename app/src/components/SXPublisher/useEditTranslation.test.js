@@ -47,7 +47,7 @@ describe("useEditTranslation test", () => {
       name: "sx-editor",
       params: {
         content:
-          '<section id="cxTargetSection11"><span class="cx-segment" data-segmentid="1">Test translated sentence</span></section>',
+          '<section rel="cx:Section" id="cxTargetSection11"><span class="cx-segment" data-segmentid="1">Test translated sentence</span></section>',
         sourceLanguage: "en",
         targetLanguage: "el",
         title: "Target title",

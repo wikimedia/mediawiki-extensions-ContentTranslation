@@ -11,7 +11,7 @@ const useEditTranslation = (store, router) => {
     pageSection.value.subSections.reduce(
       (htmlContent, subSection) =>
         subSection.isTranslated
-          ? `${htmlContent}<section id="${subSection.targetSectionId}">${subSection.translatedContent}</section>`
+          ? `${htmlContent}<section rel="cx:Section" id="${subSection.targetSectionId}">${subSection.translatedContent}</section>`
           : htmlContent,
       ""
     )
