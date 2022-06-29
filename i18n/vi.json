@@ -316,10 +316,10 @@
 	"cx-sx-content-comparator-content-header-translate-button-label": "Biên dịch",
 	"cx-sx-publisher-publish-panel-new-section-status": "Sẵn sàng xuất bản?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Bản dịch của bạn sẽ được <strong>thêm vào bài viết dưới dạng một đoạn mới.</strong>",
-	"cx-sx-publisher-animation-publishing-indicator-title": "Xuất bản bản dịch...",
+	"cx-sx-publisher-animation-publishing-indicator-title": "Xuất bản bản dịch…",
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Cảm ơn bạn vì đã mở rộng nội dung có sẵn tại ngôn ngữ của bạn",
 	"cx-sx-publisher-animation-success-message-title": "Đã xuất bản!",
-	"cx-sx-publisher-animation-success-message-subtitle": "Đang mở trang...",
+	"cx-sx-publisher-animation-success-message-subtitle": "Đang mở trang…",
 	"cx-sx-publisher-animation-failure-message-title": "XUất bản thất bại",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Kiểm tra thông điệp lỗi",
 	"cx-sx-publisher-preview-options-title": "Tùy chọn xuất bản",
@@ -339,7 +339,7 @@
 	"cx-sx-language-selector-no-search-results": "Không có kết quả",
 	"sx-translation-list-language-selector-dialog-title": "Ngôn ngữ",
 	"cx-sx-article-search-header": "Bản dịch mới",
-	"cx-sx-article-search-no-search-results-message": "Không tìm thấy trang về \"$1\" trong $2",
+	"cx-sx-article-search-no-search-results-message": "Không tìm thấy trang về “$1” trong $2",
 	"cx-sx-translation-confirmer-action-new-translation": "Bản dịch mới",
 	"sx-editor-feedback-overlay-title": "Cảm ơn!"
 }
