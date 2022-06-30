@@ -87,6 +87,8 @@ export default {
       );
       ve.ui.MWReferenceContextItem.prototype.getRendering =
         getReferenceRendering;
+      // Focus on the editor
+      veSurface.focus();
     };
 
     onMounted(init);
