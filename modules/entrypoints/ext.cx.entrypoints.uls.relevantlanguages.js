@@ -96,6 +96,10 @@
 
 			var existingLanguages = Object.keys( uls.languages );
 
+			if ( !existingLanguages.length ) {
+				return;
+			}
+
 			var missingRelevantLanguages = frequentLanguages.filter( function ( language ) {
 				return existingLanguages.indexOf( language ) === -1;
 			} );
