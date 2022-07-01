@@ -10,6 +10,7 @@
 			"Chinamoonroll",
 			"Daud I.F. Argana",
 			"Diki Ananta",
+			"Ezagren",
 			"Fate Kage",
 			"Gombang",
 			"Iwan Novirion",
@@ -426,5 +427,8 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Terjemahkan \"$1\", \"$2\", dan lain-lain",
 	"sx-block-template-adaptation-card-body-header-success": "Saranan templat",
 	"sx-block-template-adaptation-card-edit-button-label": "Tinjau dan sunting terjemahan",
-	"sx-block-template-adaptation-card-body-header-failure": "Templat yang ekuivalen tidak tersedia untuk $1"
+	"sx-block-template-adaptation-card-body-header-failure": "Templat yang ekuivalen tidak tersedia untuk $1",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Tiada <span>$1</span>, <span>$2</span> dan banyak lagi",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Tiada dalam <span>$1</span> dan banyak lagi",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Tiada dalam <span>$1</span>, <span>$2</span> dan banyak lagi"
 }

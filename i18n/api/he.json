@@ -134,5 +134,19 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "מיקום הפרק שיהיה בגרסה החדשה של הדף.",
 	"apihelp-cxpublishsection-param-sourcerevid": "מזהה הגרסה של דף המקור.",
 	"apihelp-cxpublishsection-param-captchaid": "מזהה Captcha (בעת שמירה עם תשובת captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "תשובה ל־captcha (בעת שמירה עם תשובת captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "תשובה ל־captcha (בעת שמירה עם תשובת captcha).",
+	"apihelp-sxsave-description": "שמירת טיוטת תרגום הפסקה ואחסון הקורפוס המקביל",
+	"apihelp-sxsave-summary": "שמירת טיוטת תרגום הפסקה ואחסון הקורפוס המקביל",
+	"apihelp-sxsave-param-sourcelanguage": "קוד שפת המקור.",
+	"apihelp-sxsave-param-targetlanguage": "קוד שפת היעד.",
+	"apihelp-sxsave-param-sourcetitle": "כותרת דף המקור.",
+	"apihelp-sxsave-param-targettitle": "כותרת דף היעד.",
+	"apihelp-sxsave-param-content": "נתוני פסקאות מקודדים ב־JSON. כל פסקה היא עצם עם המפתחות הבאים: content‏, sectionId‏, origin‏, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "כותרת פרק המקור.",
+	"apihelp-sxsave-param-targetsectiontitle": "כותרת פרק היעד.",
+	"apihelp-sxsave-param-sectionnumber": "מיקום הפרק שיהיה בגרסה החדשה של הדף.",
+	"apihelp-sxsave-param-sectionid": "מזהה הפרק בדף.",
+	"apihelp-sxsave-param-sourcerevision": "מזהה הגרסה של דף המקור.",
+	"apierror-sxsave-anon-user": "פעולת ה־API בעלת המזהה \"sxsave\" אינה מופעלת למשתמשים אלמוניים",
+	"apierror-cxpublishsection-translationnotfound": "התרגום לא נמצא."
 }

@@ -133,5 +133,19 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Le position del futur section in le nove version del pagina.",
 	"apihelp-cxpublishsection-param-sourcerevid": "Le ID de version del pagina de origine.",
 	"apihelp-cxpublishsection-param-captchaid": "ID de captcha (quando salveguardar con un responsa captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "Responsa al captcha (quando salveguardar con un responsa captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "Responsa al captcha (quando salveguardar con un responsa captcha).",
+	"apihelp-sxsave-description": "Salveguardar le version provisori del traduction del section e immagazinar le corpores parallel.",
+	"apihelp-sxsave-summary": "Salveguardar le version provisori del traduction del section e immagazinar le corpores parallel.",
+	"apihelp-sxsave-param-sourcelanguage": "Le codice del lingua de origine.",
+	"apihelp-sxsave-param-targetlanguage": "Le codice del lingua de destination.",
+	"apihelp-sxsave-param-sourcetitle": "Le titulo del pagina de origine.",
+	"apihelp-sxsave-param-targettitle": "Le titulo del pagina de destination.",
+	"apihelp-sxsave-param-content": "Datos de section codificate in JSON. Cata section es un objecto e ha le sequente claves: content, sectionId, origin, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "Le titulo del section de origine.",
+	"apihelp-sxsave-param-targetsectiontitle": "Le titulo del section de destination.",
+	"apihelp-sxsave-param-sectionnumber": "Le position del futur section in le nove version del pagina.",
+	"apihelp-sxsave-param-sectionid": "Le ID del section del pagina.",
+	"apihelp-sxsave-param-sourcerevision": "Le ID de version del pagina de origine.",
+	"apierror-sxsave-anon-user": "Le action API \"sxsave\" non es activate pro usatores anonyme.",
+	"apierror-cxpublishsection-translationnotfound": "Traduction non trovate."
 }

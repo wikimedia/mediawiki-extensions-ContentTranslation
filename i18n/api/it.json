@@ -102,5 +102,12 @@
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "Il titolo della sezione di origine.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "Il titolo della sezione di destinazione.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (quando stai salvando con una risposta captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "Rispondi al captcha (quando salvi con una risposta captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "Rispondi al captcha (quando salvi con una risposta captcha).",
+	"apihelp-sxsave-param-sourcelanguage": "Il codice della lingua di origine.",
+	"apihelp-sxsave-param-targetlanguage": "Il codice della lingua di destinazione.",
+	"apihelp-sxsave-param-sourcetitle": "Il titolo della pagina di origine.",
+	"apihelp-sxsave-param-targettitle": "Il titolo della pagina di destinazione.",
+	"apihelp-sxsave-param-sourcesectiontitle": "Il titolo della sezione di origine.",
+	"apihelp-sxsave-param-targetsectiontitle": "Il titolo della sezione di destinazione.",
+	"apierror-cxpublishsection-translationnotfound": "Traduzione non trovata."
 }

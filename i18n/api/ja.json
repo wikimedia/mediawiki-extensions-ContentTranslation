@@ -5,6 +5,7 @@
 			"Afaz",
 			"Kanon und wikipedia",
 			"Kkairri",
+			"MathXplore",
 			"Omotecho",
 			"Otokoume",
 			"Shirayuki",
@@ -140,5 +141,6 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "改版したページに示す節の位置。",
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
-	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)"
+	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
+	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
 }

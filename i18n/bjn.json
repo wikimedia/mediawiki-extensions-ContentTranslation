@@ -8,7 +8,7 @@
 	"cx-dashboard-header": "Tarjamahan",
 	"cx-javascript": "Pakakas ngini kada kawa bagawi amun kada pakai JavaScript. JavaScript dipajahakan, luui manggawi, atawa paramban ngini kada didukung.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Tarjamahan Konten]] adalah pakakas gasan manarjemahakan laman sacara lakas ka basa Pian. [$1 Cuba damini!]",
-	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katentuan Pamakaian] wan Pian sacara tatap hakun gasan malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL].",
+	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katantuan Pamakaian] wan Pian sacara tatap hakun malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL].",
 	"cx-error-server-connection": "Galat: Kada kawa tahubung lawan server.",
 	"cx-desc": "Manyamani [[Special:ContentTranslation|panarjamahan]] laman isi",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ditarjamahakan}}",
@@ -68,6 +68,15 @@
 	"cx-campaign-contributionsmenu-myuploads": "Média nang diunggah",
 	"cx-trend-deletions": "Tarjamahan nang dihapus",
 	"echo-pref-tooltip-cx": "Padahi ulun pasal tarjamahan ulun nang diulah mamakai pakakas Tarjamahan Kontén.",
+	"cx-tools-linter-mark-as-resolved": "Tandai sabagai tatuntungakan",
 	"cx-translator-header": "Statistik Pian",
-	"cx-sx-publish-summary": "Diulah lawan manarjamahakan sapalih \"$1\" matan laman \"$2\""
+	"cx-sx-existing-translation-learn-more": "Palajari labih lanjut",
+	"cx-sx-section-selector-learn-more-anchor-label": "Palajari labih lanjut",
+	"cx-sx-publish-summary": "Diulah lawan manarjamahakan sapalih \"$1\" matan laman \"$2\"",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Palajari labih lanjut]",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Palajari labih lanjut",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Kadada <span>$1</span>, <span>$2</span> wan banyak lagi",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Kadada dalam <span>$1</span> wan banyak lagi",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Kadada dalam <span>$1</span>, <span>$2</span> wan banyak lagi",
+	"cx-uls-relevant-languages-panel-message": "Laman ngini kadada dalam babarapa basa nang pinanya Pian tahu. Pian kawa manarjamahakannya dalam rikinan manit!"
 }

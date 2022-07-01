@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Kyykaarme",
+			"Nike",
 			"Pitke",
 			"Silvonen"
 		]
@@ -19,5 +20,8 @@
 	"apierror-cx-samelanguages": "Lähde- ja kohdekielet eivät voi olla samoja.",
 	"apierror-cx-suggestionsdisabled": "Ehdotuksia ei ole saatavissa tässä wikissä.",
 	"apierror-cx-translationnotfound": "Käännöstä ei löytynyt.",
-	"apihelp-query+langlinkscount-summary": "Hae muiden kieliversioiden lukumäärä."
+	"apihelp-query+langlinkscount-summary": "Hae muiden kieliversioiden lukumäärä.",
+	"apihelp-sxsave-param-sourcelanguage": "Lähdekielen koodi.",
+	"apihelp-sxsave-param-sourcesectiontitle": "Lähdekappaleen otsikko.",
+	"apierror-cxpublishsection-translationnotfound": "Käännöstä ei löytynyt."
 }
