@@ -54,6 +54,7 @@ import { computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxTranslationConfirmer",
@@ -68,6 +69,7 @@ export default {
   },
   setup() {
     const store = useStore();
+    const { targetLanguage } = useApplicationState(store);
     const articleImageSource = computed(() => {
       const sourceArticle = store.getters["application/getCurrentPage"];
 
@@ -87,6 +89,14 @@ export default {
       // Start loading VE in background. Don't wait for it though.
       // We anticipate that user is going to use editor in next step.
       loadVEModules();
+
+      // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
+      // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
+      // step (for proper positioning of the new section placeholder inside target article preview)
+      store.dispatch(
+        "suggestions/fetchAppendixSectionTitles",
+        targetLanguage.value
+      );
     });
 
     const router = useRouter();

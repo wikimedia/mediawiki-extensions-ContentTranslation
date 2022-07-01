@@ -37,8 +37,25 @@ const initializeDashboard = async (router, store, logEvent) => {
     content_translation_session_position: 0,
   });
 
-  await store.dispatch("suggestions/fetchFavorites");
-  await store.dispatch("translator/fetchTranslations");
+  // Catch any possible errors during fetching favorite suggestions and
+  // translations, to make sure that "initializeSuggestions" actions is dispatched,
+  // even if that fetching fails. If we don't catch these errors, the suggestions
+  // inside Dashboard will be empty and appendix section titles won't be fetched
+  // in case of unsuccessful favorites/translations fetching.
+  try {
+    await store.dispatch("suggestions/fetchFavorites");
+  } catch (error) {
+    // Let favorite fetching gracefully fail
+    mw.log.error("[CX] Error while fetching favorite suggestions", error);
+  }
+
+  try {
+    await store.dispatch("translator/fetchTranslations");
+  } catch (error) {
+    // Let translation fetching gracefully fail
+    mw.log.error("[CX] Error while fetching translations", error);
+  }
+
   store.dispatch("suggestions/initializeSuggestions");
 };
 
