@@ -410,6 +410,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" 와 \"$2\" 을 번역",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" 등을 번역하기",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "번역 편집",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "<span>$1</span>(으)로 없음",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "<span>$1</span>, <span>$2</span> 등에 없는 문서",
 	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> 등에 없는 문서",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> 등에 없는 문서",

@@ -53,5 +53,12 @@
 	"apihelp-query+langlinkscount-summary": "D'Zuel vun den anere Sproochversioune kréien.",
 	"apihelp-query+langlinkscount-example-1": "D'Zuel vun den anere Sproochversioune vun der Säit 'Hond' kréien",
 	"apihelp-cxpublishsection-param-html": "Den Inhalt fir ze späicheren.",
-	"apihelp-cxpublishsection-param-sourcetitle": "Den Titel vun der Quellsäit."
+	"apihelp-cxpublishsection-param-sourcetitle": "Den Titel vun der Quellsäit.",
+	"apihelp-sxsave-param-sourcelanguage": "De Sproochcode vun der Quell.",
+	"apihelp-sxsave-param-targetlanguage": "De Sproochcode vum Zil.",
+	"apihelp-sxsave-param-sourcetitle": "Den Titel vun der Quellsäit.",
+	"apihelp-sxsave-param-targettitle": "Den Titel vun der Zilsäit.",
+	"apihelp-sxsave-param-sourcesectiontitle": "Den Titel vum Quellabschnitt.",
+	"apihelp-sxsave-param-sectionid": "D'ID vum Abschnitt vun der Säit.",
+	"apierror-cxpublishsection-translationnotfound": "Iwwersetzung net fonnt."
 }

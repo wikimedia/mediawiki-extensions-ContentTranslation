@@ -103,5 +103,8 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "원본 문서의 제목입니다.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "원본 문단의 제목입니다.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "대상 문단의 제목입니다.",
-	"apihelp-cxpublishsection-param-sourcerevid": "원본 문서의 판 ID입니다."
+	"apihelp-cxpublishsection-param-sourcerevid": "원본 문서의 판 ID입니다.",
+	"apihelp-sxsave-param-sourcelanguage": "원본 언어 코드입니다.",
+	"apihelp-sxsave-param-sourcetitle": "원문의 제목입니다.",
+	"apierror-cxpublishsection-translationnotfound": "번역을 찾을 수 없습니다."
 }
