@@ -21037,6 +21037,7 @@ const _sfc_main$K = {
       sxeditor.value.appendChild(veTarget.$element[0]);
       veSurface = getSurface(veTarget, props.content, props.language, props.dir);
       ve.ui.MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
+      veSurface.focus();
     });
     onMounted(init);
     return { sxeditor };
