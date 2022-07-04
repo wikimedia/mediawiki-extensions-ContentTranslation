@@ -20348,8 +20348,16 @@ const initializeDashboard = (router2, store2, logEvent2) => __async(this, null, 
     event_source: "direct",
     content_translation_session_position: 0
   });
-  yield store2.dispatch("suggestions/fetchFavorites");
-  yield store2.dispatch("translator/fetchTranslations");
+  try {
+    yield store2.dispatch("suggestions/fetchFavorites");
+  } catch (error) {
+    mw.log.error("[CX] Error while fetching favorite suggestions", error);
+  }
+  try {
+    yield store2.dispatch("translator/fetchTranslations");
+  } catch (error) {
+    mw.log.error("[CX] Error while fetching translations", error);
+  }
   store2.dispatch("suggestions/initializeSuggestions");
 });
 const _sfc_main$P = {
@@ -21081,6 +21089,7 @@ const _sfc_main$J = {
   },
   setup() {
     const store2 = useStore();
+    const { targetLanguage } = useApplicationState(store2);
     const articleImageSource = computed(() => {
       var _a;
       const sourceArticle = store2.getters["application/getCurrentPage"];
@@ -21096,6 +21105,7 @@ const _sfc_main$J = {
         event_source: eventSource
       });
       loadVEModules();
+      store2.dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage.value);
     });
     const router2 = useRouter();
     const onClose = () => {
