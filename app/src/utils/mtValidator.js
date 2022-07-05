@@ -24,13 +24,14 @@ const thresholds = [
  *
  * @param {string} actualTranslation
  * @param {string} proposedTranslation
+ * @param {string} language
  * @return {number} score as integer from 1 to 100
  */
-const calculateScore = (actualTranslation, proposedTranslation) => {
+const calculateScore = (actualTranslation, proposedTranslation, language) => {
   const resultText = htmlToElement(actualTranslation).textContent;
   const proposedText = htmlToElement(proposedTranslation).textContent;
   const distance =
-    100 - 100 * calculateUnmodifiedContent(proposedText, resultText);
+    100 - 100 * calculateUnmodifiedContent(proposedText, resultText, language);
 
   return Math.ceil(distance);
 };
@@ -48,12 +49,14 @@ const getScoreStatus = (score) =>
  * the lower the percentage of unmodified MT is.
  *
  * @param {PageSection} pageSection
+ * @param {string} language
  * @return {number} modified MT translation score
  */
-const getMTScoreForPageSection = (pageSection) =>
+const getMTScoreForPageSection = (pageSection, language) =>
   calculateScore(
     pageSection.translationHtml,
-    pageSection.proposedTranslationHTMLForMTValidation
+    pageSection.proposedTranslationHTMLForMTValidation,
+    language
   );
 
 const htmlToElement = (html) => {

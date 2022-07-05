@@ -29,6 +29,8 @@ import { computed } from "vue";
 import mtValidator from "../../utils/mtValidator";
 import happyRobotSVG from "../../assets/happy-robot.svg?raw";
 import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "EditCompleteFeedback",
@@ -45,9 +47,13 @@ export default {
   setup(props) {
     const route = useRoute();
     const proposedTranslation = route.params.content;
-
+    const { targetLanguage } = useApplicationState(useStore());
     const mtScore = computed(() =>
-      mtValidator.calculateScore(props.editedTranslation, proposedTranslation)
+      mtValidator.calculateScore(
+        props.editedTranslation,
+        proposedTranslation,
+        targetLanguage.value
+      )
     );
     const modificationStatus = computed(() => {
       const status = mtValidator.getScoreStatus(mtScore.value);

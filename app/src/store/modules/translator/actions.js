@@ -21,13 +21,17 @@ function validateMT({ rootState, commit }) {
   commit("application/clearMTPublishFeedbackMessages", {}, { root: true });
 
   /** @var {PageSection} */
-  const { currentSourceSection: section } = rootState.application;
+  const { currentSourceSection: section, targetLanguage } =
+    rootState.application;
   /**
    * Percentage of modified MT for current source section
    * as integer from 1 to 100
    * @type {number}
    */
-  const mtValidationScore = mtValidator.getMTScoreForPageSection(section);
+  const mtValidationScore = mtValidator.getMTScoreForPageSection(
+    section,
+    targetLanguage
+  );
 
   /**
    * Status for the given MT validation score

@@ -17,9 +17,8 @@ const mockSectionScores = {
 };
 jest.mock("../../../../../utils/mtValidator", () => {
   return {
-    getMTScoreForPageSection: (section, mtProvider) => {
-      return mockSectionScores[section.id];
-    },
+    getMTScoreForPageSection: (section, language) =>
+      mockSectionScores[section.id],
     getScoreStatus: (score) => mockScores[score],
   };
 });

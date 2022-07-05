@@ -102,6 +102,7 @@ export default {
       isSectionTitleSelected,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
+      targetLanguage,
     } = useApplicationState(useStore());
 
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
@@ -135,7 +136,11 @@ export default {
       return currentSubSection.value.translatedContent;
     });
     const mtScore = computed(() =>
-      mtValidator.calculateScore(translation.value, proposedMTTranslation.value)
+      mtValidator.calculateScore(
+        translation.value,
+        proposedMTTranslation.value,
+        targetLanguage.value
+      )
     );
     const modificationStatus = computed(() =>
       mtValidator.getScoreStatus(mtScore.value)
