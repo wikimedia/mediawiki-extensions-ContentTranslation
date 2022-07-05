@@ -4,7 +4,7 @@
     class="sx-publisher__publish-options"
     :title="$i18n('cx-sx-publisher-preview-options-title')"
     :overlay-opacity="0.7"
-    :overlay-color="overlayColor"
+    :overlay-color="$mwui.colors.base10"
     @input="$emit('update:active', $event)"
     @close="onPublishOptionsClose"
   >
@@ -34,7 +34,7 @@
         name="publish-options"
         @input="updateOption"
       >
-        <template v-for="option in publishOptions" :key="option.label">
+        <template v-for="(option, index) in publishOptions" :key="option.label">
           <mw-radio
             class="pa-0 my-1"
             :label="option.label"
@@ -42,8 +42,8 @@
             :disabled="option.disabled"
           />
           <p
-            class="complementary ms-7 mt-0 mb-4"
-            :class="optionMarginBottom"
+            class="complementary ms-7 mt-0"
+            :class="getMarginBottomClassByOptionIndex(index)"
             v-text="option.details"
           />
         </template>
@@ -61,7 +61,9 @@ import {
   MwRadio,
   MwRadioGroup,
 } from "@/lib/mediawiki.ui";
-import { mapState } from "vuex";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+import { computed } from "vue";
 
 export default {
   name: "SxPublishOptionSelector",
@@ -79,44 +81,52 @@ export default {
     },
   },
   emits: ["update:active"],
-  data: () => ({
-    mwIconArrowPrevious,
-  }),
-  computed: {
-    ...mapState({
-      selectedOption: (state) => state.application.publishTarget,
-      isAnon: (state) => state.translator.isAnon,
-    }),
-    publishOptions: (vm) => [
+  setup(props, { emit }) {
+    const store = useStore();
+    const selectedOption = computed(
+      () => store.state.application.publishTarget
+    );
+    const isAnon = computed(() => store.state.translator.isAnon);
+    const bananaI18n = useI18n();
+
+    const publishOptions = computed(() => [
       {
-        label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
-        details: vm.$i18n("cx-sx-publisher-new-section-option-details"),
+        label: bananaI18n.i18n("cx-sx-publisher-new-section-option-label"),
+        details: bananaI18n.i18n("cx-sx-publisher-new-section-option-details"),
         value: "NEW_SECTION",
         disabled: false,
       },
       {
-        label: vm.$i18n("cx-sx-publisher-sandbox-option-label"),
-        details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
+        label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
+        details: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
         value: "SANDBOX_SECTION",
-        disabled: vm.isAnon,
+        disabled: isAnon.value,
       },
-    ],
-    overlayColor: (vm) => vm.$mwui.colors.base10,
-  },
-  methods: {
-    optionMarginBottom(index) {
-      const isLastOption = index === this.publishOptions.length - 1;
+    ]);
+
+    const getMarginBottomClassByOptionIndex = (index) => {
+      const isLastOption = index === publishOptions.value.length - 1;
 
       return isLastOption ? "mb-1" : "mb-4";
-    },
-    onPublishOptionsClose() {
-      this.$emit("update:active", false);
-    },
-    updateOption(event) {
+    };
+
+    const onPublishOptionsClose = () => emit("update:active", false);
+
+    const updateOption = (event) => {
       const selectedOption = event.target.value;
-      this.$store.commit("application/setPublishTarget", selectedOption);
-      this.onPublishOptionsClose();
-    },
+      store.commit("application/setPublishTarget", selectedOption);
+      onPublishOptionsClose();
+    };
+
+    return {
+      getMarginBottomClassByOptionIndex,
+      isAnon,
+      mwIconArrowPrevious,
+      onPublishOptionsClose,
+      publishOptions,
+      selectedOption,
+      updateOption,
+    };
   },
 };
 </script>
