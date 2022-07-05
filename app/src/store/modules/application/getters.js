@@ -108,9 +108,6 @@ export default {
       rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
     ),
 
-  isPublishingDisabled: (state) =>
-    state.publishFeedbackMessages.some((message) => message.isError),
-
   /**
    * Returns a boolean indicating whether the current publishing target
    * is the user's sandbox

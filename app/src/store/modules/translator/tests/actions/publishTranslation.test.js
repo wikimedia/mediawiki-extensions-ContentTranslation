@@ -4,7 +4,6 @@ import SubSection from "@/wiki/cx/models/subSection";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import applicationMutations from "@/store/modules/application/mutations";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
 const mockMessage = new PublishFeedbackMessage({
@@ -35,12 +34,6 @@ jest.mock("@/wiki/cx/api/translator", () => ({
 }));
 
 describe("vuex store publishTranslation action", () => {
-  const commit = jest.fn((mutation, payload) => {
-    if (mutation === "application/addPublishFeedbackMessage") {
-      applicationMutations.addPublishFeedbackMessage(applicationState, payload);
-    }
-  });
-
   const applicationState = {
     sourceLanguage: "en",
     targetLanguage: "es",
@@ -51,7 +44,6 @@ describe("vuex store publishTranslation action", () => {
     currentSectionSuggestion: new SectionSuggestion({
       sourceTitle: "Test source title 1",
     }),
-    publishFeedbackMessages: [],
   };
   applicationState.currentSourceSection.translatedTitle =
     "Test target section title 1";
@@ -72,7 +64,6 @@ describe("vuex store publishTranslation action", () => {
   it("should call api saveTranslation method with the proper payload", async () => {
     await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
@@ -94,7 +85,6 @@ describe("vuex store publishTranslation action", () => {
   it("should call api publishTranslation method with the proper payload", async () => {
     await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
@@ -112,15 +102,14 @@ describe("vuex store publishTranslation action", () => {
     });
   });
 
-  it("should not add any publish feedback message on successful publishing", async () => {
-    await actions.publishTranslation({
+  it("should return null on successful publishing", async () => {
+    const feedbackMessage = await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
 
-    expect(applicationState.publishFeedbackMessages).toStrictEqual([]);
+    expect(feedbackMessage).toStrictEqual(null);
   });
 
   it("should add the translation units to the payload", async () => {
@@ -146,7 +135,6 @@ describe("vuex store publishTranslation action", () => {
 
     await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
@@ -186,12 +174,11 @@ describe("vuex store publishTranslation action", () => {
     });
   });
 
-  it("should add the publish feedback message that is returned by publishTranslation api method, when publishing fails", async () => {
+  it("should resolve to the publish feedback message that is returned by publishTranslation api method, when publishing fails", async () => {
     getters.getSectionNumberForPublishing = 2;
     applicationState.currentSourceSection.subSections = [];
-    await actions.publishTranslation({
+    const feedbackMessage = await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
@@ -206,17 +193,13 @@ describe("vuex store publishTranslation action", () => {
       revision: 11,
       sectionNumber: 2,
     });
-    expect(applicationState.publishFeedbackMessages).toStrictEqual([
-      mockMessage,
-    ]);
+    expect(feedbackMessage).toStrictEqual(mockMessage);
   });
 
-  it("should add the publish feedback message that is returned by saveTranslation api method, when saving fails", async () => {
+  it("should resolve to the publish feedback message that is returned by saveTranslation api method, when saving fails", async () => {
     getters.getSectionNumberForPublishing = 3;
-    applicationState.publishFeedbackMessages = [];
-    await actions.publishTranslation({
+    const feedbackMessage = await actions.publishTranslation({
       rootState,
-      commit,
       rootGetters,
       getters,
     });
@@ -232,9 +215,7 @@ describe("vuex store publishTranslation action", () => {
       units: [],
       sectionNumber: 3,
     });
-    expect(applicationState.publishFeedbackMessages).toStrictEqual([
-      mockMessageForSaving,
-    ]);
+    expect(feedbackMessage).toStrictEqual(mockMessageForSaving);
   });
 
   it("should throw and error when no current section suggestion exists", async () => {
@@ -243,7 +224,6 @@ describe("vuex store publishTranslation action", () => {
     try {
       await actions.publishTranslation({
         rootState,
-        commit,
         rootGetters,
         getters,
       });

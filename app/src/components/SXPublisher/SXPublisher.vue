@@ -1,6 +1,9 @@
 <template>
   <section class="sx-publisher">
-    <sx-publisher-header @publish-translation="doPublish" />
+    <sx-publisher-header
+      :is-publishing-disabled="isPublishingDisabled"
+      @publish-translation="doPublish"
+    />
     <div class="sx-publisher__publish-panel pa-4">
       <h5
         v-i18n:cx-sx-publisher-publish-panel-new-section-status
@@ -20,7 +23,9 @@
         </mw-col>
       </mw-row>
     </div>
-    <sx-publisher-review-info />
+    <sx-publisher-review-info
+      :publish-feedback-messages="publishFeedbackMessages"
+    />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
         <!--eslint-disable vue/no-v-html -->
@@ -102,16 +107,25 @@ export default {
       }
     });
 
-    onMounted(() => store.dispatch("translator/validateMT"));
-
-    const { editTranslation } = useEditTranslation(store, useRouter());
     const {
       configureTranslationOptions,
       doPublish,
       isPublishDialogActive,
+      isPublishingDisabled,
       publishOptionsOn,
+      publishFeedbackMessages,
       publishStatus,
     } = usePublishTranslation(store);
+
+    onMounted(async () => {
+      const mtValidationMessage = await store.dispatch("translator/validateMT");
+
+      if (mtValidationMessage) {
+        publishFeedbackMessages.value.push(mtValidationMessage);
+      }
+    });
+
+    const { editTranslation } = useEditTranslation(store, useRouter());
 
     return {
       configureTranslationOptions,
@@ -119,9 +133,11 @@ export default {
       doPublish,
       editTranslation,
       isPublishDialogActive,
+      isPublishingDisabled,
       mwIconEdit,
       mwIconSettings,
       panelResult,
+      publishFeedbackMessages,
       publishOptionsOn,
       publishStatus,
       translatedTitle,

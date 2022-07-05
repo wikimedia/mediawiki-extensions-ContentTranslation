@@ -59,7 +59,6 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
 import { computed, ref, watch } from "vue";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 
 export default {
@@ -71,13 +70,15 @@ export default {
     MwMessage,
     MwIcon,
   },
-  setup() {
-    const store = useStore();
-
+  props: {
+    publishFeedbackMessages: {
+      type: Array,
+      required: true,
+    },
+  },
+  setup(props) {
     const activeMessageIndex = ref(0);
-    const publishFeedbackMessages = computed(
-      () => store.state.application.publishFeedbackMessages
-    );
+
     const learnMoreContainer = ref(null);
     watch(learnMoreContainer, () => {
       const container = learnMoreContainer.value?.$el;
@@ -88,7 +89,7 @@ export default {
       }
     });
     const activeMessage = computed(
-      () => publishFeedbackMessages.value?.[activeMessageIndex.value]
+      () => props.publishFeedbackMessages?.[activeMessageIndex.value]
     );
 
     const status = computed(() => activeMessage.value?.status || "default");
@@ -121,14 +122,14 @@ export default {
     );
 
     const goToPreviousMessage = () => {
-      const messagesLength = publishFeedbackMessages.value.length;
+      const messagesLength = props.publishFeedbackMessages.length;
       activeMessageIndex.value =
         (activeMessageIndex.value - 1 + messagesLength) % messagesLength;
     };
 
     const goToNextMessage = () => {
       activeMessageIndex.value =
-        (activeMessageIndex.value + 1) % publishFeedbackMessages.value.length;
+        (activeMessageIndex.value + 1) % props.publishFeedbackMessages.length;
     };
 
     return {
@@ -146,7 +147,6 @@ export default {
       mwIconPrevious,
       reviewIcon,
       reviewInfoClass,
-      publishFeedbackMessages,
       status,
     };
   },

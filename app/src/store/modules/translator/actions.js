@@ -7,19 +7,15 @@ import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaVa
  * This action initially clears all existing MT publish feedback
  * messages. Then, it validates the application/currentSourceSection
  * state variable for Machine Translation abuse, using mtValidator module.
- * If the validation status is "success", it returns immediately. If not,
- * it adds the appropriate warning or error (depending on the validation
- * status) publish feedback message, to the vuex application state.
+ * If the validation status is "success", it returns null. If not,
+ * it returns the appropriate warning or error (depending on the validation
+ * status) publish feedback message.
  *
  * @param {object} context
  * @param {object} context.rootState
- * @param {function} context.commit
- * @param {function} context.commit
+ * @return {Promise<PublishFeedbackMessage|null>}
  */
-function validateMT({ rootState, commit }) {
-  // clear MT feedback messages before validation
-  commit("application/clearMTPublishFeedbackMessages", {}, { root: true });
-
+function validateMT({ rootState }) {
   /** @var {PageSection} */
   const { currentSourceSection: section, targetLanguage } =
     rootState.application;
@@ -42,7 +38,7 @@ function validateMT({ rootState, commit }) {
   // If machine translation has been modified above threshold percentage
   // the method returns without adding any MT feedback message
   if (mtValidationStatus === "success") {
-    return;
+    return null;
   }
 
   // If validation status is "failure" or "warning", then add an MT feedback
@@ -62,33 +58,30 @@ function validateMT({ rootState, commit }) {
       .plain();
     messageBody = mw.message("cx-sx-publisher-mt-abuse-error-body").plain();
   }
-  const message = new PublishFeedbackMessage({
+
+  return new PublishFeedbackMessage({
     title,
     text: messageBody,
     status,
     type: "mt",
   });
-  commit("application/addMTPublishFeedbackMessage", message, { root: true });
 }
 
 /**
  * This action is only reachable when no publish error messages exist.
  * When dispatched, it uses store getters to get the appropriate title,
  * content and position for the current section to be published,
- * and it publishes the current section using translator api client.
- * Based on the return value from "publishTranslation" api method,
- * that can be either a PublishFeedbackMessage model or null,
- * it adds the publish feedback error message to the state if it
- * exists.
+ * and it publishes the current section using translator api client,
+ * and it finally resolves to the return value from "publishTranslation"
+ * api method, that can be either a PublishFeedbackMessage model or null.
  *
  * @param {object} context
  * @param {object} context.rootState
- * @param {function} context.commit
  * @param {object} context.rootGetters
  * @param {object} context.getters
- * @return {Promise<void>}
+ * @return {Promise<PublishFeedbackMessage|null>}
  */
-async function publishTranslation({ rootState, commit, rootGetters, getters }) {
+async function publishTranslation({ rootState, rootGetters, getters }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -129,11 +122,7 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
   });
 
   if (!!saveMessage) {
-    commit("application/addPublishFeedbackMessage", saveMessage, {
-      root: true,
-    });
-
-    return;
+    return saveMessage;
   }
 
   /**
@@ -142,7 +131,7 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
    *
    * @type {PublishFeedbackMessage|null}
    */
-  const publishMessage = await cxTranslatorApi.publishTranslation({
+  return await cxTranslatorApi.publishTranslation({
     html: getters.getCleanHTMLForPublishing,
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
@@ -153,12 +142,6 @@ async function publishTranslation({ rootState, commit, rootGetters, getters }) {
     revision: sourcePage.revision,
     sectionNumber: getters.getSectionNumberForPublishing,
   });
-
-  if (!!publishMessage) {
-    commit("application/addPublishFeedbackMessage", publishMessage, {
-      root: true,
-    });
-  }
 }
 
 async function fetchTranslations({ commit, dispatch, state }) {

@@ -16,9 +16,6 @@ const applicationModule = {
     }),
     currentSourceSection: { subSections },
   },
-  mutations: {
-    clearPublishFeedbackMessages: () => {},
-  },
 };
 
 const store = createStore({

@@ -1,17 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXPublisher review info panel test Component output matches snapshot 1`
-] = `
+exports[`SXPublisher review info panel test should match snapshot when no publishFeedbackMessages exist 1`] = `
 <div
-  activemessageindex="0"
   aria-labelledby="notice10-label"
   aria-live="polite"
   class="row items-normal justify-start mw-ui-message--notice mw-ui-message--inline mw-ui-message sx-publisher__review-info ma-0 pa-4 sx-publisher__review-info--notice"
-  mwiconalert="[object Object]"
-  mwiconblock="M10 1a9 9 0 109 9 9 9 0 00-9-9zm5 10H5V9h10z"
-  mwiconcheck="[object Object]"
-  mwiconeye="M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5zM10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7z M 10, 10  m -2.5, 0 a 2.5, 2.5 0 1,0 5,0 a 2.5,2.5 0 1,0 -5,0"
 >
   
   <!-- @slot Use this slot for custom icon -->
@@ -53,6 +46,81 @@ exports[
       >
         cx-sx-publisher-review-info
       </p>
+    </div>
+    
+    
+  </span>
+  <!-- @slot Use this slot for custom action for the message -->
+  <!--    Add hideMessage method as slot prop, so that message can be hidden even when -->
+  <!--    action slot is being overridden -->
+  
+  <!--v-if-->
+  
+  
+</div>
+`;
+
+exports[`SXPublisher review info panel test should match snapshot when the active message is a warning 1`] = `
+<div
+  aria-labelledby="-label"
+  aria-live="polite"
+  class="row items-normal justify-start mw-ui-message--warning mw-ui-message sx-publisher__review-info ma-0 pa-4 sx-publisher__review-info--warning"
+>
+  
+  <!-- @slot Use this slot for custom icon -->
+  
+  <span
+    class="mw-ui-icon notranslate col shrink mw-ui-message__icon pe-3 items-start"
+  >
+    <svg
+      aria-hidden="true"
+      height="20"
+      role="presentation"
+      viewBox="0 0 20 20"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!--v-if-->
+      <g
+        fill="currentColor"
+      >
+        <path
+          d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"
+        />
+      </g>
+    </svg>
+  </span>
+  
+  <span
+    class="col grow items-center mw-ui-message__label"
+    id="-label"
+  >
+    
+    <!-- @slot Message content -->
+    
+    <div
+      class="sx-publisher__review-info__content"
+    >
+      
+      <h5>
+        Warning title
+      </h5>
+      <p>
+        Warning text
+      </p>
+      <div
+        class="row items-center justify-between ma-0"
+      >
+        
+        <div
+          class="col sx-publisher__review-info__learn-more-anchor"
+        >
+          cx-sx-publisher-review-info-learn-more
+        </div>
+        <!--v-if-->
+        
+      </div>
+      
     </div>
     
     

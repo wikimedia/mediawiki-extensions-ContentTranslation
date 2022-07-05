@@ -1,7 +1,7 @@
 import { getUrl } from "@/utils/mediawikiHelper";
-import siteApi from "../../wiki/mw/api/site";
+import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const decodeHtml = (html) => {
   const template = document.createElement("div");
@@ -10,15 +10,23 @@ const decodeHtml = (html) => {
   return template.innerText;
 };
 
-const handlePublishResult = async (store, isPublishDialogActive) => {
+/**
+ * @param {Store} store
+ * @param {RefImpl<boolean>} isPublishDialogActive
+ * @param {RefImpl<boolean>} isPublishingDisabled
+ * @return {Promise<void>}
+ */
+const handlePublishResult = async (
+  store,
+  isPublishDialogActive,
+  isPublishingDisabled
+) => {
   const { currentSectionSuggestion: suggestion, currentSourceSection } =
     useApplicationState(store);
 
   const translatedTitle = currentSourceSection?.value.title;
 
-  const errorExists = store.getters["application/isPublishingDisabled"];
-
-  if (errorExists) {
+  if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
 
     return;
@@ -58,6 +66,17 @@ const usePublishTranslation = (store) => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
+  /**
+   * Feedback messages that contain publishing-related warnings or errors. If only
+   * warnings exist inside this array, publishing is enabled. If at least one error
+   * exist, publishing functionality is disabled.
+   * @type {Ref<PublishFeedbackMessage[]>}
+   */
+  const publishFeedbackMessages = ref([]);
+
+  const isPublishingDisabled = computed(() =>
+    publishFeedbackMessages.value.some((message) => message.isError)
+  );
 
   const doPublish = async () => {
     /**
@@ -66,17 +85,27 @@ const usePublishTranslation = (store) => {
      */
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
-    await store.dispatch("translator/publishTranslation");
 
-    const errorExists = store.getters["application/isPublishingDisabled"];
-    publishStatus.value = errorExists ? "failure" : "success";
+    /** @type {PublishFeedbackMessage|null} */
+    const publishMessage = await store.dispatch(
+      "translator/publishTranslation"
+    );
+
+    if (!!publishMessage) {
+      publishFeedbackMessages.value.push(publishMessage);
+      publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
+    }
+
+    publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
     /**
      * Show feedback animation to user for 1 second
      * before handling the publishing result
      */
-    setTimeout(() => {
-      handlePublishResult(store, isPublishDialogActive);
-    }, 1000);
+    setTimeout(
+      () =>
+        handlePublishResult(store, isPublishDialogActive, isPublishingDisabled),
+      1000
+    );
   };
 
   const configureTranslationOptions = () => (publishOptionsOn.value = true);
@@ -85,7 +114,9 @@ const usePublishTranslation = (store) => {
     configureTranslationOptions,
     doPublish,
     isPublishDialogActive,
+    isPublishingDisabled,
     publishOptionsOn,
+    publishFeedbackMessages,
     publishStatus,
   };
 };

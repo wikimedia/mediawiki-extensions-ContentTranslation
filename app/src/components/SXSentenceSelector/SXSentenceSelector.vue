@@ -139,7 +139,6 @@ export default {
     onMounted(async () => {
       // When user returns to "Pick a sentence" step from "Preview and publish"
       // publishing warnings and errors should be cleared.
-      store.commit("application/clearPublishFeedbackMessages");
       await store.dispatch("application/initializeMTProviders");
 
       // If no sentence is selected, select title

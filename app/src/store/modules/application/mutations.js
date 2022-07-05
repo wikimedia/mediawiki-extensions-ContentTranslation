@@ -4,58 +4,6 @@ import SubSection from "@/wiki/cx/models/subSection";
 
 const mutations = {
   /**
-   * This mutation empties publishFeedbackMessages array.
-   * It is used inside "Pick a sentence" step, to make sure
-   * that publishing issues are reset, when user goes back
-   * from "Preview and publish" step.
-   *
-   * @param {object} state
-   */
-  clearPublishFeedbackMessages(state) {
-    state.publishFeedbackMessages = [];
-  },
-
-  /**
-   * This mutation removes all MT related feedback messages
-   * from publishFeedbackMessages array
-   *
-   * @param {object} state
-   */
-  clearMTPublishFeedbackMessages(state) {
-    state.publishFeedbackMessages = state.publishFeedbackMessages.filter(
-      (message) => !message.isMTMessage
-    );
-  },
-
-  /**
-   * Given a PublishFeedbackMessage model, this mutation
-   * removes all MT related feedback messages from
-   * publishFeedbackMessages array, and then adds the given
-   * message to the array.
-   *
-   * @param {object} state
-   * @param {PublishFeedbackMessage} message
-   */
-  addMTPublishFeedbackMessage(state, message) {
-    mutations.clearMTPublishFeedbackMessages(state);
-    state.publishFeedbackMessages.push(message);
-  },
-
-  /**
-   * Given a PublishFeedbackMessage model, this mutation adds it
-   * to publishFeedbackMessages array, and then sorts all
-   * messages in this array so that error messages are always
-   * positioned before warnings.
-   *
-   * @param {object} state
-   * @param {PublishFeedbackMessage} message
-   */
-  addPublishFeedbackMessage(state, message) {
-    state.publishFeedbackMessages.push(message);
-    state.publishFeedbackMessages.sort((m1, m2) => +m2.isError - +m1.isError);
-  },
-
-  /**
    * This mutation is being called both for section suggestions and for
    * page suggestions. However, "currentSectionSuggestion" state variable
    * should be a instance of SectionSuggestion class. For that reason, we should

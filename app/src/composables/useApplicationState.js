@@ -31,10 +31,6 @@ export default function (store) {
     () => currentSourceSection.value?.isTitleSelected
   );
 
-  const publishFeedbackMessages = computed(
-    () => store.state.application.publishFeedbackMessages
-  );
-
   const selectedContentTranslationUnit = computed(
     () => currentSourceSection.value?.selectedContentTranslationUnit
   );
@@ -49,7 +45,6 @@ export default function (store) {
     currentSourceSection,
     isSectionTitleSelected,
     proposedTranslation,
-    publishFeedbackMessages,
     selectedContentTranslationUnit,
     sourceLanguage,
     sourceLanguageAutonym,

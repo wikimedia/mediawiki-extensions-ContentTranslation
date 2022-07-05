@@ -33,11 +33,4 @@ export default {
    * @type String
    */
   cxServerToken: null,
-  /**
-   * Feedback messages that contain publishing-related warnings or errors. If only
-   * warnings exist inside this array, publishing is enabled. If at least one error
-   * exist, publishing functionality is disabled.
-   * @type {PublishFeedbackMessage[]}
-   */
-  publishFeedbackMessages: [],
 };
