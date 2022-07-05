@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"ToniSant"
+		]
+	},
+	"apierror-cx-samelanguages": "Il-lingwa tas-sors u t-traduzzjoni ma jistgħux ikunu l-istess.",
+	"apihelp-query+langlinkscount-description": "Ara n-numru ta' lingwi oħra li fihom jeżisti dan l-artiklu."
+}

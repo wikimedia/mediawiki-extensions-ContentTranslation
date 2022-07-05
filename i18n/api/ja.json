@@ -142,5 +142,6 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
+	"apihelp-sxsave-param-sectionid": "ページセクションID。",
 	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
 }
