@@ -8,7 +8,7 @@
 	"cx-dashboard-header": "Tarjamahan",
 	"cx-javascript": "Pakakas ngini kada kawa bagawi amun kada pakai JavaScript. JavaScript dipajahakan, luui manggawi, atawa paramban ngini kada didukung.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Tarjamahan Konten]] adalah pakakas gasan manarjemahakan laman sacara lakas ka basa Pian. [$1 Cuba damini!]",
-	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katentuan Pamakaian] wan Pian sacara tatap hakun gasan malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL].",
+	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katantuan Pamakaian] wan Pian sacara tatap hakun malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL].",
 	"cx-error-server-connection": "Galat: Kada kawa tahubung lawan server.",
 	"cx-desc": "Manyamani [[Special:ContentTranslation|panarjamahan]] laman isi",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ditarjamahakan}}",
@@ -61,9 +61,16 @@
 	"cx-contributions-new-article": "Laman hanyar",
 	"cx-contributions-translation": "Tarjamahan",
 	"cx-contributions-upload": "Unggah média",
+	"cx-contributions-new-article-tooltip": "Mulai manulis laman hanyar",
+	"cx-contributions-translation-tooltip": "Tarjamahakan laman nang sudah ada",
+	"cx-contributions-upload-tooltip": "Unggah gambar, audio, wan vidéo gasan dipakai di laman",
 	"cx-feedback-link": "Bari umpan balik",
 	"cx-campaign-contributionsmenu-myuploads": "Média nang diunggah",
 	"cx-trend-deletions": "Tarjamahan nang dihapus",
 	"echo-pref-tooltip-cx": "Padahi ulun pasal tarjamahan ulun nang diulah mamakai pakakas Tarjamahan Kontén.",
-	"cx-translator-header": "Statistik Pian"
+	"cx-tools-linter-mark-as-resolved": "Tandai sabagai tatuntungakan",
+	"cx-translator-header": "Statistik Pian",
+	"cx-sx-existing-translation-learn-more": "Palajari labih lanjut",
+	"cx-sx-section-selector-learn-more-anchor-label": "Palajari labih lanjut",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Palajari labih lanjut"
 }
