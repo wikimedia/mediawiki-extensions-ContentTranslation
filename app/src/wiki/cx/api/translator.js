@@ -169,6 +169,8 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.targetLanguage
  * @param {Number} publishParams.revision
  * @param {Number|"new"} publishParams.sectionNumber
+ * @param {String} publishParams.captchaId
+ * @param {String} publishParams.captchaWord
  * @return {Promise<PublishFeedbackMessage|null>}
  */
 const publishTranslation = ({
@@ -181,6 +183,8 @@ const publishTranslation = ({
   targetLanguage,
   revision,
   sectionNumber,
+  captchaId,
+  captchaWord,
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -195,13 +199,35 @@ const publishTranslation = ({
     sectionnumber: sectionNumber,
   };
 
+  if (captchaId) {
+    params.captchaid = captchaId;
+    params.captchaword = captchaWord;
+  }
   const api = new mw.Api();
 
   return api
     .postWithToken("csrf", params)
-    .then(() => null)
+    .then((response) => {
+      response = response.cxpublishsection;
+
+      if (response.result === "error") {
+        if (response.edit.captcha) {
+          return new PublishFeedbackMessage({
+            type: "captcha",
+            status: "error",
+            details: response.edit.captcha,
+          });
+        }
+        // there is no known case for which this error will be shown
+        // this will be handled by the following "catch" block as "Unknown error"
+        throw new Error();
+      }
+
+      return null;
+    })
     .catch((error, details) => {
       let text;
+      details = details || {};
 
       if (details.exception) {
         text = details.exception.message;

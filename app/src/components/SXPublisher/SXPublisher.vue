@@ -45,6 +45,12 @@
       <!--eslint-enable vue/no-v-html -->
     </section>
     <sx-publish-option-selector v-model:active="publishOptionsOn" />
+    <sx-publisher-captcha-dialog
+      :active="captchaDialogOn"
+      :captcha-details="captchaDetails"
+      @close="onCaptchaDialogClose"
+      @publish="doPublish($event)"
+    />
     <sx-publisher-animation-dialog
       :active="isPublishDialogActive"
       :status="publishStatus"
@@ -60,6 +66,7 @@ import {
 import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SxPublisherHeader from "./SXPublisherHeader.vue";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog.vue";
+import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
 import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { computed, onMounted } from "vue";
@@ -76,6 +83,7 @@ export default {
     SxPublisherReviewInfo,
     SxPublishOptionSelector,
     SxPublisherAnimationDialog,
+    SxPublisherCaptchaDialog,
     MwButton,
     SxPublisherHeader,
     MwRow,
@@ -108,10 +116,13 @@ export default {
     });
 
     const {
+      captchaDetails,
+      captchaDialogOn,
       configureTranslationOptions,
       doPublish,
       isPublishDialogActive,
       isPublishingDisabled,
+      onCaptchaDialogClose,
       publishOptionsOn,
       publishFeedbackMessages,
       publishStatus,
@@ -128,6 +139,8 @@ export default {
     const { editTranslation } = useEditTranslation(store, useRouter());
 
     return {
+      captchaDetails,
+      captchaDialogOn,
       configureTranslationOptions,
       currentPageSection,
       doPublish,
@@ -136,6 +149,7 @@ export default {
       isPublishingDisabled,
       mwIconEdit,
       mwIconSettings,
+      onCaptchaDialogClose,
       panelResult,
       publishFeedbackMessages,
       publishOptionsOn,

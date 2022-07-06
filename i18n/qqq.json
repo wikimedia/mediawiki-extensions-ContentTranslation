@@ -452,5 +452,7 @@
 	"cx-uls-relevant-languages-panel-header": "Header of the panel that is displayed when user clicks on the banner for the frequently used missing languages, inside Universal Language Selector.",
 	"cx-uls-relevant-languages-panel-message": "Text of the panel that is displayed when user clicks on the banner for the frequently used missing languages, inside Universal Language Selector.",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Description of expected result when publishing a lead section, inside 'Preview and publish' step",
-	"cx-uls-translate-page-quick-action-label": "Label of the 'Translate page' quick action button inside content language selector, that redirects the user to the ContentTranslation page with the source page and source language prefilled."
+	"cx-uls-translate-page-quick-action-label": "Label of the 'Translate page' quick action button inside content language selector, that redirects the user to the ContentTranslation page with the source page and source language prefilled.",
+	"cx-sx-publisher-captcha-dialog-header-title": "Title of the dialog that requests from the user to verify they are not a robot, by successfully replying to a CAPTCHA confirmation question, before successful publishing of a section translation.",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Label of the button that submits the CAPTCHA answer and publishes the section translation inside the dialog that requests from the user to verify they are not a robot, by successfully replying to a CAPTCHA confirmation question"
 }

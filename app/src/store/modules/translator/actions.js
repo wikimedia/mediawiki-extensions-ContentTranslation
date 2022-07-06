@@ -79,9 +79,15 @@ function validateMT({ rootState }) {
  * @param {object} context.rootState
  * @param {object} context.rootGetters
  * @param {object} context.getters
+ * @param {object} payload
+ * @param {string|number} payload.captchaId
+ * @param {string|number} payload.captchaAnswer
  * @return {Promise<PublishFeedbackMessage|null>}
  */
-async function publishTranslation({ rootState, rootGetters, getters }) {
+async function publishTranslation(
+  { rootState, rootGetters, getters },
+  { captchaId, captchaAnswer } = {}
+) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -125,13 +131,7 @@ async function publishTranslation({ rootState, rootGetters, getters }) {
     return saveMessage;
   }
 
-  /**
-   * Publish translation and get a publish feedback error message in case of
-   * failure, or null in case of successful publishing
-   *
-   * @type {PublishFeedbackMessage|null}
-   */
-  return await cxTranslatorApi.publishTranslation({
+  const publishPayload = {
     html: getters.getCleanHTMLForPublishing,
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
@@ -141,7 +141,20 @@ async function publishTranslation({ rootState, rootGetters, getters }) {
     targetLanguage,
     revision: sourcePage.revision,
     sectionNumber: getters.getSectionNumberForPublishing,
-  });
+  };
+
+  if (captchaId) {
+    publishPayload.captchaId = captchaId;
+    publishPayload.captchaWord = captchaAnswer;
+  }
+
+  /**
+   * Publish translation and get a publish feedback error message in case of
+   * failure, or null in case of successful publishing
+   *
+   * @type {PublishFeedbackMessage|null}
+   */
+  return await cxTranslatorApi.publishTranslation(publishPayload);
 }
 
 async function fetchTranslations({ commit, dispatch, state }) {

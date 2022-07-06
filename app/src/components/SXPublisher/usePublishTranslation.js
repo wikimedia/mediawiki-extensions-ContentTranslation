@@ -21,17 +21,14 @@ const handlePublishResult = async (
   isPublishDialogActive,
   isPublishingDisabled
 ) => {
-  const { currentSectionSuggestion: suggestion, currentSourceSection } =
-    useApplicationState(store);
-
-  const translatedTitle = currentSourceSection?.value.title;
-
   if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
 
     return;
   }
-
+  const { currentSectionSuggestion: suggestion, currentSourceSection } =
+    useApplicationState(store);
+  const translatedTitle = currentSourceSection?.value.title;
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
   // Publishing is Successful
@@ -66,6 +63,8 @@ const usePublishTranslation = (store) => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
+  const captchaDialogOn = ref(false);
+  const captchaDetails = ref(null);
   /**
    * Feedback messages that contain publishing-related warnings or errors. If only
    * warnings exist inside this array, publishing is enabled. If at least one error
@@ -78,7 +77,10 @@ const usePublishTranslation = (store) => {
     publishFeedbackMessages.value.some((message) => message.isError)
   );
 
-  const doPublish = async () => {
+  /**
+   * @param {string|number|null} captchaAnswer
+   */
+  const doPublish = async (captchaAnswer = null) => {
     /**
      * Set initial publish status to "pending" before
      * publish request
@@ -88,14 +90,23 @@ const usePublishTranslation = (store) => {
 
     /** @type {PublishFeedbackMessage|null} */
     const publishMessage = await store.dispatch(
-      "translator/publishTranslation"
+      "translator/publishTranslation",
+      { captchaId: captchaDetails.value?.id, captchaAnswer }
     );
 
-    if (!!publishMessage) {
+    // if the feedback message is of type "captcha", set the captcha details and open the captcha dialog
+    if (!!publishMessage && publishMessage.type === "captcha") {
+      captchaDetails.value = publishMessage.details;
+      isPublishDialogActive.value = false;
+      captchaDialogOn.value = true;
+
+      return;
+    } else if (!!publishMessage) {
       publishFeedbackMessages.value.push(publishMessage);
       publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
     }
-
+    // make sure to reset captcha details, when no CAPTCHA is requested
+    captchaDetails.value = null;
     publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
     /**
      * Show feedback animation to user for 1 second
@@ -108,13 +119,21 @@ const usePublishTranslation = (store) => {
     );
   };
 
+  const onCaptchaDialogClose = () => {
+    captchaDialogOn.value = false;
+    captchaDetails.value = null;
+  };
+
   const configureTranslationOptions = () => (publishOptionsOn.value = true);
 
   return {
+    captchaDetails,
+    captchaDialogOn,
     configureTranslationOptions,
     doPublish,
     isPublishDialogActive,
     isPublishingDisabled,
+    onCaptchaDialogClose,
     publishOptionsOn,
     publishFeedbackMessages,
     publishStatus,

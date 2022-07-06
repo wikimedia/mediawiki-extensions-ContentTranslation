@@ -94,7 +94,7 @@
 }
 
 // Primary buttons mixin.
-.mw-ui-button-colors-primary(@bgColor, @highlightColor, @activeColor ) {
+.mw-ui-button-colors-primary( @bgColor, @highlightColor, @activeColor ) {
   background-color: @bgColor;
   color: #fff;
   // border of the same color as background so that light background and
@@ -104,6 +104,7 @@
   &:hover {
     background-color: @highlightColor;
     border-color: @highlightColor;
+    color: #fff;
   }
 
   &:focus {
