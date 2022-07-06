@@ -296,8 +296,12 @@ export default class SubSection {
       subSectionNode.innerHTML =
         this.blockTemplateProposedTranslations[mtProvider];
     } else {
-      mtProvider = this.sentences?.[0]?.mtProviderUsed;
-      const sameMTProviderUsed = this.sentences.every(
+      const translatedSentences = this.sentences.filter(
+        (sentence) => sentence.isTranslated
+      );
+
+      mtProvider = translatedSentences?.[0]?.mtProviderUsed;
+      const sameMTProviderUsed = translatedSentences.every(
         (sentence) => sentence.mtProviderUsed === mtProvider
       );
 
