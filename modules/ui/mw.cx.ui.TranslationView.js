@@ -3,6 +3,11 @@
  *
  * @class
  * @param {Object} [config] Configuration object
+ * @param {string} config.sourceTitle The title of the source page
+ * @param {string} config.targetTitle The title of the target page
+ * @param {string} config.sourceLanguage The language of the source page
+ * @param {string} config.targetLanguage The language of the target page
+ * @param {mw.cx.SiteMapper} config.siteMapper SiteMapper instance
  */
 mw.cx.ui.TranslationView = function ( config ) {
 	this.infobar = new mw.cx.ui.Infobar( config );

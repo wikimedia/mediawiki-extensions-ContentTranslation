@@ -24,8 +24,11 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.config.sourceTitle = sourceWikiPage.getTitle();
 	this.config.sourceLanguage = sourceWikiPage.getLanguage();
 	this.config.sourceRevision = sourceWikiPage.getRevision();
+	this.config.sourceSectionTitle = sourceWikiPage.getSectionTitle();
+
 	this.config.targetTitle = targetWikiPage.getTitle();
 	this.config.targetLanguage = targetWikiPage.getLanguage();
+	this.config.targetSectionTitle = targetWikiPage.getSectionTitle();
 
 	this.mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ];
 	this.userNamespaceId = mw.config.get( 'wgNamespaceIds' ).user;
@@ -88,8 +91,6 @@ mw.cx.init.Translation.prototype.init = function () {
 		this.sourceWikiPage.setRevision( sourcePageContent.revision );
 
 		this.initTranslationModel( sourcePageContent.segmentedContent, draft ).then( function ( translationModel ) {
-			var mwSectionNumber = mw.cx.sectionForTranslation();
-
 			this.translationModel = translationModel;
 
 			if ( draft ) {
@@ -108,27 +109,18 @@ mw.cx.init.Translation.prototype.init = function () {
 				this.addChangedSignificantlyIssue( translationModel );
 			}
 
-			// If section translation is enabled for CX (by using "section" param in URL),
-			// hide all other sections.
-			if ( mwSectionNumber ) {
-				mw.loader.addStyleTag(
-					'.ve-ce-cxSectionNode:not( .mw-source-section-' + mwSectionNumber + ' ),' +
-					'.ve-ce-cxPlaceholderNode:not( .mw-target-section-' + mwSectionNumber + ' )' +
-					'{ display: none; }'
+			if ( !translationModel.isSectionTranslation() ) {
+				translationModel.initCategories(
+					this.processCategories( sourcePageContent.categories )
 				);
+				categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
+				this.translationView.showCategories( categoryUI );
 			}
-
-			translationModel.initCategories(
-				this.processCategories( sourcePageContent.categories )
-			);
-			categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
-			this.translationView.showCategories( categoryUI );
-
 			if ( draft ) {
 				mw.hook( 'mw.cx.draft.restored' ).fire();
 			}
 			mw.log( '[CX] Translation initialized successfully' );
-		}.bind( this ) );
+		}.bind( this ), this.initializationError.bind( this ) );
 	}.bind( this ), this.initializationError.bind( this ) );
 
 	this.addFeedbackLink();
@@ -166,7 +158,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  * load the original revision used when translation was started.
  *
  * @param {string} sourceHtml
- * @param {Object} draft
+ * @param {Object} [draft] Saved translation if any.
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, draft ) {

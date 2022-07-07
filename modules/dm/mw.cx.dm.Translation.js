@@ -84,7 +84,7 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 mw.cx.dm.Translation.static.getSourceDom = function (
 	sourceHtml, forTarget, savedTranslationUnits, sourceLanguage
 ) {
-	var childNodes, restoredContent,
+	var childNodes, restoredContent, sxSectionNumber,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
 		articleNode = domDoc.createElement( 'article' ),
 		baseNodes;
@@ -99,10 +99,21 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
+	if ( mw.cx.sourceSectionTitle ) {
+		// eslint-disable-next-line no-restricted-syntax
+		var targetSectionNode = [].slice.call( domDoc.getElementsByTagName( 'h2' ) ).find(
+			function ( el ) {
+				return el.innerText === mw.cx.sourceSectionTitle;
+			} );
+		if ( targetSectionNode ) {
+			sxSectionNumber = targetSectionNode.parentNode.dataset.mwSectionNumber;
+		}
+	}
+
 	// Convert Nodelist to proper array
 	childNodes = [].slice.call( domDoc.body.childNodes );
 	childNodes.forEach( function ( node ) {
-		var sectionId, mwSectionNumber, sectionClass, sectionNode, savedSectionNode, savedSection,
+		var sectionId, mwSectionNumber, sectionNode, savedSectionNode, savedSection,
 			validSection = false;
 
 		if ( node.nodeType !== Node.ELEMENT_NODE ) {
@@ -124,7 +135,6 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
 
 			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
-			sectionClass = 'mw-target-section-' + mwSectionNumber;
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
 				savedSectionNode = domDoc.createElement( 'div' );
@@ -144,13 +154,12 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 			}
 		} else {
-			sectionClass = 'mw-source-section-' + mwSectionNumber;
 			sectionNode = node.cloneNode( true );
 		}
 
-		if ( this.getMode() === 'section' ) {
-			// eslint-disable-next-line mediawiki/class-doc
-			sectionNode.classList.add( sectionClass );
+		// eslint-disable-next-line mediawiki/class-doc
+		if ( sxSectionNumber && sxSectionNumber !== mwSectionNumber ) {
+			sectionNode.classList.add( 'mw-section-hide' );
 		}
 
 		// Remove the original node now.
@@ -187,10 +196,6 @@ mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) 
 	}
 
 	return null;
-};
-
-mw.cx.dm.Translation.static.getMode = function () {
-	return mw.cx.sectionForTranslation() ? 'section' : 'article';
 };
 
 /**
@@ -564,6 +569,15 @@ mw.cx.dm.Translation.prototype.getTargetLanguage = function () {
 
 mw.cx.dm.Translation.prototype.hasBeenPublished = function () {
 	return this.status === 'published' || this.targetURL !== null;
+};
+
+/**
+ * Check if this translation is Section Translation
+ *
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.prototype.isSectionTranslation = function () {
+	return !!this.sourceWikiPage.getSectionTitle();
 };
 
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {

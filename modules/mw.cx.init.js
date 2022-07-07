@@ -26,23 +26,25 @@
 		mw.cx.sourceLanguage = query.from;
 		mw.cx.sourceRevision = query.revision;
 		mw.cx.targetTitle = query.targettitle || query.page;
+		mw.cx.sourceSectionTitle = query.sourcesection;
+		mw.cx.targetSectionTitle = query.targetsection || query.sourcesection;
 
 		// Global services that every class can expect to have
 		services = {
 			siteMapper: mw.cx.siteMapper
 		};
 
-		services.requestManager = new mw.cx.MwApiRequestManager( query.from, query.to, services.siteMapper );
-		services.MTService = new mw.cx.MachineTranslationService( query.from, query.to, services.siteMapper );
-		services.MTManager = new mw.cx.MachineTranslationManager( query.from, query.to, services.MTService );
+		services.requestManager = new mw.cx.MwApiRequestManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.siteMapper );
+		services.MTService = new mw.cx.MachineTranslationService( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.siteMapper );
+		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
-		sourceWikiPage = new mw.cx.dm.WikiPage( query.page, query.from, query.revision );
-		targetWikiPage = new mw.cx.dm.WikiPage( query.targettitle || query.page, query.to );
+		sourceWikiPage = new mw.cx.dm.WikiPage( mw.cx.sourceTitle, mw.cx.sourceLanguage, mw.cx.sourceRevision, mw.cx.sourceSectionTitle );
+		targetWikiPage = new mw.cx.dm.WikiPage( mw.cx.targetTitle, mw.cx.targetLanguage, mw.cx.targetSectionTitle );
 		translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
 		translation.init();
 
 		if ( query.campaign ) {
-			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, query.from, query.page, query.to );
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, mw.cx.sourceLanguage, mw.cx.sourceTitle, mw.cx.targetLanguage );
 		}
 
 		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
