@@ -94,17 +94,17 @@ class CXCorporaDump extends Maintenance {
 
 		$format = $this->getOption( 'format', 'json' );
 		if ( !in_array( $format, [ 'json', 'tmx' ] ) ) {
-			$this->error( "Unknown output format\n", 1 );
+			$this->fatalError( "Unknown output format\n" );
 		}
 
 		$type = $plain ? 'text' : 'html';
 		if ( $format === 'tmx' && $type === 'html' ) {
-			$this->error( "TMX output format is only supported with plaintext\n", 1 );
+			$this->fatalError( "TMX output format is only supported with plaintext\n" );
 		}
 
 		$sinkType = $this->getOption( 'compression', 'file' );
 		if ( !isset( self::$sinkTypes[ $sinkType ] ) ) {
-			$this->error( "Unknown compression format\n", 1 );
+			$this->fatalError( "Unknown compression format\n" );
 		}
 		list( $sinkClass, $sinkExtension ) = self::$sinkTypes[ $sinkType ];
 
