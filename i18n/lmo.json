@@ -332,6 +332,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "Publicazzion fallada",
 	"cx-sx-publisher-animation-failure-message-subtitle": "Controla i messagg d'eror",
 	"cx-sx-publish-summary": "Cread cont el tradù la sezzion \"$1\" de la pagina \"$2\"",
+	"cx-sx-publish-lead-section-summary": "Cread col tradù la sezizon d'avertura da la pagina \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Opzion de publicazzion",
 	"cx-sx-publisher-new-section-option-label": "Publica una sezzion noeuva",
 	"cx-sx-publisher-new-section-option-details": "Sgionta una noeuva sezzion a la vos",
@@ -339,7 +340,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Publica in del to spazzi personal per revisionall e copiall in d'un'altra part.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "La toa traduzzion la sarà <strong>sgiontada al to sabion.</strong>",
 	"cx-sx-publisher-review-info-error": "A l'è stad minga possibil publicà la toa traduzzionː",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Per savénn pussee]]",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Per savénn pussee]",
 	"cx-dashboard-experimental-support-banner-title": "El suport per i dispositiv modbil l'è sperimental",
 	"cx-dashboard-experimental-support-banner-description": "Te podet espand i articoi esistent cont el tradù una sezzion noeuva. Tutamanch, di fonzion del desktop a inn nananmò disponibil.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Per savenn pussee",
@@ -396,7 +397,7 @@
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Controlla i riferiment",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "I letor vann a vedé i riferiment per controllà i fati. Varda an'mò el formad di riferiment e sgionta i riferiment relativ a la toa lengua.",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Confronta con l'orisginal",
-	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Sicures che 'l siginifac orisginal el sia minga stad alterad in la traduzzion.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Sicures che 'l significad orisginal el sia minga stad alterad in la traduzzion.",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Modifega la pagina",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Derva la pagina orisginal in $1",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Slarga foeura questa pagina chì cont el tradù di sezzion disponibil in alter lengue che te conosset.",
@@ -415,5 +416,6 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ghe cala in <span>$1</span>, <span>$2</span> e alter an'mò",
 	"cx-uls-relevant-languages-panel-header": "Traduss questa pagina chì",
 	"cx-uls-relevant-languages-panel-message": "Questa pagina chì la gh'è nò in d'ona quai lengua che ti te podarisset savé. Te podet voltàlla de chì a on quai minutǃ",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Questa chì la sarà <strong>la prima sezzion de l'articol noeuv!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Traduss questa pagina chì"
 }

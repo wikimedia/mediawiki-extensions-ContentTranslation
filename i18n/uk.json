@@ -21,6 +21,7 @@
 			"Vlad5250",
 			"Ypryima",
 			"Ата",
+			"Пан Хаунд",
 			"Петар Петковић"
 		]
 	},
@@ -430,5 +431,7 @@
 	"sx-block-template-adaptation-card-body-header-success": "Запропонований шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Перевірити та редагувати переклад",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Редагувати переклад",
-	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1"
+	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Відсутні в <span>$1</span> й <span>$2</span>",
+	"cx-uls-relevant-languages-panel-header": "Перекладіть цю сторінку"
 }
