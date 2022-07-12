@@ -135,30 +135,32 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
  * should be added to high MT tracking category.
  */
 mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCategory ) {
-	var apiParams = {
-		assert: 'user',
-		action: 'cxpublish',
-		from: this.sourceLanguage,
-		to: this.targetLanguage,
-		sourcetitle: this.sourceTitle,
-		title: this.getTargetTitle(),
-		html: this.getContent( true ),
-		categories: this.getTargetCategories( shouldAddHighMTCategory ),
-		publishtags: this.getTags(),
-		wpCaptchaId: this.captcha && this.captcha.id,
-		wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
-		cxversion: 2
-	};
+	this.getContent( true ).then( function ( html ) {
+		var apiParams = {
+			assert: 'user',
+			action: 'cxpublish',
+			from: this.sourceLanguage,
+			to: this.targetLanguage,
+			sourcetitle: this.sourceTitle,
+			title: this.getTargetTitle(),
+			html: html,
+			categories: this.getTargetCategories( shouldAddHighMTCategory ),
+			publishtags: this.getTags(),
+			wpCaptchaId: this.captcha && this.captcha.id,
+			wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
+			cxversion: 2
+		};
 
-	// Check for title conflicts
-	this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then( function () {
-		return new mw.Api().postWithToken( 'csrf', apiParams, {
-			// A bigger timeout since publishing after converting html to wikitext
-			// parsoid is not a fast operation.
-			timeout: 100 * 1000 // in milliseconds
-		} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
-	}.bind( this ), function () {
-		this.emit( 'publishCancel' );
+		// Check for title conflicts
+		this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then( function () {
+			return new mw.Api().postWithToken( 'csrf', apiParams, {
+				// A bigger timeout since publishing after converting html to wikitext
+				// parsoid is not a fast operation.
+				timeout: 100 * 1000 // in milliseconds
+			} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
+		}.bind( this ), function () {
+			this.emit( 'publishCancel' );
+		}.bind( this ) );
 	}.bind( this ) );
 };
 
@@ -439,15 +441,19 @@ mw.cx.TargetArticle.prototype.showUnrecoverablePublishError = function ( msg, er
  * Get content for publishing
  *
  * @param {boolean} deflate Whether the content should be deflated
- * @return {string} Content for publishing, may be deflated
+ * @return {jQuery.Promise} Promise which resolves with content for publishing, may be deflated
  */
 mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
-	var cleanupHtml,
-		doc = this.veTarget.getSurface().getDom();
+	var doc = this.veTarget.getSurface().getDom();
+	var cleanupHtml = mw.libs.ve.targetSaver.getHtml( this.constructor.static.getCleanedupContent( doc ) );
 
-	cleanupHtml = mw.libs.ve.targetSaver.getHtml( this.constructor.static.getCleanedupContent( doc ) );
-
-	return deflate ? mw.deflate( cleanupHtml ) : cleanupHtml;
+	if ( deflate ) {
+		return mw.loader.using( 'mediawiki.deflate' ).then( function () {
+			return mw.deflate( cleanupHtml );
+		} );
+	} else {
+		return $.Deferred().resolve( cleanupHtml ).promise();
+	}
 };
 
 /**

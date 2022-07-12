@@ -1453,7 +1453,6 @@
 				"jquery.uls.data",
 				"mediawiki.user",
 				"mediawiki.api",
-				"mediawiki.deflate",
 				"mediawiki.language",
 				"mediawiki.storage",
 				"mw.cx.SiteMapper",

@@ -137,7 +137,7 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
  * @param {boolean} [isRetry] Whether this is a retry or not.
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
-	var numOfChangedCategories, savedSections, params,
+	var numOfChangedCategories,
 		apiOptions = {},
 		api = new mw.Api();
 
@@ -169,105 +169,107 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	}
 
 	// Copy the current save queue by value.
-	savedSections = this.translationTracker.getSaveQueue().slice();
+	var savedSections = this.translationTracker.getSaveQueue().slice();
 
-	params = {
-		action: 'cxsave',
-		assert: 'user',
-		content: this.getContentToSave( savedSections ),
-		from: this.translation.getSourceLanguage(),
-		to: this.translation.getTargetLanguage(),
-		sourcetitle: this.translation.getSourceTitle(),
-		title: this.translation.getTargetTitle(),
-		sourcerevision: this.translation.getSourceRevisionId(),
-		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
-		cxversion: 2
-	};
+	this.getContentToSave( savedSections ).then( function ( content ) {
+		var params = {
+			action: 'cxsave',
+			assert: 'user',
+			content: content,
+			from: this.translation.getSourceLanguage(),
+			to: this.translation.getTargetLanguage(),
+			sourcetitle: this.translation.getSourceTitle(),
+			title: this.translation.getTargetTitle(),
+			sourcerevision: this.translation.getSourceRevisionId(),
+			progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
+			cxversion: 2
+		};
 
-	if ( this.targetCategoriesChanged > 0 ) {
-		// Use counter for number of changes in target categories which are attempted to be saved.
-		// Once saving is successful, that number is subtracted from current number of changes in
-		// target categories, which maybe got bigger while first change was being saved.
-		numOfChangedCategories = this.targetCategoriesChanged;
-		params.targetcategories = JSON.stringify( this.translation.getTargetCategories() );
+		if ( this.targetCategoriesChanged > 0 ) {
+			// Use counter for number of changes in target categories which are attempted to be saved.
+			// Once saving is successful, that number is subtracted from current number of changes in
+			// target categories, which maybe got bigger while first change was being saved.
+			numOfChangedCategories = this.targetCategoriesChanged;
+			params.targetcategories = JSON.stringify( this.translation.getTargetCategories() );
 
-		// Only save source categories once per session, the first time user changes target
-		// categories. Both source and target categories are saved in cx_corpora table, but
-		// only target categories are retrieved when saved draft is being restored. Source
-		// categories are saved for completeness of cx_corpora, which pairs source and target.
-		// Source categories are saved once per session, because there may have been changes
-		// to source categories in the mean time.
-		if ( !this.sourceCategoriesSaved ) {
-			params.sourcecategories = JSON.stringify( this.translation.getSourceCategories() );
+			// Only save source categories once per session, the first time user changes target
+			// categories. Both source and target categories are saved in cx_corpora table, but
+			// only target categories are retrieved when saved draft is being restored. Source
+			// categories are saved for completeness of cx_corpora, which pairs source and target.
+			// Source categories are saved once per session, because there may have been changes
+			// to source categories in the mean time.
+			if ( !this.sourceCategoriesSaved ) {
+				params.sourcecategories = JSON.stringify( this.translation.getSourceCategories() );
+			}
 		}
-	}
 
-	if ( this.failCounter > 0 ) {
-		mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
-	}
+		if ( this.failCounter > 0 ) {
+			mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
+		}
 
-	if ( isRetry ) {
-		// Default timeout is 30s. Double it while retrying to increase the chance for success.
-		apiOptions = { timeout: 60 * 1000 };
-	}
+		if ( isRetry ) {
+			// Default timeout is 30s. Double it while retrying to increase the chance for success.
+			apiOptions = { timeout: 60 * 1000 };
+		}
 
-	this.saveRequest = api.postWithToken( 'csrf', params, apiOptions )
-		.done( function ( saveResult ) {
-			this.onSaveComplete( savedSections, saveResult );
+		this.saveRequest = api.postWithToken( 'csrf', params, apiOptions )
+			.done( function ( saveResult ) {
+				this.onSaveComplete( savedSections, saveResult );
 
-			if ( this.targetTitleChanged() ) {
-				mw.log( '[CX] Target title saved.' );
-			}
-			this.savedTargetTitle = params.title;
+				if ( this.targetTitleChanged() ) {
+					mw.log( '[CX] Target title saved.' );
+				}
+				this.savedTargetTitle = params.title;
 
-			if ( params.sourcecategories ) {
-				this.sourceCategoriesSaved = true;
-			}
+				if ( params.sourcecategories ) {
+					this.sourceCategoriesSaved = true;
+				}
 
-			if ( numOfChangedCategories ) {
-				this.targetCategoriesChanged -= numOfChangedCategories;
-			}
+				if ( numOfChangedCategories ) {
+					this.targetCategoriesChanged -= numOfChangedCategories;
+				}
 
-			// Remove saved sections from the queue
-			savedSections.forEach( function ( sectionNumber ) {
-				this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
-			}, this );
+				// Remove saved sections from the queue
+				savedSections.forEach( function ( sectionNumber ) {
+					this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
+				}, this );
 
-			// Reset fail counter.
-			if ( this.failCounter > 0 ) {
-				this.failCounter = 0;
-				mw.log( '[CX] Retry successful. Save succeeded.' );
-			}
+				// Reset fail counter.
+				if ( this.failCounter > 0 ) {
+					this.failCounter = 0;
+					mw.log( '[CX] Retry successful. Save succeeded.' );
+				}
 
-			this.emit( 'saveSuccess' );
-		}.bind( this ) ).fail( function ( errorCode, details ) {
-			var delay;
-			this.failCounter++;
+				this.emit( 'saveSuccess' );
+			}.bind( this ) ).fail( function ( errorCode, details ) {
+				var delay;
+				this.failCounter++;
 
-			mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
-			if ( details.exception !== 'abort' ) {
-				this.onSaveFailure( errorCode, details );
-			}
+				mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
+				if ( details.exception !== 'abort' ) {
+					this.onSaveFailure( errorCode, details );
+				}
 
-			if ( this.failCounter > 5 ) {
-				// If there are more than a few errors, stop autosave at timer triggers.
-				// Show a bigger error message at this point.
-				this.translationView.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
-				// This will allow any change to trigger save again
-				this.failCounter = 0;
-				mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
-			} else {
-				// Delay in seconds, failCounter is [1,5]
-				delay = 60 * this.failCounter;
-				// Schedule retry.
-				this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
-				mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
-			}
+				if ( this.failCounter > 5 ) {
+					// If there are more than a few errors, stop autosave at timer triggers.
+					// Show a bigger error message at this point.
+					this.translationView.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
+					// This will allow any change to trigger save again
+					this.failCounter = 0;
+					mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
+				} else {
+					// Delay in seconds, failCounter is [1,5]
+					delay = 60 * this.failCounter;
+					// Schedule retry.
+					this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
+					mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
+				}
 
-			this.emit( 'saveFailure' );
-		}.bind( this ) ).always( function () {
-			this.saveRequest = null;
-		}.bind( this ) );
+				this.emit( 'saveFailure' );
+			}.bind( this ) ).always( function () {
+				this.saveRequest = null;
+			}.bind( this ) );
+	}.bind( this ) );
 };
 
 /**
@@ -441,7 +443,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
  * Get the deflated content to save from save queue.
  *
  * @param {number[]} saveQueue
- * @return {string}
+ * @return {jQuery.Promise} Promise which resolve with deflated content
  */
 mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) {
 	var records = [];
@@ -452,7 +454,9 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 		} );
 	}, this );
 
-	return mw.deflate( JSON.stringify( records ) );
+	return mw.loader.using( 'mediawiki.deflate' ).then( function () {
+		return mw.deflate( JSON.stringify( records ) );
+	} );
 };
 
 /**
