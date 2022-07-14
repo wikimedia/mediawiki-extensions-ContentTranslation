@@ -190,7 +190,7 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 	// Insert
 	{
 		name: 'extra',
-		classes: [ 've-cx-toolbar-insert' ],
+		align: 'after',
 		icon: 'ellipsis',
 		label: '',
 		indicator: null,
