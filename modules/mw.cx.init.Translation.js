@@ -549,7 +549,7 @@ mw.cx.init.Translation.prototype.switchToUserNamespace = function () {
 		autoClose: true
 	} );
 
-	this.veTarget.getActions()
+	this.veTarget.publishToolbar
 		.getToolGroupByName( 'publish' )
 		.findItemFromData( 'publishSettings' )
 		.$element.append( popup.$element );

@@ -42,7 +42,7 @@ ve.ui.CXPublishTool.static.flags = [ 'primary', 'progressive' ];
  */
 ve.ui.CXPublishTool.prototype.onSelect = function () {
 	this.setActive( false );
-	ve.init.target.onPublishButtonClick();
+	this.toolbar.getTarget().onPublishButtonClick();
 };
 
 /* Register */

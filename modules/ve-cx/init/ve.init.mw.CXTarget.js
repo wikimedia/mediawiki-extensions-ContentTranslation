@@ -127,7 +127,7 @@ ve.init.mw.CXTarget.static.name = 'cx';
 
 ve.init.mw.CXTarget.static.integrationType = 'contenttranslation';
 
-ve.init.mw.CXTarget.static.actionGroups = [
+ve.init.mw.CXTarget.static.publishToolbarGroups = [
 	// Publish settings
 	{
 		name: 'publish',
@@ -205,16 +205,19 @@ ve.init.mw.CXTarget.static.toolbarGroups = [
 
 /* Methods */
 
-ve.init.mw.CXTarget.prototype.setupToolbar = function () {
+ve.init.mw.CXTarget.prototype.setupToolbar = function ( surface ) {
 	// Parent method
 	ve.init.mw.CXTarget.super.prototype.setupToolbar.apply( this, arguments );
 
-	this.publishButton = this.actionsToolbar.getToolGroupByName( 'publish' ).findItemFromData( 'publish' );
+	this.publishToolbar = new ve.ui.TargetToolbar( this );
+	this.publishToolbar.setup( this.constructor.static.publishToolbarGroups, surface );
+
+	this.publishButton = this.publishToolbar.getToolGroupByName( 'publish' ).findItemFromData( 'publish' );
 	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
 		this.publishButton.setDisabled( weights.any === 0 );
 	}.bind( this ) );
 
-	this.translationView.translationHeader.$toolbar.append( this.toolbar.$actions );
+	this.translationView.translationHeader.$toolbar.append( this.publishToolbar.$element );
 };
 
 ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
@@ -553,7 +556,9 @@ ve.init.mw.CXTarget.prototype.emitNamespaceChange = function ( namespaceId ) {
 };
 
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {
-	this.getActions().updateToolState();
+	if ( this.publishToolbar ) {
+		this.publishToolbar.updateToolState();
+	}
 };
 
 ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
