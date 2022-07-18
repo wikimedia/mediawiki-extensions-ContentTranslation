@@ -3,6 +3,10 @@
 // Clear the floating of images and tables.
 section {
   table,
+  figure[typeof~="mw:File/Thumb"],
+  figure[typeof~="mw:File/Frame"],
+  // TODO: Remove "Image|Video|Audio" when version 2.4.0 of Parsoid content is
+  //no longer supported
   figure[typeof~="mw:Image/Thumb"],
   figure[typeof~="mw:Video/Thumb"],
   figure[typeof~="mw:Audio/Thumb"],
