@@ -7721,14 +7721,14 @@ const thresholds = [
   { status: "warning", value: 100 - warningThreshold },
   { status: "success", value: 100 }
 ];
-const calculateScore = (actualTranslation, proposedTranslation) => {
+const calculateScore = (actualTranslation, proposedTranslation, language) => {
   const resultText = htmlToElement(actualTranslation).textContent;
   const proposedText = htmlToElement(proposedTranslation).textContent;
-  const distance = 100 - 100 * calculateUnmodifiedContent(proposedText, resultText);
+  const distance = 100 - 100 * calculateUnmodifiedContent(proposedText, resultText, language);
   return Math.ceil(distance);
 };
 const getScoreStatus = (score) => thresholds.find((threshold) => score <= threshold.value).status;
-const getMTScoreForPageSection = (pageSection) => calculateScore(pageSection.translationHtml, pageSection.proposedTranslationHTMLForMTValidation);
+const getMTScoreForPageSection = (pageSection, language) => calculateScore(pageSection.translationHtml, pageSection.proposedTranslationHTMLForMTValidation, language);
 const htmlToElement = (html) => {
   const template = document.createElement("div");
   template.innerHTML = html;
@@ -7770,12 +7770,20 @@ class Translation {
 }
 const ORIGINAL_TEXT_PROVIDER_KEY = "original";
 const EMPTY_TEXT_PROVIDER_KEY = "empty";
+function getLabelForMTProvider(provider) {
+  return {
+    Elia: "Elia.eus",
+    Flores: "NLLB-200",
+    Google: "Google Translate",
+    Yandex: "Yandex.Translate"
+  }[provider] || provider;
+}
 class MTProviderGroup {
   constructor(sourceLanguage, targetLanguage, providers2 = []) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.providers = [
-      ...providers2,
+      ...providers2.map(getLabelForMTProvider),
       ORIGINAL_TEXT_PROVIDER_KEY,
       EMPTY_TEXT_PROVIDER_KEY
     ];
@@ -7973,13 +7981,12 @@ const validateParallelCorporaPayload = (translationUnitPayload, supportedMTProvi
     throw new Error("[CX] Invalid section id of parallel corpora translation unit");
   }
 };
-function validateMT({ rootState, commit: commit2 }) {
-  commit2("application/clearMTPublishFeedbackMessages", {}, { root: true });
-  const { currentSourceSection: section } = rootState.application;
-  const mtValidationScore = mtValidator.getMTScoreForPageSection(section);
+function validateMT({ rootState }) {
+  const { currentSourceSection: section, targetLanguage } = rootState.application;
+  const mtValidationScore = mtValidator.getMTScoreForPageSection(section, targetLanguage);
   const mtValidationStatus = mtValidator.getScoreStatus(mtValidationScore);
   if (mtValidationStatus === "success") {
-    return;
+    return null;
   }
   const unmodifiedPercentage = 100 - mtValidationScore;
   const status = mtValidationStatus === "failure" ? "error" : "warning";
@@ -7991,16 +7998,15 @@ function validateMT({ rootState, commit: commit2 }) {
     title = mw.message("cx-sx-publisher-mt-abuse-error-title", unmodifiedPercentage).plain();
     messageBody = mw.message("cx-sx-publisher-mt-abuse-error-body").plain();
   }
-  const message = new PublishFeedbackMessage({
+  return new PublishFeedbackMessage({
     title,
     text: messageBody,
     status,
     type: "mt"
   });
-  commit2("application/addMTPublishFeedbackMessage", message, { root: true });
 }
 function publishTranslation(_0) {
-  return __async(this, arguments, function* ({ rootState, commit: commit2, rootGetters, getters: getters2 }) {
+  return __async(this, arguments, function* ({ rootState, rootGetters, getters: getters2 }) {
     const sourcePage = rootGetters["application/getCurrentPage"];
     const {
       currentSourceSection,
@@ -8028,12 +8034,9 @@ function publishTranslation(_0) {
       sectionId: baseSectionId
     });
     if (!!saveMessage) {
-      commit2("application/addPublishFeedbackMessage", saveMessage, {
-        root: true
-      });
-      return;
+      return saveMessage;
     }
-    const publishMessage = yield translatorApi.publishTranslation({
+    return yield translatorApi.publishTranslation({
       html: getters2.getCleanHTMLForPublishing,
       sourceTitle: currentSectionSuggestion.sourceTitle,
       targetTitle: getters2.getArticleTitleForPublishing,
@@ -8044,11 +8047,6 @@ function publishTranslation(_0) {
       revision: sourcePage.revision,
       sectionNumber: getters2.getSectionNumberForPublishing
     });
-    if (!!publishMessage) {
-      commit2("application/addPublishFeedbackMessage", publishMessage, {
-        root: true
-      });
-    }
   });
 }
 function fetchTranslations(_0) {
@@ -9164,7 +9162,7 @@ class SubSection$1 {
     return payloads;
   }
   get parallelCorporaMTContent() {
-    var _a, _b;
+    var _a;
     let mtProvider = this.blockTemplateMTProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
     if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
@@ -9172,8 +9170,9 @@ class SubSection$1 {
     } else if (this.isBlockTemplate) {
       subSectionNode.innerHTML = this.blockTemplateProposedTranslations[mtProvider];
     } else {
-      mtProvider = (_b = (_a = this.sentences) == null ? void 0 : _a[0]) == null ? void 0 : _b.mtProviderUsed;
-      const sameMTProviderUsed = this.sentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
+      const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
+      mtProvider = (_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed;
+      const sameMTProviderUsed = translatedSentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
       if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
         return null;
       }
@@ -9715,8 +9714,7 @@ var state = {
   targetLanguage: null,
   publishTarget: "NEW_SECTION",
   translationInProgress: false,
-  cxServerToken: null,
-  publishFeedbackMessages: []
+  cxServerToken: null
 };
 var getters = {
   getCurrentPage: (state2, getters2, rootState, rootGetters) => {
@@ -9750,7 +9748,6 @@ var getters = {
   getCurrentPublishedTranslations: (state2, getters2, rootState, rootGetters) => rootGetters["translator/getPublishedTranslationsForLanguagePair"](state2.sourceLanguage, state2.targetLanguage),
   getSectionSuggestionsSliceByIndex: (state2, getters2, rootState) => (sliceIndex) => getters2.getCurrentSectionSuggestions.slice(rootState.suggestions.maxSuggestionsPerSlice * sliceIndex, rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)),
   getPageSuggestionsSliceByIndex: (state2, getters2, rootState) => (sliceIndex) => getters2.getCurrentPageSuggestions.slice(rootState.suggestions.maxSuggestionsPerSlice * sliceIndex, rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)),
-  isPublishingDisabled: (state2) => state2.publishFeedbackMessages.some((message) => message.isError),
   isSandboxTarget: (state2) => state2.publishTarget === "SANDBOX_SECTION"
 };
 const getCXServerToken = (_0) => __async(this, [_0], function* ({ dispatch: dispatch2, state: state2, commit: commit2 }) {
@@ -10022,20 +10019,6 @@ var actions = {
   updateTargetLanguage
 };
 const mutations = {
-  clearPublishFeedbackMessages(state2) {
-    state2.publishFeedbackMessages = [];
-  },
-  clearMTPublishFeedbackMessages(state2) {
-    state2.publishFeedbackMessages = state2.publishFeedbackMessages.filter((message) => !message.isMTMessage);
-  },
-  addMTPublishFeedbackMessage(state2, message) {
-    mutations.clearMTPublishFeedbackMessages(state2);
-    state2.publishFeedbackMessages.push(message);
-  },
-  addPublishFeedbackMessage(state2, message) {
-    state2.publishFeedbackMessages.push(message);
-    state2.publishFeedbackMessages.sort((m1, m2) => +m2.isError - +m1.isError);
-  },
   setCurrentSectionSuggestion(state2, suggestion) {
     state2.currentSectionSuggestion = suggestion && new SectionSuggestion(__spreadProps(__spreadValues({}, suggestion), {
       missing: (suggestion == null ? void 0 : suggestion.missingSections) || {},
@@ -18676,7 +18659,6 @@ function useApplicationState(store2) {
     var _a;
     return (_a = currentSourceSection.value) == null ? void 0 : _a.isTitleSelected;
   });
-  const publishFeedbackMessages = computed(() => store2.state.application.publishFeedbackMessages);
   const selectedContentTranslationUnit = computed(() => {
     var _a;
     return (_a = currentSourceSection.value) == null ? void 0 : _a.selectedContentTranslationUnit;
@@ -18688,7 +18670,6 @@ function useApplicationState(store2) {
     currentSourceSection,
     isSectionTitleSelected,
     proposedTranslation,
-    publishFeedbackMessages,
     selectedContentTranslationUnit,
     sourceLanguage,
     sourceLanguageAutonym,
@@ -23286,7 +23267,8 @@ const _sfc_main$j = {
     const {
       isSectionTitleSelected,
       currentSourceSection: currentPageSection,
-      selectedContentTranslationUnit
+      selectedContentTranslationUnit,
+      targetLanguage
     } = useApplicationState(useStore());
     const showSentenceTab = computed(() => scopeSelection.value === "sentence");
     const currentSubSection = computed(() => currentPageSection.value.subSections.find((subSection) => subSection.sentences.some((sentence) => sentence.id === selectedContentTranslationUnit.value.id)));
@@ -23302,7 +23284,7 @@ const _sfc_main$j = {
       }
       return currentSubSection.value.translatedContent;
     });
-    const mtScore = computed(() => mtValidator.calculateScore(translation.value, proposedMTTranslation.value));
+    const mtScore = computed(() => mtValidator.calculateScore(translation.value, proposedMTTranslation.value, targetLanguage.value));
     const modificationStatus = computed(() => mtValidator.getScoreStatus(mtScore.value));
     const modificationPercentageClass = computed(() => `translated-segment-card__modification-stats__percentage--${modificationStatus.value}`);
     const iconColors = computed(() => ({
@@ -23494,7 +23476,6 @@ const _sfc_main$i = {
     });
     const sentenceSelectorStyle = computed(() => isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`);
     onMounted(() => __async(this, null, function* () {
-      store2.commit("application/clearPublishFeedbackMessages");
       yield store2.dispatch("application/initializeMTProviders");
       if (!selectedContentTranslationUnit.value) {
         store2.dispatch("application/selectTranslationUnitById", 0);
@@ -23961,7 +23942,8 @@ const _sfc_main$d = {
   setup(props) {
     const route = useRoute();
     const proposedTranslation = route.params.content;
-    const mtScore = computed(() => mtValidator.calculateScore(props.editedTranslation, proposedTranslation));
+    const { targetLanguage } = useApplicationState(useStore());
+    const mtScore = computed(() => mtValidator.calculateScore(props.editedTranslation, proposedTranslation, targetLanguage.value));
     const modificationStatus = computed(() => {
       const status = mtValidator.getScoreStatus(mtScore.value);
       if (status === "failure") {
@@ -24137,18 +24119,17 @@ var SXPublisherHeader_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$a = {
   name: "SxPublisherHeader",
   components: { MwCol, MwButton, MwRow },
+  props: {
+    isPublishingDisabled: {
+      type: Boolean,
+      required: true
+    }
+  },
   emits: ["publish-translation"],
   setup() {
-    const store2 = useStore();
-    const isPublishingDisabled = computed(() => store2.getters["application/isPublishingDisabled"]);
     const router2 = useRouter();
-    const onClose = () => {
-      router2.push({
-        name: "sx-sentence-selector"
-      });
-    };
+    const onClose = () => router2.push({ name: "sx-sentence-selector" });
     return {
-      isPublishingDisabled,
       mwIconCheck,
       mwIconClose,
       onClose
@@ -24186,7 +24167,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
             progressive: "",
             type: "button",
             icon: $setup.mwIconCheck,
-            disabled: $setup.isPublishingDisabled,
+            disabled: $props.isPublishingDisabled,
             onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("publish-translation"))
           }, null, 8, ["icon", "disabled"])
         ], void 0, true),
@@ -24302,42 +24283,44 @@ const _sfc_main$8 = {
     }
   },
   emits: ["update:active"],
-  data: () => ({
-    mwIconArrowPrevious
-  }),
-  computed: __spreadProps(__spreadValues({}, mapState({
-    selectedOption: (state2) => state2.application.publishTarget,
-    isAnon: (state2) => state2.translator.isAnon
-  })), {
-    publishOptions: (vm) => [
+  setup(props, { emit }) {
+    const store2 = useStore();
+    const selectedOption = computed(() => store2.state.application.publishTarget);
+    const isAnon = computed(() => store2.state.translator.isAnon);
+    const bananaI18n2 = useI18n();
+    const publishOptions = computed(() => [
       {
-        label: vm.$i18n("cx-sx-publisher-new-section-option-label"),
-        details: vm.$i18n("cx-sx-publisher-new-section-option-details"),
+        label: bananaI18n2.i18n("cx-sx-publisher-new-section-option-label"),
+        details: bananaI18n2.i18n("cx-sx-publisher-new-section-option-details"),
         value: "NEW_SECTION",
         disabled: false
       },
       {
-        label: vm.$i18n("cx-sx-publisher-sandbox-option-label"),
-        details: vm.$i18n("cx-sx-publisher-sandbox-option-details"),
+        label: bananaI18n2.i18n("cx-sx-publisher-sandbox-option-label"),
+        details: bananaI18n2.i18n("cx-sx-publisher-sandbox-option-details"),
         value: "SANDBOX_SECTION",
-        disabled: vm.isAnon
+        disabled: isAnon.value
       }
-    ],
-    overlayColor: (vm) => vm.$mwui.colors.base10
-  }),
-  methods: {
-    optionMarginBottom(index) {
-      const isLastOption = index === this.publishOptions.length - 1;
+    ]);
+    const getMarginBottomClassByOptionIndex = (index) => {
+      const isLastOption = index === publishOptions.value.length - 1;
       return isLastOption ? "mb-1" : "mb-4";
-    },
-    onPublishOptionsClose() {
-      this.$emit("update:active", false);
-    },
-    updateOption(event) {
-      const selectedOption = event.target.value;
-      this.$store.commit("application/setPublishTarget", selectedOption);
-      this.onPublishOptionsClose();
-    }
+    };
+    const onPublishOptionsClose = () => emit("update:active", false);
+    const updateOption = (event) => {
+      const selectedOption2 = event.target.value;
+      store2.commit("application/setPublishTarget", selectedOption2);
+      onPublishOptionsClose();
+    };
+    return {
+      getMarginBottomClassByOptionIndex,
+      isAnon,
+      mwIconArrowPrevious,
+      onPublishOptionsClose,
+      publishOptions,
+      selectedOption,
+      updateOption
+    };
   }
 };
 const _hoisted_1$6 = { class: "mw-ui-dialog__header" };
@@ -24359,9 +24342,9 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     class: "sx-publisher__publish-options",
     title: _ctx.$i18n("cx-sx-publisher-preview-options-title"),
     "overlay-opacity": 0.7,
-    "overlay-color": $options.overlayColor,
+    "overlay-color": _ctx.$mwui.colors.base10,
     onInput: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("update:active", $event)),
-    onClose: $options.onPublishOptionsClose
+    onClose: $setup.onPublishOptionsClose
   }, {
     header: withCtx(() => [
       createBaseVNode("div", _hoisted_1$6, [
@@ -24370,8 +24353,8 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
             createVNode(_component_mw_button, {
               class: "pa-0",
               type: "icon",
-              icon: _ctx.mwIconArrowPrevious,
-              onClick: $options.onPublishOptionsClose
+              icon: $setup.mwIconArrowPrevious,
+              onClick: $setup.onPublishOptionsClose
             }, null, 8, ["icon", "onClick"])
           ]),
           createBaseVNode("div", _hoisted_4$3, [
@@ -24386,12 +24369,12 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createBaseVNode("div", _hoisted_6$1, [
         createVNode(_component_mw_radio_group, {
-          value: _ctx.selectedOption,
+          value: $setup.selectedOption,
           name: "publish-options",
-          onInput: $options.updateOption
+          onInput: $setup.updateOption
         }, {
           default: withCtx(() => [
-            (openBlock(true), createElementBlock(Fragment, null, renderList($options.publishOptions, (option) => {
+            (openBlock(true), createElementBlock(Fragment, null, renderList($setup.publishOptions, (option, index) => {
               return openBlock(), createElementBlock(Fragment, {
                 key: option.label
               }, [
@@ -24402,7 +24385,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
                   disabled: option.disabled
                 }, null, 8, ["label", "input-value", "disabled"]),
                 createBaseVNode("p", {
-                  class: normalizeClass(["complementary ms-7 mt-0 mb-4", $options.optionMarginBottom]),
+                  class: normalizeClass(["complementary ms-7 mt-0", $setup.getMarginBottomClassByOptionIndex(index)]),
                   textContent: toDisplayString(option.details)
                 }, null, 10, _hoisted_7)
               ], 64);
@@ -24426,10 +24409,14 @@ const _sfc_main$7 = {
     MwMessage,
     MwIcon
   },
-  setup() {
-    const store2 = useStore();
+  props: {
+    publishFeedbackMessages: {
+      type: Array,
+      required: true
+    }
+  },
+  setup(props) {
     const activeMessageIndex = ref(0);
-    const publishFeedbackMessages = computed(() => store2.state.application.publishFeedbackMessages);
     const learnMoreContainer = ref(null);
     watch(learnMoreContainer, () => {
       var _a;
@@ -24441,7 +24428,7 @@ const _sfc_main$7 = {
     });
     const activeMessage = computed(() => {
       var _a;
-      return (_a = publishFeedbackMessages.value) == null ? void 0 : _a[activeMessageIndex.value];
+      return (_a = props.publishFeedbackMessages) == null ? void 0 : _a[activeMessageIndex.value];
     });
     const status = computed(() => {
       var _a;
@@ -24470,11 +24457,11 @@ const _sfc_main$7 = {
       return ((_a = activeMessage.value) == null ? void 0 : _a.title) || bananaI18n2.i18n("cx-sx-publisher-review-info-error");
     });
     const goToPreviousMessage = () => {
-      const messagesLength = publishFeedbackMessages.value.length;
+      const messagesLength = props.publishFeedbackMessages.length;
       activeMessageIndex.value = (activeMessageIndex.value - 1 + messagesLength) % messagesLength;
     };
     const goToNextMessage = () => {
-      activeMessageIndex.value = (activeMessageIndex.value + 1) % publishFeedbackMessages.value.length;
+      activeMessageIndex.value = (activeMessageIndex.value + 1) % props.publishFeedbackMessages.length;
     };
     return {
       goToNextMessage,
@@ -24491,7 +24478,6 @@ const _sfc_main$7 = {
       mwIconPrevious,
       reviewIcon,
       reviewInfoClass,
-      publishFeedbackMessages,
       status
     };
   }
@@ -24543,7 +24529,7 @@ function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
               }, null, 512), [
                 [_directive_i18n_html, void 0, "cx-sx-publisher-review-info-learn-more"]
               ]),
-              $setup.publishFeedbackMessages.length > 1 ? (openBlock(), createBlock(_component_mw_col, {
+              $props.publishFeedbackMessages.length > 1 ? (openBlock(), createBlock(_component_mw_col, {
                 key: 0,
                 class: "sx-publisher__review-info__navigation-buttons justify-end",
                 align: "center"
@@ -24579,11 +24565,10 @@ const decodeHtml = (html) => {
   template.innerHTML = html;
   return template.innerText;
 };
-const handlePublishResult = (store2, isPublishDialogActive) => __async(this, null, function* () {
+const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled) => __async(this, null, function* () {
   const { currentSectionSuggestion: suggestion, currentSourceSection } = useApplicationState(store2);
   const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
-  const errorExists = store2.getters["application/isPublishingDisabled"];
-  if (errorExists) {
+  if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
     return;
   }
@@ -24608,22 +24593,27 @@ const usePublishTranslation = (store2) => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
+  const publishFeedbackMessages = ref([]);
+  const isPublishingDisabled = computed(() => publishFeedbackMessages.value.some((message) => message.isError));
   const doPublish = () => __async(this, null, function* () {
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
-    yield store2.dispatch("translator/publishTranslation");
-    const errorExists = store2.getters["application/isPublishingDisabled"];
-    publishStatus.value = errorExists ? "failure" : "success";
-    setTimeout(() => {
-      handlePublishResult(store2, isPublishDialogActive);
-    }, 1e3);
+    const publishMessage = yield store2.dispatch("translator/publishTranslation");
+    if (!!publishMessage) {
+      publishFeedbackMessages.value.push(publishMessage);
+      publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
+    }
+    publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
+    setTimeout(() => handlePublishResult(store2, isPublishDialogActive, isPublishingDisabled), 1e3);
   });
   const configureTranslationOptions = () => publishOptionsOn.value = true;
   return {
     configureTranslationOptions,
     doPublish,
     isPublishDialogActive,
+    isPublishingDisabled,
     publishOptionsOn,
+    publishFeedbackMessages,
     publishStatus
   };
 };
@@ -24675,24 +24665,33 @@ const _sfc_main$6 = {
         return bananaI18n2.i18n("cx-sx-publisher-publish-panel-new-section-result");
       }
     });
-    onMounted(() => store2.dispatch("translator/validateMT"));
-    const { editTranslation } = useEditTranslation(store2, useRouter());
     const {
       configureTranslationOptions,
       doPublish,
       isPublishDialogActive,
+      isPublishingDisabled,
       publishOptionsOn,
+      publishFeedbackMessages,
       publishStatus
     } = usePublishTranslation(store2);
+    onMounted(() => __async(this, null, function* () {
+      const mtValidationMessage = yield store2.dispatch("translator/validateMT");
+      if (mtValidationMessage) {
+        publishFeedbackMessages.value.push(mtValidationMessage);
+      }
+    }));
+    const { editTranslation } = useEditTranslation(store2, useRouter());
     return {
       configureTranslationOptions,
       currentPageSection,
       doPublish,
       editTranslation,
       isPublishDialogActive,
+      isPublishingDisabled,
       mwIconEdit,
       mwIconSettings,
       panelResult,
+      publishFeedbackMessages,
       publishOptionsOn,
       publishStatus,
       translatedTitle
@@ -24715,7 +24714,10 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_publisher_animation_dialog = resolveComponent("sx-publisher-animation-dialog");
   const _directive_i18n = resolveDirective("i18n");
   return openBlock(), createElementBlock("section", _hoisted_1$4, [
-    createVNode(_component_sx_publisher_header, { onPublishTranslation: $setup.doPublish }, null, 8, ["onPublishTranslation"]),
+    createVNode(_component_sx_publisher_header, {
+      "is-publishing-disabled": $setup.isPublishingDisabled,
+      onPublishTranslation: $setup.doPublish
+    }, null, 8, ["is-publishing-disabled", "onPublishTranslation"]),
     createBaseVNode("div", _hoisted_2$2, [
       withDirectives(createBaseVNode("h5", _hoisted_3$2, null, 512), [
         [_directive_i18n, void 0, "cx-sx-publisher-publish-panel-new-section-status"]
@@ -24744,7 +24746,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       })
     ]),
-    createVNode(_component_sx_publisher_review_info),
+    createVNode(_component_sx_publisher_review_info, { "publish-feedback-messages": $setup.publishFeedbackMessages }, null, 8, ["publish-feedback-messages"]),
     createBaseVNode("section", _hoisted_5, [
       createVNode(_component_mw_row, { class: "pb-5 ma-0" }, {
         default: withCtx(() => [
