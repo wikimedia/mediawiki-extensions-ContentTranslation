@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"F Samaritani"
+		]
+	},
+	"cx-dashboard-header": "Traduttorii",
+	"cx-header-all-translations": "Tutti li traduzioni",
+	"cx-publish-button": "Pubblica",
+	"cx-tools-link-title": "Liaddura",
+	"cx-tools-mt-preferred": "pridifiniddu",
+	"cx-captcha-dialog-cancel": "Annullà",
+	"cx-dashboard-sidebar-stats": "Sthatisthigghi",
+	"cx-translation-filter-published-translations": "Pubblica",
+	"cx-translation-filter-label-all-languages": "Tutti",
+	"cx-contributions-new-article": "Noba pàgina",
+	"cx-contributions-translation": "Traduttorii",
+	"cx-translation-status-published": "Pubblica",
+	"cx-translation-status-deleted": "Canzilladdu",
+	"cx-stats-cumulative-tab-title": "Tutari",
+	"cx-draft-cancel-button-label": "Annullà",
+	"cx-campaign-contributionsmenu-mycontributions": "Cuntributi",
+	"cx-campaign-contributionsmenu-mytranslations": "Traduttorii",
+	"cx-stats-local-published-number": "$1 pai $2",
+	"echo-category-title-cx": "Traduttorii",
+	"cx-contributions-link": "Cuntributi d'utenti",
+	"cx-tools-linter-restart-translation-cancel": "Canzillà",
+	"cx-translator-header": "Sthatisthigghi reratibi a l'utenti",
+	"cx-translator-total-translations-label": "Tutari",
+	"cx-publish-destination-namespace-main": "Noba pàgina",
+	"cx-linkcontextitem-missing-title-description": "La pagina nò esisthi",
+	"cx-sx-language-selector-dialog-title": "Zercha 'na lìnga",
+	"cx-sx-view-translation-anchor": "Vidé"
+}

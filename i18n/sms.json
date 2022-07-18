@@ -45,8 +45,11 @@
 	"cx-stats-published-source-target": "Jåårǥlõttum ǩiõlâst:",
 	"echo-category-title-cx": "Jåårǥlõõzz",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
+	"cx-tools-linter-learn-more": "Lââʹssteâđ",
 	"cx-translator-total-translations-label": "Õhttsa",
 	"cx-publish-settings": "Õlmstâʹttemasetõõzz",
 	"cx-publish-destination-namespace-main": "Ođđ seidd",
-	"cx-sx-language-selector-dialog-title": "Ooʒʒ ǩiõl"
+	"cx-sx-language-selector-dialog-title": "Ooʒʒ ǩiõl",
+	"cx-sx-existing-translation-learn-more": "Lââʹssteâđ",
+	"cx-sx-section-selector-learn-more-anchor-label": "Lââʹssteâđ"
 }
