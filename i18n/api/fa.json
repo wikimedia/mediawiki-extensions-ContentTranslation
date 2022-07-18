@@ -121,5 +121,12 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "جایگاه بخش برای قرار گرفتن در نسخهٔ تازهٔ صفحه.",
 	"apihelp-cxpublishsection-param-sourcerevid": "شناسهٔ نسخهٔ صفحهٔ مبدأ.",
 	"apihelp-cxpublishsection-param-captchaid": "شناسهٔ کپچا (در زمان ذخیره به‌همراه پاسخ کپچا).",
-	"apihelp-cxpublishsection-param-captchaword": "پاسخ برای کپچا (در زمان ذخیره به‌همراه پاسخ کپچا)"
+	"apihelp-cxpublishsection-param-captchaword": "پاسخ برای کپچا (در زمان ذخیره به‌همراه پاسخ کپچا)",
+	"apihelp-sxsave-param-sourcelanguage": "شناسهٔ زبان مبدأ.",
+	"apihelp-sxsave-param-targetlanguage": "شناسهٔ زبان مقصد.",
+	"apihelp-sxsave-param-sourcetitle": "عنوان صفحهٔ مبدأ.",
+	"apihelp-sxsave-param-targettitle": "عنوان صفحهٔ مقصد.",
+	"apihelp-sxsave-param-sourcesectiontitle": "عنوان بخش مبدأ.",
+	"apihelp-sxsave-param-targetsectiontitle": "عنوان بخش مقصد.",
+	"apierror-cxpublishsection-translationnotfound": "ترجمه یافت نشد."
 }
