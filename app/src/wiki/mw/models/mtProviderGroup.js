@@ -1,6 +1,23 @@
 const ORIGINAL_TEXT_PROVIDER_KEY = "original";
 const EMPTY_TEXT_PROVIDER_KEY = "empty";
 
+/**
+ * Map provider id to human readable label.
+ *
+ * @param {string} provider Id of the provider
+ * @return {string} label
+ */
+function getLabelForMTProvider(provider) {
+  return (
+    {
+      Elia: "Elia.eus",
+      Flores: "NLLB-200",
+      Google: "Google Translate",
+      Yandex: "Yandex.Translate",
+    }[provider] || provider
+  );
+}
+
 export default class MTProviderGroup {
   /**
    * @param {string} sourceLanguage
@@ -11,7 +28,7 @@ export default class MTProviderGroup {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.providers = [
-      ...providers,
+      ...providers.map(getLabelForMTProvider),
       ORIGINAL_TEXT_PROVIDER_KEY,
       EMPTY_TEXT_PROVIDER_KEY,
     ];
