@@ -8,12 +8,14 @@
  *
  * @class
  * @abstract
- * @param {mw.cx.SiteMapper} siteMapper
- * @param {string} language
- * @param {string} title
- * @param {Object} [config] Configuration for OO.ui.StackLayout
+ *
+ * @param {Object} [config] Configuration
+ * @param {string} config.title The title of the article for the column
+ * @param {string} config.language The language of the article for the column
+ * @param {mw.cx.SiteMapper} config.siteMapper SiteMapper instance
+ * @param {string} [config.sectionTitle] The section title of the article for the column
  */
-mw.cx.ui.ArticleColumn = function ( siteMapper, language, title, config ) {
+mw.cx.ui.ArticleColumn = function ( config ) {
 	var languageLabel;
 
 	// Configuration initialization
@@ -27,16 +29,32 @@ mw.cx.ui.ArticleColumn = function ( siteMapper, language, title, config ) {
 	mw.cx.ui.ArticleColumn.super.call( this, config );
 
 	this.translation = null;
-	this.siteMapper = siteMapper;
-	this.language = language;
-	this.titleWidget = new mw.cx.ui.PageTitleWidget(
-		new mw.cx.dm.PageTitleModel(),
-		{ value: title }
-	);
-	this.direction = $.uls.data.getDir( language );
+	this.siteMapper = config.siteMapper;
+	this.language = config.language;
+	if ( config.sectionTitle ) {
+		this.addItems( [
+			new OO.ui.LabelWidget( {
+				label: config.title,
+				dir: this.direction,
+				classes: [ 'cx-column-page-title' ]
+			} )
+		] );
+		// FIXME: Use a new class mw.cx.ui.SectionTitleWidget
+		// with section title specific validation and editing logic
+		this.titleWidget = new mw.cx.ui.PageTitleWidget(
+			new mw.cx.dm.PageTitleModel(),
+			{ value: config.sectionTitle }
+		);
+	} else {
+		this.titleWidget = new mw.cx.ui.PageTitleWidget(
+			new mw.cx.dm.PageTitleModel(),
+			{ value: config.title }
+		);
+	}
+	this.direction = $.uls.data.getDir( config.language );
 
 	languageLabel = new OO.ui.LabelWidget( {
-		label: $.uls.data.getAutonym( language ),
+		label: $.uls.data.getAutonym( config.language ),
 		dir: this.direction,
 		classes: [ 'cx-column-language-label' ]
 	} );

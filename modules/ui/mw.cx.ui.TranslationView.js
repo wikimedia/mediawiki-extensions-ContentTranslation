@@ -11,8 +11,18 @@
  */
 mw.cx.ui.TranslationView = function ( config ) {
 	this.infobar = new mw.cx.ui.Infobar( config );
-	this.sourceColumn = new mw.cx.ui.SourceColumn( config.siteMapper, config.sourceLanguage, config.sourceTitle );
-	this.targetColumn = new mw.cx.ui.TargetColumn( config.siteMapper, config.targetLanguage, config.targetTitle );
+	this.sourceColumn = new mw.cx.ui.SourceColumn( {
+		siteMapper: config.siteMapper,
+		language: config.sourceLanguage,
+		title: config.sourceTitle,
+		sectionTitle: config.sourceSectionTitle
+	} );
+	this.targetColumn = new mw.cx.ui.TargetColumn( {
+		siteMapper: config.siteMapper,
+		language: config.targetLanguage,
+		title: config.targetTitle,
+		sectionTitle: config.targetSectionTitle || config.sourceSectionTitle
+	} );
 	this.toolsColumn = new mw.cx.ui.ToolsColumn( config );
 	this.translationHeader = new mw.cx.ui.TranslationHeader( config );
 	this.titleValidationTool = null;
