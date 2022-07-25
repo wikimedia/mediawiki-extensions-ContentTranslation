@@ -432,6 +432,13 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Перевірити та редагувати переклад",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Редагувати переклад",
 	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Відсутній у <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Відсутні в <span>$1</span> й <span>$2</span>",
-	"cx-uls-relevant-languages-panel-header": "Перекладіть цю сторінку"
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Відсутня в <span>$1</span>, <span>$2</span> та інших",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Відсутня в <span>$1</span> та інших",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Відсутня в <span>$1</span>, <span>$2</span> та інших",
+	"cx-uls-relevant-languages-panel-header": "Перекладіть цю сторінку",
+	"cx-uls-relevant-languages-panel-message": "Ця сторінка відсутня деякими мовами, які ви можете знати. Ви можете перекласти її за лічені хвилини!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Це буде <strong>перший розділ у новій статті!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Перекласти цю сторінку"
 }

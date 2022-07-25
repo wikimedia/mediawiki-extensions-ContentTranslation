@@ -114,7 +114,7 @@
 	"apierror-cx-invalidsectiondata": "Données de section non valides.",
 	"apierror-cx-invalidsourcelanguage": "Langue source non valide.",
 	"apierror-cx-invalidtargetlanguage": "Langue cible non valide.",
-	"apierror-cx-invalidtranslator": "Nom de traducteur non valide",
+	"apierror-cx-invalidtranslator": "Nom de traducteur ou traductrice non valide",
 	"apierror-cx-jwtmissing": "JWT n’est pas installé.",
 	"apierror-cx-keynotconfigured": "Clé non configurée.",
 	"apierror-cx-missingdraft": "Le brouillon n’existe pas.",

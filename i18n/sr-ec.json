@@ -10,6 +10,7 @@
 			"Prevodim",
 			"Srdjan m",
 			"Srđan",
+			"Vlad5250",
 			"Zoranzoki21",
 			"Милан Јелисавчић",
 			"Петар Петковић",
@@ -401,5 +402,6 @@
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Уреди превод",
 	"sx-block-template-adaptation-card-body-header-failure": "Одговарајући шаблон није доступан за $1",
 	"cx-uls-relevant-languages-panel-header": "Преведите ову страницу",
-	"cx-sx-publisher-publish-panel-lead-section-result": "Преведени одељак ће бити <strong>уводни део новог чланка</strong>."
+	"cx-sx-publisher-publish-panel-lead-section-result": "Преведени одељак ће бити <strong>уводни део новог чланка</strong>.",
+	"cx-uls-translate-page-quick-action-label": "Преведите ову страницу"
 }

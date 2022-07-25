@@ -25,8 +25,10 @@
 	"apihelp-cxsave-param-to": "Täävtõsǩiõl ǩiõllkoodd.",
 	"apihelp-cxsave-param-sourcetitle": "Käivvseeid nõmm.",
 	"apierror-cx-invalidlanguage": "Vââǥǥlaž ǩiõll.",
+	"apierror-cx-mustbeloggedin-viewtranslations": "Ton õõlǥak leeʹd sizz ǩeeʹrjtõõttâm, jõs haaʹlääk jåårǥlõõzzid vueiʹnned.",
 	"apierror-cx-translationnotfound": "Jåårǥlâttmõš ij käunnʼjam.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Käivvǩiõl ǩiõllkoodd.",
 	"apihelp-cxpublishsection-param-targetlanguage": "Täävtõsǩiõl ǩiõllkoodd.",
-	"apihelp-cxpublishsection-param-sourcetitle": "Käivvseeid nõmm."
+	"apihelp-cxpublishsection-param-sourcetitle": "Käivvseeid nõmm.",
+	"apierror-cxpublishsection-translationnotfound": "Jåårǥlâttmõš ij käunnʼjam."
 }
