@@ -298,5 +298,22 @@
 	"cx-preference-enable-entrypoints": "Võimalda [[$1|alustada tõlkega]] kaastöö lehekülje ja keelte loendi kaudu ning uue lehekülje alustamisel",
 	"cx-feature-discovery-title": "Tõlgi millal tahes",
 	"cx-feature-discovery-content": "Saad alustada või jätkata tõlkimist millal tahes leheküljel {{int:mycontris}}.",
-	"cx-feature-discovery-dismiss": "Hästi, sain aru"
+	"cx-feature-discovery-dismiss": "Hästi, sain aru",
+	"cx-suggestionlist-expand-sections-title": "Täienda uute alaosadega",
+	"cx-sx-select-section": "Vali tõlkimiseks alaosa",
+	"cx-sx-section-selector-title": "Alaosad",
+	"cx-sx-language-selector-dialog-title": "Otsi keelt",
+	"cx-sx-start-translation-button-label": "Alusta tõlkimist",
+	"cx-sx-section-selector-missing-sections-title": "Alaosad, mis puuduvad selles keeles ($1)",
+	"cx-sx-section-selector-present-sections-title": "Alaosad, mis on selles keeles ($1) olemas",
+	"cx-sx-section-selector-more-details-title": "Veel üksikasju",
+	"cx-sx-section-selector-view-article-button-label": "Vaata artiklit ($1)",
+	"cx-sx-section-selector-empty-missing-sections-title": "Ei leidu alaosi, mida saaksid tõlkida.",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Proovi teist lehekülge või teisi keeli.",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Vali teine lehekülg",
+	"cx-sx-section-selector-automatic-section-matching-title": "Automaatne alaosade sobitamine",
+	"cx-sx-section-selector-automatic-section-matching-description": "Alaosad viiakse kokku automaatselt ja tulemus ei ole alati täpne.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Lisateave",
+	"cx-sx-section-selector-unsupported-sections-title": "Toetamata alaosad",
+	"cx-sx-section-selector-unsupported-sections-description": "Mõni alaosa võib sellest loendist puududa, kuna selle sisu ei toetata veel."
 }
