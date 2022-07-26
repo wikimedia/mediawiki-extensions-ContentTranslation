@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"Nirajan pant",
 			"Nirjal stha",
 			"Parbat subedi",
@@ -118,8 +119,8 @@
 	"cx-save-draft-tooltip": "अनुवाद ड्राफ्ट स्वतः सङ्ग्रह हुन्छ",
 	"cx-save-draft-error": "पृष्ठ सङ्ग्रहगर्दा त्रुटि भयो।",
 	"cx-contributions-new-contributions": "नयाँ योगदान",
-	"cx-contributions-new-article": "नयाँ पृष्ठ",
-	"cx-contributions-translation": "अनुवाद",
+	"cx-contributions-new-article": "नयाँ लेख बनाउनुहोस्",
+	"cx-contributions-translation": "अनुवाद गर्नुहोस्",
 	"cx-contributions-upload": "मिडिया उर्ध्वभरण गर्नुहाेस्",
 	"cx-contributions-new-article-tooltip": "नयाँ लेख लेखन सुरु गर्नुहोस्",
 	"cx-contributions-translation-tooltip": "रहिआएका पानाहरू अनुवाद गर्नुहोस्",
