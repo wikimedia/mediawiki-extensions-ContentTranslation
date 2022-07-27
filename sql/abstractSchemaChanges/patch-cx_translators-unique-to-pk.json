@@ -1,0 +1,46 @@
+{
+	"comment": "Convert unique index to primary key (T312266)",
+	"before": {
+		"name": "cx_translators",
+		"columns": [
+			{
+				"name": "translator_user_id",
+				"comment": "Translators id - global user id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "translator_translation_id",
+				"comment": "Translation id - foreign key to translations.translation_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_translation_translators",
+				"columns": [ "translator_user_id", "translator_translation_id" ],
+				"unique": true
+			}
+		]
+	},
+	"after": {
+		"name": "cx_translators",
+		"columns": [
+			{
+				"name": "translator_user_id",
+				"comment": "Translators id - global user id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "translator_translation_id",
+				"comment": "Translation id - foreign key to translations.translation_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "translator_user_id", "translator_translation_id" ]
+	}
+}

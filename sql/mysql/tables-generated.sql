@@ -34,7 +34,7 @@ CREATE TABLE /*_*/cx_translations (
 CREATE TABLE /*_*/cx_translators (
   translator_user_id INT NOT NULL,
   translator_translation_id INT NOT NULL,
-  UNIQUE INDEX cx_translation_translators (
+  PRIMARY KEY(
     translator_user_id, translator_translation_id
   )
 ) /*$wgDBTableOptions*/;

@@ -282,6 +282,11 @@ class Hooks {
 				"$dir/sql/patch-tables-binary.sql"
 			);
 		}
+		$updater->dropExtensionIndex(
+			'cx_translators',
+			'cx_translation_translators',
+			"$dir/sql/$dbType/patch-cx_translators-unique-to-pk.sql"
+		);
 	}
 
 	/**

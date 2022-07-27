@@ -34,11 +34,11 @@ CREATE INDEX cx_translation_languages ON cx_translations (
 
 
 CREATE TABLE cx_translators (
-  translator_user_id INT NOT NULL, translator_translation_id INT NOT NULL
-);
-
-CREATE UNIQUE INDEX cx_translation_translators ON cx_translators (
-  translator_user_id, translator_translation_id
+  translator_user_id INT NOT NULL,
+  translator_translation_id INT NOT NULL,
+  PRIMARY KEY(
+    translator_user_id, translator_translation_id
+  )
 );
 
 
