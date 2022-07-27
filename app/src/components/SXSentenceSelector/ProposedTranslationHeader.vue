@@ -59,7 +59,7 @@ export default {
         extraMTOptionLabels.value[mtProvider.value] ||
         bananaI18n.i18n(
           "cx-sx-sentence-selector-suggested-translation-title",
-          mtProvider.value
+          MTProviderGroup.getMTProviderLabel(mtProvider.value)
         )
     );
 
