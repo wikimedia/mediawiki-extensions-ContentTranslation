@@ -131,11 +131,10 @@
 				removeInvite( sxInvite );
 			} );
 
-			document.addEventListener( 'focus', function ( event ) {
-				if ( event.target !== sxInvite ) {
-					removeInvite( sxInvite );
-				}
-			}, true );
+			var wikitextEditor = document.getElementById( 'wikitext-editor' );
+			wikitextEditor.addEventListener( 'input', function () {
+				removeInvite( sxInvite );
+			} );
 		} );
 	} );
 }() );
