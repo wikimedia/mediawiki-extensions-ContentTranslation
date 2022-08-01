@@ -146,7 +146,8 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	// Case 1: Server-side adapted blue or red link in the target column. Information
 	// is present on the link attributes, so additional requests or caching are not needed.
 	if ( adaptationInfo && !adaptationInfo.userAdded ) {
-		return this.generateBody( adaptationInfo );
+		this.$body.empty().append( this.generateBody( adaptationInfo ) );
+		return;
 	}
 
 	// Case 2: Cached hit on a manually added link or a link in the source column.
@@ -154,13 +155,21 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
 	adaptationInfo = store.value( store.hashOfValue( null, OO.getHash( normalizedTitle ) ) );
 	if ( adaptationInfo ) {
-		return this.generateBody( adaptationInfo );
+		this.$body.empty().append( this.generateBody( adaptationInfo ) );
+		return;
 	}
+
+	// ve.ui.LinearContextItem#setup assumes renderBody is synchronous, so add
+	// some content so it isn't thought to be empty.
+	// TODO: This could be a loading message.
+	this.$body.append( $( '<span>' ) );
 
 	// Case 3: First click on a link in the source column, or a first click on
 	// a link in the target column added manually by the translator. This will
 	// cache the results so that case 2 is hit on subsequent hits.
-	this.getLinkInfo().then( this.generateBody.bind( this ) );
+	this.getLinkInfo().then( function ( adaptationInfo ) {
+		this.$body.empty().append( this.generateBody( adaptationInfo ) );
+	}.bind( this ) );
 };
 
 /**
@@ -257,7 +266,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 		}
 	}
 
-	this.$body.empty().append( $targetLinkCard );
+	return $targetLinkCard;
 };
 
 /**
