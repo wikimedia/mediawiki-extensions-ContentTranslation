@@ -37,7 +37,7 @@ ve.ui.CXTextSelectionContextItem = function VeUiCXTextSelectionContextItem() {
 
 /* Inheritance */
 
-OO.inheritClass( ve.ui.CXTextSelectionContextItem, ve.ui.LinearContextItem );
+OO.inheritClass( ve.ui.CXTextSelectionContextItem, ve.ui.LinkContextItem );
 OO.mixinClass( ve.ui.CXTextSelectionContextItem, ve.ui.CXTranslationUnitContextItem );
 
 /* Static Properties */
@@ -50,7 +50,7 @@ ve.ui.CXTextSelectionContextItem.static.commandName = 'linkToggle';
 
 ve.ui.CXTextSelectionContextItem.static.label = OO.ui.deferMsg( 'cx-tools-link-title' );
 
-ve.ui.CXTextSelectionContextItem.static.deletable = false;
+ve.ui.CXTextSelectionContextItem.static.clearable = false;
 
 ve.ui.CXTextSelectionContextItem.static.editable = true;
 
