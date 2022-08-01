@@ -21,7 +21,7 @@
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|وەرگێڕانی ناوەڕۆک]] iئامرازێکە کە یارمەتی وەرگێڕانی وتارەکانی ویکیپیدیاکانی تر دەدات بە شێوەیەکی ئاسان. [$1 تاقی بکەرەوە!]",
 	"cx-license-agreement": "بە بەردەوامبوون ڕەزامەندی لەسەر [https://foundation.wikimedia.org/wiki/Terms_of_Use مەرجەکانی بەکارھێنان] دەردەبڕیت و بەشێوەیەکی نەگۆڕ و تا ھەتایە ڕەزامەندیت کە بەشدارییەکانت لەژێر [https://creativecommons.org/licenses/by-sa/3.0/ مۆڵەتنامەی CC BY-SA 3.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] بڵاو بکەیتەوە.",
 	"cx-error-server-connection": "ھەڵە: نەکرا لەگەڵ سێرڤەردا پەیوەندی بکرێت.",
-	"cx-desc": "وەرگێڕانی وتارەکان ئاسان دەکاتەوە",
+	"cx-desc": "ئاسانکاری دەکات تا پەڕەکانی ناوەڕۆک [[Special:ContentTranslation|وەربگێڕیت]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|وەرگێڕراوە}}",
 	"cx-header-progressbar-text-mt": "($1% بە {{PLURAL:$1|وەرگێڕانی مەکینە}} کراوە)",
 	"cx-header-translation-center": "ناوەندی وەرگێڕان",
