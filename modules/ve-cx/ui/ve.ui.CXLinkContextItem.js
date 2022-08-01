@@ -15,8 +15,6 @@ ve.ui.CXLinkContextItem = function VeUiCXLinkContextItem() {
 		.insertAfter( this.$body );
 	this.$body.addClass( 've-ui-cxLinkContextItem-targetBody' );
 	this.$element.addClass( 've-ui-cxLinkContextItem' );
-	// Do not show the delete button in red color
-	this.clearButton.clearFlags();
 
 	this.inTargetSurface = this.context.surface === ve.init.target.targetSurface;
 	this.thisLinkCache = this.inTargetSurface ? ve.init.platform.linkCache : ve.init.platform.sourceLinkCache;
@@ -34,8 +32,6 @@ OO.mixinClass( ve.ui.CXLinkContextItem, ve.ui.CXTranslationUnitContextItem );
 ve.ui.CXLinkContextItem.static.name = 'cxLink';
 
 ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
-
-ve.ui.CXLinkContextItem.static.clearIcon = 'trash';
 
 /* Static Methods */
 
