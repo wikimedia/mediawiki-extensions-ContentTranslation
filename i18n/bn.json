@@ -15,6 +15,7 @@
 			"Titodutta",
 			"Yahya",
 			"ZI Jony",
+			"আজিজ",
 			"আফতাবুজ্জামান",
 			"খাত্তাব হাসান"
 		]
@@ -389,7 +390,7 @@
 	"cx-sx-article-search-no-search-results-message": "$2 ভাষায় \"$1\"-এর জন্য কোন পাতা পাওয়া যায়নি",
 	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "$1 সম্প্রসারণ করুন বা বিদ্যমান অনুচ্ছেদগুলি যাচাই করুন",
 	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "$1 অনুচ্ছেদ যোগ করে সম্প্রসারণ করুন",
-	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "কোনও বিভাগ অনুপস্থিত নেই। বিদ্যমানগুলি পরীক্ষা করুন।",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "কোনও অনুচ্ছেদ অনুপস্থিত নেই। বিদ্যমানগুলি পরীক্ষা করুন।",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "অনুবাদ করার জন্য কোনও অনুচ্ছেদ উপলব্ধ নেই। বিদ্যমান পাতাটি প্রতিস্থাপন করতে একটি নতুন অনুবাদ শুরু করুন।",
 	"cx-sx-translation-confirmer-action-view-section": "অনুবাদ করতে অনুচ্ছেদ দেখুন",
 	"cx-sx-translation-confirmer-action-new-translation": "নতুন অনুবাদ",
@@ -406,11 +407,12 @@
 	"sx-recent-translation-entrypoint-dialog-header": "অনুবাদ উন্নত করুন",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "বিষয়বস্তু পরীক্ষা করুন",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "নতুন অনুচ্ছেদ যোগ করুন",
-	"sx-recent-translation-entrypoint-dialog-review-lead-text": "অনুবাদ অন্যান্য ভাষার সম্পাদকদের দ্বারা কাজ পুনঃব্যবহার করে। যাইহোক, কিছু দিক অনুবাদে হারিয়ে যেতে পারে। আপনি সাহায্য করতে পারেন:",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "অন্য ভাষার সম্পাদকদের কাজ পুনঃব্যবহার করে মূলত অনুবাদ করা হয়ে থাকে। অনুবাদ করার সময় কিছু অর্থ ভুলভাবে অনূদিত হতে পারে। আপনি নিম্নলিখিতভাবে সাহায্য করতে পারেন:",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "বিষয়বস্তু আরও বোধগম্য করে তুলুন",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "প্রয়োজন অনুসারে শব্দগুলিকে পুনরায় সাজাতে বা প্রতিস্থাপন করতে বাক্য সম্পাদনা করুন।",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "তথ্যসূত্র পরীক্ষা করুন",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "আসলটির সাথে তুলনা করুন",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "অনুবাদে মূল অর্থ পরিবর্তন করা হয়নি তা নিশ্চিত করুন।",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "পাতাটি সম্পাদনা করুন",
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "$1 ভাষার মূল পাতাটি খুলুন",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "আপনি জানেন এমন আরেকটি ভাষায় থাকা অনুচ্ছেদগুলি অনুবাদ করে এই পাতাটি বড় করুন।",
@@ -428,5 +430,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> ও আরও ভাষায় অনুপস্থিত",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> ও আরও ভাষায় অনুপস্থিত",
 	"cx-uls-relevant-languages-panel-header": "এই পাতাটি অনুবাদ করুন",
+	"cx-uls-relevant-languages-panel-message": "এই পাতাটি আপনার জানা কিছু ভাষায় অনুপস্থিত। আপনি কয়েক মিনিটের মধ্যে এটি অনুবাদ করতে পারেন!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "এটি <strong>নতুন নিবন্ধের প্রথম অনুচ্ছেদ হবে!</strong>",
 	"cx-uls-translate-page-quick-action-label": "এই পাতাটি অনুবাদ করুন"
 }
