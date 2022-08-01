@@ -169,9 +169,9 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
  * @return {boolean} True if selected text contains a link.
  */
 ve.ui.CXTextSelectionContextItem.prototype.hasLink = function () {
-	return this.context.getRelatedSources().some( function ( element ) {
-		return element.model instanceof ve.dm.LinkAnnotation;
-	} );
+	return !this.getFragment().getAnnotations( true ).filter( function ( ann ) {
+		return ann instanceof ve.dm.LinkAnnotation;
+	} ).isEmpty();
 };
 
 ve.ui.CXTextSelectionContextItem.prototype.onSurfaceModelSelect = function ( selection ) {
@@ -204,8 +204,10 @@ ve.ui.CXTextSelectionContextItem.prototype.onEditButtonClick = function () {
 	if ( command ) {
 		command.execute( this.context.getSurface(), [ 'cxLink', attributes ] );
 		this.emit( 'command' );
-		// FIXME: This avoids "Add link" card to stick after actually adding link
-		this.context.getSurface().getModel().setNullSelection();
+		// Force selection inside the link, as in ve.ui.AnnotationInspector#getTeardownProcess
+		this.context.getSurface().getView().selectAnnotation( function ( annView ) {
+			return annView.getModel() instanceof ve.dm.LinkAnnotation;
+		} );
 	}
 };
 
