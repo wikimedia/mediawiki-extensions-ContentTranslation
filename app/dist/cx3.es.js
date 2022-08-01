@@ -5161,7 +5161,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$1e = {
+const _sfc_main$1f = {
   name: "MWIcon",
   props: {
     icon: {
@@ -5200,11 +5200,11 @@ const _sfc_main$1e = {
     }
   }
 };
-const _hoisted_1$T = ["width", "height", "aria-labelledby"];
-const _hoisted_2$C = ["id"];
-const _hoisted_3$y = ["fill"];
-const _hoisted_4$n = ["d"];
-function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$U = ["width", "height", "aria-labelledby"];
+const _hoisted_2$D = ["id"];
+const _hoisted_3$z = ["fill"];
+const _hoisted_4$o = ["d"];
+function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("span", {
     class: normalizeClass(["mw-ui-icon notranslate", $options.classes])
   }, [
@@ -5221,16 +5221,16 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
       $props.iconName ? (openBlock(), createElementBlock("title", {
         key: 0,
         id: $props.iconName
-      }, toDisplayString($props.iconName), 9, _hoisted_2$C)) : createCommentVNode("", true),
+      }, toDisplayString($props.iconName), 9, _hoisted_2$D)) : createCommentVNode("", true),
       createBaseVNode("g", { fill: $props.iconColor }, [
-        createBaseVNode("path", { d: $options.iconImagePath }, null, 8, _hoisted_4$n)
-      ], 8, _hoisted_3$y)
-    ], 8, _hoisted_1$T))
+        createBaseVNode("path", { d: $options.iconImagePath }, null, 8, _hoisted_4$o)
+      ], 8, _hoisted_3$z)
+    ], 8, _hoisted_1$U))
   ], 2);
 }
-var MwIcon = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1d]]);
+var MwIcon = /* @__PURE__ */ _export_sfc(_sfc_main$1f, [["render", _sfc_render$1e]]);
 var MWButton_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$1d = {
+const _sfc_main$1e = {
   name: "MwButton",
   components: {
     MwIcon
@@ -5300,9 +5300,9 @@ const _sfc_main$1d = {
     indicatorClickEvent: (vm) => vm.hasIndicatorClickListener ? "click" : null
   }
 };
-const _hoisted_1$S = { class: "mw-ui-button__content" };
-const _hoisted_2$B = ["textContent"];
-function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$T = { class: "mw-ui-button__content" };
+const _hoisted_2$C = ["textContent"];
+function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   return openBlock(), createBlock(resolveDynamicComponent($options.component), {
     class: normalizeClass(["mw-ui-button", $options.classes]),
@@ -5311,7 +5311,7 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default", {}, () => [
-        createBaseVNode("span", _hoisted_1$S, [
+        createBaseVNode("span", _hoisted_1$T, [
           $props.icon ? (openBlock(), createBlock(_component_mw_icon, {
             key: 0,
             icon: $props.icon,
@@ -5322,7 +5322,7 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
             key: 1,
             class: "mw-ui-button__label",
             textContent: toDisplayString($props.label)
-          }, null, 8, _hoisted_2$B)) : createCommentVNode("", true),
+          }, null, 8, _hoisted_2$C)) : createCommentVNode("", true),
           $props.indicator ? (openBlock(), createBlock(_component_mw_icon, {
             key: 2,
             icon: $props.indicator,
@@ -5336,9 +5336,9 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "href", "disabled"]);
 }
-var MwButton = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c]]);
+var MwButton = /* @__PURE__ */ _export_sfc(_sfc_main$1e, [["render", _sfc_render$1d]]);
 var MWButtonGroup_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$1c = {
+const _sfc_main$1d = {
   name: "MwButtonGroup",
   components: {
     MwButton
@@ -5374,10 +5374,10 @@ const _sfc_main$1c = {
     }
   }
 };
-const _hoisted_1$R = { class: "row mw-ui-button-group ma-0 pa-0" };
-function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$S = { class: "row mw-ui-button-group ma-0 pa-0" };
+function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
-  return openBlock(), createElementBlock("div", _hoisted_1$R, [
+  return openBlock(), createElementBlock("div", _hoisted_1$S, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.items, (item) => {
       return openBlock(), createBlock(_component_mw_button, mergeProps({
         key: item.value,
@@ -5391,9 +5391,9 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var MwButtonGroup = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1b]]);
+var MwButtonGroup = /* @__PURE__ */ _export_sfc(_sfc_main$1d, [["render", _sfc_render$1c]]);
 var MWBottomNavigation_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$1b = {
+const _sfc_main$1c = {
   name: "MwUiBottomNavigation",
   components: { MwButtonGroup },
   props: {
@@ -5408,12 +5408,12 @@ const _sfc_main$1b = {
   },
   emits: ["update:active"]
 };
-const _hoisted_1$Q = { class: "mw-ui-bottom-navigation row ma-0 justify-center" };
-const _hoisted_2$A = { class: "col-12 ma-0 pa-0" };
-function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$R = { class: "mw-ui-bottom-navigation row ma-0 justify-center" };
+const _hoisted_2$B = { class: "col-12 ma-0 pa-0" };
+function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button_group = resolveComponent("mw-button-group");
-  return openBlock(), createElementBlock("footer", _hoisted_1$Q, [
-    createBaseVNode("div", _hoisted_2$A, [
+  return openBlock(), createElementBlock("footer", _hoisted_1$R, [
+    createBaseVNode("div", _hoisted_2$B, [
       renderSlot(_ctx.$slots, "default", {}, () => [
         createVNode(_component_mw_button_group, {
           class: "mw-ui-bottom-navigation__button-group justify-around",
@@ -5425,9 +5425,9 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var MwBottomNavigation = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a]]);
+var MwBottomNavigation = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1b]]);
 var MWCard_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$1a = {
+const _sfc_main$1b = {
   name: "MwCard",
   props: {
     title: {
@@ -5436,35 +5436,35 @@ const _sfc_main$1a = {
     }
   }
 };
-const _hoisted_1$P = { class: "mw-ui-card" };
-const _hoisted_2$z = ["textContent"];
-const _hoisted_3$x = { class: "mw-ui-card__content" };
-function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$P, [
+const _hoisted_1$Q = { class: "mw-ui-card" };
+const _hoisted_2$A = ["textContent"];
+const _hoisted_3$y = { class: "mw-ui-card__content" };
+function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$Q, [
     renderSlot(_ctx.$slots, "header", {}, () => [
       $props.title ? (openBlock(), createElementBlock("div", {
         key: 0,
         class: "mw-ui-card__title title",
         textContent: toDisplayString($props.title)
-      }, null, 8, _hoisted_2$z)) : createCommentVNode("", true)
+      }, null, 8, _hoisted_2$A)) : createCommentVNode("", true)
     ]),
-    createBaseVNode("div", _hoisted_3$x, [
+    createBaseVNode("div", _hoisted_3$y, [
       renderSlot(_ctx.$slots, "default")
     ])
   ]);
 }
-var MwCard = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$19]]);
+var MwCard = /* @__PURE__ */ _export_sfc(_sfc_main$1b, [["render", _sfc_render$1a]]);
 var MWDivider_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$19 = {};
-const _hoisted_1$O = { class: "mw-ui-divider row" };
-function _sfc_render$18(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$O);
+const _sfc_main$1a = {};
+const _hoisted_1$P = { class: "mw-ui-divider row" };
+function _sfc_render$19(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$P);
 }
-var MwDivider = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$18]]);
+var MwDivider = /* @__PURE__ */ _export_sfc(_sfc_main$1a, [["render", _sfc_render$19]]);
 var grid = "";
 var spacing = "";
 var typography = "";
-const _sfc_main$18 = {
+const _sfc_main$19 = {
   name: "MWGrid",
   props: {
     tag: {
@@ -5473,7 +5473,7 @@ const _sfc_main$18 = {
     }
   }
 };
-function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent($props.tag), { class: "mw-grid container" }, {
     default: withCtx(() => [
       renderSlot(_ctx.$slots, "default")
@@ -5481,8 +5481,8 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   });
 }
-var MwGrid = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$17]]);
-const _sfc_main$17 = {
+var MwGrid = /* @__PURE__ */ _export_sfc(_sfc_main$19, [["render", _sfc_render$18]]);
+const _sfc_main$18 = {
   name: "MwRow",
   props: {
     align: {
@@ -5523,7 +5523,7 @@ const _sfc_main$17 = {
     }
   }
 };
-function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent($props.tag), {
     class: normalizeClass($options.classes)
   }, {
@@ -5533,7 +5533,7 @@ function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var MwRow = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$16]]);
+var MwRow = /* @__PURE__ */ _export_sfc(_sfc_main$18, [["render", _sfc_render$17]]);
 const breakpoints$1 = ["sm", "md", "lg", "xl"];
 const breakpointProps = breakpoints$1.reduce((props, val) => __spreadProps(__spreadValues({}, props), {
   [val]: {
@@ -5541,7 +5541,7 @@ const breakpointProps = breakpoints$1.reduce((props, val) => __spreadProps(__spr
     default: null
   }
 }), {});
-const _sfc_main$16 = {
+const _sfc_main$17 = {
   name: "MwCol",
   props: __spreadProps(__spreadValues({}, breakpointProps), {
     cols: {
@@ -5591,7 +5591,7 @@ const _sfc_main$16 = {
     }
   }
 };
-function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createBlock(resolveDynamicComponent($props.tag), {
     class: normalizeClass($options.classes)
   }, {
@@ -5601,7 +5601,7 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class"]);
 }
-var MwCol = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15]]);
+var MwCol = /* @__PURE__ */ _export_sfc(_sfc_main$17, [["render", _sfc_render$16]]);
 const mwIconAdd = "M11 9V4H9v5H4v2h5v5h2v-5h5V9z";
 const mwIconUserAvatar = "M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z";
 const mwIconEdit = "M16.77 8l1.94-2a1 1 0 0 0 0-1.41l-3.34-3.3a1 1 0 0 0-1.41 0L12 3.23zM1 14.25V19h4.75l9.96-9.96-4.75-4.75z";
@@ -5651,7 +5651,7 @@ const mwIconBlock = "M10 1a9 9 0 109 9 9 9 0 00-9-9zm5 10H5V9h10z";
 const mwIconArticle = "M5 1a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V3a2 2 0 00-2-2zm0 3h5v1H5zm0 2h5v1H5zm0 2h5v1H5zm10 7H5v-1h10zm0-2H5v-1h10zm0-2H5v-1h10zm0-2h-4V4h4z";
 const mwIconPuzzle = "M 1 3 L 1 15 A 2 2 0 0 0 3 17 L 15 17 L 15 12.234375 A 3 3 0 0 0 17 13 A 3 3 0 0 0 20 10 A 3 3 0 0 0 17 7 A 3 3 0 0 0 15 7.7636719 L 15 3 L 10.580078 3 A 3 3 0 0 1 11 4.5 A 3 3 0 0 1 5 4.5 A 3 3 0 0 1 5.4199219 3 L 1 3 z";
 var MWDialog_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$15 = {
+const _sfc_main$16 = {
   name: "MwDialog",
   components: {
     MwButton,
@@ -5734,9 +5734,9 @@ const _sfc_main$15 = {
     };
   }
 };
-const _hoisted_1$N = { class: "mw-ui-dialog__shell items-stretch" };
-const _hoisted_2$y = { class: "mw-ui-dialog__body" };
-function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$O = { class: "mw-ui-dialog__shell items-stretch" };
+const _hoisted_2$z = { class: "mw-ui-dialog__body" };
+function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
@@ -5759,7 +5759,7 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
           style: normalizeStyle($setup.overlayStyles),
           onClick: _cache[0] || (_cache[0] = (...args) => $setup.close && $setup.close(...args))
         }, null, 4),
-        createBaseVNode("div", _hoisted_1$N, [
+        createBaseVNode("div", _hoisted_1$O, [
           $props.header ? renderSlot(_ctx.$slots, "header", { key: 0 }, () => [
             createVNode(_component_mw_row, { class: "mw-ui-dialog__header" }, {
               default: withCtx(() => [
@@ -5786,7 +5786,7 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
             }),
             createVNode(_component_mw_divider)
           ]) : createCommentVNode("", true),
-          createBaseVNode("div", _hoisted_2$y, [
+          createBaseVNode("div", _hoisted_2$z, [
             renderSlot(_ctx.$slots, "default")
           ]),
           renderSlot(_ctx.$slots, "footer")
@@ -5796,9 +5796,9 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["name"]);
 }
-var MwDialog = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$14]]);
+var MwDialog = /* @__PURE__ */ _export_sfc(_sfc_main$16, [["render", _sfc_render$15]]);
 var MWInput_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$14 = {
+const _sfc_main$15 = {
   name: "MwInput",
   components: {
     MwIcon
@@ -5883,14 +5883,14 @@ const _sfc_main$14 = {
     }
   }
 };
-const _hoisted_1$M = { class: "mw-ui-input__content" };
-function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$N = { class: "mw-ui-input__content" };
+function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass($options.classes),
     onClick: _cache[2] || (_cache[2] = ($event) => $options.focus())
   }, [
-    createBaseVNode("div", _hoisted_1$M, [
+    createBaseVNode("div", _hoisted_1$N, [
       renderSlot(_ctx.$slots, "icon", {}, () => [
         $props.icon ? (openBlock(), createBlock(_component_mw_icon, {
           key: 0,
@@ -5926,9 +5926,9 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ], 2);
 }
-var MwInput = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13]]);
+var MwInput = /* @__PURE__ */ _export_sfc(_sfc_main$15, [["render", _sfc_render$14]]);
 var MWMessage_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$13 = {
+const _sfc_main$14 = {
   name: "MwMessage",
   components: { MwCol, MwRow, MwIcon, MwButton },
   props: {
@@ -5980,7 +5980,7 @@ const _sfc_main$13 = {
     }
   }
 };
-function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
@@ -6027,21 +6027,21 @@ function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["class", "aria-live", "aria-labelledby", "role"])) : createCommentVNode("", true);
 }
-var MwMessage = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$12]]);
+var MwMessage = /* @__PURE__ */ _export_sfc(_sfc_main$14, [["render", _sfc_render$13]]);
 var MWSelect_vue_vue_type_style_index_0_lang = "";
 var MWSpinner_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$12 = {};
-const _hoisted_1$L = { class: "mw-ui-spinner" };
-const _hoisted_2$x = /* @__PURE__ */ createBaseVNode("div", { class: "mw-ui-spinner__bounce" }, null, -1);
-const _hoisted_3$w = [
-  _hoisted_2$x
+const _sfc_main$13 = {};
+const _hoisted_1$M = { class: "mw-ui-spinner" };
+const _hoisted_2$y = /* @__PURE__ */ createBaseVNode("div", { class: "mw-ui-spinner__bounce" }, null, -1);
+const _hoisted_3$x = [
+  _hoisted_2$y
 ];
-function _sfc_render$11(_ctx, _cache) {
-  return openBlock(), createElementBlock("div", _hoisted_1$L, _hoisted_3$w);
+function _sfc_render$12(_ctx, _cache) {
+  return openBlock(), createElementBlock("div", _hoisted_1$M, _hoisted_3$x);
 }
-var MwSpinner = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$11]]);
+var MwSpinner = /* @__PURE__ */ _export_sfc(_sfc_main$13, [["render", _sfc_render$12]]);
 var MWThumbnail_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$11 = {
+const _sfc_main$12 = {
   name: "MwUiThumbnail",
   components: { MwUiIcon: MwIcon },
   props: {
@@ -6072,7 +6072,7 @@ const _sfc_main$11 = {
     }
   }
 };
-function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_ui_icon = resolveComponent("mw-ui-icon");
   return $props.thumbnail ? (openBlock(), createElementBlock("div", {
     key: 0,
@@ -6085,9 +6085,9 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
     size: $props.iconSize
   }, null, 8, ["icon", "size"]));
 }
-var MwThumbnail = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$10]]);
+var MwThumbnail = /* @__PURE__ */ _export_sfc(_sfc_main$12, [["render", _sfc_render$11]]);
 var MWRadio_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$10 = {
+const _sfc_main$11 = {
   name: "MwRadio",
   components: { MwRow },
   props: {
@@ -6137,17 +6137,17 @@ const _sfc_main$10 = {
     }
   }
 };
-const _hoisted_1$K = { class: "mw-ui-radio__controls" };
-const _hoisted_2$w = ["id", "disabled", "name", "value"];
-const _hoisted_3$v = /* @__PURE__ */ createBaseVNode("span", { class: "mw-ui-radio__controls__icon" }, null, -1);
-const _hoisted_4$m = ["for", "textContent"];
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$L = { class: "mw-ui-radio__controls" };
+const _hoisted_2$x = ["id", "disabled", "name", "value"];
+const _hoisted_3$w = /* @__PURE__ */ createBaseVNode("span", { class: "mw-ui-radio__controls__icon" }, null, -1);
+const _hoisted_4$n = ["for", "textContent"];
+function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_row = resolveComponent("mw-row");
   return openBlock(), createBlock(_component_mw_row, {
     class: normalizeClass(["mw-ui-radio flex items-center py-2", $options.widgetClass])
   }, {
     default: withCtx(() => [
-      createBaseVNode("div", _hoisted_1$K, [
+      createBaseVNode("div", _hoisted_1$L, [
         withDirectives(createBaseVNode("input", {
           id: $props.id,
           "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $options.inputModel = $event),
@@ -6155,22 +6155,22 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
           disabled: $props.disabled || null,
           name: $props.name,
           value: $props.inputValue
-        }, null, 8, _hoisted_2$w), [
+        }, null, 8, _hoisted_2$x), [
           [vModelRadio, $options.inputModel]
         ]),
-        _hoisted_3$v
+        _hoisted_3$w
       ]),
       createBaseVNode("label", {
         for: $props.id,
         class: "ps-2",
         textContent: toDisplayString($props.label)
-      }, null, 8, _hoisted_4$m)
+      }, null, 8, _hoisted_4$n)
     ], void 0),
     _: 1
   }, 8, ["class"]);
 }
-var MwRadio = /* @__PURE__ */ _export_sfc(_sfc_main$10, [["render", _sfc_render$$]]);
-const _sfc_main$$ = {
+var MwRadio = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$10]]);
+const _sfc_main$10 = {
   name: "MwRadioGroup",
   components: { MwRadio },
   props: {
@@ -6210,7 +6210,7 @@ const _sfc_main$$ = {
   }
 };
 var MWProgressBar_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$_ = {
+const _sfc_main$$ = {
   name: "MwProgressBar",
   props: {
     value: {
@@ -6269,8 +6269,8 @@ const _sfc_main$_ = {
     })
   }
 };
-const _hoisted_1$J = ["aria-valuenow", "aria-valuemin", "aria-valuemax"];
-function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$K = ["aria-valuenow", "aria-valuemin", "aria-valuemax"];
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["mw-progress-bar", $options.containerClass]),
     role: "progressbar",
@@ -6283,9 +6283,9 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
       class: normalizeClass(["mw-progress-bar__bar", $options.barClass]),
       style: normalizeStyle($options.barStyles)
     }, null, 6)
-  ], 14, _hoisted_1$J);
+  ], 14, _hoisted_1$K);
 }
-var MwProgressBar = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
+var MwProgressBar = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
 const useInitiateDrag = (contentMaxHeight, contentMinHeight, contentRef, isCollapsed) => (e) => {
   const dragStartY = e.clientY;
   const panelHeightAtDragStart = parseInt(document.defaultView.getComputedStyle(contentRef.value).height, 10);
@@ -6337,7 +6337,7 @@ const useScroll = (contentMinHeight, contentMaxHeight, contentRef, isCollapsed) 
   };
 };
 var MWExpandableContent_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$Z = {
+const _sfc_main$_ = {
   name: "MwExpandableContent",
   components: {
     MwButton
@@ -6417,22 +6417,22 @@ const _sfc_main$Z = {
     };
   }
 };
-const _hoisted_1$I = { class: "mw-ui-expandable-content__container" };
-const _hoisted_2$v = {
+const _hoisted_1$J = { class: "mw-ui-expandable-content__container" };
+const _hoisted_2$w = {
   key: 0,
   class: "mw-ui-expandable-content__scroll"
 };
-const _hoisted_3$u = {
+const _hoisted_3$v = {
   ref: "dragIndicatorRef",
   class: "mw-ui-expandable-content__drag-button"
 };
-function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   return openBlock(), createElementBlock("div", {
     class: "mw-ui-expandable-content",
     style: normalizeStyle($setup.cssVars)
   }, [
-    createBaseVNode("div", _hoisted_1$I, [
+    createBaseVNode("div", _hoisted_1$J, [
       createBaseVNode("div", {
         ref: "contentRef",
         class: normalizeClass(["mw-ui-expandable-content__body", {
@@ -6441,7 +6441,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         renderSlot(_ctx.$slots, "default")
       ], 2),
-      $props.scroll && $setup.scrollable ? (openBlock(), createElementBlock("div", _hoisted_2$v, [
+      $props.scroll && $setup.scrollable ? (openBlock(), createElementBlock("div", _hoisted_2$w, [
         createVNode(_component_mw_button, {
           type: "icon",
           icon: $setup.mwIconCollapse,
@@ -6459,7 +6459,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8, ["icon", "disabled", "onClick"])) : createCommentVNode("", true)
       ])) : createCommentVNode("", true)
     ]),
-    createBaseVNode("div", _hoisted_3$u, [
+    createBaseVNode("div", _hoisted_3$v, [
       createBaseVNode("span", {
         class: "mw-ui-expandable-content__drag-button__icon",
         onClick: _cache[0] || (_cache[0] = (...args) => $setup.onDragButtonClicked && $setup.onDragButtonClicked(...args))
@@ -6467,7 +6467,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
     ], 512)
   ], 4);
 }
-var MwExpandableContent = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
+var MwExpandableContent = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
 const breakpoints = {
   xs: 300,
   sm: 600,
@@ -7504,7 +7504,7 @@ function getModuleByNamespace(store2, helper, namespace) {
   return module;
 }
 var App_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$Y = {
+const _sfc_main$Z = {
   name: "ContentTranslationApp",
   components: { MwGrid, MwCol, MwRow },
   computed: __spreadValues({}, mapState({
@@ -7519,7 +7519,7 @@ const _sfc_main$Y = {
     });
   }
 };
-function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_view = resolveComponent("router-view");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -7553,7 +7553,7 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var App = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
+var App = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
 var state$3 = {
   username: mw.config.get("wgUserName"),
   isAnon: mw.user.isAnon(),
@@ -7770,23 +7770,24 @@ class Translation {
 }
 const ORIGINAL_TEXT_PROVIDER_KEY = "original";
 const EMPTY_TEXT_PROVIDER_KEY = "empty";
-function getLabelForMTProvider(provider) {
-  return {
-    Elia: "Elia.eus",
-    Flores: "NLLB-200",
-    Google: "Google Translate",
-    Yandex: "Yandex.Translate"
-  }[provider] || provider;
-}
+const mTProviderLabels = {
+  Elia: "Elia.eus",
+  Flores: "NLLB-200",
+  Google: "Google Translate",
+  Yandex: "Yandex.Translate"
+};
 class MTProviderGroup {
   constructor(sourceLanguage, targetLanguage, providers2 = []) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     this.providers = [
-      ...providers2.map(getLabelForMTProvider),
+      ...providers2,
       ORIGINAL_TEXT_PROVIDER_KEY,
       EMPTY_TEXT_PROVIDER_KEY
     ];
+  }
+  static getMTProviderLabel(mtProvider) {
+    return mTProviderLabels[mtProvider] || mtProvider;
   }
   static get ORIGINAL_TEXT_PROVIDER_KEY() {
     return ORIGINAL_TEXT_PROVIDER_KEY;
@@ -7810,12 +7811,27 @@ const getUserCoordinates = () => {
   const ulsGeo = JSON.parse(mw.cookie.get("ULSGeo"));
   return ulsGeo && ulsGeo.latitude + "|" + ulsGeo.longitude;
 };
+class CaptchaDetails {
+  constructor({ id, type, question, url }) {
+    this.id = id;
+    this.type = type;
+    this.question = question;
+    this.url = url;
+  }
+}
 class PublishFeedbackMessage {
-  constructor({ text = "", title = "", type = "generic", status }) {
+  constructor({
+    text = "",
+    title = "",
+    type = "generic",
+    status,
+    details = null
+  }) {
     this.text = text;
     this.title = title;
     this.type = type;
     this.status = status;
+    this.details = details && new CaptchaDetails(details);
   }
   get isMTMessage() {
     return this.type === "mt";
@@ -7896,7 +7912,9 @@ const publishTranslation$1 = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber
+  sectionNumber,
+  captchaId,
+  captchaWord
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -7910,9 +7928,27 @@ const publishTranslation$1 = ({
     targetlanguage: targetLanguage,
     sectionnumber: sectionNumber
   };
+  if (captchaId) {
+    params.captchaid = captchaId;
+    params.captchaword = captchaWord;
+  }
   const api = new mw.Api();
-  return api.postWithToken("csrf", params).then(() => null).catch((error, details) => {
+  return api.postWithToken("csrf", params).then((response) => {
+    response = response.cxpublishsection;
+    if (response.result === "error") {
+      if (response.edit.captcha) {
+        return new PublishFeedbackMessage({
+          type: "captcha",
+          status: "error",
+          details: response.edit.captcha
+        });
+      }
+      throw new Error();
+    }
+    return null;
+  }).catch((error, details) => {
     let text;
+    details = details || {};
     if (details.exception) {
       text = details.exception.message;
     } else if (details.error) {
@@ -8006,7 +8042,7 @@ function validateMT({ rootState }) {
   });
 }
 function publishTranslation(_0) {
-  return __async(this, arguments, function* ({ rootState, rootGetters, getters: getters2 }) {
+  return __async(this, arguments, function* ({ rootState, rootGetters, getters: getters2 }, { captchaId, captchaAnswer } = {}) {
     const sourcePage = rootGetters["application/getCurrentPage"];
     const {
       currentSourceSection,
@@ -8036,7 +8072,7 @@ function publishTranslation(_0) {
     if (!!saveMessage) {
       return saveMessage;
     }
-    return yield translatorApi.publishTranslation({
+    const publishPayload = {
       html: getters2.getCleanHTMLForPublishing,
       sourceTitle: currentSectionSuggestion.sourceTitle,
       targetTitle: getters2.getArticleTitleForPublishing,
@@ -8046,7 +8082,12 @@ function publishTranslation(_0) {
       targetLanguage,
       revision: sourcePage.revision,
       sectionNumber: getters2.getSectionNumberForPublishing
-    });
+    };
+    if (captchaId) {
+      publishPayload.captchaId = captchaId;
+      publishPayload.captchaWord = captchaAnswer;
+    }
+    return yield translatorApi.publishTranslation(publishPayload);
   });
 }
 function fetchTranslations(_0) {
@@ -18207,7 +18248,7 @@ var src = {
   sortByAutonym
 };
 var CXTranslationWork_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$X = {
+const _sfc_main$Y = {
   name: "CxTranslationWork",
   components: { MwThumbnail, MwIcon },
   props: {
@@ -18242,10 +18283,10 @@ const _sfc_main$X = {
     }
   }
 };
-const _hoisted_1$H = { class: "col shrink pe-4" };
-const _hoisted_2$u = { class: "col" };
-const _hoisted_3$t = { class: "cx-translation__details column justify-between ma-0" };
-const _hoisted_4$l = { class: "row ma-0" };
+const _hoisted_1$I = { class: "col shrink pe-4" };
+const _hoisted_2$v = { class: "col" };
+const _hoisted_3$u = { class: "cx-translation__details column justify-between ma-0" };
+const _hoisted_4$m = { class: "row ma-0" };
 const _hoisted_5$h = { class: "col grow" };
 const _hoisted_6$9 = ["lang"];
 const _hoisted_7$6 = ["lang"];
@@ -18254,7 +18295,7 @@ const _hoisted_9$4 = { class: "row ma-0 text-small" };
 const _hoisted_10$3 = { class: "cx-translation__languages col grow" };
 const _hoisted_11$3 = ["dir", "textContent"];
 const _hoisted_12$3 = ["dir", "textContent"];
-function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_thumbnail = resolveComponent("mw-thumbnail");
   const _component_mw_icon = resolveComponent("mw-icon");
   return $props.translation ? (openBlock(), createElementBlock("div", {
@@ -18262,16 +18303,16 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     class: "row cx-translation pa-4 ma-0",
     onClick: _cache[0] || (_cache[0] = (...args) => $options.onClick && $options.onClick(...args))
   }, [
-    createBaseVNode("div", _hoisted_1$H, [
+    createBaseVNode("div", _hoisted_1$I, [
       createVNode(_component_mw_thumbnail, {
         class: "cx-translation__thumbnail",
         thumbnail: $options.getImage($props.translation.sourceLanguage, $props.translation.sourceTitle),
         width: 84
       }, null, 8, ["thumbnail"])
     ]),
-    createBaseVNode("div", _hoisted_2$u, [
-      createBaseVNode("div", _hoisted_3$t, [
-        createBaseVNode("div", _hoisted_4$l, [
+    createBaseVNode("div", _hoisted_2$v, [
+      createBaseVNode("div", _hoisted_3$u, [
+        createBaseVNode("div", _hoisted_4$m, [
           createBaseVNode("div", _hoisted_5$h, [
             createBaseVNode("h5", {
               class: "cx-translation__source-title pb-2",
@@ -18311,7 +18352,7 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : createCommentVNode("", true);
 }
-var CxTranslationWork = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
+var CxTranslationWork = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
 function search(languages2, query, searchApi) {
   return __async(this, null, function* () {
     if (!query || query.trim().length === 0) {
@@ -18451,7 +18492,7 @@ function debounce(func, wait, immediate) {
   };
 }
 var MWLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$W = {
+const _sfc_main$X = {
   name: "MwLanguageSelector",
   components: {
     MwInput
@@ -18536,13 +18577,13 @@ const _sfc_main$W = {
     };
   }
 };
-const _hoisted_1$G = {
+const _hoisted_1$H = {
   ref: "langSelectorContainer",
   class: "mw-ui-language-selector"
 };
-const _hoisted_2$t = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" };
-const _hoisted_3$s = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" };
-const _hoisted_4$k = { class: "results px-3 pt-4" };
+const _hoisted_2$u = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" };
+const _hoisted_3$t = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" };
+const _hoisted_4$l = { class: "results px-3 pt-4" };
 const _hoisted_5$g = { class: "results-header ps-8 pb-2" };
 const _hoisted_6$8 = { class: "results-languages--suggestions pa-0 ma-0" };
 const _hoisted_7$5 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
@@ -18554,12 +18595,12 @@ const _hoisted_9$3 = {
 const _hoisted_10$2 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
 const _hoisted_11$2 = { class: "no-results px-3 py-4" };
 const _hoisted_12$2 = { class: "ps-8" };
-function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_input = resolveComponent("mw-input");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("div", _hoisted_1$G, [
+  return openBlock(), createElementBlock("div", _hoisted_1$H, [
     renderSlot(_ctx.$slots, "search", {}, () => [
-      createBaseVNode("div", _hoisted_2$t, [
+      createBaseVNode("div", _hoisted_2$u, [
         createVNode(_component_mw_input, {
           value: $setup.autocompletion,
           "onUpdate:value": _cache[0] || (_cache[0] = ($event) => $setup.autocompletion = $event),
@@ -18587,9 +18628,9 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8, ["value", "icon", "placeholder", "autofocus", "onKeydown"])
       ])
     ]),
-    createBaseVNode("section", _hoisted_3$s, [
+    createBaseVNode("section", _hoisted_3$t, [
       $props.suggestions.length && !$setup.searchQuery ? renderSlot(_ctx.$slots, "suggestions", { key: 0 }, () => [
-        createBaseVNode("section", _hoisted_4$k, [
+        createBaseVNode("section", _hoisted_4$l, [
           withDirectives(createBaseVNode("p", _hoisted_5$g, null, 512), [
             [_directive_i18n, void 0, "cx-sx-language-selector-suggestions"]
           ]),
@@ -18646,7 +18687,7 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ], 512);
 }
-var MwLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
+var MwLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
 function useApplicationState(store2) {
   const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
   const targetLanguage = computed(() => store2.state.application.targetLanguage);
@@ -18678,7 +18719,7 @@ function useApplicationState(store2) {
   };
 }
 var SXTranslationListLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$V = {
+const _sfc_main$W = {
   name: "SxTranslationListLanguageSelector",
   components: {
     MwLanguageSelector,
@@ -18737,19 +18778,19 @@ const _sfc_main$V = {
     };
   }
 };
-const _hoisted_1$F = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
-const _hoisted_2$s = { class: "col-5 justify-end" };
-const _hoisted_3$r = ["lang", "dir", "textContent"];
-const _hoisted_4$j = { class: "sx-translation-list-language-selector__arrow col-2 justify-center" };
+const _hoisted_1$G = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
+const _hoisted_2$t = { class: "col-5 justify-end" };
+const _hoisted_3$s = ["lang", "dir", "textContent"];
+const _hoisted_4$k = { class: "sx-translation-list-language-selector__arrow col-2 justify-center" };
 const _hoisted_5$f = { class: "col-5 justify-start" };
 const _hoisted_6$7 = ["lang", "dir", "textContent"];
-function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_language_selector = resolveComponent("mw-language-selector");
   const _component_mw_dialog = resolveComponent("mw-dialog");
   const _component_mw_icon = resolveComponent("mw-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$F, [
-    createBaseVNode("div", _hoisted_2$s, [
+  return openBlock(), createElementBlock("div", _hoisted_1$G, [
+    createBaseVNode("div", _hoisted_2$t, [
       createVNode(_component_mw_button, {
         indicator: $setup.mwIconExpand,
         outlined: false,
@@ -18763,7 +18804,7 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
             lang: $setup.selectedSourceLanguage,
             dir: $setup.getDir($setup.selectedSourceLanguage),
             textContent: toDisplayString($setup.getAutonym($setup.selectedSourceLanguage))
-          }, null, 8, _hoisted_3$r)
+          }, null, 8, _hoisted_3$s)
         ], void 0),
         _: 1
       }, 8, ["indicator", "onClick"]),
@@ -18789,7 +18830,7 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["value", "title", "fullscreen", "header", "onClose"])
     ]),
-    createBaseVNode("div", _hoisted_4$j, [
+    createBaseVNode("div", _hoisted_4$k, [
       createVNode(_component_mw_icon, { icon: $setup.mwIconArrowNext }, null, 8, ["icon"])
     ]),
     createBaseVNode("div", _hoisted_5$f, [
@@ -18835,7 +18876,7 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
+var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
 function useMediawikiState() {
   const supportedLanguageCodes = computed(() => store.state.mediawiki.supportedLanguageCodes || []);
   const enabledTargetLanguages = computed(() => store.state.mediawiki.enabledTargetLanguages);
@@ -19485,7 +19526,7 @@ function createI18n(options) {
     }
   };
 }
-const _sfc_main$U = {
+const _sfc_main$V = {
   name: "CxTranslationList",
   components: {
     CxTranslationWork,
@@ -19548,8 +19589,8 @@ const _sfc_main$U = {
     };
   }
 };
-const _hoisted_1$E = ["textContent"];
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$F = ["textContent"];
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   const _component_mw_spinner = resolveComponent("mw-spinner");
   const _component_cx_translation_work = resolveComponent("cx-translation-work");
@@ -19561,7 +19602,7 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
       createBaseVNode("h3", {
         class: "mw-ui-card__title pa-4 pt-5 mb-0",
         textContent: toDisplayString(_ctx.$i18n(`cx-translation-label-${$props.translationStatus}`))
-      }, null, 8, _hoisted_1$E)
+      }, null, 8, _hoisted_1$F)
     ]),
     default: withCtx(() => [
       createVNode(_component_sx_translation_list_language_selector, {
@@ -19585,9 +19626,9 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, $props.active]
   ]);
 }
-var CxTranslationList = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
+var CxTranslationList = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
 var CXTranslationSuggestion_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$T = {
+const _sfc_main$U = {
   name: "CxTranslationSuggestion",
   components: { MwThumbnail, MwIcon, MwRow, MwCol },
   props: {
@@ -19633,31 +19674,31 @@ const _sfc_main$T = {
     };
   }
 };
-const _hoisted_1$D = {
+const _hoisted_1$E = {
   key: 0,
   class: "row cx-suggestion pa-4 ma-0"
 };
-const _hoisted_2$r = { class: "col shrink pe-4" };
-const _hoisted_3$q = { class: "col cx-suggestion__information-panel" };
-const _hoisted_4$i = ["lang", "dir", "textContent"];
+const _hoisted_2$s = { class: "col shrink pe-4" };
+const _hoisted_3$r = { class: "col cx-suggestion__information-panel" };
+const _hoisted_4$j = ["lang", "dir", "textContent"];
 const _hoisted_5$e = ["lang", "dir", "textContent"];
 const _hoisted_6$6 = ["textContent"];
 const _hoisted_7$4 = ["textContent"];
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_thumbnail = resolveComponent("mw-thumbnail");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
   const _component_mw_icon = resolveComponent("mw-icon");
   const _directive_i18n = resolveDirective("i18n");
-  return $props.suggestion ? (openBlock(), createElementBlock("div", _hoisted_1$D, [
-    createBaseVNode("div", _hoisted_2$r, [
+  return $props.suggestion ? (openBlock(), createElementBlock("div", _hoisted_1$E, [
+    createBaseVNode("div", _hoisted_2$s, [
       createVNode(_component_mw_thumbnail, {
         class: "cx-suggestion__thumbnail",
         thumbnail: $setup.page && $setup.page.thumbnail,
         width: 84
       }, null, 8, ["thumbnail"])
     ]),
-    createBaseVNode("div", _hoisted_3$q, [
+    createBaseVNode("div", _hoisted_3$r, [
       createVNode(_component_mw_row, {
         direction: "column",
         align: "start",
@@ -19696,7 +19737,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
                                 lang: $props.suggestion.sourceLanguage,
                                 dir: $setup.getDir($props.suggestion.sourceLanguage),
                                 textContent: toDisplayString($setup.title)
-                              }, null, 8, _hoisted_4$i)
+                              }, null, 8, _hoisted_4$j)
                             ], void 0, true),
                             _: 1
                           }),
@@ -19805,7 +19846,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : createCommentVNode("", true);
 }
-var CxTranslationSuggestion = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
+var CxTranslationSuggestion = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
 var useSuggestionListLanguages = () => {
   const { supportedLanguageCodes, enabledTargetLanguages } = useMediawikiState();
   const availableTargetLanguages = computed(() => {
@@ -19958,7 +19999,7 @@ const unmarkFavoriteSectionSuggestion = (suggestion) => __async(this, null, func
   return store.dispatch("suggestions/removeFavoriteSuggestion", suggestion);
 });
 var CXSuggestionList_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$S = {
+const _sfc_main$T = {
   name: "CxSuggestionList",
   components: {
     SxTranslationListLanguageSelector,
@@ -20026,11 +20067,11 @@ const _sfc_main$S = {
     };
   }
 };
-const _hoisted_1$C = ["textContent"];
-const _hoisted_2$q = { class: "cx-translation-list__division-title ma-0 pa-4" };
-const _hoisted_3$p = { class: "cx-translation-list__division-title ma-0 pa-4" };
-const _hoisted_4$h = { class: "cx-suggestion-list__refresh-button-container justify-center" };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$D = ["textContent"];
+const _hoisted_2$r = { class: "cx-translation-list__division-title ma-0 pa-4" };
+const _hoisted_3$q = { class: "cx-translation-list__division-title ma-0 pa-4" };
+const _hoisted_4$i = { class: "cx-suggestion-list__refresh-button-container justify-center" };
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   const _component_mw_card = resolveComponent("mw-card");
   const _component_cx_translation_suggestion = resolveComponent("cx-translation-suggestion");
@@ -20043,7 +20084,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
         createBaseVNode("h3", {
           class: "mw-ui-card__title pa-4 pt-5 mb-0",
           textContent: toDisplayString(_ctx.$i18n("cx-suggestionlist-title"))
-        }, null, 8, _hoisted_1$C)
+        }, null, 8, _hoisted_1$D)
       ]),
       default: withCtx(() => [
         createVNode(_component_sx_translation_list_language_selector, {
@@ -20057,7 +20098,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     createVNode(_component_mw_card, { class: "pa-0 mb-0" }, {
       default: withCtx(() => [
-        withDirectives(createBaseVNode("h5", _hoisted_2$q, null, 512), [
+        withDirectives(createBaseVNode("h5", _hoisted_2$r, null, 512), [
           [_directive_i18n, void 0, "cx-suggestion-list-new-pages-division"]
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList($setup.currentPageSuggestionsSlice, (suggestion, index) => {
@@ -20075,7 +20116,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     createVNode(_component_mw_card, { class: "cx-translation-list--sx-suggestions pa-0 mb-0" }, {
       default: withCtx(() => [
-        withDirectives(createBaseVNode("h5", _hoisted_3$p, null, 512), [
+        withDirectives(createBaseVNode("h5", _hoisted_3$q, null, 512), [
           [_directive_i18n, void 0, "cx-suggestionlist-expand-sections-title"]
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList($setup.currentSectionSuggestionsSlice, (suggestion, index) => {
@@ -20092,7 +20133,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    createBaseVNode("div", _hoisted_4$h, [
+    createBaseVNode("div", _hoisted_4$i, [
       $setup.showRefreshButton ? (openBlock(), createBlock(_component_mw_button, {
         key: 0,
         class: "ma-0 pa-4",
@@ -20107,8 +20148,8 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, $props.active]
   ]);
 }
-var CxSuggestionList = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
-const _sfc_main$R = {
+var CxSuggestionList = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
+const _sfc_main$S = {
   name: "CxFavoriteList",
   components: {
     CxTranslationSuggestion,
@@ -20132,8 +20173,8 @@ const _sfc_main$R = {
     };
   }
 };
-const _hoisted_1$B = { class: "mw-ui-card__title pa-4 pt-5 mb-0" };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$C = { class: "mw-ui-card__title pa-4 pt-5 mb-0" };
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_cx_translation_suggestion = resolveComponent("cx-translation-suggestion");
   const _component_mw_card = resolveComponent("mw-card");
   const _directive_i18n = resolveDirective("i18n");
@@ -20142,7 +20183,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     class: "cx-translation-list--favorites pa-0 mb-4"
   }, {
     header: withCtx(() => [
-      withDirectives(createBaseVNode("h3", _hoisted_1$B, null, 512), [
+      withDirectives(createBaseVNode("h3", _hoisted_1$C, null, 512), [
         [_directive_i18n, void 0, "cx-suggestion-list-favorites-division"]
       ])
     ]),
@@ -20159,9 +20200,9 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   })) : createCommentVNode("", true);
 }
-var CxFavoriteList = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
+var CxFavoriteList = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
 var ExperimentalSupportBanner_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$Q = {
+const _sfc_main$R = {
   name: "ExperimentalSupportBanner",
   components: { MwCol, MwRow, MwCard, MwIcon },
   data: () => ({
@@ -20170,12 +20211,12 @@ const _sfc_main$Q = {
     feedbackUrl: "https://www.mediawiki.org/wiki/Talk:Content_translation/Section_translation"
   })
 };
-const _hoisted_1$A = { class: "complementary" };
-const _hoisted_2$p = { class: "complementary mt-4" };
-const _hoisted_3$o = ["href"];
-const _hoisted_4$g = { class: "complementary" };
+const _hoisted_1$B = { class: "complementary" };
+const _hoisted_2$q = { class: "complementary mt-4" };
+const _hoisted_3$p = ["href"];
+const _hoisted_4$h = { class: "complementary" };
 const _hoisted_5$d = ["href"];
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -20199,18 +20240,18 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
               withDirectives(createBaseVNode("h5", null, null, 512), [
                 [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-title"]
               ]),
-              withDirectives(createBaseVNode("p", _hoisted_1$A, null, 512), [
+              withDirectives(createBaseVNode("p", _hoisted_1$B, null, 512), [
                 [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-description"]
               ]),
-              createBaseVNode("p", _hoisted_2$p, [
+              createBaseVNode("p", _hoisted_2$q, [
                 withDirectives(createBaseVNode("a", {
                   target: "_blank",
                   href: _ctx.learnMoreUrl
-                }, null, 8, _hoisted_3$o), [
+                }, null, 8, _hoisted_3$p), [
                   [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-learn-more-anchor"]
                 ])
               ]),
-              createBaseVNode("p", _hoisted_4$g, [
+              createBaseVNode("p", _hoisted_4$h, [
                 withDirectives(createBaseVNode("a", {
                   target: "_blank",
                   href: _ctx.feedbackUrl
@@ -20228,7 +20269,7 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ExperimentalSupportBanner = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var ExperimentalSupportBanner = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
 const getInitialLanguagePair = (enabledTargetLanguages, supportedLanguageCodes) => {
   const urlParams = new URLSearchParams(location.search);
   const urlSourceLanguage = urlParams.get("from");
@@ -20341,7 +20382,7 @@ const initializeDashboard = (router2, store2, logEvent2) => __async(this, null, 
   }
   store2.dispatch("suggestions/initializeSuggestions");
 });
-const _sfc_main$P = {
+const _sfc_main$Q = {
   name: "CxDashboard",
   components: {
     CxFavoriteList,
@@ -20405,8 +20446,8 @@ const _sfc_main$P = {
     };
   }
 };
-const _hoisted_1$z = { key: 1 };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$A = { key: 1 };
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_experimental_support_banner = resolveComponent("experimental-support-banner");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
@@ -20432,7 +20473,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    !_ctx.$incompleteVersion && _ctx.$mwui.breakpoint.mdAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$z, [
+    !_ctx.$incompleteVersion && _ctx.$mwui.breakpoint.mdAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$A, [
       createVNode(_component_mw_button_group, {
         items: $setup.listSelector,
         active: $setup.active,
@@ -20462,19 +20503,19 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["active", "items"])) : createCommentVNode("", true)
   ]);
 }
-var CXDashboard = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
-const _sfc_main$O = {
+var CXDashboard = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
+const _sfc_main$P = {
   name: "DashboardView",
   components: { CxDashboard: CXDashboard }
 };
-const _hoisted_1$y = { class: "cx-translation-dashboard" };
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$z = { class: "cx-translation-dashboard" };
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_cx_dashboard = resolveComponent("cx-dashboard");
-  return openBlock(), createElementBlock("main", _hoisted_1$y, [
+  return openBlock(), createElementBlock("main", _hoisted_1$z, [
     createVNode(_component_cx_dashboard, { class: "col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12" })
   ]);
 }
-var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
+var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
 const setTranslationURLParams = (sectionSuggestion) => {
   if (!history.pushState) {
     return;
@@ -20601,7 +20642,7 @@ var useSectionSelectorClickHandler = (router2, store2) => {
   };
 };
 var SXTranslationConfirmerActionPanel_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$N = {
+const _sfc_main$O = {
   name: "SxTranslationConfirmerActionPanel",
   components: {
     MwButton,
@@ -20654,34 +20695,34 @@ const _sfc_main$N = {
     };
   }
 };
-const _hoisted_1$x = { class: "sx-translation-confirmer-body pb-4" };
-const _hoisted_2$o = {
+const _hoisted_1$y = { class: "sx-translation-confirmer-body pb-4" };
+const _hoisted_2$p = {
   key: 0,
   class: "sx-translation-confirmer-body__pre-filled-banner pa-4 ma-0"
 };
-const _hoisted_3$n = ["textContent"];
-const _hoisted_4$f = {
+const _hoisted_3$o = ["textContent"];
+const _hoisted_4$g = {
   key: 1,
   class: "mt-1 px-4 pt-4"
 };
 const _hoisted_5$c = ["href"];
 const _hoisted_6$5 = ["textContent"];
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_row = resolveComponent("mw-row");
   const _component_mw_button = resolveComponent("mw-button");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$x, [
-    !!$setup.preFilledSectionTitle ? (openBlock(), createElementBlock("section", _hoisted_2$o, [
+  return openBlock(), createElementBlock("section", _hoisted_1$y, [
+    !!$setup.preFilledSectionTitle ? (openBlock(), createElementBlock("section", _hoisted_2$p, [
       withDirectives(createBaseVNode("h6", null, null, 512), [
         [_directive_i18n, void 0, "cx-sx-translation-confirmer-prefilled-section-heading"]
       ]),
       createBaseVNode("h5", {
         class: "ma-0",
         textContent: toDisplayString($setup.preFilledSectionTitle)
-      }, null, 8, _hoisted_3$n)
-    ])) : $setup.translationExists ? (openBlock(), createElementBlock("section", _hoisted_4$f, [
+      }, null, 8, _hoisted_3$o)
+    ])) : $setup.translationExists ? (openBlock(), createElementBlock("section", _hoisted_4$g, [
       createVNode(_component_mw_row, {
         class: "sx-translation-confirmer__translation-status ma-0 pb-2",
         justify: "between"
@@ -20763,9 +20804,9 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["justify"])
   ]);
 }
-var SxTranslationConfirmerActionPanel = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N]]);
+var SxTranslationConfirmerActionPanel = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
 var SXArticleLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$M = {
+const _sfc_main$N = {
   name: "SxArticleLanguageSelector",
   components: {
     SxTranslationListLanguageSelector
@@ -20789,7 +20830,7 @@ const _sfc_main$M = {
     };
   }
 };
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   return openBlock(), createBlock(_component_sx_translation_list_language_selector, {
     class: "sx-article-language-selector",
@@ -20799,9 +20840,9 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     onTargetLanguageSelected: $setup.onTargetLanguageSelected
   }, null, 8, ["source-languages", "target-languages", "onSourceLanguageSelected", "onTargetLanguageSelected"]);
 }
-var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M]]);
+var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$N]]);
 var SXTranslationConfirmerArticleInformation_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$L = {
+const _sfc_main$M = {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
     MwRow,
@@ -20857,10 +20898,10 @@ const _sfc_main$L = {
     };
   }
 };
-const _hoisted_1$w = ["textContent"];
-const _hoisted_2$n = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" };
-const _hoisted_3$m = ["textContent"];
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$x = ["textContent"];
+const _hoisted_2$o = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" };
+const _hoisted_3$n = ["textContent"];
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
@@ -20889,7 +20930,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
                   createBaseVNode("h5", {
                     class: "ma-0 me-1",
                     textContent: toDisplayString($setup.sourceTitle)
-                  }, null, 8, _hoisted_1$w),
+                  }, null, 8, _hoisted_1$x),
                   createVNode(_component_mw_icon, {
                     icon: $setup.mwIconLinkExternal,
                     size: "10",
@@ -20916,7 +20957,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
             ], void 0, true),
             _: 1
           }),
-          createBaseVNode("p", _hoisted_2$n, [
+          createBaseVNode("p", _hoisted_2$o, [
             createVNode(_component_mw_icon, {
               icon: $setup.mwIconLanguage,
               size: "16",
@@ -20925,7 +20966,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
             createBaseVNode("span", {
               class: "pe-3",
               textContent: toDisplayString($setup.langLinksCount)
-            }, null, 8, _hoisted_3$m),
+            }, null, 8, _hoisted_3$n),
             withDirectives(createBaseVNode("span", null, null, 512), [
               [_directive_i18n, [$setup.weeklyViews], "cx-sx-translation-confirmer-views-count"]
             ])
@@ -20937,7 +20978,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SxTranslationConfirmerArticleInformation = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L]]);
+var SxTranslationConfirmerArticleInformation = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$M]]);
 function getVEOverlay(overlayElement) {
   overlayElement.$el = $(overlayElement);
   return overlayElement;
@@ -20973,7 +21014,7 @@ function getTarget(editorConfig, overlayEl) {
   });
 }
 var VisualEditor_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$K = {
+const _sfc_main$L = {
   name: "VisualEditor",
   props: {
     content: {
@@ -21032,32 +21073,32 @@ const _sfc_main$K = {
     return { sxeditor };
   }
 };
-const _hoisted_1$v = ["lang", "dir"];
-const _hoisted_2$m = /* @__PURE__ */ createBaseVNode("div", { class: "overlay-header header initial-header" }, [
+const _hoisted_1$w = ["lang", "dir"];
+const _hoisted_2$n = /* @__PURE__ */ createBaseVNode("div", { class: "overlay-header header initial-header" }, [
   /* @__PURE__ */ createBaseVNode("div", { class: "toolbar" })
 ], -1);
-const _hoisted_3$l = ["lang", "dir"];
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_3$m = ["lang", "dir"];
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     ref: "sxeditor",
     lang: $props.language,
     dir: $props.dir,
     class: "visual-editor"
   }, [
-    _hoisted_2$m,
+    _hoisted_2$n,
     createBaseVNode("div", {
       class: "surface pa-5",
       lang: $props.language,
       dir: $props.dir
-    }, null, 8, _hoisted_3$l)
-  ], 8, _hoisted_1$v);
+    }, null, 8, _hoisted_3$m)
+  ], 8, _hoisted_1$w);
 }
-var VisualEditor = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K]]);
+var VisualEditor = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$L]]);
 function loadVEModules() {
   return mw.loader.using("mw.cx3.ve");
 }
 var SXTranslationConfirmer_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$J = {
+const _sfc_main$K = {
   name: "SxTranslationConfirmer",
   components: {
     MwIcon,
@@ -21102,12 +21143,12 @@ const _sfc_main$J = {
     };
   }
 };
-const _hoisted_1$u = { class: "sx-translation-confirmer" };
-const _hoisted_2$l = { class: "mb-0" };
-const _hoisted_3$k = { class: "sx-translation-confirmer__article-image flex justify-center" };
-const _hoisted_4$e = ["src"];
+const _hoisted_1$v = { class: "sx-translation-confirmer" };
+const _hoisted_2$m = { class: "mb-0" };
+const _hoisted_3$l = { class: "sx-translation-confirmer__article-image flex justify-center" };
+const _hoisted_4$f = ["src"];
 const _hoisted_5$b = { class: "ma-3" };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
@@ -21117,7 +21158,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_confirmer_action_panel = resolveComponent("sx-translation-confirmer-action-panel");
   const _directive_i18n = resolveDirective("i18n");
   const _directive_i18n_html = resolveDirective("i18n-html");
-  return openBlock(), createElementBlock("section", _hoisted_1$u, [
+  return openBlock(), createElementBlock("section", _hoisted_1$v, [
     createVNode(_component_mw_row, {
       class: "sx-translation-confirmer__header ma-0 py-3",
       align: "stretch",
@@ -21130,7 +21171,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
           align: "center"
         }, {
           default: withCtx(() => [
-            withDirectives(createBaseVNode("h5", _hoisted_2$l, null, 512), [
+            withDirectives(createBaseVNode("h5", _hoisted_2$m, null, 512), [
               [_directive_i18n, void 0, "cx-sx-translation-confirmer-title"]
             ])
           ], void 0, true),
@@ -21155,11 +21196,11 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    createBaseVNode("div", _hoisted_3$k, [
+    createBaseVNode("div", _hoisted_3$l, [
       $setup.articleImageSource ? (openBlock(), createElementBlock("img", {
         key: 0,
         src: $setup.articleImageSource
-      }, null, 8, _hoisted_4$e)) : (openBlock(), createBlock(_component_mw_icon, {
+      }, null, 8, _hoisted_4$f)) : (openBlock(), createBlock(_component_mw_icon, {
         key: 1,
         size: "120",
         icon: $setup.mwIconArticle,
@@ -21184,9 +21225,9 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var SxTranslationConfirmer = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J]]);
+var SxTranslationConfirmer = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$K]]);
 var SXTranslationConfirmer_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$I = {
+const _sfc_main$J = {
   name: "SxTranslationConfirmerView",
   components: {
     SxTranslationConfirmer
@@ -21199,7 +21240,7 @@ const _sfc_main$I = {
     }
   }
 };
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_confirmer = resolveComponent("sx-translation-confirmer");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-translation-confirmer-view", $options.classes])
@@ -21207,8 +21248,8 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_translation_confirmer)
   ], 2);
 }
-var SXTranslationConfirmer = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I]]);
-const _sfc_main$H = {
+var SXTranslationConfirmer = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$J]]);
+const _sfc_main$I = {
   name: "SxSectionSelectorViewArticleItem",
   components: {
     MwRow,
@@ -21228,7 +21269,7 @@ const _sfc_main$H = {
     mwIconLinkExternal
   })
 };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   return openBlock(), createBlock(_component_mw_row, {
@@ -21249,9 +21290,9 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SxSectionSelectorViewArticleItem = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H]]);
+var SxSectionSelectorViewArticleItem = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$I]]);
 var SXSectionSelectorHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$G = {
+const _sfc_main$H = {
   name: "SxSectionSelectorHeader",
   components: {
     MwRow,
@@ -21269,28 +21310,28 @@ const _sfc_main$G = {
     mwIconClose
   })
 };
-const _hoisted_1$t = { class: "sx-section-selector__header pa-4" };
-const _hoisted_2$k = { class: "sx-section-selector__header-text ma-0" };
-const _hoisted_3$j = ["textContent"];
-const _hoisted_4$d = { class: "pt-0 ma-0" };
+const _hoisted_1$u = { class: "sx-section-selector__header pa-4" };
+const _hoisted_2$l = { class: "sx-section-selector__header-text ma-0" };
+const _hoisted_3$k = ["textContent"];
+const _hoisted_4$e = { class: "pt-0 ma-0" };
 const _hoisted_5$a = { class: "ma-0" };
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("div", _hoisted_1$t, [
+  return openBlock(), createElementBlock("div", _hoisted_1$u, [
     createVNode(_component_mw_row, { class: "ma-0 pb-3" }, {
       default: withCtx(() => [
         createVNode(_component_mw_col, null, {
           default: withCtx(() => [
-            withDirectives(createBaseVNode("h6", _hoisted_2$k, null, 512), [
+            withDirectives(createBaseVNode("h6", _hoisted_2$l, null, 512), [
               [_directive_i18n, void 0, "cx-sx-section-selector-title"]
             ]),
             createBaseVNode("h2", {
               class: "sx-section-selector__title ma-0 py-0",
               textContent: toDisplayString($props.suggestion.sourceTitle)
-            }, null, 8, _hoisted_3$j)
+            }, null, 8, _hoisted_3$k)
           ], void 0, true),
           _: 1
         }),
@@ -21312,7 +21353,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    withDirectives(createBaseVNode("h4", _hoisted_4$d, null, 512), [
+    withDirectives(createBaseVNode("h4", _hoisted_4$e, null, 512), [
       [_directive_i18n, void 0, "cx-sx-section-selector-subtitle"]
     ]),
     withDirectives(createBaseVNode("p", _hoisted_5$a, null, 512), [
@@ -21320,8 +21361,8 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var SxSectionSelectorHeader = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G]]);
-const _sfc_main$F = {
+var SxSectionSelectorHeader = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$H]]);
+const _sfc_main$G = {
   name: "SxSectionSelectorSectionList",
   components: {
     MwRow,
@@ -21337,12 +21378,12 @@ const _sfc_main$F = {
   emits: ["select-section"],
   data: () => ({ mwIconArrowForward })
 };
-const _hoisted_1$s = { class: "sx-section-selector__sections-list ma-0 pa-0" };
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$t = { class: "sx-section-selector__sections-list ma-0 pa-0" };
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
-  return openBlock(), createElementBlock("ul", _hoisted_1$s, [
+  return openBlock(), createElementBlock("ul", _hoisted_1$t, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.sections, (section) => {
       return openBlock(), createBlock(_component_mw_row, {
         key: section.sourceTitle,
@@ -21375,10 +21416,10 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var SxSectionSelectorSectionList = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F]]);
+var SxSectionSelectorSectionList = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$G]]);
 var sadRobotSVG = '<svg\n    width="136px"\n    height="136px"\n    viewBox="0 0 136 136"\n    version="1.1"\n    xmlns="http://www.w3.org/2000/svg"\n    xmlns:xlink="http://www.w3.org/1999/xlink"\n>\n    <title>sad-robot</title>\n    <g\n        id="sad-robot"\n        stroke="none"\n        stroke-width="1"\n        fill="none"\n        fill-rule="evenodd"\n    >\n        <g id="Group">\n            <circle\n                id="Oval"\n                fill="#EAECF0"\n                cx="68"\n                cy="68"\n                r="68"\n            ></circle>\n            <path\n                id="Mask"\n                d="M70,40.99684 L96.02,40.99684 C100.428,40.99684 104,44.58084 104,48.98484 L104,82.99684 L74,82.99684 L74,92.99684 L96.02,92.99684 C100.428,92.99684 104,96.54884 104,100.99684 L104,108.99684 L32,108.99684 L32,100.99684 C32,96.57684 35.572,92.99684 39.98,92.99684 L62,92.99684 L62,82.99684 L32,82.99684 L32,48.98484 C32,44.57284 35.572,40.99684 39.98,40.99684 L66,40.99684 L66,32.65684 C63.244908,31.68276 61.59226,28.86552 62.086412,25.98536 C62.580564,23.10524 65.077784,21 68,21 C70.9222,21 73.41944,23.10524 73.9136,25.98536 C74.40776,28.86552 72.75508,31.68276 70,32.65684 L70,40.99684 Z M62,78 C62,74.6862915 64.6862915,72 68,72 C71.3137085,72 74,74.6862915 74,78 M54,64.99684 C57.313708,64.99684 60,62.310548 60,58.99684 C60,55.68312 57.313708,52.99684 54,52.99684 C50.686292,52.99684 48,55.68312 48,58.99684 C48,62.310548 50.686292,64.99684 54,64.99684 Z M82,64.99684 C85.31372,64.99684 88,62.310548 88,58.99684 C88,55.68312 85.31372,52.99684 82,52.99684 C78.68628,52.99684 76,55.68312 76,58.99684 C76,62.310548 78.68628,64.99684 82,64.99684 Z"\n                fill="#54595D"\n            ></path>\n        </g>\n    </g>\n</svg>';
 var SXSectionSelectorSectionListMissing_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$E = {
+const _sfc_main$F = {
   name: "SxSectionSelectorSectionListMissing",
   components: {
     SxSectionSelectorSectionList,
@@ -21405,17 +21446,17 @@ const _sfc_main$E = {
     };
   }
 };
-const _hoisted_1$r = { class: "sx-section-selector__missing-sections py-2" };
-const _hoisted_2$j = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
-const _hoisted_3$i = ["lang", "dir", "textContent"];
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$s = { class: "sx-section-selector__missing-sections py-2" };
+const _hoisted_2$k = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
+const _hoisted_3$j = ["lang", "dir", "textContent"];
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_section_selector_section_list = resolveComponent("sx-section-selector-section-list");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$r, [
-    withDirectives(createBaseVNode("h4", _hoisted_2$j, null, 512), [
+  return openBlock(), createElementBlock("section", _hoisted_1$s, [
+    withDirectives(createBaseVNode("h4", _hoisted_2$k, null, 512), [
       [_directive_i18n, [
         $setup.targetLanguageAutonym
       ], "cx-sx-section-selector-missing-sections-title"]
@@ -21431,7 +21472,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
           lang: $props.suggestion.sourceLanguage,
           dir: $setup.getDir($props.suggestion.sourceLanguage),
           textContent: toDisplayString(sourceSection)
-        }, null, 8, _hoisted_3$i)
+        }, null, 8, _hoisted_3$j)
       ]),
       _: 1
     }, 8, ["sections"])) : createCommentVNode("", true),
@@ -21486,9 +21527,9 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     })) : createCommentVNode("", true)
   ]);
 }
-var SxSectionSelectorSectionListMissing = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E]]);
+var SxSectionSelectorSectionListMissing = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$F]]);
 var SXSectionSelectorSectionListPresent_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$D = {
+const _sfc_main$E = {
   name: "SxSectionSelectorSectionListPresent",
   components: {
     SxSectionSelectorSectionList
@@ -21505,16 +21546,16 @@ const _sfc_main$D = {
     return { mwIconArrowForward, getAutonym: src.getAutonym, getDir: src.getDir, targetLanguageAutonym };
   }
 };
-const _hoisted_1$q = { class: "sx-section-selector__present-sections py-2" };
-const _hoisted_2$i = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
-const _hoisted_3$h = { class: "sx-section-selector__present-section-button-content" };
-const _hoisted_4$c = ["lang", "dir", "textContent"];
+const _hoisted_1$r = { class: "sx-section-selector__present-sections py-2" };
+const _hoisted_2$j = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
+const _hoisted_3$i = { class: "sx-section-selector__present-section-button-content" };
+const _hoisted_4$d = ["lang", "dir", "textContent"];
 const _hoisted_5$9 = ["lang", "dir", "textContent"];
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_section_selector_section_list = resolveComponent("sx-section-selector-section-list");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$q, [
-    withDirectives(createBaseVNode("h4", _hoisted_2$i, null, 512), [
+  return openBlock(), createElementBlock("section", _hoisted_1$r, [
+    withDirectives(createBaseVNode("h4", _hoisted_2$j, null, 512), [
       [_directive_i18n, [
         $setup.targetLanguageAutonym
       ], "cx-sx-section-selector-present-sections-title"]
@@ -21524,13 +21565,13 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
       onSelectSection: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("select-section", $event))
     }, {
       default: withCtx(({ sourceSection, targetSection }) => [
-        createBaseVNode("div", _hoisted_3$h, [
+        createBaseVNode("div", _hoisted_3$i, [
           createBaseVNode("h5", {
             class: "sx-section-selector__present-section-button-source",
             lang: $props.suggestion.sourceLanguage,
             dir: $setup.getDir($props.suggestion.sourceLanguage),
             textContent: toDisplayString(sourceSection)
-          }, null, 8, _hoisted_4$c),
+          }, null, 8, _hoisted_4$d),
           createBaseVNode("h6", {
             class: "sx-section-selector__present-section-button-target",
             lang: $props.suggestion.targetLanguage,
@@ -21543,9 +21584,9 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["sections"])
   ]);
 }
-var SxSectionSelectorSectionListPresent = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D]]);
+var SxSectionSelectorSectionListPresent = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$E]]);
 var SXSectionSelector_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$C = {
+const _sfc_main$D = {
   name: "SxSectionSelector",
   components: {
     SxSectionSelectorSectionListPresent,
@@ -21590,16 +21631,16 @@ const _sfc_main$C = {
     };
   }
 };
-const _hoisted_1$p = { class: "sx-section-selector" };
-const _hoisted_2$h = { class: "sx-section-selector__body" };
-const _hoisted_3$g = { class: "py-2" };
-const _hoisted_4$b = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
+const _hoisted_1$q = { class: "sx-section-selector" };
+const _hoisted_2$i = { class: "sx-section-selector__body" };
+const _hoisted_3$h = { class: "py-2" };
+const _hoisted_4$c = { class: "sx-section-selector__list-title mb-0 pb-0 py-3 px-4" };
 const _hoisted_5$8 = { class: "ma-0 pa-0" };
 const _hoisted_6$4 = { class: "sx-section-selector__additional-consideration-title" };
 const _hoisted_7$3 = { href: "#" };
 const _hoisted_8$2 = { class: "sx-section-selector__additional-consideration-title" };
 const _hoisted_9$2 = { href: "#" };
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_section_selector_header = resolveComponent("sx-section-selector-header");
   const _component_sx_article_language_selector = resolveComponent("sx-article-language-selector");
   const _component_sx_section_selector_section_list_missing = resolveComponent("sx-section-selector-section-list-missing");
@@ -21609,12 +21650,12 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$p, [
+  return openBlock(), createElementBlock("section", _hoisted_1$q, [
     createVNode(_component_sx_section_selector_header, {
       suggestion: $setup.suggestion,
       onClose: $setup.goToDashboard
     }, null, 8, ["suggestion", "onClose"]),
-    createBaseVNode("section", _hoisted_2$h, [
+    createBaseVNode("section", _hoisted_2$i, [
       createVNode(_component_sx_article_language_selector),
       createVNode(_component_sx_section_selector_section_list_missing, {
         suggestion: $setup.suggestion,
@@ -21625,8 +21666,8 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
         suggestion: $setup.suggestion,
         onSelectSection: $setup.selectSection
       }, null, 8, ["suggestion", "onSelectSection"]),
-      createBaseVNode("section", _hoisted_3$g, [
-        withDirectives(createBaseVNode("h4", _hoisted_4$b, null, 512), [
+      createBaseVNode("section", _hoisted_3$h, [
+        withDirectives(createBaseVNode("h4", _hoisted_4$c, null, 512), [
           [_directive_i18n, [
             $setup.targetLanguageAutonym
           ], "cx-sx-section-selector-more-details-title"]
@@ -21693,9 +21734,9 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var SXSectionSelector$1 = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C]]);
+var SXSectionSelector$1 = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$D]]);
 var SXSectionSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$B = {
+const _sfc_main$C = {
   name: "SxSectionSelectorView",
   components: {
     SxSectionSelector: SXSectionSelector$1
@@ -21708,7 +21749,7 @@ const _sfc_main$B = {
     }
   }
 };
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_section_selector = resolveComponent("sx-section-selector");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-section-selector-view", $options.classes])
@@ -21716,7 +21757,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_section_selector)
   ], 2);
 }
-var SXSectionSelector = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B]]);
+var SXSectionSelector = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$C]]);
 const useListSelector = (props) => {
   const { sourceLanguageAutonym, targetLanguageAutonym } = useApplicationState(useStore());
   const bananaI18n2 = useI18n();
@@ -21755,7 +21796,7 @@ const useListSelector = (props) => {
   });
 };
 var SourceVsTargetSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$A = {
+const _sfc_main$B = {
   name: "SxContentComparatorSourceVsTargetSelector",
   components: { MwButtonGroup },
   props: {
@@ -21783,10 +21824,10 @@ const _sfc_main$A = {
     };
   }
 };
-const _hoisted_1$o = { class: "sx-content-comparator__source-target-selector" };
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$p = { class: "sx-content-comparator__source-target-selector" };
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button_group = resolveComponent("mw-button-group");
-  return openBlock(), createElementBlock("div", _hoisted_1$o, [
+  return openBlock(), createElementBlock("div", _hoisted_1$p, [
     createVNode(_component_mw_button_group, {
       items: $setup.listSelector,
       active: $props.selection,
@@ -21794,7 +21835,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["items", "active", "onSelect"])
   ]);
 }
-var SxContentComparatorSourceVsTargetSelector = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A]]);
+var SxContentComparatorSourceVsTargetSelector = /* @__PURE__ */ _export_sfc(_sfc_main$B, [["render", _sfc_render$B]]);
 const useCompareContents = (store2) => {
   const discardedSections = ref([]);
   const {
@@ -21834,7 +21875,7 @@ const useCompareContents = (store2) => {
   };
 };
 var SXContentComparatorContentHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$z = {
+const _sfc_main$A = {
   name: "SxContentComparatorContentHeader",
   components: {
     SxContentComparatorSourceVsTargetSelector,
@@ -21902,8 +21943,8 @@ const _sfc_main$z = {
     };
   }
 };
-const _hoisted_1$n = ["lang", "dir", "textContent"];
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$o = ["lang", "dir", "textContent"];
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_content_comparator_source_vs_target_selector = resolveComponent("sx-content-comparator-source-vs-target-selector");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
@@ -21933,7 +21974,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
                 dir: $setup.activeContent.dir,
                 class: "ma-0 pa-0",
                 textContent: toDisplayString($setup.activeContent.title)
-              }, null, 8, _hoisted_1$n)
+              }, null, 8, _hoisted_1$o)
             ], void 0, true),
             _: 1
           }),
@@ -21963,8 +22004,8 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["class", "reverse"]);
 }
-var SxContentComparatorContentHeader = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z]]);
-const _sfc_main$y = {
+var SxContentComparatorContentHeader = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$A]]);
+const _sfc_main$z = {
   name: "SxContentComparatorHeaderNavigation",
   components: {
     MwCol,
@@ -21996,7 +22037,7 @@ const _sfc_main$y = {
     };
   }
 };
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_col = resolveComponent("mw-col");
   return openBlock(), createBlock(_component_mw_col, {
@@ -22020,9 +22061,9 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SxContentComparatorHeaderNavigation = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y]]);
+var SxContentComparatorHeaderNavigation = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$z]]);
 var SXContentComparatorHeaderMappedSection_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$x = {
+const _sfc_main$y = {
   name: "SxContentComparatorHeaderMappedSection",
   components: {
     MwRow,
@@ -22071,10 +22112,10 @@ const _sfc_main$x = {
     }
   }
 };
-const _hoisted_1$m = { class: "sx-content-comparator-header__mapped-section" };
-const _hoisted_2$g = { class: "sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1" };
-const _hoisted_3$f = { key: 0 };
-const _hoisted_4$a = {
+const _hoisted_1$n = { class: "sx-content-comparator-header__mapped-section" };
+const _hoisted_2$h = { class: "sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1" };
+const _hoisted_3$g = { key: 0 };
+const _hoisted_4$b = {
   key: 0,
   class: "sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
 };
@@ -22082,19 +22123,19 @@ const _hoisted_5$7 = {
   key: 1,
   class: "sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
 };
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("div", _hoisted_1$m, [
+  return openBlock(), createElementBlock("div", _hoisted_1$n, [
     createVNode(_component_mw_row, { class: "sx-content-comparator-header__mapped-section-header pa-2 ma-0" }, {
       default: withCtx(() => [
         createVNode(_component_mw_col, { grow: "" }, {
           default: withCtx(() => [
-            createBaseVNode("h6", _hoisted_2$g, [
+            createBaseVNode("h6", _hoisted_2$h, [
               createTextVNode(toDisplayString($options.mappedSectionHeaderTitle) + " ", 1),
-              $options.isDiscardedSection ? withDirectives((openBlock(), createElementBlock("span", _hoisted_3$f, null, 512)), [
+              $options.isDiscardedSection ? withDirectives((openBlock(), createElementBlock("span", _hoisted_3$g, null, 512)), [
                 [_directive_i18n, void 0, "cx-sx-content-comparator-discarded-section-label"]
               ]) : createCommentVNode("", true)
             ]),
@@ -22127,16 +22168,16 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    !$options.isDiscardedSection ? withDirectives((openBlock(), createElementBlock("p", _hoisted_4$a, null, 512)), [
+    !$options.isDiscardedSection ? withDirectives((openBlock(), createElementBlock("p", _hoisted_4$b, null, 512)), [
       [_directive_i18n, void 0, "cx-sx-content-comparator-mapped-section-clarifications"]
     ]) : withDirectives((openBlock(), createElementBlock("p", _hoisted_5$7, null, 512)), [
       [_directive_i18n, void 0, "cx-sx-content-comparator-discarded-section-clarifications"]
     ])
   ]);
 }
-var SxContentComparatorHeaderMappedSection = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x]]);
+var SxContentComparatorHeaderMappedSection = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$y]]);
 var SXContentComparatorHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$w = {
+const _sfc_main$x = {
   name: "SxContentComparatorHeader",
   components: {
     SxContentComparatorHeaderMappedSection,
@@ -22185,11 +22226,11 @@ const _sfc_main$w = {
     };
   }
 };
-const _hoisted_1$l = { class: "sx-content-comparator__header pa-4" };
-const _hoisted_2$f = ["lang", "dir"];
-const _hoisted_3$e = ["lang", "dir"];
-const _hoisted_4$9 = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$m = { class: "sx-content-comparator__header pa-4" };
+const _hoisted_2$g = ["lang", "dir"];
+const _hoisted_3$f = ["lang", "dir"];
+const _hoisted_4$a = /* @__PURE__ */ createBaseVNode("br", null, null, -1);
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_sx_content_comparator_header_navigation = resolveComponent("sx-content-comparator-header-navigation");
@@ -22197,7 +22238,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_sx_content_comparator_header_mapped_section = resolveComponent("sx-content-comparator-header-mapped-section");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("div", _hoisted_1$l, [
+  return openBlock(), createElementBlock("div", _hoisted_1$m, [
     createVNode(_component_mw_button, {
       class: "py-2 pa-0",
       icon: $setup.mwIconArrowPrevious,
@@ -22214,12 +22255,12 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
               class: "pa-0 sx-content-comparator-header__article-title",
               lang: $setup.suggestion.sourceLanguage,
               dir: $setup.getDir($setup.suggestion.sourceLanguage)
-            }, toDisplayString($setup.suggestion.sourceTitle), 9, _hoisted_2$f),
+            }, toDisplayString($setup.suggestion.sourceTitle), 9, _hoisted_2$g),
             createBaseVNode("h2", {
               class: "sx-content-comparator-header__section-title pa-0 ma-0",
               lang: $setup.suggestion.sourceLanguage,
               dir: $setup.getDir($setup.suggestion.sourceLanguage)
-            }, toDisplayString($setup.sourceSectionTitle), 9, _hoisted_3$e)
+            }, toDisplayString($setup.sourceSectionTitle), 9, _hoisted_3$f)
           ], void 0, true),
           _: 1
         }),
@@ -22267,7 +22308,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
             withDirectives(createBaseVNode("strong", null, null, 512), [
               [_directive_i18n, void 0, "cx-sx-content-comparator-review-contents-title"]
             ]),
-            _hoisted_4$9,
+            _hoisted_4$a,
             withDirectives(createBaseVNode("span", null, null, 512), [
               [_directive_i18n, void 0, "cx-sx-content-comparator-review-contents-rest"]
             ])
@@ -22286,9 +22327,9 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["suggestion", "target-section-title", "discarded-sections"])) : createCommentVNode("", true)
   ]);
 }
-var SxContentComparatorHeader = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w]]);
+var SxContentComparatorHeader = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$x]]);
 var NewSectionPlaceholder_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$v = {
+const _sfc_main$w = {
   name: "SxContentComparatorNewSectionPlaceholder",
   props: {
     isMappedSection: {
@@ -22305,19 +22346,19 @@ const _sfc_main$v = {
     return { placeholderTitle };
   }
 };
-const _hoisted_1$k = { class: "sx-content-comparator__new-section-placeholder--present mt-4 py-4 px-7" };
-const _hoisted_2$e = ["innerHTML"];
-const _hoisted_3$d = { key: 0 };
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$l = { class: "sx-content-comparator__new-section-placeholder--present mt-4 py-4 px-7" };
+const _hoisted_2$f = ["innerHTML"];
+const _hoisted_3$e = { key: 0 };
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$k, [
-    createBaseVNode("h5", { innerHTML: $setup.placeholderTitle }, null, 8, _hoisted_2$e),
-    $props.isMappedSection ? withDirectives((openBlock(), createElementBlock("p", _hoisted_3$d, null, 512)), [
+  return openBlock(), createElementBlock("section", _hoisted_1$l, [
+    createBaseVNode("h5", { innerHTML: $setup.placeholderTitle }, null, 8, _hoisted_2$f),
+    $props.isMappedSection ? withDirectives((openBlock(), createElementBlock("p", _hoisted_3$e, null, 512)), [
       [_directive_i18n, void 0, "cx-sx-content-comparator-present-section-placeholder-subtitle"]
     ]) : createCommentVNode("", true)
   ]);
 }
-var SxContentComparatorNewSectionPlaceholder = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v]]);
+var SxContentComparatorNewSectionPlaceholder = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$w]]);
 const useTargetArticlePreview = (store2, i18n) => {
   const { isCurrentSectionMapped, targetPage } = useCompareContents(store2);
   const { currentSectionSuggestion: suggestion } = useApplicationState(store2);
@@ -22353,7 +22394,7 @@ const useTargetArticlePreview = (store2, i18n) => {
   });
 };
 var SXContentComparator_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$u = {
+const _sfc_main$v = {
   name: "SxContentComparator",
   components: {
     SxContentComparatorNewSectionPlaceholder,
@@ -22411,17 +22452,17 @@ const _sfc_main$u = {
     };
   }
 };
-const _hoisted_1$j = { class: "sx-content-comparator" };
-const _hoisted_2$d = { class: "sx-content-comparator__source-content" };
-const _hoisted_3$c = ["lang", "dir", "innerHTML"];
-const _hoisted_4$8 = ["lang", "dir", "innerHTML"];
+const _hoisted_1$k = { class: "sx-content-comparator" };
+const _hoisted_2$e = { class: "sx-content-comparator__source-content" };
+const _hoisted_3$d = ["lang", "dir", "innerHTML"];
+const _hoisted_4$9 = ["lang", "dir", "innerHTML"];
 const _hoisted_5$6 = ["innerHTML"];
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_content_comparator_header = resolveComponent("sx-content-comparator-header");
   const _component_sx_content_comparator_content_header = resolveComponent("sx-content-comparator-content-header");
   const _component_mw_spinner = resolveComponent("mw-spinner");
   const _component_sx_content_comparator_new_section_placeholder = resolveComponent("sx-content-comparator-new-section-placeholder");
-  return openBlock(), createElementBlock("section", _hoisted_1$j, [
+  return openBlock(), createElementBlock("section", _hoisted_1$k, [
     createVNode(_component_sx_content_comparator_header, {
       "discarded-sections": $setup.discardedSections,
       "onUpdate:discarded-sections": _cache[0] || (_cache[0] = ($event) => $setup.discardedSections = $event),
@@ -22434,7 +22475,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
       "is-mapped-section": $setup.isCurrentSectionMapped,
       onTranslationButtonClicked: $setup.translateSection
     }, null, 8, ["source-vs-target-selection", "is-mapped-section", "onTranslationButtonClicked"]),
-    createBaseVNode("section", _hoisted_2$d, [
+    createBaseVNode("section", _hoisted_2$e, [
       $setup.sourceVsTargetSelection === "source_section" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
         !$setup.sourceSectionContent ? (openBlock(), createBlock(_component_mw_spinner, { key: 0 })) : createCommentVNode("", true),
         createBaseVNode("section", {
@@ -22442,7 +22483,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           dir: $setup.getDir($setup.sourceLanguage),
           class: "pt-2 px-4",
           innerHTML: $setup.sourceSectionContent
-        }, null, 8, _hoisted_3$c)
+        }, null, 8, _hoisted_3$d)
       ], 64)) : $setup.sourceVsTargetSelection === "target_article" ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
         !$setup.targetPageContent ? (openBlock(), createBlock(_component_mw_spinner, { key: 0 })) : createCommentVNode("", true),
         createBaseVNode("article", {
@@ -22450,7 +22491,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           dir: $setup.getDir($setup.targetLanguage),
           class: "px-4",
           innerHTML: $setup.targetPageContent
-        }, null, 8, _hoisted_4$8)
+        }, null, 8, _hoisted_4$9)
       ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 2 }, [
         createBaseVNode("section", {
           class: "pa-4",
@@ -22464,9 +22505,9 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var SXContentComparator$1 = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u]]);
+var SXContentComparator$1 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$v]]);
 var SXContentComparator_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$t = {
+const _sfc_main$u = {
   name: "SxContentComparatorView",
   components: {
     SxContentComparator: SXContentComparator$1
@@ -22479,7 +22520,7 @@ const _sfc_main$t = {
     }
   }
 };
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_content_comparator = resolveComponent("sx-content-comparator");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-content-comparator-view", $options.classes])
@@ -22487,9 +22528,9 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_content_comparator)
   ], 2);
 }
-var SXContentComparator = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t]]);
+var SXContentComparator = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$u]]);
 var SXTranslationSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$s = {
+const _sfc_main$t = {
   name: "SxTranslationSelector",
   components: { MwCard, MwButton, MwDialog },
   props: {
@@ -22534,10 +22575,10 @@ const _sfc_main$s = {
     };
   }
 };
-const _hoisted_1$i = { class: "mw-ui-dialog__header pa-4" };
-const _hoisted_2$c = { class: "row ma-0 py-2" };
-const _hoisted_3$b = { class: "col grow items-center mw-ui-dialog__header-title justify-start pe-2" };
-const _hoisted_4$7 = { class: "mb-0" };
+const _hoisted_1$j = { class: "mw-ui-dialog__header pa-4" };
+const _hoisted_2$d = { class: "row ma-0 py-2" };
+const _hoisted_3$c = { class: "col grow items-center mw-ui-dialog__header-title justify-start pe-2" };
+const _hoisted_4$8 = { class: "mb-0" };
 const _hoisted_5$5 = { class: "col shrink justify-center" };
 const _hoisted_6$3 = { class: "pb-2 mb-0" };
 const _hoisted_7$2 = { class: "sx-sentence-selector__translation-options-card-title mb-4" };
@@ -22546,7 +22587,7 @@ const _hoisted_9$1 = ["textContent"];
 const _hoisted_10$1 = ["innerHTML"];
 const _hoisted_11$1 = { class: "sx-sentence-selector__translation-options-card-title mb-4" };
 const _hoisted_12$1 = /* @__PURE__ */ createBaseVNode("p", { class: "sx-sentence-selector__empty-sentence-option__cursor" }, "|", -1);
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_card = resolveComponent("mw-card");
   const _component_mw_dialog = resolveComponent("mw-dialog");
@@ -22557,10 +22598,10 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     fullscreen: ""
   }, {
     header: withCtx(() => [
-      createBaseVNode("div", _hoisted_1$i, [
-        createBaseVNode("div", _hoisted_2$c, [
-          createBaseVNode("div", _hoisted_3$b, [
-            withDirectives(createBaseVNode("h4", _hoisted_4$7, null, 512), [
+      createBaseVNode("div", _hoisted_1$j, [
+        createBaseVNode("div", _hoisted_2$d, [
+          createBaseVNode("div", _hoisted_3$c, [
+            withDirectives(createBaseVNode("h4", _hoisted_4$8, null, 512), [
               [_directive_i18n, void 0, "cx-sx-sentence-selector-translation-options-header-title"]
             ])
           ]),
@@ -22638,9 +22679,9 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   })) : createCommentVNode("", true);
 }
-var SxTranslationSelector = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s]]);
+var SxTranslationSelector = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$t]]);
 var SXSentenceSelectorContentHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$r = {
+const _sfc_main$s = {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
   setup() {
@@ -22680,10 +22721,10 @@ const _sfc_main$r = {
     };
   }
 };
-const _hoisted_1$h = ["href"];
-const _hoisted_2$b = ["textContent"];
-const _hoisted_3$a = ["innerHTML"];
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$i = ["href"];
+const _hoisted_2$c = ["textContent"];
+const _hoisted_3$b = ["innerHTML"];
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   return openBlock(), createBlock(_component_mw_col, {
@@ -22698,25 +22739,25 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createBaseVNode("strong", {
           textContent: toDisplayString($setup.suggestion.sourceTitle)
-        }, null, 8, _hoisted_2$b),
+        }, null, 8, _hoisted_2$c),
         createVNode(_component_mw_icon, {
           icon: $setup.mwIconLinkExternal,
           class: "ms-1",
           size: "12"
         }, null, 8, ["icon"])
-      ], 8, _hoisted_1$h),
+      ], 8, _hoisted_1$i),
       createBaseVNode("h2", {
         class: normalizeClass(["pa-0 ma-0", $setup.titleClasses]),
         onClick: _cache[0] || (_cache[0] = (...args) => $setup.selectSectionTitle && $setup.selectSectionTitle(...args)),
         innerHTML: $setup.sourceSectionTitle
-      }, null, 10, _hoisted_3$a)
+      }, null, 10, _hoisted_3$b)
     ], void 0),
     _: 1
   });
 }
-var SxSentenceSelectorContentHeader = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r]]);
+var SxSentenceSelectorContentHeader = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$s]]);
 var ProposedTranslationActionButtons_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$q = {
+const _sfc_main$r = {
   name: "ProposedTranslationActionButtons",
   components: {
     MwRow,
@@ -22739,7 +22780,7 @@ const _sfc_main$q = {
     };
   }
 };
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   return openBlock(), createBlock(_component_mw_row, { class: "sx-sentence-selector__translation-action-buttons ma-0" }, {
@@ -22770,9 +22811,9 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ProposedTranslationActionButtons = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q]]);
+var ProposedTranslationActionButtons = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$r]]);
 var ProposedTranslationHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$p = {
+const _sfc_main$q = {
   name: "ProposedTranslationHeader",
   components: {
     MwRow,
@@ -22788,14 +22829,14 @@ const _sfc_main$p = {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-original-card-title"),
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-empty-card-title")
     }));
-    const mtOptionLabel = computed(() => extraMTOptionLabels.value[mtProvider.value] || bananaI18n2.i18n("cx-sx-sentence-selector-suggested-translation-title", mtProvider.value));
+    const mtOptionLabel = computed(() => extraMTOptionLabels.value[mtProvider.value] || bananaI18n2.i18n("cx-sx-sentence-selector-suggested-translation-title", MTProviderGroup.getMTProviderLabel(mtProvider.value)));
     return {
       mwIconEllipsis,
       mtOptionLabel
     };
   }
 };
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
@@ -22830,9 +22871,9 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ProposedTranslationHeader = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$p]]);
+var ProposedTranslationHeader = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$q]]);
 var ProposedTranslationCard_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$o = {
+const _sfc_main$p = {
   name: "ProposedTranslationCard",
   components: {
     MwSpinner,
@@ -22874,8 +22915,8 @@ const _sfc_main$o = {
     };
   }
 };
-const _hoisted_1$g = ["lang", "dir", "innerHTML"];
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$h = ["lang", "dir", "innerHTML"];
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_proposed_translation_header = resolveComponent("proposed-translation-header");
   const _component_mw_spinner = resolveComponent("mw-spinner");
   const _component_mw_col = resolveComponent("mw-col");
@@ -22907,7 +22948,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
                 lang: $setup.targetLanguage,
                 dir: $setup.getDir($setup.targetLanguage),
                 innerHTML: $setup.proposedTranslation
-              }, null, 8, _hoisted_1$g)) : (openBlock(), createBlock(_component_mw_spinner, { key: 1 }))
+              }, null, 8, _hoisted_1$h)) : (openBlock(), createBlock(_component_mw_spinner, { key: 1 }))
             ], void 0, true),
             _: 1
           }, 8, ["class", "style"]),
@@ -22937,7 +22978,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ProposedTranslationCard = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$o]]);
+var ProposedTranslationCard = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$p]]);
 const getContent = (subSection) => computed(() => {
   if (subSection.isBlockTemplate) {
     return subSection.isTranslated ? subSection.translatedContent : subSection.node.innerHTML;
@@ -22960,7 +23001,7 @@ const getContent = (subSection) => computed(() => {
   return cloneNode.innerHTML;
 });
 var SubSection_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$n = {
+const _sfc_main$o = {
   name: "SubSection",
   props: {
     subSection: {
@@ -23005,17 +23046,17 @@ const _sfc_main$n = {
     };
   }
 };
-const _hoisted_1$f = ["innerHTML"];
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$g = ["innerHTML"];
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     ref: "subSectionRoot",
     class: normalizeClass(["sx-sentence-selector__subsection", $setup.rootClasses]),
     innerHTML: $setup.content
-  }, null, 10, _hoisted_1$f);
+  }, null, 10, _hoisted_1$g);
 }
-var SubSection = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$n]]);
+var SubSection = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$o]]);
 var BlockTemplateAdaptationCard_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$m = {
+const _sfc_main$n = {
   name: "BlockTemplateAdaptationCard",
   components: {
     MwSpinner,
@@ -23074,15 +23115,15 @@ const _sfc_main$m = {
     };
   }
 };
-const _hoisted_1$e = { class: "block-template-adaptation-card__container pa-4" };
-const _hoisted_2$a = ["textContent"];
-const _hoisted_3$9 = ["textContent"];
-const _hoisted_4$6 = {
+const _hoisted_1$f = { class: "block-template-adaptation-card__container pa-4" };
+const _hoisted_2$b = ["textContent"];
+const _hoisted_3$a = ["textContent"];
+const _hoisted_4$7 = {
   key: 1,
   class: "block-template-adaptation-card__body--failure pa-4 mb-4"
 };
 const _hoisted_5$4 = { class: "block-template-adaptation-card__body__header pb-0 mb-0" };
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -23093,7 +23134,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_i18n = resolveDirective("i18n");
   return openBlock(), createBlock(_component_mw_card, { class: "block-template-adaptation-card col shrink pa-0 ma-0" }, {
     default: withCtx(() => [
-      createBaseVNode("div", _hoisted_1$e, [
+      createBaseVNode("div", _hoisted_1$f, [
         createVNode(_component_mw_row, { class: "block-template-adaptation-card__header ma-0 pb-5" }, {
           default: withCtx(() => [
             createVNode(_component_mw_col, { shrink: "" }, {
@@ -23128,7 +23169,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
           createBaseVNode("h5", {
             class: "block-template-adaptation-card__body__template-title pb-2",
             textContent: toDisplayString($setup.targetTemplateName)
-          }, null, 8, _hoisted_2$a),
+          }, null, 8, _hoisted_2$b),
           createVNode(_component_mw_button, {
             class: "px-0",
             type: "text",
@@ -23138,11 +23179,11 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
             default: withCtx(() => [
               createBaseVNode("span", {
                 textContent: toDisplayString($setup.editBlockTranslationButtonLabel)
-              }, null, 8, _hoisted_3$9)
+              }, null, 8, _hoisted_3$a)
             ], void 0, true),
             _: 1
           })
-        ], 2)) : $setup.translationLoaded ? (openBlock(), createElementBlock("div", _hoisted_4$6, [
+        ], 2)) : $setup.translationLoaded ? (openBlock(), createElementBlock("div", _hoisted_4$7, [
           withDirectives(createBaseVNode("h5", _hoisted_5$4, null, 512), [
             [_directive_i18n, [
               $setup.targetLanguageAutonym
@@ -23155,9 +23196,9 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var BlockTemplateAdaptationCard = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$m]]);
+var BlockTemplateAdaptationCard = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$n]]);
 var TranslatedSegmentCardHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$l = {
+const _sfc_main$m = {
   name: "TranslatedSegmentCardHeader",
   components: { MwButtonGroup },
   props: {
@@ -23194,10 +23235,10 @@ const _sfc_main$l = {
     return { scopeOptions, updateSelection };
   }
 };
-const _hoisted_1$d = { class: "translated-segment-card-header" };
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$e = { class: "translated-segment-card-header" };
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button_group = resolveComponent("mw-button-group");
-  return openBlock(), createElementBlock("div", _hoisted_1$d, [
+  return openBlock(), createElementBlock("div", _hoisted_1$e, [
     createVNode(_component_mw_button_group, {
       items: $setup.scopeOptions,
       active: $props.selection,
@@ -23205,8 +23246,8 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["items", "active", "onSelect"])
   ]);
 }
-var TranslatedSegmentCardHeader = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$l]]);
-const _sfc_main$k = {
+var TranslatedSegmentCardHeader = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$m]]);
+const _sfc_main$l = {
   name: "TranslatedSegmentCardActionButtons",
   components: {
     MwRow,
@@ -23224,7 +23265,7 @@ const _sfc_main$k = {
     };
   }
 };
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   return openBlock(), createBlock(_component_mw_row, { class: "sx-sentence-selector__translation-action-buttons ma-0" }, {
@@ -23247,9 +23288,9 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var TranslatedSegmentCardActionButtons = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k]]);
+var TranslatedSegmentCardActionButtons = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$l]]);
 var TranslatedSegmentCard_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$j = {
+const _sfc_main$k = {
   name: "TranslatedSegmentCard",
   components: {
     TranslatedSegmentCardActionButtons,
@@ -23309,7 +23350,7 @@ const _sfc_main$j = {
     };
   }
 };
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_translated_segment_card_header = resolveComponent("translated-segment-card-header");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_icon = resolveComponent("mw-icon");
@@ -23437,9 +23478,9 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var TranslatedSegmentCard = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j]]);
+var TranslatedSegmentCard = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k]]);
 var SXSentenceSelector_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$i = {
+const _sfc_main$j = {
   name: "SxSentenceSelector",
   components: {
     BlockTemplateAdaptationCard,
@@ -23550,9 +23591,9 @@ const _sfc_main$i = {
     };
   }
 };
-const _hoisted_1$c = { class: "sx-sentence-selector__header-title" };
-const _hoisted_2$9 = { class: "sx-sentence-selector__section-contents px-4" };
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$d = { class: "sx-sentence-selector__header-title" };
+const _hoisted_2$a = { class: "sx-sentence-selector__section-contents px-4" };
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -23585,7 +23626,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
           class: "px-1"
         }, {
           default: withCtx(() => [
-            withDirectives(createBaseVNode("h4", _hoisted_1$c, null, 512), [
+            withDirectives(createBaseVNode("h4", _hoisted_1$d, null, 512), [
               [_directive_i18n, void 0, "cx-sx-sentence-selector-header-title"]
             ])
           ], void 0, true),
@@ -23622,7 +23663,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
         }, {
           default: withCtx(() => [
             createVNode(_component_sx_sentence_selector_content_header),
-            createBaseVNode("div", _hoisted_2$9, [
+            createBaseVNode("div", _hoisted_2$a, [
               (openBlock(true), createElementBlock(Fragment, null, renderList($setup.subSections, (subSection) => {
                 return openBlock(), createBlock(_component_sub_section, {
                   id: subSection.id,
@@ -23664,9 +23705,9 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["active"])
   ], 4);
 }
-var SXSentenceSelector$1 = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i]]);
+var SXSentenceSelector$1 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j]]);
 var SXSentenceSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$h = {
+const _sfc_main$i = {
   name: "SxSentenceSelectorView",
   components: {
     SxSentenceSelector: SXSentenceSelector$1
@@ -23679,7 +23720,7 @@ const _sfc_main$h = {
     }
   }
 };
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_sentence_selector = resolveComponent("sx-sentence-selector");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-sentence-selector-view", $options.classes])
@@ -23687,11 +23728,11 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_sentence_selector)
   ], 2);
 }
-var SXSentenceSelector = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
+var SXSentenceSelector = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i]]);
 var tutorialSvgMT = '<svg width="375px" height="200px" viewBox="0 0 375 200" version="1.1"\n    xmlns="http://www.w3.org/2000/svg"\n    xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>illustration-mt</title>\n    <defs>\n        <path d="M105.208249,19.5680105 C105.208249,18.4685389 106.107813,17.5382516 107.198217,17.4909907 L233.21828,12.0289647 C234.31731,11.98133 235.208249,12.8435441 235.208249,13.9420961 L235.208249,47.1312078 C235.208249,48.2354359 234.308684,49.0916001 233.21828,49.0443393 L107.198217,43.5823132 C106.099188,43.5346786 105.208249,42.6038785 105.208249,41.5052935 L105.208249,19.5680105 Z" id="path-1"></path>\n        <pattern id="pattern-2" width="30" height="30" x="75.2082489" y="-17.9633462" patternUnits="userSpaceOnUse">\n            <use xlink:href="#image-3"></use>\n        </pattern>\n        <image id="image-3" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAP1JREFUSA3t1V0OgyAMAOC1Hmu7giHhXQ/n9mw0XmG7xm6izpphBAENk/IyXgxJ06/lT2ia5p1lWZnn+fPiGG3bXsdxvJ8ZBzGSHikSqMkU+AynwBeYG9dgTnwDc+FWmAN3wrFx7LruRohtCCFeAFD0fV+dHYcxkh4p8v9ynfoj8L3Z2qnmfLM1mE72F38Mw1BIKfd+lcFxaF4jukKEImJV17X3qv0St+lYFUIo4VPy0td5aJwTpgJCk6rize86H9LEDFBz6pQ63lv2kLgpp38vQ5IeaQbW7cfYS7V65nfe4xT4cri48QWmpeDENZgT38BcuBXmwJ1wbDzZy/UBR/bTV8buNroAAAAASUVORK5CYII="></image>\n    </defs>\n    <g id="illustration-mt" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="Oval-9-+-Path-79" transform="translate(97.500000, 27.500000) rotate(-50.000000) translate(-97.500000, -27.500000) translate(20.000000, -66.000000)" stroke="#72777D" stroke-width="20">\n            <path d="M154.758243,0.558837385 C154.758243,0.558837385 79.2075256,2.3963732 49.094702,27.6101739 C18.9818785,52.8239746 29.5592009,127.558837 29.5592009,127.558837" id="Path-79"></path>\n        </g>\n        <path d="M181.241058,153 L157,153 L188.486036,60 L218.513964,60 L250,153 L225.758942,153 L219.607545,133.473633 L187.392455,133.473633 L181.241058,153 Z M192.598076,116.303848 L213.598076,116.303848 L203.432471,83.3038476 L202.719095,83.3038476 L192.598076,116.303848 Z" id="A" fill="#3366CC" fill-rule="nonzero" transform="translate(203.500000, 106.500000) rotate(-330.000000) translate(-203.500000, -106.500000) "></path>\n        <g id="arm-copy-4" transform="translate(314.833239, 182.732618) rotate(-329.000000) translate(-314.833239, -182.732618) translate(196.833239, 154.732618)">\n            <path d="M169,12.1867168 L64.5255867,14.5368942 C64.5255867,14.5368942 38.6533364,0.293924123 36.3838532,0.0311149624 C34.1143701,-0.231694198 20.2523322,1.25606343 18,1.27917976 C15.7476678,1.30229608 9,3.27917976 12,6.27917976 C15,9.27917976 28.451814,7.12235683 28.451814,7.12235683 C28.451814,7.12235683 22.2576379,8.12682834 18,8.27917976 C13.7423621,8.43153117 7,10.2791798 6,11.2791798 C5,12.2791798 2.6908933,14.5356877 5,17.2791798 C7.3091067,20.0226718 10.0523609,16.5535169 14,15.2791798 C17.9476391,14.0048426 21.6134118,13.280923 21.6134118,13.280923 C21.6134118,13.280923 7.85041029,19.2016743 4,20.2791798 C0.149589712,21.3566852 -1.63791203e-12,29.2791798 2,29.2791798 C4,29.2791798 9,25.2791798 13,23.2791798 C17,21.2791798 23.3140547,21.176528 23.3140547,21.176528 C23.3140547,21.176528 16.3546483,21.4775454 11.7049518,25.3672069 C7.05525531,29.2568684 1.32619796,33.6951745 1.32619796,33.6951745 C1.32619796,33.6951745 -0.567607229,37.0708809 2.35598778,38.7088114 C5.27958279,40.3467419 7.87811658,37.6181113 13.8697335,34.1155551 C19.8613504,30.612999 22.589031,29.6485498 28.2960593,28.8249462 C34.0030875,28.0013426 39.6510908,31.1919149 39.6510908,31.1919149 C39.6510908,31.1919149 39.1989211,39.8077746 33.6894438,42.3746361 C28.1799665,44.9414977 24.3125288,46.5228395 24.3125288,46.5228395 C24.3125288,46.5228395 17.7211381,44.596389 15.8777945,45.5701061 C14.0344509,46.5438231 14.5480459,48.8787631 15.8777943,51.3510398 C17.2075426,53.8233164 22.9685773,55.5294131 26.8131232,55.2490614 C30.6576692,54.9687098 48.3207932,51.7120573 57.5216871,44.0151357 C66.7225811,36.3182142 69.893072,35.056104 69.893072,35.056104 L169,35.2909101 L169,12.1867168 Z" id="Path-11" fill="#D7A57A" transform="translate(84.861497, 27.639590) scale(1, -1) translate(-84.861497, -27.639590) "></path>\n            <g id="Rectangle-37">\n                <use fill="#FFB50D" xlink:href="#path-1"></use>\n                <use fill-opacity="0.5" fill="url(#pattern-2)" style="mix-blend-mode: multiply;" xlink:href="#path-1"></use>\n            </g>\n        </g>\n        <polyline id="Path" stroke="#72777D" stroke-width="18" transform="translate(119.011851, 100.500000) rotate(-30.000000) translate(-119.011851, -100.500000) " points="119.011851 134 90 117.25 90 83.75 119.011851 67 148.023702 83.75 148.023702 117.25"></polyline>\n    </g>\n</svg>\n';
 var tutorialSvgSections = '<svg  width="375px" height="200px" viewBox="0 0 375 200" version="1.1"\n    xmlns="http://www.w3.org/2000/svg"\n    xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>illustration-sections</title>\n    <defs>\n        <rect id="path-1" x="0" y="0" width="137" height="174"></rect>\n        <filter x="-3.6%" y="-2.3%" width="107.3%" height="105.7%" filterUnits="objectBoundingBox" id="filter-2">\n            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-3" x="0.17674259" y="0.678736183" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-4">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-5" x="1.05473569" y="20.5842412" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-6">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-7" x="0.745148663" y="10.1485258" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-8">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-9" x="0.526966096" y="31.3803116" width="33" height="5"></rect>\n        <filter x="-12.1%" y="-40.0%" width="124.2%" height="260.0%" filterUnits="objectBoundingBox" id="filter-10">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-11" x="0.17674259" y="0.678736183" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-12">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-13" x="1.05473569" y="20.5842412" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-14">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-15" x="0.745148663" y="10.1485258" width="75" height="5"></rect>\n        <filter x="-5.3%" y="-40.0%" width="110.7%" height="260.0%" filterUnits="objectBoundingBox" id="filter-16">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <rect id="path-17" x="0.526966096" y="31.3803116" width="33" height="5"></rect>\n        <filter x="-12.1%" y="-40.0%" width="124.2%" height="260.0%" filterUnits="objectBoundingBox" id="filter-18">\n            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>\n            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>\n            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19958673 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>\n        </filter>\n        <path d="M119.009619,18.1031535 C119.009619,17.0036819 119.909183,16.0733946 120.999588,16.0261337 L247.01965,10.5641077 C248.11868,10.516473 249.009619,11.3786871 249.009619,12.4772391 L249.009619,45.6663508 C249.009619,46.7705789 248.110054,47.6267431 247.01965,47.5794823 L120.999588,42.1174562 C119.900558,42.0698215 119.009619,41.1390215 119.009619,40.0404364 L119.009619,18.1031535 Z" id="path-19"></path>\n        <pattern id="pattern-20" width="30" height="30" x="89.0096189" y="-19.4282032" patternUnits="userSpaceOnUse">\n            <use xlink:href="#image-21"></use>\n        </pattern>\n        <image id="image-21" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAP1JREFUSA3t1V0OgyAMAOC1Hmu7giHhXQ/n9mw0XmG7xm6izpphBAENk/IyXgxJ06/lT2ia5p1lWZnn+fPiGG3bXsdxvJ8ZBzGSHikSqMkU+AynwBeYG9dgTnwDc+FWmAN3wrFx7LruRohtCCFeAFD0fV+dHYcxkh4p8v9ynfoj8L3Z2qnmfLM1mE72F38Mw1BIKfd+lcFxaF4jukKEImJV17X3qv0St+lYFUIo4VPy0td5aJwTpgJCk6rize86H9LEDFBz6pQ63lv2kLgpp38vQ5IeaQbW7cfYS7V65nfe4xT4cri48QWmpeDENZgT38BcuBXmwJ1wbDzZy/UBR/bTV8buNroAAAAASUVORK5CYII="></image>\n        <path d="M113.1747,17.4559811 C113.1747,16.3565095 114.074265,15.4262222 115.164669,15.3789613 L241.184731,9.91693528 C242.283761,9.86930059 243.1747,10.7315147 243.1747,11.8300667 L243.1747,45.0191784 C243.1747,46.1234065 242.275136,46.9795707 241.184731,46.9323099 L115.164669,41.4702838 C114.065639,41.4226491 113.1747,40.4918491 113.1747,39.393264 L113.1747,17.4559811 Z" id="path-22"></path>\n        <pattern id="pattern-23" width="30" height="30" x="83.1747" y="-20.0753756" patternUnits="userSpaceOnUse">\n            <use xlink:href="#image-24"></use>\n        </pattern>\n        <image id="image-24" width="30" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAP1JREFUSA3t1V0OgyAMAOC1Hmu7giHhXQ/n9mw0XmG7xm6izpphBAENk/IyXgxJ06/lT2ia5p1lWZnn+fPiGG3bXsdxvJ8ZBzGSHikSqMkU+AynwBeYG9dgTnwDc+FWmAN3wrFx7LruRohtCCFeAFD0fV+dHYcxkh4p8v9ynfoj8L3Z2qnmfLM1mE72F38Mw1BIKfd+lcFxaF4jukKEImJV17X3qv0St+lYFUIo4VPy0td5aJwTpgJCk6rize86H9LEDFBz6pQ63lv2kLgpp38vQ5IeaQbW7cfYS7V65nfe4xT4cri48QWmpeDENZgT38BcuBXmwJ1wbDzZy/UBR/bTV8buNroAAAAASUVORK5CYII="></image>\n    </defs>\n    <g id="illustration-sections" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="paper-blank" transform="translate(119.000000, 13.000000)">\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>\n                <rect stroke="#CCCCCC" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="0.5" y="0.5" width="136" height="173"></rect>\n            </g>\n        </g>\n        <g id="paragraph" transform="translate(206.500000, 93.500000) rotate(-10.000000) translate(-206.500000, -93.500000) translate(168.000000, 75.000000)">\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-3"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-5"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-7"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-9"></use>\n            </g>\n        </g>\n        <g id="paragraph" transform="translate(183.500000, 161.500000) rotate(10.000000) translate(-183.500000, -161.500000) translate(145.000000, 143.000000)">\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-11"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-13"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-16)" xlink:href="#path-15"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-15"></use>\n            </g>\n            <g id="Rectangle-1">\n                <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-17"></use>\n                <use fill="#72777D" fill-rule="evenodd" xlink:href="#path-17"></use>\n            </g>\n        </g>\n        <polygon id="Rectangle-Copy" fill="#C8CCD1" points="131 43 244 43 244 48 131 48"></polygon>\n        <polygon id="Rectangle-Copy-2" fill="#C8CCD1" points="131 53 193 53 193 58 131 58"></polygon>\n        <g id="arm-copy-3" transform="translate(56.625927, 185.496072) scale(-1, 1) rotate(30.000000) translate(-56.625927, -185.496072) translate(-68.374073, 155.496072)">\n            <path d="M172,16.907537 L67.5255867,19.2577145 C67.5255867,19.2577145 41.6533364,5.01474437 39.3838532,4.75193521 C37.1143701,4.48912604 24.3528844,2.1824462 21.4239694,1.25709257 C18.4950543,0.331738948 15.513093,-1.46076951 15.6763016,2.23397625 C15.8395102,5.92872201 31.451814,11.8431771 31.451814,11.8431771 C31.451814,11.8431771 18.6374608,8.56771268 14.3798228,8.72006409 C10.1221849,8.87241551 3.15683142,10.5136571 3.15683142,10.5136571 C3.15683142,10.5136571 -1.68501113,12.8086486 0.624095573,15.5521407 C2.93320227,18.2956327 11.8935866,14.6092418 15.9476391,15.7256629 C20.0016915,16.8420839 24.6134118,18.0017432 24.6134118,18.0017432 C24.6134118,18.0017432 10.4209026,18.1597695 6.57049232,19.2372749 C2.72008204,20.3147804 0.884786525,23.0820714 2.61880922,25.1423062 C4.35283192,27.2025411 12.8816827,24.8622434 17.5059597,24.825123 C22.1302366,24.7880027 26.3140547,25.8973482 26.3140547,25.8973482 C26.3140547,25.8973482 19.3546483,26.1983657 14.7049518,30.0880272 C10.0552553,33.9776887 4.32619796,38.4159948 4.32619796,38.4159948 C4.32619796,38.4159948 2.43239277,41.7917011 5.35598778,43.4296316 C8.27958279,45.0675621 10.8781166,42.3389315 16.8697335,38.8363754 C22.8613504,35.3338192 25.589031,34.3693701 31.2960593,33.5457664 C37.0030875,32.7221628 42.6510908,35.9127352 42.6510908,35.9127352 C42.6510908,35.9127352 42.1989211,44.5285948 36.6894438,47.0954564 C31.1799665,49.6623179 27.3125288,51.2436598 27.3125288,51.2436598 C27.3125288,51.2436598 20.7211381,49.3172092 18.8777945,50.2909263 C17.0344509,51.2646434 17.5480459,53.5995834 18.8777943,56.07186 C20.2075426,58.5441366 25.9685773,60.2502333 29.8131232,59.9698817 C33.6576692,59.68953 51.3207932,56.4328775 60.5216871,48.735956 C69.7225811,41.0390344 72.893072,39.7769243 72.893072,39.7769243 L172,40.0117303" id="Path-11" fill="#BE6F41"></path>\n            <g id="Rectangle-37">\n                <use fill="#3366CC" xlink:href="#path-19"></use>\n                <use fill-opacity="0.5" fill="url(#pattern-20)" style="mix-blend-mode: multiply;" xlink:href="#path-19"></use>\n            </g>\n        </g>\n        <g id="arm-copy" transform="translate(321.614539, 14.504839) rotate(-29.000000) translate(-321.614539, -14.504839) translate(199.614539, -15.495161)">\n            <path d="M172,16.907537 L67.5255867,19.2577145 C67.5255867,19.2577145 41.6533364,5.01474437 39.3838532,4.75193521 C37.1143701,4.48912604 24.3528844,2.1824462 21.4239694,1.25709257 C18.4950543,0.331738948 15.513093,-1.46076951 15.6763016,2.23397625 C15.8395102,5.92872201 31.451814,11.8431771 31.451814,11.8431771 C31.451814,11.8431771 18.6374608,8.56771268 14.3798228,8.72006409 C10.1221849,8.87241551 3.15683142,10.5136571 3.15683142,10.5136571 C3.15683142,10.5136571 -1.68501113,12.8086486 0.624095573,15.5521407 C2.93320227,18.2956327 11.8935866,14.6092418 15.9476391,15.7256629 C20.0016915,16.8420839 24.6134118,18.0017432 24.6134118,18.0017432 C24.6134118,18.0017432 10.4209026,18.1597695 6.57049232,19.2372749 C2.72008204,20.3147804 0.884786525,23.0820714 2.61880922,25.1423062 C4.35283192,27.2025411 12.8816827,24.8622434 17.5059597,24.825123 C22.1302366,24.7880027 26.3140547,25.8973482 26.3140547,25.8973482 C26.3140547,25.8973482 19.3546483,26.1983657 14.7049518,30.0880272 C10.0552553,33.9776887 4.32619796,38.4159948 4.32619796,38.4159948 C4.32619796,38.4159948 2.43239277,41.7917011 5.35598778,43.4296316 C8.27958279,45.0675621 10.8781166,42.3389315 16.8697335,38.8363754 C22.8613504,35.3338192 25.589031,34.3693701 31.2960593,33.5457664 C37.0030875,32.7221628 42.6510908,35.9127352 42.6510908,35.9127352 C42.6510908,35.9127352 42.1989211,44.5285948 36.6894438,47.0954564 C31.1799665,49.6623179 27.3125288,51.2436598 27.3125288,51.2436598 C27.3125288,51.2436598 20.7211381,49.3172092 18.8777945,50.2909263 C17.0344509,51.2646434 17.5480459,53.5995834 18.8777943,56.07186 C20.2075426,58.5441366 25.9685773,60.2502333 29.8131232,59.9698817 C33.6576692,59.68953 51.3207932,56.4328775 60.5216871,48.735956 C69.7225811,41.0390344 72.893072,39.7769243 72.893072,39.7769243 L172,40.0117303" id="Path-11" fill="#D7A57A"></path>\n            <g id="Rectangle-37">\n                <use fill="#FFB50D" xlink:href="#path-22"></use>\n                <use fill-opacity="0.5" fill="url(#pattern-23)" style="mix-blend-mode: multiply;" xlink:href="#path-22"></use>\n            </g>\n        </g>\n        <rect id="Rectangle" fill="#C8CCD1" x="131" y="25" width="42" height="10"></rect>\n    </g>\n</svg>';
 var SXQuickTutorial_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$g = {
+const _sfc_main$h = {
   name: "SxQuickTutorial",
   components: {
     MwButton,
@@ -23718,13 +23759,13 @@ const _sfc_main$g = {
     }
   }
 };
-const _hoisted_1$b = { class: "sx-quick-tutorial" };
-const _hoisted_2$8 = { class: "sx-quick-tutorial__main-point py-9 px-6" };
-const _hoisted_3$8 = {
+const _hoisted_1$c = { class: "sx-quick-tutorial" };
+const _hoisted_2$9 = { class: "sx-quick-tutorial__main-point py-9 px-6" };
+const _hoisted_3$9 = {
   key: "main-point-1",
   class: "ma-0 pa-0"
 };
-const _hoisted_4$5 = {
+const _hoisted_4$6 = {
   key: "main-point-2",
   class: "ma-0 pa-0"
 };
@@ -23743,25 +23784,25 @@ const _hoisted_12 = {
   class: "ma-0"
 };
 const _hoisted_13 = { class: "sx-quick-tutorial__action-button pt-4 pb-6" };
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$b, [
+  return openBlock(), createElementBlock("section", _hoisted_1$c, [
     createVNode(_component_mw_row, {
       direction: "column",
       class: "sx-quick-tutorial__body-container ma-0"
     }, {
       default: withCtx(() => [
-        createBaseVNode("section", _hoisted_2$8, [
+        createBaseVNode("section", _hoisted_2$9, [
           createVNode(Transition, {
             name: "fade",
             mode: "out-in"
           }, {
             default: withCtx(() => [
-              $options.isActiveStep(1) ? withDirectives((openBlock(), createElementBlock("h2", _hoisted_3$8, null, 512)), [
+              $options.isActiveStep(1) ? withDirectives((openBlock(), createElementBlock("h2", _hoisted_3$9, null, 512)), [
                 [_directive_i18n, void 0, "sx-quick-tutorial-main-point-step-1"]
-              ]) : $options.isActiveStep(2) ? withDirectives((openBlock(), createElementBlock("h2", _hoisted_4$5, null, 512)), [
+              ]) : $options.isActiveStep(2) ? withDirectives((openBlock(), createElementBlock("h2", _hoisted_4$6, null, 512)), [
                 [_directive_i18n, void 0, "sx-quick-tutorial-main-point-step-2"]
               ]) : createCommentVNode("", true)
             ], void 0, true),
@@ -23835,9 +23876,9 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var SXQuickTutorial$1 = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
+var SXQuickTutorial$1 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
 var SXQuickTutorial_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$f = {
+const _sfc_main$g = {
   name: "SxContentComparatorView",
   components: {
     SxQuickTutorial: SXQuickTutorial$1
@@ -23850,7 +23891,7 @@ const _sfc_main$f = {
     }
   }
 };
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_quick_tutorial = resolveComponent("sx-quick-tutorial");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-quick-tutorial-view", $options.classes])
@@ -23858,7 +23899,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_quick_tutorial)
   ], 2);
 }
-var SXQuickTutorial = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
+var SXQuickTutorial = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
 var SXEditorOriginalContent_vue_vue_type_style_index_0_lang = "";
 function fixLinkTargets(containerEl) {
   var links = containerEl.getElementsByTagName("a");
@@ -23866,7 +23907,7 @@ function fixLinkTargets(containerEl) {
     links[i].target = "_blank";
   }
 }
-const _sfc_main$e = {
+const _sfc_main$f = {
   name: "SxEditorOriginalContent",
   components: { MwExpandableContent },
   props: {
@@ -23897,14 +23938,14 @@ const _sfc_main$e = {
     };
   }
 };
-const _hoisted_1$a = { class: "px-4 pt-3 pb-2 sx-editor__original-content-panel" };
-const _hoisted_2$7 = { class: "sx-editor__original-content-panel__header mb-2" };
-const _hoisted_3$7 = ["lang", "dir", "innerHTML"];
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$b = { class: "px-4 pt-3 pb-2 sx-editor__original-content-panel" };
+const _hoisted_2$8 = { class: "sx-editor__original-content-panel__header mb-2" };
+const _hoisted_3$8 = ["lang", "dir", "innerHTML"];
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_expandable_content = resolveComponent("mw-expandable-content");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$a, [
-    withDirectives(createBaseVNode("h5", _hoisted_2$7, null, 512), [
+  return openBlock(), createElementBlock("section", _hoisted_1$b, [
+    withDirectives(createBaseVNode("h5", _hoisted_2$8, null, 512), [
       [_directive_i18n, void 0, "cx-sx-editor-original-panel-label"]
     ]),
     createVNode(_component_mw_expandable_content, {
@@ -23918,16 +23959,16 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
           lang: $props.language,
           dir: $props.dir,
           innerHTML: $props.originalContent
-        }, null, 8, _hoisted_3$7)
+        }, null, 8, _hoisted_3$8)
       ], void 0),
       _: 1
     }, 8, ["min-height"])
   ]);
 }
-var SxEditorOriginalContent = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
+var SxEditorOriginalContent = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
 var happyRobotSVG = '<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>happy-robot</title>\n    <g id="happy-robot" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="Group">\n            <circle id="Oval" fill="#EAF3FF" cx="68" cy="68" r="68"></circle>\n            <path d="M70,40.99684 L96.02,40.99684 C100.428,40.99684 104,44.58084 104,48.98484 L104,82.99684 L74,82.99684 L74,92.99684 L96.02,92.99684 C100.428,92.99684 104,96.54884 104,100.99684 L104,108.99684 L32,108.99684 L32,100.99684 C32,96.57684 35.572,92.99684 39.98,92.99684 L62,92.99684 L62,82.99684 L32,82.99684 L32,48.98484 C32,44.57284 35.572,40.99684 39.98,40.99684 L66,40.99684 L66,32.65684 C63.244908,31.68276 61.59226,28.86552 62.086412,25.98536 C62.580564,23.10524 65.077784,21 68,21 C70.9222,21 73.41944,23.10524 73.9136,25.98536 C74.40776,28.86552 72.75508,31.68276 70,32.65684 L70,40.99684 Z M62,73 C62,76.3137085 64.6862915,79 68,79 C71.3137085,79 74,76.3137085 74,73 M54,64.99684 C57.313708,64.99684 60,62.310548 60,58.99684 C60,55.68312 57.313708,52.99684 54,52.99684 C50.686292,52.99684 48,55.68312 48,58.99684 C48,62.310548 50.686292,64.99684 54,64.99684 Z M82,64.99684 C85.31372,64.99684 88,62.310548 88,58.99684 C88,55.68312 85.31372,52.99684 82,52.99684 C78.68628,52.99684 76,55.68312 76,58.99684 C76,62.310548 78.68628,64.99684 82,64.99684 Z" id="Mask" fill="#3366CC"></path>\n        </g>\n    </g>\n</svg>\n';
 var EditCompleteFeedback_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$d = {
+const _sfc_main$e = {
   name: "EditCompleteFeedback",
   props: {
     showFeedback: {
@@ -23959,24 +24000,24 @@ const _sfc_main$d = {
     };
   }
 };
-const _hoisted_1$9 = {
+const _hoisted_1$a = {
   key: 0,
   class: "sx-editor__feedback-overlay fill-height"
 };
-const _hoisted_2$6 = { class: "sx-editor__feedback-overlay-content px-4" };
-const _hoisted_3$6 = ["innerHTML"];
-const _hoisted_4$4 = { class: "sx-editor__feedback-overlay-content__title" };
+const _hoisted_2$7 = { class: "sx-editor__feedback-overlay-content px-4" };
+const _hoisted_3$7 = ["innerHTML"];
+const _hoisted_4$5 = { class: "sx-editor__feedback-overlay-content__title" };
 const _hoisted_5$2 = { class: "sx-editor__feedback-overlay-content__clarification mb-1" };
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_i18n = resolveDirective("i18n");
   const _directive_i18n_html = resolveDirective("i18n-html");
-  return $props.showFeedback ? (openBlock(), createElementBlock("div", _hoisted_1$9, [
-    createBaseVNode("div", _hoisted_2$6, [
+  return $props.showFeedback ? (openBlock(), createElementBlock("div", _hoisted_1$a, [
+    createBaseVNode("div", _hoisted_2$7, [
       createBaseVNode("div", {
         class: "sx-editor__feedback-overlay-content__happy-robot mb-4",
         innerHTML: $setup.happyRobotSVG
-      }, null, 8, _hoisted_3$6),
-      withDirectives(createBaseVNode("h2", _hoisted_4$4, null, 512), [
+      }, null, 8, _hoisted_3$7),
+      withDirectives(createBaseVNode("h2", _hoisted_4$5, null, 512), [
         [_directive_i18n, void 0, "sx-editor-feedback-overlay-title"]
       ]),
       withDirectives(createBaseVNode("p", _hoisted_5$2, null, 512), [
@@ -23990,9 +24031,9 @@ function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : createCommentVNode("", true);
 }
-var EditCompleteFeedback = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
+var EditCompleteFeedback = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
 var SXEditor_vue_vue_type_style_index_0_lang$1 = "";
-const _sfc_main$c = {
+const _sfc_main$d = {
   name: "SxEditor",
   components: {
     EditCompleteFeedback,
@@ -24047,8 +24088,8 @@ const _sfc_main$c = {
     };
   }
 };
-const _hoisted_1$8 = { class: "sx-editor__editing-surface-container grow" };
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$9 = { class: "sx-editor__editing-surface-container grow" };
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_editor_original_content = resolveComponent("sx-editor-original-content");
   const _component_mw_spinner = resolveComponent("mw-spinner");
   const _component_edit_complete_feedback = resolveComponent("edit-complete-feedback");
@@ -24068,7 +24109,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
         "original-content": $setup.originalContent
       }, null, 8, ["language", "dir", "original-content"])) : createCommentVNode("", true),
       !$setup.editorReady ? (openBlock(), createBlock(_component_mw_spinner, { key: 1 })) : createCommentVNode("", true),
-      createBaseVNode("div", _hoisted_1$8, [
+      createBaseVNode("div", _hoisted_1$9, [
         createVNode(_component_edit_complete_feedback, {
           "edited-translation": $setup.editedTranslation,
           "show-feedback": $setup.showFeedback
@@ -24087,9 +24128,9 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SXEditor$1 = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
+var SXEditor$1 = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
 var SXEditor_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$b = {
+const _sfc_main$c = {
   name: "SxContentComparatorView",
   components: {
     SxEditor: SXEditor$1
@@ -24106,7 +24147,7 @@ const _sfc_main$b = {
     classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
   }
 };
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_editor = resolveComponent("sx-editor");
   return openBlock(), createElementBlock("main", {
     class: normalizeClass(["sx-editor-view", $options.classes])
@@ -24114,9 +24155,9 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_sx_editor, { "from-route": _ctx.fromRoute }, null, 8, ["from-route"])
   ], 2);
 }
-var SXEditor = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
+var SXEditor = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
 var SXPublisherHeader_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$a = {
+const _sfc_main$b = {
   name: "SxPublisherHeader",
   components: { MwCol, MwButton, MwRow },
   props: {
@@ -24136,7 +24177,7 @@ const _sfc_main$a = {
     };
   }
 };
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -24177,12 +24218,12 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SxPublisherHeader = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
+var SxPublisherHeader = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
 var publishingLaunchingSVG = '<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>publishing-launching</title>\n    <defs>\n        <path d="M52.8,74.8 C52.8,79.64 44,83.6 44,83.6 C44,83.6 35.2,79.64 35.2,74.8 L52.8,74.8 Z M44,30.8 C40.3939316,30.707512 37.49251,27.806064 37.4,24.2 C37.4,20.554908 40.3549256,17.6 44,17.6 C47.645092,17.6 50.6,20.554908 50.6,24.2 C50.507468,27.806064 47.606064,30.707512 44,30.8 Z M58.52,51.48 C62.04,34.76 55.88,4.4 44,4.4 C32.12,4.4 25.52,33.88 29.04,50.6 L22,66 L33.88,66 L35.2,70.4 L52.8,70.4 C53.68,69.08 53.24,68.2 54.12,66 L66,66 L58.52,51.48 Z" id="path-1"></path>\n    </defs>\n    <g id="publishing-launching" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="Group" fill="#EAF3FF">\n            <circle id="Oval" cx="68" cy="68" r="68"></circle>\n        </g>\n        <g id="\u{1F523}-Icon/Wikimedia-logos/logoWikimediaDiscovery" transform="translate(24.000000, 24.000000)">\n            <mask id="mask-2" fill="white">\n                <use xlink:href="#path-1"></use>\n            </mask>\n            <use id="Mask-2" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>\n            <g id="\u{1F3A8}-Color/Accent50-#36c" mask="url(#mask-2)" fill="#3366CC" fill-rule="evenodd">\n                <rect id="Rectangle-1" x="0" y="0" width="105.6" height="105.6"></rect>\n            </g>\n        </g>\n    </g>\n</svg>';
 var publishingSuccessSVG = '<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>publishing-success</title>\n    <defs>\n        <polygon id="path-1" points="29.5385666 61.8098361 10.7522184 42.6688525 4.4 49.1409836 29.5385666 74.8 83.6 19.7180328 77.2477816 13.2"></polygon>\n    </defs>\n    <g id="publishing-success" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="Group" fill="#D5FDF4">\n            <circle id="Oval" cx="68" cy="68" r="68"></circle>\n        </g>\n        <g id="\u{1F523}-Icon/Interactions/check" transform="translate(24.000000, 24.000000)">\n            <mask id="mask-2" fill="white">\n                <use xlink:href="#path-1"></use>\n            </mask>\n            <use id="Mask" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>\n            <g id="\u{1F3A8}-Color/Green50-#00af89" mask="url(#mask-2)" fill="#00AF89" fill-rule="evenodd">\n                <rect id="Rectangle-1" x="0" y="0" width="88" height="88"></rect>\n            </g>\n        </g>\n    </g>\n</svg>';
 var publishingFailureSVG = '<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n    <title>publishing-failure</title>\n    <g id="publishing-failure" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n        <g id="Group" fill="#FEE7E6">\n            <circle id="Oval" cx="68" cy="68" r="68"></circle>\n        </g>\n        <path d="M68,24 C43.6994698,24 24,43.6994844 24,68 C24,92.3005302 43.6994747,112 68,112 C92.3005156,112 112,92.3005302 112,68 C112,43.6994844 92.3005156,24 68,24 Z M92.4444444,72.8888889 L43.5555556,72.8888889 L43.5555556,63.1111111 L92.4444444,63.1111111 L92.4444444,72.8888889 Z" id="Mask" fill="#DD3333"></path>\n    </g>\n</svg>';
 var SXPublisherAnimationDialog_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$9 = {
+const _sfc_main$a = {
   name: "SxPublisherAnimationDialog",
   components: { MwDialog, MwRow, MwCol },
   props: {
@@ -24226,10 +24267,10 @@ const _sfc_main$9 = {
     animationSubtitle: (vm) => vm.animations[vm.status].subtitle
   }
 };
-const _hoisted_1$7 = ["innerHTML"];
-const _hoisted_2$5 = ["textContent"];
-const _hoisted_3$5 = ["textContent"];
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$8 = ["innerHTML"];
+const _hoisted_2$6 = ["textContent"];
+const _hoisted_3$6 = ["textContent"];
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
   const _component_mw_dialog = resolveComponent("mw-dialog");
@@ -24247,14 +24288,14 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
               createBaseVNode("div", {
                 class: "sx-publisher__publish-animation-icon mb-4",
                 innerHTML: $options.animationSvg
-              }, null, 8, _hoisted_1$7),
+              }, null, 8, _hoisted_1$8),
               createBaseVNode("h2", {
                 textContent: toDisplayString($options.animationTitle)
-              }, null, 8, _hoisted_2$5),
+              }, null, 8, _hoisted_2$6),
               createBaseVNode("p", {
                 class: "ma-0",
                 textContent: toDisplayString($options.animationSubtitle)
-              }, null, 8, _hoisted_3$5)
+              }, null, 8, _hoisted_3$6)
             ], void 0, true),
             _: 1
           })
@@ -24265,13 +24306,136 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["overlay-opacity"])) : createCommentVNode("", true);
 }
-var SxPublisherAnimationDialog = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
+var SxPublisherAnimationDialog = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
+var SXPublisherCaptchaDialog_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$9 = {
+  name: "SxPublisherCaptchaDialog",
+  components: { MwInput, MwDialog, MwRow, MwCol, MwButton, MwDivider },
+  props: {
+    active: {
+      type: Boolean,
+      required: true
+    },
+    captchaDetails: {
+      type: CaptchaDetails,
+      default: null
+    }
+  },
+  emits: ["close", "publish"],
+  setup(props, { emit }) {
+    const captchaInput = ref("");
+    const close = () => emit("close");
+    const publish = () => emit("publish", captchaInput.value);
+    const breakpoints2 = inject("breakpoints");
+    const fullscreen = computed(() => breakpoints2.value.smAndDown);
+    return {
+      captchaInput,
+      close,
+      fullscreen,
+      mwIconCheck,
+      mwIconClose,
+      publish
+    };
+  }
+};
+const _hoisted_1$7 = { class: "sx-publisher__captcha-dialog__content pt-4 px-6 pb-6" };
+const _hoisted_2$5 = ["src"];
+const _hoisted_3$5 = ["textContent"];
+const _hoisted_4$4 = /* @__PURE__ */ createBaseVNode("p", { class: "mt-0" }, null, -1);
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_mw_button = resolveComponent("mw-button");
+  const _component_mw_col = resolveComponent("mw-col");
+  const _component_mw_row = resolveComponent("mw-row");
+  const _component_mw_divider = resolveComponent("mw-divider");
+  const _component_mw_input = resolveComponent("mw-input");
+  const _component_mw_dialog = resolveComponent("mw-dialog");
+  const _directive_i18n = resolveDirective("i18n");
+  return $props.active && $props.captchaDetails ? (openBlock(), createBlock(_component_mw_dialog, {
+    key: 0,
+    "overlay-opacity": 0.65,
+    fullscreen: $setup.fullscreen,
+    class: "sx-publisher__captcha-dialog"
+  }, {
+    header: withCtx(() => [
+      createVNode(_component_mw_row, {
+        class: "mw-ui-dialog__header ma-0",
+        align: "stretch"
+      }, {
+        default: withCtx(() => [
+          createVNode(_component_mw_col, { shrink: "" }, {
+            default: withCtx(() => [
+              createVNode(_component_mw_button, {
+                class: "py-4 ps-6 pe-4",
+                type: "icon",
+                icon: $setup.mwIconClose,
+                onClick: $setup.close
+              }, null, 8, ["icon", "onClick"])
+            ], void 0, true),
+            _: 1
+          }),
+          withDirectives(createVNode(_component_mw_col, {
+            grow: "",
+            class: "sx-publisher__captcha-dialog__header-title items-center justify-start"
+          }, null, 512), [
+            [_directive_i18n, void 0, "cx-sx-publisher-captcha-dialog-header-title"]
+          ]),
+          createVNode(_component_mw_col, {
+            shrink: "",
+            class: "justify-center"
+          }, {
+            default: withCtx(() => [
+              withDirectives(createVNode(_component_mw_button, {
+                progressive: "",
+                onClick: $setup.publish
+              }, null, 8, ["onClick"]), [
+                [_directive_i18n, void 0, "cx-sx-publisher-captcha-dialog-publish-button"]
+              ])
+            ], void 0, true),
+            _: 1
+          })
+        ], void 0, true),
+        _: 1
+      }),
+      createVNode(_component_mw_divider)
+    ]),
+    default: withCtx(() => [
+      createBaseVNode("div", _hoisted_1$7, [
+        $props.captchaDetails.type === "image" ? (openBlock(), createElementBlock("img", {
+          key: 0,
+          class: "sx-publisher__captcha-dialog__puzzle-image",
+          src: $props.captchaDetails.url
+        }, null, 8, _hoisted_2$5)) : (openBlock(), createElementBlock("p", {
+          key: 1,
+          textContent: toDisplayString($props.captchaDetails.question)
+        }, null, 8, _hoisted_3$5)),
+        _hoisted_4$4,
+        createVNode(_component_mw_row, { class: "ma-0" }, {
+          default: withCtx(() => [
+            createVNode(_component_mw_col, null, {
+              default: withCtx(() => [
+                createVNode(_component_mw_input, {
+                  value: $setup.captchaInput,
+                  "onUpdate:value": _cache[0] || (_cache[0] = ($event) => $setup.captchaInput = $event),
+                  class: "pa-1"
+                }, null, 8, ["value"])
+              ], void 0, true),
+              _: 1
+            })
+          ], void 0, true),
+          _: 1
+        })
+      ])
+    ], void 0),
+    _: 1
+  }, 8, ["overlay-opacity", "fullscreen"])) : createCommentVNode("", true);
+}
+var SxPublisherCaptchaDialog = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
 var SXPublishOptionSelector_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$8 = {
   name: "SxPublishOptionSelector",
   components: {
     MwButton,
-    MwRadioGroup: _sfc_main$$,
+    MwRadioGroup: _sfc_main$10,
     MwRadio,
     MwDivider,
     MwDialog
@@ -24566,12 +24730,12 @@ const decodeHtml = (html) => {
   return template.innerText;
 };
 const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled) => __async(this, null, function* () {
-  const { currentSectionSuggestion: suggestion, currentSourceSection } = useApplicationState(store2);
-  const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
   if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
     return;
   }
+  const { currentSectionSuggestion: suggestion, currentSourceSection } = useApplicationState(store2);
+  const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
   const isSandboxTarget = store2.getters["application/isSandboxTarget"];
   if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
     try {
@@ -24593,25 +24757,41 @@ const usePublishTranslation = (store2) => {
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
   const publishOptionsOn = ref(false);
+  const captchaDialogOn = ref(false);
+  const captchaDetails = ref(null);
   const publishFeedbackMessages = ref([]);
   const isPublishingDisabled = computed(() => publishFeedbackMessages.value.some((message) => message.isError));
-  const doPublish = () => __async(this, null, function* () {
+  const doPublish = (captchaAnswer = null) => __async(this, null, function* () {
+    var _a;
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
-    const publishMessage = yield store2.dispatch("translator/publishTranslation");
-    if (!!publishMessage) {
+    const publishMessage = yield store2.dispatch("translator/publishTranslation", { captchaId: (_a = captchaDetails.value) == null ? void 0 : _a.id, captchaAnswer });
+    if (!!publishMessage && publishMessage.type === "captcha") {
+      captchaDetails.value = publishMessage.details;
+      isPublishDialogActive.value = false;
+      captchaDialogOn.value = true;
+      return;
+    } else if (!!publishMessage) {
       publishFeedbackMessages.value.push(publishMessage);
       publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
     }
+    captchaDetails.value = null;
     publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
     setTimeout(() => handlePublishResult(store2, isPublishDialogActive, isPublishingDisabled), 1e3);
   });
+  const onCaptchaDialogClose = () => {
+    captchaDialogOn.value = false;
+    captchaDetails.value = null;
+  };
   const configureTranslationOptions = () => publishOptionsOn.value = true;
   return {
+    captchaDetails,
+    captchaDialogOn,
     configureTranslationOptions,
     doPublish,
     isPublishDialogActive,
     isPublishingDisabled,
+    onCaptchaDialogClose,
     publishOptionsOn,
     publishFeedbackMessages,
     publishStatus
@@ -24642,6 +24822,7 @@ const _sfc_main$6 = {
     SxPublisherReviewInfo,
     SxPublishOptionSelector,
     SxPublisherAnimationDialog,
+    SxPublisherCaptchaDialog,
     MwButton,
     SxPublisherHeader,
     MwRow,
@@ -24666,10 +24847,13 @@ const _sfc_main$6 = {
       }
     });
     const {
+      captchaDetails,
+      captchaDialogOn,
       configureTranslationOptions,
       doPublish,
       isPublishDialogActive,
       isPublishingDisabled,
+      onCaptchaDialogClose,
       publishOptionsOn,
       publishFeedbackMessages,
       publishStatus
@@ -24682,6 +24866,8 @@ const _sfc_main$6 = {
     }));
     const { editTranslation } = useEditTranslation(store2, useRouter());
     return {
+      captchaDetails,
+      captchaDialogOn,
       configureTranslationOptions,
       currentPageSection,
       doPublish,
@@ -24690,6 +24876,7 @@ const _sfc_main$6 = {
       isPublishingDisabled,
       mwIconEdit,
       mwIconSettings,
+      onCaptchaDialogClose,
       panelResult,
       publishFeedbackMessages,
       publishOptionsOn,
@@ -24711,6 +24898,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_row = resolveComponent("mw-row");
   const _component_sx_publisher_review_info = resolveComponent("sx-publisher-review-info");
   const _component_sx_publish_option_selector = resolveComponent("sx-publish-option-selector");
+  const _component_sx_publisher_captcha_dialog = resolveComponent("sx-publisher-captcha-dialog");
   const _component_sx_publisher_animation_dialog = resolveComponent("sx-publisher-animation-dialog");
   const _directive_i18n = resolveDirective("i18n");
   return openBlock(), createElementBlock("section", _hoisted_1$4, [
@@ -24777,6 +24965,12 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
       active: $setup.publishOptionsOn,
       "onUpdate:active": _cache[0] || (_cache[0] = ($event) => $setup.publishOptionsOn = $event)
     }, null, 8, ["active"]),
+    createVNode(_component_sx_publisher_captcha_dialog, {
+      active: $setup.captchaDialogOn,
+      "captcha-details": $setup.captchaDetails,
+      onClose: $setup.onCaptchaDialogClose,
+      onPublish: _cache[1] || (_cache[1] = ($event) => $setup.doPublish($event))
+    }, null, 8, ["active", "captcha-details", "onClose"]),
     createVNode(_component_sx_publisher_animation_dialog, {
       active: $setup.isPublishDialogActive,
       status: $setup.publishStatus
