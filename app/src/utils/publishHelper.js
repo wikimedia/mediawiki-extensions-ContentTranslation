@@ -3,28 +3,23 @@
  */
 
 /**
- * Here we need to construct the HTML that
- * combines new section header and contents
- * with the first appendix section header and
- * contents
+ * Given a PageSection model, this method returns an HTML string
+ * that contains the page section header and its contents
  *
- * @param {PageSection} newSection
- * @param {PageSection} existingSection
+ * @param {PageSection} section
  * @return {string}
  */
-const prependNewSectionToAppendixSection = (newSection, existingSection) => {
+const prependHeaderToSection = (section) => {
   const createHeader = (title) => {
     const headerElement = document.createElement("h2");
     headerElement.textContent = title;
 
     return headerElement;
   };
-  const newSectionHeader = createHeader(newSection.title);
-  const existingSectionHeader = createHeader(existingSection.originalTitle);
-  const newSectionHtml = cleanupHtml(newSection.translationHtml);
-  const existingSectionHtml = cleanupHtml(existingSection.html);
+  const newSectionHeader = createHeader(section.title);
+  const newSectionHtml = cleanupHtml(section.translationHtml);
 
-  return `${newSectionHeader.outerHTML}\n${newSectionHtml}\n${existingSectionHeader.outerHTML}\n${existingSectionHtml}`;
+  return `${newSectionHeader.outerHTML}\n${newSectionHtml}`;
 };
 
 /**
@@ -115,8 +110,4 @@ const getTitleForPublishOption = (originalTitle, publishOption) => {
   );
 };
 
-export {
-  cleanupHtml,
-  getTitleForPublishOption,
-  prependNewSectionToAppendixSection,
-};
+export { cleanupHtml, getTitleForPublishOption, prependHeaderToSection };

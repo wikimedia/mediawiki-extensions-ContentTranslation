@@ -16,6 +16,7 @@ use ApiBase;
 use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SectionContentFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -41,6 +42,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var RestbaseClient */
 	protected $restbaseClient;
 
+	/** @var SectionContentFetcher */
+	protected $sectionContentFetcher;
+
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
@@ -48,6 +52,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param HookContainer $hookContainer
 	 * @param LanguageNameUtils $languageNameUtils
 	 * @param RestbaseClient $restbaseClient
+	 * @param SectionContentFetcher $sectionContentFetcher
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -55,13 +60,15 @@ class ApiSectionTranslationPublish extends ApiBase {
 		TitleFactory $titleFactory,
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
-		RestbaseClient $restbaseClient
+		RestbaseClient $restbaseClient,
+		SectionContentFetcher $sectionContentFetcher
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
 		$this->hookContainer = $hookContainer;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->restbaseClient = $restbaseClient;
+		$this->sectionContentFetcher = $sectionContentFetcher;
 	}
 
 	/**
@@ -131,7 +138,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$this->getAllowedParams(),
 			$this->getMain()->getAllowedParams()
 		);
-		$api = new \ApiMain(
+		$api = new ApiMain(
 			new \DerivativeRequest(
 				$this->getRequest(),
 				$apiParams + $allowedParams,
@@ -183,7 +190,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		'@phan-var \Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $this->getUser() );
 
-		$editResult = $this->saveWikitext( $params['html'], $targetTitle );
+		$sectionNumber = $params['sectionnumber'];
+		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $targetLanguage, $sectionNumber );
 		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -227,10 +235,26 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 *
 	 * @param string $html
 	 * @param Title $targetTitle
+	 * @param string $targetLanguage
+	 * @param int|string $sectionNumber
 	 * @return mixed
 	 * @throws \ApiUsageException
 	 */
-	private function saveWikitext( string $html, Title $targetTitle ) {
+	private function saveWikitext( string $html, Title $targetTitle, string $targetLanguage, $sectionNumber ) {
+		// section number is not "0" or "new". That means the section needs to be positioned before the first
+		// appendix section, which is positioned in {$sectionNumber} position
+		if ( (int)$sectionNumber > 0 ) {
+			$appendixSectionHtml = $this->sectionContentFetcher->getSectionHtml(
+				$targetTitle,
+				$targetLanguage,
+				$sectionNumber
+			);
+
+			if ( $appendixSectionHtml ) {
+				$html .= "\n$appendixSectionHtml";
+			}
+		}
+
 		$wikitext = null;
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(

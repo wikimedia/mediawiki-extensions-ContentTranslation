@@ -1,8 +1,4 @@
-import {
-  cleanupHtml,
-  getTitleForPublishOption,
-  prependNewSectionToAppendixSection,
-} from "../../../utils/publishHelper";
+import { getTitleForPublishOption } from "../../../utils/publishHelper";
 
 export default {
   /**
@@ -82,72 +78,6 @@ export default {
     // published as a "new" section
     return "new";
   },
-
-  /**
-   * This getter returns the appropriate HTML to be published inside
-   * target page for this new section.
-   *
-   * 1. If publish target is sandbox (i.e. section should be published to
-   *    user's sandbox), then:
-   *    html equals the new section clean contents
-   * 2. If section is a lead section, then:
-   *    html equals the new section clean contents
-   * 3. If section is present inside target article, then:
-   *    html equals the new section clean contents
-   * 4. If section is missing, then
-   *    a. If at least one appendix section exists then:
-   *       Since Action API doesn't support publishing section to
-   *       the desired position out of the box, if the section is to
-   *       be published before appendix sections, we have to replace
-   *       first appendix section contents with a new HTML string
-   *       containing both new section contents and appendix section
-   *       contents. Therefore, the HTML string should equal the
-   *       concatenation of the new section clean contents with appendix
-   *       section clean contents
-   *    b. If not, it's equal to the new section clean contents.
-   *
-   * @param {object} state
-   * @param {object} getters
-   * @param {object} rootState
-   * @param {object} rootGetters
-   * @return {String} - HTML to be published
-   */
-  getCleanHTMLForPublishing: (state, getters, rootState, rootGetters) => {
-    const { currentSectionSuggestion, currentSourceSection } =
-      rootState.application;
-
-    const isPresentSection =
-      !!currentSectionSuggestion.presentSections[
-        currentSourceSection.originalTitle
-      ];
-
-    const firstAppendixTargetTitle = rootGetters[
-      "suggestions/getFirstAppendixTitleBySectionSuggestion"
-    ](currentSectionSuggestion);
-
-    // if section should be published to sandbox or section is lead section
-    // or section is present or NO appendix section exists
-    if (
-      rootGetters["application/isSandboxTarget"] ||
-      currentSourceSection.isLeadSection ||
-      isPresentSection ||
-      !firstAppendixTargetTitle
-    ) {
-      return cleanupHtml(currentSourceSection.translationHtml);
-    }
-
-    const targetPage = rootGetters["application/getCurrentTargetPage"];
-    // if section is missing and appendix sections DO exist
-    const appendixSection = targetPage.sections.find(
-      (section) => section.originalTitle === firstAppendixTargetTitle
-    );
-
-    return prependNewSectionToAppendixSection(
-      currentSourceSection,
-      appendixSection
-    );
-  },
-
   /**
    * @param {Object} state
    * @return {function(string, string): Translation[]}

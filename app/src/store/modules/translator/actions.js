@@ -2,6 +2,7 @@ import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
+import { prependHeaderToSection } from "../../../utils/publishHelper";
 
 /**
  * This action initially clears all existing MT publish feedback
@@ -132,7 +133,7 @@ async function publishTranslation(
   }
 
   const publishPayload = {
-    html: getters.getCleanHTMLForPublishing,
+    html: prependHeaderToSection(currentSourceSection),
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
     sourceSectionTitle: currentSourceSection.originalTitle,

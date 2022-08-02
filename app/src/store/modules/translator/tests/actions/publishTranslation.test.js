@@ -1,6 +1,7 @@
 import actions from "../../actions";
 import PageSection from "@/wiki/cx/models/pageSection";
 import SubSection from "@/wiki/cx/models/subSection";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
@@ -34,12 +35,29 @@ jest.mock("@/wiki/cx/api/translator", () => ({
 }));
 
 describe("vuex store publishTranslation action", () => {
+  const subSectionNode = document.createElement("section");
+  subSectionNode.setAttribute("id", "cxSourceSection1");
+  const sectionSentenceNode = document.createElement("span");
+  sectionSentenceNode.className = "cx-segment";
+  sectionSentenceNode.innerHTML = "Target original sentence 1";
+  subSectionNode.append(sectionSentenceNode);
+
+  const sectionSentence = new SectionSentence({
+    node: sectionSentenceNode,
+    originalContent: "Target original sentence 1",
+    translatedContent: "Target translated sentence 1",
+  });
+  sectionSentence.mtProviderUsed = "empty";
+
   const applicationState = {
     sourceLanguage: "en",
     targetLanguage: "es",
     currentSourceSection: new PageSection({
       id: 1,
       title: "Test section title 1",
+      subSections: [
+        new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
+      ],
     }),
     currentSectionSuggestion: new SectionSuggestion({
       sourceTitle: "Test source title 1",
@@ -58,7 +76,6 @@ describe("vuex store publishTranslation action", () => {
   const getters = {
     getArticleTitleForPublishing: "Test target article title 1",
     getSectionNumberForPublishing: 1,
-    getCleanHTMLForPublishing: "<div>Test 1</div>",
   };
 
   it("should call api saveTranslation method with the proper payload", async () => {
@@ -77,7 +94,22 @@ describe("vuex store publishTranslation action", () => {
       targetLanguage: "es",
       revision: 11,
       sectionId: "11_1",
-      units: [],
+      units: [
+        {
+          content:
+            '<section id="cxSourceSection1"><span class="cx-segment">Target original sentence 1</span></section>',
+          origin: "source",
+          sectionId: "11_1_1",
+          validate: false,
+        },
+        {
+          content:
+            '<section id="cxSourceSection1"><span class="cx-segment">Target translated sentence 1</span></section>',
+          origin: "user",
+          sectionId: "11_1_1",
+          validate: false,
+        },
+      ],
       sectionNumber: 1,
     });
   });
@@ -90,7 +122,7 @@ describe("vuex store publishTranslation action", () => {
     });
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
-      html: "<div>Test 1</div>",
+      html: '<h2>Test target section title 1</h2>\n<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
       sourceSectionTitle: "Test section title 1",
@@ -182,17 +214,7 @@ describe("vuex store publishTranslation action", () => {
       rootGetters,
       getters,
     });
-    expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
-      html: "<div>Test 1</div>",
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-      sourceSectionTitle: "Test section title 1",
-      targetSectionTitle: "Test target section title 1",
-      sourceLanguage: "en",
-      targetLanguage: "es",
-      revision: 11,
-      sectionNumber: 2,
-    });
+    expect(cxTranslatorApi.publishTranslation).toHaveReturnedWith(mockMessage);
     expect(feedbackMessage).toStrictEqual(mockMessage);
   });
 
@@ -203,18 +225,9 @@ describe("vuex store publishTranslation action", () => {
       rootGetters,
       getters,
     });
-    expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-      sourceSectionTitle: "Test section title 1",
-      targetSectionTitle: "Test target section title 1",
-      sourceLanguage: "en",
-      targetLanguage: "es",
-      revision: 11,
-      sectionId: "11_1",
-      units: [],
-      sectionNumber: 3,
-    });
+    expect(cxTranslatorApi.saveTranslation).toHaveReturnedWith(
+      mockMessageForSaving
+    );
     expect(feedbackMessage).toStrictEqual(mockMessageForSaving);
   });
 

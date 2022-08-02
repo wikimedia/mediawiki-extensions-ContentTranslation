@@ -119,7 +119,8 @@
 				"TitleFactory",
 				"HookContainer",
 				"LanguageNameUtils",
-				"ContentTranslation.RestbaseClient"
+				"ContentTranslation.RestbaseClient",
+				"ContentTranslation.SectionContentFetcher"
 			]
 		},
 		"cxsave": {
