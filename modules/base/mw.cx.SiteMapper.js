@@ -111,7 +111,7 @@ mw.cx.SiteMapper.prototype.isMobileDomain = function () {
 /**
  * Get a URL to an article in a wiki for a given language.
  *
- * @param {string} language Language code
+ * @param {string} [language] Language code
  * @param {string} title Page title
  * @param {Object} [params] Query parameters
  * @return {string}
