@@ -16,7 +16,8 @@
 			"ZI Jony",
 			"আফতাবুজ্জামান",
 			"Yahya",
-			"খাত্তাব হাসান"
+			"খাত্তাব হাসান",
+			"আজিজ"
 		]
 	},
 	"cx": "পাতা অনুবাদ করুন",
@@ -389,6 +390,7 @@
 	"cx-sx-article-search-no-search-results-message": "$2 ভাষায় \"$1\"-এর জন্য কোন পাতা পাওয়া যায়নি",
 	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "$1 সম্প্রসারণ করুন বা বিদ্যমান অনুচ্ছেদগুলি যাচাই করুন",
 	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "$1 অনুচ্ছেদ যোগ করে সম্প্রসারণ করুন",
+	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "কোনও অনুচ্ছেদ অনুপস্থিত নেই। বিদ্যমানগুলি পরীক্ষা করুন।",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "অনুবাদ করার জন্য কোনও অনুচ্ছেদ উপলব্ধ নেই। বিদ্যমান পাতাটি প্রতিস্থাপন করতে একটি নতুন অনুবাদ শুরু করুন।",
 	"cx-sx-translation-confirmer-action-view-section": "অনুবাদ করতে অনুচ্ছেদ দেখুন",
 	"cx-sx-translation-confirmer-action-new-translation": "নতুন অনুবাদ",
