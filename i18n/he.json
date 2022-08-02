@@ -433,5 +433,7 @@
 	"cx-uls-relevant-languages-panel-header": "תרגום הדף הזה",
 	"cx-uls-relevant-languages-panel-message": "הדף הזה חסר בכמה שפות {{GENDER:|שאתה אולי יודע. אתה יכול|שאת אולי יודעת. את יכולה}} לתרגם אותו בכמה דקות!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "זה יהיה <strong>הפרק הראשון בערך החדש!</strong>",
-	"cx-uls-translate-page-quick-action-label": "תרגום הערך הזה"
+	"cx-uls-translate-page-quick-action-label": "תרגום הערך הזה",
+	"cx-sx-publisher-captcha-dialog-header-title": "בדיקה שאינך רובוט",
+	"cx-sx-publisher-captcha-dialog-publish-button": "פרסום"
 }

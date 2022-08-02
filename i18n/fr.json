@@ -467,5 +467,7 @@
 	"cx-uls-relevant-languages-panel-header": "Traduire cette page",
 	"cx-uls-relevant-languages-panel-message": "Cette page est manquante dans certaines langues que vous connaissez. Vous pouvez la traduire en quelques minutes !",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Ceci sera <strong>la première section dans le nouvel article !</strong>",
-	"cx-uls-translate-page-quick-action-label": "Traduire cette page"
+	"cx-uls-translate-page-quick-action-label": "Traduire cette page",
+	"cx-sx-publisher-captcha-dialog-header-title": "Vérification que vous n’êtes pas un robot",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publier"
 }

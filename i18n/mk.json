@@ -422,5 +422,7 @@
 	"cx-uls-relevant-languages-panel-header": "Преведете ја страницава",
 	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Ова ќе биде <strong>првиот дел на новата статија!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Преведете ја страницава"
+	"cx-uls-translate-page-quick-action-label": "Преведете ја страницава",
+	"cx-sx-publisher-captcha-dialog-header-title": "Проверете дали не сте робот",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Објави"
 }

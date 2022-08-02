@@ -263,6 +263,7 @@
 	"sx-recent-translation-entrypoint-banner-header": "यो पृष्ठ हालै अनुवाद गरिएको छ।",
 	"sx-recent-translation-entrypoint-banner-details": "सामग्री सुधार गर्न मद्दत गर्नुहोस्",
 	"sx-recent-translation-entrypoint-dialog-header": "अनुवाद सुधार गर्नुहोस्",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "सामग्रीहरू हेर्नुहोस्",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "नयाँ खण्ड थप्नुहोस्",
 	"sx-recent-translation-entrypoint-dialog-review-lead-text": "अनुवादहरू अन्य भाषाका सम्पादकहरूले पुनः प्रयोग गर्छन्। तथापि, अनुवादमा केही पक्षहरू हराउन सक्छन्। तपाईँ मद्दत गर्न सक्नुहुन्छ:",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "सामग्रीलाई प्राकृतिक बनाउनुहोस्",
@@ -275,5 +276,6 @@
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "मौलिक पृष्ठलाई $1मा खोल्नुहोस्",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "तपाईँलाई थाहा भएको अन्य भाषामा उपलब्ध खण्डहरू अनुवाद गरेर यो पृष्ठ विस्तार गर्नुहोस्।",
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "नयाँ खण्ड अनुवाद गर्नुहोस्",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "$1, $2 र अन्य अनुवाद गर्नुहोस्"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "$1, $2 र अन्य अनुवाद गर्नुहोस्",
+	"cx-sx-publisher-captcha-dialog-publish-button": "प्रकाशन गर्नुहोस्"
 }

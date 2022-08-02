@@ -25,6 +25,7 @@
 			"LNDDYL",
 			"Laisc7301",
 			"Lantx",
+			"Lanyun1103",
 			"Liuxinyu970226",
 			"Liye",
 			"Phenolla",
@@ -424,5 +425,7 @@
 	"sx-block-template-adaptation-card-body-header-success": "推荐的模版",
 	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
 	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用",
-	"cx-uls-relevant-languages-panel-header": "翻译此页面"
+	"cx-uls-relevant-languages-panel-header": "翻译此页面",
+	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
+	"cx-sx-publisher-captcha-dialog-publish-button": "发布"
 }

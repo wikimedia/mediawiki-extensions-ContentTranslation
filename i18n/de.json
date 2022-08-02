@@ -434,5 +434,7 @@
 	"cx-uls-relevant-languages-panel-header": "Diese Seite übersetzen",
 	"cx-uls-relevant-languages-panel-message": "Diese Seite fehlt in einigen Sprachen, die du vielleicht kennst. Du kannst sie in wenigen Minuten übersetzen!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Dies wird <strong>der erste Abschnitt in dem neuen Artikel sein!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Diese Seite übersetzen"
+	"cx-uls-translate-page-quick-action-label": "Diese Seite übersetzen",
+	"cx-sx-publisher-captcha-dialog-header-title": "Überprüfung, dass du kein Roboter bist.",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Veröffentlichen"
 }

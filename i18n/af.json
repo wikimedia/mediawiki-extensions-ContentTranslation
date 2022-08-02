@@ -7,6 +7,7 @@
 			"Oesjaar",
 			"Prevodim",
 			"Purodha",
+			"Rooiratel",
 			"Slashme",
 			"Winstonza"
 		]
@@ -166,5 +167,11 @@
 	"cx-publish-destination-tooltip": "Kies die naamruimte waarin die bladsy gepubliseer gaan word",
 	"cx-publish-destination-namespace-main": "Nuwe bladsy",
 	"cx-publish-destination-namespace-user": "Persoonlike konsep",
-	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep"
+	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep",
+	"cx-sx-section-selector-missing-sections-title": "Afdelings ontbreek in $1",
+	"sx-recent-translation-entrypoint-banner-details": "Help om die inhoud te verbeter",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ontbreek in <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
+	"cx-uls-relevant-languages-panel-message": "Hierdie bladsy ontbreek in sommige tale wat jy dalk ken. Jy kan dit in minute vertaal!"
 }

@@ -393,5 +393,7 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>版と<span>$2</span>版はその他は未訳です",
 	"cx-uls-relevant-languages-panel-header": "このページを翻訳",
 	"cx-uls-relevant-languages-panel-message": "このページは、皆さんが知っている言語にはまだ翻訳されていないかもしれません。ほんの数分ですので、翻訳してください。",
-	"cx-uls-translate-page-quick-action-label": "このページを翻訳"
+	"cx-uls-translate-page-quick-action-label": "このページを翻訳",
+	"cx-sx-publisher-captcha-dialog-header-title": "ロボットではないか確認中",
+	"cx-sx-publisher-captcha-dialog-publish-button": "公開"
 }

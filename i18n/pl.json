@@ -399,5 +399,7 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Nie istnieje w <span>$1</span>, <span>$2</span> i innych",
 	"cx-uls-relevant-languages-panel-header": "Przetłumacz tę stronę",
 	"cx-uls-relevant-languages-panel-message": "Tej strony nie napisano jeszcze w językach, które znasz. Możesz pomóc, tłumacząc w kilka minut!",
-	"cx-uls-translate-page-quick-action-label": "Przetłumacz tę stronę"
+	"cx-uls-translate-page-quick-action-label": "Przetłumacz tę stronę",
+	"cx-sx-publisher-captcha-dialog-header-title": "Sprawdzenie, czy nie jesteś robotem",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Opublikuj"
 }
