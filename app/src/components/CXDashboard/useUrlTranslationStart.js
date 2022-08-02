@@ -9,6 +9,7 @@ const getEventSourceFromUrlCampaign = () => {
     mfrecenttranslation: "recent_translation",
     mfrecentedit: "recent_edit",
     mffrequentlanguages: "frequent_languages",
+    newbytranslationmobile: "creation_invite",
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
