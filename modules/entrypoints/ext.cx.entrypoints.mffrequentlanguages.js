@@ -76,7 +76,7 @@
 			null,
 			siteMapper.getCurrentWikiLanguageCode(),
 			sxMissingFrequentLanguages[ 0 ].lang,
-			{ campaign: 'mfmissinglanguages', sx: true }
+			{ campaign: 'mffrequentlanguages', sx: true }
 		);
 
 		missingLanguagesPanelContainer.appendChild( missingLanguagesPanel );
