@@ -14,7 +14,10 @@
         @target-language-selected="updateTargetLanguage"
       />
     </mw-card>
-    <mw-card class="pa-0 mb-0">
+    <mw-card
+      ref="pageSuggestionsList"
+      class="cx-translation-list--page-suggestions pa-0 mb-0"
+    >
       <h5
         v-i18n:cx-suggestion-list-new-pages-division
         class="cx-translation-list__division-title ma-0 pa-4"
@@ -53,7 +56,7 @@
         :label="$i18n('cx-suggestionlist-refresh')"
         :outlined="false"
         :icon="mwIconRefresh"
-        @click="onSuggestionRefresh"
+        @click="refreshSuggestions"
       />
     </div>
   </div>
@@ -69,6 +72,7 @@ import useSuggestions from "./useSuggestions";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { ref } from "vue";
 
 export default {
   name: "CxSuggestionList",
@@ -124,6 +128,13 @@ export default {
       showRefreshButton,
     } = useSuggestions();
 
+    const pageSuggestionsList = ref(null);
+
+    const refreshSuggestions = () => {
+      onSuggestionRefresh();
+      pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
+    };
+
     /**
      * @param {SectionSuggestion} suggestion
      */
@@ -146,8 +157,9 @@ export default {
       markFavoritePageSuggestion,
       markFavoriteSectionSuggestion,
       unmarkFavoriteSectionSuggestion,
-      onSuggestionRefresh,
       pageSuggestionsLoading,
+      pageSuggestionsList,
+      refreshSuggestions,
       sectionSuggestionsLoading,
       showRefreshButton,
       startTranslation,
