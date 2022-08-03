@@ -193,5 +193,6 @@
 	"sx-translation-list-language-selector-dialog-title": "Լեզուներ",
 	"cx-sx-article-search-header": "Նոր թարգմանություն",
 	"cx-sx-translation-confirmer-action-new-translation": "Նոր թարգմանություն",
-	"cx-uls-relevant-languages-panel-header": "Թարգմանեք այս էջը"
+	"cx-uls-relevant-languages-panel-header": "Թարգմանեք այս էջը",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Հրապարակել"
 }

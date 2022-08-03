@@ -319,5 +319,6 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Mancante in <span>$1</span> e altri",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri",
 	"cx-uls-relevant-languages-panel-header": "Traduci questa pagina",
-	"cx-uls-translate-page-quick-action-label": "Traduci questa pagina"
+	"cx-uls-translate-page-quick-action-label": "Traduci questa pagina",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Pubblica"
 }

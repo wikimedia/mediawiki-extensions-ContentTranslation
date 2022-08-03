@@ -1,17 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Bfpage",
 			"Tisave"
 		]
 	},
 	"cx-dashboard-header": "Tradiksyon",
-	"cx-dashboard-sidebar-title": "{{GENDER:|Bezwen}} ede ak tradiksyon?",
-	"cx-dashboard-sidebar-information": "Konnen plis sou karakteristik sa a",
+	"cx-dashboard-sidebar-title": "Ou {{GENDER:|bezwen}} èd ak tradiksyon ?",
+	"cx-dashboard-sidebar-information": "Plis sou zouti sa a",
 	"cx-dashboard-sidebar-feedback": "Ban nou fidbak",
 	"cx-translation-filter-published-translations": "Pibliye",
 	"cx-translation-filter-draft-translations": "In progress",
-	"cx-create-new-translation": "Kòmanse yon nouvo tradiksyon",
+	"cx-create-new-translation": "Nouvo tradiksyon",
 	"cx-stats-local-published-number": "$1 nan $2",
 	"cx-stats-local-published": "$1 ($3) nan $2",
 	"cx-notification-tenth-translation": "Konpliman pou dizyèm tradiksyon ou! Ou ap vin yon tradiktè ekspè. Kenbe travay la bon!",
