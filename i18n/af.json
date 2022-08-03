@@ -8,7 +8,8 @@
 			"Prevodim",
 			"Purodha",
 			"Slashme",
-			"Winstonza"
+			"Winstonza",
+			"Rooiratel"
 		]
 	},
 	"cx": "Vertaal bladsy",
@@ -166,5 +167,7 @@
 	"cx-publish-destination-tooltip": "Kies die naamruimte waarin die bladsy gepubliseer gaan word",
 	"cx-publish-destination-namespace-main": "Nuwe bladsy",
 	"cx-publish-destination-namespace-user": "Persoonlike konsep",
-	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep"
+	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep",
+	"cx-sx-section-selector-missing-sections-title": "Afdelings ontbreek in $1",
+	"sx-recent-translation-entrypoint-banner-details": "Help om die inhoud te verbeter"
 }
