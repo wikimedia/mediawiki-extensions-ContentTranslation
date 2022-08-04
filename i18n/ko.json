@@ -416,5 +416,7 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> 등에 없는 문서",
 	"cx-uls-relevant-languages-panel-header": "이 문서 번역하기",
 	"cx-uls-relevant-languages-panel-message": "이 문서는 당신이 알 법한 일부 언어로는 존재하지 않습니다. 몇 분만에 번역할 수 있습니다!",
-	"cx-uls-translate-page-quick-action-label": "이 문서 번역하기"
+	"cx-uls-translate-page-quick-action-label": "이 문서 번역하기",
+	"cx-sx-publisher-captcha-dialog-header-title": "로봇이 아닌지를 검사합니다",
+	"cx-sx-publisher-captcha-dialog-publish-button": "게시"
 }

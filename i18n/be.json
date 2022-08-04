@@ -428,5 +428,7 @@
 	"cx-uls-relevant-languages-panel-header": "Перакласці гэтую старонку",
 	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае на некаторых мовах, якія вы можаце ведаць. Вы можаце перакласці яе за лічаныя хвіліны!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Гэта будзе <strong>першы раздзел у новым артыкуле!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Перакласці гэтую старонку"
+	"cx-uls-translate-page-quick-action-label": "Перакласці гэтую старонку",
+	"cx-sx-publisher-captcha-dialog-header-title": "Праверка, што вы не робат",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Апублікаваць"
 }
