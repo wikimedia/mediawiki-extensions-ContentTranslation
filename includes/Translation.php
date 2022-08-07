@@ -302,15 +302,15 @@ class Translation {
 		$rows = $dbr->select(
 			'cx_translations',
 			[
-				'translation_source_language as sourceLanguage',
-				'translation_target_language as targetLanguage',
-				"'draft' as status",
-				'COUNT(*) AS count',
-				'COUNT(DISTINCT translation_started_by) AS translators',
+				'sourceLanguage' => 'translation_source_language',
+				'targetLanguage' => 'translation_target_language',
+				'status' => 'translation_status',
+				'count' => 'COUNT(*)',
+				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			],
 			[
 				'translation_status' => 'draft',
-				'translation_target_url IS NULL'
+				'translation_target_url' => null,
 			],
 			__METHOD__,
 			[
@@ -343,11 +343,11 @@ class Translation {
 		$rows = $dbr->select(
 			'cx_translations',
 			[
-				'translation_source_language as sourceLanguage',
-				'translation_target_language as targetLanguage',
-				"'published' as status",
-				'COUNT(*) AS count',
-				'COUNT(DISTINCT translation_started_by) AS translators',
+				'sourceLanguage' => 'translation_source_language',
+				'targetLanguage' => 'translation_target_language',
+				'status' => 'translation_status',
+				'count' => 'COUNT(*)',
+				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			],
 			self::getPublishedCondition( $dbr ),
 			__METHOD__,
@@ -400,14 +400,15 @@ class Translation {
 		} elseif ( $interval === 'month' ) {
 			$options = [
 				'GROUP BY' => [
-					'YEAR(ar_timestamp), MONTH(ar_timestamp)',
+					'YEAR(ar_timestamp)',
+					'MONTH(ar_timestamp)',
 				],
 			];
 		}
 
 		$rows = $dbr->select(
 			[ 'change_tag', 'archive' ],
-			[ 'ar_timestamp', 'count(ar_page_id) as count' ],
+			[ 'ar_timestamp', 'count' => 'COUNT(ar_page_id)' ],
 			$conditions,
 			__METHOD__,
 			$options
@@ -452,7 +453,7 @@ class Translation {
 			$conditions[] = $dbr->makeList(
 				[
 					'translation_status' => 'draft',
-					'translation_target_url IS NULL'
+					'translation_target_url' => null,
 				],
 				LIST_AND
 			);
@@ -477,14 +478,15 @@ class Translation {
 		} elseif ( $interval === 'month' ) {
 			$options = [
 				'GROUP BY' => [
-					'YEAR(translation_last_updated_timestamp), MONTH(translation_last_updated_timestamp)',
+					'YEAR(translation_last_updated_timestamp)',
+					'MONTH(translation_last_updated_timestamp)',
 				],
 			];
 		}
 
 		$rows = $dbr->select(
 			[ 'cx_translations' ],
-			[ 'translation_last_updated_timestamp as date', 'count(translation_id) as count' ],
+			[ 'date' => 'translation_last_updated_timestamp', 'count' => 'COUNT(translation_id)' ],
 			$dbr->makeList( $conditions, LIST_AND ),
 			__METHOD__,
 			$options
@@ -560,17 +562,17 @@ class Translation {
 		$rows = $dbr->select(
 			'cx_translations',
 			[
-				'translation_id AS translationId',
-				'translation_source_title AS sourceTitle',
-				'translation_target_title AS targetTitle',
-				'translation_source_language AS sourceLanguage',
-				'translation_source_revision_id AS sourceRevisionId',
-				'translation_target_revision_id AS targetRevisionId',
-				'translation_target_language AS targetLanguage',
-				'translation_source_url AS sourceURL',
-				'translation_target_url AS targetURL',
-				'translation_last_updated_timestamp AS publishedDate',
-				'translation_progress AS stats',
+				'translationId' => 'translation_id',
+				'sourceTitle' => 'translation_source_title',
+				'targetTitle' => 'translation_target_title',
+				'sourceLanguage' => 'translation_source_language',
+				'sourceRevisionId' => 'translation_source_revision_id',
+				'targetRevisionId' => 'translation_target_revision_id',
+				'targetLanguage' => 'translation_target_language',
+				'sourceURL' => 'translation_source_url',
+				'targetURL' => 'translation_target_url',
+				'publishedDate' => 'translation_last_updated_timestamp',
+				'stats' => 'translation_progress',
 			],
 			$conditions,
 			__METHOD__,

@@ -213,8 +213,8 @@ class CXCorporaDump extends Maintenance {
 		);
 
 		$options = [
-			'GROUP BY' => 'translation_source_language, translation_target_language',
-			'ORDER BY' => 'translation_target_language ASC, count DESC'
+			'GROUP BY' => [ 'translation_source_language', 'translation_target_language' ],
+			'ORDER BY' => [ 'translation_target_language ASC', 'count DESC' ],
 		];
 
 		$res = $db->select( $tables, $fields, $conditions, __METHOD__, $options );

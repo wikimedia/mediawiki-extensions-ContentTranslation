@@ -19,7 +19,7 @@ class ApiQueryLangLinksCount extends ApiQueryBase {
 		$this->addTables( 'langlinks' );
 		$this->addFields( [
 			'll_from',
-			'COUNT(*) AS ll_count'
+			'll_count' => 'COUNT(*)'
 		] );
 		$this->addWhereFld( 'll_from', array_keys( $this->getPageSet()->getGoodTitles() ) );
 		$this->addOption( 'GROUP BY', [ 'll_from' ] );

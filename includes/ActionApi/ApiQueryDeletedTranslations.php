@@ -30,7 +30,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		$after = $params[ 'after' ];
 
 		$this->addTables( [ 'change_tag', 'archive' ] );
-		$this->addFields( 'COUNT(*) AS deleted_count' );
+		$this->addFields( [ 'deleted_count' => 'COUNT(*)' ] );
 		$this->addJoinConds( [ 'change_tag' => [ 'LEFT JOIN', 'ar_rev_id = ct_rev_id' ] ] );
 
 		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();

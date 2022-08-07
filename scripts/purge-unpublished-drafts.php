@@ -230,14 +230,14 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$table = 'cx_translations';
 		$fields = '*';
 		$conds = [
-			'translation_last_updated_timestamp < ' . $db->addQuotes( $before->format( 'YmdHis' ) ),
+			'translation_last_updated_timestamp < ' . $db->addQuotes( $db->timestamp( $before->format( 'YmdHis' ) ) ),
 			'translation_status' => 'draft',
-			'translation_target_url is NULL',
+			'translation_target_url' => null,
 		];
 
 		if ( $after ) {
 			$conds[] = 'translation_last_updated_timestamp > ' .
-				$db->addQuotes( $after->format( 'YmdHis' ) );
+				$db->addQuotes( $db->timestamp( $after->format( 'YmdHis' ) ) );
 		}
 
 		// Unfortunately this query cannot use index with nor without this condition. If we

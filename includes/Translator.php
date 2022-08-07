@@ -141,7 +141,7 @@ class Translator {
 		$queries = [];
 		foreach ( [ 'source', 'target' ] as $field ) {
 			$tables = [ 'cx_translations', 'cx_translators' ];
-			$field = "translation_{$field}_language as code";
+			$field = [ 'code' => "translation_{$field}_language" ];
 			$conds = [
 				'translator_translation_id = translation_id',
 				'translator_user_id' => $this->getGlobalUserId()
@@ -214,8 +214,8 @@ class Translator {
 
 		$table = 'cx_translations';
 		$fields = [
-			"$directionField[$direction] as language",
-			'COUNT(DISTINCT translation_started_by) AS translators',
+			'language' => $directionField[$direction],
+			'translators' => 'COUNT(DISTINCT translation_started_by)',
 		];
 		$conds = Translation::getPublishedCondition( $dbr );
 		$options = [
@@ -242,7 +242,7 @@ class Translator {
 		$dbr = $lb->getConnection( DB_REPLICA );
 
 		$table = 'cx_translations';
-		$field = 'COUNT(DISTINCT translation_started_by) AS translators';
+		$field = 'COUNT(DISTINCT translation_started_by)';
 		$conds = Translation::getPublishedCondition( $dbr );
 
 		return $dbr->selectField( $table, $field, $conds, __METHOD__ );
