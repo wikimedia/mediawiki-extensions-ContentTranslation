@@ -260,6 +260,7 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "थप सिक्नुहोस्",
 	"cx-sx-section-selector-unsupported-sections-title": "असमर्थित खण्डहरू",
 	"cx-sx-section-selector-unsupported-sections-description": "केही खण्डहरू सूचीमा नदेखिन सक्छन् किनकि तिनीहरूको सामग्री अझै समर्थित छैन्।",
+	"cx-sx-publish-lead-section-summary": "\"$1\" पृष्ठबाट उद्घाटन खण्ड अनुवाद गरेर सिर्जना गरियो",
 	"sx-recent-translation-entrypoint-banner-header": "यो पृष्ठ हालै अनुवाद गरिएको छ।",
 	"sx-recent-translation-entrypoint-banner-details": "सामग्री सुधार गर्न मद्दत गर्नुहोस्",
 	"sx-recent-translation-entrypoint-dialog-header": "अनुवाद सुधार गर्नुहोस्",
