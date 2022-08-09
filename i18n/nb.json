@@ -432,5 +432,7 @@
 	"cx-uls-relevant-languages-panel-header": "Oversett denne siden",
 	"cx-uls-relevant-languages-panel-message": "Denne siden mangler på noen språk du kan. Du kan oversette den på noen minutter!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Dette vil bli <strong>den første seksjonen i den nye artikkelen</strong>!",
-	"cx-uls-translate-page-quick-action-label": "Oversett denne siden"
+	"cx-uls-translate-page-quick-action-label": "Oversett denne siden",
+	"cx-sx-publisher-captcha-dialog-header-title": "Sjekker at du ikke er en robot",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publiser"
 }

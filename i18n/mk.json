@@ -345,7 +345,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Објави во мојот личен простор за да го прегледувам и потоа прекопирам.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Преводот ќе биде <strong> додаден во вашиот песочник.</strong>",
 	"cx-sx-publisher-review-info-error": "Вашиот превод не може да се објави:",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Дознајте повеќе]]",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Дознајте повеќе]",
 	"cx-dashboard-experimental-support-banner-title": "Мобилната поддршка е експериментална",
 	"cx-dashboard-experimental-support-banner-description": "Можете да збогатите постоечки статии преведувајќи нов поднаслов. Извесни столни можности од засега не се достапни.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Дознајте повеќе",
@@ -423,6 +423,6 @@
 	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Ова ќе биде <strong>првиот дел на новата статија!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Преведете ја страницава",
-	"cx-sx-publisher-captcha-dialog-header-title": "Проверете дали не сте робот",
+	"cx-sx-publisher-captcha-dialog-header-title": "Проверка дека не сте робот",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Објави"
 }

@@ -72,7 +72,7 @@
 	"cx-tools-mt-noservices": "Storitev prevajanja ni na voljo za izbrana jezika. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Zakaj?]]",
 	"cx-tools-mt-preferred": "privzeto",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorija|$1 kategoriji|$1 kategorije|$1 kategorij|0=Ni kategorij}}",
-	"cx-stats-title": "Statistika wikiprevajanja",
+	"cx-stats-title": "Statistika vikiprevajanja",
 	"cx-warning-unsaved-translation": "Nekaj tvojih prevodov je še neshranjenih.",
 	"cx-error-page-not-found": "Stran \"$1\" ni bila najdena na {{GRAMMAR:mestnik|$2}} Wikipediji.",
 	"cx-page-selector-widget-recent-edits-label": "Pred kratkim ste urejali",
