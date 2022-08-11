@@ -74,11 +74,11 @@
 						class="sx-recent-translation-dialog__add-sections-tab__lead-text"
 						v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-add-sections-lead-text' )"
 					></p>
-					<button class="sx-recent-translation-dialog__translate-button mw-ui-button mw-ui-progressive" @click="goToSX">
+					<a :href="sxUrl" class="sx-recent-translation-dialog__translate-button mw-ui-button mw-ui-progressive">
 						<span class="sx-recent-translation-dialog__language-icon mw-ui-icon">
 						</span>
 						<span v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-translate-button-label' )"></span>
-					</button>
+					</a>
 					<div
 						class="sx-recent-translation-dialog__translate-secondary-notice"
 						v-text="translateSecondaryText"
@@ -136,6 +136,15 @@ module.exports = {
 				default:
 					return this.$i18n( 'sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing', this.missingSections[ 0 ], this.missingSections[ 1 ] );
 			}
+		},
+		sxUrl: function () {
+			return siteMapper.getCXUrl(
+				this.sourceTitle,
+				null,
+				this.sourceLanguage,
+				this.targetLanguage,
+				{ campaign: 'mfrecenttranslation', sx: true }
+			);
 		}
 	},
 	methods: {
@@ -175,15 +184,6 @@ module.exports = {
 						that.missingSections = Object.keys( suggestionResult.sections.missing );
 					}
 				} );
-		},
-		goToSX: function () {
-			window.location.href = siteMapper.getCXUrl(
-				this.sourceTitle,
-				null,
-				this.sourceLanguage,
-				this.targetLanguage,
-				{ campaign: 'mfrecenttranslation', sx: true }
-			);
 		}
 	},
 	mounted: function () {
