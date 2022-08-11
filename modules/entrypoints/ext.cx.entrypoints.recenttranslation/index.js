@@ -63,7 +63,7 @@
 			}
 		} );
 
-		entrypointContainer.appendChild( dialogContainer );
+		document.body.appendChild( dialogContainer );
 		mainContent.prepend( entrypointContainer );
 	}
 }() );
