@@ -30,7 +30,7 @@
 	"cx-lost-session-draft": "La toa session l'è scaduda. I to modifeghe i poden minga vesser salvade condemanch te vet denter de noeuv in d'un'altra finestra.",
 	"cx-lost-session-publish": "La toa session l'è scaduda. Te podet met foeura minga la traduzzion fina tant che te vet dent anmò in d'un'altra finestra.",
 	"cx-lost-session-dashboard": "Per fà quel'azzion chì, và dent anmò.",
-	"cx-publish-summary": "Creada per mezz de la traduzzion de la pagina \"$1\"",
+	"cx-publish-summary": "Creada cont el tradù la pagina \"$1\"",
 	"cx-translation-add-translation": "Sgionta una traduzzion",
 	"cx-translation-target-page-exists": "lLa gh'è sgiamò una pagina cont el titol [$1 $2] in del wiki de destinazzion. Toeu in esam de dagh un alter titol a la pagina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Traduzzion di vos]]",
