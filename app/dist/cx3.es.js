@@ -7560,20 +7560,16 @@ var state$3 = {
   translations: [],
   translationsLoaded: false
 };
-const prependNewSectionToAppendixSection = (newSection, existingSection) => {
+const prependHeaderToSection = (section) => {
   const createHeader = (title) => {
     const headerElement = document.createElement("h2");
     headerElement.textContent = title;
     return headerElement;
   };
-  const newSectionHeader = createHeader(newSection.title);
-  const existingSectionHeader = createHeader(existingSection.originalTitle);
-  const newSectionHtml = cleanupHtml(newSection.translationHtml);
-  const existingSectionHtml = cleanupHtml(existingSection.html);
+  const newSectionHeader = createHeader(section.title);
+  const newSectionHtml = cleanupHtml(section.translationHtml);
   return `${newSectionHeader.outerHTML}
-${newSectionHtml}
-${existingSectionHeader.outerHTML}
-${existingSectionHtml}`;
+${newSectionHtml}`;
 };
 const cleanupHtml = (html) => {
   const doc2 = document.createElement("article");
@@ -7640,17 +7636,6 @@ var getters$3 = {
       return targetPage.getSectionNumberByTitle(firstAppendixTargetTitle);
     }
     return "new";
-  },
-  getCleanHTMLForPublishing: (state2, getters2, rootState, rootGetters) => {
-    const { currentSectionSuggestion, currentSourceSection } = rootState.application;
-    const isPresentSection = !!currentSectionSuggestion.presentSections[currentSourceSection.originalTitle];
-    const firstAppendixTargetTitle = rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"](currentSectionSuggestion);
-    if (rootGetters["application/isSandboxTarget"] || currentSourceSection.isLeadSection || isPresentSection || !firstAppendixTargetTitle) {
-      return cleanupHtml(currentSourceSection.translationHtml);
-    }
-    const targetPage = rootGetters["application/getCurrentTargetPage"];
-    const appendixSection = targetPage.sections.find((section) => section.originalTitle === firstAppendixTargetTitle);
-    return prependNewSectionToAppendixSection(currentSourceSection, appendixSection);
   },
   getPublishedTranslationsForLanguagePair: (state2) => (sourceLanguage, targetLanguage) => state2.translations.filter((translationItem) => translationItem.sourceLanguage === sourceLanguage && translationItem.targetLanguage === targetLanguage && translationItem.status === "published"),
   getDraftTranslationsForLanguagePair: (state2) => (sourceLanguage, targetLanguage) => state2.translations.filter((translationItem) => translationItem.sourceLanguage === sourceLanguage && translationItem.targetLanguage === targetLanguage && translationItem.status === "draft"),
@@ -8073,7 +8058,7 @@ function publishTranslation(_0) {
       return saveMessage;
     }
     const publishPayload = {
-      html: getters2.getCleanHTMLForPublishing,
+      html: prependHeaderToSection(currentSourceSection),
       sourceTitle: currentSectionSuggestion.sourceTitle,
       targetTitle: getters2.getArticleTitleForPublishing,
       sourceSectionTitle: currentSourceSection.originalTitle,
@@ -20040,6 +20025,11 @@ const _sfc_main$T = {
       sectionSuggestionsLoading,
       showRefreshButton
     } = useSuggestions();
+    const pageSuggestionsList = ref(null);
+    const refreshSuggestions = () => {
+      onSuggestionRefresh();
+      pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
+    };
     const markFavoriteSectionSuggestion = (suggestion) => __async(this, null, function* () {
       return store2.dispatch("suggestions/addSectionSuggestionAsFavorite", suggestion);
     });
@@ -20056,8 +20046,9 @@ const _sfc_main$T = {
       markFavoritePageSuggestion,
       markFavoriteSectionSuggestion,
       unmarkFavoriteSectionSuggestion,
-      onSuggestionRefresh,
       pageSuggestionsLoading,
+      pageSuggestionsList,
+      refreshSuggestions,
       sectionSuggestionsLoading,
       showRefreshButton,
       startTranslation,
@@ -20096,7 +20087,10 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    createVNode(_component_mw_card, { class: "pa-0 mb-0" }, {
+    createVNode(_component_mw_card, {
+      ref: "pageSuggestionsList",
+      class: "cx-translation-list--page-suggestions pa-0 mb-0"
+    }, {
       default: withCtx(() => [
         withDirectives(createBaseVNode("h5", _hoisted_2$r, null, 512), [
           [_directive_i18n, void 0, "cx-suggestion-list-new-pages-division"]
@@ -20113,7 +20107,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
         $setup.pageSuggestionsLoading ? (openBlock(), createBlock(_component_mw_spinner, { key: 0 })) : createCommentVNode("", true)
       ], void 0),
       _: 1
-    }),
+    }, 512),
     createVNode(_component_mw_card, { class: "cx-translation-list--sx-suggestions pa-0 mb-0" }, {
       default: withCtx(() => [
         withDirectives(createBaseVNode("h5", _hoisted_3$q, null, 512), [
@@ -20141,7 +20135,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
         label: _ctx.$i18n("cx-suggestionlist-refresh"),
         outlined: false,
         icon: $setup.mwIconRefresh,
-        onClick: $setup.onSuggestionRefresh
+        onClick: $setup.refreshSuggestions
       }, null, 8, ["label", "icon", "onClick"])) : createCommentVNode("", true)
     ])
   ], 512)), [
@@ -20334,7 +20328,8 @@ const getEventSourceFromUrlCampaign = () => {
     mflanguagesearcher: "content_language_selector",
     mfrecenttranslation: "recent_translation",
     mfrecentedit: "recent_edit",
-    mffrequentlanguages: "frequent_languages"
+    mffrequentlanguages: "frequent_languages",
+    newbytranslationmobile: "creation_invite"
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
