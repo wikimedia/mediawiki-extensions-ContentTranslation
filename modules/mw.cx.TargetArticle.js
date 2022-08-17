@@ -7,15 +7,16 @@
  * @param {mw.cx.dm.Translation} translation
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {Object} config Translation configuration
+ * @param {mw.cx.SiteMapper} config.siteMapper SiteMapper instance
  */
 mw.cx.TargetArticle = function MWCXTargetArticle( translation, veTarget, config ) {
 	this.translation = translation;
 	this.veTarget = veTarget;
 	this.config = config;
 	this.siteMapper = config.siteMapper;
-	this.sourceTitle = config.sourceTitle;
-	this.sourceLanguage = config.sourceLanguage;
-	this.targetLanguage = config.targetLanguage;
+	this.sourceTitle = translation.getSourceTitle();
+	this.sourceLanguage = translation.getSourceLanguage();
+	this.targetLanguage = translation.getTargetLanguage();
 
 	// Mixin constructors
 	OO.EventEmitter.call( this );
@@ -161,6 +162,39 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCat
 		}.bind( this ), function () {
 			this.emit( 'publishCancel' );
 		}.bind( this ) );
+	}.bind( this ) );
+};
+
+/**
+ * Publish the translated section to target wiki
+ *
+ * @param captchaId
+ * @param captchaWord
+ */
+mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord ) {
+	this.getContent( true ).then( function ( html ) {
+		var params = {
+			action: 'cxpublishsection',
+			title: this.getTargetTitle(),
+			html: html,
+			sourcetitle: this.sourceTitle,
+			sourcerevid: this.translation.sourceWikiPage.getRevision(),
+			sourcesectiontitle: this.translation.sourceWikiPage.getSectionTitle(),
+			targetsectiontitle: this.translation.targetWikiPage.getSectionTitle(),
+			sourcelanguage: this.sourceLanguage,
+			targetlanguage: this.targetLanguage,
+			sectionnumber: 0 // FIXME
+		};
+
+		if ( captchaId ) {
+			params.captchaid = captchaId;
+			params.captchaword = captchaWord;
+		}
+
+		return new mw.Api()
+			.postWithToken( 'csrf', params )
+			.then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) );
+
 	}.bind( this ) );
 };
 

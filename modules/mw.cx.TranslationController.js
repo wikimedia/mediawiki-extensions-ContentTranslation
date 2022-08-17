@@ -35,7 +35,9 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
 	this.savedTargetTitle = this.translation.getTargetTitle();
-	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, config );
+	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, {
+		siteMapper: this.siteMapper
+	} );
 	this.translationTracker = new mw.cx.TranslationTracker( this.veTarget, config );
 	this.saveScheduler = OO.ui.debounce( this.processSaveQueue.bind( this ), 5 * 1000 );
 	// See also ve.ui.CXResetSectionTool that depends on the timeout value
@@ -550,6 +552,11 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
+
+	if ( this.translation.isSectionTranslation() ) {
+		return this.publishSection();
+	}
+
 	var numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
 		mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
@@ -580,6 +587,16 @@ mw.cx.TranslationController.prototype.publish = function () {
 	// We wait for successful saving, before proceeding with publishing.
 	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this, numOfHighMTSections ) );
 	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
+};
+
+/**
+ * Publish the section. Used in section translation mode
+ */
+mw.cx.TranslationController.prototype.publishSection = function () {
+	mw.log( '[CX] Publishing section translation...' );
+	// Clear the status message
+	this.translationView.setStatusMessage( '' );
+	this.targetArticle.publishSection();
 };
 
 mw.cx.TranslationController.prototype.showMTAbusePublishError = function ( title ) {
