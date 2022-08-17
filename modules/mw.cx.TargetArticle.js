@@ -172,7 +172,7 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCat
  * @param captchaWord
  */
 mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord ) {
-	this.getContent( true ).then( function ( html ) {
+	this.getContent( false ).then( function ( html ) {
 		var params = {
 			action: 'cxpublishsection',
 			title: this.getTargetTitle(),
@@ -180,10 +180,10 @@ mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord
 			sourcetitle: this.sourceTitle,
 			sourcerevid: this.translation.sourceWikiPage.getRevision(),
 			sourcesectiontitle: this.translation.sourceWikiPage.getSectionTitle(),
-			targetsectiontitle: this.translation.targetWikiPage.getSectionTitle(),
+			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
 			targetlanguage: this.targetLanguage,
-			sectionnumber: 0 // FIXME
+			sectionnumber: 'new' // FIXME
 		};
 
 		if ( captchaId ) {
@@ -206,7 +206,9 @@ mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord
  * @return {null|jQuery.Promise}
  */
 mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
-	var publishResult = response.cxpublish;
+	var publishAction = this.translation.isSectionTranslation() ? 'cxpublishsection' : 'cxpublish';
+	var publishResult = response[ publishAction ];
+
 	if ( publishResult.result === 'success' ) {
 		return this.publishComplete();
 	}
