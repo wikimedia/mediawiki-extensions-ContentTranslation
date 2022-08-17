@@ -64,7 +64,8 @@ mw.cx.TranslationController.prototype.listen = function () {
 	this.veTarget.connect( this, {
 		surfaceReady: 'onSurfaceReady',
 		publish: 'publish',
-		targetTitleChange: 'onTargetTitleChange'
+		targetTitleChange: 'onTargetTitleChange', // emitted only for article translations
+		targetSectionTitleChange: 'onTargetSectionTitleChange' // emitted only for section translations
 	} );
 
 	this.targetArticle.connect( this, {
@@ -706,8 +707,8 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 		currentTitle = this.translation.getTargetTitle(),
 		newTitle = this.translationView.targetColumn.getTitle();
 
+	// if nothing changed return without doing anything
 	if ( currentTitle === newTitle ) {
-		// Nothing really changed.
 		return;
 	}
 
@@ -724,6 +725,11 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 		this.veTarget.emitNamespaceChange( newTitleObj.getNamespaceId() );
 	}
 };
+
+/**
+ * Target section title change handler. Currently not used
+ */
+mw.cx.TranslationController.prototype.onTargetSectionTitleChange = function () {};
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
 	var api = new mw.Api();

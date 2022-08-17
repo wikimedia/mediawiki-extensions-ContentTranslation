@@ -31,6 +31,7 @@ mw.cx.ui.ArticleColumn = function ( config ) {
 	this.translation = null;
 	this.siteMapper = config.siteMapper;
 	this.language = config.language;
+	// if this is a section translation
 	if ( config.sectionTitle ) {
 		this.addItems( [
 			new OO.ui.LabelWidget( {
@@ -39,10 +40,8 @@ mw.cx.ui.ArticleColumn = function ( config ) {
 				classes: [ 'cx-column-page-title' ]
 			} )
 		] );
-		// FIXME: Use a new class mw.cx.ui.SectionTitleWidget
-		// with section title specific validation and editing logic
-		this.titleWidget = new mw.cx.ui.PageTitleWidget(
-			new mw.cx.dm.PageTitleModel(),
+		this.titleWidget = new mw.cx.ui.SectionTitleWidget(
+			new mw.cx.dm.SectionTitleModel(),
 			{ value: config.sectionTitle }
 		);
 	} else {

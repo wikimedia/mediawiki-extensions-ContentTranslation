@@ -73,7 +73,8 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	} );
 
 	this.translationView.targetColumn.connect( this, {
-		titleChange: 'onTargetTitleChange'
+		titleChange: 'onTargetTitleChange', // only emitted for article translations
+		sectionTitleChange: 'onTargetSectionTitleChange' // only emitted for section translations
 	} );
 
 	this.connect( this, {
@@ -93,6 +94,12 @@ OO.inheritClass( ve.init.mw.CXTarget, ve.init.mw.Target );
  * @event targetTitleChange
  *
  * Target title of the translation has changed.
+ */
+
+/**
+ * @event targetSectionTitleChange
+ *
+ * Target section title of the translation has changed. Only used for section translations.
  */
 
 /**
@@ -487,6 +494,13 @@ ve.init.mw.CXTarget.prototype.onTargetTitleChange = function () {
 	this.updateNamespace();
 	this.emit( 'targetTitleChange' );
 	this.debounceAlignSectionPairs();
+};
+
+/**
+ * @fires targetSectionTitleChange
+ */
+ve.init.mw.CXTarget.prototype.onTargetSectionTitleChange = function () {
+	this.emit( 'targetSectionTitleChange' );
 };
 
 ve.init.mw.CXTarget.prototype.enablePublishButton = function () {
