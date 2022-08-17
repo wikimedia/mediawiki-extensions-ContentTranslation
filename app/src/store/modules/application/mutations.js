@@ -72,6 +72,14 @@ const mutations = {
    */
   setCurrentMTProvider: (state, provider) => {
     state.currentMTProvider = provider;
+    const { sourceLanguage, targetLanguage } = state;
+
+    const storageKey = MTProviderGroup.getStorageKey(
+      sourceLanguage,
+      targetLanguage
+    );
+
+    mw.storage.set(storageKey, provider);
   },
 
   setSourceLanguage: (state, language) => {

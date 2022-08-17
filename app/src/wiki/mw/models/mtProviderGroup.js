@@ -38,6 +38,18 @@ export default class MTProviderGroup {
     return mTProviderLabels[mtProvider] || mtProvider;
   }
 
+  /**
+   * Given a language pair, this static method returns the key to be used to store the
+   * preferred MT provider for this language pair inside localStorage (Web Storage API)
+   *
+   *
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
+   */
+  static getStorageKey(sourceLanguage, targetLanguage) {
+    return ["cxMTProvider", sourceLanguage, targetLanguage].join("-");
+  }
+
   static get ORIGINAL_TEXT_PROVIDER_KEY() {
     return ORIGINAL_TEXT_PROVIDER_KEY;
   }

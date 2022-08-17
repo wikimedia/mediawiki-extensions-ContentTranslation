@@ -434,7 +434,12 @@ async function initializeMTProviders({ state, dispatch, rootGetters, commit }) {
     return;
   }
 
-  commit("setCurrentMTProvider", supportedProviders[0]);
+  const storageKey = MTProviderGroup.getStorageKey(
+    sourceLanguage,
+    targetLanguage
+  );
+  const defaultProvider = mw.storage.get(storageKey) || supportedProviders[0];
+  commit("setCurrentMTProvider", defaultProvider);
 }
 
 /**
