@@ -157,8 +157,13 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			sectionNode = node.cloneNode( true );
 		}
 
-		// eslint-disable-next-line mediawiki/class-doc
 		if ( sxSectionNumber && sxSectionNumber !== mwSectionNumber ) {
+			sectionNode.classList.add( 'mw-section-hide' );
+		}
+
+		// if current translation is a section translation, hide h2 header,
+		// since the section title is already displayed inside target title widget
+		if ( sxSectionNumber && sectionNode.querySelector( 'h2' ) ) {
 			sectionNode.classList.add( 'mw-section-hide' );
 		}
 
