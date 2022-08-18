@@ -109,7 +109,9 @@ mw.cx.init.Translation.prototype.init = function () {
 				this.addChangedSignificantlyIssue( translationModel );
 			}
 
-			if ( !translationModel.isSectionTranslation() ) {
+			if ( translationModel.isSectionTranslation() ) {
+				this.translationView.markSectionTranslation();
+			} else {
 				translationModel.initCategories(
 					this.processCategories( sourcePageContent.categories )
 				);

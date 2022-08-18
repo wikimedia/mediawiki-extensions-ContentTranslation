@@ -262,3 +262,10 @@ mw.cx.ui.TranslationView.prototype.onFocus = function () {
 mw.cx.ui.TranslationView.prototype.onBlur = function () {
 	this.toolsColumn.toolContainer.$element.removeClass( 'cx-column-tools-container--contextual' );
 };
+
+/**
+ * Add a CSS class to translation view that marks the current mode as section translation
+ */
+mw.cx.ui.TranslationView.prototype.markSectionTranslation = function () {
+	this.$element.addClass( 'cx-sx-mode' );
+};
