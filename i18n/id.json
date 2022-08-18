@@ -430,5 +430,6 @@
 	"sx-block-template-adaptation-card-body-header-failure": "Templat yang ekuivalen tidak tersedia untuk $1",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Tiada <span>$1</span>, <span>$2</span> dan banyak lagi",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Tiada dalam <span>$1</span> dan banyak lagi",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Tiada dalam <span>$1</span>, <span>$2</span> dan banyak lagi"
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Tiada dalam <span>$1</span>, <span>$2</span> dan banyak lagi",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Terbitkan"
 }
