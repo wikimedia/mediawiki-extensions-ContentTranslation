@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Akamycoco",
 			"Benel",
 			"Bunukwiki",
 			"Tokoabibi"
@@ -49,7 +50,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kakuniza|0=inayi’ kakuniza}}",
 	"cx-stats-title": "lacul mibelih sausi",
 	"cx-warning-unsaved-translation": "caay henay misuped belih nu kamu nu misu.",
-	"cx-error-page-not-found": "i $2 Wiki-payke(Wikipedia) caay katepah \"$1\" kasabelih",
+	"cx-error-page-not-found": "i $2 Wikipitiya(Wikipedia) caay katepah \"$1\" kasabelih",
 	"cx-selected-source-page-start-translation-button": "miteka mibelih",
 	"cx-selected-source-page-error-page-and-title-exist": "tina satangahan i [$1 $2] masaungay i [$3 caay kalecad kasabelih]",
 	"cx-selected-source-page-error-page-exists": "$2 a kasabelih [$1 izaw tu]",
