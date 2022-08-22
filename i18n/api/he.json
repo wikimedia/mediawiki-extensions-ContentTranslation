@@ -48,7 +48,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-to": "קוד שפת היעד.",
 	"apihelp-query+contenttranslationsuggestions-param-listid": "להחזיר הצעות רק מרשימה מסוימת",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "המספר המרבי של תרגומים לאחזור.",
-	"apihelp-query+contenttranslationsuggestions-param-offset": "היסט לתוצאות מופרדות לדפים.",
+	"apihelp-query+contenttranslationsuggestions-param-offset": "היסט לתוצאות מחולקות לדפים.",
 	"apihelp-query+contenttranslationsuggestions-param-seed": "לפי ברירת המחדל התוצאות מוחזרות בסדר אקראי. אם ברצונך להחזיר כל הצעה רק פעם אחת בעת שימוש ב־limit ו־offset, יש לציין זרע לכל הבקשות.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "אחזור דפים שמומלצים לתרגום מאנגלית (en) לספרדית (es).",
 	"apihelp-query+cxpublishedtranslations-description": "אחזור המידע על כל התרגומים שפורסמו.",
