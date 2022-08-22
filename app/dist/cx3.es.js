@@ -7761,7 +7761,7 @@ const mTProviderLabels = {
   Google: "Google Translate",
   Yandex: "Yandex.Translate"
 };
-class MTProviderGroup {
+class MTProviderGroup$1 {
   constructor(sourceLanguage, targetLanguage, providers2 = []) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -7773,6 +7773,9 @@ class MTProviderGroup {
   }
   static getMTProviderLabel(mtProvider) {
     return mTProviderLabels[mtProvider] || mtProvider;
+  }
+  static getStorageKey(sourceLanguage, targetLanguage) {
+    return ["cxMTProvider", sourceLanguage, targetLanguage].join("-");
   }
   static get ORIGINAL_TEXT_PROVIDER_KEY() {
     return ORIGINAL_TEXT_PROVIDER_KEY;
@@ -7859,7 +7862,7 @@ function fetchSegmentTranslation(sourceLanguage, targetLanguage, provider, sente
       return;
     }
     let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
-    if (provider !== MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY) {
+    if (provider !== MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY) {
       relativeUrl += `/${provider}`;
     }
     const cxserverAPI = siteMapper.getCXServerUrl(relativeUrl);
@@ -7994,7 +7997,7 @@ const validateParallelCorporaPayload = (translationUnitPayload, supportedMTProvi
   if (!content) {
     throw new Error("[CX] Content of parallel corpora translation unit is empty");
   }
-  const nonUserProviders = supportedMTProviders.filter((provider) => !MTProviderGroup.isUserMTProvider(provider));
+  const nonUserProviders = supportedMTProviders.filter((provider) => !MTProviderGroup$1.isUserMTProvider(provider));
   if (origin !== "source" && origin !== "user" && !nonUserProviders.includes(origin)) {
     throw new Error("[CX] Invalid origin of parallel corpora translation unit");
   }
@@ -8832,7 +8835,7 @@ var getters$1 = {
     var _a;
     return ((_a = state2.supportedMTProviderGroups.find((mtProviderGroup) => mtProviderGroup.sourceLanguage === sourceLanguage && mtProviderGroup.targetLanguage === targetLanguage)) == null ? void 0 : _a.providers) || [];
   },
-  isValidProviderForTranslation: (state2, getters2) => (sourceLanguage, targetLanguage, provider) => getters2.getSupportedMTProviders(sourceLanguage, targetLanguage).includes(provider) && provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY,
+  isValidProviderForTranslation: (state2, getters2) => (sourceLanguage, targetLanguage, provider) => getters2.getSupportedMTProviders(sourceLanguage, targetLanguage).includes(provider) && provider !== MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY,
   getRecentlyEditedPages: (state2, getters2, rootState, rootGetters) => {
     const sourceLanguage = rootState.application.sourceLanguage;
     const targetLanguage = rootState.application.targetLanguage;
@@ -8918,13 +8921,13 @@ class SectionSentence {
     this.mtProviderUsed = "";
     this.node = node;
     this.proposedTranslations = __spreadProps(__spreadValues({}, proposedTranslations), {
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: originalContent,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+      [MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY]: originalContent,
+      [MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY]: ""
     });
     this.selected = selected;
   }
   get originalContent() {
-    return this.proposedTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
+    return this.proposedTranslations[MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY];
   }
   get content() {
     return this.translatedContent || this.originalContent;
@@ -9191,7 +9194,7 @@ class SubSection$1 {
     var _a;
     let mtProvider = this.blockTemplateMTProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
-    if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
+    if (this.isBlockTemplate && MTProviderGroup$1.isUserMTProvider(mtProvider)) {
       return null;
     } else if (this.isBlockTemplate) {
       subSectionNode.innerHTML = this.blockTemplateProposedTranslations[mtProvider];
@@ -9199,7 +9202,7 @@ class SubSection$1 {
       const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
       mtProvider = (_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed;
       const sameMTProviderUsed = translatedSentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
-      if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
+      if (!sameMTProviderUsed || MTProviderGroup$1.isUserMTProvider(mtProvider)) {
         return null;
       }
       const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
@@ -9225,8 +9228,8 @@ class PageSection {
   } = {}) {
     this.id = id;
     this.proposedTitleTranslations = {
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+      [MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY]: title,
+      [MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY]: ""
     };
     this.translatedTitle = "";
     this.subSections = subSections;
@@ -9234,7 +9237,7 @@ class PageSection {
     this.isTitleSelected = isTitleSelected;
   }
   get originalTitle() {
-    return this.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
+    return this.proposedTitleTranslations[MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY];
   }
   get title() {
     return this.translatedTitle || this.originalTitle;
@@ -9581,7 +9584,7 @@ function fetchSupportedLanguageCodes$1() {
 function fetchSupportedMTProviders(sourceLanguage, targetLanguage) {
   return __async(this, null, function* () {
     const cxserverAPI = siteMapper.getCXServerUrl(`/list/pair/${sourceLanguage}/${targetLanguage}`);
-    return fetch(cxserverAPI).then((response) => response.json()).then((data) => Object.freeze(new MTProviderGroup(sourceLanguage, targetLanguage, data.mt)));
+    return fetch(cxserverAPI).then((response) => response.json()).then((data) => Object.freeze(new MTProviderGroup$1(sourceLanguage, targetLanguage, data.mt)));
   });
 }
 function fetchCXServerToken() {
@@ -9881,7 +9884,7 @@ function selectPageSectionByIndex(_0, _1) {
       var _a2;
       const section = (_a2 = page.sections) == null ? void 0 : _a2[index];
       if (index === 0) {
-        section.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY] = page.title;
+        section.proposedTitleTranslations[MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY] = page.title;
       }
       commit2("setCurrentSourceSection", section);
     };
@@ -9968,7 +9971,9 @@ function initializeMTProviders(_0) {
     if (currentProvider && supportedProviders.includes(currentProvider)) {
       return;
     }
-    commit2("setCurrentMTProvider", supportedProviders[0]);
+    const storageKey = MTProviderGroup$1.getStorageKey(sourceLanguage, targetLanguage);
+    const defaultProvider = mw.storage.get(storageKey) || supportedProviders[0];
+    commit2("setCurrentMTProvider", defaultProvider);
   });
 }
 function updateMTProvider({ commit: commit2, dispatch: dispatch2, state: state2 }, provider) {
@@ -10074,6 +10079,9 @@ const mutations = {
   },
   setCurrentMTProvider: (state2, provider) => {
     state2.currentMTProvider = provider;
+    const { sourceLanguage, targetLanguage } = state2;
+    const storageKey = MTProviderGroup.getStorageKey(sourceLanguage, targetLanguage);
+    mw.storage.set(storageKey, provider);
   },
   setSourceLanguage: (state2, language) => {
     state2.sourceLanguage = language;
@@ -22536,8 +22544,8 @@ const _sfc_main$t = {
   },
   emits: ["update:active"],
   setup(props, context) {
-    const emptyTextProviderKey = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
-    const originalTextProviderKey = MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
+    const emptyTextProviderKey = MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY;
+    const originalTextProviderKey = MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY;
     const store2 = useStore();
     const {
       sourceLanguage,
@@ -22821,10 +22829,10 @@ const _sfc_main$q = {
     const mtProvider = computed(() => store2.state.application.currentMTProvider);
     const bananaI18n2 = useI18n();
     const extraMTOptionLabels = computed(() => ({
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-original-card-title"),
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-empty-card-title")
+      [MTProviderGroup$1.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-original-card-title"),
+      [MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n2.i18n("cx-sx-sentence-selector-translation-options-empty-card-title")
     }));
-    const mtOptionLabel = computed(() => extraMTOptionLabels.value[mtProvider.value] || bananaI18n2.i18n("cx-sx-sentence-selector-suggested-translation-title", MTProviderGroup.getMTProviderLabel(mtProvider.value)));
+    const mtOptionLabel = computed(() => extraMTOptionLabels.value[mtProvider.value] || bananaI18n2.i18n("cx-sx-sentence-selector-suggested-translation-title", MTProviderGroup$1.getMTProviderLabel(mtProvider.value)));
     return {
       mwIconEllipsis,
       mtOptionLabel
@@ -22888,7 +22896,7 @@ const _sfc_main$p = {
     const contentsStyle = computed(() => ({
       "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`
     }));
-    const hasProposedTranslation = computed(() => !!proposedTranslation.value || currentMTProvider.value === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY);
+    const hasProposedTranslation = computed(() => !!proposedTranslation.value || currentMTProvider.value === MTProviderGroup$1.EMPTY_TEXT_PROVIDER_KEY);
     const setHeaderAndFooterHeight = () => {
       headerAndFooterHeight.value = header.value.$el.clientHeight + footer.value.$el.clientHeight;
     };
