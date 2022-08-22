@@ -448,5 +448,7 @@
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Editar la traducción",
 	"sx-block-template-adaptation-card-body-header-failure": "Plantilla equivalente no disponible por $1",
 	"cx-uls-relevant-languages-panel-header": "Traducir esta página",
-	"cx-uls-translate-page-quick-action-label": "Traducir esta página"
+	"cx-uls-translate-page-quick-action-label": "Traducir esta página",
+	"cx-sx-publisher-captcha-dialog-header-title": "Comprobando que no eres un robot",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar"
 }

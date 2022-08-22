@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"apihelp-cxpublish-param-html": "Змист на зачуванє.",
+	"apihelp-cxpublish-param-from": "Код жридлового язика.",
+	"apihelp-cxpublish-param-to": "Код цильного язика.",
+	"apihelp-cxpublishsection-param-html": "Змист на зачуванє.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "Код жридлового язика.",
+	"apihelp-cxpublishsection-param-targetlanguage": "Код цильного язика.",
+	"apihelp-sxsave-param-sourcelanguage": "Код жридлового язика.",
+	"apihelp-sxsave-param-targetlanguage": "Код цильного язика.",
+	"apierror-sxsave-anon-user": "Приложнїцки поступок „sxsave“ нє оможлївени за анонимни хаснователє",
+	"apierror-cxpublishsection-translationnotfound": "Преклад нє найдзени."
+}

@@ -427,9 +427,13 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Terjemahkan \"$1\", \"$2\", dan lain-lain",
 	"sx-block-template-adaptation-card-body-header-success": "Saranan templat",
 	"sx-block-template-adaptation-card-edit-button-label": "Tinjau dan sunting terjemahan",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Sunting terjemahan",
 	"sx-block-template-adaptation-card-body-header-failure": "Templat yang ekuivalen tidak tersedia untuk $1",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Tidak ada dalam <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Tiada <span>$1</span>, <span>$2</span> dan banyak lagi",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Tiada dalam <span>$1</span> dan banyak lagi",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Tiada dalam <span>$1</span>, <span>$2</span> dan banyak lagi",
+	"cx-uls-relevant-languages-panel-header": "Terjemahkan halaman ini",
+	"cx-uls-translate-page-quick-action-label": "Terjemahkan halaman ini",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Terbitkan"
 }
