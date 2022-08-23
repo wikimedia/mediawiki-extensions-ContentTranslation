@@ -167,11 +167,8 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCat
 
 /**
  * Publish the translated section to target wiki
- *
- * @param captchaId
- * @param captchaWord
  */
-mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord ) {
+mw.cx.TargetArticle.prototype.publishSection = function () {
 	this.getContent( false ).then( function ( html ) {
 		var params = {
 			action: 'cxpublishsection',
@@ -186,9 +183,9 @@ mw.cx.TargetArticle.prototype.publishSection = function ( captchaId, captchaWord
 			sectionnumber: 'new' // FIXME
 		};
 
-		if ( captchaId ) {
-			params.captchaid = captchaId;
-			params.captchaword = captchaWord;
+		if ( this.captcha ) {
+			params.captchaid = this.captcha.id;
+			params.captchaword = this.captcha.input.getValue();
 		}
 
 		return new mw.Api()
@@ -340,8 +337,10 @@ mw.cx.TargetArticle.prototype.setupCaptchaDialog = function () {
 	}
 
 	this.captchaDialog = new mw.cx.ui.CaptchaDialog();
+	var publishAction = this.translation.isSectionTranslation() ? 'publishSection' : 'publish';
+
 	this.captchaDialog.connect( this, {
-		publish: 'publish',
+		publish: publishAction,
 		cancel: 'onCaptchaCancel'
 	} );
 	OO.ui.getWindowManager().addWindows( [ this.captchaDialog ] );
