@@ -648,7 +648,11 @@ mw.cx.TranslationController.prototype.saveBeforePublishingFailed = function () {
 };
 
 mw.cx.TranslationController.prototype.enableEditing = function () {
-	this.translationView.categoryUI.disableCategoryUI( false );
+	// categoryUI is null for section translations. Check for value before re-enabling it
+	if ( this.translationView.categoryUI ) {
+		this.translationView.categoryUI.disableCategoryUI( false );
+	}
+
 	clearInterval( this.saveStatusTimer );
 };
 
