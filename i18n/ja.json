@@ -390,7 +390,7 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "<span>$1</span>版と<span>$2</span>版は未訳です",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "<span>$1</span>版と<span>$2</span>版その他の版は未訳です",
 	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span>版その他の版は未訳です",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>版と<span>$2</span>版はその他は未訳です",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>版と<span>$2</span>版その他の版は未訳です",
 	"cx-uls-relevant-languages-panel-header": "このページを翻訳",
 	"cx-uls-relevant-languages-panel-message": "このページは、皆さんが知っている言語にはまだ翻訳されていないかもしれません。ほんの数分ですので、翻訳してください。",
 	"cx-uls-translate-page-quick-action-label": "このページを翻訳",
