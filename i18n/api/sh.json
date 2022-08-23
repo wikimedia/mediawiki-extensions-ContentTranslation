@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"apihelp-cxpublish-description": "Sačuvajte stranicu napravljenu pomoću proširenja za prevod sadržaja.",
+	"apihelp-cxpublish-summary": "Sačuvajte stranicu napravljenu pomoću proširenja za prevod sadržaja.",
+	"apihelp-cxpublish-param-title": "Naslov stranice na kojoj će se raditi.",
+	"apihelp-cxpublish-param-html": "Sadržaj za sačuvati.",
+	"apihelp-cxpublish-param-from": "Kôd izvornog jezika.",
+	"apihelp-cxpublish-param-to": "Kôd ciljnog jezika.",
+	"apihelp-cxpublish-param-sourcetitle": "Naslov izvorne stranice.",
+	"apihelp-cxpublish-param-categories": "Kategorije za postaviti u objavljenu stranicu.",
+	"apihelp-cxpublish-param-publishtags": "Oznake izmjene za postaviti u objavljenu stranicu.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (kada spremate s captcha odgovorom).",
+	"apihelp-cxpublish-param-wpCaptchaWord": "Odgovor na captchu (kada spremate s captcha odgovorom).",
+	"apihelp-cxpublish-param-cxversion": "Verzija uređivača koja se koristi za objavljivanje prevoda.",
+	"apihelp-query+contenttranslation-description": "Baza prijevoda \"Prijevod sadržaja za pretragu\" (Query Content Translation).",
+	"apihelp-query+contenttranslation-summary": "Baza prijevoda \"Prijevod sadržaja za pretragu\" (Query Content Translation)."
+}
