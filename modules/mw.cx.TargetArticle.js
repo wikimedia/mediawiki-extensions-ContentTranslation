@@ -283,7 +283,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 			return;
 		} else if ( editError.code === 'invalidtitle' ) {
 			this.showPublishError(
-				mw.message( 'title-invalid-characters', this.getTargetTitle() ).text(),
+				mw.msg( 'title-invalid-characters', this.getTargetTitle() ),
 				JSON.stringify( editError )
 			);
 			return;

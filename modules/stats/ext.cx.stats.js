@@ -255,10 +255,10 @@
 			]
 		);
 
-		this.$container.append( $( '<h2>' ).text( mw.message(
+		this.$container.append( $( '<h2>' ).text( mw.msg(
 			'cx-trend-translations-to',
 			$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
-		).escaped() ) );
+		) ) );
 		this.createTabs(
 			'cx-graph-language', [
 				{
