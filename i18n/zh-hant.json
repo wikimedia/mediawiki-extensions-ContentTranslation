@@ -111,7 +111,7 @@
 	"cx-mt-abuse-error-text": "自動翻譯僅提供做為一個起始，請確認內容在您的語言裡的準確性及可讀性。\n\n在未有進一步的編輯動作之下，您無法發布您的翻譯。",
 	"cx-mt-abuse-warning-title": "您的翻譯部分{{PLURAL:$1|包含著}} $1% 未修改內容",
 	"cx-mt-abuse-warning-text": "自動翻譯僅提供做為一個起始，請確認內容在您的語言裡的準確性及可讀性。\n\n當其他編輯者審查您的翻譯時，有可能會將您的內容給刪除。",
-	"cx-publish-captcha-title": "檢查您並非是機器人",
+	"cx-publish-captcha-title": "檢查您並非機器人",
 	"cx-captcha-dialog-error": "您的答案似乎不正確。請重試。",
 	"cx-captcha-dialog-cancel": "取消",
 	"cx-captcha-unsupported-type": "遇到未支援的驗證碼類型。",
@@ -403,5 +403,7 @@
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由您所編輯",
 	"cx-campaign-mflanguagesearcher-invite": "您可以翻譯此頁面。這是一個在您的語言建立內容的簡單方式。",
 	"cx-suggestion-list-favorites-division": "稍後",
-	"cx-uls-relevant-languages-panel-header": "翻譯此頁面"
+	"cx-uls-relevant-languages-panel-header": "翻譯此頁面",
+	"cx-sx-publisher-captcha-dialog-header-title": "檢查您並非機器人",
+	"cx-sx-publisher-captcha-dialog-publish-button": "發布"
 }
