@@ -33,7 +33,6 @@ use DerivativeRequest;
 use ExtensionRegistry;
 use IBufferingStatsdDataFactory;
 use Language;
-use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\Languages\LanguageFactory;
 use MWException;
 use Title;
@@ -279,36 +278,6 @@ class ApiContentTranslationPublish extends ApiBase {
 
 			// Notify user about milestones
 			$this->notifyTranslator();
-
-			// Check whether the page has a "need review" category,
-			// and log if necessary
-			$trackingCategoryMsg = 'cx-unreviewed-translation-category';
-			$categories = [];
-
-			if ( $params['categories'] ) {
-				$categories = explode( '|', $params['categories'] );
-			}
-
-			$trackingCategoryKey = array_search( $trackingCategoryMsg, $categories );
-			if ( $trackingCategoryKey !== false ) {
-				$extensionRegistry = ExtensionRegistry::getInstance();
-
-				if ( $extensionRegistry->isLoaded( 'EventLogging' ) ) {
-					EventLogging::logEvent(
-						'ContentTranslation',
-						$extensionRegistry->getAttribute( 'EventLoggingSchemas' )[ 'ContentTranslation' ],
-						[
-							'version' => 2,
-							'token' => $this->getUser()->getName(),
-							'action' => 'need-review',
-							'sourceLanguage' => $params['from'],
-							'targetLanguage' => $params['to'],
-							'sourceTitle' => $params['sourcetitle'],
-							'targetTitle' => $params['title'],
-						]
-					);
-				}
-			}
 		} else {
 			$result = [
 				'result' => 'error',

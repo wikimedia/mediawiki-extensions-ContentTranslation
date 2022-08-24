@@ -396,7 +396,6 @@
 				"dashboard/mw.cx.DashboardList.js",
 				"dashboard/mw.cx.TranslationList.js",
 				"dashboard/mw.cx.SuggestionList.js",
-				"eventlogging/ext.cx.eventlogging.dashboard.js",
 				"widgets/translator/ext.cx.translator.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
@@ -1681,11 +1680,7 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"ContentTranslation": 18999884,
-				"ContentTranslationCTA": 16017678,
-				"ContentTranslationAbuseFilter": "/analytics/legacy/contenttranslationabusefilter/1.0.0",
-				"ContentTranslationSuggestion": 19004928,
-				"ContentTranslationError": 11767097
+				"ContentTranslationAbuseFilter": "/analytics/legacy/contenttranslationabusefilter/1.0.0"
 			}
 		}
 	},
