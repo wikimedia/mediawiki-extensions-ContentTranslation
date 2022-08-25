@@ -1,6 +1,7 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import SubSection from "@/wiki/cx/models/subSection";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 
 const mutations = {
   /**
