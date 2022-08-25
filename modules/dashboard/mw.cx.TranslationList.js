@@ -308,7 +308,7 @@ mw.cx.CXTranslationList.prototype.renderTranslations = function ( translations )
 				.addClass( 'cx-target-title' )
 				.text( translation.targetTitle );
 			$translationLink.append(
-				$( '<span>' ).html( '&#160;' ), // nbsp to ensure separation between words
+				$( '<span>' ).text( '\u00A0' ), // nbsp to ensure separation between words
 				$targetTitle
 			);
 		}

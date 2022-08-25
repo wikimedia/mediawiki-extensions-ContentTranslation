@@ -189,7 +189,7 @@
 					// nbsp is needed for separation between the numbers.
 					// Without it the numbers appear in the wrong order in RTL environments.
 					$( '<span>' )
-						.html( '&#160;' ),
+						.text( '\u00A0' ),
 					// eslint-disable-next-line mediawiki/class-doc
 					$( '<span>' )
 						.prop( 'dir', 'ltr' )
