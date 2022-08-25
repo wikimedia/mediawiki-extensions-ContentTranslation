@@ -134,5 +134,19 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "在新頁面修訂的章節位置。",
 	"apihelp-cxpublishsection-param-sourcerevid": "來源頁面修訂 ID。",
 	"apihelp-cxpublishsection-param-captchaid": "驗證碼 ID (當使用驗證碼儲存時)。",
-	"apihelp-cxpublishsection-param-captchaword": "回答驗證碼 (當使用驗證碼儲存時)。"
+	"apihelp-cxpublishsection-param-captchaword": "回答驗證碼 (當使用驗證碼儲存時)。",
+	"apihelp-sxsave-description": "保存草稿章節翻譯，並存儲平行語料庫",
+	"apihelp-sxsave-summary": "保存草稿章節翻譯，並存儲平行語料庫",
+	"apihelp-sxsave-param-sourcelanguage": "來源語言代碼。",
+	"apihelp-sxsave-param-targetlanguage": "目標語言代碼。",
+	"apihelp-sxsave-param-sourcetitle": "來源頁面標題。",
+	"apihelp-sxsave-param-targettitle": "目標頁面標題。",
+	"apihelp-sxsave-param-content": "JSON 編碼的章節資料。各章節皆為一個物件，並包含以下的 key：content、sectionId、sequenceId、sequenceId, origin",
+	"apihelp-sxsave-param-sourcesectiontitle": "來源章節標題。",
+	"apihelp-sxsave-param-targetsectiontitle": "目標章節標題。",
+	"apihelp-sxsave-param-sectionnumber": "在新頁面修訂的章節位置。",
+	"apihelp-sxsave-param-sectionid": "頁面章節 ID。",
+	"apihelp-sxsave-param-sourcerevision": "來源頁面修訂 ID。",
+	"apierror-sxsave-anon-user": "「sxsave」API 操作未啟用給匿名使用者",
+	"apierror-cxpublishsection-translationnotfound": "找不到翻譯。"
 }
