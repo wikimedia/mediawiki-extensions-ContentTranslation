@@ -13,6 +13,7 @@ use Exception;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 use function Eris\Generator\bool;
 
 class TranslationCorporaStore {
@@ -205,10 +206,21 @@ class TranslationCorporaStore {
 	}
 
 	private function doFind( IDatabase $db, $conditions, $options, $method ): ?TranslationUnit {
-		$options['ORDER BY'] = 'cxc_timestamp DESC';
-
-		$row = $db->selectRow( self::TABLE_NAME, IDatabase::ALL_ROWS, $conditions, $method, $options );
-
+		$row = $db->newSelectQueryBuilder()
+			->select( [
+				'cxc_translation_id',
+				'cxc_section_id',
+				'cxc_origin',
+				'cxc_timestamp',
+				'cxc_sequence_id',
+				'cxc_content'
+			] )
+			->from( self::TABLE_NAME )
+			->where( $conditions )
+			->orderBy( 'cxc_timestamp', SelectQueryBuilder::SORT_DESC )
+			->options( $options )
+			->caller( $method )
+			->fetchRow();
 		if ( $row ) {
 			return $this->createTranslationUnitFromRow( $row );
 		}
