@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"apihelp-cxpublish-param-html": "Змист на зачуванє.",
+	"apihelp-cxpublish-param-from": "Код жридлового язика.",
+	"apihelp-cxpublish-param-to": "Код цильного язика."
+}

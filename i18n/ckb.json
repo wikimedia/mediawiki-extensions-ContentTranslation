@@ -217,6 +217,7 @@
 	"cx-infobar-cannot-publish": "ناتوانرێت وەرگێڕانەکەت بڵاوبکرێتەوە چونکە بڵاوکردنەوە تەنیا بۆ دەستکاریکەرە بەئەزموونترەکانی ئەم ویکییە ڕێگەی پێ دراوە.",
 	"cx-tools-linter-issues": "گرفتەکان",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 ھەڵە|$1 ھەڵەکان}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 ھۆشدار|$1 ھۆشدار}}",
 	"cx-tools-linter-learn-more": "زیاتر فێر بە",
 	"cx-tools-linter-mark-as-resolved": "وەک چارەسەرکراو نیشانی بدە",
 	"cx-tools-linter-generic-title": "گرفتێک لە وەرگێڕانەکەت ھەیە",
