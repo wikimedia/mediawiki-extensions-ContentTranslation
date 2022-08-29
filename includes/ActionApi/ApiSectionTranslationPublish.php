@@ -17,6 +17,7 @@ use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SectionContentFetcher;
+use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -45,6 +46,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var SectionContentFetcher */
 	protected $sectionContentFetcher;
 
+	/** @var SectionPositionCalculator */
+	private $sectionPositionCalculator;
+
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
@@ -53,6 +57,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param LanguageNameUtils $languageNameUtils
 	 * @param RestbaseClient $restbaseClient
 	 * @param SectionContentFetcher $sectionContentFetcher
+	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -61,7 +66,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
 		RestbaseClient $restbaseClient,
-		SectionContentFetcher $sectionContentFetcher
+		SectionContentFetcher $sectionContentFetcher,
+		SectionPositionCalculator $sectionPositionCalculator
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -69,13 +75,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->languageNameUtils = $languageNameUtils;
 		$this->restbaseClient = $restbaseClient;
 		$this->sectionContentFetcher = $sectionContentFetcher;
+		$this->sectionPositionCalculator = $sectionPositionCalculator;
 	}
 
 	/**
 	 * @param string $sourceLanguage
 	 * @param string $sourceRevId
 	 * @param string $sourceTitle
-	 * @param string $sectionNumber
+	 * @param bool $isLeadSection
 	 * @param string $sourceSectionTitle
 	 * @return string
 	 */
@@ -83,12 +90,12 @@ class ApiSectionTranslationPublish extends ApiBase {
 		string $sourceLanguage,
 		string $sourceRevId,
 		string $sourceTitle,
-		string $sectionNumber,
+		bool $isLeadSection,
 		string $sourceSectionTitle
 	): string {
 		$sourceLink = "[[:{$sourceLanguage}:Special:Redirect/revision/{$sourceRevId}|{$sourceTitle}]]";
 		// if the published section is a lead section, the summary should be slightly different
-		if ( $sectionNumber === "0" ) {
+		if ( $isLeadSection ) {
 			return $this->msg(
 				'cx-sx-publish-lead-section-summary',
 				$sourceLink
@@ -107,18 +114,19 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 *
 	 * @param Title $title The title of the page to write
 	 * @param string $wikitext The wikitext to write
+	 * @param int|string $sectionNumber
 	 * @return mixed The result of the save attempt
 	 * @throws \ApiUsageException
 	 */
-	protected function submitEditAction( Title $title, string $wikitext ) {
+	protected function submitEditAction( Title $title, string $wikitext, $sectionNumber ) {
 		$params = $this->extractRequestParams();
 		[ 'sourcelanguage' => $from, 'sourcerevid' => $sourceRevId, 'sourcetitle' => $sourceTitle ] = $params;
-		$sectionNumber = $params['sectionnumber'];
+		$isLeadSection = $sectionNumber === 0;
 		$summary = $this->getPublishSummary(
 			$from,
 			$sourceRevId,
 			$sourceTitle,
-			$sectionNumber,
+			$isLeadSection,
 			$params['sourcesectiontitle']
 		);
 
@@ -190,7 +198,12 @@ class ApiSectionTranslationPublish extends ApiBase {
 		'@phan-var \Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $this->getUser() );
 
-		$sectionNumber = $params['sectionnumber'];
+		$sectionNumber = $this->sectionPositionCalculator->calculateSectionPosition(
+			$targetTitle,
+			$targetLanguage,
+			$params['issandbox']
+		);
+
 		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $targetLanguage, $sectionNumber );
 		$editStatus = $editResult['result'];
 
@@ -241,7 +254,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @throws \ApiUsageException
 	 */
 	private function saveWikitext( string $html, Title $targetTitle, string $targetLanguage, $sectionNumber ) {
-		// section number is not "0" or "new". That means the section needs to be positioned before the first
+		// section number is not 0 or "new". That means the section needs to be positioned before the first
 		// appendix section, which is positioned in {$sectionNumber} position
 		if ( (int)$sectionNumber > 0 ) {
 			$appendixSectionHtml = $this->sectionContentFetcher->getSectionHtml(
@@ -266,7 +279,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);
 		}
-		$editResult = $this->submitEditAction( $targetTitle, $wikitext );
+		$editResult = $this->submitEditAction( $targetTitle, $wikitext, $sectionNumber );
 		return $editResult['edit'];
 	}
 
@@ -379,9 +392,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'targetsectiontitle' => [
 				ParamValidator::PARAM_REQUIRED => true,
 			],
-			'sectionnumber' => [
+			'issandbox' => [
+				ParamValidator::PARAM_TYPE => 'boolean',
 				ParamValidator::PARAM_REQUIRED => false,
-				ParamValidator::PARAM_DEFAULT => 'new',
 			],
 			'captchaid' => null,
 			'captchaword' => null,

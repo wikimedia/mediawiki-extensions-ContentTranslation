@@ -54,35 +54,6 @@ export default class Page {
   }
 
   /**
-   * For a given target section title it returns the order
-   * of this section inside target page if present or -1 elsewise.
-   *
-   * The section number is the sum of all preceding page sections,
-   * plus all subsections that are heading sections (h3, h4, etc),
-   * plus 1.
-   * @param {string} sectionTitle
-   * @return {number}
-   */
-  getSectionNumberByTitle(sectionTitle) {
-    const sectionIndex = this.sections.findIndex(
-      (section) => section.originalTitle === sectionTitle
-    );
-
-    if (sectionIndex < 0) {
-      return -1;
-    }
-    const precedingSections = this.sections.slice(0, sectionIndex);
-
-    return precedingSections.reduce(
-      (count, section) =>
-        count +
-        section.subSections.filter((subsection) => subsection.isHeadingSection)
-          .length,
-      sectionIndex
-    );
-  }
-
-  /**
    * @param {string} sectionTitle
    * @return {PageSection|null}
    */

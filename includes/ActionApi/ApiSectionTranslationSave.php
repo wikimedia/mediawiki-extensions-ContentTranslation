@@ -170,7 +170,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	private function saveSectionTranslation( int $translationId ): void {
 		$params = $this->extractRequestParams();
 		// if the translated section is NOT a lead section, add a new row inside "cx_section_translations" table
-		if ( $params['sectionnumber'] === "0" ) {
+		if ( $params['isleadsection'] ) {
 			return;
 		}
 
@@ -248,9 +248,9 @@ class ApiSectionTranslationSave extends ApiBase {
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true
 			],
-			'sectionnumber' => [
+			'isleadsection' => [
 				ParamValidator::PARAM_REQUIRED => false,
-				ParamValidator::PARAM_DEFAULT => 'new',
+				ParamValidator::PARAM_DEFAULT => false,
 			]
 		];
 	}

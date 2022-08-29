@@ -8,6 +8,7 @@ use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
 use ContentTranslation\SectionContentFetcher;
+use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -82,6 +83,10 @@ return [
 	'ContentTranslation.SectionContentFetcher' =>
 		static function ( MediaWikiServices $services ): SectionContentFetcher {
 			return new SectionContentFetcher( $services->getHttpRequestFactory() );
+		},
+	'ContentTranslation.SectionPositionCalculator' =>
+		static function ( MediaWikiServices $services ): SectionPositionCalculator {
+			return new SectionPositionCalculator( $services->getHttpRequestFactory() );
 		},
 	'ContentTranslation.SectionTranslationStore' =>
 		static function ( MediaWikiServices $services ): SectionTranslationStore {

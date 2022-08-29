@@ -168,9 +168,9 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.sourceLanguage
  * @param {String} publishParams.targetLanguage
  * @param {Number} publishParams.revision
- * @param {Number|"new"} publishParams.sectionNumber
  * @param {String} publishParams.captchaId
  * @param {String} publishParams.captchaWord
+ * @param {boolean} publishParams.isSandbox
  * @return {Promise<PublishFeedbackMessage|null>}
  */
 const publishTranslation = ({
@@ -182,9 +182,9 @@ const publishTranslation = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber,
   captchaId,
   captchaWord,
+  isSandbox,
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -196,7 +196,7 @@ const publishTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    sectionnumber: sectionNumber,
+    issandbox: isSandbox,
   };
 
   if (captchaId) {
@@ -259,7 +259,7 @@ const publishTranslation = ({
  * @param {string} publishParams.sourceLanguage The language of the source page
  * @param {string} publishParams.targetLanguage The language of the target page
  * @param {number} publishParams.revision The revision of the source page
- * @param {number|"new"} publishParams.sectionNumber The position where the translated section will be positioned
+ * @param {boolean} publishParams.isLeadSection Whether section is a lead section or not
  * @param {number|"new"} publishParams.units The parallel corpora translation units
  * @param {string} publishParams.sectionId The id of the source page section
  * @return {Promise<PublishFeedbackMessage|null>}
@@ -272,7 +272,7 @@ const saveTranslation = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber,
+  isLeadSection,
   units,
   sectionId,
 }) => {
@@ -285,7 +285,7 @@ const saveTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    sectionnumber: sectionNumber,
+    isleadsection: isLeadSection,
     content: JSON.stringify(units),
     sectionid: sectionId,
   };

@@ -122,7 +122,7 @@ async function publishTranslation(
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,
-    sectionNumber: getters.getSectionNumberForPublishing,
+    isLeadSection: currentSourceSection.isLeadSection,
     units: units.map((unit) => unit.payload),
     // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
     sectionId: baseSectionId,
@@ -131,6 +131,8 @@ async function publishTranslation(
   if (!!saveMessage) {
     return saveMessage;
   }
+
+  const isSandbox = rootGetters["application/isSandboxTarget"];
 
   const publishPayload = {
     html: prependHeaderToSection(currentSourceSection),
@@ -141,7 +143,7 @@ async function publishTranslation(
     sourceLanguage,
     targetLanguage,
     revision: sourcePage.revision,
-    sectionNumber: getters.getSectionNumberForPublishing,
+    isSandbox,
   };
 
   if (captchaId) {

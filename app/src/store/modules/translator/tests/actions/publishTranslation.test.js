@@ -18,15 +18,15 @@ const mockMessageForSaving = new PublishFeedbackMessage({
 });
 
 jest.mock("@/wiki/cx/api/translator", () => ({
-  publishTranslation: jest.fn(({ sectionNumber }) => {
-    if (sectionNumber === 1) {
+  publishTranslation: jest.fn(({ targetTitle }) => {
+    if (targetTitle === "Test target article title 1") {
       return null;
-    } else if (sectionNumber === 2) {
+    } else if (targetTitle === "Test target article title 2") {
       return mockMessage;
     }
   }),
-  saveTranslation: jest.fn(({ sectionNumber }) => {
-    if (sectionNumber === 3) {
+  saveTranslation: jest.fn(({ targetTitle }) => {
+    if (targetTitle === "Test target article title 3") {
       return mockMessageForSaving;
     } else {
       return null;
@@ -58,6 +58,7 @@ describe("vuex store publishTranslation action", () => {
       subSections: [
         new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
       ],
+      isLeadSection: false,
     }),
     currentSectionSuggestion: new SectionSuggestion({
       sourceTitle: "Test source title 1",
@@ -71,11 +72,11 @@ describe("vuex store publishTranslation action", () => {
   const rootGetters = {
     "application/getCurrentPage": new Page({ lastrevid: 11 }),
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
+    "application/isSandboxTarget": false,
   };
 
   const getters = {
     getArticleTitleForPublishing: "Test target article title 1",
-    getSectionNumberForPublishing: 1,
   };
 
   it("should call api saveTranslation method with the proper payload", async () => {
@@ -110,7 +111,7 @@ describe("vuex store publishTranslation action", () => {
           validate: false,
         },
       ],
-      sectionNumber: 1,
+      isLeadSection: false,
     });
   });
 
@@ -130,7 +131,7 @@ describe("vuex store publishTranslation action", () => {
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      sectionNumber: 1,
+      isSandbox: false,
     });
   });
 
@@ -179,7 +180,7 @@ describe("vuex store publishTranslation action", () => {
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      sectionNumber: 1,
+      isLeadSection: false,
       sectionId: "11_1",
       units: [
         {
@@ -207,7 +208,7 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to the publish feedback message that is returned by publishTranslation api method, when publishing fails", async () => {
-    getters.getSectionNumberForPublishing = 2;
+    getters.getArticleTitleForPublishing = "Test target article title 2";
     applicationState.currentSourceSection.subSections = [];
     const feedbackMessage = await actions.publishTranslation({
       rootState,
@@ -219,7 +220,7 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to the publish feedback message that is returned by saveTranslation api method, when saving fails", async () => {
-    getters.getSectionNumberForPublishing = 3;
+    getters.getArticleTitleForPublishing = "Test target article title 3";
     const feedbackMessage = await actions.publishTranslation({
       rootState,
       rootGetters,

@@ -52,6 +52,45 @@ class SiteMapper {
 	}
 
 	/**
+	 * @param string $module
+	 * @param array $params
+	 * @return string
+	 */
+	public static function getCXServerURL( string $module, array $params = [] ): string {
+		global $wgContentTranslationSiteTemplates;
+		global $wgContentTranslationVersion;
+
+		$cxserverURL = $wgContentTranslationSiteTemplates['cx'] . $module;
+		if ( $wgContentTranslationVersion === 2 ) {
+			$cxserverURL = str_replace( 'v1', 'v2', $cxserverURL );
+		}
+
+		return wfAppendQuery( $cxserverURL, $params );
+	}
+
+	/**
+	 * @param string $language
+	 * @param string $module
+	 * @param array $params
+	 * @return string
+	 */
+	public static function getRestApiURL( string $language, string $module, array $params = [] ): string {
+		global $wgContentTranslationSiteTemplates;
+
+		$domain = self::getDomainCode( $language );
+		$restbaseUrl = $wgContentTranslationSiteTemplates['restbase'] . $module;
+		$parsedUrl = parse_url( $restbaseUrl );
+
+		if ( !isset( $parsedUrl['scheme'] ) ) {
+			// $wgContentTranslationSiteTemplates['restbase'] is protocol relative path
+			$restbaseUrl = 'https:' . $restbaseUrl;
+		}
+
+		$url = str_replace( '$1', $domain, $restbaseUrl );
+		return wfAppendQuery( $url, $params );
+	}
+
+	/**
 	 * Get the API URL constructed from the domain template of sites
 	 * @param string $language
 	 * @param array|null $params
@@ -63,9 +102,7 @@ class SiteMapper {
 		$domain = self::getDomainCode( $language );
 		// $wgContentTranslationSiteTemplates['api'] is protocol relative path
 		$url = 'https:' . str_replace( '$1', $domain, $wgContentTranslationSiteTemplates['api'] );
-		$url = wfAppendQuery( $url, $params );
-
-		return $url;
+		return wfAppendQuery( $url, $params );
 	}
 
 	/**

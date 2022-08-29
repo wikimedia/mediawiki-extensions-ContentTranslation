@@ -120,7 +120,8 @@
 				"HookContainer",
 				"LanguageNameUtils",
 				"ContentTranslation.RestbaseClient",
-				"ContentTranslation.SectionContentFetcher"
+				"ContentTranslation.SectionContentFetcher",
+				"ContentTranslation.SectionPositionCalculator"
 			]
 		},
 		"cxsave": {

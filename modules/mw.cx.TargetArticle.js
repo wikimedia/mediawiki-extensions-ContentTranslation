@@ -179,8 +179,7 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			sourcesectiontitle: this.translation.sourceWikiPage.getSectionTitle(),
 			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
-			targetlanguage: this.targetLanguage,
-			sectionnumber: 'new' // FIXME
+			targetlanguage: this.targetLanguage
 		};
 
 		if ( this.captcha ) {
