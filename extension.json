@@ -526,6 +526,7 @@
 				"cx-sx-published-section-invitation-title",
 				"cx-sx-published-section-invitation-missing-sections-info"
 			],
+			"es6": true,
 			"targets": [ "desktop", "mobile" ],
 			"dependencies": [
 				"vue",
