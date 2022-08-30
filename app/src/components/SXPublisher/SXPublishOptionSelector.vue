@@ -64,6 +64,7 @@ import {
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxPublishOptionSelector",
@@ -88,11 +89,23 @@ export default {
     );
     const isAnon = computed(() => store.state.translator.isAnon);
     const bananaI18n = useI18n();
+    const { currentSourceSection } = useApplicationState(store);
+
+    const optionLabel = computed(() =>
+      currentSourceSection.value.isLeadSection
+        ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-label")
+        : bananaI18n.i18n("cx-sx-publisher-new-section-option-label")
+    );
+    const optionDetails = computed(() =>
+      currentSourceSection.value.isLeadSection
+        ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-details")
+        : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
+    );
 
     const publishOptions = computed(() => [
       {
-        label: bananaI18n.i18n("cx-sx-publisher-new-section-option-label"),
-        details: bananaI18n.i18n("cx-sx-publisher-new-section-option-details"),
+        label: optionLabel.value,
+        details: optionDetails.value,
         value: "NEW_SECTION",
         disabled: false,
       },
