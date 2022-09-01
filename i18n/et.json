@@ -318,7 +318,7 @@
 	"cx-sx-publisher-header-title": "Avaldamise kinnitamine",
 	"cx-sx-publisher-publish-panel-new-section-status": "Avaldamiseks valmis?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Sinu tõlge <strong>lisatakse artiklisse uue alaosana.</strong>",
-	"cx-sx-publisher-review-info": "<strong>Veendu, et sinu tõlge kõlab loomulikult ja järgib õigekirja reegleid.</strong>",
+	"cx-sx-publisher-review-info": "<strong>Veendu, et sinu tõlge kõlab loomulikult ja järgib õigekirjareegleid.</strong>",
 	"cx-sx-publisher-preview-options-title": "Avaldamise sätted",
 	"cx-sx-publisher-new-section-option-label": "Avalda uue alaosana",
 	"cx-sx-publisher-new-section-option-details": "Lisa artiklisse uus alaosa.",
@@ -334,7 +334,7 @@
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Lause",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Lõik",
 	"cx-sx-publisher-mt-abuse-message-title": "Sinu tõlge sisaldab $1% muutmata teksti.",
-	"cx-sx-publisher-mt-abuse-error-title": "Sinu tõlget ei saa avaldada: see sisaldab $1% muutmata teksti.",
+	"cx-sx-publisher-mt-abuse-error-title": "Sinu tõlget ei saa avaldada, sest see sisaldab $1% muutmata teksti.",
 	"cx-sx-publisher-mt-abuse-message-body": "Masintõlge on ainult alustamiseks. Saad siiski avaldada, aga veendu, et tõlge kõlab sinu keeles loomulikult.",
 	"cx-sx-publisher-mt-abuse-error-body": "Masintõlge on ainult alustamiseks. Veendu, et tõlge kõlab sinu keeles loomulikult.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 alaosa|0=Alaosad puuduvad}}",
@@ -354,8 +354,11 @@
 	"sx-editor-feedback-overlay-clarification": "Õpime sinu parandustest.",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> sinu muudetud",
 	"cx-suggestion-list-favorites-division": "Hilisemaks",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Muuda lehekülge",
 	"sx-block-template-adaptation-card-body-header-success": "Soovitatud mall",
 	"sx-block-template-adaptation-card-edit-button-label": "Vaata üle ja muuda tõlget",
+	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Muuda tõlget",
 	"sx-block-template-adaptation-card-body-header-failure": "Samasisulist malli pole selles keeles ($1) saadaval.",
-	"cx-sx-publisher-publish-panel-lead-section-result": "Sellest saab <strong>uue artikli esimene alaosa!</strong>"
+	"cx-sx-publisher-publish-panel-lead-section-result": "Sellest saab <strong>uue artikli esimene alaosa!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Tõlgi see lehekülg"
 }

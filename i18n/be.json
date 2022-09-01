@@ -12,6 +12,7 @@
 			"Prevodim",
 			"SamGold",
 			"Tomato Cream",
+			"Tīgelika",
 			"ZlyiLev"
 		]
 	},
@@ -346,7 +347,9 @@
 	"cx-sx-publish-lead-section-summary": "Створана перакладаючы першы раздзел са старонкі «$1»",
 	"cx-sx-publisher-preview-options-title": "Налады публікацыі",
 	"cx-sx-publisher-new-section-option-label": "Апублікаваць як новы раздзел",
+	"cx-sx-publisher-lead-section-option-label": "Апублікаваць як новую старонку",
 	"cx-sx-publisher-new-section-option-details": "Дадаць новы раздзел у артыкул",
+	"cx-sx-publisher-lead-section-option-details": "Стварыць новую старонку ў галоўнай прасторы назваў",
 	"cx-sx-publisher-sandbox-option-label": "Апублікаваць у вашай Пясочніцы",
 	"cx-sx-publisher-sandbox-option-details": "Апублікаваць у сваёй асабістай прасторы, каб вы маглі праглядзець і скапіяваць у іншае месца.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш пераклад будзе <strong>дададзены ў вашу пясочніцу.</strong>",
