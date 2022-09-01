@@ -1,7 +1,7 @@
 import { getUrl } from "@/utils/mediawikiHelper";
 import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 const decodeHtml = (html) => {
   const template = document.createElement("div");
@@ -76,6 +76,12 @@ const usePublishTranslation = (store) => {
   const isPublishingDisabled = computed(() =>
     publishFeedbackMessages.value.some((message) => message.isError)
   );
+
+  watch(publishOptionsOn, (newValue) => {
+    if (!newValue) {
+      publishFeedbackMessages.value = [];
+    }
+  });
 
   /**
    * @param {string|number|null} captchaAnswer
