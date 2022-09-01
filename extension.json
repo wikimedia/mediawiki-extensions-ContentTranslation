@@ -120,7 +120,6 @@
 				"HookContainer",
 				"LanguageNameUtils",
 				"ContentTranslation.RestbaseClient",
-				"ContentTranslation.SectionContentFetcher",
 				"ContentTranslation.SectionPositionCalculator"
 			]
 		},

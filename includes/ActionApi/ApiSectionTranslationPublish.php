@@ -16,7 +16,6 @@ use ApiBase;
 use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
-use ContentTranslation\SectionContentFetcher;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
@@ -43,9 +42,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var RestbaseClient */
 	protected $restbaseClient;
 
-	/** @var SectionContentFetcher */
-	protected $sectionContentFetcher;
-
 	/** @var SectionPositionCalculator */
 	private $sectionPositionCalculator;
 
@@ -56,7 +52,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param HookContainer $hookContainer
 	 * @param LanguageNameUtils $languageNameUtils
 	 * @param RestbaseClient $restbaseClient
-	 * @param SectionContentFetcher $sectionContentFetcher
 	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 */
 	public function __construct(
@@ -66,7 +61,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
 		RestbaseClient $restbaseClient,
-		SectionContentFetcher $sectionContentFetcher,
 		SectionPositionCalculator $sectionPositionCalculator
 	) {
 		parent::__construct( $main, $action );
@@ -74,7 +68,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->hookContainer = $hookContainer;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->restbaseClient = $restbaseClient;
-		$this->sectionContentFetcher = $sectionContentFetcher;
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 	}
 
@@ -133,13 +126,19 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$apiParams = [
 			'action' => 'edit',
 			'title' => $title->getPrefixedDBkey(),
-			'text' => $wikitext,
 			'summary' => $summary,
 			'sectiontitle' => $params['targetsectiontitle'],
 			'section' => $sectionNumber,
 			'captchaid' => $params['captchaid'],
 			'captchaword' => $params['captchaword'],
 		];
+
+		if ( (int)$sectionNumber > 0 ) {
+			$apiParams['prependtext'] = $wikitext;
+		} else {
+			$apiParams['text'] = $wikitext;
+		}
+
 		// Pass any unrecognized query parameters to the internal action=edit API request.
 		$allowedParams = array_diff_key(
 			$this->getRequest()->getValues(),
@@ -204,7 +203,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$params['issandbox']
 		);
 
-		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $targetLanguage, $sectionNumber );
+		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber );
 		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -248,26 +247,11 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 *
 	 * @param string $html
 	 * @param Title $targetTitle
-	 * @param string $targetLanguage
 	 * @param int|string $sectionNumber
 	 * @return mixed
 	 * @throws \ApiUsageException
 	 */
-	private function saveWikitext( string $html, Title $targetTitle, string $targetLanguage, $sectionNumber ) {
-		// section number is not 0 or "new". That means the section needs to be positioned before the first
-		// appendix section, which is positioned in {$sectionNumber} position
-		if ( (int)$sectionNumber > 0 ) {
-			$appendixSectionHtml = $this->sectionContentFetcher->getSectionHtml(
-				$targetTitle,
-				$targetLanguage,
-				$sectionNumber
-			);
-
-			if ( $appendixSectionHtml ) {
-				$html .= "\n$appendixSectionHtml";
-			}
-		}
-
+	private function saveWikitext( string $html, Title $targetTitle, $sectionNumber ) {
 		$wikitext = null;
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(

@@ -7,7 +7,6 @@ use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
-use ContentTranslation\SectionContentFetcher;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -79,10 +78,6 @@ return [
 				$services->getHttpRequestFactory(),
 				new ServiceOptions( RestbaseClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
-		},
-	'ContentTranslation.SectionContentFetcher' =>
-		static function ( MediaWikiServices $services ): SectionContentFetcher {
-			return new SectionContentFetcher( $services->getHttpRequestFactory() );
 		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {
