@@ -3,26 +3,6 @@
  */
 
 /**
- * Given a PageSection model, this method returns an HTML string
- * that contains the page section header and its contents
- *
- * @param {PageSection} section
- * @return {string}
- */
-const prependHeaderToSection = (section) => {
-  const createHeader = (title) => {
-    const headerElement = document.createElement("h2");
-    headerElement.textContent = title;
-
-    return headerElement;
-  };
-  const newSectionHeader = createHeader(section.title);
-  const newSectionHtml = cleanupHtml(section.translationHtml);
-
-  return `${newSectionHeader.outerHTML}\n${newSectionHtml}`;
-};
-
-/**
  * Clean up the input html by removing CX specific markup and attributes.
  *
  * @param {String} html
@@ -110,4 +90,4 @@ const getTitleForPublishOption = (originalTitle, publishOption) => {
   );
 };
 
-export { cleanupHtml, getTitleForPublishOption, prependHeaderToSection };
+export { cleanupHtml, getTitleForPublishOption };

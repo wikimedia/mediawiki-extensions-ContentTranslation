@@ -203,7 +203,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$params['issandbox']
 		);
 
-		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber );
+		$targetSectionTitle = $params['targetsectiontitle'];
+		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber, $targetSectionTitle );
 		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -248,10 +249,17 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param string $html
 	 * @param Title $targetTitle
 	 * @param int|string $sectionNumber
+	 * @param string $targetSectionTitle
 	 * @return mixed
 	 * @throws \ApiUsageException
 	 */
-	private function saveWikitext( string $html, Title $targetTitle, $sectionNumber ) {
+	private function saveWikitext( string $html, Title $targetTitle, $sectionNumber, string $targetSectionTitle ) {
+		// When the section number is a positive integer, it means that the section needs to be positioned
+		// before the first appendix section. In those cases, we need to prepend the target section title
+		// to the HTML that is being published
+		if ( (int)$sectionNumber > 0 ) {
+			$html = $this->prependSectionTitle( $html, $targetSectionTitle );
+		}
 		$wikitext = null;
 		try {
 			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
@@ -265,6 +273,19 @@ class ApiSectionTranslationPublish extends ApiBase {
 		}
 		$editResult = $this->submitEditAction( $targetTitle, $wikitext, $sectionNumber );
 		return $editResult['edit'];
+	}
+
+	/**
+	 * This method prepends the target section title to the HTML that is being published.
+	 * Used for sections that need to be prepended to the first appendix section of the
+	 * target article.
+	 * @param string $html
+	 * @param string $sectionTitle
+	 * @return string
+	 */
+	private function prependSectionTitle( string $html, string $sectionTitle ): string {
+		// add empty line to the end of HTML string, so that the first appendix section title goes into the next line
+		return "<h2>$sectionTitle</h2>\n$html\n";
 	}
 
 	/**

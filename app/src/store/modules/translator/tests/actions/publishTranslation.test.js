@@ -123,7 +123,7 @@ describe("vuex store publishTranslation action", () => {
     });
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
-      html: '<h2>Test target section title 1</h2>\n<span class="cx-segment">Target translated sentence 1</span>',
+      html: '<span class="cx-segment">Target translated sentence 1</span>',
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
       sourceSectionTitle: "Test section title 1",

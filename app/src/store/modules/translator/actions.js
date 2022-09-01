@@ -2,7 +2,7 @@ import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
-import { prependHeaderToSection } from "../../../utils/publishHelper";
+import { cleanupHtml } from "../../../utils/publishHelper";
 
 /**
  * This action initially clears all existing MT publish feedback
@@ -135,7 +135,7 @@ async function publishTranslation(
   const isSandbox = rootGetters["application/isSandboxTarget"];
 
   const publishPayload = {
-    html: prependHeaderToSection(currentSourceSection),
+    html: cleanupHtml(currentSourceSection.translationHtml),
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle: getters.getArticleTitleForPublishing,
     sourceSectionTitle: currentSourceSection.originalTitle,
