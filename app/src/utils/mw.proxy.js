@@ -55,8 +55,6 @@ const mw = {
           return "Special:ContentTranslation";
         case "wgDBname":
           return "test-db";
-        case "skin":
-          return "minerva";
         case "wgUserEditCount":
           return 2021;
         case "wgUserEditCountBucket":
