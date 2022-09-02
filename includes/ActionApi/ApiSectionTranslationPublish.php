@@ -119,7 +119,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$sourceRevId,
 			$sourceTitle,
 			$sectionNumber,
-			$params['targetsectiontitle']
+			$params['sourcesectiontitle']
 		);
 
 		$apiParams = [
