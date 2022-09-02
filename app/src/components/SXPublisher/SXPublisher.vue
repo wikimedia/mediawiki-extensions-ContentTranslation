@@ -100,13 +100,15 @@ export default {
     const panelResult = computed(() => {
       const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
-      if (currentPageSection.value.isLeadSection) {
-        return bananaI18n.i18n(
-          "cx-sx-publisher-publish-panel-lead-section-result"
-        );
-      } else if (isSandboxTarget.value) {
+      // if the publish target is the user sandbox, always show
+      // the sandbox publishing result message
+      if (isSandboxTarget) {
         return bananaI18n.i18n(
           "cx-sx-publisher-publish-panel-sandbox-section-result"
+        );
+      } else if (currentPageSection.value.isLeadSection) {
+        return bananaI18n.i18n(
+          "cx-sx-publisher-publish-panel-lead-section-result"
         );
       } else {
         return bananaI18n.i18n(
