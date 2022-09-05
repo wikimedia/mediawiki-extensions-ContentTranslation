@@ -355,6 +355,7 @@
 	"cx-sx-publish-summary": "Dibuat dengan menerjemahkan bagian \"$1\" dari halaman \"$2\"",
 	"cx-sx-publisher-preview-options-title": "Pilihan penerbitan",
 	"cx-sx-publisher-new-section-option-label": "Terbitkan sebagai bagian baru",
+	"cx-sx-publisher-lead-section-option-label": "Terbitkan sebagai halaman baru",
 	"cx-sx-publisher-new-section-option-details": "Tambahkan bagian baru ke artikel",
 	"cx-sx-publisher-sandbox-option-label": "Terbitkan ke Kotak pasir Anda",
 	"cx-sx-publisher-sandbox-option-details": "Terbitkan ke ruang pribadi Anda untuk ditinjau dan disalin ke tempat lain.",
