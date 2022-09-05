@@ -19892,14 +19892,14 @@ function logEvent(event) {
     mw.log({ event });
     return Promise.resolve();
   }
-  const accessMethod = mw.config.get("skin") === "minerva" ? "mobile web" : "desktop";
+  const accessMethod = "mobile web";
   const wikiDB = mw.config.get("wgDBname");
   const sessionId = `cx_sx_${mw.user.sessionId()}_${accessMethod}_${wikiDB}`;
   const streamName = "mediawiki.content_translation_event";
   const isAnonUser = mw.user.isAnon();
   const userName = mw.user.getName();
   const eventDefaults = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.0.0",
+    $schema: "/analytics/mediawiki/content_translation_event/1.2.0",
     translation_type: "section",
     wiki_db: wikiDB,
     access_method: accessMethod,
@@ -24455,10 +24455,13 @@ const _sfc_main$8 = {
     const selectedOption = computed(() => store2.state.application.publishTarget);
     const isAnon = computed(() => store2.state.translator.isAnon);
     const bananaI18n2 = useI18n();
+    const { currentSourceSection } = useApplicationState(store2);
+    const optionLabel = computed(() => currentSourceSection.value.isLeadSection ? bananaI18n2.i18n("cx-sx-publisher-lead-section-option-label") : bananaI18n2.i18n("cx-sx-publisher-new-section-option-label"));
+    const optionDetails = computed(() => currentSourceSection.value.isLeadSection ? bananaI18n2.i18n("cx-sx-publisher-lead-section-option-details") : bananaI18n2.i18n("cx-sx-publisher-new-section-option-details"));
     const publishOptions = computed(() => [
       {
-        label: bananaI18n2.i18n("cx-sx-publisher-new-section-option-label"),
-        details: bananaI18n2.i18n("cx-sx-publisher-new-section-option-details"),
+        label: optionLabel.value,
+        details: optionDetails.value,
         value: "NEW_SECTION",
         disabled: false
       },
@@ -24764,6 +24767,11 @@ const usePublishTranslation = (store2) => {
   const captchaDetails = ref(null);
   const publishFeedbackMessages = ref([]);
   const isPublishingDisabled = computed(() => publishFeedbackMessages.value.some((message) => message.isError));
+  watch(publishOptionsOn, (newValue) => {
+    if (!newValue) {
+      publishFeedbackMessages.value = [];
+    }
+  });
   const doPublish = (captchaAnswer = null) => __async(this, null, function* () {
     var _a;
     publishStatus.value = "pending";
@@ -24841,10 +24849,10 @@ const _sfc_main$6 = {
     const bananaI18n2 = useI18n();
     const panelResult = computed(() => {
       const isSandboxTarget = store2.getters["application/isSandboxTarget"];
-      if (currentPageSection.value.isLeadSection) {
-        return bananaI18n2.i18n("cx-sx-publisher-publish-panel-lead-section-result");
-      } else if (isSandboxTarget.value) {
+      if (isSandboxTarget) {
         return bananaI18n2.i18n("cx-sx-publisher-publish-panel-sandbox-section-result");
+      } else if (currentPageSection.value.isLeadSection) {
+        return bananaI18n2.i18n("cx-sx-publisher-publish-panel-lead-section-result");
       } else {
         return bananaI18n2.i18n("cx-sx-publisher-publish-panel-new-section-result");
       }
