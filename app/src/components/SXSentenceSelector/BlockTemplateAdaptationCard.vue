@@ -105,7 +105,12 @@ export default {
     );
 
     const sourceTemplateName = computed(
-      () => selectedSubSection.value?.sourceBlockTemplateName
+      // Strip HTML comments and return
+      () =>
+        selectedSubSection.value?.sourceBlockTemplateName.replace(
+          /<\!--.*?-->/g,
+          ""
+        )
     );
 
     const adaptationStatus = computed(
