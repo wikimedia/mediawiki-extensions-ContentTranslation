@@ -69,25 +69,4 @@ const cleanupHtml = (html) => {
   return doc.innerHTML;
 };
 
-/**
- * Construct a valid mediawiki title from given title and namespace option
- *
- * @param {string} originalTitle Title provided by the user
- * @param {"NEW_SECTION"|"SANDBOX_SECTION"} publishOption Publishing target selected by user.
- * @returns {string} constructed title
- **/
-const getTitleForPublishOption = (originalTitle, publishOption) => {
-  const namespaceIds = mw.config.get("wgNamespaceIds");
-
-  const namespaceOptions = {
-    NEW_SECTION: namespaceIds[""],
-    SANDBOX_SECTION: namespaceIds.user,
-  };
-
-  return mw.cx.getTitleForNamespace(
-    originalTitle,
-    namespaceOptions[publishOption]
-  );
-};
-
-export { cleanupHtml, getTitleForPublishOption };
+export { cleanupHtml };

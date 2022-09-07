@@ -7,27 +7,34 @@ import Page from "@/wiki/mw/models/page";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 
-const mockMessage = new PublishFeedbackMessage({
-  text: "Test publishing error",
-  status: "publishing error",
-});
+const mockErrorResult = {
+  publishFeedbackMessage: new PublishFeedbackMessage({
+    text: "Test publishing error",
+    status: "publishing error",
+  }),
+  targetTitle: null,
+};
 
-const mockMessageForSaving = new PublishFeedbackMessage({
+const mockErrorPublishFeedbackMessageForSaving = new PublishFeedbackMessage({
   text: "Test saving error",
   status: "saving error",
 });
 
 jest.mock("@/wiki/cx/api/translator", () => ({
   publishTranslation: jest.fn(({ targetTitle }) => {
+    // successful publishing
     if (targetTitle === "Test target article title 1") {
-      return null;
+      return {
+        publishFeedbackMessage: null,
+        targetTitle: "successful result target title",
+      };
     } else if (targetTitle === "Test target article title 2") {
-      return mockMessage;
+      return mockErrorResult;
     }
   }),
   saveTranslation: jest.fn(({ targetTitle }) => {
     if (targetTitle === "Test target article title 3") {
-      return mockMessageForSaving;
+      return mockErrorPublishFeedbackMessageForSaving;
     } else {
       return null;
     }
@@ -62,6 +69,7 @@ describe("vuex store publishTranslation action", () => {
     }),
     currentSectionSuggestion: new SectionSuggestion({
       sourceTitle: "Test source title 1",
+      targetTitle: "Test target article title 1",
     }),
   };
   applicationState.currentSourceSection.translatedTitle =
@@ -75,16 +83,8 @@ describe("vuex store publishTranslation action", () => {
     "application/isSandboxTarget": false,
   };
 
-  const getters = {
-    getArticleTitleForPublishing: "Test target article title 1",
-  };
-
   it("should call api saveTranslation method with the proper payload", async () => {
-    await actions.publishTranslation({
-      rootState,
-      rootGetters,
-      getters,
-    });
+    await actions.publishTranslation({ rootState, rootGetters });
 
     expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
       sourceTitle: "Test source title 1",
@@ -116,11 +116,7 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should call api publishTranslation method with the proper payload", async () => {
-    await actions.publishTranslation({
-      rootState,
-      rootGetters,
-      getters,
-    });
+    await actions.publishTranslation({ rootState, rootGetters });
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
       html: '<span class="cx-segment">Target translated sentence 1</span>',
@@ -135,14 +131,16 @@ describe("vuex store publishTranslation action", () => {
     });
   });
 
-  it("should return null on successful publishing", async () => {
+  it("should return an object with filled targetTitle and null publishFeedbackMessage on successful publishing", async () => {
     const feedbackMessage = await actions.publishTranslation({
       rootState,
       rootGetters,
-      getters,
     });
 
-    expect(feedbackMessage).toStrictEqual(null);
+    expect(feedbackMessage).toStrictEqual({
+      publishFeedbackMessage: null,
+      targetTitle: "successful result target title",
+    });
   });
 
   it("should add the translation units to the payload", async () => {
@@ -166,11 +164,7 @@ describe("vuex store publishTranslation action", () => {
     subSection1.blockTemplateMTProviderUsed = "Google";
     applicationState.currentSourceSection.subSections = [subSection1];
 
-    await actions.publishTranslation({
-      rootState,
-      rootGetters,
-      getters,
-    });
+    await actions.publishTranslation({ rootState, rootGetters });
 
     expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
       sourceTitle: "Test source title 1",
@@ -207,40 +201,41 @@ describe("vuex store publishTranslation action", () => {
     });
   });
 
-  it("should resolve to the publish feedback message that is returned by publishTranslation api method, when publishing fails", async () => {
-    getters.getArticleTitleForPublishing = "Test target article title 2";
+  it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty targetTitle, when publishing fails", async () => {
+    applicationState.currentSectionSuggestion.targetTitle =
+      "Test target article title 2";
     applicationState.currentSourceSection.subSections = [];
-    const feedbackMessage = await actions.publishTranslation({
+    const result = await actions.publishTranslation({
       rootState,
       rootGetters,
-      getters,
     });
-    expect(cxTranslatorApi.publishTranslation).toHaveReturnedWith(mockMessage);
-    expect(feedbackMessage).toStrictEqual(mockMessage);
+    expect(cxTranslatorApi.publishTranslation).toHaveReturnedWith(
+      mockErrorResult
+    );
+    expect(result).toStrictEqual(mockErrorResult);
   });
 
-  it("should resolve to the publish feedback message that is returned by saveTranslation api method, when saving fails", async () => {
-    getters.getArticleTitleForPublishing = "Test target article title 3";
-    const feedbackMessage = await actions.publishTranslation({
+  it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
+    applicationState.currentSectionSuggestion.targetTitle =
+      "Test target article title 3";
+    const result = await actions.publishTranslation({
       rootState,
       rootGetters,
-      getters,
     });
     expect(cxTranslatorApi.saveTranslation).toHaveReturnedWith(
-      mockMessageForSaving
+      mockErrorPublishFeedbackMessageForSaving
     );
-    expect(feedbackMessage).toStrictEqual(mockMessageForSaving);
+    expect(result).toStrictEqual({
+      publishFeedbackMessage: mockErrorPublishFeedbackMessageForSaving,
+      targetTitle: null,
+    });
   });
 
   it("should throw and error when no current section suggestion exists", async () => {
     applicationState.currentSectionSuggestion = null;
 
     try {
-      await actions.publishTranslation({
-        rootState,
-        rootGetters,
-        getters,
-      });
+      await actions.publishTranslation({ rootState, rootGetters });
     } catch (e) {
       expect(e.message).toBe(
         "Current source section cannot be empty during publishing"

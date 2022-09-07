@@ -7,6 +7,7 @@ use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -77,6 +78,11 @@ return [
 				$services->getHttpRequestFactory(),
 				new ServiceOptions( RestbaseClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
+		},
+	'ContentTranslation.SandboxTitleMaker' =>
+		static function ( MediaWikiServices $services ): SandboxTitleMaker {
+			$isSandboxLinkLoaded = ExtensionRegistry::getInstance()->isLoaded( 'SandboxLink' );
+			return new SandboxTitleMaker( $services->getTitleFactory(), $isSandboxLinkLoaded );
 		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {

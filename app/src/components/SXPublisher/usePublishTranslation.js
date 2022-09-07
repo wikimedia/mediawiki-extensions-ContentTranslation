@@ -14,12 +14,14 @@ const decodeHtml = (html) => {
  * @param {Store} store
  * @param {RefImpl<boolean>} isPublishDialogActive
  * @param {RefImpl<boolean>} isPublishingDisabled
+ * @param {string|null} targetTitle
  * @return {Promise<void>}
  */
 const handlePublishResult = async (
   store,
   isPublishDialogActive,
-  isPublishingDisabled
+  isPublishingDisabled,
+  targetTitle
 ) => {
   if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
@@ -31,7 +33,7 @@ const handlePublishResult = async (
   const translatedTitle = currentSourceSection?.value.title;
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
-  // Publishing is Successful
+  // the rest of the code inside this method is only executed when publishing is successful
   if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
     // Add wikibase link, wait for it, but failure is acceptable
     try {
@@ -45,13 +47,20 @@ const handlePublishResult = async (
       mw.log.error("Error while adding wikibase link", error);
     }
   }
-  const articleTitle = store.getters["translator/getArticleTitleForPublishing"];
   /** Remove warning about leaving SX */
   store.commit("application/setTranslationInProgress", false);
 
+  // for successful publishing, targetTitle is required to be a non-empty string
+  if (!targetTitle) {
+    const errorMessage =
+      "[CX] Target title is empty after successful publishing";
+    mw.log.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
   // sx-published-section query param will trigger 'sx.publishing.followup'
   // module to be loaded inside target article's page, after redirection
-  window.location.href = getUrl(`${articleTitle}`, {
+  location.href = getUrl(`${targetTitle}`, {
     "sx-published-section": decodeHtml(translatedTitle),
     "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
     "sx-source-language": suggestion.value.sourceLanguage,
@@ -94,21 +103,21 @@ const usePublishTranslation = (store) => {
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
 
-    /** @type {PublishFeedbackMessage|null} */
-    const publishMessage = await store.dispatch(
+    /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}} */
+    const { publishFeedbackMessage, targetTitle } = await store.dispatch(
       "translator/publishTranslation",
       { captchaId: captchaDetails.value?.id, captchaAnswer }
     );
 
     // if the feedback message is of type "captcha", set the captcha details and open the captcha dialog
-    if (!!publishMessage && publishMessage.type === "captcha") {
-      captchaDetails.value = publishMessage.details;
+    if (!!publishFeedbackMessage && publishFeedbackMessage.type === "captcha") {
+      captchaDetails.value = publishFeedbackMessage.details;
       isPublishDialogActive.value = false;
       captchaDialogOn.value = true;
 
       return;
-    } else if (!!publishMessage) {
-      publishFeedbackMessages.value.push(publishMessage);
+    } else if (!!publishFeedbackMessage) {
+      publishFeedbackMessages.value.push(publishFeedbackMessage);
       publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
     }
     // make sure to reset captcha details, when no CAPTCHA is requested
@@ -120,7 +129,12 @@ const usePublishTranslation = (store) => {
      */
     setTimeout(
       () =>
-        handlePublishResult(store, isPublishDialogActive, isPublishingDisabled),
+        handlePublishResult(
+          store,
+          isPublishDialogActive,
+          isPublishingDisabled,
+          targetTitle
+        ),
       1000
     );
   };

@@ -138,7 +138,8 @@
 				"HookContainer",
 				"LanguageNameUtils",
 				"ContentTranslation.RestbaseClient",
-				"ContentTranslation.SectionPositionCalculator"
+				"ContentTranslation.SectionPositionCalculator",
+				"ContentTranslation.SandboxTitleMaker"
 			]
 		},
 		"cxsave": {
@@ -154,7 +155,8 @@
 			"services": [
 				"ContentTranslation.TranslationCorporaStore",
 				"ContentTranslation.LoadBalancer",
-				"ContentTranslation.SectionTranslationStore"
+				"ContentTranslation.SectionTranslationStore",
+				"ContentTranslation.SandboxTitleMaker"
 			]
 		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",

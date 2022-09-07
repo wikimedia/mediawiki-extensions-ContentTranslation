@@ -11,6 +11,7 @@ use ApiMain;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -31,17 +32,22 @@ class ApiSectionTranslationSave extends ApiBase {
 	/** @var SectionTranslationStore */
 	private $sectionTranslationStore;
 
+	/** @var SandboxTitleMaker */
+	private $sandboxTitleMaker;
+
 	public function __construct(
 		ApiMain $mainModule,
 		$action,
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
-		SectionTranslationStore $sectionTranslationStore
+		SectionTranslationStore $sectionTranslationStore,
+		SandboxTitleMaker $sandboxTitleMaker
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
 		$this->lb = $loadBalancer;
 		$this->sectionTranslationStore = $sectionTranslationStore;
+		$this->sandboxTitleMaker = $sandboxTitleMaker;
 	}
 
 	private function validateRequest() {
@@ -84,12 +90,14 @@ class ApiSectionTranslationSave extends ApiBase {
 	public function execute() {
 		$this->validateRequest();
 		$params = $this->extractRequestParams();
+		$user = $this->getUser();
+		$targetTitle = $this->sandboxTitleMaker->makeSandboxTitle( $user, $params['targettitle'] );
 		$translation = $this->saveTranslation(
-			$this->getUser(),
+			$user,
 			$params['sourcelanguage'],
 			$params['targetlanguage'],
 			$params['sourcetitle'],
-			$params['targettitle'],
+			$targetTitle->getPrefixedText(),
 			$params['sourcerevision']
 		);
 		$translationId = $translation->getTranslationId();

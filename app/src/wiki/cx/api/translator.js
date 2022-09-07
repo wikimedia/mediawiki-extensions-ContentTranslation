@@ -156,8 +156,12 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * Given the appropriate publish parameters (html, source/target page titles,
  * source/target section titles, source/target languages, revision, section
  * position number), this method publishes a new section to the target page,
- * and returns a promise resolving to a PublishFeedbackMessage model in case
- * of error, or to null in case of successful publishing.
+ * and returns a promise resolving to an object containing a "publishFeedbackMessage" and
+ * a "targetTitle" property. When publishing is successful, the resolved object contains a null
+ * "publishFeedbackMessage" property and a "targetTitle" property containing the URL-encoded
+ * target title, as it is returned from the publishing API. In case of error, the resolved
+ * object contains a PublishFeedbackMessage model as "publishFeedbackMessage" and a null
+ * "targetTitle".
  *
  * @param {Object} publishParams
  * @param {String} publishParams.html - HTML to be published
@@ -171,7 +175,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.captchaId
  * @param {String} publishParams.captchaWord
  * @param {boolean} publishParams.isSandbox
- * @return {Promise<PublishFeedbackMessage|null>}
+ * @return {Promise<{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}>}
  */
 const publishTranslation = ({
   html,
@@ -212,18 +216,24 @@ const publishTranslation = ({
 
       if (response.result === "error") {
         if (response.edit.captcha) {
-          return new PublishFeedbackMessage({
-            type: "captcha",
-            status: "error",
-            details: response.edit.captcha,
-          });
+          return {
+            publishFeedbackMessage: new PublishFeedbackMessage({
+              type: "captcha",
+              status: "error",
+              details: response.edit.captcha,
+            }),
+            targetTitle: null,
+          };
         }
         // there is no known case for which this error will be shown
         // this will be handled by the following "catch" block as "Unknown error"
         throw new Error();
       }
 
-      return null;
+      return {
+        publishFeedbackMessage: null,
+        targetTitle: response.targettitle,
+      };
     })
     .catch((error, details) => {
       let text;
@@ -237,7 +247,10 @@ const publishTranslation = ({
         text = "Unknown error";
       }
 
-      return new PublishFeedbackMessage({ text, status: "error" });
+      return {
+        publishMessage: new PublishFeedbackMessage({ text, status: "error" }),
+        targetTitle: null,
+      };
     });
 };
 

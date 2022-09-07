@@ -13,7 +13,7 @@ export default class PageSection {
    * Creates an instance of PageSection.
    * @param {Object} options
    * @param {string} [options.id]
-   * @param {string|null} [options.title]
+   * @param {string|null} [options.title] the title of the section or the page title when section is a lead section
    * @param {boolean} [options.isLeadSection]
    * @param {SubSection[]} [options.subSections]
    */

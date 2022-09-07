@@ -70,23 +70,20 @@ function validateMT({ rootState }) {
 
 /**
  * This action is only reachable when no publish error messages exist.
- * When dispatched, it uses store getters to get the appropriate title,
- * content and position for the current section to be published,
- * and it publishes the current section using translator api client,
- * and it finally resolves to the return value from "publishTranslation"
+ * When dispatched, it publishes the current section using translator
+ * api client, and it finally resolves to the return value from "publishTranslation"
  * api method, that can be either a PublishFeedbackMessage model or null.
  *
  * @param {object} context
  * @param {object} context.rootState
  * @param {object} context.rootGetters
- * @param {object} context.getters
  * @param {object} payload
  * @param {string|number} payload.captchaId
  * @param {string|number} payload.captchaAnswer
- * @return {Promise<PublishFeedbackMessage|null>}
+ * @return {Promise<{publishFeedbackMessage: (PublishFeedbackMessage|null), targetTitle: (string|null)}>}
  */
 async function publishTranslation(
-  { rootState, rootGetters, getters },
+  { rootState, rootGetters },
   { captchaId, captchaAnswer } = {}
 ) {
   const sourcePage = rootGetters["application/getCurrentPage"];
@@ -114,9 +111,12 @@ async function publishTranslation(
     validateParallelCorporaPayload(unit, supportedMTProviders)
   );
 
+  const targetTitle =
+    currentSectionSuggestion.targetTitle || currentSourceSection.title;
+
   const saveMessage = await cxTranslatorApi.saveTranslation({
     sourceTitle: currentSectionSuggestion.sourceTitle,
-    targetTitle: getters.getArticleTitleForPublishing,
+    targetTitle,
     sourceSectionTitle: currentSourceSection.originalTitle,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
@@ -129,7 +129,7 @@ async function publishTranslation(
   });
 
   if (!!saveMessage) {
-    return saveMessage;
+    return { publishFeedbackMessage: saveMessage, targetTitle: null };
   }
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
@@ -137,7 +137,7 @@ async function publishTranslation(
   const publishPayload = {
     html: cleanupHtml(currentSourceSection.translationHtml),
     sourceTitle: currentSectionSuggestion.sourceTitle,
-    targetTitle: getters.getArticleTitleForPublishing,
+    targetTitle,
     sourceSectionTitle: currentSourceSection.originalTitle,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
@@ -154,8 +154,6 @@ async function publishTranslation(
   /**
    * Publish translation and get a publish feedback error message in case of
    * failure, or null in case of successful publishing
-   *
-   * @type {PublishFeedbackMessage|null}
    */
   return await cxTranslatorApi.publishTranslation(publishPayload);
 }

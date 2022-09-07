@@ -16,6 +16,7 @@ use ApiBase;
 use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\RestbaseClient;
+use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
@@ -45,6 +46,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var SectionPositionCalculator */
 	private $sectionPositionCalculator;
 
+	/** @var SandboxTitleMaker */
+	private $sandboxTitleMaker;
+
 	/**
 	 * @param ApiMain $main
 	 * @param string $action
@@ -53,6 +57,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param LanguageNameUtils $languageNameUtils
 	 * @param RestbaseClient $restbaseClient
 	 * @param SectionPositionCalculator $sectionPositionCalculator
+	 * @param SandboxTitleMaker $sandboxTitleMaker
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -61,7 +66,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
 		RestbaseClient $restbaseClient,
-		SectionPositionCalculator $sectionPositionCalculator
+		SectionPositionCalculator $sectionPositionCalculator,
+		SandboxTitleMaker $sandboxTitleMaker
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -69,6 +75,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->languageNameUtils = $languageNameUtils;
 		$this->restbaseClient = $restbaseClient;
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
+		$this->sandboxTitleMaker = $sandboxTitleMaker;
 	}
 
 	/**
@@ -187,7 +194,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$params = $this->extractRequestParams();
 
 		$targetTitleRaw = $params['title'];
-		$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
+		$isSandbox = $params['issandbox'];
+		$user = $this->getUser();
+		if ( $isSandbox ) {
+			$targetTitle = $this->sandboxTitleMaker->makeSandboxTitle( $user, $targetTitleRaw );
+		} else {
+			$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
+		}
+
 		if ( !$targetTitle ) {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $targetTitleRaw ) ] );
 		}
@@ -195,12 +209,12 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$hookRunner = new ContentTranslationHookRunner( $this->hookContainer );
 		$targetLanguage = $params['targetlanguage'];
 		'@phan-var \Title $targetTitle';
-		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $this->getUser() );
+		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $user );
 
 		$sectionNumber = $this->sectionPositionCalculator->calculateSectionPosition(
 			$targetTitle,
 			$targetLanguage,
-			$params['issandbox']
+			$isSandbox
 		);
 
 		$targetSectionTitle = $params['targetsectiontitle'];
@@ -210,7 +224,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		if ( $editStatus === 'Success' ) {
 			$result = [
 				'result' => 'success',
-				'edit' => $editResult
+				'edit' => $editResult,
+				'targettitle' => $targetTitle->getPrefixedURL()
 			];
 			// newrevid can be unset when publishing already present sections with the exact same
 			// contents as the current revision
@@ -220,7 +235,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$this->storeTags( $newRevId );
 
 				[ 'sourcelanguage' => $sourceLanguage,'sourcetitle' => $sourceTitle ] = $params;
-				$translation = $this->getExistingTranslation( $sourceLanguage, $targetLanguage, $sourceTitle );
+				$translation = $this->getExistingTranslation( $user, $sourceLanguage, $targetLanguage, $sourceTitle );
 
 				if ( $translation === null ) {
 					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
@@ -228,8 +243,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 				// if translation exists update the "translation_target_revision_id" field for this row
 				'@phan-var Translation $translation';
-				$this->updateTranslation( $translation, $this->getUser(), $newRevId, $targetTitleRaw, $targetLanguage );
-				$result['translationid'] = $translation->getTranslationId();
+				$this->updateTranslation( $translation, $user, $newRevId, $targetTitleRaw, $targetLanguage );
 			}
 		} else {
 			$result = [
@@ -311,13 +325,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * to the source/target languages, the source title and the user of the published
 	 * translation, and returns it. If no such translation exists, the method returns null.
 	 *
+	 * @param User $user
 	 * @param string $from
 	 * @param string $to
 	 * @param string $sourceTitle
 	 * @return Translation|null
 	 */
-	private function getExistingTranslation( string $from, string $to, string $sourceTitle ): ?Translation {
-		$translator = new Translator( $this->getUser() );
+	private function getExistingTranslation( User $user, string $from, string $to, string $sourceTitle ): ?Translation {
+		$translator = new Translator( $user );
 		$work = new TranslationWork( $sourceTitle, $from, $to );
 		return Translation::findForTranslator( $work, $translator );
 	}
