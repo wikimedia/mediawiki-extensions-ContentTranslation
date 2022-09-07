@@ -12,7 +12,8 @@
 			"SamGold",
 			"ZlyiLev",
 			"Tomato Cream",
-			"No Sleep till Krupki"
+			"No Sleep till Krupki",
+			"Tīgelika"
 		]
 	},
 	"cx": "Перакласці старонку",
@@ -42,7 +43,7 @@
 	"cx-lost-session-dashboard": "Каб выканаць гэта дзеянне, увайдзіце зноў.",
 	"cx-publish-summary": "Створана перакладам старонкі «$1»",
 	"cx-translation-add-translation": "Дадаць пераклад",
-	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] ёсць у мэтавай вікі. Паспрабуйце даць старонцы іншую назву.",
+	"cx-translation-target-page-exists": "Старонка з назвай [$1 $2] ёсць у мэтавай Вікі. Разглядзіце магчымасць даць старонцы іншую назву.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Пераклад зместу]]",
 	"tag-contenttranslation-description": "Змест быў перакладзены з іншай мовы з дапамогай інструменту «Пераклад зместу».",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Пераклад зместу 2]]",
