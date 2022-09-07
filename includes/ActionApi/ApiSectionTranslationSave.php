@@ -18,6 +18,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use Language;
+use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationSave extends ApiBase {
@@ -82,11 +83,25 @@ class ApiSectionTranslationSave extends ApiBase {
 	 */
 	public function execute() {
 		$this->validateRequest();
-		$translation = $this->saveTranslation();
+		$params = $this->extractRequestParams();
+		$translation = $this->saveTranslation(
+			$this->getUser(),
+			$params['sourcelanguage'],
+			$params['targetlanguage'],
+			$params['sourcetitle'],
+			$params['targettitle'],
+			$params['sourcerevision']
+		);
 		$translationId = $translation->getTranslationId();
 
-		$this->saveParallelCorporaTranslationUnits( $translation );
-		$this->saveSectionTranslation( $translationId );
+		$this->saveParallelCorporaTranslationUnits( $params['content'], $translation );
+		$this->saveSectionTranslation(
+			$translationId,
+			$params['sectionid'],
+			$params['sourcesectiontitle'],
+			$params['targetsectiontitle'],
+			$params['isleadsection']
+		);
 		$result = [
 			'result' => 'success',
 			'translationid' => $translationId
@@ -95,38 +110,51 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * This method finds a translation inside "cx_translations" table, that corresponds
-	 * targetlanguage the source/target languages, the source title and the user of the published
+	 * This method finds a translation inside "cx_translations" table, that corresponds to the
+	 * given source/target languages, source title and the user of the published
 	 * translation, and returns it. If no such translation exists, the method returns null.
 	 *
+	 * @param User $user
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @param string $sourceTitle
 	 * @return Translation|null
-	 * @throws \ApiUsageException
 	 */
-	private function getExistingTranslation(): ?Translation {
-		$params = $this->extractRequestParams();
-		[ 'sourcelanguage' => $sourcelanguage, 'targetlanguage' => $to,'sourcetitle' => $sourceTitle ] = $params;
-
-		$translator = new Translator( $this->getUser() );
-		$work = new TranslationWork( $sourceTitle, $sourcelanguage, $to );
+	private function getExistingTranslation(
+		User $user,
+		string $sourceLanguage,
+		string $targetLanguage,
+		string $sourceTitle
+	): ?Translation {
+		$translator = new Translator( $user );
+		$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
 		return Translation::findForTranslator( $work, $translator );
 	}
 
 	/**
 	 * This method creates a new Translation model for the saved translation and returns it
 	 *
+	 * @param string $sourceLanguage
+	 * @param string $sourceTitle
+	 * @param string $targetLanguage
+	 * @param string $targetTitle
+	 * @param string $sourceRevision
 	 * @return Translation
-	 * @throws \ApiUsageException
 	 */
-	private function createNewTranslationFromPayload(): Translation {
-		$params = $this->extractRequestParams();
-
+	private function createNewTranslationFromPayload(
+		string $sourceLanguage,
+		string $sourceTitle,
+		string $targetLanguage,
+		string $targetTitle,
+		string $sourceRevision
+	): Translation {
 		$translationData = [
-			'sourceTitle' => $params['sourcetitle'],
-			'targetTitle' => $params['targettitle'],
-			'sourceLanguage' => $params['sourcelanguage'],
-			'targetLanguage' => $params['targetlanguage'],
-			'sourceRevisionId' => $params['sourcerevision'],
-			'sourceURL' => SiteMapper::getPageURL( $params['sourcelanguage'], $params['sourcetitle'] ),
+			'sourceTitle' => $sourceTitle,
+			'targetTitle' => $targetTitle,
+			'sourceLanguage' => $sourceLanguage,
+			'targetLanguage' => $targetLanguage,
+			'sourceRevisionId' => $sourceRevision,
+			'sourceURL' => SiteMapper::getPageURL( $sourceLanguage, $sourceTitle ),
 			'status' => 'draft',
 			'progress' => json_encode( [ "any" => null, "mt" => null, "human" => null ] ),
 			'cxVersion' => 3,
@@ -135,20 +163,33 @@ class ApiSectionTranslationSave extends ApiBase {
 		return new Translation( $translationData );
 	}
 
-	/**
-	 * @return Translation
-	 * @throws \ApiUsageException
-	 */
-	protected function saveTranslation(): Translation {
-		$translation = $this->getExistingTranslation();
+	protected function saveTranslation(
+		User $user,
+		string $sourceLanguage,
+		string $targetLanguage,
+		string $sourceTitle,
+		string $targetTitle,
+		string $sourceRevision
+	): Translation {
+		$translation = $this->getExistingTranslation(
+			$user,
+			$sourceLanguage,
+			$targetLanguage,
+			$sourceTitle
+		);
 
 		if ( !$translation ) {
-			$translation = $this->createNewTranslationFromPayload();
+			$translation = $this->createNewTranslationFromPayload(
+				$sourceLanguage,
+				$sourceTitle,
+				$targetLanguage,
+				$targetTitle,
+				$sourceRevision
+			);
 		} else {
-			$params = $this->extractRequestParams();
-			$translation->translation['sourceRevisionId'] = $params['sourcerevision'];
+			$translation->translation['sourceRevisionId'] = $sourceRevision;
 		}
-		$translator = new Translator( $this->getUser() );
+		$translator = new Translator( $user );
 		$translation->save( $translator );
 
 		// Associate the translation with the translator
@@ -164,17 +205,23 @@ class ApiSectionTranslationSave extends ApiBase {
 	 * table.
 	 *
 	 * @param int $translationId
+	 * @param string $sectionId
+	 * @param string $sourceSectionTitle
+	 * @param string $targetSectionTitle
+	 * @param bool $isLeadSection
 	 * @return void
-	 * @throws \ApiUsageException
 	 */
-	private function saveSectionTranslation( int $translationId ): void {
-		$params = $this->extractRequestParams();
+	private function saveSectionTranslation(
+		int $translationId,
+		string $sectionId,
+		string $sourceSectionTitle,
+		string $targetSectionTitle,
+		bool $isLeadSection
+	): void {
 		// if the translated section is NOT a lead section, add a new row inside "cx_section_translations" table
-		if ( $params['isleadsection'] ) {
+		if ( $isLeadSection ) {
 			return;
 		}
-
-		[ 'sectionid' => $sectionId, 'targetsectiontitle' => $targetSectionTitle ] = $params;
 
 		$sectionTranslation = $this->sectionTranslationStore->findTranslation( $translationId, $sectionId );
 
@@ -183,7 +230,7 @@ class ApiSectionTranslationSave extends ApiBase {
 				null,
 				$translationId,
 				$sectionId,
-				$params['sourcesectiontitle'],
+				$sourceSectionTitle,
 				$targetSectionTitle
 			);
 			$this->sectionTranslationStore->insertTranslation( $sectionTranslation );
@@ -195,15 +242,14 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	/**
+	 * @param string $content
 	 * @param Translation $translation Recently saved parent translation object
 	 * @throws \ApiUsageException
 	 */
-	protected function saveParallelCorporaTranslationUnits( Translation $translation ) {
-		$params = $this->extractRequestParams();
-
+	protected function saveParallelCorporaTranslationUnits( string $content, Translation $translation ) {
 		try {
 			$translationUnits = $this->corporaStore->createTranslationUnitsFromContent(
-				$params['content'],
+				$content,
 				$translation->getTranslationId()
 			);
 		} catch ( InvalidSectionDataException $exception ) {
