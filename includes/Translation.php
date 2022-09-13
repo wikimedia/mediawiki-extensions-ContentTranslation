@@ -345,7 +345,11 @@ class Translation {
 			[
 				'sourceLanguage' => 'translation_source_language',
 				'targetLanguage' => 'translation_target_language',
-				'status' => 'translation_status',
+				// A published translation can be in deleted state too. But for the purpose
+				// of stats, it should be counted as published. 'deleted' here just means
+				// the soft deletion of entry from CX tables. Not the article deletion.
+				// For this, use hard coded quoted value 'published' as status.
+				"'published' as status",
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			],
