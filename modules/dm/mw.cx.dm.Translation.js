@@ -136,6 +136,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			return;
 		}
 
+		var sourceSectionNode = node.cloneNode( true );
 		if ( forTarget ) {
 			savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
 
@@ -159,16 +160,20 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 				sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 			}
 		} else {
-			sectionNode = node.cloneNode( true );
+			sectionNode = sourceSectionNode;
 		}
 
 		if ( sxSectionNumber && sxSectionNumber !== mwSectionNumber ) {
 			sectionNode.classList.add( 'mw-section-hide' );
 		}
 
-		// if current translation is a section translation, hide h2 header,
-		// since the section title is already displayed inside target title widget
-		if ( sxSectionNumber && sectionNode.querySelector( 'h2' ) ) {
+		// if current translation is a section translation, we should hide the H2 header
+		// inside source article column, and its corresponding placeholder inside the
+		// target article column, since the section title is already displayed inside target title widget.
+		// Here we use the source section node to identify and hide both the H2 header and its corresponding
+		// placeholder inside the target column, as the placeholder doesn't have any special attribute
+		// for such identification, itself.
+		if ( sxSectionNumber && sourceSectionNode.querySelector( 'h2' ) ) {
 			sectionNode.classList.add( 'mw-section-hide' );
 		}
 
