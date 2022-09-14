@@ -15,12 +15,6 @@
 	mw.cx.sourceLanguage = null;
 	// Target language
 	mw.cx.targetLanguage = null;
-	// Source title
-	mw.cx.sourceTitle = null;
-	// Source revision
-	mw.cx.sourceRevision = null;
-	// Translated title
-	mw.cx.targetTitle = null;
 	// Different tools that are available
 	mw.cx.tools = {};
 	// Default sitemapper. Only use this if you cannot get access to a sitemapper

@@ -21,14 +21,13 @@
 		// All these configuration in mw.cx is just for supporting legacy code.
 		// New code should get them from config injected to classes.
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
-		mw.cx.sourceTitle = query.page;
+		var sourceTitle = query.page;
+		var targetTitle = query.targettitle || query.page;
+		var sourceRevision = query.revision;
+		var sourceSectionTitle = query.sourcesection;
+		var targetSectionTitle = query.targetsection || query.sourcesection;
 		mw.cx.targetLanguage = query.to;
 		mw.cx.sourceLanguage = query.from;
-		mw.cx.sourceRevision = query.revision;
-		mw.cx.targetTitle = query.targettitle || query.page;
-		mw.cx.sourceSectionTitle = query.sourcesection;
-		mw.cx.targetSectionTitle = query.targetsection || query.sourcesection;
-
 		// Global services that every class can expect to have
 		services = {
 			siteMapper: mw.cx.siteMapper
@@ -38,13 +37,13 @@
 		services.MTService = new mw.cx.MachineTranslationService( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.siteMapper );
 		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
-		sourceWikiPage = new mw.cx.dm.WikiPage( mw.cx.sourceTitle, mw.cx.sourceLanguage, mw.cx.sourceRevision, mw.cx.sourceSectionTitle );
-		targetWikiPage = new mw.cx.dm.WikiPage( mw.cx.targetTitle, mw.cx.targetLanguage, null, mw.cx.targetSectionTitle );
+		sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
+		targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
 		translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
 		translation.init();
 
 		if ( query.campaign ) {
-			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, mw.cx.sourceLanguage, mw.cx.sourceTitle, mw.cx.targetLanguage );
+			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, mw.cx.sourceLanguage, sourceTitle, mw.cx.targetLanguage );
 		}
 
 		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {

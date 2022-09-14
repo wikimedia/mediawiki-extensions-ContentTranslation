@@ -82,28 +82,6 @@
 		} );
 	};
 
-	/**
-	 * Check whether a page with the same title already exists
-	 * and show a warning if needed.
-	 */
-	ContentTranslationValidator.prototype.validateTargetTitle = function () {
-		var viewTargetUrl = this.siteMapper.getPageUrl( mw.cx.targetLanguage, mw.cx.targetTitle );
-
-		this.isTitleExistInLanguage( mw.cx.targetLanguage, mw.cx.targetTitle )
-			.then( function ( pageExist ) {
-				// If page doesn't exist, it's OK
-				if ( !pageExist ) {
-					return;
-				}
-
-				mw.hook( 'mw.cx.warning' ).fire( mw.message(
-					'cx-translation-target-page-exists',
-					viewTargetUrl,
-					mw.cx.targetTitle
-				) );
-			} );
-	};
-
 	mw.cx.ContentTranslationValidator = ContentTranslationValidator;
 
 }() );

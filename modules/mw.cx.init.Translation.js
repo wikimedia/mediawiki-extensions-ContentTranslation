@@ -169,7 +169,11 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 		numberOfUnrestoredSections = 0;
 
 	targetDom = mw.cx.dm.Translation.static.getSourceDom(
-		sourceHtml, true, translationUnits, this.sourceWikiPage.getLanguage()
+		sourceHtml,
+		this.sourceWikiPage.getSectionTitle(),
+		true,
+		translationUnits,
+		this.sourceWikiPage.getLanguage()
 	);
 
 	for ( translationUnitId in translationUnits ) {
@@ -181,7 +185,7 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 	// If no translated section was lost, create source DOM and return early
 	// This should cover initial start of translation, when there's no draft at all.
 	if ( numberOfUnrestoredSections < 1 ) {
-		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml );
+		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 
 		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
 		return $.Deferred().resolve( translationModel ).promise();
@@ -201,9 +205,13 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 			translationUnits[ translationUnitId ].restored = false;
 		}
 
-		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml );
+		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 		targetDom = mw.cx.dm.Translation.static.getSourceDom(
-			sourceHtml, true, translationUnits, this.sourceWikiPage.getLanguage()
+			sourceHtml,
+			this.sourceWikiPage.getSectionTitle(),
+			true,
+			translationUnits,
+			this.sourceWikiPage.getLanguage()
 		);
 
 		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );

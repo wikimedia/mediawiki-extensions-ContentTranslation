@@ -76,13 +76,18 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
  * Parse and restructure the source HTML for source and target languages.
  *
  * @param {string} sourceHtml The source HTML
+ * @param {string|null} sourceSectionTitle Source section title
  * @param {boolean} forTarget Whether the DOM to be prepared for target language.
  * @param {Object} [savedTranslationUnits] Saved translation units if any
  * @param {string} sourceLanguage Source language code
  * @return {HTMLDocument} Restructured source DOM
  */
 mw.cx.dm.Translation.static.getSourceDom = function (
-	sourceHtml, forTarget, savedTranslationUnits, sourceLanguage
+	sourceHtml,
+	sourceSectionTitle,
+	forTarget,
+	savedTranslationUnits,
+	sourceLanguage
 ) {
 	var childNodes, restoredContent, sxSectionNumber,
 		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
@@ -99,11 +104,11 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
-	if ( mw.cx.sourceSectionTitle ) {
+	if ( sourceSectionTitle ) {
 		// eslint-disable-next-line no-restricted-syntax
 		var targetSectionNode = [].slice.call( domDoc.getElementsByTagName( 'h2' ) ).find(
 			function ( el ) {
-				return el.innerText === mw.cx.sourceSectionTitle;
+				return el.innerText === sourceSectionTitle;
 			} );
 		if ( targetSectionNode ) {
 			sxSectionNumber = targetSectionNode.parentNode.dataset.mwSectionNumber;
