@@ -140,3 +140,7 @@ mw.cx.ui.ArticleColumn.prototype.getTitle = function () {
 mw.cx.ui.ArticleColumn.prototype.getTitleWidget = function () {
 	return this.titleWidget;
 };
+
+mw.cx.ui.ArticleColumn.prototype.isSectionTranslation = function () {
+	return this.titleWidget instanceof mw.cx.ui.SectionTitleWidget;
+};
