@@ -6,7 +6,7 @@
  * @constructor
  * @param {string} title Page name
  * @param {string} language Language code
- * @param {number} revision
+ * @param {number|null} revision
  * @param {string} sectionTitle Section title
  */
 mw.cx.dm.WikiPage = function MwCxDmWikiPage( title, language, revision, sectionTitle ) {

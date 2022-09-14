@@ -39,7 +39,7 @@
 		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
 		sourceWikiPage = new mw.cx.dm.WikiPage( mw.cx.sourceTitle, mw.cx.sourceLanguage, mw.cx.sourceRevision, mw.cx.sourceSectionTitle );
-		targetWikiPage = new mw.cx.dm.WikiPage( mw.cx.targetTitle, mw.cx.targetLanguage, mw.cx.targetSectionTitle );
+		targetWikiPage = new mw.cx.dm.WikiPage( mw.cx.targetTitle, mw.cx.targetLanguage, null, mw.cx.targetSectionTitle );
 		translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
 		translation.init();
 
