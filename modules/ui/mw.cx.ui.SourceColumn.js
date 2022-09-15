@@ -3,12 +3,13 @@
  *
  * @class
  * @extends mw.cx.ui.ArticleColumn
- * @param {mw.cx.SiteMapper} siteMapper
- * @param {string} language
- * @param {string} title
+ * @param {mw.cx.SiteMapper} config.siteMapper
+ * @param {string} config.language
+ * @param {string} config.title
+ * @param {string|null} config.sectionTitle
  * @param {Object} [config] Configuration object
  */
-mw.cx.ui.SourceColumn = function () {
+mw.cx.ui.SourceColumn = function ( config ) {
 	var articleLink;
 
 	// Parent constructor
@@ -31,7 +32,7 @@ mw.cx.ui.SourceColumn = function () {
 
 	articleLink = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-source-view-page' ),
-		href: this.siteMapper.getPageUrl( this.language, this.getTitle() ),
+		href: this.siteMapper.getPageUrl( this.language, config.title ),
 		target: '_blank',
 		classes: [ 'cx-column-sub-heading-view-page' ],
 		framed: false,
