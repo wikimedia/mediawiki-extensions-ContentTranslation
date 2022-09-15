@@ -5,6 +5,34 @@
 ( function () {
 	'use strict';
 
+	/**
+	 * This method receives the "targettitle" URL param, the sourceTitle and the mtService as arguments,
+	 * and returns the appropriate target title for this translation, according to the following logic:
+	 * 1. If the "targettitle" URL param is set, the method returns it
+	 * 2. If not, then a request is sent to the /suggest/title cxserver endpoint and the target title
+	 *    that is given in the HTTP response, is returned
+	 * 3. If that request fails, the source title is returned as fallback
+	 *
+	 * @param {string|null} targetTitleUrlParam
+	 * @param {string} sourceTitle
+	 * @param {mw.cx.MachineTranslationService} mtService
+	 * @return {jQuery.Promise}
+	 */
+	function getTargetTitle( targetTitleUrlParam, sourceTitle, mtService ) {
+		if ( targetTitleUrlParam ) {
+			return $.Deferred().resolve( targetTitleUrlParam );
+		}
+
+		return mtService.getSuggestedTitle( sourceTitle ).then(
+			function ( suggestedTitle ) {
+				return mw.cx.getTitleForNamespace( suggestedTitle, mw.cx.getDefaultTargetNamespace() );
+			},
+			function () {
+				return sourceTitle;
+			}
+		);
+	}
+
 	function initCX() {
 		var query, services = {}, sourceWikiPage, targetWikiPage, translation, VEConfig;
 
@@ -22,7 +50,6 @@
 		// New code should get them from config injected to classes.
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
 		var sourceTitle = query.page;
-		var targetTitle = query.targettitle || query.page;
 		var sourceRevision = query.revision;
 		var sourceSectionTitle = query.sourcesection;
 		var targetSectionTitle = query.targetsection || query.sourcesection;
@@ -37,26 +64,29 @@
 		services.MTService = new mw.cx.MachineTranslationService( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.siteMapper );
 		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
-		sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
-		targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
-		translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
-		translation.init();
+		getTargetTitle( query.targettitle, sourceTitle, services.MTService ).then( function ( targetTitle ) {
+			sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
+			targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
+			translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
+			translation.init();
 
-		if ( query.campaign ) {
-			mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, mw.cx.sourceLanguage, sourceTitle, mw.cx.targetLanguage );
-		}
+			if ( query.campaign ) {
+				mw.hook( 'mw.cx.cta.accept' ).fire( query.campaign, mw.cx.sourceLanguage, sourceTitle, mw.cx.targetLanguage );
+			}
 
-		if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
-			mw.notify( mw.msg( 'cx-beta-feature-enabled-notification' ) );
-		}
+			if ( mw.config.get( 'wgContentTranslationBetaFeatureEnabled' ) ) {
+				mw.notify( mw.msg( 'cx-beta-feature-enabled-notification' ) );
+			}
 
-		// The default values for these options depend on PageImages and Wikibase Client
-		// being installed on this wiki. Because we are querying remote wikis, this makes
-		// no sense, and hence overwrite the values.
-		VEConfig = mw.config.get( 'wgVisualEditorConfig' );
-		VEConfig.usePageImages = true;
-		VEConfig.usePageDescriptions = true;
-		mw.config.set( 'wgVisualEditorConfig', VEConfig );
+			// The default values for these options depend on PageImages and Wikibase Client
+			// being installed on this wiki. Because we are querying remote wikis, this makes
+			// no sense, and hence overwrite the values.
+			VEConfig = mw.config.get( 'wgVisualEditorConfig' );
+			VEConfig.usePageImages = true;
+			VEConfig.usePageDescriptions = true;
+			mw.config.set( 'wgVisualEditorConfig', VEConfig );
+		} );
+
 	}
 
 	// On document ready, initialize, but not during QUnit tests, when this code is loaded

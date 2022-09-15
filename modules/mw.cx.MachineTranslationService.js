@@ -42,6 +42,36 @@ mw.cx.MachineTranslationService.prototype.translate = function ( content, provid
 };
 
 /**
+ * Given a source page title, this method sends a request to the cxserver,
+ * and more specifically to the /suggest/title endpoint, and it returns
+ * the "targetTitle" property of the response as suggested target title
+ *
+ * @param {string} title Title to translate.
+ * @return {jQuery.Promise} Returns the suggested title
+ */
+mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title ) {
+	var mtURL = this.siteMapper.getCXServerUrl( '/suggest/title/$title/$from/$to', {
+		$title: title,
+		$from: this.sourceLanguage,
+		$to: this.targetLanguage
+	} );
+
+	var fetchTitleSuggestion = function ( token ) {
+		var request = {
+			type: 'get',
+			url: mtURL,
+			headers: { Authorization: token }
+		};
+
+		return $.ajax( request ).then( function ( response ) {
+			return response.targetTitle;
+		} );
+	};
+
+	return this.getCXServerToken().then( fetchTitleSuggestion );
+};
+
+/**
  * Surgically empty a piece of content to enable translation from scratch.
  *
  * @param {string} content HTML

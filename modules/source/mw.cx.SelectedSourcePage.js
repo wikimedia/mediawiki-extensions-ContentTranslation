@@ -529,18 +529,12 @@ mw.cx.SelectedSourcePage.prototype.startPageInCX = function () {
 	sourceLanguage = this.languageFilter.getSourceLanguage();
 	targetLanguage = this.languageFilter.getTargetLanguage();
 	originalSourceTitle = this.sourceTitle;
-	targetTitle = this.targetTitle || '';
+	targetTitle = this.targetTitle;
 
 	this.validator.isTitleExistInLanguage(
 		sourceLanguage,
 		originalSourceTitle
 	).done( function ( sourceTitle ) {
-		if ( targetTitle === '' ) {
-			targetTitle = mw.cx.getTitleForNamespace(
-				originalSourceTitle, mw.cx.getDefaultTargetNamespace()
-			);
-		}
-
 		// Set CX token as cookie.
 		siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
 
