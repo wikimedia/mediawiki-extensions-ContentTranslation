@@ -133,44 +133,49 @@ class TranslationCorporaStore {
 	 * @param bool $isNewTranslation Whether these are for a brand new Translation record
 	 */
 	public function save( TranslationUnit $translationUnit, bool $isNewTranslation ): void {
-		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$fname = __METHOD__;
+		// Update the latest row if there is one instead of making a new one
+		$conditions = [
+			'cxc_translation_id' => $translationUnit->getTranslationId(),
+			'cxc_section_id' => $translationUnit->getSectionId(),
+			'cxc_origin' => $translationUnit->getOrigin()
+		];
+		if ( $isNewTranslation ) {
+			// T134245: brand new translations can also insert corpora data in the same
+			// request. The doFind() query uses only a subset of a unique cx_corpora index,
+			// causing SH gap locks. Worse, is that the leftmost values comes from the
+			// auto-incrementing translation_id. This puts gap locks on the range of
+			// (MAX(cxc_translation_id),+infinity), which could make the whole API prone
+			// to deadlocks and timeouts. Bypass this problem by remembering if the parent
+			// translation row is brand new and skipping doFind() in such cases.
+			$existing = false;
+		} else {
+			// Note that the only caller of this method will have already locked the
+			// parent Translation row, serializing simultaneous duplicate submissions at
+			// this point. Without that row lock, the two transaction might both acquire
+			// SH gap locks in doFind() and then deadlock in create() trying to get IX gap
+			// locks (if no duplicate rows were found).
+			$options = [];
+			$dbr = $this->lb->getConnection( DB_REPLICA );
+			$existing = $this->doFind( $dbr, $conditions, $options, $fname );
+		}
 
-		$dbw->doAtomicSection(
-			__METHOD__,
-			function ( IDatabase $dbw ) use ( $translationUnit, $isNewTranslation, $fname ) {
-				if ( $isNewTranslation ) {
-					// T134245: brand new translations can also insert corpora data in the same
-					// request. The doFind() query uses only a subset of a unique cx_corpora index,
-					// causing SH gap locks. Worse, is that the leftmost values comes from the
-					// auto-incrementing translation_id. This puts gap locks on the range of
-					// (MAX(cxc_translation_id),+infinity), which could make the whole API prone
-					// to deadlocks and timeouts. Bypass this problem by remembering if the parent
-					// translation row is brand new and skipping doFind() in such cases.
-					$existing = false;
-				} else {
-					// Update the latest row if there is one instead of making a new one
-					$conditions = [
-						'cxc_translation_id' => $translationUnit->getTranslationId(),
-						'cxc_section_id' => $translationUnit->getSectionId(),
-						'cxc_origin' => $translationUnit->getOrigin()
-					];
-					// Note that the only caller of this method will have already locked the
-					// parent Translation row, serializing simultaneous duplicate submissions at
-					// this point. Without that row lock, the two transaction might both acquire
-					// SH gap locks in doFind() and then deadlock in create() trying to get IX gap
-					// locks (if no duplicate rows were found).
+		if ( $existing ) {
+			$dbw = $this->lb->getConnection( DB_PRIMARY );
+			$dbw->doAtomicSection(
+				__METHOD__,
+				function ( IDatabase $dbw ) use ( $translationUnit, $conditions, $fname ) {
+					// Lock the record for updating it. This time we use $dbw - primary db.
+					// This is to avoid the unnecessary gap locking with 'for update' query
+					// when the record does not exist.
 					$options = [ 'FOR UPDATE' ];
 					$existing = $this->doFind( $dbw, $conditions, $options, $fname );
-				}
-
-				if ( $existing ) {
 					$this->updateTranslationUnit( $translationUnit, $existing->getTimestamp() );
-				} else {
-					$this->insertTranslationUnit( $translationUnit );
 				}
-			}
-		);
+			);
+		} else {
+			$this->insertTranslationUnit( $translationUnit );
+		}
 	}
 
 	/**
