@@ -75,7 +75,7 @@ class Translation {
 			'translation_status' => $this->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $this->translation['progress'],
-			'translation_last_update_by' => $this->translation['lastUpdatedTranslator'],
+			'translation_last_update_by' => $translator->getGlobalUserId(),
 			'translation_cx_version' => $this->translation['cxVersion'],
 		];
 
