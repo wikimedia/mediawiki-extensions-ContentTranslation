@@ -156,8 +156,8 @@
 	"cx-translation-status-deleted": "已刪除",
 	"cx-translation-label-draft": "進行中的翻譯",
 	"cx-translation-label-published": "已發布的譯文",
-	"cx-translation-already-in-progress": "此頁面目前正在{{GENDER:$2|由}} $1 翻譯。",
-	"cx-translation-already-in-progress-unknown": "這是由未知使用者正在進行中的翻譯。",
+	"cx-translation-already-in-progress": "此頁面目前正{{GENDER:$2|由}}$1翻譯。當有一個進行中的翻譯時，您要在隔天才能開始一個新翻譯。請在 24 小時後重試，或是與目前正在翻譯的使用者協調。",
+	"cx-translation-already-in-progress-unknown": "這是由未知使用者正在進行中的翻譯。當有一個進行中的翻譯時，您要在隔天才能開始一個新翻譯。請在 24 小時後重試，或是與目前正在翻譯的使用者協調。",
 	"cx-feedback-link": "提供意見回饋",
 	"cx-stats-published-translations-title": "已發布的翻譯",
 	"cx-stats-draft-translations-title": "進行中的翻譯",
@@ -402,5 +402,9 @@
 	"sx-editor-feedback-overlay-clarification": "從您的更正中學習",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由您所編輯",
 	"cx-campaign-mflanguagesearcher-invite": "您可以翻譯此頁面。這是一個在您的語言建立內容的簡單方式。",
-	"cx-suggestion-list-favorites-division": "稍後"
+	"cx-suggestion-list-favorites-division": "稍後",
+	"sx-recent-translation-entrypoint-banner-details": "協助改善內容",
+	"sx-recent-translation-entrypoint-dialog-header": "改善翻譯",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "編輯頁面",
+	"sx-block-template-adaptation-card-edit-button-label": "檢視與編輯翻譯"
 }
