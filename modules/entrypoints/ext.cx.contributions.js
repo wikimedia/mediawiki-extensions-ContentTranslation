@@ -91,11 +91,18 @@
 	};
 
 	$( function () {
-		var contributionsItemsContainer = document.createElement( 'span' );
+		var contributionsItemsContainer = document.createElement( 'header' );
+		contributionsItemsContainer.classList.add( 'cx-contributions-header' );
+
 		// eslint-disable-next-line no-new
 		new CXContributions( contributionsItemsContainer );
-
-		$( '#firstHeading' ).before( contributionsItemsContainer );
+		if ( $( 'header.mw-body-header' ).length ) {
+			// Vector 2022
+			$( 'header.mw-body-header' ).before( contributionsItemsContainer );
+		} else if ( $( '#firstHeading' ).length ) {
+			// Legacy Vector and other skins
+			$( '#firstHeading' ).before( contributionsItemsContainer );
+		}
 	} );
 
 }() );
