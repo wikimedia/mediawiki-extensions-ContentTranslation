@@ -335,7 +335,9 @@
 	"cx-sx-publish-lead-section-summary": "Izveidots, tulkojot sākuma sadaļu no lapas \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Publicēšanas iespējas",
 	"cx-sx-publisher-new-section-option-label": "Publicēt kā jaunu sadaļu",
+	"cx-sx-publisher-lead-section-option-label": "Publicēt kā jaunu lapu",
 	"cx-sx-publisher-new-section-option-details": "Pievienot jaunu sadaļu rakstam",
+	"cx-sx-publisher-lead-section-option-details": "Izveidot jaunu lapu galvenajā vārdtelpā",
 	"cx-sx-publisher-sandbox-option-label": "Publicēt tavā smilškastē",
 	"cx-sx-publisher-sandbox-option-details": "Publicē savā personīgajā telpā, lai pārskatītu un pārkopētu citur.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Tavs tulkojums tiks <strong>pievienots tavai smilškastei.</strong>",
@@ -412,5 +414,7 @@
 	"cx-uls-relevant-languages-panel-header": "Tulkot šo lapu",
 	"cx-uls-relevant-languages-panel-message": "Šī lapa trūkst dažās tavās pārvaldītās valodās. Tu to vari pārtulkot dažu minūšu laikā!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Šī būs <strong>pirmā sadaļa jaunā rakstā!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Tulkot šo lapu"
+	"cx-uls-translate-page-quick-action-label": "Tulkot šo lapu",
+	"cx-sx-publisher-captcha-dialog-header-title": "Pārbauda, vai tu neesi robots",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publicēt"
 }

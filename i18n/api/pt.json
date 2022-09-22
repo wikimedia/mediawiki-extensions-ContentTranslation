@@ -141,5 +141,19 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "A posição da futura secção na nova revisão da página.",
 	"apihelp-cxpublishsection-param-sourcerevid": "O identificador da revisão da página de origem.",
 	"apihelp-cxpublishsection-param-captchaid": "Identificador do captcha (ao gravar com uma resposta a um captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "Resposta ao captcha (ao gravar com uma resposta a um captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "Resposta ao captcha (ao gravar com uma resposta a um captcha).",
+	"apihelp-sxsave-description": "Gravar o rascunho da tradução da secção e armazenar os corpora paralelos",
+	"apihelp-sxsave-summary": "Gravar o rascunho da tradução da secção e armazenar os corpora paralelos",
+	"apihelp-sxsave-param-sourcelanguage": "O código da língua de origem.",
+	"apihelp-sxsave-param-targetlanguage": "O código da língua de destino.",
+	"apihelp-sxsave-param-sourcetitle": "O título da página de origem.",
+	"apihelp-sxsave-param-targettitle": "O título da página de destino.",
+	"apihelp-sxsave-param-content": "Dados da secção em formato JSON. Cada secção é um objeto e tem as seguintes chaves: content, sectionId, origin, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "O título da secção de origem.",
+	"apihelp-sxsave-param-targetsectiontitle": "O título da secção de destino.",
+	"apihelp-sxsave-param-sectionnumber": "A posição da futura secção na nova revisão da página.",
+	"apihelp-sxsave-param-sectionid": "O identificador da secção da página.",
+	"apihelp-sxsave-param-sourcerevision": "O identificador da revisão da página de origem.",
+	"apierror-sxsave-anon-user": "A operação \"sxsave\" da API não está ativada para utilizadores anónimos",
+	"apierror-cxpublishsection-translationnotfound": "A tradução não foi encontrada."
 }
