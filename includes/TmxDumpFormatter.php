@@ -63,7 +63,7 @@ class TmxDumpFormatter {
 			$this->xml->startElement( 'tu' );
 			$this->xml->writeAttribute( 'srclang', $entry['sourceLanguage'] );
 			foreach ( $units as $origin => $unit ) {
-				if ( $unit['content'] === null ) {
+				if ( !is_array( $unit ) || $unit['content'] === null ) {
 					continue;
 				}
 
