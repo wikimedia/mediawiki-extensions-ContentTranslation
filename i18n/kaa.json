@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nurlan"
+		]
+	},
+	"cx-dashboard-header": "Awdarmalar",
+	"cx-header-all-translations": "Barlıq awdarmalar",
+	"cx-warning-unsaved-translation": "Saqlanbaǵan awdarmalar bar.",
+	"cx-translation-label-draft": "Awdarma qılınıp atırǵan maqalalar bar",
+	"cx-stats-published-translations-title": "Járiyalanǵan maqalalar",
+	"cx-stats-draft-translations-label": "Awdarma qılınıp atırǵan maqalalar bar",
+	"cx-campaign-contributionsmenu-mytranslations": "Awdarmalar",
+	"cx-trend-deletions": "Óshirilgen awdarmalar",
+	"echo-category-title-cx": "Awdarmalar"
+}
