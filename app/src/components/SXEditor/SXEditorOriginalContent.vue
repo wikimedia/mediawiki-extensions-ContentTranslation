@@ -21,16 +21,19 @@
 <script>
 import { MwExpandableContent } from "@/lib/mediawiki.ui";
 import { ref, onMounted } from "vue";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
- * Make all links open in new tabs
+ * Make all links open in new tabs and fix href to point to the
+ * source wiki
  * @param {Element} containerEl
  */
-function fixLinkTargets(containerEl) {
-  var links = containerEl.getElementsByTagName("a");
+function fixLinkTargets(containerEl, language) {
+  const links = containerEl.getElementsByTagName("a");
 
-  for (let i = 0, len = links.length; i < len; i++) {
-    links[i].target = "_blank";
+  for (const link of links) {
+    link.href = siteMapper.getPageUrl(language, link.title);
+    link.target = "_blank";
   }
 }
 
@@ -51,7 +54,7 @@ export default {
       required: true,
     },
   },
-  setup() {
+  setup(props) {
     const originalContentRef = ref(null);
     const twoLinesHeight = ref(0);
     const getLineHeight = () =>
@@ -63,7 +66,7 @@ export default {
 
     onMounted(() => {
       twoLinesHeight.value = 2 * getLineHeight();
-      fixLinkTargets(originalContentRef.value);
+      fixLinkTargets(originalContentRef.value, props.language);
     });
 
     return {
