@@ -72,7 +72,7 @@
 	"apierror-cx-mustbeloggedin-get-suggestions": "Za izpis predlogov moraš biti prijavljen.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Za prikaz svojih prevodov je potrebno biti prijavljen.",
 	"apierror-cx-samelanguages": "Izvirni in ciljni jezik ne moreta biti enaka.",
-	"apierror-cx-suggestionsdisabled": "Predlogi so na tem wikiju neomogočeni.",
+	"apierror-cx-suggestionsdisabled": "Predlogi v tem vikiju niso omogočeni.",
 	"apierror-cx-translationnotfound": "Prevoda ni bilo mogoče najti.",
 	"apihelp-query+langlinkscount-description": "Prikaži število drugih jezikov, v katerih članek obstaja.",
 	"apihelp-query+langlinkscount-summary": "Prikaži število različic v drugih jezikih."
