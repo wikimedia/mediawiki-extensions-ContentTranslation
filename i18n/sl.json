@@ -348,6 +348,7 @@
 	"cx-sx-publisher-mt-abuse-message-body": "Strojni prevod je le začetek. Še vedno ga lahko objavite, vendar zagotovite, da se prevod v vašem jeziku bere tekoče.",
 	"cx-sx-article-search-input-placeholder": "Poiščite stran za prevajanje",
 	"cx-sx-article-search-recently-edited-title": "Pred kratkim ste urejali",
+	"sx-article-search-language-selector-dialog-title": "Jeziki",
 	"cx-sx-language-selector-placeholder": "Poišči jezik",
 	"cx-sx-language-selector-all-languages": "Vsi jeziki",
 	"cx-sx-language-selector-suggestions": "Predlagani",
@@ -362,5 +363,11 @@
 	"sx-editor-feedback-overlay-stats": "Uredili ste <span>$1&nbsp;%</span>",
 	"cx-suggestion-list-favorites-division": "Za pozneje",
 	"sx-block-template-adaptation-card-body-header-success": "Predlagana predloga",
-	"sx-block-template-adaptation-card-edit-button-label": "Preglejte in uredite prevod"
+	"sx-block-template-adaptation-card-edit-button-label": "Preglejte in uredite prevod",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Manjka v <span>$1</span>, <span>$2</span> in drugih jezikih",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Manjka v <span>$1</span> in drugih jezikih",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manjka v <span>$1</span>, <span>$2</span> in drugih jezikih",
+	"cx-uls-relevant-languages-panel-header": "Prevedi to stran",
+	"cx-uls-relevant-languages-panel-message": "Ta stran manjka v nekaterih jezikih, ki jih morda znate. Prevedete jo lahko v nekaj minutah!",
+	"cx-uls-translate-page-quick-action-label": "Prevedi to stran"
 }
