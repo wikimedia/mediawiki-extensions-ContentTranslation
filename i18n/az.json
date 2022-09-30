@@ -386,5 +386,10 @@
 	"sx-editor-feedback-overlay-clarification": "Düzəlişlərinizdən öyrənmək",
 	"sx-editor-feedback-overlay-stats": "Sizin redaktəniz <span>$1%</span>-dir",
 	"cx-campaign-mflanguagesearcher-invite": "Bu səhifəni tərcümə edə bilərsiniz. Dilinizdə məzmun yaratmaq üçün asan bir yoldur.",
-	"cx-suggestion-list-favorites-division": "Daha sonrası üçün"
+	"cx-suggestion-list-favorites-division": "Daha sonrası üçün",
+	"cx-uls-relevant-languages-banner-text-single-missing": "<span>$1</span> və başqa dillərdə mövcud deyil",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> və başqa dillərdə mövcud deyil",
+	"cx-uls-relevant-languages-panel-header": "Bu səhifəni tərcümə et",
+	"cx-uls-relevant-languages-panel-message": "Bu səhifə biləcəyiniz bəzi dillərdə mövcud deyil. Onu bir neçə dəqiqəyə tərcümə edə bilərsiniz!",
+	"cx-uls-translate-page-quick-action-label": "Bu səhifəni tərcümə et"
 }
