@@ -279,7 +279,7 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 		uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
 		// Use mw.Uri().query for current URL also to retain any non-CX params
 		// in URL. A good example is debug=true param.
-		$.extend( uri.query, mw.Uri().query, queryParams );
+		$.extend( mw.Uri().query, uri.query, queryParams );
 
 		return uri.toString();
 	}
