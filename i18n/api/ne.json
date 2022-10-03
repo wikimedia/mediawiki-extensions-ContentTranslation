@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"सरोज कुमार ढकाल"
+			"सरोज कुमार ढकाल",
+			"बडा काजी"
 		]
 	},
 	"apihelp-cxpublish-param-html": "सङ्ग्रह गर्नुपर्ने सामग्री ।",
@@ -9,7 +10,14 @@
 	"apihelp-cxpublish-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-cxpublish-param-sourcetitle": "स्रोत लेखको शीर्षक ।",
 	"apihelp-query+contenttranslation-param-translationid": "अनुवाद ID ।",
+	"apihelp-query+contenttranslation-param-from": "स्रोत भाषाको कोड।",
+	"apihelp-query+contenttranslation-param-to": "लक्षित भाषाको कोड।",
+	"apihelp-query+contenttranslation-param-sourcetitle": "स्रोत लेखको शीर्षक।",
+	"apihelp-query+contenttranslation-param-limit": "अनुवादहरूको अधिकतम सङ्ख्या प्राप्त गर्न।",
+	"apihelp-query+contenttranslation-param-type": "अनुवादको अवस्था।",
+	"apihelp-query+contenttranslation-example-1": "हालको प्रयोगकर्ताद्वारा गरिएका अनुवादहरू प्राप्त गर्नुहोस्।",
 	"apihelp-query+contenttranslation-example-2": "अनुवाद ड्राफ्ट ID को आधारमा लिनुहोस्",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "अनुवादको आईडी।",
 	"apihelp-cxconfiguration-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-cxconfiguration-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-query+cxpublishedtranslations-param-from": "स्रोत भाषाको कोड ।",
@@ -20,5 +28,9 @@
 	"apihelp-cxdelete-param-from": "स्रोत भाषाको कोड ।",
 	"apihelp-cxdelete-param-to": "लक्षित भाषाको कोड ।",
 	"apihelp-cxdelete-param-sourcetitle": "स्रोत लेखको शीर्षक ।",
+	"apihelp-cxsuggestionlist-param-listname": "सुझाव सूची नाम।",
+	"apihelp-cxsuggestionlist-param-titles": "पृष्ठ शीर्षकहरू।",
+	"apihelp-cxsuggestionlist-param-from": "स्रोत भाषाको कोड।",
+	"apihelp-cxsuggestionlist-param-to": "लक्षित भाषाको कोड।",
 	"apihelp-cxsave-param-sourcerevision": "स्रोत लेखको संस्करण।"
 }
