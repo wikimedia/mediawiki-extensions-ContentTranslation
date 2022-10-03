@@ -444,5 +444,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Translate \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 section|$1 sections}} missing in $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Checking that you are not a robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Publish"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publish",
+	"cx-contributecard-entrypoint-title": "Translations",
+	"cx-contributecard-entrypoint-desc": "Translate one section or a whole article. Make more content available in more languages.",
+	"cx-contributecard-entrypoint-cta": "Start a translation"
 }

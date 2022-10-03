@@ -460,5 +460,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Label of the button that redirects to Section Translation application, inside the invitation of the entrypoint that invites the users to translate a section they recently edited in another language\n\nParameters:\n* $1 - the recently edited section",
 	"sx-recent-edit-entrypoint-invitation-button-details": "Secondary text that is shown below the label of the button that redirects to Section Translation application, inside the invitation of the entrypoint that invites the users to translate a section they recently edited in another language\n\nParameters:\n* $1 - the number of the missing sections \n* $2 - the code of the target language",
 	"cx-sx-publisher-captcha-dialog-header-title": "Title of the dialog that requests from the user to verify they are not a robot, by successfully replying to a CAPTCHA confirmation question, before successful publishing of a section translation.",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Label of the button that submits the CAPTCHA answer and publishes the section translation inside the dialog that requests from the user to verify they are not a robot, by successfully replying to a CAPTCHA confirmation question"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Label of the button that submits the CAPTCHA answer and publishes the section translation inside the dialog that requests from the user to verify they are not a robot, by successfully replying to a CAPTCHA confirmation question",
+	"cx-contributecard-entrypoint-title": "Title of the card shown in [[Special:Contribute]] page for starting a new translation.",
+	"cx-contributecard-entrypoint-desc": "Description of the card shown in [[Special:Contribute]] page for starting a new translation.",
+	"cx-contributecard-entrypoint-cta": "Label of the link to start a translation in the card shown in [[Special:Contribute]] page for starting a new translation."
 }

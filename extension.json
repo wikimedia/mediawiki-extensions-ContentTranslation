@@ -114,7 +114,8 @@
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
 		"SectionTranslationBeforePublish": "sxbeforepublish",
-		"RevisionFromEditComplete": "significantEditCreator"
+		"RevisionFromEditComplete": "significantEditCreator",
+		"ContributeCards": "ContentTranslation\\Hooks::addContributeCardEntryPoint"
 	},
 	"APIModules": {
 		"cxdelete": {

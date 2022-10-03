@@ -17,6 +17,8 @@ use ExtensionRegistry;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Specials\Contribute\Card\ContributeCard;
+use MediaWiki\Specials\Contribute\Card\ContributeCardActionLink;
 use MediaWiki\User\UserIdentity;
 use OutputPage;
 use RequestContext;
@@ -732,6 +734,27 @@ class Hooks {
 			$file = $devPath;
 		}
 		return new ResourceLoaderFilePath( $file );
+	}
+
+	/**
+	 * Add a persistent contribution entry point for creating translations
+	 * Hook: ContributeCards
+	 * @param array &$cards List of contribute cards data
+	 */
+	public static function addContributeCardEntryPoint( array &$cards ) {
+		$context = new RequestContext();
+		$cards[] = ( new ContributeCard(
+			$context->msg( 'cx-contributecard-entrypoint-title' )->text(),
+			$context->msg( 'cx-contributecard-entrypoint-desc' )->text(),
+			'language', // icon
+			new ContributeCardActionLink(
+				SpecialPage::getTitleFor( 'ContentTranslation' )->getLocalUrl(),
+				$context->msg( 'cx-contributecard-entrypoint-cta' )->text(),
+			)
+		) )->toArray();
+		// 'language' icon is in oojs-ui.styles.icons-editing-advanced RL module. Load that.
+		$out = RequestContext::getMain()->getOutput();
+		$out->addModuleStyles( [ 'oojs-ui.styles.icons-editing-advanced' ] );
 	}
 
 }
