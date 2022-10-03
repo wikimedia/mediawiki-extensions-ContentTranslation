@@ -7560,83 +7560,7 @@ var state$3 = {
   translations: [],
   translationsLoaded: false
 };
-const prependHeaderToSection = (section) => {
-  const createHeader = (title) => {
-    const headerElement = document.createElement("h2");
-    headerElement.textContent = title;
-    return headerElement;
-  };
-  const newSectionHeader = createHeader(section.title);
-  const newSectionHtml = cleanupHtml(section.translationHtml);
-  return `${newSectionHeader.outerHTML}
-${newSectionHtml}`;
-};
-const cleanupHtml = (html) => {
-  const doc2 = document.createElement("article");
-  doc2.innerHTML = html;
-  Array.prototype.forEach.call(doc2.querySelectorAll("article, section, [data-segmentid]"), (segment) => {
-    const parent = segment.parentNode;
-    while (segment.firstChild) {
-      parent.insertBefore(segment.firstChild, segment);
-    }
-    segment.remove();
-  });
-  Array.prototype.forEach.call(doc2.querySelectorAll(".cx-link"), (link) => {
-    var _a;
-    const dataCX = JSON.parse(link.getAttribute("data-cx") || "{}");
-    if ((dataCX == null ? void 0 : dataCX.adapted) === false && ((_a = dataCX == null ? void 0 : dataCX.targetTitle) == null ? void 0 : _a.missing) !== true) {
-      link.replaceWith(...link.childNodes);
-    } else {
-      ["data-linkid", "class", "title", "id"].forEach((attr) => {
-        link.removeAttribute(attr);
-      });
-    }
-  });
-  Array.prototype.forEach.call(doc2.querySelectorAll(".mw-ref"), (element) => {
-    const dataCX = JSON.parse(element.getAttribute("data-cx") || "{}");
-    if ((dataCX == null ? void 0 : dataCX.adapted) === false) {
-      element.parentNode.removeChild(element);
-    }
-  });
-  Array.prototype.forEach.call(doc2.querySelectorAll("[data-cx]"), (element) => {
-    element.removeAttribute("data-cx");
-  });
-  Array.prototype.forEach.call(doc2.querySelectorAll("tr[id], td[id], th[id], table[id], tbody[id], thead[id], div[id]"), (element) => {
-    element.removeAttribute("id");
-  });
-  return doc2.innerHTML;
-};
-const getTitleForPublishOption = (originalTitle, publishOption) => {
-  const namespaceIds = mw.config.get("wgNamespaceIds");
-  const namespaceOptions = {
-    NEW_SECTION: namespaceIds[""],
-    SANDBOX_SECTION: namespaceIds.user
-  };
-  return mw.cx.getTitleForNamespace(originalTitle, namespaceOptions[publishOption]);
-};
 var getters$3 = {
-  getArticleTitleForPublishing: (state2, getters2, rootState) => {
-    const { currentSectionSuggestion, publishTarget, currentSourceSection } = rootState.application;
-    const baseTitle = currentSectionSuggestion.targetTitle || currentSourceSection.title;
-    return getTitleForPublishOption(baseTitle, publishTarget);
-  },
-  getSectionNumberForPublishing: (state2, getters2, rootState, rootGetters) => {
-    const { currentSectionSuggestion, currentSourceSection } = rootState.application;
-    if (currentSourceSection.isLeadSection) {
-      return 0;
-    } else if (rootGetters["application/isSandboxTarget"]) {
-      return "new";
-    }
-    const targetPage = rootGetters["application/getCurrentTargetPage"];
-    const firstAppendixTargetTitle = rootGetters["suggestions/getFirstAppendixTitleBySectionSuggestion"](currentSectionSuggestion);
-    const presentSectionTargetTitle = currentSectionSuggestion.presentSections[currentSourceSection.originalTitle];
-    if (!!presentSectionTargetTitle) {
-      return targetPage.getSectionNumberByTitle(presentSectionTargetTitle);
-    } else if (!!firstAppendixTargetTitle) {
-      return targetPage.getSectionNumberByTitle(firstAppendixTargetTitle);
-    }
-    return "new";
-  },
   getPublishedTranslationsForLanguagePair: (state2) => (sourceLanguage, targetLanguage) => state2.translations.filter((translationItem) => translationItem.sourceLanguage === sourceLanguage && translationItem.targetLanguage === targetLanguage && translationItem.status === "published"),
   getDraftTranslationsForLanguagePair: (state2) => (sourceLanguage, targetLanguage) => state2.translations.filter((translationItem) => translationItem.sourceLanguage === sourceLanguage && translationItem.targetLanguage === targetLanguage && translationItem.status === "draft"),
   getPublishedTranslations: (state2) => state2.translations.filter((translationItem) => translationItem.status === "published"),
@@ -7900,9 +7824,9 @@ const publishTranslation$1 = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber,
   captchaId,
-  captchaWord
+  captchaWord,
+  isSandbox
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -7914,7 +7838,7 @@ const publishTranslation$1 = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    sectionnumber: sectionNumber
+    issandbox: isSandbox
   };
   if (captchaId) {
     params.captchaid = captchaId;
@@ -7925,15 +7849,21 @@ const publishTranslation$1 = ({
     response = response.cxpublishsection;
     if (response.result === "error") {
       if (response.edit.captcha) {
-        return new PublishFeedbackMessage({
-          type: "captcha",
-          status: "error",
-          details: response.edit.captcha
-        });
+        return {
+          publishFeedbackMessage: new PublishFeedbackMessage({
+            type: "captcha",
+            status: "error",
+            details: response.edit.captcha
+          }),
+          targetTitle: null
+        };
       }
       throw new Error();
     }
-    return null;
+    return {
+      publishFeedbackMessage: null,
+      targetTitle: response.targettitle
+    };
   }).catch((error, details) => {
     let text;
     details = details || {};
@@ -7944,7 +7874,10 @@ const publishTranslation$1 = ({
     } else {
       text = "Unknown error";
     }
-    return new PublishFeedbackMessage({ text, status: "error" });
+    return {
+      publishMessage: new PublishFeedbackMessage({ text, status: "error" }),
+      targetTitle: null
+    };
   });
 };
 const saveTranslation = ({
@@ -7955,7 +7888,7 @@ const saveTranslation = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  sectionNumber,
+  isLeadSection,
   units,
   sectionId
 }) => {
@@ -7968,7 +7901,7 @@ const saveTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    sectionnumber: sectionNumber,
+    isleadsection: isLeadSection,
     content: JSON.stringify(units),
     sectionid: sectionId
   };
@@ -8005,6 +7938,41 @@ const validateParallelCorporaPayload = (translationUnitPayload, supportedMTProvi
     throw new Error("[CX] Invalid section id of parallel corpora translation unit");
   }
 };
+const cleanupHtml = (html) => {
+  const doc2 = document.createElement("article");
+  doc2.innerHTML = html;
+  Array.prototype.forEach.call(doc2.querySelectorAll("article, section, [data-segmentid]"), (segment) => {
+    const parent = segment.parentNode;
+    while (segment.firstChild) {
+      parent.insertBefore(segment.firstChild, segment);
+    }
+    segment.remove();
+  });
+  Array.prototype.forEach.call(doc2.querySelectorAll(".cx-link"), (link) => {
+    var _a;
+    const dataCX = JSON.parse(link.getAttribute("data-cx") || "{}");
+    if ((dataCX == null ? void 0 : dataCX.adapted) === false && ((_a = dataCX == null ? void 0 : dataCX.targetTitle) == null ? void 0 : _a.missing) !== true) {
+      link.replaceWith(...link.childNodes);
+    } else {
+      ["data-linkid", "class", "title", "id"].forEach((attr) => {
+        link.removeAttribute(attr);
+      });
+    }
+  });
+  Array.prototype.forEach.call(doc2.querySelectorAll(".mw-ref"), (element) => {
+    const dataCX = JSON.parse(element.getAttribute("data-cx") || "{}");
+    if ((dataCX == null ? void 0 : dataCX.adapted) === false) {
+      element.parentNode.removeChild(element);
+    }
+  });
+  Array.prototype.forEach.call(doc2.querySelectorAll("[data-cx]"), (element) => {
+    element.removeAttribute("data-cx");
+  });
+  Array.prototype.forEach.call(doc2.querySelectorAll("tr[id], td[id], th[id], table[id], tbody[id], thead[id], div[id]"), (element) => {
+    element.removeAttribute("id");
+  });
+  return doc2.innerHTML;
+};
 function validateMT({ rootState }) {
   const { currentSourceSection: section, targetLanguage } = rootState.application;
   const mtValidationScore = mtValidator.getMTScoreForPageSection(section, targetLanguage);
@@ -8030,7 +7998,7 @@ function validateMT({ rootState }) {
   });
 }
 function publishTranslation(_0) {
-  return __async(this, arguments, function* ({ rootState, rootGetters, getters: getters2 }, { captchaId, captchaAnswer } = {}) {
+  return __async(this, arguments, function* ({ rootState, rootGetters }, { captchaId, captchaAnswer } = {}) {
     const sourcePage = rootGetters["application/getCurrentPage"];
     const {
       currentSourceSection,
@@ -8045,31 +8013,33 @@ function publishTranslation(_0) {
     const baseSectionId = `${sourcePage.revision}_${currentSourceSection.id}`;
     const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
     units.forEach((unit) => validateParallelCorporaPayload(unit, supportedMTProviders));
+    const targetTitle = currentSectionSuggestion.targetTitle || currentSourceSection.title;
     const saveMessage = yield translatorApi.saveTranslation({
       sourceTitle: currentSectionSuggestion.sourceTitle,
-      targetTitle: getters2.getArticleTitleForPublishing,
+      targetTitle,
       sourceSectionTitle: currentSourceSection.originalTitle,
       targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
       revision: sourcePage.revision,
-      sectionNumber: getters2.getSectionNumberForPublishing,
+      isLeadSection: currentSourceSection.isLeadSection,
       units: units.map((unit) => unit.payload),
       sectionId: baseSectionId
     });
     if (!!saveMessage) {
-      return saveMessage;
+      return { publishFeedbackMessage: saveMessage, targetTitle: null };
     }
+    const isSandbox = rootGetters["application/isSandboxTarget"];
     const publishPayload = {
-      html: prependHeaderToSection(currentSourceSection),
+      html: cleanupHtml(currentSourceSection.translationHtml),
       sourceTitle: currentSectionSuggestion.sourceTitle,
-      targetTitle: getters2.getArticleTitleForPublishing,
+      targetTitle,
       sourceSectionTitle: currentSourceSection.originalTitle,
       targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
       revision: sourcePage.revision,
-      sectionNumber: getters2.getSectionNumberForPublishing
+      isSandbox
     };
     if (captchaId) {
       publishPayload.captchaId = captchaId;
@@ -8881,14 +8851,6 @@ class Page {
   }
   get id() {
     return `${this.language}/${this.title}`;
-  }
-  getSectionNumberByTitle(sectionTitle) {
-    const sectionIndex = this.sections.findIndex((section) => section.originalTitle === sectionTitle);
-    if (sectionIndex < 0) {
-      return -1;
-    }
-    const precedingSections = this.sections.slice(0, sectionIndex);
-    return precedingSections.reduce((count, section) => count + section.subSections.filter((subsection) => subsection.isHeadingSection).length, sectionIndex);
   }
   getSectionByTitle(sectionTitle) {
     return (this.sections || []).find((section) => section.originalTitle === sectionTitle);
@@ -23085,7 +23047,7 @@ const _sfc_main$n = {
     const translationLoaded = computed(() => selectedSubSection.value.blockTemplateProposedTranslations.hasOwnProperty(currentMTProvider.value));
     const sourceTemplateName = computed(() => {
       var _a;
-      return (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName;
+      return (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName.replace(/<\!--.*?-->/g, "");
     });
     const adaptationStatus = computed(() => {
       var _a, _b;
@@ -23904,10 +23866,11 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var SXQuickTutorial = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
 var SXEditorOriginalContent_vue_vue_type_style_index_0_lang = "";
-function fixLinkTargets(containerEl) {
-  var links = containerEl.getElementsByTagName("a");
-  for (let i = 0, len = links.length; i < len; i++) {
-    links[i].target = "_blank";
+function fixLinkTargets(containerEl, language) {
+  const links = containerEl.getElementsByTagName("a");
+  for (const link of links) {
+    link.href = siteMapper.getPageUrl(language, link.title);
+    link.target = "_blank";
   }
 }
 const _sfc_main$f = {
@@ -23927,13 +23890,13 @@ const _sfc_main$f = {
       required: true
     }
   },
-  setup() {
+  setup(props) {
     const originalContentRef = ref(null);
     const twoLinesHeight = ref(0);
     const getLineHeight = () => parseFloat(document.defaultView.getComputedStyle(originalContentRef.value, null).getPropertyValue("line-height"));
     onMounted(() => {
       twoLinesHeight.value = 2 * getLineHeight();
-      fixLinkTargets(originalContentRef.value);
+      fixLinkTargets(originalContentRef.value, props.language);
     });
     return {
       originalContentRef,
@@ -24735,7 +24698,7 @@ const decodeHtml = (html) => {
   template.innerHTML = html;
   return template.innerText;
 };
-const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled) => __async(this, null, function* () {
+const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled, targetTitle) => __async(this, null, function* () {
   if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
     return;
@@ -24750,9 +24713,13 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
       mw.log.error("Error while adding wikibase link", error);
     }
   }
-  const articleTitle = store2.getters["translator/getArticleTitleForPublishing"];
   store2.commit("application/setTranslationInProgress", false);
-  window.location.href = getUrl(`${articleTitle}`, {
+  if (!targetTitle) {
+    const errorMessage = "[CX] Target title is empty after successful publishing";
+    mw.log.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+  location.href = getUrl(`${targetTitle}`, {
     "sx-published-section": decodeHtml(translatedTitle),
     "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
     "sx-source-language": suggestion.value.sourceLanguage,
@@ -24776,19 +24743,19 @@ const usePublishTranslation = (store2) => {
     var _a;
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
-    const publishMessage = yield store2.dispatch("translator/publishTranslation", { captchaId: (_a = captchaDetails.value) == null ? void 0 : _a.id, captchaAnswer });
-    if (!!publishMessage && publishMessage.type === "captcha") {
-      captchaDetails.value = publishMessage.details;
+    const { publishFeedbackMessage, targetTitle } = yield store2.dispatch("translator/publishTranslation", { captchaId: (_a = captchaDetails.value) == null ? void 0 : _a.id, captchaAnswer });
+    if (!!publishFeedbackMessage && publishFeedbackMessage.type === "captcha") {
+      captchaDetails.value = publishFeedbackMessage.details;
       isPublishDialogActive.value = false;
       captchaDialogOn.value = true;
       return;
-    } else if (!!publishMessage) {
-      publishFeedbackMessages.value.push(publishMessage);
+    } else if (!!publishFeedbackMessage) {
+      publishFeedbackMessages.value.push(publishFeedbackMessage);
       publishFeedbackMessages.value.sort((m1, m2) => +m2.isError - +m1.isError);
     }
     captchaDetails.value = null;
     publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
-    setTimeout(() => handlePublishResult(store2, isPublishDialogActive, isPublishingDisabled), 1e3);
+    setTimeout(() => handlePublishResult(store2, isPublishDialogActive, isPublishingDisabled, targetTitle), 1e3);
   });
   const onCaptchaDialogClose = () => {
     captchaDialogOn.value = false;
