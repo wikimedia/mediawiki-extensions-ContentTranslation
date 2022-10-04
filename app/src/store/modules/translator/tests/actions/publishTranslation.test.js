@@ -112,6 +112,7 @@ describe("vuex store publishTranslation action", () => {
         },
       ],
       isLeadSection: false,
+      isSandbox: false,
     });
   });
 
@@ -175,6 +176,7 @@ describe("vuex store publishTranslation action", () => {
       targetLanguage: "es",
       revision: 11,
       isLeadSection: false,
+      isSandbox: false,
       sectionId: "11_1",
       units: [
         {

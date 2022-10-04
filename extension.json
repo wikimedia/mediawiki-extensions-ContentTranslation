@@ -156,7 +156,8 @@
 				"ContentTranslation.TranslationCorporaStore",
 				"ContentTranslation.LoadBalancer",
 				"ContentTranslation.SectionTranslationStore",
-				"ContentTranslation.SandboxTitleMaker"
+				"ContentTranslation.SandboxTitleMaker",
+				"TitleFactory"
 			]
 		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",

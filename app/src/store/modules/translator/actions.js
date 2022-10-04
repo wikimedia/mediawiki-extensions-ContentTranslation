@@ -114,6 +114,8 @@ async function publishTranslation(
   const targetTitle =
     currentSectionSuggestion.targetTitle || currentSourceSection.title;
 
+  const isSandbox = rootGetters["application/isSandboxTarget"];
+
   const saveMessage = await cxTranslatorApi.saveTranslation({
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle,
@@ -126,13 +128,12 @@ async function publishTranslation(
     units: units.map((unit) => unit.payload),
     // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
     sectionId: baseSectionId,
+    isSandbox,
   });
 
   if (!!saveMessage) {
     return { publishFeedbackMessage: saveMessage, targetTitle: null };
   }
-
-  const isSandbox = rootGetters["application/isSandboxTarget"];
 
   const publishPayload = {
     html: cleanupHtml(currentSourceSection.translationHtml),

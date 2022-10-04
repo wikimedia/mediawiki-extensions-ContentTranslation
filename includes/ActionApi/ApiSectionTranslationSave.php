@@ -19,6 +19,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use Language;
+use TitleFactory;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -35,19 +36,24 @@ class ApiSectionTranslationSave extends ApiBase {
 	/** @var SandboxTitleMaker */
 	private $sandboxTitleMaker;
 
+	/** @var TitleFactory */
+	private $titleFactory;
+
 	public function __construct(
 		ApiMain $mainModule,
 		$action,
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
 		SectionTranslationStore $sectionTranslationStore,
-		SandboxTitleMaker $sandboxTitleMaker
+		SandboxTitleMaker $sandboxTitleMaker,
+		TitleFactory $titleFactory
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
 		$this->lb = $loadBalancer;
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
+		$this->titleFactory = $titleFactory;
 	}
 
 	private function validateRequest() {
@@ -91,7 +97,14 @@ class ApiSectionTranslationSave extends ApiBase {
 		$this->validateRequest();
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
-		$targetTitle = $this->sandboxTitleMaker->makeSandboxTitle( $user, $params['targettitle'] );
+		$targetTitleRaw = $params['targettitle'];
+		$isSandbox = $params['issandbox'];
+		if ( $isSandbox ) {
+			$targetTitle = $this->sandboxTitleMaker->makeSandboxTitle( $user, $targetTitleRaw );
+		} else {
+			$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
+		}
+
 		$translation = $this->saveTranslation(
 			$user,
 			$params['sourcelanguage'],
@@ -301,6 +314,10 @@ class ApiSectionTranslationSave extends ApiBase {
 			'sectionid' => [
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true
+			],
+			'issandbox' => [
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_REQUIRED => false,
 			],
 			'isleadsection' => [
 				ParamValidator::PARAM_REQUIRED => false,

@@ -275,6 +275,7 @@ const publishTranslation = ({
  * @param {boolean} publishParams.isLeadSection Whether section is a lead section or not
  * @param {number|"new"} publishParams.units The parallel corpora translation units
  * @param {string} publishParams.sectionId The id of the source page section
+ * @param {boolean} publishParams.isSandbox
  * @return {Promise<PublishFeedbackMessage|null>}
  */
 const saveTranslation = ({
@@ -288,6 +289,7 @@ const saveTranslation = ({
   isLeadSection,
   units,
   sectionId,
+  isSandbox,
 }) => {
   const params = {
     action: "sxsave",
@@ -301,6 +303,7 @@ const saveTranslation = ({
     isleadsection: isLeadSection,
     content: JSON.stringify(units),
     sectionid: sectionId,
+    issandbox: isSandbox,
   };
 
   const api = new mw.Api();
