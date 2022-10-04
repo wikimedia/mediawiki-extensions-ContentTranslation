@@ -425,6 +425,10 @@
 	"cx-uls-relevant-languages-panel-message": "Оваа страница недостасува на некој јазици кои можеби ги знаете. Можете да ја преведете во рок од неколку минути!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Ова ќе биде <strong>првиот дел на новата статија!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Преведете ја страницава",
+	"sx-recent-edit-entrypoint-top-banner-header": "Придонесувајте од други јазици",
+	"sx-recent-edit-entrypoint-top-banner-content": "Поднаслов што неодамна го уредивте на $1 недостасува на $2. Можеби треба да го преведете.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Преведете го „$1“",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Недостасува $1 поднаслов|Недостасуваат $1 поднаслови}} на $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Проверка дека не сте робот",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Објави"
 }

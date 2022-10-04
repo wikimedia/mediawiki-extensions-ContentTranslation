@@ -358,5 +358,9 @@
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
 	"cx-suggestion-list-favorites-division": "Voor later",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",
-	"sx-block-template-adaptation-card-body-header-success": "Voorgesteld sjabloon"
+	"sx-block-template-adaptation-card-body-header-success": "Voorgesteld sjabloon",
+	"sx-recent-edit-entrypoint-top-banner-header": "Bijdragen vanuit andere talen",
+	"sx-recent-edit-entrypoint-top-banner-content": "Een sectie die u onlangs in $1 heeft bewerkt, ontbreekt in $2. Overweeg deze te vertalen.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" vertalen",
+	"sx-recent-edit-entrypoint-invitation-button-details": "$1 sectie{{PLURAL:$1||s}} ontbreken in $2"
 }
