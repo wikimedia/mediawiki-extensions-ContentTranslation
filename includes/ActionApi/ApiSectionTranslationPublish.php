@@ -357,7 +357,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	): void {
 		$translator = new Translator( $user );
 		$translation->translation['status'] = 'published';
-		$translation->translation['translation_target_url'] = $this->createTargetUrl(
+		$translation->translation['targetURL'] = $this->createTargetUrl(
 			$user,
 			$targetTitle,
 			$targetLanguage
