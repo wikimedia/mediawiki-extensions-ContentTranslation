@@ -428,6 +428,10 @@
 	"cx-uls-relevant-languages-panel-message": "Ta stran manjka v nekaterih jezikih, ki jih morda znate. Prevedete jo lahko v nekaj minutah!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "To bo <strong>prvi razdelek v novem članku!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Prevedi to stran",
+	"sx-recent-edit-entrypoint-top-banner-header": "Prispevajte iz drugih jezikov",
+	"sx-recent-edit-entrypoint-top-banner-content": "Razdelek, ki ste ga pred kratkim urejali v $1, v $2 manjka. Razmislite o prevodu.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Prevedi »$1«",
+	"sx-recent-edit-entrypoint-invitation-button-details": "V jeziku $2 {{PLURAL:$1|manjka en razdelek|manjkata $1 razdelka|manjkajo $2 razdelki|manjka $1 razdelkov}}",
 	"cx-sx-publisher-captcha-dialog-header-title": "Preverjanje, ali niste robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi"
 }

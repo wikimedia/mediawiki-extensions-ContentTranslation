@@ -428,6 +428,7 @@
 	"cx-uls-relevant-languages-panel-message": "यो पृष्ठ तपाईंलाई थाहा हुन सक्ने केही भाषाहरूमा हराइरहेको छ। तपाईं यसलाई मिनेटमा अनुवाद गर्न सक्नुहुन्छ!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "यो <strong>नयाँ लेखमा पहिलो खण्ड हुनेछ!</strong>",
 	"cx-uls-translate-page-quick-action-label": "यो पृष्ठ अनुवाद गर्नुहोस्",
+	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" अनुवाद गर्नुहोस्",
 	"cx-sx-publisher-captcha-dialog-header-title": "तपाईं रोबोट होइन भनी जाँच गरिँदै छ",
 	"cx-sx-publisher-captcha-dialog-publish-button": "प्रकाशन गर्नुहोस्"
 }

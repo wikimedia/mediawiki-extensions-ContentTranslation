@@ -260,7 +260,7 @@
 	"cx-publish-destination-namespace-main-exists": "Замяніць існую старонку",
 	"cx-publish-destination-namespace-user": "Асабісты чарнавік",
 	"cx-publish-destination-namespace-user-description": "Пад вашай прасторай імёнаў удзельніка для паляпшэння",
-	"cx-publish-destination-namespace-draft": "Грамадскі чарнавік",
+	"cx-publish-destination-namespace-draft": "Чарнавік супольнасці",
 	"cx-publish-destination-namespace-draft-description": "У прасторы імёнаў чарнавікоў для агляду і паляпшэння супольнасцю",
 	"cx-publish-destination-namespace-changed": "Прызначэнне публікацыі зменена на асабісты чарнавік. Зрабіце дадатковыя праўкі ў наладах публікацыі ў любы час",
 	"cx-linkcontextitem-missing-link-title": "Адсутная спасылка",
@@ -432,6 +432,10 @@
 	"cx-uls-relevant-languages-panel-message": "Гэтая старонка адсутнічае на некаторых мовах, якія вы можаце ведаць. Вы можаце перакласці яе за лічаныя хвіліны!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Гэта будзе <strong>першы раздзел у новым артыкуле!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Перакласці гэтую старонку",
+	"sx-recent-edit-entrypoint-top-banner-header": "Уклад з іншых моваў",
+	"sx-recent-edit-entrypoint-top-banner-content": "Раздзел, які вы нядаўна правілі ў $1, адсутнічае ў $2. Падумайце перакласці яго.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Перакласці «$1»",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Раздзел|$1 раздзелы|$1 раздзелаў}}, які адсутнічае ў $2.",
 	"cx-sx-publisher-captcha-dialog-header-title": "Праверка, што вы не робат",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Апублікаваць"
 }

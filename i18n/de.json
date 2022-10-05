@@ -438,7 +438,7 @@
 	"cx-sx-publisher-publish-panel-lead-section-result": "Dies wird <strong>der erste Abschnitt in dem neuen Artikel sein!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Diese Seite übersetzen",
 	"sx-recent-edit-entrypoint-top-banner-header": "Beiträge aus anderen Sprachen",
-	"sx-recent-edit-entrypoint-top-banner-content": "Ein Abschnitt, den du kürzlich in $1 bearbeitet hast, fehlt in $2.  Bitte übersetze ihn.",
+	"sx-recent-edit-entrypoint-top-banner-content": "Ein Abschnitt, den du kürzlich in $1 bearbeitet hast, fehlt in $2. Bitte übersetze ihn.",
 	"sx-recent-edit-entrypoint-invitation-button-label": "„$1“ übersetzen",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 Abschnitt fehlt|$1 Abschnitte fehlen}} in $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Überprüfung, dass du kein Roboter bist.",
