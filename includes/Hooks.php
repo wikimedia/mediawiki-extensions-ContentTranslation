@@ -180,6 +180,33 @@ class Hooks {
 	}
 
 	/**
+	 * Check whether the current context is in a mobile interface
+	 *
+	 * @return bool
+	 */
+	private static function isMobileView() {
+		$isMobileView = false;
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+		return $isMobileView;
+	}
+
+	/**
+	 * Check whether SectionTranslation is enabled in current wiki
+	 *
+	 * @return bool
+	 */
+	private static function isSXEnabled() {
+		$out = RequestContext::getMain()->getOutput();
+		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
+		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' );
+		return is_array( $enabledLanguages ) && in_array( $currentLanguageCode, $enabledLanguages );
+	}
+
+	/**
 	 * Check whether the current user is a potential translator
 	 *
 	 * @param User $user
@@ -743,12 +770,21 @@ class Hooks {
 	 */
 	public static function addContributeCardEntryPoint( array &$cards ) {
 		$context = new RequestContext();
+
+		if ( self::isMobileView() && !self::isSXEnabled() ) {
+			// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
+			return;
+		}
+
 		$cards[] = ( new ContributeCard(
 			$context->msg( 'cx-contributecard-entrypoint-title' )->text(),
 			$context->msg( 'cx-contributecard-entrypoint-desc' )->text(),
 			'language', // icon
 			new ContributeCardActionLink(
-				SpecialPage::getTitleFor( 'ContentTranslation' )->getLocalUrl(),
+				// The CX beta feature is automatically enabled, when a valid campaign param exists.
+				// This enablement is done by a call to "SpecialContentTranslation::enableCXBetaFeature" method
+				SpecialPage::getTitleFor( 'ContentTranslation' )
+					->getLocalUrl( [ 'campaign' => 'specialcontribute' ] ),
 				$context->msg( 'cx-contributecard-entrypoint-cta' )->text(),
 			)
 		) )->toArray();

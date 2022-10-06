@@ -270,6 +270,7 @@
 				"cxstats": true,
 				"specialcx": true,
 				"newarticle": true,
+				"specialcontribute": true,
 				"cx2outreach": {
 					"edittag": "cx2-outreach"
 				}
