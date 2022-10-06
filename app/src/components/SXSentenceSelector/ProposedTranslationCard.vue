@@ -21,14 +21,20 @@
           v-html="proposedTranslation"
         />
         <!--eslint-enable vue/no-v-html -->
-        <mw-spinner v-else />
+        <mw-spinner v-else-if="mtRequestPending" />
       </mw-col>
+      <retry-mt-card
+        v-if="!mtRequestPending"
+        @configure-options="$emit('configure-options')"
+        @retry-translation="$emit('retry-translation')"
+      />
       <mw-col
         ref="footer"
         shrink
         class="sx-sentence-selector__proposed-translation__footer"
       >
         <mw-button
+          v-if="hasProposedTranslation || mtRequestPending"
           :icon="mwIconEdit"
           type="text"
           :label="
@@ -54,6 +60,7 @@ import {
 import { getDir } from "@wikimedia/language-data";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
+import RetryMtCard from "./RetryMtCard.vue";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { ref, onMounted, computed, watch, nextTick } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
@@ -62,6 +69,7 @@ import { useStore } from "vuex";
 export default {
   name: "ProposedTranslationCard",
   components: {
+    RetryMtCard,
     MwSpinner,
     MwCard,
     ProposedTranslationHeader,
@@ -70,13 +78,23 @@ export default {
     MwButton,
     ProposedTranslationActionButtons,
   },
-  emits: ["edit-translation", "configure-options"],
+  emits: ["edit-translation", "configure-options", "retry-translation"],
   setup() {
     const headerAndFooterHeight = ref(0);
     const header = ref(null);
     const footer = ref(null);
-    const { currentMTProvider, targetLanguage, proposedTranslation } =
-      useApplicationState(useStore());
+    const store = useStore();
+    const {
+      currentMTProvider,
+      targetLanguage,
+      proposedTranslation,
+      currentSourceSection,
+    } = useApplicationState(store);
+    const mtRequestPending = computed(() =>
+      store.state.application.mtRequestsPending?.includes(
+        currentSourceSection.value.selectedTranslationUnitId
+      )
+    );
 
     const contentsStyle = computed(() => ({
       "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`,
@@ -114,6 +132,7 @@ export default {
       hasProposedTranslation,
       targetLanguage,
       contentsStyle,
+      mtRequestPending,
     };
   },
 };

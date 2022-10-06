@@ -66,6 +66,7 @@
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
+        @retry-translation="retryTranslation"
       />
       <block-template-adaptation-card
         v-else
@@ -120,6 +121,7 @@ export default {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
+      currentMTProvider,
     } = useApplicationState(store);
 
     const isSelectedTranslationUnitTranslated = computed(
@@ -193,6 +195,20 @@ export default {
 
     const previewTranslation = () => router.push({ name: "sx-publisher" });
 
+    const retryTranslation = async () => {
+      if (!selectedContentTranslationUnit.value) {
+        await store.dispatch("application/translateTranslationUnitById", {
+          id: 0,
+          provider: currentMTProvider.value,
+        });
+      } else {
+        await store.dispatch("application/translateTranslationUnitById", {
+          id: selectedContentTranslationUnit.value.id,
+          provider: currentMTProvider.value,
+        });
+      }
+    };
+
     watch(selectedContentTranslationUnit, () => {
       if (!selectedContentTranslationUnit.value) {
         return;
@@ -253,6 +269,7 @@ export default {
       skipTranslation,
       sourceLanguage: suggestion.value.sourceLanguage,
       subSections,
+      retryTranslation,
     };
   },
 };

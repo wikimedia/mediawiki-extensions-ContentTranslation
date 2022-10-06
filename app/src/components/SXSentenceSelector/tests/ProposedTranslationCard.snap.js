@@ -32,6 +32,7 @@ exports[
         </div>
       </section>
     </mw-col-stub>
+    <retry-mt-card-stub />
     <mw-col-stub
       class="sx-sentence-selector__proposed-translation__footer"
       grow="false"

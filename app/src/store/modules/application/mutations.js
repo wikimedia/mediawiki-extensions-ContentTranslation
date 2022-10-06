@@ -5,6 +5,23 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 
 const mutations = {
   /**
+   * @param state
+   * @param {string|0} value
+   */
+  addMtRequestsPending(state, value) {
+    state.mtRequestsPending.push(value);
+  },
+
+  /**
+   * @param state
+   * @param {string|0} value
+   */
+  removeMtRequestsPending(state, value) {
+    state.mtRequestsPending = state.mtRequestsPending.filter(
+      (item) => item !== value
+    );
+  },
+  /**
    * This mutation is being called both for section suggestions and for
    * page suggestions. However, "currentSectionSuggestion" state variable
    * should be a instance of SectionSuggestion class. For that reason, we should

@@ -498,6 +498,7 @@ async function translateTranslationUnitById(
   // The content of this variable will ultimately be stored as proposed
   // translation for the given translation unit and the given MT provider
   let proposedTranslation;
+  commit("addMtRequestsPending", id);
 
   /** @type {string} */
   proposedTranslation = await dispatch(
@@ -505,6 +506,12 @@ async function translateTranslationUnitById(
     { originalContent, provider },
     { root: true }
   );
+
+  if (!proposedTranslation) {
+    commit("removeMtRequestsPending", id);
+
+    return;
+  }
 
   // If the given translation unit is a block template, get the
   // nested transclusion node, and use it to parse the template
@@ -548,6 +555,7 @@ async function translateTranslationUnitById(
     provider,
     proposedTranslation,
   });
+  commit("removeMtRequestsPending", id);
 }
 
 /**
