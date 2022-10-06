@@ -50,23 +50,12 @@ class Hooks {
 	}
 
 	public static function addMobileNewByTranslationInvitation( OutputPage $out, Skin $skin ): void {
-		$isMobileView = false;
-
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			$isMobileView = $mobileContext->shouldDisplayMobileView();
-		}
-
 		// This entrypoint should only be enabled for mobile web version
-		if ( !$isMobileView ) {
+		if ( !self::isMobileView() ) {
 			return;
 		}
 
-		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
-		// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
-		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' );
-		$isSXEnabled = is_array( $enabledLanguages ) && in_array( $currentLanguageCode, $enabledLanguages );
-		if ( !$isSXEnabled ) {
+		if ( !self::isSXEnabled() ) {
 			return;
 		}
 
@@ -104,14 +93,8 @@ class Hooks {
 	 * @throws \Exception
 	 */
 	public static function addRecentTranslationEntrypoint( OutputPage $out, Skin $skin ): void {
-		$isMobileView = false;
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			$isMobileView = $mobileContext->shouldDisplayMobileView();
-		}
-
 		// This entrypoint should only be enabled for mobile web version
-		if ( !$isMobileView ) {
+		if ( !self::isMobileView() ) {
 			return;
 		}
 
@@ -127,11 +110,7 @@ class Hooks {
 			return;
 		}
 
-		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
-		// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
-		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' );
-		$isSXEnabled = is_array( $enabledLanguages ) && in_array( $currentLanguageCode, $enabledLanguages );
-		if ( !$isSXEnabled ) {
+		if ( !self::isSXEnabled() ) {
 			return;
 		}
 
@@ -140,6 +119,7 @@ class Hooks {
 		// b. for pages that were published in the last 10 days
 		// "cx_translations" table is expected to be smaller than "revision"
 		// table, so we query this table first.
+		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
 		$translation = Translation::findByPublishedTitle( $out->getPageTitle(), $currentLanguageCode );
 
 		// If translation not found inside the table, meaning this article has
@@ -344,16 +324,10 @@ class Hooks {
 			return;
 		}
 
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-
-			if ( $mobileContext->shouldDisplayMobileView() &&
-				$wgSectionTranslationTargetLanguages
-			) {
+		if ( self::isMobileView() && $wgSectionTranslationTargetLanguages ) {
 				$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
 				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
 					$wgSectionTranslationTargetLanguages );
-			}
 		}
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
@@ -439,9 +413,7 @@ class Hooks {
 			return;
 		}
 
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' )->usingMobileDomain()
-		) {
+		if ( !self::isMobileView() ) {
 			// Contribution buttons should be shown only in desktop
 			return;
 		}
