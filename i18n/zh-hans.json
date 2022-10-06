@@ -28,6 +28,7 @@
 			"Lanyun1103",
 			"Liuxinyu970226",
 			"Liye",
+			"MangoFanFanw",
 			"Phenolla",
 			"Shizhao",
 			"Shuiwater",
@@ -429,6 +430,9 @@
 	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
 	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用",
 	"cx-uls-relevant-languages-panel-header": "翻译此页面",
+	"sx-recent-edit-entrypoint-top-banner-header": "来自其他语言的贡献",
+	"sx-recent-edit-entrypoint-invitation-button-label": "翻译“ $1 ”",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 section|$1 sections}} 在 $2 中缺失",
 	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
 	"cx-sx-publisher-captcha-dialog-publish-button": "发布"
 }

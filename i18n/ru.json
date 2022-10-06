@@ -455,5 +455,6 @@
 	"cx-uls-relevant-languages-panel-header": "Переведите эту страницу",
 	"cx-uls-relevant-languages-panel-message": "Эта страница отсутствует на некоторых языках, которые вы, возможно, знаете. Вы можете перевести её за считанные минуты!",
 	"cx-uls-translate-page-quick-action-label": "Перевести эту страницу",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Перевести «$1»",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Опубликовать"
 }

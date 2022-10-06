@@ -433,6 +433,8 @@
 	"cx-uls-relevant-languages-panel-message": "এই পাতাটি আপনার জানা কিছু ভাষায় অনুপস্থিত। আপনি কয়েক মিনিটের মধ্যে এটি অনুবাদ করতে পারেন!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "এটি <strong>নতুন নিবন্ধের প্রথম অনুচ্ছেদ হবে!</strong>",
 	"cx-uls-translate-page-quick-action-label": "এই পাতাটি অনুবাদ করুন",
+	"sx-recent-edit-entrypoint-top-banner-header": "অন্যান্য ভাষা থেকে অবদান",
+	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" অনুবাদ করুন",
 	"cx-sx-publisher-captcha-dialog-header-title": "আপনি রোবট কিনা তা পরীক্ষা করা হচ্ছে",
 	"cx-sx-publisher-captcha-dialog-publish-button": "প্রকাশ করুন"
 }
