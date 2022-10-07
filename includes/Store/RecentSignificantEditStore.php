@@ -221,13 +221,23 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit
 	 */
 	private function createEditFromRow( \stdClass $row ): RecentSignificantEdit {
+		// json_decode should always return an array and not an \stdClass instance. Although we do not
+		// store associative arrays, we somehow get errors for this field. These errors can also occur
+		// because of empty arrays being encoded as "{}", instead of [] by "json_encode" function. However,
+		// we do not store any significant edit in the database when section titles are an empty array.
+		// In any case, here we are making sure that section titles are always an indexed array, to avoid
+		// such errors being thrown.
+		// TODO: Investigate what value causes the error (https://phabricator.wikimedia.org/T319799) and
+		// how end up with this unexpected value
+		$sectionTitles = array_values( json_decode( $row->cxse_section_titles, true ) );
+
 		return new RecentSignificantEdit(
 			(int)$row->cxse_id,
 			(int)$row->cxse_global_user_id,
 			(int)$row->cxse_page_wikidata_id,
 			$row->cxse_language,
 			$row->cxse_page_title,
-			json_decode( $row->cxse_section_titles ),
+			$sectionTitles,
 			$row->cxse_timestamp
 		);
 	}
