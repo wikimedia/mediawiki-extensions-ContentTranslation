@@ -116,6 +116,10 @@
 			}
 			targetedLanguages.unshift( { lang: deviceLanguage } );
 		}
+		// Remove current wiki language from targetedLanguages
+		targetedLanguages = targetedLanguages.filter( function ( language ) {
+			return language.lang !== mw.config.get( 'wgContentLanguage' );
+		} );
 		/**
 		 * @type {{lang: string, autonym: string, dir: string}[]} missingSXLanguages array containing the
 		 * enabled language codes for SX that are missing for the specific article

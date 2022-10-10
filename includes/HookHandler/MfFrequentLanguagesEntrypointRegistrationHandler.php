@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\HookHandler;
 
+use ContentTranslation\SiteMapper;
 use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Languages\LanguageFactory;
@@ -39,6 +40,9 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 			return explode( ":", $languageLink )[0];
 		}, $out->getLanguageLinks() );
 
+		// The languageLinks in the current page will not include the current language.
+		// Add that also to the availableLanguages array.
+		$availableLanguages[] = SiteMapper::getCurrentLanguageCode();
 		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' ) ?? [];
 		$missingLanguageCodes = array_diff( $enabledLanguages, $availableLanguages );
 
