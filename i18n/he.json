@@ -441,5 +441,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "לתרגם את הפרק \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|חסר פרק אחד|חסרים $1 פרקים}} בשפה $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "בדיקה שאינך רובוט",
-	"cx-sx-publisher-captcha-dialog-publish-button": "פרסום"
+	"cx-sx-publisher-captcha-dialog-publish-button": "פרסום",
+	"cx-contributecard-entrypoint-title": "תרגומים",
+	"cx-contributecard-entrypoint-desc": "{{GENDER:|תרגם|תרגמי}} פרק אחד או ערך שלם. {{GENDER:|עשה|עשי}} שיהיה יותר תוכן זמין ביותר שפות.",
+	"cx-contributecard-entrypoint-cta": "להתחיל לתרגם"
 }

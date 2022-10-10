@@ -430,5 +430,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Traducer \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "$1 section{{PLURAL:$1||es}} manca in $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Verification que tu non es un robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar",
+	"cx-contributecard-entrypoint-title": "Traductiones",
+	"cx-contributecard-entrypoint-desc": "Traduce un section o un tote articulo. Rende plus contento disponibile in plus linguas.",
+	"cx-contributecard-entrypoint-cta": "Comenciar un traduction"
 }

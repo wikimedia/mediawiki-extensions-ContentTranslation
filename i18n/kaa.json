@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajiniyaz",
 			"Nurlan"
 		]
 	},
@@ -12,5 +13,8 @@
 	"cx-stats-draft-translations-label": "Awdarma qılınıp atırǵan maqalalar bar",
 	"cx-campaign-contributionsmenu-mytranslations": "Awdarmalar",
 	"cx-trend-deletions": "Óshirilgen awdarmalar",
-	"echo-category-title-cx": "Awdarmalar"
+	"echo-category-title-cx": "Awdarmalar",
+	"cx-contributecard-entrypoint-title": "Awdarmalar",
+	"cx-contributecard-entrypoint-desc": "Bir bólimdi yáki pútkil maqalanı awdarmalańız",
+	"cx-contributecard-entrypoint-cta": "Awdarmanı baslaw"
 }

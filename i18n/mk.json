@@ -430,5 +430,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Преведете го „$1“",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Недостасува $1 поднаслов|Недостасуваат $1 поднаслови}} на $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Проверка дека не сте робот",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Објави"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Објави",
+	"cx-contributecard-entrypoint-title": "Преводи",
+	"cx-contributecard-entrypoint-desc": "Преведете еден поднаслов или цела статија. Направете повеќе содржини достапни на повеќе јазици.",
+	"cx-contributecard-entrypoint-cta": "Почни со преведување"
 }

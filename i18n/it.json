@@ -172,7 +172,9 @@
 	"cx-campaign-try": "Prova Traduzione voci",
 	"cx-campaign-contributionsmenu-mycontributions": "Contributi",
 	"cx-campaign-contributionsmenu-mytranslations": "Traduzioni",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Aggiungi una nuova traduzione",
 	"cx-campaign-contributionsmenu-myuploads": "File multimediali caricati",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Un elenco dei file che hai caricato",
 	"cx-no-source-categories": "Nessuna categoria",
 	"cx-no-target-categories": "Nessuna categoria. Prendi in considerazione di aggiungerne qualcuna per classificare meglio l'argomento.",
 	"cx-trend-deletions": "Traduzioni cancellate",
@@ -324,5 +326,7 @@
 	"cx-uls-translate-page-quick-action-label": "Traduci questa pagina",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Traduci \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 sezione|$1 sezioni}} mancanti in $2",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Pubblica"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Pubblica",
+	"cx-contributecard-entrypoint-title": "Traduzioni",
+	"cx-contributecard-entrypoint-cta": "Inizia una traduzione"
 }

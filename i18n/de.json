@@ -442,5 +442,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "„$1“ übersetzen",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 Abschnitt fehlt|$1 Abschnitte fehlen}} in $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Überprüfung, dass du kein Roboter bist.",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Veröffentlichen"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Veröffentlichen",
+	"cx-contributecard-entrypoint-title": "Übersetzungen",
+	"cx-contributecard-entrypoint-desc": "Übersetze einen Abschnitt oder einen ganzen Artikel. Stelle mehr Inhalte in mehr Sprachen zur Verfügung.",
+	"cx-contributecard-entrypoint-cta": "Übersetzung starten"
 }

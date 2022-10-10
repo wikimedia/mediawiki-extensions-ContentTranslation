@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abbas dhothar",
+			"Bgo eiu",
 			"Khalid Mahmood"
 		]
 	},
@@ -17,6 +18,11 @@
 	"cx-translation-add-translation": "سارے ترجمے",
 	"cx-beta": "مواد ترجمہ",
 	"cx-entrypoint-dialog-button-translate-from": "$1 توں ترجمہ",
+	"cx-tools-link-title": "کڑی",
+	"cx-tools-link-add": "کڑی پایو",
+	"cx-tools-mt-provider-title": "$1 ورتو",
+	"cx-tools-mt-preferred": "مول",
+	"cx-page-selector-widget-nearby-label": "نیڑے تیڑے",
 	"cx-selected-source-page-start-translation-button": "ترجمہ شروع کرو",
 	"cx-captcha-dialog-cancel": "رد کرو",
 	"cx-dashboard-sidebar-stats": "آنکڑے",

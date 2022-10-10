@@ -437,5 +437,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Перакласці «$1»",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Раздзел|$1 раздзелы|$1 раздзелаў}}, які адсутнічае ў $2.",
 	"cx-sx-publisher-captcha-dialog-header-title": "Праверка, што вы не робат",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Апублікаваць"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Апублікаваць",
+	"cx-contributecard-entrypoint-title": "Пераклады",
+	"cx-contributecard-entrypoint-desc": "Перакласці адзін раздзел або цэлы артыкул. Зрабіце больш зместу даступным на большай колькасці моваў.",
+	"cx-contributecard-entrypoint-cta": "Пачаць пераклад"
 }

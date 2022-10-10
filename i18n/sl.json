@@ -433,5 +433,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Prevedi »$1«",
 	"sx-recent-edit-entrypoint-invitation-button-details": "V jeziku $2 {{PLURAL:$1|manjka en razdelek|manjkata $1 razdelka|manjkajo $2 razdelki|manjka $1 razdelkov}}",
 	"cx-sx-publisher-captcha-dialog-header-title": "Preverjanje, ali niste robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi",
+	"cx-contributecard-entrypoint-title": "Prevodi",
+	"cx-contributecard-entrypoint-desc": "Prevedite en razdelek ali cel članek. Naj bo več vsebine na voljo v več jezikih.",
+	"cx-contributecard-entrypoint-cta": "Začni prevod"
 }

@@ -442,5 +442,9 @@
 	"cx-uls-relevant-languages-panel-header": "Traduzir esta página",
 	"cx-uls-relevant-languages-panel-message": "Esta página está ausente em algumas línguas que você talvez conheça. Você pode traduzi-la em minutos!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Esta será <strong>a primeira seção do novo artigo!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Traduzir esta página"
+	"cx-uls-translate-page-quick-action-label": "Traduzir esta página",
+	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir de outros idiomas",
+	"sx-recent-edit-entrypoint-top-banner-content": "Uma secção que editou recentemente em $1 está em falta em $2. Pondere traduzi-la.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Traduzir $1",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Falta uma secção|Faltam $1 secções}} em $2"
 }

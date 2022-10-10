@@ -427,5 +427,8 @@
 	"cx-sx-publisher-publish-panel-lead-section-result": "নতুন প্ৰবন্ধটোৰ <strong>এইটো হ’ব প্ৰথম অনুচ্ছেদ!</strong>",
 	"cx-uls-translate-page-quick-action-label": "এই পৃষ্ঠাটো অনুবাদ কৰক",
 	"cx-sx-publisher-captcha-dialog-header-title": "আপুনি যে ৰবট নহয় তাৰ পৰীক্ষা কৰা হৈছে",
-	"cx-sx-publisher-captcha-dialog-publish-button": "প্ৰকাশ কৰক"
+	"cx-sx-publisher-captcha-dialog-publish-button": "প্ৰকাশ কৰক",
+	"cx-contributecard-entrypoint-title": "অনুবাদ",
+	"cx-contributecard-entrypoint-desc": "এটা অনুচ্ছেদ বা এটা সম্পূৰ্ণ প্ৰবন্ধ অনুবাদ কৰক। অধিক ভাষাত সমল উপলব্ধ কৰাত সহায় কৰক।",
+	"cx-contributecard-entrypoint-cta": "এটা অনুবাদ আৰম্ভ কৰক"
 }

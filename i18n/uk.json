@@ -349,7 +349,7 @@
 	"cx-sx-publisher-publish-panel-new-section-result": "Ваш переклад буде <strong>додано до статті як новий розділ.</strong>",
 	"cx-sx-publisher-review-info": "<strong>Перевірте, чи ваш переклад читається природно і написаний граматично правильно</strong>",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Публікація перекладу…",
-	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Дякуємо за розширення вмісту доступного Вашою мовою",
+	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Дякуємо за розширення вмісту, доступного вашою мовою",
 	"cx-sx-publisher-animation-success-message-title": "Опубліковано!",
 	"cx-sx-publisher-animation-success-message-subtitle": "Відкриття сторінки…",
 	"cx-sx-publisher-animation-failure-message-title": "Помилка публікації",
@@ -360,6 +360,7 @@
 	"cx-sx-publisher-new-section-option-label": "Опублікувати як новий розділ",
 	"cx-sx-publisher-lead-section-option-label": "Опублікувати як нову сторінку",
 	"cx-sx-publisher-new-section-option-details": "Додати новий розділ до статті",
+	"cx-sx-publisher-lead-section-option-details": "Створити нову сторінку в основному просторі назв",
 	"cx-sx-publisher-sandbox-option-label": "Опублікувати до Вашої чернетки",
 	"cx-sx-publisher-sandbox-option-details": "Опублікувати до Вашого особистого простору для перевірки та копіювання в інше місце.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Ваш переклад буде <strong>додано до Вашої чернетки.</strong>",
@@ -442,6 +443,10 @@
 	"cx-uls-relevant-languages-panel-message": "Ця сторінка відсутня деякими мовами, які ви можете знати. Ви можете перекласти її за лічені хвилини!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Це буде <strong>перший розділ у новій статті!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Перекласти цю сторінку",
+	"sx-recent-edit-entrypoint-top-banner-header": "Зробіть внесок іншими мовами",
+	"sx-recent-edit-entrypoint-top-banner-content": "Розділ, який ви нещодавно редагували в $1, відсутній в $2. Чому б його не перекласти?",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Перекласти «$1»",
+	"sx-recent-edit-entrypoint-invitation-button-details": "Бракує {{PLURAL:$1|$1 розділу|$1 розділів}} мовою $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Перевірка того, що ви не робот",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Опублікувати"
 }

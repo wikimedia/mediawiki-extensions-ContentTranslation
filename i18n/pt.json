@@ -444,5 +444,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Traduzir \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Falta uma secção|Faltam $1 secções}} em $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "A verificar que você não é um robô",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar",
+	"cx-contributecard-entrypoint-title": "Traduções",
+	"cx-contributecard-entrypoint-desc": "Traduza uma secção ou um artigo completo. Torne mais do conteúdo disponível em mais línguas.",
+	"cx-contributecard-entrypoint-cta": "Iniciar uma tradução"
 }

@@ -9,6 +9,7 @@
 			"Hugo.arg",
 			"Mantak111",
 			"Manvydasz",
+			"Pavel1513",
 			"Pofka",
 			"Tomasdd",
 			"Vogone",
@@ -209,5 +210,8 @@
 	"cx-sx-language-selector-suggestions": "Siūloma",
 	"cx-sx-language-selector-no-search-results": "Nėra rezultatų",
 	"sx-translation-list-language-selector-dialog-title": "Kalbos",
-	"cx-sx-article-search-header": "Naujas vertimas"
+	"cx-sx-article-search-header": "Naujas vertimas",
+	"cx-contributecard-entrypoint-title": "Vetimai",
+	"cx-contributecard-entrypoint-desc": "Išverskite vieną skyrių arba visą straipsnį. Padarykite, kad daugiau turinio būtų prienama daugiau kalbų.",
+	"cx-contributecard-entrypoint-cta": "Pradėkite versti"
 }
