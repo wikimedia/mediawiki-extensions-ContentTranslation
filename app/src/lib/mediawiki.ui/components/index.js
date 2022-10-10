@@ -14,6 +14,7 @@ import MwThumbnail from "./MWThumbnail";
 import { MwRadio, MwRadioGroup } from "./MWRadioGroup";
 import MwProgressBar from "./MWProgressBar";
 import MwExpandableContent from "./MWExpandableContent";
+import MwCircleProgressBar from "./MWCircularProgressBar";
 
 export {
   MwButton,
@@ -35,4 +36,5 @@ export {
   MwRadio,
   MwRadioGroup,
   MwProgressBar,
+  MwCircleProgressBar,
 };
