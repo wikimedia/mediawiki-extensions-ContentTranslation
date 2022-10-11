@@ -741,7 +741,7 @@ class Hooks {
 	 * @param array &$cards List of contribute cards data
 	 */
 	public static function addContributeCardEntryPoint( array &$cards ) {
-		$context = new RequestContext();
+		$context = RequestContext::getMain();
 
 		if ( self::isMobileView() && !self::isSXEnabled() ) {
 			// This entrypoint should only be enabled for wikis that have SectionTranslation enabled
@@ -761,7 +761,7 @@ class Hooks {
 			)
 		) )->toArray();
 		// 'language' icon is in oojs-ui.styles.icons-editing-advanced RL module. Load that.
-		$out = RequestContext::getMain()->getOutput();
+		$out = $context->getOutput();
 		$out->addModuleStyles( [ 'oojs-ui.styles.icons-editing-advanced' ] );
 	}
 
