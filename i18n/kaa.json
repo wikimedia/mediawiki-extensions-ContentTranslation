@@ -2,19 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Ajiniyaz",
+			"Ajiniyaz Nurniyazov",
 			"Nurlan"
 		]
 	},
 	"cx-dashboard-header": "Awdarmalar",
 	"cx-header-all-translations": "Barlıq awdarmalar",
-	"cx-warning-unsaved-translation": "Saqlanbaǵan awdarmalar bar.",
-	"cx-translation-label-draft": "Awdarma qılınıp atırǵan maqalalar bar",
+	"cx-warning-unsaved-translation": "Sizde saqlanbaǵan awdarmalar bar.",
+	"cx-translation-label-draft": "Awdarmadaǵı maqalalar",
 	"cx-stats-published-translations-title": "Járiyalanǵan maqalalar",
-	"cx-stats-draft-translations-label": "Awdarma qılınıp atırǵan maqalalar bar",
+	"cx-stats-draft-translations-label": "Awdarmadaǵı maqalalar",
 	"cx-campaign-contributionsmenu-mytranslations": "Awdarmalar",
 	"cx-trend-deletions": "Óshirilgen awdarmalar",
 	"echo-category-title-cx": "Awdarmalar",
 	"cx-contributecard-entrypoint-title": "Awdarmalar",
-	"cx-contributecard-entrypoint-desc": "Bir bólimdi yáki pútkil maqalanı awdarmalańız",
+	"cx-contributecard-entrypoint-desc": "Bir bólimdi yáki pútkil maqalanı awdarmalańız. Kóbirek tillerde kóbirek kontentti túsinikli qılıp isleńiz.",
 	"cx-contributecard-entrypoint-cta": "Awdarmanı baslaw"
 }

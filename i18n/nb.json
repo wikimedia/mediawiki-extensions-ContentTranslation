@@ -15,6 +15,7 @@
 			"Prevodim",
 			"Purodha",
 			"Tarjeimo",
+			"Telaneo",
 			"Петар Петковић"
 		]
 	},
@@ -440,5 +441,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Oversett «$1»",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 seksjon|$1 seksjoner}} mangler på $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Sjekker at du ikke er en robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Publiser"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publiser",
+	"cx-contributecard-entrypoint-title": "Oversettelser",
+	"cx-contributecard-entrypoint-desc": "Oversett et avsnitt eller en hel artikkel. Gjør innhold tilgjengelig på flere språk.",
+	"cx-contributecard-entrypoint-cta": "Begynn på en oversettelse"
 }
