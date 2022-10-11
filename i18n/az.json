@@ -310,6 +310,7 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Tətbiq et",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Keç",
 	"cx-sx-content-comparator-target-selector-full-article-title": "$1 dilindəki tam məqalə",
+	"cx-sx-content-comparator-mapped-section-header-title": "$1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 dilində bölmə",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Tərcüməniz mövcud bölməni genişləndirəcək. Bölmələr əlaqəli deyilsə bunu rədd edin.",
 	"cx-sx-translation-confirmer-title": "Yeni tərcümə",
