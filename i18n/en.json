@@ -450,5 +450,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publish",
 	"cx-contributecard-entrypoint-title": "Translations",
 	"cx-contributecard-entrypoint-desc": "Translate one section or a whole article. Make more content available in more languages.",
-	"cx-contributecard-entrypoint-cta": "Start a translation"
+	"cx-contributecard-entrypoint-cta": "Start a translation",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "No equivalent template found",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "This template will be added empty",
+	"cx-sx-block-template-mapping-status-title-partially-template": "This template can be partially translated",
+	"cx-sx-block-template-mapping-status-title-fully-template": "This template can be automatically translated",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "The template structure in both languages is too different, and no data can be automatically transferred",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "The template structure in both languages is similar, and some data can be automatically transferred",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "The template structure in both languages is similar, and all data can be automatically transferred",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "If you know of an equivalent template in $1, you can connect them on Wikidata to allow tools to find it",
+	"cx-sx-block-template-none-mapped-param-text": "No parameters out of $1 were added from the original template",
+	"cx-sx-block-template-mapped-params-text": "$1 out of {{PLURAL:$2|$2 parameter|$2 parameters}} were added from the original template",
+	"cx-sx-block-template-no-source-params-text": "The original template had no parameters to transfer",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 mandatory parameters remain unfilled for the template in $2. Edit the template to fill those manually",
+	"cx-sx-block-template-missing-optional-params-text": "$1 additional parameters can be filled for the template in $2. Edit the template to fill those manually"
 }

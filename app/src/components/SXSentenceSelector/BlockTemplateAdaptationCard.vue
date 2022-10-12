@@ -65,6 +65,15 @@
       <mw-spinner v-else />
     </div>
     <proposed-translation-action-buttons v-bind="$attrs" />
+    <sx-block-template-status-dialog
+      v-model:active="templateStatusDialogOn"
+      :source-params-count="sourceParamsCount"
+      :target-params-count="targetParamsCount"
+      :mandatory-missing-params-count="mandatoryMissingTargetParamsCount"
+      :optional-missing-params-count="optionalMissingTargetParamsCount"
+      :is-template-adapted="isTemplateAdapted"
+      :target-template-exists="!!targetTemplateName"
+    />
   </mw-card>
 </template>
 
@@ -81,13 +90,15 @@ import { mwIconPuzzle, mwIconInfo } from "@/lib/mediawiki.ui/components/icons";
 import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
 
 export default {
   name: "BlockTemplateAdaptationCard",
   components: {
+    SxBlockTemplateStatusDialog,
     MwSpinner,
     MwIcon,
     MwCard,
@@ -174,14 +185,15 @@ export default {
         Object.keys(selectedSubSection.value?.sourceTemplateParams || {}).length
     );
 
-    const targetParamsCount = computed(() => {
+    const targetParamNames = computed(() => {
       const targetTemplateParams =
         selectedSubSection.value?.getTargetTemplateParamsByProvider(
           currentMTProvider.value
         );
 
-      return Object.keys(targetTemplateParams || {}).length;
+      return Object.keys(targetTemplateParams || {});
     });
+    const targetParamsCount = computed(() => targetParamNames.value.length);
 
     const adaptationRatio = computed(() => {
       if (sourceParamsCount.value === 0) {
@@ -191,22 +203,44 @@ export default {
       return (targetParamsCount.value / sourceParamsCount.value) * 100 || 0;
     });
 
+    const templateStatusDialogOn = ref(false);
+
     const showTemplateStatus = () => {
-      // TODO: Add implementation for displaying block template status
+      templateStatusDialogOn.value = true;
     };
+
+    const getMissingParams = (allParams) =>
+      allParams.filter((param) => !targetParamNames.value.includes(param));
+
+    const mandatoryMissingTargetParamsCount = computed(() => {
+      const mandatoryParams = adaptationInfo.value?.mandatoryTargetParams || [];
+
+      return getMissingParams(mandatoryParams).length;
+    });
+
+    const optionalMissingTargetParamsCount = computed(() => {
+      const optionalParams = adaptationInfo.value?.optionalTargetParams || [];
+
+      return getMissingParams(optionalParams).length;
+    });
 
     return {
       adaptationRatio,
       adaptedTemplateCardClass,
       editBlockTranslationButtonLabel,
       isTemplateAdapted,
+      mandatoryMissingTargetParamsCount,
       mwIconInfo,
       mwIconPuzzle,
+      optionalMissingTargetParamsCount,
       proposedBlockTranslation,
       showTemplateStatus,
+      sourceParamsCount,
       sourceTemplateName,
       targetLanguageAutonym,
+      targetParamsCount,
       targetTemplateName,
+      templateStatusDialogOn,
       translationLoaded,
     };
   },

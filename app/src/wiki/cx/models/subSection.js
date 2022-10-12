@@ -38,7 +38,7 @@ export default class SubSection {
    * for the given MT provider.
    *
    * @param {string} provider
-   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean }} info
+   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean, mandatoryTargetParams: string[], optionalTargetParams: string[] }} info
    */
   setBlockTemplateAdaptationInfo(provider, info) {
     this.blockTemplateAdaptationInfo[provider] = info;

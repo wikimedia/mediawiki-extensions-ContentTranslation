@@ -721,7 +721,21 @@
 				"cx-sx-publisher-captcha-dialog-publish-button",
 				"cx-sx-proposed-translation-not-available-message",
 				"cx-sx-proposed-translation-retry-button",
-				"cx-sx-proposed-translation-other-options-button"
+				"cx-sx-proposed-translation-other-options-button",
+				"cx-sx-publisher-captcha-dialog-publish-button",
+				"cx-sx-block-template-mapping-status-title-no-target-template",
+				"cx-sx-block-template-mapping-status-title-unadapted-template",
+				"cx-sx-block-template-mapping-status-title-partially-template",
+				"cx-sx-block-template-mapping-status-title-fully-template",
+				"cx-sx-block-template-mapping-status-explanation-no-mapping",
+				"cx-sx-block-template-mapping-status-explanation-partial-mapping",
+				"cx-sx-block-template-mapping-status-explanation-full-mapping",
+				"cx-sx-block-template-no-equivalent-template-suggestion",
+				"cx-sx-block-template-none-mapped-param-text",
+				"cx-sx-block-template-mapped-params-text",
+				"cx-sx-block-template-no-source-params-text",
+				"cx-sx-block-template-missing-mandatory-params-text",
+				"cx-sx-block-template-missing-optional-params-text"
 			],
 			"noflip": true
 		},

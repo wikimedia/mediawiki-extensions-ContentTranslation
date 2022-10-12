@@ -158,7 +158,7 @@ const escapeParameter = (param) => {
  * template adaptation
  *
  * @param {Element} node
- * @return {{ adapted: boolean, partial: boolean, targetExists: boolean }}
+ * @return {{ adapted: boolean, partial: boolean, targetExists: boolean, mandatoryTargetParams: string[], optionalTargetParams: string[] }}
  */
 const getTemplateAdaptationInfo = (node) => {
   const cxData = JSON.parse(node.dataset?.cx || "{}");
