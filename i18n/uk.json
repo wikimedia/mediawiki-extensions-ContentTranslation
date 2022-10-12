@@ -21,7 +21,8 @@
 			"Vlad5250",
 			"Ypryima",
 			"Ата",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Пан Хаунд"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -348,7 +349,7 @@
 	"cx-sx-publisher-publish-panel-new-section-result": "Ваш переклад буде <strong>додано до статті як новий розділ.</strong>",
 	"cx-sx-publisher-review-info": "<strong>Перевірте, чи ваш переклад читається природно і написаний граматично правильно</strong>",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Публікація перекладу…",
-	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Дякуємо за розширення вмісту доступного Вашою мовою",
+	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Дякуємо за розширення вмісту, доступного вашою мовою",
 	"cx-sx-publisher-animation-success-message-title": "Опубліковано!",
 	"cx-sx-publisher-animation-success-message-subtitle": "Відкриття сторінки…",
 	"cx-sx-publisher-animation-failure-message-title": "Помилка публікації",
