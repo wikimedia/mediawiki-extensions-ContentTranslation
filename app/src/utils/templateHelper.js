@@ -154,6 +154,21 @@ const escapeParameter = (param) => {
 /**
  * Given a transclusion node, that is returned by cxserver
  * as a block template translation/adaptation, this method
+ * returns an object containing information related to the
+ * template adaptation
+ *
+ * @param {Element} node
+ * @return {{ adapted: boolean, partial: boolean, targetExists: boolean }}
+ */
+const getTemplateAdaptationInfo = (node) => {
+  const cxData = JSON.parse(node.dataset?.cx || "{}");
+
+  return cxData?.[0] || null;
+};
+
+/**
+ * Given a transclusion node, that is returned by cxserver
+ * as a block template translation/adaptation, this method
  * returns a boolean indicating whether the template exists
  * in the target language.
  *
@@ -161,14 +176,16 @@ const escapeParameter = (param) => {
  * @return {boolean}
  */
 const targetTemplateExists = (cxTemplateNode) => {
-  const cxData = JSON.parse(cxTemplateNode.dataset?.cx || "{}");
+  const adaptationInfo = getTemplateAdaptationInfo(cxTemplateNode);
 
-  return !!cxData?.[0]?.targetExists;
+  return adaptationInfo?.targetExists;
 };
 
 export {
   isTransclusionNode,
   parseTemplateName,
+  getTemplateAdaptationInfo,
+  getTemplateData,
   getWikitextFromTemplate,
   targetTemplateExists,
 };

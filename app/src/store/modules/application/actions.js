@@ -5,6 +5,7 @@ import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
+  getTemplateAdaptationInfo,
   getWikitextFromTemplate,
   isTransclusionNode,
   targetTemplateExists,
@@ -529,6 +530,13 @@ async function translateTranslationUnitById(
     // If no nested transclusion node, or target template doesn't exist
     // set proposed translation to an empty string
     if (templateElement && targetTemplateExists(templateElement)) {
+      // The adaptation info are stored by cxserver inside the "data-cx" attribute.
+      // However, this attribute is being dropped during the template parsing that
+      // takes place in the following lines, so we need extract this information
+      // from the template HTML as returned by cxserver (before template parsing)
+      const adaptationInfo = getTemplateAdaptationInfo(templateElement);
+      translationUnit.setBlockTemplateAdaptationInfo(provider, adaptationInfo);
+
       /**
        * An HTML string containing both the template definition
        * and the HTML string that renders the template
@@ -538,12 +546,6 @@ async function translateTranslationUnitById(
         getWikitextFromTemplate(templateElement),
         targetLanguage,
         targetTitle || sourceTitle
-      );
-
-      const adaptationStatus = JSON.parse(templateElement.dataset.cx);
-      translationUnit.setBlockTemplateAdaptationStatus(
-        provider,
-        adaptationStatus
       );
     } else {
       proposedTranslation = "";

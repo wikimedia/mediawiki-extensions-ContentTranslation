@@ -12,11 +12,23 @@
         class="pa-4 mb-4"
         :class="adaptedTemplateCardClass"
       >
-        <mw-row class="block-template-adaptation-card__body__header ma-0 pb-1">
+        <mw-row
+          class="block-template-adaptation-card__body__header ma-0 pb-1"
+          align="start"
+        >
           <mw-col
             v-i18n:sx-block-template-adaptation-card-body-header-success
             tag="h5"
           />
+          <mw-col shrink>
+            <block-template-status-indicator
+              :percentage="adaptationRatio"
+              :size="20"
+              :is-template-adapted="isTemplateAdapted"
+              :stroke-width="2"
+              @click="showTemplateStatus"
+            />
+          </mw-col>
         </mw-row>
         <h5
           class="block-template-adaptation-card__body__template-title pb-2"
@@ -35,12 +47,20 @@
         v-else-if="translationLoaded"
         class="block-template-adaptation-card__body--failure pa-4 mb-4"
       >
-        <h5
-          v-i18n:sx-block-template-adaptation-card-body-header-failure="[
-            targetLanguageAutonym,
-          ]"
+        <mw-row
           class="block-template-adaptation-card__body__header pb-0 mb-0"
-        />
+          align="start"
+        >
+          <mw-col
+            v-i18n:sx-block-template-adaptation-card-body-header-failure="[
+              targetLanguageAutonym,
+            ]"
+            tag="h5"
+          />
+          <mw-col shrink>
+            <mw-icon :icon="mwIconInfo" @click="showTemplateStatus" />
+          </mw-col>
+        </mw-row>
       </div>
       <mw-spinner v-else />
     </div>
@@ -57,7 +77,8 @@ import {
   MwIcon,
   MwSpinner,
 } from "@/lib/mediawiki.ui";
-import { mwIconPuzzle, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
+import { mwIconPuzzle, mwIconInfo } from "@/lib/mediawiki.ui/components/icons";
+import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
@@ -74,6 +95,7 @@ export default {
     MwCol,
     MwButton,
     ProposedTranslationActionButtons,
+    BlockTemplateStatusIndicator,
   },
   emits: ["edit-translation"],
   setup() {
@@ -107,51 +129,81 @@ export default {
     const sourceTemplateName = computed(
       // Strip HTML comments and return
       () =>
-        selectedSubSection.value?.sourceBlockTemplateName.replace(
+        selectedSubSection.value?.sourceBlockTemplateName?.replace(
           /<\!--.*?-->/g,
           ""
         )
     );
 
-    const adaptationStatus = computed(
+    const adaptationInfo = computed(
       () =>
-        selectedSubSection.value.blockTemplateAdaptationStatus?.[
+        selectedSubSection.value.blockTemplateAdaptationInfo?.[
           currentMTProvider.value
-        ]?.[0]
+        ]
+    );
+    const isTemplateAdapted = computed(
+      () =>
+        adaptationInfo.value?.adapted || adaptationInfo.value?.partial || false
     );
 
     const adaptedTemplateCardClass = computed(() => {
-      if (!adaptationStatus.value) {
+      if (!adaptationInfo.value) {
         return null;
       }
 
-      const postfix =
-        adaptationStatus.value.adapted || adaptationStatus.value.partial
-          ? "success"
-          : "warning";
+      const postfix = isTemplateAdapted.value ? "success" : "warning";
 
       return "block-template-adaptation-card__body--" + postfix;
     });
 
     const bananaI18n = useI18n();
     const editBlockTranslationButtonLabel = computed(() => {
-      if (!adaptationStatus.value) {
+      if (!adaptationInfo.value) {
         return null;
       }
 
-      return adaptationStatus.value.adapted || adaptationStatus.value.partial
+      return isTemplateAdapted.value
         ? bananaI18n.i18n("sx-block-template-adaptation-card-edit-button-label")
         : bananaI18n.i18n(
             "sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
           );
     });
 
+    const sourceParamsCount = computed(
+      () =>
+        Object.keys(selectedSubSection.value?.sourceTemplateParams || {}).length
+    );
+
+    const targetParamsCount = computed(() => {
+      const targetTemplateParams =
+        selectedSubSection.value?.getTargetTemplateParamsByProvider(
+          currentMTProvider.value
+        );
+
+      return Object.keys(targetTemplateParams || {}).length;
+    });
+
+    const adaptationRatio = computed(() => {
+      if (sourceParamsCount.value === 0) {
+        return 100;
+      }
+
+      return (targetParamsCount.value / sourceParamsCount.value) * 100 || 0;
+    });
+
+    const showTemplateStatus = () => {
+      // TODO: Add implementation for displaying block template status
+    };
+
     return {
+      adaptationRatio,
       adaptedTemplateCardClass,
       editBlockTranslationButtonLabel,
-      mwIconCheck,
+      isTemplateAdapted,
+      mwIconInfo,
       mwIconPuzzle,
       proposedBlockTranslation,
+      showTemplateStatus,
       sourceTemplateName,
       targetLanguageAutonym,
       targetTemplateName,

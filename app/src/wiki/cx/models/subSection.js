@@ -1,6 +1,7 @@
 import {
   parseTemplateName,
   isTransclusionNode,
+  getTemplateData,
 } from "../../../utils/templateHelper";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import TranslationUnitPayload from "./translationUnitPayload";
@@ -27,20 +28,20 @@ export default class SubSection {
     this.blockTemplateSelected = false;
     this.blockTemplateTranslatedContent = "";
     this.blockTemplateProposedTranslations = {};
-    this.blockTemplateAdaptationStatus = {};
+    this.blockTemplateAdaptationInfo = {};
     this.blockTemplateMTProviderUsed = "";
     this.editedTranslation = null;
   }
 
   /**
-   * Sets the adaptation status object as it is calculated by the cxserver
+   * Sets the adaptation info object as it is calculated by the cxserver
    * for the given MT provider.
    *
    * @param {string} provider
-   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean }} status
+   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean }} info
    */
-  setBlockTemplateAdaptationStatus(provider, status) {
-    this.blockTemplateAdaptationStatus[provider] = status;
+  setBlockTemplateAdaptationInfo(provider, info) {
+    this.blockTemplateAdaptationInfo[provider] = info;
   }
 
   /**
@@ -188,6 +189,19 @@ export default class SubSection {
   }
 
   /**
+   * This method returns an object containing the source template parameters
+   * and their values, in the following form:
+   * { paramName1: { wt: "paramValue1" }, paramName2: { wt: "paramValue2" } }
+   *
+   * @return {object}
+   */
+  get sourceTemplateParams() {
+    const sourceTemplateData = getTemplateData(this.transclusionNode);
+
+    return sourceTemplateData?.params || {};
+  }
+
+  /**
    * If current subsection is a block template, it returns the
    * source block template name. Otherwise, it returns null.
    *
@@ -202,6 +216,24 @@ export default class SubSection {
   }
 
   /**
+   * Given an MT provider, this method returns an object containing the
+   * target template parameters and their values, in the following form:
+   * { paramName1: { wt: "paramValue1" }, paramName2: { wt: "paramValue2" } }
+   *
+   * @param {string} provider MT provider
+   * @return {Element}
+   */
+  getTargetTemplateNodeByProvider(provider) {
+    if (!this.blockTemplateProposedTranslations[provider]) {
+      return null;
+    }
+    const div = document.createElement("div");
+    div.innerHTML = this.blockTemplateProposedTranslations[provider];
+
+    return Array.from(div.children).find((node) => isTransclusionNode(node));
+  }
+
+  /**
    * Given an MT provider, this method returns the template
    * name based on the corresponding proposed translation of
    * a block template subsection. If the block template
@@ -213,20 +245,28 @@ export default class SubSection {
    * @return {string|null} Target block template name
    */
   getTargetBlockTemplateNameByProvider(provider) {
-    if (!this.blockTemplateProposedTranslations[provider]) {
+    const templateDiv = this.getTargetTemplateNodeByProvider(provider);
+
+    return (templateDiv && parseTemplateName(templateDiv)) || "";
+  }
+
+  /**
+   * Given an MT provider, this method returns an object containing the
+   * target template parameters and their values, in the following form:
+   * { paramName1: { wt: "paramValue1" }, paramName2: { wt: "paramValue2" } }
+   *
+   * @param {string} provider MT provider
+   * @return {object|null}
+   */
+  getTargetTemplateParamsByProvider(provider) {
+    const transclusionNode = this.getTargetTemplateNodeByProvider(provider);
+
+    if (!transclusionNode) {
       return null;
     }
-    const div = document.createElement("div");
-    div.innerHTML = this.blockTemplateProposedTranslations[provider];
-    const templateDiv = Array.from(div.children).find((node) =>
-      isTransclusionNode(node)
-    );
+    const targetTemplateData = getTemplateData(transclusionNode);
 
-    if (!templateDiv) {
-      return "";
-    }
-
-    return parseTemplateName(templateDiv);
+    return targetTemplateData?.params || null;
   }
 
   /**
