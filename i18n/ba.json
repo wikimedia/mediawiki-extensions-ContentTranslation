@@ -3,6 +3,7 @@
 		"authors": [
 			"Alfiya55",
 			"Amire80",
+			"Kareyac",
 			"Sagan",
 			"Азат Хәлилов",
 			"Айсар",
@@ -390,5 +391,6 @@
 	"sx-editor-feedback-overlay-clarification": "Һеҙҙең төҙәтеүҙәрҙән һабаҡ алып",
 	"sx-editor-feedback-overlay-stats": "Һеҙ мөхәррирләгәнһегеҙ: <span>$1%</span>",
 	"cx-campaign-mflanguagesearcher-invite": "Һеҙ был битте тәржемә итә алаһығыҙ. Был үҙ телегеҙҙә эстәлек булдырыуҙың ябай ысулы.",
-	"cx-suggestion-list-favorites-division": "Аҙаҡҡа"
+	"cx-suggestion-list-favorites-division": "Аҙаҡҡа",
+	"cx-contributecard-entrypoint-title": "Тәржемәләр"
 }
