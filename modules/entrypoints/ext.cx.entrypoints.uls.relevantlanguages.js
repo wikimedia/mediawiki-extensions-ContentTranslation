@@ -110,6 +110,18 @@
 
 			var missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
 			uls.$resultsView.before( missingLanguagesPanel );
+			uls.$languageFilter.on( 'input', function ( event ) {
+				// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
+				// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
+				// lives inside CxUlsEntrypoint.vue file
+				if ( event.currentTarget.value ) {
+					missingLanguagesPanel.classList.add( 'cx-uls-entrypoint--hidden' );
+				} else {
+					// when user empties the search input, remove the ".cx-uls-entrypoint--hidden" class (if exists),
+					// so that the entrypoint is visible again.
+					missingLanguagesPanel.classList.remove( 'cx-uls-entrypoint--hidden' );
+				}
+			} );
 			entrypointRendered = true;
 		}
 	);

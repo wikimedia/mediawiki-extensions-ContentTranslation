@@ -155,6 +155,9 @@ module.exports = {
 
 .cx-uls-entrypoint {
   border: @border-base;
+  &--hidden {
+    display: none;
+  }
   .row {
     box-sizing: border-box;
     display: flex;
