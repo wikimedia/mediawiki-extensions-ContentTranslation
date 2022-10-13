@@ -15,7 +15,8 @@
 			"Prevodim",
 			"Purodha",
 			"Tarjeimo",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Telaneo"
 		]
 	},
 	"cx": "Oversett side",
@@ -350,7 +351,9 @@
 	"cx-sx-publish-lead-section-summary": "Opprettet ved å oversette ingressen fra siden «$1»",
 	"cx-sx-publisher-preview-options-title": "Publiseringsalternativer",
 	"cx-sx-publisher-new-section-option-label": "Publiser som ny seksjon",
+	"cx-sx-publisher-lead-section-option-label": "Publiser som ny side",
 	"cx-sx-publisher-new-section-option-details": "Legg til en ny seksjon i artikkelen",
+	"cx-sx-publisher-lead-section-option-details": "Opprett en ny side i hovednavnerommet",
 	"cx-sx-publisher-sandbox-option-label": "Publiser til sandkassa di",
 	"cx-sx-publisher-sandbox-option-details": "Publiser til din personlige sandkasse så du kan gjennomgå den og kopiere den til et annet sted.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Oversettelsen din blir <strong>lagt til i sandkassa di</strong>.",
