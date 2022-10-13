@@ -22,12 +22,13 @@
         />
         <!--eslint-enable vue/no-v-html -->
         <mw-spinner v-else-if="mtRequestPending" />
+        <retry-mt-card
+          v-else
+          @configure-options="$emit('configure-options')"
+          @retry-translation="$emit('retry-translation')"
+        />
       </mw-col>
-      <retry-mt-card
-        v-if="!mtRequestPending"
-        @configure-options="$emit('configure-options')"
-        @retry-translation="$emit('retry-translation')"
-      />
+
       <mw-col
         ref="footer"
         shrink

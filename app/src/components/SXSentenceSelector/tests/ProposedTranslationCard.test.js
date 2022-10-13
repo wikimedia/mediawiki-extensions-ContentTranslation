@@ -3,6 +3,7 @@ import ProposedTranslationCard from "../ProposedTranslationCard";
 import { createI18n } from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { MwSpinner } from "@/lib/mediawiki.ui";
+import RetryMtCard from "../RetryMtCard.vue";
 import mockStore from "./proposedTranslationCardMockStore";
 
 const i18n = createI18n();
@@ -52,5 +53,14 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
     );
 
     expect(wrapper.findComponent(MwSpinner).exists()).toBe(false);
+  });
+
+  it("Should render Retry MT card inside proposed translation card output when no proposed translation exists", async () => {
+    mockStore.commit("application/setCurrentMTProvider", "Google");
+    mockStore.state.application.content = null;
+
+    await wrapper.vm.$nextTick();
+    expect(wrapper.element).toMatchSnapshot();
+    expect(wrapper.findComponent(RetryMtCard).exists()).toBe(true);
   });
 });
