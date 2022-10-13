@@ -22,7 +22,7 @@
   "dependencies": {
     "@wikimedia/language-data": "1.0.9",
     "vue": "^3.2.36",
-    "vue-banana-i18n": "^2.0.2",
+    "vue-banana-i18n": "^2.1.2",
     "vue-router": "^4.0.15",
     "vuex": "^4.0.2"
   },
