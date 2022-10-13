@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Bjh21",
+			"Boke",
 			"Chase me ladies, I'm the Cavalry",
 			"Ed g2s",
 			"Pierpao",
@@ -12,5 +13,11 @@
 	"cx-license-agreement": "By continuing, you agree to the [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licence] and the [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-header-translation-center": "Translation centre",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
-	"cx-favorite-removed": "Removed from list of favourites!"
+	"cx-favorite-removed": "Removed from list of favourites!",
+	"cx-sx-proposed-translation-not-available-message": "စက်ဘာသာပြန်ဆိုခြင်းကို လောလောဆယ် မရဟိန့်နိုင်ပါ။",
+	"cx-sx-proposed-translation-retry-button": "ထပ်ကြိုးစာပါ",
+	"cx-sx-proposed-translation-other-options-button": "တစ်ခြားရွီးစရာတိ",
+	"cx-contributecard-entrypoint-title": "ဘာသာပြန်တိ",
+	"cx-contributecard-entrypoint-desc": "အပိုင်းတစ်ခု သို့မဟုတ် ဆောင်းပါးတစ်ခုလုံးကို ဘာသာပြန်ပါ။ အရာဘာသာစကားတိနဲ့ အကြောင်းအရာတိကို အများကြီးရဟိန့်နိုင်ပါစီ။",
+	"cx-contributecard-entrypoint-cta": "ဘာသာပြန်မှုတစ်ခု စတင်ပါ"
 }

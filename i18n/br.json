@@ -427,6 +427,13 @@
 	"cx-uls-relevant-languages-panel-message": "N’eus ket eus ar bajenn-mañ e yezhoù zo a c’hallfec’h gouzout. Gallout a rit treiñ anezhi en un nebeut munutennoù!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Hemañ a vo <strong>rannbennad kentañ ar pennad nevez!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Treiñ ar bajenn-mañ",
+	"sx-recent-edit-entrypoint-top-banner-header": "Degas kemmoù eus yezhoù all",
+	"sx-recent-edit-entrypoint-top-banner-content": "E $2 e vank ur rannbennad kemmet ganeoc’h e $1 n’eus ket pell zo. Troit anezhi ma karit.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Treiñ \"$1\"",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 rannbennad}} a vank e $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "O c’wiriañ n’oc’h ket ur robot",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Embann"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Embann",
+	"cx-contributecard-entrypoint-title": "Troidigezhioù",
+	"cx-contributecard-entrypoint-desc": "Treiñ ur rannbennad pe ur pennad en e bezh. Lakait muioc’h a endalc’had hegerz e muioc’h a yezhoù.",
+	"cx-contributecard-entrypoint-cta": "Kregiñ un droidigezh"
 }

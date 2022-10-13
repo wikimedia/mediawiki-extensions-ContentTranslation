@@ -15,6 +15,10 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Awdarmalar",
 	"cx-trend-deletions": "Óshirilgen awdarmalar",
 	"echo-category-title-cx": "Awdarmalar",
+	"cx-sx-proposed-translation-not-available-message": "Mashina awdarması házirde joq",
+	"cx-sx-proposed-translation-retry-button": "Qayta urınıw",
+	"cx-sx-proposed-translation-other-options-button": "Basqa variantlar",
+	"sx-recent-edit-entrypoint-invitation-button-details": "$2 de {{PLURAL:$1|$1 bólim|$1 bólimler}} joq",
 	"cx-contributecard-entrypoint-title": "Awdarmalar",
 	"cx-contributecard-entrypoint-desc": "Bir bólimdi yáki pútkil maqalanı awdarmalańız. Kóbirek tillerde kóbirek kontentti túsinikli qılıp isleńiz.",
 	"cx-contributecard-entrypoint-cta": "Awdarmanı baslaw"
