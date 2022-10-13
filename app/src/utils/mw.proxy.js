@@ -38,6 +38,7 @@ const mw = {
   },
   user: {
     sessionId: () => "test-session-id",
+    getPageviewToken: () => "ecd3eeb13fde5ab4d7da",
     getName: () => "test-username",
     isAnon: () => false,
   },

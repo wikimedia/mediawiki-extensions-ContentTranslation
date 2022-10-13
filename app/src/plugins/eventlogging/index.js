@@ -98,6 +98,8 @@ function logEvent(event) {
     wiki_db: wikiDB,
     access_method: accessMethod,
     user_name: userName,
+    web_session_id: mw.user.sessionId(),
+    web_pageview_id: mw.user.getPageviewToken(),
     user_is_anonymous: isAnonUser,
     content_translation_session_id: sessionId,
   };

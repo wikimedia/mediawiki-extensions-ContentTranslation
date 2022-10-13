@@ -22,6 +22,8 @@ describe("Event logging", () => {
       wiki_db: "test-db",
       access_method: "mobile web",
       user_name: "test-username",
+      web_pageview_id: "ecd3eeb13fde5ab4d7da",
+      web_session_id: "test-session-id",
       user_is_anonymous: false,
       content_translation_session_id: `cx_sx_test-session-id_mobile web_test-db`,
       user_global_edit_count: 2021,
