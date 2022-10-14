@@ -51,7 +51,7 @@
 	}
 
 	/**
-	 * @param {{description: string, language: string, thumbnail: object, title: string }} suggestion
+	 * @param {{description: string|undefined, language: string, thumbnail: object|undefined, title: string }} suggestion
 	 * @return {HTMLAnchorElement}
 	 */
 	function createNewByTranslationPanel( suggestion ) {
@@ -70,7 +70,16 @@
 		thumbnailContainer.classList.add( 'sx-suggestion__thumbnail-container' );
 		var thumbnail = document.createElement( 'div' );
 		thumbnail.classList.add( 'sx-suggestion__thumbnail' );
-		thumbnail.style.backgroundImage = "url('" + suggestion.thumbnail.source + "')";
+
+		// if thumbnail exists for the current suggestion, display it
+		if ( suggestion.thumbnail ) {
+			thumbnail.style.backgroundImage = "url('" + suggestion.thumbnail.source + "')";
+		} else {
+			// if thumbnail doesn't exist, display the article icon as thumbnail placeholder
+			var thumbnailPlaceholderIcon = document.createElement( 'span' );
+			thumbnailPlaceholderIcon.className = 'sx-suggestion__thumbnail-placeholder mw-ui-icon mw-ui-icon-article';
+			thumbnail.appendChild( thumbnailPlaceholderIcon );
+		}
 		thumbnailContainer.appendChild( thumbnail );
 		invitePanel.appendChild( thumbnailContainer );
 
