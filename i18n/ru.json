@@ -345,6 +345,8 @@
 	"cx-sx-sentence-selector-header-title": "Перевести раздел",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
 	"cx-sx-sentence-selector-suggested-translation-title": "Предлагаемые переводы от $1",
+	"cx-sx-proposed-translation-retry-button": "Повторить",
+	"cx-sx-proposed-translation-other-options-button": "Другие настройки",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редактировать перевод",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Применить",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Пропустить",

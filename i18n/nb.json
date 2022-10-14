@@ -317,6 +317,7 @@
 	"cx-sx-sentence-selector-header-title": "Oversett seksjon",
 	"cx-sx-sentence-selector-done-button-label": "Ferdig",
 	"cx-sx-sentence-selector-suggested-translation-title": "Foreslått oversettelse fra $1",
+	"cx-sx-proposed-translation-retry-button": "Prøv igjen",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Rediger oversettelse",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Bruk",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Hopp over",
