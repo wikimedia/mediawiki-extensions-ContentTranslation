@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Keresturec",
 			"Vlad5250"
 		]
 	},
+	"cx": "Преложиц бок",
+	"cx-dashboard-header": "Преклади",
+	"cx-javascript": "Тот софтверски алат нє роби без Яваскрипта. Яваскрипт або онєможлївени, або престал функционовац, або преглєдовач хтори хаснуєце нє потримани.",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Обяв"
 }

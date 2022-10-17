@@ -317,6 +317,9 @@
 	"cx-sx-sentence-selector-header-title": "অনুচ্ছেদ অনুবাদ করুন",
 	"cx-sx-sentence-selector-done-button-label": "সম্পন্ন",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 থেকে প্রস্তাবিত অনুবাদ",
+	"cx-sx-proposed-translation-not-available-message": "এই মুহূর্তে যান্ত্রিক অনুবাদ উপলব্ধ নেই",
+	"cx-sx-proposed-translation-retry-button": "পুনঃচেষ্টা করুন",
+	"cx-sx-proposed-translation-other-options-button": "অন্য বিকল্প",
 	"cx-sx-sentence-selector-edit-translation-button-label": "অনুবাদ সম্পাদনা করুন",
 	"cx-sx-sentence-selector-apply-translation-button-label": "প্রয়োগ",
 	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান",
@@ -436,5 +439,7 @@
 	"sx-recent-edit-entrypoint-top-banner-header": "অন্যান্য ভাষা থেকে অবদান",
 	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" অনুবাদ করুন",
 	"cx-sx-publisher-captcha-dialog-header-title": "আপনি রোবট কিনা তা পরীক্ষা করা হচ্ছে",
-	"cx-sx-publisher-captcha-dialog-publish-button": "প্রকাশ করুন"
+	"cx-sx-publisher-captcha-dialog-publish-button": "প্রকাশ করুন",
+	"cx-contributecard-entrypoint-title": "অনুবাদ",
+	"cx-contributecard-entrypoint-cta": "অনুবাদ শুরু করুন"
 }

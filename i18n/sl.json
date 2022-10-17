@@ -56,7 +56,7 @@
 	"cx-campaign-newbytranslation-search": "Najdi katero drugo stran za prevajanje",
 	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Začni prevajanje",
-	"cx-special-login-error": "Za prevajanje strani se morate prijaviti. [$1 Prijava]",
+	"cx-special-login-error": "Za prevajanje strani morate biti prijavljeni. [$1 Prijava]",
 	"cx-tools-instructions-text1": "Za prevajanje {{GENDER:|kliknite}} odstavek",
 	"cx-tools-instructions-text2": "Ni {{GENDER:|vam}} treba dodati vseh.",
 	"cx-tools-instructions-text3": "{{GENDER:|Poskrbite}}, da bo besedilo teklo čim bolj tekoče",

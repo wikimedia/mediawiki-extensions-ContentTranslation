@@ -324,6 +324,9 @@
 	"cx-sx-sentence-selector-header-title": "Перекласти розділ",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
 	"cx-sx-sentence-selector-suggested-translation-title": "Пропонований переклад від $1",
+	"cx-sx-proposed-translation-not-available-message": "Машинний переклад наразі недоступний",
+	"cx-sx-proposed-translation-retry-button": "Повторити спробу",
+	"cx-sx-proposed-translation-other-options-button": "Інші опції",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редагувати переклад",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Застосувати",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Пропустити",
@@ -448,5 +451,8 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Перекласти «$1»",
 	"sx-recent-edit-entrypoint-invitation-button-details": "Бракує {{PLURAL:$1|$1 розділу|$1 розділів}} мовою $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Перевірка того, що ви не робот",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Опублікувати"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Опублікувати",
+	"cx-contributecard-entrypoint-title": "Переклади",
+	"cx-contributecard-entrypoint-desc": "Перекладіть один розділ або цілу статтю. Зробіть більше вмісту доступним більшою кількістю мов.",
+	"cx-contributecard-entrypoint-cta": "Почати переклад"
 }

@@ -135,5 +135,11 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Posisjonen seksjonen skal være på i den nye revisjonen til siden.",
 	"apihelp-cxpublishsection-param-sourcerevid": "Kildesidens revisjons-ID.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (når man lagrer med captcha-respons).",
-	"apihelp-cxpublishsection-param-captchaword": "Svar på captcha-en (når man lagrer med captcha-respons)."
+	"apihelp-cxpublishsection-param-captchaword": "Svar på captcha-en (når man lagrer med captcha-respons).",
+	"apihelp-sxsave-param-sourcelanguage": "Kildespråkkoden.",
+	"apihelp-sxsave-param-targetlanguage": "Målspråkkoden.",
+	"apihelp-sxsave-param-sourcetitle": "Tittelen til kildesiden.",
+	"apihelp-sxsave-param-targettitle": "Tittelen til målsiden.",
+	"apihelp-sxsave-param-sourcesectiontitle": "Tittelen til kildeseksjonen.",
+	"apihelp-sxsave-param-targetsectiontitle": "Tittelen til målseksjonen."
 }

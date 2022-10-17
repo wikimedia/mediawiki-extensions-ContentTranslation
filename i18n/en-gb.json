@@ -14,11 +14,5 @@
 	"cx-license-agreement": "By continuing, you agree to the [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licence] and the [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-header-translation-center": "Translation centre",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
-	"cx-favorite-removed": "Removed from list of favourites!",
-	"cx-sx-proposed-translation-not-available-message": "စက်ဘာသာပြန်စာတိကို လောလောဆီ မရဟိန့်နိုင်ပါ။",
-	"cx-sx-proposed-translation-retry-button": "နောက်တစ်ခေါက်ထပ်လုပ်ပါ",
-	"cx-sx-proposed-translation-other-options-button": "နောက်ထပ်ရွီးစရာမဟိ",
-	"cx-contributecard-entrypoint-title": "အခြင်းပြန်ဆိုစွာတိ",
-	"cx-contributecard-entrypoint-desc": "အပိုင်းတစ်ခု သို့မဟုတ် ဝထုတစ်ခုလုံးကို ဘာသာပြန်ပါ။ နောက်ထပ်ဘာသာစကားတိနဲ့ အချက်အလက်တိကိုပိုလို့ရနိုင်ပါစီ",
-	"cx-contributecard-entrypoint-cta": "အခြင်ပြန်ဆိုစွာကို စပလိုက်ပါ"
+	"cx-favorite-removed": "Removed from list of favourites!"
 }
