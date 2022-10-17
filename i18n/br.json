@@ -219,7 +219,7 @@
 	"cx-infobar-old-version": "Diazezet eo an droidigezh-mañ war ur stumm kozh eus an endalc’had. Marteze he deus cheñchet ar bajenn orin hag e rankit boulc’hañ an droidigezh a nevez.",
 	"cx-tools-linter-issues": "Kudennoù",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 fazi|$1 fazioù}}",
-	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 kemenn-diwall|$1 kemennoù-diwall}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 kemenn-diwall}}",
 	"cx-tools-linter-learn-more": "Gouzout hiroc'h",
 	"cx-tools-linter-mark-as-resolved": "Merkañ evel diskoulmet",
 	"cx-tools-linter-generic-title": "Ur gudenn 'zo gant ho troidigezh",
