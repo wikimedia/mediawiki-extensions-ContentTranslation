@@ -69,7 +69,7 @@ export default {
   },
   setup() {
     const store = useStore();
-    const { targetLanguage } = useApplicationState(store);
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
     const articleImageSource = computed(() => {
       const sourceArticle = store.getters["application/getCurrentPage"];
 
@@ -84,6 +84,8 @@ export default {
       logEvent({
         event_type: "dashboard_translation_start",
         event_source: eventSource,
+        translation_source_language: sourceLanguage.value,
+        translation_target_language: targetLanguage.value,
       });
 
       // Start loading VE in background. Don't wait for it though.

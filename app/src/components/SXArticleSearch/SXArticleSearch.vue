@@ -202,7 +202,11 @@ export default {
     watch(searchInput, () => {
       if (!searchInputUsed.value) {
         searchInputUsed.value = true;
-        logEvent({ event_type: "dashboard_search" });
+        logEvent({
+          event_type: "dashboard_search",
+          translation_source_language: sourceLanguage.value,
+          translation_target_language: targetLanguage.value,
+        });
       }
     });
 

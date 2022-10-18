@@ -1,9 +1,12 @@
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
-import { useEventLogging } from "../../plugins/eventlogging";
+import { useEventLogging } from "@/plugins/eventlogging";
+import useApplicationState from "@/composables/useApplicationState";
 
 const useSuggestions = () => {
   const store = useStore();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
   const logEvent = useEventLogging();
 
   const sectionSuggestionsLoading = computed(
@@ -112,7 +115,11 @@ const useSuggestions = () => {
    * @param {SectionSuggestion} suggestion
    */
   const discardSectionSuggestion = (suggestion) => {
-    logEvent({ event_type: "dashboard_discard_suggestion" });
+    logEvent({
+      event_type: "dashboard_discard_suggestion",
+      translation_source_language: sourceLanguage.value,
+      translation_target_language: targetLanguage.value,
+    });
     store.commit("suggestions/removeSectionSuggestion", suggestion);
     fetchNextSectionSuggestionSlice();
   };
@@ -121,7 +128,11 @@ const useSuggestions = () => {
    * @param {ArticleSuggestion} suggestion
    */
   const discardPageSuggestion = (suggestion) => {
-    logEvent({ event_type: "dashboard_discard_suggestion" });
+    logEvent({
+      event_type: "dashboard_discard_suggestion",
+      translation_source_language: sourceLanguage.value,
+      translation_target_language: targetLanguage.value,
+    });
     store.commit("suggestions/removePageSuggestion", suggestion);
     fetchNextPageSuggestionSlice();
   };

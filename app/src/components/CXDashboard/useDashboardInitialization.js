@@ -1,5 +1,6 @@
 import initializeLanguages from "@/composables/useLanguageInitialization";
 import startSectionTranslationFromUrl from "./useUrlTranslationStart";
+import useApplicationState from "@/composables/useApplicationState";
 
 /**
  * @return {string|null}
@@ -31,10 +32,13 @@ const initializeDashboard = async (router, store, logEvent) => {
 
     return;
   }
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
   logEvent({
     event_type: "dashboard_open",
     event_source: "direct",
     content_translation_session_position: 0,
+    translation_source_language: sourceLanguage.value,
+    translation_target_language: targetLanguage.value,
   });
 
   // Catch any possible errors during fetching favorite suggestions and
