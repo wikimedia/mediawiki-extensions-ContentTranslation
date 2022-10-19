@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Maksim L."
+			"Maksim L.",
+			"Plaga med"
 		]
 	},
 	"apierror-cx-invalidlanguage": "Недапушчальная мова.",
@@ -12,7 +13,7 @@
 	"apierror-cx-invalidtargetlanguage": "Недапушчальная мэтавая мова перакладу.",
 	"apierror-cx-invalidtranslator": "Недапушчальнае імя перакладчыка.",
 	"apierror-cx-jwtmissing": "JWT не ўсталявана.",
-	"apierror-cx-keynotconfigured": "Ключ не настроены.",
+	"apierror-cx-keynotconfigured": "Ключ не сканфігураваны.",
 	"apierror-cx-missingdraft": "Чарнавіка няма.",
 	"apierror-cx-mustbeloggedin-suggestions": "Мусіце ўвайсці ў сістэму, каб кіраваць сваімі прапановамі.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Мусіце ўвайсці ў сістэму, каб ўбачыць прапановы перакладу.",

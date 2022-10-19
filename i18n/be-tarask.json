@@ -52,6 +52,7 @@
 	"cx-stats-title": "Статыстыка перакладу зьместу",
 	"cx-warning-unsaved-translation": "Вы маеце незахаваныя пераклады.",
 	"cx-error-page-not-found": "Старонка «$1» ня можа быць знойдзеная ў {{GRAMMAR:locative|$2}} Вікіпэдыі",
+	"cx-page-selector-widget-nearby-label": "Побач",
 	"cx-selected-source-page-start-translation-button": "Пачаць пераклад",
 	"cx-selected-source-page-error-page-and-title-exist": "Гэтая назва ўжо выкарыстоўваецца ў [$1 $2] для [$3 іншай старонкі]",
 	"cx-selected-source-page-error-page-exists": "Гэтая старонка [$1 ўжо існуе] ў $2",

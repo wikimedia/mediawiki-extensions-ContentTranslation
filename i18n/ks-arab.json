@@ -22,5 +22,12 @@
 	"cx-publish-destination-namespace-main": "نۆو صَفہٕ",
 	"cx-sx-view-translation-anchor": "وُچھِو",
 	"cx-sx-existing-translation-learn-more": "مٔزیٖد وُچھِو",
-	"cx-dashboard-experimental-support-banner-learn-more-anchor": "مٔزیٖد وُچھِو"
+	"cx-translation-list-all-languages-option-label": "تمام",
+	"cx-sx-sentence-selector-skip-translation-button-label": "یَلہٕ ترٛاوُن",
+	"cx-sx-content-comparator-content-header-translate-button-label": "تَرجَمہٕ",
+	"cx-sx-publisher-preview-options-title": "شایع کَرنٕک یَختِیار",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "مٔزیٖد وُچھِو",
+	"cx-sx-sentence-selector-translated-segment-paragraph-option": "پَرےگرٛاف",
+	"cx-sx-followup-feedback-new-indicator": "نٔو",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "یہِ صَفہٕ کٔرِو اؠڈِٹ"
 }
