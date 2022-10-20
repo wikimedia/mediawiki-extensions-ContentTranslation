@@ -105,6 +105,10 @@ class ApiSectionTranslationSave extends ApiBase {
 			$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
 		}
 
+		if ( !$targetTitle ) {
+			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $targetTitleRaw ) ] );
+		}
+
 		$translation = $this->saveTranslation(
 			$user,
 			$params['sourcelanguage'],
