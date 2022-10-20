@@ -138,5 +138,19 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Avsnittets position att vara i sidans nya version.",
 	"apihelp-cxpublishsection-param-sourcerevid": "Källsidans versions-ID.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (vid sparande med ett captcha-svar).",
-	"apihelp-cxpublishsection-param-captchaword": "Svaret på captcha (vid sparande med ett captcha-svar)."
+	"apihelp-cxpublishsection-param-captchaword": "Svaret på captcha (vid sparande med ett captcha-svar).",
+	"apihelp-sxsave-description": "Spara översättningsskiss för avsnittet och lagra den parallella texten",
+	"apihelp-sxsave-summary": "Spara översättningsskiss för avsnittet och lagra den parallella texten",
+	"apihelp-sxsave-param-sourcelanguage": "Källans språkkod.",
+	"apihelp-sxsave-param-targetlanguage": "Målets språkkod.",
+	"apihelp-sxsave-param-sourcetitle": "Källsidans titel.",
+	"apihelp-sxsave-param-targettitle": "Målsidans titel.",
+	"apihelp-sxsave-param-content": "JSON-kodad avsnittsdata. Varje avsnitt är ett objekt och har följande nycklar: content, sectionId, origin, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "Källavsnittets titel.",
+	"apihelp-sxsave-param-targetsectiontitle": "Målavsnittets titel.",
+	"apihelp-sxsave-param-sectionnumber": "Positionen för avsnittet att lägga till i den nya sidversionen.",
+	"apihelp-sxsave-param-sectionid": "Sidans avsnitts-ID.",
+	"apihelp-sxsave-param-sourcerevision": "Källsidans versions-ID.",
+	"apierror-sxsave-anon-user": "API-åtgärden \"sxsave\" har inte aktiverats för anonyma användare",
+	"apierror-cxpublishsection-translationnotfound": "Översättningen hittades inte."
 }

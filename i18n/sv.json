@@ -355,12 +355,14 @@
 	"cx-sx-publish-lead-section-summary": "Skapades genom att översätta det inledande avsnittet från sidan \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Publiceringsalternativ",
 	"cx-sx-publisher-new-section-option-label": "Publicera som ett nytt avsnitt",
+	"cx-sx-publisher-lead-section-option-label": "Publicera som en ny sida",
 	"cx-sx-publisher-new-section-option-details": "Lägg till ett nytt avsnitt i artikeln",
+	"cx-sx-publisher-lead-section-option-details": "Skapa en ny sida i huvudnamnrymden",
 	"cx-sx-publisher-sandbox-option-label": "Publicera till din sandlåda",
 	"cx-sx-publisher-sandbox-option-details": "Publicera till ditt personliga rymd så du kan granska och kopiera den någon annan stans.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Din översättning kommer att <strong>läggas till i din sandlåda.</strong>",
 	"cx-sx-publisher-review-info-error": "Din översättning kan inte publiceras:",
-	"cx-sx-publisher-review-info-learn-more": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Läs mer]]",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Läs mer]",
 	"cx-dashboard-experimental-support-banner-title": "Stöd för mobiler är experimentellt",
 	"cx-dashboard-experimental-support-banner-description": "Du kan utöka befintliga artiklar genom att översätta ett nytt avsnitt. Vissa funktioner från datorversionen är ännu inte tillgängliga.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Läs mer",
@@ -437,5 +439,7 @@
 	"cx-uls-relevant-languages-panel-header": "Översätt den här sidan",
 	"cx-uls-relevant-languages-panel-message": "Den här sidan saknas på några språk som du kan. Du kan översätta den på bara några minuter!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Detta kommer att vara <strong>det första avsnittet i den nya artikeln!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Översätt den här sidan"
+	"cx-uls-translate-page-quick-action-label": "Översätt den här sidan",
+	"cx-sx-publisher-captcha-dialog-header-title": "Kontrollerar att du inte är en robot",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Publicera"
 }
