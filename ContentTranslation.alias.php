@@ -161,6 +161,12 @@ $specialPageAliases['nn'] = [
 	'ContentTranslationStats' => [ 'Innhaldsomsetjingsstatistikk' ],
 ];
 
+/** Polish (polski) */
+$specialPageAliases['pl'] = [
+	'ContentTranslation' => [ 'Tłumaczenie_treści' ],
+	'ContentTranslationStats' => [ 'Statystyki_tłumaczenia_treści' ],
+];
+
 /** Serbian (Cyrillic script) (српски (ћирилица)) */
 $specialPageAliases['sr-ec'] = [
 	'ContentTranslation' => [ 'Превод_садржаја', 'Превођење_садржаја' ],
