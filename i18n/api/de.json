@@ -6,6 +6,7 @@
 			"Inkowik",
 			"Ljonka",
 			"Metalhead64",
+			"ThisCarthing",
 			"Tiin"
 		]
 	},
@@ -116,7 +117,13 @@
 	"apihelp-cxpublishsection-param-sourcelanguage": "Der Quell-Sprachcode.",
 	"apihelp-cxpublishsection-param-targetlanguage": "Der Ziel-Sprachcode.",
 	"apihelp-cxpublishsection-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Der Titel des Quellabschnitts.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Der Titel des Zielabschnitts.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
+	"apihelp-sxsave-param-sourcelanguage": "Der Quell-Sprachcode.",
+	"apihelp-sxsave-param-targetlanguage": "Der Ziel-Sprachcode.",
+	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
 	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."
 }
