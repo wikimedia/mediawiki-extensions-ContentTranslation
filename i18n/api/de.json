@@ -5,7 +5,9 @@
 			"Inkowik",
 			"Ljonka",
 			"Metalhead64",
-			"Tiin"
+			"Tiin",
+			"Brettchenweber",
+			"ThisCarthing"
 		]
 	},
 	"apihelp-cxpublish-description": "Speichert eine Seite, die mit der Inhaltsübersetzungs-Erweiterung erstellt wurde.",
@@ -115,6 +117,8 @@
 	"apihelp-cxpublishsection-param-sourcelanguage": "Der Quell-Sprachcode.",
 	"apihelp-cxpublishsection-param-targetlanguage": "Der Ziel-Sprachcode.",
 	"apihelp-cxpublishsection-param-sourcetitle": "Der Titel der Quellseite.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "Der Titel des Quellabschnitts.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Der Titel des Zielabschnitts.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort)."
 }
