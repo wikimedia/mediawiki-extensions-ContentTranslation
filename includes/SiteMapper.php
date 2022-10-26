@@ -61,8 +61,13 @@ class SiteMapper {
 		global $wgContentTranslationVersion;
 
 		$cxserverURL = $wgContentTranslationSiteTemplates['cx'] . $module;
-		if ( $wgContentTranslationVersion === 2 ) {
+		if ( (int)$wgContentTranslationVersion === 2 ) {
 			$cxserverURL = str_replace( 'v1', 'v2', $cxserverURL );
+		}
+		$parsedUrl = parse_url( $cxserverURL );
+		if ( !isset( $parsedUrl['scheme'] ) ) {
+			// $wgContentTranslationSiteTemplates['cx'] is protocol relative path
+			$cxserverURL = 'https:' . $cxserverURL;
 		}
 
 		return wfAppendQuery( $cxserverURL, $params );
