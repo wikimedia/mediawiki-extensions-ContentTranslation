@@ -14,7 +14,7 @@ const decodeHtml = (html) => {
  * @param {Store} store
  * @param {RefImpl<boolean>} isPublishDialogActive
  * @param {RefImpl<boolean>} isPublishingDisabled
- * @param {string|null} targetTitle
+ * @param {string|null} targetTitle the URL-encoded title of the target article
  * @return {Promise<void>}
  */
 const handlePublishResult = async (
@@ -59,8 +59,10 @@ const handlePublishResult = async (
   }
 
   // sx-published-section query param will trigger 'sx.publishing.followup'
-  // module to be loaded inside target article's page, after redirection
-  location.href = getUrl(`${targetTitle}`, {
+  // module to be loaded inside target article's page, after redirection.
+  // Since targetTitle is URL encoded, we should decode it before using it
+  // as an argument for "mw.util.getUrl"
+  location.href = getUrl(decodeURIComponent(targetTitle), {
     "sx-published-section": decodeHtml(translatedTitle),
     "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
     "sx-source-language": suggestion.value.sourceLanguage,
