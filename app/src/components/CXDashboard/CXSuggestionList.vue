@@ -73,6 +73,8 @@ import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { ref } from "vue";
+import { useEventLogging } from "@/plugins/eventlogging";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "CxSuggestionList",
@@ -129,8 +131,14 @@ export default {
     } = useSuggestions();
 
     const pageSuggestionsList = ref(null);
-
+    const logEvent = useEventLogging();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
     const refreshSuggestions = () => {
+      logEvent({
+        event_type: "dashboard_refresh_suggestions",
+        translation_source_language: sourceLanguage.value,
+        translation_target_language: targetLanguage.value,
+      });
       onSuggestionRefresh();
       pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
     };
