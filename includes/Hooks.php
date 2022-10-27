@@ -413,7 +413,7 @@ class Hooks {
 			return;
 		}
 
-		if ( !self::isMobileView() ) {
+		if ( self::isMobileView() ) {
 			// Contribution buttons should be shown only in desktop
 			return;
 		}
