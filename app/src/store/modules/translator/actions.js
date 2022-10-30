@@ -116,6 +116,10 @@ async function publishTranslation(
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
 
+  /**
+   * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
+   * @type {PublishFeedbackMessage|null}
+   */
   const saveMessage = await cxTranslatorApi.saveTranslation({
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle,

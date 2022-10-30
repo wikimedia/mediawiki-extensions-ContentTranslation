@@ -248,7 +248,10 @@ const publishTranslation = ({
       }
 
       return {
-        publishMessage: new PublishFeedbackMessage({ text, status: "error" }),
+        publishFeedbackMessage: new PublishFeedbackMessage({
+          text,
+          status: "error",
+        }),
         targetTitle: null,
       };
     });
