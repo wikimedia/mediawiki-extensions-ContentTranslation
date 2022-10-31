@@ -11,7 +11,8 @@
 			"Wintereu",
 			"XXN",
 			"Andreyyshore",
-			"NGC 54"
+			"NGC 54",
+			"Cezar"
 		]
 	},
 	"cx": "Traducere pagină",
@@ -28,7 +29,7 @@
 	"cx-source-view-page": "vezi pagina",
 	"cx-publish-page-success": "Pagină publicată la $1",
 	"cx-publish-page-error": "A apărut o eroare la publicarea traducerii. Încercați să publicați pagina din nou. Eroare: $1",
-	"cx-publish-error-abuse-filter": "Filtre automate pentru editări au identificat conțnut prolematic în traducerea dvs. Captura filtrului: $1",
+	"cx-publish-error-abuse-filter": "Filtrele automate pentru editări au identificat conținut problematic în traducerea dvs. Captura filtrului: $1",
 	"cx-publish-error-empty": "Server-ul a răspuns fără date.",
 	"cx-publish-error-readonly": "Nu sunt permise scrieri la wiki.",
 	"cx-publish-error-spam-blacklist": "Conținut cu potențial spam a fost detectat în traducerea dvs: Detalii: $1",

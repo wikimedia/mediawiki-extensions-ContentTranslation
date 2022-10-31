@@ -33,5 +33,12 @@
 	"cx-draft-discard-button-label": "Висцерай преклад",
 	"cx-campaign-no-thanks": "Нє, дзекуєм",
 	"cx-campaign-contributionsmenu-mycontributions": "Доприношенє",
-	"cx-campaign-contributionsmenu-mytranslations": "Преклади"
+	"cx-campaign-contributionsmenu-mytranslations": "Преклади",
+	"cx-tools-linter-learn-more": "Дознайце вецей",
+	"cx-tools-linter-restart-translation-cancel": "Одкаж",
+	"cx-publish-destination-namespace-main": "Нови бок",
+	"cx-sx-language-selector-dialog-title": "Глєданє язика",
+	"cx-sx-view-translation-anchor": "Опатриц",
+	"cx-sx-existing-translation-learn-more": "Дознайце вецей",
+	"cx-sx-section-selector-learn-more-anchor-label": "Дознайце вецей"
 }
