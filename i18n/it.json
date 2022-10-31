@@ -326,9 +326,11 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mancante in <span>$1</span>, <span>$2</span> e altri",
 	"cx-uls-relevant-languages-panel-header": "Traduci questa pagina",
 	"cx-uls-translate-page-quick-action-label": "Traduci questa pagina",
+	"sx-recent-edit-entrypoint-top-banner-header": "Contribuisci da altre lingue",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Traduci \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 sezione|$1 sezioni}} mancanti in $2",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Pubblica",
 	"cx-contributecard-entrypoint-title": "Traduzioni",
+	"cx-contributecard-entrypoint-desc": "Traduci una sezione o un intera voce. Rendi disponibili più contenuti in più lingue.",
 	"cx-contributecard-entrypoint-cta": "Inizia una traduzione"
 }

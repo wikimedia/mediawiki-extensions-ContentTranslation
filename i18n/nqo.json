@@ -293,6 +293,8 @@
 	"cx-sx-sentence-selector-header-title": "ߕߍߕߍ߮ ߘߟߊߡߌ߬ߘߊ߬",
 	"cx-sx-sentence-selector-done-button-label": "ߊ߬ ߓߘߊ߫ ߞߍ߫",
 	"cx-sx-sentence-selector-suggested-translation-title": "ߘߟߊߡߌߘߊߟߌ߫ ߞߎ߲߬ߦߌ߬ߘߊ߬ߣߍ߲ ߞߊ߬ ߝߘߊ߫ $1 ߟߊ߫",
+	"cx-sx-proposed-translation-retry-button": "ߊ߬ ߡߊߝߍߣߍ߲߫",
+	"cx-sx-proposed-translation-other-options-button": "ߢߣߊߕߊߟߌ߫ ߜߘߍ ߟߎ߬",
 	"cx-sx-sentence-selector-edit-translation-button-label": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߡߊߦߟߍ߬ߡߊ߲߫",
 	"cx-sx-sentence-selector-apply-translation-button-label": "ߊ߬ ߟߥߊߟߌ߫",
 	"cx-sx-sentence-selector-skip-translation-button-label": "ߊ߬ ߟߊߜߊ߲߫",
@@ -327,7 +329,9 @@
 	"cx-sx-publish-lead-section-summary": "ߊ߬ ߛߌ߲ߘߌߣߍ߲߫ ߦߋ߫ ߕߍߕߍ߯ ߘߊߦߟߍ߬ߣߍ߲ ߘߟߊߡߌߘߊߟߌ ߟߋ߬ ߡߊ߬ ߞߐߜߍ \"$1\" ߘߐ߫",
 	"cx-sx-publisher-preview-options-title": "ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߢߣߊߕߊߟߌ ߟߎ߬",
 	"cx-sx-publisher-new-section-option-label": "ߊ߬ ߟߊߥߊ߲߬ߞߊ߫ ߕߍߕߍ߯ ߞߎߘߊ߫ ߘߌ߫",
+	"cx-sx-publisher-lead-section-option-label": "ߊ߬ ߟߊߥߊ߲߬ߞߊ߫ ߞߎߡߘߊ߫ ߞߎߘߊ߫ ߘߌ߫",
 	"cx-sx-publisher-new-section-option-details": "ߕߍߕߍ߯ ߞߎߘߊ߫ ߝߙߊ߬ ߞߎߡߘߊ ߞߊ߲߬",
+	"cx-sx-publisher-lead-section-option-details": "ߞߐߜߍ߫ ߞߎߘߊ߫ ߛߌ߲ߘߌ߫ ߕߐ߯ߛߓߍ߫ ߞߣߍ߫ ߢߣߊߡߊ ߘߐ߫",
 	"cx-sx-publisher-sandbox-option-label": "ߊ߬ ߟߊߥߊ߲߬ߞߊ߫ ߌ ߟߊ߫ ߕߌ߬ߢߍ߬ߞߏ߲ߞߏ ߘߐ߫",
 	"cx-sx-publisher-sandbox-option-details": "ߊ߬ ߟߊߥߊ߲߬ߞߊ߫ ߌ ߘߎ߲߬ߘߎ߬ߡߊ߬ ߞߣߍ ߞߊ߲߬ ߞߵߊ߬ ߡߊߝߟߍ߫ ߕߎ߲߯߸ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߓߊߦߟߍ߬ߡߊ߲߫.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "ߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߌ߫ ߣߊ߬ <strong>ߝߙߊ߬ ߌ ߟߊ߫ ߕߌ߬ߢߍ߬ߞߏ߲ߞߏ ߡߊ߬</strong>",
@@ -410,6 +414,9 @@
 	"cx-uls-relevant-languages-panel-message": "ߞߐߜߍ ߣߌ߲߬ ߕߍ߫ ߞߊ߲ ߘߏ߫ ߟߎ߫ ߘߐ߫ ߌ ߣߐ߬ ߘߌ߫ ߞߍ߫ ߡߍ߲ ߠߎ߬ ߟߐ߲߫ ߠߊ߫. ߌ ߘߌ߫ ߛߴߊ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫ ߡߌ߬ߛߍ߲߬ ߘߊ߲ߘߐ߫ ߞߘߐ߫.",
 	"cx-sx-publisher-publish-panel-lead-section-result": "ߏ߬ ߓߊ߯ ߞߍ߫ ߏ߬ ߘߌ߫ ߞߍ߫ <strong>ߕߍߕߍ߯ ߝߟߐ ߘߌ߫ ߞߎߡߘߊ߫ ߞߎߘߊ ߘߐ߫</strong>",
 	"cx-uls-translate-page-quick-action-label": "ߞߐߜߍ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬",
+	"sx-recent-edit-entrypoint-top-banner-header": "ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߞߊ߲߫ ߜߘߍ߫ ߝߣߊ߫ ߘߐ߫",
+	"sx-recent-edit-entrypoint-top-banner-content": "ߌ ߓߊ߲߫ ߛߊ߲߮ ߦߋ߫ ߕߍߕߍ߮ ߡߍ߲ ߡߊߥߟߍ߬ߡߊ߲߬ ߠߊ߫ $1 ߘߐ߫߸ ߏ߬ ߕߍ߫ $2 ߘߐ߫. ߌ ߘߐ߱ߘߏ߲߬ ߊ߬ ߘߟߊߡߌ߬ߘߊ ߟߊ߫.",
+	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" ߘߟߊߡߌ߬ߘߊ߬",
 	"cx-sx-publisher-captcha-dialog-header-title": "ߝߛߍ߬ߝߛߍ߬ߟߌ ߦߴߌ ߘߐ߫ ߣߴߌ ߕߍ߫ ߡߐ߰ߡߐ߰ (ߙߓߏ߫) ߘߌ߫",
 	"cx-sx-publisher-captcha-dialog-publish-button": "ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ"
 }
