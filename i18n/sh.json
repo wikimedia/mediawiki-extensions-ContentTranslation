@@ -126,5 +126,13 @@
 	"cx-campaign-contributionsmenu-myuploads": "Postavljene datoteke",
 	"cx-sx-publisher-lead-section-option-label": "Objavi kao novu stranicu",
 	"cx-sx-publisher-lead-section-option-details": "Napravi novu stranicu u glavnom imenskom prostoru",
-	"sx-recent-edit-entrypoint-invitation-button-label": "Prevedi \"$1\""
+	"cx-uls-relevant-languages-panel-header": "Prevedi ovu stranicu",
+	"cx-uls-relevant-languages-panel-message": "Ova stranica nedostaje na nekim jezicima koje možda znate. Možete ga prevesti u nekoliko minuta!",
+	"cx-sx-publisher-publish-panel-lead-section-result": "Ovo će biti <strong>prvi odjeljak u novom članku!</strong>",
+	"cx-uls-translate-page-quick-action-label": "Prevedi ovu stranicu",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Prevedi \"$1\"",
+	"cx-sx-publisher-captcha-dialog-header-title": "Provjera da niste robot",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi",
+	"cx-contributecard-entrypoint-title": "Prijevodi",
+	"cx-contributecard-entrypoint-cta": "Započnite s prevođenjem"
 }
