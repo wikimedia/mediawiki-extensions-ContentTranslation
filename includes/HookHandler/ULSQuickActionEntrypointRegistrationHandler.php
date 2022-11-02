@@ -18,22 +18,20 @@ class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHo
 
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$title = $out->getTitle();
-
-		// Do not load module for main page
-		if ( $title->isMainPage() ) {
-			return;
-		}
-
 		$action = $this->actionFactory->getActionName( $out->getContext() );
-		// Do not load module for actions other than "view"
-		if ( $action !== 'view' ) {
+		$isVector2022Skin = $skin->getSkinName() === 'vector-2022';
+		$isView = $action === 'view';
+
+		// Do not load the module:
+		// 1. if page doesn't exist
+		// 2. if page is the Main Page
+		// 3. if action is other than "view"
+		// 4. if namespace is not a "Content" (article) namespace
+		// 5. if skin is other than Vector 2022
+		if ( !$title->exists() || $title->isMainPage() || !$isView || !$title->isContentPage() || !$isVector2022Skin ) {
 			return;
 		}
 
-		// The ULS quick action entrypoint should only be enabled for article pages and Vector 2022 skin
-		if ( !$title->isContentPage() || $skin->getSkinName() !== 'vector-2022' ) {
-			return;
-		}
 		$out->addModules( 'ext.cx.uls.quick.actions' );
 	}
 }
