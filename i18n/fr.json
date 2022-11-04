@@ -482,5 +482,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publier",
 	"cx-contributecard-entrypoint-title": "Traductions",
 	"cx-contributecard-entrypoint-desc": "Traduisez une section ou un article entier. Rendez plus de contenu disponible dans davantage de langues.",
-	"cx-contributecard-entrypoint-cta": "Commencer une traduction"
+	"cx-contributecard-entrypoint-cta": "Commencer une traduction",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Aucun modèle équivalent trouvé",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Ce modèle sera ajouté comme vide",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Ce modèle peut être partiellement traduit",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Ce modèle peut être traduit automatiquement",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "La structure du modèle dans les deux langues est trop différente et aucune donnée ne peut être automatiquement transférée",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "La structure du modèle dans les deux langues est similaire et certaines données peuvent être automatiquement transférées",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "La structure du modèle dans les deux langues est similaire et toutes les données peuvent être automatiquement transférées",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Si vous connaissez un modèle équivalent en $1, vous pouvez le connecter sur Wikidata pour permettre aux outils de le trouver",
+	"cx-sx-block-template-none-mapped-param-text": "Aucun paramètre parmi $1 n’a été ajouté à partir du modèle d’origine",
+	"cx-sx-block-template-mapped-params-text": "$1 paramètre{{PLURAL:$1||s}} sur $2 {{PLURAL:$1|a|ont}} été ajouté{{PLURAL:$1||s}} à partir du modèle d’origine",
+	"cx-sx-block-template-no-source-params-text": "Le modèle d’origine n’avait aucun paramètre à transférer",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 paramètre{{PLURAL:$1||s}} obligatoire{{PLURAL:$1||s}} reste{{PLURAL:$1||nt}} vide{{PLURAL:$1||s}} pour le modèle dans $2. Modifiez le modèle pour le{{PLURAL:$1||s}} remplir manuellement.",
+	"cx-sx-block-template-missing-optional-params-text": "$1 paramètre{{PLURAL:$1||s}} supplémentaire{{PLURAL:$1||s}} peuv{{PLURAL:$1||en}}t être renseigné{{PLURAL:$1||s}} pour le modèle dans $2. Modifiez le modèle pour le{{PLURAL:$1||s}} remplir manuellement."
 }

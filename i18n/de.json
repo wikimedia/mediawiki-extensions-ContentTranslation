@@ -448,5 +448,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Veröffentlichen",
 	"cx-contributecard-entrypoint-title": "Übersetzungen",
 	"cx-contributecard-entrypoint-desc": "Übersetze einen Abschnitt oder einen ganzen Artikel. Stelle mehr Inhalte in mehr Sprachen zur Verfügung.",
-	"cx-contributecard-entrypoint-cta": "Übersetzung starten"
+	"cx-contributecard-entrypoint-cta": "Übersetzung starten",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Keine entsprechende Vorlage gefunden",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Diese Vorlage wird leer hinzugefügt",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Diese Vorlage kann teilweise übersetzt werden",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Diese Vorlage kann automatisch übersetzt werden",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Die Vorlagenstruktur in beiden Sprachen ist zu unterschiedlich und es können keine Daten automatisch übernommen werden",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Die Vorlagenstruktur ist in beiden Sprachen ähnlich und einige Daten können automatisch übernommen werden",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Die Vorlagenstruktur ist in beiden Sprachen ähnlich und alle Daten können automatisch übernommen werden",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Wenn du eine entsprechende Vorlage in $1 kennst, kannst du sie auf Wikidata verbinden, damit Tools sie finden können",
+	"cx-sx-block-template-none-mapped-param-text": "Aus der ursprünglichen Vorlage wurden keine Parameter von $1 hinzugefügt",
+	"cx-sx-block-template-mapped-params-text": "$1 von {{PLURAL:$2|$2 Parameter wurde|$2 Parameter wurden}} aus der ursprünglichen Vorlage hinzugefügt",
+	"cx-sx-block-template-no-source-params-text": "Die ursprüngliche Vorlage hatte keine zu übertragenden Parameter",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatorische Parameter bleiben für die Vorlage in $2 unbefüllt. Bearbeite die Vorlage, um diese manuell auszufüllen",
+	"cx-sx-block-template-missing-optional-params-text": "$1 zusätzliche Parameter können für die Vorlage in $2 gefüllt werden. Bearbeite die Vorlage, um diese manuell auszufüllen"
 }

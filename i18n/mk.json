@@ -436,5 +436,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Објави",
 	"cx-contributecard-entrypoint-title": "Преводи",
 	"cx-contributecard-entrypoint-desc": "Преведете еден поднаслов или цела статија. Направете повеќе содржини достапни на повеќе јазици.",
-	"cx-contributecard-entrypoint-cta": "Почни со преведување"
+	"cx-contributecard-entrypoint-cta": "Почни со преведување",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Не најдов еквивалентна предлошка",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Оваа предлошка ќе се постави празна",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Оваа предлошка ќе биде делумно преведена",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Оваа предлошка ќе биде автоматски преведени",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Предложната структура на двата јазика е премногу различна, и затоа не можам да направам автоматско префрлање на податоците",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Предложната структура на двата јазика е слична, па така некои податоци ќе може да се префрлат автоматски",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Предложната структура на двата јазика е слична, па така сите податоци ќе бидат автоматски префрлени",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Ако знаете за еквивалентна предлошка на $1, поврзете ги на Википодатоци за алатките да можат да ја наоѓаат",
+	"cx-sx-block-template-none-mapped-param-text": "Не е ставен ниеден од вкупно $1 параметри на изворната предлошка",
+	"cx-sx-block-template-mapped-params-text": "{{PLURAL:$2|Ставен е $1 од $2 параметар|Ставени се $1 од $2 праметри}} на изворната предлошка",
+	"cx-sx-block-template-no-source-params-text": "Изворната предлошка нема параметри за префрлање",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 задолжителни параметри останаа непополнети за предлошката на $2. Уредете ја за да ги пополните рачно",
+	"cx-sx-block-template-missing-optional-params-text": "$1 дополнителни параметри можат да се пополнат за предлошката на $2. Уредете ја за да ги пополните рачно"
 }

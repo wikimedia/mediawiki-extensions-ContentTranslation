@@ -450,5 +450,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar",
 	"cx-contributecard-entrypoint-title": "Traduções",
 	"cx-contributecard-entrypoint-desc": "Traduza uma secção ou um artigo completo. Torne mais do conteúdo disponível em mais línguas.",
-	"cx-contributecard-entrypoint-cta": "Iniciar uma tradução"
+	"cx-contributecard-entrypoint-cta": "Iniciar uma tradução",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Não foi encontrada nenhuma predefinição equivalente",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Esta predefinição será adicionada vazia",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Esta predefinição pode ser parcialmente traduzida",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Esta predefinição pode ser traduzida de forma automática",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "A estrutura da predefinição nas duas línguas é demasiado diferente e nenhum dado pode ser transferido automaticamente",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "A estrutura da predefinição em ambas línguas é semelhante e alguns dados podem ser transferidos automaticamente",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "A estrutura da predefinição em ambas as línguas é semelhante e todos os dados podem ser transferidos automaticamente",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Se conhece uma predefinição equivalente em $1, pode ligá-las na wiki Wikidata para permitir que as ferramentas a encontrem",
+	"cx-sx-block-template-none-mapped-param-text": "Nenhum dos $1 parâmetros da predefinição original foi adicionado",
+	"cx-sx-block-template-mapped-params-text": "$1 {{PLURAL:$2|parâmetro da predefinição original foi adicionado|de $2 parâmetros da predefinição original foram adicionados}}",
+	"cx-sx-block-template-no-source-params-text": "A predefinição original não tinha parâmetros para transferir",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 parâmetros obrigatórios continuam a não ser preenchidos para a predefinição em $2. Edite a predefinição para preenchê-los manualmente",
+	"cx-sx-block-template-missing-optional-params-text": "$1 parâmetros adicionais podem ser preenchidos para a predefinição em $2. Edite a predefinição para preenchê-los manualmente"
 }

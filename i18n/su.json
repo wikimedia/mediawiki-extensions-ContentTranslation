@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dipusparaga",
+			"Kandar",
 			"Uchup19"
 		]
 	},
@@ -9,5 +10,12 @@
 	"cx-translation-add-translation": "Tambah tarjamahan",
 	"cx-captcha-dialog-cancel": "Bolay",
 	"cx-draft-cancel-button-label": "Bolay",
-	"cx-tools-linter-restart-translation-cancel": "Bolay"
+	"cx-tools-linter-restart-translation-cancel": "Bolay",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Taya citakan anu sarimbag",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Ieu citakan bisa otomatis ditarjamahkeun",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Wangun citakan dina basa duanana béda pisan sarta taya data anu bisa otomatis dipindahkeun",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Wangun citakan dina basa duanana sarimbag, ku kituna sababaraha data bisa otomatis dipindahkeun",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Upama nyaho citakan anu sarua di $1, anjeun bisa numbukeun di Wikidata sangkan bisa kapanggih ku parabot",
+	"cx-sx-block-template-none-mapped-param-text": "Taya paraméter ti $1 ditambahkeun tina citakan asalna",
+	"cx-sx-block-template-no-source-params-text": "Citakan aslina teu boga paraméter anu bisa dipindahkeun"
 }

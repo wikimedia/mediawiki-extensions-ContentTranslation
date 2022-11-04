@@ -439,5 +439,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Objavi",
 	"cx-contributecard-entrypoint-title": "Prevodi",
 	"cx-contributecard-entrypoint-desc": "Prevedite en razdelek ali cel članek. Naj bo več vsebine na voljo v več jezikih.",
-	"cx-contributecard-entrypoint-cta": "Začni prevod"
+	"cx-contributecard-entrypoint-cta": "Začni prevod",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Ni najdene enakovredne predloge",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Ta predloga bo dodana prazna",
+	"cx-sx-block-template-mapping-status-title-partially-template": "To predlogo je mogoče delno prevesti",
+	"cx-sx-block-template-mapping-status-title-fully-template": "To predlogo je mogoče samodejno prevesti",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Strktura predloge v obeh jezikih je preveč različna, zato ni mogoče prenesti nobenih podatkov",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Struktura predloge v obeh jezikih je podobna, zato se lahko nekateri podatki samodejno prenesejo",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Struktura predloge v obeh jezikih je podobna in samodejno se lahko prenesejo vsi podatki",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Če poznate enakovredno predlogo v $1, jo lahko povežete v Wikipodatkih in omogočite orodjem, da jo najdejo",
+	"cx-sx-block-template-none-mapped-param-text": "Iz izvorne predloge ni bil dodan noben parameter od $1",
+	"cx-sx-block-template-mapped-params-text": "Iz izvirne predloge {{PLURAL:$1|je bil dodan|sta bila dodana|so bili dodani|je bilo dodanih}} $1 od {{PLURAL:$2|$2 parametra| $2 parametrov}}",
+	"cx-sx-block-template-no-source-params-text": "Izvorna predloga ni imela parametrov za prenos",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 {{PLURAL:$1|obvezen parameter|obvezna parametra|obvezni parametri|obveznih parametrov}} {{PLURAL:$1|ostane|ostaneta|ostanejo|ostane}} pri predlogi v $2 {{PLURAL:$1|neizpolnjen|neizpolnjena|neizpolnjeni|neizpolnjenih}}. Uredite predlogo, da jih izpolnite ročno.",
+	"cx-sx-block-template-missing-optional-params-text": "Pri predlogi v $2 je mogoče ročno izpolniti $1 {{PLURAL:$1|dodatni parameter|dodatna parametra|dodatne parametre|dodatnih parametrov}}"
 }

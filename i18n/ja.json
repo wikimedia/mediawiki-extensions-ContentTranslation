@@ -401,5 +401,7 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "ロボットではないか確認中",
 	"cx-sx-publisher-captcha-dialog-publish-button": "公開",
 	"cx-contributecard-entrypoint-title": "翻訳",
-	"cx-contributecard-entrypoint-cta": "翻訳を開始"
+	"cx-contributecard-entrypoint-cta": "翻訳を開始",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "同等のテンプレートが見つかりません",
+	"cx-sx-block-template-mapping-status-title-fully-template": "このテンプレートは自動翻訳できます"
 }

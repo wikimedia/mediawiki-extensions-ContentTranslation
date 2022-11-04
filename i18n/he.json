@@ -447,5 +447,16 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "פרסום",
 	"cx-contributecard-entrypoint-title": "תרגומים",
 	"cx-contributecard-entrypoint-desc": "{{GENDER:|תרגם|תרגמי}} פרק אחד או ערך שלם. {{GENDER:|עשה|עשי}} שיהיה יותר תוכן זמין ביותר שפות.",
-	"cx-contributecard-entrypoint-cta": "להתחיל לתרגם"
+	"cx-contributecard-entrypoint-cta": "להתחיל לתרגם",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "לא נמצאה תבנית מקבילה",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "התבנית הזאת תתווסף ריקה",
+	"cx-sx-block-template-mapping-status-title-partially-template": "אפשר לתרגם את התבנית הזאת חלקית",
+	"cx-sx-block-template-mapping-status-title-fully-template": "אפשר לתרגם את התבנית הזאת אוטומטית",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "מבנה התבנית בשתי השפות שונה מדי, ולא ניתן להעביר נתונים באופן אוטומטי",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "מבנה התבנית בשתי השפות דומה, וניתן להעביר חלק מהנתונים באופן אוטומטי",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "מבנה התבנית בשתי השפות דומה, וניתן להעביר את כל הנתונים באופן אוטומטי",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "אם {{GENDER:|אתה מכיר|את מכירה}} תבנית מקבילה בשפה $1, {{GENDER:|אתה יכול|את יכולה}} לחבר אותן בוויקינתונים כדי לאפשר לכלים למצוא אותה",
+	"cx-sx-block-template-none-mapped-param-text": "לא נוספו שום פרמטרים מתוך ב־$1 מהתבנית המקורית",
+	"cx-sx-block-template-no-source-params-text": "לתבנית המקורית לא היו פרמטרים להעברה",
+	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|פרמטר אחד שחובה למלא לא מולא|$1 פרמטרים שחובה למלא לא מולא}} עבור התבנית ב־$2. נא לערוך את התבנית כדי למלא אות3ן באופן ידני"
 }

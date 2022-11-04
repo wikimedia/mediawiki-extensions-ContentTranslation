@@ -436,5 +436,8 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar",
 	"cx-contributecard-entrypoint-title": "Traductiones",
 	"cx-contributecard-entrypoint-desc": "Traduce un section o un tote articulo. Rende plus contento disponibile in plus linguas.",
-	"cx-contributecard-entrypoint-cta": "Comenciar un traduction"
+	"cx-contributecard-entrypoint-cta": "Comenciar un traduction",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Necun patrono equivalente trovate",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Iste patrono essera addite vacue",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Iste patrono pote esser partialmente traducite"
 }
