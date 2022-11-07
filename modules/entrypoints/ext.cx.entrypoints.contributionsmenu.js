@@ -145,7 +145,7 @@
 				'p-personal-sticky-header',
 				$myTranslations.find( 'a' ).attr( 'href' ),
 				$myTranslations.text(),
-				'cx-language',
+				'cx-language-sticky',
 				$myTranslations.find( 'a' ).attr( 'title' ),
 				null,
 				nextNode
@@ -154,7 +154,7 @@
 				'p-personal-sticky-header',
 				$myUploads.find( 'a' ).attr( 'href' ),
 				$myUploads.text(),
-				'cx-imageGallery',
+				'cx-imageGallery-sticky',
 				$myUploads.find( 'a' ).attr( 'title' ),
 				null,
 				null,
