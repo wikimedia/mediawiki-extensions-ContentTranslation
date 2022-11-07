@@ -456,7 +456,9 @@
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "מבנה התבנית בשתי השפות דומה, וניתן להעביר חלק מהנתונים באופן אוטומטי",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "מבנה התבנית בשתי השפות דומה, וניתן להעביר את כל הנתונים באופן אוטומטי",
 	"cx-sx-block-template-no-equivalent-template-suggestion": "אם {{GENDER:|אתה מכיר|את מכירה}} תבנית מקבילה בשפה $1, {{GENDER:|אתה יכול|את יכולה}} לחבר אותן בוויקינתונים כדי לאפשר לכלים למצוא אותה",
-	"cx-sx-block-template-none-mapped-param-text": "לא נוספו שום פרמטרים מתוך ב־$1 מהתבנית המקורית",
+	"cx-sx-block-template-none-mapped-param-text": "לא נוספו שום פרמטרים מתוך ה־$1 מהתבנית המקורית",
+	"cx-sx-block-template-mapped-params-text": "{{PLURAL:$1|פרמטר אחד|$1 פרמטרים}} {{PLURAL:$2|ויחיד|מתוך $2}} {{PLURAL:$1|נוסף|נוספו}} מהתבנית המקורית",
 	"cx-sx-block-template-no-source-params-text": "לתבנית המקורית לא היו פרמטרים להעברה",
-	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|פרמטר אחד שחובה למלא לא מולא|$1 פרמטרים שחובה למלא לא מולא}} עבור התבנית ב־$2. נא לערוך את התבנית כדי למלא אות3ן באופן ידני"
+	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|פרמטר אחד שחובה למלא לא מולא|$1 פרמטרים שחובה למלא לא מולא}} עבור התבנית ב־$2. נא לערוך את התבנית כדי למלא אות3ן באופן ידני",
+	"cx-sx-block-template-missing-optional-params-text": "אפשר להוסיף עוד {{PLURAL:$1|פרמטר אחד|$1 פרמטרים}} בשביל התבנית ב־$2. נא לערוך את התבנית כדי למלא אותם ידנית."
 }

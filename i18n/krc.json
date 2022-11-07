@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Ernác",
-			"Iltever"
+			"Iltever",
+			"Къарачайлы"
 		]
 	},
 	"cx": "Бетни кёчюрюу",
@@ -114,5 +115,11 @@
 	"cx-notification-tenth-translation": "Онунчу кёмюрме бла алгъышлайбыз! Сиз энди эксперт-кёчюрюучю боласыз. Алай бардырыгъыз!",
 	"cx-notification-hundredth-translation": "Бусагъатчыкълада 100 кёчюрме этдигиз! Ол аламат ишди. Башха редакторлагъа да билдиригиз.",
 	"cx-translationlist-empty-title": "Кёчюрюрге джукъ джокъмуду?",
-	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр."
+	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр.",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Келишген шаблон табылмады",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Бу шаблон автомат халда кёчюрюлюрге боллукъду",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Хар эки тилде да шаблон структура иги танг башхалыгъы барды, эмда чырт бир билги автомат халда джиберилеллик тюлдю",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Хар эки тилде да шаблон структура бек ушайды, эмда бир къауум билгиле автомат халда джиберилирге боллукъду",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "$1 келишген шаблон бар эсе, адырла табалырча, аланы Викидатагъа байларгъа боллукъсуз",
+	"cx-sx-block-template-no-source-params-text": "Оригинал шаблонда джибериллик параметр табылмады"
 }

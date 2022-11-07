@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BuddhikaW88",
 			"Pradeepmaduranga",
 			"Roonyh",
 			"Susith Chandira Gts",
@@ -15,5 +16,6 @@
 	"cx-stats-published-source-target": "පරිවර්ථනය",
 	"cx-stats-draft-target-source": "පරිවර්ථන ක්‍රියාවලිය සිදුවෙමින් පවතින්නේ",
 	"cx-stats-tabs-expand": "සියලුම භාෂා පෙන්වන්න",
-	"cx-stats-weekly-published": "පසුගිය සතිය"
+	"cx-stats-weekly-published": "පසුගිය සතිය",
+	"cx-sx-block-template-mapping-status-title-fully-template": "මෙම සැකිල්ල ස්වයංක්‍රීයව පරිවර්තනය කළ හැක"
 }

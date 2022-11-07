@@ -56,7 +56,9 @@
 	"cx-sx-section-selector-learn-more-anchor-label": "ہور سکھو",
 	"cx-suggestion-list-new-pages-division": "نویں صفحے",
 	"cx-translation-list-all-languages-option-label": "ساریاں",
-	"cx-sx-content-comparator-content-header-translate-button-label": "ترجمہ",
+	"cx-sx-content-comparator-content-header-translate-button-label": "ترجمہ کرو",
 	"cx-sx-publisher-review-info-learn-more": "ہور سکھو",
-	"cx-sx-language-selector-all-languages": "ساریاں بولیاں"
+	"sx-article-search-language-selector-dialog-title": "بولیاں",
+	"cx-sx-language-selector-all-languages": "ساریاں بولیاں",
+	"sx-translation-list-language-selector-dialog-title": "بولیاں"
 }

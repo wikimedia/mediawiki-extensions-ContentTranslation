@@ -439,5 +439,15 @@
 	"cx-contributecard-entrypoint-cta": "Comenciar un traduction",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Necun patrono equivalente trovate",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "Iste patrono essera addite vacue",
-	"cx-sx-block-template-mapping-status-title-partially-template": "Iste patrono pote esser partialmente traducite"
+	"cx-sx-block-template-mapping-status-title-partially-template": "Iste patrono pote esser partialmente traducite",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Iste patrono pote esser traducite automaticamente",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Le structura del patrono in le duo linguas es troppo differente e necun dato pote esser automaticamente transferite",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Le structura del patrono in le duo linguas es similar e alcun datos pote esser automaticamente transferite",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Le structura del patrono in le duo linguas es similar e tote le datos pote esser automaticamente transferite",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Si tu cognosce un patrono equivalente in $1, tu pote connecter lo sur Wikidata pro permitter que le utensiles lo trova",
+	"cx-sx-block-template-none-mapped-param-text": "Necun del $1 parametros del patrono original ha essite addite",
+	"cx-sx-block-template-mapped-params-text": "$1 de $2 parametro{{PLURAL:$2||s}} del patrono original ha essite addite",
+	"cx-sx-block-template-no-source-params-text": "Le patrono original non habeva parametros a transferer",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 parametro{{PLURAL:$1||s}} obligatori resta non plenate pro le patrono in $2. Modifica le patrono pro completar lo{{PLURAL:$1||s}} manualmente.",
+	"cx-sx-block-template-missing-optional-params-text": "$1 parametro{{PLURAL:$1||s}} additional pote esser plenate pro le patrono in $2. Modifica le patrono pro completar lo{{PLURAL:$1||s}} manualmente."
 }
