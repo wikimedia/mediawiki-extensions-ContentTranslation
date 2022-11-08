@@ -243,8 +243,8 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 
 	if ( list.id === 'trex' ) {
 		this.recommendtool = this.recommendtool || new mw.cx.Recommendtool(
-			this.languageFilter.getSourceLanguage(),
-			this.languageFilter.getTargetLanguage()
+			this.siteMapper.getWikiDomainCode( this.languageFilter.getSourceLanguage() ),
+			this.siteMapper.getWikiDomainCode( this.languageFilter.getTargetLanguage() )
 		);
 		return this.recommendtool.getSuggestionList();
 	}
