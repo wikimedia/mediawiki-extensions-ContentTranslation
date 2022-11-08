@@ -162,7 +162,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getApiParams = function () {
 	var params = mw.cx.ui.PageSelectorWidget.super.prototype.getApiParams.apply( this, arguments );
 
 	params.prop.push( 'langlinks', 'langlinkscount' );
-	params.lllang = this.targetLanguage;
+	params.lllang = this.siteMapper.getWikiDomainCode( this.targetLanguage );
 	return params;
 };
 
