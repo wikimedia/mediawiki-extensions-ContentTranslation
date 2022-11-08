@@ -114,33 +114,42 @@ mw.cx.SiteMapper.prototype.isMobileDomain = function () {
  * @param {string} [language] Language code
  * @param {string} title Page title
  * @param {Object} [params] Query parameters
+ * @param {string} [hash] Query parameters
  * @return {string}
  */
-mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params ) {
+mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash ) {
 	var domain,
 		base = this.siteTemplates.view,
-		extra = '',
 		prefix;
 
-	if ( !language ) {
-		// Use current wiki's content language
-		language = mw.config.get( 'wgContentLanguage' );
-	}
-	domain = this.getWikiDomainCode( language );
-	if ( params && !$.isEmptyObject( params ) ) {
-		base = this.siteTemplates.action || this.siteTemplates.view;
-		extra = ( base.indexOf( '?' ) !== -1 ? '&' : '?' ) + $.param( params );
-	}
+	// Use current wiki's content language, if no language given
+	language = language || mw.config.get( 'wgContentLanguage' );
 
+	domain = this.getWikiDomainCode( language );
 	prefix = domain.replace( /\$/g, '$$$$' );
 
 	if ( this.isMobileDomain() ) {
 		prefix += '.m';
 	}
 
-	return base
-		.replace( '$1', prefix )
-		.replace( '$2', mw.util.wikiUrlencode( title ).replace( /\$/g, '$$$$' ) ) + extra;
+	if ( params && !$.isEmptyObject( params ) ) {
+		base = this.siteTemplates.action || this.siteTemplates.view;
+	}
+
+	base = base.replace( '$1', prefix ).replace( '$2', mw.util.wikiUrlencode( title ).replace( /\$/g, '$$$$' ) );
+
+	// use location object as base URL, in order to handle protocol relative paths
+	// when base includes an absolute path, the location object won't be taken into account
+	var url = new URL( base, location );
+	for ( var key in params ) {
+		url.searchParams.append( key, params[ key ] );
+	}
+
+	if ( hash ) {
+		url.hash = hash;
+	}
+
+	return url.toString();
 };
 
 /**

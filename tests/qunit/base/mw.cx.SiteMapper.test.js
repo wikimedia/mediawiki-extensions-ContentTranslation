@@ -10,6 +10,7 @@
 		beforeEach: function () {
 			this.siteMapper = new mw.cx.SiteMapper( {
 				SiteTemplates: {
+					action: '//$1.wikipedia.org/w/index.php?title=$2',
 					view: 'https://$1.wikipedia.org/wiki/$2',
 					api: 'https://$1.wikipedia.org/w/api.php',
 					cx: 'http://localhost:8080/page/$1/$2',
@@ -47,6 +48,18 @@
 			this.siteMapper.getPageUrl( 'fi', 'Longer title' ),
 			'https://fi.wikipedia.org/wiki/Longer_title',
 			'Title with space'
+		);
+
+		assert.strictEqual(
+			this.siteMapper.getPageUrl( 'ml', 'Random title', { q1: 'test' } ),
+			'http://ml.wikipedia.org/w/index.php?title=Random_title&q1=test',
+			'Protocol relative base URL with params'
+		);
+
+		assert.strictEqual(
+			this.siteMapper.getPageUrl( 'el', 'Random title', null, 'myhash' ),
+			'https://el.wikipedia.org/wiki/Random_title#myhash',
+			'URL with hash'
 		);
 	} );
 
