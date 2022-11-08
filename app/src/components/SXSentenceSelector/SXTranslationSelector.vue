@@ -59,7 +59,7 @@
       <template #header>
         <h5
           class="sx-sentence-selector__translation-options-card-title mb-4"
-          v-text="mtProvider"
+          v-text="getMTProviderLabel(mtProvider)"
         />
       </template>
       <!-- eslint-disable vue/no-v-html -->
@@ -139,6 +139,9 @@ export default {
       store.dispatch("application/updateMTProvider", provider);
       close();
     };
+
+    const getMTProviderLabel = MTProviderGroup.getMTProviderLabel;
+
     const close = () => context.emit("update:active", false);
 
     return {
@@ -146,6 +149,7 @@ export default {
       close,
       emptyTextProviderKey,
       getDir,
+      getMTProviderLabel,
       mwIconClose,
       originalTextProviderKey,
       proposedTranslations,
