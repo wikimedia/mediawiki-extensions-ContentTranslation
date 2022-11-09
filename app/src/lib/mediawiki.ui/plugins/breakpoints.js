@@ -2,11 +2,11 @@ import { ref } from "vue";
 
 // Duplicating from @/lib/mediawiki.ui/components/MWLayout/_breakpoints.scss
 const breakpoints = {
-  xs: 300,
-  sm: 600,
-  md: 960,
-  lg: 1264,
-  xl: 1904,
+  xs: 320, // min-width-breakpoint-mobile
+  sm: 640, // min-width-breakpoint-tablet
+  md: 960, // Not present in design tokens
+  lg: 1120, // min-width-breakpoint-desktop
+  xl: 1680, // min-width-breakpoint-desktop-wide
 };
 
 const viewports = {
