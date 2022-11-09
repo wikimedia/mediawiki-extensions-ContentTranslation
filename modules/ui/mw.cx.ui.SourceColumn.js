@@ -32,7 +32,7 @@ mw.cx.ui.SourceColumn = function ( config ) {
 
 	articleLink = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-source-view-page' ),
-		href: this.siteMapper.getPageUrl( this.language, config.title ),
+		href: this.siteMapper.getPageUrl( this.language, config.title, null, config.sectionTitle ),
 		target: '_blank',
 		classes: [ 'cx-column-sub-heading-view-page' ],
 		framed: false,
