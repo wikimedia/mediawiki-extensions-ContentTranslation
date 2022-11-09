@@ -10,7 +10,8 @@
 			"VASANTH S.N.",
 			"Vikashegde",
 			"Yogesh",
-			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ"
+			"ಮಲ್ನಾಡಾಚ್ ಕೊಂಕ್ಣೊ",
+			"~aanzx"
 		]
 	},
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
@@ -71,8 +72,10 @@
 	"cx-save-draft-saving": "ಉಳಿಸಲಾಗುತ್ತಿದೆ....",
 	"cx-save-draft-tooltip": "ಅನುವಾದಿಸಿದ ಕರಡುಗಳು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಉಳಿಸಲ್ಪಡುತ್ತವೆ",
 	"cx-contributions-new-contributions": "ಹೊಸ ಕಾಣಿಕೆ",
+	"cx-contributions-new-article": "ಹೊಸ ಪುಟ",
 	"cx-contributions-translation": "ಅನುವಾದ",
 	"cx-contributions-upload": "ಮಾಧ್ಯಮ ಕಡತವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
+	"cx-contributions-new-article-tooltip": "ಹೊಸ ಪುಟವನ್ನು ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ",
 	"cx-publishing-dialog-publish-anyway-button": "ಹೇಗಿದ್ದರೂ ಪ್ರಕಟಿಸು",
 	"cx-discard-translation": "ಅನುವಾದ ತೆಗೆದುಹಾಕು",
 	"cx-translation-status-draft": "ಕಾರ್ಯ ಪ್ರಗತಿಯಲ್ಲಿರುವವು",

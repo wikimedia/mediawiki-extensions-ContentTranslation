@@ -12,7 +12,8 @@
 			"Pofka",
 			"Tomasdd",
 			"Vogone",
-			"Zygimantus"
+			"Zygimantus",
+			"Pavel1513"
 		]
 	},
 	"cx": "Versti puslapį",
@@ -199,15 +200,29 @@
 	"cx-preference-enable-entrypoints": "Naudotojo indėlio skiltyje įjungti [[$1|vertimų priemonę]], kalbų sąrašą ir naujai sukurtus puslapius.",
 	"cx-feature-discovery-dismiss": "Gerai, supratau",
 	"cx-sx-start-translation-button-label": "Pradėkite versti",
+	"cx-sx-sentence-selector-done-button-label": "Atlikta",
+	"cx-sx-sentence-selector-apply-translation-button-label": "Taikyti",
+	"cx-sx-sentence-selector-skip-translation-button-label": "Praleisti",
 	"cx-sx-translation-confirmer-title": "Naujas vertimas",
+	"cx-sx-content-comparator-discarded-section-label": "(atmesta)",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Versti",
+	"cx-sx-publisher-animation-publishing-indicator-title": "Paskelbti vertimą...",
 	"cx-sx-publisher-animation-success-message-title": "Paskelbta!",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Sužinokite daugiau",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Jūsų vertimas",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Pastraipa",
+	"cx-sx-published-section-invitation-title": "Išverskite kitą skyrių",
+	"cx-sx-article-search-nearby-title": "Netoliese",
 	"sx-article-search-language-selector-dialog-title": "Kalbos",
 	"cx-sx-language-selector-placeholder": "Ieškoti kalbos",
 	"cx-sx-language-selector-all-languages": "Visos kalbos",
 	"cx-sx-language-selector-suggestions": "Siūloma",
 	"cx-sx-language-selector-no-search-results": "Nėra rezultatų",
 	"sx-translation-list-language-selector-dialog-title": "Kalbos",
-	"cx-sx-article-search-header": "Naujas vertimas"
+	"cx-sx-article-search-header": "Naujas vertimas",
+	"cx-sx-translation-confirmer-action-new-translation": "Naujas vertimas",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Skyrius",
+	"sx-editor-feedback-overlay-title": "Ačiū!",
+	"cx-suggestion-list-favorites-division": "Vėliau",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Redaguoti šį puslapį"
 }

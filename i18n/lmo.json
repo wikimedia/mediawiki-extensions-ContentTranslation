@@ -75,7 +75,7 @@
 	"cx-page-selector-widget-nearby-label": "Chì adree",
 	"cx-source-page-selector-input-placeholder": "Cerca una pagina de tradù",
 	"cx-source-page-selector-no-suggestions": "Pensa a 'n argoment che 'l te interèssa. Te gh'heet minga de vesser on super-prategh del metss per creà una bela traduzzion.",
-	"cx-source-page-selector-no-search-results": "Nissuna pagina trovada per \"$1\" in $2",
+	"cx-source-page-selector-no-search-results": "Nanca ona pagina trovada per \"$1\" in $2",
 	"cx-selected-source-page-start-translation-button": "Comenza a tradù",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 visita per setimana|$1 visite per setimana|0=Nissuna visita questa setimana chì}}",
 	"cx-selected-source-page-error-page-and-title-exist": "Quell titol chì l'è sgiamò drovad in [$1 $2] per [$3 un'altra pagina]",
