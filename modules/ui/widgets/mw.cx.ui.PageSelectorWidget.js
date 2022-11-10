@@ -344,7 +344,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
 		prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
 		generator: 'geosearch',
 		piprop: 'thumbnail',
-		pithumbsize: 80,
+		pithumbsize: 120,
 		lllang: this.targetLanguage,
 		ggscoord: coords,
 		ggsradius: 1000, // Search radius in meters
@@ -368,7 +368,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
 			prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
 			piprop: 'thumbnail',
 			pilimit: 10,
-			pithumbsize: 80,
+			pithumbsize: 120,
 			lllang: self.targetLanguage
 		} ).then( function ( data ) { return data; } );
 	}, function ( error ) {

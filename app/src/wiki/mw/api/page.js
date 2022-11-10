@@ -7,7 +7,7 @@ import { siteMapper, getUserCoordinates } from "../../../utils/mediawikiHelper";
  * Default size for thumbnail images in pixels
  * @type {number}
  */
-const defaultThumbnailSize = 80;
+const defaultThumbnailSize = 120;
 
 /**
  * Fetches metadata information for pages for the corresponding titles and language
