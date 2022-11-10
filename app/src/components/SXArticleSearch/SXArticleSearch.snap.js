@@ -225,8 +225,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
           
           <div
             class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
-            style="background-image: url(/thumbnail1.jpg);"
-            width="56"
+            style="height: 56px; width: 56px; background-image: url(/thumbnail1.jpg);"
           />
           
         </div>
@@ -305,8 +304,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
           
           <div
             class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
-            style="background-image: url(/thumbnail2.jpg);"
-            width="56"
+            style="height: 56px; width: 56px; background-image: url(/thumbnail2.jpg);"
           />
           
         </div>

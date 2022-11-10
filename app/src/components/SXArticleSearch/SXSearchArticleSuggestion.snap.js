@@ -12,8 +12,7 @@ exports[`SXSearchArticleSuggestion Component output matches snapshot 1`] = `
     
     <div
       class="mw-ui-thumbnail cx-search-suggestion__thumbnail"
-      style="background-image: url(/thumbnail.jpg);"
-      width="56"
+      style="height: 56px; width: 56px; background-image: url(/thumbnail.jpg);"
     />
     
   </div>

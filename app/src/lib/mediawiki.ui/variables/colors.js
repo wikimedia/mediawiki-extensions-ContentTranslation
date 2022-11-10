@@ -1,5 +1,6 @@
 export default {
   base10: "#202122",
+  base20: "#54595d",
   base30: "#72777d",
   base70: "#c8ccd1",
   base80: "#eaecf0",

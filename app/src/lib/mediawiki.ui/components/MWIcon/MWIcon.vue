@@ -70,7 +70,7 @@ export default {
 @import "../../variables/wikimedia-ui-base.less";
 
 span.mw-ui-icon {
-  // Selector specificity for avoidiong conflict with MW Vector
+  // Selector specificity for avoiding conflict with MW Vector
   align-items: center;
   display: inline-flex;
   font-feature-settings: "liga";
@@ -84,6 +84,9 @@ span.mw-ui-icon {
   user-select: none;
   min-height: unset;
   min-width: unset;
+  svg {
+    background-color: transparent;
+  }
 }
 
 [dir="rtl"] .mw-ui-icon:not(.mw-ui-icon--noflip) svg {

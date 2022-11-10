@@ -3,15 +3,18 @@
   <mw-ui-icon
     v-else
     class="mw-ui-thumbnail mw-ui-thumbnail--missing justify-center"
-    :icon="mwIconImageLayoutFrameless"
-    :size="iconSize"
+    :style="style"
+    :icon="placeholderIcon"
+    :size="placeholderIconSize"
   >
   </mw-ui-icon>
 </template>
 
 <script>
 import MwUiIcon from "../MWIcon";
-import { mwIconImageLayoutFrameless } from "../icons";
+import { mwIconArticle } from "../icons";
+import { computed } from "vue";
+import colors from "../../variables/colors";
 
 export default {
   name: "MwUiThumbnail",
@@ -21,28 +24,51 @@ export default {
       type: Object,
       default: null,
     },
-    iconSize: {
+    thumbnailSize: {
       type: Number,
-      default: 80,
+      default: 84,
+    },
+    placeholderIcon: {
+      type: String,
+      default: mwIconArticle,
+    },
+    placeholderIconSize: {
+      type: Number,
+      default: 50,
+    },
+    placeholderColor: {
+      type: String,
+      default: colors.base20,
+    },
+    placeholderBackgroundColor: {
+      type: String,
+      default: colors.base80,
     },
   },
   emits: ["click"],
-  data: () => ({ mwIconImageLayoutFrameless }),
-  computed: {
-    style() {
-      if (this.thumbnail.source) {
-        return {
-          "background-image": `url(${this.thumbnail.source})`,
-        };
+  setup(props, { emit }) {
+    const style = computed(() => {
+      const style = {
+        height: `${props.thumbnailSize}px`,
+        width: `${props.thumbnailSize}px`,
+      };
+
+      if (props.thumbnail?.source) {
+        style["background-image"] = `url(${props.thumbnail.source})`;
+      } else {
+        style.color = props.placeholderColor;
+        style["background-color"] = props.placeholderBackgroundColor;
       }
 
-      return {};
-    },
-  },
-  methods: {
-    handleClick(e) {
-      this.$emit("click", e);
-    },
+      return style;
+    });
+
+    const handleClick = (event) => emit("click", event);
+
+    return {
+      handleClick,
+      style,
+    };
   },
 };
 </script>
@@ -59,10 +85,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   &.mw-ui-thumbnail--missing {
-    svg {
-      // apply background only to svg as whole icon can extend to larger height than svg
-      background-color: @background-color-code;
-    }
+    background-color: @wmui-color-base80;
   }
 }
 </style>

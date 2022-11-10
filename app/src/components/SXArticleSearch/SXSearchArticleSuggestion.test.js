@@ -29,9 +29,7 @@ describe("SXSearchArticleSuggestion", () => {
     updateSuggestion.thumbnail = null;
 
     await wrapper.setProps({ suggestion: updateSuggestion });
-    expect(wrapper.find(".mw-ui-thumbnail").exists()).toBe(false);
-    expect(
-      wrapper.find(".cx-search-suggestion__thumbnail-placeholder")
-    ).toBeTruthy();
+    expect(wrapper.find("div.mw-ui-thumbnail").exists()).toBe(false);
+    expect(wrapper.find("span.mw-ui-thumbnail--missing")).toBeTruthy();
   });
 });

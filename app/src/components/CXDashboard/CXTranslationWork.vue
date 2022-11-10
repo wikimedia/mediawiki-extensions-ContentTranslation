@@ -6,7 +6,6 @@
         :thumbnail="
           getImage(translation.sourceLanguage, translation.sourceTitle)
         "
-        :width="84"
       />
     </div>
     <div class="col">
@@ -135,10 +134,7 @@ export default {
   &:hover {
     background-color: @background-color-primary;
   }
-  .cx-translation__thumbnail {
-    height: 84px;
-    width: 84px;
-  }
+
   .cx-translation__details {
     height: 100%;
   }

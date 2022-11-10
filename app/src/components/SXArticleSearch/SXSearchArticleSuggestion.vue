@@ -7,17 +7,11 @@
   >
     <mw-col shrink>
       <mw-thumbnail
-        v-if="suggestion.thumbnail"
         class="cx-search-suggestion__thumbnail"
         :thumbnail="suggestion.thumbnail"
-        :width="56"
+        :thumbnail-size="56"
+        :placeholder-icon-size="30"
       />
-      <div
-        v-else
-        class="cx-search-suggestion__thumbnail-placeholder justify-center"
-      >
-        <mw-icon size="30" :icon="mwIconArticle" />
-      </div>
     </mw-col>
     <mw-col class="ms-4">
       <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
@@ -74,15 +68,6 @@ export default {
 .cx-search-suggestion {
   cursor: pointer;
   line-height: normal;
-  &__thumbnail.mw-ui-thumbnail {
-    height: 56px;
-    width: 56px;
-  }
-  &__thumbnail-placeholder {
-    height: 56px;
-    width: 56px;
-    background-color: @wmui-color-base80;
-  }
   &__source-title {
     line-height: 1;
   }

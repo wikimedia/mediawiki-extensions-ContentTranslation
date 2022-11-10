@@ -4,7 +4,6 @@
       <mw-thumbnail
         class="cx-suggestion__thumbnail"
         :thumbnail="page && page.thumbnail"
-        :width="84"
       />
     </div>
     <div class="col cx-suggestion__information-panel">
@@ -191,10 +190,6 @@ export default {
     &__top {
       width: 100%;
     }
-  }
-  &__thumbnail.mw-ui-thumbnail {
-    height: 84px;
-    width: 84px;
   }
   &__source-description {
     color: @wmui-color-base20;
