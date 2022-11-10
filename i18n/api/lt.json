@@ -71,5 +71,7 @@
 	"apihelp-cxsave-param-to": "Kalbos, į kurią verčiama, kodas.",
 	"apihelp-cxsave-param-sourcetitle": "Šaltinio puslapio pavadinimas.",
 	"apierror-cx-invalidlanguage": "Neleistina kalba.",
-	"apierror-cx-translationnotfound": "Vertimas nerastas."
+	"apierror-cx-suggestionsdisabled": "Šiam viki pasiūlymai neįjungti.",
+	"apierror-cx-translationnotfound": "Vertimas nerastas.",
+	"apierror-cxpublishsection-translationnotfound": "Vertimas nerastas."
 }
