@@ -228,7 +228,7 @@
 	"cx-tools-linter-cannot-publish-message": "Ta skupnost se je odločila omejiti objavo prevodov samo na izkušene urednike.\nTega prevoda ne morete objaviti, dokler v tem vikiju ne pridobite več izkušenj z urejanjem, lahko pa:<ul><li>objavite svoj prevod kot osnutek in pozneje za ustvarjanje članka uporabite običajna orodja za urejanje.</li><li>Prevedite ta članek v drug jezik brez te omejitve.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Pripravljeno za shranitev kot osnutka",
 	"cx-tools-linter-template": "Predloga ni na voljo",
-	"cx-tools-linter-template-block-message": "Izvorna stran vsebuje predlogo, ki je v ciljnem wikiju ni.\n\nPredloga je bila zato izpuščena, lahko pa manjkajočo vsebino dodate kako drugače.",
+	"cx-tools-linter-template-block-message": "Izvorna stran vsebuje predlogo, ki je v ciljnem vikiju ni.\n\nPredloga je bila zato izpuščena, lahko pa manjkajočo vsebino dodate kako drugače.",
 	"cx-tools-linter-template-inline-message": "Izvorna stran vsebuje predloge, od katerih jih nekaj v ciljnem vikiju ne obstaja.\n\nVsebino manjkajočih predlog lahko dodate kot golo besedilo. Besedilo pred objavo preglejte.",
 	"cx-tools-linter-template-add-new": "Dodaj novo predlogo",
 	"cx-tools-linter-incomplete-template": "Nedokončana predloga",

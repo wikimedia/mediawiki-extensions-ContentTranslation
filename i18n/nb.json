@@ -448,5 +448,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publiser",
 	"cx-contributecard-entrypoint-title": "Oversettelser",
 	"cx-contributecard-entrypoint-desc": "Oversett et avsnitt eller en hel artikkel. Gjør innhold tilgjengelig på flere språk.",
-	"cx-contributecard-entrypoint-cta": "Begynn på en oversettelse"
+	"cx-contributecard-entrypoint-cta": "Begynn på en oversettelse",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Ingen tilsvarende mal funnet",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Denne malen blir lagt til tom",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Denne malen kan oversettes delvis",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Denne malen kan oversettes automatisk",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Malstrukturen på begge språk er for forskjellig, så dataene kan ikke overføres automatisk",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Malstrukturen på begge språk sammenfaller delvis, så noen data kan overføres automatisk",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Malstrukturen på begge språk er lik, så alle data kan overføres automatisk",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Hvis du vet om en tilsvarende mal på $1 kan du koble dem sammen på Wikidata for å la verktøy finne dem",
+	"cx-sx-block-template-none-mapped-param-text": "Ingen parametre (ut av $1) ble lagt til fra originalmalen",
+	"cx-sx-block-template-mapped-params-text": "$1 av $2 {{PLURAL:$2|parameter|parametre}} ble lagt til fra originalmalen",
+	"cx-sx-block-template-no-source-params-text": "Originalmalen hadde ingen parametre som kunne overføres",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatoriske parametre er fortsatt ikke fylt inn for malen på $2. Rediger malen for å fylle dem inn manuelt.",
+	"cx-sx-block-template-missing-optional-params-text": "$1 ekstra parametre kan fylles inn for malen på $2. Rediger malen for å fylle dem inn manuelt"
 }
