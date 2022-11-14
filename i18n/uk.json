@@ -20,7 +20,10 @@
 			"Ypryima",
 			"Ата",
 			"Петар Петковић",
-			"DDPAT"
+			"DDPAT",
+			"Andriy.v",
+			"Ice bulldog",
+			"Пан Хаунд"
 		]
 	},
 	"cx": "Перекласти сторінку",
@@ -310,7 +313,7 @@
 	"cx-linkcontextitem-missing-link-title": "Відсутнє посилання",
 	"cx-linkcontextitem-missing-title-description": "Така сторінка ще не існує",
 	"cx-mt-abuse-publish-error": "Ваш переклад не можна публікувати, оскільки він містить надто багато незміненого тексту.",
-	"cx-unreviewed-translation-category": "Сторінки із неперевіреними перекладами",
+	"cx-unreviewed-translation-category": "Сторінки з неперевіреними перекладами",
 	"cx-unreviewed-translation-category-desc": "Сторінки, перекладені інструментом «Переклад вмісту», що містять значну кількість неперевіреного вмісту",
 	"cx-preference-enable-entrypoints": "Доступ до [[$1|початку перекладу]] зі сторінки внеску, списку мов, списку нових сторінок.",
 	"cx-feature-discovery-title": "Все одно перекласти",
