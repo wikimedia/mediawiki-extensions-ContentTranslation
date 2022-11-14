@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bada Kaji",
+			"CAPTAIN MEDUSA",
 			"Nirajan pant",
 			"Nirjal stha",
 			"Parbat subedi",
@@ -72,7 +73,7 @@
 	"cx-tools-mt-use-source": "मूल सामग्री प्रतिलिपि गर्नुहोस्",
 	"cx-tools-mt-reset": "अनुवाद पूर्वरूपमा फर्काउनुहोस्",
 	"cx-tools-mt-provider-title": "$1 प्रयोग गर्नुहोस्",
-	"cx-tools-mt-dont-use": "खाली हरफबाट शुरुवात गर्नुहोस्",
+	"cx-tools-mt-dont-use": "खाली हरफबाट सुरुवात गर्नुहोस्",
 	"cx-tools-mt-set-default": "पूर्वनिर्धारितको रूपमा सेट गर्नुहोस्",
 	"cx-tools-mt-noservices": "छानिएका भाषाहरूमा अनुवाद सेवा उपलब्ध छैन : [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|किन?]]",
 	"cx-tools-mt-preferred": "पूर्वनिर्धारित",
