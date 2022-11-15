@@ -8,6 +8,7 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\Store\TranslationCorporaStore;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
@@ -31,22 +32,21 @@ class CorporaLookup {
 	 * @return array
 	 */
 	public function getByTranslationId( $id ) {
-		$fields = [
-			'cxc_translation_id',
-			'cxc_origin',
-			'cxc_section_id',
-			'cxc_timestamp',
-			'cxc_sequence_id',
-			'cxc_content',
-		];
+		$result = $this->db->newSelectQueryBuilder()
+			->select( [
+				'cxc_translation_id',
+				'cxc_origin',
+				'cxc_section_id',
+				'cxc_timestamp',
+				'cxc_sequence_id',
+				'cxc_content',
+			] )
+			->from( TranslationCorporaStore::TABLE_NAME )
+			->where( [ 'cxc_translation_id' => intval( $id ) ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
-		$conds = [
-			'cxc_translation_id' => intval( $id ),
-		];
-
-		$res = $this->db->select( 'cx_corpora', $fields, $conds, __METHOD__ );
-
-		return self::format( $res );
+		return self::format( $result );
 	}
 
 	protected static function format( IResultWrapper $rows ) {
