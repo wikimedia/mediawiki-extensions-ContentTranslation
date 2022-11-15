@@ -11,7 +11,9 @@
 			"Myesd",
 			"NP-chaonay",
 			"Patsagorn Y.",
-			"Thas Tayapongsak"
+			"Thas Tayapongsak",
+			"Ekminarin",
+			"Prame Tan"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -162,7 +164,7 @@
 	"cx-beta-feature-enabled-notification": "การแปลเนื้อหาได้เปิดใช้งานในวิกินี้",
 	"cx-init-critical-error": "เกิดข้อผิดพลาดร้ายแรง: ไม่สามารถโหลดการแปลเนื้อหาได้เนื่องจากข้อผิดพลาดภายใน",
 	"cx-campaign-newarticle-notice": "ตอนนี้คุณสามารถสร้างเนื้อหาใหม่ด้วย<strong>การแปล</strong>ได้ง่ายขึ้นแล้ว! คุณต้องการลองใช้เครื่องมือการแปลเนื้อหารุ่นบีตาหรือไม่?",
-	"cx-campaign-no-thanks": "ไม่ ขอบคุณ",
+	"cx-campaign-no-thanks": "ไม่ขอบคุณ",
 	"cx-campaign-try": "ลองใช้การแปลเนื้อหา",
 	"cx-campaign-contributionsmenu-mycontributions": "การมีส่วนร่วม",
 	"cx-campaign-contributionsmenu-mytranslations": "การแปล",
