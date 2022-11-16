@@ -51,7 +51,7 @@
       </mw-col>
       <translated-segment-card
         v-if="!isBlockTemplateSelected && isSelectedTranslationUnitTranslated"
-        @edit-translation="editTranslation"
+        @edit-translation="editTranslation($event, false)"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
       />
@@ -62,7 +62,7 @@
         v-else-if="!isBlockTemplateSelected"
         :class="{ 'mb-0': !shouldProposedTranslationBounce }"
         @configure-options="configureTranslationOptions"
-        @edit-translation="editTranslation"
+        @edit-translation="editTranslation($event, true)"
         @apply-translation="applyTranslation"
         @skip-translation="skipTranslation"
         @select-previous-segment="selectPreviousTranslationUnit"
@@ -96,6 +96,7 @@ import { computed, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { useEventLogging } from "@/plugins/eventlogging";
 
 export default {
   name: "SxSentenceSelector",
@@ -122,6 +123,8 @@ export default {
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
       currentMTProvider,
+      sourceLanguage,
+      targetLanguage,
     } = useApplicationState(store);
 
     const isSelectedTranslationUnitTranslated = computed(
@@ -137,6 +140,7 @@ export default {
     const sentenceSelectorStyle = computed(() =>
       isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
     );
+    const logEvent = useEventLogging();
 
     onMounted(async () => {
       // When user returns to "Pick a sentence" step from "Preview and publish"
@@ -154,11 +158,16 @@ export default {
       store.dispatch("application/selectNextTranslationUnit");
     const selectPreviousTranslationUnit = () =>
       store.dispatch("application/selectPreviousTranslationUnit");
-    const applyTranslation = () =>
+    const applyTranslation = () => {
+      logEvent({
+        event_type: "editor_segment_add",
+        translation_source_language: sourceLanguage.value,
+        translation_target_language: targetLanguage.value,
+      });
       store.dispatch(
         "application/applyProposedTranslationToSelectedTranslationUnit"
       );
-
+    };
     const bounceTranslation = () => {
       shouldProposedTranslationBounce.value = true;
       setTimeout(() => {
@@ -181,7 +190,7 @@ export default {
       );
     };
 
-    const editTranslation = (content) =>
+    const editTranslation = (content, isInitialEdit) => {
       router.push({
         name: "sx-editor",
         params: {
@@ -190,8 +199,10 @@ export default {
           targetLanguage: suggestion.value.targetLanguage,
           originalContent: originalSegmentContent.value,
           title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+          isInitialEdit: isInitialEdit || null,
         },
       });
+    };
 
     const previewTranslation = () => router.push({ name: "sx-publisher" });
 

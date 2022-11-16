@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import VisualEditor from "@/plugins/ve/components/VisualEditor.vue";
 import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
@@ -39,6 +39,9 @@ import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
 import EditCompleteFeedback from "./EditCompleteFeedback.vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStore } from "vuex";
+import { useEventLogging } from "@/plugins/eventlogging";
+import mtValidator from "../../utils/mtValidator";
+import useApplicationState from "@/composables/useApplicationState";
 
 export default {
   name: "SxEditor",
@@ -67,12 +70,23 @@ export default {
     const onEditorReady = () => (editorReady.value = true);
     const closeEditor = () => router.replace({ name: props.fromRoute });
     const isFinal = !!route.params.isFinalEdit;
+    const isInitialEdit = !!route.params.isInitialEdit;
 
     const proposedTranslation = route.params.content;
     const originalContent = route.params.originalContent;
 
     const editedTranslation = ref(null);
     const showFeedback = ref(false);
+    const logEvent = useEventLogging();
+
+    const { targetLanguage, sourceLanguage } = route.params;
+    const mtScore = computed(() =>
+      mtValidator.calculateScore(
+        editedTranslation.value,
+        proposedTranslation,
+        targetLanguage
+      )
+    );
 
     const onEditCompleted = async (translation) => {
       editedTranslation.value = translation;
@@ -82,13 +96,19 @@ export default {
        */
       await new Promise((resolve) => setTimeout(resolve, 2000));
       showFeedback.value = false;
-
       if (isFinal) {
         store.commit(
           "application/setCurrentSourceSectionEditedTranslation",
           translation
         );
       } else {
+        if (mtScore.value === 0 && isInitialEdit) {
+          logEvent({
+            event_type: "editor_segment_add",
+            translation_source_language: sourceLanguage,
+            translation_target_language: targetLanguage,
+          });
+        }
         store.dispatch(
           "application/applyEditedTranslationToSelectedTranslationUnit",
           translation

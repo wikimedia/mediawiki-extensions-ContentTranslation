@@ -4,6 +4,7 @@ import { createI18n } from "vue-banana-i18n";
 import SubSection from "../SubSection";
 import mockStore from "./sentenceSelectorMockStore";
 import router from "../../../router";
+import { createEventLogging } from "../../../plugins/eventlogging";
 
 const i18n = createI18n();
 
@@ -12,11 +13,12 @@ jest.mock("../../../store", () =>
 );
 
 jest.mock("../../../plugins/ve");
+const eventLogging = createEventLogging();
 
 describe("SXSentenceSelector", () => {
   const wrapper = mount(SXSentenceSelector, {
     global: {
-      plugins: [i18n, mockStore, router],
+      plugins: [i18n, mockStore, eventLogging, router],
       renderStubDefaultSlot: true,
     },
     shallow: true,
