@@ -420,5 +420,8 @@
 	"sx-recent-edit-entrypoint-top-banner-header": "다른 언어에서의 기여",
 	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" 번역하기",
 	"cx-sx-publisher-captcha-dialog-header-title": "로봇이 아닌지를 검사합니다",
-	"cx-sx-publisher-captcha-dialog-publish-button": "게시"
+	"cx-sx-publisher-captcha-dialog-publish-button": "게시",
+	"cx-contributecard-entrypoint-title": "번역",
+	"cx-contributecard-entrypoint-desc": "하나 이상의 문단 또는 문서 전체를 번역하세요. 더 많은 언어로 볼 수 있는 더 많은 내용을 만드세요.",
+	"cx-contributecard-entrypoint-cta": "번역 시작하기"
 }
