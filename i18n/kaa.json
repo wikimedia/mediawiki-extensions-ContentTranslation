@@ -6,13 +6,19 @@
 			"Ajiniyaz Nurniyazov"
 		]
 	},
+	"cx": "Awdarma beti",
 	"cx-dashboard-header": "Awdarmalar",
 	"cx-header-all-translations": "Barlıq awdarmalar",
 	"cx-warning-unsaved-translation": "Sizde saqlanbaǵan awdarmalar bar.",
+	"cx-translation-filter-published-translations": "Járiyalanǵan",
+	"cx-translation-filter-draft-translations": "Awdarma qılıw processinde",
+	"cx-translation-filter-suggested-translations": "Usınıslar",
+	"cx-translation-status-published": "Járiyalanǵan",
 	"cx-translation-label-draft": "Awdarmadaǵı maqalalar",
 	"cx-stats-published-translations-title": "Járiyalanǵan maqalalar",
 	"cx-stats-draft-translations-label": "Awdarmadaǵı maqalalar",
 	"cx-campaign-contributionsmenu-mytranslations": "Awdarmalar",
 	"cx-trend-deletions": "Óshirilgen awdarmalar",
-	"echo-category-title-cx": "Awdarmalar"
+	"echo-category-title-cx": "Awdarmalar",
+	"cx-translator-header": "Sizdiń statistikanıń"
 }
