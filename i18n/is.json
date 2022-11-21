@@ -5,7 +5,8 @@
 			"Jonbg",
 			"Maxí",
 			"Snævar",
-			"Sveinn í Felli"
+			"Sveinn í Felli",
+			"LoveIceLang"
 		]
 	},
 	"cx": "Þýða síðu",
@@ -105,7 +106,7 @@
 	"cx-translation-filter-draft-translations": "Í vinnslu",
 	"cx-translation-filter-suggested-translations": "Uppástungur",
 	"cx-suggestionlist-favorite": "Til síðar",
-	"cx-suggestionlist-title": "Síður sem stungið er upp á",
+	"cx-suggestionlist-title": "Tillögur",
 	"cx-suggestionlist-empty-title": "Engar uppástungur í augnablikinu",
 	"cx-suggestionlist-empty-desc": "Við fundum engar uppástungur. Þú getur athugað aftur síðar eða fundið sambærilegar síður með uppástungu-smáforritinu okkar (tilraunaútgáfa).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Skoða uppástungur (tilraunaútgáfa)",

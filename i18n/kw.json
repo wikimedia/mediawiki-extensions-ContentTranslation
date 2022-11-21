@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"GwikorFrank"
+			"GwikorFrank",
+			"Nrowe"
 		]
 	},
 	"cx": "Treylya folen",
@@ -53,7 +54,7 @@
 	"cx-tools-instructions-text3": "{{GENDER:|Gwra}} an tekst heveli naturel",
 	"cx-tools-instructions-text4": "Treylyans gans jynn yw gweresek, mes yma edhom dhis golegi an tekst rag y wul kompes.",
 	"cx-tools-instructions-text5": "{{GENDER:|Dyllo}} an treylyans",
-	"cx-tools-instructions-text6": "Pan os ta lowen gans an sewyans, gwask \"{{int:cx-publish-button}}\".",
+	"cx-tools-instructions-text6": "Pan vi lowen gans an sewyans, gwask \"{{int:cx-publish-button}}\".",
 	"cx-tools-searchbox-text": "Hwilas ger",
 	"cx-tools-view-guidelines": "Gweles an gydlinennow treylya",
 	"cx-tools-dictionary-title": "Styryans",
@@ -95,7 +96,7 @@
 	"cx-mt-abuse-error-sections": "Yma rannow bras a dekst anchanjys y'th treylyans",
 	"cx-mt-abuse-error-text": "Treylyans awtomatek yw provys avel dallethva hepken. Gwra gwirhe bos an dalgh ewn ha naturel y'th yeth.\n\nNy yll dha dreylyans bos dyllys heb y wolegi.",
 	"cx-mt-abuse-warning-title": "{{PLURAL:$1|Yma}} $1% a dekst anchanjys yn rann a'th treylyans",
-	"cx-mt-abuse-warning-text": "Treylyans awtomatek yw provys avel dallethva hepken. Gwra gwirhe bos an dalgh ewn ha naturel y'th yeth.\n\nDres lycklod, dha dreylyans a via removys pan yw daswelys gans golegydhyon erel.",
+	"cx-mt-abuse-warning-text": "Treylyans awtomatek yw proviys avel dallethva hepken. Gwra gwirhe bos an dalgh ewn ha naturel y'th yeth.\n\nDres lycklod, dha dreylyans a via removys pan vo daswelys gans golegydhyon erel.",
 	"cx-publish-captcha-title": "Ow surhe nag os ta robot",
 	"cx-captcha-dialog-error": "Nyns yw dha worthyp ewn, dell hevel. Assay arta, mar pleg.",
 	"cx-captcha-dialog-cancel": "Hedhi",
@@ -103,7 +104,7 @@
 	"cx-dashboard-sidebar-title": "{{GENDER:|Eus}} edhomm dhis treylya?",
 	"cx-dashboard-sidebar-information": "Moy a-dro dhe'n toul ma",
 	"cx-dashboard-sidebar-stats": "Statystygyon",
-	"cx-dashboard-sidebar-feedback": "Ro dhyn dasliv",
+	"cx-dashboard-sidebar-feedback": "Ri dhyn dasliv",
 	"cx-translation-filter-published-translations": "Dyllys",
 	"cx-translation-filter-draft-translations": "Ow pos gwrys",
 	"cx-translation-filter-suggested-translations": "Kussulyow",
@@ -146,7 +147,7 @@
 	"cx-translation-already-in-progress-unknown": "Hemm yw treylyans ow pos gwrys gans usyer ankoth.",
 	"cx-translation-already-in-progress-collaborate": "Gwra kesordena gans an {{GENDER:$1|usyer}} a dreylyas an treylyans ma, mar pleg.",
 	"cx-publishing-dialog-publish-draft-button": "Dyllo avel kyns-skrif",
-	"cx-feedback-link": "Ro dasliv",
+	"cx-feedback-link": "Ri dasliv",
 	"cx-stats-published-translations-title": "Treylyansow dyllys",
 	"cx-stats-draft-translations-title": "Treylyansow ow pos gwrys",
 	"cx-stats-draft-translations-label": "Treylyansow ow pos gwrys",
