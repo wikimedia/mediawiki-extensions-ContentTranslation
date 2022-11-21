@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BrennodAloisi",
 			"COMISSIONTOPOC",
 			"Cedric31",
 			"Guilhelma",
@@ -55,6 +56,7 @@
 	"cx-selected-source-page-start-translation-button": "Aviar la traduccion",
 	"cx-selected-source-page-error-page-exists": "La pagina [$1 existís ja] en $2",
 	"cx-selected-source-page-error-title-in-use": "Lo títol de la novèla pagina es [$1 ja utilizat]",
+	"cx-page-number-of-languages": "Nombre de lengas",
 	"cx-mt-abuse-warning-title": "Vòstra traduccion {{PLURAL:$1|conten}} $1% de tèxte traduit automaticament e pas modificat.",
 	"cx-mt-abuse-warning-text": "La traduccion automatica es provesida unicament coma modèl. Vos cal vos assegurar que lo contengut es exacte e que se legís de faiçon naturala dins vòstra lenga.",
 	"cx-publish-captcha-title": "Question de seguretat",
@@ -71,6 +73,7 @@
 	"cx-suggestionlist-featured": "En vedèta",
 	"cx-suggestionlist-view-source-page": "Afichar la pagina font",
 	"cx-create-new-translation": "Novèla traduccion",
+	"cx-translation-filter-uls-all-languages": "Totas las lengas",
 	"cx-save-draft-save-success": "Enregistrat {{PLURAL:$1|i a una minuta|i a $1 minutas|0=Ara meteis}}",
 	"cx-save-draft-saving": "Enregistrament en cors…",
 	"cx-contributions-new-contributions": "Contribucion novèla",
@@ -136,5 +139,9 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Aplicar",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Article complet en $1",
 	"cx-sx-content-comparator-mapped-section-header-title": "Present en $1",
-	"cx-sx-article-search-nearby-title": "A proximitat"
+	"cx-sx-article-search-nearby-title": "A proximitat",
+	"sx-article-search-language-selector-dialog-title": "Lengas",
+	"cx-sx-language-selector-all-languages": "Totas las lengas",
+	"sx-translation-list-language-selector-dialog-title": "Lengas",
+	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir d'autras lengas"
 }
