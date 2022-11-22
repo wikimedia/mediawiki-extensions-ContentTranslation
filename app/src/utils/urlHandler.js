@@ -12,6 +12,7 @@ const setTranslationURLParams = (sectionSuggestion) => {
   params.set("from", sectionSuggestion?.sourceLanguage);
   params.set("to", sectionSuggestion?.targetLanguage);
   params.set("sx", true);
+  params.delete("title");
   replaceUrl(Object.fromEntries(params));
 };
 
