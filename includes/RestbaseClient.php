@@ -8,14 +8,12 @@
 
 namespace ContentTranslation;
 
-use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Http\HttpRequestFactory;
-use MediaWiki\MediaWikiServices;
-use ParsoidVirtualRESTService;
-use RequestContext;
-use RestbaseVirtualRESTService;
+use MediaWiki\Page\PageIdentity;
+use Psr\Log\LoggerInterface;
+use Title;
+use VirtualRESTServiceClient;
 
-class RestbaseClient {
+class RestbaseClient implements ParsoidClient {
 
 	/**
 	 * @var \VirtualRESTServiceClient
@@ -23,86 +21,16 @@ class RestbaseClient {
 	protected $serviceClient;
 
 	/**
-	 * @internal For use by ServiceWiring
+	 * @var LoggerInterface
 	 */
-	public const CONSTRUCTOR_OPTIONS = [
-		'VirtualRestConfig',
-		'ContentTranslationRESTBase',
-		'VisualEditorParsoidAutoConfig'
-	];
+	private $logger;
 
-	/**
-	 * The global virtual rest service config object
-	 * @var array
-	 */
-	private $virtualRestConfig;
-
-	/**
-	 * CX specific configuration override (local testing and development)
-	 * @var array
-	 */
-	private $contentTranslationRESTBase;
-
-	/** @var bool */
-	private $visualEditorParsoidAutoConfig;
-
-	public function __construct( HttpRequestFactory $httpRequestFactory, ServiceOptions $options ) {
-		$options->assertRequiredOptions( self::CONSTRUCTOR_OPTIONS );
-
-		$this->virtualRestConfig = $options->get( 'VirtualRestConfig' );
-		$this->contentTranslationRESTBase = $options->get( 'ContentTranslationRESTBase' );
-		$this->visualEditorParsoidAutoConfig = $options->get( 'VisualEditorParsoidAutoConfig' );
-
-		$this->serviceClient = new \VirtualRESTServiceClient( $httpRequestFactory->createMultiClient() );
-		// Mounted at /restbase/ because it is a service speaking the
-		// RESTBase v1 API -- but the service responding to these API
-		// requests could be either Parsoid or RESTBase.
-		$this->serviceClient->mount( '/restbase/', $this->getVRSObject() );
-	}
-
-	/**
-	 * Creates the virtual REST service object to be used in CX's API calls.
-	 *
-	 * See ApiParsoidTrait::getVRSObject() in VisualEditor (which should
-	 * eventually be upstreamed to core, T261310).
-	 *
-	 * @return \VirtualRESTService the VirtualRESTService object to use
-	 */
-	private function getVRSObject() {
-		if ( $this->contentTranslationRESTBase ) {
-			$class = RestbaseVirtualRESTService::class;
-			$params = $this->contentTranslationRESTBase;
-		} elseif ( isset( $this->virtualRestConfig['modules']['restbase'] ) ) {
-			$class = RestbaseVirtualRESTService::class;
-			$params = $this->virtualRestConfig['modules']['restbase'];
-			// backward compatibility
-			$params['parsoidCompat'] = false;
-		} elseif ( isset( $this->virtualRestConfig['modules']['parsoid'] ) ) {
-			$class = ParsoidVirtualRESTService::class;
-			$params = $this->virtualRestConfig['modules']['parsoid'];
-			$params['restbaseCompat'] = true;
-		} elseif ( $this->visualEditorParsoidAutoConfig ) {
-			$class = ParsoidVirtualRESTService::class;
-			$params = [];
-			$params['restbaseCompat'] = true;
-			// forward cookies on private wikis
-			$params['forwardCookies'] = !MediaWikiServices::getInstance()
-				->getPermissionManager()->isEveryoneAllowed( 'read' );
-		} else {
-			// No global modules defined, so no way to contact the document server.
-			throw new \MWException( 'Parsoid/RESTBase unconfigured' );
-		}
-
-		// Merge the global and service-specific params
-		$params = array_merge( $this->virtualRestConfig['global'] ?? [], $params );
-
-		// Set up cookie forwarding
-		if ( ( $params['forwardCookies'] ?? false ) === true ) {
-			$context = RequestContext::getMain();
-			$params['forwardCookies'] = $context->getRequest()->getHeader( 'Cookie' );
-		}
-
-		return new $class( $params );
+	public function __construct(
+		VirtualRESTServiceClient $serviceClient,
+		LoggerInterface $logger
+	) {
+		$this->serviceClient = $serviceClient;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -112,9 +40,12 @@ class RestbaseClient {
 	 * @param string $path
 	 * @param array $params
 	 * @param array $reqheaders
-	 * @return string|false
+	 * @return array If successful, the value is the RESTbase server's response as an array
+	 *   with keys 'code', 'error', 'headers' and 'body'
 	 */
-	private function requestRestbase( $method, $path, $params, $reqheaders = [] ) {
+	private function requestRestbase(
+		string $method, string $path, array $params, array $reqheaders = []
+	): array {
 		$request = [
 			'method' => $method,
 			'url' => '/restbase/local/v1/' . $path
@@ -124,30 +55,46 @@ class RestbaseClient {
 		} else {
 			$request['body'] = $params;
 		}
-		// See https://www.mediawiki.org/wiki/Specs/HTML/2.1.0
+		// See https://www.mediawiki.org/wiki/Specs/HTML/2.6.0
 		$reqheaders['Accept'] =
-			'text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/HTML/2.1.0"';
+			'text/html; charset=utf-8; profile="https://www.mediawiki.org/wiki/Specs/HTML/' .
+			DirectParsoidClient::PARSOID_VERSION;
 		$reqheaders['User-Agent'] = 'ContentTranslation-MediaWiki/' . MW_VERSION;
 		$request['headers'] = $reqheaders;
 		$response = $this->serviceClient->run( $request );
-		if ( $response['code'] === 200 && $response['error'] === '' ) {
-			return $response['body'];
-		} elseif ( $response['error'] !== '' ) {
-			throw new \MWException( "docserver-http-error: {$response['error']}" );
-		} else { // error null, code not 200
-			throw new \MWException( "docserver-http: HTTP {$response['code']}: {$response['body']}" );
+
+		if ( !empty( $response['error'] ) ) {
+			$response['error'] = [
+				'apierror-cx-docserverexception',
+				wfEscapeWikiText( $response['error'] )
+			];
+		} elseif ( $response['code'] >= 400 ) {
+			// no error message, but code indicates an error
+			$json = json_decode( $response['body'], true );
+			$text = $json['detail'] ?? '(no message)';
+			$response['error'] = [
+				'apierror-cx-docserverexception',
+				$response['code'],
+				wfEscapeWikiText( $text )
+			];
+		} else {
+			// Needed because $response['error'] may be '' on success!
+			$response['error'] = null;
 		}
+
+		return $response;
 	}
 
 	/**
 	 * Converts html to wikitext
 	 *
-	 * @param \Title $title
+	 * @param PageIdentity $page
 	 * @param string $html
-	 * @return string wikitext
+	 * @return array The response
 	 */
-	public function convertHtmlToWikitext( \Title $title, $html ) {
-		$wikitext = $this->requestRestbase(
+	public function convertHtmlToWikitext( PageIdentity $page, string $html ): array {
+		$title = Title::castFromPageIdentity( $page );
+		return $this->requestRestbase(
 			'POST',
 			'transform/html/to/wikitext/' . urlencode( $title->getPrefixedDBkey() ),
 			[
@@ -155,23 +102,18 @@ class RestbaseClient {
 				'scrub_wikitext' => 1,
 			]
 		);
-		if ( $wikitext === false ) {
-			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );
-			$name = $vrsInfo[1] ? $vrsInfo[1]->getName() : 'unknown VRS service';
-			throw new \MWException( 'Error contacting ' . $name );
-		}
-		return $wikitext;
 	}
 
 	/**
 	 * Converts wikitext to html
 	 *
-	 * @param \Title $title
+	 * @param PageIdentity $page
 	 * @param string $wikitext
-	 * @return string html
+	 * @return array The response
 	 */
-	public function convertWikitextToHtml( \Title $title, $wikitext ) {
-		$html = $this->requestRestbase(
+	public function convertWikitextToHtml( PageIdentity $page, string $wikitext ): array {
+		$title = Title::castFromPageIdentity( $page );
+		return $this->requestRestbase(
 			'POST',
 			'transform/wikitext/to/html/' . urlencode( $title->getPrefixedDBkey() ),
 			[
@@ -179,11 +121,5 @@ class RestbaseClient {
 				'body_only' => 1,
 			]
 		);
-		if ( $html === false ) {
-			$vrsInfo = $this->serviceClient->getMountAndService( '/restbase/' );
-			$name = $vrsInfo[1] ? $vrsInfo[1]->getName() : 'unknown VRS service';
-			throw new \MWException( 'Error contacting ' . $name );
-		}
-		return $html;
 	}
 }

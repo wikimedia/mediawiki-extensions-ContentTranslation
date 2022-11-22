@@ -15,7 +15,8 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
-use ContentTranslation\RestbaseClient;
+use ContentTranslation\ParsoidClient;
+use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\SiteMapper;
@@ -40,8 +41,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 	/** @var LanguageNameUtils */
 	private $languageNameUtils;
 
-	/** @var RestbaseClient */
-	protected $restbaseClient;
+	/** @var ParsoidClientFactory */
+	protected $parsoidClientFactory;
 
 	/** @var SectionPositionCalculator */
 	private $sectionPositionCalculator;
@@ -55,7 +56,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param TitleFactory $titleFactory
 	 * @param HookContainer $hookContainer
 	 * @param LanguageNameUtils $languageNameUtils
-	 * @param RestbaseClient $restbaseClient
+	 * @param ParsoidClientFactory $parsoidClientFactory
 	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 * @param SandboxTitleMaker $sandboxTitleMaker
 	 */
@@ -65,7 +66,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		TitleFactory $titleFactory,
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,
-		RestbaseClient $restbaseClient,
+		ParsoidClientFactory $parsoidClientFactory,
 		SectionPositionCalculator $sectionPositionCalculator,
 		SandboxTitleMaker $sandboxTitleMaker
 	) {
@@ -73,9 +74,13 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->titleFactory = $titleFactory;
 		$this->hookContainer = $hookContainer;
 		$this->languageNameUtils = $languageNameUtils;
-		$this->restbaseClient = $restbaseClient;
+		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
+	}
+
+	protected function getParsoidClient(): ParsoidClient {
+		return $this->parsoidClientFactory->createParsoidClient();
 	}
 
 	/**
@@ -276,10 +281,10 @@ class ApiSectionTranslationPublish extends ApiBase {
 		}
 		$wikitext = null;
 		try {
-			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
+			$wikitext = $this->getParsoidClient()->convertHtmlToWikitext(
 				$targetTitle,
 				$html
-			);
+			)['body'];
 		} catch ( \MWException $e ) {
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'

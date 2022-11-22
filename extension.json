@@ -127,7 +127,7 @@
 		"cxpublish": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
 			"services": [
-				"ContentTranslation.RestbaseClient",
+				"ContentTranslation.ParsoidClientFactory",
 				"LanguageFactory",
 				"StatsdDataFactory"
 			]
@@ -138,7 +138,7 @@
 				"TitleFactory",
 				"HookContainer",
 				"LanguageNameUtils",
-				"ContentTranslation.RestbaseClient",
+				"ContentTranslation.ParsoidClientFactory",
 				"ContentTranslation.SectionPositionCalculator",
 				"ContentTranslation.SandboxTitleMaker"
 			]
@@ -345,6 +345,10 @@
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
+		},
+		"ContentTranslationDefaultParsoidClient": {
+			"value": "vrs",
+			"description": "Sets the mechanism used by the ContentTranslation API to talk to Parsoid. This should be removed as soon as the direct mode is stable."
 		}
 	},
 	"ResourceModules": {

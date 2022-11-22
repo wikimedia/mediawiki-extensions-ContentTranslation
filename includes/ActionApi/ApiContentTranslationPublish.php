@@ -22,7 +22,8 @@ use ApiBase;
 use ApiMain;
 use ChangeTags;
 use ContentTranslation\Notification;
-use ContentTranslation\RestbaseClient;
+use ContentTranslation\ParsoidClient;
+use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -41,8 +42,8 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiContentTranslationPublish extends ApiBase {
 
-	/** @var RestbaseClient */
-	protected $restbaseClient;
+	/** @var ParsoidClientFactory */
+	protected $parsoidClientFactory;
 
 	/** @var Translation */
 	protected $translation;
@@ -56,14 +57,18 @@ class ApiContentTranslationPublish extends ApiBase {
 	public function __construct(
 		ApiMain $main,
 		$name,
-		RestbaseClient $restbaseClient,
+		ParsoidClientFactory $parsoidClientFactory,
 		LanguageFactory $languageFactory,
 		IBufferingStatsdDataFactory $statsdDataFactory
 	) {
 		parent::__construct( $main, $name );
-		$this->restbaseClient = $restbaseClient;
+		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->languageFactory = $languageFactory;
 		$this->statsdDataFactory = $statsdDataFactory;
+	}
+
+	protected function getParsoidClient(): ParsoidClient {
+		return $this->parsoidClientFactory->createParsoidClient();
 	}
 
 	protected function saveWikitext( $title, $wikitext, $params ) {
@@ -235,11 +240,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieWithError( 'deflate-invaliddeflate', 'invaliddeflate' );
 		}
 		try {
-			$wikitext = $this->restbaseClient->convertHtmlToWikitext(
+			$wikitext = $this->getParsoidClient()->convertHtmlToWikitext(
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 				$targetTitle,
 				$html->getValue()
-			);
+			)['body'];
 		} catch ( MWException $e ) {
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'

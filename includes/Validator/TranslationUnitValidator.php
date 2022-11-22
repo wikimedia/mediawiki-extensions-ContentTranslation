@@ -9,7 +9,8 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Validator;
 
 use ContentTranslation\AbuseFilterChecker;
-use ContentTranslation\RestbaseClient;
+use ContentTranslation\ParsoidClient;
+use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\TranslationUnit;
 use Exception;
 use Title;
@@ -19,12 +20,16 @@ class TranslationUnitValidator {
 	/** @var AbuseFilterChecker */
 	private $abuseFilterChecker;
 
-	/** @var RestbaseClient */
-	private $restbaseClient;
+	/** @var ParsoidClientFactory */
+	protected $parsoidClientFactory;
 
-	public function __construct( AbuseFilterChecker $abuseFilterChecker, RestbaseClient $restbaseClient ) {
+	public function __construct( AbuseFilterChecker $abuseFilterChecker, ParsoidClientFactory $parsoidClientFactory ) {
 		$this->abuseFilterChecker = $abuseFilterChecker;
-		$this->restbaseClient = $restbaseClient;
+		$this->parsoidClientFactory = $parsoidClientFactory;
+	}
+
+	protected function getParsoidClient(): ParsoidClient {
+		return $this->parsoidClientFactory->createParsoidClient();
 	}
 
 	/**
@@ -75,7 +80,7 @@ class TranslationUnitValidator {
 		// it should not affect the saving of translations.
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.
-			$text = $this->restbaseClient->convertHtmlToWikitext( $title, $sectionHTML );
+			$text = $this->getParsoidClient()->convertHtmlToWikitext( $title, $sectionHTML )['body'];
 			$results = $this->abuseFilterChecker->checkSectionForTitleAndUser( $user, $title, $text );
 		} catch ( Exception $e ) {
 			// Validation failed. But proceed.

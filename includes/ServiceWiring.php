@@ -5,8 +5,8 @@ declare( strict_types=1 );
 use ContentTranslation\AbuseFilterChecker;
 use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
-use ContentTranslation\RestbaseClient;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Store\RecentSignificantEditStore;
@@ -15,6 +15,7 @@ use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use ContentTranslation\WikidataIdFetcher;
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Services\NoSuchServiceException;
 
@@ -53,6 +54,16 @@ return [
 				new ServiceOptions( LoadBalancer::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
 		},
+	'ContentTranslation.ParsoidClientFactory' => static function (
+			MediaWikiServices $services
+		): ParsoidClientFactory {
+			return new ParsoidClientFactory(
+				new ServiceOptions( ParsoidClientFactory::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
+				$services->getHttpRequestFactory(),
+				LoggerFactory::getInstance( 'ContentTranslation' ),
+				$services->getPageRestHelperFactory()
+			);
+	},
 	'ContentTranslation.PreferenceHelper' =>
 		static function ( MediaWikiServices $services ): PreferenceHelper {
 			return new PreferenceHelper(
@@ -70,13 +81,6 @@ return [
 			return new RecentSignificantEditStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$wikiFamily
-			);
-		},
-	'ContentTranslation.RestbaseClient' =>
-		static function ( MediaWikiServices $services ): RestbaseClient {
-			return new RestbaseClient(
-				$services->getHttpRequestFactory(),
-				new ServiceOptions( RestbaseClient::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
 		},
 	'ContentTranslation.SandboxTitleMaker' =>
@@ -105,7 +109,7 @@ return [
 		static function ( MediaWikiServices $services ): TranslationUnitValidator {
 			return new TranslationUnitValidator(
 				$services->getService( 'ContentTranslation.AbuseFilterChecker' ),
-				$services->getService( 'ContentTranslation.RestbaseClient' )
+				$services->getService( 'ContentTranslation.ParsoidClientFactory' )
 			);
 		},
 	'ContentTranslation.WikidataIdFetcher' =>
