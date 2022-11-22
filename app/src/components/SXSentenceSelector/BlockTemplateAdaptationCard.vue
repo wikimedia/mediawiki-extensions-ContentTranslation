@@ -38,7 +38,7 @@
           class="px-0"
           type="text"
           progressive
-          @click="$emit('edit-translation', proposedBlockTranslation)"
+          @click="$emit('edit-translation', blockEditableContent)"
         >
           <span v-text="editBlockTranslationButtonLabel" />
         </mw-button>
@@ -114,8 +114,15 @@ export default {
       selectedContentTranslationUnit: selectedSubSection,
       targetLanguageAutonym,
       currentMTProvider,
-      proposedTranslation: proposedBlockTranslation,
+      proposedTranslation: blockProposedTranslation,
     } = useApplicationState(useStore());
+
+    const blockEditableContent = computed(() => {
+      const blockTranslation =
+        selectedSubSection.value?.blockTemplateTranslatedContent;
+
+      return blockTranslation || blockProposedTranslation.value;
+    });
 
     const targetTemplateName = computed(() =>
       selectedSubSection.value?.getTargetBlockTemplateNameByProvider(
@@ -227,13 +234,13 @@ export default {
     return {
       adaptationRatio,
       adaptedTemplateCardClass,
+      blockEditableContent,
       editBlockTranslationButtonLabel,
       isTemplateAdapted,
       mandatoryMissingTargetParamsCount,
       mwIconInfo,
       mwIconPuzzle,
       optionalMissingTargetParamsCount,
-      proposedBlockTranslation,
       showTemplateStatus,
       sourceParamsCount,
       sourceTemplateName,
