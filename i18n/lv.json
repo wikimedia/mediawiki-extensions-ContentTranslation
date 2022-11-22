@@ -425,5 +425,11 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publicēt",
 	"cx-contributecard-entrypoint-title": "Tulkojumi",
 	"cx-contributecard-entrypoint-desc": "Tulko vienu sadaļu vai visu rakstu. Padari vairāk satura pieejamu vairākās valodās.",
-	"cx-contributecard-entrypoint-cta": "Sākt tulkojumu"
+	"cx-contributecard-entrypoint-cta": "Sākt tulkojumu",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Līdzvērtīga veidne nav atrasta",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Šī veidne tiks pievienota tukša",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Šo veidni var daļēji pārtulkot",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Šo veidni var pārtulkot automātiski",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Ja zini līdzvērtīgu veidni $1, vari tās savienot Wikidata, lai ļautu rīkiem to atrast",
+	"cx-sx-block-template-no-source-params-text": "Oriģinālajā veidnē nebija pārnesamo parametru"
 }
