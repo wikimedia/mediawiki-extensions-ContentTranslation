@@ -70,7 +70,7 @@
     >
       <mw-language-selector
         class="sx-article-search-language-selector__widget col-12"
-        :languages="availableSourceLanguages"
+        :languages="supportedLanguageCodes"
         :suggestions="suggestedSourceLanguages"
         :placeholder="$i18n('cx-sx-language-selector-placeholder')"
         @select="onSourceLanguageSelected"
@@ -136,13 +136,6 @@ export default {
     const store = useStore();
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
     const { supportedLanguageCodes } = useMediawikiState();
-
-    /** @type {ComputedRef<string[]>} */
-    const availableSourceLanguages = computed(() =>
-      supportedLanguageCodes.value.filter(
-        (languageCode) => languageCode !== targetLanguage.value
-      )
-    );
 
     /**
      * Array of suggested language codes based on a list of criteria.
@@ -242,7 +235,7 @@ export default {
     } = usePageTranslationStart(router, store);
 
     return {
-      availableSourceLanguages,
+      supportedLanguageCodes,
       close,
       fullscreen,
       mwIconClose,
