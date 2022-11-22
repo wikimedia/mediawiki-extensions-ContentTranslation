@@ -155,7 +155,7 @@
 	"cx-stats-published-translations-label": "Հրապարակված թարգմանություններ",
 	"cx-stats-published-target-source": "Թարգմանություններ",
 	"cx-stats-weekly-published": "Անցած շաբաթ",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 թարգմանություն|$1 թարգմանություններ}}",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 թարգմանություն}}",
 	"cx-tools-missing-link-text": "Նշել էջը որպես բացակայող ստեղծումը խթանելու նպատակով",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Նշել}} որպես բացակայող",
 	"echo-category-title-cx": "Թարգմանություններ",
