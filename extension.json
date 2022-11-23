@@ -986,6 +986,7 @@
 				"sx-recent-edit-entrypoint-invitation-button-details"
 			],
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"dependencies": [
@@ -1026,6 +1027,7 @@
 				"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing"
 			],
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"dependencies": [
@@ -1066,6 +1068,7 @@
 		"ext.cx.entrypoints.languagesearcher.init": {
 			"es6": true,
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"scripts": [
@@ -1075,6 +1078,7 @@
 		"ext.cx.entrypoints.languagesearcher": {
 			"es6": true,
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"scripts": [
@@ -1091,6 +1095,7 @@
 		"ext.cx.entrypoints.mffrequentlanguages": {
 			"es6": true,
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"scripts": [
@@ -1111,6 +1116,7 @@
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
 			"es6": true,
 			"targets": [
+				"mobile",
 				"desktop"
 			],
 			"packageFiles": [
@@ -1159,6 +1165,7 @@
 		"ext.cx.entrypoints.newbytranslation.mobile": {
 			"es6": true,
 			"targets": [
+				"desktop",
 				"mobile"
 			],
 			"scripts": [
