@@ -41,7 +41,7 @@
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategor|0=Kategorî tune ne}}",
 	"cx-stats-title": "Satîstîkên Wergerandina Naverokê",
 	"cx-warning-unsaved-translation": "Wergerên te yên netomarkirî hene.",
-	"cx-page-selector-widget-recent-edits-label": "Guhertoyên te yên dawî",
+	"cx-page-selector-widget-recent-edits-label": "Guhartoyên te yên dawî",
 	"cx-selected-source-page-start-translation-button": "Dest bi wergerandinê bike",
 	"cx-selected-source-page-error-title-in-use": "Sernavê rûpela nû niha [$1 niha tê bikaranîn]",
 	"cx-page-number-of-languages": "Hejmara zimanan",
@@ -126,5 +126,7 @@
 	"cx-sx-section-selector-pick-other-translation-button-label": "Rûpeleke din bibijêre",
 	"cx-sx-section-selector-learn-more-anchor-label": "Zêdetir hîn bibe",
 	"cx-sx-sentence-selector-header-title": "Beş biguhere",
-	"cx-sx-sentence-selector-edit-translation-button-label": "Wergerê biguherîne"
+	"cx-sx-sentence-selector-edit-translation-button-label": "Wergerê biguhêre",
+	"cx-uls-relevant-languages-panel-header": "Vê rûpelê wergerîne",
+	"cx-uls-relevant-languages-panel-message": "Ev rûpel di hin zimanên ku hûn dizanin de winda ye. Hûn dikarin di çend deqeyan de wergerînin!"
 }

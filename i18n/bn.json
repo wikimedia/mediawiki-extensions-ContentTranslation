@@ -207,7 +207,7 @@
 	"cx-contributions-link": "আপনার অবদান",
 	"cx-your-translations-link": "{{GENDER:$1|আপনার অবদান}}",
 	"cx-translationlist-empty-title": "অনুবাদ করার মতো কিছু নেই?",
-	"cx-translationlist-empty-desc": "এখনই আপনার অনুবাদ {{GENDER:|শুরু করুন}} এবং পরে যে কোনো সময়ে এটিতে অনুবাদ করা শেষ করতে পারেন।",
+	"cx-translationlist-empty-desc": "এখনই অনুবাদ {{GENDER:|শুরু করুন}}। আপনি পরে যে কোনো সময়েও সেটির অনুবাদ কাজ চালিয়ে যেতে পারবেন।",
 	"cx-draft-restoring": "সংরক্ষিত অনুবাদ লোড করা হচ্ছে...",
 	"cx-draft-restored": "সংরক্ষিত অনুবাদ লোড করা হয়েছে।",
 	"cx-draft-restore-failed": "সংরক্ষিত অনুবাদ লোড করতে ব্যর্থ!",
