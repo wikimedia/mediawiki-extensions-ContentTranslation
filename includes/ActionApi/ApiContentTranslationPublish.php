@@ -203,8 +203,6 @@ class ApiContentTranslationPublish extends ApiBase {
 	}
 
 	public function publish() {
-		global $wgContentTranslationTranslateInTarget;
-
 		$params = $this->extractRequestParams();
 		$user = $this->getUser();
 
@@ -221,7 +219,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
 		}
 
-		if ( $wgContentTranslationTranslateInTarget ) {
+		if ( $this->getConfig()->get( 'ContentTranslationTranslateInTarget' ) ) {
 			$targetPage = SiteMapper::getTargetTitle(
 				$params['title'],
 				$user->getName()

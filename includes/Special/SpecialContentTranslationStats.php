@@ -54,11 +54,9 @@ class SpecialContentTranslationStats extends SpecialPage {
 	}
 
 	protected function addJsConfigVars() {
-		global $wgContentTranslationCampaigns;
-
 		$this->getOutput()->addJsConfigVars(
 			'wgContentTranslationCampaigns',
-			$wgContentTranslationCampaigns
+			$this->getConfig()->get( 'ContentTranslationCampaigns' )
 		);
 	}
 }
