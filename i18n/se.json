@@ -8,12 +8,18 @@
 	"cx-header-all-translations": "Buot jorgalusat",
 	"cx-tools-link-title": "Liŋka",
 	"cx-tools-link-add": "Lasit liŋkka",
+	"cx-dashboard-sidebar-feedback": "Atte máhcahaga",
 	"cx-translation-filter-suggested-translations": "Evttohusat",
 	"cx-translation-filter-label-all-languages": "Buot",
 	"cx-translation-filter-uls-all-languages": "Buot gielat",
+	"cx-feedback-link": "Atte máhcahaga",
 	"cx-campaign-no-thanks": "Ii giitu",
 	"cx-campaign-contributionsmenu-mycontributions": "Rievdadusat",
 	"cx-campaign-contributionsmenu-mytranslations": "Jorgalusat",
 	"cx-campaign-contributionsmenu-myuploads": "Mediafiillat",
+	"cx-tools-linter-learn-more": "Lassedieđut",
+	"cx-sx-existing-translation-learn-more": "Lassedieđut",
+	"cx-sx-section-selector-learn-more-anchor-label": "Lassedieđut",
+	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Lassedieđut",
 	"cx-sx-followup-feedback-new-indicator": "ođđa"
 }
