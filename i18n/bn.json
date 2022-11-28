@@ -14,7 +14,10 @@
 			"Runab",
 			"Sibabrata Banerjee",
 			"Titodutta",
-			"ZI Jony"
+			"ZI Jony",
+			"Yahya",
+			"আজিজ",
+			"খাত্তাব হাসান"
 		]
 	},
 	"cx": "পাতা অনুবাদ করুন",
@@ -214,7 +217,7 @@
 	"cx-contributions-link": "আপনার অবদান",
 	"cx-your-translations-link": "{{GENDER:$1|আপনার অবদান}}",
 	"cx-translationlist-empty-title": "অনুবাদ করার মতো কিছু নেই?",
-	"cx-translationlist-empty-desc": "এখনই আপনার অনুবাদ {{GENDER:|শুরু করুন}} এবং পরে যে কোনো সময়ে এটিতে অনুবাদ করা শেষ করতে পারেন।",
+	"cx-translationlist-empty-desc": "এখনই অনুবাদ {{GENDER:|শুরু করুন}}। আপনি পরে যে কোনো সময়েও সেটির অনুবাদ কাজ চালিয়ে যেতে পারবেন।",
 	"cx-tools-link-internal-link": "পাতা অনুসন্ধান করুন",
 	"cx-tools-link-internal-link-placeholder": "সংযোগ করতে পাতা খুঁজুন",
 	"cx-tools-link-external-link": "বহিঃসংযোগ",

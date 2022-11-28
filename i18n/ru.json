@@ -53,7 +53,8 @@
 			"Thothsum",
 			"Wileyfoxyx",
 			"Tanzun",
-			"NR Deblocked"
+			"NR Deblocked",
+			"UniCollab"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -324,7 +325,7 @@
 	"cx-translation-template-add-more": "Добавить больше полей",
 	"cx-translation-template-select-param": "Выберите целевые поля",
 	"cx-publish-settings": "Настройки публикации",
-	"cx-publish-destination-header": "Опубликовать цель",
+	"cx-publish-destination-header": "Место публикации",
 	"cx-publish-destination-tooltip": "Выберите пространство имён, в котором страница будет опубликована",
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-main-description": "В основном пространстве имён для чтения всеми",
