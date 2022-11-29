@@ -32,13 +32,6 @@ jest.mock("@/wiki/cx/api/translator", () => ({
       return mockErrorResult;
     }
   }),
-  saveTranslation: jest.fn(({ targetTitle }) => {
-    if (targetTitle === "Test target article title 3") {
-      return mockErrorPublishFeedbackMessageForSaving;
-    } else {
-      return null;
-    }
-  }),
 }));
 
 describe("vuex store publishTranslation action", () => {
@@ -82,42 +75,27 @@ describe("vuex store publishTranslation action", () => {
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
+  const dispatch = jest.fn((action) => {
+    if (action === "saveTranslation") {
+      if (
+        applicationState.currentSectionSuggestion?.targetTitle ===
+        "Test target article title 3"
+      ) {
+        return mockErrorPublishFeedbackMessageForSaving;
+      } else {
+        return null;
+      }
+    }
+  });
 
-  it("should call api saveTranslation method with the proper payload", async () => {
-    await actions.publishTranslation({ rootState, rootGetters });
+  it("should dispatch 'saveTranslation' action", async () => {
+    await actions.publishTranslation({ rootState, rootGetters, dispatch });
 
-    expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-      sourceSectionTitle: "Test section title 1",
-      targetSectionTitle: "Test target section title 1",
-      sourceLanguage: "en",
-      targetLanguage: "es",
-      revision: 11,
-      sectionId: "11_1",
-      units: [
-        {
-          content:
-            '<section id="cxSourceSection1"><span class="cx-segment">Target original sentence 1</span></section>',
-          origin: "source",
-          sectionId: "11_1_1",
-          validate: false,
-        },
-        {
-          content:
-            '<section id="cxSourceSection1"><span class="cx-segment">Target translated sentence 1</span></section>',
-          origin: "user",
-          sectionId: "11_1_1",
-          validate: false,
-        },
-      ],
-      isLeadSection: false,
-      isSandbox: false,
-    });
+    expect(dispatch).toHaveBeenCalledWith("saveTranslation");
   });
 
   it("should call api publishTranslation method with the proper payload", async () => {
-    await actions.publishTranslation({ rootState, rootGetters });
+    await actions.publishTranslation({ rootState, rootGetters, dispatch });
 
     expect(cxTranslatorApi.publishTranslation).toHaveBeenCalledWith({
       html: '<span class="cx-segment">Target translated sentence 1</span>',
@@ -136,70 +114,12 @@ describe("vuex store publishTranslation action", () => {
     const feedbackMessage = await actions.publishTranslation({
       rootState,
       rootGetters,
+      dispatch,
     });
 
     expect(feedbackMessage).toStrictEqual({
       publishFeedbackMessage: null,
       targetTitle: "successful result target title",
-    });
-  });
-
-  it("should add the translation units to the payload", async () => {
-    const blockTemplateWrapper = document.createElement("section");
-    blockTemplateWrapper.setAttribute("id", "cxSourceSection12");
-
-    const blockTemplateNode = document.createElement("div");
-    blockTemplateNode.setAttribute("about", "template-about");
-    blockTemplateWrapper.appendChild(blockTemplateNode);
-
-    const subSection1 = new SubSection({
-      node: blockTemplateWrapper,
-      sentences: [],
-    });
-
-    subSection1.blockTemplateTranslatedContent = "Block template translation 1";
-    subSection1.blockTemplateProposedTranslations = {
-      Google: "Block Google translation 1",
-      Flores: "Block Flores translation 1",
-    };
-    subSection1.blockTemplateMTProviderUsed = "Google";
-    applicationState.currentSourceSection.subSections = [subSection1];
-
-    await actions.publishTranslation({ rootState, rootGetters });
-
-    expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-      sourceSectionTitle: "Test section title 1",
-      targetSectionTitle: "Test target section title 1",
-      sourceLanguage: "en",
-      targetLanguage: "es",
-      revision: 11,
-      isLeadSection: false,
-      isSandbox: false,
-      sectionId: "11_1",
-      units: [
-        {
-          content: blockTemplateWrapper.outerHTML,
-          sectionId: "11_1_12",
-          validate: false,
-          origin: "source",
-        },
-        {
-          content:
-            '<section id="cxSourceSection12">Block template translation 1</section>',
-          sectionId: "11_1_12",
-          validate: false,
-          origin: "user",
-        },
-        {
-          content:
-            '<section id="cxSourceSection12">Block Google translation 1</section>',
-          sectionId: "11_1_12",
-          validate: false,
-          origin: "Google",
-        },
-      ],
     });
   });
 
@@ -210,6 +130,7 @@ describe("vuex store publishTranslation action", () => {
     const result = await actions.publishTranslation({
       rootState,
       rootGetters,
+      dispatch,
     });
     expect(cxTranslatorApi.publishTranslation).toHaveReturnedWith(
       mockErrorResult
@@ -223,8 +144,9 @@ describe("vuex store publishTranslation action", () => {
     const result = await actions.publishTranslation({
       rootState,
       rootGetters,
+      dispatch,
     });
-    expect(cxTranslatorApi.saveTranslation).toHaveReturnedWith(
+    expect(dispatch).toHaveReturnedWith(
       mockErrorPublishFeedbackMessageForSaving
     );
     expect(result).toStrictEqual({
@@ -237,7 +159,7 @@ describe("vuex store publishTranslation action", () => {
     applicationState.currentSectionSuggestion = null;
 
     try {
-      await actions.publishTranslation({ rootState, rootGetters });
+      await actions.publishTranslation({ rootState, rootGetters, dispatch });
     } catch (e) {
       expect(e.message).toBe(
         "Current source section cannot be empty during publishing"

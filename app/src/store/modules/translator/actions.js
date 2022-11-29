@@ -69,23 +69,20 @@ function validateMT({ rootState }) {
 }
 
 /**
- * This action is only reachable when no publish error messages exist.
- * When dispatched, it publishes the current section using translator
- * api client, and it finally resolves to the return value from "publishTranslation"
- * api method, that can be either a PublishFeedbackMessage model or null.
+ * This action is called:
+ * a. after each segment translation (either by clicking on the "Apply the translation" button
+ * or by editing a segment in the Visual Editor),
+ * b. just before publishing a section translation
+ * It basically sends a request to the "sxsave" with the proper payload, to store the parallel
+ * corpora and create/update the translation in the "cx_translations" and "cx_section_translations"
+ * database tables.
  *
  * @param {object} context
  * @param {object} context.rootState
  * @param {object} context.rootGetters
- * @param {object} payload
- * @param {string|number} payload.captchaId
- * @param {string|number} payload.captchaAnswer
- * @return {Promise<{publishFeedbackMessage: (PublishFeedbackMessage|null), targetTitle: (string|null)}>}
+ * @return {Promise<PublishFeedbackMessage|null>}
  */
-async function publishTranslation(
-  { rootState, rootGetters },
-  { captchaId, captchaAnswer } = {}
-) {
+function saveTranslation({ rootState, rootGetters }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -97,7 +94,7 @@ async function publishTranslation(
   } = rootState.application;
 
   if (!currentSectionSuggestion) {
-    throw new Error("Current source section cannot be empty during publishing");
+    throw new Error("Current source section cannot be empty during saving");
   }
 
   const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](
@@ -118,9 +115,9 @@ async function publishTranslation(
 
   /**
    * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
-   * @type {PublishFeedbackMessage|null}
+   * @type {Promise<PublishFeedbackMessage|null>}
    */
-  const saveMessage = await cxTranslatorApi.saveTranslation({
+  return cxTranslatorApi.saveTranslation({
     sourceTitle: currentSectionSuggestion.sourceTitle,
     targetTitle,
     sourceSectionTitle: currentSourceSection.originalTitle,
@@ -134,10 +131,51 @@ async function publishTranslation(
     sectionId: baseSectionId,
     isSandbox,
   });
+}
+
+/**
+ * This action is only reachable when no publish error messages exist.
+ * When dispatched, it publishes the current section using translator
+ * api client, and it finally resolves to the return value from "publishTranslation"
+ * api method, that can be either a PublishFeedbackMessage model or null.
+ *
+ * @param {object} context
+ * @param {object} context.rootState
+ * @param {object} context.rootGetters
+ * @param {function} context.dispatch
+ * @param {object} payload
+ * @param {string|number} payload.captchaId
+ * @param {string|number} payload.captchaAnswer
+ * @return {Promise<{publishFeedbackMessage: (PublishFeedbackMessage|null), targetTitle: (string|null)}>}
+ */
+async function publishTranslation(
+  { rootState, rootGetters, dispatch },
+  { captchaId, captchaAnswer } = {}
+) {
+  const saveMessage = await dispatch("saveTranslation");
 
   if (!!saveMessage) {
     return { publishFeedbackMessage: saveMessage, targetTitle: null };
   }
+
+  const sourcePage = rootGetters["application/getCurrentPage"];
+  const {
+    /** @type {PageSection} */
+    currentSourceSection,
+    /** @type {SectionSuggestion} */
+    currentSectionSuggestion,
+    sourceLanguage,
+    targetLanguage,
+  } = rootState.application;
+
+  if (!currentSectionSuggestion) {
+    throw new Error("Current source section cannot be empty during publishing");
+  }
+
+  const targetTitle =
+    currentSectionSuggestion.targetTitle || currentSourceSection.title;
+
+  const isSandbox = rootGetters["application/isSandboxTarget"];
 
   const publishPayload = {
     html: cleanupHtml(currentSourceSection.translationHtml),
@@ -241,6 +279,7 @@ async function translateContent(
 
 export default {
   validateMT,
+  saveTranslation,
   publishTranslation,
   fetchTranslations,
   translateContent,

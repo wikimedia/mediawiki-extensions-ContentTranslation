@@ -10,6 +10,31 @@ import {
   isTransclusionNode,
   targetTemplateExists,
 } from "../../../utils/templateHelper";
+import debounce from "../../../utils/debounce";
+
+/**
+ * In order to save the draft section translation and its parallel corpora,
+ * during "Pick a sentence" step, we use the debounced "translator/saveTranslation"
+ * action. This way, we avoid to send more than one "save" request every 3 seconds,
+ * since each "save" request overrides the previous one. For this reason, the debounced
+ * action is executed in the trailing edge of the waiting time, meaning that only the
+ * last call for "save" is actually executed. This debounced action is used both when
+ * the "Apply translation" button and when an edited translation is applied.
+ *
+ * @type {function}
+ */
+let debouncedSaveTranslation;
+
+const getDebouncedSaveTranslation = (dispatch) => {
+  if (!debouncedSaveTranslation) {
+    debouncedSaveTranslation = debounce(
+      dispatch.bind(null, "translator/saveTranslation", {}, { root: true }),
+      3000
+    );
+  }
+
+  return debouncedSaveTranslation;
+};
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -318,6 +343,8 @@ function applyProposedTranslationToSelectedTranslationUnit({
     translation,
     currentMTProvider
   );
+  const dispatchedSave = getDebouncedSaveTranslation(dispatch);
+  dispatchedSave();
   dispatch("selectNextTranslationUnit");
 }
 
@@ -367,6 +394,8 @@ async function applyEditedTranslationToSelectedTranslationUnit(
     translation,
     currentMTProvider
   );
+  const dispatchedSave = getDebouncedSaveTranslation(dispatch);
+  dispatchedSave();
   dispatch("selectNextTranslationUnit");
 }
 
