@@ -66,6 +66,7 @@ import {
   mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import { useStore } from "vuex";
 
 export default {
   name: "CxTranslationWork",
@@ -76,46 +77,47 @@ export default {
       required: true,
     },
   },
-  data: () => ({
-    mwIconEdit,
-    mwIconTrash,
-    mwIconArrowForward,
-    mwIconArrowNext,
-  }),
-  methods: {
-    getAutonym,
-    getDir,
-    onClick(e) {
-      this.$emit("click", e);
-      this.startTranslation(this.translation);
-    },
-    /**
-     * Start the translation editor
-     * @param {Translation} translation
-     */
-    startTranslation(translation) {
+  emits: ["click"],
+  setup(props, { emit }) {
+    const startTranslation = () => {
       // Set CX token as cookie.
       siteMapper.setCXToken(
-        translation.sourceLanguage,
-        translation.targetLanguage,
-        translation.sourceTitle
+        props.translation.sourceLanguage,
+        props.translation.targetLanguage,
+        props.translation.sourceTitle
       );
       location.href = siteMapper.getCXUrl(
-        translation.sourceTitle,
-        translation.targetTitle,
-        translation.sourceLanguage,
-        translation.targetLanguage,
+        props.translation.sourceTitle,
+        props.translation.targetTitle,
+        props.translation.sourceLanguage,
+        props.translation.targetLanguage,
         { campaign: new mw.Uri().query.campaign }
       );
-    },
-    getPage(language, title) {
-      return this.$store.getters["mediawiki/getPage"](language, title);
-    },
-    getImage(language, title) {
-      const page = this.getPage(language, title);
+    };
+
+    const store = useStore();
+
+    const getImage = (language, title) => {
+      const page = store.getters["mediawiki/getPage"](language, title);
 
       return page?.thumbnail;
-    },
+    };
+
+    const onClick = (event) => {
+      emit("click", event);
+      startTranslation();
+    };
+
+    return {
+      getAutonym,
+      getDir,
+      getImage,
+      mwIconEdit,
+      mwIconTrash,
+      mwIconArrowForward,
+      mwIconArrowNext,
+      onClick,
+    };
   },
 };
 </script>
