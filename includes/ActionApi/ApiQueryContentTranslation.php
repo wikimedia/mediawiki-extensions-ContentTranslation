@@ -13,6 +13,8 @@ use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
+use ContentTranslation\DTO\SectionTranslationDTO;
+use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -25,12 +27,18 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  */
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
+	/** @var SectionTranslationStore */
+	private $sectionTranslationStore;
+
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
+	 * @param SectionTranslationStore $sectionTranslationStore
 	 */
-	public function __construct( $query, $moduleName ) {
+	public function __construct( $query, $moduleName, SectionTranslationStore $sectionTranslationStore ) {
 		parent::__construct( $query, $moduleName );
+
+		$this->sectionTranslationStore = $sectionTranslationStore;
 	}
 
 	public function execute() {
@@ -104,19 +112,44 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		// Case D: Find list of translations
-		$translations = $translator->getAllTranslations(
-			$params['limit'],
-			$params['offset'],
-			$params['type'],
-			$params['from'],
-			$params['to']
-		);
+		// Case D: Find list of translations. Either section translations or article translations
+		$offset = null;
+		if ( $params['sectiontranslationsonly'] ) {
+			$sectionTranslations = $this->sectionTranslationStore->findSectionTranslationsByUser(
+				$translator->getGlobalUserId(),
+				$params['from'],
+				$params['to'],
+				$params['type'],
+				$params['limit'],
+				$params['offset']
+			);
 
-		// We will have extra continue in case the last batch is exactly the size of the limit
-		$count = count( $translations );
-		if ( $count === $params['limit'] ) {
-			$offset = $translations[$count - 1]->translation['lastUpdateTimestamp'];
+			$translations = array_map( static function ( SectionTranslationDTO $sectionTranslation ) {
+				return $sectionTranslation->toArray();
+			}, $sectionTranslations );
+
+			// We will have extra continue in case the last batch is exactly the size of the limit
+			$count = count( $sectionTranslations );
+			if ( $count === $params['limit'] ) {
+				$offset = $sectionTranslations[$count - 1]->getLastUpdatedTimestamp();
+			}
+		} else {
+			$translations = $translator->getAllTranslations(
+				$params['limit'],
+				$params['offset'],
+				$params['type'],
+				$params['from'],
+				$params['to']
+			);
+
+			$count = count( $translations );
+			if ( $count === $params['limit'] ) {
+				$offset = $translations[$count - 1]->translation['lastUpdateTimestamp'];
+			}
+		}
+
+		// We will have extra "continue" in case the last batch is exactly the size of the limit
+		if ( $offset ) {
 			$this->setContinueEnumParameter( 'offset', $offset );
 		}
 
@@ -232,6 +265,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				ParamValidator::PARAM_DEFAULT => null,
 				ParamValidator::PARAM_TYPE => [ 'draft', 'published' ],
 			],
+			'sectiontranslationsonly' => [
+				ParamValidator::PARAM_DEFAULT => false,
+				ParamValidator::PARAM_TYPE => 'boolean',
+
+			]
 		];
 		return $allowedParams;
 	}

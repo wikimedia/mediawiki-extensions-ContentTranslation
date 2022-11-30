@@ -32,6 +32,7 @@
 	"apihelp-query+contenttranslation-param-limit": "The maximum number of translations to fetch.",
 	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
 	"apihelp-query+contenttranslation-param-type": "State of the translation.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Whether section translations should be fetched, instead of article translations",
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",
 	"apihelp-query+contenttranslation-example-2": "Get translations draft by ID.",
 	"apihelp-query+contenttranslation-example-3": "Find any translation for the given title between given language pair",
