@@ -53,7 +53,8 @@
 			"Максим777",
 			"Петар Петковић",
 			"Умар",
-			"NR Deblocked"
+			"NR Deblocked",
+			"UniCollab"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -290,7 +291,7 @@
 	"cx-translator-total-translations-label": "Всего",
 	"cx-continue-translation": "Продолжить перевод",
 	"cx-publish-settings": "Настройки публикации",
-	"cx-publish-destination-header": "Опубликовать цель",
+	"cx-publish-destination-header": "Место публикации",
 	"cx-publish-destination-tooltip": "Выберите пространство имён, в котором страница будет опубликована",
 	"cx-publish-destination-namespace-main": "Новая страница",
 	"cx-publish-destination-namespace-main-description": "В основном пространстве имён для чтения всеми",
