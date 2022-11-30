@@ -4,8 +4,11 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Store;
 
+use ContentTranslation\DTO\SectionTranslationDTO;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\LoadBalancer;
+use Wikimedia\Rdbms\Platform\ISQLPlatform;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class SectionTranslationStore {
 	public const TABLE_NAME = 'cx_section_translations';
@@ -52,6 +55,77 @@ class SectionTranslationStore {
 			$row->cxsx_source_section_title,
 			$row->cxsx_target_section_title
 		);
+	}
+
+	/**
+	 * @param int $userId User ID
+	 * @param string|null $from
+	 * @param string|null $to
+	 * @param string|null $status The status of the translation. Either "draft" or "published"
+	 * @param int $limit How many results to return. Defaults to 100, same as for the "contenttranslation" list API
+	 * @param string|null $offset Offset condition (timestamp)
+	 * @return SectionTranslationDTO[]
+	 */
+	public function findSectionTranslationsByUser(
+		int $userId,
+		string $from = null,
+		string $to = null,
+		string $status = null,
+		int $limit = 100,
+		string $offset = null
+	): array {
+		// Note: there is no index on translation_last_updated_timestamp
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$onClauseConditions = [
+			'translator_translation_id = translation_id',
+			'translator_user_id' => $userId
+		];
+
+		$whereConditions = [];
+		if ( $status !== null ) {
+			$whereConditions['translation_status'] = $status;
+		}
+		if ( $from !== null ) {
+			$whereConditions['translation_source_language'] = $from;
+		}
+		if ( $to !== null ) {
+			$whereConditions['translation_target_language'] = $to;
+		}
+		if ( $offset !== null ) {
+			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );
+			$whereConditions[] = "translation_last_updated_timestamp < $ts";
+		}
+
+		$resultSet = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->join( 'cx_translations', null, 'translation_id = cxsx_translation_id' )
+			->join( 'cx_translators', null, $onClauseConditions )
+			->where( $whereConditions )
+			->orderBy( 'translation_last_updated_timestamp', SelectQueryBuilder::SORT_DESC )
+			->limit( $limit )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$result = [];
+		foreach ( $resultSet as $row ) {
+			$result[] = new SectionTranslationDTO(
+				$row->cxsx_translation_id,
+				$row->translation_source_title,
+				$row->translation_source_language,
+				$row->translation_target_language,
+				$row->translation_start_timestamp,
+				$row->translation_last_updated_timestamp,
+				$row->translation_status,
+				$row->translation_source_revision_id,
+				$row->translation_target_title,
+				$row->cxsx_source_section_title,
+				$row->cxsx_target_section_title,
+			);
+		}
+
+		return $result;
 	}
 
 	private function translationToDBRow( SectionTranslation $translation ): array {
