@@ -13,21 +13,23 @@
         <div class="row ma-0">
           <div class="col grow">
             <h5
-              class="cx-translation__source-title pb-2"
+              class="cx-translation__source-page-title"
+              :class="{
+                'cx-translation__primary-title':
+                  !translation.sourceSectionTitle,
+              }"
               :lang="translation.sourceLanguage"
-            >
-              {{ translation.sourceTitle }}
-            </h5>
+              v-text="translation.sourceTitle"
+            />
             <h6
-              class="cx-translation__target-title"
-              :lang="translation.targetLanguage"
-            >
-              {{ translation.targetTitle }}
-            </h6>
+              v-if="translation.sourceSectionTitle"
+              class="cx-translation__source-section-title cx-translation__primary-title"
+              :lang="translation.sourceLanguage"
+              v-text="translation.sourceSectionTitle"
+            />
           </div>
           <div class="col shrink ps-2">
             <mw-icon
-              :size="24"
               :icon="
                 translation.status === 'published' ? mwIconEdit : mwIconTrash
               "
@@ -35,19 +37,19 @@
             </mw-icon>
           </div>
         </div>
-        <div class="row ma-0 text-small">
+        <div class="row cx-translation__footer ma-0">
           <div class="cx-translation__languages col grow">
             <span
               class="mw-ui-autonym"
               :dir="getDir(translation.sourceLanguage)"
               v-text="getAutonym(translation.sourceLanguage)"
-            ></span>
-            <mw-icon :icon="mwIconArrowNext" class="mx-1" />
+            />
+            <mw-icon :icon="mwIconArrowNext" class="mx-1" :size="14" />
             <span
-              class="mw-ui-autonym"
+              class="mw-ui-autonym ma-0"
               :dir="getDir(translation.targetLanguage)"
               v-text="getAutonym(translation.targetLanguage)"
-            ></span>
+            />
           </div>
         </div>
       </div>
@@ -137,8 +139,24 @@ export default {
     background-color: @background-color-primary;
   }
 
-  .cx-translation__details {
+  &__details {
     height: 100%;
+  }
+
+  &__source-page-title {
+    font-size: 14px;
+    font-weight: @font-weight-normal;
+  }
+
+  &__primary-title {
+    font-weight: @font-weight-bold;
+    font-size: 1rem;
+  }
+
+  &__footer {
+    font-size: 14px;
+    color: @color-base--subtle;
+    line-height: 1;
   }
 }
 </style>
