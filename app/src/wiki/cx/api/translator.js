@@ -17,6 +17,7 @@ async function fetchTranslations(offset) {
     assert: "user",
     formatversion: 2,
     list: "contenttranslation",
+    sectiontranslationsonly: true,
   };
 
   if (offset) {
@@ -25,10 +26,9 @@ async function fetchTranslations(offset) {
 
   const api = new mw.Api();
 
-  //   withCredentials: true
   return api.get(params).then(async (response) => {
     const apiResponse = response.query.contenttranslation.translations;
-    let results = apiResponse.map((item) => new Translation(item.translation));
+    let results = apiResponse.map((item) => new Translation(item));
 
     if (response.continue?.offset) {
       const restOfResults = await fetchTranslations(response.continue.offset);

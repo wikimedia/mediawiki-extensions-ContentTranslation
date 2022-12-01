@@ -1,50 +1,47 @@
 export default class Translation {
   /**
-   * @param {Object} options
-   * @param {string} options.sourceLanguage
-   * @param {string} options.targetLanguage
-   * @param {string} options.sourceTitle
-   * @param {string} [options.targetTitle]
-   * @param {string} options.status
-   * @param {string} options.id
-   * @param {string} options.sourceURL
-   * @param {string} [options.targetURL]
-   * @param {string} [options.startTimestamp]
-   * @param {string} [options.lastUpdateTimestamp]
-   * @param {string} [options.lastUpdatedTranslator]
-   * @param {string} [options.startedTranslator]
-   * @param {string} [options.cxVersion]
-   * @param {Object} options.progress
+   * @param {string} translationId
+   * @param {string} sourceTitle
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
+   * @param {string} startTimestamp
+   * @param {string} lastUpdatedTimestamp
+   * @param {string} status
+   * @param {string} pageRevision
+   * @param {string|null} targetTitle
+   * @param {string|null} sourceSectionTitle
+   * @param {string|null} targetSectionTitle
    */
   constructor({
+    translationId,
+    sourceTitle,
     sourceLanguage,
     targetLanguage,
-    sourceTitle,
-    targetTitle,
-    status,
-    id,
-    sourceURL,
-    targetURL,
     startTimestamp,
-    lastUpdateTimestamp,
-    progress = {},
-    startedTranslator,
-    lastUpdatedTranslator,
-    cxVersion,
+    lastUpdatedTimestamp,
+    status,
+    pageRevision,
+    targetTitle,
+    sourceSectionTitle,
+    targetSectionTitle,
   }) {
-    this.id = id;
-    this.cxVersion = cxVersion;
+    this.id = translationId;
+    this.sourceTitle = sourceTitle;
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
-    this.sourceTitle = sourceTitle;
-    this.targetTitle = targetTitle;
-    this.sourceURL = sourceURL;
-    this.targetURL = targetURL;
-    this.progress = progress;
-    this.status = status;
-    this.startedTranslator = startedTranslator;
-    this.lastUpdatedTranslator = lastUpdatedTranslator;
-    this.lastUpdateTimestamp = lastUpdateTimestamp;
     this.startTimestamp = startTimestamp;
+    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
+    this.status = status;
+    this.pageRevision = pageRevision;
+    this.targetTitle = sourceTitle;
+    this.sourceSectionTitle = sourceSectionTitle;
+    this.targetSectionTitle = targetSectionTitle;
+    /**
+     * A boolean property, indicating whether the translation has already been restored for continuation.
+     * This property is used to avoid re-restoring a draft translation, which could override changes done
+     * on top of the restored translation.
+     * @type {boolean}
+     */
+    this.restored = false;
   }
 }
