@@ -6,8 +6,10 @@
 		]
 	},
 	"cx-dashboard-header": "Jurgâlusah",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|jurgâlum}}",
 	"cx-header-all-translations": "Puoh jurgâlusah",
 	"cx-publish-button": "Almostit",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Jurgâlum siskáldâs]]",
 	"cx-tools-instructions-text5": "{{GENDER:|Almostit}} jurgâlus",
 	"cx-tools-link-title": "Liŋkkâ",
 	"cx-tools-link-add": "Lasseet liiŋkâ",

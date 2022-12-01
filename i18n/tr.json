@@ -340,6 +340,8 @@
 	"cx-sx-sentence-selector-header-title": "Bölümü çevir",
 	"cx-sx-sentence-selector-done-button-label": "Yapıldı",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 üzerinden önerilen çeviri",
+	"cx-sx-proposed-translation-retry-button": "Tekrar dene",
+	"cx-sx-proposed-translation-other-options-button": "Diğer seçenekler",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi düzenle",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Uygula",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Atla",

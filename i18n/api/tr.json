@@ -10,6 +10,7 @@
 			"MuratTheTurkish",
 			"Sayginer",
 			"Stultiwikia",
+			"ToprakM",
 			"Watermelon juice",
 			"Ömer Berkay"
 		]
@@ -143,5 +144,9 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Sayfanın yeni revizyonunda bulunacak bölümün konumu.",
 	"apihelp-cxpublishsection-param-sourcerevid": "Kaynak sayfa revizyon kimliği.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha kimliği (captcha cevabı ile kaydederken)",
-	"apihelp-cxpublishsection-param-captchaword": "Captcha'ya cevap (captcha cevabı ile kaydederken)"
+	"apihelp-cxpublishsection-param-captchaword": "Captcha'ya cevap (captcha cevabı ile kaydederken)",
+	"apihelp-sxsave-param-sourcelanguage": "Kaynak dil kodu.",
+	"apihelp-sxsave-param-targetlanguage": "Hedef dil kodu.",
+	"apihelp-sxsave-param-sourcetitle": "Kaynak sayfanın başlığı.",
+	"apihelp-sxsave-param-targettitle": "Hedef sayfanın başlığı."
 }
