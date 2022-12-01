@@ -69,12 +69,11 @@ export default {
   },
   setup() {
     const store = useStore();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
-    const articleImageSource = computed(() => {
-      const sourceArticle = store.getters["application/getCurrentPage"];
-
-      return sourceArticle?.image?.source;
-    });
+    const { sourceLanguage, targetLanguage, currentSourcePage } =
+      useApplicationState(store);
+    const articleImageSource = computed(
+      () => currentSourcePage.value?.image?.source
+    );
     const route = useRoute();
     const { previousRoute, eventSource } = route.params;
     const logEvent = useEventLogging();

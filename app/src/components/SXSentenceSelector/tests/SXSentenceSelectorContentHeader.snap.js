@@ -1,19 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXSentenceSelector Section Content Header Component output matches snapshot 1`
-] = `
+exports[`SXSentenceSelector Section Content Header Component output matches snapshot 1`] = `
 <div
   class="col shrink sx-sentence-selector__section-header pa-5"
 >
   
   <a
     class="sx-sentence-selector__section-article-title mb-1"
-    href="https://en.wikipedia.org/wiki/Test source section title"
+    href="https://en.wikipedia.org/wiki/Test source article title"
     target="_blank"
   >
     <strong>
-      Test source section title
+      Test source article title
     </strong>
     <span
       class="mw-ui-icon notranslate ms-1"

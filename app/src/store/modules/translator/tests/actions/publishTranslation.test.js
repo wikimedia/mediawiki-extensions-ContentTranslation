@@ -60,10 +60,6 @@ describe("vuex store publishTranslation action", () => {
       ],
       isLeadSection: false,
     }),
-    currentSectionSuggestion: new SectionSuggestion({
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-    }),
   };
   applicationState.currentSourceSection.translatedTitle =
     "Test target section title 1";
@@ -71,14 +67,20 @@ describe("vuex store publishTranslation action", () => {
   const rootState = { application: applicationState };
 
   const rootGetters = {
-    "application/getCurrentPage": new Page({ lastrevid: 11 }),
+    "application/getCurrentPage": new Page({
+      lastrevid: 11,
+      title: "Test source title 1",
+    }),
+    "application/getCurrentTargetPage": new Page({
+      title: "Test target article title 1",
+    }),
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
   const dispatch = jest.fn((action) => {
     if (action === "saveTranslation") {
       if (
-        applicationState.currentSectionSuggestion?.targetTitle ===
+        rootGetters["application/getCurrentTargetPage"]?.title ===
         "Test target article title 3"
       ) {
         return mockErrorPublishFeedbackMessageForSaving;
@@ -124,8 +126,9 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty targetTitle, when publishing fails", async () => {
-    applicationState.currentSectionSuggestion.targetTitle =
-      "Test target article title 2";
+    rootGetters["application/getCurrentTargetPage"] = new Page({
+      title: "Test target article title 2",
+    });
     applicationState.currentSourceSection.subSections = [];
     const result = await actions.publishTranslation({
       rootState,
@@ -139,8 +142,10 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    applicationState.currentSectionSuggestion.targetTitle =
-      "Test target article title 3";
+    rootGetters["application/getCurrentTargetPage"] = new Page({
+      title: "Test target article title 3",
+    });
+
     const result = await actions.publishTranslation({
       rootState,
       rootGetters,
@@ -153,17 +158,5 @@ describe("vuex store publishTranslation action", () => {
       publishFeedbackMessage: mockErrorPublishFeedbackMessageForSaving,
       targetTitle: null,
     });
-  });
-
-  it("should throw and error when no current section suggestion exists", async () => {
-    applicationState.currentSectionSuggestion = null;
-
-    try {
-      await actions.publishTranslation({ rootState, rootGetters, dispatch });
-    } catch (e) {
-      expect(e.message).toBe(
-        "Current source section cannot be empty during publishing"
-      );
-    }
   });
 });

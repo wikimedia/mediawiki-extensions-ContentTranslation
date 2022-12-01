@@ -32,10 +32,6 @@ describe("vuex store saveTranslation action", () => {
       ],
       isLeadSection: false,
     }),
-    currentSectionSuggestion: new SectionSuggestion({
-      sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
-    }),
   };
   applicationState.currentSourceSection.translatedTitle =
     "Test target section title 1";
@@ -43,7 +39,13 @@ describe("vuex store saveTranslation action", () => {
   const rootState = { application: applicationState };
 
   const rootGetters = {
-    "application/getCurrentPage": new Page({ lastrevid: 11 }),
+    "application/getCurrentPage": new Page({
+      lastrevid: 11,
+      title: "Test source title 1",
+    }),
+    "application/getCurrentTargetPage": new Page({
+      title: "Test target article title 1",
+    }),
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
@@ -106,17 +108,5 @@ describe("vuex store saveTranslation action", () => {
         },
       ],
     });
-  });
-
-  it("should throw and error when no current section suggestion exists", async () => {
-    applicationState.currentSectionSuggestion = null;
-
-    try {
-      await actions.saveTranslation({ rootState, rootGetters, dispatch });
-    } catch (e) {
-      expect(e.message).toBe(
-        "Current source section cannot be empty during saving"
-      );
-    }
   });
 });

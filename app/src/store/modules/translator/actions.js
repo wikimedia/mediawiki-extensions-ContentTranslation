@@ -88,14 +88,13 @@ function saveTranslation({ rootState, rootGetters }) {
     /** @type {PageSection} */
     currentSourceSection,
     /** @type {SectionSuggestion} */
-    currentSectionSuggestion,
     sourceLanguage,
     targetLanguage,
   } = rootState.application;
 
-  if (!currentSectionSuggestion) {
-    throw new Error("Current source section cannot be empty during saving");
-  }
+  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
+  const sourceTitle = sourcePage.title;
+  const targetTitle = currentTargetPage?.title || sourceTitle;
 
   const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](
     sourceLanguage,
@@ -108,9 +107,6 @@ function saveTranslation({ rootState, rootGetters }) {
     validateParallelCorporaPayload(unit, supportedMTProviders)
   );
 
-  const targetTitle =
-    currentSectionSuggestion.targetTitle || currentSourceSection.title;
-
   const isSandbox = rootGetters["application/isSandboxTarget"];
 
   /**
@@ -118,7 +114,7 @@ function saveTranslation({ rootState, rootGetters }) {
    * @type {Promise<PublishFeedbackMessage|null>}
    */
   return cxTranslatorApi.saveTranslation({
-    sourceTitle: currentSectionSuggestion.sourceTitle,
+    sourceTitle,
     targetTitle,
     sourceSectionTitle: currentSourceSection.originalTitle,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
@@ -162,24 +158,19 @@ async function publishTranslation(
   const {
     /** @type {PageSection} */
     currentSourceSection,
-    /** @type {SectionSuggestion} */
-    currentSectionSuggestion,
     sourceLanguage,
     targetLanguage,
   } = rootState.application;
 
-  if (!currentSectionSuggestion) {
-    throw new Error("Current source section cannot be empty during publishing");
-  }
-
-  const targetTitle =
-    currentSectionSuggestion.targetTitle || currentSourceSection.title;
+  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
+  const sourceTitle = sourcePage.title;
+  const targetTitle = currentTargetPage?.title || sourceTitle;
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
 
   const publishPayload = {
     html: cleanupHtml(currentSourceSection.translationHtml),
-    sourceTitle: currentSectionSuggestion.sourceTitle,
+    sourceTitle,
     targetTitle,
     sourceSectionTitle: currentSourceSection.originalTitle,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,

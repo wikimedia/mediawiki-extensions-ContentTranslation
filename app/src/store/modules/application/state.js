@@ -5,6 +5,8 @@ export default {
   currentSectionSuggestion: null,
   /** @type PageSection */
   currentSourceSection: null,
+  /** @type Translation */
+  currentTranslation: null,
   /** @type String */
   currentMTProvider: "",
   /**

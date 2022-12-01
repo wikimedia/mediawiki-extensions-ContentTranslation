@@ -3,6 +3,7 @@ import router from "../../router";
 import SectionSentence from "../../wiki/cx/models/sectionSentence";
 import SubSection from "../../wiki/cx/models/subSection";
 import PageSection from "../../wiki/cx/models/pageSection";
+import Page from "../../wiki/mw/models/page";
 import useEditTranslation from "./useEditTranslation";
 
 const routerPushSpy = jest.spyOn(router, "push").mockImplementation(() => {});
@@ -22,20 +23,24 @@ describe("useEditTranslation test", () => {
       node: subSectionNode,
       sentences: [sentence],
     });
+
+    const sourcePage = new Page({ pagelanguage: "en", title: "Source title" });
+    const targetPage = new Page({ pagelanguage: "el", title: "Target title" });
     const store = createStore({
       modules: {
         application: {
           namespaced: true,
           state: {
-            currentSectionSuggestion: {
-              sourceLanguage: "en",
-              targetLanguage: "el",
-              targetTitle: "Target title",
-            },
+            sourceLanguage: "en",
+            targetLanguage: "el",
             currentSourceSection: new PageSection({
               id: 101,
               subSections: [subSection],
             }),
+          },
+          getters: {
+            getCurrentPage: () => sourcePage,
+            getCurrentTargetPage: () => targetPage,
           },
         },
       },

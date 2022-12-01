@@ -67,8 +67,10 @@ export default {
   setup() {
     const store = useStore();
 
-    const { currentSectionSuggestion: sectionSuggestion } =
-      useApplicationState(store);
+    const {
+      currentSectionSuggestion: sectionSuggestion,
+      currentSourcePage: sourceArticle,
+    } = useApplicationState(store);
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
 
@@ -105,9 +107,6 @@ export default {
       isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite
     );
 
-    const sourceArticle = computed(
-      () => store.getters["application/getCurrentPage"]
-    );
     const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
     const sourceArticlePath = computed(() =>
       siteMapper.getPageUrl(

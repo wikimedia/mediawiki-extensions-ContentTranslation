@@ -5,7 +5,7 @@
       target="_blank"
       class="sx-sentence-selector__section-article-title mb-1"
     >
-      <strong v-text="suggestion.sourceTitle" />
+      <strong v-text="sourceArticleTitle" />
       <mw-icon :icon="mwIconLinkExternal" class="ms-1" size="12" />
     </a>
     <!--eslint-disable vue/no-v-html -->
@@ -34,25 +34,21 @@ export default {
     const store = useStore();
 
     const titleClass = "sx-sentence-selector__section-title";
-    const currentPage = computed(
-      () => store.getters["application/getCurrentPage"]
-    );
 
     const {
-      currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
       isSectionTitleSelected,
+      currentSourcePage: currentPage,
+      sourceLanguage,
     } = useApplicationState(store);
 
+    const sourceArticleTitle = computed(() => currentPage.value.title);
     const sourceSectionTitle = computed(
-      () => currentPageSection.value?.title || currentPage.value.title
+      () => currentPageSection.value?.title || sourceArticleTitle.value
     );
 
     const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(
-        suggestion.value.sourceLanguage,
-        suggestion.value.sourceTitle
-      )
+      siteMapper.getPageUrl(sourceLanguage.value, sourceArticleTitle.value)
     );
 
     const isSectionTitleTranslated = computed(
@@ -80,8 +76,8 @@ export default {
       mwIconLinkExternal,
       selectSectionTitle,
       sourceArticlePath,
+      sourceArticleTitle,
       sourceSectionTitle,
-      suggestion,
       titleClasses,
     };
   },

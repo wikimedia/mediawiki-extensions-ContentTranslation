@@ -357,10 +357,11 @@ function applyProposedTranslationToSelectedTranslationUnit({
  * @param {object} context.state
  * @param {function} context.dispatch
  * @param {function} context.commit
+ * @param {object} context.getters
  * @param {string} translation
  */
 async function applyEditedTranslationToSelectedTranslationUnit(
-  { state, dispatch, commit },
+  { state, dispatch, commit, getters },
   translation
 ) {
   commit("setTranslationInProgress", true);
@@ -376,7 +377,11 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   const { selectedContentTranslationUnit } = currentSourceSection;
 
   if (selectedContentTranslationUnit instanceof SubSection) {
-    const { sourceTitle, targetTitle } = state.currentSectionSuggestion;
+    const currentSourcePage = getters.getCurrentPage;
+    const currentTargetPage = getters.getCurrentTargetPage;
+    const sourceTitle = currentSourcePage.title;
+    const targetTitle = currentTargetPage?.title;
+
     /** @type {Element} */
     const templateElement = Array.from(div.children).find((node) =>
       isTransclusionNode(node)
@@ -447,7 +452,7 @@ function selectPreviousTranslationUnit({ state, dispatch }) {
  * @return {Promise<void>}
  */
 async function initializeMTProviders({ state, dispatch, rootGetters, commit }) {
-  const { sourceLanguage, targetLanguage } = state.currentSectionSuggestion;
+  const { sourceLanguage, targetLanguage } = state;
   await dispatch(
     "mediawiki/fetchMTProviders",
     { sourceLanguage, targetLanguage },
@@ -502,25 +507,26 @@ function updateMTProvider({ commit, dispatch, state }, provider) {
  * @param {function} context.commit
  * @param {object} context.state
  * @param {function} context.dispatch
+ * @param {object} context.getters
  * @param {object} payload
  * @param {string|0} payload.id
  * @param {string} payload.provider
  */
 async function translateTranslationUnitById(
-  { commit, state, dispatch },
+  { commit, state, dispatch, getters },
   { id, provider }
 ) {
-  const {
-    currentSectionSuggestion,
-    currentSourceSection: sourceSection,
-    targetLanguage,
-  } = state;
+  const { currentSourceSection: sourceSection, targetLanguage } = state;
 
   if (sourceSection.hasProposedTranslationByTranslationUnitId(id, provider)) {
     return;
   }
 
-  const { sourceTitle, targetTitle } = currentSectionSuggestion;
+  const currentSourcePage = getters.getCurrentPage;
+  const currentTargetPage = getters.getCurrentTargetPage;
+  const sourceTitle = currentSourcePage.title;
+  const targetTitle = currentTargetPage?.title;
+
   let originalContent = sourceSection.getOriginalContentByTranslationUnitId(id);
 
   const translationUnit = sourceSection.getContentTranslationUnitById(id);

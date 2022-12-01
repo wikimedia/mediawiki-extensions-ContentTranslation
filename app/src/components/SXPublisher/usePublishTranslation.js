@@ -28,8 +28,13 @@ const handlePublishResult = async (
 
     return;
   }
-  const { currentSectionSuggestion: suggestion, currentSourceSection } =
-    useApplicationState(store);
+  const {
+    currentSourceSection,
+    sourceLanguage,
+    targetLanguage,
+    currentSourcePage,
+  } = useApplicationState(store);
+
   const translatedTitle = currentSourceSection?.value.title;
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
@@ -38,10 +43,10 @@ const handlePublishResult = async (
     // Add wikibase link, wait for it, but failure is acceptable
     try {
       await siteApi.addWikibaseLink(
-        suggestion.value.sourceLanguage,
-        suggestion.value.targetLanguage,
-        suggestion.value.sourceTitle,
-        translatedTitle
+        sourceLanguage.value,
+        targetLanguage.value,
+        currentSourcePage.value.title,
+        translatedTitle // TODO: This is wrong and should be fixed. Target page title should be used here, NOT target section title
       );
     } catch (error) {
       mw.log.error("Error while adding wikibase link", error);
@@ -64,9 +69,9 @@ const handlePublishResult = async (
   // as an argument for "mw.util.getUrl"
   location.href = getUrl(decodeURIComponent(targetTitle), {
     "sx-published-section": decodeHtml(translatedTitle),
-    "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
-    "sx-source-language": suggestion.value.sourceLanguage,
-    "sx-target-language": suggestion.value.targetLanguage,
+    "sx-source-page-title": decodeHtml(currentSourcePage.value.title),
+    "sx-source-language": sourceLanguage.value,
+    "sx-target-language": targetLanguage.value,
   });
 };
 

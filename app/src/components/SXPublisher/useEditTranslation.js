@@ -3,8 +3,11 @@ import { computed } from "vue";
 
 const useEditTranslation = (store, router) => {
   const {
-    currentSectionSuggestion: suggestion,
+    currentSourcePage,
+    currentTargetPage,
     currentSourceSection: pageSection,
+    sourceLanguage,
+    targetLanguage,
   } = useApplicationState(store);
 
   const content = computed(() =>
@@ -22,9 +25,9 @@ const useEditTranslation = (store, router) => {
       name: "sx-editor",
       params: {
         content: content.value,
-        sourceLanguage: suggestion.value.sourceLanguage,
-        targetLanguage: suggestion.value.targetLanguage,
-        title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
+        title: currentTargetPage.value?.title || currentSourcePage.value?.title,
         isFinalEdit: true,
       },
     });

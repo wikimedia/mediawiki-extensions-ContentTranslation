@@ -39,10 +39,20 @@ export default function (store) {
     () => store.getters["application/getCurrentProposedTranslation"]
   );
 
+  const currentSourcePage = computed(
+    () => store.getters["application/getCurrentPage"]
+  );
+
+  const currentTargetPage = computed(
+    () => store.getters["application/getCurrentTargetPage"]
+  );
+
   return {
     currentMTProvider,
     currentSectionSuggestion,
+    currentSourcePage,
     currentSourceSection,
+    currentTargetPage,
     isSectionTitleSelected,
     proposedTranslation,
     selectedContentTranslationUnit,

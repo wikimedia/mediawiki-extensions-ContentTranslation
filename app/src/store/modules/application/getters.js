@@ -8,17 +8,20 @@ export default {
    * @param {object} rootGetters
    * @return {Page|null}
    */
-  getCurrentPage: (state, getters, rootState, rootGetters) =>
-    rootGetters["mediawiki/getPage"](
-      state.currentSectionSuggestion?.sourceLanguage,
-      state.currentSectionSuggestion?.sourceTitle
-    ),
+  getCurrentPage: (state, getters, rootState, rootGetters) => {
+    const title =
+      state.currentSectionSuggestion?.sourceTitle ||
+      state.currentTranslation?.sourceTitle;
 
-  getCurrentTargetPage: (state, getters, rootState, rootGetters) =>
-    rootGetters["mediawiki/getPage"](
-      state.currentSectionSuggestion.targetLanguage,
-      state.currentSectionSuggestion.targetTitle
-    ),
+    return rootGetters["mediawiki/getPage"](state.sourceLanguage, title);
+  },
+  getCurrentTargetPage: (state, getters, rootState, rootGetters) => {
+    const title =
+      state.currentSectionSuggestion?.targetTitle ||
+      state.currentTranslation?.targetTitle;
+
+    return rootGetters["mediawiki/getPage"](state.targetLanguage, title);
+  },
 
   getCurrentSourceSectionTitle: (state) =>
     state.currentSourceSection?.originalTitle || "",

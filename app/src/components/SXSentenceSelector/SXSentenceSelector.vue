@@ -119,7 +119,8 @@ export default {
     const store = useStore();
 
     const {
-      currentSectionSuggestion: suggestion,
+      currentSourcePage,
+      currentTargetPage,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
       currentMTProvider,
@@ -195,10 +196,10 @@ export default {
         name: "sx-editor",
         params: {
           content,
-          sourceLanguage: suggestion.value.sourceLanguage,
-          targetLanguage: suggestion.value.targetLanguage,
+          sourceLanguage: sourceLanguage.value,
+          targetLanguage: targetLanguage.value,
           originalContent: originalSegmentContent.value,
-          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+          title: currentTargetPage.value.title || currentSourcePage.value.title,
           isInitialEdit: isInitialEdit || null,
         },
       });
@@ -278,7 +279,7 @@ export default {
       sentenceSelectorStyle,
       shouldProposedTranslationBounce,
       skipTranslation,
-      sourceLanguage: suggestion.value.sourceLanguage,
+      sourceLanguage,
       subSections,
       retryTranslation,
     };
