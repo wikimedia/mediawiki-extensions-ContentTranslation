@@ -451,5 +451,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publicera",
 	"cx-contributecard-entrypoint-title": "Översättningar",
 	"cx-contributecard-entrypoint-desc": "Översätt ett avsnitt eller en hel artikel. Gör mer innehåll tillgängligt på fler språk.",
-	"cx-contributecard-entrypoint-cta": "Påbörja en översättning"
+	"cx-contributecard-entrypoint-cta": "Påbörja en översättning",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Ingen motsvarande mall hittades",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Denna mall kommer att vara tom när den läggs till",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Denna mall kan delvis översättas",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Denna mall kan översättas automatiskt",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Mallstrukturen på båda språken är alltför olika och ingen data kan överföras automatiskt",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Mallstrukturen på båda språken är liknande och en del data kan överföras automatiskt",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Mallstrukturen på båda språken är liknande och all data kan överföras automatiskt",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Om du känner till en likvärdig mall på $1 kan du sammankoppla dem på Wikidata för att låta verktygen hitta den",
+	"cx-sx-block-template-none-mapped-param-text": "Inga parametrar från $1 lades till från originalmallen",
+	"cx-sx-block-template-mapped-params-text": "$1 av {{PLURAL:$2|$2 parameter|$2 parametrar}} lades till från originalmallen",
+	"cx-sx-block-template-no-source-params-text": "Originalmallen hade inga parametrar att överföra",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatoriska parametrar förblir ofyllda för mallen på $2. Redigera mallen för att fylla i dem manuellt",
+	"cx-sx-block-template-missing-optional-params-text": "$1 ytterligare parametrar kan fyllas i för mallen på $2. Redigera mallen för att fylla i dem manuellt"
 }
