@@ -15,7 +15,7 @@
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|аударылды}}",
 	"cx-header-progressbar-text-mt": "($1% бөлігі {{PLURAL:$1|машиналық аударма}} арқылы)",
 	"cx-header-translation-center": "Аударма орталығы",
-	"cx-header-all-translations": "Барлық аудармалар",
+	"cx-header-all-translations": "Барлық аударма",
 	"cx-source-view-page": "бетті көру",
 	"cx-publish-page-success": "$1 беті жарияланды",
 	"cx-publish-page-error": "Аударманы жариялау кезіне қате орын алды. Бетті жариялау үшін қайта сынап көріңіз. Қате: $1",
