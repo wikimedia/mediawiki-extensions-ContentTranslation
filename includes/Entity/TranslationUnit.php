@@ -6,7 +6,7 @@
  * @license GPL-2.0-or-later
  */
 
-namespace ContentTranslation;
+namespace ContentTranslation\Entity;
 
 class TranslationUnit {
 	/** @var int|null */

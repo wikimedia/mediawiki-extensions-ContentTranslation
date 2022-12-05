@@ -6,9 +6,9 @@
 
 namespace ContentTranslation\Store;
 
+use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
-use ContentTranslation\TranslationUnit;
 use Exception;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;

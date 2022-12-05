@@ -9,9 +9,9 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Validator;
 
 use ContentTranslation\AbuseFilterChecker;
+use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
-use ContentTranslation\TranslationUnit;
 use Exception;
 use Title;
 use User;
