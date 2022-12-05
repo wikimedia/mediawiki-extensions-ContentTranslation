@@ -50,5 +50,6 @@
 	"apihelp-cxpublishsection-param-targetlanguage": "Codul limbii țintă.",
 	"apihelp-cxpublishsection-param-sourcetitle": "Titlul paginii sursă.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "Titlul secțiunii sursă.",
-	"apihelp-cxpublishsection-param-targetsectiontitle": "Titlul secțiunii țintă."
+	"apihelp-cxpublishsection-param-targetsectiontitle": "Titlul secțiunii țintă.",
+	"apierror-cxpublishsection-translationnotfound": "Traducere negăsită."
 }

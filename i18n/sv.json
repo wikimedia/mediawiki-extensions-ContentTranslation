@@ -434,7 +434,7 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Granska och redigera översättningen",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Redigera översättningen",
 	"sx-block-template-adaptation-card-body-header-failure": "Motsvarande mall för $1 finns inte tillgänglig",
-	"sx-missing-languages-entrypoint-panel-text-one-missing": "Saknas i <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Saknas på <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Saknas i <span>$1</span> och <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Saknas i <span>$1</span>, <span>$2</span> och andra",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Saknas i <span>$1</span> och andra",
