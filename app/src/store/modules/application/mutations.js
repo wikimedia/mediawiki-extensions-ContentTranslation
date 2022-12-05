@@ -42,6 +42,14 @@ const mutations = {
   },
 
   /**
+   * @param {object} state
+   * @param {Translation} translation
+   */
+  setCurrentTranslation(state, translation) {
+    state.currentTranslation = translation;
+  },
+
+  /**
    * @param state
    * @param {PageSection} section
    */

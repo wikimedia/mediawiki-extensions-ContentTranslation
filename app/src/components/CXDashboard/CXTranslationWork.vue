@@ -67,8 +67,11 @@ import {
   mwIconArrowForward,
   mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
-import { siteMapper } from "@/utils/mediawikiHelper";
 import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { loadVEModules } from "@/plugins/ve";
 
 export default {
   name: "CxTranslationWork",
@@ -81,20 +84,37 @@ export default {
   },
   emits: ["click"],
   setup(props, { emit }) {
-    const startTranslation = () => {
-      // Set CX token as cookie.
-      siteMapper.setCXToken(
-        props.translation.sourceLanguage,
-        props.translation.targetLanguage,
-        props.translation.sourceTitle
+    const router = useRouter();
+
+    const startTranslation = async () => {
+      store.dispatch(
+        "application/restoreSectionTranslation",
+        props.translation
       );
-      location.href = siteMapper.getCXUrl(
-        props.translation.sourceTitle,
-        props.translation.targetTitle,
-        props.translation.sourceLanguage,
-        props.translation.targetLanguage,
-        { campaign: new mw.Uri().query.campaign }
+
+      const { currentSourcePage } = useApplicationState(store);
+
+      const { sourceLanguage, targetLanguage, sourceTitle } = props.translation;
+      await store.dispatch("mediawiki/fetchPageContent", {
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+      });
+
+      // Asynchronously resolve references and update page sections to
+      // include this resolved references
+      await loadVEModules();
+      await store.dispatch("mediawiki/resolvePageContentReferences", {
+        sourceLanguage,
+        sourceTitle,
+      });
+
+      const section = currentSourcePage.value.getSectionByTitle(
+        props.translation.sourceSectionTitle
       );
+
+      store.commit("application/setCurrentSourceSection", section);
+      router.push({ name: "sx-sentence-selector", params: { force: true } });
     };
 
     const store = useStore();

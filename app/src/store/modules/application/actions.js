@@ -119,6 +119,17 @@ function initializeSectionTranslation({ commit, dispatch }, suggestion) {
 /**
  * @param {object} context
  * @param {function} context.commit
+ * @param {function} context.dispatch
+ * @param {Translation} translation
+ */
+function restoreSectionTranslation({ commit, dispatch }, translation) {
+  dispatch("getCXServerToken");
+  commit("setCurrentTranslation", translation);
+}
+
+/**
+ * @param {object} context
+ * @param {function} context.commit
  * @param {object} context.state
  * @param {object} context.getters
  * @param {function} context.dispatch
@@ -637,6 +648,7 @@ export default {
   getCXServerToken,
   initializeMTProviders,
   initializeSectionTranslation,
+  restoreSectionTranslation,
   selectNextTranslationUnit,
   selectPageSectionByTitle,
   selectPageSectionByIndex,
