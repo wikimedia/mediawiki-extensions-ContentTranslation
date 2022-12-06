@@ -8,9 +8,9 @@
 
 namespace ContentTranslation\ActionApi;
 
+use ApiQuery;
 use ApiQueryBase;
 use ContentTranslation\CorporaLookup;
-use MediaWiki\MediaWikiServices;
 use Sanitizer;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -23,16 +23,20 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		CorporaLookup::TYPE_MT,
 		CorporaLookup::TYPE_USER,
 	];
+	/** @var CorporaLookup */
+	private $corporaLookup;
+
+	public function __construct( ApiQuery $queryModule, $moduleName, CorporaLookup $corporaLookup ) {
+		parent::__construct( $queryModule, $moduleName );
+
+		$this->corporaLookup = $corporaLookup;
+	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getConnection( DB_REPLICA );
-
-		$lookup = new CorporaLookup( $db );
-		$data = $lookup->getByTranslationId( $params['translationid'] );
+		$data = $this->corporaLookup->getByTranslationId( $params['translationid'] );
 		$sections = $data[ 'sections' ];
 
 		$types = array_flip( $params['types'] );

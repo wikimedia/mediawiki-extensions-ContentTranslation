@@ -13,7 +13,6 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
-use ContentTranslation\CorporaLookup;
 use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
@@ -121,7 +120,7 @@ class CXCorporaDump extends Maintenance {
 		}
 
 		// Fetch data from corpora table and stream it to the sinks using an exporter
-		$lookup = new CorporaLookup( $db );
+		$lookup = MediaWikiServices::getInstance()->getService( 'ContentTranslation.CorporaLookup' );
 		foreach ( $groups as $name => $pairs ) {
 			$translations = self::getTranslations( $db, $pairs );
 			if ( !$translations->numRows() ) {

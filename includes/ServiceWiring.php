@@ -3,6 +3,7 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
+use ContentTranslation\CorporaLookup;
 use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\ParsoidClientFactory;
@@ -41,6 +42,12 @@ return [
 				$consequencesLookup,
 				$filterLookup,
 				$filterRunnerFactory
+			);
+		},
+	'ContentTranslation.CorporaLookup' =>
+		static function ( MediaWikiServices $services ): CorporaLookup {
+			return new CorporaLookup(
+				$services->getService( 'ContentTranslation.LoadBalancer' )->getConnection( DB_REPLICA )
 			);
 		},
 	'ContentTranslation.EditedSectionFinder' =>

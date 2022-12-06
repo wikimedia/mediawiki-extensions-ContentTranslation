@@ -30,15 +30,25 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	/** @var SectionTranslationStore */
 	private $sectionTranslationStore;
 
+	/** @var CorporaLookup */
+	private $corporaLookup;
+
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
 	 * @param SectionTranslationStore $sectionTranslationStore
+	 * @param CorporaLookup $corporaLookup
 	 */
-	public function __construct( $query, $moduleName, SectionTranslationStore $sectionTranslationStore ) {
+	public function __construct(
+		$query,
+		$moduleName,
+		SectionTranslationStore $sectionTranslationStore,
+		CorporaLookup $corporaLookup
+	) {
 		parent::__construct( $query, $moduleName );
 
 		$this->sectionTranslationStore = $sectionTranslationStore;
+		$this->corporaLookup = $corporaLookup;
 	}
 
 	public function execute() {
@@ -95,7 +105,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $params['translationid'] ) {
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
-				$unitsAndCategories = $this->getTranslationUnitsAndCategories( $translation );
+
+				$unitsAndCategories = $this->corporaLookup->getByTranslationId( $translation->getTranslationId() );
 				$translation->translation['translationUnits'] = $unitsAndCategories['sections'];
 				// Only target categories are fetched when translation draft is restored
 				$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
@@ -218,22 +229,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			'translation',
 			$translation->translation
 		);
-	}
-
-	/**
-	 * Retrieve translation units and target categories. Only target categories are fetched
-	 * when translation draft is restored. Source categories are saved into cx_corpora table for
-	 * pairing with target categories, but not retrieved when translation draft is restored.
-	 *
-	 * @param Translation $translation
-	 * @return array Associative array with 'translationUnits' and 'categories' data
-	 */
-	protected function getTranslationUnitsAndCategories( Translation $translation ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getConnection( DB_REPLICA );
-
-		$lookup = new CorporaLookup( $db );
-		return $lookup->getByTranslationId( $translation->getTranslationId() );
 	}
 
 	public function getAllowedParams() {

@@ -168,10 +168,16 @@
 		"contenttranslation": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslation",
 			"services": [
-				"ContentTranslation.SectionTranslationStore"
+				"ContentTranslation.SectionTranslationStore",
+				"ContentTranslation.CorporaLookup"
 			]
 		},
-		"contenttranslationcorpora": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationCorpora",
+		"contenttranslationcorpora": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationCorpora",
+			"services": [
+				"ContentTranslation.CorporaLookup"
+			]
+		},
 		"contenttranslationlangtrend": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationLanguageTrend",
 		"contenttranslationstats": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationStats",
 		"contenttranslationsuggestions": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
