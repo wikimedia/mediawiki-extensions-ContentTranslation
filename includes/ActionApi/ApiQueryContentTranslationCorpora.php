@@ -11,7 +11,7 @@ namespace ContentTranslation\ActionApi;
 use ApiQuery;
 use ApiQueryBase;
 use ContentTranslation\CorporaLookup;
-use Sanitizer;
+use ContentTranslation\DTO\TranslationUnitDTO;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -36,41 +36,16 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
-		$data = $this->corporaLookup->getByTranslationId( $params['translationid'] );
+		$data = $this->corporaLookup->getByTranslationId( (int)$params['translationid'] );
 		$sections = $data[ 'sections' ];
 
 		$types = array_flip( $params['types'] );
-		$sections = $this->filterTypes( $sections, $types );
-
-		if ( $params['striphtml'] ) {
-			$sections = $this->stripHtml( $sections );
-		}
+		$stripHtml = $params['striphtml'];
+		$sections = array_map( static function ( TranslationUnitDTO $unit ) use ( $types, $stripHtml ) {
+			return $unit->toCustomArray( $types, $stripHtml );
+		}, $sections );
 
 		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $sections );
-	}
-
-	protected function filterTypes( array $data, array $prop ) {
-		foreach ( $data as $id => $section ) {
-			foreach ( $this->types as $type ) {
-				if ( !isset( $prop[$type] ) ) {
-					unset( $data[$id][$type] );
-				}
-			}
-		}
-
-		return $data;
-	}
-
-	protected function stripHtml( array $data ) {
-		foreach ( $data as $id => $section ) {
-			foreach ( $this->types as $type ) {
-				if ( isset( $data[$id][$type] ) ) {
-					$data[$id][$type]['content'] = Sanitizer::stripAllTags( $data[$id][$type]['content'] );
-				}
-			}
-		}
-
-		return $data;
 	}
 
 	public function getAllowedParams() {

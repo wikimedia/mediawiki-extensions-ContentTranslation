@@ -14,6 +14,7 @@ use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\SectionTranslationDTO;
+use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -105,9 +106,16 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $params['translationid'] ) {
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
-
-				$unitsAndCategories = $this->corporaLookup->getByTranslationId( $translation->getTranslationId() );
-				$translation->translation['translationUnits'] = $unitsAndCategories['sections'];
+				// Translation units and target categories. Only target categories are fetched
+				// when translation draft is restored. Source categories are saved into cx_corpora table for
+				// pairing with target categories, but not retrieved when translation draft is restored.
+				// Associative array with 'translationUnits' and 'categories' data
+				$unitsAndCategories = $this->corporaLookup->getByTranslationId( (int)$translation->getTranslationId() );
+				$translation->translation['translationUnits'] = array_map(
+					static function ( TranslationUnitDTO $unit ) {
+						return $unit->toArray();
+					}, $unitsAndCategories['sections']
+				);
 				// Only target categories are fetched when translation draft is restored
 				$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
 

@@ -13,6 +13,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 }
 require_once "$IP/maintenance/Maintenance.php";
 
+use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\JsonDumpFormatter;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
@@ -136,33 +137,15 @@ class CXCorporaDump extends Maintenance {
 
 			foreach ( $translations as $translation ) {
 				$translation = (array)$translation;
-				$sections = $lookup->getByTranslationId( $translation['id'] )[ 'sections' ];
+				$sections = $lookup->getByTranslationId( (int)$translation['id'] )[ 'sections' ];
+				// Filter out units which don't have user provided input
+				$sections = array_filter( $sections, static function ( TranslationUnitDTO $unit ) {
+					return $unit->hasUserBlob();
+				} );
+				$sections = array_map( static function ( TranslationUnitDTO $unit ) use ( $plain ) {
+					return $unit->toCorporaDumpArray( $plain );
+				}, $sections );
 				$translation['corpora'] = $sections;
-
-				// Massage the data for export
-				foreach ( $translation['corpora'] as $id => $unit ) {
-					// Skip units which don't have user provided input
-					if ( !isset( $unit['user'] ) ) {
-						unset( $translation['corpora'][$id] );
-						continue;
-					}
-
-					// Irrelevant data for the dumps
-					unset( $translation['corpora'][$id]['source']['engine'] );
-					unset( $translation['corpora'][$id]['user']['engine'] );
-
-					// Strip HTML if requested from the sources that are present
-					if ( $plain ) {
-						foreach ( $unit as $field => $value ) {
-						if ( !isset( $value['content'] ) ) {
-							continue;
-						}
-
-						$translation['corpora'][$id][$field]['content'] =
-							Sanitizer::stripAllTags( $value['content'] );
-						}
-					}
-				}
 
 				// Skip units with no data at all
 				if ( $translation['corpora'] === [] ) {

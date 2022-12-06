@@ -8,6 +8,7 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Store\TranslationCorporaStore;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -28,10 +29,11 @@ class CorporaLookup {
 	}
 
 	/**
+	 * Returned fields: array{ sections: TranslationUnitDTO[], categories: array }
 	 * @param int $id Translation id
 	 * @return array
 	 */
-	public function getByTranslationId( $id ) {
+	public function getByTranslationId( int $id ): array {
 		$result = $this->db->newSelectQueryBuilder()
 			->select( [
 				'cxc_translation_id',
@@ -42,32 +44,28 @@ class CorporaLookup {
 				'cxc_content',
 			] )
 			->from( TranslationCorporaStore::TABLE_NAME )
-			->where( [ 'cxc_translation_id' => intval( $id ) ] )
+			->where( [ 'cxc_translation_id' => $id ] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 
 		return self::format( $result );
 	}
 
-	protected static function format( IResultWrapper $rows ) {
+	/**
+	 * Returned fields: { sections: TranslationUnitDTO[], categories: array }
+	 * @param IResultWrapper $rows
+	 * @return array
+	 */
+	protected static function format( IResultWrapper $rows ): array {
+		/** @type $sections TranslationUnitDTO[] */
 		$sections = [];
 
 		foreach ( $rows as $row ) {
 			// Here I am assuming sequence IDs are unique and won't be re-used
 			$id = $row->cxc_section_id;
+			$section = $sections[$id] ?? new TranslationUnitDTO( (int)$row->cxc_sequence_id );
+
 			$type = self::isMT( $row->cxc_origin ) ? self::TYPE_MT : $row->cxc_origin;
-
-			if ( !isset( $sections[$id] ) ) {
-				$sections[$id] = [
-					'sequenceid' => (int)$row->cxc_sequence_id,
-					self::TYPE_SOURCE => null,
-					self::TYPE_MT => null,
-					// In the future this could be an array, but for now to
-					// keep it simple just show one version
-					self::TYPE_USER => null,
-				];
-			}
-
 			$blob = [
 				'engine' => $type === self::TYPE_MT ? $row->cxc_origin : null,
 				'content' => $row->cxc_content,
@@ -75,18 +73,8 @@ class CorporaLookup {
 				'timestamp' => wfTimestamp( TS_ISO_8601, $row->cxc_timestamp ),
 			];
 
-			if ( !isset( $sections[$id][$type] ) ) {
-				$sections[$id][$type] = $blob;
-				continue;
-			}
-
-			// It's possible we have a "conflict", since we don't enforce uniqueness
-			// in the database. In this case, the one with latest timestamp is used.
-			// Note: TS_ISO_8601 is suitable for string comparison if timezone is Z.
-			/** @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
-			if ( $blob['timestamp'] > $sections[$id][$type]['timestamp'] ) {
-				$sections[$id][$type] = $blob;
-			}
+			$section->setBlobForType( $type, $blob );
+			$sections[$id] = $section;
 		}
 
 		$targetCategories = null;
@@ -96,7 +84,6 @@ class CorporaLookup {
 			// Source categories aren't retrieved, only saved in cx_corpora for pairing
 			// with target categories. Source and target categories are saved in cx_corpora table
 			// with special section ID, to distinguish categories from translation units.
-			// @phan-suppress-next-line PhanTypeArraySuspiciousNull
 			$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
 			unset( $sections[ self::CATEGORIES ] );
 		}
