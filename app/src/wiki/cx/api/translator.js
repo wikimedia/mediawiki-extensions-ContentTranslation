@@ -2,6 +2,7 @@ import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 import PublishFeedbackMessage from "../models/publishFeedbackMessage";
+import CorporaRestoredUnit from "../models/corporaRestoredUnit";
 
 /**
  * @param {String} offset
@@ -36,6 +37,34 @@ async function fetchTranslations(offset) {
     }
 
     return results;
+  });
+}
+
+/**
+ * @param {string} translationId
+ * @return {Promise<CorporaRestoredUnit[]>}
+ */
+function fetchTranslationUnits(translationId) {
+  if (mw.user.isAnon()) {
+    return Promise.resolve([]);
+  }
+  const params = {
+    action: "query",
+    format: "json",
+    assert: "user",
+    formatversion: 2,
+    translationid: translationId,
+    list: "contenttranslation",
+  };
+
+  const api = new mw.Api();
+
+  return api.get(params).then((response) => {
+    const { translation } = response.query.contenttranslation;
+
+    return Object.values(translation.translationUnits).map(
+      (unit) => new CorporaRestoredUnit(unit)
+    );
   });
 }
 
@@ -331,6 +360,7 @@ const saveTranslation = ({
 
 export default {
   fetchTranslations,
+  fetchTranslationUnits,
   fetchSegmentTranslation,
   parseTemplateWikitext,
   publishTranslation,
