@@ -31,6 +31,8 @@ export default class SubSection {
     this.blockTemplateAdaptationInfo = {};
     this.blockTemplateMTProviderUsed = "";
     this.editedTranslation = null;
+    /** @type {CorporaRestoredUnit|null} */
+    this.corporaRestoredUnit = null;
   }
 
   /**
@@ -367,5 +369,37 @@ export default class SubSection {
     }
 
     return subSectionNode.outerHTML;
+  }
+
+  /**
+   *
+   * @param {CorporaRestoredUnit} corporaUnit
+   */
+  restoreCorpora(corporaUnit) {
+    this.corporaRestoredUnit = corporaUnit;
+
+    const toHtmlSegments = (text) => {
+      const wrapperDiv = document.createElement("div");
+      wrapperDiv.innerHTML = text;
+      const node = wrapperDiv.firstChild;
+
+      return Array.from(node.getElementsByClassName("cx-segment"));
+    };
+
+    const translatedSegments = toHtmlSegments(
+      this.corporaRestoredUnit.user.content
+    );
+    const mtSegments = toHtmlSegments(this.corporaRestoredUnit.mt.content);
+
+    translatedSegments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+      const mtSegment = mtSegments.find(
+        (mtSegment) => mtSegment.dataset.segmentid === segment.dataset.segmentid
+      );
+      sentence.translatedContent = segment.innerHTML;
+      const mtProvider = this.corporaRestoredUnit.mt.engine;
+      sentence.addProposedTranslation(mtProvider, mtSegment.innerHTML);
+      sentence.mtProviderUsed = mtProvider;
+    });
   }
 }

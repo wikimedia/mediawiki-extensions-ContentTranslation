@@ -12,7 +12,7 @@ export default class Page {
    * @param {string} [options.thumbnail]
    * @param {string} [options.title]
    * @param {string|null} [options._alias] The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
-   * @param {string} [options.content]
+   * @param {string|null} [options.content]
    * @param {PageSection[]} [options.sections]
    */
   constructor({
@@ -61,5 +61,17 @@ export default class Page {
     return (this.sections || []).find(
       (section) => section.originalTitle === sectionTitle
     );
+  }
+
+  /**
+   * @param {CorporaRestoredUnit[]} corporaUnits
+   */
+  restoreCorporaDraft(corporaUnits) {
+    for (const section of this.sections || []) {
+      const sectionCorporaUnits = corporaUnits.filter(
+        (unit) => unit.pageSectionId === parseInt(section.id)
+      );
+      section.restoreCorporaUnits(sectionCorporaUnits);
+    }
   }
 }
