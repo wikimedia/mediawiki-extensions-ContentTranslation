@@ -97,6 +97,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
+import translator from "../../wiki/cx/api/translator";
 
 export default {
   name: "SxSentenceSelector",
@@ -144,6 +145,18 @@ export default {
     const logEvent = useEventLogging();
 
     onMounted(async () => {
+      const currentPage = store.getters["application/getCurrentPage"];
+      const { currentTranslation } = store.state.application;
+
+      if (currentTranslation && !currentTranslation.restored) {
+        translator
+          .fetchTranslationUnits(currentTranslation.id)
+          .then((translationUnits) => {
+            currentPage.restoreCorporaDraft(translationUnits);
+            currentTranslation.restored = true;
+          });
+      }
+
       // When user returns to "Pick a sentence" step from "Preview and publish"
       // publishing warnings and errors should be cleared.
       await store.dispatch("application/initializeMTProviders");
@@ -159,6 +172,7 @@ export default {
       store.dispatch("application/selectNextTranslationUnit");
     const selectPreviousTranslationUnit = () =>
       store.dispatch("application/selectPreviousTranslationUnit");
+
     const applyTranslation = () => {
       logEvent({
         event_type: "editor_segment_add",
@@ -169,6 +183,7 @@ export default {
         "application/applyProposedTranslationToSelectedTranslationUnit"
       );
     };
+
     const bounceTranslation = () => {
       shouldProposedTranslationBounce.value = true;
       setTimeout(() => {
