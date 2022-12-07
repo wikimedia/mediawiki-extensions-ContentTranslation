@@ -110,12 +110,13 @@ export default {
   },
   emits: ["edit-translation"],
   setup() {
+    const store = useStore();
     const {
       selectedContentTranslationUnit: selectedSubSection,
       targetLanguageAutonym,
       currentMTProvider,
       proposedTranslation: blockProposedTranslation,
-    } = useApplicationState(useStore());
+    } = useApplicationState(store);
 
     const blockEditableContent = computed(() => {
       const blockTranslation =
@@ -138,10 +139,11 @@ export default {
      *
      * @type {ComputedRef<boolean>}
      */
-    const translationLoaded = computed(() =>
-      selectedSubSection.value.blockTemplateProposedTranslations.hasOwnProperty(
-        currentMTProvider.value
-      )
+    const translationLoaded = computed(
+      () =>
+        !store.state.application.mtRequestsPending?.includes(
+          selectedSubSection.value.id
+        )
     );
 
     const sourceTemplateName = computed(
