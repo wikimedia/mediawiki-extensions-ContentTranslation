@@ -863,6 +863,10 @@
 			]
 		},
 		"ext.cx.eventlogging.campaigns": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"scripts": "eventlogging/ext.cx.eventlogging.campaigns.js",
 			"dependencies": [
 				"mediawiki.user"
