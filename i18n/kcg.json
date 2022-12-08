@@ -261,7 +261,9 @@
 	"cx-sx-publish-summary": "Á̱ khwuk di̱n vak bwan tamm hu \"$1\" neet di̱ wat \"$2\" hwa",
 	"cx-sx-publisher-preview-options-title": "Khaí shei",
 	"cx-sx-publisher-new-section-option-label": "Shei nang tamm fai",
+	"cx-sx-publisher-lead-section-option-label": "Shei nang wat fai",
 	"cx-sx-publisher-new-section-option-details": "Mbeang tamm fai ma̱ a̱ti̱kut wu",
+	"cx-sx-publisher-lead-section-option-details": "Khwuk wat fai ma̱ a̱tsak a̱ghwop-lyulyoot wu",
 	"cx-sx-publisher-sandbox-option-label": "Shei nat A̱kwatiji̱jak ang wu",
 	"cx-sx-publisher-sandbox-option-details": "Shei a̱wat a̱bala̱lang ang ka mat a shyia̱ a̱wat a bu-nwuan a bu si̱ mmaat ma̱ koji wa.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Á̱ na ki mbeang bwan ang hu <strong>mami sandbox ang hu.</strong>",
@@ -326,5 +328,7 @@
 	"cx-uls-relevant-languages-panel-header": "Bwuak wat huni",
 	"cx-uls-relevant-languages-panel-message": "Á̱ sang wat huni di̱ lilyem ghyáng a bye lyen a̱ni. A maai a bwuak nhu mi̱ di̱ mmiti!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Si̱ huni na yet <strong>tamm ntsa ji mami ati̱kut a̱fai wu!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Bwuak wat huni"
+	"cx-uls-translate-page-quick-action-label": "Bwuak wat huni",
+	"cx-sx-publisher-captcha-dialog-header-title": "Á̱ nwuan ka̱ tswambishyi a yet a̱ni bah",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Shei"
 }

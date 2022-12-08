@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Ernác",
-			"Iltever"
+			"Iltever",
+			"Къарачайлы"
 		]
 	},
 	"cx": "Бетни кёчюрюу",
@@ -114,5 +115,6 @@
 	"cx-notification-tenth-translation": "Онунчу кёмюрме бла алгъышлайбыз! Сиз энди эксперт-кёчюрюучю боласыз. Алай бардырыгъыз!",
 	"cx-notification-hundredth-translation": "Бусагъатчыкълада 100 кёчюрме этдигиз! Ол аламат ишди. Башха редакторлагъа да билдиригиз.",
 	"cx-translationlist-empty-title": "Кёчюрюрге джукъ джокъмуду?",
-	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр."
+	"cx-translationlist-empty-desc": "Кёчюрюуюнгу бусагъатда {{GENDER:|башла да}} къачан сюйсенг да бардыр.",
+	"sx-quick-tutorial-secondary-point-step-1": "Хар джол сайын бир бёлюмню кёчюрюгюз эмда басмалагъыз. Бу тынчды, дженгилди эмда тамашады!"
 }
