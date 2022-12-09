@@ -364,7 +364,9 @@ class Hooks {
 		}
 
 		// Add a hover menu for the contributions link in personal toolbar
-		$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
+		if ( !self::isMobileView() ) {
+			$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
+		}
 
 		if ( $preferenceHelper->getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
 			// A translation was initialized based on a campaign. Show the feature discovery
@@ -582,10 +584,12 @@ class Hooks {
 
 		// Show the auto-open contribution menu and set the cx-know preference
 		// as true to prevent it from being automatically shown in the future.
-		$out->addModules( [
-			'ext.cx.betafeature.init',
-			'ext.cx.entrypoints.contributionsmenu',
-		] );
+		if ( !self::isMobileView() ) {
+			$out->addModules( [
+				'ext.cx.betafeature.init',
+				'ext.cx.entrypoints.contributionsmenu',
+			] );
+		}
 		$modifiedOptions['cx-know'] = true;
 
 		return true;
