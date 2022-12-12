@@ -264,6 +264,8 @@
 	"cx-sx-sentence-selector-header-title": "အပိုင်းကို ဘာသာပြန်ရန်",
 	"cx-sx-sentence-selector-done-button-label": "ပြီးပြီ",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 မှ အဆိုပြု ဘာသာပြန််မှု",
+	"cx-sx-proposed-translation-retry-button": "ပြန်လည်ကြိုးစားရန်",
+	"cx-sx-proposed-translation-other-options-button": "အခြား ရွေးချယ်စရာများ",
 	"cx-sx-sentence-selector-edit-translation-button-label": "ဘာသာပြန်ကို ပြင်ဆင်ရန်",
 	"cx-sx-sentence-selector-apply-translation-button-label": "သက်ရောက်စေရန်",
 	"cx-sx-sentence-selector-skip-translation-button-label": "ကျော်ရန်",
@@ -330,5 +332,11 @@
 	"cx-suggestion-list-favorites-division": "နောင်အတွက်",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ဤစာမျက်နှာကို တည်းဖြတ်ရန်",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" ကို ဘာသာပြန်ရန်",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ",
+	"cx-uls-relevant-languages-panel-header": "ဤစာမျက်နှာကို ဘာသာပြန်ပါ",
+	"cx-uls-translate-page-quick-action-label": "ဤစာမျက်နှာကို ဘာသာပြန်ပါ",
+	"sx-recent-edit-entrypoint-invitation-button-label": "\"$1\" ကို ဘာသာပြန်ရန်",
+	"cx-sx-publisher-captcha-dialog-publish-button": "လွှင့်တင်ရန်",
+	"cx-contributecard-entrypoint-title": "ဘာသာပြန်များ",
+	"cx-contributecard-entrypoint-cta": "ဘာသာပြန်မှုတစ်ခု စတင်ပါ"
 }
