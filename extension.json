@@ -1587,6 +1587,9 @@
 				"mw.cx.ui",
 				"mw.cx.util",
 				"ext.visualEditor.core.desktop"
+			],
+			"targets": [
+				"desktop"
 			]
 		},
 		"mw.cx.ui.Infobar": {
