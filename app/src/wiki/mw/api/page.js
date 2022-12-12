@@ -98,13 +98,20 @@ const fetchLanguageTitles = (language, title) => {
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String} sourceTitle
+ * @param {String|null} revision
  * @returns {Promise<Page>}
  */
-const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
+const fetchPageContent = (
+  sourceLanguage,
+  targetLanguage,
+  sourceTitle,
+  revision = null
+) => {
   return fetchSegmentedContent(
     sourceLanguage,
     targetLanguage,
-    sourceTitle
+    sourceTitle,
+    revision
   ).then(
     (segmentedContent) =>
       new Page({
@@ -123,19 +130,29 @@ const fetchPageContent = (sourceLanguage, targetLanguage, sourceTitle) => {
 /**
  * Fetches segmented content of a page for given source language,
  * target language and source title.
- * @param sourceLanguage
- * @param targetLanguage
- * @param sourceTitle
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string} sourceTitle
+ * @param {string|null} revision
  * @return {Promise<String>}
  */
-const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
+const fetchSegmentedContent = (
+  sourceLanguage,
+  targetLanguage,
+  sourceTitle,
+  revision = null
+) => {
   const cxServerParams = [sourceLanguage, targetLanguage, sourceTitle].map(
     (param) => encodeURIComponent(param)
   );
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
-  const cxserverAPI = siteMapper.getCXServerUrl(
+  let cxserverAPI = siteMapper.getCXServerUrl(
     `/page/${cxServerParams.join("/")}`
   );
+
+  if (revision) {
+    cxserverAPI += `/${revision}`;
+  }
 
   return fetch(cxserverAPI)
     .then((response) => response.json())

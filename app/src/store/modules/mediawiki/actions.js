@@ -70,9 +70,21 @@ async function fetchSupportedLanguageCodes({ commit, state }) {
   }
 }
 
+/**
+ * @param {object} context
+ * @param {function} context.commit
+ * @param {object} context.getters
+ * @param {function} context.dispatch
+ * @param {object} payload
+ * @param {string} payload.sourceLanguage
+ * @param {string} payload.targetLanguage
+ * @param {string} payload.sourceTitle
+ * @param {string|null} payload.revision
+ * @return {Promise<void>}
+ */
 async function fetchPageContent(
   { commit, getters, dispatch },
-  { sourceLanguage, targetLanguage, sourceTitle }
+  { sourceLanguage, targetLanguage, sourceTitle, revision = null }
 ) {
   let existingPage = getters.getPage(sourceLanguage, sourceTitle);
 
@@ -83,7 +95,8 @@ async function fetchPageContent(
   const fetchedPage = await pageApi.fetchPageContent(
     sourceLanguage,
     targetLanguage,
-    sourceTitle
+    sourceTitle,
+    revision
   );
 
   if (!existingPage) {
