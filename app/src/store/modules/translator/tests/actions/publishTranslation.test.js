@@ -4,8 +4,8 @@ import SubSection from "@/wiki/cx/models/subSection";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
+import applicationGetters from "@/store/modules/application/getters";
 
 const mockErrorResult = {
   publishFeedbackMessage: new PublishFeedbackMessage({
@@ -77,6 +77,13 @@ describe("vuex store publishTranslation action", () => {
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
+
+  rootGetters["application/getCurrentRevision"] =
+    applicationGetters.getCurrentRevision.apply(null, [
+      applicationState,
+      { getCurrentPage: rootGetters["application/getCurrentPage"] },
+    ]);
+
   const dispatch = jest.fn((action) => {
     if (action === "saveTranslation") {
       if (

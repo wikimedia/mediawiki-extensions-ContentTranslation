@@ -4,7 +4,7 @@ import SubSection from "@/wiki/cx/models/subSection";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import applicationGetters from "@/store/modules/application/getters";
 
 jest.mock("@/wiki/cx/api/translator", () => ({
   saveTranslation: jest.fn(),
@@ -49,6 +49,13 @@ describe("vuex store saveTranslation action", () => {
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
+
+  rootGetters["application/getCurrentRevision"] =
+    applicationGetters.getCurrentRevision.apply(null, [
+      applicationState,
+      { getCurrentPage: rootGetters["application/getCurrentPage"] },
+    ]);
+
   const dispatch = jest.fn();
 
   it("should add the translation units to the payload", async () => {

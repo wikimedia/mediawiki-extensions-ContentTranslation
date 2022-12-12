@@ -120,7 +120,7 @@ function saveTranslation({ rootState, rootGetters }) {
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
-    revision: sourcePage.revision,
+    revision: rootGetters["application/getCurrentRevision"],
     isLeadSection: currentSourceSection.isLeadSection,
     units: units.map((unit) => unit.payload),
     // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
@@ -176,7 +176,7 @@ async function publishTranslation(
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
-    revision: sourcePage.revision,
+    revision: rootGetters["application/getCurrentRevision"],
     isSandbox,
   };
 
