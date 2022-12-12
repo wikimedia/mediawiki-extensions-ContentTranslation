@@ -20654,6 +20654,7 @@ const setTranslationURLParams = (sectionSuggestion) => {
   params.set("from", sectionSuggestion == null ? void 0 : sectionSuggestion.sourceLanguage);
   params.set("to", sectionSuggestion == null ? void 0 : sectionSuggestion.targetLanguage);
   params.set("sx", true);
+  params.delete("title");
   replaceUrl(Object.fromEntries(params));
 };
 const replaceUrl = (params) => {
@@ -23561,17 +23562,26 @@ const _sfc_main$n = {
   },
   emits: ["edit-translation"],
   setup() {
+    const store2 = useStore();
     const {
       selectedContentTranslationUnit: selectedSubSection,
       targetLanguageAutonym,
       currentMTProvider,
-      proposedTranslation: proposedBlockTranslation
-    } = useApplicationState(useStore());
+      proposedTranslation: blockProposedTranslation
+    } = useApplicationState(store2);
+    const blockEditableContent = computed(() => {
+      var _a;
+      const blockTranslation = (_a = selectedSubSection.value) == null ? void 0 : _a.blockTemplateTranslatedContent;
+      return blockTranslation || blockProposedTranslation.value;
+    });
     const targetTemplateName = computed(() => {
       var _a;
       return (_a = selectedSubSection.value) == null ? void 0 : _a.getTargetBlockTemplateNameByProvider(currentMTProvider.value);
     });
-    const translationLoaded = computed(() => selectedSubSection.value.blockTemplateProposedTranslations.hasOwnProperty(currentMTProvider.value));
+    const translationLoaded = computed(() => {
+      var _a;
+      return !((_a = store2.state.application.mtRequestsPending) == null ? void 0 : _a.includes(selectedSubSection.value.id));
+    });
     const sourceTemplateName = computed(() => {
       var _a, _b;
       return (_b = (_a = selectedSubSection.value) == null ? void 0 : _a.sourceBlockTemplateName) == null ? void 0 : _b.replace(/<\!--.*?-->/g, "");
@@ -23632,13 +23642,13 @@ const _sfc_main$n = {
     return {
       adaptationRatio,
       adaptedTemplateCardClass,
+      blockEditableContent,
       editBlockTranslationButtonLabel,
       isTemplateAdapted,
       mandatoryMissingTargetParamsCount,
       mwIconInfo,
       mwIconPuzzle,
       optionalMissingTargetParamsCount,
-      proposedBlockTranslation,
       showTemplateStatus,
       sourceParamsCount,
       sourceTemplateName,
@@ -23725,7 +23735,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
             class: "px-0",
             type: "text",
             progressive: "",
-            onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("edit-translation", $setup.proposedBlockTranslation))
+            onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("edit-translation", $setup.blockEditableContent))
           }, {
             default: withCtx(() => [
               createBaseVNode("span", {
@@ -24080,7 +24090,9 @@ const _sfc_main$j = {
       currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
-      currentMTProvider
+      currentMTProvider,
+      sourceLanguage,
+      targetLanguage
     } = useApplicationState(store2);
     const isSelectedTranslationUnitTranslated = computed(() => {
       var _a;
@@ -24095,6 +24107,7 @@ const _sfc_main$j = {
       return (_a = currentPageSection.value) == null ? void 0 : _a.selectedTranslationUnitOriginalContent;
     });
     const sentenceSelectorStyle = computed(() => isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`);
+    const logEvent2 = useEventLogging();
     onMounted(() => __async(this, null, function* () {
       yield store2.dispatch("application/initializeMTProviders");
       if (!selectedContentTranslationUnit.value) {
@@ -24104,7 +24117,14 @@ const _sfc_main$j = {
     }));
     const skipTranslation = () => store2.dispatch("application/selectNextTranslationUnit");
     const selectPreviousTranslationUnit2 = () => store2.dispatch("application/selectPreviousTranslationUnit");
-    const applyTranslation = () => store2.dispatch("application/applyProposedTranslationToSelectedTranslationUnit");
+    const applyTranslation = () => {
+      logEvent2({
+        event_type: "editor_segment_add",
+        translation_source_language: sourceLanguage.value,
+        translation_target_language: targetLanguage.value
+      });
+      store2.dispatch("application/applyProposedTranslationToSelectedTranslationUnit");
+    };
     const bounceTranslation = () => {
       shouldProposedTranslationBounce.value = true;
       setTimeout(() => {
@@ -24120,16 +24140,19 @@ const _sfc_main$j = {
       isTranslationOptionsActive.value = true;
       store2.dispatch("application/translateSelectedTranslationUnitForAllProviders");
     };
-    const editTranslation = (content) => router2.push({
-      name: "sx-editor",
-      params: {
-        content,
-        sourceLanguage: suggestion.value.sourceLanguage,
-        targetLanguage: suggestion.value.targetLanguage,
-        originalContent: originalSegmentContent.value,
-        title: suggestion.value.targetTitle || suggestion.value.sourceTitle
-      }
-    });
+    const editTranslation = (content, isInitialEdit) => {
+      router2.push({
+        name: "sx-editor",
+        params: {
+          content,
+          sourceLanguage: suggestion.value.sourceLanguage,
+          targetLanguage: suggestion.value.targetLanguage,
+          originalContent: originalSegmentContent.value,
+          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+          isInitialEdit: isInitialEdit || null
+        }
+      });
+    };
     const previewTranslation = () => router2.push({ name: "sx-publisher" });
     const retryTranslation = () => __async(this, null, function* () {
       if (!selectedContentTranslationUnit.value) {
@@ -24271,19 +24294,19 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
         }, 8, ["dir", "lang"]),
         !$setup.isBlockTemplateSelected && $setup.isSelectedTranslationUnitTranslated ? (openBlock(), createBlock(_component_translated_segment_card, {
           key: 0,
-          onEditTranslation: $setup.editTranslation,
+          onEditTranslation: _cache[0] || (_cache[0] = ($event) => $setup.editTranslation($event, false)),
           onSkipTranslation: $setup.skipTranslation,
           onSelectPreviousSegment: $setup.selectPreviousTranslationUnit
-        }, null, 8, ["onEditTranslation", "onSkipTranslation", "onSelectPreviousSegment"])) : !$setup.isBlockTemplateSelected ? (openBlock(), createBlock(_component_proposed_translation_card, {
+        }, null, 8, ["onSkipTranslation", "onSelectPreviousSegment"])) : !$setup.isBlockTemplateSelected ? (openBlock(), createBlock(_component_proposed_translation_card, {
           key: 1,
           class: normalizeClass({ "mb-0": !$setup.shouldProposedTranslationBounce }),
           onConfigureOptions: $setup.configureTranslationOptions,
-          onEditTranslation: $setup.editTranslation,
+          onEditTranslation: _cache[1] || (_cache[1] = ($event) => $setup.editTranslation($event, true)),
           onApplyTranslation: $setup.applyTranslation,
           onSkipTranslation: $setup.skipTranslation,
           onSelectPreviousSegment: $setup.selectPreviousTranslationUnit,
           onRetryTranslation: $setup.retryTranslation
-        }, null, 8, ["class", "onConfigureOptions", "onEditTranslation", "onApplyTranslation", "onSkipTranslation", "onSelectPreviousSegment", "onRetryTranslation"])) : (openBlock(), createBlock(_component_block_template_adaptation_card, {
+        }, null, 8, ["class", "onConfigureOptions", "onApplyTranslation", "onSkipTranslation", "onSelectPreviousSegment", "onRetryTranslation"])) : (openBlock(), createBlock(_component_block_template_adaptation_card, {
           key: 2,
           onEditTranslation: $setup.editTranslation,
           onApplyTranslation: $setup.applyTranslation,
@@ -24295,7 +24318,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     createVNode(_component_sx_translation_selector, {
       active: $setup.isTranslationOptionsActive,
-      "onUpdate:active": _cache[0] || (_cache[0] = ($event) => $setup.isTranslationOptionsActive = $event)
+      "onUpdate:active": _cache[2] || (_cache[2] = ($event) => $setup.isTranslationOptionsActive = $event)
     }, null, 8, ["active"])
   ], 4);
 }
@@ -24651,10 +24674,14 @@ const _sfc_main$d = {
     const onEditorReady = () => editorReady.value = true;
     const closeEditor = () => router2.replace({ name: props.fromRoute });
     const isFinal = !!route.params.isFinalEdit;
+    const isInitialEdit = !!route.params.isInitialEdit;
     const proposedTranslation = route.params.content;
     const originalContent = route.params.originalContent;
     const editedTranslation = ref(null);
     const showFeedback = ref(false);
+    const logEvent2 = useEventLogging();
+    const { targetLanguage, sourceLanguage } = route.params;
+    const mtScore = computed(() => mtValidator.calculateScore(editedTranslation.value, proposedTranslation, targetLanguage));
     const onEditCompleted = (translation) => __async(this, null, function* () {
       editedTranslation.value = translation;
       showFeedback.value = true;
@@ -24663,6 +24690,13 @@ const _sfc_main$d = {
       if (isFinal) {
         store2.commit("application/setCurrentSourceSectionEditedTranslation", translation);
       } else {
+        if (mtScore.value === 0 && isInitialEdit) {
+          logEvent2({
+            event_type: "editor_segment_add",
+            translation_source_language: sourceLanguage,
+            translation_target_language: targetLanguage
+          });
+        }
         store2.dispatch("application/applyEditedTranslationToSelectedTranslationUnit", translation);
       }
       closeEditor();
@@ -25894,7 +25928,6 @@ const _sfc_main$1 = {
     const store2 = useStore();
     const { sourceLanguage, targetLanguage } = useApplicationState(store2);
     const { supportedLanguageCodes } = useMediawikiState();
-    const availableSourceLanguages = computed(() => supportedLanguageCodes.value.filter((languageCode) => languageCode !== targetLanguage.value));
     const suggestedSourceLanguages = useSuggestedSourceLanguages(sourceLanguage, targetLanguage, previousLanguages);
     const sourceLanguageOptions = getSourceLanguageOptions(sourceLanguage, suggestedSourceLanguages);
     const router2 = useRouter();
@@ -25950,7 +25983,7 @@ const _sfc_main$1 = {
       startSearchResultSectionTranslation
     } = usePageTranslationStart(router2, store2);
     return {
-      availableSourceLanguages,
+      supportedLanguageCodes,
       close,
       fullscreen,
       mwIconClose,
@@ -26077,7 +26110,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
       default: withCtx(() => [
         createVNode(_component_mw_language_selector, {
           class: "sx-article-search-language-selector__widget col-12",
-          languages: $setup.availableSourceLanguages,
+          languages: $setup.supportedLanguageCodes,
           suggestions: $setup.suggestedSourceLanguages,
           placeholder: _ctx.$i18n("cx-sx-language-selector-placeholder"),
           onSelect: $setup.onSourceLanguageSelected,
