@@ -119,6 +119,7 @@ export default {
    * @return {boolean}
    */
   isSandboxTarget: (state) => state.publishTarget === "SANDBOX_SECTION",
+
   /**
    * @param {object} state
    * @param {object} getters
@@ -126,4 +127,12 @@ export default {
    */
   getCurrentRevision: (state, getters) =>
     state.currentTranslation?.pageRevision || getters.getCurrentPage.revision,
+
+  /**
+   * @param {object} state
+   * @param {object} getters
+   * @return {string}
+   */
+  getParallelCorporaBaseId: (state, getters) =>
+    `${getters.getCurrentRevision}_${state.currentSourceSection.id}`,
 };

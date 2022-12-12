@@ -101,7 +101,7 @@ function saveTranslation({ rootState, rootGetters }) {
     targetLanguage
   );
 
-  const baseSectionId = `${sourcePage.revision}_${currentSourceSection.id}`;
+  const baseSectionId = rootGetters["application/getParallelCorporaBaseId"];
   const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
   units.forEach((unit) =>
     validateParallelCorporaPayload(unit, supportedMTProviders)

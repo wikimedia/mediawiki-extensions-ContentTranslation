@@ -56,6 +56,12 @@ describe("vuex store saveTranslation action", () => {
       { getCurrentPage: rootGetters["application/getCurrentPage"] },
     ]);
 
+  rootGetters["application/getParallelCorporaBaseId"] =
+    applicationGetters.getParallelCorporaBaseId.apply(null, [
+      applicationState,
+      { getCurrentRevision: rootGetters["application/getCurrentRevision"] },
+    ]);
+
   const dispatch = jest.fn();
 
   it("should add the translation units to the payload", async () => {
