@@ -144,7 +144,7 @@
 	"cx-publishing-dialog-message": "A páxina \"$1\" xa existe. A súa tradución substituirá o contido actual. Quere publicar a tradución igualmente?",
 	"cx-publishing-dialog-keep-button": "Gardar ambas versións",
 	"cx-publishing-dialog-publish-anyway-button": "Publicar igualmente",
-	"cx-publishing-dialog-title": "Sobreescribir a páxina existente?",
+	"cx-publishing-dialog-title": "Quere sobrescribir a páxina existente?",
 	"cx-publishing-dialog-sub-title": "A súa tradución sobreescribirá a páxina existente. Por favor, asegúrese de que é correcto substituir o contido existente.",
 	"cx-publishing-with-issues-dialog-title": "Publicar cos problemas existentes?",
 	"cx-publishing-with-issues-dialog-message": "A súa tradución aínda ten problemas en potencia. Por favor, considere revisar os problemas antes da súa publicación.\n\nOs editores que revisen a súa contribución aprezarán as melloras.",
