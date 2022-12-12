@@ -141,6 +141,8 @@
 				nextNode
 			);
 			// Also add them to the sticky header
+			// Icons are missing. See T320448
+			/*
 			mw.util.addPortletLink(
 				'p-personal-sticky-header',
 				$myTranslations.find( 'a' ).attr( 'href' ),
@@ -160,6 +162,7 @@
 				null,
 				nextNode
 			);
+			*/
 		}
 	}
 

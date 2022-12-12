@@ -398,12 +398,7 @@
 			"useDataURI": false,
 			"defaultColor": "#000",
 			"class": "ResourceLoaderOOUIIconPackModule",
-			"variants": {
-				"sticky": {
-					"color": "#000",
-					"global": true
-				}
-			},
+			"variants": [],
 			"icons": [
 				"imageGallery",
 				"language",
