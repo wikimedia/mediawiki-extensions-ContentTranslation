@@ -1,6 +1,7 @@
 import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
+import Page from "../../../wiki/mw/models/page";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
 import { cleanupHtml } from "../../../utils/publishHelper";
 
@@ -204,19 +205,37 @@ async function fetchTranslations({ commit, dispatch, state }) {
   const queue = translations.reduce((queue, translation) => {
     const language = translation.sourceLanguage;
     queue[language] = queue[language] || [];
-    queue[language].push(translation.sourceTitle);
+    queue[language].push(translation);
 
     return queue;
   }, {});
   commit("setTranslationsLoaded", true);
 
-  Object.keys(queue).forEach((sourceLanguage) => {
+  for (const [sourceLanguage, translations] of Object.entries(queue)) {
     dispatch(
       "mediawiki/fetchPageMetadata",
-      { language: sourceLanguage, titles: queue[sourceLanguage] },
+      {
+        language: sourceLanguage,
+        titles: translations.map((translation) => translation.sourceTitle),
+      },
       { root: true }
     );
-  });
+
+    const translationsWithExistingTarget = translations.filter(
+      (translation) => !!translation.targetTitle
+    );
+
+    translationsWithExistingTarget.forEach((translation) => {
+      commit(
+        "mediawiki/addPage",
+        new Page({
+          title: translation.targetTitle,
+          pagelanguage: translation.targetLanguage,
+        }),
+        { root: true }
+      );
+    });
+  }
 }
 
 /**
