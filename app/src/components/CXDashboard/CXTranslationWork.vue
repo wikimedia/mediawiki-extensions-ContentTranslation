@@ -94,11 +94,13 @@ export default {
 
       const { currentSourcePage } = useApplicationState(store);
 
-      const { sourceLanguage, targetLanguage, sourceTitle } = props.translation;
+      const { sourceLanguage, targetLanguage, sourceTitle, pageRevision } =
+        props.translation;
       await store.dispatch("mediawiki/fetchPageContent", {
         sourceLanguage,
         targetLanguage,
         sourceTitle,
+        revision: pageRevision,
       });
 
       // Asynchronously resolve references and update page sections to
