@@ -330,5 +330,8 @@
 	"cx-suggestion-list-favorites-division": "နောင်အတွက်",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ဤစာမျက်နှာကို တည်းဖြတ်ရန်",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" ကို ဘာသာပြန်ရန်",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ",
+	"cx-uls-relevant-languages-panel-header": "ဤစာမျက်နှာကို ဘာသာပြန်ပါ",
+	"cx-uls-translate-page-quick-action-label": "ဤစာမျက်နှာကို ဘာသာပြန်ပါ",
+	"cx-sx-publisher-captcha-dialog-publish-button": "လွှင့်တင်ရန်"
 }
