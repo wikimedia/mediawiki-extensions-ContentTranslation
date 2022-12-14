@@ -106,11 +106,6 @@ export default {
     .ve-ui-toolbar {
       width: 100%;
     }
-    .ve-ui-targetToolbar-mobile .oo-ui-toolbar-tools {
-      display: flex;
-      align-items: center;
-      height: 48px;
-    }
   }
   .surface {
     font-size: 1.125rem;
