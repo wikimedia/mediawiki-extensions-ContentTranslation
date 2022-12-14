@@ -1739,6 +1739,7 @@
 		}
 	},
 	"QUnitTestModule": {
+		"targets": [ "desktop" ],
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "ContentTranslation/tests/qunit",
 		"scripts": [
