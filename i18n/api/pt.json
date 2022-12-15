@@ -33,6 +33,7 @@
 	"apihelp-query+contenttranslation-param-limit": "O número máximo de traduções a obter.",
 	"apihelp-query+contenttranslation-param-offset": "Posição no conjunto de resultados (opcional).",
 	"apihelp-query+contenttranslation-param-type": "Estado da tradução.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Obter traduções de secções em vez de traduções de artigos",
 	"apihelp-query+contenttranslation-example-1": "Obter traduções iniciadas pelo utilizador atual.",
 	"apihelp-query+contenttranslation-example-2": "Obtém rascunhos por identificador.",
 	"apihelp-query+contenttranslation-example-3": "Encontrar qualquer tradução para o título especificado entre o par de línguas especificado",

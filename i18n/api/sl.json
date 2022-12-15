@@ -26,6 +26,7 @@
 	"apihelp-query+contenttranslation-param-limit": "Največje število pridobljenih prevodov.",
 	"apihelp-query+contenttranslation-param-offset": "Odmik v nabor zadetkov (izbirno).",
 	"apihelp-query+contenttranslation-param-type": "Stanje prevoda.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Ali naj se pridobijo prevodi razdelkov namesto prevodov člankov",
 	"apihelp-query+contenttranslation-example-1": "Prikaži prevode, ki jih je začel trenutni uporabnik.",
 	"apihelp-query+contenttranslation-example-2": "Pridobi osnutke prevodov po ID-ju.",
 	"apihelp-query+contenttranslation-example-3": "Najdi vse prevode z navedenim naslovom v navedenih jezikih.",

@@ -44,7 +44,7 @@
 	"cx-publish-error-spam-blacklist": "您的翻譯被偵測出有著潛在性破壞內容。詳情：$1",
 	"cx-publish-error-title-blacklist": "您所輸入的標題被列為黑名單。請為您的翻譯挑選其它名稱。",
 	"cx-publish-error-unknown": "發生未知且不可回復的錯誤。錯誤詳情：$1",
-	"cx-publish-button": "發布",
+	"cx-publish-button": "發佈",
 	"cx-publish-button-publishing": "發布中...",
 	"cx-lost-session": "您的 session 已逾期",
 	"cx-lost-session-draft": "您的連線階段已過期，除非您使用其他視窗再登入一次，否則無法儲存您的編輯。",
@@ -66,7 +66,7 @@
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "$1的此頁面不存在。{{GENDER:|您}}要建立該頁面嗎？",
 	"cx-entrypoint-dialog-button-translate-from": "翻譯自$1",
 	"cx-entrypoint-dialog-desc": "您可以透過翻譯此頁面來協助維基百科。翻譯是在您所使用語言上建立新內容的簡易方式。",
-	"cx-campaign-newbytranslation-title": "或從翻譯開始進行？",
+	"cx-campaign-newbytranslation-title": "或從翻譯開始？",
 	"cx-campaign-newbytranslation-notice": "透過翻譯你熟悉的其他語言創建新條目。",
 	"cx-campaign-newbytranslation-search": "尋找另一個要翻譯的頁面",
 	"cx-campaign-newbytranslation-start": "開始翻譯",
@@ -337,7 +337,7 @@
 	"cx-sx-sentence-selector-translation-options-header-text": "挑選目前與後續句子的翻譯選項。",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "原始",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "以空句子開始。",
-	"cx-sx-content-comparator-present-section-placeholder-title": "您的翻譯會被添加於此",
+	"cx-sx-content-comparator-present-section-placeholder-title": "您的翻譯會加到此",
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "當發佈時，您可以決定替換現有的內容。",
 	"cx-sx-content-comparator-content-header-translate-button-label": "翻譯",
 	"cx-sx-content-comparator-missing-section-placeholder-title": "一旦您完成了翻譯，此新章節會被添加在此",
@@ -412,5 +412,5 @@
 	"cx-uls-relevant-languages-panel-header": "翻譯此頁面",
 	"cx-uls-translate-page-quick-action-label": "翻譯此頁面",
 	"cx-sx-publisher-captcha-dialog-header-title": "檢查您並非機器人",
-	"cx-sx-publisher-captcha-dialog-publish-button": "發布"
+	"cx-sx-publisher-captcha-dialog-publish-button": "發佈"
 }

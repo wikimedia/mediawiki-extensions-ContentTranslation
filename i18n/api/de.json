@@ -31,6 +31,7 @@
 	"apihelp-query+contenttranslation-param-limit": "Die maximale Anzahl der abzurufenden Übersetzungen.",
 	"apihelp-query+contenttranslation-param-offset": "Versatz in den Ergebnissatz (optional).",
 	"apihelp-query+contenttranslation-param-type": "Status der Übersetzung.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Ob Abschnittsübersetzungen anstelle von Artikelübersetzungen geholt werden sollen",
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
 	"apihelp-query+contenttranslation-example-3": "Findet jede Übersetzung für den angegebenen Titel zwischen dem angegebenen Sprachpaar",
