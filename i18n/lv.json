@@ -424,6 +424,7 @@
 	"cx-sx-publisher-publish-panel-lead-section-result": "Šī būs <strong>pirmā sadaļa jaunā rakstā!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Tulkot šo lapu",
 	"sx-recent-edit-entrypoint-top-banner-header": "Sniedz ieguldījumu no citām valodām",
+	"sx-recent-edit-entrypoint-top-banner-content": "Sadaļa, kuru nesen laboji $1 valodā, trūkst $2 valodā. Apsver iespēju to iztulkot.",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Tulkot \"$1\"",
 	"sx-recent-edit-entrypoint-invitation-button-details": "$2 valodā trūkst {{PLURAL:$1|$1 sadaļas|$1 sadaļa|$1 sadaļas}}",
 	"cx-sx-publisher-captcha-dialog-header-title": "Pārbauda, vai tu neesi robots",

@@ -26,6 +26,7 @@
 	"apihelp-query+contenttranslation-param-limit": "המספר המרבי של התרגומים לאחזור.",
 	"apihelp-query+contenttranslation-param-offset": "מאיזו תוצאה להתחיל (לא חובה).",
 	"apihelp-query+contenttranslation-param-type": "מצב התרגום.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "האם יש להביא תרגומי פרקים, במקום תרגומי ערכים",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
 	"apihelp-query+contenttranslation-example-3": "חיפוש כל תרגום עבור הכותרת הנתונה בין זוג השפות הנתונות",
