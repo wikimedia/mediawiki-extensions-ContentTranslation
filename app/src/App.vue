@@ -14,22 +14,25 @@
 
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
-import { mapState } from "vuex";
+import { useStore } from "vuex";
+import { onMounted } from "vue";
 
 export default {
   name: "ContentTranslationApp",
   components: { MwGrid, MwCol, MwRow },
-  computed: {
-    ...mapState({
-      translationInProgress: (state) => state.application.translationInProgress,
-    }),
-  },
-  mounted() {
-    window.addEventListener("beforeunload", (e) => {
-      if (this.translationInProgress) {
-        e.preventDefault();
-        e.returnValue = "";
-      }
+  setup() {
+    const store = useStore();
+    const translationInProgress = computed(
+      () => store.state.application.translationInProgress
+    );
+
+    onMounted(() => {
+      window.addEventListener("beforeunload", (e) => {
+        if (translationInProgress.value) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
     });
   },
 };
