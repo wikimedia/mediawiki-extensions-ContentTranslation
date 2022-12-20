@@ -7,7 +7,7 @@ import Page from "@/wiki/mw/models/page";
 import applicationGetters from "@/store/modules/application/getters";
 
 jest.mock("@/wiki/cx/api/translator", () => ({
-  saveTranslation: jest.fn(),
+  saveTranslation: jest.fn(() => Promise.resolve()),
 }));
 
 describe("vuex store saveTranslation action", () => {
@@ -62,7 +62,7 @@ describe("vuex store saveTranslation action", () => {
       { getCurrentRevision: rootGetters["application/getCurrentRevision"] },
     ]);
 
-  const dispatch = jest.fn();
+  const commit = jest.fn();
 
   it("should add the translation units to the payload", async () => {
     const blockTemplateWrapper = createEl("section");
@@ -85,7 +85,7 @@ describe("vuex store saveTranslation action", () => {
     subSection1.blockTemplateMTProviderUsed = "Google";
     applicationState.currentSourceSection.subSections = [subSection1];
 
-    await actions.saveTranslation({ rootState, rootGetters, dispatch });
+    await actions.saveTranslation({ rootState, rootGetters, commit });
 
     expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
       sourceTitle: "Test source title 1",

@@ -129,8 +129,26 @@ const mutations = {
     state.publishTarget = target;
   },
 
-  setTranslationInProgress: (state, value) => {
-    state.translationInProgress = value;
+  /**
+   * @param {object} state
+   * @param {boolean} value
+   */
+  setAutoSavePending: (state, value) => {
+    state.autoSavePending = value;
+  },
+
+  /**
+   * @param {object} state
+   */
+  increaseAutoSaveInProgressCounter: (state) => {
+    state.autoSaveInProgressCounter++;
+  },
+
+  /**
+   * @param {object} state
+   */
+  decreaseAutoSaveInProgressCounter: (state) => {
+    state.autoSaveInProgressCounter--;
   },
 
   setCXServerToken: (state, token) => {

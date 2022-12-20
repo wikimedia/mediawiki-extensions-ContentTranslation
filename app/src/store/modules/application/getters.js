@@ -135,4 +135,14 @@ export default {
    */
   getParallelCorporaBaseId: (state, getters) =>
     `${getters.getCurrentRevision}_${state.currentSourceSection.id}`,
+
+  /**
+   * @param {object} state
+   * @return {boolean}
+   */
+  unsavedChangesExist: (state) => {
+    const { autoSavePending, autoSaveInProgressCounter } = state;
+
+    return autoSavePending || autoSaveInProgressCounter > 0;
+  },
 };

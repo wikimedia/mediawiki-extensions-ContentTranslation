@@ -22,13 +22,12 @@ export default {
   components: { MwGrid, MwCol, MwRow },
   setup() {
     const store = useStore();
-    const translationInProgress = computed(
-      () => store.state.application.translationInProgress
+    const unsavedChangesExist = computed(
+      () => store.getters["application/unsavedChangesExist"]
     );
-
     onMounted(() => {
       window.addEventListener("beforeunload", (e) => {
-        if (translationInProgress.value) {
+        if (unsavedChangesExist.value) {
           e.preventDefault();
           e.returnValue = "";
         }

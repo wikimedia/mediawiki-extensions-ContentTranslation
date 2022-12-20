@@ -52,8 +52,6 @@ const handlePublishResult = async (
       mw.log.error("Error while adding wikibase link", error);
     }
   }
-  /** Remove warning about leaving SX */
-  store.commit("application/setTranslationInProgress", false);
 
   // for successful publishing, targetTitle is required to be a non-empty string
   if (!targetTitle) {

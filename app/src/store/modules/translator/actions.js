@@ -81,9 +81,10 @@ function validateMT({ rootState }) {
  * @param {object} context
  * @param {object} context.rootState
  * @param {object} context.rootGetters
+ * @param {function} context.commit
  * @return {Promise<PublishFeedbackMessage|null>}
  */
-function saveTranslation({ rootState, rootGetters }) {
+function saveTranslation({ rootState, rootGetters, commit }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -109,25 +110,34 @@ function saveTranslation({ rootState, rootGetters }) {
   );
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
+  commit("application/increaseAutoSaveInProgressCounter", null, { root: true });
 
   /**
    * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
    * @type {Promise<PublishFeedbackMessage|null>}
    */
-  return cxTranslatorApi.saveTranslation({
-    sourceTitle,
-    targetTitle,
-    sourceSectionTitle: currentSourceSection.originalTitle,
-    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
-    sourceLanguage,
-    targetLanguage,
-    revision: rootGetters["application/getCurrentRevision"],
-    isLeadSection: currentSourceSection.isLeadSection,
-    units: units.map((unit) => unit.payload),
-    // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
-    sectionId: baseSectionId,
-    isSandbox,
-  });
+  return cxTranslatorApi
+    .saveTranslation({
+      sourceTitle,
+      targetTitle,
+      sourceSectionTitle: currentSourceSection.originalTitle,
+      targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
+      sourceLanguage,
+      targetLanguage,
+      revision: rootGetters["application/getCurrentRevision"],
+      isLeadSection: currentSourceSection.isLeadSection,
+      units: units.map((unit) => unit.payload),
+      // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
+      sectionId: baseSectionId,
+      isSandbox,
+    })
+    .then((publishFeedbackMessage) => {
+      commit("application/decreaseAutoSaveInProgressCounter", null, {
+        root: true,
+      });
+
+      return publishFeedbackMessage;
+    });
 }
 
 /**

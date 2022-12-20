@@ -25,12 +25,34 @@ import debounce from "../../../utils/debounce";
  */
 let debouncedSaveTranslation;
 
-const getDebouncedSaveTranslation = (dispatch) => {
+/**
+ * @param {object} context
+ * @param {function} context.dispatch
+ * @param {function} context.commit
+ * @return {function}
+ */
+const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
   if (!debouncedSaveTranslation) {
-    debouncedSaveTranslation = debounce(
-      dispatch.bind(null, "translator/saveTranslation", {}, { root: true }),
-      3000
-    );
+    let retryDelay = 1000;
+    let retry = 0;
+
+    const saveTranslationWithRetry = () => {
+      dispatch("translator/saveTranslation", {}, { root: true }).then(
+        (feedbackMessage) => {
+          if (!!feedbackMessage) {
+            retryDelay *= retry + 1;
+            retry++;
+
+            setTimeout(debouncedSaveTranslation, retryDelay);
+          } else {
+            retry = 0;
+            retryDelay = 1000;
+            commit("setAutoSavePending", false);
+          }
+        }
+      );
+    };
+    debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3000);
   }
 
   return debouncedSaveTranslation;
@@ -347,15 +369,15 @@ function applyProposedTranslationToSelectedTranslationUnit({
   commit,
   state,
 }) {
-  commit("setTranslationInProgress", true);
   const translation = getters.getCurrentProposedTranslation;
   const { currentSourceSection, currentMTProvider } = state;
   currentSourceSection.setTranslationForSelectedTranslationUnit(
     translation,
     currentMTProvider
   );
-  const dispatchedSave = getDebouncedSaveTranslation(dispatch);
+  const dispatchedSave = getDebouncedSaveTranslation({ dispatch, commit });
   dispatchedSave();
+  commit("setAutoSavePending", true);
   dispatch("selectNextTranslationUnit");
 }
 
@@ -375,8 +397,6 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   { state, dispatch, commit, getters },
   translation
 ) {
-  commit("setTranslationInProgress", true);
-
   const div = document.createElement("div");
   div.innerHTML = translation;
   // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
@@ -410,8 +430,10 @@ async function applyEditedTranslationToSelectedTranslationUnit(
     translation,
     currentMTProvider
   );
-  const dispatchedSave = getDebouncedSaveTranslation(dispatch);
+  const dispatchedSave = getDebouncedSaveTranslation({ dispatch, commit });
   dispatchedSave();
+  commit("setAutoSavePending", true);
+
   dispatch("selectNextTranslationUnit");
 }
 
