@@ -7750,35 +7750,30 @@ const htmlToElement = (html) => {
 var mtValidator = { calculateScore, getScoreStatus, getMTScoreForPageSection };
 class Translation {
   constructor({
+    translationId,
+    sourceTitle,
     sourceLanguage,
     targetLanguage,
-    sourceTitle,
-    targetTitle,
-    status,
-    id,
-    sourceURL,
-    targetURL,
     startTimestamp,
-    lastUpdateTimestamp,
-    progress = {},
-    startedTranslator,
-    lastUpdatedTranslator,
-    cxVersion
+    lastUpdatedTimestamp,
+    status,
+    pageRevision,
+    targetTitle,
+    sourceSectionTitle,
+    targetSectionTitle
   }) {
-    this.id = id;
-    this.cxVersion = cxVersion;
+    this.id = translationId;
+    this.sourceTitle = sourceTitle;
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
-    this.sourceTitle = sourceTitle;
-    this.targetTitle = targetTitle;
-    this.sourceURL = sourceURL;
-    this.targetURL = targetURL;
-    this.progress = progress;
-    this.status = status;
-    this.startedTranslator = startedTranslator;
-    this.lastUpdatedTranslator = lastUpdatedTranslator;
-    this.lastUpdateTimestamp = lastUpdateTimestamp;
     this.startTimestamp = startTimestamp;
+    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
+    this.status = status;
+    this.pageRevision = pageRevision;
+    this.targetTitle = sourceTitle;
+    this.sourceSectionTitle = sourceSectionTitle;
+    this.targetSectionTitle = targetSectionTitle;
+    this.restored = false;
   }
 }
 const ORIGINAL_TEXT_PROVIDER_KEY = "original";
@@ -7856,6 +7851,25 @@ class PublishFeedbackMessage {
     return this.status === "error";
   }
 }
+class CorporaRestoredUnit {
+  constructor({ user, source, mt, sequenceId }) {
+    this.user = user;
+    this.source = source;
+    this.mt = mt;
+    this.sequenceId = sequenceId;
+  }
+  get sourceSectionEl() {
+    const restoredSectionDiv = document.createElement("div");
+    restoredSectionDiv.innerHTML = this.source.content;
+    return restoredSectionDiv.firstChild;
+  }
+  get pageSectionId() {
+    return parseInt(this.sourceSectionEl.dataset.mwSectionNumber);
+  }
+  get subSectionId() {
+    return this.sourceSectionEl.id.replace(/\D/g, "");
+  }
+}
 function fetchTranslations$1(offset) {
   return __async(this, null, function* () {
     if (mw.user.isAnon()) {
@@ -7866,7 +7880,8 @@ function fetchTranslations$1(offset) {
       format: "json",
       assert: "user",
       formatversion: 2,
-      list: "contenttranslation"
+      list: "contenttranslation",
+      sectiontranslationsonly: true
     };
     if (offset) {
       params["offset"] = offset;
@@ -7875,13 +7890,31 @@ function fetchTranslations$1(offset) {
     return api.get(params).then((response) => __async(this, null, function* () {
       var _a;
       const apiResponse = response.query.contenttranslation.translations;
-      let results = apiResponse.map((item) => new Translation(item.translation));
+      let results = apiResponse.map((item) => new Translation(item));
       if ((_a = response.continue) == null ? void 0 : _a.offset) {
         const restOfResults = yield fetchTranslations$1(response.continue.offset);
         results = results.concat(restOfResults);
       }
       return results;
     }));
+  });
+}
+function fetchTranslationUnits(translationId) {
+  if (mw.user.isAnon()) {
+    return Promise.resolve([]);
+  }
+  const params = {
+    action: "query",
+    format: "json",
+    assert: "user",
+    formatversion: 2,
+    translationid: translationId,
+    list: "contenttranslation"
+  };
+  const api = new mw.Api();
+  return api.get(params).then((response) => {
+    const { translation } = response.query.contenttranslation;
+    return Object.values(translation.translationUnits).map((unit) => new CorporaRestoredUnit(unit));
   });
 }
 function fetchSegmentTranslation(sourceLanguage, targetLanguage, provider, sentence, token) {
@@ -7987,7 +8020,7 @@ const publishTranslation$1 = ({
     };
   });
 };
-const saveTranslation = ({
+const saveTranslation$1 = ({
   sourceTitle,
   targetTitle,
   sourceSectionTitle,
@@ -8027,13 +8060,58 @@ const saveTranslation = ({
     return new PublishFeedbackMessage({ text, status: "error" });
   });
 };
-var translatorApi = {
+var translator$1 = {
   fetchTranslations: fetchTranslations$1,
+  fetchTranslationUnits,
   fetchSegmentTranslation,
   parseTemplateWikitext,
   publishTranslation: publishTranslation$1,
-  saveTranslation
+  saveTranslation: saveTranslation$1
 };
+class Page {
+  constructor({
+    description,
+    langlinkscount,
+    lastrevid,
+    original,
+    pageid,
+    pagelanguage,
+    pageprops,
+    pageviews,
+    thumbnail,
+    title,
+    _alias,
+    content = null,
+    sections = []
+  } = {}) {
+    this.language = pagelanguage;
+    this.title = title;
+    this.pageId = pageid;
+    this.description = description;
+    this.image = original;
+    this.pageprops = pageprops;
+    this.pageviews = pageviews;
+    this.thumbnail = thumbnail;
+    this.langLinksCount = langlinkscount;
+    this.revision = lastrevid;
+    this.alias = _alias;
+    this.wikidataId = pageprops == null ? void 0 : pageprops.wikibase_item;
+    this.content = content;
+    this.sections = sections;
+  }
+  get id() {
+    return `${this.language}/${this.title}`;
+  }
+  getSectionByTitle(sectionTitle) {
+    return (this.sections || []).find((section) => section.originalTitle === sectionTitle);
+  }
+  restoreCorporaDraft(corporaUnits) {
+    for (const section of this.sections || []) {
+      const sectionCorporaUnits = corporaUnits.filter((unit) => unit.pageSectionId === parseInt(section.id));
+      section.restoreCorporaUnits(sectionCorporaUnits);
+    }
+  }
+}
 const validateParallelCorporaPayload = (translationUnitPayload, supportedMTProviders) => {
   const { content, origin, baseSectionId, subSectionId } = translationUnitPayload;
   if (!content) {
@@ -8106,56 +8184,67 @@ function validateMT({ rootState }) {
     type: "mt"
   });
 }
+function saveTranslation({ rootState, rootGetters }) {
+  const sourcePage = rootGetters["application/getCurrentPage"];
+  const {
+    currentSourceSection,
+    sourceLanguage,
+    targetLanguage
+  } = rootState.application;
+  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
+  const sourceTitle = sourcePage.title;
+  const targetTitle = (currentTargetPage == null ? void 0 : currentTargetPage.title) || sourceTitle;
+  const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](sourceLanguage, targetLanguage);
+  const baseSectionId = rootGetters["application/getParallelCorporaBaseId"];
+  const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
+  units.forEach((unit) => validateParallelCorporaPayload(unit, supportedMTProviders));
+  const isSandbox = rootGetters["application/isSandboxTarget"];
+  return translator$1.saveTranslation({
+    sourceTitle,
+    targetTitle,
+    sourceSectionTitle: currentSourceSection.originalTitle,
+    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
+    sourceLanguage,
+    targetLanguage,
+    revision: rootGetters["application/getCurrentRevision"],
+    isLeadSection: currentSourceSection.isLeadSection,
+    units: units.map((unit) => unit.payload),
+    sectionId: baseSectionId,
+    isSandbox
+  });
+}
 function publishTranslation(_0) {
-  return __async(this, arguments, function* ({ rootState, rootGetters }, { captchaId, captchaAnswer } = {}) {
-    const sourcePage = rootGetters["application/getCurrentPage"];
-    const {
-      currentSourceSection,
-      currentSectionSuggestion,
-      sourceLanguage,
-      targetLanguage
-    } = rootState.application;
-    if (!currentSectionSuggestion) {
-      throw new Error("Current source section cannot be empty during publishing");
-    }
-    const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](sourceLanguage, targetLanguage);
-    const baseSectionId = `${sourcePage.revision}_${currentSourceSection.id}`;
-    const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
-    units.forEach((unit) => validateParallelCorporaPayload(unit, supportedMTProviders));
-    const targetTitle = currentSectionSuggestion.targetTitle || currentSourceSection.title;
-    const isSandbox = rootGetters["application/isSandboxTarget"];
-    const saveMessage = yield translatorApi.saveTranslation({
-      sourceTitle: currentSectionSuggestion.sourceTitle,
-      targetTitle,
-      sourceSectionTitle: currentSourceSection.originalTitle,
-      targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
-      sourceLanguage,
-      targetLanguage,
-      revision: sourcePage.revision,
-      isLeadSection: currentSourceSection.isLeadSection,
-      units: units.map((unit) => unit.payload),
-      sectionId: baseSectionId,
-      isSandbox
-    });
+  return __async(this, arguments, function* ({ rootState, rootGetters, dispatch: dispatch2 }, { captchaId, captchaAnswer } = {}) {
+    const saveMessage = yield dispatch2("saveTranslation");
     if (!!saveMessage) {
       return { publishFeedbackMessage: saveMessage, targetTitle: null };
     }
+    const sourcePage = rootGetters["application/getCurrentPage"];
+    const {
+      currentSourceSection,
+      sourceLanguage,
+      targetLanguage
+    } = rootState.application;
+    const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
+    const sourceTitle = sourcePage.title;
+    const targetTitle = (currentTargetPage == null ? void 0 : currentTargetPage.title) || sourceTitle;
+    const isSandbox = rootGetters["application/isSandboxTarget"];
     const publishPayload = {
       html: cleanupHtml(currentSourceSection.translationHtml),
-      sourceTitle: currentSectionSuggestion.sourceTitle,
+      sourceTitle,
       targetTitle,
       sourceSectionTitle: currentSourceSection.originalTitle,
       targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
-      revision: sourcePage.revision,
+      revision: rootGetters["application/getCurrentRevision"],
       isSandbox
     };
     if (captchaId) {
       publishPayload.captchaId = captchaId;
       publishPayload.captchaWord = captchaAnswer;
     }
-    return yield translatorApi.publishTranslation(publishPayload);
+    return yield translator$1.publishTranslation(publishPayload);
   });
 }
 function fetchTranslations(_0) {
@@ -8163,18 +8252,28 @@ function fetchTranslations(_0) {
     if (state2.translations.length) {
       return;
     }
-    const translations = yield translatorApi.fetchTranslations();
+    const translations = yield translator$1.fetchTranslations();
     translations.forEach((translation) => commit2("addTranslation", translation));
     const queue2 = translations.reduce((queue3, translation) => {
       const language = translation.sourceLanguage;
       queue3[language] = queue3[language] || [];
-      queue3[language].push(translation.sourceTitle);
+      queue3[language].push(translation);
       return queue3;
     }, {});
     commit2("setTranslationsLoaded", true);
-    Object.keys(queue2).forEach((sourceLanguage) => {
-      dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles: queue2[sourceLanguage] }, { root: true });
-    });
+    for (const [sourceLanguage, translations2] of Object.entries(queue2)) {
+      dispatch2("mediawiki/fetchPageMetadata", {
+        language: sourceLanguage,
+        titles: translations2.map((translation) => translation.sourceTitle)
+      }, { root: true });
+      const translationsWithExistingTarget = translations2.filter((translation) => !!translation.targetTitle);
+      translationsWithExistingTarget.forEach((translation) => {
+        commit2("mediawiki/addPage", new Page({
+          title: translation.targetTitle,
+          pagelanguage: translation.targetLanguage
+        }), { root: true });
+      });
+    }
   });
 }
 function translateContent(_0, _1) {
@@ -8186,7 +8285,7 @@ function translateContent(_0, _1) {
     }
     try {
       const token = yield dispatch2("application/getCXServerToken", {}, { root: true });
-      return yield translatorApi.fetchSegmentTranslation(sourceLanguage, targetLanguage, provider, originalContent, token);
+      return yield translator$1.fetchSegmentTranslation(sourceLanguage, targetLanguage, provider, originalContent, token);
     } catch (error) {
       mw.log.error("Error while translating segment", error);
       return originalContent;
@@ -8195,6 +8294,7 @@ function translateContent(_0, _1) {
 }
 var actions$3 = {
   validateMT,
+  saveTranslation,
   publishTranslation,
   fetchTranslations,
   translateContent
@@ -8928,44 +9028,6 @@ var getters$1 = {
     return state2.nearbyPages[sourceLanguage];
   }
 };
-class Page {
-  constructor({
-    description,
-    langlinkscount,
-    lastrevid,
-    original,
-    pageid,
-    pagelanguage,
-    pageprops,
-    pageviews,
-    thumbnail,
-    title,
-    _alias,
-    content = null,
-    sections = []
-  } = {}) {
-    this.language = pagelanguage;
-    this.title = title;
-    this.pageId = pageid;
-    this.description = description;
-    this.image = original;
-    this.pageprops = pageprops;
-    this.pageviews = pageviews;
-    this.thumbnail = thumbnail;
-    this.langLinksCount = langlinkscount;
-    this.revision = lastrevid;
-    this.alias = _alias;
-    this.wikidataId = pageprops == null ? void 0 : pageprops.wikibase_item;
-    this.content = content;
-    this.sections = sections;
-  }
-  get id() {
-    return `${this.language}/${this.title}`;
-  }
-  getSectionByTitle(sectionTitle) {
-    return (this.sections || []).find((section) => section.originalTitle === sectionTitle);
-  }
-}
 class LanguageTitleGroup {
   constructor(wikidataId, titles) {
     this.wikidataId = wikidataId;
@@ -9144,6 +9206,7 @@ class SubSection$1 {
     this.blockTemplateAdaptationInfo = {};
     this.blockTemplateMTProviderUsed = "";
     this.editedTranslation = null;
+    this.corporaRestoredUnit = null;
   }
   setBlockTemplateAdaptationInfo(provider, info) {
     this.blockTemplateAdaptationInfo[provider] = info;
@@ -9304,6 +9367,25 @@ class SubSection$1 {
       });
     }
     return subSectionNode.outerHTML;
+  }
+  restoreCorpora(corporaUnit) {
+    this.corporaRestoredUnit = corporaUnit;
+    const toHtmlSegments = (text) => {
+      const wrapperDiv = document.createElement("div");
+      wrapperDiv.innerHTML = text;
+      const node = wrapperDiv.firstChild;
+      return Array.from(node.getElementsByClassName("cx-segment"));
+    };
+    const translatedSegments = toHtmlSegments(this.corporaRestoredUnit.user.content);
+    const mtSegments = toHtmlSegments(this.corporaRestoredUnit.mt.content);
+    translatedSegments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+      const mtSegment = mtSegments.find((mtSegment2) => mtSegment2.dataset.segmentid === segment.dataset.segmentid);
+      sentence.translatedContent = segment.innerHTML;
+      const mtProvider = this.corporaRestoredUnit.mt.engine;
+      sentence.addProposedTranslation(mtProvider, mtSegment.innerHTML);
+      sentence.mtProviderUsed = mtProvider;
+    });
   }
 }
 class PageSection {
@@ -9472,6 +9554,14 @@ class PageSection {
       ...subSection.getParallelCorporaTranslationPayloads(baseSectionId)
     ], []);
   }
+  restoreCorporaUnits(corporaUnits) {
+    for (const subSection of this.subSections) {
+      const corporaUnit = corporaUnits.find((corporaUnit2) => corporaUnit2.subSectionId === subSection.id);
+      if (corporaUnit) {
+        subSection.restoreCorpora(corporaUnit);
+      }
+    }
+  }
 }
 function registerCXSectionNodes() {
   const cxSectionRDFA = "cx:Section";
@@ -9602,17 +9692,20 @@ const fetchLanguageTitles$1 = (language, title) => {
     return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
   }));
 };
-const fetchPageContent$1 = (sourceLanguage, targetLanguage, sourceTitle) => {
-  return fetchSegmentedContent(sourceLanguage, targetLanguage, sourceTitle).then((segmentedContent) => new Page({
+const fetchPageContent$1 = (sourceLanguage, targetLanguage, sourceTitle, revision) => {
+  return fetchSegmentedContent(sourceLanguage, targetLanguage, sourceTitle, revision).then((segmentedContent) => new Page({
     sections: segmentedContentConverter.convertSegmentedContentToPageSections(segmentedContent, false),
     content: segmentedContent,
     pagelanguage: sourceLanguage,
     title: sourceTitle
   }));
 };
-const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle) => {
+const fetchSegmentedContent = (sourceLanguage, targetLanguage, sourceTitle, revision = null) => {
   const cxServerParams = [sourceLanguage, targetLanguage, sourceTitle].map((param) => encodeURIComponent(param));
-  const cxserverAPI = siteMapper.getCXServerUrl(`/page/${cxServerParams.join("/")}`);
+  let cxserverAPI = siteMapper.getCXServerUrl(`/page/${cxServerParams.join("/")}`);
+  if (revision) {
+    cxserverAPI += `/${revision}`;
+  }
   return fetch(cxserverAPI).then((response) => response.json()).then((response) => response.segmentedContent);
 };
 const fetchNearbyPages$1 = (language) => __async(this, null, function* () {
@@ -9729,12 +9822,12 @@ function fetchSupportedLanguageCodes(_0) {
   });
 }
 function fetchPageContent(_0, _1) {
-  return __async(this, arguments, function* ({ commit: commit2, getters: getters2, dispatch: dispatch2 }, { sourceLanguage, targetLanguage, sourceTitle }) {
+  return __async(this, arguments, function* ({ commit: commit2, getters: getters2, dispatch: dispatch2 }, { sourceLanguage, targetLanguage, sourceTitle, revision = null }) {
     let existingPage = getters2.getPage(sourceLanguage, sourceTitle);
     if (existingPage && existingPage.content) {
       return;
     }
-    const fetchedPage = yield pageApi.fetchPageContent(sourceLanguage, targetLanguage, sourceTitle);
+    const fetchedPage = yield pageApi.fetchPageContent(sourceLanguage, targetLanguage, sourceTitle, revision);
     if (!existingPage) {
       commit2("addPage", fetchedPage);
     } else if (!existingPage.content) {
@@ -9827,6 +9920,7 @@ var state = {
   mtRequestsPending: [],
   currentSectionSuggestion: null,
   currentSourceSection: null,
+  currentTranslation: null,
   currentMTProvider: "",
   sourceLanguage: null,
   targetLanguage: null,
@@ -9837,9 +9931,14 @@ var state = {
 var getters = {
   getCurrentPage: (state2, getters2, rootState, rootGetters) => {
     var _a, _b;
-    return rootGetters["mediawiki/getPage"]((_a = state2.currentSectionSuggestion) == null ? void 0 : _a.sourceLanguage, (_b = state2.currentSectionSuggestion) == null ? void 0 : _b.sourceTitle);
+    const title = ((_a = state2.currentSectionSuggestion) == null ? void 0 : _a.sourceTitle) || ((_b = state2.currentTranslation) == null ? void 0 : _b.sourceTitle);
+    return rootGetters["mediawiki/getPage"](state2.sourceLanguage, title);
   },
-  getCurrentTargetPage: (state2, getters2, rootState, rootGetters) => rootGetters["mediawiki/getPage"](state2.currentSectionSuggestion.targetLanguage, state2.currentSectionSuggestion.targetTitle),
+  getCurrentTargetPage: (state2, getters2, rootState, rootGetters) => {
+    var _a, _b;
+    const title = ((_a = state2.currentSectionSuggestion) == null ? void 0 : _a.targetTitle) || ((_b = state2.currentTranslation) == null ? void 0 : _b.targetTitle);
+    return rootGetters["mediawiki/getPage"](state2.targetLanguage, title);
+  },
   getCurrentSourceSectionTitle: (state2) => {
     var _a;
     return ((_a = state2.currentSourceSection) == null ? void 0 : _a.originalTitle) || "";
@@ -9866,7 +9965,38 @@ var getters = {
   getCurrentPublishedTranslations: (state2, getters2, rootState, rootGetters) => rootGetters["translator/getPublishedTranslationsForLanguagePair"](state2.sourceLanguage, state2.targetLanguage),
   getSectionSuggestionsSliceByIndex: (state2, getters2, rootState) => (sliceIndex) => getters2.getCurrentSectionSuggestions.slice(rootState.suggestions.maxSuggestionsPerSlice * sliceIndex, rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)),
   getPageSuggestionsSliceByIndex: (state2, getters2, rootState) => (sliceIndex) => getters2.getCurrentPageSuggestions.slice(rootState.suggestions.maxSuggestionsPerSlice * sliceIndex, rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)),
-  isSandboxTarget: (state2) => state2.publishTarget === "SANDBOX_SECTION"
+  isSandboxTarget: (state2) => state2.publishTarget === "SANDBOX_SECTION",
+  getCurrentRevision: (state2, getters2) => {
+    var _a;
+    return ((_a = state2.currentTranslation) == null ? void 0 : _a.pageRevision) || getters2.getCurrentPage.revision;
+  },
+  getParallelCorporaBaseId: (state2, getters2) => `${getters2.getCurrentRevision}_${state2.currentSourceSection.id}`
+};
+function debounce(func, wait, immediate) {
+  let timeout;
+  return (...args) => {
+    const context = this;
+    const later = () => {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+    if (immediate && !timeout) {
+      func.apply(context, args);
+    }
+    if (!timeout || wait) {
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    }
+  };
+}
+let debouncedSaveTranslation;
+const getDebouncedSaveTranslation = (dispatch2) => {
+  if (!debouncedSaveTranslation) {
+    debouncedSaveTranslation = debounce(dispatch2.bind(null, "translator/saveTranslation", {}, { root: true }), 3e3);
+  }
+  return debouncedSaveTranslation;
 };
 const getCXServerToken = (_0) => __async(this, [_0], function* ({ dispatch: dispatch2, state: state2, commit: commit2 }) {
   var _a, _b;
@@ -9905,6 +10035,10 @@ function startFavoriteSectionTranslation(_0, _1) {
 function initializeSectionTranslation({ commit: commit2, dispatch: dispatch2 }, suggestion) {
   dispatch2("getCXServerToken");
   commit2("setCurrentSectionSuggestion", suggestion);
+}
+function restoreSectionTranslation({ commit: commit2, dispatch: dispatch2 }, translation) {
+  dispatch2("getCXServerToken");
+  commit2("setCurrentTranslation", translation);
 }
 function updateSourceLanguage(_0, _1) {
   return __async(this, arguments, function* ({ commit: commit2, state: state2, getters: getters2, dispatch: dispatch2 }, newSourceLanguage) {
@@ -10013,10 +10147,12 @@ function applyProposedTranslationToSelectedTranslationUnit({
   const translation = getters2.getCurrentProposedTranslation;
   const { currentSourceSection, currentMTProvider } = state2;
   currentSourceSection.setTranslationForSelectedTranslationUnit(translation, currentMTProvider);
+  const dispatchedSave = getDebouncedSaveTranslation(dispatch2);
+  dispatchedSave();
   dispatch2("selectNextTranslationUnit");
 }
 function applyEditedTranslationToSelectedTranslationUnit(_0, _1) {
-  return __async(this, arguments, function* ({ state: state2, dispatch: dispatch2, commit: commit2 }, translation) {
+  return __async(this, arguments, function* ({ state: state2, dispatch: dispatch2, commit: commit2, getters: getters2 }, translation) {
     commit2("setTranslationInProgress", true);
     const div = document.createElement("div");
     div.innerHTML = translation;
@@ -10025,13 +10161,18 @@ function applyEditedTranslationToSelectedTranslationUnit(_0, _1) {
     const { currentSourceSection, targetLanguage, currentMTProvider } = state2;
     const { selectedContentTranslationUnit } = currentSourceSection;
     if (selectedContentTranslationUnit instanceof SubSection$1) {
-      const { sourceTitle, targetTitle } = state2.currentSectionSuggestion;
+      const currentSourcePage = getters2.getCurrentPage;
+      const currentTargetPage = getters2.getCurrentTargetPage;
+      const sourceTitle = currentSourcePage.title;
+      const targetTitle = currentTargetPage == null ? void 0 : currentTargetPage.title;
       const templateElement = Array.from(div.children).find((node) => isTransclusionNode(node));
       if (templateElement) {
-        translation = yield translatorApi.parseTemplateWikitext(getWikitextFromTemplate(templateElement), targetLanguage, targetTitle || sourceTitle);
+        translation = yield translator$1.parseTemplateWikitext(getWikitextFromTemplate(templateElement), targetLanguage, targetTitle || sourceTitle);
       }
     }
     currentSourceSection.setTranslationForSelectedTranslationUnit(translation, currentMTProvider);
+    const dispatchedSave = getDebouncedSaveTranslation(dispatch2);
+    dispatchedSave();
     dispatch2("selectNextTranslationUnit");
   });
 }
@@ -10053,7 +10194,7 @@ function selectPreviousTranslationUnit({ state: state2, dispatch: dispatch2 }) {
 }
 function initializeMTProviders(_0) {
   return __async(this, arguments, function* ({ state: state2, dispatch: dispatch2, rootGetters, commit: commit2 }) {
-    const { sourceLanguage, targetLanguage } = state2.currentSectionSuggestion;
+    const { sourceLanguage, targetLanguage } = state2;
     yield dispatch2("mediawiki/fetchMTProviders", { sourceLanguage, targetLanguage }, { root: true });
     const supportedProviders = rootGetters["mediawiki/getSupportedMTProviders"](sourceLanguage, targetLanguage);
     const currentProvider = state2.currentMTProvider;
@@ -10072,16 +10213,15 @@ function updateMTProvider({ commit: commit2, dispatch: dispatch2, state: state2 
   dispatch2("translateTranslationUnitById", { id, provider });
 }
 function translateTranslationUnitById(_0, _1) {
-  return __async(this, arguments, function* ({ commit: commit2, state: state2, dispatch: dispatch2 }, { id, provider }) {
-    const {
-      currentSectionSuggestion,
-      currentSourceSection: sourceSection,
-      targetLanguage
-    } = state2;
+  return __async(this, arguments, function* ({ commit: commit2, state: state2, dispatch: dispatch2, getters: getters2 }, { id, provider }) {
+    const { currentSourceSection: sourceSection, targetLanguage } = state2;
     if (sourceSection.hasProposedTranslationByTranslationUnitId(id, provider)) {
       return;
     }
-    const { sourceTitle, targetTitle } = currentSectionSuggestion;
+    const currentSourcePage = getters2.getCurrentPage;
+    const currentTargetPage = getters2.getCurrentTargetPage;
+    const sourceTitle = currentSourcePage.title;
+    const targetTitle = currentTargetPage == null ? void 0 : currentTargetPage.title;
     let originalContent = sourceSection.getOriginalContentByTranslationUnitId(id);
     const translationUnit = sourceSection.getContentTranslationUnitById(id);
     let proposedTranslation;
@@ -10098,7 +10238,7 @@ function translateTranslationUnitById(_0, _1) {
       if (templateElement && targetTemplateExists(templateElement)) {
         const adaptationInfo = getTemplateAdaptationInfo(templateElement);
         translationUnit.setBlockTemplateAdaptationInfo(provider, adaptationInfo);
-        proposedTranslation = yield translatorApi.parseTemplateWikitext(getWikitextFromTemplate(templateElement), targetLanguage, targetTitle || sourceTitle);
+        proposedTranslation = yield translator$1.parseTemplateWikitext(getWikitextFromTemplate(templateElement), targetLanguage, targetTitle || sourceTitle);
       } else {
         proposedTranslation = "";
       }
@@ -10132,6 +10272,7 @@ var actions = {
   getCXServerToken,
   initializeMTProviders,
   initializeSectionTranslation,
+  restoreSectionTranslation,
   selectNextTranslationUnit,
   selectPageSectionByTitle,
   selectPageSectionByIndex,
@@ -10156,6 +10297,9 @@ const mutations = {
       missing: (suggestion == null ? void 0 : suggestion.missingSections) || {},
       present: (suggestion == null ? void 0 : suggestion.presentSections) || {}
     }));
+  },
+  setCurrentTranslation(state2, translation) {
+    state2.currentTranslation = translation;
   },
   setCurrentSourceSection(state2, section) {
     state2.currentSourceSection = section;
@@ -18341,8 +18485,160 @@ var src = {
   sortByScriptGroup,
   sortByAutonym
 };
-var CXTranslationWork_vue_vue_type_style_index_0_lang = "";
+function useApplicationState(store2) {
+  const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
+  const targetLanguage = computed(() => store2.state.application.targetLanguage);
+  const currentMTProvider = computed(() => store2.state.application.currentMTProvider);
+  const currentSectionSuggestion = computed(() => store2.state.application.currentSectionSuggestion);
+  const currentSourceSection = computed(() => store2.state.application.currentSourceSection);
+  const sourceLanguageAutonym = computed(() => src.getAutonym(sourceLanguage.value));
+  const targetLanguageAutonym = computed(() => src.getAutonym(targetLanguage.value));
+  const isSectionTitleSelected = computed(() => {
+    var _a;
+    return (_a = currentSourceSection.value) == null ? void 0 : _a.isTitleSelected;
+  });
+  const selectedContentTranslationUnit = computed(() => {
+    var _a;
+    return (_a = currentSourceSection.value) == null ? void 0 : _a.selectedContentTranslationUnit;
+  });
+  const proposedTranslation = computed(() => store2.getters["application/getCurrentProposedTranslation"]);
+  const currentSourcePage = computed(() => store2.getters["application/getCurrentPage"]);
+  const currentTargetPage = computed(() => store2.getters["application/getCurrentTargetPage"]);
+  return {
+    currentMTProvider,
+    currentSectionSuggestion,
+    currentSourcePage,
+    currentSourceSection,
+    currentTargetPage,
+    isSectionTitleSelected,
+    proposedTranslation,
+    selectedContentTranslationUnit,
+    sourceLanguage,
+    sourceLanguageAutonym,
+    targetLanguage,
+    targetLanguageAutonym
+  };
+}
+function getVEOverlay(overlayElement) {
+  overlayElement.$el = $(overlayElement);
+  return overlayElement;
+}
+function getSurface(veTarget, content, lang, dir) {
+  veTarget.clearSurfaces();
+  const dmDoc = ve.dm.converter.getModelFromDom(ve.createDocumentFromHtml(content || "<span class='sx-edit-dummy-node' />"), { lang, dir });
+  const surface = veTarget.createSurface(dmDoc);
+  veTarget.surfaces.push(surface);
+  veTarget.setSurface(surface);
+  surface.initialize();
+  return surface;
+}
+function getReferenceRendering() {
+  var refNode = this.getReferenceNode();
+  if (refNode) {
+    this.view = new ve.ui.MWPreviewElement(refNode, {
+      useView: true
+    });
+    this.view.once("render", this.context.updateDimensions.bind(this.context));
+    return this.view.$element;
+  } else {
+    return $("<div>").addClass("ve-ui-mwReferenceContextItem-muted").text(ve.msg("cite-ve-referenceslist-missingref"));
+  }
+}
+function getTarget(editorConfig, overlayEl) {
+  return __async(this, null, function* () {
+    yield loadVEModules();
+    OO.ui.isMobile = () => true;
+    yield mw.libs.ve.targetLoader.loadModules("visual");
+    const overlay = getVEOverlay(overlayEl);
+    return new ve.init.mw.SectionTranslationTarget(overlay, editorConfig);
+  });
+}
+var VisualEditor_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$$ = {
+  name: "VisualEditor",
+  props: {
+    content: {
+      type: String,
+      required: true
+    },
+    language: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    dir: {
+      type: String,
+      default: "auto"
+    }
+  },
+  emits: ["ready", "close", "edit-completed"],
+  setup(props, context) {
+    const sxeditor = ref(null);
+    let veSurface = null;
+    const editedContent = computed(() => veSurface.getHtml());
+    const clearVisualEditor = () => {
+      veSurface.destroy();
+      sxeditor.value.querySelector(".toolbar").innerHTML = "";
+    };
+    const closeEditor = () => {
+      clearVisualEditor();
+      context.emit("close");
+    };
+    const onNext = () => {
+      context.emit("edit-completed", editedContent.value);
+      clearVisualEditor();
+    };
+    const editorConfig = {
+      placeholder: false,
+      log: console.log,
+      sectionId: 0,
+      onBack: closeEditor,
+      onNext,
+      language: props.language,
+      title: props.title,
+      siteMapper: new mw.cx.SiteMapper()
+    };
+    const init = () => __async(this, null, function* () {
+      const veTarget = yield getTarget(editorConfig, sxeditor.value);
+      context.emit("ready");
+      sxeditor.value.appendChild(veTarget.$element[0]);
+      veSurface = getSurface(veTarget, props.content, props.language, props.dir);
+      ve.ui.MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
+      veSurface.focus();
+    });
+    onMounted(init);
+    return { sxeditor };
+  }
+};
+const _hoisted_1$K = ["lang", "dir"];
+const _hoisted_2$w = /* @__PURE__ */ createBaseVNode("div", { class: "overlay-header header initial-header" }, [
+  /* @__PURE__ */ createBaseVNode("div", { class: "toolbar" })
+], -1);
+const _hoisted_3$v = ["lang", "dir"];
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", {
+    ref: "sxeditor",
+    lang: $props.language,
+    dir: $props.dir,
+    class: "visual-editor"
+  }, [
+    _hoisted_2$w,
+    createBaseVNode("div", {
+      class: "surface pa-5",
+      lang: $props.language,
+      dir: $props.dir
+    }, null, 8, _hoisted_3$v)
+  ], 8, _hoisted_1$K);
+}
+var VisualEditor = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
+function loadVEModules() {
+  return mw.loader.using("mw.cx3.ve");
+}
+var CXTranslationWork_vue_vue_type_style_index_0_lang = "";
+const _sfc_main$_ = {
   name: "CxTranslationWork",
   components: { MwThumbnail, MwIcon },
   props: {
@@ -18351,75 +18647,96 @@ const _sfc_main$$ = {
       required: true
     }
   },
-  data: () => ({
-    mwIconEdit,
-    mwIconTrash,
-    mwIconArrowForward,
-    mwIconArrowNext
-  }),
-  methods: {
-    getAutonym: src.getAutonym,
-    getDir: src.getDir,
-    onClick(e) {
-      this.$emit("click", e);
-      this.startTranslation(this.translation);
-    },
-    startTranslation(translation) {
-      siteMapper.setCXToken(translation.sourceLanguage, translation.targetLanguage, translation.sourceTitle);
-      location.href = siteMapper.getCXUrl(translation.sourceTitle, translation.targetTitle, translation.sourceLanguage, translation.targetLanguage, { campaign: new mw.Uri().query.campaign });
-    },
-    getPage(language, title) {
-      return this.$store.getters["mediawiki/getPage"](language, title);
-    },
-    getImage(language, title) {
-      const page = this.getPage(language, title);
+  emits: ["click"],
+  setup(props, { emit }) {
+    const router2 = useRouter();
+    const startTranslation = () => __async(this, null, function* () {
+      store2.dispatch("application/restoreSectionTranslation", props.translation);
+      const { currentSourcePage } = useApplicationState(store2);
+      const { sourceLanguage, targetLanguage, sourceTitle, pageRevision } = props.translation;
+      yield store2.dispatch("mediawiki/fetchPageContent", {
+        sourceLanguage,
+        targetLanguage,
+        sourceTitle,
+        revision: pageRevision
+      });
+      yield loadVEModules();
+      yield store2.dispatch("mediawiki/resolvePageContentReferences", {
+        sourceLanguage,
+        sourceTitle
+      });
+      const section = currentSourcePage.value.getSectionByTitle(props.translation.sourceSectionTitle);
+      store2.commit("application/setCurrentSourceSection", section);
+      router2.push({ name: "sx-sentence-selector", params: { force: true } });
+    });
+    const store2 = useStore();
+    const getImage = (language, title) => {
+      const page = store2.getters["mediawiki/getPage"](language, title);
       return page == null ? void 0 : page.thumbnail;
-    }
+    };
+    const onClick = (event) => {
+      emit("click", event);
+      startTranslation();
+    };
+    return {
+      getAutonym: src.getAutonym,
+      getDir: src.getDir,
+      getImage,
+      mwIconEdit,
+      mwIconTrash,
+      mwIconArrowForward,
+      mwIconArrowNext,
+      onClick
+    };
   }
 };
-const _hoisted_1$K = { class: "col shrink pe-4" };
-const _hoisted_2$w = { class: "col" };
-const _hoisted_3$v = { class: "cx-translation__details column justify-between ma-0" };
+const _hoisted_1$J = { class: "col shrink pe-4" };
+const _hoisted_2$v = { class: "col" };
+const _hoisted_3$u = { class: "cx-translation__details column justify-between ma-0" };
 const _hoisted_4$l = { class: "row ma-0" };
 const _hoisted_5$g = { class: "col grow" };
-const _hoisted_6$9 = ["lang"];
-const _hoisted_7$6 = ["lang"];
+const _hoisted_6$9 = ["lang", "textContent"];
+const _hoisted_7$6 = ["lang", "textContent"];
 const _hoisted_8$4 = { class: "col shrink ps-2" };
-const _hoisted_9$4 = { class: "row ma-0 text-small" };
+const _hoisted_9$4 = { class: "row cx-translation__footer ma-0" };
 const _hoisted_10$3 = { class: "cx-translation__languages col grow" };
 const _hoisted_11$3 = ["dir", "textContent"];
 const _hoisted_12$3 = ["dir", "textContent"];
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_thumbnail = resolveComponent("mw-thumbnail");
   const _component_mw_icon = resolveComponent("mw-icon");
   return $props.translation ? (openBlock(), createElementBlock("div", {
     key: 0,
     class: "row cx-translation pa-4 ma-0",
-    onClick: _cache[0] || (_cache[0] = (...args) => $options.onClick && $options.onClick(...args))
+    onClick: _cache[0] || (_cache[0] = (...args) => $setup.onClick && $setup.onClick(...args))
   }, [
-    createBaseVNode("div", _hoisted_1$K, [
+    createBaseVNode("div", _hoisted_1$J, [
       createVNode(_component_mw_thumbnail, {
         class: "cx-translation__thumbnail",
-        thumbnail: $options.getImage($props.translation.sourceLanguage, $props.translation.sourceTitle)
+        thumbnail: $setup.getImage($props.translation.sourceLanguage, $props.translation.sourceTitle)
       }, null, 8, ["thumbnail"])
     ]),
-    createBaseVNode("div", _hoisted_2$w, [
-      createBaseVNode("div", _hoisted_3$v, [
+    createBaseVNode("div", _hoisted_2$v, [
+      createBaseVNode("div", _hoisted_3$u, [
         createBaseVNode("div", _hoisted_4$l, [
           createBaseVNode("div", _hoisted_5$g, [
             createBaseVNode("h5", {
-              class: "cx-translation__source-title pb-2",
-              lang: $props.translation.sourceLanguage
-            }, toDisplayString($props.translation.sourceTitle), 9, _hoisted_6$9),
-            createBaseVNode("h6", {
-              class: "cx-translation__target-title",
-              lang: $props.translation.targetLanguage
-            }, toDisplayString($props.translation.targetTitle), 9, _hoisted_7$6)
+              class: normalizeClass(["cx-translation__source-page-title", {
+                "cx-translation__primary-title": !$props.translation.sourceSectionTitle
+              }]),
+              lang: $props.translation.sourceLanguage,
+              textContent: toDisplayString($props.translation.sourceTitle)
+            }, null, 10, _hoisted_6$9),
+            $props.translation.sourceSectionTitle ? (openBlock(), createElementBlock("h6", {
+              key: 0,
+              class: "cx-translation__source-section-title cx-translation__primary-title",
+              lang: $props.translation.sourceLanguage,
+              textContent: toDisplayString($props.translation.sourceSectionTitle)
+            }, null, 8, _hoisted_7$6)) : createCommentVNode("", true)
           ]),
           createBaseVNode("div", _hoisted_8$4, [
             createVNode(_component_mw_icon, {
-              size: 24,
-              icon: $props.translation.status === "published" ? _ctx.mwIconEdit : _ctx.mwIconTrash
+              icon: $props.translation.status === "published" ? $setup.mwIconEdit : $setup.mwIconTrash
             }, null, 8, ["icon"])
           ])
         ]),
@@ -18427,17 +18744,18 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
           createBaseVNode("div", _hoisted_10$3, [
             createBaseVNode("span", {
               class: "mw-ui-autonym",
-              dir: $options.getDir($props.translation.sourceLanguage),
-              textContent: toDisplayString($options.getAutonym($props.translation.sourceLanguage))
+              dir: $setup.getDir($props.translation.sourceLanguage),
+              textContent: toDisplayString($setup.getAutonym($props.translation.sourceLanguage))
             }, null, 8, _hoisted_11$3),
             createVNode(_component_mw_icon, {
-              icon: _ctx.mwIconArrowNext,
-              class: "mx-1"
+              icon: $setup.mwIconArrowNext,
+              class: "mx-1",
+              size: 14
             }, null, 8, ["icon"]),
             createBaseVNode("span", {
-              class: "mw-ui-autonym",
-              dir: $options.getDir($props.translation.targetLanguage),
-              textContent: toDisplayString($options.getAutonym($props.translation.targetLanguage))
+              class: "mw-ui-autonym ma-0",
+              dir: $setup.getDir($props.translation.targetLanguage),
+              textContent: toDisplayString($setup.getAutonym($props.translation.targetLanguage))
             }, null, 8, _hoisted_12$3)
           ])
         ])
@@ -18445,7 +18763,7 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : createCommentVNode("", true);
 }
-var CxTranslationWork = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_render$$]]);
+var CxTranslationWork = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
 function search(languages2, query, searchApi) {
   return __async(this, null, function* () {
     if (!query || query.trim().length === 0) {
@@ -18564,27 +18882,8 @@ function keyboardNavigation(searchQuery, searchResults, suggestions2) {
   }));
   return { next, prev, langSelectorContainer, selectedLanguage };
 }
-function debounce(func, wait, immediate) {
-  let timeout;
-  return (...args) => {
-    const context = this;
-    const later = () => {
-      timeout = null;
-      if (!immediate) {
-        func.apply(context, args);
-      }
-    };
-    if (immediate && !timeout) {
-      func.apply(context, args);
-    }
-    if (!timeout || wait) {
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    }
-  };
-}
 var MWLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$_ = {
+const _sfc_main$Z = {
   name: "MwLanguageSelector",
   components: {
     MwInput
@@ -18669,12 +18968,12 @@ const _sfc_main$_ = {
     };
   }
 };
-const _hoisted_1$J = {
+const _hoisted_1$I = {
   ref: "langSelectorContainer",
   class: "mw-ui-language-selector"
 };
-const _hoisted_2$v = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" };
-const _hoisted_3$u = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" };
+const _hoisted_2$u = { class: "mw-ui-language-selector__inputcontainer pa-4 mb-4" };
+const _hoisted_3$t = { class: "mw-ui-language-selector__resultscontainer pa-0 ma-0" };
 const _hoisted_4$k = { class: "results px-3 pt-4" };
 const _hoisted_5$f = { class: "results-header ps-8 pb-2" };
 const _hoisted_6$8 = { class: "results-languages--suggestions pa-0 ma-0" };
@@ -18687,12 +18986,12 @@ const _hoisted_9$3 = {
 const _hoisted_10$2 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
 const _hoisted_11$2 = { class: "no-results px-3 py-4" };
 const _hoisted_12$2 = { class: "ps-8" };
-function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_input = resolveComponent("mw-input");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("div", _hoisted_1$J, [
+  return openBlock(), createElementBlock("div", _hoisted_1$I, [
     renderSlot(_ctx.$slots, "search", {}, () => [
-      createBaseVNode("div", _hoisted_2$v, [
+      createBaseVNode("div", _hoisted_2$u, [
         createVNode(_component_mw_input, {
           value: $setup.autocompletion,
           "onUpdate:value": _cache[0] || (_cache[0] = ($event) => $setup.autocompletion = $event),
@@ -18720,7 +19019,7 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8, ["value", "icon", "placeholder", "autofocus", "onKeydown"])
       ])
     ]),
-    createBaseVNode("section", _hoisted_3$u, [
+    createBaseVNode("section", _hoisted_3$t, [
       $props.suggestions.length && !$setup.searchQuery ? renderSlot(_ctx.$slots, "suggestions", { key: 0 }, () => [
         createBaseVNode("section", _hoisted_4$k, [
           withDirectives(createBaseVNode("p", _hoisted_5$f, null, 512), [
@@ -18779,39 +19078,9 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ], 512);
 }
-var MwLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$_, [["render", _sfc_render$_]]);
-function useApplicationState(store2) {
-  const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
-  const targetLanguage = computed(() => store2.state.application.targetLanguage);
-  const currentMTProvider = computed(() => store2.state.application.currentMTProvider);
-  const currentSectionSuggestion = computed(() => store2.state.application.currentSectionSuggestion);
-  const currentSourceSection = computed(() => store2.state.application.currentSourceSection);
-  const sourceLanguageAutonym = computed(() => src.getAutonym(sourceLanguage.value));
-  const targetLanguageAutonym = computed(() => src.getAutonym(targetLanguage.value));
-  const isSectionTitleSelected = computed(() => {
-    var _a;
-    return (_a = currentSourceSection.value) == null ? void 0 : _a.isTitleSelected;
-  });
-  const selectedContentTranslationUnit = computed(() => {
-    var _a;
-    return (_a = currentSourceSection.value) == null ? void 0 : _a.selectedContentTranslationUnit;
-  });
-  const proposedTranslation = computed(() => store2.getters["application/getCurrentProposedTranslation"]);
-  return {
-    currentMTProvider,
-    currentSectionSuggestion,
-    currentSourceSection,
-    isSectionTitleSelected,
-    proposedTranslation,
-    selectedContentTranslationUnit,
-    sourceLanguage,
-    sourceLanguageAutonym,
-    targetLanguage,
-    targetLanguageAutonym
-  };
-}
+var MwLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
 var SXTranslationListLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$Z = {
+const _sfc_main$Y = {
   name: "SxTranslationListLanguageSelector",
   components: {
     MwLanguageSelector,
@@ -18870,19 +19139,19 @@ const _sfc_main$Z = {
     };
   }
 };
-const _hoisted_1$I = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
-const _hoisted_2$u = { class: "col-5 justify-end" };
-const _hoisted_3$t = ["lang", "dir", "textContent"];
+const _hoisted_1$H = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
+const _hoisted_2$t = { class: "col-5 justify-end" };
+const _hoisted_3$s = ["lang", "dir", "textContent"];
 const _hoisted_4$j = { class: "sx-translation-list-language-selector__arrow col-2 justify-center" };
 const _hoisted_5$e = { class: "col-5 justify-start" };
 const _hoisted_6$7 = ["lang", "dir", "textContent"];
-function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_language_selector = resolveComponent("mw-language-selector");
   const _component_mw_dialog = resolveComponent("mw-dialog");
   const _component_mw_icon = resolveComponent("mw-icon");
-  return openBlock(), createElementBlock("div", _hoisted_1$I, [
-    createBaseVNode("div", _hoisted_2$u, [
+  return openBlock(), createElementBlock("div", _hoisted_1$H, [
+    createBaseVNode("div", _hoisted_2$t, [
       createVNode(_component_mw_button, {
         indicator: $setup.mwIconExpand,
         outlined: false,
@@ -18896,7 +19165,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
             lang: $setup.selectedSourceLanguage,
             dir: $setup.getDir($setup.selectedSourceLanguage),
             textContent: toDisplayString($setup.getAutonym($setup.selectedSourceLanguage))
-          }, null, 8, _hoisted_3$t)
+          }, null, 8, _hoisted_3$s)
         ], void 0),
         _: 1
       }, 8, ["indicator", "onClick"]),
@@ -18968,7 +19237,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Z, [["render", _sfc_render$Z]]);
+var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
 function useMediawikiState() {
   const supportedLanguageCodes = computed(() => store.state.mediawiki.supportedLanguageCodes || []);
   const enabledTargetLanguages = computed(() => store.state.mediawiki.enabledTargetLanguages);
@@ -19622,7 +19891,7 @@ function createI18n(options) {
     }
   };
 }
-const _sfc_main$Y = {
+const _sfc_main$X = {
   name: "CxTranslationList",
   components: {
     CxTranslationWork,
@@ -19685,8 +19954,8 @@ const _sfc_main$Y = {
     };
   }
 };
-const _hoisted_1$H = ["textContent"];
-function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$G = ["textContent"];
+function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   const _component_mw_spinner = resolveComponent("mw-spinner");
   const _component_cx_translation_work = resolveComponent("cx-translation-work");
@@ -19698,7 +19967,7 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
       createBaseVNode("h3", {
         class: "mw-ui-card__title pa-4 pt-5 mb-0",
         textContent: toDisplayString(_ctx.$i18n(`cx-translation-label-${$props.translationStatus}`))
-      }, null, 8, _hoisted_1$H)
+      }, null, 8, _hoisted_1$G)
     ]),
     default: withCtx(() => [
       createVNode(_component_sx_translation_list_language_selector, {
@@ -19722,9 +19991,9 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, $props.active]
   ]);
 }
-var CxTranslationList = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
+var CxTranslationList = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
 var CXTranslationSuggestion_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$X = {
+const _sfc_main$W = {
   name: "CxTranslationSuggestion",
   components: { MwThumbnail, MwIcon, MwRow, MwCol },
   props: {
@@ -19770,30 +20039,30 @@ const _sfc_main$X = {
     };
   }
 };
-const _hoisted_1$G = {
+const _hoisted_1$F = {
   key: 0,
   class: "row cx-suggestion pa-4 ma-0"
 };
-const _hoisted_2$t = { class: "col shrink pe-4" };
-const _hoisted_3$s = { class: "col cx-suggestion__information-panel" };
+const _hoisted_2$s = { class: "col shrink pe-4" };
+const _hoisted_3$r = { class: "col cx-suggestion__information-panel" };
 const _hoisted_4$i = ["lang", "dir", "textContent"];
 const _hoisted_5$d = ["lang", "dir", "textContent"];
 const _hoisted_6$6 = ["textContent"];
 const _hoisted_7$4 = ["textContent"];
-function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_thumbnail = resolveComponent("mw-thumbnail");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
   const _component_mw_icon = resolveComponent("mw-icon");
   const _directive_i18n = resolveDirective("i18n");
-  return $props.suggestion ? (openBlock(), createElementBlock("div", _hoisted_1$G, [
-    createBaseVNode("div", _hoisted_2$t, [
+  return $props.suggestion ? (openBlock(), createElementBlock("div", _hoisted_1$F, [
+    createBaseVNode("div", _hoisted_2$s, [
       createVNode(_component_mw_thumbnail, {
         class: "cx-suggestion__thumbnail",
         thumbnail: $setup.page && $setup.page.thumbnail
       }, null, 8, ["thumbnail"])
     ]),
-    createBaseVNode("div", _hoisted_3$s, [
+    createBaseVNode("div", _hoisted_3$r, [
       createVNode(_component_mw_row, {
         direction: "column",
         align: "start",
@@ -19941,7 +20210,7 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : createCommentVNode("", true);
 }
-var CxTranslationSuggestion = /* @__PURE__ */ _export_sfc(_sfc_main$X, [["render", _sfc_render$X]]);
+var CxTranslationSuggestion = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
 var useSuggestionListLanguages = () => {
   const { supportedLanguageCodes, enabledTargetLanguages } = useMediawikiState();
   const availableTargetLanguages = computed(() => {
@@ -20105,7 +20374,7 @@ const unmarkFavoriteSectionSuggestion = (suggestion) => __async(this, null, func
   return store.dispatch("suggestions/removeFavoriteSuggestion", suggestion);
 });
 var CXSuggestionList_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$W = {
+const _sfc_main$V = {
   name: "CxSuggestionList",
   components: {
     SxTranslationListLanguageSelector,
@@ -20186,11 +20455,11 @@ const _sfc_main$W = {
     };
   }
 };
-const _hoisted_1$F = ["textContent"];
-const _hoisted_2$s = { class: "cx-translation-list__division-title ma-0 pa-4" };
-const _hoisted_3$r = { class: "cx-translation-list__division-title ma-0 pa-4" };
+const _hoisted_1$E = ["textContent"];
+const _hoisted_2$r = { class: "cx-translation-list__division-title ma-0 pa-4" };
+const _hoisted_3$q = { class: "cx-translation-list__division-title ma-0 pa-4" };
 const _hoisted_4$h = { class: "cx-suggestion-list__refresh-button-container justify-center" };
-function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   const _component_mw_card = resolveComponent("mw-card");
   const _component_cx_translation_suggestion = resolveComponent("cx-translation-suggestion");
@@ -20203,7 +20472,7 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
         createBaseVNode("h3", {
           class: "mw-ui-card__title pa-4 pt-5 mb-0",
           textContent: toDisplayString(_ctx.$i18n("cx-suggestionlist-title"))
-        }, null, 8, _hoisted_1$F)
+        }, null, 8, _hoisted_1$E)
       ]),
       default: withCtx(() => [
         createVNode(_component_sx_translation_list_language_selector, {
@@ -20220,7 +20489,7 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
       class: "cx-translation-list--page-suggestions pa-0 mb-0"
     }, {
       default: withCtx(() => [
-        withDirectives(createBaseVNode("h5", _hoisted_2$s, null, 512), [
+        withDirectives(createBaseVNode("h5", _hoisted_2$r, null, 512), [
           [_directive_i18n, void 0, "cx-suggestion-list-new-pages-division"]
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList($setup.currentPageSuggestionsSlice, (suggestion, index) => {
@@ -20238,7 +20507,7 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     }, 512),
     createVNode(_component_mw_card, { class: "cx-translation-list--sx-suggestions pa-0 mb-0" }, {
       default: withCtx(() => [
-        withDirectives(createBaseVNode("h5", _hoisted_3$r, null, 512), [
+        withDirectives(createBaseVNode("h5", _hoisted_3$q, null, 512), [
           [_directive_i18n, void 0, "cx-suggestionlist-expand-sections-title"]
         ]),
         (openBlock(true), createElementBlock(Fragment, null, renderList($setup.currentSectionSuggestionsSlice, (suggestion, index) => {
@@ -20270,8 +20539,8 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, $props.active]
   ]);
 }
-var CxSuggestionList = /* @__PURE__ */ _export_sfc(_sfc_main$W, [["render", _sfc_render$W]]);
-const _sfc_main$V = {
+var CxSuggestionList = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
+const _sfc_main$U = {
   name: "CxFavoriteList",
   components: {
     CxTranslationSuggestion,
@@ -20295,8 +20564,8 @@ const _sfc_main$V = {
     };
   }
 };
-const _hoisted_1$E = { class: "mw-ui-card__title pa-4 pt-5 mb-0" };
-function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$D = { class: "mw-ui-card__title pa-4 pt-5 mb-0" };
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_cx_translation_suggestion = resolveComponent("cx-translation-suggestion");
   const _component_mw_card = resolveComponent("mw-card");
   const _directive_i18n = resolveDirective("i18n");
@@ -20305,7 +20574,7 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     class: "cx-translation-list--favorites pa-0 mb-4"
   }, {
     header: withCtx(() => [
-      withDirectives(createBaseVNode("h3", _hoisted_1$E, null, 512), [
+      withDirectives(createBaseVNode("h3", _hoisted_1$D, null, 512), [
         [_directive_i18n, void 0, "cx-suggestion-list-favorites-division"]
       ])
     ]),
@@ -20322,9 +20591,9 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   })) : createCommentVNode("", true);
 }
-var CxFavoriteList = /* @__PURE__ */ _export_sfc(_sfc_main$V, [["render", _sfc_render$V]]);
+var CxFavoriteList = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
 var ExperimentalSupportBanner_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$U = {
+const _sfc_main$T = {
   name: "ExperimentalSupportBanner",
   components: { MwCol, MwRow, MwCard, MwIcon },
   data: () => ({
@@ -20333,12 +20602,12 @@ const _sfc_main$U = {
     feedbackUrl: "https://www.mediawiki.org/wiki/Talk:Content_translation/Section_translation"
   })
 };
-const _hoisted_1$D = { class: "complementary" };
-const _hoisted_2$r = { class: "complementary mt-4" };
-const _hoisted_3$q = ["href"];
+const _hoisted_1$C = { class: "complementary" };
+const _hoisted_2$q = { class: "complementary mt-4" };
+const _hoisted_3$p = ["href"];
 const _hoisted_4$g = { class: "complementary" };
 const _hoisted_5$c = ["href"];
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_row = resolveComponent("mw-row");
@@ -20362,14 +20631,14 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
               withDirectives(createBaseVNode("h5", null, null, 512), [
                 [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-title"]
               ]),
-              withDirectives(createBaseVNode("p", _hoisted_1$D, null, 512), [
+              withDirectives(createBaseVNode("p", _hoisted_1$C, null, 512), [
                 [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-description"]
               ]),
-              createBaseVNode("p", _hoisted_2$r, [
+              createBaseVNode("p", _hoisted_2$q, [
                 withDirectives(createBaseVNode("a", {
                   target: "_blank",
                   href: _ctx.learnMoreUrl
-                }, null, 8, _hoisted_3$q), [
+                }, null, 8, _hoisted_3$p), [
                   [_directive_i18n, void 0, "cx-dashboard-experimental-support-banner-learn-more-anchor"]
                 ])
               ]),
@@ -20391,7 +20660,7 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ExperimentalSupportBanner = /* @__PURE__ */ _export_sfc(_sfc_main$U, [["render", _sfc_render$U]]);
+var ExperimentalSupportBanner = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
 const getInitialLanguagePair = (enabledTargetLanguages, supportedLanguageCodes) => {
   const urlParams = new URLSearchParams(location.search);
   const urlSourceLanguage = urlParams.get("from");
@@ -20511,7 +20780,7 @@ const initializeDashboard = (router2, store2, logEvent2) => __async(this, null, 
   }
   store2.dispatch("suggestions/initializeSuggestions");
 });
-const _sfc_main$T = {
+const _sfc_main$S = {
   name: "CxDashboard",
   components: {
     CxFavoriteList,
@@ -20542,14 +20811,6 @@ const _sfc_main$T = {
           icon: mwIconEdit,
           type: "text"
         }
-      },
-      {
-        value: "published",
-        props: {
-          label: bananaI18n2.i18n("cx-translation-filter-published-translations"),
-          icon: mwIconArticleCheck,
-          type: "text"
-        }
       }
     ]);
     onMounted(() => {
@@ -20575,8 +20836,8 @@ const _sfc_main$T = {
     };
   }
 };
-const _hoisted_1$C = { key: 1 };
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$B = { key: 1 };
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_experimental_support_banner = resolveComponent("experimental-support-banner");
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_row = resolveComponent("mw-row");
@@ -20602,7 +20863,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
       ], void 0),
       _: 1
     }),
-    !_ctx.$incompleteVersion && _ctx.$mwui.breakpoint.mdAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$C, [
+    _ctx.$mwui.breakpoint.mdAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$B, [
       createVNode(_component_mw_button_group, {
         items: $setup.listSelector,
         active: $setup.active,
@@ -20614,37 +20875,35 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_cx_suggestion_list, {
       active: $setup.active === "suggestions"
     }, null, 8, ["active"]),
-    !_ctx.$incompleteVersion ? (openBlock(), createBlock(_component_cx_translation_list, {
-      key: 2,
-      "translation-status": "published",
-      active: $setup.active === "published"
-    }, null, 8, ["active"])) : createCommentVNode("", true),
-    !_ctx.$incompleteVersion ? (openBlock(), createBlock(_component_cx_translation_list, {
-      key: 3,
+    createVNode(_component_cx_translation_list, {
       "translation-status": "draft",
       active: $setup.active === "draft"
-    }, null, 8, ["active"])) : createCommentVNode("", true),
-    !_ctx.$incompleteVersion && _ctx.$mwui.breakpoint.smAndDown ? (openBlock(), createBlock(_component_mw_bottom_navigation, {
-      key: 4,
+    }, null, 8, ["active"]),
+    createVNode(_component_cx_translation_list, {
+      "translation-status": "published",
+      active: $setup.active === "published"
+    }, null, 8, ["active"]),
+    _ctx.$mwui.breakpoint.smAndDown ? (openBlock(), createBlock(_component_mw_bottom_navigation, {
+      key: 2,
       active: $setup.active,
       "onUpdate:active": _cache[1] || (_cache[1] = ($event) => $setup.active = $event),
       items: $setup.listSelector
     }, null, 8, ["active", "items"])) : createCommentVNode("", true)
   ]);
 }
-var CXDashboard = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
-const _sfc_main$S = {
+var CXDashboard = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
+const _sfc_main$R = {
   name: "DashboardView",
   components: { CxDashboard: CXDashboard }
 };
-const _hoisted_1$B = { class: "cx-translation-dashboard" };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$A = { class: "cx-translation-dashboard" };
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_cx_dashboard = resolveComponent("cx-dashboard");
-  return openBlock(), createElementBlock("main", _hoisted_1$B, [
+  return openBlock(), createElementBlock("main", _hoisted_1$A, [
     createVNode(_component_cx_dashboard, { class: "col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12" })
   ]);
 }
-var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$S, [["render", _sfc_render$S]]);
+var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
 const setTranslationURLParams = (sectionSuggestion) => {
   if (!history.pushState) {
     return;
@@ -20772,7 +21031,7 @@ var useSectionSelectorClickHandler = (router2, store2) => {
   };
 };
 var SXTranslationConfirmerActionPanel_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$R = {
+const _sfc_main$Q = {
   name: "SxTranslationConfirmerActionPanel",
   components: {
     MwButton,
@@ -20825,33 +21084,33 @@ const _sfc_main$R = {
     };
   }
 };
-const _hoisted_1$A = { class: "sx-translation-confirmer-body pb-4" };
-const _hoisted_2$q = {
+const _hoisted_1$z = { class: "sx-translation-confirmer-body pb-4" };
+const _hoisted_2$p = {
   key: 0,
   class: "sx-translation-confirmer-body__pre-filled-banner pa-4 ma-0"
 };
-const _hoisted_3$p = ["textContent"];
+const _hoisted_3$o = ["textContent"];
 const _hoisted_4$f = {
   key: 1,
   class: "mt-1 px-4 pt-4"
 };
 const _hoisted_5$b = ["href"];
 const _hoisted_6$5 = ["textContent"];
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_row = resolveComponent("mw-row");
   const _component_mw_button = resolveComponent("mw-button");
   const _directive_i18n = resolveDirective("i18n");
-  return openBlock(), createElementBlock("section", _hoisted_1$A, [
-    !!$setup.preFilledSectionTitle ? (openBlock(), createElementBlock("section", _hoisted_2$q, [
+  return openBlock(), createElementBlock("section", _hoisted_1$z, [
+    !!$setup.preFilledSectionTitle ? (openBlock(), createElementBlock("section", _hoisted_2$p, [
       withDirectives(createBaseVNode("h6", null, null, 512), [
         [_directive_i18n, void 0, "cx-sx-translation-confirmer-prefilled-section-heading"]
       ]),
       createBaseVNode("h5", {
         class: "ma-0",
         textContent: toDisplayString($setup.preFilledSectionTitle)
-      }, null, 8, _hoisted_3$p)
+      }, null, 8, _hoisted_3$o)
     ])) : $setup.translationExists ? (openBlock(), createElementBlock("section", _hoisted_4$f, [
       createVNode(_component_mw_row, {
         class: "sx-translation-confirmer__translation-status ma-0 pb-2",
@@ -20934,9 +21193,9 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["justify"])
   ]);
 }
-var SxTranslationConfirmerActionPanel = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
+var SxTranslationConfirmerActionPanel = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
 var SXArticleLanguageSelector_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$Q = {
+const _sfc_main$P = {
   name: "SxArticleLanguageSelector",
   components: {
     SxTranslationListLanguageSelector
@@ -20960,7 +21219,7 @@ const _sfc_main$Q = {
     };
   }
 };
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_sx_translation_list_language_selector = resolveComponent("sx-translation-list-language-selector");
   return openBlock(), createBlock(_component_sx_translation_list_language_selector, {
     class: "sx-article-language-selector",
@@ -20970,9 +21229,9 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     onTargetLanguageSelected: $setup.onTargetLanguageSelected
   }, null, 8, ["source-languages", "target-languages", "onSourceLanguageSelected", "onTargetLanguageSelected"]);
 }
-var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
 var SXTranslationConfirmerArticleInformation_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$P = {
+const _sfc_main$O = {
   name: "SxTranslationConfirmerArticleInformation",
   components: {
     MwRow,
@@ -20982,7 +21241,10 @@ const _sfc_main$P = {
   },
   setup() {
     const store2 = useStore();
-    const { currentSectionSuggestion: sectionSuggestion } = useApplicationState(store2);
+    const {
+      currentSectionSuggestion: sectionSuggestion,
+      currentSourcePage: sourceArticle
+    } = useApplicationState(store2);
     const favorites = computed(() => store2.state.suggestions.favorites || []);
     const isFavorite = computed(() => favorites.value.some((favorite) => sectionSuggestion.value.sourceTitle === favorite.title && sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage && sectionSuggestion.value.targetLanguage === favorite.targetLanguage));
     const unmarkSuggestionAsFavorite = () => __async(this, null, function* () {
@@ -20997,7 +21259,6 @@ const _sfc_main$P = {
     });
     const bookmarkIcon = computed(() => isFavorite.value ? mwIconBookmark : mwIconBookmarkOutline);
     const toggleFavorite = computed(() => isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite);
-    const sourceArticle = computed(() => store2.getters["application/getCurrentPage"]);
     const sourceTitle = computed(() => {
       var _a;
       return (_a = sectionSuggestion.value) == null ? void 0 : _a.sourceTitle;
@@ -21028,10 +21289,10 @@ const _sfc_main$P = {
     };
   }
 };
-const _hoisted_1$z = ["textContent"];
-const _hoisted_2$p = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" };
-const _hoisted_3$o = ["textContent"];
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$y = ["textContent"];
+const _hoisted_2$o = { class: "complementary sx-translation-confirmer__article-information__stats ma-0 flex" };
+const _hoisted_3$n = ["textContent"];
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_icon = resolveComponent("mw-icon");
   const _component_mw_col = resolveComponent("mw-col");
   const _component_mw_button = resolveComponent("mw-button");
@@ -21060,7 +21321,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
                   createBaseVNode("h5", {
                     class: "ma-0 me-1",
                     textContent: toDisplayString($setup.sourceTitle)
-                  }, null, 8, _hoisted_1$z),
+                  }, null, 8, _hoisted_1$y),
                   createVNode(_component_mw_icon, {
                     icon: $setup.mwIconLinkExternal,
                     size: "10",
@@ -21087,7 +21348,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
             ], void 0, true),
             _: 1
           }),
-          createBaseVNode("p", _hoisted_2$p, [
+          createBaseVNode("p", _hoisted_2$o, [
             createVNode(_component_mw_icon, {
               icon: $setup.mwIconLanguage,
               size: "16",
@@ -21096,7 +21357,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
             createBaseVNode("span", {
               class: "pe-3",
               textContent: toDisplayString($setup.langLinksCount)
-            }, null, 8, _hoisted_3$o),
+            }, null, 8, _hoisted_3$n),
             withDirectives(createBaseVNode("span", null, null, 512), [
               [_directive_i18n, [$setup.weeklyViews], "cx-sx-translation-confirmer-views-count"]
             ])
@@ -21108,125 +21369,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var SxTranslationConfirmerArticleInformation = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
-function getVEOverlay(overlayElement) {
-  overlayElement.$el = $(overlayElement);
-  return overlayElement;
-}
-function getSurface(veTarget, content, lang, dir) {
-  veTarget.clearSurfaces();
-  const dmDoc = ve.dm.converter.getModelFromDom(ve.createDocumentFromHtml(content || "<span class='sx-edit-dummy-node' />"), { lang, dir });
-  const surface = veTarget.createSurface(dmDoc);
-  veTarget.surfaces.push(surface);
-  veTarget.setSurface(surface);
-  surface.initialize();
-  return surface;
-}
-function getReferenceRendering() {
-  var refNode = this.getReferenceNode();
-  if (refNode) {
-    this.view = new ve.ui.MWPreviewElement(refNode, {
-      useView: true
-    });
-    this.view.once("render", this.context.updateDimensions.bind(this.context));
-    return this.view.$element;
-  } else {
-    return $("<div>").addClass("ve-ui-mwReferenceContextItem-muted").text(ve.msg("cite-ve-referenceslist-missingref"));
-  }
-}
-function getTarget(editorConfig, overlayEl) {
-  return __async(this, null, function* () {
-    yield loadVEModules();
-    OO.ui.isMobile = () => true;
-    yield mw.libs.ve.targetLoader.loadModules("visual");
-    const overlay = getVEOverlay(overlayEl);
-    return new ve.init.mw.SectionTranslationTarget(overlay, editorConfig);
-  });
-}
-var VisualEditor_vue_vue_type_style_index_0_lang = "";
-const _sfc_main$O = {
-  name: "VisualEditor",
-  props: {
-    content: {
-      type: String,
-      required: true
-    },
-    language: {
-      type: String,
-      required: true
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    dir: {
-      type: String,
-      default: "auto"
-    }
-  },
-  emits: ["ready", "close", "edit-completed"],
-  setup(props, context) {
-    const sxeditor = ref(null);
-    let veSurface = null;
-    const editedContent = computed(() => veSurface.getHtml());
-    const clearVisualEditor = () => {
-      veSurface.destroy();
-      sxeditor.value.querySelector(".toolbar").innerHTML = "";
-    };
-    const closeEditor = () => {
-      clearVisualEditor();
-      context.emit("close");
-    };
-    const onNext = () => {
-      context.emit("edit-completed", editedContent.value);
-      clearVisualEditor();
-    };
-    const editorConfig = {
-      placeholder: false,
-      log: console.log,
-      sectionId: 0,
-      onBack: closeEditor,
-      onNext,
-      language: props.language,
-      title: props.title,
-      siteMapper: new mw.cx.SiteMapper()
-    };
-    const init = () => __async(this, null, function* () {
-      const veTarget = yield getTarget(editorConfig, sxeditor.value);
-      context.emit("ready");
-      sxeditor.value.appendChild(veTarget.$element[0]);
-      veSurface = getSurface(veTarget, props.content, props.language, props.dir);
-      ve.ui.MWReferenceContextItem.prototype.getRendering = getReferenceRendering;
-      veSurface.focus();
-    });
-    onMounted(init);
-    return { sxeditor };
-  }
-};
-const _hoisted_1$y = ["lang", "dir"];
-const _hoisted_2$o = /* @__PURE__ */ createBaseVNode("div", { class: "overlay-header header initial-header" }, [
-  /* @__PURE__ */ createBaseVNode("div", { class: "toolbar" })
-], -1);
-const _hoisted_3$n = ["lang", "dir"];
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", {
-    ref: "sxeditor",
-    lang: $props.language,
-    dir: $props.dir,
-    class: "visual-editor"
-  }, [
-    _hoisted_2$o,
-    createBaseVNode("div", {
-      class: "surface pa-5",
-      lang: $props.language,
-      dir: $props.dir
-    }, null, 8, _hoisted_3$n)
-  ], 8, _hoisted_1$y);
-}
-var VisualEditor = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
-function loadVEModules() {
-  return mw.loader.using("mw.cx3.ve");
-}
+var SxTranslationConfirmerArticleInformation = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$O]]);
 var SXTranslationConfirmer_vue_vue_type_style_index_0_lang$1 = "";
 const _sfc_main$N = {
   name: "SxTranslationConfirmer",
@@ -21241,11 +21384,10 @@ const _sfc_main$N = {
   },
   setup() {
     const store2 = useStore();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store2);
+    const { sourceLanguage, targetLanguage, currentSourcePage } = useApplicationState(store2);
     const articleImageSource = computed(() => {
-      var _a;
-      const sourceArticle = store2.getters["application/getCurrentPage"];
-      return (_a = sourceArticle == null ? void 0 : sourceArticle.image) == null ? void 0 : _a.source;
+      var _a, _b;
+      return (_b = (_a = currentSourcePage.value) == null ? void 0 : _a.image) == null ? void 0 : _b.source;
     });
     const route = useRoute();
     const { previousRoute, eventSource } = route.params;
@@ -22821,17 +22963,18 @@ const _sfc_main$v = {
   setup() {
     const store2 = useStore();
     const titleClass = "sx-sentence-selector__section-title";
-    const currentPage = computed(() => store2.getters["application/getCurrentPage"]);
     const {
-      currentSectionSuggestion: suggestion,
       currentSourceSection: currentPageSection,
-      isSectionTitleSelected
+      isSectionTitleSelected,
+      currentSourcePage: currentPage,
+      sourceLanguage
     } = useApplicationState(store2);
+    const sourceArticleTitle = computed(() => currentPage.value.title);
     const sourceSectionTitle = computed(() => {
       var _a;
-      return ((_a = currentPageSection.value) == null ? void 0 : _a.title) || currentPage.value.title;
+      return ((_a = currentPageSection.value) == null ? void 0 : _a.title) || sourceArticleTitle.value;
     });
-    const sourceArticlePath = computed(() => siteMapper.getPageUrl(suggestion.value.sourceLanguage, suggestion.value.sourceTitle));
+    const sourceArticlePath = computed(() => siteMapper.getPageUrl(sourceLanguage.value, sourceArticleTitle.value));
     const isSectionTitleTranslated = computed(() => {
       var _a;
       return !!((_a = currentPageSection.value) == null ? void 0 : _a.translatedTitle);
@@ -22849,8 +22992,8 @@ const _sfc_main$v = {
       mwIconLinkExternal,
       selectSectionTitle,
       sourceArticlePath,
+      sourceArticleTitle,
       sourceSectionTitle,
-      suggestion,
       titleClasses
     };
   }
@@ -22872,7 +23015,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         class: "sx-sentence-selector__section-article-title mb-1"
       }, [
         createBaseVNode("strong", {
-          textContent: toDisplayString($setup.suggestion.sourceTitle)
+          textContent: toDisplayString($setup.sourceArticleTitle)
         }, null, 8, _hoisted_2$d),
         createVNode(_component_mw_icon, {
           icon: $setup.mwIconLinkExternal,
@@ -24087,7 +24230,8 @@ const _sfc_main$j = {
     const screenHeight = ref("100%");
     const store2 = useStore();
     const {
-      currentSectionSuggestion: suggestion,
+      currentSourcePage,
+      currentTargetPage,
       currentSourceSection: currentPageSection,
       selectedContentTranslationUnit,
       currentMTProvider,
@@ -24109,6 +24253,14 @@ const _sfc_main$j = {
     const sentenceSelectorStyle = computed(() => isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`);
     const logEvent2 = useEventLogging();
     onMounted(() => __async(this, null, function* () {
+      const currentPage = store2.getters["application/getCurrentPage"];
+      const { currentTranslation } = store2.state.application;
+      if (currentTranslation && !currentTranslation.restored) {
+        translator$1.fetchTranslationUnits(currentTranslation.id).then((translationUnits) => {
+          currentPage.restoreCorporaDraft(translationUnits);
+          currentTranslation.restored = true;
+        });
+      }
       yield store2.dispatch("application/initializeMTProviders");
       if (!selectedContentTranslationUnit.value) {
         store2.dispatch("application/selectTranslationUnitById", 0);
@@ -24145,10 +24297,10 @@ const _sfc_main$j = {
         name: "sx-editor",
         params: {
           content,
-          sourceLanguage: suggestion.value.sourceLanguage,
-          targetLanguage: suggestion.value.targetLanguage,
+          sourceLanguage: sourceLanguage.value,
+          targetLanguage: targetLanguage.value,
           originalContent: originalSegmentContent.value,
-          title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
+          title: currentTargetPage.value.title || currentSourcePage.value.title,
           isInitialEdit: isInitialEdit || null
         }
       });
@@ -24201,7 +24353,7 @@ const _sfc_main$j = {
       sentenceSelectorStyle,
       shouldProposedTranslationBounce,
       skipTranslation,
-      sourceLanguage: suggestion.value.sourceLanguage,
+      sourceLanguage,
       subSections,
       retryTranslation
     };
@@ -25366,12 +25518,17 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
     isPublishDialogActive.value = false;
     return;
   }
-  const { currentSectionSuggestion: suggestion, currentSourceSection } = useApplicationState(store2);
+  const {
+    currentSourceSection,
+    sourceLanguage,
+    targetLanguage,
+    currentSourcePage
+  } = useApplicationState(store2);
   const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
   const isSandboxTarget = store2.getters["application/isSandboxTarget"];
   if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
     try {
-      yield siteApi.addWikibaseLink(suggestion.value.sourceLanguage, suggestion.value.targetLanguage, suggestion.value.sourceTitle, translatedTitle);
+      yield siteApi.addWikibaseLink(sourceLanguage.value, targetLanguage.value, currentSourcePage.value.title, translatedTitle);
     } catch (error) {
       mw.log.error("Error while adding wikibase link", error);
     }
@@ -25384,9 +25541,9 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
   }
   location.href = getUrl(decodeURIComponent(targetTitle), {
     "sx-published-section": decodeHtml(translatedTitle),
-    "sx-source-page-title": decodeHtml(suggestion.value.sourceTitle),
-    "sx-source-language": suggestion.value.sourceLanguage,
-    "sx-target-language": suggestion.value.targetLanguage
+    "sx-source-page-title": decodeHtml(currentSourcePage.value.title),
+    "sx-source-language": sourceLanguage.value,
+    "sx-target-language": targetLanguage.value
   });
 });
 const usePublishTranslation = (store2) => {
@@ -25440,20 +25597,26 @@ const usePublishTranslation = (store2) => {
 };
 const useEditTranslation = (store2, router2) => {
   const {
-    currentSectionSuggestion: suggestion,
-    currentSourceSection: pageSection
+    currentSourcePage,
+    currentTargetPage,
+    currentSourceSection: pageSection,
+    sourceLanguage,
+    targetLanguage
   } = useApplicationState(store2);
   const content = computed(() => pageSection.value.subSections.reduce((htmlContent, subSection) => subSection.isTranslated ? `${htmlContent}<section rel="cx:Section" id="${subSection.targetSectionId}">${subSection.translatedContent}</section>` : htmlContent, ""));
-  const editTranslation = () => router2.push({
-    name: "sx-editor",
-    params: {
-      content: content.value,
-      sourceLanguage: suggestion.value.sourceLanguage,
-      targetLanguage: suggestion.value.targetLanguage,
-      title: suggestion.value.targetTitle || suggestion.value.sourceTitle,
-      isFinalEdit: true
-    }
-  });
+  const editTranslation = () => {
+    var _a, _b;
+    return router2.push({
+      name: "sx-editor",
+      params: {
+        content: content.value,
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
+        title: ((_a = currentTargetPage.value) == null ? void 0 : _a.title) || ((_b = currentSourcePage.value) == null ? void 0 : _b.title),
+        isFinalEdit: true
+      }
+    });
+  };
   return { editTranslation };
 };
 var SXPublisher_vue_vue_type_style_index_0_lang$1 = "";
