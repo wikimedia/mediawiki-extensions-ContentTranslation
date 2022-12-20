@@ -3,7 +3,9 @@ import MwCircleProgressBar from "./MWCircleProgressBar.vue";
 
 describe("MwCircleProgressBar.vue", () => {
   it("should be mounted properly", () => {
-    const wrapper = shallowMount(MwCircleProgressBar);
+    const wrapper = shallowMount(MwCircleProgressBar, {
+      props: { size: 20, percentage: 60 },
+    });
     expect(wrapper.vm).toBeTruthy();
   });
 
