@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSentenceSelector Proposed Translation Card Component output matches snapshot 1`] = `
+exports[
+  `SXSentenceSelector Proposed Translation Card Component output matches snapshot 1`
+] = `
 <mw-card-stub
   class="sx-sentence-selector__proposed-translation col shrink pa-0"
 >
@@ -56,7 +58,9 @@ exports[`SXSentenceSelector Proposed Translation Card Component output matches s
 </mw-card-stub>
 `;
 
-exports[`SXSentenceSelector Proposed Translation Card Should render Retry MT card inside proposed translation card output when no proposed translation exists 1`] = `
+exports[
+  `SXSentenceSelector Proposed Translation Card Should render Retry MT card inside proposed translation card output when no proposed translation exists 1`
+] = `
 <mw-card-stub
   class="sx-sentence-selector__proposed-translation col shrink pa-0"
 >

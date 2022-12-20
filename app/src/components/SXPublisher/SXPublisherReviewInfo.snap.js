@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXPublisher review info panel test should match snapshot when no publishFeedbackMessages exist 1`] = `
+exports[
+  `SXPublisher review info panel test should match snapshot when no publishFeedbackMessages exist 1`
+] = `
 <div
   aria-labelledby="notice10-label"
   aria-live="polite"
@@ -60,7 +62,9 @@ exports[`SXPublisher review info panel test should match snapshot when no publis
 </div>
 `;
 
-exports[`SXPublisher review info panel test should match snapshot when the active message is a warning 1`] = `
+exports[
+  `SXPublisher review info panel test should match snapshot when the active message is a warning 1`
+] = `
 <div
   aria-labelledby="-label"
   aria-live="polite"
