@@ -7,7 +7,8 @@
 			"Eduardoaddad",
 			"Felipe L. Ewald",
 			"Rodrigo Padula",
-			"TheGabrielZaum"
+			"TheGabrielZaum",
+			"Fúlvio"
 		]
 	},
 	"apihelp-cxpublish-description": "Salva uma página criada usando a extensão Tradutor de Conteúdo.",
@@ -139,5 +140,6 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "A posição da seção na nova revisão da página.",
 	"apihelp-cxpublishsection-param-sourcerevid": "O id de revisão da página de origem.",
 	"apihelp-cxpublishsection-param-captchaid": "ID Captcha (quando salvar com uma resposta captcha).",
-	"apihelp-cxpublishsection-param-captchaword": "Responde ao captcha (ao salvar com uma resposta captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "Responde ao captcha (ao salvar com uma resposta captcha).",
+	"apierror-cxpublishsection-translationnotfound": "Tradução não encontrada."
 }
