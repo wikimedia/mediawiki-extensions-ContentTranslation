@@ -32,7 +32,7 @@
         </ul>
       </section>
       <mw-row class="sx-section-selector__additional-considerations ma-0">
-        <mw-col cols="12" md="6" class="px-4 pt-5 pb-4">
+        <mw-col cols="12" tablet="6" class="px-4 pt-5 pb-4">
           <h6 class="sx-section-selector__additional-consideration-title">
             <mw-icon :icon="mwIconRobot" class="pe-2" />
             {{
@@ -44,7 +44,7 @@
           />
           <a v-i18n:cx-sx-section-selector-learn-more-anchor-label href="#" />
         </mw-col>
-        <mw-col cols="12" md="6" class="px-4 py-5">
+        <mw-col cols="12" tablet="6" class="px-4 py-5">
           <h6 class="sx-section-selector__additional-consideration-title">
             <mw-icon :icon="mwIconLabFlask" class="pe-2" />
             {{ $i18n("cx-sx-section-selector-unsupported-sections-title") }}

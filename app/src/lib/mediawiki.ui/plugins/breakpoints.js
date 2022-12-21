@@ -1,48 +1,46 @@
 import { ref } from "vue";
 
-// Duplicating from @/lib/mediawiki.ui/components/MWLayout/_breakpoints.scss
+// NOTE: These breakpoint values are present in @wikimedia/codex-design-tokens as
+// a json file. We could import the json and access the values.
+// Apparently, vite also supports tree shaking the json.
+// https://vitejs.dev/guide/features.html#json
+// Unfortunately, the key values are "min-width" which has a hyphen it that prevents
+// importing like `import {min-width} from "@wikimedia/codex-design-tokens/theme-wikimedia-ui.json"
+// So we end up with hardcoding these values.
 const breakpoints = {
-  xs: 320, // min-width-breakpoint-mobile
-  sm: 640, // min-width-breakpoint-tablet
-  md: 960, // Not present in design tokens
-  lg: 1120, // min-width-breakpoint-desktop
-  xl: 1680, // min-width-breakpoint-desktop-wide
+  mobile: 320, // min-width-breakpoint-mobile
+  tablet: 640, // min-width-breakpoint-tablet
+  desktop: 1120, // min-width-breakpoint-desktop
+  "desktop-wide": 1680, // min-width-breakpoint-desktop-wide
 };
 
 const viewports = {
   print: "only print",
   screen: "only screen",
-  xs: `only screen and (max-width: ${breakpoints.sm - 1}px})`,
-  sm: `only screen and (min-width: ${breakpoints.sm}px) and (max-width: ${
-    breakpoints.md - 1
+  mobile: `only screen and (max-width: ${breakpoints.tablet - 1}px)`,
+  tablet: `only screen and (min-width: ${
+    breakpoints.tablet
+  }px) and (max-width: ${breakpoints.desktop - 1}px)`,
+  "tablet-and-down": `only screen and (max-width: ${
+    breakpoints.desktop - 1
   }px)`,
-  "sm-and-down": `only screen and (max-width: ${breakpoints.md - 1}px)`,
-  "sm-and-up": `only screen and (min-width: ${breakpoints.sm}px)`,
-  md: `only screen and (min-width: ${breakpoints.md}px) and (max-width: ${
-    breakpoints.lg - 1
+  "tablet-and-up": `only screen and (min-width: ${breakpoints.tablet}px)`,
+  "desktop-and-down": `only screen and (max-width: ${
+    breakpoints.desktopwide - 1
   }px)`,
-  "md-and-down": `only screen and (max-width: ${breakpoints.lg - 1}px)`,
-  "md-and-up": `only screen and (min-width: ${breakpoints.md}px)`,
-  lg: `only screen and (min-width: ${breakpoints.lg}px) and (max-width: ${
-    breakpoints.xl - 1
-  }px)`,
-  "lg-and-down": `only screen and (max-width: ${breakpoints.xl - 1}px)`,
-  "lg-and-up": `only screen and (min-width: ${breakpoints.lg}px)`,
-  xl: `only screen and (min-width: ${breakpoints.xl}px)`,
+  "desktop-and-up": `only screen and (min-width: ${breakpoints.desktop}px)`,
+  "desktop-wide": `only screen and (min-width: ${breakpoints["desktop-wide"]}px)`,
 };
 
 const handlers = {
-  xs: () => matchMedia(viewports.xs).matches,
-  sm: () => matchMedia(viewports.sm).matches,
-  md: () => matchMedia(viewports.md).matches,
-  lg: () => matchMedia(viewports.lg).matches,
-  xl: () => matchMedia(viewports.xl).matches,
-  smAndUp: () => matchMedia(viewports["sm-and-up"]).matches,
-  mdAndUp: () => matchMedia(viewports["md-and-up"]).matches,
-  lgAndUp: () => matchMedia(viewports["lg-and-up"]).matches,
-  smAndDown: () => matchMedia(viewports["sm-and-down"]).matches,
-  mdAndDown: () => matchMedia(viewports["md-and-down"]).matches,
-  lgAndDown: () => matchMedia(viewports["lg-and-down"]).matches,
+  mobile: () => matchMedia(viewports.mobile).matches,
+  tablet: () => matchMedia(viewports.tablet).matches,
+  desktop: () => matchMedia(viewports.desktop).matches,
+  desktopwide: () => matchMedia(viewports["desktop-wide"]).matches,
+  tabletAndUp: () => matchMedia(viewports["tablet-and-up"]).matches,
+  tabletAndDown: () => matchMedia(viewports["tablet-and-down"]).matches,
+  desktopAndUp: () => matchMedia(viewports["desktop-and-up"]).matches,
+  desktopAndDown: () => matchMedia(viewports["desktop-and-down"]).matches,
 };
 
 export default {

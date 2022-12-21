@@ -21,7 +21,7 @@ export default {
     fromRoute: "",
   }),
   computed: {
-    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown }),
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.tabletAndDown }),
   },
 };
 </script>

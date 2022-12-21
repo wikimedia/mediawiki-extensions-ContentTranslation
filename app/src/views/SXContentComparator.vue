@@ -15,7 +15,7 @@ export default {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown,
+        fullscreen: this.$mwui.breakpoint.tabletAndDown,
       };
     },
   },

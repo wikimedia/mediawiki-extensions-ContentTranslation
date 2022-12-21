@@ -85,7 +85,7 @@ export default {
     const close = () => emit("close");
     const publish = () => emit("publish", captchaInput.value);
     const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.value.smAndDown);
+    const fullscreen = computed(() => breakpoints.value.mobile);
 
     return {
       captchaInput,

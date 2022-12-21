@@ -6,14 +6,14 @@
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
-        class="col-md-4 col-xs-12 col-lg-3 my-4"
+        class="col-desktop-3 col-mobile-12 my-4"
         @click="searchTranslation"
       />
     </mw-row>
-    <!--    TODO: Check if we need to adjust the breakpoint to mdAndDown as this is the breakpoint that is used to determine if -->
+    <!--    TODO: Check if we need to adjust the breakpoint to tabletAndDown as this is the breakpoint that is used to determine if -->
     <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
     <!--    breakpoint.js-->
-    <nav v-if="$mwui.breakpoint.mdAndUp">
+    <nav v-if="$mwui.breakpoint.tabletAndUp">
       <mw-button-group
         :items="listSelector"
         :active="active"
@@ -32,7 +32,7 @@
       :active="active === 'published'"
     />
     <mw-bottom-navigation
-      v-if="$mwui.breakpoint.smAndDown"
+      v-if="$mwui.breakpoint.mobile"
       v-model:active="active"
       :items="listSelector"
     />

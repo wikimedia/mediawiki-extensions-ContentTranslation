@@ -1,37 +1,25 @@
 // Break points
+@use "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.scss" as *;
 $breakpoints: (
-  xs: 320px,
-  sm: 640px,
-  md: 960px,
-  lg: 1120px,
-  xl: 1680px,
+  mobile: $min-width-breakpoint-mobile,
+  tablet: $min-width-breakpoint-tablet,
+  desktop: $min-width-breakpoint-desktop,
+  desktop-wide: $min-width-breakpoint-desktop-wide,
 );
 
 $viewports: (
   "print": "only print",
   "screen": "only screen",
-  "xs": "only screen and (max-width: #{map-get($breakpoints, sm ) - 1})",
-  "sm":
-    "only screen and (min-width: #{map-get($breakpoints, sm)}) and (max-width: #{map-get($breakpoints, md) - 1})",
-  "sm-and-down": "only screen and (max-width: #{map-get($breakpoints, md) - 1})",
-  "sm-and-up": "only screen and (min-width: #{map-get($breakpoints, sm)})",
-  "md":
-    "only screen and (min-width: #{map-get($breakpoints, md)}) and (max-width: #{map-get($breakpoints, lg) - 1})",
-  "md-and-down": "only screen and (max-width: #{map-get($breakpoints,lg) - 1})",
-  "md-and-up": "only screen and (min-width: #{map-get($breakpoints, md)})",
-  "lg":
-    "only screen and (min-width: #{map-get($breakpoints, lg)}) and (max-width: #{map-get($breakpoints, xl) - 1})",
-  "lg-and-down": "only screen and (max-width: #{map-get($breakpoints, xl) - 1})",
-  "lg-and-up": "only screen and (min-width: #{map-get($breakpoints, lg)})",
-  "xl": "only screen and (min-width: #{map-get($breakpoints, xl)})",
+  "mobile": "only screen and (max-width: $max-width-breakpoint-mobile)",
+  "tablet":
+    "only screen and (min-width: $min-width-breakpoint-tablet) and (max-width: $max-width-breakpoint-tablet)",
+  "tablet-and-down": "only screen and (max-width: $max-width-breakpoint-tablet)",
+  "tablet-and-up": "only screen and (min-width: $min-width-breakpoint-tablet)",
+  "desktop": "only screen and (min-width: $min-width-breakpoint-desktop) and (max-width: $max-width-breakpoint-desktop)",
+  "desktop-and-down": "only screen and (max-width: $max-width-breakpoint-desktop)",
+  "desktop-and-up": "only screen and (min-width: $min-width-breakpoint-desktop)",
+  "desktop-wide": "only screen and (min-width:  $min-width-breakpoint-desktop-wide)",
 );
-
-// Export $viewports to javascript via sass-loader
-:export {
-  @each $name, $media_query in $viewports {
-    #{$name}: #{$media_query};
-  }
-}
 
 @mixin mediaQuery($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {

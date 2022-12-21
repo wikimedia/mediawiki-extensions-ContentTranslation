@@ -37,15 +37,14 @@ Layouting utilities allows you the control the display of content. Logical divis
 
 ## Breakpoints
 
-The grid contains 5 types of media breakpoints that are used for targeting specific screen sizes or orientations, `xs`, `sm`, `md`, `lg` and `xl`. These resolutions are defined in table below:
+The grid contains 4 types of media breakpoints that are used for targeting specific screen sizes or orientations, `mobile`, `tablet`, `desktop` and `desktop-wide`. These resolutions are defined in table below:
 
 | Code | Devices                             | Range            |
 | ---- | ----------------------------------- | ---------------- |
-| xs   | extra small: small to large mobiles | 300px-599px      |
-| sm   | small to medium tablet              | 600px-959px      |
-| md   | medium: large tablet to laptop      | 960px-1263px     |
-| lg   | large: desktop                      | 12640px-1903px   |
-| xl   | extra large: 4k and ultra-wides     | 1904px and above |
+| mobile   | extra small: small to large mobiles | 320px-639px      |
+| tablet   | small to medium tablet              | 640px-1119px      |
+| desktop   | large: desktop                      | 1120px-1679px   |
+| desktop-wide   | extra large: 4k and ultra-wides     | 1680px and above |
 
 ## CSS Helper classes
 
@@ -149,9 +148,9 @@ Please use the viewport configuration in the storybook UI to see how the columns
         <main class="container storybook-grid">
           <div class="row">
             <div
-              class="col-xs-12 col-md-6 col-lg-3"
+              class="col-mobile-3 col-tablet-6 col-desktop-12"
             >
-              col-xs-12 col-md-6 col-lg-3
+              col-mobile-3 col-tablet-6 col-desktop-12
             </div>
           </div>
         </main>`,
@@ -159,7 +158,7 @@ Please use the viewport configuration in the storybook UI to see how the columns
   </Story>
 </Canvas>
 
-The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, it will have 6 column units.
+The above row will have column with 3 units in mobile and above breakpoints. It will have 12 column units in desktop and above. In tablet breakpoint and above till desktop, it will have 6 column units.
 
 If breakpoints are not using in column class like col-6, it means the width is same in all breakpoints.
 
@@ -176,14 +175,14 @@ To hide a column in a given breakpoint use the class format col-hidden-breakpoin
       template: `
         <main class="container storybook-grid">
           <div class="row">
-            <div class="col-xs-12 col-md-hidden col-lg-3">col-xs-12 col-md-hidden col-lg-3</div>
+            <div class="col-desktop-12 col-tablet-3 col-mobile-hidden">col-desktop-12 col-tablet-3 col-mobile-hidden</div>
           </div>
         </main>`,
     }}
   </Story>
 </Canvas>
 
-The above row will have column with 3 units in lg and above breakpoints. It will have 12 column units in xs and above till xs breakpoints. In sm breakpoint and above till lg, the column will be hidden.
+The above row will have column with 3 units in tablet and above breakpoints. It will have 12 column units in desktop and above. In mobiles they are hidden.
 
 ## Grid Components
 
@@ -306,34 +305,6 @@ Content can also be distributed in reverse order by setting "reverse" property t
   </Story>
 </Canvas>
 
-### Classes to help hiding elements
-
-A set of helper classes are provided to control the display of elements. In general they are prefixed with d to denote display and h to denote hidden. They can be used with viewport classes as illustrated below
-
-<Canvas>
-  <Story name="Display Helper Classes">
-    {{
-      components: {
-        MwGrid,
-      },
-      template: `
-        <mw-grid>
-          <div class="h-xs"><code>h-xs</code> -Hidden only in xs viewports.</div>
-          <div class="h-sm"><code>h-sm</code> -Hidden only in sm viewports.</div>
-          <div class="h-md"><code>h-md</code> -Hidden only in md viewports.</div>
-          <div class="h-lg"><code>h-lg</code> -Hidden only in lg viewports.</div>
-          <div class="h-xl"><code>h-xl</code> -Hidden only in xl viewports.</div>
-          <div class="h-sm-and-up"><code>h-sm-up</code> -Hidden in sm and up viewports.</div>
-          <div class="h-md-and-up"><code>h-md-up</code> -Hidden in md and up viewports.</div>
-          <div class="h-lg-and-up"><code>h-lg-up</code> -Hidden in lg and up viewports.</div>
-          <div class="h-sm-and-down"><code>h-sm-down</code> -Hidden in sm and down viewports.</div>
-          <div class="h-md-and-down"><code>h-md-down</code> -Hidden in md and down viewports.</div>
-          <div class="h-lg-and-down"><<code>code>h-lg-down</code> -Hidden in lg and down viewports.</div>
-        </mw-grid>`,
-    }}
-  </Story>
-</Canvas>
-
 export const dirPrefixes = {
   Start: "s",
   End: "e",
@@ -399,7 +370,7 @@ Padding helper classes has the format of `p{direction}-{unit}`. Similarly, margi
 
 Helper classes for margin "auto" are supported too, for all referred directions and breakpoints, in the following format: `.m{direction}-{breakpoint}-auto`.
 
-Examples: `ms-md-auto`, `me-auto`, `my-xl-auto`.
+Examples: `ms-desktop-auto`, `me-auto`, `my-desktop-wide-auto`.
 
 <Canvas>
   <Story name="Margin auto">
@@ -446,4 +417,4 @@ Spacing units are multiples of 4 units. So `pa-2` means `padding: 8px`. The valu
 
 Spacing units can be set specifically for each breakpoints. Please see the responsiveness section to learn about breakpoints. To use breakpoints in spacing helper classes, use the format `p{direction}-{breakpoint}-{unit}`
 
-For example `pa-xs-4` sets `padding: 16px` in xs(mobile) viewports and has no effect on other viewports. And `ma-lg-2` sets `8px` margin on lg(large) viewports.
+For example `pa-mobile-4` sets `padding: 16px` in xs(mobile) viewports and has no effect on other viewports. And `ma-desktop-2` sets `8px` margin on desktop(large) viewports.

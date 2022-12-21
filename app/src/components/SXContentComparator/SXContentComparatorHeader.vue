@@ -29,7 +29,7 @@
         cols="2"
         :section-source-titles="sectionSourceTitles"
       />
-      <mw-col cols="12" sm="12" md="4" class="py-2 mb-1">
+      <mw-col cols="12" mobile="12" tablet="4" class="py-2 mb-1">
         <mw-button
           :icon="mwIconEdit"
           progressive

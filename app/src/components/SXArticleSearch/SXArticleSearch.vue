@@ -226,7 +226,7 @@ export default {
     );
 
     const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.mdAndDown);
+    const fullscreen = computed(() => breakpoints.tabletAndDown);
 
     const {
       startRecentlyEditedSectionTranslation,

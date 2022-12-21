@@ -6,8 +6,8 @@
 
 <script>
 import "./grid.scss";
-// no xs
-const breakpoints = ["sm", "md", "lg", "xl"];
+
+const breakpoints = ["mobile", "tablet", "desktop", "desktop-wide"];
 
 const breakpointProps = breakpoints.reduce(
   (props, val) => ({
