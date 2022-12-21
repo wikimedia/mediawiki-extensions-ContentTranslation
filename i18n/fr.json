@@ -49,7 +49,8 @@
 			"Yodaspirine",
 			"Zarisi",
 			"Петар Петковић",
-			"Cantons-de-l'Est"
+			"Cantons-de-l'Est",
+			"SleaY"
 		]
 	},
 	"cx": "Traduire la page",
@@ -133,7 +134,7 @@
 	"cx-favorite-added-for-later": "Ajouté pour plus tard !",
 	"cx-favorite-added-for-later-detail": "Ajouté pour plus tard ! Vérifiez la vue des suggestions à tout moment.",
 	"cx-favorite-removed": "Retiré de votre liste de favoris !",
-	"cx-page-missing-in-target-language": "Absent en $1",
+	"cx-page-missing-in-target-language": "Manquant en $1",
 	"cx-page-number-of-languages": "Nombre de langues",
 	"cx-mt-abuse-error-title": "Votre traduction contient en tout $1 %{{PLURAL:$1|}} de texte non modifié",
 	"cx-mt-abuse-error-sections": "Votre traduction contient des parties significatives de texte non modifié",
@@ -403,7 +404,7 @@
 	"cx-sx-published-section-confirmation-header": "Nouvelle section ajoutée",
 	"cx-sx-published-section-confirmation-content": "Votre traduction a été publiée. Voyez maintenant si vous pouvez modifier et enrichir le contenu ou ajouter une autre section.",
 	"cx-sx-published-section-invitation-title": "Traduire une autre section",
-	"cx-sx-published-section-invitation-missing-sections-info": "« $1 » {{PLURAL:$2|et $2 autres sont absents|0=est absent}}",
+	"cx-sx-published-section-invitation-missing-sections-info": "L{{PLURAL:$2|es|a|0=a}} section{{PLURAL:$2|s|0=}} « $1 » {{PLURAL:$2|et $2 autre|et $2 autres|0=}} {{PLURAL:$2|son|0=es}}t manquante{{PLURAL:$2|s|0=}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Votre traduction contient $1 % de texte non modifié",
 	"cx-sx-publisher-mt-abuse-message-body": "La traduction automatique n’est que le point de départ. Vous pouvez encore publier mais assurez-vous que votre traduction est lisible naturellement dans votre langue.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 section|$1 sections|0=Aucune section}}",
