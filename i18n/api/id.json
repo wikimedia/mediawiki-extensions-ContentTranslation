@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Agam Riyandana",
 			"Daud I.F. Argana",
 			"Fate Kage",
 			"Ilham",
@@ -31,6 +32,7 @@
 	"apihelp-query+contenttranslation-param-limit": "Maksimum banyaknya terjemahan yang akan diambil.",
 	"apihelp-query+contenttranslation-param-offset": "Ofset dalam himpunan hasil (opsional).",
 	"apihelp-query+contenttranslation-param-type": "Kondisi terjemahan.",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Apakah terjemahan bagian harus diambil, bukan terjemahan artikel",
 	"apihelp-query+contenttranslation-example-1": "Dapatkan terjemahan yang dimulai oleh pengguna terpilih.",
 	"apihelp-query+contenttranslation-example-2": "Dapatkan konsep terjemahan berdasarkan id.",
 	"apihelp-query+contenttranslation-example-3": "Cari terjemahan apa pun dengan judul yang diberikan di antara pasangan bahasa yang diberikan",
