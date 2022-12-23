@@ -9,6 +9,7 @@ use MediaWiki\Http\HttpRequestFactory;
 
 /**
  * @covers \ContentTranslation\SectionPositionCalculator
+ * @group ContentTranslation
  */
 class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 

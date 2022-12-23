@@ -8,6 +8,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @coversDefaultClass ContentTranslation\DirectParsoidClient
+ * @group ContentTranslation
  * @group Database
  */
 class DirectParsoidClientTest extends MediaWikiIntegrationTestCase {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ContentTranslation\Test\AbuseFilterCheck;
+namespace ContentTranslation\Tests;
 
 use ContentTranslation\AbuseFilterChecker;
 use MediaWiki\MediaWikiServices;

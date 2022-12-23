@@ -9,6 +9,7 @@ use TextContent;
 
 /**
  * @covers \ContentTranslation\EditedSectionFinder
+ * @group ContentTranslation
  */
 class EditedSectionFinderTest extends \MediaWikiIntegrationTestCase {
 	/** @dataProvider provideTestFindEditedSectionsBetweenTextContents */

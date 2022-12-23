@@ -8,6 +8,7 @@ use ContentTranslation\DateManipulator;
  * @covers \ContentTranslation\DateManipulator
  *
  * @author Niklas Laxström
+ * @group ContentTranslation
  */
 class DateManipulatorTest extends \MediaWikiUnitTestCase {
 

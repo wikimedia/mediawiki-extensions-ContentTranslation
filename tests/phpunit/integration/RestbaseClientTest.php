@@ -12,6 +12,7 @@ use VirtualRESTServiceClient;
 /**
  * @coversDefaultClass ContentTranslation\RestbaseClient
  * @group Database
+ * @group ContentTranslation
  */
 class RestbaseClientTest extends MediaWikiIntegrationTestCase {
 

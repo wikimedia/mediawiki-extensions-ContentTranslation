@@ -16,6 +16,7 @@ use Psr\Log\NullLogger;
 
 /**
  * @coversDefaultClass \ContentTranslation\ParsoidClientFactory
+ * @group ContentTranslation
  */
 class ParsoidClientFactoryTest extends MediaWikiIntegrationTestCase {
 
