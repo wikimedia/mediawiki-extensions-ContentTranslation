@@ -49,7 +49,8 @@
 			"Ajeje Brazorf",
 			"JenyxGym",
 			"Raphoraph",
-			"Cantons-de-l'Est"
+			"Cantons-de-l'Est",
+			"SleaY"
 		]
 	},
 	"cx": "Traduire la page",
@@ -139,7 +140,7 @@
 	"cx-favorite-added-for-later": "Ajouté pour plus tard !",
 	"cx-favorite-added-for-later-detail": "Ajouté pour plus tard ! Vérifiez la vue des suggestions à tout moment.",
 	"cx-favorite-removed": "Retiré de votre liste de favoris !",
-	"cx-page-missing-in-target-language": "Absent en $1",
+	"cx-page-missing-in-target-language": "Manquant en $1",
 	"cx-page-number-of-languages": "Nombre de langues",
 	"cx-mt-abuse-error-title": "Votre traduction contient en tout $1 %{{PLURAL:$1|}} de texte non modifié",
 	"cx-mt-abuse-error-sections": "Votre traduction contient des parties significatives de texte non modifié",
