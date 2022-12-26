@@ -135,7 +135,7 @@
 	"apihelp-cxpublishsection-param-sectionnumber": "Položaj razdelka v novi redakciji strani.",
 	"apihelp-cxpublishsection-param-sourcerevid": "Identifikator redakcije izvorne strani.",
 	"apihelp-cxpublishsection-param-captchaid": "Identifikator CAPTCHA (pri shranjevanju odgovora na CAPTCHA).",
-	"apihelp-cxpublishsection-param-captchaword": "Odgovor na CAPTCHA (pri shranjevanjuvodgovora na CAPTCHA).",
+	"apihelp-cxpublishsection-param-captchaword": "Odgovor na CAPTCHA (pri shranjevanju odgovora na CAPTCHA).",
 	"apihelp-sxsave-description": "Shrani osnutek prevoda razdelka in shrani vzporedni korpus.",
 	"apihelp-sxsave-summary": "Shrani osnutek prevoda razdelka in shrani vzporedni korpus.",
 	"apihelp-sxsave-param-sourcelanguage": "Oznaka izvornega jezika.",
