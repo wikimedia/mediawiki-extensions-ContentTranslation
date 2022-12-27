@@ -613,7 +613,7 @@ class Hooks {
 		$userLocator = [
 			EchoAttributeManager::ATTR_LOCATORS => [
 				[
-					EchoUserLocator::class . '::locateFromEventExtra',
+					[ EchoUserLocator::class, 'locateFromEventExtra' ],
 					[ 'recipient' ]
 				],
 			],
