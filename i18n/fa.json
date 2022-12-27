@@ -361,7 +361,9 @@
 	"cx-sx-publish-lead-section-summary": "ایجادشده به‌واسطهٔ ترجمهٔ بخش آغازین صفحهٔ «$1»",
 	"cx-sx-publisher-preview-options-title": "گزینه‌های انتشار",
 	"cx-sx-publisher-new-section-option-label": "انتشار به‌عنوان یک بخش جدید",
+	"cx-sx-publisher-lead-section-option-label": "انتشار به‌عنوان یک صفحهٔ تازه",
 	"cx-sx-publisher-new-section-option-details": "افزودن بخشی جدید به مقاله",
+	"cx-sx-publisher-lead-section-option-details": "ایجاد یک صفحهٔ تازه در فضای نام اصلی",
 	"cx-sx-publisher-sandbox-option-label": "انتشار در صفحهٔ تمرین شما",
 	"cx-sx-publisher-sandbox-option-details": "انتشار در فضای شخصی شما به‌منظور بازبینی و کپی‌کردن به جای دیگر توسط شما",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "ترجمهٔ شما <strong>به صفحهٔ تمرین شما افزوده خواهد شد</strong>.",
@@ -443,5 +445,7 @@
 	"cx-uls-relevant-languages-panel-header": "ترجمهٔ این صفحه",
 	"cx-uls-relevant-languages-panel-message": "این صفحه به برخی زبان‌هایی که ممکن است شما با آن‌ها آشنا باشید، موجود نیست. می‌توانید در چند دقیقه آن را ترجمه کنید!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "این <strong>نخستین بخش در مقالهٔ جدید</strong> خواهد بود!",
-	"cx-uls-translate-page-quick-action-label": "ترجمهٔ این صفحه"
+	"cx-uls-translate-page-quick-action-label": "ترجمهٔ این صفحه",
+	"cx-sx-publisher-captcha-dialog-header-title": "در حال بررسی ربات بودن/نبودن شما",
+	"cx-sx-publisher-captcha-dialog-publish-button": "انتشار"
 }
