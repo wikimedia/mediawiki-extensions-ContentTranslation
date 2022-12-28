@@ -33,8 +33,8 @@ use Deflate;
 use DerivativeRequest;
 use ExtensionRegistry;
 use IBufferingStatsdDataFactory;
-use Language;
 use MediaWiki\Languages\LanguageFactory;
+use MediaWiki\Languages\LanguageNameUtils;
 use MWException;
 use Title;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -54,17 +54,22 @@ class ApiContentTranslationPublish extends ApiBase {
 	/** @var IBufferingStatsdDataFactory */
 	private $statsdDataFactory;
 
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
 	public function __construct(
 		ApiMain $main,
 		$name,
 		ParsoidClientFactory $parsoidClientFactory,
 		LanguageFactory $languageFactory,
-		IBufferingStatsdDataFactory $statsdDataFactory
+		IBufferingStatsdDataFactory $statsdDataFactory,
+		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $main, $name );
 		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->languageFactory = $languageFactory;
 		$this->statsdDataFactory = $statsdDataFactory;
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -192,11 +197,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieBlocked( $block );
 		}
 
-		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['from'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
 		}
 
-		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['to'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
 		}
 

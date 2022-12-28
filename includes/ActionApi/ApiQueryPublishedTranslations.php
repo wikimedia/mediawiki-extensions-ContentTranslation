@@ -11,14 +11,22 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ApiQueryBase;
 use ContentTranslation\Translation;
-use Language;
+use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiQueryPublishedTranslations extends ApiQueryBase {
 
-	public function __construct( $query, $moduleName ) {
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
+	public function __construct(
+		$query,
+		$moduleName,
+		LanguageNameUtils $languageNameUtils
+	) {
 		parent::__construct( $query, $moduleName );
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	public function execute() {
@@ -34,10 +42,10 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		}
 		$limit = $params['limit'];
 		$offset = $params['offset'];
-		if ( $from !== null && !Language::isValidBuiltInCode( $from ) ) {
+		if ( $from !== null && !$this->languageNameUtils->isValidBuiltInCode( $from ) ) {
 			$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
-		if ( $to !== null && !Language::isValidBuiltInCode( $to ) ) {
+		if ( $to !== null && !$this->languageNameUtils->isValidBuiltInCode( $to ) ) {
 				$this->dieWithError( 'apierror-cx-invalidlanguage', 'invalidlanguage' );
 		}
 		$translations = Translation::getAllPublishedTranslations(

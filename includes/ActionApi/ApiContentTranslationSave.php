@@ -19,7 +19,7 @@ use ContentTranslation\Translator;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use Deflate;
 use FormatJson;
-use Language;
+use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
@@ -34,6 +34,9 @@ class ApiContentTranslationSave extends ApiBase {
 	/** @var TranslationUnitValidator */
 	private $translationUnitValidator;
 
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
 	/**
 	 * 64KB
 	 */
@@ -44,12 +47,14 @@ class ApiContentTranslationSave extends ApiBase {
 		$action,
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
-		TranslationUnitValidator $translationUnitValidator
+		TranslationUnitValidator $translationUnitValidator,
+		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
 		$this->lb = $loadBalancer;
 		$this->translationUnitValidator = $translationUnitValidator;
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	public function execute() {
@@ -65,11 +70,11 @@ class ApiContentTranslationSave extends ApiBase {
 			$this->dieBlocked( $block );
 		}
 
-		if ( !Language::isKnownLanguageTag( $params['from'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['from'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidsourcelanguage', 'invalidsourcelanguage' );
 		}
 
-		if ( !Language::isKnownLanguageTag( $params['to'] ) ) {
+		if ( !$this->languageNameUtils->isKnownLanguageTag( $params['to'] ) ) {
 			$this->dieWithError( 'apierror-cx-invalidtargetlanguage', 'invalidtargetlanguage' );
 		}
 

@@ -15,23 +15,31 @@ namespace ContentTranslation\ActionApi;
 use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
-use Language;
+use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 
-	public function __construct( $query, $moduleName ) {
+	/** @var LanguageNameUtils */
+	private $languageNameUtils;
+
+	public function __construct(
+		$query,
+		$moduleName,
+		LanguageNameUtils $languageNameUtils
+	) {
 		parent::__construct( $query, $moduleName );
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	public function execute() {
 		$result = $this->getResult();
 		$params = $this->extractRequestParams();
 		$source = $target = null;
-		if ( isset( $params['source'] ) && Language::isValidBuiltInCode( $params['source'] ) ) {
+		if ( isset( $params['source'] ) && $this->languageNameUtils->isValidBuiltInCode( $params['source'] ) ) {
 			$source = $params['source'];
 		}
-		if ( isset( $params['target'] ) && Language::isValidBuiltInCode( $params['target'] ) ) {
+		if ( isset( $params['target'] ) && $this->languageNameUtils->isValidBuiltInCode( $params['target'] ) ) {
 			$target = $params['target'];
 		}
 		$interval = $params['interval'];

@@ -129,7 +129,8 @@
 			"services": [
 				"ContentTranslation.ParsoidClientFactory",
 				"LanguageFactory",
-				"StatsdDataFactory"
+				"StatsdDataFactory",
+				"LanguageNameUtils"
 			]
 		},
 		"cxpublishsection": {
@@ -148,7 +149,8 @@
 			"services": [
 				"ContentTranslation.TranslationCorporaStore",
 				"ContentTranslation.LoadBalancer",
-				"ContentTranslation.TranslationUnitValidator"
+				"ContentTranslation.TranslationUnitValidator",
+				"LanguageNameUtils"
 			]
 		},
 		"sxsave": {
@@ -158,7 +160,8 @@
 				"ContentTranslation.LoadBalancer",
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.SandboxTitleMaker",
-				"TitleFactory"
+				"TitleFactory",
+				"LanguageNameUtils"
 			]
 		},
 		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
@@ -178,10 +181,20 @@
 				"ContentTranslation.CorporaLookup"
 			]
 		},
-		"contenttranslationlangtrend": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationLanguageTrend",
+		"contenttranslationlangtrend": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationLanguageTrend",
+			"services": [
+				"LanguageNameUtils"
+			]
+		},
 		"contenttranslationstats": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationStats",
 		"contenttranslationsuggestions": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
-		"cxpublishedtranslations": "ContentTranslation\\ActionApi\\ApiQueryPublishedTranslations",
+		"cxpublishedtranslations": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryPublishedTranslations",
+			"services": [
+				"LanguageNameUtils"
+			]
+		},
 		"cxtranslatorstats": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats"
 	},
 	"APIMetaModules": {
