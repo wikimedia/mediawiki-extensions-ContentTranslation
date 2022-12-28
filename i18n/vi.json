@@ -19,7 +19,8 @@
 			"Tuanminh01",
 			"Vinhtantran",
 			"Withoutaname",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Nguyenphutrong2"
 		]
 	},
 	"cx": "Dịch trang",
@@ -302,6 +303,7 @@
 	"cx-sx-content-comparator-review-contents-title": "Xem lại nội dung ở cả hai ngôn ngữ.",
 	"cx-sx-content-comparator-source-selector-title": "Đoạn trong $1",
 	"sx-quick-tutorial-main-point-step-2": "Bản dịch gợi ý",
+	"sx-quick-tutorial-secondary-point-step-1": "Dịch và xuất bản từng phần một. Thật dễ dàng, nhanh chóng và thú vị!",
 	"sx-quick-tutorial-translate-button-label": "Bắt đầu biên dịch",
 	"cx-sx-sentence-selector-header-title": "Biên dịch đoạn",
 	"cx-sx-sentence-selector-done-button-label": "Xong",
