@@ -455,5 +455,9 @@
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Структура шаблона на абедзвюх мовах падобная, некаторыя даныя будуць аўтаматычна перанесены",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Структура шаблона на абедзвюх мовах падобная, усе даныя будуць аўтаматычна перанесены",
 	"cx-sx-block-template-no-equivalent-template-suggestion": "Калі вы ведаеце эквівалентны шаблон у $1, можаце злучыць іх на Вікіданых, каб інструменты маглі знайсці яго",
-	"cx-sx-block-template-no-source-params-text": "Крынічны шаблон не меў параметраў для пераносу"
+	"cx-sx-block-template-none-mapped-param-text": "З зыходнага шаблона не было дададзена ніводнага параметра з $1",
+	"cx-sx-block-template-mapped-params-text": "$1 з {{PLURAL:$2|$2 параметра|$2 параметраў}} {{PLURAL:$1|быў дададзены|былі дададзены}} з зыходнага шаблону",
+	"cx-sx-block-template-no-source-params-text": "Крынічны шаблон не меў параметраў для пераносу",
+	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|$1 абавязковы параметр застаецца незапоўненым|$1 абавязковыя параметры застаюцца незапоўненымі|$1 7 абавязковых параметраў застаюцца незапоўненымі}} для шаблону ў $2. Выпраўце шаблон, каб запоўніць іх уручную",
+	"cx-sx-block-template-missing-optional-params-text": "{{PLURAL:$1|$1 дадатковыя параметры|$1 дадатковыя параметры|$1 дадатковых параметраў}} можна запоўніць у шаблоне ў $2. Выпраўце шаблон, каб запоўніць іх уручную"
 }
