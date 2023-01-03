@@ -553,10 +553,15 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
  * @param {number} namespaceId
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
-	var newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
-	// Setting title in targetColumn will take care of necessary event firing for title change.
-	this.translationView.targetColumn.setTitle( newTitle );
-	mw.log( '[CX] Target title changed to ' + newTitle );
+	var isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();
+
+	if ( !isSectionTranslation ) {
+		var newTitle = mw.cx.getTitleForNamespace( this.pageName, namespaceId );
+		// Setting title in targetColumn will take care of necessary event firing for title change.
+		this.translationView.targetColumn.setTitle( newTitle );
+		mw.log( '[CX] Target title changed to ' + newTitle );
+	}
+
 	this.emitNamespaceChange( namespaceId );
 };
 

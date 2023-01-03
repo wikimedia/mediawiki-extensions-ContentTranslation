@@ -170,6 +170,7 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCat
  */
 mw.cx.TargetArticle.prototype.publishSection = function () {
 	this.getContent( false ).then( function ( html ) {
+		var isSandbox = this.veTarget.getPublishNamespace() === mw.config.get( 'wgNamespaceIds' ).user;
 		var params = {
 			action: 'cxpublishsection',
 			title: this.getTargetTitle(),
@@ -179,7 +180,8 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			sourcesectiontitle: this.translation.sourceWikiPage.getSectionTitle(),
 			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
-			targetlanguage: this.targetLanguage
+			targetlanguage: this.targetLanguage,
+			issandbox: isSandbox
 		};
 
 		if ( this.captcha ) {
