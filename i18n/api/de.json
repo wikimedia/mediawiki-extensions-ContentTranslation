@@ -125,5 +125,6 @@
 	"apihelp-sxsave-param-targetlanguage": "Der Ziel-Sprachcode.",
 	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
+	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
 	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."
 }
