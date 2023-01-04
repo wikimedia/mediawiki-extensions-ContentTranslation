@@ -29,6 +29,7 @@
 	"cx-dashboard-sidebar-stats": "Statistihkka",
 	"cx-dashboard-sidebar-feedback": "Atte máhcahaga",
 	"cx-translation-filter-suggested-translations": "Evttohusat",
+	"cx-suggestionlist-view-source-page": "Čájet gáldosiiddu",
 	"cx-create-new-translation": "Ođđa jorgalus",
 	"cx-translation-filter-label-all-languages": "Buot",
 	"cx-translation-filter-uls-all-languages": "Buot gielat",
@@ -36,6 +37,7 @@
 	"cx-contributions-translation": "Jorgalus",
 	"cx-translation-status-deleted": "Sihkkojuvvon",
 	"cx-feedback-link": "Atte máhcahaga",
+	"cx-draft-discard-button-label": "Sihko jorgalusa",
 	"cx-campaign-no-thanks": "Ii giitu",
 	"cx-campaign-contributionsmenu-mycontributions": "Rievdadusat",
 	"cx-campaign-contributionsmenu-mytranslations": "Jorgalusat",
@@ -54,8 +56,12 @@
 	"cx-tools-linter-restart-translation-cancel": "Šluhtte",
 	"cx-publish-destination-namespace-main": "Ođđa siidu",
 	"cx-linkcontextitem-missing-link-title": "Liŋka váilu",
+	"cx-sx-view-translation-anchor": "Čájet",
 	"cx-sx-existing-translation-learn-more": "Lassedieđut",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lassedieđut",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Jorgal",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Lassedieđut",
-	"cx-sx-followup-feedback-new-indicator": "ođđa"
+	"cx-sx-followup-feedback-new-indicator": "ođđa",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Rievdat siiddu",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Jorgal \"$1\""
 }

@@ -161,6 +161,7 @@
 	"cx-campaign-contributionsmenu-mytranslations": "Prijevodi",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Dodaj novi prijevod",
 	"cx-campaign-contributionsmenu-myuploads": "Postavljene datoteke",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Spisak vaših otpremljenih datoteka",
 	"cx-no-source-categories": "Nema kategorija",
 	"cx-no-target-categories": "Nema kategorija. Stavite neke da bi tema bila bolje klasificirana.",
 	"cx-no-adapted-categories": "Izvorne kategorije ne postoje u ovom jeziku. Istražite više kategorija u svrhu boljeg opisa teme.",
@@ -225,5 +226,17 @@
 	"cx-sx-existing-translation-learn-more": "Saznajte više",
 	"cx-suggestion-list-new-pages-division": "Pravljenje novih stranica",
 	"cx-translation-list-all-languages-option-label": "Sve",
-	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 pregled tjedno|$1 pregleda tjedno|0=Nema pregleda ovoga tjedna}}"
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 pregled tjedno|$1 pregleda tjedno|0=Nema pregleda ovoga tjedna}}",
+	"cx-sx-article-search-input-placeholder": "Potražite stranicu za prevesti",
+	"cx-sx-article-search-recently-edited-title": "Vaše nedavne izmjene",
+	"cx-sx-article-search-nearby-title": "U blizini",
+	"sx-article-search-language-selector-dialog-title": "Jezici",
+	"cx-sx-language-selector-placeholder": "Pronađi jezik",
+	"cx-sx-language-selector-all-languages": "Svi jezici",
+	"cx-sx-language-selector-suggestions": "Predloženi",
+	"cx-sx-language-selector-no-search-results": "Nema rezultata",
+	"sx-translation-list-language-selector-dialog-title": "Jezici",
+	"cx-sx-article-search-header": "Novi prijevod",
+	"cx-sx-article-search-no-suggestions-message": "Pomislite na neku temu što Vas interesuje. Ne morate biti stručnjak da biste vrhunski prevodili.",
+	"cx-sx-article-search-no-search-results-message": "Nisu pronađene stranice za \"$1\" na jeziku: $2"
 }
