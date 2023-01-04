@@ -15,7 +15,7 @@
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
 import { useStore } from "vuex";
-import { onMounted } from "vue";
+import { computed, onMounted } from "vue";
 
 export default {
   name: "ContentTranslationApp",
