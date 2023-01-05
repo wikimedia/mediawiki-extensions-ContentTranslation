@@ -84,7 +84,11 @@ class CorporaLookup {
 			// Source categories aren't retrieved, only saved in cx_corpora for pairing
 			// with target categories. Source and target categories are saved in cx_corpora table
 			// with special section ID, to distinguish categories from translation units.
-			$targetCategories = $sections[ self::CATEGORIES ][ self::TYPE_USER ][ 'content' ];
+			$userBlob = $sections[ self::CATEGORIES ]->getUserBlob();
+
+			if ( $userBlob ) {
+				$targetCategories = $userBlob[ 'content' ];
+			}
 			unset( $sections[ self::CATEGORIES ] );
 		}
 

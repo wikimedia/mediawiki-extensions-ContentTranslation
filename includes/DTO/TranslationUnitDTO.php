@@ -75,6 +75,10 @@ class TranslationUnitDTO {
 		];
 	}
 
+	public function getUserBlob(): ?array {
+		return $this->user;
+	}
+
 	/**
 	 * Used inside dump-corpora.php to filter out units which don't have user provided input
 	 * @return bool
