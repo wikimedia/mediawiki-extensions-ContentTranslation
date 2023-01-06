@@ -322,6 +322,8 @@
 	"cx-sx-sentence-selector-header-title": "Bagian terjemahan",
 	"cx-sx-sentence-selector-done-button-label": "Selesai",
 	"cx-sx-sentence-selector-suggested-translation-title": "Saran terjemahan dari $1",
+	"cx-sx-proposed-translation-retry-button": "Coba lagi",
+	"cx-sx-proposed-translation-other-options-button": "Pilihan lainnya",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Terapkan",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Lewati",
@@ -437,6 +439,7 @@
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Tiada dalam <span>$1</span>, <span>$2</span> dan banyak lagi",
 	"cx-uls-relevant-languages-panel-header": "Terjemahkan halaman ini",
 	"cx-uls-translate-page-quick-action-label": "Terjemahkan halaman ini",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Terjemahkan \"$1\"",
 	"cx-sx-publisher-captcha-dialog-header-title": "Memastikan bahwa Anda bukan robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Terbitkan"
 }
