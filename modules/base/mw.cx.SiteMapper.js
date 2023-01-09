@@ -114,7 +114,7 @@ mw.cx.SiteMapper.prototype.isMobileDomain = function () {
  * @param {string} [language] Language code
  * @param {string} title Page title
  * @param {Object} [params] Query parameters
- * @param {string} [hash] Query parameters
+ * @param {string} [hash] the hash property of the URL
  * @return {string}
  */
 mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash ) {
