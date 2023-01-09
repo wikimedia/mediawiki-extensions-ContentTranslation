@@ -39,7 +39,8 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$data = $this->corporaLookup->getByTranslationId( (int)$params['translationid'] );
 		$sections = $data[ 'sections' ];
 
-		$types = array_flip( $params['types'] );
+		// 'types' parameter should be an array of valid types. e.g. ['user', 'mt', 'source']
+		$types = $params['types'];
 		$stripHtml = $params['striphtml'];
 		$sections = array_map( static function ( TranslationUnitDTO $unit ) use ( $types, $stripHtml ) {
 			return $unit->toCustomArray( $types, $stripHtml );

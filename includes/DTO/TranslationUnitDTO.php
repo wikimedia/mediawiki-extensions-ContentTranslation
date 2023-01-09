@@ -91,7 +91,7 @@ class TranslationUnitDTO {
 	 * Used inside "ApiQueryContentTranslationCorpora" to return the proper array payload
 	 * for each (sub)section.
 	 *
-	 * @param string[] $types
+	 * @param string[] $types The types that are used for this translation unit. e.g. ['source', 'user']
 	 * @param bool $sanitize
 	 * @return array
 	 */
@@ -102,7 +102,7 @@ class TranslationUnitDTO {
 
 		// filter out unused blob type fields
 		foreach ( $usedTypes as $usedType ) {
-			$unit[$usedType] = $this->$$usedType;
+			$unit[$usedType] = $this->$usedType;
 
 			if ( $sanitize ) {
 				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
