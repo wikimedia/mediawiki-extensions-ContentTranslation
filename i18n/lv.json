@@ -436,6 +436,13 @@
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "Šī veidne tiks pievienota tukša",
 	"cx-sx-block-template-mapping-status-title-partially-template": "Šo veidni var daļēji pārtulkot",
 	"cx-sx-block-template-mapping-status-title-fully-template": "Šo veidni var pārtulkot automātiski",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Veidnes struktūra abās valodās ir pārāk atšķirīga un datus nevar pārnest automātiski",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Veidnes struktūra abās valodās ir līdzīga un daļu datu var pārnest automātiski",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Veidnes struktūra abās valodās ir līdzīga un visus datus var pārnest automātiski",
 	"cx-sx-block-template-no-equivalent-template-suggestion": "Ja zini līdzvērtīgu veidni $1, vari tās savienot Wikidata, lai ļautu rīkiem to atrast",
-	"cx-sx-block-template-no-source-params-text": "Oriģinālajā veidnē nebija pārnesamo parametru"
+	"cx-sx-block-template-none-mapped-param-text": "No sākotnējās veidnes netika pārnests neviens no $1 parametriem",
+	"cx-sx-block-template-mapped-params-text": "$1 no {{PLURAL:$2|$2 parametriem|$2 parametra|$2 parametriem}} tika pārnests no sākotnējās veidnes",
+	"cx-sx-block-template-no-source-params-text": "Oriģinālajā veidnē nebija pārnesamo parametru",
+	"cx-sx-block-template-missing-mandatory-params-text": "Veidnei $2 palikuši neaizpildīti $1 obligātie parametri. Rediģē veidni, lai tos aizpildītu manuāli",
+	"cx-sx-block-template-missing-optional-params-text": "Veidnei $2 var aizpildīt vēl $1 parametrus. Rediģē veidni, lai tos aizpildītu manuāli"
 }
