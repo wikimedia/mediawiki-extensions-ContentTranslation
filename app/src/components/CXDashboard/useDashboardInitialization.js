@@ -1,4 +1,4 @@
-import initializeLanguages from "@/composables/useLanguageInitialization";
+import { initializeLanguages } from "@/composables/useLanguageHelper";
 import startSectionTranslationFromUrl from "./useUrlTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
 

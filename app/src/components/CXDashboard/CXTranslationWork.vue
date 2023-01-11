@@ -69,7 +69,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import { computed } from "vue";
+import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
 import useApplicationState from "@/composables/useApplicationState";
 import { loadVEModules } from "@/plugins/ve";
 
@@ -84,21 +84,37 @@ export default {
   },
   emits: ["click"],
   setup(props, { emit }) {
+    const store = useStore();
     const router = useRouter();
+    const { currentSourcePage, sourceLanguage, targetLanguage } =
+      useApplicationState(store);
 
     const startTranslation = async () => {
+      const {
+        sourceLanguage: translationSourceLanguage,
+        targetLanguage: translationTargetLanguage,
+        sourceTitle,
+        pageRevision,
+      } = props.translation;
+
+      if (
+        sourceLanguage.value !== translationSourceLanguage ||
+        targetLanguage.value !== translationTargetLanguage
+      ) {
+        const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+        updateLanguagePair(
+          translationSourceLanguage,
+          translationTargetLanguage
+        );
+      }
       store.dispatch(
         "application/restoreSectionTranslation",
         props.translation
       );
 
-      const { currentSourcePage } = useApplicationState(store);
-
-      const { sourceLanguage, targetLanguage, sourceTitle, pageRevision } =
-        props.translation;
       await store.dispatch("mediawiki/fetchPageContent", {
-        sourceLanguage,
-        targetLanguage,
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
         sourceTitle,
         revision: pageRevision,
       });
@@ -107,7 +123,7 @@ export default {
       // include this resolved references
       await loadVEModules();
       await store.dispatch("mediawiki/resolvePageContentReferences", {
-        sourceLanguage,
+        sourceLanguage: sourceLanguage.value,
         sourceTitle,
       });
 
@@ -118,8 +134,6 @@ export default {
       store.commit("application/setCurrentSourceSection", section);
       router.push({ name: "sx-sentence-selector", params: { force: true } });
     };
-
-    const store = useStore();
 
     const getImage = (language, title) => {
       const page = store.getters["mediawiki/getPage"](language, title);

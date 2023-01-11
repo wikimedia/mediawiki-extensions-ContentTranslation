@@ -35,6 +35,13 @@ jest.mock("../../wiki/mw/api/page", () => {
   };
 });
 
+jest.mock("../../composables/useLanguageHelper", () => {
+  return {
+    getSuggestionListLanguagePairUpdater: jest.fn(),
+    initializeLanguages: jest.fn(),
+  };
+});
+
 jest.mock("../../composables/useSectionTranslationStart", () => jest.fn());
 jest.mock("./usePageTranslationStart", () => jest.fn());
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());

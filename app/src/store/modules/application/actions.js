@@ -149,88 +149,6 @@ function restoreSectionTranslation({ commit, dispatch }, translation) {
   commit("setCurrentTranslation", translation);
 }
 
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {object} context.state
- * @param {object} context.getters
- * @param {function} context.dispatch
- * @param {string} newSourceLanguage
- * @return {Promise<void>}
- */
-async function updateSourceLanguage(
-  { commit, state, getters, dispatch },
-  newSourceLanguage
-) {
-  // If newly selected source language is same as target language, swap languages
-  if (newSourceLanguage === state.targetLanguage) {
-    window.location.href = siteMapper.getCXUrl(
-      null,
-      null,
-      newSourceLanguage,
-      state.sourceLanguage,
-      {}
-    );
-
-    return;
-  }
-  commit("setSourceLanguage", newSourceLanguage);
-
-  // If translation has not started yet, re-fetch suggestions
-  if (!state.currentSectionSuggestion) {
-    dispatch("suggestions/initializeSuggestions", {}, { root: true });
-
-    return;
-  }
-
-  const sourceTitle = getters.getCurrentLanguageTitleGroup.getTitleForLanguage(
-    state.sourceLanguage
-  );
-  let suggestion = new SectionSuggestion({
-    sourceLanguage: state.sourceLanguage,
-    targetLanguage: state.targetLanguage,
-    sourceTitle,
-    missing: {},
-  });
-
-  if (getters.getCurrentLanguageTitleGroup.hasLanguage(state.targetLanguage)) {
-    suggestion = await dispatch(
-      "suggestions/loadSectionSuggestion",
-      suggestion,
-      { root: true }
-    );
-  }
-
-  dispatch("initializeSectionTranslation", suggestion);
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {object} context.state
- * @param {function} context.dispatch
- * @param {string} newTargetLanguage
- * @return {Promise<void>}
- */
-async function updateTargetLanguage(
-  { state, dispatch, commit },
-  newTargetLanguage
-) {
-  // If newly selected target language is same as source language, swap languages
-  const sourceLanguage =
-    newTargetLanguage === state.sourceLanguage
-      ? state.targetLanguage
-      : state.sourceLanguage;
-
-  window.location.href = siteMapper.getCXUrl(
-    state.currentSectionSuggestion?.sourceTitle,
-    null,
-    sourceLanguage,
-    newTargetLanguage,
-    { sx: true }
-  );
-}
-
 async function fetchCurrentSectionSuggestionLanguageTitles({
   dispatch,
   state,
@@ -680,6 +598,4 @@ export default {
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,
-  updateSourceLanguage,
-  updateTargetLanguage,
 };

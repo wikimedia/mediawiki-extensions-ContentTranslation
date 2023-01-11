@@ -75,6 +75,7 @@ import { useStore } from "vuex";
 import { ref } from "vue";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
+import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
 
 export default {
   name: "CxSuggestionList",
@@ -93,15 +94,16 @@ export default {
   },
   setup() {
     const store = useStore();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     const { supportedLanguageCodes, availableTargetLanguages } =
       useSuggestionListLanguages();
 
-    const updateSourceLanguage = (sourceLanguage) =>
-      store.dispatch("application/updateSourceLanguage", sourceLanguage);
-
-    const updateTargetLanguage = (targetLanguage) =>
-      store.dispatch("application/updateTargetLanguage", targetLanguage);
+    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+    const updateSourceLanguage = (newSourceLanguage) =>
+      updateLanguagePair(newSourceLanguage, targetLanguage.value);
+    const updateTargetLanguage = (newTargetLanguage) =>
+      updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
     const router = useRouter();
 
@@ -132,7 +134,7 @@ export default {
 
     const pageSuggestionsList = ref(null);
     const logEvent = useEventLogging();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
     const refreshSuggestions = () => {
       logEvent({
         event_type: "dashboard_refresh_suggestions",

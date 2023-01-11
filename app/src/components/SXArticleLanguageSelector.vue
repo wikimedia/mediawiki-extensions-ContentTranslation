@@ -11,8 +11,10 @@
 <script>
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector.vue";
 import useMediawikiState from "@/composables/useMediawikiState";
+import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { getArticleLanguagePairUpdater } from "@/composables/useLanguageHelper";
 
 export default {
   name: "SxArticleLanguageSelector",
@@ -23,7 +25,7 @@ export default {
     const { supportedLanguageCodes, enabledTargetLanguages } =
       useMediawikiState();
     const store = useStore();
-
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
     const currentLanguageTitleGroup = computed(
       () => store.getters["application/getCurrentLanguageTitleGroup"]
     );
@@ -44,10 +46,11 @@ export default {
       () => enabledTargetLanguages.value || supportedLanguageCodes.value
     );
 
-    const onSourceLanguageSelected = (sourceLanguage) =>
-      store.dispatch("application/updateSourceLanguage", sourceLanguage);
-    const onTargetLanguageSelected = (targetLanguage) =>
-      store.dispatch("application/updateTargetLanguage", targetLanguage);
+    const updateLanguagePair = getArticleLanguagePairUpdater(store);
+    const onSourceLanguageSelected = (newSourceLanguage) =>
+      updateLanguagePair(newSourceLanguage, targetLanguage.value);
+    const onTargetLanguageSelected = (newTargetLanguage) =>
+      updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
     return {
       availableSourceLanguages,

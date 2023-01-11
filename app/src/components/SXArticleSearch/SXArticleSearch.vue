@@ -97,12 +97,15 @@ import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
-import initializeLanguages from "@/composables/useLanguageInitialization";
 import usePageTranslationStart from "./usePageTranslationStart";
 import useMediawikiState from "../../composables/useMediawikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
+import {
+  getSuggestionListLanguagePairUpdater,
+  initializeLanguages,
+} from "@/composables/useLanguageHelper";
 
 export default {
   name: "SxArticleSearch",
@@ -177,13 +180,17 @@ export default {
       router.push({ name: "dashboard" });
     };
 
+    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+    const updateSourceLanguage = (newSourceLanguage) =>
+      updateLanguagePair(newSourceLanguage, targetLanguage.value);
+
     const updateSelection = (updatedLanguage) => {
       if (updatedLanguage === "other") {
         sourceLanguageSelectOn.value = true;
 
         return;
       }
-      store.dispatch("application/updateSourceLanguage", updatedLanguage);
+      updateSourceLanguage(updatedLanguage);
     };
 
     watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
