@@ -117,7 +117,7 @@ export default {
     } = useApplicationState(useStore());
 
     const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.value.smAndDown);
+    const fullscreen = computed(() => breakpoints.value.mobile);
 
     const sourceLanguageSelectOn = ref(false);
     const targetLanguageSelectOn = ref(false);
