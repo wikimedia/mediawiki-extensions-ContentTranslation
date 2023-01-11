@@ -11,9 +11,8 @@ export default {
     state.pages.find(
       (page) =>
         page.language === language &&
-        (page.title === title || (page.alias !== null && page.alias === title))
+        (page.title === title || (page.alias && page.alias === title))
     ),
-
   /**
    * @param {object} state
    * @return {function(string, string): LanguageTitleGroup|null}
