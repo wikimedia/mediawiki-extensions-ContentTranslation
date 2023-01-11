@@ -4,7 +4,8 @@
 			"Amire80",
 			"Chorobek",
 			"Janatkg",
-			"Tgr"
+			"Tgr",
+			"Bosogo"
 		]
 	},
 	"cx": "Баракты которуу",
@@ -38,5 +39,6 @@
 	"cx-tools-link-title": "Шилтеме",
 	"cx-tools-link-add": "Шилтеме кошуу",
 	"cx-stats-title": "Мазмунду которуу статистикасы",
-	"cx-trend-translations-to": "$1 тилиндеги котормолор"
+	"cx-trend-translations-to": "$1 тилиндеги котормолор",
+	"sx-article-search-language-selector-dialog-title": "Тилдер"
 }
