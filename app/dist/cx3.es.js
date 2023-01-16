@@ -24318,6 +24318,7 @@ const _sfc_main$j = {
       store2.dispatch("application/translateSelectedTranslationUnitForAllProviders");
     };
     const editTranslation = (content, isInitialEdit) => {
+      var _a;
       router2.push({
         name: "sx-editor",
         params: {
@@ -24325,7 +24326,7 @@ const _sfc_main$j = {
           sourceLanguage: sourceLanguage.value,
           targetLanguage: targetLanguage.value,
           originalContent: originalSegmentContent.value,
-          title: currentTargetPage.value.title || currentSourcePage.value.title,
+          title: ((_a = currentTargetPage.value) == null ? void 0 : _a.title) || currentSourcePage.value.title,
           isInitialEdit: isInitialEdit || null
         }
       });
