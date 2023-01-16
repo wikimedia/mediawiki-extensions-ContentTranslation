@@ -214,7 +214,8 @@ export default {
           sourceLanguage: sourceLanguage.value,
           targetLanguage: targetLanguage.value,
           originalContent: originalSegmentContent.value,
-          title: currentTargetPage.value.title || currentSourcePage.value.title,
+          title:
+            currentTargetPage.value?.title || currentSourcePage.value.title,
           isInitialEdit: isInitialEdit || null,
         },
       });
