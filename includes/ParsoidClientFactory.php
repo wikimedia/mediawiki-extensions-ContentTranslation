@@ -5,7 +5,7 @@ namespace ContentTranslation;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Rest\Handler\PageRestHelperFactory;
+use MediaWiki\Rest\Handler\Helper\PageRestHelperFactory;
 use ParsoidVirtualRESTService;
 use Psr\Log\LoggerInterface;
 use RequestContext;
