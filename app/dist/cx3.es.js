@@ -5534,7 +5534,7 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["class"]);
 }
 var MwRow = /* @__PURE__ */ _export_sfc(_sfc_main$1c, [["render", _sfc_render$1b]]);
-const breakpoints$1 = ["sm", "md", "lg", "xl"];
+const breakpoints$1 = ["mobile", "tablet", "desktop", "desktop-wide"];
 const breakpointProps = breakpoints$1.reduce((props, val) => __spreadProps(__spreadValues({}, props), {
   [val]: {
     type: [String, Number],
@@ -6584,39 +6584,31 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
 }
 var MwCircleProgressBar = /* @__PURE__ */ _export_sfc(_sfc_main$11, [["render", _sfc_render$11]]);
 const breakpoints = {
-  xs: 320,
-  sm: 640,
-  md: 960,
-  lg: 1120,
-  xl: 1680
+  mobile: 320,
+  tablet: 640,
+  desktop: 1120,
+  "desktop-wide": 1680
 };
 const viewports = {
   print: "only print",
   screen: "only screen",
-  xs: `only screen and (max-width: ${breakpoints.sm - 1}px})`,
-  sm: `only screen and (min-width: ${breakpoints.sm}px) and (max-width: ${breakpoints.md - 1}px)`,
-  "sm-and-down": `only screen and (max-width: ${breakpoints.md - 1}px)`,
-  "sm-and-up": `only screen and (min-width: ${breakpoints.sm}px)`,
-  md: `only screen and (min-width: ${breakpoints.md}px) and (max-width: ${breakpoints.lg - 1}px)`,
-  "md-and-down": `only screen and (max-width: ${breakpoints.lg - 1}px)`,
-  "md-and-up": `only screen and (min-width: ${breakpoints.md}px)`,
-  lg: `only screen and (min-width: ${breakpoints.lg}px) and (max-width: ${breakpoints.xl - 1}px)`,
-  "lg-and-down": `only screen and (max-width: ${breakpoints.xl - 1}px)`,
-  "lg-and-up": `only screen and (min-width: ${breakpoints.lg}px)`,
-  xl: `only screen and (min-width: ${breakpoints.xl}px)`
+  mobile: `only screen and (max-width: ${breakpoints.tablet - 1}px)`,
+  tablet: `only screen and (min-width: ${breakpoints.tablet}px) and (max-width: ${breakpoints.desktop - 1}px)`,
+  "tablet-and-down": `only screen and (max-width: ${breakpoints.desktop - 1}px)`,
+  "tablet-and-up": `only screen and (min-width: ${breakpoints.tablet}px)`,
+  "desktop-and-down": `only screen and (max-width: ${breakpoints.desktopwide - 1}px)`,
+  "desktop-and-up": `only screen and (min-width: ${breakpoints.desktop}px)`,
+  "desktop-wide": `only screen and (min-width: ${breakpoints["desktop-wide"]}px)`
 };
 const handlers = {
-  xs: () => matchMedia(viewports.xs).matches,
-  sm: () => matchMedia(viewports.sm).matches,
-  md: () => matchMedia(viewports.md).matches,
-  lg: () => matchMedia(viewports.lg).matches,
-  xl: () => matchMedia(viewports.xl).matches,
-  smAndUp: () => matchMedia(viewports["sm-and-up"]).matches,
-  mdAndUp: () => matchMedia(viewports["md-and-up"]).matches,
-  lgAndUp: () => matchMedia(viewports["lg-and-up"]).matches,
-  smAndDown: () => matchMedia(viewports["sm-and-down"]).matches,
-  mdAndDown: () => matchMedia(viewports["md-and-down"]).matches,
-  lgAndDown: () => matchMedia(viewports["lg-and-down"]).matches
+  mobile: () => matchMedia(viewports.mobile).matches,
+  tablet: () => matchMedia(viewports.tablet).matches,
+  desktop: () => matchMedia(viewports.desktop).matches,
+  desktopwide: () => matchMedia(viewports["desktop-wide"]).matches,
+  tabletAndUp: () => matchMedia(viewports["tablet-and-up"]).matches,
+  tabletAndDown: () => matchMedia(viewports["tablet-and-down"]).matches,
+  desktopAndUp: () => matchMedia(viewports["desktop-and-up"]).matches,
+  desktopAndDown: () => matchMedia(viewports["desktop-and-down"]).matches
 };
 var BreakpointsPlugin = {
   install: (app2) => {
@@ -7611,15 +7603,16 @@ var App_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$10 = {
   name: "ContentTranslationApp",
   components: { MwGrid, MwCol, MwRow },
-  computed: __spreadValues({}, mapState({
-    translationInProgress: (state2) => state2.application.translationInProgress
-  })),
-  mounted() {
-    window.addEventListener("beforeunload", (e) => {
-      if (this.translationInProgress) {
-        e.preventDefault();
-        e.returnValue = "";
-      }
+  setup() {
+    const store2 = useStore();
+    const unsavedChangesExist = computed(() => store2.getters["application/unsavedChangesExist"]);
+    onMounted(() => {
+      window.addEventListener("beforeunload", (e) => {
+        if (unsavedChangesExist.value) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
     });
   }
 };
@@ -8184,7 +8177,7 @@ function validateMT({ rootState }) {
     type: "mt"
   });
 }
-function saveTranslation({ rootState, rootGetters }) {
+function saveTranslation({ rootState, rootGetters, commit: commit2 }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     currentSourceSection,
@@ -8199,6 +8192,7 @@ function saveTranslation({ rootState, rootGetters }) {
   const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
   units.forEach((unit) => validateParallelCorporaPayload(unit, supportedMTProviders));
   const isSandbox = rootGetters["application/isSandboxTarget"];
+  commit2("application/increaseAutoSaveInProgressCounter", null, { root: true });
   return translator$1.saveTranslation({
     sourceTitle,
     targetTitle,
@@ -8211,6 +8205,11 @@ function saveTranslation({ rootState, rootGetters }) {
     units: units.map((unit) => unit.payload),
     sectionId: baseSectionId,
     isSandbox
+  }).then((publishFeedbackMessage) => {
+    commit2("application/decreaseAutoSaveInProgressCounter", null, {
+      root: true
+    });
+    return publishFeedbackMessage;
   });
 }
 function publishTranslation(_0) {
@@ -9004,7 +9003,7 @@ var state$1 = {
   enabledTargetLanguages: mw.config.get("wgSectionTranslationTargetLanguages")
 };
 var getters$1 = {
-  getPage: (state2) => (language, title) => state2.pages.find((page) => page.language === language && (page.title === title || page.alias !== null && page.alias === title)),
+  getPage: (state2) => (language, title) => state2.pages.find((page) => page.language === language && (page.title === title || page.alias && page.alias === title)),
   getLanguageTitleGroup: (state2) => (language, title) => state2.languageTitleGroups.find((group) => group.titles.find((groupTitle) => groupTitle.lang === language && groupTitle.title === title)),
   getLanguageTitleGroupByWikidataId: (state2) => (wikidataId) => state2.languageTitleGroups.find((group) => group.wikidataId === wikidataId),
   getTitleByLanguageForGroup: (state2, getters2) => (wikidataId, language) => {
@@ -9925,7 +9924,8 @@ var state = {
   sourceLanguage: null,
   targetLanguage: null,
   publishTarget: "NEW_SECTION",
-  translationInProgress: false,
+  autoSaveInProgressCounter: 0,
+  autoSavePending: false,
   cxServerToken: null
 };
 var getters = {
@@ -9970,7 +9970,11 @@ var getters = {
     var _a;
     return ((_a = state2.currentTranslation) == null ? void 0 : _a.pageRevision) || getters2.getCurrentPage.revision;
   },
-  getParallelCorporaBaseId: (state2, getters2) => `${getters2.getCurrentRevision}_${state2.currentSourceSection.id}`
+  getParallelCorporaBaseId: (state2, getters2) => `${getters2.getCurrentRevision}_${state2.currentSourceSection.id}`,
+  unsavedChangesExist: (state2) => {
+    const { autoSavePending, autoSaveInProgressCounter } = state2;
+    return autoSavePending || autoSaveInProgressCounter > 0;
+  }
 };
 function debounce(func, wait, immediate) {
   let timeout;
@@ -9992,9 +9996,24 @@ function debounce(func, wait, immediate) {
   };
 }
 let debouncedSaveTranslation;
-const getDebouncedSaveTranslation = (dispatch2) => {
+const getDebouncedSaveTranslation = ({ dispatch: dispatch2, commit: commit2 }) => {
   if (!debouncedSaveTranslation) {
-    debouncedSaveTranslation = debounce(dispatch2.bind(null, "translator/saveTranslation", {}, { root: true }), 3e3);
+    let retryDelay = 1e3;
+    let retry = 0;
+    const saveTranslationWithRetry = () => {
+      dispatch2("translator/saveTranslation", {}, { root: true }).then((feedbackMessage) => {
+        if (!!feedbackMessage) {
+          retryDelay *= retry + 1;
+          retry++;
+          setTimeout(debouncedSaveTranslation, retryDelay);
+        } else {
+          retry = 0;
+          retryDelay = 1e3;
+          commit2("setAutoSavePending", false);
+        }
+      });
+    };
+    debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3e3);
   }
   return debouncedSaveTranslation;
 };
@@ -10143,17 +10162,16 @@ function applyProposedTranslationToSelectedTranslationUnit({
   commit: commit2,
   state: state2
 }) {
-  commit2("setTranslationInProgress", true);
   const translation = getters2.getCurrentProposedTranslation;
   const { currentSourceSection, currentMTProvider } = state2;
   currentSourceSection.setTranslationForSelectedTranslationUnit(translation, currentMTProvider);
-  const dispatchedSave = getDebouncedSaveTranslation(dispatch2);
+  const dispatchedSave = getDebouncedSaveTranslation({ dispatch: dispatch2, commit: commit2 });
   dispatchedSave();
+  commit2("setAutoSavePending", true);
   dispatch2("selectNextTranslationUnit");
 }
 function applyEditedTranslationToSelectedTranslationUnit(_0, _1) {
   return __async(this, arguments, function* ({ state: state2, dispatch: dispatch2, commit: commit2, getters: getters2 }, translation) {
-    commit2("setTranslationInProgress", true);
     const div = document.createElement("div");
     div.innerHTML = translation;
     div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
@@ -10171,8 +10189,9 @@ function applyEditedTranslationToSelectedTranslationUnit(_0, _1) {
       }
     }
     currentSourceSection.setTranslationForSelectedTranslationUnit(translation, currentMTProvider);
-    const dispatchedSave = getDebouncedSaveTranslation(dispatch2);
+    const dispatchedSave = getDebouncedSaveTranslation({ dispatch: dispatch2, commit: commit2 });
     dispatchedSave();
+    commit2("setAutoSavePending", true);
     dispatch2("selectNextTranslationUnit");
   });
 }
@@ -10341,8 +10360,14 @@ const mutations = {
     }
     state2.publishTarget = target;
   },
-  setTranslationInProgress: (state2, value) => {
-    state2.translationInProgress = value;
+  setAutoSavePending: (state2, value) => {
+    state2.autoSavePending = value;
+  },
+  increaseAutoSaveInProgressCounter: (state2) => {
+    state2.autoSaveInProgressCounter++;
+  },
+  decreaseAutoSaveInProgressCounter: (state2) => {
+    state2.autoSaveInProgressCounter--;
   },
   setCXServerToken: (state2, token) => {
     state2.cxServerToken = token;
@@ -19105,7 +19130,7 @@ const _sfc_main$Y = {
       targetLanguage: selectedTargetLanguage
     } = useApplicationState(useStore());
     const breakpoints2 = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints2.value.smAndDown);
+    const fullscreen = computed(() => breakpoints2.value.mobile);
     const sourceLanguageSelectOn = ref(false);
     const targetLanguageSelectOn = ref(false);
     const openSourceLanguageDialog = () => sourceLanguageSelectOn.value = true;
@@ -20857,13 +20882,13 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
           progressive: "",
           icon: $setup.mwIconAdd,
           label: _ctx.$i18n("cx-create-new-translation"),
-          class: "col-md-4 col-xs-12 col-lg-3 my-4",
+          class: "col-desktop-3 col-mobile-12 my-4",
           onClick: $setup.searchTranslation
         }, null, 8, ["icon", "label", "onClick"])
       ], void 0),
       _: 1
     }),
-    _ctx.$mwui.breakpoint.mdAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$B, [
+    _ctx.$mwui.breakpoint.tabletAndUp ? (openBlock(), createElementBlock("nav", _hoisted_1$B, [
       createVNode(_component_mw_button_group, {
         items: $setup.listSelector,
         active: $setup.active,
@@ -20883,7 +20908,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
       "translation-status": "published",
       active: $setup.active === "published"
     }, null, 8, ["active"]),
-    _ctx.$mwui.breakpoint.smAndDown ? (openBlock(), createBlock(_component_mw_bottom_navigation, {
+    _ctx.$mwui.breakpoint.mobile ? (openBlock(), createBlock(_component_mw_bottom_navigation, {
       key: 2,
       active: $setup.active,
       "onUpdate:active": _cache[1] || (_cache[1] = ($event) => $setup.active = $event),
@@ -20900,7 +20925,7 @@ const _hoisted_1$A = { class: "cx-translation-dashboard" };
 function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_cx_dashboard = resolveComponent("cx-dashboard");
   return openBlock(), createElementBlock("main", _hoisted_1$A, [
-    createVNode(_component_cx_dashboard, { class: "col-xs-12 col-md-8 col-lg-7 col-offset-lg-1 mb-4 pb-12" })
+    createVNode(_component_cx_dashboard, { class: "col-mobile-12 col-tablet-12 col-desktop-7 col-offset-desktop-1 mb-4 pb-12" })
   ]);
 }
 var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
@@ -21509,7 +21534,7 @@ const _sfc_main$M = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -21960,7 +21985,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
         default: withCtx(() => [
           createVNode(_component_mw_col, {
             cols: "12",
-            md: "6",
+            tablet: "6",
             class: "px-4 pt-5 pb-4"
           }, {
             default: withCtx(() => [
@@ -21982,7 +22007,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
           }),
           createVNode(_component_mw_col, {
             cols: "12",
-            md: "6",
+            tablet: "6",
             class: "px-4 py-5"
           }, {
             default: withCtx(() => [
@@ -22018,7 +22043,7 @@ const _sfc_main$F = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -22544,8 +22569,8 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8, ["section-source-titles"]),
         createVNode(_component_mw_col, {
           cols: "12",
-          sm: "12",
-          md: "4",
+          mobile: "12",
+          tablet: "4",
           class: "py-2 mb-1"
         }, {
           default: withCtx(() => [
@@ -22789,7 +22814,7 @@ const _sfc_main$x = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -24484,7 +24509,7 @@ const _sfc_main$i = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -24655,7 +24680,7 @@ const _sfc_main$g = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -24925,7 +24950,7 @@ const _sfc_main$c = {
     fromRoute: ""
   }),
   computed: {
-    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.tabletAndDown })
   }
 };
 function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25108,7 +25133,7 @@ const _sfc_main$9 = {
     const close = () => emit("close");
     const publish = () => emit("publish", captchaInput.value);
     const breakpoints2 = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints2.value.smAndDown);
+    const fullscreen = computed(() => breakpoints2.value.mobile);
     return {
       captchaInput,
       close,
@@ -25533,7 +25558,6 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
       mw.log.error("Error while adding wikibase link", error);
     }
   }
-  store2.commit("application/setTranslationInProgress", false);
   if (!targetTitle) {
     const errorMessage = "[CX] Target title is empty after successful publishing";
     mw.log.error(errorMessage);
@@ -25791,7 +25815,7 @@ const _sfc_main$5 = {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.mdAndDown
+        fullscreen: this.$mwui.breakpoint.tabletAndDown
       };
     }
   }
@@ -26139,7 +26163,7 @@ const _sfc_main$1 = {
     const recentlyEditedPages = computed(() => store2.getters["mediawiki/getRecentlyEditedPages"]);
     const nearbyPages = computed(() => store2.getters["mediawiki/getNearbyPages"]);
     const breakpoints2 = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints2.mdAndDown);
+    const fullscreen = computed(() => breakpoints2.tabletAndDown);
     const {
       startRecentlyEditedSectionTranslation,
       startNearbySectionTranslation,
@@ -26292,7 +26316,7 @@ const _sfc_main = {
     SxArticleSearch: SXArticleSearch$1
   },
   computed: {
-    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mdAndDown })
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.tabletAndDown })
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
