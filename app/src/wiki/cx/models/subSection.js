@@ -313,14 +313,12 @@ export default class SubSection {
     ];
 
     if (this.parallelCorporaMTContent) {
-      const origin =
-        this.blockTemplateMTProviderUsed || this.sentences?.[0]?.mtProviderUsed;
       payloads.push(
         new TranslationUnitPayload({
           baseSectionId,
           subSectionId: this.id,
           content: this.parallelCorporaMTContent,
-          origin,
+          origin: this.mtProviderUsed,
         })
       );
     }
@@ -328,8 +326,28 @@ export default class SubSection {
     return payloads;
   }
 
+  /**
+   * This getter returns:
+   * 1. if the subsection is an adapted block template, it returns the MT provider
+   * selected when the template was adapted
+   * 2. if not, it returns the MT provider used to translate the first translated
+   * sentence of the subsection
+   * 3. if section is not translated, it returns null
+   * @return {string|null}
+   */
+  get mtProviderUsed() {
+    if (this.blockTemplateMTProviderUsed) {
+      return this.blockTemplateMTProviderUsed;
+    }
+    const translatedSentences = this.sentences.filter(
+      (sentence) => sentence.isTranslated
+    );
+
+    return translatedSentences?.[0]?.mtProviderUsed || null;
+  }
+
   get parallelCorporaMTContent() {
-    let mtProvider = this.blockTemplateMTProviderUsed;
+    const mtProvider = this.mtProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
 
     if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
@@ -341,8 +359,6 @@ export default class SubSection {
       const translatedSentences = this.sentences.filter(
         (sentence) => sentence.isTranslated
       );
-
-      mtProvider = translatedSentences?.[0]?.mtProviderUsed;
       const sameMTProviderUsed = translatedSentences.every(
         (sentence) => sentence.mtProviderUsed === mtProvider
       );
