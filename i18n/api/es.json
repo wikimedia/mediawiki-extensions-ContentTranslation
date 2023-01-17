@@ -110,5 +110,6 @@
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "El título de la sección de la fuente.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "El título de la sección de destino.",
 	"apihelp-cxpublishsection-param-sourcerevid": "El id de revisión de la página de origen.",
-	"apihelp-cxpublishsection-param-captchaword": "Respuesta al captcha (cuando se guarda con una respuesta al captcha)."
+	"apihelp-cxpublishsection-param-captchaword": "Respuesta al captcha (cuando se guarda con una respuesta al captcha).",
+	"apierror-cxpublishsection-translationnotfound": "No se encontró la traducción."
 }
