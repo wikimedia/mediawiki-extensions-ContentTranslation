@@ -77,6 +77,16 @@
               @click="select(language)"
               v-text="getAutonym(language)"
             />
+            <li
+              v-if="allOptionEnabled && !searchQuery"
+              v-i18n:cx-translation-list-all-languages-option-label
+              class="language pa-2 ps-8 ma-0"
+              role="option"
+              :aria-selected="selectedLanguage === 'all' || null"
+              tabindex="-1"
+              :class="selectedLanguage === 'all' ? 'language--selected' : ''"
+              @click="select('all')"
+            />
           </ul>
         </section>
       </slot>
@@ -99,10 +109,7 @@ import {
 } from "./languagesearch";
 import autocomplete from "./autocompletion";
 import keyboardNavigation from "./keyboardnav";
-import {
-  mwIconSearch,
-  mwIconClose,
-} from "../../lib/mediawiki.ui/components/icons";
+import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import { MwInput } from "../../lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import debounce from "@/utils/debounce";
@@ -128,6 +135,10 @@ export default {
       default: () => [],
       validator: (languages) =>
         languages.every((language) => typeof language === "string"),
+    },
+    allOptionEnabled: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Suggested languages

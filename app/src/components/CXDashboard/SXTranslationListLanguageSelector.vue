@@ -11,6 +11,12 @@
         @click.stop="openSourceLanguageDialog"
       >
         <span
+          v-if="allLanguagesSelectedAsSource"
+          v-i18n:cx-translation-list-all-languages-option-label
+          class="mw-ui-autonym"
+        />
+        <span
+          v-else
           class="mw-ui-autonym"
           :lang="selectedSourceLanguage"
           :dir="getDir(selectedSourceLanguage)"
@@ -31,6 +37,7 @@
           class="sx-translation-list-language-selector__widget col-12"
           :placeholder="$i18n('cx-sx-language-selector-placeholder')"
           :languages="sourceLanguages"
+          :all-option-enabled="allOptionEnabled"
           @select="onSourceLanguageSelected"
           @close="onSourceLanguageDialogClose"
         />
@@ -51,6 +58,12 @@
         @click.stop="openTargetLanguageDialog"
       >
         <span
+          v-if="allLanguagesSelectedAsTarget"
+          v-i18n:cx-translation-list-all-languages-option-label
+          class="mw-ui-autonym"
+        />
+        <span
+          v-else
           class="mw-ui-autonym"
           :lang="selectedTargetLanguage"
           :dir="getDir(selectedTargetLanguage)"
@@ -71,6 +84,7 @@
           class="sx-translation-list-language-selector__widget col-12"
           :placeholder="$i18n('cx-sx-language-selector-placeholder')"
           :languages="targetLanguages"
+          :all-option-enabled="allOptionEnabled"
           @select="onTargetLanguageSelected"
           @close="onTargetLanguageDialogClose"
         />
@@ -87,8 +101,6 @@ import {
   mwIconArrowNext,
   mwIconExpand,
 } from "@/lib/mediawiki.ui/components/icons";
-import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
 import { computed, inject, ref } from "vue";
 
 export default {
@@ -100,22 +112,35 @@ export default {
     MwButton,
   },
   props: {
+    /** @type string[] array of language codes */
     sourceLanguages: {
       type: Array,
       required: true,
+      validator: (languages) =>
+        languages.every((language) => typeof language === "string"),
     },
+    /** @type string[] array of language codes */
     targetLanguages: {
       type: Array,
       required: true,
+      validator: (languages) =>
+        languages.every((language) => typeof language === "string"),
+    },
+    selectedSourceLanguage: {
+      type: String,
+      required: true,
+    },
+    selectedTargetLanguage: {
+      type: String,
+      required: true,
+    },
+    allOptionEnabled: {
+      type: Boolean,
+      default: false,
     },
   },
-  emits: ["source-language-selected", "target-language-selected"],
+  emits: ["update:selectedSourceLanguage", "update:selectedTargetLanguage"],
   setup(props, { emit }) {
-    const {
-      sourceLanguage: selectedSourceLanguage,
-      targetLanguage: selectedTargetLanguage,
-    } = useApplicationState(useStore());
-
     const breakpoints = inject("breakpoints");
     const fullscreen = computed(() => breakpoints.value.mobile);
 
@@ -133,13 +158,21 @@ export default {
 
     const onSourceLanguageSelected = (sourceLanguage) => {
       sourceLanguageSelectOn.value = false;
-      emit("source-language-selected", sourceLanguage);
+      emit("update:selectedSourceLanguage", sourceLanguage);
     };
 
     const onTargetLanguageSelected = (targetLanguage) => {
       targetLanguageSelectOn.value = false;
-      emit("target-language-selected", targetLanguage);
+      emit("update:selectedTargetLanguage", targetLanguage);
     };
+
+    const allLanguagesSelectedAsSource = computed(
+      () => props.selectedSourceLanguage === "all"
+    );
+
+    const allLanguagesSelectedAsTarget = computed(
+      () => props.selectedTargetLanguage === "all"
+    );
 
     return {
       fullscreen,
@@ -153,10 +186,10 @@ export default {
       onTargetLanguageSelected,
       openSourceLanguageDialog,
       openTargetLanguageDialog,
-      selectedSourceLanguage,
-      selectedTargetLanguage,
       sourceLanguageSelectOn,
       targetLanguageSelectOn,
+      allLanguagesSelectedAsSource,
+      allLanguagesSelectedAsTarget,
     };
   },
 };

@@ -10,22 +10,23 @@ export default {
   /** @type String */
   currentMTProvider: "",
   /**
+   * Current source language for SX application. It can be changed by using the
+   * language selector. The initial value is set to "en" (could be set to any other
+   * valid language code), so that it's always a string (and thus it can be properly
+   * used as prop with type "String" in Vue components).
    *
-   * Current source language for sx application.
-   * Currently selected section suggestion also
-   * has the same source language. It can be
-   * changed by using the language selector.
-   * @type {String|null}
+   * @type {String}
    */
-  sourceLanguage: null,
+  sourceLanguage: "en",
   /**
-   * Current target language for sx application.
-   * Currently selected section suggestion also
-   * has the same target language. It can be
-   * changed by using the language selector.
-   * @type {String|null}
+   * Current target language for SX application. It can be changed by using the
+   * language selector. The initial value is set to "en" (could be set to any other
+   * valid language code), so that it's always a string (and thus it can be properly
+   * used as prop with type "String" in Vue components).
+   *
+   * @type {String}
    */
-  targetLanguage: null,
+  targetLanguage: "en",
   publishTarget: "NEW_SECTION",
   /**
    * This variable holds the number of auto-save requests that are currently

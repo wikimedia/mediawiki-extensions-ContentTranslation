@@ -3,8 +3,10 @@
     class="sx-article-language-selector"
     :source-languages="availableSourceLanguages"
     :target-languages="targetLanguages"
-    @source-language-selected="onSourceLanguageSelected"
-    @target-language-selected="onTargetLanguageSelected"
+    :selected-source-language="sourceLanguage"
+    :selected-target-language="targetLanguage"
+    @update:selected-source-language="onSourceLanguageSelected"
+    @update:selected-target-language="onSourceLanguageSelected"
   />
 </template>
 
@@ -30,8 +32,12 @@ export default {
       () => store.getters["application/getCurrentLanguageTitleGroup"]
     );
 
-    // titles are provided in the following format: { lang: "en", title: "Animal" }
-    // so title.lang contains language code
+    /**
+     * Titles are provided in the following format: { lang: "en", title: "Animal" }
+     * so title.lang contains language code
+     *
+     * @type {ComputedRef<string[]>} array of language codes
+     */
     const availableSourceLanguages = computed(
       () =>
         currentLanguageTitleGroup.value?.titles.map((title) => title.lang) || []
@@ -40,7 +46,7 @@ export default {
      * If enabledTargetLanguages are set,
      * target language selection is limited to these languages
      *
-     * @return {Object[]} - Array of available target language options
+     * @return {ComputedRef<string[]>} - Array of available target language codes
      */
     const targetLanguages = computed(
       () => enabledTargetLanguages.value || supportedLanguageCodes.value
@@ -57,6 +63,8 @@ export default {
       targetLanguages,
       onSourceLanguageSelected,
       onTargetLanguageSelected,
+      sourceLanguage,
+      targetLanguage,
     };
   },
 };

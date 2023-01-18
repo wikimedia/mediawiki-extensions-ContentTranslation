@@ -11,6 +11,7 @@
       v-model:selected-target-language="selectedTargetLanguage"
       :source-languages="availableSourceLanguages"
       :target-languages="availableTargetLanguages"
+      all-option-enabled
     />
     <mw-spinner v-if="!loaded" />
     <cx-translation-work
@@ -54,13 +55,8 @@ export default {
     },
   },
   setup(props) {
-    const bananaI18n = useI18n();
-
-    const labelForAllTranslations = bananaI18n.i18n(
-      "cx-translation-list-all-languages-option-label"
-    );
-    const selectedSourceLanguage = ref(labelForAllTranslations);
-    const selectedTargetLanguage = ref(labelForAllTranslations);
+    const selectedSourceLanguage = ref("all");
+    const selectedTargetLanguage = ref("all");
 
     const store = useStore();
 
@@ -77,10 +73,10 @@ export default {
     });
 
     const isActiveForAllSourceLanguages = computed(
-      () => selectedSourceLanguage.value === labelForAllTranslations
+      () => selectedSourceLanguage.value === "all"
     );
     const isActiveForAllTargetLanguages = computed(
-      () => selectedTargetLanguage.value === labelForAllTranslations
+      () => selectedTargetLanguage.value === "all"
     );
 
     const activeTranslations = computed(() =>
@@ -93,40 +89,32 @@ export default {
       )
     );
 
-    // If SectionTranslationTargetLanguages configuration parameter is set,
-    // target language selection is limited to these languages
     const availableTargetLanguages = computed(() => {
-      let translationLanguages = translations.value.map(
+      let translationTargetLanguages = translations.value.map(
         (translation) => translation.targetLanguage
       );
 
+      // If SectionTranslationTargetLanguages configuration parameter is set,
+      // target language selection is limited to these languages
       if (!!enabledTargetLanguages.value) {
-        translationLanguages = translationLanguages.filter((language) =>
-          enabledTargetLanguages.value.includes(language)
+        translationTargetLanguages = translationTargetLanguages.filter(
+          (language) => enabledTargetLanguages.value.includes(language)
         );
       }
 
-      return [...new Set(translationLanguages)].reduce(
-        (languages, languageCode) => [
-          ...languages,
-          { name: getAutonym(languageCode), code: languageCode },
-        ],
-        [{ name: labelForAllTranslations, code: labelForAllTranslations }]
-      );
+      return [...new Set(translationTargetLanguages)];
     });
 
-    const availableSourceLanguages = computed(() =>
-      translations.value
-        .map((translation) => translation.sourceLanguage)
-        .filter((language, index, self) => self.indexOf(language) === index)
-        .reduce(
-          (languages, languageCode) => [
-            ...languages,
-            { name: getAutonym(languageCode), code: languageCode },
-          ],
-          [{ name: labelForAllTranslations, code: labelForAllTranslations }]
-        )
-    );
+    /**
+     * @type {ComputedRef<string[]>} array of language codes
+     */
+    const availableSourceLanguages = computed(() => {
+      const translationSourceLanguages = translations.value.map(
+        (translation) => translation.sourceLanguage
+      );
+
+      return [...new Set(translationSourceLanguages)];
+    });
 
     return {
       activeTranslations,

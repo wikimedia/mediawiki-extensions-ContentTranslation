@@ -1,7 +1,9 @@
 import { getAutonym, getScript, sortByAutonym } from "@wikimedia/language-data";
 
 /**
- * @param {string} [query]
+ * @param {string[]} languages
+ * @param {string} query
+ * @param {string} searchApi
  * @return {Promise<string[]>}
  */
 async function search(languages, query, searchApi) {
@@ -43,7 +45,9 @@ async function search(languages, query, searchApi) {
 }
 
 /**
- * @param {string} [query]
+ * @param {string[]} languages
+ * @param {string} query
+ * @param {string} searchApi
  * @return {Promise<string[]>}
  */
 async function searchByQuery(languages, query, searchApi) {
@@ -56,6 +60,7 @@ async function searchByQuery(languages, query, searchApi) {
 
 /**
  * @param {string} query
+ * @param {string} searchApi
  * @return {Promise<string[]>}
  */
 function searchWithAPI(query, searchApi) {

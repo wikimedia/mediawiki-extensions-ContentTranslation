@@ -10,8 +10,10 @@
       <sx-translation-list-language-selector
         :source-languages="supportedLanguageCodes"
         :target-languages="availableTargetLanguages"
-        @source-language-selected="updateSourceLanguage"
-        @target-language-selected="updateTargetLanguage"
+        :selected-source-language="sourceLanguage"
+        :selected-target-language="targetLanguage"
+        @update:selected-source-language="updateSourceLanguage"
+        @update:selected-target-language="updateTargetLanguage"
       />
     </mw-card>
     <mw-card
@@ -176,6 +178,8 @@ export default {
       supportedLanguageCodes,
       updateSourceLanguage,
       updateTargetLanguage,
+      sourceLanguage,
+      targetLanguage,
     };
   },
 };
