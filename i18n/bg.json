@@ -237,6 +237,7 @@
 	"cx-mt-abuse-publish-error": "Преводът не може да бъде публикуван, защото съдържа прекалено много непроменен текст.",
 	"cx-unreviewed-translation-category": "Страници с непроверени преводи",
 	"cx-unreviewed-translation-category-desc": "Страници, преведени с инструмента „Превод на съдържание“, съдържащи голямо количество непроверено съдържание",
+	"cx-preference-enable-entrypoints": "Достъп до [[$1|започване на превод]] от страницата с приноси, списъка с езици и при създаване на нови страници.",
 	"cx-feature-discovery-dismiss": "Добре, разбрах",
 	"cx-sx-section-selector-title": "Раздели",
 	"cx-sx-section-selector-subtitle": "Изберете раздел",
