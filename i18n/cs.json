@@ -110,7 +110,7 @@
 	"cx-source-page-selector-no-suggestions": "Zamyslete se nad jakýmkoli tématem. Nemusíte být odborníkem, abyste vytvořili skvělý překlad.",
 	"cx-source-page-selector-no-search-results": "Nebyl nalezen článek pro „$1“ v $2",
 	"cx-selected-source-page-start-translation-button": "Začít překládat",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 návštěva za|$1 návštěvy za|0=Žádné návštěvy tento}} týden",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 návštěva za|$1 návštěvy za|$1 návštěv za|0=Žádné návštěvy tento}} týden",
 	"cx-selected-source-page-error-page-and-title-exist": "Tento název se již v [$1 jazyce $2] používá pro [$3 jinou stránku]",
 	"cx-selected-source-page-error-page-exists": "Stránka v jazyce $2 [$1 již existuje]",
 	"cx-selected-source-page-error-title-in-use": "Název nové stránky [$1 je již použit]",
