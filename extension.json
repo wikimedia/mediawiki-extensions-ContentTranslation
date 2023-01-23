@@ -125,6 +125,14 @@
 				"ContentTranslation.TranslationStore"
 			]
 		},
+		"sxdelete": {
+			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationDelete",
+			"services": [
+				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.SectionTranslationStore",
+				"ContentTranslation.TranslationStore"
+			]
+		},
 		"cxpublish": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationPublish",
 			"services": [

@@ -1,6 +1,7 @@
 export default class Translation {
   /**
    * @param {string} translationId
+   * @param {string} sectionId
    * @param {string} sourceTitle
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
@@ -14,6 +15,7 @@ export default class Translation {
    */
   constructor({
     translationId,
+    sectionId,
     sourceTitle,
     sourceLanguage,
     targetLanguage,
@@ -26,6 +28,7 @@ export default class Translation {
     targetSectionTitle,
   }) {
     this.id = translationId;
+    this.sectionId = sectionId;
     this.sourceTitle = sourceTitle;
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;

@@ -358,6 +358,32 @@ const saveTranslation = ({
     });
 };
 
+/**
+ * Given the appropriate parameters (translation id and section id), this method deletes the draft
+ * translation from "cx_section_translations" database table, deletes all related corpora translation
+ * units from "cx_corpora" table, and if no other corpora translation unit exists for the given
+ * translation id, to also delete the translation from "cx_translations" and "cx_translators" table.
+ * Finally, it returns true if the deletion was completed successfully or false otherwise.
+ *
+ * @param {number} translationId The id of the draft translation
+ * @param {string} sectionId The id of the source page section of the section translation
+ * @return {Promise<boolean>}
+ */
+const deleteTranslation = (translationId, sectionId) => {
+  const params = {
+    action: "sxdelete",
+    translationid: translationId,
+    sectionid: sectionId,
+  };
+
+  const api = new mw.Api();
+
+  return api
+    .postWithToken("csrf", params)
+    .then(() => true)
+    .catch(() => false);
+};
+
 export default {
   fetchTranslations,
   fetchTranslationUnits,
@@ -365,4 +391,5 @@ export default {
   parseTemplateWikitext,
   publishTranslation,
   saveTranslation,
+  deleteTranslation,
 };

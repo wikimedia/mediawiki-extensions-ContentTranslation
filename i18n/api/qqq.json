@@ -152,5 +152,10 @@
 	"apihelp-sxsave-param-sectionid": "{{doc-apihelp-param|sxsave|sectionid}}",
 	"apihelp-sxsave-param-sourcerevision": "{{doc-apihelp-param|sxsave|sourcerevision}}",
 	"apierror-sxsave-anon-user": "{{doc-apierror}}",
-	"apierror-cxpublishsection-translationnotfound": "{{doc-apierror}}"
+	"apierror-cxpublishsection-translationnotfound": "{{doc-apierror}}",
+	"apihelp-sxdelete-description": "{{doc-apihelp-description|sxdelete}}",
+	"apihelp-sxdelete-summary": "{{doc-apihelp-summary|sxdelete}}",
+	"apihelp-sxdelete-param-translationid": "{{doc-apihelp-param|sxdelete|translationid}}",
+	"apihelp-sxdelete-param-sectionid": "{{doc-apihelp-param|sxdelete|sectionid}}",
+	"apihelp-sxdelete-example-1": "{{doc-apihelp-example|sxdelete}}"
 }

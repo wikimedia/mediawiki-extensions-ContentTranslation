@@ -9,6 +9,7 @@ namespace ContentTranslation\DTO;
  */
 class SectionTranslationDTO {
 	private $translationId;
+	private $sectionId;
 	private $sourceTitle;
 	private $sourceLanguage;
 	private $targetLanguage;
@@ -22,6 +23,7 @@ class SectionTranslationDTO {
 
 	public function __construct(
 		string $translationId,
+		string $sectionId,
 		string $sourceTitle,
 		string $sourceLanguage,
 		string $targetLanguage,
@@ -34,6 +36,7 @@ class SectionTranslationDTO {
 		?string $targetSectionTitle
 	) {
 		$this->translationId = $translationId;
+		$this->sectionId = $sectionId;
 		$this->sourceTitle = $sourceTitle;
 		$this->sourceLanguage = $sourceLanguage;
 		$this->targetLanguage = $targetLanguage;
@@ -56,6 +59,7 @@ class SectionTranslationDTO {
 	public function toArray(): array {
 		return [
 			"translationId" => $this->translationId,
+			"sectionId" => $this->sectionId,
 			"sourceTitle" => $this->sourceTitle,
 			"sourceLanguage" => $this->sourceLanguage,
 			"targetLanguage" => $this->targetLanguage,

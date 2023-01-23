@@ -112,6 +112,7 @@ class SectionTranslationStore {
 		foreach ( $resultSet as $row ) {
 			$result[] = new SectionTranslationDTO(
 				$row->cxsx_translation_id,
+				$row->cxsx_section_id,
 				$row->translation_source_title,
 				$row->translation_source_language,
 				$row->translation_target_language,
@@ -126,6 +127,26 @@ class SectionTranslationStore {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Given the "parent" translation id and the section id
+	 * (in the "${revision}_${sectionNumber} form), this method
+	 * deletes the corresponding section translation from the
+	 * "cx_section_translations" table.
+	 *
+	 * @param int $translationId the id of the "parent" translation inside "cx_translations" table
+	 * @param string $sectionId the "cxsx_section_id" as stored inside "cx_section_translations" table
+	 * @return void
+	 */
+	public function deleteTranslation( int $translationId, string $sectionId ): void {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$conditions = [
+			'cxsx_translation_id' => $translationId,
+			'cxsx_section_id' => $sectionId
+		];
+
+		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
 	}
 
 	private function translationToDBRow( SectionTranslation $translation ): array {

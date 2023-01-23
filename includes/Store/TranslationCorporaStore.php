@@ -13,6 +13,7 @@ use Exception;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
+use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 use function Eris\Generator\bool;
 
@@ -97,6 +98,44 @@ class TranslationCorporaStore {
 		$conditions = [ 'cxc_translation_id' => $translationId ];
 
 		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
+	}
+
+	/**
+	 * Given the "parent" translation id and the base section id (in the "${revision}_${sectionNumber}"
+	 * form), this method deletes all the translation units that belong to that section translation,
+	 * from the "cx_corpora" table.
+	 *
+	 * NOTE: The "cxc_section_id" field inside "cx_corpora" table is in the following form for
+	 * section translation parallel corpora units: "${baseSectionId}_${subSectionId}", where
+	 * "subSectionId" is given by the cxserver as the section HTML element id (e.g. "cxSourceSection4").
+	 * This is why we use a "LIKE" query in the following form, here: "${baseSectionId}%"
+	 *
+	 * @param int $translationId the id of the "parent" translation inside "cx_translations" table
+	 * @param string $baseSectionId the "cxsx_section_id" as stored inside "cx_section_translations" table
+	 * @return void
+	 */
+	public function deleteTranslationDataBySectionId( int $translationId, string $baseSectionId ): void {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$conditions = [
+			'cxc_translation_id' => $translationId,
+			'cxc_section_id' . $dbw->buildLike( $baseSectionId, '_', $dbw->anyString() )
+		];
+
+		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
+	}
+
+	/**
+	 * Given a translation id, this method returns the count of the parallel corpora
+	 * translation units, associated with this translation id.
+	 *
+	 * @param int $translationId the id of the translation inside "cx_translations" table
+	 * @return int
+	 */
+	public function countByTranslationId( int $translationId ): int {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$conditions = [ 'cxc_translation_id' => $translationId ];
+
+		return $dbr->selectRowCount( self::TABLE_NAME, ISQLPlatform::ALL_ROWS, $conditions, __METHOD__ );
 	}
 
 	/**

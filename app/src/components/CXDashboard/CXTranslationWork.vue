@@ -33,6 +33,7 @@
               :icon="
                 translation.status === 'published' ? mwIconEdit : mwIconTrash
               "
+              @click.stop="handleActionIconClick"
             >
             </mw-icon>
           </div>
@@ -72,6 +73,7 @@ import { useRouter } from "vue-router";
 import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
 import useApplicationState from "@/composables/useApplicationState";
 import { loadVEModules } from "@/plugins/ve";
+import { computed } from "vue";
 
 export default {
   name: "CxTranslationWork",
@@ -141,15 +143,28 @@ export default {
       return page?.thumbnail;
     };
 
+    const handleActionIconClick = computed(() =>
+      props.translation.status === "published"
+        ? editTranslation
+        : deleteTranslation
+    );
+
     const onClick = (event) => {
       emit("click", event);
       startTranslation();
     };
 
+    // TODO: Implement "edit published translation" functionality
+    const editTranslation = () => {};
+
+    const deleteTranslation = () =>
+      store.dispatch("translator/deleteTranslation", props.translation);
+
     return {
       getAutonym,
       getDir,
       getImage,
+      handleActionIconClick,
       mwIconEdit,
       mwIconTrash,
       mwIconArrowForward,
