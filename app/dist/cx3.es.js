@@ -9921,8 +9921,8 @@ var state = {
   currentSourceSection: null,
   currentTranslation: null,
   currentMTProvider: "",
-  sourceLanguage: null,
-  targetLanguage: null,
+  sourceLanguage: "en",
+  targetLanguage: "en",
   publishTarget: "NEW_SECTION",
   autoSaveInProgressCounter: 0,
   autoSavePending: false,
@@ -10058,37 +10058,6 @@ function initializeSectionTranslation({ commit: commit2, dispatch: dispatch2 }, 
 function restoreSectionTranslation({ commit: commit2, dispatch: dispatch2 }, translation) {
   dispatch2("getCXServerToken");
   commit2("setCurrentTranslation", translation);
-}
-function updateSourceLanguage(_0, _1) {
-  return __async(this, arguments, function* ({ commit: commit2, state: state2, getters: getters2, dispatch: dispatch2 }, newSourceLanguage) {
-    if (newSourceLanguage === state2.targetLanguage) {
-      window.location.href = siteMapper.getCXUrl(null, null, newSourceLanguage, state2.sourceLanguage, {});
-      return;
-    }
-    commit2("setSourceLanguage", newSourceLanguage);
-    if (!state2.currentSectionSuggestion) {
-      dispatch2("suggestions/initializeSuggestions", {}, { root: true });
-      return;
-    }
-    const sourceTitle = getters2.getCurrentLanguageTitleGroup.getTitleForLanguage(state2.sourceLanguage);
-    let suggestion = new SectionSuggestion({
-      sourceLanguage: state2.sourceLanguage,
-      targetLanguage: state2.targetLanguage,
-      sourceTitle,
-      missing: {}
-    });
-    if (getters2.getCurrentLanguageTitleGroup.hasLanguage(state2.targetLanguage)) {
-      suggestion = yield dispatch2("suggestions/loadSectionSuggestion", suggestion, { root: true });
-    }
-    dispatch2("initializeSectionTranslation", suggestion);
-  });
-}
-function updateTargetLanguage(_0, _1) {
-  return __async(this, arguments, function* ({ state: state2, dispatch: dispatch2, commit: commit2 }, newTargetLanguage) {
-    var _a;
-    const sourceLanguage = newTargetLanguage === state2.sourceLanguage ? state2.targetLanguage : state2.sourceLanguage;
-    window.location.href = siteMapper.getCXUrl((_a = state2.currentSectionSuggestion) == null ? void 0 : _a.sourceTitle, null, sourceLanguage, newTargetLanguage, { sx: true });
-  });
 }
 function fetchCurrentSectionSuggestionLanguageTitles(_0) {
   return __async(this, arguments, function* ({
@@ -10300,9 +10269,7 @@ var actions = {
   startFavoriteSectionTranslation,
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
-  updateMTProvider,
-  updateSourceLanguage,
-  updateTargetLanguage
+  updateMTProvider
 };
 const mutations = {
   addMtRequestsPending(state2, value) {
@@ -18510,6 +18477,14 @@ var src = {
   sortByScriptGroup,
   sortByAutonym
 };
+function useMediawikiState() {
+  const supportedLanguageCodes = computed(() => store.state.mediawiki.supportedLanguageCodes || []);
+  const enabledTargetLanguages = computed(() => store.state.mediawiki.enabledTargetLanguages);
+  return {
+    enabledTargetLanguages,
+    supportedLanguageCodes
+  };
+}
 function useApplicationState(store2) {
   const sourceLanguage = computed(() => store2.state.application.sourceLanguage);
   const targetLanguage = computed(() => store2.state.application.targetLanguage);
@@ -18544,6 +18519,109 @@ function useApplicationState(store2) {
     targetLanguageAutonym
   };
 }
+const getInitialLanguagePair = (enabledTargetLanguages, supportedLanguageCodes) => {
+  const urlParams = new URLSearchParams(location.search);
+  const urlSourceLanguage = urlParams.get("from");
+  const urlTargetLanguage = urlParams.get("to");
+  const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
+  const isEnabledLanguage = (language) => !enabledTargetLanguages || Array.isArray(enabledTargetLanguages) && enabledTargetLanguages.includes(language);
+  const isSupportedLanguage = (language) => supportedLanguageCodes.includes(language);
+  const defaultLanguages = {
+    sourceLanguage: "en",
+    targetLanguage: "es"
+  };
+  let targetLanguage;
+  if (urlTargetLanguage && isEnabledLanguage(urlTargetLanguage) && isSupportedLanguage(urlTargetLanguage)) {
+    targetLanguage = urlTargetLanguage;
+  } else if (isEnabledLanguage(wikiLanguage) && isSupportedLanguage(wikiLanguage)) {
+    targetLanguage = wikiLanguage;
+  } else {
+    targetLanguage = (enabledTargetLanguages == null ? void 0 : enabledTargetLanguages[0]) || defaultLanguages.targetLanguage;
+  }
+  const defaultSourceLanguages = [
+    urlSourceLanguage,
+    defaultLanguages.sourceLanguage,
+    wikiLanguage,
+    defaultLanguages.targetLanguage
+  ];
+  let sourceLanguage = defaultSourceLanguages.filter((language) => isSupportedLanguage(language)).find((language) => language !== targetLanguage);
+  return { sourceLanguage, targetLanguage };
+};
+const setTranslationURLParams = (sectionSuggestion) => {
+  if (!history.pushState) {
+    return;
+  }
+  const params = new URLSearchParams(location.search);
+  params.set("page", sectionSuggestion == null ? void 0 : sectionSuggestion.sourceTitle);
+  params.set("from", sectionSuggestion == null ? void 0 : sectionSuggestion.sourceLanguage);
+  params.set("to", sectionSuggestion == null ? void 0 : sectionSuggestion.targetLanguage);
+  params.set("sx", true);
+  params.delete("title");
+  replaceUrl(Object.fromEntries(params));
+};
+const replaceUrl = (params) => {
+  history.replaceState({}, document.title, getUrl("Special:ContentTranslation", params));
+};
+const redirectToTargetWikiIfNeeded = (sourceLanguage, targetLanguage, articleTitle, sectionTitle) => {
+  const translateInTarget = mw.config.get("wgContentTranslationTranslateInTarget");
+  const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
+  if (translateInTarget && targetLanguage !== wikiLanguage) {
+    location.href = siteMapper.getCXUrl(articleTitle, null, sourceLanguage, targetLanguage, { sx: true, section: sectionTitle });
+  }
+};
+const setLanguagePair = (store2, sourceLanguage, targetLanguage) => {
+  store2.commit("application/setSourceLanguage", sourceLanguage);
+  store2.commit("application/setTargetLanguage", targetLanguage);
+  if (!history.pushState) {
+    return;
+  }
+  const params = new URLSearchParams(location.search);
+  params.set("from", sourceLanguage);
+  params.set("to", targetLanguage);
+  params.delete("title");
+  replaceUrl(Object.fromEntries(params));
+};
+const initializeLanguages = () => __async(this, null, function* () {
+  yield store.dispatch("mediawiki/fetchSupportedLanguageCodes");
+  const { enabledTargetLanguages, supportedLanguageCodes } = useMediawikiState();
+  const { sourceLanguage, targetLanguage } = getInitialLanguagePair(enabledTargetLanguages.value, supportedLanguageCodes.value);
+  const urlParams = new URLSearchParams(location.search);
+  const urlSourceArticleTitle = urlParams.get("page");
+  const urlSourceSectionTitle = urlParams.get("section");
+  redirectToTargetWikiIfNeeded(sourceLanguage, targetLanguage, urlSourceArticleTitle, urlSourceSectionTitle);
+  setLanguagePair(store, sourceLanguage, targetLanguage);
+});
+const getSuggestionListLanguagePairUpdater = (store2) => (newSourceLanguage, newTargetLanguage) => {
+  const { sourceLanguage, targetLanguage } = useApplicationState(store2);
+  if (newSourceLanguage === newTargetLanguage) {
+    newSourceLanguage = targetLanguage.value;
+    newTargetLanguage = sourceLanguage.value;
+  }
+  redirectToTargetWikiIfNeeded(newSourceLanguage, newTargetLanguage, null, null);
+  setLanguagePair(store2, newSourceLanguage, newTargetLanguage);
+  store2.dispatch("suggestions/initializeSuggestions");
+};
+const getArticleLanguagePairUpdater = (store2) => (newSourceLanguage, newTargetLanguage) => __async(this, null, function* () {
+  const { sourceLanguage, targetLanguage, currentSectionSuggestion } = useApplicationState(store2);
+  if (newSourceLanguage === newTargetLanguage) {
+    newSourceLanguage = targetLanguage.value;
+    newTargetLanguage = sourceLanguage.value;
+  }
+  const languageTitleGroup = store2.getters["application/getCurrentLanguageTitleGroup"];
+  const sourceTitle = languageTitleGroup.getTitleForLanguage(newSourceLanguage);
+  redirectToTargetWikiIfNeeded(newSourceLanguage, newTargetLanguage, sourceTitle, null);
+  setLanguagePair(store2, newSourceLanguage, newTargetLanguage);
+  let suggestion = new SectionSuggestion({
+    sourceLanguage: sourceLanguage.value,
+    targetLanguage: targetLanguage.value,
+    sourceTitle,
+    missing: {}
+  });
+  if (languageTitleGroup.hasLanguage(targetLanguage.value)) {
+    suggestion = yield store2.dispatch("suggestions/loadSectionSuggestion", suggestion);
+  }
+  store2.dispatch("application/initializeSectionTranslation", suggestion);
+});
 function getVEOverlay(overlayElement) {
   overlayElement.$el = $(overlayElement);
   return overlayElement;
@@ -18674,27 +18752,36 @@ const _sfc_main$_ = {
   },
   emits: ["click"],
   setup(props, { emit }) {
+    const store2 = useStore();
     const router2 = useRouter();
+    const { currentSourcePage, sourceLanguage, targetLanguage } = useApplicationState(store2);
     const startTranslation = () => __async(this, null, function* () {
+      const {
+        sourceLanguage: translationSourceLanguage,
+        targetLanguage: translationTargetLanguage,
+        sourceTitle,
+        pageRevision
+      } = props.translation;
+      if (sourceLanguage.value !== translationSourceLanguage || targetLanguage.value !== translationTargetLanguage) {
+        const updateLanguagePair = getSuggestionListLanguagePairUpdater(store2);
+        updateLanguagePair(translationSourceLanguage, translationTargetLanguage);
+      }
       store2.dispatch("application/restoreSectionTranslation", props.translation);
-      const { currentSourcePage } = useApplicationState(store2);
-      const { sourceLanguage, targetLanguage, sourceTitle, pageRevision } = props.translation;
       yield store2.dispatch("mediawiki/fetchPageContent", {
-        sourceLanguage,
-        targetLanguage,
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
         sourceTitle,
         revision: pageRevision
       });
       yield loadVEModules();
       yield store2.dispatch("mediawiki/resolvePageContentReferences", {
-        sourceLanguage,
+        sourceLanguage: sourceLanguage.value,
         sourceTitle
       });
       const section = currentSourcePage.value.getSectionByTitle(props.translation.sourceSectionTitle);
       store2.commit("application/setCurrentSourceSection", section);
       router2.push({ name: "sx-sentence-selector", params: { force: true } });
     });
-    const store2 = useStore();
     const getImage = (language, title) => {
       const page = store2.getters["mediawiki/getPage"](language, title);
       return page == null ? void 0 : page.thumbnail;
@@ -18721,8 +18808,8 @@ const _hoisted_3$u = { class: "cx-translation__details column justify-between ma
 const _hoisted_4$l = { class: "row ma-0" };
 const _hoisted_5$g = { class: "col grow" };
 const _hoisted_6$9 = ["lang", "textContent"];
-const _hoisted_7$6 = ["lang", "textContent"];
-const _hoisted_8$4 = { class: "col shrink ps-2" };
+const _hoisted_7$7 = ["lang", "textContent"];
+const _hoisted_8$5 = { class: "col shrink ps-2" };
 const _hoisted_9$4 = { class: "row cx-translation__footer ma-0" };
 const _hoisted_10$3 = { class: "cx-translation__languages col grow" };
 const _hoisted_11$3 = ["dir", "textContent"];
@@ -18757,9 +18844,9 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
               class: "cx-translation__source-section-title cx-translation__primary-title",
               lang: $props.translation.sourceLanguage,
               textContent: toDisplayString($props.translation.sourceSectionTitle)
-            }, null, 8, _hoisted_7$6)) : createCommentVNode("", true)
+            }, null, 8, _hoisted_7$7)) : createCommentVNode("", true)
           ]),
-          createBaseVNode("div", _hoisted_8$4, [
+          createBaseVNode("div", _hoisted_8$5, [
             createVNode(_component_mw_icon, {
               icon: $props.translation.status === "published" ? $setup.mwIconEdit : $setup.mwIconTrash
             }, null, 8, ["icon"])
@@ -18927,6 +19014,10 @@ const _sfc_main$Z = {
       default: () => [],
       validator: (languages2) => languages2.every((language) => typeof language === "string")
     },
+    allOptionEnabled: {
+      type: Boolean,
+      default: false
+    },
     suggestions: {
       type: Array,
       default: () => [],
@@ -19002,15 +19093,16 @@ const _hoisted_3$t = { class: "mw-ui-language-selector__resultscontainer pa-0 ma
 const _hoisted_4$k = { class: "results px-3 pt-4" };
 const _hoisted_5$f = { class: "results-header ps-8 pb-2" };
 const _hoisted_6$8 = { class: "results-languages--suggestions pa-0 ma-0" };
-const _hoisted_7$5 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
-const _hoisted_8$3 = { class: "results px-3 pt-4" };
+const _hoisted_7$6 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
+const _hoisted_8$4 = { class: "results px-3 pt-4" };
 const _hoisted_9$3 = {
   key: 0,
   class: "results-header ps-8 pb-2"
 };
 const _hoisted_10$2 = ["lang", "dir", "aria-selected", "onClick", "textContent"];
-const _hoisted_11$2 = { class: "no-results px-3 py-4" };
-const _hoisted_12$2 = { class: "ps-8" };
+const _hoisted_11$2 = ["aria-selected"];
+const _hoisted_12$2 = { class: "no-results px-3 py-4" };
+const _hoisted_13$1 = { class: "ps-8" };
 function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_input = resolveComponent("mw-input");
   const _directive_i18n = resolveDirective("i18n");
@@ -19062,13 +19154,13 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
                 role: "option",
                 onClick: ($event) => $setup.select(language),
                 textContent: toDisplayString($setup.getAutonym(language))
-              }, null, 10, _hoisted_7$5);
+              }, null, 10, _hoisted_7$6);
             }), 128))
           ])
         ])
       ]) : createCommentVNode("", true),
       $setup.searchResultsByScript.length ? renderSlot(_ctx.$slots, "search", { key: 1 }, () => [
-        createBaseVNode("section", _hoisted_8$3, [
+        createBaseVNode("section", _hoisted_8$4, [
           $props.suggestions.length && !$setup.searchQuery ? withDirectives((openBlock(), createElementBlock("p", _hoisted_9$3, null, 512)), [
             [_directive_i18n, void 0, "cx-sx-language-selector-all-languages"]
           ]) : createCommentVNode("", true),
@@ -19089,13 +19181,23 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
                   onClick: ($event) => $setup.select(language),
                   textContent: toDisplayString($setup.getAutonym(language))
                 }, null, 10, _hoisted_10$2);
-              }), 128))
+              }), 128)),
+              $props.allOptionEnabled && !$setup.searchQuery ? withDirectives((openBlock(), createElementBlock("li", {
+                key: 0,
+                class: normalizeClass(["language pa-2 ps-8 ma-0", $setup.selectedLanguage === "all" ? "language--selected" : ""]),
+                role: "option",
+                "aria-selected": $setup.selectedLanguage === "all" || null,
+                tabindex: "-1",
+                onClick: _cache[2] || (_cache[2] = ($event) => $setup.select("all"))
+              }, null, 10, _hoisted_11$2)), [
+                [_directive_i18n, void 0, "cx-translation-list-all-languages-option-label"]
+              ]) : createCommentVNode("", true)
             ], 2);
           }), 128))
         ])
       ]) : renderSlot(_ctx.$slots, "noresults", { key: 2 }, () => [
-        createBaseVNode("section", _hoisted_11$2, [
-          withDirectives(createBaseVNode("h3", _hoisted_12$2, null, 512), [
+        createBaseVNode("section", _hoisted_12$2, [
+          withDirectives(createBaseVNode("h3", _hoisted_13$1, null, 512), [
             [_directive_i18n, void 0, "cx-sx-language-selector-no-search-results"]
           ])
         ])
@@ -19116,19 +19218,29 @@ const _sfc_main$Y = {
   props: {
     sourceLanguages: {
       type: Array,
-      required: true
+      required: true,
+      validator: (languages2) => languages2.every((language) => typeof language === "string")
     },
     targetLanguages: {
       type: Array,
+      required: true,
+      validator: (languages2) => languages2.every((language) => typeof language === "string")
+    },
+    selectedSourceLanguage: {
+      type: String,
       required: true
+    },
+    selectedTargetLanguage: {
+      type: String,
+      required: true
+    },
+    allOptionEnabled: {
+      type: Boolean,
+      default: false
     }
   },
-  emits: ["source-language-selected", "target-language-selected"],
+  emits: ["update:selectedSourceLanguage", "update:selectedTargetLanguage"],
   setup(props, { emit }) {
-    const {
-      sourceLanguage: selectedSourceLanguage,
-      targetLanguage: selectedTargetLanguage
-    } = useApplicationState(useStore());
     const breakpoints2 = inject("breakpoints");
     const fullscreen = computed(() => breakpoints2.value.mobile);
     const sourceLanguageSelectOn = ref(false);
@@ -19139,12 +19251,14 @@ const _sfc_main$Y = {
     const onTargetLanguageDialogClose = () => targetLanguageSelectOn.value = false;
     const onSourceLanguageSelected = (sourceLanguage) => {
       sourceLanguageSelectOn.value = false;
-      emit("source-language-selected", sourceLanguage);
+      emit("update:selectedSourceLanguage", sourceLanguage);
     };
     const onTargetLanguageSelected = (targetLanguage) => {
       targetLanguageSelectOn.value = false;
-      emit("target-language-selected", targetLanguage);
+      emit("update:selectedTargetLanguage", targetLanguage);
     };
+    const allLanguagesSelectedAsSource = computed(() => props.selectedSourceLanguage === "all");
+    const allLanguagesSelectedAsTarget = computed(() => props.selectedTargetLanguage === "all");
     return {
       fullscreen,
       getAutonym: src.getAutonym,
@@ -19157,24 +19271,33 @@ const _sfc_main$Y = {
       onTargetLanguageSelected,
       openSourceLanguageDialog,
       openTargetLanguageDialog,
-      selectedSourceLanguage,
-      selectedTargetLanguage,
       sourceLanguageSelectOn,
-      targetLanguageSelectOn
+      targetLanguageSelectOn,
+      allLanguagesSelectedAsSource,
+      allLanguagesSelectedAsTarget
     };
   }
 };
 const _hoisted_1$H = { class: "row sx-translation-list-language-selector ma-0 justify-center items-center" };
 const _hoisted_2$t = { class: "col-5 justify-end" };
-const _hoisted_3$s = ["lang", "dir", "textContent"];
-const _hoisted_4$j = { class: "sx-translation-list-language-selector__arrow col-2 justify-center" };
-const _hoisted_5$e = { class: "col-5 justify-start" };
-const _hoisted_6$7 = ["lang", "dir", "textContent"];
+const _hoisted_3$s = {
+  key: 0,
+  class: "mw-ui-autonym"
+};
+const _hoisted_4$j = ["lang", "dir", "textContent"];
+const _hoisted_5$e = { class: "sx-translation-list-language-selector__arrow col-2 justify-center" };
+const _hoisted_6$7 = { class: "col-5 justify-start" };
+const _hoisted_7$5 = {
+  key: 0,
+  class: "mw-ui-autonym"
+};
+const _hoisted_8$3 = ["lang", "dir", "textContent"];
 function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_mw_button = resolveComponent("mw-button");
   const _component_mw_language_selector = resolveComponent("mw-language-selector");
   const _component_mw_dialog = resolveComponent("mw-dialog");
   const _component_mw_icon = resolveComponent("mw-icon");
+  const _directive_i18n = resolveDirective("i18n");
   return openBlock(), createElementBlock("div", _hoisted_1$H, [
     createBaseVNode("div", _hoisted_2$t, [
       createVNode(_component_mw_button, {
@@ -19185,12 +19308,15 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: withModifiers($setup.openSourceLanguageDialog, ["stop"])
       }, {
         default: withCtx(() => [
-          createBaseVNode("span", {
+          $setup.allLanguagesSelectedAsSource ? withDirectives((openBlock(), createElementBlock("span", _hoisted_3$s, null, 512)), [
+            [_directive_i18n, void 0, "cx-translation-list-all-languages-option-label"]
+          ]) : (openBlock(), createElementBlock("span", {
+            key: 1,
             class: "mw-ui-autonym",
-            lang: $setup.selectedSourceLanguage,
-            dir: $setup.getDir($setup.selectedSourceLanguage),
-            textContent: toDisplayString($setup.getAutonym($setup.selectedSourceLanguage))
-          }, null, 8, _hoisted_3$s)
+            lang: $props.selectedSourceLanguage,
+            dir: $setup.getDir($props.selectedSourceLanguage),
+            textContent: toDisplayString($setup.getAutonym($props.selectedSourceLanguage))
+          }, null, 8, _hoisted_4$j))
         ], void 0),
         _: 1
       }, 8, ["indicator", "onClick"]),
@@ -19209,17 +19335,18 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
             class: "sx-translation-list-language-selector__widget col-12",
             placeholder: _ctx.$i18n("cx-sx-language-selector-placeholder"),
             languages: $props.sourceLanguages,
+            "all-option-enabled": $props.allOptionEnabled,
             onSelect: $setup.onSourceLanguageSelected,
             onClose: $setup.onSourceLanguageDialogClose
-          }, null, 8, ["placeholder", "languages", "onSelect", "onClose"])
+          }, null, 8, ["placeholder", "languages", "all-option-enabled", "onSelect", "onClose"])
         ], void 0),
         _: 1
       }, 8, ["value", "title", "fullscreen", "header", "onClose"])
     ]),
-    createBaseVNode("div", _hoisted_4$j, [
+    createBaseVNode("div", _hoisted_5$e, [
       createVNode(_component_mw_icon, { icon: $setup.mwIconArrowNext }, null, 8, ["icon"])
     ]),
-    createBaseVNode("div", _hoisted_5$e, [
+    createBaseVNode("div", _hoisted_6$7, [
       createVNode(_component_mw_button, {
         indicator: $setup.mwIconExpand,
         outlined: false,
@@ -19229,12 +19356,15 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: withModifiers($setup.openTargetLanguageDialog, ["stop"])
       }, {
         default: withCtx(() => [
-          createBaseVNode("span", {
+          $setup.allLanguagesSelectedAsTarget ? withDirectives((openBlock(), createElementBlock("span", _hoisted_7$5, null, 512)), [
+            [_directive_i18n, void 0, "cx-translation-list-all-languages-option-label"]
+          ]) : (openBlock(), createElementBlock("span", {
+            key: 1,
             class: "mw-ui-autonym",
-            lang: $setup.selectedTargetLanguage,
-            dir: $setup.getDir($setup.selectedTargetLanguage),
-            textContent: toDisplayString($setup.getAutonym($setup.selectedTargetLanguage))
-          }, null, 8, _hoisted_6$7)
+            lang: $props.selectedTargetLanguage,
+            dir: $setup.getDir($props.selectedTargetLanguage),
+            textContent: toDisplayString($setup.getAutonym($props.selectedTargetLanguage))
+          }, null, 8, _hoisted_8$3))
         ], void 0),
         _: 1
       }, 8, ["indicator", "disabled", "onClick"]),
@@ -19253,9 +19383,10 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
             class: "sx-translation-list-language-selector__widget col-12",
             placeholder: _ctx.$i18n("cx-sx-language-selector-placeholder"),
             languages: $props.targetLanguages,
+            "all-option-enabled": $props.allOptionEnabled,
             onSelect: $setup.onTargetLanguageSelected,
             onClose: $setup.onTargetLanguageDialogClose
-          }, null, 8, ["placeholder", "languages", "onSelect", "onClose"])
+          }, null, 8, ["placeholder", "languages", "all-option-enabled", "onSelect", "onClose"])
         ], void 0),
         _: 1
       }, 8, ["value", "fullscreen", "header", "title", "onClose"])
@@ -19263,14 +19394,6 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
-function useMediawikiState() {
-  const supportedLanguageCodes = computed(() => store.state.mediawiki.supportedLanguageCodes || []);
-  const enabledTargetLanguages = computed(() => store.state.mediawiki.enabledTargetLanguages);
-  return {
-    enabledTargetLanguages,
-    supportedLanguageCodes
-  };
-}
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var bananaI18n = { exports: {} };
 (function(module, exports) {
@@ -19938,10 +20061,8 @@ const _sfc_main$X = {
     }
   },
   setup(props) {
-    const bananaI18n2 = useI18n();
-    const labelForAllTranslations = bananaI18n2.i18n("cx-translation-list-all-languages-option-label");
-    const selectedSourceLanguage = ref(labelForAllTranslations);
-    const selectedTargetLanguage = ref(labelForAllTranslations);
+    const selectedSourceLanguage = ref("all");
+    const selectedTargetLanguage = ref("all");
     const store2 = useStore();
     const loaded = computed(() => store2.state.translator.translationsLoaded);
     const { enabledTargetLanguages } = useMediawikiState();
@@ -19952,23 +20073,20 @@ const _sfc_main$X = {
         return store2.getters["translator/getDraftTranslations"];
       }
     });
-    const isActiveForAllSourceLanguages = computed(() => selectedSourceLanguage.value === labelForAllTranslations);
-    const isActiveForAllTargetLanguages = computed(() => selectedTargetLanguage.value === labelForAllTranslations);
+    const isActiveForAllSourceLanguages = computed(() => selectedSourceLanguage.value === "all");
+    const isActiveForAllTargetLanguages = computed(() => selectedTargetLanguage.value === "all");
     const activeTranslations = computed(() => translations.value.filter((translation) => (isActiveForAllSourceLanguages.value || translation.sourceLanguage === selectedSourceLanguage.value) && (isActiveForAllTargetLanguages.value || translation.targetLanguage === selectedTargetLanguage.value)));
     const availableTargetLanguages = computed(() => {
-      let translationLanguages = translations.value.map((translation) => translation.targetLanguage);
+      let translationTargetLanguages = translations.value.map((translation) => translation.targetLanguage);
       if (!!enabledTargetLanguages.value) {
-        translationLanguages = translationLanguages.filter((language) => enabledTargetLanguages.value.includes(language));
+        translationTargetLanguages = translationTargetLanguages.filter((language) => enabledTargetLanguages.value.includes(language));
       }
-      return [...new Set(translationLanguages)].reduce((languages2, languageCode) => [
-        ...languages2,
-        { name: src.getAutonym(languageCode), code: languageCode }
-      ], [{ name: labelForAllTranslations, code: labelForAllTranslations }]);
+      return [...new Set(translationTargetLanguages)];
     });
-    const availableSourceLanguages = computed(() => translations.value.map((translation) => translation.sourceLanguage).filter((language, index, self2) => self2.indexOf(language) === index).reduce((languages2, languageCode) => [
-      ...languages2,
-      { name: src.getAutonym(languageCode), code: languageCode }
-    ], [{ name: labelForAllTranslations, code: labelForAllTranslations }]));
+    const availableSourceLanguages = computed(() => {
+      const translationSourceLanguages = translations.value.map((translation) => translation.sourceLanguage);
+      return [...new Set(translationSourceLanguages)];
+    });
     return {
       activeTranslations,
       availableSourceLanguages,
@@ -20001,7 +20119,8 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
         "selected-target-language": $setup.selectedTargetLanguage,
         "onUpdate:selected-target-language": _cache[1] || (_cache[1] = ($event) => $setup.selectedTargetLanguage = $event),
         "source-languages": $setup.availableSourceLanguages,
-        "target-languages": $setup.availableTargetLanguages
+        "target-languages": $setup.availableTargetLanguages,
+        "all-option-enabled": ""
       }, null, 8, ["selected-source-language", "selected-target-language", "source-languages", "target-languages"]),
       !$setup.loaded ? (openBlock(), createBlock(_component_mw_spinner, { key: 0 })) : createCommentVNode("", true),
       (openBlock(true), createElementBlock(Fragment, null, renderList($setup.activeTranslations, (translation, index) => {
@@ -20416,9 +20535,11 @@ const _sfc_main$V = {
   },
   setup() {
     const store2 = useStore();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store2);
     const { supportedLanguageCodes, availableTargetLanguages } = useSuggestionListLanguages();
-    const updateSourceLanguage2 = (sourceLanguage2) => store2.dispatch("application/updateSourceLanguage", sourceLanguage2);
-    const updateTargetLanguage2 = (targetLanguage2) => store2.dispatch("application/updateTargetLanguage", targetLanguage2);
+    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store2);
+    const updateSourceLanguage = (newSourceLanguage) => updateLanguagePair(newSourceLanguage, targetLanguage.value);
+    const updateTargetLanguage = (newTargetLanguage) => updateLanguagePair(sourceLanguage.value, newTargetLanguage);
     const router2 = useRouter();
     const startTranslation = (suggestion) => {
       store2.dispatch("application/initializeSectionTranslation", suggestion);
@@ -20442,7 +20563,6 @@ const _sfc_main$V = {
     } = useSuggestions();
     const pageSuggestionsList = ref(null);
     const logEvent2 = useEventLogging();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store2);
     const refreshSuggestions = () => {
       logEvent2({
         event_type: "dashboard_refresh_suggestions",
@@ -20475,8 +20595,10 @@ const _sfc_main$V = {
       showRefreshButton,
       startTranslation,
       supportedLanguageCodes,
-      updateSourceLanguage: updateSourceLanguage2,
-      updateTargetLanguage: updateTargetLanguage2
+      updateSourceLanguage,
+      updateTargetLanguage,
+      sourceLanguage,
+      targetLanguage
     };
   }
 };
@@ -20503,9 +20625,11 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
         createVNode(_component_sx_translation_list_language_selector, {
           "source-languages": $setup.supportedLanguageCodes,
           "target-languages": $setup.availableTargetLanguages,
-          onSourceLanguageSelected: $setup.updateSourceLanguage,
-          onTargetLanguageSelected: $setup.updateTargetLanguage
-        }, null, 8, ["source-languages", "target-languages", "onSourceLanguageSelected", "onTargetLanguageSelected"])
+          "selected-source-language": $setup.sourceLanguage,
+          "selected-target-language": $setup.targetLanguage,
+          "onUpdate:selectedSourceLanguage": $setup.updateSourceLanguage,
+          "onUpdate:selectedTargetLanguage": $setup.updateTargetLanguage
+        }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language", "onUpdate:selectedSourceLanguage", "onUpdate:selectedTargetLanguage"])
       ], void 0),
       _: 1
     }),
@@ -20686,49 +20810,6 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var ExperimentalSupportBanner = /* @__PURE__ */ _export_sfc(_sfc_main$T, [["render", _sfc_render$T]]);
-const getInitialLanguagePair = (enabledTargetLanguages, supportedLanguageCodes) => {
-  const urlParams = new URLSearchParams(location.search);
-  const urlSourceLanguage = urlParams.get("from");
-  const urlTargetLanguage = urlParams.get("to");
-  const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
-  const isEnabledLanguage = (language) => !enabledTargetLanguages || Array.isArray(enabledTargetLanguages) && enabledTargetLanguages.includes(language);
-  const isSupportedLanguage = (language) => supportedLanguageCodes.includes(language);
-  const defaultLanguages = {
-    sourceLanguage: "en",
-    targetLanguage: "es"
-  };
-  let targetLanguage;
-  if (urlTargetLanguage && isEnabledLanguage(urlTargetLanguage) && isSupportedLanguage(urlTargetLanguage)) {
-    targetLanguage = urlTargetLanguage;
-  } else if (isEnabledLanguage(wikiLanguage) && isSupportedLanguage(wikiLanguage)) {
-    targetLanguage = wikiLanguage;
-  } else {
-    targetLanguage = (enabledTargetLanguages == null ? void 0 : enabledTargetLanguages[0]) || defaultLanguages.targetLanguage;
-  }
-  const defaultSourceLanguages = [
-    urlSourceLanguage,
-    defaultLanguages.sourceLanguage,
-    wikiLanguage,
-    defaultLanguages.targetLanguage
-  ];
-  let sourceLanguage = defaultSourceLanguages.filter((language) => isSupportedLanguage(language)).find((language) => language !== targetLanguage);
-  return { sourceLanguage, targetLanguage };
-};
-const initializeLanguages = () => __async(this, null, function* () {
-  yield store.dispatch("mediawiki/fetchSupportedLanguageCodes");
-  const { enabledTargetLanguages, supportedLanguageCodes } = useMediawikiState();
-  const { sourceLanguage, targetLanguage } = getInitialLanguagePair(enabledTargetLanguages.value, supportedLanguageCodes.value);
-  const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
-  const translateInTarget = mw.config.get("wgContentTranslationTranslateInTarget");
-  if (translateInTarget && targetLanguage !== wikiLanguage) {
-    const urlParams = new URLSearchParams(location.search);
-    const urlSourceArticleTitle = urlParams.get("page");
-    const urlSourceSectionTitle = urlParams.get("section");
-    window.location.href = siteMapper.getCXUrl(urlSourceArticleTitle, null, sourceLanguage, targetLanguage, { sx: true, section: urlSourceSectionTitle });
-  }
-  store.commit("application/setSourceLanguage", sourceLanguage);
-  store.commit("application/setTargetLanguage", targetLanguage);
-});
 const startSectionTranslation = (router2, store2, title, previousRoute, eventSource) => __async(this, null, function* () {
   const { sourceLanguage, targetLanguage } = useApplicationState(store2);
   const suggestion = yield store2.dispatch("suggestions/loadSectionSuggestion", {
@@ -20751,7 +20832,8 @@ const getEventSourceFromUrlCampaign = () => {
     mfrecenttranslation: "recent_translation",
     mfrecentedit: "recent_edit",
     mffrequentlanguages: "frequent_languages",
-    newbytranslationmobile: "invite_new_article_creation"
+    newbytranslationmobile: "invite_new_article_creation",
+    specialcontribute: "contributions_page"
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
@@ -20929,21 +21011,6 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var Dashboard = /* @__PURE__ */ _export_sfc(_sfc_main$R, [["render", _sfc_render$R]]);
-const setTranslationURLParams = (sectionSuggestion) => {
-  if (!history.pushState) {
-    return;
-  }
-  const params = new URLSearchParams(location.search);
-  params.set("page", sectionSuggestion == null ? void 0 : sectionSuggestion.sourceTitle);
-  params.set("from", sectionSuggestion == null ? void 0 : sectionSuggestion.sourceLanguage);
-  params.set("to", sectionSuggestion == null ? void 0 : sectionSuggestion.targetLanguage);
-  params.set("sx", true);
-  params.delete("title");
-  replaceUrl(Object.fromEntries(params));
-};
-const replaceUrl = (params) => {
-  history.replaceState({}, document.title, getUrl("Special:ContentTranslation", params));
-};
 const useActionPanel = (sectionSuggestion) => {
   const firstMissingSectionTitle = computed(() => {
     var _a, _b;
@@ -21228,19 +21295,23 @@ const _sfc_main$P = {
   setup() {
     const { supportedLanguageCodes, enabledTargetLanguages } = useMediawikiState();
     const store2 = useStore();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store2);
     const currentLanguageTitleGroup = computed(() => store2.getters["application/getCurrentLanguageTitleGroup"]);
     const availableSourceLanguages = computed(() => {
       var _a;
       return ((_a = currentLanguageTitleGroup.value) == null ? void 0 : _a.titles.map((title) => title.lang)) || [];
     });
     const targetLanguages = computed(() => enabledTargetLanguages.value || supportedLanguageCodes.value);
-    const onSourceLanguageSelected = (sourceLanguage) => store2.dispatch("application/updateSourceLanguage", sourceLanguage);
-    const onTargetLanguageSelected = (targetLanguage) => store2.dispatch("application/updateTargetLanguage", targetLanguage);
+    const updateLanguagePair = getArticleLanguagePairUpdater(store2);
+    const onSourceLanguageSelected = (newSourceLanguage) => updateLanguagePair(newSourceLanguage, targetLanguage.value);
+    const onTargetLanguageSelected = (newTargetLanguage) => updateLanguagePair(sourceLanguage.value, newTargetLanguage);
     return {
       availableSourceLanguages,
       targetLanguages,
       onSourceLanguageSelected,
-      onTargetLanguageSelected
+      onTargetLanguageSelected,
+      sourceLanguage,
+      targetLanguage
     };
   }
 };
@@ -21250,9 +21321,11 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     class: "sx-article-language-selector",
     "source-languages": $setup.availableSourceLanguages,
     "target-languages": $setup.targetLanguages,
-    onSourceLanguageSelected: $setup.onSourceLanguageSelected,
-    onTargetLanguageSelected: $setup.onTargetLanguageSelected
-  }, null, 8, ["source-languages", "target-languages", "onSourceLanguageSelected", "onTargetLanguageSelected"]);
+    "selected-source-language": $setup.sourceLanguage,
+    "selected-target-language": $setup.targetLanguage,
+    "onUpdate:selectedSourceLanguage": $setup.onSourceLanguageSelected,
+    "onUpdate:selectedTargetLanguage": $setup.onSourceLanguageSelected
+  }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language", "onUpdate:selectedSourceLanguage", "onUpdate:selectedTargetLanguage"]);
 }
 var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
 var SXTranslationConfirmerArticleInformation_vue_vue_type_style_index_0_lang = "";
@@ -26132,12 +26205,14 @@ const _sfc_main$1 = {
     const close = () => {
       router2.push({ name: "dashboard" });
     };
+    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store2);
+    const updateSourceLanguage = (newSourceLanguage) => updateLanguagePair(newSourceLanguage, targetLanguage.value);
     const updateSelection = (updatedLanguage) => {
       if (updatedLanguage === "other") {
         sourceLanguageSelectOn.value = true;
         return;
       }
-      store2.dispatch("application/updateSourceLanguage", updatedLanguage);
+      updateSourceLanguage(updatedLanguage);
     };
     watch(sourceLanguage, () => store2.dispatch("mediawiki/fetchNearbyPages"), {
       immediate: true
