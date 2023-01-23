@@ -121,7 +121,8 @@
 		"cxdelete": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
 			"services": [
-				"ContentTranslation.TranslationCorporaStore"
+				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxpublish": {

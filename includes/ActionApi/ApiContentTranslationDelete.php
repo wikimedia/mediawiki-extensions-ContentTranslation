@@ -11,6 +11,7 @@ namespace ContentTranslation\ActionApi;
 use ApiBase;
 use ApiMain;
 use ContentTranslation\Store\TranslationCorporaStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -20,9 +21,17 @@ class ApiContentTranslationDelete extends ApiBase {
 	/** @var TranslationCorporaStore */
 	private $corporaStore;
 
-	public function __construct( ApiMain $mainModule, $action, TranslationCorporaStore $corporaStore ) {
+	/** @var TranslationStore */
+	private TranslationStore $translationStore;
+
+	public function __construct(
+		ApiMain $mainModule, $action,
+		TranslationCorporaStore $corporaStore,
+		TranslationStore $translationStore
+	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -50,8 +59,8 @@ class ApiContentTranslationDelete extends ApiBase {
 			$translation->update( [], $translator );
 		} else {
 			$translationId = $translation->getData()['id'];
-			Translator::removeTranslation( $translationId );
-			Translation::delete( $translationId );
+			$this->translationStore->unlinkTranslationFromTranslator( $translationId );
+			$this->translationStore->deleteTranslation( $translationId );
 			$this->corporaStore->deleteTranslationData( $translationId );
 		}
 

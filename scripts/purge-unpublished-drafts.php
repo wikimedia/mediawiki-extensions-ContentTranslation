@@ -8,8 +8,7 @@ namespace ContentTranslation\Scripts;
 
 use ContentTranslation\Notification;
 use ContentTranslation\SiteMapper;
-use ContentTranslation\Translation;
-use ContentTranslation\Translator;
+use ContentTranslation\Store\TranslationStore;
 use DateTime;
 use InvalidArgumentException;
 use Maintenance;
@@ -211,8 +210,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	public function purgeDraft( $draftId ) {
-		Translator::removeTranslation( $draftId );
-		Translation::delete( $draftId );
+		/** @var TranslationStore $translationStore */
+		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
+		$translationStore->unlinkTranslationFromTranslator( $draftId );
+		$translationStore->deleteTranslation( $draftId );
 		$corporaStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationCorporaStore' );
 		$corporaStore->deleteTranslationDataGently( $draftId, $this->mBatchSize );
 		$this->output( " — PURGED", $draftId );

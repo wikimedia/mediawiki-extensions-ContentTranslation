@@ -268,18 +268,6 @@ class Translation {
 		return $drafts;
 	}
 
-	public static function delete( $translationId ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
-
-		$dbw->update(
-			'cx_translations',
-			[ 'translation_status' => 'deleted' ],
-			[ 'translation_id' => $translationId ],
-			__METHOD__
-		);
-	}
-
 	/**
 	 * Get the stats for all translations in draft or published status.
 	 * @return array

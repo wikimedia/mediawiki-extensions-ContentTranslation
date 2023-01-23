@@ -13,6 +13,7 @@ use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use ContentTranslation\WikidataIdFetcher;
 use MediaWiki\Config\ServiceOptions;
@@ -115,6 +116,12 @@ return [
 			return new TranslationCorporaStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$services->getDBLoadBalancerFactory()
+			);
+		},
+	'ContentTranslation.TranslationStore' =>
+		static function ( MediaWikiServices $services ): TranslationStore {
+			return new TranslationStore(
+				$services->getService( 'ContentTranslation.LoadBalancer' )
 			);
 		},
 	'ContentTranslation.TranslationUnitValidator' =>

@@ -41,16 +41,6 @@ class Translator {
 		);
 	}
 
-	public static function removeTranslation( $translationId ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
-		$dbw->delete(
-			'cx_translators',
-			[ 'translator_translation_id' => $translationId ],
-			__METHOD__
-		);
-	}
-
 	/**
 	 * Get a translation by translation id for the translator
 	 * @param int $translationId
