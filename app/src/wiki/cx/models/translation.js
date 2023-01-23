@@ -33,7 +33,7 @@ export default class Translation {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     this.status = status;
     this.pageRevision = pageRevision;
-    this.targetTitle = sourceTitle;
+    this.targetTitle = targetTitle;
     this.sourceSectionTitle = sourceSectionTitle;
     this.targetSectionTitle = targetSectionTitle;
     /**
