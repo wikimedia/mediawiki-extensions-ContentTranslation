@@ -89,6 +89,14 @@
 				"ContentTranslation.RecentSignificantEditStore",
 				"ContentTranslation.WikidataIdFetcher"
 			]
+		},
+		"recentTranslationEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\RecentTranslationEntrypointRegistrationHandler",
+			"services": [
+				"DBLoadBalancer",
+				"RevisionStore",
+				"ContentTranslation.TranslationStore"
+			]
 		}
 	},
 	"Hooks": {
@@ -96,12 +104,12 @@
 		"BeforePageDisplay": [
 			"ContentTranslation\\Hooks::addModules",
 			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
-			"ContentTranslation\\Hooks::addRecentTranslationEntrypoint",
 			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
 			"mfFrequentLanguagesEntrypointRegistrar",
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
-			"recentEditEntrypointRegistrar"
+			"recentEditEntrypointRegistrar",
+			"recentTranslationEntrypointRegistrar"
 		],
 		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
