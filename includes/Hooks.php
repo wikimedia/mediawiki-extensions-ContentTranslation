@@ -104,8 +104,9 @@ class Hooks {
 			return;
 		}
 
+		$title = $out->getTitle();
 		// This entrypoint should only be enabled for article pages
-		$isContentPage = $out->getTitle()->isContentPage();
+		$isContentPage = $title->isContentPage();
 		if ( !$isContentPage ) {
 			return;
 		}
@@ -120,7 +121,7 @@ class Hooks {
 		// "cx_translations" table is expected to be smaller than "revision"
 		// table, so we query this table first.
 		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
-		$translation = Translation::findByPublishedTitle( $out->getPageTitle(), $currentLanguageCode );
+		$translation = Translation::findByPublishedTitle( $title->getPrefixedText(), $currentLanguageCode );
 
 		// If translation not found inside the table, meaning this article has
 		// not been created using Content or Section Translation, return
