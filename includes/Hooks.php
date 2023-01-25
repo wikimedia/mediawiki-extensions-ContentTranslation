@@ -121,7 +121,8 @@ class Hooks {
 		// "cx_translations" table is expected to be smaller than "revision"
 		// table, so we query this table first.
 		$currentLanguageCode = SiteMapper::getCurrentLanguageCode();
-		$translation = Translation::findByPublishedTitle( $title->getPrefixedText(), $currentLanguageCode );
+		$translationStore = MediaWikiServices::getInstance()->get( 'ContentTranslation.TranslationStore' );
+		$translation = $translationStore->findByPublishedTitle( $title->getPrefixedText(), $currentLanguageCode );
 
 		// If translation not found inside the table, meaning this article has
 		// not been created using Content or Section Translation, return

@@ -210,29 +210,6 @@ class Translation {
 	}
 
 	/**
-	 * Find a published translation for a given target title and language
-	 *
-	 * @param string $publishedTitle
-	 * @param string $targetLanguage
-	 * @return Translation|null
-	 */
-	public static function findByPublishedTitle( string $publishedTitle, string $targetLanguage ): ?Translation {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$conditions = [
-			'translation_target_language' => $targetLanguage,
-			'translation_target_title' => $publishedTitle
-		];
-		$conditions[] = self::getPublishedCondition( $dbr );
-
-		// TODO: Add index to improve performance for this read query
-		$row = $dbr->selectRow( 'cx_translations', '*', $conditions );
-
-		return $row ? self::newFromRow( $row ) : null;
-	}
-
-	/**
 	 * Get conflicting translations for the given translation work.
 	 * Conflicting translations are translations in progress for same language pair
 	 * and source page in last 24 hours.
