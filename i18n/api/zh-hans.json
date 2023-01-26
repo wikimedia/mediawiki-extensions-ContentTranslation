@@ -3,6 +3,7 @@
 		"authors": [
 			"A Chinese Wikipedian",
 			"Diskdance",
+			"LittlePaw365",
 			"Liuxinyu970226",
 			"Shizhao",
 			"Tranve",
@@ -129,7 +130,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "已删除译文原所在的命名空间。默认为主命名空间。",
 	"apihelp-query+cxdeletedtranslations-example-1": "获取您被删除译文的数量，即与 2019-04-07 16:24:44 之后发布在主命名空间且被删除的译文。",
 	"apihelp-cxpublishsection-description": "保存使用内容翻译扩展的章节翻译功能创建的章节。",
-	"apihelp-cxpublishsection-summary": "保存使用内容翻译扩展的章节翻译功能创建的页面。",
+	"apihelp-cxpublishsection-summary": "保存使用内容翻译扩展的章节翻译功能创建的章节。",
 	"apihelp-cxpublishsection-param-title": "要对其执行操作的页面标题。",
 	"apihelp-cxpublishsection-param-html": "要保存的内容。",
 	"apihelp-cxpublishsection-param-sourcelanguage": "源语言代码。",

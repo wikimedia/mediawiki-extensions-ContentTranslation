@@ -124,7 +124,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Imenski prostor, v katerem so bili objavljeni izbrisani prevodi. Privzeto je to glavni imenski prostor.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Pridobi število vaših izbrisanih prevodov, ki so bili objavljeni v glavnem imenskem prostoru in izbrisani po 2019-04-07 16:24:44.",
 	"apihelp-cxpublishsection-description": "Shrani razdelek, ustvarjen z možnostjo prevajanja po razdelkih prevajalnika Content Translation.",
-	"apihelp-cxpublishsection-summary": "Shrani stran, ustvarjeno z možnostjo prevajanja po razdelkih prevajalnika Content Translation.",
+	"apihelp-cxpublishsection-summary": "Shrani razdelek, ustvarjeno z možnostjo prevajanja po razdelkih prevajalnika Content Translation.",
 	"apihelp-cxpublishsection-param-title": "Naslov strani, na kateri naj se izvedejo dejanja.",
 	"apihelp-cxpublishsection-param-html": "Vsebina za shranitev.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Oznaka izvornega jezika.",
@@ -149,5 +149,10 @@
 	"apihelp-sxsave-param-sectionid": "Identifikator razdelka strani.",
 	"apihelp-sxsave-param-sourcerevision": "Identifikator redakcije izvorne strani.",
 	"apierror-sxsave-anon-user": "Dejanje API-ja »sxsave« za anonimne uporabnike ni omogočeno.",
-	"apierror-cxpublishsection-translationnotfound": "Prevoda ni bilo mogoče najti."
+	"apierror-cxpublishsection-translationnotfound": "Prevoda ni bilo mogoče najti.",
+	"apihelp-sxdelete-description": "Izbriši osnutek prevoda razdelka in njegove vzporedne korpuse iz podatkovne zbirke.",
+	"apihelp-sxdelete-summary": "Izbriši osnutek prevoda razdelka in njegove vzporedne korpuse iz podatkovne zbirke.",
+	"apihelp-sxdelete-param-translationid": "ID prevoda, povezan s prevodom osnutka razdelka.",
+	"apihelp-sxdelete-param-sectionid": "ID razdelka prevoda osnutka razdelka.",
+	"apihelp-sxdelete-example-1": "Izbrišite osnutek, povezan z danim ID-jem prevoda in ID-jem razdelka."
 }

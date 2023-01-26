@@ -134,7 +134,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espace de noms dans lequel les traductions supprimées ont été publiées. Par défaut, l’espace de noms principal.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Obtenir le nombre de vos traductions supprimées, qui ont été publiées sur l’espace de noms principal et supprimées après le 07/04/2019 à 16h24m44.",
 	"apihelp-cxpublishsection-description": "Enregistrer une section créée en utilisant la fonctionnalité de traduction de section de l’extension Traduction de contenu.",
-	"apihelp-cxpublishsection-summary": "Enregistrer une page créée en utilisant la fonctionnalité de traduction de section de l’extension Traduction de contenu.",
+	"apihelp-cxpublishsection-summary": "Enregistrer une section créée en utilisant la fonctionnalité de traduction de section de l’extension Traduction de contenu.",
 	"apihelp-cxpublishsection-param-title": "Le titre de la page sur laquelle effectuer les actions.",
 	"apihelp-cxpublishsection-param-html": "Le contenu à enregistrer.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Le code langue de la source.",
@@ -159,5 +159,10 @@
 	"apihelp-sxsave-param-sectionid": "L’identifiant de la section de page.",
 	"apihelp-sxsave-param-sourcerevision": "L’identifiant de la version de page source.",
 	"apierror-sxsave-anon-user": "L’action « sxsave » de l’API n’est pas activée pour les utilisateurs anonymes.",
-	"apierror-cxpublishsection-translationnotfound": "Traduction non trouvée."
+	"apierror-cxpublishsection-translationnotfound": "Traduction non trouvée.",
+	"apihelp-sxdelete-description": "Supprimer la traduction de section ébauchée et ses corpus parallèles de la base de données.",
+	"apihelp-sxdelete-summary": "Supprimer la traduction de section ébauchée et ses corpus parallèles de la base de données.",
+	"apihelp-sxdelete-param-translationid": "L’identifiant de traduction associé à la traduction de section ébauchée.",
+	"apihelp-sxdelete-param-sectionid": "L’identifiant de traduction associé à la traduction de section ébauchée.",
+	"apihelp-sxdelete-example-1": "Supprimer une ébauche associée aux identifiants de traduction et de section donnés."
 }

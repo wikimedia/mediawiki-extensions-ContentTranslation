@@ -131,7 +131,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaço nominal no qual foram publicadas as traduções eliminadas. Por padrão, o espaço nominal principal.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das suas traduções eliminadas, que foram publicadas no espaço nominal principal e eliminadas depois de 2019-04-07 16:24:44",
 	"apihelp-cxpublishsection-description": "Gravar uma secção criada usando a funcionalidade de tradução de secções da extensão Tradutor de Conteúdo.",
-	"apihelp-cxpublishsection-summary": "Gravar uma página criada usando a funcionalidade de tradução de secções da extensão Tradutor de Conteúdo.",
+	"apihelp-cxpublishsection-summary": "Gravar uma secção criada usando a funcionalidade de tradução de secções da extensão Tradutor de Conteúdo.",
 	"apihelp-cxpublishsection-param-title": "O título da página sobre a qual executar as operações.",
 	"apihelp-cxpublishsection-param-html": "O conteúdo a gravar.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "O código da língua de origem.",
@@ -156,5 +156,10 @@
 	"apihelp-sxsave-param-sectionid": "O identificador da secção da página.",
 	"apihelp-sxsave-param-sourcerevision": "O identificador da revisão da página de origem.",
 	"apierror-sxsave-anon-user": "A operação \"sxsave\" da API não está ativada para utilizadores anónimos",
-	"apierror-cxpublishsection-translationnotfound": "A tradução não foi encontrada."
+	"apierror-cxpublishsection-translationnotfound": "A tradução não foi encontrada.",
+	"apihelp-sxdelete-description": "Eliminar o rascunho da tradução de secção e os seus ''corpora'' paralelos da base de dados.",
+	"apihelp-sxdelete-summary": "Eliminar o rascunho da tradução de secção e os seus ''corpora'' paralelos da base de dados.",
+	"apihelp-sxdelete-param-translationid": "O identificador de tradução associado ao rascunho da tradução de secção.",
+	"apihelp-sxdelete-param-sectionid": "O identificador de secção do rascunho da tradução de secção.",
+	"apihelp-sxdelete-example-1": "Eliminar um rascunho associado aos identificadores de tradução e secção fornecidos."
 }

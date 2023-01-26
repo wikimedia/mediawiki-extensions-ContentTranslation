@@ -124,7 +124,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "מרחב השם שבו התרגומים המחוקים פורסמו. ברירת המחדל היא המרחב הראשי.",
 	"apihelp-query+cxdeletedtranslations-example-1": "קבלת מספר התרגומים שלך, שפורסמו במרחב הראשי ונמחקו אחרי 2019-04-07 16:24:44",
 	"apihelp-cxpublishsection-description": "שמירת פרק שנוצר באמצעות תכונת תרגום הפרקים של תרגום התוכן.",
-	"apihelp-cxpublishsection-summary": "שמירת דף שנוצר באמצעות תכונת תרגום הפרקים של תרגום תוכן.",
+	"apihelp-cxpublishsection-summary": "שמירת פרק שנוצר באמצעות תכונת תרגום הפרקים של תרגום תוכן.",
 	"apihelp-cxpublishsection-param-title": "כותרת הדף שהפעולות יבוצעו עליו.",
 	"apihelp-cxpublishsection-param-html": "התוכן לשמירה.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "קוד שפת המקור.",
@@ -149,5 +149,10 @@
 	"apihelp-sxsave-param-sectionid": "מזהה הפרק בדף.",
 	"apihelp-sxsave-param-sourcerevision": "מזהה הגרסה של דף המקור.",
 	"apierror-sxsave-anon-user": "פעולת ה־API בעלת המזהה \"sxsave\" אינה מופעלת למשתמשים אלמוניים",
-	"apierror-cxpublishsection-translationnotfound": "התרגום לא נמצא."
+	"apierror-cxpublishsection-translationnotfound": "התרגום לא נמצא.",
+	"apihelp-sxdelete-description": "למחוק את טיוטת תרגום הפרק והקורפוסים המקבילים שלו ממסד הנתונים.",
+	"apihelp-sxdelete-summary": "למחוק את טיוטת תרגום הפרק והקורפוסים המקבילים שלו ממסד הנתונים.",
+	"apihelp-sxdelete-param-translationid": "מזהה התרגום המשויך לתרגום טיוטת הפרק.",
+	"apihelp-sxdelete-param-sectionid": "המזהה של הפרק של טיוטת תרגום הפרק.",
+	"apihelp-sxdelete-example-1": "למחוק טיוטה שמשויכת למזהה התרגום ולמזהה הפרק הנתונים."
 }
