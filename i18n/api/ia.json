@@ -123,7 +123,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Spatio de nomines in le qual le traductiones delite ha essite publicate. Predefinite como le spatio de nomines principal.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Obtener le numero de tu traductiones delite, le quales ha essite publicate in le spatio de nomines principal e delite post 2019-04-07 16:24:44",
 	"apihelp-cxpublishsection-description": "Salveguardar un section create usante le function de traduction de section del extension Traduction de contento.",
-	"apihelp-cxpublishsection-summary": "Salveguardar un pagina create usante le function de traduction de section del extension Traduction de contento.",
+	"apihelp-cxpublishsection-summary": "Salveguardar un section create usante le function de traduction de section del extension Traduction de contento.",
 	"apihelp-cxpublishsection-param-title": "Le titulo del pagina sur le qual exequer actiones.",
 	"apihelp-cxpublishsection-param-html": "Le contento a salveguardar.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Le codice del lingua de origine.",
@@ -148,5 +148,10 @@
 	"apihelp-sxsave-param-sectionid": "Le ID del section del pagina.",
 	"apihelp-sxsave-param-sourcerevision": "Le ID de version del pagina de origine.",
 	"apierror-sxsave-anon-user": "Le action API \"sxsave\" non es activate pro usatores anonyme.",
-	"apierror-cxpublishsection-translationnotfound": "Traduction non trovate."
+	"apierror-cxpublishsection-translationnotfound": "Traduction non trovate.",
+	"apihelp-sxdelete-description": "Deler le version provisori del traduction del section e su corpores parallel del base de datos.",
+	"apihelp-sxdelete-summary": "Deler le version provisori del traduction del section e su corpores parallel del base de datos.",
+	"apihelp-sxdelete-param-translationid": "Le identificator de traduction associate con le version provisori del traduction del section.",
+	"apihelp-sxdelete-param-sectionid": "Le identificator de section del version provisori del traduction del section.",
+	"apihelp-sxdelete-example-1": "Deler un version provisori associate con le identificator de traduction e identificator de section date."
 }
