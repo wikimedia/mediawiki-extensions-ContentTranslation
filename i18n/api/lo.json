@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kimmie023"
+		]
+	},
+	"apihelp-cxpublishsection-summary": "ບັນທຶກພາກສ່ວນທີ່ສ້າງຂຶ້ນໂດຍໃຊ້ຄຸນສົມບັດການແປພາສາໃນສ່ວນຂອງສ່ວນຂະຫຍາຍເນື້ອຫາ.",
+	"apihelp-sxdelete-description": "ລຶບການແປຮ່າງ ແລະ corpora ຂະໜານຂອງມັນອອກຈາກຖານຂໍ້ມູນ.",
+	"apihelp-sxdelete-summary": "ລຶບການແປພາກຮ່າງ ແລະ corpora ຂະໜານຂອງມັນອອກຈາກຖານຂໍ້ມູນ.",
+	"apihelp-sxdelete-param-translationid": "ໄອດີການແປທີ່ກ່ຽວຂ້ອງກັບການແປພາກຮ່າງ."
+}
