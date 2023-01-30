@@ -3,12 +3,13 @@
  *
  * @class
  * @extends mw.cx.ui.ArticleColumn
- * @param {mw.cx.SiteMapper} siteMapper
- * @param {string} language
- * @param {string} title
  * @param {Object} [config] Configuration object
+ * @param {mw.cx.SiteMapper} [config.siteMapper]
+ * @param {string} [config.language]
+ * @param {string} [config.title]
+ * @param {string|null} [config.sectionTitle]
  */
-mw.cx.ui.TargetColumn = function () {
+mw.cx.ui.TargetColumn = function ( config ) {
 	// Parent constructor
 	mw.cx.ui.TargetColumn.super.apply( this, arguments );
 
@@ -21,6 +22,19 @@ mw.cx.ui.TargetColumn = function () {
 		// if this is a section translation, the title widget is an instance
 		// of SectionTitleWidget and "sectionTitleChange" event should be fired on change
 		this.titleWidget.connect( this, { change: [ 'emit', 'sectionTitleChange' ] } );
+
+		var linkHref = this.siteMapper.getPageUrl( this.language, config.title );
+
+		var articleLink = new OO.ui.ButtonWidget( {
+			label: mw.msg( 'cx-target-view-page' ),
+			href: linkHref,
+			target: '_blank',
+			classes: [ 'cx-column-sub-heading-view-page' ],
+			framed: false,
+			flags: [ 'progressive' ]
+		} );
+
+		this.subHeading.addItems( [ articleLink ] );
 	}
 
 	this.$element.addClass( 'cx-column--translation' );

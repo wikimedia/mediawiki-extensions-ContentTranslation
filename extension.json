@@ -1565,6 +1565,7 @@
 				"cx-save-draft-tooltip",
 				"cx-source-loading",
 				"cx-source-view-page",
+				"cx-target-view-page",
 				"cx-tools-linter-abuse-filter",
 				"cx-tools-mt-use-source",
 				"cx-tools-mt-reset",

@@ -8,6 +8,8 @@
  * @param {string} config.sourceLanguage The language of the source page
  * @param {string} config.targetLanguage The language of the target page
  * @param {mw.cx.SiteMapper} config.siteMapper SiteMapper instance
+ * @param {string} [config.sourceSectionTitle] The title of the source section
+ * @param {string} [config.targetSectionTitle] The title of the target section
  */
 mw.cx.ui.TranslationView = function ( config ) {
 	this.infobar = new mw.cx.ui.Infobar( config );

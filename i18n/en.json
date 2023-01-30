@@ -29,6 +29,7 @@
 	"cx-header-translation-center": "Translation center",
 	"cx-header-all-translations": "All translations",
 	"cx-source-view-page": "view page",
+	"cx-target-view-page": "view page",
 	"cx-publish-page-success": "Page published at $1",
 	"cx-publish-error-abuse-filter": "Automatic edit filters have identified problematic content in your translation. Filter hit: $1",
 	"cx-publish-error-empty": "Server has responded with no data.",
