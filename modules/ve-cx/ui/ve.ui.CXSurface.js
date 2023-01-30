@@ -5,13 +5,15 @@
  * @extends ve.ui.Surface
  *
  * @constructor
+ * @param {ve.init.Target} target Target the surface belongs to
  * @param {HTMLDocument|Array|ve.dm.ElementLinearData|ve.dm.Document} dataOrDoc Document data to edit
  * @param {mw.cx.ui.ToolsColumn} toolsColumn Tools column
  * @param {Object} [config] Configuration options
  */
-ve.ui.CXSurface = function VeUiCXSurface( dataOrDoc, toolsColumn, config ) {
+ve.ui.CXSurface = function VeUiCXSurface( target, dataOrDoc, toolsColumn, config ) {
 	// Parent constructor
-	ve.ui.CXSurface.super.call( this, dataOrDoc, config );
+	ve.ui.CXSurface.super.call( this, target, dataOrDoc, config );
+
 	this.toolsContainer = toolsColumn.toolContainer;
 	// Move context to toolsContainer
 	this.toolsContainer.$element.append( this.context.$element );
