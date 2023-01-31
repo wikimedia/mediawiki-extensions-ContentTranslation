@@ -6,7 +6,7 @@
     :selected-source-language="sourceLanguage"
     :selected-target-language="targetLanguage"
     @update:selected-source-language="onSourceLanguageSelected"
-    @update:selected-target-language="onSourceLanguageSelected"
+    @update:selected-target-language="onTargetLanguageSelected"
   />
 </template>
 
