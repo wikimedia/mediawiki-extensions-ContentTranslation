@@ -43,9 +43,8 @@ describe("vuex store saveTranslation action", () => {
       lastrevid: 11,
       title: "Test source title 1",
     }),
-    "application/getCurrentTargetPage": new Page({
-      title: "Test target article title 1",
-    }),
+    "application/getTargetPageTitleForPublishing":
+      "Test target article title 1",
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };

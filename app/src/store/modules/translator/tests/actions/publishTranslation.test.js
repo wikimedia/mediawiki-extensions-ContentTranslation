@@ -71,9 +71,8 @@ describe("vuex store publishTranslation action", () => {
       lastrevid: 11,
       title: "Test source title 1",
     }),
-    "application/getCurrentTargetPage": new Page({
-      title: "Test target article title 1",
-    }),
+    "application/getTargetPageTitleForPublishing":
+      "Test target article title 1",
     "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
     "application/isSandboxTarget": false,
   };
@@ -87,7 +86,7 @@ describe("vuex store publishTranslation action", () => {
   const dispatch = jest.fn((action) => {
     if (action === "saveTranslation") {
       if (
-        rootGetters["application/getCurrentTargetPage"]?.title ===
+        rootGetters["application/getTargetPageTitleForPublishing"] ===
         "Test target article title 3"
       ) {
         return mockErrorPublishFeedbackMessageForSaving;
@@ -133,9 +132,9 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty targetTitle, when publishing fails", async () => {
-    rootGetters["application/getCurrentTargetPage"] = new Page({
-      title: "Test target article title 2",
-    });
+    rootGetters["application/getTargetPageTitleForPublishing"] =
+      "Test target article title 2";
+
     applicationState.currentSourceSection.subSections = [];
     const result = await actions.publishTranslation({
       rootState,
@@ -149,9 +148,8 @@ describe("vuex store publishTranslation action", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    rootGetters["application/getCurrentTargetPage"] = new Page({
-      title: "Test target article title 3",
-    });
+    rootGetters["application/getTargetPageTitleForPublishing"] =
+      "Test target article title 3";
 
     const result = await actions.publishTranslation({
       rootState,

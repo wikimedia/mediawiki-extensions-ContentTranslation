@@ -145,4 +145,14 @@ export default {
 
     return autoSavePending || autoSaveInProgressCounter > 0;
   },
+
+  getTargetPageTitleForPublishing: (state, getters) => {
+    const { currentSourceSection } = state;
+
+    if (!currentSourceSection.isLeadSection) {
+      return getters.getCurrentTargetPage.title;
+    }
+
+    return currentSourceSection.title;
+  },
 };

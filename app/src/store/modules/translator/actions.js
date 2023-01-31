@@ -94,9 +94,9 @@ function saveTranslation({ rootState, rootGetters, commit }) {
     targetLanguage,
   } = rootState.application;
 
-  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
   const sourceTitle = sourcePage.title;
-  const targetTitle = currentTargetPage?.title || sourceTitle;
+  const targetTitle =
+    rootGetters["application/getTargetPageTitleForPublishing"];
 
   const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](
     sourceLanguage,
@@ -173,9 +173,9 @@ async function publishTranslation(
     targetLanguage,
   } = rootState.application;
 
-  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
   const sourceTitle = sourcePage.title;
-  const targetTitle = currentTargetPage?.title || sourceTitle;
+  const targetTitle =
+    rootGetters["application/getTargetPageTitleForPublishing"];
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
 

@@ -35,7 +35,8 @@ const handlePublishResult = async (
     currentSourcePage,
   } = useApplicationState(store);
 
-  const translatedTitle = currentSourceSection?.value.title;
+  const targetPageTitle =
+    store.getters["application/getTargetPageTitleForPublishing"];
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
   // the rest of the code inside this method is only executed when publishing is successful
@@ -46,7 +47,7 @@ const handlePublishResult = async (
         sourceLanguage.value,
         targetLanguage.value,
         currentSourcePage.value.title,
-        translatedTitle // TODO: This is wrong and should be fixed. Target page title should be used here, NOT target section title
+        targetPageTitle
       );
     } catch (error) {
       mw.log.error("Error while adding wikibase link", error);
@@ -66,7 +67,7 @@ const handlePublishResult = async (
   // Since targetTitle is URL encoded, we should decode it before using it
   // as an argument for "mw.util.getUrl"
   location.href = getUrl(decodeURIComponent(targetTitle), {
-    "sx-published-section": decodeHtml(translatedTitle),
+    "sx-published-section": decodeHtml(currentSourceSection.value.title),
     "sx-source-page-title": decodeHtml(currentSourcePage.value.title),
     "sx-source-language": sourceLanguage.value,
     "sx-target-language": targetLanguage.value,
