@@ -70,7 +70,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { useStore } from "vuex";
 import { computed } from "vue";
-import useDraftTranslationStart from "./useDraftTranslationStart"
+import useDraftTranslationStart from "./useDraftTranslationStart";
 
 export default {
   name: "CxTranslationWork",
@@ -90,7 +90,7 @@ export default {
 
       return page?.thumbnail;
     };
-    const startTranslation = useDraftTranslationStart(store, props.translation)
+    const startTranslation = useDraftTranslationStart(props.translation);
 
     const handleActionIconClick = computed(() =>
       props.translation.status === "published"
