@@ -35,6 +35,7 @@
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
 	"apihelp-query+contenttranslation-example-3": "Findet jede Übersetzung für den angegebenen Titel zwischen dem angegebenen Sprachpaar",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Kennung der Übersetzung.",
+	"apihelp-query+contenttranslationcorpora-param-striphtml": "Ob alle HTML-Tags entfernt werden sollen, um Klartext zurückzugeben.",
 	"apihelp-query+contenttranslationstats-description": "Ruft Statistiken zur Inhaltsübersetzung ab.",
 	"apihelp-query+contenttranslationstats-summary": "Ruft Statistiken zur Inhaltsübersetzung ab.",
 	"apihelp-query+contenttranslationstats-example-1": "Bezieht Statistiken zur Inhaltsübersetzung für alle Sprachen.",

@@ -4,5 +4,10 @@
 			"TayfunEt."
 		]
 	},
-	"cx": "Saifeni tercime et"
+	"cx": "Saifeni tercime et",
+	"cx-dashboard-header": "Tercimeler",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tercime etilgen}}",
+	"cx-source-view-page": "saifeni köster",
+	"cx-tools-link-title": "Bağlantı",
+	"cx-tools-link-add": "Bağlantı qoş"
 }
