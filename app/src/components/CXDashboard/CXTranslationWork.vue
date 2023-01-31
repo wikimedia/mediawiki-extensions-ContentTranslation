@@ -71,6 +71,7 @@ import {
 import { useStore } from "vuex";
 import { computed } from "vue";
 import useDraftTranslationStart from "./useDraftTranslationStart";
+import useDraftTranslationDelete from "./useDraftTranslationDelete";
 
 export default {
   name: "CxTranslationWork",
@@ -106,8 +107,7 @@ export default {
     // TODO: Implement "edit published translation" functionality
     const editTranslation = () => {};
 
-    const deleteTranslation = () =>
-      store.dispatch("translator/deleteTranslation", props.translation);
+    const deleteTranslation = useDraftTranslationDelete(props.translation);
 
     return {
       getAutonym,
