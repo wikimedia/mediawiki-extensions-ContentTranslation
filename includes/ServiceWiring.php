@@ -10,6 +10,7 @@ use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
+use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -130,6 +131,10 @@ return [
 				$services->getService( 'ContentTranslation.AbuseFilterChecker' ),
 				$services->getService( 'ContentTranslation.ParsoidClientFactory' )
 			);
+		},
+	'ContentTranslation.TranslatorService' =>
+		static function ( MediaWikiServices $services ): TranslatorService {
+			return new TranslatorService( $services->getCentralIdLookupFactory() );
 		},
 	'ContentTranslation.WikidataIdFetcher' =>
 		static function ( MediaWikiServices $services ): WikidataIdFetcher {

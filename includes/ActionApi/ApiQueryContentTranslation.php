@@ -15,6 +15,7 @@ use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\SectionTranslationDTO;
 use ContentTranslation\DTO\TranslationUnitDTO;
+use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
@@ -34,22 +35,28 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	/** @var CorporaLookup */
 	private $corporaLookup;
 
+	/** @var TranslatorService */
+	private $translatorService;
+
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param CorporaLookup $corporaLookup
+	 * @param TranslatorService $translatorService
 	 */
 	public function __construct(
 		$query,
 		$moduleName,
 		SectionTranslationStore $sectionTranslationStore,
-		CorporaLookup $corporaLookup
+		CorporaLookup $corporaLookup,
+		TranslatorService $translatorService
 	) {
 		parent::__construct( $query, $moduleName );
 
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->corporaLookup = $corporaLookup;
+		$this->translatorService = $translatorService;
 	}
 
 	public function execute() {
@@ -135,7 +142,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$offset = null;
 		if ( $params['sectiontranslationsonly'] ) {
 			$sectionTranslations = $this->sectionTranslationStore->findSectionTranslationsByUser(
-				$translator->getGlobalUserId(),
+				$this->translatorService->getGlobalUserId( $user ),
 				$params['from'],
 				$params['to'],
 				$params['type'],

@@ -2,6 +2,7 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\Service\TranslatorService;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
@@ -15,6 +16,14 @@ class Translation {
 
 	public function __construct( $translation ) {
 		$this->translation = $translation;
+	}
+
+	private static function getTranslatorGlobalUserId( Translator $translator ) {
+		/** @var TranslatorService $translatorService */
+		$translatorService = MediaWikiServices::getInstance()
+			->getService( 'ContentTranslation.TranslatorService' );
+
+		return $translatorService->getGlobalUserId( $translator->getUser() );
 	}
 
 	public function create( Translator $translator ) {
@@ -33,9 +42,9 @@ class Translation {
 			'translation_status' => $this->translation['status'],
 			'translation_progress' => $this->translation['progress'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
-			'translation_last_update_by' => $translator->getGlobalUserId(),
+			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
 			'translation_start_timestamp' => $dbw->timestamp(),
-			'translation_started_by' => $translator->getGlobalUserId(),
+			'translation_started_by' => self::getTranslatorGlobalUserId( $translator ),
 			'translation_cx_version' => $this->translation['cxVersion'],
 		];
 
@@ -75,7 +84,7 @@ class Translation {
 			'translation_status' => $this->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $this->translation['progress'],
-			'translation_last_update_by' => $translator->getGlobalUserId(),
+			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
 			'translation_cx_version' => $this->translation['cxVersion'],
 		];
 
@@ -87,7 +96,7 @@ class Translation {
 		if ( isset( $options['freshTranslation'] ) && $options['freshTranslation'] === true ) {
 			$values['translation_start_timestamp'] = $dbw->timestamp();
 			// TODO: remove this code
-			$values['translation_started_by'] = $translator->getGlobalUserId();
+			$values['translation_started_by'] = self::getTranslatorGlobalUserId( $translator );
 		}
 
 		// BC for a missing schema change
@@ -200,8 +209,8 @@ class Translation {
 			'translation_source_language' => $work->getSourceLanguage(),
 			'translation_target_language' => $work->getTargetLanguage(),
 			'translation_source_title' => $work->getPage(),
-			'translation_started_by' => $translator->getGlobalUserId(),
-			'translation_last_update_by' => $translator->getGlobalUserId(),
+			'translation_started_by' => self::getTranslatorGlobalUserId( $translator ),
+			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
 		];
 
 		$row = $dbr->selectRow( 'cx_translations', '*', $values, __METHOD__ );

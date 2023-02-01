@@ -2,29 +2,28 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\Service\TranslatorService;
 use MediaWiki\MediaWikiServices;
+use User;
 
 class Translator {
 
-	/**
-	 * @var \User
-	 */
-	private $user;
+	private User $user;
 
-	public function __construct( \User $user ) {
+	public function __construct( User $user ) {
 		$this->user = $user;
 	}
 
-	public function getGlobalUserId() {
-		$lookup = MediaWikiServices::getInstance()
-			->getCentralIdLookupFactory()
-			->getLookup();
-		$id = $lookup->centralIdFromLocalUser( $this->user, \CentralIdLookup::AUDIENCE_RAW );
-		if ( $id === 0 ) {
-			throw new \Exception( 'User account is not global' );
-		}
+	private function getGlobalUserId() {
+		/** @var TranslatorService $translatorService */
+		$translatorService = MediaWikiServices::getInstance()
+			->getService( 'ContentTranslation.TranslatorService' );
 
-		return $id;
+		return $translatorService->getGlobalUserId( $this->user );
+	}
+
+	public function getUser(): User {
+		return $this->user;
 	}
 
 	public function addTranslation( $translationId ) {
@@ -242,10 +241,10 @@ class Translator {
 	 * Check whether the user has started at least one translation.
 	 * No need to publish. Translation in any status is fine.
 	 *
-	 * @param \User $user
+	 * @param User $user
 	 * @return bool
 	 */
-	public static function isTranslator( \User $user ) {
+	public static function isTranslator( User $user ) {
 		$translator = new Translator( $user );
 		try {
 			$translatorId = $translator->getGlobalUserId();

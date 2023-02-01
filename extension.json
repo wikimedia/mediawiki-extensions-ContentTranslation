@@ -181,7 +181,12 @@
 				"LanguageNameUtils"
 			]
 		},
-		"cxsuggestionlist": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
+		"cxsuggestionlist": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
+			"services": [
+				"ContentTranslation.TranslatorService"
+			]
+		},
 		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
 	},
 	"APIListModules": {
@@ -189,7 +194,8 @@
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslation",
 			"services": [
 				"ContentTranslation.SectionTranslationStore",
-				"ContentTranslation.CorporaLookup"
+				"ContentTranslation.CorporaLookup",
+				"ContentTranslation.TranslatorService"
 			]
 		},
 		"contenttranslationcorpora": {
@@ -205,14 +211,24 @@
 			]
 		},
 		"contenttranslationstats": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationStats",
-		"contenttranslationsuggestions": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
+		"contenttranslationsuggestions": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
+			"services": [
+				"ContentTranslation.TranslatorService"
+			]
+		},
 		"cxpublishedtranslations": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryPublishedTranslations",
 			"services": [
 				"LanguageNameUtils"
 			]
 		},
-		"cxtranslatorstats": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats"
+		"cxtranslatorstats": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats",
+			"services": [
+				"ContentTranslation.TranslatorService"
+			]
+		}
 	},
 	"APIMetaModules": {
 		"cxdeletedtranslations": "ContentTranslation\\ActionApi\\ApiQueryDeletedTranslations"

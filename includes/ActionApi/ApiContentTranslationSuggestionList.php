@@ -7,14 +7,22 @@
 namespace ContentTranslation\ActionApi;
 
 use ApiBase;
+use ApiMain;
+use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
-use ContentTranslation\Translator;
 use Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationSuggestionList extends ApiBase {
+
+	private TranslatorService $translatorService;
+
+	public function __construct( ApiMain $mainModule, $action, TranslatorService $translatorService ) {
+		parent::__construct( $mainModule, $action );
+		$this->translatorService = $translatorService;
+	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -24,14 +32,14 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$this->dieWithError( 'apierror-cx-mustbeloggedin-suggestions', 'notloggedin' );
 		}
 
-		$translator = new Translator( $user );
+		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
 		$listName = $params['listname'];
 		$manager = new SuggestionListManager();
 
-		$list = $manager->getListByName( $listName, $translator->getGlobalUserId() );
+		$list = $manager->getListByName( $listName, $translatorUserId );
 
 		if ( $list === null ) {
-			$listId = $this->createList( $translator, $listName );
+			$listId = $this->createList( $translatorUserId, $listName );
 		} else {
 			$listId = $list->getId();
 		}
@@ -66,7 +74,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
-	private function createList( $translator, $listName ) {
+	private function createList( $translatorUserId, $listName ) {
 		$manager = new SuggestionListManager();
 		$type = SuggestionList::TYPE_DEFAULT;
 
@@ -80,7 +88,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			'type' => $type,
 			'name' => $listName,
 			'public' => false,
-			'owner'  => $translator->getGlobalUserId(),
+			'owner'  => $translatorUserId,
 		] );
 		return $manager->insertList( $list );
 	}

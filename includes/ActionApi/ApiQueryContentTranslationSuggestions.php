@@ -12,10 +12,10 @@ use ApiBase;
 use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
+use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use DeferredUpdates;
 use FormatJson;
 use MediaWiki\MediaWikiServices;
@@ -26,13 +26,17 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * Api module for querying translation suggestions.
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
+	/** @var TranslatorService */
+	private $translatorService;
 
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
+	 * @param TranslatorService $translatorService
 	 */
-	public function __construct( $query, $moduleName ) {
+	public function __construct( $query, $moduleName, TranslatorService $translatorService ) {
 		parent::__construct( $query, $moduleName );
+		$this->translatorService = $translatorService;
 	}
 
 	public function execute() {
@@ -66,7 +70,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		if ( !empty( $from ) && $from === $to ) {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
-		$translator = new Translator( $user );
+		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
 		$manager = new SuggestionListManager();
 
 		// Get personalized suggestions.
@@ -94,9 +98,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 				'suggestions' => $suggestions,
 			];
 		} else {
-			$personalizedSuggestions = $manager->getFavoriteSuggestions(
-				$translator->getGlobalUserId()
-			);
+			$personalizedSuggestions = $manager->getFavoriteSuggestions( $translatorUserId );
 
 			$data = $personalizedSuggestions;
 
@@ -124,9 +126,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			// Find the titles to filter out from suggestions.
 			$ongoingTranslations = $this->getOngoingTranslations( $suggestions );
 			$existingTitles = $this->getExistingTitles( $suggestions );
-			$discardedSuggestions = $manager->getDiscardedSuggestions(
-				$translator->getGlobalUserId(), $from, $to
-			);
+			$discardedSuggestions = $manager->getDiscardedSuggestions( $translatorUserId, $from, $to );
 			$suggestions = $this->filterSuggestions(
 				$suggestions,
 				array_merge( $existingTitles, $ongoingTranslations, $discardedSuggestions )
