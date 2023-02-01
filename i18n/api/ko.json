@@ -96,7 +96,7 @@
 	"apihelp-query+langlinkscount-description": "문서가 존재하는 다른 언어의 수를 가져옵니다.",
 	"apihelp-query+langlinkscount-summary": "다른 언어의 판의 수를 가져옵니다.",
 	"apihelp-query+langlinkscount-example-1": "'Dog' 문서에 해당하는 다른 언어의 판의 수를 가져옵니다",
-	"apihelp-cxpublishsection-summary": "내용 번역 확장 기능의 문단 번역 기능을 사용하여 만든 문서를 저장합니다.",
+	"apihelp-cxpublishsection-summary": "내용 번역 확장 기능의 문단 번역 기능을 사용하여 만든 문단을 저장합니다.",
 	"apihelp-cxpublishsection-param-html": "저장할 내용입니다.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "원본 언어 코드입니다.",
 	"apihelp-cxpublishsection-param-targetlanguage": "대상 언어 코드입니다.",

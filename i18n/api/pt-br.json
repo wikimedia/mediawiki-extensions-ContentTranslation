@@ -129,7 +129,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espaço nominal no qual as traduções excluídas foram publicadas. Padrões para o espaço nominal principal.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Obtenha o número de suas traduções excluídas, que foram publicadas no espaço nominal principal e excluídas após 07/04/2019 16:24:44",
 	"apihelp-cxpublishsection-description": "Salve uma seção criada usando o recurso de tradução de seção da extensão Tradução de conteúdo.",
-	"apihelp-cxpublishsection-summary": "Salve uma página criada usando o recurso de tradução de seção da extensão tradução de conteúdo.",
+	"apihelp-cxpublishsection-summary": "Salve uma seção criada usando o recurso de tradução de seção da extensão Tradução de conteúdo.",
 	"apihelp-cxpublishsection-param-title": "O título da página na qual executar ações.",
 	"apihelp-cxpublishsection-param-html": "O conteúdo a ser salvo.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "O código do idioma de origem.",
@@ -141,5 +141,12 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "O id de revisão da página de origem.",
 	"apihelp-cxpublishsection-param-captchaid": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Responde ao captcha (ao salvar com uma resposta captcha).",
-	"apierror-cxpublishsection-translationnotfound": "Tradução não encontrada."
+	"apihelp-sxsave-param-sourcelanguage": "O código do idioma de origem.",
+	"apihelp-sxsave-param-targetlanguage": "Código do idioma de destino.",
+	"apihelp-sxsave-param-sourcetitle": "O título da página de origem.",
+	"apihelp-sxsave-param-targettitle": "O título da página de destino.",
+	"apierror-cxpublishsection-translationnotfound": "Tradução não encontrada.",
+	"apihelp-sxdelete-param-translationid": "O identificador de tradução associado ao rascunho da tradução de seção.",
+	"apihelp-sxdelete-param-sectionid": "O identificador de seção do rascunho da tradução de seção.",
+	"apihelp-sxdelete-example-1": "Excluir um rascunho associado aos identificadores de tradução e seção fornecidos."
 }

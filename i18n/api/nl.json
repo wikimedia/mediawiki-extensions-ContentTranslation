@@ -67,5 +67,11 @@
 	"apierror-cx-keynotconfigured": "Sleutel niet geconfigureerd.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Om uw vertalingen te kunnen bekijken moet u aangemeld zijn.",
 	"apierror-cx-samelanguages": "De bron- en doeltaal kunnen niet hetzelfde zijn.",
-	"apierror-cx-translationnotfound": "De vertaling is niet gevonden."
+	"apierror-cx-translationnotfound": "De vertaling is niet gevonden.",
+	"apihelp-cxpublishsection-summary": "Een sectie opslaan die is gemaakt met de sectievertalingsfunctie van de Content Translation-extensie.",
+	"apihelp-sxdelete-description": "De vertaling van de conceptsectie en de parallelle corpora ervan verwijderen uit de database.",
+	"apihelp-sxdelete-summary": "De vertaling van de conceptsectie en de parallelle corpora verwijderen uit de database.",
+	"apihelp-sxdelete-param-translationid": "De vertalings-ID die is gekoppeld aan de vertaling van de conceptsectie.",
+	"apihelp-sxdelete-param-sectionid": "De ID van de sectie van de vertaling van de conceptsectie.",
+	"apihelp-sxdelete-example-1": "Een concept verwijderen dat is gekoppeld aan de opgegeven vertaling-ID en sectie-ID."
 }
