@@ -67,61 +67,6 @@ class Translator {
 		return null;
 	}
 
-	/**
-	 * @param int $limit How many results to return
-	 * @param string|null $offset Offset condition (timestamp)
-	 * @param string|null $type
-	 * @param string|null $from
-	 * @param string|null $to
-	 * @return Translation[]
-	 */
-	public function getAllTranslations(
-		$limit,
-		$offset = null,
-		$type = null,
-		$from = null,
-		$to = null
-	) {
-		// Note: there is no index on translation_last_updated_timestamp
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$tables = [ 'cx_translations', 'cx_translators' ];
-		$fields = '*';
-
-		$conds = [
-			'translator_translation_id = translation_id',
-			'translator_user_id' => $this->getGlobalUserId()
-		];
-		if ( $type !== null ) {
-			$conds['translation_status'] = $type;
-		}
-		if ( $from !== null ) {
-			$conds['translation_source_language'] = $from;
-		}
-		if ( $to !== null ) {
-			$conds['translation_target_language'] = $to;
-		}
-		if ( $offset !== null ) {
-			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );
-			$conds[] = "translation_last_updated_timestamp < $ts";
-		}
-
-		$options = [
-			'ORDER BY' => 'translation_last_updated_timestamp DESC',
-			'LIMIT' => $limit,
-		];
-
-		$res = $dbr->select( $tables, $fields, $conds, __METHOD__, $options );
-
-		$result = [];
-		foreach ( $res as $row ) {
-			$result[] = Translation::newFromRow( $row );
-		}
-
-		return $result;
-	}
-
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );

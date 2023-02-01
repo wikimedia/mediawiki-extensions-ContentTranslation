@@ -17,6 +17,7 @@ use ContentTranslation\DTO\SectionTranslationDTO;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\SectionTranslationStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -29,14 +30,10 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  */
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
-	/** @var SectionTranslationStore */
-	private $sectionTranslationStore;
-
-	/** @var CorporaLookup */
-	private $corporaLookup;
-
-	/** @var TranslatorService */
-	private $translatorService;
+	private SectionTranslationStore $sectionTranslationStore;
+	private CorporaLookup $corporaLookup;
+	private TranslatorService $translatorService;
+	private TranslationStore $translationStore;
 
 	/**
 	 * @param ApiQuery $query
@@ -44,19 +41,22 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param CorporaLookup $corporaLookup
 	 * @param TranslatorService $translatorService
+	 * @param TranslationStore $translationStore
 	 */
 	public function __construct(
 		$query,
 		$moduleName,
 		SectionTranslationStore $sectionTranslationStore,
 		CorporaLookup $corporaLookup,
-		TranslatorService $translatorService
+		TranslatorService $translatorService,
+		TranslationStore $translationStore
 	) {
 		parent::__construct( $query, $moduleName );
 
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->corporaLookup = $corporaLookup;
 		$this->translatorService = $translatorService;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -140,9 +140,10 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 		// Case D: Find list of translations. Either section translations or article translations
 		$offset = null;
+		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
 		if ( $params['sectiontranslationsonly'] ) {
 			$sectionTranslations = $this->sectionTranslationStore->findSectionTranslationsByUser(
-				$this->translatorService->getGlobalUserId( $user ),
+				$translatorUserId,
 				$params['from'],
 				$params['to'],
 				$params['type'],
@@ -160,7 +161,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				$offset = $sectionTranslations[$count - 1]->getLastUpdatedTimestamp();
 			}
 		} else {
-			$translations = $translator->getAllTranslations(
+			$translations = $this->translationStore->getAllTranslationsByUserId(
+				$translatorUserId,
 				$params['limit'],
 				$params['offset'],
 				$params['type'],

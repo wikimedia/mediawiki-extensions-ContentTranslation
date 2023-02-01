@@ -134,7 +134,10 @@ return [
 		},
 	'ContentTranslation.TranslatorService' =>
 		static function ( MediaWikiServices $services ): TranslatorService {
-			return new TranslatorService( $services->getCentralIdLookupFactory() );
+			return new TranslatorService(
+				$services->getCentralIdLookup(),
+				$services->getService( 'ContentTranslation.TranslationStore' )
+			);
 		},
 	'ContentTranslation.WikidataIdFetcher' =>
 		static function ( MediaWikiServices $services ): WikidataIdFetcher {

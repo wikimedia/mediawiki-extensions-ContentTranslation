@@ -195,7 +195,8 @@
 			"services": [
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.CorporaLookup",
-				"ContentTranslation.TranslatorService"
+				"ContentTranslation.TranslatorService",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"contenttranslationcorpora": {
