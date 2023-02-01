@@ -8,6 +8,7 @@
 namespace ContentTranslation;
 
 use Config;
+use ContentTranslation\Service\TranslatorService;
 use DatabaseUpdater;
 use EchoAttributeManager;
 use EchoEvent;
@@ -110,7 +111,10 @@ class Hooks {
 	 * @return bool
 	 */
 	private static function isPotentialTranslator( User $user ) {
-		if ( Translator::isTranslator( $user ) ) {
+		/** @var TranslatorService $translatorService */
+		$translatorService = MediaWikiServices::getInstance()->get( 'ContentTranslation.TranslatorService' );
+
+		if ( $translatorService->isTranslator( $user ) ) {
 			// Already a translator
 			return true;
 		}
@@ -446,7 +450,9 @@ class Hooks {
 			$invitationShown = $preferenceHelper->getGlobalPreference(
 				$user, 'cx_campaign_newarticle_shown'
 			);
-			$existingTranslator = Translator::isTranslator( $user );
+			/** @var TranslatorService $translatorService */
+			$translatorService = MediaWikiServices::getInstance()->get( 'ContentTranslation.TranslatorService' );
+			$existingTranslator = $translatorService->isTranslator( $user );
 			$out->addJsConfigVars( [
 				'wgContentTranslationNewByTranslationShown' => $invitationShown,
 				'wgContentTranslationExistingTranslator' => $existingTranslator,

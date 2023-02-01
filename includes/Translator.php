@@ -236,23 +236,4 @@ class Translator {
 
 		return $dbr->selectField( $table, $field, $conds, __METHOD__ );
 	}
-
-	/**
-	 * Check whether the user has started at least one translation.
-	 * No need to publish. Translation in any status is fine.
-	 *
-	 * @param User $user
-	 * @return bool
-	 */
-	public static function isTranslator( User $user ) {
-		$translator = new Translator( $user );
-		try {
-			$translatorId = $translator->getGlobalUserId();
-		} catch ( \Exception $e ) {
-			// Not a global user and not a translator
-			return false;
-		}
-		$translations = $translator->getAllTranslations( 1 /*limit*/ );
-		return count( $translations ) > 0;
-	}
 }

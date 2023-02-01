@@ -5,6 +5,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Service;
 
 use CentralIdLookup;
+use ContentTranslation\Translator;
 use Exception;
 use MediaWiki\User\CentralId\CentralIdLookupFactory;
 use User;
@@ -31,6 +32,25 @@ class TranslatorService {
 		}
 
 		return $id;
+	}
+
+	/**
+	 * Check whether the user has started at least one translation.
+	 * No need to publish. Translation in any status is fine.
+	 *
+	 * @param User $user
+	 * @return bool
+	 */
+	public function isTranslator( User $user ) {
+		try {
+			$translatorId = $this->getGlobalUserId( $user );
+		} catch ( \Exception $e ) {
+			// Not a global user and not a translator
+			return false;
+		}
+		$translator = new Translator( $user );
+		$translations = $translator->getAllTranslations( 1 /*limit*/ );
+		return count( $translations ) > 0;
 	}
 
 }
