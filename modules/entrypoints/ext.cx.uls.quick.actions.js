@@ -78,7 +78,7 @@
 	}
 
 	var cxEntrypointUrl = siteMapper.getCXUrl(
-		mw.config.get( 'wgPageName' ),
+		mw.config.get( 'wgTitle' ),
 		null,
 		sourceLanguage,
 		getSuggestedTargetLanguage()

@@ -72,7 +72,7 @@
 
 		var siteMapper = new mw.cx.SiteMapper();
 		missingLanguagesPanel.href = siteMapper.getCXUrl(
-			mw.config.get( 'wgPageName' ),
+			mw.config.get( 'wgTitle' ),
 			null,
 			siteMapper.getCurrentWikiLanguageCode(),
 			sxMissingFrequentLanguages[ 0 ].lang,
