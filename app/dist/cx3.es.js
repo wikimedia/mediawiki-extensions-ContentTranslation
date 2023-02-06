@@ -7744,6 +7744,7 @@ var mtValidator = { calculateScore, getScoreStatus, getMTScoreForPageSection };
 class Translation {
   constructor({
     translationId,
+    sectionId,
     sourceTitle,
     sourceLanguage,
     targetLanguage,
@@ -7756,6 +7757,7 @@ class Translation {
     targetSectionTitle
   }) {
     this.id = translationId;
+    this.sectionId = sectionId;
     this.sourceTitle = sourceTitle;
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -7763,7 +7765,7 @@ class Translation {
     this.lastUpdatedTimestamp = lastUpdatedTimestamp;
     this.status = status;
     this.pageRevision = pageRevision;
-    this.targetTitle = sourceTitle;
+    this.targetTitle = targetTitle;
     this.sourceSectionTitle = sourceSectionTitle;
     this.targetSectionTitle = targetSectionTitle;
     this.restored = false;
@@ -8053,13 +8055,23 @@ const saveTranslation$1 = ({
     return new PublishFeedbackMessage({ text, status: "error" });
   });
 };
+const deleteTranslation$1 = (translationId, sectionId) => {
+  const params = {
+    action: "sxdelete",
+    translationid: translationId,
+    sectionid: sectionId
+  };
+  const api = new mw.Api();
+  return api.postWithToken("csrf", params).then(() => true).catch(() => false);
+};
 var translator$1 = {
   fetchTranslations: fetchTranslations$1,
   fetchTranslationUnits,
   fetchSegmentTranslation,
   parseTemplateWikitext,
   publishTranslation: publishTranslation$1,
-  saveTranslation: saveTranslation$1
+  saveTranslation: saveTranslation$1,
+  deleteTranslation: deleteTranslation$1
 };
 class Page {
   constructor({
@@ -8184,9 +8196,8 @@ function saveTranslation({ rootState, rootGetters, commit: commit2 }) {
     sourceLanguage,
     targetLanguage
   } = rootState.application;
-  const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
   const sourceTitle = sourcePage.title;
-  const targetTitle = (currentTargetPage == null ? void 0 : currentTargetPage.title) || sourceTitle;
+  const targetTitle = rootGetters["application/getTargetPageTitleForPublishing"];
   const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](sourceLanguage, targetLanguage);
   const baseSectionId = rootGetters["application/getParallelCorporaBaseId"];
   const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
@@ -8224,9 +8235,8 @@ function publishTranslation(_0) {
       sourceLanguage,
       targetLanguage
     } = rootState.application;
-    const currentTargetPage = rootGetters["application/getCurrentTargetPage"];
     const sourceTitle = sourcePage.title;
-    const targetTitle = (currentTargetPage == null ? void 0 : currentTargetPage.title) || sourceTitle;
+    const targetTitle = rootGetters["application/getTargetPageTitleForPublishing"];
     const isSandbox = rootGetters["application/isSandboxTarget"];
     const publishPayload = {
       html: cleanupHtml(currentSourceSection.translationHtml),
@@ -8291,16 +8301,29 @@ function translateContent(_0, _1) {
     }
   });
 }
+function deleteTranslation(_0, _1) {
+  return __async(this, arguments, function* ({ commit: commit2 }, translation) {
+    const isSuccessful = yield translator$1.deleteTranslation(translation.id, translation.sectionId);
+    if (isSuccessful) {
+      commit2("removeTranslationById", translation.id);
+    }
+    return isSuccessful;
+  });
+}
 var actions$3 = {
   validateMT,
   saveTranslation,
   publishTranslation,
+  deleteTranslation,
   fetchTranslations,
   translateContent
 };
 var mutations$3 = {
   addTranslation(state2, translation) {
     state2.translations.push(translation);
+  },
+  removeTranslationById(state2, translationIdToBeRemoved) {
+    state2.translations = state2.translations.filter((translation) => translation.id !== translationIdToBeRemoved);
   },
   setTranslationsLoaded: (state2, value) => {
     state2.translationsLoaded = value;
@@ -9312,7 +9335,6 @@ class SubSection$1 {
     return this.sentences;
   }
   getParallelCorporaTranslationPayloads(baseSectionId) {
-    var _a, _b;
     const translatedSubSectionNode = this.node.cloneNode(true);
     translatedSubSectionNode.innerHTML = this.translatedContent;
     const payloads = [
@@ -9330,19 +9352,25 @@ class SubSection$1 {
       })
     ];
     if (this.parallelCorporaMTContent) {
-      const origin = this.blockTemplateMTProviderUsed || ((_b = (_a = this.sentences) == null ? void 0 : _a[0]) == null ? void 0 : _b.mtProviderUsed);
       payloads.push(new TranslationUnitPayload({
         baseSectionId,
         subSectionId: this.id,
         content: this.parallelCorporaMTContent,
-        origin
+        origin: this.mtProviderUsed
       }));
     }
     return payloads;
   }
-  get parallelCorporaMTContent() {
+  get mtProviderUsed() {
     var _a;
-    let mtProvider = this.blockTemplateMTProviderUsed;
+    if (this.blockTemplateMTProviderUsed) {
+      return this.blockTemplateMTProviderUsed;
+    }
+    const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
+    return ((_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed) || null;
+  }
+  get parallelCorporaMTContent() {
+    const mtProvider = this.mtProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
     if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
       return null;
@@ -9350,7 +9378,6 @@ class SubSection$1 {
       subSectionNode.innerHTML = this.blockTemplateProposedTranslations[mtProvider];
     } else {
       const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
-      mtProvider = (_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed;
       const sameMTProviderUsed = translatedSentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
       if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
         return null;
@@ -9974,6 +10001,13 @@ var getters = {
   unsavedChangesExist: (state2) => {
     const { autoSavePending, autoSaveInProgressCounter } = state2;
     return autoSavePending || autoSaveInProgressCounter > 0;
+  },
+  getTargetPageTitleForPublishing: (state2, getters2) => {
+    const { currentSourceSection } = state2;
+    if (!currentSourceSection.isLeadSection) {
+      return getters2.getCurrentTargetPage.title;
+    }
+    return currentSourceSection.title;
   }
 };
 function debounce(func, wait, immediate) {
@@ -18740,6 +18774,150 @@ var VisualEditor = /* @__PURE__ */ _export_sfc(_sfc_main$$, [["render", _sfc_ren
 function loadVEModules() {
   return mw.loader.using("mw.cx3.ve");
 }
+let cachedEditCount = null;
+function getGlobalEditCount(userName) {
+  if (cachedEditCount) {
+    return Promise.resolve(cachedEditCount);
+  }
+  const apiURL = "https://en.wikipedia.org/w/api.php";
+  const queryParams = new URLSearchParams({
+    action: "query",
+    meta: "globaluserinfo",
+    guiuser: userName,
+    guiprop: "editcount",
+    formatversion: 2,
+    origin: "*",
+    format: "json"
+  });
+  return fetch(`${apiURL}?${queryParams}`).then((response) => response.json()).then((response) => response.query.globaluserinfo.editcount).catch((error) => {
+    mw.log.error("Error while fetching global edit count for user. ", error);
+  });
+}
+function getUserEditCountBucket(editCount) {
+  if (editCount === null) {
+    return null;
+  }
+  if (editCount === 0) {
+    return "0 edits";
+  }
+  if (editCount < 5) {
+    return "1-4 edits";
+  }
+  if (editCount < 100) {
+    return "5-99 edits";
+  }
+  if (editCount < 1e3) {
+    return "100-999 edits";
+  }
+  return "1000+ edits";
+}
+function logEvent(event) {
+  if (!mw.eventLog) {
+    mw.log({ event });
+    return Promise.resolve();
+  }
+  const accessMethod = "mobile web";
+  const wikiDB = mw.config.get("wgDBname");
+  const sessionId = `cx_sx_${mw.user.sessionId()}_${accessMethod}_${wikiDB}`;
+  const streamName = "mediawiki.content_translation_event";
+  const isAnonUser = mw.user.isAnon();
+  const userName = mw.user.getName();
+  const eventDefaults = {
+    $schema: "/analytics/mediawiki/content_translation_event/1.2.0",
+    translation_type: "section",
+    wiki_db: wikiDB,
+    access_method: accessMethod,
+    user_name: userName,
+    web_session_id: mw.user.sessionId(),
+    web_pageview_id: mw.user.getPageviewToken(),
+    user_is_anonymous: isAnonUser,
+    content_translation_session_id: sessionId
+  };
+  if (isAnonUser) {
+    return Promise.resolve(mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event)));
+  } else {
+    return getGlobalEditCount(userName).then((editCount) => {
+      cachedEditCount = editCount;
+      mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event, {
+        user_global_edit_count: editCount,
+        user_global_edit_count_bucket: getUserEditCountBucket(editCount)
+      }));
+    });
+  }
+}
+const contextSymbol$1 = Symbol("event-logging-context");
+const useEventLogging = function() {
+  const logEvent2 = inject(contextSymbol$1);
+  if (!logEvent2)
+    throw new Error("No event logging method provided!!!");
+  return logEvent2;
+};
+const createEventLogging = () => ({
+  install: (app2) => {
+    app2.provide(contextSymbol$1, logEvent);
+  }
+});
+const useDraftTranslationStart = (translation) => {
+  const logEvent2 = useEventLogging();
+  const store2 = useStore();
+  const router2 = useRouter();
+  const { currentSourcePage, sourceLanguage, targetLanguage } = useApplicationState(store2);
+  const updateLanguagePair = getSuggestionListLanguagePairUpdater(store2);
+  return () => __async(this, null, function* () {
+    const {
+      sourceLanguage: translationSourceLanguage,
+      targetLanguage: translationTargetLanguage,
+      sourceTitle,
+      pageRevision
+    } = translation;
+    if (sourceLanguage.value !== translationSourceLanguage || targetLanguage.value !== translationTargetLanguage) {
+      updateLanguagePair(translationSourceLanguage, translationTargetLanguage);
+    }
+    store2.dispatch("application/restoreSectionTranslation", translation);
+    logEvent2({
+      event_type: "dashboard_translation_continue",
+      translation_id: translation.id,
+      translation_source_language: sourceLanguage.value,
+      translation_source_title: sourceTitle,
+      translation_source_section: translation.sourceSectionTitle,
+      translation_target_language: targetLanguage.value,
+      translation_target_title: translation.targetTitle,
+      translation_target_section: translation.targetSectionTitle
+    });
+    yield store2.dispatch("mediawiki/fetchPageContent", {
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
+      sourceTitle,
+      revision: pageRevision
+    });
+    yield loadVEModules();
+    yield store2.dispatch("mediawiki/resolvePageContentReferences", {
+      sourceLanguage: sourceLanguage.value,
+      sourceTitle
+    });
+    const section = currentSourcePage.value.getSectionByTitle(translation.sourceSectionTitle);
+    store2.commit("application/setCurrentSourceSection", section);
+    router2.push({ name: "sx-sentence-selector", params: { force: true } });
+  });
+};
+const useDraftTranslationDelete = (translation) => {
+  const store2 = useStore();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store2);
+  const logEvent2 = useEventLogging();
+  return () => {
+    store2.dispatch("translator/deleteTranslation", translation);
+    logEvent2({
+      event_type: "dashboard_translation_discard",
+      translation_id: translation.id,
+      translation_source_language: sourceLanguage.value,
+      translation_source_title: translation.sourceTitle,
+      translation_source_section: translation.sourceSectionTitle,
+      translation_target_language: targetLanguage.value,
+      translation_target_title: translation.targetTitle,
+      translation_target_section: translation.targetSectionTitle
+    });
+  };
+};
 var CXTranslationWork_vue_vue_type_style_index_0_lang = "";
 const _sfc_main$_ = {
   name: "CxTranslationWork",
@@ -18753,47 +18931,24 @@ const _sfc_main$_ = {
   emits: ["click"],
   setup(props, { emit }) {
     const store2 = useStore();
-    const router2 = useRouter();
-    const { currentSourcePage, sourceLanguage, targetLanguage } = useApplicationState(store2);
-    const startTranslation = () => __async(this, null, function* () {
-      const {
-        sourceLanguage: translationSourceLanguage,
-        targetLanguage: translationTargetLanguage,
-        sourceTitle,
-        pageRevision
-      } = props.translation;
-      if (sourceLanguage.value !== translationSourceLanguage || targetLanguage.value !== translationTargetLanguage) {
-        const updateLanguagePair = getSuggestionListLanguagePairUpdater(store2);
-        updateLanguagePair(translationSourceLanguage, translationTargetLanguage);
-      }
-      store2.dispatch("application/restoreSectionTranslation", props.translation);
-      yield store2.dispatch("mediawiki/fetchPageContent", {
-        sourceLanguage: sourceLanguage.value,
-        targetLanguage: targetLanguage.value,
-        sourceTitle,
-        revision: pageRevision
-      });
-      yield loadVEModules();
-      yield store2.dispatch("mediawiki/resolvePageContentReferences", {
-        sourceLanguage: sourceLanguage.value,
-        sourceTitle
-      });
-      const section = currentSourcePage.value.getSectionByTitle(props.translation.sourceSectionTitle);
-      store2.commit("application/setCurrentSourceSection", section);
-      router2.push({ name: "sx-sentence-selector", params: { force: true } });
-    });
     const getImage = (language, title) => {
       const page = store2.getters["mediawiki/getPage"](language, title);
       return page == null ? void 0 : page.thumbnail;
     };
+    const startTranslation = useDraftTranslationStart(props.translation);
+    const handleActionIconClick = computed(() => props.translation.status === "published" ? editTranslation : deleteTranslation2);
     const onClick = (event) => {
       emit("click", event);
       startTranslation();
     };
+    const editTranslation = () => {
+    };
+    const deleteTranslation2 = useDraftTranslationDelete(props.translation);
     return {
       getAutonym: src.getAutonym,
       getDir: src.getDir,
       getImage,
+      handleActionIconClick,
       mwIconEdit,
       mwIconTrash,
       mwIconArrowForward,
@@ -18848,8 +19003,9 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
           ]),
           createBaseVNode("div", _hoisted_8$5, [
             createVNode(_component_mw_icon, {
-              icon: $props.translation.status === "published" ? $setup.mwIconEdit : $setup.mwIconTrash
-            }, null, 8, ["icon"])
+              icon: $props.translation.status === "published" ? $setup.mwIconEdit : $setup.mwIconTrash,
+              onClick: withModifiers($setup.handleActionIconClick, ["stop"])
+            }, null, 8, ["icon", "onClick"])
           ])
         ]),
         createBaseVNode("div", _hoisted_9$4, [
@@ -20002,9 +20158,9 @@ const parseValue = (binding) => {
   }
   return { msg, params };
 };
-const contextSymbol$1 = Symbol("banana-context");
+const contextSymbol = Symbol("banana-context");
 function useI18n() {
-  const i18n = inject(contextSymbol$1);
+  const i18n = inject(contextSymbol);
   if (!i18n)
     throw new Error("No i18n provided!!!");
   return i18n;
@@ -20013,7 +20169,7 @@ function createI18n(options) {
   const bananai18n = reactive(new Banana(options.locale, options));
   return {
     install: (app2) => {
-      app2.provide(contextSymbol$1, bananai18n);
+      app2.provide(contextSymbol, bananai18n);
       app2.config.globalProperties.$i18n = (msg, params) => {
         params = params || [];
         if (!Array.isArray(params)) {
@@ -20365,89 +20521,6 @@ var useSuggestionListLanguages = () => {
     availableTargetLanguages
   };
 };
-let cachedEditCount = null;
-function getGlobalEditCount(userName) {
-  if (cachedEditCount) {
-    return Promise.resolve(cachedEditCount);
-  }
-  const apiURL = "https://en.wikipedia.org/w/api.php";
-  const queryParams = new URLSearchParams({
-    action: "query",
-    meta: "globaluserinfo",
-    guiuser: userName,
-    guiprop: "editcount",
-    formatversion: 2,
-    origin: "*",
-    format: "json"
-  });
-  return fetch(`${apiURL}?${queryParams}`).then((response) => response.json()).then((response) => response.query.globaluserinfo.editcount).catch((error) => {
-    mw.log.error("Error while fetching global edit count for user. ", error);
-  });
-}
-function getUserEditCountBucket(editCount) {
-  if (editCount === null) {
-    return null;
-  }
-  if (editCount === 0) {
-    return "0 edits";
-  }
-  if (editCount < 5) {
-    return "1-4 edits";
-  }
-  if (editCount < 100) {
-    return "5-99 edits";
-  }
-  if (editCount < 1e3) {
-    return "100-999 edits";
-  }
-  return "1000+ edits";
-}
-function logEvent(event) {
-  if (!mw.eventLog) {
-    mw.log({ event });
-    return Promise.resolve();
-  }
-  const accessMethod = "mobile web";
-  const wikiDB = mw.config.get("wgDBname");
-  const sessionId = `cx_sx_${mw.user.sessionId()}_${accessMethod}_${wikiDB}`;
-  const streamName = "mediawiki.content_translation_event";
-  const isAnonUser = mw.user.isAnon();
-  const userName = mw.user.getName();
-  const eventDefaults = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.2.0",
-    translation_type: "section",
-    wiki_db: wikiDB,
-    access_method: accessMethod,
-    user_name: userName,
-    web_session_id: mw.user.sessionId(),
-    web_pageview_id: mw.user.getPageviewToken(),
-    user_is_anonymous: isAnonUser,
-    content_translation_session_id: sessionId
-  };
-  if (isAnonUser) {
-    return Promise.resolve(mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event)));
-  } else {
-    return getGlobalEditCount(userName).then((editCount) => {
-      cachedEditCount = editCount;
-      mw.eventLog.submit(streamName, Object.assign({}, eventDefaults, event, {
-        user_global_edit_count: editCount,
-        user_global_edit_count_bucket: getUserEditCountBucket(editCount)
-      }));
-    });
-  }
-}
-const contextSymbol = Symbol("event-logging-context");
-const useEventLogging = function() {
-  const logEvent2 = inject(contextSymbol);
-  if (!logEvent2)
-    throw new Error("No event logging method provided!!!");
-  return logEvent2;
-};
-const createEventLogging = () => ({
-  install: (app2) => {
-    app2.provide(contextSymbol, logEvent);
-  }
-});
 const useSuggestions = () => {
   const store2 = useStore();
   const { sourceLanguage, targetLanguage } = useApplicationState(store2);
@@ -21324,7 +21397,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     "selected-source-language": $setup.sourceLanguage,
     "selected-target-language": $setup.targetLanguage,
     "onUpdate:selectedSourceLanguage": $setup.onSourceLanguageSelected,
-    "onUpdate:selectedTargetLanguage": $setup.onSourceLanguageSelected
+    "onUpdate:selectedTargetLanguage": $setup.onTargetLanguageSelected
   }, null, 8, ["source-languages", "target-languages", "selected-source-language", "selected-target-language", "onUpdate:selectedSourceLanguage", "onUpdate:selectedTargetLanguage"]);
 }
 var SxArticleLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$P]]);
@@ -25623,11 +25696,11 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
     targetLanguage,
     currentSourcePage
   } = useApplicationState(store2);
-  const translatedTitle = currentSourceSection == null ? void 0 : currentSourceSection.value.title;
+  const targetPageTitle = store2.getters["application/getTargetPageTitleForPublishing"];
   const isSandboxTarget = store2.getters["application/isSandboxTarget"];
   if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
     try {
-      yield siteApi.addWikibaseLink(sourceLanguage.value, targetLanguage.value, currentSourcePage.value.title, translatedTitle);
+      yield siteApi.addWikibaseLink(sourceLanguage.value, targetLanguage.value, currentSourcePage.value.title, targetPageTitle);
     } catch (error) {
       mw.log.error("Error while adding wikibase link", error);
     }
@@ -25638,7 +25711,7 @@ const handlePublishResult = (store2, isPublishDialogActive, isPublishingDisabled
     throw new Error(errorMessage);
   }
   location.href = getUrl(decodeURIComponent(targetTitle), {
-    "sx-published-section": decodeHtml(translatedTitle),
+    "sx-published-section": decodeHtml(currentSourceSection.value.title),
     "sx-source-page-title": decodeHtml(currentSourcePage.value.title),
     "sx-source-language": sourceLanguage.value,
     "sx-target-language": targetLanguage.value
