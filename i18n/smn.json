@@ -57,6 +57,8 @@
 	"cx-stats-tabs-expand": "Čääiti puoh kielâid",
 	"echo-category-title-cx": "Jurgâlusah",
 	"cx-suggestionlist-expand": "Čääiti puoh",
+	"cx-infobar-view-issues": "Čääiti čuolmâid",
+	"cx-tools-linter-issues": "Čuolmah",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 feilâ|$1 feeilâ|$1 feilâd}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 váruttâs|$1 váruttâs|$1 váruttâssâd}}",
 	"cx-tools-linter-template-add-new": "Lasseet uđđâ myenster",
@@ -70,5 +72,6 @@
 	"cx-sx-language-selector-dialog-title": "Uusâ kielâ",
 	"cx-sx-view-translation-anchor": "Čääiti",
 	"cx-sx-existing-translation-learn-more": "Lasetiäđuh",
+	"cx-sx-section-selector-view-article-button-label": "Čääiti artikkâl kielân $1",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lasetiäđuh"
 }
