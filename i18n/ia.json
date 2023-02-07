@@ -22,6 +22,7 @@
 	"cx-header-translation-center": "Centro de traduction",
 	"cx-header-all-translations": "Tote le traductiones",
 	"cx-source-view-page": "vider pagina",
+	"cx-target-view-page": "vider pagina",
 	"cx-publish-page-success": "Pagina publicate in $1",
 	"cx-publish-error-abuse-filter": "Le filtros automatic de modification ha identificate contento problematic in tu traduction. Le filtro ha detegite: $1",
 	"cx-publish-error-empty": "Le servitor ha respondite sin inviar datos.",

@@ -32,6 +32,7 @@
 	"cx-header-translation-center": "Übersetzungscenter",
 	"cx-header-all-translations": "Alle Übersetzungen",
 	"cx-source-view-page": "Seite ansehen",
+	"cx-target-view-page": "Seite ansehen",
 	"cx-publish-page-success": "Seite veröffentlicht unter $1",
 	"cx-publish-error-abuse-filter": "Automatische Bearbeitungsfilter haben problematische Inhalte in deiner Übersetzung erkannt. Einzelheiten: $1",
 	"cx-publish-error-empty": "Der Server hat ohne Daten geantwortet.",

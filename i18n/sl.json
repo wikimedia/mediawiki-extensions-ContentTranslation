@@ -22,6 +22,7 @@
 	"cx-header-translation-center": "Prevajalsko središče",
 	"cx-header-all-translations": "Vsi prevodi",
 	"cx-source-view-page": "ogled strani",
+	"cx-target-view-page": "ogled strani",
 	"cx-publish-page-success": "Stran je objavljena na naslovu $1.",
 	"cx-publish-error-abuse-filter": "Samodejni filtri urejanja so v vašem prevodu zaznali problematično vsebino. Ujemajoči filter: $1",
 	"cx-publish-error-empty": "Strežnik se je odzval brez podatkov.",

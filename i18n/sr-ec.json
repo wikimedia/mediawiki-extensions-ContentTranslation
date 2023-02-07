@@ -29,6 +29,7 @@
 	"cx-header-translation-center": "Центар за превођење",
 	"cx-header-all-translations": "Сви преводи",
 	"cx-source-view-page": "прикажи страницу",
+	"cx-target-view-page": "прикажи страницу",
 	"cx-publish-page-success": "Страница $1 је објављена.",
 	"cx-publish-error-abuse-filter": "Аутоматски филтери измена су препознали проблематичну садржину у преводу. Детаљи: $1",
 	"cx-publish-error-empty": "Сервер је одговорио без података.",

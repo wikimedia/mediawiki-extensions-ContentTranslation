@@ -32,6 +32,7 @@
 	"cx-header-translation-center": "מרכז התרגום",
 	"cx-header-all-translations": "כל התרגומים",
 	"cx-source-view-page": "הצגת הדף",
+	"cx-target-view-page": "הצגת הדף",
 	"cx-publish-page-success": "הדף פורסם בכתובת $1",
 	"cx-publish-error-abuse-filter": "מסנני עריכות אוטומטיים זיהו תוכן בעייתי בתרגום שלך. המסנן שנתקלת בו: $1",
 	"cx-publish-error-empty": "השרת השיב ללא נתונים.",

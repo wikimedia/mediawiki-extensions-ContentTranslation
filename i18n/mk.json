@@ -20,6 +20,7 @@
 	"cx-header-translation-center": "Преводен центар",
 	"cx-header-all-translations": "Сите преводи",
 	"cx-source-view-page": "погл. страница",
+	"cx-target-view-page": "погл. страница",
 	"cx-publish-page-success": "Страницата е објавена на $1",
 	"cx-publish-error-abuse-filter": "Автоматските филтри за уредувања утврдија проблематична содржина во вашиот превод. Најдено: $1",
 	"cx-publish-error-empty": "Опслужувачот не даде податоци.",
