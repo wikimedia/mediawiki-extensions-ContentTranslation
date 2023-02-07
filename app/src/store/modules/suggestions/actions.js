@@ -56,15 +56,17 @@ async function loadSectionSuggestion(
       );
 
       if (!suggestion) {
+        const page = rootGetters["mediawiki/getPage"](
+            sourceLanguage,
+            sourceTitle
+        );
         suggestion = new SectionSuggestion({
           sourceLanguage,
           targetLanguage,
-          sourceTitle,
+          // suggestion source title is directly displayed to the user (it's used in v-text
+          // directives in some SFCs), so use the normalized page title here
+          sourceTitle: page.title,
         });
-        const page = rootGetters["mediawiki/getPage"](
-          sourceLanguage,
-          sourceTitle
-        );
         commit(
           "addPageSuggestion",
           new ArticleSuggestion({

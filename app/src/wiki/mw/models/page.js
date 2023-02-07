@@ -11,7 +11,7 @@ export default class Page {
    * @param {string} [options.pageviews]
    * @param {string} [options.thumbnail]
    * @param {string} [options.title]
-   * @param {string|null} [options._alias] The title from this page redirected from, if any. See mw/api/page.js#fetchMetadata
+   * @param {string|null} [options._alias] The normalized page title or the title from which this page is a redirection, if any. See mw/api/page.js#fetchMetadata
    * @param {string|null} [options.content]
    * @param {PageSection[]} [options.sections]
    */
