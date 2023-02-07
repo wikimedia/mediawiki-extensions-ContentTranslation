@@ -68,7 +68,7 @@
 
 		for ( languageIndex = 0; languageIndex < results.length; languageIndex++ ) {
 			cxUrl = sitemapper.getCXUrl(
-				mw.config.get( 'wgTitle' ),
+				mw.config.get( 'wgPageName' ),
 				null,
 				mw.config.get( 'wgContentLanguage' ),
 				results[ languageIndex ],
@@ -98,7 +98,7 @@
 		cxUrl = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: CAMPAIGN,
 			from: mw.config.get( 'wgContentLanguage' ),
-			page: mw.config.get( 'wgTitle' ),
+			page: mw.config.get( 'wgPageName' ),
 			sx: true
 		} );
 		moreButton = new OO.ui.ButtonWidget( {

@@ -1,7 +1,7 @@
 ( function () {
 	'use strict';
 	var siteMapper = new mw.cx.SiteMapper();
-	var targetTitle = mw.config.get( 'wgTitle' );
+	var targetTitle = mw.config.get( 'wgPageName' );
 	var targetLanguage = siteMapper.getCurrentWikiLanguageCode();
 
 	// Copied from ext.cx.entrypoints.newbytranslation.js
