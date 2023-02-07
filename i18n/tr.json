@@ -40,7 +40,8 @@
 			"Violetanka",
 			"Watermelon juice",
 			"Ömer Berkay",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Yikipedi"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -126,7 +127,7 @@
 	"cx-page-number-of-languages": "Dil sayısı",
 	"cx-mt-abuse-error-title": "Çevirinizde %$1 oranında değiştirilmemiş metin {{PLURAL:$1|var}}",
 	"cx-mt-abuse-error-sections": "Çeviriniz, önemli ölçüde değiştirilmemiş metin içeriyor.",
-	"cx-mt-abuse-error-text": "Otomatik çeviri, yalnızca bir başlangıç noktası olarak sunulmaktadır. İçeriğin doğru ve dilinizin doğal yapısına uygun olduğundan emin olmalısınız.\n\nÇeviriniz daha fazla düzenleme yapılmadan yayımlanamaz.",
+	"cx-mt-abuse-error-text": "Otomatik çeviri, yalnızca bir başlangıç noktası olarak sunulmaktadır. İçeriğin doğru ve dilinizin doğal yapısına uygun olduğundan emin olmalısınız.\n\nÇeviriniz daha fazla değişiklik yapılmadan yayımlanamaz.",
 	"cx-mt-abuse-warning-title": "Çevirinizin bir kısmı %$1 oranında düzenlenmemiş metin {{PLURAL:$1|içerir}}",
 	"cx-mt-abuse-warning-text": "Otomatik çeviri, yalnızca bir başlangıç noktası olarak sunulmaktadır. İçeriğin doğru ve dilinizin doğal yapısına uygun olduğundan emin olmalısınız.\n\nÇeviriniz, diğer editörler tarafından incelendiğinde silinebilir.",
 	"cx-publish-captcha-title": "Robot olmadığınız kontrol ediliyor",
@@ -255,7 +256,7 @@
 	"cx-tools-linter-page-exists": "Sayfa zaten mevcut",
 	"cx-tools-linter-page-exists-message": "$1 adıyla bir sayfa zaten mevcut. Çevirinizin yayımlanması mevcut içeriğin üzerine yazılmasıyla sonuçlanacaktır.\n\nMevcut sayfayı değiştirmenin uygun olup olmadığını kontrol edin veya çevirinizi yeniden adlandırmayı düşünün.",
 	"cx-tools-linter-cannot-publish-title": "Yalnızca deneyimli kullanıcıların yayımlanmasına izin verilmektedir",
-	"cx-tools-linter-cannot-publish-message": "Bu topluluk, çevirilerin yayımlanmasını yalnızca deneyimli editörlerle sınırlandırmaya karar vermiştir.\nBu vikide düzenleme konusunda daha fazla deneyim edinmeden bu çeviriyi yayımlayamazsınız ancak:<ul>\n<li>Çevirinizi taslak olarak yayımlayabilir ve daha sonra madde oluşturmak için düzenleme araçlarını kullanabilirsiniz.</li>\n<li>Bu maddeyi bu sınırlama olmadan farklı bir dile çevirin.</li></ul>",
+	"cx-tools-linter-cannot-publish-message": "Bu topluluk, çevirilerin yayımlanmasını yalnızca deneyimli editörlerle sınırlandırmaya karar vermiştir.\nBu vikide değişiklik yapma konusunda daha fazla deneyim edinmeden bu çeviriyi yayımlayamazsınız ancak:<ul>\n<li>Çevirinizi taslak olarak yayımlayabilir ve daha sonra madde oluşturmak için değişiklik araçlarını kullanabilirsiniz.</li>\n<li>Bu maddeyi bu sınırlama olmadan farklı bir dile çevirin.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Taslak olarak yayımlamaya ayarla",
 	"cx-tools-linter-template": "Şablon kullanılamıyor",
 	"cx-tools-linter-template-block-message": "Orijinal sayfa, hedef wiki'de bulunmayan bir şablon kullanıyor.\n\nBu şablon atlandı ancak eksik bilgileri yakalamak için yeni içerik ekleyebilirsiniz.",
@@ -339,7 +340,7 @@
 	"cx-sx-sentence-selector-header-title": "Bölümü çevir",
 	"cx-sx-sentence-selector-done-button-label": "Yapıldı",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 üzerinden önerilen çeviri",
-	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi düzenle",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi değiştir",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Uygula",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Atla",
 	"cx-sx-content-comparator-target-selector-full-article-title": "$1 dilinde tam madde",

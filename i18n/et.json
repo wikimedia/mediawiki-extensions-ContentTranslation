@@ -284,6 +284,7 @@
 	"cx-sx-section-selector-unsupported-sections-title": "Toetamata alaosad",
 	"cx-sx-section-selector-unsupported-sections-description": "Mõni alaosa võib sellest loendist puududa, kuna selle sisu ei toetata veel.",
 	"cx-suggestion-list-new-pages-division": "Alusta uusi lehekülgi",
+	"cx-translation-list-all-languages-option-label": "Kõik",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Tagasi kõigi alaosade juurde",
 	"cx-sx-content-comparator-translation-section-button-label": "Tõlgi see alaosa",
 	"cx-sx-content-comparator-review-contents-title": "Kontrolli kattumisi",
@@ -364,6 +365,13 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Vaata üle ja muuda tõlget",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Muuda tõlget",
 	"sx-block-template-adaptation-card-body-header-failure": "Samasisulist malli pole selles keeles ($1) saadaval.",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Puudub järgmises keeles: <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Puudub järgmistes keeltes: <span>$1</span> ja <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Puudub muu hulgas järgmistes keeltes: <span>$1</span>, <span>$2</span>",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Puudub muu hulgas järgmises keeles: <span>$1</span>",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Puudub muu hulgas järgmistes keeltes: <span>$1</span> ja <span>$2</span>",
+	"cx-uls-relevant-languages-panel-header": "Selle lehekülje tõlkimine",
+	"cx-uls-relevant-languages-panel-message": "See lehekülg puudub mõnes keeles, mida võid osata. Saad selle mõne minutiga tõlkida!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Sellest saab <strong>uue artikli esimene alaosa!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Tõlgi see lehekülg"
 }

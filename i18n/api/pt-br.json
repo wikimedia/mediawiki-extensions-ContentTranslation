@@ -141,5 +141,9 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "O id de revisão da página de origem.",
 	"apihelp-cxpublishsection-param-captchaid": "ID Captcha (quando salvar com uma resposta captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "Responde ao captcha (ao salvar com uma resposta captcha).",
+	"apihelp-sxsave-param-sourcelanguage": "O código do idioma de origem.",
+	"apihelp-sxsave-param-targetlanguage": "Código do idioma de destino.",
+	"apihelp-sxsave-param-sourcetitle": "O título da página de origem.",
+	"apihelp-sxsave-param-targettitle": "O título da página de destino.",
 	"apierror-cxpublishsection-translationnotfound": "Tradução não encontrada."
 }

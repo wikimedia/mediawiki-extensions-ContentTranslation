@@ -56,6 +56,7 @@
 	"cx-campaign-newbytranslation-title": "Nahiago al duzu itzulpen batetik hasi?",
 	"cx-campaign-newbytranslation-notice": "Sortu artikulu berri bat ezagutzen duzun beste hizkuntza batetik itzulita.",
 	"cx-campaign-newbytranslation-search": "Aurkitu itzultzeko beste orrialde bat",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Hasi itzultzen",
 	"cx-special-login-error": "Orri honetan itzultzeko, sartu beharra daukazu. [$1 Saioa hasi]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klik egin}} paragrafoetan itzulpena egiteko",
@@ -278,5 +279,7 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Atala",
 	"sx-editor-feedback-overlay-title": "Eskerrik asko!",
 	"sx-editor-feedback-overlay-clarification": "Zure zuzenketatik ikasten",
-	"cx-suggestion-list-favorites-division": "Geroko"
+	"cx-suggestion-list-favorites-division": "Geroko",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ez dago eskuragarri: <span>$1</span>",
+	"cx-uls-relevant-languages-panel-message": "Orrialde hau ezagutu ditzakezun hizkuntza batzuetan falta da. Ti-ta itzul ditzakezu!"
 }
