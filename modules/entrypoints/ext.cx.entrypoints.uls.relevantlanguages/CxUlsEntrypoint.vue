@@ -41,11 +41,11 @@
 			>
 			</p>
 			<div class="cx-uls-entrypoint__body__translation-links row">
-				<button
+				<a
 					v-for="language in slicedLanguages"
 					:key="'link-' + language"
 					class="cx-uls-entrypoint__body__translation-link"
-					@click="redirectToCX( language )"
+					:href="getCXUrlByTargetLanguage( language )"
 				>
 					<span class="cx-uls-entrypoint__body__translation-link-icon">
 						<svg
@@ -67,10 +67,10 @@
 						:dir="getDir( language )"
 						v-text="getAutonym( language )"
 					></span>
-				</button>
-				<button
+				</a>
+				<a
 					class="cx-uls-entrypoint__body__translation-link"
-					@click="redirectToCX( language )"
+					:href="getCXUrlByTargetLanguage( null )"
 				>
 					<span class="cx-uls-entrypoint__body__translation-link-icon">
 						<svg
@@ -86,7 +86,7 @@
 							</g>
 						</svg>
 					</span>
-				</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -122,9 +122,11 @@ module.exports = {
 		};
 
 		var sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
-		var redirectToCX = function ( targetLanguage ) {
+
+		var getCXUrlByTargetLanguage = function ( targetLanguage ) {
 			var sourceTitle = mw.config.get( 'wgTitle' );
-			location.href = siteMapper.getCXUrl(
+
+			return siteMapper.getCXUrl(
 				sourceTitle,
 				'',
 				sourceLanguage,
@@ -140,7 +142,7 @@ module.exports = {
 			iconColor: 'currentColor',
 			plusIconPath: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z',
 			previousIconPath: 'M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z',
-			redirectToCX: redirectToCX,
+			getCXUrlByTargetLanguage: getCXUrlByTargetLanguage,
 			showPanel: showPanel,
 			size: 20,
 			slicedLanguages: slicedLanguages,
@@ -155,6 +157,7 @@ module.exports = {
 
 .cx-uls-entrypoint {
   border: @border-base;
+  color: @color-base;
   &--hidden {
     display: none;
   }
@@ -206,16 +209,20 @@ module.exports = {
     }
     &__translation-link {
       padding: 4px;
-      margin-inline-end: 4px;
       background: none;
       border: none;
       align-items: center;
       display: flex;
+      // set color to "inherit", so that the CX links have the same color as the rest of the text body (@color-base)
+      color: inherit;
       &-icon {
+        // set display to "flex", so that the height of the outer span is equal to the icon height (20px)
+        display: flex;
         padding-inline-end: 4px;
       }
       &-text {
         font-size: 16px;
+        margin-inline-end: 4px;
       }
     }
   }
