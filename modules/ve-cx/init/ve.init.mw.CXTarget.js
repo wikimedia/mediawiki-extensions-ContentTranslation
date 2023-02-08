@@ -343,7 +343,7 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
 	var surface, documentView;
 
-	surface = new ve.ui.CXSurface( dmDoc, this.translationView.toolsColumn, config );
+	surface = new ve.ui.CXSurface( this, dmDoc, this.translationView.toolsColumn, config );
 
 	// eslint-disable-next-line mediawiki/class-doc
 	surface.$element.addClass( this.protectedClasses );
