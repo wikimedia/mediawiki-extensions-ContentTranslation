@@ -106,6 +106,9 @@
 	"cx-favorite-added-for-later": "Toegevoegd voor later!",
 	"cx-page-missing-in-target-language": "ontbrekend in $1",
 	"cx-page-number-of-languages": "Aantal talen",
+	"cx-mt-abuse-error-title": "Uw vertaling {{PLURAL:$1|bevat}} in totaal $1% ongewijzigde tekst",
+	"cx-mt-abuse-error-sections": "Uw vertaling bevat aanzienlijke delen ongewijzigde tekst",
+	"cx-mt-abuse-error-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen.\n\nUw vertaling kan niet worden gepubliceerd zonder verdere wijzigingen.",
 	"cx-mt-abuse-warning-title": "Een deel van uw vertaling {{PLURAL:$1|bevat}} $1% van de ongewijzigde tekst",
 	"cx-mt-abuse-warning-text": "Automatische vertalingen zijn alleen bedoeld als startpunt. U dient voor een correcte inhoud en een natuurlijke schrijfwijze in uw taal te zorgen. Uw vertaling wordt waarschijnlijk verwijderd wanneer het gecontroleerd wordt door andere editoren.",
 	"cx-publish-captcha-title": "Robotcontrole",
@@ -171,6 +174,8 @@
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Een nieuwe vertaling toevoegen",
 	"cx-campaign-contributionsmenu-myuploads": "Geüploade media",
 	"cx-no-source-categories": "Geen categorieën",
+	"cx-no-target-categories": "Geen categorieën. Overweeg er enkele toe te voegen om het onderwerp beter te classificeren.",
+	"cx-no-adapted-categories": "De oorspronkelijke categorieën bestaan niet in deze taal. Verken meer categorieën om het onderwerp beter te beschrijven.",
 	"cx-trend-deletions": "Verwijderde vertalingen",
 	"cx-trend-translations-to": "Vertalingen naar het $1",
 	"cx-stats-try-contenttranslation": "Content Translation is een hulpmiddel om nieuwe pagina's aan te maken door vanuit andere talen te vertalen. [$1 Probeer Content Translation]",
@@ -357,6 +362,9 @@
 	"sx-editor-feedback-overlay-title": "Bedankt!",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
 	"cx-suggestion-list-favorites-division": "Voor later",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Deze pagina bewerken",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" vertalen",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" en \"$2\" vertalen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",
 	"sx-block-template-adaptation-card-body-header-success": "Voorgesteld sjabloon"
 }
