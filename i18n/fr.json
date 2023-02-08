@@ -65,6 +65,7 @@
 	"cx-header-translation-center": "Centre de traduction",
 	"cx-header-all-translations": "Toutes les traductions",
 	"cx-source-view-page": "afficher la page",
+	"cx-target-view-page": "afficher la page",
 	"cx-publish-page-success": "Page publiée sur $1",
 	"cx-publish-error-abuse-filter": "Les filtres de modification automatique ont identifié un contenu problématique dans votre traduction. Filtre  atteint : $1",
 	"cx-publish-error-empty": "Le serveur a répondu avec aucune donnée.",

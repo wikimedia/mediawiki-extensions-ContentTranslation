@@ -31,6 +31,7 @@
 	"cx-header-translation-center": "अनुवाद केन्द्र",
 	"cx-header-all-translations": "सभी अनुवाद",
 	"cx-source-view-page": "पृष्ठ देखें",
+	"cx-target-view-page": "पृष्ठ देखें",
 	"cx-publish-page-success": "पृष्ठ $1 पर प्रकाशित हुआ।",
 	"cx-publish-error-abuse-filter": "स्वचालित एडिट फ़िल्टर ने आपके अनुवाद में समस्याग्रस्त सामग्री पाई है। फ़िल्टर हिट: $1",
 	"cx-publish-error-empty": "सर्वर ने बिना डाटा के उत्तर दिया है।",
