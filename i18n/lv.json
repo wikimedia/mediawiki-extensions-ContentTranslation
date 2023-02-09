@@ -17,6 +17,7 @@
 	"cx-header-translation-center": "Tulkojumu centrs",
 	"cx-header-all-translations": "Visi tulkojumi",
 	"cx-source-view-page": "apskatīt lapu",
+	"cx-target-view-page": "apskatīt lapu",
 	"cx-publish-page-success": "Lapa publicēta $1",
 	"cx-publish-error-abuse-filter": "Automātiskie labošanas filtri tavā tulkojumā saskatīja problemātisku saturu. Aktivizētais filtrs: $1",
 	"cx-publish-error-empty": "Servera atbildē nebija datu.",

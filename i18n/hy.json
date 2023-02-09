@@ -26,6 +26,7 @@
 	"cx-header-translation-center": "Թարգմանությունների կենտրոն",
 	"cx-header-all-translations": "Բոլոր թարգմանությունները",
 	"cx-source-view-page": "դիտել էջը",
+	"cx-target-view-page": "դիտել էջը",
 	"cx-publish-page-success": "Էջը հրապարակվել է $1-ում",
 	"cx-publish-error-abuse-filter": "Խմբագրման ինքնաշխատ զտիչները հայտնաբերել են խնդրահարույց բովանդակություն Ձեր թարգմանության մեջ։ Ներգրավված զտիչ՝ $1",
 	"cx-publish-error-empty": "Սերվերի պատասխանը տվյալներ չի պարունակում։",
