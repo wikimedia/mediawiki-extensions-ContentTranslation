@@ -9,6 +9,7 @@
 	"cx-header-all-translations": "Soglleo onnkara",
 	"tag-contenttranslation-description": "Mozkur Content Translation sadhon vaprun dusrea bhaxent savn bhaxantor kela.",
 	"tag-contenttranslation-v2-description": "Mozkur Content Translation sadhonachem avruti 2 vaprun dusrea bhaxent savn bhaxantor kela.",
+	"cx-page-missing-in-target-language": "$1 ant mellona",
 	"cx-dashboard-sidebar-title": "Onnkar korpak adar {{GENDER:|zai}}?",
 	"cx-translation-filter-published-translations": "Prokaxit",
 	"cx-translation-filter-draft-translations": "Chalu asa",
@@ -26,5 +27,7 @@
 	"echo-category-title-cx": "Onnkaram",
 	"cx-notification-tenth-translation": "Tujea dhavi onnkarakhatir porbim! Tum ek boro onnkarpi zatai.\nHem borem kam oxench chalu dovor!",
 	"cx-translationlist-empty-title": "Onnkar korpak kai na?",
-	"cx-feature-discovery-dismiss": "Borem asa, {{GENDER:|somzolom|somzolim|somzolom/somzolim}}"
+	"cx-feature-discovery-dismiss": "Borem asa, {{GENDER:|somzolom|somzolim|somzolom/somzolim}}",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> ani heranim mellona",
+	"cx-uls-translate-page-quick-action-label": "Hea panachem onnkar kor"
 }

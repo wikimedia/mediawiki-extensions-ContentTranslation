@@ -48,6 +48,7 @@
 	"cx-header-translation-center": "Vertaalcentrum",
 	"cx-header-all-translations": "Alle vertalingen",
 	"cx-source-view-page": "pagina bekijken",
+	"cx-target-view-page": "pagina bekijken",
 	"cx-publish-page-success": "Pagina gepubliceerd op $1",
 	"cx-publish-error-abuse-filter": "Automatische bewerkingsfilters hebben problematische inhoud in uw vertaling gedetecteerd. Het filter vond: $1",
 	"cx-publish-error-readonly": "Wijzigen op deze wiki is niet toegestaan.",
