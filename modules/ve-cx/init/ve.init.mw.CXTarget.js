@@ -615,9 +615,7 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function ( transaction ) {
 
 	/** @type {ve.dm.Document} */
 	var docModel = this.targetSurface.getModel().getDocument();
-	// Include changes within the internal list
-	var includeInternalList = true;
-	var changedRange = transaction.getModifiedRange( docModel, includeInternalList );
+	var changedRange = transaction.getModifiedRange( docModel, { includeInternalList: true } );
 	if ( !changedRange ) {
 		return;
 	}
