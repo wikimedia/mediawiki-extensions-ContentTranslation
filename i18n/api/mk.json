@@ -131,7 +131,7 @@
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "Насловот на изворниот оддел.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "Насловот на целниот оддел.",
 	"apihelp-cxpublishsection-param-sectionnumber": "Положба на одделот што треба да биде во новата преработка на страницата.",
-	"apihelp-cxpublishsection-param-sourcerevid": "Назнака на преработката во изворната стрнаица.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Назнака на преработката во изворната страница.",
 	"apihelp-cxpublishsection-param-captchaid": "Назнака за сликичка за проверка (кога зачувувате со одѕив од сликичка).",
 	"apihelp-cxpublishsection-param-captchaword": "Одговор на сликичката (кога зачувувате со одѕив од сликичка)."
 }
