@@ -63,9 +63,7 @@ ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
  * @return {number} Index of issue or -1 if not found.
  */
 ve.dm.CXLintableNode.prototype.findIssueIndex = function ( name ) {
-	var i, length = this.translationIssues.length;
-
-	for ( i = 0; i < length; i++ ) {
+	for ( var i = 0, length = this.translationIssues.length; i < length; i++ ) {
 		if ( this.translationIssues[ i ].getName() === name ) {
 			return i;
 		}

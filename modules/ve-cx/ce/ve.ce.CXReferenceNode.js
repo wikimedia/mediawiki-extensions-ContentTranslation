@@ -37,12 +37,10 @@ ve.ce.CXReferenceNode.prototype.onAttributeChange = function ( key ) {
  * @inheritdoc
  */
 ve.ce.CXReferenceNode.prototype.update = function () {
-	var adaptationInfo;
-
 	// Parent method
 	ve.ce.CXReferenceNode.super.prototype.update.apply( this, arguments );
 
-	adaptationInfo = this.model.getAdaptationInfo();
+	var adaptationInfo = this.model.getAdaptationInfo();
 	if ( adaptationInfo && adaptationInfo.adapted === false ) {
 		this.$link.addClass( 've-ce-cxReferenceNode-unadapted' );
 	} else {

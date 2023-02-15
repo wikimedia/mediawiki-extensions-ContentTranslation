@@ -82,18 +82,17 @@ ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes = function ( nor
  * @param {Object} targetTitleData
  */
 ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleData ) {
-	var targetLinkInfo, $targetLink,
-		sourceLanguage = this.translation.sourceDoc.getLang(),
+	var sourceLanguage = this.translation.sourceDoc.getLang(),
 		targetLanguage = this.translation.targetDoc.getLang();
 
-	targetLinkInfo = {
+	var targetLinkInfo = {
 		title: this.normalizedTitle,
 		pagelanguage: targetLanguage,
 		description: targetTitleData.description,
 		thumbnail: { source: targetTitleData.imageUrl }
 	};
 
-	$targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
+	var $targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
 	this.$body.append( $targetLink );
 
 	// Find source title for the selected text.
@@ -109,22 +108,20 @@ ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleDa
 
 ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( sourceTitle, sourceLanguage ) {
 	this.sourceLinkCache.get( sourceTitle ).then( function ( linkData ) {
-		var sourceLinkInfo, $sourceLink;
-
 		if ( linkData.missing ) {
 			// Source title data missing.
 			// This is almost impossible since we already found that the source title exist.
 			return;
 		}
 
-		sourceLinkInfo = {
+		var sourceLinkInfo = {
 			title: sourceTitle,
 			pagelanguage: sourceLanguage,
 			description: linkData.description
 		};
 
 		// Source link
-		$sourceLink = this.constructor.static.generateSourceBody(
+		var $sourceLink = this.constructor.static.generateSourceBody(
 			sourceLinkInfo, sourceLanguage
 		);
 		this.$sourceBody.show().empty().append( $sourceLink );

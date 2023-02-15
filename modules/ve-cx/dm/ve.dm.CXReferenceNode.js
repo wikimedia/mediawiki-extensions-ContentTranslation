@@ -36,12 +36,12 @@ OO.mixinClass( ve.dm.CXReferenceNode, ve.dm.CXLintableNode );
  * @inheritdoc
  */
 ve.dm.CXReferenceNode.static.toDataElement = function ( domElements ) {
-	var dataElement, cxData,
-		cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' );
+	var cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' );
 
 	// Parent method
-	dataElement = ve.dm.CXReferenceNode.super.static.toDataElement.apply( this, arguments );
+	var dataElement = ve.dm.CXReferenceNode.super.static.toDataElement.apply( this, arguments );
 
+	var cxData;
 	try {
 		cxData = cxDataJSON ? JSON.parse( cxDataJSON ) : {};
 	} catch ( e ) {

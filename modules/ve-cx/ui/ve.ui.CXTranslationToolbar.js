@@ -10,15 +10,13 @@
  * @param {ve.init.mw.CXTarget} target
  */
 ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
-	var $title;
-
 	// TODO: inject
 	this.MTManager = ve.init.target.config.MTManager;
 
 	// Parent constructor
 	ve.ui.CXTranslationToolbar.super.apply( this, arguments );
 
-	$title = $( '<div>' )
+	var $title = $( '<div>' )
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
 
@@ -48,7 +46,7 @@ OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
  * @return {jQuery.Promise}
  */
 ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
-	var createProviderItem = function ( provider, defaultProvider, MTManager ) {
+	var createProviderItem = function ( provider, defaultProvider ) {
 		var toolClassName = provider + 'MTTool';
 		ve.ui[ toolClassName ] = function VeCXMTTool() {
 			ve.ui.Tool.apply( this, arguments );
@@ -76,8 +74,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		};
 
 		ve.ui[ toolClassName ].prototype.onUpdateState = function () {
-			var section, source,
-				surface = this.toolbar.getSurface(),
+			var surface = this.toolbar.getSurface(),
 				selection = surface.getModel().getSelection();
 
 			// Parent method
@@ -89,7 +86,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			}
 
 			// When changing provides, there is temporarily no parent section
-			section = mw.cx.getParentSectionForSelection( surface, selection );
+			var section = mw.cx.getParentSectionForSelection( surface, selection );
 			if ( !section ) {
 				return;
 			}
@@ -97,7 +94,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			// Fall back to defaultProvider (should only happen for drafts stored with
 			// older version of CX.
 			// TODO: How to handle case that stored provider is no longer valid?
-			source = section.getOriginalContentSource() || defaultProvider;
+			var source = section.getOriginalContentSource() || defaultProvider;
 			this.setActive( this.getName() === source );
 		};
 
@@ -131,7 +128,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 	return MTManager.getDefaultProvider().then( function ( defaultProvider ) {
 		return MTManager.getAvailableProviders().then( function ( providers ) {
 			providers.forEach( function ( provider ) {
-				createProviderItem( provider, defaultProvider, MTManager );
+				createProviderItem( provider, defaultProvider );
 			} );
 		} );
 	} );

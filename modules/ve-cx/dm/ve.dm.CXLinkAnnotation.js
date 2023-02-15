@@ -24,8 +24,7 @@ ve.dm.CXLinkAnnotation.static.matchFunction = function ( domElement ) {
 };
 
 ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter ) {
-	var dataCX,
-		dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
+	var dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
 
 	if ( !dataElement ) {
 		// ve.dm.CXLinkAnnotation.super.static.toDataElement has assumptions about document.baseURI.
@@ -42,7 +41,7 @@ ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter 
 
 	dataElement.attributes.linkid = domElements[ 0 ].getAttribute( 'data-linkid' );
 
-	dataCX = domElements[ 0 ].getAttribute( 'data-cx' );
+	var dataCX = domElements[ 0 ].getAttribute( 'data-cx' );
 	if ( dataCX ) {
 		dataElement.attributes.cx = JSON.parse( domElements[ 0 ].getAttribute( 'data-cx' ) );
 	}

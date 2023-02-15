@@ -49,8 +49,7 @@ ve.ui.CXResetSectionTool.static.autoAddToCatchall = false;
  * @inheritdoc
  */
 ve.ui.CXResetSectionTool.prototype.onUpdateState = function () {
-	var section, oldState, newState,
-		surface = this.toolbar.getSurface(),
+	var surface = this.toolbar.getSurface(),
 		selection = surface.getModel().getSelection();
 
 	// Parent method
@@ -62,13 +61,13 @@ ve.ui.CXResetSectionTool.prototype.onUpdateState = function () {
 	}
 
 	// When changing providers, temporarily, there is no parent section
-	section = mw.cx.getParentSectionForSelection( surface, selection );
+	var section = mw.cx.getParentSectionForSelection( surface, selection );
 	if ( !section ) {
 		return;
 	}
 
-	oldState = this.isVisible();
-	newState = section.hasUserModifications();
+	var oldState = this.isVisible();
+	var newState = section.hasUserModifications();
 
 	// For some reason this tool is set to disabled frequently. Make sure it is enabled when visible.
 	this.setDisabled( !newState );

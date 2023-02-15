@@ -240,16 +240,14 @@ ve.init.mw.CXTarget.prototype.unbindHandlers = function () {
  * @param {mw.cx.dm.Translation} translation
  */
 ve.init.mw.CXTarget.prototype.setTranslation = function ( translation ) {
-	var sourceSurface, targetSurface;
-
 	this.translation = translation;
-	this.sourceSurface = sourceSurface = this.createSurface(
+	var sourceSurface = this.sourceSurface = this.createSurface(
 		this.translation.sourceDoc,
 		this.getSurfaceConfig( {
 			classes: [ 've-ui-cxSurface', 've-ui-cxSourceSurface', 'mw-body-content' ]
 		} )
 	);
-	this.targetSurface = targetSurface = this.createSurface(
+	var targetSurface = this.targetSurface = this.createSurface(
 		this.translation.targetDoc,
 		this.getSurfaceConfig( {
 			classes: [ 've-ui-cxSurface', 've-ui-cxTargetSurface', 'mw-body-content' ]
@@ -300,13 +298,11 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 	$views.on(
 		{
 			mouseenter: function () {
-				var segmentSelector;
-
 				if ( this.classList.contains( 'cx-sentence-highlight' ) ) {
 					return;
 				}
 
-				segmentSelector = '[data-segmentid="_"]'.replace( '_', this.dataset.segmentid );
+				var segmentSelector = '[data-segmentid="_"]'.replace( '_', this.dataset.segmentid );
 				$views.find( segmentSelector ).addClass( 'cx-sentence-highlight' );
 			},
 			mouseleave: function () {
@@ -319,13 +315,11 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
 	$targetView.on(
 		{
 			mouseenter: function () {
-				var sectionNumber;
-
 				if ( this.classList.contains( 'cx-section-highlight' ) ) {
 					return;
 				}
 
-				sectionNumber = mw.cx.getSectionNumberFromSectionId( this.id );
+				var sectionNumber = mw.cx.getSectionNumberFromSectionId( this.id );
 				document.getElementById( 'cxSourceSection' + sectionNumber )
 					.classList.add( 'cx-section-highlight' );
 			},
@@ -341,15 +335,13 @@ ve.init.mw.CXTarget.prototype.setupHighlighting = function ( $sourceView, $targe
  * @inheritdoc
  */
 ve.init.mw.CXTarget.prototype.createSurface = function ( dmDoc, config ) {
-	var surface, documentView;
-
-	surface = new ve.ui.CXSurface( this, dmDoc, this.translationView.toolsColumn, config );
+	var surface = new ve.ui.CXSurface( this, dmDoc, this.translationView.toolsColumn, config );
 
 	// eslint-disable-next-line mediawiki/class-doc
 	surface.$element.addClass( this.protectedClasses );
 
 	// T164790
-	documentView = surface.getView().getDocument();
+	var documentView = surface.getView().getDocument();
 	// The following classes are used here
 	// * mw-content-ltr
 	// * mw-content-rtl
@@ -404,8 +396,6 @@ ve.init.mw.CXTarget.prototype.getTranslation = function () {
 };
 
 ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
-	var headerHeight, scrollPosition;
-
 	if ( !( dialog instanceof ve.ui.NodeDialog ) ) {
 		return;
 	}
@@ -425,8 +415,8 @@ ve.init.mw.CXTarget.prototype.onDialogOpening = function ( context, dialog ) {
 
 	// Don't cover the top header with overlay when the user is at the top of the viewport
 	// See T193587
-	headerHeight = $( 'header.cx-header' ).outerHeight();
-	scrollPosition = $( this.getElementWindow() ).scrollTop();
+	var headerHeight = $( 'header.cx-header' ).outerHeight();
+	var scrollPosition = $( this.getElementWindow() ).scrollTop();
 
 	if ( scrollPosition === 0 ) {
 		dialog.$element.css( 'top', headerHeight );
@@ -458,7 +448,7 @@ ve.init.mw.CXTarget.prototype.onDialogClosing = function () {
  * @param {boolean} disabled True if context items need to be disabled
  */
 ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
-	var process, lastItem = this.contextStack.length - 1;
+	var lastItem = this.contextStack.length - 1;
 
 	// Iterate all context(s) in a stack
 	this.contextStack.forEach( function ( context, index ) {
@@ -466,6 +456,7 @@ ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
 		// Used when dialog is closing.
 		var disableSecondToLast = !disabled && index === ( lastItem - 1 );
 
+		var process;
 		// If item is last (during opening) or second-to-last (during closing)
 		if ( index === lastItem || disableSecondToLast ) {
 			process = function ( item ) {
@@ -619,20 +610,19 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
  * @fires contentChange
  */
 ve.init.mw.CXTarget.prototype.onDocumentTransact = function ( transaction ) {
-	var docModel, changedRange, changedNode, changedSectionNode, includeInternalList;
-
 	this.emit( 'contentChange' );
 	this.debounceAlignSectionPairs();
 
 	/** @type {ve.dm.Document} */
-	docModel = this.targetSurface.getModel().getDocument();
+	var docModel = this.targetSurface.getModel().getDocument();
 	// Include changes within the internal list
-	includeInternalList = true;
-	changedRange = transaction.getModifiedRange( docModel, includeInternalList );
+	var includeInternalList = true;
+	var changedRange = transaction.getModifiedRange( docModel, includeInternalList );
 	if ( !changedRange ) {
 		return;
 	}
-	changedNode = docModel.getBranchNodeFromOffset( changedRange.start );
+	var changedNode = docModel.getBranchNodeFromOffset( changedRange.start );
+	var changedSectionNode;
 	if ( changedNode ) {
 		changedSectionNode = changedNode.findParent( ve.dm.CXSectionNode );
 	}
@@ -649,11 +639,8 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function ( transaction ) {
 };
 
 ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
-	var i, sourceDocumentNode, targetDocumentNode, sourceOffsetTop, targetOffsetTop,
-		documentNodeChildren, alignSectionPair, articleNode, scrollPosition;
-
-	sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
-	targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
+	var sourceDocumentNode = this.sourceSurface.getView().getDocument().getDocumentNode();
+	var targetDocumentNode = this.targetSurface.getView().getDocument().getDocumentNode();
 
 	// This method can be called before restoration is complete and all nodes are attached
 	// to the DOM (e.g. via mw.cx.ui.TargetColumn#setTitle). If so, skip alignment.
@@ -666,11 +653,12 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 
 	this.translationView.alignTitles();
 
-	sourceOffsetTop = sourceDocumentNode.$element.offset().top;
-	targetOffsetTop = targetDocumentNode.$element.offset().top;
-	documentNodeChildren = sourceDocumentNode.getChildren();
+	var sourceOffsetTop = sourceDocumentNode.$element.offset().top;
+	var targetOffsetTop = targetDocumentNode.$element.offset().top;
+	var documentNodeChildren = sourceDocumentNode.getChildren();
 
-	for ( i = 0; i < documentNodeChildren.length; i++ ) {
+	var articleNode;
+	for ( var i = 0; i < documentNodeChildren.length; i++ ) {
 		if ( documentNodeChildren[ i ].getType() === 'article' ) {
 			articleNode = documentNodeChildren[ i ];
 			break;
@@ -682,12 +670,12 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 		return;
 	}
 
-	alignSectionPair = this.translationView.constructor.static.alignSectionPair;
+	var alignSectionPair = this.translationView.constructor.static.alignSectionPair;
 	// Save the scroll position. The alignment openration need to reset the heights
 	// of sections. If the asynchronous content changes from templates happen
 	// during that time, we will have a different scroll position at the end
 	// of this alignment. So we lock the scroll position.
-	scrollPosition = $( this.getElementWindow() ).scrollTop();
+	var scrollPosition = $( this.getElementWindow() ).scrollTop();
 	articleNode.getChildren().forEach( function ( node ) {
 		var sectionNumber,
 			element = node.$element[ 0 ],
@@ -711,10 +699,8 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
  * @return {jQuery} Source section element
  */
 ve.init.mw.CXTarget.prototype.getSourceSectionElement = function ( sectionId ) {
-	var sectionNumber, sourceId;
-
-	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
-	sourceId = 'cxSourceSection' + sectionNumber;
+	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	var sourceId = 'cxSourceSection' + sectionNumber;
 	return this.sourceSurface.$element.find( '#' + sourceId );
 };
 
@@ -735,11 +721,9 @@ ve.init.mw.CXTarget.prototype.getSourceSectionNode = function ( sectionId ) {
  * @return {ve.dm.CXSectionNode|null}
  */
 ve.init.mw.CXTarget.prototype.getTargetSectionNode = function ( sectionId ) {
-	var sectionNumber, targetId, view;
-
-	sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
-	targetId = 'cxTargetSection' + sectionNumber;
-	view = this.targetSurface.$element.find( '#' + targetId ).data( 'view' );
+	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	var targetId = 'cxTargetSection' + sectionNumber;
+	var view = this.targetSurface.$element.find( '#' + targetId ).data( 'view' );
 	return view ? view.getModel() : null;
 };
 
@@ -773,8 +757,7 @@ ve.init.mw.CXTarget.prototype.getTargetSectionNodeFromSectionNumber = function (
  * @param {ve.ce.CXPlaceholderNode} placeholder
  */
 ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeholder ) {
-	var $sourceElement,
-		model = placeholder.getModel(),
+	var model = placeholder.getModel(),
 		cxid = model.getAttribute( 'cxid' );
 
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
@@ -788,13 +771,12 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 			return this.changeContentSource( model, null, provider );
 		}.bind( this ) );
 	}.bind( this ) ).always( function () {
-		var model;
-		$sourceElement = this.getSourceSectionElement( cxid );
+		var $sourceElement = this.getSourceSectionElement( cxid );
 		$sourceElement.removeClass( 'cx-section-highlight' );
-		model = this.getTargetSectionNode( cxid );
-		if ( model ) {
-			model.emit( 'afterTranslation' );
-			this.prefetchTranslationForSection( model.getSectionNumber() + 1 );
+		var sectionNode = this.getTargetSectionNode( cxid );
+		if ( sectionNode ) {
+			sectionNode.emit( 'afterTranslation' );
+			this.prefetchTranslationForSection( sectionNode.getSectionNumber() + 1 );
 		} else {
 			mw.log.error( '[CX] No model found after translation for ' + cxid );
 		}
@@ -848,13 +830,12 @@ ve.init.mw.CXTarget.prototype.onTranslationIssues = function ( hasErrors ) {
  * @param {string} source Original content source
  */
 ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, source ) {
-	var pasteDoc, newCursorRange, newRange, tx, docLen, scrollTop,
-		surfaceModel = this.getSurface().getModel(),
+	var surfaceModel = this.getSurface().getModel(),
 		doc = surfaceModel.getDocument(),
 		cxid = section.getSectionId(),
 		fragment = surfaceModel.getLinearFragment( section.getOuterRange(), true /* noAutoSelect */ );
 
-	scrollTop = this.getSurface().view.$window.scrollTop();
+	var scrollTop = this.getSurface().view.$window.scrollTop();
 
 	/**
 	 * Fix internal list indexes for duplicated references in a newFromDocumentInsertion transaction.
@@ -865,23 +846,21 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	 * This is a super hacky way to prevent errors in VE due to name collisions for duplicated
 	 * references.
 	 *
-	 * @param {ve.dm.Transaction} tx Transaction generated by newFromDocumentInsertion()
-	 * @param {ve.dm.Document} doc Document the transaction is intended for
+	 * @param {ve.dm.Transaction} refTx Transaction generated by newFromDocumentInsertion()
 	 */
-	function deduplicateReferences( tx, doc ) {
-		var o, i, element, nodeGroup, kinNodes;
-		for ( o = 0; o < tx.operations.length; o++ ) {
-			if ( tx.operations[ o ].type !== 'replace' ) {
+	function deduplicateReferences( refTx ) {
+		for ( var o = 0; o < refTx.operations.length; o++ ) {
+			if ( refTx.operations[ o ].type !== 'replace' ) {
 				continue;
 			}
-			for ( i = 0; i < tx.operations[ o ].insert.length; i++ ) {
-				element = tx.operations[ o ].insert[ i ];
+			for ( var i = 0; i < refTx.operations[ o ].insert.length; i++ ) {
+				var element = refTx.operations[ o ].insert[ i ];
 				if ( element.type !== 'mwReference' ) {
 					continue;
 				}
 				// Find any existing references this reference is a duplicate of
-				nodeGroup = doc.getInternalList().getNodeGroup( element.attributes.listGroup );
-				kinNodes = nodeGroup && nodeGroup.keyedNodes[ element.attributes.listKey ];
+				var nodeGroup = doc.getInternalList().getNodeGroup( element.attributes.listGroup );
+				var kinNodes = nodeGroup && nodeGroup.keyedNodes[ element.attributes.listKey ];
 				if ( kinNodes && kinNodes.length > 0 ) {
 					// This reference is a duplicate. Point it to the existing internal list item
 					element.attributes.listIndex = kinNodes[ 0 ].getAttribute( 'listIndex' );
@@ -892,8 +871,8 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 		}
 	}
 
-	pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( content ) );
-	docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
+	var pasteDoc = ve.dm.converter.getModelFromDom( ve.createDocumentFromHtml( content ) );
+	var docLen = pasteDoc.getInternalList().getListNode().getOuterRange().start;
 
 	fragment.insertContent( [
 		{ type: 'cxSection', attributes: { style: 'section', cxid: cxid, cxsource: source } },
@@ -907,7 +886,7 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 		.collapseToStart().adjustLinearSelection( 1, 3 )
 		.removeContent();
 
-	tx = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
+	var tx = ve.dm.TransactionBuilder.static.newFromDocumentInsertion(
 		doc,
 		fragment.getSelection().getCoveringRange().start,
 		pasteDoc,
@@ -919,12 +898,12 @@ ve.init.mw.CXTarget.prototype.setSectionContent = function ( section, content, s
 	// internal list items.
 	// We have to perform these modifications after generating the transaction, because if we do it before,
 	// our modified indexes will be corrupted by the remapping step in newFromDocumentInsertion().
-	deduplicateReferences( tx, doc );
-	newRange = tx.getModifiedRange( doc );
+	deduplicateReferences( tx );
+	var newRange = tx.getModifiedRange( doc );
 	surfaceModel.change( tx, new ve.dm.LinearSelection( newRange ) );
 
 	// Select first content offset within new content
-	newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( newRange.start, 1 ) );
+	var newCursorRange = new ve.Range( surfaceModel.getDocument().data.getNearestContentOffset( newRange.start, 1 ) );
 	if ( newRange.containsRange( newCursorRange ) ) {
 		surfaceModel.setLinearSelection( newCursorRange );
 	}
@@ -961,12 +940,11 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  * @return {jQuery.Promise}
  */
 ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider, noCache ) {
-	var sourceNode, mtRequest,
-		mode = ve.dm.Converter.static.CLIPBOARD_MODE,
+	var mode = ve.dm.Converter.static.CLIPBOARD_MODE,
 		sourceNodeModel = this.getSourceSectionNode( sectionId ),
 		sectionNumber = sourceNodeModel.getSectionNumber();
 
-	mtRequest = OO.getProp( this.translationRequestCache, sectionNumber, provider );
+	var mtRequest = OO.getProp( this.translationRequestCache, sectionNumber, provider );
 	if ( !noCache && mtRequest ) {
 		return mtRequest;
 	}
@@ -982,7 +960,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 
 	// TODO: Extend converter and make a new TRANSLATION mode
 	ve.dm.converter.isForTranslation = true;
-	sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode ).body.children[ 0 ];
+	var sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode ).body.children[ 0 ];
 	ve.dm.converter.isForTranslation = false;
 
 	function restructure( section ) {
@@ -1023,12 +1001,10 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 	newProvider,
 	options
 ) {
-	var cxid, html, cachedContent;
-
 	options = options || {};
-	cxid = section.getSectionId();
+	var cxid = section.getSectionId();
 	ve.dm.converter.isForTranslation = true;
-	html = ve.dm.converter.getDomFromNode( section, ve.dm.Converter.static.CLIPBOARD_MODE ).body.children[ 0 ].outerHTML;
+	var html = ve.dm.converter.getDomFromNode( section, ve.dm.Converter.static.CLIPBOARD_MODE ).body.children[ 0 ].outerHTML;
 	ve.dm.converter.isForTranslation = false;
 
 	if ( previousProvider !== null ) {
@@ -1036,7 +1012,7 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 	}
 
 	if ( !options.noCache ) {
-		cachedContent = OO.getProp( this.contentSourceCache, cxid, newProvider );
+		var cachedContent = OO.getProp( this.contentSourceCache, cxid, newProvider );
 
 		if ( cachedContent ) {
 			this.setSectionContent( section, cachedContent, newProvider );

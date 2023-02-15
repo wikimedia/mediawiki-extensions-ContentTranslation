@@ -25,15 +25,13 @@ OO.inheritClass( ve.ui.CXReferenceDialog, ve.ui.MWReferenceDialog );
  * @inheritdoc
  */
 ve.ui.CXReferenceDialog.prototype.getActionProcess = function ( action ) {
-	var cxData, targetDoc, attributeTx;
-
 	if ( action === 'done' ) {
 		if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-			cxData = this.selectedNode.getAttribute( 'cx' ) || {};
+			var cxData = this.selectedNode.getAttribute( 'cx' ) || {};
 
 			if ( cxData.adapted === false ) {
-				targetDoc = this.selectedNode.getDocument();
-				attributeTx = ve.dm.TransactionBuilder.static.newFromAttributeChanges(
+				var targetDoc = this.selectedNode.getDocument();
+				var attributeTx = ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 					targetDoc,
 					this.selectedNode.getOuterRange().start,
 					{ cx: {} }

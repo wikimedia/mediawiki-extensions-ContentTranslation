@@ -40,8 +40,7 @@ ve.ui.CXSaveMTPreferenceTool.static.autoAddToCatchall = false;
  * @inheritdoc
  */
 ve.ui.CXSaveMTPreferenceTool.prototype.onUpdateState = function () {
-	var section,
-		surface = this.toolbar.getSurface(),
+	var surface = this.toolbar.getSurface(),
 		selection = surface.getModel().getSelection();
 
 	// Parent method
@@ -53,7 +52,7 @@ ve.ui.CXSaveMTPreferenceTool.prototype.onUpdateState = function () {
 	}
 
 	// When changing provides, there is temporarily no parent section
-	section = mw.cx.getParentSectionForSelection( surface, selection );
+	var section = mw.cx.getParentSectionForSelection( surface, selection );
 	if ( !section ) {
 		return;
 	}

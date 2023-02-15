@@ -79,25 +79,24 @@ ve.ui.CXPublishSettingsDialog.prototype.updateActions = function ( selectedItem 
  * @inheritdoc
  */
 ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
-	var publishDestinationLabel, helpIcon, $publishSettingsContainer,
-		namespaceIds = mw.config.get( 'wgNamespaceIds' );
+	var namespaceIds = mw.config.get( 'wgNamespaceIds' );
 
 	// Parent method
 	ve.ui.CXPublishSettingsDialog.parent.prototype.initialize.apply( this, arguments );
 
-	publishDestinationLabel = new OO.ui.LabelWidget( {
+	var publishDestinationLabel = new OO.ui.LabelWidget( {
 		label: mw.msg( 'cx-publish-destination-header' ),
 		classes: [ 've-ui-cxPublishSettings-destination' ]
 	} );
 
-	helpIcon = new OO.ui.ButtonWidget( {
+	var helpIcon = new OO.ui.ButtonWidget( {
 		icon: 'helpNotice',
 		framed: false,
 		href: 'https://www.mediawiki.org/wiki/Help:Content_translation/Publishing',
 		target: '_blank'
 	} );
 
-	$publishSettingsContainer = $( '<div>' )
+	var $publishSettingsContainer = $( '<div>' )
 		.addClass( 've-ui-cxPublishSettings-destination-container' )
 		.append( publishDestinationLabel.$element, helpIcon.$element );
 
@@ -167,9 +166,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getTeardownProcess = function ( data ) {
  * @return {OO.ui.RadioOptionWidget}
  */
 ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( namespace, data ) {
-	var radioOption, description;
-
-	radioOption = new OO.ui.RadioOptionWidget( {
+	var radioOption = new OO.ui.RadioOptionWidget( {
 		// Messages used here:
 		// * cx-publish-destination-namespace-main
 		// * cx-publish-destination-namespace-user
@@ -177,7 +174,7 @@ ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( nam
 		label: mw.msg( 'cx-publish-destination-namespace-' + namespace ),
 		data: data
 	} );
-	description = new OO.ui.LabelWidget( {
+	var description = new OO.ui.LabelWidget( {
 		// Messages used here:
 		// * cx-publish-destination-namespace-main-description
 		// * cx-publish-destination-namespace-user-description

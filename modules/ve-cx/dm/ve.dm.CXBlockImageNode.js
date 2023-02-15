@@ -30,22 +30,20 @@ ve.dm.CXBlockImageNode.static.matchFunction = function ( node ) {
 ve.dm.CXBlockImageNode.static.childNodeTypes = [ 'cxImageCaption' ];
 
 ve.dm.CXBlockImageNode.static.toDataElement = function ( domElements, converter ) {
-	var i, rel, dataCX, figure, dataElements;
+	var figure = domElements[ 0 ];
 
-	figure = domElements[ 0 ];
+	var dataElements = ve.dm.CXBlockImageNode.super.static.toDataElement.call( this, domElements, converter );
 
-	dataElements = ve.dm.CXBlockImageNode.super.static.toDataElement.call( this, domElements, converter );
-
-	rel = domElements[ 0 ].getAttribute( 'rel' );
+	var rel = domElements[ 0 ].getAttribute( 'rel' );
 	if ( rel ) {
 		figure.setAttribute( 'rel', rel );
 	}
-	dataCX = figure.getAttribute( 'data-cx' );
+	var dataCX = figure.getAttribute( 'data-cx' );
 	if ( dataCX ) {
 		dataElements[ 0 ].attributes.cx = JSON.parse( domElements[ 0 ].getAttribute( 'data-cx' ) );
 	}
 
-	for ( i = 0; i < dataElements.length; i++ ) {
+	for ( var i = 0; i < dataElements.length; i++ ) {
 		if ( dataElements[ i ].type === 'mwImageCaption' ) {
 			dataElements[ i ].type = 'cxImageCaption';
 		}
@@ -58,13 +56,12 @@ ve.dm.CXBlockImageNode.static.toDataElement = function ( domElements, converter 
 };
 
 ve.dm.CXBlockImageNode.static.toDomElements = function ( dataElements, doc, converter ) {
-	var rel,
-		domElements = ve.dm.CXBlockImageNode.super.static.toDomElements.call( this, dataElements, doc, converter );
+	var domElements = ve.dm.CXBlockImageNode.super.static.toDomElements.call( this, dataElements, doc, converter );
 	if ( dataElements[ 0 ].attributes.cx ) {
 		domElements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElements[ 0 ].attributes.cx ) );
 	}
 
-	rel = dataElements[ 0 ].attributes.rel;
+	var rel = dataElements[ 0 ].attributes.rel;
 	if ( rel ) {
 		domElements[ 0 ].setAttribute( 'rel', dataElements[ 0 ].attributes.rel );
 	}

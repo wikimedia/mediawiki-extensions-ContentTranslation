@@ -44,26 +44,26 @@ ve.ui.CXTranslationAction.static.methods = [ 'translate', 'savePreference' ];
  * @return {boolean} False if action is cancelled.
  */
 ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
-	var section, promise, originalSource,
-		target = ve.init.target,
+	var target = ve.init.target,
 		selection = this.surface.getModel().getSelection();
 
 	if ( !( selection instanceof ve.dm.LinearSelection ) ) {
 		return false;
 	}
 
-	section = mw.cx.getParentSectionForSelection( this.surface, selection );
+	var section = mw.cx.getParentSectionForSelection( this.surface, selection );
 
 	if ( !section ) {
 		mw.log.error( '[CX] Could not find a CX Section as parent for the context.' );
 		return false;
 	}
 
-	originalSource = section.getOriginalContentSource();
+	var originalSource = section.getOriginalContentSource();
 
 	// Emit Pre-translate event
 	section.emit( 'beforeTranslation' );
 
+	var promise;
 	if ( source === 'reset-translation' ) {
 		promise = target.changeContentSource( section, null, originalSource, { noCache: true } );
 	} else {
@@ -90,8 +90,7 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
  * @return {boolean} False if action is cancelled.
  */
 ve.ui.CXTranslationAction.prototype.savePreference = function () {
-	var section, toolName, currentMTProvider,
-		mtManager = ve.init.target.config.MTManager,
+	var mtManager = ve.init.target.config.MTManager,
 		mtToolbar = ve.init.target.mtToolbar,
 		mtProviderTools = {},
 		selection = this.surface.getModel().getSelection();
@@ -100,19 +99,19 @@ ve.ui.CXTranslationAction.prototype.savePreference = function () {
 		return false;
 	}
 
-	section = mw.cx.getParentSectionForSelection( this.surface, selection );
+	var section = mw.cx.getParentSectionForSelection( this.surface, selection );
 
 	if ( !section ) {
 		mw.log.error( '[CX] Could not find a CX Section as parent for the context.' );
 		return false;
 	}
 
-	currentMTProvider = section.getOriginalContentSource();
+	var currentMTProvider = section.getOriginalContentSource();
 	mtManager.setPreferredProvider( currentMTProvider );
 
 	// Fix up the default provider indicator in the MT menu.
 	mtProviderTools = mtToolbar.getToolGroupByName( 'cx-mt' ).tools;
-	for ( toolName in mtProviderTools ) {
+	for ( var toolName in mtProviderTools ) {
 		if ( mtProviderTools[ toolName ].setIsPreferred ) {
 			mtProviderTools[ toolName ].setIsPreferred( toolName === currentMTProvider );
 		}

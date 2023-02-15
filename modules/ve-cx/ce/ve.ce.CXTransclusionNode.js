@@ -74,9 +74,8 @@ ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
-	var parentSection;
 	ve.ce.CXTransclusionBlockNode.super.prototype.afterRender.apply( this, arguments );
-	parentSection = this.model.findParent( ve.dm.CXSectionNode );
+	var parentSection = this.model.findParent( ve.dm.CXSectionNode );
 	// Emit an event so that the parent section can do visual re-alignment if needed.
 	parentSection.emit( 'afterRender' );
 	// Emit change for the parent section, so that saving is queued.
@@ -87,11 +86,11 @@ ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
  * @inheritdoc
  */
 ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
-	var iconWhenInvisible = this.constructor.static.iconWhenInvisible;
-
 	if ( !this.getModel() || !this.getModel().isValid() ) {
 		return;
 	}
+
+	var iconWhenInvisible = this.constructor.static.iconWhenInvisible;
 
 	if ( this.isUnadapted() ) {
 		// Temporarily set static property to null to avoid displaying icon

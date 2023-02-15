@@ -35,12 +35,11 @@ ve.dm.CXTransclusionNode.static.blockType = 'cxTransclusionBlock';
 /* Static Methods */
 
 ve.dm.CXTransclusionNode.static.toDataElement = function ( domElements ) {
-	var dataElement,
-		cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' ),
+	var cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' ),
 		cxData = cxDataJSON ? JSON.parse( cxDataJSON ) : {};
 
 	// Parent method
-	dataElement = ve.dm.CXTransclusionNode.super.static.toDataElement.apply( this, arguments );
+	var dataElement = ve.dm.CXTransclusionNode.super.static.toDataElement.apply( this, arguments );
 	dataElement.attributes.cx = cxData;
 	return dataElement;
 };
@@ -110,8 +109,7 @@ ve.dm.CXTransclusionBlockNode.static.matchTagNames = [];
 /* Methods */
 
 ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
-	var message, title,
-		additionalButtons = [],
+	var additionalButtons = [],
 		sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
@@ -126,6 +124,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		return;
 	}
 
+	var title, message;
 	if ( this.missingInTargetLanguage() ) {
 		// TODO: Add help link
 		title = mw.msg( 'cx-tools-linter-template' );
