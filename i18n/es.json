@@ -462,8 +462,11 @@
 	"cx-uls-relevant-languages-panel-header": "Traducir esta página",
 	"cx-uls-relevant-languages-panel-message": "Esta página no está disponible en algunos idiomas que tal vez conozcas. ¡Puedes traducirla en unos minutos!",
 	"cx-uls-translate-page-quick-action-label": "Traducir esta página",
+	"sx-recent-edit-entrypoint-invitation-button-label": "Traducir «$1»",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Falta $1 sección|Faltan $1 secciones}} en $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Comprobando que no eres un robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publicar",
-	"cx-contributecard-entrypoint-title": "Traducciones"
+	"cx-contributecard-entrypoint-title": "Traducciones",
+	"cx-contributecard-entrypoint-cta": "Comenzar una traducción",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "No se encontró ninguna plantilla equivalente"
 }
