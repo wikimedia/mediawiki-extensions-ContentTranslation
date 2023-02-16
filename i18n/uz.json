@@ -5,6 +5,7 @@
 			"Malikxan",
 			"Nemo bis",
 			"Sociologist",
+			"TayfunEt.",
 			"Таржимон"
 		]
 	},
@@ -232,5 +233,7 @@
 	"sx-block-template-adaptation-card-body-header-success": "Taklif etilgan andoza",
 	"sx-block-template-adaptation-card-edit-button-label": "Tarjimani koʻrib chiqish va tharirlash",
 	"sx-block-template-adaptation-card-body-header-failure": "„$1“ uchun ekvivalent andoza mavjud emas.",
-	"cx-uls-relevant-languages-panel-header": "Bu sahifani tarjima qilish"
+	"cx-uls-relevant-languages-panel-header": "Bu sahifani tarjima qilish",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Chop etish",
+	"cx-contributecard-entrypoint-title": "Tarjimalar"
 }
