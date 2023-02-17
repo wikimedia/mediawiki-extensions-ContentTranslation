@@ -161,7 +161,9 @@ class SpecialContentTranslation extends SpecialPage {
 		// start again with parameters filled (and redirected to the correct wiki).
 		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
 		if ( $contentTranslationTranslateInTarget ) {
-			$tokenIsValid = $to === SiteMapper::getCurrentLanguageCode();
+			$currLangCode = SiteMapper::getCurrentLanguageCode();
+			$currDomainCode = SiteMapper::getDomainCode( $to );
+			$tokenIsValid = $to === $currLangCode || $to === $currDomainCode;
 			return $hasToken && $tokenIsValid;
 		}
 
