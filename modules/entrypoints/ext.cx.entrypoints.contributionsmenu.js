@@ -15,7 +15,7 @@
 	 */
 	function isUserMenuDropdown() {
 		return [ 'vector', 'vector-2022' ].indexOf( mw.config.get( 'skin', '' ) ) > -1 &&
-			$( '.mw-portlet-personal.vector-menu-dropdown' ).length;
+			$( '.vector-menu-dropdown .mw-portlet-personal' ).length;
 	}
 
 	/**
