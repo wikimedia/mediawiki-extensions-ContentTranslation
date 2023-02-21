@@ -287,6 +287,10 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Oversæt \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Oversæt \"$1\" og \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Oversæt \"$1\", \"$2\" og mere",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Mangler på <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mangler på <span>$1</span>, <span>$2</span> med flere",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mangler på <span>$1</span>, <span>$2</span> med flere",
 	"cx-uls-relevant-languages-panel-header": "Oversæt denne side",
+	"cx-uls-relevant-languages-panel-message": "Denne side mangler på nogle af de sprog, du måske kender. Du kan oversætte den på få minutter!",
 	"cx-uls-translate-page-quick-action-label": "Oversæt denne side"
 }
