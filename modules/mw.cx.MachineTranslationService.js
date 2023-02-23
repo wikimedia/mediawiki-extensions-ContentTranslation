@@ -138,14 +138,12 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
-	var fetchProvidersUrl;
-
 	if ( mw.config.get( 'wgContentTranslationEnableMT' ) === false ) {
 		// MT services are not enabled for this wiki.
 		return $.Deferred().resolve( [] );
 	}
 
-	fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
+	var fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage
 	} );
@@ -213,15 +211,13 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
  * @return {jQuery.Promise} Returns the translated HTML as a string.
  */
 mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content, provider, token ) {
-	var request, mtURL;
-
-	mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
+	var mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage,
 		$provider: provider || ''
 	} );
 
-	request = {
+	var request = {
 		type: 'post',
 		url: mtURL,
 		data: {

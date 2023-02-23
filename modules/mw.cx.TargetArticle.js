@@ -244,8 +244,6 @@ mw.cx.TargetArticle.prototype.publishComplete = function () {
  * @param {Object} [jqXHR] jQuery XHR object
  */
 mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailObjOrData, data, jqXHR ) {
-	var editError, editResult;
-
 	if ( !data ) {
 		if ( errorCode === 'ok-but-empty' ) {
 			this.showPublishError( mw.msg( 'cx-publish-error-empty' ) );
@@ -265,7 +263,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		data
 	);
 
-	editError = data.error;
+	var editError = data.error;
 	if ( editError ) {
 		// Handle spam blacklist error (either from core or from Extension:SpamBlacklist)
 		// Example of API result - https://phabricator.wikimedia.org/P8991
@@ -303,7 +301,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 		}
 	}
 
-	editResult = data.edit;
+	var editResult = data.edit;
 	// Handle captcha
 	// Captcha "errors" usually aren't errors. We simply don't know about them ahead of time,
 	// so we save once, then (if required) we get an error with a captcha back and try again after
@@ -424,8 +422,7 @@ mw.cx.TargetArticle.prototype.showErrorException = function ( failObj ) {
  * @param {Object} jqXHR
  */
 mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jqXHR ) {
-	var errorDetails,
-		errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
+	var errorMsg = ( editResult && editResult.info ) || ( data && data.error && data.error.info ),
 		errorCode = ( editResult && editResult.code ) || ( data && data.error && data.error.code ),
 		unknown = 'Unknown error';
 
@@ -433,7 +430,7 @@ mw.cx.TargetArticle.prototype.showErrorUnknown = function ( editResult, data, jq
 		unknown += ', HTTP status ' + data.xhr.status;
 	}
 
-	errorDetails = errorMsg || errorCode || unknown;
+	var errorDetails = errorMsg || errorCode || unknown;
 	this.showUnrecoverablePublishError(
 		mw.msg( 'cx-publish-error-unknown', errorDetails ),
 		errorDetails
@@ -496,11 +493,11 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
  * Check to see if "Publish anyway" dialog needs to be displayed, in case of
  * page with the given title already existing or translation having issues.
  *
- * @param {string} title The title to check
+ * @param {string} pageTitle The title to check
  * @param {boolean} hasIssues Whether the translation has issues
  * @return {jQuery.Promise}
  */
-mw.cx.TargetArticle.prototype.checkForPublishAnyway = function ( title, hasIssues ) {
+mw.cx.TargetArticle.prototype.checkForPublishAnyway = function ( pageTitle, hasIssues ) {
 	// CAPTCHA check may occur as a response to the request to publish the translation.
 	// If that happens, we can and should skip these checks to avoid showing
 	// "Publish anyway" dialog again if the target page already exists.
@@ -508,10 +505,10 @@ mw.cx.TargetArticle.prototype.checkForPublishAnyway = function ( title, hasIssue
 		return $.Deferred().resolve().promise();
 	}
 
-	return ve.init.platform.linkCache.get( title ).then( function ( result ) {
-		var title, message,
-			targetExists = !result.missing;
+	return ve.init.platform.linkCache.get( pageTitle ).then( function ( result ) {
+		var targetExists = !result.missing;
 
+		var title, message;
 		if ( hasIssues && targetExists ) {
 			title = mw.msg( 'cx-publishing-dialog-title' );
 			message = mw.msg( 'cx-overwriting-with-issues' );
@@ -579,11 +576,10 @@ mw.cx.TargetArticle.prototype.getTargetURL = function () {
  * @return {string[]}
  */
 mw.cx.TargetArticle.prototype.getTargetCategories = function ( shouldAddHighMTCategory ) {
-	var targetCategories, index,
-		maintenanceCategoryMsg = 'cx-unreviewed-translation-category';
+	var maintenanceCategoryMsg = 'cx-unreviewed-translation-category';
 
-	targetCategories = this.translation.getTargetCategories();
-	index = targetCategories.indexOf( maintenanceCategoryMsg );
+	var targetCategories = this.translation.getTargetCategories();
+	var index = targetCategories.indexOf( maintenanceCategoryMsg );
 
 	if ( shouldAddHighMTCategory ) {
 		// Avoid duplicates.

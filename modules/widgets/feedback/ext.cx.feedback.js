@@ -22,9 +22,7 @@
 	}
 
 	ContentTranslationFeedback.prototype.render = function () {
-		var $feedbackLink, $feedbackContainer;
-
-		$feedbackLink = $( '<a>' )
+		var $feedbackLink = $( '<a>' )
 			.addClass( 'cx-feedback__link' )
 			.attr( {
 				href: '//www.mediawiki.org/wiki/Talk:Content_translation',
@@ -32,7 +30,7 @@
 			} )
 			.text( mw.msg( 'cx-feedback-link' ) );
 
-		$feedbackContainer = $( '<div>' )
+		var $feedbackContainer = $( '<div>' )
 			.addClass( 'cx-feedback' )
 			.append( $feedbackLink );
 

@@ -47,8 +47,6 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
  * Initialize translation.
  */
 mw.cx.init.Translation.prototype.init = function () {
-	var platformPromise, translationPromise, modulePromise, pluginModules;
-
 	if ( mw.user.isAnon() ) {
 		mw.hook( 'mw.cx.error.anonuser' ).fire();
 		return;
@@ -69,13 +67,12 @@ mw.cx.init.Translation.prototype.init = function () {
 
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
-	platformPromise = new ve.init.mw.Platform().initialize();
-	translationPromise = this.fetchTranslationData();
-	pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
-	modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
+	var platformPromise = new ve.init.mw.Platform().initialize();
+	var translationPromise = this.fetchTranslationData();
+	var pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
+	var modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
 	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
-		var categoryUI,
-			sourcePageContent = translationData[ 0 ],
+		var sourcePageContent = translationData[ 0 ],
 			draft = translationData[ 1 ];
 
 		// Set the link cache for source language
@@ -115,7 +112,7 @@ mw.cx.init.Translation.prototype.init = function () {
 				translationModel.initCategories(
 					this.processCategories( sourcePageContent.categories )
 				);
-				categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
+				var categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
 				this.translationView.showCategories( categoryUI );
 			}
 			if ( draft ) {
@@ -134,15 +131,13 @@ mw.cx.init.Translation.prototype.init = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {
-	var sourcePageFetchDeferred, draftFetchDeferred;
-
 	mw.log( '[CX] Fetching Source page...' );
-	sourcePageFetchDeferred = this.fetchSourcePageContent(
+	var sourcePageFetchDeferred = this.fetchSourcePageContent(
 		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
 	).fail( this.fetchSourcePageContentError.bind( this ) );
 
 	mw.log( '[CX] Checking existing translation...' );
-	draftFetchDeferred = this.fetchDraftInformation(
+	var draftFetchDeferred = this.fetchDraftInformation(
 		this.sourceWikiPage, this.targetWikiPage
 	).then(
 		this.fetchDraftInformationSuccess.bind( this ),
@@ -164,11 +159,10 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, draft ) {
-	var sourceDom, targetDom, translationModel, translationUnitId,
-		translationUnits = draft && draft.translationUnits,
+	var translationUnits = draft && draft.translationUnits,
 		numberOfUnrestoredSections = 0;
 
-	targetDom = mw.cx.dm.Translation.static.getSourceDom(
+	var targetDom = mw.cx.dm.Translation.static.getSourceDom(
 		sourceHtml,
 		this.sourceWikiPage.getSectionTitle(),
 		true,
@@ -176,7 +170,7 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 		this.sourceWikiPage.getLanguage()
 	);
 
-	for ( translationUnitId in translationUnits ) {
+	for ( var translationUnitId in translationUnits ) {
 		if ( !translationUnits[ translationUnitId ].restored ) {
 			numberOfUnrestoredSections++;
 		}
@@ -185,9 +179,9 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 	// If no translated section was lost, create source DOM and return early
 	// This should cover initial start of translation, when there's no draft at all.
 	if ( numberOfUnrestoredSections < 1 ) {
-		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
+		var sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 
-		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
+		var translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
 		return $.Deferred().resolve( translationModel ).promise();
 	}
 
@@ -196,32 +190,31 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 	return this.fetchSourcePageContent(
 		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
 	).then( function ( sourcePageContent ) {
-		var sourceDom, targetDom,
-			uri = new mw.Uri(),
-			sourceHtml = sourcePageContent.segmentedContent;
+		var uri = new mw.Uri(),
+			updatedSourceHtml = sourcePageContent.segmentedContent;
 
 		// Reset restoration status for all translation units
-		for ( translationUnitId in translationUnits ) {
-			translationUnits[ translationUnitId ].restored = false;
+		for ( var id in translationUnits ) {
+			translationUnits[ id ].restored = false;
 		}
 
-		sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
-		targetDom = mw.cx.dm.Translation.static.getSourceDom(
-			sourceHtml,
+		var updatedSourceDom = mw.cx.dm.Translation.static.getSourceDom( updatedSourceHtml, this.sourceWikiPage.getSectionTitle() );
+		var updatedTargetDom = mw.cx.dm.Translation.static.getSourceDom(
+			updatedSourceHtml,
 			this.sourceWikiPage.getSectionTitle(),
 			true,
 			translationUnits,
 			this.sourceWikiPage.getLanguage()
 		);
 
-		translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
-		translationModel.setChangedSignificantly( true );
+		var updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
+		updatedTranslationModel.setChangedSignificantly( true );
 
 		// Append revision number to URL
 		uri = uri.extend( { revision: draft.sourceRevisionId } );
 		window.history.pushState( null, document.title, uri.toString() );
 
-		return translationModel;
+		return updatedTranslationModel;
 	}.bind( this ), this.fetchSourcePageContentError.bind( this ) );
 };
 
@@ -255,16 +248,14 @@ mw.cx.init.Translation.prototype.attachToDOM = function ( veTarget ) {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, targetLanguage, siteMapper ) {
-	var fetchParams, apiURL, fetchPageUrl;
-
-	fetchParams = {
+	var fetchParams = {
 		$sourcelanguage: siteMapper.getWikiDomainCode( wikiPage.getLanguage() ),
 		$targetlanguage: targetLanguage,
 		// Manual normalisation to avoid redirects on spaces but not to break namespaces
 		$title: wikiPage.getTitle().replace( / /g, '_' )
 	};
 
-	apiURL = '/page/$sourcelanguage/$targetlanguage/$title';
+	var apiURL = '/page/$sourcelanguage/$targetlanguage/$title';
 
 	// If revision is requested, load that revision of page.
 	if ( wikiPage.getRevision() ) {
@@ -272,7 +263,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, t
 		apiURL += '/$revision';
 	}
 
-	fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
+	var fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
 
 	return $.get( fetchPageUrl ).then( function ( data ) {
 		// The $.when that use the output of this will treat respose as array(data, textStatus, jqXHR)
@@ -394,12 +385,11 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
  * sourceTitle:targetTitle property-value pairs
  */
 mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategories ) {
-	var category,
-		categories = {},
+	var categories = {},
 		length = fetchedCategories.length;
 
 	while ( length-- ) {
-		category = fetchedCategories[ length ];
+		var category = fetchedCategories[ length ];
 		categories[ category.sourceTitle ] = category.targetTitle || null;
 	}
 
@@ -420,13 +410,11 @@ mw.cx.init.Translation.prototype.addFeedbackLink = function () {
 };
 
 mw.cx.init.Translation.prototype.addChangedSignificantlyIssue = function ( translationModel ) {
-	var diff, translationIssuesParams;
-
 	this.translationView.showViewIssuesMessage(
 		mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning'
 	);
 
-	diff = this.config.siteMapper.getPageUrl(
+	var diff = this.config.siteMapper.getPageUrl(
 		translationModel.getSourceLanguage(),
 		translationModel.getSourceTitle(),
 		{
@@ -436,7 +424,7 @@ mw.cx.init.Translation.prototype.addChangedSignificantlyIssue = function ( trans
 		}
 	);
 
-	translationIssuesParams = {
+	var translationIssuesParams = {
 		title: mw.msg( 'cx-tools-linter-old-revision' ),
 		resolvable: true
 	};
@@ -469,16 +457,14 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 			{ action: 'cancel', label: mw.msg( 'cx-tools-linter-restart-translation-cancel' ), flags: 'safe' }
 		]
 	} ).closed.then( function ( data ) {
-		var sourceLanguage, targetLanguage, sourceTitle, apiParams;
-
 		if ( !data || data.action !== 'restart' ) {
 			return;
 		}
 
-		sourceLanguage = this.translationModel.getSourceLanguage();
-		targetLanguage = this.translationModel.getTargetLanguage();
-		sourceTitle = this.translationModel.getSourceTitle();
-		apiParams = {
+		var sourceLanguage = this.translationModel.getSourceLanguage();
+		var targetLanguage = this.translationModel.getTargetLanguage();
+		var sourceTitle = this.translationModel.getSourceTitle();
+		var apiParams = {
 			assert: 'user',
 			action: 'cxdelete',
 			from: sourceLanguage,

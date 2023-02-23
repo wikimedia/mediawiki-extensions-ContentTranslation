@@ -64,14 +64,12 @@
 	 * Show the callout
 	 */
 	Callout.prototype.show = function () {
-		var $dialog, content;
-
-		content = maybeCall( this.options.content );
+		var content = maybeCall( this.options.content );
 		if ( !content ) {
 			return;
 		}
 
-		$dialog = this.dialog();
+		var $dialog = this.dialog();
 		$dialog.find( '.cx-callout-content' ).empty().append( content );
 		$dialog.remove().css( {
 			top: 0,
@@ -105,15 +103,13 @@
 	 * Position the callout
 	 */
 	Callout.prototype.position = function () {
-		var $dialog, pos, direction, actualWidth, actualHeight, position;
-
-		pos = $.extend( {}, this.$element.offset(), {
+		var pos = $.extend( {}, this.$element.offset(), {
 			width: this.$element[ 0 ].offsetWidth,
 			height: this.$element[ 0 ].offsetHeight
 		} );
 
-		$dialog = this.dialog();
-		direction = maybeCall( this.options.direction, this.$element[ 0 ] );
+		var $dialog = this.dialog();
+		var direction = maybeCall( this.options.direction, this.$element[ 0 ] );
 		// Attach css classes before checking height/width so they
 		// can be applied.
 		// The following classes are used here:
@@ -126,8 +122,9 @@
 			// eslint-disable-next-line mediawiki/class-doc
 			$dialog.addClass( this.options.classes );
 		}
-		actualWidth = $dialog[ 0 ].offsetWidth;
-		actualHeight = $dialog[ 0 ].offsetHeight;
+		var actualWidth = $dialog[ 0 ].offsetWidth;
+		var actualHeight = $dialog[ 0 ].offsetHeight;
+		var position;
 		switch ( direction ) {
 			case '0':
 			case '12':
@@ -211,7 +208,7 @@
 	 * Listen for event
 	 */
 	Callout.prototype.listen = function () {
-		var timer, self = this;
+		var self = this;
 
 		if ( this.options.trigger === 'auto' ) {
 			self.show();
@@ -238,6 +235,7 @@
 			} );
 		}
 
+		var timer;
 		$( window ).on( 'resize', function () {
 			clearTimeout( timer );
 			timer = setTimeout( function () {
@@ -305,26 +303,25 @@
 	$.fn.callout.autoDirection = function ( prefer ) {
 		return function () {
 			var direction = prefer,
-				leftFlips, rightFlips, topFlips, bottomFlips,
 				boundTop = window.pageYOffset + document.documentElement.clientHeight / 2,
 				boundLeft = window.pageXOffset + document.documentElement.clientWidth / 2,
 				$this = $( this );
 
-			leftFlips = {
+			var leftFlips = {
 				1: '11',
 				2: '10',
 				3: '9',
 				4: '8',
 				5: '7'
 			};
-			rightFlips = {
+			var rightFlips = {
 				11: '1',
 				10: '2',
 				9: '3',
 				8: '4',
 				7: '5'
 			};
-			topFlips = {
+			var topFlips = {
 				3: '2',
 				4: '2',
 				5: '1',
@@ -333,7 +330,7 @@
 				8: '10',
 				9: '10'
 			};
-			bottomFlips = {
+			var bottomFlips = {
 				0: '6',
 				12: '6',
 				1: '5',

@@ -53,7 +53,6 @@ mw.cx.TranslationTracker.static.unmodifiedContentThreshold = {
  * @return {number}
  */
 mw.cx.TranslationTracker.static.calculateSectionTranslationProgress = function ( string1, string2, language ) {
-	var tokens1, tokens2;
 	if ( string1 === string2 ) {
 		return 1;
 	}
@@ -61,8 +60,8 @@ mw.cx.TranslationTracker.static.calculateSectionTranslationProgress = function (
 		return 0;
 	}
 
-	tokens1 = this.tokenise( string1, language );
-	tokens2 = this.tokenise( string2, language );
+	var tokens1 = this.tokenise( string1, language );
+	var tokens2 = this.tokenise( string2, language );
 
 	return tokens2.length / tokens1.length;
 };
@@ -77,8 +76,6 @@ mw.cx.TranslationTracker.static.calculateSectionTranslationProgress = function (
  * @return {number} A value between 0 and 1
  */
 mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1, string2, language ) {
-	var unmodifiedTokens, bigSet, smallSet, tokens1, tokens2;
-
 	if ( !string1 || !string2 ) {
 		return 0;
 	}
@@ -88,8 +85,9 @@ mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1,
 		return 1;
 	}
 
-	bigSet = tokens1 = this.tokenise( string1, language );
-	smallSet = tokens2 = this.tokenise( string2, language );
+	var tokens1, tokens2;
+	var bigSet = tokens1 = this.tokenise( string1, language );
+	var smallSet = tokens2 = this.tokenise( string2, language );
 
 	if ( tokens2.length > tokens1.length ) {
 		// Swap the sets
@@ -98,7 +96,7 @@ mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1,
 	}
 
 	// Find the intersection(tokens that did not change) two token sets
-	unmodifiedTokens = bigSet.filter( function ( token ) {
+	var unmodifiedTokens = bigSet.filter( function ( token ) {
 		return smallSet.indexOf( token ) >= 0;
 	} );
 
@@ -134,22 +132,22 @@ mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
  * @return {boolean}
  */
 mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel ) {
-	var children, childType,
-		excludedTypes = [
-			'cxBlockImage', 'mwBlockImage', // Both are required since new images can be inserted too.
-			'cxTransclusionBlock', 'mwTransclusionBlock',
-			'mwReferencesList',
-			'mwMath',
-			'definitionList',
-			'mwAlienBlockExtension', 'mwAlienInlineExtension',
-			'mwTable', 'list', 'mwHeading'
-		];
+	var excludedTypes = [
+		'cxBlockImage', 'mwBlockImage', // Both are required since new images can be inserted too.
+		'cxTransclusionBlock', 'mwTransclusionBlock',
+		'mwReferencesList',
+		'mwMath',
+		'definitionList',
+		'mwAlienBlockExtension', 'mwAlienInlineExtension',
+		'mwTable', 'list', 'mwHeading'
+	];
 
 	// check if node itself is excluded before check it
 	if ( nodeModel && nodeModel.getType && excludedTypes.indexOf( nodeModel.getType() ) >= 0 ) {
 		return true;
 	}
 
+	var children;
 	if ( nodeModel && nodeModel.getChildren ) {
 		// Make sure than nodeModel is a ve.dm.BranchNode by checking
 		// if getChildren method exist
@@ -158,7 +156,7 @@ mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel 
 
 	if ( children && children.length === 1 ) {
 		// Get the type of one and only one child of the nodeModel
-		childType = children[ 0 ].getType();
+		var childType = children[ 0 ].getType();
 		if ( excludedTypes.indexOf( childType ) >= 0 ) {
 			return true;
 		} else {
@@ -178,10 +176,9 @@ mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel 
  * @return {ve.dm.BranchNode[]} Flat array of nodes
  */
 mw.cx.TranslationTracker.static.getChildrenNodesForValidation = function ( nodeModel ) {
-	var children,
-		currentNode,
-		nodesToBeValidated = [],
-		i;
+	var nodesToBeValidated = [];
+
+	var children;
 	if ( nodeModel && nodeModel.getChildren ) {
 		children = nodeModel.getChildren();
 	}
@@ -190,8 +187,8 @@ mw.cx.TranslationTracker.static.getChildrenNodesForValidation = function ( nodeM
 		return [];
 	}
 
-	for ( i = 0; i < children.length; i++ ) {
-		currentNode = children[ i ];
+	for ( var i = 0; i < children.length; i++ ) {
+		var currentNode = children[ i ];
 		if ( !this.isExcludedFromValidation( currentNode ) ) {
 			if ( currentNode.getChildren && currentNode.getChildren().length > 1 ) {
 				nodesToBeValidated = nodesToBeValidated.concat( this.getChildrenNodesForValidation( currentNode ) );
@@ -212,19 +209,16 @@ mw.cx.TranslationTracker.static.getChildrenNodesForValidation = function ( nodeM
  * @return {string[]}
  */
 mw.cx.TranslationTracker.static.getTokensFromValidationTree = function ( validationTree, language ) {
-	var sourceTokens = [],
-		sourceText,
-		validationNode,
-		i;
+	var sourceTokens = [];
 
 	if ( !Array.isArray( validationTree ) ) {
 		mw.log.warn( '[CX] No nodes for MT abuse validation' );
 		return [];
 	}
 
-	for ( i = 0; i < validationTree.length; i++ ) {
-		validationNode = validationTree[ i ];
-		sourceText = $( ve.dm.converter.getDomFromNode( validationNode ) ).text();
+	for ( var i = 0; i < validationTree.length; i++ ) {
+		var validationNode = validationTree[ i ];
+		var sourceText = $( ve.dm.converter.getDomFromNode( validationNode ) ).text();
 		sourceTokens = sourceTokens.concat( this.tokenise( sourceText, language ) );
 	}
 
@@ -251,19 +245,17 @@ mw.cx.TranslationTracker.static.getSectionNodeValidationTokens = function ( sect
  * @param {mw.cx.dm.Translation} translationModel
  */
 mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
-	var i, sectionNumber, sectionModels, sectionModel, sectionState,
-		savedTranslationUnits, savedTranslationUnit, progress,
-		restoredSections = 0;
+	var restoredSections = 0;
 
-	sectionModels = translationModel.sourceDoc.getNodesByType( 'cxSection' );
-	savedTranslationUnits = translationModel.savedTranslationUnits || [];
-	for ( i = 0; i < sectionModels.length; i++ ) {
-		sectionModel = sectionModels[ i ];
+	var sectionModels = translationModel.sourceDoc.getNodesByType( 'cxSection' );
+	var savedTranslationUnits = translationModel.savedTranslationUnits || [];
+	for ( var i = 0; i < sectionModels.length; i++ ) {
+		var sectionModel = sectionModels[ i ];
 
-		sectionNumber = sectionModel.getSectionNumber();
-		sectionState = new mw.cx.dm.SectionState( sectionNumber );
+		var sectionNumber = sectionModel.getSectionNumber();
+		var sectionState = new mw.cx.dm.SectionState( sectionNumber );
 		sectionState.setSource( ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML );
-		savedTranslationUnit = savedTranslationUnits[ sectionNumber ];
+		var savedTranslationUnit = savedTranslationUnits[ sectionNumber ];
 		if ( savedTranslationUnit ) {
 			if ( savedTranslationUnit.user ) {
 				sectionState.setCurrentMTProvider( savedTranslationUnit.user.engine );
@@ -288,7 +280,7 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		sectionModels.length + ' sections (' + restoredSections + ' restored)' );
 
 	if ( restoredSections > 0 ) {
-		progress = this.getTranslationProgress();
+		var progress = this.getTranslationProgress();
 		if ( !OO.compare( translationModel.progress, progress ) ) {
 			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
 				JSON.stringify( translationModel.progress ) );
@@ -383,17 +375,14 @@ mw.cx.TranslationTracker.prototype.processChangeQueue = function () {
  * @param {string} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumber ) {
-	var sectionModel, sectionState, newContent, existingContent,
-		currentMTProvider, unmodifiedMTContent, newMTProvider, freshTranslation;
-
-	sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+	var sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 	if ( !sectionModel ) {
 		// sectionModel can be null in case this handler is executed while the node
 		// is being modified. Since this method is debounced, chances are rare.
 		// Still checking for null.
 		return;
 	}
-	sectionState = this.sections[ sectionNumber ];
+	var sectionState = this.sections[ sectionNumber ];
 
 	if ( !( sectionModel instanceof ve.dm.CXSectionNode ) ) {
 		// sectionModel can be a PlaceholderNode by undo operation too.
@@ -405,8 +394,9 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 		return;
 	}
 
-	currentMTProvider = sectionState.getCurrentMTProvider();
-	newMTProvider = sectionModel.getOriginalContentSource();
+	var currentMTProvider = sectionState.getCurrentMTProvider();
+	var newMTProvider = sectionModel.getOriginalContentSource();
+	var freshTranslation = false;
 	if ( currentMTProvider !== newMTProvider ) {
 		// Fresh translation or MT Engine change
 		mw.log( '[CX] MT Engine change for section ' + sectionNumber + ' to MT ' + newMTProvider );
@@ -420,9 +410,9 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
 	// and other view-only information that Parsoid doesn't care about.
 	// CLIPBOARD_MODE helps to keep the rendering in the content to be saved and hence helping to restore
 	// them with rendering.
-	newContent = ve.dm.converter.getDomFromNode( sectionModel, ve.dm.Converter.static.CLIPBOARD_MODE ).body.innerHTML;
-	existingContent = sectionState.getUserTranslation();
-	unmodifiedMTContent = sectionState.getUnmodifiedMT();
+	var newContent = ve.dm.converter.getDomFromNode( sectionModel, ve.dm.Converter.static.CLIPBOARD_MODE ).body.innerHTML;
+	var existingContent = sectionState.getUserTranslation();
+	var unmodifiedMTContent = sectionState.getUnmodifiedMT();
 	if ( !unmodifiedMTContent.html ) {
 		// Fresh translation. Extract and save the unmodified MT content to section state.
 		sectionState.setCurrentMTProvider( newMTProvider );
@@ -461,12 +451,11 @@ mw.cx.TranslationTracker.prototype.processSectionChange = function ( sectionNumb
  * @param {number} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNumber ) {
-	var unmodifiedPercentage, progress,
-		sectionState = this.sections[ sectionNumber ],
+	var sectionState = this.sections[ sectionNumber ],
 		unmodifiedContent = sectionState.getUnmodifiedMT(),
 		userTranslation = sectionState.getUserTranslation();
 
-	unmodifiedPercentage = this.constructor.static.calculateUnmodifiedContent(
+	var unmodifiedPercentage = this.constructor.static.calculateUnmodifiedContent(
 		unmodifiedContent.text,
 		userTranslation.text,
 		this.targetLanguage
@@ -474,7 +463,7 @@ mw.cx.TranslationTracker.prototype.updateSectionProgress = function ( sectionNum
 	sectionState.setUnmodifiedPercentage( unmodifiedPercentage );
 
 	// Calculate the progress. It is a value between 0 and 1
-	progress = this.constructor.static.calculateSectionTranslationProgress(
+	var progress = this.constructor.static.calculateSectionTranslationProgress(
 		sectionState.getSource().text,
 		userTranslation.text,
 		this.targetLanguage
@@ -503,14 +492,12 @@ mw.cx.TranslationTracker.prototype.validateForMTAbuse = function ( sectionNumber
 };
 
 mw.cx.TranslationTracker.prototype.setMTAbuseWarning = function ( sectionModel ) {
-	var percentage, sectionState;
-
 	if ( !sectionModel ) {
 		return;
 	}
 
-	sectionState = this.sections[ sectionModel.getSectionNumber() ];
-	percentage = mw.language.convertNumber(
+	var sectionState = this.sections[ sectionModel.getSectionNumber() ];
+	var percentage = mw.language.convertNumber(
 		Math.round( sectionState.getUnmodifiedPercentage() * 100 ) );
 	mw.log( '[CX] Unmodified MT percentage for section ' + sectionModel.getSectionNumber() +
 		' ' + percentage + '% crossed the threshold ' + this.getUnmodifiedContentThreshold( sectionState ) * 100 );
@@ -566,21 +553,20 @@ mw.cx.TranslationTracker.prototype.clearMTAbuseWarning = function ( sectionModel
  */
 mw.cx.TranslationTracker.prototype.sectionsWithMTAbuse = function () {
 	return this.getTargetSectionModels().filter( function ( sectionModel ) {
-		var sectionState, issue, threshold, unmodifiedPercentage,
-			index = sectionModel.findIssueIndex( 'mt-abuse' );
+		var index = sectionModel.findIssueIndex( 'mt-abuse' );
 
 		if ( index < 0 ) {
 			return false;
 		}
 
-		issue = sectionModel.translationIssues[ index ];
+		var issue = sectionModel.translationIssues[ index ];
 		if ( !issue.isSuppressed() ) {
 			return true;
 		}
 
-		sectionState = this.sections[ sectionModel.getSectionNumber() ];
-		unmodifiedPercentage = sectionState.getUnmodifiedPercentage();
-		threshold = this.getUnmodifiedContentThreshold( sectionState, true );
+		var sectionState = this.sections[ sectionModel.getSectionNumber() ];
+		var unmodifiedPercentage = sectionState.getUnmodifiedPercentage();
+		var threshold = this.getUnmodifiedContentThreshold( sectionState, true );
 
 		if ( unmodifiedPercentage > threshold ) {
 			mw.log(
@@ -607,13 +593,12 @@ mw.cx.TranslationTracker.prototype.sectionsWithMTAbuse = function () {
  * subtracted from 100%.
  */
 mw.cx.TranslationTracker.prototype.getTranslationProgress = function () {
-	var unmodifiedMTPercentage,
-		sourceSectionCount = Object.keys( this.sections ).length,
+	var sourceSectionCount = Object.keys( this.sections ).length,
 		targetSectionCount = this.getTargetSectionModels( true ).length;
 
 	// Recalculate the progress. Make sure we are not using old data.
 	this.processChangeQueue();
-	unmodifiedMTPercentage = this.getUnmodifiedMTPercentageInTranslation() / 100;
+	var unmodifiedMTPercentage = this.getUnmodifiedMTPercentageInTranslation() / 100;
 
 	return {
 		any: targetSectionCount / sourceSectionCount,
@@ -660,14 +645,12 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
  * @param {number} sectionNumber
  */
 mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function ( sectionNumber ) {
-	var focusHandler, changeHandler, sectionNode, sectionModel;
-
 	/* @type {ve.ce.CXSectionNode} */
-	sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
+	var sectionNode = this.veTarget.getTargetSectionElementFromSectionNumber( sectionNumber );
 	/* @type {ve.dm.CXSectionNode} */
-	sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+	var sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 
-	focusHandler = function () {
+	var focusHandler = function () {
 		// Validate every sections except the current section
 		var index = this.validationDelayQueue.indexOf( sectionNumber );
 		if ( index > -1 ) {
@@ -678,7 +661,7 @@ mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function (
 		this.validationDelayQueue.push( sectionNumber );
 	};
 
-	changeHandler = function () {
+	var changeHandler = function () {
 		// If the setion has existing issues, validate the issues on every change
 		// So that the translator know when it is getting resolved
 		if ( sectionModel.hasTranslationIssues() ) {
@@ -695,12 +678,10 @@ mw.cx.TranslationTracker.prototype.registerEventListenersForSection = function (
  * Process any delayed validations on sections.
  */
 mw.cx.TranslationTracker.prototype.processValidationQueue = function () {
-	var i, sectionNumber, sectionModel;
-
-	i = this.validationDelayQueue.length;
+	var i = this.validationDelayQueue.length;
 	while ( i-- ) {
-		sectionNumber = this.validationDelayQueue[ i ];
-		sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+		var sectionNumber = this.validationDelayQueue[ i ];
+		var sectionModel = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 		if ( !this.constructor.static.isExcludedFromValidation( sectionModel ) ) {
 			if ( this.validateForMTAbuse( sectionNumber ) ) {
 				this.setMTAbuseWarning( sectionModel );
