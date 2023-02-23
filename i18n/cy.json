@@ -23,6 +23,7 @@
 	"cx-header-translation-center": "Canolfan Gyfieithu",
 	"cx-header-all-translations": "Pob cyfieithiad",
 	"cx-source-view-page": "gweld y dudalen",
+	"cx-target-view-page": "gweld y dudalen",
 	"cx-publish-page-success": "Cyhoeddwyd y dudalen ar $1",
 	"cx-publish-error-spam-blacklist": "Canfuwyd cynnwys sy'n debygol o fod yn sbam yn eich cyfieithiad. Manylion: $1",
 	"cx-publish-button": "Cyhoeddi",
