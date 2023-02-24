@@ -38,6 +38,7 @@
 	"cx-header-translation-center": "Центр перекладів",
 	"cx-header-all-translations": "Усі переклади",
 	"cx-source-view-page": "перегляд сторінки",
+	"cx-target-view-page": "перегляд сторінки",
 	"cx-publish-page-success": "Сторінка опублікована на $1",
 	"cx-publish-error-abuse-filter": "Автоматичні фільтри редагувань виявили проблематичний вміст у Вашому перекладі. Попадання до фільтру: $1",
 	"cx-publish-error-empty": "Сервер надіслав відповідь без даних.",
@@ -455,5 +456,18 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Опублікувати",
 	"cx-contributecard-entrypoint-title": "Переклади",
 	"cx-contributecard-entrypoint-desc": "Перекладіть один розділ або цілу статтю. Зробіть більше вмісту доступним більшою кількістю мов.",
-	"cx-contributecard-entrypoint-cta": "Почати переклад"
+	"cx-contributecard-entrypoint-cta": "Почати переклад",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "Еквівалентний шаблон не знайдено",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Цей шаблон буде додано порожнім",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Цей шаблон можна частково перекласти",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Цей шаблон можна автоматично переклаcти",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Структура шаблону надто відрізняється між мовами, і жодні дані не можуть бути автоматично передані",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Структура шаблону в обох мовах подібна, і деякі дані можна автоматично перенести",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Структура шаблону в обох мовах подібна, і всі дані можна автоматично передати",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Якщо ви знаєте еквівалентний шаблон у $1, ви можете зв'язати їх на Вікіданих, щоб інструменти могли його знайти",
+	"cx-sx-block-template-none-mapped-param-text": "З оригінального шаблону не було додано жодного параметра з $1",
+	"cx-sx-block-template-mapped-params-text": "З оригінального шаблону додано $1 із {{PLURAL:$2|$2 параметра|$2 параметрів}}",
+	"cx-sx-block-template-no-source-params-text": "Оригінальний шаблон не мав параметрів для передачі",
+	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|$1 обов'язковий параметр|$1 обов'язкові параметри|$1 обов'язкових параметрів}} шаблону залишаються незаповненими в $2. Відредагуйте шаблон, щоб заповнити їх вручну",
+	"cx-sx-block-template-missing-optional-params-text": "{{PLURAL:$1|$1 додатковий параметр|$1 додаткові параметри|$1 додаткових параметрів}} шаблону можна заповнити в $2. Відредагуйте шаблон, щоб заповнити їх вручну"
 }
