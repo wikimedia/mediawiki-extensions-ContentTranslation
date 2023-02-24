@@ -344,7 +344,7 @@
 		},
 		"ContentTranslationUnmodifiedMTThresholdForPublish": {
 			"description": "If the user exceeds a threshold an error will be shown to the user when they try to publish. The threshold will be calculated for the whole document, and it will prevent publishing until the content is modified.",
-			"value": 99
+			"value": 95
 		},
 		"ContentTranslationPublishRequirements": {
 			"description": "List of requirements for user account to be able to publish in main namespace. Possible requirements: * userGroups: User should belong to any group in this list in order to be able to publish.",
