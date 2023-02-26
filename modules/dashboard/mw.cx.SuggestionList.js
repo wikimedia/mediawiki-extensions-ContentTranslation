@@ -485,7 +485,8 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 	const discardAction = new OO.ui.ButtonWidget( {
 		framed: false,
 		icon: 'close',
-		classes: [ 'cx-slitem__action--discard' ]
+		classes: [ 'cx-slitem__action--discard' ],
+		title: OO.ui.msg( 'cx-suggestionlist-discard' )
 	} );
 	discardAction.once( 'click', this.discardSuggestion.bind( this, suggestion ) );
 
@@ -497,7 +498,8 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			framed: false,
 			flags: [ 'progressive' ],
 			classes: [ 'cx-slitem__action--nonfavorite' ],
-			icon: 'bookmark'
+			icon: 'bookmark',
+			title: OO.ui.msg( 'cx-favorite-remove' )
 		} );
 
 		favoriteAction.once( 'click', this.unmarkFavorite.bind( this, suggestion ) );
@@ -507,7 +509,8 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		favoriteAction = new OO.ui.ButtonWidget( {
 			framed: false,
 			classes: [ 'cx-slitem__action--favorite' ],
-			icon: 'bookmarkOutline'
+			icon: 'bookmarkOutline',
+			title: OO.ui.msg( 'cx-favorite-add' )
 		} );
 
 		favoriteAction.once( 'click', this.markFavorite.bind( this, suggestion ) );
