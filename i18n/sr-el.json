@@ -296,7 +296,7 @@
 	"cx-linkcontextitem-missing-title-description": "Stranica još ne postoji",
 	"cx-mt-abuse-publish-error": "Vaš prevod ne može biti objavljen jer sadrži previše neizmenjenog teksta.",
 	"cx-unreviewed-translation-category": "Stranice sa nepregledanim prevodima",
-	"cx-unreviewed-translation-category-desc": "Stranice prevedene alatkom „Prevodilac sadržine” koje sadrže visoku količinu nepregledanog teksta.",
+	"cx-unreviewed-translation-category-desc": "Stranice prevedene alatkom „Prevodilac sadržine” koje sadrže veliku količinu nepregledanog teksta",
 	"cx-preference-enable-entrypoints": "Pristup [[$1|prevođenju sadržine]] sa stranice doprinosa, spiska jezika i prilikom pravljenja novih stranica.",
 	"cx-feature-discovery-title": "Prevodi bilo kada",
 	"cx-feature-discovery-content": "Možete početi ili nastaviti sa prevođenjem bilo kada sa stranice {{int:mycontris}}.",

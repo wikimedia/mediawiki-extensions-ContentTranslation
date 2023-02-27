@@ -37,6 +37,7 @@
 	"cx-contributions-translation": "Jorgalus",
 	"cx-translation-status-deleted": "Sihkkojuvvon",
 	"cx-feedback-link": "Atte máhcahaga",
+	"cx-draft-cancel-button-label": "Šluhtte",
 	"cx-draft-discard-button-label": "Sihko jorgalusa",
 	"cx-campaign-no-thanks": "Ii giitu",
 	"cx-campaign-contributionsmenu-mycontributions": "Rievdadusat",
@@ -58,5 +59,6 @@
 	"cx-linkcontextitem-missing-link-title": "Liŋka váilu",
 	"cx-sx-view-translation-anchor": "Čájet",
 	"cx-sx-existing-translation-learn-more": "Lassedieđut",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Iskka nuppi siiddu dahje eará gielaide.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lassedieđut"
 }

@@ -51,6 +51,7 @@
 	"cx-page-selector-widget-nearby-label": "Golaýda",
 	"cx-source-page-selector-input-placeholder": "Terjime etmek üçin sahypa gözläň",
 	"cx-selected-source-page-start-translation-button": "Terjime başlaň",
+	"cx-selected-source-page-error-title-in-use": "Täze sahypanyň ady [$1 eýýäm ulanylýar]",
 	"cx-favorite-added-for-later": "Soň goşuldy!",
 	"cx-favorite-added-for-later-detail": "Soň goşuldy! Teklipleriň görnüşini islän wagtyňyz barlaň.",
 	"cx-favorite-removed": "Halanýanlaryň sanawyndan aýryldy!",

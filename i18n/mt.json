@@ -62,5 +62,6 @@
 	"cx-contributions-upload": "Tella' fajl multimedjali",
 	"cx-stats-tabs-expand": "Ara l-lingwi kollha",
 	"cx-contributions-link": "Il-kontribuzzjonijiet tiegħek",
+	"cx-tools-linter-invalid-character-message": "Xi karattri ma jistgħux jintużaw fit-titlu tal-paġni għal raġunijiet tekniċi.\n\nJekk jogħġbok, editja t-titlu biex tevita l-karattri problematiċi.",
 	"cx-translator-header": "Statistika tiegħek"
 }

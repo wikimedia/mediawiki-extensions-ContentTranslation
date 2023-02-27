@@ -20,6 +20,7 @@
 	"cx-special-login-error": "Ton õõlǥak leeʹd sizz ǩeeʹrjtõõttâm, jõs haaʹlääk tän seeid jåårǥlâʹtted. [$1 Ǩeeʹrjtõõđ sizz]",
 	"cx-tools-instructions-text5": "Õlmstââʹtt jåårǥlõõzz",
 	"cx-tools-instructions-text6": "Ǥu leäk tååđvaž puåđõʹsse, teäʹddel \"{{int:cx-publish-button}}\".",
+	"cx-tools-view-guidelines": "{{GENDER:|Čuäʹjet}} jåårǥlâʹttemvuõʹjjid",
 	"cx-tools-link-title": "Liŋkk",
 	"cx-tools-link-add": "Lââʹzzet liiŋk",
 	"cx-tools-mt-provider-title": "Ââʹn kääzzkõõzz $1",
@@ -88,6 +89,7 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 vââʹǩǩ|$1 vââʹjj|$1 vââʹǩǩed}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 vaartõs|$1 vaartõõzz|$1 vaartõssâd}}",
 	"cx-tools-linter-learn-more": "Lââʹssteâđ",
+	"cx-tools-linter-generic-title": "Tuu jåårǥlâttmõõžžâst lij proʹbleeʹm",
 	"cx-tools-linter-template-add-new": "Lââʹzzet ođđ maall",
 	"cx-tools-linter-restart-translation-cancel": "Jõõsk",
 	"cx-translator-month-stats-label": "Tän määnpââʹjest",
@@ -99,5 +101,6 @@
 	"cx-sx-existing-translation-learn-more": "Lââʹssteâđ",
 	"cx-sx-section-selector-more-details-title": "Lââʹssteâđ",
 	"cx-sx-section-selector-view-article-button-label": "Čuäʹjet artikkeeʹl ǩiõʹlle $1",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Kååit nuʹbb seeid leʹbe jeeʹres ǩiõlid.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lââʹssteâđ"
 }

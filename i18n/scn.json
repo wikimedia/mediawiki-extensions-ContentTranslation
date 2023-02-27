@@ -5,7 +5,9 @@
 			"Ajeje Brazorf"
 		]
 	},
+	"cx": "Traduci pàggina",
 	"cx-dashboard-header": "Traduzzioni",
+	"cx-javascript": "Stu strummentu nun funziuna senza JavaScript. JavaScript putirìa èssiri disattivu, nun ha funziunatu, o stu browser nun è suppurtatu.",
 	"cx-header-all-translations": "Tutti li traduzzioni",
 	"cx-source-view-page": "talìa la pàggina",
 	"cx-entrypoint-title": "Traduci sta pàggina n $1",
@@ -19,6 +21,8 @@
 	"cx-create-new-translation": "Traduzzioni nova",
 	"cx-translation-filter-label-all-languages": "Tutti",
 	"cx-translation-filter-uls-all-languages": "Tutti li lingui",
+	"cx-contributions-new-article": "Pàggina nova",
+	"cx-contributions-translation": "Traduzzioni",
 	"cx-translation-status-deleted": "Cancillatu",
 	"cx-stats-published-translators-title": "Nùmmiru di traduttura",
 	"cx-stats-cumulative-tab-title": "Tutali",
