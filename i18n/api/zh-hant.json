@@ -27,7 +27,7 @@
 	"apihelp-query+contenttranslation-param-limit": "要取得的翻譯數量上限。",
 	"apihelp-query+contenttranslation-param-offset": "結果集合的偏移（選用）。",
 	"apihelp-query+contenttranslation-param-type": "翻譯的狀態。",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "是否應取得章節翻譯，而非文章翻譯",
+	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "是否應取得章節翻譯，而非條目翻譯",
 	"apihelp-query+contenttranslation-example-1": "取得目前使用者所發起的翻譯。",
 	"apihelp-query+contenttranslation-example-2": "依 ID 取得翻譯草稿。",
 	"apihelp-query+contenttranslation-example-3": "搜尋指定標題於語言組合的任何翻譯",
@@ -125,7 +125,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "在已刪除翻譯所發佈到的命名空間。預設為主命名空間。",
 	"apihelp-query+cxdeletedtranslations-example-1": "取得您發佈在主命名空間，並且在 2019-04-07 16:24:44 後被刪除的翻譯數量",
 	"apihelp-cxpublishsection-description": "儲存使用內容翻譯擴充的章節翻譯功能所建立的章節。",
-	"apihelp-cxpublishsection-summary": "儲存使用內容翻譯擴充的章節翻譯功能所建立的頁面。",
+	"apihelp-cxpublishsection-summary": "儲存使用內容翻譯擴充的章節翻譯功能所建立的章節。",
 	"apihelp-cxpublishsection-param-title": "要執行操作的頁面標題。",
 	"apihelp-cxpublishsection-param-html": "要儲存的內容。",
 	"apihelp-cxpublishsection-param-sourcelanguage": "來源語言代碼。",
@@ -150,5 +150,10 @@
 	"apihelp-sxsave-param-sectionid": "頁面章節 ID。",
 	"apihelp-sxsave-param-sourcerevision": "來源頁面修訂 ID。",
 	"apierror-sxsave-anon-user": "「sxsave」API 操作未啟用給匿名使用者",
-	"apierror-cxpublishsection-translationnotfound": "找不到翻譯。"
+	"apierror-cxpublishsection-translationnotfound": "找不到翻譯。",
+	"apihelp-sxdelete-description": "從資料庫中刪除草稿章節翻譯以及其平行語料。",
+	"apihelp-sxdelete-summary": "從資料庫中刪除草稿章節翻譯以及其平行語料。",
+	"apihelp-sxdelete-param-translationid": "與草稿章節翻譯關聯的翻譯 ID。",
+	"apihelp-sxdelete-param-sectionid": "草稿章節翻譯的章節 ID。",
+	"apihelp-sxdelete-example-1": "以指定翻譯 ID 與章節 ID 來刪除關聯的草稿。"
 }
