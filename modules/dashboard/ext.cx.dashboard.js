@@ -120,14 +120,14 @@
 			targetLanguage = mw.config.get( 'wgContentLanguage' );
 		}
 
-		commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( n ) {
-			return sourceLanguages.indexOf( n ) !== -1;
+		commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( lang ) {
+			return sourceLanguages.indexOf( lang ) !== -1;
 		} );
 
 		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
 			for ( i = 0, length = commonLanguages.length; i < length; i++ ) {
 				currentLang = commonLanguages[ i ];
-				if ( currentLang !== targetLanguage && sourceLanguages.indexOf( currentLang ) !== -1 ) {
+				if ( currentLang !== targetLanguage ) {
 					sourceLanguage = currentLang;
 					break;
 				}
