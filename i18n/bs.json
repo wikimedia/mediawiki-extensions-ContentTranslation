@@ -187,5 +187,22 @@
 	"cx-publish-destination-namespace-user-description": "U Vašem korisničkom prostoru, za doradu",
 	"cx-publish-destination-namespace-draft": "Nacrt zajednice",
 	"cx-preference-enable-entrypoints": "Pristup [[$1|prevođenju sadržaja]] sa stranice doprinosa, spiska jezika i prilikom pravljenja novih stranica.",
-	"cx-feature-discovery-dismiss": "Razumijem"
+	"cx-feature-discovery-dismiss": "Razumijem",
+	"sx-recent-translation-entrypoint-banner-header": "Stranica je nedavno prevedena",
+	"sx-recent-translation-entrypoint-banner-details": "Pomozite u poboljšavanju sadržaja",
+	"sx-recent-translation-entrypoint-dialog-header": "Poboljšanje prijevoda",
+	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Pregledajte sadržaj",
+	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Dodajte nove odlomke",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Prijevodi se oslanjaju na rad korisnika s projekata na drugim jezicima. Međutim, neke se stvari mogu izgubiti u prijevodu. Možete pomoći na sljedeće načine:",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "Korigirati prijevod",
+	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Uredite rečenice mijenjanjem riječi ili njihovog redoslijeda da bi tekst zvučao prirodno.",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Provjeriti reference",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Čitaoci pristupaju referencima da bi provjerili činjenice. Provjerite njihov oblik i po potrebi dodajte relevantne.",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "Uporediti s izvornom verzijom",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "Provjerite da prvobitno značenje nije izmijenjeno u prijevodu.",
+	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Uredi stranicu",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Prikaži izvornu stranicu ($1)",
+	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Dopunite stranicu prevođenjem odlomaka koji su dostupnim na drugim jezicima koje poznajete.",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Prevedi novi odlomak",
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Prevedite odlomke \"$1\" i \"$2\""
 }
