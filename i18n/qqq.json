@@ -31,6 +31,7 @@
 			"Sucheta Ghoshal",
 			"Tacsipacsi",
 			"Umherirrender",
+			"Whym",
 			"سامي الرحيلي"
 		]
 	},
@@ -457,7 +458,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Text of the banner that indicates to the user the single language that is missing for the current article and is frequently used by the user, inside the Universal Language Selector.\n\nParameters:\n* $1 - the code of the missing language",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Text of the banner that indicates to the user the two first languages that are missing for the current article and are frequently used by the user, inside the Universal Language Selector.\n\nParameters:\n* $1 - the code of first missing language \n* $2 - the code of second missing language",
 	"cx-uls-relevant-languages-panel-header": "Header of the panel that is displayed when user clicks on the banner for the frequently used missing languages, inside Universal Language Selector.",
-	"cx-uls-relevant-languages-panel-message": "Text of the panel that is displayed when user clicks on the banner for the frequently used missing languages, inside Universal Language Selector.",
+	"cx-uls-relevant-languages-panel-message": "Text of the panel that is displayed when user clicks on the banner for the frequently used missing languages, inside Universal Language Selector.\n\nSee also [[Thread:Support/\"You_can_translate_it_in_minutes!\"]].",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Description of expected result when publishing a lead section, inside 'Preview and publish' step",
 	"cx-uls-translate-page-quick-action-label": "Label of the 'Translate page' quick action button inside content language selector, that redirects the user to the ContentTranslation page with the source page and source language prefilled.",
 	"sx-recent-edit-entrypoint-top-banner-header": "Header of the top banner that is displayed inside the invitation of the entrypoint that invites the users to translate a section they recently edited in another language",
