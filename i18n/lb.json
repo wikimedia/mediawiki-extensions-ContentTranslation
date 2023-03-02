@@ -5,7 +5,8 @@
 			"Gromper",
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"cx": "Säit iwwersetzen",
@@ -18,6 +19,7 @@
 	"cx-header-translation-center": "Iwwersetzungszentral",
 	"cx-header-all-translations": "All Iwwersetzungen",
 	"cx-source-view-page": "Säit weisen",
+	"cx-target-view-page": "Säit weisen",
 	"cx-publish-page-success": "Säit publizéiert ënner $1",
 	"cx-publish-error-readonly": "Et däerf net an d'Wiki geschriwwe ginn.",
 	"cx-publish-button": "Verëffentlechen",
@@ -105,7 +107,7 @@
 	"cx-contributions-translation": "Iwwersetzung",
 	"cx-contributions-upload": "Mediefichier eroplueden",
 	"cx-contributions-new-article-tooltip": "Ufänken eng nei Säit ze schreiwen",
-	"cx-contributions-translation-tooltip": "Säiten déi et gëtt iwwersetzen",
+	"cx-contributions-translation-tooltip": "Säiten, déi et gëtt, iwwersetzen",
 	"cx-contributions-upload-tooltip": "Biller, Audio- a Videofichieren eropluede fir se op Säiten ze benotzen",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
 	"cx-publishing-dialog-title": "Déi Säit déi besteet iwwerschreiwen?",
