@@ -37,6 +37,7 @@
 	"cx-header-translation-center": "Pusat terjemahan",
 	"cx-header-all-translations": "Semua terjemahan",
 	"cx-source-view-page": "lihat halaman",
+	"cx-target-view-page": "lihat halaman",
 	"cx-publish-page-success": "Halaman diterbitkan di $1",
 	"cx-publish-error-abuse-filter": "Penyaring suntingan otomatis telah mengidentifikasi konten bermasalah pada terjemahan Anda. Terkena filter: $1",
 	"cx-publish-error-empty": "Peladen telah mengembalikan data kosong.",
@@ -322,6 +323,7 @@
 	"cx-sx-sentence-selector-header-title": "Bagian terjemahan",
 	"cx-sx-sentence-selector-done-button-label": "Selesai",
 	"cx-sx-sentence-selector-suggested-translation-title": "Saran terjemahan dari $1",
+	"cx-sx-proposed-translation-not-available-message": "Terjemahan mesin sedang tidak tersedia",
 	"cx-sx-proposed-translation-retry-button": "Coba lagi",
 	"cx-sx-proposed-translation-other-options-button": "Pilihan lainnya",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Sunting terjemahan",
@@ -448,5 +450,6 @@
 	"cx-contributecard-entrypoint-cta": "Mulai terjemahan",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Tidak ditemukan templat yang setara",
 	"cx-sx-block-template-mapping-status-title-partially-template": "Templat ini dapat diterjemahkan sebagian",
-	"cx-sx-block-template-mapping-status-title-fully-template": "Template ini dapat diterjemahkan secara otomatis"
+	"cx-sx-block-template-mapping-status-title-fully-template": "Template ini dapat diterjemahkan secara otomatis",
+	"cx-sx-block-template-no-source-params-text": "Templat aslinya tidak memiliki parameter untuk ditransfer"
 }
