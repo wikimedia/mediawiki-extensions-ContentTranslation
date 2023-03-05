@@ -6,6 +6,8 @@
 	 * @type {{ language: string, page: string, sections: string[]}[]}
 	 */
 	var recentEdits = mw.config.get( 'wgSectionTranslationRecentlyEditedSections' );
+	var isRecentEditInvitationSuppressed =
+		mw.config.get( 'wgCXSectionTranslationRecentEditInvitationSuppressed', false );
 	var hiddenInvitationStorageKey = 'sx_recent_edit_invitation_hidden';
 	/**
 	 * Given a title and a source language, this method fetches section
@@ -143,7 +145,9 @@
 		} );
 	}
 
-	// Start the recursion from the first index
-	handleRecentEditsRecursively( 0 );
+	if ( !isRecentEditInvitationSuppressed ) {
+		// Start the recursion from the first index
+		handleRecentEditsRecursively( 0 );
+	}
 
 }() );
