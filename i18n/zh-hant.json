@@ -274,7 +274,7 @@
 	"cx-tools-linter-old-revision": "基於頁面舊版本的翻譯",
 	"cx-tools-linter-old-revision-message": "此翻譯是基於較舊版本的內容。來源頁面可能已有[$1 巨大變化]。\n\n您可以繼續此翻譯，或是使用已更新內容來重新開始。若您重新設定翻譯，您目前的更改內容將會遺失。",
 	"cx-tools-linter-old-revision-label": "重新開始翻譯",
-	"cx-tools-linter-reference": "缺少參考",
+	"cx-tools-linter-reference": "缺少參考文獻",
 	"cx-tools-linter-reference-message": "出於使用架構上不同的模版，參考文獻無法轉換到翻譯裡。\n\n請編輯翻譯裡的參考文獻，填寫所缺少的資訊。",
 	"cx-tools-linter-incomplete-reference": "參考文獻不完整",
 	"cx-tools-linter-incomplete-reference-message": "已添加的參考文獻未有所需資訊。\n\n出於架構上的些許差異，缺少的詳情無法從原有參考文獻裡自動取得。\n\n請編輯翻譯裡的參考文獻，填寫所缺少的資訊。",

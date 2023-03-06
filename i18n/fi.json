@@ -151,7 +151,7 @@
 	"cx-contributions-upload-tooltip": "Tallenna kuvia, ääntä tai videoita sivun käytettäväksi",
 	"cx-publishing-dialog-message": "Sivu $1 on jo olemassa. Nykyinen sisältö korvataan käännökselläsi. Haluatko silti julkaista sen?",
 	"cx-publishing-dialog-keep-button": "Pidä molemmat versiot",
-	"cx-publishing-dialog-publish-anyway-button": "Julkaise joka tapauksessa",
+	"cx-publishing-dialog-publish-anyway-button": "Julkaise silti",
 	"cx-publishing-dialog-title": "Korvaa olemassaoleva sivu?",
 	"cx-publishing-dialog-sub-title": "Käännöksesi korvaa olemassa olevan sivun. Ole hyvä ja varmistu siitä, että olemassa olevan sisällön korvaaminen on sopivaa.",
 	"cx-publishing-with-issues-dialog-title": "Julkaise nykyisten ongelmien kanssa?",
