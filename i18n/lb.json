@@ -5,7 +5,8 @@
 			"Gromper",
 			"Les Meloures",
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"cx": "Säit iwwersetzen",
@@ -105,7 +106,7 @@
 	"cx-contributions-translation": "Iwwersetzung",
 	"cx-contributions-upload": "Mediefichier eroplueden",
 	"cx-contributions-new-article-tooltip": "Ufänken eng nei Säit ze schreiwen",
-	"cx-contributions-translation-tooltip": "Säiten déi et gëtt iwwersetzen",
+	"cx-contributions-translation-tooltip": "Säiten, déi et gëtt, iwwersetzen",
 	"cx-contributions-upload-tooltip": "Biller, Audio- a Videofichieren eropluede fir se op Säiten ze benotzen",
 	"cx-publishing-dialog-publish-anyway-button": "Trotzdem publizéieren",
 	"cx-publishing-dialog-title": "Déi Säit déi besteet iwwerschreiwen?",
