@@ -294,5 +294,7 @@
 	"cx-sx-followup-feedback-new-indicator": "új",
 	"cx-sx-published-section-confirmation-header": "Új szakasz hozzáadva",
 	"cx-sx-published-section-confirmation-content": "Fordításod publikálva. Folytathatod a szerkesztést vagy hozzáadhatsz új szakaszt.",
-	"cx-sx-published-section-invitation-title": "Újabb szakasz fordítása"
+	"cx-sx-published-section-invitation-title": "Újabb szakasz fordítása",
+	"cx-uls-relevant-languages-panel-header": "A lap fordítása",
+	"cx-uls-translate-page-quick-action-label": "A lap fordítása"
 }
