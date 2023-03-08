@@ -444,6 +444,7 @@
 	"cx-uls-translate-page-quick-action-label": "Terjemahkan halaman ini",
 	"sx-recent-edit-entrypoint-top-banner-header": "Berkontribusi dari bahasa lain",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Terjemahkan \"$1\"",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 bagian}} tidak ada di $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Memastikan bahwa Anda bukan robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Terbitkan",
 	"cx-contributecard-entrypoint-title": "Terjemahan",
@@ -451,5 +452,7 @@
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Tidak ditemukan templat yang setara",
 	"cx-sx-block-template-mapping-status-title-partially-template": "Templat ini dapat diterjemahkan sebagian",
 	"cx-sx-block-template-mapping-status-title-fully-template": "Template ini dapat diterjemahkan secara otomatis",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Struktur templat dalam kedua bahasa terlihat mirip, dan beberapa data dapat ditransfer secara otomatis",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Struktur templat dalam kedua bahasa terlihat mirip, dan semua data dapat ditransfer secara otomatis",
 	"cx-sx-block-template-no-source-params-text": "Templat aslinya tidak memiliki parameter untuk ditransfer"
 }
