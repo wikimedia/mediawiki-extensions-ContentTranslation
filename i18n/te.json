@@ -6,7 +6,8 @@
 			"Chaduvari",
 			"Praveen Illa",
 			"Veeven",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Divya4232"
 		]
 	},
 	"cx": "పేజీ అనువాదం",
@@ -72,10 +73,10 @@
 	"cx-tools-mt-dont-use": "ఖాళీ పారాగ్రాఫుతో మొదలుపెట్టు",
 	"cx-tools-mt-set-default": "డిఫాల్టుగా ఉంచు",
 	"cx-tools-mt-noservices": "ఎంచుకున్న భాషల్లో అనువాద సేవలు అందుబాటులో లేవు. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|ఎందుకని?]]",
-	"cx-tools-mt-preferred": "డిఫాల్టు",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 వర్గం|$1 వర్గాలు|0=వర్గాల్లేవు}}",
-	"cx-stats-title": "అనువాద గణాంకాలు",
-	"cx-warning-unsaved-translation": "మీకు భద్రపరచని అనువాదాలున్నాయి.",
+	"cx-tools-mt-preferred": "అనుకోకుండా",
+	"cx-tools-categories-count-message": "{{బహువచనం:$1|$1 వర్గం|$1 వర్గాలు|0=వర్గాలు లేవు}}",
+	"cx-stats-title": "కంటెంట్ అనువాద గణాంకాలు",
+	"cx-warning-unsaved-translation": "మీరు భద్రపరచని అనువాదాలు ఉన్నాయి.",
 	"cx-error-page-not-found": "$2 వికీపీడియాలో \"$1\" పేజీ కనబడలేదు",
 	"cx-page-selector-widget-recent-edits-label": "ఈ మధ్య మీరు దిద్దుబాటు చేసినవి",
 	"cx-page-selector-widget-nearby-label": "దగ్గరలో",
