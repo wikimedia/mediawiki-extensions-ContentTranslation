@@ -15,8 +15,8 @@
     />
     <mw-spinner v-if="!loaded" />
     <cx-translation-work
-      v-for="(translation, index) in activeTranslations"
-      :key="`${translationStatus}-${index}`"
+      v-for="translation in activeTranslations"
+      :key="`${translationStatus}-translation-${translation.id}`"
       :translation="translation"
     />
   </mw-card>
@@ -25,12 +25,10 @@
 <script>
 import CxTranslationWork from "./CXTranslationWork.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
-import { getAutonym } from "@wikimedia/language-data";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
 import useMediawikiState from "@/composables/useMediawikiState";
 import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "CxTranslationList",
