@@ -98,7 +98,7 @@
 	"cx-campaign-newbytranslation-title": "Commencer plutôt une nouvelle traduction ?",
 	"cx-campaign-newbytranslation-notice": "Créer un nouvel article en traduisant depuis une autre langue que vous connaissez.",
 	"cx-campaign-newbytranslation-search": "Trouver une autre page à traduire",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
+	"cx-campaign-newbytranslation-languages": "$1 ▸ $2",
 	"cx-campaign-newbytranslation-start": "Commencer à traduire",
 	"cx-special-login-error": "Vous devez être connecté pour traduire cette page. [$1 Se connecter]",
 	"cx-tools-instructions-text1": "{{GENDER:|}}Cliquez sur les paragraphes à traduire",
