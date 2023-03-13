@@ -428,5 +428,6 @@
 	"cx-sx-block-template-mapping-status-title-no-target-template": "ߞߙߊߞߏ߫ ߓߍ߲߬ߡߕߊ߬ ߡߊ߫ ߛߐ߬ߘߐ߲߫",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߘߌߣߊ߬ ߝߙߊ߬",
 	"cx-sx-block-template-mapping-status-title-partially-template": "ߞߙߊߞߏ ߣߌ߲߬ ߝߊ߲߭ ߘߏ߫ ߟߎ߫ ߘߌ߫ ߛߋ߫ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫",
-	"cx-sx-block-template-mapping-status-title-fully-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߌ߫ ߛߴߊ߬ ߖߘߍ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫."
+	"cx-sx-block-template-mapping-status-title-fully-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߌ߫ ߛߴߊ߬ ߖߘߍ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫.",
+	"cx-sx-block-template-none-mapped-param-text": "ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ߫ ߕߍ߫ $1 ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߞߙߊߞߏ ߓߐߖߎ ߟߊ߫"
 }
