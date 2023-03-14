@@ -18,7 +18,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.38.0",
+		"MediaWiki": ">= 1.39.0",
 		"extensions": {
 			"Cite": "*",
 			"UniversalLanguageSelector": "*",
@@ -527,7 +527,10 @@
 				"cx-sx-published-section-invitation-missing-sections-info"
 			],
 			"es6": true,
-			"targets": [ "desktop", "mobile" ],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
 			"dependencies": [
 				"vue",
 				"mw.cx.SiteMapper",
