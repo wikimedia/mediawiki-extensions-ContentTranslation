@@ -291,6 +291,8 @@
 	"cx-sx-publish-summary": "Vytvořeno překladem sekce „$1“ ze stránky „$2“",
 	"cx-sx-article-search-input-placeholder": "Vyhledat stránku k překladu",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Chybí v jazycích <span>$1</span>, <span>$2</span> a dalších",
+	"cx-uls-relevant-languages-panel-header": "Přeložit tuto stránku",
+	"cx-uls-relevant-languages-panel-message": "Tato stránka chybí v některých jazycích, které možná znáte. Můžete ji za pár minut přeložit!",
 	"cx-uls-translate-page-quick-action-label": "Přeložit tuto stránku",
 	"cx-sx-publisher-captcha-dialog-header-title": "Kontrola, že nejste robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Zveřejnit"

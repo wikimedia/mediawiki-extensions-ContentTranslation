@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"cx": "איבערזעצן בלאט",
@@ -89,7 +90,7 @@
 	"cx-dashboard-sidebar-feedback": "גיט אונז פידבעק",
 	"cx-translation-filter-published-translations": "פֿאַרעפֿנטלעכט",
 	"cx-translation-filter-draft-translations": "אין באארבעטונג",
-	"cx-translation-filter-suggested-translations": "הצעות",
+	"cx-translation-filter-suggested-translations": "פֿאָרשלאָגן",
 	"cx-suggestionlist-favorite": "פֿאר שפעטער",
 	"cx-suggestionlist-title": "פֿארשלאגן",
 	"cx-suggestionlist-empty-title": "קיין הצעות דערווייל",
@@ -222,5 +223,6 @@
 	"cx-sx-sentence-selector-done-button-label": "ערליידיקט",
 	"cx-sx-sentence-selector-skip-translation-button-label": "איבערהיפן",
 	"cx-sx-translation-confirmer-title": "נייע איבערזעצונג",
+	"sx-article-search-language-selector-dialog-title": "שפּראַכן",
 	"cx-sx-article-search-header": "נייע איבערזעצונג"
 }
