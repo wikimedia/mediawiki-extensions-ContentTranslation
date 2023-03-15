@@ -11,10 +11,10 @@ use ApiMain;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
-use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
@@ -24,7 +24,7 @@ use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationSave extends ApiBase {
-	private TranslationCorporaStore $corporaStore;
+	private TranslationCorporaManager $corporaManager;
 	private LoadBalancer $lb;
 	private SectionTranslationStore $sectionTranslationStore;
 	private SandboxTitleMaker $sandboxTitleMaker;
@@ -35,7 +35,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		$action,
-		TranslationCorporaStore $corporaStore,
+		TranslationCorporaManager $corporaManager,
 		LoadBalancer $loadBalancer,
 		SectionTranslationStore $sectionTranslationStore,
 		SandboxTitleMaker $sandboxTitleMaker,
@@ -44,7 +44,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->corporaStore = $corporaStore;
+		$this->corporaManager = $corporaManager;
 		$this->lb = $loadBalancer;
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
@@ -116,7 +116,11 @@ class ApiSectionTranslationSave extends ApiBase {
 		);
 		$translationId = $translation->getTranslationId();
 
-		$this->saveParallelCorporaTranslationUnits( $params['content'], $translation );
+		try {
+			$this->corporaManager->saveTranslationUnits( $translation, $params['content'] );
+		} catch ( InvalidSectionDataException $exception ) {
+			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
+		}
 		$sectionTranslationId = $this->saveSectionTranslation(
 			$translationId,
 			$params['sectionid'],
@@ -251,27 +255,6 @@ class ApiSectionTranslationSave extends ApiBase {
 		// the id of the section translation is always set, since the entity has been stored in the database
 		// @phan-suppress-next-line PhanTypeMismatchReturnNullable
 		return $sectionTranslation->getId();
-	}
-
-	/**
-	 * @param string $content
-	 * @param Translation $translation Recently saved parent translation object
-	 * @throws \ApiUsageException
-	 */
-	protected function saveParallelCorporaTranslationUnits( string $content, Translation $translation ) {
-		try {
-			$translationUnits = $this->corporaStore->createTranslationUnitsFromContent(
-				$content,
-				$translation->getTranslationId()
-			);
-		} catch ( InvalidSectionDataException $exception ) {
-			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
-		}
-
-		$isNewTranslation = $translation->isNew();
-		foreach ( $translationUnits as $translationUnit ) {
-			$this->corporaStore->save( $translationUnit, $isNewTranslation );
-		}
 	}
 
 	public function getAllowedParams() {

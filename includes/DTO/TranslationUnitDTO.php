@@ -1,16 +1,20 @@
 <?php
+declare( strict_types = 1 );
 
 namespace ContentTranslation\DTO;
 
-use ContentTranslation\CorporaLookup;
 use Exception;
 use Sanitizer;
 
 class TranslationUnitDTO {
+	public const TYPE_SOURCE = 'source';
+	public const TYPE_MT = 'mt';
+	public const TYPE_USER = 'user';
+
 	public const VALID_BLOB_TYPES = [
-		CorporaLookup::TYPE_MT,
-		CorporaLookup::TYPE_SOURCE,
-		CorporaLookup::TYPE_USER
+		self::TYPE_MT,
+		self::TYPE_SOURCE,
+		self::TYPE_USER
 	];
 
 	private ?int $sequenceId;
@@ -84,7 +88,7 @@ class TranslationUnitDTO {
 	}
 
 	/**
-	 * Used inside dump-corpora.php to filter out units which don't have user provided input
+	 * This method returns a boolean indicating whether the translation unit has user provided input.
 	 * @return bool
 	 */
 	public function hasUserBlob(): bool {
@@ -92,7 +96,7 @@ class TranslationUnitDTO {
 	}
 
 	/**
-	 * Used inside dump-corpora.php to filter out units which don't have source
+	 * This method returns a boolean indicating whether the translation unit has source content
 	 * @return bool
 	 */
 	public function hasSourceBlob(): bool {
@@ -100,8 +104,8 @@ class TranslationUnitDTO {
 	}
 
 	/**
-	 * Used inside "ApiQueryContentTranslationCorpora" to return the proper array payload
-	 * for each (sub)section.
+	 * This method returns an array representation of the translation unit, suitable to be used
+	 * as payload for each (sub)section for the "contenttranslationcorpora" endpoint response.
 	 *
 	 * @param string[] $types The types that are used for this translation unit. e.g. ['source', 'user']
 	 * @param bool $sanitize
@@ -128,7 +132,6 @@ class TranslationUnitDTO {
 	}
 
 	/**
-	 * Used inside dump-corpora.php to return the corpora sections in the proper form
 	 * Returned fields: {sequenceid: int, mt: array, user: array, source: array}
 	 *
 	 * @param bool $sanitize

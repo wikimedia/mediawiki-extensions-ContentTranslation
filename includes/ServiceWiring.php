@@ -3,9 +3,9 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
-use ContentTranslation\CorporaLookup;
 use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SandboxTitleMaker;
@@ -52,12 +52,6 @@ return [
 				$consequencesLookup,
 				$filterLookup,
 				$filterRunnerFactory
-			);
-		},
-	'ContentTranslation.CorporaLookup' =>
-		static function ( MediaWikiServices $services ): CorporaLookup {
-			return new CorporaLookup(
-				$services->getService( 'ContentTranslation.LoadBalancer' )->getConnection( DB_REPLICA )
 			);
 		},
 	'ContentTranslation.EditedSectionFinder' =>
@@ -119,6 +113,12 @@ return [
 				$services->getService( 'ContentTranslation.LoadBalancer' )
 			);
 		},
+	'ContentTranslation.TranslationCorporaManager' =>
+		static function ( MediaWikiServices $services ): TranslationCorporaManager {
+			return new TranslationCorporaManager(
+				$services->getService( 'ContentTranslation.TranslationCorporaStore' )
+			);
+		},
 	'ContentTranslation.TranslationCorporaStore' =>
 		static function ( MediaWikiServices $services ): TranslationCorporaStore {
 			return new TranslationCorporaStore(
@@ -129,7 +129,7 @@ return [
 	'ContentTranslation.TranslationSplitter' =>
 		static function ( MediaWikiServices $services ): TranslationSplitter {
 			return new TranslationSplitter(
-				$services->getService( 'ContentTranslation.CorporaLookup' ),
+				$services->getService( 'ContentTranslation.TranslationCorporaManager' ),
 				$services->getService( 'ContentTranslation.SectionTitleFetcher' )
 			);
 		},

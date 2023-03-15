@@ -9,8 +9,7 @@
 namespace ContentTranslation\Entity;
 
 class TranslationUnit {
-	/** @var int|null */
-	protected $translationId;
+	protected int $translationId;
 	/** @var string */
 	protected $sectionId;
 	/** @var string */
@@ -29,7 +28,7 @@ class TranslationUnit {
 		string $origin,
 		?int $sequenceId,
 		string $content,
-		?int $translationId = null,
+		int $translationId,
 		?string $timestamp = null,
 		?bool $validate = false
 	) {
@@ -47,7 +46,7 @@ class TranslationUnit {
 		$this->validate = $validate;
 	}
 
-	public function getTranslationId(): ?int {
+	public function getTranslationId(): int {
 		return $this->translationId;
 	}
 

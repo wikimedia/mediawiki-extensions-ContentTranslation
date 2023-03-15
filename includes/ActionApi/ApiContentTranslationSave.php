@@ -11,8 +11,8 @@ use ApiMain;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\SiteMapper;
-use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
@@ -25,7 +25,7 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiContentTranslationSave extends ApiBase {
-	private TranslationCorporaStore $corporaStore;
+	private TranslationCorporaManager $corporaManager;
 	private LoadBalancer $lb;
 	private TranslationUnitValidator $translationUnitValidator;
 	private LanguageNameUtils $languageNameUtils;
@@ -39,14 +39,14 @@ class ApiContentTranslationSave extends ApiBase {
 	public function __construct(
 		ApiMain $mainModule,
 		$action,
-		TranslationCorporaStore $corporaStore,
+		TranslationCorporaManager $corporaManager,
 		LoadBalancer $loadBalancer,
 		TranslationUnitValidator $translationUnitValidator,
 		LanguageNameUtils $languageNameUtils,
 		TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
-		$this->corporaStore = $corporaStore;
+		$this->corporaManager = $corporaManager;
 		$this->lb = $loadBalancer;
 		$this->translationUnitValidator = $translationUnitValidator;
 		$this->languageNameUtils = $languageNameUtils;
@@ -106,15 +106,11 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		try {
-			$translationUnits = $this->corporaStore->createTranslationUnitsFromContent(
-				$content->getValue(),
-				$translationId
-			);
+			$translationUnits = $this->corporaManager->saveTranslationUnits( $translation, $content->getValue() );
 		} catch ( InvalidSectionDataException $exception ) {
 			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
 		}
 
-		$this->saveTranslationUnits( $translationUnits, $translation );
 		$validationResults = $this->translationUnitValidator->validateTranslationUnitsForTitleUser(
 			$translationUnits,
 			$translation->getData()['targetTitle'],
@@ -183,17 +179,6 @@ class ApiContentTranslationSave extends ApiBase {
 		$translator->addTranslation( $translationId );
 
 		return $translation;
-	}
-
-	/**
-	 * @param array $translationUnits
-	 * @param Translation $translation Recently saved parent translation object
-	 */
-	protected function saveTranslationUnits( array $translationUnits, Translation $translation ) {
-		$newTranslation = $translation->isNew();
-		foreach ( $translationUnits as $translationUnit ) {
-			$this->corporaStore->save( $translationUnit, $newTranslation );
-		}
 	}
 
 	/**

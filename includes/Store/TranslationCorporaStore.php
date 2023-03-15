@@ -3,11 +3,11 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
+declare( strict_types = 1 );
 
 namespace ContentTranslation\Store;
 
 use ContentTranslation\Entity\TranslationUnit;
-use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
 use Exception;
 use stdClass;
@@ -15,8 +15,15 @@ use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
-use function Eris\Generator\bool;
 
+/**
+ * The TranslationCorporaStore service represents the Data Access Layer for the parallel corpora. More
+ * specifically, this service relies on the database load balancer to interact with the "cx_corpora"
+ * table, to insert, update, delete or fetch data to this table. This class exposes methods that
+ * usually accepts TranslationUnit entity objects as arguments (when it's an insert/update query),
+ * or return TranslationUnit entity objects (for read operations). This service is mostly used inside
+ * TranslationCorporaManager service to interact with the database.
+ */
 class TranslationCorporaStore {
 
 	/** @var LoadBalancer */
@@ -24,7 +31,6 @@ class TranslationCorporaStore {
 
 	/** @var LBFactory */
 	private $lbFactory;
-
 	public const TABLE_NAME = 'cx_corpora';
 
 	public function __construct( LoadBalancer $lb, LBFactory $lbFactory ) {
@@ -165,11 +171,39 @@ class TranslationCorporaStore {
 	}
 
 	/**
-	 * Save the translation unit.
-	 * If the record exist, update it, otherwise create.
+	 * @param int $translationId
+	 * @return TranslationUnit[]
+	 */
+	public function findByTranslationId( int $translationId ): array {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$resultSet = $dbr->newSelectQueryBuilder()
+			->select( [
+				'cxc_translation_id',
+				'cxc_origin',
+				'cxc_section_id',
+				'cxc_timestamp',
+				'cxc_sequence_id',
+				'cxc_content',
+			] )
+			->from( self::TABLE_NAME )
+			->where( [ 'cxc_translation_id' => $translationId ] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$units = [];
+		foreach ( $resultSet as $row ) {
+			$units[] = $this->createTranslationUnitFromRow( $row );
+		}
+
+		return $units;
+	}
+
+	/**
+	 * Saves the translation unit. If the record exists, updates it, otherwise creates it.
 	 *
 	 * @param TranslationUnit $translationUnit
-	 * @param bool $isNewTranslation Whether these are for a brand new Translation record
+	 * @param bool $isNewTranslation Whether these are for a brand-new Translation record
 	 */
 	public function save( TranslationUnit $translationUnit, bool $isNewTranslation ): void {
 		$fname = __METHOD__;
@@ -217,41 +251,6 @@ class TranslationCorporaStore {
 		}
 	}
 
-	/**
-	 * @param string $content
-	 * @param int $translationId
-	 * @return TranslationUnit[]
-	 * @throws InvalidSectionDataException
-	 */
-	public function createTranslationUnitsFromContent( string $content, int $translationId ): array {
-		$translationUnits = [];
-		$units = json_decode( $content, true );
-		foreach ( $units as $translationUnitData ) {
-			if ( !isset( $translationUnitData['sectionId'] )
-				|| !isset( $translationUnitData['origin'] ) || !is_string( $translationUnitData['origin'] )
-				|| !array_key_exists( 'content', $translationUnitData )
-			) {
-				throw new InvalidSectionDataException();
-			}
-
-			$validate = isset( $translationUnitData['validate'] ) && $translationUnitData['validate'];
-			$timestamp = $translationUnitData['timestamp'] ?? null;
-			$sequenceId = isset( $translationUnitData['sequenceId'] ) ? (int)$translationUnitData['sequenceId'] : null;
-			'@phan-var ?string $timestamp';
-			$translationUnits[] = new TranslationUnit(
-				(string)$translationUnitData['sectionId'],
-				$translationUnitData['origin'],
-				$sequenceId,
-				(string)$translationUnitData['content'], // Content can be null in case translator clear the section.
-				$translationId,
-				$timestamp,
-				$validate
-			);
-		}
-
-		return $translationUnits;
-	}
-
 	private function doFind( IDatabase $db, $conditions, $options, $method ): ?TranslationUnit {
 		$row = $db->newSelectQueryBuilder()
 			->select( [
@@ -281,7 +280,7 @@ class TranslationCorporaStore {
 			$row->cxc_origin,
 			(int)$row->cxc_sequence_id, // cxc_sequence_id can be null
 			(string)$row->cxc_content, // cxc_content can be null
-			$row->cxc_translation_id,
+			(int)$row->cxc_translation_id,
 			$row->cxc_timestamp
 		);
 	}

@@ -4,9 +4,9 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Entity\SectionTranslation;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
 use DOMDocument;
@@ -21,11 +21,11 @@ use DOMDocument;
  * @author Nik Gkountas
  */
 class TranslationSplitter {
-	private CorporaLookup $corporaLookup;
+	private TranslationCorporaManager $corporaManager;
 	private SectionTitleFetcher $sectionTitleFetcher;
 
-	public function __construct( CorporaLookup $corporaLookup, SectionTitleFetcher $sectionTitleFetcher ) {
-		$this->corporaLookup = $corporaLookup;
+	public function __construct( TranslationCorporaManager $corporaManager, SectionTitleFetcher $sectionTitleFetcher ) {
+		$this->corporaManager = $corporaManager;
 		$this->sectionTitleFetcher = $sectionTitleFetcher;
 	}
 
@@ -34,8 +34,9 @@ class TranslationSplitter {
 	 * @return SectionTranslation[]
 	 */
 	public function splitIntoSectionTranslations( Translation $translation ): array {
-		$translationUnits = $this->corporaLookup->getByTranslationId( $translation->getTranslationId() );
-		$translationUnits = $translationUnits['sections'];
+		$translationUnits = $this->corporaManager->getTranslationUnitDTOsByTranslationId(
+			$translation->getTranslationId()
+		);
 
 		if ( !$this->validateMwSectionNumbers( $translationUnits ) ) {
 			// TODO: Should we throw an exception or log something here?
@@ -53,6 +54,7 @@ class TranslationSplitter {
 
 		$translationUnitsBySections = [];
 		foreach ( $translationUnits as $unit ) {
+			// @phan-suppress-next-line PhanTypeMismatchDimAssignment False positive
 			$translationUnitsBySections[$unit->getMwSectionNumber()][] = $unit;
 		}
 

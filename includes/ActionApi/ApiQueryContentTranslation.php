@@ -12,9 +12,8 @@ use ApiBase;
 use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
-use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\CXDraftTranslationDTO;
-use ContentTranslation\DTO\TranslationUnitDTO;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
@@ -29,7 +28,7 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 	private SectionTranslationStore $sectionTranslationStore;
-	private CorporaLookup $corporaLookup;
+	private TranslationCorporaManager $corporaManager;
 	private UserService $userService;
 	private TranslationStore $translationStore;
 
@@ -37,7 +36,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 * @param ApiQuery $query
 	 * @param string $moduleName
 	 * @param SectionTranslationStore $sectionTranslationStore
-	 * @param CorporaLookup $corporaLookup
+	 * @param TranslationCorporaManager $corporaManager
 	 * @param UserService $userService
 	 * @param TranslationStore $translationStore
 	 */
@@ -45,14 +44,14 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$query,
 		$moduleName,
 		SectionTranslationStore $sectionTranslationStore,
-		CorporaLookup $corporaLookup,
+		TranslationCorporaManager $corporaManager,
 		UserService $userService,
 		TranslationStore $translationStore
 	) {
 		parent::__construct( $query, $moduleName );
 
 		$this->sectionTranslationStore = $sectionTranslationStore;
-		$this->corporaLookup = $corporaLookup;
+		$this->corporaManager = $corporaManager;
 		$this->userService = $userService;
 		$this->translationStore = $translationStore;
 	}
@@ -328,13 +327,10 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// when translation draft is restored. Source categories are saved into cx_corpora table for
 		// pairing with target categories, but not retrieved when translation draft is restored.
 		// Associative array with 'translationUnits' and 'categories' data
-		$unitsAndCategories = $this->corporaLookup->getByTranslationId( (int)$translation->getTranslationId() );
-		$translation->translation['translationUnits'] = array_map(
-			static function ( TranslationUnitDTO $unit ) {
-				return $unit->toArray();
-			}, $unitsAndCategories['sections']
+		$unitsAndCategories = $this->corporaManager->getUnitsAndCategoriesByTranslationId(
+			(int)$translation->getTranslationId()
 		);
-		// Only target categories are fetched when translation draft is restored
+		$translation->translation['translationUnits'] = $unitsAndCategories['translationUnits'];
 		$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
 	}
 

@@ -173,7 +173,7 @@
 		"cxsave": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSave",
 			"services": [
-				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.TranslationCorporaManager",
 				"ContentTranslation.LoadBalancer",
 				"ContentTranslation.TranslationUnitValidator",
 				"LanguageNameUtils",
@@ -183,7 +183,7 @@
 		"sxsave": {
 			"class": "ContentTranslation\\ActionApi\\ApiSectionTranslationSave",
 			"services": [
-				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.TranslationCorporaManager",
 				"ContentTranslation.LoadBalancer",
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.SandboxTitleMaker",
@@ -205,7 +205,7 @@
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslation",
 			"services": [
 				"ContentTranslation.SectionTranslationStore",
-				"ContentTranslation.CorporaLookup",
+				"ContentTranslation.TranslationCorporaManager",
 				"ContentTranslation.UserService",
 				"ContentTranslation.TranslationStore"
 			]
@@ -213,7 +213,7 @@
 		"contenttranslationcorpora": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationCorpora",
 			"services": [
-				"ContentTranslation.CorporaLookup"
+				"ContentTranslation.TranslationCorporaManager"
 			]
 		},
 		"contenttranslationlangtrend": {

@@ -4,9 +4,9 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\Tests;
 
-use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Entity\SectionTranslation;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -60,11 +60,11 @@ class TranslationSplitterTest extends \MediaWikiIntegrationTestCase {
 				null
 			)
 		];
-		$mockCorporaLookup = $this->createMock( CorporaLookup::class );
-		$mockCorporaLookup
-			->method( 'getByTranslationId' )
+		$mockCorporaManager = $this->createMock( TranslationCorporaManager::class );
+		$mockCorporaManager
+			->method( 'getTranslationUnitDTOsByTranslationId' )
 			->with( $translationId )
-			->willReturn( [ 'sections' => $translationUnits ] );
+			->willReturn( $translationUnits );
 
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
 		$mockSectionTitleFetcher
@@ -73,7 +73,7 @@ class TranslationSplitterTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( [ 1 => 'Education', 2 => 'Theatre', 3 => 'Television', 4 => 'Directing', 5 => 'Awards' ] );
 
 		$translationSplitter = new TranslationSplitter(
-			$mockCorporaLookup,
+			$mockCorporaManager,
 			$mockSectionTitleFetcher
 		);
 

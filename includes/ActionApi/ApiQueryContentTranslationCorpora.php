@@ -10,42 +10,30 @@ namespace ContentTranslation\ActionApi;
 
 use ApiQuery;
 use ApiQueryBase;
-use ContentTranslation\CorporaLookup;
-use ContentTranslation\DTO\TranslationUnitDTO;
+use ContentTranslation\Manager\TranslationCorporaManager;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * Api module for querying Content Translation parallel corpora.
  */
 class ApiQueryContentTranslationCorpora extends ApiQueryBase {
-	protected $types = [
-		CorporaLookup::TYPE_SOURCE,
-		CorporaLookup::TYPE_MT,
-		CorporaLookup::TYPE_USER,
-	];
-	/** @var CorporaLookup */
-	private $corporaLookup;
+	private TranslationCorporaManager $corporaManager;
 
-	public function __construct( ApiQuery $queryModule, $moduleName, CorporaLookup $corporaLookup ) {
+	public function __construct( ApiQuery $queryModule, $moduleName, TranslationCorporaManager $corporaManager ) {
 		parent::__construct( $queryModule, $moduleName );
 
-		$this->corporaLookup = $corporaLookup;
+		$this->corporaManager = $corporaManager;
 	}
 
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
-		$data = $this->corporaLookup->getByTranslationId( (int)$params['translationid'] );
-		$sections = $data[ 'sections' ];
-
-		// 'types' parameter should be an array of valid types. e.g. ['user', 'mt', 'source']
-		$types = $params['types'];
-		$stripHtml = $params['striphtml'];
-		$sections = array_map( static function ( TranslationUnitDTO $unit ) use ( $types, $stripHtml ) {
-			return $unit->toCustomArray( $types, $stripHtml );
-		}, $sections );
-
+		$sections = $this->corporaManager->getFilteredCorporaUnits(
+			(int)$params['translationid'],
+			$params['types'],
+			$params['striphtml']
+		);
 		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $sections );
 	}
 
