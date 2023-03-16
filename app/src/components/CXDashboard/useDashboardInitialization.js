@@ -54,7 +54,10 @@ const initializeDashboard = async (router, store, logEvent) => {
   }
 
   try {
-    await store.dispatch("translator/fetchTranslations");
+    // If translations have already been fetched, then skip
+    if (!store.state.translator.translations.length) {
+      await store.dispatch("translator/fetchTranslations");
+    }
   } catch (error) {
     // Let translation fetching gracefully fail
     mw.log.error("[CX] Error while fetching translations", error);

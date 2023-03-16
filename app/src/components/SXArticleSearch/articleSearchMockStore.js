@@ -50,5 +50,12 @@ const mediawikiModule = {
 };
 
 export default createStore({
-  modules: { application: applicationModule, mediawiki: mediawikiModule },
+  modules: {
+    application: applicationModule,
+    mediawiki: mediawikiModule,
+    translator: {
+      namespaced: true,
+      state: { translations: [] },
+    },
+  },
 });

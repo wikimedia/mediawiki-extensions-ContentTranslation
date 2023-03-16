@@ -77,14 +77,17 @@ export default {
       () => selectedTargetLanguage.value === "all"
     );
 
+    // sort translations, so that latest translations always show up on top
     const activeTranslations = computed(() =>
-      translations.value.filter(
-        (translation) =>
-          (isActiveForAllSourceLanguages.value ||
-            translation.sourceLanguage === selectedSourceLanguage.value) &&
-          (isActiveForAllTargetLanguages.value ||
-            translation.targetLanguage === selectedTargetLanguage.value)
-      )
+      translations.value
+        .filter(
+          (translation) =>
+            (isActiveForAllSourceLanguages.value ||
+              translation.sourceLanguage === selectedSourceLanguage.value) &&
+            (isActiveForAllTargetLanguages.value ||
+              translation.targetLanguage === selectedTargetLanguage.value)
+        )
+        .sort((a, b) => a.lastUpdatedTimestamp < b.lastUpdatedTimestamp)
     );
 
     const availableTargetLanguages = computed(() => {

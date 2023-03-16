@@ -9,7 +9,7 @@
           class="px-3"
           type="icon"
           :icon="mwIconArrowPrevious"
-          @click="goToContentComparator"
+          @click="goToDashboard"
         />
       </mw-col>
       <mw-col grow class="px-1">
@@ -98,6 +98,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import translator from "../../wiki/cx/api/translator";
+import { replaceUrl } from "@/utils/urlHandler";
 
 export default {
   name: "SxSentenceSelector",
@@ -192,8 +193,12 @@ export default {
     };
     const router = useRouter();
 
-    const goToContentComparator = () =>
-      router.push({ name: "sx-content-comparator" });
+    const goToDashboard = () => {
+      store.dispatch("translator/fetchTranslations");
+      // Remove URL params so that section translation doesn't restart, leading to endless loop
+      replaceUrl(null);
+      router.push({ name: "dashboard" });
+    };
 
     const configureTranslationOptions = () => {
       // Disable MT provider change when block template is selected
@@ -285,7 +290,7 @@ export default {
       currentPageSection,
       editTranslation,
       getDir,
-      goToContentComparator,
+      goToDashboard,
       isBlockTemplateSelected,
       isSelectedTranslationUnitTranslated,
       isTranslationOptionsActive,

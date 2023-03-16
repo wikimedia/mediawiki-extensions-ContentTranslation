@@ -203,14 +203,18 @@ async function publishTranslation(
   return await cxTranslatorApi.publishTranslation(publishPayload);
 }
 
-async function fetchTranslations({ commit, dispatch, state }) {
-  // If translations have already been fetched, then skip
-  if (state.translations.length) {
-    return;
-  }
+async function fetchTranslations({ commit, dispatch, state, rootGetters }) {
   /** @type {Translation[]} */
   const translations = await cxTranslatorApi.fetchTranslations();
-  translations.forEach((translation) => commit("addTranslation", translation));
+  translations.forEach((translation) => {
+    const translationExists = state.translations.some(
+      (existing) => existing.id === translation.id
+    );
+
+    if (!translationExists) {
+      commit("addTranslation", translation);
+    }
+  });
 
   const queue = translations.reduce((queue, translation) => {
     const language = translation.sourceLanguage;
@@ -231,19 +235,20 @@ async function fetchTranslations({ commit, dispatch, state }) {
       { root: true }
     );
 
-    const translationsWithExistingTarget = translations.filter(
-      (translation) => !!translation.targetTitle
-    );
-
-    translationsWithExistingTarget.forEach((translation) => {
-      commit(
-        "mediawiki/addPage",
-        new Page({
-          title: translation.targetTitle,
-          pagelanguage: translation.targetLanguage,
-        }),
-        { root: true }
+    translations.forEach((translation) => {
+      const { targetLanguage, targetTitle } = translation;
+      const targetPageExists = !!rootGetters["mediawiki/getPage"](
+        targetLanguage,
+        targetTitle
       );
+
+      if (!!targetTitle && !targetPageExists) {
+        commit(
+          "mediawiki/addPage",
+          new Page({ title: targetTitle, pagelanguage: targetLanguage }),
+          { root: true }
+        );
+      }
     });
   }
 }

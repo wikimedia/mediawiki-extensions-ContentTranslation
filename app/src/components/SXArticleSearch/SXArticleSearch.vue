@@ -166,7 +166,11 @@ export default {
 
     onMounted(async () => {
       await initializeLanguages();
-      store.dispatch("translator/fetchTranslations");
+
+      // If translations have already been fetched, then skip
+      if (!store.state.translator.translations.length) {
+        store.dispatch("translator/fetchTranslations");
+      }
 
       try {
         previousLanguages.value.push(

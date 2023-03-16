@@ -57,8 +57,8 @@ async function loadSectionSuggestion(
 
       if (!suggestion) {
         const page = rootGetters["mediawiki/getPage"](
-            sourceLanguage,
-            sourceTitle
+          sourceLanguage,
+          sourceTitle
         );
         suggestion = new SectionSuggestion({
           sourceLanguage,
