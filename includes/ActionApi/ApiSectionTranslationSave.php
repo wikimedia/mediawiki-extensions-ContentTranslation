@@ -129,8 +129,7 @@ class ApiSectionTranslationSave extends ApiBase {
 			$translationId,
 			$params['sectionid'],
 			$params['sourcesectiontitle'],
-			$params['targetsectiontitle'],
-			$params['isleadsection']
+			$params['targetsectiontitle']
 		);
 		$result = [
 			'result' => 'success',
@@ -230,29 +229,26 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * Given a translation id (corresponding targetlanguage a row inside "cx_translations" table), this
+	 * Given a translation id (corresponding to a row inside "cx_translations" table), this
 	 * method creates a new SectionTranslation model and stores it inside "cx_section_translations"
 	 * table.
+	 *
+	 * Lead sections are also stored inside the table. For such sections we set empty strings as
+	 * values for "cxsx_source_section_title" and "cxsx_target_section_title" values, as empty
+	 * strings are considered valid values for non-nullable fields in MySQL.
 	 *
 	 * @param int $translationId
 	 * @param string $sectionId
 	 * @param string $sourceSectionTitle
 	 * @param string $targetSectionTitle
-	 * @param bool $isLeadSection
 	 * @return void
 	 */
 	private function saveSectionTranslation(
 		int $translationId,
 		string $sectionId,
 		string $sourceSectionTitle,
-		string $targetSectionTitle,
-		bool $isLeadSection
+		string $targetSectionTitle
 	): void {
-		// if the translated section is NOT a lead section, add a new row inside "cx_section_translations" table
-		if ( $isLeadSection ) {
-			return;
-		}
-
 		$sectionTranslation = $this->sectionTranslationStore->findTranslation( $translationId, $sectionId );
 
 		if ( !$sectionTranslation ) {
@@ -318,6 +314,7 @@ class ApiSectionTranslationSave extends ApiBase {
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'targetsectiontitle' => [
+				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sectionid' => [
@@ -327,10 +324,6 @@ class ApiSectionTranslationSave extends ApiBase {
 			'issandbox' => [
 				ParamValidator::PARAM_TYPE => 'boolean',
 				ParamValidator::PARAM_REQUIRED => false,
-			],
-			'isleadsection' => [
-				ParamValidator::PARAM_REQUIRED => false,
-				ParamValidator::PARAM_DEFAULT => false,
 			]
 		];
 	}

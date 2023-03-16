@@ -58,7 +58,6 @@ describe("vuex store publishTranslation action", () => {
       subSections: [
         new SubSection({ node: subSectionNode, sentences: [sectionSentence] }),
       ],
-      isLeadSection: false,
     }),
   };
   applicationState.currentSourceSection.translatedTitle =

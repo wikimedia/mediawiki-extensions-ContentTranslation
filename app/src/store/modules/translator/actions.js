@@ -120,12 +120,15 @@ function saveTranslation({ rootState, rootGetters, commit }) {
     .saveTranslation({
       sourceTitle,
       targetTitle,
-      sourceSectionTitle: currentSourceSection.originalTitle,
+      // pass an empty string to be stored as "cxsx_source_section_title" inside "cx_section_translations"
+      // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
+      sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
+      // pass an empty string to be stored as "cxsx_target_section_title" inside "cx_section_translations"
+      // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
       targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
       revision: rootGetters["application/getCurrentRevision"],
-      isLeadSection: currentSourceSection.isLeadSection,
       units: units.map((unit) => unit.payload),
       // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
       sectionId: baseSectionId,
@@ -183,7 +186,7 @@ async function publishTranslation(
     html: cleanupHtml(currentSourceSection.translationHtml),
     sourceTitle,
     targetTitle,
-    sourceSectionTitle: currentSourceSection.originalTitle,
+    sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,

@@ -30,7 +30,6 @@ describe("vuex store saveTranslation action", () => {
       subSections: [
         new SubSection({ node: sectionNode, sentences: [sectionSentence] }),
       ],
-      isLeadSection: false,
     }),
   };
   applicationState.currentSourceSection.translatedTitle =
@@ -94,7 +93,6 @@ describe("vuex store saveTranslation action", () => {
       sourceLanguage: "en",
       targetLanguage: "es",
       revision: 11,
-      isLeadSection: false,
       isSandbox: false,
       sectionId: "11_1",
       units: [

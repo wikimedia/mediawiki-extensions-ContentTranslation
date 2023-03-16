@@ -304,7 +304,6 @@ const publishTranslation = ({
  * @param {string} publishParams.sourceLanguage The language of the source page
  * @param {string} publishParams.targetLanguage The language of the target page
  * @param {number} publishParams.revision The revision of the source page
- * @param {boolean} publishParams.isLeadSection Whether section is a lead section or not
  * @param {number|"new"} publishParams.units The parallel corpora translation units
  * @param {string} publishParams.sectionId The id of the source page section
  * @param {boolean} publishParams.isSandbox
@@ -318,7 +317,6 @@ const saveTranslation = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  isLeadSection,
   units,
   sectionId,
   isSandbox,
@@ -332,7 +330,6 @@ const saveTranslation = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    isleadsection: isLeadSection,
     content: JSON.stringify(units),
     sectionid: sectionId,
     issandbox: isSandbox,

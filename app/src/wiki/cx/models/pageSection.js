@@ -2,6 +2,8 @@ import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import SectionSentence from "./sectionSentence";
 import SubSection from "../../../wiki/cx/models/subSection";
 
+const LEAD_SECTION_DUMMY_TITLE = "__LEAD_SECTION__";
+
 /**
  * This model represents a translation section belonging to a Page model.
  * It stores section content through section sub-sections, section title
@@ -313,8 +315,28 @@ export default class PageSection {
     }
   }
 
+  /**
+   * Lead section should also be stored in the "cx_section_translations" database table.
+   * Since the "cxsx_source_section_title" field is non-nullable inside that table,
+   * we should just give an empty string for lead sections, as empty strings are allowed
+   * as valid values for non-nullable fields in MySQL.
+   *
+   * @return {string}
+   */
+  get sourceSectionTitleForPublishing() {
+    return this.isLeadSection ? LEAD_SECTION_DUMMY_TITLE : this.originalTitle;
+  }
+
+  /**
+   * Lead section should also be stored in the "cx_section_translations" database table.
+   * Since the "cxsx_target_section_title" field is non-nullable inside that table,
+   * we should just give an empty string for lead sections, as empty strings are allowed
+   * as valid values for non-nullable fields in MySQL.
+   *
+   * @return {string}
+   */
   get targetSectionTitleForPublishing() {
-    return this.isLeadSection ? "" : this.title;
+    return this.isLeadSection ? LEAD_SECTION_DUMMY_TITLE : this.title;
   }
 
   /**
