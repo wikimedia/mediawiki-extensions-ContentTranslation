@@ -31,6 +31,7 @@
 	"cx-header-translation-center": "Oversettelsessenter",
 	"cx-header-all-translations": "Alle oversettelser",
 	"cx-source-view-page": "vis side",
+	"cx-target-view-page": "vis side",
 	"cx-publish-page-success": "Siden er publisert som $1",
 	"cx-publish-error-abuse-filter": "Automatiske redigeringsfiltre har identifisert problematisk innhold i oversettelsen din. Filtertreff: $1",
 	"cx-publish-error-empty": "Tjeneren svarte med ingen data.",
