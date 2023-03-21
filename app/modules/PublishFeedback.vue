@@ -50,10 +50,10 @@
       </div>
     </div>
     <hr class="sx-separation-line" />
-    <div
+    <a
       v-if="isUserSandbox || missingSections.length > 0"
       class="sx-published-section-invitation row pa-4"
-      @click="redirectToSX"
+      :href="sxUrl"
     >
       <div class="sx-published-section-invitation__icon col shrink">
         <span>
@@ -90,7 +90,7 @@
           "
         ></p>
       </div>
-    </div>
+    </a>
   </section>
 </template>
 
@@ -158,15 +158,13 @@ module.exports = {
     remainingMissingSectionLength() {
       return this.missingSections.length - 1;
     },
-  },
-  methods: {
-    redirectToSX() {
-      window.location.href = this.siteMapper.getCXUrl(
+    sxUrl() {
+      return this.siteMapper.getCXUrl(
         this.sourceTitle,
         "",
         this.sourceLanguage,
         this.targetLanguage,
-        { sx: true }
+        { sx: true, campaign: "publishingfollowup" }
       );
     },
   },
