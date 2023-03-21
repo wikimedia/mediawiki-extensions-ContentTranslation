@@ -111,6 +111,9 @@ class TranslationUnitDTO {
 		// filter out unused blob type fields
 		foreach ( $usedTypes as $usedType ) {
 			$unit[$usedType] = $this->$usedType;
+			if ( !isset( $unit[$usedType] ) ) {
+				continue;
+			}
 
 			if ( $sanitize ) {
 				// @phan-suppress-next-line PhanTypeArraySuspiciousNullable
