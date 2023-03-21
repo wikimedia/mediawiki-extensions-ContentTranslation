@@ -8257,12 +8257,14 @@ function publishTranslation(_0) {
   });
 }
 function fetchTranslations(_0) {
-  return __async(this, arguments, function* ({ commit: commit2, dispatch: dispatch2, state: state2 }) {
-    if (state2.translations.length) {
-      return;
-    }
+  return __async(this, arguments, function* ({ commit: commit2, dispatch: dispatch2, state: state2, rootGetters }) {
     const translations = yield translator$1.fetchTranslations();
-    translations.forEach((translation) => commit2("addTranslation", translation));
+    translations.forEach((translation) => {
+      const translationExists = state2.translations.some((existing) => existing.id === translation.id);
+      if (!translationExists) {
+        commit2("addTranslation", translation);
+      }
+    });
     const queue2 = translations.reduce((queue3, translation) => {
       const language = translation.sourceLanguage;
       queue3[language] = queue3[language] || [];
@@ -8275,12 +8277,12 @@ function fetchTranslations(_0) {
         language: sourceLanguage,
         titles: translations2.map((translation) => translation.sourceTitle)
       }, { root: true });
-      const translationsWithExistingTarget = translations2.filter((translation) => !!translation.targetTitle);
-      translationsWithExistingTarget.forEach((translation) => {
-        commit2("mediawiki/addPage", new Page({
-          title: translation.targetTitle,
-          pagelanguage: translation.targetLanguage
-        }), { root: true });
+      translations2.forEach((translation) => {
+        const { targetLanguage, targetTitle } = translation;
+        const targetPageExists = !!rootGetters["mediawiki/getPage"](targetLanguage, targetTitle);
+        if (!!targetTitle && !targetPageExists) {
+          commit2("mediawiki/addPage", new Page({ title: targetTitle, pagelanguage: targetLanguage }), { root: true });
+        }
       });
     }
   });
@@ -8702,12 +8704,12 @@ function loadSectionSuggestion(_0, _1) {
       try {
         yield dispatch2("mediawiki/fetchPageMetadata", { language: sourceLanguage, titles: [sourceTitle] }, { root: true });
         if (!suggestion) {
+          const page = rootGetters["mediawiki/getPage"](sourceLanguage, sourceTitle);
           suggestion = new SectionSuggestion({
             sourceLanguage,
             targetLanguage,
-            sourceTitle
+            sourceTitle: page.title
           });
-          const page = rootGetters["mediawiki/getPage"](sourceLanguage, sourceTitle);
           commit2("addPageSuggestion", new ArticleSuggestion({
             sourceLanguage,
             targetLanguage,
@@ -9686,9 +9688,11 @@ const fetchPages = (language, titles) => {
     const apiResponse = response.query.pages;
     const redirects = response.query.redirects || [];
     const redirectMap = redirects.reduce((rMap, redirect) => __spreadProps(__spreadValues({}, rMap), { [redirect.to]: redirect.from }), {});
+    const titleNormalizations = response.query.normalized || [];
+    const normalizationMap = titleNormalizations.reduce((nMap, normalization) => __spreadProps(__spreadValues({}, nMap), { [normalization.to]: normalization.from }), {});
     return apiResponse.map((page) => {
-      page = redirectMap[page.title] ? __spreadProps(__spreadValues({}, page), { _alias: redirectMap[page.title] }) : page;
-      return new Page(page);
+      const _alias = normalizationMap[page.title] || redirectMap[page.title] || null;
+      return new Page(__spreadProps(__spreadValues({}, page), { _alias }));
     });
   });
 };
@@ -19550,651 +19554,6 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var SxTranslationListLanguageSelector = /* @__PURE__ */ _export_sfc(_sfc_main$Y, [["render", _sfc_render$Y]]);
-var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-var bananaI18n = { exports: {} };
-(function(module, exports) {
-  !function(e, u) {
-    module.exports = u();
-  }(commonjsGlobal, function() {
-    var e = { ar: "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669", fa: "\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9", ml: "\u0D66\u0D67\u0D68\u0D69\u0D6A\u0D6B\u0D6C\u0D6D\u0D6E\u0D6F", kn: "\u0CE6\u0CE7\u0CE8\u0CE9\u0CEA\u0CEB\u0CEC\u0CED\u0CEE\u0CEF", lo: "\u0ED0\u0ED1\u0ED2\u0ED3\u0ED4\u0ED5\u0ED6\u0ED7\u0ED8\u0ED9", or: "\u0B66\u0B67\u0B68\u0B69\u0B6A\u0B6B\u0B6C\u0B6D\u0B6E\u0B6F", kh: "\u17E0\u17E1\u17E2\u17E3\u17E4\u17E5\u17E6\u17E7\u17E8\u17E9", nqo: "\u07C0\u07C1\u07C2\u07C3\u07C4\u07C5\u07C6\u07C7\u07C8\u07C9", pa: "\u0A66\u0A67\u0A68\u0A69\u0A6A\u0A6B\u0A6C\u0A6D\u0A6E\u0A6F", gu: "\u0AE6\u0AE7\u0AE8\u0AE9\u0AEA\u0AEB\u0AEC\u0AED\u0AEE\u0AEF", hi: "\u0966\u0967\u0968\u0969\u096A\u096B\u096C\u096D\u096E\u096F", my: "\u1040\u1041\u1042\u1043\u1044\u1045\u1046\u1047\u1048\u1049", ta: "\u0BE6\u0BE7\u0BE8\u0BE9\u0BEA\u0BEB\u0BEC\u0BED\u0BEE\u0BEF", te: "\u0C66\u0C67\u0C68\u0C69\u0C6A\u0C6B\u0C6C\u0C6D\u0C6E\u0C6F", th: "\u0E50\u0E51\u0E52\u0E53\u0E54\u0E55\u0E56\u0E57\u0E58\u0E59", bo: "\u0F20\u0F21\u0F22\u0F23\u0F24\u0F25\u0F26\u0F27\u0F28\u0F29" }, u = { ab: ["ru"], abs: ["id"], ace: ["id"], ady: ["ady-cyrl"], aeb: ["aeb-arab"], "aeb-arab": ["ar"], aln: ["sq"], alt: ["ru"], ami: ["zh-hant"], an: ["es"], anp: ["hi"], arn: ["es"], arq: ["ar"], ary: ["ar"], arz: ["ar"], ast: ["es"], atj: ["fr"], av: ["ru"], avk: ["fr", "es", "ru"], awa: ["hi"], ay: ["es"], azb: ["fa"], ba: ["ru"], ban: ["id"], "ban-bali": ["ban"], bar: ["de"], bbc: ["bbc-latn"], "bbc-latn": ["id"], bcc: ["fa"], "be-tarask": ["be"], bgn: ["fa"], bh: ["bho"], bi: ["en"], bjn: ["id"], bm: ["fr"], bpy: ["bn"], bqi: ["fa"], br: ["fr"], btm: ["id"], bug: ["id"], bxr: ["ru"], ca: ["oc"], "cbk-zam": ["es"], cdo: ["nan", "zh-hant"], ce: ["ru"], co: ["it"], crh: ["crh-latn"], "crh-cyrl": ["ru"], cs: ["sk"], csb: ["pl"], cv: ["ru"], "de-at": ["de"], "de-ch": ["de"], "de-formal": ["de"], dsb: ["hsb", "de"], dtp: ["ms"], dty: ["ne"], egl: ["it"], eml: ["it"], "en-ca": ["en"], "en-gb": ["en"], "es-419": ["es"], "es-formal": ["es"], ext: ["es"], ff: ["fr"], fit: ["fi"], frc: ["fr"], frp: ["fr"], frr: ["de"], fur: ["it"], gag: ["tr"], gan: ["gan-hant", "zh-hant", "zh-hans"], "gan-hans": ["zh-hans"], "gan-hant": ["zh-hant", "zh-hans"], gcr: ["fr"], gl: ["pt"], glk: ["fa"], gn: ["es"], gom: ["gom-deva"], "gom-deva": ["hi"], gor: ["id"], gsw: ["de"], guc: ["es"], hak: ["zh-hant"], hif: ["hif-latn"], hrx: ["de"], hsb: ["dsb", "de"], ht: ["fr"], "hu-formal": ["hu"], hyw: ["hy"], ii: ["zh-cn", "zh-hans"], inh: ["ru"], io: ["eo"], iu: ["ike-cans"], jam: ["en"], jut: ["da"], jv: ["id"], kaa: ["kk-latn", "kk-cyrl"], kab: ["fr"], kbd: ["kbd-cyrl"], kbp: ["fr"], khw: ["ur"], kiu: ["tr"], kjp: ["my"], kk: ["kk-cyrl"], "kk-arab": ["kk-cyrl"], "kk-cn": ["kk-arab", "kk-cyrl"], "kk-kz": ["kk-cyrl"], "kk-latn": ["kk-cyrl"], "kk-tr": ["kk-latn", "kk-cyrl"], kl: ["da"], "ko-kp": ["ko"], koi: ["ru"], krc: ["ru"], krl: ["fi"], ks: ["ks-arab"], ksh: ["de"], ku: ["ku-latn"], "ku-arab": ["ckb"], kum: ["ru"], kv: ["ru"], lad: ["es"], lb: ["de"], lbe: ["ru"], lez: ["ru", "az"], li: ["nl"], lij: ["it"], liv: ["et"], lki: ["fa"], lld: ["it", "rm", "fur"], lmo: ["pms", "eml", "lij", "vec", "it"], ln: ["fr"], lrc: ["fa"], ltg: ["lv"], luz: ["fa"], lzh: ["zh-hant"], lzz: ["tr"], mad: ["id"], mai: ["hi"], "map-bms": ["jv", "id"], mdf: ["myv", "ru"], mg: ["fr"], mhr: ["mrj", "ru"], min: ["id"], mnw: ["my"], mo: ["ro"], mrj: ["mhr", "ru"], "ms-arab": ["ms"], mwl: ["pt"], myv: ["mdf", "ru"], mzn: ["fa"], nah: ["es"], nan: ["cdo", "zh-hant"], nap: ["it"], nb: ["nn"], nds: ["de"], "nds-nl": ["nl"], nia: ["id"], "nl-informal": ["nl"], nn: ["nb"], nrm: ["fr"], oc: ["ca", "fr"], olo: ["fi"], os: ["ru"], pcd: ["fr"], pdc: ["de"], pdt: ["de"], pfl: ["de"], pih: ["en"], pms: ["it"], pnt: ["el"], pt: ["pt-br"], "pt-br": ["pt"], qu: ["qug", "es"], qug: ["qu", "es"], rgn: ["it"], rmy: ["ro"], "roa-tara": ["it"], rue: ["uk", "ru"], rup: ["ro"], ruq: ["ruq-latn", "ro"], "ruq-cyrl": ["mk"], "ruq-latn": ["ro"], sa: ["hi"], sah: ["ru"], scn: ["it"], sco: ["en"], sdc: ["it"], sdh: ["cbk", "fa"], ses: ["fr"], sg: ["fr"], sgs: ["lt"], sh: ["bs", "sr-el", "hr"], shi: ["fr"], shy: ["shy-latn"], "shy-latn": ["fr"], sk: ["cs"], skr: ["skr-arab"], "skr-arab": ["ur", "pnb"], sli: ["de"], smn: ["fi"], sr: ["sr-ec"], srn: ["nl"], stq: ["de"], sty: ["ru"], su: ["id"], szl: ["pl"], szy: ["zh-tw", "zh-hant", "zh-hans"], tay: ["zh-tw", "zh-hant", "zh-hans"], tcy: ["kn"], tet: ["pt"], tg: ["tg-cyrl"], trv: ["zh-tw", "zh-hant", "zh-hans"], tt: ["tt-cyrl", "ru"], "tt-cyrl": ["ru"], ty: ["fr"], tyv: ["ru"], udm: ["ru"], ug: ["ug-arab"], vec: ["it"], vep: ["et"], vls: ["nl"], vmf: ["de"], vot: ["fi"], vro: ["et"], wa: ["fr"], wo: ["fr"], wuu: ["zh-hans"], xal: ["ru"], xmf: ["ka"], yi: ["he"], za: ["zh-hans"], zea: ["nl"], zgh: ["kab"], zh: ["zh-hans"], "zh-cn": ["zh-hans"], "zh-hant": ["zh-hans"], "zh-hk": ["zh-hant", "zh-hans"], "zh-mo": ["zh-hk", "zh-hant", "zh-hans"], "zh-my": ["zh-sg", "zh-hans"], "zh-sg": ["zh-hans"], "zh-tw": ["zh-hant", "zh-hans"] };
-    class d {
-      constructor(e2) {
-        this.locale = e2;
-      }
-      convertPlural(e2, u2) {
-        const d2 = /\d+=/i;
-        if (!u2 || u2.length === 0)
-          return "";
-        for (let t3 = 0; t3 < u2.length; t3++) {
-          const n2 = u2[t3];
-          if (d2.test(n2)) {
-            if (parseInt(n2.slice(0, n2.indexOf("=")), 10) === e2)
-              return n2.slice(n2.indexOf("=") + 1);
-            u2[t3] = void 0;
-          }
-        }
-        u2 = u2.filter((e3) => !!e3);
-        let t2 = this.getPluralForm(e2, this.locale);
-        return t2 = Math.min(t2, u2.length - 1), u2[t2];
-      }
-      getPluralForm(e2, u2) {
-        const d2 = new Intl.PluralRules(u2), t2 = d2.resolvedOptions().pluralCategories, n2 = d2.select(e2);
-        return ["zero", "one", "two", "few", "many", "other"].filter((e3) => t2.includes(e3)).indexOf(n2);
-      }
-      convertNumber(e2, d2 = false) {
-        let t2 = this.digitTransformTable(this.locale), n2 = "";
-        if (d2) {
-          if (parseFloat(e2, 10) === e2 || !t2)
-            return e2;
-          const u2 = [];
-          for (const e3 in t2)
-            u2[t2[e3]] = e3;
-          t2 = u2;
-          const d3 = String(e2);
-          for (let e3 = 0; e3 < d3.length; e3++)
-            n2 += t2[d3[e3]] || d3[e3];
-          return parseFloat(n2, 10);
-        }
-        if (Intl.NumberFormat) {
-          let d3;
-          const t3 = [...u[this.locale] || [], "en"];
-          return d3 = Intl.NumberFormat.supportedLocalesOf(this.locale).length ? [this.locale] : t3, n2 = new Intl.NumberFormat(d3).format(e2), n2 === "NaN" && (n2 = e2), n2;
-        }
-      }
-      convertGrammar(e2, u2) {
-        return e2;
-      }
-      gender(e2, u2) {
-        if (!u2 || u2.length === 0)
-          return "";
-        for (; u2.length < 2; )
-          u2.push(u2[u2.length - 1]);
-        return e2 === "male" ? u2[0] : e2 === "female" ? u2[1] : u2.length === 3 ? u2[2] : u2[0];
-      }
-      digitTransformTable(u2) {
-        return !!e[u2] && e[u2].split("");
-      }
-    }
-    var t = { bs: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "instrumental":
-            e2 = "s " + e2;
-            break;
-          case "lokativ":
-            e2 = "o " + e2;
-        }
-        return e2;
-      }
-    }, default: d, dsb: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "instrumental":
-            e2 = "z " + e2;
-            break;
-          case "lokatiw":
-            e2 = "wo " + e2;
-        }
-        return e2;
-      }
-    }, fi: class extends d {
-      convertGrammar(e2, u2) {
-        let d2 = e2.match(/[aou][^äöy]*$/i);
-        const t2 = e2;
-        switch (e2.match(/wiki$/i) && (d2 = false), e2.match(/[bcdfghjklmnpqrstvwxz]$/i) && (e2 += "i"), u2) {
-          case "genitive":
-            e2 += "n";
-            break;
-          case "elative":
-            e2 += d2 ? "sta" : "st\xE4";
-            break;
-          case "partitive":
-            e2 += d2 ? "a" : "\xE4";
-            break;
-          case "illative":
-            e2 += e2.slice(-1) + "n";
-            break;
-          case "inessive":
-            e2 += d2 ? "ssa" : "ss\xE4";
-            break;
-          default:
-            e2 = t2;
-        }
-        return e2;
-      }
-    }, ga: class extends d {
-      convertGrammar(e2, u2) {
-        if (u2 === "ainmlae")
-          switch (e2) {
-            case "an Domhnach":
-              e2 = "D\xE9 Domhnaigh";
-              break;
-            case "an Luan":
-              e2 = "D\xE9 Luain";
-              break;
-            case "an Mh\xE1irt":
-              e2 = "D\xE9 Mh\xE1irt";
-              break;
-            case "an Ch\xE9adaoin":
-              e2 = "D\xE9 Ch\xE9adaoin";
-              break;
-            case "an D\xE9ardaoin":
-              e2 = "D\xE9ardaoin";
-              break;
-            case "an Aoine":
-              e2 = "D\xE9 hAoine";
-              break;
-            case "an Satharn":
-              e2 = "D\xE9 Sathairn";
-          }
-        return e2;
-      }
-    }, he: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "prefixed":
-          case "\u05EA\u05D7\u05D9\u05DC\u05D9\u05EA":
-            e2.slice(0, 1) === "\u05D5" && e2.slice(0, 2) !== "\u05D5\u05D5" && (e2 = "\u05D5" + e2), e2.slice(0, 1) === "\u05D4" && (e2 = e2.slice(1)), (e2.slice(0, 1) < "\u05D0" || e2.slice(0, 1) > "\u05EA") && (e2 = "\u05BE" + e2);
-        }
-        return e2;
-      }
-    }, hsb: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "instrumental":
-            e2 = "z " + e2;
-            break;
-          case "lokatiw":
-            e2 = "wo " + e2;
-        }
-        return e2;
-      }
-    }, hu: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "rol":
-            e2 += "r\xF3l";
-            break;
-          case "ba":
-            e2 += "ba";
-            break;
-          case "k":
-            e2 += "k";
-        }
-        return e2;
-      }
-    }, hy: class extends d {
-      convertGrammar(e2, u2) {
-        return u2 === "genitive" && (e2.slice(-1) === "\u0561" ? e2 = e2.slice(0, -1) + "\u0561\u0575\u056B" : e2.slice(-1) === "\u0578" ? e2 = e2.slice(0, -1) + "\u0578\u0575\u056B" : e2.slice(-4) === "\u0563\u056B\u0580\u0584" ? e2 = e2.slice(0, -4) + "\u0563\u0580\u0584\u056B" : e2 += "\u056B"), e2;
-      }
-    }, la: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "genitive":
-            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "i")).replace(/ommunia$/i, "ommunium")).replace(/a$/i, "ae")).replace(/libri$/i, "librorum")).replace(/nuntii$/i, "nuntiorum")).replace(/tio$/i, "tionis")).replace(/ns$/i, "ntis")).replace(/as$/i, "atis")).replace(/es$/i, "ei");
-            break;
-          case "accusative":
-            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "um")).replace(/ommunia$/i, "am")).replace(/a$/i, "ommunia")).replace(/libri$/i, "libros")).replace(/nuntii$/i, "nuntios")).replace(/tio$/i, "tionem")).replace(/ns$/i, "ntem")).replace(/as$/i, "atem")).replace(/es$/i, "em");
-            break;
-          case "ablative":
-            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "o")).replace(/ommunia$/i, "ommunibus")).replace(/a$/i, "a")).replace(/libri$/i, "libris")).replace(/nuntii$/i, "nuntiis")).replace(/tio$/i, "tione")).replace(/ns$/i, "nte")).replace(/as$/i, "ate")).replace(/es$/i, "e");
-        }
-        return e2;
-      }
-    }, os: class extends d {
-      convertGrammar(e2, u2) {
-        let d2, t2, n2, r2;
-        switch (d2 = "\u043C\xE6", t2 = "", n2 = "", r2 = "", e2.match(/тæ$/i) ? (e2 = e2.slice(0, -1), d2 = "\xE6\u043C") : e2.match(/[аæеёиоыэюя]$/i) ? t2 = "\u0439" : e2.match(/у$/i) ? e2.slice(-2, -1).match(/[аæеёиоыэюя]$/i) || (t2 = "\u0439") : e2.match(/[бвгджзйклмнопрстфхцчшщьъ]$/i) || (n2 = "-"), u2) {
-          case "genitive":
-            r2 = n2 + t2 + "\u044B";
-            break;
-          case "dative":
-            r2 = n2 + t2 + "\xE6\u043D";
-            break;
-          case "allative":
-            r2 = n2 + d2;
-            break;
-          case "ablative":
-            r2 = t2 === "\u0439" ? n2 + t2 + "\xE6" : n2 + t2 + "\xE6\u0439";
-            break;
-          case "superessive":
-            r2 = n2 + t2 + "\u044B\u043B";
-            break;
-          case "equative":
-            r2 = n2 + t2 + "\u0430\u0443";
-            break;
-          case "comitative":
-            r2 = n2 + "\u0438\u043C\xE6";
-        }
-        return e2 + r2;
-      }
-    }, ru: class extends d {
-      convertGrammar(e2, u2) {
-        return u2 === "genitive" && (e2.slice(-1) === "\u044C" ? e2 = e2.slice(0, -1) + "\u044F" : e2.slice(-2) === "\u0438\u044F" ? e2 = e2.slice(0, -2) + "\u0438\u0438" : e2.slice(-2) === "\u043A\u0430" ? e2 = e2.slice(0, -2) + "\u043A\u0438" : e2.slice(-2) === "\u0442\u0438" ? e2 = e2.slice(0, -2) + "\u0442\u0435\u0439" : e2.slice(-2) === "\u0434\u044B" ? e2 = e2.slice(0, -2) + "\u0434\u043E\u0432" : e2.slice(-3) === "\u043D\u0438\u043A" && (e2 = e2.slice(0, -3) + "\u043D\u0438\u043A\u0430")), e2;
-      }
-    }, sl: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "mestnik":
-            e2 = "o " + e2;
-            break;
-          case "orodnik":
-            e2 = "z " + e2;
-        }
-        return e2;
-      }
-    }, uk: class extends d {
-      convertGrammar(e2, u2) {
-        switch (u2) {
-          case "genitive":
-            e2.slice(-1) === "\u044C" ? e2 = e2.slice(0, -1) + "\u044F" : e2.slice(-2) === "\u0456\u044F" ? e2 = e2.slice(0, -2) + "\u0456\u0457" : e2.slice(-2) === "\u043A\u0430" ? e2 = e2.slice(0, -2) + "\u043A\u0438" : e2.slice(-2) === "\u0442\u0438" ? e2 = e2.slice(0, -2) + "\u0442\u0435\u0439" : e2.slice(-2) === "\u0434\u044B" ? e2 = e2.slice(0, -2) + "\u0434\u043E\u0432" : e2.slice(-3) === "\u043D\u0438\u043A" && (e2 = e2.slice(0, -3) + "\u043D\u0438\u043A\u0430");
-            break;
-          case "accusative":
-            e2.slice(-2) === "\u0456\u044F" && (e2 = e2.slice(0, -2) + "\u0456\u044E");
-        }
-        return e2;
-      }
-    } };
-    const n = new RegExp("(?:([A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02B8\u02BB-\u02C1\u02D0\u02D1\u02E0-\u02E4\u02EE\u0370-\u0373\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0482\u048A-\u052F\u0531-\u0556\u0559-\u055F\u0561-\u0587\u0589\u0903-\u0939\u093B\u093D-\u0940\u0949-\u094C\u094E-\u0950\u0958-\u0961\u0964-\u0980\u0982\u0983\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD-\u09C0\u09C7\u09C8\u09CB\u09CC\u09CE\u09D7\u09DC\u09DD\u09DF-\u09E1\u09E6-\u09F1\u09F4-\u09FA\u0A03\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A3E-\u0A40\u0A59-\u0A5C\u0A5E\u0A66-\u0A6F\u0A72-\u0A74\u0A83\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD-\u0AC0\u0AC9\u0ACB\u0ACC\u0AD0\u0AE0\u0AE1\u0AE6-\u0AF0\u0AF9\u0B02\u0B03\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B3E\u0B40\u0B47\u0B48\u0B4B\u0B4C\u0B57\u0B5C\u0B5D\u0B5F-\u0B61\u0B66-\u0B77\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BBE\u0BBF\u0BC1\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCC\u0BD0\u0BD7\u0BE6-\u0BF2\u0C01-\u0C03\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C41-\u0C44\u0C58-\u0C5A\u0C60\u0C61\u0C66-\u0C6F\u0C7F\u0C82\u0C83\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD-\u0CC4\u0CC6-\u0CC8\u0CCA\u0CCB\u0CD5\u0CD6\u0CDE\u0CE0\u0CE1\u0CE6-\u0CEF\u0CF1\u0CF2\u0D02\u0D03\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D-\u0D40\u0D46-\u0D48\u0D4A-\u0D4C\u0D4E\u0D57\u0D5F-\u0D61\u0D66-\u0D75\u0D79-\u0D7F\u0D82\u0D83\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DCF-\u0DD1\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2-\u0DF4\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E4F-\u0E5B\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00-\u0F17\u0F1A-\u0F34\u0F36\u0F38\u0F3E-\u0F47\u0F49-\u0F6C\u0F7F\u0F85\u0F88-\u0F8C\u0FBE-\u0FC5\u0FC7-\u0FCC\u0FCE-\u0FDA\u1000-\u102C\u1031\u1038\u103B\u103C\u103F-\u1057\u105A-\u105D\u1061-\u1070\u1075-\u1081\u1083\u1084\u1087-\u108C\u108E-\u109C\u109E-\u10C5\u10C7\u10CD\u10D0-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1360-\u137C\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u167F\u1681-\u169A\u16A0-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1735\u1736\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17B6\u17BE-\u17C5\u17C7\u17C8\u17D4-\u17DA\u17DC\u17E0-\u17E9\u1810-\u1819\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1923-\u1926\u1929-\u192B\u1930\u1931\u1933-\u1938\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19DA\u1A00-\u1A16\u1A19\u1A1A\u1A1E-\u1A55\u1A57\u1A61\u1A63\u1A64\u1A6D-\u1A72\u1A80-\u1A89\u1A90-\u1A99\u1AA0-\u1AAD\u1B04-\u1B33\u1B35\u1B3B\u1B3D-\u1B41\u1B43-\u1B4B\u1B50-\u1B6A\u1B74-\u1B7C\u1B82-\u1BA1\u1BA6\u1BA7\u1BAA\u1BAE-\u1BE5\u1BE7\u1BEA-\u1BEC\u1BEE\u1BF2\u1BF3\u1BFC-\u1C2B\u1C34\u1C35\u1C3B-\u1C49\u1C4D-\u1C7F\u1CC0-\u1CC7\u1CD3\u1CE1\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u200E\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u214F\u2160-\u2188\u2336-\u237A\u2395\u249C-\u24E9\u26AC\u2800-\u28FF\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D70\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u3005-\u3007\u3021-\u3029\u302E\u302F\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u3190-\u31BA\u31F0-\u321C\u3220-\u324F\u3260-\u327B\u327F-\u32B0\u32C0-\u32CB\u32D0-\u32FE\u3300-\u3376\u337B-\u33DD\u33E0-\u33FE\u3400-\u4DB5\u4E00-\u9FD5\uA000-\uA48C\uA4D0-\uA60C\uA610-\uA62B\uA640-\uA66E\uA680-\uA69D\uA6A0-\uA6EF\uA6F2-\uA6F7\uA722-\uA787\uA789-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA824\uA827\uA830-\uA837\uA840-\uA873\uA880-\uA8C3\uA8CE-\uA8D9\uA8F2-\uA8FD\uA900-\uA925\uA92E-\uA946\uA952\uA953\uA95F-\uA97C\uA983-\uA9B2\uA9B4\uA9B5\uA9BA\uA9BB\uA9BD-\uA9CD\uA9CF-\uA9D9\uA9DE-\uA9E4\uA9E6-\uA9FE\uAA00-\uAA28\uAA2F\uAA30\uAA33\uAA34\uAA40-\uAA42\uAA44-\uAA4B\uAA4D\uAA50-\uAA59\uAA5C-\uAA7B\uAA7D-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAAEB\uAAEE-\uAAF5\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB65\uAB70-\uABE4\uABE6\uABE7\uABE9-\uABEC\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uE000-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B]|\uD800[\uDC0D-\uDC26]|\uD800[\uDC28-\uDC3A]|\u{1003C}|\u{1003D}|\uD800[\uDC3F-\uDC4D]|\uD800[\uDC50-\uDC5D]|\uD800[\uDC80-\uDCFA]|\u{10100}|\u{10102}|\uD800[\uDD07-\uDD33]|\uD800[\uDD37-\uDD3F]|\uD800[\uDDD0-\uDDFC]|\uD800[\uDE80-\uDE9C]|\uD800[\uDEA0-\uDED0]|\uD800[\uDF00-\uDF23]|\uD800[\uDF30-\uDF4A]|\uD800[\uDF50-\uDF75]|\uD800[\uDF80-\uDF9D]|\uD800[\uDF9F-\uDFC3]|\uD800[\uDFC8-\uDFD5]|\uD801[\uDC00-\uDC9D]|\uD801[\uDCA0-\uDCA9]|\uD801[\uDD00-\uDD27]|\uD801[\uDD30-\uDD63]|\u{1056F}|\uD801[\uDE00-\uDF36]|\uD801[\uDF40-\uDF55]|\uD801[\uDF60-\uDF67]|\u{11000}|\uD804[\uDC02-\uDC37]|\uD804[\uDC47-\uDC4D]|\uD804[\uDC66-\uDC6F]|\uD804[\uDC82-\uDCB2]|\u{110B7}|\u{110B8}|\uD804[\uDCBB-\uDCC1]|\uD804[\uDCD0-\uDCE8]|\uD804[\uDCF0-\uDCF9]|\uD804[\uDD03-\uDD26]|\u{1112C}|\uD804[\uDD36-\uDD43]|\uD804[\uDD50-\uDD72]|\uD804[\uDD74-\uDD76]|\uD804[\uDD82-\uDDB5]|\uD804[\uDDBF-\uDDC9]|\u{111CD}|\uD804[\uDDD0-\uDDDF]|\uD804[\uDDE1-\uDDF4]|\uD804[\uDE00-\uDE11]|\uD804[\uDE13-\uDE2E]|\u{11232}|\u{11233}|\u{11235}|\uD804[\uDE38-\uDE3D]|\uD804[\uDE80-\uDE86]|\u{11288}|\uD804[\uDE8A-\uDE8D]|\uD804[\uDE8F-\uDE9D]|\uD804[\uDE9F-\uDEA9]|\uD804[\uDEB0-\uDEDE]|\uD804[\uDEE0-\uDEE2]|\uD804[\uDEF0-\uDEF9]|\u{11302}|\u{11303}|\uD804[\uDF05-\uDF0C]|\u{1130F}|\u{11310}|\uD804[\uDF13-\uDF28]|\uD804[\uDF2A-\uDF30]|\u{11332}|\u{11333}|\uD804[\uDF35-\uDF39]|\uD804[\uDF3D-\uDF3F]|\uD804[\uDF41-\uDF44]|\u{11347}|\u{11348}|\uD804[\uDF4B-\uDF4D]|\u{11350}|\u{11357}|\uD804[\uDF5D-\uDF63]|\uD805[\uDC80-\uDCB2]|\u{114B9}|\uD805[\uDCBB-\uDCBE]|\u{114C1}|\uD805[\uDCC4-\uDCC7]|\uD805[\uDCD0-\uDCD9]|\uD805[\uDD80-\uDDB1]|\uD805[\uDDB8-\uDDBB]|\u{115BE}|\uD805[\uDDC1-\uDDDB]|\uD805[\uDE00-\uDE32]|\u{1163B}|\u{1163C}|\u{1163E}|\uD805[\uDE41-\uDE44]|\uD805[\uDE50-\uDE59]|\uD805[\uDE80-\uDEAA]|\u{116AC}|\u{116AE}|\u{116AF}|\u{116B6}|\uD805[\uDEC0-\uDEC9]|\uD805[\uDF00-\uDF19]|\u{11720}|\u{11721}|\u{11726}|\uD805[\uDF30-\uDF3F]|\uD806[\uDCA0-\uDCF2]|\u{118FF}|\uD806[\uDEC0-\uDEF8]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E]|\uD809[\uDC70-\uDC74]|\uD809[\uDC80-\uDD43]|\uD80C[\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38]|\uD81A[\uDE40-\uDE5E]|\uD81A[\uDE60-\uDE69]|\u{16A6E}|\u{16A6F}|\uD81A[\uDED0-\uDEED]|\u{16AF5}|\uD81A[\uDF00-\uDF2F]|\uD81A[\uDF37-\uDF45]|\uD81A[\uDF50-\uDF59]|\uD81A[\uDF5B-\uDF61]|\uD81A[\uDF63-\uDF77]|\uD81A[\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44]|\uD81B[\uDF50-\uDF7E]|\uD81B[\uDF93-\uDF9F]|\u{1B000}|\u{1B001}|\uD82F[\uDC00-\uDC6A]|\uD82F[\uDC70-\uDC7C]|\uD82F[\uDC80-\uDC88]|\uD82F[\uDC90-\uDC99]|\u{1BC9C}|\u{1BC9F}|\uD834[\uDC00-\uDCF5]|\uD834[\uDD00-\uDD26]|\uD834[\uDD29-\uDD66]|\uD834[\uDD6A-\uDD72]|\u{1D183}|\u{1D184}|\uD834[\uDD8C-\uDDA9]|\uD834[\uDDAE-\uDDE8]|\uD834[\uDF60-\uDF71]|\uD835[\uDC00-\uDC54]|\uD835[\uDC56-\uDC9C]|\u{1D49E}|\u{1D49F}|\u{1D4A2}|\u{1D4A5}|\u{1D4A6}|\uD835[\uDCA9-\uDCAC]|\uD835[\uDCAE-\uDCB9]|\u{1D4BB}|\uD835[\uDCBD-\uDCC3]|\uD835[\uDCC5-\uDD05]|\uD835[\uDD07-\uDD0A]|\uD835[\uDD0D-\uDD14]|\uD835[\uDD16-\uDD1C]|\uD835[\uDD1E-\uDD39]|\uD835[\uDD3B-\uDD3E]|\uD835[\uDD40-\uDD44]|\u{1D546}|\uD835[\uDD4A-\uDD50]|\uD835[\uDD52-\uDEA5]|\uD835[\uDEA8-\uDEDA]|\uD835[\uDEDC-\uDF14]|\uD835[\uDF16-\uDF4E]|\uD835[\uDF50-\uDF88]|\uD835[\uDF8A-\uDFC2]|\uD835[\uDFC4-\uDFCB]|\uD836[\uDC00-\uDDFF]|\uD836[\uDE37-\uDE3A]|\uD836[\uDE6D-\uDE74]|\uD836[\uDE76-\uDE83]|\uD836[\uDE85-\uDE8B]|\uD83C[\uDD10-\uDD2E]|\uD83C[\uDD30-\uDD69]|\uD83C[\uDD70-\uDD9A]|\uD83C[\uDDE6-\uDE02]|\uD83C[\uDE10-\uDE3A]|\uD83C[\uDE40-\uDE48]|\u{1F250}|\u{1F251}|[\uD840-\uD868][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6]|\uD869[\uDF00-\uDFFF]|[\uD86A-\uD86C][\uDC00-\uDFFF]|\uD86D[\uDC00-\uDF34]|\uD86D[\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D]|\uD86E[\uDC20-\uDFFF]|[\uD86F-\uD872][\uDC00-\uDFFF]|\uD873[\uDC00-\uDEA1]|\uD87E[\uDC00-\uDE1D]|[\uDB80-\uDBBE][\uDC00-\uDFFF]|\uDBBF[\uDC00-\uDFFD]|[\uDBC0-\uDBFE][\uDC00-\uDFFF]|\uDBFF[\uDC00-\uDFFD])|([\u0590\u05BE\u05C0\u05C3\u05C6\u05C8-\u05FF\u07C0-\u07EA\u07F4\u07F5\u07FA-\u0815\u081A\u0824\u0828\u082E-\u0858\u085C-\u089F\u200F\uFB1D\uFB1F-\uFB28\uFB2A-\uFB4F\u0608\u060B\u060D\u061B-\u064A\u066D-\u066F\u0671-\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u0710\u0712-\u072F\u074B-\u07A5\u07B1-\u07BF\u08A0-\u08E2\uFB50-\uFD3D\uFD40-\uFDCF\uFDF0-\uFDFC\uFDFE\uFDFF\uFE70-\uFEFE]|\uD802[\uDC00-\uDD1E]|\uD802[\uDD20-\uDE00]|\u{10A04}|\uD802[\uDE07-\uDE0B]|\uD802[\uDE10-\uDE37]|\uD802[\uDE3B-\uDE3E]|\uD802[\uDE40-\uDEE4]|\uD802[\uDEE7-\uDF38]|\uD802[\uDF40-\uDFFF]|\uD803[\uDC00-\uDE5F]|\uD803[\uDE7F-\uDFFF]|\uD83A[\uDC00-\uDCCF]|\uD83A[\uDCD7-\uDFFF]|\uD83B[\uDC00-\uDDFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDE00-\uDEEF]|\uD83B[\uDEF2-\uDEFF]))");
-    class r {
-      constructor(e2) {
-        this.locale = e2, this.language = new (t[e2] || t.default)(e2);
-      }
-      emit(e2, u2) {
-        let d2, t2, n2;
-        switch (typeof e2) {
-          case "string":
-          case "number":
-            d2 = e2;
-            break;
-          case "object":
-            if (t2 = e2.slice(1).map((e3) => this.emit(e3, u2)), n2 = e2[0].toLowerCase(), typeof this[n2] != "function")
-              throw new Error('unknown operation "' + n2 + '"');
-            d2 = this[n2](t2, u2);
-            break;
-          case "undefined":
-            d2 = "";
-            break;
-          default:
-            throw new Error("unexpected type in AST: " + typeof e2);
-        }
-        return d2;
-      }
-      concat(e2) {
-        let u2 = "";
-        return e2.forEach((e3) => {
-          u2 += e3;
-        }), u2;
-      }
-      replace(e2, u2) {
-        const d2 = parseInt(e2[0], 10);
-        return d2 < u2.length ? u2[d2] : "$" + (d2 + 1);
-      }
-      plural(e2) {
-        const u2 = parseFloat(this.language.convertNumber(e2[0], 10)), d2 = e2.slice(1);
-        return d2.length ? this.language.convertPlural(u2, d2) : "";
-      }
-      gender(e2) {
-        const u2 = e2[0], d2 = e2.slice(1);
-        return this.language.gender(u2, d2);
-      }
-      grammar(e2) {
-        const u2 = e2[0], d2 = e2[1];
-        return d2 && u2 && this.language.convertGrammar(d2, u2);
-      }
-      wikilink(e2) {
-        let u2, d2 = e2[0];
-        d2.charAt(0) === ":" && (d2 = d2.slice(1));
-        const t2 = `./${d2}`;
-        return u2 = e2.length === 1 ? d2 : e2[1], `<a href="${t2}" title="${d2}">${u2}</a>`;
-      }
-      extlink(e2) {
-        if (e2.length !== 2)
-          throw new Error("Expected two items in the node");
-        return `<a href="${e2[0]}">${e2[1]}</a>`;
-      }
-      bidi(e2) {
-        const u2 = function(e3) {
-          const u3 = e3.match(n);
-          return u3 ? u3[2] === void 0 ? "ltr" : "rtl" : null;
-        }(e2[0]);
-        return u2 === "ltr" ? "\u202A" + e2[0] + "\u202C" : u2 === "rtl" ? "\u202B" + e2[0] + "\u202C" : e2[0];
-      }
-      formatnum(e2) {
-        const u2 = !!e2[1] && e2[1] === "R", d2 = e2[0];
-        return typeof d2 == "string" || typeof d2 == "number" ? this.language.convertNumber(d2, u2) : d2;
-      }
-      htmlattributes(e2) {
-        const u2 = {};
-        for (let d2 = 0, t2 = e2.length; d2 < t2; d2 += 2)
-          u2[e2[d2]] = e2[d2 + 1];
-        return u2;
-      }
-      htmlelement(e2) {
-        const u2 = e2.shift(), d2 = e2.shift();
-        let t2 = e2, n2 = "";
-        for (const e3 in d2)
-          n2 += ` ${e3}="${d2[e3]}"`;
-        Array.isArray(t2) || (t2 = [t2]);
-        return `<${u2}${n2}>${t2.join("")}</${u2}>`;
-      }
-    }
-    class a {
-      constructor(e2, { wikilinks: u2 = false } = {}) {
-        this.locale = e2, this.wikilinks = u2, this.emitter = new r(this.locale);
-      }
-      parse(e2, u2) {
-        if (e2.includes("{{") || e2.includes("<") || this.wikilinks && e2.includes("[")) {
-          const d2 = function(e3, { wikilinks: u3 = false }) {
-            let d3 = 0;
-            function t2(e4) {
-              return () => {
-                for (let u4 = 0; u4 < e4.length; u4++) {
-                  const d4 = e4[u4]();
-                  if (d4 !== null)
-                    return d4;
-                }
-                return null;
-              };
-            }
-            function n2(e4) {
-              const u4 = d3, t3 = [];
-              for (let n3 = 0; n3 < e4.length; n3++) {
-                const r3 = e4[n3]();
-                if (r3 === null)
-                  return d3 = u4, null;
-                t3.push(r3);
-              }
-              return t3;
-            }
-            function r2(e4, u4) {
-              return () => {
-                const t3 = d3, n3 = [];
-                let r3 = u4();
-                for (; r3 !== null; )
-                  n3.push(r3), r3 = u4();
-                return n3.length < e4 ? (d3 = t3, null) : n3;
-              };
-            }
-            function a2(u4) {
-              const t3 = u4.length;
-              return () => {
-                let n3 = null;
-                return e3.slice(d3, d3 + t3) === u4 && (n3 = u4, d3 += t3), n3;
-              };
-            }
-            function c2(u4) {
-              return () => {
-                const t3 = e3.slice(d3).match(u4);
-                return t3 === null ? null : (d3 += t3[0].length, t3[0]);
-              };
-            }
-            const s = c2(/^\s+/), l = a2("|"), i = a2(":"), o = a2("\\"), f = c2(/^./), h2 = a2("$"), b = c2(/^\d+/), m = a2('"'), k = a2("'"), p2 = c2(u3 ? /^[^{}[\]$<\\]/ : /^[^{}$<\\]/), g = c2(u3 ? /^[^{}[\]$\\|]/ : /^[^{}$\\|]/), w = t2([v, c2(u3 ? /^[^{}[\]$\s]/ : /^[^{}$\s]/)]);
-            function v() {
-              const e4 = n2([o, f]);
-              return e4 === null ? null : e4[1];
-            }
-            const y = t2([v, g]), z = t2([v, p2]);
-            function $2() {
-              const e4 = n2([h2, b]);
-              return e4 === null ? null : ["REPLACE", parseInt(e4[1], 10) - 1];
-            }
-            const x = (C = c2(/^[ !"$&'()*,./0-9;=?@A-Z^_`a-z~\x80-\xFF+-]+/), A = function(e4) {
-              return e4.toString();
-            }, () => {
-              const e4 = C();
-              return e4 === null ? null : A(e4);
-            });
-            var C, A;
-            function j() {
-              const e4 = n2([l, r2(0, _)]);
-              if (e4 === null)
-                return null;
-              const u4 = e4[1];
-              return u4.length > 1 ? ["CONCAT"].concat(u4) : u4[0];
-            }
-            function T() {
-              const e4 = n2([x, i, $2]);
-              return e4 === null ? null : [e4[0], e4[2]];
-            }
-            function E() {
-              const e4 = n2([x, i, _]);
-              return e4 === null ? null : [e4[0], e4[2]];
-            }
-            function N() {
-              const e4 = n2([x, i]);
-              return e4 === null ? null : [e4[0], ""];
-            }
-            const M = t2([function() {
-              const e4 = n2([t2([T, E, N]), r2(0, j)]);
-              return e4 === null ? null : e4[0].concat(e4[1]);
-            }, function() {
-              const e4 = n2([x, r2(0, j)]);
-              return e4 === null ? null : [e4[0]].concat(e4[1]);
-            }]), O = a2("{{"), q = a2("}}"), I = a2("[["), L = a2("]]"), F = a2("["), G = a2("]");
-            function P() {
-              const e4 = n2([O, M, q]);
-              return e4 === null ? null : e4[1];
-            }
-            const D = t2([function() {
-              const e4 = n2([r2(1, _), l, r2(1, X)]);
-              return e4 === null ? null : [["CONCAT"].concat(e4[0]), ["CONCAT"].concat(e4[2])];
-            }, function() {
-              const e4 = n2([r2(1, _)]);
-              return e4 === null ? null : [["CONCAT"].concat(e4[0])];
-            }]);
-            function S() {
-              let e4 = null;
-              const u4 = n2([I, D, L]);
-              if (u4 !== null) {
-                const d4 = u4[1];
-                e4 = ["WIKILINK"].concat(d4);
-              }
-              return e4;
-            }
-            function H() {
-              let e4 = null;
-              const u4 = n2([F, r2(1, W), s, r2(1, X), G]);
-              return u4 !== null && (e4 = ["EXTLINK", u4[1].length === 1 ? u4[1][0] : ["CONCAT"].concat(u4[1]), ["CONCAT"].concat(u4[3])]), e4;
-            }
-            const R = c2(/^[A-Za-z]+/);
-            function B() {
-              const e4 = c2(/^[^"]*/), u4 = n2([m, e4, m]);
-              return u4 === null ? null : u4[1];
-            }
-            function Z() {
-              const e4 = c2(/^[^']*/), u4 = n2([k, e4, k]);
-              return u4 === null ? null : u4[1];
-            }
-            function K() {
-              const e4 = c2(/^\s*=\s*/), u4 = n2([s, R, e4, t2([B, Z])]);
-              return u4 === null ? null : [u4[1], u4[3]];
-            }
-            function U() {
-              const e4 = r2(0, K)();
-              return Array.prototype.concat.apply(["HTMLATTRIBUTES"], e4);
-            }
-            const W = t2([P, $2, S, H, function() {
-              const e4 = r2(1, w)();
-              return e4 === null ? null : e4.join("");
-            }]), X = t2([P, $2, S, H, function() {
-              let u4 = null;
-              const t3 = d3, s2 = a2("<"), l2 = c2(/^\/?/), i2 = c2(/^\s*>/), o2 = n2([s2, R, U, l2, i2]);
-              if (o2 === null)
-                return null;
-              const f2 = d3, h22 = o2[1], b2 = r2(0, X)(), m2 = d3, k2 = n2([a2("</"), R, i2]);
-              if (k2 === null)
-                return ["CONCAT", e3.slice(t3, f2)].concat(b2);
-              const p22 = d3, g2 = k2[1], w2 = o2[2];
-              if (function(e4, u5, d4, t4 = { allowedHtmlElements: ["b", "bdi", "del", "i", "ins", "u", "font", "big", "small", "sub", "sup", "h1", "h2", "h3", "h4", "h5", "h6", "cite", "code", "em", "s", "strike", "strong", "tt", "var", "div", "center", "blockquote", "ol", "ul", "dl", "table", "caption", "pre", "ruby", "rb", "rp", "rt", "rtc", "p", "span", "abbr", "dfn", "kbd", "samp", "data", "time", "mark", "li", "dt", "dd"], allowedHtmlCommonAttributes: ["id", "class", "style", "lang", "dir", "title", "aria-describedby", "aria-flowto", "aria-hidden", "aria-label", "aria-labelledby", "aria-owns", "role", "about", "property", "resource", "datatype", "typeof", "itemid", "itemprop", "itemref", "itemscope", "itemtype"], allowedHtmlAttributesByElement: {} }) {
-                if ((e4 = e4.toLowerCase()) !== (u5 = u5.toLowerCase()) || t4.allowedHtmlElements.indexOf(e4) === -1)
-                  return false;
-                const n3 = /[\000-\010\013\016-\037\177]|expression|filter\s*:|accelerator\s*:|-o-link\s*:|-o-link-source\s*:|-o-replace\s*:|url\s*\(|image\s*\(|image-set\s*\(/i;
-                for (let u6 = 0, r3 = d4.length; u6 < r3; u6 += 2) {
-                  const r4 = d4[u6];
-                  if (t4.allowedHtmlCommonAttributes.indexOf(r4) === -1 && (t4.allowedHtmlAttributesByElement[e4] || []).indexOf(r4) === -1 || r4 === "style" && d4[u6 + 1].search(n3) !== -1)
-                    return false;
-                }
-                return true;
-              }(h22, g2, w2.slice(1)))
-                u4 = ["HTMLELEMENT", h22, w2].concat(b2);
-              else {
-                const d4 = (e4) => e4.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-                u4 = ["CONCAT", d4(e3.slice(t3, f2))].concat(b2, d4(e3.slice(m2, p22)));
-              }
-              return u4;
-            }, function() {
-              const e4 = r2(1, z)();
-              return e4 === null ? null : e4.join("");
-            }]), _ = t2([P, $2, function() {
-              const e4 = r2(1, y)();
-              return e4 === null ? null : e4.join("");
-            }]), J = function() {
-              const e4 = r2(0, X)();
-              return e4 === null ? null : ["CONCAT"].concat(e4);
-            }();
-            if (J === null || d3 !== e3.length)
-              throw new Error("Parse error at position " + d3.toString() + " in input: " + e3);
-            return J;
-          }(e2, { wikilinks: this.wikilinks });
-          return this.emitter.emit(d2, u2);
-        }
-        return this.simpleParse(e2, u2);
-      }
-      simpleParse(e2, u2) {
-        return e2.replace(/\$(\d+)/g, (e3, d2) => {
-          const t2 = parseInt(d2, 10) - 1;
-          return u2[t2] !== void 0 ? u2[t2] : "$" + d2;
-        });
-      }
-    }
-    class c {
-      constructor(e2) {
-        this.sourceMap = /* @__PURE__ */ new Map();
-      }
-      load(e2, u2) {
-        if (typeof e2 != "object")
-          throw new Error("Invalid message source. Must be an object");
-        if (u2) {
-          if (!/^[a-zA-Z0-9-]+$/.test(u2))
-            throw new Error(`Invalid locale ${u2}`);
-          for (const d2 in e2)
-            if (d2.indexOf("@") !== 0) {
-              if (typeof e2[d2] == "object")
-                return this.load(e2);
-              if (typeof e2[d2] != "string")
-                throw new Error(`Invalid message for message ${d2} in ${u2} locale.`);
-              break;
-            }
-          this.sourceMap.has(u2) ? this.sourceMap.set(u2, Object.assign(this.sourceMap.get(u2), e2)) : this.sourceMap.set(u2, e2);
-        } else
-          for (u2 in e2)
-            this.load(e2[u2], u2);
-      }
-      getMessage(e2, u2) {
-        const d2 = this.sourceMap.get(u2);
-        return d2 ? d2[e2] : null;
-      }
-      hasLocale(e2) {
-        return this.sourceMap.has(e2);
-      }
-    }
-    return class {
-      constructor(e2, { finalFallback: u2 = "en", messages: d2, wikilinks: t2 = false } = {}) {
-        this.locale = e2, this.parser = new a(this.locale, { wikilinks: t2 }), this.messageStore = new c(), d2 && this.load(d2, this.locale), this.finalFallback = u2, this.wikilinks = t2;
-      }
-      load(e2, u2) {
-        return this.messageStore.load(e2, u2 || this.locale);
-      }
-      i18n(e2, ...u2) {
-        return this.parser.parse(this.getMessage(e2), u2);
-      }
-      setLocale(e2) {
-        this.locale = e2, this.parser = new a(this.locale, { wikilinks: this.wikilinks });
-      }
-      getFallbackLocales() {
-        return [...u[this.locale] || [], this.finalFallback];
-      }
-      getMessage(e2) {
-        let u2 = this.locale, d2 = 0;
-        const t2 = this.getFallbackLocales(this.locale);
-        for (; u2; ) {
-          const n2 = u2.split("-");
-          let r2 = n2.length;
-          do {
-            const u3 = n2.slice(0, r2).join("-"), d3 = this.messageStore.getMessage(e2, u3);
-            if (typeof d3 == "string")
-              return d3;
-            r2--;
-          } while (r2);
-          u2 = t2[d2], d2++;
-        }
-        return e2;
-      }
-      registerParserPlugin(e2, u2) {
-        r.prototype[e2] = u2;
-      }
-    };
-  });
-})(bananaI18n);
-var Banana = bananaI18n.exports;
-const parseValue = (binding) => {
-  let msg, params;
-  if (Array.isArray(binding.value)) {
-    msg = binding.arg;
-    params = binding.value;
-  } else if (binding.value !== null && typeof binding.value === "object") {
-    msg = binding.value.msg;
-    params = binding.value.params;
-  } else {
-    msg = binding.arg || binding.value;
-  }
-  params = params || [];
-  if (!Array.isArray(params)) {
-    params = [params];
-  }
-  if (!msg) {
-    throw new Error(`${binding.rawName} used with parameter array but without message key`);
-  }
-  return { msg, params };
-};
-const contextSymbol = Symbol("banana-context");
-function useI18n() {
-  const i18n = inject(contextSymbol);
-  if (!i18n)
-    throw new Error("No i18n provided!!!");
-  return i18n;
-}
-function createI18n(options) {
-  const bananai18n = reactive(new Banana(options.locale, options));
-  return {
-    install: (app2) => {
-      app2.provide(contextSymbol, bananai18n);
-      app2.config.globalProperties.$i18n = (msg, params) => {
-        params = params || [];
-        if (!Array.isArray(params)) {
-          params = [params];
-        }
-        return bananai18n.i18n(msg, ...params);
-      };
-      app2.provide("setLocale", (newLocale) => {
-        bananai18n.setLocale(newLocale);
-      });
-      app2.directive("i18n", (el, binding) => {
-        const { msg, params } = parseValue(binding);
-        if (binding.modifiers.html) {
-          el.innerHTML = bananai18n.i18n(msg, ...params);
-        } else {
-          el.textContent = bananai18n.i18n(msg, ...params);
-        }
-      });
-      app2.directive("i18n-html", (el, binding) => {
-        const { msg, params } = parseValue(binding);
-        el.innerHTML = bananai18n.i18n(msg, ...params);
-      });
-    }
-  };
-}
 const _sfc_main$X = {
   name: "CxTranslationList",
   components: {
@@ -20231,7 +19590,7 @@ const _sfc_main$X = {
     });
     const isActiveForAllSourceLanguages = computed(() => selectedSourceLanguage.value === "all");
     const isActiveForAllTargetLanguages = computed(() => selectedTargetLanguage.value === "all");
-    const activeTranslations = computed(() => translations.value.filter((translation) => (isActiveForAllSourceLanguages.value || translation.sourceLanguage === selectedSourceLanguage.value) && (isActiveForAllTargetLanguages.value || translation.targetLanguage === selectedTargetLanguage.value)));
+    const activeTranslations = computed(() => translations.value.filter((translation) => (isActiveForAllSourceLanguages.value || translation.sourceLanguage === selectedSourceLanguage.value) && (isActiveForAllTargetLanguages.value || translation.targetLanguage === selectedTargetLanguage.value)).sort((a, b) => a.lastUpdatedTimestamp < b.lastUpdatedTimestamp));
     const availableTargetLanguages = computed(() => {
       let translationTargetLanguages = translations.value.map((translation) => translation.targetLanguage);
       if (!!enabledTargetLanguages.value) {
@@ -20279,9 +19638,9 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
         "all-option-enabled": ""
       }, null, 8, ["selected-source-language", "selected-target-language", "source-languages", "target-languages"]),
       !$setup.loaded ? (openBlock(), createBlock(_component_mw_spinner, { key: 0 })) : createCommentVNode("", true),
-      (openBlock(true), createElementBlock(Fragment, null, renderList($setup.activeTranslations, (translation, index) => {
+      (openBlock(true), createElementBlock(Fragment, null, renderList($setup.activeTranslations, (translation) => {
         return openBlock(), createBlock(_component_cx_translation_work, {
-          key: `${$props.translationStatus}-${index}`,
+          key: `${$props.translationStatus}-translation-${translation.id}`,
           translation
         }, null, 8, ["translation"]);
       }), 128))
@@ -20954,12 +20313,659 @@ const initializeDashboard = (router2, store2, logEvent2) => __async(this, null, 
     mw.log.error("[CX] Error while fetching favorite suggestions", error);
   }
   try {
-    yield store2.dispatch("translator/fetchTranslations");
+    if (!store2.state.translator.translations.length) {
+      yield store2.dispatch("translator/fetchTranslations");
+    }
   } catch (error) {
     mw.log.error("[CX] Error while fetching translations", error);
   }
   store2.dispatch("suggestions/initializeSuggestions");
 });
+var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+var bananaI18n = { exports: {} };
+(function(module, exports) {
+  !function(e, u) {
+    module.exports = u();
+  }(commonjsGlobal, function() {
+    var e = { ar: "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669", fa: "\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9", ml: "\u0D66\u0D67\u0D68\u0D69\u0D6A\u0D6B\u0D6C\u0D6D\u0D6E\u0D6F", kn: "\u0CE6\u0CE7\u0CE8\u0CE9\u0CEA\u0CEB\u0CEC\u0CED\u0CEE\u0CEF", lo: "\u0ED0\u0ED1\u0ED2\u0ED3\u0ED4\u0ED5\u0ED6\u0ED7\u0ED8\u0ED9", or: "\u0B66\u0B67\u0B68\u0B69\u0B6A\u0B6B\u0B6C\u0B6D\u0B6E\u0B6F", kh: "\u17E0\u17E1\u17E2\u17E3\u17E4\u17E5\u17E6\u17E7\u17E8\u17E9", nqo: "\u07C0\u07C1\u07C2\u07C3\u07C4\u07C5\u07C6\u07C7\u07C8\u07C9", pa: "\u0A66\u0A67\u0A68\u0A69\u0A6A\u0A6B\u0A6C\u0A6D\u0A6E\u0A6F", gu: "\u0AE6\u0AE7\u0AE8\u0AE9\u0AEA\u0AEB\u0AEC\u0AED\u0AEE\u0AEF", hi: "\u0966\u0967\u0968\u0969\u096A\u096B\u096C\u096D\u096E\u096F", my: "\u1040\u1041\u1042\u1043\u1044\u1045\u1046\u1047\u1048\u1049", ta: "\u0BE6\u0BE7\u0BE8\u0BE9\u0BEA\u0BEB\u0BEC\u0BED\u0BEE\u0BEF", te: "\u0C66\u0C67\u0C68\u0C69\u0C6A\u0C6B\u0C6C\u0C6D\u0C6E\u0C6F", th: "\u0E50\u0E51\u0E52\u0E53\u0E54\u0E55\u0E56\u0E57\u0E58\u0E59", bo: "\u0F20\u0F21\u0F22\u0F23\u0F24\u0F25\u0F26\u0F27\u0F28\u0F29" }, u = { ab: ["ru"], abs: ["id"], ace: ["id"], ady: ["ady-cyrl"], aeb: ["aeb-arab"], "aeb-arab": ["ar"], aln: ["sq"], alt: ["ru"], ami: ["zh-hant"], an: ["es"], anp: ["hi"], arn: ["es"], arq: ["ar"], ary: ["ar"], arz: ["ar"], ast: ["es"], atj: ["fr"], av: ["ru"], avk: ["fr", "es", "ru"], awa: ["hi"], ay: ["es"], azb: ["fa"], ba: ["ru"], ban: ["id"], "ban-bali": ["ban"], bar: ["de"], bbc: ["bbc-latn"], "bbc-latn": ["id"], bcc: ["fa"], "be-tarask": ["be"], bgn: ["fa"], bh: ["bho"], bi: ["en"], bjn: ["id"], bm: ["fr"], bpy: ["bn"], bqi: ["fa"], br: ["fr"], btm: ["id"], bug: ["id"], bxr: ["ru"], ca: ["oc"], "cbk-zam": ["es"], cdo: ["nan", "zh-hant"], ce: ["ru"], co: ["it"], crh: ["crh-latn"], "crh-cyrl": ["ru"], cs: ["sk"], csb: ["pl"], cv: ["ru"], "de-at": ["de"], "de-ch": ["de"], "de-formal": ["de"], dsb: ["hsb", "de"], dtp: ["ms"], dty: ["ne"], egl: ["it"], eml: ["it"], "en-ca": ["en"], "en-gb": ["en"], "es-419": ["es"], "es-formal": ["es"], ext: ["es"], ff: ["fr"], fit: ["fi"], frc: ["fr"], frp: ["fr"], frr: ["de"], fur: ["it"], gag: ["tr"], gan: ["gan-hant", "zh-hant", "zh-hans"], "gan-hans": ["zh-hans"], "gan-hant": ["zh-hant", "zh-hans"], gcr: ["fr"], gl: ["pt"], glk: ["fa"], gn: ["es"], gom: ["gom-deva"], "gom-deva": ["hi"], gor: ["id"], gsw: ["de"], guc: ["es"], hak: ["zh-hant"], hif: ["hif-latn"], hrx: ["de"], hsb: ["dsb", "de"], ht: ["fr"], "hu-formal": ["hu"], hyw: ["hy"], ii: ["zh-cn", "zh-hans"], inh: ["ru"], io: ["eo"], iu: ["ike-cans"], jam: ["en"], jut: ["da"], jv: ["id"], kaa: ["kk-latn", "kk-cyrl"], kab: ["fr"], kbd: ["kbd-cyrl"], kbp: ["fr"], khw: ["ur"], kiu: ["tr"], kjp: ["my"], kk: ["kk-cyrl"], "kk-arab": ["kk-cyrl"], "kk-cn": ["kk-arab", "kk-cyrl"], "kk-kz": ["kk-cyrl"], "kk-latn": ["kk-cyrl"], "kk-tr": ["kk-latn", "kk-cyrl"], kl: ["da"], "ko-kp": ["ko"], koi: ["ru"], krc: ["ru"], krl: ["fi"], ks: ["ks-arab"], ksh: ["de"], ku: ["ku-latn"], "ku-arab": ["ckb"], kum: ["ru"], kv: ["ru"], lad: ["es"], lb: ["de"], lbe: ["ru"], lez: ["ru", "az"], li: ["nl"], lij: ["it"], liv: ["et"], lki: ["fa"], lld: ["it", "rm", "fur"], lmo: ["pms", "eml", "lij", "vec", "it"], ln: ["fr"], lrc: ["fa"], ltg: ["lv"], luz: ["fa"], lzh: ["zh-hant"], lzz: ["tr"], mad: ["id"], mai: ["hi"], "map-bms": ["jv", "id"], mdf: ["myv", "ru"], mg: ["fr"], mhr: ["mrj", "ru"], min: ["id"], mnw: ["my"], mo: ["ro"], mrj: ["mhr", "ru"], "ms-arab": ["ms"], mwl: ["pt"], myv: ["mdf", "ru"], mzn: ["fa"], nah: ["es"], nan: ["cdo", "zh-hant"], nap: ["it"], nb: ["nn"], nds: ["de"], "nds-nl": ["nl"], nia: ["id"], "nl-informal": ["nl"], nn: ["nb"], nrm: ["fr"], oc: ["ca", "fr"], olo: ["fi"], os: ["ru"], pcd: ["fr"], pdc: ["de"], pdt: ["de"], pfl: ["de"], pih: ["en"], pms: ["it"], pnt: ["el"], pt: ["pt-br"], "pt-br": ["pt"], qu: ["qug", "es"], qug: ["qu", "es"], rgn: ["it"], rmy: ["ro"], "roa-tara": ["it"], rue: ["uk", "ru"], rup: ["ro"], ruq: ["ruq-latn", "ro"], "ruq-cyrl": ["mk"], "ruq-latn": ["ro"], sa: ["hi"], sah: ["ru"], scn: ["it"], sco: ["en"], sdc: ["it"], sdh: ["cbk", "fa"], ses: ["fr"], sg: ["fr"], sgs: ["lt"], sh: ["bs", "sr-el", "hr"], shi: ["fr"], shy: ["shy-latn"], "shy-latn": ["fr"], sk: ["cs"], skr: ["skr-arab"], "skr-arab": ["ur", "pnb"], sli: ["de"], smn: ["fi"], sr: ["sr-ec"], srn: ["nl"], stq: ["de"], sty: ["ru"], su: ["id"], szl: ["pl"], szy: ["zh-tw", "zh-hant", "zh-hans"], tay: ["zh-tw", "zh-hant", "zh-hans"], tcy: ["kn"], tet: ["pt"], tg: ["tg-cyrl"], trv: ["zh-tw", "zh-hant", "zh-hans"], tt: ["tt-cyrl", "ru"], "tt-cyrl": ["ru"], ty: ["fr"], tyv: ["ru"], udm: ["ru"], ug: ["ug-arab"], vec: ["it"], vep: ["et"], vls: ["nl"], vmf: ["de"], vot: ["fi"], vro: ["et"], wa: ["fr"], wo: ["fr"], wuu: ["zh-hans"], xal: ["ru"], xmf: ["ka"], yi: ["he"], za: ["zh-hans"], zea: ["nl"], zgh: ["kab"], zh: ["zh-hans"], "zh-cn": ["zh-hans"], "zh-hant": ["zh-hans"], "zh-hk": ["zh-hant", "zh-hans"], "zh-mo": ["zh-hk", "zh-hant", "zh-hans"], "zh-my": ["zh-sg", "zh-hans"], "zh-sg": ["zh-hans"], "zh-tw": ["zh-hant", "zh-hans"] };
+    class d {
+      constructor(e2) {
+        this.locale = e2;
+      }
+      convertPlural(e2, u2) {
+        const d2 = /\d+=/i;
+        if (!u2 || u2.length === 0)
+          return "";
+        for (let t3 = 0; t3 < u2.length; t3++) {
+          const n2 = u2[t3];
+          if (d2.test(n2)) {
+            if (parseInt(n2.slice(0, n2.indexOf("=")), 10) === e2)
+              return n2.slice(n2.indexOf("=") + 1);
+            u2[t3] = void 0;
+          }
+        }
+        u2 = u2.filter((e3) => !!e3);
+        let t2 = this.getPluralForm(e2, this.locale);
+        return t2 = Math.min(t2, u2.length - 1), u2[t2];
+      }
+      getPluralForm(e2, u2) {
+        const d2 = new Intl.PluralRules(u2), t2 = d2.resolvedOptions().pluralCategories, n2 = d2.select(e2);
+        return ["zero", "one", "two", "few", "many", "other"].filter((e3) => t2.includes(e3)).indexOf(n2);
+      }
+      convertNumber(e2, d2 = false) {
+        let t2 = this.digitTransformTable(this.locale), n2 = "";
+        if (d2) {
+          if (parseFloat(e2, 10) === e2 || !t2)
+            return e2;
+          const u2 = [];
+          for (const e3 in t2)
+            u2[t2[e3]] = e3;
+          t2 = u2;
+          const d3 = String(e2);
+          for (let e3 = 0; e3 < d3.length; e3++)
+            n2 += t2[d3[e3]] || d3[e3];
+          return parseFloat(n2, 10);
+        }
+        if (Intl.NumberFormat) {
+          let d3;
+          const t3 = [...u[this.locale] || [], "en"];
+          return d3 = Intl.NumberFormat.supportedLocalesOf(this.locale).length ? [this.locale] : t3, n2 = new Intl.NumberFormat(d3).format(e2), n2 === "NaN" && (n2 = e2), n2;
+        }
+      }
+      convertGrammar(e2, u2) {
+        return e2;
+      }
+      gender(e2, u2) {
+        if (!u2 || u2.length === 0)
+          return "";
+        for (; u2.length < 2; )
+          u2.push(u2[u2.length - 1]);
+        return e2 === "male" ? u2[0] : e2 === "female" ? u2[1] : u2.length === 3 ? u2[2] : u2[0];
+      }
+      digitTransformTable(u2) {
+        return !!e[u2] && e[u2].split("");
+      }
+    }
+    var t = { bs: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "instrumental":
+            e2 = "s " + e2;
+            break;
+          case "lokativ":
+            e2 = "o " + e2;
+        }
+        return e2;
+      }
+    }, default: d, dsb: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "instrumental":
+            e2 = "z " + e2;
+            break;
+          case "lokatiw":
+            e2 = "wo " + e2;
+        }
+        return e2;
+      }
+    }, fi: class extends d {
+      convertGrammar(e2, u2) {
+        let d2 = e2.match(/[aou][^äöy]*$/i);
+        const t2 = e2;
+        switch (e2.match(/wiki$/i) && (d2 = false), e2.match(/[bcdfghjklmnpqrstvwxz]$/i) && (e2 += "i"), u2) {
+          case "genitive":
+            e2 += "n";
+            break;
+          case "elative":
+            e2 += d2 ? "sta" : "st\xE4";
+            break;
+          case "partitive":
+            e2 += d2 ? "a" : "\xE4";
+            break;
+          case "illative":
+            e2 += e2.slice(-1) + "n";
+            break;
+          case "inessive":
+            e2 += d2 ? "ssa" : "ss\xE4";
+            break;
+          default:
+            e2 = t2;
+        }
+        return e2;
+      }
+    }, ga: class extends d {
+      convertGrammar(e2, u2) {
+        if (u2 === "ainmlae")
+          switch (e2) {
+            case "an Domhnach":
+              e2 = "D\xE9 Domhnaigh";
+              break;
+            case "an Luan":
+              e2 = "D\xE9 Luain";
+              break;
+            case "an Mh\xE1irt":
+              e2 = "D\xE9 Mh\xE1irt";
+              break;
+            case "an Ch\xE9adaoin":
+              e2 = "D\xE9 Ch\xE9adaoin";
+              break;
+            case "an D\xE9ardaoin":
+              e2 = "D\xE9ardaoin";
+              break;
+            case "an Aoine":
+              e2 = "D\xE9 hAoine";
+              break;
+            case "an Satharn":
+              e2 = "D\xE9 Sathairn";
+          }
+        return e2;
+      }
+    }, he: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "prefixed":
+          case "\u05EA\u05D7\u05D9\u05DC\u05D9\u05EA":
+            e2.slice(0, 1) === "\u05D5" && e2.slice(0, 2) !== "\u05D5\u05D5" && (e2 = "\u05D5" + e2), e2.slice(0, 1) === "\u05D4" && (e2 = e2.slice(1)), (e2.slice(0, 1) < "\u05D0" || e2.slice(0, 1) > "\u05EA") && (e2 = "\u05BE" + e2);
+        }
+        return e2;
+      }
+    }, hsb: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "instrumental":
+            e2 = "z " + e2;
+            break;
+          case "lokatiw":
+            e2 = "wo " + e2;
+        }
+        return e2;
+      }
+    }, hu: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "rol":
+            e2 += "r\xF3l";
+            break;
+          case "ba":
+            e2 += "ba";
+            break;
+          case "k":
+            e2 += "k";
+        }
+        return e2;
+      }
+    }, hy: class extends d {
+      convertGrammar(e2, u2) {
+        return u2 === "genitive" && (e2.slice(-1) === "\u0561" ? e2 = e2.slice(0, -1) + "\u0561\u0575\u056B" : e2.slice(-1) === "\u0578" ? e2 = e2.slice(0, -1) + "\u0578\u0575\u056B" : e2.slice(-4) === "\u0563\u056B\u0580\u0584" ? e2 = e2.slice(0, -4) + "\u0563\u0580\u0584\u056B" : e2 += "\u056B"), e2;
+      }
+    }, la: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "genitive":
+            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "i")).replace(/ommunia$/i, "ommunium")).replace(/a$/i, "ae")).replace(/libri$/i, "librorum")).replace(/nuntii$/i, "nuntiorum")).replace(/tio$/i, "tionis")).replace(/ns$/i, "ntis")).replace(/as$/i, "atis")).replace(/es$/i, "ei");
+            break;
+          case "accusative":
+            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "um")).replace(/ommunia$/i, "am")).replace(/a$/i, "ommunia")).replace(/libri$/i, "libros")).replace(/nuntii$/i, "nuntios")).replace(/tio$/i, "tionem")).replace(/ns$/i, "ntem")).replace(/as$/i, "atem")).replace(/es$/i, "em");
+            break;
+          case "ablative":
+            e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = (e2 = e2.replace(/u[ms]$/i, "o")).replace(/ommunia$/i, "ommunibus")).replace(/a$/i, "a")).replace(/libri$/i, "libris")).replace(/nuntii$/i, "nuntiis")).replace(/tio$/i, "tione")).replace(/ns$/i, "nte")).replace(/as$/i, "ate")).replace(/es$/i, "e");
+        }
+        return e2;
+      }
+    }, os: class extends d {
+      convertGrammar(e2, u2) {
+        let d2, t2, n2, r2;
+        switch (d2 = "\u043C\xE6", t2 = "", n2 = "", r2 = "", e2.match(/тæ$/i) ? (e2 = e2.slice(0, -1), d2 = "\xE6\u043C") : e2.match(/[аæеёиоыэюя]$/i) ? t2 = "\u0439" : e2.match(/у$/i) ? e2.slice(-2, -1).match(/[аæеёиоыэюя]$/i) || (t2 = "\u0439") : e2.match(/[бвгджзйклмнопрстфхцчшщьъ]$/i) || (n2 = "-"), u2) {
+          case "genitive":
+            r2 = n2 + t2 + "\u044B";
+            break;
+          case "dative":
+            r2 = n2 + t2 + "\xE6\u043D";
+            break;
+          case "allative":
+            r2 = n2 + d2;
+            break;
+          case "ablative":
+            r2 = t2 === "\u0439" ? n2 + t2 + "\xE6" : n2 + t2 + "\xE6\u0439";
+            break;
+          case "superessive":
+            r2 = n2 + t2 + "\u044B\u043B";
+            break;
+          case "equative":
+            r2 = n2 + t2 + "\u0430\u0443";
+            break;
+          case "comitative":
+            r2 = n2 + "\u0438\u043C\xE6";
+        }
+        return e2 + r2;
+      }
+    }, ru: class extends d {
+      convertGrammar(e2, u2) {
+        return u2 === "genitive" && (e2.slice(-1) === "\u044C" ? e2 = e2.slice(0, -1) + "\u044F" : e2.slice(-2) === "\u0438\u044F" ? e2 = e2.slice(0, -2) + "\u0438\u0438" : e2.slice(-2) === "\u043A\u0430" ? e2 = e2.slice(0, -2) + "\u043A\u0438" : e2.slice(-2) === "\u0442\u0438" ? e2 = e2.slice(0, -2) + "\u0442\u0435\u0439" : e2.slice(-2) === "\u0434\u044B" ? e2 = e2.slice(0, -2) + "\u0434\u043E\u0432" : e2.slice(-3) === "\u043D\u0438\u043A" && (e2 = e2.slice(0, -3) + "\u043D\u0438\u043A\u0430")), e2;
+      }
+    }, sl: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "mestnik":
+            e2 = "o " + e2;
+            break;
+          case "orodnik":
+            e2 = "z " + e2;
+        }
+        return e2;
+      }
+    }, uk: class extends d {
+      convertGrammar(e2, u2) {
+        switch (u2) {
+          case "genitive":
+            e2.slice(-1) === "\u044C" ? e2 = e2.slice(0, -1) + "\u044F" : e2.slice(-2) === "\u0456\u044F" ? e2 = e2.slice(0, -2) + "\u0456\u0457" : e2.slice(-2) === "\u043A\u0430" ? e2 = e2.slice(0, -2) + "\u043A\u0438" : e2.slice(-2) === "\u0442\u0438" ? e2 = e2.slice(0, -2) + "\u0442\u0435\u0439" : e2.slice(-2) === "\u0434\u044B" ? e2 = e2.slice(0, -2) + "\u0434\u043E\u0432" : e2.slice(-3) === "\u043D\u0438\u043A" && (e2 = e2.slice(0, -3) + "\u043D\u0438\u043A\u0430");
+            break;
+          case "accusative":
+            e2.slice(-2) === "\u0456\u044F" && (e2 = e2.slice(0, -2) + "\u0456\u044E");
+        }
+        return e2;
+      }
+    } };
+    const n = new RegExp("(?:([A-Za-z\xAA\xB5\xBA\xC0-\xD6\xD8-\xF6\xF8-\u02B8\u02BB-\u02C1\u02D0\u02D1\u02E0-\u02E4\u02EE\u0370-\u0373\u0376\u0377\u037A-\u037D\u037F\u0386\u0388-\u038A\u038C\u038E-\u03A1\u03A3-\u03F5\u03F7-\u0482\u048A-\u052F\u0531-\u0556\u0559-\u055F\u0561-\u0587\u0589\u0903-\u0939\u093B\u093D-\u0940\u0949-\u094C\u094E-\u0950\u0958-\u0961\u0964-\u0980\u0982\u0983\u0985-\u098C\u098F\u0990\u0993-\u09A8\u09AA-\u09B0\u09B2\u09B6-\u09B9\u09BD-\u09C0\u09C7\u09C8\u09CB\u09CC\u09CE\u09D7\u09DC\u09DD\u09DF-\u09E1\u09E6-\u09F1\u09F4-\u09FA\u0A03\u0A05-\u0A0A\u0A0F\u0A10\u0A13-\u0A28\u0A2A-\u0A30\u0A32\u0A33\u0A35\u0A36\u0A38\u0A39\u0A3E-\u0A40\u0A59-\u0A5C\u0A5E\u0A66-\u0A6F\u0A72-\u0A74\u0A83\u0A85-\u0A8D\u0A8F-\u0A91\u0A93-\u0AA8\u0AAA-\u0AB0\u0AB2\u0AB3\u0AB5-\u0AB9\u0ABD-\u0AC0\u0AC9\u0ACB\u0ACC\u0AD0\u0AE0\u0AE1\u0AE6-\u0AF0\u0AF9\u0B02\u0B03\u0B05-\u0B0C\u0B0F\u0B10\u0B13-\u0B28\u0B2A-\u0B30\u0B32\u0B33\u0B35-\u0B39\u0B3D\u0B3E\u0B40\u0B47\u0B48\u0B4B\u0B4C\u0B57\u0B5C\u0B5D\u0B5F-\u0B61\u0B66-\u0B77\u0B83\u0B85-\u0B8A\u0B8E-\u0B90\u0B92-\u0B95\u0B99\u0B9A\u0B9C\u0B9E\u0B9F\u0BA3\u0BA4\u0BA8-\u0BAA\u0BAE-\u0BB9\u0BBE\u0BBF\u0BC1\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCC\u0BD0\u0BD7\u0BE6-\u0BF2\u0C01-\u0C03\u0C05-\u0C0C\u0C0E-\u0C10\u0C12-\u0C28\u0C2A-\u0C39\u0C3D\u0C41-\u0C44\u0C58-\u0C5A\u0C60\u0C61\u0C66-\u0C6F\u0C7F\u0C82\u0C83\u0C85-\u0C8C\u0C8E-\u0C90\u0C92-\u0CA8\u0CAA-\u0CB3\u0CB5-\u0CB9\u0CBD-\u0CC4\u0CC6-\u0CC8\u0CCA\u0CCB\u0CD5\u0CD6\u0CDE\u0CE0\u0CE1\u0CE6-\u0CEF\u0CF1\u0CF2\u0D02\u0D03\u0D05-\u0D0C\u0D0E-\u0D10\u0D12-\u0D3A\u0D3D-\u0D40\u0D46-\u0D48\u0D4A-\u0D4C\u0D4E\u0D57\u0D5F-\u0D61\u0D66-\u0D75\u0D79-\u0D7F\u0D82\u0D83\u0D85-\u0D96\u0D9A-\u0DB1\u0DB3-\u0DBB\u0DBD\u0DC0-\u0DC6\u0DCF-\u0DD1\u0DD8-\u0DDF\u0DE6-\u0DEF\u0DF2-\u0DF4\u0E01-\u0E30\u0E32\u0E33\u0E40-\u0E46\u0E4F-\u0E5B\u0E81\u0E82\u0E84\u0E87\u0E88\u0E8A\u0E8D\u0E94-\u0E97\u0E99-\u0E9F\u0EA1-\u0EA3\u0EA5\u0EA7\u0EAA\u0EAB\u0EAD-\u0EB0\u0EB2\u0EB3\u0EBD\u0EC0-\u0EC4\u0EC6\u0ED0-\u0ED9\u0EDC-\u0EDF\u0F00-\u0F17\u0F1A-\u0F34\u0F36\u0F38\u0F3E-\u0F47\u0F49-\u0F6C\u0F7F\u0F85\u0F88-\u0F8C\u0FBE-\u0FC5\u0FC7-\u0FCC\u0FCE-\u0FDA\u1000-\u102C\u1031\u1038\u103B\u103C\u103F-\u1057\u105A-\u105D\u1061-\u1070\u1075-\u1081\u1083\u1084\u1087-\u108C\u108E-\u109C\u109E-\u10C5\u10C7\u10CD\u10D0-\u1248\u124A-\u124D\u1250-\u1256\u1258\u125A-\u125D\u1260-\u1288\u128A-\u128D\u1290-\u12B0\u12B2-\u12B5\u12B8-\u12BE\u12C0\u12C2-\u12C5\u12C8-\u12D6\u12D8-\u1310\u1312-\u1315\u1318-\u135A\u1360-\u137C\u1380-\u138F\u13A0-\u13F5\u13F8-\u13FD\u1401-\u167F\u1681-\u169A\u16A0-\u16F8\u1700-\u170C\u170E-\u1711\u1720-\u1731\u1735\u1736\u1740-\u1751\u1760-\u176C\u176E-\u1770\u1780-\u17B3\u17B6\u17BE-\u17C5\u17C7\u17C8\u17D4-\u17DA\u17DC\u17E0-\u17E9\u1810-\u1819\u1820-\u1877\u1880-\u18A8\u18AA\u18B0-\u18F5\u1900-\u191E\u1923-\u1926\u1929-\u192B\u1930\u1931\u1933-\u1938\u1946-\u196D\u1970-\u1974\u1980-\u19AB\u19B0-\u19C9\u19D0-\u19DA\u1A00-\u1A16\u1A19\u1A1A\u1A1E-\u1A55\u1A57\u1A61\u1A63\u1A64\u1A6D-\u1A72\u1A80-\u1A89\u1A90-\u1A99\u1AA0-\u1AAD\u1B04-\u1B33\u1B35\u1B3B\u1B3D-\u1B41\u1B43-\u1B4B\u1B50-\u1B6A\u1B74-\u1B7C\u1B82-\u1BA1\u1BA6\u1BA7\u1BAA\u1BAE-\u1BE5\u1BE7\u1BEA-\u1BEC\u1BEE\u1BF2\u1BF3\u1BFC-\u1C2B\u1C34\u1C35\u1C3B-\u1C49\u1C4D-\u1C7F\u1CC0-\u1CC7\u1CD3\u1CE1\u1CE9-\u1CEC\u1CEE-\u1CF3\u1CF5\u1CF6\u1D00-\u1DBF\u1E00-\u1F15\u1F18-\u1F1D\u1F20-\u1F45\u1F48-\u1F4D\u1F50-\u1F57\u1F59\u1F5B\u1F5D\u1F5F-\u1F7D\u1F80-\u1FB4\u1FB6-\u1FBC\u1FBE\u1FC2-\u1FC4\u1FC6-\u1FCC\u1FD0-\u1FD3\u1FD6-\u1FDB\u1FE0-\u1FEC\u1FF2-\u1FF4\u1FF6-\u1FFC\u200E\u2071\u207F\u2090-\u209C\u2102\u2107\u210A-\u2113\u2115\u2119-\u211D\u2124\u2126\u2128\u212A-\u212D\u212F-\u2139\u213C-\u213F\u2145-\u2149\u214E\u214F\u2160-\u2188\u2336-\u237A\u2395\u249C-\u24E9\u26AC\u2800-\u28FF\u2C00-\u2C2E\u2C30-\u2C5E\u2C60-\u2CE4\u2CEB-\u2CEE\u2CF2\u2CF3\u2D00-\u2D25\u2D27\u2D2D\u2D30-\u2D67\u2D6F\u2D70\u2D80-\u2D96\u2DA0-\u2DA6\u2DA8-\u2DAE\u2DB0-\u2DB6\u2DB8-\u2DBE\u2DC0-\u2DC6\u2DC8-\u2DCE\u2DD0-\u2DD6\u2DD8-\u2DDE\u3005-\u3007\u3021-\u3029\u302E\u302F\u3031-\u3035\u3038-\u303C\u3041-\u3096\u309D-\u309F\u30A1-\u30FA\u30FC-\u30FF\u3105-\u312D\u3131-\u318E\u3190-\u31BA\u31F0-\u321C\u3220-\u324F\u3260-\u327B\u327F-\u32B0\u32C0-\u32CB\u32D0-\u32FE\u3300-\u3376\u337B-\u33DD\u33E0-\u33FE\u3400-\u4DB5\u4E00-\u9FD5\uA000-\uA48C\uA4D0-\uA60C\uA610-\uA62B\uA640-\uA66E\uA680-\uA69D\uA6A0-\uA6EF\uA6F2-\uA6F7\uA722-\uA787\uA789-\uA7AD\uA7B0-\uA7B7\uA7F7-\uA801\uA803-\uA805\uA807-\uA80A\uA80C-\uA824\uA827\uA830-\uA837\uA840-\uA873\uA880-\uA8C3\uA8CE-\uA8D9\uA8F2-\uA8FD\uA900-\uA925\uA92E-\uA946\uA952\uA953\uA95F-\uA97C\uA983-\uA9B2\uA9B4\uA9B5\uA9BA\uA9BB\uA9BD-\uA9CD\uA9CF-\uA9D9\uA9DE-\uA9E4\uA9E6-\uA9FE\uAA00-\uAA28\uAA2F\uAA30\uAA33\uAA34\uAA40-\uAA42\uAA44-\uAA4B\uAA4D\uAA50-\uAA59\uAA5C-\uAA7B\uAA7D-\uAAAF\uAAB1\uAAB5\uAAB6\uAAB9-\uAABD\uAAC0\uAAC2\uAADB-\uAAEB\uAAEE-\uAAF5\uAB01-\uAB06\uAB09-\uAB0E\uAB11-\uAB16\uAB20-\uAB26\uAB28-\uAB2E\uAB30-\uAB65\uAB70-\uABE4\uABE6\uABE7\uABE9-\uABEC\uABF0-\uABF9\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uE000-\uFA6D\uFA70-\uFAD9\uFB00-\uFB06\uFB13-\uFB17\uFF21-\uFF3A\uFF41-\uFF5A\uFF66-\uFFBE\uFFC2-\uFFC7\uFFCA-\uFFCF\uFFD2-\uFFD7\uFFDA-\uFFDC]|\uD800[\uDC00-\uDC0B]|\uD800[\uDC0D-\uDC26]|\uD800[\uDC28-\uDC3A]|\u{1003C}|\u{1003D}|\uD800[\uDC3F-\uDC4D]|\uD800[\uDC50-\uDC5D]|\uD800[\uDC80-\uDCFA]|\u{10100}|\u{10102}|\uD800[\uDD07-\uDD33]|\uD800[\uDD37-\uDD3F]|\uD800[\uDDD0-\uDDFC]|\uD800[\uDE80-\uDE9C]|\uD800[\uDEA0-\uDED0]|\uD800[\uDF00-\uDF23]|\uD800[\uDF30-\uDF4A]|\uD800[\uDF50-\uDF75]|\uD800[\uDF80-\uDF9D]|\uD800[\uDF9F-\uDFC3]|\uD800[\uDFC8-\uDFD5]|\uD801[\uDC00-\uDC9D]|\uD801[\uDCA0-\uDCA9]|\uD801[\uDD00-\uDD27]|\uD801[\uDD30-\uDD63]|\u{1056F}|\uD801[\uDE00-\uDF36]|\uD801[\uDF40-\uDF55]|\uD801[\uDF60-\uDF67]|\u{11000}|\uD804[\uDC02-\uDC37]|\uD804[\uDC47-\uDC4D]|\uD804[\uDC66-\uDC6F]|\uD804[\uDC82-\uDCB2]|\u{110B7}|\u{110B8}|\uD804[\uDCBB-\uDCC1]|\uD804[\uDCD0-\uDCE8]|\uD804[\uDCF0-\uDCF9]|\uD804[\uDD03-\uDD26]|\u{1112C}|\uD804[\uDD36-\uDD43]|\uD804[\uDD50-\uDD72]|\uD804[\uDD74-\uDD76]|\uD804[\uDD82-\uDDB5]|\uD804[\uDDBF-\uDDC9]|\u{111CD}|\uD804[\uDDD0-\uDDDF]|\uD804[\uDDE1-\uDDF4]|\uD804[\uDE00-\uDE11]|\uD804[\uDE13-\uDE2E]|\u{11232}|\u{11233}|\u{11235}|\uD804[\uDE38-\uDE3D]|\uD804[\uDE80-\uDE86]|\u{11288}|\uD804[\uDE8A-\uDE8D]|\uD804[\uDE8F-\uDE9D]|\uD804[\uDE9F-\uDEA9]|\uD804[\uDEB0-\uDEDE]|\uD804[\uDEE0-\uDEE2]|\uD804[\uDEF0-\uDEF9]|\u{11302}|\u{11303}|\uD804[\uDF05-\uDF0C]|\u{1130F}|\u{11310}|\uD804[\uDF13-\uDF28]|\uD804[\uDF2A-\uDF30]|\u{11332}|\u{11333}|\uD804[\uDF35-\uDF39]|\uD804[\uDF3D-\uDF3F]|\uD804[\uDF41-\uDF44]|\u{11347}|\u{11348}|\uD804[\uDF4B-\uDF4D]|\u{11350}|\u{11357}|\uD804[\uDF5D-\uDF63]|\uD805[\uDC80-\uDCB2]|\u{114B9}|\uD805[\uDCBB-\uDCBE]|\u{114C1}|\uD805[\uDCC4-\uDCC7]|\uD805[\uDCD0-\uDCD9]|\uD805[\uDD80-\uDDB1]|\uD805[\uDDB8-\uDDBB]|\u{115BE}|\uD805[\uDDC1-\uDDDB]|\uD805[\uDE00-\uDE32]|\u{1163B}|\u{1163C}|\u{1163E}|\uD805[\uDE41-\uDE44]|\uD805[\uDE50-\uDE59]|\uD805[\uDE80-\uDEAA]|\u{116AC}|\u{116AE}|\u{116AF}|\u{116B6}|\uD805[\uDEC0-\uDEC9]|\uD805[\uDF00-\uDF19]|\u{11720}|\u{11721}|\u{11726}|\uD805[\uDF30-\uDF3F]|\uD806[\uDCA0-\uDCF2]|\u{118FF}|\uD806[\uDEC0-\uDEF8]|\uD808[\uDC00-\uDF99]|\uD809[\uDC00-\uDC6E]|\uD809[\uDC70-\uDC74]|\uD809[\uDC80-\uDD43]|\uD80C[\uDC00-\uDFFF]|\uD80D[\uDC00-\uDC2E]|\uD811[\uDC00-\uDE46]|\uD81A[\uDC00-\uDE38]|\uD81A[\uDE40-\uDE5E]|\uD81A[\uDE60-\uDE69]|\u{16A6E}|\u{16A6F}|\uD81A[\uDED0-\uDEED]|\u{16AF5}|\uD81A[\uDF00-\uDF2F]|\uD81A[\uDF37-\uDF45]|\uD81A[\uDF50-\uDF59]|\uD81A[\uDF5B-\uDF61]|\uD81A[\uDF63-\uDF77]|\uD81A[\uDF7D-\uDF8F]|\uD81B[\uDF00-\uDF44]|\uD81B[\uDF50-\uDF7E]|\uD81B[\uDF93-\uDF9F]|\u{1B000}|\u{1B001}|\uD82F[\uDC00-\uDC6A]|\uD82F[\uDC70-\uDC7C]|\uD82F[\uDC80-\uDC88]|\uD82F[\uDC90-\uDC99]|\u{1BC9C}|\u{1BC9F}|\uD834[\uDC00-\uDCF5]|\uD834[\uDD00-\uDD26]|\uD834[\uDD29-\uDD66]|\uD834[\uDD6A-\uDD72]|\u{1D183}|\u{1D184}|\uD834[\uDD8C-\uDDA9]|\uD834[\uDDAE-\uDDE8]|\uD834[\uDF60-\uDF71]|\uD835[\uDC00-\uDC54]|\uD835[\uDC56-\uDC9C]|\u{1D49E}|\u{1D49F}|\u{1D4A2}|\u{1D4A5}|\u{1D4A6}|\uD835[\uDCA9-\uDCAC]|\uD835[\uDCAE-\uDCB9]|\u{1D4BB}|\uD835[\uDCBD-\uDCC3]|\uD835[\uDCC5-\uDD05]|\uD835[\uDD07-\uDD0A]|\uD835[\uDD0D-\uDD14]|\uD835[\uDD16-\uDD1C]|\uD835[\uDD1E-\uDD39]|\uD835[\uDD3B-\uDD3E]|\uD835[\uDD40-\uDD44]|\u{1D546}|\uD835[\uDD4A-\uDD50]|\uD835[\uDD52-\uDEA5]|\uD835[\uDEA8-\uDEDA]|\uD835[\uDEDC-\uDF14]|\uD835[\uDF16-\uDF4E]|\uD835[\uDF50-\uDF88]|\uD835[\uDF8A-\uDFC2]|\uD835[\uDFC4-\uDFCB]|\uD836[\uDC00-\uDDFF]|\uD836[\uDE37-\uDE3A]|\uD836[\uDE6D-\uDE74]|\uD836[\uDE76-\uDE83]|\uD836[\uDE85-\uDE8B]|\uD83C[\uDD10-\uDD2E]|\uD83C[\uDD30-\uDD69]|\uD83C[\uDD70-\uDD9A]|\uD83C[\uDDE6-\uDE02]|\uD83C[\uDE10-\uDE3A]|\uD83C[\uDE40-\uDE48]|\u{1F250}|\u{1F251}|[\uD840-\uD868][\uDC00-\uDFFF]|\uD869[\uDC00-\uDED6]|\uD869[\uDF00-\uDFFF]|[\uD86A-\uD86C][\uDC00-\uDFFF]|\uD86D[\uDC00-\uDF34]|\uD86D[\uDF40-\uDFFF]|\uD86E[\uDC00-\uDC1D]|\uD86E[\uDC20-\uDFFF]|[\uD86F-\uD872][\uDC00-\uDFFF]|\uD873[\uDC00-\uDEA1]|\uD87E[\uDC00-\uDE1D]|[\uDB80-\uDBBE][\uDC00-\uDFFF]|\uDBBF[\uDC00-\uDFFD]|[\uDBC0-\uDBFE][\uDC00-\uDFFF]|\uDBFF[\uDC00-\uDFFD])|([\u0590\u05BE\u05C0\u05C3\u05C6\u05C8-\u05FF\u07C0-\u07EA\u07F4\u07F5\u07FA-\u0815\u081A\u0824\u0828\u082E-\u0858\u085C-\u089F\u200F\uFB1D\uFB1F-\uFB28\uFB2A-\uFB4F\u0608\u060B\u060D\u061B-\u064A\u066D-\u066F\u0671-\u06D5\u06E5\u06E6\u06EE\u06EF\u06FA-\u0710\u0712-\u072F\u074B-\u07A5\u07B1-\u07BF\u08A0-\u08E2\uFB50-\uFD3D\uFD40-\uFDCF\uFDF0-\uFDFC\uFDFE\uFDFF\uFE70-\uFEFE]|\uD802[\uDC00-\uDD1E]|\uD802[\uDD20-\uDE00]|\u{10A04}|\uD802[\uDE07-\uDE0B]|\uD802[\uDE10-\uDE37]|\uD802[\uDE3B-\uDE3E]|\uD802[\uDE40-\uDEE4]|\uD802[\uDEE7-\uDF38]|\uD802[\uDF40-\uDFFF]|\uD803[\uDC00-\uDE5F]|\uD803[\uDE7F-\uDFFF]|\uD83A[\uDC00-\uDCCF]|\uD83A[\uDCD7-\uDFFF]|\uD83B[\uDC00-\uDDFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDF00-\uDFFF]|\uD83B[\uDE00-\uDEEF]|\uD83B[\uDEF2-\uDEFF]))");
+    class r {
+      constructor(e2) {
+        this.locale = e2, this.language = new (t[e2] || t.default)(e2);
+      }
+      emit(e2, u2) {
+        let d2, t2, n2;
+        switch (typeof e2) {
+          case "string":
+          case "number":
+            d2 = e2;
+            break;
+          case "object":
+            if (t2 = e2.slice(1).map((e3) => this.emit(e3, u2)), n2 = e2[0].toLowerCase(), typeof this[n2] != "function")
+              throw new Error('unknown operation "' + n2 + '"');
+            d2 = this[n2](t2, u2);
+            break;
+          case "undefined":
+            d2 = "";
+            break;
+          default:
+            throw new Error("unexpected type in AST: " + typeof e2);
+        }
+        return d2;
+      }
+      concat(e2) {
+        let u2 = "";
+        return e2.forEach((e3) => {
+          u2 += e3;
+        }), u2;
+      }
+      replace(e2, u2) {
+        const d2 = parseInt(e2[0], 10);
+        return d2 < u2.length ? u2[d2] : "$" + (d2 + 1);
+      }
+      plural(e2) {
+        const u2 = parseFloat(this.language.convertNumber(e2[0], 10)), d2 = e2.slice(1);
+        return d2.length ? this.language.convertPlural(u2, d2) : "";
+      }
+      gender(e2) {
+        const u2 = e2[0], d2 = e2.slice(1);
+        return this.language.gender(u2, d2);
+      }
+      grammar(e2) {
+        const u2 = e2[0], d2 = e2[1];
+        return d2 && u2 && this.language.convertGrammar(d2, u2);
+      }
+      wikilink(e2) {
+        let u2, d2 = e2[0];
+        d2.charAt(0) === ":" && (d2 = d2.slice(1));
+        const t2 = `./${d2}`;
+        return u2 = e2.length === 1 ? d2 : e2[1], `<a href="${t2}" title="${d2}">${u2}</a>`;
+      }
+      extlink(e2) {
+        if (e2.length !== 2)
+          throw new Error("Expected two items in the node");
+        return `<a href="${e2[0]}">${e2[1]}</a>`;
+      }
+      bidi(e2) {
+        const u2 = function(e3) {
+          const u3 = e3.match(n);
+          return u3 ? u3[2] === void 0 ? "ltr" : "rtl" : null;
+        }(e2[0]);
+        return u2 === "ltr" ? "\u202A" + e2[0] + "\u202C" : u2 === "rtl" ? "\u202B" + e2[0] + "\u202C" : e2[0];
+      }
+      formatnum(e2) {
+        const u2 = !!e2[1] && e2[1] === "R", d2 = e2[0];
+        return typeof d2 == "string" || typeof d2 == "number" ? this.language.convertNumber(d2, u2) : d2;
+      }
+      htmlattributes(e2) {
+        const u2 = {};
+        for (let d2 = 0, t2 = e2.length; d2 < t2; d2 += 2)
+          u2[e2[d2]] = e2[d2 + 1];
+        return u2;
+      }
+      htmlelement(e2) {
+        const u2 = e2.shift(), d2 = e2.shift();
+        let t2 = e2, n2 = "";
+        for (const e3 in d2)
+          n2 += ` ${e3}="${d2[e3]}"`;
+        Array.isArray(t2) || (t2 = [t2]);
+        return `<${u2}${n2}>${t2.join("")}</${u2}>`;
+      }
+    }
+    class a {
+      constructor(e2, { wikilinks: u2 = false } = {}) {
+        this.locale = e2, this.wikilinks = u2, this.emitter = new r(this.locale);
+      }
+      parse(e2, u2) {
+        if (e2.includes("{{") || e2.includes("<") || this.wikilinks && e2.includes("[")) {
+          const d2 = function(e3, { wikilinks: u3 = false }) {
+            let d3 = 0;
+            function t2(e4) {
+              return () => {
+                for (let u4 = 0; u4 < e4.length; u4++) {
+                  const d4 = e4[u4]();
+                  if (d4 !== null)
+                    return d4;
+                }
+                return null;
+              };
+            }
+            function n2(e4) {
+              const u4 = d3, t3 = [];
+              for (let n3 = 0; n3 < e4.length; n3++) {
+                const r3 = e4[n3]();
+                if (r3 === null)
+                  return d3 = u4, null;
+                t3.push(r3);
+              }
+              return t3;
+            }
+            function r2(e4, u4) {
+              return () => {
+                const t3 = d3, n3 = [];
+                let r3 = u4();
+                for (; r3 !== null; )
+                  n3.push(r3), r3 = u4();
+                return n3.length < e4 ? (d3 = t3, null) : n3;
+              };
+            }
+            function a2(u4) {
+              const t3 = u4.length;
+              return () => {
+                let n3 = null;
+                return e3.slice(d3, d3 + t3) === u4 && (n3 = u4, d3 += t3), n3;
+              };
+            }
+            function c2(u4) {
+              return () => {
+                const t3 = e3.slice(d3).match(u4);
+                return t3 === null ? null : (d3 += t3[0].length, t3[0]);
+              };
+            }
+            const s = c2(/^\s+/), l = a2("|"), i = a2(":"), o = a2("\\"), f = c2(/^./), h2 = a2("$"), b = c2(/^\d+/), m = a2('"'), k = a2("'"), p2 = c2(u3 ? /^[^{}[\]$<\\]/ : /^[^{}$<\\]/), g = c2(u3 ? /^[^{}[\]$\\|]/ : /^[^{}$\\|]/), w = t2([v, c2(u3 ? /^[^{}[\]$\s]/ : /^[^{}$\s]/)]);
+            function v() {
+              const e4 = n2([o, f]);
+              return e4 === null ? null : e4[1];
+            }
+            const y = t2([v, g]), z = t2([v, p2]);
+            function $2() {
+              const e4 = n2([h2, b]);
+              return e4 === null ? null : ["REPLACE", parseInt(e4[1], 10) - 1];
+            }
+            const x = (C = c2(/^[ !"$&'()*,./0-9;=?@A-Z^_`a-z~\x80-\xFF+-]+/), A = function(e4) {
+              return e4.toString();
+            }, () => {
+              const e4 = C();
+              return e4 === null ? null : A(e4);
+            });
+            var C, A;
+            function j() {
+              const e4 = n2([l, r2(0, _)]);
+              if (e4 === null)
+                return null;
+              const u4 = e4[1];
+              return u4.length > 1 ? ["CONCAT"].concat(u4) : u4[0];
+            }
+            function T() {
+              const e4 = n2([x, i, $2]);
+              return e4 === null ? null : [e4[0], e4[2]];
+            }
+            function E() {
+              const e4 = n2([x, i, _]);
+              return e4 === null ? null : [e4[0], e4[2]];
+            }
+            function N() {
+              const e4 = n2([x, i]);
+              return e4 === null ? null : [e4[0], ""];
+            }
+            const M = t2([function() {
+              const e4 = n2([t2([T, E, N]), r2(0, j)]);
+              return e4 === null ? null : e4[0].concat(e4[1]);
+            }, function() {
+              const e4 = n2([x, r2(0, j)]);
+              return e4 === null ? null : [e4[0]].concat(e4[1]);
+            }]), O = a2("{{"), q = a2("}}"), I = a2("[["), L = a2("]]"), F = a2("["), G = a2("]");
+            function P() {
+              const e4 = n2([O, M, q]);
+              return e4 === null ? null : e4[1];
+            }
+            const D = t2([function() {
+              const e4 = n2([r2(1, _), l, r2(1, X)]);
+              return e4 === null ? null : [["CONCAT"].concat(e4[0]), ["CONCAT"].concat(e4[2])];
+            }, function() {
+              const e4 = n2([r2(1, _)]);
+              return e4 === null ? null : [["CONCAT"].concat(e4[0])];
+            }]);
+            function S() {
+              let e4 = null;
+              const u4 = n2([I, D, L]);
+              if (u4 !== null) {
+                const d4 = u4[1];
+                e4 = ["WIKILINK"].concat(d4);
+              }
+              return e4;
+            }
+            function H() {
+              let e4 = null;
+              const u4 = n2([F, r2(1, W), s, r2(1, X), G]);
+              return u4 !== null && (e4 = ["EXTLINK", u4[1].length === 1 ? u4[1][0] : ["CONCAT"].concat(u4[1]), ["CONCAT"].concat(u4[3])]), e4;
+            }
+            const R = c2(/^[A-Za-z]+/);
+            function B() {
+              const e4 = c2(/^[^"]*/), u4 = n2([m, e4, m]);
+              return u4 === null ? null : u4[1];
+            }
+            function Z() {
+              const e4 = c2(/^[^']*/), u4 = n2([k, e4, k]);
+              return u4 === null ? null : u4[1];
+            }
+            function K() {
+              const e4 = c2(/^\s*=\s*/), u4 = n2([s, R, e4, t2([B, Z])]);
+              return u4 === null ? null : [u4[1], u4[3]];
+            }
+            function U() {
+              const e4 = r2(0, K)();
+              return Array.prototype.concat.apply(["HTMLATTRIBUTES"], e4);
+            }
+            const W = t2([P, $2, S, H, function() {
+              const e4 = r2(1, w)();
+              return e4 === null ? null : e4.join("");
+            }]), X = t2([P, $2, S, H, function() {
+              let u4 = null;
+              const t3 = d3, s2 = a2("<"), l2 = c2(/^\/?/), i2 = c2(/^\s*>/), o2 = n2([s2, R, U, l2, i2]);
+              if (o2 === null)
+                return null;
+              const f2 = d3, h22 = o2[1], b2 = r2(0, X)(), m2 = d3, k2 = n2([a2("</"), R, i2]);
+              if (k2 === null)
+                return ["CONCAT", e3.slice(t3, f2)].concat(b2);
+              const p22 = d3, g2 = k2[1], w2 = o2[2];
+              if (function(e4, u5, d4, t4 = { allowedHtmlElements: ["b", "bdi", "del", "i", "ins", "u", "font", "big", "small", "sub", "sup", "h1", "h2", "h3", "h4", "h5", "h6", "cite", "code", "em", "s", "strike", "strong", "tt", "var", "div", "center", "blockquote", "ol", "ul", "dl", "table", "caption", "pre", "ruby", "rb", "rp", "rt", "rtc", "p", "span", "abbr", "dfn", "kbd", "samp", "data", "time", "mark", "li", "dt", "dd"], allowedHtmlCommonAttributes: ["id", "class", "style", "lang", "dir", "title", "aria-describedby", "aria-flowto", "aria-hidden", "aria-label", "aria-labelledby", "aria-owns", "role", "about", "property", "resource", "datatype", "typeof", "itemid", "itemprop", "itemref", "itemscope", "itemtype"], allowedHtmlAttributesByElement: {} }) {
+                if ((e4 = e4.toLowerCase()) !== (u5 = u5.toLowerCase()) || t4.allowedHtmlElements.indexOf(e4) === -1)
+                  return false;
+                const n3 = /[\000-\010\013\016-\037\177]|expression|filter\s*:|accelerator\s*:|-o-link\s*:|-o-link-source\s*:|-o-replace\s*:|url\s*\(|image\s*\(|image-set\s*\(/i;
+                for (let u6 = 0, r3 = d4.length; u6 < r3; u6 += 2) {
+                  const r4 = d4[u6];
+                  if (t4.allowedHtmlCommonAttributes.indexOf(r4) === -1 && (t4.allowedHtmlAttributesByElement[e4] || []).indexOf(r4) === -1 || r4 === "style" && d4[u6 + 1].search(n3) !== -1)
+                    return false;
+                }
+                return true;
+              }(h22, g2, w2.slice(1)))
+                u4 = ["HTMLELEMENT", h22, w2].concat(b2);
+              else {
+                const d4 = (e4) => e4.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+                u4 = ["CONCAT", d4(e3.slice(t3, f2))].concat(b2, d4(e3.slice(m2, p22)));
+              }
+              return u4;
+            }, function() {
+              const e4 = r2(1, z)();
+              return e4 === null ? null : e4.join("");
+            }]), _ = t2([P, $2, function() {
+              const e4 = r2(1, y)();
+              return e4 === null ? null : e4.join("");
+            }]), J = function() {
+              const e4 = r2(0, X)();
+              return e4 === null ? null : ["CONCAT"].concat(e4);
+            }();
+            if (J === null || d3 !== e3.length)
+              throw new Error("Parse error at position " + d3.toString() + " in input: " + e3);
+            return J;
+          }(e2, { wikilinks: this.wikilinks });
+          return this.emitter.emit(d2, u2);
+        }
+        return this.simpleParse(e2, u2);
+      }
+      simpleParse(e2, u2) {
+        return e2.replace(/\$(\d+)/g, (e3, d2) => {
+          const t2 = parseInt(d2, 10) - 1;
+          return u2[t2] !== void 0 ? u2[t2] : "$" + d2;
+        });
+      }
+    }
+    class c {
+      constructor(e2) {
+        this.sourceMap = /* @__PURE__ */ new Map();
+      }
+      load(e2, u2) {
+        if (typeof e2 != "object")
+          throw new Error("Invalid message source. Must be an object");
+        if (u2) {
+          if (!/^[a-zA-Z0-9-]+$/.test(u2))
+            throw new Error(`Invalid locale ${u2}`);
+          for (const d2 in e2)
+            if (d2.indexOf("@") !== 0) {
+              if (typeof e2[d2] == "object")
+                return this.load(e2);
+              if (typeof e2[d2] != "string")
+                throw new Error(`Invalid message for message ${d2} in ${u2} locale.`);
+              break;
+            }
+          this.sourceMap.has(u2) ? this.sourceMap.set(u2, Object.assign(this.sourceMap.get(u2), e2)) : this.sourceMap.set(u2, e2);
+        } else
+          for (u2 in e2)
+            this.load(e2[u2], u2);
+      }
+      getMessage(e2, u2) {
+        const d2 = this.sourceMap.get(u2);
+        return d2 ? d2[e2] : null;
+      }
+      hasLocale(e2) {
+        return this.sourceMap.has(e2);
+      }
+    }
+    return class {
+      constructor(e2, { finalFallback: u2 = "en", messages: d2, wikilinks: t2 = false } = {}) {
+        this.locale = e2, this.parser = new a(this.locale, { wikilinks: t2 }), this.messageStore = new c(), d2 && this.load(d2, this.locale), this.finalFallback = u2, this.wikilinks = t2;
+      }
+      load(e2, u2) {
+        return this.messageStore.load(e2, u2 || this.locale);
+      }
+      i18n(e2, ...u2) {
+        return this.parser.parse(this.getMessage(e2), u2);
+      }
+      setLocale(e2) {
+        this.locale = e2, this.parser = new a(this.locale, { wikilinks: this.wikilinks });
+      }
+      getFallbackLocales() {
+        return [...u[this.locale] || [], this.finalFallback];
+      }
+      getMessage(e2) {
+        let u2 = this.locale, d2 = 0;
+        const t2 = this.getFallbackLocales(this.locale);
+        for (; u2; ) {
+          const n2 = u2.split("-");
+          let r2 = n2.length;
+          do {
+            const u3 = n2.slice(0, r2).join("-"), d3 = this.messageStore.getMessage(e2, u3);
+            if (typeof d3 == "string")
+              return d3;
+            r2--;
+          } while (r2);
+          u2 = t2[d2], d2++;
+        }
+        return e2;
+      }
+      registerParserPlugin(e2, u2) {
+        r.prototype[e2] = u2;
+      }
+    };
+  });
+})(bananaI18n);
+var Banana = bananaI18n.exports;
+const parseValue = (binding) => {
+  let msg, params;
+  if (Array.isArray(binding.value)) {
+    msg = binding.arg;
+    params = binding.value;
+  } else if (binding.value !== null && typeof binding.value === "object") {
+    msg = binding.value.msg;
+    params = binding.value.params;
+  } else {
+    msg = binding.arg || binding.value;
+  }
+  params = params || [];
+  if (!Array.isArray(params)) {
+    params = [params];
+  }
+  if (!msg) {
+    throw new Error(`${binding.rawName} used with parameter array but without message key`);
+  }
+  return { msg, params };
+};
+const contextSymbol = Symbol("banana-context");
+function useI18n() {
+  const i18n = inject(contextSymbol);
+  if (!i18n)
+    throw new Error("No i18n provided!!!");
+  return i18n;
+}
+function createI18n(options) {
+  const bananai18n = reactive(new Banana(options.locale, options));
+  return {
+    install: (app2) => {
+      app2.provide(contextSymbol, bananai18n);
+      app2.config.globalProperties.$i18n = (msg, params) => {
+        params = params || [];
+        if (!Array.isArray(params)) {
+          params = [params];
+        }
+        return bananai18n.i18n(msg, ...params);
+      };
+      app2.provide("setLocale", (newLocale) => {
+        bananai18n.setLocale(newLocale);
+      });
+      app2.directive("i18n", (el, binding) => {
+        const { msg, params } = parseValue(binding);
+        if (binding.modifiers.html) {
+          el.innerHTML = bananai18n.i18n(msg, ...params);
+        } else {
+          el.textContent = bananai18n.i18n(msg, ...params);
+        }
+      });
+      app2.directive("i18n-html", (el, binding) => {
+        const { msg, params } = parseValue(binding);
+        el.innerHTML = bananai18n.i18n(msg, ...params);
+      });
+    }
+  };
+}
 const _sfc_main$S = {
   name: "CxDashboard",
   components: {
@@ -24455,7 +24461,11 @@ const _sfc_main$j = {
       }, 100);
     };
     const router2 = useRouter();
-    const goToContentComparator = () => router2.push({ name: "sx-content-comparator" });
+    const goToDashboard = () => {
+      store2.dispatch("translator/fetchTranslations");
+      replaceUrl(null);
+      router2.push({ name: "dashboard" });
+    };
     const configureTranslationOptions = () => {
       if (isBlockTemplateSelected.value) {
         return;
@@ -24515,7 +24525,7 @@ const _sfc_main$j = {
       currentPageSection,
       editTranslation,
       getDir: src.getDir,
-      goToContentComparator,
+      goToDashboard,
       isBlockTemplateSelected,
       isSelectedTranslationUnitTranslated,
       isTranslationOptionsActive,
@@ -24556,7 +24566,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
               class: "px-3",
               type: "icon",
               icon: $setup.mwIconArrowPrevious,
-              onClick: $setup.goToContentComparator
+              onClick: $setup.goToDashboard
             }, null, 8, ["icon", "onClick"])
           ], void 0, true),
           _: 1
@@ -26268,7 +26278,9 @@ const _sfc_main$1 = {
     onMounted(() => __async(this, null, function* () {
       var _a;
       yield initializeLanguages();
-      store2.dispatch("translator/fetchTranslations");
+      if (!store2.state.translator.translations.length) {
+        store2.dispatch("translator/fetchTranslations");
+      }
       try {
         previousLanguages.value.push(...JSON.parse(localStorage.getItem("uls-previous-languages")));
       } catch (e) {
