@@ -138,9 +138,9 @@ class CXCorporaDump extends Maintenance {
 			foreach ( $translations as $translation ) {
 				$translation = (array)$translation;
 				$sections = $lookup->getByTranslationId( (int)$translation['id'] )[ 'sections' ];
-				// Filter out units which don't have user provided input
+				// Filter out units which don't have user provided input or source
 				$sections = array_filter( $sections, static function ( TranslationUnitDTO $unit ) {
-					return $unit->hasUserBlob();
+					return $unit->hasUserBlob() && $unit->hasSourceBlob();
 				} );
 				$sections = array_map( static function ( TranslationUnitDTO $unit ) use ( $plain ) {
 					return $unit->toCorporaDumpArray( $plain );

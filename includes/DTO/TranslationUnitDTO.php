@@ -88,6 +88,14 @@ class TranslationUnitDTO {
 	}
 
 	/**
+	 * Used inside dump-corpora.php to filter out units which don't have source
+	 * @return bool
+	 */
+	public function hasSourceBlob(): bool {
+		return isset( $this->source );
+	}
+
+	/**
 	 * Used inside "ApiQueryContentTranslationCorpora" to return the proper array payload
 	 * for each (sub)section.
 	 *
