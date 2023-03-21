@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Marat-avgust",
+			"Run Li",
 			"Ерней",
 			"Ильнар"
 		]
@@ -9,6 +10,9 @@
 	"cx-dashboard-header": "Тәрҗемәләр",
 	"cx-license-agreement": "«$1» төймәсенә басып, сез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегезне [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензияләре] кысалары тарафыннан таратылуы белән килешәсез, монан шулай ук сез атрибуция өчен CC BY-SA 3.0 буенча бары сылтама кирәклеге генә булганын аңларга тиешсез.",
 	"cx-publish-button": "Саклау",
+	"cx-publish-summary": "«$1» битен тәрҗемә итеп ясалган",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|эчтәлек тәрҗемә итү]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|эчтәлек тәрҗемә итү (2 төре)]]",
 	"cx-beta": "Эчтәлеген тәрҗемә итү",
 	"cx-entrypoint-title": "Бу битне $1 теленә тәрҗемә итү",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бит $1 телендә әлегә юк. {{GENDER:|Сез}} аны төзергә телисезме?",
@@ -22,5 +26,6 @@
 	"cx-campaign-contributionsmenu-myuploads": "Төялгән медиа",
 	"cx-stats-tabs-expand": "Бөтен телләрдә",
 	"echo-category-title-cx": "Тәрҗемәләр",
-	"cx-translationlist-empty-title": "Тәрҗемә итәргә бернәрсә дә юкмы?"
+	"cx-translationlist-empty-title": "Тәрҗемә итәргә бернәрсә дә юкмы?",
+	"cx-sx-publish-lead-section-summary": "$1 битенең кереш өлешен тәрҗемә итеп ясалган"
 }
