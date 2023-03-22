@@ -8,7 +8,8 @@
 			"Roy17",
 			"Shinjiman",
 			"Yueman",
-			"Z423x5c6"
+			"Z423x5c6",
+			"ZiqiLiang"
 		]
 	},
 	"cx": "翻譯頁",
@@ -33,6 +34,7 @@
 	"cx-entrypoint-title": "翻譯呢版到$1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "未有爾版嘅$1版本。{{GENDER:|你}}係勿想開？",
 	"cx-entrypoint-dialog-button-translate-from": "由$1翻譯",
+	"cx-campaign-newbytranslation-search": "搵過第版嚟翻譯",
 	"cx-campaign-newbytranslation-start": "開始翻譯",
 	"cx-special-login-error": "你一定要簽到先可以翻譯呢版。 [$1 簽到]",
 	"cx-tools-instructions-text5": "{{GENDER:|發佈}}翻譯",

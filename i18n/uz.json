@@ -5,7 +5,8 @@
 			"Malikxan",
 			"Nemo bis",
 			"Sociologist",
-			"Таржимон"
+			"Таржимон",
+			"TayfunEt."
 		]
 	},
 	"cx": "Tarjima sahifasi",
@@ -211,7 +212,7 @@
 	"cx-sx-language-selector-placeholder": "Til qidirish",
 	"cx-sx-language-selector-all-languages": "Barcha tillar",
 	"cx-sx-language-selector-suggestions": "Taklif etilgan",
-	"cx-sx-language-selector-no-search-results": "Natijalar yo‘q",
+	"cx-sx-language-selector-no-search-results": "Natijalar topilmadi",
 	"sx-translation-list-language-selector-dialog-title": "Tillar",
 	"cx-sx-article-search-header": "Yangi tarjima",
 	"cx-sx-translation-confirmer-action-new-translation": "Yangi tarjima",
