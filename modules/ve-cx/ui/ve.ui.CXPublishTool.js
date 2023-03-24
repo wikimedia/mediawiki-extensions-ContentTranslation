@@ -33,6 +33,7 @@ ve.ui.CXPublishTool.static.displayBothIconAndLabel = true;
 
 ve.ui.CXPublishTool.static.autoAddToCatchall = false;
 
+// eslint-disable-next-line es-x/no-regexp-prototype-flags
 ve.ui.CXPublishTool.static.flags = [ 'primary', 'progressive' ];
 
 /* Methods */

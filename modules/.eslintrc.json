@@ -16,7 +16,7 @@
 		"no-jquery/no-global-selector": "off",
 		"no-shadow": "warn",
 		"compat/compat": "warn",
-		"es/no-promise": "warn",
+		"es-x/no-promise": "warn",
 		"vue/no-v-text": "warn"
 	}
 }

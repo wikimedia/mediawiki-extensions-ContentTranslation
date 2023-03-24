@@ -113,6 +113,7 @@ module.exports = {
 	computed: {
 		firstMissingEditedSection: function () {
 			var i,
+				// eslint-disable-next-line es-x/no-array-prototype-keys
 				sourceMissingSections = Object.keys( this.missingSections ),
 				missingSection,
 				editedSections = ( this.recentEdit && this.recentEdit.sections ) || [];
@@ -126,6 +127,7 @@ module.exports = {
 			return null;
 		},
 		missingSectionLength: function () {
+			// eslint-disable-next-line es-x/no-array-prototype-keys
 			return Object.keys( this.missingSections ).length;
 		},
 		sourceLanguage: function () {
