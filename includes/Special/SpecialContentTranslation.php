@@ -18,7 +18,6 @@ use MediaWiki\MediaWikiServices;
 use MutableContext;
 use SkinFactory;
 use SpecialPage;
-use Wikimedia\Services\NoSuchServiceException;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -223,15 +222,21 @@ class SpecialContentTranslation extends SpecialPage {
 		return $this->hasValidToken();
 	}
 
+	/**
+	 * @return bool
+	 */
+	private static function isMobileSite() {
+		$services = MediaWikiServices::getInstance();
+		return (
+			ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
+			$services->getService( 'MobileFrontend.Context' )
+				->shouldDisplayMobileView()
+		);
+	}
+
 	protected function isVueDashboard() {
 		$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
-		$services = MediaWikiServices::getInstance();
-		try {
-			$context = $services->getService( 'MobileFrontend.Context' );
-			return $isSXEnabled && $context->shouldDisplayMobileView() && !$this->onTranslationView();
-		} catch ( NoSuchServiceException $e ) {
-			return false;
-		}
+		return $isSXEnabled && self::isMobileSite() && !$this->onTranslationView();
 	}
 
 	protected function initModules() {
@@ -239,7 +244,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$out = $this->getOutput();
 
 		$contentTranslationTranslateInTarget = $config->get( 'ContentTranslationTranslateInTarget' );
-		if ( $this->onTranslationView() ) {
+		if ( $this->onTranslationView() && !self::isMobileSite() ) {
 			$out->addModules( 'mw.cx.init' );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article

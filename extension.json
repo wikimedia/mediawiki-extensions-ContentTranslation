@@ -446,10 +446,6 @@
 			]
 		},
 		"ext.cx.model": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"base/ext.cx.model.js"
 			]
@@ -468,10 +464,6 @@
 			]
 		},
 		"ext.cx.dashboard": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"widgets/feedback/ext.cx.feedback.js",
 				"tools/ext.cx.tools.validator.js",
@@ -615,7 +607,6 @@
 				"cx-sx-published-section-invitation-missing-sections-info"
 			],
 			"es6": true,
-			"targets": [ "desktop", "mobile" ],
 			"dependencies": [
 				"vue",
 				"mw.cx.SiteMapper",
@@ -625,9 +616,6 @@
 		"mw.cx3": {
 			"localBasePath": "app",
 			"remoteExtPath": "ContentTranslation/app",
-			"targets": [
-				"mobile"
-			],
 			"packageFiles": [
 				{
 					"name": "dist/cx3.es.js",
@@ -808,9 +796,6 @@
 		"mw.cx3.ve": {
 			"localBasePath": "app",
 			"remoteExtPath": "ContentTranslation/app",
-			"targets": [
-				"mobile"
-			],
 			"scripts": [
 				"src/plugins/ve/tools/BackTool.js",
 				"src/plugins/ve/tools/NextTool.js",
@@ -825,10 +810,6 @@
 			]
 		},
 		"mw.cx.util": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"packageFiles": [
 				"util/mw.cx.util.js",
 				{
@@ -845,10 +826,6 @@
 			]
 		},
 		"mw.cx.SiteMapper": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"packageFiles": [
 				"base/mw.cx.SiteMapper.js",
 				{
@@ -871,10 +848,6 @@
 			]
 		},
 		"mw.cx.ui.LanguageFilter": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/mw.cx.ui.LanguageFilter.js"
 			],
@@ -920,10 +893,6 @@
 			]
 		},
 		"ext.cx.eventlogging.campaigns": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": "eventlogging/ext.cx.eventlogging.campaigns.js",
 			"dependencies": [
 				"mediawiki.user"
@@ -978,10 +947,6 @@
 			]
 		},
 		"ext.cx.stats": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"stats/ext.cx.stats.js"
 			],
@@ -1028,10 +993,6 @@
 			]
 		},
 		"chart.js": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"localBasePath": "lib",
 			"remoteExtPath": "ContentTranslation/lib",
 			"scripts": [
@@ -1049,10 +1010,6 @@
 				"sx-recent-edit-entrypoint-top-banner-content",
 				"sx-recent-edit-entrypoint-invitation-button-label",
 				"sx-recent-edit-entrypoint-invitation-button-details"
-			],
-			"targets": [
-				"desktop",
-				"mobile"
 			],
 			"dependencies": [
 				"vue",
@@ -1091,10 +1048,6 @@
 				"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing",
 				"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing"
 			],
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"dependencies": [
 				"vue",
 				"mw.cx.SiteMapper",
@@ -1132,20 +1085,12 @@
 		},
 		"ext.cx.entrypoints.languagesearcher.init": {
 			"es6": true,
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher.init.js"
 			]
 		},
 		"ext.cx.entrypoints.languagesearcher": {
 			"es6": true,
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher.js"
 			],
@@ -1159,10 +1104,6 @@
 		},
 		"ext.cx.entrypoints.mffrequentlanguages": {
 			"es6": true,
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.mffrequentlanguages.js"
 			],
@@ -1180,10 +1121,6 @@
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
 			"es6": true,
-			"targets": [
-				"mobile",
-				"desktop"
-			],
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue"
@@ -1229,10 +1166,6 @@
 		},
 		"ext.cx.entrypoints.newbytranslation.mobile": {
 			"es6": true,
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newbytranslation.mobile.js"
 			],
@@ -1279,10 +1212,6 @@
 			]
 		},
 		"ext.cx.widgets.spinner": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"widgets/spinner/ext.cx.spinner.js"
 			],
@@ -1294,10 +1223,6 @@
 			]
 		},
 		"ext.cx.widgets.callout": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"widgets/callout/ext.cx.callout.js"
 			],
@@ -1328,10 +1253,6 @@
 			]
 		},
 		"mw.cx.ui": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/mw.cx.ui.js"
 			],
@@ -1433,9 +1354,6 @@
 				"cx-tools-link-add",
 				"cx-tools-missing-link-text",
 				"cx-tools-missing-link-mark-link"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"ve.ce.CXLintableNode": {
@@ -1619,9 +1537,6 @@
 				"ve.ce.CXLintableNode",
 				"ve.dm.CXLintableNode",
 				"ve.init.mw.CXTarget"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"ve.init.mw.CXTarget": {
@@ -1650,16 +1565,9 @@
 				"mw.cx.ui",
 				"mw.cx.util",
 				"ext.visualEditor.core.desktop"
-			],
-			"targets": [
-				"desktop"
 			]
 		},
 		"mw.cx.ui.Infobar": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/mw.cx.ui.Infobar.js",
 				"ui/widgets/mw.cx.ui.MessageWidget.js"
@@ -1683,10 +1591,6 @@
 			]
 		},
 		"mw.cx.ui.CaptchaDialog": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/mw.cx.ui.CaptchaDialog.js"
 			],
@@ -1706,10 +1610,6 @@
 			]
 		},
 		"mw.cx.ui.LoginDialog": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/mw.cx.ui.LoginDialog.js"
 			],
@@ -1762,10 +1662,6 @@
 			]
 		},
 		"mw.cx.ui.FeatureDiscoveryWidget": {
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"scripts": [
 				"ui/widgets/mw.cx.ui.FeatureDiscoveryWidget.js"
 			],
@@ -1779,10 +1675,6 @@
 		},
 		"mw.cx.skin": {
 			"class": "ResourceLoaderSkinModule",
-			"targets": [
-				"desktop",
-				"mobile"
-			],
 			"styles": [
 				"skin/styles/skin.less"
 			],
@@ -1797,7 +1689,6 @@
 		}
 	},
 	"QUnitTestModule": {
-		"targets": [ "desktop" ],
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "ContentTranslation/tests/qunit",
 		"scripts": [
