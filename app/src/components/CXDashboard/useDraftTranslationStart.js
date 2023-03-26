@@ -60,9 +60,15 @@ const useDraftTranslationStart = (translation) => {
       sourceTitle,
     });
 
-    const section = currentSourcePage.value.getSectionByTitle(
-      translation.sourceSectionTitle
-    );
+    let section;
+
+    if (translation.isLeadSectionTranslation) {
+      section = currentSourcePage.value.leadSection;
+    } else {
+      section = currentSourcePage.value.getSectionByTitle(
+        translation.sourceSectionTitle
+      );
+    }
 
     store.commit("application/setCurrentSourceSection", section);
     router.push({ name: "sx-sentence-selector", params: { force: true } });

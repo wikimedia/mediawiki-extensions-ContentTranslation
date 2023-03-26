@@ -1,3 +1,5 @@
+import PageSection from "./pageSection";
+
 export default class Translation {
   /**
    * @param {string} translationId
@@ -46,5 +48,12 @@ export default class Translation {
      * @type {boolean}
      */
     this.restored = false;
+  }
+
+  get isLeadSectionTranslation() {
+    return (
+      !this.sourceSectionTitle ||
+      this.sourceSectionTitle === PageSection.LEAD_SECTION_DUMMY_TITLE
+    );
   }
 }

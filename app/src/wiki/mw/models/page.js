@@ -54,6 +54,13 @@ export default class Page {
   }
 
   /**
+   * @return {PageSection|null}
+   */
+  get leadSection() {
+    return this.sections.find((section) => section.isLeadSection);
+  }
+
+  /**
    * @param {string} sectionTitle
    * @return {PageSection|null}
    */

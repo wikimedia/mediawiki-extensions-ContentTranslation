@@ -37,6 +37,10 @@ export default class PageSection {
     this.isTitleSelected = isTitleSelected;
   }
 
+  static get LEAD_SECTION_DUMMY_TITLE() {
+    return LEAD_SECTION_DUMMY_TITLE;
+  }
+
   /**
    * @return {string}
    */

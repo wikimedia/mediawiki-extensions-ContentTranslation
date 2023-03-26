@@ -16,13 +16,13 @@
               class="cx-translation__source-page-title"
               :class="{
                 'cx-translation__primary-title':
-                  !translation.sourceSectionTitle,
+                  translation.isLeadSectionTranslation,
               }"
               :lang="translation.sourceLanguage"
               v-text="translation.sourceTitle"
             />
             <h6
-              v-if="translation.sourceSectionTitle"
+              v-if="!translation.isLeadSectionTranslation"
               class="cx-translation__source-section-title cx-translation__primary-title"
               :lang="translation.sourceLanguage"
               v-text="translation.sourceSectionTitle"
