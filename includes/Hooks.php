@@ -184,6 +184,16 @@ class Hooks {
 		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
 		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
 
+		// Here we want to add "cxsx_translation_status" and "cxsx_translation_progress".
+		// Since those 2 fields have been added together, we can add only one of them to the
+		// updater, and the other one will be picked up by the updater anyway.
+		// 1.41
+		$updater->addExtensionField(
+			'cx_section_translations',
+			'cxsx_translation_status',
+			"$dir/sql/$dbType/patch-new-fields-to-cx_section_translations.sql"
+		);
+
 		// 1.39
 		if ( $dbType === 'mysql' ) {
 			$updater->modifyExtensionField(

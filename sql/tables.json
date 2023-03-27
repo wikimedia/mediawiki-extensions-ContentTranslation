@@ -429,6 +429,30 @@
 				"comment": "Target section title",
 				"type": "binary",
 				"options": { "notnull": true, "length": 512 }
+			},
+			{
+				"name": "cxsx_translation_status",
+				"comment": "Status of the section translation. Possible values 0 (for 'draft'), 1 (for 'published'), 2 (for 'deleted')",
+				"type": "mwtinyint",
+				"options": { "notnull": false, "length": 1 }
+			},
+			{
+				"name": "cxsx_translation_progress",
+				"comment": "Progress of the section translation - json dump",
+				"type": "blob",
+				"options": { "notnull": true, "length": 255 }
+			},
+			{
+				"name": "cxsx_translation_start_timestamp",
+				"comment": "Start date of this translation",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cxsx_translation_last_updated_timestamp",
+				"comment": "Last updated date of this translation",
+				"type": "mwtimestamp",
+				"options": { "notnull": true }
 			}
 		],
 		"indexes": [
