@@ -3,7 +3,9 @@
 		"authors": [
 			"Kyykaarme",
 			"Pitke",
-			"Silvonen"
+			"Silvonen",
+			"Nike",
+			"Pyscowicz"
 		]
 	},
 	"apihelp-cxpublish-description": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
@@ -13,6 +15,21 @@
 	"apihelp-cxpublish-param-from": "Lähteen kielikoodi.",
 	"apihelp-cxpublish-param-to": "Kohteen kielikoodi.",
 	"apihelp-cxpublish-param-sourcetitle": "Lähdesivun nimi.",
+	"apihelp-query+contenttranslation-param-from": "Lähteen kielikoodi.",
+	"apihelp-query+contenttranslation-param-to": "Kohteen kielikoodi.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Lähdesivun nimi.",
+	"apihelp-query+contenttranslationsuggestions-param-from": "Lähteen kielikoodi.",
+	"apihelp-query+contenttranslationsuggestions-param-to": "Kohteen kielikoodi.",
+	"apihelp-query+cxpublishedtranslations-param-from": "Lähteen kielikoodi.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Kohteen kielikoodi.",
+	"apihelp-query+contenttranslationlangtrend-param-source": "Lähteen kielikoodi.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Kohteen kielikoodi.",
+	"apihelp-cxdelete-param-from": "Lähteen kielikoodi.",
+	"apihelp-cxdelete-param-to": "Kohteen kielikoodi.",
+	"apihelp-cxdelete-param-sourcetitle": "Lähdesivun nimi.",
+	"apihelp-cxsave-param-from": "Lähteen kielikoodi.",
+	"apihelp-cxsave-param-to": "Kohteen kielikoodi.",
+	"apihelp-cxsave-param-sourcetitle": "Lähdesivun nimi.",
 	"apierror-cx-invalidlanguage": "Virheellinen kieli.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Sinun täytyy olla sisäänkirjautuneena saadaksesi ehdotuksia käännöksistä.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Nähdäksesi käännöksesi sinun täytyy kirjautua sisään.",
