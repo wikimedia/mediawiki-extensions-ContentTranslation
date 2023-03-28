@@ -1,6 +1,7 @@
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import SectionSentence from "./sectionSentence";
 import SubSection from "../../../wiki/cx/models/subSection";
+import mtValidator from "../../../utils/mtValidator";
 
 const LEAD_SECTION_DUMMY_TITLE = "__LEAD_SECTION__";
 
@@ -359,6 +360,18 @@ export default class PageSection {
       this.selectedContentTranslationUnit.translatedContent = translation;
       this.selectedContentTranslationUnit.mtProviderUsed = provider;
     }
+  }
+
+  getTranslationProgress(language) {
+    const translatedSubsections = this.subSections.filter(
+      (subSection) => subSection.isTranslated
+    );
+
+    const any = translatedSubsections.length / this.subSections.length;
+
+    const humanScore = mtValidator.getMTScoreForPageSection(this, language);
+
+    return { any, mt: 1 - humanScore, human: humanScore };
   }
 
   /**

@@ -350,11 +350,16 @@ export default class SubSection {
     if (this.blockTemplateMTProviderUsed) {
       return this.blockTemplateMTProviderUsed;
     }
-    const translatedSentences = this.sentences.filter(
-      (sentence) => sentence.isTranslated
-    );
 
-    return translatedSentences?.[0]?.mtProviderUsed || null;
+    return this.translatedSentences?.[0]?.mtProviderUsed || null;
+  }
+
+  get translatedSentences() {
+    if (this.isBlockTemplate) {
+      return [];
+    }
+
+    return this.sentences.filter((sentence) => sentence.isTranslated);
   }
 
   get parallelCorporaMTContent() {
@@ -367,10 +372,7 @@ export default class SubSection {
       subSectionNode.innerHTML =
         this.blockTemplateProposedTranslations[mtProvider];
     } else {
-      const translatedSentences = this.sentences.filter(
-        (sentence) => sentence.isTranslated
-      );
-      const sameMTProviderUsed = translatedSentences.every(
+      const sameMTProviderUsed = this.translatedSentences.every(
         (sentence) => sentence.mtProviderUsed === mtProvider
       );
 
