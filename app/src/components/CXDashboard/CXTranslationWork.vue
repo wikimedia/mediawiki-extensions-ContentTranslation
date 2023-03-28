@@ -38,6 +38,17 @@
             </mw-icon>
           </div>
         </div>
+        <mw-row v-if="!!translation.progress" class="ma-0 py-2">
+          <mw-col>
+            <mw-progress-bar
+              class="cx-translation__progress-bar"
+              :value="translationProgress"
+              height="4px"
+              width="64px"
+              :background="progressBarBackgroundColor"
+            />
+          </mw-col>
+        </mw-row>
         <div class="row cx-translation__footer ma-0">
           <div class="cx-translation__languages col grow">
             <span
@@ -59,7 +70,13 @@
 </template>
 
 <script>
-import { MwThumbnail, MwIcon } from "@/lib/mediawiki.ui";
+import {
+  MwThumbnail,
+  MwIcon,
+  MwRow,
+  MwCol,
+  MwProgressBar,
+} from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import Translation from "@/wiki/cx/models/translation";
 import {
@@ -69,13 +86,13 @@ import {
   mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import useDraftTranslationStart from "./useDraftTranslationStart";
 import useDraftTranslationDelete from "./useDraftTranslationDelete";
 
 export default {
   name: "CxTranslationWork",
-  components: { MwThumbnail, MwIcon },
+  components: { MwRow, MwProgressBar, MwCol, MwThumbnail, MwIcon },
   props: {
     translation: {
       type: Translation,
@@ -109,6 +126,12 @@ export default {
 
     const deleteTranslation = useDraftTranslationDelete(props.translation);
 
+    const colors = inject("colors");
+    const progressBarBackgroundColor = colors.base80;
+    const translationProgress = computed(
+      () => props.translation.progress?.any * 100 || 0
+    );
+
     return {
       getAutonym,
       getDir,
@@ -119,6 +142,8 @@ export default {
       mwIconArrowForward,
       mwIconArrowNext,
       onClick,
+      progressBarBackgroundColor,
+      translationProgress,
     };
   },
 };
@@ -151,6 +176,10 @@ export default {
   &__primary-title {
     font-weight: @font-weight-bold;
     font-size: 1rem;
+  }
+
+  &__progress-bar {
+    border: none;
   }
 
   &__footer {

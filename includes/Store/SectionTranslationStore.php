@@ -146,6 +146,7 @@ class SectionTranslationStore {
 				$row->translation_last_updated_timestamp,
 				self::TRANSLATION_STATUSES[ $row->cxsx_translation_status ] ?? $row->translation_status,
 				$row->translation_source_revision_id,
+				$row->cxsx_translation_progress,
 				$row->translation_target_title,
 				$row->cxsx_source_section_title,
 				$row->cxsx_target_section_title,

@@ -15,6 +15,7 @@ export default class Translation {
    * @param {string|null} targetTitle
    * @param {string|null} sourceSectionTitle
    * @param {string|null} targetSectionTitle
+   * @param {{any: number, mt: number, human: number}} progress
    */
   constructor({
     sectionTranslationId,
@@ -30,6 +31,7 @@ export default class Translation {
     targetTitle,
     sourceSectionTitle,
     targetSectionTitle,
+    progress,
   }) {
     this.sectionTranslationId = sectionTranslationId;
     this.translationId = translationId;
@@ -44,6 +46,7 @@ export default class Translation {
     this.targetTitle = targetTitle;
     this.sourceSectionTitle = sourceSectionTitle;
     this.targetSectionTitle = targetSectionTitle;
+    this.progress = progress;
     /**
      * A boolean property, indicating whether the translation has already been restored for continuation.
      * This property is used to avoid re-restoring a draft translation, which could override changes done

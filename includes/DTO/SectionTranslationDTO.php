@@ -21,6 +21,7 @@ class SectionTranslationDTO {
 	private ?string $targetTitle;
 	private ?string $sourceSectionTitle;
 	private ?string $targetSectionTitle;
+	private ?array $progress;
 
 	public function __construct(
 		int $sectionTranslationId,
@@ -33,6 +34,7 @@ class SectionTranslationDTO {
 		string $lastUpdatedTimestamp,
 		string $status,
 		string $pageRevision,
+		?string $progress,
 		?string $targetTitle,
 		?string $sourceSectionTitle,
 		?string $targetSectionTitle
@@ -50,6 +52,8 @@ class SectionTranslationDTO {
 		$this->targetTitle = $targetTitle;
 		$this->sourceSectionTitle = $sourceSectionTitle;
 		$this->targetSectionTitle = $targetSectionTitle;
+		$progress = $progress ? json_decode( $progress, true ) : null;
+		$this->progress = $progress;
 	}
 
 	public function getLastUpdatedTimestamp(): string {
@@ -74,6 +78,7 @@ class SectionTranslationDTO {
 			"targetTitle" => $this->targetTitle,
 			"sourceSectionTitle" => $this->sourceSectionTitle,
 			"targetSectionTitle" => $this->targetSectionTitle,
+			"progress" => $this->progress,
 		];
 	}
 }
