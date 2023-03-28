@@ -10,6 +10,11 @@ jest.mock("@/wiki/cx/api/translator", () => ({
   saveTranslation: jest.fn(() => Promise.resolve()),
 }));
 
+jest.mock("@/utils/mtValidator", () => ({
+  // "getMTScoreForPageSection" returns an integer from 1 to 100
+  getMTScoreForPageSection: jest.fn(() => 20),
+}));
+
 describe("vuex store saveTranslation action", () => {
   const createEl = (tagName) => document.createElement(tagName);
 
@@ -81,7 +86,14 @@ describe("vuex store saveTranslation action", () => {
       Flores: "Block Flores translation 1",
     };
     subSection1.blockTemplateMTProviderUsed = "Google";
-    applicationState.currentSourceSection.subSections = [subSection1];
+    const subSection2 = new SubSection({
+      node: blockTemplateWrapper,
+      sentences: [],
+    });
+    applicationState.currentSourceSection.subSections = [
+      subSection1,
+      subSection2,
+    ];
 
     await actions.saveTranslation({ rootState, rootGetters, commit });
 
@@ -95,6 +107,11 @@ describe("vuex store saveTranslation action", () => {
       revision: 11,
       isSandbox: false,
       sectionId: "11_1",
+      progress: {
+        any: 0.5, // there are two subsections, only one of them is translated (any = 1/2)
+        mt: 0.8, // score returned by "getMTScoreForPageSection" is 20 (mt = (100 - 20) / 100 = 0.8)
+        human: 0.2, // score returned by "getMTScoreForPageSection" is 20 (human = 20 / 100 = 0.2)
+      },
       units: [
         {
           content: blockTemplateWrapper.outerHTML,

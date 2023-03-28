@@ -109,6 +109,7 @@ function saveTranslation({ rootState, rootGetters }) {
     validateParallelCorporaPayload(unit, supportedMTProviders)
   );
 
+  const progress = currentSourceSection.getTranslationProgress(targetLanguage);
   const isSandbox = rootGetters["application/isSandboxTarget"];
 
   /**
@@ -129,6 +130,7 @@ function saveTranslation({ rootState, rootGetters }) {
     // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
     sectionId: baseSectionId,
     isSandbox,
+    progress,
   });
 }
 

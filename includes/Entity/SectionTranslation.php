@@ -18,6 +18,7 @@ class SectionTranslation {
 	 * @var int|null
 	 */
 	protected ?int $translationStatus;
+	private string $progress;
 
 	public function __construct(
 		?int $id,
@@ -27,7 +28,8 @@ class SectionTranslation {
 		string $targetSectionTitle,
 		// letting this to be null for backward compatibility, since the field was
 		// just recently added to the "cx_section_translations" table
-		?int $translationStatus
+		?int $translationStatus,
+		string $progress
 	) {
 		$this->id = $id;
 		$this->translationId = $translationId;
@@ -35,6 +37,7 @@ class SectionTranslation {
 		$this->sourceSectionTitle = $sourceSectionTitle;
 		$this->targetSectionTitle = $targetSectionTitle;
 		$this->translationStatus = $translationStatus;
+		$this->progress = $progress;
 	}
 
 	public function getId(): ?int {
@@ -71,5 +74,9 @@ class SectionTranslation {
 
 	public function getTranslationStatus(): ?int {
 		return $this->translationStatus;
+	}
+
+	public function getProgress(): string {
+		return $this->progress;
 	}
 }

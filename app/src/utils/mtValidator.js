@@ -50,7 +50,7 @@ const getScoreStatus = (score) =>
  *
  * @param {PageSection} pageSection
  * @param {string} language
- * @return {number} modified MT translation score
+ * @return {number} modified MT translation score as integer from 1 to 100
  */
 const getMTScoreForPageSection = (pageSection, language) =>
   calculateScore(

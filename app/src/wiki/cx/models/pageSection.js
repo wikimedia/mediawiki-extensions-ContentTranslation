@@ -369,7 +369,8 @@ export default class PageSection {
 
     const any = translatedSubsections.length / this.subSections.length;
 
-    const humanScore = mtValidator.getMTScoreForPageSection(this, language);
+    const humanScore =
+      mtValidator.getMTScoreForPageSection(this, language) / 100;
 
     return { any, mt: 1 - humanScore, human: humanScore };
   }

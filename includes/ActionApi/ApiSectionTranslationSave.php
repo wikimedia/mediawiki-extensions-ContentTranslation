@@ -129,7 +129,8 @@ class ApiSectionTranslationSave extends ApiBase {
 			$translationId,
 			$params['sectionid'],
 			$params['sourcesectiontitle'],
-			$params['targetsectiontitle']
+			$params['targetsectiontitle'],
+			$params['progress']
 		);
 		$result = [
 			'result' => 'success',
@@ -250,7 +251,8 @@ class ApiSectionTranslationSave extends ApiBase {
 		int $translationId,
 		string $sectionId,
 		string $sourceSectionTitle,
-		string $targetSectionTitle
+		string $targetSectionTitle,
+		string $progress
 	): int {
 		$sectionTranslation = $this->sectionTranslationStore->findTranslation( $translationId, $sectionId );
 		$draftStatusIndex = array_search(
@@ -265,7 +267,8 @@ class ApiSectionTranslationSave extends ApiBase {
 				$sectionId,
 				$sourceSectionTitle,
 				$targetSectionTitle,
-				$draftStatusIndex
+				$draftStatusIndex,
+				$progress
 			);
 			$this->sectionTranslationStore->insertTranslation( $sectionTranslation );
 		} else {
@@ -337,7 +340,10 @@ class ApiSectionTranslationSave extends ApiBase {
 			'issandbox' => [
 				ParamValidator::PARAM_TYPE => 'boolean',
 				ParamValidator::PARAM_REQUIRED => false,
-			]
+			],
+			'progress' => [
+				ParamValidator::PARAM_REQUIRED => true,
+			],
 		];
 	}
 

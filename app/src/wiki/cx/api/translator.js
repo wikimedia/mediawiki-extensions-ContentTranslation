@@ -310,6 +310,7 @@ const publishTranslation = ({
  * @param {number|"new"} publishParams.units The parallel corpora translation units
  * @param {string} publishParams.sectionId The id of the source page section
  * @param {boolean} publishParams.isSandbox
+ * @param {boolean} publishParams.progress
  * @return {Promise<PublishFeedbackMessage|null>}
  */
 const saveTranslation = ({
@@ -323,6 +324,7 @@ const saveTranslation = ({
   units,
   sectionId,
   isSandbox,
+  progress,
 }) => {
   const params = {
     action: "sxsave",
@@ -336,6 +338,7 @@ const saveTranslation = ({
     content: JSON.stringify(units),
     sectionid: sectionId,
     issandbox: isSandbox,
+    progress: JSON.stringify(progress),
   };
 
   const api = new mw.Api();
