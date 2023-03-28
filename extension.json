@@ -789,7 +789,11 @@
 				"cx-sx-block-template-mapped-params-text",
 				"cx-sx-block-template-no-source-params-text",
 				"cx-sx-block-template-missing-mandatory-params-text",
-				"cx-sx-block-template-missing-optional-params-text"
+				"cx-sx-block-template-missing-optional-params-text",
+				"cx-sx-dashboard-help-panel-title",
+				"cx-sx-dashboard-help-panel-more-info-label",
+				"cx-sx-dashboard-help-panel-stats-label",
+				"cx-sx-dashboard-help-panel-feedback-label"
 			],
 			"noflip": true
 		},

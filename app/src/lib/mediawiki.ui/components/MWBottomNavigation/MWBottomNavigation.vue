@@ -50,6 +50,7 @@ export default {
   width: 100%;
   background-color: @background-color-base;
   box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.15);
+  z-index: 1;
 
   .mw-ui-bottom-navigation__button-group {
     .mw-ui-button {

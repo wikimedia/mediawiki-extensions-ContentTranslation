@@ -1,36 +1,57 @@
 <template>
   <div>
-    <experimental-support-banner v-if="$incompleteVersion" class="mb-4" />
+    <experimental-support-banner
+      v-if="$incompleteVersion"
+      class="col-mobile-12 col-tablet-12 col-desktop-7 col-offset-desktop-1 mb-4"
+    />
     <mw-row class="ma-0">
       <mw-button
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
-        class="col-desktop-3 col-mobile-12 my-4"
+        class="col-desktop-3 col-offset-desktop-1 col-mobile-12 my-4"
         @click="searchTranslation"
       />
     </mw-row>
-    <!--    TODO: Check if we need to adjust the breakpoint to tabletAndDown as this is the breakpoint that is used to determine if -->
-    <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
-    <!--    breakpoint.js-->
-    <nav v-if="$mwui.breakpoint.tabletAndUp">
-      <mw-button-group
-        :items="listSelector"
-        :active="active"
-        class="justify-around"
-        @select="active = $event"
-      />
-    </nav>
-    <cx-favorite-list />
-    <cx-suggestion-list :active="active === 'suggestions'" />
-    <cx-translation-list
-      translation-status="draft"
-      :active="active === 'draft'"
-    />
-    <cx-translation-list
-      translation-status="published"
-      :active="active === 'published'"
-    />
+    <mw-row class="ma-0" align="start">
+      <mw-col
+        class="cx-dashboard__main-panel col-offset-desktop-1 px-0"
+        cols="12"
+        desktop="7"
+      >
+        <!--    TODO: Check if we need to adjust the breakpoint to tabletAndDown as this is the breakpoint that is used to determine if -->
+        <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
+        <!--    breakpoint.js-->
+        <nav v-if="$mwui.breakpoint.tabletAndUp">
+          <mw-button-group
+            :items="listSelector"
+            :active="active"
+            class="justify-around"
+            @select="active = $event"
+          />
+        </nav>
+        <cx-favorite-list />
+        <cx-suggestion-list :active="active === 'suggestions'" />
+        <cx-translation-list
+          translation-status="draft"
+          :active="active === 'draft'"
+        />
+        <cx-translation-list
+          translation-status="published"
+          :active="active === 'published'"
+        />
+      </mw-col>
+      <mw-col
+        class="ps-0 ps-desktop-4 pe-0 pt-4 pt-desktop-0"
+        cols="12"
+        tablet="6"
+        desktop="4"
+      >
+        <mw-row class="ma-0">
+          <mw-col class="px-0"><cx-help-panel /></mw-col>
+        </mw-row>
+      </mw-col>
+    </mw-row>
     <mw-bottom-navigation
       v-if="$mwui.breakpoint.mobile"
       v-model:active="active"
@@ -43,12 +64,14 @@
 import CxTranslationList from "./CXTranslationList.vue";
 import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
+import CxHelpPanel from "./CXHelpPanel.vue";
 import { ref, watch, computed, onMounted } from "vue";
 import {
   MwButtonGroup,
   MwBottomNavigation,
   MwButton,
   MwRow,
+  MwCol,
 } from "@/lib/mediawiki.ui";
 import {
   mwIconAdd,
@@ -66,6 +89,8 @@ import { useI18n } from "vue-banana-i18n";
 export default {
   name: "CxDashboard",
   components: {
+    CxHelpPanel,
+    MwCol,
     CxFavoriteList,
     CxSuggestionList,
     CxTranslationList,

@@ -464,5 +464,9 @@
 	"cx-sx-block-template-mapped-params-text": "$1 out of {{PLURAL:$2|$2 parameter|$2 parameters}} were added from the original template",
 	"cx-sx-block-template-no-source-params-text": "The original template had no parameters to transfer",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 mandatory parameters remain unfilled for the template in $2. Edit the template to fill those manually",
-	"cx-sx-block-template-missing-optional-params-text": "$1 additional parameters can be filled for the template in $2. Edit the template to fill those manually"
+	"cx-sx-block-template-missing-optional-params-text": "$1 additional parameters can be filled for the template in $2. Edit the template to fill those manually",
+	"cx-sx-dashboard-help-panel-title": "Need help translating?",
+	"cx-sx-dashboard-help-panel-more-info-label": "More about this tool",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistics",
+	"cx-sx-dashboard-help-panel-feedback-label": "Give us feedback"
 }
