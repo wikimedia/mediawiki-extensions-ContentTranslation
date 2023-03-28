@@ -15,6 +15,18 @@ import {
   getReferenceRendering,
 } from "../target/integration";
 
+function mwLinktoDataElement(domElements) {
+  // ve.dm.MWInternalLinkAnnotation.static.toDataElement has assumptions about document.baseURI.
+  // baseURI can use URL patterns like /wiki/$1 or w/index.php?title=$1. It also uses
+  // current wikis 'wgScript', 'wgArticlePath' configuration values which can
+  // totally be different when running on a local dev wiki.
+  // Because of this dataElement can be null as toDataElement fails to parse an internal link
+  // So make this dataElement calculation agnostic of all of the above mentioned factors.
+  const title = mw.Title.newFromText(domElements[0].getAttribute("title"));
+
+  return ve.dm.MWInternalLinkAnnotation.static.dataElementFromTitle(title);
+}
+
 export default {
   name: "VisualEditor",
 
@@ -75,6 +87,8 @@ export default {
     };
 
     const init = async () => {
+      ve.dm.MWInternalLinkAnnotation.static.toDataElement = mwLinktoDataElement;
+
       const veTarget = await getTarget(editorConfig, sxeditor.value);
       context.emit("ready");
       sxeditor.value.appendChild(veTarget.$element[0]);
@@ -87,6 +101,7 @@ export default {
       );
       ve.ui.MWReferenceContextItem.prototype.getRendering =
         getReferenceRendering;
+
       // Focus on the editor
       veSurface.focus();
     };
