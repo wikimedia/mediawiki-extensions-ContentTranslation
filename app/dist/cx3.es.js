@@ -7741,36 +7741,6 @@ const htmlToElement = (html) => {
   return template;
 };
 var mtValidator = { calculateScore, getScoreStatus, getMTScoreForPageSection };
-class Translation {
-  constructor({
-    translationId,
-    sectionId,
-    sourceTitle,
-    sourceLanguage,
-    targetLanguage,
-    startTimestamp,
-    lastUpdatedTimestamp,
-    status,
-    pageRevision,
-    targetTitle,
-    sourceSectionTitle,
-    targetSectionTitle
-  }) {
-    this.id = translationId;
-    this.sectionId = sectionId;
-    this.sourceTitle = sourceTitle;
-    this.sourceLanguage = sourceLanguage;
-    this.targetLanguage = targetLanguage;
-    this.startTimestamp = startTimestamp;
-    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
-    this.status = status;
-    this.pageRevision = pageRevision;
-    this.targetTitle = targetTitle;
-    this.sourceSectionTitle = sourceSectionTitle;
-    this.targetSectionTitle = targetSectionTitle;
-    this.restored = false;
-  }
-}
 const ORIGINAL_TEXT_PROVIDER_KEY = "original";
 const EMPTY_TEXT_PROVIDER_KEY = "empty";
 const mTProviderLabels = {
@@ -7803,6 +7773,572 @@ class MTProviderGroup {
   }
   static isUserMTProvider(mtProvider) {
     return [ORIGINAL_TEXT_PROVIDER_KEY, EMPTY_TEXT_PROVIDER_KEY].includes(mtProvider);
+  }
+}
+class SectionSentence {
+  constructor({
+    id,
+    originalContent,
+    translatedContent = "",
+    node = null,
+    proposedTranslations = {},
+    selected = false
+  } = {}) {
+    this.id = id;
+    this.translatedContent = translatedContent;
+    this.mtProviderUsed = "";
+    this.node = node;
+    this.proposedTranslations = __spreadProps(__spreadValues({}, proposedTranslations), {
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: originalContent,
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+    });
+    this.selected = selected;
+  }
+  get originalContent() {
+    return this.proposedTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
+  }
+  get content() {
+    return this.translatedContent || this.originalContent;
+  }
+  get isTranslated() {
+    return this.translatedContent !== "";
+  }
+  get mtProposedTranslationUsed() {
+    return this.proposedTranslations[this.mtProviderUsed];
+  }
+  addProposedTranslation(mtProvider, proposedTranslation) {
+    if (this.originalContent.endsWith(" ") && !proposedTranslation.endsWith(" ")) {
+      proposedTranslation += " ";
+    }
+    this.proposedTranslations[mtProvider] = proposedTranslation;
+  }
+}
+const parseTemplateName = (transclusionNode) => {
+  var _a;
+  const templateData = getTemplateData(transclusionNode);
+  return ((_a = templateData == null ? void 0 : templateData.target) == null ? void 0 : _a.wt) || null;
+};
+const getTemplateData = (node) => {
+  var _a, _b, _c;
+  const mwData = JSON.parse(((_a = node.dataset) == null ? void 0 : _a.mw) || "{}");
+  return ((_c = (_b = mwData == null ? void 0 : mwData.parts) == null ? void 0 : _b[0]) == null ? void 0 : _c.template) || null;
+};
+const isTransclusionNode = (node) => !!(node.attributes.about || node.attributes.typeof && node.getAttribute("typeof").match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/));
+const getWikitextFromTemplate = (templateNode) => {
+  const templateData = getTemplateData(templateNode);
+  if (!(templateData == null ? void 0 : templateData.target)) {
+    return null;
+  }
+  let wikitext = templateData.target.wt;
+  const { params } = templateData;
+  if (!params) {
+    return `{{${wikitext}}}`;
+  }
+  for (const key in params) {
+    const escapedValue = escapeParameter(params[key].wt);
+    wikitext += ` | ${key} = ${escapedValue}`;
+  }
+  return `{{${wikitext}}}`;
+};
+const escapeParameter = (param) => {
+  let input = param, output = "", inNowiki = false, bracketStack = 0, linkStack = 0;
+  while (input.length > 0) {
+    const match = input.match(/(?:\[\[)|(?:\]\])|(?:\{\{)|(?:\}\})|\|+|<\/?nowiki>|<nowiki\s*\/>/);
+    if (!match) {
+      output += input;
+      break;
+    }
+    output += input.slice(0, match.index);
+    input = input.slice(match.index + match[0].length);
+    if (inNowiki) {
+      if (match[0] === "</nowiki>") {
+        inNowiki = false;
+        output += match[0];
+      } else {
+        output += match[0];
+      }
+    } else {
+      let needsNowiki = true;
+      if (match[0] === "<nowiki>") {
+        inNowiki = true;
+        needsNowiki = false;
+      } else if (match[0] === "</nowiki>" || match[0].match(/<nowiki\s*\/>/)) {
+        needsNowiki = false;
+      } else if (match[0].match(/(?:\[\[)/)) {
+        linkStack++;
+        needsNowiki = false;
+      } else if (match[0].match(/(?:\]\])/)) {
+        if (linkStack > 0) {
+          linkStack--;
+          needsNowiki = false;
+        }
+      } else if (match[0].match(/(?:\{\{)/)) {
+        bracketStack++;
+        needsNowiki = false;
+      } else if (match[0].match(/(?:\}\})/)) {
+        if (bracketStack > 0) {
+          bracketStack--;
+          needsNowiki = false;
+        }
+      } else if (match[0].match(/\|+/)) {
+        if (bracketStack > 0 || linkStack > 0) {
+          needsNowiki = false;
+        }
+      }
+      if (needsNowiki) {
+        output += "<nowiki>" + match[0] + "</nowiki>";
+      } else {
+        output += match[0];
+      }
+    }
+  }
+  return output;
+};
+const getTemplateAdaptationInfo = (node) => {
+  var _a;
+  const cxData = JSON.parse(((_a = node.dataset) == null ? void 0 : _a.cx) || "{}");
+  return (cxData == null ? void 0 : cxData[0]) || null;
+};
+const targetTemplateExists = (cxTemplateNode) => {
+  const adaptationInfo = getTemplateAdaptationInfo(cxTemplateNode);
+  return adaptationInfo == null ? void 0 : adaptationInfo.targetExists;
+};
+class TranslationUnitPayload {
+  constructor({
+    baseSectionId,
+    subSectionId,
+    content,
+    validate = false,
+    origin
+  } = {}) {
+    this.baseSectionId = baseSectionId;
+    this.subSectionId = subSectionId;
+    this.content = content;
+    this.validate = validate;
+    this.origin = origin;
+  }
+  get sectionId() {
+    return `${this.baseSectionId}_${this.subSectionId}`;
+  }
+  get payload() {
+    return {
+      content: this.content,
+      sectionId: this.sectionId,
+      origin: this.origin,
+      validate: false
+    };
+  }
+}
+class SubSection$1 {
+  constructor({ sentences, node }) {
+    this.id = node.id.replace(/\D/g, "");
+    this.sentences = sentences;
+    this.node = node;
+    this.blockTemplateSelected = false;
+    this.blockTemplateTranslatedContent = "";
+    this.blockTemplateProposedTranslations = {};
+    this.blockTemplateAdaptationInfo = {};
+    this.blockTemplateMTProviderUsed = "";
+    this.editedTranslation = null;
+    this.corporaRestoredUnit = null;
+  }
+  setBlockTemplateAdaptationInfo(provider, info) {
+    this.blockTemplateAdaptationInfo[provider] = info;
+  }
+  get isHeadingSection() {
+    return this.node.firstElementChild instanceof HTMLHeadingElement;
+  }
+  get originalHtml() {
+    return this.node.outerHTML;
+  }
+  get translatedContent() {
+    if (this.editedTranslation !== null) {
+      return this.editedTranslation;
+    }
+    if (this.isBlockTemplate) {
+      return this.blockTemplateTranslatedContent;
+    }
+    const subSectionNode = this.node.cloneNode(true);
+    const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
+    segments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+      if (sentence.isTranslated) {
+        segment.innerHTML = sentence.translatedContent;
+        return;
+      }
+      segment.parentNode.removeChild(segment);
+    });
+    return subSectionNode.innerHTML;
+  }
+  get proposedContentForMTValidation() {
+    if (this.isBlockTemplate) {
+      return this.blockTemplateProposedTranslations[this.blockTemplateMTProviderUsed];
+    }
+    const subSectionNode = this.node.cloneNode(true);
+    const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
+    segments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+      if (sentence.isTranslated) {
+        segment.innerHTML = sentence.mtProposedTranslationUsed;
+        return;
+      }
+      segment.parentNode.removeChild(segment);
+    });
+    return subSectionNode.innerHTML;
+  }
+  get isTranslated() {
+    if (this.editedTranslation) {
+      return true;
+    }
+    if (this.isBlockTemplate) {
+      return !!this.blockTemplateTranslatedContent;
+    }
+    return this.sentences.some((sentence) => sentence.isTranslated);
+  }
+  get targetSectionId() {
+    return `cxTargetSection${this.id}`;
+  }
+  getSentenceById(id) {
+    return this.sentences.find((sentence) => sentence.id === id);
+  }
+  get selected() {
+    return this.isBlockTemplate && this.blockTemplateSelected;
+  }
+  get isBlockTemplate() {
+    return !!this.transclusionNode;
+  }
+  get transclusionNode() {
+    return Array.from(this.node.children).find((node) => isTransclusionNode(node));
+  }
+  get sourceTemplateParams() {
+    const sourceTemplateData = getTemplateData(this.transclusionNode);
+    return (sourceTemplateData == null ? void 0 : sourceTemplateData.params) || {};
+  }
+  get sourceBlockTemplateName() {
+    if (!this.isBlockTemplate) {
+      return null;
+    }
+    return parseTemplateName(this.transclusionNode);
+  }
+  getTargetTemplateNodeByProvider(provider) {
+    if (!this.blockTemplateProposedTranslations[provider]) {
+      return null;
+    }
+    const div = document.createElement("div");
+    div.innerHTML = this.blockTemplateProposedTranslations[provider];
+    return Array.from(div.children).find((node) => isTransclusionNode(node));
+  }
+  getTargetBlockTemplateNameByProvider(provider) {
+    const templateDiv = this.getTargetTemplateNodeByProvider(provider);
+    return templateDiv && parseTemplateName(templateDiv) || "";
+  }
+  getTargetTemplateParamsByProvider(provider) {
+    const transclusionNode = this.getTargetTemplateNodeByProvider(provider);
+    if (!transclusionNode) {
+      return null;
+    }
+    const targetTemplateData = getTemplateData(transclusionNode);
+    return (targetTemplateData == null ? void 0 : targetTemplateData.params) || null;
+  }
+  get translationUnits() {
+    if (this.isBlockTemplate) {
+      return [this];
+    }
+    return this.sentences;
+  }
+  getParallelCorporaTranslationPayloads(baseSectionId) {
+    const translatedSubSectionNode = this.node.cloneNode(true);
+    translatedSubSectionNode.innerHTML = this.translatedContent;
+    const payloads = [
+      new TranslationUnitPayload({
+        baseSectionId,
+        subSectionId: this.id,
+        content: this.originalHtml,
+        origin: "source"
+      }),
+      new TranslationUnitPayload({
+        baseSectionId,
+        subSectionId: this.id,
+        content: translatedSubSectionNode.outerHTML,
+        origin: "user"
+      })
+    ];
+    if (this.parallelCorporaMTContent) {
+      payloads.push(new TranslationUnitPayload({
+        baseSectionId,
+        subSectionId: this.id,
+        content: this.parallelCorporaMTContent,
+        origin: this.mtProviderUsed
+      }));
+    }
+    return payloads;
+  }
+  get mtProviderUsed() {
+    var _a;
+    if (this.blockTemplateMTProviderUsed) {
+      return this.blockTemplateMTProviderUsed;
+    }
+    const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
+    return ((_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed) || null;
+  }
+  get parallelCorporaMTContent() {
+    const mtProvider = this.mtProviderUsed;
+    const subSectionNode = this.node.cloneNode(true);
+    if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
+      return null;
+    } else if (this.isBlockTemplate) {
+      subSectionNode.innerHTML = this.blockTemplateProposedTranslations[mtProvider];
+    } else {
+      const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
+      const sameMTProviderUsed = translatedSentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
+      if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
+        return null;
+      }
+      const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
+      segments.forEach((segment) => {
+        const sentence = this.getSentenceById(segment.dataset.segmentid);
+        if (sentence.isTranslated) {
+          segment.innerHTML = sentence.mtProposedTranslationUsed;
+          return;
+        }
+        segment.parentNode.removeChild(segment);
+      });
+    }
+    return subSectionNode.outerHTML;
+  }
+  restoreCorpora(corporaUnit) {
+    this.corporaRestoredUnit = corporaUnit;
+    const toHtmlSegments = (text) => {
+      const wrapperDiv = document.createElement("div");
+      wrapperDiv.innerHTML = text;
+      const node = wrapperDiv.firstChild;
+      return Array.from(node.getElementsByClassName("cx-segment"));
+    };
+    const translatedSegments = toHtmlSegments(this.corporaRestoredUnit.user.content);
+    const mtSegments = toHtmlSegments(this.corporaRestoredUnit.mt.content);
+    translatedSegments.forEach((segment) => {
+      const sentence = this.getSentenceById(segment.dataset.segmentid);
+      const mtSegment = mtSegments.find((mtSegment2) => mtSegment2.dataset.segmentid === segment.dataset.segmentid);
+      sentence.translatedContent = segment.innerHTML;
+      const mtProvider = this.corporaRestoredUnit.mt.engine;
+      sentence.addProposedTranslation(mtProvider, mtSegment.innerHTML);
+      sentence.mtProviderUsed = mtProvider;
+    });
+  }
+}
+const LEAD_SECTION_DUMMY_TITLE = "__LEAD_SECTION__";
+class PageSection {
+  constructor({
+    id,
+    title = null,
+    subSections = [],
+    isLeadSection = false,
+    isTitleSelected = false
+  } = {}) {
+    this.id = id;
+    this.proposedTitleTranslations = {
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
+    };
+    this.translatedTitle = "";
+    this.subSections = subSections;
+    this.isLeadSection = isLeadSection;
+    this.isTitleSelected = isTitleSelected;
+  }
+  static get LEAD_SECTION_DUMMY_TITLE() {
+    return LEAD_SECTION_DUMMY_TITLE;
+  }
+  get originalTitle() {
+    return this.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
+  }
+  get title() {
+    return this.translatedTitle || this.originalTitle;
+  }
+  get contentTranslationUnits() {
+    return this.subSections.reduce((units, subSection) => [...units, ...subSection.translationUnits], []);
+  }
+  get selectedContentTranslationUnit() {
+    return this.contentTranslationUnits.find((unit) => unit.selected);
+  }
+  get selectedContentTranslationUnitIndex() {
+    return this.contentTranslationUnits.findIndex((unit) => unit.selected);
+  }
+  getContentTranslationUnitById(id) {
+    return this.contentTranslationUnits.find((unit) => unit.id === id);
+  }
+  get selectedTranslationUnitId() {
+    var _a;
+    if (this.isTitleSelected) {
+      return 0;
+    }
+    return (_a = this.selectedContentTranslationUnit) == null ? void 0 : _a.id;
+  }
+  get isSelectedTranslationUnitLast() {
+    return this.selectedContentTranslationUnitIndex === this.contentTranslationUnits.length - 1;
+  }
+  get followingTranslationUnit() {
+    var _a;
+    const nextIndex = this.selectedContentTranslationUnitIndex + 1;
+    return (_a = this.contentTranslationUnits) == null ? void 0 : _a[nextIndex];
+  }
+  get html() {
+    return this.subSections.reduce((htmlContent, subSection) => htmlContent + subSection.originalHtml, "");
+  }
+  set editedTranslation(editedTranslation) {
+    const editedElement = document.createElement("div");
+    editedElement.innerHTML = editedTranslation;
+    const editedSubSectionNodes = Array.from(editedElement.children);
+    const findEditedNodeBySubSection = (subSection) => editedSubSectionNodes.find((node) => node.id === subSection.targetSectionId);
+    this.subSections.forEach((subSection) => {
+      const subSectionNode = findEditedNodeBySubSection(subSection);
+      let subSectionTranslation = "";
+      if (subSectionNode) {
+        subSectionTranslation = subSectionNode.innerHTML;
+      }
+      subSection.editedTranslation = subSectionTranslation;
+    });
+  }
+  get translationHtml() {
+    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((htmlContent, subSection) => htmlContent + subSection.translatedContent, "");
+  }
+  get proposedTranslationHTMLForMTValidation() {
+    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((htmlContent, subSection) => htmlContent + subSection.proposedContentForMTValidation, "");
+  }
+  get isTranslated() {
+    return this.subSections.some((subSection) => subSection.isTranslated);
+  }
+  getOriginalContentByTranslationUnitId(id) {
+    if (id === 0) {
+      return this.originalTitle;
+    }
+    const unit = this.getContentTranslationUnitById(id);
+    if (unit instanceof SubSection$1) {
+      return unit.transclusionNode.outerHTML;
+    } else if (unit instanceof SectionSentence) {
+      return unit.originalContent;
+    }
+    return null;
+  }
+  get selectedTranslationUnitOriginalContent() {
+    return this.getOriginalContentByTranslationUnitId(this.selectedTranslationUnitId);
+  }
+  resetSelection() {
+    this.isTitleSelected = false;
+    this.contentTranslationUnits.forEach((unit) => {
+      if (unit instanceof SubSection$1) {
+        unit.blockTemplateSelected = false;
+      } else if (unit instanceof SectionSentence) {
+        unit.selected = false;
+      }
+    });
+  }
+  selectTranslationUnitById(id) {
+    this.resetSelection();
+    if (id === 0) {
+      this.isTitleSelected = true;
+      return;
+    }
+    const unit = this.getContentTranslationUnitById(id);
+    if (unit instanceof SubSection$1) {
+      unit.blockTemplateSelected = true;
+    } else if (unit instanceof SectionSentence) {
+      unit.selected = true;
+    }
+  }
+  hasProposedTranslationByTranslationUnitId(id, mtProvider) {
+    if (id === 0) {
+      return this.proposedTitleTranslations.hasOwnProperty(mtProvider);
+    }
+    const unit = this.getContentTranslationUnitById(id);
+    if (unit instanceof SubSection$1) {
+      return !!unit.blockTemplateProposedTranslations.hasOwnProperty(mtProvider);
+    } else if (unit instanceof SectionSentence) {
+      return unit.proposedTranslations.hasOwnProperty(mtProvider);
+    }
+  }
+  getProposedTranslationByMtProvider(mtProvider) {
+    const unit = this.selectedContentTranslationUnit;
+    if (this.isTitleSelected) {
+      return this.proposedTitleTranslations[mtProvider] || "";
+    } else if (unit instanceof SubSection$1) {
+      return unit.blockTemplateProposedTranslations[mtProvider] || "";
+    } else if (unit instanceof SectionSentence) {
+      return unit.proposedTranslations[mtProvider] || "";
+    }
+    return null;
+  }
+  setTranslationForSelectedTranslationUnit(translation, provider) {
+    if (this.isTitleSelected) {
+      this.translatedTitle = translation;
+      return;
+    }
+    if (this.selectedContentTranslationUnit instanceof SubSection$1) {
+      this.selectedContentTranslationUnit.blockTemplateTranslatedContent = translation;
+      this.selectedContentTranslationUnit.blockTemplateMTProviderUsed = provider;
+    } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
+      this.selectedContentTranslationUnit.translatedContent = translation;
+      this.selectedContentTranslationUnit.mtProviderUsed = provider;
+    }
+  }
+  get sourceSectionTitleForPublishing() {
+    return this.isLeadSection ? LEAD_SECTION_DUMMY_TITLE : this.originalTitle;
+  }
+  get targetSectionTitleForPublishing() {
+    return this.isLeadSection ? LEAD_SECTION_DUMMY_TITLE : this.title;
+  }
+  get isSelectedTranslationUnitTranslated() {
+    var _a;
+    if (this.isTitleSelected) {
+      return !!this.translatedTitle;
+    }
+    return !!((_a = this.selectedContentTranslationUnit) == null ? void 0 : _a.isTranslated);
+  }
+  getParallelCorporaUnits(baseSectionId) {
+    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((units, subSection) => [
+      ...units,
+      ...subSection.getParallelCorporaTranslationPayloads(baseSectionId)
+    ], []);
+  }
+  restoreCorporaUnits(corporaUnits) {
+    for (const subSection of this.subSections) {
+      const corporaUnit = corporaUnits.find((corporaUnit2) => corporaUnit2.subSectionId === subSection.id);
+      if (corporaUnit) {
+        subSection.restoreCorpora(corporaUnit);
+      }
+    }
+  }
+}
+class Translation {
+  constructor({
+    translationId,
+    sectionId,
+    sourceTitle,
+    sourceLanguage,
+    targetLanguage,
+    startTimestamp,
+    lastUpdatedTimestamp,
+    status,
+    pageRevision,
+    targetTitle,
+    sourceSectionTitle,
+    targetSectionTitle
+  }) {
+    this.id = translationId;
+    this.sectionId = sectionId;
+    this.sourceTitle = sourceTitle;
+    this.sourceLanguage = sourceLanguage;
+    this.targetLanguage = targetLanguage;
+    this.startTimestamp = startTimestamp;
+    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
+    this.status = status;
+    this.pageRevision = pageRevision;
+    this.targetTitle = targetTitle;
+    this.sourceSectionTitle = sourceSectionTitle;
+    this.targetSectionTitle = targetSectionTitle;
+    this.restored = false;
+  }
+  get isLeadSectionTranslation() {
+    return !this.sourceSectionTitle || this.sourceSectionTitle === PageSection.LEAD_SECTION_DUMMY_TITLE;
   }
 }
 const siteMapper = new mw.cx.SiteMapper();
@@ -8023,7 +8559,6 @@ const saveTranslation$1 = ({
   sourceLanguage,
   targetLanguage,
   revision,
-  isLeadSection,
   units,
   sectionId,
   isSandbox
@@ -8037,7 +8572,6 @@ const saveTranslation$1 = ({
     targetsectiontitle: targetSectionTitle,
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
-    isleadsection: isLeadSection,
     content: JSON.stringify(units),
     sectionid: sectionId,
     issandbox: isSandbox
@@ -8106,6 +8640,9 @@ class Page {
   }
   get id() {
     return `${this.language}/${this.title}`;
+  }
+  get leadSection() {
+    return this.sections.find((section) => section.isLeadSection);
   }
   getSectionByTitle(sectionTitle) {
     return (this.sections || []).find((section) => section.originalTitle === sectionTitle);
@@ -8207,12 +8744,11 @@ function saveTranslation({ rootState, rootGetters, commit: commit2 }) {
   return translator$1.saveTranslation({
     sourceTitle,
     targetTitle,
-    sourceSectionTitle: currentSourceSection.originalTitle,
+    sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
     revision: rootGetters["application/getCurrentRevision"],
-    isLeadSection: currentSourceSection.isLeadSection,
     units: units.map((unit) => unit.payload),
     sectionId: baseSectionId,
     isSandbox
@@ -8242,7 +8778,7 @@ function publishTranslation(_0) {
       html: cleanupHtml(currentSourceSection.translationHtml),
       sourceTitle,
       targetTitle,
-      sourceSectionTitle: currentSourceSection.originalTitle,
+      sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
       targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
@@ -9063,532 +9599,6 @@ class LanguageTitleGroup {
   }
   hasLanguage(language) {
     return this.titles.some((title) => title.lang === language);
-  }
-}
-class SectionSentence {
-  constructor({
-    id,
-    originalContent,
-    translatedContent = "",
-    node = null,
-    proposedTranslations = {},
-    selected = false
-  } = {}) {
-    this.id = id;
-    this.translatedContent = translatedContent;
-    this.mtProviderUsed = "";
-    this.node = node;
-    this.proposedTranslations = __spreadProps(__spreadValues({}, proposedTranslations), {
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: originalContent,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
-    });
-    this.selected = selected;
-  }
-  get originalContent() {
-    return this.proposedTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
-  }
-  get content() {
-    return this.translatedContent || this.originalContent;
-  }
-  get isTranslated() {
-    return this.translatedContent !== "";
-  }
-  get mtProposedTranslationUsed() {
-    return this.proposedTranslations[this.mtProviderUsed];
-  }
-  addProposedTranslation(mtProvider, proposedTranslation) {
-    if (this.originalContent.endsWith(" ") && !proposedTranslation.endsWith(" ")) {
-      proposedTranslation += " ";
-    }
-    this.proposedTranslations[mtProvider] = proposedTranslation;
-  }
-}
-const parseTemplateName = (transclusionNode) => {
-  var _a;
-  const templateData = getTemplateData(transclusionNode);
-  return ((_a = templateData == null ? void 0 : templateData.target) == null ? void 0 : _a.wt) || null;
-};
-const getTemplateData = (node) => {
-  var _a, _b, _c;
-  const mwData = JSON.parse(((_a = node.dataset) == null ? void 0 : _a.mw) || "{}");
-  return ((_c = (_b = mwData == null ? void 0 : mwData.parts) == null ? void 0 : _b[0]) == null ? void 0 : _c.template) || null;
-};
-const isTransclusionNode = (node) => !!(node.attributes.about || node.attributes.typeof && node.getAttribute("typeof").match(/(^|\s)(mw:Transclusion|mw:Placeholder)\b/));
-const getWikitextFromTemplate = (templateNode) => {
-  const templateData = getTemplateData(templateNode);
-  if (!(templateData == null ? void 0 : templateData.target)) {
-    return null;
-  }
-  let wikitext = templateData.target.wt;
-  const { params } = templateData;
-  if (!params) {
-    return `{{${wikitext}}}`;
-  }
-  for (const key in params) {
-    const escapedValue = escapeParameter(params[key].wt);
-    wikitext += ` | ${key} = ${escapedValue}`;
-  }
-  return `{{${wikitext}}}`;
-};
-const escapeParameter = (param) => {
-  let input = param, output = "", inNowiki = false, bracketStack = 0, linkStack = 0;
-  while (input.length > 0) {
-    const match = input.match(/(?:\[\[)|(?:\]\])|(?:\{\{)|(?:\}\})|\|+|<\/?nowiki>|<nowiki\s*\/>/);
-    if (!match) {
-      output += input;
-      break;
-    }
-    output += input.slice(0, match.index);
-    input = input.slice(match.index + match[0].length);
-    if (inNowiki) {
-      if (match[0] === "</nowiki>") {
-        inNowiki = false;
-        output += match[0];
-      } else {
-        output += match[0];
-      }
-    } else {
-      let needsNowiki = true;
-      if (match[0] === "<nowiki>") {
-        inNowiki = true;
-        needsNowiki = false;
-      } else if (match[0] === "</nowiki>" || match[0].match(/<nowiki\s*\/>/)) {
-        needsNowiki = false;
-      } else if (match[0].match(/(?:\[\[)/)) {
-        linkStack++;
-        needsNowiki = false;
-      } else if (match[0].match(/(?:\]\])/)) {
-        if (linkStack > 0) {
-          linkStack--;
-          needsNowiki = false;
-        }
-      } else if (match[0].match(/(?:\{\{)/)) {
-        bracketStack++;
-        needsNowiki = false;
-      } else if (match[0].match(/(?:\}\})/)) {
-        if (bracketStack > 0) {
-          bracketStack--;
-          needsNowiki = false;
-        }
-      } else if (match[0].match(/\|+/)) {
-        if (bracketStack > 0 || linkStack > 0) {
-          needsNowiki = false;
-        }
-      }
-      if (needsNowiki) {
-        output += "<nowiki>" + match[0] + "</nowiki>";
-      } else {
-        output += match[0];
-      }
-    }
-  }
-  return output;
-};
-const getTemplateAdaptationInfo = (node) => {
-  var _a;
-  const cxData = JSON.parse(((_a = node.dataset) == null ? void 0 : _a.cx) || "{}");
-  return (cxData == null ? void 0 : cxData[0]) || null;
-};
-const targetTemplateExists = (cxTemplateNode) => {
-  const adaptationInfo = getTemplateAdaptationInfo(cxTemplateNode);
-  return adaptationInfo == null ? void 0 : adaptationInfo.targetExists;
-};
-class TranslationUnitPayload {
-  constructor({
-    baseSectionId,
-    subSectionId,
-    content,
-    validate = false,
-    origin
-  } = {}) {
-    this.baseSectionId = baseSectionId;
-    this.subSectionId = subSectionId;
-    this.content = content;
-    this.validate = validate;
-    this.origin = origin;
-  }
-  get sectionId() {
-    return `${this.baseSectionId}_${this.subSectionId}`;
-  }
-  get payload() {
-    return {
-      content: this.content,
-      sectionId: this.sectionId,
-      origin: this.origin,
-      validate: false
-    };
-  }
-}
-class SubSection$1 {
-  constructor({ sentences, node }) {
-    this.id = node.id.replace(/\D/g, "");
-    this.sentences = sentences;
-    this.node = node;
-    this.blockTemplateSelected = false;
-    this.blockTemplateTranslatedContent = "";
-    this.blockTemplateProposedTranslations = {};
-    this.blockTemplateAdaptationInfo = {};
-    this.blockTemplateMTProviderUsed = "";
-    this.editedTranslation = null;
-    this.corporaRestoredUnit = null;
-  }
-  setBlockTemplateAdaptationInfo(provider, info) {
-    this.blockTemplateAdaptationInfo[provider] = info;
-  }
-  get isHeadingSection() {
-    return this.node.firstElementChild instanceof HTMLHeadingElement;
-  }
-  get originalHtml() {
-    return this.node.outerHTML;
-  }
-  get translatedContent() {
-    if (this.editedTranslation !== null) {
-      return this.editedTranslation;
-    }
-    if (this.isBlockTemplate) {
-      return this.blockTemplateTranslatedContent;
-    }
-    const subSectionNode = this.node.cloneNode(true);
-    const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
-    segments.forEach((segment) => {
-      const sentence = this.getSentenceById(segment.dataset.segmentid);
-      if (sentence.isTranslated) {
-        segment.innerHTML = sentence.translatedContent;
-        return;
-      }
-      segment.parentNode.removeChild(segment);
-    });
-    return subSectionNode.innerHTML;
-  }
-  get proposedContentForMTValidation() {
-    if (this.isBlockTemplate) {
-      return this.blockTemplateProposedTranslations[this.blockTemplateMTProviderUsed];
-    }
-    const subSectionNode = this.node.cloneNode(true);
-    const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
-    segments.forEach((segment) => {
-      const sentence = this.getSentenceById(segment.dataset.segmentid);
-      if (sentence.isTranslated) {
-        segment.innerHTML = sentence.mtProposedTranslationUsed;
-        return;
-      }
-      segment.parentNode.removeChild(segment);
-    });
-    return subSectionNode.innerHTML;
-  }
-  get isTranslated() {
-    if (this.editedTranslation) {
-      return true;
-    }
-    if (this.isBlockTemplate) {
-      return !!this.blockTemplateTranslatedContent;
-    }
-    return this.sentences.some((sentence) => sentence.isTranslated);
-  }
-  get targetSectionId() {
-    return `cxTargetSection${this.id}`;
-  }
-  getSentenceById(id) {
-    return this.sentences.find((sentence) => sentence.id === id);
-  }
-  get selected() {
-    return this.isBlockTemplate && this.blockTemplateSelected;
-  }
-  get isBlockTemplate() {
-    return !!this.transclusionNode;
-  }
-  get transclusionNode() {
-    return Array.from(this.node.children).find((node) => isTransclusionNode(node));
-  }
-  get sourceTemplateParams() {
-    const sourceTemplateData = getTemplateData(this.transclusionNode);
-    return (sourceTemplateData == null ? void 0 : sourceTemplateData.params) || {};
-  }
-  get sourceBlockTemplateName() {
-    if (!this.isBlockTemplate) {
-      return null;
-    }
-    return parseTemplateName(this.transclusionNode);
-  }
-  getTargetTemplateNodeByProvider(provider) {
-    if (!this.blockTemplateProposedTranslations[provider]) {
-      return null;
-    }
-    const div = document.createElement("div");
-    div.innerHTML = this.blockTemplateProposedTranslations[provider];
-    return Array.from(div.children).find((node) => isTransclusionNode(node));
-  }
-  getTargetBlockTemplateNameByProvider(provider) {
-    const templateDiv = this.getTargetTemplateNodeByProvider(provider);
-    return templateDiv && parseTemplateName(templateDiv) || "";
-  }
-  getTargetTemplateParamsByProvider(provider) {
-    const transclusionNode = this.getTargetTemplateNodeByProvider(provider);
-    if (!transclusionNode) {
-      return null;
-    }
-    const targetTemplateData = getTemplateData(transclusionNode);
-    return (targetTemplateData == null ? void 0 : targetTemplateData.params) || null;
-  }
-  get translationUnits() {
-    if (this.isBlockTemplate) {
-      return [this];
-    }
-    return this.sentences;
-  }
-  getParallelCorporaTranslationPayloads(baseSectionId) {
-    const translatedSubSectionNode = this.node.cloneNode(true);
-    translatedSubSectionNode.innerHTML = this.translatedContent;
-    const payloads = [
-      new TranslationUnitPayload({
-        baseSectionId,
-        subSectionId: this.id,
-        content: this.originalHtml,
-        origin: "source"
-      }),
-      new TranslationUnitPayload({
-        baseSectionId,
-        subSectionId: this.id,
-        content: translatedSubSectionNode.outerHTML,
-        origin: "user"
-      })
-    ];
-    if (this.parallelCorporaMTContent) {
-      payloads.push(new TranslationUnitPayload({
-        baseSectionId,
-        subSectionId: this.id,
-        content: this.parallelCorporaMTContent,
-        origin: this.mtProviderUsed
-      }));
-    }
-    return payloads;
-  }
-  get mtProviderUsed() {
-    var _a;
-    if (this.blockTemplateMTProviderUsed) {
-      return this.blockTemplateMTProviderUsed;
-    }
-    const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
-    return ((_a = translatedSentences == null ? void 0 : translatedSentences[0]) == null ? void 0 : _a.mtProviderUsed) || null;
-  }
-  get parallelCorporaMTContent() {
-    const mtProvider = this.mtProviderUsed;
-    const subSectionNode = this.node.cloneNode(true);
-    if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
-      return null;
-    } else if (this.isBlockTemplate) {
-      subSectionNode.innerHTML = this.blockTemplateProposedTranslations[mtProvider];
-    } else {
-      const translatedSentences = this.sentences.filter((sentence) => sentence.isTranslated);
-      const sameMTProviderUsed = translatedSentences.every((sentence) => sentence.mtProviderUsed === mtProvider);
-      if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
-        return null;
-      }
-      const segments = Array.from(subSectionNode.getElementsByClassName("cx-segment"));
-      segments.forEach((segment) => {
-        const sentence = this.getSentenceById(segment.dataset.segmentid);
-        if (sentence.isTranslated) {
-          segment.innerHTML = sentence.mtProposedTranslationUsed;
-          return;
-        }
-        segment.parentNode.removeChild(segment);
-      });
-    }
-    return subSectionNode.outerHTML;
-  }
-  restoreCorpora(corporaUnit) {
-    this.corporaRestoredUnit = corporaUnit;
-    const toHtmlSegments = (text) => {
-      const wrapperDiv = document.createElement("div");
-      wrapperDiv.innerHTML = text;
-      const node = wrapperDiv.firstChild;
-      return Array.from(node.getElementsByClassName("cx-segment"));
-    };
-    const translatedSegments = toHtmlSegments(this.corporaRestoredUnit.user.content);
-    const mtSegments = toHtmlSegments(this.corporaRestoredUnit.mt.content);
-    translatedSegments.forEach((segment) => {
-      const sentence = this.getSentenceById(segment.dataset.segmentid);
-      const mtSegment = mtSegments.find((mtSegment2) => mtSegment2.dataset.segmentid === segment.dataset.segmentid);
-      sentence.translatedContent = segment.innerHTML;
-      const mtProvider = this.corporaRestoredUnit.mt.engine;
-      sentence.addProposedTranslation(mtProvider, mtSegment.innerHTML);
-      sentence.mtProviderUsed = mtProvider;
-    });
-  }
-}
-class PageSection {
-  constructor({
-    id,
-    title = null,
-    subSections = [],
-    isLeadSection = false,
-    isTitleSelected = false
-  } = {}) {
-    this.id = id;
-    this.proposedTitleTranslations = {
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: ""
-    };
-    this.translatedTitle = "";
-    this.subSections = subSections;
-    this.isLeadSection = isLeadSection;
-    this.isTitleSelected = isTitleSelected;
-  }
-  get originalTitle() {
-    return this.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY];
-  }
-  get title() {
-    return this.translatedTitle || this.originalTitle;
-  }
-  get contentTranslationUnits() {
-    return this.subSections.reduce((units, subSection) => [...units, ...subSection.translationUnits], []);
-  }
-  get selectedContentTranslationUnit() {
-    return this.contentTranslationUnits.find((unit) => unit.selected);
-  }
-  get selectedContentTranslationUnitIndex() {
-    return this.contentTranslationUnits.findIndex((unit) => unit.selected);
-  }
-  getContentTranslationUnitById(id) {
-    return this.contentTranslationUnits.find((unit) => unit.id === id);
-  }
-  get selectedTranslationUnitId() {
-    var _a;
-    if (this.isTitleSelected) {
-      return 0;
-    }
-    return (_a = this.selectedContentTranslationUnit) == null ? void 0 : _a.id;
-  }
-  get isSelectedTranslationUnitLast() {
-    return this.selectedContentTranslationUnitIndex === this.contentTranslationUnits.length - 1;
-  }
-  get followingTranslationUnit() {
-    var _a;
-    const nextIndex = this.selectedContentTranslationUnitIndex + 1;
-    return (_a = this.contentTranslationUnits) == null ? void 0 : _a[nextIndex];
-  }
-  get html() {
-    return this.subSections.reduce((htmlContent, subSection) => htmlContent + subSection.originalHtml, "");
-  }
-  set editedTranslation(editedTranslation) {
-    const editedElement = document.createElement("div");
-    editedElement.innerHTML = editedTranslation;
-    const editedSubSectionNodes = Array.from(editedElement.children);
-    const findEditedNodeBySubSection = (subSection) => editedSubSectionNodes.find((node) => node.id === subSection.targetSectionId);
-    this.subSections.forEach((subSection) => {
-      const subSectionNode = findEditedNodeBySubSection(subSection);
-      let subSectionTranslation = "";
-      if (subSectionNode) {
-        subSectionTranslation = subSectionNode.innerHTML;
-      }
-      subSection.editedTranslation = subSectionTranslation;
-    });
-  }
-  get translationHtml() {
-    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((htmlContent, subSection) => htmlContent + subSection.translatedContent, "");
-  }
-  get proposedTranslationHTMLForMTValidation() {
-    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((htmlContent, subSection) => htmlContent + subSection.proposedContentForMTValidation, "");
-  }
-  get isTranslated() {
-    return this.subSections.some((subSection) => subSection.isTranslated);
-  }
-  getOriginalContentByTranslationUnitId(id) {
-    if (id === 0) {
-      return this.originalTitle;
-    }
-    const unit = this.getContentTranslationUnitById(id);
-    if (unit instanceof SubSection$1) {
-      return unit.transclusionNode.outerHTML;
-    } else if (unit instanceof SectionSentence) {
-      return unit.originalContent;
-    }
-    return null;
-  }
-  get selectedTranslationUnitOriginalContent() {
-    return this.getOriginalContentByTranslationUnitId(this.selectedTranslationUnitId);
-  }
-  resetSelection() {
-    this.isTitleSelected = false;
-    this.contentTranslationUnits.forEach((unit) => {
-      if (unit instanceof SubSection$1) {
-        unit.blockTemplateSelected = false;
-      } else if (unit instanceof SectionSentence) {
-        unit.selected = false;
-      }
-    });
-  }
-  selectTranslationUnitById(id) {
-    this.resetSelection();
-    if (id === 0) {
-      this.isTitleSelected = true;
-      return;
-    }
-    const unit = this.getContentTranslationUnitById(id);
-    if (unit instanceof SubSection$1) {
-      unit.blockTemplateSelected = true;
-    } else if (unit instanceof SectionSentence) {
-      unit.selected = true;
-    }
-  }
-  hasProposedTranslationByTranslationUnitId(id, mtProvider) {
-    if (id === 0) {
-      return this.proposedTitleTranslations.hasOwnProperty(mtProvider);
-    }
-    const unit = this.getContentTranslationUnitById(id);
-    if (unit instanceof SubSection$1) {
-      return !!unit.blockTemplateProposedTranslations.hasOwnProperty(mtProvider);
-    } else if (unit instanceof SectionSentence) {
-      return unit.proposedTranslations.hasOwnProperty(mtProvider);
-    }
-  }
-  getProposedTranslationByMtProvider(mtProvider) {
-    const unit = this.selectedContentTranslationUnit;
-    if (this.isTitleSelected) {
-      return this.proposedTitleTranslations[mtProvider] || "";
-    } else if (unit instanceof SubSection$1) {
-      return unit.blockTemplateProposedTranslations[mtProvider] || "";
-    } else if (unit instanceof SectionSentence) {
-      return unit.proposedTranslations[mtProvider] || "";
-    }
-    return null;
-  }
-  setTranslationForSelectedTranslationUnit(translation, provider) {
-    if (this.isTitleSelected) {
-      this.translatedTitle = translation;
-      return;
-    }
-    if (this.selectedContentTranslationUnit instanceof SubSection$1) {
-      this.selectedContentTranslationUnit.blockTemplateTranslatedContent = translation;
-      this.selectedContentTranslationUnit.blockTemplateMTProviderUsed = provider;
-    } else if (this.selectedContentTranslationUnit instanceof SectionSentence) {
-      this.selectedContentTranslationUnit.translatedContent = translation;
-      this.selectedContentTranslationUnit.mtProviderUsed = provider;
-    }
-  }
-  get targetSectionTitleForPublishing() {
-    return this.isLeadSection ? "" : this.title;
-  }
-  get isSelectedTranslationUnitTranslated() {
-    var _a;
-    if (this.isTitleSelected) {
-      return !!this.translatedTitle;
-    }
-    return !!((_a = this.selectedContentTranslationUnit) == null ? void 0 : _a.isTranslated);
-  }
-  getParallelCorporaUnits(baseSectionId) {
-    return this.subSections.filter((subSection) => subSection.isTranslated).reduce((units, subSection) => [
-      ...units,
-      ...subSection.getParallelCorporaTranslationPayloads(baseSectionId)
-    ], []);
-  }
-  restoreCorporaUnits(corporaUnits) {
-    for (const subSection of this.subSections) {
-      const corporaUnit = corporaUnits.find((corporaUnit2) => corporaUnit2.subSectionId === subSection.id);
-      if (corporaUnit) {
-        subSection.restoreCorpora(corporaUnit);
-      }
-    }
   }
 }
 function registerCXSectionNodes() {
@@ -18695,6 +18705,10 @@ function getTarget(editorConfig, overlayEl) {
   });
 }
 var VisualEditor_vue_vue_type_style_index_0_lang = "";
+function mwLinktoDataElement(domElements) {
+  const title = mw.Title.newFromText(domElements[0].getAttribute("title"));
+  return ve.dm.MWInternalLinkAnnotation.static.dataElementFromTitle(title);
+}
 const _sfc_main$$ = {
   name: "VisualEditor",
   props: {
@@ -18743,6 +18757,7 @@ const _sfc_main$$ = {
       siteMapper: new mw.cx.SiteMapper()
     };
     const init = () => __async(this, null, function* () {
+      ve.dm.MWInternalLinkAnnotation.static.toDataElement = mwLinktoDataElement;
       const veTarget = yield getTarget(editorConfig, sxeditor.value);
       context.emit("ready");
       sxeditor.value.appendChild(veTarget.$element[0]);
@@ -18899,7 +18914,12 @@ const useDraftTranslationStart = (translation) => {
       sourceLanguage: sourceLanguage.value,
       sourceTitle
     });
-    const section = currentSourcePage.value.getSectionByTitle(translation.sourceSectionTitle);
+    let section;
+    if (translation.isLeadSectionTranslation) {
+      section = currentSourcePage.value.leadSection;
+    } else {
+      section = currentSourcePage.value.getSectionByTitle(translation.sourceSectionTitle);
+    }
     store2.commit("application/setCurrentSourceSection", section);
     router2.push({ name: "sx-sentence-selector", params: { force: true } });
   });
@@ -18993,12 +19013,12 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
           createBaseVNode("div", _hoisted_5$g, [
             createBaseVNode("h5", {
               class: normalizeClass(["cx-translation__source-page-title", {
-                "cx-translation__primary-title": !$props.translation.sourceSectionTitle
+                "cx-translation__primary-title": $props.translation.isLeadSectionTranslation
               }]),
               lang: $props.translation.sourceLanguage,
               textContent: toDisplayString($props.translation.sourceTitle)
             }, null, 10, _hoisted_6$9),
-            $props.translation.sourceSectionTitle ? (openBlock(), createElementBlock("h6", {
+            !$props.translation.isLeadSectionTranslation ? (openBlock(), createElementBlock("h6", {
               key: 0,
               class: "cx-translation__source-section-title cx-translation__primary-title",
               lang: $props.translation.sourceLanguage,
@@ -20265,7 +20285,8 @@ const getEventSourceFromUrlCampaign = () => {
     mfrecentedit: "recent_edit",
     mffrequentlanguages: "frequent_languages",
     newbytranslationmobile: "invite_new_article_creation",
-    specialcontribute: "contributions_page"
+    specialcontribute: "contributions_page",
+    publishingfollowup: "followup_after_publishing"
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
