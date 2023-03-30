@@ -123,7 +123,10 @@ export default {
     );
 
     const adaptationRatio = computed(
-      () => (props.targetParamsCount / props.sourceParamsCount) * 100
+      () =>
+        (props.targetParamsCount /
+          (props.sourceParamsCount + props.mandatoryMissingParamsCount)) *
+        100
     );
     const bananaI18n = useI18n();
 

@@ -205,11 +205,17 @@ export default {
     const targetParamsCount = computed(() => targetParamNames.value.length);
 
     const adaptationRatio = computed(() => {
-      if (sourceParamsCount.value === 0) {
+      const missingMandatoryCount = mandatoryMissingTargetParamsCount.value;
+
+      if (sourceParamsCount.value + missingMandatoryCount === 0) {
         return 100;
       }
 
-      return (targetParamsCount.value / sourceParamsCount.value) * 100 || 0;
+      return (
+        (targetParamsCount.value /
+          (sourceParamsCount.value + missingMandatoryCount)) *
+          100 || 0
+      );
     });
 
     const templateStatusDialogOn = ref(false);
