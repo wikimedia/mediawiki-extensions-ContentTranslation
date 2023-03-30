@@ -4,6 +4,7 @@ import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessa
 import Page from "../../../wiki/mw/models/page";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
 import { cleanupHtml } from "../../../utils/publishHelper";
+import translator from "@/wiki/cx/api/translator";
 
 /**
  * This action initially clears all existing MT publish feedback
@@ -328,6 +329,12 @@ async function deleteTranslation({ commit }, translation) {
   return isSuccessful;
 }
 
+async function fetchTranslatorStats({ commit }) {
+  const translatorStats = await translator.fetchTranslatorStats();
+
+  commit("setTranslatorStats", translatorStats);
+}
+
 export default {
   validateMT,
   saveTranslation,
@@ -335,4 +342,5 @@ export default {
   deleteTranslation,
   fetchTranslations,
   translateContent,
+  fetchTranslatorStats,
 };

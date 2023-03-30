@@ -10,4 +10,7 @@ export default {
   setTranslationsLoaded: (state, value) => {
     state.translationsLoaded = value;
   },
+  setTranslatorStats: (state, value) => {
+    state.translatorStats = value;
+  },
 };

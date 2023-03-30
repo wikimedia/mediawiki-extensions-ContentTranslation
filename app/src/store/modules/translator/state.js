@@ -4,4 +4,5 @@ export default {
   /** @type Translation[] */
   translations: [],
   translationsLoaded: false,
+  translatorStats: null,
 };

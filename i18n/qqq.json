@@ -486,5 +486,8 @@
 	"cx-sx-dashboard-help-panel-title": "Title of the panel inside dashboard, where helpful links related to the translations, are provided",
 	"cx-sx-dashboard-help-panel-more-info-label": "Label of the link inside the dashboard help panel, that leads to the Content Translation project page",
 	"cx-sx-dashboard-help-panel-stats-label": "Label of the link inside the dashboard help panel, that leads to the Content Translation statistics page",
-	"cx-sx-dashboard-help-panel-feedback-label": "Label of the link inside the dashboard help panel, that leads to the Content Translation talk page"
+	"cx-sx-dashboard-help-panel-feedback-label": "Label of the link inside the dashboard help panel, that leads to the Content Translation talk page",
+	"cx-sx-dashboard-stats-panel-title": "Title of the panel inside dashboard, where translator statistics are provided",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Label of the monthly stats, displayed inside the statistics panel of the dashboard",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Label of the total stats, displayed inside the statistics panel of the dashboard"
 }

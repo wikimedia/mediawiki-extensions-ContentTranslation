@@ -793,7 +793,10 @@
 				"cx-sx-dashboard-help-panel-title",
 				"cx-sx-dashboard-help-panel-more-info-label",
 				"cx-sx-dashboard-help-panel-stats-label",
-				"cx-sx-dashboard-help-panel-feedback-label"
+				"cx-sx-dashboard-help-panel-feedback-label",
+				"cx-sx-dashboard-stats-panel-title",
+				"cx-sx-dashboard-stats-panel-monthly-stats-label",
+				"cx-sx-dashboard-stats-panel-total-stats-label"
 			],
 			"noflip": true
 		},

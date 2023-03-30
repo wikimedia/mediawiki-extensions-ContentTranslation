@@ -468,5 +468,8 @@
 	"cx-sx-dashboard-help-panel-title": "Need help translating?",
 	"cx-sx-dashboard-help-panel-more-info-label": "More about this tool",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistics",
-	"cx-sx-dashboard-help-panel-feedback-label": "Give us feedback"
+	"cx-sx-dashboard-help-panel-feedback-label": "Give us feedback",
+	"cx-sx-dashboard-stats-panel-title": "Your impact",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "This month",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Total"
 }

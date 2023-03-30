@@ -44,11 +44,25 @@
       <mw-col
         class="ps-0 ps-desktop-4 pe-0 pt-4 pt-desktop-0"
         cols="12"
-        tablet="6"
         desktop="4"
       >
-        <mw-row class="ma-0">
-          <mw-col class="px-0"><cx-help-panel /></mw-col>
+        <mw-row class="ma-0" align="start">
+          <mw-col
+            cols="12"
+            tablet="6"
+            desktop="12"
+            class="px-0 mb-4 mb-tablet-0 mb-desktop-4 pe-tablet-2 pe-desktop-0"
+          >
+            <cx-stats-panel :stats="translatorStats" />
+          </mw-col>
+          <mw-col
+            cols="12"
+            tablet="6"
+            desktop="12"
+            class="px-0 ps-tablet-2 ps-desktop-0"
+          >
+            <cx-help-panel />
+          </mw-col>
         </mw-row>
       </mw-col>
     </mw-row>
@@ -65,6 +79,7 @@ import CxTranslationList from "./CXTranslationList.vue";
 import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
 import CxHelpPanel from "./CXHelpPanel.vue";
+import CxStatsPanel from "./CXStatsPanel.vue";
 import { ref, watch, computed, onMounted } from "vue";
 import {
   MwButtonGroup,
@@ -92,6 +107,7 @@ export default {
     CxHelpPanel,
     MwCol,
     CxFavoriteList,
+    CxStatsPanel,
     CxSuggestionList,
     CxTranslationList,
     ExperimentalSupportBanner,
@@ -151,6 +167,11 @@ export default {
     const store = useStore();
     initializeDashboard(router, store, useEventLogging());
 
+    store.dispatch("translator/fetchTranslatorStats");
+    const translatorStats = computed(
+      () => store.state.translator.translatorStats
+    );
+
     return {
       active,
       listSelector,
@@ -159,6 +180,7 @@ export default {
       mwIconLightBulb,
       mwIconEdit,
       searchTranslation,
+      translatorStats,
     };
   },
 };

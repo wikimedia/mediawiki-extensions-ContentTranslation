@@ -381,6 +381,22 @@ const deleteTranslation = (translationId, sectionId) => {
     .catch(() => false);
 };
 
+/**
+ * @return {Promise}
+ */
+const fetchTranslatorStats = () => {
+  const api = new mw.Api();
+
+  return api
+    .get({ action: "query", list: "cxtranslatorstats" })
+    .then((response) => response.cxtranslatorstats?.publishTrend)
+    .catch((error) => {
+      mw.log.error("[CX] Fetching translator stats failed", error);
+
+      return null;
+    });
+};
+
 export default {
   fetchTranslations,
   fetchTranslationUnits,
@@ -389,4 +405,5 @@ export default {
   publishTranslation,
   saveTranslation,
   deleteTranslation,
+  fetchTranslatorStats,
 };
