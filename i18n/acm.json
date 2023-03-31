@@ -18,5 +18,7 @@
 	"cx-source-view-page": "طلع الصفحة",
 	"cx-target-view-page": "طلع الصفحة",
 	"cx-publish-page-success": "نشرت الصفحة في $1",
-	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى مال مشاكل بترجمتك، ضربة المرشح: $1"
+	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى مال مشاكل بترجمتك، ضربة المرشح: $1",
+	"cx-publish-error-empty": "رد الخادم بدون بيانات.",
+	"cx-translation-filter-label-all-languages": "كل"
 }
