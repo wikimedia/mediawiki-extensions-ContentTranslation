@@ -16,8 +16,8 @@
 	&:hover {
 		background-color: #eaf3ff;
 
-		.cx-tlitem__languages__language--source:after,
-		.cx-slitem__languages__language--source:after {
+		.cx-tlitem__languages__language--source::after,
+		.cx-slitem__languages__language--source::after {
 			border-left-color: #eaf3ff;
 		}
 	}
@@ -113,8 +113,8 @@
 		}
 	}
 
-	&__language:after,
-	&__language:before {
+	&__language::after,
+	&__language::before {
 		content: ' ';
 		position: absolute;
 		top: 50%;
@@ -125,14 +125,14 @@
 		pointer-events: none;
 	}
 
-	&__language--source:after {
+	&__language--source::after {
 		margin-top: -5px;
 		border-color: rgba( 255, 255, 255, 0 );
 		border-left-color: #fff;
 		border-width: 5px;
 	}
 
-	&__language--source:before {
+	&__language--source::before {
 		margin-top: -7px;
 		border-color: rgba( 85, 85, 85, 0 );
 		border-left-color: @colorGray5;

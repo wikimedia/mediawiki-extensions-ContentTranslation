@@ -178,69 +178,79 @@ module.exports = {
 @color-primary: #36c;
 
 .sx-recent-edit-entrypoint {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  background: white;
-  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.25);
-  .row {
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 1 auto;
-    flex-wrap: wrap;
-  }
-  .col {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  .pa-4 {
-    padding: 16px;
-  }
-  .shrink {
-    flex-grow: 0 !important;
-    flex-shrink: 1 !important;
-  }
-  &__top-banner {
-    &__header {
-      font-weight: 600;
-      color: @color-base;
-    }
-    &__close-icon {
-      cursor: pointer;
-    }
-    &__content {
-      margin-top: 8px;
-      font-size: 14px;
-      color: @color-base;
-    }
-  }
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: white;
+	box-shadow: 0 -1px 2px rgba( 0, 0, 0, 0.25 );
 
-  &__separation-line {
-    margin: 0;
-    border-top: 0;
-    color: @colorGray14;
-  }
+	.row {
+		box-sizing: border-box;
+		display: flex;
+		flex: 0 1 auto;
+		flex-wrap: wrap;
+	}
 
-  &__invitation {
-    cursor: pointer;
-    &:hover {
-      background: #eaf3ff;
-    }
-    &__icon {
-      margin-right: 8px;
-      color: @color-primary;
-    }
-    &__header {
-      font-weight: 600;
-      color: #36c;
-    }
-    &__details {
-      margin-top: 4px;
-      font-size: 14px;
-      color: @colorGray5;
-    }
-  }
+	.col {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
 
+	.pa-4 {
+		padding: 16px;
+	}
+
+	.shrink {
+		flex-grow: 0 !important;
+		flex-shrink: 1 !important;
+	}
+
+	&__top-banner {
+		&__header {
+			font-weight: 600;
+			color: @color-base;
+		}
+
+		&__close-icon {
+			cursor: pointer;
+		}
+
+		&__content {
+			margin-top: 8px;
+			font-size: 14px;
+			color: @color-base;
+		}
+	}
+
+	&__separation-line {
+		margin: 0;
+		border-top: 0;
+		color: @colorGray14;
+	}
+
+	&__invitation {
+		cursor: pointer;
+
+		&:hover {
+			background: #eaf3ff;
+		}
+
+		&__icon {
+			margin-right: 8px;
+			color: @color-primary;
+		}
+
+		&__header {
+			font-weight: 600;
+			color: #36c;
+		}
+
+		&__details {
+			margin-top: 4px;
+			font-size: 14px;
+			color: @colorGray5;
+		}
+	}
 }
 </style>

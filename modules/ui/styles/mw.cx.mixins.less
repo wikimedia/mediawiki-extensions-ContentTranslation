@@ -89,15 +89,13 @@
 // Target IE11 with @rules
 // Note: This targets IE10 as well, but IE10 isn't supported
 .target-ie( @rules ) {
-	/* stylelint-disable at-rule-no-unknown */
 	@media screen and ( -ms-high-contrast: active ), ( -ms-high-contrast: none ) {
 		@rules();
 	}
-	/* stylelint-enable at-rule-no-unknown */
 }
 
 .clearfix() {
-	&:after {
+	&::after {
 		// Non empty content value avoids an Opera bug that creates space around
 		// clearfixed elements if the contenteditable attribute is also present
 		// somewhere in the HTML.

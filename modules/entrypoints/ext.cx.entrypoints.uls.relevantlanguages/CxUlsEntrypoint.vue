@@ -156,75 +156,89 @@ module.exports = {
 @import 'mediawiki.ui/variables';
 
 .cx-uls-entrypoint {
-  border: @border-base;
-  color: @color-base;
-  &--hidden {
-    display: none;
-  }
-  .row {
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 1 auto;
-    flex-wrap: wrap;
-  }
-  .col {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-  }
-  .shrink {
-    flex-grow: 0 !important;
-    flex-shrink: 1 !important;
-  }
-  button {
-    cursor: pointer;
-  }
-  &__header {
-    align-items: center;
-    padding: 12px;
-    border-bottom: @border-base;
-    &-title {
-      font-size: 16px;
-      padding-block: 0;
-      padding-inline: 8px;
-      margin: 0;
-    }
-  }
-  &__close-button {
-    background: none;
-    border: none;
-    align-self: center;
-  }
-  &__body {
-    padding: 16px;
-    &__message {
-      margin: 0;
-      padding-bottom: 8px;
-      padding-inline: 8px;
-      line-height: 1.4;
-    }
-    &__translation-links {
-      align-items: baseline;
-      padding-inline: 8px;
-    }
-    &__translation-link {
-      padding: 4px;
-      background: none;
-      border: none;
-      align-items: center;
-      display: flex;
-      // set color to "inherit", so that the CX links have the same color as the rest of the text body (@color-base)
-      color: inherit;
-      &-icon {
-        // set display to "flex", so that the height of the outer span is equal to the icon height (20px)
-        display: flex;
-        padding-inline-end: 4px;
-      }
-      &-text {
-        font-size: 16px;
-        margin-inline-end: 4px;
-      }
-    }
-  }
+	border: @border-base;
+	color: @color-base;
+
+	&--hidden {
+		display: none;
+	}
+
+	.row {
+		box-sizing: border-box;
+		display: flex;
+		flex: 0 1 auto;
+		flex-wrap: wrap;
+	}
+
+	.col {
+		flex-basis: 0;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+
+	.shrink {
+		flex-grow: 0 !important;
+		flex-shrink: 1 !important;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	&__header {
+		align-items: center;
+		padding: 12px;
+		border-bottom: @border-base;
+
+		&-title {
+			font-size: 16px;
+			padding-block: 0;
+			padding-inline: 8px;
+			margin: 0;
+		}
+	}
+
+	&__close-button {
+		background: none;
+		border: none;
+		align-self: center;
+	}
+
+	&__body {
+		padding: 16px;
+
+		&__message {
+			margin: 0;
+			padding-bottom: 8px;
+			padding-inline: 8px;
+			line-height: 1.4;
+		}
+
+		&__translation-links {
+			align-items: baseline;
+			padding-inline: 8px;
+		}
+
+		&__translation-link {
+			padding: 4px;
+			background: none;
+			border: none;
+			align-items: center;
+			display: flex;
+			// set color to "inherit", so that the CX links have the same color as the rest of the text body (@color-base)
+			color: inherit;
+
+			&-icon {
+				// set display to "flex", so that the height of the outer span is equal to the icon height (20px)
+				display: flex;
+				padding-inline-end: 4px;
+			}
+
+			&-text {
+				font-size: 16px;
+				margin-inline-end: 4px;
+			}
+		}
+	}
 }
 </style>

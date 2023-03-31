@@ -6,7 +6,7 @@
 
 	.cx-contributions-item.cx-contributions-new > .oo-ui-buttonElement-button {
 		// Show '*' indicator to the top end corner of button.
-		&:before {
+		&::before {
 			content: ' ';
 			position: absolute;
 			top: 0;
@@ -18,7 +18,7 @@
 			z-index: 3; // OOUI button has z-index 2 on hover
 		}
 
-		&:after {
+		&::after {
 			content: '*';
 			position: absolute;
 			color: #fff;

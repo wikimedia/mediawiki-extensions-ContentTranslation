@@ -19,7 +19,7 @@
 	}
 }
 
-/* stylelint-disable indentation, selector-max-empty-lines, selector-type-case */
+/* stylelint-disable selector-max-empty-lines */
 /* At any time display only two suggestion lists */
 .cx-suggestionlist-type-4:nth-child( n+3 ),
 
@@ -32,7 +32,7 @@
 .cx-suggestionlist--collapsed .cx-slitem:nth-child( n+4 ) {
 	display: none;
 }
-/* stylelint-enable indentation, selector-max-empty-lines, selector-type-case */
+/* stylelint-enable selector-max-empty-lines */
 
 .cx-suggestionlist--expanded h2,
 .cx-suggestionlist--collapsed h2 {
@@ -86,7 +86,7 @@
 
 .cx-slitem {
 	&:hover {
-		.cx-slitem__desc:after {
+		.cx-slitem__desc::after {
 			background-color: #eaf3ff;
 			transition: background-color 100ms;
 		}
@@ -126,7 +126,7 @@
 			} );
 		}
 
-		&:before {
+		&::before {
 			// This is needed so we can use localized 'ellipsis'
 			content: attr( data-ellipsis );
 			position: absolute;
@@ -134,7 +134,7 @@
 			right: 0;
 		}
 
-		&:after {
+		&::after {
 			content: '';
 			background-color: #fff;
 			position: absolute;

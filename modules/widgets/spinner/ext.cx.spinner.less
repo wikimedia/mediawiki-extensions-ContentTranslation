@@ -7,8 +7,8 @@
 	white-space: nowrap;
 
 	.cx-bounce,
-	&:before,
-	&:after {
+	&::before,
+	&::after {
 		content: '';
 		background-color: @colorGray7;
 		display: inline-block;
@@ -19,12 +19,12 @@
 		animation-delay: -160ms;
 	}
 
-	&:before {
+	&::before {
 		margin-right: @width-bounce-dot / 4;
 		animation-delay: -330ms;
 	}
 
-	&:after {
+	&::after {
 		margin-left: @width-bounce-dot / 4;
 		animation-delay: 0ms;
 	}

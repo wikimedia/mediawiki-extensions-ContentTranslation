@@ -16,6 +16,6 @@
 		"eslint-config-wikimedia": "0.24.0",
 		"grunt-banana-checker": "0.10.0",
 		"pre-commit": "^1.2.2",
-		"stylelint-config-wikimedia": "0.13.0"
+		"stylelint-config-wikimedia": "0.14.0"
 	}
 }
