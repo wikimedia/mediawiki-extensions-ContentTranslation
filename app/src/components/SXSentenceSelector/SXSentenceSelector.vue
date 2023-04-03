@@ -77,6 +77,10 @@
       />
     </mw-row>
     <sx-translation-selector v-model:active="isTranslationOptionsActive" />
+    <sx-confirm-back-navigation-dialog
+      v-model="verifyBackNavigationDialogOn"
+      @discard-translation="doGoToDashboard"
+    />
   </section>
 </template>
 
@@ -85,6 +89,7 @@ import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 import { getDir } from "@wikimedia/language-data";
 
+import SxConfirmBackNavigationDialog from "./SXConfirmBackNavigationDialog.vue";
 import SxTranslationSelector from "./SXTranslationSelector.vue";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader.vue";
 import ProposedTranslationCard from "./ProposedTranslationCard.vue";
@@ -103,6 +108,7 @@ import { replaceUrl } from "@/utils/urlHandler";
 export default {
   name: "SxSentenceSelector",
   components: {
+    SxConfirmBackNavigationDialog,
     BlockTemplateAdaptationCard,
     TranslatedSegmentCard,
     ProposedTranslationCard,
@@ -194,6 +200,18 @@ export default {
     const router = useRouter();
 
     const goToDashboard = () => {
+      const { autoSavePending } = store.state.application;
+
+      if (autoSavePending) {
+        verifyBackNavigationDialogOn.value = true;
+
+        return;
+      }
+
+      doGoToDashboard();
+    };
+
+    const doGoToDashboard = () => {
       store.dispatch("translator/fetchTranslations");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
@@ -281,11 +299,14 @@ export default {
       () => selectedContentTranslationUnit.value instanceof SubSectionModel
     );
 
+    const verifyBackNavigationDialogOn = ref(false);
+
     return {
       applyTranslation,
       bounceTranslation,
       configureTranslationOptions,
       currentPageSection,
+      doGoToDashboard,
       editTranslation,
       getDir,
       goToDashboard,
@@ -294,13 +315,14 @@ export default {
       isTranslationOptionsActive,
       mwIconArrowPrevious,
       previewTranslation,
+      retryTranslation,
       selectPreviousTranslationUnit,
       sentenceSelectorStyle,
       shouldProposedTranslationBounce,
       skipTranslation,
       sourceLanguage,
       subSections,
-      retryTranslation,
+      verifyBackNavigationDialogOn,
     };
   },
 };

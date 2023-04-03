@@ -796,7 +796,11 @@
 				"cx-sx-dashboard-help-panel-feedback-label",
 				"cx-sx-dashboard-stats-panel-title",
 				"cx-sx-dashboard-stats-panel-monthly-stats-label",
-				"cx-sx-dashboard-stats-panel-total-stats-label"
+				"cx-sx-dashboard-stats-panel-total-stats-label",
+				"sx-confirm-back-navigation-dialog-title",
+				"sx-confirm-back-navigation-dialog-body",
+				"sx-confirm-back-navigation-dialog-discard-button-label",
+				"sx-confirm-back-navigation-dialog-continue-button-label"
 			],
 			"noflip": true
 		},

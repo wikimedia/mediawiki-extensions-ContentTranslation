@@ -489,5 +489,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Label of the link inside the dashboard help panel, that leads to the Content Translation talk page",
 	"cx-sx-dashboard-stats-panel-title": "Title of the panel inside dashboard, where translator statistics are provided",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Label of the monthly stats, displayed inside the statistics panel of the dashboard",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "Label of the total stats, displayed inside the statistics panel of the dashboard"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Label of the total stats, displayed inside the statistics panel of the dashboard",
+	"sx-confirm-back-navigation-dialog-title": "Title of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
+	"sx-confirm-back-navigation-dialog-body": "Body of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Label of the 'discard' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Label of the 'continue' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step"
 }
