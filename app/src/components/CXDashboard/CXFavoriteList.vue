@@ -46,7 +46,7 @@ export default {
       );
       router.push({
         name: "sx-translation-confirmer",
-        params: { previousRoute: "dashboard" },
+        query: { previousRoute: "dashboard" },
       });
     };
 

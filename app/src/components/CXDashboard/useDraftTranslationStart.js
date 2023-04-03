@@ -71,7 +71,7 @@ const useDraftTranslationStart = (translation) => {
     }
 
     store.commit("application/setCurrentSourceSection", section);
-    router.push({ name: "sx-sentence-selector", params: { force: true } });
+    router.push({ name: "sx-sentence-selector", query: { force: true } });
   };
 };
 

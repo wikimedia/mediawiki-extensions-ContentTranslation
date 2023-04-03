@@ -46,7 +46,7 @@ export default (router, store) => {
       if (!!currentSourceSection.value) {
         router.push({
           name: "sx-content-comparator",
-          params: { force: true },
+          query: { force: true },
         });
       } else {
         clearPreFilledSection();
@@ -55,7 +55,7 @@ export default (router, store) => {
       router.push({ name: "sx-section-selector" });
     } else {
       await store.dispatch("application/selectPageSectionByIndex", 0);
-      router.push({ name: "sx-quick-tutorial", params: { force: true } });
+      router.push({ name: "sx-quick-tutorial", query: { force: true } });
     }
     setTranslationURLParams(sectionSuggestion.value);
   };

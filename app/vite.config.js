@@ -44,11 +44,23 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "./src/main.js"),
       name: packageDef.name,
+      formats: ["es"],
+    },
+    rollupOptions: {
+      output: {
+        // Default extension is mjs
+        entryFileNames: `${packageDef.name}.es.js`,
+      },
     },
   },
   esbuild: {
     // Avoid ResourceLoader minification
     banner: "/*@nomin*/",
+  },
+  define: {
+    // Vite had stopped exporting process
+    // https://github.com/vitejs/vite/commit/8ad7ecd1029bdc0b47e55877db10ac630829c7e5
+    "process.env": {},
   },
   ...localConfig,
 });

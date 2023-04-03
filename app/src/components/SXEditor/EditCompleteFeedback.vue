@@ -28,7 +28,6 @@
 import { computed } from "vue";
 import mtValidator from "../../utils/mtValidator";
 import happyRobotSVG from "../../assets/happy-robot.svg?raw";
-import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
 
@@ -43,15 +42,17 @@ export default {
       type: String,
       default: null,
     },
+    proposedTranslation: {
+      type: String,
+      default: null,
+    },
   },
   setup(props) {
-    const route = useRoute();
-    const proposedTranslation = route.params.content;
     const { targetLanguage } = useApplicationState(useStore());
     const mtScore = computed(() =>
       mtValidator.calculateScore(
         props.editedTranslation,
-        proposedTranslation,
+        props.proposedTranslation,
         targetLanguage.value
       )
     );

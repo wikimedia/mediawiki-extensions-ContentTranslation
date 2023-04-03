@@ -16,6 +16,7 @@
       <edit-complete-feedback
         :edited-translation="editedTranslation"
         :show-feedback="showFeedback"
+        :proposed-translation="content"
       />
       <visual-editor
         :content="content"
@@ -64,27 +65,23 @@ export default {
   setup(props) {
     const editorReady = ref(false);
     const router = useRouter();
-    const route = useRoute();
     const store = useStore();
 
     const onEditorReady = () => (editorReady.value = true);
     const closeEditor = () => router.replace({ name: props.fromRoute });
-    const isFinal = !!route.params.isFinalEdit;
-    const isInitialEdit = !!route.params.isInitialEdit;
-
-    const proposedTranslation = route.params.content;
-    const originalContent = route.params.originalContent;
+    const { isFinalEdit, isInitialEdit, content, originalContent, title } =
+      history.state;
 
     const editedTranslation = ref(null);
     const showFeedback = ref(false);
     const logEvent = useEventLogging();
 
-    const { targetLanguage, sourceLanguage } = route.params;
+    const { targetLanguage, sourceLanguage } = useApplicationState(store);
     const mtScore = computed(() =>
       mtValidator.calculateScore(
         editedTranslation.value,
-        proposedTranslation,
-        targetLanguage
+        content,
+        targetLanguage.value
       )
     );
 
@@ -96,7 +93,8 @@ export default {
        */
       await new Promise((resolve) => setTimeout(resolve, 2000));
       showFeedback.value = false;
-      if (isFinal) {
+
+      if (isFinalEdit) {
         store.commit(
           "application/setCurrentSourceSectionEditedTranslation",
           translation
@@ -105,8 +103,8 @@ export default {
         if (mtScore.value === 0 && isInitialEdit) {
           logEvent({
             event_type: "editor_segment_add",
-            translation_source_language: sourceLanguage,
-            translation_target_language: targetLanguage,
+            translation_source_language: sourceLanguage.value,
+            translation_target_language: targetLanguage.value,
           });
         }
         store.dispatch(
@@ -119,17 +117,17 @@ export default {
 
     return {
       closeEditor,
-      content: proposedTranslation,
+      content,
       editedTranslation,
       editorReady,
       getDir,
-      sourceLanguage: route.params.sourceLanguage,
-      targetLanguage: route.params.targetLanguage,
+      sourceLanguage,
+      targetLanguage,
       onEditorReady,
       onEditCompleted,
       originalContent,
       showFeedback,
-      title: route.params.title,
+      title,
     };
   },
 };

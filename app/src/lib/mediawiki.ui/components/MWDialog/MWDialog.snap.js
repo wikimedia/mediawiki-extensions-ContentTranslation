@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MWDialog.vue renders dialog with given properties 1`] = `
-<transition-stub>
+<transition-stub
+  appear="false"
+  css="true"
+  name="mw-ui-animation-slide-left"
+  persisted="false"
+>
   <div
     aria-modal="true"
     class="mw-ui-dialog mw-ui-dialog--dialog"

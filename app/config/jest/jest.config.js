@@ -5,6 +5,9 @@ module.exports = {
   snapshotResolver: "<rootDir>/config/jest/snapshotResolver.js",
   setupFiles: ["./src/utils/mw.proxy.js"],
   testEnvironment: "jsdom",
+  testEnvironmentOptions: {
+    customExportConditions: ["node", "node-addons"],
+  },
   moduleNameMapper: {
     "@/(.*)$": "<rootDir>/src/$1",
     "^.+\\.(css|less|scss)$": "babel-jest",

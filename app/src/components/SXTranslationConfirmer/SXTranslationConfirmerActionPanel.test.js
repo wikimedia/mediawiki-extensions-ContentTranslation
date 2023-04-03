@@ -1,7 +1,6 @@
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
-import { colors } from "../../lib/mediawiki.ui/plugins/colors";
 import router from "../../router";
 import mockStore from "./actionPanelMockStore";
 
@@ -18,6 +17,9 @@ describe("SXTranslationConfirmer Action Panel test", () => {
       },
     },
     store: mockStore,
+    beforeCreate() {
+      this.$i18n = jest.fn((key) => key);
+    },
   });
 
   it("Component output matches snapshot", () => {

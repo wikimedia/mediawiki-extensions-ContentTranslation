@@ -30,7 +30,7 @@ const startSectionTranslation = async (
   store.dispatch("application/initializeSectionTranslation", suggestion);
   router.push({
     name: "sx-translation-confirmer",
-    params: { previousRoute, eventSource },
+    query: { previousRoute, eventSource },
   });
 };
 

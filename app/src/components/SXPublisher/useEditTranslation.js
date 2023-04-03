@@ -6,8 +6,6 @@ const useEditTranslation = (store, router) => {
     currentSourcePage,
     currentTargetPage,
     currentSourceSection: pageSection,
-    sourceLanguage,
-    targetLanguage,
   } = useApplicationState(store);
 
   const content = computed(() =>
@@ -23,10 +21,8 @@ const useEditTranslation = (store, router) => {
   const editTranslation = () =>
     router.push({
       name: "sx-editor",
-      params: {
+      state: {
         content: content.value,
-        sourceLanguage: sourceLanguage.value,
-        targetLanguage: targetLanguage.value,
         title: currentTargetPage.value?.title || currentSourcePage.value?.title,
         isFinalEdit: true,
       },

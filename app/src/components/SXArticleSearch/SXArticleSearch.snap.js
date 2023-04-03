@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXArticleSearch component test Component output matches snapshot 1`
-] = `
+exports[`SXArticleSearch component test Component output matches snapshot 1`] = `
 <section
   class="sx-article-search"
 >
@@ -404,7 +402,11 @@ exports[
   </div>
   <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
   <transition-stub
+    appear="false"
     class="sx-article-search-language-selector"
+    css="true"
+    name="mw-ui-animation-slide-up"
+    persisted="false"
   >
     <!--v-if-->
   </transition-stub>

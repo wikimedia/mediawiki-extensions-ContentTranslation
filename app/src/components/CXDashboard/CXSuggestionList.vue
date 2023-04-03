@@ -116,7 +116,7 @@ export default {
       store.dispatch("application/initializeSectionTranslation", suggestion);
       router.push({
         name: "sx-translation-confirmer",
-        params: {
+        query: {
           previousRoute: "dashboard",
           eventSource: "suggestion_no_seed",
         },

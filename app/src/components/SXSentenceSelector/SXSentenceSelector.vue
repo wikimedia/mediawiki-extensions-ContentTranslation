@@ -214,10 +214,8 @@ export default {
     const editTranslation = (content, isInitialEdit) => {
       router.push({
         name: "sx-editor",
-        params: {
+        state: {
           content,
-          sourceLanguage: sourceLanguage.value,
-          targetLanguage: targetLanguage.value,
           originalContent: originalSegmentContent.value,
           title:
             currentTargetPage.value?.title || currentSourcePage.value.title,

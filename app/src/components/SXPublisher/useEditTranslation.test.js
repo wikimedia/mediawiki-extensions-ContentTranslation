@@ -31,8 +31,6 @@ describe("useEditTranslation test", () => {
         application: {
           namespaced: true,
           state: {
-            sourceLanguage: "en",
-            targetLanguage: "el",
             currentSourceSection: new PageSection({
               id: 101,
               subSections: [subSection],
@@ -50,11 +48,9 @@ describe("useEditTranslation test", () => {
 
     expect(routerPushSpy).toHaveBeenCalledWith({
       name: "sx-editor",
-      params: {
+      state: {
         content:
           '<section rel="cx:Section" id="cxTargetSection11"><span class="cx-segment" data-segmentid="1">Test translated sentence</span></section>',
-        sourceLanguage: "en",
-        targetLanguage: "el",
         title: "Target title",
         isFinalEdit: true,
       },

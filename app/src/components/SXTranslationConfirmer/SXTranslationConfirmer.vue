@@ -51,7 +51,7 @@ import {
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
 import { computed, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
@@ -67,22 +67,30 @@ export default {
     SxArticleLanguageSelector,
     SxTranslationConfirmerActionPanel,
   },
-  setup() {
+  props: {
+    previousRoute: {
+      type: String,
+      default: null,
+    },
+    eventSource: {
+      type: String,
+      default: null,
+    },
+  },
+  setup(props) {
     const store = useStore();
     const { sourceLanguage, targetLanguage, currentSourcePage } =
       useApplicationState(store);
     const articleImageSource = computed(
       () => currentSourcePage.value?.image?.source
     );
-    const route = useRoute();
-    const { previousRoute, eventSource } = route.params;
     const logEvent = useEventLogging();
 
     onMounted(() => {
       store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
       logEvent({
         event_type: "dashboard_translation_start",
-        event_source: eventSource,
+        event_source: props.eventSource,
         translation_source_language: sourceLanguage.value,
         translation_target_language: targetLanguage.value,
       });
@@ -107,7 +115,7 @@ export default {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
 
-      router.push({ name: previousRoute });
+      router.push({ name: props.previousRoute });
     };
 
     return {
