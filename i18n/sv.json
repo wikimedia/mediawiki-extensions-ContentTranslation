@@ -34,6 +34,7 @@
 	"cx-header-translation-center": "Översättningscenter",
 	"cx-header-all-translations": "Alla översättningar",
 	"cx-source-view-page": "visa sida",
+	"cx-target-view-page": "visa sida",
 	"cx-publish-page-success": "Sidan publicerades på $1",
 	"cx-publish-error-abuse-filter": "Automatiska redigeringsfilter har identifierat problematiskt innehåll i din översättning. Filterträff: $1",
 	"cx-publish-error-empty": "Servern svarade med ingen data.",
@@ -464,5 +465,9 @@
 	"cx-sx-block-template-mapped-params-text": "$1 av {{PLURAL:$2|$2 parameter|$2 parametrar}} lades till från originalmallen",
 	"cx-sx-block-template-no-source-params-text": "Originalmallen hade inga parametrar att överföra",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatoriska parametrar förblir ofyllda för mallen på $2. Redigera mallen för att fylla i dem manuellt",
-	"cx-sx-block-template-missing-optional-params-text": "$1 ytterligare parametrar kan fyllas i för mallen på $2. Redigera mallen för att fylla i dem manuellt"
+	"cx-sx-block-template-missing-optional-params-text": "$1 ytterligare parametrar kan fyllas i för mallen på $2. Redigera mallen för att fylla i dem manuellt",
+	"cx-sx-dashboard-help-panel-title": "Behöver du hjälp med att översätta?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Mer om detta verktyg",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistik",
+	"cx-sx-dashboard-help-panel-feedback-label": "Ge oss återkoppling"
 }

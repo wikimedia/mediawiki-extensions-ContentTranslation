@@ -405,5 +405,8 @@
 	"sx-block-template-adaptation-card-body-header-failure": "Одговарајући шаблон није доступан за $1",
 	"cx-uls-relevant-languages-panel-header": "Преведите ову страницу",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Преведени одељак ће бити <strong>уводни део новог чланка</strong>.",
-	"cx-uls-translate-page-quick-action-label": "Преведите ову страницу"
+	"cx-uls-translate-page-quick-action-label": "Преведите ову страницу",
+	"cx-sx-dashboard-help-panel-more-info-label": "Детаљније о овој алатки",
+	"cx-sx-dashboard-help-panel-stats-label": "Статистике",
+	"cx-sx-dashboard-help-panel-feedback-label": "Повратне информације"
 }

@@ -453,5 +453,9 @@
 	"cx-sx-block-template-mapped-params-text": "Iz izvirne predloge {{PLURAL:$1|je bil dodan|sta bila dodana|so bili dodani|je bilo dodanih}} $1 od {{PLURAL:$2|$2 parametra| $2 parametrov}}",
 	"cx-sx-block-template-no-source-params-text": "Izvorna predloga ni imela parametrov za prenos",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 {{PLURAL:$1|obvezen parameter|obvezna parametra|obvezni parametri|obveznih parametrov}} {{PLURAL:$1|ostane|ostaneta|ostanejo|ostane}} pri predlogi v $2 {{PLURAL:$1|neizpolnjen|neizpolnjena|neizpolnjeni|neizpolnjenih}}. Uredite predlogo, da jih izpolnite ročno.",
-	"cx-sx-block-template-missing-optional-params-text": "Pri predlogi v $2 je mogoče ročno izpolniti $1 {{PLURAL:$1|dodatni parameter|dodatna parametra|dodatne parametre|dodatnih parametrov}}"
+	"cx-sx-block-template-missing-optional-params-text": "Pri predlogi v $2 je mogoče ročno izpolniti $1 {{PLURAL:$1|dodatni parameter|dodatna parametra|dodatne parametre|dodatnih parametrov}}",
+	"cx-sx-dashboard-help-panel-title": "Potrebujete pomoč pri prevajanju?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Več o tem orodju",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistika",
+	"cx-sx-dashboard-help-panel-feedback-label": "Pošlji odziv"
 }

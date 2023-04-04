@@ -450,5 +450,12 @@
 	"cx-sx-block-template-mapped-params-text": "{{PLURAL:$2|Ставен е $1 од $2 параметар|Ставени се $1 од $2 праметри}} на изворната предлошка",
 	"cx-sx-block-template-no-source-params-text": "Изворната предлошка нема параметри за префрлање",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 задолжителни параметри останаа непополнети за предлошката на $2. Уредете ја за да ги пополните рачно",
-	"cx-sx-block-template-missing-optional-params-text": "$1 дополнителни параметри можат да се пополнат за предлошката на $2. Уредете ја за да ги пополните рачно"
+	"cx-sx-block-template-missing-optional-params-text": "$1 дополнителни параметри можат да се пополнат за предлошката на $2. Уредете ја за да ги пополните рачно",
+	"cx-sx-dashboard-help-panel-title": "Ви треба помош со преведувањето?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Повеќе за алаткава",
+	"cx-sx-dashboard-help-panel-stats-label": "Статистика",
+	"cx-sx-dashboard-help-panel-feedback-label": "Дајте ваше мислење",
+	"cx-sx-dashboard-stats-panel-title": "Вашето влијание",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Месецов",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Вкупно"
 }

@@ -229,5 +229,9 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Manca, entre d'altres, en <span>$1</span>",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manca, entre d'altres, en <span>$1</span> i <span>$2</span>",
 	"cx-uls-relevant-languages-panel-header": "Traduïu aquesta pàgina",
-	"cx-uls-translate-page-quick-action-label": "Traduïu aquesta pàgina"
+	"cx-uls-translate-page-quick-action-label": "Traduïu aquesta pàgina",
+	"cx-sx-dashboard-help-panel-title": "Necessites ajuda per a traduir?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Més informació sobre aquesta eina",
+	"cx-sx-dashboard-help-panel-stats-label": "Estadístiques",
+	"cx-sx-dashboard-help-panel-feedback-label": "Doneu-nos la vostra opinió"
 }

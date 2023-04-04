@@ -461,5 +461,12 @@
 	"cx-sx-block-template-mapped-params-text": "{{PLURAL:$1|פרמטר אחד|$1 פרמטרים}} {{PLURAL:$2|ויחיד|מתוך $2}} {{PLURAL:$1|נוסף|נוספו}} מהתבנית המקורית",
 	"cx-sx-block-template-no-source-params-text": "לתבנית המקורית לא היו פרמטרים להעברה",
 	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|פרמטר אחד שחובה למלא לא מולא|$1 פרמטרים שחובה למלא לא מולא}} עבור התבנית ב־$2. נא לערוך את התבנית כדי למלא אות3ן באופן ידני",
-	"cx-sx-block-template-missing-optional-params-text": "אפשר להוסיף עוד {{PLURAL:$1|פרמטר אחד|$1 פרמטרים}} בשביל התבנית ב־$2. נא לערוך את התבנית כדי למלא אותם ידנית."
+	"cx-sx-block-template-missing-optional-params-text": "אפשר להוסיף עוד {{PLURAL:$1|פרמטר אחד|$1 פרמטרים}} בשביל התבנית ב־$2. נא לערוך את התבנית כדי למלא אותם ידנית.",
+	"cx-sx-dashboard-help-panel-title": "דרושה לך עזרה בתרגום?",
+	"cx-sx-dashboard-help-panel-more-info-label": "מידע נוסף על הכלי הזה",
+	"cx-sx-dashboard-help-panel-stats-label": "סטטיסטיקות",
+	"cx-sx-dashboard-help-panel-feedback-label": "שליחת משוב",
+	"cx-sx-dashboard-stats-panel-title": "ההשפעה שלך",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "החודש",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "סך הכול"
 }

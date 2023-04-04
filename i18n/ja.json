@@ -406,5 +406,8 @@
 	"cx-contributecard-entrypoint-desc": "ひとつの節または記事全体を翻訳します。より多くのコンテンツをより多くの言語で利用できるようにします。",
 	"cx-contributecard-entrypoint-cta": "翻訳を開始",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "同等のテンプレートが見つかりません",
-	"cx-sx-block-template-mapping-status-title-fully-template": "このテンプレートは自動翻訳できます"
+	"cx-sx-block-template-mapping-status-title-fully-template": "このテンプレートは自動翻訳できます",
+	"cx-sx-dashboard-help-panel-title": "翻訳の助けが必要ですか?",
+	"cx-sx-dashboard-help-panel-stats-label": "統計",
+	"cx-sx-dashboard-help-panel-feedback-label": "フィードバックをお寄せください"
 }
