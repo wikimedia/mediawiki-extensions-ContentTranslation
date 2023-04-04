@@ -111,37 +111,28 @@ function saveTranslation({ rootState, rootGetters, commit }) {
   );
 
   const isSandbox = rootGetters["application/isSandboxTarget"];
-  commit("application/increaseAutoSaveInProgressCounter", null, { root: true });
 
   /**
    * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
    * @type {Promise<PublishFeedbackMessage|null>}
    */
-  return cxTranslatorApi
-    .saveTranslation({
-      sourceTitle,
-      targetTitle,
-      // pass an empty string to be stored as "cxsx_source_section_title" inside "cx_section_translations"
-      // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
-      sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
-      // pass an empty string to be stored as "cxsx_target_section_title" inside "cx_section_translations"
-      // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
-      targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
-      sourceLanguage,
-      targetLanguage,
-      revision: rootGetters["application/getCurrentRevision"],
-      units: units.map((unit) => unit.payload),
-      // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
-      sectionId: baseSectionId,
-      isSandbox,
-    })
-    .then((publishFeedbackMessage) => {
-      commit("application/decreaseAutoSaveInProgressCounter", null, {
-        root: true,
-      });
-
-      return publishFeedbackMessage;
-    });
+  return cxTranslatorApi.saveTranslation({
+    sourceTitle,
+    targetTitle,
+    // pass an empty string to be stored as "cxsx_source_section_title" inside "cx_section_translations"
+    // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
+    sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
+    // pass an empty string to be stored as "cxsx_target_section_title" inside "cx_section_translations"
+    // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
+    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
+    sourceLanguage,
+    targetLanguage,
+    revision: rootGetters["application/getCurrentRevision"],
+    units: units.map((unit) => unit.payload),
+    // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
+    sectionId: baseSectionId,
+    isSandbox,
+  });
 }
 
 /**

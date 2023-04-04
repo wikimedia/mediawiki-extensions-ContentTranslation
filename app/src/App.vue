@@ -23,7 +23,7 @@ export default {
   setup() {
     const store = useStore();
     const unsavedChangesExist = computed(
-      () => store.getters["application/unsavedChangesExist"]
+      () => store.state.application.autoSavePending
     );
     onMounted(() => {
       window.addEventListener("beforeunload", (e) => {

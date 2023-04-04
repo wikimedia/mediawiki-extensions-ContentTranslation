@@ -137,20 +137,6 @@ const mutations = {
     state.autoSavePending = value;
   },
 
-  /**
-   * @param {object} state
-   */
-  increaseAutoSaveInProgressCounter: (state) => {
-    state.autoSaveInProgressCounter++;
-  },
-
-  /**
-   * @param {object} state
-   */
-  decreaseAutoSaveInProgressCounter: (state) => {
-    state.autoSaveInProgressCounter--;
-  },
-
   setCXServerToken: (state, token) => {
     state.cxServerToken = token;
   },
