@@ -368,6 +368,13 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",
 	"sx-block-template-adaptation-card-body-header-success": "Voorgesteld sjabloon",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Vertaling bewerken",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ontbreekt in <span>$1</span>",
+	"sx-missing-languages-entrypoint-panel-text-two-missing": "Ontbreekt in <span>$1</span> and <span>$2</span>",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Ontbreekt in <span>$1</span>, <span>$2</span> en meer",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Ontbreekt in <span>$1</span> en meer",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreekt in <span>$1</span>, <span>$2</span> en meer",
+	"cx-uls-relevant-languages-panel-header": "Deze pagina vertalen",
+	"cx-uls-relevant-languages-panel-message": "Deze pagina ontbreekt in sommige talen die u wellicht kent. U kunt vertalen in een paar minuten!",
 	"cx-uls-translate-page-quick-action-label": "Deze pagina vertalen",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publiceren"
 }
