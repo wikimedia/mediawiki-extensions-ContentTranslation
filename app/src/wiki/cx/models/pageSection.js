@@ -37,6 +37,15 @@ export default class PageSection {
     this.isTitleSelected = isTitleSelected;
   }
 
+  reset() {
+    this.proposedTitleTranslations = {
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.originalTitle,
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
+    };
+    this.translatedTitle = "";
+    this.subSections.forEach((subSection) => subSection.reset());
+  }
+
   static get LEAD_SECTION_DUMMY_TITLE() {
     return LEAD_SECTION_DUMMY_TITLE;
   }

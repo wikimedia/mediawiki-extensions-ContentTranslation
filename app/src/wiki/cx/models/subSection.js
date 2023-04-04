@@ -35,6 +35,17 @@ export default class SubSection {
     this.corporaRestoredUnit = null;
   }
 
+  reset() {
+    this.blockTemplateSelected = false;
+    this.blockTemplateTranslatedContent = "";
+    this.blockTemplateProposedTranslations = {};
+    this.blockTemplateAdaptationInfo = {};
+    this.blockTemplateMTProviderUsed = "";
+    this.editedTranslation = null;
+    this.corporaRestoredUnit = null;
+    this.sentences.forEach((sentence) => sentence.reset());
+  }
+
   /**
    * Sets the adaptation info object as it is calculated by the cxserver
    * for the given MT provider.

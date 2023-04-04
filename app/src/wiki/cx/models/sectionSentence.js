@@ -30,6 +30,16 @@ export default class SectionSentence {
     this.selected = selected;
   }
 
+  reset() {
+    this.proposedTranslations = {
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.originalContent,
+      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
+    };
+    this.translatedContent = "";
+    this.mtProviderUsed = "";
+    this.selected = false;
+  }
+
   /**
    * @return {string}
    */
