@@ -215,7 +215,9 @@ export default {
       store.dispatch("translator/fetchTranslations");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
+      store.dispatch("application/clearPendingSaveTranslationRequests");
       router.push({ name: "dashboard" });
+      currentPageSection.value.reset();
     };
 
     const configureTranslationOptions = () => {

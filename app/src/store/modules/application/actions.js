@@ -56,6 +56,12 @@ const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
   return debouncedSaveTranslation;
 };
 
+const clearPendingSaveTranslationRequests = ({ dispatch, commit }) => {
+  commit("setAutoSavePending", false);
+  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
+  debouncedSave.cancel();
+};
+
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
  * If no such token or current token is expired an api request to
@@ -582,6 +588,7 @@ export default {
   applyEditedTranslationToSelectedTranslationUnit,
   applyProposedTranslationToSelectedTranslationUnit,
   clearCurrentSectionSuggestion,
+  clearPendingSaveTranslationRequests,
   fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
   initializeMTProviders,
