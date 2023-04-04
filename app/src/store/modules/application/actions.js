@@ -1,8 +1,6 @@
-import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import siteApi from "../../../wiki/mw/api/site";
 import translatorApi from "../../../wiki/cx/api/translator";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
-import { siteMapper } from "../../../utils/mediawikiHelper";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
   getTemplateAdaptationInfo,
@@ -293,8 +291,8 @@ function applyProposedTranslationToSelectedTranslationUnit({
     translation,
     currentMTProvider
   );
-  const dispatchedSave = getDebouncedSaveTranslation({ dispatch, commit });
-  dispatchedSave();
+  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
+  debouncedSave();
   commit("setAutoSavePending", true);
   dispatch("selectNextTranslationUnit");
 }
@@ -348,8 +346,8 @@ async function applyEditedTranslationToSelectedTranslationUnit(
     translation,
     currentMTProvider
   );
-  const dispatchedSave = getDebouncedSaveTranslation({ dispatch, commit });
-  dispatchedSave();
+  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
+  debouncedSave();
   commit("setAutoSavePending", true);
 
   dispatch("selectNextTranslationUnit");

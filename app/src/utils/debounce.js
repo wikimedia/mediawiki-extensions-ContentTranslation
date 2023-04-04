@@ -14,7 +14,7 @@
 function debounce(func, wait, immediate) {
   let timeout;
 
-  return (...args) => {
+  const debounce = (...args) => {
     const context = this;
 
     const later = () => {
@@ -34,6 +34,10 @@ function debounce(func, wait, immediate) {
       timeout = setTimeout(later, wait);
     }
   };
+
+  debounce.cancel = () => clearTimeout(timeout);
+
+  return debounce;
 }
 
 export default debounce;
