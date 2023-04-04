@@ -1,5 +1,8 @@
 import { initializeLanguages } from "@/composables/useLanguageHelper";
-import startSectionTranslationFromUrl from "./useUrlTranslationStart";
+import {
+  getEventSourceFromUrlCampaign,
+  startSectionTranslationFromUrl,
+} from "./useUrlTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
 
 /**
@@ -35,7 +38,7 @@ const initializeDashboard = async (router, store, logEvent) => {
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
   logEvent({
     event_type: "dashboard_open",
-    event_source: "direct",
+    event_source: getEventSourceFromUrlCampaign() || "direct",
     content_translation_session_position: 0,
     translation_source_language: sourceLanguage.value,
     translation_target_language: targetLanguage.value,

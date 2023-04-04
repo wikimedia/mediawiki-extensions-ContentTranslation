@@ -42,4 +42,4 @@ const startSectionTranslationFromUrl = (router, store, logEvent, pageTitle) => {
   startSectionTranslation(router, store, pageTitle, "dashboard", eventSource);
 };
 
-export default startSectionTranslationFromUrl;
+export { getEventSourceFromUrlCampaign, startSectionTranslationFromUrl };
