@@ -1,6 +1,9 @@
 <template>
   <main class="sx-translation-confirmer-view" :class="classes">
-    <sx-translation-confirmer />
+    <sx-translation-confirmer
+      :event-source="eventSource"
+      :previous-route="previousRoute"
+    />
   </main>
 </template>
 
@@ -11,6 +14,16 @@ export default {
   name: "SxTranslationConfirmerView",
   components: {
     SxTranslationConfirmer,
+  },
+  props: {
+    previousRoute: {
+      type: String,
+      default: null,
+    },
+    eventSource: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     classes() {
