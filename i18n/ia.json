@@ -450,5 +450,12 @@
 	"cx-sx-block-template-mapped-params-text": "$1 de $2 parametro{{PLURAL:$2||s}} del patrono original ha essite addite",
 	"cx-sx-block-template-no-source-params-text": "Le patrono original non habeva parametros a transferer",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 parametro{{PLURAL:$1||s}} obligatori resta non plenate pro le patrono in $2. Modifica le patrono pro completar lo{{PLURAL:$1||s}} manualmente.",
-	"cx-sx-block-template-missing-optional-params-text": "$1 parametro{{PLURAL:$1||s}} additional pote esser plenate pro le patrono in $2. Modifica le patrono pro completar lo{{PLURAL:$1||s}} manualmente."
+	"cx-sx-block-template-missing-optional-params-text": "$1 parametro{{PLURAL:$1||s}} additional pote esser plenate pro le patrono in $2. Modifica le patrono pro completar lo{{PLURAL:$1||s}} manualmente.",
+	"cx-sx-dashboard-help-panel-title": "Ha tu besonio de adjuta a traducer?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Plus information sur iste instrumento",
+	"cx-sx-dashboard-help-panel-stats-label": "Statisticas",
+	"cx-sx-dashboard-help-panel-feedback-label": "Da nos tu opinion",
+	"cx-sx-dashboard-stats-panel-title": "Tu impacto",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Iste mense",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Total"
 }

@@ -248,5 +248,6 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Թարգմանել «$1»",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Հրապարակել",
 	"cx-contributecard-entrypoint-title": "Թարգմանություններ",
-	"cx-contributecard-entrypoint-cta": "Սկսել թարգմանությունը"
+	"cx-contributecard-entrypoint-cta": "Սկսել թարգմանությունը",
+	"cx-sx-dashboard-help-panel-stats-label": "Վիճակագրություն"
 }

@@ -457,5 +457,8 @@
 	"cx-sx-dashboard-help-panel-title": "Potrebujete pomoč pri prevajanju?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Več o tem orodju",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistika",
-	"cx-sx-dashboard-help-panel-feedback-label": "Pošlji odziv"
+	"cx-sx-dashboard-help-panel-feedback-label": "Pošlji odziv",
+	"cx-sx-dashboard-stats-panel-title": "Vaš vpliv",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ta mesec",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Skupno"
 }

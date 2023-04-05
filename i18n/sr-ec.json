@@ -408,5 +408,8 @@
 	"cx-uls-translate-page-quick-action-label": "Преведите ову страницу",
 	"cx-sx-dashboard-help-panel-more-info-label": "Детаљније о овој алатки",
 	"cx-sx-dashboard-help-panel-stats-label": "Статистике",
-	"cx-sx-dashboard-help-panel-feedback-label": "Повратне информације"
+	"cx-sx-dashboard-help-panel-feedback-label": "Повратне информације",
+	"cx-sx-dashboard-stats-panel-title": "Ваш утицај",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Овај месец",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Укупно"
 }

@@ -373,5 +373,9 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "તમે રોબોટ નથી તે ચકાસી રહ્યા છીએ",
 	"cx-sx-publisher-captcha-dialog-publish-button": "પ્રકાશિત કરો",
 	"cx-contributecard-entrypoint-title": "ભાષાંતરો",
-	"cx-contributecard-entrypoint-cta": "ભાષાંતર શરુ કરો"
+	"cx-contributecard-entrypoint-cta": "ભાષાંતર શરુ કરો",
+	"cx-sx-dashboard-help-panel-stats-label": "આંકડા",
+	"cx-sx-dashboard-help-panel-feedback-label": "અમને અભિપ્રાય આપો",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "આ મહિને",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "કુલ"
 }

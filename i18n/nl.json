@@ -384,5 +384,6 @@
 	"sx-recent-edit-entrypoint-invitation-button-details": "$1 sectie{{PLURAL:$1||s}} ontbreken in $2",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publiceren",
 	"cx-contributecard-entrypoint-title": "Vertalingen",
-	"cx-contributecard-entrypoint-cta": "Een vertaling starten"
+	"cx-contributecard-entrypoint-cta": "Een vertaling starten",
+	"cx-sx-dashboard-stats-panel-title": "Uw bijdrage"
 }

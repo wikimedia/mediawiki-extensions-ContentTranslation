@@ -332,5 +332,12 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Pubblica",
 	"cx-contributecard-entrypoint-title": "Traduzioni",
 	"cx-contributecard-entrypoint-desc": "Traduci una sezione o un intera voce. Rendi disponibili più contenuti in più lingue.",
-	"cx-contributecard-entrypoint-cta": "Inizia una traduzione"
+	"cx-contributecard-entrypoint-cta": "Inizia una traduzione",
+	"cx-sx-dashboard-help-panel-title": "Hai bisogno di aiuto per tradurre?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Ulteriori informazioni su questo strumento",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistiche",
+	"cx-sx-dashboard-help-panel-feedback-label": "Inviaci un commento",
+	"cx-sx-dashboard-stats-panel-title": "Il tuo impatto",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Questo mese",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Totale"
 }
