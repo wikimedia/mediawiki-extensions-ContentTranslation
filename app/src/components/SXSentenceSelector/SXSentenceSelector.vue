@@ -104,6 +104,7 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import translator from "../../wiki/cx/api/translator";
 import { replaceUrl } from "@/utils/urlHandler";
+import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 
 export default {
   name: "SxSentenceSelector",
@@ -150,28 +151,27 @@ export default {
       isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
     );
     const logEvent = useEventLogging();
+    const initializeSegmentSelection = useInitializeSegmentSelection();
 
     onMounted(async () => {
       const currentPage = store.getters["application/getCurrentPage"];
       const { currentTranslation } = store.state.application;
 
+      const promises = [];
+
       if (currentTranslation && !currentTranslation.restored) {
-        translator
+        const restorationPromise = translator
           .fetchTranslationUnits(currentTranslation.id)
           .then((translationUnits) => {
             currentPage.restoreCorporaDraft(translationUnits);
             currentTranslation.restored = true;
           });
+        promises.push(restorationPromise);
       }
 
-      // When user returns to "Pick a sentence" step from "Preview and publish"
-      // publishing warnings and errors should be cleared.
-      await store.dispatch("application/initializeMTProviders");
+      promises.push(store.dispatch("application/initializeMTProviders"));
+      Promise.all(promises).then(() => initializeSegmentSelection());
 
-      // If no sentence is selected, select title
-      if (!selectedContentTranslationUnit.value) {
-        store.dispatch("application/selectTranslationUnitById", 0);
-      }
       screenHeight.value = window.innerHeight;
     });
 

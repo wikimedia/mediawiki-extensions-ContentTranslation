@@ -3,6 +3,7 @@ import { getAutonym } from "@wikimedia/language-data";
 
 /**
  * @param {Store} store
+ * @return {{currentSectionSuggestion: ComputedRef<PageSection>, proposedTranslation: *, currentMTProvider: *, currentSourceSection: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, isSectionTitleSelected: *, selectedContentTranslationUnit: *, sourceLanguage: *, currentSourcePage: *}}
  */
 export default function (store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);

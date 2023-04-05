@@ -85,6 +85,16 @@ export default class PageSection {
   /**
    * @return {SubSection|SectionSentence|null}
    */
+  get lastTranslatedContentTranslationUnit() {
+    // Content translation units are already sorted in order of appearance
+    return [...this.contentTranslationUnits]
+      .reverse()
+      .find((unit) => unit.isTranslated);
+  }
+
+  /**
+   * @return {SubSection|SectionSentence|null}
+   */
   get selectedContentTranslationUnit() {
     return this.contentTranslationUnits.find((unit) => unit.selected);
   }
