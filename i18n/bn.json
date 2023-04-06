@@ -32,6 +32,7 @@
 	"cx-header-translation-center": "অনুবাদ কেন্দ্র",
 	"cx-header-all-translations": "সমস্ত অনুবাদ",
 	"cx-source-view-page": "পাতা দেখুন",
+	"cx-target-view-page": "পাতা দেখুন",
 	"cx-publish-page-success": "$1-এ পাতাটি প্রকাশিত হয়েছে",
 	"cx-publish-error-abuse-filter": "স্বয়ংক্রিয় সম্পাদনা ছাঁকনি আপনার অনুবাদে সমস্যাযুক্ত সামগ্রী সনাক্ত করেছে। বিস্তারিত: $1",
 	"cx-publish-error-empty": "সার্ভার কোন তথ্য দেয়া ছাড়াই সাড়া দিয়েছে।",

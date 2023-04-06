@@ -1,0 +1,29 @@
+{
+	"@metadata": {
+		"authors": [
+			"MRidhaAJ"
+		]
+	},
+	"cx": "ترجمة الصفحه",
+	"cx-dashboard-header": "ترجمات",
+	"cx-javascript": "هاي الأداة ما تشتغل بدون جافا سكربت. الجافا سكربت طافي، فشل بالشغل، لو هاذ المتصفح مو مدعوم.",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|ترجمة المحتوى]] هي أداة تخليك تسوي ترجمة سريعة للصفحات إلى لغتك. [$1 جربها هسه!]",
+	"cx-license-agreement": "لو استمريت فإنته توافق على [https://foundation.wikimedia.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك جوا رخصات [https://creativecommons.org/licenses/by-sa/3.0/deed.ar المشاع الإبداعي] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة].",
+	"cx-error-server-connection": "خطأ: تعذر الاتصال بالسيرفر.",
+	"cx-desc": "تسهل [[Special:ContentTranslation|ترجمة]] صفحات المحتوى",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ترجمته}}",
+	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|ترجمة آلية}})",
+	"cx-header-translation-center": "مركز الترجمة",
+	"cx-header-all-translations": "كل الترجمات",
+	"cx-source-view-page": "طلع الصفحة",
+	"cx-target-view-page": "طلع الصفحة",
+	"cx-publish-page-success": "نشرت الصفحة في $1",
+	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى مال مشاكل بترجمتك، ضربة المرشح: $1",
+	"cx-publish-error-empty": "رد الخادم بدون بيانات.",
+	"cx-publish-error-spam-blacklist": "تم اكتشاف محتوى محتمل مو مرغوب بيه في ترجمتك، التفاصيل: $1",
+	"cx-publish-error-title-blacklist": "العنوان اللي كتبته مدرج في القائمه السوده; يُرجَى اختيار اسم ثاني لترجمتك.",
+	"cx-publish-summary": "أُنشئَت بترجمة الصفحه \"$1\"",
+	"cx-entrypoint-dialog-button-translate-from": "ترجم من $1",
+	"cx-entrypoint-dialog-desc": "تكدر تساعد ويكيبيديا بترجمة هاي الصفحه. الترجمه هي وسيله سهله حتى تسوي محتوى جديد بلغتك.",
+	"cx-translation-filter-label-all-languages": "كل"
+}

@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Angpradesh"
+			"Angpradesh",
+			"Proabscorp!"
 		]
 	},
-	"cx-suggestionlist-favorite": "बाद लेली"
+	"cx-suggestionlist-favorite": "बाद लेली",
+	"sx-article-search-language-selector-dialog-title": "भाषा सिनी",
+	"sx-translation-list-language-selector-dialog-title": "भाषा सिनी"
 }

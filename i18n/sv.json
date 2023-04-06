@@ -34,6 +34,7 @@
 	"cx-header-translation-center": "Översättningscenter",
 	"cx-header-all-translations": "Alla översättningar",
 	"cx-source-view-page": "visa sida",
+	"cx-target-view-page": "visa sida",
 	"cx-publish-page-success": "Sidan publicerades på $1",
 	"cx-publish-error-abuse-filter": "Automatiska redigeringsfilter har identifierat problematiskt innehåll i din översättning. Filterträff: $1",
 	"cx-publish-error-empty": "Servern svarade med ingen data.",
