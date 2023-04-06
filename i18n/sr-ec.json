@@ -411,5 +411,8 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Повратне информације",
 	"cx-sx-dashboard-stats-panel-title": "Ваш утицај",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Овај месец",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "Укупно"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Укупно",
+	"sx-confirm-back-navigation-dialog-body": "Све измене ће бити изгубљене.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Одбаци",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Настави"
 }

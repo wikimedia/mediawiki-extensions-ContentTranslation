@@ -237,5 +237,8 @@
 	"cx-sx-language-selector-all-languages": "सभी भाषाएँ",
 	"sx-translation-list-language-selector-dialog-title": "भाषाएँ",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "अनुभाग",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "अनुवाद करें \"$1\""
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "अनुवाद करें \"$1\"",
+	"cx-sx-dashboard-help-panel-stats-label": "सांख्यिकी",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "कुल",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "जारी रखें"
 }

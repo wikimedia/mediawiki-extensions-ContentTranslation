@@ -460,5 +460,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Pošlji odziv",
 	"cx-sx-dashboard-stats-panel-title": "Vaš vpliv",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ta mesec",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "Skupno"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Skupno",
+	"sx-confirm-back-navigation-dialog-title": "Želite zavreči svoj prevod?",
+	"sx-confirm-back-navigation-dialog-body": "Vse vaše spremembe bodo izgubljene.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Zavrzi",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj"
 }

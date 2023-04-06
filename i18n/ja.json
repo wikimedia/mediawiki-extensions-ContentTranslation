@@ -411,5 +411,7 @@
 	"cx-sx-dashboard-help-panel-stats-label": "統計",
 	"cx-sx-dashboard-help-panel-feedback-label": "フィードバックをお寄せください",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "今月",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "合計"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "合計",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "破棄する",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "続行"
 }

@@ -457,5 +457,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Da nos tu opinion",
 	"cx-sx-dashboard-stats-panel-title": "Tu impacto",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Iste mense",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "Total"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
+	"sx-confirm-back-navigation-dialog-title": "Abandonar tu traduction?",
+	"sx-confirm-back-navigation-dialog-body": "Tote tu modificationes essera perdite.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonar",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar"
 }
