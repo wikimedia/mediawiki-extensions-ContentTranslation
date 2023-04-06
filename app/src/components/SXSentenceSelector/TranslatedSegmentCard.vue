@@ -110,16 +110,20 @@ export default {
     const currentSubSection = computed(() =>
       currentPageSection.value.subSections.find((subSection) =>
         subSection.sentences.some(
-          (sentence) => sentence.id === selectedContentTranslationUnit.value.id
+          (sentence) => sentence.id === selectedContentTranslationUnit.value?.id
         )
       )
     );
 
-    const proposedMTTranslation = computed(() =>
-      showSentenceTab.value
-        ? selectedContentTranslationUnit.value.mtProposedTranslationUsed
-        : currentSubSection.value.proposedContentForMTValidation
-    );
+    const proposedMTTranslation = computed(() => {
+      if (isSectionTitleSelected.value) {
+        return currentPageSection.value.mtProposedTranslationUsedForTitle;
+      } else if (showSentenceTab.value) {
+        return selectedContentTranslationUnit.value?.mtProposedTranslationUsed;
+      }
+
+      return currentSubSection.value.proposedContentForMTValidation;
+    });
 
     const colors = inject("colors");
 

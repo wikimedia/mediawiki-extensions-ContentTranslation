@@ -31,6 +31,7 @@ export default class PageSection {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: title,
       [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: "",
     };
+    this.mtProviderUsedForTitle = "";
     this.translatedTitle = "";
     this.subSections = subSections;
     this.isLeadSection = isLeadSection;
@@ -57,6 +58,22 @@ export default class PageSection {
     return this.proposedTitleTranslations[
       MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
     ];
+  }
+
+  get mtProposedTranslationUsedForTitle() {
+    const translatedSubSections = this.subSections.filter(
+      (subSection) => subSection.isTranslated
+    );
+
+    // if the MT provider used for title translation is not set (this is true for restored draft translations),
+    // let's use the MT provider used for translating the first translated subsection. This may not be always valid,
+    // but it's an acceptable workaround for the vast majority of the use cases, given that we do not store the
+    // MT provider used for title translation in any persistent storage (db) and thus we cannot use such information
+    // during draft translation restoration
+    const provider =
+      this.mtProviderUsedForTitle || translatedSubSections?.[0]?.mtProviderUsed;
+
+    return this.proposedTitleTranslations[provider];
   }
 
   /**
@@ -323,6 +340,7 @@ export default class PageSection {
   setTranslationForSelectedTranslationUnit(translation, provider) {
     if (this.isTitleSelected) {
       this.translatedTitle = translation;
+      this.mtProviderUsedForTitle = provider;
 
       return;
     }
