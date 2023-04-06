@@ -230,9 +230,7 @@ async function selectPageSectionByIndex(
 
     // If lead section set source page title as proposed page title
     if (index === 0) {
-      section.proposedTitleTranslations[
-        MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY
-      ] = page.title;
+      section.originalTitle = page.title;
     }
     commit("setCurrentSourceSection", section);
   };

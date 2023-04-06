@@ -6,7 +6,6 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import { useStore } from "vuex";
 
 /**
- * @param {Store} store
  * @param {Translation} translation
  * @return {(function(): Promise)}
  */
@@ -64,11 +63,17 @@ const useDraftTranslationStart = (translation) => {
 
     if (translation.isLeadSectionTranslation) {
       section = currentSourcePage.value.leadSection;
+      // initialize the original title, so that we can restore the draft section/article title
+      // this is not needed for non-lead sections as the original title is already populated
+      section.originalTitle = translation.sourceTitle;
     } else {
       section = currentSourcePage.value.getSectionByTitle(
         translation.sourceSectionTitle
       );
     }
+
+    // initialize the translated title, so that we can restore the draft section/article title
+    section.translatedTitle = translation.targetTitle;
 
     store.commit("application/setCurrentSourceSection", section);
     router.push({ name: "sx-sentence-selector", query: { force: true } });

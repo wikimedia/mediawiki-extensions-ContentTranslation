@@ -217,6 +217,8 @@ class ApiSectionTranslationSave extends ApiBase {
 			);
 		} else {
 			$translation->translation['sourceRevisionId'] = $sourceRevision;
+			// target title can be changed any time during translation
+			$translation->translation['targetTitle'] = $targetTitle;
 		}
 		$translator = new Translator( $user );
 		$translation->save( $translator );

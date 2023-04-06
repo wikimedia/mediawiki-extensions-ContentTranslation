@@ -51,6 +51,11 @@ export default class PageSection {
     return LEAD_SECTION_DUMMY_TITLE;
   }
 
+  set originalTitle(title) {
+    this.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY] =
+      title;
+  }
+
   /**
    * @return {string}
    */

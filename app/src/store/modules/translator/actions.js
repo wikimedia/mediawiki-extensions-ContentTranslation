@@ -82,10 +82,9 @@ function validateMT({ rootState }) {
  * @param {object} context
  * @param {object} context.rootState
  * @param {object} context.rootGetters
- * @param {function} context.commit
  * @return {Promise<PublishFeedbackMessage|null>}
  */
-function saveTranslation({ rootState, rootGetters, commit }) {
+function saveTranslation({ rootState, rootGetters }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -119,11 +118,9 @@ function saveTranslation({ rootState, rootGetters, commit }) {
   return cxTranslatorApi.saveTranslation({
     sourceTitle,
     targetTitle,
-    // pass an empty string to be stored as "cxsx_source_section_title" inside "cx_section_translations"
-    // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
+    // pass a dummy string to be stored as "cxsx_source_section_title" inside "cx_section_translations" table for lead sections
     sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
-    // pass an empty string to be stored as "cxsx_target_section_title" inside "cx_section_translations"
-    // table for lead sections, as empty strings are considered valid values for non-nullable fields in MySQL.
+    // pass a dummy string to be stored as "cxsx_target_section_title" inside "cx_section_translations" table for lead sections
     targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
     sourceLanguage,
     targetLanguage,
