@@ -19,5 +19,10 @@
 	"cx-publish-page-success": "نشرت الصفحة في $1",
 	"cx-publish-error-abuse-filter": "حددت مرشحات التعديلات تلقائية محتوى مال مشاكل بترجمتك، ضربة المرشح: $1",
 	"cx-publish-error-empty": "رد الخادم بدون بيانات.",
+	"cx-publish-error-spam-blacklist": "تم اكتشاف محتوى محتمل مو مرغوب بيه في ترجمتك، التفاصيل: $1",
+	"cx-publish-error-title-blacklist": "العنوان اللي كتبته مدرج في القائمه السوده; يُرجَى اختيار اسم ثاني لترجمتك.",
+	"cx-publish-summary": "أُنشئَت بترجمة الصفحه \"$1\"",
+	"cx-entrypoint-dialog-button-translate-from": "ترجم من $1",
+	"cx-entrypoint-dialog-desc": "تكدر تساعد ويكيبيديا بترجمة هاي الصفحه. الترجمه هي وسيله سهله حتى تسوي محتوى جديد بلغتك.",
 	"cx-translation-filter-label-all-languages": "كل"
 }
