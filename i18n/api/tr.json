@@ -148,5 +148,6 @@
 	"apihelp-sxsave-param-sourcelanguage": "Kaynak dil kodu.",
 	"apihelp-sxsave-param-targetlanguage": "Hedef dil kodu.",
 	"apihelp-sxsave-param-sourcetitle": "Kaynak sayfanın başlığı.",
-	"apihelp-sxsave-param-targettitle": "Hedef sayfanın başlığı."
+	"apihelp-sxsave-param-targettitle": "Hedef sayfanın başlığı.",
+	"apierror-cxpublishsection-translationnotfound": "Çeviri bulunamadı."
 }

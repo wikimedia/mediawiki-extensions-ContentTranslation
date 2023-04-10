@@ -455,5 +455,8 @@
 	"cx-sx-dashboard-help-panel-title": "অনুবাদে সাহায্য প্রয়োজন?",
 	"cx-sx-dashboard-help-panel-more-info-label": "এই সরঞ্জাম সম্পর্কে আরও তথ্য",
 	"cx-sx-dashboard-help-panel-stats-label": "পরিসংখ্যান",
-	"cx-sx-dashboard-help-panel-feedback-label": "আপনার মতামত জানান"
+	"cx-sx-dashboard-help-panel-feedback-label": "আপনার মতামত জানান",
+	"cx-sx-dashboard-stats-panel-title": "আপনার প্রভাব",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "এই মাসে",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "মোট"
 }

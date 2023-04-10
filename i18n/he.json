@@ -468,5 +468,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "שליחת משוב",
 	"cx-sx-dashboard-stats-panel-title": "ההשפעה שלך",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "החודש",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "סך הכול"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "סך הכול",
+	"sx-confirm-back-navigation-dialog-title": "לעזוב את התרגום שלך?",
+	"sx-confirm-back-navigation-dialog-body": "כל השינויים שלך יאבדו.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "לזרוק",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "להמשיך"
 }

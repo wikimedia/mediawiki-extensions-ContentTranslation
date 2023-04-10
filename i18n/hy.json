@@ -249,5 +249,7 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Հրապարակել",
 	"cx-contributecard-entrypoint-title": "Թարգմանություններ",
 	"cx-contributecard-entrypoint-cta": "Սկսել թարգմանությունը",
-	"cx-sx-dashboard-help-panel-stats-label": "Վիճակագրություն"
+	"cx-sx-dashboard-help-panel-stats-label": "Վիճակագրություն",
+	"sx-confirm-back-navigation-dialog-body": "Ձեր բոլոր փոփոխությունները կկորչեն:",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Շարունակել"
 }

@@ -401,5 +401,12 @@
 	"cx-uls-relevant-languages-panel-message": "Tej strony nie napisano jeszcze w językach, które znasz. Możesz pomóc, tłumacząc w kilka minut!",
 	"cx-uls-translate-page-quick-action-label": "Przetłumacz tę stronę",
 	"cx-sx-publisher-captcha-dialog-header-title": "Sprawdzenie, czy nie jesteś robotem",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Opublikuj"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Opublikuj",
+	"cx-sx-dashboard-help-panel-title": "Potrzebujesz pomocy w tłumaczeniu?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Więcej o tym narzędziu",
+	"cx-sx-dashboard-help-panel-stats-label": "Statystyki",
+	"cx-sx-dashboard-help-panel-feedback-label": "Prześlij nam swoją opinię",
+	"cx-sx-dashboard-stats-panel-title": "Twój wpływ",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "W tym miesiącu",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Łącznie"
 }

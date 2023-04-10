@@ -492,6 +492,6 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Label of the total stats, displayed inside the statistics panel of the dashboard",
 	"sx-confirm-back-navigation-dialog-title": "Title of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
 	"sx-confirm-back-navigation-dialog-body": "Body of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Label of the 'discard' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Label of the 'continue' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step"
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Label of the 'discard' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step. Appears next to {{msg-mw|Sx-confirm-back-navigation-dialog-continue-button-label}}",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Label of the 'continue' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step. Appears next to {{msg-mw|Sx-confirm-back-navigation-dialog-discard-button-label}}"
 }

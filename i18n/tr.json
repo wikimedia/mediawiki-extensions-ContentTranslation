@@ -474,5 +474,16 @@
 	"cx-sx-block-template-mapping-status-title-fully-template": "Bu şablon otomatik olarak çevrilebilir",
 	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Her iki dilde de şablon yapısı oldukça farklıdır ve hiçbir veri otomatik olarak aktarılamaz",
 	"cx-sx-block-template-no-equivalent-template-suggestion": "$1 eşdeğerinde bildiğiniz bir şablon varsa, araçların bulabilmesini sağlamak için onu VikiVeri’ye bağlayabilirsiniz",
-	"cx-sx-block-template-no-source-params-text": "Orijinal şablonda aktarılacak parametre bulunmaktadır"
+	"cx-sx-block-template-no-source-params-text": "Orijinal şablonda aktarılacak parametre bulunmaktadır",
+	"cx-sx-dashboard-help-panel-title": "Çeviri için yardıma mı ihtiyacınız var?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Bu araç hakkında daha fazla bilgi",
+	"cx-sx-dashboard-help-panel-stats-label": "İstatistikler",
+	"cx-sx-dashboard-help-panel-feedback-label": "Bize geri bildirimde bulunun",
+	"cx-sx-dashboard-stats-panel-title": "Etkiniz",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Bu ay",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Toplam",
+	"sx-confirm-back-navigation-dialog-title": "Çeviri bırakılsın mı?",
+	"sx-confirm-back-navigation-dialog-body": "Tüm değişiklikleriniz kaybolacak.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Sil",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Devam et"
 }

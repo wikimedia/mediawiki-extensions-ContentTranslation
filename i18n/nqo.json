@@ -431,5 +431,14 @@
 	"cx-sx-block-template-mapping-status-title-fully-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߌ߫ ߛߴߊ߬ ߖߘߍ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫.",
 	"cx-sx-block-template-none-mapped-param-text": "ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ߫ ߕߍ߫ $1 ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߞߙߊߞߏ ߓߐߖߎ ߟߊ߫",
 	"cx-sx-dashboard-help-panel-title": "ߡߊ߬ߞߏ ߦߋ߫ ߘߍ߬ߡߍ߲߬ߠߌ߲ ߠߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߐ߫؟",
-	"cx-sx-dashboard-help-panel-more-info-label": "ߡߞߊ߬ߝߏ߬ ߜߘߍ߫ ߟߎ߫ ߞߊ߬ ߓߍ߲߬ ߖߐ߯ߙߊ߲ ߣߌ߲߬ ߡߊ߬"
+	"cx-sx-dashboard-help-panel-more-info-label": "ߡߞߊ߬ߝߏ߬ ߜߘߍ߫ ߟߎ߫ ߞߊ߬ ߓߍ߲߬ ߖߐ߯ߙߊ߲ ߣߌ߲߬ ߡߊ߬",
+	"cx-sx-dashboard-help-panel-stats-label": "ߖߊ߬ߕߋ߬ߛߎ߬ߓߐ ߟߎ߬",
+	"cx-sx-dashboard-help-panel-feedback-label": "ߞߊ߲߬ߞߎߡߊ ߘߏ߫ ߗߋ߫ ߊ߲ ߡߊ߬",
+	"cx-sx-dashboard-stats-panel-title": "ߌ ߟߊ߫ ߓߍ߲߬ߢߐ߲߰ߦߊ",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "ߞߊߙߏ ߣߌ߲߬ ߠߊ߫",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "ߞߙߎߞߍ߬ߙߍ",
+	"sx-confirm-back-navigation-dialog-title": "ߞߵߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߊߓߌ߬ߟߊ߫؟",
+	"sx-confirm-back-navigation-dialog-body": "ߓߣߐ߬ ߘߌ߫ ߞߍ߫ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߓߍ߯ ߘߐ߫.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "ߊ߬ ߘߊߓߌ߬ߟߊ߫",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ߊ߬ ߘߊߓߊ߲߫"
 }

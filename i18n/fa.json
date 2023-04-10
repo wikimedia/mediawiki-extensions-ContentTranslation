@@ -470,5 +470,12 @@
 	"cx-sx-block-template-mapped-params-text": "$1 پارامتر از میان {{PLURAL:$2|$2 پارامتر}} از الگوی اصلی افزوده {{PLURAL:$1|شد|شدند}}",
 	"cx-sx-block-template-no-source-params-text": "الگوی اصلی هیچ پارامتری برای انتقال نداشت",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 پارامتر اجباری در الگوی موجود در $2 پرنشده باقی مانده‌اند. برای پر کردن آن‌ها به‌صورت دستی، الگو را ویرایش کنید",
-	"cx-sx-block-template-missing-optional-params-text": "$1 پارامتر بیشتر برای الگوی موجود در $2 را می‌توان پر کرد. برای پر کردن آن‌ها به‌صورت دستی، الگو را ویرایش کنید"
+	"cx-sx-block-template-missing-optional-params-text": "$1 پارامتر بیشتر برای الگوی موجود در $2 را می‌توان پر کرد. برای پر کردن آن‌ها به‌صورت دستی، الگو را ویرایش کنید",
+	"cx-sx-dashboard-help-panel-title": "برای ترجمه به کمک نیاز دارید؟",
+	"cx-sx-dashboard-help-panel-more-info-label": "اطلاعات بیشتر دربارهٔ این ابزار",
+	"cx-sx-dashboard-help-panel-stats-label": "آمار",
+	"cx-sx-dashboard-help-panel-feedback-label": "به ما بازخورد دهید",
+	"cx-sx-dashboard-stats-panel-title": "اثرگذاری شما",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "این ماه",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "مجموع"
 }

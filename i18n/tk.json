@@ -318,5 +318,14 @@
 	"cx-uls-relevant-languages-panel-message": "Bu sahypa bilýän käbir dilleriňizde ýok. Birnäçe minutdan terjime edip bilersiňiz!",
 	"cx-uls-translate-page-quick-action-label": "Bu sahypany terjime ediň",
 	"cx-sx-publisher-captcha-dialog-header-title": "Robot däldigiňizi barlamak",
-	"cx-sx-publisher-captcha-dialog-publish-button": "Neşir et"
+	"cx-sx-publisher-captcha-dialog-publish-button": "Neşir et",
+	"cx-sx-dashboard-help-panel-title": "Terjime etmek üçin kömek gerekmi?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Bu gural hakda has giňişleýin maglumat",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistika",
+	"cx-sx-dashboard-help-panel-feedback-label": "Bize jogap beriň",
+	"cx-sx-dashboard-stats-panel-title": "Siziň täsiriňiz",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Bu Aý",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Jemi",
+	"sx-confirm-back-navigation-dialog-body": "Ähli üýtgeşmeleriňiz ýitiriler.",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Dowam et"
 }

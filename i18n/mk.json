@@ -457,5 +457,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "Дајте ваше мислење",
 	"cx-sx-dashboard-stats-panel-title": "Вашето влијание",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Месецов",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "Вкупно"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Вкупно",
+	"sx-confirm-back-navigation-dialog-title": "Го напуштате преводот?",
+	"sx-confirm-back-navigation-dialog-body": "Сите ваши промени ќе се изгубат.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Отфрли",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжи"
 }
