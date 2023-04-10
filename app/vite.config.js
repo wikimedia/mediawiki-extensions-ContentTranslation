@@ -44,13 +44,6 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "./src/main.js"),
       name: packageDef.name,
-      formats: ["es"],
-    },
-    rollupOptions: {
-      output: {
-        // Default extension is mjs
-        entryFileNames: `${packageDef.name}.es.js`,
-      },
     },
   },
   esbuild: {

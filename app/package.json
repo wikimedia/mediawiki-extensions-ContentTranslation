@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.2.0+20230403",
+  "version": "0.2.0+20230410",
   "private": true,
   "main": "./dist/cx3.umd.js",
   "module": "./dist/cx3.es.js",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp dist/cx3.mjs dist/cx3.es.js",
     "test:unit": "jest -c config/jest/jest.config.js",
     "lint": "eslint .",
     "format": "prettier . --write",
@@ -55,7 +55,7 @@
   "bundlesize": [
     {
       "path": "dist/cx3.es.js",
-      "maxSize": "179.70KB"
+      "maxSize": "179.0KB"
     },
     {
       "path": "dist/style.css",
