@@ -228,7 +228,7 @@ async function selectPageSectionByIndex(
   const setCurrentSectionByIndex = () => {
     const section = page.sections?.[index];
 
-    // If lead section set source page title as proposed page title
+    // If this section is a lead section, set the source page title as original section title
     if (index === 0) {
       section.originalTitle = page.title;
     }
