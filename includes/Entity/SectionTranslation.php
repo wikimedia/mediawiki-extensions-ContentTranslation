@@ -8,24 +8,33 @@ namespace ContentTranslation\Entity;
  * Model for "cx_section_translations" table (defined in section-translations.sql file)
  */
 class SectionTranslation {
-	protected $id;
-	protected $translationId;
-	protected $sectionId;
-	protected $sourceSectionTitle;
-	protected $targetSectionTitle;
+	protected ?int $id;
+	protected int $translationId;
+	protected string $sectionId;
+	protected string $sourceSectionTitle;
+	protected string $targetSectionTitle;
+	/**
+	 * The status of the translation. 0 for "draft", 1 for "published", 2 for "deleted"
+	 * @var int|null
+	 */
+	protected ?int $translationStatus;
 
 	public function __construct(
 		?int $id,
 		int $translationId,
 		string $sectionId,
 		string $sourceSectionTitle,
-		string $targetSectionTitle
+		string $targetSectionTitle,
+		// letting this to be null for backward compatibility, since the field was
+		// just recently added to the "cx_section_translations" table
+		?int $translationStatus
 	) {
 		$this->id = $id;
 		$this->translationId = $translationId;
 		$this->sectionId = $sectionId;
 		$this->sourceSectionTitle = $sourceSectionTitle;
 		$this->targetSectionTitle = $targetSectionTitle;
+		$this->translationStatus = $translationStatus;
 	}
 
 	public function getId(): ?int {
@@ -54,5 +63,13 @@ class SectionTranslation {
 
 	public function setTargetSectionTitle( string $targetSectionTitle ): void {
 		$this->targetSectionTitle = $targetSectionTitle;
+	}
+
+	public function setTranslationStatus( ?int $translationStatus ): void {
+		$this->translationStatus = $translationStatus;
+	}
+
+	public function getTranslationStatus(): ?int {
+		return $this->translationStatus;
 	}
 }

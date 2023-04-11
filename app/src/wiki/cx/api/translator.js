@@ -339,7 +339,7 @@ const saveTranslation = ({
 
   return api
     .postWithToken("csrf", params)
-    .then(() => null)
+    .then((response) => response.sxsave.result.sectiontranslationid)
     .catch((error, details) => {
       let text;
 

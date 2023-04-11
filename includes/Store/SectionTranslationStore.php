@@ -62,7 +62,8 @@ class SectionTranslationStore {
 			(int)$row->cxsx_translation_id,
 			$row->cxsx_section_id,
 			$row->cxsx_source_section_title,
-			$row->cxsx_target_section_title
+			$row->cxsx_target_section_title,
+			$row->cxsx_translation_status ? (int)$row->cxsx_translation_status : null
 		);
 	}
 
@@ -166,6 +167,7 @@ class SectionTranslationStore {
 			'cxsx_section_id' => $translation->getSectionId(),
 			'cxsx_source_section_title' => $translation->getSourceSectionTitle(),
 			'cxsx_target_section_title' => $translation->getTargetSectionTitle(),
+			'cxsx_translation_status' => $translation->getTranslationStatus(),
 		];
 	}
 }

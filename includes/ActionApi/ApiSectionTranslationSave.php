@@ -125,7 +125,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		$translationId = $translation->getTranslationId();
 
 		$this->saveParallelCorporaTranslationUnits( $params['content'], $translation );
-		$this->saveSectionTranslation(
+		$sectionTranslationId = $this->saveSectionTranslation(
 			$translationId,
 			$params['sectionid'],
 			$params['sourcesectiontitle'],
@@ -133,6 +133,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		);
 		$result = [
 			'result' => 'success',
+			'sectiontranslationid' => $sectionTranslationId,
 			'translationid' => $translationId
 		];
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
@@ -243,15 +244,19 @@ class ApiSectionTranslationSave extends ApiBase {
 	 * @param string $sectionId
 	 * @param string $sourceSectionTitle
 	 * @param string $targetSectionTitle
-	 * @return void
+	 * @return int the id (cxsx_id) of the saved section translation
 	 */
 	private function saveSectionTranslation(
 		int $translationId,
 		string $sectionId,
 		string $sourceSectionTitle,
 		string $targetSectionTitle
-	): void {
+	): int {
 		$sectionTranslation = $this->sectionTranslationStore->findTranslation( $translationId, $sectionId );
+		$draftStatusIndex = array_search(
+			SectionTranslationStore::TRANSLATION_STATUS_DRAFT,
+			SectionTranslationStore::TRANSLATION_STATUSES
+		);
 
 		if ( !$sectionTranslation ) {
 			$sectionTranslation = new SectionTranslation(
@@ -259,14 +264,20 @@ class ApiSectionTranslationSave extends ApiBase {
 				$translationId,
 				$sectionId,
 				$sourceSectionTitle,
-				$targetSectionTitle
+				$targetSectionTitle,
+				$draftStatusIndex
 			);
 			$this->sectionTranslationStore->insertTranslation( $sectionTranslation );
 		} else {
 			// update updatable fields
 			$sectionTranslation->setTargetSectionTitle( $targetSectionTitle );
+			$sectionTranslation->setTranslationStatus( $draftStatusIndex );
 			$this->sectionTranslationStore->updateTranslation( $sectionTranslation );
 		}
+
+		// the id of the section translation is always set, since the entity has been stored in the database
+		// @phan-suppress-next-line PhanTypeMismatchReturnNullable
+		return $sectionTranslation->getId();
 	}
 
 	/**

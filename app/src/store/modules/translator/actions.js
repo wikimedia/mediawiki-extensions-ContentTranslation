@@ -151,10 +151,10 @@ async function publishTranslation(
   { rootState, rootGetters, dispatch },
   { captchaId, captchaAnswer } = {}
 ) {
-  const saveMessage = await dispatch("saveTranslation");
+  const saveResponse = await dispatch("saveTranslation");
 
-  if (!!saveMessage) {
-    return { publishFeedbackMessage: saveMessage, targetTitle: null };
+  if (saveResponse instanceof PublishFeedbackMessage) {
+    return { publishFeedbackMessage: saveResponse, targetTitle: null };
   }
 
   const sourcePage = rootGetters["application/getCurrentPage"];
