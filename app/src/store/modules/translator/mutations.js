@@ -2,9 +2,9 @@ export default {
   addTranslation(state, translation) {
     state.translations.push(translation);
   },
-  removeTranslationById(state, translationIdToBeRemoved) {
+  removeTranslationBySectionTranslationId(state, idToBeRemoved) {
     state.translations = state.translations.filter(
-      (translation) => translation.id !== translationIdToBeRemoved
+      (translation) => translation.sectionTranslationId !== idToBeRemoved
     );
   },
   setTranslationsLoaded: (state, value) => {

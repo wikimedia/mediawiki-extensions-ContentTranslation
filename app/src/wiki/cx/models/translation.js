@@ -2,7 +2,7 @@ import PageSection from "./pageSection";
 
 export default class Translation {
   /**
-   * @param {number} id
+   * @param {number} sectionTranslationId
    * @param {number} translationId
    * @param {string} sectionId
    * @param {string} sourceTitle
@@ -17,7 +17,7 @@ export default class Translation {
    * @param {string|null} targetSectionTitle
    */
   constructor({
-    id,
+    sectionTranslationId,
     translationId,
     sectionId,
     sourceTitle,
@@ -31,7 +31,7 @@ export default class Translation {
     sourceSectionTitle,
     targetSectionTitle,
   }) {
-    this.id = id;
+    this.sectionTranslationId = sectionTranslationId;
     this.translationId = translationId;
     this.sectionId = sectionId;
     this.sourceTitle = sourceTitle;

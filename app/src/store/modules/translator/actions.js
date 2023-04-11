@@ -200,7 +200,8 @@ async function fetchTranslations({ commit, dispatch, state, rootGetters }) {
   const translations = await cxTranslatorApi.fetchTranslations();
   translations.forEach((translation) => {
     const translationExists = state.translations.some(
-      (existing) => existing.id === translation.id
+      (existing) =>
+        existing.sectionTranslationId === translation.sectionTranslationId
     );
 
     if (!translationExists) {
@@ -306,12 +307,16 @@ async function translateContent(
  */
 async function deleteTranslation({ commit }, translation) {
   const isSuccessful = await cxTranslatorApi.deleteTranslation(
-    translation.id,
+    translation.sectionTranslationId,
+    translation.translationId,
     translation.sectionId
   );
 
   if (isSuccessful) {
-    commit("removeTranslationById", translation.id);
+    commit(
+      "removeTranslationBySectionTranslationId",
+      translation.sectionTranslationId
+    );
   }
 
   return isSuccessful;

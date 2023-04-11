@@ -12,7 +12,7 @@ const useDraftTranslationDelete = (translation) => {
 
     logEvent({
       event_type: "dashboard_translation_discard",
-      translation_id: translation.id,
+      translation_id: translation.sectionTranslationId,
       translation_source_language: sourceLanguage.value,
       translation_source_title: translation.sourceTitle,
       translation_source_section: translation.sourceSectionTitle,

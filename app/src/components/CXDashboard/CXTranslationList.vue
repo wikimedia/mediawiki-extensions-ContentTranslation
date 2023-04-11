@@ -16,7 +16,7 @@
     <mw-spinner v-if="!loaded" />
     <cx-translation-work
       v-for="translation in activeTranslations"
-      :key="`${translationStatus}-translation-${translation.id}`"
+      :key="`${translationStatus}-translation-${translation.sectionTranslationId}`"
       :translation="translation"
     />
   </mw-card>

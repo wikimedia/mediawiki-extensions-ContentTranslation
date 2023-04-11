@@ -46,12 +46,13 @@ class ApiSectionTranslationDelete extends ApiBase {
 			$this->dieBlocked( $block );
 		}
 
+		$sectionTranslationId = $params['sectiontranslationid'];
 		$translationId = $params['translationid'];
 		$sectionId = $params['sectionid'];
 		// delete all corpora translation units associated with this draft section translation
 		$this->corporaStore->deleteTranslationDataBySectionId( $translationId, $sectionId );
 		// delete the section translation from the database
-		$this->sectionTranslationStore->deleteTranslation( $translationId, $sectionId );
+		$this->sectionTranslationStore->deleteTranslationById( $sectionTranslationId );
 
 		// if no other corpora units are associated with the "parent" translation id, update the
 		// status of the "parent" translation to "deleted" and remove the association with the
@@ -67,6 +68,10 @@ class ApiSectionTranslationDelete extends ApiBase {
 
 	public function getAllowedParams() {
 		return [
+			'sectiontranslationid' => [
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_REQUIRED => true,
+			],
 			'translationid' => [
 				ParamValidator::PARAM_TYPE => 'integer',
 				ParamValidator::PARAM_REQUIRED => true,

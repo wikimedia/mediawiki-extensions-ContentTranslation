@@ -145,18 +145,19 @@ class SectionTranslationStore {
 	 * deletes the corresponding section translation from the
 	 * "cx_section_translations" table.
 	 *
-	 * @param int $translationId the id of the "parent" translation inside "cx_translations" table
-	 * @param string $sectionId the "cxsx_section_id" as stored inside "cx_section_translations" table
+	 * @param int $sectionTranslationId
 	 * @return void
 	 */
-	public function deleteTranslation( int $translationId, string $sectionId ): void {
+	public function deleteTranslationById( int $sectionTranslationId ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
-		$conditions = [
-			'cxsx_translation_id' => $translationId,
-			'cxsx_section_id' => $sectionId
-		];
 
-		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
+		$deletedStatusIndex = array_search( self::TRANSLATION_STATUS_DELETED, self::TRANSLATION_STATUSES );
+		$dbw->update(
+			self::TABLE_NAME,
+			[ 'cxsx_translation_status' => $deletedStatusIndex ],
+			[ 'cxsx_id' => $sectionTranslationId ],
+			__METHOD__
+		);
 	}
 
 	private function translationToDBRow( SectionTranslation $translation ): array {
