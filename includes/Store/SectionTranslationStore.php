@@ -12,6 +12,15 @@ use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class SectionTranslationStore {
 	public const TABLE_NAME = 'cx_section_translations';
+	public const TRANSLATION_STATUS_DRAFT = 'draft';
+	public const TRANSLATION_STATUS_PUBLISHED = 'published';
+	public const TRANSLATION_STATUS_DELETED = 'deleted';
+
+	public const TRANSLATION_STATUSES = [
+		self::TRANSLATION_STATUS_DRAFT,
+		self::TRANSLATION_STATUS_PUBLISHED,
+		self::TRANSLATION_STATUS_DELETED,
+	];
 
 	/** @var LoadBalancer */
 	private $lb;
@@ -111,14 +120,15 @@ class SectionTranslationStore {
 		$result = [];
 		foreach ( $resultSet as $row ) {
 			$result[] = new SectionTranslationDTO(
-				$row->cxsx_translation_id,
+				(int)$row->cxsx_id,
+				(int)$row->cxsx_translation_id,
 				$row->cxsx_section_id,
 				$row->translation_source_title,
 				$row->translation_source_language,
 				$row->translation_target_language,
 				$row->translation_start_timestamp,
 				$row->translation_last_updated_timestamp,
-				$row->translation_status,
+				self::TRANSLATION_STATUSES[ $row->cxsx_translation_status ] ?? $row->translation_status,
 				$row->translation_source_revision_id,
 				$row->translation_target_title,
 				$row->cxsx_source_section_title,

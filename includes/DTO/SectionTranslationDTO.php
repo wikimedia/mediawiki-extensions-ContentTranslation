@@ -8,21 +8,23 @@ namespace ContentTranslation\DTO;
  * for exporting section translation data to views.
  */
 class SectionTranslationDTO {
-	private $translationId;
-	private $sectionId;
-	private $sourceTitle;
-	private $sourceLanguage;
-	private $targetLanguage;
-	private $startTimestamp;
-	private $lastUpdatedTimestamp;
-	private $status;
-	private $pageRevision;
-	private $targetTitle;
-	private $sourceSectionTitle;
-	private $targetSectionTitle;
+	private int $id;
+	private int $translationId;
+	private ?string $sectionId;
+	private string $sourceTitle;
+	private string $sourceLanguage;
+	private string $targetLanguage;
+	private string $startTimestamp;
+	private string $lastUpdatedTimestamp;
+	private string $status;
+	private string $pageRevision;
+	private ?string $targetTitle;
+	private ?string $sourceSectionTitle;
+	private ?string $targetSectionTitle;
 
 	public function __construct(
-		string $translationId,
+		int $id,
+		int $translationId,
 		string $sectionId,
 		string $sourceTitle,
 		string $sourceLanguage,
@@ -35,6 +37,7 @@ class SectionTranslationDTO {
 		?string $sourceSectionTitle,
 		?string $targetSectionTitle
 	) {
+		$this->id = $id;
 		$this->translationId = $translationId;
 		$this->sectionId = $sectionId;
 		$this->sourceTitle = $sourceTitle;
@@ -58,6 +61,7 @@ class SectionTranslationDTO {
 	 */
 	public function toArray(): array {
 		return [
+			"id" => $this->id,
 			"translationId" => $this->translationId,
 			"sectionId" => $this->sectionId,
 			"sourceTitle" => $this->sourceTitle,

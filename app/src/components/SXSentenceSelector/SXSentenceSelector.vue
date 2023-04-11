@@ -161,7 +161,7 @@ export default {
 
       if (currentTranslation && !currentTranslation.restored) {
         const restorationPromise = translator
-          .fetchTranslationUnits(currentTranslation.id)
+          .fetchTranslationUnits(currentTranslation.translationId)
           .then((translationUnits) => {
             currentPage.restoreCorporaDraft(translationUnits);
             currentTranslation.restored = true;
