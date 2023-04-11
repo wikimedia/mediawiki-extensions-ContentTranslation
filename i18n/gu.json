@@ -374,8 +374,14 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "પ્રકાશિત કરો",
 	"cx-contributecard-entrypoint-title": "ભાષાંતરો",
 	"cx-contributecard-entrypoint-cta": "ભાષાંતર શરુ કરો",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "કોઈ સમકક્ષ ઢાંચો મળ્યો નથી",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "આ ઢાંચો ખાલી ઉમેરવામાં આવશે",
+	"cx-sx-dashboard-help-panel-title": "ભાષાંતર કરવામાં મદદની જરુર છે?",
+	"cx-sx-dashboard-help-panel-more-info-label": "આ સાધન વિશે વધુ માહિતી",
 	"cx-sx-dashboard-help-panel-stats-label": "આંકડા",
 	"cx-sx-dashboard-help-panel-feedback-label": "અમને અભિપ્રાય આપો",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "આ મહિને",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "કુલ"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "કુલ",
+	"sx-confirm-back-navigation-dialog-body": "તમારા બધા ફેરફારો સચવાશે નહી.",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ચાલુ રાખો"
 }
