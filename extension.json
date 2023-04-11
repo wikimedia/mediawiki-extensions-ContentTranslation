@@ -158,7 +158,8 @@
 				"LanguageNameUtils",
 				"ContentTranslation.ParsoidClientFactory",
 				"ContentTranslation.SectionPositionCalculator",
-				"ContentTranslation.SandboxTitleMaker"
+				"ContentTranslation.SandboxTitleMaker",
+				"ContentTranslation.SectionTranslationStore"
 			]
 		},
 		"cxsave": {

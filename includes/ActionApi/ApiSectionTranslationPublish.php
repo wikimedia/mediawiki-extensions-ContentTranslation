@@ -20,6 +20,7 @@ use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -32,23 +33,13 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
 
-	/** @var TitleFactory */
-	private $titleFactory;
-
-	/** @var HookContainer */
-	private $hookContainer;
-
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
-
-	/** @var ParsoidClientFactory */
-	protected $parsoidClientFactory;
-
-	/** @var SectionPositionCalculator */
-	private $sectionPositionCalculator;
-
-	/** @var SandboxTitleMaker */
-	private $sandboxTitleMaker;
+	private TitleFactory $titleFactory;
+	private HookContainer $hookContainer;
+	private LanguageNameUtils $languageNameUtils;
+	protected ParsoidClientFactory $parsoidClientFactory;
+	private SectionPositionCalculator $sectionPositionCalculator;
+	private SandboxTitleMaker $sandboxTitleMaker;
+	private SectionTranslationStore $sectionTranslationStore;
 
 	/**
 	 * @param ApiMain $main
@@ -59,6 +50,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param ParsoidClientFactory $parsoidClientFactory
 	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 * @param SandboxTitleMaker $sandboxTitleMaker
+	 * @param SectionTranslationStore $sectionTranslationStore
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -68,7 +60,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		LanguageNameUtils $languageNameUtils,
 		ParsoidClientFactory $parsoidClientFactory,
 		SectionPositionCalculator $sectionPositionCalculator,
-		SandboxTitleMaker $sandboxTitleMaker
+		SandboxTitleMaker $sandboxTitleMaker,
+		SectionTranslationStore $sectionTranslationStore
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -77,6 +70,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
+		$this->sectionTranslationStore = $sectionTranslationStore;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -249,6 +243,15 @@ class ApiSectionTranslationPublish extends ApiBase {
 				// if translation exists update the "translation_target_revision_id" field for this row
 				'@phan-var Translation $translation';
 				$this->updateTranslation( $translation, $user, $newRevId, $targetTitleRaw, $targetLanguage );
+
+				$publishedStatusIndex = array_search(
+					SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED,
+					SectionTranslationStore::TRANSLATION_STATUSES
+				);
+				$this->sectionTranslationStore->updateTranslationStatusById(
+					$params['sectiontranslationid'],
+					$publishedStatusIndex
+				);
 			}
 		} else {
 			$result = [
@@ -415,6 +418,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'targetsectiontitle' => [
+				ParamValidator::PARAM_REQUIRED => true,
+			],
+			'sectiontranslationid' => [
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'issandbox' => [

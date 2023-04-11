@@ -47,6 +47,20 @@ class SectionTranslationStore {
 		);
 	}
 
+	/**
+	 * @param int|null $id The "cxsx_id" of the section translation row
+	 * @param int|null $translationStatus Either "deleted", "draft" or "published"
+	 */
+	public function updateTranslationStatusById( ?int $id, ?int $translationStatus ) {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$dbw->update(
+			self::TABLE_NAME,
+			[ 'cxsx_translation_status' => $translationStatus ],
+			[ 'cxsx_id' => $id ],
+			__METHOD__
+		);
+	}
+
 	public function findTranslation( int $translationId, string $sectionId ): ?SectionTranslation {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 

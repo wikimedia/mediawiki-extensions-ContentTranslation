@@ -90,7 +90,7 @@ describe("vuex store publishTranslation action", () => {
       ) {
         return mockErrorPublishFeedbackMessageForSaving;
       } else {
-        return null;
+        return 1234;
       }
     }
   });
@@ -114,6 +114,7 @@ describe("vuex store publishTranslation action", () => {
       targetLanguage: "es",
       revision: 11,
       isSandbox: false,
+      sectionTranslationId: 1234,
     });
   });
 

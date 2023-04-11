@@ -151,12 +151,17 @@ async function publishTranslation(
   { rootState, rootGetters, dispatch },
   { captchaId, captchaAnswer } = {}
 ) {
+  // the return value from the "saveTranslation" api method contains the id (cxsx_id)
+  // of the section translation if the request was successful. If not, the return value
+  // is an instance of PublishFeedbackMessage
   const saveResponse = await dispatch("saveTranslation");
 
   if (saveResponse instanceof PublishFeedbackMessage) {
     return { publishFeedbackMessage: saveResponse, targetTitle: null };
   }
 
+  // the section translation id (cxsx_id) as returned from the "sxsave" api action
+  const sectionTranslationId = saveResponse;
   const sourcePage = rootGetters["application/getCurrentPage"];
   const {
     /** @type {PageSection} */
@@ -181,6 +186,7 @@ async function publishTranslation(
     targetLanguage,
     revision: rootGetters["application/getCurrentRevision"],
     isSandbox,
+    sectionTranslationId,
   };
 
   if (captchaId) {

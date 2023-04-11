@@ -204,6 +204,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.captchaId
  * @param {String} publishParams.captchaWord
  * @param {boolean} publishParams.isSandbox
+ * @param {Number|null} publishParams.sectionTranslationId
  * @return {Promise<{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}>}
  */
 const publishTranslation = ({
@@ -218,6 +219,7 @@ const publishTranslation = ({
   captchaId,
   captchaWord,
   isSandbox,
+  sectionTranslationId,
 }) => {
   const params = {
     action: "cxpublishsection",
@@ -230,6 +232,7 @@ const publishTranslation = ({
     sourcelanguage: sourceLanguage,
     targetlanguage: targetLanguage,
     issandbox: isSandbox,
+    sectiontranslationid: sectionTranslationId,
   };
 
   if (captchaId) {
