@@ -126,7 +126,7 @@
 	"cx-warning-unsaved-translation": "У вас есть несохранённые переводы.",
 	"cx-error-page-not-found": "Страница «$1» не может быть найдена Википедии на $2",
 	"cx-page-selector-widget-recent-edits-label": "Недавно отредактированный вами",
-	"cx-page-selector-widget-nearby-label": "Неподалёку от вас",
+	"cx-page-selector-widget-nearby-label": "Поблизости",
 	"cx-source-page-selector-input-placeholder": "Поиск страницы для перевода",
 	"cx-source-page-selector-no-suggestions": "Подумайте о любой интересующей вас теме. Не нужно быть экспертом, чтобы сделать отличный перевод.",
 	"cx-source-page-selector-no-search-results": "Не найдено страниц по \"$1\" в $2",
