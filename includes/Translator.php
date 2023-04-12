@@ -72,22 +72,24 @@ class Translator {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$queries = [];
-		foreach ( [ 'source', 'target' ] as $field ) {
-			$tables = [ 'cx_translations', 'cx_translators' ];
-			$field = [ 'code' => "translation_{$field}_language" ];
-			$conds = [
-				'translator_translation_id = translation_id',
-				'translator_user_id' => $this->getGlobalUserId()
-			];
-			if ( $type !== null ) {
-				$conds['translation_status'] = $type;
-			}
-
-			$queries[] = $dbr->selectSQLText( $tables, $field, $conds, __METHOD__ );
+		$baseQuery = $dbr->newSelectQueryBuilder()
+			// ->select() below
+			->from( 'cx_translations' )
+			->join( 'cx_translators', null, 'translator_translation_id = translation_id' )
+			->where( [ 'translator_user_id' => $this->getGlobalUserId() ] );
+		if ( $type !== null ) {
+			$baseQuery->andWhere( [ 'translation_status' => $type ] );
 		}
+		$unionQueryBuilder = $dbr->newUnionQueryBuilder();
 
-		$res = $dbr->query( $dbr->unionQueries( $queries, false ), __METHOD__ );
+		$sourceQuery = clone $baseQuery;
+		$sourceQuery->select( [ 'code' => 'translation_source_language' ] );
+		$unionQueryBuilder->add( $sourceQuery );
+		$targetQuery = clone $baseQuery;
+		$targetQuery->select( [ 'code' => 'translation_target_language' ] );
+		$unionQueryBuilder->add( $targetQuery );
+
+		$res = $unionQueryBuilder->caller( __METHOD__ )->fetchResultSet();
 
 		$result = [];
 		foreach ( $res as $row ) {
