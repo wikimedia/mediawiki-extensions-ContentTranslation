@@ -471,6 +471,7 @@
 	"cx-contributecard-entrypoint-cta": "Начать перевод",
 	"cx-sx-dashboard-help-panel-title": "Нужна помощь с переводом?",
 	"cx-sx-dashboard-help-panel-stats-label": "Статистика",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Всего",
 	"sx-confirm-back-navigation-dialog-body": "Все ваши изменения будут потеряны.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Сбросить",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжить"
