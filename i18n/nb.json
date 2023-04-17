@@ -462,5 +462,16 @@
 	"cx-sx-block-template-mapped-params-text": "$1 av $2 {{PLURAL:$2|parameter|parametre}} ble lagt til fra originalmalen",
 	"cx-sx-block-template-no-source-params-text": "Originalmalen hadde ingen parametre som kunne overføres",
 	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatoriske parametre er fortsatt ikke fylt inn for malen på $2. Rediger malen for å fylle dem inn manuelt.",
-	"cx-sx-block-template-missing-optional-params-text": "$1 ekstra parametre kan fylles inn for malen på $2. Rediger malen for å fylle dem inn manuelt"
+	"cx-sx-block-template-missing-optional-params-text": "$1 ekstra parametre kan fylles inn for malen på $2. Rediger malen for å fylle dem inn manuelt",
+	"cx-sx-dashboard-help-panel-title": "Trenger du hjelp med å oversette?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Mer om dette verktøyet",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistikk",
+	"cx-sx-dashboard-help-panel-feedback-label": "Gi tilbakemelding",
+	"cx-sx-dashboard-stats-panel-title": "Din innvirkning",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Denne måneden",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Totalt",
+	"sx-confirm-back-navigation-dialog-title": "Forlate oversettelsen din?",
+	"sx-confirm-back-navigation-dialog-body": "Alle endringene dine vil gå tapt.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Forkast",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsett"
 }

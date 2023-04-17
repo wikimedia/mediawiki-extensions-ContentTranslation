@@ -467,9 +467,11 @@
 	"cx-sx-block-template-no-source-params-text": "原始模板沒有要傳遞的參數",
 	"cx-sx-block-template-missing-mandatory-params-text": "在$2的模板有 $1 個強制參數仍為未填充狀態。請編輯模板來手動填充它們",
 	"cx-sx-block-template-missing-optional-params-text": "在$2的模板有 $1 個額外參數仍為未填充狀態。請編輯模板來手動填充它們",
+	"cx-sx-dashboard-help-panel-title": "需要翻譯說明？",
 	"cx-sx-dashboard-help-panel-stats-label": "統計",
 	"cx-sx-dashboard-help-panel-feedback-label": "提供意見回饋",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "本月",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "總計",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "捨棄",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續"
 }

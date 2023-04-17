@@ -4,6 +4,12 @@
 			"Merrahtar"
 		]
 	},
+	"cx-header-all-translations": "Пугк ёарркмуж",
+	"cx-translation-filter-label-all-languages": "Пугк",
+	"cx-campaign-contributionsmenu-mytranslations": "Ёарркмуж",
+	"cx-stats-all-translations-title": "Ёарркмуж пугк кӣлэтҍ",
+	"cx-your-translations-link": "{{GENDER:$1|То̄н ёарркмуж}}",
 	"cx-sx-language-selector-dialog-title": "О̄дзэ кӣл",
+	"cx-translation-list-all-languages-option-label": "Пугк",
 	"cx-sx-language-selector-placeholder": "О̄дзэ кӣл"
 }
