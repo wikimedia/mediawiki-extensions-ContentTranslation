@@ -25,8 +25,8 @@ use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Title\TitleFactory;
 use Title;
-use TitleFactory;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;
 

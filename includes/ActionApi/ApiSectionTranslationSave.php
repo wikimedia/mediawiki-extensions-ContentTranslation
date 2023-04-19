@@ -19,7 +19,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\Languages\LanguageNameUtils;
-use TitleFactory;
+use MediaWiki\Title\TitleFactory;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
