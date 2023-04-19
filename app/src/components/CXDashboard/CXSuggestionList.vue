@@ -56,7 +56,6 @@
         class="ma-0 pa-4"
         type="text"
         :label="$i18n('cx-suggestionlist-refresh')"
-        :outlined="false"
         :icon="mwIconRefresh"
         @click="refreshSuggestions"
       />

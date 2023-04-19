@@ -53,7 +53,6 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
             iconsize="20"
             indicatorsize="12"
             large="false"
-            outlined="false"
             progressive="false"
             type="icon"
           />

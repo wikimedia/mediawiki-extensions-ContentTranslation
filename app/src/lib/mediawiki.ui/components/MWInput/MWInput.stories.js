@@ -85,7 +85,6 @@ export const SearchInputWithIcons = () => ({
       <mw-input
         v-model="search"
         :icon-size="20"
-        :outlined="false"
         :icon="icons.mwIconSearch"
         placeholder="Search for an article"
         type="search"

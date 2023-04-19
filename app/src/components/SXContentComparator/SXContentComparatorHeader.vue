@@ -5,7 +5,6 @@
       :icon="mwIconArrowPrevious"
       :label="$i18n('cx-sx-content-comparator-back-to-sections-button-label')"
       type="text"
-      :outlined="false"
       @click="$emit('close')"
     />
     <mw-row class="my-1 py-2 mx-0">

@@ -10,12 +10,11 @@
         class="col justify-between py-3 px-4"
         :label="section.sourceTitle"
         type="text"
-        :outlined="false"
         @click="$emit('select-section', section.sourceTitle)"
       >
         <slot
-          :targetSection="section.targetTitle"
-          :sourceSection="section.sourceTitle"
+          :target-section="section.targetTitle"
+          :source-section="section.sourceTitle"
         >
         </slot>
         <mw-icon :icon="mwIconArrowForward" class="mw-ui-button__indicator" />

@@ -78,7 +78,6 @@ export default {
       type: String,
       default: null,
     },
-    outlined: Boolean,
     /**
      * Progressive button used for primary, constructive actions
      */
@@ -109,13 +108,12 @@ export default {
   computed: {
     component: (vm) => (vm.href ? "a" : "button"),
     classes: (vm) => ({
-      "mw-ui-button--depressed": vm.depressed || vm.outlined,
+      "mw-ui-button--depressed": vm.depressed,
       "mw-ui-button--disabled": vm.disabled,
       "mw-ui-button--large": vm.large,
       "mw-ui-button--progressive": vm.progressive,
       "mw-ui-button--destructive": vm.destructive,
       "mw-ui-button--icon": vm.isIcon,
-      "mw-ui-button--outlined": vm.outlined,
       "mw-ui-button--text": vm.type === "text",
     }),
     hasIndicatorClickListener: (vm) => !!vm.$attrs["indicator-icon-clicked"],

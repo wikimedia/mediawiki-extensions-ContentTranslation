@@ -1,12 +1,7 @@
 <template>
   <mw-row class="ma-0 sx-publisher__header">
     <mw-col shrink>
-      <mw-button
-        :icon="mwIconClose"
-        type="icon"
-        :outlined="false"
-        @click="onClose"
-      />
+      <mw-button :icon="mwIconClose" type="icon" @click="onClose" />
     </mw-col>
     <mw-col v-i18n:cx-sx-publisher-header-title grow tag="h5" class="ma-0" />
     <mw-col shrink>

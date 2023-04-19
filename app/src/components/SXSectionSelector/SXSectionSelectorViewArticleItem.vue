@@ -9,7 +9,6 @@
         $i18n('cx-sx-section-selector-view-article-button-label', autonym)
       "
       type="text"
-      :outlined="false"
     />
   </mw-row>
 </template>

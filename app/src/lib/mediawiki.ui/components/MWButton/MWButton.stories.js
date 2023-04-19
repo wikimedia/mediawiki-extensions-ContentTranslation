@@ -189,7 +189,6 @@ export const DifferentButtons = (args, { argTypes }) => ({
             :large="large"
             :progressive="progressive"
             :destructive="destructive"
-            :outlined="outlined"
             :type="type"
             :icon="icons[icon]"
             :indicator="icons[indicator]"
@@ -207,7 +206,6 @@ DifferentButtons.args = {
   large: false,
   label: "Button label",
   href: "#",
-  outlined: false,
   icon: "",
   indicator: "",
   progressive: true,

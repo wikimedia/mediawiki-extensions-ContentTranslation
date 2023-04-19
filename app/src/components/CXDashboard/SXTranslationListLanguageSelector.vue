@@ -5,7 +5,6 @@
     <div class="col-5 justify-end">
       <mw-button
         :indicator="mwIconExpand"
-        :outlined="false"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
         @click.stop="openSourceLanguageDialog"
@@ -51,7 +50,6 @@
     <div class="col-5 justify-start">
       <mw-button
         :indicator="mwIconExpand"
-        :outlined="false"
         class="pa-3 sx-translation-list-language-selector__button"
         type="text"
         :disabled="targetLanguages.length < 2"

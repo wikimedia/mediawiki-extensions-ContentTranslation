@@ -48,7 +48,6 @@ exports[
         indicatorsize="12"
         label="cx-sx-sentence-selector-edit-translation-button-label"
         large="false"
-        outlined="false"
         progressive="true"
         type="text"
       />
