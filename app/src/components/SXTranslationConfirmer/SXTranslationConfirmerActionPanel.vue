@@ -35,16 +35,26 @@
     </section>
     <mw-row
       class="sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4"
-      :justify="!!preFilledSectionTitle ? 'between' : 'center'"
+      justify="center"
     >
-      <mw-col v-if="preFilledSectionTitle" shrink>
+      <mw-col v-if="preFilledSectionTitle" shrink class="me-4">
         <mw-button
           v-i18n:cx-sx-translation-confirmer-more-sections-button-label
           large
           progressive
           type="text"
-          :label="actionButtonLabel"
           @click="onMoreSectionsClick"
+        />
+      </mw-col>
+      <mw-col
+        v-if="translationExists && $mwui.breakpoint.tabletAndUp"
+        shrink
+        class="me-4"
+      >
+        <mw-button
+          v-i18n:cx-sx-translation-confirmer-new-desktop-translation-button-label
+          large
+          @click="onNewTranslationClick"
         />
       </mw-col>
       <mw-col shrink>
@@ -88,9 +98,10 @@ export default {
 
     const {
       clearPreFilledSection,
+      onNewTranslationClick,
       onSectionSelectorClick,
       preFilledSectionTitle,
-    } = useSectionSelectorClickHandler(router, store);
+    } = useSectionSelectorClickHandler();
 
     const {
       actionInformationMessageArgs,
@@ -132,6 +143,7 @@ export default {
       isProgressiveButton,
       mwIconLinkExternal,
       onMoreSectionsClick,
+      onNewTranslationClick,
       onSectionSelectorClick,
       preFilledSectionTitle,
       targetArticlePath,

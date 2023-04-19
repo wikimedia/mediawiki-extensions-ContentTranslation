@@ -8,23 +8,36 @@ const i18n = createI18n();
 
 jest.mock("../../store", () => jest.requireActual("./actionPanelMockStore"));
 
+const breakpoints = { tabletAndUp: false };
 describe("SXTranslationConfirmer Action Panel test", () => {
-  const wrapper = mount(SxTranslationConfirmerActionPanel, {
-    global: {
-      plugins: [mockStore, router, i18n],
-      provide: {
-        colors: {},
+  const createWrapper = () =>
+    mount(SxTranslationConfirmerActionPanel, {
+      global: {
+        plugins: [mockStore, router, i18n],
+        provide: {
+          colors: {},
+          breakpoints,
+        },
       },
-    },
-    store: mockStore,
-    beforeCreate() {
-      this.$i18n = jest.fn((key) => key);
-    },
-  });
+      store: mockStore,
+      beforeCreate() {
+        this.$i18n = jest.fn((key) => key);
+        this.$mwui = { breakpoint: breakpoints };
+      },
+    });
 
   it("Component output matches snapshot", () => {
+    const wrapper = createWrapper();
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it("Component output matches snapshot for tablet or larger screens", () => {
+    breakpoints.tabletAndUp = true;
+    const wrapper = createWrapper();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  const wrapper = createWrapper();
 
   it("Action information message is computed correctly", () => {
     const i18nArgs = [

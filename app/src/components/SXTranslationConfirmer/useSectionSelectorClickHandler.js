@@ -1,17 +1,24 @@
 import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed, ref } from "vue";
+import { computed, inject, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
-/**
- * @param {VueRouter} router
- * @param {Store} store
- */
-export default (router, store) => {
+export default () => {
+  const router = useRouter();
+  const store = useStore();
+  const breakpoints = inject("breakpoints");
+
   const urlParams = new URLSearchParams(location.search);
   const preFilledSectionTitle = ref(urlParams.get("section"));
 
-  const { currentSourceSection, currentSectionSuggestion: sectionSuggestion } =
-    useApplicationState(store);
+  const {
+    currentSourceSection,
+    currentSectionSuggestion: sectionSuggestion,
+    sourceLanguage,
+    targetLanguage,
+  } = useApplicationState(store);
 
   const translationExists = computed(
     () => !!sectionSuggestion.value?.translationExists
@@ -54,14 +61,36 @@ export default (router, store) => {
     } else if (translationExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
-      await store.dispatch("application/selectPageSectionByIndex", 0);
-      router.push({ name: "sx-quick-tutorial", query: { force: true } });
+      if (breakpoints.value.tabletAndUp) {
+        startCX();
+      } else {
+        await store.dispatch("application/selectPageSectionByIndex", 0);
+        router.push({ name: "sx-quick-tutorial", query: { force: true } });
+      }
     }
     setTranslationURLParams(sectionSuggestion.value);
   };
 
+  const startCX = () => {
+    const sourceTitle = sectionSuggestion.value?.sourceTitle;
+    siteMapper.setCXToken(
+      sourceLanguage.value,
+      targetLanguage.value,
+      sourceTitle
+    );
+    location.href = siteMapper.getCXUrl(
+      sourceTitle,
+      null,
+      sourceLanguage.value,
+      targetLanguage.value
+    );
+  };
+
+  const onNewTranslationClick = () => startCX();
+
   return {
     clearPreFilledSection,
+    onNewTranslationClick,
     onSectionSelectorClick,
     preFilledSectionTitle,
   };
