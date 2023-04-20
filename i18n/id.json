@@ -454,5 +454,6 @@
 	"cx-sx-block-template-mapping-status-title-fully-template": "Template ini dapat diterjemahkan secara otomatis",
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Struktur templat dalam kedua bahasa terlihat mirip, dan beberapa data dapat ditransfer secara otomatis",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Struktur templat dalam kedua bahasa terlihat mirip, dan semua data dapat ditransfer secara otomatis",
+	"cx-sx-block-template-mapped-params-text": "$1 dari {{PLURAL:$2|$2 parameter}} ditambahkan dari templat aslinya",
 	"cx-sx-block-template-no-source-params-text": "Templat aslinya tidak memiliki parameter untuk ditransfer"
 }

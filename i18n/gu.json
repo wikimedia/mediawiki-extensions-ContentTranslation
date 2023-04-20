@@ -373,5 +373,7 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "તમે રોબોટ નથી તે ચકાસી રહ્યા છીએ",
 	"cx-sx-publisher-captcha-dialog-publish-button": "પ્રકાશિત કરો",
 	"cx-contributecard-entrypoint-title": "ભાષાંતરો",
-	"cx-contributecard-entrypoint-cta": "ભાષાંતર શરુ કરો"
+	"cx-contributecard-entrypoint-cta": "ભાષાંતર શરુ કરો",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "કોઈ સમકક્ષ ઢાંચો મળ્યો નથી",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "આ ઢાંચો ખાલી ઉમેરવામાં આવશે"
 }

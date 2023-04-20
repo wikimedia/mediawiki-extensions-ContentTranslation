@@ -55,7 +55,7 @@
 	},
 	"cx": "Traduire la page",
 	"cx-dashboard-header": "Traductions",
-	"cx-javascript": "Cet outil ne fonctionne pas sans JavaScript. JavaScript est désactivé ou n’a pas pu s’exécuter, ou bien ce navigateur ne le prend pas en charge.",
+	"cx-javascript": "Cet outil ne fonctionne pas sans JavaScript. JavaScript est désactivé ou n’a pas pu s’exécuter, ou bien ce navigateur n’est pas pris en charge.",
 	"cx-specialpage-enable-betafeature": "L’[[mw:Special:MyLanguage/Content_translation|outil de traduction de contenu]] permet de traduire rapidement des pages dans votre langue. [$1 Essayez-le !]",
 	"cx-license-agreement": "En poursuivant, vous acceptez les [https://foundation.wikimedia.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement que vos contributions soient placées sous les licences [https://creativecommons.org/licenses/by-sa/3.0/ licence CC BY-SA 3.0] et [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
 	"cx-error-server-connection": "Erreur : impossible de se connecter au serveur.",
