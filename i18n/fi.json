@@ -412,5 +412,9 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Julkaise",
 	"cx-contributecard-entrypoint-title": "Käännökset",
 	"cx-sx-block-template-mapping-status-title-partially-template": "Tämä malline voidaan kääntää osittain",
-	"cx-sx-block-template-mapping-status-title-fully-template": "Tämä malline voidaan kääntää automaattisesti"
+	"cx-sx-block-template-mapping-status-title-fully-template": "Tämä malline voidaan kääntää automaattisesti",
+	"cx-sx-dashboard-help-panel-title": "Tarvitsetko apua kääntämisessä?",
+	"cx-sx-dashboard-help-panel-stats-label": "Tilastot",
+	"cx-sx-dashboard-help-panel-feedback-label": "Anna palautetta",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Jatka"
 }
