@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Angpradesh"
+			"Angpradesh",
+			"IND-ANP",
+			"Proabscorp!"
 		]
 	},
-	"cx-suggestionlist-favorite": "बाद लेली"
+	"cx-suggestionlist-favorite": "बाद लेली",
+	"cx-translationlist-empty-title": "अनुवादित करै लेली कुछु नाय छौं?"
 }

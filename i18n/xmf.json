@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Silovan"
+			"Silovan",
+			"Narazeni"
 		]
 	},
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|თანგილი რე}}",
+	"cx-publish-summary": "გოჭყაფილი რე ხასჷლაშ „$1“ თანგუათ",
 	"cx-stats-tabs-expand": "არძო ნინაშ ძირაფა",
 	"cx-stats-total-published": "ედომუშამო გობჟინაფილი",
 	"cx-stats-weekly-published": "ულირ მარა",

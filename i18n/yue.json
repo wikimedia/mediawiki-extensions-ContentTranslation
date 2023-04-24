@@ -33,7 +33,7 @@
 	"cx-source-loading": "載入緊$1",
 	"cx-beta": "內容翻譯",
 	"cx-entrypoint-title": "翻譯呢版到$1",
-	"cx-entrypoint-dialog-page-doesnt-exist-yet": "未有爾版嘅$1版本。{{GENDER:|你}}係勿想開？",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "未有爾版嘅$1版本。{{GENDER:|你}}係咪想開？",
 	"cx-entrypoint-dialog-button-translate-from": "由$1翻譯",
 	"cx-campaign-newbytranslation-search": "搵過第版嚟翻譯",
 	"cx-campaign-newbytranslation-start": "開始翻譯",

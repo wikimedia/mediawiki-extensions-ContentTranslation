@@ -90,7 +90,7 @@
 	"apihelp-query+cxtranslatorstats-example-1": "Hent oversettelsesstatistikk for den gitte brukeren.",
 	"apihelp-cxsave-description": "Denne modulen gjør det mulig å lagre oversettelseskladder etter seksjon for å spare båndbredde og samle inn paralelle korpus.",
 	"apihelp-cxsave-summary": "Denne modulen gjør det mulig å lagre oversettelseskladder etter seksjon for å spare båndbredde og samle inn parallelle korpus.",
-	"apihelp-cxsave-param-sourcerevision": "Revisjonen på kilden.",
+	"apihelp-cxsave-param-sourcerevision": "Sideversjonen av kildesiden.",
 	"apihelp-cxsave-param-progress": "Informasjon om oversettelsesprogresjon. JSON med nøklene <code>any</code>, <code>human</code>, <code>mt</code> og <code>mtSectionsCount</code>. Nøklenes verdier er prosenter.",
 	"apihelp-cxsave-param-content": "JSON-kodede seksjonsdata. Hver seksjon er et objekt og har følgende nøkler: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-cxsave-param-title": "Tittelen på siden handlingene skal utføres på.",
