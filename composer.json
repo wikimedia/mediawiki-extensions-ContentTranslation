@@ -16,7 +16,7 @@
 	},
 	"require": {
 		"composer/installers": ">=1.0.1",
-		"firebase/php-jwt": "^5.2.0"
+		"firebase/php-jwt": "^6.4.0"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "41.0.0",
