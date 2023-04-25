@@ -469,5 +469,16 @@
 	"cx-sx-block-template-mapped-params-text": "З оригінального шаблону додано $1 із {{PLURAL:$2|$2 параметра|$2 параметрів}}",
 	"cx-sx-block-template-no-source-params-text": "Оригінальний шаблон не мав параметрів для передачі",
 	"cx-sx-block-template-missing-mandatory-params-text": "{{PLURAL:$1|$1 обов'язковий параметр|$1 обов'язкові параметри|$1 обов'язкових параметрів}} шаблону залишаються незаповненими в $2. Відредагуйте шаблон, щоб заповнити їх вручну",
-	"cx-sx-block-template-missing-optional-params-text": "{{PLURAL:$1|$1 додатковий параметр|$1 додаткові параметри|$1 додаткових параметрів}} шаблону можна заповнити в $2. Відредагуйте шаблон, щоб заповнити їх вручну"
+	"cx-sx-block-template-missing-optional-params-text": "{{PLURAL:$1|$1 додатковий параметр|$1 додаткові параметри|$1 додаткових параметрів}} шаблону можна заповнити в $2. Відредагуйте шаблон, щоб заповнити їх вручну",
+	"cx-sx-dashboard-help-panel-title": "Потрібна допомога з перекладом?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Більше про цей інструмент",
+	"cx-sx-dashboard-help-panel-stats-label": "Статистика",
+	"cx-sx-dashboard-help-panel-feedback-label": "Напишіть нам відгук",
+	"cx-sx-dashboard-stats-panel-title": "Ваш вплив",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Цього місяця",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Загалом",
+	"sx-confirm-back-navigation-dialog-title": "Покинути ваш переклад?",
+	"sx-confirm-back-navigation-dialog-body": "Усі ваші зміни буде втрачено.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Відхилити",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити"
 }
