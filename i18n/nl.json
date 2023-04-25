@@ -374,7 +374,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Ontbreekt in <span>$1</span> en meer",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreekt in <span>$1</span>, <span>$2</span> en meer",
 	"cx-uls-relevant-languages-panel-header": "Deze pagina vertalen",
-	"cx-uls-relevant-languages-panel-message": "Deze pagina ontbreekt in sommige talen die u wellicht kent. U kunt vertalen in een paar minuten!",
+	"cx-uls-relevant-languages-panel-message": "Deze pagina ontbreekt in sommige talen die u wellicht kent. U kunt in een paar minuten vertalen!",
 	"cx-uls-translate-page-quick-action-label": "Deze pagina vertalen",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publiceren"
 }
