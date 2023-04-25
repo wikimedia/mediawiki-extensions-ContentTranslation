@@ -20,6 +20,7 @@ use ContentTranslation\WikidataIdFetcher;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Services\NoSuchServiceException;
 
 // PHP unit does not understand code coverage for this file

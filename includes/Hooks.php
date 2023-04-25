@@ -21,6 +21,7 @@ use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Specials\Contribute\Card\ContributeCard;
 use MediaWiki\Specials\Contribute\Card\ContributeCardActionLink;
 use MediaWiki\User\UserIdentity;
+use MediaWiki\WikiMap\WikiMap;
 use OutputPage;
 use RequestContext;
 use ResourceLoader;
@@ -29,7 +30,6 @@ use ResourceLoaderFilePath;
 use Skin;
 use SpecialPage;
 use User;
-use WikiMap;
 
 class Hooks {
 
