@@ -85,7 +85,7 @@
 	"apihelp-query+cxtranslatorstats-example-1": "Hent oversettelsesstatistikk for den gitte brukeren.",
 	"apihelp-cxsave-description": "Denne modulen gjør det mulig å lagre oversettelseskladder etter seksjon for å spare båndbredde og samle inn paralelle korpus.",
 	"apihelp-cxsave-summary": "Denne modulen gjør det mulig å lagre oversettelseskladder etter seksjon for å spare båndbredde og samle inn parallelle korpus.",
-	"apihelp-cxsave-param-sourcerevision": "Revisjonen på kilden.",
+	"apihelp-cxsave-param-sourcerevision": "Sideversjonen av kildesiden.",
 	"apihelp-cxsave-param-progress": "Informasjon om oversettelsesprogresjon. JSON med nøklene <code>any</code>, <code>human</code>, <code>mt</code> og <code>mtSectionsCount</code>. Nøklenes verdier er prosenter.",
 	"apihelp-cxsave-param-content": "JSON-kodede seksjonsdata. Hver seksjon er et objekt og har følgende nøkler: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-cxsave-param-title": "Tittelen på siden handlingene skal utføres på.",
@@ -132,8 +132,8 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "Tittelen på kildesiden.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "Tittelen på kildeseksjonen.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "Tittelen til målseksjonen.",
-	"apihelp-cxpublishsection-param-sectionnumber": "Posisjonen seksjonen skal være på i den nye revisjonen til siden.",
-	"apihelp-cxpublishsection-param-sourcerevid": "Kildesidens revisjons-ID.",
+	"apihelp-cxpublishsection-param-sectionnumber": "Posisjonen seksjonen skal være på i den nye versjonen til siden.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Kildesidens sideversjons-ID.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (når man lagrer med captcha-respons).",
 	"apihelp-cxpublishsection-param-captchaword": "Svar på captcha-en (når man lagrer med captcha-respons)."
 }

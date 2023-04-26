@@ -429,6 +429,7 @@
 	"sx-recent-translation-entrypoint-dialog-header": "Mejorar la traducción",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Revisar contenidos",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Añadir nuevas secciones",
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Las traducciones reutilizan el trabajo hecho por los editores en otros idiomas. Sin embargo, algunos aspectos pueden perderse en la traducción. Puedes ayudar:",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "Haz que el contenido se lea con naturalidad",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "Edita las frases para reordenar o sustituir las palabras según sea necesario.",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Compruebe las referencias",

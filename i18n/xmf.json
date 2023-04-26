@@ -7,6 +7,7 @@
 		]
 	},
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|თანგილი რე}}",
+	"cx-publish-summary": "გოჭყაფილი რე ხასჷლაშ „$1“ თანგუათ",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "ახალი თანგუაშ გეძინა",
 	"cx-campaign-contributionsmenu-myuploads-tooltip": "თქვან ენახარგა ფაილეფიშ ერკებული",
 	"cx-stats-tabs-expand": "არძო ნინაშ ძირაფა",
