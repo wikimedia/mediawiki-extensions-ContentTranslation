@@ -1,4 +1,4 @@
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 
 @padding: 3em;
 @left: 1em;
@@ -19,12 +19,14 @@
 	}
 
 	> .cx-ui-translationIssue-title {
-		color: @colorGray2;
+		color: @color-base;
 		margin: 0 0 0.5em;
 	}
 
 	> .cx-ui-translationIssue-message {
-		color: @colorGray4;
+		// TODO: Use @color-subtle. `#404244` is only meant to be used for component hover state
+		// and should not be used here.
+		color: #404244;
 		margin: 0;
 		white-space: pre-wrap;
 	}
@@ -39,7 +41,7 @@
 
 	> .cx-ui-translationIssue-foot:not( :empty ) {
 		margin-left: -@padding;
-		border-top: 1px solid @colorGray14;
+		border-top: @border-width-base @border-style-base #eaecf0;
 		padding: 0.5em @left;
 
 		&.cx-ui-translationIssue-foot-additional {
@@ -50,7 +52,7 @@
 	> .cx-ui-translationIssue-foot-additional > .oo-ui-buttonWidget {
 		display: block;
 		margin: 0;
-		border-bottom: 1px solid @colorGray14;
+		border-bottom: @border-width-base @border-style-base #eaecf0;
 		padding: 0.5em 1em;
 
 		&:first-child {

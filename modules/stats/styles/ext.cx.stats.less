@@ -10,14 +10,14 @@ body.skin-contenttranslation {
 }
 
 .cx-widget {
-	background-color: @colorGray15;
+	background-color: @background-color-interactive-subtle;
 }
 
 .cx-stats-container {
 	.mw-ui-one-whole;
 	padding: 0 50px;
 	clear: both;
-	background-color: @colorGray15;
+	background-color: #f8f9fa;
 	min-height: 100vh;
 
 	h1,
@@ -32,7 +32,7 @@ body.skin-contenttranslation {
 
 .cx-stats-tabs-container {
 	.mw-ui-one-whole;
-	border: 1px solid @colorGray14;
+	border: @border-width-base @border-style-base #eaecf0;
 	padding: 0;
 	background-color: #fff;
 }
@@ -40,7 +40,7 @@ body.skin-contenttranslation {
 .cx-stats-tabs-toggle-all {
 	.mw-ui-one-whole;
 	cursor: s-resize;
-	border-top: 1px solid @colorGray14;
+	border-top: @border-width-base @border-style-base #eaecf0;
 	padding: 10px;
 }
 
@@ -55,7 +55,7 @@ body.skin-contenttranslation {
 
 		&.cx-separator {
 			text-align: center;
-			border-bottom: 2px solid @colorGray12;
+			border-bottom: @border-width-thick @border-style-base @border-color-subtle;
 			margin-bottom: 1em;
 		}
 	}
@@ -66,7 +66,8 @@ body.skin-contenttranslation {
 
 	&__langcode {
 		.mw-ui-one-quarter;
-		color: @colorGray12;
+		// TODO: This fails color contrast requirements and should probably be replaced by `@color-subtle.`
+		color: #c8ccd1;
 		font-size: 0.9em;
 		text-align: right;
 		text-transform: uppercase;
@@ -75,7 +76,7 @@ body.skin-contenttranslation {
 
 	&__autonym {
 		.mw-ui-one-half;
-		color: @colorGray2;
+		color: @color-base;
 		font-weight: bold;
 		text-align: left;
 		.text-ellipsis;
@@ -84,9 +85,9 @@ body.skin-contenttranslation {
 	&__total,
 	&__total:visited {
 		.mw-ui-one-quarter;
-		color: @colorGray12;
+		color: #c8ccd1;
 		text-align: right;
-		border-right: 1px solid @colorGray12;
+		border-right: @border-subtle;
 		height: 30px;
 	}
 
@@ -100,8 +101,8 @@ body.skin-contenttranslation {
 		padding: 0;
 		margin: 0;
 		box-sizing: border-box;
-		background-color: @colorProgressive;
-		border-right: 1px solid @colorGray12;
+		background-color: @background-color-progressive;
+		border-right: @border-subtle;
 		font-size: small;
 		text-transform: uppercase;
 		color: #fff;
@@ -124,19 +125,19 @@ body.skin-contenttranslation {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	border-bottom: 1px solid @colorGray14;
+	border-bottom: @border-width-base @border-style-base #eaecf0;
 
 	li {
 		background: none;
-		color: @colorGray5;
+		color: @color-subtle;
 		display: inline-block;
 		padding: 10px 15px;
 		cursor: pointer;
 	}
 
 	li.cx-stats-tabs-current {
-		border-bottom: 2px solid @colorProgressive;
-		color: @colorGray2;
+		border-bottom: @border-width-thick @border-style-base @border-color-progressive;
+		color: @color-base;
 	}
 }
 
@@ -163,8 +164,8 @@ body.skin-contenttranslation {
 }
 
 .cx-stats-graph {
-	background-color: #fff;
-	border: 1px solid @colorGray10;
+	background-color: @background-color-base;
+	border: @border-base;
 
 	// Legend styling
 	li {
@@ -192,7 +193,7 @@ body.skin-contenttranslation {
 		background-color: #fff;
 		margin-right: 50px;
 		padding: 10px;
-		border: 1px solid @colorGray10;
+		border: @border-base;
 
 		&__title {
 			font-size: 1em;
@@ -217,12 +218,12 @@ body.skin-contenttranslation {
 			}
 
 			&.cx-stats-trend-decrease {
-				color: @colorDestructive;
+				color: @color-destructive;
 			}
 		}
 
 		&__localtotal {
-			color: @colorGray5;
+			color: @color-subtle;
 			font-size: 1em;
 		}
 	}

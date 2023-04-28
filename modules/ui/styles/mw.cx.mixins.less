@@ -1,5 +1,5 @@
 @import 'mediawiki.mixins';
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 @import 'grid/agora-grid.less';
 
 .box-shadow-card() {
@@ -69,10 +69,10 @@
 .loading-indicator() {
 	@dot-size: 16px;
 	@verticalPadding: 15px;
-	background-color: @colorGray15;
+	background-color: @background-color-interactive-subtle;
 	height: @dot-size + @verticalPadding;
 	padding-top: @verticalPadding;
-	border-top: 1px solid @colorGray12;
+	border-top: @border-subtle;
 
 	.cx-spinner {
 		width: 3 * @dot-size;

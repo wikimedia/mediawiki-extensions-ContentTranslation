@@ -1,8 +1,9 @@
-@import '../../ui/styles/mw.cx.mixins.less';
+@import 'mediawiki.skin.variables.less';
 @import '../../ui/styles/mw.cx.variables.less';
+@import '../../ui/styles/mw.cx.mixins.less';
 
 .cx-translator {
-	background-color: #fff;
+	background-color: @background-color-base;
 	display: none;
 	box-sizing: border-box;
 	margin-bottom: 1em;
@@ -26,7 +27,7 @@
 }
 
 .cx-translator__header {
-	color: @colorGray5;
+	color: @color-subtle;
 	margin-bottom: 1em;
 	font-weight: bold;
 }
@@ -38,11 +39,11 @@
 }
 
 .cx-translator__total-translations {
-	color: @colorGray5;
+	color: @color-subtle;
 }
 
 .cx-translator__month-stats {
-	color: @colorProgressive;
+	color: @color-progressive;
 }
 
 .cx-translator__month-stats-button {
@@ -63,7 +64,7 @@
 }
 
 .cx-translatorstats {
-	background-color: @colorGray15;
+	background-color: #f8f9fa;
 	width: 100%;
 	height: 50px;
 }

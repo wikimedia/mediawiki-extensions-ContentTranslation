@@ -1,4 +1,4 @@
-@import 'mediawiki.ui/variables.less';
+@import 'mediawiki.skin.variables.less';
 
 .mw-portlet-body {
 	margin: 0 4px;
@@ -37,11 +37,11 @@
 	cursor: pointer;
 	position: relative;
 	line-height: 1.125em;
-	color: @color-primary;
+	color: @color-progressive;
 	font-weight: bold;
 	background-color: @background-color-base;
 	border: @border-width-base @border-style-base @border-color-base;
-	border-radius: 2px;
+	border-radius: @border-radius-base;
 
 	.cx-skin-menu {
 		position: relative;
@@ -130,7 +130,7 @@
 		display: block;
 
 		a {
-			color: @color-primary;
+			color: @color-link;
 			display: block;
 			padding: 0.625em;
 			white-space: nowrap;
@@ -139,7 +139,7 @@
 		}
 
 		&:hover {
-			background-color: @colorGray14;
+			background-color: @background-color-interactive;
 		}
 	}
 

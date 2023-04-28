@@ -1,5 +1,6 @@
-@import 'mw.cx.mixins.less';
+@import 'mediawiki.skin.variables.less';
 @import 'mw.cx.variables.less';
+@import 'mw.cx.mixins.less';
 
 .cx-header {
 	.clearfix;
@@ -15,7 +16,7 @@
 }
 
 .cx-header__trademark {
-	color: @colorGray5;
+	color: @color-subtle;
 	float: left;
 	max-width: 50%;
 	padding: 0;
@@ -81,7 +82,7 @@
 		margin: 0 0 0 4px;
 
 		&-option--missing > .oo-ui-labelElement-label {
-			color: @colorDestructive;
+			color: @color-destructive;
 		}
 	}
 

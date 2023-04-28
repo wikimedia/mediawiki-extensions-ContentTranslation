@@ -1,11 +1,12 @@
-@import 'mw.cx.mixins.less';
+@import 'mediawiki.skin.variables.less';
 @import 'mw.cx.variables.less';
+@import 'mw.cx.mixins.less';
 
 .cx-translation-view-header {
 	padding: 0;
 	min-height: 3em;
 	background-color: #fff;
-	border-bottom: 1px solid @colorGray14;
+	border-bottom: @border-width-base @border-style-base #eaecf0;
 	border-radius: @border-radius-base @border-radius-base 0 0;
 	z-index: 2;
 
@@ -22,7 +23,7 @@
 
 	.cx-header__publish-button {
 		font-weight: bold;
-		border-radius: 0 2px 0 0;
+		border-radius: 0 @border-radius-base 0 0;
 	}
 
 	.cx-header__translation-center {
@@ -32,20 +33,20 @@
 
 		.oo-ui-buttonElement-button {
 			border: 0;
-			border-right: 1px solid @colorGray14;
+			border-right: @border-width-base @border-style-base #eaecf0;
 			border-radius: 0; // Override monobook button border radius
 			padding: 0 1em 0 0;
 			line-height: 3;
 
 			.oo-ui-labelElement-label {
-				color: @colorGray5;
+				color: @color-subtle;
 			}
 		}
 	}
 
 	.cx-header-draft-status {
 		flex-grow: 1;
-		color: @colorGray5;
+		color: @color-subtle;
 		padding: 0;
 		line-height: 3;
 		text-align: center;

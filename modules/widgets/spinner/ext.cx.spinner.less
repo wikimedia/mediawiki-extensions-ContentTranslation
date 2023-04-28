@@ -1,4 +1,4 @@
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 @width-bounce-dot: 1em; // Equals ~`16px` at `16px` base font size on `cx-dashboard`.
 
 .cx-spinner {
@@ -10,11 +10,11 @@
 	&::before,
 	&::after {
 		content: '';
-		background-color: @colorGray7;
+		background-color: @background-color-progressive;
 		display: inline-block;
 		width: @width-bounce-dot;
 		height: @width-bounce-dot;
-		border-radius: 100%;
+		border-radius: @border-radius-circle;
 		animation: bounce-delay 1600ms infinite ease-in-out both;
 		animation-delay: -160ms;
 	}

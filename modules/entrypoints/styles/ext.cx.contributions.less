@@ -1,4 +1,4 @@
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 
 .cx-contributions {
 	margin-top: 10px;
@@ -13,15 +13,15 @@
 			right: 0;
 			width: 0;
 			height: 0;
-			border-top: 21px solid @colorProgressive;
-			border-left: 22px solid transparent;
+			border-top: 21px solid @border-color-progressive;
+			border-left: 22px solid @border-color-transparent;
 			z-index: 3; // OOUI button has z-index 2 on hover
 		}
 
 		&::after {
 			content: '*';
 			position: absolute;
-			color: #fff;
+			color: @color-inverted;
 			top: 2px;
 			right: 9px;
 			width: 0;

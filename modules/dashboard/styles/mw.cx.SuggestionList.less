@@ -39,7 +39,7 @@
 	.mw-ui-one-whole;
 	background-color: #fff;
 	margin: 0;
-	border: 1px solid @colorGray12;
+	border: @border-subtle;
 	border-bottom: 0;
 	padding: 10px;
 	cursor: pointer;
@@ -49,14 +49,14 @@
 .cx-suggestionlist__expand,
 .cx-suggestionlist__refresh {
 	background-color: #fff;
-	border: 1px solid @colorGray12;
+	border: @border-subtle;
 	padding: 10px;
 	font-size: medium;
 	text-align: center;
 	cursor: pointer;
 
 	&:hover {
-		background-color: #eaf3ff;
+		background-color: @background-color-progressive-subtle;
 	}
 }
 
@@ -87,7 +87,7 @@
 .cx-slitem {
 	&:hover {
 		.cx-slitem__desc::after {
-			background-color: #eaf3ff;
+			background-color: @background-color-progressive-subtle;
 			transition: background-color 100ms;
 		}
 	}
@@ -97,7 +97,7 @@
 	}
 
 	&__desc {
-		color: @colorGray7;
+		color: #72777d;
 		overflow: hidden;
 		clear: both;
 		position: relative;
@@ -169,7 +169,7 @@
 
 		.cx-source-title {
 			.break-overflowing-word;
-			color: @colorGray2;
+			color: @color-base;
 		}
 	}
 }
@@ -210,7 +210,7 @@
 }
 
 .cx-sltag--featured {
-	color: #00af89;
+	color: @color-success;
 }
 
 .cx-slideup-hide {

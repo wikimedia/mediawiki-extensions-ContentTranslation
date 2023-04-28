@@ -24881,7 +24881,7 @@ const y8 = /* @__PURE__ */ V(_8, [["render", v8]]), b8 = `<svg width="136px" hei
                 <use xlink:href="#path-1"></use>
             </mask>
             <use id="Mask" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
-            <g id="🎨-Color/Green50-#00af89" mask="url(#mask-2)" fill="#00AF89" fill-rule="evenodd">
+            <g id="🎨-Color/Green50-#14866d" mask="url(#mask-2)" fill="#14866d" fill-rule="evenodd">
                 <rect id="Rectangle-1" x="0" y="0" width="88" height="88"></rect>
             </g>
         </g>

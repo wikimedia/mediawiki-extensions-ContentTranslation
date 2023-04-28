@@ -153,7 +153,7 @@ module.exports = {
 </script>
 
 <style lang="less">
-@import 'mediawiki.ui/variables';
+@import 'mediawiki.skin.variables.less';
 
 .cx-uls-entrypoint {
 	border: @border-base;

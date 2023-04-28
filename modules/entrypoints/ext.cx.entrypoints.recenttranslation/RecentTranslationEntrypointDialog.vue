@@ -198,16 +198,14 @@ module.exports = {
 </script>
 
 <style lang="less">
-// Copying variables from "mediawiki.ui/variables.less"
+// Copying variables from 'mediawiki.skin.variables.less'
 @background-color-base: #fff;
+@background-color-interactive-subtle: #f8f9fa;
 @color-base: #202122;
-@color-base--inverted: #fff;
-@color-primary: #36c;
-@color-base--subtle: #72777d;
-@colorGray14: #eaecf0;
-@colorGray15: #f8f9fa;
-@border-style-base: solid;
+@color-progressive: #36c;
+@color-subtle: #72777d;
 @border-width-base: 1px;
+@border-style-base: solid;
 
 .icon(@path) {
 	background: center / contain no-repeat url( @path );
@@ -277,9 +275,9 @@ module.exports = {
 
 	&__action-switches {
 		padding: 0 16px;
-		background-color: @colorGray15;
-		border-top: @border-style-base @border-width-base @colorGray14;
-		border-bottom: @border-style-base @border-width-base @colorGray14;
+		background-color: @background-color-interactive-subtle;
+		border-top: @border-style-base @border-width-base #eaecf0;
+		border-bottom: @border-style-base @border-width-base #eaecf0;
 	}
 
 	&__action-switch {
@@ -397,7 +395,7 @@ module.exports = {
 
 		&-anchor {
 			font-weight: 600;
-			color: @color-primary;
+			color: @color-progressive;
 		}
 
 		&-icon-anchor {
@@ -417,7 +415,7 @@ module.exports = {
 
 	&__translate-secondary-notice {
 		margin-top: 16px;
-		color: @color-base--subtle;
+		color: @color-subtle;
 		font-size: 14px;
 	}
 }

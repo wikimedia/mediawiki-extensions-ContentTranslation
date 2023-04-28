@@ -1,14 +1,16 @@
+@import 'mediawiki.skin.variables.less';
 @import '../mw.cx.mixins.less';
 
 .cx-pagetitle.oo-ui-textInputWidget {
 	margin-bottom: 10px;
-	border-bottom: 1px solid @colorGray5;
+	// TODO: Uses a non-design-system border color. Replace by `@border-base`.
+	border-bottom: 1px solid #54595d;
 	padding-top: 5px;
 	.break-overflowing-word;
 
 	textarea {
 		font-size: 2.2em;
-		color: @colorGray2;
+		color: @color-base;
 		background-color: #fff;
 		font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
 		padding: 0 0.2em;
@@ -21,8 +23,8 @@
 
 		&:focus {
 			outline: 0;
-			border-color: @colorGray14;
-			box-shadow: inset 0 0 0 1px @colorGray14;
+			border-color: #eaecf0;
+			box-shadow: inset 0 0 0 1px #eaecf0;
 			padding-bottom: 1px;
 			margin-bottom: -1px;
 		}

@@ -1,6 +1,7 @@
 // Common styles for source or translation columns of translation view
-@import 'mw.cx.mixins.less';
+@import 'mediawiki.skin.variables.less';
 @import 'mw.cx.variables.less';
+@import 'mw.cx.mixins.less';
 
 .cx-widget__columns {
 	min-height: 100vh;
@@ -51,18 +52,18 @@
 .cx-column-language-label {
 	.mw-ui-one-half;
 	text-align: left;
-	color: @colorGray5;
+	color: @color-subtle;
 }
 
 .cx-column-page-title {
 	text-align: left;
-	color: @colorGray5;
+	color: @color-subtle;
 	font-size: 1.2em;
 	padding-top: 8px;
 }
 
 .cx-column-title {
-	color: @colorGray2;
+	color: @color-base;
 	margin-bottom: 10px;
 	font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
 	font-size: 2.2em;

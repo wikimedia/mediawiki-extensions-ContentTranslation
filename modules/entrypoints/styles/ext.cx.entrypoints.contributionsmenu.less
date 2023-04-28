@@ -1,5 +1,5 @@
+@import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
-@import 'mediawiki.ui/variables';
 
 .cx-campaign-contributionsmenu {
 	padding: 0;
@@ -23,7 +23,7 @@
 		}
 
 		a {
-			color: @colorGray2;
+			color: @color-base;
 			display: block;
 			padding: 8px;
 			text-decoration: none;
@@ -31,16 +31,16 @@
 		}
 
 		&:hover {
-			background-color: @colorGray14;
+			background-color: @background-color-interactive;
 		}
 
 		.cx-campaign-contributionsmenu__expansion {
-			background-color: #eaf3ff;
+			background-color: @background-color-progressive-subtle;
 			background-image: url( ../images/question.svg );
 			background-position: left 8px center;
 			background-repeat: no-repeat;
 			background-size: 20px;
-			color: @colorGray5;
+			color: @color-subtle;
 			margin: 2px 5px 0 0;
 			padding: 8px 8px 8px 32px;
 			font-size: small;

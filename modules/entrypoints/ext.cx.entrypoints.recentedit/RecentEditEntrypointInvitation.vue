@@ -171,17 +171,18 @@ module.exports = {
 </script>
 
 <style lang="less">
-// Copying variables from "mediawiki.ui/variables.less"
+// Copy variables from '@wikimedia/codex-design-tokens/theme-wikimedia-ui.css'.
+@background-color-base: #fff;
+@background-color-progressive-subtle: #eaf3ff;
 @color-base: #202122;
-@colorGray5: #54595d;
-@colorGray14: #eaecf0;
-@color-primary: #36c;
+@color-progressive: #36c;
+@color-subtle: #54595d;
 
 .sx-recent-edit-entrypoint {
 	width: 100%;
 	position: fixed;
 	bottom: 0;
-	background: white;
+	background: @background-color-base;
 	box-shadow: 0 -1px 2px rgba( 0, 0, 0, 0.25 );
 
 	.row {
@@ -226,30 +227,30 @@ module.exports = {
 	&__separation-line {
 		margin: 0;
 		border-top: 0;
-		color: @colorGray14;
+		color: #eaecf0;
 	}
 
 	&__invitation {
 		cursor: pointer;
 
 		&:hover {
-			background: #eaf3ff;
+			background: @background-color-progressive-subtle;
 		}
 
 		&__icon {
 			margin-right: 8px;
-			color: @color-primary;
+			color: @color-progressive;
 		}
 
 		&__header {
 			font-weight: 600;
-			color: #36c;
+			color: @color-progressive;
 		}
 
 		&__details {
 			margin-top: 4px;
 			font-size: 14px;
-			color: @colorGray5;
+			color: @color-subtle;
 		}
 	}
 }

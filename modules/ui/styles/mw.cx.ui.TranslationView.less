@@ -1,9 +1,10 @@
-@import 'mw.cx.mixins.less';
+@import 'mediawiki.skin.variables.less';
 @import 'mw.cx.variables.less';
+@import 'mw.cx.mixins.less';
 
 .cx-translation-view {
 	.mw-ui-grid;
-	background-color: @colorGray14;
+	background-color: #eaecf0;
 	// Override overflow property specified in mw-ui-grid to default value, because
 	// non-visible value set on overflow property prevents position: sticky from working
 	overflow: visible;
@@ -74,7 +75,7 @@
 .cx-suggestion {
 	.mw-ui-one-half(@palm);
 	background-color: #fff;
-	border: 1px solid @colorGray12;
+	border: @border-subtle;
 	padding: 10px;
 	margin: 2px 0;
 }

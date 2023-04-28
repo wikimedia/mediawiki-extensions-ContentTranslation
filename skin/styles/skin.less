@@ -1,4 +1,4 @@
-@import 'mediawiki.ui/variables.less';
+@import 'mediawiki.skin.variables.less';
 @import './menu.less';
 
 body.skin-contenttranslation {
@@ -7,14 +7,14 @@ body.skin-contenttranslation {
 	max-width: 1500px;
 	margin: 0 auto;
 	padding: 8px 40px;
-	background: @colorGray14;
+	background: #eaecf0;
 }
 
 // Default style from boilerplate style of ResourceLoaderSkinModule does not follow
 // Design style guide https://design.wikimedia.org/style-guide/components/links.html
 a {
 	text-decoration: none;
-	color: #36c;
+	color: @color-link;
 
 	&:hover,
 	&:focus {
@@ -22,7 +22,7 @@ a {
 	}
 
 	&.new {
-		color: #ba0000;
+		color: @color-link-red;
 	}
 }
 
@@ -60,7 +60,7 @@ a {
 	margin-left: 8px;
 	line-height: 1;
 	font-size: 20px;
-	color: @colorGray5;
+	color: @color-subtle;
 }
 
 // Show logo in small screens and wordmark in bigger screens
