@@ -281,5 +281,8 @@
 	"cx-sx-language-selector-all-languages": "Всички езици",
 	"sx-translation-list-language-selector-dialog-title": "Езици",
 	"cx-uls-relevant-languages-panel-header": "Превеждане на тази страница",
-	"cx-uls-translate-page-quick-action-label": "Превеждане на тази страница"
+	"cx-uls-translate-page-quick-action-label": "Превеждане на тази страница",
+	"cx-contributecard-entrypoint-title": "Преводи",
+	"cx-contributecard-entrypoint-desc": "Преведете раздел или цяла статия. Направете повече съдържание достъпно на повече езици.",
+	"cx-contributecard-entrypoint-cta": "Започване на превод"
 }
