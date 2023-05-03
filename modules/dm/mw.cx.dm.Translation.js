@@ -105,7 +105,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 	}
 
 	if ( sourceSectionTitle ) {
-		// eslint-disable-next-line no-restricted-syntax
+
 		var targetSectionNode = [].slice.call( domDoc.getElementsByTagName( 'h2' ) ).find(
 			function ( el ) {
 				return el.innerText === sourceSectionTitle;
