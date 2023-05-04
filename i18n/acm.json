@@ -23,7 +23,16 @@
 	"cx-publish-error-spam-blacklist": "تم اكتشاف محتوى محتمل مو مرغوب بيه في ترجمتك، التفاصيل: $1",
 	"cx-publish-error-title-blacklist": "العنوان اللي كتبته مدرج في القائمه السوده; يُرجَى اختيار اسم ثاني لترجمتك.",
 	"cx-publish-summary": "أُنشئَت بترجمة الصفحه \"$1\"",
+	"cx-translation-add-translation": "حط ترجمه",
+	"cx-beta": "ترجمة المحتوى",
 	"cx-entrypoint-dialog-button-translate-from": "ترجم من $1",
 	"cx-entrypoint-dialog-desc": "تكدر تساعد ويكيبيديا بترجمة هاي الصفحه. الترجمه هي وسيله سهله حتى تسوي محتوى جديد بلغتك.",
+	"cx-campaign-newbytranslation-start": "ابدي ترجم",
+	"cx-tools-instructions-text1": "{{GENDER:|دوس|دوسي}} على الفقرات للترجمه",
+	"cx-tools-instructions-text2": "مو لازم {{GENDER:|تحطها|تحطينها}} كلها",
+	"cx-tools-instructions-text3": "{{GENDER:|سوي}} النص سهل القراءه",
+	"cx-tools-instructions-text4": "الترجمه الآليه مفيده بس يمكن {{GENDER:|تسوي|تسوين}} أغلاط محتمله",
+	"cx-tools-instructions-text5": "انشر{{GENDER:||ي}} الترجمه",
+	"cx-tools-instructions-text6": "من {{GENDER:|توصل|توصلين}} لنتيجه مرضيه, {{GENDER:|دوس|دوسي}} \"{{int:cx-publish-button}}\".",
 	"cx-translation-filter-label-all-languages": "كل"
 }
