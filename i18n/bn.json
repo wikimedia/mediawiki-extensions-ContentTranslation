@@ -402,6 +402,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "নতুন অনুবাদ",
 	"cx-sx-translation-confirmer-more-sections-button-label": "আরও অনুচ্ছেদ",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "অনুচ্ছেদ অনুবাদ করুন",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "নতুন অনুবাদ",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "অনুচ্ছেদ",
 	"sx-editor-feedback-overlay-title": "ধন্যবাদ!",
 	"sx-editor-feedback-overlay-clarification": "আপনার সংশোধনী থেকে শিখছি",
@@ -417,6 +418,7 @@
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "বিষয়বস্তু আরও বোধগম্য করে তুলুন",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "প্রয়োজন অনুসারে শব্দগুলিকে পুনরায় সাজাতে বা প্রতিস্থাপন করতে বাক্য সম্পাদনা করুন।",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "তথ্যসূত্র পরীক্ষা করুন",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "পাঠকরা তথ্য যাচাই করার জন্য তথ্যসূত্র ব্যবহার করে। তথ্যসূত্রের বিন্যাসন পর্যালোচনা করুন ও আপনার ভাষায় প্রাসঙ্গিক তথ্যসূত্র যোগ করুন।",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "আসলটির সাথে তুলনা করুন",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "অনুবাদে মূল অর্থ পরিবর্তন করা হয়নি তা নিশ্চিত করুন।",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "পাতাটি সম্পাদনা করুন",
@@ -458,5 +460,9 @@
 	"cx-sx-dashboard-help-panel-feedback-label": "আপনার মতামত জানান",
 	"cx-sx-dashboard-stats-panel-title": "আপনার প্রভাব",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "এই মাসে",
-	"cx-sx-dashboard-stats-panel-total-stats-label": "মোট"
+	"cx-sx-dashboard-stats-panel-total-stats-label": "মোট",
+	"sx-confirm-back-navigation-dialog-title": "আপনার অনুবাদ ছেড়ে যাবেন?",
+	"sx-confirm-back-navigation-dialog-body": "আপনার করা সব পরিবর্তন হারিয়ে যাবে।",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "বাতিল করুন",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "অগ্রসর হোন"
 }

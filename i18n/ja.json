@@ -381,6 +381,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "新しい翻訳",
 	"cx-sx-translation-confirmer-more-sections-button-label": "より多くのオプション",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "セクションを翻訳する",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "新しい翻訳",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "節",
 	"sx-editor-feedback-overlay-title": "ありがとうございます!",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "理解できる他言語版から節を翻訳し、このページを拡充しましょう。",
