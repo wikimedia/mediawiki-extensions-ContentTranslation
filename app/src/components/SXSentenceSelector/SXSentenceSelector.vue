@@ -104,6 +104,7 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import translator from "../../wiki/cx/api/translator";
 import { replaceUrl } from "@/utils/urlHandler";
+import translationRestorer from "@/utils/translationRestorer";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 
 export default {
@@ -154,16 +155,21 @@ export default {
     const initializeSegmentSelection = useInitializeSegmentSelection();
 
     onMounted(async () => {
-      const currentPage = store.getters["application/getCurrentPage"];
       const { currentTranslation } = store.state.application;
 
       const promises = [];
 
+      // if "currentTranslation" application state variable is set, and that translation
+      // is not already restored, restore it from the corpora translation units
       if (currentTranslation && !currentTranslation.restored) {
         const restorationPromise = translator
           .fetchTranslationUnits(currentTranslation.translationId)
           .then((translationUnits) => {
-            currentPage.restoreCorporaDraft(translationUnits);
+            translationRestorer.restoreCorporaDraft(
+              currentSourcePage.value,
+              currentTargetPage.value,
+              translationUnits
+            );
             currentTranslation.restored = true;
           });
         promises.push(restorationPromise);

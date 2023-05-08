@@ -431,19 +431,4 @@ export default class PageSection {
         []
       );
   }
-
-  /**
-   * @param {CorporaRestoredUnit[]} corporaUnits
-   */
-  restoreCorporaUnits(corporaUnits) {
-    for (const subSection of this.subSections) {
-      const corporaUnit = corporaUnits.find(
-        (corporaUnit) => corporaUnit.subSectionId === subSection.id
-      );
-
-      if (corporaUnit) {
-        subSection.restoreCorpora(corporaUnit);
-      }
-    }
-  }
 }

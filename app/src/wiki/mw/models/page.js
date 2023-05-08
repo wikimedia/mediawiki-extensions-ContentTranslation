@@ -69,16 +69,4 @@ export default class Page {
       (section) => section.originalTitle === sectionTitle
     );
   }
-
-  /**
-   * @param {CorporaRestoredUnit[]} corporaUnits
-   */
-  restoreCorporaDraft(corporaUnits) {
-    for (const section of this.sections || []) {
-      const sectionCorporaUnits = corporaUnits.filter(
-        (unit) => unit.pageSectionId === parseInt(section.id)
-      );
-      section.restoreCorporaUnits(sectionCorporaUnits);
-    }
-  }
 }
