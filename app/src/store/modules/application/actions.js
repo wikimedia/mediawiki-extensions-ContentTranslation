@@ -1,14 +1,11 @@
 import siteApi from "../../../wiki/mw/api/site";
-import translatorApi from "../../../wiki/cx/api/translator";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
-  getTemplateAdaptationInfo,
-  getWikitextFromTemplate,
-  isTransclusionNode,
-  targetTemplateExists,
-} from "../../../utils/templateHelper";
+  renderTemplateFromCXServer,
+  renderTemplateFromVE,
+} from "../../../utils/templateRenderer";
 import debounce from "../../../utils/debounce";
 
 /**
@@ -331,21 +328,12 @@ async function applyEditedTranslationToSelectedTranslationUnit(
   if (selectedContentTranslationUnit instanceof SubSection) {
     const currentSourcePage = getters.getCurrentPage;
     const currentTargetPage = getters.getCurrentTargetPage;
-    const sourceTitle = currentSourcePage.title;
-    const targetTitle = currentTargetPage?.title;
-
-    /** @type {Element} */
-    const templateElement = Array.from(div.children).find((node) =>
-      isTransclusionNode(node)
+    const templateTranslationHtml = await renderTemplateFromVE(
+      translation,
+      currentTargetPage?.title || currentSourcePage.title,
+      targetLanguage
     );
-
-    if (templateElement) {
-      translation = await translatorApi.parseTemplateWikitext(
-        getWikitextFromTemplate(templateElement),
-        targetLanguage,
-        targetTitle || sourceTitle
-      );
-    }
+    translation = templateTranslationHtml || translation;
   }
   currentSourceSection.setTranslationForSelectedTranslationUnit(
     translation,
@@ -476,11 +464,6 @@ async function translateTranslationUnitById(
     return;
   }
 
-  const currentSourcePage = getters.getCurrentPage;
-  const currentTargetPage = getters.getCurrentTargetPage;
-  const sourceTitle = currentSourcePage.title;
-  const targetTitle = currentTargetPage?.title;
-
   let originalContent = sourceSection.getOriginalContentByTranslationUnitId(id);
 
   const translationUnit = sourceSection.getContentTranslationUnitById(id);
@@ -509,36 +492,20 @@ async function translateTranslationUnitById(
   // the template definition and the HTML string that renders
   // the template
   if (translationUnit instanceof SubSection) {
-    const div = document.createElement("div");
-    div.innerHTML = proposedTranslation;
-    /** @type {HTMLElement|null} */
-    const templateElement = Array.from(div.children).find((node) =>
-      isTransclusionNode(node)
+    translationUnit.setBlockTemplateAdaptationInfoByHtml(
+      provider,
+      proposedTranslation
     );
 
-    // If no nested transclusion node, or target template doesn't exist
-    // set proposed translation to an empty string
-    if (templateElement && targetTemplateExists(templateElement)) {
-      // The adaptation info are stored by cxserver inside the "data-cx" attribute.
-      // However, this attribute is being dropped during the template parsing that
-      // takes place in the following lines, so we need extract this information
-      // from the template HTML as returned by cxserver (before template parsing)
-      const adaptationInfo = getTemplateAdaptationInfo(templateElement);
-      translationUnit.setBlockTemplateAdaptationInfo(provider, adaptationInfo);
+    const currentSourcePage = getters.getCurrentPage;
+    const currentTargetPage = getters.getCurrentTargetPage;
 
-      /**
-       * An HTML string containing both the template definition
-       * and the HTML string that renders the template
-       * @type {string}
-       */
-      proposedTranslation = await translatorApi.parseTemplateWikitext(
-        getWikitextFromTemplate(templateElement),
-        targetLanguage,
-        targetTitle || sourceTitle
-      );
-    } else {
-      proposedTranslation = "";
-    }
+    const translationHtml = await renderTemplateFromCXServer(
+      proposedTranslation,
+      currentTargetPage?.title || currentSourcePage.title,
+      targetLanguage
+    );
+    proposedTranslation = translationHtml || "";
   }
 
   commit("setProposedTranslationForTranslationUnitById", {

@@ -2,6 +2,8 @@ import {
   parseTemplateName,
   isTransclusionNode,
   getTemplateData,
+  targetTemplateExists,
+  getTemplateAdaptationInfo,
 } from "../../../utils/templateHelper";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import TranslationUnitPayload from "./translationUnitPayload";
@@ -28,6 +30,18 @@ export default class SubSection {
     this.blockTemplateSelected = false;
     this.blockTemplateTranslatedContent = "";
     this.blockTemplateProposedTranslations = {};
+    /**
+     * The adaptation info for block templates are stored by cxserver inside the "data-cx" attribute
+     * of the template HTML. However, this attribute is being dropped during the template adaptation
+     * (see "templateAdapter/adaptTemplateFromCXServer" method), so we need store this information
+     * before it's lost.
+     *
+     * Object containing block template adaptation information per MT provider in the following form:
+     * {
+     *   "Google": { adapted: boolean, partial: boolean, targetExists: boolean, mandatoryTargetParams: string[], optionalTargetParams: string[] }
+     * }
+     * @type {{ adapted: boolean, partial: boolean, targetExists: boolean, mandatoryTargetParams: string[], optionalTargetParams: string[] }}
+     */
     this.blockTemplateAdaptationInfo = {};
     this.blockTemplateMTProviderUsed = "";
     this.editedTranslation = null;
@@ -47,14 +61,31 @@ export default class SubSection {
   }
 
   /**
-   * Sets the adaptation info object as it is calculated by the cxserver
-   * for the given MT provider.
+   * Given the MT provider and the HTML string of the template as returned by cxserver,
+   * this method checks if the HTML contains any nested transclusion node and if the template
+   * actually exists in the target language (based on the adaptation information provided by
+   * cxserver through the data-cx attribute) and in case the above conditions are met, it sets
+   * a key-value pair to the "blockTemplateAdaptationInfo" for this subsection, with the key
+   * being the given MT provider and the value being the parsed JSON object that was stored
+   * inside the data-cx attribute of the template HTML.
    *
-   * @param {string} provider
-   * @param {{ adapted: boolean, partial: boolean, targetExists: boolean, mandatoryTargetParams: string[], optionalTargetParams: string[] }} info
+   * @param {string} provider the MT provider used for the template translation
+   * @param {string} templateHtml the HTML string of the template
    */
-  setBlockTemplateAdaptationInfo(provider, info) {
-    this.blockTemplateAdaptationInfo[provider] = info;
+  setBlockTemplateAdaptationInfoByHtml(provider, templateHtml) {
+    let div = document.createElement("div");
+    div.innerHTML = templateHtml;
+
+    /** @type {HTMLElement|null} */
+    const templateElement = Array.from(div.children).find((node) =>
+      isTransclusionNode(node)
+    );
+
+    // If both nested transclusion node and target template also exists (based on the data-cx attribute)
+    if (templateElement && targetTemplateExists(templateElement)) {
+      this.blockTemplateAdaptationInfo[provider] =
+        getTemplateAdaptationInfo(templateElement);
+    }
   }
 
   /**
