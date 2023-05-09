@@ -290,6 +290,7 @@
 	"cx-sx-content-comparator-present-section-placeholder-subtitle": "Při publikování se můžete místo toho rozhodnout nahradit stávající obsah.",
 	"cx-sx-publish-summary": "Vytvořeno překladem sekce „$1“ ze stránky „$2“",
 	"cx-sx-article-search-input-placeholder": "Vyhledat stránku k překladu",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Nový překlad",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Chybí v jazycích <span>$1</span>, <span>$2</span> a dalších",
 	"cx-uls-relevant-languages-panel-header": "Přeložit tuto stránku",
 	"cx-uls-relevant-languages-panel-message": "Tato stránka chybí v některých jazycích, které možná znáte. Můžete ji za pár minut přeložit!",
