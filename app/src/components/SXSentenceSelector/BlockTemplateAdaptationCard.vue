@@ -38,10 +38,9 @@
           class="px-0"
           type="text"
           progressive
+          :label="editBlockTranslationButtonLabel"
           @click="$emit('edit-translation', blockEditableContent)"
-        >
-          <span v-text="editBlockTranslationButtonLabel" />
-        </mw-button>
+        />
       </div>
       <div
         v-else-if="translationLoaded"
@@ -162,8 +161,7 @@ export default {
         ]
     );
     const isTemplateAdapted = computed(
-      () =>
-        adaptationInfo.value?.adapted || adaptationInfo.value?.partial || false
+      () => adaptationInfo.value?.adapted || !!adaptationInfo.value?.partial
     );
 
     const adaptedTemplateCardClass = computed(() => {
