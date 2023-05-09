@@ -89,10 +89,11 @@ export default {
       editedTranslation.value = translation;
       showFeedback.value = true;
       /**
-       * Show feedback animation to user for 2 seconds
+       * Show feedback animation to user for at least 2 seconds
        */
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      showFeedback.value = false;
+      const timeout = new Promise((resolve) => setTimeout(resolve, 2000));
+
+      let applyTranslationPromise = Promise.resolve();
 
       if (isFinalEdit) {
         store.commit(
@@ -107,11 +108,13 @@ export default {
             translation_target_language: targetLanguage.value,
           });
         }
-        store.dispatch(
+        applyTranslationPromise = store.dispatch(
           "application/applyEditedTranslationToSelectedTranslationUnit",
           translation
         );
       }
+      await Promise.all([timeout, applyTranslationPromise]);
+      showFeedback.value = false;
       closeEditor();
     };
 
