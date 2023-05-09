@@ -164,8 +164,8 @@ export default {
       if (currentTranslation && !currentTranslation.restored) {
         const restorationPromise = translator
           .fetchTranslationUnits(currentTranslation.translationId)
-          .then((translationUnits) => {
-            translationRestorer.restoreCorporaDraft(
+          .then(async (translationUnits) => {
+            await translationRestorer.restoreCorporaDraft(
               currentSourcePage.value,
               currentTargetPage.value,
               translationUnits

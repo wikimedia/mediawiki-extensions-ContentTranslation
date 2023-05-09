@@ -23,12 +23,12 @@ import {
  * @return {Promise<string|null>} a promise that resolves to an HTML string containing both the template definition and the HTML string that renders the template, or null
  */
 const renderTemplateFromCXServer = (templateHtml, title, language) => {
-  const div = document.createElement("div");
-  div.innerHTML = templateHtml;
+  const blockTemplateWrapper = document.createElement("div");
+  blockTemplateWrapper.innerHTML = templateHtml;
 
   /** @type {HTMLElement|null} */
-  const templateElement = Array.from(div.children).find((node) =>
-    isTransclusionNode(node)
+  const templateElement = Array.from(blockTemplateWrapper.children).find(
+    (node) => isTransclusionNode(node)
   );
 
   // If both nested transclusion node and target template also exists (based on the data-cx attribute)
@@ -62,12 +62,21 @@ const renderTemplateFromCXServer = (templateHtml, title, language) => {
  * @return {Promise<string|null>} a promise that resolves to an HTML string containing both the template definition and the HTML string that renders the template, or null
  */
 const renderTemplateFromVE = (templateHtml, title, language) => {
-  let div = document.createElement("div");
-  div.innerHTML = templateHtml;
+  let blockTemplateWrapper = document.createElement("div");
+  blockTemplateWrapper.innerHTML = templateHtml;
+
+  // for restored draft corpora, the given template HTML is wrapped inside a <section> element
+  // with "rel" attribute set to "cx:Section". We need to use the element, that holds the template
+  // definition, which is expected to be the first child inside the <section> wrapper
+  if (
+    blockTemplateWrapper.firstElementChild.getAttribute("rel") === "cx:Section"
+  ) {
+    blockTemplateWrapper = blockTemplateWrapper.firstElementChild;
+  }
 
   /** @type {Element} */
-  const templateElement = Array.from(div.children).find((node) =>
-    isTransclusionNode(node)
+  const templateElement = Array.from(blockTemplateWrapper.children).find(
+    (node) => isTransclusionNode(node)
   );
 
   if (templateElement) {

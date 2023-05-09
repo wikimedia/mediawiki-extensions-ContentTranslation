@@ -76,6 +76,13 @@ export default class SubSection {
     let div = document.createElement("div");
     div.innerHTML = templateHtml;
 
+    // for restored draft corpora, the given template HTML is wrapped inside a <section> element
+    // with "rel" attribute set to "cx:Section". We need to use the element, that holds the template
+    // definition, which is expected to be the first child inside the <section> wrapper
+    if (div.firstElementChild.getAttribute("rel") === "cx:Section") {
+      div = div.firstElementChild;
+    }
+
     /** @type {HTMLElement|null} */
     const templateElement = Array.from(div.children).find((node) =>
       isTransclusionNode(node)
@@ -339,6 +346,19 @@ export default class SubSection {
     const translatedSubSectionNode = this.node.cloneNode(true);
     translatedSubSectionNode.innerHTML = this.translatedContent;
 
+    const templateElement = Array.from(translatedSubSectionNode.children).find(
+      (node) => isTransclusionNode(node)
+    );
+
+    // if this subsection is a block template and a nested transclusion node exists,
+    // add the block template adaptation info as "data-cx" attribute to the element
+    // that holds the template definition, so that we can restore block template translations
+    // properly
+    if (this.isBlockTemplate && templateElement) {
+      templateElement.dataset.cx = JSON.stringify([
+        this.blockTemplateAdaptationInfo[this.mtProviderUsed],
+      ]);
+    }
     const payloads = [
       new TranslationUnitPayload({
         baseSectionId,
@@ -402,6 +422,20 @@ export default class SubSection {
     } else if (this.isBlockTemplate) {
       subSectionNode.innerHTML =
         this.blockTemplateProposedTranslations[mtProvider];
+
+      const templateElement = Array.from(subSectionNode.children).find((node) =>
+        isTransclusionNode(node)
+      );
+
+      // if this subsection is a block template and a nested transclusion node exists,
+      // add the block template adaptation info as "data-cx" attribute to the element
+      // that holds the template definition, so that we can restore block template translations
+      // properly
+      if (templateElement) {
+        templateElement.dataset.cx = JSON.stringify([
+          this.blockTemplateAdaptationInfo[mtProvider],
+        ]);
+      }
     } else {
       const sameMTProviderUsed = this.translatedSentences.every(
         (sentence) => sentence.mtProviderUsed === mtProvider
