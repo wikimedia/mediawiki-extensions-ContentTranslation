@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"20عبد العزيز",
+			"Alshamiri1",
 			"Amire80",
 			"Asma",
 			"Dr. Mohammed",
@@ -335,6 +336,7 @@
 	"cx-sx-translation-confirmer-action-view-section": "اختر قسمًا للترجمة",
 	"cx-sx-translation-confirmer-action-new-translation": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-more-sections-button-label": "المزيد من الأقسام",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "قسم",
 	"sx-editor-feedback-overlay-title": "شكرًا!",
 	"cx-campaign-mflanguagesearcher-invite": "يمكنك ترجمة هذه الصفحة. من السهل إنشاء محتوى بلغتك.",
