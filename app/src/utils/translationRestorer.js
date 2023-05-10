@@ -1,16 +1,5 @@
 import { renderTemplateFromVE } from "@/utils/templateRenderer";
 
-const toHtmlSegments = (text) => {
-  if (!text) {
-    return [];
-  }
-  const wrapperDiv = document.createElement("div");
-  wrapperDiv.innerHTML = text;
-  const node = wrapperDiv.firstChild;
-
-  return Array.from(node.getElementsByClassName("cx-segment"));
-};
-
 /**
  * @param {SubSection} subSection
  * @param {CorporaRestoredUnit} corporaUnit
@@ -23,7 +12,8 @@ const restoreBlockTemplate = async (
   pageTitle,
   language
 ) => {
-  const templateTranslation = corporaUnit.user.content;
+  const templateTranslation =
+    corporaUnit.user?.content || corporaUnit.mt?.content;
 
   const mtProvider = corporaUnit?.mt?.engine;
 
@@ -54,24 +44,17 @@ const restoreBlockTemplate = async (
  * @param {CorporaRestoredUnit} corporaUnit
  */
 const restoreSubSectionWithSentences = (subSection, corporaUnit) => {
-  // "user" translations are always present inside corpora translation unit for SX
-  const userTranslatedSegments = toHtmlSegments(corporaUnit.user.content);
-  // "mt" translation can be empty inside corpora translation unit for SX
-  const mtSegments = toHtmlSegments(corporaUnit?.mt?.content);
-
   // iterate over "user" segments since they are always present
-  userTranslatedSegments.forEach((userTranslatedSegment) => {
-    const sentence = subSection.getSentenceById(
-      userTranslatedSegment.dataset.segmentid
-    );
-    const mtSegment = mtSegments.find(
-      (mtSegment) =>
-        mtSegment.dataset.segmentid === userTranslatedSegment.dataset.segmentid
-    );
-    sentence.translatedContent = userTranslatedSegment.innerHTML;
-    const mtProvider = corporaUnit.mt.engine;
-    sentence.addProposedTranslation(mtProvider, mtSegment?.innerHTML);
-    sentence.mtProviderUsed = mtProvider;
+  corporaUnit.segments.forEach((segment) => {
+    const sentence = subSection.getSentenceById(segment.id);
+    sentence.translatedContent =
+      segment.user?.innerHTML || segment.mt?.innerHTML;
+
+    if (segment.mt) {
+      const mtProvider = corporaUnit.mt?.engine;
+      sentence.addProposedTranslation(mtProvider, segment.mt.innerHTML);
+      sentence.mtProviderUsed = mtProvider;
+    }
   });
 };
 

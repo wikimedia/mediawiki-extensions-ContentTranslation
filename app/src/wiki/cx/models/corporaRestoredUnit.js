@@ -1,3 +1,26 @@
+/**
+ * @param text
+ * @return {object}
+ */
+const toHtmlSegments = (text) => {
+  if (!text) {
+    return {};
+  }
+  const wrapperDiv = document.createElement("div");
+  wrapperDiv.innerHTML = text;
+  const node = wrapperDiv.firstChild;
+
+  const segments = Array.from(node.getElementsByClassName("cx-segment"));
+
+  return segments.reduce(
+    (segmentsWrapper, segment) => ({
+      ...segmentsWrapper,
+      [segment.dataset.segmentid]: segment,
+    }),
+    {}
+  );
+};
+
 export default class CorporaRestoredUnit {
   /**
    * @param {{user, source, mt, sequenceId}} unit
@@ -32,5 +55,30 @@ export default class CorporaRestoredUnit {
 
   get subSectionId() {
     return this.sourceSectionEl.id.replace(/\D/g, "");
+  }
+
+  /**
+   * @return {{mt: object, id: string, user: object}[]}
+   */
+  get segments() {
+    // the "user" property is always set in SX, but in CX it's NOT set when MT is not modified
+    // and MT is coming from an actual MT provider (e.g. Google - not 'source' or 'scratch')
+    const userTranslatedSegments = toHtmlSegments(this.user?.content);
+
+    // the "mt" property is NOT set when the MT provider is "original" or "empty" in SX,
+    // and when the MT provider is 'source' in CX
+    const mtSegments = toHtmlSegments(this.mt?.content);
+    const segmentIds = [
+      ...new Set([
+        ...Object.keys(userTranslatedSegments),
+        ...Object.keys(mtSegments),
+      ]),
+    ];
+
+    return segmentIds.map((segmentId) => ({
+      id: segmentId,
+      mt: mtSegments[segmentId] || null,
+      user: userTranslatedSegments[segmentId] || null,
+    }));
   }
 }
