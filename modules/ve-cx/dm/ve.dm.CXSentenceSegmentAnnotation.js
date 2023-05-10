@@ -50,7 +50,7 @@ ve.dm.CXSentenceSegmentAnnotation.static.toDataElement = function ( domElements 
 ve.dm.CXSentenceSegmentAnnotation.static.toDomElements = function ( dataElement, doc, converter ) {
 	// We only need these segments when converting the document for saving
 	// or for translating, not for the clipboard (or previewing) (T220495)
-	if ( converter.isForParser() || converter.isForTranslation ) {
+	if ( converter.isForSaving || converter.isForTranslation ) {
 		var domElement = doc.createElement( 'span' );
 		if ( dataElement.attributes.segmentid ) {
 			domElement.setAttribute( 'data-segmentid', dataElement.attributes.segmentid );
