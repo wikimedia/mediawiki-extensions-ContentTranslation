@@ -207,12 +207,19 @@ async function fetchTranslations({ commit, dispatch, state, rootGetters }) {
   /** @type {Translation[]} */
   const translations = await cxTranslatorApi.fetchTranslations();
   translations.forEach((translation) => {
-    const translationExists = state.translations.some(
+    const sectionTranslationExists = state.translations.some(
       (existing) =>
+        !!existing.sectionTranslationId &&
         existing.sectionTranslationId === translation.sectionTranslationId
     );
 
-    if (!translationExists) {
+    const translationExists = state.translations.some(
+      (existing) =>
+        !existing.sectionTranslationId &&
+        existing.translationId === translation.translationId
+    );
+
+    if (!sectionTranslationExists && !translationExists) {
       commit("addTranslation", translation);
     }
   });

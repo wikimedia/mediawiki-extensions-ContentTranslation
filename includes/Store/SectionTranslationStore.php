@@ -124,9 +124,9 @@ class SectionTranslationStore {
 
 		$resultSet = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
-			->from( self::TABLE_NAME )
-			->join( 'cx_translations', null, 'translation_id = cxsx_translation_id' )
-			->join( 'cx_translators', null, $onClauseConditions )
+			->from( TranslationStore::TRANSLATION_TABLE_NAME )
+			->leftJoin( self::TABLE_NAME, null, 'translation_id = cxsx_translation_id' )
+			->join( TranslationStore::TRANSLATOR_TABLE_NAME, null, $onClauseConditions )
 			->where( $whereConditions )
 			->orderBy( 'translation_last_updated_timestamp', SelectQueryBuilder::SORT_DESC )
 			->limit( $limit )
@@ -136,9 +136,9 @@ class SectionTranslationStore {
 		$result = [];
 		foreach ( $resultSet as $row ) {
 			$result[] = new SectionTranslationDTO(
-				(int)$row->cxsx_id,
-				(int)$row->cxsx_translation_id,
-				$row->cxsx_section_id,
+				$row->cxsx_id ? (int)$row->cxsx_id : null,
+				(int)$row->translation_id,
+				$row->cxsx_section_id ?? null,
 				$row->translation_source_title,
 				$row->translation_source_language,
 				$row->translation_target_language,

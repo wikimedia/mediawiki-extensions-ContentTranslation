@@ -56,6 +56,17 @@ export default class Translation {
     this.restored = false;
   }
 
+  /**
+   * Used inside CXTranslationList.vue
+   * @return {`sx-${number}`|`cx-${number}`}
+   */
+  get key() {
+    return (
+      (this.sectionTranslationId && `sx-${this.sectionTranslationId}`) ||
+      `cx-${this.translationId}`
+    );
+  }
+
   get isLeadSectionTranslation() {
     return (
       !this.sourceSectionTitle ||
