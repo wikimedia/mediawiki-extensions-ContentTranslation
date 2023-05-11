@@ -42,7 +42,7 @@ export default {
       sourceLanguage,
     } = useApplicationState(store);
 
-    const sourceArticleTitle = computed(() => currentPage.value.title);
+    const sourceArticleTitle = computed(() => currentPage.value?.title);
     const sourceSectionTitle = computed(
       () => currentPageSection.value?.title || sourceArticleTitle.value
     );
