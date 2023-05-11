@@ -344,6 +344,10 @@ export default class SubSection {
    */
   getParallelCorporaTranslationPayloads(baseSectionId) {
     const translatedSubSectionNode = this.node.cloneNode(true);
+    translatedSubSectionNode.setAttribute(
+      "data-mw-cx-source",
+      this.mtProviderUsed
+    );
     translatedSubSectionNode.innerHTML = this.translatedContent;
 
     const templateElement = Array.from(translatedSubSectionNode.children).find(
@@ -417,9 +421,11 @@ export default class SubSection {
     const mtProvider = this.mtProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
 
-    if (this.isBlockTemplate && MTProviderGroup.isUserMTProvider(mtProvider)) {
+    if (MTProviderGroup.isUserMTProvider(mtProvider)) {
       return null;
-    } else if (this.isBlockTemplate) {
+    }
+
+    if (this.isBlockTemplate) {
       subSectionNode.innerHTML =
         this.blockTemplateProposedTranslations[mtProvider];
 
@@ -441,7 +447,7 @@ export default class SubSection {
         (sentence) => sentence.mtProviderUsed === mtProvider
       );
 
-      if (!sameMTProviderUsed || MTProviderGroup.isUserMTProvider(mtProvider)) {
+      if (!sameMTProviderUsed) {
         return null;
       }
 
@@ -461,6 +467,7 @@ export default class SubSection {
         segment.parentNode.removeChild(segment);
       });
     }
+    subSectionNode.setAttribute("data-mw-cx-source", mtProvider);
 
     return subSectionNode.outerHTML;
   }

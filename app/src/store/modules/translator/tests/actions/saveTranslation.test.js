@@ -121,14 +121,14 @@ describe("vuex store saveTranslation action", () => {
         },
         {
           content:
-            '<section id="cxSourceSection12">Block template translation 1</section>',
+            '<section id="cxSourceSection12" data-mw-cx-source="Google">Block template translation 1</section>',
           sectionId: "11_1_12",
           validate: false,
           origin: "user",
         },
         {
           content:
-            '<section id="cxSourceSection12">Block Google translation 1</section>',
+            '<section id="cxSourceSection12" data-mw-cx-source="Google">Block Google translation 1</section>',
           sectionId: "11_1_12",
           validate: false,
           origin: "Google",

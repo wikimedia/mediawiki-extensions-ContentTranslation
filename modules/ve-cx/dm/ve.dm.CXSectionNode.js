@@ -63,6 +63,7 @@ ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
 	const elements = ve.dm.CXSectionNode.super.static.toDomElements.apply( this, arguments );
 	elements[ 0 ].setAttribute( 'rel', 'cx:Section' );
 	elements[ 0 ].setAttribute( 'id', dataElement.attributes.cxid );
+	// here we set the "mw-cx-source" data attribute that is needed for restoring translation corpora units
 	elements[ 0 ].dataset.mwCxSource = dataElement.attributes.cxsource;
 	return elements;
 };
