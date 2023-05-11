@@ -284,7 +284,26 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 };
 
 /**
- * A saved translation unit is a candidate for restoring against a source section, iff
+ * Given an Element node, this method returns a boolean indicating whether
+ * this node contains any transclusion nodes or not.
+ *
+ * The logic for this method was copied from templateHelper/isTransclusionNode
+ * method, which lives inside SX codebase (/app/src/utils/templateHelper.js)
+ *
+ * @param {Element} rootNode
+ * @return {boolean}
+ */
+mw.cx.dm.Translation.static.hasTransclusionNode = function ( rootNode ) {
+	return [].slice.call( rootNode.children ).some( function ( node ) {
+		var hasTransclusionTypeOf =
+			node.attributes.typeof && node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ );
+
+		return !!( node.attributes.about || hasTransclusionTypeOf );
+	} );
+};
+
+/**
+ * A saved translation unit is a candidate for restoring against a source section, if
  * the saved source and current source share a common tokens ratio greater than a threshold.
  * Check if that is the case.
  *
@@ -301,7 +320,17 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
 		$sourceSectionNode = $( currSourceNode );
 
 	if ( $savedTranslationUnitSource.is( 'section' ) ) {
-		if ( $savedTranslationUnitSource.children().eq( 0 ).prop( 'tagName' ) !==
+		// Template definitions can exist on different kind of elements like <style>, <span> etc.
+		// For example, in SX, cxserver may return a template definition inside <style> tag, then
+		// we use a dummy VE surface (in order to resolve references) and `ve.dm.converter.getDomFromNode`
+		// to get the DOM for a template. At this point, the template can be returned inside a <span> element.
+		// That would lead to broken restoration if we only check for the tag names. But it’s still the same
+		// template, so we should only care about the template definition, not the element that includes it.
+		if ( this.hasTransclusionNode( currSourceNode ) ) {
+			// if both source and target sections are holding a template definition, the section is matching for restore
+			// TODO: Should we also check if the template names match?
+			return this.hasTransclusionNode( $savedTranslationUnitSource[ 0 ] );
+		} else if ( $savedTranslationUnitSource.children().eq( 0 ).prop( 'tagName' ) !==
 			$sourceSectionNode.children().eq( 0 ).prop( 'tagName' )
 		) {
 			return false;
