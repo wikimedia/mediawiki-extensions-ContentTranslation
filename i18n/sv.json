@@ -406,6 +406,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Ny översättning",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Fler avsnitt",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Översätt avsnitt",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Ny översättning",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Avsnitt",
 	"sx-editor-feedback-overlay-title": "Tack!",
 	"sx-editor-feedback-overlay-clarification": "Lär dig från dina rättelser",
@@ -469,5 +470,12 @@
 	"cx-sx-dashboard-help-panel-title": "Behöver du hjälp med att översätta?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Mer om detta verktyg",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistik",
-	"cx-sx-dashboard-help-panel-feedback-label": "Ge oss återkoppling"
+	"cx-sx-dashboard-help-panel-feedback-label": "Ge oss återkoppling",
+	"cx-sx-dashboard-stats-panel-title": "Din påverkan",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Denna månad",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Totalt",
+	"sx-confirm-back-navigation-dialog-title": "Lämna din översättning?",
+	"sx-confirm-back-navigation-dialog-body": "Alla dina ändringar kommer att gå förlorade.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Släng",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsätt"
 }
