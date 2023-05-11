@@ -417,6 +417,7 @@
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-header": "বিষয়বস্তু আরও বোধগম্য করে তুলুন",
 	"sx-recent-translation-entrypoint-dialog-natural-contents-list-item-details": "প্রয়োজন অনুসারে শব্দগুলিকে পুনরায় সাজাতে বা প্রতিস্থাপন করতে বাক্য সম্পাদনা করুন।",
 	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "তথ্যসূত্র পরীক্ষা করুন",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "পাঠকরা তথ্য যাচাই করার জন্য তথ্যসূত্র ব্যবহার করে। তথ্যসূত্রের বিন্যাসন পর্যালোচনা করুন ও আপনার ভাষায় প্রাসঙ্গিক তথ্যসূত্র যোগ করুন।",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "আসলটির সাথে তুলনা করুন",
 	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-details": "অনুবাদে মূল অর্থ পরিবর্তন করা হয়নি তা নিশ্চিত করুন।",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "পাতাটি সম্পাদনা করুন",
