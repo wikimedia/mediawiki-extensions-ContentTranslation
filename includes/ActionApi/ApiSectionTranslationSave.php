@@ -275,6 +275,7 @@ class ApiSectionTranslationSave extends ApiBase {
 			// update updatable fields
 			$sectionTranslation->setTargetSectionTitle( $targetSectionTitle );
 			$sectionTranslation->setTranslationStatus( $draftStatusIndex );
+			$sectionTranslation->setProgress( $progress );
 			$this->sectionTranslationStore->updateTranslation( $sectionTranslation );
 		}
 

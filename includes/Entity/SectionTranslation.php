@@ -79,4 +79,8 @@ class SectionTranslation {
 	public function getProgress(): string {
 		return $this->progress;
 	}
+
+	public function setProgress( string $progress ): void {
+		$this->progress = $progress;
+	}
 }
