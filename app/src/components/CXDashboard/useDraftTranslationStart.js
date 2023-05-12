@@ -72,10 +72,12 @@ const useDraftTranslationStart = (translation) => {
       );
     }
 
-    // initialize the translated title, so that we can restore the draft section/article title
-    section.translatedTitle = translation.targetTitle;
-
     store.commit("application/setCurrentSourceSection", section);
+    // initialize the translated title, so that we can restore the draft section/article title
+    store.commit(
+      "application/setCurrentSourceSectionTitleTranslation",
+      translation.targetSectionTitle || translation.targetTitle
+    );
     router.push({ name: "sx-sentence-selector", query: { force: true } });
   };
 };
