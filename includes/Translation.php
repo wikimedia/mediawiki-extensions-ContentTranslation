@@ -489,6 +489,14 @@ class Translation {
 		return $this->translation['id'];
 	}
 
+	public function getSourceTitle(): string {
+		return $this->translation['sourceTitle'];
+	}
+
+	public function getSourceLanguage(): string {
+		return $this->translation['sourceLanguage'];
+	}
+
 	/**
 	 * Return the underlying data fields.
 	 *

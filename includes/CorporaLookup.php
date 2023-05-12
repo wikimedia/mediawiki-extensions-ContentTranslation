@@ -63,7 +63,7 @@ class CorporaLookup {
 		foreach ( $rows as $row ) {
 			// Here I am assuming sequence IDs are unique and won't be re-used
 			$id = $row->cxc_section_id;
-			$section = $sections[$id] ?? new TranslationUnitDTO( (int)$row->cxc_sequence_id );
+			$section = $sections[$id] ?? new TranslationUnitDTO( $id, (int)$row->cxc_sequence_id );
 
 			$type = self::isMT( $row->cxc_origin ) ? self::TYPE_MT : $row->cxc_origin;
 			$blob = [

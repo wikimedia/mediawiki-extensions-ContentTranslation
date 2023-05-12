@@ -160,7 +160,8 @@
 				"ContentTranslation.ParsoidClientFactory",
 				"ContentTranslation.SectionPositionCalculator",
 				"ContentTranslation.SandboxTitleMaker",
-				"ContentTranslation.SectionTranslationStore"
+				"ContentTranslation.SectionTranslationStore",
+				"ContentTranslation.TranslationSplitter"
 			]
 		},
 		"cxsave": {

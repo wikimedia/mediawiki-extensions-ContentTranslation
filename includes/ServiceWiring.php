@@ -11,6 +11,7 @@ use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
+use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -122,6 +123,13 @@ return [
 			return new TranslationCorporaStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$services->getDBLoadBalancerFactory()
+			);
+		},
+	'ContentTranslation.TranslationSplitter' =>
+		static function ( MediaWikiServices $services ): TranslationSplitter {
+			return new TranslationSplitter(
+				$services->getService( 'ContentTranslation.CorporaLookup' ),
+				$services->getService( 'ContentTranslation.SectionTitleFetcher' )
 			);
 		},
 	'ContentTranslation.TranslationStore' =>

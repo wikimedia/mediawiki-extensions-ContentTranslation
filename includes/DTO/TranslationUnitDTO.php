@@ -3,6 +3,7 @@
 namespace ContentTranslation\DTO;
 
 use ContentTranslation\CorporaLookup;
+use Exception;
 use Sanitizer;
 
 class TranslationUnitDTO {
@@ -12,30 +13,29 @@ class TranslationUnitDTO {
 		CorporaLookup::TYPE_USER
 	];
 
-	/** @var ?int */
-	private $sequenceId;
+	private ?int $sequenceId;
 	/**
 	 * Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ]
-	 * @var array|null
 	 */
-	private $source;
+	private ?array $source;
 	/**
 	 * Fields: [ 'engine' => string (e.g. "Google"), 'content' => string, timestamp: ISO string ]
-	 * @var array|null
 	 */
-	private $mt;
+	private ?array $mt;
 	/**
 	 * Fields: [ 'engine' => null, 'content' => string, timestamp: ISO string ]
-	 * @var array|null
 	 */
-	private $user;
+	private ?array $user;
+	private string $sectionId;
 
 	public function __construct(
+		string $sectionId,
 		?int $sequenceId,
 		?array $source = null,
 		?array $mt = null,
 		?array $user = null
 	) {
+		$this->sectionId = $sectionId;
 		$this->sequenceId = $sequenceId;
 		$this->source = $source;
 		$this->mt = $mt;
@@ -45,11 +45,11 @@ class TranslationUnitDTO {
 	/**
 	 * @param string $type
 	 * @param array|null $blob
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function setBlobForType( string $type, ?array $blob ): void {
 		if ( !in_array( $type, self::VALID_BLOB_TYPES ) ) {
-			throw new \Exception( '[CX] Invalid blob type during translation unit restoration' );
+			throw new Exception( '[CX] Invalid blob type during translation unit restoration' );
 		}
 
 		$existingBlob = $this->$type;
@@ -77,6 +77,10 @@ class TranslationUnitDTO {
 
 	public function getUserBlob(): ?array {
 		return $this->user;
+	}
+
+	public function getMtBlob(): ?array {
+		return $this->mt;
 	}
 
 	/**
@@ -158,4 +162,28 @@ class TranslationUnitDTO {
 
 		return $unit;
 	}
+
+	public function getRevision(): ?int {
+		$sectionIdPieces = explode( '_', $this->sectionId );
+
+		return isset( $sectionIdPieces[0] ) ? (int)$sectionIdPieces[0] : null;
+	}
+
+	public function getMwSectionNumber(): ?int {
+		$sectionIdPieces = explode( '_', $this->sectionId );
+
+		return isset( $sectionIdPieces[1] ) ? (int)$sectionIdPieces[1] : null;
+	}
+
+	public function getBaseSectionId(): string {
+		$sectionIdPieces = explode( '_', $this->sectionId );
+
+		// sectionId should be in the following format: ${revision}_${sectionNumber}_${subSectionId}
+		if ( count( $sectionIdPieces ) < 3 ) {
+			throw new Exception( '[CX] Invalid format for section id of the translation unit DTO' );
+		}
+
+		return "$sectionIdPieces[0]_$sectionIdPieces[1]";
+	}
+
 }

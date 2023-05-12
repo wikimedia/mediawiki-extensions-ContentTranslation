@@ -50,6 +50,24 @@ class SectionTranslationStore {
 		$translation->setId( $dbw->insertId() );
 	}
 
+	/**
+	 * @param SectionTranslation[] $translations
+	 * @return void
+	 */
+	public function insertMultipleTranslations( array $translations ): void {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+		$rows = [];
+		foreach ( $translations as $translation ) {
+			$values = $this->translationToDBRow( $translation );
+			// set start/last_updated timestamps to current timestamp
+			$values['cxsx_translation_start_timestamp'] = $dbw->timestamp();
+			$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
+			$rows[] = $values;
+		}
+
+		$dbw->insert( self::TABLE_NAME, $rows, __METHOD__ );
+	}
+
 	public function updateTranslation( SectionTranslation $translation ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$values = $this->translationToDBRow( $translation );

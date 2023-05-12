@@ -19,6 +19,7 @@ use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
+use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Translation;
@@ -41,6 +42,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SectionPositionCalculator $sectionPositionCalculator;
 	private SandboxTitleMaker $sandboxTitleMaker;
 	private SectionTranslationStore $sectionTranslationStore;
+	private TranslationSplitter $translationSplitter;
 
 	/**
 	 * @param ApiMain $main
@@ -52,6 +54,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 * @param SandboxTitleMaker $sandboxTitleMaker
 	 * @param SectionTranslationStore $sectionTranslationStore
+	 * @param TranslationSplitter $translationSplitter
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -62,7 +65,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		ParsoidClientFactory $parsoidClientFactory,
 		SectionPositionCalculator $sectionPositionCalculator,
 		SandboxTitleMaker $sandboxTitleMaker,
-		SectionTranslationStore $sectionTranslationStore
+		SectionTranslationStore $sectionTranslationStore,
+		TranslationSplitter $translationSplitter
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -72,6 +76,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->sectionTranslationStore = $sectionTranslationStore;
+		$this->translationSplitter = $translationSplitter;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -241,6 +246,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
 				}
 
+				// if the translated section is a lead section
+				if ( $sectionNumber === 0 ) {
+					$newSectionTranslations = $this->translationSplitter->splitIntoSectionTranslations(
+						// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
+						$translation
+					);
+					$this->sectionTranslationStore->insertMultipleTranslations( $newSectionTranslations );
+				}
 				// if translation exists update the "translation_target_revision_id" field for this row
 				'@phan-var Translation $translation';
 				$this->updateTranslation( $translation, $user, $newRevId, $targetTitleRaw, $targetLanguage );
