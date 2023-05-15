@@ -114,7 +114,7 @@ function saveTranslation({ rootState, rootGetters }) {
 
   /**
    * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
-   * @type {Promise<PublishFeedbackMessage|null>}
+   * @type {Promise<number|PublishFeedbackMessage>}
    */
   return cxTranslatorApi.saveTranslation({
     sourceTitle,

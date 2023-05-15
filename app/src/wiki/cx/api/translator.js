@@ -296,8 +296,8 @@ const publishTranslation = ({
  * sends a request to "sxsave" API action to store the draft translation to the "cx_translations"
  * database table, persist (if needed) the section translation into the "cx_section_translations"
  * table and store the parallel corpora translation units inside the "cx_corpora" table.
- * Finally, it returns a promise resolving to a PublishFeedbackMessage model in case
- * of error, or to null in case of successful saving.
+ * Finally, it returns a promise resolving to the section translation id (cxsx_id) of the saved
+ * translation, or a PublishFeedbackMessage model in case of error.
  *
  * @param {object} publishParams
  * @param {string} publishParams.sourceTitle The title of the source page
@@ -311,7 +311,7 @@ const publishTranslation = ({
  * @param {string} publishParams.sectionId The id of the source page section
  * @param {boolean} publishParams.isSandbox
  * @param {boolean} publishParams.progress
- * @return {Promise<PublishFeedbackMessage|null>}
+ * @return {Promise<number|PublishFeedbackMessage>}
  */
 const saveTranslation = ({
   sourceTitle,

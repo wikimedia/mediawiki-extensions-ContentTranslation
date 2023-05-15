@@ -1,6 +1,7 @@
 import siteApi from "../../../wiki/mw/api/site";
 import translatorApi from "../../../wiki/cx/api/translator";
 import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
+import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
   getTemplateAdaptationInfo,
@@ -36,8 +37,8 @@ const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
 
     const saveTranslationWithRetry = () => {
       dispatch("translator/saveTranslation", {}, { root: true }).then(
-        (feedbackMessage) => {
-          if (!!feedbackMessage) {
+        (saveResponse) => {
+          if (saveResponse instanceof PublishFeedbackMessage) {
             retryDelay *= retry + 1;
             retry++;
 
