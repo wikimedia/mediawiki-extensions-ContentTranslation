@@ -484,6 +484,8 @@
 	"cx-sx-block-template-none-mapped-param-text": "$1 değişkenden hiçbiri özgün şablondan eklenmedi",
 	"cx-sx-block-template-mapped-params-text": "$2 {{PLURAL:$2|değişkenden}} $1 tanesi özgün şablondan eklendi",
 	"cx-sx-block-template-no-source-params-text": "Orijinal şablonda aktarılacak parametre bulunmaktadır",
+	"cx-sx-block-template-missing-mandatory-params-text": "$2 içindeki şablon için $1 zorunlu değişken doldurulmadan kalıyor. Bunları elle doldurmak için şablonu düzenleyin",
+	"cx-sx-block-template-missing-optional-params-text": "$2 içindeki şablon için $1 ek değişken doldurulabilir. Bunları elle doldurmak için şablonu düzenleyin",
 	"cx-sx-dashboard-help-panel-title": "Çeviri için yardıma mı ihtiyacınız var?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Bu araç hakkında daha fazla bilgi",
 	"cx-sx-dashboard-help-panel-stats-label": "İstatistikler",

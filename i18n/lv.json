@@ -386,6 +386,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Jauns tulkojums",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Vairāk sadaļu",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Tulkot sadaļu",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Jauns tulkojums",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sadaļa",
 	"sx-editor-feedback-overlay-title": "Paldies!",
 	"sx-editor-feedback-overlay-clarification": "Mācās no taviem labojumiem",
@@ -445,5 +446,15 @@
 	"cx-sx-block-template-mapped-params-text": "$1 no {{PLURAL:$2|$2 parametriem|$2 parametra|$2 parametriem}} tika pārnests no sākotnējās veidnes",
 	"cx-sx-block-template-no-source-params-text": "Oriģinālajā veidnē nebija pārnesamo parametru",
 	"cx-sx-block-template-missing-mandatory-params-text": "Veidnei $2 palikuši neaizpildīti $1 obligātie parametri. Rediģē veidni, lai tos aizpildītu manuāli",
-	"cx-sx-block-template-missing-optional-params-text": "Veidnei $2 var aizpildīt vēl $1 parametrus. Rediģē veidni, lai tos aizpildītu manuāli"
+	"cx-sx-block-template-missing-optional-params-text": "Veidnei $2 var aizpildīt vēl $1 parametrus. Rediģē veidni, lai tos aizpildītu manuāli",
+	"cx-sx-dashboard-help-panel-title": "Vai nepieciešama palīdzība tulkošanā?",
+	"cx-sx-dashboard-help-panel-more-info-label": "Vairāk par šo rīku",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistika",
+	"cx-sx-dashboard-help-panel-feedback-label": "Sniedz mums atsauksmes",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Šomēnes",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Kopā",
+	"sx-confirm-back-navigation-dialog-title": "Vai pamest tulkojumu?",
+	"sx-confirm-back-navigation-dialog-body": "Visas veiktās izmaiņas tiks zaudētas.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt"
 }
