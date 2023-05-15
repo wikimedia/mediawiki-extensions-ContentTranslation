@@ -60,23 +60,26 @@ const useDraftTranslationStart = (translation) => {
     });
 
     let section;
+    let sectionTitleTranslation;
 
     if (translation.isLeadSectionTranslation) {
       section = currentSourcePage.value.leadSection;
       // initialize the original title, so that we can restore the draft section/article title
       // this is not needed for non-lead sections as the original title is already populated
       section.originalTitle = translation.sourceTitle;
+      sectionTitleTranslation = translation.targetTitle;
     } else {
       section = currentSourcePage.value.getSectionByTitle(
         translation.sourceSectionTitle
       );
+      sectionTitleTranslation = translation.targetSectionTitle;
     }
 
     store.commit("application/setCurrentSourceSection", section);
     // initialize the translated title, so that we can restore the draft section/article title
     store.commit(
       "application/setCurrentSourceSectionTitleTranslation",
-      translation.targetSectionTitle || translation.targetTitle
+      sectionTitleTranslation
     );
     router.push({ name: "sx-sentence-selector", query: { force: true } });
   };
