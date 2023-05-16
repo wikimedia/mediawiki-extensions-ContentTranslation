@@ -1,17 +1,13 @@
-import startSectionTranslation from "../../composables/useSectionTranslationStart";
+import useSectionTranslationStart from "../../composables/useSectionTranslationStart";
 
-const usePageTranslationStart = (router, store) => {
-  const doStartSectionTranslation = startSectionTranslation.bind(
-    null,
-    router,
-    store
-  );
+const usePageTranslationStart = () => {
+  const startSectionTranslation = useSectionTranslationStart();
   /**
    * @param {Page} suggestedPage
    * @return {Promise<void>}
    */
   const startRecentlyEditedSectionTranslation = (suggestedPage) =>
-    doStartSectionTranslation(
+    startSectionTranslation(
       suggestedPage.title,
       "sx-article-search",
       "suggestion_recent_edit"
@@ -22,7 +18,7 @@ const usePageTranslationStart = (router, store) => {
    * @return {Promise<void>}
    */
   const startNearbySectionTranslation = (suggestedPage) =>
-    doStartSectionTranslation(
+    startSectionTranslation(
       suggestedPage.title,
       "sx-article-search",
       "suggestion_nearby"
@@ -33,7 +29,7 @@ const usePageTranslationStart = (router, store) => {
    * @return {Promise<void>}
    */
   const startSearchResultSectionTranslation = (suggestedPage) =>
-    doStartSectionTranslation(
+    startSectionTranslation(
       suggestedPage.title,
       "sx-article-search",
       "search_result"

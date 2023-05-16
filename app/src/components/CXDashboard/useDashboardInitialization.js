@@ -1,9 +1,11 @@
 import { initializeLanguages } from "@/composables/useLanguageHelper";
 import {
   getEventSourceFromUrlCampaign,
-  startSectionTranslationFromUrl,
+  useUrlTranslationStart,
 } from "./useUrlTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+import { useEventLogging } from "@/plugins/eventlogging";
 
 /**
  * @return {string|null}
@@ -20,53 +22,54 @@ const getPageTitleFromUrl = () => {
   return sourceTitle;
 };
 
-/**
- * @param {VueRouter} router
- * @param {Store} store
- * @param {function} logEvent
- */
-const initializeDashboard = async (router, store, logEvent) => {
-  await initializeLanguages();
+const useDashboardInitialization = () => {
+  const logEvent = useEventLogging();
+  const store = useStore();
+  const startSectionTranslationFromUrl = useUrlTranslationStart();
 
-  const pageTitle = getPageTitleFromUrl();
+  return async () => {
+    await initializeLanguages();
 
-  if (pageTitle) {
-    startSectionTranslationFromUrl(router, store, logEvent, pageTitle);
+    const pageTitle = getPageTitleFromUrl();
 
-    return;
-  }
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
-  logEvent({
-    event_type: "dashboard_open",
-    event_source: getEventSourceFromUrlCampaign() || "direct",
-    content_translation_session_position: 0,
-    translation_source_language: sourceLanguage.value,
-    translation_target_language: targetLanguage.value,
-  });
+    if (pageTitle) {
+      startSectionTranslationFromUrl(pageTitle);
 
-  // Catch any possible errors during fetching favorite suggestions and
-  // translations, to make sure that "initializeSuggestions" actions is dispatched,
-  // even if that fetching fails. If we don't catch these errors, the suggestions
-  // inside Dashboard will be empty and appendix section titles won't be fetched
-  // in case of unsuccessful favorites/translations fetching.
-  try {
-    await store.dispatch("suggestions/fetchFavorites");
-  } catch (error) {
-    // Let favorite fetching gracefully fail
-    mw.log.error("[CX] Error while fetching favorite suggestions", error);
-  }
-
-  try {
-    // If translations have already been fetched, then skip
-    if (!store.state.translator.translations.length) {
-      await store.dispatch("translator/fetchTranslations");
+      return;
     }
-  } catch (error) {
-    // Let translation fetching gracefully fail
-    mw.log.error("[CX] Error while fetching translations", error);
-  }
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    logEvent({
+      event_type: "dashboard_open",
+      event_source: getEventSourceFromUrlCampaign() || "direct",
+      content_translation_session_position: 0,
+      translation_source_language: sourceLanguage.value,
+      translation_target_language: targetLanguage.value,
+    });
 
-  store.dispatch("suggestions/initializeSuggestions");
+    // Catch any possible errors during fetching favorite suggestions and
+    // translations, to make sure that "initializeSuggestions" actions is dispatched,
+    // even if that fetching fails. If we don't catch these errors, the suggestions
+    // inside Dashboard will be empty and appendix section titles won't be fetched
+    // in case of unsuccessful favorites/translations fetching.
+    try {
+      await store.dispatch("suggestions/fetchFavorites");
+    } catch (error) {
+      // Let favorite fetching gracefully fail
+      mw.log.error("[CX] Error while fetching favorite suggestions", error);
+    }
+
+    try {
+      // If translations have already been fetched, then skip
+      if (!store.state.translator.translations.length) {
+        await store.dispatch("translator/fetchTranslations");
+      }
+    } catch (error) {
+      // Let translation fetching gracefully fail
+      mw.log.error("[CX] Error while fetching translations", error);
+    }
+
+    store.dispatch("suggestions/initializeSuggestions");
+  };
 };
 
-export default initializeDashboard;
+export default useDashboardInitialization;

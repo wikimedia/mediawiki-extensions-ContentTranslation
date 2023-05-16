@@ -95,8 +95,7 @@ import {
   mwIconEdit,
 } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
-import initializeDashboard from "./useDashboardInitialization";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
@@ -164,9 +163,10 @@ export default {
     const searchTranslation = () => router.push({ name: "sx-article-search" });
 
     watch(active, () => window.scrollTo(0, 0));
-    const store = useStore();
-    initializeDashboard(router, store, useEventLogging());
+    const initializeDashboard = useDashboardInitialization();
+    initializeDashboard();
 
+    const store = useStore();
     store.dispatch("translator/fetchTranslatorStats");
     const translatorStats = computed(
       () => store.state.translator.translatorStats

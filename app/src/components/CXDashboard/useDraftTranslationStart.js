@@ -6,10 +6,9 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import { useStore } from "vuex";
 
 /**
- * @param {Translation} translation
- * @return {(function(): Promise)}
+ * @return {(function(Translation): Promise<void>)}
  */
-const useDraftTranslationStart = (translation) => {
+const useDraftTranslationStart = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const router = useRouter();
@@ -17,7 +16,11 @@ const useDraftTranslationStart = (translation) => {
     useApplicationState(store);
   const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
 
-  return async () => {
+  /**
+   * @param {Translation} translation
+   * @return {(function(): Promise)}
+   */
+  return async (translation) => {
     const {
       sourceLanguage: translationSourceLanguage,
       targetLanguage: translationTargetLanguage,

@@ -108,7 +108,7 @@ export default {
 
       return page?.thumbnail;
     };
-    const startTranslation = useDraftTranslationStart(props.translation);
+    const startTranslation = useDraftTranslationStart();
 
     const handleActionIconClick = computed(() =>
       props.translation.status === "published"
@@ -118,7 +118,7 @@ export default {
 
     const onClick = (event) => {
       emit("click", event);
-      startTranslation();
+      startTranslation(props.translation);
     };
 
     // TODO: Implement "edit published translation" functionality

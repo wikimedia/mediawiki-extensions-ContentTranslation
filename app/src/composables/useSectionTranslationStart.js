@@ -1,37 +1,39 @@
 import useApplicationState from "@/composables/useApplicationState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
-/**
- * @param {VueRouter} router
- * @param {Store} store
- * @param {string} title
- * @param {string} previousRoute
- * @param {string} eventSource
- * @return {Promise<void>}
- */
-const startSectionTranslation = async (
-  router,
-  store,
-  title,
-  previousRoute,
-  eventSource
-) => {
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
-  /** @type {SectionSuggestion|null} */
-  const suggestion = await store.dispatch("suggestions/loadSectionSuggestion", {
-    sourceLanguage: sourceLanguage.value,
-    targetLanguage: targetLanguage.value,
-    sourceTitle: title,
-  });
+const useSectionTranslationStart = () => {
+  const store = useStore();
+  const router = useRouter();
 
-  if (!suggestion) {
-    return;
-  }
+  /**
+   * @param {string} title
+   * @param {string} previousRoute
+   * @param {string} eventSource
+   * @return {Promise<void>}
+   */
+  return async (title, previousRoute, eventSource) => {
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    /** @type {SectionSuggestion|null} */
+    const suggestion = await store.dispatch(
+      "suggestions/loadSectionSuggestion",
+      {
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
+        sourceTitle: title,
+      }
+    );
 
-  store.dispatch("application/initializeSectionTranslation", suggestion);
-  router.push({
-    name: "sx-translation-confirmer",
-    query: { previousRoute, eventSource },
-  });
+    if (!suggestion) {
+      return;
+    }
+
+    store.dispatch("application/initializeSectionTranslation", suggestion);
+    router.push({
+      name: "sx-translation-confirmer",
+      query: { previousRoute, eventSource },
+    });
+  };
 };
 
-export default startSectionTranslation;
+export default useSectionTranslationStart;

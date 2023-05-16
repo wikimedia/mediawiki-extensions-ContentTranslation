@@ -243,7 +243,7 @@ export default {
       startRecentlyEditedSectionTranslation,
       startNearbySectionTranslation,
       startSearchResultSectionTranslation,
-    } = usePageTranslationStart(router, store);
+    } = usePageTranslationStart();
 
     return {
       supportedLanguageCodes,
