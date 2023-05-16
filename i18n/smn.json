@@ -14,6 +14,7 @@
 	"cx-publish-summary": "Rahtum jurgâlmáin sijđo \"$1\"",
 	"cx-translation-add-translation": "Lasseet jurgâlus",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Jurgâlum siskáldâs]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Jurgâlum siskáldâs 2]]",
 	"cx-entrypoint-title": "Jurgâl taam siijđo kielân $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Täst ij lah vala artikkâl kielân $1. {{GENDER:|Halijdah-uv}} tom rähtiđ?",
 	"cx-entrypoint-dialog-button-translate-from": "Jurgâl kielâst $1",

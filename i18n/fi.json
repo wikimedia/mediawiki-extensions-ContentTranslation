@@ -96,7 +96,7 @@
 	"cx-source-page-selector-no-suggestions": "Ajattele mitä tahansa kiinnostuksen kohdettasi. Sinun ei tarvitse olla asiantuntija luodaksesi hyvän käännöksen.",
 	"cx-source-page-selector-no-search-results": "Haulla \"$1\" ei löytynyt sivuja kielellä $2",
 	"cx-selected-source-page-start-translation-button": "Aloita kääntäminen",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 katselukerta|$1 katselukertoja|0=Ei katselukertoja}} tällä viikolla",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 katselukerta|$1 katselukertaa|0=Ei katselukertoja}} tällä viikolla",
 	"cx-selected-source-page-error-page-and-title-exist": "Tämä otsikko on jo käytössä kielessä [$1 $2] [$3 toisella sivulla]",
 	"cx-selected-source-page-error-page-exists": "Sivu on jo [$1 olemassa] kielellä $2",
 	"cx-selected-source-page-error-title-in-use": "Uuden sivun otsikko on [$1 jo käytössä]",
