@@ -43,4 +43,14 @@ export default {
           translation.sourceLanguage === sourceLanguage &&
           translation.targetLanguage === targetLanguage
       ),
+  getTranslation:
+    (state) => (pageTitle, sectionTitle, sourceLanguage, targetLanguage) =>
+      state.translations.find(
+        /** @param {Translation} translation */
+        (translation) =>
+          translation.sourceTitle === pageTitle &&
+          translation.sourceSectionTitle === sectionTitle &&
+          translation.sourceLanguage === sourceLanguage &&
+          translation.targetLanguage === targetLanguage
+      ),
 };

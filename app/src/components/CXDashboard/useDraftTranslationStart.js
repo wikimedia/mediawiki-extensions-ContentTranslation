@@ -1,4 +1,4 @@
-import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
+import { useDraftTranslationLanguagePairUpdater } from "@/composables/useLanguageHelper";
 import { loadVEModules } from "@/plugins/ve";
 import { useRouter } from "vue-router";
 import useApplicationState from "@/composables/useApplicationState";
@@ -14,7 +14,7 @@ const useDraftTranslationStart = () => {
   const router = useRouter();
   const { currentSourcePage, sourceLanguage, targetLanguage } =
     useApplicationState(store);
-  const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+  const updateLanguagePair = useDraftTranslationLanguagePairUpdater();
 
   /**
    * @param {Translation} translation
@@ -32,7 +32,7 @@ const useDraftTranslationStart = () => {
       sourceLanguage.value !== translationSourceLanguage ||
       targetLanguage.value !== translationTargetLanguage
     ) {
-      updateLanguagePair(translationSourceLanguage, translationTargetLanguage);
+      updateLanguagePair(translation);
     }
     store.dispatch("application/restoreSectionTranslation", translation);
 

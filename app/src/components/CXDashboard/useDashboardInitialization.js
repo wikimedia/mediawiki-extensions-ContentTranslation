@@ -8,18 +8,20 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 
 /**
- * @return {string|null}
+ * @return {{isDraftTranslation: boolean, pageTitle: string, sectionTitle: string|null}|null}
  */
-const getPageTitleFromUrl = () => {
+const getTranslationParamsFromUrl = () => {
   const urlParams = new URLSearchParams(location.search);
   const isSectionTranslation = urlParams.get("sx");
-  const sourceTitle = urlParams.get("page");
+  const pageTitle = urlParams.get("page");
 
-  if (!isSectionTranslation || !sourceTitle) {
+  if (!isSectionTranslation || !pageTitle) {
     return null;
   }
+  const sectionTitle = urlParams.get("section");
+  const isDraftTranslation = !!urlParams.get("draft");
 
-  return sourceTitle;
+  return { pageTitle, isDraftTranslation, sectionTitle };
 };
 
 const useDashboardInitialization = () => {
@@ -30,10 +32,10 @@ const useDashboardInitialization = () => {
   return async () => {
     await initializeLanguages();
 
-    const pageTitle = getPageTitleFromUrl();
+    const translationParams = getTranslationParamsFromUrl();
 
-    if (pageTitle) {
-      startSectionTranslationFromUrl(pageTitle);
+    if (!!translationParams) {
+      startSectionTranslationFromUrl(translationParams);
 
       return;
     }

@@ -1,17 +1,25 @@
 import { getUrl } from "@/utils/mediawikiHelper";
+import Translation from "@/wiki/cx/models/translation";
 
 /**
- * @param {SectionSuggestion|null} sectionSuggestion
+ * @param {SectionSuggestion|Translation|null} translationToBeStarted
  */
-const setTranslationURLParams = (sectionSuggestion) => {
+const setTranslationURLParams = (translationToBeStarted) => {
   if (!history.pushState) {
     return;
   }
+
+  const isDraftTranslation = translationToBeStarted instanceof Translation;
   const params = new URLSearchParams(location.search);
-  params.set("page", sectionSuggestion?.sourceTitle);
-  params.set("from", sectionSuggestion?.sourceLanguage);
-  params.set("to", sectionSuggestion?.targetLanguage);
+  // both SectionSuggestion and Translation models have the below properties
+  params.set("page", translationToBeStarted?.sourceTitle);
+  params.set("from", translationToBeStarted?.sourceLanguage);
+  params.set("to", translationToBeStarted?.targetLanguage);
   params.set("sx", true);
+
+  if (isDraftTranslation) {
+    params.set("draft", true);
+  }
   params.delete("title");
   replaceUrl(Object.fromEntries(params));
 };

@@ -5,12 +5,14 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 import store from "@/store";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { replaceUrl } from "@/utils/urlHandler";
+import { useStore } from "vuex";
 
 const redirectToTargetWikiIfNeeded = (
   sourceLanguage,
   targetLanguage,
   articleTitle,
-  sectionTitle
+  sectionTitle,
+  extra = {}
 ) => {
   const translateInTarget = mw.config.get(
     "wgContentTranslationTranslateInTarget"
@@ -23,7 +25,7 @@ const redirectToTargetWikiIfNeeded = (
       null,
       sourceLanguage,
       targetLanguage,
-      { sx: true, section: sectionTitle }
+      { sx: true, section: sectionTitle, ...extra }
     );
   }
 };
@@ -87,6 +89,27 @@ const getSuggestionListLanguagePairUpdater =
     store.dispatch("suggestions/initializeSuggestions");
   };
 
+const useDraftTranslationLanguagePairUpdater = () => {
+  const store = useStore();
+
+  return /** @param {Translation} translation */ (translation) => {
+    const { sourceLanguage, targetLanguage, sourceTitle, sourceSectionTitle } =
+      translation;
+
+    redirectToTargetWikiIfNeeded(
+      sourceLanguage,
+      targetLanguage,
+      sourceTitle,
+      sourceSectionTitle,
+      { draft: true }
+    );
+
+    setLanguagePair(store, sourceLanguage, targetLanguage);
+
+    store.dispatch("suggestions/initializeSuggestions");
+  };
+};
+
 const getArticleLanguagePairUpdater =
   (store) => async (newSourceLanguage, newTargetLanguage) => {
     const { sourceLanguage, targetLanguage, currentSectionSuggestion } =
@@ -133,4 +156,5 @@ export {
   initializeLanguages,
   getArticleLanguagePairUpdater,
   getSuggestionListLanguagePairUpdater,
+  useDraftTranslationLanguagePairUpdater,
 };

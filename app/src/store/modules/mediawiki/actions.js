@@ -1,4 +1,3 @@
-import translatorApi from "../../../wiki/cx/api/translator";
 import pageApi from "../../../wiki/mw/api/page";
 import siteApi from "../../../wiki/mw/api/site";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
@@ -92,12 +91,17 @@ async function fetchPageContent(
     return;
   }
 
+  /** @type {Page} */
   const fetchedPage = await pageApi.fetchPageContent(
     sourceLanguage,
     targetLanguage,
     sourceTitle,
     revision
   );
+
+  // recheck for existing page, in case it has been saved elsewhere
+  // while pageApi.fetchPageContent was being executed
+  existingPage = getters.getPage(sourceLanguage, sourceTitle);
 
   if (!existingPage) {
     commit("addPage", fetchedPage);
