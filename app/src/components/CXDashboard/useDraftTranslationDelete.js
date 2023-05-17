@@ -2,12 +2,12 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 
-const useDraftTranslationDelete = (translation) => {
+const useDraftTranslationDelete = () => {
   const store = useStore();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
   const logEvent = useEventLogging();
 
-  return () => {
+  return (translation) => {
     store.dispatch("translator/deleteTranslation", translation);
 
     logEvent({

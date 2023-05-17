@@ -18,6 +18,11 @@
       v-for="translation in activeTranslations"
       :key="`${translationStatus}-${translation.key}`"
       :translation="translation"
+      @delete-translation="askDeletionConfirmation(translation)"
+    />
+    <sx-confirm-translation-deletion-dialog
+      v-model="deletionDialogOn"
+      :translation="translationToDelete"
     />
   </mw-card>
 </template>
@@ -25,6 +30,7 @@
 <script>
 import CxTranslationWork from "./CXTranslationWork.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
+import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
 import useMediawikiState from "@/composables/useMediawikiState";
@@ -36,6 +42,7 @@ export default {
     CxTranslationWork,
     MwCard,
     MwSpinner,
+    SxConfirmTranslationDeletionDialog,
     SxTranslationListLanguageSelector,
   },
   props: {
@@ -62,13 +69,16 @@ export default {
 
     const { enabledTargetLanguages } = useMediawikiState();
 
-    const translations = computed(() => {
-      if (props.translationStatus === "published") {
-        return store.getters["translator/getPublishedTranslations"];
-      } else {
-        return store.getters["translator/getDraftTranslations"];
-      }
-    });
+    const deletionDialogOn = ref(false);
+    const translationToDelete = ref(null);
+    const isDraftTranslationList = computed(
+      () => props.translationStatus === "draft"
+    );
+    const translations = computed(() =>
+      isDraftTranslationList.value
+        ? store.getters["translator/getDraftTranslations"]
+        : store.getters["translator/getPublishedTranslations"]
+    );
 
     const isActiveForAllSourceLanguages = computed(
       () => selectedSourceLanguage.value === "all"
@@ -117,13 +127,22 @@ export default {
       return [...new Set(translationSourceLanguages)];
     });
 
+    const askDeletionConfirmation = (translation) => {
+      translationToDelete.value = translation;
+      deletionDialogOn.value = true;
+    };
+
     return {
       activeTranslations,
       availableSourceLanguages,
       availableTargetLanguages,
+      askDeletionConfirmation,
+      deletionDialogOn,
+      isDraftTranslationList,
       loaded,
       selectedSourceLanguage,
       selectedTargetLanguage,
+      translationToDelete,
     };
   },
 };

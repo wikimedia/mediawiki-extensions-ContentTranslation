@@ -6,6 +6,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
   css="true"
   name="mw-ui-animation-slide-left"
   persisted="false"
+  style="--dialog-min-height: 200px;"
 >
   <div
     aria-modal="true"

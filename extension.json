@@ -804,7 +804,10 @@
 				"sx-confirm-back-navigation-dialog-continue-button-label",
 				"cx-sx-login-dialog-title",
 				"cx-sx-login-dialog-body",
-				"cx-sx-login-dialog-button-label"
+				"cx-sx-login-dialog-button-label",
+				"sx-confirm-translation-deletion-dialog-body",
+				"sx-translation-deletion-cancel-button-label",
+				"sx-translation-deletion-confirm-button-label"
 			],
 			"noflip": true
 		},

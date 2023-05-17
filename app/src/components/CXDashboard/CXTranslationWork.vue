@@ -88,7 +88,6 @@ import {
 import { useStore } from "vuex";
 import { computed, inject } from "vue";
 import useDraftTranslationStart from "./useDraftTranslationStart";
-import useDraftTranslationDelete from "./useDraftTranslationDelete";
 
 export default {
   name: "CxTranslationWork",
@@ -99,7 +98,7 @@ export default {
       required: true,
     },
   },
-  emits: ["click"],
+  emits: ["click", "delete-translation"],
   setup(props, { emit }) {
     const store = useStore();
 
@@ -124,7 +123,7 @@ export default {
     // TODO: Implement "edit published translation" functionality
     const editTranslation = () => {};
 
-    const deleteTranslation = useDraftTranslationDelete(props.translation);
+    const deleteTranslation = () => emit("delete-translation");
 
     const colors = inject("colors");
     const progressBarBackgroundColor = colors.base80;

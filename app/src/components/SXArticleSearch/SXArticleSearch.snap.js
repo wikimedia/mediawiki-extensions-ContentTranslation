@@ -407,6 +407,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     css="true"
     name="mw-ui-animation-slide-up"
     persisted="false"
+    style="--dialog-min-height: 200px;"
   >
     <!--v-if-->
   </transition-stub>

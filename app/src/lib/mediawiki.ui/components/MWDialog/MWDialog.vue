@@ -1,5 +1,5 @@
 <template>
-  <transition :name="`mw-ui-animation-${animation}`">
+  <transition :name="`mw-ui-animation-${animation}`" :style="cssVars">
     <div
       v-if="value"
       ref="root"
@@ -120,6 +120,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    minHeight: {
+      type: String,
+      default: "200px",
+    },
   },
   emits: ["input", "close"],
   setup(props, context) {
@@ -157,9 +161,14 @@ export default {
       }
     );
 
+    const cssVars = computed(() => ({
+      "--dialog-min-height": props.minHeight,
+    }));
+
     return {
       close,
       classes,
+      cssVars,
       overlayStyles,
       mwIconClose,
       root,
@@ -212,7 +221,7 @@ export default {
     max-width: calc(100vw - 100px);
     min-width: 300px;
     max-height: calc(100vh - 100px);
-    min-height: 200px;
+    min-height: var(--dialog-min-height);
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
   }
 
