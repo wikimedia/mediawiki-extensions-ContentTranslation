@@ -115,9 +115,9 @@
 		targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' );
 
 		// If query.to and local storage have no target language code,
-		// or language code is invalid, fall back to content language as target.
+		// or language code is invalid, fall back to current wiki language code as target.
 		if ( targetLanguages.indexOf( targetLanguage ) < 0 ) {
-			targetLanguage = mw.config.get( 'wgContentLanguage' );
+			targetLanguage = this.siteMapper.getCurrentWikiLanguageCode();
 		}
 
 		commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( lang ) {
