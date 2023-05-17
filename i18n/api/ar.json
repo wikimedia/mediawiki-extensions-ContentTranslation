@@ -7,7 +7,9 @@
 			"Meno25",
 			"ديفيد",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Alshamiri1",
+			"أَحمد"
 		]
 	},
 	"apihelp-cxpublish-description": "يحفظ صفحة أنشأت بواسطة امتداد ترجمة المحتوى.",
@@ -127,5 +129,16 @@
 	"apihelp-query+cxdeletedtranslations-param-after": "الطابع الزمني للحصول على عمليات الحذف الأحدث فقط.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "النطاق حيث تم نشر الترجمات المحذوفة، الافتراضي هو النطاق الرئيسي.",
 	"apihelp-query+cxdeletedtranslations-example-1": "احصل على عدد الترجمات المحذوفة، والتي تم نشرها على النطاق الرئيسي وحذفها بعد 2019-04-07 16:24:44",
-	"apihelp-cxpublishsection-param-sourcelanguage": "رمز اللغة المصدر"
+	"apihelp-cxpublishsection-description": "احفظ قسمًا تم إنشاؤه باستخدام ميزة ترجمة قسم ملحق ترجمة المحتوى.",
+	"apihelp-cxpublishsection-param-title": "عنوان الصفحة المراد تنفيذ الإجراءات عليها.",
+	"apihelp-cxpublishsection-param-html": "المحتوى المطلوب حفظه.",
+	"apihelp-cxpublishsection-param-sourcelanguage": "رمز اللغة المصدر",
+	"apihelp-cxpublishsection-param-targetlanguage": "رمز اللغة الهدف.",
+	"apihelp-cxpublishsection-param-sourcetitle": "عنوان صفحة المصدر.",
+	"apihelp-cxpublishsection-param-sourcesectiontitle": "عنوان قسم المصدر.",
+	"apihelp-cxpublishsection-param-targetsectiontitle": "عنوان القسم الهدف.",
+	"apihelp-cxpublishsection-param-sectionnumber": "موقف القسم المطلوب أن يكون في المراجعة الجديدة للصفحة.",
+	"apihelp-cxpublishsection-param-sourcerevid": "معرف مراجعة الصفحة المصدر.",
+	"apihelp-cxpublishsection-param-captchaid": "معرف Captcha (عند الحفظ باستجابة captcha).",
+	"apihelp-cxpublishsection-param-captchaword": "الرد على captcha (عند الحفظ باستجابة captcha)."
 }
