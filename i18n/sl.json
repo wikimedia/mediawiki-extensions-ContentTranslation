@@ -428,7 +428,7 @@
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Manjka v <span>$1</span>, <span>$2</span> in drugih jezikih",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Manjka v <span>$1</span> in drugih jezikih",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manjka v <span>$1</span>, <span>$2</span> in drugih jezikih",
-	"cx-uls-relevant-languages-panel-header": "Prevedi to stran",
+	"cx-uls-relevant-languages-panel-header": "Prevedite to stran",
 	"cx-uls-relevant-languages-panel-message": "Ta stran manjka v nekaterih jezikih, ki jih morda znate. Prevedete jo lahko v nekaj minutah!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "To bo <strong>prvi razdelek v novem članku!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Prevedi to stran",
