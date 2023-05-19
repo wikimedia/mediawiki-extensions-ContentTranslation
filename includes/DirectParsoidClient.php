@@ -10,6 +10,7 @@ namespace ContentTranslation;
 
 use Exception;
 use LocalizedException;
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Rest\Handler\Helper\HtmlInputTransformHelper;
@@ -20,7 +21,6 @@ use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use RawMessage;
 use User;
 use WikitextContent;
 

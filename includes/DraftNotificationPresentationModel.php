@@ -3,7 +3,7 @@
 namespace ContentTranslation;
 
 use EchoEventPresentationModel;
-use RawMessage;
+use MediaWiki\Language\RawMessage;
 use SpecialPage;
 
 /**
