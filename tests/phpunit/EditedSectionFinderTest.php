@@ -21,7 +21,7 @@ class EditedSectionFinderTest extends \MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( $expected, $editedSections );
 	}
 
-	public function provideTestFindEditedSectionsBetweenTextContents() {
+	public static function provideTestFindEditedSectionsBetweenTextContents() {
 		$expected = [];
 		$oldText = "== Biography ==\nThis is the same version";
 		$newText = "== Biography ==\nThis is the same version";

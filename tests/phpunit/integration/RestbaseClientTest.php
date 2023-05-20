@@ -52,7 +52,7 @@ class RestbaseClientTest extends MediaWikiIntegrationTestCase {
 	/**
 	 * @return Generator
 	 */
-	public function restbaseErrorObjectProvider() {
+	public static function restbaseErrorObjectProvider() {
 		yield [
 			[
 				'code' => 200,

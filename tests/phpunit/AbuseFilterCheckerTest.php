@@ -104,7 +104,7 @@ class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	 * Data provider for testCheckTitle
 	 * @return array
 	 */
-	public function provideCheckTitleCases() {
+	public static function provideCheckTitleCases() {
 		return [
 			'Disallow' => [
 				'page_title === "' . self::TEST_TITLE . '"',
@@ -169,7 +169,7 @@ class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	 * Data provider for testCheckSection
 	 * @return array
 	 */
-	public function provideCheckSectionCases() {
+	public static function provideCheckSectionCases() {
 		// Filters only trigger if the text is at least 150 characters long
 		$str = str_repeat( 'x', 150 );
 		return [

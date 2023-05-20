@@ -41,7 +41,7 @@ class DateManipulatorTest extends \MediaWikiUnitTestCase {
 		}
 	}
 
-	public function provideGetIntervalIdentifier() {
+	public static function provideGetIntervalIdentifier() {
 		$tests = [];
 
 		$tests[] = [

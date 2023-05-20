@@ -59,7 +59,7 @@ class ParsoidClientFactoryTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( $expectedType, $client );
 	}
 
-	public function provideGetClient() {
+	public static function provideGetClient() {
 		yield 'Empty VRS modules array, DefaultParsoidClient=vrs' => [
 			[
 				MainConfigNames::ParsoidSettings => [],
