@@ -3,7 +3,7 @@ export default class CorporaRestoredUnit {
    * @param {{user, source, mt, sequenceId}} unit
    * @param {{engine: null, content: string, timestamp: string}} unit.user
    * @param {{engine: null, content: string, timestamp: string}} unit.source
-   * @param {{engine: string, content: string, timestamp: string}} unit.mt - current possible values for engine: "Elia"|"Flores"|"Google"|"Yandex"
+   * @param {{engine: string, content: string, timestamp: string}} unit.mt - current possible values for engine: "Elia"|"MinT"|"Google"|"Yandex"
    * @param {number} unit.sequenceId
    */
   constructor({ user, source, mt, sequenceId }) {

@@ -72,7 +72,7 @@ describe("vuex store publishTranslation action", () => {
     }),
     "application/getTargetPageTitleForPublishing":
       "Test target article title 1",
-    "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
+    "mediawiki/getSupportedMTProviders": () => ["Google", "MinT"],
     "application/isSandboxTarget": false,
   };
 

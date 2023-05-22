@@ -49,7 +49,7 @@ describe("vuex store saveTranslation action", () => {
     }),
     "application/getTargetPageTitleForPublishing":
       "Test target article title 1",
-    "mediawiki/getSupportedMTProviders": () => ["Google", "Flores"],
+    "mediawiki/getSupportedMTProviders": () => ["Google", "MinT"],
     "application/isSandboxTarget": false,
   };
 
@@ -83,7 +83,7 @@ describe("vuex store saveTranslation action", () => {
     subSection1.blockTemplateTranslatedContent = "Block template translation 1";
     subSection1.blockTemplateProposedTranslations = {
       Google: "Block Google translation 1",
-      Flores: "Block Flores translation 1",
+      MinT: "Block MinT translation 1",
     };
     subSection1.blockTemplateMTProviderUsed = "Google";
     const subSection2 = new SubSection({

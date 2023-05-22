@@ -3,11 +3,10 @@ const EMPTY_TEXT_PROVIDER_KEY = "empty";
 
 /**
  * object that maps provider ids to human-readable labels
- * @type {{Google: string, Yandex: string, Elia: string, Flores: string}}
+ * @type {{Google: string, Yandex: string, Elia: string}}
  */
 const mTProviderLabels = {
   Elia: "Elia.eus",
-  Flores: "NLLB-200",
   Google: "Google Translate",
   Yandex: "Yandex.Translate",
 };
