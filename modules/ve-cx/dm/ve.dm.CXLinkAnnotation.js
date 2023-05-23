@@ -33,9 +33,15 @@ ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter 
 		// totally be different when running on a local dev wiki.
 		// Because of this dataElement can be null as toDataElement fails to parse an internal link
 		// So make this dataElement calculation agnostic of all of the above mentioned factors.
+		var title = domElements[ 0 ].getAttribute( 'title' );
+		if ( !title ) {
+			// No title present. This can happen if the link is to a section in the article
+			// Example: href=./Oxygen#Occurance in the Oxygen article.
+			title = domElements[ 0 ].getAttribute( 'href' ).replace( /^\.\//, '' );
+		}
 		dataElement = ve.dm.CXLinkAnnotation.super.static.dataElementFromTitle.call(
 			this,
-			mw.Title.newFromText( domElements[ 0 ].getAttribute( 'title' ) )
+			mw.Title.newFromText( title )
 		);
 	}
 

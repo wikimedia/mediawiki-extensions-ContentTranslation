@@ -22,9 +22,17 @@ function mwLinktoDataElement(domElements) {
   // totally be different when running on a local dev wiki.
   // Because of this dataElement can be null as toDataElement fails to parse an internal link
   // So make this dataElement calculation agnostic of all of the above mentioned factors.
-  const title = mw.Title.newFromText(domElements[0].getAttribute("title"));
+  const title = domElements[0].getAttribute("title");
 
-  return ve.dm.MWInternalLinkAnnotation.static.dataElementFromTitle(title);
+  if (!title) {
+    // No title present. This can happen if the link is to a section in the article
+    // Example: href=./Oxygen#Occurance in the Oxygen article.
+    title = domElements[0].getAttribute("href").replace(/^\.\//, "");
+  }
+
+  return ve.dm.MWInternalLinkAnnotation.static.dataElementFromTitle(
+    mw.Title.newFromText(title)
+  );
 }
 
 export default {
