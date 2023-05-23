@@ -43,6 +43,14 @@ const mutations = {
 
   /**
    * @param {object} state
+   * @param {boolean} isRestored
+   */
+  setCurrentTranslationRestored(state, isRestored) {
+    state.currentTranslation.restored = isRestored;
+  },
+
+  /**
+   * @param {object} state
    * @param {Translation} translation
    */
   setCurrentTranslation(state, translation) {
