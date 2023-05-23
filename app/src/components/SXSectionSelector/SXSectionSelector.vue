@@ -74,6 +74,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 
 export default {
   name: "SxSectionSelector",
@@ -124,12 +125,28 @@ export default {
       router.push({ name: "dashboard" });
     };
 
+    const startDraftTranslation = useDraftTranslationStart();
+
     const selectSection = (sourceSectionTitle) => {
-      store.dispatch(
-        "application/selectPageSectionByTitle",
-        sourceSectionTitle
+      const existingSectionTranslation = store.getters[
+        "translator/getTranslation"
+      ](
+        suggestion.value.sourceTitle,
+        sourceSectionTitle,
+        suggestion.value.sourceLanguage,
+        suggestion.value.targetLanguage
       );
-      router.push({ name: "sx-content-comparator" });
+
+      // if a draft translation exists for the current selected page and section, restore it
+      if (!!existingSectionTranslation) {
+        startDraftTranslation(existingSectionTranslation);
+      } else {
+        store.dispatch(
+          "application/selectPageSectionByTitle",
+          sourceSectionTitle
+        );
+        router.push({ name: "sx-content-comparator" });
+      }
     };
 
     return {

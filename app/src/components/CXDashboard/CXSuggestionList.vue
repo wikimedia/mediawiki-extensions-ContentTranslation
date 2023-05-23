@@ -77,6 +77,8 @@ import { ref } from "vue";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
+import useDraftTranslationStart from "./useDraftTranslationStart";
+import PageSection from "@/wiki/cx/models/pageSection";
 
 export default {
   name: "CxSuggestionList",
@@ -107,19 +109,34 @@ export default {
       updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
     const router = useRouter();
+    const startDraftTranslation = useDraftTranslationStart();
 
     /**
      * @param {SectionSuggestion|ArticleSuggestion} suggestion
      */
     const startTranslation = (suggestion) => {
-      store.dispatch("application/initializeSectionTranslation", suggestion);
-      router.push({
-        name: "sx-translation-confirmer",
-        query: {
-          previousRoute: "dashboard",
-          eventSource: "suggestion_no_seed",
-        },
-      });
+      const existingLeadTranslation = store.getters[
+        "translator/getTranslation"
+      ](
+        suggestion.sourceTitle,
+        PageSection.LEAD_SECTION_DUMMY_TITLE,
+        suggestion.sourceLanguage,
+        suggestion.targetLanguage
+      );
+
+      // if a draft lead translation already exists for the current section suggestion, restore it
+      if (!!existingLeadTranslation) {
+        startDraftTranslation(existingLeadTranslation);
+      } else {
+        store.dispatch("application/initializeSectionTranslation", suggestion);
+        router.push({
+          name: "sx-translation-confirmer",
+          query: {
+            previousRoute: "dashboard",
+            eventSource: "suggestion_no_seed",
+          },
+        });
+      }
     };
 
     const {
