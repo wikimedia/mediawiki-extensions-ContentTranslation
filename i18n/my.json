@@ -147,6 +147,7 @@
 	"cx-campaign-try": "အကြောင်းအရာ ဘာသာပြန်ခြင်းကို စမ်းကြည့်ပါ",
 	"cx-campaign-contributionsmenu-mycontributions": "ဆောင်ရွက်ချက်များ",
 	"cx-campaign-contributionsmenu-mytranslations": "ဘာသာပြန်များ",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "ဘာသာပြန်အသစ်တစ်ခု ထည့်ပါ",
 	"cx-campaign-contributionsmenu-myuploads": "တင်ထားသော မီဒီယာ",
 	"cx-no-source-categories": "ကဏ္ဍများ မရှိပါ",
 	"cx-no-target-categories": "ကဏ္ဍများ မရှိပါ။ အကြောင်းအရာအား ပိုမိုကောင်းမွန်သော အမျိုးအစားသတ်မှတ်ရေး ကဏ္ဍအချို့ထည့်သွင်းပေးရန် သုံးသပ်ပါ။",
@@ -328,7 +329,10 @@
 	"sx-editor-feedback-overlay-stats": "သင်တည်းဖြတ်ထားသော <span>$1%</span>",
 	"cx-campaign-mflanguagesearcher-invite": "ဤစာမျက်နှာအား ဘာသာပြန်နိုင်ပါသည်။ သင်၏ဘာသာစကားတွင် အကြောင်းအရာများ ဖန်တီးရန်လွယ်ကူပါသည်။",
 	"cx-suggestion-list-favorites-division": "နောင်အတွက်",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "ကိုးကားချက်များကို စစ်ဆေးပါ",
+	"sx-recent-translation-entrypoint-dialog-compare-original-list-item-header": "မူရင်းနှင့် နှိုင်းယှဉ်ပါ",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "ဤစာမျက်နှာကို တည်းဖြတ်ရန်",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" ကို ဘာသာပြန်ရန်",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ"
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" နှင့် \"$2\" ကို ဘာသာပြန်ပါ",
+	"sx-block-template-adaptation-card-body-header-success": "အကြံပြုထားသော တမ်းပလိတ်"
 }
