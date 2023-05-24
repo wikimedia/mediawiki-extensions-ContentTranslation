@@ -6,6 +6,7 @@
           <transition :name="route.meta.transitionName">
             <component :is="Component" />
           </transition>
+          <sx-login-dialog v-model="isLoginDialogOn" />
         </router-view>
       </mw-col>
     </mw-row>
@@ -15,16 +16,19 @@
 <script>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
 import { useStore } from "vuex";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
+import userApi from "@/wiki/mw/api/user";
+import SxLoginDialog from "@/components/SXLoginDialog.vue";
 
 export default {
   name: "ContentTranslationApp",
-  components: { MwGrid, MwCol, MwRow },
+  components: { MwGrid, MwCol, MwRow, SxLoginDialog },
   setup() {
     const store = useStore();
     const unsavedChangesExist = computed(
       () => store.state.application.autoSavePending
     );
+    const isLoginDialogOn = ref(false);
     onMounted(() => {
       window.addEventListener("beforeunload", (e) => {
         if (unsavedChangesExist.value) {
@@ -32,7 +36,27 @@ export default {
           e.returnValue = "";
         }
       });
+      const isAnonSXAllowed = mw.config.get(
+        "wgContentTranslationEnableAnonSectionTranslation"
+      );
+
+      if (!isAnonSXAllowed) {
+        window.addEventListener("visibilitychange", (e) => {
+          if (document.visibilityState === "visible") {
+            userApi
+              .assertUser()
+              .then(() => (isLoginDialogOn.value = false))
+              .catch((error) => {
+                if (error === "assertuserfailed") {
+                  isLoginDialogOn.value = true;
+                }
+              });
+          }
+        });
+      }
     });
+
+    return { isLoginDialogOn };
   },
 };
 </script>

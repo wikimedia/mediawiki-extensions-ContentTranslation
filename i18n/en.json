@@ -476,5 +476,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Leave your translation?",
 	"sx-confirm-back-navigation-dialog-body": "All your changes will be lost.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Discard",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continue"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continue",
+	"cx-sx-login-dialog-title": "Your session has expired",
+	"cx-sx-login-dialog-body": "Your edits cannot be saved and attributed to your account unless you log in again in another window",
+	"cx-sx-login-dialog-button-label": "Log-in"
 }

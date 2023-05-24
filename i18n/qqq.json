@@ -494,5 +494,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Title of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
 	"sx-confirm-back-navigation-dialog-body": "Body of the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Label of the 'discard' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step. Appears next to {{msg-mw|Sx-confirm-back-navigation-dialog-continue-button-label}}",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Label of the 'continue' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step. Appears next to {{msg-mw|Sx-confirm-back-navigation-dialog-discard-button-label}}"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Label of the 'continue' button inside the dialog that asks for user confirmation to discard current translation and return to the dashboard, inside 'Pick a sentence' step. Appears next to {{msg-mw|Sx-confirm-back-navigation-dialog-discard-button-label}}",
+	"cx-sx-login-dialog-title": "Title of the dialog that informs the user that they have been logged-out and prompts them to login again, in order to continue using Section Translation application",
+	"cx-sx-login-dialog-body": "Body of the dialog that informs the user that they have been logged-out and prompts them to login again, in order to continue using Section Translation application",
+	"cx-sx-login-dialog-button-label": "The label of the 'Login' button inside the dialog that informs the user that they have been logged-out and prompts them to login again, in order to continue using Section Translation application"
 }

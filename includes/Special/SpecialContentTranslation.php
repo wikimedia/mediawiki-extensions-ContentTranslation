@@ -255,9 +255,11 @@ class SpecialContentTranslation extends SpecialPage {
 		} else {
 			if ( $this->isVueDashboard() ) {
 				$out->addModules( 'mw.cx3' );
+				$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 				$out->addJsConfigVars( [
 					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' ),
-					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
+					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget,
+					'wgContentTranslationEnableAnonSectionTranslation' => $allowAnonSX,
 				] );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );

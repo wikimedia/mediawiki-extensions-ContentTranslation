@@ -802,7 +802,10 @@
 				"sx-confirm-back-navigation-dialog-title",
 				"sx-confirm-back-navigation-dialog-body",
 				"sx-confirm-back-navigation-dialog-discard-button-label",
-				"sx-confirm-back-navigation-dialog-continue-button-label"
+				"sx-confirm-back-navigation-dialog-continue-button-label",
+				"cx-sx-login-dialog-title",
+				"cx-sx-login-dialog-body",
+				"cx-sx-login-dialog-button-label"
 			],
 			"noflip": true
 		},
