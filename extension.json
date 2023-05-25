@@ -1240,7 +1240,7 @@
 				"widgets/callout/ext.cx.callout.js"
 			],
 			"styles": [
-				"widgets/callout/ext.cx.callout.css"
+				"widgets/callout/ext.cx.callout.less"
 			],
 			"skinStyles": {
 				"vector": [
