@@ -9,7 +9,8 @@
 			"Otokoume",
 			"Shirayuki",
 			"Sujiniku",
-			"Takot"
+			"Takot",
+			"MathXplore"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -33,7 +34,7 @@
 	"apihelp-query+contenttranslation-param-limit": "取得する翻訳の最大数。",
 	"apihelp-query+contenttranslation-param-offset": "結果セットへのオフセット(省略可能)。",
 	"apihelp-query+contenttranslation-param-type": "翻訳の状態です。",
-	"apihelp-query+contenttranslation-example-1": "現在のユーザによって始められた翻訳を取得",
+	"apihelp-query+contenttranslation-example-1": "現在の利用者によって始められた翻訳を取得",
 	"apihelp-query+contenttranslation-example-2": "IDで翻訳の草稿を取得",
 	"apihelp-query+contenttranslation-example-3": "与えられたページ名について言語間の翻訳を探す",
 	"apihelp-query+contenttranslationcorpora-description": "指定された翻訳の、節ごとに揃えられたテキストを取得します。<code>list=cxpublishedtranslations</code>も参照。大容量データへのアクセスになるため、ダンプはさまざまな形式で提供されます。",
