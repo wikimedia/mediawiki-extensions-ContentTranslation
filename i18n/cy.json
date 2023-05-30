@@ -178,7 +178,7 @@
 	"cx-draft-restoring": "Wrthi'n llwytho'r cyfieithiad a chadwyd...",
 	"cx-draft-restored": "Llwythwyd y cyfieithiad a chadwyd.",
 	"cx-draft-restore-failed": "Methwyd â llwytho!",
-	"cx-suggestionlist-expand": "Gweld y cwbwl",
+	"cx-suggestionlist-expand": "Gweld y cyfan",
 	"cx-suggestionlist-collapse": "Gweld llai",
 	"cx-suggestionlist-refresh": "Adnewyddu'r awgrymiadau",
 	"cx-notification-suggestions-available": "Yn seiliedig ar {{GENDER:$2|eich}} cyfieithiadau cynharach o '''$1''', mae gennym awgrymiadau newydd ar eich cyfer.",
