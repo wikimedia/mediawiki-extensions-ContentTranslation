@@ -306,6 +306,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Ar goll yn <span>$1</span> a mwy",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ar goll yn <span>$1</span>, <span>$2</span> a mwy",
 	"cx-uls-relevant-languages-panel-header": "Cyfieithu'r dudalen hon",
+	"cx-uls-relevant-languages-panel-message": "Mae'r dudalen hon ar goll mewn rhai ieithoedd y gallech siarad. Gallwch chi greu cyfieithiad mewn munud!",
 	"cx-uls-translate-page-quick-action-label": "Cyfieithu'r dudalen hon",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Cyhoeddi"
 }
