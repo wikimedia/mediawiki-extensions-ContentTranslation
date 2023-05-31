@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Seipinne",
 			"Yupik"
 		]
 	},
+	"apierror-cx-invalidlanguage": "Feilâlâš kielâ.",
 	"apierror-cx-invalidsourcelanguage": "Feilâlâš käldeekielâ."
 }

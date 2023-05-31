@@ -465,5 +465,6 @@
 	"sx-confirm-back-navigation-dialog-title": "Želite zavreči svoj prevod?",
 	"sx-confirm-back-navigation-dialog-body": "Vse vaše spremembe bodo izgubljene.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Zavrzi",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj",
+	"cx-sx-login-dialog-title": "Vaša seja je potekla"
 }

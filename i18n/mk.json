@@ -462,5 +462,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Го напуштате преводот?",
 	"sx-confirm-back-navigation-dialog-body": "Сите ваши промени ќе се изгубат.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Отфрли",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжи"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжи",
+	"cx-sx-login-dialog-title": "Вашата седница истече",
+	"cx-sx-login-dialog-body": "Вашите уредувања не можат да се зачуваат и припишат на вашата сметка ако не се најавите повторно во друг прозорец",
+	"cx-sx-login-dialog-button-label": "Најава"
 }

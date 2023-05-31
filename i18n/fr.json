@@ -508,5 +508,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Abandonner votre traduction ?",
 	"sx-confirm-back-navigation-dialog-body": "Toutes vos modifications seront perdues.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonner",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuer"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuer",
+	"cx-sx-login-dialog-title": "Votre session a expiré",
+	"cx-sx-login-dialog-body": "Vos modifications ne peuvent pas être enregistrées et attribuées à votre compte, à moins que vous vous connectiez à nouveau dans une autre fenêtre.",
+	"cx-sx-login-dialog-button-label": "Se connecter"
 }

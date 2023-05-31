@@ -462,5 +462,6 @@
 	"sx-confirm-back-navigation-dialog-title": "Abandonar tu traduction?",
 	"sx-confirm-back-navigation-dialog-body": "Tote tu modificationes essera perdite.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonar",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar",
+	"cx-sx-login-dialog-title": "Tu session ha expirate"
 }
