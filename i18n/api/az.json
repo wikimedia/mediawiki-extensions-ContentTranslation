@@ -25,5 +25,7 @@
 	"apihelp-query+contenttranslation-param-limit": "Alınacaq maksimum tərcümə sayı.",
 	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
 	"apihelp-query+contenttranslation-param-type": "Tərcümənin vəziyyəti.",
-	"apihelp-query+contenttranslation-example-1": "Cari istifadəçi tərəfindən başladılan tərcümələr."
+	"apihelp-query+contenttranslation-example-1": "Cari istifadəçi tərəfindən başladılan tərcümələr.",
+	"apihelp-query+contenttranslation-example-2": "Tərcümə qaralamalarını ID ilə əldə edin.",
+	"apihelp-query+contenttranslation-example-3": "Verilmiş dil cütü arasında verilmiş başlıq üçün istənilən tərcüməni tapın"
 }

@@ -47,7 +47,7 @@
 	"cx-lost-session-draft": "Istuntosi on vanhentunut. Muokkauksia ei tallenneta, ellet kirjaudu uudelleen toisessa ikkunassa.",
 	"cx-lost-session-publish": "Istuntosi on vanhentunut. Et voi julkaista käännöstä, ellet kirjaudu uudelleen toisessa ikkunassa.",
 	"cx-lost-session-dashboard": "Kirjaudu uudelleen sisään suorittaaksesi tämän toiminnon.",
-	"cx-publish-summary": "Luotu kääntämällä sivu \"$1\"",
+	"cx-publish-summary": "Luotu kääntämällä sivu ”$1”",
 	"cx-translation-add-translation": "Lisää käännös",
 	"cx-translation-target-page-exists": "Sivu [$1 $2] on jo olemassa kohdewikissä. Anna käännökselle toinen nimi.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Käännetty sisältö]]",
