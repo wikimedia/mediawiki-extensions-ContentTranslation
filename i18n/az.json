@@ -211,6 +211,7 @@
 	"cx-infobar-cannot-publish": "Tərcüməniz yayımlana bilməz, çünki bu vikidə səhifə yaratmaq icazəsi yalnız daha təcrübəli redaktorlara verilir.",
 	"cx-infobar-old-version": "Bu tərcümə məzmunun köhnə versiyasına əsaslanır. Mənbə səhifəsi əhəmiyyətli dərəcədə dəyişmiş ola bilər və tərcüməni yenidən başlatmaq istəyə bilərsiniz.",
 	"cx-tools-linter-issues": "Problemlər",
+	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 xəta}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 xəbərdarlıq}}",
 	"cx-tools-linter-learn-more": "Daha ətraflı",
@@ -451,5 +452,6 @@
 	"cx-sx-block-template-none-mapped-param-text": "Orijinal şablondan $1 parametrdən heç biri əlavə edilmədi",
 	"cx-sx-block-template-mapped-params-text": "$1 parametrdən {{PLURAL:$2|$2}} orijinal şablondan əlavə edildi",
 	"cx-sx-block-template-no-source-params-text": "Orijinal şablonun ötürülməsi üçün parametrləri yox idi",
-	"cx-sx-block-template-missing-mandatory-params-text": "$2-də şablon üçün $1 məcburi parametrlər doldurulmamış qalır. Şablonu əl ilə doldurmaq üçün redaktə edin"
+	"cx-sx-block-template-missing-mandatory-params-text": "$2-də şablon üçün $1 məcburi parametrlər doldurulmamış qalır. Şablonu əl ilə doldurmaq üçün redaktə edin",
+	"cx-sx-block-template-missing-optional-params-text": "$2 dilindəki şablon üçün əlavə $1 parametr doldurula bilər. Şablonu əl ilə doldurmaq üçün redaktə edin"
 }

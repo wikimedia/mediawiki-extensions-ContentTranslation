@@ -10,7 +10,8 @@
 			"Otokoume",
 			"Shirayuki",
 			"Sujiniku",
-			"Takot"
+			"Takot",
+			"Anonymoususer12321"
 		]
 	},
 	"apihelp-cxpublish-description": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -130,7 +131,7 @@
 	"apihelp-query+cxdeletedtranslations-param-after": "タイムスタンプでより新しい削除に絞り込む。",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "削除された翻訳がもともと公開された名前空間。既定は標準名前空間を指定。",
 	"apihelp-query+cxdeletedtranslations-example-1": "2019年4月7日 16:24:44以降に削除された、あなたが標準名前空間に公開した翻訳件数を調べる",
-	"apihelp-cxpublishsection-summary": "コンテンツ翻訳拡張機能の節単位翻訳を使って、ページを作成し保存。",
+	"apihelp-cxpublishsection-summary": "コンテンツ翻訳拡張機能の節単位翻訳を使って、セクションを作成し保存。",
 	"apihelp-cxpublishsection-param-title": "操作対象のページ名。",
 	"apihelp-cxpublishsection-param-html": "保存するコンテンツ。",
 	"apihelp-cxpublishsection-param-sourcelanguage": "翻訳元の言語コード。",
