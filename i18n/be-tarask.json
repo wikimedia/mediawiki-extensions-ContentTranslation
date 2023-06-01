@@ -123,5 +123,6 @@
 	"cx-notification-hundredth-translation": "Вы толькі што зрабілі 100 перакладаў! Гэта выдатнае дасягненьне. Падзяліцеся гэтай навіной зь іншымі рэдактарамі.",
 	"cx-translationlist-empty-title": "Няма што перакладаць.",
 	"cx-translationlist-empty-desc": "{{GENDER:|Пачніце}} Ваш пераклад цяпер і працягвайце ў любы час.",
-	"cx-sx-view-translation-anchor": "Паказаць"
+	"cx-sx-view-translation-anchor": "Паказаць",
+	"cx-sx-login-dialog-title": "Тэрмін вашай сэсіі скончыўся"
 }

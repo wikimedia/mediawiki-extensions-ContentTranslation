@@ -218,5 +218,8 @@
 	"cx-sx-article-search-nearby-title": "Kalapit",
 	"sx-article-search-language-selector-dialog-title": "Maghanap ng wika",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Mas maraming seksyon",
-	"cx-sx-translation-confirmer-prefilled-section-heading": "Seksyon"
+	"cx-sx-translation-confirmer-prefilled-section-heading": "Seksyon",
+	"sx-recent-edit-entrypoint-top-banner-header": "Mag-ambag mula sa ibang mga wika",
+	"cx-contributecard-entrypoint-title": "Mga pagsasalin",
+	"cx-contributecard-entrypoint-desc": "Isalin ang isang seksyon o isang buong artikulo. Gumawa na magkaroon ng mas maraming nilalaman sa maraming wika."
 }

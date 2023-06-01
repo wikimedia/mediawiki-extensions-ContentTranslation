@@ -393,5 +393,5 @@
 	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Malli ülesehitus kummaski keeles on liiga erinev ja andmeid ei saa automaatselt üle tuua.",
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Malli ülesehitus mõlemas keeles on sarnane ja mõned andmed saab automaatselt üle tuua.",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Malli ülesehitus mõlemas keeles on sarnane ja kõik andmed saab automaatselt üle tuua.",
-	"cx-sx-block-template-no-equivalent-template-suggestion": "Kui tead selles keeles ($1) samasisulist malli, siis saad mallid Wikidatas ühendata, et teha see tööriistade jaoks leitavaks."
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Kui tead selles keeles ($1) samasisulist malli, siis saad mallid Wikidatas ühendada, et teha see tööriistade jaoks leitavaks."
 }
