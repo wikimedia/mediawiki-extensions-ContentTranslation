@@ -463,5 +463,7 @@
 	"sx-confirm-back-navigation-dialog-body": "Tote tu modificationes essera perdite.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonar",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar",
-	"cx-sx-login-dialog-title": "Tu session ha expirate"
+	"cx-sx-login-dialog-title": "Tu session ha expirate",
+	"cx-sx-login-dialog-body": "Tu modificationes non pote esser salveguardate e attribuite a tu conto si tu non reaperi session in un altere fenestra.",
+	"cx-sx-login-dialog-button-label": "Aperir session"
 }

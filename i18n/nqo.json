@@ -378,6 +378,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "ߘߟߊߡߌߘߊߟߌ߫ ߞߎߘߊ",
 	"cx-sx-translation-confirmer-more-sections-button-label": "ߕߍߕߍ߯ ߜߘߍ߫ ߟߎ߫",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "ߕߍߕߍ߮ ߘߟߊߡߌ߬ߘߊ߬",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "ߘߟߊߡߌߘߊߟߌ߫ ߞߎߘߊ",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "ߕߍߕߍ߮",
 	"sx-editor-feedback-overlay-title": "ߌ ߣߌ߫ ߗߋ߫߹",
 	"sx-editor-feedback-overlay-clarification": "ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߠߎ߬ ߞߊ߬ ߝߘߴߌ ߟߊ߫ ߛߊߞߍߟߌ ߟߎ߬ ߟߊ߫",
@@ -440,5 +441,8 @@
 	"sx-confirm-back-navigation-dialog-title": "ߞߵߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߊߓߌ߬ߟߊ߫؟",
 	"sx-confirm-back-navigation-dialog-body": "ߓߣߐ߬ ߘߌ߫ ߞߍ߫ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߓߍ߯ ߘߐ߫.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "ߊ߬ ߘߊߓߌ߬ߟߊ߫",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "ߊ߬ ߘߊߓߊ߲߫"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ߊ߬ ߘߊߓߊ߲߫",
+	"cx-sx-login-dialog-title": "ߌ ߟߊ߫ ߥߎ߬ߛߎ ߛߕߊ ߓߘߊ߫ ߝߊ߫",
+	"cx-sx-login-dialog-body": "ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߕߍߣߊ߬ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߓߌ߬ߟߴߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫߸ ߝߏߣߴߌ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ ߝߢߐߞߊ߫ ߜߘߍ߫ ߟߊ߫.",
+	"cx-sx-login-dialog-button-label": "ߌ ߜߊ߲߬ߞߎ߲߫"
 }

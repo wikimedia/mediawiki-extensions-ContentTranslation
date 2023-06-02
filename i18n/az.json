@@ -465,5 +465,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Tərcümənizi tərk edin?",
 	"sx-confirm-back-navigation-dialog-body": "Bütün dəyişiklikləriniz itəcək.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Sil",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Davam et"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Davam et",
+	"cx-sx-login-dialog-title": "Sessiya müddətiniz bitib",
+	"cx-sx-login-dialog-body": "Başqa pəncərədə yenidən daxil olmasanız, redaktələriniz yadda saxlanıla və hesabınıza aid edilə bilməz",
+	"cx-sx-login-dialog-button-label": "Daxil ol"
 }

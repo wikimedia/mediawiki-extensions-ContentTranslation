@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Babispan",
+			"Dogogos123",
 			"Geraki",
 			"Giannaras99",
 			"Glavkos",
@@ -339,5 +340,8 @@
 	"cx-sx-publisher-sandbox-option-label": "Δημοσίευση στο Πρόχειρό σας",
 	"cx-sx-publisher-sandbox-option-details": "Δημοσίευση στον προσωπικό σου χώρο για να το επιθεωρήσεις και να αντιγράψεις αλλού.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Η μετάφρασή σας θα <strong>προστεθεί στο πρόχειρό σας.</strong>",
-	"cx-uls-relevant-languages-panel-message": "Αυτή η σελίδα λείπει σε ορισμένες γλώσσες που ίσως γνωρίζετε. Μπορείτε να τη μεταφράσετε σε λίγα λεπτά!"
+	"cx-uls-relevant-languages-panel-message": "Αυτή η σελίδα λείπει σε ορισμένες γλώσσες που ίσως γνωρίζετε. Μπορείτε να τη μεταφράσετε σε λίγα λεπτά!",
+	"cx-sx-login-dialog-title": "Η σύνοδός σας έχει λήξει",
+	"cx-sx-login-dialog-body": "Οι αλλαγές σας δεν μπορούν να αποθηκευτούν και να αποδοθούν στον λογαριασμό σας, εκτός εάν συνδεθείτε ξανά σε άλλο παράθυρο",
+	"cx-sx-login-dialog-button-label": "Σύνδεση"
 }
