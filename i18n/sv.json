@@ -477,5 +477,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Lämna din översättning?",
 	"sx-confirm-back-navigation-dialog-body": "Alla dina ändringar kommer att gå förlorade.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Släng",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsätt"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsätt",
+	"cx-sx-login-dialog-title": "Din session har gått ut",
+	"cx-sx-login-dialog-body": "Dina ändringar kan inte sparas och tillskrivas ditt konto om du inte loggar in igen i ett annat fönster",
+	"cx-sx-login-dialog-button-label": "Logga in"
 }

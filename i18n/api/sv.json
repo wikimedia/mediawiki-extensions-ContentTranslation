@@ -153,5 +153,10 @@
 	"apihelp-sxsave-param-sectionid": "Sidans avsnitts-ID.",
 	"apihelp-sxsave-param-sourcerevision": "Källsidans versions-ID.",
 	"apierror-sxsave-anon-user": "API-åtgärden \"sxsave\" har inte aktiverats för anonyma användare",
-	"apierror-cxpublishsection-translationnotfound": "Översättningen hittades inte."
+	"apierror-cxpublishsection-translationnotfound": "Översättningen hittades inte.",
+	"apihelp-sxdelete-description": "Radera översättningen av utkastsavsnittet och dess parallella korpus från databasen.",
+	"apihelp-sxdelete-summary": "Radera översättningen av utkastsavsnittet och dess parallella korpus från databasen.",
+	"apihelp-sxdelete-param-translationid": "Översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
+	"apihelp-sxdelete-param-sectionid": "ID för avsnittet i utkastet till avsnittsöversättning.",
+	"apihelp-sxdelete-example-1": "Radera ett utkast som är associerat med ett angivet översättnings-ID och avsnitts-ID."
 }
