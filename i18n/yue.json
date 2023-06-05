@@ -9,7 +9,8 @@
 			"Matttest",
 			"Moon0319",
 			"Z423x5c6",
-			"ZiqiLiang"
+			"ZiqiLiang",
+			"捍粵者"
 		]
 	},
 	"cx": "翻譯頁",
@@ -38,10 +39,10 @@
 	"cx-campaign-newbytranslation-search": "搵過第版嚟翻譯",
 	"cx-campaign-newbytranslation-start": "開始翻譯",
 	"cx-special-login-error": "你一定要簽到先可以翻譯呢版。 [$1 簽到]",
-	"cx-tools-instructions-text5": "{{GENDER:|發佈}}翻譯",
+	"cx-tools-instructions-text5": "發佈翻譯",
 	"cx-tools-instructions-text6": "當{{GENDER:|你}}滿意個結果嘅時候，請撳「{{int:cx-publish-button}}」。",
 	"cx-tools-searchbox-text": "搵單字",
-	"cx-tools-view-guidelines": "{{GENDER:|睇}}翻譯指引",
+	"cx-tools-view-guidelines": "睇翻譯指引",
 	"cx-tools-dictionary-title": "定義",
 	"cx-tools-link-title": "拎",
 	"cx-tools-link-add": "加連結",

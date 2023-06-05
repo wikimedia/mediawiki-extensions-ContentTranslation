@@ -207,6 +207,7 @@
 	"cx-infobar-cannot-publish": "Tərcüməniz yayımlana bilməz, çünki bu vikidə səhifə yaratmaq icazəsi yalnız daha təcrübəli redaktorlara verilir.",
 	"cx-infobar-old-version": "Bu tərcümə məzmunun köhnə versiyasına əsaslanır. Mənbə səhifəsi əhəmiyyətli dərəcədə dəyişmiş ola bilər və tərcüməni yenidən başlatmaq istəyə bilərsiniz.",
 	"cx-tools-linter-issues": "Problemlər",
+	"cx-tools-linter-issues-count": "$1/$2",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 xəta}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 xəbərdarlıq}}",
 	"cx-tools-linter-learn-more": "Daha ətraflı",
