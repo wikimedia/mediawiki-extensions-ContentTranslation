@@ -10,6 +10,7 @@ use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SectionPositionCalculator;
+use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -101,7 +102,14 @@ return [
 		},
 	'ContentTranslation.SectionPositionCalculator' =>
 		static function ( MediaWikiServices $services ): SectionPositionCalculator {
-			return new SectionPositionCalculator( $services->getHttpRequestFactory() );
+			return new SectionPositionCalculator(
+				$services->getHttpRequestFactory(),
+				$services->getService( 'ContentTranslation.SectionTitleFetcher' )
+			);
+		},
+	'ContentTranslation.SectionTitleFetcher' =>
+		static function ( MediaWikiServices $services ): SectionTitleFetcher {
+			return new SectionTitleFetcher( $services->getHttpRequestFactory() );
 		},
 	'ContentTranslation.SectionTranslationStore' =>
 		static function ( MediaWikiServices $services ): SectionTranslationStore {

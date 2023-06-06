@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation;
 
+use ContentTranslation\Service\SectionTitleFetcher;
 use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
 use Title;
@@ -88,14 +89,13 @@ class SectionPositionCalculator {
 			"Siehe auch"
 		]
 	];
-	/** @var HttpRequestFactory */
-	private $httpRequestFactory;
 
-	/**
-	 * @param HttpRequestFactory $httpRequestFactory
-	 */
-	public function __construct( HttpRequestFactory $httpRequestFactory ) {
+	private HttpRequestFactory $httpRequestFactory;
+	private SectionTitleFetcher $sectionTitleFetcher;
+
+	public function __construct( HttpRequestFactory $httpRequestFactory, SectionTitleFetcher $sectionTitleFetcher ) {
 		$this->httpRequestFactory = $httpRequestFactory;
+		$this->sectionTitleFetcher = $sectionTitleFetcher;
 	}
 
 	/**
@@ -117,65 +117,27 @@ class SectionPositionCalculator {
 	 * @return int|string
 	 */
 	public function calculateSectionPosition( Title $targetTitle, string $targetLanguage, bool $isSandbox ) {
+		$sectionPosition = "new";
 		if ( $isSandbox ) {
-			return "new";
+			return $sectionPosition;
 		}
 
-		$encodedTitle = rawurlencode( $targetTitle->getPrefixedDBKey() );
-		$targetSections = $this->fetchTargetSections( $encodedTitle, $targetLanguage );
+		$targetSectionTitles = $this->sectionTitleFetcher->fetchSectionTitles( $targetTitle, $targetLanguage );
 
 		// if target sections are null, this page doesn't exist, and this is a lead section
-		if ( $targetSections === null ) {
+		if ( $targetSectionTitles === null ) {
 			return 0;
 		}
 
-		if ( $targetSections ) {
+		if ( $targetSectionTitles ) {
 			$appendixTitles = $this->fetchAppendixTitles( $targetLanguage );
 
-			$firstAppendixSectionResult = array_filter(
-				$targetSections,
-				static function ( $section ) use ( $appendixTitles ) {
-					return in_array( $section['line'], $appendixTitles ) && $section['toclevel'] === 1;
-				}
-			);
-
-			$firstAppendixSection = reset( $firstAppendixSectionResult );
-
-			if ( $firstAppendixSection ) {
-				$sectionPosition = $firstAppendixSection['id'];
+			$targetAppendixTitles = array_intersect( $targetSectionTitles, $appendixTitles );
+			if ( $targetAppendixTitles ) {
+				$sectionPosition = array_key_first( $targetAppendixTitles );
 			}
 		}
-		return $sectionPosition ?? "new";
-	}
-
-	/**
-	 * Given an encode page title and a target language code, this method fetches the
-	 * target page sections from the Wikipedia REST Api and returns an array containing
-	 * sub-arrays with the required information (id, toclevel, line - which is the title
-	 * of the section) for all the page sections (from all TOC levels).
-	 *
-	 * If no such page exists (i.e. the HTTP requests returns 404 status code), this method returns null.
-	 * If HTTP request cannot be completed, an empty array is returned.
-	 *
-	 * @param string $encodedTitle
-	 * @param string $targetLanguage
-	 * @return array|null ['id' => int, 'toclevel' => int, 'line' => string][]
-	 */
-	public function fetchTargetSections( string $encodedTitle, string $targetLanguage ): ?array {
-		$url = SiteMapper::getRestApiURL( $targetLanguage, "/page/mobile-sections/$encodedTitle" );
-
-		try {
-			$response = $this->httpRequestFactory->get( $url );
-		} catch ( \Exception $exception ) {
-			return [];
-		}
-
-		if ( !$response ) {
-			return null;
-		}
-		$json = FormatJson::decode( $response, true );
-
-		return $json['remaining']['sections'];
+		return $sectionPosition;
 	}
 
 	/**
@@ -190,14 +152,9 @@ class SectionPositionCalculator {
 			return self::APPENDIX_TITLES[$targetLanguage];
 		}
 
-		$englishAppendixTitles = array_map( static function ( $param ) {
-			return urlencode( $param );
-		}, self::APPENDIX_TITLES['en'] );
-		$titlesUrlParam = implode( "|", $englishAppendixTitles );
-
-		$baseUrl = "/suggest/sections/titles/en/$targetLanguage?titles=$titlesUrlParam";
-
-		$cxServerUrl = SiteMapper::getCXServerURL( $baseUrl );
+		$baseUrl = "/suggest/sections/titles/en/$targetLanguage";
+		$params = [ 'titles' => implode( '|', self::APPENDIX_TITLES['en'] ) ];
+		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl, $params );
 		try {
 			$response = $this->httpRequestFactory->get( $cxServerUrl );
 		} catch ( \Exception $exception ) {
