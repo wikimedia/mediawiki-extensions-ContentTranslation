@@ -346,6 +346,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "การเผยแพร่ล้มเหลว",
 	"cx-sx-publisher-animation-failure-message-subtitle": "โปรดดูที่ข้อความแสดงข้อผิดพลาด",
 	"cx-sx-publish-summary": "เพิ่มโดยการแปลจากส่วน \"$1\" จากหน้า \"$2\"",
+	"cx-sx-publish-lead-section-summary": "สร้างโดยแปลส่วนเปิดจากหน้า \"$1\"",
 	"cx-sx-publisher-preview-options-title": "ตัวเลือกในการเผยแพร่",
 	"cx-sx-publisher-new-section-option-label": "เผยแพร่เป็นส่วนใหม่",
 	"cx-sx-publisher-lead-section-option-label": "เผยแพร่เป็นหน้าใหม่",
@@ -420,5 +421,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "แปลส่วน \"$1\", \"$2\" หรืออื่น ๆ",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "แก้ไขการแปล",
 	"cx-uls-relevant-languages-panel-header": "แปลหน้านี้",
+	"cx-uls-translate-page-quick-action-label": "แปลหน้านี้",
 	"cx-sx-publisher-captcha-dialog-publish-button": "เผยแพร่"
 }

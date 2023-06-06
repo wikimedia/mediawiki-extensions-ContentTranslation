@@ -367,7 +367,7 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|og $2 til manglar|0=manglar}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Omsetjinga di inneheld $1 % uendra tekst",
 	"cx-sx-publisher-mt-abuse-error-title": "Omsetjing di kan ikkje publiserast; ho inneheld $1 % uendra tekst",
-	"cx-sx-publisher-mt-abuse-message-body": "Maskinomsetjing er berre eit utgangspunkt. Du kan framleis publisera, men sjekk at omsetjinga flyta naturleg på språket ditt.",
+	"cx-sx-publisher-mt-abuse-message-body": "Maskinomsetjing er berre eit utgangspunkt. Du kan framleis publisera, men sjekk at omsetjinga flyt naturleg på språket ditt.",
 	"cx-sx-publisher-mt-abuse-error-body": "Maskinomsetjing er berre ei byrjing. Sørg for at omsetjinga flyt godt på språket ditt.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 seksjon|$1 seksjonar|0=Ingen seksjonar}}",
 	"cx-sx-article-search-input-placeholder": "Søk etter ei side å omsetje",
