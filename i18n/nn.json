@@ -361,7 +361,7 @@
 	"cx-sx-published-section-confirmation-content": "Omsetjinga di vart publisert. Vurder å redigera innhaldet vidare, eller å legga til endå ein seksjon.",
 	"cx-sx-published-section-invitation-title": "Set om ein ny seksjon",
 	"cx-sx-published-section-invitation-missing-sections-info": "«$1» {{PLURAL:$2|og $2 til manglar|0=manglar}}",
-	"cx-sx-publisher-mt-abuse-message-body": "Maskinomsetjing er berre eit utgangspunkt. Du kan framleis publisera, men sjekk at omsetjinga flyta naturleg på språket ditt.",
+	"cx-sx-publisher-mt-abuse-message-body": "Maskinomsetjing er berre eit utgangspunkt. Du kan framleis publisera, men sjekk at omsetjinga flyt naturleg på språket ditt.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 seksjon|$1 seksjonar|0=Ingen seksjonar}}",
 	"cx-sx-article-search-input-placeholder": "Søk etter ei side å omsetje",
 	"cx-sx-article-search-recently-edited-title": "Nyleg endra av deg",

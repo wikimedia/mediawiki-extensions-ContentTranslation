@@ -35,7 +35,10 @@
 			"Петар Петковић",
 			"青子守歌",
 			"아라",
-			"Yamagata Yusuke"
+			"Yamagata Yusuke",
+			"Kokage si",
+			"捍粵者",
+			"春春眠眠"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -134,7 +137,7 @@
 	"cx-dashboard-sidebar-stats": "統計",
 	"cx-dashboard-sidebar-feedback": "フィードバックを送る",
 	"cx-translation-filter-published-translations": "公開済み",
-	"cx-translation-filter-draft-translations": "進行中",
+	"cx-translation-filter-draft-translations": "処理中",
 	"cx-translation-filter-suggested-translations": "候補",
 	"cx-suggestionlist-favorite": "後で",
 	"cx-suggestionlist-title": "候補",

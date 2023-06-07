@@ -4,7 +4,8 @@
 			"Aefgh39622",
 			"NP-chaonay",
 			"Octahedron80",
-			"Patsagorn Y."
+			"Patsagorn Y.",
+			"Ekminarin"
 		]
 	},
 	"apihelp-cxpublish-description": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
@@ -58,5 +59,6 @@
 	"apierror-cx-invalidlanguage": "ภาษาไม่ถูกต้อง",
 	"apierror-cx-invalidsourcelanguage": "ภาษาต้นทางไม่ถูกต้อง",
 	"apierror-cx-invalidtargetlanguage": "ภาษาปลายทางไม่ถูกต้อง",
-	"apierror-cx-jwtmissing": "ไม่ได้ติดตั้ง JWT"
+	"apierror-cx-jwtmissing": "ไม่ได้ติดตั้ง JWT",
+	"apierror-cx-translationnotfound": "ไม่พบการแปลภาษา"
 }

@@ -14,6 +14,7 @@
 	"cx-header-all-translations": "Omna tradukuri",
 	"cx-source-view-page": "Montrez pagino",
 	"cx-publish-error-unknown": "Eventis eroro nerekuperabla. Detali pri ol: $1",
+	"cx-publish-button": "Publikigar",
 	"cx-lost-session-draft": "Vua sesiono finis. Vua redakti ne povos konservesar, ecepte se vu facos 'log in' en altra fenestro.",
 	"cx-publish-summary": "Kreita per tradukado de la pagino \"$1\"",
 	"cx-translation-target-page-exists": "Pagino kun titulo [$1 $2] ja existas en ta Wiki. Konsiderez donar nova titulo por la pagino.",
