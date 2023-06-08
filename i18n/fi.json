@@ -418,5 +418,6 @@
 	"cx-sx-dashboard-help-panel-title": "Tarvitsetko apua kääntämisessä?",
 	"cx-sx-dashboard-help-panel-stats-label": "Tilastot",
 	"cx-sx-dashboard-help-panel-feedback-label": "Anna palautetta",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Jatka"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Jatka",
+	"cx-sx-login-dialog-button-label": "Kirjaudu sisään"
 }
