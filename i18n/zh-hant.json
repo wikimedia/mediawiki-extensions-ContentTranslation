@@ -407,6 +407,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "新翻譯",
 	"cx-sx-translation-confirmer-more-sections-button-label": "更多章節",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "翻譯章節",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "新翻譯",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "章節",
 	"sx-editor-feedback-overlay-title": "感謝！",
 	"sx-editor-feedback-overlay-clarification": "從您的更正中學習",
@@ -468,10 +469,17 @@
 	"cx-sx-block-template-missing-mandatory-params-text": "在$2的模板有 $1 個強制參數仍為未填充狀態。請編輯模板來手動填充它們",
 	"cx-sx-block-template-missing-optional-params-text": "在$2的模板有 $1 個額外參數仍為未填充狀態。請編輯模板來手動填充它們",
 	"cx-sx-dashboard-help-panel-title": "需要翻譯說明？",
+	"cx-sx-dashboard-help-panel-more-info-label": "更多關於此工具的詳細資訊",
 	"cx-sx-dashboard-help-panel-stats-label": "統計",
 	"cx-sx-dashboard-help-panel-feedback-label": "提供意見回饋",
+	"cx-sx-dashboard-stats-panel-title": "您的影響",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "本月",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "總計",
+	"sx-confirm-back-navigation-dialog-title": "留下您的翻譯？",
+	"sx-confirm-back-navigation-dialog-body": "您的所有更改都不會保存。",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "捨棄",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續",
+	"cx-sx-login-dialog-title": "您的 session 已逾期",
+	"cx-sx-login-dialog-body": "除非您是在另一個視窗中重新登入，否則您做出的編輯都不會保存，也不會歸在您的帳號下",
+	"cx-sx-login-dialog-button-label": "登入"
 }
