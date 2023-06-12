@@ -61,12 +61,7 @@ export default () => {
     } else if (translationExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
-      if (breakpoints.value.tabletAndUp) {
-        startCX();
-      } else {
-        await store.dispatch("application/selectPageSectionByIndex", 0);
-        router.push({ name: "sx-quick-tutorial", query: { force: true } });
-      }
+      return startNewTranslation();
     }
     setTranslationURLParams(sectionSuggestion.value);
   };
@@ -86,11 +81,19 @@ export default () => {
     );
   };
 
-  const onNewTranslationClick = () => startCX();
+  const startNewTranslation = async () => {
+    if (!siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp) {
+      startCX();
+    } else {
+      await store.dispatch("application/selectPageSectionByIndex", 0); // testable
+      router.push({ name: "sx-quick-tutorial", query: { force: true } });
+      setTranslationURLParams(sectionSuggestion.value);
+    }
+  };
 
   return {
     clearPreFilledSection,
-    onNewTranslationClick,
+    startNewTranslation,
     onSectionSelectorClick,
     preFilledSectionTitle,
   };

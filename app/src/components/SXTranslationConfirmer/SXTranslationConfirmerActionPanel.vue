@@ -46,15 +46,11 @@
           @click="onMoreSectionsClick"
         />
       </mw-col>
-      <mw-col
-        v-if="translationExists && $mwui.breakpoint.tabletAndUp"
-        shrink
-        class="me-4"
-      >
+      <mw-col v-if="translationExists && isDesktop" shrink class="me-4">
         <mw-button
           v-i18n:cx-sx-translation-confirmer-new-desktop-translation-button-label
           large
-          @click="onNewTranslationClick"
+          @click="startNewTranslation"
         />
       </mw-col>
       <mw-col shrink>
@@ -80,6 +76,7 @@ import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 export default {
   name: "SxTranslationConfirmerActionPanel",
@@ -93,12 +90,13 @@ export default {
     const router = useRouter();
     const store = useStore();
     const colors = inject("colors");
+    const breakpoints = inject("breakpoints");
     const { targetLanguageAutonym, currentSectionSuggestion } =
       useApplicationState(store);
 
     const {
       clearPreFilledSection,
-      onNewTranslationClick,
+      startNewTranslation,
       onSectionSelectorClick,
       preFilledSectionTitle,
     } = useSectionSelectorClickHandler();
@@ -115,6 +113,10 @@ export default {
 
     const actionButtonLabel = computed(() =>
       bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
+    );
+
+    const isDesktop = computed(
+      () => !siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp
     );
 
     const actionInformationMessage = computed(() =>
@@ -143,13 +145,14 @@ export default {
       isProgressiveButton,
       mwIconLinkExternal,
       onMoreSectionsClick,
-      onNewTranslationClick,
+      startNewTranslation,
       onSectionSelectorClick,
       preFilledSectionTitle,
       targetArticlePath,
       targetLanguageAutonym,
       translationExists,
       colors,
+      isDesktop,
     };
   },
 };

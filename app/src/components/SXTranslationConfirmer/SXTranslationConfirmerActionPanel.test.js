@@ -3,6 +3,7 @@ import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
 import router from "../../router";
 import mockStore from "./actionPanelMockStore";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 const i18n = createI18n();
 
@@ -16,7 +17,7 @@ describe("SXTranslationConfirmer Action Panel test", () => {
         plugins: [mockStore, router, i18n],
         provide: {
           colors: {},
-          breakpoints,
+          breakpoints: { value: breakpoints } ,
         },
       },
       store: mockStore,
@@ -32,6 +33,14 @@ describe("SXTranslationConfirmer Action Panel test", () => {
   });
 
   it("Component output matches snapshot for tablet or larger screens", () => {
+    siteMapper.isMobileDomainVar = false;
+    breakpoints.tabletAndUp = true;
+    const wrapper = createWrapper();
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it("Component output matches snapshot for tablet or larger screens with .m. in the url", () => {
+    siteMapper.isMobileDomainVar = true;
     breakpoints.tabletAndUp = true;
     const wrapper = createWrapper();
     expect(wrapper.element).toMatchSnapshot();
