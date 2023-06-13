@@ -49,7 +49,9 @@
 			"沈澄心",
 			"神樂坂秀吉",
 			"科劳",
-			"Tiger"
+			"Tiger",
+			"MangoFanFanw",
+			"SCP-2000"
 		]
 	},
 	"cx": "翻译页面",
@@ -429,6 +431,7 @@
 	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
 	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用",
 	"cx-uls-relevant-languages-panel-header": "翻译此页面",
+	"cx-uls-relevant-languages-panel-message": "此页面缺少在您可能理解的几个语言里。您可以在几分钟内翻译它！",
 	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
 	"cx-sx-publisher-captcha-dialog-publish-button": "发布"
 }

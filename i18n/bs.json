@@ -204,5 +204,6 @@
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Prikaži izvornu stranicu ($1)",
 	"sx-recent-translation-entrypoint-dialog-add-sections-lead-text": "Dopunite stranicu prevođenjem odlomaka koji su dostupnim na drugim jezicima koje poznajete.",
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Prevedi novi odlomak",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Prevedite odlomke \"$1\" i \"$2\""
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Prevedite odlomke \"$1\" i \"$2\"",
+	"cx-uls-translate-page-quick-action-label": "Prevedi ovu stranicu"
 }
