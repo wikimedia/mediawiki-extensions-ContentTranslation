@@ -22,7 +22,6 @@
       <div class="flex justify-end py-2">
         <mw-button
           type="text"
-          progressive
           :label="
             $i18n('sx-confirm-back-navigation-dialog-continue-button-label')
           "

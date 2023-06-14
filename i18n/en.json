@@ -474,9 +474,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "This month",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "Leave your translation?",
-	"sx-confirm-back-navigation-dialog-body": "All your changes will be lost.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Discard",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continue",
+	"sx-confirm-back-navigation-dialog-body": "Changes have not been saved yet and will be lost.\nYou can continue editing for the changes to be automatically saved.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Discard changes",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continue editing",
 	"cx-sx-login-dialog-title": "Your session has expired",
 	"cx-sx-login-dialog-body": "Your edits cannot be saved and attributed to your account unless you log in again in another window",
 	"cx-sx-login-dialog-button-label": "Log-in"
