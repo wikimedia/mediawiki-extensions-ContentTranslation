@@ -481,5 +481,8 @@
 	"sx-confirm-back-navigation-dialog-title": "Покинути ваш переклад?",
 	"sx-confirm-back-navigation-dialog-body": "Усі ваші зміни буде втрачено.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Відхилити",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити",
+	"cx-sx-login-dialog-title": "Час вашої сесії минув",
+	"cx-sx-login-dialog-body": "Ваші зміни не можна зберегти та віднести до вашого облікового запису, доки ви не ввійдете знову в іншому вікні",
+	"cx-sx-login-dialog-button-label": "Увійти"
 }

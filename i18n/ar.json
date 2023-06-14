@@ -485,5 +485,8 @@
 	"sx-confirm-back-navigation-dialog-title": "اترك ترجمتك؟",
 	"sx-confirm-back-navigation-dialog-body": "ستفقد كل التغييرات الخاصة بك.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "تجاهل",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "استمرار"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "استمرار",
+	"cx-sx-login-dialog-title": "انتهت صلاحية جلسة العمل الخاصة بك",
+	"cx-sx-login-dialog-body": "لا يمكن حفظ تعديلاتك وإسنادها إلى حسابك ما لم تقم بتسجيل الدخول مرة أخرى في نافذة أخرى",
+	"cx-sx-login-dialog-button-label": "تسجيل الدخول"
 }
