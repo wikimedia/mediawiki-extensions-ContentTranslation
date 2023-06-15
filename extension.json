@@ -807,7 +807,10 @@
 				"cx-sx-login-dialog-button-label",
 				"sx-confirm-translation-deletion-dialog-body",
 				"sx-translation-deletion-cancel-button-label",
-				"sx-translation-deletion-confirm-button-label"
+				"sx-translation-deletion-confirm-button-label",
+				"cx-sx-translation-work-days-since-started",
+				"cx-sx-translation-work-months-since-started",
+				"cx-sx-translation-work-years-since-started"
 			],
 			"noflip": true
 		},

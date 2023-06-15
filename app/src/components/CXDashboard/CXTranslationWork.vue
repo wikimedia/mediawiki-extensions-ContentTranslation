@@ -49,8 +49,8 @@
             />
           </mw-col>
         </mw-row>
-        <div class="row cx-translation__footer ma-0">
-          <div class="cx-translation__languages col grow">
+        <mw-row class="cx-translation__footer ma-0">
+          <mw-col class="cx-translation__languages" grow>
             <span
               class="mw-ui-autonym"
               :dir="getDir(translation.sourceLanguage)"
@@ -62,8 +62,11 @@
               :dir="getDir(translation.targetLanguage)"
               v-text="getAutonym(translation.targetLanguage)"
             />
-          </div>
-        </div>
+          </mw-col>
+          <mw-col class="cx-translation__days-since-started" shrink>
+            <span v-text="timeagoMessage" />
+          </mw-col>
+        </mw-row>
       </div>
     </div>
   </div>
@@ -88,6 +91,8 @@ import {
 import { useStore } from "vuex";
 import { computed, inject } from "vue";
 import useDraftTranslationStart from "./useDraftTranslationStart";
+import { timeago } from "@/utils/dateHelper";
+import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "CxTranslationWork",
@@ -131,7 +136,24 @@ export default {
       () => props.translation.progress?.any * 100 || 0
     );
 
+    const bananaI18n = useI18n();
+    const timeagoMessage = computed(() => {
+      const timeagoMessages = {
+        days: "cx-sx-translation-work-days-since-started",
+        months: "cx-sx-translation-work-months-since-started",
+        years: "cx-sx-translation-work-years-since-started",
+      };
+
+      const timeagoObject = timeago(props.translation.startTimestamp);
+
+      return bananaI18n.i18n(
+        timeagoMessages[timeagoObject.postfix],
+        timeagoObject.value
+      );
+    });
+
     return {
+      timeagoMessage,
       getAutonym,
       getDir,
       getImage,
@@ -185,6 +207,10 @@ export default {
     font-size: 14px;
     color: @color-base--subtle;
     line-height: 1;
+  }
+
+  &__days-since-started {
+    min-width: fit-content;
   }
 }
 </style>

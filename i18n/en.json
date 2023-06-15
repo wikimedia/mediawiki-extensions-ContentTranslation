@@ -482,5 +482,8 @@
 	"cx-sx-login-dialog-button-label": "Log-in",
 	"sx-confirm-translation-deletion-dialog-body": "Are you sure you want to permanently delete this translation?",
 	"sx-translation-deletion-cancel-button-label": "Cancel",
-	"sx-translation-deletion-confirm-button-label": "Delete translation"
+	"sx-translation-deletion-confirm-button-label": "Delete translation",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 day|$1 days|0=Today}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 month|$1 months}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 year|$1 years}}"
 }
