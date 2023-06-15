@@ -27,6 +27,6 @@
 	"apihelp-query+cxdeletedtranslations-description": "Убачыць колькасць сваіх перакладаў, апублікаваных у пэўнай прасторы імёнаў, выдаленых пасля пэўнай даты.",
 	"apihelp-query+cxdeletedtranslations-summary": "Убачыць колькасць сваіх апублікаваных перакладаў, якія выдалілі.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Вызначэнне часу, каб убачыць толькі новы выдаленні.",
-	"apihelp-query+cxdeletedtranslations-param-namespace": "Прастора імёнаў, дзе былі апублікаваны выдаленыя пераклады. Па змаўчанні вызначана асноўная прастора імёнаў.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Прастора імёнаў, дзе былі апублікаваны выдаленыя пераклады. Прадвызначана вызначана асноўная прастора імёнаў.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Атрымаць колькасць сваіх выдаленых перакладаў, апублікаваных у асноўнай прасторы імёнаў і выдаленых пасля 2019-04-07 16:24:44"
 }

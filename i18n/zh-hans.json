@@ -50,7 +50,8 @@
 			"夢蝶葬花",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"SCP-2000"
 		]
 	},
 	"cx": "翻译页面",
@@ -430,6 +431,7 @@
 	"sx-block-template-adaptation-card-edit-button-label": "检查和编辑翻译。",
 	"sx-block-template-adaptation-card-body-header-failure": "相同模版对于$1不适用",
 	"cx-uls-relevant-languages-panel-header": "翻译此页面",
+	"cx-uls-relevant-languages-panel-message": "此页面缺少在您可能理解的几个语言里。您可以在几分钟内翻译它！",
 	"sx-recent-edit-entrypoint-top-banner-header": "来自其他语言的贡献",
 	"sx-recent-edit-entrypoint-invitation-button-label": "翻译“ $1 ”",
 	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 section|$1 sections}} 在 $2 中缺失",
