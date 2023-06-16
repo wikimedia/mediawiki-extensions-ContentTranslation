@@ -293,10 +293,6 @@
 				"yue": "zh-yue"
 			}
 		},
-		"ContentTranslationRESTBase": {
-			"description": "You can override default Restbase/parsoid configuration by explicitly defining the parameters for RestbaseVirtualRESTService constructor.",
-			"value": false
-		},
 		"ContentTranslationDatabase": {
 			"description": "The Database domain ID of the relevant wiki or false for the local wiki",
 			"value": false
@@ -407,10 +403,6 @@
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
-		},
-		"ContentTranslationDefaultParsoidClient": {
-			"value": "vrs",
-			"description": "Sets the mechanism used by the ContentTranslation API to talk to Parsoid. This should be removed as soon as the direct mode is stable."
 		}
 	},
 	"ResourceModules": {

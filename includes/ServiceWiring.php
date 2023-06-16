@@ -18,7 +18,6 @@ use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use ContentTranslation\WikidataIdFetcher;
 use MediaWiki\Config\ServiceOptions;
-use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Services\NoSuchServiceException;
@@ -73,9 +72,6 @@ return [
 			MediaWikiServices $services
 		): ParsoidClientFactory {
 			return new ParsoidClientFactory(
-				new ServiceOptions( ParsoidClientFactory::CONSTRUCTOR_OPTIONS, $services->getMainConfig() ),
-				$services->getHttpRequestFactory(),
-				LoggerFactory::getInstance( 'ContentTranslation' ),
 				$services->getPageRestHelperFactory()
 			);
 	},
