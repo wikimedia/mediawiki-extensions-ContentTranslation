@@ -460,9 +460,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Iste mense",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "Abandonar tu traduction?",
-	"sx-confirm-back-navigation-dialog-body": "Tote tu modificationes essera perdite.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonar",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar",
+	"sx-confirm-back-navigation-dialog-body": "Le modificationes non ha essite salveguardate e essera perdite.\nTu pote continuar a modificar pro salveguardar automaticamente le modificationes.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonar modificationes",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar a modificar",
 	"cx-sx-login-dialog-title": "Tu session ha expirate",
 	"cx-sx-login-dialog-body": "Tu modificationes non pote esser salveguardate e attribuite a tu conto si tu non reaperi session in un altere fenestra.",
 	"cx-sx-login-dialog-button-label": "Aperir session"

@@ -479,9 +479,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Цього місяця",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Загалом",
 	"sx-confirm-back-navigation-dialog-title": "Покинути ваш переклад?",
-	"sx-confirm-back-navigation-dialog-body": "Усі ваші зміни буде втрачено.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Відхилити",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити",
+	"sx-confirm-back-navigation-dialog-body": "Ваші зміни ще не збережені і їх буде втрачено.\nВи можете продовжити редагувати, щоб зміни були автоматично збережені.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Відхилити зміни",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити редагування",
 	"cx-sx-login-dialog-title": "Час вашої сесії минув",
 	"cx-sx-login-dialog-body": "Ваші зміни не можна зберегти та віднести до вашого облікового запису, доки ви не ввійдете знову в іншому вікні",
 	"cx-sx-login-dialog-button-label": "Увійти"

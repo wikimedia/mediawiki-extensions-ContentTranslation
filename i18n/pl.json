@@ -483,9 +483,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "W tym miesiącu",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Łącznie",
 	"sx-confirm-back-navigation-dialog-title": "Pozostawić twoje tłumaczenie?",
-	"sx-confirm-back-navigation-dialog-body": "Wszystkie zmiany zostaną utracone.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Porzuć",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Kontynuuj",
+	"sx-confirm-back-navigation-dialog-body": "Zmiany nie zostały zapisane i będą utracone.\nMożesz kontynuować edytowanie, aby zmiany zostały automatycznie zapisane.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Porzuć zmiany",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Kontynuuj edytowanie",
 	"cx-sx-login-dialog-title": "Twoja sesja wygasła",
 	"cx-sx-login-dialog-body": "Twoje zmiany nie mogą zostać zapisane i przypisane do Twojego konta, chyba że zalogujesz się ponownie w innym oknie",
 	"cx-sx-login-dialog-button-label": "Zaloguj się"

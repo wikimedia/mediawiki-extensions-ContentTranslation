@@ -14,6 +14,7 @@
 			"McDutchie",
 			"Metalhead64",
 			"Mirzali",
+			"Nikki",
 			"Purodha",
 			"Tiin",
 			"Umherirrender",
@@ -473,6 +474,8 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Gesamt",
 	"sx-confirm-back-navigation-dialog-title": "Deine Übersetzung verlassen?",
 	"sx-confirm-back-navigation-dialog-body": "Alle deine Änderungen gehen verloren.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Verwerfen",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortfahren"
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Änderungen verwerfen",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Weiter bearbeiten",
+	"cx-sx-login-dialog-title": "Deine Sitzung ist abgelaufen",
+	"cx-sx-login-dialog-button-label": "Anmelden"
 }

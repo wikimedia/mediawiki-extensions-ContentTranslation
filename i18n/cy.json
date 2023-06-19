@@ -315,5 +315,7 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "Cyfieithu \"$1\"",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Cyhoeddi",
 	"cx-contributecard-entrypoint-title": "Cyfieithiadau",
-	"cx-contributecard-entrypoint-cta": "Dechrau cyfieithiad"
+	"cx-contributecard-entrypoint-cta": "Dechrau cyfieithiad",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Canslo newidiadau",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Parhau i olygu"
 }

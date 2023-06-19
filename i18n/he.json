@@ -471,9 +471,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "החודש",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "סך הכול",
 	"sx-confirm-back-navigation-dialog-title": "לעזוב את התרגום שלך?",
-	"sx-confirm-back-navigation-dialog-body": "כל השינויים שלך יאבדו.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "לזרוק",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "להמשיך",
+	"sx-confirm-back-navigation-dialog-body": "השינויים עדיין לא נשמרו והם יאבדו.\nאפשר להמשיך לערוך כדי שהשינויים יישמרו אוטומטית.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "לזרוק את השינויים",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "להמשיך לערוך",
 	"cx-sx-login-dialog-title": "ההתחברות שלך פגה",
 	"cx-sx-login-dialog-body": "לא ניתן לשמור את העריכות שלך ולייחס אותן לחשבון שלך אלא אם {{GENDER:|תיכנס|תיכנסי}} מחדש לחשבון בחלון אחר",
 	"cx-sx-login-dialog-button-label": "כניסה לחשבון"

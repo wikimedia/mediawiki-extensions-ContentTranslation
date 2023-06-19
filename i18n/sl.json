@@ -463,9 +463,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ta mesec",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Skupno",
 	"sx-confirm-back-navigation-dialog-title": "Želite zavreči svoj prevod?",
-	"sx-confirm-back-navigation-dialog-body": "Vse vaše spremembe bodo izgubljene.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Zavrzi",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj",
+	"sx-confirm-back-navigation-dialog-body": "Spremembe še niso shranjene in bodo izgubljene.\nDa se spremembe samodejno shranijo, nadaljujte z urejanjem.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Zavrzi spremembe",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj urejanje",
 	"cx-sx-login-dialog-title": "Vaša seja je potekla",
 	"cx-sx-login-dialog-body": "Vaših popravkov ni mogoče shraniti in pripisati vašemu računu, razen če se ponovno prijavite v drugem oknu.",
 	"cx-sx-login-dialog-button-label": "Prijava"

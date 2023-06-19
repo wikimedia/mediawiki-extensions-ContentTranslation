@@ -462,8 +462,8 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "এই মাসে",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "মোট",
 	"sx-confirm-back-navigation-dialog-title": "আপনার অনুবাদ ছেড়ে যাবেন?",
-	"sx-confirm-back-navigation-dialog-body": "আপনার করা সব পরিবর্তন হারিয়ে যাবে।",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "বাতিল করুন",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "অগ্রসর হোন",
+	"sx-confirm-back-navigation-dialog-body": "আপনার করা পরিবর্তনগুলি এখনও সংরক্ষণ করা হয়নি এবং হারিয়ে যাবে।\nপরিবর্তন স্বয়ংক্রিয়ভাবে সংরক্ষণ করার জন্য সম্পাদনা চালিয়ে যান।",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "পরিবর্তন বাতিল করুন",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "সম্পাদনা অব্যাহত রাখুন",
 	"cx-sx-login-dialog-button-label": "প্রবেশ করুন"
 }

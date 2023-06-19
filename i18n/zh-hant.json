@@ -477,8 +477,8 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "總計",
 	"sx-confirm-back-navigation-dialog-title": "留下您的翻譯？",
 	"sx-confirm-back-navigation-dialog-body": "您的所有更改都不會保存。",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "捨棄",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "捨棄變更",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續編輯",
 	"cx-sx-login-dialog-title": "您的 session 已逾期",
 	"cx-sx-login-dialog-body": "除非您是在另一個視窗中重新登入，否則您做出的編輯都不會保存，也不會歸在您的帳號下",
 	"cx-sx-login-dialog-button-label": "登入"

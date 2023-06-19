@@ -506,9 +506,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Ce mois-ci",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "Abandonner votre traduction ?",
-	"sx-confirm-back-navigation-dialog-body": "Toutes vos modifications seront perdues.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonner",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuer",
+	"sx-confirm-back-navigation-dialog-body": "Les changements n’ont pas été enregistrées et seront perdus.\nVous pouvez continuer à modifier pour que les changements soient automatiquement enregistrés.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Abandonner les modifications",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuer les modifications",
 	"cx-sx-login-dialog-title": "Votre session a expiré",
 	"cx-sx-login-dialog-body": "Vos modifications ne peuvent pas être enregistrées et attribuées à votre compte, à moins que vous vous connectiez à nouveau dans une autre fenêtre.",
 	"cx-sx-login-dialog-button-label": "Se connecter"

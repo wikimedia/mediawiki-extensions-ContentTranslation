@@ -406,6 +406,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Terjemahan baru",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Bagian lainnya",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Terjemahkan bagian",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Terjemahan baru",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Bagian",
 	"sx-editor-feedback-overlay-title": "Terima kasih!",
 	"sx-editor-feedback-overlay-clarification": "Belajar dari koreksi Anda",
@@ -463,5 +464,7 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "Tinggalkan terjemahan Anda?",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Buang",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Lanjutkan"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Lanjutkan",
+	"cx-sx-login-dialog-title": "Sesi Anda telah kedaluwarsa",
+	"cx-sx-login-dialog-button-label": "Masuk log"
 }

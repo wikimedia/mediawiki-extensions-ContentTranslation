@@ -482,8 +482,8 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "¿Abandonar tu traducción?",
 	"sx-confirm-back-navigation-dialog-body": "Todos tus cambios se perderán.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Descartar",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Descartar los cambios",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar editando",
 	"cx-sx-login-dialog-title": "La sesión ha caducado",
 	"cx-sx-login-dialog-body": "Las ediciones no se pueden guardar y atribuir a menos que se acceda a la cuenta nuevamente en otra ventana",
 	"cx-sx-login-dialog-button-label": "Acceder"

@@ -456,5 +456,6 @@
 	"sx-confirm-back-navigation-dialog-title": "Vai pamest tulkojumu?",
 	"sx-confirm-back-navigation-dialog-body": "Visas veiktās izmaiņas tiks zaudētas.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt",
+	"cx-sx-login-dialog-title": "Tava sesija ir beigusies"
 }
