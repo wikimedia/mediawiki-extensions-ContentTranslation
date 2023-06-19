@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[
-  `SXPublisher review info panel test should match snapshot when no publishFeedbackMessages exist 1`
-] = `
+exports[`SXPublisher review info panel test should match snapshot when no publishFeedbackMessages exist 1`] = `
 <div
   aria-labelledby="notice10-label"
   aria-live="polite"
@@ -12,7 +10,7 @@ exports[
   <!-- @slot Use this slot for custom icon -->
   
   <span
-    class="mw-ui-icon notranslate col shrink mw-ui-message__icon pe-3 items-start"
+    class="mw-ui-icon notranslate shrink mw-ui-message__icon items-start"
   >
     <svg
       aria-hidden="true"
@@ -62,9 +60,7 @@ exports[
 </div>
 `;
 
-exports[
-  `SXPublisher review info panel test should match snapshot when the active message is a warning 1`
-] = `
+exports[`SXPublisher review info panel test should match snapshot when the active message is a warning 1`] = `
 <div
   aria-labelledby="-label"
   aria-live="polite"
@@ -74,7 +70,7 @@ exports[
   <!-- @slot Use this slot for custom icon -->
   
   <span
-    class="mw-ui-icon notranslate col shrink mw-ui-message__icon pe-3 items-start"
+    class="mw-ui-icon notranslate shrink mw-ui-message__icon items-start"
   >
     <svg
       aria-hidden="true"

@@ -8,7 +8,7 @@
     <template #icon>
       <mw-icon
         :icon="reviewIcon"
-        class="col shrink mw-ui-message__icon pe-3 items-start"
+        class="shrink mw-ui-message__icon items-start"
       />
     </template>
     <div class="sx-publisher__review-info__content">
