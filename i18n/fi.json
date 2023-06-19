@@ -309,7 +309,7 @@
 	"cx-feature-discovery-dismiss": "Ok, selvä",
 	"cx-suggestionlist-expand-sections-title": "Laajenna uusilla osioilla",
 	"cx-sx-select-section": "Valitse käännettävä osio",
-	"cx-sx-missing-section-stats": "{{PLURAL:$1|Yksi ysio|$1 osiota}} puuttuu kielellä $2",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Yksi osio|$1 osiota}} puuttuu kielellä $2",
 	"cx-sx-section-selector-title": "Osiot",
 	"cx-sx-language-selector-dialog-title": "Etsi kieltä",
 	"cx-sx-start-translation-button-label": "Aloita käännös",
