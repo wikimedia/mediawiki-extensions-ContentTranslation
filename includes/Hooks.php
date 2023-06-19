@@ -20,6 +20,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Specials\Contribute\Card\ContributeCard;
 use MediaWiki\Specials\Contribute\Card\ContributeCardActionLink;
+use MediaWiki\Specials\Contribute\ContributeFactory;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use OutputPage;
@@ -351,12 +352,21 @@ class Hooks {
 			return;
 		}
 
-		if ( $user->getId() === $page->getUser()->getId() && $preferenceHelper->isEnabledForUser( $user ) ) {
-			$page->getOutput()->addModules( [
-				'ext.cx.eventlogging.campaigns',
-				'ext.cx.contributions'
-			] );
+		if ( $user->getId() !== $page->getUser()->getId() || !$preferenceHelper->isEnabledForUser( $user ) ) {
+			return;
 		}
+
+		$modules = [ 'ext.cx.eventlogging.campaigns' ];
+
+		$isSpecialContributeEnabled = ContributeFactory::isEnabledOnCurrentSkin(
+			$page->getSkin(),
+			$page->getConfig()->get( 'SpecialContributeSkinsEnabled' )
+		);
+
+		if ( !$isSpecialContributeEnabled ) {
+			$modules[] = 'ext.cx.contributions';
+		}
+		$page->getOutput()->addModules( $modules );
 	}
 
 	/**
