@@ -468,5 +468,8 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Nadaljuj urejanje",
 	"cx-sx-login-dialog-title": "Vaša seja je potekla",
 	"cx-sx-login-dialog-body": "Vaših popravkov ni mogoče shraniti in pripisati vašemu računu, razen če se ponovno prijavite v drugem oknu.",
-	"cx-sx-login-dialog-button-label": "Prijava"
+	"cx-sx-login-dialog-button-label": "Prijava",
+	"sx-confirm-translation-deletion-dialog-body": "Ali res želite ta prevod trajno izbrisati?",
+	"sx-translation-deletion-cancel-button-label": "Prekliči",
+	"sx-translation-deletion-confirm-button-label": "Izbriši prevod"
 }

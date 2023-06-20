@@ -500,5 +500,8 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Düzenlemeye devam et",
 	"cx-sx-login-dialog-title": "Oturumunuzun süresi doldu",
 	"cx-sx-login-dialog-body": "Başka bir pencerede tekrar giriş yapmadıkça değişiklikleriniz kaydedilemez ve hesabınızla ilişkilendirilemez",
-	"cx-sx-login-dialog-button-label": "Oturum aç"
+	"cx-sx-login-dialog-button-label": "Oturum aç",
+	"sx-confirm-translation-deletion-dialog-body": "Bu çeviriyi kalıcı olarak silmek istediğinizden emin misiniz?",
+	"sx-translation-deletion-cancel-button-label": "İptal",
+	"sx-translation-deletion-confirm-button-label": "Çeviriyi sil"
 }

@@ -415,5 +415,8 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Укупно",
 	"sx-confirm-back-navigation-dialog-body": "Све измене ће бити изгубљене.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Одбаци",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Настави"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Настави",
+	"sx-confirm-translation-deletion-dialog-body": "Желите ли заиста да трајно избришете овај превод?",
+	"sx-translation-deletion-cancel-button-label": "Откажи",
+	"sx-translation-deletion-confirm-button-label": "Избриши превод"
 }

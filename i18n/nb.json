@@ -472,9 +472,9 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Denne måneden",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Totalt",
 	"sx-confirm-back-navigation-dialog-title": "Forlate oversettelsen din?",
-	"sx-confirm-back-navigation-dialog-body": "Alle endringene dine vil gå tapt.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Forkast",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsett",
+	"sx-confirm-back-navigation-dialog-body": "Endringene har ikke blitt lagret, og vil gå tapt.\nDu kan fortsette å redigere så endringene lagres automatisk.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Forkast endringer",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsett å redigere",
 	"cx-sx-login-dialog-title": "Økten din har utløpt",
 	"cx-sx-login-dialog-body": "Redigeringene dine kan ikke lagres og tilskrives kontoen din med mindre du logger inn igjen i et annet vindu",
 	"cx-sx-login-dialog-button-label": "Logg inn"

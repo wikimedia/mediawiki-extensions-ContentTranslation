@@ -417,5 +417,7 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "合計",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "破棄する",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "編集を続行",
-	"cx-sx-login-dialog-button-label": "ログイン"
+	"cx-sx-login-dialog-button-label": "ログイン",
+	"sx-translation-deletion-cancel-button-label": "キャンセル",
+	"sx-translation-deletion-confirm-button-label": "翻訳を削除"
 }

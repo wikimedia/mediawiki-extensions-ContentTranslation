@@ -314,5 +314,9 @@
 	"cx-uls-translate-page-quick-action-label": "Dës Säit iwwersetzen",
 	"cx-sx-dashboard-help-panel-title": "Braucht Dir Hëllef beim Iwwersetzen?",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistiken",
-	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Dëse Mount"
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Dëse Mount",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Ännerungen annuléieren",
+	"sx-confirm-translation-deletion-dialog-body": "Sidd Dir sécher, datt Dir dës Iwwersetzung definitiv läsche wëllt?",
+	"sx-translation-deletion-cancel-button-label": "Ofbriechen",
+	"sx-translation-deletion-confirm-button-label": "Iwwersetzung läschen"
 }

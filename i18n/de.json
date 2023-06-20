@@ -473,9 +473,10 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Dieser Monat",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Gesamt",
 	"sx-confirm-back-navigation-dialog-title": "Deine Übersetzung verlassen?",
-	"sx-confirm-back-navigation-dialog-body": "Alle deine Änderungen gehen verloren.",
+	"sx-confirm-back-navigation-dialog-body": "Die Änderungen wurden noch nicht gespeichert und gehen verloren.\nDu kannst mit der Bearbeitung fortfahren, damit die Änderungen automatisch gespeichert werden.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Änderungen verwerfen",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Weiter bearbeiten",
 	"cx-sx-login-dialog-title": "Deine Sitzung ist abgelaufen",
+	"cx-sx-login-dialog-body": "Deine Änderungen können nicht gespeichert und deinem Benutzerkonto zugeordnet werden, es sei denn, du meldest dich erneut in einem anderen Fenster an",
 	"cx-sx-login-dialog-button-label": "Anmelden"
 }

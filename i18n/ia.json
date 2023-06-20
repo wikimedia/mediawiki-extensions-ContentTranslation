@@ -465,5 +465,8 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar a modificar",
 	"cx-sx-login-dialog-title": "Tu session ha expirate",
 	"cx-sx-login-dialog-body": "Tu modificationes non pote esser salveguardate e attribuite a tu conto si tu non reaperi session in un altere fenestra.",
-	"cx-sx-login-dialog-button-label": "Aperir session"
+	"cx-sx-login-dialog-button-label": "Aperir session",
+	"sx-confirm-translation-deletion-dialog-body": "Es tu secur de voler deler permanentemente iste traduction?",
+	"sx-translation-deletion-cancel-button-label": "Cancellar",
+	"sx-translation-deletion-confirm-button-label": "Deler traduction"
 }
