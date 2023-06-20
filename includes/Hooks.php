@@ -463,10 +463,16 @@ class Hooks {
 			// CX is enabled for everybody. Not a beta feature.
 			self::isPotentialTranslator( $user )
 		) {
-			$out->addModules( [
-				'ext.cx.entrypoints.newbytranslation',
-				'ext.cx.eventlogging.campaigns'
-			] );
+			$modules = [ 'ext.cx.eventlogging.campaigns' ];
+
+			// "firsttime" property is true the first time the edit form is rendered,
+			// and it's false after re-rendering with preview, diff, save prompts, etc.
+			// Here we only want to display the invitation when not in "preview" or "diff" mode.
+			if ( $newPage->firsttime ) {
+				$modules[] = 'ext.cx.entrypoints.newbytranslation';
+			}
+
+			$out->addModules( $modules );
 			$invitationShown = $preferenceHelper->getGlobalPreference(
 				$user, 'cx_campaign_newarticle_shown'
 			);
