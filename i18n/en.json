@@ -432,6 +432,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Translate \"$1\" and \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Translate \"$1\", \"$2\" and more",
 	"sx-block-template-adaptation-card-body-header-success": "Suggested template",
+	"sx-block-template-adaptation-card-title-placeholder": "Template",
 	"sx-block-template-adaptation-card-edit-button-label": "Review and edit the translation",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Edit the translation",
 	"sx-block-template-adaptation-card-body-header-failure": "Equivalent template not available for $1",

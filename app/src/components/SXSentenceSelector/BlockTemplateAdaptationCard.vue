@@ -5,7 +5,7 @@
         <mw-col shrink>
           <mw-icon :icon="mwIconPuzzle" class="me-2" />
         </mw-col>
-        <mw-col class="ma-0" tag="h5" v-text="sourceTemplateName" />
+        <mw-col class="ma-0" tag="h5">{{ sourceTemplateName }}</mw-col>
       </mw-row>
       <div
         v-if="!!targetTemplateName"
@@ -145,13 +145,15 @@ export default {
         )
     );
 
+    const bananaI18n = useI18n();
     const sourceTemplateName = computed(
       // Strip HTML comments and return
       () =>
         selectedSubSection.value?.sourceBlockTemplateName?.replace(
           /<\!--.*?-->/g,
           ""
-        )
+        ) ||
+        bananaI18n.i18n("sx-block-template-adaptation-card-title-placeholder")
     );
 
     const adaptationInfo = computed(
@@ -174,7 +176,6 @@ export default {
       return "block-template-adaptation-card__body--" + postfix;
     });
 
-    const bananaI18n = useI18n();
     const editBlockTranslationButtonLabel = computed(() => {
       if (!adaptationInfo.value) {
         return null;
