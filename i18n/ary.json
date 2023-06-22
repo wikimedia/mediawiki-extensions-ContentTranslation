@@ -5,9 +5,11 @@
 			"Reda Benkhadra"
 		]
 	},
+	"cx-publish-page-success": "الصفحة تنشرات ف $1",
 	"cx-page-selector-widget-nearby-label": "قريب من هنا",
 	"cx-page-missing-in-target-language": "ناقص ف $1",
 	"cx-save-draft-save-success": "تصوڤات {{PLURAL:$1|هادي دقيقة|هادي $1 دقيقة|0=يالله دابا}}",
+	"cx-tools-linter-reference-message": "واحد لمرجيع ماتدارش ليه الطرونصفير ل الطرجامة حيت مخدّم موضيل عندو قلدة مختالفة.\n\nعافاك بدّل التفاصيل د لمرجيع ف الطرجامة باش تعمّر لمعلومات لي ناقصين.",
 	"cx-linkcontextitem-missing-title-description": "هاد صفحة مازال ماكاينة",
 	"cx-sx-article-search-no-search-results-message": "$2 حتا پاج ماتلقات ب \"$1\" ف",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "ناقص ف <span>$1</span> ؤ <span>$2</span>",
