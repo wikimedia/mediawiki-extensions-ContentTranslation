@@ -87,6 +87,7 @@ class AbuseFilterChecker {
 		$vars = $gen
 			->addUserVars( $user )
 			->addTitleVars( $title, 'page' )
+			->addGenericVars()
 			->getVariableHolder();
 		$vars->setVar( 'action', 'edit' );
 
@@ -122,6 +123,7 @@ class AbuseFilterChecker {
 			->addUserVars( $user )
 			->addTitleVars( $title, 'page' )
 			->addEditVars( $this->wikiPageFactory->newFromTitle( $title ), $user )
+			->addGenericVars()
 			->getVariableHolder();
 		$vars->setVar( 'action', 'edit' );
 		$vars->setVar( 'old_wikitext', '' );

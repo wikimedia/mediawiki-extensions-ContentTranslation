@@ -35,16 +35,14 @@ class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	protected function setUp(): void {
 		parent::setUp();
-		if ( !\ExtensionRegistry::getInstance()->isLoaded( 'Abuse Filter' ) ) {
-			$this->markTestSkipped( 'Can only run test with AbuseFilter enabled' );
-		}
+		$this->markTestSkippedIfExtensionNotLoaded( 'Abuse Filter' );
 		$this->checker = new AbuseFilterChecker(
 			true,
 			MediaWikiServices::getInstance()->getWikiPageFactory(),
 			MediaWikiServices::getInstance()->getService( 'AbuseFilterVariableGeneratorFactory' ),
 			MediaWikiServices::getInstance()->getService( 'AbuseFilterConsequencesLookup' ),
 			MediaWikiServices::getInstance()->getService( 'AbuseFilterFilterLookup' ),
-			MediaWikiServices::getInstance()->getService( 'AbuseFilterRunnerFactory' )
+			MediaWikiServices::getInstance()->getService( 'AbuseFilterFilterRunnerFactory' )
 		);
 	}
 

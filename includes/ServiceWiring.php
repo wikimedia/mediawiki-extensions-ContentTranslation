@@ -36,7 +36,7 @@ return [
 				$variableGeneratorFactory = $services->getService( 'AbuseFilterVariableGeneratorFactory' );
 				$consequencesLookup = $services->getService( 'AbuseFilterConsequencesLookup' );
 				$filterLookup = $services->getService( 'AbuseFilterFilterLookup' );
-				$filterRunnerFactory = $services->getService( 'AbuseFilterRunnerFactory' );
+				$filterRunnerFactory = $services->getService( 'AbuseFilterFilterRunnerFactory' );
 			} catch ( NoSuchServiceException $exception ) {
 				$variableGeneratorFactory = null;
 				$consequencesLookup = null;
