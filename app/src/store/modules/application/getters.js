@@ -78,15 +78,6 @@ export default {
     ),
 
   /**
-   * @return {Translation[]}
-   */
-  getCurrentPublishedTranslations: (state, getters, rootState, rootGetters) =>
-    rootGetters["translator/getPublishedTranslationsForLanguagePair"](
-      state.sourceLanguage,
-      state.targetLanguage
-    ),
-
-  /**
    * @param state
    * @param getters
    * @param rootState

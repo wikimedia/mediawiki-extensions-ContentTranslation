@@ -28,11 +28,6 @@ export default {
   getLanguageTitleGroupByWikidataId: (state) => (wikidataId) =>
     state.languageTitleGroups.find((group) => group.wikidataId === wikidataId),
 
-  getTitleByLanguageForGroup: (state, getters) => (wikidataId, language) =>
-    (getters.getLanguageTitleGroupByWikidataId(wikidataId)?.titles || []).find(
-      (title) => title.lang === language
-    )?.title,
-
   /**
    * Get MTProviderGroup for the given language pair
    * @param {object} state

@@ -11,14 +11,6 @@ export default {
           translationItem.targetLanguage === targetLanguage &&
           translationItem.status === "published"
       ),
-  getDraftTranslationsForLanguagePair:
-    (state) => (sourceLanguage, targetLanguage) =>
-      state.translations.filter(
-        (translationItem) =>
-          translationItem.sourceLanguage === sourceLanguage &&
-          translationItem.targetLanguage === targetLanguage &&
-          translationItem.status === "draft"
-      ),
   getPublishedTranslations: (state) =>
     state.translations.filter(
       (translationItem) => translationItem.status === "published"
