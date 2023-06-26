@@ -75,9 +75,9 @@ export default {
       () => props.translationStatus === "draft"
     );
     const translations = computed(() =>
-      isDraftTranslationList.value
-        ? store.getters["translator/getDraftTranslations"]
-        : store.getters["translator/getPublishedTranslations"]
+      store.getters["translator/getTranslationsByStatus"](
+        props.translationStatus
+      )
     );
 
     const isActiveForAllSourceLanguages = computed(

@@ -11,14 +11,16 @@ export default {
           translationItem.targetLanguage === targetLanguage &&
           translationItem.status === "published"
       ),
-  getPublishedTranslations: (state) =>
-    state.translations.filter(
-      (translationItem) => translationItem.status === "published"
-    ),
-  getDraftTranslations: (state) =>
-    state.translations.filter(
-      (translationItem) => translationItem.status === "draft"
-    ),
+  getTranslationsByStatus:
+    (state) =>
+    /**
+     * @param {"draft"|"published"} status
+     * @return {Translation[]}
+     */
+    (status) =>
+      state.translations.filter(
+        (translationItem) => translationItem.status === status
+      ),
   userHasSectionTranslations: (state) =>
     state.translations.some(
       (translation) => !!translation.sectionTranslationId
