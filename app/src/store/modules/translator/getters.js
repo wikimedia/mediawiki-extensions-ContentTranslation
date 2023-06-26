@@ -19,10 +19,9 @@ export default {
     state.translations.filter(
       (translationItem) => translationItem.status === "draft"
     ),
-  // Function with dummy implementation. Needed to add real functionality later
-  hasSectionTranslations: (state) =>
+  userHasSectionTranslations: (state) =>
     state.translations.some(
-      (translation) => translation.hasSectionTranslations
+      (translation) => !!translation.sectionTranslationId
     ),
   /**
    * @param state

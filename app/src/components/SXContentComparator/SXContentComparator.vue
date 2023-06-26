@@ -78,7 +78,7 @@ export default {
       router.push({ name: "sx-section-selector" });
 
     const translateSection = () => {
-      if (store.getters["translator/hasSectionTranslations"]) {
+      if (store.getters["translator/userHasSectionTranslations"]) {
         router.push({ name: "sx-sentence-selector" });
 
         return;

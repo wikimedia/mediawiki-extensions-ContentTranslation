@@ -86,7 +86,12 @@ export default () => {
       startCX();
     } else {
       await store.dispatch("application/selectPageSectionByIndex", 0); // testable
-      router.push({ name: "sx-quick-tutorial", query: { force: true } });
+
+      if (store.getters["translator/userHasSectionTranslations"]) {
+        router.push({ name: "sx-sentence-selector", query: { force: true } });
+      } else {
+        router.push({ name: "sx-quick-tutorial", query: { force: true } });
+      }
       setTranslationURLParams(sectionSuggestion.value);
     }
   };
