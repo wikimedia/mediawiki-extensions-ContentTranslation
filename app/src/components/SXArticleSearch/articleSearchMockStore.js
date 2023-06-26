@@ -56,6 +56,9 @@ export default createStore({
     translator: {
       namespaced: true,
       state: { translations: [] },
+      actions: {
+        fetchTranslations: jest.fn(),
+      },
     },
   },
 });

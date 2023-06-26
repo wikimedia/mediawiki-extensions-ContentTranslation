@@ -106,6 +106,7 @@ import {
   getSuggestionListLanguagePairUpdater,
   initializeLanguages,
 } from "@/composables/useLanguageHelper";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 
 export default {
   name: "SxArticleSearch",
@@ -164,13 +165,11 @@ export default {
     );
     const router = useRouter();
 
+    const fetchTranslations = useTranslationsFetch(store);
     onMounted(async () => {
       await initializeLanguages();
 
-      // If translations have already been fetched, then skip
-      if (!store.state.translator.translations.length) {
-        store.dispatch("translator/fetchTranslations");
-      }
+      fetchTranslations();
 
       try {
         previousLanguages.value.push(

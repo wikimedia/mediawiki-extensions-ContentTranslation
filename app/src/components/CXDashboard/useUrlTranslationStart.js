@@ -1,6 +1,7 @@
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
 import useDraftTranslationStart from "./useDraftTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 
@@ -31,6 +32,7 @@ const useUrlTranslationStart = () => {
   const startSectionTranslation = useSectionTranslationStart();
   const logEvent = useEventLogging();
   const startDraftTranslation = useDraftTranslationStart();
+  const fetchTranslations = useTranslationsFetch(store);
 
   /**
    * @param {string} pageTitle
@@ -51,26 +53,19 @@ const useUrlTranslationStart = () => {
     });
 
     if (isDraftTranslation) {
-      try {
-        // If translations have already been fetched, then skip
-        if (!store.state.translator.translations.length) {
-          await store.dispatch("translator/fetchTranslations");
-          const translation = store.getters["translator/getTranslation"](
-            pageTitle,
-            sectionTitle,
-            sourceLanguage.value,
-            targetLanguage.value
-          );
+      await fetchTranslations();
 
-          if (!translation) {
-            return;
-          }
-          startDraftTranslation(translation);
-        }
-      } catch (error) {
-        // Let translation fetching gracefully fail
-        mw.log.error("[CX] Error while fetching translations", error);
+      const translation = store.getters["translator/getTranslation"](
+        pageTitle,
+        sectionTitle,
+        sourceLanguage.value,
+        targetLanguage.value
+      );
+
+      if (!translation) {
+        return;
       }
+      startDraftTranslation(translation);
     } else {
       startSectionTranslation(pageTitle, "dashboard", eventSource);
     }

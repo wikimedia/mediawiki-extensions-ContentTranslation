@@ -4,6 +4,7 @@ import {
   useUrlTranslationStart,
 } from "./useUrlTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 
@@ -28,6 +29,7 @@ const useDashboardInitialization = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const startSectionTranslationFromUrl = useUrlTranslationStart();
+  const fetchTranslations = useTranslationsFetch(store);
 
   return async () => {
     await initializeLanguages();
@@ -59,16 +61,7 @@ const useDashboardInitialization = () => {
       mw.log.error("[CX] Error while fetching favorite suggestions", error);
     }
 
-    try {
-      // If translations have already been fetched, then skip
-      if (!store.state.translator.translations.length) {
-        await store.dispatch("translator/fetchTranslations");
-      }
-    } catch (error) {
-      // Let translation fetching gracefully fail
-      mw.log.error("[CX] Error while fetching translations", error);
-    }
-
+    await fetchTranslations();
     store.dispatch("suggestions/initializeSuggestions");
   };
 };
