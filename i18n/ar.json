@@ -23,6 +23,7 @@
 			"Sonic N800",
 			"Yahya Sakhnini",
 			"Петар Петковић",
+			"أيوب",
 			"أَحمد",
 			"ديفيد",
 			"زكريا",
@@ -488,5 +489,8 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "مواصلة التعديل",
 	"cx-sx-login-dialog-title": "انتهت صلاحية جلسة العمل الخاصة بك",
 	"cx-sx-login-dialog-body": "لا يمكن حفظ تعديلاتك وإسنادها إلى حسابك ما لم تقم بتسجيل الدخول مرة أخرى في نافذة أخرى",
-	"cx-sx-login-dialog-button-label": "تسجيل الدخول"
+	"cx-sx-login-dialog-button-label": "تسجيل الدخول",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1||يوم واحد|يومين|$1 أيام|$1 يومًا|$1 يوم|0=يوم}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1||شهر واحد|شهرين|$1 شهور|$1 شهرا|$1 شهر}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1||سنة واحدة|سنتين|$1 سنين|$1 سنة}}"
 }

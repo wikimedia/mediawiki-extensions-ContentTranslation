@@ -6,7 +6,6 @@
 			"Robin van der Vliet"
 		]
 	},
-	"apihelp-cxpublish-description": "Konservi la paĝon kreitan per etendaĵo por Tradukado de Enhavo.",
 	"apihelp-cxpublish-param-title": "Titolo de la prilaborota paĝo",
 	"apihelp-cxpublish-param-html": "La enhavo por konservi.",
 	"apihelp-cxpublish-param-from": "Lingvokodo de la fonta lingvo.",
@@ -15,7 +14,6 @@
 	"apihelp-cxpublish-param-categories": "Kategorioj, en kiujn estos aldonita publikigita paĝo.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identigilo de Captcha (por konservi kun captcha-respondo).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respondo al captcha (por konservi kun captcha-respondo).",
-	"apihelp-query+contenttranslation-description": "Informpeti datumbazon de Tradukado de enhavo pri tradukoj.",
 	"apihelp-query+contenttranslation-param-translationid": "Identigilo de traduko.",
 	"apihelp-query+contenttranslation-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-query+contenttranslation-param-to": "Lingvokodo de la cela lingvo.",
@@ -31,7 +29,6 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Lingvokodo de la fonta lingvo.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Lingvokodo de la cela lingvo.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "La intervalo por kalkuli  la tendencon. Ĝi povas esti <kbd>week</kbd> (semajno) aŭ <kbd>month</kbd> (monato).",
-	"apihelp-cxdelete-description": "Forigi malnetan tradukon kreitan per la etendaĵo por tradukado de enhavo.",
 	"apihelp-cxdelete-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-cxdelete-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-cxdelete-param-sourcetitle": "Titolo de la fonta paĝo.",

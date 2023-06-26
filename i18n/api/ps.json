@@ -16,7 +16,6 @@
 	"apihelp-query+contenttranslationstats-example-1": "د ټولو ژبو د مېنځپانگې د ژباړې شمارنې ترلاسه کول.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "د موخې د ژبې کوډ.",
-	"apihelp-query+cxpublishedtranslations-description": "د ټولو خپرو شويو ژباړو مالومات راغونډول",
 	"apihelp-query+cxpublishedtranslations-param-from": "د سرچينې د ژبې کوډ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "د موخې د ژبې کوډ.",
 	"apihelp-query+cxpublishedtranslations-example-1": "ټولې خپرې شوې ژباړې راغونډول",

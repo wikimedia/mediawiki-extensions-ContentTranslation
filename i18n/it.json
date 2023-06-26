@@ -344,5 +344,11 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Ignora modifiche",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Continua a modificare",
 	"cx-sx-login-dialog-title": "La tua sessione è scaduta",
-	"cx-sx-login-dialog-button-label": "Entra"
+	"cx-sx-login-dialog-button-label": "Entra",
+	"sx-confirm-translation-deletion-dialog-body": "Sei sicuro di voler cancellare definitivamente questa traduzione?",
+	"sx-translation-deletion-cancel-button-label": "Annulla",
+	"sx-translation-deletion-confirm-button-label": "Cancella traduzione",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 giorno|$1 giorni|0=Oggi}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mese|$1 mesi}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 anno|$1 anni}}"
 }

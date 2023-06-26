@@ -14,7 +14,7 @@
 	"cx-dashboard-header": "Traductiones",
 	"cx-javascript": "Iste instrumento non functiona sin JavaScript. JavaScript es disactivate, non functionava, o iste navigator non es supportate.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] es un instrumento pro le traduction rapide de paginas in tu lingua. [$1 Essaya lo ora!]",
-	"cx-license-agreement": "Si vos continua, vos accepta le [https://foundation.wikimedia.org/wiki/Terms_of_Use conditiones de uso] e vos libera irrevocabilemente vostre contributiones sub le [https://creativecommons.org/licenses/by-sa/3.0/ licentia CC BY-SA 3.0] e le [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Si vos continua, vos accepta le [https://foundation.wikimedia.org/wiki/Terms_of_Use conditiones de uso] e vos libera irrevocabilemente vostre contributiones sub le licentias [https://creativecommons.org/licenses/by-sa/4.0/deed.ia CC BY-SA 4.0] e [https://ia.wikipedia.org/wiki/Licentia_GNU_pro_Documentation_Libere GFDL 1.3].",
 	"cx-error-server-connection": "Error: Impossibile connecter al servitor.",
 	"cx-desc": "Rende facile [[Special:ContentTranslation|traducer]] paginas de contento",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|traducite}}",
@@ -468,5 +468,8 @@
 	"cx-sx-login-dialog-button-label": "Aperir session",
 	"sx-confirm-translation-deletion-dialog-body": "Es tu secur de voler deler permanentemente iste traduction?",
 	"sx-translation-deletion-cancel-button-label": "Cancellar",
-	"sx-translation-deletion-confirm-button-label": "Deler traduction"
+	"sx-translation-deletion-confirm-button-label": "Deler traduction",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|1 die|$1 dies|0=Hodie}}",
+	"cx-sx-translation-work-months-since-started": "$1 mense{{PLURAL:$1||s}}",
+	"cx-sx-translation-work-years-since-started": "$1 anno{{PLURAL:$1||s}}"
 }

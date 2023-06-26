@@ -8,7 +8,6 @@
 			"ViDam"
 		]
 	},
-	"apihelp-cxpublish-description": "Egy Tartalomfordítóval létrehozott lap mentése.",
 	"apihelp-cxpublish-param-title": "Annak a lapnak a címe, amin a művelet végrehajtandó.",
 	"apihelp-cxpublish-param-html": "Az elmentendő tartalom.",
 	"apihelp-cxpublish-param-from": "A forrásszöveg nyelvkódja.",
@@ -17,7 +16,6 @@
 	"apihelp-cxpublish-param-categories": "Kategóriák, amelyekben a közzétett cikk szerepelni fog.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captchaazonosító (captcha megválaszolásával mentéskor).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Válasz a captchára (captcha megválaszolásával mentéskor).",
-	"apihelp-query+contenttranslation-description": "A Tartalomfordító adatbázisának lekérdezése fordításokért.",
 	"apihelp-query+contenttranslation-param-translationid": "Fordításazonosító (ID).",
 	"apihelp-query+contenttranslation-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+contenttranslation-param-to": "A célnyelv kódja.",
@@ -30,7 +28,6 @@
 	"apihelp-query+contenttranslationstats-example-1": "A Tartalomfordító statisztikáinak lekérdezése az összes nyelvre.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "A célnyelv kódja.",
-	"apihelp-query+cxpublishedtranslations-description": "Minden közzétett fordítási információ begyűjtése",
 	"apihelp-query+cxpublishedtranslations-param-from": "A forrásnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-param-to": "A célnyelv kódja.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Összes közzétett fordítás begyűjtése",
@@ -41,7 +38,6 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Az időintervallum, amire ki szeretnéd számítani a trendet; <kbd>week</kbd> vagy <kbd>month</kbd> lehet.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "A közzétételi trend begyűjtése az es-ca nyelvpárra heti intervallummal",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Közzétételi trend begyűjtése az összes nyelvre",
-	"apihelp-cxdelete-description": "Egy, a Tartalomfordító kiterjesztéssel létrehozott piszkozatfordítás törlése.",
 	"apihelp-cxdelete-param-from": "A forrásnyelv kódja.",
 	"apihelp-cxdelete-param-to": "A célnyelv kódja.",
 	"apihelp-cxdelete-param-sourcetitle": "A forráscikk címe.",

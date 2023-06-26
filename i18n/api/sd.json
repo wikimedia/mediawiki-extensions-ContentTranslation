@@ -6,7 +6,6 @@
 			"Sindhu"
 		]
 	},
-	"apihelp-cxpublish-description": "مواد جو ترجمو وڌاءُ استعمال ڪندي سرجيل صفحو سانڍيو.",
 	"apihelp-cxpublish-summary": "مواد جو ترجمو وڌاءُ استعمال ڪندي سرجيل صفحو سانڍيو.",
 	"apihelp-cxpublish-param-title": "ان صفحي جو عنوان جنھن تي عمل ڪيا ويندا.",
 	"apihelp-cxpublish-param-html": "سانڍڻ لاءِ مواد.",
@@ -23,14 +22,12 @@
 	"apihelp-query+contenttranslation-param-limit": "کڻڻ لاءِ ترجمن جو وڌ۾وڌ انگ.",
 	"apihelp-query+contenttranslation-param-type": "ترجمي جي حالت.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ترجمي جي آئڊي.",
-	"apihelp-query+contenttranslationstats-description": "مواد جي ترجمي جا انگ-اکر وٺو.",
 	"apihelp-query+contenttranslationstats-summary": "موادجي ترجمي جا انگ اکر حاصل ڪريو.",
 	"apihelp-query+contenttranslationstats-example-1": "مواد جي ترجمي جا انگ-اکر سڀني ٻولين لاءِ وٺو.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+contenttranslationsuggestions-param-listid": "مشورا رڳو ڪنھن مخصوص فھرست مان واپس آڻيو",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "کڻڻ لاءِ ترجمن جي مشورن جو وڌ۾وڌ انگ.",
-	"apihelp-query+cxpublishedtranslations-description": "سڀني ڇپيل ترجمن جي معلومات کڻو.",
 	"apihelp-query+cxpublishedtranslations-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "کڻڻ لاءِ ترجمن جو وڌ۾وڌ انگ.",

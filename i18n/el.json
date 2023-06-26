@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Babispan",
 			"DesVaMan",
 			"Dogogos123",
@@ -473,5 +474,10 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Συνεχίστε την επεξεργασία",
 	"cx-sx-login-dialog-title": "Η συνεδρία σας έχει λήξει",
 	"cx-sx-login-dialog-body": "Οι αλλαγές σας δεν μπορούν να αποθηκευτούν και να αποδοθούν στον λογαριασμό σας, εκτός εάν συνδεθείτε ξανά σε άλλο παράθυρο",
-	"cx-sx-login-dialog-button-label": "Σύνδεση"
+	"cx-sx-login-dialog-button-label": "Σύνδεση",
+	"sx-confirm-translation-deletion-dialog-body": "Είστε σίγουροι ότι θέλετε να διαγράψετε οριστικά αυτή τη μετάφραση;",
+	"sx-translation-deletion-cancel-button-label": "Ακύρωση",
+	"sx-translation-deletion-confirm-button-label": "Διαγραφή μετάφρασης",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 μήνας|$1 μήνες}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 έτος|$1 έτη}}"
 }

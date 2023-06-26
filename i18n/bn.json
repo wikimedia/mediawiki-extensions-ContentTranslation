@@ -24,7 +24,7 @@
 	"cx-dashboard-header": "অনুবাদ",
 	"cx-javascript": "এই সরঞ্জামটি জাভাস্ক্রিপ্ট ছাড়া কাজ করে না। জাভাস্ক্রিপ্ট অক্ষম আছে, তাই কাজ করতে ব্যর্থ হয়েছে, বা এই ব্রাউজারটি অসমর্থিত।",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|বিষয়বস্তু অনুবাদ]] হল একটি সরঞ্জাম যা আপনার ভাষায় পৃষ্ঠা অনুবাদ করাকে সহজ করে। [$1 এখনি ব্যবহার করুন!]",
-	"cx-license-agreement": "অগ্রসর হওয়ার দ্বারা, আপনি [https://foundation.wikimedia.org/wiki/Terms_of_Use ব্যবহারের শর্তাবলীর] সাথে সম্মত হচ্ছেন এবং আপনি আপনার অবদান [https://creativecommons.org/licenses/by-sa/3.0/deed.bn সিসি বাই-এস ৩.০ লাইসেন্স] এবং [//bn.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License জিএফডিএলের] অধীনে প্রকাশে সম্মত হচ্ছেন।",
+	"cx-license-agreement": "অগ্রসর হওয়ার দ্বারা, আপনি [https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/bn ব্যবহারের শর্তাবলীর] সাথে সম্মত হচ্ছেন এবং আপনি আপনার অবদান [https://creativecommons.org/licenses/by-sa/4.0/deed.bn সিসি বাই-এস ৪.০] এবং [https://bn.wikipedia.org/wiki/উইকিপিডিয়া:গ্নু_ফ্রি_ডকুমেন্টেশন_লাইসেন্সের_পাঠ্য জিএফডিএল ১.৩] লাইসেন্সের অধীনে প্রকাশে সম্মত হচ্ছেন।",
 	"cx-error-server-connection": "ত্রুটি: সার্ভারের সাথে সংযোগ করা যায় নি।",
 	"cx-desc": "বিষয়বস্তুর পাতা [[Special:ContentTranslation|অনুবাদ]] করা সহজ করে তোলে",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|অনূদিত হয়েছে}}",
@@ -465,5 +465,11 @@
 	"sx-confirm-back-navigation-dialog-body": "আপনার করা পরিবর্তনগুলি এখনও সংরক্ষণ করা হয়নি এবং হারিয়ে যাবে।\nপরিবর্তন স্বয়ংক্রিয়ভাবে সংরক্ষণ করার জন্য সম্পাদনা চালিয়ে যান।",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "পরিবর্তন বাতিল করুন",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "সম্পাদনা অব্যাহত রাখুন",
-	"cx-sx-login-dialog-button-label": "প্রবেশ করুন"
+	"cx-sx-login-dialog-button-label": "প্রবেশ করুন",
+	"sx-confirm-translation-deletion-dialog-body": "আপনি কি স্থায়ীভাবে এই অনুবাদ মুছে ফেলার ব্যাপারে নিশ্চিত?",
+	"sx-translation-deletion-cancel-button-label": "বাতিল",
+	"sx-translation-deletion-confirm-button-label": "অনুবাদ অপসারণ করুন",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 দিন|0=আজ}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 মাস}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 বছর}}"
 }

@@ -9,7 +9,6 @@
 			"Vriullop"
 		]
 	},
-	"apihelp-cxpublish-description": "Desa una pàgina creada amb l'extensió Content Translation.",
 	"apihelp-cxpublish-param-title": "El títol de la pàgina per realitzar-hi accions.",
 	"apihelp-cxpublish-param-html": "Contingut a desar.",
 	"apihelp-cxpublish-param-from": "Codi de la llengua origen.",
@@ -18,7 +17,6 @@
 	"apihelp-cxpublish-param-categories": "Les categories que s'afegiran a l'article publicat.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Identificació de captcha (en cas de guardar-lo amb una resposta de captcha).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Respon el captcha (en cas de guardar-ho amb una resposta de captcha).",
-	"apihelp-query+contenttranslation-description": "Base de dades de Content Translation de llenguatge de consulta.",
 	"apihelp-query+contenttranslation-param-translationid": "Identificació de la traducció.",
 	"apihelp-query+contenttranslation-param-from": "El codi de la llengua d'origen.",
 	"apihelp-query+contenttranslation-param-to": "El codi de la llengua de destí.",

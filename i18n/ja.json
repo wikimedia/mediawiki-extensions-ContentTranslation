@@ -392,6 +392,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "「$1」と「$2」を翻訳",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "「$1」と「$2」、その他を翻訳",
 	"sx-block-template-adaptation-card-body-header-success": "おすすめのテンプレート",
+	"sx-block-template-adaptation-card-title-placeholder": "テンプレート",
 	"sx-block-template-adaptation-card-edit-button-label": "翻訳を査読して編集",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "翻訳を編集",
 	"sx-block-template-adaptation-card-body-header-failure": "$1に適用できるテンプレートがありません",

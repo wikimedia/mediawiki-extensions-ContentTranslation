@@ -8,7 +8,6 @@
 			"Patsagorn Y."
 		]
 	},
-	"apihelp-cxpublish-description": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
 	"apihelp-cxpublish-summary": "บันทึกหน้าที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
 	"apihelp-cxpublish-param-title": "ชื่อเรื่องของหน้าที่จะดำเนินการกระทำ",
 	"apihelp-cxpublish-param-html": "เนื้อหาที่จะบันทึก",
@@ -20,7 +19,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "ไอดีแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "คำตอบของแคปต์ชา (เมื่อบันทึกด้วยการตอบสนองแคปต์ชา)",
 	"apihelp-cxpublish-param-cxversion": "รุ่นของตัวแก้ไขที่จะใช้เมื่อเผยแพร่การแปล",
-	"apihelp-query+contenttranslation-description": "สอบถามฐานข้อมูลการแปลเนื้อหาสำหรับการแปลต่าง ๆ",
 	"apihelp-query+contenttranslation-param-translationid": "ไอดีการแปล",
 	"apihelp-query+contenttranslation-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+contenttranslation-param-to": "รหัสภาษาปลายทาง",
@@ -32,7 +30,6 @@
 	"apihelp-query+contenttranslationstats-example-1": "เรียกดูสถิติการแปลเนื้อหาสำหรับทุกภาษา",
 	"apihelp-query+contenttranslationsuggestions-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+contenttranslationsuggestions-param-to": "รหัสภาษาปลายทาง",
-	"apihelp-query+cxpublishedtranslations-description": "ดึงข้อมูลการแปลที่เผยแพร่ทั้งหมด",
 	"apihelp-query+cxpublishedtranslations-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-query+cxpublishedtranslations-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-query+cxpublishedtranslations-example-1": "ดึงข้อมูลการแปลที่เผยแพร่แล้วทั้งหมด",
@@ -43,7 +40,6 @@
 	"apihelp-query+contenttranslationlangtrend-param-interval": "ช่วงเวลาสำหรับการคำนวณแนวโน้ม อาจเป็น <kbd>สัปดาห์</kbd> หรือ <kbd>เดือน</kbd>",
 	"apihelp-query+contenttranslationlangtrend-example-1": "ดึงข้อมูลแนวโน้มที่กำลังเผยแพร่ สำหรับคู่ภาษา es-ca ในช่วงเวลารายสัปดาห์",
 	"apihelp-query+contenttranslationlangtrend-example-2": "ดึงข้อมูลแนวโน้มที่กำลังเผยแพร่ สำหรับทุกภาษา",
-	"apihelp-cxdelete-description": "ลบการแปลฉบับร่างที่สร้างโดยใช้ส่วนขยายการแปลเนื้อหา",
 	"apihelp-cxdelete-param-from": "รหัสภาษาต้นทาง",
 	"apihelp-cxdelete-param-to": "รหัสภาษาปลายทาง",
 	"apihelp-cxdelete-param-sourcetitle": "ชื่อเรื่องของหน้าต้นทาง",

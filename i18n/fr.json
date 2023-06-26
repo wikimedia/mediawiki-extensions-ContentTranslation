@@ -6,6 +6,7 @@
 			"Abaddon1337",
 			"Ajeje Brazorf",
 			"Amire80",
+			"Aqua",
 			"Benjozork",
 			"Brunoperel",
 			"C13m3n7",
@@ -57,7 +58,7 @@
 	"cx-dashboard-header": "Traductions",
 	"cx-javascript": "Cet outil ne fonctionne pas sans JavaScript. JavaScript est désactivé ou n’a pas pu s’exécuter, ou bien ce navigateur n’est pas pris en charge.",
 	"cx-specialpage-enable-betafeature": "L’[[mw:Special:MyLanguage/Content_translation|outil de traduction de contenu]] permet de traduire rapidement des pages dans votre langue. [$1 Essayez-le !]",
-	"cx-license-agreement": "En poursuivant, vous acceptez les [https://foundation.wikimedia.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement que vos contributions soient placées sous les licences [https://creativecommons.org/licenses/by-sa/3.0/ licence CC BY-SA 3.0] et [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "En poursuivant, vous acceptez les [https://foundation.wikimedia.org/wiki/Terms_of_Use Conditions d’utilisation] et acceptez irrévocablement que vos contributions soient placées sous les licences [https://creativecommons.org/licenses/by-sa/4.0/deed.fr licence CC BY-SA 4.0] et [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Erreur : impossible de se connecter au serveur.",
 	"cx-desc": "Facilite [[Special:ContentTranslation|la traduction]] de pages de contenu",
 	"cx-header-progressbar-text": "$1 % traduit{{PLURAL:$1|}}",
@@ -511,5 +512,11 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuer les modifications",
 	"cx-sx-login-dialog-title": "Votre session a expiré",
 	"cx-sx-login-dialog-body": "Vos modifications ne peuvent pas être enregistrées et attribuées à votre compte, à moins que vous vous connectiez à nouveau dans une autre fenêtre.",
-	"cx-sx-login-dialog-button-label": "Se connecter"
+	"cx-sx-login-dialog-button-label": "Se connecter",
+	"sx-confirm-translation-deletion-dialog-body": "Êtes-vous sûr de vouloir supprimer de façon permanente cette traduction ?",
+	"sx-translation-deletion-cancel-button-label": "Annuler",
+	"sx-translation-deletion-confirm-button-label": "Supprimer la traduction",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 jour|$1 jours|0=Aujourd’hui}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mois}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 année|$1 années}}"
 }

@@ -24,7 +24,7 @@
 	"cx-dashboard-header": "תרגומים",
 	"cx-javascript": "הכלי הזה לא עובד ללא JavaScript. התמיכה ב־JavaScript, לא עבדה, או שהדפדפן הזה אינו נתמך.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|תרגום תוכן]] הוא כלי לתרגום מהיר של דפים לשפה שלך. [$1 נסו אותו עכשיו!]",
-	"cx-license-agreement": "{{GENDER:|כשאתה ממשיך, אתה מסכים|כשאת ממשיכה, את מסכימה}} ל[https://foundation.wikimedia.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ונותן|ונותנת}} את הסכמתך הבלתי־חוזרת לשחרור התרומות שלך לפי תנאי [https://creativecommons.org/licenses/by-sa/3.0/ רישיון CC BY-SA 3.0] וה־[https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] עם הבנה שהיפר־קישור או URL הם ייחוס מספיק בהתאם ל־CC BY-SA 3.0.",
+	"cx-license-agreement": "{{GENDER:|כשאתה ממשיך, אתה מסכים|כשאת ממשיכה, את מסכימה}} ל[https://foundation.wikimedia.org/wiki/Terms_of_Use תנאי השימוש] {{GENDER:|ונותן|ונותנת}} את הסכמתך הבלתי־חוזרת לשחרור התרומות שלך לפי תנאי הרישיונות [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] ו־[https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "שגיאה: ההתחברות לשרת נכשלה.",
 	"cx-desc": "מקלה על [[Special:ContentTranslation|תרגום]] דפי תוכן",
 	"cx-header-progressbar-text": "{{PLURAL:$1|תורגם|תורגמו}} $1%",
@@ -479,5 +479,8 @@
 	"cx-sx-login-dialog-button-label": "כניסה לחשבון",
 	"sx-confirm-translation-deletion-dialog-body": "האם {{GENDER:|אתה בטוח שאתה רוצה|את בטוחה שאת רוצה|ברצונך באמת}} למחוק לצמיתות את התרגום הזה?",
 	"sx-translation-deletion-cancel-button-label": "ביטול",
-	"sx-translation-deletion-confirm-button-label": "מחיקת תרגום"
+	"sx-translation-deletion-confirm-button-label": "מחיקת תרגום",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|יום אחד|יומיים|$1 ימים|0=היום}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|חודש אחד|חודשיים|$1 חודשים}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|שנה אחת|שנתיים|$1 שנה|$1 שנים}}"
 }

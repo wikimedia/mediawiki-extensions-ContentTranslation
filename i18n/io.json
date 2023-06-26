@@ -32,7 +32,7 @@
 	"cx-tools-mt-provider-title": "Uzez $1",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorio|$1 kategorii|0=Nula kategorio}}",
 	"cx-stats-title": "Statistiki pri traduko di konteni",
-	"cx-page-selector-widget-nearby-label": "Proxime",
+	"cx-page-selector-widget-nearby-label": "Vicina",
 	"cx-selected-source-page-error-title-in-use": "La titulo por la nova pagino [$1 ja uzesas]",
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",
 	"cx-mt-abuse-warning-text": "Automatala tradukuro furnisesas quale komenco-punto. Verifikez se la kontenajo esas preciza, e la gramatiko esas korekta en vua linguo.\n\nVua tradukuro povos efacesor kande altra redakteri revizos ol.",

@@ -5,14 +5,12 @@
 			"Saederup92"
 		]
 	},
-	"apihelp-cxpublish-description": "Gem en side der er oprettet ved hjælp af udvidelsen indholdsoversættelse.",
 	"apihelp-cxpublish-param-title": "Titlen på den side der skal udføres handlinger på.",
 	"apihelp-cxpublish-param-html": "Det indhold der skal gemmes.",
 	"apihelp-cxpublish-param-from": "Sprogkoden på kilden.",
 	"apihelp-cxpublish-param-to": "Sprogkoden på målet.",
 	"apihelp-cxpublish-param-sourcetitle": "Titlen på kildesiden.",
 	"apihelp-cxpublish-param-categories": "Kategorierne at putte den udgivne side i.",
-	"apihelp-query+contenttranslation-description": "Spørg indholdsoversættelses-databasen om oversættelser.",
 	"apihelp-query+contenttranslation-param-translationid": "Oversættelse-ID.",
 	"apihelp-query+contenttranslation-param-from": "Sprogkoden på kilden.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titlen på kildesiden.",

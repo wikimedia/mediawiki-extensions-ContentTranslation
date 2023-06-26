@@ -4,7 +4,6 @@
 			"NMW03"
 		]
 	},
-	"apihelp-cxpublish-description": "Məzmun Tərcüməsi uzantısı istifadə edərək səhifə yaradın.",
 	"apihelp-cxpublish-summary": "Məzmun Tərcüməsi uzantısı istifadə edərək səhifə yaradın.",
 	"apihelp-cxpublish-param-title": "Fəaliyyətlərin icra ediləcəyi səhifə başlığı",
 	"apihelp-cxpublish-param-html": "Saxlanılacaq məzmun.",
@@ -16,7 +15,6 @@
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha nömrəsi (captcha cavabı ilə yadda saxlayarkən).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Captcha-ya cavab (captcha cavabı ilə yadda saxlayarkən).",
 	"apihelp-cxpublish-param-cxversion": "Tərcüməni yayımlayarkən istifadə olunan redaktorun versiyası",
-	"apihelp-query+contenttranslation-description": "Tərcümələr üçün Query Content Translation verilənlər bazası.",
 	"apihelp-query+contenttranslation-summary": "Tərcümələr üçün Query Content Translation verilənlər bazası.",
 	"apihelp-query+contenttranslation-param-translationid": "Tərcümə ID.",
 	"apihelp-query+contenttranslation-param-from": "Mənbə dil kodu.",
@@ -29,5 +27,6 @@
 	"apihelp-query+contenttranslation-example-1": "Cari istifadəçi tərəfindən başladılan tərcümələr.",
 	"apihelp-query+contenttranslation-example-2": "Tərcümə qaralamalarını ID ilə əldə edin.",
 	"apihelp-query+contenttranslation-example-3": "Verilmiş dil cütü arasında verilmiş başlıq üçün istənilən tərcüməni tapın",
-	"apihelp-query+contenttranslationcorpora-description": "Verilmiş tərcümə üçün bölməyə uyğunlaşdırılmış paralel mətni əldə edin. Həmçinin <code>list=cxpublishedtranslations</code> baxın. Yüksək həcmli giriş üçün müxtəlif formatlarda təqdim olunur."
+	"apihelp-query+contenttranslationcorpora-summary": "Verilmiş tərcümə üçün bölməyə uyğunlaşdırılmış paralel mətni əldə edin. Həmçinin <code>list=cxpublishedtranslations</code> baxın. Yüksək həcmli giriş üçün müxtəlif formatlarda təqdim olunur.",
+	"apihelp-query+contenttranslationcorpora-param-translationid": "Tərcümənin nömrəsi."
 }

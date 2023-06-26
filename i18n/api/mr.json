@@ -4,7 +4,6 @@
 			"V.narsikar"
 		]
 	},
-	"apihelp-cxpublish-description": "तयार झालेले पान आशय भाषांतर विस्तारकाचा वापर करून जतन करा.",
 	"apihelp-cxpublish-param-title": "ज्या पानावर प्रक्रिया करावयाची आहे त्या पानाचे शिर्षक.",
 	"apihelp-cxpublish-param-html": "जतन करावयाचा आशय",
 	"apihelp-cxpublish-param-from": "स्रोत भाषा संकेत.",
@@ -19,7 +18,6 @@
 	"apihelp-query+contenttranslation-param-type": "भाषांतराची स्थिती",
 	"apihelp-query+contenttranslation-example-1": "सध्याच्या सदस्याने सुरु केलेली भाषांतरे आणा.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "भाषांतराची ओळखण",
-	"apihelp-cxsuggestionlist-description": "सुचवण्यांच्या यादींचे व्यवस्थापन करा.त्यात सुचवण्या जोडा किंवा हटवा.",
 	"apihelp-cxsuggestionlist-param-listname": "सुचवणी यादीचे नाव.",
 	"apihelp-cxsuggestionlist-param-listaction": "यादीवर करावयाची कार्यवाही.",
 	"apihelp-cxsuggestionlist-param-titles": "पान शीर्षके.",

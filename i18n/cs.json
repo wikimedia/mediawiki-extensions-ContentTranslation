@@ -35,7 +35,7 @@
 	"cx-dashboard-header": "Překlady",
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je buď vypnutý, selhal, nebo tento prohlížeč není podporovaný.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Překlad]] je nástroj k rychlému překládání stránek do vašeho jazyka. [$1 Vyzkoušejte ho nyní!]",
-	"cx-license-agreement": "Pokračováním souhlasíte s [https://foundation.wikimedia.org/wiki/Terms_of_Use/cs Podmínkami použití] a neodvolatelně souhlasíte, že své příspěvky budete zveřejňovat pod [https://creativecommons.org/licenses/by-sa/3.0/ licencí CC BY-SA 3.0] a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Pokračováním souhlasíte s [https://foundation.wikimedia.org/wiki/Terms_of_Use/cs Podmínkami použití] a neodvolatelně souhlasíte, že své příspěvky budete zveřejňovat pod [https://creativecommons.org/licenses/by-sa/4.0/ licencí CC BY-SA 4.0] a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Chyba: Nepodařilo se připojit k serveru.",
 	"cx-desc": "Rozšíření Překlad zjednodušuje [[Special:ContentTranslation|překlad]] obsahových stránek",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|přeloženo|přeložena|přeloženo}}",

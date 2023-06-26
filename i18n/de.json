@@ -25,7 +25,7 @@
 	"cx-dashboard-header": "Übersetzungen",
 	"cx-javascript": "Dieses Werkzeug funktioniert ohne JavaScript nicht. Es ist deaktiviert, funktioniert nicht oder dieser Browser wird nicht unterstützt.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Inhaltsübersetzung]] ist ein Werkzeug zum schnellen Übersetzen von Seiten in deine Sprache. [$1 Teste es jetzt!]",
-	"cx-license-agreement": "Mit dem Fortfahren stimmst du den [https://foundation.wikimedia.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/3.0/deed.de CC-BY-SA-3.0-Lizenz] und der [//de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL] zu.",
+	"cx-license-agreement": "Mit dem Fortfahren stimmst du den [https://foundation.wikimedia.org/wiki/Terms_of_Use/de Nutzungsbedingungen] sowie der unwiderruflichen Veröffentlichung deiner Beiträge mit dem Übersetzungswerkzeug unter der [https://creativecommons.org/licenses/by-sa/4.0/deed.de CC BY-SA 4.0-Lizenz] und der [https://de.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL 1.3] zu.",
 	"cx-error-server-connection": "Fehler: Es konnte keine Verbindung zum Server hergestellt werden.",
 	"cx-desc": "Erweitert das Wiki um eine [[Special:ContentTranslation|Spezialseite]], mit der Inhalte übersetzt werden können",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|übersetzt}}",
@@ -431,6 +431,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "„$1“ und „$2“ übersetzen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "„$1“, „$2“ und weitere übersetzen",
 	"sx-block-template-adaptation-card-body-header-success": "Vorgeschlagene Vorlage",
+	"sx-block-template-adaptation-card-title-placeholder": "Vorlage",
 	"sx-block-template-adaptation-card-edit-button-label": "Überprüfung und Bearbeitung der Übersetzung",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Übersetzung bearbeiten",
 	"sx-block-template-adaptation-card-body-header-failure": "Entsprechende Vorlage für $1 nicht verfügbar",
@@ -478,5 +479,11 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Weiter bearbeiten",
 	"cx-sx-login-dialog-title": "Deine Sitzung ist abgelaufen",
 	"cx-sx-login-dialog-body": "Deine Änderungen können nicht gespeichert und deinem Benutzerkonto zugeordnet werden, es sei denn, du meldest dich erneut in einem anderen Fenster an",
-	"cx-sx-login-dialog-button-label": "Anmelden"
+	"cx-sx-login-dialog-button-label": "Anmelden",
+	"sx-confirm-translation-deletion-dialog-body": "Bist du dir sicher, dass du diese Übersetzung dauerhaft löschen möchtest?",
+	"sx-translation-deletion-cancel-button-label": "Abbrechen",
+	"sx-translation-deletion-confirm-button-label": "Übersetzung löschen",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 Tag|$1 Tage|0=heute}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|1 Monat|$1 Monate}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|1 Jahr|$1 Jahre}}"
 }

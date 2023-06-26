@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Anarhistička Maca",
+			"Aqua",
 			"Bugoslav",
 			"Ex13",
 			"Ivi104",
@@ -21,7 +22,7 @@
 	"cx-dashboard-header": "Prijevodi",
 	"cx-javascript": "Ovo oruđe ne radi bez JavaScripta. JavaScript je onemogućen, zatajio mu je rad ili ovaj preglednik nije podržan.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Prevoditelj sadržaja]] pomagalo je za brz prijevod stranice na Vaš jezik. [$1 Isprobajte ga!]",
-	"cx-license-agreement": "Nastavljanjem pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uvjete upotrebe] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Nastavljanjem pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uvjete upotrebe] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/4.0/deed.hr CC BY-SA 4.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Greška: ne mogu se spojiti na poslužitelj.",
 	"cx-desc": "Omogućava jednostavno [[Special:ContentTranslation|prevođenje]] stranica",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

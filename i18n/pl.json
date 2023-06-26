@@ -488,5 +488,11 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Kontynuuj edytowanie",
 	"cx-sx-login-dialog-title": "Twoja sesja wygasła",
 	"cx-sx-login-dialog-body": "Twoje zmiany nie mogą zostać zapisane i przypisane do Twojego konta, chyba że zalogujesz się ponownie w innym oknie",
-	"cx-sx-login-dialog-button-label": "Zaloguj się"
+	"cx-sx-login-dialog-button-label": "Zaloguj się",
+	"sx-confirm-translation-deletion-dialog-body": "Czy na pewno chcesz trwale usunąć to tłumaczenie?",
+	"sx-translation-deletion-cancel-button-label": "Anuluj",
+	"sx-translation-deletion-confirm-button-label": "Usuń tłumaczenie",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dzień|$1 dni|0=Dzisiaj}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 miesiąc|$1 miesiące|$1 miesięcy}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 rok|$1 lata|$1 lat}}"
 }

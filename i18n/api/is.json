@@ -6,7 +6,6 @@
 			"Sveinn í Felli"
 		]
 	},
-	"apihelp-cxpublish-description": "Vista síðu sem var búin til með Content Translation viðbótinni.",
 	"apihelp-cxpublish-summary": "Vista síðu sem var búin til með Content Translation viðbótinni.",
 	"apihelp-cxpublish-param-html": "Efnið til að vista.",
 	"apihelp-cxpublish-param-from": "Kóði frummálsins.",
@@ -25,7 +24,6 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Sækja allar útgefnar þýðingar úr ensku á spænsku",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Kóði frummálsins.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Kóði markmálsins.",
-	"apihelp-cxdelete-description": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
 	"apihelp-cxdelete-summary": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
 	"apihelp-cxdelete-param-from": "Kóði frummálsins.",
 	"apihelp-cxdelete-param-to": "Kóði markmálsins.",

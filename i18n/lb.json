@@ -318,5 +318,8 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Ännerungen annuléieren",
 	"sx-confirm-translation-deletion-dialog-body": "Sidd Dir sécher, datt Dir dës Iwwersetzung definitiv läsche wëllt?",
 	"sx-translation-deletion-cancel-button-label": "Ofbriechen",
-	"sx-translation-deletion-confirm-button-label": "Iwwersetzung läschen"
+	"sx-translation-deletion-confirm-button-label": "Iwwersetzung läschen",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 Dag|$1 Deeg|0=haut}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|1 Mount|$1 Méint}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|1 Joer|$1 Joer}}"
 }

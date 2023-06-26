@@ -4,7 +4,6 @@
 			"TomášPolonec"
 		]
 	},
-	"apihelp-cxpublish-description": "Uložiť článok vytvorený pomocou rozšírenia Content Translation.",
 	"apihelp-cxpublish-summary": "Uložiť článok vytvorený pomocou rozšírenia Content Translation.",
 	"apihelp-cxpublish-param-html": "Obsah na uloženie.",
 	"apihelp-cxpublish-param-from": "Kód zdrojového jazyka.",

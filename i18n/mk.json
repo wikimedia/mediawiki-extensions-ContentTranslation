@@ -468,5 +468,8 @@
 	"cx-sx-login-dialog-button-label": "Најава",
 	"sx-confirm-translation-deletion-dialog-body": "Дали сте сигурни дека сакате трајно да го избришете овој превод?",
 	"sx-translation-deletion-cancel-button-label": "Откажи",
-	"sx-translation-deletion-confirm-button-label": "Избриши го преводот"
+	"sx-translation-deletion-confirm-button-label": "Избриши го преводот",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ден|$1 дена|0=Денес}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 месец|$1 месеци}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 година|$1 години}}"
 }

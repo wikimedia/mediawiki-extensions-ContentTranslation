@@ -7,6 +7,7 @@
 			"AvatarTeam",
 			"Bdijkstra",
 			"Danieldegroot2",
+			"DiGro",
 			"Dutchy45",
 			"Elroy",
 			"Encycloon",
@@ -40,7 +41,7 @@
 	"cx-dashboard-header": "Vertalingen",
 	"cx-javascript": "Dit hulpmiddel werkt niet zonder JavaScript. JavaScript is uitgeschakeld of werkt niet, of deze browser wordt niet ondersteund.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] is een hulpmiddel om snel pagina's mee te vertalen in uw taal. [$1 Probeer het eens uit!]",
-	"cx-license-agreement": "Door verder te gaan gaat u akkoord met de [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaarden] en gaat u onherroepelijk akkoord met het vrijgeven van uw bijdragen onder de [https://creativecommons.org/licenses/by-sa/3.0/ licentie CC BY-SA 3.0] en de [//nl.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Door verder te gaan gaat u akkoord met de [//wikimediafoundation.org/wiki/Terms_of_Use Gebruiksvoorwaarden] en gaat u onherroepelijk akkoord met het vrijgeven van uw bijdragen onder de [https://creativecommons.org/licenses/by-sa/4.0/ licentie CC BY-SA 4.0] en de [//en.wikipedia.org/wiki/Wikipedia:GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Fout: verbinden met de server was niet mogelijk.",
 	"cx-desc": "Maakt het eenvoudig om inhoudelijke pagina's te [[Special:ContentTranslation|vertalen]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|vertaald}}",
@@ -385,5 +386,8 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Publiceren",
 	"cx-contributecard-entrypoint-title": "Vertalingen",
 	"cx-contributecard-entrypoint-cta": "Een vertaling starten",
-	"cx-sx-dashboard-stats-panel-title": "Uw bijdrage"
+	"cx-sx-dashboard-stats-panel-title": "Uw bijdrage",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dag|$1 dagen|0=vandaag}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|één maand|$1 maanden}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 jaar|$1 jaren}}"
 }

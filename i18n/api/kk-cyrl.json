@@ -5,7 +5,6 @@
 			"СеніңШешең"
 		]
 	},
-	"apihelp-cxpublish-description": "Мазмұн аудару кеңейтілімін қолданып жасалған бетті сақтаңыз.",
 	"apihelp-cxpublish-param-title": "Әрекетті орындау үшін бет атауы.",
 	"apihelp-cxpublish-param-html": "Сақтау үшін мәтін.",
 	"apihelp-cxpublish-param-from": "Бастапқы тіл коды.",
@@ -18,7 +17,6 @@
 	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез-келген аударманы берілген атаудан табу",
 	"apihelp-query+contenttranslationstats-example-1": "Барлық тілтердің Мазмұн аударма статистикаларын алу.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Бастапқы тіл коды.",
-	"apihelp-query+cxpublishedtranslations-description": "Барлық аударылған мәліметтерден таңдау",
 	"apihelp-query+cxpublishedtranslations-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-to": "Нысана тіл коды.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Барлық жарияланған аудармалардан таңдау",
@@ -26,7 +24,6 @@
 	"apihelp-query+cxpublishedtranslations-example-3": "Испаншадан аударылған, барлық жарияланған аудармалардан таңдау",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Бастапқы тіл коды.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Нысана тіл коды.",
-	"apihelp-cxdelete-description": "Мазмұн аудару кеңейтілімін қолданып жасаған шимай аудармаларды жою",
 	"apihelp-cxdelete-param-from": "Бастапқы тіл коды.",
 	"apihelp-cxdelete-param-to": "Нысана тіл коды.",
 	"apihelp-cxdelete-param-sourcetitle": "Бастапқы беттің атауы.",

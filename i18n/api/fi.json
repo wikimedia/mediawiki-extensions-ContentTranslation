@@ -8,7 +8,6 @@
 			"Silvonen"
 		]
 	},
-	"apihelp-cxpublish-description": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
 	"apihelp-cxpublish-summary": "Tallenna Sisällön kääntäminen -lisäosalla luotu sivu.",
 	"apihelp-cxpublish-param-title": "Sivun nimi, johon toiminnot kohdistetaan.",
 	"apihelp-cxpublish-param-html": "Tallennettava sisältö.",

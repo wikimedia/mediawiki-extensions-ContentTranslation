@@ -5,7 +5,6 @@
 			"Robin Owain"
 		]
 	},
-	"apihelp-cxpublish-description": "Cyhoeddi (cadw) dalen a grewyd gan y Cymhorthydd.",
 	"apihelp-cxpublish-summary": "Cyhoeddi dalen a grewyd gan y Cymhorthydd",
 	"apihelp-cxpublish-param-title": "Teitl y ddalen i weithredu arni",
 	"apihelp-cxpublish-param-html": "Y cynnwys i'w gadw.",
@@ -15,7 +14,6 @@
 	"apihelp-cxpublish-param-categories": "Categoriau i roi'r ddalen ynddynt.",
 	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (wrth gadw).",
 	"apihelp-cxpublish-param-wpCaptchaWord": "Ateb y captcha (wrth gadw)",
-	"apihelp-query+contenttranslation-description": "Archwiliwch gronfa ddata'r Cymhorthydd am gyfieithiadau.",
 	"apihelp-query+contenttranslation-summary": "Archwiliwch gronfa ddata'r Cymhorthydd am gyfieithiadau.",
 	"apihelp-query+contenttranslation-param-translationid": "ID y cyfieithiad",
 	"apihelp-query+contenttranslation-param-from": "Cod yr iaith ffynhonnell.",
@@ -26,7 +24,6 @@
 	"apihelp-query+contenttranslation-example-1": "Cyrchu'r cyfieithiadau a gychwynwyd gan y defnyddiwr.",
 	"apihelp-query+contenttranslation-example-2": "Cyrchu'r cyfieithiadau o ran yr ID.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "ID y cyfieithiad.",
-	"apihelp-query+contenttranslationstats-description": "Cyrchu ystadegau'r Cymhorthydd Cyfieithu.",
 	"apihelp-query+contenttranslationstats-summary": "Cyrchu ystadegau'r Cymhorthydd Cyfieithu.",
 	"apihelp-query+contenttranslationsuggestions-summary": "Cyrchu rhestr o awgrymiadau ar gyfer y Cymhorthydd.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Cod yr iaith ffynhonnell.",

@@ -7,7 +7,6 @@
 			"Subi"
 		]
 	},
-	"apihelp-cxpublish-description": "Gorde Content Translation hedapena erabila sortutako orria.",
 	"apihelp-cxpublish-param-title": "Ekintzak gauzatzen diren orriaren izenburua",
 	"apihelp-cxpublish-param-html": "Gorde beharreko edukia.",
 	"apihelp-cxpublish-param-from": "Jatorrizko hizkuntzaren kodea",
@@ -19,7 +18,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Jatorrizko orriaren izenburua",
 	"apihelp-query+contenttranslation-param-type": "Itzulpenaren egoera.",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Itzulpenaren IDa.",
-	"apihelp-query+contenttranslationstats-description": "Content Translation estatistikak atera.",
 	"apihelp-query+contenttranslationstats-example-1": "Content Translation estatistikak hizkuntza guztietarako atera.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Jatorrizko hizkuntzaren kodea",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Helburu den hizkuntzaren kodea",

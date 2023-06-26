@@ -4,7 +4,6 @@
 			"1AnuraagPandey"
 		]
 	},
-	"apihelp-cxpublish-description": "सामग्री_अनुवाद_विस्तार के उपयोग से निर्मित पृष्ठ को सहेजें।",
 	"apihelp-cxpublish-param-title": "पृष्ठ का शीर्षक निष्पादन कार्यों को चालु रखने के लिए है।",
 	"apihelp-cxpublish-param-html": "सामग्री सहेजने के लिए",
 	"apihelp-cxpublish-param-from": "स्रोत भाषा कुट",
@@ -13,7 +12,6 @@
 	"apihelp-cxpublish-param-categories": "प्रकाशित पृष्ठ पर जोड़ी जाने वाली श्रेणियाँ।",
 	"apihelp-cxpublish-param-wpCaptchaId": "यंत्रमानव मनुष्य विभेदक पता (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
 	"apihelp-cxpublish-param-wpCaptchaWord": "यंत्रमानव मनुष्य विभेदक के लिए उत्तर (यंत्रमानव मनुष्य विभेदक अनुक्रिया के साथ सहेजते समय)",
-	"apihelp-query+contenttranslation-description": "अनुवाद के लिए सामग्री_अनुवाद_डेटाबेस पर प्रश्न",
 	"apihelp-query+contenttranslation-param-translationid": "अनुवाद पता।",
 	"apihelp-query+contenttranslation-example-1": "वर्तमान सदस्य द्वारा आरम्भ किये गये अनुवाद प्राप्त करें",
 	"apihelp-query+contenttranslation-example-2": "आईडी द्वारा प्रालेखित अनुवाद प्राप्त करें",
