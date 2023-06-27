@@ -224,6 +224,12 @@ export default {
       store.dispatch("application/clearPendingSaveTranslationRequests");
       router.push({ name: "dashboard" });
       currentPageSection.value.reset();
+
+      const { currentTranslation } = store.state.application;
+      if (!currentTranslation) {
+        return;
+      }
+
       store.commit("application/setCurrentTranslationRestored", false);
       // always clear current translation, if any, when going back to dashboard
       store.commit("application/setCurrentTranslation", null);
