@@ -301,6 +301,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" an \"$2\" iwwersetzen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Iwwersetzt \"$1\", \"$2\" a méi",
 	"sx-block-template-adaptation-card-body-header-success": "Proposéiert Schabloun",
+	"sx-block-template-adaptation-card-title-placeholder": "Schabloun",
 	"sx-block-template-adaptation-card-edit-button-label": "D'Iwwersetzung nokucken an änneren",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "D'Iwwersetzung änneren",
 	"sx-block-template-adaptation-card-body-header-failure": "Equivalent Schabloun net disponibel fir $1",

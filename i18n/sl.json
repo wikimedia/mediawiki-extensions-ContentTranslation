@@ -421,6 +421,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Prevedi »$1« in »$2«",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Prevedi »$1«, »$2« in druge",
 	"sx-block-template-adaptation-card-body-header-success": "Predlagana predloga",
+	"sx-block-template-adaptation-card-title-placeholder": "Predloga",
 	"sx-block-template-adaptation-card-edit-button-label": "Preglejte in uredite prevod",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Uredi prevod",
 	"sx-block-template-adaptation-card-body-header-failure": "Enakovredna predloga v $1 ni na voljo",

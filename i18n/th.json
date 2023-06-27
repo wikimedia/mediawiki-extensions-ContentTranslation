@@ -424,6 +424,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "แปลส่วน \"$1\" และ \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "แปลส่วน \"$1\", \"$2\" หรืออื่น ๆ",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "แก้ไขการแปล",
+	"cx-uls-relevant-languages-banner-text-single-missing": "ไม่มีใน <span>$1</span> และอื่น ๆ",
 	"cx-uls-relevant-languages-panel-header": "แปลหน้านี้",
 	"cx-uls-translate-page-quick-action-label": "แปลหน้านี้",
 	"sx-recent-edit-entrypoint-invitation-button-label": "แปลภาษา \"$1\"",

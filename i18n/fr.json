@@ -465,6 +465,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traduire « $1 » et « $2 »",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traduire « $1 », « $2 » et d’autres",
 	"sx-block-template-adaptation-card-body-header-success": "Modèle suggéré",
+	"sx-block-template-adaptation-card-title-placeholder": "Modèle",
 	"sx-block-template-adaptation-card-edit-button-label": "Relire et modifier la traduction",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Modifier la traduction",
 	"sx-block-template-adaptation-card-body-header-failure": "Modèle équivalent non disponible pour $1",

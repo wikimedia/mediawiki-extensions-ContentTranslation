@@ -302,6 +302,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Cyfieithu \"$1\" a/ac \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Cyfieithu \"$1\", \"$2\" a mwy",
 	"sx-block-template-adaptation-card-body-header-success": "Nodyn a awgrymir",
+	"sx-block-template-adaptation-card-title-placeholder": "Nodyn",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Golygu'r cyfieithiad",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ar goll yn <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Ar goll yn <span>$1</span> a/ac <span>$2</span>",
@@ -317,5 +318,9 @@
 	"cx-contributecard-entrypoint-title": "Cyfieithiadau",
 	"cx-contributecard-entrypoint-cta": "Dechrau cyfieithiad",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Canslo newidiadau",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Parhau i olygu"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Parhau i olygu",
+	"sx-translation-deletion-cancel-button-label": "Canslo",
+	"sx-translation-deletion-confirm-button-label": "Dileu cyfieithiad",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 diwrnod|$1 diwrnod|$1 ddiwrnod|$1 diwrnod|0=Heddiw}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mis|$1 mis|$1 fis|$1 mis}}"
 }
