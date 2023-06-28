@@ -39,7 +39,7 @@
 	"cx-dashboard-header": "Traduzioni",
 	"cx-javascript": "Questo strumento non funziona senza JavaScript. JavaScript potrebbe essere disattivato, non ha funzionato o questo browser non è supportato.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traduzione voci]] è uno strumento per facilitare la traduzione nella tua lingua. [$1 Provalo ora!]",
-	"cx-license-agreement": "Continuando, accetti tutte le [https://foundation.wikimedia.org/wiki/Terms_of_Use condizioni d'uso] e accetti irrevocabilmente di rilasciare i tuoi contributi in base alle licenze [https://creativecommons.org/licenses/by-sa/3.0/deed.it CC BY-SA 3.0] e [//it.wikipedia.org/wiki/Wikipedia:Testo_della_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Continuando, accetti tutte le [https://foundation.wikimedia.org/wiki/Terms_of_Use condizioni d'uso] e accetti irrevocabilmente di rilasciare i tuoi contributi in base alle licenze [https://creativecommons.org/licenses/by-sa/4.0/deed.it CC BY-SA 4.0] e [https://it.wikipedia.org/wiki/Wikipedia:Testo_della_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Errore: impossibile connettersi al server.",
 	"cx-desc": "Rende semplice [[Special:ContentTranslation|tradurre]] il contenuto delle pagine",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tradotto}}",

@@ -227,6 +227,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": " \"$1\" تہٕ \"$2\" کٔرِو تَرجَمہٕ",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": " \"$1\"، \"$2\" تہٕ باقؠن کٔرِو تَرجَمہٕ",
 	"sx-block-template-adaptation-card-body-header-success": "تَجویٖز دِنہٕ آمٔژ فرما",
+	"sx-block-template-adaptation-card-title-placeholder": "فرما",
 	"sx-block-template-adaptation-card-edit-button-label": "تَرجَمَس کٔرِو جانچ تہٕ اؠڈِٹ",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "تَرجَمہٕ کٔرِو اؠڈِٹ",
 	"sx-block-template-adaptation-card-body-header-failure": "اَتھ بَرابَر فرما چھَنہٕ $1 مَنٛز دٕستِیاب",
@@ -253,5 +254,7 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "یَمہٕ رؠتہٕ",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "کُل",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "مَنسوٗخ",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "جأری تھٲوِو"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "جأری تھٲوِو",
+	"cx-sx-login-dialog-button-label": "دٲخِل گٔژھِو",
+	"sx-translation-deletion-cancel-button-label": "مَنسوٗخ"
 }
