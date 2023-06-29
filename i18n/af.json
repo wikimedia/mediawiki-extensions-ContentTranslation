@@ -168,6 +168,7 @@
 	"cx-publish-destination-namespace-main": "Nuwe bladsy",
 	"cx-publish-destination-namespace-user": "Persoonlike konsep",
 	"cx-publish-destination-namespace-draft": "Gemeenskapskonsep",
+	"cx-unreviewed-translation-category": "Vertaalde bladsye wat nagegaan moet word",
 	"cx-sx-section-selector-missing-sections-title": "Afdelings ontbreek in $1",
 	"sx-recent-translation-entrypoint-banner-details": "Help om die inhoud te verbeter",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ontbreek in <span>$1</span>",
