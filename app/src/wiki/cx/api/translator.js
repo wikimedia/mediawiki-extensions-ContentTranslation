@@ -1,8 +1,9 @@
-import Translation from "../models/translation";
 import MTProviderGroup from "../../mw/models/mtProviderGroup";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 import CorporaRestoredUnit from "../models/corporaRestoredUnit";
+import DraftTranslation from "@/wiki/cx/models/draftTranslation";
+import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 
 /**
  * @param {"draft"|"published"} status
@@ -31,9 +32,17 @@ async function fetchTranslations(status, offset) {
 
   return api.get(params).then(async (response) => {
     const apiResponse = response.query.contenttranslation.translations;
-    let results = apiResponse.map(
-      (item) => new Translation({ ...item, status })
-    );
+    let results;
+
+    if (status === "draft") {
+      results = apiResponse.map(
+        (item) => new DraftTranslation({ ...item, status })
+      );
+    } else {
+      results = apiResponse.map(
+        (item) => new PublishedTranslation({ ...item, status })
+      );
+    }
 
     if (response.continue?.offset) {
       const restOfResults = await fetchTranslations(

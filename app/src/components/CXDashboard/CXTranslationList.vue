@@ -1,5 +1,8 @@
 <template>
-  <mw-card v-show="active" :class="`cx-translation-list--${translationStatus}`">
+  <mw-card
+    v-show="isActive"
+    :class="`cx-translation-list--${translationStatus}`"
+  >
     <template #header>
       <h3
         class="mw-ui-card__title pa-4 pt-5 mb-0"
@@ -14,12 +17,23 @@
       all-option-enabled
     />
     <mw-spinner v-if="!loaded" />
-    <cx-translation-work
-      v-for="translation in activeTranslations"
-      :key="`${translationStatus}-${translation.key}`"
-      :translation="translation"
-      @delete-translation="askDeletionConfirmation(translation)"
-    />
+    <div v-if="isDraftTranslationList" class="cx-translation-list-wrapper">
+      <cx-translation-work-draft
+        v-for="translation in activeTranslations"
+        :key="`${translationStatus}-${translation.key}`"
+        :translation="translation"
+        @delete-translation="askDeletionConfirmation(translation)"
+      />
+    </div>
+    <div v-else class="cx-translation-list-wrapper">
+      <cx-translation-work-published
+        v-for="translation in activeTranslations"
+        :key="`${translationStatus}-${translation.key}`"
+        :translation="translation"
+        @delete-translation="askDeletionConfirmation(translation)"
+      />
+    </div>
+
     <sx-confirm-translation-deletion-dialog
       v-model="deletionDialogOn"
       :translation="translationToDelete"
@@ -28,7 +42,8 @@
 </template>
 
 <script>
-import CxTranslationWork from "./CXTranslationWork.vue";
+import CxTranslationWorkDraft from "./CXTranslationWorkDraft.vue";
+import CxTranslationWorkPublished from "./CXTranslationWorkPublished.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
@@ -39,16 +54,21 @@ import { useStore } from "vuex";
 export default {
   name: "CxTranslationList",
   components: {
-    CxTranslationWork,
+    CxTranslationWorkDraft,
+    CxTranslationWorkPublished,
     MwCard,
     MwSpinner,
     SxConfirmTranslationDeletionDialog,
     SxTranslationListLanguageSelector,
   },
   props: {
-    active: {
-      type: Boolean,
-      default: false,
+    activeStatus: {
+      type: String,
+      required: true,
+      validator: (value) => {
+        // The value must match one of these strings
+        return ["suggestions", "published", "draft"].indexOf(value) !== -1;
+      },
     },
     translationStatus: {
       type: String,
@@ -134,12 +154,17 @@ export default {
       deletionDialogOn.value = true;
     };
 
+    const isActive = computed(
+      () => props.activeStatus === props.translationStatus
+    );
+
     return {
       activeTranslations,
       availableSourceLanguages,
       availableTargetLanguages,
       askDeletionConfirmation,
       deletionDialogOn,
+      isActive,
       isDraftTranslationList,
       loaded,
       selectedSourceLanguage,

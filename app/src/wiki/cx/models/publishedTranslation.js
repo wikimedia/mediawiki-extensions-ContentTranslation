@@ -1,4 +1,6 @@
-export default class Translation {
+import Translation from "./translation";
+
+export default class PublishedTranslation extends Translation {
   /**
    * @param {number} sectionTranslationId
    * @param {number} translationId
@@ -21,15 +23,19 @@ export default class Translation {
     pageRevision,
     status,
     targetTitle,
+    sectionTranslations,
   }) {
-    this.translationId = translationId;
-    this.sourceTitle = sourceTitle;
-    this.sourceLanguage = sourceLanguage;
-    this.targetLanguage = targetLanguage;
-    this.startTimestamp = startTimestamp;
-    this.lastUpdatedTimestamp = lastUpdatedTimestamp;
-    this.pageRevision = pageRevision;
-    this.status = status;
-    this.targetTitle = targetTitle;
+    super({
+      translationId,
+      sourceTitle,
+      sourceLanguage,
+      targetLanguage,
+      startTimestamp,
+      lastUpdatedTimestamp,
+      pageRevision,
+      status,
+      targetTitle,
+    });
+    this.sectionTranslations = sectionTranslations;
   }
 }

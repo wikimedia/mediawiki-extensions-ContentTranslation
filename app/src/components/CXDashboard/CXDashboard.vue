@@ -34,11 +34,11 @@
         <cx-suggestion-list :active="active === 'suggestions'" />
         <cx-translation-list
           translation-status="draft"
-          :active="active === 'draft'"
+          :active-status="active"
         />
         <cx-translation-list
           translation-status="published"
-          :active="active === 'published'"
+          :active-status="active"
         />
       </mw-col>
       <mw-col
@@ -138,16 +138,16 @@ export default {
         },
       },
       // Temporarily remove the published option, until the list is properly supported
-      // {
-      //   value: "published",
-      //   props: {
-      //     label: bananaI18n.i18n(
-      //       "cx-translation-filter-published-translations"
-      //     ),
-      //     icon: mwIconArticleCheck,
-      //     type: "text",
-      //   },
-      // },
+      {
+        value: "published",
+        props: {
+          label: bananaI18n.i18n(
+            "cx-translation-filter-published-translations"
+          ),
+          icon: mwIconArticleCheck,
+          type: "text",
+        },
+      },
     ]);
     onMounted(() => {
       const urlParams = new URLSearchParams(window.location.search);

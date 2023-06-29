@@ -1,5 +1,9 @@
 <template>
-  <div v-if="translation" class="row cx-translation pa-4 ma-0" @click="onClick">
+  <div
+    v-if="translation"
+    class="row cx-translation pa-4 ma-0"
+    @click.stop="$emit('click')"
+  >
     <div class="col shrink pe-4">
       <mw-thumbnail
         class="cx-translation__thumbnail"
@@ -12,43 +16,18 @@
       <div class="cx-translation__details column justify-between ma-0">
         <div class="row ma-0">
           <div class="col grow">
-            <h5
-              class="cx-translation__source-page-title"
-              :class="{
-                'cx-translation__primary-title':
-                  translation.isLeadSectionTranslation,
-              }"
-              :lang="translation.sourceLanguage"
-              v-text="translation.sourceTitle"
-            />
-            <h6
-              v-if="!translation.isLeadSectionTranslation"
-              class="cx-translation__source-section-title cx-translation__primary-title"
-              :lang="translation.sourceLanguage"
-              v-text="translation.sourceSectionTitle"
-            />
+            <slot name="title"></slot>
           </div>
           <div class="col shrink ps-2">
             <mw-icon
-              :icon="
-                translation.status === 'published' ? mwIconEdit : mwIconTrash
-              "
-              @click.stop="handleActionIconClick"
+              :icon="actionIcon"
+              @click.stop="$emit('action-icon-clicked')"
             >
             </mw-icon>
           </div>
         </div>
-        <mw-row v-if="!!translation.progress" class="ma-0 py-2">
-          <mw-col>
-            <mw-progress-bar
-              class="cx-translation__progress-bar"
-              :value="translationProgress"
-              height="4px"
-              width="64px"
-              :background="progressBarBackgroundColor"
-            />
-          </mw-col>
-        </mw-row>
+        <slot name="mid-content"></slot>
+
         <mw-row class="cx-translation__footer ma-0">
           <mw-col class="cx-translation__languages" grow>
             <span
@@ -73,38 +52,33 @@
 </template>
 
 <script>
-import {
-  MwThumbnail,
-  MwIcon,
-  MwRow,
-  MwCol,
-  MwProgressBar,
-} from "@/lib/mediawiki.ui";
+import { MwThumbnail, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import Translation from "@/wiki/cx/models/translation";
 import {
-  mwIconEdit,
-  mwIconTrash,
   mwIconArrowForward,
   mwIconArrowNext,
 } from "@/lib/mediawiki.ui/components/icons";
 import { useStore } from "vuex";
-import { computed, inject } from "vue";
-import useDraftTranslationStart from "./useDraftTranslationStart";
+import { computed } from "vue";
 import { timeago } from "@/utils/dateHelper";
 import { useI18n } from "vue-banana-i18n";
 
 export default {
   name: "CxTranslationWork",
-  components: { MwRow, MwProgressBar, MwCol, MwThumbnail, MwIcon },
+  components: { MwRow, MwCol, MwThumbnail, MwIcon },
   props: {
     translation: {
       type: Translation,
       required: true,
     },
+    actionIcon: {
+      type: String,
+      required: true,
+    },
   },
-  emits: ["click", "delete-translation"],
-  setup(props, { emit }) {
+  emits: ["click", "action-icon-clicked"],
+  setup(props) {
     const store = useStore();
 
     const getImage = (language, title) => {
@@ -112,29 +86,6 @@ export default {
 
       return page?.thumbnail;
     };
-    const startTranslation = useDraftTranslationStart();
-
-    const handleActionIconClick = computed(() =>
-      props.translation.status === "published"
-        ? editTranslation
-        : deleteTranslation
-    );
-
-    const onClick = (event) => {
-      emit("click", event);
-      startTranslation(props.translation);
-    };
-
-    // TODO: Implement "edit published translation" functionality
-    const editTranslation = () => {};
-
-    const deleteTranslation = () => emit("delete-translation");
-
-    const colors = inject("colors");
-    const progressBarBackgroundColor = colors.base80;
-    const translationProgress = computed(
-      () => props.translation.progress?.any * 100 || 0
-    );
 
     const bananaI18n = useI18n();
     const timeagoMessage = computed(() => {
@@ -157,46 +108,27 @@ export default {
       getAutonym,
       getDir,
       getImage,
-      handleActionIconClick,
-      mwIconEdit,
-      mwIconTrash,
       mwIconArrowForward,
       mwIconArrowNext,
-      onClick,
-      progressBarBackgroundColor,
-      translationProgress,
     };
   },
 };
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-translation {
-  /* TODO: Fix border color to be base80*/
-  border-top: @border-width-base @border-style-base @border-color-base--disabled;
-  cursor: pointer;
+  border-top: @border-width-base @border-style-base @border-color-subtle;
   min-height: 100px;
-  transition: background-color 100ms, border-color 100ms, transform 1s,
-    opacity 1s;
+  transition: background-color @transition-duration-base;
 
   &:hover {
-    background-color: @background-color-primary;
+    background-color: @background-color-progressive-subtle;
   }
 
   &__details {
-    height: 100%;
-  }
-
-  &__source-page-title {
-    font-size: 14px;
-    font-weight: @font-weight-normal;
-  }
-
-  &__primary-title {
-    font-weight: @font-weight-bold;
-    font-size: 1rem;
+    height: @size-full;
   }
 
   &__progress-bar {
