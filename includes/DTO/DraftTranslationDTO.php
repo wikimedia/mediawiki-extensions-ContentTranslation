@@ -1,24 +1,18 @@
 <?php
 
+declare( strict_types = 1 );
+
 namespace ContentTranslation\DTO;
 
 /**
  * Unlike the Entity\SectionTranslation class that is mapped to the
  * "cx_section_translations" database table, this DTO class is tuned
- * for exporting section translation data to views.
+ * for exporting draft translation data to views.
  */
-class SectionTranslationDTO {
+class DraftTranslationDTO extends AbstractTranslationDTO {
 	private ?int $sectionTranslationId;
-	private int $translationId;
 	private ?string $sectionId;
-	private string $sourceTitle;
-	private string $sourceLanguage;
-	private string $targetLanguage;
-	private string $startTimestamp;
-	private string $lastUpdatedTimestamp;
 	private string $status;
-	private string $pageRevision;
-	private ?string $targetTitle;
 	private ?string $sourceSectionTitle;
 	private ?string $targetSectionTitle;
 	private ?array $progress;
@@ -39,30 +33,25 @@ class SectionTranslationDTO {
 		?string $sourceSectionTitle,
 		?string $targetSectionTitle
 	) {
+		parent::__construct(
+			$translationId,
+			$sourceTitle,
+			$sourceLanguage,
+			$targetLanguage,
+			$startTimestamp,
+			$lastUpdatedTimestamp,
+			$pageRevision,
+			$targetTitle
+		);
 		$this->sectionTranslationId = $sectionTranslationId;
-		$this->translationId = $translationId;
 		$this->sectionId = $sectionId;
-		$this->sourceTitle = $sourceTitle;
-		$this->sourceLanguage = $sourceLanguage;
-		$this->targetLanguage = $targetLanguage;
-		$this->startTimestamp = $startTimestamp;
-		$this->lastUpdatedTimestamp = $lastUpdatedTimestamp;
 		$this->status = $status;
-		$this->pageRevision = $pageRevision;
-		$this->targetTitle = $targetTitle;
 		$this->sourceSectionTitle = $sourceSectionTitle;
 		$this->targetSectionTitle = $targetSectionTitle;
 		$progress = $progress ? json_decode( $progress, true ) : null;
 		$this->progress = $progress;
 	}
 
-	public function getLastUpdatedTimestamp(): string {
-		return $this->lastUpdatedTimestamp;
-	}
-
-	/**
-	 * @return array
-	 */
 	public function toArray(): array {
 		return [
 			"sectionTranslationId" => $this->sectionTranslationId,

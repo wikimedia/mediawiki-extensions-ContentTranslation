@@ -3,6 +3,6 @@ export default {
   isAnon: mw.user.isAnon(),
   /** @type Translation[] */
   translations: [],
-  translationsLoaded: false,
+  translationsLoaded: { draft: false, published: false },
   translatorStats: null,
 };

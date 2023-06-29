@@ -244,9 +244,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 				'@phan-var Translation $translation';
 				$this->updateTranslation( $translation, $user, $newRevId, $targetTitleRaw, $targetLanguage );
 
-				$publishedStatusIndex = array_search(
-					SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED,
-					SectionTranslationStore::TRANSLATION_STATUSES
+				$publishedStatusIndex = SectionTranslationStore::getStatusIndexByStatus(
+					SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED
 				);
 				$this->sectionTranslationStore->updateTranslationStatusById(
 					$params['sectiontranslationid'],

@@ -65,7 +65,9 @@ export default {
 
     const store = useStore();
 
-    const loaded = computed(() => store.state.translator.translationsLoaded);
+    const loaded = computed(
+      () => store.state.translator.translationsLoaded[props.translationStatus]
+    );
 
     const { enabledTargetLanguages } = useMediawikiState();
 

@@ -255,9 +255,8 @@ class ApiSectionTranslationSave extends ApiBase {
 		string $progress
 	): int {
 		$sectionTranslation = $this->sectionTranslationStore->findTranslation( $translationId, $sectionId );
-		$draftStatusIndex = array_search(
-			SectionTranslationStore::TRANSLATION_STATUS_DRAFT,
-			SectionTranslationStore::TRANSLATION_STATUSES
+		$draftStatusIndex = SectionTranslationStore::getStatusIndexByStatus(
+			SectionTranslationStore::TRANSLATION_STATUS_DRAFT
 		);
 
 		if ( !$sectionTranslation ) {

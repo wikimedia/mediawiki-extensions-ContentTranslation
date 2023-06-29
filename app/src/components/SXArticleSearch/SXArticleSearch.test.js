@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import SXArticleSearch from "./SXArticleSearch";
 import { createI18n } from "vue-banana-i18n";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins/";
 import { createEventLogging } from "../../plugins/eventlogging";
 import mockStore from "./articleSearchMockStore";

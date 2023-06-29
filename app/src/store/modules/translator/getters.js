@@ -46,4 +46,24 @@ export default {
           translation.sourceLanguage === sourceLanguage &&
           translation.targetLanguage === targetLanguage
       ),
+  translationExists:
+    (state) =>
+    /**
+     * @param {Translation} translation
+     */
+    (translation) => {
+      const sectionTranslationExists = state.translations.some(
+        (existing) =>
+          !!existing.sectionTranslationId &&
+          existing.sectionTranslationId === translation.sectionTranslationId
+      );
+
+      const translationExists = state.translations.some(
+        (existing) =>
+          !existing.sectionTranslationId &&
+          existing.translationId === translation.translationId
+      );
+
+      return sectionTranslationExists || translationExists;
+    },
 };

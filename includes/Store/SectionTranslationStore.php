@@ -4,9 +4,13 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Store;
 
-use ContentTranslation\DTO\SectionTranslationDTO;
+use ContentTranslation\DTO\DraftTranslationDTO;
+use ContentTranslation\DTO\PublishedSectionTranslationDTO;
+use ContentTranslation\DTO\PublishedTranslationDTO;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\LoadBalancer;
+use InvalidArgumentException;
+use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -16,10 +20,15 @@ class SectionTranslationStore {
 	public const TRANSLATION_STATUS_PUBLISHED = 'published';
 	public const TRANSLATION_STATUS_DELETED = 'deleted';
 
+	/**
+	 * This constant contains the mappings of translation statuses to integers,
+	 * that are used as values for "cxsx_translation_status" field inside the database.
+	 * This constant should NOT be changed or reordered.
+	 */
 	public const TRANSLATION_STATUSES = [
-		self::TRANSLATION_STATUS_DRAFT,
-		self::TRANSLATION_STATUS_PUBLISHED,
-		self::TRANSLATION_STATUS_DELETED,
+		0 => self::TRANSLATION_STATUS_DRAFT,
+		1 => self::TRANSLATION_STATUS_PUBLISHED,
+		2 => self::TRANSLATION_STATUS_DELETED,
 	];
 
 	/** @var LoadBalancer */
@@ -88,6 +97,16 @@ class SectionTranslationStore {
 		);
 	}
 
+	public static function getStatusIndexByStatus( string $status ) {
+		$index = array_search( $status, self::TRANSLATION_STATUSES );
+
+		if ( $index === false ) {
+			throw new InvalidArgumentException( '[CX] Invalid status provided' );
+		}
+
+		return $index;
+	}
+
 	/**
 	 * @param int $userId User ID
 	 * @param string|null $from
@@ -95,16 +114,16 @@ class SectionTranslationStore {
 	 * @param string|null $status The status of the translation. Either "draft" or "published"
 	 * @param int $limit How many results to return. Defaults to 100, same as for the "contenttranslation" list API
 	 * @param string|null $offset Offset condition (timestamp)
-	 * @return SectionTranslationDTO[]
+	 * @return IResultWrapper
 	 */
-	public function findSectionTranslationsByUser(
+	private function doFindTranslationsByUser(
 		int $userId,
 		string $from = null,
 		string $to = null,
 		string $status = null,
 		int $limit = 100,
 		string $offset = null
-	): array {
+	): IResultWrapper {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
@@ -115,7 +134,15 @@ class SectionTranslationStore {
 
 		$whereConditions = [];
 		if ( $status !== null ) {
-			$whereConditions['translation_status'] = $status;
+			$statusIndex = self::getStatusIndexByStatus( $status );
+			$isPublishedCondition = $dbr->makeList(
+				[
+					'translation_status' => $status,
+					'cxsx_translation_status' => $statusIndex
+				],
+				LIST_OR
+			);
+			$whereConditions[] = $isPublishedCondition;
 		}
 		if ( $from !== null ) {
 			$whereConditions['translation_source_language'] = $from;
@@ -128,7 +155,7 @@ class SectionTranslationStore {
 			$whereConditions[] = "translation_last_updated_timestamp < $ts";
 		}
 
-		$resultSet = $dbr->newSelectQueryBuilder()
+		return $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
 			->from( TranslationStore::TRANSLATION_TABLE_NAME )
 			->leftJoin( self::TABLE_NAME, null, 'translation_id = cxsx_translation_id' )
@@ -138,10 +165,35 @@ class SectionTranslationStore {
 			->limit( $limit )
 			->caller( __METHOD__ )
 			->fetchResultSet();
+	}
+
+	/**
+	 * @param int $userId User ID
+	 * @param string|null $from
+	 * @param string|null $to
+	 * @param int $limit How many results to return. Defaults to 100, same as for the "contenttranslation" list API
+	 * @param string|null $offset Offset condition (timestamp)
+	 * @return DraftTranslationDTO[]
+	 */
+	public function findDraftSectionTranslationsByUser(
+		int $userId,
+		string $from = null,
+		string $to = null,
+		int $limit = 100,
+		string $offset = null
+	): array {
+		$resultSet = $this->doFindTranslationsByUser(
+			$userId,
+			$from,
+			$to,
+			self::TRANSLATION_STATUS_DRAFT,
+			$limit,
+			$offset
+		);
 
 		$result = [];
 		foreach ( $resultSet as $row ) {
-			$result[] = new SectionTranslationDTO(
+			$result[] = new DraftTranslationDTO(
 				$row->cxsx_id ? (int)$row->cxsx_id : null,
 				(int)$row->translation_id,
 				$row->cxsx_section_id ?? null,
@@ -163,6 +215,75 @@ class SectionTranslationStore {
 	}
 
 	/**
+	 * @param int $userId User ID
+	 * @param string|null $from
+	 * @param string|null $to
+	 * @param int $limit How many results to return. Defaults to 100, same as for the "contenttranslation" list API
+	 * @param string|null $offset Offset condition (timestamp)
+	 * @return DraftTranslationDTO[]
+	 */
+	public function findPublishedSectionTranslationsByUser(
+		int $userId,
+		string $from = null,
+		string $to = null,
+		int $limit = 100,
+		string $offset = null
+	): array {
+		$resultSet = $this->doFindTranslationsByUser(
+			$userId,
+			$from,
+			$to,
+			self::TRANSLATION_STATUS_PUBLISHED,
+			$limit,
+			$offset
+		);
+
+		/**
+		 * An array of PublishedSectionTranslationDTO objects grouped by translation id
+		 * @var PublishedSectionTranslationDTO[] $publishedSectionTranslations
+		 */
+		$publishedSectionTranslations = [];
+		$publishedStatusIndex = self::getStatusIndexByStatus( self::TRANSLATION_STATUS_PUBLISHED );
+
+		foreach ( $resultSet as $row ) {
+			$translationId = (int)$row->translation_id;
+			if ( $row->cxsx_id && $row->cxsx_translation_status === $publishedStatusIndex ) {
+				$publishedSectionTranslations[$translationId] = new PublishedSectionTranslationDTO(
+					(int)$row->cxsx_id,
+					$row->cxsx_section_id,
+					$row->cxsx_translation_start_timestamp,
+					$row->cxsx_translation_last_updated_timestamp,
+					$row->cxsx_source_section_title,
+					$row->cxsx_target_section_title,
+				);
+			}
+		}
+
+		$result = [];
+		foreach ( $resultSet as $row ) {
+			$translationId = (int)$row->translation_id;
+			// multiple rows can exist for the same translation id
+			// we only need one DTO per translation
+			if ( isset( $result[$translationId] ) ) {
+				continue;
+			}
+			$result[$translationId] = new PublishedTranslationDTO(
+				$translationId,
+				$row->translation_source_title,
+				$row->translation_source_language,
+				$row->translation_target_language,
+				$row->translation_start_timestamp,
+				$row->translation_last_updated_timestamp,
+				$row->translation_source_revision_id,
+				$row->translation_target_title,
+				$publishedSectionTranslations[$translationId] ?? []
+			);
+		}
+
+		return array_values( $result );
+	}
+
+	/**
 	 * Given the "parent" translation id and the section id
 	 * (in the "${revision}_${sectionNumber} form), this method
 	 * deletes the corresponding section translation from the
@@ -174,7 +295,7 @@ class SectionTranslationStore {
 	public function deleteTranslationById( int $sectionTranslationId ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$deletedStatusIndex = array_search( self::TRANSLATION_STATUS_DELETED, self::TRANSLATION_STATUSES );
+		$deletedStatusIndex = self::getStatusIndexByStatus( self::TRANSLATION_STATUS_DELETED );
 		$dbw->update(
 			self::TABLE_NAME,
 			[ 'cxsx_translation_status' => $deletedStatusIndex ],

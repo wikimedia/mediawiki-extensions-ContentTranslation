@@ -5,10 +5,11 @@ import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 import CorporaRestoredUnit from "../models/corporaRestoredUnit";
 
 /**
- * @param {String} offset
+ * @param {"draft"|"published"} status
+ * @param {string} offset
  * @return {Promise<Translation[]>}
  */
-async function fetchTranslations(offset) {
+async function fetchTranslations(status, offset) {
   if (mw.user.isAnon()) {
     return Promise.resolve([]);
   }
@@ -19,6 +20,7 @@ async function fetchTranslations(offset) {
     formatversion: 2,
     list: "contenttranslation",
     sectiontranslationsonly: true,
+    type: status,
   };
 
   if (offset) {
@@ -29,10 +31,15 @@ async function fetchTranslations(offset) {
 
   return api.get(params).then(async (response) => {
     const apiResponse = response.query.contenttranslation.translations;
-    let results = apiResponse.map((item) => new Translation(item));
+    let results = apiResponse.map(
+      (item) => new Translation({ ...item, status })
+    );
 
     if (response.continue?.offset) {
-      const restOfResults = await fetchTranslations(response.continue.offset);
+      const restOfResults = await fetchTranslations(
+        status,
+        response.continue.offset
+      );
       results = results.concat(restOfResults);
     }
 

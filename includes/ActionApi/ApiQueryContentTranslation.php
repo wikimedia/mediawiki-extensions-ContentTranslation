@@ -13,7 +13,6 @@ use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
-use ContentTranslation\DTO\SectionTranslationDTO;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -142,20 +141,35 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$offset = null;
 		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
 		if ( $params['sectiontranslationsonly'] ) {
-			$sectionTranslations = $this->sectionTranslationStore->findSectionTranslationsByUser(
-				$translatorUserId,
-				$params['from'],
-				$params['to'],
-				$params['type'],
-				$params['limit'],
-				$params['offset']
-			);
+			$status = $params['type'];
+			if ( !$status || !in_array( $status, SectionTranslationStore::TRANSLATION_STATUSES ) ) {
+				$this->dieWithError( 'apierror-cx-invalid-type-viewtranslations', 'invalidtype' );
+			}
 
-			$translations = array_map( static function ( SectionTranslationDTO $sectionTranslation ) {
+			$sectionTranslations = [];
+			if ( $status === SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED ) {
+				$sectionTranslations = $this->sectionTranslationStore->findPublishedSectionTranslationsByUser(
+					$translatorUserId,
+					$params['from'],
+					$params['to'],
+					$params['limit'],
+					$params['offset']
+				);
+			} elseif ( $status === SectionTranslationStore::TRANSLATION_STATUS_DRAFT ) {
+				$sectionTranslations = $this->sectionTranslationStore->findDraftSectionTranslationsByUser(
+					$translatorUserId,
+					$params['from'],
+					$params['to'],
+					$params['limit'],
+					$params['offset']
+				);
+			}
+
+			$translations = array_map( static function ( $sectionTranslation ) {
 				return $sectionTranslation->toArray();
 			}, $sectionTranslations );
 
-			// We will have extra continue in case the last batch is exactly the size of the limit
+			// We will have extra "continue" in case the last batch is exactly the size of the limit
 			$count = count( $sectionTranslations );
 			if ( $count === $params['limit'] ) {
 				$offset = $sectionTranslations[$count - 1]->getLastUpdatedTimestamp();

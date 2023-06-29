@@ -213,7 +213,7 @@ export default {
     };
 
     const doGoToDashboard = async () => {
-      store.dispatch("translator/fetchTranslations");
+      store.dispatch("translator/fetchTranslationsByStatus", "draft");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
       store.dispatch("application/clearPendingSaveTranslationRequests");

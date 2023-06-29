@@ -203,26 +203,16 @@ async function publishTranslation(
   return await cxTranslatorApi.publishTranslation(publishPayload);
 }
 
-async function fetchTranslations({ commit, dispatch, state, rootGetters }) {
+async function fetchTranslationsByStatus(
+  { commit, dispatch, getters, rootGetters },
+  status
+) {
   /** @type {Translation[]} */
-  const translations = await cxTranslatorApi.fetchTranslations();
-  translations.forEach((translation) => {
-    const sectionTranslationExists = state.translations.some(
-      (existing) =>
-        !!existing.sectionTranslationId &&
-        existing.sectionTranslationId === translation.sectionTranslationId
-    );
-
-    const translationExists = state.translations.some(
-      (existing) =>
-        !existing.sectionTranslationId &&
-        existing.translationId === translation.translationId
-    );
-
-    if (!sectionTranslationExists && !translationExists) {
-      commit("addTranslation", translation);
-    }
-  });
+  let translations = await cxTranslatorApi.fetchTranslations(status);
+  translations = translations.filter(
+    (translation) => !getters.translationExists(translation)
+  );
+  translations.forEach((translation) => commit("addTranslation", translation));
 
   const queue = translations.reduce((queue, translation) => {
     const language = translation.sourceLanguage;
@@ -231,7 +221,7 @@ async function fetchTranslations({ commit, dispatch, state, rootGetters }) {
 
     return queue;
   }, {});
-  commit("setTranslationsLoaded", true);
+  commit("setTranslationsLoaded", { status, value: true });
 
   for (const [sourceLanguage, translations] of Object.entries(queue)) {
     dispatch(
@@ -320,7 +310,7 @@ export default {
   validateMT,
   saveTranslation,
   publishTranslation,
-  fetchTranslations,
+  fetchTranslationsByStatus,
   translateContent,
   fetchTranslatorStats,
 };
