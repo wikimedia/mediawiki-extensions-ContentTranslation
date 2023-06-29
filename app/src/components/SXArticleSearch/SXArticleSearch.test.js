@@ -42,7 +42,6 @@ jest.mock("../../composables/useLanguageHelper", () => {
   };
 });
 
-jest.mock("../../composables/useSectionTranslationStart", () => jest.fn());
 jest.mock("./usePageTranslationStart", () => jest.fn());
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
 const mockStartRecentlyEditedSectionTranslation = jest.fn();
@@ -65,21 +64,6 @@ const mockUseSuggestedSourceLanguages = (
 ) => computed(() => [...previousLanguages.value, "ar", "ko"]);
 
 useSuggestedSourceLanguages.mockImplementation(mockUseSuggestedSourceLanguages);
-
-const sourceLanguage = "en";
-const targetLanguage = "es";
-
-mockStore.dispatch = jest.fn((action, payload) => {
-  if (action === "suggestions/loadSectionSuggestion") {
-    return Promise.resolve(
-      new SectionSuggestion({
-        sourceLanguage,
-        targetLanguage,
-        sourceTitle: payload.sourceTitle,
-      })
-    );
-  }
-});
 
 const i18n = createI18n();
 const eventLogging = createEventLogging();
