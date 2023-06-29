@@ -44,8 +44,6 @@ const timeago = (timeStamp) => {
   } else {
     const monthsPassed = Math.round(daysPassed / 30);
 
-    console.log(monthsPassed);
-
     if (monthsPassed < 12) {
       return { postfix: "months", value: monthsPassed };
     }
