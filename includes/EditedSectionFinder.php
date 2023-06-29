@@ -3,10 +3,10 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation;
 
-use DiffOp;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use TextContent;
+use Wikimedia\Diff\DiffOp;
 
 class EditedSectionFinder {
 	// Top section titles follow this pattern:
