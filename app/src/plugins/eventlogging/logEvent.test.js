@@ -1,4 +1,4 @@
-import { logEvent } from "./";
+import logEvent from "./logEvent";
 global.fetch = jest.fn((url) => {
   return Promise.resolve({
     json: () =>
