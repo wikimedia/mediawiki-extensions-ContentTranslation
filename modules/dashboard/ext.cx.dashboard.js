@@ -84,6 +84,7 @@
 				this.listen();
 
 				mw.hook( 'mw.cx.dashboard.ready' ).fire();
+				this.logAnalyticsEvent();
 			}.bind( this ),
 			function () {
 				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
@@ -97,6 +98,32 @@
 
 		mw.storage.set( 'cxSourceLanguage', validDefaultLanguagePair.sourceLanguage );
 		mw.storage.set( 'cxTargetLanguage', validDefaultLanguagePair.targetLanguage );
+	};
+
+	CXDashboard.prototype.logAnalyticsEvent = function () {
+		const validCampaigns = {
+			specialcontribute: 'contributions_page'
+		};
+		const query = new mw.Uri().query;
+
+		if ( query.campaign && !!validCampaigns[ query.campaign ] ) {
+			mw.cx.logEvent( {
+				// eslint-disable-next-line camelcase
+				event_type: 'dashboard_open',
+				// eslint-disable-next-line camelcase
+				event_source: validCampaigns[ query.campaign ],
+				// eslint-disable-next-line camelcase
+				content_translation_session_position: 0,
+				// eslint-disable-next-line camelcase
+				translation_source_language: mw.storage.get( 'cxSourceLanguage' ),
+				// eslint-disable-next-line camelcase
+				translation_target_language: mw.storage.get( 'cxTargetLanguage' ),
+				// eslint-disable-next-line camelcase
+				access_method: 'desktop',
+				// eslint-disable-next-line camelcase
+				translation_type: 'article'
+			} );
+		}
 	};
 
 	/**

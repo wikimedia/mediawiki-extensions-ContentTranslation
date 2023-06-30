@@ -86,7 +86,7 @@ function logEvent(event) {
   // ΝΟΤΕ: we cannot use mw.config.get("skin") for detecting mobile and desktop versions,
   // as the skin is always set to "contenttranslation" for both desktop and mobile applications
   // since this code is only used in the mobile version, we can hardcode the access method to "mobile web"
-  const accessMethod = "mobile web";
+  const accessMethod = event.access_method || "mobile web";
   const wikiDB = mw.config.get("wgDBname");
   const sessionId = `cx_sx_${mw.user.sessionId()}_${accessMethod}_${wikiDB}`;
   const streamName = "mediawiki.content_translation_event";

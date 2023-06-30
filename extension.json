@@ -458,6 +458,7 @@
 				"dashboard/mw.cx.TranslationList.js",
 				"dashboard/mw.cx.SuggestionList.js",
 				"widgets/translator/ext.cx.translator.js",
+				"dashboard/ext.cx.logevent.js",
 				"dashboard/ext.cx.dashboard.js"
 			],
 			"styles": [
