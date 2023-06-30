@@ -20,7 +20,7 @@ class SectionTitleFetcherTest extends \MediaWikiIntegrationTestCase {
 		$title = $this->createMock( \Title::class );
 		$title->method( 'getPrefixedDBKey' )->willReturn( $rawTitle );
 		$api = 'https://en.wikipedia.org/w/api.php';
-		$url = "$api?action=parse&page=$rawTitle&prop=sections&format=json&formatversion=2";
+		$url = "$api?action=parse&prop=sections&format=json&formatversion=2&page=$rawTitle";
 
 		$response = [
 			'parse' => [
@@ -69,7 +69,7 @@ class SectionTitleFetcherTest extends \MediaWikiIntegrationTestCase {
 			->willReturn( \FormatJson::encode( $response ) );
 
 		$sectionTitleFetcher = new SectionTitleFetcher( $mockHttpRequestFactory );
-		$actualSectionTitles = $sectionTitleFetcher->fetchSectionTitles( $title, $targetLanguage );
+		$actualSectionTitles = $sectionTitleFetcher->fetchSectionTitles( $targetLanguage, $title );
 
 		$expectedSectionTitles = [
 			1 => 'Common elements',

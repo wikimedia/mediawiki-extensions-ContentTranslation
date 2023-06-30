@@ -122,7 +122,7 @@ class SectionPositionCalculator {
 			return $sectionPosition;
 		}
 
-		$targetSectionTitles = $this->sectionTitleFetcher->fetchSectionTitles( $targetTitle, $targetLanguage );
+		$targetSectionTitles = $this->sectionTitleFetcher->fetchSectionTitles( $targetLanguage, $targetTitle );
 
 		// if target sections are null, this page doesn't exist, and this is a lead section
 		if ( $targetSectionTitles === null ) {

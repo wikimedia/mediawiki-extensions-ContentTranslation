@@ -43,7 +43,7 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
 
 		$mockSectionTitleFetcher->method( 'fetchSectionTitles' )
-			->with( $title, $targetLanguage )
+			->with( $targetLanguage, $title )
 			->willReturn( $responseSections );
 
 		$sectionPositionCalculator = new SectionPositionCalculator( $mockHttpRequestFactory, $mockSectionTitleFetcher );

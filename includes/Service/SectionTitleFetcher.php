@@ -6,6 +6,7 @@ namespace ContentTranslation\Service;
 
 use ContentTranslation\SiteMapper;
 use FormatJson;
+use InvalidArgumentException;
 use MediaWiki\Http\HttpRequestFactory;
 use Title;
 
@@ -18,9 +19,10 @@ class SectionTitleFetcher {
 	}
 
 	/**
-	 * Given a page title and a target language code, this method fetches the
-	 * target page sections using the MediaWiki Action Api and returns an array containing
-	 * the titles for all the first-level page sections, indexed by their section numbers.
+	 * Given a target language code and a page title or a revision id (at least one of them
+	 * should be provided), this method fetches the target page sections using the MediaWiki
+	 * Action Api and returns an array containing the titles for all the first-level page sections,
+	 * indexed by their section numbers.
 	 *
 	 * If the HTTP request for fetching the section titles fails, the method returns an
 	 * empty array.
@@ -28,20 +30,34 @@ class SectionTitleFetcher {
 	 * If the sections cannot be successfully retrieved from the API (i.e. when the request is
 	 * completed but the requested page doesn't exist), the method returns null.
 	 *
-	 * @param Title $pageTitle
+	 * If both page title and page revision are provided, the page revision is ignored and only
+	 * the page title is used.
+	 *
 	 * @param string $targetLanguage
+	 * @param Title|null $pageTitle The title of the page
+	 * @param int|null $revision
 	 * @return string[]|null e.g. [ 1 => "Section 1", 2 => "Section 2" ]
 	 */
-	public function fetchSectionTitles( Title $pageTitle, string $targetLanguage ): ?array {
+	public function fetchSectionTitles( string $targetLanguage, ?Title $pageTitle, ?int $revision = null ): ?array {
+		if ( !$pageTitle && !$revision ) {
+			throw new InvalidArgumentException( 'Either page title or page revision should be provided' );
+		}
+
 		$params = [
 			'action' => 'parse',
-			'page' => $pageTitle->getPrefixedDBKey(),
 			'prop' => 'sections',
 			'format' => 'json',
 			'formatversion' => 2
 		];
-		// Example URL:
-		// https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Football&prop=sections&formatversion=2
+
+		if ( $pageTitle ) {
+			$params['page'] = $pageTitle->getPrefixedDBKey();
+		} else {
+			$params['oldid'] = $revision;
+		}
+		// Example URLs:
+		// https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&formatversion=2&page=Football
+		// https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&formatversion=2&oldid=1161269327
 		$url = SiteMapper::getApiURL( $targetLanguage, $params );
 
 		try {
