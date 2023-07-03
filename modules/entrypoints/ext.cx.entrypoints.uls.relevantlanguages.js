@@ -1,5 +1,7 @@
 ( function () {
 	var entrypointRendered = false;
+	var siteMapper = new mw.cx.SiteMapper();
+	var wikiLanguageCodes = [];
 	/**
 	 * @param {string[]} missingRelevantLanguages array of missing frequent language autonyms
 	 * @return {string|null}
@@ -81,6 +83,29 @@
 		return missingLanguagesPanel;
 	}
 
+	function wikiExistsForLanguageCode( currentGroupLanguageCodes, lang ) {
+		var wikiDomainCode = siteMapper.getWikiDomainCode( lang );
+
+		return currentGroupLanguageCodes.indexOf( wikiDomainCode ) > -1;
+	}
+
+	function fetchSiteMatrix() {
+		if ( wikiLanguageCodes.length ) {
+			return wikiLanguageCodes;
+		}
+		return siteMapper.getApi( siteMapper.getCurrentWikiLanguageCode() ).get( {
+			formatversion: 2,
+			action: 'sitematrix'
+		} ).then( function ( response ) {
+			var siteMatrix = response.sitematrix;
+
+			for ( var key in siteMatrix ) {
+				wikiLanguageCodes.push( siteMatrix[ key ].code );
+			}
+
+			return wikiLanguageCodes;
+		} );
+	}
 	mw.hook( 'mw.uls.compact_language_links.open' ).add(
 		function ( $trigger ) {
 			if ( entrypointRendered ) {
@@ -100,29 +125,32 @@
 				return;
 			}
 
-			var missingRelevantLanguages = frequentLanguages.filter( function ( language ) {
-				return existingLanguages.indexOf( language ) === -1;
-			} );
+			fetchSiteMatrix().then( function ( wikiLanguageCodes ) {
+				var missingRelevantLanguages = frequentLanguages.filter( function ( language ) {
+					return existingLanguages.indexOf( language ) === -1 && wikiExistsForLanguageCode( wikiLanguageCodes, language );
+				} );
 
-			if ( !missingRelevantLanguages.length ) {
-				return;
-			}
-
-			var missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
-			uls.$resultsView.before( missingLanguagesPanel );
-			uls.$languageFilter.on( 'input', function ( event ) {
-				// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
-				// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
-				// lives inside CxUlsEntrypoint.vue file
-				if ( event.currentTarget.value ) {
-					missingLanguagesPanel.classList.add( 'cx-uls-entrypoint--hidden' );
-				} else {
-					// when user empties the search input, remove the ".cx-uls-entrypoint--hidden" class (if exists),
-					// so that the entrypoint is visible again.
-					missingLanguagesPanel.classList.remove( 'cx-uls-entrypoint--hidden' );
+				if ( !missingRelevantLanguages.length ) {
+					return;
 				}
+
+				var missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
+				uls.$resultsView.before( missingLanguagesPanel );
+				uls.$languageFilter.on( 'input', function ( event ) {
+					// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
+					// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
+					// lives inside CxUlsEntrypoint.vue file
+					if ( event.currentTarget.value ) {
+						missingLanguagesPanel.classList.add( 'cx-uls-entrypoint--hidden' );
+					} else {
+						// when user empties the search input, remove the ".cx-uls-entrypoint--hidden" class (if exists),
+						// so that the entrypoint is visible again.
+						missingLanguagesPanel.classList.remove( 'cx-uls-entrypoint--hidden' );
+					}
+				} );
+				entrypointRendered = true;
+
 			} );
-			entrypointRendered = true;
 		}
 	);
 }() );
