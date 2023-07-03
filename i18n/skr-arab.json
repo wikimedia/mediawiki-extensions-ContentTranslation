@@ -19,6 +19,7 @@
 	"cx-translation-add-translation": "نواں ترجمہ",
 	"cx-source-loading": "لوڈ تھیندا پئے $1",
 	"cx-beta": "\nترجمہ مواد",
+	"cx-entrypoint-title": "ایں ورقے دا $1 وچ ترجمہ کرو",
 	"cx-entrypoint-dialog-button-translate-from": "$1 کنوں ترجمہ",
 	"cx-campaign-newbytranslation-start": "ترجمہ کرݨ شروع کرو",
 	"cx-tools-searchbox-text": "لفظ دی ڳول",
@@ -95,6 +96,7 @@
 	"cx-no-source-categories": "کوئی ونکیاں کائنی",
 	"cx-trend-deletions": "مٹائے ہوئے ترجمے",
 	"cx-trend-translations-to": "$1 زبان دے ترجمے",
+	"cx-stats-all-translations-title": "ساریاں زباناں وچ ترجمے",
 	"cx-stats-published-translations-label": "شائع تھئے ہوے ترجمے",
 	"cx-stats-published-target-source": "$1 زبان دے ترجمے",
 	"cx-stats-published-source-target": "کنوں ترجمے",
@@ -132,6 +134,7 @@
 	"cx-tools-linter-incomplete-template": "نامکمل سانچہ",
 	"cx-tools-linter-old-revision-label": "ترجمہ ولدا شروع کرو",
 	"cx-tools-linter-reference": "غائب حوالہ",
+	"cx-tools-linter-incomplete-reference": "ادھورا حوالہ",
 	"cx-tools-linter-restart-translation-title": "ترجمہ ولدا شروع کریسو؟",
 	"cx-tools-linter-restart-translation-cancel": "منسوخ",
 	"cx-translator-header": "تہاݙی شماریات",
@@ -155,6 +158,7 @@
 	"cx-sx-view-translation-anchor": "ݙیکھو",
 	"cx-sx-existing-translation-learn-more": "ٻیا سِکھو",
 	"cx-sx-section-selector-more-details-title": "ٻیاں تفصیلاں",
+	"cx-sx-section-selector-view-article-button-label": "$1 وچ مضمون ݙیکھو",
 	"cx-sx-section-selector-pick-other-translation-button-label": "ہک ٻیا ورقہ چݨو",
 	"cx-sx-section-selector-learn-more-anchor-label": "ٻیا سِکھو"
 }
