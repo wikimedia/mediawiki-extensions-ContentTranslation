@@ -23,10 +23,16 @@
 		targetTitle
 	) {
 		var title, params, targetWikiId, api;
+		var namespaceIds = mw.config.get( 'wgNamespaceIds' );
+		// Do not link source pages in the user namespace
+		var sourceMwTitle = new mw.Title( sourceTitle );
 
 		// Link only pages in the main space
 		title = new mw.Title( targetTitle );
-		if ( title.getNamespaceId() !== 0 ) {
+		if (
+			title.getNamespaceId() !== 0 ||
+			sourceMwTitle.getNamespaceId() === namespaceIds.user
+		) {
 			return Promise.resolve();
 		}
 
