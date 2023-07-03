@@ -6,6 +6,11 @@ const toQueryStringValue = (value) => {
   );
 };
 
+const namespaceIds = {
+  "": 0, // main namespace
+  user: 2, // user namespace
+};
+
 Api.prototype.ajax = function (params) {
   params["origin"] = "*";
   const q = Object.keys(params)
@@ -65,6 +70,8 @@ const mw = {
           return 2021;
         case "wgUserEditCountBucket":
           return "1000+ edits";
+        case "wgNamespaceIds":
+          return namespaceIds;
         default:
           return null;
       }
@@ -84,6 +91,19 @@ const mw = {
       ).value,
   },
   cx: { SiteMapper },
+  Title: function (title) {
+    this.title = title;
+
+    if (this.title.startsWith("User:")) {
+      this.namespace = namespaceIds.user;
+    } else {
+      this.namespace = namespaceIds[""];
+    }
+
+    this.getNamespaceId = function () {
+      return this.namespace;
+    };
+  },
 };
 
 global.mw = mw;

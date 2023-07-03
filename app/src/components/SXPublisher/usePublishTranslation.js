@@ -39,14 +39,23 @@ const handlePublishResult = async (
     store.getters["application/getTargetPageTitleForPublishing"];
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
+  const sourceTitle = currentSourcePage.value.title;
+
+  const sourceMwTitle = new mw.Title(sourceTitle);
+  const namespaceIds = mw.config.get("wgNamespaceIds");
+
   // the rest of the code inside this method is only executed when publishing is successful
-  if (currentSourceSection.value.isLeadSection && !isSandboxTarget) {
+  if (
+    currentSourceSection.value.isLeadSection &&
+    !isSandboxTarget &&
+    sourceMwTitle.getNamespaceId() !== namespaceIds.user
+  ) {
     // Add wikibase link, wait for it, but failure is acceptable
     try {
       await siteApi.addWikibaseLink(
         sourceLanguage.value,
         targetLanguage.value,
-        currentSourcePage.value.title,
+        sourceTitle,
         targetPageTitle
       );
     } catch (error) {
