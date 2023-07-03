@@ -23,7 +23,7 @@
 	"cx-dashboard-header": "Oversettelser",
 	"cx-javascript": "Dette verktøyet virker ikke uten JavaScript. JavaScript er slått av eller virket ikke, eller nettleseren din støttes ikke.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Innholdsoversettelse]] er et verktøy for raskt å oversette sider til ditt språk. [$1 Prøv det nå!]",
-	"cx-license-agreement": "Ved å fortsette godtar du [https://foundation.wikimedia.org/wiki/Terms_of_Use bruksvilkårene], og du samtykker ugjenkallelig til å frigi bidragene dine under [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0-lisensen] og [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Ved å fortsette godtar du [https://foundation.wikimedia.org/wiki/Terms_of_Use bruksvilkårene], og du samtykker ugjenkallelig til å frigi bidragene dine under lisensene [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] og [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Feil: Kunne ikke koble til tjeneren.",
 	"cx-desc": "Gjør det enkelt å [[Special:ContentTranslation|oversette]] innholdssider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oversatt}}",
@@ -430,6 +430,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Oversett «$1» og «$2»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Oversett «$1», «$2» og mer",
 	"sx-block-template-adaptation-card-body-header-success": "Foreslått mal",
+	"sx-block-template-adaptation-card-title-placeholder": "Mal",
 	"sx-block-template-adaptation-card-edit-button-label": "Gå gjennom og rediger oversettelsen",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Rediger oversettelsen",
 	"sx-block-template-adaptation-card-body-header-failure": "Tilsvarende mal er ikke tilgjengelig på $1",
@@ -477,5 +478,11 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Fortsett å redigere",
 	"cx-sx-login-dialog-title": "Økten din har utløpt",
 	"cx-sx-login-dialog-body": "Redigeringene dine kan ikke lagres og tilskrives kontoen din med mindre du logger inn igjen i et annet vindu",
-	"cx-sx-login-dialog-button-label": "Logg inn"
+	"cx-sx-login-dialog-button-label": "Logg inn",
+	"sx-confirm-translation-deletion-dialog-body": "Er du sikker på at du vil slette denne oversettelsen permanent?",
+	"sx-translation-deletion-cancel-button-label": "Avbryt",
+	"sx-translation-deletion-confirm-button-label": "Slett oversettelsen",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dag|$1 dager|0=I dag}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 måned|$1 måneder}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 år}}"
 }

@@ -402,6 +402,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Преведите одељке „$1” и „$2”.",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Преведите одељке „$1”, „$2” и друге.",
 	"sx-block-template-adaptation-card-body-header-success": "Предложени шаблон",
+	"sx-block-template-adaptation-card-title-placeholder": "Шаблон",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Уреди превод",
 	"sx-block-template-adaptation-card-body-header-failure": "Одговарајући шаблон није доступан за $1",
 	"cx-uls-relevant-languages-panel-header": "Преведите ову страницу",
