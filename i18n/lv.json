@@ -9,7 +9,7 @@
 	"cx-dashboard-header": "Tulkojumi",
 	"cx-javascript": "Šis rīks nedarbojas bez JavaScript. JavaScript ir atspējots, nestrādā vai arī pārlūks nav atbalstīts.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Satura tulkošana]] ir rīks ātrai lapu tulkošanai uz tavu valodu. [$1 Izmēģini to tagad!]",
-	"cx-license-agreement": "Turpinot tu piekrīti [https://foundation.wikimedia.org/wiki/Terms_of_Use lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/3.0/deed.lv CC BY-SA 3.0] un [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] licenci.",
+	"cx-license-agreement": "Turpinot tu piekrīti [https://foundation.wikimedia.org/wiki/Terms_of_Use lietošanas noteikumiem] un neatsaucami piekrīti publicēt savu doto ieguldījumu saskaņā ar [https://creativecommons.org/licenses/by-sa/4.0/deed.lv CC BY-SA 4.0] un [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] licenci.",
 	"cx-error-server-connection": "Kļūda: Nevarēja izveidot savienojumu ar serveri.",
 	"cx-desc": "Padara vienkāršāku satura lapu [[Special:ContentTranslation|tulkošanu]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iztulkoti|iztulkots|iztulkoti}}",
@@ -413,6 +413,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tulkot \"$1\" un \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Tulkot \"$1\" \"$2\" un vēl",
 	"sx-block-template-adaptation-card-body-header-success": "Ieteiktā veidne",
+	"sx-block-template-adaptation-card-title-placeholder": "Veidne",
 	"sx-block-template-adaptation-card-edit-button-label": "Pārskati un labo tulkojumu",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Labot tulkojumu",
 	"sx-block-template-adaptation-card-body-header-failure": "$1 valodā nav pieejama atbilstoša veidne",
@@ -455,7 +456,9 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Kopā",
 	"sx-confirm-back-navigation-dialog-title": "Vai pamest tulkojumu?",
 	"sx-confirm-back-navigation-dialog-body": "Visas veiktās izmaiņas tiks zaudētas.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt",
-	"cx-sx-login-dialog-title": "Tava sesija ir beigusies"
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest izmaiņas",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt labošanu",
+	"cx-sx-login-dialog-title": "Tava sesija ir beigusies",
+	"sx-translation-deletion-cancel-button-label": "Atcelt",
+	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu"
 }
