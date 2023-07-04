@@ -67,7 +67,16 @@ function addWikibaseLink(
 
   const api = new mw.ForeignApi("https://www.wikidata.org/w/api.php");
 
-  return Promise.resolve(api.postWithToken("csrf", params));
+  return Promise.resolve(api.postWithToken("csrf", params)).then((response) => {
+    const revisionId = response.entity.sitelinks.lastrevid;
+    const tagParams = {
+      action: "tag",
+      revid: revisionId,
+      tags: ["contenttranslation", "sectiontranslation"],
+    };
+
+    return Promise.resolve(api.postWithToken("csrf", tagParams));
+  });
 }
 
 export default {
