@@ -17,7 +17,7 @@ describe("SXTranslationConfirmer Action Panel test", () => {
         plugins: [mockStore, router, i18n],
         provide: {
           colors: {},
-          breakpoints: { value: breakpoints } ,
+          breakpoints: { value: breakpoints },
         },
       },
       store: mockStore,
@@ -59,7 +59,7 @@ describe("SXTranslationConfirmer Action Panel test", () => {
     );
   });
 
-  it("translationExists property is computed correctly", () => {
-    expect(wrapper.vm.translationExists).toBe(true);
+  it("targetPageExists property is computed correctly", () => {
+    expect(wrapper.vm.targetPageExists).toBe(true);
   });
 });

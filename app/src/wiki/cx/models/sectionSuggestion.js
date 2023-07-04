@@ -81,13 +81,6 @@ export default class SectionSuggestion {
   }
 
   /**
-   * @return {boolean}
-   */
-  get translationExists() {
-    return !!this.targetTitle;
-  }
-
-  /**
    * @return {{targetTitle: string, sourceTitle: string}[]}
    */
   get orderedMissingSections() {

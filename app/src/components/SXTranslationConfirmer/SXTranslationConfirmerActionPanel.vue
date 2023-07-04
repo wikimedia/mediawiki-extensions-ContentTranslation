@@ -7,7 +7,7 @@
       <h6 v-i18n:cx-sx-translation-confirmer-prefilled-section-heading />
       <h5 class="ma-0" v-text="preFilledSectionTitle" />
     </section>
-    <section v-else-if="translationExists" class="mt-1 px-4 pt-4">
+    <section v-else-if="targetPageExists" class="mt-1 px-4 pt-4">
       <mw-row
         class="sx-translation-confirmer__translation-status ma-0 pb-2"
         justify="between"
@@ -46,7 +46,7 @@
           @click="onMoreSectionsClick"
         />
       </mw-col>
-      <mw-col v-if="translationExists && isDesktop" shrink class="me-4">
+      <mw-col v-if="targetPageExists && isDesktop" shrink class="me-4">
         <mw-button
           v-i18n:cx-sx-translation-confirmer-new-desktop-translation-button-label
           large
@@ -106,7 +106,7 @@ export default {
       getActionButtonLabel,
       isProgressiveButton,
       targetArticlePath,
-      translationExists,
+      targetPageExists,
     } = useActionPanel(currentSectionSuggestion);
 
     const bananaI18n = useI18n();
@@ -150,7 +150,7 @@ export default {
       preFilledSectionTitle,
       targetArticlePath,
       targetLanguageAutonym,
-      translationExists,
+      targetPageExists,
       colors,
       isDesktop,
     };

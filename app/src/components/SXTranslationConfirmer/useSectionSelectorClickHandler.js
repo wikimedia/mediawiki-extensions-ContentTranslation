@@ -20,8 +20,8 @@ export default () => {
     targetLanguage,
   } = useApplicationState(store);
 
-  const translationExists = computed(
-    () => !!sectionSuggestion.value?.translationExists
+  const targetPageExists = computed(
+    () => !!sectionSuggestion.value?.targetTitle
   );
 
   const clearPreFilledSection = () => {
@@ -58,7 +58,7 @@ export default () => {
       } else {
         clearPreFilledSection();
       }
-    } else if (translationExists.value) {
+    } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
       return startNewTranslation();

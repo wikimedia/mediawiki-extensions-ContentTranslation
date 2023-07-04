@@ -3,6 +3,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
  * @param {ComputedRef<SectionSuggestion>} sectionSuggestion
+ * @return {{targetPageExists: ComputedRef<boolean>, isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
  */
 const useActionPanel = (sectionSuggestion) => {
   const firstMissingSectionTitle = computed(
@@ -16,8 +17,8 @@ const useActionPanel = (sectionSuggestion) => {
     () => sectionSuggestion.value.presentSectionsCount
   );
 
-  const translationExists = computed(
-    () => !!sectionSuggestion.value?.translationExists
+  const targetPageExists = computed(
+    () => !!sectionSuggestion.value?.targetTitle
   );
 
   const targetArticlePath = computed(() =>
@@ -32,7 +33,7 @@ const useActionPanel = (sectionSuggestion) => {
       return "cx-sx-translation-confirmer-translate-prefilled-section-button-label";
     }
 
-    if (!translationExists.value) {
+    if (!targetPageExists.value) {
       return "cx-sx-start-translation-button-label";
     }
 
@@ -84,7 +85,7 @@ const useActionPanel = (sectionSuggestion) => {
 
   const isProgressiveButton = computed(
     () =>
-      !translationExists.value ||
+      !targetPageExists.value ||
       sectionSuggestion.value?.missingSectionsCount > 0
   );
 
@@ -93,7 +94,7 @@ const useActionPanel = (sectionSuggestion) => {
     getActionButtonLabel,
     isProgressiveButton,
     targetArticlePath,
-    translationExists,
+    targetPageExists,
   };
 };
 
