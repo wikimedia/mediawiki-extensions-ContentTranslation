@@ -219,7 +219,7 @@
 	"cx-tools-linter-page-exists": "Lehekülg on juba olemas",
 	"cx-tools-linter-page-exists-message": "Lehekülg pealkirjaga \"$1\" on juba olemas. Avaldamisel kirjutatakse olemasolev sisu üle.\n\nVeendu, et olemasoleva lehekülje asendamine on sobilik või kaalu tõlke ümbernimetamist.",
 	"cx-tools-linter-cannot-publish-title": "Avaldamine lubatud ainult kogenud kasutajatele",
-	"cx-tools-linter-cannot-publish-message": "Kaastööliskond on otsustanud lubada tõlgete avaldamine ainult kogenud toimetajatele. Sa ei saa avaldada seda tõlget enne, kui oled saanud selle viki redigeerimises kogenumaks. See-eest saad:<ul><li>avaldada tõlke mustandina ja kasutada selle avaldamiseks hiljem tavapäraseid redigeerimisvahendeid või</li><li>tõlkida see artikkel teise keelde, kus sellist piirangut pole.</li></ul>",
+	"cx-tools-linter-cannot-publish-message": "Kaastööliskond on otsustanud lubada tõlgete avaldamine ainult kogenud toimetajatele. Sa ei saa avaldada seda tõlget enne, kui oled saanud selle viki redigeerimises kogenumaks. See-eest saad:<ul><li>avaldada tõlke mustandina ja kasutada selle avaldamiseks hiljem tavapäraseid redigeerimisvahendeid või</li><li>tõlkida selle artikli teise keelde, kus sellist piirangut pole.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Määra avaldamiseks mustandina",
 	"cx-tools-linter-template": "Mall pole saadaval",
 	"cx-tools-linter-template-block-message": "Lähtelehekülg kasutab malli, mis pole sihtvikis saadaval.\n\nSee mall on vahele jäetud. Saad lisada uue sisu, mis katab välja jäänud teavet.",
