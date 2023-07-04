@@ -46,16 +46,27 @@
 			totitle: targetTitle
 		};
 		api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php' );
-		return Promise.resolve( api.postWithToken( 'csrf', params ).then( function () {
-			var mwApi = new mw.Api();
+		return Promise.resolve( api.postWithToken( 'csrf', params )
+			.then( function ( response ) {
+				const revisionId = response.entity.sitelinks.lastrevid;
+				params = {
+					action: 'tag',
+					revid: revisionId,
+					tags: [ 'contenttranslation', 'contenttranslation-v2' ]
+				};
+				return Promise.resolve( api.postWithToken( 'csrf', params ) );
+			} )
+			.then( function () {
+				const mwApi = new mw.Api();
 
-			// Purge the newly-created page after adding the link,
-			// so that they will appear as soon as possible without manual purging
-			return mwApi.post( {
-				action: 'purge',
-				titles: targetTitle
-			} );
-		} ) );
+				// Purge the newly-created page after adding the link,
+				// so that they will appear as soon as possible without manual purging
+				return mwApi.post( {
+					action: 'purge',
+					titles: targetTitle
+				} );
+			} )
+		);
 	}
 
 	$( function () {
