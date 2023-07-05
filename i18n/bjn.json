@@ -57,6 +57,7 @@
 	"cx-dashboard-sidebar-feedback": "Bari umpan balik",
 	"cx-suggestionlist-view-source-page": "Janaki laman asal-mulanya",
 	"cx-create-new-translation": "Tarjamahan hanyar",
+	"cx-save-draft-save-success": "{{PLURAL:$1|Disimpan samanit nang halam|Disimpan $1 manit nang halam|0=Hanyar haja disimpan}}",
 	"cx-contributions-new-contributions": "Sumbangan hanyar",
 	"cx-contributions-new-article": "Laman hanyar",
 	"cx-contributions-translation": "Tarjamahan",
