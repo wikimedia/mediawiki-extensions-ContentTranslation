@@ -4,11 +4,12 @@
 			"Marat-avgust",
 			"Run Li",
 			"Ерней",
+			"З. ӘЙЛЕ",
 			"Ильнар"
 		]
 	},
 	"cx-dashboard-header": "Тәрҗемәләр",
-	"cx-license-agreement": "«$1» төймәсенә басып, сез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегезне [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензияләре] кысалары тарафыннан таратылуы белән килешәсез, монан шулай ук сез атрибуция өчен CC BY-SA 3.0 буенча бары сылтама кирәклеге генә булганын аңларга тиешсез.",
+	"cx-license-agreement": "Cез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегез [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензияләре] тарафыннан таратылуы белән килешәсез.",
 	"cx-publish-button": "Саклау",
 	"cx-publish-summary": "«$1» битен тәрҗемә итеп ясалган",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|эчтәлек тәрҗемә итү]]",
