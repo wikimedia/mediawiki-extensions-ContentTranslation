@@ -219,7 +219,7 @@
 	"cx-tools-linter-page-exists": "Lehekülg on juba olemas",
 	"cx-tools-linter-page-exists-message": "Lehekülg pealkirjaga \"$1\" on juba olemas. Avaldamisel kirjutatakse olemasolev sisu üle.\n\nVeendu, et olemasoleva lehekülje asendamine on sobilik või kaalu tõlke ümbernimetamist.",
 	"cx-tools-linter-cannot-publish-title": "Avaldamine lubatud ainult kogenud kasutajatele",
-	"cx-tools-linter-cannot-publish-message": "Kaastööliskond on otsustanud lubada tõlgete avaldamine ainult kogenud toimetajatele. Sa ei saa avaldada seda tõlget enne, kui oled saanud selle viki redigeerimises kogenumaks. See-eest saad:<ul><li>avaldada tõlke mustandina ja kasutada selle avaldamiseks hiljem tavapäraseid redigeerimisvahendeid või</li><li>tõlkida see artikkel teise keelde, kus sellist piirangut pole.</li></ul>",
+	"cx-tools-linter-cannot-publish-message": "Kaastööliskond on otsustanud lubada tõlgete avaldamine ainult kogenud toimetajatele. Sa ei saa avaldada seda tõlget enne, kui oled saanud selle viki redigeerimises kogenumaks. See-eest saad:<ul><li>avaldada tõlke mustandina ja kasutada selle avaldamiseks hiljem tavapäraseid redigeerimisvahendeid või</li><li>tõlkida selle artikli teise keelde, kus sellist piirangut pole.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Määra avaldamiseks mustandina",
 	"cx-tools-linter-template": "Mall pole saadaval",
 	"cx-tools-linter-template-block-message": "Lähtelehekülg kasutab malli, mis pole sihtvikis saadaval.\n\nSee mall on vahele jäetud. Saad lisada uue sisu, mis katab välja jäänud teavet.",
@@ -393,5 +393,8 @@
 	"cx-sx-block-template-mapping-status-explanation-no-mapping": "Malli ülesehitus kummaski keeles on liiga erinev ja andmeid ei saa automaatselt üle tuua.",
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "Malli ülesehitus mõlemas keeles on sarnane ja mõned andmed saab automaatselt üle tuua.",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Malli ülesehitus mõlemas keeles on sarnane ja kõik andmed saab automaatselt üle tuua.",
-	"cx-sx-block-template-no-equivalent-template-suggestion": "Kui tead selles keeles ($1) samasisulist malli, siis saad mallid Wikidatas ühendada, et teha see tööriistade jaoks leitavaks."
+	"cx-sx-block-template-no-equivalent-template-suggestion": "Kui tead selles keeles ($1) samasisulist malli, siis saad mallid Wikidatas ühendada, et teha see tööriistade jaoks leitavaks.",
+	"cx-sx-block-template-none-mapped-param-text": "Algse malli $1 parameetrist ei lisatud ühtegi.",
+	"cx-sx-block-template-mapped-params-text": "Algse malli $2 {{PLURAL:$2|parameetrist}} lisati $1.",
+	"cx-sx-block-template-no-source-params-text": "Algses mallis polnud ühtegi parameetrit, mida üle tuua."
 }
