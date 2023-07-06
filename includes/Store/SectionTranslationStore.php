@@ -32,6 +32,10 @@ class SectionTranslationStore {
 	public function insertTranslation( SectionTranslation $translation ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$values = $this->translationToDBRow( $translation );
+		// set start/last_updated timestamps to current timestamp
+		$values['cxsx_translation_start_timestamp'] = $dbw->timestamp();
+		$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
+
 		$dbw->insert( self::TABLE_NAME, $values, __METHOD__ );
 		$translation->setId( $dbw->insertId() );
 	}
@@ -39,6 +43,8 @@ class SectionTranslationStore {
 	public function updateTranslation( SectionTranslation $translation ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$values = $this->translationToDBRow( $translation );
+		$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
+
 		$dbw->update(
 			self::TABLE_NAME,
 			$values,
