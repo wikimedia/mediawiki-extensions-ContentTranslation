@@ -10,7 +10,8 @@
 			"Moon0319",
 			"Z423x5c6",
 			"ZiqiLiang",
-			"捍粵者"
+			"捍粵者",
+			"Al12si"
 		]
 	},
 	"cx": "翻譯頁",
@@ -48,10 +49,10 @@
 	"cx-tools-link-add": "加連結",
 	"cx-tools-link-remove": "刪連結",
 	"cx-tools-mt-title": "自動翻譯",
-	"cx-tools-mt-use-source": "用來源文字",
+	"cx-tools-mt-use-source": "抄原文",
 	"cx-tools-mt-reset": "重設翻譯",
 	"cx-tools-mt-provider-title": "用$1",
-	"cx-tools-mt-dont-use": "唔好用機械翻譯",
+	"cx-tools-mt-dont-use": "開空白嘅新段落",
 	"cx-tools-mt-set-default": "設做預設",
 	"cx-tools-mt-preferred": "預設",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1個分類|$1個分類|0=無分類}}",

@@ -225,6 +225,7 @@
 	"cx-publish-destination-namespace-user": "Lični nacrt",
 	"cx-publish-destination-namespace-user-description": "U Vašem korisničkom prostoru, za doradu",
 	"cx-publish-destination-namespace-draft": "Nacrt zajednice",
+	"cx-unreviewed-translation-category": "Stranice s nepregledanim prevodom",
 	"cx-preference-enable-entrypoints": "Pristup [[$1|prevođenju sadržaja]] sa stranice doprinosa, spiska jezika i prilikom pravljenja novih stranica.",
 	"cx-feature-discovery-dismiss": "Razumijem"
 }
