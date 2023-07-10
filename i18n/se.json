@@ -82,6 +82,7 @@
 	"cx-draft-restoring": "Viežžamin vurken jurgalusa...",
 	"cx-suggestionlist-expand": "Čájet buot",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 meattáhus|$1 meattáhusa}}",
+	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 várrehus|$1 várrehusa}}",
 	"cx-tools-linter-learn-more": "Lassedieđut",
 	"cx-tools-linter-template-add-new": "Lasit ođđa málle",
 	"cx-tools-linter-reference": "Gáldu váilu",

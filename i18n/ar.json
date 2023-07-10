@@ -442,6 +442,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "ترجمة \" $1 \" و \" $2 \"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "ترجمة \" $1 \" و \" $2 \" والمزيد",
 	"sx-block-template-adaptation-card-body-header-success": "قالب مقترح",
+	"sx-block-template-adaptation-card-title-placeholder": "قالب",
 	"sx-block-template-adaptation-card-edit-button-label": "مراجعة وتحرير الترجمة",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "تعديل الترجمة",
 	"sx-block-template-adaptation-card-body-header-failure": "القالب المكافئ غير متاح لـ $1",
