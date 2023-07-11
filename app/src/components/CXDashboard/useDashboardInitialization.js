@@ -43,7 +43,6 @@ const useDashboardInitialization = () => {
     logEvent({
       event_type: "dashboard_open",
       event_source: getEventSourceFromUrlCampaign() || "direct",
-      content_translation_session_position: 0,
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
     });

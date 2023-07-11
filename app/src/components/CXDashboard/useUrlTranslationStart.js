@@ -46,7 +46,6 @@ const useUrlTranslationStart = () => {
     logEvent({
       event_type: "dashboard_open",
       event_source: eventSource,
-      content_translation_session_position: 0,
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
     });

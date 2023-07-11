@@ -11,6 +11,10 @@ global.fetch = jest.fn((url) => {
       }),
   });
 });
+jest.mock("./translationSessionPosition", () => ({
+  getTranslationSessionPosition: () => 0,
+  setTranslationSessionPosition: () => jest.fn(),
+}));
 
 describe("Event logging", () => {
   it("Event is being logged properly", async () => {
@@ -28,6 +32,7 @@ describe("Event logging", () => {
       content_translation_session_id: `cx_sx_test-session-id_mobile web_test-db`,
       user_global_edit_count: 2021,
       user_global_edit_count_bucket: "1000+ edits",
+      content_translation_session_position: 0,
     };
     expect(mw.eventLog.submit).toHaveBeenCalledWith(
       "mediawiki.content_translation_event",
