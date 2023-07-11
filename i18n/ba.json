@@ -18,7 +18,7 @@
 	"cx-dashboard-header": "Тәржемәләр",
 	"cx-javascript": "Был ҡорал JavaScript-һыҙ эшләмәй.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — был ҡорал битте һеҙҙең телгә тиҙ тәржемәләү өсөн. [$1 Хәҙер үк ҡулланып ҡарағыҙ!]",
-	"cx-license-agreement": "Дауам итеп, һеҙ [https://foundation.wikimedia.org/wiki/Terms_of_Use Ҡулланыу шарттары] менән килешеүегеҙҙе раҫлайһығыҙ һәм тәржемә ҡоралы ярҙамында башҡарған бөтә эшегеҙҙе [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL лицензиялары] менән баҫтырырға һис һүҙһеҙ ризалашаһығыҙ.",
+	"cx-license-agreement": "Дауам итеп, һеҙ [https://foundation.wikimedia.org/wiki/Terms_of_Use Ҡулланыу шарттары] менән килешәһегеҙ һәм мәҡәләләрегеҙҙе һис һүҙһеҙ [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] лицензияларына ярашлы баҫтырырға ризалашаһығыҙ.",
 	"cx-error-server-connection": "Серверға тоташып булманы.",
 	"cx-desc": "Биттәрҙең эстәлеген еңел [[Special:ContentTranslation|тәржемәләргә]] мөмкинлек бирә.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|тәржемә ителгән}}",
