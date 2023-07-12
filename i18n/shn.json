@@ -4,10 +4,13 @@
 			"Saimawnkham"
 		]
 	},
+	"cx-captcha-dialog-cancel": "ယုၵ်ႉလိူၵ်ႈ",
 	"cx-translation-filter-uls-all-languages": "ၽႃႇသႃႇၵႂၢမ်း တင်းသဵင်ႈ",
 	"cx-contributions-new-contributions": "လွင်ႈၶဝ်ႈႁူမ်ႈ ဢၼ်မႂ်ႇ",
 	"cx-contributions-new-article": "ၼႃႈလိၵ်ႈမႂ်ႇ",
+	"cx-draft-cancel-button-label": "ယုၵ်ႉလိူၵ်ႈ",
 	"cx-stats-tabs-expand": "တူၺ်း ၽႃႇသႃႇၵႂၢမ်းတင်းသဵင်ႈ",
+	"cx-tools-linter-restart-translation-cancel": "ယုၵ်ႉလိူၵ်ႈ",
 	"cx-publish-destination-namespace-main": "ၼႃႈလိၵ်ႈမႂ်ႇ",
 	"cx-sx-publisher-sandbox-option-label": "ပိုၼ်ဢွၵ်ႇၸူး ယွင်သၢႆးၸဝ်ႈၵဝ်ႇ",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "လွင်ႈပိၼ်ႇၽႃႇသႃႇၸဝ်ႈၵဝ်ႇၼၼ်ႉ တေ <strong>ထႅမ်သႂ်ႇၸူး ယွင်သၢႆး ၸဝ်ႈၵဝ်ႇ။</strong>"
