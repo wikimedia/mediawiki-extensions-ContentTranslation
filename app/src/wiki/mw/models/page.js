@@ -69,4 +69,21 @@ export default class Page {
       (section) => section.originalTitle === sectionTitle
     );
   }
+
+  /**
+   * @param {PageSection[]} updatedSections
+   */
+  updateSections(updatedSections) {
+    for (const updatedSection of updatedSections) {
+      const pageSection = this.sections.find(
+        (section) => section.id === updatedSection.id
+      );
+
+      if (!pageSection) {
+        return;
+      }
+
+      pageSection.updateSubSections(updatedSection.subSections);
+    }
+  }
 }

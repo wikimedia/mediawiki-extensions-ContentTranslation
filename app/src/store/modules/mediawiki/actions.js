@@ -144,14 +144,12 @@ function resolvePageContentReferences(
     // Add reference resolution as a setTimeout callback,
     // to make it asynchronous.
     setTimeout(() => {
-      commit("setPageSections", {
-        page: existingPage,
-        sections:
-          segmentedContentConverter.convertSegmentedContentToPageSections(
-            existingPage.content,
-            true // resolve references
-          ),
-      });
+      const updatedSections =
+        segmentedContentConverter.convertSegmentedContentToPageSections(
+          existingPage.content,
+          true // resolve references
+        );
+      existingPage.updateSections(updatedSections);
 
       resolve();
     }, 0);

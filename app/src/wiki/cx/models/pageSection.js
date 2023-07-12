@@ -39,6 +39,24 @@ export default class PageSection {
     this.isTitleSelected = isTitleSelected;
   }
 
+  /**
+   * @param {SubSection[]} updatedSubSections
+   */
+  updateSubSections(updatedSubSections) {
+    for (const updatedSubSection of updatedSubSections) {
+      const subSection = this.subSections.find(
+        (subSection) => subSection.id === updatedSubSection.id
+      );
+
+      if (!subSection) {
+        return;
+      }
+
+      subSection.node = updatedSubSection.node;
+      subSection.sentences = updatedSubSection.sentences;
+    }
+  }
+
   reset() {
     this.proposedTitleTranslations = {
       [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: this.originalTitle,
