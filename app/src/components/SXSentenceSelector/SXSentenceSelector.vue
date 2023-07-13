@@ -217,15 +217,21 @@ export default {
       doGoToDashboard();
     };
 
-    const doGoToDashboard = () => {
+    const doGoToDashboard = async () => {
       store.dispatch("translator/fetchTranslations");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
       store.dispatch("application/clearPendingSaveTranslationRequests");
-      router.push({ name: "dashboard" });
+      // wait for the redirection to dashboard before resetting variables needed in this route
+      await router.push({ name: "dashboard" });
       currentPageSection.value.reset();
+      store.commit("application/setCurrentSourceSection", null);
+      // we also need to clear the current section suggestion, so that the current page getter
+      // returns null
+      store.commit("application/setCurrentSectionSuggestion", null);
 
       const { currentTranslation } = store.state.application;
+
       if (!currentTranslation) {
         return;
       }
