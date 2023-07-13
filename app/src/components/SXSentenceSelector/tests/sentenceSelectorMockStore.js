@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SubSectionModel from "@/wiki/cx/models/subSection";
 
 const subSections = [
@@ -10,10 +9,6 @@ const subSections = [
 const applicationModule = {
   namespaced: true,
   state: {
-    currentSectionSuggestion: new SectionSuggestion({
-      sourceLanguage: "",
-      targetLanguage: "",
-    }),
     currentSourceSection: { subSections },
   },
 };
