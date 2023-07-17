@@ -390,6 +390,34 @@ const deleteTranslation = (sectionTranslationId, translationId, sectionId) => {
 };
 
 /**
+ * Given the translation object, this method deletes all related corpora translation
+ * units from "cx_corpora" table, and if no other corpora translation unit exists for the given
+ * translation and also delete the translation from "cx_translations" and "cx_translators" table.
+ * `deleteTranslation` requires `sectionTranslationId` and `sectionId`, which is not available for draft
+ * translations created on CX but are being deleted on SX.
+ * Finally, it returns true if the deletion was completed successfully or false otherwise.
+ *
+ * @param {Translation} translation Translation object
+ * @return {Promise<boolean>}
+ */
+const deleteCXTranslation = (translation) => {
+  const params = {
+    assert: "user",
+    action: "cxdelete",
+    from: translation.sourceLanguage,
+    to: translation.targetLanguage,
+    sourcetitle: translation.sourceTitle,
+  };
+
+  const api = new mw.Api();
+
+  return api
+    .postWithToken("csrf", params)
+    .then(() => true)
+    .catch(() => false);
+};
+
+/**
  * @return {Promise}
  */
 const fetchTranslatorStats = () => {
@@ -414,4 +442,5 @@ export default {
   saveTranslation,
   deleteTranslation,
   fetchTranslatorStats,
+  deleteCXTranslation,
 };

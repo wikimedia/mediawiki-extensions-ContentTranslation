@@ -310,33 +310,6 @@ async function translateContent(
   }
 }
 
-/**
- * Given a translation model, this action calls the "deleteTranslation" method of the translator API
- * to delete the draft section translation and its related corpora content from the database. If the
- * request is successful, the translation is also removed from the translator state.
- *
- * @param {object} context
- * @param {function} context.commit
- * @param {Translation} translation
- * @return {Promise<boolean>}
- */
-async function deleteTranslation({ commit }, translation) {
-  const isSuccessful = await cxTranslatorApi.deleteTranslation(
-    translation.sectionTranslationId,
-    translation.translationId,
-    translation.sectionId
-  );
-
-  if (isSuccessful) {
-    commit(
-      "removeTranslationBySectionTranslationId",
-      translation.sectionTranslationId
-    );
-  }
-
-  return isSuccessful;
-}
-
 async function fetchTranslatorStats({ commit }) {
   const translatorStats = await translator.fetchTranslatorStats();
 
@@ -347,7 +320,6 @@ export default {
   validateMT,
   saveTranslation,
   publishTranslation,
-  deleteTranslation,
   fetchTranslations,
   translateContent,
   fetchTranslatorStats,
