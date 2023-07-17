@@ -246,6 +246,7 @@
 	"cx-linkcontextitem-missing-link-title": "Dolen ar goll",
 	"cx-linkcontextitem-missing-title-description": "Nid yw'r dudalen hon yn bodoli eto",
 	"cx-unreviewed-translation-category": "Tudalennau gyda chyfieithiadau heb eu gwirio",
+	"cx-preference-enable-entrypoints": "Mynediad i [[$1|ddechrau cyfieithu]] o'r dudalen gyfraniadau, rhestr ieithoedd, a chreu tudalennau newydd.",
 	"cx-feature-discovery-title": "Cyfieithu unrhyw bryd",
 	"cx-feature-discovery-dismiss": "Iawn",
 	"cx-suggestionlist-expand-sections-title": "Ehangu gydag adrannau newydd",

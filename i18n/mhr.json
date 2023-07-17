@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lifeway"
+		]
+	},
+	"cx": "Велыж-влакым кусарымаш",
+	"cx-dashboard-header": "Кусарымаш-влак",
+	"cx-header-translation-center": "Кусарыме рӱдер",
+	"cx-header-all-translations": "Чыла кусарымаш",
+	"cx-source-view-page": "велыжым ончымаш",
+	"cx-publish-button": "Савыкташ",
+	"cx-publish-button-publishing": "Савыктымаш…",
+	"cx-tools-link-title": "Кылвер",
+	"cx-tools-link-add": "Кылверым ешараш",
+	"cx-tools-mt-title": "Тӱҥалтыш кусарымаш",
+	"cx-tools-mt-use-source": "Тӱҥалтыш текстым копироватлаш",
+	"cx-tools-mt-reset": "Кусарымым кудалташ",
+	"cx-tools-mt-preferred": "ойлыде",
+	"cx-page-missing-in-target-language": "$1 уке",
+	"cx-page-number-of-languages": "Йылме-влак чот",
+	"cx-captcha-dialog-cancel": "Чараш",
+	"cx-dashboard-sidebar-stats": "Иктешлымаш",
+	"cx-suggestionlist-featured": "Ойырен налме",
+	"cx-create-new-translation": "У кусарымаш",
+	"cx-translation-filter-label-all-languages": "Чыла",
+	"cx-translation-filter-uls-all-languages": "Чыла йылме",
+	"cx-save-draft-saving": "Аралатеш...",
+	"cx-save-draft-shortcut-label": "Черновикым аралаш",
+	"cx-contributions-new-article": "У велыж",
+	"cx-contributions-translation": "Кусарымаш",
+	"cx-translation-status-published": "Савыктыме"
+}

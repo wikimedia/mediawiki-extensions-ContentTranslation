@@ -6,11 +6,18 @@
 			"Pierpao",
 			"Shirayuki",
 			"Bjh21",
-			"Ed g2s"
+			"Ed g2s",
+			"Boke",
+			"Cakkaparla",
+			"Piano1forte2"
 		]
 	},
 	"cx-license-agreement": "By continuing, you agree to the [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Licence] and the [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] with the understanding that a hyperlink or URL is sufficient for CC BY-SA 3.0 attribution.",
 	"cx-header-translation-center": "Translation centre",
+	"cx-publish-summary": "Created by translating the page '$1'",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
+	"cx-tools-instructions-text6": "When {{GENDER:|you}} are happy with the result, press '{{int:cx-publish-button}}'.",
+	"cx-error-page-not-found": "The '$1' page could not be found in $2 Wikipedia",
+	"cx-source-page-selector-no-search-results": "No pages found for '$1' in $2",
 	"cx-favorite-removed": "Removed from list of favourites!"
 }
