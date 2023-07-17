@@ -23,6 +23,8 @@
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) )
 			.attr( 'title', mw.msg( 'cx-campaign-contributionsmenu-mytranslations-tooltip' ) )
 			.append(
+				$( '<span>' ).addClass( 'cx-icon' ),
+				' ',
 				$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-mytranslations' ) )
 			);
 
@@ -42,16 +44,6 @@
 			$menu = $( '<ul>' )
 				.append( $myContributions, $myTranslations, $myUploads );
 
-		// Technical debt:
-		// Add icons to call out.
-		// This is not officially supported by legacy Vector and may break in future.
-		// https://phabricator.wikimedia.org/T294656
-		$myContributions.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-userContributions' );
-		$myTranslations.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon-vector-gadget-cx-language' );
-		$myUploads.find( 'a' )
-			.addClass( 'mw-ui-icon mw-ui-icon-before mw-ui-icon mw-ui-icon-vector-gadget-cx-imageGallery' );
 		$trigger.callout( {
 			trigger: 'hover',
 			classes: 'cx-campaign-contributionsmenu',
@@ -89,6 +81,8 @@
 				$( '<a>' )
 					.attr( 'href', $trigger.find( 'a' ).attr( 'href' ) )
 					.append(
+						$( '<span>' ).addClass( 'cx-icon' ),
+						' ',
 						$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-mycontributions' ) )
 					)
 			);
@@ -105,6 +99,8 @@
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
 				.attr( 'title', mw.msg( 'cx-campaign-contributionsmenu-myuploads-tooltip' ) )
 				.append(
+					$( '<span>' ).addClass( 'cx-icon' ),
+					' ',
 					$( '<span>' ).text( mw.msg( 'cx-campaign-contributionsmenu-myuploads' ) )
 				)
 			);
@@ -133,8 +129,6 @@
 				nextNode
 			);
 			// Also add them to the sticky header
-			// Icons are missing. See T320448
-			/*
 			mw.util.addPortletLink(
 				'p-personal-sticky-header',
 				$myTranslations.find( 'a' ).attr( 'href' ),
@@ -154,7 +148,6 @@
 				null,
 				nextNode
 			);
-			*/
 		}
 	}
 

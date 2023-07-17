@@ -442,19 +442,6 @@
 				"base/ext.cx.model.js"
 			]
 		},
-		"ext.cx.icons": {
-			"selectorWithVariant": ".mw-ui-icon-vector-gadget-cx-{name}-{variant}:before, .vector-icon.mw-ui-icon-vector-gadget-cx-{name}",
-			"selectorWithoutVariant": ".mw-ui-icon-vector-gadget-cx-{name}:before, .vector-icon.mw-ui-icon-vector-gadget-cx-{name}",
-			"useDataURI": false,
-			"defaultColor": "#000",
-			"class": "ResourceLoaderOOUIIconPackModule",
-			"variants": [],
-			"icons": [
-				"imageGallery",
-				"language",
-				"userContributions"
-			]
-		},
 		"ext.cx.dashboard": {
 			"scripts": [
 				"widgets/feedback/ext.cx.feedback.js",
@@ -968,7 +955,6 @@
 				"stats/styles/ext.cx.stats.less"
 			],
 			"dependencies": [
-				"ext.cx.icons",
 				"chart.js",
 				"mw.cx.SiteMapper",
 				"ext.cx.widgets.callout",

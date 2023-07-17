@@ -1,5 +1,31 @@
+/* stylelint-disable selector-max-id,selector-class-pattern */
 @import 'mediawiki.skin.variables.less';
 @import 'mediawiki.mixins';
+
+.cx-campaign-translations,
+#cx-language,
+#cx-language-sticky {
+	.cx-icon,
+	.vector-icon {
+		.cdx-mixin-css-icon(@cdx-icon-language);
+	}
+}
+
+.cx-campaign-contributions {
+	.cx-icon,
+	.vector-icon {
+		.cdx-mixin-css-icon(@cdx-icon-user-contributions);
+	}
+}
+
+.cx-campaign-uploads,
+#cx-imageGallery,
+#cx-imageGallery-sticky {
+	.cx-icon,
+	.vector-icon {
+		.cdx-mixin-css-icon(@cdx-icon-image-gallery);
+	}
+}
 
 .cx-campaign-contributionsmenu {
 	padding: 0;
