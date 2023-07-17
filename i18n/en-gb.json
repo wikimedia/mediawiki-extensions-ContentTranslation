@@ -14,18 +14,6 @@
 	},
 	"cx-license-agreement": "By continuing you agree to the [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions under the [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] and the [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] licences.",
 	"cx-header-translation-center": "Translation centre",
-	"cx-publish-summary": "Created by translating the page '$1'",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor especially designed for translation. Some of the tools may be only available for specific languages.",
-	"cx-tools-instructions-text6": "When {{GENDER:|you}} are happy with the result, press '{{int:cx-publish-button}}'.",
-	"cx-error-page-not-found": "The '$1' page could not be found in $2 Wikipedia",
-	"cx-source-page-selector-no-search-results": "No pages found for '$1' in $2",
-	"cx-favorite-removed": "Removed from list of favourites!",
-	"cx-sx-publish-summary": "Created by translating the section '$1' from the page '$2'",
-	"cx-sx-publish-lead-section-summary": "Created by translating the opening section from the page '$1'",
-	"cx-sx-published-section-invitation-missing-sections-info": "'$1' {{PLURAL:$2|and $2 more are missing|0=is missing}}",
-	"cx-sx-article-search-no-search-results-message": "No pages found for '$1' in $2",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Translate '$1'",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Translate '$1' and '$2'",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Translate '$1', '$2' and more",
-	"sx-recent-edit-entrypoint-invitation-button-label": "Translate '$1'"
+	"cx-favorite-removed": "Removed from list of favourites!"
 }
