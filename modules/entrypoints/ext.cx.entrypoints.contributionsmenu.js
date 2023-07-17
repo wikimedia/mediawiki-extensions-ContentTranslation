@@ -11,14 +11,6 @@
 		isMenuAttached = false;
 
 	/**
-	 * @return {boolean}
-	 */
-	function isUserMenuDropdown() {
-		return [ 'vector', 'vector-2022' ].indexOf( mw.config.get( 'skin', '' ) ) > -1 &&
-			$( '.vector-menu-dropdown .mw-portlet-personal' ).length;
-	}
-
-	/**
 	 * @return {jQuery.Object}
 	 */
 	function getTranslationsItem() {
@@ -82,7 +74,7 @@
 	function attachMenu( $trigger ) {
 		var $myContributions, $myTranslations, $myUploads,
 			nextNode = document.getElementById( 'pt-mycontris' ),
-			useCallout = !isUserMenuDropdown();
+			useCallout = mw.config.get( 'skin' ) !== 'vector-2022';
 
 		nextNode = nextNode ? nextNode.nextSibling : null;
 		// Make sure we attach this menu only once
