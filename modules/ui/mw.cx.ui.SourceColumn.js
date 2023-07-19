@@ -20,9 +20,9 @@ mw.cx.ui.SourceColumn = function ( config ) {
 	this.loading = true;
 	this.$loadingIndicator = null;
 
-	// Try to load Cite styles. Silently ignored if not installed.
-	if ( mw.loader.getState( 'ext.cite.style' ) !== null ) {
-		mw.loader.load( 'ext.cite.style' );
+	// Try to load Parsoid Cite styles. Silently ignored if not installed.
+	if ( mw.loader.getState( 'ext.cite.parsoid.styles' ) !== null ) {
+		mw.loader.load( 'ext.cite.parsoid.styles' );
 	}
 	mw.hook( 'mw.cx.error' ).add( this.removeLoadingIndicator.bind( this ) );
 
