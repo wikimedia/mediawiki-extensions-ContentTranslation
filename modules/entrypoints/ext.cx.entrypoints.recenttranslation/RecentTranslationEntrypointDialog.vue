@@ -183,7 +183,6 @@ module.exports = {
 				} )
 				.then( function ( suggestionResult ) {
 					if ( suggestionResult.sections ) {
-						// eslint-disable-next-line es-x/no-array-prototype-keys
 						that.missingSections = Object.keys( suggestionResult.sections.missing );
 					}
 				} );

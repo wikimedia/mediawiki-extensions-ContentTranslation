@@ -115,7 +115,6 @@ module.exports = {
 	computed: {
 		firstMissingEditedSection: function () {
 			var i,
-				// eslint-disable-next-line es-x/no-array-prototype-keys
 				sourceMissingSections = Object.keys( this.missingSections ),
 				missingSection,
 				editedSections = ( this.recentEdit && this.recentEdit.sections ) || [];
@@ -129,7 +128,6 @@ module.exports = {
 			return null;
 		},
 		missingSectionLength: function () {
-			// eslint-disable-next-line es-x/no-array-prototype-keys
 			return Object.keys( this.missingSections ).length;
 		},
 		sourceLanguage: function () {
@@ -160,7 +158,7 @@ module.exports = {
 	methods: {
 		closeInvite: function () {
 			this.showPanel = false;
-			var hiddenInvitations = mw.storage.getObject( this.hiddenInvitationStorageKey ) || [];
+			const hiddenInvitations = mw.storage.getObject( this.hiddenInvitationStorageKey ) || [];
 			hiddenInvitations.push( {
 				language: this.sourceLanguage,
 				page: this.sourceTitle,
