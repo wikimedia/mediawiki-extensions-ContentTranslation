@@ -93,7 +93,7 @@
 
 	// Find valid source and target language pair and store them in local storage
 	CXDashboard.prototype.setDefaultLanguages = function () {
-		var validDefaultLanguagePair = this.findValidDefaultLanguagePair();
+		const validDefaultLanguagePair = this.findValidDefaultLanguagePair();
 
 		mw.storage.set( 'cxSourceLanguage', validDefaultLanguagePair.sourceLanguage );
 		mw.storage.set( 'cxTargetLanguage', validDefaultLanguagePair.targetLanguage );
@@ -105,28 +105,25 @@
 	 * @return {Object} languages Valid and different source and target languages
 	 */
 	CXDashboard.prototype.findValidDefaultLanguagePair = function () {
-		var sourceLanguage, targetLanguage, currentLang,
-			commonLanguages, i, length,
-			query = new mw.Uri().query,
-			sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages,
-			targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
+		const query = new mw.Uri().query;
+		let sourceLanguage = query.from || mw.storage.get( 'cxSourceLanguage' );
+		let targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' );
 
-		sourceLanguage = query.from || mw.storage.get( 'cxSourceLanguage' );
-		targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' );
-
+		const targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 		// If query.to and local storage have no target language code,
 		// or language code is invalid, fall back to current wiki language code as target.
 		if ( targetLanguages.indexOf( targetLanguage ) < 0 ) {
 			targetLanguage = this.siteMapper.getCurrentWikiLanguageCode();
 		}
 
-		commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( lang ) {
+		const sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
+		const commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( lang ) {
 			return sourceLanguages.indexOf( lang ) !== -1;
 		} );
 
 		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
-			for ( i = 0, length = commonLanguages.length; i < length; i++ ) {
-				currentLang = commonLanguages[ i ];
+			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {
+				const currentLang = commonLanguages[ i ];
 				if ( currentLang !== targetLanguage ) {
 					sourceLanguage = currentLang;
 					break;
@@ -137,8 +134,8 @@
 		// If wgContentLanguage has invalid language code for any reason, we try to find
 		// some valid language from the list of common languages.
 		if ( targetLanguages.indexOf( targetLanguage ) < 0 || sourceLanguage === targetLanguage ) {
-			for ( i = 0, length = commonLanguages.length; i < length; i++ ) {
-				currentLang = commonLanguages[ i ];
+			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {
+				const currentLang = commonLanguages[ i ];
 				if ( currentLang !== sourceLanguage && targetLanguages.indexOf( currentLang ) !== -1 ) {
 					targetLanguage = currentLang;
 					break;
@@ -173,7 +170,7 @@
 	 * Initialize the components
 	 */
 	CXDashboard.prototype.initLists = function () {
-		var locationHash = location.hash.slice( 1 ),
+		const locationHash = location.hash.slice( 1 ),
 			lists = [ 'draft', 'published' ];
 
 		this.renderTranslations();
@@ -241,18 +238,16 @@
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
-		var $help, i, item, items, $links = [];
-
 		this.translator = new mw.cx.widgets.CXTranslator();
 		this.$publishedTranslationsButton = this.translator.$lastMonthButton;
 
-		$help = $( '<div>' )
+		const $help = $( '<div>' )
 			.addClass( 'cx-dashboard-sidebar__help' );
 
-		items = this.getSidebarItems();
-		$links = $( '<ul>' );
-		for ( i = 0; i < items.length; i++ ) {
-			item = items[ i ];
+		const items = this.getSidebarItems();
+		const $links = $( '<ul>' );
+		for ( let i = 0; i < items.length; i++ ) {
+			const item = items[ i ];
 			$links.append(
 				// eslint-disable-next-line mediawiki/class-doc
 				$( '<li>' ).append( new OO.ui.ButtonWidget( {
@@ -295,16 +290,14 @@
 	};
 
 	CXDashboard.prototype.buildTranslationList = function () {
-		var size, name, props, $translationList,
-			filterButtons = [];
-
 		// document.documentElement.clientWidth performs faster than $( window ).width()
 		this.isNarrowScreenSize = document.documentElement.clientWidth < this.narrowLimit;
 
-		size = this.isNarrowScreenSize ? 'narrow' : 'wide';
+		const size = this.isNarrowScreenSize ? 'narrow' : 'wide';
 
-		for ( name in this.filterLabels ) {
-			props = this.filterLabels[ name ];
+		const filterButtons = [];
+		for ( const name in this.filterLabels ) {
+			const props = this.filterLabels[ name ];
 
 			filterButtons.push( new OO.ui.ButtonOptionWidget( {
 				data: name,
@@ -335,21 +328,17 @@
 		this.$sourcePageSelector = $( '<div>' )
 			.addClass( 'cx-source-page-selector' );
 
-		$translationList = $( '<div>' )
+		return $( '<div>' )
 			.addClass( 'cx-translationlist-container' )
 			.append( this.$listHeader, this.$sourcePageSelector );
-
-		return $translationList;
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {
-		var listName, list;
-
 		this.activeList = type;
 		this.filter.selectItemByData( type );
 
-		for ( listName in this.lists ) {
-			list = this.lists[ listName ];
+		for ( const listName in this.lists ) {
+			const list = this.lists[ listName ];
 
 			if ( listName === type ) {
 				list.show();
@@ -392,7 +381,7 @@
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {
-		var query = new mw.Uri().query;
+		const query = new mw.Uri().query;
 
 		// eslint-disable-next-line no-new
 		new mw.cx.SourcePageSelector( this.newTranslationButton, {
@@ -414,7 +403,7 @@
 	};
 
 	CXDashboard.prototype.resize = function () {
-		var filterItems = this.filter.getItems(),
+		const filterItems = this.filter.getItems(),
 			narrowScreenSize = document.documentElement.clientWidth < this.narrowLimit,
 			size = narrowScreenSize ? 'narrow' : 'wide';
 
@@ -427,7 +416,7 @@
 
 		// Change filter labels to icons and vice-versa
 		filterItems.forEach( function ( filter ) {
-			var data = filter.getData(),
+			const data = filter.getData(),
 				label = this.filterLabels[ data ][ size ].label,
 				icon = this.filterLabels[ data ][ size ].icon;
 
@@ -438,11 +427,9 @@
 	};
 
 	$( function () {
-		var dashboard;
-
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
-		dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
+		const dashboard = new CXDashboard( document.body, mw.cx.siteMapper );
 		dashboard.init();
 	} );
 }() );
