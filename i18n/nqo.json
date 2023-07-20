@@ -444,5 +444,7 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "ߊ߬ ߘߊߓߊ߲߫",
 	"cx-sx-login-dialog-title": "ߌ ߟߊ߫ ߥߎ߬ߛߎ ߛߕߊ ߓߘߊ߫ ߝߊ߫",
 	"cx-sx-login-dialog-body": "ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߕߍߣߊ߬ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߓߌ߬ߟߴߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫߸ ߝߏߣߴߌ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ ߝߢߐߞߊ߫ ߜߘߍ߫ ߟߊ߫.",
-	"cx-sx-login-dialog-button-label": "ߌ ߜߊ߲߬ߞߎ߲߫"
+	"cx-sx-login-dialog-button-label": "ߌ ߜߊ߲߬ߞߎ߲߫",
+	"sx-translation-deletion-cancel-button-label": "ߊ߬ ߘߐߛߊ߬",
+	"sx-translation-deletion-confirm-button-label": "ߘߟߊߡߌߘߊߟߌ ߖߏ߬ߛߌ߬"
 }
