@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"apierror-sxsave-anon-user": "'sxsave' API action is not enabled for anonymous users"
+}

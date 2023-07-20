@@ -63,5 +63,6 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 котормо}}",
 	"echo-category-title-cx": "Котормолор",
 	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу",
+	"cx-translator-total-translations-label": "Бардыгы",
 	"sx-article-search-language-selector-dialog-title": "Тилдер"
 }
