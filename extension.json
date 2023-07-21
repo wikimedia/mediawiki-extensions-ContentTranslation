@@ -68,7 +68,8 @@
 		"mfFrequentLanguagesEntrypointRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\MfFrequentLanguagesEntrypointRegistrationHandler",
 			"services": [
-				"LanguageFactory"
+				"LanguageFactory",
+				"LanguageNameUtils"
 			]
 		},
 		"ulsRelevantLanguagesEntrypointRegistrar": {

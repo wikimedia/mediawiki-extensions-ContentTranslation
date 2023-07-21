@@ -8,14 +8,21 @@ use ContentTranslation\SiteMapper;
 use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Languages\LanguageFactory;
+use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 
 class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
-	/** @var LanguageFactory */
-	private $languageFactory;
 
-	public function __construct( LanguageFactory $languageFactory ) {
+	private LanguageFactory $languageFactory;
+
+	private LanguageNameUtils $languageNameUtils;
+
+	public function __construct(
+		LanguageFactory $languageFactory,
+		LanguageNameUtils $languageNameUtils
+	) {
 		$this->languageFactory = $languageFactory;
+		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	public function onBeforePageDisplay( $out, $skin ): void {
@@ -46,12 +53,11 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' ) ?? [];
 		$missingLanguageCodes = array_diff( $enabledLanguages, $availableLanguages );
 
-		$languageFactory = $this->languageFactory;
-		$missingLanguages = array_map( static function ( $code ) use ( $languageFactory ) {
-			$language = $languageFactory->getLanguage( $code );
+		$missingLanguages = array_map( function ( $code ) {
+			$language = $this->languageFactory->getLanguage( $code );
 			return [
 				'lang' => $code,
-				'autonym' => $language->getVariantname( $code ),
+				'autonym' => $this->languageNameUtils->getLanguageName( $code ),
 				'dir' => $language->getDir()
 			];
 		}, $missingLanguageCodes );
