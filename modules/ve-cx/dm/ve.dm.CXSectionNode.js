@@ -51,7 +51,7 @@ ve.dm.CXSectionNode.static.matchRdfaTypes = [ 'cx:Section' ];
 
 ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
 	// Parent method
-	var dataElement = ve.dm.CXSectionNode.super.static.toDataElement.apply( this, arguments );
+	const dataElement = ve.dm.CXSectionNode.super.static.toDataElement.apply( this, arguments );
 
 	dataElement.attributes.cxid = domElements[ 0 ].id;
 	dataElement.attributes.cxsource = domElements[ 0 ].dataset.mwCxSource;
@@ -59,7 +59,7 @@ ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
 };
 
 ve.dm.CXSectionNode.static.toDomElements = function ( dataElement ) {
-	var elements = ve.dm.CXSectionNode.super.static.toDomElements.apply( this, arguments );
+	const elements = ve.dm.CXSectionNode.super.static.toDomElements.apply( this, arguments );
 	elements[ 0 ].setAttribute( 'rel', 'cx:Section' );
 	elements[ 0 ].setAttribute( 'id', dataElement.attributes.cxid );
 	elements[ 0 ].dataset.mwCxSource = dataElement.attributes.cxsource;
@@ -134,8 +134,6 @@ ve.dm.CXSectionNode.prototype.getOriginalContentSource = function () {
 };
 
 /**
- * ...
- *
  * @param {string} source One of 'source', 'scratch' or name of MT engine.
  */
 ve.dm.CXSectionNode.prototype.setOriginalContentSource = function ( source ) {
