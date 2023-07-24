@@ -229,7 +229,7 @@
 	"cx-suggestionlist-expand": "Ver todas",
 	"cx-suggestionlist-collapse": "Ver menos",
 	"cx-suggestionlist-refresh": "Actualizar suxestións",
-	"cx-notification-suggestions-available": "Baseadas na {{GENDER:$2|súa}} tradución anterior de '''$1''', novas suxerencias están dispoñibles agora.",
+	"cx-notification-suggestions-available": "Hai novas suxestións dispoñibles baseadas na {{GENDER:$2|súa}} tradución anterior de '''$1'''.",
 	"cx-infobar-view-issues": "Ver problemas",
 	"cx-infobar-cannot-publish": "A súa tradución non pode ser publicada porque a publicación neste wiki só está permitida a editores máis experimentados.",
 	"cx-infobar-old-version": "Esta tradución baséase nunha versión vella do contido. A páxina fonte pode ter cambiado significativamente, e pode que quera reiniciar a tradución.",

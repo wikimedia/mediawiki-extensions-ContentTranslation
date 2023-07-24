@@ -67,5 +67,6 @@
 	"cx-trend-translations-to": "$1 тилиндеги котормолор",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 котормо}}",
 	"echo-category-title-cx": "Котормолор",
-	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу"
+	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу",
+	"cx-translator-total-translations-label": "Бардыгы"
 }
