@@ -40,4 +40,5 @@ export default {
    * @type String
    */
   cxServerToken: null,
+  translationDataLoadingCounter: 0,
 };

@@ -62,7 +62,7 @@ export default () => {
     } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
-      return startNewTranslation();
+      startNewTranslation();
     }
     setTranslationURLParams(sectionSuggestion.value);
   };
@@ -82,11 +82,11 @@ export default () => {
     );
   };
 
-  const startNewTranslation = async () => {
+  const startNewTranslation = () => {
     if (!siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp) {
       startCX();
     } else {
-      await selectPageSectionByIndex(0);
+      selectPageSectionByIndex(0);
 
       if (store.getters["translator/userHasSectionTranslations"]) {
         router.push({ name: "sx-sentence-selector", query: { force: true } });

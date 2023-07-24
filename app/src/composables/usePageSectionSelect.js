@@ -10,6 +10,7 @@ const usePageSectionSelect = () => {
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
     if (!getter()) {
+      store.commit("application/increaseTranslationDataLoadingCounter");
       await store.dispatch("mediawiki/fetchPageContent", suggestion.value);
       // Resolve references and update page sections to include
       // these resolved references
@@ -17,6 +18,7 @@ const usePageSectionSelect = () => {
         "mediawiki/resolvePageContentReferences",
         suggestion.value
       );
+      store.commit("application/decreaseTranslationDataLoadingCounter");
     }
     setter();
   };

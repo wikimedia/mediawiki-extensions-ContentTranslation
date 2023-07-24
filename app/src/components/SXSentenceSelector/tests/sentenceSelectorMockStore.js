@@ -9,7 +9,10 @@ const subSections = [
 const applicationModule = {
   namespaced: true,
   state: {
-    currentSourceSection: { subSections },
+    currentSourceSection: {
+      subSections,
+    },
+    translationDataLoadingCounter: 0,
   },
 };
 

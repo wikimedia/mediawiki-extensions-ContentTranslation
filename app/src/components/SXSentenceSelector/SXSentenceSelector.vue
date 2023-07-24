@@ -21,12 +21,13 @@
       <mw-col shrink class="px-3">
         <mw-button
           :label="$i18n('cx-sx-sentence-selector-done-button-label')"
-          :disabled="!currentPageSection.isTranslated"
+          :disabled="!(currentPageSection && currentPageSection.isTranslated)"
           @click="previewTranslation"
         />
       </mw-col>
     </mw-row>
     <mw-row
+      v-if="translationDataReady"
       tag="section"
       direction="column"
       align="start"
@@ -76,6 +77,10 @@
         @select-previous-segment="selectPreviousTranslationUnit"
       />
     </mw-row>
+    <mw-row v-else column class="grow">
+      <mw-spinner class="mt-0" />
+    </mw-row>
+
     <sx-translation-selector v-model:active="isTranslationOptionsActive" />
     <sx-confirm-back-navigation-dialog
       v-model="verifyBackNavigationDialogOn"
@@ -85,10 +90,9 @@
 </template>
 
 <script>
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwButton, MwRow, MwCol, MwSpinner } from "@/lib/mediawiki.ui";
 import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
 import { getDir } from "@wikimedia/language-data";
-
 import SxConfirmBackNavigationDialog from "./SXConfirmBackNavigationDialog.vue";
 import SxTranslationSelector from "./SXTranslationSelector.vue";
 import SxSentenceSelectorContentHeader from "./SXSentenceSelectorContentHeader.vue";
@@ -102,9 +106,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
-import translator from "../../wiki/cx/api/translator";
 import { replaceUrl } from "@/utils/urlHandler";
-import translationRestorer from "@/utils/translationRestorer";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 
 export default {
@@ -117,6 +119,7 @@ export default {
     SubSection,
     SxSentenceSelectorContentHeader,
     MwRow,
+    MwSpinner,
     MwCol,
     SxTranslationSelector,
     MwButton,
@@ -138,6 +141,10 @@ export default {
       targetLanguage,
     } = useApplicationState(store);
 
+    const translationDataReady = computed(
+      () => store.state.application.translationDataLoadingCounter === 0
+    );
+
     const isSelectedTranslationUnitTranslated = computed(
       () => currentPageSection.value?.isSelectedTranslationUnitTranslated
     );
@@ -154,30 +161,18 @@ export default {
     const logEvent = useEventLogging();
     const initializeSegmentSelection = useInitializeSegmentSelection();
 
-    onMounted(async () => {
-      const { currentTranslation } = store.state.application;
+    onMounted(() => {
+      store.dispatch("application/initializeMTProviders");
 
-      const promises = [];
-
-      // if "currentTranslation" application state variable is set, and that translation
-      // is not already restored, restore it from the corpora translation units
-      if (currentTranslation && !currentTranslation.restored) {
-        const restorationPromise = translator
-          .fetchTranslationUnits(currentTranslation.translationId)
-          .then(async (translationUnits) => {
-            await translationRestorer.restoreCorporaDraft(
-              currentSourcePage.value,
-              currentTargetPage.value,
-              translationUnits
-            );
-            currentTranslation.restored = true;
-          });
-        promises.push(restorationPromise);
-      }
-
-      promises.push(store.dispatch("application/initializeMTProviders"));
-      Promise.all(promises).then(() => initializeSegmentSelection());
-
+      watch(
+        translationDataReady,
+        () => {
+          if (translationDataReady.value) {
+            initializeSegmentSelection();
+          }
+        },
+        { immediate: true }
+      );
       screenHeight.value = window.innerHeight;
     });
 
@@ -345,6 +340,7 @@ export default {
       skipTranslation,
       sourceLanguage,
       subSections,
+      translationDataReady,
       verifyBackNavigationDialogOn,
     };
   },

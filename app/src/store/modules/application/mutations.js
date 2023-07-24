@@ -148,6 +148,20 @@ const mutations = {
   setCXServerToken: (state, token) => {
     state.cxServerToken = token;
   },
+
+  /**
+   * @param {object} state
+   */
+  increaseTranslationDataLoadingCounter(state) {
+    state.translationDataLoadingCounter++;
+  },
+
+  /**
+   * @param {object} state
+   */
+  decreaseTranslationDataLoadingCounter(state) {
+    state.translationDataLoadingCounter--;
+  },
 };
 
 export default mutations;

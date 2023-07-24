@@ -9,6 +9,10 @@ const useInitializeSegmentSelection = () => {
     const { currentSourceSection, selectedContentTranslationUnit } =
       useApplicationState(store);
 
+    if (!currentSourceSection.value) {
+      return;
+    }
+
     // if this is a restored draft translation and there is no currently
     // selected translation unit (which happens when the translation inside
     // "Pick a sentence" step starts)

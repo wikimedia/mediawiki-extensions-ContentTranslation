@@ -4,6 +4,8 @@ import { useRouter } from "vue-router";
 import useApplicationState from "@/composables/useApplicationState";
 import { useEventLogging } from "@/plugins/eventlogging";
 import { useStore } from "vuex";
+import translatorApi from "@/wiki/cx/api/translator";
+import translationRestorer from "@/utils/translationRestorer";
 
 /**
  * @return {(function(Translation): Promise<void>)}
@@ -12,15 +14,16 @@ const useDraftTranslationStart = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const router = useRouter();
-  const { currentSourcePage, sourceLanguage, targetLanguage } =
-    useApplicationState(store);
+  const {
+    currentSourcePage,
+    currentTargetPage,
+    sourceLanguage,
+    targetLanguage,
+  } = useApplicationState(store);
   const updateLanguagePair = useDraftTranslationLanguagePairUpdater();
 
-  /**
-   * @param {Translation} translation
-   * @return {(function(): Promise)}
-   */
-  return async (translation) => {
+  const prepareDraftTranslation = async (translation) => {
+    store.commit("application/increaseTranslationDataLoadingCounter");
     const {
       sourceLanguage: translationSourceLanguage,
       targetLanguage: translationTargetLanguage,
@@ -62,6 +65,19 @@ const useDraftTranslationStart = () => {
       sourceTitle,
     });
 
+    if (!translation.restored) {
+      await translatorApi
+        .fetchTranslationUnits(translation.translationId)
+        .then((translationUnits) =>
+          translationRestorer.restoreCorporaDraft(
+            currentSourcePage.value,
+            currentTargetPage.value,
+            translationUnits
+          )
+        )
+        .then(() => (translation.restored = true));
+    }
+
     let section;
     let sectionTitleTranslation;
 
@@ -84,6 +100,15 @@ const useDraftTranslationStart = () => {
       "application/setCurrentSourceSectionTitleTranslation",
       sectionTitleTranslation
     );
+    store.commit("application/decreaseTranslationDataLoadingCounter");
+  };
+
+  /**
+   * @param {Translation} translation
+   * @return {(function(): Promise)}
+   */
+  return async (translation) => {
+    prepareDraftTranslation(translation);
     router.push({ name: "sx-sentence-selector", query: { force: true } });
   };
 };
