@@ -96,7 +96,7 @@ mw.cx.TranslationController.prototype.listen = function () {
  * @param {string} sectionId
  */
 mw.cx.TranslationController.prototype.onSectionChange = function ( sectionId ) {
-	var sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
+	const sectionNumber = mw.cx.getSectionNumberFromSectionId( sectionId );
 	this.translationTracker.pushToChangeQueue( sectionNumber );
 	this.translationTracker.pushToSaveQueue( sectionNumber );
 	// Schedule processing the change and save queues
@@ -140,9 +140,6 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
  * @param {boolean} [isRetry] Whether this is a retry or not.
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
-	var apiOptions = {},
-		api = new mw.Api();
-
 	// Before save starts, make sure all changes are processed and section states are
 	// up to date with latest content.
 	this.processChangeQueue();
@@ -171,11 +168,11 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	}
 
 	// Copy the current save queue by value.
-	var savedSections = this.translationTracker.getSaveQueue().slice();
+	const savedSections = this.translationTracker.getSaveQueue().slice();
 
-	var numOfChangedCategories;
+	let numOfChangedCategories;
 	this.getContentToSave( savedSections ).then( function ( content ) {
-		var params = {
+		const params = {
 			action: 'cxsave',
 			assert: 'user',
 			content: content,
@@ -210,11 +207,13 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
 		}
 
+		let apiOptions = {};
 		if ( isRetry ) {
 			// Default timeout is 30s. Double it while retrying to increase the chance for success.
 			apiOptions = { timeout: 60 * 1000 };
 		}
 
+		const api = new mw.Api();
 		this.saveRequest = api.postWithToken( 'csrf', params, apiOptions )
 			.done( function ( saveResult ) {
 				this.onSaveComplete( savedSections, saveResult );
@@ -261,7 +260,7 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 					mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
 				} else {
 					// Delay in seconds, failCounter is [1,5]
-					var delay = 60 * this.failCounter;
+					const delay = 60 * this.failCounter;
 					// Schedule retry.
 					this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
 					mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
@@ -293,10 +292,10 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 		mw.log( '[CX] Target categories saved.' );
 	}
 
-	var validations = saveResult.cxsave.validations;
+	const validations = saveResult.cxsave.validations;
 
 	savedSections.forEach( function ( sectionNumber ) {
-		var sectionState = this.translationTracker.getSectionState( sectionNumber );
+		const sectionState = this.translationTracker.getSectionState( sectionNumber );
 
 		if ( this.shouldUnmodifiedMTBeSavedForSection( sectionState ) ) {
 			sectionState.markUnmodifiedMTSaved();
@@ -305,12 +304,12 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 			sectionState.markSourceSaved();
 		}
 
-		var validation = validations[ sectionNumber ];
+		const validation = validations[ sectionNumber ];
 
 		if ( !validation ) {
 			return;
 		}
-		var section = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
+		const section = this.veTarget.getTargetSectionNodeFromSectionNumber( sectionNumber );
 
 		if ( section instanceof ve.dm.CXSectionNode ) {
 			// Annotate the section with errors, if any.
@@ -324,7 +323,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 	clearInterval( this.saveStatusTimer );
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 
-	var minutes = 0;
+	let minutes = 0;
 	this.saveStatusTimer = setInterval( function () {
 		if ( this.failCounter > 0 ) {
 			// Don't overwrite error message of failure with this timer controlled message.
@@ -353,7 +352,7 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, deta
 
 mw.cx.TranslationController.prototype.showLoginDialog = function () {
 	mw.loader.using( 'mw.cx.ui.LoginDialog' ).then( function () {
-		var windowManager = OO.ui.getWindowManager();
+		const windowManager = OO.ui.getWindowManager();
 
 		if ( !this.loginDialog ) {
 			this.loginDialog = new mw.cx.ui.LoginDialog();
@@ -376,13 +375,10 @@ mw.cx.TranslationController.prototype.showLoginDialog = function () {
  * @param {Object[]} validations
  */
 mw.cx.TranslationController.prototype.onSaveValidation = function ( section, validations ) {
-	var counter = 1, results = [],
-		helpLink = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter';
-
 	// Resolve old issues, so that we don't get duplicates when adding issues to this section
 	section.resolveTranslationIssues( 'validation' );
 
-	var sectionState = this.translationTracker.getSectionState( section.getSectionNumber() );
+	const sectionState = this.translationTracker.getSectionState( section.getSectionNumber() );
 
 	// If there are no validations, don't proceed
 	if ( !validations || validations.length === 0 ) {
@@ -391,9 +387,11 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 	}
 
 	sectionState.hasSaveError = true;
+	const results = [];
+	let counter = 1;
 
-	for ( var id in validations ) {
-		var validation = validations[ id ];
+	for ( const id in validations ) {
+		const validation = validations[ id ];
 
 		// To EventLogging
 		mw.hook( 'mw.cx.translation.abusefilter' ).fire(
@@ -406,8 +404,9 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
 			id
 		);
 
-		var message = validation.warn && validation.warn.messageHtml;
-		var error = validation.disallow;
+		const message = validation.warn && validation.warn.messageHtml;
+		const error = validation.disallow;
+		const helpLink = 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation/Abuse_filter';
 
 		if ( message ) {
 			results.push( {
@@ -447,7 +446,7 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
  * @return {jQuery.Promise} Promise which resolve with deflated content
  */
 mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) {
-	var records = [];
+	const records = [];
 
 	saveQueue.forEach( function ( sectionNumber ) {
 		this.getSectionRecords( sectionNumber ).forEach( function ( data ) {
@@ -467,9 +466,9 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
  * @return {Object[]} Objects to save
  */
 mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumber ) {
-	var records = [];
+	const records = [];
 
-	var sectionState = this.translationTracker.getSectionState( sectionNumber );
+	const sectionState = this.translationTracker.getSectionState( sectionNumber );
 
 	if ( !sectionState ) {
 		throw new Error( 'Attempting to save section ' + sectionNumber + ' having no section state.' );
@@ -479,10 +478,10 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	// do not perform validation on every request, unless there is a known validation
 	// issue that should go away immediately when fixed by the user. Validation means
 	// checking whether the content matches AbuseFilter rules defined in the target wiki.
-	var validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
+	const validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
 
-	var translationSource = sectionState.getCurrentMTProvider();
-	var content;
+	const translationSource = sectionState.getCurrentMTProvider();
+	let content;
 	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {
 		content = sectionState.getUserTranslation().html;
 		if ( content ) {
@@ -557,7 +556,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 		return this.publishSection();
 	}
 
-	var numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
+	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
 		mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
 	mw.log( '[CX] Publishing translation...' );
@@ -618,7 +617,7 @@ mw.cx.TranslationController.prototype.showMTAbusePublishError = function ( title
  * @param {number} numOfHighMTSections
  */
 mw.cx.TranslationController.prototype.publishArticle = function ( numOfHighMTSections ) {
-	var shouldAddHighMTCategory = numOfHighMTSections >= ( this.hasDeletedTranslations ? 1 : 10 );
+	const shouldAddHighMTCategory = numOfHighMTSections >= ( this.hasDeletedTranslations ? 1 : 10 );
 
 	// Clear the status message
 	this.translationView.setStatusMessage( '' );
@@ -706,7 +705,7 @@ mw.cx.TranslationController.prototype.onTargetCategoriesChange = function () {
  * Target title change handler
  */
 mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
-	var currentTitle = this.translation.getTargetTitle(),
+	const currentTitle = this.translation.getTargetTitle(),
 		newTitle = this.translationView.targetColumn.getTitle();
 
 	// if nothing changed return without doing anything
@@ -717,8 +716,8 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	this.translation.setTargetTitle( newTitle );
 	this.saveScheduler();
 
-	var currentTitleObj = mw.Title.newFromUserInput( currentTitle );
-	var newTitleObj = mw.Title.newFromUserInput( newTitle );
+	const currentTitleObj = mw.Title.newFromUserInput( currentTitle );
+	const newTitleObj = mw.Title.newFromUserInput( newTitle );
 
 	if (
 		currentTitleObj && newTitleObj &&
@@ -734,7 +733,7 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 mw.cx.TranslationController.prototype.onTargetSectionTitleChange = function () {};
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
-	var api = new mw.Api();
+	const api = new mw.Api();
 
 	this.translationTracker.init( this.translation );
 
@@ -753,7 +752,7 @@ mw.cx.TranslationController.prototype.onSurfaceReady = function () {
  * @return {string}
  */
 mw.cx.TranslationController.prototype.getTimestamp = function () {
-	var date = new Date();
+	const date = new Date();
 	date.setDate( date.getDate() - 30 );
 
 	return date.toISOString();
@@ -766,15 +765,15 @@ mw.cx.TranslationController.prototype.getTimestamp = function () {
  * @return {mw.Message|null}
  */
 mw.cx.TranslationController.prototype.getMTAbuseMsg = function ( numOfHighMTSections ) {
-	var highMTSectionsThreshold = this.hasDeletedTranslations ? 10 : 50;
+	const highMTSectionsThreshold = this.hasDeletedTranslations ? 10 : 50;
 
 	if ( numOfHighMTSections >= highMTSectionsThreshold ) {
 		return mw.message( 'cx-mt-abuse-error-sections' );
 	}
 
-	var mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
+	const mtPercentage = this.translationTracker.getUnmodifiedMTPercentageInTranslation();
 	mw.log( 'Unmodified MT percentage: ' + mtPercentage );
-	var threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
+	const threshold = mw.config.get( 'wgContentTranslationUnmodifiedMTThresholdForPublish' );
 
 	if ( mtPercentage > parseFloat( threshold ) ) {
 		return mw.message(
