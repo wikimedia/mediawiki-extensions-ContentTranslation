@@ -34,3 +34,13 @@ ve.dm.CXTranslationUnitModel.prototype.getSectionId = function () {
 ve.dm.CXTranslationUnitModel.prototype.getSectionNumber = function () {
 	return mw.cx.getSectionNumberFromSectionId( this.getSectionId() );
 };
+
+/**
+ * Get the mw section number for the section. It refers to different article
+ * section (e.g. lead section, "Early life", "Biography", "References" sections etc)
+ *
+ * @return {number} mw section number
+ */
+ve.dm.CXTranslationUnitModel.prototype.getMwSectionNumber = function () {
+	return this.element && this.element.attributes && this.element.attributes.mwsectionnumber;
+};

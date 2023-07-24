@@ -5,10 +5,12 @@
  *
  * @constructor
  * @param {number} sectionNumber
+ * @param {number} mwSectionNumber
  */
-mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber ) {
+mw.cx.dm.SectionState = function MwCxSectionState( sectionNumber, mwSectionNumber ) {
 	// @var {number}
 	this.sectionNumber = sectionNumber;
+	this.mwSectionNumber = mwSectionNumber;
 	// @var {Object}
 	this.source = {
 		html: null,

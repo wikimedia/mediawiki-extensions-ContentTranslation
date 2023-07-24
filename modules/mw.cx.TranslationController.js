@@ -480,15 +480,17 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	// checking whether the content matches AbuseFilter rules defined in the target wiki.
 	const validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
 
+	const revision = this.translation.getSourceRevisionId();
+	const sectionId = `${revision}_${sectionState.mwSectionNumber}_${sectionNumber}`;
 	const translationSource = sectionState.getCurrentMTProvider();
 	let content;
 	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {
 		content = sectionState.getUserTranslation().html;
 		if ( content ) {
 			records.push( {
-				content: content,
-				sectionId: sectionNumber,
-				validate: validate,
+				content,
+				sectionId,
+				validate,
 				origin: 'user'
 			} );
 			mw.log( '[CX] Saving user translation for section ' + sectionNumber +
@@ -502,8 +504,8 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 		content = sectionState.getUnmodifiedMT().html;
 		if ( content ) {
 			records.push( {
-				content: content,
-				sectionId: sectionNumber,
+				content,
+				sectionId,
 				validate: false,
 				origin: translationSource
 			} );
@@ -518,7 +520,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	if ( !this.isSourceSavedForSection( sectionState ) ) {
 		records.push( {
 			content: sectionState.getSource().html,
-			sectionId: sectionNumber,
+			sectionId,
 			// It makes no sense to validate source sections.
 			validate: false,
 			origin: 'source'

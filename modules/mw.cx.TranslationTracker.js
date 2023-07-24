@@ -248,14 +248,32 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 	let restoredSections = 0;
 
 	const sectionModels = translationModel.sourceDoc.getNodesByType( 'cxSection' );
-	const savedTranslationUnits = translationModel.savedTranslationUnits || [];
+	const savedTranslationUnits = translationModel.savedTranslationUnits || {};
+
+	// the keys inside "savedTranslationUnits" variable correspond to the section id of each translation
+	// unit. The format of these section ids changed as part of work for T332863 into the following:
+	// `${page_revision}_${mw_section_number}_${section_number}.
+	// Before, only the section numbers were used as section ids.
+	// In order to avoid modifying the CX restoration logic, we adapt the new keys to
+	// only keep the section numbers, to be compatible with the existing logic
+	const adaptedTranslationUnits = {};
+	for ( let key in savedTranslationUnits ) {
+		const translationUnit = savedTranslationUnits[ key ];
+		if ( !isFinite( key ) ) {
+			const split = key.split( '_' );
+			key = split.pop();
+		}
+
+		adaptedTranslationUnits[ key ] = translationUnit;
+	}
 	for ( let i = 0; i < sectionModels.length; i++ ) {
 		const sectionModel = sectionModels[ i ];
 
 		const sectionNumber = sectionModel.getSectionNumber();
-		const sectionState = new mw.cx.dm.SectionState( sectionNumber );
+		const mwSectionNumber = sectionModel.getMwSectionNumber();
+		const sectionState = new mw.cx.dm.SectionState( sectionNumber, mwSectionNumber );
 		sectionState.setSource( ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML );
-		const savedTranslationUnit = savedTranslationUnits[ sectionNumber ];
+		const savedTranslationUnit = adaptedTranslationUnits[ sectionNumber ];
 		if ( savedTranslationUnit ) {
 			if ( savedTranslationUnit.user ) {
 				sectionState.setCurrentMTProvider( savedTranslationUnit.user.engine );

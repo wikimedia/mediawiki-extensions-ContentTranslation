@@ -55,6 +55,7 @@ ve.dm.CXSectionNode.static.toDataElement = function ( domElements ) {
 
 	dataElement.attributes.cxid = domElements[ 0 ].id;
 	dataElement.attributes.cxsource = domElements[ 0 ].dataset.mwCxSource;
+	dataElement.attributes.mwsectionnumber = parseInt( domElements[ 0 ].dataset.mwSectionNumber );
 	return dataElement;
 };
 
