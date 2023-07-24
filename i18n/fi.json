@@ -67,7 +67,6 @@
 	"cx-campaign-newbytranslation-title": "Haluatko aloittaa mieluummin kääntämisen?",
 	"cx-campaign-newbytranslation-notice": "Luo uusi artikkeli kääntämällä toisesta osaamastasi kielestä.",
 	"cx-campaign-newbytranslation-search": "Etsi toinen käännettävä sivu",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Aloita kääntäminen",
 	"cx-special-login-error": "Sivujen kääntäminen vaatii sisäänkirjautumisen. [$1 Kirjaudu sisään]",
 	"cx-tools-instructions-text1": "{{GENDER:|Käännä}} kappaleita napsauttamalla niitä",

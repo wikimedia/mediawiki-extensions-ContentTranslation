@@ -53,7 +53,6 @@
 	"cx-campaign-newbytranslation-title": "ამის მაგივრად თარგმნას ხომ არ დაიწყებთ?",
 	"cx-campaign-newbytranslation-notice": "შექმენით ახალი სტატია იმ ენიდან თარგმნით, რომელიც იცით.",
 	"cx-campaign-newbytranslation-search": "სათარგმნად სხვა გვერდის პოვნა",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "დაიწყეთ თარგმნა",
 	"cx-special-login-error": "სატარგმენლად თქვენ სისტემაში უნდა შეხვიდეთ. [$1 შესვლა]",
 	"cx-tools-instructions-text1": "სათარგმნელად პარაგრაფზე {{GENDER:|დააწკაპუნეთ}}",

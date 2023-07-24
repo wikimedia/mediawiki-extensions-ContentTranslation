@@ -67,7 +67,6 @@
 	"cx-campaign-newbytranslation-title": "Börja på en översättning istället?",
 	"cx-campaign-newbytranslation-notice": "Skapa en ny artikel genom att översätta från ett annat språk som du kan.",
 	"cx-campaign-newbytranslation-search": "Hitta en annan sida att översätta",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Börja översätta",
 	"cx-special-login-error": "Du måste vara inloggad för att översätta denna sida. [$1 Logga in]",
 	"cx-tools-instructions-text1": "{{GENDER:|Klicka}} på stycken att översätta",

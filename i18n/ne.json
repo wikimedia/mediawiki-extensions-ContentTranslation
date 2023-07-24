@@ -57,7 +57,6 @@
 	"cx-campaign-newbytranslation-title": "यसको सट्टा अनुवादबाट सुरु गर्ने हो?",
 	"cx-campaign-newbytranslation-notice": "आफूले जान्नुभएको भाषाबाट अनुवाद गरि नयाँ पृष्ठ तयार गर्नुहोस्।",
 	"cx-campaign-newbytranslation-search": "अनुवाद गर्न अर्को पृष्ठ खोज्नुहोस्",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "अनुबाद गर्न सुरु गर्नुहोस।",
 	"cx-special-login-error": "यस पृष्ठलाई अनुवाद गर्न तपाईँले लग इन गर्नु पर्छ। [$1 लग इन]",
 	"cx-tools-instructions-text1": "अनुवाद गर्नका लागि हर्रफमा {{GENDER:|क्लिक}} गर्नुहोस",

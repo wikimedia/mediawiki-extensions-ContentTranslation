@@ -61,7 +61,6 @@
 	"cx-campaign-newbytranslation-title": "เริ่มด้วยการแปลแทน?",
 	"cx-campaign-newbytranslation-notice": "สร้างบทความใหม่ด้วยการแปลจากภาษาอื่นที่คุณรู้",
 	"cx-campaign-newbytranslation-search": "เลือกหน้าที่ต้องการแปลเพิ่ม",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "เริ่มแปล",
 	"cx-special-login-error": "คุณต้องเข้าสู่ระบบเพื่อที่จะแปลหน้านี้ [$1 เข้าสู่ระบบ]",
 	"cx-tools-instructions-text1": "{{GENDER:|คลิก}}ย่อหน้าต่าง ๆ เพื่อแปล",

@@ -1,8 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"Benojan",
-			"飞舞回堂前"
+			"Winston Sung"
 		]
 	},
 	"apihelp-cxpublish-param-cxversion": "用来发布翻译个编辑器版本。"

@@ -59,7 +59,6 @@
 	"cx-entrypoint-dialog-desc": "Можете да помогнете на Уикипедия, като преведете тази страница. Преводът е лесен начин да създадете ново съдържание на български език.",
 	"cx-campaign-newbytranslation-notice": "Създайте нова статия, като превеждате от друг език, който знаете.",
 	"cx-campaign-newbytranslation-search": "Намерете друга страница за превод",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Започване на превод",
 	"cx-special-login-error": "Трябва да сте влезли в системата, за да преведете тази страница. [$1 Вход]",
 	"cx-tools-instructions-text1": "{{GENDER:|Щракнете}} върху параграфите за превеждане",

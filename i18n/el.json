@@ -23,7 +23,7 @@
 	"cx-dashboard-header": "Μεταφράσεις",
 	"cx-javascript": "Αυτό το εργαλείο δεν λειτουργεί χωρίς JavaScript. Το JavaScript είναι απενεργοποιημένο, απέτυχε να δουλέψει ή αυτός ο περιηγητής δεν υποστηρίζεται.",
 	"cx-specialpage-enable-betafeature": "Η [[mw:Special:MyLanguage/Content_translation|Μετάφραση Περιεχομένου]] είναι ένα εργαλείο για γρήγορη μετάφραση σελίδων στη γλώσσα σας. [$1 Δοκιμάστε το τώρα!]",
-	"cx-license-agreement": "Συνεχίζοντας συμφωνείτε στους [https://foundation.wikimedia.org/wiki/Terms_of_Use Όρους Χρήσης] και συμφωνείτε χωρίς ανάκληση να παρέχετε  το κείμενό σας υπό την [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Άδεια] και την [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Συνεχίζοντας συμφωνείτε στους [https://foundation.wikimedia.org/wiki/Terms_of_Use Όρους Χρήσης] και συμφωνείτε χωρίς ανάκληση να παρέχετε  το κείμενό σας υπό την [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Άδεια] και την [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Σφάλμα: δεν ήταν δυνατή η σύνδεση με το διακομιστή.",
 	"cx-desc": "Καθιστά εύκολη την [[Special:ContentTranslation|μετάφραση]] σελίδων περιεχομένου",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|μεταφρασμένο}}",
@@ -427,6 +427,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Μεταφράστε \" $1 \" και \" $2 \"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Μεταφράστε \" $1 \", \" $2 \" και άλλα",
 	"sx-block-template-adaptation-card-body-header-success": "Προτεινόμενο πρότυπο",
+	"sx-block-template-adaptation-card-title-placeholder": "Πρότυπο",
 	"sx-block-template-adaptation-card-edit-button-label": "Ελέγξτε και επεξεργαστείτε τη μετάφραση",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Επεξεργαστείτε τη μετάφραση",
 	"sx-block-template-adaptation-card-body-header-failure": "Το ισοδύναμο πρότυπο δεν είναι διαθέσιμο για $1",
@@ -478,6 +479,7 @@
 	"sx-confirm-translation-deletion-dialog-body": "Είστε σίγουροι ότι θέλετε να διαγράψετε οριστικά αυτή τη μετάφραση;",
 	"sx-translation-deletion-cancel-button-label": "Ακύρωση",
 	"sx-translation-deletion-confirm-button-label": "Διαγραφή μετάφρασης",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ημέρα|$1 ημέρες|0=Σήμερα}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 μήνας|$1 μήνες}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 έτος|$1 έτη}}"
 }

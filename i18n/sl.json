@@ -55,7 +55,6 @@
 	"cx-campaign-newbytranslation-title": "Želite namesto tega začeti prevod?",
 	"cx-campaign-newbytranslation-notice": "Ustvarite nov članek s prevodom iz jezika, ki ga razumete.",
 	"cx-campaign-newbytranslation-search": "Poišči katero drugo stran za prevajanje",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Začni prevajanje",
 	"cx-special-login-error": "Za prevajanje strani morate biti prijavljeni. [$1 Prijava]",
 	"cx-tools-instructions-text1": "Za prevajanje {{GENDER:|kliknite}} odstavek",
