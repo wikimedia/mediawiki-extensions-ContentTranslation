@@ -1,11 +1,15 @@
 import SXContentComparatorHeaderNavigation from "./SXContentComparatorHeaderNavigation";
 import { mount } from "@vue/test-utils";
-import { createStore } from "vuex";
 import mockStore from "./contentComparatorMockStore";
 
 jest.mock("../../store", () =>
   jest.requireActual("./contentComparatorMockStore")
 );
+
+const mockSelectPageSectionByIndex = jest.fn();
+jest.mock("../../composables/usePageSectionSelect", () => () => ({
+  selectPageSectionByIndex: mockSelectPageSectionByIndex,
+}));
 
 describe("SXContentComparator Header Navigation test", () => {
   mockStore.dispatch = jest.fn();
@@ -24,18 +28,12 @@ describe("SXContentComparator Header Navigation test", () => {
 
   it("Previous section method emitting update event correctly", () => {
     wrapper.find("button").trigger("click");
-    expect(mockStore.dispatch).toHaveBeenCalledWith(
-      "application/selectPageSectionByIndex",
-      2
-    );
+    expect(mockSelectPageSectionByIndex).toHaveBeenCalledWith(2);
   });
 
   it("Next section method emitting update event correctly", () => {
     wrapper.findAll("button")[1].trigger("click");
 
-    expect(mockStore.dispatch).toHaveBeenCalledWith(
-      "application/selectPageSectionByIndex",
-      1
-    );
+    expect(mockSelectPageSectionByIndex).toHaveBeenCalledWith(1);
   });
 });

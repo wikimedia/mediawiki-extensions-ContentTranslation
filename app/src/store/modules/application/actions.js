@@ -161,92 +161,6 @@ async function fetchCurrentSectionSuggestionLanguageTitles({
 }
 
 /**
- * Given a section title this action, sets the page section
- * with the matching title as current page section, if exists.
- * If not, the action fetches page sections from the API, then
- * sets the corresponding page section as current. In case when
- * no page section with the given title exists, null is set as
- * currentPageSection
- *
- * @param {object} context
- * @param {object} context.state
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {object} context.getters
- * @param {string} sectionTitle
- * @return {Promise<void>}
- */
-async function selectPageSectionByTitle(
-  { state, commit, dispatch, getters },
-  sectionTitle
-) {
-  const suggestion = state.currentSectionSuggestion;
-  const page = getters.getCurrentPage;
-
-  const setCurrentSectionByTitle = () => {
-    const section = page.getSectionByTitle(sectionTitle);
-    commit("setCurrentSourceSection", section);
-  };
-
-  if (!page.getSectionByTitle(sectionTitle)) {
-    await dispatch("mediawiki/fetchPageContent", suggestion, { root: true });
-
-    // Asynchronously resolve references and update page sections to
-    // include this resolved references
-    dispatch("mediawiki/resolvePageContentReferences", suggestion, {
-      root: true,
-    }).then(() => setCurrentSectionByTitle());
-  }
-
-  setCurrentSectionByTitle();
-}
-
-/**
- * Given the index of a page section inside the current page's sections array,
- * this action sets the corresponding page section as current page section,
- * if exists. If not, the action fetches page sections from the API, then
- * sets the corresponding page section as current. In case when no page section
- * with the given index, null is set as currentPageSection
- *
- * @param {object} context
- * @param {object} context.state
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {object} context.getters
- * @param {number} index
- * @return {Promise<void>}
- */
-async function selectPageSectionByIndex(
-  { state, commit, dispatch, getters },
-  index
-) {
-  const suggestion = state.currentSectionSuggestion;
-  const page = getters.getCurrentPage;
-
-  const setCurrentSectionByIndex = () => {
-    const section = page.sections?.[index];
-
-    // If this section is a lead section, set the source page title as original section title
-    if (index === 0) {
-      section.originalTitle = page.title;
-    }
-    commit("setCurrentSourceSection", section);
-  };
-
-  if (!page.sections?.[index]) {
-    await dispatch("mediawiki/fetchPageContent", suggestion, { root: true });
-
-    // Asynchronously resolve references and update page sections to
-    // include this resolved references
-    dispatch("mediawiki/resolvePageContentReferences", suggestion, {
-      root: true,
-    }).then(() => setCurrentSectionByIndex());
-  }
-
-  setCurrentSectionByIndex();
-}
-
-/**
  * Given an id, this action selects a translation unit for translation.
  * Such translation units are the section title and the section sentences.
  * If the given id is equal to 0, then the section title will be selected.
@@ -561,8 +475,6 @@ export default {
   initializeSectionTranslation,
   restoreSectionTranslation,
   selectNextTranslationUnit,
-  selectPageSectionByTitle,
-  selectPageSectionByIndex,
   selectPreviousTranslationUnit,
   selectTranslationUnitById,
   startFavoriteSectionTranslation,

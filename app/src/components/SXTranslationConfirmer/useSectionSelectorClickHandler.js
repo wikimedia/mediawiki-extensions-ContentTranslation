@@ -4,6 +4,7 @@ import { computed, inject, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import usePageSectionSelect from "@/composables/usePageSectionSelect";
 
 export default () => {
   const router = useRouter();
@@ -31,6 +32,9 @@ export default () => {
     replaceUrl(Object.fromEntries(urlParams));
   };
 
+  const { selectPageSectionByIndex, selectPageSectionByTitle } =
+    usePageSectionSelect();
+
   /**
    * 1. If "section" URL parameter exists, then try to select this section
    * as current source section. If this section title is valid, navigate
@@ -45,10 +49,7 @@ export default () => {
    */
   const onSectionSelectorClick = async () => {
     if (!!preFilledSectionTitle.value) {
-      await store.dispatch(
-        "application/selectPageSectionByTitle",
-        preFilledSectionTitle.value
-      );
+      await selectPageSectionByTitle(preFilledSectionTitle.value);
 
       if (!!currentSourceSection.value) {
         router.push({
@@ -85,7 +86,7 @@ export default () => {
     if (!siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp) {
       startCX();
     } else {
-      await store.dispatch("application/selectPageSectionByIndex", 0); // testable
+      await selectPageSectionByIndex(0);
 
       if (store.getters["translator/userHasSectionTranslations"]) {
         router.push({ name: "sx-sentence-selector", query: { force: true } });

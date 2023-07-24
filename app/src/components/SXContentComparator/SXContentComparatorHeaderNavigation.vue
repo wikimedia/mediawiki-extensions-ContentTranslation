@@ -22,8 +22,8 @@ import {
   mwIconPrevious,
 } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
-import useCompareContents from "./useCompareContents";
 import { useStore } from "vuex";
+import usePageSectionSelect from "@/composables/usePageSectionSelect";
 
 export default {
   name: "SxContentComparatorHeaderNavigation",
@@ -46,19 +46,21 @@ export default {
       props.sectionSourceTitles.indexOf(sourceSectionTitle.value)
     );
 
+    const { selectPageSectionByIndex } = usePageSectionSelect();
+
     const goToPreviousSection = () => {
       const previousIndex =
         (currentTitleIndex.value - 1 + props.sectionSourceTitles.length) %
         props.sectionSourceTitles.length;
 
-      store.dispatch("application/selectPageSectionByIndex", previousIndex);
+      selectPageSectionByIndex(previousIndex);
     };
 
     const goToNextSection = () => {
       const nextIndex =
         (currentTitleIndex.value + 1) % props.sectionSourceTitles.length;
 
-      store.dispatch("application/selectPageSectionByIndex", nextIndex);
+      selectPageSectionByIndex(nextIndex);
     };
 
     return {
