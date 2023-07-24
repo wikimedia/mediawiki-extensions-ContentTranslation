@@ -12,7 +12,7 @@
 
 .mw-ui-spinner {
   margin: 10px auto 0;
-  width: @width-bounce-dot * 4; // Equals to width and margins.
+  width: @width-bounce-dot * 3; // Equals to width and margins.
   white-space: nowrap;
 
   .mw-ui-spinner__bounce,
@@ -29,13 +29,11 @@
   }
 
   &:before {
-    margin-right: @width-bounce-dot / 4;
     -webkit-animation-delay: -330ms;
     animation-delay: -330ms;
   }
 
   &:after {
-    margin-left: @width-bounce-dot / 4;
     -webkit-animation-delay: 0ms;
     animation-delay: 0ms;
   }
