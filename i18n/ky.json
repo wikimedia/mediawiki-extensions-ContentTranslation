@@ -54,6 +54,7 @@
 	"cx-contributions-translation": "Котормо",
 	"cx-translation-status-draft": "Которулууда",
 	"cx-translation-label-published": "Жарыяланган котормолор",
+	"cx-stats-cumulative-tab-title": "Бардыгы",
 	"cx-draft-cancel-button-label": "Жокко чыгаруу",
 	"cx-draft-discard-button-label": "Котормону жок кылуу",
 	"cx-campaign-no-thanks": "Жок, рахмат",
@@ -62,5 +63,6 @@
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 котормо}}",
 	"echo-category-title-cx": "Котормолор",
 	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу",
+	"cx-translator-total-translations-label": "Бардыгы",
 	"sx-article-search-language-selector-dialog-title": "Тилдер"
 }
