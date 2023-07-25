@@ -405,6 +405,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" ߣߌ߫ \"$2\" ߘߟߊߡߌ߬ߘߊ߬",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\"߸ \"$2\" ߟߎ߫ ߘߟߊߡߌ߬ߘߊ߬ ߞߊ߬߸ ߊ߬ ߣߌ߫ ߘߏ߫ ߜߘߍ߫ ߟߎ߫",
 	"sx-block-template-adaptation-card-body-header-success": "ߞߙߊߞߏ߫ ߦߌ߬ߘߊ߬ߕߊ",
+	"sx-block-template-adaptation-card-title-placeholder": "ߞߙߊߞߏ",
 	"sx-block-template-adaptation-card-edit-button-label": "ߘߟߊߡߌߘߊߟߌ ߘߐߞߊ߬ߙߊ߲߬ ߊ߬ ߣߌ߫ ߞߵߊ߬ ߡߊߦߟߍ߬ߡߊ߲߫",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "ߘߟߊߡߌߘߊߟߌ ߡߊߦߟߍ߬ߡߊ߲߫",
 	"sx-block-template-adaptation-card-body-header-failure": "ߓߐߢߐ߲߯ߞߏ߫ ߞߙߊߞߏ ߕߍ߫ ߡߊ߬ߛߐ߬ߘߐ߲߬ߕߊ߫ ߘߌ߫ $1 ߢߍ߫",
@@ -439,12 +440,16 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "ߞߊߙߏ ߣߌ߲߬ ߠߊ߫",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "ߞߙߎߞߍ߬ߙߍ",
 	"sx-confirm-back-navigation-dialog-title": "ߞߵߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߘߊߓߌ߬ߟߊ߫؟",
-	"sx-confirm-back-navigation-dialog-body": "ߓߣߐ߬ ߘߌ߫ ߞߍ߫ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߓߍ߯ ߘߐ߫.",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "ߊ߬ ߘߊߓߌ߬ߟߊ߫",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "ߊ߬ ߘߊߓߊ߲߫",
+	"sx-confirm-back-navigation-dialog-body": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߡߊ߫ ߟߊߞߎ߲߬ߘߎ߬ ߡߎߣߎ߲߬߸ ߏ߬ ߘߐ߫ ߓߣߐ߬ ߘߌ߫ ߣߊ߬ ߞߴߊ߬ ߟߊ߫.\nߌ ߦߋ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߓߊ߲߫ ߛߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߠߎ߬ ߘߌ߫ ߟߊߞߎ߲߬ߘߎ߫ ߊ߬ߟߎ߫ ߖߍ߬ߘߍߡߊ߬.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߓߌ߬ߟߊ߬",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߓߊ߲߫",
 	"cx-sx-login-dialog-title": "ߌ ߟߊ߫ ߥߎ߬ߛߎ ߛߕߊ ߓߘߊ߫ ߝߊ߫",
 	"cx-sx-login-dialog-body": "ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߎ߬ ߕߍߣߊ߬ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫ ߥߟߊ߫ ߞߵߊ߬ ߓߌ߬ߟߴߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫߸ ߝߏߣߴߌ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ ߝߢߐߞߊ߫ ߜߘߍ߫ ߟߊ߫.",
 	"cx-sx-login-dialog-button-label": "ߌ ߜߊ߲߬ߞߎ߲߫",
+	"sx-confirm-translation-deletion-dialog-body": "ߌ ߟߊߣߴߊ߬ ߟߊ߫ ߝߋߎ߫ ߞߴߌ ߦߋ߫ ߘߟߊߡߌߘߊߟߌ ߖߏ߰ߛߌ߫ ߞߏ ߘߐ߫ ߖߏ߬ߛߟߌ߬ ߓߟߏߕߍ߰ߓߊߟߌ ߟߊ߫؟",
 	"sx-translation-deletion-cancel-button-label": "ߊ߬ ߘߐߛߊ߬",
-	"sx-translation-deletion-confirm-button-label": "ߘߟߊߡߌߘߊߟߌ ߖߏ߬ߛߌ߬"
+	"sx-translation-deletion-confirm-button-label": "ߘߟߊߡߌߘߊߟߌ ߖߏ߬ߛߌ߬",
+	"cx-sx-translation-work-days-since-started": "ߕߋ߬ߟߋ߫{{PLURAL:$1|ߕߟߋ߬ $1|߀=ߓߌ߬}}",
+	"cx-sx-translation-work-months-since-started": "ߞߊߙߏ߫{{PLURAL:$1|ߞߊߙߏ߫ $1 ߟߎ߫}}",
+	"cx-sx-translation-work-years-since-started": "ߛߊ߲߬{{PLURAL:$1|ߛߊ߲߬ $1 ߟߎ߫}}"
 }
