@@ -93,7 +93,7 @@
 </template>
 
 <script>
-var Vue = require( 'vue' );
+const Vue = require( 'vue' );
 
 // @vue/component
 module.exports = {
@@ -110,22 +110,20 @@ module.exports = {
 			required: true
 		}
 	},
-	setup: function ( props ) {
-		var showPanel = Vue.ref( true );
-		var siteMapper = new mw.cx.SiteMapper();
-		var slicedLanguages = Vue.computed( function () {
-			return props.languages.slice( 0, 2 );
-		} );
+	setup: ( props ) => {
+		const showPanel = Vue.ref( true );
+		const siteMapper = new mw.cx.SiteMapper();
+		const slicedLanguages = Vue.computed( () => props.languages.slice( 0, 2 ) );
 
-		var close = function () {
+		const close = () => {
 			showPanel.value = false;
 			props.onClose();
 		};
 
-		var sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
+		const sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
 
-		var getCXUrlByTargetLanguage = function ( targetLanguage ) {
-			var sourceTitle = mw.config.get( 'wgTitle' );
+		const getCXUrlByTargetLanguage = ( targetLanguage ) => {
+			const sourceTitle = mw.config.get( 'wgTitle' );
 
 			return siteMapper.getCXUrl(
 				sourceTitle,
@@ -136,18 +134,18 @@ module.exports = {
 		};
 
 		return {
-			close: close,
+			close,
 			ellipsisIconPath: 'M 19,10 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2 M 5,10 A 2,2 0 0 1 3,12 2,2 0 0 1 1,10 2,2 0 0 1 3,8 2,2 0 0 1 5,10 m 7,0 a 2,2 0 0 1 -2,2 2,2 0 0 1 -2,-2 2,2 0 0 1 2,-2 2,2 0 0 1 2,2',
 			getDir: $.uls.data.getDir,
 			getAutonym: $.uls.data.getAutonym,
 			iconColor: 'currentColor',
 			plusIconPath: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z',
 			previousIconPath: 'M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z',
-			getCXUrlByTargetLanguage: getCXUrlByTargetLanguage,
-			showPanel: showPanel,
+			getCXUrlByTargetLanguage,
+			showPanel,
 			size: 20,
-			slicedLanguages: slicedLanguages,
-			sourceLanguage: sourceLanguage
+			slicedLanguages,
+			sourceLanguage
 		};
 	}
 };
