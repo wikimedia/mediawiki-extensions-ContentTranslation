@@ -30,7 +30,7 @@
 	"cx-dashboard-header": "Переклади",
 	"cx-javascript": "Цей інструмент не працює без JavaScript. JavaScript вимкнено, не вдалося запустити, або ж цей браузер не підтримується.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Переклад вмісту]] — це інструмент для швидкого перекладу сторінок Вашою мовою. [$1 Спробуйте прямо зараз!]",
-	"cx-license-agreement": "Зберігаючи зміни, Ви погоджуєтеся з [https://foundation.wikimedia.org/wiki/Terms_of_Use Умовами використання] і невідклично погоджуєтесь з поширенням свого внеску під [https://creativecommons.org/licenses/by-sa/3.0/ ліцензією CC BY-SA 3.0] та [//uk.wikipedia.org/wiki/Вікіпедія:Текст_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Зберігаючи зміни, Ви погоджуєтеся з [https://foundation.wikimedia.org/wiki/Terms_of_Use/uk Умовами використання] і невідклично погоджуєтесь з поширенням свого внеску під [https://creativecommons.org/licenses/by-sa/4.0/ ліцензією CC BY-SA 4.0] та [//uk.wikipedia.org/wiki/Вікіпедія:Текст_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Помилка: не вдалося підключитися до сервера.",
 	"cx-desc": "Полегшує [[Special:ContentTranslation|переклад]] статей",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|перекладено}}",
@@ -436,6 +436,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перекласти «$1» і «$2»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перекласти «$1», «$2» та більше",
 	"sx-block-template-adaptation-card-body-header-success": "Запропонований шаблон",
+	"sx-block-template-adaptation-card-title-placeholder": "Шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Перевірити та редагувати переклад",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Редагувати переклад",
 	"sx-block-template-adaptation-card-body-header-failure": "Еквівалентний шаблон не доступний для $1",
@@ -483,5 +484,11 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Продовжити редагування",
 	"cx-sx-login-dialog-title": "Час вашої сесії минув",
 	"cx-sx-login-dialog-body": "Ваші зміни не можна зберегти та віднести до вашого облікового запису, доки ви не ввійдете знову в іншому вікні",
-	"cx-sx-login-dialog-button-label": "Увійти"
+	"cx-sx-login-dialog-button-label": "Увійти",
+	"sx-confirm-translation-deletion-dialog-body": "Ви впевнені, що хочете вилучити цей переклад назовсім?",
+	"sx-translation-deletion-cancel-button-label": "Скасувати",
+	"sx-translation-deletion-confirm-button-label": "Вилучити переклад",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 день|$1 дні|$1 днів|0=Сьогодні}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 місяць|$1 місяці|$1 місяців}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 рік|$1 роки|$1 років}}"
 }
