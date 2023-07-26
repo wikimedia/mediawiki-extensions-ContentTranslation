@@ -73,7 +73,7 @@
 
 		// Get acceptable source/target language pairs
 		this.siteMapper.getLanguagePairs().then(
-			function ( data ) {
+			( data ) => {
 				// We store valid source and target languages as "static" variables of LanguageFilter
 				mw.cx.ui.LanguageFilter.static.sourceLanguages = data.sourceLanguages;
 				mw.cx.ui.LanguageFilter.static.targetLanguages = data.targetLanguages;
@@ -85,11 +85,10 @@
 
 				mw.hook( 'mw.cx.dashboard.ready' ).fire();
 				this.logAnalyticsEvent();
-			}.bind( this ),
-			function () {
-				mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
 			}
-		);
+		).catch( () => {
+			mw.hook( 'mw.cx.error' ).fire( mw.msg( 'cx-error-server-connection' ) );
+		} );
 	};
 
 	// Find valid source and target language pair and store them in local storage

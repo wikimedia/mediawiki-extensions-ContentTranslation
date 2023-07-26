@@ -1,8 +1,8 @@
 import MTProviderGroup from "../models/mtProviderGroup";
 import { siteMapper } from "../../../utils/mediawikiHelper";
 
-async function fetchSupportedLanguageCodes() {
-  return await siteMapper
+function fetchSupportedLanguageCodes() {
+  return siteMapper
     .getLanguagePairs()
     .then((response) => response.sourceLanguages);
 }

@@ -16,11 +16,11 @@
  * @param {Object} [overrides] Configuration overrides (defaults from PHP configuration)
  */
 mw.cx.SiteMapper = function ( overrides ) {
-	var config = require( '../config.json' );
+	const config = require( '../config.json' );
 
 	overrides = overrides || {};
 
-	var siteMapperConfig = $.extend( {}, config, overrides );
+	const siteMapperConfig = Object.assign( {}, config, overrides );
 	this.siteTemplates = siteMapperConfig.SiteTemplates;
 	this.codeMap = siteMapperConfig.DomainCodeMapping;
 	this.translateInTarget = siteMapperConfig.TranslateInTarget;
@@ -52,7 +52,7 @@ mw.cx.SiteMapper.prototype.getWikiDomainCode = function ( language ) {
  * @return {string} Source language code
  */
 mw.cx.SiteMapper.prototype.getCurrentWikiLanguageCode = function () {
-	var from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
+	const from = mw.config.get( 'wgServerName' ).split( '.', 1 )[ 0 ],
 		fallback = mw.config.get( 'wgContentLanguage' );
 
 	return this.getLanguageCodeForWikiDomain( from, fallback );
@@ -64,9 +64,7 @@ mw.cx.SiteMapper.prototype.getCurrentWikiLanguageCode = function () {
  * @return {string}
  */
 mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain, fallback ) {
-	var code;
-
-	for ( code in this.codeMap ) {
+	for ( const code in this.codeMap ) {
 		if ( this.codeMap[ code ] === domain ) {
 			return code;
 		}
@@ -83,11 +81,9 @@ mw.cx.SiteMapper.prototype.getLanguageCodeForWikiDomain = function ( domain, fal
  * @return {mw.ForeignApi} api
  */
 mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
-	var url, domain;
-
-	domain = this.getWikiDomainCode( language );
-	url = this.siteTemplates.api.replace( '$1', domain );
-	options = $.extend( { anonymous: true }, options );
+	const domain = this.getWikiDomainCode( language );
+	const url = this.siteTemplates.api.replace( '$1', domain );
+	options = Object.assign( { anonymous: true }, options );
 	return new mw.ForeignApi( url, options );
 };
 
@@ -118,21 +114,17 @@ mw.cx.SiteMapper.prototype.isMobileDomain = function () {
  * @return {string}
  */
 mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash ) {
-	var domain,
-		base = this.siteTemplates.view,
-		prefix;
-
 	// Use current wiki's content language, if no language given
 	language = language || mw.config.get( 'wgContentLanguage' );
 
-	domain = this.getWikiDomainCode( language );
-	prefix = domain.replace( /\$/g, '$$$$' );
+	const domain = this.getWikiDomainCode( language );
+	let prefix = domain.replace( /\$/g, '$$$$' );
 
 	if ( this.isMobileDomain() ) {
 		prefix += '.m';
 	}
-
-	if ( params && !$.isEmptyObject( params ) ) {
+	let base = this.siteTemplates.view;
+	if ( params && Object.keys( params ).length > 0 ) {
 		base = this.siteTemplates.action || this.siteTemplates.view;
 	}
 
@@ -140,8 +132,8 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash
 
 	// use location object as base URL, in order to handle protocol relative paths
 	// when base includes an absolute path, the location object won't be taken into account
-	var url = new URL( base, location );
-	for ( var key in params ) {
+	const url = new URL( base, location );
+	for ( const key in params ) {
 		url.searchParams.append( key, params[ key ] );
 	}
 
@@ -160,14 +152,13 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash
  * @return {string}
  */
 mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
-	var paramKey, cxserverURL = this.siteTemplates.cx;
-
 	if ( params ) {
-		for ( paramKey in params ) {
+		for ( const paramKey in params ) {
 			module = module.replace( paramKey, encodeURIComponent( params[ paramKey ] ) );
 		}
 	}
 
+	let cxserverURL = this.siteTemplates.cx;
 	if ( mw.cx.getCXVersion() === 2 ) {
 		cxserverURL = cxserverURL.replace( 'v1', 'v2' );
 	}
@@ -176,16 +167,14 @@ mw.cx.SiteMapper.prototype.getCXServerUrl = function ( module, params ) {
 };
 
 mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params ) {
-	var paramKey,
-		domain = this.getWikiDomainCode( language ),
-		url = this.siteTemplates.restbase.replace( '$1', domain );
+	const domain = this.getWikiDomainCode( language );
+	const url = this.siteTemplates.restbase.replace( '$1', domain );
 
 	if ( params ) {
-		for ( paramKey in params ) {
+		for ( const paramKey in params ) {
 			module = module.replace( paramKey, encodeURIComponent( params[ paramKey ] ) );
 		}
 	}
-
 	return url + module;
 };
 
@@ -196,55 +185,42 @@ mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params 
  * @return {string} target title
  */
 mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
-	var targetTitle;
-
 	// If the title is already in the user namespace, just return it
 	if ( new mw.Title( title ).getNamespaceId() === 2 ) {
 		return title;
 	}
 
-	switch ( this.targetNamespace ) {
-		// Main namespace
-		case 0:
-			targetTitle = title;
-			break;
-		// User
-		case 2:
-			targetTitle = 'User:' + mw.user.getName() + '/' + title;
-			break;
-		default:
-			targetTitle = mw.Title.makeTitle( this.targetNamespace, title ).getPrefixedText();
-			break;
+	if ( this.targetNamespace === 0 ) {
+		return title;
+	} else if ( this.targetNamespace === 2 ) {
+		return `User:${mw.user.getName()}/${title}`;
+	} else {
+		return mw.Title.makeTitle( this.targetNamespace, title ).getPrefixedText();
 	}
-
-	return targetTitle;
 };
 
 /**
  * Get all the source and target languages.
  *
- * @return {jQuery.Promise}
+ * @return {Promise}
  */
 mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
-	var languagePairsAPIUrl,
-		self = this;
-
 	if ( !this.languagePairsPromise ) {
-		languagePairsAPIUrl = this.getCXServerUrl( '/list/languagepairs' );
-		this.languagePairsPromise = $.get( languagePairsAPIUrl )
-			.then( function ( response ) {
-				return {
-					targetLanguages: response.target,
-					sourceLanguages: response.source
-				};
-			}, function ( response ) {
+		const languagePairsAPIUrl = this.getCXServerUrl( '/list/languagepairs' );
+		this.languagePairsPromise = fetch( languagePairsAPIUrl )
+			.then( ( response ) => response.json() )
+			.then( ( response ) => ( {
+				targetLanguages: response.target,
+				sourceLanguages: response.source
+			} ) )
+			.catch( ( response ) => {
 				mw.log(
 					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
-					response.statusText + ' (' + response.status + '). ' +
-					response.responseText
+								response.statusText + ' (' + response.status + '). ' +
+								response.responseText
 				);
-				self.languagePairsPromise = null;
-				return $.Deferred().reject().promise();
+				this.languagePairsPromise = null;
+				return Promise.reject();
 			} );
 	}
 	return this.languagePairsPromise;
@@ -268,10 +244,7 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 	targetLanguage,
 	extra
 ) {
-	var cxPage, queryParams, uri;
-
-	cxPage = 'Special:ContentTranslation';
-	queryParams = $.extend( {
+	const queryParams = Object.assign( {
 		from: sourceLanguage,
 		to: targetLanguage
 	}, extra );
@@ -284,11 +257,12 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 		queryParams.targettitle = targetTitle;
 	}
 
+	const cxPage = 'Special:ContentTranslation';
 	if ( this.translateInTarget ) {
-		uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
+		const uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
 		// Use mw.Uri().query for current URL also to retain any non-CX params
 		// in URL. A good example is debug=true param.
-		uri.query = $.extend( {}, mw.Uri().query, uri.query, queryParams );
+		uri.query = Object.assign( {}, mw.Uri().query, uri.query, queryParams );
 
 		return uri.toString();
 	}
@@ -307,14 +281,12 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
  * @param {string} sourceTitle Source title
  */
 mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
-	var name, options;
-
 	// base64 encode the name to get cookie name.
-	name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );
+	let name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );
 	// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
 	name = name.replace( /[()<>@,;\\[\]?={}]/g, '' );
 	// sameSite set to None and secure set to true to make the cookie visible on cross-domain requests.
-	options = {
+	const options = {
 		prefix: '',
 		expires: 3600,
 		sameSite: 'None',
