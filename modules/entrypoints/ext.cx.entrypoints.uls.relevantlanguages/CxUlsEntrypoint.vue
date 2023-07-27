@@ -70,7 +70,7 @@
 				</a>
 				<a
 					class="cx-uls-entrypoint__body__translation-link"
-					:href="getCXUrlByTargetLanguage( null )"
+					:href="getCXUrlByTargetLanguage( slicedLanguages[0] )"
 				>
 					<span class="cx-uls-entrypoint__body__translation-link-icon">
 						<svg
