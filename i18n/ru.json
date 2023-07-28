@@ -63,7 +63,7 @@
 	"cx-dashboard-header": "Переводы",
 	"cx-javascript": "Этот инструмент не работает без JavaScript. JavaScript отключён, не работает, или этот браузер не поддерживается.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — инструмент для быстрого перевода страниц на ваш язык. [$1 Воспользуйтесь им прямо сейчас!]",
-	"cx-license-agreement": "Продолжая, вы соглашаетесь с [https://foundation.wikimedia.org/wiki/Terms_of_Use/ru Условиями использования] и безоговорочно соглашаетесь на публикацию вашего вклада, сделанного через инструмент перевода, под [https://creativecommons.org/licenses/by-sa/3.0/deed.ru лицензией CC BY-SA 3.0] и [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Продолжая, вы соглашаетесь с [https://foundation.wikimedia.org/wiki/Terms_of_Use/ru Условиями использования] и безоговорочно соглашаетесь на публикацию вашего вклада, сделанного через инструмент перевода, под лицензиями [https://creativecommons.org/licenses/by-sa/4.0/deed.ru лицензией CC BY-SA 4.0] и [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Ошибка. Не удалось подключиться к серверу.",
 	"cx-desc": "Позволяет легко [[Special:ContentTranslation|переводить]] содержание страниц",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Перевод}} выполнен на $1%",
