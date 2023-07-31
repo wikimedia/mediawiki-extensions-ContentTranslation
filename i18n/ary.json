@@ -8,7 +8,15 @@
 	"cx-publish-page-success": "الصفحة تنشرات ف $1",
 	"cx-page-selector-widget-nearby-label": "قريب من هنا",
 	"cx-page-missing-in-target-language": "ناقص ف $1",
+	"cx-dashboard-sidebar-title": "واش خاصك معاونة ف الطرجامة؟",
+	"cx-dashboard-sidebar-information": "زيد تّعرّف على هاد التول",
+	"cx-dashboard-sidebar-feedback": "عطينا فيدباك",
 	"cx-save-draft-save-success": "تصوڤات {{PLURAL:$1|هادي دقيقة|هادي $1 دقيقة|0=يالله دابا}}",
+	"cx-translation-label-draft": "الطرجامات لي غاديين",
+	"cx-stats-draft-translations-label": "الطرجامات لي غاديين",
 	"cx-tools-linter-reference-message": "واحد لمرجيع ماتدارش ليه الطرونصفير ل الطرجامة حيت مخدّم موضيل عندو قلدة مختالفة.\n\nعافاك بدّل التفاصيل د لمرجيع ف الطرجامة باش تعمّر لمعلومات لي ناقصين.",
+	"cx-translator-header": "إحصائيات ديالك",
+	"cx-translator-month-stats-label": "هاد الشهر",
+	"cx-translator-total-translations-label": "كولشي",
 	"cx-linkcontextitem-missing-title-description": "هاد صفحة مازال ماكاينة"
 }
