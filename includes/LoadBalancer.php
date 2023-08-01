@@ -52,7 +52,7 @@ class LoadBalancer {
 			? $this->lbFactory->getExternalLB( $this->contentTranslationCluster )
 			: $this->lbFactory->getMainLB( $this->contentTranslationDatabase );
 
-		return $lb->getConnectionRef( $type, [], $this->contentTranslationDatabase );
+		return $lb->getConnection( $type, [], $this->contentTranslationDatabase );
 	}
 
 }

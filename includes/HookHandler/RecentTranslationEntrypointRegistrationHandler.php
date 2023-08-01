@@ -107,7 +107,7 @@ class RecentTranslationEntrypointRegistrationHandler implements BeforePageDispla
 		// This entrypoint should only be enabled for pages that have less than 5 edits.
 		$pageId = $out->getWikiPage()->getId();
 		// Find all revisions for this page
-		$dbr = $this->loadBalancer->getConnectionRef( DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
 		$revisionsCount = $this->revisionStore->countRevisionsByPageId( $dbr, $pageId );
 
 		// If article has at least 5 edits, return
