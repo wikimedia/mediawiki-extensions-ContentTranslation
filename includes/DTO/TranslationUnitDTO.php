@@ -150,7 +150,7 @@ class TranslationUnitDTO {
 		if ( $sanitize ) {
 			// filter out unused blob type fields
 			foreach ( self::VALID_BLOB_TYPES as $type ) {
-				if ( isset( $unit[$type] ) && isset( $unit[$type]['content'] ) ) {
+				if ( isset( $unit[$type]['content'] ) ) {
 					$unit[$type]['content'] = Sanitizer::stripAllTags( $unit[$type]['content'] );
 				}
 			}
