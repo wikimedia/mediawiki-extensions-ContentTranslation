@@ -41,6 +41,7 @@
 	"cx-tools-link-title": "Шилтеме",
 	"cx-tools-link-add": "Шилтеме кошуу",
 	"cx-tools-mt-provider-title": "$1 колдонуу",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категория|0=Категориялар жок}}",
 	"cx-stats-title": "Мазмунду которуу статистикасы",
 	"cx-selected-source-page-start-translation-button": "Которо баштоо",
 	"cx-captcha-dialog-cancel": "Жокко чыгаруу",
@@ -62,6 +63,7 @@
 	"cx-trend-translations-to": "$1 тилиндеги котормолор",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 котормо}}",
 	"echo-category-title-cx": "Котормолор",
+	"cx-tools-linter-learn-more": "Толук маалымат",
 	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу",
 	"cx-translator-total-translations-label": "Бардыгы",
 	"sx-article-search-language-selector-dialog-title": "Тилдер"
