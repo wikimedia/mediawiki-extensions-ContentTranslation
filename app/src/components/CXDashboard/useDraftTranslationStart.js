@@ -6,6 +6,8 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import { useStore } from "vuex";
 import translatorApi from "@/wiki/cx/api/translator";
 import translationRestorer from "@/utils/translationRestorer";
+import useDevice from "@/composables/useDevice";
+import useCXRedirect from "@/composables/useCXRedirect";
 
 /**
  * @return {(function(Translation): Promise<void>)}
@@ -22,6 +24,9 @@ const useDraftTranslationStart = () => {
   } = useApplicationState(store);
   const updateLanguagePair = useDraftTranslationLanguagePairUpdater();
 
+  const { isDesktop } = useDevice();
+  const redirectToCX = useCXRedirect();
+
   const prepareDraftTranslation = async (translation) => {
     store.commit("application/increaseTranslationDataLoadingCounter");
     const {
@@ -31,12 +36,19 @@ const useDraftTranslationStart = () => {
       pageRevision,
     } = translation;
 
+    if (isDesktop.value) {
+      redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
+
+      return;
+    }
+
     if (
       sourceLanguage.value !== translationSourceLanguage ||
       targetLanguage.value !== translationTargetLanguage
     ) {
       updateLanguagePair(translation);
     }
+
     store.dispatch("application/restoreSectionTranslation", translation);
 
     logEvent({
