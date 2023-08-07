@@ -227,10 +227,8 @@ export default {
 
   .mw-ui-dialog__header {
     & > .mw-ui-dialog__header-title:not(:empty) {
-      max-height: 2em;
       max-width: 100%;
       font-weight: bold;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
