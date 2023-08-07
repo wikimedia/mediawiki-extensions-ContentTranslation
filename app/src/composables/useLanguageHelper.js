@@ -20,12 +20,17 @@ const redirectToTargetWikiIfNeeded = (
   const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
 
   if (translateInTarget && targetLanguage !== wikiLanguage) {
+    extra = { sx: true, ...extra };
+
+    if (sectionTitle) {
+      extra.section = sectionTitle;
+    }
     location.href = siteMapper.getCXUrl(
       articleTitle,
       null,
       sourceLanguage,
       targetLanguage,
-      { sx: true, section: sectionTitle, ...extra }
+      extra
     );
   }
 };

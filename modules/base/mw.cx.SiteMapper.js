@@ -270,21 +270,12 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 	return mw.util.getUrl( cxPage, queryParams );
 };
 
-/**
- * Set CX Token in a cookie.
- * This token guarantees that the translator reads the license agreement
- * and starts translating from CX dashboard enabled as beta feature.
- * It is recommended to configure the cookie domain.
- *
- * @param {string} sourceLanguage Source language
- * @param {string} targetLanguage Target language
- * @param {string} sourceTitle Source title
- */
-mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
+mw.cx.SiteMapper.prototype.setCXTokenValue = function ( sourceLanguage, targetLanguage, sourceTitle, value ) {
 	// base64 encode the name to get cookie name.
 	let name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );
 	// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
 	name = name.replace( /[()<>@,;\\[\]?={}]/g, '' );
+
 	// sameSite set to None and secure set to true to make the cookie visible on cross-domain requests.
 	const options = {
 		prefix: '',
@@ -306,5 +297,30 @@ mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguag
 	// Else: use whatever is the default
 
 	// At this point, the translator saw the license agreement.
-	mw.cookie.set( name, true, options );
+	mw.cookie.set( name, value, options );
+};
+
+/**
+ * Set CX Token in a cookie.
+ * This token guarantees that the translator reads the license agreement
+ * and starts translating from CX dashboard enabled as beta feature.
+ * It is recommended to configure the cookie domain.
+ *
+ * @param {string} sourceLanguage Source language
+ * @param {string} targetLanguage Target language
+ * @param {string} sourceTitle Source title
+ */
+mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
+	this.setCXTokenValue( sourceLanguage, targetLanguage, sourceTitle, true );
+};
+
+/**
+ * Unset the CX Token cookie.
+ *
+ * @param {string} sourceLanguage Source language
+ * @param {string} targetLanguage Target language
+ * @param {string} sourceTitle Source title
+ */
+mw.cx.SiteMapper.prototype.unsetCXToken = function ( sourceLanguage, targetLanguage, sourceTitle ) {
+	this.setCXTokenValue( sourceLanguage, targetLanguage, sourceTitle, null );
 };

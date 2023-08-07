@@ -8,6 +8,7 @@ import translatorApi from "@/wiki/cx/api/translator";
 import translationRestorer from "@/utils/translationRestorer";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
  * @return {(function(Translation): Promise<void>)}
@@ -40,6 +41,12 @@ const useDraftTranslationStart = () => {
       redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
 
       return;
+    } else {
+      siteMapper.unsetCXToken(
+        translationSourceLanguage,
+        translationTargetLanguage,
+        sourceTitle
+      );
     }
 
     if (
