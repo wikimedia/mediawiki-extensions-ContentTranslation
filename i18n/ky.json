@@ -21,7 +21,7 @@
 	"cx-publish-page-success": "Барак $1 жарыяланган",
 	"cx-publish-page-error": "Баракты сактоодо ката кетти.",
 	"cx-publish-button": "Жарыялоо",
-	"cx-publish-button-publishing": "Жарыяланууда",
+	"cx-publish-button-publishing": "Жарыяланууда...",
 	"cx-publish-summary": "\"$1\" барагынан которулуп түзүлдү",
 	"cx-translation-add-translation": "Котормо кошуу",
 	"tag-contenttranslation": "МазмундуКоторуу",
@@ -60,6 +60,7 @@
 	"cx-contributions-new-article": "Жаңы барак",
 	"cx-contributions-translation": "Котормо",
 	"cx-translation-status-draft": "Которулууда",
+	"cx-translation-status-published": "Жарыяланды",
 	"cx-translation-label-published": "Жарыяланган котормолор",
 	"cx-stats-cumulative-tab-title": "Бардыгы",
 	"cx-draft-cancel-button-label": "Жокко чыгаруу",
@@ -69,6 +70,7 @@
 	"cx-trend-translations-to": "$1 тилиндеги котормолор",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 котормо}}",
 	"echo-category-title-cx": "Котормолор",
+	"cx-tools-linter-learn-more": "Толук маалымат",
 	"cx-tools-linter-restart-translation-cancel": "Жокко чыгаруу",
 	"cx-translator-total-translations-label": "Бардыгы"
 }

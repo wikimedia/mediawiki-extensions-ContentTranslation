@@ -8,7 +8,8 @@
 			"Muhdnurhidayat",
 			"Pizza1016",
 			"SNN95",
-			"Tofeiku"
+			"Tofeiku",
+			"Hakimi97"
 		]
 	},
 	"cx": "Terjemahkan laman",
@@ -266,7 +267,7 @@
 	"cx-tools-linter-restart-translation-title": "Mulakan semula terjemahan?",
 	"cx-tools-linter-restart-translation-message": "Anda akan memulakan terjemahan baru untuk versi halaman terbaru. Semua perubahan anda akan hilang.",
 	"cx-tools-linter-restart-translation-cancel": "Batalkan",
-	"cx-translator-header": "Statistik-statistik anda",
+	"cx-translator-header": "Statistik anda",
 	"cx-translator-month-stats-label": "Bulan ini",
 	"cx-translator-total-translations-label": "Jumlah",
 	"cx-page-old-revision-loaded": "Terjemahan ini berdasarkan kandungan versi lama. Laman sumber mungkin sudah [$1 banyak berubah]. Anda boleh teruskan terjemahan ini atau mula semula dengan kandungan terbaharu.",
