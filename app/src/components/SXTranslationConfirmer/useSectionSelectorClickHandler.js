@@ -1,11 +1,12 @@
 import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed, inject, ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
+import useCXRedirect from "@/composables/useCXRedirect";
 
 export default () => {
   const router = useRouter();
@@ -35,6 +36,8 @@ export default () => {
 
   const { selectPageSectionByIndex, selectPageSectionByTitle } =
     usePageSectionSelect();
+
+  const redirectToCX = useCXRedirect();
 
   /**
    * 1. If "section" URL parameter exists, then try to select this section
@@ -68,24 +71,10 @@ export default () => {
     setTranslationURLParams(sectionSuggestion.value);
   };
 
-  const startCX = () => {
-    const sourceTitle = sectionSuggestion.value?.sourceTitle;
-    siteMapper.setCXToken(
-      sourceLanguage.value,
-      targetLanguage.value,
-      sourceTitle
-    );
-    location.href = siteMapper.getCXUrl(
-      sourceTitle,
-      null,
-      sourceLanguage.value,
-      targetLanguage.value
-    );
-  };
-
-  const startNewTranslation = () => {
+  const startNewTranslation = async () => {
     if (isDesktop.value) {
-      startCX();
+      const sourceTitle = sectionSuggestion.value?.sourceTitle;
+      redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
     } else {
       selectPageSectionByIndex(0);
 
