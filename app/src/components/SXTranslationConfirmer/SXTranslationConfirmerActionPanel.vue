@@ -76,7 +76,7 @@ import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
-import { siteMapper } from "@/utils/mediawikiHelper";
+import useDevice from "@/composables/useDevice";
 
 export default {
   name: "SxTranslationConfirmerActionPanel",
@@ -90,7 +90,6 @@ export default {
     const router = useRouter();
     const store = useStore();
     const colors = inject("colors");
-    const breakpoints = inject("breakpoints");
     const { targetLanguageAutonym, currentSectionSuggestion } =
       useApplicationState(store);
 
@@ -115,9 +114,7 @@ export default {
       bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
     );
 
-    const isDesktop = computed(
-      () => !siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp
-    );
+    const { isDesktop } = useDevice();
 
     const actionInformationMessage = computed(() =>
       bananaI18n.i18n(...actionInformationMessageArgs.value)

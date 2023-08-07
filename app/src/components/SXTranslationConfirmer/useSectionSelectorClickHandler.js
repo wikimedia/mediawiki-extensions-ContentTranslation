@@ -5,11 +5,12 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
+import useDevice from "@/composables/useDevice";
 
 export default () => {
   const router = useRouter();
   const store = useStore();
-  const breakpoints = inject("breakpoints");
+  const { isDesktop } = useDevice();
 
   const urlParams = new URLSearchParams(location.search);
   const preFilledSectionTitle = ref(urlParams.get("section"));
@@ -83,7 +84,7 @@ export default () => {
   };
 
   const startNewTranslation = () => {
-    if (!siteMapper.isMobileDomain() && breakpoints.value.tabletAndUp) {
+    if (isDesktop.value) {
       startCX();
     } else {
       selectPageSectionByIndex(0);
