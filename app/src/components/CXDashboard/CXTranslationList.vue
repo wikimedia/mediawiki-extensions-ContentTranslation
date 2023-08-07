@@ -22,6 +22,7 @@
         v-for="translation in activeTranslations"
         :key="`${translationStatus}-${translation.key}`"
         :translation="translation"
+        @click="startDraftTranslation(translation)"
         @delete-translation="askDeletionConfirmation(translation)"
       />
     </div>
@@ -38,6 +39,10 @@
       v-model="deletionDialogOn"
       :translation="translationToDelete"
     />
+    <sx-confirm-translation-start-dialog
+      v-model="translationConfirmationDialogOn"
+      :translation="translationToStart"
+    />
   </mw-card>
 </template>
 
@@ -46,10 +51,12 @@ import CxTranslationWorkDraft from "./CXTranslationWorkDraft.vue";
 import CxTranslationWorkPublished from "./CXTranslationWorkPublished.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
+import SxConfirmTranslationStartDialog from "./SXConfirmTranslationStartDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
 import useMediawikiState from "@/composables/useMediawikiState";
 import { useStore } from "vuex";
+import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 
 export default {
   name: "CxTranslationList",
@@ -59,6 +66,7 @@ export default {
     MwCard,
     MwSpinner,
     SxConfirmTranslationDeletionDialog,
+    SxConfirmTranslationStartDialog,
     SxTranslationListLanguageSelector,
   },
   props: {
@@ -92,7 +100,9 @@ export default {
     const { enabledTargetLanguages } = useMediawikiState();
 
     const deletionDialogOn = ref(false);
+    const translationConfirmationDialogOn = ref(false);
     const translationToDelete = ref(null);
+    const translationToStart = ref(null);
     const isDraftTranslationList = computed(
       () => props.translationStatus === "draft"
     );
@@ -158,6 +168,20 @@ export default {
       () => props.activeStatus === props.translationStatus
     );
 
+    const doStartDraftTranslation = useDraftTranslationStart();
+
+    /**
+     * @param {DraftTranslation} translation
+     */
+    const startDraftTranslation = (translation) => {
+      if (translation.isArticleTranslation) {
+        translationToStart.value = translation;
+        translationConfirmationDialogOn.value = true;
+      } else {
+        doStartDraftTranslation(translation);
+      }
+    };
+
     return {
       activeTranslations,
       availableSourceLanguages,
@@ -169,7 +193,10 @@ export default {
       loaded,
       selectedSourceLanguage,
       selectedTargetLanguage,
+      startDraftTranslation,
+      translationConfirmationDialogOn,
       translationToDelete,
+      translationToStart,
     };
   },
 };

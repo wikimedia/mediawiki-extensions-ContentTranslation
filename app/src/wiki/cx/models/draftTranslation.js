@@ -70,6 +70,17 @@ export default class DraftTranslation extends Translation {
     );
   }
 
+  /**
+   * This getter returns a boolean indicating whether this is a plain article translation. By that,
+   * we mean that there is no section translation row in the database that is associated with this
+   * draft translation. This is the case for draft translations started on CX and never been edited on SX.
+   *
+   * @return {boolean}
+   */
+  get isArticleTranslation() {
+    return !!this.translationId && !this.sectionTranslationId;
+  }
+
   get isLeadSectionTranslation() {
     return (
       !this.sourceSectionTitle ||

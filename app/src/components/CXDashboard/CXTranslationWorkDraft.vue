@@ -3,7 +3,6 @@ import CxTranslationWork from "./CXTranslationWork.vue";
 import { mwIconTrash } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwProgressBar, MwRow } from "@/lib/mediawiki.ui";
 import { computed, inject } from "vue";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 
 const props = defineProps({
@@ -20,8 +19,6 @@ const progressBarBackgroundColor = colors.base80;
 const translationProgress = computed(
   () => props.translation.progress?.any * 100 || 0
 );
-
-const startTranslation = useDraftTranslationStart();
 </script>
 
 <template>
@@ -30,7 +27,6 @@ const startTranslation = useDraftTranslationStart();
     :translation="translation"
     :action-icon="mwIconTrash"
     @action-icon-clicked="$emit('delete-translation')"
-    @click="startTranslation(translation)"
   >
     <template #title>
       <h5

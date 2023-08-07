@@ -504,5 +504,11 @@
 	"sx-translation-deletion-confirm-button-label": "Label of the 'delete' button inside the dialog that asks for user confirmation to delete a draft translation, when the delete (trash icon) button is clicked for that translation",
 	"cx-sx-translation-work-days-since-started": "Text that displays the time difference in days between current date and the date the translation started\n\nParameters:\n* $1 - the number of days since the start of the translation",
 	"cx-sx-translation-work-months-since-started": "Text that displays the time difference in months between current date and the date the translation started\n\nParameters:\n* $1 - the number of months since the start of the translation",
-	"cx-sx-translation-work-years-since-started": "Text that displays the time difference in years between current date and the date the translation started\n\nParameters:\n* $1 - the number of years since the start of the translation"
+	"cx-sx-translation-work-years-since-started": "Text that displays the time difference in years between current date and the date the translation started\n\nParameters:\n* $1 - the number of years since the start of the translation",
+	"sx-confirm-draft-translation-start-dialog-title": "Title of the dialog that informs the user about the continuation of a draft translation started on desktop",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Subtitle of the dialog that informs the user about the continuation of a draft translation started on desktop",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "First paragraph of the details that inform the user about the continuation of a draft translation started on desktop, inside the confirmation dialog",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Second paragraph of the details that inform the user about the continuation of a draft translation started on desktop, inside the confirmation dialog",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Third paragraph of the details that inform the user about the continuation of a draft translation started on desktop, inside the confirmation dialog",
+	"sx-confirm-draft-translation-start-button-label": "Label of the 'ok' button that leads to the continuation of a draft translation, inside the dialog that informs the user about the continuation of a draft translation started on desktop"
 }

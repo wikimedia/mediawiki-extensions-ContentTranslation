@@ -11,7 +11,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 
 /**
- * @return {(function(Translation): Promise<void>)}
+ * @return {(function(DraftTranslation): Promise<void>)}
  */
 const useDraftTranslationStart = () => {
   const logEvent = useEventLogging();
