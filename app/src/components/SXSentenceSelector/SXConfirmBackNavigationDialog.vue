@@ -19,7 +19,7 @@
       <span v-i18n:sx-confirm-back-navigation-dialog-body />
     </div>
     <template #footer>
-      <div class="flex justify-end py-2">
+      <div class="flex justify-end py-2 sx-confirm-back-navigation-dialog__footer">
         <mw-button
           type="text"
           :label="
@@ -74,3 +74,11 @@ export default {
   },
 };
 </script>
+<style lang="less">
+@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
+.sx-confirm-back-navigation-dialog__footer {
+  flex-wrap: wrap;
+  row-gap: @spacing-50;
+}
+</style>
