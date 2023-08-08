@@ -227,7 +227,10 @@ class TranslationCorporaStore {
 		$translationUnits = [];
 		$units = json_decode( $content, true );
 		foreach ( $units as $translationUnitData ) {
-			if ( !isset( $translationUnitData['sectionId'] ) || !is_string( $translationUnitData['origin'] ) ) {
+			if ( !isset( $translationUnitData['sectionId'] )
+				|| !isset( $translationUnitData['origin'] ) || !is_string( $translationUnitData['origin'] )
+				|| !array_key_exists( 'content', $translationUnitData )
+			) {
 				throw new InvalidSectionDataException();
 			}
 
