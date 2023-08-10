@@ -11,7 +11,7 @@
       <span v-i18n:sx-confirm-translation-deletion-dialog-body />
     </div>
     <template #footer>
-      <div class="flex pt-2">
+      <div class="flex justify-end sx-confirm-delete-dialog__footer pt-2">
         <mw-button
           class="grow py-3"
           large
@@ -19,7 +19,7 @@
           @click="closeDialog"
         />
         <mw-button
-          class="grow"
+          class="grow py-3"
           large
           destructive
           :label="$i18n('sx-translation-deletion-confirm-button-label')"
@@ -66,3 +66,9 @@ export default {
   },
 };
 </script>
+
+<style lang="less">
+.sx-confirm-delete-dialog__footer {
+  flex-wrap: wrap;
+}
+</style>
