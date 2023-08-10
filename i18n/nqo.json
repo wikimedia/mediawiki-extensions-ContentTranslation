@@ -244,6 +244,8 @@
 	"cx-publish-destination-namespace-user": "ߘߎ߲߬ߘߎ߬ߡߊ߬ ߡߢߊߛߓߍ",
 	"cx-publish-destination-namespace-user-description": "ߌ ߟߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߕߐ߯ߛߓߍ߫ ߞߣߍ ߞߐ߬ߣߐߡߊ߬ ߌߟߋ ߟߋ߬ ߦߴߊ߬ ߞߘߐߕߊ߬ ߟߊ߫",
 	"cx-publish-destination-namespace-draft": "ߘߍ߬ߘߊ ߡߢߊߛߓߍ",
+	"cx-publish-destination-namespace-draft-description": "ߡߊߢߊ߲ߛߓߍ ߕߐ߯ߛߓߍ߫ ߞߣߍ ߞߣߍ߸ ߛߊ߫ ߡߌ߬ߙߌ߲߬ߘߌ ߟߎ߬ ߘߴߊ߬ ߦߋ߫ ߊ߬ ߣߌ߫ ߞߊ߬ ߛߴߊ߬ ߟߊߢߊ߬ ߟߊ߫",
+	"cx-publish-destination-namespace-changed": "ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߣߍ߲ ߠߎ߬ ߟߊߥߊ߲߬ߞߊ߬ ߦߌߟߊ ߘߎ߲߬ߘߎ߬ߡߊ߬ ߡߊߢߊ߲ߛߓߍ ߘߐ߫. ߌ ߘߌ ߛߋ߫ ߡߞߊ߬ߝߏ߬ߟߌ߬ ߜߘߍ߫ ߟߎ߫ ߞߍ߫ ߟߊ߫ ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ ߞߣߐ߫ ߕߎ߬ߡߊ߬ ߓߍ߯.",
 	"cx-linkcontextitem-missing-link-title": "ߛߘߌ߬ߜߋ߲߬ ߞߐߢߌ߬ߣߊ߬ߣߍ߲",
 	"cx-linkcontextitem-missing-title-description": "ߞߐߜߍ ߣߌ߲߬ ߕߴߦߋ߲߬ ߡߎߣߎ߲߬",
 	"cx-mt-abuse-publish-error": "ߌ ߟߊ߫ ߘߟߊߡߌߘߊߟߌ ߕߍߣߊ߬ ߛߐ߲߬ ߠߊ߫ ߟߊߥߊ߲߬ߞߊ߫ ߟߊ߫ ߓߊߏ߬ ߛߓߍߟߌ߫ ߡߊߦߟߍ߬ߡߊ߲߬ߓߊߟߌ ߞߊߛߌߦߴߊ߬ ߘߐ߫ ߞߏߖߎ߯ߦߊ߫.",
@@ -429,5 +431,6 @@
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߐߞߏߟߏ߲ ߘߌߣߊ߬ ߝߙߊ߬",
 	"cx-sx-block-template-mapping-status-title-partially-template": "ߞߙߊߞߏ ߣߌ߲߬ ߝߊ߲߭ ߘߏ߫ ߟߎ߫ ߘߌ߫ ߛߋ߫ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫",
 	"cx-sx-block-template-mapping-status-title-fully-template": "ߞߙߊߞߏ ߣߌ߲߬ ߘߌ߫ ߛߴߊ߬ ߖߘߍ߬ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫.",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "ߞߙߊߞߏ ߕߍߕߎ߲߮ ߡߍ߲ ߦߋ߫ ߞߊ߲߫ ߝߌ߬ߟߊ ߕߍ߫߸ ߏ߬ ߟߎ߬ ߝߘߏ߬ߣߍ߲߬ ߦߋ߫ ߢߐ߲߯ ߡߊ߬ ߞߏߖߎ߯ߦߊ߫، ߊ߬ ߘߏ߲߬ ߟߐ߲ߕߊ߫ ߜߘߍ߫ ߕߴߛߋ߫ ߟߊߕߊ߬ߡߌ߲߬ ߠߊ߫ ߦߋ߲߬ ߞߍߒߖߘߍߦߋߓߟߏߡߊ߬.",
 	"cx-sx-block-template-none-mapped-param-text": "ߟߊ߬ߓߍ߲߬ߢߐ߲߰ߡߦߊ߬ߘߊ߫ ߕߍ߫ $1 ߟߊ߫ ߞߊ߬ ߝߘߊ߫ ߞߙߊߞߏ ߓߐߖߎ ߟߊ߫"
 }

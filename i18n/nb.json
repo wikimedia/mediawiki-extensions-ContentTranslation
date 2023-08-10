@@ -16,7 +16,8 @@
 			"Purodha",
 			"Tarjeimo",
 			"Telaneo",
-			"Петар Петковић"
+			"Петар Петковић",
+			"EdoAug"
 		]
 	},
 	"cx": "Oversett side",
@@ -70,7 +71,7 @@
 	"cx-tools-instructions-text1": "{{GENDER:|Klikk}} på avsnitt for å oversette",
 	"cx-tools-instructions-text2": "{{GENDER:|Du}} trenger ikke å legge til alle",
 	"cx-tools-instructions-text3": "{{GENDER:|Sørg for}} at teksten flyter godt",
-	"cx-tools-instructions-text4": "Maskinoversettelse er nyttig, men {{GENDER:|du}} må korrigere teksten få å gjøre den nøyaktig.",
+	"cx-tools-instructions-text4": "Maskinoversettelse er nyttig, men {{GENDER:|du}} må korrigere teksten for å gjøre den nøyaktig.",
 	"cx-tools-instructions-text5": "{{GENDER:|Publiser}} oversettelsen",
 	"cx-tools-instructions-text6": "Trykk på «{{int:cx-publish-button}}» når {{GENDER:|du}} er fornøyd med resultatet.",
 	"cx-tools-view-guidelines": "{{GENDER:|Vis}} retningslinjer for oversettelse",
