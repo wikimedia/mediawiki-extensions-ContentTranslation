@@ -301,39 +301,6 @@ function selectPreviousTranslationUnit({ state, dispatch }) {
 }
 
 /**
- * Checks if current MT provider exists and is valid for the
- * given language pair. If not, selects the first provider
- * among the supported ones and sets it as the current MT
- * provider.
- * @return {Promise<void>}
- */
-async function initializeMTProviders({ state, dispatch, rootGetters, commit }) {
-  const { sourceLanguage, targetLanguage } = state;
-  await dispatch(
-    "mediawiki/fetchMTProviders",
-    { sourceLanguage, targetLanguage },
-    { root: true }
-  );
-  const supportedProviders = rootGetters["mediawiki/getSupportedMTProviders"](
-    sourceLanguage,
-    targetLanguage
-  );
-
-  const currentProvider = state.currentMTProvider;
-
-  if (currentProvider && supportedProviders.includes(currentProvider)) {
-    return;
-  }
-
-  const storageKey = MTProviderGroup.getStorageKey(
-    sourceLanguage,
-    targetLanguage
-  );
-  const defaultProvider = mw.storage.get(storageKey) || supportedProviders[0];
-  commit("setCurrentMTProvider", defaultProvider);
-}
-
-/**
  * Given a valid MT provider, this action updates the
  * currently selected MT provider and translates the
  * currently selected translation unit (section title
@@ -471,7 +438,6 @@ export default {
   clearPendingSaveTranslationRequests,
   fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
-  initializeMTProviders,
   initializeSectionTranslation,
   restoreSectionTranslation,
   selectNextTranslationUnit,

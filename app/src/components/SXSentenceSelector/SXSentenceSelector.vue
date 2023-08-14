@@ -108,6 +108,7 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import { replaceUrl } from "@/utils/urlHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
+import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
 
 export default {
   name: "SxSentenceSelector",
@@ -160,10 +161,10 @@ export default {
     );
     const logEvent = useEventLogging();
     const initializeSegmentSelection = useInitializeSegmentSelection();
+    const initializeMTProviders = useMTProvidersInitialize();
+    initializeMTProviders();
 
     onMounted(() => {
-      store.dispatch("application/initializeMTProviders");
-
       watch(
         translationDataReady,
         async () => {

@@ -8,6 +8,8 @@ import { createEventLogging } from "../../../plugins/eventlogging";
 
 const i18n = createI18n();
 
+jest.mock("../useMTProvidersInitialize", () => () => jest.fn());
+
 jest.mock("../../../store", () =>
   jest.requireActual("./sentenceSelectorMockStore")
 );

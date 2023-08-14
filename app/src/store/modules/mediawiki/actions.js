@@ -157,32 +157,6 @@ function resolvePageContentReferences(
 }
 
 /**
- * For a given language pair, this method checks for already existing
- * MT providers in the store, and if none, it fetches supported MT
- * providers and saves them to the store.
- * @param commit
- * @param getters
- * @param sourceLanguage
- * @param targetLanguage
- * @return {Promise<void>}
- */
-async function fetchMTProviders(
-  { commit, getters },
-  { sourceLanguage, targetLanguage }
-) {
-  if (getters.getSupportedMTProviders(sourceLanguage, targetLanguage).length) {
-    return;
-  }
-
-  const mtProviderGroup = await siteApi.fetchSupportedMTProviders(
-    sourceLanguage,
-    targetLanguage
-  );
-
-  commit("addMtProviderGroup", mtProviderGroup);
-}
-
-/**
  * Fetch nearby suggestions for current source language
  * based on user location, and store them to state, so that they
  * can be reused when "Search for an article" screen is mounted again.
@@ -207,7 +181,6 @@ async function fetchNearbyPages({ commit, rootState, state }) {
 
 export default {
   fetchLanguageTitles,
-  fetchMTProviders,
   fetchNearbyPages,
   fetchPageContent,
   fetchPageMetadata,
