@@ -99,6 +99,7 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Tu debe aperir session pro gerer tu suggestiones.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Tu debe aperir session pro obtener suggestiones de traduction.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pro vider tu traductiones, tu debe aperir session.",
+	"apierror-cx-invalid-type-viewtranslations": "Typo de traduction non valide. Le typo debe esser definite con valor 'deleted', 'draft' o 'published'",
 	"apierror-cx-samelanguages": "Le linguas de origine e de destination non pote esser le mesme.",
 	"apierror-cx-suggestionsdisabled": "Le suggestiones non ha essite activate pro iste wiki.",
 	"apierror-cx-translationnotfound": "Traduction non trovate.",

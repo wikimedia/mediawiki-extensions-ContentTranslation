@@ -110,6 +110,7 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Vous devez être connecté pour gérer vos suggestions.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Vous devez être connecté pour obtenir des suggestions de traduction.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Pour afficher vos traductions, vous devez vous connecter.",
+	"apierror-cx-invalid-type-viewtranslations": "Type de traduction non valide. Le type doit être fixé et doit être soit 'deleted', soit 'draft', soit 'published'.",
 	"apierror-cx-samelanguages": "Les langues source et cible ne peuvent pas être les mêmes.",
 	"apierror-cx-suggestionsdisabled": "Suggestions non activée pour ce wiki.",
 	"apierror-cx-translationnotfound": "Traduction non trouvée.",
