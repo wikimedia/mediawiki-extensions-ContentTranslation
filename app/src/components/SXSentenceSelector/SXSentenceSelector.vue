@@ -101,7 +101,7 @@ import SubSection from "./SubSection.vue";
 import BlockTemplateAdaptationCard from "./BlockTemplateAdaptationCard.vue";
 import TranslatedSegmentCard from "./TranslatedSegmentCard.vue";
 import SubSectionModel from "@/wiki/cx/models/subSection";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -166,8 +166,10 @@ export default {
 
       watch(
         translationDataReady,
-        () => {
+        async () => {
           if (translationDataReady.value) {
+            // wait for next tick, so that page contents are rendered
+            await nextTick();
             initializeSegmentSelection();
           }
         },
