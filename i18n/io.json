@@ -26,6 +26,7 @@
 	"cx-entrypoint-title": "Tradukez ca pagino a(d) $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ica pagino ankore ne existas en la $1. Ka {{GENDER:|vu}} deziras krear ol?",
 	"cx-entrypoint-dialog-button-translate-from": "Tradukar de $1",
+	"cx-entrypoint-dialog-desc": "Vu povas helpar Wikipedia per traduko di ca pagino. Tradukar esas facila maniero por krear nova kontenajo en vua idiomo.",
 	"cx-campaign-newbytranslation-start": "Komencar traduko",
 	"cx-tools-link-title": "Ligilo",
 	"cx-tools-mt-reset": "Rikomencar traduko",
