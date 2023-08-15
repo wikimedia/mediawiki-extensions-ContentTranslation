@@ -434,6 +434,7 @@
 	"sx-recent-edit-entrypoint-top-banner-header": "Допринеси на другом језику",
 	"sx-recent-edit-entrypoint-top-banner-content": "Одељак који сте скоро уређивали у $1 недостаје у $2. Преведите га.",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Преведи „$1”",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|Одељак $1 недостаје|Одељци $1 недостају}} у $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Анти-робот провера",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Објави",
 	"cx-contributecard-entrypoint-title": "Превођење",
