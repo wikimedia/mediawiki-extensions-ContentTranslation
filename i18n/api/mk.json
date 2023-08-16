@@ -99,6 +99,7 @@
 	"apierror-cx-mustbeloggedin-suggestions": "Мора да сте најавени за да управувате со вашите предлози.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Мора да сте најавени за да добивате преводни предлози.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "За да ги погледате вашите преводи, ќе мора прво да се најавите.",
+	"apierror-cx-invalid-type-viewtranslations": "Неважечки тип на превод. Типот мора да е зададен, и мора да биде или „deleted„, „draft“ или „published“",
 	"apierror-cx-samelanguages": "Изворниот и целниот јазик не можат да бидат исти.",
 	"apierror-cx-suggestionsdisabled": "Предлозите не се овозможени на ова вики.",
 	"apierror-cx-translationnotfound": "Преводот не е пронајден",
