@@ -84,6 +84,8 @@
 	"apihelp-query+cxtranslatorstats-param-translator": "Der Benutzername des Übersetzers. Dieser Parameter ist optional. Falls nicht angegeben, wird der derzeit angemeldete Benutzer verwendet.",
 	"apihelp-query+cxtranslatorstats-example-1": "Ruft die Übersetzungsstatistiken für den angegebenen Benutzer ab.",
 	"apihelp-cxsave-param-sourcerevision": "Die Version der Quellseite.",
+	"apihelp-cxsave-param-progress": "Informationen zum Abschluss (Fortschritt) der Übersetzung. JSON mit den Schlüsseln <code>any</code>, <code>human</code>, <code>mt</code> und <code>mtSectionsCount</code>. Die Werte der Schlüssel sind Prozentsätze.",
+	"apihelp-cxsave-param-content": "JSON-codierte Abschnittsdaten. Jeder Abschnitt ist ein Objekt und verfügt über die folgenden Schlüssel: content, sectionId, sequenceId, sequenceId, origin",
 	"apihelp-cxsave-param-title": "Der Titel der Seite, auf der die Aktionen ausgeführt werden sollen.",
 	"apihelp-cxsave-param-from": "Der Quell-Sprachcode.",
 	"apihelp-cxsave-param-to": "Der Ziel-Sprachcode.",
@@ -114,6 +116,10 @@
 	"apihelp-query+langlinkscount-description": "Ruft die Anzahl der anderen Sprachen ab, in denen dieser Artikel vorhanden ist.",
 	"apihelp-query+langlinkscount-summary": "Ruft die Anzahl der anderen Sprachversionen ab.",
 	"apihelp-query+langlinkscount-example-1": "Ruft die Anzahl der anderen Sprachversionen für die Seite „Hund“ ab.",
+	"apihelp-query+cxdeletedtranslations-summary": "Ruft die Anzahl deiner veröffentlichten Übersetzungen ab, die gelöscht wurden.",
+	"apihelp-query+cxdeletedtranslations-param-after": "Zeitstempel, um nur neuere Löschungen zu erhalten.",
+	"apihelp-query+cxdeletedtranslations-param-namespace": "Namensraum, in dem die gelöschten Übersetzungen veröffentlicht wurden. Standardmäßig wird der Hauptnamensraum verwendet.",
+	"apihelp-query+cxdeletedtranslations-example-1": "Ruft die Anzahl deiner gelöschten Übersetzungen ab, die im Hauptnamensraum veröffentlicht und nach dem 07.04.2019 um 16:24:44 Uhr gelöscht wurden",
 	"apihelp-cxpublishsection-param-title": "Der Titel der Seite, bei der die Aktionen ausgeführt werden sollen.",
 	"apihelp-cxpublishsection-param-html": "Der zu speichernde Inhalt.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Der Quell-Sprachcode.",
@@ -128,5 +134,6 @@
 	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
 	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
+	"apierror-sxsave-anon-user": "Die API-Aktion „sxsave“ ist für anonyme Benutzer nicht aktiviert",
 	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."
 }
