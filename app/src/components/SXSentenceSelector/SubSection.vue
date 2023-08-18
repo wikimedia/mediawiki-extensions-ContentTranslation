@@ -38,7 +38,11 @@ export default {
           // search among all ancestors of the event target to find the sentence element
           const sentenceEl = event
             .composedPath()
-            .find((target) => target.classList.contains("cx-segment"));
+            .find(
+              (target) =>
+                target instanceof Element &&
+                target.classList.contains("cx-segment")
+            );
 
           if (!sentenceEl) {
             return;
