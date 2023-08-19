@@ -26,6 +26,7 @@ use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
 use User;
@@ -152,7 +153,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$this->getMain()->getAllowedParams()
 		);
 		$api = new ApiMain(
-			new \DerivativeRequest(
+			new DerivativeRequest(
 				$this->getRequest(),
 				$apiParams + $allowedParams,
 				/* was posted? */ true
