@@ -10,6 +10,7 @@ use ContentTranslation\DTO\PublishedTranslationDTO;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\LoadBalancer;
 use InvalidArgumentException;
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
@@ -81,7 +82,7 @@ class SectionTranslationStore {
 
 		$values = [ 'cxsx_translation_id' => $translationId, 'cxsx_section_id' => $sectionId ];
 
-		$row = $dbr->selectRow( self::TABLE_NAME, \IDatabase::ALL_ROWS, $values, __METHOD__ );
+		$row = $dbr->selectRow( self::TABLE_NAME, IDatabase::ALL_ROWS, $values, __METHOD__ );
 		return $row ? $this->createTranslationFromRow( $row ) : null;
 	}
 
