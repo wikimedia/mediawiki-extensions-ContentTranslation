@@ -119,7 +119,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 			],
 			'interval' => [
 				ParamValidator::PARAM_DEFAULT => 'week',
-				ParamValidator::PARAM_TYPE => [ 'week','month' ],
+				ParamValidator::PARAM_TYPE => [ 'week', 'month' ],
 			]
 		];
 		return $allowedParams;

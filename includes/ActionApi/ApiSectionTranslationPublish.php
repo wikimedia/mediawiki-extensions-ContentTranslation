@@ -233,7 +233,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$newRevId = intval( $editResult['newrevid'] );
 				$this->storeTags( $newRevId );
 
-				[ 'sourcelanguage' => $sourceLanguage,'sourcetitle' => $sourceTitle ] = $params;
+				[ 'sourcelanguage' => $sourceLanguage, 'sourcetitle' => $sourceTitle ] = $params;
 				$translation = $this->getExistingTranslation( $user, $sourceLanguage, $targetLanguage, $sourceTitle );
 
 				if ( $translation === null ) {
