@@ -7,6 +7,7 @@ namespace ContentTranslation\Tests;
 use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \ContentTranslation\SectionPositionCalculator
@@ -35,7 +36,7 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	private function testCalculateSectionPositionForNonLeadSection( array $responseSections, $expectedPosition ) {
-		$title = $this->createMock( \Title::class );
+		$title = $this->createMock( Title::class );
 		$title->method( 'getPrefixedDBKey' )->willReturn( 'Test_article' );
 		$targetLanguage = 'en';
 
@@ -53,7 +54,7 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testCalculateSectionPositionForSandboxTarget() {
-		$title = $this->createMock( \Title::class );
+		$title = $this->createMock( Title::class );
 		$targetLanguage = 'en';
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$mockSectionTitleFetcher = $this->createMock( SectionTitleFetcher::class );
@@ -65,7 +66,7 @@ class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {
 	}
 
 	public function testCalculateSectionPositionForLeadSection() {
-		$title = $this->createMock( \Title::class );
+		$title = $this->createMock( Title::class );
 		$title->method( 'getPrefixedDBKey' )->willReturn( 'Non_existing_page' );
 		$targetLanguage = 'en';
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );

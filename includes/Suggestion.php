@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Title\Title;
+
 class Suggestion {
 	protected $listId;
 	protected $title;
@@ -35,7 +37,7 @@ class Suggestion {
 	}
 
 	public function getTitle() {
-		return \Title::newFromText( $this->title );
+		return Title::newFromText( $this->title );
 	}
 
 	public function getSourceLanguage() {

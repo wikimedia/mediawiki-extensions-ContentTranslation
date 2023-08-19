@@ -26,8 +26,8 @@ use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use Title;
 use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -207,7 +207,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 		$hookRunner = new ContentTranslationHookRunner( $this->hookContainer );
 		$targetLanguage = $params['targetlanguage'];
-		'@phan-var \Title $targetTitle';
+		'@phan-var Title $targetTitle';
 		$hookRunner->onSectionTranslationBeforePublish( $targetTitle, $targetLanguage, $user );
 
 		$sectionNumber = $this->sectionPositionCalculator->calculateSectionPosition(

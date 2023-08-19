@@ -13,7 +13,7 @@ use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use Exception;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class TranslationUnitValidator {

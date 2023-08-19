@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Title\Title;
+
 class SuggestionList {
 	// List types. Make sure to add them in ext.cx.suggestionlist.js to
 	// achieve wanted display order.
@@ -87,7 +89,7 @@ class SuggestionList {
 		if ( $message->exists() ) {
 			return $message;
 		} else {
-			return new \RawMessage( \Title::newFromText( $this->getName() )->getText() );
+			return new \RawMessage( Title::newFromText( $this->getName() )->getText() );
 		}
 	}
 

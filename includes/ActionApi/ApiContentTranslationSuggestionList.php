@@ -12,7 +12,7 @@ use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
-use Title;
+use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationSuggestionList extends ApiBase {

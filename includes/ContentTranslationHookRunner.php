@@ -3,7 +3,7 @@
 namespace ContentTranslation;
 
 use MediaWiki\HookContainer\HookContainer;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class ContentTranslationHookRunner implements SectionTranslationBeforePublishHook {

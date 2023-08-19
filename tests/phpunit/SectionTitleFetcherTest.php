@@ -6,6 +6,7 @@ namespace ContentTranslation\Tests;
 
 use ContentTranslation\Service\SectionTitleFetcher;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \ContentTranslation\Service\SectionTitleFetcher
@@ -17,7 +18,7 @@ class SectionTitleFetcherTest extends \MediaWikiIntegrationTestCase {
 		$mockHttpRequestFactory = $this->createMock( HttpRequestFactory::class );
 		$targetLanguage = 'en';
 		$rawTitle = 'Football';
-		$title = $this->createMock( \Title::class );
+		$title = $this->createMock( Title::class );
 		$title->method( 'getPrefixedDBKey' )->willReturn( $rawTitle );
 		$api = 'https://en.wikipedia.org/w/api.php';
 		$url = "$api?action=parse&prop=sections&format=json&formatversion=2&page=$rawTitle";

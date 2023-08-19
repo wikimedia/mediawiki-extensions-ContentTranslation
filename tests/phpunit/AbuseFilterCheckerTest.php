@@ -4,6 +4,7 @@ namespace ContentTranslation\Tests;
 
 use ContentTranslation\AbuseFilterChecker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \ContentTranslation\AbuseFilterChecker
@@ -93,7 +94,7 @@ class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testCheckTitle( $rules, $actions, $expected ) {
 		$user = \User::newFromName( self::TEST_USERNAME );
-		$title = \Title::newFromText( self::TEST_TITLE );
+		$title = Title::newFromText( self::TEST_TITLE );
 		$this->createFilter( $rules, $actions );
 		$this->assertArrayEquals( $expected, $this->checker->checkTitleForUser( $title, $user ) );
 	}
@@ -158,7 +159,7 @@ class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
 	 */
 	public function testCheckSection( $text, $rules, $actions, $expected ) {
 		$user = \User::newFromName( self::TEST_USERNAME );
-		$title = \Title::newFromText( self::TEST_TITLE );
+		$title = Title::newFromText( self::TEST_TITLE );
 		$this->createFilter( $rules, $actions );
 		$this->assertArrayEquals( $expected, $this->checker->checkSectionForTitleAndUser( $user, $title, $text ) );
 	}

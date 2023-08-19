@@ -2,7 +2,7 @@
 
 namespace ContentTranslation;
 
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 interface SectionTranslationBeforePublishHook {

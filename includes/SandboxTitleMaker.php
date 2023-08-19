@@ -2,8 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use Title;
 use User;
 
 class SandboxTitleMaker {

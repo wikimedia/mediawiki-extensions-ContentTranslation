@@ -3,6 +3,7 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 class SiteMapper {
 	/**
@@ -141,7 +142,7 @@ class SiteMapper {
 				$targetTitle = $title;
 				break;
 			case 'User':
-				$titleObj = \Title::newFromText( $title );
+				$titleObj = Title::newFromText( $title );
 				if ( $titleObj && $titleObj->inNamespace( NS_USER ) ) {
 					// Already in User namespace. Avoid generating titles like User:A/User:A/Title
 					$targetTitle = $title;

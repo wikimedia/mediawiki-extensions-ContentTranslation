@@ -6,7 +6,7 @@ namespace ContentTranslation;
 use ContentTranslation\Service\SectionTitleFetcher;
 use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
-use Title;
+use MediaWiki\Title\Title;
 
 class SectionPositionCalculator {
 	private const APPENDIX_TITLES = [

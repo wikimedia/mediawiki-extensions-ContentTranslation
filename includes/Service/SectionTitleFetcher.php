@@ -8,7 +8,7 @@ use ContentTranslation\SiteMapper;
 use FormatJson;
 use InvalidArgumentException;
 use MediaWiki\Http\HttpRequestFactory;
-use Title;
+use MediaWiki\Title\Title;
 
 class SectionTitleFetcher {
 

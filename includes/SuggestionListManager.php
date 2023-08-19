@@ -3,6 +3,7 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 class SuggestionListManager {
 	/**
@@ -106,7 +107,7 @@ class SuggestionListManager {
 	 * @param int $owner Owner's global user id.
 	 * @param string $from Source language code.
 	 * @param string $to Target language code.
-	 * @return \Title[]
+	 * @return Title[]
 	 */
 	public function getDiscardedSuggestions( $owner, $from, $to ) {
 		$titles = [];

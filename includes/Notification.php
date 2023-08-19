@@ -2,8 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Title\Title;
 use MWException;
-use Title;
 
 class Notification {
 

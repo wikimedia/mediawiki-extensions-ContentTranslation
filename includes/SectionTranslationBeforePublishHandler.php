@@ -8,7 +8,7 @@ use MediaWiki\Content\ContentHandlerFactory;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
-use Title;
+use MediaWiki\Title\Title;
 use User;
 
 class SectionTranslationBeforePublishHandler implements SectionTranslationBeforePublishHook {
