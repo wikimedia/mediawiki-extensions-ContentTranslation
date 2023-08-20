@@ -2,6 +2,7 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Language\RawMessage;
 use MediaWiki\Title\Title;
 
 class SuggestionList {
@@ -89,7 +90,7 @@ class SuggestionList {
 		if ( $message->exists() ) {
 			return $message;
 		} else {
-			return new \RawMessage( Title::newFromText( $this->getName() )->getText() );
+			return new RawMessage( Title::newFromText( $this->getName() )->getText() );
 		}
 	}
 
