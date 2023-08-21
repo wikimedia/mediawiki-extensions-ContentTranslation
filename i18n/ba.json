@@ -10,7 +10,8 @@
 			"Рустам Нурыев",
 			"Янмурза Баки",
 			"Alfiya55",
-			"З. ӘЙЛЕ"
+			"З. ӘЙЛЕ",
+			"Kareyac"
 		]
 	},
 	"cx": "Тәржемә ителә торған биттәр",
@@ -77,7 +78,7 @@
 	"cx-tools-mt-set-default": "Алдан бирелгәнде һаҡларға",
 	"cx-tools-mt-noservices": "Тәржемә сервисы Һайланған телдәр өсөн эшләмәй.  [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Ни өсөн?]]",
 	"cx-tools-mt-preferred": "алдан бирелгәнсә",
-	"cx-tools-categories-count-message": "\n{{PLURAL:$1|$1 категория|$1 категория|0=Категориялар юҡ}}",
+	"cx-tools-categories-count-message": "\n{{PLURAL:$1|$1 категория|0=Категориялар юҡ}}",
 	"cx-stats-title": "Эстәлекте тәржемә итеү статистикаһы",
 	"cx-tools-reference-title": "Иҫкәрмәләр",
 	"cx-tools-reference-add": "Иҫкәрмә өҫтәргә",
