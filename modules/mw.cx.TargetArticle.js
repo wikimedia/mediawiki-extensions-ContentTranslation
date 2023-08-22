@@ -132,10 +132,10 @@ mw.cx.TargetArticle.static.getCleanedupContent = function ( doc ) {
  * Publish the translated content to target wiki.
  *
  * @param {boolean} hasIssues True if translation being published has some issues.
- * @param {boolean} shouldAddHighMTCategory Whether article being published
+ * @param {boolean} hasTooMuchUnmodifiedText Whether article being published
  * should be added to high MT tracking category.
  */
-mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCategory ) {
+mw.cx.TargetArticle.prototype.publish = function ( hasIssues, hasTooMuchUnmodifiedText ) {
 	this.getContent( true ).then( function ( html ) {
 		const apiParams = {
 			assert: 'user',
@@ -145,8 +145,8 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, shouldAddHighMTCat
 			sourcetitle: this.sourceTitle,
 			title: this.getTargetTitle(),
 			html,
-			categories: this.getTargetCategories( shouldAddHighMTCategory ),
-			publishtags: this.getTags(),
+			categories: this.getTargetCategories( hasTooMuchUnmodifiedText ),
+			publishtags: this.getTags( hasTooMuchUnmodifiedText ),
 			wpCaptchaId: this.captcha && this.captcha.id,
 			wpCaptchaWord: this.captcha && this.captcha.input.getValue(),
 			cxversion: 2
@@ -572,16 +572,16 @@ mw.cx.TargetArticle.prototype.getTargetURL = function () {
 /**
  * Get the categories for the article to be published
  *
- * @param {boolean} shouldAddHighMTCategory True if high MT tracking category should be added.
+ * @param {boolean} hasTooMuchUnmodifiedText True if high MT tracking category should be added.
  * @return {string[]}
  */
-mw.cx.TargetArticle.prototype.getTargetCategories = function ( shouldAddHighMTCategory ) {
+mw.cx.TargetArticle.prototype.getTargetCategories = function ( hasTooMuchUnmodifiedText ) {
 	const maintenanceCategoryMsg = 'cx-unreviewed-translation-category';
 
 	const targetCategories = this.translation.getTargetCategories();
 	const index = targetCategories.indexOf( maintenanceCategoryMsg );
 
-	if ( shouldAddHighMTCategory ) {
+	if ( hasTooMuchUnmodifiedText ) {
 		// Avoid duplicates.
 		if ( index < 0 ) {
 			// Note that we are adding the msg as an indicator that
@@ -602,10 +602,20 @@ mw.cx.TargetArticle.prototype.getTargetCategories = function ( shouldAddHighMTCa
  * Get the tags for the article to be published.
  * API accepts multiple values separated by '|'
  *
+ * @param {boolean} hasTooMuchUnmodifiedText
  * @return {string}
  */
-mw.cx.TargetArticle.prototype.getTags = function () {
+mw.cx.TargetArticle.prototype.getTags = function ( hasTooMuchUnmodifiedText ) {
 	const query = new mw.Uri().query,
-		campainConfig = mw.config.get( 'wgContentTranslationCampaigns' );
-	return OO.getProp( campainConfig, query.campaign, 'edittag' ) || '';
+		campaignConfig = mw.config.get( 'wgContentTranslationCampaigns' );
+	let tagString = OO.getProp( campaignConfig, query.campaign, 'edittag' ) || '';
+
+	if ( hasTooMuchUnmodifiedText ) {
+		if ( tagString ) {
+			tagString += '|';
+		}
+		tagString += 'too-much-unmodified-mt-text';
+	}
+
+	return tagString;
 };
