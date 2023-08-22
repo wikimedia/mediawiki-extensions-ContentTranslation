@@ -10,7 +10,8 @@
 			"Лилиә",
 			"Ләйсән",
 			"Рустам Нурыев",
-			"Янмурза Баки"
+			"Янмурза Баки",
+			"Kareyac"
 		]
 	},
 	"cx": "Тәржемә ителә торған биттәр",
@@ -75,7 +76,7 @@
 	"cx-tools-mt-set-default": "Алдан бирелгәнде һаҡларға",
 	"cx-tools-mt-noservices": "Тәржемә сервисы Һайланған телдәр өсөн эшләмәй.  [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Ни өсөн?]]",
 	"cx-tools-mt-preferred": "алдан бирелгәнсә",
-	"cx-tools-categories-count-message": "\n{{PLURAL:$1|$1 категория|$1 категория|0=Категориялар юҡ}}",
+	"cx-tools-categories-count-message": "\n{{PLURAL:$1|$1 категория|0=Категориялар юҡ}}",
 	"cx-stats-title": "Эстәлекте тәржемә итеү статистикаһы",
 	"cx-warning-unsaved-translation": "Һеҙҙең һаҡланмаған тәржемәләргеҙ бар.",
 	"cx-error-page-not-found": "$2 Википедияһында \"$1\" битен табыу мөмкин түгел",
@@ -144,8 +145,8 @@
 	"cx-translation-status-deleted": "Юйылған",
 	"cx-translation-label-draft": "Тәржемә ителә",
 	"cx-translation-label-published": "Баҫтырылған тәржемәләр",
-	"cx-translation-already-in-progress": "{{GENDER:$2|Ҡатнашыусы}} $1 башлаған тәржемә.",
-	"cx-translation-already-in-progress-unknown": "Билдәһеҙ ҡулланыусы тәржемә итә.",
+	"cx-translation-already-in-progress": "{{GENDER:$2|Ҡатнашыусы}} $1 башлаған тәржемә. Тәржемә эше алып барылғанда, шул уҡ текстың яңы тәржемәһенә һеҙ бер тәүлектән һуң ғына тотона алаһығыҙ. Зинһар, 24 сәғәттән һуң эшләп ҡарағыҙ йәки ғәмәлдәге тәржемәне башлаған ҡатнашыусы менән бәйләнешкә сығығыҙ.",
+	"cx-translation-already-in-progress-unknown": "Билдәһеҙ ҡулланыусы тәржемә итә. Тәржемә эше алып барылғанда, шул уҡ текстың яңы тәржемәһенә һеҙ бер тәүлектән һуң ғына тотона алаһығыҙ. Зинһар, 24 сәғәттән һуң эшләп ҡарағыҙ йәки ғәмәлдәге тәржемәне башлаған ҡатнашыусы менән бәйләнешкә сығығыҙ.",
 	"cx-feedback-link": "Баһалама ебәрергә",
 	"cx-stats-published-translations-title": "Баҫтырылған тәржемәләр",
 	"cx-stats-draft-translations-title": "Тамамланмаған тәржемәләр",
@@ -347,7 +348,7 @@
 	"cx-sx-publisher-sandbox-option-details": "Ҡарау һәм күсереп алыу мөмкинлегегеҙ булһын өсөн шәхси битегеҙҙә баҫтырығыҙ.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Тәржемәгеҙ <strong>ҡараламағыҙға өҫтәләсәк.</strong>",
 	"cx-sx-publisher-review-info-error": "Тәржемәгеҙ баҫтырылыуы мөмкин:",
-	"cx-sx-publisher-review-info-learn-more": "Күберәк белергә",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Күберәк белергә]",
 	"cx-dashboard-experimental-support-banner-title": "Кеҫә телефонынан тәжрибә рәүешендә ҡулланыла",
 	"cx-dashboard-experimental-support-banner-description": "Яңы бүлекте тәржемә итеп, булған мәҡәләләрҙе байыта алаһығыҙ. Әммә эш өҫтәлендәге ҡайһы бер функцияларҙы әлегә ҡулланып булмай.",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Күберәк белергә",
