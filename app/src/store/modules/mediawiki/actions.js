@@ -115,48 +115,6 @@ async function fetchPageContent(
 }
 
 /**
- * This action uses the page contents, as stored inside the vuex state,
- * and updates the pages sections to include resolved references. Since,
- * this is natively a synchronous operation, it is wrapped inside a setTimeout
- * callback with zero waiting time, so that it is executed once the JS call stack
- * is empty. Finally, a promise, which is resolved once the asynchronous callback
- * is executed, is returned from this action.
- *
- * @param {object} context
- * @param {object} context.getters
- * @param {function} context.commit
- * @param {object} payload
- * @param {string} payload.sourceLanguage
- * @param {string} payload.sourceTitle
- * @return {Promise|void}
- */
-function resolvePageContentReferences(
-  { getters, commit },
-  { sourceLanguage, sourceTitle }
-) {
-  const existingPage = getters.getPage(sourceLanguage, sourceTitle);
-
-  if (!existingPage) {
-    return;
-  }
-
-  return new Promise((resolve) => {
-    // Add reference resolution as a setTimeout callback,
-    // to make it asynchronous.
-    setTimeout(() => {
-      const updatedSections =
-        segmentedContentConverter.convertSegmentedContentToPageSections(
-          existingPage.content,
-          true // resolve references
-        );
-      existingPage.updateSections(updatedSections);
-
-      resolve();
-    }, 0);
-  });
-}
-
-/**
  * Fetch nearby suggestions for current source language
  * based on user location, and store them to state, so that they
  * can be reused when "Search for an article" screen is mounted again.
@@ -185,5 +143,4 @@ export default {
   fetchPageContent,
   fetchPageMetadata,
   fetchSupportedLanguageCodes,
-  resolvePageContentReferences,
 };

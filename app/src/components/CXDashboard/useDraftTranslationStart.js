@@ -1,5 +1,4 @@
 import { useDraftTranslationLanguagePairUpdater } from "@/composables/useLanguageHelper";
-import { loadVEModules } from "@/plugins/ve";
 import { useRouter } from "vue-router";
 import useApplicationState from "@/composables/useApplicationState";
 import { useEventLogging } from "@/plugins/eventlogging";
@@ -9,6 +8,7 @@ import translationRestorer from "@/utils/translationRestorer";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 
 /**
  * @return {(function(Translation): Promise<void>)}
@@ -24,6 +24,7 @@ const useDraftTranslationStart = () => {
     targetLanguage,
   } = useApplicationState(store);
   const updateLanguagePair = useDraftTranslationLanguagePairUpdater();
+  const resolvePageContentReferences = useContentReferencesResolve();
 
   const { isDesktop } = useDevice();
   const redirectToCX = useCXRedirect();
@@ -78,11 +79,7 @@ const useDraftTranslationStart = () => {
 
     // Asynchronously resolve references and update page sections to
     // include this resolved references
-    await loadVEModules();
-    await store.dispatch("mediawiki/resolvePageContentReferences", {
-      sourceLanguage: sourceLanguage.value,
-      sourceTitle,
-    });
+    await resolvePageContentReferences(sourceLanguage.value, sourceTitle);
 
     if (!translation.restored) {
       await translatorApi
