@@ -278,6 +278,7 @@
 	"cx-feature-discovery-dismiss": "У реду, разумем",
 	"cx-suggestionlist-expand-sections-title": "Допуна новим одељцима",
 	"cx-sx-select-section": "Изабери одељак за превод",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Одељак недостаје|$1 одељка недостају}} у $2",
 	"cx-sx-section-selector-title": "Одељци",
 	"cx-sx-section-selector-subtitle": "Бирање одељка",
 	"cx-sx-section-selector-desc": "Упоредићете садржај на оба језика.",
