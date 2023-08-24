@@ -52,13 +52,17 @@ export default {
      * @param {Translation} translation
      */
     (translation) => {
-      const sectionTranslationExists = state.translations.some(
+      const existingTranslations = state.translations.filter(
+        (existing) => existing.status === translation.status
+      );
+
+      const sectionTranslationExists = existingTranslations.some(
         (existing) =>
           !!existing.sectionTranslationId &&
           existing.sectionTranslationId === translation.sectionTranslationId
       );
 
-      const translationExists = state.translations.some(
+      const translationExists = existingTranslations.some(
         (existing) =>
           !existing.sectionTranslationId &&
           existing.translationId === translation.translationId
