@@ -365,7 +365,7 @@
 	"cx-sx-published-section-invitation-title": "Икенсе бүлекте тәржемә итергә",
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2| тағы ла $2 юҡ|0=шулай уҡ юҡ}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Тәржемәгеҙҙә $1% үҙгәртелмәгән текст бар",
-	"cx-sx-publisher-mt-abuse-message-body": "Машина тәржемәһе - эштең башы ғына. Һеҙ мәҡәләне яҙҙырып ҡуя алаһығыҙ, әммә уның үҙ телегеҙҙә тәбиғи уҡылыуына инанығыҙ.",
+	"cx-sx-publisher-mt-abuse-message-body": "Машина тәржемәһе - эштең башы ғына. Һеҙ мәҡәләне яҙҙырып ҡуя алаһығыҙ, әммә уның үҙ телегеҙҙә еңел уҡылыуына инанығыҙ.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 бүлек|0=бүлектәр юҡ}}",
 	"cx-sx-article-search-input-placeholder": "Тәржемә өсөн бит эҙләргә",
 	"cx-sx-article-search-recently-edited-title": "Күптән түгел һеҙ мөхәррирләгәнһегеҙ",
