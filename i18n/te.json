@@ -76,7 +76,7 @@
 	"cx-tools-mt-set-default": "డిఫాల్టుగా ఉంచు",
 	"cx-tools-mt-noservices": "ఎంచుకున్న భాషల్లో అనువాద సేవలు అందుబాటులో లేవు. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|ఎందుకని?]]",
 	"cx-tools-mt-preferred": "అప్రమేయం (డిఫాల్టు)",
-	"cx-tools-categories-count-message": "{{బహువచనం:$1|$1 వర్గం|$1 వర్గాలు|0=వర్గాలు లేవు}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 వర్గం|$1 వర్గాలు|0=వర్గాలేమీ లేవు}}",
 	"cx-stats-title": "కంటెంట్ అనువాద గణాంకాలు",
 	"cx-tools-reference-title": "మూలం",
 	"cx-tools-reference-add": "మూలాన్ని చేర్చు",

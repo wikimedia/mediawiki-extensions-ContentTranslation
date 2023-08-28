@@ -62,6 +62,7 @@
 	"cx-campaign-newbytranslation-title": "להתחיל מתרגום במקום זה?",
 	"cx-campaign-newbytranslation-notice": "ליצור ערך חדש באמצעות תרגום משפה אחרת {{GENDER:|שאתה יודע|שאת יודעת}}.",
 	"cx-campaign-newbytranslation-search": "לחפש דף אחר לתרגם",
+	"cx-campaign-newbytranslation-languages": "$1 ← $2",
 	"cx-campaign-newbytranslation-start": "להתחיל לתרגם",
 	"cx-special-login-error": "יש להיכנס לחשבון כדי לתרגם את הדף הזה. [$1 כניסה]",
 	"cx-tools-instructions-text1": "{{GENDER:|לחץ|לחצי}} על פסקאות כדי לתרגם",
