@@ -614,7 +614,7 @@ mw.cx.TargetArticle.prototype.getTags = function ( hasTooMuchUnmodifiedText ) {
 		if ( tagString ) {
 			tagString += '|';
 		}
-		tagString += 'too-much-unmodified-mt-text';
+		tagString += 'contenttranslation-high-unmodified-mt-text';
 	}
 
 	return tagString;

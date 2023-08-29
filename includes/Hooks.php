@@ -415,6 +415,7 @@ class Hooks {
 		$tags[] = 'contenttranslation';
 		$tags[] = 'contenttranslation-v2'; // CX2 distinct tag. Used since 2018-09
 		$tags[] = 'sectiontranslation';
+		$tags[] = 'contenttranslation-high-unmodified-mt-text';
 		foreach ( $wgContentTranslationCampaigns as $tagName => $tag ) {
 			if ( isset( $tag['edittag'] ) ) {
 				$tags[] = $tag['edittag'];

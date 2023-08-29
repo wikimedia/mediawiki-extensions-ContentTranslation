@@ -73,6 +73,8 @@
 	"tag-contenttranslation-v2-description": "A brief sentence to explain the use of the contenttranslation-v2 revision tag. This appears on [[Special:Tags]].",
 	"tag-sectiontranslation": "A short description of the sectiontranslation revision tag. It appears in the edit summary when a translated page is created. It doesn't have to be CamelCase. The link target must remain <nowiki>{{MediaWiki:sx-descriptionpagelink}}</nowiki>. To customize the actual page to which it points, change the MediaWiki:sx-descriptionpagelink message on your wiki.",
 	"tag-sectiontranslation-description": "A brief sentence to explain the use of the sectiontranslation revision tag. This appears on [[Special:Tags]].",
+	"tag-contenttranslation-high-unmodified-mt-text": "A short, friendly name of the contenttranslation-high-unmodified-mt-text revision tag",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "A description of the contenttranslation-high-unmodified-mt-text revision tag. This appears on [[Special:Tags]]",
 	"cx-source-loading": "Status text shown in the source pane while the page is being loaded.\n\nParameters:\n* $1 - the title of the page being loaded\n{{Identical|Loading}}",
 	"cx-beta": "Beta feature title. Appears in the beta tab in user preferences.",
 	"cx-beta-desc": "Beta feature description. Appears in the beta tab in user preferences.\n\n\"Your contributions page\" refers to [[Special:MyContributions]], which can be accessed using the link {{msg-mw|mycontris}} in the personal bar.\n\nPlease don't translate the \"Special:MyContributions\" link target, but do translate the \"your contributions page\" string.",

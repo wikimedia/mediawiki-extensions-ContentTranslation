@@ -55,6 +55,8 @@
 	"tag-contenttranslation-v2-description": "The content was translated from another language using the version 2 of Content Translation tool.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SectionTranslation]]",
 	"tag-sectiontranslation-description": "The content was translated from a section in another language using the Section Translation feature of the Content Translation tool.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ContentTranslation: High unmodified machine translation usage]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Translation published using ContentTranslation has high percentage of unmodified machine translation",
 	"cx-source-loading": "Loading $1",
 	"cx-beta": "Content Translation",
 	"cx-beta-desc": "A tool to quickly translate pages into your language. Start translations from [[Special:MyContributions|your contributions page]], and edit them with our side-by-side editor specially designed for translation. Some of the tools may be only available for specific languages.",
