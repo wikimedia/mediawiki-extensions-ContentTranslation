@@ -38,8 +38,14 @@
         <section class="pa-4" v-html="targetSectionContent" />
         <!-- eslint-enable vue/no-v-html -->
         <sx-content-comparator-new-section-placeholder
-          :is-mapped-section="isCurrentSectionMapped"
-          :i18n="i18n"
+          :placeholder-title="
+            $i18n('cx-sx-content-comparator-present-section-placeholder-title')
+          "
+          :placeholder-subtitle="
+            $i18n(
+              'cx-sx-content-comparator-present-section-placeholder-subtitle'
+            )
+          "
         />
       </template>
     </section>
@@ -58,7 +64,6 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
-import { useI18n } from "vue-banana-i18n";
 import { isQuickTutorialForced } from "@/utils/urlHandler";
 
 export default {
@@ -90,8 +95,6 @@ export default {
       }
     };
 
-    const bananaI18n = useI18n();
-    const i18n = bananaI18n.i18n.bind(bananaI18n);
     const {
       activeSectionTargetTitle,
       discardedSections,
@@ -100,7 +103,7 @@ export default {
       targetSectionContent,
     } = useCompareContents(store);
 
-    const targetPageContent = useTargetArticlePreview(store, i18n);
+    const targetPageContent = useTargetArticlePreview();
 
     const {
       currentSectionSuggestion: suggestion,
@@ -124,7 +127,6 @@ export default {
     );
 
     return {
-      i18n,
       getDir,
       activeSectionTargetTitle,
       discardedSections,
@@ -143,7 +145,6 @@ export default {
 </script>
 
 <style lang="less">
-@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/styles/page.less";
 
 .sx-content-comparator {

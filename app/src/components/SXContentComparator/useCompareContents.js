@@ -7,18 +7,11 @@ const useCompareContents = (store) => {
   const {
     currentSectionSuggestion: suggestion,
     currentSourceSection: sourceSection,
+    currentTargetPage: targetPage,
   } = useApplicationState(store);
 
-  const targetTitle = computed(() => suggestion.value.targetTitle);
   const sourceSectionTitle = computed(
     () => store.getters["application/getCurrentSourceSectionTitle"]
-  );
-
-  const targetPage = computed(() =>
-    store.getters["mediawiki/getPage"](
-      suggestion.value.targetLanguage,
-      targetTitle.value
-    )
   );
 
   const activeSectionTargetTitle = computed(
@@ -55,7 +48,6 @@ const useCompareContents = (store) => {
     isCurrentSectionMapped,
     sourceSectionContent,
     sourceSectionTitle,
-    targetPage,
     targetSectionAnchor,
     targetSectionContent,
   };

@@ -2,43 +2,24 @@
   <section
     class="sx-content-comparator__new-section-placeholder--present mt-4 py-4 px-7"
   >
-    <!-- eslint-disable vue/no-v-html -->
-    <h5 v-html="placeholderTitle" />
-    <!-- eslint-enable vue/no-v-html -->
-    <p
-      v-if="isMappedSection"
-      v-i18n:cx-sx-content-comparator-present-section-placeholder-subtitle
-    />
+    <h5 v-text="placeholderTitle" />
+    <p v-if="placeholderSubtitle" v-text="placeholderSubtitle" />
   </section>
 </template>
 
 <script>
-import { computed } from "vue";
-
 export default {
   name: "SxContentComparatorNewSectionPlaceholder",
   props: {
-    isMappedSection: {
-      type: Boolean,
+    placeholderTitle: {
+      type: String,
       required: true,
     },
-    i18n: {
-      type: Function,
-      required: true,
+    placeholderSubtitle: {
+      type: String,
+      required: false,
+      default: null,
     },
-  },
-  setup(props) {
-    const placeholderTitle = computed(() =>
-      props.isMappedSection
-        ? props.i18n(
-            "cx-sx-content-comparator-present-section-placeholder-title"
-          )
-        : props.i18n(
-            "cx-sx-content-comparator-missing-section-placeholder-title"
-          )
-    );
-
-    return { placeholderTitle };
   },
 };
 </script>

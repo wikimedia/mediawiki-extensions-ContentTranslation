@@ -1,23 +1,28 @@
 import { computed, createApp } from "vue";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
-import useCompareContents from "./useCompareContents";
 import useApplicationState from "@/composables/useApplicationState";
+import { useI18n } from "vue-banana-i18n";
+import { useStore } from "vuex";
 
 /**
- * @param {Store} store
- * @param {function} i18n
  * @return {ComputedRef<string>}
  */
-const useTargetArticlePreview = (store, i18n) => {
-  const { isCurrentSectionMapped, targetPage } = useCompareContents(store);
-  const { currentSectionSuggestion: suggestion } = useApplicationState(store);
+const useTargetArticlePreview = () => {
+  const store = useStore();
+  const {
+    currentSectionSuggestion: suggestion,
+    currentTargetPage: targetPage,
+  } = useApplicationState(store);
+
+  const bananaI18n = useI18n();
 
   const createNewSectionPlaceholderElement = () => {
     const placeholderInstance = createApp(
       SxContentComparatorNewSectionPlaceholder,
       {
-        isMappedSection: isCurrentSectionMapped.value,
-        i18n,
+        placeholderTitle: bananaI18n.i18n(
+          "cx-sx-content-comparator-missing-section-placeholder-title"
+        ),
       }
     );
 
