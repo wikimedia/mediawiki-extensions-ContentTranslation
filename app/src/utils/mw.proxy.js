@@ -1,4 +1,9 @@
-const Api = function () {};
+const Api = function () {
+  // here we also mock Api.get() method, to avoid errors on SFC tests where router is injected.
+  // This is needed because userApi.assertUser() is called before each router navigation, and
+  // "userApi.assertUser()" uses "mw.Api().get" under the hood.
+  this.get = () => Promise.resolve();
+};
 
 const toQueryStringValue = (value) => {
   return encodeURIComponent(
@@ -24,6 +29,7 @@ Api.prototype.ajax = function (params) {
 
 class SiteMapper {
   static isMobileDomainVar = true;
+
   getPageUrl(language, title) {
     return `https://${language}.wikipedia.org/wiki/${title}`;
   }

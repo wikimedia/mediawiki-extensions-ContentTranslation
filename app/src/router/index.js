@@ -10,6 +10,8 @@ import {
   SXPublisher,
   SXArticleSearch,
 } from "@/views";
+import { useStore } from "vuex";
+import userApi from "@/wiki/mw/api/user";
 
 const routes = [
   {
@@ -89,6 +91,16 @@ const router = createRouter({
  * it redirects user to the beginning of the workflow (dashboard)
  */
 router.beforeEach((to, from, next) => {
+  const store = useStore();
+
+  if (!mw.user.isAnon()) {
+    userApi.assertUser().catch((error) => {
+      if (error === "assertuserfailed") {
+        store.commit("application/setIsLoginDialogOn", true);
+      }
+    });
+  }
+
   if (!!to.query.force) {
     next();
 
