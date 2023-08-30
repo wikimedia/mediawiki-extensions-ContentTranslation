@@ -143,7 +143,9 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
 
 		map[ page.title ].forEach( function ( item ) {
 			if ( page.thumbnail ) {
-				item.$image.removeClass( 'oo-ui-icon-article' )
+				item.$image
+					.removeClass( 'oo-ui-icon-article' )
+					.addClass( 'mw-no-invert' )
 					.css( 'background-image', 'url(' + page.thumbnail.source + ')' );
 			}
 

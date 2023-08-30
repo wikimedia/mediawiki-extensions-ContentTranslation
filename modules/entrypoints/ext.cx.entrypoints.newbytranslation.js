@@ -86,6 +86,7 @@
 				$suggestionImage
 					.addClass( 'cx-suggestion-image--with-thumbnail' )
 					.removeClass( 'oo-ui-icon-article' )
+					.addClass( 'mw-no-invert' )
 					.css( 'background-image', 'url("' + this.suggestion.thumbnail.source + '")' );
 			}
 

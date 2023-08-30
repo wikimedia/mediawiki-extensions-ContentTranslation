@@ -110,7 +110,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 	var imageUrl = OO.getProp( linkInfo, 'thumbnail', 'source' );
 	if ( imageUrl ) {
 		icon.$element
-			.addClass( 've-ui-mwInternalLinkContextItem-hasImage' )
+			.addClass( 've-ui-mwInternalLinkContextItem-hasImage mw-no-invert' )
 			.css( 'background-image', 'url(' + imageUrl + ')' );
 	}
 

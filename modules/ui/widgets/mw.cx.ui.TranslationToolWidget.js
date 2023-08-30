@@ -127,8 +127,12 @@ mw.cx.widgets.TranslationToolWidget.prototype.setActions = function ( actions ) 
  */
 mw.cx.widgets.TranslationToolWidget.prototype.setBackgroundImage = function ( imageUrl ) {
 	if ( imageUrl ) {
-		this.$element.css( 'background-image', 'url(' + imageUrl + ')' );
+		this.$element
+			.addClass( 'mw-no-invert' )
+			.css( 'background-image', 'url(' + imageUrl + ')' );
 	} else {
-		this.$element.css( 'background-image', '' );
+		this.$element
+			.removeClass( 'mw-no-invert' )
+			.css( 'background-image', '' );
 	}
 };
