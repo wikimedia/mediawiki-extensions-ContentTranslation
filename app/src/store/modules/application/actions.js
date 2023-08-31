@@ -1,5 +1,4 @@
 import siteApi from "../../../wiki/mw/api/site";
-import MTProviderGroup from "../../../wiki/mw/models/mtProviderGroup";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import SubSection from "../../../wiki/cx/models/subSection";
 import {
@@ -7,6 +6,7 @@ import {
   renderTemplateFromVE,
 } from "../../../utils/templateRenderer";
 import debounce from "../../../utils/debounce";
+import AssertUserError from "@/utils/errors/assertUserError";
 
 /**
  * In order to save the draft section translation and its parallel corpora,
@@ -33,8 +33,8 @@ const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
     let retry = 0;
 
     const saveTranslationWithRetry = () => {
-      dispatch("translator/saveTranslation", {}, { root: true }).then(
-        (saveResponse) => {
+      dispatch("translator/saveTranslation", {}, { root: true })
+        .then((saveResponse) => {
           if (saveResponse instanceof PublishFeedbackMessage) {
             retryDelay *= retry + 1;
             retry++;
@@ -45,8 +45,14 @@ const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
             retryDelay = 1000;
             commit("setAutoSavePending", false);
           }
-        }
-      );
+        })
+        .catch((error) => {
+          if (error instanceof AssertUserError) {
+            commit("setIsLoginDialogOn", true);
+          } else {
+            throw error;
+          }
+        });
     };
     debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3000);
   }

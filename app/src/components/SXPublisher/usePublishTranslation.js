@@ -2,6 +2,7 @@ import { getUrl } from "@/utils/mediawikiHelper";
 import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed, ref, watch } from "vue";
+import AssertUserError from "@/utils/errors/assertUserError";
 
 const decodeHtml = (html) => {
   const template = document.createElement("div");
@@ -117,12 +118,25 @@ const usePublishTranslation = (store) => {
      */
     publishStatus.value = "pending";
     isPublishDialogActive.value = true;
+    let publishResponse;
 
-    /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}} */
-    const { publishFeedbackMessage, targetTitle } = await store.dispatch(
-      "translator/publishTranslation",
-      { captchaId: captchaDetails.value?.id, captchaAnswer }
-    );
+    try {
+      /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}} */
+      publishResponse = await store.dispatch("translator/publishTranslation", {
+        captchaId: captchaDetails.value?.id,
+        captchaAnswer,
+      });
+    } catch (error) {
+      if (error instanceof AssertUserError) {
+        store.commit("application/setIsLoginDialogOn", true);
+
+        return;
+      }
+
+      throw error;
+    }
+
+    const { publishFeedbackMessage, targetTitle } = publishResponse;
 
     // if the feedback message is of type "captcha", set the captcha details and open the captcha dialog
     if (!!publishFeedbackMessage && publishFeedbackMessage.type === "captcha") {

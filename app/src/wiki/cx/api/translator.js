@@ -4,6 +4,19 @@ import PublishFeedbackMessage from "../models/publishFeedbackMessage";
 import CorporaRestoredUnit from "../models/corporaRestoredUnit";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
+import AssertUserError from "@/utils/errors/assertUserError";
+
+const optionalUserAssertion = mw.user.isAnon() ? undefined : "user";
+
+/**
+ * @param error
+ * @throws AssertUserError
+ */
+const throwAssertUserError = (error) => {
+  if (error === "assertuserfailed") {
+    throw new AssertUserError();
+  }
+};
 
 /**
  * @param {"draft"|"published"} status
@@ -222,6 +235,7 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {boolean} publishParams.isSandbox
  * @param {Number|null} publishParams.sectionTranslationId
  * @return {Promise<{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}>}
+ * @throws {AssertUserError}
  */
 const publishTranslation = ({
   html,
@@ -238,6 +252,7 @@ const publishTranslation = ({
   sectionTranslationId,
 }) => {
   const params = {
+    assert: optionalUserAssertion,
     action: "cxpublishsection",
     title: targetTitle,
     html,
@@ -284,6 +299,8 @@ const publishTranslation = ({
       };
     })
     .catch((error, details) => {
+      throwAssertUserError(error);
+
       let text;
       details = details || {};
 
@@ -328,6 +345,7 @@ const publishTranslation = ({
  * @param {boolean} publishParams.isSandbox
  * @param {boolean} publishParams.progress
  * @return {Promise<number|PublishFeedbackMessage>}
+ * @throws AssertUserError
  */
 const saveTranslation = ({
   sourceTitle,
@@ -343,6 +361,7 @@ const saveTranslation = ({
   progress,
 }) => {
   const params = {
+    assert: optionalUserAssertion,
     action: "sxsave",
     targettitle: targetTitle,
     sourcetitle: sourceTitle,
@@ -363,6 +382,7 @@ const saveTranslation = ({
     .postWithToken("csrf", params)
     .then((response) => response.sxsave.sectiontranslationid)
     .catch((error, details) => {
+      throwAssertUserError(error);
       let text;
 
       if (details.exception) {
