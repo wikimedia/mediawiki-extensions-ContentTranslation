@@ -33,7 +33,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Wikiklaas",
-			"Петар Петковић"
+			"Петар Петковић",
+			"DiGro"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -290,6 +291,7 @@
 	"cx-sx-sentence-selector-done-button-label": "Afgerond",
 	"cx-sx-sentence-selector-suggested-translation-title": "Voorgestelde vertaling van $1",
 	"cx-sx-proposed-translation-retry-button": "Opnieuw proberen",
+	"cx-sx-proposed-translation-other-options-button": "Andere opties",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Vertaling bewerken",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Toepassen",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Overslaan",
@@ -321,6 +323,7 @@
 	"cx-sx-publisher-animation-failure-message-subtitle": "De foutmeldingen controleren",
 	"cx-sx-publisher-preview-options-title": "Publiceer opties",
 	"cx-sx-publisher-new-section-option-label": "Publiceren als een nieuwe sectie",
+	"cx-sx-publisher-lead-section-option-label": "Publiceer als een nieuwe pagina",
 	"cx-sx-publisher-new-section-option-details": "Voeg een nieuwe sectie toe aan het artikel",
 	"cx-sx-publisher-sandbox-option-label": "Publiceren naar uw Kladblok",
 	"cx-sx-publisher-sandbox-option-details": "Publiceer naar uw persoonlijke ruimte zodat u deze elders kunt bekijken en kopiëren.",
@@ -365,6 +368,7 @@
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
 	"cx-suggestion-list-favorites-division": "Voor later",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Deze pagina bewerken",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Vertaal een nieuwe sectie",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" vertalen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" en \"$2\" vertalen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",

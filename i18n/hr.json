@@ -14,7 +14,8 @@
 			"Srđan",
 			"Valerio Bozzolan",
 			"Vlad5250",
-			"Zeljko.filipin"
+			"Zeljko.filipin",
+			"Aqua"
 		]
 	},
 	"cx": "Prevedi stranicu",
@@ -278,6 +279,7 @@
 	"cx-sx-section-selector-subtitle": "Odaberite odjeljak",
 	"cx-sx-section-selector-desc": "Uspoređivat ćete sadržaj na oba jezika",
 	"cx-sx-language-selector-dialog-title": "Potražite jezik",
+	"cx-sx-existing-translation-status": "Postoji na jeziku: $1",
 	"cx-sx-start-translation-button-label": "Započni prijevod",
 	"cx-sx-view-translation-anchor": "Prikaži",
 	"cx-sx-existing-translation-learn-more": "Saznajte više",
@@ -299,6 +301,8 @@
 	"cx-sx-sentence-selector-edit-translation-button-label": "Uredi prijevod",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Primijeni",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Prevedi",
+	"cx-sx-publish-summary": "Prijevod odjeljka »$1« članka »$2«",
+	"cx-sx-publish-lead-section-summary": "Prijevod uvoda članka $1",
 	"cx-campaign-mflanguagesearcher-invite": "Možete prevesti ovu stranicu. To je jednostavan način za stvaranje sadržaja na Vašem jeziku.",
 	"sx-recent-translation-entrypoint-banner-header": "Ova je stranica nedavno prevedena",
 	"sx-recent-translation-entrypoint-banner-details": "Pomozite nam poboljšati njen sadržaj",
