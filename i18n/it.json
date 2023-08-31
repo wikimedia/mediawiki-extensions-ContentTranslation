@@ -350,5 +350,8 @@
 	"sx-translation-deletion-confirm-button-label": "Cancella traduzione",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 giorno|$1 giorni|0=Oggi}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mese|$1 mesi}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 anno|$1 anni}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 anno|$1 anni}}",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Questa traduzione è stata avviata su un dispositivo diverso e include contenuti per più sezioni della voce.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Dove sono le altre sezioni?",
+	"sx-confirm-draft-translation-start-button-label": "Ok"
 }
