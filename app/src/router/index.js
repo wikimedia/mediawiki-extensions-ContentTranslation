@@ -12,6 +12,7 @@ import {
 } from "@/views";
 import { useStore } from "vuex";
 import userApi from "@/wiki/mw/api/user";
+import AssertUserError from "@/utils/errors/assertUserError";
 
 const routes = [
   {
@@ -95,7 +96,7 @@ router.beforeEach((to, from, next) => {
 
   if (!mw.user.isAnon()) {
     userApi.assertUser().catch((error) => {
-      if (error === "assertuserfailed") {
+      if (error instanceof AssertUserError) {
         store.commit("application/setIsLoginDialogOn", true);
       }
     });

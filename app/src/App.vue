@@ -19,6 +19,7 @@ import { useStore } from "vuex";
 import { computed, onMounted, ref } from "vue";
 import userApi from "@/wiki/mw/api/user";
 import SxLoginDialog from "@/components/SXLoginDialog.vue";
+import AssertUserError from "@/utils/errors/assertUserError";
 
 export default {
   name: "ContentTranslationApp",
@@ -43,7 +44,7 @@ export default {
               .assertUser()
               .then(() => store.commit("application/setIsLoginDialogOn", false))
               .catch((error) => {
-                if (error === "assertuserfailed") {
+                if (error instanceof AssertUserError) {
                   store.commit("application/setIsLoginDialogOn", true);
                 }
               });
