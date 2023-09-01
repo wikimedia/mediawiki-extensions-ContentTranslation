@@ -220,5 +220,6 @@
 	"sx-translation-deletion-confirm-button-label": "ترجمہ مٹاؤ",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ݙین٘ہ|$1 ݙیہاڑے|0=اڄ}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|مہینہ|$1 مہینے}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}",
+	"sx-confirm-draft-translation-start-button-label": "ٹھیک ہے"
 }

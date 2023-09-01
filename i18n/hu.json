@@ -296,5 +296,6 @@
 	"cx-sx-published-section-confirmation-content": "Fordításod publikálva. Folytathatod a szerkesztést vagy hozzáadhatsz új szakaszt.",
 	"cx-sx-published-section-invitation-title": "Újabb szakasz fordítása",
 	"cx-uls-relevant-languages-panel-header": "A lap fordítása",
-	"cx-uls-translate-page-quick-action-label": "A lap fordítása"
+	"cx-uls-translate-page-quick-action-label": "A lap fordítása",
+	"sx-confirm-draft-translation-start-button-label": "Rendben"
 }
