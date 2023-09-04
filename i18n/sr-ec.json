@@ -138,7 +138,7 @@
 	"cx-contributions-upload": "Отпремање медија",
 	"cx-contributions-new-article-tooltip": "Започните писати нову страницу",
 	"cx-contributions-translation-tooltip": "Преведите постојеће странице",
-	"cx-contributions-upload-tooltip": "Отпремите слике, звучне и видео-снимке за коришћење на страницама",
+	"cx-contributions-upload-tooltip": "Отпремите слике, аудио и видео-снимке за коришћење на страницама",
 	"cx-publishing-dialog-publish-anyway-button": "Свеједно објави",
 	"cx-publishing-dialog-title": "Пресними постојећу страницу?",
 	"cx-publishing-dialog-sub-title": "Ваш превод ће заменити постојећу страницу. Молимо Вас, потврдите да је у реду да постојећа страница буде замењена Вашим преводом.",
@@ -460,5 +460,8 @@
 	"cx-sx-login-dialog-button-label": "Пријави ме",
 	"sx-confirm-translation-deletion-dialog-body": "Желите ли заиста да трајно избришете овај превод?",
 	"sx-translation-deletion-cancel-button-label": "Откажи",
-	"sx-translation-deletion-confirm-button-label": "Избриши превод"
+	"sx-translation-deletion-confirm-button-label": "Избриши превод",
+	"sx-confirm-draft-translation-start-dialog-title": "Настављење превођења на мобилном",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Где су други одељци?",
+	"sx-confirm-draft-translation-start-button-label": "У реду"
 }

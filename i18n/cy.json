@@ -327,5 +327,6 @@
 	"sx-translation-deletion-cancel-button-label": "Canslo",
 	"sx-translation-deletion-confirm-button-label": "Dileu cyfieithiad",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 diwrnod|$1 diwrnod|$1 ddiwrnod|$1 diwrnod|0=Heddiw}}",
-	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mis|$1 mis|$1 fis|$1 mis}}"
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mis|$1 mis|$1 fis|$1 mis}}",
+	"sx-confirm-draft-translation-start-button-label": "Iawn"
 }
