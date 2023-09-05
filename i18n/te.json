@@ -58,7 +58,7 @@
 	"cx-campaign-newbytranslation-start": "అనువాదం మొదలుపెట్టండి",
 	"cx-special-login-error": "ఈ పేజీని అనువదించాలంటే మీరు లాగినై ఉండాలి. [$1 లాగినవండి]",
 	"cx-tools-instructions-text1": "అనువదించేందుకు పేరాగ్రాఫులపై {{GENDER:|నొక్కండి}}",
-	"cx-tools-instructions-text2": "{{GENDER:|మీరు}} వాటన్నిటినీ చేర్చాల్సిన పని లేదు",
+	"cx-tools-instructions-text2": "పేరాలన్నిటినీ చేర్చాల్సిన అవసరమేమీ {{GENDER:|లేదు}}",
 	"cx-tools-instructions-text3": "సహజమైన భాష {{GENDER:|రాయండి}}",
 	"cx-tools-instructions-text4": "యాంత్రిక అనువాదం ఉపయోగకరమే. కానీ పాఠ్యం కచ్చితంగా ఉండేందుకు {{GENDER:|మీరు}} దాన్ని సవరించాల్సి ఉంటుంది.",
 	"cx-tools-instructions-text5": "అనువాదాన్ని {{GENDER:|ప్రచురించు}}",
