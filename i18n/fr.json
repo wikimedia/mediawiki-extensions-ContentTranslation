@@ -519,5 +519,11 @@
 	"sx-translation-deletion-confirm-button-label": "Supprimer la traduction",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 jour|$1 jours|0=Aujourd’hui}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mois}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 année|$1 années}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 année|$1 années}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Continuer une traduction sur le mobile",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Cette traduction a été commencée sur un autre appareil, et elle contient des contenus pour plusieurs sections de l’article.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Sur le mobile, vous ne pouvez travailler que sur une section à la fois. Ainsi, seule la section principale sera chargée pour le moment.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Où sont les autres sections ?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Pas de souci. Les sections restantes ne sont pas perdues. Elles deviendront disponibles une fois la traduction actuelle publiée comme un nouvel article. Après la publication, vous trouverez de nouvelles traductions en cours avec le contenu de chaque section.",
+	"sx-confirm-draft-translation-start-button-label": "Ok"
 }

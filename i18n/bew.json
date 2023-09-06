@@ -412,6 +412,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Terjemahin \"$1\" èn \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Terjemahin \"$1\", \"$2\", èns.",
 	"sx-block-template-adaptation-card-body-header-success": "Saran sablonan",
+	"sx-block-template-adaptation-card-title-placeholder": "Sablonan",
 	"sx-block-template-adaptation-card-edit-button-label": "Perèksa ulang èn permak terjemahan",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Permak terjemahan",
 	"sx-block-template-adaptation-card-body-header-failure": "Sablonan nyang sepantaran kaga' kesedia bakal $1",
@@ -459,5 +460,17 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Terus mermak",
 	"cx-sx-login-dialog-title": "Lu punya sèsi udah kedaluwarsa",
 	"cx-sx-login-dialog-body": "Lu punya permakan kaga' bisa disimpen èn dinisbatin ke lu punya rèkening kecuali lu masup lagi di jendèla baru",
-	"cx-sx-login-dialog-button-label": "Masup"
+	"cx-sx-login-dialog-button-label": "Masup",
+	"sx-confirm-translation-deletion-dialog-body": "Apa lu yakin pèngèn ajeg ngapus ni terjemahan?",
+	"sx-translation-deletion-cancel-button-label": "Urungin",
+	"sx-translation-deletion-confirm-button-label": "Apus terjemahan",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ari|0=Ini ari}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 bulan}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 tahon}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Ngelanjutin terjemahan di pesawat",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Ni terjemahan udah dimulain di laèn peralatan, èn nyerèntain isi bakal banyak pilihan makalah.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Di pesawat, lu cuman bisa nggawéin atu bagèan di atu waktu. Jadi, cuman bagèan utamanya doang nyang bakal dimuat sekarang.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Kemanain dah tu bagèan nyang laèn?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Jangan selempang. Bagèan rèstannya kaga' ilang. Dia bakal kesedia mancan lu terebitin terjemahan nyang sekarang sebagé atu makalah baru. Abis nerebitin, lu bakal nemuin terjemahan lagi-jalan nyang baru dengen isinya bakal saban bagèan.",
+	"sx-confirm-draft-translation-start-button-label": "Baè'"
 }

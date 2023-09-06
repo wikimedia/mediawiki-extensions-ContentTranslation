@@ -2,9 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Maksim L.",
-			"Plaga med"
+			"Plaga med",
+			"ZlyiLev"
 		]
 	},
+	"apihelp-cxpublish-summary": "Захавайце старонку, створаную з дапамогай пашырэння Content Translation.",
+	"apihelp-cxpublish-param-title": "Загаловак старонкі для выканання дзеянняў.",
+	"apihelp-cxpublish-param-html": "Змест для захавання.",
+	"apihelp-cxpublish-param-from": "Код зыходнай мовы.",
+	"apihelp-cxpublish-param-to": "Код мэтавай мовы.",
+	"apihelp-cxpublish-param-sourcetitle": "Назва крынічнай старонкі.",
+	"apihelp-cxpublish-param-categories": "Катэгорыі, у якія ўваходзіць апублікаваная старонка.",
+	"apihelp-cxpublish-param-publishtags": "Паметкі для дадавання на апублікаваную старонку.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (пры захаванні з адказам на captcha).",
 	"apierror-cx-invalidlanguage": "Недапушчальная мова.",
 	"apierror-cx-invalidprogress": "Недапушчальны прагрэс.",
 	"apierror-cx-invalidsectioncontent": "Недапушчальны змест раздзела.",
@@ -26,5 +36,6 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Убачыць колькасць сваіх апублікаваных перакладаў, якія выдалілі.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Вызначэнне часу, каб убачыць толькі новы выдаленні.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Прастора імёнаў, дзе былі апублікаваны выдаленыя пераклады. Прадвызначана вызначана асноўная прастора імёнаў.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Атрымаць колькасць сваіх выдаленых перакладаў, апублікаваных у асноўнай прасторы імёнаў і выдаленых пасля 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Атрымаць колькасць сваіх выдаленых перакладаў, апублікаваных у асноўнай прасторы імёнаў і выдаленых пасля 2019-04-07 16:24:44",
+	"apierror-cxpublishsection-translationnotfound": "Пераклад не знойдзены."
 }
