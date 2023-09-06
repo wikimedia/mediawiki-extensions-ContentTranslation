@@ -33,7 +33,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Петар Петковић",
-			"Wikiklaas"
+			"Wikiklaas",
+			"DiGro"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -363,6 +364,7 @@
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
 	"cx-suggestion-list-favorites-division": "Voor later",
 	"sx-recent-translation-entrypoint-dialog-edit-button-label": "Deze pagina bewerken",
+	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Vertaal een nieuwe sectie",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "\"$1\" vertalen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" en \"$2\" vertalen",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Vertaal \"$1\", \"$2\" en meer",
