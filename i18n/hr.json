@@ -263,7 +263,7 @@
 	"cx-publish-destination-namespace-main-exists": "Zamijeni postojeću stranicu",
 	"cx-publish-destination-namespace-user": "Suradnička podstranica",
 	"cx-publish-destination-namespace-user-description": "U Vaš suradnički prostor kako biste ga doradili",
-	"cx-publish-destination-namespace-draft": "Nacrt zajednice",
+	"cx-publish-destination-namespace-draft": "Javni nacrt",
 	"cx-publish-destination-namespace-draft-description": "U imenski prostor za skice kako bi ga zajednica mogla pregledati i poboljšati",
 	"cx-publish-destination-namespace-changed": "Objavljeni je sadržaj promijenjen u osobnu skicu. U bilo kojem trenutku možete promijeniti postavke objavljivanja.",
 	"cx-linkcontextitem-missing-link-title": "Nedostajuća poveznica",
