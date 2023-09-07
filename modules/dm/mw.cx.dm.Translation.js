@@ -89,14 +89,10 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 	savedTranslationUnits,
 	sourceLanguage
 ) {
-	var childNodes, restoredContent, sxSectionNumber,
-		domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' ),
-		articleNode = domDoc.createElement( 'article' ),
-		baseNodes;
-
+	const domDoc = ve.init.target.parseDocument( sourceHtml, 'visual' );
 	if ( forTarget ) {
 		// Remove any and all <base> tags pointing to the source wiki
-		baseNodes = domDoc.getElementsByTagName( 'base' );
+		const baseNodes = domDoc.getElementsByTagName( 'base' );
 		while ( baseNodes.length ) {
 			baseNodes[ 0 ].parentNode.removeChild( baseNodes[ 0 ] );
 		}
@@ -104,9 +100,9 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		ve.init.mw.CXTarget.static.fixBase( domDoc );
 	}
 
+	let sxSectionNumber;
 	if ( sourceSectionTitle ) {
-
-		var targetSectionNode = [].slice.call( domDoc.getElementsByTagName( 'h2' ) ).find(
+		const targetSectionNode = [].slice.call( domDoc.getElementsByTagName( 'h2' ) ).find(
 			function ( el ) {
 				return el.innerText === sourceSectionTitle;
 			} );
@@ -115,20 +111,18 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		}
 	}
 
+	const articleNode = domDoc.createElement( 'article' );
 	// Convert Nodelist to proper array
-	childNodes = [].slice.call( domDoc.body.childNodes );
-	childNodes.forEach( function ( node ) {
-		var sectionId, mwSectionNumber, sectionNode, savedSectionNode, savedSection,
-			validSection = false;
-
+	const childNodes = [].slice.call( domDoc.body.childNodes );
+	childNodes.forEach( ( node ) => {
 		if ( node.nodeType !== Node.ELEMENT_NODE ) {
 			return;
 		}
 
-		sectionId = node.getAttribute( 'id' );
-		mwSectionNumber = node.dataset.mwSectionNumber;
+		let sectionId = node.getAttribute( 'id' );
+		const mwSectionNumber = node.dataset.mwSectionNumber;
 
-		validSection = node.tagName === 'SECTION' && sectionId &&
+		const validSection = node.tagName === 'SECTION' && sectionId &&
 			node.getAttribute( 'rel' ) === 'cx:Section';
 		if ( !validSection ) {
 			mw.log.error( '[CX] Node is not under a section: ' + node.tagName +
@@ -136,15 +130,16 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 			return;
 		}
 
-		var sourceSectionNode = node.cloneNode( true );
+		const sourceSectionNode = node.cloneNode( true );
+		let sectionNode;
 		if ( forTarget ) {
-			savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
+			const savedSection = this.getSavedSection( savedTranslationUnits, node, sourceLanguage );
 
 			sectionId = sectionId.replace( 'cxSourceSection', 'cxTargetSection' );
 			if ( savedSection ) {
 				// Saved translated section. Extract content and create a DOM element
-				savedSectionNode = domDoc.createElement( 'div' );
-				restoredContent = this.getLatestTranslation( savedSection );
+				const savedSectionNode = domDoc.createElement( 'div' );
+				const restoredContent = this.getLatestTranslation( savedSection );
 				if ( !restoredContent ) {
 					mw.log.error( '[CX] Blank saved section for ' + sectionId + ' while restoring' );
 					return;
@@ -180,7 +175,7 @@ mw.cx.dm.Translation.static.getSourceDom = function (
 		// Remove the original node now.
 		node.parentNode.removeChild( node );
 		articleNode.appendChild( sectionNode );
-	}, this );
+	} );
 
 	domDoc.body.appendChild( articleNode );
 
@@ -194,8 +189,8 @@ mw.cx.dm.Translation.static.getSourceDom = function (
  * @return {string|null}
  */
 mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) {
-	var user = translationUnit.user,
-		mt = translationUnit.mt;
+	const user = translationUnit.user;
+	const mt = translationUnit.mt;
 
 	if ( user && mt ) {
 		// Both user translation and unmodified MT present. Find which one is latest.
@@ -228,17 +223,14 @@ mw.cx.dm.Translation.static.getLatestTranslation = function ( translationUnit ) 
 mw.cx.dm.Translation.static.getSavedSection = function (
 	savedTranslationUnits, sourceSectionNode, sourceLanguage
 ) {
-	var savedSection, translationUnitId, savedTranslationUnit,
-		parsoidId, $savedTranslationUnitSource, savedSectionParsoidId;
-
 	if ( !savedTranslationUnits ) {
 		return;
 	}
 
 	// CX1 translations use parsoid generated Id attribute values in
 	// section content instead of numerical section numbers
-	parsoidId = sourceSectionNode.firstChild && sourceSectionNode.firstChild.id;
-	savedSection = savedTranslationUnits[ parsoidId ];
+	const parsoidId = sourceSectionNode.firstChild && sourceSectionNode.firstChild.id;
+	const savedSection = savedTranslationUnits[ parsoidId ];
 	if ( sourceSectionNode.tagName !== 'SECTION' && savedSection && !savedSection.restored ) {
 		savedTranslationUnits[ parsoidId ].restored = true;
 		return savedSection;
@@ -246,8 +238,8 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 
 	// Even if source section number changed, try locating matching id in content
 	// For CX2, translationUnitId is section number
-	for ( translationUnitId in savedTranslationUnits ) {
-		savedTranslationUnit = savedTranslationUnits[ translationUnitId ];
+	for ( const translationUnitId in savedTranslationUnits ) {
+		const savedTranslationUnit = savedTranslationUnits[ translationUnitId ];
 		if ( savedTranslationUnit.restored ) {
 			// Already restored section.
 			continue;
@@ -256,10 +248,10 @@ mw.cx.dm.Translation.static.getSavedSection = function (
 			mw.log.error( '[CX] Section saved without source? ' + translationUnitId );
 			continue;
 		}
-		$savedTranslationUnitSource = $( savedTranslationUnit.source.content );
+		const $savedTranslationUnitSource = $( savedTranslationUnit.source.content );
 		if ( !$savedTranslationUnitSource.is( 'section' ) ) {
 			// CX1 saved translation
-			savedSectionParsoidId = $savedTranslationUnitSource.attr( 'id' );
+			const savedSectionParsoidId = $savedTranslationUnitSource.attr( 'id' );
 
 			if ( parsoidId === savedSectionParsoidId ) {
 				savedTranslationUnit.restored = true;
@@ -295,7 +287,7 @@ mw.cx.dm.Translation.static.getSavedSection = function (
  */
 mw.cx.dm.Translation.static.hasTransclusionNode = function ( rootNode ) {
 	return [].slice.call( rootNode.children ).some( function ( node ) {
-		var hasTransclusionTypeOf =
+		const hasTransclusionTypeOf =
 			node.attributes.typeof && node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ );
 
 		return !!( node.attributes.about || hasTransclusionTypeOf );
@@ -315,10 +307,8 @@ mw.cx.dm.Translation.static.hasTransclusionNode = function ( rootNode ) {
 mw.cx.dm.Translation.static.isMatchingForRestore = function (
 	savedSourceContent, currSourceNode, language
 ) {
-	var commonTokenRatio,
-		$savedTranslationUnitSource = $( savedSourceContent ),
-		$sourceSectionNode = $( currSourceNode );
-
+	const $savedTranslationUnitSource = $( savedSourceContent );
+	const $sourceSectionNode = $( currSourceNode );
 	if ( $savedTranslationUnitSource.is( 'section' ) ) {
 		// Template definitions can exist on different kind of elements like <style>, <span> etc.
 		// For example, in SX, cxserver may return a template definition inside <style> tag, then
@@ -344,7 +334,7 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
 	// If old and new source content has some edits, causing some words change,
 	// find out the common token ratio. The definition of token depends on the language
 	// but mostly it means words.
-	commonTokenRatio = mw.cx.TranslationTracker.static.calculateUnmodifiedContent(
+	const commonTokenRatio = mw.cx.TranslationTracker.static.calculateUnmodifiedContent(
 		$savedTranslationUnitSource.text(),
 		$sourceSectionNode.text(),
 		language
@@ -371,7 +361,7 @@ mw.cx.dm.Translation.static.isMatchingForRestore = function (
  * @return {boolean}
  */
 mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
-	var bigString = string1.trim(),
+	let bigString = string1.trim(),
 		smallString = string2.trim();
 
 	if ( bigString.length < smallString.length ) {
@@ -400,7 +390,7 @@ mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
  * @return {Element} Document element corresponding to the saved HTML of the section.
  */
 mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
-	var translation;
+	let translation;
 
 	// If the translator has manual translation from scratch or on top of MT use that.
 	if ( translationUnit.user && translationUnit.user.content ) {
@@ -464,9 +454,9 @@ mw.cx.dm.Translation.prototype.initCategories = function ( adaptedCategories ) {
  * @return {Array} Target categories
  */
 mw.cx.dm.Translation.prototype.extractTargetCategories = function () {
-	var source, target, categories = [];
-
-	for ( source in this.adaptedCategories ) {
+	let target;
+	const categories = [];
+	for ( const source in this.adaptedCategories ) {
 		target = this.adaptedCategories[ source ];
 		if ( target ) {
 			categories.push( target );
@@ -493,10 +483,9 @@ mw.cx.dm.Translation.prototype.getCorrespondingTargetCategory = function ( sourc
  * @return {string|null} Corresponding source category name, or null
  */
 mw.cx.dm.Translation.prototype.getCorrespondingSourceCategory = function ( targetCategory ) {
-	var i, length, category;
-
-	for ( i = 0, length = this.sourceCategories.length; i < length; i++ ) {
-		category = this.sourceCategories[ i ];
+	const length = this.sourceCategories.length;
+	for ( let i = 0; i < length; i++ ) {
+		const category = this.sourceCategories[ i ];
 
 		if ( this.adaptedCategories[ category ] === targetCategory ) {
 			return category;
@@ -512,7 +501,7 @@ mw.cx.dm.Translation.prototype.getCorrespondingSourceCategory = function ( targe
  * @return {Array} Removed categories
  */
 mw.cx.dm.Translation.prototype.getRemovedCategories = function () {
-	var allTargetCategories = this.extractTargetCategories();
+	const allTargetCategories = this.extractTargetCategories();
 
 	return OO.simpleArrayDifference( allTargetCategories, this.getTargetCategories() );
 };
@@ -710,7 +699,7 @@ mw.cx.dm.Translation.prototype.resolveNotify = function () {
  * @param {string} name
  */
 mw.cx.dm.Translation.prototype.resolveIssueByName = function ( name ) {
-	var index = this.findIssueIndex( name );
+	const index = this.findIssueIndex( name );
 
 	if ( index > -1 ) {
 		this.translationIssues.splice( index, 1 );
@@ -726,9 +715,8 @@ mw.cx.dm.Translation.prototype.resolveIssueByName = function ( name ) {
  * @return {number} Index of issue or -1 if not found.
  */
 mw.cx.dm.Translation.prototype.findIssueIndex = function ( name ) {
-	var i, length;
-
-	for ( i = 0, length = this.translationIssues.length; i < length; i++ ) {
+	const length = this.translationIssues.length;
+	for ( let i = 0; i < length; i++ ) {
 		if ( this.translationIssues[ i ].getName() === name ) {
 			return i;
 		}
