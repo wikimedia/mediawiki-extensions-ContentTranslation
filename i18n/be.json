@@ -29,6 +29,7 @@
 	"cx-header-translation-center": "Цэнтр перакладаў",
 	"cx-header-all-translations": "Усе пераклады",
 	"cx-source-view-page": "прагляд старонкі",
+	"cx-target-view-page": "прагляд старонкі",
 	"cx-publish-page-success": "Старонка апублікавана на $1",
 	"cx-publish-error-abuse-filter": "Аўтаматычныя фільтры праўкі выявілі праблемны змест у вашым перакладзе. Фільтр, у які трапіў змест: $1",
 	"cx-publish-error-empty": "Сервер адказаў без даных.",

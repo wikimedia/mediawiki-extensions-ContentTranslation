@@ -452,5 +452,11 @@
 	"cx-sx-block-template-mapping-status-title-no-target-template": "কোনও সমতুল্য টেমপ্লেট পাওয়া যায়নি",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "এই টেমপ্লেটটি খালি হিসেবে যোগ করা হবে",
 	"cx-sx-block-template-mapping-status-title-partially-template": "এই টেমপ্লেটটি আংশিকভাবে অনুবাদ করা যেতে পারে",
-	"cx-sx-block-template-mapping-status-title-fully-template": "এই টেমপ্লেটটি স্বয়ংক্রিয়ভাবে অনুবাদ করা যেতে পারে"
+	"cx-sx-block-template-mapping-status-title-fully-template": "এই টেমপ্লেটটি স্বয়ংক্রিয়ভাবে অনুবাদ করা যেতে পারে",
+	"cx-sx-block-template-mapping-status-explanation-no-mapping": "উভয় ভাষায় টেমপ্লেটটির কাঠামো খুবই ভিন্ন এবং কোনও উপাত্ত স্বয়ংক্রিয়ভাবে স্থানান্তর করা যাবে না",
+	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "উভয় ভাষায় টেমপ্লেটটির কাঠামো একই রকমের এবং কিছু উপাত্ত স্বয়ংক্রিয়ভাবে স্থানান্তর করা যাবে",
+	"cx-sx-block-template-mapping-status-explanation-full-mapping": "উভয় ভাষায় টেমপ্লেটটির কাঠামো একই রকমের এবং সকল উপাত্ত স্বয়ংক্রিয়ভাবে স্থানান্তর করা যাবে",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "আপনি যদি $1 ভাষায় সমতুল্য টেমপ্লেট সম্পর্কে জানেন, তবে আপনি সেটিকে উইকিউপাত্তে সংযুক্ত করতে পারেন যাতে সরঞ্জামগুলি সেটি খুঁজে পায়",
+	"cx-sx-block-template-mapped-params-text": "{{PLURAL:$2|$2}}টির মধ্য থেকে $1টি প্যারামিটার মূল টেমপ্লেট থেকে যোগ করা হয়েছে",
+	"cx-sx-block-template-no-source-params-text": "মূল টেমপ্লেটে স্থানান্তর করার মতো কোনও প্যারামিটার নেই"
 }
