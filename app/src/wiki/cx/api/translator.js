@@ -324,7 +324,7 @@ const publishTranslation = ({
  * @param {string} publishParams.targetLanguage The language of the target page
  * @param {number} publishParams.revision The revision of the source page
  * @param {number|"new"} publishParams.units The parallel corpora translation units
- * @param {string} publishParams.sectionId The id of the source page section
+ * @param {string} publishParams.sectionId To be stored as "cxsx_section_id" inside "cx_section_translations" table. Format: `${revision}_${mwSectionNumber}`
  * @param {boolean} publishParams.isSandbox
  * @param {boolean} publishParams.progress
  * @return {Promise<number|PublishFeedbackMessage>}

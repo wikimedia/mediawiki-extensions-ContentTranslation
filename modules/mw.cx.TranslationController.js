@@ -116,7 +116,7 @@ mw.cx.TranslationController.prototype.onSectionChange = function ( sectionId ) {
  * @return {boolean}
  */
 mw.cx.TranslationController.prototype.hasUnsavedChanges = function () {
-	return this.translationTracker.getSaveQueue().length ||
+	return this.getSaveQueue().length ||
 		this.targetTitleChanged() ||
 		this.targetCategoriesChanged !== 0;
 };
@@ -145,9 +145,12 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
  * @param {Object} response.params
  */
 mw.cx.TranslationController.prototype.saveSuccessHandler = function ( { saveResult, numOfChangedCategories, params } ) {
-	const savedSections = this.translationTracker.getSaveQueue().slice();
+	const savedSections = this.getSaveQueue();
+	const requestParams = this.getSaveRequestParams( null );
+	// "validations" property doesn't exist in the response payload for "sxsave" requests. Only exists for "cxsave"
+	const validations = saveResult[ requestParams.action ].validations || {};
 
-	this.onSaveComplete( savedSections, saveResult );
+	this.onSaveComplete( savedSections, validations );
 
 	if ( this.targetTitleChanged() ) {
 		mw.log( '[CX] Target title saved.' );
@@ -212,6 +215,37 @@ mw.cx.TranslationController.prototype.saveFailureHandler = function ( { errorCod
 	this.emit( 'saveFailure' );
 };
 
+mw.cx.TranslationController.prototype.getSaveRequestParams = function ( content ) {
+	const sourceRevision = this.translation.getSourceRevisionId();
+	const params = {
+		content,
+		assert: 'user',
+		sourcetitle: this.translation.getSourceTitle(),
+		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
+		sourcerevision: sourceRevision
+	};
+
+	if ( this.translation.isSectionTranslation() ) {
+		const mwSectionNumber = this.translation.getMwSectionNumber();
+		params.action = 'sxsave';
+		params.targettitle = this.translation.getTargetTitle();
+		params.sourcesectiontitle = this.translation.sourceWikiPage.getSectionTitle();
+		params.targetsectiontitle = this.veTarget.translationView.targetColumn.getTitle();
+		params.sourcelanguage = this.translation.getSourceLanguage();
+		params.targetlanguage = this.translation.getTargetLanguage();
+		params.sectionid = `${sourceRevision}_${mwSectionNumber}`;
+		params.issandbox = this.veTarget.getPublishNamespace() === mw.config.get( 'wgNamespaceIds' ).user;
+	} else {
+		params.action = 'cxsave';
+		params.from = this.translation.getSourceLanguage();
+		params.to = this.translation.getTargetLanguage();
+		params.title = this.translation.getTargetTitle();
+		params.cxversion = 2;
+	}
+
+	return params;
+};
+
 /**
  * Given a string (deflated or not) containing the stringified parallel corpora translation units to be saved,
  * and a boolean indicating whether the previous request was a fail, this method prepares and returns a save
@@ -223,18 +257,7 @@ mw.cx.TranslationController.prototype.saveFailureHandler = function ( { errorCod
  * @throws {{ errorCode: string, details: object }}
  */
 mw.cx.TranslationController.prototype.getSaveRequest = function ( content, isRetry ) {
-	const params = {
-		action: 'cxsave',
-		assert: 'user',
-		content,
-		from: this.translation.getSourceLanguage(),
-		to: this.translation.getTargetLanguage(),
-		sourcetitle: this.translation.getSourceTitle(),
-		title: this.translation.getTargetTitle(),
-		sourcerevision: this.translation.getSourceRevisionId(),
-		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
-		cxversion: 2
-	};
+	const params = this.getSaveRequestParams( content );
 
 	let numOfChangedCategories;
 	if ( this.targetCategoriesChanged > 0 ) {
@@ -324,12 +347,38 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	// Copy the current save queue by value.
 	const savedSections = this.translationTracker.getSaveQueue().slice();
 
-	this.getContentToSave( savedSections ).then( ( content ) => {
+	// in "sxsave" we do not use deflated content, just regular JSON string
+	const deflate = !this.translation.isSectionTranslation();
+	this.getContentToSave( savedSections, deflate ).then( ( content ) => {
 		this.saveRequest = this.getSaveRequest( content, isRetry );
-		this.saveRequest.then( ( response ) => this.saveSuccessHandler( response ) )
+		this.saveRequest
+			.then( ( response ) => this.saveSuccessHandler( response ) )
 			.catch( ( error ) => this.saveFailureHandler( error ) )
 			// use "then" instead of "finally", since "finally" is ES2018 syntax
 			.then( () => { this.saveRequest = null; } );
+	} );
+};
+
+/**
+ * This method returns a shallow copy of the "saveQueue" array, when the current
+ * translation is an article translation (which means all subsections/paragraphs
+ * are considered), or a shallow copy of a portion of the "saveQueue" array, when
+ * the current translation is a section translation (which means only subsections
+ * from the currently translated section should be considered).
+ *
+ * @return {number[]}
+ */
+mw.cx.TranslationController.prototype.getSaveQueue = function () {
+	const mwSectionNumber = this.translation.getMwSectionNumber();
+
+	if ( !mwSectionNumber ) {
+		return this.translationTracker.getSaveQueue().slice();
+	}
+
+	return this.translationTracker.getSaveQueue().filter( ( sectionNumber ) => {
+		const sectionState = this.translationTracker.getSectionState( sectionNumber );
+
+		return sectionState.mwSectionNumber === mwSectionNumber;
 	} );
 };
 
@@ -347,12 +396,10 @@ mw.cx.TranslationController.prototype.onPageUnload = function () {
 	}
 };
 
-mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections, saveResult ) {
+mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections, validations ) {
 	if ( this.targetCategoriesChanged > 0 ) {
 		mw.log( '[CX] Target categories saved.' );
 	}
-
-	const validations = saveResult.cxsave.validations;
 
 	savedSections.forEach( function ( sectionNumber ) {
 		const sectionState = this.translationTracker.getSectionState( sectionNumber );
@@ -503,9 +550,10 @@ mw.cx.TranslationController.prototype.onSaveValidation = function ( section, val
  * Get the deflated content to save from save queue.
  *
  * @param {number[]} saveQueue
- * @return {jQuery.Promise} Promise which resolve with deflated content
+ * @param {boolean} deflate
+ * @return {Promise} Promise which resolve with deflated content
  */
-mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) {
+mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue, deflate ) {
 	const records = [];
 
 	saveQueue.forEach( function ( sectionNumber ) {
@@ -514,9 +562,13 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue ) 
 		} );
 	}, this );
 
-	return mw.loader.using( 'mediawiki.deflate' ).then( function () {
-		return mw.deflate( JSON.stringify( records ) );
-	} );
+	const content = JSON.stringify( records );
+
+	if ( !deflate ) {
+		return Promise.resolve( content );
+	}
+
+	return Promise.resolve( mw.loader.using( 'mediawiki.deflate' ).then( () => mw.deflate( content ) ) );
 };
 
 /**
