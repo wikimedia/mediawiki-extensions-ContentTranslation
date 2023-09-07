@@ -135,6 +135,160 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
 };
 
 /**
+ * Given an object containing the result of the save request, the number of the changed categories and the save request
+ * params as an object, this method handles the successful result of a save request, executing the necessary post-save
+ * operations.
+ *
+ * @param {Object} response
+ * @param {Object} response.saveResult
+ * @param {number} response.numOfChangedCategories
+ * @param {Object} response.params
+ */
+mw.cx.TranslationController.prototype.saveSuccessHandler = function ( { saveResult, numOfChangedCategories, params } ) {
+	const savedSections = this.translationTracker.getSaveQueue().slice();
+
+	this.onSaveComplete( savedSections, saveResult );
+
+	if ( this.targetTitleChanged() ) {
+		mw.log( '[CX] Target title saved.' );
+	}
+	this.savedTargetTitle = params.title;
+
+	if ( params.sourcecategories ) {
+		this.sourceCategoriesSaved = true;
+	}
+
+	if ( numOfChangedCategories ) {
+		this.targetCategoriesChanged -= numOfChangedCategories;
+	}
+
+	// Remove saved sections from the queue
+	savedSections.forEach( function ( sectionNumber ) {
+		this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
+	}, this );
+
+	// Reset fail counter.
+	if ( this.failCounter > 0 ) {
+		this.failCounter = 0;
+		mw.log( '[CX] Retry successful. Save succeeded.' );
+	}
+
+	this.emit( 'saveSuccess' );
+
+};
+
+/**
+ * This handler expects an object with "errorCode" and "details" properties set.
+ * The reason for that is that this method handles the response from jQuery promises.
+ * jQuery promise error handlers receive two arguments, the errorCode and the details.
+ *
+ * @param {Object} error
+ * @param {string} error.errorCode
+ * @param {Object} error.details
+ */
+mw.cx.TranslationController.prototype.saveFailureHandler = function ( { errorCode, details } ) {
+	this.failCounter++;
+
+	mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
+	if ( details.exception !== 'abort' ) {
+		this.onSaveFailure( errorCode, details );
+	}
+
+	if ( this.failCounter > 5 ) {
+		// If there are more than a few errors, stop autosave at timer triggers.
+		// Show a bigger error message at this point.
+		this.translationView.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
+		// This will allow any change to trigger save again
+		this.failCounter = 0;
+		mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
+	} else {
+		// Delay in seconds, failCounter is [1,5]
+		const delay = 60 * this.failCounter;
+		// Schedule retry.
+		this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
+		mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
+	}
+
+	this.emit( 'saveFailure' );
+};
+
+/**
+ * Given a string (deflated or not) containing the stringified parallel corpora translation units to be saved,
+ * and a boolean indicating whether the previous request was a fail, this method prepares and returns a save
+ * request, as a promise.
+ *
+ * @param {string} content a string representing the corpora translation units to be saved
+ * @param {boolean} isRetry a boolean indicating whether the previous request was a fail
+ * @return {Promise<{ saveResult: object, numOfChangedCategories: number, params: object }>}
+ * @throws {{ errorCode: string, details: object }}
+ */
+mw.cx.TranslationController.prototype.getSaveRequest = function ( content, isRetry ) {
+	const params = {
+		action: 'cxsave',
+		assert: 'user',
+		content,
+		from: this.translation.getSourceLanguage(),
+		to: this.translation.getTargetLanguage(),
+		sourcetitle: this.translation.getSourceTitle(),
+		title: this.translation.getTargetTitle(),
+		sourcerevision: this.translation.getSourceRevisionId(),
+		progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
+		cxversion: 2
+	};
+
+	let numOfChangedCategories;
+	if ( this.targetCategoriesChanged > 0 ) {
+		// Use counter for number of changes in target categories which are attempted to be saved.
+		// Once saving is successful, that number is subtracted from current number of changes in
+		// target categories, which maybe got bigger while first change was being saved.
+		numOfChangedCategories = this.targetCategoriesChanged;
+		params.targetcategories = JSON.stringify( this.translation.getTargetCategories() );
+
+		// Only save source categories once per session, the first time user changes target
+		// categories. Both source and target categories are saved in cx_corpora table, but
+		// only target categories are retrieved when saved draft is being restored. Source
+		// categories are saved for completeness of cx_corpora, which pairs source and target.
+		// Source categories are saved once per session, because there may have been changes
+		// to source categories in the mean time.
+		if ( !this.sourceCategoriesSaved ) {
+			params.sourcecategories = JSON.stringify( this.translation.getSourceCategories() );
+		}
+	}
+
+	if ( this.failCounter > 0 ) {
+		mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
+	}
+
+	let apiOptions = {};
+	if ( isRetry ) {
+		// Default timeout is 30s. Double it while retrying to increase the chance for success.
+		apiOptions = { timeout: 60 * 1000 };
+	}
+
+	const api = new mw.Api();
+	let jQueryPromise;
+
+	const promise = new Promise( ( resolve, reject ) => {
+		jQueryPromise = api.postWithToken( 'csrf', params, apiOptions );
+		jQueryPromise
+			.then( ( saveResult ) => {
+				resolve( {
+					saveResult,
+					numOfChangedCategories,
+					params
+				} );
+			} )
+			.fail( ( errorCode, details ) => {
+				reject( { errorCode, details } );
+			} );
+	} );
+
+	promise.abort = jQueryPromise.abort;
+
+	return promise;
+};
+
+/**
  * Process the save queue. Save the changed translation units.
  *
  * @param {boolean} [isRetry] Whether this is a retry or not.
@@ -170,107 +324,13 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	// Copy the current save queue by value.
 	const savedSections = this.translationTracker.getSaveQueue().slice();
 
-	let numOfChangedCategories;
-	this.getContentToSave( savedSections ).then( function ( content ) {
-		const params = {
-			action: 'cxsave',
-			assert: 'user',
-			content: content,
-			from: this.translation.getSourceLanguage(),
-			to: this.translation.getTargetLanguage(),
-			sourcetitle: this.translation.getSourceTitle(),
-			title: this.translation.getTargetTitle(),
-			sourcerevision: this.translation.getSourceRevisionId(),
-			progress: JSON.stringify( this.translationTracker.getTranslationProgress() ),
-			cxversion: 2
-		};
-
-		if ( this.targetCategoriesChanged > 0 ) {
-			// Use counter for number of changes in target categories which are attempted to be saved.
-			// Once saving is successful, that number is subtracted from current number of changes in
-			// target categories, which maybe got bigger while first change was being saved.
-			numOfChangedCategories = this.targetCategoriesChanged;
-			params.targetcategories = JSON.stringify( this.translation.getTargetCategories() );
-
-			// Only save source categories once per session, the first time user changes target
-			// categories. Both source and target categories are saved in cx_corpora table, but
-			// only target categories are retrieved when saved draft is being restored. Source
-			// categories are saved for completeness of cx_corpora, which pairs source and target.
-			// Source categories are saved once per session, because there may have been changes
-			// to source categories in the mean time.
-			if ( !this.sourceCategoriesSaved ) {
-				params.sourcecategories = JSON.stringify( this.translation.getSourceCategories() );
-			}
-		}
-
-		if ( this.failCounter > 0 ) {
-			mw.log( '[CX] Retrying to save the translation. Failed ' + this.failCounter + ' times so far.' );
-		}
-
-		let apiOptions = {};
-		if ( isRetry ) {
-			// Default timeout is 30s. Double it while retrying to increase the chance for success.
-			apiOptions = { timeout: 60 * 1000 };
-		}
-
-		const api = new mw.Api();
-		this.saveRequest = api.postWithToken( 'csrf', params, apiOptions )
-			.done( function ( saveResult ) {
-				this.onSaveComplete( savedSections, saveResult );
-
-				if ( this.targetTitleChanged() ) {
-					mw.log( '[CX] Target title saved.' );
-				}
-				this.savedTargetTitle = params.title;
-
-				if ( params.sourcecategories ) {
-					this.sourceCategoriesSaved = true;
-				}
-
-				if ( numOfChangedCategories ) {
-					this.targetCategoriesChanged -= numOfChangedCategories;
-				}
-
-				// Remove saved sections from the queue
-				savedSections.forEach( function ( sectionNumber ) {
-					this.translationTracker.removeSectionFromSaveQueue( sectionNumber );
-				}, this );
-
-				// Reset fail counter.
-				if ( this.failCounter > 0 ) {
-					this.failCounter = 0;
-					mw.log( '[CX] Retry successful. Save succeeded.' );
-				}
-
-				this.emit( 'saveSuccess' );
-			}.bind( this ) ).fail( function ( errorCode, details ) {
-				this.failCounter++;
-
-				mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
-				if ( details.exception !== 'abort' ) {
-					this.onSaveFailure( errorCode, details );
-				}
-
-				if ( this.failCounter > 5 ) {
-					// If there are more than a few errors, stop autosave at timer triggers.
-					// Show a bigger error message at this point.
-					this.translationView.showMessage( 'error', mw.msg( 'cx-save-draft-error' ) );
-					// This will allow any change to trigger save again
-					this.failCounter = 0;
-					mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
-				} else {
-					// Delay in seconds, failCounter is [1,5]
-					const delay = 60 * this.failCounter;
-					// Schedule retry.
-					this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
-					mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
-				}
-
-				this.emit( 'saveFailure' );
-			}.bind( this ) ).always( function () {
-				this.saveRequest = null;
-			}.bind( this ) );
-	}.bind( this ) );
+	this.getContentToSave( savedSections ).then( ( content ) => {
+		this.saveRequest = this.getSaveRequest( content, isRetry );
+		this.saveRequest.then( ( response ) => this.saveSuccessHandler( response ) )
+			.catch( ( error ) => this.saveFailureHandler( error ) )
+			// use "then" instead of "finally", since "finally" is ES2018 syntax
+			.then( () => { this.saveRequest = null; } );
+	} );
 };
 
 /**
