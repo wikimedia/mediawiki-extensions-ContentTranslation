@@ -67,12 +67,12 @@ mw.cx.init.Translation.prototype.init = function () {
 
 	// TODO: Use mw.libs.ve.targetLoader.loadModules instead of manually getting the plugin
 	// modules and manually initializing the platform
-	var platformPromise = new ve.init.mw.Platform().initialize();
-	var translationPromise = this.fetchTranslationData();
-	var pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
-	var modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
+	const platformPromise = new ve.init.mw.Platform().initialize();
+	const translationPromise = this.fetchTranslationData();
+	const pluginModules = mw.config.get( 'wgVisualEditorConfig' ).pluginModules;
+	const modulePromise = mw.loader.using( [ 'mw.cx.visualEditor' ].concat( pluginModules ) );
 	$.when( translationPromise, modulePromise, platformPromise ).then( function ( translationData ) {
-		var sourcePageContent = translationData[ 0 ],
+		const sourcePageContent = translationData[ 0 ],
 			draft = translationData[ 1 ];
 
 		// Set the link cache for source language
@@ -112,7 +112,7 @@ mw.cx.init.Translation.prototype.init = function () {
 				translationModel.initCategories(
 					this.processCategories( sourcePageContent.categories )
 				);
-				var categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
+				const categoryUI = new mw.cx.ui.Categories( translationModel, this.config );
 				this.translationView.showCategories( categoryUI );
 			}
 			if ( draft ) {
@@ -132,12 +132,12 @@ mw.cx.init.Translation.prototype.init = function () {
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	mw.log( '[CX] Fetching Source page...' );
-	var sourcePageFetchDeferred = this.fetchSourcePageContent(
+	const sourcePageFetchDeferred = this.fetchSourcePageContent(
 		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
 	).fail( this.fetchSourcePageContentError.bind( this ) );
 
 	mw.log( '[CX] Checking existing translation...' );
-	var draftFetchDeferred = this.fetchDraftInformation(
+	const draftFetchDeferred = this.fetchDraftInformation(
 		this.sourceWikiPage, this.targetWikiPage
 	).then(
 		this.fetchDraftInformationSuccess.bind( this ),
@@ -159,10 +159,9 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, draft ) {
-	var translationUnits = draft && draft.translationUnits,
-		numberOfUnrestoredSections = 0;
+	const translationUnits = draft && draft.translationUnits;
 
-	var targetDom = mw.cx.dm.Translation.static.getSourceDom(
+	const targetDom = mw.cx.dm.Translation.static.getSourceDom(
 		sourceHtml,
 		this.sourceWikiPage.getSectionTitle(),
 		true,
@@ -170,7 +169,8 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 		this.sourceWikiPage.getLanguage()
 	);
 
-	for ( var translationUnitId in translationUnits ) {
+	let numberOfUnrestoredSections = 0;
+	for ( const translationUnitId in translationUnits ) {
 		if ( !translationUnits[ translationUnitId ].restored ) {
 			numberOfUnrestoredSections++;
 		}
@@ -179,9 +179,9 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 	// If no translated section was lost, create source DOM and return early
 	// This should cover initial start of translation, when there's no draft at all.
 	if ( numberOfUnrestoredSections < 1 ) {
-		var sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
+		const sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHtml, this.sourceWikiPage.getSectionTitle() );
 
-		var translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
+		const translationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, sourceDom, targetDom );
 		return $.Deferred().resolve( translationModel ).promise();
 	}
 
@@ -190,16 +190,14 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 	return this.fetchSourcePageContent(
 		this.sourceWikiPage, this.targetWikiPage.getLanguage(), this.config.siteMapper
 	).then( function ( sourcePageContent ) {
-		var uri = new mw.Uri(),
-			updatedSourceHtml = sourcePageContent.segmentedContent;
-
 		// Reset restoration status for all translation units
-		for ( var id in translationUnits ) {
+		for ( const id in translationUnits ) {
 			translationUnits[ id ].restored = false;
 		}
 
-		var updatedSourceDom = mw.cx.dm.Translation.static.getSourceDom( updatedSourceHtml, this.sourceWikiPage.getSectionTitle() );
-		var updatedTargetDom = mw.cx.dm.Translation.static.getSourceDom(
+		const updatedSourceHtml = sourcePageContent.segmentedContent;
+		const updatedSourceDom = mw.cx.dm.Translation.static.getSourceDom( updatedSourceHtml, this.sourceWikiPage.getSectionTitle() );
+		const updatedTargetDom = mw.cx.dm.Translation.static.getSourceDom(
 			updatedSourceHtml,
 			this.sourceWikiPage.getSectionTitle(),
 			true,
@@ -207,9 +205,10 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 			this.sourceWikiPage.getLanguage()
 		);
 
-		var updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
+		const updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
 		updatedTranslationModel.setChangedSignificantly( true );
 
+		let uri = new mw.Uri();
 		// Append revision number to URL
 		uri = uri.extend( { revision: draft.sourceRevisionId } );
 		window.history.pushState( null, document.title, uri.toString() );
@@ -248,14 +247,14 @@ mw.cx.init.Translation.prototype.attachToDOM = function ( veTarget ) {
  * @return {jQuery.Promise}
  */
 mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, targetLanguage, siteMapper ) {
-	var fetchParams = {
+	const fetchParams = {
 		$sourcelanguage: siteMapper.getWikiDomainCode( wikiPage.getLanguage() ),
 		$targetlanguage: targetLanguage,
 		// Manual normalisation to avoid redirects on spaces but not to break namespaces
 		$title: wikiPage.getTitle().replace( / /g, '_' )
 	};
 
-	var apiURL = '/page/$sourcelanguage/$targetlanguage/$title';
+	let apiURL = '/page/$sourcelanguage/$targetlanguage/$title';
 
 	// If revision is requested, load that revision of page.
 	if ( wikiPage.getRevision() ) {
@@ -263,7 +262,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, t
 		apiURL += '/$revision';
 	}
 
-	var fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
+	const fetchPageUrl = siteMapper.getCXServerUrl( apiURL, fetchParams );
 
 	return $.get( fetchPageUrl ).then( function ( data ) {
 		// The $.when that use the output of this will treat respose as array(data, textStatus, jqXHR)
@@ -385,11 +384,11 @@ mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details
  * sourceTitle:targetTitle property-value pairs
  */
 mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategories ) {
-	var categories = {},
-		length = fetchedCategories.length;
+	const categories = {};
+	let length = fetchedCategories.length;
 
 	while ( length-- ) {
-		var category = fetchedCategories[ length ];
+		const category = fetchedCategories[ length ];
 		categories[ category.sourceTitle ] = category.targetTitle || null;
 	}
 
@@ -397,7 +396,7 @@ mw.cx.init.Translation.prototype.processCategories = function ( fetchedCategorie
 };
 
 mw.cx.init.Translation.prototype.addFeedbackLink = function () {
-	var feedback = new OO.ui.ButtonWidget( {
+	const feedback = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-feedback-link' ),
 		icon: 'speechBubbles',
 		href: '//www.mediawiki.org/wiki/Talk:Content_translation',
@@ -414,7 +413,7 @@ mw.cx.init.Translation.prototype.addChangedSignificantlyIssue = function ( trans
 		mw.msg( 'cx-infobar-old-version' ), 'old-version', 'warning'
 	);
 
-	var diff = this.config.siteMapper.getPageUrl(
+	const diff = this.config.siteMapper.getPageUrl(
 		translationModel.getSourceLanguage(),
 		translationModel.getSourceTitle(),
 		{
@@ -424,7 +423,7 @@ mw.cx.init.Translation.prototype.addChangedSignificantlyIssue = function ( trans
 		}
 	);
 
-	var translationIssuesParams = {
+	const translationIssuesParams = {
 		title: mw.msg( 'cx-tools-linter-old-revision' ),
 		resolvable: true
 	};
@@ -461,10 +460,10 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 			return;
 		}
 
-		var sourceLanguage = this.translationModel.getSourceLanguage();
-		var targetLanguage = this.translationModel.getTargetLanguage();
-		var sourceTitle = this.translationModel.getSourceTitle();
-		var apiParams = {
+		const sourceLanguage = this.translationModel.getSourceLanguage();
+		const targetLanguage = this.translationModel.getTargetLanguage();
+		const sourceTitle = this.translationModel.getSourceTitle();
+		const apiParams = {
 			assert: 'user',
 			action: 'cxdelete',
 			from: sourceLanguage,
@@ -473,7 +472,7 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 		};
 
 		return new mw.Api().postWithToken( 'csrf', apiParams ).done( function () {
-			var uri = new mw.Uri();
+			const uri = new mw.Uri();
 			delete uri.query.revision;
 
 			this.config.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
@@ -484,8 +483,7 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 };
 
 mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = function () {
-	var userGroups = mw.config.get( 'wgUserGroups' ) || [],
-		publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups;
+	let publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups;
 
 	if ( typeof publishConfig === 'string' ) {
 		publishConfig = [ publishConfig ];
@@ -496,9 +494,8 @@ mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = functio
 		return true;
 	}
 
-	return publishConfig.some( function ( userGroup ) {
-		return userGroups.indexOf( userGroup ) > -1;
-	} );
+	const userGroups = mw.config.get( 'wgUserGroups' ) || [];
+	return publishConfig.some( ( userGroup ) => userGroups.indexOf( userGroup ) > -1 );
 };
 
 mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
@@ -539,7 +536,7 @@ mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
 };
 
 mw.cx.init.Translation.prototype.switchToUserNamespace = function () {
-	var popup = new OO.ui.PopupWidget( {
+	const popup = new OO.ui.PopupWidget( {
 		$content: $( '<p>' ).text( mw.msg( 'cx-publish-destination-namespace-changed' ) ),
 		padded: true,
 		autoClose: true
