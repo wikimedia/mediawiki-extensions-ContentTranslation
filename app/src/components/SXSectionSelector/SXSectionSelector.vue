@@ -76,6 +76,8 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
+import useCXRedirect from "@/composables/useCXRedirect";
+import useDevice from "@/composables/useDevice";
 
 export default {
   name: "SxSectionSelector",
@@ -93,22 +95,18 @@ export default {
     const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
+      sourceLanguage,
+      targetLanguage,
       sourceLanguageAutonym,
       targetLanguageAutonym,
     } = useApplicationState(store);
 
     const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(
-        suggestion.value.sourceLanguage,
-        suggestion.value.sourceTitle
-      )
+      siteMapper.getPageUrl(sourceLanguage.value, suggestion.value.sourceTitle)
     );
 
     const targetArticlePath = computed(() =>
-      siteMapper.getPageUrl(
-        suggestion.value.targetLanguage,
-        suggestion.value.targetTitle
-      )
+      siteMapper.getPageUrl(targetLanguage.value, suggestion.value.targetTitle)
     );
     /**
      * @type {ComputedRef<[{path: string, autonym: string}, {path: string, autonym: string}]>}
@@ -129,14 +127,28 @@ export default {
     const startDraftTranslation = useDraftTranslationStart();
     const { selectPageSectionByTitle } = usePageSectionSelect();
 
+    const { isDesktop } = useDevice();
+    const redirectToCX = useCXRedirect();
+
     const selectSection = (sourceSectionTitle) => {
+      if (isDesktop.value) {
+        redirectToCX(
+          sourceLanguage.value,
+          targetLanguage.value,
+          suggestion.value.sourceTitle,
+          { sourcesection: sourceSectionTitle }
+        );
+
+        return;
+      }
+
       const existingSectionTranslation = store.getters[
         "translator/getTranslation"
       ](
         suggestion.value.sourceTitle,
         sourceSectionTitle,
-        suggestion.value.sourceLanguage,
-        suggestion.value.targetLanguage
+        sourceLanguage.value,
+        targetLanguage.value
       );
 
       // if a draft translation exists for the current selected page and section, restore it
