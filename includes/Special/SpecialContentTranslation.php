@@ -69,11 +69,8 @@ class SpecialContentTranslation extends SpecialPage {
 			return;
 		}
 
-		if ( $this->isVueDashboard() ) {
-			// Enforce mobile target for all devices to support
-			// mobile-first design.
+		if ( $this->isUnifiedDashboard() ) {
 			$out = $this->getOutput();
-			$out->setTarget( 'mobile' );
 			$out->addHTML( Html::element(
 				'div',
 				[ 'id' => 'contenttranslation' ]
@@ -179,7 +176,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$user = $this->getUser();
 
 		// Allow anonymous users access to SX if enabled.
-		if ( $this->isVueDashboard() && $allowAnonSX && $user->isAnon() ) {
+		if ( $this->isUnifiedDashboard() && $allowAnonSX && $user->isAnon() ) {
 			return true;
 		}
 
@@ -234,9 +231,13 @@ class SpecialContentTranslation extends SpecialPage {
 		);
 	}
 
-	protected function isVueDashboard() {
+	protected function isUnifiedDashboard(): bool {
+		$forceUnifiedDashboard = $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
 		$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
-		return $isSXEnabled && self::isMobileSite() && !$this->onTranslationView();
+
+		$vueDashboardShouldBeEnabled = $isSXEnabled && self::isMobileSite();
+
+		return ( $vueDashboardShouldBeEnabled || $forceUnifiedDashboard ) && !$this->onTranslationView();
 	}
 
 	protected function initModules() {
@@ -253,7 +254,7 @@ class SpecialContentTranslation extends SpecialPage {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
-			if ( $this->isVueDashboard() ) {
+			if ( $this->isUnifiedDashboard() ) {
 				$out->addModules( 'mw.cx3' );
 				$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 				$out->addJsConfigVars( [
