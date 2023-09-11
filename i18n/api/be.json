@@ -2,9 +2,19 @@
 	"@metadata": {
 		"authors": [
 			"Maksim L.",
-			"Plaga med"
+			"Plaga med",
+			"ZlyiLev"
 		]
 	},
+	"apihelp-cxpublish-summary": "Захавайце старонку, створаную з дапамогай пашырэння Content Translation.",
+	"apihelp-cxpublish-param-title": "Загаловак старонкі для выканання дзеянняў.",
+	"apihelp-cxpublish-param-html": "Змест для захавання.",
+	"apihelp-cxpublish-param-from": "Код зыходнай мовы.",
+	"apihelp-cxpublish-param-to": "Код мэтавай мовы.",
+	"apihelp-cxpublish-param-sourcetitle": "Назва крынічнай старонкі.",
+	"apihelp-cxpublish-param-categories": "Катэгорыі, у якія ўваходзіць апублікаваная старонка.",
+	"apihelp-cxpublish-param-publishtags": "Паметкі для дадавання на апублікаваную старонку.",
+	"apihelp-cxpublish-param-wpCaptchaId": "Captcha ID (пры захаванні з адказам на captcha).",
 	"apierror-cx-invalidlanguage": "Недапушчальная мова.",
 	"apierror-cx-invalidprogress": "Недапушчальны прагрэс.",
 	"apierror-cx-invalidsectioncontent": "Недапушчальны змест раздзела.",

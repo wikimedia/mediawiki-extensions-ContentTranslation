@@ -143,7 +143,7 @@
 	"cx-contributions-upload": "Отпремање медија",
 	"cx-contributions-new-article-tooltip": "Започните писати нову страницу",
 	"cx-contributions-translation-tooltip": "Преведите постојеће странице",
-	"cx-contributions-upload-tooltip": "Отпремите слике, звучне и видео-снимке за коришћење на страницама",
+	"cx-contributions-upload-tooltip": "Отпремите слике, аудио и видео-снимке за коришћење на страницама",
 	"cx-publishing-dialog-message": "Страница $1 већ постоји. Постојећи садржај ће бити замењен вашим преводом. Желите ли да наставите?",
 	"cx-publishing-dialog-keep-button": "Задржи обе верзије",
 	"cx-publishing-dialog-publish-anyway-button": "Свеједно објави",
