@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"TerranBoy"
+		]
+	},
+	"cx": "پەڕەێ هەڵگەردانن",
+	"cx-dashboard-header": "هەڵگەرداننەیل",
+	"cx-header-all-translations": "گشت هەڵگەرداننەیل",
+	"cx-tools-mt-preferred": "بنچینەیی",
+	"cx-translation-filter-label-all-languages": "گشت",
+	"cx-contributions-translation": "هەڵگەردانن",
+	"cx-sx-sentence-selector-translation-options-original-card-title": "ئەسڵی",
+	"cx-sx-translation-confirmer-prefilled-section-heading": "بەش",
+	"sx-editor-feedback-overlay-title": "سپاس!",
+	"sx-block-template-adaptation-card-body-header-success": "داڕێژەئ پێشنیارکریاێ",
+	"sx-block-template-adaptation-card-title-placeholder": "داڕێژە",
+	"cx-contributecard-entrypoint-title": "هەڵگەرداننەیل",
+	"cx-sx-dashboard-help-panel-stats-label": "ئامار",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "ئەی مانگە",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "سەرجەم",
+	"sx-translation-deletion-cancel-button-label": "هەڵوەشاننەوە",
+	"sx-confirm-draft-translation-start-button-label": "باشە"
+}

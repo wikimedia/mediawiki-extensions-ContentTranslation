@@ -99,7 +99,7 @@
 	"cx-favorite-added-for-later": "Dodano za kasnije!",
 	"cx-favorite-added-for-later-detail": "Dodano za kasnije! Provjerite prijedloge bilo kada.",
 	"cx-favorite-removed": "Uklonjeno s popisa omiljenih!",
-	"cx-page-missing-in-target-language": "Nedostaje u $1",
+	"cx-page-missing-in-target-language": "Ne postoji prijevod na $1",
 	"cx-page-number-of-languages": "Broj jezika",
 	"cx-mt-abuse-error-title": "Vaš prijevod {{PLURAL:$1|sadrži}} $1 % nepromijenjenoga teksta",
 	"cx-mt-abuse-error-sections": "Vaš prijevod sadržava značajne dijelove nepromijenjenog teksta",

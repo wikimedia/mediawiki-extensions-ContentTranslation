@@ -473,5 +473,11 @@
 	"sx-translation-deletion-confirm-button-label": "Tərcüməni sil",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 gün|0=Bu gün}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 ay}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 il}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 il}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Mobildə tərcüməni davam etdirir",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Bu tərcümə başqa cihazda başlamışdır və o, məqalənin çoxsaylı bölmələri üçün məzmunu ehtiva edir.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Mobildə siz eyni anda yalnız bir bölmə ilə işləyə bilərsiniz. Buna görə də hələlik yalnız əsas bölmə yüklənəcək.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Digər bölmələr haradadır?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Narahat olmayın. Qalan hissələr itməyib. Cari tərcüməni yeni məqalə kimi dərc etdikdən sonra onlar əlçatan olacaq. Yayımladıqdan sonra hər bölmənin məzmunu ilə yeni davam edən tərcümələr tapacaqsınız.",
+	"sx-confirm-draft-translation-start-button-label": "Tamam"
 }
