@@ -29,7 +29,11 @@ const useDraftTranslationStart = () => {
   const { isDesktop } = useDevice();
   const redirectToCX = useCXRedirect();
 
-  const prepareDraftTranslation = async (translation) => {
+  /**
+   * @param {DraftTranslation} translation
+   * @return {(function(): Promise)}
+   */
+  return async (translation) => {
     store.commit("application/increaseTranslationDataLoadingCounter");
     const {
       sourceLanguage: translationSourceLanguage,
@@ -42,13 +46,15 @@ const useDraftTranslationStart = () => {
       redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
 
       return;
-    } else {
-      siteMapper.unsetCXToken(
-        translationSourceLanguage,
-        translationTargetLanguage,
-        sourceTitle
-      );
     }
+
+    siteMapper.unsetCXToken(
+      translationSourceLanguage,
+      translationTargetLanguage,
+      sourceTitle
+    );
+
+    router.push({ name: "sx-sentence-selector", query: { force: true } });
 
     if (
       sourceLanguage.value !== translationSourceLanguage ||
@@ -117,15 +123,6 @@ const useDraftTranslationStart = () => {
       sectionTitleTranslation
     );
     store.commit("application/decreaseTranslationDataLoadingCounter");
-  };
-
-  /**
-   * @param {Translation} translation
-   * @return {(function(): Promise)}
-   */
-  return async (translation) => {
-    prepareDraftTranslation(translation);
-    router.push({ name: "sx-sentence-selector", query: { force: true } });
   };
 };
 
