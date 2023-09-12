@@ -45,6 +45,10 @@ const translateNewSection = () => {
   store.dispatch("application/initializeSectionTranslation", suggestion.value);
   router.push({ name: "sx-section-selector", query: { force: true } });
 };
+
+const openTargetPage = () => {
+  window.open(props.translation.targetUrl, "_blank");
+};
 </script>
 
 <template>
@@ -52,11 +56,15 @@ const translateNewSection = () => {
     class="cx-published-translation"
     :translation="translation"
     :action-icon="mwIconEdit"
+    @click="openTargetPage"
   >
     <template #title>
-      <h5
+      <a
         class="cx-published-translation__source-page-title"
         :lang="translation.sourceLanguage"
+        :href="translation.targetUrl"
+        target="_blank"
+        @click.stop
         v-text="translation.sourceTitle"
       />
     </template>
@@ -71,14 +79,14 @@ const translateNewSection = () => {
               type="text"
               :label="firstMissingSection"
               progressive
-              @click="translateNewSection"
+              @click.stop="translateNewSection"
             />
             <mw-button
               class="cx-published-translation__missing-sections-button pa-0 ms-4"
               :icon="mwIconEllipsis"
               type="icon"
               progressive
-              @click="translateNewSection"
+              @click.stop="translateNewSection"
             />
           </div>
         </mw-col>
@@ -91,7 +99,15 @@ const translateNewSection = () => {
 @import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-published-translation {
+  cursor: pointer;
+
   &__source-page-title {
+    text-decoration: none;
+    color: inherit;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
     font-weight: @font-weight-bold;
     font-size: @font-size-medium;
   }
