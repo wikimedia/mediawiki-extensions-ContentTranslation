@@ -13,6 +13,7 @@ import MwButton from "@/lib/mediawiki.ui/components/MWButton/MWButton.vue";
 import { useRouter } from "vue-router";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useDevice from "@/composables/useDevice";
+import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 
 const props = defineProps({
   translation: {
@@ -29,15 +30,42 @@ const missingSections = computed(() => suggestion.value?.missingSections);
 const firstMissingSection = computed(
   () => missingSections.value && Object.keys(missingSections.value)[0]
 );
-store
-  .dispatch("suggestions/loadSectionSuggestion", {
-    sourceLanguage: props.translation.sourceLanguage,
-    targetLanguage: props.translation.targetLanguage,
-    sourceTitle: props.translation.sourceTitle,
-  })
-  .then((sectionSuggestion) => {
-    suggestion.value = sectionSuggestion;
-  })
+
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string} sourceTitle
+ * @return {Promise<SectionSuggestion|null>}
+ */
+const findOrFetchNonLeadSectionSuggestion = async (
+  sourceLanguage,
+  targetLanguage,
+  sourceTitle
+) => {
+  let suggestion = store.getters["suggestions/getSectionSuggestionsForArticle"](
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle
+  );
+
+  if (!suggestion) {
+    /** @type {SectionSuggestion|null} */
+    suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+      sourceLanguage,
+      sourceTitle,
+      targetLanguage
+    );
+  }
+
+  return suggestion;
+};
+
+findOrFetchNonLeadSectionSuggestion(
+  props.translation.sourceLanguage,
+  props.translation.targetLanguage,
+  props.translation.sourceTitle
+)
+  .then((sectionSuggestion) => (suggestion.value = sectionSuggestion))
   .catch((error) => console.log(error))
   .finally(() => (suggestionLoading.value = false));
 
