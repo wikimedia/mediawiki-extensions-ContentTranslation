@@ -40,10 +40,21 @@ const useDraftTranslationStart = () => {
       targetLanguage: translationTargetLanguage,
       sourceTitle,
       pageRevision,
+      isLeadSectionTranslation,
     } = translation;
 
     if (isDesktop.value) {
-      redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
+      const extra = {};
+
+      if (!isLeadSectionTranslation) {
+        extra.sourcesection = translation.sourceSectionTitle;
+      }
+      redirectToCX(
+        sourceLanguage.value,
+        targetLanguage.value,
+        sourceTitle,
+        extra
+      );
 
       return;
     }

@@ -81,6 +81,13 @@ export default class DraftTranslation extends Translation {
     return !!this.translationId && !this.sectionTranslationId;
   }
 
+  /**
+   * This method returns a boolean indicating whether this translation will result in the creation
+   * of a new page, if published in the main namespace. This is different from the "isArticleTranslation"
+   * getter, because in addition to article translations, this getter also returns true for section
+   * translations of lead sections, created in mobile editor.
+   * @return {boolean}
+   */
   get isLeadSectionTranslation() {
     return (
       !this.sourceSectionTitle ||
