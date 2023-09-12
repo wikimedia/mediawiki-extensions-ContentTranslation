@@ -11,6 +11,8 @@ import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import MwButton from "@/lib/mediawiki.ui/components/MWButton/MWButton.vue";
 import { useRouter } from "vue-router";
+import useCXRedirect from "@/composables/useCXRedirect";
+import useDevice from "@/composables/useDevice";
 
 const props = defineProps({
   translation: {
@@ -41,6 +43,19 @@ store
 
 const router = useRouter();
 
+const redirectToCX = useCXRedirect();
+const { isDesktop } = useDevice();
+
+const editTranslation = () => {
+  if (isDesktop.value) {
+    redirectToCX(
+      props.translation.sourceLanguage,
+      props.translation.targetLanguage,
+      props.translation.sourceTitle
+    );
+  }
+};
+
 const translateNewSection = () => {
   store.dispatch("application/initializeSectionTranslation", suggestion.value);
   router.push({ name: "sx-section-selector", query: { force: true } });
@@ -55,7 +70,8 @@ const openTargetPage = () => {
   <cx-translation-work
     class="cx-published-translation"
     :translation="translation"
-    :action-icon="mwIconEdit"
+    :action-icon="isDesktop ? mwIconEdit : ''"
+    @action-icon-clicked="editTranslation"
     @click="openTargetPage"
   >
     <template #title>

@@ -20,6 +20,7 @@
           </div>
           <div class="col shrink ps-2">
             <mw-icon
+              class="cx-translation__action-icon"
               :icon="actionIcon"
               @click.stop="$emit('action-icon-clicked')"
             >
@@ -129,6 +130,12 @@ export default {
 
   &__details {
     height: @size-full;
+  }
+
+  &__action-icon {
+    &:hover {
+      color: @color-progressive--hover;
+    }
   }
 
   &__progress-bar {
