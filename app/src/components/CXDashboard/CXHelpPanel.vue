@@ -4,7 +4,7 @@
     <ul class="cx-help-panel__item-list mt-6 ps-2">
       <li v-for="(item, index) in listItems" :key="index" class="mt-4">
         <a :href="item.href" target="_blank">
-          <mw-icon :icon="item.icon" />
+          <mw-icon class="me-2" :icon="item.icon" />
           <span v-text="item.label" />
         </a>
       </li>
