@@ -11,7 +11,9 @@ export default class PublishedTranslation extends Translation {
    * @param {string} lastUpdatedTimestamp
    * @param {string} pageRevision
    * @param {string} status
-   * @param {string|null} targetTitle
+   * @param {string} targetTitle
+   * @param {string} targetUrl
+   * @param {object[]} sectionTranslations
    */
   constructor({
     translationId,
@@ -23,6 +25,7 @@ export default class PublishedTranslation extends Translation {
     pageRevision,
     status,
     targetTitle,
+    targetUrl,
     sectionTranslations,
   }) {
     super({
@@ -36,6 +39,7 @@ export default class PublishedTranslation extends Translation {
       status,
       targetTitle,
     });
+    this.targetUrl = targetUrl;
     this.sectionTranslations = sectionTranslations;
   }
 }

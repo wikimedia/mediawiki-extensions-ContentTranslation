@@ -239,7 +239,7 @@ class SectionTranslationStore {
 	 * @param string|null $to
 	 * @param int $limit How many results to return. Defaults to 100, same as for the "contenttranslation" list API
 	 * @param string|null $offset Offset condition (timestamp)
-	 * @return DraftTranslationDTO[]
+	 * @return PublishedTranslationDTO[]
 	 */
 	public function findPublishedSectionTranslationsByUser(
 		int $userId,
@@ -295,6 +295,7 @@ class SectionTranslationStore {
 				$row->translation_last_updated_timestamp,
 				$row->translation_source_revision_id,
 				$row->translation_target_title,
+				$row->translation_target_url,
 				$publishedSectionTranslations[$translationId] ?? []
 			);
 		}

@@ -14,6 +14,7 @@ namespace ContentTranslation\DTO;
 class PublishedTranslationDTO extends AbstractTranslationDTO {
 	/** @var PublishedSectionTranslationDTO[] */
 	private array $sectionTranslations;
+	private string $targetUrl;
 
 	public function __construct(
 		int $translationId,
@@ -23,7 +24,10 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 		string $startTimestamp,
 		string $lastUpdatedTimestamp,
 		string $pageRevision,
-		?string $targetTitle,
+		// corresponds to the "translation_target_title" field of "cx_translations" table, which cannot be null
+		string $targetTitle,
+		// cannot be null for published translations
+		string $targetUrl,
 		array $sectionTranslations
 	) {
 		parent::__construct(
@@ -38,6 +42,7 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 		);
 
 		$this->sectionTranslations = $sectionTranslations;
+		$this->targetUrl = $targetUrl;
 	}
 
 	public function toArray(): array {
@@ -50,6 +55,7 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 			"lastUpdatedTimestamp" => $this->lastUpdatedTimestamp,
 			"pageRevision" => $this->pageRevision,
 			"targetTitle" => $this->targetTitle,
+			"targetUrl" => $this->targetUrl,
 			"sectionTranslations" => array_map( static function ( PublishedSectionTranslationDTO $dto ) {
 				return $dto->toArray();
 			}, $this->sectionTranslations )
