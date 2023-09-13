@@ -39,7 +39,7 @@
 	"tag-sectiontranslation-description": "Ni isi diterjemahin deri basa laèn paké keboléan Terjemahan Bagèan deri peranti Terjemahan Isi.",
 	"cx-source-loading": "Muat $1",
 	"cx-beta": "Terjemahan Isi",
-	"cx-beta-desc": "Peranti bakal lekas nerjemahin halaman ke lu punya basa. Mulain terjemahan deri [[Special:MyContributions|lu punya halaman sumbangsih]], èn sunting tu paké pemermak sisi-demi-sisi nyang èmang kusus diranjang bakal penerjemahan. Beberapa peranti barangkali cuman kesedia bakal basa ketentu.",
+	"cx-beta-desc": "Peranti bakal lekas nerjemahin halaman ke lu punya basa. Mulain terjemahan deri [[Special:MyContributions|lu punya halaman sumbangsih]], èn sunting tu paké pemermak samping-sampingan nyang èmang kusus diranjang bakal penerjemahan. Beberapa peranti barangkali cuman kesedia bakal basa ketentu.",
 	"cx-entrypoint-title": "Terjemahin ni halaman ke $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ni halaman belon ada dalem basa $1. Apa {{GENDER:|lu}} pèngèn ngebuatnya?",
 	"cx-entrypoint-dialog-button-translate-from": "Terjemahin deri $1",
