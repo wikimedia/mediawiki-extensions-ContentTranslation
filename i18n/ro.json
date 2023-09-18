@@ -362,5 +362,8 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Lipsește în limba <span>$1</span> și altele",
 	"cx-uls-relevant-languages-panel-header": "Tradu această pagină",
 	"cx-uls-relevant-languages-panel-message": "Această pagină lipsește în câteva limbi pe care s-ar putea să le cunoașteți. O puteți traduce în câteva minute!",
-	"cx-uls-translate-page-quick-action-label": "Tradu această pagină"
+	"cx-uls-translate-page-quick-action-label": "Tradu această pagină",
+	"cx-contributecard-entrypoint-title": "Traduceri",
+	"cx-contributecard-entrypoint-desc": "Traduceți o secțiune sau un articol întreg. Faceți ca mai mult conținut să fie disponibil în mai multe limbi.",
+	"cx-contributecard-entrypoint-cta": "Începeți o traducere"
 }

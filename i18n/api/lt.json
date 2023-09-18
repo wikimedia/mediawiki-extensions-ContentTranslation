@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Albertas",
+			"Amire80",
 			"Aswanas",
 			"Eitvys200",
 			"Nokeoo",
@@ -31,7 +32,7 @@
 	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Ar reikia gauti skyrių vertimus, o ne straipsnių vertimus",
 	"apihelp-query+contenttranslation-example-1": "Gauti vertimus, pradėtus šito vartotojo.",
 	"apihelp-query+contenttranslation-example-2": "Gauti vertimų juodraščius pagal ID.",
-	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų  kalbų porų",
+	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų kalbų porų",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Vertimo ID.",
 	"apihelp-query+contenttranslationstats-example-1": "Gauti Turinio Vertimo statistiką visoms kalboms.",
 	"apihelp-query+contenttranslationsuggestions-summary": "Gauti pasiūlymų sąrašus turinio vertimui.",

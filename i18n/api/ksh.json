@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Purodha"
 		]
 	},
@@ -28,7 +29,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-target": "Et Köözel för de Zihl_Schprohch",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "De Zigg för der Tränd. Kann „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">week</kbd>“ (Woch) udder „<kbd lang=\"en\" xml:lang=\"en\" dir=\"ltr\">month</kbd>“ (Mohnd) sinn.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Holl der Tränd för et Veröffentlesche vun däm Schprohche-Paa „<code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">es-ca</code>“ en wöschentleche Rötsche.",
-	"apihelp-query+contenttranslationlangtrend-example-2": "Holl der   publishing trend för alle Schprohche",
+	"apihelp-query+contenttranslationlangtrend-example-2": "Holl der publishing trend för alle Schprohche",
 	"apihelp-cxtoken-example-1": "Fetch the authentication token for cxserver <!--  https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Apihelp-cxtoken-example-1/en -->",
 	"apihelp-cxdelete-param-from": "Et Köözel för de Quälleschprohch.",
 	"apihelp-cxdelete-param-to": "Et Köözel för de Zihlschprohch.",
