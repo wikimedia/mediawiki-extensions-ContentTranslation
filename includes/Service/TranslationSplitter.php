@@ -156,7 +156,11 @@ class TranslationSplitter {
 
 		$doc = new DOMDocument();
 		libxml_use_internal_errors( true );
-		$doc->loadHTML( mb_convert_encoding( $translatedContent, 'HTML-ENTITIES', 'UTF-8' ) );
+		$doc->loadHTML(
+			'<!doctype html><html><head><meta charset="UTF-8"/></head><body>' .
+			$translatedContent .
+			'</body></html>'
+		);
 		$h2ElementsList = $doc->getElementsByTagName( 'h2' );
 
 		if ( $h2ElementsList->count() ) {
