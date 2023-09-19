@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Eleassar",
-			"Janezdrilc"
+			"Janezdrilc",
+			"Amire80"
 		]
 	},
 	"apihelp-cxpublish-description": "Shranite stran, ki je bila ustvarjena z Wikiprevajalnikom.",
@@ -44,7 +45,7 @@
 	"apihelp-query+contenttranslationsuggestions-param-listid": "Izpiši predloge samo določenega seznama",
 	"apihelp-query+contenttranslationsuggestions-param-limit": "Največje število pridobljenih predlogov prevodov.",
 	"apihelp-query+contenttranslationsuggestions-param-offset": "Odmik za oštevilčene zadetke.",
-	"apihelp-query+contenttranslationsuggestions-param-seed": "Predlogi se privzeto vrnejo v naključnem vrstnem redu. Če želite pri uporabi omejitve in odmika vsak predlog vrniti samo enkrat, morate za vse zahteve  določiti seme.",
+	"apihelp-query+contenttranslationsuggestions-param-seed": "Predlogi se privzeto vrnejo v naključnem vrstnem redu. Če želite pri uporabi omejitve in odmika vsak predlog vrniti samo enkrat, morate za vse zahteve določiti seme.",
 	"apihelp-query+contenttranslationsuggestions-example-1": "Pridobi predlagane strani za prevod iz angleščine (en) v španščino (es).",
 	"apihelp-query+cxpublishedtranslations-description": "Pridobi podatke o vseh objavljenih prevodih.",
 	"apihelp-query+cxpublishedtranslations-summary": "Pridobi podatke o vseh objavljenih prevodih.",

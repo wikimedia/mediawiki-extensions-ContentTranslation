@@ -30,7 +30,7 @@
 	"apihelp-query+cxpublishedtranslations-param-to": "Lingvokodo de la cela lingvo.",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Lingvokodo de la fonta lingvo.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Lingvokodo de la cela lingvo.",
-	"apihelp-query+contenttranslationlangtrend-param-interval": "La intervalo por kalkuli  la tendencon. Ĝi povas esti <kbd>week</kbd> (semajno) aŭ <kbd>month</kbd> (monato).",
+	"apihelp-query+contenttranslationlangtrend-param-interval": "La intervalo por kalkuli la tendencon. Ĝi povas esti <kbd>week</kbd> (semajno) aŭ <kbd>month</kbd> (monato).",
 	"apihelp-cxdelete-description": "Forigi malnetan tradukon kreitan per la etendaĵo por tradukado de enhavo.",
 	"apihelp-cxdelete-param-from": "Lingvokodo de la fonta lingvo.",
 	"apihelp-cxdelete-param-to": "Lingvokodo de la cela lingvo.",
