@@ -3,7 +3,8 @@
 		"authors": [
 			"Cwlin0416",
 			"Kly",
-			"捍粵者"
+			"捍粵者",
+			"Amire80"
 		]
 	},
 	"apihelp-cxpublish-description": "儲存使用內容翻譯擴充套件所建立的頁面。",
@@ -87,7 +88,7 @@
 	"apihelp-cxsave-description": "此模組允許儲存按章節的草稿翻譯以節省網路頻寬，並收集並聯的語料庫。",
 	"apihelp-cxsave-summary": "此模組允許儲存按章節的草稿翻譯以節省網路頻寬，並收集並聯的語料庫。",
 	"apihelp-cxsave-param-sourcerevision": "來源頁面修訂。",
-	"apihelp-cxsave-param-progress": "有關翻譯完成（進度）的訊息。會是帶有 <code>any</code>、<code>human</code>、<code>mt</code>，和 <code>mtSectionsCount</code> 這些 key 的  JSON。其中 key 對應的值都是百分比。",
+	"apihelp-cxsave-param-progress": "有關翻譯完成（進度）的訊息。會是帶有 <code>any</code>、<code>human</code>、<code>mt</code>，和 <code>mtSectionsCount</code> 這些 key 的 JSON。其中 key 對應的值都是百分比。",
 	"apihelp-cxsave-param-content": "JSON 編碼的章節資料。各章節皆為一個物件且包含以下的 key：content、sectionId、sequenceId、sequenceId, origin",
 	"apihelp-cxsave-param-title": "要執行操作的頁面標題。",
 	"apihelp-cxsave-param-from": "來源語言代碼。",
