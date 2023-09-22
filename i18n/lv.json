@@ -461,5 +461,7 @@
 	"cx-sx-login-dialog-title": "Tava sesija ir beigusies",
 	"sx-confirm-translation-deletion-dialog-body": "Vai tiešām vēlies neatgriezeniski dzēst šo tulkojumu?",
 	"sx-translation-deletion-cancel-button-label": "Atcelt",
-	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu"
+	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Kur ir pārējās sadaļas?",
+	"sx-confirm-draft-translation-start-button-label": "Labi"
 }
