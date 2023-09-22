@@ -109,7 +109,7 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import { replaceUrl } from "@/utils/urlHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
-import useSegmentScroll from "./useSegmentScroll";
+import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
 
 export default {
   name: "SxSentenceSelector",
@@ -165,7 +165,7 @@ export default {
     const initializeMTProviders = useMTProvidersInitialize();
     initializeMTProviders();
 
-    const scrollToSegment = useSegmentScroll();
+    const scrollToTranslationUnit = useSelectedContentTranslationUnitScroll();
 
     onMounted(() => {
       watch(
@@ -176,25 +176,16 @@ export default {
             await nextTick();
             initializeSegmentSelection();
 
-            if (!selectedContentTranslationUnit.value) {
-              return;
-            }
-            const segmentId = selectedContentTranslationUnit.value.id;
-            const segment = isBlockTemplateSelected.value
-              ? document.getElementById(segmentId)
-              : document.querySelector(`[data-segmentid='${segmentId}']`);
-
-            if (!segment) {
-              return;
-            }
-
-            scrollToSegment(segment);
+            // scroll to already selected translation unit if any
+            scrollToTranslationUnit();
           }
         },
         { immediate: true }
       );
       screenHeight.value = window.innerHeight;
     });
+
+    watch(selectedContentTranslationUnit, scrollToTranslationUnit);
 
     const skipTranslation = () =>
       store.dispatch("application/selectNextTranslationUnit");
