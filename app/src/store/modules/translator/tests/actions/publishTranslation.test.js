@@ -24,12 +24,12 @@ jest.mock("@/wiki/cx/api/translator", () => ({
   publishTranslation: jest.fn(({ targetTitle }) => {
     // successful publishing
     if (targetTitle === "Test target article title 1") {
-      return {
+      return Promise.resolve({
         publishFeedbackMessage: null,
         targetTitle: "successful result target title",
-      };
+      });
     } else if (targetTitle === "Test target article title 2") {
-      return mockErrorResult;
+      return Promise.resolve(mockErrorResult);
     }
   }),
 }));
@@ -142,7 +142,7 @@ describe("vuex store publishTranslation action", () => {
       dispatch,
     });
     expect(cxTranslatorApi.publishTranslation).toHaveReturnedWith(
-      mockErrorResult
+      Promise.resolve(mockErrorResult)
     );
     expect(result).toStrictEqual(mockErrorResult);
   });
