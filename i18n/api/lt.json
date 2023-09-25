@@ -8,7 +8,8 @@
 			"Tomasdd",
 			"Vogone",
 			"Zygimantus",
-			"Nokeoo"
+			"Nokeoo",
+			"Amire80"
 		]
 	},
 	"apihelp-cxpublish-description": "Išsaugoti puslapį, sukurtą naudojant Turinio Vertimo plėtinį.",
@@ -32,7 +33,7 @@
 	"apihelp-query+contenttranslation-param-type": "Vertimo būsena.",
 	"apihelp-query+contenttranslation-example-1": "Gauti vertimus, pradėtus šito vartotojo.",
 	"apihelp-query+contenttranslation-example-2": "Gauti vertimų juodraščius pagal ID.",
-	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų  kalbų porų",
+	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų kalbų porų",
 	"apihelp-query+contenttranslationcorpora-param-translationid": "Vertimo ID.",
 	"apihelp-query+contenttranslationstats-description": "Gauti Turinio vertėjo statistiką.",
 	"apihelp-query+contenttranslationstats-example-1": "Gauti Turinio Vertimo statistiką visoms kalboms.",

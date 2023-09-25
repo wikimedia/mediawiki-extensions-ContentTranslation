@@ -3,7 +3,8 @@
 		"authors": [
 			"Aursani",
 			"Mehtab ahmed",
-			"Sindhu"
+			"Sindhu",
+			"Amire80"
 		]
 	},
 	"apihelp-cxpublish-description": "مواد جو ترجمو وڌاءُ استعمال ڪندي سرجيل صفحو سانڍيو.",
@@ -36,7 +37,7 @@
 	"apihelp-query+cxpublishedtranslations-param-from": "ذريعاتي ٻوليءَ جو ڪوڊ.",
 	"apihelp-query+cxpublishedtranslations-param-to": "مقصود ٻولي جو ڪوڊ.",
 	"apihelp-query+cxpublishedtranslations-param-limit": "کڻڻ لاءِ ترجمن جو وڌ۾وڌ انگ.",
-	"apihelp-query+cxpublishedtranslations-example-1": "سڀ ڇاپيل ترجما  ڪڍو",
+	"apihelp-query+cxpublishedtranslations-example-1": "سڀ ڇاپيل ترجما ڪڍو",
 	"apihelp-query+cxpublishedtranslations-example-2": "انگريزي مان ترجمو ڪيل، سڀ ڇاپيل ترجما ڪڍو",
 	"apihelp-query+cxpublishedtranslations-example-3": "انگريزي کان اسپيني ۾ ترجمو ڪيل، سڀ ڇاپيل ترجما ڪڍو",
 	"apihelp-query+contenttranslationlangtrend-param-source": "ذريعاتي ٻوليءَ جو ڪوڊ.",
