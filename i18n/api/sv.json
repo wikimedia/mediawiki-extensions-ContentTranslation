@@ -126,6 +126,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "Källsidans versions-ID.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-ID (vid sparande med ett captcha-svar).",
 	"apihelp-cxpublishsection-param-captchaword": "Svaret på captcha (vid sparande med ett captcha-svar).",
+	"apihelp-cxpublishsection-param-sectiontranslationid": "Avsnittets översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
 	"apihelp-cxpublishsection-param-issandbox": "Använd en sandlådetitel för översättningen.",
 	"apihelp-sxsave-summary": "Spara översättningsskiss för avsnittet och lagra den parallella texten",
 	"apihelp-sxsave-param-sourcelanguage": "Källans språkkod.",
@@ -143,6 +144,7 @@
 	"apierror-sxsave-anon-user": "API-åtgärden \"sxsave\" har inte aktiverats för anonyma användare",
 	"apierror-cxpublishsection-translationnotfound": "Översättningen hittades inte.",
 	"apihelp-sxdelete-summary": "Radera översättningen av utkastsavsnittet och dess parallella korpus från databasen.",
+	"apihelp-sxdelete-param-sectiontranslationid": "Avsnittets översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
 	"apihelp-sxdelete-param-translationid": "Översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
 	"apihelp-sxdelete-param-sectionid": "ID för avsnittet i utkastet till avsnittsöversättning.",
 	"apihelp-sxdelete-example-1": "Radera ett utkast som är associerat med ett angivet översättnings-ID och avsnitts-ID."

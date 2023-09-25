@@ -45,6 +45,8 @@
 	"tag-contenttranslation-v2-description": "Vsebina je bila prevedena s Prevajalnikom vsebine različice 2.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|prevajalnik razdelkov]]",
 	"tag-sectiontranslation-description": "Vsebina je bila prevedena iz razdelka v drugem jeziku s Prevajalnikom vsebine.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ContentTranslation: Visoka uporaba nespremenjenega strojnega prevoda]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Prevod, objavljen z uporabo ContentTranslation, ima visok odstotek nespremenjenega strojnega prevoda",
 	"cx-source-loading": "Nalagam $1",
 	"cx-beta": "Prevajalnik vsebine",
 	"cx-beta-desc": "Orodje za hitro prevajanje v vaš jezik. Začnite prevajati s svoje [[Special:MyContributions|strani prispevkov]] s posebej prirejenim urejevalnikom z vzporedno postavitvijo besedil. Nekatere funkcije so na voljo samo za posamezne jezike.",

@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Astahar",
 			"Chuvash",
 			"Chuvash2014"
 		]
 	},
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Ăшĕнчине куçарни]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Контента куҫарасси]]",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категори|$1 категорисем|0=Çук категорисем}}",
 	"cx-trend-translations-to": "$1 çине куçарнисем"
 }

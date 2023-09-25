@@ -456,6 +456,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Traducir \"$1\" y \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Traducir \"$1\", \"$2\" y más",
 	"sx-block-template-adaptation-card-body-header-success": "Plantilla sugerida",
+	"sx-block-template-adaptation-card-title-placeholder": "Plantilla",
 	"sx-block-template-adaptation-card-edit-button-label": "Revisar y editar la traducción",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Editar la traducción",
 	"sx-block-template-adaptation-card-body-header-failure": "Plantilla equivalente no disponible por $1",
@@ -488,5 +489,10 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Continuar editando",
 	"cx-sx-login-dialog-title": "La sesión ha caducado",
 	"cx-sx-login-dialog-body": "Las ediciones no se pueden guardar y atribuir a menos que se acceda a la cuenta nuevamente en otra ventana",
-	"cx-sx-login-dialog-button-label": "Acceder"
+	"cx-sx-login-dialog-button-label": "Acceder",
+	"sx-translation-deletion-cancel-button-label": "Cancelar",
+	"sx-translation-deletion-confirm-button-label": "Eliminar traducción",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 día|$1 días|0=Hoy}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mes|$1 meses}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 año|$1 años}}"
 }

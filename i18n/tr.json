@@ -79,6 +79,8 @@
 	"tag-contenttranslation-v2-description": "İçerik, İçerik Çevirmeni aracının 2. sürümü kullanılarak başka bir dilden çevrilmiştir.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|BölümÇevirisi]]",
 	"tag-sectiontranslation-description": "Bu içerik, başka bir dildeki bölümden İçerik Çeviri aracının Bölüm Çevirisi özelliği kullanılarak çevrilmiştir.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|İçerikÇevirisi: Yüksek oranda değiştirilmemiş makine çevirisi kullanımı]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "İçerikÇevirisi kullanılarak yayımlanan çeviride yüksek oranda değiştirilmemiş makine çevirisi var",
 	"cx-source-loading": "$1 yükleniyor",
 	"cx-beta": "İçerik Çevirmeni",
 	"cx-beta-desc": "Başka dildeki sayfaları kendi dilinize kolayca çevirmek için bir araç. [[Special:MyContributions|Kendi katkı sayfanızdan]] çevirilere başlayabilir ve onları çeviri için özel olarak yan yana tasarlanmış düzenleme alanlarıyla düzenleyebilirsiniz. Bazı araçlar yalnızca belli dillerde kullanılabiliyor olabilir.",

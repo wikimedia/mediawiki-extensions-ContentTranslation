@@ -44,6 +44,8 @@
 	"tag-contenttranslation-v2-description": "Le contento ha essite traducite ab un altere lingua per medio del version 2 del instrumento ‘Traduction de contento’.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Traduction de section]]",
 	"tag-sectiontranslation-description": "Le contento ha essite traducite ab un section scribite in un altere lingua usante le function Traduction de section, in le utensile Traduction de contento.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ContentTranslation: Multe uso de traductiones machinal non modificate]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Traduction publicate usante ContentTranslation ha un alte percentage de traduction machinal non modificate",
 	"cx-source-loading": "Carga $1",
 	"cx-beta": "Traduction de contento",
 	"cx-beta-desc": "Iste instrumento te adjuta a rapidemente traducer paginas in le lingua tue. Comencia a traducer in [[Special:MyContributions|tu pagina de contributiones]], e modifica le traductiones con nostre editor bicolumnal concipite specialmente pro le traduction. Certe instrumentos pote esser disponibile solmente pro certe linguas.",

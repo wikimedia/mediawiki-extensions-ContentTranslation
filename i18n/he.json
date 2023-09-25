@@ -54,6 +54,8 @@
 	"tag-contenttranslation-v2-description": "התוכן הזה תורגם משפה אחרת באמצעות גרסה 2 של כלי תרגום תוכן.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|תרגום פרקים]]",
 	"tag-sectiontranslation-description": "התוכן תורגם מפרק בשפה אחרת באמצעות אפשרות תרגום הפרקים של כלי תרגום תוכן.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|תרגום תוכן: שימוש גבוה בתרגום מכונה ללא שינוי]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "בדף מתורגם שפורסם באמצעות תרגום תוכן (ContentTranslation) יש אחוז גבוה של תרגום מכונה ללא שינוי",
 	"cx-source-loading": "טעינת $1",
 	"cx-beta": "תרגום תוכן",
 	"cx-beta-desc": "כלי לתרגום מהיר של דפים לשפה שלך. הכניסה לתרגום נעשית מ[[Special:MyContributions|דף התרומות שלך]], והעריכה נעשית בעורך שלנו שמציג שפה לצד שפה ושמעוצב במיוחד עבור תרגומים. חלק מכלי העזר זמינים רק בשפות מסוימות.",
