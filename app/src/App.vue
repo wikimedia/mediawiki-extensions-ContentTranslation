@@ -6,7 +6,7 @@
           <transition :name="route.meta.transitionName">
             <component :is="Component" />
           </transition>
-          <sx-login-dialog v-model="isLoginDialogOn" />
+          <sx-login-dialog />
         </router-view>
       </mw-col>
     </mw-row>
@@ -28,7 +28,6 @@ export default {
     const unsavedChangesExist = computed(
       () => store.state.application.autoSavePending
     );
-    const isLoginDialogOn = ref(false);
     onMounted(() => {
       window.addEventListener("beforeunload", (e) => {
         if (unsavedChangesExist.value) {
@@ -42,18 +41,16 @@ export default {
           if (document.visibilityState === "visible") {
             userApi
               .assertUser()
-              .then(() => (isLoginDialogOn.value = false))
+              .then(() => store.commit("application/setIsLoginDialogOn", false))
               .catch((error) => {
                 if (error === "assertuserfailed") {
-                  isLoginDialogOn.value = true;
+                  store.commit("application/setIsLoginDialogOn", true);
                 }
               });
           }
         });
       }
     });
-
-    return { isLoginDialogOn };
   },
 };
 </script>

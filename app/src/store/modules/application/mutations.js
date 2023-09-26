@@ -162,6 +162,14 @@ const mutations = {
   decreaseTranslationDataLoadingCounter(state) {
     state.translationDataLoadingCounter--;
   },
+
+  /**
+   * @param {object} state
+   * @param {boolean} value
+   */
+  setIsLoginDialogOn: (state, value) => {
+    state.isLoginDialogOn = value;
+  },
 };
 
 export default mutations;

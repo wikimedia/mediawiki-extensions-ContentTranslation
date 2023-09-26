@@ -41,4 +41,5 @@ export default {
    */
   cxServerToken: null,
   translationDataLoadingCounter: 0,
+  isLoginDialogOn: false,
 };
