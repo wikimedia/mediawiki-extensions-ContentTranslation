@@ -36,11 +36,8 @@ export default {
           e.returnValue = "";
         }
       });
-      const isAnonSXAllowed = mw.config.get(
-        "wgContentTranslationEnableAnonSectionTranslation"
-      );
 
-      if (!isAnonSXAllowed) {
+      if (!mw.user.isAnon()) {
         window.addEventListener("visibilitychange", (e) => {
           if (document.visibilityState === "visible") {
             userApi

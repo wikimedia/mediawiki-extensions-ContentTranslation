@@ -259,8 +259,7 @@ class SpecialContentTranslation extends SpecialPage {
 				$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 				$out->addJsConfigVars( [
 					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' ),
-					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget,
-					'wgContentTranslationEnableAnonSectionTranslation' => $allowAnonSX,
+					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
 				] );
 			} else {
 				$out->addModules( 'ext.cx.dashboard' );
