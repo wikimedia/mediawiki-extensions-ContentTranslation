@@ -2,34 +2,37 @@
   <div>
     <experimental-support-banner
       v-if="$incompleteVersion"
-      class="col-mobile-12 col-tablet-12 col-desktop-7 col-offset-desktop-1 mb-4"
+      class="col-mobile-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2 mb-4"
     />
     <mw-row class="ma-0">
       <mw-button
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
-        class="col-desktop-3 col-offset-desktop-1 col-mobile-12 my-4"
+        class="col-desktop-3 col-offset-desktop-2 col-offset-tablet-3 col-mobile-12 my-4"
         @click="searchTranslation"
       />
     </mw-row>
     <mw-row class="ma-0" align="start">
       <mw-col
-        class="cx-dashboard__main-panel col-offset-desktop-1 px-0"
+        v-if="$mwui.breakpoint.tabletAndUp"
+        class="px-0"
+        tablet="3"
+        desktop="2"
+      >
+        <mw-button-group
+          id="dashboard-list-selector--desktop"
+          :items="listSelector"
+          :active="active"
+          @select="active = $event"
+        />
+      </mw-col>
+      <mw-col
+        class="cx-dashboard__main-panel px-0"
         cols="12"
+        tablet="9"
         desktop="7"
       >
-        <!--    TODO: Check if we need to adjust the breakpoint to tabletAndDown as this is the breakpoint that is used to determine if -->
-        <!--    application should be fullscreen (and thus in mobile mode). We can even create a new "isMobile" computed property inside-->
-        <!--    breakpoint.js-->
-        <nav v-if="$mwui.breakpoint.tabletAndUp">
-          <mw-button-group
-            :items="listSelector"
-            :active="active"
-            class="justify-around"
-            @select="active = $event"
-          />
-        </nav>
         <cx-favorite-list />
         <cx-suggestion-list :active="active === 'suggestions'" />
         <cx-translation-list
@@ -42,9 +45,10 @@
         />
       </mw-col>
       <mw-col
-        class="ps-0 ps-desktop-4 pe-0 pt-4 pt-desktop-0"
+        class="ps-0 ps-desktop-4 pe-0 pt-4 pt-desktop-0 col-offset-tablet-3 col-offset-desktop-0"
         cols="12"
-        desktop="4"
+        tablet="9"
+        desktop="3"
       >
         <mw-row class="ma-0" align="start">
           <mw-col
@@ -137,7 +141,6 @@ export default {
           type: "text",
         },
       },
-      // Temporarily remove the published option, until the list is properly supported
       {
         value: "published",
         props: {
@@ -185,3 +188,27 @@ export default {
   },
 };
 </script>
+
+<style lang="less">
+@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
+#dashboard-list-selector--desktop {
+  background-color: transparent;
+  display: block;
+  .mw-ui-button {
+    display: block;
+    float: none;
+    border: none;
+    color: @color-base;
+    font-weight: @font-weight-normal;
+    padding: 8px;
+    border-radius: 16px;
+    margin-bottom: 8px;
+
+    &--selected {
+      background-color: @background-color-interactive-subtle;
+      color: @color-progressive;
+    }
+  }
+}
+</style>
