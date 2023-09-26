@@ -4,6 +4,29 @@
 			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
 		]
 	},
+	"cx": "ꠙꠣꠔꠣ ꠅꠘꠥꠛꠣꠖ ꠇꠞꠂꠘ",
 	"cx-dashboard-header": "ꠅꠘꠥꠛꠣꠖꠣꠁꠘ",
-	"cx-source-view-page": "ꠙꠣꠔꠣ ꠖꠦꠈꠂꠘ"
+	"cx-header-all-translations": "ꠢꠣꠞꠣ ꠅꠘꠥꠛꠣꠖꠣꠁꠘ",
+	"cx-source-view-page": "ꠙꠣꠔꠣ ꠖꠦꠈꠂꠘ",
+	"cx-publish-button": "ꠛꠣꠞ ꠇꠞꠂꠘ",
+	"cx-publish-button-publishing": "ꠛꠣꠞ ꠇꠞꠣ ꠅꠞ ...",
+	"cx-translation-add-translation": "ꠅꠘꠥꠛꠣꠖ ꠎꠥꠉ ꠇꠞꠂꠘ",
+	"cx-source-loading": "$1 ꠟꠣꠄ ꠟꠣꠄ ꠟꠣꠝꠦꠞ",
+	"cx-beta": "ꠎꠤꠘꠤꠡ ꠅꠘꠥꠛꠣꠖ",
+	"cx-entrypoint-dialog-button-translate-from": "$1 ꠕꠘꠦ ꠅꠘꠥꠛꠣꠖ",
+	"cx-tools-link-title": "ꠟꠉ",
+	"cx-tools-link-add": "ꠟꠉ ꠟꠣꠉꠣꠁꠘ",
+	"cx-page-selector-widget-nearby-label": "ꠇꠣꠘ꠆ꠖꠣ ꠇꠣꠍꠣꠞ",
+	"cx-captcha-dialog-cancel": "ꠛꠣꠖ",
+	"cx-suggestionlist-favorite": "ꠛꠣꠖꠞ ꠟꠣꠉꠤ",
+	"cx-translation-filter-label-all-languages": "ꠢꠇꠟ",
+	"cx-translation-filter-uls-all-languages": "ꠢꠇꠟ ꠜꠣꠡꠣꠁꠘ",
+	"cx-save-draft-saving": "ꠎꠝꠣ ꠅꠞ ...",
+	"cx-contributions-new-article": "ꠘꠄꠀ ꠙꠣꠔꠣ",
+	"cx-contributions-translation": "ꠅꠘꠥꠛꠣꠖ",
+	"cx-contributions-upload": "ꠝꠤꠒꠤꠀ ꠢꠣꠞꠣꠃꠇ꠆ꠇꠣ",
+	"cx-publishing-dialog-publish-anyway-button": "ꠎꠣꠁꠅꠃꠇ ꠛꠣꠞ ꠇꠞꠂꠘ",
+	"cx-translation-status-deleted": "ꠙꠣꠟꠣꠁꠖꠦꠅꠀ ꠅꠁꠍꠦ",
+	"cx-stats-cumulative-tab-title": "ꠢꠇꠟꠔꠣꠄ",
+	"cx-draft-cancel-button-label": "ꠛꠣꠖ"
 }
