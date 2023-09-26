@@ -9,10 +9,15 @@
 @use "breakpoints" as *;
 
 // Generate style with responsive columns
-@mixin generateResponsiveCols($counter, $media) {
+@mixin generateResponsiveCols($media) {
+  .col-offset-#{$media}-0 {
+    margin-inline-start: 0;
+  }
+
+  $mediaKey: if($media == "", "", "#{$media}-");
+
   @for $counter from 1 through $cols {
     $width: math.div($counter, $cols) * 100;
-    $mediaKey: if($media == "", "", "#{$media}-");
 
     .col-#{$mediaKey}#{$counter} {
       flex-basis: unquote("#{$width}%");
@@ -56,11 +61,11 @@
       padding-left: math.div($gutter, 2);
     }
 
-    @include generateResponsiveCols($cols, "");
+    @include generateResponsiveCols("");
 
     @each $breakpoint, $value in $breakpoints {
       @include mediaQuery($breakpoint) {
-        @include generateResponsiveCols($cols, $breakpoint);
+        @include generateResponsiveCols($breakpoint);
       }
     }
   }
