@@ -46,7 +46,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 	}
 
 	public function getDescription() {
-		return $this->msg( 'cx-stats-title' )->text();
+		return $this->msg( 'cx-stats-title' );
 	}
 
 	protected function initModules() {
