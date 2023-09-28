@@ -3,7 +3,6 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { siteMapper } from "@/utils/mediawikiHelper";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
@@ -39,6 +38,26 @@ export default () => {
 
   const redirectToCX = useCXRedirect();
 
+  const startPrefilledSectionTranslation = async () => {
+    if (!sectionSuggestion.value.hasSectionTitle(preFilledSectionTitle.value)) {
+      clearPreFilledSection();
+
+      return;
+    }
+
+    if (isDesktop.value) {
+      redirectToCX(
+        sourceLanguage.value,
+        targetLanguage.value,
+        sectionSuggestion.value.sourceTitle,
+        { sourcesection: preFilledSectionTitle.value }
+      );
+    } else {
+      await selectPageSectionByTitle(preFilledSectionTitle.value);
+      router.push({ name: "sx-content-comparator", query: { force: true } });
+    }
+  };
+
   /**
    * 1. If "section" URL parameter exists, then try to select this section
    * as current source section. If this section title is valid, navigate
@@ -51,18 +70,9 @@ export default () => {
    *
    * @return {Promise<void>}
    */
-  const onSectionSelectorClick = async () => {
+  const onSectionSelectorClick = () => {
     if (!!preFilledSectionTitle.value) {
-      await selectPageSectionByTitle(preFilledSectionTitle.value);
-
-      if (!!currentSourceSection.value) {
-        router.push({
-          name: "sx-content-comparator",
-          query: { force: true },
-        });
-      } else {
-        clearPreFilledSection();
-      }
+      startPrefilledSectionTranslation();
     } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
