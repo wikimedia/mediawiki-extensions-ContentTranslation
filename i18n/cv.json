@@ -3,10 +3,11 @@
 		"authors": [
 			"Amire80",
 			"Chuvash",
-			"Chuvash2014"
+			"Chuvash2014",
+			"Astahar"
 		]
 	},
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Ăшĕнчине куçарни]]",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Контента куҫарасси]]",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 категори|$1 категорисем|0=Çук категорисем}}",
 	"cx-trend-translations-to": "$1 çине куçарнисем"
 }
