@@ -158,7 +158,7 @@ export default {
 .mw-ui-button {
   background-color: @background-color-framed;
   color: @color-base;
-	// T343509: border-color produces an undesired look on buttons so we should set it to `transparent`
+  // T343509: border-color produces an undesired look on buttons so we should set it to `transparent`
   &:not(.mw-ui-button--disabled):not(:disabled) {
     border-color: transparent;
   }
