@@ -47,6 +47,16 @@ const restoreSubSectionWithSentences = (subSection, corporaUnit) => {
   // iterate over "user" segments since they are always present
   corporaUnit.segments.forEach((segment) => {
     const sentence = subSection.getSentenceById(segment.id);
+
+    // The sentence variable is always expected to be an instance of "SectionSentence" class,
+    // under normal circumstances. However, this may happen for translations that have been
+    // started/modified in desktop editor (T347583). In such cases, we do not want to block
+    // the translation for the user, so here we just skip such "unmapped" segments/sentences
+    // inside the translation unit contents
+    if (!sentence) {
+      return;
+    }
+
     sentence.translatedContent =
       segment.user?.innerHTML || segment.mt?.innerHTML;
 
