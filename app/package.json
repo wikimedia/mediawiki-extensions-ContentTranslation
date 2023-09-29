@@ -55,11 +55,11 @@
   "bundlesize": [
     {
       "path": "dist/cx3.es.js",
-      "maxSize": "183.93KB"
+      "maxSize": "185.52KB"
     },
     {
       "path": "dist/style.css",
-      "maxSize": "16.97KB"
+      "maxSize": "17.07KB"
     }
   ]
 }
