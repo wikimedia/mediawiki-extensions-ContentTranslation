@@ -14,7 +14,7 @@ namespace ContentTranslation\DTO;
 class PublishedTranslationDTO extends AbstractTranslationDTO {
 	/** @var PublishedSectionTranslationDTO[] */
 	private array $sectionTranslations;
-	private string $targetUrl;
+	private ?string $targetUrl;
 
 	public function __construct(
 		int $translationId,
@@ -26,8 +26,12 @@ class PublishedTranslationDTO extends AbstractTranslationDTO {
 		string $pageRevision,
 		// corresponds to the "translation_target_title" field of "cx_translations" table, which cannot be null
 		string $targetTitle,
-		// cannot be null for published translations
-		string $targetUrl,
+		// Since we always set the target URL for the root translation when an article ("cxpublish" action)
+		// or a section ("cxpublishsection" action) is published, this field is expected to be a non-empty
+		// string under normal circumstances. However, apparently, there might be cases that for unknown
+		// reasons the target URL remains null, even for published translations. For this reason, let this
+		// field be nullable to avoid errors.
+		?string $targetUrl,
 		array $sectionTranslations
 	) {
 		parent::__construct(
