@@ -434,6 +434,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'sectiontranslationid' => [
+				ParamValidator::PARAM_TYPE => 'integer',
 				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'issandbox' => [

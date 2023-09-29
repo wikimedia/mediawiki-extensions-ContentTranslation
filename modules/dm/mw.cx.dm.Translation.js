@@ -19,6 +19,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.sourceWikiPage = sourceWikiPage;
 	this.targetWikiPage = targetWikiPage;
 	this.id = null;
+	this.sectionTranslationId = null;
 	this.adaptedCategories = null;
 	this.sourceCategories = null;
 	this.targetCategories = null;
@@ -458,6 +459,14 @@ mw.cx.dm.Translation.prototype.isChangedSignificantly = function () {
 
 mw.cx.dm.Translation.prototype.setChangedSignificantly = function ( isChangedSignificantly ) {
 	this.changedSignificantly = isChangedSignificantly;
+};
+
+mw.cx.dm.Translation.prototype.setSectionTranslationId = function ( sectionTranslationId ) {
+	this.sectionTranslationId = sectionTranslationId;
+};
+
+mw.cx.dm.Translation.prototype.getSectionTranslationId = function () {
+	return this.sectionTranslationId;
 };
 
 /**

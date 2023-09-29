@@ -172,6 +172,7 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 	this.getContent( false ).then( function ( html ) {
 		const isSandbox = this.veTarget.getPublishNamespace() === mw.config.get( 'wgNamespaceIds' ).user;
 		const params = {
+			assert: 'user',
 			action: 'cxpublishsection',
 			title: this.getTargetTitle(),
 			html,
@@ -181,7 +182,8 @@ mw.cx.TargetArticle.prototype.publishSection = function () {
 			targetsectiontitle: this.veTarget.translationView.targetColumn.getTitle(),
 			sourcelanguage: this.sourceLanguage,
 			targetlanguage: this.targetLanguage,
-			issandbox: isSandbox
+			issandbox: isSandbox,
+			sectiontranslationid: this.translation.getSectionTranslationId()
 		};
 
 		if ( this.captcha ) {

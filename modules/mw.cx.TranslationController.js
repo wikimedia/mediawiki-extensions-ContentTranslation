@@ -146,10 +146,12 @@ mw.cx.TranslationController.prototype.processChangeQueue = function () {
  */
 mw.cx.TranslationController.prototype.saveSuccessHandler = function ( { saveResult, numOfChangedCategories, params } ) {
 	const savedSections = this.getSaveQueue();
-	const requestParams = this.getSaveRequestParams( null );
 	// "validations" property doesn't exist in the response payload for "sxsave" requests. Only exists for "cxsave"
-	const validations = saveResult[ requestParams.action ].validations || {};
+	const validations = saveResult[ params.action ].validations || {};
 
+	if ( this.translation.isSectionTranslation() ) {
+		this.translation.setSectionTranslationId( saveResult[ params.action ].sectiontranslationid );
+	}
 	this.onSaveComplete( savedSections, validations );
 
 	if ( this.targetTitleChanged() ) {
