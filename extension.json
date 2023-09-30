@@ -98,33 +98,37 @@
 				"RevisionStore",
 				"ContentTranslation.TranslationStore"
 			]
+		},
+		"main": {
+			"class": "ContentTranslation\\Hooks"
+		},
+		"schema": {
+			"class": "ContentTranslation\\SchemaHooks"
 		}
 	},
 	"Hooks": {
-		"LoadExtensionSchemaUpdates": "ContentTranslation\\Hooks::onLoadExtensionSchemaUpdates",
+		"LoadExtensionSchemaUpdates": "schema",
 		"BeforePageDisplay": [
-			"ContentTranslation\\Hooks::addModules",
-			"ContentTranslation\\Hooks::addSXPublishingFollowupModule",
-			"ContentTranslation\\Hooks::addMobileNewByTranslationInvitation",
+			"main",
 			"mfFrequentLanguagesEntrypointRegistrar",
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
 			"recentEditEntrypointRegistrar",
 			"recentTranslationEntrypointRegistrar"
 		],
-		"GetPreferences": "ContentTranslation\\Hooks::onGetPreferences",
+		"GetPreferences": "main",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
-		"ResourceLoaderRegisterModules": "ContentTranslation\\Hooks::addMessages",
-		"SpecialContributionsBeforeMainOutput": "ContentTranslation\\Hooks::addNewContributionButton",
-		"ListDefinedTags": "ContentTranslation\\Hooks::registerTags",
-		"ChangeTagsListActive": "ContentTranslation\\Hooks::registerTags",
-		"SaveUserOptions": "ContentTranslation\\Hooks::onSaveOptions",
-		"EditPage::showEditForm:initial": "ContentTranslation\\Hooks::newArticleCampaign",
+		"ResourceLoaderRegisterModules": "main",
+		"SpecialContributionsBeforeMainOutput": "main",
+		"ListDefinedTags": "main",
+		"ChangeTagsListActive": "main",
+		"SaveUserOptions": "main",
+		"EditPage::showEditForm:initial": "main",
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
 		"SectionTranslationBeforePublish": "sxbeforepublish",
 		"RevisionFromEditComplete": "significantEditCreator",
-		"ContributeCards": "ContentTranslation\\Hooks::addContributeCardEntryPoint"
+		"ContributeCards": "main"
 	},
 	"APIModules": {
 		"cxdelete": {

@@ -7,20 +7,30 @@
  */
 namespace ContentTranslation;
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 use Config;
 use ContentTranslation\Service\TranslatorService;
-use DatabaseUpdater;
 use EchoAttributeManager;
 use EchoEvent;
 use EchoUserLocator;
 use ExtensionRegistry;
+use MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook;
+use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
+use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Hook\SpecialContributionsBeforeMainOutputHook;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\Specials\Contribute\Card\ContributeCard;
 use MediaWiki\Specials\Contribute\Card\ContributeCardActionLink;
 use MediaWiki\Specials\Contribute\ContributeFactory;
+use MediaWiki\Specials\Contribute\Hook\ContributeCardsHook;
+use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use OutputPage;
@@ -32,7 +42,27 @@ use Skin;
 use SpecialPage;
 use User;
 
-class Hooks {
+class Hooks implements
+	BeforePageDisplayHook,
+	GetPreferencesHook,
+	ResourceLoaderRegisterModulesHook,
+	SpecialContributionsBeforeMainOutputHook,
+	ListDefinedTagsHook,
+	ChangeTagsListActiveHook,
+	SaveUserOptionsHook,
+	EditPage__showEditForm_initialHook,
+	ContributeCardsHook
+{
+
+	/**
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 */
+	public function onBeforePageDisplay( $out, $skin ): void {
+		self::addModules( $out, $skin );
+		self::addSXPublishingFollowupModule( $out, $skin );
+		self::addMobileNewByTranslationInvitation( $out, $skin );
+	}
 
 	/**
 	 * Add 'sx.publishing.followup' module when output page is an article page
@@ -152,85 +182,6 @@ class Hooks {
 	}
 
 	/**
-	 * Hook: LoadExtensionSchemaUpdates
-	 * @param DatabaseUpdater $updater
-	 */
-	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
-		global $wgContentTranslationCluster, $wgContentTranslationDatabase;
-
-		// Following tables should only be created if both cluster and database are false.
-		// Otherwise they are not created in the place they are accesses, because
-		// DatabaseUpdater does not support other databases other than main wiki schema.
-		if ( $wgContentTranslationCluster !== false || $wgContentTranslationDatabase !== false ) {
-			return;
-		}
-
-		$dir = dirname( __DIR__ );
-		$dbType = $updater->getDB()->getType();
-
-		// All tables for the extension
-		$updater->addExtensionTable( 'cx_translations', "$dir/sql/$dbType/tables-generated.sql" );
-
-		// 1.35
-		$updater->addExtensionTable( 'cx_notification_log', "$dir/sql/notification-log.sql" );
-
-		// 1.37
-		$updater->addExtensionField(
-			'cx_notification_log',
-			'cxn_wiki_id',
-			"$dir/sql/patch-2020-09-21-notification-log-add-wikiid.sql"
-		);
-
-		// 1.38
-		$updater->addExtensionTable( 'cx_significant_edits', "$dir/sql/significant-edits.sql" );
-		$updater->addExtensionTable( 'cx_section_translations', "$dir/sql/section-translations.sql" );
-
-		// Here we want to add "cxsx_translation_status" and "cxsx_translation_progress".
-		// Since those 2 fields have been added together, we can add only one of them to the
-		// updater, and the other one will be picked up by the updater anyway.
-		// 1.41
-		$updater->addExtensionField(
-			'cx_section_translations',
-			'cxsx_translation_status',
-			"$dir/sql/$dbType/patch-new-fields-to-cx_section_translations.sql"
-		);
-
-		// 1.39
-		if ( $dbType === 'mysql' ) {
-			$updater->modifyExtensionField(
-				'cx_lists',
-				'cxl_end_time',
-				"$dir/sql/patch-cx_lists-timestamps.sql"
-			);
-			$updater->modifyExtensionField(
-				'cx_notification_log',
-				'cxn_newest',
-				"$dir/sql/patch-cx_notification_log-timestamps.sql"
-			);
-			$updater->modifyExtensionField(
-				'cx_corpora',
-				'cxc_timestamp',
-				"$dir/sql/patch-cx_corpora-timestamp.sql"
-			);
-			$updater->modifyExtensionField(
-				'cx_translations',
-				'translation_last_updated_timestamp',
-				"$dir/sql/patch-cx_translations-timestamps.sql"
-			);
-			$updater->modifyExtensionField(
-				'cx_notification_log',
-				'cxn_wiki_id',
-				"$dir/sql/patch-tables-binary.sql"
-			);
-		}
-		$updater->dropExtensionIndex(
-			'cx_translators',
-			'cx_translation_translators',
-			"$dir/sql/$dbType/patch-cx_translators-unique-to-pk.sql"
-		);
-	}
-
-	/**
 	 * Hook: BeforePageDisplay
 	 * @param OutputPage $out
 	 * @param Skin $skin
@@ -341,7 +292,7 @@ class Hooks {
 	 * @param UserIdentity $user
 	 * @param SpecialPage $page
 	 */
-	public static function addNewContributionButton( $id, UserIdentity $user, SpecialPage $page ) {
+	public function onSpecialContributionsBeforeMainOutput( $id, $user, $page ) {
 		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
 		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
@@ -372,9 +323,9 @@ class Hooks {
 	/**
 	 * Hook: ResourceLoaderRegisterModules
 	 *
-	 * @param ResourceLoader &$resourceLoader Client-side code and assets to be loaded.
+	 * @param ResourceLoader $resourceLoader Client-side code and assets to be loaded.
 	 */
-	public static function addMessages( ResourceLoader &$resourceLoader ) {
+	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$cxResourceTemplate = [
 			'localBasePath' => dirname( __DIR__ ),
 			'remoteExtPath' => 'ContentTranslation',
@@ -405,11 +356,23 @@ class Hooks {
 	}
 
 	/**
-	 * Hooks: ListDefinedTags and ChangeTagsListActive
-	 * Define the content translation change tag, and mark it as active.
+	 * Hooks: ListDefinedTags
+	 * Define the content translation change tag
 	 * @param array &$tags
-	 * @return bool
 	 */
+	public function onListDefinedTags( &$tags ) {
+		self::registerTags( $tags );
+	}
+
+	/**
+	 * Hooks: ChangeTagsListActive
+	 * Mart the content translation change tag as active
+	 * @param array &$tags
+	 */
+	public function onChangeTagsListActive( &$tags ) {
+		self::registerTags( $tags );
+	}
+
 	public static function registerTags( array &$tags ) {
 		global $wgContentTranslationCampaigns;
 		$tags[] = 'contenttranslation';
@@ -421,8 +384,6 @@ class Hooks {
 				$tags[] = $tag['edittag'];
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -430,7 +391,7 @@ class Hooks {
 	 * @param EditPage $newPage
 	 * @param OutputPage $out
 	 */
-	public static function newArticleCampaign( EditPage $newPage, OutputPage $out ) {
+	public function onEditPage__showEditForm_initial( $newPage, $out ) {
 		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
@@ -509,27 +470,26 @@ class Hooks {
 	 * @param UserIdentity $user
 	 * @param array &$modifiedOptions
 	 * @param array $originalOptions
-	 * @return true
 	 */
-	public static function onSaveOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
+	public function onSaveUserOptions( UserIdentity $user, array &$modifiedOptions, array $originalOptions ) {
 		$out = RequestContext::getMain()->getOutput();
 
 		$mergedOptions = array_merge( $originalOptions, $modifiedOptions );
 
 		if ( !isset( $mergedOptions['cx'] ) || $mergedOptions['cx'] !== 1 ) {
 			// Not using ContentTranslation; bail.
-			return true;
+			return;
 		}
 
 		if ( isset( $mergedOptions['cx-know'] ) ) {
 			// The auto-open contribution menu has already been shown; bail.
-			return true;
+			return;
 		}
 
 		$title = $out->getTitle();
 		if ( $title && $title->isSpecial( 'ContentTranslation' ) ) {
 			// Don't show the menu on Special:ContentTranslation.
-			return true;
+			return;
 		}
 
 		// Show the auto-open contribution menu and set the cx-know preference
@@ -541,8 +501,6 @@ class Hooks {
 			] );
 		}
 		$modifiedOptions['cx-know'] = true;
-
-		return true;
 	}
 
 	/**
@@ -650,7 +608,7 @@ class Hooks {
 	 * @param User $user
 	 * @param array &$preferences
 	 */
-	public static function onGetPreferences( User $user, array &$preferences ) {
+	public function onGetPreferences( $user, &$preferences ) {
 		global $wgContentTranslationAsBetaFeature;
 
 		if ( $wgContentTranslationAsBetaFeature === false ) {
@@ -694,7 +652,7 @@ class Hooks {
 	 * Hook: ContributeCards
 	 * @param array &$cards List of contribute cards data
 	 */
-	public static function addContributeCardEntryPoint( array &$cards ) {
+	public function onContributeCards( array &$cards ): void {
 		$context = RequestContext::getMain();
 
 		if ( self::isMobileView() && !self::isSXEnabled() ) {
