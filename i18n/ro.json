@@ -360,6 +360,7 @@
 	"cx-sx-published-section-confirmation-header": "Secțiune nouă adăugată",
 	"cx-sx-published-section-invitation-title": "Traduceți altă secțiune",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Lipsește în limba <span>$1</span> și altele",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Lipsește în <span>$1</span>, <span>$2</span> și altele",
 	"cx-uls-relevant-languages-panel-header": "Tradu această pagină",
 	"cx-uls-relevant-languages-panel-message": "Această pagină lipsește în câteva limbi pe care s-ar putea să le cunoașteți. O puteți traduce în câteva minute!",
 	"cx-uls-translate-page-quick-action-label": "Tradu această pagină",
