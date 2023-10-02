@@ -346,17 +346,21 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		this.saveRequest.abort();
 	}
 
+	this.doSave( isRetry );
+};
+
+mw.cx.TranslationController.prototype.doSave = function ( isRetry ) {
 	// Copy the current save queue by value.
 	const savedSections = this.translationTracker.getSaveQueue().slice();
 
 	// in "sxsave" we do not use deflated content, just regular JSON string
 	const deflate = !this.translation.isSectionTranslation();
-	this.getContentToSave( savedSections, deflate ).then( ( content ) => {
+	return this.getContentToSave( savedSections, deflate ).then( ( content ) => {
 		this.saveRequest = this.getSaveRequest( content, isRetry );
-		this.saveRequest
+		return this.saveRequest
 			.then( ( response ) => this.saveSuccessHandler( response ) )
 			.catch( ( error ) => this.saveFailureHandler( error ) )
-			// use "then" instead of "finally", since "finally" is ES2018 syntax
+		// use "then" instead of "finally", since "finally" is ES2018 syntax
 			.then( () => { this.saveRequest = null; } );
 	} );
 };
@@ -669,7 +673,7 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
 mw.cx.TranslationController.prototype.publish = function () {
 
 	if ( this.translation.isSectionTranslation() ) {
-		return this.publishSection();
+		return this.doSave( false ).then( () => this.publishSection() );
 	}
 
 	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
