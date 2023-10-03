@@ -61,6 +61,8 @@
 	"tag-contenttranslation-v2-description": "Вміст було перекладено з іншої мови за допомогою версії 2 інструменту «Переклад вмісту».",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Переклад розділів]]",
 	"tag-sectiontranslation-description": "Вміст було перекладено з розділу іншою мовою через використання функції перекладу розділів інструменту Переклад вмісту.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Переклад вмісту: Високий рівень використання незміненого машинного перекладу]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Переклад, опублікований за допомогою Перекладу вмісту, має високий відсоток незміненого машинного перекладу",
 	"cx-source-loading": "Завантаження $1",
 	"cx-beta": "Переклад вмісту",
 	"cx-beta-desc": "Інструмент для швидкого перекладу сторінок Вашою мовою. Розпочніть переклад зі [[Special:MyContributions|своєї сторінки внеску]], і редагуйте їх з допомогою нашого двостороннього редактора, спеціально призначеного для перекладу. Деякі інструменти можуть бути доступні тільки для певних мов.",
@@ -490,5 +492,11 @@
 	"sx-translation-deletion-confirm-button-label": "Вилучити переклад",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 день|$1 дні|$1 днів|0=Сьогодні}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 місяць|$1 місяці|$1 місяців}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 рік|$1 роки|$1 років}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 рік|$1 роки|$1 років}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Продовження перекладу на мобільному",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Цей переклад розпочато на іншому пристрої та включає вміст кількох розділів статті.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мобільному телефоні ви можете працювати лише з одним розділом одночасно. Таким чином, поки що буде завантажено лише основний розділ.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Де інші розділи?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвилюйтеся. Решта розділів не втрачені. Вони стануть доступними, коли ви опублікуєте поточний переклад як нову статтю. Після публікації ви знайдете нові незавершені переклади з вмістом кожного розділу.",
+	"sx-confirm-draft-translation-start-button-label": "Гаразд"
 }
