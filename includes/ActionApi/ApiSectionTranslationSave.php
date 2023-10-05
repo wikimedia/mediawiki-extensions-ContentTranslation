@@ -15,8 +15,8 @@ use ContentTranslation\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Title\TitleFactory;
@@ -24,23 +24,13 @@ use User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationSave extends ApiBase {
-	/** @var TranslationCorporaStore */
-	private $corporaStore;
-
-	/** @var LoadBalancer */
-	private $lb;
-
-	/** @var SectionTranslationStore */
-	private $sectionTranslationStore;
-
-	/** @var SandboxTitleMaker */
-	private $sandboxTitleMaker;
-
-	/** @var TitleFactory */
-	private $titleFactory;
-
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
+	private TranslationCorporaStore $corporaStore;
+	private LoadBalancer $lb;
+	private SectionTranslationStore $sectionTranslationStore;
+	private SandboxTitleMaker $sandboxTitleMaker;
+	private TitleFactory $titleFactory;
+	private LanguageNameUtils $languageNameUtils;
+	private TranslationStore $translationStore;
 
 	public function __construct(
 		ApiMain $mainModule,
@@ -50,7 +40,8 @@ class ApiSectionTranslationSave extends ApiBase {
 		SectionTranslationStore $sectionTranslationStore,
 		SandboxTitleMaker $sandboxTitleMaker,
 		TitleFactory $titleFactory,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
@@ -59,6 +50,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->titleFactory = $titleFactory;
 		$this->languageNameUtils = $languageNameUtils;
+		$this->translationStore = $translationStore;
 	}
 
 	private function validateRequest() {
@@ -141,28 +133,6 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * This method finds a translation inside "cx_translations" table, that corresponds to the
-	 * given source/target languages, source title and the user of the published
-	 * translation, and returns it. If no such translation exists, the method returns null.
-	 *
-	 * @param User $user
-	 * @param string $sourceLanguage
-	 * @param string $targetLanguage
-	 * @param string $sourceTitle
-	 * @return Translation|null
-	 */
-	private function getExistingTranslation(
-		User $user,
-		string $sourceLanguage,
-		string $targetLanguage,
-		string $sourceTitle
-	): ?Translation {
-		$translator = new Translator( $user );
-		$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
-		return Translation::findForTranslator( $work, $translator );
-	}
-
-	/**
 	 * This method creates a new Translation model for the saved translation and returns it
 	 *
 	 * @param string $sourceLanguage
@@ -202,11 +172,11 @@ class ApiSectionTranslationSave extends ApiBase {
 		string $targetTitle,
 		string $sourceRevision
 	): Translation {
-		$translation = $this->getExistingTranslation(
+		$translation = $this->translationStore->findTranslationByUser(
 			$user,
+			$sourceTitle,
 			$sourceLanguage,
-			$targetLanguage,
-			$sourceTitle
+			$targetLanguage
 		);
 
 		if ( !$translation ) {

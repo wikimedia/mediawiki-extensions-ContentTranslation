@@ -13,6 +13,7 @@ use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationCorporaStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
@@ -25,17 +26,11 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
 
 class ApiContentTranslationSave extends ApiBase {
-	/** @var TranslationCorporaStore */
-	private $corporaStore;
-
-	/** @var LoadBalancer */
-	private $lb;
-
-	/** @var TranslationUnitValidator */
-	private $translationUnitValidator;
-
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
+	private TranslationCorporaStore $corporaStore;
+	private LoadBalancer $lb;
+	private TranslationUnitValidator $translationUnitValidator;
+	private LanguageNameUtils $languageNameUtils;
+	private TranslationStore $translationStore;
 
 	/**
 	 * 64KB
@@ -48,13 +43,15 @@ class ApiContentTranslationSave extends ApiBase {
 		TranslationCorporaStore $corporaStore,
 		LoadBalancer $loadBalancer,
 		TranslationUnitValidator $translationUnitValidator,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		TranslationStore $translationStore
 	) {
 		parent::__construct( $mainModule, $action );
 		$this->corporaStore = $corporaStore;
 		$this->lb = $loadBalancer;
 		$this->translationUnitValidator = $translationUnitValidator;
 		$this->languageNameUtils = $languageNameUtils;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -141,12 +138,18 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @return Translation
 	 */
 	protected function saveTranslation( array $params, Translator $translator ) {
-		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
-		$existingTranslation = Translation::findForTranslator( $work, $translator );
+		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
+		$existingTranslation = $this->translationStore->findTranslationByUser(
+			$translator->getUser(),
+			$sourceTitle,
+			$sourceLanguage,
+			$targetLanguage
+		);
 
 		if ( $existingTranslation ) {
 			$data = $existingTranslation->getData();
 		} else {
+			$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
 			$translations = Translation::getConflictingTranslations( $work );
 
 			if ( $translations !== [] ) {

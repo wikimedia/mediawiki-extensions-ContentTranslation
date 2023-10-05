@@ -136,7 +136,8 @@ return [
 	'ContentTranslation.TranslationStore' =>
 		static function ( MediaWikiServices $services ): TranslationStore {
 			return new TranslationStore(
-				$services->getService( 'ContentTranslation.LoadBalancer' )
+				$services->getService( 'ContentTranslation.LoadBalancer' ),
+				$services->getService( 'ContentTranslation.UserService' )
 			);
 		},
 	'ContentTranslation.TranslationUnitValidator' =>

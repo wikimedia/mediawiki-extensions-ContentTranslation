@@ -25,8 +25,8 @@ use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use DeferredUpdates;
 use Deflate;
@@ -42,20 +42,12 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiContentTranslationPublish extends ApiBase {
 
-	/** @var ParsoidClientFactory */
-	protected $parsoidClientFactory;
-
-	/** @var Translation */
-	protected $translation;
-
-	/** @var LanguageFactory */
-	private $languageFactory;
-
-	/** @var IBufferingStatsdDataFactory */
-	private $statsdDataFactory;
-
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
+	protected ParsoidClientFactory $parsoidClientFactory;
+	protected ?Translation $translation;
+	private LanguageFactory $languageFactory;
+	private IBufferingStatsdDataFactory $statsdDataFactory;
+	private LanguageNameUtils $languageNameUtils;
+	private TranslationStore $translationStore;
 
 	public function __construct(
 		ApiMain $main,
@@ -63,13 +55,15 @@ class ApiContentTranslationPublish extends ApiBase {
 		ParsoidClientFactory $parsoidClientFactory,
 		LanguageFactory $languageFactory,
 		IBufferingStatsdDataFactory $statsdDataFactory,
-		LanguageNameUtils $languageNameUtils
+		LanguageNameUtils $languageNameUtils,
+		TranslationStore $translationStore
 	) {
 		parent::__construct( $main, $name );
 		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->languageFactory = $languageFactory;
 		$this->statsdDataFactory = $statsdDataFactory;
 		$this->languageNameUtils = $languageNameUtils;
+		$this->translationStore = $translationStore;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -221,9 +215,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $params['title'] ) ] );
 		}
 
-		$translator = new Translator( $user );
-		$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
-		$this->translation = Translation::findForTranslator( $work, $translator );
+		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
+		$this->translation = $this->translationStore->findTranslationByUser(
+			$user,
+			$sourceTitle,
+			$sourceLanguage,
+			$targetLanguage
+		);
 
 		if ( $this->translation === null ) {
 			$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
@@ -282,6 +280,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 
 			// Save the translation history.
+			$translator = new Translator( $user );
 			$this->translation->save( $translator );
 
 			// Notify user about milestones

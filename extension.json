@@ -152,7 +152,8 @@
 				"ContentTranslation.ParsoidClientFactory",
 				"LanguageFactory",
 				"StatsdDataFactory",
-				"LanguageNameUtils"
+				"LanguageNameUtils",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxpublishsection": {
@@ -165,7 +166,8 @@
 				"ContentTranslation.SectionPositionCalculator",
 				"ContentTranslation.SandboxTitleMaker",
 				"ContentTranslation.SectionTranslationStore",
-				"ContentTranslation.TranslationSplitter"
+				"ContentTranslation.TranslationSplitter",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxsave": {
@@ -174,7 +176,8 @@
 				"ContentTranslation.TranslationCorporaStore",
 				"ContentTranslation.LoadBalancer",
 				"ContentTranslation.TranslationUnitValidator",
-				"LanguageNameUtils"
+				"LanguageNameUtils",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"sxsave": {
@@ -185,7 +188,8 @@
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.SandboxTitleMaker",
 				"TitleFactory",
-				"LanguageNameUtils"
+				"LanguageNameUtils",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxsuggestionlist": {

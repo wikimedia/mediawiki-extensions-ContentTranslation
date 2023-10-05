@@ -3,6 +3,7 @@
 namespace ContentTranslation;
 
 use ContentTranslation\Service\UserService;
+use ContentTranslation\Store\TranslationStore;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
@@ -118,8 +119,14 @@ class Translation {
 	 * @param Translator $translator
 	 */
 	public function save( Translator $translator ) {
-		$work = TranslationWork::newFromTranslation( $this );
-		$existingTranslation = self::findForTranslator( $work, $translator );
+		/** @var TranslationStore $translationStore */
+		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
+		$existingTranslation = $translationStore->findTranslationByUser(
+			$translator->getUser(),
+			$this->getSourceTitle(),
+			$this->getSourceLanguage(),
+			$this->getTargetLanguage()
+		);
 
 		if ( $existingTranslation === null ) {
 			$this->create( $translator );
@@ -190,32 +197,6 @@ class Translation {
 		}
 
 		return $result;
-	}
-
-	/**
-	 * Find a saved translation work for a given translator.
-	 *
-	 * There can only ever be one work returned by this method.
-	 *
-	 * @param TranslationWork $work
-	 * @param Translator $translator
-	 * @return Translation|null
-	 */
-	public static function findForTranslator( TranslationWork $work, Translator $translator ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$values = [
-			'translation_source_language' => $work->getSourceLanguage(),
-			'translation_target_language' => $work->getTargetLanguage(),
-			'translation_source_title' => $work->getPage(),
-			'translation_started_by' => self::getTranslatorGlobalUserId( $translator ),
-			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
-		];
-
-		$row = $dbr->selectRow( 'cx_translations', '*', $values, __METHOD__ );
-
-		return $row ? self::newFromRow( $row ) : null;
 	}
 
 	/**
@@ -495,6 +476,10 @@ class Translation {
 
 	public function getSourceLanguage(): string {
 		return $this->translation['sourceLanguage'];
+	}
+
+	public function getTargetLanguage(): string {
+		return $this->translation['targetLanguage'];
 	}
 
 	/**

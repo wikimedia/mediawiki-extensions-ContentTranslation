@@ -22,8 +22,8 @@ use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
@@ -43,6 +43,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SandboxTitleMaker $sandboxTitleMaker;
 	private SectionTranslationStore $sectionTranslationStore;
 	private TranslationSplitter $translationSplitter;
+	private TranslationStore $translationStore;
 
 	/**
 	 * @param ApiMain $main
@@ -55,6 +56,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param SandboxTitleMaker $sandboxTitleMaker
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param TranslationSplitter $translationSplitter
+	 * @param TranslationStore $translationStore
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -66,7 +68,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		SectionPositionCalculator $sectionPositionCalculator,
 		SandboxTitleMaker $sandboxTitleMaker,
 		SectionTranslationStore $sectionTranslationStore,
-		TranslationSplitter $translationSplitter
+		TranslationSplitter $translationSplitter,
+		TranslationStore $translationStore
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -77,6 +80,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->translationSplitter = $translationSplitter;
+		$this->translationStore = $translationStore;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -240,7 +244,12 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$this->storeTags( $newRevId );
 
 				[ 'sourcelanguage' => $sourceLanguage, 'sourcetitle' => $sourceTitle ] = $params;
-				$translation = $this->getExistingTranslation( $user, $sourceLanguage, $targetLanguage, $sourceTitle );
+				$translation = $this->translationStore->findTranslationByUser(
+					$user,
+					$sourceTitle,
+					$sourceLanguage,
+					$targetLanguage,
+				);
 
 				if ( $translation === null ) {
 					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
@@ -339,23 +348,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
 			\ChangeTags::addTags( $tags, null, $newRevId, null );
 		} );
-	}
-
-	/**
-	 * This method finds a translation inside "cx_translations" table, that corresponds
-	 * to the source/target languages, the source title and the user of the published
-	 * translation, and returns it. If no such translation exists, the method returns null.
-	 *
-	 * @param User $user
-	 * @param string $from
-	 * @param string $to
-	 * @param string $sourceTitle
-	 * @return Translation|null
-	 */
-	private function getExistingTranslation( User $user, string $from, string $to, string $sourceTitle ): ?Translation {
-		$translator = new Translator( $user );
-		$work = new TranslationWork( $sourceTitle, $from, $to );
-		return Translation::findForTranslator( $work, $translator );
 	}
 
 	/**

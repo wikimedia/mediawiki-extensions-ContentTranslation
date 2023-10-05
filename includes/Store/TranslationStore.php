@@ -3,7 +3,9 @@
 namespace ContentTranslation\Store;
 
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
+use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -12,11 +14,12 @@ class TranslationStore {
 	public const TRANSLATION_TABLE_NAME = 'cx_translations';
 	public const TRANSLATOR_TABLE_NAME = 'cx_translators';
 
-	/** @var LoadBalancer */
-	private $lb;
+	private LoadBalancer $lb;
+	private UserService $userService;
 
-	public function __construct( LoadBalancer $lb ) {
+	public function __construct( LoadBalancer $lb, UserService $userService ) {
 		$this->lb = $lb;
+		$this->userService = $userService;
 	}
 
 	public function unlinkTranslationFromTranslator( int $translationId ) {
@@ -38,6 +41,44 @@ class TranslationStore {
 			[ 'translation_id' => $translationId ],
 			__METHOD__
 		);
+	}
+
+	/**
+	 * This method finds a translation inside "cx_translations" table, that corresponds to the
+	 * given source/target languages, source title and the translator of the published
+	 * translation, and returns it. If no such translation exists, the method returns null.
+	 *
+	 * There can only ever be one translation, returned by this method.
+	 *
+	 * @param UserIdentity $user
+	 * @param string $sourceTitle
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @return Translation|null
+	 */
+	public function findTranslationByUser(
+		UserIdentity $user,
+		string $sourceTitle,
+		string $sourceLanguage,
+		string $targetLanguage
+	): ?Translation {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$globalUserId = $this->userService->getGlobalUserId( $user );
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TRANSLATION_TABLE_NAME )
+			->where( [
+				'translation_source_language' => $sourceLanguage,
+				'translation_target_language' => $targetLanguage,
+				'translation_source_title' => $sourceTitle,
+				'translation_started_by' => $globalUserId,
+				'translation_last_update_by' => $globalUserId,
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return $row ? Translation::newFromRow( $row ) : null;
 	}
 
 	/**
