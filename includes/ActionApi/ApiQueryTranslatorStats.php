@@ -10,19 +10,18 @@ namespace ContentTranslation\ActionApi;
 
 use ApiQueryBase;
 use ContentTranslation\DateManipulator;
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
 use Exception;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
 
-	/** @var TranslatorService */
-	private $translatorService;
+	private UserService $userService;
 
-	public function __construct( $query, $moduleName, TranslatorService $translatorService ) {
+	public function __construct( $query, $moduleName, UserService $userService ) {
 		parent::__construct( $query, $moduleName );
-		$this->translatorService = $translatorService;
+		$this->userService = $userService;
 	}
 
 	public function execute() {
@@ -38,7 +37,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		}
 
 		try {
-			$translatorId = $this->translatorService->getGlobalUserId( $user );
+			$translatorId = $this->userService->getGlobalUserId( $user );
 		} catch ( Exception $e ) {
 			$this->dieWithError( 'apierror-cx-invalidtranslator', 'invalidtranslator' );
 		}

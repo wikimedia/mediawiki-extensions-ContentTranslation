@@ -14,7 +14,7 @@ use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
 use ContentTranslation\DTO\TranslationUnitDTO;
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
@@ -31,7 +31,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 	private SectionTranslationStore $sectionTranslationStore;
 	private CorporaLookup $corporaLookup;
-	private TranslatorService $translatorService;
+	private UserService $userService;
 	private TranslationStore $translationStore;
 
 	/**
@@ -39,7 +39,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	 * @param string $moduleName
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param CorporaLookup $corporaLookup
-	 * @param TranslatorService $translatorService
+	 * @param UserService $userService
 	 * @param TranslationStore $translationStore
 	 */
 	public function __construct(
@@ -47,14 +47,14 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$moduleName,
 		SectionTranslationStore $sectionTranslationStore,
 		CorporaLookup $corporaLookup,
-		TranslatorService $translatorService,
+		UserService $userService,
 		TranslationStore $translationStore
 	) {
 		parent::__construct( $query, $moduleName );
 
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->corporaLookup = $corporaLookup;
-		$this->translatorService = $translatorService;
+		$this->userService = $userService;
 		$this->translationStore = $translationStore;
 	}
 
@@ -139,7 +139,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 		// Case D: Find list of translations. Either section translations or article translations
 		$offset = null;
-		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
+		$translatorUserId = $this->userService->getGlobalUserId( $user );
 		if ( $params['sectiontranslationsonly'] ) {
 			$status = $params['type'];
 			if ( !$status || !in_array( $status, SectionTranslationStore::TRANSLATION_STATUSES ) ) {

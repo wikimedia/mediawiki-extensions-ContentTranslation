@@ -4,33 +4,17 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use CentralIdLookup;
 use ContentTranslation\Store\TranslationStore;
-use Exception;
 use User;
 
 class TranslatorService {
 
-	private CentralIdLookup $centralIdLookup;
+	private UserService $userService;
 	private TranslationStore $translationStore;
 
-	public function __construct( CentralIdLookup $centralIdLookup, TranslationStore $translationStore ) {
-		$this->centralIdLookup = $centralIdLookup;
+	public function __construct( UserService $userService, TranslationStore $translationStore ) {
+		$this->userService = $userService;
 		$this->translationStore = $translationStore;
-	}
-
-	/**
-	 * @param User $user
-	 * @return int
-	 * @throws Exception
-	 */
-	public function getGlobalUserId( User $user ): int {
-		$id = $this->centralIdLookup->centralIdFromLocalUser( $user, CentralIdLookup::AUDIENCE_RAW );
-		if ( $id === 0 ) {
-			throw new Exception( 'User account is not global' );
-		}
-
-		return $id;
 	}
 
 	/**
@@ -40,9 +24,9 @@ class TranslatorService {
 	 * @param User $user
 	 * @return bool
 	 */
-	public function isTranslator( User $user ) {
+	public function isTranslator( User $user ): bool {
 		try {
-			$translatorId = $this->getGlobalUserId( $user );
+			$translatorId = $this->userService->getGlobalUserId( $user );
 		} catch ( \Exception $e ) {
 			// Not a global user and not a translator
 			return false;

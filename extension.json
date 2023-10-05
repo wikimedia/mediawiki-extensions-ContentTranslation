@@ -191,7 +191,7 @@
 		"cxsuggestionlist": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 			"services": [
-				"ContentTranslation.TranslatorService"
+				"ContentTranslation.UserService"
 			]
 		},
 		"cxtoken": "ContentTranslation\\ActionApi\\ApiContentTranslationToken"
@@ -202,7 +202,7 @@
 			"services": [
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.CorporaLookup",
-				"ContentTranslation.TranslatorService",
+				"ContentTranslation.UserService",
 				"ContentTranslation.TranslationStore"
 			]
 		},
@@ -222,7 +222,7 @@
 		"contenttranslationsuggestions": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
 			"services": [
-				"ContentTranslation.TranslatorService"
+				"ContentTranslation.UserService"
 			]
 		},
 		"cxpublishedtranslations": {
@@ -234,7 +234,7 @@
 		"cxtranslatorstats": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryTranslatorStats",
 			"services": [
-				"ContentTranslation.TranslatorService"
+				"ContentTranslation.UserService"
 			]
 		}
 	},

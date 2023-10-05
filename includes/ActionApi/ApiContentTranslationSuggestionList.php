@@ -8,7 +8,7 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
@@ -17,11 +17,11 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationSuggestionList extends ApiBase {
 
-	private TranslatorService $translatorService;
+	private UserService $userService;
 
-	public function __construct( ApiMain $mainModule, $action, TranslatorService $translatorService ) {
+	public function __construct( ApiMain $mainModule, $action, UserService $userService ) {
 		parent::__construct( $mainModule, $action );
-		$this->translatorService = $translatorService;
+		$this->userService = $userService;
 	}
 
 	public function execute() {
@@ -32,7 +32,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 			$this->dieWithError( 'apierror-cx-mustbeloggedin-suggestions', 'notloggedin' );
 		}
 
-		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
+		$translatorUserId = $this->userService->getGlobalUserId( $user );
 		$listName = $params['listname'];
 		$manager = new SuggestionListManager();
 

@@ -2,7 +2,7 @@
 
 namespace ContentTranslation;
 
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
@@ -19,11 +19,11 @@ class Translation {
 	}
 
 	private static function getTranslatorGlobalUserId( Translator $translator ) {
-		/** @var TranslatorService $translatorService */
-		$translatorService = MediaWikiServices::getInstance()
-			->getService( 'ContentTranslation.TranslatorService' );
+		/** @var UserService $userService */
+		$userService = MediaWikiServices::getInstance()
+			->getService( 'ContentTranslation.UserService' );
 
-		return $translatorService->getGlobalUserId( $translator->getUser() );
+		return $userService->getGlobalUserId( $translator->getUser() );
 	}
 
 	public function create( Translator $translator ) {

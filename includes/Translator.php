@@ -2,7 +2,7 @@
 
 namespace ContentTranslation;
 
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use MediaWiki\MediaWikiServices;
 use User;
 
@@ -15,11 +15,10 @@ class Translator {
 	}
 
 	private function getGlobalUserId() {
-		/** @var TranslatorService $translatorService */
-		$translatorService = MediaWikiServices::getInstance()
-			->getService( 'ContentTranslation.TranslatorService' );
+		/** @var UserService $userService */
+		$userService = MediaWikiServices::getInstance()->getService( 'ContentTranslation.UserService' );
 
-		return $translatorService->getGlobalUserId( $this->user );
+		return $userService->getGlobalUserId( $this->user );
 	}
 
 	public function getUser(): User {

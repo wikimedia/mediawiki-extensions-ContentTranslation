@@ -12,7 +12,7 @@ use ApiBase;
 use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
-use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\SuggestionListManager;
 use ContentTranslation\Translation;
@@ -26,17 +26,16 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  * Api module for querying translation suggestions.
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
-	/** @var TranslatorService */
-	private $translatorService;
+	private UserService $userService;
 
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
-	 * @param TranslatorService $translatorService
+	 * @param UserService $userService
 	 */
-	public function __construct( $query, $moduleName, TranslatorService $translatorService ) {
+	public function __construct( $query, $moduleName, UserService $userService ) {
 		parent::__construct( $query, $moduleName );
-		$this->translatorService = $translatorService;
+		$this->userService = $userService;
 	}
 
 	public function execute() {
@@ -70,7 +69,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		if ( !empty( $from ) && $from === $to ) {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
-		$translatorUserId = $this->translatorService->getGlobalUserId( $user );
+		$translatorUserId = $this->userService->getGlobalUserId( $user );
 		$manager = new SuggestionListManager();
 
 		// Get personalized suggestions.

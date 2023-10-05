@@ -13,6 +13,7 @@ use ContentTranslation\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Service\TranslatorService;
+use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
@@ -148,9 +149,13 @@ return [
 	'ContentTranslation.TranslatorService' =>
 		static function ( MediaWikiServices $services ): TranslatorService {
 			return new TranslatorService(
-				$services->getCentralIdLookup(),
+				$services->getService( 'ContentTranslation.UserService' ),
 				$services->getService( 'ContentTranslation.TranslationStore' )
 			);
+		},
+	'ContentTranslation.UserService' =>
+		static function ( MediaWikiServices $services ): UserService {
+			return new UserService( $services->getCentralIdLookup() );
 		},
 	'ContentTranslation.WikidataIdFetcher' =>
 		static function ( MediaWikiServices $services ): WikidataIdFetcher {
