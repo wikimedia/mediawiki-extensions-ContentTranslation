@@ -5,6 +5,7 @@ namespace ContentTranslation\Service;
 
 use CentralIdLookup;
 use Exception;
+use GenderCache;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -16,9 +17,11 @@ use MediaWiki\User\UserIdentity;
  */
 class UserService {
 	private CentralIdLookup $centralIdLookup;
+	private GenderCache $genderCache;
 
-	public function __construct( CentralIdLookup $centralIdLookup ) {
+	public function __construct( CentralIdLookup $centralIdLookup, GenderCache $genderCache ) {
 		$this->centralIdLookup = $centralIdLookup;
+		$this->genderCache = $genderCache;
 	}
 
 	public function getGlobalUserId( UserIdentity $user ): int {
@@ -29,4 +32,20 @@ class UserService {
 
 		return $id;
 	}
+
+	/**
+	 * @param int|null $globalUserId
+	 * @return array {name: ?string, gender: ?string}
+	 */
+	public function getUsernameAndGender( ?int $globalUserId ): array {
+		$userIdentity = $this->centralIdLookup->localUserFromCentralId( $globalUserId );
+		$name = $gender = null;
+		if ( $userIdentity ) {
+			$name = $userIdentity->getName();
+			$gender = $this->genderCache->getGenderOf( $userIdentity, __METHOD__ );
+		}
+
+		return [ 'name' => $name, 'gender' => $gender ];
+	}
+
 }

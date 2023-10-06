@@ -19,7 +19,6 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
-use MediaWiki\MediaWikiServices;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -247,23 +246,21 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
-
 		// Add name and gender information to the returned result. The UI can use this
 		// to display the conflict message.
+
+		// $globalUserId is always expected to be integer or null, since it has been populated
+		// by the "translation_started_by" column of "cx_translations" table
 		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
-		$centralIdLookup = $services->getCentralIdLookup();
-		// $user can be null if the local user does not exist. This should never happen
+		// $user can be null if the local user does not exist. Currently, this should never happen
 		// in our case because we redirect translators to the target wiki, and they cannot
 		// do translations without logging in.
-		// $user can also be null, if the current user has no permission to see the user name.
-		// For whatever reason, fallback gracefully.
-		$userIdentity = $centralIdLookup->localUserFromCentralId( $globalUserId );
-		if ( $userIdentity ) {
-			$gender = $services->getGenderCache()->getGenderOf( $userIdentity, __METHOD__ );
-			$translation->translation['translatorName'] = $userIdentity->getName();
-			$translation->translation['translatorGender'] = $gender;
-		}
+		// $user can also be null, if the current user has no permission to see the username.
+		// For whatever reason, fallback gracefully by letting 'translatorName' and 'translatorGender'
+		// to be null.
+		[ 'name' => $name, 'gender' => $gender ] = $this->userService->getUsernameAndGender( $globalUserId );
+		$translation->translation['translatorName'] = $name;
+		$translation->translation['translatorGender'] = $gender;
 
 		$result->addValue(
 			[ 'query', 'contenttranslation' ],

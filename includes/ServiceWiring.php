@@ -156,7 +156,7 @@ return [
 		},
 	'ContentTranslation.UserService' =>
 		static function ( MediaWikiServices $services ): UserService {
-			return new UserService( $services->getCentralIdLookup() );
+			return new UserService( $services->getCentralIdLookup(), $services->getGenderCache() );
 		},
 	'ContentTranslation.WikidataIdFetcher' =>
 		static function ( MediaWikiServices $services ): WikidataIdFetcher {
