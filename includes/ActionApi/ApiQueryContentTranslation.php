@@ -17,6 +17,7 @@ use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
+use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -226,47 +227,44 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$work->getTargetLanguage()
 		);
 
-		// Check for other drafts. If one exists, return that to the UI which will then
-		// know to display an error to the user because we disallow two users to start
-		// drafts on the same translation work.
-		if ( $translation === null ) {
+		if ( $translation instanceof Translation ) {
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
+		} else {
+			// Check for other drafts. If one exists, return that to the UI which will then
+			// know to display an error to the user because we disallow two users to start
+			// drafts on the same translation work.
 			$conflictingTranslations = $this->translationStore->findConflictingDraftTranslations(
 				$work->getPage(),
 				$work->getSourceLanguage(),
 				$work->getTargetLanguage()
 			);
-			if ( $conflictingTranslations !== [] ) {
-				// Take only the last conflicting translation due to UI limitations
-				$translation = array_pop( $conflictingTranslations );
+
+			if ( !$conflictingTranslations ) {
+				return;
 			}
+
+			// if at least one conflicting translation is found, let the UI know
+			$result->addValue( [ 'query', 'contenttranslation' ], 'hasConflicts', true );
+
+			// Take only the last conflicting translation due to UI limitations
+			$translation = array_pop( $conflictingTranslations );
+
+			// $globalUserId is always expected to be integer or null, since it has been populated
+			// by the "translation_started_by" column of "cx_translations" table
+			$globalUserId = $translation->getData()['lastUpdatedTranslator'];
+			// $user can be null if the local user does not exist. Currently, this should never happen
+			// in our case because we redirect translators to the target wiki, and they cannot
+			// do translations without logging in.
+			// $user can also be null, if the current user has no permission to see the username.
+			// For whatever reason, fallback gracefully by letting 'translatorName' and 'translatorGender'
+			// to be null.
+			[ 'name' => $name, 'gender' => $gender ] = $this->userService->getUsernameAndGender( $globalUserId );
+
+			// Add name and gender information to the returned result. The UI can use this
+			// to display the conflict message.
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorName', $name );
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorGender', $gender );
 		}
-
-		if ( $translation === null ) {
-			// Return empty result. The UI will treat it as a new translation.
-			return;
-		}
-
-		// Add name and gender information to the returned result. The UI can use this
-		// to display the conflict message.
-
-		// $globalUserId is always expected to be integer or null, since it has been populated
-		// by the "translation_started_by" column of "cx_translations" table
-		$globalUserId = $translation->getData()['lastUpdatedTranslator'];
-		// $user can be null if the local user does not exist. Currently, this should never happen
-		// in our case because we redirect translators to the target wiki, and they cannot
-		// do translations without logging in.
-		// $user can also be null, if the current user has no permission to see the username.
-		// For whatever reason, fallback gracefully by letting 'translatorName' and 'translatorGender'
-		// to be null.
-		[ 'name' => $name, 'gender' => $gender ] = $this->userService->getUsernameAndGender( $globalUserId );
-		$translation->translation['translatorName'] = $name;
-		$translation->translation['translatorGender'] = $gender;
-
-		$result->addValue(
-			[ 'query', 'contenttranslation' ],
-			'translation',
-			$translation->translation
-		);
 	}
 
 	public function getAllowedParams() {

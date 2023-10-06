@@ -10,20 +10,18 @@
 	/**
 	 * Show the information about translation conflict
 	 *
-	 * @param {Object} translation
+	 * @param {string} translatorName
+	 * @param {string} translatorGender
 	 */
-	function showConflictHandler( translation ) {
-		var message, $userPage;
+	function showConflictHandler( translatorName, translatorGender ) {
+		let message;
 
-		if ( translation.translatorName ) {
-			$userPage = $( '<a>' )
-				.text( translation.translatorName )
-				.prop( 'href', mw.util.getUrl( 'User:' + translation.translatorName ) );
+		if ( translatorName ) {
+			const $userPage = $( '<a>' )
+				.text( translatorName )
+				.prop( 'href', mw.util.getUrl( 'User:' + translatorName ) );
 
-			message = mw.message( 'cx-translation-already-in-progress',
-				$userPage,
-				translation.translatorGender
-			);
+			message = mw.message( 'cx-translation-already-in-progress', $userPage, translatorGender );
 		} else {
 			message = mw.message( 'cx-translation-already-in-progress-unknown' );
 		}
@@ -36,7 +34,7 @@
 		} ).closed.then( function ( data ) {
 			if ( !data || data.action === 'cancel' ) {
 				// Go to dashboard
-				var uri = new mw.Uri();
+				const uri = new mw.Uri();
 
 				delete uri.query.page;
 				location.href = uri.toString();
@@ -45,8 +43,8 @@
 	}
 
 	$( function () {
-		mw.hook( 'mw.cx.translation.conflict' ).add( function ( translation ) {
-			showConflictHandler( translation );
+		mw.hook( 'mw.cx.translation.conflict' ).add( function ( translatorName, translatorGender ) {
+			showConflictHandler( translatorName, translatorGender );
 		} );
 	} );
 }() );

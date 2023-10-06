@@ -201,9 +201,9 @@ mw.cx.ui.TranslationView.prototype.setStatusMessage = function ( message ) {
 	this.translationHeader.setStatusMessage( message );
 };
 
-mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translation ) {
+mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translatorName, translatorGender ) {
 	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
-		mw.hook( 'mw.cx.translation.conflict' ).fire( translation );
+		mw.hook( 'mw.cx.translation.conflict' ).fire( translatorName, translatorGender );
 	} );
 };
 

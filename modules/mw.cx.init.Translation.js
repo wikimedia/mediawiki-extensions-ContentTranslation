@@ -139,8 +139,12 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	).catch( ( error ) => this.fetchSourcePageContentError( error.status ) );
 
 	mw.log( '[CX] Checking existing translation...' );
-	const draftFetchPromise = this.fetchDraftInformation( this.sourceWikiPage, this.targetWikiPage )
-		.then( ( draft ) => this.fetchDraftInformationSuccess( draft ) )
+	const draftFetchPromise = this.fetchDraftInformation(
+		this.sourceWikiPage.getTitle(),
+		this.sourceWikiPage.getLanguage(),
+		this.targetWikiPage.getLanguage()
+	)
+		.then( ( { translation, conflict } ) => this.fetchDraftInformationSuccess( translation, conflict ) )
 		.catch( () => this.fetchDraftInformationError() )
 		.then( ( draftId ) => {
 			mw.log( '[CX] Fetching existing translation for id: ' + draftId );
@@ -295,22 +299,49 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( status
 };
 
 /**
- * Find if there is a draft existing for the current title and language pair.
+ * Given a source title, a source language and a target language, this method
+ * fetches the draft translation information. It always returns a promise that
+ * resolves to an object containing two properties: "translation" and "conflict".
+ *
+ * If a corresponding draft exists for the current user, the "translation" property
+ * above is an object containing the draft translation fields, and the "conflict"
+ * property is null.
+ * If no draft translation is found, the API checks for conflicting translations,
+ * i.e. translations for the same title and language pair, started by other users
+ * within the last 24 hours. If such conflicting translation is found, the "conflict"
+ * property will be an object containing the name and the gender of the last translator
+ * of a conflicting translation, and the "translation" property is null.
+ * If no draft and no conflict found, this translation will be started as a new translation.
  *
  * @private
- * @param {mw.cx.dm.WikiPage} sourceWikiPage
- * @param {mw.cx.dm.WikiPage} targetWikiPage
- * @return {Promise} Information about an existing draft (if any) as returned by the API.
+ * @param {string} sourceTitle
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @return {Promise<{translation: Object|null, conflict: { name: string, gender: string }|null}>}
  */
-mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceWikiPage, targetWikiPage ) {
+mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceTitle, sourceLanguage, targetLanguage ) {
 	return new Promise( ( resolve, reject ) => {
 		const jQueryPromise = new mw.Api().get( {
 			action: 'query',
 			list: 'contenttranslation',
-			sourcetitle: sourceWikiPage.getTitle(),
-			from: sourceWikiPage.getLanguage(),
-			to: targetWikiPage.getLanguage()
-		} ).then( ( response ) => response.query && response.query.contenttranslation.translation );
+			sourcetitle: sourceTitle,
+			from: sourceLanguage,
+			to: targetLanguage
+		} ).then( ( response ) => {
+			const payload = response.query && response.query.contenttranslation;
+
+			let conflict = null;
+			if ( payload && payload.hasConflicts ) {
+				conflict = {
+					name: payload.translatorName,
+					gender: payload.translatorGender
+				};
+			}
+			return {
+				translation: payload && payload.translation,
+				conflict
+			};
+		} );
 
 		jQueryPromise
 			.then( ( translation ) => resolve( translation ) )
@@ -322,22 +353,23 @@ mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceWikiPa
  * Check whether an existing draft can be used.
  *
  * @private
- * @param {Object} draft
+ * @param {Object|null} draft
+ * @param {{ name: string, gender: string}|null} conflict
  * @return {Promise} Draft id or null.
  */
-mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft ) {
-	if ( !draft ) {
-		// No draft exists
-		mw.log( '[CX] No existing translation found' );
+mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft, conflict ) {
+	// Do not allow two users to start a draft at the same time. The API only returns
+	// a conflict (providing the conflicting translator's name and gender, if this is the case.
+	if ( conflict ) {
+		mw.log( '[CX] Existing translation in last 24 hours by another translator found.' );
+		this.translationView.showConflictWarning( conflict.name, conflict.gender );
+		// Stop further processing
 		return Promise.resolve( null );
 	}
 
-	// Do not allow two users to start a draft at the same time. The API only
-	// returns a translation with different translatorName if this is the case.
-	if ( draft.translatorName !== mw.user.getName() ) {
-		mw.log( '[CX] Existing translation in last 24 hours by another translator found.' );
-		this.translationView.showConflictWarning( draft );
-		// Stop further processing
+	if ( !draft ) {
+		// No draft exists
+		mw.log( '[CX] No existing translation found' );
 		return Promise.resolve( null );
 	}
 
