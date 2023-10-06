@@ -15,7 +15,6 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use Deflate;
@@ -149,22 +148,22 @@ class ApiContentTranslationSave extends ApiBase {
 		if ( $existingTranslation ) {
 			$data = $existingTranslation->getData();
 		} else {
-			$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
-			$translations = Translation::getConflictingTranslations( $work );
+			$conflictingTranslations = $this->translationStore->findConflictingDraftTranslations(
+				$sourceTitle,
+				$sourceLanguage,
+				$targetLanguage
+			);
 
-			if ( $translations !== [] ) {
+			if ( $conflictingTranslations !== [] ) {
 				$this->dieWithError( 'apierror-cx-inuse', 'noaccess' );
 			}
 
 			// First time save, add relevant fields
 			$data = [
-				'sourceTitle' => $work->getPage(),
-				'sourceLanguage' => $work->getSourceLanguage(),
-				'targetLanguage' => $work->getTargetLanguage(),
-				'sourceURL' => SiteMapper::getPageURL(
-					$work->getSourceLanguage(),
-					$work->getPage()
-				),
+				'sourceTitle' => $sourceTitle,
+				'sourceLanguage' => $sourceLanguage,
+				'targetLanguage' => $targetLanguage,
+				'sourceURL' => SiteMapper::getPageURL( $sourceLanguage, $sourceTitle ),
 			];
 		}
 

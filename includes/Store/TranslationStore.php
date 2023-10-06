@@ -5,14 +5,16 @@ namespace ContentTranslation\Store;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
+use DateTime;
 use MediaWiki\User\UserIdentity;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class TranslationStore {
-
 	public const TRANSLATION_TABLE_NAME = 'cx_translations';
 	public const TRANSLATOR_TABLE_NAME = 'cx_translators';
+
+	public const TRANSLATION_STATUS_DRAFT = 'draft';
 
 	private LoadBalancer $lb;
 	private UserService $userService;
@@ -176,6 +178,39 @@ class TranslationStore {
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Given a source title, a source language and a target language, find all conflicting translations.
+	 * Conflicting translations are translations in progress ("draft") for same language pair and source
+	 * page in last 24 hours.
+	 *
+	 * Here we assume that the caller already checked that no draft for the user already exists.
+	 *
+	 * @param string $title
+	 * @param string $sourceLang
+	 * @param string $targetLang
+	 * @return Translation[]
+	 * @throws \Exception
+	 */
+	public function findConflictingDraftTranslations( string $title, string $sourceLang, string $targetLang ): array {
+		$translations = $this->findTranslationsByTitles( [ $title ], $sourceLang, $targetLang );
+
+		$conflicts = array_filter( $translations, static function ( Translation $translation ) {
+			$isDraft = $translation->getData()['status'] === self::TRANSLATION_STATUS_DRAFT;
+
+			// filter out non-draft translations
+			if ( !$isDraft ) {
+				return false;
+			}
+
+			$lastUpdateTime = new DateTime( $translation->getData()['lastUpdateTimestamp'] );
+
+			// Only keep translations that have been updated in the last 24 hours
+			return (bool)$lastUpdateTime->diff( new DateTime( '-24 hours' ) )->invert;
+		} );
+
+		return array_values( $conflicts );
 	}
 
 	/**

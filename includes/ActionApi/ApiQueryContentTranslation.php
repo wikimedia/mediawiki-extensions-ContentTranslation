@@ -17,7 +17,6 @@ use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
-use ContentTranslation\Translation;
 use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use MediaWiki\MediaWikiServices;
@@ -232,10 +231,14 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// know to display an error to the user because we disallow two users to start
 		// drafts on the same translation work.
 		if ( $translation === null ) {
-			$translations = Translation::getConflictingTranslations( $work );
-			if ( $translations !== [] ) {
-				// Take the last one due to UI limitations
-				$translation = array_pop( $translations );
+			$conflictingTranslations = $this->translationStore->findConflictingDraftTranslations(
+				$work->getPage(),
+				$work->getSourceLanguage(),
+				$work->getTargetLanguage()
+			);
+			if ( $conflictingTranslations !== [] ) {
+				// Take only the last conflicting translation due to UI limitations
+				$translation = array_pop( $conflictingTranslations );
 			}
 		}
 
