@@ -73,15 +73,18 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 		$user = $this->getUser();
+		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
 
 		// Case A: Find a translation for given work from anonymous context
 		if ( !$user->isRegistered() ) {
 			if ( $params['translationid'] ) {
 				$this->dieWithError( 'apierror-cx-mustbeloggedin-viewtranslations', 'notloggedin' );
 			}
-			if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
-				$translation = Translation::find(
-					$params['from'], $params['to'], $params[ 'sourcetitle' ]
+			if ( $sourceTitle && $sourceLanguage && $targetLanguage ) {
+				$translation = $this->translationStore->findTranslationByTitle(
+					$sourceTitle,
+					$sourceLanguage,
+					$targetLanguage
 				);
 
 				if ( $translation === null ) {
@@ -101,8 +104,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$translator = new Translator( $user );
 
 		// Case B: Find a translation for given work for the current user.
-		if ( $params['sourcetitle'] && $params['from'] && $params['to'] ) {
-			$work = new TranslationWork( $params['sourcetitle'], $params['from'], $params['to'] );
+		if ( $sourceTitle && $sourceLanguage && $targetLanguage ) {
+			$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
 			$this->find( $work, $translator );
 
 			return;
@@ -150,16 +153,16 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			if ( $status === SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED ) {
 				$sectionTranslations = $this->sectionTranslationStore->findPublishedSectionTranslationsByUser(
 					$translatorUserId,
-					$params['from'],
-					$params['to'],
+					$sourceLanguage,
+					$targetLanguage,
 					$params['limit'],
 					$params['offset']
 				);
 			} elseif ( $status === SectionTranslationStore::TRANSLATION_STATUS_DRAFT ) {
 				$sectionTranslations = $this->sectionTranslationStore->findDraftSectionTranslationsByUser(
 					$translatorUserId,
-					$params['from'],
-					$params['to'],
+					$sourceLanguage,
+					$targetLanguage,
 					$params['limit'],
 					$params['offset']
 				);
@@ -180,8 +183,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				$params['limit'],
 				$params['offset'],
 				$params['type'],
-				$params['from'],
-				$params['to']
+				$sourceLanguage,
+				$targetLanguage
 			);
 
 			$count = count( $translations );

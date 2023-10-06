@@ -14,8 +14,8 @@ use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\SuggestionListManager;
-use ContentTranslation\Translation;
 use DeferredUpdates;
 use FormatJson;
 use MediaWiki\MediaWikiServices;
@@ -27,15 +27,18 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
  */
 class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	private UserService $userService;
+	private TranslationStore $translationStore;
 
 	/**
 	 * @param ApiQuery $query
 	 * @param string $moduleName
 	 * @param UserService $userService
+	 * @param TranslationStore $translationStore
 	 */
-	public function __construct( $query, $moduleName, UserService $userService ) {
+	public function __construct( $query, $moduleName, UserService $userService, TranslationStore $translationStore ) {
 		parent::__construct( $query, $moduleName );
 		$this->userService = $userService;
+		$this->translationStore = $translationStore;
 	}
 
 	public function execute() {
@@ -162,7 +165,8 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * TODO: This is misnamed. Translation::find returns all translations in any state.
+	 * TODO: This is misnamed. TranslationStore::findTranslationsByTitles returns all translations with any status.
+	 *
 	 * @param array $suggestions
 	 * @return array
 	 */
@@ -179,8 +183,11 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
 		}
-		$translations = Translation::find( $sourceLanguage, $targetLanguage, $titles );
-		'@phan-var Translation[] $translations';
+		$translations = $this->translationStore->findTranslationsByTitles(
+			$titles,
+			$sourceLanguage,
+			$targetLanguage
+		);
 		foreach ( $translations as $translation ) {
 			// $translation['sourceTitle'] is prefixed title with spaces
 			$ongoingTranslationTitles[] = $translation->translation['sourceTitle'];

@@ -115,6 +115,70 @@ class TranslationStore {
 	}
 
 	/**
+	 * Given a source title, a source language and a target language,
+	 * find the oldest matching translation.
+	 *
+	 * @param string $sourceTitle
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @return Translation|null
+	 */
+	public function findTranslationByTitle(
+		string $sourceTitle,
+		string $sourceLanguage,
+		string $targetLanguage
+	): ?Translation {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TRANSLATION_TABLE_NAME )
+			->where( [
+				'translation_source_language' => $sourceLanguage,
+				'translation_target_language' => $targetLanguage,
+				'translation_source_title' => $sourceTitle
+			] )
+			->orderBy( 'translation_last_updated_timestamp', SelectQueryBuilder::SORT_ASC )
+			->limit( 1 )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return $row ? Translation::newFromRow( $row ) : null;
+	}
+
+	/**
+	 * Given an array of source titles, a source language and a target language,
+	 * find all matching translations.
+	 *
+	 * @param string[] $titles
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @return Translation[]
+	 */
+	public function findTranslationsByTitles( array $titles, string $sourceLanguage, string $targetLanguage ): array {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$resultSet = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TRANSLATION_TABLE_NAME )
+			->where( [
+				'translation_source_language' => $sourceLanguage,
+				'translation_target_language' => $targetLanguage,
+				'translation_source_title' => $titles
+			] )
+			->orderBy( 'translation_last_updated_timestamp', SelectQueryBuilder::SORT_ASC )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$result = [];
+		foreach ( $resultSet as $row ) {
+			$result[] = Translation::newFromRow( $row );
+		}
+
+		return $result;
+	}
+
+	/**
 	 * @param int $userId
 	 * @param int $limit How many results to return
 	 * @param string|null $offset Offset condition (timestamp)

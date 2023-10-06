@@ -226,7 +226,8 @@
 		"contenttranslationsuggestions": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
 			"services": [
-				"ContentTranslation.UserService"
+				"ContentTranslation.UserService",
+				"ContentTranslation.TranslationStore"
 			]
 		},
 		"cxpublishedtranslations": {
