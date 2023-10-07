@@ -84,6 +84,34 @@ class TranslationStore {
 	}
 
 	/**
+	 * This method finds a translation inside "cx_translations" table, that corresponds to the
+	 * given id and the translator (user) of the translation, and returns it. If no such translation
+	 * exists, the method returns null.
+	 *
+	 * @param UserIdentity $user
+	 * @param int $id
+	 * @return Translation|null
+	 * @throws \Exception
+	 */
+	public function findByUserAndId( UserIdentity $user, int $id ): ?Translation {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$globalUserId = $this->userService->getGlobalUserId( $user );
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TRANSLATION_TABLE_NAME )
+			->where( [
+				'translation_id' => $id,
+				'translation_started_by' => $globalUserId,
+				'translation_last_update_by' => $globalUserId,
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return $row ? Translation::newFromRow( $row ) : null;
+	}
+
+	/**
 	 * Find a published translation for a given target title and language
 	 *
 	 * @param string $publishedTitle

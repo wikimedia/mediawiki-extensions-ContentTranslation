@@ -84,6 +84,7 @@ function fetchTranslationUnits(translationId) {
     formatversion: 2,
     translationid: translationId,
     list: "contenttranslation",
+    usecase: "translation-corpora-units",
   };
 
   const api = new mw.Api();

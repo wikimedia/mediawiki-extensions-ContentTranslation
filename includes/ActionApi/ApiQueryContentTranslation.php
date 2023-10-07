@@ -107,22 +107,13 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$this->serveDesktopEditorDraft( $params );
 
 			return;
-		}
-
-		$translator = new Translator( $user );
-
-		// Case C: Find a translation for given id
-		if ( $params['translationid'] ) {
-			$translation = $translator->getTranslation( $params['translationid'] );
-			if ( $translation !== null ) {
-				$this->addUnitsAndCategoriesToTranslation( $translation );
-				$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
-			} else {
-				$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
-			}
+		} elseif ( $params['usecase'] === 'translation-corpora-units' ) {
+			$this->serveTranslationCorporaUnits( $params['translationid'] );
 
 			return;
 		}
+
+		$translator = new Translator( $user );
 
 		// Case D: Find list of translations. Either section translations or article translations
 		$offset = null;
@@ -266,6 +257,17 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	private function serveTranslationCorporaUnits( $translationId ) {
+		$translation = $this->translationStore->findByUserAndId( $this->getUser(), $translationId );
+		if ( $translation !== null ) {
+			$this->addUnitsAndCategoriesToTranslation( $translation );
+			$result = $this->getResult();
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
+		} else {
+			$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
+		}
+	}
+
 	public function getAllowedParams() {
 		$allowedParams = [
 			'translationid' => [
@@ -297,7 +299,11 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			],
 			'usecase' => [
 				ParamValidator::PARAM_DEFAULT => null,
-				ParamValidator::PARAM_TYPE => [ 'unified-dashboard', 'desktop-editor-draft' ],
+				ParamValidator::PARAM_TYPE => [
+					'unified-dashboard',
+					'desktop-editor-draft',
+					'translation-corpora-units'
+				],
 			]
 		];
 		return $allowedParams;
