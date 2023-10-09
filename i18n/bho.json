@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Nepaboy"
+			"Nepaboy",
+			"SatyamMishra"
 		]
 	},
 	"cx": "पन्ना अनुवादन",
@@ -11,5 +12,5 @@
 	"cx-publish-button-publishing": "प्रकाशित हो रहल बा...",
 	"cx-campaign-contributionsmenu-mycontributions": "योगदान सब",
 	"cx-campaign-contributionsmenu-mytranslations": "अनुवाद सब",
-	"cx-campaign-contributionsmenu-myuploads": "अपलोड कईल मिडिया"
+	"cx-campaign-contributionsmenu-myuploads": "अपलोड कइल मीडिया"
 }
