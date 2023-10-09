@@ -1420,6 +1420,7 @@
 				"ui/mw.cx.ui.SourceColumn.js",
 				"ui/mw.cx.ui.TargetColumn.js",
 				"ui/mw.cx.ui.ToolsColumn.js",
+				"dm/mw.cx.dm.DraftTranslationDTO.js",
 				"mw.cx.init.Translation.js",
 				"mw.cx.TargetArticle.js",
 				"mw.cx.TranslationController.js",

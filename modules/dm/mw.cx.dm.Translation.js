@@ -658,7 +658,7 @@ mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
  * Extract translation metadata from the draft translation fetched
  * and set to this model.
  *
- * @param {Object} draft Saved translation.
+ * @param {mw.cx.dm.DraftTranslationDTO} draft Saved translation.
  */
 mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	this.setTargetURL( draft.targetURL );

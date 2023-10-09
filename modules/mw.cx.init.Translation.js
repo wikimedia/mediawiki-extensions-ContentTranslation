@@ -128,7 +128,7 @@ mw.cx.init.Translation.prototype.init = function () {
 /**
  * Fetch all data necessary to start a translation.
  *
- * @return {Promise}
+ * @return {Promise<[Object, mw.cx.dm.DraftTranslationDTO|null]>}
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	mw.log( '[CX] Fetching Source page...' );
@@ -155,7 +155,7 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
  * load the original revision used when translation was started.
  *
  * @param {string} sourceHtml
- * @param {Object} [draft] Saved translation if any.
+ * @param {mw.cx.dm.DraftTranslationDTO|null} [draft] Saved translation if any.
  * @return {Promise}
  */
 mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, draft ) {
@@ -312,7 +312,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( status
  * @param {string} sourceTitle
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
- * @return {Promise<{translation: Object|null, conflict: { name: string, gender: string }|null}>}
+ * @return {Promise<{translation: mw.cx.dm.DraftTranslationDTO|null, conflict: { name: string, gender: string }|null}>}
  */
 mw.cx.init.Translation.prototype.fetchDraftTranslation = function ( sourceTitle, sourceLanguage, targetLanguage ) {
 	return new Promise( ( resolve, reject ) => {
@@ -334,7 +334,7 @@ mw.cx.init.Translation.prototype.fetchDraftTranslation = function ( sourceTitle,
 				};
 			}
 			return {
-				translation: payload && payload.translation,
+				translation: payload && new mw.cx.dm.DraftTranslationDTO( payload.translation ),
 				conflict
 			};
 		} );
@@ -349,9 +349,9 @@ mw.cx.init.Translation.prototype.fetchDraftTranslation = function ( sourceTitle,
  * Check whether an existing draft can be used.
  *
  * @private
- * @param {Object|null} draft
+ * @param {mw.cx.dm.DraftTranslationDTO|null} draft
  * @param {{ name: string, gender: string}|null} conflict
- * @return {Promise} Draft or null.
+ * @return {Promise<mw.cx.dm.DraftTranslationDTO|null>} Draft or null.
  */
 mw.cx.init.Translation.prototype.fetchDraftTranslationSuccess = function ( draft, conflict ) {
 	// Do not allow two users to start a draft at the same time. The API only returns

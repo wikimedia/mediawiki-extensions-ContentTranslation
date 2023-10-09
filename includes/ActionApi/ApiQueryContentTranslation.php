@@ -13,6 +13,7 @@ use ApiPageSet;
 use ApiQuery;
 use ApiQueryGeneratorBase;
 use ContentTranslation\CorporaLookup;
+use ContentTranslation\DTO\CXDraftTranslationDTO;
 use ContentTranslation\DTO\TranslationUnitDTO;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
@@ -137,11 +138,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$this->setContinueEnumParameter( 'offset', $offset );
 		}
 
-		$result->addValue(
-			[ 'query', 'contenttranslation' ],
-			'translations',
-			$translations
-		);
+		$result->addValue( [ 'query', 'contenttranslation' ], 'translations', $translations );
 
 		// Simple optimization
 		if ( $params['offset'] === null ) {
@@ -221,7 +218,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 		if ( $translation instanceof Translation ) {
 			$this->addUnitsAndCategoriesToTranslation( $translation );
-			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
+			$draftDTO = CXDraftTranslationDTO::createFromTranslation( $translation );
+
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $draftDTO->toArray() );
 		} else {
 			// Check for other drafts. If one exists, return that to the UI which will then
 			// know to display an error to the user because we disallow two users to start
