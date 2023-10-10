@@ -149,54 +149,18 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		// Case D: Find list of translations. Either section translations or article translations
 		$offset = null;
 		$translatorUserId = $this->userService->getGlobalUserId( $user );
-		if ( $params['sectiontranslationsonly'] ) {
-			$status = $params['type'];
-			if ( !$status || !in_array( $status, SectionTranslationStore::TRANSLATION_STATUSES ) ) {
-				$this->dieWithError( 'apierror-cx-invalid-type-viewtranslations', 'invalidtype' );
-			}
+		$translations = $this->translationStore->getAllTranslationsByUserId(
+			$translatorUserId,
+			$params['limit'],
+			$params['offset'],
+			$params['type'],
+			$sourceLanguage,
+			$targetLanguage
+		);
 
-			$sectionTranslations = [];
-			if ( $status === SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED ) {
-				$sectionTranslations = $this->sectionTranslationStore->findPublishedSectionTranslationsByUser(
-					$translatorUserId,
-					$sourceLanguage,
-					$targetLanguage,
-					$params['limit'],
-					$params['offset']
-				);
-			} elseif ( $status === SectionTranslationStore::TRANSLATION_STATUS_DRAFT ) {
-				$sectionTranslations = $this->sectionTranslationStore->findDraftSectionTranslationsByUser(
-					$translatorUserId,
-					$sourceLanguage,
-					$targetLanguage,
-					$params['limit'],
-					$params['offset']
-				);
-			}
-
-			$translations = array_map( static function ( $sectionTranslation ) {
-				return $sectionTranslation->toArray();
-			}, $sectionTranslations );
-
-			// We will have extra "continue" in case the last batch is exactly the size of the limit
-			$count = count( $sectionTranslations );
-			if ( $count === $params['limit'] ) {
-				$offset = $sectionTranslations[$count - 1]->getLastUpdatedTimestamp();
-			}
-		} else {
-			$translations = $this->translationStore->getAllTranslationsByUserId(
-				$translatorUserId,
-				$params['limit'],
-				$params['offset'],
-				$params['type'],
-				$sourceLanguage,
-				$targetLanguage
-			);
-
-			$count = count( $translations );
-			if ( $count === $params['limit'] ) {
-				$offset = $translations[$count - 1]->translation['lastUpdateTimestamp'];
-			}
+		$count = count( $translations );
+		if ( $count === $params['limit'] ) {
+			$offset = $translations[$count - 1]->translation['lastUpdateTimestamp'];
 		}
 
 		// We will have extra "continue" in case the last batch is exactly the size of the limit
@@ -357,11 +321,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			'type' => [
 				ParamValidator::PARAM_DEFAULT => null,
 				ParamValidator::PARAM_TYPE => [ 'draft', 'published' ],
-			],
-			'sectiontranslationsonly' => [
-				ParamValidator::PARAM_DEFAULT => false,
-				ParamValidator::PARAM_TYPE => 'boolean',
-
 			],
 			'usecase' => [
 				ParamValidator::PARAM_DEFAULT => null,
