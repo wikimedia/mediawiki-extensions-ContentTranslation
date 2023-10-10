@@ -29,6 +29,7 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "The title of the source page.",
 	"apihelp-query+contenttranslation-param-limit": "The maximum number of translations to fetch.",
 	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
+	"apihelp-query+contenttranslation-param-usecase": "The usecase for which the translations are being fetched (optional).",
 	"apihelp-query+contenttranslation-param-type": "State of the translation.",
 	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Whether section translations should be fetched, instead of article translations",
 	"apihelp-query+contenttranslation-example-1": "Get translations started by the current user.",

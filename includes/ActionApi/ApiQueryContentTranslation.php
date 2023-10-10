@@ -100,6 +100,13 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
+		if ( $params['usecase'] ) {
+			if ( $params['usecase'] === 'unified-dashboard' ) {
+				$this->serveUnifiedDashboardTranslations( $params );
+
+				return;
+			}
+		}
 		$translator = new Translator( $user );
 
 		// Case B: Find a translation for given work for the current user.
@@ -267,6 +274,61 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	private function serveUnifiedDashboardTranslations( array $params ): void {
+		$status = $params['type'];
+
+		if ( !$status || !in_array( $status, SectionTranslationStore::TRANSLATION_STATUSES ) ) {
+			$this->dieWithError( 'apierror-cx-invalid-type-viewtranslations', 'invalidtype' );
+		}
+
+		$sectionTranslations = [];
+		$user = $this->getUser();
+		$translatorUserId = $this->userService->getGlobalUserId( $user );
+
+		if ( $status === SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED ) {
+			$sectionTranslations = $this->sectionTranslationStore->findPublishedSectionTranslationsByUser(
+				$translatorUserId,
+				$params['from'],
+				$params['to'],
+				$params['limit'],
+				$params['offset']
+			);
+		} elseif ( $status === SectionTranslationStore::TRANSLATION_STATUS_DRAFT ) {
+			$sectionTranslations = $this->sectionTranslationStore->findDraftSectionTranslationsByUser(
+				$translatorUserId,
+				$params['from'],
+				$params['to'],
+				$params['limit'],
+				$params['offset']
+			);
+		}
+
+		$translations = array_map( static function ( $sectionTranslation ) {
+			return $sectionTranslation->toArray();
+		}, $sectionTranslations );
+
+		// We will have extra "continue" in case the last batch is exactly the size of the limit
+		$count = count( $sectionTranslations );
+
+		if ( $count === $params['limit'] ) {
+			$offset = $sectionTranslations[$count - 1]->getLastUpdatedTimestamp();
+			// We will have extra "continue" in case the last batch is exactly the size of the limit
+			if ( $offset ) {
+				$this->setContinueEnumParameter( 'offset', $offset );
+			}
+		}
+
+		$result = $this->getResult();
+		$result->addValue( [ 'query', 'contenttranslation' ], 'translations', $translations );
+
+		// Simple optimization
+		if ( $params['offset'] === null ) {
+			$translator = new Translator( $user );
+			$translatorLanguages = $translator->getLanguages( $params['type'] );
+			$result->addValue( [ 'query', 'contenttranslation' ], 'languages', $translatorLanguages );
+		}
+	}
+
 	public function getAllowedParams() {
 		$allowedParams = [
 			'translationid' => [
@@ -300,6 +362,10 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				ParamValidator::PARAM_DEFAULT => false,
 				ParamValidator::PARAM_TYPE => 'boolean',
 
+			],
+			'usecase' => [
+				ParamValidator::PARAM_DEFAULT => null,
+				ParamValidator::PARAM_TYPE => [ 'unified-dashboard' ],
 			]
 		];
 		return $allowedParams;

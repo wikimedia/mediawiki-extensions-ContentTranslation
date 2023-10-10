@@ -33,7 +33,7 @@ async function fetchTranslations(status, offset) {
     assert: "user",
     formatversion: 2,
     list: "contenttranslation",
-    sectiontranslationsonly: true,
+    usecase: "unified-dashboard",
     type: status,
   };
 
