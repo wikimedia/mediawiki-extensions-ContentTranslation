@@ -23,9 +23,9 @@ mw.cx.ui.TargetColumn = function ( config ) {
 		// of SectionTitleWidget and "sectionTitleChange" event should be fired on change
 		this.titleWidget.connect( this, { change: [ 'emit', 'sectionTitleChange' ] } );
 
-		var linkHref = this.siteMapper.getPageUrl( this.language, config.title );
+		const linkHref = this.siteMapper.getPageUrl( this.language, config.title );
 
-		var articleLink = new OO.ui.ButtonWidget( {
+		const articleLink = new OO.ui.ButtonWidget( {
 			label: mw.msg( 'cx-target-view-page' ),
 			href: linkHref,
 			target: '_blank',
@@ -51,7 +51,11 @@ mw.cx.ui.TargetColumn.prototype.setTranslation = function () {
 	// Parent method
 	mw.cx.ui.TargetColumn.super.prototype.setTranslation.apply( this, arguments );
 
-	if ( !this.isSectionTranslation() ) {
-		this.setTitle( this.translation.getTargetTitle() );
+	let title;
+	if ( this.isSectionTranslation() ) {
+		title = this.translation.getTargetSectionTitle();
+	} else {
+		title = this.translation.getTargetTitle();
 	}
+	this.setTitle( title );
 };

@@ -34,7 +34,12 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.loginDialog = null;
 	this.sourceCategoriesSaved = false;
 	this.targetCategoriesChanged = 0;
-	this.savedTargetTitle = this.translation.getTargetTitle();
+	if ( this.translation.isSectionTranslation() ) {
+		this.savedTargetTitle = this.translation.getTargetSectionTitle();
+	} else {
+		this.savedTargetTitle = this.translation.getTargetTitle();
+	}
+
 	this.targetArticle = new mw.cx.TargetArticle( this.translation, this.veTarget, {
 		siteMapper: this.siteMapper
 	} );
@@ -127,7 +132,14 @@ mw.cx.TranslationController.prototype.hasUnsavedChanges = function () {
  * @return {boolean}
  */
 mw.cx.TranslationController.prototype.targetTitleChanged = function () {
-	return this.savedTargetTitle !== this.translation.getTargetTitle();
+	let currentTargetTitle;
+	if ( this.translation.isSectionTranslation() ) {
+		currentTargetTitle = this.translation.getTargetSectionTitle();
+	} else {
+		currentTargetTitle = this.translation.getTargetTitle();
+	}
+
+	return this.savedTargetTitle !== currentTargetTitle;
 };
 
 mw.cx.TranslationController.prototype.processChangeQueue = function () {
@@ -157,7 +169,14 @@ mw.cx.TranslationController.prototype.saveSuccessHandler = function ( { saveResu
 	if ( this.targetTitleChanged() ) {
 		mw.log( '[CX] Target title saved.' );
 	}
-	this.savedTargetTitle = params.title;
+
+	// for "sxsave" requests, we want to store the target section title as saved target title,
+	// since the target page title doesn't change for section translations.
+	if ( this.translation.isSectionTranslation() ) {
+		this.savedTargetTitle = params.targetsectiontitle;
+	} else {
+		this.savedTargetTitle = params.title;
+	}
 
 	if ( params.sourcecategories ) {
 		this.sourceCategoriesSaved = true;
@@ -844,9 +863,20 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 };
 
 /**
- * Target section title change handler. Currently not used
+ * Target section title change handler.
  */
-mw.cx.TranslationController.prototype.onTargetSectionTitleChange = function () {};
+mw.cx.TranslationController.prototype.onTargetSectionTitleChange = function () {
+	const currentSectionTitle = this.translation.getTargetSectionTitle();
+	const newSectionTitle = this.translationView.targetColumn.getTitle();
+
+	// if nothing changed return without doing anything
+	if ( currentSectionTitle === newSectionTitle ) {
+		return;
+	}
+
+	this.translation.setTargetSectionTitle( newSectionTitle );
+	this.saveScheduler();
+};
 
 mw.cx.TranslationController.prototype.onSurfaceReady = function () {
 	const api = new mw.Api();
