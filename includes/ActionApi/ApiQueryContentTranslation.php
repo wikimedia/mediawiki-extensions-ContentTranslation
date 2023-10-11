@@ -217,6 +217,16 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		);
 
 		if ( $translation instanceof Translation ) {
+			if ( $params['sourcesectiontitle'] ) {
+				$sectionTranslation = $this->sectionTranslationStore->findTranslationBySectionTitle(
+					$translation->getTranslationId(),
+					$params['sourcesectiontitle']
+				);
+
+				$sectionTranslationId = $sectionTranslation ? $sectionTranslation->getId() : null;
+				$translation->translation['sectionTranslationId'] = $sectionTranslationId;
+			}
+
 			$this->addUnitsAndCategoriesToTranslation( $translation );
 			$draftDTO = CXDraftTranslationDTO::createFromTranslation( $translation );
 

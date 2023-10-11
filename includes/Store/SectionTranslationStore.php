@@ -104,6 +104,28 @@ class SectionTranslationStore {
 		return $row ? $this->createTranslationFromRow( $row ) : null;
 	}
 
+	/**
+	 * @param int $translationId The id of the parent translation (from "cx_translations" table)
+	 * @param string $sectionTitle The source section title
+	 * @return SectionTranslation|null
+	 */
+	public function findTranslationBySectionTitle( int $translationId, string $sectionTitle ): ?SectionTranslation {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->where( [
+				'cxsx_translation_id' => $translationId,
+				'cxsx_source_section_title' => $sectionTitle
+			] )
+			->limit( 1 )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return $row ? $this->createTranslationFromRow( $row ) : null;
+	}
+
 	public function createTranslationFromRow( \stdClass $row ): SectionTranslation {
 		return new SectionTranslation(
 			(int)$row->cxsx_id,

@@ -666,6 +666,7 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	this.setTargetRevisionId( draft.targetRevisionId );
 	this.setProgress( JSON.parse( draft.progress ) );
 	this.setId( draft.id );
+	this.setSectionTranslationId( draft.sectionTranslationId );
 	this.setTargetTitle( draft.targetTitle );
 	this.savedTranslationUnits = draft.translationUnits;
 	// Only target categories are retrieved when translation draft is restored

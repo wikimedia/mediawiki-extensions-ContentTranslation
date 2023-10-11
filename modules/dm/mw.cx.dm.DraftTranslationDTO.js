@@ -5,6 +5,7 @@ class MwCxDmDraftTranslationDTO {
 		targetTitle,
 		status,
 		progress,
+		sectionTranslationId,
 		targetURL,
 		sourceRevisionId,
 		targetRevisionId,
@@ -15,6 +16,7 @@ class MwCxDmDraftTranslationDTO {
 		this.targetTitle = targetTitle;
 		this.status = status;
 		this.progress = progress;
+		this.sectionTranslationId = sectionTranslationId;
 		this.targetURL = targetURL;
 		this.sourceRevisionId = sourceRevisionId;
 		this.targetRevisionId = targetRevisionId;

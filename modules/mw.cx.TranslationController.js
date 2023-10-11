@@ -346,10 +346,6 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 		this.saveRequest.abort();
 	}
 
-	this.doSave( isRetry );
-};
-
-mw.cx.TranslationController.prototype.doSave = function ( isRetry ) {
 	// Copy the current save queue by value.
 	const savedSections = this.translationTracker.getSaveQueue().slice();
 
@@ -673,7 +669,7 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
 mw.cx.TranslationController.prototype.publish = function () {
 
 	if ( this.translation.isSectionTranslation() ) {
-		return this.doSave( false ).then( () => this.publishSection() );
+		return this.publishSection();
 	}
 
 	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,

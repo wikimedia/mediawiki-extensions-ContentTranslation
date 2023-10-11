@@ -142,7 +142,8 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	const draftFetchPromise = this.fetchDraftTranslation(
 		this.sourceWikiPage.getTitle(),
 		this.sourceWikiPage.getLanguage(),
-		this.targetWikiPage.getLanguage()
+		this.targetWikiPage.getLanguage(),
+		this.sourceWikiPage.getSectionTitle()
 	)
 		.then( ( { translation, conflict } ) => this.fetchDraftTranslationSuccess( translation, conflict ) )
 		.catch( () => this.fetchDraftTranslationError() );
@@ -312,18 +313,29 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( status
  * @param {string} sourceTitle
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
+ * @param {string|null} sourceSectionTitle
  * @return {Promise<{translation: mw.cx.dm.DraftTranslationDTO|null, conflict: { name: string, gender: string }|null}>}
  */
-mw.cx.init.Translation.prototype.fetchDraftTranslation = function ( sourceTitle, sourceLanguage, targetLanguage ) {
+mw.cx.init.Translation.prototype.fetchDraftTranslation = function (
+	sourceTitle,
+	sourceLanguage,
+	targetLanguage,
+	sourceSectionTitle
+) {
 	return new Promise( ( resolve, reject ) => {
-		const jQueryPromise = new mw.Api().get( {
+		const params = {
 			action: 'query',
 			list: 'contenttranslation',
 			usecase: 'desktop-editor-draft',
 			sourcetitle: sourceTitle,
 			from: sourceLanguage,
 			to: targetLanguage
-		} ).then( ( response ) => {
+		};
+
+		if ( sourceSectionTitle ) {
+			params.sourcesectiontitle = sourceSectionTitle;
+		}
+		const jQueryPromise = new mw.Api().get( params ).then( ( response ) => {
 			const payload = response.query && response.query.contenttranslation;
 
 			let conflict = null;
