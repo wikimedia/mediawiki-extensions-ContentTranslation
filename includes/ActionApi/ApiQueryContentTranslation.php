@@ -281,6 +281,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			'sourcetitle' => [
 				ParamValidator::PARAM_TYPE => 'string',
 			],
+			'sourcesectiontitle' => [
+				ParamValidator::PARAM_TYPE => 'string',
+			],
 			'limit' => [
 				ParamValidator::PARAM_DEFAULT => 100,
 				ParamValidator::PARAM_TYPE => 'limit',

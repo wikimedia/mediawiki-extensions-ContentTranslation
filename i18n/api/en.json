@@ -27,6 +27,7 @@
 	"apihelp-query+contenttranslation-param-from": "The source language code.",
 	"apihelp-query+contenttranslation-param-to": "The target language code.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "The title of the source page.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "The title of the source section (optional).",
 	"apihelp-query+contenttranslation-param-limit": "The maximum number of translations to fetch.",
 	"apihelp-query+contenttranslation-param-offset": "Offset into result set (optional).",
 	"apihelp-query+contenttranslation-param-usecase": "The usecase for which the translations are being fetched (optional).",
