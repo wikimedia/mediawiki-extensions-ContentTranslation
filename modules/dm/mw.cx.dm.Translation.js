@@ -30,6 +30,7 @@ mw.cx.dm.Translation = function MwCxDmTranslation( sourceWikiPage, targetWikiPag
 	this.status = 'draft';
 	this.sectionsChanged = false;
 	this.changedSignificantly = false;
+	this.targetSectionTitle = this.targetWikiPage.getSectionTitle();
 	this.progress = {
 		any: 0,
 		human: 0,
@@ -612,6 +613,24 @@ mw.cx.dm.Translation.prototype.getTargetTitle = function () {
 };
 
 /**
+ * Set translation section title
+ *
+ * @param {string|null} sectionTitle
+ */
+mw.cx.dm.Translation.prototype.setTargetSectionTitle = function ( sectionTitle ) {
+	this.targetSectionTitle = sectionTitle;
+};
+
+/**
+ * Get target section title for translation
+ *
+ * @return {string|null} Target title
+ */
+mw.cx.dm.Translation.prototype.getTargetSectionTitle = function () {
+	return this.targetSectionTitle;
+};
+
+/**
  * Get source language for translation
  *
  * @return {string} Source language
@@ -668,6 +687,7 @@ mw.cx.dm.Translation.prototype.setSavedTranslation = function ( draft ) {
 	this.setId( draft.id );
 	this.setSectionTranslationId( draft.sectionTranslationId );
 	this.setTargetTitle( draft.targetTitle );
+	this.setTargetSectionTitle( draft.targetSectionTitle );
 	this.savedTranslationUnits = draft.translationUnits;
 	// Only target categories are retrieved when translation draft is restored
 	// Source categories aren't retrieved, only saved in cx_corpora for pairing

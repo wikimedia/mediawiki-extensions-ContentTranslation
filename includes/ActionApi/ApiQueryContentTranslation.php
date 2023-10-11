@@ -224,7 +224,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				);
 
 				$sectionTranslationId = $sectionTranslation ? $sectionTranslation->getId() : null;
+				$targetSectionTitle = $sectionTranslation ? $sectionTranslation->getTargetSectionTitle() : null;
 				$translation->translation['sectionTranslationId'] = $sectionTranslationId;
+				$translation->translation['targetSectionTitle'] = $targetSectionTitle;
 			}
 
 			$this->addUnitsAndCategoriesToTranslation( $translation );

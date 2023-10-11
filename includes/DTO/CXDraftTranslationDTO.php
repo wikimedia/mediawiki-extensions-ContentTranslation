@@ -21,6 +21,7 @@ class CXDraftTranslationDTO {
 	private ?string $targetURL;
 	private ?string $sourceRevisionId;
 	private ?string $targetRevisionId;
+	private ?string $targetSectionTitle;
 	private ?array $translationUnits;
 	private ?string $targetCategories;
 
@@ -33,6 +34,7 @@ class CXDraftTranslationDTO {
 		?string $targetURL,
 		?string $sourceRevisionId,
 		?string $targetRevisionId,
+		?string $targetSectionTitle,
 		?array $translationUnits,
 		?string $targetCategories
 	) {
@@ -44,6 +46,7 @@ class CXDraftTranslationDTO {
 		$this->targetURL = $targetURL;
 		$this->sourceRevisionId = $sourceRevisionId;
 		$this->targetRevisionId = $targetRevisionId;
+		$this->targetSectionTitle = $targetSectionTitle;
 		$this->translationUnits = $translationUnits;
 		$this->targetCategories = $targetCategories;
 	}
@@ -60,6 +63,7 @@ class CXDraftTranslationDTO {
 			$translationData['targetURL'],
 			$translationData['sourceRevisionId'],
 			$translationData['targetRevisionId'],
+			$translationData['targetSectionTitle'] ?? null,
 			$translationData['translationUnits'],
 			$translationData['targetCategories']
 		);
@@ -75,6 +79,7 @@ class CXDraftTranslationDTO {
 			"targetURL" => $this->targetURL,
 			"sourceRevisionId" => $this->sourceRevisionId,
 			"targetRevisionId" => $this->targetRevisionId,
+			"targetSectionTitle" => $this->targetSectionTitle,
 			"translationUnits" => $this->translationUnits,
 			"targetCategories" => $this->targetCategories,
 		];

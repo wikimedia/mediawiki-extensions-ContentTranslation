@@ -9,6 +9,7 @@ class MwCxDmDraftTranslationDTO {
 		targetURL,
 		sourceRevisionId,
 		targetRevisionId,
+		targetSectionTitle,
 		translationUnits,
 		targetCategories
 	} ) {
@@ -20,6 +21,7 @@ class MwCxDmDraftTranslationDTO {
 		this.targetURL = targetURL;
 		this.sourceRevisionId = sourceRevisionId;
 		this.targetRevisionId = targetRevisionId;
+		this.targetSectionTitle = targetSectionTitle;
 		this.translationUnits = translationUnits;
 		this.targetCategories = targetCategories;
 	}
