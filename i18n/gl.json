@@ -51,6 +51,8 @@
 	"tag-contenttranslation-v2-description": "O contido foi traducido doutra lingua usando a versión 2 da ferramenta de Tradución de Contido.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Tradución de sección]]",
 	"tag-sectiontranslation-description": "O contido traduciuse dunha sección noutra lingua mediante a función de tradución de seccións da ferramenta de tradución de contidos.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Tradución de contido: Alto uso de tradución automática sen modificar]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "A tradución publicada mediante a tradución de contido ten unha alta porcentaxe de tradución automática sen modificar",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-beta": "Tradución de contido",
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á súa lingua. Inicie as traducións desde a súa [[Special:MyContributions|páxina de contribucións]] e edíteas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles unicamente en certas linguas.",
@@ -479,5 +481,11 @@
 	"sx-translation-deletion-confirm-button-label": "Borrar a tradución",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 día|$1 días|0=Hoxe}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 mes|$1 meses}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ano|$1 anos}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ano|$1 anos}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Continuando cunha tradución no móbil",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Esta tradución iniciouse nun dispositivo diferente e inclúe contidos de varias seccións do artigo.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "No móbil só podes traballar cunha sección á vez. Así, polo momento só se cargará a sección principal.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Onde están as outras seccións?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Non se preocupe. As seccións restantes non se perden. Estarán dispoñibles unha vez que publique a tradución actual como artigo novo. Despois da publicación, atopará novas traducións en curso cos contidos de cada sección.",
+	"sx-confirm-draft-translation-start-button-label": "Aceptar"
 }
