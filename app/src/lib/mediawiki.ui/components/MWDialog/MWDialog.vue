@@ -13,7 +13,7 @@
       <div
         class="mw-ui-dialog__overlay"
         :style="overlayStyles"
-        @click="close"
+        @click="!persistent && close"
       />
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
@@ -89,11 +89,19 @@ export default {
       default: null,
     },
     /**
-     * Whether the dialog should have closed on `escape` key press or not.
+     * Whether the dialog should close on `escape` key press or not.
      **/
     closeOnEscapeKey: {
       type: Boolean,
       default: true,
+    },
+    /**
+     * Whether the dialog should close when clicking on the overlay.
+     * If false, it closes on overlay click.
+     **/
+    persistent: {
+      type: Boolean,
+      default: false,
     },
     /**
      * Whether the dialog should have header or not.
