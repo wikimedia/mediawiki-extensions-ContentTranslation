@@ -175,8 +175,8 @@ class SpecialContentTranslation extends SpecialPage {
 		$isCampaign = $this->isValidCampaign( $campaign );
 		$user = $this->getUser();
 
-		// Allow anonymous users access to SX if enabled.
-		if ( $this->isUnifiedDashboard() && $allowAnonSX && $user->isAnon() ) {
+		// Allow anonymous users access to SX if enabled. For now also treat temp users as anon.
+		if ( $this->isUnifiedDashboard() && $allowAnonSX && !$user->isNamed() ) {
 			return true;
 		}
 
@@ -191,7 +191,7 @@ class SpecialContentTranslation extends SpecialPage {
 			} else {
 				if ( $campaign ) {
 					// Show login page if the URL has campaign parameter
-					$this->requireLogin();
+					$this->requireNamedUser();
 				}
 				// Invalid or missing campaign param
 				$this->getOutput()->showErrorPage(
