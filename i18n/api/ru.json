@@ -78,7 +78,7 @@
 	"apihelp-cxtoken-summary": "Получить токены JWT для аутентификации с помощью cxserver.",
 	"apihelp-cxtoken-example-1": "Получить токен аутентификации для cxserver",
 	"apihelp-cxdelete-description": "Удалить черновой перевод, созданный с помощью расширения «Перевод содержания».",
-	"apihelp-cxdelete-summary": "Удалить черновой перевод, созданный с помощью расширения «Перевод содержания».",
+	"apihelp-cxdelete-summary": "Удалить черновой перевод, созданный с помощью расширения «Инструмент перевода».",
 	"apihelp-cxdelete-param-from": "Код языка источника.",
 	"apihelp-cxdelete-param-to": "Код целевого языка.",
 	"apihelp-cxdelete-param-sourcetitle": "Заголовок исходной страницы.",
