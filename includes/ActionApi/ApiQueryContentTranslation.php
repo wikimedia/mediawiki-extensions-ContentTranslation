@@ -121,24 +121,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		if ( $params['translationid'] ) {
 			$translation = $translator->getTranslation( $params['translationid'] );
 			if ( $translation !== null ) {
-				// Translation units and target categories. Only target categories are fetched
-				// when translation draft is restored. Source categories are saved into cx_corpora table for
-				// pairing with target categories, but not retrieved when translation draft is restored.
-				// Associative array with 'translationUnits' and 'categories' data
-				$unitsAndCategories = $this->corporaLookup->getByTranslationId( (int)$translation->getTranslationId() );
-				$translation->translation['translationUnits'] = array_map(
-					static function ( TranslationUnitDTO $unit ) {
-						return $unit->toArray();
-					}, $unitsAndCategories['sections']
-				);
-				// Only target categories are fetched when translation draft is restored
-				$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
-
-				$result->addValue(
-					[ 'query', 'contenttranslation' ],
-					'translation',
-					$translation->translation
-				);
+				$this->addUnitsAndCategoriesToTranslation( $translation );
+				$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
 			} else {
 				$this->dieWithError( 'apierror-cx-missingdraft', 'missingdraft' );
 			}
@@ -328,6 +312,21 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			]
 		];
 		return $allowedParams;
+	}
+
+	private function addUnitsAndCategoriesToTranslation( Translation $translation ): void {
+		// Translation units and target categories. Only target categories are fetched
+		// when translation draft is restored. Source categories are saved into cx_corpora table for
+		// pairing with target categories, but not retrieved when translation draft is restored.
+		// Associative array with 'translationUnits' and 'categories' data
+		$unitsAndCategories = $this->corporaLookup->getByTranslationId( (int)$translation->getTranslationId() );
+		$translation->translation['translationUnits'] = array_map(
+			static function ( TranslationUnitDTO $unit ) {
+				return $unit->toArray();
+			}, $unitsAndCategories['sections']
+		);
+		// Only target categories are fetched when translation draft is restored
+		$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
 	}
 
 	protected function getExamplesMessages() {
