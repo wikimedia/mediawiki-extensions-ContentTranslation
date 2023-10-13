@@ -18,7 +18,6 @@ use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\TranslationWork;
 use ContentTranslation\Translator;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
@@ -100,22 +99,17 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			return;
 		}
 
-		if ( $params['usecase'] ) {
-			if ( $params['usecase'] === 'unified-dashboard' ) {
-				$this->serveUnifiedDashboardTranslations( $params );
+		if ( $params['usecase'] === 'unified-dashboard' ) {
+			$this->serveUnifiedDashboardTranslations( $params );
 
-				return;
-			}
-		}
-		$translator = new Translator( $user );
-
-		// Case B: Find a translation for given work for the current user.
-		if ( $sourceTitle && $sourceLanguage && $targetLanguage ) {
-			$work = new TranslationWork( $sourceTitle, $sourceLanguage, $targetLanguage );
-			$this->find( $work, $translator );
+			return;
+		} elseif ( $params['usecase'] === 'desktop-editor-draft' ) {
+			$this->serveDesktopEditorDraft( $params );
 
 			return;
 		}
+
+		$translator = new Translator( $user );
 
 		// Case C: Find a translation for given id
 		if ( $params['translationid'] ) {
@@ -165,60 +159,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 				'languages',
 				$translator->getLanguages( $params['type'] )
 			);
-		}
-	}
-
-	/**
-	 * Find a translation with any status for the given language pair and title.
-	 * @param TranslationWork $work
-	 * @param Translator $translator
-	 */
-	public function find( TranslationWork $work, Translator $translator ) {
-		$result = $this->getResult();
-		$translation = $this->translationStore->findTranslationByUser(
-			$translator->getUser(),
-			$work->getPage(),
-			$work->getSourceLanguage(),
-			$work->getTargetLanguage()
-		);
-
-		if ( $translation instanceof Translation ) {
-			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
-		} else {
-			// Check for other drafts. If one exists, return that to the UI which will then
-			// know to display an error to the user because we disallow two users to start
-			// drafts on the same translation work.
-			$conflictingTranslations = $this->translationStore->findConflictingDraftTranslations(
-				$work->getPage(),
-				$work->getSourceLanguage(),
-				$work->getTargetLanguage()
-			);
-
-			if ( !$conflictingTranslations ) {
-				return;
-			}
-
-			// if at least one conflicting translation is found, let the UI know
-			$result->addValue( [ 'query', 'contenttranslation' ], 'hasConflicts', true );
-
-			// Take only the last conflicting translation due to UI limitations
-			$translation = array_pop( $conflictingTranslations );
-
-			// $globalUserId is always expected to be integer or null, since it has been populated
-			// by the "translation_started_by" column of "cx_translations" table
-			$globalUserId = $translation->getData()['lastUpdatedTranslator'];
-			// $user can be null if the local user does not exist. Currently, this should never happen
-			// in our case because we redirect translators to the target wiki, and they cannot
-			// do translations without logging in.
-			// $user can also be null, if the current user has no permission to see the username.
-			// For whatever reason, fallback gracefully by letting 'translatorName' and 'translatorGender'
-			// to be null.
-			[ 'name' => $name, 'gender' => $gender ] = $this->userService->getUsernameAndGender( $globalUserId );
-
-			// Add name and gender information to the returned result. The UI can use this
-			// to display the conflict message.
-			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorName', $name );
-			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorGender', $gender );
 		}
 	}
 
@@ -277,6 +217,55 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	private function serveDesktopEditorDraft( array $params ): void {
+		$result = $this->getResult();
+		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
+
+		$translation = $this->translationStore->findTranslationByUser(
+			$this->getUser(),
+			$sourceTitle,
+			$sourceLanguage,
+			$targetLanguage
+		);
+
+		if ( $translation instanceof Translation ) {
+			$this->addUnitsAndCategoriesToTranslation( $translation );
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translation', $translation->translation );
+		} else {
+			// Check for other drafts. If one exists, return that to the UI which will then
+			// know to display an error to the user because we disallow two users to start
+			// drafts on the same translation work.
+			$conflictingTranslations = $this->translationStore->findConflictingDraftTranslations(
+				$sourceTitle,
+				$sourceLanguage,
+				$targetLanguage
+			);
+
+			if ( !$conflictingTranslations ) {
+				return;
+			}
+
+			// if at least one conflicting translation is found, let the UI know
+			$result->addValue( [ 'query', 'contenttranslation' ], 'hasConflicts', true );
+			// Take only the last conflicting translation due to UI limitations
+			$translation = array_pop( $conflictingTranslations );
+			// $globalUserId is always expected to be integer or null, since it has been populated
+			// by the "translation_started_by" column of "cx_translations" table
+			$globalUserId = $translation->getData()['lastUpdatedTranslator'];
+			// $user can be null if the local user does not exist. Currently, this should never happen
+			// in our case because we redirect translators to the target wiki, and they cannot
+			// do translations without logging in.
+			// $user can also be null, if the current user has no permission to see the username.
+			// For whatever reason, fallback gracefully by letting 'translatorName' and 'translatorGender'
+			// to be null.
+			[ 'name' => $name, 'gender' => $gender ] = $this->userService->getUsernameAndGender( $globalUserId );
+			// Add name and gender information to the returned result. The UI can use this
+			// to display the conflict message.
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorName', $name );
+			$result->addValue( [ 'query', 'contenttranslation' ], 'translatorGender', $gender );
+		}
+	}
+
 	public function getAllowedParams() {
 		$allowedParams = [
 			'translationid' => [
@@ -308,7 +297,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			],
 			'usecase' => [
 				ParamValidator::PARAM_DEFAULT => null,
-				ParamValidator::PARAM_TYPE => [ 'unified-dashboard' ],
+				ParamValidator::PARAM_TYPE => [ 'unified-dashboard', 'desktop-editor-draft' ],
 			]
 		];
 		return $allowedParams;

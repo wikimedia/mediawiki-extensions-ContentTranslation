@@ -1456,8 +1456,6 @@
 				"cx-captcha-unsupported-type",
 				"cx-draft-cancel-button-label",
 				"cx-draft-restored",
-				"cx-draft-restore-failed",
-				"cx-draft-restoring",
 				"cx-error-page-not-found",
 				"cx-error-server-connection",
 				"cx-feedback-link",

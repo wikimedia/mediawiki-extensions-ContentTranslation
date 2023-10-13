@@ -139,18 +139,13 @@ mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	).catch( ( error ) => this.fetchSourcePageContentError( error.status ) );
 
 	mw.log( '[CX] Checking existing translation...' );
-	const draftFetchPromise = this.fetchDraftInformation(
+	const draftFetchPromise = this.fetchDraftTranslation(
 		this.sourceWikiPage.getTitle(),
 		this.sourceWikiPage.getLanguage(),
 		this.targetWikiPage.getLanguage()
 	)
-		.then( ( { translation, conflict } ) => this.fetchDraftInformationSuccess( translation, conflict ) )
-		.catch( () => this.fetchDraftInformationError() )
-		.then( ( draftId ) => {
-			mw.log( '[CX] Fetching existing translation for id: ' + draftId );
-			return this.fetchDraft( draftId );
-		} )
-		.catch( ( { errorCode, details } ) => this.fetchDraftError( errorCode, details ) );
+		.then( ( { translation, conflict } ) => this.fetchDraftTranslationSuccess( translation, conflict ) )
+		.catch( () => this.fetchDraftTranslationError() );
 
 	return Promise.all( [ sourcePageFetchPromise, draftFetchPromise ] );
 };
@@ -319,11 +314,12 @@ mw.cx.init.Translation.prototype.fetchSourcePageContentError = function ( status
  * @param {string} targetLanguage
  * @return {Promise<{translation: Object|null, conflict: { name: string, gender: string }|null}>}
  */
-mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceTitle, sourceLanguage, targetLanguage ) {
+mw.cx.init.Translation.prototype.fetchDraftTranslation = function ( sourceTitle, sourceLanguage, targetLanguage ) {
 	return new Promise( ( resolve, reject ) => {
 		const jQueryPromise = new mw.Api().get( {
 			action: 'query',
 			list: 'contenttranslation',
+			usecase: 'desktop-editor-draft',
 			sourcetitle: sourceTitle,
 			from: sourceLanguage,
 			to: targetLanguage
@@ -355,9 +351,9 @@ mw.cx.init.Translation.prototype.fetchDraftInformation = function ( sourceTitle,
  * @private
  * @param {Object|null} draft
  * @param {{ name: string, gender: string}|null} conflict
- * @return {Promise} Draft id or null.
+ * @return {Promise} Draft or null.
  */
-mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft, conflict ) {
+mw.cx.init.Translation.prototype.fetchDraftTranslationSuccess = function ( draft, conflict ) {
 	// Do not allow two users to start a draft at the same time. The API only returns
 	// a conflict (providing the conflicting translator's name and gender, if this is the case.
 	if ( conflict ) {
@@ -379,49 +375,13 @@ mw.cx.init.Translation.prototype.fetchDraftInformationSuccess = function ( draft
 		return Promise.resolve( null );
 	}
 
-	return Promise.resolve( draft.id );
+	return Promise.resolve( draft );
 };
 
-mw.cx.init.Translation.prototype.fetchDraftInformationError = function () {
+mw.cx.init.Translation.prototype.fetchDraftTranslationError = function () {
 	// XXX
 	mw.hook( 'mw.cx.error' ).fire( 'Unable to fetch draft information.' );
 	mw.log( '[CX]', arguments );
-};
-
-/**
- * Fetch the translation from database (if any exists)
- *
- * @private
- * @param {string|null} draftId Id for saved draft
- * @return {Promise}
- */
-mw.cx.init.Translation.prototype.fetchDraft = function ( draftId ) {
-	// In case there is no draft, skip loading it
-	if ( draftId === null ) {
-		return Promise.resolve();
-	}
-
-	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restoring' ) );
-
-	return new Promise( ( resolve, reject ) => {
-		const jQueryPromise = new mw.Api().get( {
-			action: 'query',
-			list: 'contenttranslation',
-			translationid: draftId
-		} ).then( ( response ) => response.query.contenttranslation.translation );
-
-		jQueryPromise
-			.then( ( translation ) => resolve( translation ) )
-			.fail( ( errorCode, details ) => reject( { errorCode, details } ) );
-	} );
-};
-
-mw.cx.init.Translation.prototype.fetchDraftError = function ( errorCode, details ) {
-	if ( details.exception instanceof Error ) {
-		details.exception = details.exception.toString();
-	}
-	details.errorCode = errorCode;
-	this.translationView.setStatusMessage( mw.msg( 'cx-draft-restore-failed' ) );
 };
 
 /**
