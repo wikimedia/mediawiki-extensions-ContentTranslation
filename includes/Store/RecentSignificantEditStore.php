@@ -32,7 +32,7 @@ class RecentSignificantEditStore {
 
 	public function __construct( LoadBalancer $lb, ?string $currentWikiFamily ) {
 		$this->lb = $lb;
-		$currentWikiFamily = $currentWikiFamily ?? self::DEFAULT_WIKI_FAMILY;
+		$currentWikiFamily ??= self::DEFAULT_WIKI_FAMILY;
 		$this->currentWikiFamilyKey = array_search( $currentWikiFamily, self::SUPPORTED_WIKI_FAMILIES );
 	}
 
