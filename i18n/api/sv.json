@@ -28,7 +28,6 @@
 	"apihelp-query+contenttranslation-param-limit": "Maximala antalet översättningar att hämta.",
 	"apihelp-query+contenttranslation-param-offset": "Offset i sökresultaten (valfritt).",
 	"apihelp-query+contenttranslation-param-type": "Översättningens tillstånd.",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Om avsnittsöversättningar ska hämtas istället för artikelöversättningar",
 	"apihelp-query+contenttranslation-example-1": "Få översättningar påbörjade av aktuell användare.",
 	"apihelp-query+contenttranslation-example-2": "Hämta översättningsutkast efter id.",
 	"apihelp-query+contenttranslation-example-3": "Hitta en översättning för angiven titel mellan språkparet",

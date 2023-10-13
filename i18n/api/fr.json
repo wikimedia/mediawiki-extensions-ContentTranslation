@@ -34,7 +34,6 @@
 	"apihelp-query+contenttranslation-param-limit": "Le nombre maximum de traductions à renvoyer.",
 	"apihelp-query+contenttranslation-param-offset": "Position dans l’ensemble de résultats (facultatif).",
 	"apihelp-query+contenttranslation-param-type": "État de la traduction.",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Indique si les traductions de section doivent être récupérées, au lieu des traductions d’articles.",
 	"apihelp-query+contenttranslation-example-1": "Obtenir les traductions commencées par l’utilisateur actuel.",
 	"apihelp-query+contenttranslation-example-2": "Obtenir les brouillons de traduction par identifiant.",
 	"apihelp-query+contenttranslation-example-3": "Trouver toute traduction pour le titre fourni entre la paire donnée de langues",

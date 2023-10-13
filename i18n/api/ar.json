@@ -31,7 +31,6 @@
 	"apihelp-query+contenttranslation-param-limit": "الحد الأقصى لعدد الترجمات لجلبها.",
 	"apihelp-query+contenttranslation-param-offset": "تعويض الى مجموعة النتائج (اختياري).",
 	"apihelp-query+contenttranslation-param-type": "حالة الترجمة.",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "لتحديد ما إذا كان يجب جلب ترجمات الأقسام بدلاً من ترجمات المقالات",
 	"apihelp-query+contenttranslation-example-1": "الحصول على الترجمات التي بدأها المستخدم الحالي.",
 	"apihelp-query+contenttranslation-example-2": "الحصول على الترجمات بالمعرف.",
 	"apihelp-query+contenttranslation-example-3": "إيجاد ترجمة لعنوان بين اللغتين",

@@ -26,7 +26,6 @@
 	"apihelp-query+contenttranslation-param-limit": "Maksimalt antall oversettelser som skal hentes.",
 	"apihelp-query+contenttranslation-param-offset": "Offset i resultatsett (valgfritt).",
 	"apihelp-query+contenttranslation-param-type": "Oversettelsens status.",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Hvorvidt seksjonsoversettelser skal hentes i stedet for artikkeloversettelser",
 	"apihelp-query+contenttranslation-example-1": "Hent oversettelser som er startet av gjeldende bruker.",
 	"apihelp-query+contenttranslation-example-2": "Hent oversettelsesutkast med id",
 	"apihelp-query+contenttranslation-example-3": "Finn en oversettelse for gitt tittel mellom gitte språkpar",

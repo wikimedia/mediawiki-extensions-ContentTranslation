@@ -29,7 +29,6 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "Šaltinio puslapio pavadinimas.",
 	"apihelp-query+contenttranslation-param-limit": "Maksimalus vertimų skaičius, kurį grąžinti.",
 	"apihelp-query+contenttranslation-param-type": "Vertimo būsena.",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "Ar reikia gauti skyrių vertimus, o ne straipsnių vertimus",
 	"apihelp-query+contenttranslation-example-1": "Gauti vertimus, pradėtus šito vartotojo.",
 	"apihelp-query+contenttranslation-example-2": "Gauti vertimų juodraščius pagal ID.",
 	"apihelp-query+contenttranslation-example-3": "Rasti pateiktai antraštei bet kokį vertimą iš pateiktų kalbų porų",

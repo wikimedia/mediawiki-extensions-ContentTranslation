@@ -26,7 +26,6 @@
 	"apihelp-query+contenttranslation-param-limit": "要取得的翻譯數量上限。",
 	"apihelp-query+contenttranslation-param-offset": "結果集合的偏移（選用）。",
 	"apihelp-query+contenttranslation-param-type": "翻譯的狀態。",
-	"apihelp-query+contenttranslation-param-sectiontranslationsonly": "是否應取得章節翻譯，而非條目翻譯",
 	"apihelp-query+contenttranslation-example-1": "取得目前使用者所發起的翻譯。",
 	"apihelp-query+contenttranslation-example-2": "依 ID 取得翻譯草稿。",
 	"apihelp-query+contenttranslation-example-3": "搜尋指定標題於語言組合的任何翻譯",
