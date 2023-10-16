@@ -333,7 +333,7 @@ class TranslationStore {
 		$translation->setIsNew( true );
 	}
 
-	public function updateTranslation( Translation $translation, UserIdentity $user, array $options = [] ): void {
+	public function updateTranslation( Translation $translation, array $options = [] ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
 		$set = [
@@ -343,7 +343,6 @@ class TranslationStore {
 			'translation_status' => $translation->translation['status'],
 			'translation_last_updated_timestamp' => $dbw->timestamp(),
 			'translation_progress' => $translation->translation['progress'],
-			'translation_last_update_by' => $this->userService->getGlobalUserId( $user ),
 			'translation_cx_version' => $translation->translation['cxVersion'],
 		];
 
@@ -355,8 +354,6 @@ class TranslationStore {
 		$isFreshTranslation = $options['freshTranslation'] ?? false;
 		if ( $isFreshTranslation ) {
 			$set['translation_start_timestamp'] = $dbw->timestamp();
-			// TODO: remove this code
-			$set['translation_started_by'] = $this->userService->getGlobalUserId( $user );
 		}
 
 		$dbw->newUpdateQueryBuilder()
@@ -394,7 +391,7 @@ class TranslationStore {
 				$options['freshTranslation'] = true;
 			}
 			$translation->translation['id'] = $existingTranslation->getTranslationId();
-			$this->updateTranslation( $translation, $user, $options );
+			$this->updateTranslation( $translation, $options );
 		}
 	}
 }
