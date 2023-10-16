@@ -54,11 +54,6 @@ class Translation {
 			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
 		}
 
-		// BC for a missing schema change
-		if ( !$dbw->fieldExists( $table, 'translation_cx_version', __METHOD__ ) ) {
-			unset( $values['translation_cx_version'] );
-		}
-
 		$dbw->insert(
 			$table,
 			$values,
@@ -98,11 +93,6 @@ class Translation {
 			$values['translation_start_timestamp'] = $dbw->timestamp();
 			// TODO: remove this code
 			$values['translation_started_by'] = self::getTranslatorGlobalUserId( $translator );
-		}
-
-		// BC for a missing schema change
-		if ( !$dbw->fieldExists( $table, 'translation_cx_version', __METHOD__ ) ) {
-			unset( $values['translation_cx_version'] );
 		}
 
 		$dbw->update(
