@@ -192,10 +192,10 @@ class ApiSectionTranslationSave extends ApiBase {
 			// target title can be changed any time during translation
 			$translation->translation['targetTitle'] = $targetTitle;
 		}
-		$translator = new Translator( $user );
-		$translation->save( $translator );
+		$this->translationStore->saveTranslation( $translation, $user );
 
 		// Associate the translation with the translator
+		$translator = new Translator( $user );
 		$translationId = $translation->getTranslationId();
 		$translator->addTranslation( $translationId );
 
@@ -268,7 +268,7 @@ class ApiSectionTranslationSave extends ApiBase {
 			$this->dieWithError( 'apierror-cx-invalidsectiondata', 'invalidcontent' );
 		}
 
-		$isNewTranslation = $translation->lastSaveWasCreate();
+		$isNewTranslation = $translation->isNew();
 		foreach ( $translationUnits as $translationUnit ) {
 			$this->corporaStore->save( $translationUnit, $isNewTranslation );
 		}

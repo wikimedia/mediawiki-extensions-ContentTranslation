@@ -24,7 +24,6 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
-use ContentTranslation\Translator;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Request\DerivativeRequest;
@@ -368,7 +367,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		string $targetTitle,
 		string $targetLanguage
 	): void {
-		$translator = new Translator( $user );
 		$translation->translation['status'] = 'published';
 		$translation->translation['targetURL'] = $this->createTargetUrl(
 			$user,
@@ -376,7 +374,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$targetLanguage
 		);
 		$translation->translation['targetRevisionId'] = $newRevId;
-		$translation->save( $translator );
+		$this->translationStore->saveTranslation( $translation, $user );
 	}
 
 	/**

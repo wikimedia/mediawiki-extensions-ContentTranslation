@@ -12,7 +12,6 @@ use ApiBase;
 use ApiMain;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
-use ContentTranslation\Translator;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiContentTranslationDelete extends ApiBase {
@@ -53,8 +52,7 @@ class ApiContentTranslationDelete extends ApiBase {
 		if ( $translation->translation['targetURL'] !== null ) {
 			// Translation was once published. Don't delete, move it to published status.
 			$translation->translation['status'] = 'published';
-			$translator = new Translator( $user );
-			$translation->update( [], $translator );
+			$this->translationStore->updateTranslation( $translation, $user );
 		} else {
 			$translationId = $translation->getData()['id'];
 			$this->translationStore->unlinkTranslationFromTranslator( $translationId );

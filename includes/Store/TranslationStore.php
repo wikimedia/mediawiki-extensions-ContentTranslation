@@ -299,4 +299,98 @@ class TranslationStore {
 		return $result;
 	}
 
+	public function insertTranslation( Translation $translation, UserIdentity $user ): void {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+
+		$values = [
+			'translation_source_title' => $translation->translation['sourceTitle'],
+			'translation_target_title' => $translation->translation['targetTitle'],
+			'translation_source_language' => $translation->translation['sourceLanguage'],
+			'translation_target_language' => $translation->translation['targetLanguage'],
+			'translation_source_revision_id' => $translation->translation['sourceRevisionId'],
+			'translation_source_url' => $translation->translation['sourceURL'],
+			'translation_status' => $translation->translation['status'],
+			'translation_progress' => $translation->translation['progress'],
+			'translation_last_updated_timestamp' => $dbw->timestamp(),
+			'translation_last_update_by' => $this->userService->getGlobalUserId( $user ),
+			'translation_start_timestamp' => $dbw->timestamp(),
+			'translation_started_by' => $this->userService->getGlobalUserId( $user ),
+			'translation_cx_version' => $translation->translation['cxVersion'],
+		];
+
+		if ( $translation->translation['status'] === 'published' ) {
+			$values['translation_target_url'] = $translation->translation['targetURL'];
+			$values['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
+		}
+
+		$dbw->insert( self::TRANSLATION_TABLE_NAME, $values, __METHOD__ );
+
+		$translation->translation['id'] = (int)$dbw->insertId();
+		$translation->setIsNew( true );
+	}
+
+	public function updateTranslation( Translation $translation, UserIdentity $user, array $options = [] ): void {
+		$dbw = $this->lb->getConnection( DB_PRIMARY );
+
+		$values = [
+			'translation_target_title' => $translation->translation['targetTitle'],
+			'translation_source_revision_id' => $translation->translation['sourceRevisionId'],
+			'translation_source_url' => $translation->translation['sourceURL'],
+			'translation_status' => $translation->translation['status'],
+			'translation_last_updated_timestamp' => $dbw->timestamp(),
+			'translation_progress' => $translation->translation['progress'],
+			'translation_last_update_by' => $this->userService->getGlobalUserId( $user ),
+			'translation_cx_version' => $translation->translation['cxVersion'],
+		];
+
+		if ( $translation->translation['status'] === 'published' ) {
+			$values['translation_target_url'] = $translation->translation['targetURL'];
+			$values['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
+		}
+
+		$isFreshTranslation = $options['freshTranslation'] ?? false;
+		if ( $isFreshTranslation ) {
+			$values['translation_start_timestamp'] = $dbw->timestamp();
+			// TODO: remove this code
+			$values['translation_started_by'] = $this->userService->getGlobalUserId( $user );
+		}
+
+		$dbw->update(
+			self::TRANSLATION_TABLE_NAME,
+			$values,
+			[ 'translation_id' => $translation->translation['id'] ],
+			__METHOD__
+		);
+
+		$translation->setIsNew( false );
+	}
+
+	/**
+	 * A convenient abstraction of create and update methods. Checks if
+	 * translation exists and chooses either of create or update actions.
+	 *
+	 * @param Translation $translation
+	 * @param UserIdentity $user
+	 */
+	public function saveTranslation( Translation $translation, UserIdentity $user ): void {
+		$existingTranslation = $this->findTranslationByUser(
+			$user,
+			$translation->getSourceTitle(),
+			$translation->getSourceLanguage(),
+			$translation->getTargetLanguage()
+		);
+
+		if ( $existingTranslation === null ) {
+			$this->insertTranslation( $translation, $user );
+		} else {
+			$options = [];
+			if ( $existingTranslation->translation['status'] === 'deleted' ) {
+				// Existing translation is deleted, so this is a fresh start of same
+				// language pair and source title.
+				$options['freshTranslation'] = true;
+			}
+			$translation->translation['id'] = $existingTranslation->getTranslationId();
+			$this->updateTranslation( $translation, $user, $options );
+		}
+	}
 }

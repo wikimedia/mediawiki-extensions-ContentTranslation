@@ -280,8 +280,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			}
 
 			// Save the translation history.
-			$translator = new Translator( $user );
-			$this->translation->save( $translator );
+			$this->translationStore->saveTranslation( $this->translation, $user );
 
 			// Notify user about milestones
 			$this->notifyTranslator();

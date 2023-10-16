@@ -2,15 +2,12 @@
 
 namespace ContentTranslation;
 
-use ContentTranslation\Service\UserService;
-use ContentTranslation\Store\TranslationStore;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
 
 class Translation {
-	/** @var bool */
-	private $lastSaveWasCreate = false;
+	private bool $isNew = false;
 
 	/** @var array */
 	public $translation;
@@ -19,126 +16,15 @@ class Translation {
 		$this->translation = $translation;
 	}
 
-	private static function getTranslatorGlobalUserId( Translator $translator ) {
-		/** @var UserService $userService */
-		$userService = MediaWikiServices::getInstance()
-			->getService( 'ContentTranslation.UserService' );
-
-		return $userService->getGlobalUserId( $translator->getUser() );
-	}
-
-	public function create( Translator $translator ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
-
-		$table = 'cx_translations';
-
-		$values = [
-			'translation_source_title' => $this->translation['sourceTitle'],
-			'translation_target_title' => $this->translation['targetTitle'],
-			'translation_source_language' => $this->translation['sourceLanguage'],
-			'translation_target_language' => $this->translation['targetLanguage'],
-			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
-			'translation_source_url' => $this->translation['sourceURL'],
-			'translation_status' => $this->translation['status'],
-			'translation_progress' => $this->translation['progress'],
-			'translation_last_updated_timestamp' => $dbw->timestamp(),
-			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
-			'translation_start_timestamp' => $dbw->timestamp(),
-			'translation_started_by' => self::getTranslatorGlobalUserId( $translator ),
-			'translation_cx_version' => $this->translation['cxVersion'],
-		];
-
-		if ( $this->translation['status'] === 'published' ) {
-			$values['translation_target_url'] = $this->translation['targetURL'];
-			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
-		}
-
-		$dbw->insert(
-			$table,
-			$values,
-			__METHOD__
-		);
-
-		$this->translation['id'] = (int)$dbw->insertId();
-	}
-
 	/**
-	 * @param array|null $options
-	 * @param Translator $translator
+	 * @return bool Whether the last CRUD operation on this translation was "create"
 	 */
-	public function update( ?array $options, Translator $translator ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbw = $lb->getConnection( DB_PRIMARY );
-
-		$table = 'cx_translations';
-
-		$values = [
-			'translation_target_title' => $this->translation['targetTitle'],
-			'translation_source_revision_id' => $this->translation['sourceRevisionId'],
-			'translation_source_url' => $this->translation['sourceURL'],
-			'translation_status' => $this->translation['status'],
-			'translation_last_updated_timestamp' => $dbw->timestamp(),
-			'translation_progress' => $this->translation['progress'],
-			'translation_last_update_by' => self::getTranslatorGlobalUserId( $translator ),
-			'translation_cx_version' => $this->translation['cxVersion'],
-		];
-
-		if ( $this->translation['status'] === 'published' ) {
-			$values['translation_target_url'] = $this->translation['targetURL'];
-			$values['translation_target_revision_id'] = $this->translation['targetRevisionId'];
-		}
-
-		if ( isset( $options['freshTranslation'] ) && $options['freshTranslation'] === true ) {
-			$values['translation_start_timestamp'] = $dbw->timestamp();
-			// TODO: remove this code
-			$values['translation_started_by'] = self::getTranslatorGlobalUserId( $translator );
-		}
-
-		$dbw->update(
-			$table,
-			$values,
-			[ 'translation_id' => $this->translation['id'] ],
-			__METHOD__
-		);
+	public function isNew(): bool {
+		return $this->isNew;
 	}
 
-	/**
-	 * A convenient abstraction of create and update methods. Checks if
-	 * translation exists and chooses either of create or update actions.
-	 * @param Translator $translator
-	 */
-	public function save( Translator $translator ) {
-		/** @var TranslationStore $translationStore */
-		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
-		$existingTranslation = $translationStore->findTranslationByUser(
-			$translator->getUser(),
-			$this->getSourceTitle(),
-			$this->getSourceLanguage(),
-			$this->getTargetLanguage()
-		);
-
-		if ( $existingTranslation === null ) {
-			$this->create( $translator );
-			$this->lastSaveWasCreate = true;
-		} else {
-			$options = [];
-			if ( $existingTranslation->translation['status'] === 'deleted' ) {
-				// Existing translation is deleted, so this is a fresh start of same
-				// language pair and source title.
-				$options['freshTranslation'] = true;
-			}
-			$this->translation['id'] = $existingTranslation->getTranslationId();
-			$this->update( $options, $translator );
-			$this->lastSaveWasCreate = false;
-		}
-	}
-
-	/**
-	 * @return bool Whether the last save() call on this object instance made a new row
-	 */
-	public function lastSaveWasCreate() {
-		return $this->lastSaveWasCreate;
+	public function setIsNew( bool $isNew ): void {
+		$this->isNew = $isNew;
 	}
 
 	/**

@@ -176,7 +176,7 @@ class ApiContentTranslationSave extends ApiBase {
 
 		// Save the translation
 		$translation = new Translation( $data );
-		$translation->save( $translator );
+		$this->translationStore->saveTranslation( $translation, $translator->getUser() );
 
 		// Associate the translation with the translator
 		$translationId = $translation->getTranslationId();
@@ -190,7 +190,7 @@ class ApiContentTranslationSave extends ApiBase {
 	 * @param Translation $translation Recently saved parent translation object
 	 */
 	protected function saveTranslationUnits( array $translationUnits, Translation $translation ) {
-		$newTranslation = $translation->lastSaveWasCreate();
+		$newTranslation = $translation->isNew();
 		foreach ( $translationUnits as $translationUnit ) {
 			$this->corporaStore->save( $translationUnit, $newTranslation );
 		}
@@ -227,7 +227,7 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		$translationId = $translation->getTranslationId();
-		$newTranslation = $translation->lastSaveWasCreate();
+		$newTranslation = $translation->isNew();
 
 		CategoriesStorageManager::save(
 			$translationId,
