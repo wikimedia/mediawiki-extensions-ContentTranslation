@@ -39,33 +39,6 @@ class Translator {
 		);
 	}
 
-	/**
-	 * Get a translation by translation id for the translator
-	 * @param int $translationId
-	 * @return Translation|null
-	 */
-	public function getTranslation( $translationId ) {
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$row = $dbr->selectRow(
-			[ 'cx_translators', 'cx_translations' ],
-			'*',
-			[
-				'translator_user_id' => $this->getGlobalUserId(),
-				'translator_translation_id' => $translationId,
-				'translator_translation_id = translation_id',
-			],
-			__METHOD__
-		);
-
-		if ( $row ) {
-			return Translation::newFromRow( $row );
-		}
-
-		return null;
-	}
-
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
