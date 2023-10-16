@@ -20,6 +20,7 @@
 			"Mirws",
 			"Rachmat04",
 			"Sonic Speedy",
+			"Stevannus rua",
 			"Sumbukompor",
 			"Veracious",
 			"William Surya Permana"
@@ -463,8 +464,8 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Bulan ini",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-title": "Tinggalkan terjemahan Anda?",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "Buang",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Lanjutkan",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Buang suntingan",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Lanjutkan penyuntingan",
 	"cx-sx-login-dialog-title": "Sesi Anda telah kedaluwarsa",
 	"cx-sx-login-dialog-button-label": "Masuk log"
 }

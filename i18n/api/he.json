@@ -23,6 +23,7 @@
 	"apihelp-query+contenttranslation-param-sourcetitle": "כותרת דף המקור.",
 	"apihelp-query+contenttranslation-param-limit": "המספר המרבי של התרגומים לאחזור.",
 	"apihelp-query+contenttranslation-param-offset": "מאיזו תוצאה להתחיל (לא חובה).",
+	"apihelp-query+contenttranslation-param-usecase": "סוג השימוש שאחזור התרגומים נעשה עבורו (לא חובה).",
 	"apihelp-query+contenttranslation-param-type": "מצב התרגום.",
 	"apihelp-query+contenttranslation-example-1": "קבלת התרגומים שהתחיל המשתמש הנוכחי.",
 	"apihelp-query+contenttranslation-example-2": "קבלת טיוטת תרגום לפי מזהה.",
