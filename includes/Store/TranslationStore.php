@@ -302,7 +302,7 @@ class TranslationStore {
 	public function insertTranslation( Translation $translation, UserIdentity $user ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$values = [
+		$row = [
 			'translation_source_title' => $translation->translation['sourceTitle'],
 			'translation_target_title' => $translation->translation['targetTitle'],
 			'translation_source_language' => $translation->translation['sourceLanguage'],
@@ -319,11 +319,15 @@ class TranslationStore {
 		];
 
 		if ( $translation->translation['status'] === 'published' ) {
-			$values['translation_target_url'] = $translation->translation['targetURL'];
-			$values['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
+			$row['translation_target_url'] = $translation->translation['targetURL'];
+			$row['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
 		}
 
-		$dbw->insert( self::TRANSLATION_TABLE_NAME, $values, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( self::TRANSLATION_TABLE_NAME )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 
 		$translation->translation['id'] = (int)$dbw->insertId();
 		$translation->setIsNew( true );
@@ -332,7 +336,7 @@ class TranslationStore {
 	public function updateTranslation( Translation $translation, UserIdentity $user, array $options = [] ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$values = [
+		$set = [
 			'translation_target_title' => $translation->translation['targetTitle'],
 			'translation_source_revision_id' => $translation->translation['sourceRevisionId'],
 			'translation_source_url' => $translation->translation['sourceURL'],
@@ -344,23 +348,23 @@ class TranslationStore {
 		];
 
 		if ( $translation->translation['status'] === 'published' ) {
-			$values['translation_target_url'] = $translation->translation['targetURL'];
-			$values['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
+			$set['translation_target_url'] = $translation->translation['targetURL'];
+			$set['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
 		}
 
 		$isFreshTranslation = $options['freshTranslation'] ?? false;
 		if ( $isFreshTranslation ) {
-			$values['translation_start_timestamp'] = $dbw->timestamp();
+			$set['translation_start_timestamp'] = $dbw->timestamp();
 			// TODO: remove this code
-			$values['translation_started_by'] = $this->userService->getGlobalUserId( $user );
+			$set['translation_started_by'] = $this->userService->getGlobalUserId( $user );
 		}
 
-		$dbw->update(
-			self::TRANSLATION_TABLE_NAME,
-			$values,
-			[ 'translation_id' => $translation->translation['id'] ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TRANSLATION_TABLE_NAME )
+			->set( $set )
+			->where( [ 'translation_id' => $translation->getTranslationId() ] )
+			->caller( __METHOD__ )
+			->execute();
 
 		$translation->setIsNew( false );
 	}
