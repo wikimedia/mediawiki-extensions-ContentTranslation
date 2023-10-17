@@ -124,7 +124,6 @@
 	"cx-your-translations-link": "{{GENDER:$1|Vòstras traduccions}}",
 	"cx-translationlist-empty-title": "Pas res a traduire ?",
 	"cx-translationlist-empty-desc": "Començatz vòstra traduccion ara e contunhatz-la quand voldretz.",
-	"cx-draft-restoring": "Cargament de la traduccion enregistrada…",
 	"cx-draft-restored": "Traduccion enregistrada cargada.",
 	"cx-suggestionlist-expand": "Afichar tot",
 	"cx-suggestionlist-collapse": "Afichar mens",

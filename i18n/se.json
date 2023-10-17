@@ -87,7 +87,6 @@
 	"echo-category-title-cx": "Jorgalusat",
 	"cx-contributions-link": "Du rievdadusat",
 	"cx-your-translations-link": "{{GENDER:$1|Du jorgalusat}}",
-	"cx-draft-restoring": "Viežžamin vurken jurgalusa...",
 	"cx-suggestionlist-expand": "Čájet buot",
 	"cx-suggestionlist-collapse": "Čájet unnit",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 meattáhus|$1 meattáhusa}}",
