@@ -520,5 +520,6 @@
 	"sx-translation-deletion-confirm-button-label": "删除翻译",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1天|0=今天}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1个月}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
+	"sx-confirm-draft-translation-start-dialog-title": "在手机上继续翻译"
 }
