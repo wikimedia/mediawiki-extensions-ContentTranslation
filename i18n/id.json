@@ -456,6 +456,7 @@
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "Struktur templat dalam kedua bahasa terlihat mirip, dan semua data dapat ditransfer secara otomatis",
 	"cx-sx-block-template-mapped-params-text": "$1 dari {{PLURAL:$2|$2 parameter}} ditambahkan dari templat aslinya",
 	"cx-sx-block-template-no-source-params-text": "Templat aslinya tidak memiliki parameter untuk ditransfer",
+	"cx-sx-dashboard-help-panel-title": "Butuh bantuan dalam menerjemahkan?",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistik",
 	"cx-sx-dashboard-help-panel-feedback-label": "Beri umpan balik",
 	"cx-sx-dashboard-stats-panel-title": "Dampak Anda",
@@ -465,5 +466,6 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Buang suntingan",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Lanjutkan penyuntingan",
 	"cx-sx-login-dialog-title": "Sesi Anda telah kedaluwarsa",
-	"cx-sx-login-dialog-button-label": "Masuk log"
+	"cx-sx-login-dialog-button-label": "Masuk log",
+	"sx-translation-deletion-cancel-button-label": "Batal"
 }
