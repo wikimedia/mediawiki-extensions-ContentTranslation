@@ -17,7 +17,8 @@
 			"Purodha",
 			"Tiin",
 			"Umherirrender",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Nikki"
 		]
 	},
 	"cx": "Seite übersetzen",
@@ -461,6 +462,6 @@
 	"cx-sx-block-template-none-mapped-param-text": "Aus der ursprünglichen Vorlage wurden keine Parameter von $1 hinzugefügt",
 	"cx-sx-block-template-mapped-params-text": "$1 von {{PLURAL:$2|$2 Parameter wurde|$2 Parameter wurden}} aus der ursprünglichen Vorlage hinzugefügt",
 	"cx-sx-block-template-no-source-params-text": "Die ursprüngliche Vorlage hatte keine zu übertragenden Parameter",
-	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatorische Parameter bleiben für die Vorlage in $2 unbefüllt. Bearbeite die Vorlage, um diese manuell auszufüllen",
+	"cx-sx-block-template-missing-mandatory-params-text": "$1 obligatorische Parameter bleiben für die Vorlage auf $2 unbefüllt. Bearbeite die Vorlage, um diese manuell auszufüllen",
 	"cx-sx-block-template-missing-optional-params-text": "$1 zusätzliche Parameter können für die Vorlage in $2 gefüllt werden. Bearbeite die Vorlage, um diese manuell auszufüllen"
 }

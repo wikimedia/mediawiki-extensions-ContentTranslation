@@ -133,6 +133,7 @@
 	"apihelp-sxsave-param-targetlanguage": "Der Ziel-Sprachcode.",
 	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
+	"apihelp-sxsave-param-content": "JSON-codierte Abschnittsdaten. Jeder Abschnitt ist ein Objekt und verfügt über die folgenden Schlüssel: content, sectionId, origin, validate",
 	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
 	"apierror-sxsave-anon-user": "Die API-Aktion „sxsave“ ist für anonyme Benutzer nicht aktiviert",
 	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."

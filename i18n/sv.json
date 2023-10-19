@@ -19,7 +19,8 @@
 			"Skalman",
 			"Sturban",
 			"WikiPhoenix",
-			"Петар Петковић"
+			"Петар Петковић",
+			"JohanahoJ"
 		]
 	},
 	"cx": "Översätt sida",
@@ -441,7 +442,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "Saknas på <span>$1</span> och andra",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Saknas på <span>$1</span>, <span>$2</span> och andra",
 	"cx-uls-relevant-languages-panel-header": "Översätt den här sidan",
-	"cx-uls-relevant-languages-panel-message": "Den här sidan saknas på några språk som du kan. Du kan översätta den på bara några minuter!",
+	"cx-uls-relevant-languages-panel-message": "Den här sidan saknas på några språk som du kanske kan. Du kan översätta den på bara några minuter!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Detta kommer att vara <strong>det första avsnittet i den nya artikeln!</strong>",
 	"cx-uls-translate-page-quick-action-label": "Översätt den här sidan",
 	"sx-recent-edit-entrypoint-top-banner-header": "Bidrag från andra språk",
