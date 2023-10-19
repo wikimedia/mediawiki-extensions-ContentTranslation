@@ -52,7 +52,7 @@ class CorporaLookup {
 	}
 
 	/**
-	 * Returned fields: { sections: TranslationUnitDTO[], categories: array }
+	 * Returned fields: { sections: TranslationUnitDTO[], categories: string }
 	 * @param IResultWrapper $rows
 	 * @return array
 	 */

@@ -21,7 +21,7 @@ class CXDraftTranslationDTO {
 	private ?string $sourceRevisionId;
 	private ?string $targetRevisionId;
 	private ?array $translationUnits;
-	private ?array $targetCategories;
+	private ?string $targetCategories;
 
 	public function __construct(
 		int $id,
@@ -32,7 +32,7 @@ class CXDraftTranslationDTO {
 		?string $sourceRevisionId,
 		?string $targetRevisionId,
 		?array $translationUnits,
-		?array $targetCategories
+		?string $targetCategories
 	) {
 		$this->id = $id;
 		$this->targetTitle = $targetTitle;
