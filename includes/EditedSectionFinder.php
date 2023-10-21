@@ -117,7 +117,7 @@ class EditedSectionFinder {
 				// present inside the previous diff operation
 				$revertedPreviousLines = array_reverse( $previousOp->orig );
 				$previousSectionTitles = $this->getSectionTitlesFromLines( $revertedPreviousLines );
-				if ( !empty( $previousSectionTitles ) ) {
+				if ( $previousSectionTitles ) {
 					$editedSections[] = current( $previousSectionTitles );
 				}
 			}
