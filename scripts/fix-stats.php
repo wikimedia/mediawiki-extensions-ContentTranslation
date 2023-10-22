@@ -239,7 +239,7 @@ class CxFixStats extends Maintenance {
 		$var = 'ct_tag_id';
 
 		$field = $dbr->selectField( [ 'revision', 'change_tag' ], $var, $conds, __METHOD__ );
-		return !empty( $field );
+		return (bool)$field;
 	}
 
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
