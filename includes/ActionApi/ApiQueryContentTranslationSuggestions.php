@@ -66,10 +66,10 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			$this->dieWithError( 'apierror-cx-mustbeloggedin-get-suggestions', 'notloggedin' );
 		}
 
-		$from = $params['from'];
-		$to = $params['to'];
+		$from = $params['from'] ?? '';
+		$to = $params['to'] ?? '';
 
-		if ( !empty( $from ) && $from === $to ) {
+		if ( $from !== '' && $from === $to ) {
 			$this->dieWithError( 'apierror-cx-samelanguages', 'invalidparam' );
 		}
 		$translatorUserId = $this->userService->getGlobalUserId( $user );
@@ -104,7 +104,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 
 			$data = $personalizedSuggestions;
 
-			if ( !empty( $from ) && !empty( $to ) ) {
+			if ( $from !== '' && $to !== '' ) {
 				// Get non-personalized suggestions
 				$publicSuggestions = $manager->getPublicSuggestions(
 					$from,
