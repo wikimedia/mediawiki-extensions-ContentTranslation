@@ -340,6 +340,7 @@
 	"cx-sx-section-selector-empty-missing-sections-title": "Geen secties gevonden om te vertalen",
 	"cx-sx-section-selector-empty-missing-sections-desc": "Probeer met een andere pagina of andere talen",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Selecteer een andere pagina",
+	"cx-sx-section-selector-automatic-section-matching-title": "Secties automatisch passend maken",
 	"cx-sx-section-selector-automatic-section-matching-description": "Secties worden automatisch geïdentificeerd en de resultaten zijn niet altijd nauwkeurig.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Leer meer",
 	"cx-sx-section-selector-unsupported-sections-title": "Niet-ondersteunde secties",

@@ -6,7 +6,8 @@
 			"Maxí",
 			"Snævar",
 			"Sveinn í Felli",
-			"LoveIceLang"
+			"LoveIceLang",
+			"WanderingMorpheme"
 		]
 	},
 	"cx": "Þýða síðu",
@@ -88,7 +89,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Þessi titill er nú þegar í notkun á [$1 $2] á [$3 annarri síðu]",
 	"cx-selected-source-page-error-page-exists": "Síðan [$1 er nú þegar til] á $2",
 	"cx-selected-source-page-error-title-in-use": "Titill nýju síðunnar er [$1 nú þegar í notkun]",
-	"cx-page-missing-in-target-language": "Vantar í $1",
+	"cx-page-missing-in-target-language": "$1 vantar",
 	"cx-page-number-of-languages": "Fjöldi tungumála",
 	"cx-mt-abuse-error-title": "Þýðingin þín {{PLURAL:$1|inniheldur}} alls $1% af óbreyttum texta",
 	"cx-mt-abuse-error-sections": "Þýðingin þín inniheldur mikið magn af óbreyttum texta",
@@ -229,8 +230,12 @@
 	"cx-tools-linter-template-block-message": "Upphaflega síðan notar snið sem er ekki til á þessum wiki.\n\nÞessu sniði hefur verið sleppt, en þú getur bætt við nýju efni til að halda því efni sem var sleppt.",
 	"cx-tools-linter-template-inline-message": "Upphaflega síðan notar snið til að sníða til efnið, en sumar þeirra eru ekki til á þessum wiki.\n\nEfnið frá sniðunum sem vantar hefur verið bætt við sem venjulegum texta. Sjáðu til þess að fara yfir útkomuna.",
 	"cx-tools-linter-template-add-new": "Bæta við nýju sniði",
+	"cx-tools-linter-old-revision-label": "Endurræsa þýðinguna",
 	"cx-tools-linter-reference": "Vantar tilvísun",
 	"cx-tools-linter-reference-message": "Ekki var hægt að færa tilvísun í þýðinguna því það notar snið með aðra uppbyggingu.\n\nBreyttu tilvísuninni í þýðingunni til að bæta við þeim upplýsingum sem vantar.",
+	"cx-tools-linter-incomplete-reference": "Ófullnægjandi tilvísun",
+	"cx-tools-linter-restart-translation-title": "Endurræsa þýðinguna?",
+	"cx-tools-linter-restart-translation-cancel": "Hætta við",
 	"cx-translator-header": "Tölfræðin þín",
 	"cx-translator-month-stats-label": "Þessi mánuður",
 	"cx-translator-total-translations-label": "Alls",
@@ -246,6 +251,7 @@
 	"cx-translation-template-add-param": "+ Þýða gildi",
 	"cx-translation-template-add-more": "Bæta við gildum",
 	"cx-translation-template-select-param": "Velja uppruna gilda",
+	"cx-publish-settings": "Birta stillingar",
 	"cx-publish-destination-tooltip": "Veldu nafnrýmið þar sem síðan verður gefin út í",
 	"cx-publish-destination-namespace-main": "Ný síða",
 	"cx-publish-destination-namespace-main-description": "Í aðalnafnrýminu svo allir geti lesið hana",
@@ -257,5 +263,12 @@
 	"cx-linkcontextitem-missing-title-description": "Þessi síða er ekki til ennþá",
 	"cx-mt-abuse-publish-error": "Ekki er hægt að gefa út þýðinguna því hún inniheldur of mikinn óbreyttan texta",
 	"cx-unreviewed-translation-category": "Síður með óathuguðum þýðingum",
-	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni"
+	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni",
+	"cx-sx-start-translation-button-label": "Byrja þýðingu",
+	"cx-sx-view-translation-anchor": "Skoða",
+	"cx-sx-existing-translation-learn-more": "Kanna nánar",
+	"cx-sx-section-selector-more-details-title": "Frekari upplýsingar",
+	"cx-sx-section-selector-view-article-button-label": "Skoða $1 grein",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Velja aðra síðu",
+	"cx-sx-section-selector-learn-more-anchor-label": "Kanna nánar"
 }
