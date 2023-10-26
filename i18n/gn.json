@@ -4,6 +4,31 @@
 			"P. S. F. Freitas"
 		]
 	},
+	"cx": "Embohasa ambue ñe'ẽme",
+	"cx-header-all-translations": "Opaite ñe'ẽasa",
+	"cx-selected-source-page-start-translation-button": "Eñepyrũ ñe'ẽasa",
+	"cx-create-new-translation": "Ñe'ẽasa pyahu",
+	"cx-contributions-translation": "Ñe'ẽasa",
+	"cx-translation-label-draft": "Ñe'ẽasa ojejapóva hína",
+	"cx-translation-label-published": "Ñe'ẽasa oñemoherakuãva",
+	"cx-stats-published-translations-title": "Ñe'ẽasa oñemoherakuãva",
+	"cx-stats-draft-translations-label": "Ñe'ẽasa ojejapóva hína",
+	"cx-stats-published-translators-title": "Mbovypa oñe'ẽmbohasáva",
+	"cx-draft-discard-confirmation-message": "Añete piko rembogueseha tapiaite ko ñe'ẽasa?",
+	"cx-draft-discard-button-label": "Embogue ñe'ẽasa",
+	"cx-campaign-contributionsmenu-mytranslations": "Ñe'ẽasa",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Emoĩve peteĩ ñe'ẽasa pyahu",
+	"cx-trend-deletions": "Ñe'ẽasa oñembogueva'ekue",
+	"cx-stats-published-translations-label": "Ñe'ẽasa oñemoherakuãva",
+	"cx-stats-published-source-target": "Ñe'ẽasa oúva",
+	"cx-stats-draft-source-target": "Ñe'ẽasa ojejapóva hína oúva",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 ñe'ẽasa}}",
+	"echo-category-title-cx": "Ñe'ẽasa",
 	"cx-notification-hundredth-translation": "Rejapo ramoite 100 ñe'ẽ ñembohasa! Upéva ningo peteĩ mba'e hechapyrãva jahupyty. Embohasa marandu ambue puruharakuéra ndive.",
-	"sx-quick-tutorial-secondary-point-step-1": "Embohasa ha emoherakuã peteĩ-teĩ jehaipy voreku. Ndahasýi, ipya'e ha hetia'e!"
+	"cx-your-translations-link": "{{GENDER:$1|Ne ñe'ẽasa}}",
+	"sx-quick-tutorial-secondary-point-step-1": "Embohasa ha emoherakuã peteĩ-teĩ jehaipy voreku. Ndahasýi, ipya'e ha hetia'e!",
+	"cx-sx-sentence-selector-edit-translation-button-label": "Emoambue ñe'ẽasa",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Ñe'ẽmbohasa",
+	"cx-sx-article-search-header": "Ñe'ẽasa pyahu",
+	"cx-sx-translation-confirmer-action-new-translation": "Ñe'ẽasa pyahu"
 }
