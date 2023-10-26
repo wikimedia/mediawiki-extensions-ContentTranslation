@@ -4,5 +4,6 @@
 			"Римма"
 		]
 	},
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Медодзза кодӧн юкӧмлӧн ним ( абу колана)",
 	"apihelp-query+contenttranslation-param-usecase": "Вӧдитчан вариант, кӧдалӧ перйӧны вуджӧтӧммез (абу обязательнӧ)"
 }

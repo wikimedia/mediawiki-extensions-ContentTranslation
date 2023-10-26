@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ukhant Erdemt"
+			"Ukhant Erdemt",
+			"Алия"
 		]
 	},
-	"apihelp-query+contenttranslation-param-usecase": "Орчулһ һарһҗ авх кергләнә тохалдл (заавл биш)"
+	"apihelp-query+contenttranslation-param-usecase": "Орчуллһ һарһҗ авх кергләнә токалдл (заавл биш)"
 }

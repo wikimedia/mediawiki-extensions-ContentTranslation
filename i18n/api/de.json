@@ -26,6 +26,7 @@
 	"apihelp-query+contenttranslation-param-from": "Ursprünglicher Sprachcode.",
 	"apihelp-query+contenttranslation-param-to": "Ziel-Sprachcode.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Titel der Quellseite.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Der Titel des Quellabschnitts (optional).",
 	"apihelp-query+contenttranslation-param-limit": "Die maximale Anzahl der abzurufenden Übersetzungen.",
 	"apihelp-query+contenttranslation-param-offset": "Versatz in den Ergebnissatz (optional).",
 	"apihelp-query+contenttranslation-param-type": "Status der Übersetzung.",
@@ -124,6 +125,8 @@
 	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
 	"apihelp-sxsave-param-content": "JSON-codierte Abschnittsdaten. Jeder Abschnitt ist ein Objekt und verfügt über die folgenden Schlüssel: content, sectionId, origin, validate",
 	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
+	"apihelp-sxsave-param-sectionid": "Die Seitenabschnitts-ID.",
+	"apihelp-sxsave-param-sourcerevision": "Die Versions-ID der Quellseite.",
 	"apihelp-sxsave-param-progress": "Der Fortschritt der Übersetzung.",
 	"apierror-sxsave-anon-user": "Die API-Aktion „sxsave“ ist für anonyme Benutzer nicht aktiviert",
 	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."

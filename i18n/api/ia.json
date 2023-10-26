@@ -20,6 +20,7 @@
 	"apihelp-query+contenttranslation-param-from": "Le codice del lingua de origine.",
 	"apihelp-query+contenttranslation-param-to": "Le codice del lingua de destination.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Le titulo del pagina de origine.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Le titulo del section de fonte (optional).",
 	"apihelp-query+contenttranslation-param-limit": "Le numero maxime de traductiones a obtener.",
 	"apihelp-query+contenttranslation-param-offset": "Position de initio in serie de resultatos (optional).",
 	"apihelp-query+contenttranslation-param-usecase": "Le scopo pro le qual le traductiones se obtene (optional).",

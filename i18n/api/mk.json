@@ -20,6 +20,7 @@
 	"apihelp-query+contenttranslation-param-from": "Код на изворниот јазик.",
 	"apihelp-query+contenttranslation-param-to": "Код на целниот јазик.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Наслов на изворната страница.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Наслов на изворниот оддел (незадолжително).",
 	"apihelp-query+contenttranslation-param-limit": "Највеќе преводи за давање.",
 	"apihelp-query+contenttranslation-param-offset": "Отстапка во множеството исходни ставки (незадолжително).",
 	"apihelp-query+contenttranslation-param-usecase": "За каков делокруг да се дадат преводи (незадолжително).",
