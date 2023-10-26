@@ -5533,11 +5533,19 @@ const Um = {
       default: null
     },
     /**
-     * Whether the dialog should have closed on `escape` key press or not.
+     * Whether the dialog should close on `escape` key press or not.
      **/
     closeOnEscapeKey: {
       type: Boolean,
       default: !0
+    },
+    /**
+     * Whether the dialog should close when clicking on the overlay.
+     * If false, it closes on overlay click.
+     **/
+    persistent: {
+      type: Boolean,
+      default: !1
     },
     /**
      * Whether the dialog should have header or not.
@@ -5622,7 +5630,7 @@ function zm(e, t, n, o, s, a) {
         C("div", {
           class: "mw-ui-dialog__overlay",
           style: tt(o.overlayStyles),
-          onClick: t[0] || (t[0] = (...c) => o.close && o.close(...c))
+          onClick: t[0] || (t[0] = (c) => !n.persistent && o.close)
         }, null, 4),
         C("div", Rm, [
           n.header ? ze(e.$slots, "header", { key: 0 }, () => [
@@ -7275,6 +7283,8 @@ const o_ = { class: "pa-4 sx-login-dialog__header" }, s_ = { class: "sx-login-di
         key: 0,
         "overlay-opacity": 0.25,
         "overlay-color": "#000",
+        "close-on-escape-key": !1,
+        persistent: "",
         class: "sx-login-dialog",
         onClose: o
       }, {
@@ -8501,7 +8511,7 @@ function Du(e, t) {
       assert: "user",
       formatversion: 2,
       list: "contenttranslation",
-      sectiontranslationsonly: !0,
+      usecase: "unified-dashboard",
       type: e
     };
     return t && (n.offset = t), new mw.Api().get(n).then((s) => W(this, null, function* () {
@@ -8532,7 +8542,8 @@ function C_(e) {
     assert: "user",
     formatversion: 2,
     translationid: e,
-    list: "contenttranslation"
+    list: "contenttranslation",
+    usecase: "translation-corpora-units"
   };
   return new mw.Api().get(t).then((o) => {
     const { translation: s } = o.query.contenttranslation;
