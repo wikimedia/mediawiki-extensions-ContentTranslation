@@ -168,15 +168,16 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-content-comparator__content-header {
   z-index: 1;
   &-title {
     // No border style defined in specifications
     border-bottom: @border-style-base @border-width-base
-      @border-color-base--disabled;
+      @border-color-disabled;
     .mw-ui-button.sx-content-comparator__open-content-link-button {
-      color: @color-base--subtle;
+      color: #72777d;
       pointer-events: auto;
     }
   }
@@ -184,7 +185,7 @@ export default {
     position: sticky;
     top: -4px;
     background-color: @background-color-base;
-    box-shadow: @box-shadow-card;
+    box-shadow: @box-shadow-drop-small;
     .sx-content-comparator__content-header-title {
       border-bottom: none;
     }

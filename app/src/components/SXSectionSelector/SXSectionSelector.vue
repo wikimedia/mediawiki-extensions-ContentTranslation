@@ -174,18 +174,16 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-section-selector {
   .sx-section-selector__body {
     .sx-section-selector__list-title {
-      color: @color-base--subtle;
+      color: #72777d;
     }
   }
   .sx-section-selector__additional-considerations {
-    // TODO: fix border color to be base80
-    border-top: @border-width-base @border-style-base
-      @border-color-base--disabled;
+    border-top: @border-width-base @border-style-base #eaecf0;
     .sx-section-selector__additional-consideration-title {
       .mw-ui-icon {
         display: inline;

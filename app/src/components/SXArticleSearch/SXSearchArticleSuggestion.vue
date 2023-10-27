@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-search-suggestion {
   cursor: pointer;
@@ -72,10 +72,10 @@ export default {
     line-height: 1;
   }
   &__source-description {
-    color: @wmui-color-base20;
+    color: @color-subtle;
   }
   &__languages {
-    color: @color-base--subtle;
+    color: #72777d;
     margin-top: auto;
   }
 }

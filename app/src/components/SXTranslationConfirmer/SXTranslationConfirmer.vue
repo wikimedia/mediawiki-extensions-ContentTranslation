@@ -129,11 +129,11 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer {
   &__article-image {
-    background-color: @background-color-primary;
+    background-color: @background-color-progressive;
     height: 192px;
     width: 100%;
     img {
@@ -144,8 +144,8 @@ export default {
   }
   &__license {
     border-top: @border-width-base @border-style-base
-      @border-color-base--disabled;
-    background-color: @background-color-framed;
+      @border-color-disabled;
+    background-color: @background-color-interactive-subtle;
   }
 }
 </style>

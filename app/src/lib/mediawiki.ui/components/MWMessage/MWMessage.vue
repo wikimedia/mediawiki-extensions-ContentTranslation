@@ -117,9 +117,11 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-message {
+  border-width: @border-width-base;
+  border-style: @border-style-base;
   padding: 16px 24px;
 
   .mw-ui-message__action .mw-ui-icon {
@@ -127,29 +129,29 @@ export default {
   }
 
   &--notice {
-    background-color: @background-color-notice--framed;
-    border: @border-notice;
+    background-color: @background-color-notice-subtle;
+    border-color: @border-color-notice;
     .mw-ui-message__icon {
       color: @color-notice;
     }
   }
   &--warning {
-    background-color: @background-color-warning--framed;
-    border: @border-warning;
+    background-color: @background-color-warning-subtle;
+    border-color: @border-color-warning;
     .mw-ui-message__icon {
-      color: @wmui-color-yellow50;
+      color: @color-warning;
     }
   }
   &--error {
-    background-color: @background-color-error--framed;
-    border: @border-error;
+    background-color: @background-color-error-subtle;
+    border-color: @border-color-error;
     .mw-ui-message__icon {
       color: @color-error;
     }
   }
   &--success {
-    background-color: @background-color-success--framed;
-    border: @border-success;
+    background-color: @background-color-success-subtle;
+    border-color: @border-color-success;
     .mw-ui-message__icon {
       color: @color-success;
     }

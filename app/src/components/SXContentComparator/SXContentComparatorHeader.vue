@@ -137,7 +137,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-content-comparator-header__section-title {
   border: none;

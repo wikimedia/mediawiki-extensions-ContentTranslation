@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-stats-panel {
   background-color: @background-color-base;

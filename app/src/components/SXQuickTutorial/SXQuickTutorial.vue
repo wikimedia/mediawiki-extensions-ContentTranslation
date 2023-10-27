@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/lib/mediawiki.ui/components/MWLayout/animations.less";
 
 .sx-quick-tutorial {
@@ -136,7 +136,7 @@ export default {
   .sx-quick-tutorial__illustration {
     width: 100%;
     text-align: center;
-    background-color: @background-color-framed;
+    background-color: @background-color-interactive-subtle;
     // Should be set, since absolute children lead to heightless section
     height: 200px;
     max-height: 25vh;
@@ -157,8 +157,8 @@ export default {
       display: inline-block;
       width: 8px;
       height: 8px;
-      border-radius: 50%;
-      border: solid 1px @border-color-base--active;
+      border-radius: @border-radius-circle;
+      border: solid 1px @border-color-interactive;
       cursor: pointer;
       &.dot-active {
         // Should we create a background variable for this color?
@@ -169,12 +169,13 @@ export default {
   .sx-quick-tutorial__secondary-point {
     color: @color-base;
     h3 {
-      font-weight: 400;
+      font-weight: @font-weight-normal;
     }
     mark {
-      // TODO: Fix this with variable. Specifications document refers to this color as Yellow30.
+      // TODO: Fix this with token, `@background-color-warning-subtle` is not the right one.
+      // Specifications document refers to this color as Yellow100.
       // Could we create a background variable for this one?
-      background-color: @wmui-color-yellow90;
+      background-color: #fef6e7;
     }
   }
   .sx-quick-tutorial__action-button {

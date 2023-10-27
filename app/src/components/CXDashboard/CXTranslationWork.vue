@@ -117,10 +117,10 @@ export default {
 </script>
 
 <style lang="less">
-@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-translation {
-  border-top: @border-width-base @border-style-base @border-color-subtle;
+  border-top: @border-subtle;
   min-height: 100px;
   transition: background-color @transition-duration-base;
 
@@ -144,7 +144,7 @@ export default {
 
   &__footer {
     font-size: 14px;
-    color: @color-base--subtle;
+    color: #72777d;
     line-height: 1;
   }
 

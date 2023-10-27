@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @padding: 4px;
 
 .sx-sentence-selector__section-header {
@@ -93,8 +93,7 @@ export default {
     // TODO: Use UI typography here instead of hardcoding font-size values in px.
     // "Complementary" class cannot be applied here, as it only applies to paragraphs (<p>)
     font-size: 14px;
-    // TODO: Fix this to be @base20 color - currently base30
-    color: @color-base--subtle;
+    color: @color-subtle;
     // Set display to inline-block so that mb-1 class will be respected
     display: inline-block;
   }
@@ -105,16 +104,17 @@ export default {
     &--selected {
       box-decoration-break: clone;
       color: @color-base;
-      background-color: @wmui-color-yellow90;
-      box-shadow: @padding 0 0 @wmui-color-yellow90,
-        -@padding 0 0 @wmui-color-yellow90;
+      // TODO: `@background-color-warning-subtle` is not the right token here.
+      background-color: #fef6e7;
+      box-shadow: @padding 0 0 #fef6e7,
+        -@padding 0 0 #fef6e7;
     }
     &--translated {
       box-decoration-break: clone;
       color: @color-base;
-      background-color: @background-color-primary;
-      box-shadow: @padding 0 0 @background-color-primary,
-        -@padding 0 0 @background-color-primary;
+      background-color: @background-color-progressive;
+      box-shadow: @padding 0 0 @box-shadow-color-progressive-selected,
+        -@padding 0 0 @box-shadow-color-progressive-selected;
     }
   }
 }

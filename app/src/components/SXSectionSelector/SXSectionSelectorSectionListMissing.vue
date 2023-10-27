@@ -94,15 +94,15 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-section-selector__empty-missing-sections-details {
   h6 {
-    /*Fix this to be base20*/
-    color: @color-base--subtle;
+    color: @color-subtle;
   }
 }
 
 .sx-section-selector__empty-missing-sections__close-button {
-  color: @color-primary;
+  color: @color-progressive;
 }
 </style>

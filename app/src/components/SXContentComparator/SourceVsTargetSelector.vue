@@ -60,17 +60,17 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-content-comparator__content-header {
   .sx-content-comparator__source-target-selector {
-    background: @background-color-framed;
+    background: @background-color-interactive-subtle;
     color: @color-base;
-    // Color should be base80
+    // Border color should be Gray200 `#eaecf0`
     border-top: @border-style-base @border-width-base
-      @border-color-base--disabled;
+      @border-color-disabled;
     border-bottom: @border-style-base @border-width-base
-      @border-color-base--disabled;
+      @border-color-disabled;
   }
 }
 </style>

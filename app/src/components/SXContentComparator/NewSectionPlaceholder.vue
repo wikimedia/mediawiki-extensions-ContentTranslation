@@ -44,12 +44,12 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/styles/page.less";
 
 .sx-content-comparator__new-section-placeholder--present {
-  background-color: @background-color-primary;
-  color: @color-primary--active;
+  background-color: @background-color-progressive;
+  color: @color-progressive--active;
   // To revert parent padding = 1rem
   margin-left: -1rem;
   margin-right: -1rem;
@@ -57,7 +57,7 @@ export default {
   box-shadow: 0 1px 3px rgba(51, 102, 204, 0.5),
     0 -1px 3px rgba(51, 102, 204, 0.5);
   h5 {
-    color: @color-primary--active;
+    color: @color-progressive--active;
   }
 }
 </style>

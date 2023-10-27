@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-expandable-content {
   &__container {
@@ -185,9 +185,9 @@ export default {
         padding: 0;
         border: none;
         &--disabled {
-          color: @wmui-color-base50;
+          color: @color-disabled;
           &:hover {
-            color: @wmui-color-base50;
+            color: @color-disabled;
           }
         }
       }
@@ -206,8 +206,9 @@ export default {
       &:after {
         content: " ";
         display: inline-block;
-        border-bottom: @border-style-base 2px @color-accessory;
-        border-top: @border-style-base 2px @color-accessory;
+        // TODO: Should use a different border-color token.
+        border-bottom: @border-style-base 2px @border-color-notice;
+        border-top: @border-style-base 2px @border-color-notice;
         border-radius: @border-radius-base;
         font-size: 4px;
         width: 28px;

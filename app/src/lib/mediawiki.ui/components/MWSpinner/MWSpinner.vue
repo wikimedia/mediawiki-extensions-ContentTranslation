@@ -6,7 +6,7 @@
 </template>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 @width-bounce-dot: 1em;
 
@@ -23,7 +23,7 @@
     display: inline-block;
     width: @width-bounce-dot;
     height: @width-bounce-dot;
-    border-radius: 100%;
+    border-radius: @border-radius-circle;
     animation: bounce-delay 1600ms infinite ease-in-out both;
     animation-delay: -160ms;
   }

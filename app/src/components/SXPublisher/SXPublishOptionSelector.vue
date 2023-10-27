@@ -145,7 +145,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-publisher {
   &__publish-options {
     .mw-ui-dialog__shell {
@@ -166,7 +167,7 @@ export default {
       .mw-ui-radio {
         label {
           padding-bottom: 0;
-          font-weight: 700;
+          font-weight: @font-weight-bold;
           line-height: 1.25rem;
         }
       }

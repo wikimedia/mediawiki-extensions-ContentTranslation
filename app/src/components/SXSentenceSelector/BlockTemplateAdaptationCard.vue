@@ -262,18 +262,18 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 .block-template-adaptation-card {
   &__body {
     &--success {
-      background-color: @background-color-primary;
+      background-color: @background-color-progressive;
     }
     &--warning,
     &--failure {
-      background-color: @background-color-base--hover;
+      background-color: @background-color-interactive;
     }
     &__header {
-      color: @color-accessory;
+      color: @color-subtle;
       font-weight: @font-weight-bold;
     }
     &__template-title {

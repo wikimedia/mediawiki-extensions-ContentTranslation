@@ -308,7 +308,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-select {
   display: inline-block;
@@ -319,10 +319,10 @@ export default {
   border: @border-base;
   border-radius: @border-radius-base;
   // necessary for smooth transition
-  box-shadow: inset 0 0 0 0.1em #fff;
+  box-shadow: @box-shadow-inset-small @box-shadow-color-inverted;
   position: relative;
   &:hover {
-    border-color: @border-color-base--active;
+    border-color: @border-color-interactive;
   }
   .mw-ui-select__content {
     padding: 0;
@@ -341,7 +341,7 @@ export default {
     height: 32px;
     // Normalize & style placeholder text, see T139034
     &::placeholder {
-      color: @border-color-base--active;
+      color: @color-placeholder;
       opacity: 1;
     }
     &:-moz-focus-inner {
@@ -367,8 +367,8 @@ export default {
 
   &.mw-ui-select--focused {
     border-color: @border-color-base;
-    box-shadow: inset 0 0 0 1px @color-primary;
-    outline: 0;
+    box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+    outline: @outline-base--focus;
   }
 
   .mw-ui-select__input {
@@ -376,24 +376,23 @@ export default {
   }
 
   .mw-ui-select__option {
-    line-height: @line-height-base;
+    line-height: @line-height-medium;
 
     &:focus {
-      background-color: @background-color-primary;
+      background-color: @background-color-progressive;
     }
 
     &:hover {
-      background-color: @background-color-primary--hover;
+      background-color: @background-color-progressive--hover;
     }
   }
 
   .mw-ui-select__option--selected {
-    background-color: @background-color-primary;
-    color: @color-primary;
+    background-color: @background-color-progressive;
+    color: @color-progressive;
   }
 
   .mw-ui-select__options {
-    outline: none;
     border: none;
     padding: 0;
     font-family: inherit;
@@ -412,7 +411,7 @@ export default {
     border: @border-base;
     border-radius: @border-radius-base;
     // necessary for smooth transition
-    box-shadow: inset 0 0 0 0.1em #fff;
+    box-shadow: @box-shadow-inset-small @box-shadow-color-inverted;
     outline: 0;
     ul {
       padding: 0;

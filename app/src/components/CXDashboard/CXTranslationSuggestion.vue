@@ -171,19 +171,17 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-suggestion {
-  // Not sure if @background-color-notice-frame variable is ok to use here
-  border-top: @border-width-base @border-style-base
-    @background-color-notice--framed;
+  border-top: @border-width-base @border-style-base #eaecf0;
   cursor: pointer;
   min-height: 100px;
   line-height: normal;
   transition: background-color 100ms, border-color 100ms, transform 1s,
     opacity 1s;
   &:hover {
-    background-color: @background-color-primary;
+    background-color: @background-color-progressive;
   }
 
   &__information-panel {
@@ -192,20 +190,20 @@ export default {
     }
   }
   &__source-description {
-    color: @wmui-color-base20;
+    color: @color-subtle;
   }
   &__missing-sections {
     margin-top: auto;
-    color: @color-base--subtle;
+    color: #72777d;
   }
   &__favorite-missing-sections {
-    color: @color-base--subtle;
+    color: #72777d;
     min-width: fit-content;
   }
   &__language-pair {
     width: 100%;
     margin-top: auto;
-    color: @color-base--subtle;
+    color: #72777d;
   }
 }
 </style>

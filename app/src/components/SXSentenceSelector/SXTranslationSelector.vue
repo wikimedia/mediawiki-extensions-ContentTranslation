@@ -161,7 +161,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-sentence-selector__translation-options {
   a {
     pointer-events: none;
@@ -174,10 +175,10 @@ export default {
   // Use class twice to increase specificity so that dialog's
   // default background color is overwritten.
   .mw-ui-dialog__shell.mw-ui-dialog__shell {
-    background-color: @background-color-base--disabled;
+    background-color: @background-color-disabled-subtle;
     .sx-sentence-selector__translation-options-card-title {
       // Should we create a variable for this one?
-      color: @wmui-color-base20;
+      color: @color-subtle;
     }
   }
 }

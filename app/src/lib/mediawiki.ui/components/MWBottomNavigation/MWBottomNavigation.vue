@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-bottom-navigation {
   position: fixed;
@@ -56,9 +56,9 @@ export default {
     .mw-ui-button {
       border: none;
       padding: 12px 0;
-      color: @wmui-color-base20;
+      color: @color-subtle;
       &--selected {
-        color: @color-primary;
+        color: @color-progressive;
       }
       .mw-ui-button__content {
         display: block;

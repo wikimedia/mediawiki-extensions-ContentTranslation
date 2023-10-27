@@ -60,15 +60,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-section-selector__present-sections {
-  background-color: @background-color-framed;
+  background-color: @background-color-interactive-subtle;
   .sx-section-selector__present-section-button-content {
     text-align: start;
     .sx-section-selector__present-section-button-target {
-      // TODO: Fix this to be @base20 color - currently base30
-      color: @color-base--subtle;
+      color: @color-subtle;
     }
   }
 }

@@ -65,10 +65,10 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-button-group {
-  background-color: white;
+  background-color: @background-color-base;
   min-height: 56px;
   .mw-ui-button {
     &:hover,

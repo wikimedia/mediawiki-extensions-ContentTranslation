@@ -63,13 +63,13 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .translated-segment-card-header {
   width: 100%;
   .mw-ui-button-group {
-    background-color: @background-color-framed;
-    border-bottom: @border-style-base @border-width-base @wmui-color-base80;
+    background-color: @background-color-interactive-subtle;
+    border-bottom: @border-style-base @border-width-base #eaecf0;
   }
 }
 </style>

@@ -57,7 +57,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import "@/lib/mediawiki.ui/styles/common.less";
 
 body {
   margin: 0;

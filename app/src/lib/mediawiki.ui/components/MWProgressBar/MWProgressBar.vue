@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @keyframes progress-bar-slide {
   from {
     transform: translate(-100%);
@@ -98,11 +98,12 @@ export default {
 }
 .mw-progress-bar {
   border: @border-base;
-  border-radius: 1rem;
-  box-shadow: @box-shadow-card;
+  border-radius: @border-radius-pill;
+  box-shadow: @box-shadow-drop-medium;
   overflow: hidden;
   &--pending {
-    background-color: @wmui-color-base50;
+    // TODO: Replace with standard pending stripe design.
+    background-color: #a2a9b1;
     background-size: 1rem;
     background-image: linear-gradient(
       135deg,

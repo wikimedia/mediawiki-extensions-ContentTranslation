@@ -128,7 +128,7 @@ export default {
 
 <style lang="less">
 @import "./buttons.less";
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-button-text-colors(@color, @highlightColor, @activeColor, @focusColor ) {
   background-color: transparent;
@@ -156,7 +156,7 @@ export default {
 //
 // Styleguide 2.1.
 .mw-ui-button {
-  background-color: @background-color-framed;
+  background-color: @background-color-interactive-subtle;
   color: @color-base;
   // T343509: border-color produces an undesired look on buttons so we should set it to `transparent`
   &:not(.mw-ui-button--disabled):not(:disabled) {
@@ -172,9 +172,9 @@ export default {
   // Styleguide 2.1.2.
   &.mw-ui-button--progressive {
     .mw-ui-button-colors-primary(
-      @color-primary,
-      @color-primary--hover,
-      @color-primary--active
+      @color-progressive,
+      @color-progressive--hover,
+      @color-progressive--active
     );
   }
 
@@ -212,16 +212,16 @@ export default {
   &.mw-ui-button--text {
     .mw-ui-button-text-colors(
       @color-base,
-      @color-primary--hover,
-      @color-primary--active,
-      @color-primary--focus
+      @color-progressive--hover,
+      @color-progressive--active,
+      @color-progressive--focus
     );
     &.mw-ui-button--progressive {
       .mw-ui-button-text-colors(
-        @color-primary,
-        @color-primary--hover,
-        @color-primary--active,
-        @color-primary--focus
+        @color-progressive,
+        @color-progressive--hover,
+        @color-progressive--active,
+        @color-progressive--focus
       );
     }
     &.mw-ui-button--destructive {
@@ -233,10 +233,10 @@ export default {
       );
     }
     &.mw-ui-button--disabled {
-      color: @color-base--disabled;
+      color: @color-disabled;
       &:hover,
       &:focus {
-        color: @color-base--disabled;
+        color: @color-disabled;
       }
     }
   }
@@ -246,7 +246,7 @@ export default {
     border-color: transparent;
     background-color: transparent;
     &.mw-ui-button--progressive {
-      color: @color-primary;
+      color: @color-progressive;
     }
 
     &.mw-ui-button--destructive {
@@ -268,11 +268,11 @@ export default {
   }
 
   &.mw-ui-button--active {
-    color: @color-primary--active;
+    color: @color-progressive--active;
   }
 
   &.mw-ui-button--depressed {
-    color: @color-primary--active;
+    color: @color-progressive--active;
   }
 
   // Big buttons

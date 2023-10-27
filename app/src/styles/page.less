@@ -1,5 +1,7 @@
 // Styles to customize the mediawiki pages
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import "@/lib/mediawiki.ui/styles/common.less";
+
 // Clear the floating of images and tables.
 section {
   table,
@@ -24,9 +26,9 @@ section {
 .infobox {
   font-size: 90%;
   position: relative;
-  border: 1px solid @wmui-color-base80;
+  border: 1px solid #eaecf0;
   margin-bottom: 2em;
-  background-color: @wmui-color-base90;
+  background-color: @background-color-interactive-subtle;
   display: flex;
   flex: 1 1 100%;
   flex-flow: column nowrap;
@@ -40,7 +42,7 @@ section {
   td {
     vertical-align: top;
     border: 0;
-    border-bottom: 1px solid @wmui-color-base80;
+    border-bottom: 1px solid #eaecf0;
     padding: 7px 10px;
   }
   tbody > tr > td,

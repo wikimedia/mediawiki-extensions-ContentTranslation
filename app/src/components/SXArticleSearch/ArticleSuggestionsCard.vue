@@ -43,14 +43,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-search__suggestions {
   &.mw-ui-card {
     box-shadow: none;
   }
   &-header {
-    color: @wmui-color-base30;
+    color: #72777d;
   }
 }
 </style>

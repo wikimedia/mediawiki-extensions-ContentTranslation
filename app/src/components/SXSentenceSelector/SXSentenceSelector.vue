@@ -322,13 +322,13 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/styles/page.less";
 
 .sx-sentence-selector {
   &__header {
-    background-color: @background-color-base--disabled;
-    box-shadow: 0 @border-width-base @border-color-base--disabled;
+    background-color: @background-color-disabled-subtle;
+    box-shadow: 0 @border-width-base @border-color-disabled;
     &-title {
       color: @color-base;
     }

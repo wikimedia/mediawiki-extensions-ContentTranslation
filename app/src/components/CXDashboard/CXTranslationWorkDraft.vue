@@ -61,7 +61,7 @@ const translationProgress = computed(
 </template>
 
 <style lang="less">
-@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-translation {
   &--draft {

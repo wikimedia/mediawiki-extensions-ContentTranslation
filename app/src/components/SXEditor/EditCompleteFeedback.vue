@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-editor__feedback-overlay {
   position: absolute;
@@ -104,20 +104,20 @@ export default {
       color: @color-base;
     }
     &__stats {
-      color: @wmui-color-base20;
+      color: @color-subtle;
       &--failure {
         span {
-          color: @wmui-color-red50;
+          color: @color-error;
         }
       }
       &--warning {
         span {
-          color: @wmui-color-yellow30;
+          color: @color-warning;
         }
       }
       &--success {
         span {
-          color: @wmui-color-green30;
+          color: @color-success;
         }
       }
     }

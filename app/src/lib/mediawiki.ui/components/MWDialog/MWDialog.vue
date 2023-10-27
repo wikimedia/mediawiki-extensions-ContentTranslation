@@ -186,7 +186,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "../../components/MWLayout/animations.less";
 
 .mw-ui-dialog {

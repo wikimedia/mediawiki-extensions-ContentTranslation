@@ -52,11 +52,11 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-section-selector__header {
   border-bottom: @border-width-base @border-style-base
-    @background-color-notice--framed;
+    @background-color-notice-subtle;
   .sx-section-selector__title {
     color: @color-base;
     border: none;

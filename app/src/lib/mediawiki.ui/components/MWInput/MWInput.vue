@@ -132,7 +132,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-input {
   display: inline-block;
@@ -143,9 +143,9 @@ export default {
   border: @border-base;
   border-radius: @border-radius-base;
   // necessary for smooth transition
-  box-shadow: inset 0 0 0 0.1em #fff;
+  box-shadow: @box-shadow-inset-small @box-shadow-color-inverted;
   &:hover {
-    border-color: @border-color-base--active;
+    border-color: @border-color-interactive;
   }
   .mw-ui-input__content {
     display: flex;
@@ -153,7 +153,6 @@ export default {
     margin: 4px;
   }
   .mw-ui-input__input {
-    outline: none;
     border: none;
     padding: 6px 8px;
 
@@ -166,7 +165,7 @@ export default {
     }
     // Normalize & style placeholder text, see T139034
     &::placeholder {
-      color: @border-color-base--active;
+      color: @color-placeholder;
       opacity: 1;
     }
     &:-moz-focus-inner {
@@ -210,9 +209,9 @@ export default {
   }
 
   &.mw-ui-input--focused {
-    border-color: @border-color-base--focus;
-    box-shadow: @box-shadow-base--focus;
-    outline: 0;
+    border-color: @border-color-progressive--focus;
+    box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus;
+    outline: @outline-base--focus;
   }
 
   textarea.mw-ui-input__input {

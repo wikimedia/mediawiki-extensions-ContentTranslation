@@ -141,7 +141,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-translation-confirmer__article-information {
   color: @color-base;
   &__title.col.col {
@@ -151,7 +152,7 @@ export default {
     color: inherit;
   }
   &__stats {
-    color: @wmui-color-base20;
+    color: @color-subtle;
   }
 }
 </style>

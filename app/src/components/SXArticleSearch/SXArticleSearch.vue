@@ -270,15 +270,15 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-search {
   &__language-button-group {
     &.mw-ui-button-group {
-      background-color: @wmui-color-base90;
+      background-color: @background-color-interactive;
     }
-    border-top: @border-style-base @border-width-base @wmui-color-base80;
-    border-bottom: @border-style-base @border-width-base @wmui-color-base80;
+    border-top: @border-style-base @border-width-base #eaecf0;
+    border-bottom: @border-style-base @border-width-base #eaecf0;
   }
   &__recently-edited,
   &__nearby {
@@ -286,12 +286,12 @@ export default {
       box-shadow: none;
     }
     &-header {
-      color: @color-base--subtle;
+      color: #72777d;
     }
   }
   &__empty-suggestions-message {
     text-align: center;
-    color: @color-base--subtle;
+    color: #72777d;
   }
 }
 .sx-article-search-language-selector {
@@ -309,7 +309,7 @@ export default {
   }
 
   // Custom styling to avoid the dialog jumping across the screen as
-  // search is performced. Dialog get resized depending on the number
+  // search is performed. Dialog get resized depending on the number
   // of results. But that should not cause its position change.
   &.mw-ui-dialog.mw-ui-dialog--dialog {
     .mw-ui-dialog__shell {

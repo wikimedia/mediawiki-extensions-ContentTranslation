@@ -46,14 +46,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 .experimental-support-banner {
   &__icon {
     align-self: start;
   }
   a {
     font-weight: @font-weight-bold;
-    color: @color-primary;
+    color: @color-progressive;
   }
 }
 </style>

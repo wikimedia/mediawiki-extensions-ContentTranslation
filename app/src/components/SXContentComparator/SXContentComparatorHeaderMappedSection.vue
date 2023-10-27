@@ -119,18 +119,18 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-content-comparator-header__mapped-section {
-  background-color: @background-color-base--disabled;
+  background-color: @background-color-disabled-subtle;
   border-radius: @border-radius-base;
   .sx-content-comparator-header__mapped-section-header {
     border-bottom: @border-width-base @border-style-base
-      @border-color-base--disabled;
+      @border-color-disabled;
     .sx-content-comparator-header__mapped-section-header-title {
       // No typography style for this font-size in UI library
       font-size: 14px;
-      // TODO: Fix this to be base20
-      color: @color-base--subtle;
+      color: @color-subtle;
     }
     .sx-content-comparator-header__mapped-section-target-title {
       color: @color-base;

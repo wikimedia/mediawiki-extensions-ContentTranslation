@@ -194,12 +194,11 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-translation-list-language-selector {
-  border-top: @border-width-base @border-style-base
-    @background-color-notice--framed;
-  border-bottom: @border-width-base @border-style-base
-    @background-color-notice--framed;
+  border-top: @border-width-base @border-style-base #eaecf0;
+  border-bottom: @border-width-base @border-style-base #eaecf0;
   .mw-ui-dialog.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__header {
       margin: 12px 16px;
@@ -214,7 +213,7 @@ export default {
   }
 
   // Custom styling to avoid the dialog jumping across the screen as
-  // search is performced. Dialog get resized depending on the number
+  // search is performed. Dialog get resized depending on the number
   // of results. But that should not cause its position change.
   .mw-ui-dialog.mw-ui-dialog--dialog {
     .mw-ui-dialog__shell {

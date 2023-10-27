@@ -202,15 +202,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .cx-translation-list__division-title {
-  background: @background-color-framed;
-  color: @color-accessory;
+  background: @background-color-interactive-subtle;
+  color: @color-subtle;
 }
 .cx-suggestion-list__refresh-button-container {
   background: @background-color-base;
-  border-top: @border-width-base @border-style-base
-    @background-color-notice--framed;
+  border-top: @border-width-base @border-style-base #eaecf0;
 }
 </style>

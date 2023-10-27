@@ -154,18 +154,18 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-publisher {
   .sx-publisher__review-info {
     border: none;
-    border-bottom: @border-width-base @border-style-base @border-color-heading;
+    border-bottom: @border-width-base @border-style-base @border-color-subtle;
     &__content {
-      font-weight: normal;
+      font-weight: @font-weight-normal;
     }
     &__learn-more-anchor {
       font-weight: @font-weight-bold;
-      color: @color-primary;
+      color: @color-progressive;
     }
   }
 }

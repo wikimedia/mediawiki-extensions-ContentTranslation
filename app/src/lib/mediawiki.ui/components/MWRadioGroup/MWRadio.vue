@@ -99,7 +99,8 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .mw-ui-radio {
   &__controls {
     display: inline-flex;
@@ -119,7 +120,7 @@ export default {
       &:focus {
         & + .mw-ui-radio__controls__icon {
           &:before {
-            border-color: @color-base--inverted;
+            border-color: @border-color-inverted;
           }
         }
       }
@@ -127,8 +128,8 @@ export default {
     &__icon {
       background-color: @background-color-base;
       box-sizing: border-box;
-      border: @border-style-base @border-width-base @border-color-base--active;
-      border-radius: 100%;
+      border: @border-style-base @border-width-base @border-color-interactive;
+      border-radius: @border-radius-circle;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -140,7 +141,7 @@ export default {
         right: -4px;
         bottom: -4px;
         border: 1px solid transparent;
-        border-radius: 100%;
+        border-radius: @border-radius-circle;
       }
     }
   }
@@ -154,7 +155,7 @@ export default {
         border-color @transition-duration-base,
         border-width @transition-duration-base;
       border-width: 6px;
-      border-color: @color-primary;
+      border-color: @border-color-progressive;
     }
   }
   &--disabled {
@@ -163,13 +164,13 @@ export default {
         cursor: default;
       }
       &__icon {
-        border-color: @border-color-base--disabled;
-        background-color: @background-color-filled--disabled;
+        border-color: @border-color-disabled;
+        background-color: @background-color-disabled;
       }
     }
     label {
       cursor: default;
-      color: @color-base--disabled;
+      color: @color-disabled;
     }
   }
 }

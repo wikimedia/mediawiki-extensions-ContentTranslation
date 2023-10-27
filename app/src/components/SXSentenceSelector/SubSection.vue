@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @padding: 4px;
 .highlight(@color) {
   box-decoration-break: clone;
@@ -97,22 +97,22 @@ export default {
 }
 .sx-sentence-selector__subsection {
   &--block-selected&--block-selected&--block-selected {
-    .highlight(@background-color-warning--framed);
+    .highlight(@background-color-warning-subtle);
     .infobox {
-      .highlight(@background-color-warning--framed);
+      .highlight(@background-color-warning-subtle);
     }
   }
   .sx-sentence-selector__section-sentence {
     cursor: pointer;
     &--untranslated {
-      color: @color-accessory;
+      color: @color-subtle;
     }
     &--selected {
       &.sx-sentence-selector__section-sentence--translated {
-        .highlight(@background-color-primary);
+        .highlight(@background-color-progressive);
       }
       &.sx-sentence-selector__section-sentence--untranslated {
-        .highlight(@background-color-warning--framed);
+        .highlight(@background-color-warning-subtle);
       }
     }
   }

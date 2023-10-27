@@ -3,7 +3,7 @@
 </template>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-divider {
   border-top: @border-width-base @border-style-base @border-color-base;

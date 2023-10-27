@@ -50,10 +50,10 @@
     background-color: @background-color-base;
     // Make sure that `color` isn't inheriting from user-agent styles
     color: @color-base;
-    border-color: @color-primary;
-    box-shadow: inset 0 0 0 1px @color-primary,
-      inset 0 0 0 2px @background-color-base;
-    outline-width: 0;
+    border-color: @border-color-progressive--focus;
+    box-shadow: @box-shadow-inset-small @box-shadow-color-progressive--focus,
+      @box-shadow-inset-medium @background-color-base;
+    outline: @outline-base--focus;
 
     // Remove the inner border and padding in Firefox.
     &::-moz-focus-inner {
@@ -64,25 +64,25 @@
 
   &:active,
   &.is-on {
-    background-color: @background-color-framed--active;
-    color: @color-base--active;
-    border-color: @color-base--disabled;
+    background-color: @background-color-interactive;
+    color: @color-emphasized;
+    border-color: @color-disabled;
     box-shadow: none;
   }
 
   &:disabled {
-    background-color: @background-color-filled--disabled;
-    color: @color-base--inverted;
-    border-color: @background-color-framed--active;
+    background-color: @background-color-disabled;
+    color: @color-inverted;
+    border-color: @background-color-interactive;
     cursor: default;
 
     // Make sure disabled buttons don't have hover and active states
     &:hover,
     &:active {
-      background-color: @background-color-framed--active;
-      color: @color-base--inverted;
+      background-color: @background-color-interactive;
+      color: @color-inverted;
       box-shadow: none;
-      border-color: @background-color-framed--active;
+      border-color: @background-color-interactive;
     }
   }
 
@@ -96,7 +96,7 @@
 // Primary buttons mixin.
 .mw-ui-button-colors-primary( @bgColor, @highlightColor, @activeColor ) {
   background-color: @bgColor;
-  color: #fff;
+  color: @color-inverted;
   // border of the same color as background so that light background and
   // dark background buttons are the same height and width
   border: 1px solid @bgColor;
@@ -104,11 +104,11 @@
   &:hover {
     background-color: @highlightColor;
     border-color: @highlightColor;
-    color: #fff;
+    color: @color-inverted;
   }
 
   &:focus {
-    box-shadow: inset 0 0 0 1px @bgColor, inset 0 0 0 2px #fff;
+    box-shadow: @box-shadow-inset-small @bgColor, @box-shadow-inset-medium @box-shadow-color-inverted;
   }
 
   &:active,
@@ -119,16 +119,16 @@
   }
 
   &:disabled {
-    background-color: @background-color-framed--active;
-    color: #fff;
-    border-color: @background-color-framed--active;
+    background-color: @background-color-interactive;
+    color: @color-inverted;
+    border-color: @background-color-interactive;
 
     // Make sure disabled buttons don't have hover and active states
     &:hover,
     &:active {
-      background-color: @background-color-framed--active;
-      color: #fff;
-      border-color: @background-color-framed--active;
+      background-color: @background-color-interactive;
+      color: @color-inverted;
+      border-color: @background-color-interactive;
       box-shadow: none;
     }
   }

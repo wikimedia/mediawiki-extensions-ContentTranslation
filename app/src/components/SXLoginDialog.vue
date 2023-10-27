@@ -41,7 +41,7 @@ const loginUrl = ref(mw.util.getUrl("Special:UserLogin"));
 </script>
 
 <style lang="less">
-@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-login-dialog {
   .mw-ui-dialog__shell {
@@ -56,7 +56,7 @@ const loginUrl = ref(mw.util.getUrl("Special:UserLogin"));
     text-align: center;
   }
   &__footer {
-    border-top: @border-width-base @border-style-base @border-color-subtle;
+    border-top: @border-subtle;
   }
 }
 </style>

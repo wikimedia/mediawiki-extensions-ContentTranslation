@@ -184,7 +184,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 .translated-segment-card {
   width: 100%;
   box-shadow: 0 -@border-width-base 2px rgba(0, 0, 0, 0.25);
@@ -196,17 +196,17 @@ export default {
     &__percentage {
       &--failure {
         span {
-          color: @wmui-color-yellow30;
+          color: @color-error;
         }
       }
       &--warning {
         span {
-          color: @wmui-color-yellow30;
+          color: @color-warning;
         }
       }
       &--success {
         span {
-          color: @wmui-color-green30;
+          color: @color-success;
         }
       }
     }
@@ -217,7 +217,7 @@ export default {
     flex-basis: auto;
   }
   &__edit-stats {
-    color: @wmui-color-base20;
+    color: @color-subtle;
   }
   .mw-progress-bar {
     border: none;

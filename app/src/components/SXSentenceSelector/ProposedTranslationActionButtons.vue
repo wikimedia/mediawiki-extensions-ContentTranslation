@@ -65,15 +65,16 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
 .sx-sentence-selector {
   &__translation-action-buttons {
     border-top: @border-style-base @border-width-base
-      @border-color-base--disabled;
+      @border-color-disabled;
   }
 
   button&__apply-translation-button&__apply-translation-button {
-    border-inline: @border-style-base @border-width-base @wmui-color-base80;
+    border-inline: @border-style-base @border-width-base #eaecf0;
   }
 
   & button&__previous-sentence-button,

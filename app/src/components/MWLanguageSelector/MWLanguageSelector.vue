@@ -253,12 +253,12 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-language-selector {
   &__autocomplete,
   &__search {
-    box-shadow: 0 @border-width-base 2px rgba(0, 0, 0, 0.25);
+    box-shadow: @box-shadow-drop-medium;
     border: 0;
     background-color: transparent;
     .mw-ui-input__input {
@@ -286,7 +286,7 @@ export default {
   .no-results,
   .results {
     &-header {
-      color: @color-base--subtle;
+      color: #72777d;
     }
   }
 
@@ -294,11 +294,11 @@ export default {
   .results-languages--suggestions {
     text-align: left;
     .language {
-      color: @wmui-color-base10;
+      color: @color-base;
       &--selected,
       &:hover,
       &:focus {
-        background-color: @wmui-color-base80;
+        background-color: @background-color-interactive;
       }
     }
     column-gap: 4px;
@@ -317,7 +317,7 @@ export default {
   }
 
   h3 {
-    color: @wmui-color-base30;
+    color: #72777d;
   }
 
   &__inputcontainer {

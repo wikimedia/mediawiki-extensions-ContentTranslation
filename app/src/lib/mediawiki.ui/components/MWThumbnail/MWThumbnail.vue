@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-thumbnail {
   display: flex;
@@ -85,7 +85,7 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   &.mw-ui-thumbnail--missing {
-    background-color: @wmui-color-base80;
+    background-color: @background-color-interactive;
   }
 }
 </style>

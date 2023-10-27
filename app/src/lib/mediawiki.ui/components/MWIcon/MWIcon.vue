@@ -67,14 +67,14 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 span.mw-ui-icon {
   // Selector specificity for avoiding conflict with MW Vector
   align-items: center;
   display: inline-flex;
   font-feature-settings: "liga";
-  font-size: @size-icon;
+  font-size: @size-icon-medium;
   justify-content: center;
   letter-spacing: normal;
   line-height: 1;

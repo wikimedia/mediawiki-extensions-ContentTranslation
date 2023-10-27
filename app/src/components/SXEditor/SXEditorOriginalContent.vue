@@ -78,12 +78,12 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-editor__original-content-panel {
-  background-color: @background-color-notice--framed;
+  background-color: @background-color-notice-subtle;
   &__header {
-    color: @color-accessory;
+    color: @color-subtle;
     font-size: 0.875rem;
   }
 }

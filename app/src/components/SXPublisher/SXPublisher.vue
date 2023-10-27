@@ -163,12 +163,12 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-publisher {
   &__publish-panel {
-    background-color: @background-color-framed;
-    border-bottom: @border-width-base @border-style-base @border-color-heading;
+    background-color: @background-color-interactive-subtle;
+    border-bottom: @border-width-base @border-style-base @border-color-subtle;
   }
 
   &__section-preview__title {

@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../../variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .mw-ui-card {
   background-color: @background-color-base;
@@ -35,7 +35,7 @@ export default {
   margin-bottom: 1em;
   border-radius: @border-radius-base;
   padding: 8px;
-  box-shadow: @box-shadow-card;
+  box-shadow: @box-shadow-drop-small;
   .mw-ui-card__title {
     color: @color-base;
   }

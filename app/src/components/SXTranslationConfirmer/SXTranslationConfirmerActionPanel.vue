@@ -156,13 +156,13 @@ export default {
 </script>
 
 <style lang="less">
-@import "@/lib/mediawiki.ui/variables/wikimedia-ui-base.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer-body__pre-filled-banner {
-  background-color: @background-color-primary;
+  background-color: @background-color-progressive;
   h6 {
     font-weight: @font-weight-bold;
-    color: @wmui-color-base20;
+    color: @color-subtle;
     // TODO: Should we have typography helper for this one?
     font-size: 14px;
   }
