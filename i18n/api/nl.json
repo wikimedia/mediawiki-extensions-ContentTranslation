@@ -25,6 +25,7 @@
 	"apihelp-query+contenttranslation-param-from": "De code van de brontaal.",
 	"apihelp-query+contenttranslation-param-to": "De code van de doeltaal.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "De titel van de bronpagina.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "De titel van de bronsectie (optioneel).",
 	"apihelp-query+contenttranslation-param-limit": "Het maximale aantal vertalingen dat moet worden opgehaald.",
 	"apihelp-query+contenttranslation-param-offset": "Aantal resultaten over te slaan (optioneel).",
 	"apihelp-query+contenttranslation-param-usecase": "Het doel waarvoor de vertalingen worden opgehaald (optioneel).",
