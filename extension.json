@@ -22,7 +22,7 @@
 		"extensions": {
 			"Cite": "*",
 			"UniversalLanguageSelector": "*",
-			"VisualEditor": ">= 0.1.0"
+			"VisualEditor": "*"
 		}
 	},
 	"ExtensionMessagesFiles": {
