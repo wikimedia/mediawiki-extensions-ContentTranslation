@@ -47,7 +47,15 @@ class SiteMapper {
   }
 }
 
+const localStorage = {};
+
 const mw = {
+  storage: {
+    store: localStorage,
+    set: (key, value) => (localStorage[key] = value),
+    get: (key) => localStorage[key],
+    remove: (key) => delete localStorage[key],
+  },
   Api,
   eventLog: {
     submit: jest.fn(),

@@ -10,7 +10,10 @@ const getTranslationSessionPosition = () => {
   const storageKey = getLocalStorageKey();
   let translationSessionPosition = mw.storage.get(storageKey);
 
-  if (translationSessionPosition === null) {
+  if (
+    translationSessionPosition === null ||
+    translationSessionPosition === undefined
+  ) {
     translationSessionPosition = 0;
   }
 
@@ -18,13 +21,13 @@ const getTranslationSessionPosition = () => {
 };
 
 const setTranslationSessionPosition = function () {
+  const translationSessionPosition = getTranslationSessionPosition();
   // clear pre-existing session position counters from local storage
-  Object.keys(localStorage)
+  Object.keys(mw.storage.store)
     .filter((x) => x.startsWith(POSITION_LOCAL_STORAGE_PREFIX))
-    .forEach((x) => localStorage.removeItem(x));
+    .forEach((x) => mw.storage.remove(x));
 
   const storageKey = getLocalStorageKey();
-  const translationSessionPosition = getTranslationSessionPosition();
   mw.storage.set(storageKey, translationSessionPosition + 1);
 };
 
