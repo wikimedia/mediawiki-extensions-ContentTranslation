@@ -10,7 +10,8 @@
 			"Ladsgroup",
 			"Mahdy Saffar",
 			"Ommmmid",
-			"Reza1615"
+			"Reza1615",
+			"Rulebased"
 		]
 	},
 	"apihelp-cxpublish-summary": "ذخیرهٔ یک صفحهٔ ایجادشده با استفاده از افزودهٔ ترجمهٔ محتوا",
@@ -29,6 +30,7 @@
 	"apihelp-query+contenttranslation-param-from": "زبان مبدا",
 	"apihelp-query+contenttranslation-param-to": "کد زبان مقصد.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "عنوان صفحه مقصد",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "عنوان بخش منبع(اختیاری).",
 	"apihelp-query+contenttranslation-param-limit": "حداکثر مقادیر ترجمه برای گرفتن",
 	"apihelp-query+contenttranslation-param-type": "وضعیت ترجمه",
 	"apihelp-query+contenttranslation-example-1": "گرفتن ترجمه‌های شروع شده توسط کاربر فعلی.",
