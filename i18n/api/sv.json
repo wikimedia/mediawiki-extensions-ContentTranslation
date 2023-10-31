@@ -25,6 +25,7 @@
 	"apihelp-query+contenttranslation-param-from": "Källans språkkod.",
 	"apihelp-query+contenttranslation-param-to": "Målets språkkod.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Källsidans titel.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Källavsnittets titel (valfritt).",
 	"apihelp-query+contenttranslation-param-limit": "Maximala antalet översättningar att hämta.",
 	"apihelp-query+contenttranslation-param-offset": "Offset i sökresultaten (valfritt).",
 	"apihelp-query+contenttranslation-param-usecase": "Användningsfallet för hur översättningarna hämtas (valfritt).",
