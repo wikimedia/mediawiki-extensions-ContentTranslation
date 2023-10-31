@@ -59,6 +59,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
 import { useI18n } from "vue-banana-i18n";
+import { isQuickTutorialForced } from "@/utils/urlHandler";
 
 export default {
   name: "SxContentComparator",
@@ -78,12 +79,15 @@ export default {
       router.push({ name: "sx-section-selector" });
 
     const translateSection = () => {
-      if (store.getters["translator/userHasSectionTranslations"]) {
-        router.push({ name: "sx-sentence-selector" });
+      const shouldDisplayQuickTutorial =
+        isQuickTutorialForced() ||
+        !store.getters["translator/userHasSectionTranslations"];
 
-        return;
+      if (shouldDisplayQuickTutorial) {
+        router.push({ name: "sx-quick-tutorial" });
+      } else {
+        router.push({ name: "sx-sentence-selector" });
       }
-      router.push({ name: "sx-quick-tutorial" });
     };
 
     const bananaI18n = useI18n();

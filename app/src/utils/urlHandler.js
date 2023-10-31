@@ -36,4 +36,10 @@ const replaceUrl = (params) => {
   );
 };
 
-export { setTranslationURLParams, replaceUrl };
+const isQuickTutorialForced = () => {
+  const urlParams = new URLSearchParams(location.search);
+
+  return urlParams.get("force-quick-tutorial");
+};
+
+export { isQuickTutorialForced, setTranslationURLParams, replaceUrl };

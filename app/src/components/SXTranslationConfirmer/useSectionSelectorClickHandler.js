@@ -1,4 +1,8 @@
-import { setTranslationURLParams, replaceUrl } from "@/utils/urlHandler";
+import {
+  setTranslationURLParams,
+  replaceUrl,
+  isQuickTutorialForced,
+} from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -88,10 +92,14 @@ export default () => {
     } else {
       selectPageSectionByIndex(0);
 
-      if (store.getters["translator/userHasSectionTranslations"]) {
-        router.push({ name: "sx-sentence-selector", query: { force: true } });
-      } else {
+      const shouldDisplayQuickTutorial =
+        isQuickTutorialForced() ||
+        !store.getters["translator/userHasSectionTranslations"];
+
+      if (shouldDisplayQuickTutorial) {
         router.push({ name: "sx-quick-tutorial", query: { force: true } });
+      } else {
+        router.push({ name: "sx-sentence-selector", query: { force: true } });
       }
       setTranslationURLParams(sectionSuggestion.value);
     }
