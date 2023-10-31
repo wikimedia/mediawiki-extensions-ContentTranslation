@@ -6,6 +6,7 @@
 
 namespace ContentTranslation\Scripts;
 
+use ContentTranslation\Exception\InvalidNotificationTitleException;
 use ContentTranslation\Notification;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
@@ -288,11 +289,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 						$draft->translation_target_language
 					);
 				}
-			} catch ( \MWException $e ) {
-				$this->output(
-					$e->getMessage() .
-					". Failed notifying user with ID: " . $user->getId() . "\n"
-				);
+			} catch ( InvalidNotificationTitleException $exception ) {
+				$title = $exception->getTitle();
+				$userId = $user->getId();
+				$this->output( "'$title' is not a valid title'. Failed notifying user with ID: $userId\n" );
 			}
 		}
 	}

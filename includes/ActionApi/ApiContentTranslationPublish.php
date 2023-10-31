@@ -30,13 +30,13 @@ use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use DeferredUpdates;
 use Deflate;
+use Exception;
 use ExtensionRegistry;
 use IBufferingStatsdDataFactory;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
-use MWException;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
@@ -248,7 +248,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				$targetTitle,
 				$html->getValue()
 			)['body'];
-		} catch ( MWException $e ) {
+		} catch ( Exception $e ) {
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);

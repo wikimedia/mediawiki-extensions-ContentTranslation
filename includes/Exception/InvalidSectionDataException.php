@@ -1,7 +1,11 @@
 <?php
 
+declare( strict_types = 1 );
+
 namespace ContentTranslation\Exception;
 
-class InvalidSectionDataException extends \MWException {
+use Exception;
+
+class InvalidSectionDataException extends Exception {
 
 }

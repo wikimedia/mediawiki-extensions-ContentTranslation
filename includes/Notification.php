@@ -2,8 +2,8 @@
 
 namespace ContentTranslation;
 
+use ContentTranslation\Exception\InvalidNotificationTitleException;
 use MediaWiki\Title\Title;
-use MWException;
 
 class Notification {
 
@@ -63,7 +63,7 @@ class Notification {
 
 	/**
 	 * Notify user about the status of his/her old unpublished draft,
-	 * depending of notification type:
+	 * depending on notification type:
 	 * - That their draft is getting old and may be deleted in the future
 	 * - That their draft was too old and thus deleted
 	 *
@@ -72,15 +72,16 @@ class Notification {
 	 * @param string $title Title of unpublished draft page which is deleted.
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
+	 * @throws InvalidNotificationTitleException
 	 */
 	public static function draftNotification(
 		$type, $recipientId, $title, $sourceLanguage, $targetLanguage
 	) {
 		$titleObj = Title::newFromText( $title );
 		if ( !$titleObj ) {
-			// PurgeUnpublishedDrafts only catches MWException
+			// PurgeUnpublishedDrafts only catches InvalidNotificationTitleException
 			// See also https://phabricator.wikimedia.org/T264855
-			throw new MWException( "'$title' is not a valid title" );
+			throw new InvalidNotificationTitleException( $title );
 		}
 
 		\EchoEvent::create( [

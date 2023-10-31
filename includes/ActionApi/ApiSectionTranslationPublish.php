@@ -24,6 +24,7 @@ use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
+use Exception;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Request\DerivativeRequest;
@@ -309,7 +310,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$targetTitle,
 				$html
 			)['body'];
-		} catch ( \MWException $e ) {
+		} catch ( Exception $e ) {
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);
