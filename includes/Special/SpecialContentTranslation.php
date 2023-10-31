@@ -232,7 +232,9 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	protected function isUnifiedDashboard(): bool {
-		$forceUnifiedDashboard = $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
+		$forceUnifiedDashboard = $this->getConfig()->get( 'ContentTranslationEnableUnifiedDashboard' ) ||
+			$this->getRequest()->getFuzzyBool( 'unified-dashboard' );
+
 		$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
 
 		$vueDashboardShouldBeEnabled = $isSXEnabled && self::isMobileSite();
@@ -256,7 +258,6 @@ class SpecialContentTranslation extends SpecialPage {
 		} else {
 			if ( $this->isUnifiedDashboard() ) {
 				$out->addModules( 'mw.cx3' );
-				$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 				$out->addJsConfigVars( [
 					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' ),
 					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
