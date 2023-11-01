@@ -118,10 +118,7 @@ mw.cx.CXSuggestionList.prototype.init = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.CXSuggestionList.prototype.loadItems = function ( list ) {
-	var lists, promise,
-		isEmpty = true,
-		self = this;
-
+	let promise;
 	if ( !list ) {
 		// Initial load, load available lists and couple of suggestions for them
 		promise = this.getSuggestionLists();
@@ -137,46 +134,46 @@ mw.cx.CXSuggestionList.prototype.loadItems = function ( list ) {
 	this.$loadingIndicatorSpinner.show();
 	this.pendingRequests++;
 
-	return promise.then( function ( suggestions ) {
-		var i, list, listId, listIds;
-
-		lists = suggestions.lists;
+	return promise.then( ( suggestions ) => {
+		const lists = suggestions.lists;
 
 		// Hide empty list, if any
 		if (
-			self.lists[ self.constructor.static.emptyListName ] &&
-			self.lists[ self.constructor.static.emptyListName ].$list
+			this.lists[ this.constructor.static.emptyListName ] &&
+			this.lists[ this.constructor.static.emptyListName ].$list
 		) {
-			self.lists[ self.constructor.static.emptyListName ].$list.hide();
+			this.lists[ this.constructor.static.emptyListName ].$list.hide();
 		}
 
-		listIds = self.sortLists( lists );
-		for ( i = 0; i < listIds.length; i++ ) {
-			listId = listIds[ i ];
-			list = lists[ listId ];
-			if ( self.lists[ listId ] ) {
+		const listIds = this.sortLists( lists );
+		let isEmpty = true;
+
+		for ( let i = 0; i < listIds.length; i++ ) {
+			const listId = listIds[ i ];
+			const currentList = lists[ listId ];
+			if ( this.lists[ listId ] ) {
 				// Add new set of suggestions to existing list
-				self.lists[ listId ].suggestions =
-					self.lists[ listId ].suggestions.concat( list.suggestions );
+				this.lists[ listId ].suggestions =
+					this.lists[ listId ].suggestions.concat( currentList.suggestions );
 			} else {
 				// Add as new list
-				list.id = listId;
-				list.seed = self.seed;
-				self.lists[ listId ] = list;
+				currentList.id = listId;
+				currentList.seed = this.seed;
+				this.lists[ listId ] = currentList;
 			}
-			if ( self.lists[ listId ].suggestions.length ) {
+			if ( this.lists[ listId ].suggestions.length ) {
 				isEmpty = false;
 			}
 			// Show the suggestions items.
-			self.insertSuggestionList( listId, list.suggestions );
+			this.insertSuggestionList( listId, currentList.suggestions );
 		}
 
 		return isEmpty;
-	} ).always( function () {
-		self.pendingRequests--;
+	} ).always( () => {
+		this.pendingRequests--;
 
-		if ( self.pendingRequests === 0 ) {
-			self.$loadingIndicatorSpinner.hide();
+		if ( this.pendingRequests === 0 ) {
+			this.$loadingIndicatorSpinner.hide();
 		}
 	} );
 };
@@ -185,25 +182,21 @@ mw.cx.CXSuggestionList.prototype.loadItems = function ( list ) {
  * @return {jQuery.Promise}
  */
 mw.cx.CXSuggestionList.prototype.loadAllSuggestions = function () {
-	var self = this;
-
 	return $.when(
 		this.loadItems(),
-		this.loadItems( {
-			id: 'trex'
-		} )
-	).then( function ( empty1, empty2 ) {
+		this.loadItems( { id: 'trex' } )
+	).then( ( empty1, empty2 ) => {
 		if ( empty1 && empty2 ) {
 			// If both are empty Show empty list information.
-			self.showEmptySuggestionList();
+			this.showEmptySuggestionList();
 		}
-	}, function ( error ) {
+	}, ( error ) => {
 		if ( error === 'assertuserfailed' ) {
-			self.constructor.static.showLoginDialog();
+			this.constructor.static.showLoginDialog();
 		}
 
 		// On fail, show empty list
-		self.showEmptySuggestionList();
+		this.showEmptySuggestionList();
 	} );
 };
 
@@ -213,10 +206,7 @@ mw.cx.CXSuggestionList.prototype.loadAllSuggestions = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.CXSuggestionList.prototype.getSuggestionLists = function () {
-	var params,
-		api = new mw.Api();
-
-	params = {
+	const params = {
 		assert: 'user',
 		action: 'query',
 		list: 'contenttranslationsuggestions',
@@ -226,9 +216,8 @@ mw.cx.CXSuggestionList.prototype.getSuggestionLists = function () {
 		seed: this.seed
 	};
 
-	return api.get( params ).then( function ( response ) {
-		return response.query.contenttranslationsuggestions;
-	} );
+	const api = new mw.Api();
+	return api.get( params ).then( ( response ) => response.query.contenttranslationsuggestions );
 };
 
 /**
@@ -238,9 +227,6 @@ mw.cx.CXSuggestionList.prototype.getSuggestionLists = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
-	var params,
-		api = new mw.Api();
-
 	if ( list.id === 'trex' ) {
 		this.recommendtool = this.recommendtool || new mw.cx.Recommendtool(
 			this.siteMapper.getWikiDomainCode( this.languageFilter.getSourceLanguage() ),
@@ -260,7 +246,8 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 			offset: 4
 		};
 	}
-	params = $.extend( {
+
+	const params = $.extend( {
 		assert: 'user',
 		action: 'query',
 		list: 'contenttranslationsuggestions',
@@ -271,6 +258,7 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 		seed: list.seed
 	}, list.queryContinue );
 
+	const api = new mw.Api();
 	list.promise = api.get( params ).then( function ( response ) {
 		list.promise = undefined;
 		list.queryContinue = response.continue;
@@ -291,11 +279,9 @@ mw.cx.CXSuggestionList.prototype.show = function () {
 };
 
 mw.cx.CXSuggestionList.prototype.applyFilters = function () {
-	var i, suggestion, listName, list;
-
 	// Hide all lists
-	for ( listName in this.lists ) {
-		list = this.lists[ listName ];
+	for ( const listName in this.lists ) {
+		const list = this.lists[ listName ];
 
 		// List of favorite articles (a.k.a. "For later" list) should always be shown
 		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
@@ -307,8 +293,8 @@ mw.cx.CXSuggestionList.prototype.applyFilters = function () {
 		}
 
 		if ( list.suggestions ) {
-			for ( i = 0; i < list.suggestions.length; i++ ) {
-				suggestion = list.suggestions[ i ];
+			for ( let i = 0; i < list.suggestions.length; i++ ) {
+				const suggestion = list.suggestions[ i ];
 				suggestion.$element.remove();
 			}
 		}
@@ -342,15 +328,11 @@ mw.cx.CXSuggestionList.prototype.getPageProps = function () {
  * @param {Object[]} suggestions
  */
 mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, suggestions ) {
-	var i, list, $suggestion, $listHeading,
-		self = this,
-		$suggestions = [];
-
 	if ( !suggestions || !suggestions.length ) {
 		return;
 	}
 
-	list = this.lists[ listId ];
+	const list = this.lists[ listId ];
 	// Create the list container if not present already.
 	if ( !list.$list ) {
 		list.$list = $( '<div>' )
@@ -366,7 +348,7 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 
 		if ( list.type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
 			// No need to show heading for misc fallback suggestions shown at the end.
-			$listHeading = $( '<div>' )
+			const $listHeading = $( '<div>' )
 				.addClass( 'cx-suggestionlist__header' )
 				.append( $( '<span>' )
 					.text( mw.msg( 'cx-suggestionlist-favorite' ) )
@@ -378,10 +360,10 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		} else {
 			this.$publicCollectionContainer.show();
 			this.$publicCollection.append( list.$list );
-			this.$publicCollection.find( '.cx-suggestionlist' ).sort( function ( a, b ) {
-				return self.constructor.static.listCompare(
-					self.lists[ $( a ).data( 'listid' ) ],
-					self.lists[ $( b ).data( 'listid' ) ]
+			this.$publicCollection.find( '.cx-suggestionlist' ).sort( ( a, b ) => {
+				return this.constructor.static.listCompare(
+					this.lists[ $( a ).data( 'listid' ) ],
+					this.lists[ $( b ).data( 'listid' ) ]
 				);
 			} ).appendTo( this.$publicCollection );
 		}
@@ -390,11 +372,12 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		list.$list.show();
 	}
 
-	for ( i = 0; i < suggestions.length; i++ ) {
+	const $suggestions = [];
+	for ( let i = 0; i < suggestions.length; i++ ) {
 		suggestions[ i ].rank = i;
 		suggestions[ i ].type = list.type;
 		suggestions[ i ].typeExtra = list.algorithm || '';
-		$suggestion = this.buildSuggestionItem( suggestions[ i ] );
+		const $suggestion = this.buildSuggestionItem( suggestions[ i ] );
 		$suggestions.push( $suggestion );
 		mw.hook( 'mw.cx.suggestion.action' ).fire( 'shown', suggestions[ i ].rank,
 			this.constructor.static.friendlyListTypeName( suggestions[ i ].type ), suggestions[ i ].typeExtra,
@@ -426,29 +409,23 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
  * @return {jQuery}
  */
 mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
-	var $image, $desc, $featured, $actions, discardAction, favoriteAction,
-		sourceDir, targetDir, $targetLanguage,
-		$translationLink, $suggestion, $metaDataContainer,
-		$sourceLanguage, $languageContainer,
-		$titleLanguageBlock;
-
-	$suggestion = $( '<div>' )
+	const $suggestion = $( '<div>' )
 		.addClass( 'cx-slitem' )
 		.attr( 'id', suggestion.id );
-	$image = $( '<div>' )
+	const $image = $( '<div>' )
 		.addClass( 'cx-slitem__image oo-ui-icon-article' );
 
-	sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
-	targetDir = $.uls.data.getDir( suggestion.targetLanguage );
+	const sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
+	const targetDir = $.uls.data.getDir( suggestion.targetLanguage );
 
-	$featured = $( [] );
+	let $featured = $( [] );
 	if ( this.lists[ suggestion.listId ].type === this.constructor.static.listTypes.TYPE_FEATURED ) {
 		$featured = $( '<span>' )
 			.addClass( 'cx-sltag cx-sltag--featured' )
 			.text( this.lists[ suggestion.listId ].displayName );
 	}
 
-	$translationLink = $( '<div>' )
+	const $translationLink = $( '<div>' )
 		.addClass( 'cx-slitem__translation-link' )
 		.attr( 'data-suggestion', JSON.stringify( suggestion ) )
 		// It must be a separate element to ensure
@@ -464,7 +441,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			$featured
 		);
 
-	$sourceLanguage = $( '<a>' )
+	const $sourceLanguage = $( '<a>' )
 		.prop( {
 			lang: suggestion.sourcelanguage,
 			dir: sourceDir,
@@ -479,7 +456,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--source' )
 		.text( $.uls.data.getAutonym( suggestion.sourceLanguage ) );
 
-	$targetLanguage = $( '<div>' )
+	const $targetLanguage = $( '<div>' )
 		.prop( {
 			lang: suggestion.targetLanguage,
 			dir: targetDir
@@ -487,29 +464,30 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--target' )
 		.text( $.uls.data.getAutonym( suggestion.targetLanguage ) );
 
-	$languageContainer = $( '<div>' )
+	const $languageContainer = $( '<div>' )
 		.addClass( 'cx-slitem__languages' )
 		.append( $sourceLanguage, $targetLanguage );
 
-	$desc = $( '<div>' )
+	const $desc = $( '<div>' )
 		.prop( {
 			lang: suggestion.sourceLanguage,
 			dir: sourceDir
 		} )
 		// We need to set ellipsis for pseudo element through data attribute
 		// as there is no way to add localized message to LESS or manipulate
-		// pseudo elements directly with JS
+		// pseudo-elements directly with JS
 		.attr( 'data-ellipsis', mw.msg( 'ellipsis' ) )
 		.addClass( 'cx-slitem__desc' )
 		.hide();
 
-	discardAction = new OO.ui.ButtonWidget( {
+	const discardAction = new OO.ui.ButtonWidget( {
 		framed: false,
 		icon: 'close',
 		classes: [ 'cx-slitem__action--discard' ]
 	} );
 	discardAction.once( 'click', this.discardSuggestion.bind( this, suggestion ) );
 
+	let favoriteAction;
 	if ( this.lists[ suggestion.listId ].type === this.constructor.static.listTypes.TYPE_FAVORITE ) {
 		discardAction.$element.hide();
 
@@ -535,14 +513,14 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		favoriteAction.$element.on( 'mouseleave', this.setOutlineIcon.bind( favoriteAction ) );
 	}
 
-	$metaDataContainer = $( '<div>' )
+	const $metaDataContainer = $( '<div>' )
 		.addClass( 'cx-slitem__meta' )
 		.append( $languageContainer );
 
-	$titleLanguageBlock = $( '<div>' )
+	const $titleLanguageBlock = $( '<div>' )
 		.addClass( 'cx-slitem__details' )
 		.append( $translationLink, $desc, $metaDataContainer );
-	$actions = $( '<div>' )
+	const $actions = $( '<div>' )
 		.addClass( 'cx-slitem__actions' )
 		.append( favoriteAction.$element, discardAction.$element );
 	$suggestion.append(
@@ -583,10 +561,7 @@ mw.cx.CXSuggestionList.prototype.setFilledIcon = function () {
  * @return {boolean}
  */
 mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
-	var params,
-		api = new mw.Api();
-
-	params = {
+	const params = {
 		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-discarded',
@@ -595,11 +570,18 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 		from: suggestion.sourceLanguage,
 		to: suggestion.targetLanguage
 	};
+
+	const api = new mw.Api();
 	api.postWithToken( 'csrf', params ).done( function ( response ) {
 		if ( response.cxsuggestionlist.result === 'success' ) {
-			mw.hook( 'mw.cx.suggestion.action' ).fire( 'discard', suggestion.rank,
-				mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestion.type ), suggestion.typeExtra,
-				suggestion.sourceLanguage, suggestion.targetLanguage, suggestion.title
+			mw.hook( 'mw.cx.suggestion.action' ).fire(
+				'discard',
+				suggestion.rank,
+				mw.cx.CXSuggestionList.static.friendlyListTypeName( suggestion.type ),
+				suggestion.typeExtra,
+				suggestion.sourceLanguage,
+				suggestion.targetLanguage,
+				suggestion.title
 			);
 			// FIXME: Use CSS transition
 			// eslint-disable-next-line no-jquery/no-slide
@@ -619,10 +601,7 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
  * @return {boolean}
  */
 mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
-	var params, api = new mw.Api(),
-		self = this;
-
-	params = {
+	const params = {
 		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-favorite',
@@ -631,38 +610,39 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 		from: suggestion.sourceLanguage,
 		to: suggestion.targetLanguage
 	};
-	api.postWithToken( 'csrf', params ).done( function ( response ) {
-		var favoriteListId;
+
+	const api = new mw.Api();
+	api.postWithToken( 'csrf', params ).done( ( response ) => {
+		let favoriteListId;
 		if ( response.cxsuggestionlist.result === 'success' ) {
 			mw.hook( 'mw.cx.suggestion.action' ).fire( 'favorite', suggestion.rank,
-				self.constructor.static.friendlyListTypeName( suggestion.type ),
+				this.constructor.static.friendlyListTypeName( suggestion.type ),
 				suggestion.typeExtra, suggestion.sourceLanguage,
 				suggestion.targetLanguage, suggestion.title
 			);
 			suggestion.$element.addClass( 'cx-slideup-hide' );
-			suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
-				function () {
-					$( this ).remove();
-				}
+			suggestion.$element.one(
+				'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+				function () { $( this ).remove(); }
 			);
 
-			favoriteListId = self.getListId( 'cx-suggestionlist-favorite' );
+			favoriteListId = this.getListId( 'cx-suggestionlist-favorite' );
 			suggestion.listId = favoriteListId;
 			if ( favoriteListId === null ) {
 				// We need to construct a dummy list for now to help the UI rendering.
 				favoriteListId = 'cx-suggestionlist-favorite';
-				self.lists[ favoriteListId ] = {
+				this.lists[ favoriteListId ] = {
 					displayName: mw.msg( 'cx-suggestionlist-favorite' ),
 					name: favoriteListId,
 					suggestions: [],
-					type: self.constructor.static.listTypes.TYPE_FAVORITE
+					type: this.constructor.static.listTypes.TYPE_FAVORITE
 				};
 			}
 			suggestion.listId = favoriteListId;
-			self.lists[ favoriteListId ].suggestions.push( suggestion );
-			self.insertSuggestionList( favoriteListId, [ suggestion ], true );
+			this.lists[ favoriteListId ].suggestions.push( suggestion );
+			this.insertSuggestionList( favoriteListId, [ suggestion ], true );
 			// Remove favorited article from the list of suggestions
-			self.lists.trex.suggestions = self.lists.trex.suggestions.filter( function ( item ) {
+			this.lists.trex.suggestions = this.lists.trex.suggestions.filter( function ( item ) {
 				return item.title !== suggestion.title;
 			} );
 		}
@@ -678,10 +658,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
  * @return {boolean}
  */
 mw.cx.CXSuggestionList.prototype.unmarkFavorite = function ( suggestion ) {
-	var params, self = this,
-		api = new mw.Api();
-
-	params = {
+	const params = {
 		assert: 'user',
 		action: 'cxsuggestionlist',
 		listname: 'cx-suggestionlist-favorite',
@@ -690,16 +667,18 @@ mw.cx.CXSuggestionList.prototype.unmarkFavorite = function ( suggestion ) {
 		from: suggestion.sourceLanguage,
 		to: suggestion.targetLanguage
 	};
-	api.postWithToken( 'csrf', params ).done( function ( response ) {
+
+	const api = new mw.Api();
+	api.postWithToken( 'csrf', params ).done( ( response ) => {
 		if ( response.cxsuggestionlist.result === 'success' ) {
 			suggestion.$element.addClass( 'cx-slidedown-hide' );
-			suggestion.$element.one( 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
-				function () {
-					var favoriteListId;
+			suggestion.$element.one(
+				'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+				() => {
 					$( this ).remove();
-					favoriteListId = self.getListId( 'cx-suggestionlist-favorite' );
-					if ( !self.lists[ favoriteListId ].$list.find( '.cx-slitem' ).length ) {
-						self.lists[ favoriteListId ].$list.hide();
+					const favoriteListId = this.getListId( 'cx-suggestionlist-favorite' );
+					if ( !this.lists[ favoriteListId ].$list.find( '.cx-slitem' ).length ) {
+						this.lists[ favoriteListId ].$list.hide();
 					}
 				}
 			);
@@ -723,22 +702,21 @@ mw.cx.CXSuggestionList.prototype.suggestionListFailHandler = function ( error ) 
 };
 
 mw.cx.CXSuggestionList.prototype.showEmptySuggestionList = function () {
-	var $img, $title, $desc,
-		listId = this.constructor.static.emptyListName;
+	const listId = this.constructor.static.emptyListName;
 
 	if ( !this.lists[ listId ] ) {
 		this.lists[ listId ] = {
 			name: listId
 		};
 
-		$img = $( '<div>' )
+		const $img = $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty__img' );
 
-		$title = $( '<div>' )
+		const $title = $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty__title' )
 			.text( mw.msg( 'cx-suggestionlist-empty-title' ) );
 
-		$desc = $( '<div>' )
+		const $desc = $( '<div>' )
 			.addClass( 'cx-suggestionlist-empty__desc' )
 			.text( mw.msg( 'cx-suggestionlist-empty-desc' ) );
 
@@ -771,10 +749,8 @@ mw.cx.CXSuggestionList.prototype.showEmptySuggestionList = function () {
  * @return {string|null} list identifier.
  */
 mw.cx.CXSuggestionList.prototype.getListId = function ( listName ) {
-	var listId, list;
-
-	for ( listId in this.lists ) {
-		list = this.lists[ listId ];
+	for ( const listId in this.lists ) {
+		const list = this.lists[ listId ];
 
 		if ( listName === list.name ) {
 			return listId;
@@ -788,21 +764,21 @@ mw.cx.CXSuggestionList.prototype.getListId = function ( listName ) {
  * Event handlers
  */
 mw.cx.CXSuggestionList.prototype.listen = function () {
-	var self = this;
-
 	// Parent method
 	mw.cx.CXSuggestionList.parent.prototype.listen.apply( this, arguments );
 
-	this.$listContainer.on( 'click', '.cx-suggestionlist .cx-slitem', function () {
-		var $this = $( this ),
-			suggestion = $this.find( '.cx-slitem__translation-link' ).data( 'suggestion' ),
-			imageUrl = $this
-				.find( '.cx-slitem__image:not(.oo-ui-icon-article)' )
-				.css( 'background-image' );
-		self.showSuggestionDialog( suggestion, imageUrl );
+	this.$listContainer.on( 'click', '.cx-suggestionlist .cx-slitem', ( event ) => {
+		const $suggestionListItem = $( event.currentTarget );
+		const suggestion = $suggestionListItem.find( '.cx-slitem__translation-link' ).data( 'suggestion' );
+		const imageUrl = $suggestionListItem
+			.find( '.cx-slitem__image:not(.oo-ui-icon-article)' )
+			.css( 'background-image' );
+		this.showSuggestionDialog( suggestion, imageUrl );
 
-		mw.hook( 'mw.cx.suggestion.action' ).fire( 'accept', suggestion.rank,
-			self.constructor.static.friendlyListTypeName( suggestion.type ),
+		mw.hook( 'mw.cx.suggestion.action' ).fire(
+			'accept',
+			suggestion.rank,
+			this.constructor.static.friendlyListTypeName( suggestion.type ),
 			suggestion.typeExtra, suggestion.sourceLanguage,
 			suggestion.targetLanguage, suggestion.title
 		);
@@ -854,23 +830,20 @@ mw.cx.CXSuggestionList.prototype.discardSuggestionDialog = function () {
  * Scroll handler for the suggestions
  */
 mw.cx.CXSuggestionList.prototype.onScroll = function () {
-	var expandedListId, $expandedList, triggerPos,
-		scrollTop, windowHeight, visibleArea, $loadTrigger;
-
-	scrollTop = window.pageYOffset;
-	windowHeight = document.documentElement.clientHeight;
-	visibleArea = windowHeight + scrollTop;
+	const scrollTop = window.pageYOffset;
+	const windowHeight = document.documentElement.clientHeight;
+	const visibleArea = windowHeight + scrollTop;
 
 	// Load next batch of items when loadTrigger is in viewpot
-	$expandedList = this.$container.find( '.cx-suggestionlist--expanded' );
-	$loadTrigger = $expandedList.find( '.cx-suggestionlist__collapse' );
+	const $expandedList = this.$container.find( '.cx-suggestionlist--expanded' );
+	const $loadTrigger = $expandedList.find( '.cx-suggestionlist__collapse' );
 
 	if ( !$loadTrigger.length ) {
 		return;
 	}
 
-	triggerPos = $loadTrigger.offset().top + $loadTrigger.outerHeight();
-	expandedListId = $expandedList.data( 'listid' );
+	const triggerPos = $loadTrigger.offset().top + $loadTrigger.outerHeight();
+	const expandedListId = $expandedList.data( 'listid' );
 	if (
 		expandedListId &&
 		this.lists[ expandedListId ].hasMore !== false &&
@@ -905,7 +878,7 @@ mw.cx.CXSuggestionList.prototype.sortLists = function ( lists ) {
  * @param {string} listId
  */
 mw.cx.CXSuggestionList.prototype.makeExpandableList = function ( listId ) {
-	var list = this.lists[ listId ];
+	const list = this.lists[ listId ];
 
 	if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ||
 		list.$list.is( '.cx-suggestionlist--expanded' )
@@ -931,10 +904,8 @@ mw.cx.CXSuggestionList.prototype.makeExpandableList = function ( listId ) {
  * @param {string} listId List identifier.
  */
 mw.cx.CXSuggestionList.prototype.expandOrCollapse = function ( listId ) {
-	var $trigger,
-		list = this.lists[ listId ];
-
-	$trigger = list.$list.find( '.cx-suggestionlist__expand, .cx-suggestionlist__collapse' );
+	const list = this.lists[ listId ];
+	const $trigger = list.$list.find( '.cx-suggestionlist__expand, .cx-suggestionlist__collapse' );
 
 	if ( list.$list.is( '.cx-suggestionlist--collapsed' ) ) {
 		// Collapse all expended lists.
@@ -971,9 +942,6 @@ mw.cx.CXSuggestionList.prototype.addRefreshTrigger = function () {
 };
 
 mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
-	var listId, list,
-		categoryListCount = 2;
-
 	// Scroll the page up to the beginning of $publicCollection
 	$( 'html, body' ).animate( {
 		// 200 px subtracted to deal with the sticky header.
@@ -982,8 +950,9 @@ mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
 		scrollTop: this.$publicCollectionContainer.offset().top - 200
 	}, 'slow' );
 
-	for ( listId in this.lists ) {
-		list = this.lists[ listId ];
+	let categoryListCount = 2;
+	for ( const listId in this.lists ) {
+		const list = this.lists[ listId ];
 
 		if ( !list.$list ) {
 			continue;
@@ -1010,12 +979,12 @@ mw.cx.CXSuggestionList.prototype.refreshPublicLists = function () {
  * @param {string} listId
  */
 mw.cx.CXSuggestionList.prototype.refreshList = function ( listId ) {
-	var i, itemsToRemove = [],
-		list = this.lists[ listId ];
-
+	const list = this.lists[ listId ];
 	if ( !list ) {
 		return;
 	}
+
+	let itemsToRemove = [];
 	if ( list.suggestions ) {
 		itemsToRemove = list.suggestions;
 	}
@@ -1026,7 +995,7 @@ mw.cx.CXSuggestionList.prototype.refreshList = function ( listId ) {
 	list.hasMore = true;
 	// Remove the old items.
 	this.loadItems( list ).then( function () {
-		for ( i = 0; i < itemsToRemove.length; i++ ) {
+		for ( let i = 0; i < itemsToRemove.length; i++ ) {
 			itemsToRemove[ i ].$element.remove();
 		}
 	}, function ( error ) {
