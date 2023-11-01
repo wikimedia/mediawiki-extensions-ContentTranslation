@@ -43,6 +43,8 @@
 	"tag-contenttranslation-v2-description": "Sisu tõlgiti teisest keelest kasutades sisutõlke tööriista versiooni 2.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Alaosatõlge]]",
 	"tag-sectiontranslation-description": "Sisu tõlgiti teises keeles artikli alaosast, kasutades sisutõlke tööriista alaosatõlke vahendit.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Sisutõlge: kasutatud muutmata masintõlget suurel määral]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Sisutõlke tööriistaga avaldatud tõlkes on suur osakaal masintõlkel, mida ei muudetud.",
 	"cx-source-loading": "Lehekülje \"$1\" laadimine",
 	"cx-beta": "Sisutõlge",
 	"cx-beta-desc": "Tööriist, mille abil saad leheküljed kiiresti enda keelde tõlkida. Alusta tõlkeid [[Special:MyContributions|enda kaastöö leheküljelt]] ja toimeta neid just tõlkimiseks loodud võrdleva toimetustööriistaga. Mõned vahendid on saadaval vaid osas keeltes.",
