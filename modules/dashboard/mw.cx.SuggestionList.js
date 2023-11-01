@@ -416,7 +416,6 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 		.addClass( 'cx-slitem__image oo-ui-icon-article' );
 
 	const sourceDir = $.uls.data.getDir( suggestion.sourceLanguage );
-	const targetDir = $.uls.data.getDir( suggestion.targetLanguage );
 
 	let $featured = $( [] );
 	if ( this.lists[ suggestion.listId ].type === this.constructor.static.listTypes.TYPE_FEATURED ) {
@@ -441,10 +440,13 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			$featured
 		);
 
+	const languageFilterSourceLanguage = this.languageFilter.getSourceLanguage();
+	const languageFilterTargetLanguage = this.languageFilter.getTargetLanguage();
+
 	const $sourceLanguage = $( '<a>' )
 		.prop( {
-			lang: suggestion.sourcelanguage,
-			dir: sourceDir,
+			lang: languageFilterSourceLanguage,
+			dir: $.uls.data.getDir( languageFilterSourceLanguage ),
 			href: this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
 			target: '_blank',
 			title: mw.msg( 'cx-suggestionlist-view-source-page' )
@@ -454,15 +456,15 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			e.stopPropagation();
 		} )
 		.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--source' )
-		.text( $.uls.data.getAutonym( suggestion.sourceLanguage ) );
+		.text( $.uls.data.getAutonym( languageFilterSourceLanguage ) );
 
 	const $targetLanguage = $( '<div>' )
 		.prop( {
-			lang: suggestion.targetLanguage,
-			dir: targetDir
+			lang: languageFilterTargetLanguage,
+			dir: $.uls.data.getDir( languageFilterTargetLanguage )
 		} )
 		.addClass( 'cx-slitem__languages__language cx-slitem__languages__language--target' )
-		.text( $.uls.data.getAutonym( suggestion.targetLanguage ) );
+		.text( $.uls.data.getAutonym( languageFilterTargetLanguage ) );
 
 	const $languageContainer = $( '<div>' )
 		.addClass( 'cx-slitem__languages' )
@@ -800,14 +802,16 @@ mw.cx.CXSuggestionList.prototype.showSuggestionDialog = function ( suggestion, i
 		onDiscard: this.discardSuggestionDialog.bind( this )
 	} );
 
+	const languageFilterSourceLanguage = this.languageFilter.getSourceLanguage();
+	const languageFilterTargetLanguage = this.languageFilter.getTargetLanguage();
 	this.selectedSourcePage.setData(
 		suggestion.title,
 		this.siteMapper.getPageUrl( suggestion.sourceLanguage, suggestion.title ),
 		{
 			imageUrl: imageUrl,
 			imageIcon: 'article',
-			sourceLanguage: suggestion.sourceLanguage,
-			targetLanguage: suggestion.targetLanguage,
+			sourceLanguage: languageFilterSourceLanguage,
+			targetLanguage: languageFilterTargetLanguage,
 			params: { prop: [ 'langlinks', 'pageviews', 'langlinkscount' ] }
 		}
 	);
