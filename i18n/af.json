@@ -172,5 +172,6 @@
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Ontbreek in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Ontbreek in <span>$1</span>, <span>$2</span> en meer",
-	"cx-uls-relevant-languages-panel-message": "Hierdie bladsy ontbreek in sommige tale wat jy dalk ken. Jy kan dit in minute vertaal!"
+	"cx-uls-relevant-languages-panel-message": "Hierdie bladsy ontbreek in sommige tale wat jy dalk ken. Jy kan dit in minute vertaal!",
+	"cx-sx-dashboard-stats-panel-title": "Jou impak"
 }

@@ -457,6 +457,7 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest izmaiņas",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Turpināt labošanu",
 	"cx-sx-login-dialog-title": "Tava sesija ir beigusies",
+	"cx-sx-login-dialog-button-label": "Pieslēgties",
 	"sx-confirm-translation-deletion-dialog-body": "Vai tiešām vēlies neatgriezeniski dzēst šo tulkojumu?",
 	"sx-translation-deletion-cancel-button-label": "Atcelt",
 	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu",
