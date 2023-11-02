@@ -92,7 +92,7 @@
 	"tag-contenttranslation-description": "Содержание было переведено с другого языка при помощи инструмента перевода.",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|инструмент перевода (вер. 2)]]",
 	"tag-contenttranslation-v2-description": "Содержание было переведено с другого языка при помощи 2-й версии инструмента перевода.",
-	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Перевод раздела]]",
+	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|инструмент перевода: раздел]]",
 	"tag-sectiontranslation-description": "Содержание было переведено из раздела на другом языке с использованием функционала «Перевод раздела» в инструменте перевода.",
 	"cx-source-loading": "Загружается $1",
 	"cx-beta": "Инструмент перевода",
