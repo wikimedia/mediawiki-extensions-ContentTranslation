@@ -3,6 +3,7 @@
 		"authors": [
 			"Aftabuzzaman",
 			"Bodhisattwa",
+			"Borhan",
 			"Kayser Ahmad",
 			"আজিজ",
 			"আফতাবুজ্জামান"
@@ -23,6 +24,7 @@
 	"apihelp-query+contenttranslation-param-from": "উৎস ভাষার কোড।",
 	"apihelp-query+contenttranslation-param-to": "লক্ষ্য ভাষার কোড।",
 	"apihelp-query+contenttranslation-param-sourcetitle": "উৎস পাতার শিরোনাম।",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "উৎস অনুচ্ছেদের শিরোনাম (ঐচ্ছিক)।",
 	"apihelp-query+contenttranslation-param-limit": "আনয়ন যোগ্য অনুবাদের সর্বাধিক সংখ্যা৷",
 	"apihelp-query+contenttranslation-param-type": "অনুবাদের অবস্থা।",
 	"apihelp-query+contenttranslation-example-1": "বর্তমান ব্যবহারকারীর দ্বারা অনুবাদ শুরু করে।",
