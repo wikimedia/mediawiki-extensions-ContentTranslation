@@ -2,11 +2,5 @@
 	"root": true,
 	"extends": [
 		"wikimedia/selenium"
-	],
-	"globals": {
-		"mw": "readonly"
-	},
-	"rules": {
-		"wdio/no-pause": "warn"
-	}
+	]
 }
