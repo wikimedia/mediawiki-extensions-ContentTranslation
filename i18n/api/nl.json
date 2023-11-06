@@ -70,7 +70,7 @@
 	"apihelp-cxsuggestionlist-example-1": "Voeg een titel toe aan een lijst als suggestie voor het vertalen uit het Engels (en) in het Spaans (es). Als de lijst nog niet bestaat, wordt er een nieuwe lijst aangemaakt.",
 	"apihelp-cxsuggestionlist-summary": "Suggestielijsten beheren. Suggesties toevoegen aan of verwijderen uit lijsten.",
 	"apihelp-cxsuggestionlist-param-listname": "Lijstnaam voor suggestie.",
-	"apihelp-cxsuggestionlist-param-listaction": "Op de lijst uit te voeren handeling.",
+	"apihelp-cxsuggestionlist-param-listaction": "Een op de lijst te verrichten handeling.",
 	"apihelp-cxsuggestionlist-param-titles": "Paginanamen.",
 	"apihelp-cxsuggestionlist-param-from": "De brontaalcode.",
 	"apihelp-cxsuggestionlist-param-to": "De doeltaalcode.",

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"AmaryllisGardener",
+			"CiphriusKane",
 			"John Reid",
 			"MinecraftAustralia",
 			"Prevodim"
@@ -13,7 +14,7 @@
 	"cx-header-translation-center": "Owersetin center",
 	"cx-source-view-page": "see page",
 	"cx-publish-page-success": "Page publeeshed at $1",
-	"cx-publish-button": "Publeesh",
+	"cx-publish-button": "Furthsett",
 	"cx-publish-summary": "Cræftit bi owersetin the page \"$1\"",
 	"tag-contenttranslation": "ContentOwerset",
 	"cx-source-loading": "Laidin $1",
