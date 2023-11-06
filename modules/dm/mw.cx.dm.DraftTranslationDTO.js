@@ -12,7 +12,7 @@ class MwCxDmDraftTranslationDTO {
 		targetSectionTitle,
 		translationUnits,
 		targetCategories
-	} ) {
+	} = {} ) {
 		this.id = id;
 		this.targetTitle = targetTitle;
 		this.status = status;
