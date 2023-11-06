@@ -83,7 +83,7 @@ class SectionTitleFetcher {
 		$out = [];
 		foreach ( $sections as $section ) {
 			if ( $section['toclevel'] === 1 ) {
-				$out[(int)$section['number']] = $section['line'];
+				$out[(int)$section['index']] = $section['line'];
 			}
 		}
 
