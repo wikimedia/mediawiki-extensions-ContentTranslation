@@ -81,6 +81,7 @@
 	"cx-source-page-selector-no-search-results": "АгӀонаш цакарий \"$1\" дехарца $2 чохь",
 	"cx-selected-source-page-start-translation-button": "ДӀадоладе гочдар",
 	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 кхачар|0=Кхачарш дац}} кӀирнахь",
+	"cx-selected-source-page-error-page-exists": "[$1 агӀо хӀинцале йолуш йу] $2 тӀехь",
 	"cx-selected-source-page-error-title-in-use": "Керлачу [$1 агӀонна цӀе хӀинцале йолуш йу]",
 	"cx-favorite-added-for-later": "ТӀаьхьа гочйан тӀетоьхна",
 	"cx-favorite-removed": "Хаьржиначу могӀам тӀера дӀайаьккхина!",

@@ -292,7 +292,7 @@
 	"cx-publish-destination-namespace-changed": "El destín de la publicación camudó a borrador personal. Fai otros axustes na configuración de publicación en cualquier momentu.",
 	"cx-linkcontextitem-missing-link-title": "Enllaz que falta",
 	"cx-linkcontextitem-missing-title-description": "Esta páxina inda nun esiste",
-	"cx-mt-abuse-publish-error": "La traducción nun pué publicase porque contien demasiáu testu ensin cambios.",
+	"cx-mt-abuse-publish-error": "La traducción nun pue publicase porque contién demasiáu testu ensin cambios.",
 	"cx-unreviewed-translation-category": "Páxines con traducciones ensin revisar",
 	"cx-unreviewed-translation-category-desc": "Páxines traducíes cola ferramienta de Traducción de Conteníu que contienen una gran cantidá de conteníu por revisar",
 	"cx-preference-enable-entrypoints": "Aporta a [[$1|principiar una traducción]] dende la páxina de contribuciones, la llista de llingües, y les creaciones de páxines nueves.",
