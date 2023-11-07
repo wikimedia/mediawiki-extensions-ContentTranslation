@@ -172,13 +172,18 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	 */
 	private function getOngoingTranslations( array $suggestions ) {
 		$titles = [];
-		if ( !count( $suggestions ) ) {
-			return $titles;
-		}
-
 		$params = $this->extractRequestParams();
 		$sourceLanguage = $params['from'];
 		$targetLanguage = $params['to'];
+
+		// translations inside "cx_translations" table requires "translation_source_language"
+		// and "translation_target_language" to be NOT null. So if the given source language
+		// or target language is empty, no translation will be found. In these cases, skip
+		// the SQL query at all.
+		if ( !count( $suggestions ) || $sourceLanguage === null || $targetLanguage === null ) {
+			return $titles;
+		}
+
 		$ongoingTranslationTitles = [];
 		foreach ( $suggestions as $suggestion ) {
 			$titles[] = $suggestion->getTitle()->getPrefixedText();
