@@ -89,9 +89,12 @@
 		return currentGroupLanguageCodes.indexOf( wikiDomainCode ) > -1;
 	};
 
+	/**
+	 * @return {Promise}
+	 */
 	const fetchSiteMatrix = () => {
 		if ( wikiLanguageCodes.length ) {
-			return wikiLanguageCodes;
+			return Promise.resolve( wikiLanguageCodes );
 		}
 		return siteMapper.getApi( siteMapper.getCurrentWikiLanguageCode() ).get( {
 			formatversion: 2,
