@@ -675,6 +675,7 @@ mw.cx.SelectedSourcePage.prototype.showTitleInUseError = function ( existingTarg
  */
 mw.cx.SelectedSourcePage.prototype.showMessage = function ( message ) {
 	if ( message instanceof mw.Message ) {
+		this.$messageText.empty();
 		this.$messageText.append( message.parseDom() );
 	} else {
 		this.$messageText.text( message );
