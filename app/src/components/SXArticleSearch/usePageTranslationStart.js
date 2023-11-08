@@ -76,11 +76,23 @@ const usePageTranslationStart = () => {
       "suggestion_no_seed"
     );
 
+  /**
+   * @param {PublishedTranslation} translation
+   * @return {Promise<void>}
+   */
+  const startPublishedTranslation = (translation) =>
+    doStartTranslation(
+      translation.sourceTitle,
+      "dashboard",
+      "continue_published"
+    );
+
   return {
     startRecentlyEditedSectionTranslation,
     startNearbySectionTranslation,
     startSearchResultSectionTranslation,
     startPageSuggestion,
+    startPublishedTranslation,
   };
 };
 

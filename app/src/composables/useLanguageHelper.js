@@ -7,6 +7,14 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { replaceUrl } from "@/utils/urlHandler";
 import { useStore } from "vuex";
 
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string|null} articleTitle
+ * @param {string|null} sectionTitle
+ * @param {object} extra
+ * @return {boolean} a boolean indicating whether redirection is needed
+ */
 const redirectToTargetWikiIfNeeded = (
   sourceLanguage,
   targetLanguage,
@@ -32,7 +40,11 @@ const redirectToTargetWikiIfNeeded = (
       targetLanguage,
       extra
     );
+
+    return true;
   }
+
+  return false;
 };
 
 const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
@@ -50,6 +62,7 @@ const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
 };
 
 const initializeLanguages = async () => {
+  // TODO: Fix store to be injected properly using "useStore" composable instead of importing it
   await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
   const { enabledTargetLanguages, supportedLanguageCodes } =
     useMediawikiState();
@@ -63,13 +76,16 @@ const initializeLanguages = async () => {
 
   const urlSourceArticleTitle = urlParams.get("page");
   const urlSourceSectionTitle = urlParams.get("section");
-  redirectToTargetWikiIfNeeded(
+  const redirectionNeeded = redirectToTargetWikiIfNeeded(
     sourceLanguage,
     targetLanguage,
     urlSourceArticleTitle,
     urlSourceSectionTitle
   );
-  setLanguagePair(store, sourceLanguage, targetLanguage);
+
+  if (!redirectionNeeded) {
+    setLanguagePair(store, sourceLanguage, targetLanguage);
+  }
 };
 
 const getSuggestionListLanguagePairUpdater =
@@ -82,16 +98,17 @@ const getSuggestionListLanguagePairUpdater =
       newTargetLanguage = sourceLanguage.value;
     }
 
-    redirectToTargetWikiIfNeeded(
+    const redirectionNeeded = redirectToTargetWikiIfNeeded(
       newSourceLanguage,
       newTargetLanguage,
       null,
       null
     );
 
-    setLanguagePair(store, newSourceLanguage, newTargetLanguage);
-
-    store.dispatch("suggestions/initializeSuggestions");
+    if (!redirectionNeeded) {
+      setLanguagePair(store, newSourceLanguage, newTargetLanguage);
+      store.dispatch("suggestions/initializeSuggestions");
+    }
   };
 
 const useDraftTranslationLanguagePairUpdater = () => {
@@ -101,7 +118,7 @@ const useDraftTranslationLanguagePairUpdater = () => {
     const { sourceLanguage, targetLanguage, sourceTitle, sourceSectionTitle } =
       translation;
 
-    redirectToTargetWikiIfNeeded(
+    const redirectionNeeded = redirectToTargetWikiIfNeeded(
       sourceLanguage,
       targetLanguage,
       sourceTitle,
@@ -109,16 +126,39 @@ const useDraftTranslationLanguagePairUpdater = () => {
       { draft: true }
     );
 
-    setLanguagePair(store, sourceLanguage, targetLanguage);
+    if (!redirectionNeeded) {
+      setLanguagePair(store, sourceLanguage, targetLanguage);
+      store.dispatch("suggestions/initializeSuggestions");
+    }
+  };
+};
 
-    store.dispatch("suggestions/initializeSuggestions");
+/**
+ * @return {(function(PublishedTranslation): void)}
+ */
+const usePublishedTranslationLanguagePairUpdate = () => {
+  const store = useStore();
+
+  return (publishedTranslation) => {
+    const { sourceLanguage, targetLanguage, sourceTitle } =
+      publishedTranslation;
+
+    const redirectionNeeded = redirectToTargetWikiIfNeeded(
+      sourceLanguage,
+      targetLanguage,
+      sourceTitle,
+      null
+    );
+
+    if (!redirectionNeeded) {
+      setLanguagePair(store, sourceLanguage, targetLanguage);
+    }
   };
 };
 
 const getArticleLanguagePairUpdater =
   (store) => async (newSourceLanguage, newTargetLanguage) => {
-    const { sourceLanguage, targetLanguage, currentSectionSuggestion } =
-      useApplicationState(store);
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     // If newly selected target language is same as source language, swap languages
     if (newSourceLanguage === newTargetLanguage) {
@@ -131,30 +171,32 @@ const getArticleLanguagePairUpdater =
     const sourceTitle =
       languageTitleGroup.getTitleForLanguage(newSourceLanguage);
 
-    redirectToTargetWikiIfNeeded(
+    const redirectionNeeded = redirectToTargetWikiIfNeeded(
       newSourceLanguage,
       newTargetLanguage,
       sourceTitle,
       null
     );
 
-    setLanguagePair(store, newSourceLanguage, newTargetLanguage);
+    if (!redirectionNeeded) {
+      setLanguagePair(store, newSourceLanguage, newTargetLanguage);
 
-    let suggestion = new SectionSuggestion({
-      sourceLanguage: sourceLanguage.value,
-      targetLanguage: targetLanguage.value,
-      sourceTitle,
-      missing: {},
-    });
+      let suggestion = new SectionSuggestion({
+        sourceLanguage: sourceLanguage.value,
+        targetLanguage: targetLanguage.value,
+        sourceTitle,
+        missing: {},
+      });
 
-    if (languageTitleGroup.hasLanguage(targetLanguage.value)) {
-      suggestion = await store.dispatch(
-        "suggestions/loadSectionSuggestion",
-        suggestion
-      );
+      if (languageTitleGroup.hasLanguage(targetLanguage.value)) {
+        suggestion = await store.dispatch(
+          "suggestions/loadSectionSuggestion",
+          suggestion
+        );
+      }
+
+      store.dispatch("application/initializeSectionTranslation", suggestion);
     }
-
-    store.dispatch("application/initializeSectionTranslation", suggestion);
   };
 
 export {
@@ -162,4 +204,5 @@ export {
   getArticleLanguagePairUpdater,
   getSuggestionListLanguagePairUpdater,
   useDraftTranslationLanguagePairUpdater,
+  usePublishedTranslationLanguagePairUpdate,
 };

@@ -812,7 +812,8 @@
 				"sx-confirm-draft-translation-start-dialog-explanation-first-line",
 				"sx-confirm-draft-translation-start-dialog-explanation-second-line",
 				"sx-confirm-draft-translation-start-dialog-explanation-third-line",
-				"sx-confirm-draft-translation-start-button-label"
+				"sx-confirm-draft-translation-start-button-label",
+				"sx-published-translation-new-translation-button-label"
 			],
 			"noflip": true
 		},

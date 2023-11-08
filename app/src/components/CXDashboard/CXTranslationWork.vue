@@ -75,7 +75,7 @@ export default {
     },
     actionIcon: {
       type: String,
-      required: true,
+      default: null,
     },
   },
   emits: ["click", "action-icon-clicked"],

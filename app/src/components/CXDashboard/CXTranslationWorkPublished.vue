@@ -1,19 +1,17 @@
 <script setup>
 import CxTranslationWork from "./CXTranslationWork.vue";
-import {
-  mwIconEdit,
-  mwIconAdd,
-  mwIconEllipsis,
-} from "@/lib/mediawiki.ui/components/icons";
+import { mwIconAdd, mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
 import { useStore } from "vuex";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import MwButton from "@/lib/mediawiki.ui/components/MWButton/MWButton.vue";
 import { useRouter } from "vue-router";
-import useCXRedirect from "@/composables/useCXRedirect";
 import useDevice from "@/composables/useDevice";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
+import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
+import useApplicationState from "@/composables/useApplicationState";
+import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 
 const props = defineProps({
   translation: {
@@ -71,18 +69,7 @@ findOrFetchNonLeadSectionSuggestion(
 
 const router = useRouter();
 
-const redirectToCX = useCXRedirect();
 const { isDesktop } = useDevice();
-
-const editTranslation = () => {
-  if (isDesktop.value) {
-    redirectToCX(
-      props.translation.sourceLanguage,
-      props.translation.targetLanguage,
-      props.translation.sourceTitle
-    );
-  }
-};
 
 const translateNewSection = () => {
   store.dispatch("application/initializeSectionTranslation", suggestion.value);
@@ -92,14 +79,22 @@ const translateNewSection = () => {
 const openTargetPage = () => {
   window.open(props.translation.targetUrl, "_blank");
 };
+
+const { startPublishedTranslation } = usePageTranslationStart();
+const { sourceLanguage, targetLanguage } = useApplicationState(store);
+const updateLanguagePairByPublishedTranslation =
+  usePublishedTranslationLanguagePairUpdate();
+
+const startNewTranslation = () => {
+  updateLanguagePairByPublishedTranslation(props.translation);
+  startPublishedTranslation(props.translation);
+};
 </script>
 
 <template>
   <cx-translation-work
     class="cx-published-translation"
     :translation="translation"
-    :action-icon="isDesktop ? mwIconEdit : ''"
-    @action-icon-clicked="editTranslation"
     @click="openTargetPage"
   >
     <template #title>
@@ -131,6 +126,18 @@ const openTargetPage = () => {
               type="icon"
               progressive
               @click.stop="translateNewSection"
+            />
+          </div>
+          <div v-else>
+            <mw-button
+              class="cx-published-translation__missing-sections-button pa-0"
+              :icon="mwIconAdd"
+              type="text"
+              :label="
+                $i18n('sx-published-translation-new-translation-button-label')
+              "
+              progressive
+              @click.stop="startNewTranslation"
             />
           </div>
         </mw-col>
