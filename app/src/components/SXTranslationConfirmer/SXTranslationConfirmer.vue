@@ -133,7 +133,7 @@ export default {
 
 .sx-translation-confirmer {
   &__article-image {
-    background-color: @background-color-progressive;
+    background-color: @background-color-progressive-subtle;
     height: 192px;
     width: 100%;
     img {
@@ -143,8 +143,7 @@ export default {
     }
   }
   &__license {
-    border-top: @border-width-base @border-style-base
-      @border-color-disabled;
+    border-top: @border-width-base @border-style-base @border-color-disabled;
     background-color: @background-color-interactive-subtle;
   }
 }
