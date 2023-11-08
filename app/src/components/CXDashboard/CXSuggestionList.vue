@@ -29,7 +29,7 @@
         :key="`page-suggestion-${index}`"
         :suggestion="suggestion"
         @close="discardPageSuggestion(suggestion)"
-        @click="startTranslation(suggestion)"
+        @click="startPageSuggestion(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
       <mw-spinner v-if="pageSuggestionsLoading" />
@@ -45,7 +45,7 @@
         class="ma-0"
         :suggestion="suggestion"
         @close="discardSectionSuggestion(suggestion)"
-        @click="startTranslation(suggestion)"
+        @click="startSectionTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
@@ -78,7 +78,8 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
 import useDraftTranslationStart from "./useDraftTranslationStart";
-import PageSection from "@/wiki/cx/models/pageSection";
+import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
+import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 
 export default {
   name: "CxSuggestionList",
@@ -108,36 +109,19 @@ export default {
     const updateTargetLanguage = (newTargetLanguage) =>
       updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
-    const router = useRouter();
-    const startDraftTranslation = useDraftTranslationStart();
-
+    const doStartSectionTranslation = useSectionTranslationStart();
     /**
-     * @param {SectionSuggestion|ArticleSuggestion} suggestion
+     * @param {SectionSuggestion} suggestion
+     * @return {Promise<void>}
      */
-    const startTranslation = (suggestion) => {
-      const existingLeadTranslation = store.getters[
-        "translator/getTranslation"
-      ](
+    const startSectionTranslation = (suggestion) =>
+      doStartSectionTranslation(
         suggestion.sourceTitle,
-        PageSection.LEAD_SECTION_DUMMY_TITLE,
-        suggestion.sourceLanguage,
-        suggestion.targetLanguage
+        "dashboard",
+        "suggestion_no_seed"
       );
 
-      // if a draft lead translation already exists for the current section suggestion, restore it
-      if (!!existingLeadTranslation) {
-        startDraftTranslation(existingLeadTranslation);
-      } else {
-        store.dispatch("application/initializeSectionTranslation", suggestion);
-        router.push({
-          name: "sx-translation-confirmer",
-          query: {
-            previousRoute: "dashboard",
-            eventSource: "suggestion_no_seed",
-          },
-        });
-      }
-    };
+    const { startPageSuggestion } = usePageTranslationStart();
 
     const {
       currentPageSuggestionsSlice,
@@ -190,7 +174,8 @@ export default {
       refreshSuggestions,
       sectionSuggestionsLoading,
       showRefreshButton,
-      startTranslation,
+      startPageSuggestion,
+      startSectionTranslation,
       supportedLanguageCodes,
       updateSourceLanguage,
       updateTargetLanguage,

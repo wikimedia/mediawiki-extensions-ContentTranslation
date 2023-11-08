@@ -65,10 +65,22 @@ const usePageTranslationStart = () => {
       "search_result"
     );
 
+  /**
+   * @param {ArticleSuggestion} suggestion
+   * @return {Promise<void>}
+   */
+  const startPageSuggestion = (suggestion) =>
+    doStartTranslation(
+      suggestion.sourceTitle,
+      "dashboard",
+      "suggestion_no_seed"
+    );
+
   return {
     startRecentlyEditedSectionTranslation,
     startNearbySectionTranslation,
     startSearchResultSectionTranslation,
+    startPageSuggestion,
   };
 };
 
