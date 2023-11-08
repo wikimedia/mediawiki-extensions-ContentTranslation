@@ -61,4 +61,23 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		const dismissedArticle = await UnifiedDashboardPage.getArticleSuggestionByTitle( dismissedArticleHeading );
 		await expect( dismissedArticle ).toBeUndefined();
 	} );
+
+	it( 'should allow refreshing suggestions', async function () {
+		await UnifiedDashboardPage.open();
+
+		const existingArticle1Title = await UnifiedDashboardPage.getSuggestionSourceTitle(
+			await UnifiedDashboardPage.getArticleSuggestionByIndex( 0 )
+		);
+		const existingArticle2Title = await UnifiedDashboardPage.getSuggestionSourceTitle(
+			await UnifiedDashboardPage.getArticleSuggestionByIndex( 1 )
+		);
+
+		await UnifiedDashboardPage.refreshSuggestions();
+
+		const oldArticle1 = await UnifiedDashboardPage.getArticleSuggestionByTitle( existingArticle1Title );
+		const oldArticle2 = await UnifiedDashboardPage.getArticleSuggestionByTitle( existingArticle2Title );
+
+		await expect( oldArticle1 ).toBeUndefined();
+		await expect( oldArticle2 ).toBeUndefined();
+	} );
 } );

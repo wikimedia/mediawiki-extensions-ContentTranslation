@@ -9,6 +9,7 @@ const { Element: WebdriverIOElementType } = require( 'webdriverio' );
 const ARTICLE_SUGGESTION_SELECTOR = '.cx-translation-list--page-suggestions .cx-suggestion';
 const SECTION_SUGGESTION_SELECTOR = '.cx-translation-list--sx-suggestions .cx-suggestion';
 const FAVORITE_SELECTOR = '.cx-translation-list--favorites .cx-suggestion';
+const REFRESH_BUTTON_SELECTOR = '.cx-suggestion-list__refresh-button-container button';
 
 class UnifiedDashboardPage extends Page {
 	get suggestionButton() { return $( 'button[value="suggestions"]' ); }
@@ -126,6 +127,14 @@ class UnifiedDashboardPage extends Page {
 		return suggestionHeader;
 	}
 
+	async refreshSuggestions() {
+		const refreshButton = $( REFRESH_BUTTON_SELECTOR );
+		await ElementAction.doClick( refreshButton );
+
+		// Wait for the refresh button to disappear and re-appear
+		await refreshButton.waitForDisplayed( { reverse: true } );
+		await refreshButton.waitForDisplayed( { timeout: 6000 } );
+	}
 }
 
 module.exports = new UnifiedDashboardPage();
