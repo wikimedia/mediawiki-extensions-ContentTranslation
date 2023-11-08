@@ -181,7 +181,7 @@ export default {
   transition: background-color 100ms, border-color 100ms, transform 1s,
     opacity 1s;
   &:hover {
-    background-color: @background-color-progressive;
+    background-color: @background-color-progressive-subtle;
   }
 
   &__information-panel {
