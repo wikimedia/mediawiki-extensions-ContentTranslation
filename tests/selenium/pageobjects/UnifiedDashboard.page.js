@@ -39,11 +39,24 @@ class UnifiedDashboardPage extends Page {
 	}
 
 	/**
+	 * @param {string} title
+	 * @return {Promise<WebdriverIOElementType>}
+	 */
+	async getArticleSuggestionByTitle( title ) {
+		const articleSuggestions = await $$( ARTICLE_SUGGESTION_SELECTOR );
+		return this.getSuggestionFromListByTitle( articleSuggestions, title );
+	}
+
+	/**
 	 * @param {WebdriverIOElementType} suggestion Suggestion to fetch favorite icon from
 	 * @return {Promise<WebdriverIOElementType>}
 	 */
 	getFavoriteIconInSuggestion( suggestion ) {
 		return suggestion.$( '.cx-suggestion__favorite-button' );
+	}
+
+	getDismissIconInSuggestion( suggestion ) {
+		return suggestion.$( '.cx-suggestion__discard-button' );
 	}
 
 	async getSuggestionFromListByTitle( suggestionList, title ) {
@@ -95,6 +108,22 @@ class UnifiedDashboardPage extends Page {
 			{ key: 'listaction', value: 'remove' }
 		] );
 		browser.disableInterceptor();
+	}
+
+	/**
+	 * Dismiss a suggested article
+	 *
+	 * @param {number} suggestionIndex
+	 * @return {Promise<string>}
+	 */
+	async dismissArticle( suggestionIndex ) {
+		const suggestionToDismiss = await this.getArticleSuggestionByIndex( suggestionIndex );
+		const suggestionHeader = await this.getSuggestionSourceTitle( suggestionToDismiss );
+		await ElementAction.doClick( this.getDismissIconInSuggestion( suggestionToDismiss ) );
+
+		// Wait for another suggestion to appear
+		await suggestionToDismiss.waitForExist( { timeout: 2000 } );
+		return suggestionHeader;
 	}
 
 }

@@ -53,4 +53,12 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		favoriteArticle = await UnifiedDashboardPage.getFavoriteSuggestionByTitle( favoriteArticleHeading );
 		await expect( favoriteArticle ).toBeUndefined();
 	} );
+
+	it( 'should allow dismissing a suggestion', async function () {
+		await UnifiedDashboardPage.open();
+
+		const dismissedArticleHeading = await UnifiedDashboardPage.dismissArticle( 0 );
+		const dismissedArticle = await UnifiedDashboardPage.getArticleSuggestionByTitle( dismissedArticleHeading );
+		await expect( dismissedArticle ).toBeUndefined();
+	} );
 } );
