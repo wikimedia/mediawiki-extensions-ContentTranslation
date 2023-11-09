@@ -259,6 +259,7 @@
 	"cx-sx-sentence-selector-suggested-translation-title": "Предложен превод от $1",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редактиране на превода",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Пропускане",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Превеждане",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Публикуване на превода...",
 	"cx-sx-publisher-animation-success-message-title": "Публикувано!",
 	"cx-sx-publisher-animation-success-message-subtitle": "Отваряне на страницата...",
