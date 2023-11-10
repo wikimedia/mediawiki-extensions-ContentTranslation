@@ -202,20 +202,20 @@ mw.cx.TranslationController.prototype.saveSuccessHandler = function ( { saveResu
 };
 
 /**
- * This handler expects an object with "errorCode" and "details" properties set.
+ * This handler expects an object, typically with "errorCode" and "details" properties set.
  * The reason for that is that this method handles the response from jQuery promises.
  * jQuery promise error handlers receive two arguments, the errorCode and the details.
  *
  * @param {Object} error
- * @param {string} error.errorCode
- * @param {Object} error.details
  */
-mw.cx.TranslationController.prototype.saveFailureHandler = function ( { errorCode, details } ) {
+mw.cx.TranslationController.prototype.saveFailureHandler = function ( error ) {
+	mw.log.warn( '[CX] Saving Failed.', error );
+	mw.errorLogger.logError( error, 'error.contenttranslation' );
 	this.failCounter++;
 
-	mw.log.warn( '[CX] Saving Failed. Error code: ' + errorCode );
-	if ( details.exception !== 'abort' ) {
-		this.onSaveFailure( errorCode, details );
+	mw.log.warn( '[CX] Saving Failed. Error code: ' + error.errorCode );
+	if ( error.details && error.details.exception !== 'abort' ) {
+		this.onSaveFailure( error.errorCode );
 	}
 
 	if ( this.failCounter > 5 ) {
@@ -465,14 +465,9 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 	}.bind( this ), 60 * 1000 );
 };
 
-mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode, details ) {
+mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 	if ( errorCode === 'assertuserfailed' ) {
 		this.showLoginDialog();
-	}
-
-	if ( details && details.exception instanceof Error ) {
-		details.exception = details.exception.toString();
-		details.errorCode = errorCode;
 	}
 
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
