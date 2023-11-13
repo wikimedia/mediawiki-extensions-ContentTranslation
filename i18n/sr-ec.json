@@ -462,5 +462,6 @@
 	"sx-translation-deletion-confirm-button-label": "Избриши превод",
 	"sx-confirm-draft-translation-start-dialog-title": "Настављење превођења на мобилном",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Где су други одељци?",
-	"sx-confirm-draft-translation-start-button-label": "У реду"
+	"sx-confirm-draft-translation-start-button-label": "У реду",
+	"sx-published-translation-new-translation-button-label": "Нови превод"
 }

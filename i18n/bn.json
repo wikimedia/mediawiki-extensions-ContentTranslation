@@ -483,5 +483,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "মোবাইলে আপনি একবারে কেবল একটি অনুচ্ছেদ নিয়ে কাজ করতে পারবেন। সেই কারণে, কেবল সূচনা অনুচ্ছেদটি আপাতত লোড করা হবে।",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "অন্য অনুচ্ছেদগুলি কোথায়?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "চিন্তা করবেন না। বাকি অনুচ্ছেদগুলি হারিয়ে যায়নি। আপনি বর্তমান অনুবাদটি একটি নতুন নিবন্ধ হিসেবে প্রকাশ করার পর সেগুলি সেখানে পাওয়া যাবে। প্রকাশ করার পর, আপনি প্রতিটি অনুচ্ছেদের বিষয়বস্তুর জন্য নতুন অগ্রগতিতে থাকা অনুবাদ বোতাম পাবেন।",
-	"sx-confirm-draft-translation-start-button-label": "ঠিক আছে"
+	"sx-confirm-draft-translation-start-button-label": "ঠিক আছে",
+	"sx-published-translation-new-translation-button-label": "নতুন অনুবাদ"
 }

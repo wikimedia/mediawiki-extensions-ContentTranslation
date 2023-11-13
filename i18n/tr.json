@@ -513,5 +513,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Taşınabilir aygıtlarda aynı anda yalnızca bir bölümle çalışabilirsiniz. Bu nedenle şimdilik yalnızca ana bölüm yüklenecektir.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Diğer bölümler nerede?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Kaygılanmayın. Kalan bölümler kaybolmaz. Varolan çeviriyi yeni bir madde olarak yayımladığınızda kullanılabilir olacaklar. Yayımladıktan sonra, her bölümün içeriğini içeren, yapım aşamasında olan yeni çevirileri bulacaksınız.",
-	"sx-confirm-draft-translation-start-button-label": "Tamam"
+	"sx-confirm-draft-translation-start-button-label": "Tamam",
+	"sx-published-translation-new-translation-button-label": "Yeni çeviri"
 }

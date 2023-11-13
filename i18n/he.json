@@ -490,5 +490,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "במכשיר נייד אפשר לעבוד רק עם פרק אחד בכל פעם. לפיכך, רק פרק הפתיחה ייטען לעת עתה.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "איפה שאר הפרקים?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "לא לדאוג. הפרקים הנותרים לא הלכו לאיבוד. הם יהיו זמינים אחרי {{GENDER:|שתפרסם|שתפרסמי}} את התרגום הנוכחי כערך חדש. לאחר הפרסום, {{GENDER:|תמצא|תמצאי}} תרגומים חדשים בתהליך עם התוכן של כל פרק.",
-	"sx-confirm-draft-translation-start-button-label": "בסדר"
+	"sx-confirm-draft-translation-start-button-label": "בסדר",
+	"sx-published-translation-new-translation-button-label": "תרגום חדש"
 }

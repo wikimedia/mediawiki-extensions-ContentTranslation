@@ -478,5 +478,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мобилен можете да работите на само еден дел во секој наврат. Затоа, засега ќе се вчита само главниот оддел.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Каде се другите оддели?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не грижете се. Останатите оддели не се изгубени. Тие ќе станат достапни откако ќе го објавите тековниот превод како нова статија. По објавувањето, ќе најдете нови преводи во тек со содржината за секој оддел.",
-	"sx-confirm-draft-translation-start-button-label": "Ок"
+	"sx-confirm-draft-translation-start-button-label": "Ок",
+	"sx-published-translation-new-translation-button-label": "Нов превод"
 }
