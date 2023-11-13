@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"F Samaritani"
+			"F Samaritani",
+			"Jun Misugi"
 		]
 	},
+	"cx": "Traduzì pàgina",
 	"cx-dashboard-header": "Traduttorii",
 	"cx-header-all-translations": "Tutti li traduzioni",
 	"cx-publish-button": "Pubblica",
