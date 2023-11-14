@@ -490,5 +490,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "På mobil kan du bare jobbe med én seksjon av gangen. Derfor lastes kun hovedseksjonen foreløpig.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Hvor er de andre seksjonene?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ikke vær redd, de andre seksjonene er ikke borte. De blir tilgjengelige igjen når du har publisert den gjeldende oversettelsen som en ny artikkel.",
-	"sx-confirm-draft-translation-start-button-label": "OK"
+	"sx-confirm-draft-translation-start-button-label": "OK",
+	"sx-published-translation-new-translation-button-label": "Ny oversettelse"
 }
