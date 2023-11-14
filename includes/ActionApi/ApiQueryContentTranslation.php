@@ -247,7 +247,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			}
 
 			// if at least one conflicting translation is found, let the UI know
-			$result->addValue( [ 'query', 'contenttranslation' ], 'hasConflicts', 'true' );
+			$result->addValue( [ 'query', 'contenttranslation' ], 'hasConflicts', true );
 			// Take only the last conflicting translation due to UI limitations
 			$translation = array_pop( $conflictingTranslations );
 			// $globalUserId is always expected to be integer or null, since it has been populated

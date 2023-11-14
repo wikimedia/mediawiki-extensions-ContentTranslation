@@ -329,7 +329,8 @@ mw.cx.init.Translation.prototype.fetchDraftTranslation = function (
 			usecase: 'desktop-editor-draft',
 			sourcetitle: sourceTitle,
 			from: sourceLanguage,
-			to: targetLanguage
+			to: targetLanguage,
+			formatversion: 2
 		};
 
 		if ( sourceSectionTitle ) {
