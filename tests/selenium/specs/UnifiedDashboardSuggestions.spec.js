@@ -7,15 +7,16 @@
  * [b] See suggestions to translate pages
  * [c] See suggestions to translate sections
  *
- * [2] Save for later
+ * [2] Save for later and unsave
  * [a] Open the unified dashboard
  * [b] Save a suggestion for later
- * [c] Ensure that "For Later" section appears and contains the suggestion
+ * [c] Un-save the suggestion
+ * [d] Ensure that it is now longer in the "For later" section
  *
- * [3] Remove a suggestion
+ * [3] Should allow dismissing a suggestion
  * [a] Open the unified dashboard
- * [b] Remove a suggestion
- * [c] Ensure that the suggestion does not appear
+ * [b] Dismiss a suggestion
+ * [c] Ensure that it no longer appears
  *
  * [4] Refresh suggestions
  * [a] Open the unified dashboard
@@ -45,8 +46,6 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		const favoriteArticleHeading = await UnifiedDashboardPage.favoriteArticle( 0 );
 		let favoriteArticle = await UnifiedDashboardPage.getFavoriteSuggestionByTitle( favoriteArticleHeading );
 		await expect( favoriteArticle ).toBeDefined();
-
-		// TODO: Add a refresh here. Currently the favorite articles don't persist over a refresh.
 
 		// Un-save article
 		await UnifiedDashboardPage.unFavoriteArticle( favoriteArticle );
