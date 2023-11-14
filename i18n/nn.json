@@ -40,7 +40,7 @@
 	"cx-translation-target-page-exists": "Ei side med tittelen [$1 $2] finst allereie i målwikien. Vurder å gje sida ein anna tittel.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Innhaldsomsetjing]]",
 	"tag-contenttranslation-description": "Innhaldet vart omsett frå eit anna språk med verktyet Innhaldsomsetjing",
-	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Innhaldsomsetjing]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Innhaldsomsetjing, v2]]",
 	"tag-contenttranslation-v2-description": "Innhaldet er vorte omsett frå eit anna språk ved hjelp av versjon 2 av innhaldsomsetjingsverktøyet.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Seksjonsomsetjing]]",
 	"tag-sectiontranslation-description": "Innhaldet vart omsett frå ein seksjon på eit anna språk med seksjonsomsetjingsverktøyet til innhaldsomsetjaren.",
