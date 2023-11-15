@@ -41,7 +41,7 @@
 	"cx-translation-target-page-exists": "Ei side med tittelen [$1 $2] finst allereie i målwikien. Vurder å gje sida ein anna tittel.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Innhaldsomsetjing]]",
 	"tag-contenttranslation-description": "Innhaldet vart omsett frå eit anna språk med verktyet Innhaldsomsetjing",
-	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Innhaldsomsetjing]]",
+	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Innhaldsomsetjing, v2]]",
 	"tag-contenttranslation-v2-description": "Innhaldet er vorte omsett frå eit anna språk ved hjelp av versjon 2 av innhaldsomsetjingsverktøyet.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Seksjonsomsetjing]]",
 	"tag-sectiontranslation-description": "Innhaldet vart omsett frå ein seksjon på eit anna språk med seksjonsomsetjingsverktøyet til innhaldsomsetjaren.",
@@ -393,6 +393,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Ny omsetjing",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Fleire seksjonar",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Omset seksjon",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Ny omsetjing",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Seksjon",
 	"sx-editor-feedback-overlay-title": "Takk!",
 	"sx-editor-feedback-overlay-clarification": "Lærer av rettingane dine",
@@ -419,6 +420,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Set om «$1» og «$2»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Set om «$1», «$2» og meir",
 	"sx-block-template-adaptation-card-body-header-success": "Foreslått mal",
+	"sx-block-template-adaptation-card-title-placeholder": "Mal",
 	"sx-block-template-adaptation-card-edit-button-label": "Gå gjennom og rediger omsetjinga",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Endre omsetjinga",
 	"sx-block-template-adaptation-card-body-header-failure": "Tilsvarande mal er ikkje tilgjengeleg på $1",
@@ -463,5 +465,12 @@
 	"sx-confirm-back-navigation-dialog-title": "Forlate omsetjinga di?",
 	"sx-confirm-back-navigation-dialog-body": "Alle endringane dine vil gå tapt.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Forkast",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Hald fram"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Hald fram",
+	"cx-sx-login-dialog-button-label": "Logg inn",
+	"sx-translation-deletion-cancel-button-label": "Avbryt",
+	"sx-translation-deletion-confirm-button-label": "Slett omsetjing",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 dag|$1 dagar|0=I dag}}",
+	"cx-sx-translation-work-months-since-started": "$1 {{PLURAL:$1|månad|månadar}}",
+	"cx-sx-translation-work-years-since-started": "$1 {{PLURAL:$1|år}}",
+	"sx-confirm-draft-translation-start-button-label": "OK"
 }
