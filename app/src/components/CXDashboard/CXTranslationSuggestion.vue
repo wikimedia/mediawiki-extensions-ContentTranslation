@@ -35,10 +35,11 @@
                 v-if="!isFavoriteSuggestion"
                 :icon="mwIconClose"
                 size="24"
-                class="mb-4"
+                class="cx-suggestion__discard-button mb-4"
                 @click.stop="$emit('close')"
               />
               <mw-icon
+                class="cx-suggestion__favorite-button"
                 :icon="bookmarkIcon"
                 size="24"
                 :icon-color="bookmarkIconColor"
