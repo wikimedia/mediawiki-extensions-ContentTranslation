@@ -478,5 +478,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Sur mobile es solo possibile laborar con un section al vice. Dunque, solo le section principal es cargate pro le momento.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Ubi es le altere sectiones?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Non inquieta te. Le sectiones restante non es perdite. Illos devenira disponibile quando tu publica le traduction actual como un nove articulo. Post publication, tu trovara le nove traductiones in progresso con le contento pro cata section.",
-	"sx-confirm-draft-translation-start-button-label": "OK"
+	"sx-confirm-draft-translation-start-button-label": "OK",
+	"sx-published-translation-new-translation-button-label": "Nove traduction"
 }
