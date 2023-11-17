@@ -5,11 +5,13 @@ const SelectionHelper = require( '../utils/SelectionHelper' );
 const InterceptorService = require( '../utils/InterceptorService' );
 const ElementAction = require( '../utils/ElementAction' );
 const { Element: WebdriverIOElementType } = require( 'webdriverio' );
+const DesktopEditor = require( '../componentobjects/DesktopEditor' );
 
 const ARTICLE_SUGGESTION_SELECTOR = '.cx-translation-list--page-suggestions .cx-suggestion';
 const SECTION_SUGGESTION_SELECTOR = '.cx-translation-list--sx-suggestions .cx-suggestion';
 const FAVORITE_SELECTOR = '.cx-translation-list--favorites .cx-suggestion';
 const REFRESH_BUTTON_SELECTOR = '.cx-suggestion-list__refresh-button-container button';
+const FIRST_SEARCH_SUGGESTION_SELECTOR = '.sx-article-search .cx-search-suggestion';
 const SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR =
 		'div.cx-translation-list--suggestions .sx-translation-list-language-selector button span.mw-ui-autonym';
 
@@ -19,6 +21,14 @@ class UnifiedDashboardPage extends Page {
 	get articleSuggestions() { return $( ARTICLE_SUGGESTION_SELECTOR ); }
 	get sectionSuggestions() { return $( SECTION_SUGGESTION_SELECTOR ); }
 	get favoriteSuggestions() { return $( FAVORITE_SELECTOR ); }
+
+	get newTranslationButton() { return $( '#dashboard-search-translation-button' ); }
+
+	get articleSearchTextbox() { return $( 'input[type="search"]' ); }
+
+	get firstSearchSuggestion() { return $( FIRST_SEARCH_SUGGESTION_SELECTOR ); }
+
+	get startTranslationButton() { return $( '.sx-translation-confirmer__action button' ); }
 
 	async getLanguagePair() {
 		const languageButtons = await this.suggestionListLanguageButtons;
@@ -30,6 +40,7 @@ class UnifiedDashboardPage extends Page {
 			targetLanguage
 		};
 	}
+
 	/**
 	 * @param {number} index
 	 * @return {Promise<WebdriverIOElementType>}
@@ -80,6 +91,17 @@ class UnifiedDashboardPage extends Page {
 				return suggestion;
 			}
 		}
+	}
+
+	/**
+	 * Get article suggestion header text by artice suggestion number
+	 *
+	 * @param {number} index
+	 * @return {Promise<string>}
+	 */
+	async getArticleSuggestionTitle( index ) {
+		const articleSuggestion = await this.getArticleSuggestionByIndex( index );
+		return await this.getSuggestionSourceTitle( articleSuggestion );
 	}
 
 	async open() {
@@ -172,6 +194,20 @@ class UnifiedDashboardPage extends Page {
 			'GET'
 		);
 		browser.disableInterceptor();
+	}
+
+	async publishNewTranslation( articleName ) {
+		await ElementAction.doClick( this.newTranslationButton );
+		await ElementAction.setInput( this.articleSearchTextbox, articleName );
+
+		await ElementAction.doClick( this.firstSearchSuggestion );
+
+		await ElementAction.doClick( this.startTranslationButton );
+
+		await DesktopEditor.waitForArticleToLoad();
+		await DesktopEditor.fillRandomTranslationData( 3 );
+
+		return await DesktopEditor.publishTranslation();
 	}
 }
 
