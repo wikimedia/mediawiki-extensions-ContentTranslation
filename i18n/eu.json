@@ -281,5 +281,16 @@
 	"cx-sx-start-translation-button-label": "Hasi itzultzen",
 	"cx-sx-view-translation-anchor": "Ikusi",
 	"cx-sx-existing-translation-learn-more": "Gehiago ikasi",
-	"cx-sx-section-selector-more-details-title": "Xehetasun gehiago"
+	"cx-sx-section-selector-missing-sections-title": "$1-en falta diren atalak",
+	"cx-sx-section-selector-present-sections-title": "$1-en dauden atalak",
+	"cx-sx-section-selector-more-details-title": "Xehetasun gehiago",
+	"cx-sx-section-selector-view-article-button-label": "Ikusi artikulua $1-en",
+	"cx-sx-section-selector-empty-missing-sections-title": "Ez da atalik aurkitu zuk itzultzeko",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Saiatu beste orri batekin edo hizkuntza ezberdinekin",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Hautatu beste orri bat",
+	"cx-sx-section-selector-automatic-section-matching-title": "Atalen bateratze automatikoa",
+	"cx-sx-section-selector-automatic-section-matching-description": "Atalak automatikoki identifikatzen dira eta emaitzak ez dira beti zehatzak.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Gehiago ikasi",
+	"cx-sx-section-selector-unsupported-sections-title": "Itzuli ezin diren atalak",
+	"cx-sx-section-selector-unsupported-sections-description": "Baliteke atal batzuk ez agertzea zerrendan edukia ez delako oraindik bateragarria."
 }
