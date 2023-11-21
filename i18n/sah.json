@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dušan Kreheľ",
 			"HalanTul",
 			"София",
 			"Туллук"
@@ -10,7 +11,7 @@
 	"cx-dashboard-header": "Тылбаас",
 	"cx-javascript": "Бу тэрил JavaScript баар буоллаҕына үлэлиир. JavaScript арахсыбыт, үлэлээбэт биитэр бу браузер өйөммөт эбит.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — бу эн тылгар түргэнник тылбаастыырга аналлаах тэрил [$1 Билигин туһанан көр!]",
-	"cx-license-agreement": "Салҕаатаххына [https://foundation.wikimedia.org/wiki/Terms_of_Use Туһаныы усулуобуйатын] кытта уонна суруйбуккун туох да хос усулуобуйата суох [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] уонна [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] лиссиэнсийэлэринэн бэчээттииргэ сөбүлэһэҕин.",
+	"cx-license-agreement": "Салҕаатаххына [https://foundation.wikimedia.org/wiki/Terms_of_Use Туһаныы усулуобуйатын] кытта уонна суруйбуккун туох да хос усулуобуйата суох [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] уонна [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] лиссиэнсийэлэринэн бэчээттииргэ сөбүлэһэҕин.",
 	"cx-error-server-connection": "Алҕас: Сиэрбэри кытта ситиминэһэр сатаммата.",
 	"cx-desc": "Сирэйдэри судургутук [[Special:ContentTranslation|тылбаастыырга]] көмөлөһөр",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|тылбаастаммыт}}",

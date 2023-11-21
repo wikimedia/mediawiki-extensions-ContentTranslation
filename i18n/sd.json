@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aursani",
+			"Dušan Kreheľ",
 			"Indus Asia",
 			"JogiAsad",
 			"Kaleem Bhatti",
@@ -13,7 +14,7 @@
 	"cx-dashboard-header": "ترجما",
 	"cx-javascript": "ھي اوزار جاوا اسڪرپٽ کانسواءِ ڪم نٿو ڪري. جاوا اسڪرپٽ ناقابلِڪار ٿيل، ڪم ڪرڻ ۾ ناڪام، يا ھي جھانگو اڻسپورٽڊ آھي.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|مواد جو ترجمو]] پنھنجي ٻوليءِ ۾ تڪڙا صفحا ترجمو ڪرڻ لاءِ ھڪ اوزار آھي. [$1 انکي ھاڻي ئي آزمايو!]",
-	"cx-license-agreement": "جاري رکڻ سان توھان [https://foundation.wikimedia.org/wiki/Terms_of_Use استعمال جي شرطن] سان راضي آھيو ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون [https://creativecommons.org/licenses/by-sa/3.0/ سيسي بي.واءِ-ايس.اي 3.0 اجازتنامي] ۽ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License جي.ايفڊي.ايل] ھيٺ جاري ڪرڻ لاءِ راضي آھيو.",
+	"cx-license-agreement": "جاري رکڻ سان توھان [https://foundation.wikimedia.org/wiki/Terms_of_Use استعمال جي شرطن] سان راضي آھيو ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون [https://creativecommons.org/licenses/by-sa/4.0/ سيسي بي.واءِ-ايس.اي 4.0 اجازتنامي] ۽ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License جي.ايفڊي.ايل1.3] ھيٺ جاري ڪرڻ لاءِ راضي آھيو.",
 	"cx-error-server-connection": "خرابي:سرور سان ڳنڍي نہ سگھيو.",
 	"cx-desc": "موادي صفحا [[Special:ContentTranslation|ترجمو]] ڪرڻ لاءِ آسان بڻايو",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ترجموٿيل}}",
