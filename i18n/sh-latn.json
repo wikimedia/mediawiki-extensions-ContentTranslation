@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Prevođenje stranice",
 	"cx-dashboard-header": "Prijevodi",
 	"cx-javascript": "Ovaj alat ne radi bez JavaScripta. JavaScript je onemogućen, ne radi ili nije podržan u ovom pregledniku.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Prevoditelj sadržaja]] je alat za brzi prijevod stranice na vaš jezik. [$1 Probajte ga upravo sada!]",
-	"cx-license-agreement": "Nastavljanjem, pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uslove korišćenja] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Nastavljanjem, pristajete na [https://foundation.wikimedia.org/wiki/Terms_of_Use Uslove korišćenja] i neopozivo prihvaćate objavu doprinosa pod licencijama [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 License] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Greška: Nisam mogao povezati se sa serverom.",
 	"cx-desc": "Omogućava jednostavno [[Special:ContentTranslation|prevođenje]] sadržajnih stranica",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

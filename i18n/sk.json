@@ -9,14 +9,15 @@
 			"TomášPolonec",
 			"Urbanecm",
 			"Vegetator",
-			"Vlad5250"
+			"Vlad5250",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Preložiť stránku",
 	"cx-dashboard-header": "Preklady",
 	"cx-javascript": "Tento nástroj nefunguje bez JavaScriptu. JavaScript je vypnutý alebo zlyhal alebo prehliadač nie je podporovaný.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] je nástroj na rýchle prekladanie článkov do Vášho jazyka. [$1 Vyskúšajte si ho hneď!]",
-	"cx-license-agreement": "Pokračovaním súhlasíte s [https://foundation.wikimedia.org/wiki/Terms_of_Use Podmienkami použitia] a neodvolateľne súhlasíte s uvoľnením vašich príspevkov pod [https://creativecommons.org/licenses/by-sa/3.0/ licenciou CC BY-SA 3.0] a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Pokračovaním súhlasíte s [https://foundation.wikimedia.org/wiki/Terms_of_Use Podmienkami použitia] a neodvolateľne súhlasíte s uvoľnením vašich príspevkov pod licenciami [https://creativecommons.org/licenses/by-sa/4.0/ licenciou CC BY-SA 4.0] a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Chyba: nepodarilo sa pripojiť k serveru.",
 	"cx-desc": "Zjednodušuje [[Special:ContentTranslation|preklad]] obsahu stránok",
 	"cx-header-progressbar-text": "$1 % {{PLURAL:$1|preložené}}",

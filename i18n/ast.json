@@ -89,7 +89,7 @@
 	"cx-favorite-removed": "Desaniciáu de la llista de favoritos",
 	"cx-page-missing-in-target-language": "Falta en $1",
 	"cx-page-number-of-languages": "Númberu de llingües",
-	"cx-mt-abuse-error-title": "La traducción {{PLURAL:$1|contien}} un $1% de testu que nun se cambió",
+	"cx-mt-abuse-error-title": "La traducción {{PLURAL:$1|contién}} un $1% de testu que nun se cambió",
 	"cx-mt-abuse-error-sections": "La traducción contién importantes cantidaes de testu ensin cambiar",
 	"cx-mt-abuse-error-text": "La traducción automática úfrese sólo como puntu de partida.Asegúrate de que'l conteníu ye precisu y que se llea de mou natural na to llingua.\n\nLa to traducción nun puede espublizase ensin más ediciones.",
 	"cx-mt-abuse-warning-title": "Parte de la traducción {{PLURAL:$1|contién}} un $1% de testu que nun se cambió",

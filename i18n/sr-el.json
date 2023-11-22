@@ -9,14 +9,15 @@
 			"Srđan",
 			"Zoranzoki21",
 			"Петар Петковић",
-			"Сербијана"
+			"Сербијана",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Prevodilac sadržine",
 	"cx-dashboard-header": "Prevodi",
 	"cx-javascript": "Alatka ne radi bez javaskripta. On je onemogućen, ne funkcioniše ili ovaj pregledač nije podržan.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Prevodilac sadržine]] je alatka za brzo prevođenje stranica na vaš jezik. [$1 Isprobajte je.]",
-	"cx-license-agreement": "Nastavljanjem prihvatate [https://foundation.wikimedia.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo se slažete da objavite svoj doprinos pod licencama [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Nastavljanjem prihvatate [https://foundation.wikimedia.org/wiki/Terms_of_Use uslove korišćenja] i neopozivo se slažete da objavite svoj doprinos pod licencama [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] i [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Greška: Ne mogu da se povežem sa serverom.",
 	"cx-desc": "Olakšava [[Special:ContentTranslation|prevođenje]] stranica",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prevedeno}}",

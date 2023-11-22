@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"H78c67c"
 		]
 	},
 	"cx": "翻譯頁",
@@ -30,6 +31,7 @@
 	"cx-campaign-newbytranslation-search": "搵過第版嚟翻譯",
 	"cx-campaign-newbytranslation-start": "開始翻譯",
 	"cx-special-login-error": "你一定要簽到先可以翻譯呢版。 [$1 簽到]",
+	"cx-tools-instructions-text3": "確保譯文自然流暢",
 	"cx-tools-instructions-text5": "發佈翻譯",
 	"cx-tools-instructions-text6": "當{{GENDER:|你}}滿意個結果嘅時候，請撳「{{int:cx-publish-button}}」。",
 	"cx-tools-view-guidelines": "睇翻譯指引",

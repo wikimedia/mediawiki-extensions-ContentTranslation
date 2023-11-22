@@ -13,14 +13,15 @@
 			"Prame Tan",
 			"Taweetham",
 			"Thas Tayapongsak",
-			"กิ๊ฟ เลิกล่ะ สายแข็ง"
+			"กิ๊ฟ เลิกล่ะ สายแข็ง",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "แปลหน้า",
 	"cx-dashboard-header": "คำแปล",
 	"cx-javascript": "เครื่องมือนี้ทำงานไม่ได้หากไม่มีจาวาสคริปต์ อาจเป็นเพราะปิดใช้งานจาวาสคริปต์ สคริปต์ไม่ทำงาน หรือเบราว์เซอร์นี้นี้ไม่รองรับ",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|การแปลเนื้อหา]]เป็นเครื่องมือสำหรับแปลหน้าต่าง ๆ เป็นภาษาของคุณได้อย่างรวดเร็ว [$1 ลองใช้เดี๋ยวนี้!]",
-	"cx-license-agreement": "เมื่อคุณดำเนินการต่อถือว่าคุณยอมรับ[https://foundation.wikimedia.org/wiki/Terms_of_Use ข้อกำหนดการใช้งาน] และคุณตกลงเผยแพร่งานของคุณด้วยเครื่องมือการแปลภายใต้สัญญาอนุญาต [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] และ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL]",
+	"cx-license-agreement": "เมื่อคุณดำเนินการต่อถือว่าคุณยอมรับ[https://foundation.wikimedia.org/wiki/Terms_of_Use ข้อกำหนดการใช้งาน] และคุณตกลงเผยแพร่งานของคุณด้วยเครื่องมือการแปลภายใต้สัญญาอนุญาต [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] และ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3]",
 	"cx-error-server-connection": "ข้อผิดพลาด: ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์",
 	"cx-desc": "ทำให้การ[[Special:ContentTranslation|แปล]]เนื้อหาของหน้าง่ายขึ้น",
 	"cx-header-progressbar-text": "แปลแล้ว $1%",

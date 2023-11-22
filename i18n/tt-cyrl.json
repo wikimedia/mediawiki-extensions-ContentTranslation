@@ -5,11 +5,12 @@
 			"Run Li",
 			"Ерней",
 			"З. ӘЙЛЕ",
-			"Ильнар"
+			"Ильнар",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx-dashboard-header": "Тәрҗемәләр",
-	"cx-license-agreement": "Cез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегез [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL  лицензияләре] тарафыннан таратылуы белән килешәсез.",
+	"cx-license-agreement": "Cез бирелгән [https://foundation.wikimedia.org/wiki/Terms_of_Use Куллану шартлары] белән килешүегезне һәм берсүзсез барлык кертелгән кертемегез [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0] һәм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3  лицензияләре] тарафыннан таратылуы белән килешәсез.",
 	"cx-publish-button": "Саклау",
 	"cx-publish-summary": "«$1» битен тәрҗемә итеп ясалган",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|эчтәлек тәрҗемә итү]]",
