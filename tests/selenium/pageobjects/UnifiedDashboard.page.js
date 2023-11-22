@@ -2,6 +2,7 @@
 
 const Page = require( 'wdio-mediawiki/Page' );
 const SelectionHelper = require( '../utils/SelectionHelper' );
+const BrowserHelper = require( '../utils/BrowserHelper' );
 const ElementAction = require( '../utils/ElementAction' );
 const { Element: WebdriverIOElementType } = require( 'webdriverio' );
 
@@ -70,15 +71,30 @@ class UnifiedDashboardPage extends Page {
 	async favoriteArticle( suggestionIndex ) {
 		const suggestionToSave = await this.getArticleSuggestionByIndex( suggestionIndex );
 		const suggestionTitle = await this.getSuggestionSourceTitle( suggestionToSave );
-		await ElementAction.doClick( this.getFavoriteIconInSuggestion( suggestionToSave ) );
-
+		const favoriteIcon = await this.getFavoriteIconInSuggestion( suggestionToSave );
+		browser.setupInterceptor();
+		await ElementAction.doClick( favoriteIcon );
+		await BrowserHelper.findAndWaitForActionApiRequest( [
+			{ key: 'action', value: 'cxsuggestionlist' },
+			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
+			{ key: 'listaction', value: 'add' }
+		] );
+		browser.disableInterceptor();
 		await this.favoriteSuggestions.waitForDisplayed( { timeout: 2000 } );
+
 		return suggestionTitle;
 	}
 
 	async unFavoriteArticle( suggestion ) {
-		await ElementAction.doClick( this.getFavoriteIconInSuggestion( suggestion ) );
-		await this.favoriteSuggestions.waitForExist( { timeout: 4000, reverse: true } );
+		const favoriteIcon = await this.getFavoriteIconInSuggestion( suggestion );
+		browser.setupInterceptor();
+		await ElementAction.doClick( favoriteIcon );
+		await BrowserHelper.findAndWaitForActionApiRequest( [
+			{ key: 'action', value: 'cxsuggestionlist' },
+			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
+			{ key: 'listaction', value: 'remove' }
+		] );
+		browser.disableInterceptor();
 	}
 
 }
