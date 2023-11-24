@@ -421,7 +421,9 @@ export default class SubSection {
     const mtProvider = this.mtProviderUsed;
     const subSectionNode = this.node.cloneNode(true);
 
-    if (MTProviderGroup.isUserMTProvider(mtProvider)) {
+    // no content can exist for the "mt" corpora translation unit,
+    // without a non-empty provider that is NOT of "user" type
+    if (!mtProvider || MTProviderGroup.isUserMTProvider(mtProvider)) {
       return null;
     }
 
