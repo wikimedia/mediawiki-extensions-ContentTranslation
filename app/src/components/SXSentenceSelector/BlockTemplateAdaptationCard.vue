@@ -266,7 +266,7 @@ export default {
 .block-template-adaptation-card {
   &__body {
     &--success {
-      background-color: @background-color-progressive;
+      background-color: @background-color-progressive-subtle;
     }
     &--warning,
     &--failure {
