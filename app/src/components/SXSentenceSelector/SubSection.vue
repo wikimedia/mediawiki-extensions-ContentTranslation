@@ -109,7 +109,7 @@ export default {
     }
     &--selected {
       &.sx-sentence-selector__section-sentence--translated {
-        .highlight(@background-color-progressive);
+        .highlight(@background-color-progressive-subtle);
       }
       &.sx-sentence-selector__section-sentence--untranslated {
         .highlight(@background-color-warning-subtle);
