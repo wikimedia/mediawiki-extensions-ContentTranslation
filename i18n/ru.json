@@ -333,7 +333,7 @@
 	"cx-publish-destination-namespace-main-description": "В основном пространстве имён для чтения всеми",
 	"cx-publish-destination-namespace-main-exists": "Заменить существующую страницу",
 	"cx-publish-destination-namespace-user": "Личный черновик",
-	"cx-publish-destination-namespace-user-description": "В вашем пространстве имени участника_цы для дальнейших улучшений вами",
+	"cx-publish-destination-namespace-user-description": "В вашем личном пространстве для дальнейших улучшений вами",
 	"cx-publish-destination-namespace-draft": "Общественный черновик",
 	"cx-linkcontextitem-missing-link-title": "Отсутствующая ссылка",
 	"cx-linkcontextitem-missing-title-description": "Этой страницы ещё не существует",

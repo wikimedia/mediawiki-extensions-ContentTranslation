@@ -6,6 +6,7 @@
 		]
 	},
 	"cx-publish-page-success": "الصفحة تنشرات ف $1",
+	"cx-publish-summary": "تصاوبات ب الطرجامة د الصفحة \"$1\"",
 	"cx-tools-mt-dont-use": "بدا ب فقرة خاوية",
 	"cx-page-selector-widget-nearby-label": "قريب من هنا",
 	"cx-page-missing-in-target-language": "ناقص ف $1",
@@ -15,6 +16,7 @@
 	"cx-save-draft-save-success": "تصوڤات {{PLURAL:$1|هادي دقيقة|هادي $1 دقيقة|0=يالله دابا}}",
 	"cx-translation-label-draft": "الطرجامات لي غاديين",
 	"cx-stats-draft-translations-label": "الطرجامات لي غاديين",
+	"cx-infobar-old-version": "هاد الطرجامة مبازية على ڤيرسيون قديمة ديال لمحتوى. الصفحة السورس تقدر تكون تبدّلات بزاف، و تقدر تبغي تعاود الطرجامة من اللول.",
 	"cx-tools-linter-reference-message": "واحد لمرجيع ماتدارش ليه الطرونصفير ل الطرجامة حيت مخدّم موضيل عندو قلدة مختالفة.\n\nعافاك بدّل التفاصيل د لمرجيع ف الطرجامة باش تعمّر لمعلومات لي ناقصين.",
 	"cx-translator-header": "إحصائيات ديالك",
 	"cx-translator-month-stats-label": "هاد الشهر",
