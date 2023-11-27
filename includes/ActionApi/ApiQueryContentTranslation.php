@@ -212,7 +212,8 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 			$this->getUser(),
 			$sourceTitle,
 			$sourceLanguage,
-			$targetLanguage
+			$targetLanguage,
+			TranslationStore::TRANSLATION_STATUS_DRAFT
 		);
 
 		if ( $translation instanceof Translation ) {

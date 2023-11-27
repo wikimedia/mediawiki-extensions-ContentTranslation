@@ -58,27 +58,34 @@ class TranslationStore {
 	 * @param string $sourceTitle
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
+	 * @param string|null $status possible status values: "published"|"draft"|"deleted"
 	 * @return Translation|null
 	 */
 	public function findTranslationByUser(
 		UserIdentity $user,
 		string $sourceTitle,
 		string $sourceLanguage,
-		string $targetLanguage
+		string $targetLanguage,
+		string $status = null
 	): ?Translation {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$globalUserId = $this->userService->getGlobalUserId( $user );
 
+		$conditions = [
+			'translation_source_language' => $sourceLanguage,
+			'translation_target_language' => $targetLanguage,
+			'translation_source_title' => $sourceTitle,
+			'translation_started_by' => $globalUserId,
+			'translation_last_update_by' => $globalUserId,
+		];
+
+		if ( $status ) {
+			$conditions['translation_status'] = $status;
+		}
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
 			->from( self::TRANSLATION_TABLE_NAME )
-			->where( [
-				'translation_source_language' => $sourceLanguage,
-				'translation_target_language' => $targetLanguage,
-				'translation_source_title' => $sourceTitle,
-				'translation_started_by' => $globalUserId,
-				'translation_last_update_by' => $globalUserId,
-			] )
+			->where( $conditions )
 			->caller( __METHOD__ )
 			->fetchRow();
 
