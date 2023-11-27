@@ -71,7 +71,7 @@
 	"cx-tools-mt-set-default": "Besyxan ogətej",
 	"cx-tools-mt-noservices": "Bo vyžnijə zyvonon xydməton dastrəs nin. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Buci?]]",
 	"cx-tools-mt-preferred": "besyxan",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorijə|$1 kategorijon|0=kategorijon nin}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorijə|$1 kategorijon|0=kategoriyon nin}}",
 	"cx-stats-title": "Məzmuni pegordynije statistika («Content Translation»)",
 	"cx-warning-unsaved-translation": "Šyməku ogətə nybyə pegordynon hestin.",
 	"cx-error-page-not-found": "Səhifə «$1» Vikipedijədə pəjdo nybe $2",
@@ -474,5 +474,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Mobil diləgədə šymə bəzynejon iglə ǧysmədə ko karde. Žygo bešedə ki, hələ iglə əsosə ǧysm ko bəkarde.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Končon əmandə ǧysmon?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Həjəčon məbən. Əmandə ǧysmon gin nybəben. Əvon dastrəs bəben kejnə šymə ysətnə pegordyni ebədaštejon bənə nujə məǧolə. Edašte bəpeštə šymə pəjdo bəkardejon nujə oryxnijə nybyə pegordynon de har ǧysmi məzmuni.",
-	"sx-confirm-draft-translation-start-button-label": "Cok"
+	"sx-confirm-draft-translation-start-button-label": "Cok",
+	"sx-published-translation-new-translation-button-label": "Tožə pegordyn"
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Joachim Yirkang"
+			"Joachim Yirkang",
+			"Linus Konkor"
 		]
 	},
 	"cx": "Leɛre gampɛle",
@@ -473,5 +474,5 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "A ziiri mine bɛ?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Tɔɔ dɔɔnɔ. Anaŋ na kyɛ ba bɔre. A naŋ wa la ka Aatikle naŋ fo na leɛ paaloŋ. Ka fooŋ eŋ baare fo baŋ nyɛ bompaanee  ana kyoge a leɛroo Zie gɛrɛ.",
 	"sx-confirm-draft-translation-start-button-label": "Tɔɔ",
-	"sx-published-translation-new-translation-button-label": "Paaloŋ leɛroo"
+	"sx-published-translation-new-translation-button-label": "leɛre paalaa"
 }
