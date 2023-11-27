@@ -368,7 +368,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		string $targetTitle,
 		string $targetLanguage
 	): void {
-		$translation->translation['status'] = 'published';
+		$translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
 		$translation->translation['targetURL'] = $this->createTargetUrl(
 			$user,
 			$targetTitle,

@@ -271,7 +271,7 @@ class ApiContentTranslationPublish extends ApiBase {
 				'result' => 'success',
 			];
 
-			$this->translation->translation['status'] = 'published';
+			$this->translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
 			$this->translation->translation['targetURL'] = $targetURL;
 
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {

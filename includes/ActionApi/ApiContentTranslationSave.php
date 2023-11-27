@@ -166,7 +166,7 @@ class ApiContentTranslationSave extends ApiBase {
 		// Update updateable fields
 		$data['targetTitle'] = $params['title'];
 		$data['sourceRevisionId'] = $params['sourcerevision'];
-		$data['status'] = 'draft';
+		$data['status'] = TranslationStore::TRANSLATION_STATUS_DRAFT;
 		$data['progress'] = $params['progress'];
 		$data['cxVersion'] = $params['cxversion'] ?? $this->getConfig()->get( 'ContentTranslationVersion' );
 

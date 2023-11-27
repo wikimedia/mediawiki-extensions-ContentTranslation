@@ -15,6 +15,8 @@ class TranslationStore {
 	public const TRANSLATOR_TABLE_NAME = 'cx_translators';
 
 	public const TRANSLATION_STATUS_DRAFT = 'draft';
+	public const TRANSLATION_STATUS_PUBLISHED = 'published';
+	public const TRANSLATION_STATUS_DELETED = 'deleted';
 
 	private LoadBalancer $lb;
 	private UserService $userService;
@@ -39,7 +41,7 @@ class TranslationStore {
 
 		$dbw->update(
 			self::TRANSLATION_TABLE_NAME,
-			[ 'translation_status' => 'deleted' ],
+			[ 'translation_status' => self::TRANSLATION_STATUS_DELETED ],
 			[ 'translation_id' => $translationId ],
 			__METHOD__
 		);
@@ -123,7 +125,7 @@ class TranslationStore {
 
 		$isPublishedCondition = $dbr->makeList(
 			[
-				'translation_status' => 'published',
+				'translation_status' => self::TRANSLATION_STATUS_PUBLISHED,
 				'translation_target_url IS NOT NULL',
 			],
 			LIST_OR
@@ -318,7 +320,7 @@ class TranslationStore {
 			'translation_cx_version' => $translation->translation['cxVersion'],
 		];
 
-		if ( $translation->translation['status'] === 'published' ) {
+		if ( $translation->translation['status'] === self::TRANSLATION_STATUS_PUBLISHED ) {
 			$row['translation_target_url'] = $translation->translation['targetURL'];
 			$row['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
 		}
@@ -346,7 +348,7 @@ class TranslationStore {
 			'translation_cx_version' => $translation->translation['cxVersion'],
 		];
 
-		if ( $translation->translation['status'] === 'published' ) {
+		if ( $translation->translation['status'] === self::TRANSLATION_STATUS_PUBLISHED ) {
 			$set['translation_target_url'] = $translation->translation['targetURL'];
 			$set['translation_target_revision_id'] = $translation->translation['targetRevisionId'];
 		}
@@ -385,7 +387,7 @@ class TranslationStore {
 			$this->insertTranslation( $translation, $user );
 		} else {
 			$options = [];
-			if ( $existingTranslation->translation['status'] === 'deleted' ) {
+			if ( $existingTranslation->translation['status'] === self::TRANSLATION_STATUS_DELETED ) {
 				// Existing translation is deleted, so this is a fresh start of same
 				// language pair and source title.
 				$options['freshTranslation'] = true;

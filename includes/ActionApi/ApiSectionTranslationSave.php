@@ -160,7 +160,7 @@ class ApiSectionTranslationSave extends ApiBase {
 			'targetLanguage' => $targetLanguage,
 			'sourceRevisionId' => $sourceRevision,
 			'sourceURL' => SiteMapper::getPageURL( $sourceLanguage, $sourceTitle ),
-			'status' => 'draft',
+			'status' => TranslationStore::TRANSLATION_STATUS_DRAFT,
 			'progress' => json_encode( [ "any" => null, "mt" => null, "human" => null ] ),
 			'cxVersion' => 3,
 		];
