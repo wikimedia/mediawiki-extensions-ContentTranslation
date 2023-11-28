@@ -1,7 +1,7 @@
 <?php
 declare( strict_types = 1 );
 
-namespace ContentTranslation;
+namespace ContentTranslation\Service;
 
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;

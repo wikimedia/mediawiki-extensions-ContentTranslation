@@ -3,11 +3,11 @@
 declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
-use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
+use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;

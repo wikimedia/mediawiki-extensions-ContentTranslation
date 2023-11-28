@@ -4,11 +4,11 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\Tests;
 
-use ContentTranslation\EditedSectionFinder;
+use ContentTranslation\Service\EditedSectionFinder;
 use TextContent;
 
 /**
- * @covers \ContentTranslation\EditedSectionFinder
+ * @covers \ContentTranslation\Service\EditedSectionFinder
  * @group ContentTranslation
  */
 class EditedSectionFinderTest extends \MediaWikiIntegrationTestCase {

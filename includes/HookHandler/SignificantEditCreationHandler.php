@@ -4,8 +4,8 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\HookHandler;
 
-use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\Entity\RecentSignificantEdit;
+use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
