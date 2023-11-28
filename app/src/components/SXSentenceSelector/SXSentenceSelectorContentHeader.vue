@@ -106,15 +106,13 @@ export default {
       color: @color-base;
       // TODO: `@background-color-warning-subtle` is not the right token here.
       background-color: #fef6e7;
-      box-shadow: @padding 0 0 #fef6e7,
-        -@padding 0 0 #fef6e7;
+      box-shadow: @padding 0 0 #fef6e7, -@padding 0 0 #fef6e7;
     }
     &--translated {
       box-decoration-break: clone;
       color: @color-base;
-      background-color: @background-color-progressive;
-      box-shadow: @padding 0 0 @box-shadow-color-progressive-selected,
-        -@padding 0 0 @box-shadow-color-progressive-selected;
+      background-color: @background-color-progressive-subtle;
+      box-shadow: @padding 0 0 #eaf3ff, -@padding 0 0 #eaf3ff;
     }
   }
 }
