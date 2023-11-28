@@ -1,17 +1,15 @@
 <?php
+declare( strict_types = 1 );
 
-namespace ContentTranslation;
+namespace ContentTranslation\Service;
 
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
 use User;
 
 class SandboxTitleMaker {
-	/** @var bool */
-	private $isSandboxLinkLoaded;
-
-	/** @var TitleFactory */
-	private $titleFactory;
+	private TitleFactory $titleFactory;
+	private bool $isSandboxLinkLoaded;
 
 	public function __construct( TitleFactory $titleFactory, bool $isSandboxLinkLoaded ) {
 		$this->titleFactory = $titleFactory;

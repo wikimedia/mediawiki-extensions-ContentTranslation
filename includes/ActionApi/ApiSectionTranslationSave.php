@@ -12,7 +12,7 @@ use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\Manager\TranslationCorporaManager;
-use ContentTranslation\SandboxTitleMaker;
+use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;

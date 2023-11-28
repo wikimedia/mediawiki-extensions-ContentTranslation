@@ -8,7 +8,7 @@ use ContentTranslation\LoadBalancer;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
-use ContentTranslation\SandboxTitleMaker;
+use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;

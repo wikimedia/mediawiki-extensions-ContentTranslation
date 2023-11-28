@@ -17,7 +17,7 @@ use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
-use ContentTranslation\SandboxTitleMaker;
+use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\SiteMapper;
