@@ -6,9 +6,9 @@ namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\EditedSectionFinder;
 use ContentTranslation\Entity\RecentSignificantEdit;
+use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
-use ContentTranslation\WikidataIdFetcher;
 use DeferredUpdates;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Revision\RevisionRecord;

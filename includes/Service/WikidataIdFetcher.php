@@ -1,17 +1,15 @@
 <?php
+declare( strict_types = 1 );
 
-namespace ContentTranslation;
+namespace ContentTranslation\Service;
 
+use ContentTranslation\SiteMapper;
 use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
 
 class WikidataIdFetcher {
-	/** @var HttpRequestFactory */
-	private $httpRequestFactory;
+	private HttpRequestFactory $httpRequestFactory;
 
-	/**
-	 * @param HttpRequestFactory $httpRequestFactory
-	 */
 	public function __construct( HttpRequestFactory $httpRequestFactory ) {
 		$this->httpRequestFactory = $httpRequestFactory;
 	}

@@ -4,9 +4,9 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\HookHandler;
 
+use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
-use ContentTranslation\WikidataIdFetcher;
 use ExtensionRegistry;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
