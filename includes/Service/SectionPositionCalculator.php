@@ -1,9 +1,9 @@
 <?php
 declare( strict_types = 1 );
 
-namespace ContentTranslation;
+namespace ContentTranslation\Service;
 
-use ContentTranslation\Service\SectionTitleFetcher;
+use ContentTranslation\SiteMapper;
 use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Title\Title;

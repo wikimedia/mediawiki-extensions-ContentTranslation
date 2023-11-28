@@ -4,13 +4,13 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\Tests;
 
-use ContentTranslation\SectionPositionCalculator;
+use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Title\Title;
 
 /**
- * @covers \ContentTranslation\SectionPositionCalculator
+ * @covers \ContentTranslation\Service\SectionPositionCalculator
  * @group ContentTranslation
  */
 class SectionPositionCalculatorTest extends \MediaWikiIntegrationTestCase {

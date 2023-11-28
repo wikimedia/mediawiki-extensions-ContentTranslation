@@ -9,7 +9,7 @@ use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SandboxTitleMaker;
-use ContentTranslation\SectionPositionCalculator;
+use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Service\TranslatorService;
