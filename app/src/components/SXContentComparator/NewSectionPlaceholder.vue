@@ -48,7 +48,7 @@ export default {
 @import "@/styles/page.less";
 
 .sx-content-comparator__new-section-placeholder--present {
-  background-color: @background-color-progressive;
+  background-color: @background-color-progressive-subtle;
   color: @color-progressive--active;
   // To revert parent padding = 1rem
   margin-left: -1rem;
