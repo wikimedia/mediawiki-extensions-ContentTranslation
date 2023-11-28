@@ -225,6 +225,7 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage": "<span>$1%</span> editat per tu",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frase",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paràgraf",
+	"cx-sx-article-search-nearby-title": "A prop",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Manca, entre d'altres, en <span>$1</span> i <span>$2</span>",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Manca, entre d'altres, en <span>$1</span>",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "Manca, entre d'altres, en <span>$1</span> i <span>$2</span>",
