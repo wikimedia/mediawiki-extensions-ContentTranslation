@@ -12,7 +12,7 @@
  */
 ve.ui.CXReferenceDialog = function VeUiCXReferenceDialog() {
 	// Parent constructor
-	ve.ui.CXReferenceDialog.parent.apply( this, arguments );
+	ve.ui.CXReferenceDialog.super.apply( this, arguments );
 };
 
 /* Inheritance */

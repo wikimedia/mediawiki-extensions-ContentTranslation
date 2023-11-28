@@ -87,7 +87,7 @@ mw.cx.CXSuggestionList.static.listCompare = function ( listA, listB ) {
 
 mw.cx.CXSuggestionList.prototype.init = function () {
 	// Parent method
-	mw.cx.CXSuggestionList.parent.prototype.init.call( this, {
+	mw.cx.CXSuggestionList.super.prototype.init.call( this, {
 		updateLocalStorage: true
 	} );
 
@@ -271,7 +271,7 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 
 mw.cx.CXSuggestionList.prototype.show = function () {
 	// Parent method
-	mw.cx.CXSuggestionList.parent.prototype.show.apply( this, arguments );
+	mw.cx.CXSuggestionList.super.prototype.show.apply( this, arguments );
 
 	if ( !Object.keys( this.lists ).length ) {
 		this.loadAllSuggestions();
@@ -767,7 +767,7 @@ mw.cx.CXSuggestionList.prototype.getListId = function ( listName ) {
  */
 mw.cx.CXSuggestionList.prototype.listen = function () {
 	// Parent method
-	mw.cx.CXSuggestionList.parent.prototype.listen.apply( this, arguments );
+	mw.cx.CXSuggestionList.super.prototype.listen.apply( this, arguments );
 
 	this.$listContainer.on( 'click', '.cx-suggestionlist .cx-slitem', ( event ) => {
 		const $suggestionListItem = $( event.currentTarget );

@@ -91,7 +91,7 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 
 mw.cx.CXTranslationList.prototype.init = function () {
 	// Parent method
-	mw.cx.CXTranslationList.parent.prototype.init.call( this, {
+	mw.cx.CXTranslationList.super.prototype.init.call( this, {
 		canBeSame: true,
 		canBeUndefined: true
 	} );
@@ -209,7 +209,7 @@ mw.cx.CXTranslationList.prototype.getPageProps = function () {
 
 mw.cx.CXTranslationList.prototype.show = function () {
 	// Parent method
-	mw.cx.CXTranslationList.parent.prototype.show.apply( this, arguments );
+	mw.cx.CXTranslationList.super.prototype.show.apply( this, arguments );
 
 	if ( !this.translations.length ) {
 		this.loadItems();
@@ -400,7 +400,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 	var self = this;
 
 	// Parent method
-	mw.cx.CXTranslationList.parent.prototype.listen.apply( this, arguments );
+	mw.cx.CXTranslationList.super.prototype.listen.apply( this, arguments );
 
 	this.$listContainer.on( 'click', '.cx-discard-translation', function ( e ) {
 		var translation;

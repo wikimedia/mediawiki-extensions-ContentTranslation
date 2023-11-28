@@ -24,7 +24,7 @@
 		var languageIcon, languageLabel;
 
 		// Parent constructor
-		mw.cx.ui.TitleOptionWidget.parent.call( this, config );
+		mw.cx.ui.TitleOptionWidget.super.call( this, config );
 
 		this.$element.addClass( 'mw-cx-widget-titleOptionWidget' );
 		// TODO: Consider upstreaming this

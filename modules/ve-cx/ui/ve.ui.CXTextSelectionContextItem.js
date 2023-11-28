@@ -183,7 +183,7 @@ ve.ui.CXTextSelectionContextItem.prototype.onSurfaceModelSelect = function ( sel
  * @inheritdoc
  */
 ve.ui.CXTextSelectionContextItem.prototype.teardown = function () {
-	ve.ui.CXTextSelectionContextItem.parent.prototype.teardown.apply( this, arguments );
+	ve.ui.CXTextSelectionContextItem.super.prototype.teardown.apply( this, arguments );
 
 	// Disconnect all event listeners
 	this.surfaceModel.disconnect( this );

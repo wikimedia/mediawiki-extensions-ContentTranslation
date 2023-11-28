@@ -12,7 +12,7 @@
  */
 ve.ui.CXPublishSettingsDialog = function VeUiCXPublishSettingsDialog() {
 	// Parent constructor
-	ve.ui.CXPublishSettingsDialog.parent.apply( this, arguments );
+	ve.ui.CXPublishSettingsDialog.super.apply( this, arguments );
 
 	this.namespaceSelector = null;
 	this.initialNamespace = null;
@@ -62,7 +62,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getActionProcess = function ( action ) {
 	}
 
 	// Parent method
-	return ve.ui.CXPublishSettingsDialog.parent.prototype.getActionProcess.call( this, action );
+	return ve.ui.CXPublishSettingsDialog.super.prototype.getActionProcess.call( this, action );
 };
 
 /**
@@ -82,7 +82,7 @@ ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
 	var namespaceIds = mw.config.get( 'wgNamespaceIds' );
 
 	// Parent method
-	ve.ui.CXPublishSettingsDialog.parent.prototype.initialize.apply( this, arguments );
+	ve.ui.CXPublishSettingsDialog.super.prototype.initialize.apply( this, arguments );
 
 	var publishDestinationLabel = new OO.ui.LabelWidget( {
 		label: mw.msg( 'cx-publish-destination-header' ),
@@ -120,7 +120,7 @@ ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
  */
 ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
 	// Parent method
-	return ve.ui.CXPublishSettingsDialog.parent.prototype.getSetupProcess.call( this, data )
+	return ve.ui.CXPublishSettingsDialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			this.initialNamespace = ve.init.target.getPublishNamespace();
 			this.namespaceSelector.connect( this, { select: 'updateActions' } );
@@ -134,7 +134,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getSetupProcess = function ( data ) {
  */
 ve.ui.CXPublishSettingsDialog.prototype.getReadyProcess = function ( data ) {
 	// Parent method
-	return ve.ui.CXPublishSettingsDialog.parent.prototype.getReadyProcess.call( this, data )
+	return ve.ui.CXPublishSettingsDialog.super.prototype.getReadyProcess.call( this, data )
 		.next( function () {
 			if ( this.namespaceSelector.findSelectedItem() ) {
 				// Focus causes the first item to become selected
@@ -148,7 +148,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getReadyProcess = function ( data ) {
  */
 ve.ui.CXPublishSettingsDialog.prototype.getTeardownProcess = function ( data ) {
 	// Parent method
-	return ve.ui.CXPublishSettingsDialog.parent.prototype.getTeardownProcess.call( this, data )
+	return ve.ui.CXPublishSettingsDialog.super.prototype.getTeardownProcess.call( this, data )
 		.next( function () {
 			this.namespaceSelector.disconnect( this );
 			this.namespaceSelector.selectItem();

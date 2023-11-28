@@ -17,7 +17,7 @@ mw.cx.ui.LoginDialog = function () {
 	this.bindedListener = null;
 
 	// Parent constructor
-	mw.cx.ui.LoginDialog.parent.apply( this, arguments );
+	mw.cx.ui.LoginDialog.super.apply( this, arguments );
 };
 
 /* Inheritance */

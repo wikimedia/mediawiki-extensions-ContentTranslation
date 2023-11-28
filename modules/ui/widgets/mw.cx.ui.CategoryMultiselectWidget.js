@@ -57,7 +57,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.setHeaderLabel = function ( label )
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.setDisabled = function ( isDisabled ) {
 	// Parent method
-	mw.cx.ui.CategoryMultiselectWidget.parent.prototype.setDisabled.call( this, isDisabled );
+	mw.cx.ui.CategoryMultiselectWidget.super.prototype.setDisabled.call( this, isDisabled );
 
 	// When widget is (re)enabled, restore tag item's original disabled state
 	if ( !isDisabled && this.items ) {
