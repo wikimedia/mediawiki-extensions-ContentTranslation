@@ -15,7 +15,7 @@ const props = defineProps({
 defineEmits(["delete-translation"]);
 
 const colors = inject("colors");
-const progressBarBackgroundColor = colors.base80;
+const progressBarBackgroundColor = colors.gray200;
 const translationProgress = computed(
   () => props.translation.progress?.any * 100 || 0
 );

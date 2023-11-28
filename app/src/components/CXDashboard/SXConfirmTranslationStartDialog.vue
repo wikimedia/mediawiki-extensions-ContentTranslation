@@ -29,7 +29,7 @@ const startTranslation = () => {
     :value="modelValue"
     class="sx-confirm-back-navigation-dialog"
     :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.base10"
+    :overlay-color="$mwui.colors.gray700"
     min-height="unset"
     :title="$i18n('sx-confirm-draft-translation-start-dialog-title')"
     @close="closeDialog"

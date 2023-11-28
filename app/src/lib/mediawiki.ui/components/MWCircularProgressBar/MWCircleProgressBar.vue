@@ -46,11 +46,11 @@ export default {
     },
     activeColor: {
       type: String,
-      default: colors.primary,
+      default: colors.blue600,
     },
     inactiveColor: {
       type: String,
-      default: colors.base70,
+      default: colors.gray300,
     },
     strokeWidth: {
       type: Number,

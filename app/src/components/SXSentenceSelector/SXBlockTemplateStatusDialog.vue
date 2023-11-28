@@ -4,7 +4,7 @@
     class="sx-block-template-status-dialog"
     :title="$i18n('cx-sx-publisher-preview-options-title')"
     :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.base10"
+    :overlay-color="$mwui.colors.gray700"
     @input="$emit('update:active', $event)"
   >
     <template #header>
@@ -175,7 +175,7 @@ export default {
             targetLanguageAutonym.value
           ),
           icon: mwIconLink,
-          color: colors.base30,
+          color: colors.gray500,
         });
       } else if (!props.isTemplateAdapted) {
         notes.push({
@@ -184,7 +184,7 @@ export default {
             props.sourceParamsCount
           ),
           icon: mwIconClose,
-          color: colors.base30,
+          color: colors.gray500,
         });
       } else if (adaptationRatio.value < 100) {
         notes.push({
@@ -194,7 +194,7 @@ export default {
             props.sourceParamsCount
           ),
           icon: mwIconCheck,
-          color: colors.primary,
+          color: colors.blue600,
         });
       } else {
         let message;
@@ -213,7 +213,7 @@ export default {
         notes.push({
           text: message,
           icon: mwIconCheck,
-          color: colors.primary,
+          color: colors.blue600,
         });
       }
 
@@ -225,7 +225,7 @@ export default {
             targetLanguageAutonym.value
           ),
           icon: mwIconEdit,
-          color: colors.base30,
+          color: colors.gray500,
         });
       } else if (
         props.targetTemplateExists &&
@@ -239,7 +239,7 @@ export default {
             targetLanguageAutonym.value
           ),
           icon: mwIconAdd,
-          color: colors.base30,
+          color: colors.gray500,
         });
       }
 

@@ -3,7 +3,7 @@
     :value="modelValue"
     class="sx-confirm-back-navigation-dialog"
     :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.base10"
+    :overlay-color="$mwui.colors.gray700"
     :header="false"
     min-height="unset"
   >

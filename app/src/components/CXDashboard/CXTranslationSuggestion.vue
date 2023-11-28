@@ -149,7 +149,7 @@ export default {
 
     const colors = inject("colors");
     const bookmarkIconColor = computed(() =>
-      isFavoriteSuggestion.value ? colors.primary : "currentColor"
+      isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
     );
 
     return {

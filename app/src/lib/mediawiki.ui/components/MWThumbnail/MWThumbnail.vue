@@ -38,11 +38,11 @@ export default {
     },
     placeholderColor: {
       type: String,
-      default: colors.base20,
+      default: colors.gray600,
     },
     placeholderBackgroundColor: {
       type: String,
-      default: colors.base80,
+      default: colors.gray200,
     },
   },
   emits: ["click"],

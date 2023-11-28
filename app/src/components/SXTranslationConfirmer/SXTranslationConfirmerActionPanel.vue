@@ -22,7 +22,7 @@
             <mw-icon
               :icon="mwIconLinkExternal"
               size="16"
-              :icon-color="colors.base30"
+              :icon-color="colors.gray500"
             />
           </a>
         </mw-col>

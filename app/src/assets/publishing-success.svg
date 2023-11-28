@@ -1,4 +1,4 @@
-<svg width="136px" height="136px" viewBox="0 0 136 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="136" height="136" viewBox="0 0 136 136" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>publishing-success</title>
     <defs>
         <polygon id="path-1" points="29.5385666 61.8098361 10.7522184 42.6688525 4.4 49.1409836 29.5385666 74.8 83.6 19.7180328 77.2477816 13.2"></polygon>
@@ -7,12 +7,12 @@
         <g id="Group" fill="#D5FDF4">
             <circle id="Oval" cx="68" cy="68" r="68"></circle>
         </g>
-        <g id="🔣-Icon/Interactions/check" transform="translate(24.000000, 24.000000)">
+        <g id="check" transform="translate(24.000000, 24.000000)">
             <mask id="mask-2" fill="white">
                 <use xlink:href="#path-1"></use>
             </mask>
             <use id="Mask" fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
-            <g id="🎨-Color/Green50-#14866d" mask="url(#mask-2)" fill="#14866d" fill-rule="evenodd">
+            <g id="green500-#14866d" mask="url(#mask-2)" fill="#14866d" fill-rule="evenodd">
                 <rect id="Rectangle-1" x="0" y="0" width="88" height="88"></rect>
             </g>
         </g>

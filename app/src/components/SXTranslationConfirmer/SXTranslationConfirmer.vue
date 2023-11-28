@@ -24,7 +24,7 @@
         v-else
         size="120"
         :icon="mwIconArticle"
-        :icon-color="$mwui.colors.primary"
+        :icon-color="$mwui.colors.blue600"
       />
     </div>
     <sx-translation-confirmer-article-information />

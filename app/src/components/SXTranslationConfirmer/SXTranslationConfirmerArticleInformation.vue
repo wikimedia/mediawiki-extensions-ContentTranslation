@@ -19,7 +19,7 @@
           <mw-icon
             :icon="mwIconLinkExternal"
             size="10"
-            :icon-color="$mwui.colors.base30"
+            :icon-color="$mwui.colors.gray500"
           />
         </mw-col>
         <mw-col shrink align="start">

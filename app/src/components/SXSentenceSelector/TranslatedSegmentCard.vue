@@ -127,8 +127,8 @@ export default {
 
     const colors = inject("colors");
 
-    const progressBarBackgroundColor = colors.base80;
-    const errorColor = colors.red50;
+    const progressBarBackgroundColor = colors.gray200;
+    const errorColor = colors.red600;
 
     const translation = computed(() => {
       if (isSectionTitleSelected.value) {
@@ -156,9 +156,9 @@ export default {
     );
 
     const iconColors = computed(() => ({
-      failure: mtScore.value === 0 ? null : colors.yellow30,
-      warning: colors.yellow30,
-      success: colors.green30,
+      failure: mtScore.value === 0 ? null : colors.yellow700,
+      warning: colors.yellow700,
+      success: colors.green600,
     }));
 
     const userIconColor = computed(
