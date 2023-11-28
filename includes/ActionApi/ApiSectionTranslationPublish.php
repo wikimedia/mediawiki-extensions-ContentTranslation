@@ -20,7 +20,7 @@ use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\TranslationSplitter;
-use ContentTranslation\SiteMapper;
+use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
@@ -44,6 +44,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SectionTranslationStore $sectionTranslationStore;
 	private TranslationSplitter $translationSplitter;
 	private TranslationStore $translationStore;
+	private TranslationTargetUrlCreator $targetUrlCreator;
 
 	/**
 	 * @param ApiMain $main
@@ -57,6 +58,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param TranslationSplitter $translationSplitter
 	 * @param TranslationStore $translationStore
+	 * @param TranslationTargetUrlCreator $targetUrlCreator
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -69,7 +71,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		SandboxTitleMaker $sandboxTitleMaker,
 		SectionTranslationStore $sectionTranslationStore,
 		TranslationSplitter $translationSplitter,
-		TranslationStore $translationStore
+		TranslationStore $translationStore,
+		TranslationTargetUrlCreator $targetUrlCreator
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -81,6 +84,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->translationSplitter = $translationSplitter;
 		$this->translationStore = $translationStore;
+		$this->targetUrlCreator = $targetUrlCreator;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -369,32 +373,13 @@ class ApiSectionTranslationPublish extends ApiBase {
 		string $targetLanguage
 	): void {
 		$translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
-		$translation->translation['targetURL'] = $this->createTargetUrl(
+		$translation->translation['targetURL'] = $this->targetUrlCreator->createTargetUrl(
 			$user,
 			$targetTitle,
 			$targetLanguage
 		);
 		$translation->translation['targetRevisionId'] = $newRevId;
 		$this->translationStore->saveTranslation( $translation, $user );
-	}
-
-	/**
-	 * Given the target page title as a string and the target language of the translation,
-	 * this method returns a string containing the URL of the target page.
-	 *
-	 * @param User $user
-	 * @param string $targetTitleRaw
-	 * @param string $targetLanguage
-	 * @return string
-	 */
-	private function createTargetUrl( User $user, string $targetTitleRaw, string $targetLanguage ): string {
-		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
-		if ( $contentTranslationTranslateInTarget ) {
-			$targetPage = SiteMapper::getTargetTitle( $targetTitleRaw, $user->getName() );
-			return SiteMapper::getPageURL( $targetLanguage, $targetPage );
-		}
-		$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
-		return $targetTitle->getCanonicalURL();
 	}
 
 	public function getAllowedParams() {

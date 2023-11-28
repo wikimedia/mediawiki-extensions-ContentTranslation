@@ -24,6 +24,7 @@ use ChangeTags;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
+use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
@@ -48,6 +49,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	private IBufferingStatsdDataFactory $statsdDataFactory;
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
+	private TranslationTargetUrlCreator $targetUrlCreator;
 
 	public function __construct(
 		ApiMain $main,
@@ -56,7 +58,8 @@ class ApiContentTranslationPublish extends ApiBase {
 		LanguageFactory $languageFactory,
 		IBufferingStatsdDataFactory $statsdDataFactory,
 		LanguageNameUtils $languageNameUtils,
-		TranslationStore $translationStore
+		TranslationStore $translationStore,
+		TranslationTargetUrlCreator $targetUrlCreator
 	) {
 		parent::__construct( $main, $name );
 		$this->parsoidClientFactory = $parsoidClientFactory;
@@ -64,6 +67,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$this->statsdDataFactory = $statsdDataFactory;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
+		$this->targetUrlCreator = $targetUrlCreator;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -227,17 +231,6 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->dieWithError( 'apierror-cx-translationnotfound', 'translationnotfound' );
 		}
 
-		if ( $this->getConfig()->get( 'ContentTranslationTranslateInTarget' ) ) {
-			$targetPage = SiteMapper::getTargetTitle(
-				$params['title'],
-				$user->getName()
-			);
-
-			$targetURL = SiteMapper::getPageURL( $params['to'], $targetPage );
-		} else {
-			$targetURL = $targetTitle->getCanonicalURL();
-		}
-
 		$html = Deflate::inflate( $params['html'] );
 		if ( !$html->isGood() ) {
 			$this->dieWithError( 'deflate-invaliddeflate', 'invaliddeflate' );
@@ -272,7 +265,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			];
 
 			$this->translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
-			$this->translation->translation['targetURL'] = $targetURL;
+			$this->translation->translation['targetURL'] = $this->targetUrlCreator->createTargetUrl(
+				$user,
+				$params['title'],
+				$params['to']
+			);
 
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );

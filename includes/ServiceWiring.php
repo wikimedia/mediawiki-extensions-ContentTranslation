@@ -12,6 +12,7 @@ use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
 use ContentTranslation\Service\SectionTitleFetcher;
 use ContentTranslation\Service\TranslationSplitter;
+use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Service\TranslatorService;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Service\WikidataIdFetcher;
@@ -138,6 +139,13 @@ return [
 			return new TranslationStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
 				$services->getService( 'ContentTranslation.UserService' )
+			);
+		},
+	'ContentTranslation.TranslationTargetUrlCreator' =>
+		static function ( MediaWikiServices $services ): TranslationTargetUrlCreator {
+			return new TranslationTargetUrlCreator(
+				$services->getTitleFactory(),
+				new ServiceOptions( TranslationTargetUrlCreator::CONSTRUCTOR_OPTIONS, $services->getMainConfig() )
 			);
 		},
 	'ContentTranslation.TranslationUnitValidator' =>

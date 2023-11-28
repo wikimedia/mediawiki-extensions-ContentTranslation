@@ -153,7 +153,8 @@
 				"LanguageFactory",
 				"StatsdDataFactory",
 				"LanguageNameUtils",
-				"ContentTranslation.TranslationStore"
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.TranslationTargetUrlCreator"
 			]
 		},
 		"cxpublishsection": {
@@ -167,7 +168,8 @@
 				"ContentTranslation.SandboxTitleMaker",
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.TranslationSplitter",
-				"ContentTranslation.TranslationStore"
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.TranslationTargetUrlCreator"
 			]
 		},
 		"cxsave": {
