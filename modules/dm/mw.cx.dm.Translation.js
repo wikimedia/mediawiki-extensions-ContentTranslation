@@ -559,12 +559,10 @@ mw.cx.dm.Translation.prototype.setTargetURL = function ( targetURL ) {
 };
 
 /**
- * Get revision id
- *
- * @return {string} revision Id
+ * @return {string} target url
  */
-mw.cx.dm.Translation.prototype.getSourceRevisionId = function () {
-	return this.sourceRevisionId;
+mw.cx.dm.Translation.prototype.getTargetURL = function () {
+	return this.targetURL;
 };
 
 /**

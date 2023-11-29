@@ -210,6 +210,7 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 	const publishResult = response[ publishAction ];
 
 	if ( publishResult.result === 'success' ) {
+		this.translation.setTargetURL( publishResult.targeturl );
 		return this.publishComplete();
 	}
 
@@ -568,7 +569,7 @@ mw.cx.TargetArticle.prototype.getTargetTitle = function () {
 };
 
 mw.cx.TargetArticle.prototype.getTargetURL = function () {
-	return this.siteMapper.getPageUrl( this.targetLanguage, this.getTargetTitle() );
+	return this.translation.getTargetURL();
 };
 
 /**

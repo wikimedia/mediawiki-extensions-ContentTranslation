@@ -260,15 +260,14 @@ class ApiContentTranslationPublish extends ApiBase {
 				} );
 			}
 
+			$targetURL = $this->targetUrlCreator->createTargetUrl( $targetTitle->getPrefixedDBkey(), $params['to'] );
 			$result = [
 				'result' => 'success',
+				'targeturl' => $targetURL
 			];
 
 			$this->translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
-			$this->translation->translation['targetURL'] = $this->targetUrlCreator->createTargetUrl(
-				$targetTitle->getPrefixedDBkey(),
-				$params['to']
-			);
+			$this->translation->translation['targetURL'] = $targetURL;
 
 			if ( isset( $saveresult['edit']['newrevid'] ) ) {
 				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
