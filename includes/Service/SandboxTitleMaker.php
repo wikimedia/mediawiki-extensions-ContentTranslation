@@ -26,6 +26,7 @@ class SandboxTitleMaker {
 	 * @return Title|null
 	 */
 	public function makeSandboxTitle( User $user, string $targetTitle ): ?Title {
+		$targetTitle = $user->getName() . '/' . $targetTitle;
 		if ( $this->isSandboxLinkLoaded ) {
 			$subpageMsg = wfMessage( 'sandboxlink-subpage-name' )->inContentLanguage();
 			if ( !$subpageMsg->isDisabled() ) {
