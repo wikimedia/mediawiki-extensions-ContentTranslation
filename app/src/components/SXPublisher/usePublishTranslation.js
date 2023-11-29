@@ -1,28 +1,20 @@
-import { getUrl } from "@/utils/mediawikiHelper";
 import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed, ref, watch } from "vue";
 import AssertUserError from "@/utils/errors/assertUserError";
 
-const decodeHtml = (html) => {
-  const template = document.createElement("div");
-  template.innerHTML = html;
-
-  return template.innerText;
-};
-
 /**
  * @param {Store} store
  * @param {RefImpl<boolean>} isPublishDialogActive
  * @param {RefImpl<boolean>} isPublishingDisabled
- * @param {string|null} targetTitle the URL-encoded title of the target article
+ * @param {string|null} targetUrl
  * @return {Promise<void>}
  */
 const handlePublishResult = async (
   store,
   isPublishDialogActive,
   isPublishingDisabled,
-  targetTitle
+  targetUrl
 ) => {
   if (isPublishingDisabled.value) {
     isPublishDialogActive.value = false;
@@ -64,24 +56,16 @@ const handlePublishResult = async (
     }
   }
 
-  // for successful publishing, targetTitle is required to be a non-empty string
-  if (!targetTitle) {
-    const errorMessage =
-      "[CX] Target title is empty after successful publishing";
+  // for successful publishing, targetUrl is required to be a non-empty string
+  if (!targetUrl) {
+    const errorMessage = "[CX] Target URL is empty after successful publishing";
     mw.log.error(errorMessage);
     throw new Error(errorMessage);
   }
 
   // sx-published-section query param will trigger 'sx.publishing.followup'
   // module to be loaded inside target article's page, after redirection.
-  // Since targetTitle is URL encoded, we should decode it before using it
-  // as an argument for "mw.util.getUrl"
-  location.href = getUrl(decodeURIComponent(targetTitle), {
-    "sx-published-section": decodeHtml(currentSourceSection.value.title),
-    "sx-source-page-title": decodeHtml(currentSourcePage.value.title),
-    "sx-source-language": sourceLanguage.value,
-    "sx-target-language": targetLanguage.value,
-  });
+  location.href = targetUrl;
 };
 
 const usePublishTranslation = (store) => {
@@ -121,7 +105,7 @@ const usePublishTranslation = (store) => {
     let publishResponse;
 
     try {
-      /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetTitle: string|null}} */
+      /** @type {{publishFeedbackMessage: PublishFeedbackMessage|null, targetUrl: string|null}} */
       publishResponse = await store.dispatch("translator/publishTranslation", {
         captchaId: captchaDetails.value?.id,
         captchaAnswer,
@@ -136,7 +120,7 @@ const usePublishTranslation = (store) => {
       throw error;
     }
 
-    const { publishFeedbackMessage, targetTitle } = publishResponse;
+    const { publishFeedbackMessage, targetUrl } = publishResponse;
 
     // if the feedback message is of type "captcha", set the captcha details and open the captcha dialog
     if (!!publishFeedbackMessage && publishFeedbackMessage.type === "captcha") {
@@ -162,7 +146,7 @@ const usePublishTranslation = (store) => {
           store,
           isPublishDialogActive,
           isPublishingDisabled,
-          targetTitle
+          targetUrl
         ),
       1000
     );

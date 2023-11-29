@@ -33,6 +33,24 @@ class TranslationTargetUrlCreator {
 		$this->contentTranslationTranslateInTarget = $options->get( 'ContentTranslationTranslateInTarget' );
 	}
 
+	public function createUrlForSXRedirection(
+		string $targetTitle,
+		string $targetLanguage,
+		string $sourceLanguage,
+		string $sourceTitle,
+		string $targetSectionTitle
+	): string {
+		$url = $this->createTargetUrl( $targetTitle, $targetLanguage );
+		$params = [
+			"sx-source-page-title" => $sourceTitle,
+			"sx-published-section" => $targetSectionTitle,
+			"sx-source-language" => $sourceLanguage,
+			"sx-target-language" => $targetLanguage
+		];
+
+		return wfAppendQuery( $url, $params );
+	}
+
 	/**
 	 * Given the user, the target page title as a string and the target language of the translation,
 	 * this method returns a string containing the URL of the target page.

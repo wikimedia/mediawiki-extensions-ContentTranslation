@@ -31,7 +31,7 @@ const translatorModule = {
     publishTranslation: jest.fn(() =>
       Promise.resolve({
         publishFeedbackMessage: null,
-        targetTitle: "Test target title",
+        targetUrl: "Test target URL",
       })
     ),
   },

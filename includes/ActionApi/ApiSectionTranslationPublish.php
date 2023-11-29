@@ -235,10 +235,19 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
+			[ 'sourcelanguage' => $sourceLanguage, 'sourcetitle' => $sourceTitle ] = $params;
 			$result = [
 				'result' => 'success',
 				'edit' => $editResult,
-				'targettitle' => $targetTitle->getPrefixedURL()
+				// TODO: Remove when new CX build is created and target URL is properly handled by the UI
+				'targettitle' => $targetTitle->getPrefixedURL(),
+				'targeturl' => $this->targetUrlCreator->createUrlForSXRedirection(
+					$targetTitle->getPrefixedDBkey(),
+					$targetLanguage,
+					$sourceLanguage,
+					$sourceTitle,
+					$targetSectionTitle
+				)
 			];
 			// newrevid can be unset when publishing already present sections with the exact same
 			// contents as the current revision
@@ -247,7 +256,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$newRevId = intval( $editResult['newrevid'] );
 				$this->storeTags( $newRevId );
 
-				[ 'sourcelanguage' => $sourceLanguage, 'sourcetitle' => $sourceTitle ] = $params;
 				$translation = $this->translationStore->findTranslationByUser(
 					$user,
 					$sourceTitle,
