@@ -493,5 +493,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "På mobilen kan du bara arbeta med ett avsnitt åt gången. Därför kommer bara huvudavsnittet läsas in för närvarande.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Var finns de andra avsnitten?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Oroa dig inte. De återstående avsnitten går inte förlorade. De blir tillgängliga när du publicerar den aktuella översättningen som en ny artikel. Efter publiceringen hittar du nya pågående översättningar med innehållet för varje avsnitt.",
-	"sx-confirm-draft-translation-start-button-label": "OK"
+	"sx-confirm-draft-translation-start-button-label": "OK",
+	"sx-published-translation-new-translation-button-label": "Ny översättning"
 }
