@@ -24,7 +24,6 @@ mw.cx.SiteMapper = function ( overrides ) {
 	this.siteTemplates = siteMapperConfig.SiteTemplates;
 	this.codeMap = siteMapperConfig.DomainCodeMapping;
 	this.translateInTarget = siteMapperConfig.TranslateInTarget;
-	this.targetNamespace = siteMapperConfig.TargetNamespace;
 
 	this.languagePairsPromise = null;
 };
@@ -176,27 +175,6 @@ mw.cx.SiteMapper.prototype.getRestbaseUrl = function ( language, module, params 
 		}
 	}
 	return url + module;
-};
-
-/**
- * Get the target title to publish based on the wiki configuration.
- *
- * @param {string} title
- * @return {string} target title
- */
-mw.cx.SiteMapper.prototype.getTargetTitle = function ( title ) {
-	// If the title is already in the user namespace, just return it
-	if ( new mw.Title( title ).getNamespaceId() === 2 ) {
-		return title;
-	}
-
-	if ( this.targetNamespace === 0 ) {
-		return title;
-	} else if ( this.targetNamespace === 2 ) {
-		return `User:${mw.user.getName()}/${title}`;
-	} else {
-		return mw.Title.makeTitle( this.targetNamespace, title ).getPrefixedText();
-	}
 };
 
 /**

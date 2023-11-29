@@ -859,7 +859,6 @@
 					"config": {
 						"DomainCodeMapping": "ContentTranslationDomainCodeMapping",
 						"SiteTemplates": "ContentTranslationSiteTemplates",
-						"TargetNamespace": "ContentTranslationTargetNamespace",
 						"TranslateInTarget": "ContentTranslationTranslateInTarget"
 					}
 				}
