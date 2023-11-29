@@ -12,8 +12,8 @@ use GlobalPreferences\Storage;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Extension\BetaFeatures\BetaFeatures;
 use MediaWiki\Preferences\PreferencesFactory;
+use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\UserIdentity;
-use MediaWiki\User\UserOptionsLookup;
 use RequestContext;
 use User;
 
