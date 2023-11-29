@@ -266,7 +266,6 @@ class ApiContentTranslationPublish extends ApiBase {
 
 			$this->translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
 			$this->translation->translation['targetURL'] = $this->targetUrlCreator->createTargetUrl(
-				$user,
 				$params['title'],
 				$params['to']
 			);

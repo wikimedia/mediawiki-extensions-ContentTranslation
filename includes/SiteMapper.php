@@ -3,7 +3,6 @@
 namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Title\Title;
 
 class SiteMapper {
 	/**
@@ -127,34 +126,5 @@ class SiteMapper {
 			[ $domain, $title ],
 			$wgContentTranslationSiteTemplates['view']
 		);
-	}
-
-	/**
-	 * @param string $title
-	 * @param string $userName
-	 * @return string
-	 */
-	public static function getTargetTitle( $title, $userName ) {
-		global $wgContentTranslationTargetNamespace;
-
-		switch ( $wgContentTranslationTargetNamespace ) {
-			case 'Main':
-				$targetTitle = $title;
-				break;
-			case 'User':
-				$titleObj = Title::newFromText( $title );
-				if ( $titleObj && $titleObj->inNamespace( NS_USER ) ) {
-					// Already in User namespace. Avoid generating titles like User:A/User:A/Title
-					$targetTitle = $title;
-					break;
-				}
-				$targetTitle = 'User:' . $userName . '/' . $title;
-				break;
-			default:
-				$targetTitle = $wgContentTranslationTargetNamespace . ':' . $title;
-				break;
-		}
-
-		return $targetTitle;
 	}
 }

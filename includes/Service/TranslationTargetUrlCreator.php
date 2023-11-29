@@ -6,7 +6,6 @@ namespace ContentTranslation\Service;
 use ContentTranslation\SiteMapper;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\Title\TitleFactory;
-use MediaWiki\User\UserIdentity;
 
 /**
  * @author Nik Gkountas
@@ -38,15 +37,13 @@ class TranslationTargetUrlCreator {
 	 * Given the user, the target page title as a string and the target language of the translation,
 	 * this method returns a string containing the URL of the target page.
 	 *
-	 * @param UserIdentity $user
 	 * @param string $targetTitleRaw
 	 * @param string $targetLanguage
 	 * @return string the translation target URL
 	 */
-	public function createTargetUrl( UserIdentity $user, string $targetTitleRaw, string $targetLanguage ): string {
+	public function createTargetUrl( string $targetTitleRaw, string $targetLanguage ): string {
 		if ( $this->contentTranslationTranslateInTarget ) {
-			$targetPage = SiteMapper::getTargetTitle( $targetTitleRaw, $user->getName() );
-			return SiteMapper::getPageURL( $targetLanguage, $targetPage );
+			return SiteMapper::getPageURL( $targetLanguage, $targetTitleRaw );
 		}
 		$targetTitle = $this->titleFactory->newFromText( $targetTitleRaw );
 		return $targetTitle->getCanonicalURL();
