@@ -604,7 +604,7 @@ mw.cx.dm.Translation.prototype.getSourceTitle = function () {
 /**
  * Set Translation title
  *
- * @param {string} title Translation Id
+ * @param {string} title Translation target title
  */
 mw.cx.dm.Translation.prototype.setTargetTitle = function ( title ) {
 	this.targetTitle = title;

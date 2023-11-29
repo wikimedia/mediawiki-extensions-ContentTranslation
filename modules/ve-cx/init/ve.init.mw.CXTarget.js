@@ -44,6 +44,13 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	this.publishButton = null;
 	// @var {string}
 	this.pageName = this.translationView.targetColumn.getTitle();
+	/**
+	 * An integer holding the value of the namespace,
+	 * into which the translation will be published
+	 *
+	 * @type {number|null}
+	 */
+	this.publishNamespace = null;
 	// @var {ve.ui.CXSurface}
 	this.sourceSurface = null;
 	// @var {ve.ui.CXSurface}
@@ -565,16 +572,37 @@ ve.init.mw.CXTarget.prototype.emitNamespaceChange = function ( namespaceId ) {
 	this.emit( 'namespaceChange', namespaceId );
 };
 
+/**
+ * This method is called by "updateNamespace" method to override the current value
+ * of "publishNamespace" property, based on the prefix of target title of the article.
+ * It is only used for article translations, not section translations.
+ */
+ve.init.mw.CXTarget.prototype.setPublishNameSpaceByPageTitle = function () {
+	const titleObj = mw.Title.newFromText( this.pageName );
+	this.publishNamespace = titleObj ? titleObj.getNamespaceId() : mw.cx.getDefaultTargetNamespace();
+};
+
+/**
+ * Called in several places to update the namespace based on the page title for article translations,
+ * and also update the state of the tools of the "publish" toolbar
+ *
+ * @return void
+ */
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {
+	const isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();
+	// this method ("updateNamespace") is called in several places, leading to namespace override
+	// on several occasions (e.g. "onPublishButtonClick"), which can be undesired for section translations.
+	// To avoid undesired behaviour we only limit this override to page translations.
+	if ( !isSectionTranslation ) {
+		this.setPublishNameSpaceByPageTitle();
+	}
 	if ( this.publishToolbar ) {
 		this.publishToolbar.updateToolState();
 	}
 };
 
 ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
-	const titleObj = mw.Title.newFromText( this.pageName );
-
-	return titleObj ? titleObj.getNamespaceId() : mw.cx.getDefaultTargetNamespace();
+	return this.publishNamespace;
 };
 
 /**
