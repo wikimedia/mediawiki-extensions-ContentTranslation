@@ -269,7 +269,13 @@ class ApiSectionTranslationPublish extends ApiBase {
 				}
 				// if translation exists update the "translation_target_revision_id" field for this row
 				'@phan-var Translation $translation';
-				$this->updateTranslation( $translation, $user, $newRevId, $targetTitleRaw, $targetLanguage );
+				$this->updateTranslation(
+					$translation,
+					$user,
+					$newRevId,
+					$targetTitle->getPrefixedDBkey(),
+					$targetLanguage
+				);
 
 				$publishedStatusIndex = SectionTranslationStore::getStatusIndexByStatus(
 					SectionTranslationStore::TRANSLATION_STATUS_PUBLISHED
