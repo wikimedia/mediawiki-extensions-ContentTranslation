@@ -55,7 +55,7 @@ const useUrlTranslationStart = () => {
     if (isDraftTranslation) {
       await fetchTranslations();
 
-      const translation = store.getters["translator/getTranslation"](
+      const translation = store.getters["translator/getDraftTranslation"](
         pageTitle,
         sectionTitle,
         sourceLanguage.value,

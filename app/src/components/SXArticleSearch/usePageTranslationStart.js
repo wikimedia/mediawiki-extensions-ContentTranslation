@@ -18,7 +18,9 @@ const usePageTranslationStart = () => {
    * @return {Promise<void>}
    */
   const doStartTranslation = (pageTitle, previousRoute, eventSource) => {
-    const existingLeadTranslation = store.getters["translator/getTranslation"](
+    const existingLeadTranslation = store.getters[
+      "translator/getDraftTranslation"
+    ](
       pageTitle,
       PageSection.LEAD_SECTION_DUMMY_TITLE,
       sourceLanguage.value,

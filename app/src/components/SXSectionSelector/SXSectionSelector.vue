@@ -143,7 +143,7 @@ export default {
       }
 
       const existingSectionTranslation = store.getters[
-        "translator/getTranslation"
+        "translator/getDraftTranslation"
       ](
         suggestion.value.sourceTitle,
         sourceSectionTitle,

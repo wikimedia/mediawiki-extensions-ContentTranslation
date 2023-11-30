@@ -36,16 +36,18 @@ export default {
           translation.sourceLanguage === sourceLanguage &&
           translation.targetLanguage === targetLanguage
       ),
-  getTranslation:
+  getDraftTranslation:
     (state) => (pageTitle, sectionTitle, sourceLanguage, targetLanguage) =>
-      state.translations.find(
-        /** @param {Translation} translation */
-        (translation) =>
-          translation.sourceTitle === pageTitle &&
-          translation.sourceSectionTitle === sectionTitle &&
-          translation.sourceLanguage === sourceLanguage &&
-          translation.targetLanguage === targetLanguage
-      ),
+      state.translations
+        .filter((translation) => translation.status === "draft")
+        .find(
+          /** @param {DraftTranslation} translation */
+          (translation) =>
+            translation.sourceTitle === pageTitle &&
+            translation.sourceSectionTitle === sectionTitle &&
+            translation.sourceLanguage === sourceLanguage &&
+            translation.targetLanguage === targetLanguage
+        ),
   translationExists:
     (state) =>
     /**
