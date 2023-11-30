@@ -8,7 +8,7 @@
 	},
 	"cx": "Jorgal siiddu",
 	"cx-dashboard-header": "Jorgalusat",
-	"cx-javascript": "Dát reaidu ii doaimma JavaScripta haga. JavaScript lea váldojuvvon eret anus, ii doaibman dahje dát neahttalohkan ii dorjojuvvo.",
+	"cx-javascript": "Dát reaidu ii doaimma JavaScripta haga. JavaScript lea váldojuvvon eret anus, ii doaibman dahje dát neahttalohkki ii dorjojuvvo.",
 	"cx-error-server-connection": "Meattáhus: serverii čatnašupmi ii lihkostuvvan.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|jorgaluvvon}}",
 	"cx-header-progressbar-text-mt": "($1 % teavsttas lea {{PLURAL:$1|jorgaluvvon dihtoriin}})",
