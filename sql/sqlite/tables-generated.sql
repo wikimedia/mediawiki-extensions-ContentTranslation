@@ -31,6 +31,8 @@ CREATE INDEX cx_translation_languages ON /*_*/cx_translations (
   translation_status
 );
 
+CREATE INDEX cx_translation_target_title ON /*_*/cx_translations (translation_target_title);
+
 
 CREATE TABLE /*_*/cx_translators (
   translator_user_id INTEGER NOT NULL,

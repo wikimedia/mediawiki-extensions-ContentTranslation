@@ -20,7 +20,7 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 		global $wgContentTranslationCluster, $wgContentTranslationDatabase;
 
 		// Following tables should only be created if both cluster and database are false.
-		// Otherwise they are not created in the place they are accesses, because
+		// Otherwise, they are not created in the place they are accesses, because
 		// DatabaseUpdater does not support other databases other than main wiki schema.
 		if ( $wgContentTranslationCluster !== false || $wgContentTranslationDatabase !== false ) {
 			return;
@@ -88,6 +88,11 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 			'cx_translators',
 			'cx_translation_translators',
 			"$dir/sql/$dbType/patch-cx_translators-unique-to-pk.sql"
+		);
+		$updater->addExtensionIndex(
+			'cx_translations',
+			'cx_translation_target_title',
+			"$dir/sql/$dbType/patch-cx_translations-target-title-index.sql"
 		);
 	}
 

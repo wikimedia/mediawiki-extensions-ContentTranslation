@@ -27,6 +27,7 @@ CREATE TABLE /*_*/cx_translations (
     translation_source_language, translation_target_language,
     translation_status
   ),
+  INDEX cx_translation_target_title (translation_target_title),
   PRIMARY KEY(translation_id)
 ) /*$wgDBTableOptions*/;
 

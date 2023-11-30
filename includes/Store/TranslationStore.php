@@ -138,7 +138,6 @@ class TranslationStore {
 			LIST_OR
 		);
 
-		// TODO: Add index to improve performance for this read query
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
 			->from( self::TRANSLATION_TABLE_NAME )

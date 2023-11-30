@@ -32,6 +32,8 @@ CREATE INDEX cx_translation_languages ON cx_translations (
   translation_status
 );
 
+CREATE INDEX cx_translation_target_title ON cx_translations (translation_target_title);
+
 
 CREATE TABLE cx_translators (
   translator_user_id INT NOT NULL,

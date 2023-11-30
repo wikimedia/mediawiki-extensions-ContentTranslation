@@ -114,6 +114,11 @@
 				"name": "cx_translation_languages",
 				"columns": [ "translation_source_language", "translation_target_language", "translation_status" ],
 				"unique": false
+			},
+			{
+				"name": "cx_translation_target_title",
+				"columns": [ "translation_target_title" ],
+				"unique": false
 			}
 		],
 		"pk": [ "translation_id" ]
