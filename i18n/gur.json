@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Akolpoka"
+		]
+	},
+	"cx": "Lerege pɛgerɛ",
+	"cx-dashboard-header": "Leregere duma",
+	"cx-javascript": "Tuundina ka tuni \"JavaScript\" san ka bɔna, la kan ta'am tum, bii \"browser\" kuna ka suŋeri.",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] de la tuunɛ ti tu kãbelɛ lerege pɛgera kɛ fum yetɔgum puan. [$1 Try it now!]",
+	"cx-license-agreement": "Fu kɔ'ɔm kelum bɔna la fu sakɛ bɔ'ɔra la [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] gee fu ka sakɛ ti fu basɛ fu bo'olum la [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] \"licenses\".",
+	"cx-error-server-connection": "Tuure: kan ta'am tɔkɛ bo \"server\" la.",
+	"cx-desc": "basɛ ti la kɔ'ɔm dɛna naana ti la [[Special:ContentTranslation|translate]] \"content\" pɛgera"
+}
