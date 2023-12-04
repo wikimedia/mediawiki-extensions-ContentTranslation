@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Dušan Kreheľ",
 			"Jim-by",
 			"Red Winged Duck",
 			"Renessaince",
@@ -12,7 +13,7 @@
 	"cx-dashboard-header": "Пераклады",
 	"cx-javascript": "Гэтая прылада не працуе без JavaScript. JavaScript адключаны, не працуе ці не падтрымліваецца гэтым браўзэрам.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — прылада для хуткага перакладу старонак на Вашую мову. [$1 Паспрабуйце адразу!]",
-	"cx-license-agreement": "Калі вы працягнеце, вы пагаджаецеся з [https://foundation.wikimedia.org/wiki/Terms_of_Use умовамі выкарыстаньня] і незваротна згаджаецеся на публікацыю вашага ўнёску паводле [https://creativecommons.org/licenses/by-sa/3.0/ ліцэнзіі CC BY-SA 3.0] і [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Калі вы працягнеце, вы пагаджаецеся з [https://foundation.wikimedia.org/wiki/Terms_of_Use умовамі выкарыстаньня] і незваротна згаджаецеся на публікацыю вашага ўнёску паводле [https://creativecommons.org/licenses/by-sa/4.0/ ліцэнзіі CC BY-SA 4.0] і [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Памылка: немагчыма злучыцца з сэрвэрам.",
 	"cx-desc": "Робіць простым [[Special:ContentTranslation|пераклад]] старонак зь зьместам",
 	"cx-header-progressbar-text": "$1 {{PLURAL:$1|перакладзена}}",

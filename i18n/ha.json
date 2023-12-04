@@ -4,6 +4,7 @@
 			"Amire80",
 			"Bashir Gwanki",
 			"DaSupremo",
+			"Dušan Kreheľ",
 			"Em-em",
 			"Gwanki"
 		]
@@ -12,7 +13,7 @@
 	"cx-dashboard-header": "Fassarori",
 	"cx-javascript": "Wannan kayan aiki baya aiki ba tare da JavaScript ba. An kashe JavaScript, ya kasa aiki, ko kuma wannan abin binciken baya ɗaukar sa.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Fassarar Ƙunshiya]] kayan aiki ne da zai baku saurin fassara shafuka cikin yarenku. [$1 Jarraba shi yanzu!]",
-	"cx-license-agreement": "Domin ci gaba ka yarda da [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] kuma kun yarda babu makawa ku saki gudummawar ku a ƙarƙashin [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] da [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Domin ci gaba ka yarda da [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] kuma kun yarda babu makawa ku saki gudummawar ku a ƙarƙashin [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 License] da [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Kuskure: An kasa haɗawa zuwa sabar.",
 	"cx-desc": "Yana sauƙaƙe [[Special:ContentTranslation|fassara]] shafukan abun ciki",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|fassarare}}",

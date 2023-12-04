@@ -3,6 +3,7 @@
 		"authors": [
 			"Amire80",
 			"Ananth subray",
+			"Dušan Kreheľ",
 			"M G Harish",
 			"Mahadevaiah Siddaiah",
 			"Omshivaprakash",
@@ -17,7 +18,7 @@
 	"cx": "ಪುಟವನ್ನು ಅನುವಾದಿಸಿ",
 	"cx-dashboard-header": "ಅನುವಾದಗಳು",
 	"cx-javascript": "ಈ ಸಾಧನ ಜಾವಾಸ್ಕ್ರಿಪ್ಟ್ ಇಲ್ಲದೆ ಕೆಲಸ ಮಾಡುವುದಿಲ್ಲ.",
-	"cx-license-agreement": "\"$1\" ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸುವುದರ ಮೂಲಕ, ನೀವು [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] and you irrevocably agree to release your contributions with the translation tool under the [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License]  ಮತ್ತು [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] CC BY-SA 3.0 ವೈಶಿಷ್ಟಗಳಿಗೆ ಹೈಪರ್‌ಲಿಂಕ್ ಅಥವಾ ಯುಆರ್‌ಎಲ್ ಸಾಕಾಗುತ್ತದೆ ಎಂದು ಅರ್ಥಮಾಡಿಕೊಂಡಿರುವುದಾಗಿ ಸಮ್ಮತಿಸುತ್ತೀರಿ .",
+	"cx-license-agreement": "ಮುಂದುವರಿಸುವ ಮೂಲಕ ನೀವು [https://foundation.wikimedia.org/wiki/Terms_of_Use ಬಳಕೆಯ ನಿಯಮಗಳಿಗೆ] ಸಮ್ಮತಿಸುತ್ತೀರಿ ಮತ್ತು [https://creativecommons.org/licenses/by-sa/4.0 ಅಡಿಯಲ್ಲಿ ನಿಮ್ಮ ಕೊಡುಗೆಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡಲು ನೀವು ಬದಲಾಯಿಸಲಾಗದಂತೆ ಸಮ್ಮತಿಸುತ್ತೀರಿ / CC BY-SA 4.0] ಮತ್ತು [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] ಪರವಾನಗಿಗಳು.",
 	"cx-error-server-connection": "ದೋಷ: ದತ್ತಸಂಚಯವನ್ನು ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ.",
 	"cx-desc": "ವಿಷಯದ ಪುಟಗಳ ಅನುವಾದವನ್ನು ಸುಲಭವಾಗಿಸುತ್ತದೆ",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ಅನುವಾದಿಸಲಾಗಿದೆ}}",

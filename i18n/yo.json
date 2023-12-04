@@ -11,7 +11,7 @@
 	"cx-dashboard-header": "Àwọn ògbufọ̀",
 	"cx-javascript": "Irinṣẹ́ yii kii ṣiṣẹ́ láìsí JavaScript. A ti yọ JavaScript, Kó ṣiṣẹ́, tàbí kò bá érọ búráósà rẹ ṣiṣẹ́.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Irinṣẹ́ Ìṣògbùfọ̀]] jẹ́ irinṣẹ́ tí a lẹ̀ fi ṣe ògbùfọ̀ sí èdè rẹ kíakía. [$1 Lòó wò ná!]",
-	"cx-license-agreement": "Nípa títẹ tẹ̀ síwájú, o ti gba láti ṣe àmúlò [https://foundation.wikimedia.org/wiki/Terms_of_Use Òfin àti ìlanà] o sì tún gbà láti yànda gbogbo àfikún rẹ sílẹ̀ lábẹ́  [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 4.0 License]  àti [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
+	"cx-license-agreement": "Nípa títẹ tẹ̀ síwájú, o ti gba láti ṣe àmúlò [https://foundation.wikimedia.org/wiki/Terms_of_Use Òfin àti ìlanà] o sì tún gbà láti yànda gbogbo àfikún rẹ sílẹ̀ lábẹ́  [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 License]  àti [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Ó pòfo: a kò lè bọ́ sórí ẹ̀rọ alátagbà báyí.",
 	"cx-desc": "Jẹ́ kí ó rọrùn láti  [[Special:ContentTranslation|ṣòngbifọ̀]] àwọn ojú-ewé",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1| O ti ṣòngbifọ̀}}",
