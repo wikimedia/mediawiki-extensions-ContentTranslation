@@ -159,8 +159,10 @@ const usePublishedTranslationLanguagePairUpdate = () => {
   };
 };
 
-const getArticleLanguagePairUpdater =
-  (store) => async (newSourceLanguage, newTargetLanguage) => {
+const useArticleLanguagePairUpdate = () => {
+  const store = useStore();
+
+  return async (newSourceLanguage, newTargetLanguage) => {
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     // If newly selected target language is same as source language, swap languages
@@ -201,10 +203,11 @@ const getArticleLanguagePairUpdater =
       store.dispatch("application/initializeSectionTranslation", suggestion);
     }
   };
+};
 
 export {
   initializeLanguages,
-  getArticleLanguagePairUpdater,
+  useArticleLanguagePairUpdate,
   useSuggestionListLanguagePairUpdate,
   useDraftTranslationLanguagePairUpdater,
   usePublishedTranslationLanguagePairUpdate,

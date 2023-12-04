@@ -16,7 +16,7 @@ import useMediawikiState from "@/composables/useMediawikiState";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
-import { getArticleLanguagePairUpdater } from "@/composables/useLanguageHelper";
+import { useArticleLanguagePairUpdate } from "@/composables/useLanguageHelper";
 
 export default {
   name: "SxArticleLanguageSelector",
@@ -52,7 +52,7 @@ export default {
       () => enabledTargetLanguages.value || supportedLanguageCodes.value
     );
 
-    const updateLanguagePair = getArticleLanguagePairUpdater(store);
+    const updateLanguagePair = useArticleLanguagePairUpdate();
     const onSourceLanguageSelected = (newSourceLanguage) =>
       updateLanguagePair(newSourceLanguage, targetLanguage.value);
     const onTargetLanguageSelected = (newTargetLanguage) =>
