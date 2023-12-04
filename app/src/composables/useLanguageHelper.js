@@ -114,7 +114,7 @@ const useSuggestionListLanguagePairUpdate = () => {
   };
 };
 
-const useDraftTranslationLanguagePairUpdater = () => {
+const useDraftTranslationLanguagePairUpdate = () => {
   const store = useStore();
 
   return /** @param {Translation} translation */ (translation) => {
@@ -209,6 +209,6 @@ export {
   initializeLanguages,
   useArticleLanguagePairUpdate,
   useSuggestionListLanguagePairUpdate,
-  useDraftTranslationLanguagePairUpdater,
+  useDraftTranslationLanguagePairUpdate,
   usePublishedTranslationLanguagePairUpdate,
 };

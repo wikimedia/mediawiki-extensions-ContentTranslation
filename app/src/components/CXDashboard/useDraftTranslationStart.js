@@ -1,4 +1,4 @@
-import { useDraftTranslationLanguagePairUpdater } from "@/composables/useLanguageHelper";
+import { useDraftTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import { useRouter } from "vue-router";
 import useApplicationState from "@/composables/useApplicationState";
 import { useEventLogging } from "@/plugins/eventlogging";
@@ -23,7 +23,7 @@ const useDraftTranslationStart = () => {
     sourceLanguage,
     targetLanguage,
   } = useApplicationState(store);
-  const updateLanguagePair = useDraftTranslationLanguagePairUpdater();
+  const updateLanguagePair = useDraftTranslationLanguagePairUpdate();
   const resolvePageContentReferences = useContentReferencesResolve();
 
   const { isDesktop } = useDevice();
