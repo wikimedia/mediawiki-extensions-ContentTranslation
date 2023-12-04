@@ -7,6 +7,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
+import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 
 /**
  * @return {{isDraftTranslation: boolean, pageTitle: string, sectionTitle: string|null}|null}
@@ -30,6 +31,7 @@ const useDashboardInitialization = () => {
   const store = useStore();
   const startSectionTranslationFromUrl = useUrlTranslationStart();
   const fetchTranslations = useTranslationsFetch(store);
+  const initializeSuggestions = useSuggestionsInitialize();
 
   return async () => {
     const initializeLanguages = useApplicationLanguagesInitialize();
@@ -63,7 +65,7 @@ const useDashboardInitialization = () => {
     }
 
     await fetchTranslations();
-    store.dispatch("suggestions/initializeSuggestions");
+    initializeSuggestions();
   };
 };
 

@@ -5,6 +5,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { replaceUrl } from "@/utils/urlHandler";
 import { useStore } from "vuex";
+import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 
 /**
  * @param {string} sourceLanguage
@@ -98,6 +99,7 @@ const useApplicationLanguagesInitialize = () => {
 
 const useSuggestionListLanguagePairUpdate = () => {
   const store = useStore();
+  const initializeSuggestions = useSuggestionsInitialize();
 
   return (newSourceLanguage, newTargetLanguage) => {
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
@@ -117,13 +119,14 @@ const useSuggestionListLanguagePairUpdate = () => {
 
     if (!redirectionNeeded) {
       setLanguagePair(store, newSourceLanguage, newTargetLanguage);
-      store.dispatch("suggestions/initializeSuggestions");
+      initializeSuggestions();
     }
   };
 };
 
 const useDraftTranslationLanguagePairUpdate = () => {
   const store = useStore();
+  const initializeSuggestions = useSuggestionsInitialize();
 
   return /** @param {Translation} translation */ (translation) => {
     const { sourceLanguage, targetLanguage, sourceTitle, sourceSectionTitle } =
@@ -139,7 +142,7 @@ const useDraftTranslationLanguagePairUpdate = () => {
 
     if (!redirectionNeeded) {
       setLanguagePair(store, sourceLanguage, targetLanguage);
-      store.dispatch("suggestions/initializeSuggestions");
+      initializeSuggestions();
     }
   };
 };
