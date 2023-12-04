@@ -103,7 +103,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
 import {
-  getSuggestionListLanguagePairUpdater,
+  useSuggestionListLanguagePairUpdate,
   initializeLanguages,
 } from "@/composables/useLanguageHelper";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
@@ -183,7 +183,7 @@ export default {
       router.push({ name: "dashboard" });
     };
 
-    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+    const updateLanguagePair = useSuggestionListLanguagePairUpdate();
     const updateSourceLanguage = (newSourceLanguage) =>
       updateLanguagePair(newSourceLanguage, targetLanguage.value);
 

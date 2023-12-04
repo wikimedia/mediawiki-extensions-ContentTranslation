@@ -71,13 +71,11 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
-import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { ref } from "vue";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
-import { getSuggestionListLanguagePairUpdater } from "@/composables/useLanguageHelper";
-import useDraftTranslationStart from "./useDraftTranslationStart";
+import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
 import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 
@@ -103,7 +101,7 @@ export default {
     const { supportedLanguageCodes, availableTargetLanguages } =
       useSuggestionListLanguages();
 
-    const updateLanguagePair = getSuggestionListLanguagePairUpdater(store);
+    const updateLanguagePair = useSuggestionListLanguagePairUpdate();
     const updateSourceLanguage = (newSourceLanguage) =>
       updateLanguagePair(newSourceLanguage, targetLanguage.value);
     const updateTargetLanguage = (newTargetLanguage) =>
