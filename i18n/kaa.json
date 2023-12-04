@@ -21,8 +21,9 @@
 	"cx-stats-title": "Mazmun awdarma statistikası",
 	"cx-warning-unsaved-translation": "Sizde saqlanbaǵan awdarmalar bar.",
 	"cx-translation-filter-published-translations": "Járiyalanǵan",
-	"cx-translation-filter-draft-translations": "Awdarma qılıw processinde",
+	"cx-translation-filter-draft-translations": "Awdarılmaqta",
 	"cx-translation-filter-suggested-translations": "Usınıslar",
+	"cx-create-new-translation": "Jańa awdarma",
 	"cx-contributions-new-contributions": "Jańa úles",
 	"cx-contributions-new-article": "Jańa bet",
 	"cx-contributions-translation": "Awdarma",
@@ -47,5 +48,7 @@
 	"echo-category-title-cx": "Awdarmalar",
 	"cx-notification-first-translation": "Dáslepki awdarmańız benen qutlıqlaymız. Óz úleslerińizdi tekseriń hám awdarıw ushın jáne de kóbirek betler tabıń.",
 	"cx-notification-suggestions-available": "{{GENDER:$2|Siziń}} aldınǵı '''$1''' boyınsha awdarmańızdan kelip shıǵıp, awdarıw ushın jańa betler usınıs etiledi.",
-	"cx-translator-header": "Siziń statistikańız"
+	"cx-translator-header": "Siziń statistikańız",
+	"cx-translator-month-stats-label": "Usı ayda",
+	"cx-translator-total-translations-label": "Jámi"
 }

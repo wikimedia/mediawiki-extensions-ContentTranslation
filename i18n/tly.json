@@ -65,7 +65,7 @@
 	"cx-tools-mt-set-default": "Besyxan ogətej",
 	"cx-tools-mt-noservices": "Bo vyžnijə zyvonon xydməton dastrəs nin. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Buci?]]",
 	"cx-tools-mt-preferred": "besyxan",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorijə|$1 kategorijon|0=kategorijon nin}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 kategorijə|$1 kategorijon|0=kategoriyon nin}}",
 	"cx-stats-title": "Məzmuni pegordynije statistika («Content Translation»)",
 	"cx-warning-unsaved-translation": "Šyməku ogətə nybyə pegordynon hestin.",
 	"cx-error-page-not-found": "Səhifə «$1» Vikipedijədə pəjdo nybe $2",
