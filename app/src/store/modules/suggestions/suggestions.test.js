@@ -2,17 +2,12 @@ import suggestionsModule from "./";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
 import SuggestionSeedCollection from "../../../wiki/cx/models/suggestionSeedCollection";
 import appendixTitles from "../../../utils/appendix/appendixTitles.json";
-import suggestionsApi from "../../../wiki/cx/api/suggestions";
 
 const { actions, mutations, getters } = suggestionsModule;
 const { removeSectionSuggestion } = mutations;
-const { getSeedProviderHandlerByName, fetchNextSectionSuggestionsSlice } =
-  actions;
-const {
-  sectionSuggestionsForArticleExists,
-  getNumberOfSectionSuggestionsToFetch,
-  getSectionSuggestionsForPair,
-} = getters;
+const { fetchNextSectionSuggestionsSlice } = actions;
+const { sectionSuggestionsForArticleExists, getSectionSuggestionsForPair } =
+  getters;
 const sourceLanguage = "en";
 const targetLanguage = "es";
 
@@ -80,14 +75,8 @@ describe("test suggestion mutations", () => {
 
 describe("test suggestion actions", () => {
   it("fetchNextSectionSuggestionsSlice test", async () => {
-    /**
-     * @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]}
-     */
-    const seeds = Object.keys(dummyMissingSections).map((sourceTitle) => ({
-      sourceTitle,
-      sourceLanguage,
-      targetLanguage,
-    }));
+    /** @type {string[]} */
+    const seeds = Object.keys(dummyMissingSections);
     const state = {
       sectionSuggestionsLoadingCount: 0,
       sectionSuggestions: [],
@@ -105,18 +94,26 @@ describe("test suggestion actions", () => {
         sectionSuggestionsForArticleExists(state),
       getSectionSuggestionsForPair: getSectionSuggestionsForPair(state),
     };
-    getters.getNumberOfSectionSuggestionsToFetch =
-      getNumberOfSectionSuggestionsToFetch(state, getters);
+    getters.getNumberOfSectionSuggestionsToFetch = () => 3;
 
     const context = {
       commit: (mutation, argument) => mutations[mutation](state, argument),
       dispatch: function (action) {
-        if (action === "getSectionSuggestionSeeds") {
-          return Promise.resolve(seeds);
+        if (action === "getSuggestionSeed") {
+          const seedCollection = state.sectionSuggestionSeedCollections.find(
+            (collection) =>
+              collection.sourceLanguage === sourceLanguage &&
+              collection.targetLanguage === targetLanguage
+          );
+
+          return Promise.resolve(
+            (seedCollection && seedCollection.shiftSeeds()) || null
+          );
         }
       },
       rootState: {
         application: {
+          sourceLanguage,
           targetLanguage,
         },
       },
@@ -128,33 +125,5 @@ describe("test suggestion actions", () => {
       (sectionSuggestion) => sectionSuggestion.sourceTitle
     );
     expect(suggestionTitles).toEqual(["testTitle2"]);
-  });
-
-  it("getSeedProviderHandlerByName", async () => {
-    jest.mock("../../../wiki/cx/api/suggestions");
-    suggestionsApi.fetchSuggestionSeeds = jest
-      .fn()
-      .mockImplementation(() => {});
-    const mockPublishedTranslationGetter = jest
-      .fn()
-      .mockImplementation(() => {});
-    const context = {
-      rootGetters: {
-        "translator/getPublishedTranslationsForLanguagePair":
-          mockPublishedTranslationGetter,
-      },
-    };
-    let handler = await getSeedProviderHandlerByName(
-      context,
-      "cx-published-translations"
-    );
-    handler("en", "es");
-    expect(suggestionsApi.fetchSuggestionSeeds).toHaveBeenCalled();
-    handler = await getSeedProviderHandlerByName(
-      context,
-      "user-published-translations"
-    );
-    handler("en", "es");
-    expect(mockPublishedTranslationGetter).toHaveBeenCalled();
   });
 });

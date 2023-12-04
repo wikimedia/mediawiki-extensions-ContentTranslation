@@ -46,49 +46,8 @@ export default {
    * @param state
    * @param {SuggestionSeedCollection} collection
    */
-  addSectionSuggestionSeedCollection(state, collection) {
-    state.sectionSuggestionSeedCollections.push(collection);
-  },
-  /**
-   * @param state
-   * @param {SuggestionSeedCollection} collection
-   */
-  addPageSuggestionSeedCollection(state, collection) {
-    state.pageSuggestionSeedCollections.push(collection);
-  },
-  /**
-   * @param state
-   * @param {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}} seed
-   */
-  addSectionSuggestionSeed(state, seed) {
-    const { sourceLanguage, targetLanguage } = seed;
-    const seedCollection = state.sectionSuggestionSeedCollections.find(
-      (collection) =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    );
-    seedCollection.seeds.push(seed);
-  },
-  /**
-   * @param state
-   * @param {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}} seed
-   */
-  addPageSuggestionSeed(state, seed) {
-    const { sourceLanguage, targetLanguage } = seed;
-    const seedCollection = state.pageSuggestionSeedCollections.find(
-      (collection) =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    );
-    seedCollection.seeds.push(seed);
-  },
-  removeSectionSuggestionSeed(state, seed) {
-    const { sourceLanguage, targetLanguage } = seed;
-    const seedCollection = state.sectionSuggestionSeedCollections.find(
-      (collection) =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-    );
-    seedCollection.seeds = seedCollection.seeds.filter(
-      (existingSeed) => existingSeed.sourceTitle !== seed.sourceTitle
-    );
+  addSuggestionSeedCollection(state, collection) {
+    state.suggestionSeedCollections.push(collection);
   },
   addAppendixSectionTitlesForLanguage(state, { language, titles }) {
     state.appendixSectionTitles[language] = titles;

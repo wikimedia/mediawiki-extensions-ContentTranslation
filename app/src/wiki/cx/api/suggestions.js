@@ -80,12 +80,12 @@ async function fetchSectionSuggestions(
 }
 
 /**
- * Given a language pair, this api action returns an array of translations
- * published to the corresponding wiki
+ * Given a language pair, this api action returns an array of published translation
+ * source titles, to be used as suggestion seeds.
  *
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
- * @return {Promise<Object[]>}
+ * @return {Promise<string[]>}
  */
 async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
   const query = {
@@ -101,24 +101,13 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
   try {
     const response = await mwApi.get(query);
 
-    // Shuffle array so that users do not get the same suggestions every time
-    return shuffleArray(response.result.translations);
+    return response.result.translations.map((t) => t.sourceTitle);
   } catch (error) {
     mw.log.error("Error while fetching suggestion seeds", error);
 
     return [];
   }
 }
-
-// Fisher–Yates shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-
-  return array;
-};
 
 /**
  * This api action fetches and returns appendix section titles

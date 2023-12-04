@@ -28,18 +28,12 @@ export default {
   /**
    * Stores collections of seeds for different language pairs
    * Each seed collection corresponds to a specific language pair
-   * and contains all available seeds to be used for section
-   * suggestion fetching. Having this information stored prevents
-   * unnecessary requests to fetch seeds every time they are needed
+   * and contains all available seeds to be used for suggestion fetching.
+   * Having this information stored prevents unnecessary requests to fetch
+   * seeds every time they are needed
    * @type {SuggestionSeedCollection[]}
    */
-  sectionSuggestionSeedCollections: [],
-  /**
-   * This state variable works exactly the same as sectionSuggestionSeedCollections,
-   * only difference that it refers to page suggestions instead.
-   * @type {SuggestionSeedCollection[]}
-   */
-  pageSuggestionSeedCollections: [],
+  suggestionSeedCollections: [],
   /**
    * Stores appendix section titles, grouped by language
    * @type Object - { language1: [titles1], ... }

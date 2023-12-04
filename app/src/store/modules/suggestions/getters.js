@@ -1,20 +1,20 @@
 export default {
-  /**
-   * @return {SuggestionSeedCollection}
-   */
-  findSectionSuggestionSeedCollection:
+  getFavoriteTitlesByLanguagePair:
     (state) => (sourceLanguage, targetLanguage) =>
-      state.sectionSuggestionSeedCollections.find((collection) =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-      ),
+      state.favorites
+        .filter(
+          (favorite) =>
+            favorite.sourceLanguage === sourceLanguage &&
+            favorite.targetLanguage === targetLanguage
+        )
+        .map((favorite) => favorite.title),
   /**
-   * @return {SuggestionSeedCollection}
+   * @return {SuggestionSeedCollection|undefined}
    */
-  findPageSuggestionSeedCollection:
-    (state) => (sourceLanguage, targetLanguage) =>
-      state.pageSuggestionSeedCollections.find((collection) =>
-        collection.doesBelongToLanguagePair(sourceLanguage, targetLanguage)
-      ),
+  findSuggestionSeedCollection: (state) => (sourceLanguage, targetLanguage) =>
+    state.suggestionSeedCollections.find((collection) =>
+      collection.matchesLanguagePair(sourceLanguage, targetLanguage)
+    ),
   getPageSuggestionsForPair: (state) => (sourceLanguage, targetLanguage) =>
     state.pageSuggestions.filter(
       (suggestionItem) =>

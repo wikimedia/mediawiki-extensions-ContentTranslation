@@ -91,176 +91,32 @@ async function loadSectionSuggestion(
 }
 
 /**
- * Given a seed provider name, this action returns the corresponding
- * handler for this provider, i.e. a function that accepts two arguments
- * (source language, target language) and returns a promise that resolves
- * to the actual seeds fetched by this provider
- *
- * @param {Object} context
- * @param {Object} context.rootGetters
- * @param {"user-published-translations"|"cx-published-translations"} providerName
- * @return {{function(string, string): Promise<Translation[]|Object[]>}|null}
- */
-function getSeedProviderHandlerByName({ rootGetters }, providerName) {
-  // Investigation for optimal way to fetch seeds for section suggestions is not over.
-  // For now two providers are being used in this order:
-  // 1. use previous CX translations done by the user as seeds
-  // 2. use existing CX translations for this language pair as seeds
-  // We can easily add/remove seed providers by modifying below providers object
-  // and available providers inside sectionSuggestionSeedCollection model
-  const providers = {
-    /**
-     * @param sourceLanguage
-     * @param targetLanguage
-     * @return {Promise<Object[]>}
-     */
-    "cx-published-translations": (sourceLanguage, targetLanguage) =>
-      cxSuggestionsApi.fetchSuggestionSeeds(sourceLanguage, targetLanguage),
-    /**
-     * @param {string} sourceLanguage
-     * @param {string} targetLanguage
-     * @return {Promise<Translation[]>}
-     */
-    "user-published-translations": (sourceLanguage, targetLanguage) =>
-      Promise.resolve(
-        rootGetters["translator/getPublishedTranslationsForLanguagePair"](
-          sourceLanguage,
-          targetLanguage
-        )
-      ),
-  };
-
-  return providers[providerName] || null;
-}
-
-/**
- * Given a source/target language pair, this action returns an array of
- * seeds to be used for section suggestion fetching
- *
- * @param {Object} context
- * @param {Function} context.commit
- * @param {Object} context.rootGetters
- * @param {Function} context.dispatch
- * @param {Object} context.getters
- * @param {Object} payload
- * @param {string} payload.sourceLanguage
- * @param {string} payload.targetLanguage
- * @return {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} seeds
- */
-async function getSectionSuggestionSeeds(
-  { commit, rootGetters, dispatch, getters },
-  { sourceLanguage, targetLanguage }
-) {
-  // Seed collection for given language pair
-  let currentSeedCollection = getters.findSectionSuggestionSeedCollection(
-    sourceLanguage,
-    targetLanguage
-  );
-
-  // if seed collection doesn't exist (i.e. it's the first time that section suggestions
-  // for this language pair are being fetched) create a new one and add it to the store
-  if (!currentSeedCollection) {
-    currentSeedCollection = new SuggestionSeedCollection({
-      sourceLanguage,
-      targetLanguage,
-    });
-    commit("addSectionSuggestionSeedCollection", currentSeedCollection);
-  }
-
-  // if current seed collection is empty
-  if (!currentSeedCollection.seeds.length) {
-    commit("increaseSectionSuggestionsLoadingCount");
-
-    // Repeat until some seeds are fetched or all seed providers has been consumed
-    do {
-      // Get next seed provider that has not already been consumed
-      // Order:
-      // 1. user's published cx translations
-      // 2. published cx translations for this language pair
-      const providerName = currentSeedCollection.nextUnexhaustedProvider;
-      const seedProviderHandler = await dispatch(
-        "getSeedProviderHandlerByName",
-        providerName
-      );
-
-      // if all available providers are exhausted or invalid providerName is given
-      // then there is nothing left to do
-      if (seedProviderHandler) {
-        /** @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} */
-        const seeds = await seedProviderHandler(sourceLanguage, targetLanguage);
-        currentSeedCollection.addExhaustedProvider(providerName);
-        seeds.forEach((seed) => commit("addSectionSuggestionSeed", seed));
-      }
-    } while (
-      currentSeedCollection.seeds.length === 0 &&
-      !currentSeedCollection.allProvidersExhausted
-    );
-    commit("decreaseSectionSuggestionsLoadingCount");
-  }
-
-  return currentSeedCollection.seeds;
-}
-
-/**
  * @param {object} context
- * @param {function} context.commit
- * @param {object} context.rootGetters
- * @param {function} context.dispatch
  * @param {object} context.getters
  * @param {object} payload
  * @param {string} payload.sourceLanguage
  * @param {string} payload.targetLanguage
- * @return {Promise<{sourceTitle: string, sourceLanguage: string, targetLanguage: string}>}
+ * @return {Promise<string|null>}
  */
-async function getPageSuggestionSeed(
-  { commit, rootGetters, dispatch, getters },
+async function getSuggestionSeed(
+  { getters },
   { sourceLanguage, targetLanguage }
 ) {
   // Seed collection for given language pair
-  let currentSeedCollection = getters.findPageSuggestionSeedCollection(
+  let currentSeedCollection = getters.findSuggestionSeedCollection(
     sourceLanguage,
     targetLanguage
   );
 
-  // if seed collection doesn't exist (i.e. it's the first time that section suggestions
-  // for this language pair are being fetched) create a new one and add it to the store
-  if (!currentSeedCollection) {
-    currentSeedCollection = new SuggestionSeedCollection({
-      sourceLanguage,
-      targetLanguage,
-    });
-    commit("addPageSuggestionSeedCollection", currentSeedCollection);
+  // suggestions seeds should have been initialized before being accessed
+  // or if no seeds were fetched from the "seeds-fetching" API
+  if (!currentSeedCollection || !currentSeedCollection.seeds.length) {
+    mw.log.error("No suggestion seed found! Suggestion fetching will fail!");
+
+    return null;
   }
 
-  // if current seed collection is empty
-  if (!currentSeedCollection.seeds.length) {
-    // Repeat until some seeds are fetched or all seed providers has been consumed
-    do {
-      // Get next seed provider that has not already been consumed
-      // Order:
-      // 1. user's published cx translations
-      // 2. published cx translations for this language pair
-      const providerName = currentSeedCollection.nextUnexhaustedProvider;
-      const seedProviderHandler = await dispatch(
-        "getSeedProviderHandlerByName",
-        providerName
-      );
-
-      // if all available providers are exhausted or invalid providerName is given
-      // then there is nothing left to do
-      if (seedProviderHandler) {
-        /** @type {{sourceTitle: string, sourceLanguage: string, targetLanguage: string}[]} */
-        const seeds = await seedProviderHandler(sourceLanguage, targetLanguage);
-        currentSeedCollection.addExhaustedProvider(providerName);
-        seeds.forEach((seed) => commit("addPageSuggestionSeed", seed));
-      }
-    } while (
-      currentSeedCollection.seeds.length === 0 &&
-      !currentSeedCollection.allProvidersExhausted
-    );
-  }
-
-  return currentSeedCollection.getSeedArticleForSuggestion();
+  return currentSeedCollection.shiftSeeds();
 }
 
 /**
@@ -338,32 +194,7 @@ async function fetchNextSectionSuggestionsSlice({
   rootState,
 }) {
   const { sourceLanguage, targetLanguage } = rootState.application;
-
-  // Start showing loading indicator
-  // Get seeds by the next available seed provider
-  let seeds = await dispatch("getSectionSuggestionSeeds", {
-    sourceLanguage,
-    targetLanguage,
-  });
-
-  // Seeds should always be provided as we cannot fetch a section suggestion
-  // without using a seed. Thus, if no seeds provided or seeds are empty
-  // no suggestion can be fetched and method should return
-  if (!seeds || !seeds.length) {
-    return;
-  }
-
   commit("increaseSectionSuggestionsLoadingCount");
-
-  // Do not fetch section suggestions that already exist
-  seeds = seeds.filter(
-    (seed) =>
-      !getters.sectionSuggestionsForArticleExists(
-        sourceLanguage,
-        targetLanguage,
-        seed.sourceTitle
-      )
-  );
 
   const numberOfSuggestionsToFetch =
     getters.getNumberOfSectionSuggestionsToFetch(
@@ -373,14 +204,23 @@ async function fetchNextSectionSuggestionsSlice({
 
   let fetchedSuggestionCounter = 0;
 
-  for (const seed of seeds) {
+  while (fetchedSuggestionCounter < numberOfSuggestionsToFetch) {
+    const seed = await dispatch("getSuggestionSeed", {
+      sourceLanguage,
+      targetLanguage,
+    });
+
+    // Seed should always be provided as we cannot fetch a section suggestion
+    // without using one. Thus, if no seed provided, suggestion fetching should stop
+    if (!seed) {
+      break;
+    }
     /** @type {SectionSuggestion|null} */
     const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
       sourceLanguage,
-      seed.sourceTitle,
+      seed,
       targetLanguage
     );
-    commit("removeSectionSuggestionSeed", seed);
 
     const appendixTargetTitles =
       state.appendixSectionTitles[targetLanguage] || [];
@@ -389,11 +229,8 @@ async function fetchNextSectionSuggestionsSlice({
       fetchedSuggestionCounter++;
       commit("addSectionSuggestion", suggestion);
     }
-
-    if (fetchedSuggestionCounter === numberOfSuggestionsToFetch) {
-      break;
-    }
   }
+
   commit("decreaseSectionSuggestionsLoadingCount");
 
   const titles = getters
@@ -426,7 +263,7 @@ async function fetchNextPageSuggestionsSlice({
 }) {
   commit("increasePageSuggestionsLoadingCount");
   const { sourceLanguage, targetLanguage } = rootState.application;
-  const seed = await dispatch("getPageSuggestionSeed", {
+  const seed = await dispatch("getSuggestionSeed", {
     sourceLanguage,
     targetLanguage,
   });
@@ -442,7 +279,7 @@ async function fetchNextPageSuggestionsSlice({
     const suggestions = await cxSuggestionsApi.fetchPageSuggestions(
       sourceLanguage,
       targetLanguage,
-      seed?.sourceTitle,
+      seed,
       numberOfSuggestionsToFetch
     );
 
@@ -594,9 +431,7 @@ export default {
   fetchAppendixSectionTitles,
   fetchNextPageSuggestionsSlice,
   fetchNextSectionSuggestionsSlice,
-  getPageSuggestionSeed,
-  getSectionSuggestionSeeds,
-  getSeedProviderHandlerByName,
+  getSuggestionSeed,
   initializeSuggestions,
   loadSectionSuggestion,
   removeFavoriteSuggestion,
