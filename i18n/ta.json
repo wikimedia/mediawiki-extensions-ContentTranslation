@@ -15,7 +15,8 @@
 			"Shrikarsan",
 			"Sundar",
 			"தமிழ்க்குரிசில்",
-			"மதனாஹரன்"
+			"மதனாஹரன்",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "பக்கத்தை மொழிபெயர்க்கவும்",
@@ -69,7 +70,7 @@
 	"cx-favorite-added-for-later": "பிற்காலத்திற்கு சேர்க்கப்பட்டது!",
 	"cx-mt-abuse-warning-text": "இயந்திர மொழிபெயர்ப்பு ஒரு ஆரம்பப்புள்ளியாக மட்டுமே கொடுக்கப்படலாம். அந்த உள்ளடக்கங்கள் மிகத்துல்லியமானதாக மற்றும் இயற்கையாக உமது மொழியிலிருக்க உறுதி செய்யப்படவேண்டும்",
 	"cx-publish-captcha-title": "நீங்கள் தானியங்கி இல்லை என்பது சோதனைச்செய்யப்படுகிறது",
-	"cx-captcha-dialog-cancel": "ரத்து செய்",
+	"cx-captcha-dialog-cancel": "கைவிடு",
 	"cx-dashboard-sidebar-title": "மொழிபெயர்ப்பு உதவி {{GENDER:|தேவையா}}?",
 	"cx-dashboard-sidebar-information": "இந்த அம்சம் குறித்து மேலும் அறியவும்",
 	"cx-dashboard-sidebar-stats": "புள்ளி விபரங்கள்",
@@ -161,7 +162,7 @@
 	"cx-tools-linter-template": "வார்ப்புரு கிடைப்பிலில்லை",
 	"cx-tools-linter-template-add-new": "ஒரு புதிய வார்ப்புருவை சேர்க்கவும்",
 	"cx-tools-linter-incomplete-template": "முழுமையடையாத வார்ப்புரு",
-	"cx-tools-linter-restart-translation-cancel": "கைவிடுக",
+	"cx-tools-linter-restart-translation-cancel": "கைவிடு",
 	"cx-translator-header": "உங்கள் புள்ளிவிவரம்",
 	"cx-translator-month-stats-label": "இம்மாதம்",
 	"cx-translator-total-translations-label": "மொத்தம்",

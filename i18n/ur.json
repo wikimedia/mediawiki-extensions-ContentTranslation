@@ -13,7 +13,8 @@
 			"Rachitrali",
 			"عثمان خان شاہ",
 			"عرفان ارشد",
-			"محبوب عالم"
+			"محبوب عالم",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "صفحہ کا ترجمہ کریں",
@@ -282,6 +283,7 @@
 	"cx-sx-publisher-animation-success-message-title": "شائع ہو گیا!",
 	"cx-sx-publisher-animation-success-message-subtitle": "صفحہ کھل رہا ہے۔۔۔",
 	"cx-sx-publisher-animation-failure-message-title": "شائع نہیں ہو سکا",
+	"cx-sx-publish-lead-section-summary": "صفحہ «$1» کے دیباچہ کا ترجمہ کیا",
 	"cx-sx-publisher-preview-options-title": "اشاعت کے اختیارات",
 	"cx-sx-publisher-new-section-option-label": "نئے قطعہ کے طور پر شائع کريں",
 	"cx-sx-publisher-new-section-option-details": "مضمون میں نیا قطعہ شامل کریں",
