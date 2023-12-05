@@ -2,7 +2,7 @@
 
 const Page = require( 'wdio-mediawiki/Page' );
 const SelectionHelper = require( '../utils/SelectionHelper' );
-const BrowserHelper = require( '../utils/BrowserHelper' );
+const InterceptorService = require( '../utils/InterceptorService' );
 const ElementAction = require( '../utils/ElementAction' );
 const { Element: WebdriverIOElementType } = require( 'webdriverio' );
 
@@ -101,7 +101,7 @@ class UnifiedDashboardPage extends Page {
 		const favoriteIcon = await this.getFavoriteIconInSuggestion( suggestionToSave );
 		browser.setupInterceptor();
 		await ElementAction.doClick( favoriteIcon );
-		await BrowserHelper.findAndWaitForActionApiRequest( [
+		await InterceptorService.findAndWaitForActionApiRequest( [
 			{ key: 'action', value: 'cxsuggestionlist' },
 			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
 			{ key: 'listaction', value: 'add' }
@@ -116,7 +116,7 @@ class UnifiedDashboardPage extends Page {
 		const favoriteIcon = await this.getFavoriteIconInSuggestion( suggestion );
 		browser.setupInterceptor();
 		await ElementAction.doClick( favoriteIcon );
-		await BrowserHelper.findAndWaitForActionApiRequest( [
+		await InterceptorService.findAndWaitForActionApiRequest( [
 			{ key: 'action', value: 'cxsuggestionlist' },
 			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
 			{ key: 'listaction', value: 'remove' }
@@ -138,9 +138,9 @@ class UnifiedDashboardPage extends Page {
 		browser.setupInterceptor();
 		await ElementAction.doClick( this.getDismissIconInSuggestion( suggestionToDismiss ) );
 		const recommendationRequest =
-			await BrowserHelper.findAndWaitForRecommendationApiRequest( targetLanguage );
+			await InterceptorService.findAndWaitForRecommendationApiRequest( targetLanguage );
 		const recommendedPage = recommendationRequest.response.body.items[ 0 ];
-		await BrowserHelper.findAndWaitForRemoteActionApiRequest(
+		await InterceptorService.findAndWaitForRemoteActionApiRequest(
 			sourceLanguage,
 			[
 				{ key: 'action', value: 'query' },

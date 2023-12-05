@@ -2,7 +2,7 @@
 
 const { WdioInterceptorService } = require( 'wdio-intercept-service' );
 
-class BrowserHelper {
+class InterceptorService {
 	/**
 	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} findMethod
 	 * @param {boolean} includePending
@@ -121,4 +121,4 @@ class BrowserHelper {
 	}
 }
 
-module.exports = new BrowserHelper();
+module.exports = new InterceptorService();
