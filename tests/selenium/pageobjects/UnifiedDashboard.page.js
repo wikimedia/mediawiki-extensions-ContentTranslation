@@ -133,10 +133,23 @@ class UnifiedDashboardPage extends Page {
 	async dismissArticle( suggestionIndex ) {
 		const suggestionToDismiss = await this.getArticleSuggestionByIndex( suggestionIndex );
 		const suggestionHeader = await this.getSuggestionSourceTitle( suggestionToDismiss );
-		await ElementAction.doClick( this.getDismissIconInSuggestion( suggestionToDismiss ) );
+		const { sourceLanguage, targetLanguage } = await this.getLanguagePair();
 
-		// Wait for another suggestion to appear
-		await suggestionToDismiss.waitForExist( { timeout: 2000 } );
+		browser.setupInterceptor();
+		await ElementAction.doClick( this.getDismissIconInSuggestion( suggestionToDismiss ) );
+		const recommendationRequest =
+			await BrowserHelper.findAndWaitForRecommendationApiRequest( targetLanguage );
+		const recommendedPage = recommendationRequest.response.body.items[ 0 ];
+		await BrowserHelper.findAndWaitForRemoteActionApiRequest(
+			sourceLanguage,
+			[
+				{ key: 'action', value: 'query' },
+				{ key: 'titles', value: recommendedPage.title }
+			],
+			'GET'
+		);
+		browser.disableInterceptor();
+
 		return suggestionHeader;
 	}
 
