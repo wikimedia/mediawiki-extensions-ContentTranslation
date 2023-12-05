@@ -104,7 +104,7 @@ import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
 import {
   useSuggestionListLanguagePairUpdate,
-  initializeLanguages,
+  useApplicationLanguagesInitialize,
 } from "@/composables/useLanguageHelper";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 
@@ -167,6 +167,7 @@ export default {
 
     const fetchTranslations = useTranslationsFetch(store);
     onMounted(async () => {
+      const initializeLanguages = useApplicationLanguagesInitialize();
       await initializeLanguages();
 
       fetchTranslations();

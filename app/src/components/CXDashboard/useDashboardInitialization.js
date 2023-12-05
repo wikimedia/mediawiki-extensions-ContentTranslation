@@ -1,4 +1,4 @@
-import { initializeLanguages } from "@/composables/useLanguageHelper";
+import { useApplicationLanguagesInitialize } from "@/composables/useLanguageHelper";
 import {
   getEventSourceFromUrlCampaign,
   useUrlTranslationStart,
@@ -32,6 +32,7 @@ const useDashboardInitialization = () => {
   const fetchTranslations = useTranslationsFetch(store);
 
   return async () => {
+    const initializeLanguages = useApplicationLanguagesInitialize();
     await initializeLanguages();
 
     const translationParams = getTranslationParamsFromUrl();

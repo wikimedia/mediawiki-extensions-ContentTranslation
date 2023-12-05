@@ -33,7 +33,7 @@ jest.spyOn(URLSearchParams.prototype, "get").mockImplementation((key) => {
 
 const supportedLanguageCodes = ["en", "es", "el", "de", "bn", "ig", "ha", "sq"];
 
-describe("vuex application/actions/initializeLanguages tests", () => {
+describe("utils/getInitialLanguagePair tests", () => {
   // supportedLanguages refer to all languages that are supported by cxserver
 
   it("should respect URL params when they are properly supported/enabled", () => {

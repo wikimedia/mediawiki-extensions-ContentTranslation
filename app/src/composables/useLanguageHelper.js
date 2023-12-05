@@ -2,7 +2,6 @@ import useMediawikiState from "@/composables/useMediawikiState";
 import useApplicationState from "@/composables/useApplicationState";
 import { getInitialLanguagePair } from "@/utils/getInitialLanguagePair";
 import { siteMapper } from "@/utils/mediawikiHelper";
-import store from "@/store";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { replaceUrl } from "@/utils/urlHandler";
 import { useStore } from "vuex";
@@ -61,31 +60,40 @@ const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
   replaceUrl(Object.fromEntries(params));
 };
 
-const initializeLanguages = async () => {
-  // TODO: Fix store to be injected properly using "useStore" composable instead of importing it
-  await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
+/**
+ * This composable returns a method that initializes the application languages
+ * inside Vuex "application" state, and sets the "from" and "to" URL parameters.
+ *
+ * @return {(function(): Promise<void>)}
+ */
+const useApplicationLanguagesInitialize = () => {
+  const store = useStore();
   const { enabledTargetLanguages, supportedLanguageCodes } =
     useMediawikiState();
 
-  const { sourceLanguage, targetLanguage } = getInitialLanguagePair(
-    enabledTargetLanguages.value,
-    supportedLanguageCodes.value
-  );
+  return async () => {
+    await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
 
-  const urlParams = new URLSearchParams(location.search);
+    const { sourceLanguage, targetLanguage } = getInitialLanguagePair(
+      enabledTargetLanguages.value,
+      supportedLanguageCodes.value
+    );
 
-  const urlSourceArticleTitle = urlParams.get("page");
-  const urlSourceSectionTitle = urlParams.get("section");
-  const redirectionNeeded = redirectToTargetWikiIfNeeded(
-    sourceLanguage,
-    targetLanguage,
-    urlSourceArticleTitle,
-    urlSourceSectionTitle
-  );
+    const urlParams = new URLSearchParams(location.search);
 
-  if (!redirectionNeeded) {
-    setLanguagePair(store, sourceLanguage, targetLanguage);
-  }
+    const urlSourceArticleTitle = urlParams.get("page");
+    const urlSourceSectionTitle = urlParams.get("section");
+    const redirectionNeeded = redirectToTargetWikiIfNeeded(
+      sourceLanguage,
+      targetLanguage,
+      urlSourceArticleTitle,
+      urlSourceSectionTitle
+    );
+
+    if (!redirectionNeeded) {
+      setLanguagePair(store, sourceLanguage, targetLanguage);
+    }
+  };
 };
 
 const useSuggestionListLanguagePairUpdate = () => {
@@ -206,7 +214,7 @@ const useArticleLanguagePairUpdate = () => {
 };
 
 export {
-  initializeLanguages,
+  useApplicationLanguagesInitialize,
   useArticleLanguagePairUpdate,
   useSuggestionListLanguagePairUpdate,
   useDraftTranslationLanguagePairUpdate,
