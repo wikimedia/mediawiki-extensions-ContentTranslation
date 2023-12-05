@@ -1,7 +1,9 @@
 import { computed } from "vue";
-import store from "@/store";
+import { useStore } from "vuex";
 
 export default function () {
+  const store = useStore();
+
   const supportedLanguageCodes = computed(
     () => store.state.mediawiki.supportedLanguageCodes || []
   );
