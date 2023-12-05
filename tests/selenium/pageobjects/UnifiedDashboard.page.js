@@ -92,7 +92,7 @@ class UnifiedDashboardPage extends Page {
 			{ key: 'action', value: 'cxsuggestionlist' },
 			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
 			{ key: 'listaction', value: 'add' }
-		] );
+		], 'POST' );
 		browser.disableInterceptor();
 		await this.favoriteSuggestions.waitForDisplayed( { timeout: 2000 } );
 
@@ -107,7 +107,7 @@ class UnifiedDashboardPage extends Page {
 			{ key: 'action', value: 'cxsuggestionlist' },
 			{ key: 'listname', value: 'cx-suggestionlist-favorite' },
 			{ key: 'listaction', value: 'remove' }
-		] );
+		], 'POST' );
 		browser.disableInterceptor();
 	}
 
