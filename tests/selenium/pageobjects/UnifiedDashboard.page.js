@@ -155,11 +155,23 @@ class UnifiedDashboardPage extends Page {
 
 	async refreshSuggestions() {
 		const refreshButton = $( REFRESH_BUTTON_SELECTOR );
-		await ElementAction.doClick( refreshButton );
+		const { sourceLanguage, targetLanguage } = await this.getLanguagePair();
 
-		// Wait for the refresh button to disappear and re-appear
-		await refreshButton.waitForDisplayed( { reverse: true } );
-		await refreshButton.waitForDisplayed( { timeout: 6000 } );
+		browser.setupInterceptor();
+		await ElementAction.doClick( refreshButton );
+		const recommendationRequest =
+			await InterceptorService.findAndWaitForRecommendationApiRequest( targetLanguage );
+		const titles = recommendationRequest.response.body.items.map( ( item ) => item.title )
+			.join( '|' );
+		await InterceptorService.findAndWaitForRemoteActionApiRequest(
+			sourceLanguage,
+			[
+				{ key: 'action', value: 'query' },
+				{ key: 'titles', value: titles }
+			],
+			'GET'
+		);
+		browser.disableInterceptor();
 	}
 }
 
