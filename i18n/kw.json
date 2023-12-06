@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"GwikorFrank",
-			"Nrowe"
+			"Nrowe",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Treylya folen",
 	"cx-dashboard-header": "Treylyansow",
 	"cx-javascript": "Ny yll an toul ma oberi heb JavaScript. Javascript yw disarvys, re fyllys po an peurell ma yn anskoodhys.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Treylyans Dalgh]] yw toul rag treylya yn uskis folennow dhe'th yeth. [$1 Assay hemma lemmyn!]",
-	"cx-license-agreement": "Dre besya ty a akord dhe'n [https://foundation.wikimedia.org/wiki/Terms_of_Use Termys Usyer] ha ty a akord yn fast dhe dhyllo dha gevrohow yn-dann [https://creativecommons.org/licenses/by-sa/3.0/ Kummyas CC BY-SA 3.0] ha'n [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Dre besya ty a akord dhe'n [https://foundation.wikimedia.org/wiki/Terms_of_Use Termys Usyer] ha ty a akord yn fast dhe dhyllo dha gevrohow yn-dann [https://creativecommons.org/licenses/by-sa/4.0/ Kummyas CC BY-SA 4.0] ha'n [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Gwall: Ny yllir junya dhe'n servyer.",
 	"cx-desc": "Gwrer es dhe [[Special:ContentTranslation|dreylya]] folennow dalgh",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|treylys}}",

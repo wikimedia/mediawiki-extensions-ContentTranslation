@@ -9,14 +9,15 @@
 			"Sopopruidze",
 			"Tokoko",
 			"Გიო ოქრო",
-			"Იო ოქრო"
+			"Იო ოქრო",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "გვერდის თარგმნა",
 	"cx-dashboard-header": "თარგმანები",
 	"cx-javascript": "ეს ხელსაწყო JavaScript-ის გარეშე არ მუშაობს. JavaScript გამორთულია, ან ვერ ამუშავდა, ან ამ ბრაუზერს არ გააჩნია მხარდაჭერა.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|შიგთავსის თარგმნა]] არის თქვენ ენაზე გვერდის სწრაფი თარგმნის ხელსაწყო. [$1 სცადეთ იგი ახლავე!]",
-	"cx-license-agreement": "თარგმნის გაგრძელების შემთხვევაში, თქვენ ეთანხმებით [https://foundation.wikimedia.org/wiki/Terms_of_Use გამოყენების პირობებს] და შეუქცევადად ეთანხმებით, რომ აქვეყნებთ თქვენს წვლილს [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 ლიცენზიის] და [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] შესაბამისად.",
+	"cx-license-agreement": "თარგმნის გაგრძელების შემთხვევაში, თქვენ ეთანხმებით [https://foundation.wikimedia.org/wiki/Terms_of_Use გამოყენების პირობებს] და შეუქცევადად ეთანხმებით, რომ აქვეყნებთ თქვენს წვლილს [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 ლიცენზიის] და [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] შესაბამისად.",
 	"cx-error-server-connection": "შეცდომა: სერვერთან დავავშირება ვერ მოხერხდა.",
 	"cx-desc": "ამარტივებს გვერდის შიგთავსის [[Special:ContentTranslation|თარგმნას]]",
 	"cx-header-progressbar-text": "{{PLURAL:$1|ნათარგმნია}} $1%",

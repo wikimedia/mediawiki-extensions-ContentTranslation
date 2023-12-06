@@ -7,14 +7,15 @@
 			"Gitartha.bordoloi",
 			"Onubadok",
 			"Paradox",
-			"Simbu123"
+			"Simbu123",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "পৃষ্ঠা অনুবাদ কৰক",
 	"cx-dashboard-header": "অনুবাদসমূহ",
 	"cx-javascript": "এই সঁজুলিটোৱে জাভাস্ক্ৰিপ্ট অবিহনে কাম নকৰে। জাভাস্ক্ৰিপ্ট অক্ষম আছে, কাম কৰিবলৈ বিফল হৈছে, বা এই ব্ৰাউজাৰ অসমৰ্থিত।",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|সমল অনুবাদ]] হৈছে পৃষ্ঠাবোৰ খৰকৈ আপোনাৰ ভাষালৈ অনুবাদ কৰাৰ এক সঁজুলি। [$1 এতিয়াই ব্যৱহাৰ কৰক!]",
-	"cx-license-agreement": "অব্যাহত ৰাখি আপুনি [https://foundation.wikimedia.org/wiki/Terms_of_Use ব্যৱহাৰৰ চৰ্তাৱলীৰ] সৈতে সন্মতি প্ৰকাশ কৰিছে আৰু আপুনি [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA ৩.০ অনুজ্ঞাপত্ৰ] আৰু [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License জিএফডিএল]-ৰ অধীনত আপোনাৰ অৱদান মুকলি কৰিবলৈ অপৰিৱৰ্তনীয়ভাৱে সন্মত হৈছে।",
+	"cx-license-agreement": "অব্যাহত ৰাখি আপুনি [https://foundation.wikimedia.org/wiki/Terms_of_Use ব্যৱহাৰৰ চৰ্তাৱলীৰ] সৈতে সন্মতি প্ৰকাশ কৰিছে আৰু আপুনি [https://creativecommons.org/licenses/by-sa/4.0/ CC-BY-SA 4.0 ৩.০ অনুজ্ঞাপত্ৰ] আৰু [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License জিএফডিএল 1.3]-ৰ অধীনত আপোনাৰ অৱদান মুকলি কৰিবলৈ অপৰিৱৰ্তনীয়ভাৱে সন্মত হৈছে।",
 	"cx-error-server-connection": "ত্ৰুটি: চাৰ্ভাৰৰ লগত সংযোগ স্থাপন নহ'ল।",
 	"cx-desc": "সমল পৃষ্ঠাসমূহৰ [[Special:ContentTranslation|অনুবাদ]] কৰা সহজ কৰি তোলে",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|অনূদিত হ'ল}}",

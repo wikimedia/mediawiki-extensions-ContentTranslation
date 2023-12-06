@@ -11,14 +11,15 @@
 			"Gırd",
 			"Kumkumuk",
 			"Mirzali",
-			"Orbot707"
+			"Orbot707",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Pele bıçarne",
 	"cx-dashboard-header": "Çarnayışi",
 	"cx-javascript": "Ena halet bê JavaScript nêgurweyêna. JavaScript dewrê ra veto, nêguriyeno ya zi pheşti nêbeno",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Açarnayışê Zerrek ]] yewna zıwan ra pela çerx kerdışa zıwan de yu haceta. [$1 enewke bıcerebne!]",
-	"cx-license-agreement": "bıploğnê se şıma [https://foundation.wikimedia.org/wiki/Terms_of_Use şertanê karkerdışi] tesdiq u haceta açarnayışiya iştirağanê xo hyperlink  yana rayda URL'ya bes kerdışi [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisansı] ve [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] ya serbest kerdışi beyan kenê.",
+	"cx-license-agreement": "bıploğnê se şıma [https://foundation.wikimedia.org/wiki/Terms_of_Use şertanê karkerdışi] tesdiq u haceta açarnayışiya iştirağanê xo hyperlink  yana rayda URL'ya bes kerdışi [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 Lisansı] ve [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] ya serbest kerdışi beyan kenê.",
 	"cx-error-server-connection": "Xeta:Arderiya irtibat nêbı",
 	"cx-desc": "[[Special:ContentTranslation|Açarnayış]]ê Zerreki açarnayışi keno rehat",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|açarneyê}}",

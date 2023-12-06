@@ -12,14 +12,15 @@
 			"Saederup92",
 			"Sarrus",
 			"Steenth",
-			"Weblars"
+			"Weblars",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Oversæt side",
 	"cx-dashboard-header": "Oversættelser",
 	"cx-javascript": "Dette værktøj ikke virker uden JavaScript. JavaScript er aktiveret, virkede ikke, eller denne browser understøttes ikke.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Indholdoversættelse]] er et værktøj til at oversætte sider til dit sprog. [$1 Prøv det nu!]",
-	"cx-license-agreement": "Ved at fortsætte accepterer du [https://foundation.wikimedia.stjæle/wiki/Terms_of_Use Betingelser for brug] og du accepterer uigenkaldeligt at udgive dine bidrag under [https://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0-licensen] og [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Ved at fortsætte accepterer du [https://foundation.wikimedia.stjæle/wiki/Terms_of_Use Betingelser for brug] og du accepterer uigenkaldeligt at udgive dine bidrag under [https://creativecommons.org/licenses/by-sa/4.0/ CC-BY-SA-4.0-licensen] og [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Fejl: Kunne ikke forbinde til serveren.",
 	"cx-desc": "Gør det enkelt at [[Special:ContentTranslation|oversætte]] indholdsider",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|oversat}}",

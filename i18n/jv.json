@@ -5,14 +5,15 @@
 			"NoiX180",
 			"Notanotheramy",
 			"Sam Hidayat",
-			"Sumbukompor"
+			"Sumbukompor",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Pertal kaca",
 	"cx-dashboard-header": "Pertalan",
 	"cx-javascript": "Piranti iki mokal lumaku tanpa JavaScript. JavaScript-é mati, wurung lumaku, utawa pangluron iki ora nyengkuyung iku.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Pertalan Kontèn]] iku piranti kanggo mertal kaca menyang basa aslimu kanthi rikat. [$1 Mangga jajalana saiki!]",
-	"cx-license-agreement": "Kanthi mbanjuraké, kowé minangkani [https://foundation.wikimedia.org/wiki/Terms_of_Use Paugeran ing Panganggo] lan kowé uga minangkani yèn ngamardika pasumbangmu sarana piranti pertalan iki sangisoré [https://creativecommons.org/licenses/by-sa/3.0/ Lisènsi CC BY-SA 3.0] lan [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Kanthi mbanjuraké, kowé minangkani [https://foundation.wikimedia.org/wiki/Terms_of_Use Paugeran ing Panganggo] lan kowé uga minangkani yèn ngamardika pasumbangmu sarana piranti pertalan iki sangisoré [https://creativecommons.org/licenses/by-sa/4.0/ Lisènsi CC BY-SA 4.0] lan [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Masalah: Ora bisa nggayut paladèn.",
 	"cx-desc": "Mayaraké ing [[Special:ContentTranslation|mertal]] kaca-kaca kontèn",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|wis kapertal}}",

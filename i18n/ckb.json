@@ -13,14 +13,15 @@
 			"Roj im",
 			"Sarchia",
 			"Épine",
-			"ئارام بکر"
+			"ئارام بکر",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "پەڕە وەربگێڕە",
 	"cx-dashboard-header": "وەرگێڕانەکان",
 	"cx-javascript": "ئەم ئامرازە بەبێ جاڤاسکریپت ئیش ناکات. جاڤاسکریپت ناچالاک کراوە، شکستی ھێنا لە کارکردن، یان ئەم وێبگەڕە پشتگیریی ناکات.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|وەرگێڕانی ناوەڕۆک]] iئامرازێکە کە یارمەتی وەرگێڕانی وتارەکانی ویکیپیدیاکانی تر دەدات بە شێوەیەکی ئاسان. [$1 تاقی بکەرەوە!]",
-	"cx-license-agreement": "بە بەردەوامبوون ڕەزامەندی لەسەر [https://foundation.wikimedia.org/wiki/Terms_of_Use مەرجەکانی بەکارھێنان] دەردەبڕیت و بە شێوەیەکی نەگۆڕ و بۆ ھەمیشە ڕەزامەندیت کە بەشدارییەکانت لەژێر [https://creativecommons.org/licenses/by-sa/3.0/ مۆڵەتنامەی CC BY-SA 3.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] بڵاو بکەیتەوە.",
+	"cx-license-agreement": "بە بەردەوامبوون ڕەزامەندی لەسەر [https://foundation.wikimedia.org/wiki/Terms_of_Use مەرجەکانی بەکارھێنان] دەردەبڕیت و بە شێوەیەکی نەگۆڕ و بۆ ھەمیشە ڕەزامەندیت کە بەشدارییەکانت لەژێر [https://creativecommons.org/licenses/by-sa/4.0/ مۆڵەتنامەی CC BY-SA 4.0] و [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] بڵاو بکەیتەوە.",
 	"cx-error-server-connection": "ھەڵە: نەکرا لەگەڵ سێرڤەردا پەیوەندی بکرێت.",
 	"cx-desc": "ئاسانکاری دەکات تا پەڕەکانی ناوەڕۆک [[Special:ContentTranslation|وەربگێڕیت]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|وەرگێڕراوە}}",

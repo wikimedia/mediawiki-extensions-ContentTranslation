@@ -29,14 +29,15 @@
 			"زكريا",
 			"سامي الرحيلي",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "ترجمة الصفحة",
 	"cx-dashboard-header": "ترجمات",
 	"cx-javascript": "هذه الأداة لا تعمل بدون جافا سكريبت. الجافا سكريبت معطلة، فشلت في العمل، أو هذا المتصفح غير مدعوم.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|ترجمة المحتوى]] هي أداة تسمح بترجمة سريعة للصفحات إلى لغتك. [$1 جربها الآن!]",
-	"cx-license-agreement": "لو استمريت فأنت توافق على [https://foundation.wikimedia.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك تحت رخصتي [https://creativecommons.org/licenses/by-sa/3.0/deed.ar المشاع الإبداعي] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة].",
+	"cx-license-agreement": "لو استمريت فأنت توافق على [https://foundation.wikimedia.org/wiki/Terms_of_Use/ar شروط الاستخدام] وعلى نشر ترجماتك تحت رخصتي [https://creativecommons.org/licenses/by-sa/4.0/deed.ar المشاع الإبداعي 4.0] و[//ar.wikipedia.org/wiki/ويكيبيديا:نص_رخصة_جنو_للوثائق_الحرة الوثائق الحرة 1.3].",
 	"cx-error-server-connection": "خطأ: تعذر الاتصال بالخادم.",
 	"cx-desc": "تسهل [[Special:ContentTranslation|ترجمة]] صفحات المحتوى",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|تُرجمت}}",

@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Futhark1988",
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Dušan Kreheľ"
 		]
 	},
-	"cx-license-agreement": "A folytatással elfogadja a [https://foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulásait a [https://creativecommons.org/licenses/by-sa/3.0/deed.hu CC BY-SA 3.0 licenc] és a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] alatt hozza nyilvánosságra.",
+	"cx-license-agreement": "A folytatással elfogadja a [https://foundation.wikimedia.org/wiki/Terms_of_Use felhasználási feltételeket], és visszavonhatatlanul elfogadja, hogy a hozzájárulásait a [https://creativecommons.org/licenses/by-sa/4.0/deed.hu CC BY-SA 4.0 licenc] és a [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] alatt hozza nyilvánosságra.",
 	"cx-translation-target-page-exists": "Egy [$1 $2] című lap már létezik a célwikin. Fontolja meg, hogy egy másik címet ad neki.",
 	"cx-beta-desc": "Egy eszköz, mellyel gyorsan lefordíthat lapokat az anyanyelvére. Kezdje el a fordítását a [[Special:MyContributions|közreműködési lapján]], majd szerkessze meg a kifejezetten fordítási célra kifejlesztett szerkesztőnkkel. Néhány eszköz esetleg csak bizonyos nyelveken elérhető.",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Ez az oldal még nem létezik $1 nyelven. Létre akarja hozni?",

@@ -2,14 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Kambai Akau"
+			"Kambai Akau",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Bwuak wat hu",
 	"cx-dashboard-header": "Mbwan",
 	"cx-javascript": "Kyangta̱m huni si̱ mi̱n nyia̱ ta̱m di̱ mi̱n JavaScript. Á̱ hyat JavaScript, fwan di̱n ta̱m, ku á̱ nwai li̱n-a̱ma bi̱ra̱uza jini.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Bwan Kyangmami]] yet kyangta̱m hwa mat bwan ngwat a̱nggang naat a̱lyem ang ka. [$1 Kwan nhu ma̱nini!]",
-	"cx-license-agreement": "Ka̱nang a ngya a̱son a̱ni, a shim [https://foundation.wikimedia.org/wiki/Terms_of_Use Nka̱nda̱n Nyian Ta̱m] na a̱wot a si̱ shim sa̱u jhyet ang ji di̱ mi̱n shyak fwuo a̱tafa [https://creativecommons.org/licenses/by-sa/3.0/ Kwaa̱mbwat A̱ka̱wat CC BY-SA 3.0] hu ma̱ng [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Ka̱nang a ngya a̱son a̱ni, a shim [https://foundation.wikimedia.org/wiki/Terms_of_Use Nka̱nda̱n Nyian Ta̱m] na a̱wot a si̱ shim sa̱u jhyet ang ji di̱ mi̱n shyak fwuo a̱tafa [https://creativecommons.org/licenses/by-sa/4.0/ Kwaa̱mbwat A̱ka̱wat CC BY-SA 4.0] hu ma̱ng [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Ghyuap: Á̱ si̱ mi̱n myim ma̱ng sava hu bah.",
 	"cx-desc": "Tyia̱ [[Special:ContentTranslation|bwuak]] pejí nkyangmami ku yet ma̱ hyohyoot",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Á̱ ku bwuak}} $1%",

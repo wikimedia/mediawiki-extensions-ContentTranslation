@@ -71,7 +71,7 @@
 	"apihelp-cxsuggestionlist-param-from": "Koda izvirnega jezika.",
 	"apihelp-cxsuggestionlist-param-to": "Koda ciljnega jezika.",
 	"apihelp-query+cxtranslatorstats-summary": "Pridobi statistiko prevajanja za danega uporabnika.",
-	"apihelp-query+cxtranslatorstats-param-translator": "Uporabniško ime prevajalca. Ta parameter je neobvezen. V primeru, da le-ta ni upoštevan, je uporabljeno ime trenutno prijavljenega uporabnika.",
+	"apihelp-query+cxtranslatorstats-param-translator": "Uporabniško ime prevajalca. Ta parameter je izbiren. V primeru, da le-ta ni upoštevan, je uporabljeno ime trenutno prijavljenega uporabnika.",
 	"apihelp-query+cxtranslatorstats-example-1": "Pridobi statistiko prevajanja za danega uporabnika.",
 	"apihelp-cxsave-summary": "Ta modul omogoča shranjevanje osnutkov prevodov po razdelkih, da se prihrani pasovna širina in ustvari vzporedni korpus.",
 	"apihelp-cxsave-param-sourcerevision": "Redakcija izvorne strani.",

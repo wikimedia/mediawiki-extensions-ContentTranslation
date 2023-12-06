@@ -9,14 +9,15 @@
 			"Purodha",
 			"Rooiratel",
 			"Slashme",
-			"Winstonza"
+			"Winstonza",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Vertaal bladsy",
 	"cx-dashboard-header": "Vertalings",
 	"cx-javascript": "Hierdie program werk nie sonder JavaScript nie. Javascrdipt is gedeaktiveer, het nie gewerk nie, of hierdie blaaier word nie ondersteun nie.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] is 'n program om vinnig bladsye in u taal te vertaal. [$1 Probeer dit gerus nou!]",
-	"cx-license-agreement": "Deur voort te gaan, stem jy toe tot die [https://foundation.wikimedia.org/wiki/Terms_of_Use Gebruiksvoorwaardes] en jy stem onherroeplik toe dat jou bydraes onder die [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 Lisensie] en die [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GNU Vrye Dokumentasie-lisensie] gepubliseer word.",
+	"cx-license-agreement": "Deur voort te gaan, stem jy toe tot die [https://foundation.wikimedia.org/wiki/Terms_of_Use Gebruiksvoorwaardes] en jy stem onherroeplik toe dat jou bydraes onder die [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 Lisensie] en die [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GNU Vrye Dokumentasie-lisensie 1.3] gepubliseer word.",
 	"cx-error-server-connection": "Fout: kon nie 'n verbinding met die bediener bewerkstellig nie.",
 	"cx-desc": "Maak dit maklik om inhoudbladsye te [[Special:ContentTranslation|vertaal]].",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|vertaal}}",

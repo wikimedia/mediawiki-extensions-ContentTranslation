@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ezagren"
+			"Ezagren",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Tarjamahakan laman",
 	"cx-dashboard-header": "Tarjamahan",
 	"cx-javascript": "Pakakas ngini kada kawa bagawi amun kada pakai JavaScript. JavaScript dipajahakan, luui manggawi, atawa paramban ngini kada didukung.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Tarjamahan Konten]] adalah pakakas gasan manarjemahakan laman sacara lakas ka basa Pian. [$1 Cuba damini!]",
-	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katantuan Pamakaian] wan Pian sacara tatap hakun malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/3.0/deed.id Lisensi CC BY-SA 3.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL].",
+	"cx-license-agreement": "Amun lanjut, itu artinya Pian hakun wan akur pada [https://foundation.wikimedia.org/wiki/Terms_of_Use/id Katantuan Pamakaian] wan Pian sacara tatap hakun malapas sumbangan Pian di bawah [https://creativecommons.org/licenses/by-sa/4.0/deed.id Lisensi CC BY-SA 4.0] wan [//id.wikipedia.org/wiki/Wikipedia:Lisensi_Dokumentasi_Bebas_GNU GFDL 1.3].",
 	"cx-error-server-connection": "Galat: Kada kawa tahubung lawan server.",
 	"cx-desc": "Manyamani [[Special:ContentTranslation|panarjamahan]] laman isi",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|ditarjamahakan}}",

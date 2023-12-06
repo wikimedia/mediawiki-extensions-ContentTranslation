@@ -10,14 +10,15 @@
 			"Tochiprecious",
 			"Ukabia",
 			"Uzoma Ozurumba",
-			"Weather Top Wizard"
+			"Weather Top Wizard",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Tugharịa ihuakwukwọ",
 	"cx-dashboard-header": "Ntụgharị",
 	"cx-javascript": "Ngwá ọrụ a agaghi arụ-ọrụ na-enweghi JavaScript. JavaScript nwere nkwarụ, ọ naghị arụ ọrụ, ma ọ bụ na brawụsa a anakweteghi ya.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Ntụgharị asụsụ ọdịnaya]] bụ ngwá eji eme ntụgharị ihụakwụkwọ na asụsụ gi  ngwa-ngwa. [$1 Nwaa ya ugbua!]",
-	"cx-license-agreement": "Site na iganihụ, ikwerela na [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] yana nkwere na-enweghi mgbanwe inye [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 License] ikikere ọrụ gi yana ndi [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL].",
+	"cx-license-agreement": "Site na iganihụ, ikwerela na [https://foundation.wikimedia.org/wiki/Terms_of_Use Terms of Use] yana nkwere na-enweghi mgbanwe inye [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 License] ikikere ọrụ gi yana ndi [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3].",
 	"cx-error-server-connection": "Mmejọ: Enweghike i kọnektị na sava.",
 	"cx-desc": "Mme ka-ọdi mfe [[Special:ContentTranslation|itụgharị]] ihụakwụkwọ ọdịnaya",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|atugharịrị}}",

@@ -5,14 +5,15 @@
 			"Pacha Tchernof",
 			"Tgr",
 			"Исмаил Садуев",
-			"Умар"
+			"Умар",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "АгӀо гочйар",
 	"cx-dashboard-header": "Гочдарш",
 	"cx-javascript": "ХӀокху гӀирсо JavaScript йоцуш болх цабо. JavaScript дӀайайина йу, болх ца беш йу, йа хӀокху браузер ловш йац.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] — хьан матте агӀонаш сиха гочйен гӀирс бу. [$1 Лела бе иза хӀинца!]",
-	"cx-license-agreement": "«$1» нуьйда тӀетаӀина, хьо реза хуьллу [https://foundation.wikimedia.org/wiki/Terms_of_Use Лелоран хьолан] цул совнах билламза реза хуьйла гочдаран гӀирсаца бина хьайн къинхьегам арахеца [https://creativecommons.org/licenses/by-sa/3.0/  CC BY-SA 3.0] а, [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] а лицензица, гиперхьажорг йа URL билгал йичахьана CC BY-SA 3.0 атрибуцин тоьуш хилар хууш а долуш.",
+	"cx-license-agreement": "«$1» нуьйда тӀетаӀина, хьо реза хуьллу [https://foundation.wikimedia.org/wiki/Terms_of_Use Лелоран хьолан] цул совнах билламза реза хуьйла гочдаран гӀирсаца бина хьайн къинхьегам арахеца [https://creativecommons.org/licenses/by-sa/4.0/  CC BY-SA 4.0] а, [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] а лицензица, гиперхьажорг йа URL билгал йичахьана CC BY-SA 4.0 атрибуцин тоьуш хилар хууш а долуш.",
 	"cx-error-server-connection": "ГӀалат: Серверах тасадала цаделира.",
 	"cx-desc": "Аьтто бо агӀонийн чулацам атта [[Special:ContentTranslation|гочбан]]",
 	"cx-header-progressbar-text": "{{PLURAL:$1|Гочдина}} $1%",

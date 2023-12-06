@@ -17,14 +17,15 @@
 			"Sfic",
 			"Siddhartha Ghai",
 			"Петар Петковић",
-			"संजीव कुमार"
+			"संजीव कुमार",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
 	"cx-dashboard-header": "अनुवाद",
 	"cx-javascript": "यह उपकरण जावास्क्रिप्ट के बिना काम नहीं करता है। जावास्क्रिप्ट अक्षम है, काम नहीं कर रही, अथवा उपकरण इस ब्राउज़र के साथ काम नहीं करता है।",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|सामग्री अनुवादक]] एक साधन है, जिससे कोई भी लेख जल्दी से आपके भाषा में अनुवाद कर देगा। [$1 एक बार उपयोग करें!]",
-	"cx-license-agreement": "\"$1\" बटन पर क्लिक करके आप [https://foundation.wikimedia.org/wiki/Terms_of_Use उपयोग की शर्तों] के लिए सहमति प्रदान करते हैं तथा आप अपरिवर्तनीय ढंग से अनुवाद उपकरण द्वारा किये अपने योगदान को [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 लाइसेंस] और [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] के अन्तर्गत जारी करने की सहमति प्रदान करते हैं। आप इस बात की भी सहमती प्रदान करते हैं कि CC BY-SA 3.0 के अंतर्गत श्रेय के लिए एक हाइपरलिंक अथवा यू॰आर॰एल॰ पर्याप्त है।",
+	"cx-license-agreement": "\"$1\" बटन पर क्लिक करके आप [https://foundation.wikimedia.org/wiki/Terms_of_Use उपयोग की शर्तों] के लिए सहमति प्रदान करते हैं तथा आप अपरिवर्तनीय ढंग से अनुवाद उपकरण द्वारा किये अपने योगदान को [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 लाइसेंस] और [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] के अन्तर्गत जारी करने की सहमति प्रदान करते हैं। आप इस बात की भी सहमती प्रदान करते हैं कि CC BY-SA 4.0 के अंतर्गत श्रेय के लिए एक हाइपरलिंक अथवा यू॰आर॰एल॰ पर्याप्त है।",
 	"cx-error-server-connection": "त्रुटि: सर्वर से सम्पर्क नहीं हो सका।",
 	"cx-desc": "सामग्री पृष्ठों का [[Special:ContentTranslation|अनुवाद]] करना आसान बनाता है",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|अनुवाद हो चुका है}}",
