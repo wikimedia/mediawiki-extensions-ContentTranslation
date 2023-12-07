@@ -27,7 +27,6 @@ export default {
         suggestionItem.sourceLanguage === sourceLanguage &&
         suggestionItem.targetLanguage === targetLanguage
     ),
-
   /**
    * @param state
    * @return {function(string, string, string): SectionSuggestion}
@@ -35,6 +34,18 @@ export default {
   getSectionSuggestionsForArticle:
     (state) => (sourceLanguage, targetLanguage, sourceTitle) =>
       state.sectionSuggestions.find(
+        (suggestionItem) =>
+          suggestionItem.sourceLanguage === sourceLanguage &&
+          suggestionItem.targetLanguage === targetLanguage &&
+          suggestionItem.sourceTitle === sourceTitle
+      ),
+  /**
+   * @param state
+   * @return {function(string, string, string): SectionSuggestion}
+   */
+  getSectionSuggestionsForPublishedArticle:
+    (state) => (sourceLanguage, targetLanguage, sourceTitle) =>
+      state.sectionSuggestionsForPublished.find(
         (suggestionItem) =>
           suggestionItem.sourceLanguage === sourceLanguage &&
           suggestionItem.targetLanguage === targetLanguage &&

@@ -8,10 +8,10 @@ import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import MwButton from "@/lib/mediawiki.ui/components/MWButton/MWButton.vue";
 import { useRouter } from "vue-router";
 import useDevice from "@/composables/useDevice";
-import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
 import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
+import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 
 const props = defineProps({
   translation: {
@@ -29,36 +29,10 @@ const firstMissingSection = computed(
   () => missingSections.value && Object.keys(missingSections.value)[0]
 );
 
-/**
- * @param {string} sourceLanguage
- * @param {string} targetLanguage
- * @param {string} sourceTitle
- * @return {Promise<SectionSuggestion|null>}
- */
-const findOrFetchNonLeadSectionSuggestion = async (
-  sourceLanguage,
-  targetLanguage,
-  sourceTitle
-) => {
-  let suggestion = store.getters["suggestions/getSectionSuggestionsForArticle"](
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle
-  );
+const fetchSectionSuggestionForPublished =
+  useSectionSuggestionForPublishedFetch();
 
-  if (!suggestion) {
-    /** @type {SectionSuggestion|null} */
-    suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
-      sourceLanguage,
-      sourceTitle,
-      targetLanguage
-    );
-  }
-
-  return suggestion;
-};
-
-findOrFetchNonLeadSectionSuggestion(
+fetchSectionSuggestionForPublished(
   props.translation.sourceLanguage,
   props.translation.targetLanguage,
   props.translation.sourceTitle

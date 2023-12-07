@@ -121,10 +121,7 @@ const startDraftTranslation = (translation) => {
 </script>
 
 <template>
-  <mw-card
-    v-show="isActive"
-    :class="`cx-translation-list--${translationStatus}`"
-  >
+  <mw-card v-if="isActive" :class="`cx-translation-list--${translationStatus}`">
     <template #header>
       <h3
         class="mw-ui-card__title pa-4 pt-5 mb-0"

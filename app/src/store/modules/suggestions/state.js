@@ -4,6 +4,8 @@ export default {
   pageSuggestions: [],
   /** @type SectionSuggestion[] */
   sectionSuggestions: [],
+  /** @type SectionSuggestion[] */
+  sectionSuggestionsForPublished: [],
   /** @type FavoriteSuggestion[] */
   favorites: [],
   /**

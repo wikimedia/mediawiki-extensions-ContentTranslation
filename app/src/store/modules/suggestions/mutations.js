@@ -9,6 +9,9 @@ export default {
   addSectionSuggestion(state, suggestion) {
     state.sectionSuggestions.push(suggestion);
   },
+  addSectionSuggestionForPublished(state, suggestion) {
+    state.sectionSuggestionsForPublished.push(suggestion);
+  },
   /**
    * @param {Object} state
    * @param {SectionSuggestion} suggestionToRemove
