@@ -4,17 +4,46 @@ const { WdioInterceptorService } = require( 'wdio-intercept-service' );
 
 class BrowserHelper {
 	/**
-	 * @param {string} url The base URL of the request
-	 * @param {{ key: string, value: string }[]} urlParams
-	 * @param {'POST'|'GET'} method The HTTP method of the request
+	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} findMethod
 	 * @param {boolean} includePending
 	 * @return {Promise<WdioInterceptorService.InterceptedRequest|null>}
 	 */
-	async findRequest( url, urlParams, method, includePending = true ) {
+	async findRequest( findMethod, includePending = true ) {
 		/** @type {WdioInterceptorService.InterceptedRequest[]} */
 		const requests = await browser.getRequests( { includePending } );
+		return requests.find( findMethod );
+	}
 
-		return requests.find( ( request ) => {
+	/**
+	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} findMethod
+	 * @param {Object} requestInfo Information about the request
+	 * @param {number} timeout Time to wait for the request to timeout
+	 * @return {Promise<WdioInterceptorService.CompletedRequest>}
+	 */
+	async findAndWaitRequest( findMethod, requestInfo, timeout = 5000 ) {
+		const request = await this.findRequest( findMethod );
+		if ( !request ) {
+			throw new Error( `Such request has not been sent. Details: ${JSON.stringify( requestInfo )}` );
+		} else if ( !request.pending ) {
+			return request;
+		}
+
+		const opts = {
+			timeoutMsg: `Request timed out in ${timeout} ms. Details: ${JSON.stringify( requestInfo )}`,
+			timeout
+		};
+
+		return browser.waitUntil( () => this.findRequest( findMethod, false ), opts );
+	}
+
+	/**
+	 * @param {string} url
+	 * @param {{ key: string, value: string }[]} urlParams
+	 * @param {'POST'|'GET'} method
+	 * @return {function(WdioInterceptorService.InterceptedRequest): boolean}
+	 */
+	getActionApiRequestFinder( url, urlParams, method ) {
+		return ( request ) => {
 			if ( request.method !== method ) {
 				return false;
 			}
@@ -49,33 +78,7 @@ class BrowserHelper {
 					return params.get( urlParam.key ) === `${urlParam.value}`;
 				}
 			} );
-		} );
-	}
-
-	/**
-	 * @param {string} url The base URL of the request
-	 * @param {{ key: string, value: string }[]} urlParams
-	 * @param {'POST'|'GET'} method The HTTP method of the request
-	 * @param {number} timeout Time to wait for the request to timeout
-	 * @return {Promise<WdioInterceptorService.CompletedRequest>}
-	 */
-	async findAndWaitRequest( url, urlParams, method, timeout = 5000 ) {
-		const request = await this.findRequest( url, urlParams, method );
-		if ( !request ) {
-			throw new Error(
-				'Such request has not been sent. Details: ' + JSON.stringify( { url, urlParams, method } )
-			);
-		} else if ( !request.pending ) {
-			return request;
-		}
-
-		const opts = {
-			timeoutMsg: `Request timed out in ${timeout} ms. ` +
-				`Details: ${JSON.stringify( { url, urlParams, method } )}`,
-			timeout
 		};
-
-		return browser.waitUntil( () => this.findRequest( url, urlParams, method, false ), opts );
 	}
 
 	/**
@@ -85,7 +88,11 @@ class BrowserHelper {
 	 */
 	findAndWaitForActionApiRequest( urlParams, method ) {
 		const url = `${process.env.MW_SCRIPT_PATH}/api.php`;
-		return this.findAndWaitRequest( url, urlParams, method );
+
+		return this.findAndWaitRequest(
+			this.getActionApiRequestFinder( url, urlParams, method ),
+			{ url, urlParams, method }
+		);
 	}
 }
 
