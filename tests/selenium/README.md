@@ -21,6 +21,11 @@ export MEDIAWIKI_USER=admin
 export MEDIAWIKI_PASSWORD=mwddpassword
 ```
 
+Add ContentTranslation-specific environment variables:
+```
+export CX_REMOTE_API_URL_TEMPLATE=http://{domain}.wikipedia.org/w/api.php
+```
+
 ## Run all specs
 
     npm run selenium-test

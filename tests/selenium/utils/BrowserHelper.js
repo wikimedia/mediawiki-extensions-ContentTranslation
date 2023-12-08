@@ -94,6 +94,21 @@ class BrowserHelper {
 			{ url, urlParams, method }
 		);
 	}
+
+	/**
+	 * @param {string} domain
+	 * @param {{ key: string, value: string }[]} urlParams
+	 * @param {'POST'|'GET'} method
+	 * @return {Promise<WdioInterceptorService.CompletedRequest>}
+	 */
+	findAndWaitForRemoteActionApiRequest( domain, urlParams, method ) {
+		const url = process.env.CX_REMOTE_API_URL_TEMPLATE.replace( '{domain}', domain );
+
+		return this.findAndWaitRequest(
+			this.getActionApiRequestFinder( url, urlParams, method ),
+			{ url, urlParams, method }
+		);
+	}
 }
 
 module.exports = new BrowserHelper();
