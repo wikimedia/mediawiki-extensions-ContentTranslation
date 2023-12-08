@@ -24,6 +24,8 @@ export MEDIAWIKI_PASSWORD=mwddpassword
 Add ContentTranslation-specific environment variables:
 ```
 export CX_REMOTE_API_URL_TEMPLATE=http://{domain}.wikipedia.org/w/api.php
+export CX_RESTBASE_URL_TEMPLATE=https://{domain}.wikipedia.org/api/rest_v1
+
 ```
 
 ## Run all specs

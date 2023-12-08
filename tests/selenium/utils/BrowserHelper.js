@@ -109,6 +109,16 @@ class BrowserHelper {
 			{ url, urlParams, method }
 		);
 	}
+
+	async findAndWaitForRecommendationApiRequest( domain ) {
+		const baseUrl = process.env.CX_RESTBASE_URL_TEMPLATE.replace( '{domain}', domain );
+		const partialUrl = baseUrl + '/data/recommendation/';
+
+		const findRequest = ( request ) => {
+			return request.url.startsWith( partialUrl );
+		};
+		return this.findAndWaitRequest( findRequest, { url: partialUrl } );
+	}
 }
 
 module.exports = new BrowserHelper();
