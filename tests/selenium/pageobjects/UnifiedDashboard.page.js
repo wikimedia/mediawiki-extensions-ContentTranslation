@@ -10,13 +10,26 @@ const ARTICLE_SUGGESTION_SELECTOR = '.cx-translation-list--page-suggestions .cx-
 const SECTION_SUGGESTION_SELECTOR = '.cx-translation-list--sx-suggestions .cx-suggestion';
 const FAVORITE_SELECTOR = '.cx-translation-list--favorites .cx-suggestion';
 const REFRESH_BUTTON_SELECTOR = '.cx-suggestion-list__refresh-button-container button';
+const SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR =
+		'div.cx-translation-list--suggestions .sx-translation-list-language-selector button span.mw-ui-autonym';
 
 class UnifiedDashboardPage extends Page {
+	get suggestionListLanguageButtons() { return $$( SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR ); }
 	get suggestionButton() { return $( 'button[value="suggestions"]' ); }
 	get articleSuggestions() { return $( ARTICLE_SUGGESTION_SELECTOR ); }
 	get sectionSuggestions() { return $( SECTION_SUGGESTION_SELECTOR ); }
 	get favoriteSuggestions() { return $( FAVORITE_SELECTOR ); }
 
+	async getLanguagePair() {
+		const languageButtons = await this.suggestionListLanguageButtons;
+		const sourceLanguage = await languageButtons[ 0 ].getAttribute( 'lang' );
+		const targetLanguage = await languageButtons[ 1 ].getAttribute( 'lang' );
+
+		return {
+			sourceLanguage,
+			targetLanguage
+		};
+	}
 	/**
 	 * @param {number} index
 	 * @return {Promise<WebdriverIOElementType>}
