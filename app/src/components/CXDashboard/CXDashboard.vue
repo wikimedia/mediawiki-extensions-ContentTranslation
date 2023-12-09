@@ -6,6 +6,7 @@
     />
     <mw-row class="ma-0">
       <mw-button
+        id="dashboard-search-translation-button"
         progressive
         :icon="mwIconAdd"
         :label="$i18n('cx-create-new-translation')"
