@@ -575,6 +575,15 @@ mw.cx.dm.Translation.prototype.setSourceRevisionId = function ( revisionId ) {
 };
 
 /**
+ * Get revision id
+ *
+ * @return {string} revision Id
+ */
+mw.cx.dm.Translation.prototype.getSourceRevisionId = function () {
+	return this.sourceRevisionId;
+};
+
+/**
  * Set target revision id
  *
  * @param {string} revisionId revision Id
