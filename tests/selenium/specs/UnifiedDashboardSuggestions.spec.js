@@ -34,8 +34,10 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 		const defaultOption = { wait: 6000 };
 		await expect( await UnifiedDashboardPage.suggestionButton ).toBeDisplayed( defaultOption );
-		await expect( await UnifiedDashboardPage.articleSuggestions ).toBeDisplayed( defaultOption );
-		await expect( await UnifiedDashboardPage.sectionSuggestions ).toBeDisplayed( defaultOption );
+		await expect( await UnifiedDashboardPage.articleSuggestions )
+			.toBeDisplayed( defaultOption );
+		await expect( await UnifiedDashboardPage.sectionSuggestions )
+			.toBeDisplayed( defaultOption );
 	} );
 
 	it( 'should allow user to save/unsave a suggestion for later', async function () {
@@ -44,12 +46,14 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 		// Save the article for later
 		const favoriteArticleHeading = await UnifiedDashboardPage.favoriteArticle( 0 );
-		let favoriteArticle = await UnifiedDashboardPage.getFavoriteSuggestionByTitle( favoriteArticleHeading );
+		let favoriteArticle = await UnifiedDashboardPage
+			.getFavoriteSuggestionByTitle( favoriteArticleHeading );
 		await expect( favoriteArticle ).toBeDefined();
 
 		// Un-save article
 		await UnifiedDashboardPage.unFavoriteArticle( favoriteArticle );
-		favoriteArticle = await UnifiedDashboardPage.getFavoriteSuggestionByTitle( favoriteArticleHeading );
+		favoriteArticle = await UnifiedDashboardPage
+			.getFavoriteSuggestionByTitle( favoriteArticleHeading );
 		await expect( favoriteArticle ).toBeUndefined();
 	} );
 
@@ -57,7 +61,8 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		await UnifiedDashboardPage.open();
 
 		const dismissedArticleHeading = await UnifiedDashboardPage.dismissArticle( 0 );
-		const dismissedArticle = await UnifiedDashboardPage.getArticleSuggestionByTitle( dismissedArticleHeading );
+		const dismissedArticle = await UnifiedDashboardPage
+			.getArticleSuggestionByTitle( dismissedArticleHeading );
 		await expect( dismissedArticle ).toBeUndefined();
 	} );
 
@@ -73,8 +78,10 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 		await UnifiedDashboardPage.refreshSuggestions();
 
-		const oldArticle1 = await UnifiedDashboardPage.getArticleSuggestionByTitle( existingArticle1Title );
-		const oldArticle2 = await UnifiedDashboardPage.getArticleSuggestionByTitle( existingArticle2Title );
+		const oldArticle1 = await UnifiedDashboardPage
+			.getArticleSuggestionByTitle( existingArticle1Title );
+		const oldArticle2 = await UnifiedDashboardPage
+			.getArticleSuggestionByTitle( existingArticle2Title );
 
 		await expect( oldArticle1 ).toBeUndefined();
 		await expect( oldArticle2 ).toBeUndefined();
