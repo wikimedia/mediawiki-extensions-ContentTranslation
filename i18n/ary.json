@@ -30,5 +30,6 @@
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "ناقص ف <span>$1</span>، <span>$2</span> ؤ زيد",
 	"cx-uls-relevant-languages-banner-text-single-missing": "ناقص ف <span>$1</span> ؤ زيد",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "ناقص ف <span>$1</span>، <span>$2</span> ؤ زيد",
-	"cx-uls-relevant-languages-panel-header": "طرجم هاد صفحة"
+	"cx-uls-relevant-languages-panel-header": "طرجم هاد صفحة",
+	"cx-sx-dashboard-stats-panel-title": "التأتير ديالك"
 }
