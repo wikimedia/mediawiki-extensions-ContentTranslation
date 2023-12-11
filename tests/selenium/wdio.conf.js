@@ -1,5 +1,11 @@
 'use strict';
 
+require( 'dotenv' ).config( {
+	path: __dirname + '/.env',
+	// Override any other values with what's present in the .env file
+	override: true
+} );
+
 const { config } = require( 'wdio-mediawiki/wdio-defaults.conf.js' );
 
 exports.config = {

@@ -12,32 +12,18 @@ See https://www.mediawiki.org/wiki/User:Santhosh.thottingal/WikiFamily to setup 
 
 ### Environment setup
 
-As per: https://www.mediawiki.org/wiki/Selenium/How-to/Set_environment_variables#Target_Cli/docker setup the environment
-variables:
-```
-export MW_SERVER=http://fr.mediawiki.mwdd.localhost:8080
-export MW_SCRIPT_PATH=/w
-export MEDIAWIKI_USER=admin
-export MEDIAWIKI_PASSWORD=mwddpassword
-```
-
-Add ContentTranslation-specific environment variables:
-```
-export CX_REMOTE_API_URL_TEMPLATE=http://{domain}.wikipedia.org/w/api.php
-export CX_RESTBASE_URL_TEMPLATE=https://{domain}.wikipedia.org/api/rest_v1
-
-```
+Copy the `.env.sample` file present inside the `tests/selenium` and create a `.env` file. Update the values in the file as needed.
 
 ## Run all specs
 
-    npm run selenium-test
+    npm run wdio
 
 ## Run specific tests
 
 Filter by file name:
 
-    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME]
+    npm run wdio -- --spec tests/selenium/specs/[FILE-NAME]
 
 Filter by file name and test name:
 
-    npm run selenium-test -- --spec tests/selenium/specs/[FILE-NAME] --mochaOpts.grep [TEST-NAME]
+    npm run wdio -- --spec tests/selenium/specs/[FILE-NAME] --mochaOpts.grep [TEST-NAME]
