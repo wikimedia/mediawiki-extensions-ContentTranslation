@@ -13,10 +13,11 @@
 			"Macofe",
 			"Maria zaos",
 			"Prevodim",
-			"Toliño"
+			"Toliño",
+			"O Breixo"
 		]
 	},
-	"cx": "Traducir unha páxina",
+	"cx": "Traducir páxina",
 	"cx-dashboard-header": "Traducións",
 	"cx-javascript": "Esta ferramenta non funciona sen JavaScript. JavaScript está desactivado, non funcionou ou este navegador non está soportado.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Tradución de contidos]] é unha ferramenta para traducir rapidamente as páxinas á túa lingua. [$1 Próbaa agora!]",
@@ -45,12 +46,12 @@
 	"cx-translation-add-translation": "Engadir a tradución",
 	"cx-translation-target-page-exists": "Xa existe unha páxina titulada \"[$1 $2]\" no wiki de destino. Considere cambiar o nome da páxina.",
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Tradución de contido]]",
-	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta de tradución de contido",
+	"tag-contenttranslation-description": "O contido foi traducido doutra lingua usando a ferramenta de Tradución de Contido",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Tradución de contido (v2)]]",
 	"tag-contenttranslation-v2-description": "O contido foi traducido doutra lingua usando a versión 2 da ferramenta de Tradución de Contido.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Tradución de sección]]",
 	"tag-sectiontranslation-description": "O contido traduciuse dunha sección noutra lingua mediante a función de tradución de seccións da ferramenta de tradución de contidos.",
-	"cx-source-loading": "Cargando \"$1\"",
+	"cx-source-loading": "Cargando $1",
 	"cx-beta": "Tradución de contido",
 	"cx-beta-desc": "Unha ferramenta para traducir rapidamente páxinas á súa lingua. Inicie as traducións desde a súa [[Special:MyContributions|páxina de contribucións]] e edíteas co noso editor paralelo especialmente deseñado para a tradución. Algunhas das ferramentas poden estar dispoñibles unicamente en certas linguas.",
 	"cx-entrypoint-title": "Traducir esta páxina ao $1",
