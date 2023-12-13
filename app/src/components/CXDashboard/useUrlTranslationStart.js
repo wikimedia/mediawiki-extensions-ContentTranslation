@@ -10,6 +10,7 @@ import { useEventLogging } from "@/plugins/eventlogging";
  */
 const getEventSourceFromUrlCampaign = () => {
   const campaignEventSourcesMap = {
+    ulsmissinglanguages: "content_language_selector",
     mflanguagesearcher: "content_language_selector",
     mfrecenttranslation: "recent_translation",
     mfrecentedit: "recent_edit",
