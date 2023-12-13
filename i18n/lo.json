@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Aefgh39622",
-			"Iberia2011"
+			"Iberia2011",
+			"Lookruk"
 		]
 	},
 	"cx": "ແປໜ້າ",
 	"cx-dashboard-header": "ການແປ",
-	"cx-javascript": "ເຄື່ອງມືນີ້ບໍ່ສາມາດເຮັດວຽກໄດ້ໂດຍບໍ່ມີ JavaScript.",
+	"cx-javascript": "ເຄື່ອງມືນີ້ບໍ່ເຮັດວຽກໂດຍບໍ່ມີ JavaScript JavaScript ຖືກປິດໃຊ້ງານ ເຮັດວຽກບໍ່ສຳເລັດ ຫຼື ບຣາວເຊີນີ້ບໍ່ຮອງຮັບ",
 	"cx-stats-title": "ສະຖິຕິ ການແປ ເນື້ອຫາ"
 }

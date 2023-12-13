@@ -54,6 +54,7 @@
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Превођење одељка]]",
 	"tag-sectiontranslation-description": "Садржина је преведена из одељка с другог језика помоћу функције „Превођење одељка” алатке „Преводилац садржине”.",
 	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Превод садржаја: Много неизмењеног машинског превода]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "Превод објављен помоћу Превода садржаја са великим процентом неизмењеног машинског превода",
 	"cx-source-loading": "Учитавам страницу $1…",
 	"cx-beta": "Преводилац садржине",
 	"cx-beta-desc": "Алатка за брзо превођење страница на ваш језик. Почните да преводите [[Special:MyContributions|своје доприносе]] и уређујте их помоћу нашег упоредног уређивача који је посебно дизајниран за превођење. Неке алатке могу да буду доступне само за одређене језике.",
@@ -462,7 +463,11 @@
 	"sx-confirm-translation-deletion-dialog-body": "Желите ли заиста да трајно избришете овај превод?",
 	"sx-translation-deletion-cancel-button-label": "Откажи",
 	"sx-translation-deletion-confirm-button-label": "Избриши превод",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 дан|$1 дана|0=Данас}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 месец|$1 месеци}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 година|$1 године}}",
 	"sx-confirm-draft-translation-start-dialog-title": "Настављење превођења на мобилном",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Превод је започет на другом уређају и укључује садржај за више одељака чланка.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Где су други одељци?",
 	"sx-confirm-draft-translation-start-button-label": "У реду"
 }
