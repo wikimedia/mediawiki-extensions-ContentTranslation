@@ -4,7 +4,7 @@ import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
 import CxHelpPanel from "./CXHelpPanel.vue";
 import CxStatsPanel from "./CXStatsPanel.vue";
-import { ref, watch, computed, onMounted } from "vue";
+import { computed } from "vue";
 import {
   MwButtonGroup,
   MwBottomNavigation,
@@ -23,8 +23,8 @@ import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import useActiveTabInitialize from "./useActiveTabInitialize";
 
-const active = ref("suggestions");
 const bananaI18n = useI18n();
 const listSelector = computed(() => [
   {
@@ -52,26 +52,19 @@ const listSelector = computed(() => [
     },
   },
 ]);
-onMounted(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const isSectionTranslation = urlParams.get("sx");
-
-  if (isSectionTranslation) {
-    active.value = "suggestions";
-  }
-});
 
 const router = useRouter();
 
 const searchTranslation = () => router.push({ name: "sx-article-search" });
 
-watch(active, () => window.scrollTo(0, 0));
 const initializeDashboard = useDashboardInitialization();
 initializeDashboard();
 
 const store = useStore();
 store.dispatch("translator/fetchTranslatorStats");
 const translatorStats = computed(() => store.state.translator.translatorStats);
+
+const activeTab = useActiveTabInitialize();
 </script>
 
 <template>
@@ -100,8 +93,8 @@ const translatorStats = computed(() => store.state.translator.translatorStats);
         <mw-button-group
           id="dashboard-list-selector--desktop"
           :items="listSelector"
-          :active="active"
-          @select="active = $event"
+          :active="activeTab"
+          @select="activeTab = $event"
         />
       </mw-col>
       <mw-col
@@ -111,14 +104,14 @@ const translatorStats = computed(() => store.state.translator.translatorStats);
         desktop="7"
       >
         <cx-favorite-list />
-        <cx-suggestion-list :active="active === 'suggestions'" />
+        <cx-suggestion-list :active="activeTab === 'suggestions'" />
         <cx-translation-list
           translation-status="draft"
-          :active-status="active"
+          :active-status="activeTab"
         />
         <cx-translation-list
           translation-status="published"
-          :active-status="active"
+          :active-status="activeTab"
         />
       </mw-col>
       <mw-col
@@ -149,7 +142,7 @@ const translatorStats = computed(() => store.state.translator.translatorStats);
     </mw-row>
     <mw-bottom-navigation
       v-if="$mwui.breakpoint.mobile"
-      v-model:active="active"
+      v-model:active="activeTab"
       :items="listSelector"
     />
   </div>

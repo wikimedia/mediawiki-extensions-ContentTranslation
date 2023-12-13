@@ -24,6 +24,12 @@ const setTranslationURLParams = (translationToBeStarted) => {
   replaceUrl(Object.fromEntries(params));
 };
 
+const setUrlParam = (param, value) => {
+  const params = new URLSearchParams(location.search);
+  params.set(param, value);
+  replaceUrl(Object.fromEntries(params));
+};
+
 /**
  * @param {object} params A mapping of query parameter names to values,
  *  e.g. `{ action: 'edit' }`
@@ -42,4 +48,9 @@ const isQuickTutorialForced = () => {
   return urlParams.get("force-quick-tutorial");
 };
 
-export { isQuickTutorialForced, setTranslationURLParams, replaceUrl };
+export {
+  isQuickTutorialForced,
+  setTranslationURLParams,
+  replaceUrl,
+  setUrlParam,
+};
