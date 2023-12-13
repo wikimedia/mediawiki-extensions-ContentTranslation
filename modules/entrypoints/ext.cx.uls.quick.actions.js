@@ -7,8 +7,8 @@
 	// The target language is the first among the suggested target languages for the current
 	// user. In case no such suggested target languages exist, the target language is null
 	// but the redirection to CX still happens with the target language missing.
-	var siteMapper = new mw.cx.SiteMapper( { TranslateInTarget: false } );
-	var sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
+	const siteMapper = new mw.cx.SiteMapper( { TranslateInTarget: false } );
+	const sourceLanguage = siteMapper.getCurrentWikiLanguageCode();
 
 	/**
 	 * Checks if there is a page in the target language.
@@ -17,7 +17,7 @@
 	 * @return {boolean}
 	 */
 	function pageInLanguageExists( code ) {
-		var domainCode = siteMapper.getWikiDomainCode( code );
+		const domainCode = siteMapper.getWikiDomainCode( code );
 
 		return $( 'li.interlanguage-link.interwiki-' + domainCode ).length === 1;
 	}
@@ -35,8 +35,8 @@
 	 * @return {string|null} Target language
 	 */
 	function getSuggestedTargetLanguage() {
-		var pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
-		var possibleTargetLanguages = [];
+		const pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
+		let possibleTargetLanguages = [];
 		possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
 		possibleTargetLanguages.push( mw.uls.getBrowserLanguage() );
 
@@ -51,15 +51,15 @@
 
 		// Replace possibly non-standard, macro and duplicate language codes
 		// with normalized counterparts
-		var splitCodes = {
+		const splitCodes = {
 			// Suggest both varieties of Belarusian when requesting 'be'
 			be: [ 'be', 'be-tarask' ],
 			// Suggest both varieties of Norwegian when requesting 'no'
 			no: [ 'nb', 'nn' ]
 		};
 
-		for ( var splitCode in splitCodes ) {
-			var specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
+		for ( const splitCode in splitCodes ) {
+			const specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
 			if ( specialCodeIndex > -1 ) {
 				possibleTargetLanguages.splice( specialCodeIndex, 1 );
 				Array.prototype.push.apply( possibleTargetLanguages, splitCodes[ splitCode ] );
@@ -77,14 +77,15 @@
 		return possibleTargetLanguages.length ? possibleTargetLanguages[ 0 ] : null;
 	}
 
-	var cxEntrypointUrl = siteMapper.getCXUrl(
+	const cxEntrypointUrl = siteMapper.getCXUrl(
 		mw.config.get( 'wgTitle' ),
 		null,
 		sourceLanguage,
-		getSuggestedTargetLanguage()
+		getSuggestedTargetLanguage(),
+		{ campaign: 'ulsaddlanguages' }
 	);
 
-	var translateActionItem = {
+	const translateActionItem = {
 		name: 'cxTranslate',
 		icon: 'add',
 		text: mw.msg( 'cx-uls-translate-page-quick-action-label' ),

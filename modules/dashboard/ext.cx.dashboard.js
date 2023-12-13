@@ -102,7 +102,8 @@
 	CXDashboard.prototype.logAnalyticsEvent = function () {
 		const validCampaigns = {
 			specialcontribute: 'contributions_page',
-			ulsmissinglanguages: 'content_language_selector'
+			ulsmissinglanguages: 'content_language_selector',
+			ulsaddlanguages: 'language_selector_options'
 		};
 		const query = new mw.Uri().query;
 

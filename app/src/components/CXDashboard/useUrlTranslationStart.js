@@ -18,6 +18,7 @@ const getEventSourceFromUrlCampaign = () => {
     newbytranslationmobile: "invite_new_article_creation",
     specialcontribute: "contributions_page",
     publishingfollowup: "followup_after_publishing",
+    ulsaddlanguages: "language_selector_options",
   };
   const urlParams = new URLSearchParams(location.search);
   const campaign = urlParams.get("campaign");
