@@ -1,3 +1,79 @@
+<script setup>
+import CxTranslationList from "./CXTranslationList.vue";
+import CxSuggestionList from "./CXSuggestionList.vue";
+import CxFavoriteList from "./CXFavoriteList.vue";
+import CxHelpPanel from "./CXHelpPanel.vue";
+import CxStatsPanel from "./CXStatsPanel.vue";
+import { ref, watch, computed, onMounted } from "vue";
+import {
+  MwButtonGroup,
+  MwBottomNavigation,
+  MwButton,
+  MwRow,
+  MwCol,
+} from "@/lib/mediawiki.ui";
+import {
+  mwIconAdd,
+  mwIconArticleCheck,
+  mwIconLightBulb,
+  mwIconEdit,
+} from "@/lib/mediawiki.ui/components/icons";
+import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
+import useDashboardInitialization from "./useDashboardInitialization";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+
+const active = ref("suggestions");
+const bananaI18n = useI18n();
+const listSelector = computed(() => [
+  {
+    value: "suggestions",
+    props: {
+      label: bananaI18n.i18n("cx-translation-filter-suggested-translations"),
+      icon: mwIconLightBulb,
+      type: "text",
+    },
+  },
+  {
+    value: "draft",
+    props: {
+      label: bananaI18n.i18n("cx-translation-filter-draft-translations"),
+      icon: mwIconEdit,
+      type: "text",
+    },
+  },
+  {
+    value: "published",
+    props: {
+      label: bananaI18n.i18n("cx-translation-filter-published-translations"),
+      icon: mwIconArticleCheck,
+      type: "text",
+    },
+  },
+]);
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const isSectionTranslation = urlParams.get("sx");
+
+  if (isSectionTranslation) {
+    active.value = "suggestions";
+  }
+});
+
+const router = useRouter();
+
+const searchTranslation = () => router.push({ name: "sx-article-search" });
+
+watch(active, () => window.scrollTo(0, 0));
+const initializeDashboard = useDashboardInitialization();
+initializeDashboard();
+
+const store = useStore();
+store.dispatch("translator/fetchTranslatorStats");
+const translatorStats = computed(() => store.state.translator.translatorStats);
+</script>
+
 <template>
   <div>
     <experimental-support-banner
@@ -78,117 +154,6 @@
     />
   </div>
 </template>
-
-<script>
-import CxTranslationList from "./CXTranslationList.vue";
-import CxSuggestionList from "./CXSuggestionList.vue";
-import CxFavoriteList from "./CXFavoriteList.vue";
-import CxHelpPanel from "./CXHelpPanel.vue";
-import CxStatsPanel from "./CXStatsPanel.vue";
-import { ref, watch, computed, onMounted } from "vue";
-import {
-  MwButtonGroup,
-  MwBottomNavigation,
-  MwButton,
-  MwRow,
-  MwCol,
-} from "@/lib/mediawiki.ui";
-import {
-  mwIconAdd,
-  mwIconArticleCheck,
-  mwIconLightBulb,
-  mwIconEdit,
-} from "@/lib/mediawiki.ui/components/icons";
-import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
-import useDashboardInitialization from "./useDashboardInitialization";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-
-export default {
-  name: "CxDashboard",
-  components: {
-    CxHelpPanel,
-    MwCol,
-    CxFavoriteList,
-    CxStatsPanel,
-    CxSuggestionList,
-    CxTranslationList,
-    ExperimentalSupportBanner,
-    MwBottomNavigation,
-    MwButton,
-    MwButtonGroup,
-    MwRow,
-  },
-  setup() {
-    const active = ref("suggestions");
-    const bananaI18n = useI18n();
-    const listSelector = computed(() => [
-      {
-        value: "suggestions",
-        props: {
-          label: bananaI18n.i18n(
-            "cx-translation-filter-suggested-translations"
-          ),
-          icon: mwIconLightBulb,
-          type: "text",
-        },
-      },
-      {
-        value: "draft",
-        props: {
-          label: bananaI18n.i18n("cx-translation-filter-draft-translations"),
-          icon: mwIconEdit,
-          type: "text",
-        },
-      },
-      {
-        value: "published",
-        props: {
-          label: bananaI18n.i18n(
-            "cx-translation-filter-published-translations"
-          ),
-          icon: mwIconArticleCheck,
-          type: "text",
-        },
-      },
-    ]);
-    onMounted(() => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const isSectionTranslation = urlParams.get("sx");
-
-      if (isSectionTranslation) {
-        active.value = "suggestions";
-      }
-    });
-
-    const router = useRouter();
-
-    const searchTranslation = () => router.push({ name: "sx-article-search" });
-
-    watch(active, () => window.scrollTo(0, 0));
-    const initializeDashboard = useDashboardInitialization();
-    initializeDashboard();
-
-    const store = useStore();
-    store.dispatch("translator/fetchTranslatorStats");
-    const translatorStats = computed(
-      () => store.state.translator.translatorStats
-    );
-
-    return {
-      active,
-      listSelector,
-      mwIconAdd,
-      mwIconArticleCheck,
-      mwIconLightBulb,
-      mwIconEdit,
-      searchTranslation,
-      translatorStats,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
