@@ -1,3 +1,44 @@
+<script setup>
+import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
+import { useStore } from "vuex";
+import { computed, onMounted } from "vue";
+import userApi from "@/wiki/mw/api/user";
+import SxLoginDialog from "@/components/SXLoginDialog.vue";
+import AssertUserError from "@/utils/errors/assertUserError";
+
+const store = useStore();
+const unsavedChangesExist = computed(
+  () => store.state.application.autoSavePending
+);
+onMounted(() => {
+  window.addEventListener("beforeunload", (e) => {
+    if (unsavedChangesExist.value) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+  });
+
+  if (!mw.user.isAnon()) {
+    window.addEventListener("visibilitychange", (e) => {
+      if (document.visibilityState !== "visible") {
+        return;
+      }
+
+      // if visibility state is "visible" we should assert that the user has not logged out
+      // in another browser tab/window.
+      userApi
+        .assertUser()
+        .then(() => store.commit("application/setIsLoginDialogOn", false))
+        .catch((error) => {
+          if (error instanceof AssertUserError) {
+            store.commit("application/setIsLoginDialogOn", true);
+          }
+        });
+    });
+  }
+});
+</script>
+
 <template>
   <mw-grid id="contenttranslation">
     <mw-row class="cx-container">
@@ -13,51 +54,7 @@
   </mw-grid>
 </template>
 
-<script>
-import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
-import { useStore } from "vuex";
-import { computed, onMounted, ref } from "vue";
-import userApi from "@/wiki/mw/api/user";
-import SxLoginDialog from "@/components/SXLoginDialog.vue";
-import AssertUserError from "@/utils/errors/assertUserError";
-
-export default {
-  name: "ContentTranslationApp",
-  components: { MwGrid, MwCol, MwRow, SxLoginDialog },
-  setup() {
-    const store = useStore();
-    const unsavedChangesExist = computed(
-      () => store.state.application.autoSavePending
-    );
-    onMounted(() => {
-      window.addEventListener("beforeunload", (e) => {
-        if (unsavedChangesExist.value) {
-          e.preventDefault();
-          e.returnValue = "";
-        }
-      });
-
-      if (!mw.user.isAnon()) {
-        window.addEventListener("visibilitychange", (e) => {
-          if (document.visibilityState === "visible") {
-            userApi
-              .assertUser()
-              .then(() => store.commit("application/setIsLoginDialogOn", false))
-              .catch((error) => {
-                if (error instanceof AssertUserError) {
-                  store.commit("application/setIsLoginDialogOn", true);
-                }
-              });
-          }
-        });
-      }
-    });
-  },
-};
-</script>
-
 <style lang="less">
-@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/lib/mediawiki.ui/styles/common.less";
 
 body {
