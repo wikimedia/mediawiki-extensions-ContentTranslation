@@ -501,5 +501,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Na urządzeniu mobilnym możesz pracować tylko z jedną sekcją na raz. Zatem na razie załadowana zostanie tylko sekcja główna.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Gdzie są pozostałe sekcje?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Nie martw się. Pozostałe sekcje nie zostały utracone. Staną się dostępne po opublikowaniu bieżącego tłumaczenia jako nowego artykułu. Po opublikowaniu znajdziesz nowe tłumaczenia w toku wraz z treścią każdej sekcji.",
-	"sx-confirm-draft-translation-start-button-label": "Ok"
+	"sx-confirm-draft-translation-start-button-label": "Ok",
+	"sx-published-translation-new-translation-button-label": "Nowe tłumaczenie"
 }

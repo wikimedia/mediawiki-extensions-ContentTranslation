@@ -130,7 +130,7 @@
 	"cx-translation-status-deleted": "ဖျက်ပြီးပြီ",
 	"cx-translation-label-draft": "လုပ်ဆောင်နေဆဲ ဘာသာပြန်များ",
 	"cx-translation-label-published": "လွှင့်တင်ပြီး ဘာသာပြန်များ",
-	"cx-translation-already-in-progress": "ဤသည် $1 {{GENDER:$2|မှ}} ဆောင်ရွက်နေသော ဘာသာပြန်ဖုစ်သည်။",
+	"cx-translation-already-in-progress": "ဤသည်မှာ $1 {{GENDER:$2|မှ}} ဆောင်ရွက်နေဆဲ ဘာသာပြန်ဖြစ်သည်။ သက်ဝင်နေဆဲ ဘာသာပြန်တစ်ခုရှိနေချိန်တွင် တစ်ရက်ပြီးမှသာ အသစ်တစ်ခုကို စတင်နိုင်မည် ဖြစ်သည်။ ကျေးဇူးပြု၍ ၂၄ နာရီအကြာတွင် ပြန်လည်ကြိုးစားပါ။ သို့မဟုတ် လက်ရှိဘာသာပြန်အား စတင်ခဲ့သော အသုံးပြုသူနှင့် ညှိနှိုင်းပါ။",
 	"cx-feedback-link": "အကြံပေးရန်",
 	"cx-stats-published-translations-title": "လွှင့်တင်ပြီး ဘာသာပြန်များ",
 	"cx-stats-draft-translations-title": "လုပ်ဆောင်နေဆဲ ဘာသာပြန်များ",
@@ -294,7 +294,7 @@
 	"cx-sx-publisher-sandbox-option-label": "သင်၏သဲပုံးသို့ လွှင့်တင်ရန်",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "သင်၏ဘာသာပြန်မှုကို <strong>သင်၏သဲပုံးထဲတွင်</strong> ထည့်သွင်းမည်ဖြစ်သည်။",
 	"cx-sx-publisher-review-info-error": "သင်၏ဘာသာပြန်အား မလွှင့်တင်နိုင်ပါ-",
-	"cx-sx-publisher-review-info-learn-more": "ပိုမို လေ့လာရန်",
+	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality ပိုမို လေ့လာရန်]",
 	"cx-dashboard-experimental-support-banner-title": "မိုဘိုင်းထောက်ပံ့မှုသည် စမ်းသပ်အဆင့်ဖြစ်ပါသည်",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "ပိုမို လေ့လာရန်",
 	"cx-dashboard-experimental-support-banner-share-feedback-anchor": "သင်၏အကြံပြုချက်ကိုမျှဝေရန်",
@@ -358,7 +358,7 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "ဤလ",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "စုစုပေါင်း",
 	"sx-confirm-back-navigation-dialog-title": "သင်၏ဘာသာပြန်များကို စွန့်ခွာမည်လော",
-	"sx-confirm-back-navigation-dialog-body": "သင်၏ပြောင်းလဲမှုများအားလုံး ဆုံးရှုံးသွားပါမည်။",
-	"sx-confirm-back-navigation-dialog-discard-button-label": "ပစ်ပယ်ရန်",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "ဆက်လက်"
+	"sx-confirm-back-navigation-dialog-body": "ပြောင်းလဲမှုများအား မသိမ်းဆည်းရသေးဘဲ ဆုံးရှုံးသွားလိမ့်မည် ဖြစ်သည်။ ပြောင်းလဲမှုများအား အလိုအလျောက် သိမ်းဆည်းထားရန် သင် ဆက်လက်တည်းဖြတ်နိုင်သည်။",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "ပြောင်းလဲမှုများအား ပစ်ပယ်ရန်",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ဆက်လက်တည်းဖြတ်ရန်"
 }
