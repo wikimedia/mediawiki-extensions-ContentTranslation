@@ -127,7 +127,7 @@
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Простір назв, у якому були опубліковані вилучені переклади. Стандартно це основний простір назв.",
 	"apihelp-query+cxdeletedtranslations-example-1": "Отримати кількість своїх вилучених перекладів, які були опубліковані в основному просторі назв і вилучені після 2019-04-07 16:24:44",
 	"apihelp-cxpublishsection-description": "Зберегти розділ створений функцією перекладу розділу розширення переклад вмісту",
-	"apihelp-cxpublishsection-summary": "Зберегти сторінку створену функцією перекладу розділу розширення переклад вмісту.",
+	"apihelp-cxpublishsection-summary": "Зберегти розділ, створений функцією перекладу розділу розширення Переклад вмісту.",
 	"apihelp-cxpublishsection-param-title": "Назва сторінки щодо якої вчинити дії.",
 	"apihelp-cxpublishsection-param-html": "Вміст до збереження.",
 	"apihelp-cxpublishsection-param-sourcelanguage": "Вихідний код мови.",
