@@ -24,14 +24,14 @@ class TranslationSplitterTest extends \MediaWikiIntegrationTestCase {
 		$revision = '1159866812';
 		$translationUnits = [
 			new TranslationUnitDTO(
-				"${revision}_0_1",
+				"{$revision}_0_1",
 				null,
 				[ 'engine' => null, 'content' => 'Test source content', 'timestamp' => '20230630123635' ],
 				[ 'engine' => 'Google', 'content' => 'Test MT content', 'timestamp' => '20230630123635' ],
 				null
 			),
 			new TranslationUnitDTO(
-				"${revision}_1_3",
+				"{$revision}_1_3",
 				null,
 				[ 'engine' => null, 'content' => 'Test source content', 'timestamp' => '20230630123635' ],
 				[
@@ -42,14 +42,14 @@ class TranslationSplitterTest extends \MediaWikiIntegrationTestCase {
 				null
 			),
 			new TranslationUnitDTO(
-				"${revision}_1_4",
+				"{$revision}_1_4",
 				null,
 				[ 'engine' => null, 'content' => 'Test source content', 'timestamp' => '20230630123635' ],
 				[ 'engine' => 'Google', 'content' => 'Test MT content', 'timestamp' => '20230630123635' ],
 				null
 			),
 			new TranslationUnitDTO(
-				"${revision}_2_5",
+				"{$revision}_2_5",
 				null,
 				[ 'engine' => null, 'content' => 'Test source content', 'timestamp' => '20230630123635' ],
 				[
