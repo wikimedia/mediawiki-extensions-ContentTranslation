@@ -18,7 +18,8 @@ async function fetchPageSuggestions(
   seedArticleTitle,
   count = 24
 ) {
-  let apiModule = `/data/recommendation/article/creation/translation/${sourceLanguage}`;
+  const sourceWikiCode = siteMapper.getWikiDomainCode(sourceLanguage);
+  let apiModule = `/data/recommendation/article/creation/translation/${sourceWikiCode}`;
 
   if (seedArticleTitle) {
     apiModule += `/${seedArticleTitle}`;
