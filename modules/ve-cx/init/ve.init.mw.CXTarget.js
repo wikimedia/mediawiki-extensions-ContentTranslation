@@ -958,6 +958,35 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
 };
 
 /**
+ * Copied from SX code: /app/src/utils/templateHelper.js
+ * Given an Element node, this method returns a boolean
+ * indicating whether this node is a transclusion node or not.
+ *
+ * @param {HTMLElement} node
+ * @return {boolean}
+ */
+const isTransclusionNode = ( node ) =>
+	!!(
+		node.attributes.about ||
+				( node.attributes.typeof &&
+						node
+							.getAttribute( 'typeof' )
+							.match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ ) )
+	);
+
+/**
+ * Copied and adjusted from SX code: /app/src/wiki/cx/models/subSection.js
+ *
+ * @param {HTMLElement} subSectionNode
+ * @return {HTMLElement}
+ */
+const getTransclusionNode = ( subSectionNode ) => {
+	return Array.from( subSectionNode.children ).find( ( node ) =>
+		isTransclusionNode( node )
+	);
+};
+
+/**
  * Translate and adapt the source section for the given section id.
  *
  * @param {string} sectionId Section ID
@@ -989,6 +1018,15 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
 	const sourceNode = ve.dm.converter.getDomFromNode( sourceNodeModel, mode ).body.children[ 0 ];
 	ve.dm.converter.isForTranslation = false;
 
+	const transclusionNode = getTransclusionNode( sourceNode );
+	if ( transclusionNode ) {
+		sourceNode.innerHTML = transclusionNode.outerHTML;
+	}
+
+	/**
+	 * @param {HTMLElement} section
+	 * @return {HTMLElement}
+	 */
 	function restructure( section ) {
 		section = section.cloneNode( true );
 		section.removeAttribute( 'rel' );
