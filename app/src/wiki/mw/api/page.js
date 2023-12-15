@@ -155,7 +155,9 @@ const fetchSegmentedContent = (
   sourceTitle,
   revision = null
 ) => {
-  const cxServerParams = [sourceLanguage, targetLanguage, sourceTitle].map(
+  const sourceWikiCode = siteMapper.getWikiDomainCode(sourceLanguage);
+  const targetWikiCode = siteMapper.getWikiDomainCode(targetLanguage);
+  const cxServerParams = [sourceWikiCode, targetWikiCode, sourceTitle].map(
     (param) => encodeURIComponent(param)
   );
   // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
