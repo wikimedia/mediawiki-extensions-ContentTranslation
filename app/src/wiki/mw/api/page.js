@@ -44,7 +44,10 @@ const fetchPages = (language, titles) => {
     // e.g. "Greenhouse_gas" instead of "Greenhouse gas"
     const titleNormalizations = response.query.normalized || [];
     const normalizationMap = titleNormalizations.reduce(
-      (nMap, normalization) => ({ ...nMap, [normalization.to]: normalization.from }),
+      (nMap, normalization) => ({
+        ...nMap,
+        [normalization.to]: normalization.from,
+      }),
       {}
     );
 
@@ -52,9 +55,10 @@ const fetchPages = (language, titles) => {
       // non-normalized page titles take priority over "redirect from" titles,
       // because they only exist in the response, when they have included in the
       // "titles" property of the request payload
-      const _alias = normalizationMap[page.title] || redirectMap[page.title] || null
+      const _alias =
+        normalizationMap[page.title] || redirectMap[page.title] || null;
 
-      return new Page({...page, _alias });
+      return new Page({ ...page, _alias });
     });
   });
 };
