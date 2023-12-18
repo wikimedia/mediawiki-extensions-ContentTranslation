@@ -17,6 +17,7 @@
 			"Liuxinyu970226",
 			"Spring Roll Conan",
 			"Sun8908",
+			"SunAfterRain",
 			"TurboHKG",
 			"Wehwei",
 			"Winston Sung",
@@ -480,5 +481,8 @@
 	"sx-confirm-back-navigation-dialog-continue-button-label": "繼續編輯",
 	"cx-sx-login-dialog-title": "您的 session 已逾期",
 	"cx-sx-login-dialog-body": "除非您是在另一個視窗中重新登入，否則您做出的編輯都不會保存，也不會歸在您的帳號下",
-	"cx-sx-login-dialog-button-label": "登入"
+	"cx-sx-login-dialog-button-label": "登入",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1天|0=今天}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1個月}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}"
 }
