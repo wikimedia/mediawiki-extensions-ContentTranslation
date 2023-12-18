@@ -1,15 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Soumaya"
+			"Soumaya",
+			"Raizkgh"
 		]
 	},
 	"cx": "Sõng-y n tool-y neda",
 	"cx-dashboard-header": "Sõng-rãmb",
 	"cx-javascript": "Sõng-kãngã pa tõe n tʋm tɩ pa tar JavaScript ye. JavaScript pa le tõe n tʋm ye, wall b pa sõngd b sẽn dat n bao n bãng bũmb ning sẽn be b pʋgẽ wã ye.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation]] ẽn yaa seb-no-kãsems sẽn na yɩl n lebg sɛb tɩ b lebg yãmb buud-gomdã tao-tao. [[$1 Bao-y-yã masã!]]",
+	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation]] ẽn yaa seb-no-kãsems sẽn na yɩl n lebg sɛb tɩ b lebg yãmb buud-gomdã tao-tao. [$1 Try it now!]",
 	"cx-error-server-connection": "Yɛllem: Pa tõog n tɩ loe ne serverã ye.",
-	"cx-desc": "Yãk-y n tool-y neda Yãk a Zeova[[Special:Content Translation|Translate]]",
+	"cx-desc": "Yãk-y n tool-y neda Yãk a Zeova[[Special:ContentTranslation|translate]]",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|translated}}",
 	"cx-header-progressbar-text-mt": "($1% sẽn yit {{PLURAL:$1 ẽn-te-maasẽ wã pʋgẽ}})",
 	"cx-header-translation-center": "Sõng-y n paam n bãng y sẽn tõe n maan to-to",
@@ -31,7 +32,7 @@
 	"cx-publish-summary": "Yãk-y n tool-y neda Yãk a soaba $1",
 	"cx-translation-add-translation": "Bãngr-gomdã fãa",
 	"cx-translation-target-page-exists": "Pag sẽn tar yʋy ning [$1 $2] be wiki wã pʋgẽ. Tags-y n yãk yʋy a to n wilg-y.",
-	"tag-contenttranslation": "[[MediaWiki-descriptionpagelink}}|ContentTranslation",
+	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
 	"tag-contenttranslation-description": "B lebgda seb-kãngã buud-gomd a to pʋgẽ ne seb-kãngã.",
 	"tag-contenttranslation-v2-description": "The content was translated from another language using the version 2 of Content Translation tool.",
 	"cx-source-loading": "N-tʋʋg $1",
