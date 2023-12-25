@@ -280,11 +280,16 @@
 	"cx-unreviewed-translation-category-desc": "Страници, преведени с инструмента „Превод на съдържание“, съдържащи голямо количество непроверено съдържание",
 	"cx-preference-enable-entrypoints": "Достъп до [[$1|започване на превод]] от страницата с приноси, списъка с езици и при създаване на нови страници.",
 	"cx-feature-discovery-dismiss": "Добре, разбрах",
+	"cx-suggestionlist-expand-sections-title": "Разширяване с нови раздели",
+	"cx-sx-missing-section-stats": "В $2 {{PLURAL:$1|липсва един раздел|липсват $1 раздела}}",
 	"cx-sx-section-selector-title": "Раздели",
 	"cx-sx-language-selector-dialog-title": "Търсене на език",
 	"cx-sx-start-translation-button-label": "Започване на превод",
 	"cx-sx-view-translation-anchor": "Преглед",
 	"cx-sx-existing-translation-learn-more": "Научете повече",
+	"cx-sx-section-selector-empty-missing-sections-title": "Не са намерени раздели за превод",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Изберете друга страница",
-	"cx-sx-section-selector-learn-more-anchor-label": "Научете повече"
+	"cx-sx-section-selector-automatic-section-matching-title": "Автоматично съпоставяне на раздели",
+	"cx-sx-section-selector-learn-more-anchor-label": "Научете повече",
+	"cx-sx-section-selector-unsupported-sections-title": "Неподдържани раздели"
 }
