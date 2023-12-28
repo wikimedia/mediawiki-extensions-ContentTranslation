@@ -145,7 +145,7 @@
 	"cx-translation-status-deleted": "Izbrisano",
 	"cx-translation-label-draft": "Članki v prevajanju",
 	"cx-translation-label-published": "Objavljeni prevodi",
-	"cx-translation-already-in-progress": "Na tem prevodu ravnokar dela {{GENDER:$2|uporabnik|uporabnica|uporabnik/ca}} $1. Pri aktivnem prevodu lahko nov prevod začnete šele po enem dnevu. Prosimo, poskusite znova čez 24 ur ali se uskladite z uporabnikom, ki je začel trenutni prevod.",
+	"cx-translation-already-in-progress": "Na tem prevodu ravnokar dela {{GENDER:$2|uporabnik|uporabnica|uporabnik_ca}} $1. Pri aktivnem prevodu lahko nov prevod začnete šele po enem dnevu. Prosimo, poskusite znova čez 24 ur ali se uskladite z uporabnikom, ki je začel trenutni prevod.",
 	"cx-translation-already-in-progress-unknown": "Na tem prevodu dela neznan uporabnik. Ko je v teku prevajanje, lahko z novim pričnete šele po enem dnevu. Prosimo, poskusite znova čez 24 ur ali se uskladite z uporabnikom, ki je pričel s prevajanjem.",
 	"cx-feedback-link": "Pošljite svoje mnenje",
 	"cx-stats-published-translations-title": "Objavljeni prevodi",
