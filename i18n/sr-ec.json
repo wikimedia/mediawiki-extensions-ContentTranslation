@@ -391,6 +391,8 @@
 	"cx-sx-article-search-header": "Нови превод",
 	"cx-sx-article-search-no-suggestions-message": "Сетите се неке теме која вас занима. Не морате бити стручњак да бисте добро преводили.",
 	"cx-sx-article-search-no-search-results-message": "Нису пронађене странице за упит „$1” на језику: $2",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "Допуни са $1 или провери постојећи одељак",
+	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "Допуни са одељком $1.",
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "Нема недостајућих одељака. Погледајте постојеће.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "Нема одељака за превођење. Започните нов превод да замените постојећу страницу.",
 	"cx-sx-translation-confirmer-action-view-section": "Види одељак за превођење",
