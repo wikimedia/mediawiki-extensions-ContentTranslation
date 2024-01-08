@@ -92,6 +92,15 @@ class TranslationSplitterTest extends \MediaWikiIntegrationTestCase {
 			new SectionTranslation(
 				null,
 				1,
+				implode( '_', [ $revision, 0 ] ),
+				'__LEAD_SECTION__',
+				'__LEAD_SECTION__',
+				$draftStatusIndex,
+				json_encode( [ "any" => null, "mt" => null, "human" => null ] )
+			),
+			new SectionTranslation(
+				null,
+				1,
 				implode( '_', [ $revision, 1 ] ),
 				'Education',
 				'Education translation',

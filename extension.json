@@ -194,6 +194,15 @@
 				"ContentTranslation.TranslationStore"
 			]
 		},
+		"cxsplit": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSplit",
+			"services": [
+				"ContentTranslation.LoadBalancer",
+				"ContentTranslation.TranslationSplitter",
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.SectionTranslationStore"
+			]
+		},
 		"cxsuggestionlist": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 			"services": [

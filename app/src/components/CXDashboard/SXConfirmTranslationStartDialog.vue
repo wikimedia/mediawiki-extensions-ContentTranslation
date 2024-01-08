@@ -1,7 +1,9 @@
 <script setup>
-import { MwButton, MwDialog } from "@/lib/mediawiki.ui";
+import { MwButton, MwDialog, MwSpinner } from "@/lib/mediawiki.ui";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
+import translatorApi from "@/wiki/cx/api/translator";
+import { ref } from "vue";
 
 const props = defineProps({
   modelValue: {
@@ -17,8 +19,29 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 const closeDialog = () => emit("update:modelValue", false);
 const doStartTranslation = useDraftTranslationStart();
+const loading = ref(false);
 
-const startTranslation = () => {
+const startTranslation = async () => {
+  loading.value = true;
+  let success = false;
+
+  try {
+    success = await translatorApi.splitTranslation(
+      props.translation.translationId
+    );
+  } catch (error) {
+    mw.log.error(
+      "[CX] Error while splitting the translation into section translations",
+      error
+    );
+  }
+
+  loading.value = false;
+
+  if (!success) {
+    return;
+  }
+
   doStartTranslation(props.translation);
   closeDialog();
 };
@@ -27,7 +50,8 @@ const startTranslation = () => {
 <template>
   <mw-dialog
     :value="modelValue"
-    class="sx-confirm-back-navigation-dialog"
+    :persistent="loading"
+    class="sx-confirm-translation-start-dialog"
     :overlay-opacity="0.7"
     :overlay-color="$mwui.colors.gray700"
     min-height="unset"
@@ -51,11 +75,13 @@ const startTranslation = () => {
     <template #footer>
       <div class="flex pt-2">
         <mw-button
+          v-if="!loading"
           class="grow py-3"
           large
           :label="$i18n('sx-confirm-draft-translation-start-button-label')"
           @click="startTranslation"
         />
+        <mw-spinner v-else />
       </div>
     </template>
   </mw-dialog>

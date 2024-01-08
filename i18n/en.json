@@ -491,7 +491,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "This translation was started on a different device, and it includes contents for multiple sections of the article.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "On mobile you can only work with one section at a time. Thus, only the main section will be loaded for now.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Where are the other sections?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Don't worry. The remaining sections are not lost. They will become available once you publish the current translation as a new article. After publishing, you'll find new in-progress translations with the contents for each section.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Don't worry. The remaining sections are not lost. They are now available in the list of your in-progress translations and can be used to expand the existing article. You'll find a new in-progress translation with the contents for each section.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-new-translation-button-label": "New translation"
 }

@@ -399,6 +399,24 @@ const saveTranslation = ({
 };
 
 /**
+ * @param {int} translationId
+ * @return {Promise}
+ */
+const splitTranslation = (translationId) => {
+  const params = {
+    assert: optionalUserAssertion,
+    action: "cxsplit",
+    translationid: translationId,
+  };
+
+  const api = new mw.Api();
+
+  return api
+    .postWithToken("csrf", params)
+    .then((response) => response.cxsplit.result === "success");
+};
+
+/**
  * Given the appropriate parameters (section translation id, translation id and section id), this method
  * deletes the translation from "cx_section_translations" database table, deletes all related corpora translation
  * units from "cx_corpora" table, and if no other corpora translation unit exists for the given
@@ -480,4 +498,5 @@ export default {
   deleteTranslation,
   fetchTranslatorStats,
   deleteCXTranslation,
+  splitTranslation,
 };

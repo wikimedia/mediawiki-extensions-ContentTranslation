@@ -267,14 +267,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 					$this->dieWithError( 'apierror-cxpublishsection-translationnotfound', 'translationnotfound' );
 				}
 
-				// if the translated section is a lead section
-				if ( $sectionNumber === 0 ) {
-					$newSectionTranslations = $this->translationSplitter->splitIntoSectionTranslations(
-						// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
-						$translation
-					);
-					$this->sectionTranslationStore->insertMultipleTranslations( $newSectionTranslations );
-				}
 				// if translation exists update the "translation_target_revision_id" field for this row
 				'@phan-var Translation $translation';
 				$this->updateTranslation(

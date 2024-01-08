@@ -147,5 +147,9 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "{{doc-apihelp-param|sxdelete|sectiontranslationid}}",
 	"apihelp-sxdelete-param-translationid": "{{doc-apihelp-param|sxdelete|translationid}}",
 	"apihelp-sxdelete-param-sectionid": "{{doc-apihelp-param|sxdelete|sectionid}}",
-	"apihelp-sxdelete-example-1": "{{doc-apihelp-example|sxdelete}}"
+	"apihelp-sxdelete-example-1": "{{doc-apihelp-example|sxdelete}}",
+	"apihelp-cxsplit-summary": "{{doc-apihelp-summary|cxsplit}}",
+	"apihelp-cxsplit-param-translationid": "{{doc-apihelp-param|cxsplit|translationid}}",
+	"apierror-cxsplit-anon-user": "{{doc-apierror}}",
+	"apierror-cxsplit-no-translation-found": "{{doc-apierror}}"
 }

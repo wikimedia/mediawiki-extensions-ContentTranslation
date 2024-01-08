@@ -21,6 +21,8 @@ use DOMDocument;
  * @author Nik Gkountas
  */
 class TranslationSplitter {
+	private const LEAD_SECTION_DUMMY_TITLE = '__LEAD_SECTION__';
+
 	private TranslationCorporaManager $corporaManager;
 	private SectionTitleFetcher $sectionTitleFetcher;
 
@@ -38,17 +40,8 @@ class TranslationSplitter {
 			$translation->getTranslationId()
 		);
 
-		if ( !$this->validateMwSectionNumbers( $translationUnits ) ) {
+		if ( !$translationUnits || !$this->validateMwSectionNumbers( $translationUnits ) ) {
 			// TODO: Should we throw an exception or log something here?
-			return [];
-		}
-
-		// filter out translation units from the lead section, since they are being published during current request
-		$translationUnits = array_filter( $translationUnits, static function ( TranslationUnitDTO $unit ) {
-			return $unit->getMwSectionNumber() !== 0;
-		} );
-
-		if ( !$translationUnits ) {
 			return [];
 		}
 
@@ -70,6 +63,10 @@ class TranslationSplitter {
 		}
 
 		$mwSectionNumbers = array_keys( $translationUnitsBySections );
+		$mwSectionNumbers = array_filter( $mwSectionNumbers, static function ( int $value ) {
+			return $value !== 0;
+		} );
+
 		if ( !$this->validateSourceSectionKeys( $mwSectionNumbers, array_keys( $sourceSectionTitles ) ) ) {
 			// TODO: Throw an exception (maybe a custom one) or log something here
 			return [];
@@ -84,11 +81,17 @@ class TranslationSplitter {
 
 		foreach ( $translationUnitsBySections as $mwSectionNumber => $translationUnitDTOs ) {
 			$translationUnitDTO = $translationUnitDTOs[0];
-			// It's guaranteed that the "$mwSectionNumber" index exists inside $sectionTitles,
-			// as we have already validated source section titles above
-			$sourceSectionTitle = $sourceSectionTitles[$mwSectionNumber];
-			$targetSectionTitle =
-				$this->searchForTargetTitleInCorporaUnits( $translationUnitDTOs ) ?? $sourceSectionTitle;
+			// It's guaranteed that the "$mwSectionNumber" index exists inside $sectionTitles, as we have
+			// already validated source section titles above. Lead section is also guaranteed to be present
+			// inside the target article.
+			if ( $mwSectionNumber === 0 ) {
+				$sourceSectionTitle = self::LEAD_SECTION_DUMMY_TITLE;
+				$targetSectionTitle = self::LEAD_SECTION_DUMMY_TITLE;
+			} else {
+				$sourceSectionTitle = $sourceSectionTitles[$mwSectionNumber];
+				$targetSectionTitle =
+					$this->searchForTargetTitleInCorporaUnits( $translationUnitDTOs ) ?? $sourceSectionTitle;
+			}
 
 			$newSectionTranslations[] = new SectionTranslation(
 				null,

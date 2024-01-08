@@ -150,5 +150,9 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "The section translation id associated with the draft section translation.",
 	"apihelp-sxdelete-param-translationid": "The translation id associated with the draft section translation.",
 	"apihelp-sxdelete-param-sectionid": "The id of the section of the draft section translation.",
-	"apihelp-sxdelete-example-1": "Delete a draft associated with given translation id and section id."
+	"apihelp-sxdelete-example-1": "Delete a draft associated with given translation id and section id.",
+	"apihelp-cxsplit-summary": "Create and save a section translation to database, for every translated section of the given article translation",
+	"apihelp-cxsplit-param-translationid": "The id of the translation, for which the section translations will be created.",
+	"apierror-cxsplit-anon-user": "\"cxsplit\" API action is not enabled for anonymous users",
+	"apierror-cxsplit-no-translation-found": "No translation found for the given id"
 }
