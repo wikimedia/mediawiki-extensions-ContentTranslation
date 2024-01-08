@@ -1,7 +1,6 @@
 import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
-import Page from "../../../wiki/mw/models/page";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
 import { cleanupHtml } from "../../../utils/publishHelper";
 import translator from "@/wiki/cx/api/translator";
@@ -203,54 +202,6 @@ async function publishTranslation(
   return await cxTranslatorApi.publishTranslation(publishPayload);
 }
 
-async function fetchTranslationsByStatus(
-  { commit, dispatch, getters, rootGetters },
-  status
-) {
-  /** @type {Translation[]} */
-  let translations = await cxTranslatorApi.fetchTranslations(status);
-  translations = translations.filter(
-    (translation) => !getters.translationExists(translation)
-  );
-  translations.forEach((translation) => commit("addTranslation", translation));
-
-  const queue = translations.reduce((queue, translation) => {
-    const language = translation.sourceLanguage;
-    queue[language] = queue[language] || [];
-    queue[language].push(translation);
-
-    return queue;
-  }, {});
-  commit("setTranslationsLoaded", { status, value: true });
-
-  for (const [sourceLanguage, translations] of Object.entries(queue)) {
-    dispatch(
-      "mediawiki/fetchPageMetadata",
-      {
-        language: sourceLanguage,
-        titles: translations.map((translation) => translation.sourceTitle),
-      },
-      { root: true }
-    );
-
-    translations.forEach((translation) => {
-      const { targetLanguage, targetTitle } = translation;
-      const targetPageExists = !!rootGetters["mediawiki/getPage"](
-        targetLanguage,
-        targetTitle
-      );
-
-      if (!!targetTitle && !targetPageExists) {
-        commit(
-          "mediawiki/addPage",
-          new Page({ title: targetTitle, pagelanguage: targetLanguage }),
-          { root: true }
-        );
-      }
-    });
-  }
-}
-
 /**
  * Translates HTML content for a given MT provider and the
  * application's source/target language pair, and returns
@@ -310,7 +261,6 @@ export default {
   validateMT,
   saveTranslation,
   publishTranslation,
-  fetchTranslationsByStatus,
   translateContent,
   fetchTranslatorStats,
 };

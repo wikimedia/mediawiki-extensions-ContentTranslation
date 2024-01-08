@@ -110,6 +110,7 @@ import { replaceUrl } from "@/utils/urlHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 
 export default {
   name: "SxSentenceSelector",
@@ -223,8 +224,10 @@ export default {
       doGoToDashboard();
     };
 
+    const { fetchTranslationsByStatus } = useTranslationsFetch();
+
     const doGoToDashboard = async () => {
-      store.dispatch("translator/fetchTranslationsByStatus", "draft");
+      fetchTranslationsByStatus("draft");
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
       store.dispatch("application/clearPendingSaveTranslationRequests");

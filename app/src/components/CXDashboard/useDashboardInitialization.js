@@ -30,7 +30,7 @@ const useDashboardInitialization = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const startSectionTranslationFromUrl = useUrlTranslationStart();
-  const fetchTranslations = useTranslationsFetch(store);
+  const { fetchAllTranslations } = useTranslationsFetch();
   const initializeSuggestions = useSuggestionsInitialize();
 
   return async () => {
@@ -83,7 +83,7 @@ const useDashboardInitialization = () => {
       mw.log.error("[CX] Error while fetching favorite suggestions", error);
     }
 
-    await fetchTranslations();
+    await fetchAllTranslations();
     initializeSuggestions();
   };
 };

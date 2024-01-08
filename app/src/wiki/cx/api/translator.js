@@ -20,10 +20,10 @@ const throwAssertUserError = (error) => {
 
 /**
  * @param {"draft"|"published"} status
- * @param {string} offset
+ * @param {string|null} offset
  * @return {Promise<Translation[]>}
  */
-async function fetchTranslations(status, offset) {
+async function fetchTranslations(status, offset = null) {
   if (mw.user.isAnon()) {
     return Promise.resolve([]);
   }

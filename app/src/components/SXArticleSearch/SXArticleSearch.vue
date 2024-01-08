@@ -165,12 +165,12 @@ export default {
     );
     const router = useRouter();
 
-    const fetchTranslations = useTranslationsFetch(store);
+    const { fetchAllTranslations } = useTranslationsFetch();
     onMounted(async () => {
       const initializeLanguages = useApplicationLanguagesInitialize();
       await initializeLanguages();
 
-      fetchTranslations();
+      fetchAllTranslations();
 
       try {
         previousLanguages.value.push(

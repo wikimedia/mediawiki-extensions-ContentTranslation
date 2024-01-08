@@ -1,4 +1,9 @@
 export default {
+  clearTranslationsByStatus(state, status) {
+    state.translations = state.translations.filter(
+      (translation) => translation.status !== status
+    );
+  },
   addTranslation(state, translation) {
     state.translations.push(translation);
   },

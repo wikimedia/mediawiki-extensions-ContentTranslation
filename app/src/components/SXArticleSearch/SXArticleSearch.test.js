@@ -34,6 +34,10 @@ jest.mock("../../wiki/mw/api/page", () => {
   };
 });
 
+jest.mock("../../wiki/cx/api/translator", () => ({
+  fetchTranslations: jest.fn(() => Promise.resolve([])),
+}));
+
 jest.mock("../../composables/useLanguageHelper", () => {
   return {
     useSuggestionListLanguagePairUpdate: jest.fn(),
@@ -43,6 +47,7 @@ jest.mock("../../composables/useLanguageHelper", () => {
 
 jest.mock("./usePageTranslationStart", () => jest.fn());
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
+
 const mockStartRecentlyEditedSectionTranslation = jest.fn();
 usePageTranslationStart.mockImplementation(() => ({
   startRecentlyEditedSectionTranslation:

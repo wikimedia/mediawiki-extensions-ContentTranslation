@@ -34,7 +34,7 @@ const useUrlTranslationStart = () => {
   const startSectionTranslation = useSectionTranslationStart();
   const logEvent = useEventLogging();
   const startDraftTranslation = useDraftTranslationStart();
-  const fetchTranslations = useTranslationsFetch(store);
+  const { fetchAllTranslations } = useTranslationsFetch();
 
   /**
    * @param {string} pageTitle
@@ -55,7 +55,7 @@ const useUrlTranslationStart = () => {
     });
 
     if (isDraftTranslation) {
-      await fetchTranslations();
+      await fetchAllTranslations();
 
       const translation = store.getters["translator/getDraftTranslation"](
         pageTitle,
