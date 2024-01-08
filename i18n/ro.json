@@ -12,7 +12,8 @@
 			"Strainu",
 			"Wintereu",
 			"XXN",
-			"Cezar"
+			"Cezar",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Traducere pagină",
@@ -149,7 +150,7 @@
 	"cx-translation-label-published": "Traduceri publicate",
 	"cx-translation-already-in-progress": "Aceasta este o traducere încă nefinalizată {{GENDER:$2|a utilizatorului|a utilizatoarei}} $1. Atunci când există o traducere activă puteți să începeți una numai după o zi. Vă rugăm să încercați din nou în 24 de ore sau să vă coordonați cu utilizatorul care a început traducerea curentă.",
 	"cx-translation-already-in-progress-unknown": "Aceasta este o traducere în curs de un utilizator necunoscut. Atunci când există o traducere activă puteți să începeți una numai după o zi. Vă rugăm să încercați din nou în 24 de ore sau să vă coordonați cu utilizatorul care a început traducerea curentă.",
-	"cx-feedback-link": "Trimiteți păreri",
+	"cx-feedback-link": "Trimiteți feedback",
 	"cx-stats-published-translations-title": "Traduceri publicate",
 	"cx-stats-draft-translations-title": "Traduceri în curs",
 	"cx-stats-draft-translations-label": "Traduceri în curs",

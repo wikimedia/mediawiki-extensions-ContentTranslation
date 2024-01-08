@@ -13,7 +13,9 @@
 			"Taweetham",
 			"Thas Tayapongsak",
 			"กิ๊ฟ เลิกล่ะ สายแข็ง",
-			"Ekminarin"
+			"Ekminarin",
+			"Dušan Kreheľ",
+			"Thastp"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -47,7 +49,7 @@
 	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|การแปลเนื้อหา]]",
 	"tag-contenttranslation-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหา",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|การแปลเนื้อหา2]]",
-	"tag-contenttranslation-v2-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหาเวอร์ชัน 2",
+	"tag-contenttranslation-v2-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหารุ่นที่ 2",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|การแปลส่วน]]",
 	"tag-sectiontranslation-description": "เนื้อหาส่วนนี้ถูกแปลจากภาษาอื่นผ่านการฟีเจอร์การแปลส่วนของเครื่องมือแปลเนื้อหา",
 	"cx-source-loading": "กำลังโหลด $1",

@@ -23,7 +23,9 @@
 			"Xiplus",
 			"Петар Петковић",
 			"捍粵者",
-			"Aqua"
+			"Aqua",
+			"Lakejason0",
+			"SunAfterRain"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -439,7 +441,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "在<span>$1</span>和更多語言裡缺少",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "在<span>$1</span>、<span>$2</span>，和更多語言裡缺少",
 	"cx-uls-relevant-languages-panel-header": "翻譯此頁面",
-	"cx-uls-relevant-languages-panel-message": "此頁面缺少在您可能理解的幾個語言裡。您可以在幾分鐘內翻譯它！",
+	"cx-uls-relevant-languages-panel-message": "您有可能掌握的幾種語言中缺少相應的頁面，抽些時間來翻譯吧！",
 	"cx-sx-publisher-publish-panel-lead-section-result": "這將會是<strong>新條目的第一章節！</strong>",
 	"cx-uls-translate-page-quick-action-label": "翻譯此頁面",
 	"cx-sx-publisher-captcha-dialog-header-title": "檢查您並非機器人",

@@ -54,7 +54,8 @@
 			"SCP-2000",
 			"Aqua",
 			"LittlePaw365",
-			"Diskdance"
+			"Diskdance",
+			"Lakejason0"
 		]
 	},
 	"cx": "翻译页面",
@@ -471,7 +472,7 @@
 	"cx-uls-relevant-languages-banner-text-single-missing": "缺少<span>$1</span>及其他语言版本",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "缺少<span>$1</span>、<span>$2</span>及其他语言版本",
 	"cx-uls-relevant-languages-panel-header": "翻译此页面",
-	"cx-uls-relevant-languages-panel-message": "此页面缺少在您可能理解的几个语言里。您可以在几分钟内翻译它！",
+	"cx-uls-relevant-languages-panel-message": "您有可能掌握的几种语言中缺少对应的页面。抽些时间来翻译吧！",
 	"cx-sx-publisher-publish-panel-lead-section-result": "这将是<strong>新条目中的第一个章节！</strong>",
 	"cx-uls-translate-page-quick-action-label": "翻译此页面",
 	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
