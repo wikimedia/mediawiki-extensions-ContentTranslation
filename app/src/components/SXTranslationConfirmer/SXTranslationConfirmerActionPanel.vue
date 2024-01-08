@@ -159,7 +159,7 @@ export default {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer-body__pre-filled-banner {
-  background-color: @background-color-progressive;
+  background-color: @background-color-progressive-subtle;
   h6 {
     font-weight: @font-weight-bold;
     color: @color-subtle;
