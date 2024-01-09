@@ -91,6 +91,7 @@
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 váruttâs|$1 váruttâs|$1 váruttâssâd}}",
 	"cx-tools-linter-generic-title": "Tuu jurgâlusâst lii čuolmâ",
 	"cx-tools-linter-template-add-new": "Lasseet uđđâ myenster",
+	"cx-tools-linter-old-revision": "Jurgâlus vuáđuduvá siijđo ovdii versioi",
 	"cx-tools-linter-reference": "Käldee váilu",
 	"cx-tools-linter-restart-translation-cancel": "Jooskâ",
 	"cx-translator-month-stats-label": "Taan máánust",
