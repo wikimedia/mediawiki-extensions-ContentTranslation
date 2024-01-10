@@ -452,6 +452,7 @@
 	"cx-sx-dashboard-help-panel-more-info-label": "Vairāk par šo rīku",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistika",
 	"cx-sx-dashboard-help-panel-feedback-label": "Sniedz mums atsauksmes",
+	"cx-sx-dashboard-stats-panel-title": "Tava ietekme",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Šomēnes",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Kopā",
 	"sx-confirm-back-navigation-dialog-title": "Vai pamest tulkojumu?",
@@ -463,6 +464,7 @@
 	"sx-confirm-translation-deletion-dialog-body": "Vai tiešām vēlies neatgriezeniski dzēst šo tulkojumu?",
 	"sx-translation-deletion-cancel-button-label": "Atcelt",
 	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu",
+	"sx-confirm-draft-translation-start-dialog-title": "Tulkošanas turpināšana mobilajā ierīcē",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Kur ir pārējās sadaļas?",
 	"sx-confirm-draft-translation-start-button-label": "Labi"
 }

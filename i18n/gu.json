@@ -357,6 +357,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "\"$1\" અને \"$2\" ભાષાંતર કરો",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" અને વધુ ભાષાંતર કરો",
 	"sx-block-template-adaptation-card-body-header-success": "સૂચવેલ ઢાંચો",
+	"sx-block-template-adaptation-card-title-placeholder": "ઢાંચો",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "ભાષાંતર સંપાદિત કરો",
 	"sx-block-template-adaptation-card-body-header-failure": "સંબંધિત ઢાંચો $1 માટે પ્રાપ્ત નથી",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "<span>$1</span>માં ખૂટે છે",
@@ -380,8 +381,16 @@
 	"cx-sx-dashboard-help-panel-more-info-label": "આ સાધન વિશે વધુ માહિતી",
 	"cx-sx-dashboard-help-panel-stats-label": "આંકડા",
 	"cx-sx-dashboard-help-panel-feedback-label": "અમને અભિપ્રાય આપો",
+	"cx-sx-dashboard-stats-panel-title": "તમારી અસર",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "આ મહિને",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "કુલ",
-	"sx-confirm-back-navigation-dialog-body": "તમારા બધા ફેરફારો સચવાશે નહી.",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "ચાલુ રાખો"
+	"sx-confirm-back-navigation-dialog-body": "ફેરફારો હજુ સાચવવામાં આવ્યા નથી અને તે નષ્ટ પામશે.\nફેરફારો આપમેળે સાચવવા માટે તમે સંપાદન ચાલુ રાખી શકો છો.",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "ફેરફારો કરવાનું ચાલુ રાખો",
+	"cx-sx-login-dialog-title": "તમારું સત્ર સમાપ્ત થઇ ગયું છે",
+	"sx-translation-deletion-cancel-button-label": "રદ કરો",
+	"sx-translation-deletion-confirm-button-label": "ભાષાંતર દૂર કરો",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 દિવસ|$1 દિવસો|0=આજે}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 મહિનો|$1 મહિનાઓ}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 વર્ષ|$1 વર્ષો}}",
+	"sx-confirm-draft-translation-start-button-label": "બરાબર"
 }

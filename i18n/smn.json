@@ -61,9 +61,13 @@
 	"cx-translation-status-draft": "Pargo vyelni",
 	"cx-translation-status-published": "Almostittum",
 	"cx-translation-status-deleted": "Sikkum",
+	"cx-translation-label-draft": "Jurgâlusah, moh láá pargo vyelni",
 	"cx-translation-label-published": "Almostittum jurgâlusah",
 	"cx-feedback-link": "Addel macâttâs",
 	"cx-stats-published-translations-title": "Almostittum jurgâlusah",
+	"cx-stats-draft-translations-title": "Jurgâlusah, moh láá pargo vyelni",
+	"cx-stats-draft-translations-label": "Jurgâlusah, moh láá pargo vyelni",
+	"cx-stats-new-draft-translations-label": "Ođđâ jurgâlusah, moh láá pargo vyelni",
 	"cx-stats-published-translators-title": "Jurgâleijei lohomeeri",
 	"cx-stats-cumulative-tab-title": "Ohtsis",
 	"cx-draft-cancel-button-label": "Jooskâ",
@@ -91,6 +95,7 @@
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 váruttâs|$1 váruttâs|$1 váruttâssâd}}",
 	"cx-tools-linter-generic-title": "Tuu jurgâlusâst lii čuolmâ",
 	"cx-tools-linter-template-add-new": "Lasseet uđđâ myenster",
+	"cx-tools-linter-old-revision": "Jurgâlus vuáđuduvá siijđo ovdii versioi",
 	"cx-tools-linter-reference": "Käldee váilu",
 	"cx-tools-linter-restart-translation-cancel": "Jooskâ",
 	"cx-translator-month-stats-label": "Taan máánust",
@@ -142,5 +147,6 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "Almostit",
 	"cx-contributecard-entrypoint-title": "Jurgâlusah",
 	"cx-sx-dashboard-help-panel-title": "Tarbâšah-uv jurgâlemiše?",
-	"cx-sx-dashboard-help-panel-more-info-label": "Lasetiäđuh taan pargoniävust"
+	"cx-sx-dashboard-help-panel-more-info-label": "Lasetiäđuh taan pargoniävust",
+	"cx-sx-login-dialog-button-label": "Čáládât siisâ"
 }
