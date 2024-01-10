@@ -414,7 +414,7 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "An rasa  <span>$1</span> da <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "An rasa  <span>$1</span>, <span>$2</span> da wasu",
 	"cx-uls-relevant-languages-banner-text-single-missing": "An rasa a  <span>$1</span> da wasu",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "An rasa a  <span>$1</span>, <span>$2</span> da wasu",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "An rasa a  $1, $2 da wasu",
 	"cx-uls-relevant-languages-panel-header": "Fassara wannan shafin",
 	"cx-uls-relevant-languages-panel-message": "An rasa wannan shafin a wasu harsunan da ƙila ka sansu. Zaka iya fassara su a minti!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Wannan zai zama <strong>sashe na farko a sabuwar makala!</strong>",
