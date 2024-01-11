@@ -12,46 +12,13 @@ import {
   MwRow,
   MwCol,
 } from "@/lib/mediawiki.ui";
-import {
-  mwIconAdd,
-  mwIconArticleCheck,
-  mwIconLightBulb,
-  mwIconEdit,
-} from "@/lib/mediawiki.ui/components/icons";
+import { mwIconAdd } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
 import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
 import useActiveTabInitialize from "./useActiveTabInitialize";
-
-const bananaI18n = useI18n();
-const listSelector = computed(() => [
-  {
-    value: "suggestions",
-    props: {
-      label: bananaI18n.i18n("cx-translation-filter-suggested-translations"),
-      icon: mwIconLightBulb,
-      type: "text",
-    },
-  },
-  {
-    value: "draft",
-    props: {
-      label: bananaI18n.i18n("cx-translation-filter-draft-translations"),
-      icon: mwIconEdit,
-      type: "text",
-    },
-  },
-  {
-    value: "published",
-    props: {
-      label: bananaI18n.i18n("cx-translation-filter-published-translations"),
-      icon: mwIconArticleCheck,
-      type: "text",
-    },
-  },
-]);
+import useDashboardListOptions from "./useDashboardListOptions";
 
 const router = useRouter();
 
@@ -65,6 +32,7 @@ store.dispatch("translator/fetchTranslatorStats");
 const translatorStats = computed(() => store.state.translator.translatorStats);
 
 const activeTab = useActiveTabInitialize();
+const listSelector = useDashboardListOptions();
 </script>
 
 <template>
