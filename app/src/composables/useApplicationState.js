@@ -3,7 +3,7 @@ import { getAutonym } from "@wikimedia/language-data";
 
 /**
  * @param {Store} store
- * @return {{currentSectionSuggestion: ComputedRef<PageSection>, proposedTranslation: *, currentMTProvider: *, currentSourceSection: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, isSectionTitleSelected: *, selectedContentTranslationUnit: *, sourceLanguage: *, currentSourcePage: *}}
+ * @return {{currentSectionSuggestion: ComputedRef<PageSection>, proposedTranslation: *, previousRoute: ComputedRef<string>, currentMTProvider: *, currentSourceSection: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, isSectionTitleSelected: *, selectedContentTranslationUnit: *, sourceLanguage: *, currentSourcePage: *}}
  */
 export default function (store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);
@@ -48,6 +48,8 @@ export default function (store) {
     () => store.getters["application/getCurrentTargetPage"]
   );
 
+  const previousRoute = computed(() => store.state.application.previousRoute);
+
   return {
     currentMTProvider,
     currentSectionSuggestion,
@@ -55,6 +57,7 @@ export default function (store) {
     currentSourceSection,
     currentTargetPage,
     isSectionTitleSelected,
+    previousRoute,
     proposedTranslation,
     selectedContentTranslationUnit,
     sourceLanguage,

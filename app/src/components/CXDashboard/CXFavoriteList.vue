@@ -44,10 +44,7 @@ export default {
         "application/startFavoriteSectionTranslation",
         suggestion
       );
-      router.push({
-        name: "sx-translation-confirmer",
-        query: { previousRoute: "dashboard" },
-      });
+      router.push({ name: "sx-translation-confirmer" });
     };
 
     return {

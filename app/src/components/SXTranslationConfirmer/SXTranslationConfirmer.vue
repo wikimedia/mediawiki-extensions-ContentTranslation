@@ -68,10 +68,6 @@ export default {
     SxTranslationConfirmerActionPanel,
   },
   props: {
-    previousRoute: {
-      type: String,
-      default: null,
-    },
     eventSource: {
       type: String,
       default: null,
@@ -79,7 +75,7 @@ export default {
   },
   setup(props) {
     const store = useStore();
-    const { sourceLanguage, targetLanguage, currentSourcePage } =
+    const { sourceLanguage, targetLanguage, currentSourcePage, previousRoute } =
       useApplicationState(store);
     const articleImageSource = computed(
       () => currentSourcePage.value?.image?.source
@@ -115,7 +111,7 @@ export default {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
       replaceUrl(null);
 
-      router.push({ name: props.previousRoute });
+      router.push({ name: previousRoute.value });
     };
 
     return {

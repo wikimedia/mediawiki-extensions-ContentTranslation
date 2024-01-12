@@ -69,7 +69,7 @@ const useUrlTranslationStart = () => {
       }
       startDraftTranslation(translation);
     } else {
-      startSectionTranslation(pageTitle, "dashboard", eventSource);
+      startSectionTranslation(pageTitle, eventSource);
     }
   };
 };

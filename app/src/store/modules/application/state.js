@@ -42,4 +42,9 @@ export default {
   cxServerToken: null,
   translationDataLoadingCounter: 0,
   isLoginDialogOn: false,
+  /**
+   * The name of the previous route (as defined in vue-router config)
+   * @type String
+   */
+  previousRoute: null,
 };

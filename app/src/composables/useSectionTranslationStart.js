@@ -8,11 +8,10 @@ const useSectionTranslationStart = () => {
 
   /**
    * @param {string} title
-   * @param {string} previousRoute
    * @param {string} eventSource
    * @return {Promise<void>}
    */
-  return async (title, previousRoute, eventSource) => {
+  return async (title, eventSource) => {
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
     /** @type {SectionSuggestion|null} */
     const suggestion = await store.dispatch(
@@ -31,7 +30,7 @@ const useSectionTranslationStart = () => {
     store.dispatch("application/initializeSectionTranslation", suggestion);
     router.push({
       name: "sx-translation-confirmer",
-      query: { previousRoute, eventSource },
+      query: { eventSource },
     });
   };
 };

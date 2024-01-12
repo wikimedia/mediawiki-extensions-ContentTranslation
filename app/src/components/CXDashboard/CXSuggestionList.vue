@@ -113,11 +113,7 @@ export default {
      * @return {Promise<void>}
      */
     const startSectionTranslation = (suggestion) =>
-      doStartSectionTranslation(
-        suggestion.sourceTitle,
-        "dashboard",
-        "suggestion_no_seed"
-      );
+      doStartSectionTranslation(suggestion.sourceTitle, "suggestion_no_seed");
 
     const { startPageSuggestion } = usePageTranslationStart();
 

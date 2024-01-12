@@ -32,7 +32,6 @@ const routes = [
     name: "sx-translation-confirmer",
     component: SXTranslationConfirmer,
     props: (route) => ({
-      previousRoute: route.query.previousRoute,
       eventSource: route.query.eventSource,
     }),
     meta: { workflowStep: 1 },
@@ -93,6 +92,7 @@ const router = createRouter({
  */
 router.beforeEach((to, from, next) => {
   const store = useStore();
+  store.commit("application/setPreviousRoute", from.name);
 
   if (!mw.user.isAnon()) {
     userApi.assertUser().catch((error) => {

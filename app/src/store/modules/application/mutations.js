@@ -170,6 +170,10 @@ const mutations = {
   setIsLoginDialogOn: (state, value) => {
     state.isLoginDialogOn = value;
   },
+
+  setPreviousRoute: (state, route) => {
+    state.previousRoute = route;
+  },
 };
 
 export default mutations;

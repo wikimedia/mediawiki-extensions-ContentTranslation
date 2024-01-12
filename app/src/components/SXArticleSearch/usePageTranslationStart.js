@@ -13,11 +13,10 @@ const usePageTranslationStart = () => {
   /**
    *
    * @param {string} pageTitle
-   * @param {string} previousRoute
    * @param {string} eventSource
    * @return {Promise<void>}
    */
-  const doStartTranslation = (pageTitle, previousRoute, eventSource) => {
+  const doStartTranslation = (pageTitle, eventSource) => {
     const existingLeadTranslation = store.getters[
       "translator/getDraftTranslation"
     ](
@@ -31,7 +30,7 @@ const usePageTranslationStart = () => {
     if (!!existingLeadTranslation) {
       return startDraftTranslation(existingLeadTranslation);
     } else {
-      return startSectionTranslation(pageTitle, previousRoute, eventSource);
+      return startSectionTranslation(pageTitle, eventSource);
     }
   };
   /**
@@ -39,55 +38,35 @@ const usePageTranslationStart = () => {
    * @return {Promise<void>}
    */
   const startRecentlyEditedSectionTranslation = (suggestedPage) =>
-    doStartTranslation(
-      suggestedPage.title,
-      "sx-article-search",
-      "suggestion_recent_edit"
-    );
+    doStartTranslation(suggestedPage.title, "suggestion_recent_edit");
 
   /**
    * @param {Page} suggestedPage
    * @return {Promise<void>}
    */
   const startNearbySectionTranslation = (suggestedPage) =>
-    doStartTranslation(
-      suggestedPage.title,
-      "sx-article-search",
-      "suggestion_nearby"
-    );
+    doStartTranslation(suggestedPage.title, "suggestion_nearby");
 
   /**
    * @param {Page} suggestedPage
    * @return {Promise<void>}
    */
   const startSearchResultSectionTranslation = (suggestedPage) =>
-    doStartTranslation(
-      suggestedPage.title,
-      "sx-article-search",
-      "search_result"
-    );
+    doStartTranslation(suggestedPage.title, "search_result");
 
   /**
    * @param {ArticleSuggestion} suggestion
    * @return {Promise<void>}
    */
   const startPageSuggestion = (suggestion) =>
-    doStartTranslation(
-      suggestion.sourceTitle,
-      "dashboard",
-      "suggestion_no_seed"
-    );
+    doStartTranslation(suggestion.sourceTitle, "suggestion_no_seed");
 
   /**
    * @param {PublishedTranslation} translation
    * @return {Promise<void>}
    */
   const startPublishedTranslation = (translation) =>
-    doStartTranslation(
-      translation.sourceTitle,
-      "dashboard",
-      "continue_published"
-    );
+    doStartTranslation(translation.sourceTitle, "continue_published");
 
   return {
     startRecentlyEditedSectionTranslation,
