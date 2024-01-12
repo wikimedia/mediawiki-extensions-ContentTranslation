@@ -44,10 +44,29 @@ const useDashboardInitialization = () => {
 
       return;
     }
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    const { sourceLanguage, targetLanguage, previousRoute } =
+      useApplicationState(store);
+
+    const getEventSource = () => {
+      const navigationEventSources = {
+        "sx-article-search": "return_from_search",
+        "sx-translation-confirmer": "return_from_confirmation",
+        "sx-section-selector": "return_from_section_selection",
+        "sx-sentence-selector": "editor_close",
+      };
+
+      const navigationEventSource = navigationEventSources[previousRoute.value];
+
+      if (navigationEventSource) {
+        return navigationEventSource;
+      }
+
+      return getEventSourceFromUrlCampaign() || "direct";
+    };
+
     logEvent({
       event_type: "dashboard_open",
-      event_source: getEventSourceFromUrlCampaign() || "direct",
+      event_source: getEventSource(),
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
     });
