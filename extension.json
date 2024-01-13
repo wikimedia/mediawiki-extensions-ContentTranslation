@@ -1697,7 +1697,7 @@
 			]
 		},
 		"mw.cx.skin": {
-			"class": "ResourceLoaderSkinModule",
+			"class": "MediaWiki\\ResourceLoader\\SkinModule",
 			"styles": [
 				"skin/styles/skin.less"
 			],
