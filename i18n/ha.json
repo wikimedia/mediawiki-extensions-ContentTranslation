@@ -5,7 +5,8 @@
 			"Bashir Gwanki",
 			"DaSupremo",
 			"Em-em",
-			"Gwanki"
+			"Gwanki",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Fassara shafi",
@@ -70,7 +71,7 @@
 	"cx-tools-mt-set-default": "Ajiye a madauwami",
 	"cx-tools-mt-noservices": "Babu hidimar fassar waɗannan harsunan. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|Me yasa?]]",
 	"cx-tools-mt-preferred": "madauwami",
-	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 category|$1 categories|0=No categories}}",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 category|$1 categoris|0=Babu nau'i}}",
 	"cx-stats-title": "Ƙididdigar Fassarar Ƙunshiya",
 	"cx-warning-unsaved-translation": "Akwai fassarar da ba'a ajiye ba.",
 	"cx-error-page-not-found": "\"$1\" babu shafin a $2 Wikipedia",
@@ -140,7 +141,7 @@
 	"cx-translation-label-draft": "Fassara na kan aiki",
 	"cx-translation-label-published": "Fassarorin da aka wallafa",
 	"cx-translation-already-in-progress": "Wannan ana kan fassara shi {{GENDER:$2|daga}} $1. Idan akwai fassarar da ake kan yi kawai za'a iya fara sabuwar fassara ne bayan rana ɗaya. Daure ka sake jarrabawa a bayan awa 24 ko ka haɗu da wanda yake kan fassarar.",
-	"cx-translation-already-in-progress-unknown": "Wannan ana kan fassara shi daga wani edita da ba'a san shi ba. Idan akwai fassarar da ake kan yi za'a iya fara sabuwar fassara ne bayan awa 24; ko ka haɗ kai da wanda ya fassara shi.",
+	"cx-translation-already-in-progress-unknown": "Wannan fassarar da ba a san ta ba ce. Lokacin da akwai fassarar aiki za ku iya fara sabon ne kawai bayan rana. Don Allah ku sake gwadawa cikin sa'o'i 24 ko daidaita tare da mai amfani wanda ya fara fassarar yanzu.",
 	"cx-feedback-link": "Bayar da martani",
 	"cx-stats-published-translations-title": "Wallafa fassara",
 	"cx-stats-draft-translations-title": "Fassara na kan aiki",
@@ -338,7 +339,9 @@
 	"cx-sx-publish-lead-section-summary": "Ƙirƙira ta hanyar buɗe sashe daga shafi \"$1\"",
 	"cx-sx-publisher-preview-options-title": "Zabin wallafa",
 	"cx-sx-publisher-new-section-option-label": "Wallafa a matsayin sabon sashe",
+	"cx-sx-publisher-lead-section-option-label": "Buga a matsayin sabon shafi",
 	"cx-sx-publisher-new-section-option-details": "Kara sabon sashen zuwa makala",
+	"cx-sx-publisher-lead-section-option-details": "Ka ƙirƙiri sabon shafi a cikin babban wuri",
 	"cx-sx-publisher-sandbox-option-label": "Wallafa a shafinka na gwaji",
 	"cx-sx-publisher-sandbox-option-details": "Wallafa a filin ka na musamman domin ka duba kuma ka kwafa a ko ina.",
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Fassarar ka zata zama <strong> a shafin ka na gwaji.</strong>",
@@ -416,9 +419,11 @@
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "An rasa  <span>$1</span> da <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "An rasa  <span>$1</span>, <span>$2</span> da wasu",
 	"cx-uls-relevant-languages-banner-text-single-missing": "An rasa a  <span>$1</span> da wasu",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "An rasa a  <span>$1</span>, <span>$2</span> da wasu",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "An rasa a  $1, $2 da wasu",
 	"cx-uls-relevant-languages-panel-header": "Fassara wannan shafin",
 	"cx-uls-relevant-languages-panel-message": "An rasa wannan shafin a wasu harsunan da ƙila ka sansu. Zaka iya fassara su a minti!",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Wannan zai zama <strong>sashe na farko a sabuwar makala!</strong>",
-	"cx-uls-translate-page-quick-action-label": "Fassara wannan shafin"
+	"cx-uls-translate-page-quick-action-label": "Fassara wannan shafin",
+	"cx-sx-publisher-captcha-dialog-header-title": "Tabbatar da cewa ba kai robot ba ne",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Wallafa"
 }
