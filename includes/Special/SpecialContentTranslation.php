@@ -173,14 +173,14 @@ class SpecialContentTranslation extends SpecialPage {
 		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
 		$isCampaign = $this->isValidCampaign( $campaign );
-		$user = $this->getUser();
 
-		// Allow anonymous users access to SX if enabled. For now also treat temp users as anon.
-		if ( $this->isUnifiedDashboard() && $allowAnonSX && !$user->isNamed() ) {
+		// Allow access to SX for everyone, when unified dashboard should be displayed
+		// and "ContentTranslationEnableAnonSectionTranslation" is set to true.
+		if ( $this->isUnifiedDashboard() && $allowAnonSX ) {
 			return true;
 		}
 
-		// For all logged in user, if CX beta feature is not enabled, and has
+		// For all logged-in user, if CX beta feature is not enabled, and has
 		// valid token or campaign, enable CX beta feature and proceed.
 		// This is applicable for both CX and SX.
 		if ( !$this->preferenceHelper->isEnabledForUser( $this->getUser() ) ) {
