@@ -66,15 +66,15 @@ class PreferenceHelper {
 
 	/**
 	 * Utility function that checks whether CX is enabled for a given user.
-	 * Currently it checks that if CX is a beta feature, whether the user has
-	 * enabled it. Otherwise it is always enabled.
+	 * Currently, it checks that if CX is a beta feature, whether the user has
+	 * enabled it. Otherwise, it is always enabled.
 	 *
-	 * @param UserIdentity $user
+	 * @param User $user
 	 * @return bool
 	 */
-	public function isEnabledForUser( UserIdentity $user ) {
-		// CX is currently restricted to only logged in users
-		if ( !$user->isRegistered() ) {
+	public function isEnabledForUser( User $user ) {
+		// CX is currently restricted to only logged-in users. For now treat temp users as anonymous.
+		if ( !$user->isNamed() ) {
 			return false;
 		}
 
