@@ -90,7 +90,7 @@
 </template>
 
 <script>
-var siteMapper = new mw.cx.SiteMapper();
+const siteMapper = new mw.cx.SiteMapper();
 
 // @vue/component
 module.exports = {
@@ -154,44 +154,37 @@ module.exports = {
 			this.showDialog = false;
 		},
 		openVE: function () {
-			var router = mw.loader.require( 'mediawiki.router' );
+			const router = mw.loader.require( 'mediawiki.router' );
 			router.navigate( '/editor/all' );
 			this.closeDialog();
 		},
 		getSectionSuggestions: function () {
-			var cxServerParams, that, cxServerSectionSuggestionApiUrl;
-
-			cxServerParams = [
+			const cxServerParams = [
 				this.sourceTitle,
 				this.sourceLanguage,
 				this.targetLanguage
-			].map( function ( param ) {
-				return encodeURIComponent( param );
-			} );
+			].map( ( param ) => encodeURIComponent( param ) );
 
-			cxServerSectionSuggestionApiUrl = siteMapper.getCXServerUrl(
+			const cxServerSectionSuggestionApiUrl = siteMapper.getCXServerUrl(
 				'/suggest/sections/' + cxServerParams.join( '/' )
 			);
 
-			that = this;
-
 			fetch( cxServerSectionSuggestionApiUrl )
-				.then( function ( response ) {
-					return response.ok ?
+				.then( ( response ) =>
+					response.ok ?
 						response.json() :
-						Promise.reject( new Error( 'Failed to load data from server' ) );
-				} )
-				.then( function ( suggestionResult ) {
+						Promise.reject( new Error( 'Failed to load data from server' ) )
+				)
+				.then( ( suggestionResult ) => {
 					if ( suggestionResult.sections ) {
-						that.missingSections = Object.keys( suggestionResult.sections.missing );
+						this.missingSections = Object.keys( suggestionResult.sections.missing );
 					}
 				} );
 		}
 	},
 	mounted: function () {
-		var that = this;
-		this.$nextTick( function () {
-			that.contentHeight = Math.max( that.contentHeight, that.$refs.content.clientHeight );
+		this.$nextTick( () => {
+			this.contentHeight = Math.max( this.contentHeight, this.$refs.content.clientHeight );
 		} );
 		this.getSectionSuggestions();
 	}
