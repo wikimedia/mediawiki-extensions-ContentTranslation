@@ -96,7 +96,6 @@
 
 <script>
 module.exports = {
-  compatConfig: { MODE: 3 },
   compilerOptions: { whitespace: "condense" },
   name: "PublishFeedback",
   data: function () {
