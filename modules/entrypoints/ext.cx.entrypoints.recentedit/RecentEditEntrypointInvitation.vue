@@ -114,13 +114,11 @@ module.exports = {
 	},
 	computed: {
 		firstMissingEditedSection: function () {
-			var i,
-				sourceMissingSections = Object.keys( this.missingSections ),
-				missingSection,
-				editedSections = ( this.recentEdit && this.recentEdit.sections ) || [];
+			const sourceMissingSections = Object.keys( this.missingSections );
+			const editedSections = ( this.recentEdit && this.recentEdit.sections ) || [];
 
-			for ( i = 0; i < sourceMissingSections.length; i++ ) {
-				missingSection = sourceMissingSections[ i ];
+			for ( let i = 0; i < sourceMissingSections.length; i++ ) {
+				const missingSection = sourceMissingSections[ i ];
 				if ( editedSections.indexOf( missingSection ) > -1 ) {
 					return missingSection;
 				}
