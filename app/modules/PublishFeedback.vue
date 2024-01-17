@@ -117,9 +117,9 @@ module.exports = {
     };
   },
   mounted() {
-    var namespaceIds = mw.config.get("wgNamespaceIds");
-    var currentNamespaceId = mw.config.get("wgNamespaceNumber");
-    var urlParams = new URLSearchParams(window.location.search);
+    const namespaceIds = mw.config.get("wgNamespaceIds");
+    const currentNamespaceId = mw.config.get("wgNamespaceNumber");
+    const urlParams = new URLSearchParams(window.location.search);
     this.sourceTitle = urlParams.get("sx-source-page-title");
     this.sourceLanguage = urlParams.get("sx-source-language");
     this.targetLanguage = urlParams.get("sx-target-language");
@@ -130,26 +130,24 @@ module.exports = {
       // as these are not needed for the sandbox pages per design.
       return;
     }
-    var cxServerParams = [
+    const cxServerParams = [
       this.sourceTitle,
       this.sourceLanguage,
       this.targetLanguage,
-    ].map(function (param) {
-      return encodeURIComponent(param);
-    });
-    var cxServerSectionSuggestionApiUrl = this.siteMapper.getCXServerUrl(
+    ].map((param) => encodeURIComponent(param));
+
+    const cxServerSectionSuggestionApiUrl = this.siteMapper.getCXServerUrl(
       "/suggest/sections/" + cxServerParams.join("/")
     );
-    var that = this;
     fetch(cxServerSectionSuggestionApiUrl)
-      .then(function (response) {
-        return response.ok
+      .then((response) =>
+        response.ok
           ? response.json()
-          : Promise.reject(new Error("Failed to load data from server"));
-      })
-      .then(function (suggestionResult) {
+          : Promise.reject(new Error("Failed to load data from server"))
+      )
+      .then((suggestionResult) => {
         if (suggestionResult.sections) {
-          that.missingSections = Object.keys(suggestionResult.sections.missing);
+          this.missingSections = Object.keys(suggestionResult.sections.missing);
         }
       });
   },
