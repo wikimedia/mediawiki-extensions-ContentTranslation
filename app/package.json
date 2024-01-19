@@ -1,6 +1,6 @@
 {
   "name": "cx3",
-  "version": "0.2.0+20240104",
+  "version": "0.2.0+20240119",
   "private": true,
   "main": "./dist/cx3.umd.js",
   "module": "./dist/cx3.es.js",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@wikimedia/language-data": "1.1.2",
-    "vue": "^3.3.4",
+    "vue": "^3.3.9",
     "vue-banana-i18n": "^2.1.2",
     "vue-router": "^4.2.4",
     "vuex": "^4.1.0"
@@ -54,7 +54,7 @@
   "bundlesize": [
     {
       "path": "dist/cx3.es.js",
-      "maxSize": "185.56KB"
+      "maxSize": "186.87KB"
     },
     {
       "path": "dist/style.css",
