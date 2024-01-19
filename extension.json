@@ -504,7 +504,6 @@
 				"mediawiki.jqueryMsg",
 				"mediawiki.language",
 				"mediawiki.storage",
-				"mediawiki.ui.button",
 				"mediawiki.user",
 				"mediawiki.widgets",
 				"mediawiki.Uri",
@@ -887,7 +886,6 @@
 				"mediawiki.jqueryMsg",
 				"mediawiki.storage",
 				"mediawiki.language",
-				"mediawiki.ui.button",
 				"mw.cx.util",
 				"oojs-ui.styles.icons-interactions",
 				"oojs-ui-widgets"
@@ -1217,7 +1215,6 @@
 				"entrypoints/styles/ext.cx.entrypoints.contributionsmenu.less"
 			],
 			"dependencies": [
-				"mediawiki.ui.icon",
 				"ext.cx.widgets.callout",
 				"mediawiki.jqueryMsg",
 				"mediawiki.util"
