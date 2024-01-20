@@ -13,15 +13,6 @@ use MediaWiki\Title\Title;
  * @group ContentTranslation
  */
 class AbuseFilterCheckerTest extends \MediaWikiIntegrationTestCase {
-	/**
-	 * @inheritDoc
-	 */
-	protected $tablesUsed = [
-		'abuse_filter',
-		'abuse_filter_action',
-		'user'
-	];
-
 	/** Username of the user which performs actions */
 	private const TEST_USERNAME = 'ContentTranslator';
 	/** Title of the test page */
