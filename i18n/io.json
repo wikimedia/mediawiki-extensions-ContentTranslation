@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Joao Xavier",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Tradukar pagino",
@@ -115,6 +116,7 @@
 	"cx-tools-linter-abuse-filter": "Filtrili pri abuzo indikas existar problemi en vua tradukuro",
 	"cx-tools-linter-empty-title": "Vua tradukuro bezonas havar titulo",
 	"cx-tools-linter-page-exists": "Pagino ja existas",
+	"cx-tools-linter-cannot-publish-message": "Ca komunitato decidis limitizar la publikigo di tradukuri nur por experta redakteri.\nVu ne povas publikigar ca tradukuro til ke vu divenos plu experta tradukanta en ca wiki, tamen vu povas:<ul><li>Publikigar vua tradukuro kom klado, ed uzar pose l'existanta utensili por krear artikli.</li><li>Trandukar ca artiklo ad altra idiomo, sen ca limitizo.</li></ul>",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
 	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-translator-header": "Vua statistiki",
