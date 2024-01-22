@@ -6,9 +6,9 @@ jest.mock("../../store", () =>
   jest.requireActual("./contentComparatorMockStore")
 );
 
-const mockSelectPageSectionByIndex = jest.fn();
+const mockSelectPageSectionByTitle = jest.fn();
 jest.mock("../../composables/usePageSectionSelect", () => () => ({
-  selectPageSectionByIndex: mockSelectPageSectionByIndex,
+  selectPageSectionByTitle: mockSelectPageSectionByTitle,
 }));
 
 describe("SXContentComparator Header Navigation test", () => {
@@ -28,12 +28,12 @@ describe("SXContentComparator Header Navigation test", () => {
 
   it("Previous section method emitting update event correctly", () => {
     wrapper.find("button").trigger("click");
-    expect(mockSelectPageSectionByIndex).toHaveBeenCalledWith(2);
+    expect(mockSelectPageSectionByTitle).toHaveBeenCalledWith("title 2");
   });
 
   it("Next section method emitting update event correctly", () => {
     wrapper.findAll("button")[1].trigger("click");
 
-    expect(mockSelectPageSectionByIndex).toHaveBeenCalledWith(1);
+    expect(mockSelectPageSectionByTitle).toHaveBeenCalledWith("title 1");
   });
 });

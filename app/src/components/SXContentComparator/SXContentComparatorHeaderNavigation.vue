@@ -46,21 +46,23 @@ export default {
       props.sectionSourceTitles.indexOf(sourceSectionTitle.value)
     );
 
-    const { selectPageSectionByIndex } = usePageSectionSelect();
+    const { selectPageSectionByTitle } = usePageSectionSelect();
 
     const goToPreviousSection = () => {
       const previousIndex =
         (currentTitleIndex.value - 1 + props.sectionSourceTitles.length) %
         props.sectionSourceTitles.length;
 
-      selectPageSectionByIndex(previousIndex);
+      const previousSectionTitle = props.sectionSourceTitles[previousIndex];
+      selectPageSectionByTitle(previousSectionTitle);
     };
 
     const goToNextSection = () => {
       const nextIndex =
         (currentTitleIndex.value + 1) % props.sectionSourceTitles.length;
 
-      selectPageSectionByIndex(nextIndex);
+      const nextSectionTitle = props.sectionSourceTitles[nextIndex];
+      selectPageSectionByTitle(nextSectionTitle);
     };
 
     return {
