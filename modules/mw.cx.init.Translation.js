@@ -59,7 +59,7 @@ mw.cx.init.Translation.prototype.init = function () {
 		);
 	}
 	this.translationView = new mw.cx.ui.TranslationView( this.config );
-	this.veTarget = new ve.init.mw.CXTarget( this.translationView, this.config );
+	this.veTarget = ve.init.mw.targetFactory.create( 'cx', this.translationView, this.config );
 	// Paint the initial UI.
 	this.attachToDOM( this.veTarget );
 
