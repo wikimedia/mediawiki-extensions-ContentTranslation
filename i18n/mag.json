@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"ऐक्टिवेटेड्"
+		]
+	},
+	"cx": "पन्ना अनुवाद करी",
+	"cx-dashboard-header": "अनुवाद",
+	"cx-javascript": "ई उपकरण जावास्क्रिप्ट् बिन काज न करे । जावास्क्रिप्ट् अक्षम हे, काज न करैत, अथवा उपकरण ई गवेषक (ब्राउजर्) साथे काज न करे ।",
+	"cx-error-server-connection": "त्रुटि: बितरकसे सम्पर्क न हो सकल ।",
+	"cx-desc": "सामग्री पन्नाके [[Special:ContentTranslation|अनुवाद]] करेला सरल बनावहे ।",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|अनुवादित}}",
+	"cx-header-progressbar-text-mt": "($1% से {{PLURAL:$1|यन्त्र अनुवाद}})",
+	"cx-header-translation-center": "अनुवादकेन्द्र",
+	"cx-header-all-translations": "सब अनुवाद",
+	"cx-source-view-page": "पन्ना देखी",
+	"cx-target-view-page": "पन्ना देखी",
+	"cx-publish-page-success": "पन्ना $1 प प्रकाशित होएल ।",
+	"cx-publish-error-abuse-filter": "स्वचालित एडिट् फिल्टर् अपनेके अनुवादमे समस्याग्रस्त सामग्री पैलकीहे । फिल्टर् हिट्: $1",
+	"cx-publish-error-empty": "बितरक बिन डेटाके उत्तर देलक ।",
+	"cx-publish-error-readonly": "ई विकिपर कौनो सम्पादन न करल जा सकत ।",
+	"cx-publish-error-spam-blacklist": "अपनेके अनुवादमे सम्भावित स्पॅम् पाएल गेलहे । बिवरण: $1",
+	"cx-publish-error-title-blacklist": "अपनेद्वारा देल गेल शीर्षक ब्लॅकलिस्ट् हे । कृपया अपन अनुवाद लागि अन्य शीर्षक चुनी ।",
+	"cx-publish-error-unknown": "अज्ञात त्रुटि उत्पन्न होएल हे जेकरा ठीक करेला सम्भव न हे । त्रुटि बिवरण: $1",
+	"cx-publish-button": "प्रकाशित करी",
+	"cx-publish-button-publishing": "प्रकाशित होवैत…",
+	"cx-lost-session": "अपनेके सत्र समाप्त हो गेल",
+	"cx-lost-session-draft": "अपनेके सत्र समाप्त हो गेल । अपनेके सम्पादन तखनि तक सहेजा न जा सकत जखनि तक अपनेके दुबारा अथवा दुसर बिण्डोमे प्रवेश (लॉगिन्) न करी ।",
+	"cx-lost-session-publish": "अपनेके सत्र समाप्त हो गेल । ई अनुवादके प्रकाशित करेला दुसर बिण्डोमे जाके प्रवेश (लॉगिन्) करी ।",
+	"cx-publish-summary": "\"$1\" पन्नाके अनुवाद करके निर्मित कैल गेल",
+	"cx-translation-add-translation": "अनुवाद जोड़ी"
+}
