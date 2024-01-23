@@ -350,7 +350,6 @@ class Hooks implements
 		$resourceLoader->register( [
 			'mw.cx.externalmessages' => $cxResourceTemplate + [
 				'messages' => $externalMessages,
-				'targets' => [ 'desktop', 'mobile' ],
 			]
 		] );
 	}
