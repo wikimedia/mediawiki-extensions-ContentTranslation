@@ -1,3 +1,84 @@
+<script setup>
+import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
+import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
+import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
+import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
+import useSuggestionListLanguages from "./useSuggestionListLanguages";
+import useSuggestions from "./useSuggestions";
+import { useStore } from "vuex";
+import { ref } from "vue";
+import { useEventLogging } from "@/plugins/eventlogging";
+import useApplicationState from "@/composables/useApplicationState";
+import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
+import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
+import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const store = useStore();
+const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
+const { supportedLanguageCodes, availableTargetLanguages } =
+  useSuggestionListLanguages();
+
+const updateLanguagePair = useSuggestionListLanguagePairUpdate();
+const updateSourceLanguage = (newSourceLanguage) =>
+  updateLanguagePair(newSourceLanguage, targetLanguage.value);
+const updateTargetLanguage = (newTargetLanguage) =>
+  updateLanguagePair(sourceLanguage.value, newTargetLanguage);
+
+const doStartSectionTranslation = useSectionTranslationStart();
+/**
+ * @param {SectionSuggestion} suggestion
+ * @return {Promise<void>}
+ */
+const startSectionTranslation = (suggestion) =>
+  doStartSectionTranslation(suggestion.sourceTitle, "suggestion_no_seed");
+
+const { startPageSuggestion } = usePageTranslationStart();
+
+const {
+  currentPageSuggestionsSlice,
+  currentSectionSuggestionsSlice,
+  discardPageSuggestion,
+  discardSectionSuggestion,
+  onSuggestionRefresh,
+  pageSuggestionsLoading,
+  sectionSuggestionsLoading,
+  showRefreshButton,
+} = useSuggestions();
+
+const pageSuggestionsList = ref(null);
+const logEvent = useEventLogging();
+
+const refreshSuggestions = () => {
+  logEvent({
+    event_type: "dashboard_refresh_suggestions",
+    translation_source_language: sourceLanguage.value,
+    translation_target_language: targetLanguage.value,
+  });
+  onSuggestionRefresh();
+  pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
+};
+
+/**
+ * @param {SectionSuggestion} suggestion
+ */
+const markFavoriteSectionSuggestion = async (suggestion) =>
+  store.dispatch("suggestions/addSectionSuggestionAsFavorite", suggestion);
+
+/**
+ * @param {ArticleSuggestion} suggestion
+ */
+const markFavoritePageSuggestion = async (suggestion) =>
+  store.dispatch("suggestions/addPageSuggestionAsFavorite", suggestion);
+</script>
+
 <template>
   <div v-show="active">
     <mw-card class="cx-translation-list--suggestions pa-0 mb-0">
@@ -62,123 +143,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
-import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
-import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
-import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
-import useSuggestionListLanguages from "./useSuggestionListLanguages";
-import useSuggestions from "./useSuggestions";
-import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
-import { useStore } from "vuex";
-import { ref } from "vue";
-import { useEventLogging } from "@/plugins/eventlogging";
-import useApplicationState from "@/composables/useApplicationState";
-import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
-import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
-import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
-
-export default {
-  name: "CxSuggestionList",
-  components: {
-    SxTranslationListLanguageSelector,
-    CxTranslationSuggestion,
-    MwCard,
-    MwButton,
-    MwSpinner,
-  },
-  props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup() {
-    const store = useStore();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
-
-    const { supportedLanguageCodes, availableTargetLanguages } =
-      useSuggestionListLanguages();
-
-    const updateLanguagePair = useSuggestionListLanguagePairUpdate();
-    const updateSourceLanguage = (newSourceLanguage) =>
-      updateLanguagePair(newSourceLanguage, targetLanguage.value);
-    const updateTargetLanguage = (newTargetLanguage) =>
-      updateLanguagePair(sourceLanguage.value, newTargetLanguage);
-
-    const doStartSectionTranslation = useSectionTranslationStart();
-    /**
-     * @param {SectionSuggestion} suggestion
-     * @return {Promise<void>}
-     */
-    const startSectionTranslation = (suggestion) =>
-      doStartSectionTranslation(suggestion.sourceTitle, "suggestion_no_seed");
-
-    const { startPageSuggestion } = usePageTranslationStart();
-
-    const {
-      currentPageSuggestionsSlice,
-      currentSectionSuggestionsSlice,
-      discardPageSuggestion,
-      discardSectionSuggestion,
-      onSuggestionRefresh,
-      pageSuggestionsLoading,
-      sectionSuggestionsLoading,
-      showRefreshButton,
-    } = useSuggestions();
-
-    const pageSuggestionsList = ref(null);
-    const logEvent = useEventLogging();
-
-    const refreshSuggestions = () => {
-      logEvent({
-        event_type: "dashboard_refresh_suggestions",
-        translation_source_language: sourceLanguage.value,
-        translation_target_language: targetLanguage.value,
-      });
-      onSuggestionRefresh();
-      pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
-    };
-
-    /**
-     * @param {SectionSuggestion} suggestion
-     */
-    const markFavoriteSectionSuggestion = async (suggestion) =>
-      store.dispatch("suggestions/addSectionSuggestionAsFavorite", suggestion);
-
-    /**
-     * @param {ArticleSuggestion} suggestion
-     */
-    const markFavoritePageSuggestion = async (suggestion) =>
-      store.dispatch("suggestions/addPageSuggestionAsFavorite", suggestion);
-
-    return {
-      availableTargetLanguages,
-      currentPageSuggestionsSlice,
-      currentSectionSuggestionsSlice,
-      discardPageSuggestion,
-      discardSectionSuggestion,
-      mwIconRefresh,
-      markFavoritePageSuggestion,
-      markFavoriteSectionSuggestion,
-      unmarkFavoriteSectionSuggestion,
-      pageSuggestionsLoading,
-      pageSuggestionsList,
-      refreshSuggestions,
-      sectionSuggestionsLoading,
-      showRefreshButton,
-      startPageSuggestion,
-      startSectionTranslation,
-      supportedLanguageCodes,
-      updateSourceLanguage,
-      updateTargetLanguage,
-      sourceLanguage,
-      targetLanguage,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
