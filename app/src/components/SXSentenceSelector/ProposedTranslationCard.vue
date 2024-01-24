@@ -1,3 +1,64 @@
+<script setup>
+import { MwButton, MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
+import {
+  mwIconEdit,
+  mwIconEllipsis,
+} from "@/lib/mediawiki.ui/components/icons";
+import { getDir } from "@wikimedia/language-data";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
+import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
+import RetryMtCard from "./RetryMtCard.vue";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { ref, onMounted, computed, watch, nextTick } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+
+defineEmits(["edit-translation", "configure-options", "retry-translation"]);
+
+const headerAndFooterHeight = ref(0);
+const header = ref(null);
+const footer = ref(null);
+const store = useStore();
+const {
+  currentMTProvider,
+  targetLanguage,
+  proposedTranslation,
+  currentSourceSection,
+} = useApplicationState(store);
+
+const mtRequestPending = computed(() =>
+  store.state.application.mtRequestsPending?.includes(
+    currentSourceSection.value.selectedTranslationUnitId
+  )
+);
+
+const contentsStyle = computed(() => ({
+  "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`,
+}));
+
+const hasProposedTranslation = computed(
+  () =>
+    !!proposedTranslation.value ||
+    currentMTProvider.value === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
+);
+
+const setHeaderAndFooterHeight = () => {
+  headerAndFooterHeight.value =
+    header.value.$el.clientHeight + footer.value.$el.clientHeight;
+};
+
+// Card title can take different number of text lines
+// depending on MT provider's name length in smaller screens.
+// Watch currentMTProvider to update headerAndFooterHeight when needed,
+// since Element.clientHeight property is not reactive
+watch(currentMTProvider, setHeaderAndFooterHeight);
+
+onMounted(async () => {
+  await nextTick();
+  setHeaderAndFooterHeight();
+});
+</script>
+
 <template>
   <mw-card class="sx-sentence-selector__proposed-translation col shrink pa-0">
     <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
@@ -51,93 +112,6 @@
     </mw-row>
   </mw-card>
 </template>
-
-<script>
-import { MwButton, MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
-import {
-  mwIconEdit,
-  mwIconEllipsis,
-} from "@/lib/mediawiki.ui/components/icons";
-import { getDir } from "@wikimedia/language-data";
-import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
-import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
-import RetryMtCard from "./RetryMtCard.vue";
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { ref, onMounted, computed, watch, nextTick } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
-
-export default {
-  name: "ProposedTranslationCard",
-  components: {
-    RetryMtCard,
-    MwSpinner,
-    MwCard,
-    ProposedTranslationHeader,
-    MwRow,
-    MwCol,
-    MwButton,
-    ProposedTranslationActionButtons,
-  },
-  emits: ["edit-translation", "configure-options", "retry-translation"],
-  setup() {
-    const headerAndFooterHeight = ref(0);
-    const header = ref(null);
-    const footer = ref(null);
-    const store = useStore();
-    const {
-      currentMTProvider,
-      targetLanguage,
-      proposedTranslation,
-      currentSourceSection,
-    } = useApplicationState(store);
-    const mtRequestPending = computed(() =>
-      store.state.application.mtRequestsPending?.includes(
-        currentSourceSection.value.selectedTranslationUnitId
-      )
-    );
-
-    const contentsStyle = computed(() => ({
-      "max-height": `calc(100% - ${headerAndFooterHeight.value}px)`,
-    }));
-
-    const hasProposedTranslation = computed(
-      () =>
-        !!proposedTranslation.value ||
-        currentMTProvider.value === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
-    );
-
-    const setHeaderAndFooterHeight = () => {
-      headerAndFooterHeight.value =
-        header.value.$el.clientHeight + footer.value.$el.clientHeight;
-    };
-
-    // Card title can take different number of text lines
-    // depending on MT provider's name length in smaller screens.
-    // Watch currentMTProvider to update headerAndFooterHeight when needed,
-    // since Element.clientHeight property is not reactive
-    watch(currentMTProvider, setHeaderAndFooterHeight);
-
-    onMounted(async () => {
-      await nextTick();
-      setHeaderAndFooterHeight();
-    });
-
-    return {
-      footer,
-      getDir,
-      header,
-      mwIconEllipsis,
-      mwIconEdit,
-      proposedTranslation,
-      hasProposedTranslation,
-      targetLanguage,
-      contentsStyle,
-      mtRequestPending,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
