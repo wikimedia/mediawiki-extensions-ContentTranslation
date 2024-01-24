@@ -1,3 +1,96 @@
+<script setup>
+import {
+  MwButton,
+  MwCard,
+  MwCol,
+  MwRow,
+  MwIcon,
+  MwProgressBar,
+} from "@/lib/mediawiki.ui";
+import {
+  mwIconEdit,
+  mwIconRobot,
+  mwIconUserAvatar,
+} from "@/lib/mediawiki.ui/components/icons";
+import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader.vue";
+import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
+import mtValidator from "@/utils/mtValidator";
+import { computed, ref, inject } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+
+defineEmits(["edit-translation"]);
+
+const scopeSelection = ref("sentence");
+
+const {
+  isSectionTitleSelected,
+  currentSourceSection: currentPageSection,
+  selectedContentTranslationUnit,
+  targetLanguage,
+} = useApplicationState(useStore());
+
+const showSentenceTab = computed(() => scopeSelection.value === "sentence");
+
+const currentSubSection = computed(() =>
+  currentPageSection.value.subSections.find((subSection) =>
+    subSection.sentences.some(
+      (sentence) => sentence.id === selectedContentTranslationUnit.value?.id
+    )
+  )
+);
+
+const proposedMTTranslation = computed(() => {
+  if (isSectionTitleSelected.value) {
+    return currentPageSection.value.mtProposedTranslationUsedForTitle;
+  } else if (showSentenceTab.value) {
+    return selectedContentTranslationUnit.value?.mtProposedTranslationUsed;
+  }
+
+  return currentSubSection.value.proposedContentForMTValidation;
+});
+
+const colors = inject("colors");
+
+const progressBarBackgroundColor = colors.gray200;
+const errorColor = colors.red600;
+
+const translation = computed(() => {
+  if (isSectionTitleSelected.value) {
+    return currentPageSection.value.translatedTitle;
+  } else if (showSentenceTab.value) {
+    return selectedContentTranslationUnit.value.translatedContent;
+  }
+
+  return currentSubSection.value.translatedContent;
+});
+const mtScore = computed(() =>
+  mtValidator.calculateScore(
+    translation.value,
+    proposedMTTranslation.value,
+    targetLanguage.value
+  )
+);
+const modificationStatus = computed(() =>
+  mtValidator.getScoreStatus(mtScore.value)
+);
+
+const modificationPercentageClass = computed(
+  () =>
+    `translated-segment-card__modification-stats__percentage--${modificationStatus.value}`
+);
+
+const iconColors = computed(() => ({
+  failure: mtScore.value === 0 ? null : colors.yellow700,
+  warning: colors.yellow700,
+  success: colors.green600,
+}));
+
+const userIconColor = computed(
+  () => iconColors.value[modificationStatus.value]
+);
+</script>
+
 <template>
   <mw-card class="translated-segment-card col shrink pa-0 mb-0">
     <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
@@ -59,129 +152,6 @@
     </mw-row>
   </mw-card>
 </template>
-
-<script>
-import {
-  MwButton,
-  MwCard,
-  MwCol,
-  MwRow,
-  MwIcon,
-  MwProgressBar,
-} from "@/lib/mediawiki.ui";
-import {
-  mwIconEdit,
-  mwIconEllipsis,
-  mwIconRobot,
-  mwIconUserAvatar,
-} from "@/lib/mediawiki.ui/components/icons";
-import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader.vue";
-import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
-import mtValidator from "@/utils/mtValidator";
-import { computed, ref, inject } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
-
-export default {
-  name: "TranslatedSegmentCard",
-  components: {
-    TranslatedSegmentCardActionButtons,
-    MwProgressBar,
-    MwIcon,
-    TranslatedSegmentCardHeader,
-    MwCard,
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  emits: ["edit-translation"],
-  setup() {
-    const scopeSelection = ref("sentence");
-
-    const {
-      isSectionTitleSelected,
-      currentSourceSection: currentPageSection,
-      selectedContentTranslationUnit,
-      targetLanguage,
-    } = useApplicationState(useStore());
-
-    const showSentenceTab = computed(() => scopeSelection.value === "sentence");
-
-    const currentSubSection = computed(() =>
-      currentPageSection.value.subSections.find((subSection) =>
-        subSection.sentences.some(
-          (sentence) => sentence.id === selectedContentTranslationUnit.value?.id
-        )
-      )
-    );
-
-    const proposedMTTranslation = computed(() => {
-      if (isSectionTitleSelected.value) {
-        return currentPageSection.value.mtProposedTranslationUsedForTitle;
-      } else if (showSentenceTab.value) {
-        return selectedContentTranslationUnit.value?.mtProposedTranslationUsed;
-      }
-
-      return currentSubSection.value.proposedContentForMTValidation;
-    });
-
-    const colors = inject("colors");
-
-    const progressBarBackgroundColor = colors.gray200;
-    const errorColor = colors.red600;
-
-    const translation = computed(() => {
-      if (isSectionTitleSelected.value) {
-        return currentPageSection.value.translatedTitle;
-      } else if (showSentenceTab.value) {
-        return selectedContentTranslationUnit.value.translatedContent;
-      }
-
-      return currentSubSection.value.translatedContent;
-    });
-    const mtScore = computed(() =>
-      mtValidator.calculateScore(
-        translation.value,
-        proposedMTTranslation.value,
-        targetLanguage.value
-      )
-    );
-    const modificationStatus = computed(() =>
-      mtValidator.getScoreStatus(mtScore.value)
-    );
-
-    const modificationPercentageClass = computed(
-      () =>
-        `translated-segment-card__modification-stats__percentage--${modificationStatus.value}`
-    );
-
-    const iconColors = computed(() => ({
-      failure: mtScore.value === 0 ? null : colors.yellow700,
-      warning: colors.yellow700,
-      success: colors.green600,
-    }));
-
-    const userIconColor = computed(
-      () => iconColors.value[modificationStatus.value]
-    );
-
-    return {
-      errorColor,
-      modificationPercentageClass,
-      mtScore,
-      mwIconEdit,
-      mwIconEllipsis,
-      mwIconRobot,
-      mwIconUserAvatar,
-      progressBarBackgroundColor,
-      scopeSelection,
-      showSentenceTab,
-      translation,
-      userIconColor,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
