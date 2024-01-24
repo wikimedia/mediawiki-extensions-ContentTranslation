@@ -1,3 +1,73 @@
+<script setup>
+import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
+import {
+  MwButton,
+  MwDialog,
+  MwDivider,
+  MwRadio,
+  MwRadioGroup,
+} from "@/lib/mediawiki.ui";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["update:active"]);
+
+const store = useStore();
+const selectedOption = computed(() => store.state.application.publishTarget);
+const isAnon = computed(() => store.state.translator.isAnon);
+const bananaI18n = useI18n();
+const { currentSourceSection } = useApplicationState(store);
+
+const optionLabel = computed(() =>
+  currentSourceSection.value.isLeadSection
+    ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-label")
+    : bananaI18n.i18n("cx-sx-publisher-new-section-option-label")
+);
+const optionDetails = computed(() =>
+  currentSourceSection.value.isLeadSection
+    ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-details")
+    : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
+);
+
+const publishOptions = computed(() => [
+  {
+    label: optionLabel.value,
+    details: optionDetails.value,
+    value: "NEW_SECTION",
+    disabled: false,
+  },
+  {
+    label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
+    details: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
+    value: "SANDBOX_SECTION",
+    disabled: isAnon.value,
+  },
+]);
+
+const getMarginBottomClassByOptionIndex = (index) => {
+  const isLastOption = index === publishOptions.value.length - 1;
+
+  return isLastOption ? "mb-1" : "mb-4";
+};
+
+const onPublishOptionsClose = () => emit("update:active", false);
+
+const updateOption = (event) => {
+  const selectedOption = event.target.value;
+  store.commit("application/setPublishTarget", selectedOption);
+  onPublishOptionsClose();
+};
+</script>
+
 <template>
   <mw-dialog
     :value="active"
@@ -51,98 +121,6 @@
     </div>
   </mw-dialog>
 </template>
-
-<script>
-import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
-import {
-  MwButton,
-  MwDialog,
-  MwDivider,
-  MwRadio,
-  MwRadioGroup,
-} from "@/lib/mediawiki.ui";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-
-export default {
-  name: "SxPublishOptionSelector",
-  components: {
-    MwButton,
-    MwRadioGroup,
-    MwRadio,
-    MwDivider,
-    MwDialog,
-  },
-  props: {
-    active: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ["update:active"],
-  setup(props, { emit }) {
-    const store = useStore();
-    const selectedOption = computed(
-      () => store.state.application.publishTarget
-    );
-    const isAnon = computed(() => store.state.translator.isAnon);
-    const bananaI18n = useI18n();
-    const { currentSourceSection } = useApplicationState(store);
-
-    const optionLabel = computed(() =>
-      currentSourceSection.value.isLeadSection
-        ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-label")
-        : bananaI18n.i18n("cx-sx-publisher-new-section-option-label")
-    );
-    const optionDetails = computed(() =>
-      currentSourceSection.value.isLeadSection
-        ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-details")
-        : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
-    );
-
-    const publishOptions = computed(() => [
-      {
-        label: optionLabel.value,
-        details: optionDetails.value,
-        value: "NEW_SECTION",
-        disabled: false,
-      },
-      {
-        label: bananaI18n.i18n("cx-sx-publisher-sandbox-option-label"),
-        details: bananaI18n.i18n("cx-sx-publisher-sandbox-option-details"),
-        value: "SANDBOX_SECTION",
-        disabled: isAnon.value,
-      },
-    ]);
-
-    const getMarginBottomClassByOptionIndex = (index) => {
-      const isLastOption = index === publishOptions.value.length - 1;
-
-      return isLastOption ? "mb-1" : "mb-4";
-    };
-
-    const onPublishOptionsClose = () => emit("update:active", false);
-
-    const updateOption = (event) => {
-      const selectedOption = event.target.value;
-      store.commit("application/setPublishTarget", selectedOption);
-      onPublishOptionsClose();
-    };
-
-    return {
-      getMarginBottomClassByOptionIndex,
-      isAnon,
-      mwIconArrowPrevious,
-      onPublishOptionsClose,
-      publishOptions,
-      selectedOption,
-      updateOption,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
