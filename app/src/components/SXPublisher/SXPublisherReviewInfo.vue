@@ -1,3 +1,79 @@
+<script setup>
+import { MwIcon, MwMessage, MwButton } from "@/lib/mediawiki.ui";
+import {
+  mwIconEye,
+  mwIconAlert,
+  mwIconBlock,
+  mwIconPrevious,
+  mwIconArrowForward,
+} from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
+import { computed, ref, watch } from "vue";
+import { useI18n } from "vue-banana-i18n";
+
+const props = defineProps({
+  publishFeedbackMessages: {
+    type: Array,
+    required: true,
+  },
+});
+
+const activeMessageIndex = ref(0);
+
+const learnMoreContainer = ref(null);
+watch(learnMoreContainer, () => {
+  const container = learnMoreContainer.value?.$el;
+
+  if (container instanceof HTMLElement) {
+    const anchor = container.querySelector("a");
+    anchor && anchor.setAttribute("target", "_blank");
+  }
+});
+const activeMessage = computed(
+  () => props.publishFeedbackMessages?.[activeMessageIndex.value]
+);
+
+const status = computed(() => activeMessage.value?.status || "default");
+
+const reviewIcon = computed(() => {
+  switch (status.value) {
+    case "warning":
+      return mwIconAlert;
+    case "error":
+      return mwIconBlock;
+    default:
+      return mwIconEye;
+  }
+});
+const isMessageInline = computed(() => status.value === "default");
+
+const messageType = computed(() =>
+  isMessageInline.value ? "notice" : status.value
+);
+const reviewInfoClass = computed(
+  () => `sx-publisher__review-info--${messageType.value}`
+);
+
+const bananaI18n = useI18n();
+const messageText = computed(() => activeMessage.value?.text);
+const messageTitle = computed(
+  () =>
+    activeMessage.value?.title ||
+    bananaI18n.i18n("cx-sx-publisher-review-info-error")
+);
+
+const goToPreviousMessage = () => {
+  const messagesLength = props.publishFeedbackMessages.length;
+  activeMessageIndex.value =
+    (activeMessageIndex.value - 1 + messagesLength) % messagesLength;
+};
+
+const goToNextMessage = () => {
+  activeMessageIndex.value =
+    (activeMessageIndex.value + 1) % props.publishFeedbackMessages.length;
+};
+</script>
+
 <template>
   <mw-message
     :type="messageType"
@@ -47,111 +123,6 @@
     </div>
   </mw-message>
 </template>
-
-<script>
-import { MwIcon, MwMessage, MwButton } from "@/lib/mediawiki.ui";
-import {
-  mwIconEye,
-  mwIconAlert,
-  mwIconBlock,
-  mwIconPrevious,
-  mwIconArrowForward,
-} from "@/lib/mediawiki.ui/components/icons";
-import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
-import { computed, ref, watch } from "vue";
-import { useI18n } from "vue-banana-i18n";
-
-export default {
-  name: "SxPublisherReviewInfo",
-  components: {
-    MwButton,
-    MwCol,
-    MwRow,
-    MwMessage,
-    MwIcon,
-  },
-  props: {
-    publishFeedbackMessages: {
-      type: Array,
-      required: true,
-    },
-  },
-  setup(props) {
-    const activeMessageIndex = ref(0);
-
-    const learnMoreContainer = ref(null);
-    watch(learnMoreContainer, () => {
-      const container = learnMoreContainer.value?.$el;
-
-      if (container instanceof HTMLElement) {
-        const anchor = container.querySelector("a");
-        anchor && anchor.setAttribute("target", "_blank");
-      }
-    });
-    const activeMessage = computed(
-      () => props.publishFeedbackMessages?.[activeMessageIndex.value]
-    );
-
-    const status = computed(() => activeMessage.value?.status || "default");
-
-    const reviewIcon = computed(() => {
-      switch (status.value) {
-        case "warning":
-          return mwIconAlert;
-        case "error":
-          return mwIconBlock;
-        default:
-          return mwIconEye;
-      }
-    });
-    const isMessageInline = computed(() => status.value === "default");
-
-    const messageType = computed(() =>
-      isMessageInline.value ? "notice" : status.value
-    );
-    const reviewInfoClass = computed(
-      () => `sx-publisher__review-info--${messageType.value}`
-    );
-
-    const bananaI18n = useI18n();
-    const messageText = computed(() => activeMessage.value?.text);
-    const messageTitle = computed(
-      () =>
-        activeMessage.value?.title ||
-        bananaI18n.i18n("cx-sx-publisher-review-info-error")
-    );
-
-    const goToPreviousMessage = () => {
-      const messagesLength = props.publishFeedbackMessages.length;
-      activeMessageIndex.value =
-        (activeMessageIndex.value - 1 + messagesLength) % messagesLength;
-    };
-
-    const goToNextMessage = () => {
-      activeMessageIndex.value =
-        (activeMessageIndex.value + 1) % props.publishFeedbackMessages.length;
-    };
-
-    return {
-      goToNextMessage,
-      goToPreviousMessage,
-      isMessageInline,
-      learnMoreContainer,
-      messageText,
-      messageTitle,
-      messageType,
-      mwIconAlert,
-      mwIconArrowForward,
-      mwIconBlock,
-      mwIconEye,
-      mwIconPrevious,
-      reviewIcon,
-      reviewInfoClass,
-      status,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
