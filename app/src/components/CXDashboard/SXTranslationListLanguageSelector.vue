@@ -1,3 +1,79 @@
+<script setup>
+import { MwIcon, MwButton, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import MwLanguageSelector from "../MWLanguageSelector";
+import {
+  mwIconArrowNext,
+  mwIconExpand,
+} from "@/lib/mediawiki.ui/components/icons";
+import { computed, inject, ref, defineProps, defineEmits } from "vue";
+
+const props = defineProps({
+  /** @type string[] array of language codes */
+  sourceLanguages: {
+    type: Array,
+    required: true,
+    validator: (languages) =>
+      languages.every((language) => typeof language === "string"),
+  },
+  /** @type string[] array of language codes */
+  targetLanguages: {
+    type: Array,
+    required: true,
+    validator: (languages) =>
+      languages.every((language) => typeof language === "string"),
+  },
+  selectedSourceLanguage: {
+    type: String,
+    required: true,
+  },
+  selectedTargetLanguage: {
+    type: String,
+    required: true,
+  },
+  allOptionEnabled: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emit = defineEmits([
+  "update:selectedSourceLanguage",
+  "update:selectedTargetLanguage",
+]);
+
+const breakpoints = inject("breakpoints");
+const fullscreen = computed(() => breakpoints.value.mobile);
+
+const sourceLanguageSelectOn = ref(false);
+const targetLanguageSelectOn = ref(false);
+
+const openSourceLanguageDialog = () => (sourceLanguageSelectOn.value = true);
+const openTargetLanguageDialog = () => (targetLanguageSelectOn.value = true);
+const onSourceLanguageDialogClose = () =>
+  (sourceLanguageSelectOn.value = false);
+const onTargetLanguageDialogClose = () =>
+  (targetLanguageSelectOn.value = false);
+
+const onSourceLanguageSelected = (sourceLanguage) => {
+  sourceLanguageSelectOn.value = false;
+  emit("update:selectedSourceLanguage", sourceLanguage);
+};
+
+const onTargetLanguageSelected = (targetLanguage) => {
+  targetLanguageSelectOn.value = false;
+  emit("update:selectedTargetLanguage", targetLanguage);
+};
+
+const allLanguagesSelectedAsSource = computed(
+  () => props.selectedSourceLanguage === "all"
+);
+
+const allLanguagesSelectedAsTarget = computed(
+  () => props.selectedTargetLanguage === "all"
+);
+</script>
+
 <template>
   <mw-row
     justify="center"
@@ -93,110 +169,6 @@
     </mw-col>
   </mw-row>
 </template>
-
-<script>
-import { MwIcon, MwButton, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { getAutonym, getDir } from "@wikimedia/language-data";
-import MwLanguageSelector from "../MWLanguageSelector";
-import {
-  mwIconArrowNext,
-  mwIconExpand,
-} from "@/lib/mediawiki.ui/components/icons";
-import { computed, inject, ref } from "vue";
-
-export default {
-  name: "SxTranslationListLanguageSelector",
-  components: {
-    MwCol,
-    MwRow,
-    MwLanguageSelector,
-    MwDialog,
-    MwIcon,
-    MwButton,
-  },
-  props: {
-    /** @type string[] array of language codes */
-    sourceLanguages: {
-      type: Array,
-      required: true,
-      validator: (languages) =>
-        languages.every((language) => typeof language === "string"),
-    },
-    /** @type string[] array of language codes */
-    targetLanguages: {
-      type: Array,
-      required: true,
-      validator: (languages) =>
-        languages.every((language) => typeof language === "string"),
-    },
-    selectedSourceLanguage: {
-      type: String,
-      required: true,
-    },
-    selectedTargetLanguage: {
-      type: String,
-      required: true,
-    },
-    allOptionEnabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  emits: ["update:selectedSourceLanguage", "update:selectedTargetLanguage"],
-  setup(props, { emit }) {
-    const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.value.mobile);
-
-    const sourceLanguageSelectOn = ref(false);
-    const targetLanguageSelectOn = ref(false);
-
-    const openSourceLanguageDialog = () =>
-      (sourceLanguageSelectOn.value = true);
-    const openTargetLanguageDialog = () =>
-      (targetLanguageSelectOn.value = true);
-    const onSourceLanguageDialogClose = () =>
-      (sourceLanguageSelectOn.value = false);
-    const onTargetLanguageDialogClose = () =>
-      (targetLanguageSelectOn.value = false);
-
-    const onSourceLanguageSelected = (sourceLanguage) => {
-      sourceLanguageSelectOn.value = false;
-      emit("update:selectedSourceLanguage", sourceLanguage);
-    };
-
-    const onTargetLanguageSelected = (targetLanguage) => {
-      targetLanguageSelectOn.value = false;
-      emit("update:selectedTargetLanguage", targetLanguage);
-    };
-
-    const allLanguagesSelectedAsSource = computed(
-      () => props.selectedSourceLanguage === "all"
-    );
-
-    const allLanguagesSelectedAsTarget = computed(
-      () => props.selectedTargetLanguage === "all"
-    );
-
-    return {
-      fullscreen,
-      getAutonym,
-      getDir,
-      mwIconArrowNext,
-      mwIconExpand,
-      onSourceLanguageDialogClose,
-      onSourceLanguageSelected,
-      onTargetLanguageDialogClose,
-      onTargetLanguageSelected,
-      openSourceLanguageDialog,
-      openTargetLanguageDialog,
-      sourceLanguageSelectOn,
-      targetLanguageSelectOn,
-      allLanguagesSelectedAsSource,
-      allLanguagesSelectedAsTarget,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
