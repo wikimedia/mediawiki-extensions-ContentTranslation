@@ -1,3 +1,26 @@
+<script setup>
+import { MwButton, MwRow } from "../../lib/mediawiki.ui";
+import { mwIconArrowForward } from "../../lib/mediawiki.ui/components/icons";
+import tutorialSvgMT from "../../assets/tutorial-mt.svg?raw";
+import tutorialSvgSections from "../../assets/tutorial-sections.svg?raw";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const totalSteps = ref(2);
+const activeStep = ref(1);
+
+const goToNextStep = () => {
+  if (activeStep.value < totalSteps.value) {
+    activeStep.value++;
+  }
+};
+
+const isActiveStep = (step) => step === activeStep.value;
+
+const router = useRouter();
+const completeTutorial = () => router.push({ name: "sx-sentence-selector" });
+</script>
+
 <template>
   <section class="sx-quick-tutorial">
     <mw-row direction="column" class="sx-quick-tutorial__body-container ma-0">
@@ -82,41 +105,6 @@
     </mw-row>
   </section>
 </template>
-
-<script>
-import { MwButton, MwRow } from "../../lib/mediawiki.ui";
-import { mwIconArrowForward } from "../../lib/mediawiki.ui/components/icons";
-import tutorialSvgMT from "../../assets/tutorial-mt.svg?raw";
-import tutorialSvgSections from "../../assets/tutorial-sections.svg?raw";
-
-export default {
-  name: "SxQuickTutorial",
-  components: {
-    MwButton,
-    MwRow,
-  },
-  data: () => ({
-    mwIconArrowForward,
-    totalSteps: 2,
-    activeStep: 1,
-    tutorialSvgMT,
-    tutorialSvgSections,
-  }),
-  methods: {
-    goToNextStep() {
-      if (this.activeStep < this.totalSteps) {
-        this.activeStep++;
-      }
-    },
-    isActiveStep(step) {
-      return step === this.activeStep;
-    },
-    completeTutorial() {
-      this.$router.push({ name: "sx-sentence-selector" });
-    },
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
