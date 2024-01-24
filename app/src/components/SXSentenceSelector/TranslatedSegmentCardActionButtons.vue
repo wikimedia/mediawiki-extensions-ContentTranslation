@@ -1,3 +1,24 @@
+<script setup>
+import { MwRow, MwButton } from "@/lib/mediawiki.ui";
+import {
+  mwIconArrowForward,
+  mwIconPrevious,
+} from "@/lib/mediawiki.ui/components/icons";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+defineEmits(["select-previous-segment", "skip-translation"]);
+
+const { currentSourceSection, isSectionTitleSelected } = useApplicationState(
+  useStore()
+);
+
+const isLastTranslationUnit = computed(
+  () => currentSourceSection.value.isSelectedTranslationUnitLast
+);
+</script>
+
 <template>
   <mw-row class="sx-sentence-selector__translation-action-buttons ma-0">
     <mw-button
@@ -16,38 +37,3 @@
     />
   </mw-row>
 </template>
-
-<script>
-import { MwRow, MwButton } from "@/lib/mediawiki.ui";
-import {
-  mwIconArrowForward,
-  mwIconPrevious,
-} from "@/lib/mediawiki.ui/components/icons";
-import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "vue";
-import { useStore } from "vuex";
-
-export default {
-  name: "TranslatedSegmentCardActionButtons",
-  components: {
-    MwRow,
-    MwButton,
-  },
-  emits: ["select-previous-segment", "skip-translation"],
-  setup() {
-    const { currentSourceSection, isSectionTitleSelected } =
-      useApplicationState(useStore());
-
-    const isLastTranslationUnit = computed(
-      () => currentSourceSection.value.isSelectedTranslationUnitLast
-    );
-
-    return {
-      mwIconArrowForward,
-      mwIconPrevious,
-      isLastTranslationUnit,
-      isSectionTitleSelected,
-    };
-  },
-};
-</script>
