@@ -1,3 +1,36 @@
+<script setup>
+import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { computed } from "vue";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+
+defineEmits(["configure-options"]);
+const store = useStore();
+
+const mtProvider = computed(() => store.state.application.currentMTProvider);
+const bananaI18n = useI18n();
+
+const extraMTOptionLabels = computed(() => ({
+  [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
+    "cx-sx-sentence-selector-translation-options-original-card-title"
+  ),
+  [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
+    "cx-sx-sentence-selector-translation-options-empty-card-title"
+  ),
+}));
+
+const mtOptionLabel = computed(
+  () =>
+    extraMTOptionLabels.value[mtProvider.value] ||
+    bananaI18n.i18n(
+      "cx-sx-sentence-selector-suggested-translation-title",
+      MTProviderGroup.getMTProviderLabel(mtProvider.value)
+    )
+);
+</script>
+
 <template>
   <mw-col
     class="sx-sentence-selector__proposed-translation__header pt-5 shrink"
@@ -20,56 +53,6 @@
     </mw-row>
   </mw-col>
 </template>
-
-<script>
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { computed } from "vue";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-
-export default {
-  name: "ProposedTranslationHeader",
-  components: {
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  emits: ["configure-options"],
-  setup() {
-    const store = useStore();
-
-    const mtProvider = computed(
-      () => store.state.application.currentMTProvider
-    );
-    const bananaI18n = useI18n();
-
-    const extraMTOptionLabels = computed(() => ({
-      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
-        "cx-sx-sentence-selector-translation-options-original-card-title"
-      ),
-      [MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY]: bananaI18n.i18n(
-        "cx-sx-sentence-selector-translation-options-empty-card-title"
-      ),
-    }));
-
-    const mtOptionLabel = computed(
-      () =>
-        extraMTOptionLabels.value[mtProvider.value] ||
-        bananaI18n.i18n(
-          "cx-sx-sentence-selector-suggested-translation-title",
-          MTProviderGroup.getMTProviderLabel(mtProvider.value)
-        )
-    );
-
-    return {
-      mwIconEllipsis,
-      mtOptionLabel,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
