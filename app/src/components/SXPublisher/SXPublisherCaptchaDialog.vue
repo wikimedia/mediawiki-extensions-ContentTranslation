@@ -1,3 +1,35 @@
+<script setup>
+import {
+  MwDialog,
+  MwRow,
+  MwCol,
+  MwInput,
+  MwButton,
+  MwDivider,
+} from "@/lib/mediawiki.ui";
+import { computed, inject, ref } from "vue";
+import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import CaptchaDetails from "@/wiki/cx/models/captchaDetails";
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    required: true,
+  },
+  captchaDetails: {
+    type: CaptchaDetails,
+    default: null,
+  },
+});
+const emit = defineEmits(["close", "publish"]);
+
+const captchaInput = ref("");
+const close = () => emit("close");
+const publish = () => emit("publish", captchaInput.value);
+const breakpoints = inject("breakpoints");
+const fullscreen = computed(() => breakpoints.value.mobile);
+</script>
+
 <template>
   <mw-dialog
     v-if="active && captchaDetails"
@@ -52,52 +84,6 @@
     </div>
   </mw-dialog>
 </template>
-
-<script>
-import {
-  MwDialog,
-  MwRow,
-  MwCol,
-  MwInput,
-  MwButton,
-  MwDivider,
-} from "@/lib/mediawiki.ui";
-import { computed, inject, ref } from "vue";
-import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
-import CaptchaDetails from "@/wiki/cx/models/captchaDetails";
-
-export default {
-  name: "SxPublisherCaptchaDialog",
-  components: { MwInput, MwDialog, MwRow, MwCol, MwButton, MwDivider },
-  props: {
-    active: {
-      type: Boolean,
-      required: true,
-    },
-    captchaDetails: {
-      type: CaptchaDetails,
-      default: null,
-    },
-  },
-  emits: ["close", "publish"],
-  setup(props, { emit }) {
-    const captchaInput = ref("");
-    const close = () => emit("close");
-    const publish = () => emit("publish", captchaInput.value);
-    const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.value.mobile);
-
-    return {
-      captchaInput,
-      close,
-      fullscreen,
-      mwIconCheck,
-      mwIconClose,
-      publish,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
