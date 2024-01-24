@@ -1,3 +1,20 @@
+<script setup>
+import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
+import { MwCol, MwButton, MwRow } from "@/lib/mediawiki.ui";
+import { useRouter } from "vue-router";
+
+const props = defineProps({
+  isPublishingDisabled: {
+    type: Boolean,
+    required: true,
+  },
+});
+defineEmits(["publish-translation"]);
+
+const router = useRouter();
+const onClose = () => router.push({ name: "sx-sentence-selector" });
+</script>
+
 <template>
   <mw-row class="ma-0 sx-publisher__header">
     <mw-col shrink>
@@ -15,34 +32,6 @@
     </mw-col>
   </mw-row>
 </template>
-
-<script>
-import { mwIconClose, mwIconCheck } from "@/lib/mediawiki.ui/components/icons";
-import { MwCol, MwButton, MwRow } from "@/lib/mediawiki.ui";
-import { useRouter } from "vue-router";
-
-export default {
-  name: "SxPublisherHeader",
-  components: { MwCol, MwButton, MwRow },
-  props: {
-    isPublishingDisabled: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ["publish-translation"],
-  setup() {
-    const router = useRouter();
-    const onClose = () => router.push({ name: "sx-sentence-selector" });
-
-    return {
-      mwIconCheck,
-      mwIconClose,
-      onClose,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
