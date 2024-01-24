@@ -1,3 +1,151 @@
+<script setup>
+import {
+  MwButton,
+  MwRow,
+  MwCol,
+  MwCard,
+  MwIcon,
+  MwSpinner,
+} from "@/lib/mediawiki.ui";
+import { mwIconPuzzle, mwIconInfo } from "@/lib/mediawiki.ui/components/icons";
+import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
+import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed, ref } from "vue";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
+
+defineEmits(["edit-translation"]);
+
+const store = useStore();
+const {
+  selectedContentTranslationUnit: selectedSubSection,
+  targetLanguageAutonym,
+  currentMTProvider,
+  proposedTranslation: blockProposedTranslation,
+} = useApplicationState(store);
+
+const blockEditableContent = computed(() => {
+  const blockTranslation =
+    selectedSubSection.value?.blockTemplateTranslatedContent;
+
+  return blockTranslation || blockProposedTranslation.value;
+});
+
+const targetTemplateName = computed(() =>
+  selectedSubSection.value?.getTargetBlockTemplateNameByProvider(
+    currentMTProvider.value
+  )
+);
+
+/**
+ * This computed property is true while the proposed
+ * block translation is not yet available, or while
+ * the target template data are being parsed to get
+ * the target template name.
+ *
+ * @type {ComputedRef<boolean>}
+ */
+const translationLoaded = computed(
+  () =>
+    !store.state.application.mtRequestsPending?.includes(
+      selectedSubSection.value.id
+    )
+);
+
+const bananaI18n = useI18n();
+const sourceTemplateName = computed(
+  // Strip HTML comments and return
+  () =>
+    selectedSubSection.value?.sourceBlockTemplateName?.replace(
+      /<\!--.*?-->/g,
+      ""
+    ) || bananaI18n.i18n("sx-block-template-adaptation-card-title-placeholder")
+);
+
+const adaptationInfo = computed(
+  () =>
+    selectedSubSection.value.blockTemplateAdaptationInfo?.[
+      currentMTProvider.value
+    ]
+);
+const isTemplateAdapted = computed(
+  () => adaptationInfo.value?.adapted || !!adaptationInfo.value?.partial
+);
+
+const adaptedTemplateCardClass = computed(() => {
+  if (!adaptationInfo.value) {
+    return null;
+  }
+
+  const postfix = isTemplateAdapted.value ? "success" : "warning";
+
+  return "block-template-adaptation-card__body--" + postfix;
+});
+
+const editBlockTranslationButtonLabel = computed(() => {
+  if (!adaptationInfo.value) {
+    return null;
+  }
+
+  return isTemplateAdapted.value
+    ? bananaI18n.i18n("sx-block-template-adaptation-card-edit-button-label")
+    : bananaI18n.i18n(
+        "sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
+      );
+});
+
+const sourceParamsCount = computed(
+  () => Object.keys(selectedSubSection.value?.sourceTemplateParams || {}).length
+);
+
+const targetParamNames = computed(() => {
+  const targetTemplateParams =
+    selectedSubSection.value?.getTargetTemplateParamsByProvider(
+      currentMTProvider.value
+    );
+
+  return Object.keys(targetTemplateParams || {});
+});
+const targetParamsCount = computed(() => targetParamNames.value.length);
+
+const adaptationRatio = computed(() => {
+  const missingMandatoryCount = mandatoryMissingTargetParamsCount.value;
+
+  if (sourceParamsCount.value + missingMandatoryCount === 0) {
+    return 100;
+  }
+
+  return (
+    (targetParamsCount.value /
+      (sourceParamsCount.value + missingMandatoryCount)) *
+      100 || 0
+  );
+});
+
+const templateStatusDialogOn = ref(false);
+
+const showTemplateStatus = () => {
+  templateStatusDialogOn.value = true;
+};
+
+const getMissingParams = (allParams) =>
+  allParams.filter((param) => !targetParamNames.value.includes(param));
+
+const mandatoryMissingTargetParamsCount = computed(() => {
+  const mandatoryParams = adaptationInfo.value?.mandatoryTargetParams || [];
+
+  return getMissingParams(mandatoryParams).length;
+});
+
+const optionalMissingTargetParamsCount = computed(() => {
+  const optionalParams = adaptationInfo.value?.optionalTargetParams || [];
+
+  return getMissingParams(optionalParams).length;
+});
+</script>
+
 <template>
   <mw-card class="block-template-adaptation-card col shrink pa-0 ma-0">
     <div class="block-template-adaptation-card__container pa-4">
@@ -75,191 +223,6 @@
     />
   </mw-card>
 </template>
-
-<script>
-import {
-  MwButton,
-  MwRow,
-  MwCol,
-  MwCard,
-  MwIcon,
-  MwSpinner,
-} from "@/lib/mediawiki.ui";
-import { mwIconPuzzle, mwIconInfo } from "@/lib/mediawiki.ui/components/icons";
-import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
-import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { computed, ref } from "vue";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
-
-export default {
-  name: "BlockTemplateAdaptationCard",
-  components: {
-    SxBlockTemplateStatusDialog,
-    MwSpinner,
-    MwIcon,
-    MwCard,
-    MwRow,
-    MwCol,
-    MwButton,
-    ProposedTranslationActionButtons,
-    BlockTemplateStatusIndicator,
-  },
-  emits: ["edit-translation"],
-  setup() {
-    const store = useStore();
-    const {
-      selectedContentTranslationUnit: selectedSubSection,
-      targetLanguageAutonym,
-      currentMTProvider,
-      proposedTranslation: blockProposedTranslation,
-    } = useApplicationState(store);
-
-    const blockEditableContent = computed(() => {
-      const blockTranslation =
-        selectedSubSection.value?.blockTemplateTranslatedContent;
-
-      return blockTranslation || blockProposedTranslation.value;
-    });
-
-    const targetTemplateName = computed(() =>
-      selectedSubSection.value?.getTargetBlockTemplateNameByProvider(
-        currentMTProvider.value
-      )
-    );
-
-    /**
-     * This computed property is true while the proposed
-     * block translation is not yet available, or while
-     * the target template data are being parsed to get
-     * the target template name.
-     *
-     * @type {ComputedRef<boolean>}
-     */
-    const translationLoaded = computed(
-      () =>
-        !store.state.application.mtRequestsPending?.includes(
-          selectedSubSection.value.id
-        )
-    );
-
-    const bananaI18n = useI18n();
-    const sourceTemplateName = computed(
-      // Strip HTML comments and return
-      () =>
-        selectedSubSection.value?.sourceBlockTemplateName?.replace(
-          /<\!--.*?-->/g,
-          ""
-        ) ||
-        bananaI18n.i18n("sx-block-template-adaptation-card-title-placeholder")
-    );
-
-    const adaptationInfo = computed(
-      () =>
-        selectedSubSection.value.blockTemplateAdaptationInfo?.[
-          currentMTProvider.value
-        ]
-    );
-    const isTemplateAdapted = computed(
-      () => adaptationInfo.value?.adapted || !!adaptationInfo.value?.partial
-    );
-
-    const adaptedTemplateCardClass = computed(() => {
-      if (!adaptationInfo.value) {
-        return null;
-      }
-
-      const postfix = isTemplateAdapted.value ? "success" : "warning";
-
-      return "block-template-adaptation-card__body--" + postfix;
-    });
-
-    const editBlockTranslationButtonLabel = computed(() => {
-      if (!adaptationInfo.value) {
-        return null;
-      }
-
-      return isTemplateAdapted.value
-        ? bananaI18n.i18n("sx-block-template-adaptation-card-edit-button-label")
-        : bananaI18n.i18n(
-            "sx-block-template-adaptation-card-edit-button-label-no-adapted-params"
-          );
-    });
-
-    const sourceParamsCount = computed(
-      () =>
-        Object.keys(selectedSubSection.value?.sourceTemplateParams || {}).length
-    );
-
-    const targetParamNames = computed(() => {
-      const targetTemplateParams =
-        selectedSubSection.value?.getTargetTemplateParamsByProvider(
-          currentMTProvider.value
-        );
-
-      return Object.keys(targetTemplateParams || {});
-    });
-    const targetParamsCount = computed(() => targetParamNames.value.length);
-
-    const adaptationRatio = computed(() => {
-      const missingMandatoryCount = mandatoryMissingTargetParamsCount.value;
-
-      if (sourceParamsCount.value + missingMandatoryCount === 0) {
-        return 100;
-      }
-
-      return (
-        (targetParamsCount.value /
-          (sourceParamsCount.value + missingMandatoryCount)) *
-          100 || 0
-      );
-    });
-
-    const templateStatusDialogOn = ref(false);
-
-    const showTemplateStatus = () => {
-      templateStatusDialogOn.value = true;
-    };
-
-    const getMissingParams = (allParams) =>
-      allParams.filter((param) => !targetParamNames.value.includes(param));
-
-    const mandatoryMissingTargetParamsCount = computed(() => {
-      const mandatoryParams = adaptationInfo.value?.mandatoryTargetParams || [];
-
-      return getMissingParams(mandatoryParams).length;
-    });
-
-    const optionalMissingTargetParamsCount = computed(() => {
-      const optionalParams = adaptationInfo.value?.optionalTargetParams || [];
-
-      return getMissingParams(optionalParams).length;
-    });
-
-    return {
-      adaptationRatio,
-      adaptedTemplateCardClass,
-      blockEditableContent,
-      editBlockTranslationButtonLabel,
-      isTemplateAdapted,
-      mandatoryMissingTargetParamsCount,
-      mwIconInfo,
-      mwIconPuzzle,
-      optionalMissingTargetParamsCount,
-      showTemplateStatus,
-      sourceParamsCount,
-      sourceTemplateName,
-      targetLanguageAutonym,
-      targetParamsCount,
-      targetTemplateName,
-      templateStatusDialogOn,
-      translationLoaded,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
