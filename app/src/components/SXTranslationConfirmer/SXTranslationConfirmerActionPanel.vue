@@ -1,3 +1,66 @@
+<script setup>
+import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
+import { computed, inject, onMounted } from "vue";
+import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
+import { setTranslationURLParams } from "@/utils/urlHandler";
+import useActionPanel from "./useActionPanel";
+import useApplicationState from "@/composables/useApplicationState";
+import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+import useDevice from "@/composables/useDevice";
+
+const router = useRouter();
+const store = useStore();
+const colors = inject("colors");
+const { targetLanguageAutonym, currentSectionSuggestion } =
+  useApplicationState(store);
+
+const {
+  clearPreFilledSection,
+  startNewTranslation,
+  onSectionSelectorClick,
+  preFilledSectionTitle,
+} = useSectionSelectorClickHandler();
+
+const {
+  actionInformationMessageArgs,
+  getActionButtonLabel,
+  isProgressiveButton,
+  targetArticlePath,
+  targetPageExists,
+} = useActionPanel(currentSectionSuggestion);
+
+const bananaI18n = useI18n();
+
+const actionButtonLabel = computed(() =>
+  bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
+);
+
+const { isDesktop } = useDevice();
+
+const actionInformationMessage = computed(() =>
+  bananaI18n.i18n(...actionInformationMessageArgs.value)
+);
+
+const onMoreSectionsClick = () => {
+  router.push({ name: "sx-section-selector" });
+  setTranslationURLParams(currentSectionSuggestion.value);
+};
+
+onMounted(() => {
+  const preFilledSection = preFilledSectionTitle.value;
+
+  if (
+    !!preFilledSection &&
+    !currentSectionSuggestion.value.hasSectionTitle(preFilledSection)
+  ) {
+    clearPreFilledSection();
+  }
+});
+</script>
+
 <template>
   <section class="sx-translation-confirmer-body pb-4">
     <section
@@ -64,96 +127,6 @@
     </mw-row>
   </section>
 </template>
-
-<script>
-import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
-import { computed, inject, onMounted } from "vue";
-import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { setTranslationURLParams } from "@/utils/urlHandler";
-import useActionPanel from "./useActionPanel";
-import useApplicationState from "@/composables/useApplicationState";
-import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-import useDevice from "@/composables/useDevice";
-
-export default {
-  name: "SxTranslationConfirmerActionPanel",
-  components: {
-    MwButton,
-    MwRow,
-    MwCol,
-    MwIcon,
-  },
-  setup() {
-    const router = useRouter();
-    const store = useStore();
-    const colors = inject("colors");
-    const { targetLanguageAutonym, currentSectionSuggestion } =
-      useApplicationState(store);
-
-    const {
-      clearPreFilledSection,
-      startNewTranslation,
-      onSectionSelectorClick,
-      preFilledSectionTitle,
-    } = useSectionSelectorClickHandler();
-
-    const {
-      actionInformationMessageArgs,
-      getActionButtonLabel,
-      isProgressiveButton,
-      targetArticlePath,
-      targetPageExists,
-    } = useActionPanel(currentSectionSuggestion);
-
-    const bananaI18n = useI18n();
-
-    const actionButtonLabel = computed(() =>
-      bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
-    );
-
-    const { isDesktop } = useDevice();
-
-    const actionInformationMessage = computed(() =>
-      bananaI18n.i18n(...actionInformationMessageArgs.value)
-    );
-
-    const onMoreSectionsClick = () => {
-      router.push({ name: "sx-section-selector" });
-      setTranslationURLParams(currentSectionSuggestion.value);
-    };
-
-    onMounted(() => {
-      const preFilledSection = preFilledSectionTitle.value;
-
-      if (
-        !!preFilledSection &&
-        !currentSectionSuggestion.value.hasSectionTitle(preFilledSection)
-      ) {
-        clearPreFilledSection();
-      }
-    });
-
-    return {
-      actionButtonLabel,
-      actionInformationMessage,
-      isProgressiveButton,
-      mwIconLinkExternal,
-      onMoreSectionsClick,
-      startNewTranslation,
-      onSectionSelectorClick,
-      preFilledSectionTitle,
-      targetArticlePath,
-      targetLanguageAutonym,
-      targetPageExists,
-      colors,
-      isDesktop,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
