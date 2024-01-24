@@ -138,7 +138,7 @@ export default {
       }
     });
 
-    const { editTranslation } = useEditTranslation(store, useRouter());
+    const editTranslation = useEditTranslation();
 
     return {
       captchaDetails,

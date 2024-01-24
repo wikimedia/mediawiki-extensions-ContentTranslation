@@ -1,7 +1,14 @@
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 
-const useEditTranslation = (store, router) => {
+/**
+ * @return {function}
+ */
+const useEditTranslation = () => {
+  const store = useStore();
+  const router = useRouter();
   const {
     currentSourcePage,
     currentTargetPage,
@@ -18,7 +25,7 @@ const useEditTranslation = (store, router) => {
     )
   );
 
-  const editTranslation = () =>
+  return () =>
     router.push({
       name: "sx-editor",
       state: {
@@ -27,8 +34,6 @@ const useEditTranslation = (store, router) => {
         isFinalEdit: true,
       },
     });
-
-  return { editTranslation };
 };
 
 export default useEditTranslation;
