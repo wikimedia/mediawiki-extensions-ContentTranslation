@@ -1,8 +1,10 @@
 <template>
-  <div
-    class="row sx-translation-list-language-selector ma-0 justify-center items-center"
+  <mw-row
+    justify="center"
+    align="center"
+    class="sx-translation-list-language-selector ma-0"
   >
-    <div class="col-5 justify-end">
+    <mw-col class="flex justify-end" cols="5">
       <mw-button
         :indicator="mwIconExpand"
         class="pa-3 sx-translation-list-language-selector__button"
@@ -41,13 +43,14 @@
           @close="onSourceLanguageDialogClose"
         />
       </mw-dialog>
-    </div>
-    <div
-      class="sx-translation-list-language-selector__arrow col-2 justify-center"
+    </mw-col>
+    <mw-col
+      class="sx-translation-list-language-selector__arrow flex justify-center"
+      cols="2"
     >
       <mw-icon :icon="mwIconArrowNext" />
-    </div>
-    <div class="col-5 justify-start">
+    </mw-col>
+    <mw-col cols="5">
       <mw-button
         :indicator="mwIconExpand"
         class="pa-3 sx-translation-list-language-selector__button"
@@ -87,12 +90,12 @@
           @close="onTargetLanguageDialogClose"
         />
       </mw-dialog>
-    </div>
-  </div>
+    </mw-col>
+  </mw-row>
 </template>
 
 <script>
-import { MwIcon, MwButton, MwDialog } from "@/lib/mediawiki.ui";
+import { MwIcon, MwButton, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import MwLanguageSelector from "../MWLanguageSelector";
 import {
@@ -104,6 +107,8 @@ import { computed, inject, ref } from "vue";
 export default {
   name: "SxTranslationListLanguageSelector",
   components: {
+    MwCol,
+    MwRow,
     MwLanguageSelector,
     MwDialog,
     MwIcon,
