@@ -1,3 +1,14 @@
+<script setup>
+import { MwIcon, MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
+import {
+  mwIconAlert,
+  mwIconRefresh,
+  mwIconMenu,
+} from "@/lib/mediawiki.ui/components/icons";
+
+defineEmits(["configure-options", "retry-translation"]);
+</script>
+
 <template>
   <div class="mt-retry-body">
     <mw-row class="retry-body__action-buttons">
@@ -30,25 +41,3 @@
     </mw-row>
   </div>
 </template>
-
-<script>
-import { MwIcon, MwButton, MwGrid, MwCol, MwRow } from "@/lib/mediawiki.ui";
-import {
-  mwIconAlert,
-  mwIconRefresh,
-  mwIconMenu,
-} from "@/lib/mediawiki.ui/components/icons";
-
-export default {
-  name: "RetryMtCard",
-  components: { MwButton, MwIcon, MwGrid, MwCol, MwRow },
-  emits: ["configure-options", "retry-translation"],
-  setup() {
-    return {
-      mwIconAlert,
-      mwIconRefresh,
-      mwIconMenu,
-    };
-  },
-};
-</script>
