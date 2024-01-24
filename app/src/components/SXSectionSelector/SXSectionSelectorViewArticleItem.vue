@@ -1,3 +1,19 @@
+<script setup>
+import { MwButton, MwRow } from "@/lib/mediawiki.ui";
+import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
+
+defineProps({
+  path: {
+    type: String,
+    required: true,
+  },
+  autonym: {
+    type: String,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <mw-row tag="li" class="ma-0">
     <mw-button
@@ -12,29 +28,3 @@
     />
   </mw-row>
 </template>
-
-<script>
-import { MwButton, MwRow } from "@/lib/mediawiki.ui";
-import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-
-export default {
-  name: "SxSectionSelectorViewArticleItem",
-  components: {
-    MwRow,
-    MwButton,
-  },
-  props: {
-    path: {
-      type: String,
-      required: true,
-    },
-    autonym: {
-      type: String,
-      required: true,
-    },
-  },
-  data: () => ({
-    mwIconLinkExternal,
-  }),
-};
-</script>
