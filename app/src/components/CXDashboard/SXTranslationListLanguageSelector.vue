@@ -45,24 +45,23 @@ const emit = defineEmits([
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
 
-const sourceLanguageSelectOn = ref(false);
-const targetLanguageSelectOn = ref(false);
+const dialogSwitch = ref(null);
+const dialogOn = computed(() => !!dialogSwitch.value);
 
-const openSourceLanguageDialog = () => (sourceLanguageSelectOn.value = true);
-const openTargetLanguageDialog = () => (targetLanguageSelectOn.value = true);
-const onSourceLanguageDialogClose = () =>
-  (sourceLanguageSelectOn.value = false);
-const onTargetLanguageDialogClose = () =>
-  (targetLanguageSelectOn.value = false);
+const openSourceLanguageDialog = () => (dialogSwitch.value = "source");
+const openTargetLanguageDialog = () => (dialogSwitch.value = "target");
 
-const onSourceLanguageSelected = (sourceLanguage) => {
-  sourceLanguageSelectOn.value = false;
-  emit("update:selectedSourceLanguage", sourceLanguage);
-};
+const closeDialog = () => (dialogSwitch.value = null);
 
-const onTargetLanguageSelected = (targetLanguage) => {
-  targetLanguageSelectOn.value = false;
-  emit("update:selectedTargetLanguage", targetLanguage);
+const onLanguageSelected = (language) => {
+  const eventMap = {
+    source: "update:selectedSourceLanguage",
+    target: "update:selectedTargetLanguage",
+  };
+
+  const event = eventMap[dialogSwitch.value];
+  closeDialog();
+  emit(event, language);
 };
 
 const allLanguagesSelectedAsSource = computed(
@@ -75,99 +74,78 @@ const allLanguagesSelectedAsTarget = computed(
 </script>
 
 <template>
-  <mw-row
-    justify="center"
-    align="center"
-    class="sx-translation-list-language-selector ma-0"
-  >
-    <mw-col class="flex justify-end" cols="5">
-      <mw-button
-        :indicator="mwIconExpand"
-        class="pa-3 sx-translation-list-language-selector__button"
-        type="text"
-        @click.stop="openSourceLanguageDialog"
+  <div class="sx-translation-list-language-selector">
+    <mw-row justify="center" align="center" class="ma-0">
+      <mw-col class="flex justify-end" cols="5">
+        <mw-button
+          :indicator="mwIconExpand"
+          class="pa-3 sx-translation-list-language-selector__button"
+          type="text"
+          @click.stop="openSourceLanguageDialog"
+        >
+          <span
+            v-if="allLanguagesSelectedAsSource"
+            v-i18n:cx-translation-list-all-languages-option-label
+            class="mw-ui-autonym"
+          />
+          <span
+            v-else
+            class="mw-ui-autonym"
+            :lang="selectedSourceLanguage"
+            :dir="getDir(selectedSourceLanguage)"
+            v-text="getAutonym(selectedSourceLanguage)"
+          />
+        </mw-button>
+      </mw-col>
+      <mw-col
+        class="sx-translation-list-language-selector__arrow flex justify-center"
+        cols="2"
       >
-        <span
-          v-if="allLanguagesSelectedAsSource"
-          v-i18n:cx-translation-list-all-languages-option-label
-          class="mw-ui-autonym"
-        />
-        <span
-          v-else
-          class="mw-ui-autonym"
-          :lang="selectedSourceLanguage"
-          :dir="getDir(selectedSourceLanguage)"
-          v-text="getAutonym(selectedSourceLanguage)"
-        />
-      </mw-button>
-      <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
-      <mw-dialog
-        v-model:value="sourceLanguageSelectOn"
-        animation="slide-up"
-        :title="$i18n('sx-translation-list-language-selector-dialog-title')"
-        :fullscreen="fullscreen"
-        :header="fullscreen"
-        :overlay-opacity="0"
-        @close="onSourceLanguageDialogClose"
-      >
-        <mw-language-selector
-          class="sx-translation-list-language-selector__widget col-12"
-          :placeholder="$i18n('cx-sx-language-selector-placeholder')"
-          :languages="sourceLanguages"
-          :all-option-enabled="allOptionEnabled"
-          @select="onSourceLanguageSelected"
-          @close="onSourceLanguageDialogClose"
-        />
-      </mw-dialog>
-    </mw-col>
-    <mw-col
-      class="sx-translation-list-language-selector__arrow flex justify-center"
-      cols="2"
+        <mw-icon :icon="mwIconArrowNext" />
+      </mw-col>
+      <mw-col cols="5">
+        <mw-button
+          :indicator="mwIconExpand"
+          class="pa-3 sx-translation-list-language-selector__button"
+          type="text"
+          :disabled="targetLanguages.length < 2"
+          @click.stop="openTargetLanguageDialog"
+        >
+          <span
+            v-if="allLanguagesSelectedAsTarget"
+            v-i18n:cx-translation-list-all-languages-option-label
+            class="mw-ui-autonym"
+          />
+          <span
+            v-else
+            class="mw-ui-autonym"
+            :lang="selectedTargetLanguage"
+            :dir="getDir(selectedTargetLanguage)"
+            v-text="getAutonym(selectedTargetLanguage)"
+          />
+        </mw-button>
+      </mw-col>
+    </mw-row>
+    <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
+    <mw-dialog
+      v-model:value="dialogOn"
+      animation="slide-up"
+      :title="$i18n('sx-translation-list-language-selector-dialog-title')"
+      :fullscreen="fullscreen"
+      :header="fullscreen"
+      :overlay-opacity="0"
+      @close="closeDialog"
     >
-      <mw-icon :icon="mwIconArrowNext" />
-    </mw-col>
-    <mw-col cols="5">
-      <mw-button
-        :indicator="mwIconExpand"
-        class="pa-3 sx-translation-list-language-selector__button"
-        type="text"
-        :disabled="targetLanguages.length < 2"
-        @click.stop="openTargetLanguageDialog"
-      >
-        <span
-          v-if="allLanguagesSelectedAsTarget"
-          v-i18n:cx-translation-list-all-languages-option-label
-          class="mw-ui-autonym"
-        />
-        <span
-          v-else
-          class="mw-ui-autonym"
-          :lang="selectedTargetLanguage"
-          :dir="getDir(selectedTargetLanguage)"
-          v-text="getAutonym(selectedTargetLanguage)"
-        />
-      </mw-button>
-      <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
-      <mw-dialog
-        v-model:value="targetLanguageSelectOn"
-        animation="slide-up"
-        :fullscreen="fullscreen"
-        :header="fullscreen"
-        :overlay-opacity="0"
-        :title="$i18n('sx-translation-list-language-selector-dialog-title')"
-        @close="onTargetLanguageDialogClose"
-      >
-        <mw-language-selector
-          class="sx-translation-list-language-selector__widget col-12"
-          :placeholder="$i18n('cx-sx-language-selector-placeholder')"
-          :languages="targetLanguages"
-          :all-option-enabled="allOptionEnabled"
-          @select="onTargetLanguageSelected"
-          @close="onTargetLanguageDialogClose"
-        />
-      </mw-dialog>
-    </mw-col>
-  </mw-row>
+      <mw-language-selector
+        class="sx-translation-list-language-selector__widget col-12"
+        :placeholder="$i18n('cx-sx-language-selector-placeholder')"
+        :languages="sourceLanguages"
+        :all-option-enabled="allOptionEnabled"
+        @select="onLanguageSelected"
+        @close="closeDialog"
+      />
+    </mw-dialog>
+  </div>
 </template>
 
 <style lang="less">
