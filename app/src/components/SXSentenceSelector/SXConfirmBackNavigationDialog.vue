@@ -1,3 +1,32 @@
+<script setup>
+import { MwButton, MwDialog, MwDivider } from "@/lib/mediawiki.ui";
+
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const emit = defineEmits([
+  "update:modelValue",
+  "continue-translation",
+  "discard-translation",
+]);
+
+const closeDialog = () => emit("update:modelValue", false);
+
+const continueTranslation = () => {
+  emit("continue-translation");
+  closeDialog();
+};
+
+const discardTranslation = () => {
+  emit("discard-translation");
+  closeDialog();
+};
+</script>
+
 <template>
   <mw-dialog
     :value="modelValue"
@@ -19,7 +48,9 @@
       <span v-i18n:sx-confirm-back-navigation-dialog-body />
     </div>
     <template #footer>
-      <div class="flex justify-end py-2 sx-confirm-back-navigation-dialog__footer">
+      <div
+        class="flex justify-end py-2 sx-confirm-back-navigation-dialog__footer"
+      >
         <mw-button
           type="text"
           :label="
@@ -40,40 +71,6 @@
   </mw-dialog>
 </template>
 
-<script>
-import { MwButton, MwDialog, MwDivider } from "@/lib/mediawiki.ui";
-
-export default {
-  name: "SxConfirmBackNavigationDialog",
-  components: {
-    MwButton,
-    MwDivider,
-    MwDialog,
-  },
-  props: {
-    modelValue: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ["update:modelValue", "continue-translation", "discard-translation"],
-  setup(props, { emit }) {
-    const closeDialog = () => emit("update:modelValue", false);
-
-    const continueTranslation = () => {
-      emit("continue-translation");
-      closeDialog();
-    };
-
-    const discardTranslation = () => {
-      emit("discard-translation");
-      closeDialog();
-    };
-
-    return { continueTranslation, discardTranslation };
-  },
-};
-</script>
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
