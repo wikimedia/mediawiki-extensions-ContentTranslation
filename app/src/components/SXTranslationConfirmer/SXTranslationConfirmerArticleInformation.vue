@@ -1,3 +1,77 @@
+<script setup>
+import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import {
+  mwIconBookmark,
+  mwIconBookmarkOutline,
+  mwIconLanguage,
+  mwIconLinkExternal,
+} from "@/lib/mediawiki.ui/components/icons";
+import { siteMapper } from "@/utils/mediawikiHelper";
+import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+const {
+  currentSectionSuggestion: sectionSuggestion,
+  currentSourcePage: sourceArticle,
+} = useApplicationState(store);
+
+const favorites = computed(() => store.state.suggestions.favorites || []);
+
+const isFavorite = computed(() =>
+  favorites.value.some(
+    (favorite) =>
+      sectionSuggestion.value.sourceTitle === favorite.title &&
+      sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
+      sectionSuggestion.value.targetLanguage === favorite.targetLanguage
+  )
+);
+
+const unmarkSuggestionAsFavorite = async () =>
+  store.dispatch(
+    "suggestions/removeFavoriteSuggestion",
+    new FavoriteSuggestion({
+      title: sectionSuggestion.value.sourceTitle,
+      sourceLanguage: sectionSuggestion.value.sourceLanguage,
+      targetLanguage: sectionSuggestion.value.targetLanguage,
+    })
+  );
+
+const markSuggestionAsFavorite = async () =>
+  store.dispatch(
+    "suggestions/doMarkSuggestionAsFavorite",
+    sectionSuggestion.value
+  );
+
+const bookmarkIcon = computed(() =>
+  isFavorite.value ? mwIconBookmark : mwIconBookmarkOutline
+);
+
+const toggleFavorite = computed(() =>
+  isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite
+);
+
+const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
+const sourceArticlePath = computed(() =>
+  siteMapper.getPageUrl(
+    sectionSuggestion.value?.sourceLanguage || "",
+    sourceTitle.value || ""
+  )
+);
+
+const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);
+
+const weeklyViews = computed(() =>
+  Object.values(sourceArticle.value?.pageviews || {}).reduce(
+    (sum, dayViews) => sum + dayViews,
+    0
+  )
+);
+</script>
+
 <template>
   <mw-row
     class="sx-translation-confirmer__article-information ma-0 pa-4"
@@ -42,103 +116,6 @@
     </mw-col>
   </mw-row>
 </template>
-
-<script>
-import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import {
-  mwIconBookmark,
-  mwIconBookmarkOutline,
-  mwIconLanguage,
-  mwIconLinkExternal,
-} from "@/lib/mediawiki.ui/components/icons";
-import { siteMapper } from "@/utils/mediawikiHelper";
-import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
-import { useStore } from "vuex";
-export default {
-  name: "SxTranslationConfirmerArticleInformation",
-  components: {
-    MwRow,
-    MwCol,
-    MwIcon,
-    MwButton,
-  },
-  setup() {
-    const store = useStore();
-
-    const {
-      currentSectionSuggestion: sectionSuggestion,
-      currentSourcePage: sourceArticle,
-    } = useApplicationState(store);
-
-    const favorites = computed(() => store.state.suggestions.favorites || []);
-
-    const isFavorite = computed(() =>
-      favorites.value.some(
-        (favorite) =>
-          sectionSuggestion.value.sourceTitle === favorite.title &&
-          sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
-          sectionSuggestion.value.targetLanguage === favorite.targetLanguage
-      )
-    );
-
-    const unmarkSuggestionAsFavorite = async () =>
-      store.dispatch(
-        "suggestions/removeFavoriteSuggestion",
-        new FavoriteSuggestion({
-          title: sectionSuggestion.value.sourceTitle,
-          sourceLanguage: sectionSuggestion.value.sourceLanguage,
-          targetLanguage: sectionSuggestion.value.targetLanguage,
-        })
-      );
-
-    const markSuggestionAsFavorite = async () =>
-      store.dispatch(
-        "suggestions/doMarkSuggestionAsFavorite",
-        sectionSuggestion.value
-      );
-
-    const bookmarkIcon = computed(() =>
-      isFavorite.value ? mwIconBookmark : mwIconBookmarkOutline
-    );
-
-    const toggleFavorite = computed(() =>
-      isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite
-    );
-
-    const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
-    const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(
-        sectionSuggestion.value?.sourceLanguage || "",
-        sourceTitle.value || ""
-      )
-    );
-
-    const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);
-
-    const weeklyViews = computed(() =>
-      Object.values(sourceArticle.value?.pageviews || {}).reduce(
-        (sum, dayViews) => sum + dayViews,
-        0
-      )
-    );
-
-    return {
-      bookmarkIcon,
-      isFavorite,
-      langLinksCount,
-      mwIconLanguage,
-      mwIconLinkExternal,
-      sourceArticle,
-      sourceArticlePath,
-      sourceTitle,
-      toggleFavorite,
-      weeklyViews,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
