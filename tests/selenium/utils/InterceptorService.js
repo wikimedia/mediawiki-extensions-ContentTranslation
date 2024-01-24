@@ -23,13 +23,13 @@ class InterceptorService {
 	async findAndWaitRequest( findMethod, requestInfo, timeout = 5000 ) {
 		const request = await this.findRequest( findMethod );
 		if ( !request ) {
-			throw new Error( `Such request has not been sent. Details: ${JSON.stringify( requestInfo )}` );
+			throw new Error( `Such request has not been sent. Details: ${ JSON.stringify( requestInfo ) }` );
 		} else if ( !request.pending ) {
 			return request;
 		}
 
 		const opts = {
-			timeoutMsg: `Request timed out in ${timeout} ms. Details: ${JSON.stringify( requestInfo )}`,
+			timeoutMsg: `Request timed out in ${ timeout } ms. Details: ${ JSON.stringify( requestInfo ) }`,
 			timeout
 		};
 
@@ -67,7 +67,6 @@ class InterceptorService {
 				return true;
 			}
 
-			// eslint-disable-next-line node/no-unsupported-features/node-builtins
 			const params = new URLSearchParams( requestParamsString );
 
 			return urlParams.every( ( urlParam ) => {
@@ -75,7 +74,7 @@ class InterceptorService {
 				if ( urlParam.value === undefined ) {
 					return params.get( urlParam.key ) !== null;
 				} else {
-					return params.get( urlParam.key ) === `${urlParam.value}`;
+					return params.get( urlParam.key ) === `${ urlParam.value }`;
 				}
 			} );
 		};
@@ -87,7 +86,7 @@ class InterceptorService {
 	 * @return {Promise<WdioInterceptorService.CompletedRequest>}
 	 */
 	findAndWaitForActionApiRequest( urlParams, method ) {
-		const url = `${process.env.MW_SCRIPT_PATH}/api.php`;
+		const url = `${ process.env.MW_SCRIPT_PATH }/api.php`;
 
 		return this.findAndWaitRequest(
 			this.getActionApiRequestFinder( url, urlParams, method ),

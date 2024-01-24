@@ -625,7 +625,9 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 			suggestion.$element.addClass( 'cx-slideup-hide' );
 			suggestion.$element.one(
 				'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
-				function () { $( this ).remove(); }
+				function () {
+					$( this ).remove();
+				}
 			);
 
 			favoriteListId = this.getListId( 'cx-suggestionlist-favorite' );

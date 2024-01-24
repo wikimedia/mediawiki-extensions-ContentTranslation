@@ -10,17 +10,29 @@ const { faker } = require( '@faker-js/faker' );
 
 const MT_LIST = [ 'Google', 'Elia', 'MinT', 'Yandex', 'source', 'scratch' ];
 class DesktopEditor {
-	getTranslationArticle() { return $( '.cx-column--translation article' ); }
+	getTranslationArticle() {
+		return $( '.cx-column--translation article' );
+	}
 
-	getIssuesCard() { return $( '.cx-card-issues' ); }
+	getIssuesCard() {
+		return $( '.cx-card-issues' );
+	}
 
-	getPublishButton() { return $( 'span.oo-ui-tool-name-publish a.oo-ui-tool-link' ); }
+	getPublishButton() {
+		return $( 'span.oo-ui-tool-name-publish a.oo-ui-tool-link' );
+	}
 
-	getPublishWithIssuesActions() { return $( '.oo-ui-messageDialog-actions' ); }
+	getPublishWithIssuesActions() {
+		return $( '.oo-ui-messageDialog-actions' );
+	}
 
-	getPublishSuccessMessage() { return $( '.oo-ui-flaggedElement-success' ); }
+	getPublishSuccessMessage() {
+		return $( '.oo-ui-flaggedElement-success' );
+	}
 
-	getPublishedArticleLink() { return $( '.oo-ui-flaggedElement-success .cx-message-widget-message a' ); }
+	getPublishedArticleLink() {
+		return $( '.oo-ui-flaggedElement-success .cx-message-widget-message a' );
+	}
 
 	waitForArticleToLoad() {
 		// Wait for the publish button to appear
@@ -87,13 +99,13 @@ class DesktopEditor {
 
 	async setMT( mtEngine ) {
 		if ( !MT_LIST.includes( mtEngine ) ) {
-			throw new Error( `Invalid MT engine: ${mtEngine}; Valid values: ${MT_LIST.join( ', ' )}` );
+			throw new Error( `Invalid MT engine: ${ mtEngine }; Valid values: ${ MT_LIST.join( ', ' ) }` );
 		}
 		const $mtToolbar = await $( '.ve-ui-toolbar-group-cx-mt' );
 		await ( $mtToolbar ).waitForDisplayed( { timeout: 3000 } );
 		await ElementAction.doClick( $mtToolbar );
 
-		const $mtOption = await $( `.oo-ui-tool-name-${mtEngine} .oo-ui-tool-link` );
+		const $mtOption = await $( `.oo-ui-tool-name-${ mtEngine } .oo-ui-tool-link` );
 		await ElementAction.doClick( $mtOption );
 	}
 

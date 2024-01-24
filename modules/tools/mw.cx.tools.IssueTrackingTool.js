@@ -202,7 +202,6 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
 			return 'title';
 		}
 
-		// eslint-disable-next-line no-restricted-properties
 		activeElement = activeElement.parentElement;
 	}
 

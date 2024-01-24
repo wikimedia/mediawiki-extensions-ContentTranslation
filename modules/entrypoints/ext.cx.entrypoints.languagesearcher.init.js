@@ -9,6 +9,8 @@
 	'use strict';
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
-		function () { mw.loader.load( 'ext.cx.entrypoints.languagesearcher' ); }
+		function () {
+			mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
+		}
 	);
 }() );

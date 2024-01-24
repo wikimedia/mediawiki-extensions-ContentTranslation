@@ -17,6 +17,7 @@
 		"no-shadow": "warn",
 		"compat/compat": "warn",
 		"vue/no-v-text": "warn",
-		"no-var": "warn"
+		"no-var": "off",
+		"es-x/no-resizable-and-growable-arraybuffers": "off"
 	}
 }

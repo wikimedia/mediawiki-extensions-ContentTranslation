@@ -254,7 +254,7 @@ mw.cx.TranslationController.prototype.getSaveRequestParams = function ( content 
 		params.targetsectiontitle = this.veTarget.translationView.targetColumn.getTitle();
 		params.sourcelanguage = this.translation.getSourceLanguage();
 		params.targetlanguage = this.translation.getTargetLanguage();
-		params.sectionid = `${sourceRevision}_${mwSectionNumber}`;
+		params.sectionid = `${ sourceRevision }_${ mwSectionNumber }`;
 		params.issandbox = this.veTarget.getPublishNamespace() === mw.config.get( 'wgNamespaceIds' ).user;
 	} else {
 		params.action = 'cxsave';
@@ -376,7 +376,9 @@ mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 			.then( ( response ) => this.saveSuccessHandler( response ) )
 			.catch( ( error ) => this.saveFailureHandler( error ) )
 		// use "then" instead of "finally", since "finally" is ES2018 syntax
-			.then( () => { this.saveRequest = null; } );
+			.then( () => {
+				this.saveRequest = null;
+			} );
 	} );
 };
 
@@ -609,7 +611,7 @@ mw.cx.TranslationController.prototype.getSectionRecords = function ( sectionNumb
 	const validate = sectionState.hasSaveError || sectionState.saveCount % 5 === 0 || !sectionState.isModified();
 
 	const revision = this.translation.getSourceRevisionId();
-	const sectionId = `${revision}_${sectionState.mwSectionNumber}_${sectionNumber}`;
+	const sectionId = `${ revision }_${ sectionState.mwSectionNumber }_${ sectionNumber }`;
 	const translationSource = sectionState.getCurrentMTProvider();
 	let content;
 	if ( sectionState.isModified() || translationSource === 'source' || translationSource === 'scratch' ) {

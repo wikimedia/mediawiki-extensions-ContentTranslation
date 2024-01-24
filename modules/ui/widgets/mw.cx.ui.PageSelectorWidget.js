@@ -350,7 +350,9 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
 		ggsradius: 1000, // Search radius in meters
 		ggslimit: 3,
 		ggsnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ] // Main namespace
-	} ).then( function ( data ) { return data; } );
+	} ).then( function ( data ) {
+		return data;
+	} );
 };
 
 /**
@@ -370,7 +372,9 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
 			pilimit: 10,
 			pithumbsize: 120,
 			lllang: self.targetLanguage
-		} ).then( function ( data ) { return data; } );
+		} ).then( function ( data ) {
+			return data;
+		} );
 	}, function ( error ) {
 		mw.log( 'Error getting recent edit titles. ' + error );
 	} );

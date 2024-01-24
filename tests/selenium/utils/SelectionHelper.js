@@ -22,7 +22,7 @@ class SelectionHelper {
 			return suggestions[ index ];
 		}, {
 			timeout: timeout,
-			timeoutMsg: `Did not find ${index + 1} element(s) for selector: ${selector}`
+			timeoutMsg: `Did not find ${ index + 1 } element(s) for selector: ${ selector }`
 		} );
 	}
 }

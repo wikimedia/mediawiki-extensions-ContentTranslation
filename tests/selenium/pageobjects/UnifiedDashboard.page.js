@@ -16,19 +16,41 @@ const SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR =
 		'div.cx-translation-list--suggestions .sx-translation-list-language-selector button span.mw-ui-autonym';
 
 class UnifiedDashboardPage extends Page {
-	get suggestionListLanguageButtons() { return $$( SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR ); }
-	get suggestionButton() { return $( 'button[value="suggestions"]' ); }
-	get articleSuggestions() { return $( ARTICLE_SUGGESTION_SELECTOR ); }
-	get sectionSuggestions() { return $( SECTION_SUGGESTION_SELECTOR ); }
-	get favoriteSuggestions() { return $( FAVORITE_SELECTOR ); }
+	get suggestionListLanguageButtons() {
+		return $$( SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR );
+	}
 
-	get newTranslationButton() { return $( '#dashboard-search-translation-button' ); }
+	get suggestionButton() {
+		return $( 'button[value="suggestions"]' );
+	}
 
-	get articleSearchTextbox() { return $( 'input[type="search"]' ); }
+	get articleSuggestions() {
+		return $( ARTICLE_SUGGESTION_SELECTOR );
+	}
 
-	get firstSearchSuggestion() { return $( FIRST_SEARCH_SUGGESTION_SELECTOR ); }
+	get sectionSuggestions() {
+		return $( SECTION_SUGGESTION_SELECTOR );
+	}
 
-	get startTranslationButton() { return $( '.sx-translation-confirmer__action button' ); }
+	get favoriteSuggestions() {
+		return $( FAVORITE_SELECTOR );
+	}
+
+	get newTranslationButton() {
+		return $( '#dashboard-search-translation-button' );
+	}
+
+	get articleSearchTextbox() {
+		return $( 'input[type="search"]' );
+	}
+
+	get firstSearchSuggestion() {
+		return $( FIRST_SEARCH_SUGGESTION_SELECTOR );
+	}
+
+	get startTranslationButton() {
+		return $( '.sx-translation-confirmer__action button' );
+	}
 
 	async getLanguagePair() {
 		const languageButtons = await this.suggestionListLanguageButtons;

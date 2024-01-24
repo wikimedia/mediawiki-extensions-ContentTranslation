@@ -75,7 +75,6 @@ OO.mixinClass( mw.cx.dm.Translation, OO.EventEmitter );
 /* Static methods */
 
 /**
- *
  * @param {HTMLDocument} htmlDocument
  * @param {string} sectionTitle
  * @return {number|null}
