@@ -1,3 +1,67 @@
+<script setup>
+import {
+  mwIconSettings,
+  mwIconEdit,
+} from "@/lib/mediawiki.ui/components/icons";
+import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import SxPublisherHeader from "./SXPublisherHeader.vue";
+import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog.vue";
+import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
+import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
+import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
+import { computed, onMounted } from "vue";
+import usePublishTranslation from "./usePublishTranslation";
+import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
+import useEditTranslation from "./useEditTranslation";
+
+const store = useStore();
+const { currentSourceSection: currentPageSection } = useApplicationState(store);
+
+const translatedTitle = computed(() => currentPageSection.value?.title);
+const bananaI18n = useI18n();
+
+const panelResult = computed(() => {
+  const isSandboxTarget = store.getters["application/isSandboxTarget"];
+
+  // if the publish target is the user sandbox, always show
+  // the sandbox publishing result message
+  if (isSandboxTarget) {
+    return bananaI18n.i18n(
+      "cx-sx-publisher-publish-panel-sandbox-section-result"
+    );
+  } else if (currentPageSection.value.isLeadSection) {
+    return bananaI18n.i18n("cx-sx-publisher-publish-panel-lead-section-result");
+  } else {
+    return bananaI18n.i18n("cx-sx-publisher-publish-panel-new-section-result");
+  }
+});
+
+const {
+  captchaDetails,
+  captchaDialogOn,
+  configureTranslationOptions,
+  doPublish,
+  isPublishDialogActive,
+  isPublishingDisabled,
+  onCaptchaDialogClose,
+  publishOptionsOn,
+  publishFeedbackMessages,
+  publishStatus,
+} = usePublishTranslation(store);
+
+onMounted(async () => {
+  const mtValidationMessage = await store.dispatch("translator/validateMT");
+
+  if (mtValidationMessage) {
+    publishFeedbackMessages.value.push(mtValidationMessage);
+  }
+});
+
+const editTranslation = useEditTranslation();
+</script>
+
 <template>
   <section class="sx-publisher">
     <sx-publisher-header
@@ -57,110 +121,6 @@
     />
   </section>
 </template>
-
-<script>
-import {
-  mwIconSettings,
-  mwIconEdit,
-} from "@/lib/mediawiki.ui/components/icons";
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import SxPublisherHeader from "./SXPublisherHeader.vue";
-import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog.vue";
-import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
-import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
-import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
-import { computed, onMounted } from "vue";
-import usePublishTranslation from "./usePublishTranslation";
-import useApplicationState from "@/composables/useApplicationState";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { useI18n } from "vue-banana-i18n";
-import useEditTranslation from "./useEditTranslation";
-
-export default {
-  name: "SxPublisher",
-  components: {
-    SxPublisherReviewInfo,
-    SxPublishOptionSelector,
-    SxPublisherAnimationDialog,
-    SxPublisherCaptchaDialog,
-    MwButton,
-    SxPublisherHeader,
-    MwRow,
-    MwCol,
-  },
-  setup() {
-    const store = useStore();
-    const { currentSourceSection: currentPageSection } =
-      useApplicationState(store);
-
-    const translatedTitle = computed(() => currentPageSection.value?.title);
-    const bananaI18n = useI18n();
-
-    const panelResult = computed(() => {
-      const isSandboxTarget = store.getters["application/isSandboxTarget"];
-
-      // if the publish target is the user sandbox, always show
-      // the sandbox publishing result message
-      if (isSandboxTarget) {
-        return bananaI18n.i18n(
-          "cx-sx-publisher-publish-panel-sandbox-section-result"
-        );
-      } else if (currentPageSection.value.isLeadSection) {
-        return bananaI18n.i18n(
-          "cx-sx-publisher-publish-panel-lead-section-result"
-        );
-      } else {
-        return bananaI18n.i18n(
-          "cx-sx-publisher-publish-panel-new-section-result"
-        );
-      }
-    });
-
-    const {
-      captchaDetails,
-      captchaDialogOn,
-      configureTranslationOptions,
-      doPublish,
-      isPublishDialogActive,
-      isPublishingDisabled,
-      onCaptchaDialogClose,
-      publishOptionsOn,
-      publishFeedbackMessages,
-      publishStatus,
-    } = usePublishTranslation(store);
-
-    onMounted(async () => {
-      const mtValidationMessage = await store.dispatch("translator/validateMT");
-
-      if (mtValidationMessage) {
-        publishFeedbackMessages.value.push(mtValidationMessage);
-      }
-    });
-
-    const editTranslation = useEditTranslation();
-
-    return {
-      captchaDetails,
-      captchaDialogOn,
-      configureTranslationOptions,
-      currentPageSection,
-      doPublish,
-      editTranslation,
-      isPublishDialogActive,
-      isPublishingDisabled,
-      mwIconEdit,
-      mwIconSettings,
-      onCaptchaDialogClose,
-      panelResult,
-      publishFeedbackMessages,
-      publishOptionsOn,
-      publishStatus,
-      translatedTitle,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
