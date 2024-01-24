@@ -1,3 +1,68 @@
+<script setup>
+import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
+import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel.vue";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
+import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
+import { replaceUrl } from "@/utils/urlHandler";
+import {
+  mwIconClose,
+  mwIconArticle,
+} from "@/lib/mediawiki.ui/components/icons";
+import { loadVEModules } from "@/plugins/ve";
+import { computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useEventLogging } from "../../plugins/eventlogging";
+import useApplicationState from "@/composables/useApplicationState";
+
+const props = defineProps({
+  eventSource: {
+    type: String,
+    default: null,
+  },
+});
+
+const store = useStore();
+const { sourceLanguage, targetLanguage, currentSourcePage, previousRoute } =
+  useApplicationState(store);
+const articleImageSource = computed(
+  () => currentSourcePage.value?.image?.source
+);
+const logEvent = useEventLogging();
+
+onMounted(() => {
+  store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
+  logEvent({
+    event_type: "dashboard_translation_start",
+    event_source: props.eventSource,
+    translation_source_language: sourceLanguage.value,
+    translation_target_language: targetLanguage.value,
+  });
+
+  // Start loading VE in background. Don't wait for it though.
+  // We anticipate that user is going to use editor in next step.
+  loadVEModules();
+
+  // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
+  // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
+  // step (for proper positioning of the new section placeholder inside target article preview)
+  store.dispatch(
+    "suggestions/fetchAppendixSectionTitles",
+    targetLanguage.value
+  );
+});
+
+const router = useRouter();
+
+const onClose = () => {
+  store.dispatch("application/clearCurrentSectionSuggestion");
+  // Remove URL params so that section translation doesn't restart, leading to endless loop
+  replaceUrl(null);
+
+  router.push({ name: previousRoute.value });
+};
+</script>
+
 <template>
   <section class="sx-translation-confirmer">
     <mw-row
@@ -38,91 +103,6 @@
     </mw-row>
   </section>
 </template>
-
-<script>
-import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel.vue";
-import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
-import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
-import { replaceUrl } from "@/utils/urlHandler";
-import {
-  mwIconClose,
-  mwIconArticle,
-} from "@/lib/mediawiki.ui/components/icons";
-import { loadVEModules } from "@/plugins/ve";
-import { computed, onMounted } from "vue";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { useEventLogging } from "../../plugins/eventlogging";
-import useApplicationState from "@/composables/useApplicationState";
-
-export default {
-  name: "SxTranslationConfirmer",
-  components: {
-    MwIcon,
-    SxTranslationConfirmerArticleInformation,
-    MwRow,
-    MwCol,
-    MwButton,
-    SxArticleLanguageSelector,
-    SxTranslationConfirmerActionPanel,
-  },
-  props: {
-    eventSource: {
-      type: String,
-      default: null,
-    },
-  },
-  setup(props) {
-    const store = useStore();
-    const { sourceLanguage, targetLanguage, currentSourcePage, previousRoute } =
-      useApplicationState(store);
-    const articleImageSource = computed(
-      () => currentSourcePage.value?.image?.source
-    );
-    const logEvent = useEventLogging();
-
-    onMounted(() => {
-      store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
-      logEvent({
-        event_type: "dashboard_translation_start",
-        event_source: props.eventSource,
-        translation_source_language: sourceLanguage.value,
-        translation_target_language: targetLanguage.value,
-      });
-
-      // Start loading VE in background. Don't wait for it though.
-      // We anticipate that user is going to use editor in next step.
-      loadVEModules();
-
-      // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
-      // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
-      // step (for proper positioning of the new section placeholder inside target article preview)
-      store.dispatch(
-        "suggestions/fetchAppendixSectionTitles",
-        targetLanguage.value
-      );
-    });
-
-    const router = useRouter();
-
-    const onClose = () => {
-      store.dispatch("application/clearCurrentSectionSuggestion");
-      // Remove URL params so that section translation doesn't restart, leading to endless loop
-      replaceUrl(null);
-
-      router.push({ name: previousRoute.value });
-    };
-
-    return {
-      articleImageSource,
-      mwIconArticle,
-      mwIconClose,
-      onClose,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
