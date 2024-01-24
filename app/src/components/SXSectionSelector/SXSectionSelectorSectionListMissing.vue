@@ -1,3 +1,28 @@
+<script setup>
+import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList.vue";
+import sadRobotSVG from "../../assets/sad-robot.svg?raw";
+import { computed } from "vue";
+
+const props = defineProps({
+  suggestion: {
+    type: SectionSuggestion,
+    required: true,
+  },
+});
+
+defineEmits(["select-section", "close"]);
+
+const targetLanguageAutonym = computed(() =>
+  getAutonym(props.suggestion.targetLanguage)
+);
+const emptySections = computed(
+  () => Object.keys(props.suggestion.missingSections).length === 0
+);
+</script>
+
 <template>
   <section class="sx-section-selector__missing-sections py-2">
     <h4
@@ -50,48 +75,6 @@
     </mw-row>
   </section>
 </template>
-
-<script>
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { getAutonym, getDir } from "@wikimedia/language-data";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList.vue";
-import sadRobotSVG from "../../assets/sad-robot.svg?raw";
-import { computed } from "vue";
-
-export default {
-  name: "SxSectionSelectorSectionListMissing",
-  components: {
-    SxSectionSelectorSectionList,
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true,
-    },
-  },
-  emits: ["select-section", "close"],
-  setup(props) {
-    const targetLanguageAutonym = computed(() =>
-      getAutonym(props.suggestion.targetLanguage)
-    );
-    const emptySections = computed(
-      () => Object.keys(props.suggestion.missingSections).length === 0
-    );
-
-    return {
-      sadRobotSVG,
-      getAutonym,
-      getDir,
-      targetLanguageAutonym,
-      emptySections,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
