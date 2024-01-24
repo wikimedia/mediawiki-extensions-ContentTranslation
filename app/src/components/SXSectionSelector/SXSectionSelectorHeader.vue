@@ -1,3 +1,18 @@
+<script setup>
+import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
+import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+
+const props = defineProps({
+  suggestion: {
+    type: SectionSuggestion,
+    required: true,
+  },
+});
+
+defineEmits(["close"]);
+</script>
+
 <template>
   <div class="sx-section-selector__header pa-4">
     <mw-row class="ma-0 pb-3">
@@ -25,31 +40,6 @@
     <p v-i18n:cx-sx-section-selector-desc class="ma-0" />
   </div>
 </template>
-
-<script>
-import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
-import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-
-export default {
-  name: "SxSectionSelectorHeader",
-  components: {
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true,
-    },
-  },
-  emits: ["close"],
-  data: () => ({
-    mwIconClose,
-  }),
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
