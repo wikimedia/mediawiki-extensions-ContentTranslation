@@ -46,6 +46,8 @@
 	"tag-contenttranslation-v2-description": "Troet eo bet an endalc’had eus ur yezh all en un ober gant stumm 2 eus ar benveg Content Translation.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Troidigezh ranbennad]]",
 	"tag-sectiontranslation-description": "Troet eo bet an endalc’had eus ur rannbennad en ur yezh all gant arc’hweladenn Section Translation ar benveg Content Translation.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ContentTranslation: Implij uhel eus troidigezh emgefre hep kemm]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "En droidigezh embannet en un ober gant ContentTranslation ez eus un dregantad uhel eus troidigezh emgefreek hep kemm",
 	"cx-source-loading": "O kargañ $1",
 	"cx-beta": "Treiñ an danvez",
 	"cx-beta-desc": "Ur benveg evit treiñ pajennoù prim en ho yezh. Boulc’hit troidigezhioù eus [[Special:MyContributions|pajenn ho tegasadennoù]] ha kemmit anezho gant hor aozer kostez-ha-kostez meizet a-ratozh evit treiñ. Benvegoù zo a c’hallfer ober ganto e yezhoù zo hepken.",
@@ -440,9 +442,11 @@
 	"cx-contributecard-entrypoint-title": "Troidigezhioù",
 	"cx-contributecard-entrypoint-desc": "Treiñ ur rannbennad pe ur pennad en e bezh. Lakait muioc’h a endalc’had hegerz e muioc’h a yezhoù.",
 	"cx-contributecard-entrypoint-cta": "Kregiñ un droidigezh",
+	"cx-sx-dashboard-help-panel-title": "Ezhomm sikour evit treiñ?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Gouzout hiroc’h diwar-benn ar benveg-mañ",
 	"cx-sx-dashboard-help-panel-stats-label": "Stadegoù",
 	"cx-sx-dashboard-help-panel-feedback-label": "Roit ho soñj deomp",
+	"cx-sx-dashboard-stats-panel-title": "Ho skog",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Er miz-mañ",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Hollad",
 	"sx-confirm-back-navigation-dialog-title": "Dilezel ho troidigezh?",
@@ -455,5 +459,8 @@
 	"sx-translation-deletion-confirm-button-label": "Diverkañ an droidigezh",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 deiz|0=Hiziv}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 miz}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 bloaz}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 bloaz}}",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "E pelec’h emañ ar rannbennadoù all?",
+	"sx-confirm-draft-translation-start-button-label": "Mat eo",
+	"sx-published-translation-new-translation-button-label": "Troidigezh nevez"
 }
