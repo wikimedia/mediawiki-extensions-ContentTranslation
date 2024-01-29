@@ -15,7 +15,8 @@
 			"กิ๊ฟ เลิกล่ะ สายแข็ง",
 			"Ekminarin",
 			"Dušan Kreheľ",
-			"Thastp"
+			"Thastp",
+			"RidJasper"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -110,7 +111,7 @@
 	"cx-captcha-dialog-error": "ดูเหมือนว่าคำตอบของคุณจะไม่ถูกต้อง โปรดลองอีกครั้ง",
 	"cx-captcha-dialog-cancel": "ยกเลิก",
 	"cx-captcha-unsupported-type": "พบประเภท captcha ที่ไม่รองรับ",
-	"cx-dashboard-sidebar-title": "ต้องการช่วยแปลหรือไม่?",
+	"cx-dashboard-sidebar-title": "{{GENDER:|ต้องการ}}ช่วยแปลหรือไม่?",
 	"cx-dashboard-sidebar-information": "เรียนรู้เพิ่มเติมเกี่ยวกับเครื่องมือนี้",
 	"cx-dashboard-sidebar-stats": "สถิติ",
 	"cx-dashboard-sidebar-feedback": "ให้ข้อเสนอแนะกับเรา",
@@ -278,7 +279,7 @@
 	"cx-feature-discovery-title": "แปลได้ทุกเมื่อ",
 	"cx-feature-discovery-content": "คุณสามารถเริ่มต้นหรือแปลต่อได้ทุกเมื่อจากหน้า{{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "ตกลง เข้าใจแล้ว",
-	"cx-suggestionlist-expand-sections-title": "ขยายความด้วยการเพ่ิมส่วนใหม่",
+	"cx-suggestionlist-expand-sections-title": "ขยายความด้วยการเพิ่มส่วนใหม่",
 	"cx-sx-select-section": "เลือกส่วนที่ต้องการแปล",
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|$1 ส่วน}}ขาดไปในภาษา$2",
 	"cx-sx-section-selector-title": "ส่วน",
@@ -421,6 +422,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "แปลส่วน \"$1\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "แปลส่วน \"$1\" และ \"$2\"",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "แปลส่วน \"$1\", \"$2\" หรืออื่น ๆ",
+	"sx-block-template-adaptation-card-edit-button-label": "ตรวจสอบและแก้ไขคำแปล",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "แก้ไขการแปล",
 	"cx-uls-relevant-languages-banner-text-single-missing": "ไม่มีใน <span>$1</span> และอื่น ๆ",
 	"cx-uls-relevant-languages-panel-header": "แปลหน้านี้",
