@@ -321,6 +321,8 @@
 	"cx-sx-followup-feedback-new-indicator": "નવું",
 	"cx-sx-published-section-confirmation-header": "નવો વિભાગ ઉમેરાયો",
 	"cx-sx-published-section-invitation-title": "અન્ય વિભાગનું ભાષાંતર કરો",
+	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|અને $2 વધુ ખૂટે છે|0=ખુટે છે}}",
+	"cx-sx-publisher-mt-abuse-message-title": "તમારા ભાષાંતરમાં $1% ફેરફાર ન કરાયેલ લખાણ ધરાવે છે",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 વિભાગ|$1 વિભાગો|0=કોઇ વિભાગ નહી}}",
 	"cx-sx-article-search-input-placeholder": "ભાષાંતર કરવા માટે પાનું શોધો",
 	"cx-sx-article-search-recently-edited-title": "તમારા દ્વારા તાજેતરમાં સંપાદિત",
@@ -338,6 +340,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "નવું ભાષાંતર",
 	"cx-sx-translation-confirmer-more-sections-button-label": "વધુ વિભાગો",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "વિભાગનું ભાષાંતર કરો",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "નવું ભાષાંતર",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "વિભાગ",
 	"sx-editor-feedback-overlay-title": "આભાર!",
 	"sx-editor-feedback-overlay-clarification": "તમારા સુધારાઓમાંથી શીખેલ",
@@ -356,6 +359,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "\"$1\", \"$2\" અને વધુ ભાષાંતર કરો",
 	"sx-block-template-adaptation-card-body-header-success": "સૂચવેલ ઢાંચો",
 	"sx-block-template-adaptation-card-title-placeholder": "ઢાંચો",
+	"sx-block-template-adaptation-card-edit-button-label": "ભાષાંતરની સમીક્ષા કરો અને તેમાં ફેરફાર કરો",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "ભાષાંતર સંપાદિત કરો",
 	"sx-block-template-adaptation-card-body-header-failure": "સંબંધિત ઢાંચો $1 માટે પ્રાપ્ત નથી",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "<span>$1</span>માં ખૂટે છે",
@@ -390,6 +394,7 @@
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 દિવસ|$1 દિવસો|0=આજે}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 મહિનો|$1 મહિનાઓ}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 વર્ષ|$1 વર્ષો}}",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "અન્ય વિભાગો ક્યાં છે?",
 	"sx-confirm-draft-translation-start-button-label": "બરાબર",
 	"sx-published-translation-new-translation-button-label": "નવું ભાષાંતર"
 }
