@@ -44,6 +44,8 @@
 	"tag-contenttranslation-v2-description": "Məzmun Content Translation alətinin 2-ci versiyası istifadə edilərək başqa dildən tərcümə edilib.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SectionTranslation]]",
 	"tag-sectiontranslation-description": "Məzmun Content Translation alətinin Section Translation funksiyasından istifadə edilərək başqa dildəki bölmədən tərcümə edilib.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Ç\nzmunTərcüməsi: Böyük ölçüdə redaktə edilməmiş maşın tərcüməsi istifadəsi]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "MəzmunTərcüməsi istifadə edərək yayımlanan tərcümədə dəyişdirilməmiş maşın tərcüməsinin faizi yüksəkdir",
 	"cx-source-loading": "$1 yüklənir",
 	"cx-beta": "Məzmun tərcüməsi",
 	"cx-beta-desc": "Başqa dildəki səhifələri öz dilinizə asanlıqla tərcümə etmək üçün alət. Tərcümələrə [[Special:MyContributions|öz fəaliyət səhifənizdən]] başlaya bilər və tərcümə üçün xüsusi yaratdığımız yanbayan redaktə pəncərələri vasitəsilə redaktə edə bilərsiniz. Bəzi funksiyalar yalnız müəyyən dillərdə istifadəyə açıqdır.",
@@ -477,5 +479,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Mobildə siz eyni anda yalnız bir bölmə ilə işləyə bilərsiniz. Buna görə də hələlik yalnız əsas bölmə yüklənəcək.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Digər bölmələr haradadır?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Narahat olmayın. Qalan hissələr itməyib. Cari tərcüməni yeni məqalə kimi dərc etdikdən sonra onlar əlçatan olacaq. Yayımladıqdan sonra hər bölmənin məzmunu ilə yeni davam edən tərcümələr tapacaqsınız.",
-	"sx-confirm-draft-translation-start-button-label": "Tamam"
+	"sx-confirm-draft-translation-start-button-label": "Tamam",
+	"sx-published-translation-new-translation-button-label": "Yeni tərcümə"
 }
