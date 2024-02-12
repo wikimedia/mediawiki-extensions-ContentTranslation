@@ -16,9 +16,9 @@
 	"devDependencies": {
 		"@faker-js/faker": "^8.3.1",
 		"@testing-library/webdriverio": "3.2.1",
-		"@wdio/cli": "7.16.3",
+		"@wdio/cli": "7.34.0",
 		"@wdio/junit-reporter": "7.16.3",
-		"@wdio/local-runner": "7.16.3",
+		"@wdio/local-runner": "7.34.0",
 		"@wdio/mocha-framework": "7.16.3",
 		"@wdio/spec-reporter": "7.16.3",
 		"dotenv": "^16.3.1",
