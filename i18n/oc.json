@@ -6,6 +6,7 @@
 			"Cedric31",
 			"Guilhelma",
 			"Jfblanc",
+			"Lhanars",
 			"Nicolas Eynaud",
 			"Prevodim",
 			"Quentí"
@@ -86,6 +87,7 @@
 	"cx-translation-status-draft": "En cors",
 	"cx-translation-status-published": "Publicat",
 	"cx-translation-status-deleted": "Suprimit",
+	"cx-translation-label-draft": "Traduccions en cors",
 	"cx-feedback-link": "Donatz la vòstra opinion",
 	"cx-stats-published-translations-title": "Traduccions publicadas",
 	"cx-stats-draft-translations-title": "Traduccions en cors",
@@ -129,6 +131,7 @@
 	"cx-suggestionlist-collapse": "Afichar mens",
 	"cx-suggestionlist-refresh": "Refrescar las suggestions",
 	"cx-notification-suggestions-available": "En se basant sus {{GENDER:$2|vòstra}} traduccion precedenta de '''$1''', de novèlas suggestions son d'ara enlà disponiblas.",
+	"cx-translator-header": "Vòstras estatisticas",
 	"cx-translator-month-stats-label": "Aqueste mes",
 	"cx-translator-total-translations-label": "Total",
 	"cx-continue-translation": "Contunhar la traduccion",
@@ -142,5 +145,6 @@
 	"sx-article-search-language-selector-dialog-title": "Lengas",
 	"cx-sx-language-selector-all-languages": "Totas las lengas",
 	"sx-translation-list-language-selector-dialog-title": "Lengas",
-	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir d'autras lengas"
+	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir d'autras lengas",
+	"cx-sx-dashboard-stats-panel-title": "Vòstre impacte"
 }

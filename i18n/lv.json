@@ -464,6 +464,7 @@
 	"sx-translation-deletion-confirm-button-label": "Dzēst tulkojumu",
 	"sx-confirm-draft-translation-start-dialog-title": "Tulkošanas turpināšana mobilajā ierīcē",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Kur ir pārējās sadaļas?",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Neuztraucies. Atlikušās sadaļas nav zaudētas. Tās kļūs pieejamas, tiklīdz publicēsi pašreizējo tulkojumu kā jaunu rakstu. Pēc publicēšanas atradīsi jaunus nepabeigtus tulkojumus ar katras sadaļas saturu.",
 	"sx-confirm-draft-translation-start-button-label": "Labi",
 	"sx-published-translation-new-translation-button-label": "Jauns tulkojums"
 }
