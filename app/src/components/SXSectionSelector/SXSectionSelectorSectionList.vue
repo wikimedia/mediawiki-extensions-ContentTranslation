@@ -1,3 +1,20 @@
+<script setup>
+import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
+
+const props = defineProps({
+  /**
+   * @type {{targetTitle: string, sourceTitle: string}[]}
+   */
+  sections: {
+    type: Array,
+    required: true,
+  },
+});
+
+defineEmits(["select-section"]);
+</script>
+
 <template>
   <ul class="sx-section-selector__sections-list ma-0 pa-0">
     <mw-row
@@ -22,28 +39,3 @@
     </mw-row>
   </ul>
 </template>
-
-<script>
-import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
-import { MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-
-export default {
-  name: "SxSectionSelectorSectionList",
-  components: {
-    MwRow,
-    MwButton,
-    MwIcon,
-  },
-  props: {
-    /**
-     * @type {{targetTitle: string, sourceTitle: string}[]}
-     */
-    sections: {
-      type: Array,
-      required: true,
-    },
-  },
-  emits: ["select-section"],
-  data: () => ({ mwIconArrowForward }),
-};
-</script>
