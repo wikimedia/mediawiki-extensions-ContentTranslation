@@ -67,7 +67,7 @@ onMounted(async () => {
       <mw-col
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
-          'sx-sentence-selector__proposed-translation__contents--empty':
+          'sx-sentence-selector__proposed-translation__contents--loading':
             !hasProposedTranslation,
         }"
         :style="contentsStyle"
@@ -132,8 +132,10 @@ onMounted(async () => {
 
     &__contents {
       color: @color-base;
-      // When contents are empty align spinner to the middle (horizontally)
-      &--empty {
+      box-sizing: @box-sizing-base;
+      width: @size-full;
+      // When contents are loading align spinner to the middle (horizontally)
+      &--loading {
         align-self: center;
       }
       section {

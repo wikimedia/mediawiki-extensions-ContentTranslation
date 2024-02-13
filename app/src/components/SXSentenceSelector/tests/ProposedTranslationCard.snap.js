@@ -71,7 +71,7 @@ exports[`SXSentenceSelector Proposed Translation Card Should render Retry MT car
   >
     <proposed-translation-header-stub />
     <mw-col-stub
-      class="sx-sentence-selector__proposed-translation__contents px-5 sx-sentence-selector__proposed-translation__contents--empty"
+      class="sx-sentence-selector__proposed-translation__contents px-5 sx-sentence-selector__proposed-translation__contents--loading"
       grow="false"
       shrink="false"
       style="max-height: calc(100% - 0px);"
