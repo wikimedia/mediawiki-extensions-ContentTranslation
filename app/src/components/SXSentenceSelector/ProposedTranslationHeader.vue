@@ -1,10 +1,11 @@
 <script setup>
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconEllipsis } from "@wikimedia/codex-icons";
 
 defineEmits(["configure-options"]);
 const store = useStore();
@@ -43,12 +44,13 @@ const mtOptionLabel = computed(
         v-text="mtOptionLabel"
       />
       <mw-col shrink class="pe-5">
-        <mw-button
-          :icon="mwIconEllipsis"
-          type="icon"
-          class="sx-sentence-selector__proposed-translation__header-settings-button pa-0"
+        <cdx-button
+          class="sx-sentence-selector__proposed-translation__header-settings-button"
+          weight="quiet"
           @click="$emit('configure-options')"
-        />
+        >
+          <cdx-icon class="pa-0" :icon="cdxIconEllipsis" />
+        </cdx-button>
       </mw-col>
     </mw-row>
   </mw-col>
@@ -65,7 +67,7 @@ const mtOptionLabel = computed(
     font-weight: @font-weight-bold;
   }
 
-  &-settings-button {
+  & &-settings-button {
     color: @color-subtle;
   }
 }
