@@ -1,12 +1,10 @@
 <script setup>
-import { MwRow, MwButton } from "@/lib/mediawiki.ui";
-import {
-  mwIconArrowForward,
-  mwIconPrevious,
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwRow } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconPrevious, cdxIconNext } from "@wikimedia/codex-icons";
 
 defineEmits([
   "select-previous-segment",
@@ -24,28 +22,31 @@ const isLastTranslationUnit = computed(
 
 <template>
   <mw-row class="sx-sentence-selector__translation-action-buttons ma-0">
-    <mw-button
-      :icon="mwIconPrevious"
-      type="icon"
+    <cdx-button
+      weight="quiet"
       class="sx-sentence-selector__previous-sentence-button col shrink pa-4"
       :disabled="isSectionTitleSelected"
       @click="$emit('select-previous-segment')"
-    />
-    <mw-button
-      type="text"
-      :label="$i18n('cx-sx-sentence-selector-apply-translation-button-label')"
+    >
+      <cdx-icon class="me-1" :icon="cdxIconPrevious" />
+    </cdx-button>
+    <cdx-button
+      weight="quiet"
       class="sx-sentence-selector__apply-translation-button col grow pa-4"
       :disabled="!proposedTranslation"
       @click="$emit('apply-translation')"
-    />
-    <mw-button
-      type="text"
-      :indicator="mwIconArrowForward"
-      :label="$i18n('cx-sx-sentence-selector-skip-translation-button-label')"
+    >
+      {{ $i18n("cx-sx-sentence-selector-apply-translation-button-label") }}
+    </cdx-button>
+    <cdx-button
+      weight="quiet"
       class="sx-sentence-selector__skip-translation-button col shrink pa-4"
       :disabled="isLastTranslationUnit"
       @click="$emit('skip-translation')"
-    />
+    >
+      {{ $i18n("cx-sx-sentence-selector-skip-translation-button-label") }}
+      <cdx-icon class="ms-1" size="small" :icon="cdxIconNext" />
+    </cdx-button>
   </mw-row>
 </template>
 
@@ -57,8 +58,11 @@ const isLastTranslationUnit = computed(
     border-top: @border-style-base @border-width-base @border-color-disabled;
   }
 
-  button&__apply-translation-button&__apply-translation-button {
-    border-inline: @border-style-base @border-width-base #eaecf0;
+  && button&__apply-translation-button {
+    border-top: 0;
+    border-bottom: 0;
+    border-inline: @border-style-base @border-width-base;
+    border-color: #eaecf0;
   }
 
   & button&__previous-sentence-button,
