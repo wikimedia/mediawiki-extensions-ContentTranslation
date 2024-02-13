@@ -1,3 +1,153 @@
+<script setup>
+import {
+  MwButtonGroup,
+  MwDialog,
+  MwInput,
+  MwRow,
+  MwCol,
+  MwButton,
+} from "@/lib/mediawiki.ui";
+import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import SearchResultsCard from "./SearchResultsCard.vue";
+import MwLanguageSelector from "../MWLanguageSelector";
+import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
+import { ref, onMounted, computed, watch, inject } from "vue";
+import getSourceLanguageOptions from "./sourceLanguageOptions";
+import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
+import useApplicationState from "@/composables/useApplicationState";
+import usePageTranslationStart from "./usePageTranslationStart";
+import useMediawikiState from "../../composables/useMediawikiState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useEventLogging } from "../../plugins/eventlogging";
+import {
+  useSuggestionListLanguagePairUpdate,
+  useApplicationLanguagesInitialize,
+} from "@/composables/useLanguageHelper";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
+
+const searchInput = ref("");
+const searchInputUsed = ref(false);
+const searchInputRef = ref(null);
+const sourceLanguageSelectOn = ref(false);
+
+/**
+ * Previously used languages by user. These languages are set in local
+ * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
+ * these items are set in local storage, these languages are allowed
+ * to be empty
+ *
+ * @type {Ref<string[]>}
+ */
+const previousLanguages = ref([]);
+
+const store = useStore();
+const { sourceLanguage, targetLanguage } = useApplicationState(store);
+const { supportedLanguageCodes } = useMediawikiState();
+
+/**
+ * Array of suggested language codes based on a list of criteria.
+ * Based on mw.uls.getFrequentLanguageList
+ * NOTE: Suggested language codes based on user territory is not supported
+ *
+ * @type {ComputedRef<string[]>}
+ */
+const suggestedSourceLanguages = useSuggestedSourceLanguages(
+  sourceLanguage,
+  targetLanguage,
+  previousLanguages
+);
+/**
+ * Quick list of languages to select from based on previous selections.
+ * This is a computed property since the list should be updated when a new
+ * language is selected.
+ * @type {ComputedRef<string[]>}
+ */
+const sourceLanguageOptions = getSourceLanguageOptions(
+  sourceLanguage,
+  suggestedSourceLanguages
+);
+const router = useRouter();
+
+const { fetchAllTranslations } = useTranslationsFetch();
+onMounted(async () => {
+  const initializeLanguages = useApplicationLanguagesInitialize();
+  await initializeLanguages();
+
+  fetchAllTranslations();
+
+  try {
+    previousLanguages.value.push(
+      ...JSON.parse(localStorage.getItem("uls-previous-languages"))
+    );
+  } catch (e) {}
+  searchInputRef.value?.focus();
+});
+
+const close = () => {
+  router.push({ name: "dashboard" });
+};
+
+const updateLanguagePair = useSuggestionListLanguagePairUpdate();
+const updateSourceLanguage = (newSourceLanguage) =>
+  updateLanguagePair(newSourceLanguage, targetLanguage.value);
+
+const updateSelection = (updatedLanguage) => {
+  if (updatedLanguage === "other") {
+    sourceLanguageSelectOn.value = true;
+
+    return;
+  }
+  updateSourceLanguage(updatedLanguage);
+};
+
+watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
+  immediate: true,
+});
+
+const logEvent = useEventLogging();
+// Log "dashboard_search" event only for the first time user types a search query.
+watch(searchInput, () => {
+  if (!searchInputUsed.value) {
+    searchInputUsed.value = true;
+    logEvent({
+      event_type: "dashboard_search",
+      translation_source_language: sourceLanguage.value,
+      translation_target_language: targetLanguage.value,
+    });
+  }
+});
+
+const onSourceLanguageDialogClose = () => {
+  sourceLanguageSelectOn.value = false;
+};
+
+/**
+ * Language selection handler
+ * @param {string} updatedSourceLanguage
+ */
+const onSourceLanguageSelected = (updatedSourceLanguage) => {
+  sourceLanguageSelectOn.value = false;
+  previousLanguages.value.push(updatedSourceLanguage);
+  updateSelection(updatedSourceLanguage);
+};
+
+const recentlyEditedPages = computed(
+  () => store.getters["mediawiki/getRecentlyEditedPages"]
+);
+
+const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
+
+const breakpoints = inject("breakpoints");
+const fullscreen = computed(() => breakpoints.value.tabletAndDown);
+
+const {
+  startRecentlyEditedSectionTranslation,
+  startNearbySectionTranslation,
+  startSearchResultSectionTranslation,
+} = usePageTranslationStart();
+</script>
+
 <template>
   <section class="sx-article-search">
     <mw-row
@@ -79,196 +229,6 @@
     </mw-dialog>
   </section>
 </template>
-
-<script>
-import {
-  MwButtonGroup,
-  MwDialog,
-  MwInput,
-  MwRow,
-  MwCol,
-  MwButton,
-} from "@/lib/mediawiki.ui";
-import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import SearchResultsCard from "./SearchResultsCard.vue";
-import MwLanguageSelector from "../MWLanguageSelector";
-import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
-import { ref, onMounted, computed, watch, inject } from "vue";
-import getSourceLanguageOptions from "./sourceLanguageOptions";
-import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
-import useApplicationState from "@/composables/useApplicationState";
-import usePageTranslationStart from "./usePageTranslationStart";
-import useMediawikiState from "../../composables/useMediawikiState";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import { useEventLogging } from "../../plugins/eventlogging";
-import {
-  useSuggestionListLanguagePairUpdate,
-  useApplicationLanguagesInitialize,
-} from "@/composables/useLanguageHelper";
-import useTranslationsFetch from "@/composables/useTranslationsFetch";
-
-export default {
-  name: "SxArticleSearch",
-  components: {
-    ArticleSuggestionsCard,
-    SearchResultsCard,
-    MwInput,
-    MwDialog,
-    MwLanguageSelector,
-    MwButtonGroup,
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  setup() {
-    const searchInput = ref("");
-    const searchInputUsed = ref(false);
-    const searchInputRef = ref(null);
-    const sourceLanguageSelectOn = ref(false);
-
-    /**
-     * Previously used languages by user. These languages are set in local
-     * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
-     * these items are set in local storage, these languages are allowed
-     * to be empty
-     *
-     * @type {Ref<string[]>}
-     */
-    const previousLanguages = ref([]);
-
-    const store = useStore();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
-    const { supportedLanguageCodes } = useMediawikiState();
-
-    /**
-     * Array of suggested language codes based on a list of criteria.
-     * Based on mw.uls.getFrequentLanguageList
-     * NOTE: Suggested language codes based on user territory is not supported
-     *
-     * @type {ComputedRef<string[]>}
-     */
-    const suggestedSourceLanguages = useSuggestedSourceLanguages(
-      sourceLanguage,
-      targetLanguage,
-      previousLanguages
-    );
-    /**
-     * Quick list of languages to select from based on previous selections.
-     * This is a computed property since the list should be updated when a new
-     * language is selected.
-     * @type {ComputedRef<string[]>}
-     */
-    const sourceLanguageOptions = getSourceLanguageOptions(
-      sourceLanguage,
-      suggestedSourceLanguages
-    );
-    const router = useRouter();
-
-    const { fetchAllTranslations } = useTranslationsFetch();
-    onMounted(async () => {
-      const initializeLanguages = useApplicationLanguagesInitialize();
-      await initializeLanguages();
-
-      fetchAllTranslations();
-
-      try {
-        previousLanguages.value.push(
-          ...JSON.parse(localStorage.getItem("uls-previous-languages"))
-        );
-      } catch (e) {}
-      searchInputRef.value?.focus();
-    });
-
-    const close = () => {
-      router.push({ name: "dashboard" });
-    };
-
-    const updateLanguagePair = useSuggestionListLanguagePairUpdate();
-    const updateSourceLanguage = (newSourceLanguage) =>
-      updateLanguagePair(newSourceLanguage, targetLanguage.value);
-
-    const updateSelection = (updatedLanguage) => {
-      if (updatedLanguage === "other") {
-        sourceLanguageSelectOn.value = true;
-
-        return;
-      }
-      updateSourceLanguage(updatedLanguage);
-    };
-
-    watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
-      immediate: true,
-    });
-
-    const logEvent = useEventLogging();
-    // Log "dashboard_search" event only for the first time user types a search query.
-    watch(searchInput, () => {
-      if (!searchInputUsed.value) {
-        searchInputUsed.value = true;
-        logEvent({
-          event_type: "dashboard_search",
-          translation_source_language: sourceLanguage.value,
-          translation_target_language: targetLanguage.value,
-        });
-      }
-    });
-
-    const onSourceLanguageDialogClose = () => {
-      sourceLanguageSelectOn.value = false;
-    };
-
-    /**
-     * Language selection handler
-     * @param {string} updatedSourceLanguage
-     */
-    const onSourceLanguageSelected = (updatedSourceLanguage) => {
-      sourceLanguageSelectOn.value = false;
-      previousLanguages.value.push(updatedSourceLanguage);
-      updateSelection(updatedSourceLanguage);
-    };
-
-    const recentlyEditedPages = computed(
-      () => store.getters["mediawiki/getRecentlyEditedPages"]
-    );
-
-    const nearbyPages = computed(
-      () => store.getters["mediawiki/getNearbyPages"]
-    );
-
-    const breakpoints = inject("breakpoints");
-    const fullscreen = computed(() => breakpoints.value.tabletAndDown);
-
-    const {
-      startRecentlyEditedSectionTranslation,
-      startNearbySectionTranslation,
-      startSearchResultSectionTranslation,
-    } = usePageTranslationStart();
-
-    return {
-      supportedLanguageCodes,
-      close,
-      fullscreen,
-      mwIconClose,
-      mwIconSearch,
-      nearbyPages,
-      onSourceLanguageDialogClose,
-      onSourceLanguageSelected,
-      recentlyEditedPages,
-      searchInput,
-      searchInputRef,
-      sourceLanguage,
-      sourceLanguageOptions,
-      sourceLanguageSelectOn,
-      startNearbySectionTranslation,
-      startRecentlyEditedSectionTranslation,
-      startSearchResultSectionTranslation,
-      suggestedSourceLanguages,
-      updateSelection,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
