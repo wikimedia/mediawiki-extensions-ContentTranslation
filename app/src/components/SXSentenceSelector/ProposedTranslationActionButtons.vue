@@ -1,3 +1,27 @@
+<script setup>
+import { MwRow, MwButton } from "@/lib/mediawiki.ui";
+import {
+  mwIconArrowForward,
+  mwIconPrevious,
+} from "@/lib/mediawiki.ui/components/icons";
+import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+
+defineEmits([
+  "select-previous-segment",
+  "apply-translation",
+  "skip-translation",
+]);
+
+const { currentSourceSection, proposedTranslation, isSectionTitleSelected } =
+  useApplicationState(useStore());
+
+const isLastTranslationUnit = computed(
+  () => currentSourceSection.value.isSelectedTranslationUnitLast
+);
+</script>
+
 <template>
   <mw-row class="sx-sentence-selector__translation-action-buttons ma-0">
     <mw-button
@@ -25,52 +49,12 @@
   </mw-row>
 </template>
 
-<script>
-import { MwRow, MwButton } from "@/lib/mediawiki.ui";
-import {
-  mwIconArrowForward,
-  mwIconPrevious,
-} from "@/lib/mediawiki.ui/components/icons";
-import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
-
-export default {
-  name: "ProposedTranslationActionButtons",
-  components: {
-    MwRow,
-    MwButton,
-  },
-  emits: ["select-previous-segment", "apply-translation", "skip-translation"],
-  setup() {
-    const {
-      currentSourceSection,
-      proposedTranslation,
-      isSectionTitleSelected,
-    } = useApplicationState(useStore());
-
-    const isLastTranslationUnit = computed(
-      () => currentSourceSection.value.isSelectedTranslationUnitLast
-    );
-
-    return {
-      isLastTranslationUnit,
-      isSectionTitleSelected,
-      mwIconPrevious,
-      mwIconArrowForward,
-      proposedTranslation,
-    };
-  },
-};
-</script>
-
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-sentence-selector {
   &__translation-action-buttons {
-    border-top: @border-style-base @border-width-base
-      @border-color-disabled;
+    border-top: @border-style-base @border-width-base @border-color-disabled;
   }
 
   button&__apply-translation-button&__apply-translation-button {
