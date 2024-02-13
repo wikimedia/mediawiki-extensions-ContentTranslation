@@ -1,9 +1,5 @@
 <script setup>
-import { MwButton, MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
-import {
-  mwIconEdit,
-  mwIconEllipsis,
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
@@ -12,6 +8,8 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { ref, onMounted, computed, watch, nextTick } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconEdit } from "@wikimedia/codex-icons";
 
 defineEmits(["edit-translation", "configure-options", "retry-translation"]);
 
@@ -95,18 +93,17 @@ onMounted(async () => {
         shrink
         class="sx-sentence-selector__proposed-translation__footer"
       >
-        <mw-button
+        <cdx-button
           v-if="hasProposedTranslation || mtRequestPending"
-          :icon="mwIconEdit"
-          type="text"
-          :label="
-            $i18n('cx-sx-sentence-selector-edit-translation-button-label')
-          "
           class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
-          progressive
+          weight="quiet"
+          action="progressive"
           :disabled="!hasProposedTranslation"
           @click="$emit('edit-translation', proposedTranslation)"
-        />
+        >
+          <cdx-icon class="me-1" :icon="cdxIconEdit" />
+          {{ $i18n("cx-sx-sentence-selector-edit-translation-button-label") }}
+        </cdx-button>
         <proposed-translation-action-buttons v-bind="$attrs" />
       </mw-col>
     </mw-row>
