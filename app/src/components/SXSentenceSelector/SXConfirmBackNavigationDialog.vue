@@ -1,5 +1,6 @@
 <script setup>
-import { MwButton, MwDialog, MwDivider } from "@/lib/mediawiki.ui";
+import { MwDialog, MwDivider } from "@/lib/mediawiki.ui";
+import { CdxButton } from "@wikimedia/codex";
 
 const props = defineProps({
   modelValue: {
@@ -51,21 +52,16 @@ const discardTranslation = () => {
       <div
         class="flex justify-end py-2 sx-confirm-back-navigation-dialog__footer"
       >
-        <mw-button
-          type="text"
-          :label="
-            $i18n('sx-confirm-back-navigation-dialog-continue-button-label')
-          "
-          @click="continueTranslation"
-        />
-        <mw-button
-          type="text"
-          destructive
-          :label="
-            $i18n('sx-confirm-back-navigation-dialog-discard-button-label')
-          "
+        <cdx-button weight="quiet" @click="continueTranslation">
+          {{ $i18n("sx-confirm-back-navigation-dialog-continue-button-label") }}
+        </cdx-button>
+        <cdx-button
+          weight="quiet"
+          action="destructive"
           @click="discardTranslation"
-        />
+        >
+          {{ $i18n("sx-confirm-back-navigation-dialog-discard-button-label") }}
+        </cdx-button>
       </div>
     </template>
   </mw-dialog>
