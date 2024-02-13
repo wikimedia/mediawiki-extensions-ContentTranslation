@@ -7,7 +7,9 @@
 			"Maxí",
 			"Snævar",
 			"Sveinn í Felli",
-			"WanderingMorpheme"
+			"WanderingMorpheme",
+			"Dušan Kreheľ",
+			"Stefán Örvar Sigmundsson"
 		]
 	},
 	"cx": "Þýða síðu",
@@ -102,7 +104,7 @@
 	"cx-suggestionlist-favorite": "Til síðar",
 	"cx-suggestionlist-title": "Tillögur",
 	"cx-suggestionlist-empty-title": "Engar uppástungur í augnablikinu",
-	"cx-suggestionlist-empty-desc": "Við fundum engar uppástungur. Þú getur athugað aftur síðar eða fundið sambærilegar síður með uppástungu-smáforritinu okkar (tilraunaútgáfa).",
+	"cx-suggestionlist-empty-desc": "Við fundum engar tillögur. Þú getur athugað aftur síðar eða fundið sambærilegar síður með tillöguverkfærinu okkar (tilraunakennt).",
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Skoða uppástungur (tilraunaútgáfa)",
 	"cx-suggestionlist-featured": "Gæða",
 	"cx-suggestionlist-view-source-page": "Skoða uppruna síðu",
@@ -146,7 +148,7 @@
 	"cx-draft-discard-button-label": "Eyða þýðingu",
 	"cx-beta-feature-enabled-notification": "Þýðing innihalds hefur verið virkjuð á þessum wiki.",
 	"cx-init-critical-error": "Alvarleg villa: Content translation gat ekki keyrt vegna innri villu.",
-	"cx-campaign-newarticle-notice": "Nú getur þú einnig búið til nýjar síður með því að <strong>þýða</strong>! Vilt þú prófa betaútgáfu Content Translation verkfærisins?",
+	"cx-campaign-newarticle-notice": "Að skapa nýjar síður með því að <strong>þýða</strong> er auðveldara núna. Viltu prófa Content Translation-beta-verkfærið?",
 	"cx-campaign-no-thanks": "Nei takk",
 	"cx-campaign-try": "Prófa að þýða efni",
 	"cx-campaign-contributionsmenu-mycontributions": "Framlög",
@@ -226,7 +228,7 @@
 	"cx-linkcontextitem-missing-link-title": "Tengil vantar",
 	"cx-linkcontextitem-missing-title-description": "Þessi síða er ekki til ennþá",
 	"cx-mt-abuse-publish-error": "Ekki er hægt að gefa út þýðinguna því hún inniheldur of mikinn óbreyttan texta",
-	"cx-unreviewed-translation-category": "Síður með óathuguðum þýðingum",
+	"cx-unreviewed-translation-category": "Síður með óyfirfarnar þýðingar",
 	"cx-unreviewed-translation-category-desc": "Síður þýddar af Content Translation sem innihalda hátt hlutfall af óathuguðu efni",
 	"cx-sx-start-translation-button-label": "Byrja þýðingu",
 	"cx-sx-view-translation-anchor": "Skoða",
