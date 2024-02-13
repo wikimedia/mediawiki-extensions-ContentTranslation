@@ -5,9 +5,8 @@ import {
   MwInput,
   MwRow,
   MwCol,
-  MwButton,
 } from "@/lib/mediawiki.ui";
-import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import { mwIconSearch } from "@/lib/mediawiki.ui/components/icons";
 import SearchResultsCard from "./SearchResultsCard.vue";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
@@ -25,6 +24,8 @@ import {
   useApplicationLanguagesInitialize,
 } from "@/composables/useLanguageHelper";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconClose } from "@wikimedia/codex-icons";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -159,13 +160,9 @@ const {
         <h5 v-i18n:cx-sx-article-search-header class="mb-0" />
       </mw-col>
       <mw-col shrink align="start" class="pe-4">
-        <mw-button
-          class="pa-0"
-          type="icon"
-          :icon="mwIconClose"
-          :icon-size="20"
-          @click="close"
-        />
+        <cdx-button class="pa-0 ms-4" weight="quiet" @click="close">
+          <cdx-icon :icon="cdxIconClose" />
+        </cdx-button>
       </mw-col>
     </mw-row>
     <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->

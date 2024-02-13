@@ -24,35 +24,30 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     >
       
       <button
-        class="mw-ui-button mw-ui-button--icon pa-0"
+        class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only pa-0 ms-4"
       >
         
         <span
-          class="mw-ui-button__content"
+          class="cdx-icon cdx-icon--medium"
         >
-          <span
-            class="mw-ui-icon notranslate mw-ui-button__icon"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <svg
-              aria-hidden="true"
-              height="20"
-              role="presentation"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <!--v-if-->
-              <g
-                fill="currentColor"
-              >
-                <path
-                  d="M4.34 2.93l12.73 12.73-1.41 1.41L2.93 4.35z M17.07 4.34L4.34 17.07l-1.41-1.41L15.66 2.93z"
-                />
-              </g>
-            </svg>
-          </span>
-          <!--v-if-->
-          <!--v-if-->
+            <!---->
+            <g>
+              <path
+                d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
+              />
+              <path
+                d="M17.07 4.34 4.34 17.07l-1.41-1.41L15.66 2.93z"
+              />
+            </g>
+          </svg>
         </span>
         
       </button>
