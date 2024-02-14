@@ -635,6 +635,7 @@
 				"dist/style.css"
 			],
 			"dependencies": [
+				"vue",
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
 				"mw.cx.util"

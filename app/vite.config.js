@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 const packageDef = require("./package.json");
 import path from "path";
 import fs from "fs";
+import { viteExternalsPlugin } from "vite-plugin-externals";
 
 let localConfig = {};
 
@@ -13,7 +14,10 @@ if (fs.existsSync("./vite.config.local.js")) {
 }
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    viteExternalsPlugin({ vue: "Vue" }, { disableInServe: true }),
+  ],
   resolve: {
     alias: [
       {
