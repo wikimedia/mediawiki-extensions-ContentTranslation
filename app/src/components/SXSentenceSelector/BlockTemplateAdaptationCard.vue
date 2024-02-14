@@ -1,13 +1,5 @@
 <script setup>
-import {
-  MwButton,
-  MwRow,
-  MwCol,
-  MwCard,
-  MwIcon,
-  MwSpinner,
-} from "@/lib/mediawiki.ui";
-import { mwIconPuzzle, mwIconInfo } from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol, MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import BlockTemplateStatusIndicator from "./BlockTemplateStatusIndicator.vue";
 import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons.vue";
 import useApplicationState from "@/composables/useApplicationState";
@@ -15,6 +7,8 @@ import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconPuzzle, cdxIconInfo } from "@wikimedia/codex-icons";
 
 defineEmits(["edit-translation"]);
 
@@ -151,7 +145,7 @@ const optionalMissingTargetParamsCount = computed(() => {
     <div class="block-template-adaptation-card__container pa-4">
       <mw-row class="block-template-adaptation-card__header ma-0 pb-5">
         <mw-col shrink>
-          <mw-icon :icon="mwIconPuzzle" class="me-2" />
+          <cdx-icon :icon="cdxIconPuzzle" class="me-2" />
         </mw-col>
         <mw-col class="ma-0" tag="h5">{{ sourceTemplateName }}</mw-col>
       </mw-row>
@@ -182,13 +176,14 @@ const optionalMissingTargetParamsCount = computed(() => {
           class="block-template-adaptation-card__body__template-title pb-2"
           v-text="targetTemplateName"
         />
-        <mw-button
+        <cdx-button
           class="px-0"
-          type="text"
-          progressive
-          :label="editBlockTranslationButtonLabel"
+          action="progressive"
+          weight="quiet"
           @click="$emit('edit-translation', blockEditableContent)"
-        />
+        >
+          {{ editBlockTranslationButtonLabel }}
+        </cdx-button>
       </div>
       <div
         v-else-if="translationLoaded"
@@ -205,7 +200,9 @@ const optionalMissingTargetParamsCount = computed(() => {
             tag="h5"
           />
           <mw-col shrink>
-            <mw-icon :icon="mwIconInfo" @click="showTemplateStatus" />
+            <cdx-button weight="quiet">
+              <cdx-icon :icon="cdxIconInfo" @click="showTemplateStatus" />
+            </cdx-button>
           </mw-col>
         </mw-row>
       </div>
