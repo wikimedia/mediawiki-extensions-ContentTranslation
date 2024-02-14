@@ -16,7 +16,10 @@ if (fs.existsSync("./vite.config.local.js")) {
 export default defineConfig({
   plugins: [
     vue(),
-    viteExternalsPlugin({ vue: "Vue", vuex: "Vuex" }, { disableInServe: true }),
+    viteExternalsPlugin(
+      { vue: "Vue", vuex: "Vuex", "@wikimedia/codex": "Codex" },
+      { disableInServe: true }
+    ),
   ],
   resolve: {
     alias: [

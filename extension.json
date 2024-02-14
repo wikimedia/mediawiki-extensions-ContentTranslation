@@ -619,6 +619,7 @@
 			]
 		},
 		"mw.cx3": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"localBasePath": "app",
 			"remoteExtPath": "ContentTranslation/app",
 			"packageFiles": [
@@ -640,6 +641,10 @@
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
 				"mw.cx.util"
+			],
+			"codexComponents": [
+				"CdxButton",
+				"CdxIcon"
 			],
 			"messages": [
 				"cx-dashboard-header",
