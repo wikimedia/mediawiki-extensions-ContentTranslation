@@ -9,7 +9,7 @@ namespace ContentTranslation\Store;
 
 use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\LoadBalancer;
-use Exception;
+use LogicException;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\LBFactory;
@@ -69,7 +69,7 @@ class TranslationCorporaStore {
 			// * concurrent request has already updated the row with new timestamp
 			// * no change (saving same thing twice in the same second)
 			// * translation has been deleted
-			throw new Exception( 'Failed to update a translation section' );
+			throw new LogicException( 'Failed to update a translation section' );
 		}
 	}
 

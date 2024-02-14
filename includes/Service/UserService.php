@@ -4,8 +4,8 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Service;
 
 use CentralIdLookup;
-use Exception;
 use GenderCache;
+use InvalidArgumentException;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -27,7 +27,7 @@ class UserService {
 	public function getGlobalUserId( UserIdentity $user ): int {
 		$id = $this->centralIdLookup->centralIdFromLocalUser( $user, CentralIdLookup::AUDIENCE_RAW );
 		if ( $id === 0 ) {
-			throw new Exception( 'User account is not global' );
+			throw new InvalidArgumentException( 'User account is not global' );
 		}
 
 		return $id;

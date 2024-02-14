@@ -3,8 +3,9 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\DTO;
 
-use Exception;
+use InvalidArgumentException;
 use Sanitizer;
+use UnexpectedValueException;
 
 class TranslationUnitDTO {
 	public const TYPE_SOURCE = 'source';
@@ -49,11 +50,10 @@ class TranslationUnitDTO {
 	/**
 	 * @param string $type
 	 * @param array|null $blob
-	 * @throws Exception
 	 */
 	public function setBlobForType( string $type, ?array $blob ): void {
 		if ( !in_array( $type, self::VALID_BLOB_TYPES ) ) {
-			throw new Exception( '[CX] Invalid blob type during translation unit restoration' );
+			throw new InvalidArgumentException( '[CX] Invalid blob type during translation unit restoration' );
 		}
 
 		$existingBlob = $this->$type;
@@ -183,7 +183,7 @@ class TranslationUnitDTO {
 
 		// sectionId should be in the following format: ${revision}_${sectionNumber}_${subSectionId}
 		if ( count( $sectionIdPieces ) < 3 ) {
-			throw new Exception( '[CX] Invalid format for section id of the translation unit DTO' );
+			throw new UnexpectedValueException( '[CX] Invalid format for section id of the translation unit DTO' );
 		}
 
 		return "$sectionIdPieces[0]_$sectionIdPieces[1]";
