@@ -398,7 +398,7 @@
 	"cx-sx-article-search-header": "תרגום חדש",
 	"cx-sx-article-search-no-suggestions-message": "{{GENDER:|תחשוב|תחשבי}} על נושא שמעניין אותך. אין צורך להיות מומחה כדי ליצור תרגום מצוין.",
 	"cx-sx-article-search-no-search-results-message": "לא נמצאו דפים עבור \"$1\" ב{{GRAMMAR:תחילית|$2}}",
-	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "להרחיב עם \"$1\" אם לבדוק פרקים קיימים",
+	"cx-sx-translation-confirmer-action-message-single-missing-multiple-present": "להרחיב עם \"$1\" או לבדוק פרקים קיימים",
 	"cx-sx-translation-confirmer-action-message-single-missing-none-present": "להרחיב עם הפרק $1.",
 	"cx-sx-translation-confirmer-action-message-none-missing-multiple-present": "אין פרקים חסרים. נא לבדוק קיימים.",
 	"cx-sx-translation-confirmer-action-message-none-missing-none-present": "אין פרקים זמינים לתרגום. נא להתחיל תרגום חדש כדי להחליף את הדף הקיים.",

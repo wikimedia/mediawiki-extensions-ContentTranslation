@@ -44,6 +44,8 @@
 	"tag-contenttranslation-v2-description": "Məzmun Content Translation alətinin 2-ci versiyası istifadə edilərək başqa dildən tərcümə edilib.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SectionTranslation]]",
 	"tag-sectiontranslation-description": "Məzmun Content Translation alətinin Section Translation funksiyasından istifadə edilərək başqa dildəki bölmədən tərcümə edilib.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Ç\nzmunTərcüməsi: Böyük ölçüdə redaktə edilməmiş maşın tərcüməsi istifadəsi]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "MəzmunTərcüməsi istifadə edərək yayımlanan tərcümədə dəyişdirilməmiş maşın tərcüməsinin faizi yüksəkdir",
 	"cx-source-loading": "$1 yüklənir",
 	"cx-beta": "Məzmun tərcüməsi",
 	"cx-beta-desc": "Başqa dildəki səhifələri öz dilinizə asanlıqla tərcümə etmək üçün alət. Tərcümələrə [[Special:MyContributions|öz fəaliyət səhifənizdən]] başlaya bilər və tərcümə üçün xüsusi yaratdığımız yanbayan redaktə pəncərələri vasitəsilə redaktə edə bilərsiniz. Bəzi funksiyalar yalnız müəyyən dillərdə istifadəyə açıqdır.",
