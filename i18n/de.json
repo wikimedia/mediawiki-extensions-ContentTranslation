@@ -490,7 +490,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Diese Übersetzung wurde auf einem anderen Gerät gestartet und enthält Inhalte für mehrere Abschnitte des Artikels.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Auf Mobilgeräten kannst du jeweils nur mit einem Abschnitt arbeiten. Daher wird vorerst nur der Hauptabschnitt geladen.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Wo sind die anderen Abschnitte?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Mach dir keine Sorgen. Die restlichen Abschnitte gehen nicht verloren. Sie werden verfügbar, sobald du die aktuelle Übersetzung als neuen Artikel veröffentlichst. Nach der Veröffentlichung findest du neue laufende Übersetzungen mit den Inhalten für jeden Abschnitt.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Mache dir keine Sorgen. Die restlichen Abschnitte sind nicht verloren. Sie sind jetzt in der Liste deiner laufenden Übersetzungen verfügbar und können zur Erweiterung des bestehenden Artikels verwendet werden. Du findest eine neue in Arbeit befindliche Übersetzug mit dem Inhalt jedes Abschnitts.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Neue Übersetzung"
 }
