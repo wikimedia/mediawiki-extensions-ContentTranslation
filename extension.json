@@ -636,6 +636,7 @@
 			],
 			"dependencies": [
 				"vue",
+				"vuex",
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
 				"mw.cx.util"

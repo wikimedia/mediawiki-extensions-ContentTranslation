@@ -16,7 +16,7 @@ if (fs.existsSync("./vite.config.local.js")) {
 export default defineConfig({
   plugins: [
     vue(),
-    viteExternalsPlugin({ vue: "Vue" }, { disableInServe: true }),
+    viteExternalsPlugin({ vue: "Vue", vuex: "Vuex" }, { disableInServe: true }),
   ],
   resolve: {
     alias: [
