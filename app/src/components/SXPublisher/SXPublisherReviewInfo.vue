@@ -1,15 +1,16 @@
 <script setup>
-import { MwIcon, MwMessage, MwButton } from "@/lib/mediawiki.ui";
-import {
-  mwIconEye,
-  mwIconAlert,
-  mwIconBlock,
-  mwIconPrevious,
-  mwIconArrowForward,
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwMessage } from "@/lib/mediawiki.ui";
 import { MwRow, MwCol } from "@/lib/mediawiki.ui/components";
 import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-banana-i18n";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import {
+  cdxIconNext,
+  cdxIconPrevious,
+  cdxIconAlert,
+  cdxIconEye,
+  cdxIconBlock,
+} from "@wikimedia/codex-icons";
 
 const props = defineProps({
   publishFeedbackMessages: {
@@ -38,11 +39,11 @@ const status = computed(() => activeMessage.value?.status || "default");
 const reviewIcon = computed(() => {
   switch (status.value) {
     case "warning":
-      return mwIconAlert;
+      return cdxIconAlert;
     case "error":
-      return mwIconBlock;
+      return cdxIconBlock;
     default:
-      return mwIconEye;
+      return cdxIconEye;
   }
 });
 const isMessageInline = computed(() => status.value === "default");
@@ -82,9 +83,9 @@ const goToNextMessage = () => {
     :inline="isMessageInline"
   >
     <template #icon>
-      <mw-icon
+      <cdx-icon
         :icon="reviewIcon"
-        class="shrink mw-ui-message__icon items-start"
+        class="shrink mw-ui-message__icon items-start me-1"
       />
     </template>
     <div class="sx-publisher__review-info__content">
@@ -105,18 +106,20 @@ const goToNextMessage = () => {
             class="sx-publisher__review-info__navigation-buttons justify-end"
             align="center"
           >
-            <mw-button
-              class="pa-0 pe-1"
-              type="icon"
-              :icon="mwIconPrevious"
+            <cdx-button
+              weight="quiet"
+              class="pa-0 me-1"
               @click="goToPreviousMessage"
-            />
-            <mw-button
-              class="pa-0 ps-1"
-              type="icon"
-              :icon="mwIconArrowForward"
+            >
+              <cdx-icon :icon="cdxIconPrevious" />
+            </cdx-button>
+            <cdx-button
+              weight="quiet"
+              class="pa-0 ms-1"
               @click="goToNextMessage"
-            />
+            >
+              <cdx-icon :icon="cdxIconNext" />
+            </cdx-button>
           </mw-col>
         </mw-row>
       </template>

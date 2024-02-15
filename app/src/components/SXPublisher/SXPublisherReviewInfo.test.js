@@ -5,12 +5,7 @@ import { createI18n } from "vue-banana-i18n";
 
 const i18n = createI18n();
 
-import {
-  mwIconEye,
-  mwIconAlert,
-  mwIconBlock,
-  mwIconCheck,
-} from "@/lib/mediawiki.ui/components/icons";
+import { cdxIconAlert, cdxIconEye, cdxIconBlock } from "@wikimedia/codex-icons";
 
 jest.spyOn(global.Math, "random").mockReturnValue(0.1);
 describe("SXPublisher review info panel test", () => {
@@ -26,7 +21,7 @@ describe("SXPublisher review info panel test", () => {
 
   it("should return status, reviewIcon and messageType correctly when no publishFeedbackMessages exist", () => {
     expect(wrapper.vm.status).toStrictEqual("default");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconEye);
+    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconEye);
     expect(wrapper.vm.messageType).toBe("notice");
   });
 
@@ -45,7 +40,7 @@ describe("SXPublisher review info panel test", () => {
       },
     });
     expect(wrapper.vm.status).toStrictEqual("error");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconBlock);
+    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconBlock);
     expect(wrapper.vm.messageType).toBe("error");
     expect(wrapper.vm.messageTitle).toBe("Error title");
     expect(wrapper.vm.messageText).toBe("Error text");
@@ -70,7 +65,7 @@ describe("SXPublisher review info panel test", () => {
   it(`should compute status, reviewIcon, messageType, messageTitle and messageText correctly when
    the active message is a warning`, () => {
     expect(wrapper.vm.status).toStrictEqual("warning");
-    expect(wrapper.vm.reviewIcon).toStrictEqual(mwIconAlert);
+    expect(wrapper.vm.reviewIcon).toStrictEqual(cdxIconAlert);
     expect(wrapper.vm.messageType).toBe("warning");
     expect(wrapper.vm.messageTitle).toBe("Warning title");
     expect(wrapper.vm.messageText).toBe("Warning text");
@@ -88,7 +83,7 @@ describe("SXPublisher review info panel test", () => {
       },
     });
     const previousButtonWrapper = wrapper.find(
-      ".sx-publisher__review-info__navigation-buttons > .mw-ui-button"
+      ".sx-publisher__review-info__navigation-buttons > button"
     );
     previousButtonWrapper.trigger("click");
     await wrapper.vm.$nextTick();
