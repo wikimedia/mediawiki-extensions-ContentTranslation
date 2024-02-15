@@ -1,18 +1,13 @@
 <script setup>
-import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
-import {
-  MwButton,
-  MwDialog,
-  MwDivider,
-  MwRadio,
-  MwRadioGroup,
-} from "@/lib/mediawiki.ui";
+import { MwDialog, MwDivider, MwRadio, MwRadioGroup } from "@/lib/mediawiki.ui";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
-const props = defineProps({
+defineProps({
   active: {
     type: Boolean,
     required: true,
@@ -80,14 +75,15 @@ const updateOption = (event) => {
   >
     <template #header>
       <div class="mw-ui-dialog__header">
-        <div class="row ma-0 pa-4">
+        <div class="row ma-0 px-4 py-3">
           <div class="col shrink justify-center">
-            <mw-button
+            <cdx-button
               class="pa-0"
-              type="icon"
-              :icon="mwIconArrowPrevious"
+              weight="quiet"
               @click="onPublishOptionsClose"
-            />
+            >
+              <cdx-icon :icon="cdxIconArrowPrevious" />
+            </cdx-button>
           </div>
           <div
             class="col grow items-center mw-ui-dialog__header-title justify-start ps-2"
