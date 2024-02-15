@@ -489,7 +489,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Denne oversettelsen ble startet på en annen enhet, og inkluderer innhold for flere deler av artikkelen.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "På mobil kan du bare jobbe med én seksjon av gangen. Derfor lastes kun hovedseksjonen foreløpig.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Hvor er de andre seksjonene?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ikke vær redd, de andre seksjonene er ikke borte. De blir tilgjengelige igjen når du har publisert den gjeldende oversettelsen som en ny artikkel.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ikke vær redd, de andre seksjonene er ikke borte. De er nå tilgjengelige i lista over pågående oversettelser, og kan brukes for å utvide artikkelen. Du vil finne en ny pågående oversettelse med innholdet for hver seksjon.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Ny oversettelse"
 }

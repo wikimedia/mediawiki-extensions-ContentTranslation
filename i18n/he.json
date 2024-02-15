@@ -490,7 +490,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "התרגום הזה הותחל במכשיר אחר, והוא מכיל תוכן עבור כמה פרקים של הערך.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "במכשיר נייד אפשר לעבוד רק עם פרק אחד בכל פעם. לפיכך, רק פרק הפתיחה ייטען לעת עתה.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "איפה שאר הפרקים?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "לא לדאוג. הפרקים הנותרים לא הלכו לאיבוד. הם יהיו זמינים אחרי {{GENDER:|שתפרסם|שתפרסמי}} את התרגום הנוכחי כערך חדש. לאחר הפרסום, {{GENDER:|תמצא|תמצאי}} תרגומים חדשים בתהליך עם התוכן של כל פרק.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "אל {{GENDER:|תדאג|תדאגי}}. הקטעים הנותרים לא הלכו לאיבוד. הם זמינים כעת ברשימת התרגומים שהתחלת וניתן להשתמש בהם כדי להרחיב את הערך הקיים. {{GENDER:|תמצא|תמצאי}} תרגום חדש בתהליך עם התוכן של כל פרק.",
 	"sx-confirm-draft-translation-start-button-label": "בסדר",
 	"sx-published-translation-new-translation-button-label": "תרגום חדש"
 }

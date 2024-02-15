@@ -146,5 +146,9 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Seksjonsoversettelses-ID som er assosiert med kladden av seksjonsoversettelsen.",
 	"apihelp-sxdelete-param-translationid": "Oversettelses-ID-en som assosieres med oversettelsesutkastet av seksjonen.",
 	"apihelp-sxdelete-param-sectionid": "ID-en til seksjonen i oversettelsesutkastet.",
-	"apihelp-sxdelete-example-1": "Slett et utkast som er assosiert med den gitte oversettelses-ID-en og seksjons-ID-en."
+	"apihelp-sxdelete-example-1": "Slett et utkast som er assosiert med den gitte oversettelses-ID-en og seksjons-ID-en.",
+	"apihelp-cxsplit-summary": "Opprett og lagre seksjonsoversettelser i databasen, for hver oversatte seksjon av den gitte artikkeloversettelsen",
+	"apihelp-cxsplit-param-translationid": "ID-en til oversettelsen som seksjonsoversettelsene blir opprettet for.",
+	"apierror-cxsplit-anon-user": "API-handlingen «cxsplit» er ikke aktivert for anonyme brukere",
+	"apierror-cxsplit-no-translation-found": "Ingen oversettelse funnet for den gitte ID-en"
 }

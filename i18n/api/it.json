@@ -99,5 +99,6 @@
 	"apihelp-sxsave-param-targettitle": "Il titolo della pagina di destinazione.",
 	"apihelp-sxsave-param-sourcesectiontitle": "Il titolo della sezione di origine.",
 	"apihelp-sxsave-param-targetsectiontitle": "Il titolo della sezione di destinazione.",
-	"apierror-cxpublishsection-translationnotfound": "Traduzione non trovata."
+	"apierror-cxpublishsection-translationnotfound": "Traduzione non trovata.",
+	"apierror-cxsplit-no-translation-found": "Nessuna traduzione trovata per l'ID specificato"
 }
