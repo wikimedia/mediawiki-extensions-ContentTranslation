@@ -1,8 +1,9 @@
 <script setup>
-import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
-import { MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
+import { MwRow } from "@/lib/mediawiki.ui";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconNext } from "@wikimedia/codex-icons";
 
-const props = defineProps({
+defineProps({
   /**
    * @type {{targetTitle: string, sourceTitle: string}[]}
    */
@@ -23,10 +24,9 @@ defineEmits(["select-section"]);
       tag="li"
       class="ma-0"
     >
-      <mw-button
-        class="col justify-between py-3 px-4"
-        :label="section.sourceTitle"
-        type="text"
+      <cdx-button
+        weight="quiet"
+        class="col justify-between items-center py-3 px-4"
         @click="$emit('select-section', section.sourceTitle)"
       >
         <slot
@@ -34,8 +34,8 @@ defineEmits(["select-section"]);
           :source-section="section.sourceTitle"
         >
         </slot>
-        <mw-icon :icon="mwIconArrowForward" class="mw-ui-button__indicator" />
-      </mw-button>
+        <cdx-icon :icon="cdxIconNext" />
+      </cdx-button>
     </mw-row>
   </ul>
 </template>
