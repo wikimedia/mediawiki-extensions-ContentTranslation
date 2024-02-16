@@ -157,19 +157,28 @@ const fetchSegmentedContent = (
 ) => {
   const sourceWikiCode = siteMapper.getWikiDomainCode(sourceLanguage);
   const targetWikiCode = siteMapper.getWikiDomainCode(targetLanguage);
-  const cxServerParams = [sourceWikiCode, targetWikiCode, sourceTitle].map(
-    (param) => encodeURIComponent(param)
-  );
-  // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
-  let cxserverAPI = siteMapper.getCXServerUrl(
-    `/page/${cxServerParams.join("/")}`
-  );
+  const cxServerParams = {
+    $sourcelanguage: sourceWikiCode,
+    $targetlanguage: targetWikiCode,
+    // Manual normalisation to avoid redirects on spaces but not to break namespaces
+    $title: sourceTitle.replace(/ /g, "_"),
+  };
 
+  let relativeApiURL = "/page/$sourcelanguage/$targetlanguage/$title";
+
+  // If revision is requested, load that revision of page.
   if (revision) {
-    cxserverAPI += `/${revision}`;
+    cxServerParams.$revision = revision;
+    relativeApiURL += "/$revision";
   }
 
-  return fetch(cxserverAPI)
+  // Example: https://cxserver.wikimedia.org/v2/page/en/es/Vlasovite
+  const cxServerApiURL = siteMapper.getCXServerUrl(
+    relativeApiURL,
+    cxServerParams
+  );
+
+  return fetch(cxServerApiURL)
     .then((response) => response.json())
     .then((response) => response.segmentedContent);
 };
