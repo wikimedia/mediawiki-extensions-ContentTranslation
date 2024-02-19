@@ -94,7 +94,7 @@ mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
  * ".m." part. The method checks if the ".m." part
  * is present inside the domain of the current URL.
  * This method doesn't affect development environments
- * or Mediawiki installations that use a different
+ * or MediaWiki installations that use a different
  * mobile URL template than the default.
  *
  * @return {boolean}

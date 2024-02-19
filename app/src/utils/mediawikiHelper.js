@@ -1,5 +1,5 @@
 /**
- *  Mediawiki related helper methods
+ *  MediaWiki related helper methods
  */
 
 const siteMapper = new mw.cx.SiteMapper();
