@@ -143,5 +143,9 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Назнаката на преводот за оддел поврзана со неговиот нацрт.",
 	"apihelp-sxdelete-param-translationid": "Преводната назнака поврзана со нацрт-преводот на одделот.",
 	"apihelp-sxdelete-param-sectionid": "Назнака на одделот на нацрт-преводот на одделот.",
-	"apihelp-sxdelete-example-1": "Избриши нацрт поврзан со дадена преводна назнака и назнака на оддел."
+	"apihelp-sxdelete-example-1": "Избриши нацрт поврзан со дадена преводна назнака и назнака на оддел.",
+	"apihelp-cxsplit-summary": "Создај и зачувај превод на оддел во базата, за секој преведен оддел на даден превод на статија",
+	"apihelp-cxsplit-param-translationid": "Назнака на преводот за кој ќе се создадат преводи на оддели.",
+	"apierror-cxsplit-anon-user": "Приложничкото дејство „cxsplit“ не е овозможено за анонимни корисници",
+	"apierror-cxsplit-no-translation-found": "Не најдов превод за дадената назнака"
 }

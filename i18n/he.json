@@ -320,7 +320,7 @@
 	"cx-sx-sentence-selector-header-title": "תרגום פרק",
 	"cx-sx-sentence-selector-done-button-label": "בוצע",
 	"cx-sx-sentence-selector-suggested-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",
-	"cx-sx-proposed-translation-not-available-message": "תרגום מכונה אינו זמין כעת",
+	"cx-sx-proposed-translation-not-available-message": "לא זמין כעת",
 	"cx-sx-proposed-translation-retry-button": "לנסות שוב",
 	"cx-sx-proposed-translation-other-options-button": "אפשרויות אחרות",
 	"cx-sx-sentence-selector-edit-translation-button-label": "עריכת התרגום",

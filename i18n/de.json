@@ -320,7 +320,7 @@
 	"cx-sx-sentence-selector-header-title": "Abschnitt übersetzen",
 	"cx-sx-sentence-selector-done-button-label": "Fertig",
 	"cx-sx-sentence-selector-suggested-translation-title": "Vorgeschlagene Übersetzung von $1",
-	"cx-sx-proposed-translation-not-available-message": "Maschinelle Übersetzung derzeit nicht verfügbar",
+	"cx-sx-proposed-translation-not-available-message": "Momentan nicht verfügbar",
 	"cx-sx-proposed-translation-retry-button": "Erneut versuchen",
 	"cx-sx-proposed-translation-other-options-button": "Weitere Optionen",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Übersetzung bearbeiten",

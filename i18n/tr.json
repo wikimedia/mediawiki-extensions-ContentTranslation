@@ -342,7 +342,7 @@
 	"cx-sx-sentence-selector-header-title": "Bölümü çevir",
 	"cx-sx-sentence-selector-done-button-label": "Yapıldı",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 üzerinden önerilen çeviri",
-	"cx-sx-proposed-translation-not-available-message": "Makine çevirisi şu anda kullanılamıyor",
+	"cx-sx-proposed-translation-not-available-message": "Şu anda kullanılamıyor",
 	"cx-sx-proposed-translation-retry-button": "Tekrar dene",
 	"cx-sx-proposed-translation-other-options-button": "Diğer seçenekler",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Çeviriyi değiştir",
@@ -512,7 +512,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Bu çeviri farklı bir aygıtta başlatıldı ve maddenin birden fazla bölümünün içeriğini içeriyor.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Taşınabilir aygıtlarda aynı anda yalnızca bir bölümle çalışabilirsiniz. Bu nedenle şimdilik yalnızca ana bölüm yüklenecektir.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Diğer bölümler nerede?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Kaygılanmayın. Kalan bölümler kaybolmaz. Varolan çeviriyi yeni bir madde olarak yayımladığınızda kullanılabilir olacaklar. Yayımladıktan sonra, her bölümün içeriğini içeren, yapım aşamasında olan yeni çevirileri bulacaksınız.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Kaygılanmayın. Kalan bölümler kaybolmaz. Yapım aşamasında olan çeviriler listesinde bulunurlar ve varolan maddeyi geliştirmek için kullanılabilirler. Her bölümün içeriğiyle yapım aşamasında olan yeni bir çeviri bulabilirsiniz.",
 	"sx-confirm-draft-translation-start-button-label": "Tamam",
 	"sx-published-translation-new-translation-button-label": "Yeni çeviri"
 }

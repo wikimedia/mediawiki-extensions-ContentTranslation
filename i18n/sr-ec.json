@@ -316,7 +316,7 @@
 	"cx-sx-sentence-selector-header-title": "Превођење одељка",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
 	"cx-sx-sentence-selector-suggested-translation-title": "Предложени превод који пружа $1:",
-	"cx-sx-proposed-translation-not-available-message": "Машински превод тренутно није доступан",
+	"cx-sx-proposed-translation-not-available-message": "Тренутно није доступно",
 	"cx-sx-proposed-translation-retry-button": "Покушај поново",
 	"cx-sx-proposed-translation-other-options-button": "Друге опције",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Уреди превод",
