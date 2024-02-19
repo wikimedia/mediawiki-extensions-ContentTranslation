@@ -6,7 +6,7 @@ import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDi
 import SxConfirmTranslationStartDialog from "./SXConfirmTranslationStartDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
-import useMediawikiState from "@/composables/useMediawikiState";
+import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 
@@ -38,7 +38,7 @@ const loaded = computed(
   () => store.state.translator.translationsLoaded[props.translationStatus]
 );
 
-const { enabledTargetLanguages } = useMediawikiState();
+const { enabledTargetLanguages } = useMediaWikiState();
 
 const deletionDialogOn = ref(false);
 const translationConfirmationDialogOn = ref(false);

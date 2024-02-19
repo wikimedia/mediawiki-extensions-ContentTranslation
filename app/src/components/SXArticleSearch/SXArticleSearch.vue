@@ -15,7 +15,7 @@ import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
 import usePageTranslationStart from "./usePageTranslationStart";
-import useMediawikiState from "../../composables/useMediawikiState";
+import useMediaWikiState from "../../composables/useMediaWikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
@@ -34,7 +34,7 @@ const sourceLanguageSelectOn = ref(false);
 
 /**
  * Previously used languages by user. These languages are set in local
- * storage by Mediawiki ULS extension. Since it is NOT guaranteed that
+ * storage by MediaWiki ULS extension. Since it is NOT guaranteed that
  * these items are set in local storage, these languages are allowed
  * to be empty
  *
@@ -44,7 +44,7 @@ const previousLanguages = ref([]);
 
 const store = useStore();
 const { sourceLanguage, targetLanguage } = useApplicationState(store);
-const { supportedLanguageCodes } = useMediawikiState();
+const { supportedLanguageCodes } = useMediaWikiState();
 
 /**
  * Array of suggested language codes based on a list of criteria.

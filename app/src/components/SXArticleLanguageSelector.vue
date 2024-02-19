@@ -12,7 +12,7 @@
 
 <script>
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector.vue";
-import useMediawikiState from "@/composables/useMediawikiState";
+import useMediaWikiState from "@/composables/useMediaWikiState";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
@@ -25,7 +25,7 @@ export default {
   },
   setup() {
     const { supportedLanguageCodes, enabledTargetLanguages } =
-      useMediawikiState();
+      useMediaWikiState();
     const store = useStore();
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
     const currentLanguageTitleGroup = computed(

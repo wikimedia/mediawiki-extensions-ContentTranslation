@@ -1,4 +1,4 @@
-import useMediawikiState from "@/composables/useMediawikiState";
+import useMediaWikiState from "@/composables/useMediaWikiState";
 import useApplicationState from "@/composables/useApplicationState";
 import { getInitialLanguagePair } from "@/utils/getInitialLanguagePair";
 import { siteMapper } from "@/utils/mediawikiHelper";
@@ -70,7 +70,7 @@ const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
 const useApplicationLanguagesInitialize = () => {
   const store = useStore();
   const { enabledTargetLanguages, supportedLanguageCodes } =
-    useMediawikiState();
+    useMediaWikiState();
 
   return async () => {
     await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
