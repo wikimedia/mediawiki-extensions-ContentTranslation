@@ -1,23 +1,17 @@
 <script setup>
-import {
-  MwButton,
-  MwCard,
-  MwCol,
-  MwRow,
-  MwIcon,
-  MwProgressBar,
-} from "@/lib/mediawiki.ui";
-import {
-  mwIconEdit,
-  mwIconRobot,
-  mwIconUserAvatar,
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwCard, MwCol, MwRow, MwProgressBar } from "@/lib/mediawiki.ui";
 import TranslatedSegmentCardHeader from "./TranslatedSegmentCardHeader.vue";
 import TranslatedSegmentCardActionButtons from "./TranslatedSegmentCardActionButtons.vue";
 import mtValidator from "@/utils/mtValidator";
 import { computed, ref, inject } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import {
+  cdxIconEdit,
+  cdxIconUserActive,
+  cdxIconRobot,
+} from "@wikimedia/codex-icons";
 
 defineEmits(["edit-translation"]);
 
@@ -117,7 +111,10 @@ const userIconColor = computed(
           <mw-col shrink class="translated-segment-card__animated-stats">
             <mw-row class="ma-0 ms-2">
               <mw-col shrink align="center">
-                <mw-icon :icon="mwIconUserAvatar" :icon-color="userIconColor" />
+                <cdx-icon
+                  class="translated-segment-card__animated-stats__icon"
+                  :icon="cdxIconUserActive"
+                />
               </mw-col>
               <mw-col shrink class="px-3">
                 <mw-progress-bar
@@ -129,22 +126,24 @@ const userIconColor = computed(
                 />
               </mw-col>
               <mw-col shrink>
-                <mw-icon :icon="mwIconRobot" />
+                <cdx-icon
+                  class="translated-segment-card__animated-stats__icon"
+                  :icon="cdxIconRobot"
+                />
               </mw-col>
             </mw-row>
           </mw-col>
         </mw-row>
-        <mw-button
+        <cdx-button
           v-if="showSentenceTab"
-          :icon="mwIconEdit"
-          type="text"
-          :label="
-            $i18n('cx-sx-sentence-selector-edit-translation-button-label')
-          "
-          class="sx-sentence-selector__proposed-translation-edit-button pa-0 mt-4"
-          progressive
+          class="sx-sentence-selector__proposed-translation-edit-button px-0 mt-4"
+          action="progressive"
+          weight="quiet"
           @click="$emit('edit-translation', translation)"
-        />
+        >
+          <cdx-icon class="me-1" :icon="cdxIconEdit" />
+          {{ $i18n("cx-sx-sentence-selector-edit-translation-button-label") }}
+        </cdx-button>
       </mw-col>
       <mw-col class="translated-segment-card__actions">
         <translated-segment-card-action-buttons v-bind="$attrs" />
@@ -183,8 +182,13 @@ const userIconColor = computed(
   }
   // Repeat col class to increase specificity so that flex-basis rule from "grid.scss"
   // will get overwritten
-  &__animated-stats.col.col.shrink {
-    flex-basis: auto;
+  & &__animated-stats {
+    &.col.col.shrink {
+      flex-basis: auto;
+    }
+    &__icon {
+      color: v-bind(userIconColor);
+    }
   }
   &__edit-stats {
     color: @color-subtle;
