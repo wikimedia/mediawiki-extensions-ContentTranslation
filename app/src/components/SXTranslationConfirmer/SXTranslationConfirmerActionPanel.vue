@@ -1,7 +1,6 @@
 <script setup>
-import { MwButton, MwRow, MwCol, MwIcon } from "@/lib/mediawiki.ui";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { computed, inject, onMounted } from "vue";
-import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
 import { setTranslationURLParams } from "@/utils/urlHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
@@ -10,6 +9,8 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import useDevice from "@/composables/useDevice";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 
 const router = useRouter();
 const store = useStore();
@@ -82,10 +83,10 @@ onMounted(() => {
         />
         <mw-col shrink>
           <a :href="targetArticlePath" target="_blank">
-            <mw-icon
-              :icon="mwIconLinkExternal"
-              size="16"
-              :icon-color="colors.gray500"
+            <cdx-icon
+              class="sx-translation-confirmer__existing-target-article-link-icon"
+              size="small"
+              :icon="cdxIconLinkExternal"
             />
           </a>
         </mw-col>
@@ -101,28 +102,33 @@ onMounted(() => {
       justify="center"
     >
       <mw-col v-if="preFilledSectionTitle" shrink class="me-4">
-        <mw-button
-          v-i18n:cx-sx-translation-confirmer-more-sections-button-label
-          large
-          progressive
-          type="text"
-          @click="onMoreSectionsClick"
-        />
+        <cdx-button
+          size="large"
+          weight="quiet"
+          action="progressive"
+          @click.stop="onMoreSectionsClick"
+        >
+          {{ $i18n("cx-sx-translation-confirmer-more-sections-button-label") }}
+        </cdx-button>
       </mw-col>
       <mw-col v-if="targetPageExists && isDesktop" shrink class="me-4">
-        <mw-button
-          v-i18n:cx-sx-translation-confirmer-new-desktop-translation-button-label
-          large
-          @click="startNewTranslation"
-        />
+        <cdx-button size="large" @click="startNewTranslation">
+          {{
+            $i18n(
+              "cx-sx-translation-confirmer-new-desktop-translation-button-label"
+            )
+          }}
+        </cdx-button>
       </mw-col>
       <mw-col shrink>
-        <mw-button
-          large
-          :progressive="isProgressiveButton"
-          :label="actionButtonLabel"
+        <cdx-button
+          weight="primary"
+          size="large"
+          :action="isProgressiveButton ? 'progressive' : 'default'"
           @click="onSectionSelectorClick"
-        />
+        >
+          {{ actionButtonLabel }}
+        </cdx-button>
       </mw-col>
     </mw-row>
   </section>
@@ -131,13 +137,19 @@ onMounted(() => {
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
-.sx-translation-confirmer-body__pre-filled-banner {
-  background-color: @background-color-progressive-subtle;
-  h6 {
-    font-weight: @font-weight-bold;
-    color: @color-subtle;
-    // TODO: Should we have typography helper for this one?
-    font-size: 14px;
+.sx-translation-confirmer {
+  &-body__pre-filled-banner {
+    background-color: @background-color-progressive-subtle;
+    h6 {
+      font-weight: @font-weight-bold;
+      color: @color-subtle;
+      // TODO: Should we have typography helper for this one?
+      font-size: 14px;
+    }
+  }
+
+  &__existing-target-article-link-icon {
+    color: @color-placeholder;
   }
 }
 </style>

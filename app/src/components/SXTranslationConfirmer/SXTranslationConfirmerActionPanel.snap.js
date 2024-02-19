@@ -25,22 +25,23 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
           target="_blank"
         >
           <span
-            class="mw-ui-icon notranslate"
+            class="cdx-icon cdx-icon--small sx-translation-confirmer__existing-target-article-link-icon"
           >
             <svg
               aria-hidden="true"
-              height="16"
-              role="presentation"
+              height="20"
               viewBox="0 0 20 20"
-              width="16"
+              width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
-              <!--v-if-->
-              <g
-                fill="currentColor"
-              >
+              <!---->
+              <g>
                 <path
-                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
+                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z"
+                />
+                <path
+                  d="m11 1 3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
                 />
               </g>
             </svg>
@@ -77,20 +78,10 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
     >
       
       <button
-        class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
+        class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-large cdx-button--framed"
       >
         
-        <span
-          class="mw-ui-button__content"
-        >
-          <!--v-if-->
-          <span
-            class="mw-ui-button__label"
-          >
-            cx-sx-select-section
-          </span>
-          <!--v-if-->
-        </span>
+        cx-sx-select-section
         
       </button>
       
@@ -125,22 +116,23 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
           target="_blank"
         >
           <span
-            class="mw-ui-icon notranslate"
+            class="cdx-icon cdx-icon--small sx-translation-confirmer__existing-target-article-link-icon"
           >
             <svg
               aria-hidden="true"
-              height="16"
-              role="presentation"
+              height="20"
               viewBox="0 0 20 20"
-              width="16"
+              width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
-              <!--v-if-->
-              <g
-                fill="currentColor"
-              >
+              <!---->
+              <g>
                 <path
-                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
+                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z"
+                />
+                <path
+                  d="m11 1 3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
                 />
               </g>
             </svg>
@@ -176,9 +168,11 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
     >
       
       <button
-        class="mw-ui-button mw-ui-button--large"
+        class="cdx-button cdx-button--action-default cdx-button--weight-normal cdx-button--size-large cdx-button--framed"
       >
+        
         cx-sx-translation-confirmer-new-desktop-translation-button-label
+        
       </button>
       
     </div>
@@ -187,20 +181,10 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
     >
       
       <button
-        class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
+        class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-large cdx-button--framed"
       >
         
-        <span
-          class="mw-ui-button__content"
-        >
-          <!--v-if-->
-          <span
-            class="mw-ui-button__label"
-          >
-            cx-sx-select-section
-          </span>
-          <!--v-if-->
-        </span>
+        cx-sx-select-section
         
       </button>
       
@@ -235,22 +219,23 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
           target="_blank"
         >
           <span
-            class="mw-ui-icon notranslate"
+            class="cdx-icon cdx-icon--small sx-translation-confirmer__existing-target-article-link-icon"
           >
             <svg
               aria-hidden="true"
-              height="16"
-              role="presentation"
+              height="20"
               viewBox="0 0 20 20"
-              width="16"
+              width="20"
               xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
             >
-              <!--v-if-->
-              <g
-                fill="currentColor"
-              >
+              <!---->
+              <g>
                 <path
-                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z M11 1l3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
+                  d="M17 17H3V3h5V1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-5h-2z"
+                />
+                <path
+                  d="m11 1 3.29 3.29-5.73 5.73 1.42 1.42 5.73-5.73L19 9V1z"
                 />
               </g>
             </svg>
@@ -287,20 +272,10 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
     >
       
       <button
-        class="mw-ui-button mw-ui-button--large mw-ui-button--progressive"
+        class="cdx-button cdx-button--action-progressive cdx-button--weight-primary cdx-button--size-large cdx-button--framed"
       >
         
-        <span
-          class="mw-ui-button__content"
-        >
-          <!--v-if-->
-          <span
-            class="mw-ui-button__label"
-          >
-            cx-sx-select-section
-          </span>
-          <!--v-if-->
-        </span>
+        cx-sx-select-section
         
       </button>
       
