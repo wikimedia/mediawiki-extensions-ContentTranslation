@@ -1,9 +1,5 @@
 <script setup>
-import {
-  mwIconSettings,
-  mwIconEdit,
-} from "@/lib/mediawiki.ui/components/icons";
-import { MwButton, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SxPublisherHeader from "./SXPublisherHeader.vue";
 import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog.vue";
 import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
@@ -15,6 +11,8 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import useEditTranslation from "./useEditTranslation";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconSettings, cdxIconEdit } from "@wikimedia/codex-icons";
 
 const store = useStore();
 const { currentSourceSection: currentPageSection } = useApplicationState(store);
@@ -78,12 +76,9 @@ const editTranslation = useEditTranslation();
       <!-- eslint-enable vue/no-v-html -->
       <mw-row justify="end" class="ma-0">
         <mw-col shrink>
-          <mw-button
-            type="icon"
-            :icon="mwIconSettings"
-            class="pa-0 mx-1"
-            @click="configureTranslationOptions"
-          />
+          <cdx-button weight="quiet" @click="configureTranslationOptions">
+            <cdx-icon :icon="cdxIconSettings" />
+          </cdx-button>
         </mw-col>
       </mw-row>
     </div>
@@ -101,7 +96,9 @@ const editTranslation = useEditTranslation();
         />
         <!--eslint-enable vue/no-v-html -->
         <mw-col shrink>
-          <mw-button :icon="mwIconEdit" type="icon" @click="editTranslation" />
+          <cdx-button weight="quiet" @click="editTranslation">
+            <cdx-icon :icon="cdxIconEdit" />
+          </cdx-button>
         </mw-col>
       </mw-row>
       <!--eslint-disable vue/no-v-html -->
