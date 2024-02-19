@@ -1,5 +1,6 @@
 <script setup>
-import { MwButton, MwDialog, MwSpinner } from "@/lib/mediawiki.ui";
+import { MwDialog, MwSpinner } from "@/lib/mediawiki.ui";
+import { CdxButton } from "@wikimedia/codex";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import translatorApi from "@/wiki/cx/api/translator";
@@ -74,15 +75,24 @@ const startTranslation = async () => {
     </div>
     <template #footer>
       <div class="flex pt-2">
-        <mw-button
+        <cdx-button
           v-if="!loading"
-          class="grow py-3"
-          large
-          :label="$i18n('sx-confirm-draft-translation-start-button-label')"
+          class="sx-confirm-translation-start-dialog__confirm-button grow"
+          size="large"
           @click="startTranslation"
-        />
+        >
+          {{ $i18n("sx-confirm-draft-translation-start-button-label") }}
+        </cdx-button>
         <mw-spinner v-else />
       </div>
     </template>
   </mw-dialog>
 </template>
+
+<style lang="less">
+.sx-confirm-translation-start-dialog {
+  button&__confirm-button {
+    border: none;
+  }
+}
+</style>
