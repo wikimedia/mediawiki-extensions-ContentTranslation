@@ -1,6 +1,5 @@
 <script setup>
-import { MwButton, MwRow, MwCol, MwSpinner } from "@/lib/mediawiki.ui";
-import { mwIconArrowPrevious } from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol, MwSpinner } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
 import SxConfirmBackNavigationDialog from "./SXConfirmBackNavigationDialog.vue";
 import SxTranslationSelector from "./SXTranslationSelector.vue";
@@ -20,6 +19,8 @@ import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -194,25 +195,23 @@ const verifyBackNavigationDialogOn = ref(false);
   >
     <mw-row class="sx-sentence-selector__header ma-0 py-2">
       <mw-col shrink>
-        <mw-button
-          class="px-3"
-          type="icon"
-          :icon="mwIconArrowPrevious"
-          @click="goToDashboard"
-        />
+        <cdx-button weight="quiet" class="px-3" @click="goToDashboard">
+          <cdx-icon :icon="cdxIconArrowPrevious" />
+        </cdx-button>
       </mw-col>
       <mw-col grow class="px-1">
         <h4
           v-i18n:cx-sx-sentence-selector-header-title
-          class="sx-sentence-selector__header-title"
+          class="sx-sentence-selector__header-title mb-0"
         />
       </mw-col>
       <mw-col shrink class="px-3">
-        <mw-button
-          :label="$i18n('cx-sx-sentence-selector-done-button-label')"
+        <cdx-button
           :disabled="!(currentPageSection && currentPageSection.isTranslated)"
           @click="previewTranslation"
-        />
+        >
+          {{ $i18n("cx-sx-sentence-selector-done-button-label") }}
+        </cdx-button>
       </mw-col>
     </mw-row>
     <mw-row
@@ -288,6 +287,9 @@ const verifyBackNavigationDialogOn = ref(false);
     box-shadow: 0 @border-width-base @border-color-disabled;
     &-title {
       color: @color-base;
+    }
+    button {
+      line-height: normal;
     }
   }
   &__body {
