@@ -511,5 +511,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Second paragraph of the details that inform the user about the continuation of a draft translation started on desktop, inside the confirmation dialog",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Third paragraph of the details that inform the user about the continuation of a draft translation started on desktop, inside the confirmation dialog",
 	"sx-confirm-draft-translation-start-button-label": "Label of the 'ok' button that leads to the continuation of a draft translation, inside the dialog that informs the user about the continuation of a draft translation started on desktop",
-	"sx-published-translation-new-translation-button-label": "Label of the 'New translation' button inside a published translation work inside the dashboard list, that leads to the confirmation step for the user to restart a translation for the published article."
+	"sx-published-translation-new-translation-button-label": "Label of the 'New translation' button inside a published translation work inside the dashboard list, that leads to the confirmation step for the user to restart a translation for the published article.",
+	"sx-section-selector-close-button-aria-label": "Aria label of the close button, inside the header of the 'Pick a section' step"
 }

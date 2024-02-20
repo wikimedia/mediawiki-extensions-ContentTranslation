@@ -1,9 +1,10 @@
 <script setup>
-import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
-import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import { MwCol, MwRow } from "@/lib/mediawiki.ui";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconClose } from "@wikimedia/codex-icons";
 
-const props = defineProps({
+defineProps({
   suggestion: {
     type: SectionSuggestion,
     required: true,
@@ -27,13 +28,13 @@ defineEmits(["close"]);
         />
       </mw-col>
       <mw-col shrink class="justify-end">
-        <mw-button
-          class="pa-0"
-          :large="true"
-          type="icon"
-          :icon="mwIconClose"
+        <cdx-button
+          weight="quiet"
+          :aria-label="$i18n('sx-section-selector-close-button-aria-label')"
           @click="$emit('close')"
-        />
+        >
+          <cdx-icon :icon="cdxIconClose" />
+        </cdx-button>
       </mw-col>
     </mw-row>
     <h4 v-i18n:cx-sx-section-selector-subtitle class="pt-0 ma-0" />
@@ -53,6 +54,7 @@ defineEmits(["close"]);
   }
   .sx-section-selector__header-text {
     color: @color-base;
+    font-weight: @font-weight-bold;
   }
 }
 </style>
