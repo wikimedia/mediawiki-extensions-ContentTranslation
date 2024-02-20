@@ -27,6 +27,7 @@
 	"cx-header-translation-center": "Тәржемәләр үҙәге",
 	"cx-header-all-translations": "Бөтә тәржемәләр",
 	"cx-source-view-page": "битте ҡарау",
+	"cx-target-view-page": "битте ҡарау",
 	"cx-publish-page-success": "$1 бит баҫтырылды.",
 	"cx-publish-error-abuse-filter": "Төҙәтеүҙәрҙең автоматик фильтрҙары һеҙҙең тәржемә эстәлегендә проблема булыуын асыҡланы. Фильтрға эләгеү: $1",
 	"cx-publish-error-empty": "Сервер яуабында мәғлүмәттәр юҡ.",
