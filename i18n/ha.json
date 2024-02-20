@@ -6,7 +6,8 @@
 			"DaSupremo",
 			"Dušan Kreheľ",
 			"Em-em",
-			"Gwanki"
+			"Gwanki",
+			"Ummabruka"
 		]
 	},
 	"cx": "Fassara shafi",
@@ -306,7 +307,7 @@
 	"cx-sx-sentence-selector-header-title": "Fassara sashe",
 	"cx-sx-sentence-selector-done-button-label": "Kammalawa",
 	"cx-sx-sentence-selector-suggested-translation-title": "Fassarar da ake buƙata daga $1",
-	"cx-sx-proposed-translation-not-available-message": "Babu fassarar inji a halin yanzu",
+	"cx-sx-proposed-translation-not-available-message": "Baya samuwa a yanxu",
 	"cx-sx-proposed-translation-retry-button": "Sake",
 	"cx-sx-proposed-translation-other-options-button": "Sauran zaɓuɓɓuka",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Gyara fassara",
