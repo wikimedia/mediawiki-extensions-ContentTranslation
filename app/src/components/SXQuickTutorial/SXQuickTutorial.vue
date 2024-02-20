@@ -1,10 +1,11 @@
 <script setup>
-import { MwButton, MwRow } from "../../lib/mediawiki.ui";
-import { mwIconArrowForward } from "../../lib/mediawiki.ui/components/icons";
+import { MwRow } from "../../lib/mediawiki.ui";
 import tutorialSvgMT from "../../assets/tutorial-mt.svg?raw";
 import tutorialSvgSections from "../../assets/tutorial-sections.svg?raw";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconNext } from "@wikimedia/codex-icons";
 
 const totalSteps = ref(2);
 const activeStep = ref(1);
@@ -82,24 +83,29 @@ const completeTutorial = () => router.push({ name: "sx-sentence-selector" });
           />
         </transition>
       </section>
-      <div class="sx-quick-tutorial__action-button pt-4 pb-6">
+      <div class="sx-quick-tutorial__action-button pt-4 pb-6 flex justify-end">
         <transition name="fade" mode="out-in">
-          <mw-button
+          <cdx-button
             v-if="isActiveStep(1)"
             key="quick-tutorial-action-button-1"
-            class="px-8 mx-4"
-            :icon="mwIconArrowForward"
-            :progressive="true"
+            :aria-label="$i18n('sx-quick-tutorial-next-button-aria-label')"
+            class="px-6 mx-4"
+            action="progressive"
+            weight="primary"
             @click="goToNextStep"
-          />
-          <mw-button
+          >
+            <cdx-icon :icon="cdxIconNext" />
+          </cdx-button>
+          <cdx-button
             v-else-if="isActiveStep(2)"
             key="quick-tutorial-action-button-2"
             class="mx-4"
-            :label="$i18n('sx-quick-tutorial-translate-button-label')"
-            :progressive="true"
+            action="progressive"
+            weight="primary"
             @click="completeTutorial"
-          />
+          >
+            {{ $i18n("sx-quick-tutorial-translate-button-label") }}
+          </cdx-button>
         </transition>
       </div>
     </mw-row>
@@ -168,7 +174,6 @@ const completeTutorial = () => router.push({ name: "sx-sentence-selector" });
   }
   .sx-quick-tutorial__action-button {
     width: 100%;
-    text-align: end;
     position: fixed;
     bottom: 0;
   }
