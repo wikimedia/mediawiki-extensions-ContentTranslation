@@ -18,19 +18,15 @@
       class="sx-login-dialog__body px-6 pb-4"
     />
     <div class="sx-login-dialog__footer px-4 py-2 flex justify-center">
-      <mw-button
-        type="text"
-        progressive
-        :label="$i18n('cx-sx-login-dialog-button-label')"
-        :href="loginUrl"
-        target="_blank"
-      />
+      <a class="py-1" :href="loginUrl" target="_blank">
+        {{ $i18n("cx-sx-login-dialog-button-label") }}
+      </a>
     </div>
   </mw-dialog>
 </template>
 
 <script setup>
-import { MwButton, MwDialog } from "@/lib/mediawiki.ui";
+import { MwDialog } from "@/lib/mediawiki.ui";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 
@@ -57,6 +53,10 @@ const loginUrl = ref(mw.util.getUrl("Special:UserLogin"));
   }
   &__footer {
     border-top: @border-subtle;
+    a {
+      font-weight: @font-weight-bold;
+      color: @color-progressive;
+    }
   }
 }
 </style>
