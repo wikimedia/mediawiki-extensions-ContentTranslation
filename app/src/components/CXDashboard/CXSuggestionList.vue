@@ -1,7 +1,6 @@
 <script setup>
 import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
-import { MwSpinner, MwCard, MwButton } from "@/lib/mediawiki.ui";
-import { mwIconRefresh } from "@/lib/mediawiki.ui/components/icons";
+import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
@@ -12,6 +11,8 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
 import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconReload } from "@wikimedia/codex-icons";
 
 const props = defineProps({
   active: {
@@ -132,14 +133,17 @@ const markFavoritePageSuggestion = async (suggestion) =>
       <mw-spinner v-if="sectionSuggestionsLoading" />
     </mw-card>
     <div class="cx-suggestion-list__refresh-button-container justify-center">
-      <mw-button
+      <cdx-button
         v-if="showRefreshButton"
-        class="ma-0 pa-4"
-        type="text"
-        :label="$i18n('cx-suggestionlist-refresh')"
-        :icon="mwIconRefresh"
+        class="px-4"
+        weight="quiet"
+        action="progressive"
+        size="large"
         @click="refreshSuggestions"
-      />
+      >
+        <cdx-icon class="me-1" :icon="cdxIconReload" />
+        {{ $i18n("cx-suggestionlist-refresh") }}
+      </cdx-button>
     </div>
   </div>
 </template>
