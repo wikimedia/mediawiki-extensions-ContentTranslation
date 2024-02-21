@@ -1,15 +1,9 @@
 <script setup>
-import {
-  MwDialog,
-  MwRow,
-  MwCol,
-  MwInput,
-  MwButton,
-  MwDivider,
-} from "@/lib/mediawiki.ui";
+import { MwDialog, MwRow, MwCol, MwInput, MwDivider } from "@/lib/mediawiki.ui";
 import { computed, inject, ref } from "vue";
-import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
 import CaptchaDetails from "@/wiki/cx/models/captchaDetails";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconClose } from "@wikimedia/codex-icons";
 
 const props = defineProps({
   active: {
@@ -39,29 +33,23 @@ const fullscreen = computed(() => breakpoints.value.mobile);
   >
     <template #header>
       <mw-row class="mw-ui-dialog__header ma-0" align="stretch">
-        <mw-col shrink>
-          <mw-button
-            class="py-4 ps-6 pe-4"
-            type="icon"
-            :icon="mwIconClose"
-            @click="close"
-          />
+        <mw-col class="ms-3 me-1" shrink>
+          <cdx-button class="my-1" weight="quiet" size="large" @click="close">
+            <cdx-icon :icon="cdxIconClose" />
+          </cdx-button>
         </mw-col>
         <!-- eslint-disable vue/no-v-html -->
         <mw-col
           v-i18n:cx-sx-publisher-captcha-dialog-header-title
           grow
-          class="sx-publisher__captcha-dialog__header-title items-center justify-start"
+          class="sx-publisher__captcha-dialog__header-title items-center justify-start me-4"
         />
 
         <!--eslint-enable vue/no-v-html -->
         <mw-col shrink class="justify-center">
-          <mw-button
-            v-i18n:cx-sx-publisher-captcha-dialog-publish-button
-            progressive
-            @click="publish"
-          >
-          </mw-button>
+          <cdx-button weight="primary" action="progressive" @click="publish">
+            {{ $i18n("cx-sx-publisher-captcha-dialog-publish-button") }}
+          </cdx-button>
         </mw-col>
       </mw-row>
       <mw-divider />
