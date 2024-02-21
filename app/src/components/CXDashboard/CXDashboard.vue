@@ -8,17 +8,17 @@ import { computed } from "vue";
 import {
   MwButtonGroup,
   MwBottomNavigation,
-  MwButton,
   MwRow,
   MwCol,
 } from "@/lib/mediawiki.ui";
-import { mwIconAdd } from "@/lib/mediawiki.ui/components/icons";
 import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
 import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useActiveTabInitialize from "./useActiveTabInitialize";
 import useDashboardListOptions from "./useDashboardListOptions";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconAdd } from "@wikimedia/codex-icons";
 
 const router = useRouter();
 
@@ -41,15 +41,18 @@ const listSelector = useDashboardListOptions();
       v-if="$incompleteVersion"
       class="col-mobile-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2 mb-4"
     />
-    <mw-row class="ma-0">
-      <mw-button
+    <mw-row class="ma-0 py-4">
+      <cdx-button
         id="dashboard-search-translation-button"
-        progressive
-        :icon="mwIconAdd"
-        :label="$i18n('cx-create-new-translation')"
-        class="col-desktop-3 col-offset-desktop-2 col-offset-tablet-3 col-mobile-12 my-4"
+        action="progressive"
+        weight="primary"
+        size="large"
+        class="col-desktop-3 col-offset-desktop-2 col-offset-tablet-3 col-mobile-12"
         @click="searchTranslation"
-      />
+      >
+        <cdx-icon class="me-1" :icon="cdxIconAdd" />
+        {{ $i18n("cx-create-new-translation") }}
+      </cdx-button>
     </mw-row>
     <mw-row class="ma-0" align="start">
       <mw-col
