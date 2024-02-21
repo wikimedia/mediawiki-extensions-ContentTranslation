@@ -117,6 +117,7 @@
 	"cx-tools-linter-empty-title": "Vua tradukuro bezonas havar titulo",
 	"cx-tools-linter-page-exists": "Pagino ja existas",
 	"cx-tools-linter-cannot-publish-message": "Ca komunitato decidis limitizar la publikigo di tradukuri nur por experta redakteri.\nVu ne povas publikigar ca tradukuro til ke vu divenos plu experta tradukanta en ca wiki, tamen vu povas:<ul><li>Publikigar vua tradukuro kom klado, ed uzar pose l'existanta utensili por krear artikli.</li><li>Trandukar ca artiklo ad altra idiomo, sen ca limitizo.</li></ul>",
+	"cx-tools-linter-template-inline-message": "L'originala pagino usas shabloni por krear la strukturo di la kontenajo, tamen kelk ek li ne existas en la wiki destino.\n\nKontenajo di mankanta shabloni adjuntesis kom pura texto. Voluntez revizar la rezulto.",
 	"cx-tools-linter-old-revision": "La bazo di la tradukuro esas anciena versiono di la pagino",
 	"cx-tools-linter-restart-translation-cancel": "Nuligar",
 	"cx-translator-header": "Vua statistiki",

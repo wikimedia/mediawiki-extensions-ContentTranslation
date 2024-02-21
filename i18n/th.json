@@ -16,7 +16,8 @@
 			"กิ๊ฟ เลิกล่ะ สายแข็ง",
 			"Dušan Kreheľ",
 			"Thastp",
-			"RidJasper"
+			"RidJasper",
+			"Siam2019"
 		]
 	},
 	"cx": "แปลหน้า",
@@ -445,6 +446,7 @@
 	"cx-contributecard-entrypoint-title": "การแปล",
 	"cx-contributecard-entrypoint-desc": "แปลหนึ่งส่วนหรือทั้งบทความ ทำให้มีเนื้อหาในภาษาต่าง ๆ มากขึ้น",
 	"cx-contributecard-entrypoint-cta": "เริ่มการแปล",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "ไม่พบแม่แบบที่เทียบเท่า",
 	"cx-sx-dashboard-help-panel-title": "ต้องการช่วยแปล",
 	"cx-sx-dashboard-help-panel-more-info-label": "เพิ่มเติมเกี่ยวกับเครื่องมือนี้",
 	"cx-sx-dashboard-help-panel-stats-label": "สถิติ",
