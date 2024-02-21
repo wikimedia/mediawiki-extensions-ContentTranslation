@@ -1,17 +1,17 @@
 <script setup>
 import CxTranslationWork from "./CXTranslationWork.vue";
-import { mwIconAdd, mwIconEllipsis } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
 import { useStore } from "vuex";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
-import MwButton from "@/lib/mediawiki.ui/components/MWButton/MWButton.vue";
 import { useRouter } from "vue-router";
 import useDevice from "@/composables/useDevice";
 import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
 import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
 
 const props = defineProps({
   translation: {
@@ -82,37 +82,44 @@ const startNewTranslation = () => {
       />
     </template>
     <template #mid-content>
-      <mw-row class="ma-0 py-2">
+      <mw-row class="ma-0">
         <mw-col>
           <mw-spinner v-if="suggestionLoading" />
-          <div v-else-if="!!missingSections">
-            <mw-button
-              class="cx-published-translation__missing-sections-button pa-0"
-              :icon="mwIconAdd"
-              type="text"
-              :label="firstMissingSection"
-              progressive
+          <div v-else-if="!!missingSections" class="flex">
+            <cdx-button
+              class="cx-published-translation__start-new-translation-button flex items-center px-0"
+              weight="quiet"
+              action="progressive"
               @click.stop="translateNewSection"
-            />
-            <mw-button
-              class="cx-published-translation__missing-sections-button pa-0 ms-4"
-              :icon="mwIconEllipsis"
-              type="icon"
-              progressive
+            >
+              <cdx-icon class="me-1" :icon="cdxIconAdd" />
+              <span>
+                {{ firstMissingSection }}
+              </span>
+            </cdx-button>
+            <cdx-button
+              class="cx-published-translation__start-new-translation-button pa-0 ms-4"
+              weight="quiet"
+              action="progressive"
               @click.stop="translateNewSection"
-            />
+            >
+              <cdx-icon :icon="cdxIconEllipsis" />
+            </cdx-button>
           </div>
           <div v-else>
-            <mw-button
-              class="cx-published-translation__missing-sections-button pa-0"
-              :icon="mwIconAdd"
-              type="text"
-              :label="
-                $i18n('sx-published-translation-new-translation-button-label')
-              "
-              progressive
+            <cdx-button
+              class="cx-published-translation__start-new-translation-button flex items-center pa-0"
+              weight="quiet"
+              action="progressive"
               @click.stop="startNewTranslation"
-            />
+            >
+              <cdx-icon class="me-1" :icon="cdxIconAdd" />
+              <span>
+                {{
+                  $i18n("sx-published-translation-new-translation-button-label")
+                }}
+              </span>
+            </cdx-button>
           </div>
         </mw-col>
       </mw-row>
@@ -137,9 +144,9 @@ const startNewTranslation = () => {
     font-size: @font-size-medium;
   }
 
-  & &__missing-sections-button {
-    .mw-ui-button__label {
-      margin-left: 0;
+  & &__start-new-translation-button {
+    span {
+      line-height: normal;
     }
   }
 }
