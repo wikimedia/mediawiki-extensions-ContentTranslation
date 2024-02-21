@@ -300,7 +300,7 @@
 	"cx-sx-sentence-selector-header-title": "Tulkot sadaļu",
 	"cx-sx-sentence-selector-done-button-label": "Gatavs",
 	"cx-sx-sentence-selector-suggested-translation-title": "Ieteiktais tulkojums no $1",
-	"cx-sx-proposed-translation-not-available-message": "Mašīntulkošana pašlaik nav pieejama",
+	"cx-sx-proposed-translation-not-available-message": "Pašlaik nav pieejams",
 	"cx-sx-proposed-translation-retry-button": "Mēģināt vēlreiz",
 	"cx-sx-proposed-translation-other-options-button": "Citas iespējas",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Labot tulkojumu",

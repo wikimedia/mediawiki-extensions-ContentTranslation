@@ -492,5 +492,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Wo sind die anderen Abschnitte?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Mache dir keine Sorgen. Die restlichen Abschnitte sind nicht verloren. Sie sind jetzt in der Liste deiner laufenden Übersetzungen verfügbar und können zur Erweiterung des bestehenden Artikels verwendet werden. Du findest eine neue in Arbeit befindliche Übersetzug mit dem Inhalt jedes Abschnitts.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
-	"sx-published-translation-new-translation-button-label": "Neue Übersetzung"
+	"sx-published-translation-new-translation-button-label": "Neue Übersetzung",
+	"sx-section-selector-close-button-aria-label": "Geh zur Schaltfläche Bestätigung."
 }
