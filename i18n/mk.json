@@ -307,7 +307,7 @@
 	"cx-sx-sentence-selector-header-title": "Преведи оддел",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
 	"cx-sx-sentence-selector-suggested-translation-title": "Предложен превод од $1",
-	"cx-sx-proposed-translation-not-available-message": "Машинскиот превод во моментов е недостапен",
+	"cx-sx-proposed-translation-not-available-message": "Моментално недостапно",
 	"cx-sx-proposed-translation-retry-button": "Пробај пак",
 	"cx-sx-proposed-translation-other-options-button": "Други можности",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Уреди превод",
@@ -477,7 +477,8 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Овој превод е започнат на друг уред и вклучува содржини за повеќе оддели од статијата.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мобилен можете да работите на само еден дел во секој наврат. Затоа, засега ќе се вчита само главниот оддел.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Каде се другите оддели?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не грижете се. Останатите оддели не се изгубени. Тие ќе станат достапни откако ќе го објавите тековниот превод како нова статија. По објавувањето, ќе најдете нови преводи во тек со содржината за секој оддел.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не грижете се. Останатите оддели не се изгубени. Тие сега се достапни на списокот на вашите преводи во тек и можат да се користат за проширување на постоечките статии. Ќе најдете нов превод во тек со содржината на секој оддел.",
 	"sx-confirm-draft-translation-start-button-label": "Ок",
-	"sx-published-translation-new-translation-button-label": "Нов превод"
+	"sx-published-translation-new-translation-button-label": "Нов превод",
+	"sx-section-selector-close-button-aria-label": "Оди на копчето за потврда"
 }
