@@ -480,5 +480,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не грижете се. Останатите оддели не се изгубени. Тие сега се достапни на списокот на вашите преводи во тек и можат да се користат за проширување на постоечките статии. Ќе најдете нов превод во тек со содржината на секој оддел.",
 	"sx-confirm-draft-translation-start-button-label": "Ок",
 	"sx-published-translation-new-translation-button-label": "Нов превод",
-	"sx-section-selector-close-button-aria-label": "Оди на копчето за потврда"
+	"sx-section-selector-close-button-aria-label": "Оди на копчето за потврда",
+	"sx-quick-tutorial-next-button-aria-label": "Оди на следната страница на упатството"
 }

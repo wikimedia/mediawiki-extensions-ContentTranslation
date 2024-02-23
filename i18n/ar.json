@@ -68,6 +68,7 @@
 	"tag-contenttranslation-v2-description": "تمت ترجمة المحتوى من لغة أخرى باستخدام الإصدار 2 من أداة ترجمة المحتوى.",
 	"tag-sectiontranslation": "[[{{MediaWiki: sx-descriptionpagelink}} | ترجمة القسم]]",
 	"tag-sectiontranslation-description": "تُرجم المحتوى من قسم بلغة أخرى باستخدام ميزة ترجمة القسم في أداة ترجمة المحتوى.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ترجمة المحتوى: استخدام عالي للترجمة الآلية غير المعدلة]]",
 	"cx-source-loading": "تحميل $1",
 	"cx-beta": "ترجمة المحتوى",
 	"cx-beta-desc": "أداة لترجمة المواد بلغتك سريعا. ابدأ الترجمة من صفحة [[Special:MyContributions|مساهماتك]] باستعمال محرر الترجمة الذي يظهر الترجمة بجانب الأصل. بعض الأدوات متاحة لبعض اللغات فقط.",
