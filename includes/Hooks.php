@@ -95,7 +95,7 @@ class Hooks implements
 		// have section translation enabled for anonymous users
 		$user = $out->getUser();
 		$isSxEnabledForAnon = $out->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
-		if ( $user->isAnon() && !$isSxEnabledForAnon ) {
+		if ( !$user->isNamed() && !$isSxEnabledForAnon ) {
 			return;
 		}
 

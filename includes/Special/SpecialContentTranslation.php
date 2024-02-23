@@ -102,8 +102,8 @@ class SpecialContentTranslation extends SpecialPage {
 	public function isValidCampaign( $campaign ) {
 		$contentTranslationCampaigns = $this->getConfig()->get( 'ContentTranslationCampaigns' );
 
-		if ( !$this->getUser()->isRegistered() ) {
-			// Campaigns are only for logged in users.
+		if ( !$this->getUser()->isNamed() ) {
+			// Campaigns are only for named logged-in users.
 			return false;
 		}
 		return $campaign !== null

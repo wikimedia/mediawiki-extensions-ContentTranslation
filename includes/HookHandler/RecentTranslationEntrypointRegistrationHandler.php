@@ -65,7 +65,7 @@ class RecentTranslationEntrypointRegistrationHandler implements BeforePageDispla
 
 		// This entrypoint should only be enabled for logged-in users
 		$user = $out->getUser();
-		if ( $user->isAnon() ) {
+		if ( !$user->isNamed() ) {
 			return;
 		}
 

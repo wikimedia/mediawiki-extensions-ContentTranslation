@@ -60,7 +60,7 @@ class ApiSectionTranslationSave extends ApiBase {
 
 		$user = $this->getUser();
 
-		if ( $user->isAnon() ) {
+		if ( !$user->isNamed() ) {
 			$this->dieWithError( 'apierror-sxsave-anon-user' );
 		}
 

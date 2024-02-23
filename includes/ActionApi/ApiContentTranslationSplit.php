@@ -51,7 +51,7 @@ class ApiContentTranslationSplit extends ApiBase {
 
 		$user = $this->getUser();
 
-		if ( $user->isAnon() ) {
+		if ( !$user->isNamed() ) {
 			$this->dieWithError( 'apierror-cxsplit-anon-user' );
 		}
 
