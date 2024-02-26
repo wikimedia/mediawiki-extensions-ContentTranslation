@@ -83,11 +83,15 @@
 		return missingLanguagesPanel;
 	};
 
-	const wikiExistsForLanguageCode = ( currentGroupLanguageCodes, lang ) => {
-		const wikiDomainCode = siteMapper.getWikiDomainCode( lang );
-
-		return currentGroupLanguageCodes.indexOf( wikiDomainCode ) > -1;
-	};
+	/**
+	 * Given a domain code, this method returns a boolean indicating,
+	 * whether the code belongs to the domain codes returned by the
+	 * "sitematrix" Action Api.
+	 *
+	 * @param {string} domainCode the domain code of a wiki, e.g. "bn", "en", "no", "simple" etc
+	 * @return {boolean}
+	 */
+	const isValidWikiDomainCode = ( domainCode ) => wikiLanguageCodes.indexOf( domainCode ) > -1;
 
 	/**
 	 * @return {Promise}
@@ -132,14 +136,49 @@
 			}
 
 			fetchSiteMatrix().then( () => {
-				const missingRelevantLanguages = frequentLanguages.filter( function ( language ) {
-					return existingLanguages.indexOf( language ) === -1 && wikiExistsForLanguageCode( wikiLanguageCodes, language );
-				} );
+				/**
+				 * This variable stores an array of language codes. These language codes are
+				 * the content languages of the "relevant" wikis, from which the current article is missing.
+				 * @type {string[]}
+				 */
+				const missingRelevantLanguages = [];
+
+				for ( const frequentLanguage of frequentLanguages ) {
+					const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
+					// skip if the domain code for this language is not returned by the "sitematrix" Action API
+					if ( !isValidWikiDomainCode( wikiDomainCode ) ) {
+						continue;
+					}
+
+					/**
+					 * The content language of the corresponding wiki for the current "relevant" language
+					 * This can be different from the "relevant" language.
+					 * E.g.
+					 * - for "no" language code, "wikiDomainCode" will also be "no", but the content
+					 * language for this wiki is "nb".
+					 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
+					 * language for this wiki is also "nb".
+					 * @type {string}
+					 */
+					const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
+
+					// skip if the current article already exists for the corresponding content language
+					if ( existingLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+						continue;
+					}
+
+					// skip if the content language already exists inside "missingRelevantLanguages" array
+					if ( missingRelevantLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+						continue;
+					}
+
+					missingRelevantLanguages.push( wikiContentLanguage );
+				}
 
 				if ( !missingRelevantLanguages.length ) {
 					return;
 				}
-
+				// CX ULS relevant missing languages entrypoint:
 				const missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
 				uls.$resultsView.before( missingLanguagesPanel );
 				uls.$languageFilter.on( 'input', function ( event ) {
