@@ -27,7 +27,7 @@
 	"apihelp-query+contenttranslationlangtrend-param-source": "Kóði frummálsins.",
 	"apihelp-query+contenttranslationlangtrend-param-target": "Kóði markmálsins.",
 	"apihelp-cxdelete-description": "Eyða þýðingardrögum sem gerð voru með Content Translation viðbótinni.",
-	"apihelp-cxdelete-summary": "Eyða þýðingardrögum sem gerðar voru með Content Translation-viðbótinni.",
+	"apihelp-cxdelete-summary": "Eyða þýðingardrögum sem gerð voru með Content Translation-viðbótinni.",
 	"apihelp-cxdelete-param-from": "Kóði frummálsins.",
 	"apihelp-cxdelete-param-to": "Kóði markmálsins.",
 	"apihelp-cxdelete-param-sourcetitle": "Titill upprunagreinarinnar.",
