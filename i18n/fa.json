@@ -482,5 +482,6 @@
 	"sx-translation-deletion-confirm-button-label": "حذف ترجمه",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 روز|0=امروز}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 ماه}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}",
+	"sx-quick-tutorial-next-button-aria-label": "رفتن به صفحهٔ آموزش بعدی"
 }

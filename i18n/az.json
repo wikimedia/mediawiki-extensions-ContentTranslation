@@ -308,7 +308,7 @@
 	"cx-sx-sentence-selector-header-title": "Bölməni tərcümə et",
 	"cx-sx-sentence-selector-done-button-label": "Oldu",
 	"cx-sx-sentence-selector-suggested-translation-title": "$1 xidmətindən tövsiyə edilən tərcümə",
-	"cx-sx-proposed-translation-not-available-message": "Maşın tərcüməsi hazırda mövcud deyil",
+	"cx-sx-proposed-translation-not-available-message": "Hal-hazırda əlçatan deyil",
 	"cx-sx-proposed-translation-retry-button": "Yenidən cəhd et",
 	"cx-sx-proposed-translation-other-options-button": "Digər seçimlər",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Tərcüməni redaktə et",
@@ -478,7 +478,9 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Bu tərcümə başqa cihazda başlamışdır və o, məqalənin çoxsaylı bölmələri üçün məzmunu ehtiva edir.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Mobildə siz eyni anda yalnız bir bölmə ilə işləyə bilərsiniz. Buna görə də hələlik yalnız əsas bölmə yüklənəcək.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Digər bölmələr haradadır?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Narahat olmayın. Qalan hissələr itməyib. Cari tərcüməni yeni məqalə kimi dərc etdikdən sonra onlar əlçatan olacaq. Yayımladıqdan sonra hər bölmənin məzmunu ilə yeni davam edən tərcümələr tapacaqsınız.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Narahat olmayın. Qalan hissələr itməyib. İndi onlar hazırda işlənilən tərcümələr siyahısında mövcuddur və mövcud məqaləni genişləndirmək üçün istifadə edilə bilər. Siz hər bölmənin məzmunu ilə yeni davam edən tərcümə tapa bilərsiniz.",
 	"sx-confirm-draft-translation-start-button-label": "Tamam",
-	"sx-published-translation-new-translation-button-label": "Yeni tərcümə"
+	"sx-published-translation-new-translation-button-label": "Yeni tərcümə",
+	"sx-section-selector-close-button-aria-label": "Təsdiq addımı düyməsinə keçin",
+	"sx-quick-tutorial-next-button-aria-label": "Növbəti öyrədici səhifəyə keçin"
 }
