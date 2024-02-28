@@ -426,5 +426,6 @@
 	"cx-contributecard-entrypoint-title": "번역",
 	"cx-contributecard-entrypoint-desc": "하나 이상의 문단 또는 문서 전체를 번역하세요. 더 많은 언어로 볼 수 있는 더 많은 내용을 만드세요.",
 	"cx-contributecard-entrypoint-cta": "번역 시작하기",
-	"cx-sx-dashboard-help-panel-stats-label": "통계"
+	"cx-sx-dashboard-help-panel-stats-label": "통계",
+	"cx-sx-dashboard-stats-panel-title": "당신의 영향"
 }
