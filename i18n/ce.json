@@ -162,7 +162,7 @@
 	"echo-category-title-cx": "Гочдарш",
 	"cx-contributions-link": "Хьан къинхьегам",
 	"cx-your-translations-link": "{{GENDER:$1|Хьан гочдарш}}",
-	"cx-translationlist-empty-title": "ХӀума дац гочдан?",
+	"cx-translationlist-empty-title": "Гочдан хӏума дац?",
 	"cx-translationlist-empty-desc": "ХӀинца гочдар {{GENDER:|долина}}, муьлхачу хенахь чекхдаккха.",
 	"cx-draft-restored": "Ӏалашдина гочдарш чудаьхна.",
 	"cx-suggestionlist-expand": "Хьажа йерриге",
