@@ -67,6 +67,8 @@
 	"tag-contenttranslation-v2-description": "이 내용은 버전 2의 내용 번역 도구를 사용하여 다른 언어에서 번역되었습니다.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|문단 번역]]",
 	"tag-sectiontranslation-description": "문단 내용은 내용 번역 도구의 문단 번역 기능을 사용하여 다른 언어로 번역되었습니다.",
+	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|내용 번역: 수정하지 않은 기계 번역의 높은 사용률]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "ContentTranslation을 사용하여 게시한 번역에 수정되지 않은 기계 번역의 비율이 높습니다",
 	"cx-source-loading": "$1 문서를 불러오는 중",
 	"cx-beta": "내용 번역",
 	"cx-beta-desc": "문서를 사용자의 언어로 빠르게 번역하기 위한 도구입니다. [[Special:MyContributions|사용자의 기여 목록]]에서 번역을 시작하고, 번역을 위해 특별히 설계된 병렬식 편집기로 편집해보세요. 일부 도구들은 특정 언어에서만 이용 가능할 수 있습니다.",
