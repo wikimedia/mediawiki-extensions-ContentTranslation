@@ -7,6 +7,95 @@ const useSuggestionsFetch = () => {
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
   /**
+   * @param {SectionSuggestion|ArticleSuggestion|null|undefined} suggestion
+   * @return {boolean}
+   */
+  const isSuggestionValid = (suggestion) => {
+    if (!suggestion) {
+      return false;
+    }
+    const favoriteTitles = store.getters[
+      "suggestions/getFavoriteTitlesByLanguagePair"
+    ](sourceLanguage.value, targetLanguage.value);
+
+    /** @type {Translation[]} */
+    const translations = store.getters[
+      "translator/getTranslationsForLanguagePair"
+    ](sourceLanguage.value, targetLanguage.value);
+
+    const translationTitles = translations.map((t) => t.sourceTitle);
+
+    return (
+      !favoriteTitles.includes(suggestion.sourceTitle) &&
+      !translationTitles.includes(suggestion.sourceTitle)
+    );
+  };
+
+  /**
+   * @param {ArticleSuggestion} pageSuggestion
+   */
+  const isPageSuggestionValid = (pageSuggestion) => {
+    const { pageSuggestions } = store.state.suggestions;
+
+    const suggestionExists = pageSuggestions.some(
+      (suggestion) =>
+        suggestion.sourceLanguage === pageSuggestion.sourceLanguage &&
+        suggestion.targetLanguage === pageSuggestion.targetLanguage &&
+        suggestion.sourceTitle === pageSuggestion.sourceTitle
+    );
+
+    return !suggestionExists && isSuggestionValid(pageSuggestion);
+  };
+
+  /**
+   * @param {SectionSuggestion|null} sectionSuggestion
+   * @return {boolean}
+   */
+  const isSectionSuggestionValid = (sectionSuggestion) => {
+    if (!sectionSuggestion) {
+      return false;
+    }
+
+    const { sectionSuggestions } = store.state.suggestions;
+
+    const suggestionExists = sectionSuggestions.some(
+      (suggestion) =>
+        suggestion.sourceLanguage === sectionSuggestion.sourceLanguage &&
+        suggestion.targetLanguage === sectionSuggestion.targetLanguage &&
+        suggestion.sourceTitle === sectionSuggestion.sourceTitle
+    );
+
+    const appendixTargetTitles =
+      store.state.suggestions.appendixSectionTitles[targetLanguage.value] || [];
+
+    return (
+      !suggestionExists &&
+      isSuggestionValid(sectionSuggestion) &&
+      sectionSuggestion.isValid(appendixTargetTitles)
+    );
+  };
+
+  /**
+   * @param {ArticleSuggestion[]|SectionSuggestion[]} suggestions
+   * @return {Promise<any>}
+   */
+  const fetchPageMetadataForSuggestions = (suggestions) => {
+    // Catch any possible error, so that the loading indicator isn't displayed eternally
+    try {
+      const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
+
+      if (titles.length) {
+        return store.dispatch("mediawiki/fetchPageMetadata", {
+          language: sourceLanguage.value,
+          titles,
+        });
+      }
+    } catch (error) {
+      mw.log.error("Page suggestions fetching failed!");
+    }
+  };
+
+  /**
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
    * @return {Promise<string|null>}
@@ -36,39 +125,46 @@ const useSuggestionsFetch = () => {
    */
   const fetchNextPageSuggestionsSlice = async () => {
     store.commit("suggestions/increasePageSuggestionsLoadingCount");
-    const seed = await getSuggestionSeed(
-      sourceLanguage.value,
-      targetLanguage.value
-    );
 
     const numberOfSuggestionsToFetch = store.getters[
       "suggestions/getNumberOfPageSuggestionsToFetch"
     ](sourceLanguage.value, targetLanguage.value);
 
-    // Catch any possible error, so that the loading indicator isn't displayed eternally
-    try {
+    const fetchedSuggestions = [];
+
+    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+      const seed = await getSuggestionSeed(
+        sourceLanguage.value,
+        targetLanguage.value
+      );
+
+      // Seed should always be provided as we cannot fetch a section suggestion
+      // without using one. Thus, if no seed provided, suggestion fetching should stop
+      if (!seed) {
+        break;
+      }
+
       /** @type {ArticleSuggestion[]} */
-      const suggestions = await cxSuggestionsApi.fetchPageSuggestions(
+      let suggestions = await cxSuggestionsApi.fetchPageSuggestions(
         sourceLanguage.value,
         targetLanguage.value,
-        seed,
-        numberOfSuggestionsToFetch
+        seed
       );
 
-      suggestions.forEach((suggestion) =>
-        store.commit("suggestions/addPageSuggestion", suggestion)
+      suggestions = suggestions.filter((suggestion) =>
+        isPageSuggestionValid(suggestion)
       );
-      const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
 
-      if (titles.length) {
-        store.dispatch("mediawiki/fetchPageMetadata", {
-          language: sourceLanguage.value,
-          titles,
-        });
-      }
-    } catch (error) {
-      mw.log.error("Page suggestions fetching failed!");
+      // only keep the needed number of suggestions, to avoid having suggestions of only one seed
+      suggestions = suggestions.slice(0, numberOfSuggestionsToFetch);
+      fetchedSuggestions.push(...suggestions);
     }
+    fetchedSuggestions.forEach((suggestion) =>
+      store.commit("suggestions/addPageSuggestion", suggestion)
+    );
+
+    fetchPageMetadataForSuggestions(fetchedSuggestions);
+
     store.commit("suggestions/decreasePageSuggestionsLoadingCount");
   };
 
@@ -85,9 +181,9 @@ const useSuggestionsFetch = () => {
       "suggestions/getNumberOfSectionSuggestionsToFetch"
     ](sourceLanguage.value, targetLanguage.value);
 
-    let fetchedSuggestionCounter = 0;
+    const fetchedSuggestions = [];
 
-    while (fetchedSuggestionCounter < numberOfSuggestionsToFetch) {
+    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
       const seed = await getSuggestionSeed(
         sourceLanguage.value,
         targetLanguage.value
@@ -105,27 +201,19 @@ const useSuggestionsFetch = () => {
         targetLanguage.value
       );
 
-      const appendixTargetTitles =
-        store.state.suggestions.appendixSectionTitles[targetLanguage.value] ||
-        [];
-
-      if (suggestion?.isValid(appendixTargetTitles)) {
-        fetchedSuggestionCounter++;
-        store.commit("suggestions/addSectionSuggestion", suggestion);
+      if (!isSectionSuggestionValid(suggestion)) {
+        continue;
       }
+
+      fetchedSuggestions.push(suggestion);
     }
 
+    fetchedSuggestions.forEach((suggestion) =>
+      store.commit("suggestions/addSectionSuggestion", suggestion)
+    );
+
+    fetchPageMetadataForSuggestions(fetchedSuggestions);
     store.commit("suggestions/decreaseSectionSuggestionsLoadingCount");
-
-    const titles = store.getters["suggestions/getSectionSuggestionsForPair"](
-      sourceLanguage.value,
-      targetLanguage.value
-    ).map((suggestion) => suggestion.sourceTitle);
-
-    store.dispatch("mediawiki/fetchPageMetadata", {
-      language: sourceLanguage.value,
-      titles,
-    });
   };
 
   return {

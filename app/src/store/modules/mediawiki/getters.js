@@ -61,7 +61,7 @@ export default {
     const targetLanguage = rootState.application.targetLanguage;
     /** @type Translation[] */
     const translations = rootGetters[
-      "translator/getAllTranslationsForLanguagePair"
+      "translator/getTranslationsForLanguagePair"
     ](sourceLanguage, targetLanguage);
     const translationsSlice = translations.slice(
       0,

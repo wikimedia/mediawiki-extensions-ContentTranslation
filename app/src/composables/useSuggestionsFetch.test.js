@@ -1,4 +1,5 @@
 import suggestionsStoreModule from "@/store/modules/suggestions";
+import translatorStoreModule from "@/store/modules/translator";
 import appendixTitles from "@/utils/appendix/appendixTitles.json";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
 import { createStore } from "vuex";
@@ -46,10 +47,12 @@ global.fetch = jest.fn((url) => {
 const seeds = Object.keys(dummySeedArticles);
 
 const {
-  sectionSuggestionsForArticleExists,
   getSectionSuggestionsForPair,
   findSuggestionSeedCollection,
+  getFavoriteTitlesByLanguagePair,
 } = suggestionsStoreModule.getters;
+
+const { getTranslationsForLanguagePair } = translatorStoreModule.getters;
 
 const {
   addSectionSuggestion,
@@ -61,6 +64,7 @@ const state = {
   sectionSuggestionsLoadingCount: 0,
   sectionSuggestions: [],
   appendixSectionTitles: appendixTitles,
+  favorites: [],
   suggestionSeedCollections: [
     new SuggestionSeedCollection({
       sourceLanguage: "en",
@@ -74,7 +78,7 @@ const testSuggestionsStoreModule = {
   namespaced: true,
   state,
   getters: {
-    sectionSuggestionsForArticleExists,
+    getFavoriteTitlesByLanguagePair,
     getSectionSuggestionsForPair,
     findSuggestionSeedCollection,
     getNumberOfSectionSuggestionsToFetch: () => () => 3,
@@ -102,6 +106,15 @@ const store = createStore({
       },
     },
     suggestions: testSuggestionsStoreModule,
+    translator: {
+      namespaced: true,
+      getters: {
+        getTranslationsForLanguagePair,
+      },
+      state: {
+        translations: [],
+      },
+    },
   },
 });
 

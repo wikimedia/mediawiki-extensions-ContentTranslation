@@ -51,14 +51,6 @@ export default {
           suggestionItem.targetLanguage === targetLanguage &&
           suggestionItem.sourceTitle === sourceTitle
       ),
-  sectionSuggestionsForArticleExists:
-    (state) => (sourceLanguage, targetLanguage, sourceTitle) =>
-      state.sectionSuggestions.some(
-        (suggestionItem) =>
-          suggestionItem.sourceLanguage === sourceLanguage &&
-          suggestionItem.targetLanguage === targetLanguage &&
-          suggestionItem.sourceTitle === sourceTitle
-      ),
   /**
    * This getter returns the first (by order of appearance) appendix section
    * title found inside target article page. Appendix section titles for each

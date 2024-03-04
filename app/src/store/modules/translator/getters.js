@@ -1,16 +1,4 @@
 export default {
-  /**
-   * @param {Object} state
-   * @return {function(string, string): Translation[]}
-   */
-  getPublishedTranslationsForLanguagePair:
-    (state) => (sourceLanguage, targetLanguage) =>
-      state.translations.filter(
-        (translationItem) =>
-          translationItem.sourceLanguage === sourceLanguage &&
-          translationItem.targetLanguage === targetLanguage &&
-          translationItem.status === "published"
-      ),
   getTranslationsByStatus:
     (state) =>
     /**
@@ -29,13 +17,12 @@ export default {
    * @param state
    * @return {function(sourceLanguage: string, targetLanguage: string): Translation[]}
    */
-  getAllTranslationsForLanguagePair:
-    (state) => (sourceLanguage, targetLanguage) =>
-      state.translations.filter(
-        (translation) =>
-          translation.sourceLanguage === sourceLanguage &&
-          translation.targetLanguage === targetLanguage
-      ),
+  getTranslationsForLanguagePair: (state) => (sourceLanguage, targetLanguage) =>
+    state.translations.filter(
+      (translation) =>
+        translation.sourceLanguage === sourceLanguage &&
+        translation.targetLanguage === targetLanguage
+    ),
   getDraftTranslation:
     (state) => (pageTitle, sectionTitle, sourceLanguage, targetLanguage) =>
       state.translations
