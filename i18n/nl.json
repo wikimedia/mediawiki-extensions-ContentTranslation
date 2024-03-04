@@ -12,6 +12,7 @@
 			"Elroy",
 			"Encycloon",
 			"FabianRM",
+			"HanV",
 			"JurgenNL",
 			"M!dgard",
 			"Mainframe98",
@@ -334,7 +335,7 @@
 	"cx-sx-sentence-selector-header-title": "Vertaal deze sectie",
 	"cx-sx-sentence-selector-done-button-label": "Afgerond",
 	"cx-sx-sentence-selector-suggested-translation-title": "Voorgestelde vertaling van $1",
-	"cx-sx-proposed-translation-not-available-message": "Machinevertaling is momenteel niet beschikbaar",
+	"cx-sx-proposed-translation-not-available-message": "Op dit moment niet beschikbaar",
 	"cx-sx-proposed-translation-retry-button": "Opnieuw proberen",
 	"cx-sx-proposed-translation-other-options-button": "Andere opties",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Vertaling bewerken",
@@ -504,7 +505,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Deze vertaling is op een ander apparaat begonnen en bevat inhoud voor meerdere secties van het artikel.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Op mobiel kunt u maar met één sectie tegelijk werken. Voorlopig wordt dus alleen het hoofdgedeelte geladen.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Waar zijn de andere secties?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Geen zorgen. De overige secties gaan niet verloren. Ze komen beschikbaar zodra u de huidige vertaling als nieuw artikel publiceert. Na publicatie vindt u nieuwe lopende vertalingen met de inhoud van elke sectie.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Geen zorgen. De overige secties gaan niet verloren. Ze zijn nu beschikbaar in de lijst van uw lopende vertalingen en kunnen worden gebruikt om het bestaande artikel uit te breiden. U vindt een nieuwe lopende vertaling met de inhoud voor elke sectie.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Nieuwe vertaling"
 }

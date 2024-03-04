@@ -313,7 +313,7 @@
 	"cx-sx-sentence-selector-header-title": "Käännä osio",
 	"cx-sx-sentence-selector-done-button-label": "Valmis",
 	"cx-sx-sentence-selector-suggested-translation-title": "Ehdotettu käännös ($1)",
-	"cx-sx-proposed-translation-not-available-message": "Konekäännös ei ole tällä hetkellä saatavilla",
+	"cx-sx-proposed-translation-not-available-message": "Ei saatavilla juuri nyt",
 	"cx-sx-proposed-translation-retry-button": "Yritä uudelleen",
 	"cx-sx-proposed-translation-other-options-button": "Muut valinnat",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Muokkaa käännöstä",
@@ -427,11 +427,13 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Tässä kuussa",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Yhteensä",
 	"sx-confirm-back-navigation-dialog-body": "Kaikki muutoksesi häviävät.",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Jatka",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Jatka muokkaamista",
 	"cx-sx-login-dialog-title": "Istuntosi on vanhentunut",
 	"cx-sx-login-dialog-button-label": "Kirjaudu sisään",
 	"sx-translation-deletion-cancel-button-label": "Peruuta",
+	"sx-translation-deletion-confirm-button-label": "Poista käännös",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 päivä|$1 päivää|0=Tänään}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 kuukausi|$1 kuukautta}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 vuosi|$1 vuotta}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 vuosi|$1 vuotta}}",
+	"sx-published-translation-new-translation-button-label": "Uusi käännös"
 }

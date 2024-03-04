@@ -7,15 +7,15 @@
 			"Sveinn í Felli"
 		]
 	},
-	"apihelp-cxpublish-summary": "Vista síðu sem var búin til með Content Translation viðbótinni.",
+	"apihelp-cxpublish-summary": "Vista síðu sem var búin til með Content Translation-viðbótinni.",
 	"apihelp-cxpublish-param-html": "Efnið til að vista.",
 	"apihelp-cxpublish-param-from": "Kóði frummálsins.",
 	"apihelp-cxpublish-param-to": "Kóði markmálsins.",
-	"apihelp-cxpublish-param-sourcetitle": "Titill frumgreinarinnar.",
+	"apihelp-cxpublish-param-sourcetitle": "Titill frumsíðunnar.",
 	"apihelp-cxpublish-param-categories": "Flokkarnir sem á að setja útgefnu síðuna í.",
 	"apihelp-query+contenttranslation-param-from": "Kóði frummálsins.",
 	"apihelp-query+contenttranslation-param-to": "Kóði markmálsins.",
-	"apihelp-query+contenttranslation-param-sourcetitle": "Titill upprunalegu greinarinnar.",
+	"apihelp-query+contenttranslation-param-sourcetitle": "Titill frumsíðunnar.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Kóði frummálsins.",
 	"apihelp-query+contenttranslationsuggestions-param-to": "Kóði markmálsins.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Kóði frummálsins.",
@@ -35,5 +35,5 @@
 	"apihelp-cxsuggestionlist-param-to": "Kóði markmálsins.",
 	"apihelp-cxsave-param-from": "Kóði frummálsins.",
 	"apihelp-cxsave-param-to": "Kóði markmálsins.",
-	"apihelp-cxsave-param-sourcetitle": "Titill upprunalegu greinarinnar."
+	"apihelp-cxsave-param-sourcetitle": "Titill frumsíðunnar."
 }
