@@ -168,12 +168,8 @@ class SectionTranslationStore {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
-		$onClauseConditions = [
-			'translator_translation_id = translation_id',
-			'translator_user_id' => $userId
-		];
+		$whereConditions = [ 'translation_started_by' => $userId ];
 
-		$whereConditions = [];
 		if ( $status !== null ) {
 			$statusIndex = self::getStatusIndexByStatus( $status );
 			$isPublishedCondition = $dbr->makeList(
@@ -200,7 +196,6 @@ class SectionTranslationStore {
 			->select( ISQLPlatform::ALL_ROWS )
 			->from( TranslationStore::TRANSLATION_TABLE_NAME )
 			->leftJoin( self::TABLE_NAME, null, 'translation_id = cxsx_translation_id' )
-			->join( TranslationStore::TRANSLATOR_TABLE_NAME, null, $onClauseConditions )
 			->where( $whereConditions )
 			->orderBy( 'translation_last_updated_timestamp', SelectQueryBuilder::SORT_DESC )
 			->limit( $limit )
