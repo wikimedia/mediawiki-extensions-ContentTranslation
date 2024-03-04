@@ -1090,7 +1090,8 @@
 				"vue",
 				"mw.cx.SiteMapper",
 				"mw.cx.util",
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"codex-search-styles"
 			]
 		},
 		"ext.cx.entrypoints.newarticle": {

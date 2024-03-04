@@ -45,7 +45,7 @@
 		entrypointContainer.className = 'sx-recent-translation-entrypoint';
 
 		bannerContainer.className = 'sx-recent-translation-banner';
-		iconContainer.className = 'sx-recent-translation-banner__icon mw-ui-icon';
+		iconContainer.className = 'sx-recent-translation-banner__icon';
 		contentContainer = createContent();
 		bannerContainer.appendChild( iconContainer );
 		bannerContainer.appendChild( contentContainer );

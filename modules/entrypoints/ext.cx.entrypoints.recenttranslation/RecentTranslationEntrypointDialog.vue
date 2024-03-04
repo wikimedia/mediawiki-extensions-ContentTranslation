@@ -6,7 +6,7 @@
 				<div class="sx-recent-translation-dialog__header-text col">
 					<h3 v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-header' )"></h3>
 				</div>
-				<span class="sx-recent-translation-dialog__header-close-icon mw-ui-icon" @click="closeDialog"></span>
+				<span class="sx-recent-translation-dialog__header-close-icon" @click="closeDialog"></span>
 			</div>
 			<div v-if="missingSections.length > 0" class="sx-recent-translation-dialog__action-switches row">
 				<button
@@ -48,8 +48,11 @@
 							</p>
 						</li>
 					</ol>
-					<button class="sx-recent-translation-dialog__edit-button mw-ui-button mw-ui-progressive" @click="openVE">
-						<span class="sx-recent-translation-dialog__edit-icon mw-ui-icon">
+					<button
+						class="sx-recent-translation-dialog__edit-button cdx-button cdx-button--action-progressive cdx-button--weight-primary"
+						@click="openVE"
+					>
+						<span class="sx-recent-translation-dialog__edit-icon cdx-button__icon">
 						</span>
 						<span v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-edit-button-label' )"></span>
 					</button>
@@ -65,7 +68,7 @@
 							:href="originalPageUrl"
 							target="_blank"
 						>
-							<span class="sx-recent-translation-dialog__original-page-icon mw-ui-icon"></span>
+							<span class="sx-recent-translation-dialog__original-page-icon"></span>
 						</a>
 					</div>
 				</div>
@@ -74,8 +77,11 @@
 						class="sx-recent-translation-dialog__add-sections-tab__lead-text"
 						v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-add-sections-lead-text' )"
 					></p>
-					<a :href="sxUrl" class="sx-recent-translation-dialog__translate-button mw-ui-button mw-ui-progressive">
-						<span class="sx-recent-translation-dialog__language-icon mw-ui-icon">
+					<a
+						:href="sxUrl"
+						class="sx-recent-translation-dialog__translate-button cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--action-progressive cdx-button--weight-primary"
+					>
+						<span class="sx-recent-translation-dialog__language-icon cdx-button__icon">
 						</span>
 						<span v-text="$i18n( 'sx-recent-translation-entrypoint-dialog-translate-button-label' )"></span>
 					</a>
@@ -191,18 +197,7 @@ module.exports = {
 </script>
 
 <style lang="less">
-// Copying variables from 'mediawiki.skin.variables.less'
-@background-color-base: #fff;
-@background-color-interactive-subtle: #f8f9fa;
-@color-base: #202122;
-@color-progressive: #36c;
-@color-subtle: #72777d;
-@border-width-base: 1px;
-@border-style-base: solid;
-
-.icon(@path) {
-	background: center / contain no-repeat url( @path );
-}
+@import "mediawiki.skin.variables.less";
 
 .sx-recent-translation-dialog {
 	display: flex;
@@ -235,6 +230,7 @@ module.exports = {
 
 	p {
 		color: @color-base;
+		font-weight: @font-weight-light;
 	}
 
 	&__overlay {
@@ -258,7 +254,8 @@ module.exports = {
 
 		&-close-icon {
 			cursor: pointer;
-			.icon('../images/close-icon.svg'); }
+			.cdx-mixin-css-icon(@cdx-icon-close);
+		}
 
 		h3 {
 			padding: 0;
@@ -277,8 +274,13 @@ module.exports = {
 		padding: 12px 0;
 		font-weight: bold;
 
+		border-bottom: solid 3px;
 		&--enabled {
-			border-bottom: solid 3px @color-base;
+			border-bottom-color: @color-base;
+		}
+
+		&:not(&--enabled) {
+			border-bottom-color: transparent;
 		}
 
 		&:not( :last-of-type ) {
@@ -324,6 +326,7 @@ module.exports = {
 			counter-increment: review-list-counter;
 			list-style-type: none;
 			position: relative;
+			margin-bottom: 16px;
 			// Styles for list number
 			&::before {
 				font-family: sans-serif;
@@ -332,7 +335,6 @@ module.exports = {
 				font-weight: bold;
 				position: absolute;
 				left: 0;
-				top: -2px;
 			}
 
 			h4 {
@@ -349,7 +351,7 @@ module.exports = {
 	}
 
 	& &__edit-button {
-		margin-top: 36px;
+		margin-top: 20px;
 
 		[ dir='ltr' ] & {
 			margin-left: 12px;
@@ -365,11 +367,13 @@ module.exports = {
 	}
 
 	&__edit-icon {
-		.icon('../images/edit-icon.svg');
+		.cdx-mixin-css-icon( @cdx-icon-edit, @param-is-button-icon: true );
+		margin-right: 8px;
 	}
 
 	&__language-icon {
-		.icon('../images/language-icon.svg');
+		.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
+		margin-right: 8px;
 	}
 
 	&__original-page {
@@ -391,10 +395,8 @@ module.exports = {
 			color: @color-progressive;
 		}
 
-		&-icon-anchor {
-			span {
-				.icon('../images/external-link-icon.svg');
-			}
+		&-icon {
+			.cdx-mixin-css-icon( @cdx-icon-link-external );
 		}
 	}
 
