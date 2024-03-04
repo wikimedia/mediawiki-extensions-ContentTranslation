@@ -1057,7 +1057,6 @@
 			]
 		},
 		"ext.cx.entrypoints.recenttranslation": {
-			"es6": true,
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.recenttranslation/index.js",
 				"entrypoints/ext.cx.entrypoints.recenttranslation/RecentTranslationEntrypointDialog.vue"
@@ -1091,7 +1090,8 @@
 				"mw.cx.SiteMapper",
 				"mw.cx.util",
 				"jquery.uls.data",
-				"codex-search-styles"
+				"codex-search-styles",
+				"mediawiki.router"
 			]
 		},
 		"ext.cx.entrypoints.newarticle": {

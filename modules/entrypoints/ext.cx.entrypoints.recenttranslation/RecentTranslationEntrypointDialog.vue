@@ -159,7 +159,7 @@ module.exports = {
 			this.showDialog = false;
 		},
 		openVE: function () {
-			const router = mw.loader.require( 'mediawiki.router' );
+			const router = require( 'mediawiki.router' );
 			router.navigate( '/editor/all' );
 			this.closeDialog();
 		},
