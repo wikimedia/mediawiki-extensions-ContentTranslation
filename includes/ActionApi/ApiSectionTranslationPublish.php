@@ -19,7 +19,6 @@ use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\Service\SectionPositionCalculator;
-use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Service\TranslationTargetUrlCreator;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
@@ -42,7 +41,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SectionPositionCalculator $sectionPositionCalculator;
 	private SandboxTitleMaker $sandboxTitleMaker;
 	private SectionTranslationStore $sectionTranslationStore;
-	private TranslationSplitter $translationSplitter;
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
 
@@ -56,7 +54,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param SectionPositionCalculator $sectionPositionCalculator
 	 * @param SandboxTitleMaker $sandboxTitleMaker
 	 * @param SectionTranslationStore $sectionTranslationStore
-	 * @param TranslationSplitter $translationSplitter
 	 * @param TranslationStore $translationStore
 	 * @param TranslationTargetUrlCreator $targetUrlCreator
 	 */
@@ -70,7 +67,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		SectionPositionCalculator $sectionPositionCalculator,
 		SandboxTitleMaker $sandboxTitleMaker,
 		SectionTranslationStore $sectionTranslationStore,
-		TranslationSplitter $translationSplitter,
 		TranslationStore $translationStore,
 		TranslationTargetUrlCreator $targetUrlCreator
 	) {
@@ -82,7 +78,6 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sectionPositionCalculator = $sectionPositionCalculator;
 		$this->sandboxTitleMaker = $sandboxTitleMaker;
 		$this->sectionTranslationStore = $sectionTranslationStore;
-		$this->translationSplitter = $translationSplitter;
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
 	}
