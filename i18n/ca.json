@@ -19,7 +19,9 @@
 			"QuimGil",
 			"Ssola",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Dušan Kreheľ",
+			"Lluis Cat"
 		]
 	},
 	"cx": "Tradueix la pàgina",
@@ -200,6 +202,7 @@
 	"cx-tools-linter-page-exists": "La pàgina ja existeix",
 	"cx-tools-linter-cannot-publish-action-label": "Marca per publicar com esborrany",
 	"cx-tools-linter-template": "Plantilla no disponible",
+	"cx-tools-linter-template-block-message": "La pàgina original utilitza una plantilla que no està disponible al wiki de destinació.\n\nAquesta plantilla s'ha omès, però podeu afegir contingut nou per representar la informació que falta.",
 	"cx-tools-linter-template-add-new": "Afegeix una plantilla nova",
 	"cx-tools-linter-old-revision": "Traducció basada en una versió antiga de la pàgina",
 	"cx-tools-linter-old-revision-label": "Reinicia la traducció",
