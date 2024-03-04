@@ -45,6 +45,10 @@ const emit = defineEmits([
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
 
+/**
+ * Three possible values: "source", "target" or null
+ * @type {Ref<"source"|"target"|null>}
+ */
 const dialogSwitch = ref(null);
 const dialogOn = computed(() => !!dialogSwitch.value);
 
@@ -52,6 +56,20 @@ const openSourceLanguageDialog = () => (dialogSwitch.value = "source");
 const openTargetLanguageDialog = () => (dialogSwitch.value = "target");
 
 const closeDialog = () => (dialogSwitch.value = null);
+
+const dialogLanguages = computed(() => {
+  if (!dialogOn.value) {
+    return;
+  }
+  const languagesPropsNameMap = {
+    source: "sourceLanguages",
+    target: "targetLanguages",
+  };
+
+  const languagesPropName = languagesPropsNameMap[dialogSwitch.value];
+
+  return props[languagesPropName];
+});
 
 const onLanguageSelected = (language) => {
   const eventMap = {
@@ -139,7 +157,7 @@ const allLanguagesSelectedAsTarget = computed(
       <mw-language-selector
         class="sx-translation-list-language-selector__widget col-12"
         :placeholder="$i18n('cx-sx-language-selector-placeholder')"
-        :languages="sourceLanguages"
+        :languages="dialogLanguages"
         :all-option-enabled="allOptionEnabled"
         @select="onLanguageSelected"
         @close="closeDialog"
