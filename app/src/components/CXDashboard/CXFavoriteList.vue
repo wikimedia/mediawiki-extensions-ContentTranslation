@@ -14,7 +14,7 @@
       :key="`favorite-${index}`"
       :suggestion="suggestion"
       @click="startFavoriteTranslation(suggestion)"
-      @bookmark="unmarkFavoriteSectionSuggestion(suggestion)"
+      @bookmark="removeFavoriteSuggestion(suggestion)"
     />
   </mw-card>
 </template>
@@ -23,7 +23,7 @@
 import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwCard } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
-import { unmarkFavoriteSectionSuggestion } from "./useFavorites";
+import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
@@ -47,10 +47,12 @@ export default {
       router.push({ name: "sx-translation-confirmer" });
     };
 
+    const { removeFavoriteSuggestion } = useSuggestionsBookmark();
+
     return {
       favorites,
       startFavoriteTranslation,
-      unmarkFavoriteSectionSuggestion,
+      removeFavoriteSuggestion,
     };
   },
 };

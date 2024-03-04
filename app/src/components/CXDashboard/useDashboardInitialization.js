@@ -8,6 +8,7 @@ import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
+import useFavoritesFetch from "@/components/CXDashboard/useFavoritesFetch";
 
 /**
  * @return {{isDraftTranslation: boolean, pageTitle: string, sectionTitle: string|null}|null}
@@ -32,6 +33,7 @@ const useDashboardInitialization = () => {
   const startSectionTranslationFromUrl = useUrlTranslationStart();
   const { fetchAllTranslations } = useTranslationsFetch();
   const initializeSuggestions = useSuggestionsInitialize();
+  const fetchFavorites = useFavoritesFetch();
 
   return async () => {
     const initializeLanguages = useApplicationLanguagesInitialize();
@@ -77,7 +79,7 @@ const useDashboardInitialization = () => {
     // inside Dashboard will be empty and appendix section titles won't be fetched
     // in case of unsuccessful favorites/translations fetching.
     try {
-      await store.dispatch("suggestions/fetchFavorites");
+      await fetchFavorites();
     } catch (error) {
       // Let favorite fetching gracefully fail
       mw.log.error("[CX] Error while fetching favorite suggestions", error);

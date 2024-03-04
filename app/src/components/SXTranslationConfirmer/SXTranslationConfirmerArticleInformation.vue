@@ -11,6 +11,7 @@ import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { useStore } from "vuex";
+import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 
 const store = useStore();
 
@@ -21,29 +22,30 @@ const {
 
 const favorites = computed(() => store.state.suggestions.favorites || []);
 
-const isFavorite = computed(() =>
-  favorites.value.some(
-    (favorite) =>
-      sectionSuggestion.value.sourceTitle === favorite.title &&
-      sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
-      sectionSuggestion.value.targetLanguage === favorite.targetLanguage
-  )
+const isFavorite = computed(
+  () =>
+    !!sectionSuggestion.value &&
+    favorites.value.some(
+      (favorite) =>
+        sectionSuggestion.value.sourceTitle === favorite.title &&
+        sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
+        sectionSuggestion.value.targetLanguage === favorite.targetLanguage
+    )
 );
 
-const unmarkSuggestionAsFavorite = async () =>
-  store.dispatch(
-    "suggestions/removeFavoriteSuggestion",
+const { markFavoriteSectionSuggestion, removeFavoriteSuggestion } =
+  useSuggestionsBookmark();
+
+const markSuggestionAsFavorite = () =>
+  markFavoriteSectionSuggestion(sectionSuggestion.value);
+
+const unmarkSuggestionAsFavorite = () =>
+  removeFavoriteSuggestion(
     new FavoriteSuggestion({
       title: sectionSuggestion.value.sourceTitle,
       sourceLanguage: sectionSuggestion.value.sourceLanguage,
       targetLanguage: sectionSuggestion.value.targetLanguage,
     })
-  );
-
-const markSuggestionAsFavorite = async () =>
-  store.dispatch(
-    "suggestions/doMarkSuggestionAsFavorite",
-    sectionSuggestion.value
   );
 
 const bookmarkIcon = computed(() =>

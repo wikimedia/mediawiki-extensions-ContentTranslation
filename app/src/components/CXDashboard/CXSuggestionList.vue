@@ -13,6 +13,7 @@ import useSectionTranslationStart from "@/composables/useSectionTranslationStart
 import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconReload } from "@wikimedia/codex-icons";
+import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 
 const props = defineProps({
   active: {
@@ -67,17 +68,8 @@ const refreshSuggestions = () => {
   pageSuggestionsList.value.$el.scrollIntoView({ behavior: "smooth" });
 };
 
-/**
- * @param {SectionSuggestion} suggestion
- */
-const markFavoriteSectionSuggestion = async (suggestion) =>
-  store.dispatch("suggestions/addSectionSuggestionAsFavorite", suggestion);
-
-/**
- * @param {ArticleSuggestion} suggestion
- */
-const markFavoritePageSuggestion = async (suggestion) =>
-  store.dispatch("suggestions/addPageSuggestionAsFavorite", suggestion);
+const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
+  useSuggestionsBookmark();
 </script>
 
 <template>

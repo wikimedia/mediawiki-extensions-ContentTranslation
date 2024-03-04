@@ -1,7 +1,6 @@
 import cxSuggestionsApi from "../../../wiki/cx/api/suggestions";
 import SuggestionSeedCollection from "../../../wiki/cx/models/suggestionSeedCollection";
 import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
-import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 
 /**
@@ -311,128 +310,11 @@ async function fetchAppendixSectionTitles({ getters, commit }, language) {
   });
 }
 
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {SectionSuggestion} sectionSuggestion
- */
-async function addSectionSuggestionAsFavorite(
-  { commit, dispatch },
-  sectionSuggestion
-) {
-  commit("removeSectionSuggestion", sectionSuggestion);
-  dispatch("fetchNextSectionSuggestionsSlice");
-  dispatch("doMarkSuggestionAsFavorite", sectionSuggestion);
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {ArticleSuggestion} pageSuggestion
- */
-async function addPageSuggestionAsFavorite(
-  { commit, dispatch },
-  pageSuggestion
-) {
-  commit("removePageSuggestion", pageSuggestion);
-  dispatch("fetchNextPageSuggestionsSlice");
-  dispatch("doMarkSuggestionAsFavorite", pageSuggestion);
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {SectionSuggestion|ArticleSuggestion} suggestion
- * @return {Promise<void>}
- */
-async function doMarkSuggestionAsFavorite({ commit, dispatch }, suggestion) {
-  await cxSuggestionsApi.markFavorite(suggestion);
-  const { sourceTitle: title, sourceLanguage, targetLanguage } = suggestion;
-  const favoriteSuggestion = new FavoriteSuggestion({
-    title,
-    sourceLanguage,
-    targetLanguage,
-  });
-  commit("addFavoriteSuggestion", favoriteSuggestion);
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {FavoriteSuggestion} suggestion
- */
-async function removeFavoriteSuggestion({ commit }, suggestion) {
-  commit("removeFavoriteSuggestion", suggestion);
-  await cxSuggestionsApi.unmarkFavorite(suggestion);
-}
-
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @return {Promise<void>}
- */
-async function fetchFavorites({ commit, dispatch, state }) {
-  if (!!state.favorites.length) {
-    return;
-  }
-  /** @type {FavoriteSuggestion[]} */
-  const favorites = await cxSuggestionsApi.fetchFavorites();
-
-  if (!favorites || !favorites.length) {
-    // No favorites for Anon users. And logged-in users can also have no favorites.
-    return;
-  }
-
-  const favoritesGroupedByLanguage = {};
-
-  for (const favorite of favorites) {
-    commit("addFavoriteSuggestion", favorite);
-
-    /** @type {SectionSuggestion|null} */
-    cxSuggestionsApi
-      .fetchSectionSuggestions(
-        favorite.sourceLanguage,
-        favorite.title,
-        favorite.targetLanguage
-      )
-      .then(
-        (suggestion) =>
-          (favorite.missingSectionsCount =
-            suggestion?.missingSectionsCount || 0)
-      );
-
-    favoritesGroupedByLanguage[favorite.sourceLanguage] = [
-      ...(favoritesGroupedByLanguage[favorite.sourceLanguage] || []),
-      favorite,
-    ];
-  }
-
-  for (const [sourceLanguage, favorites] of Object.entries(
-    favoritesGroupedByLanguage
-  )) {
-    dispatch(
-      "mediawiki/fetchPageMetadata",
-      {
-        language: sourceLanguage,
-        titles: favorites.map((favorite) => favorite.title),
-      },
-      { root: true }
-    );
-  }
-}
-
 export default {
-  addPageSuggestionAsFavorite,
-  addSectionSuggestionAsFavorite,
-  doMarkSuggestionAsFavorite,
-  fetchFavorites,
   fetchAppendixSectionTitles,
   fetchNextPageSuggestionsSlice,
   fetchNextSectionSuggestionsSlice,
   getSuggestionSeed,
   initializeSuggestions,
   loadSectionSuggestion,
-  removeFavoriteSuggestion,
 };
