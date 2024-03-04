@@ -1,9 +1,13 @@
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
+import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 
 const useSuggestionsBookmark = () => {
   const store = useStore();
+
+  const { fetchNextSectionSuggestionsSlice, fetchNextPageSuggestionsSlice } =
+    useSuggestionsFetch();
 
   /**
    * @param {SectionSuggestion|ArticleSuggestion} suggestion
@@ -25,7 +29,7 @@ const useSuggestionsBookmark = () => {
    */
   const markFavoriteSectionSuggestion = (sectionSuggestion) => {
     store.commit("suggestions/removeSectionSuggestion", sectionSuggestion);
-    store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
+    fetchNextSectionSuggestionsSlice();
     doMarkSuggestionAsFavorite(sectionSuggestion);
   };
 
@@ -34,7 +38,7 @@ const useSuggestionsBookmark = () => {
    */
   const markFavoritePageSuggestion = (pageSuggestion) => {
     store.commit("suggestions/removePageSuggestion", pageSuggestion);
-    store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
+    fetchNextPageSuggestionsSlice();
     doMarkSuggestionAsFavorite(pageSuggestion);
   };
 

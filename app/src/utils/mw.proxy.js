@@ -67,6 +67,9 @@ const mw = {
     isAnon: () => false,
   },
   util: {},
+  log: {
+    error: console.error,
+  },
   config: {
     get: (name) => {
       switch (name) {

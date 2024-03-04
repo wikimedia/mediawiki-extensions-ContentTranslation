@@ -2,6 +2,7 @@ import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
+import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 
 const useSuggestions = () => {
   const store = useStore();
@@ -74,6 +75,11 @@ const useSuggestions = () => {
     fetchNextPageSuggestionSlice();
   };
 
+  const {
+    fetchNextSectionSuggestionsSlice: doFetchSectionSuggestionsSlice,
+    fetchNextPageSuggestionsSlice: doFetchPageSuggestionsSlice,
+  } = useSuggestionsFetch();
+
   const fetchNextSectionSuggestionSlice = () => {
     const isCurrentSliceFull =
       currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice;
@@ -87,7 +93,7 @@ const useSuggestions = () => {
         .length > 0;
 
     if (!isCurrentSliceFull || !isNextSliceFetched) {
-      store.dispatch("suggestions/fetchNextSectionSuggestionsSlice");
+      doFetchSectionSuggestionsSlice();
     }
     isCurrentSliceFull && increaseCurrentSectionSuggestionsSliceIndex();
   };
@@ -105,7 +111,7 @@ const useSuggestions = () => {
         .length > 0;
 
     if (!isCurrentSliceFull || !isNextSliceFetched) {
-      store.dispatch("suggestions/fetchNextPageSuggestionsSlice");
+      doFetchPageSuggestionsSlice();
     }
 
     isCurrentSliceFull && increaseCurrentPageSuggestionsSliceIndex();
