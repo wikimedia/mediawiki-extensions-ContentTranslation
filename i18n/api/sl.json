@@ -99,7 +99,7 @@
 	"apierror-cx-docserverexception": "Napaka pri pretvorbi HTML-ja v vikibesedilo: $1",
 	"apierror-cx-inuse": "Ta članek ravnokar prevaja že nek drug uporabnik.",
 	"apierror-cx-invalidsourcecategories": "Neveljavna JSON-kodirana matrika izvornih kategorij.",
-	"apierror-cx-invalidtargetcategories": "Neveljavna JSON-kodirana matrikaciljnih kategorij.",
+	"apierror-cx-invalidtargetcategories": "Neveljavna JSON-kodirana matrika ciljnih kategorij.",
 	"apierror-cx-invalidlanguage": "Neveljaven jezik.",
 	"apierror-cx-invalidprogress": "Neveljaven postopek.",
 	"apierror-cx-invalidsectioncontent": "Neveljavna vsebina razdelka.",
