@@ -80,37 +80,43 @@ const useSuggestions = () => {
     fetchNextPageSuggestionsSlice: doFetchPageSuggestionsSlice,
   } = useSuggestionsFetch();
 
+  /**
+   * @param {array} slice
+   */
+  const isSuggestionListSliceComplete = (slice) =>
+    slice.length === maxSuggestionsPerSlice;
+
   const fetchNextSectionSuggestionSlice = () => {
-    const isCurrentSliceFull =
-      currentSectionSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+    const isCurrentSliceFull = isSuggestionListSliceComplete(
+      currentSectionSuggestionsSlice.value
+    );
 
     const nextIndex =
       (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
-    const isNextSliceFetched =
-      isCurrentSliceFull &&
+    const isNextSliceFull = isSuggestionListSliceComplete(
       store.getters["application/getSectionSuggestionsSliceByIndex"](nextIndex)
-        .length > 0;
+    );
 
-    if (!isCurrentSliceFull || !isNextSliceFetched) {
+    if (!isCurrentSliceFull || !isNextSliceFull) {
       doFetchSectionSuggestionsSlice();
     }
     isCurrentSliceFull && increaseCurrentSectionSuggestionsSliceIndex();
   };
 
   const fetchNextPageSuggestionSlice = () => {
-    const isCurrentSliceFull =
-      currentPageSuggestionsSlice.value.length === maxSuggestionsPerSlice;
+    const isCurrentSliceFull = isSuggestionListSliceComplete(
+      currentPageSuggestionsSlice.value
+    );
 
     const nextIndex =
       (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
-    const isNextSliceFetched =
-      isCurrentSliceFull &&
+    const isNextSliceFull = isSuggestionListSliceComplete(
       store.getters["application/getPageSuggestionsSliceByIndex"](nextIndex)
-        .length > 0;
+    );
 
-    if (!isCurrentSliceFull || !isNextSliceFetched) {
+    if (!isCurrentSliceFull || !isNextSliceFull) {
       doFetchPageSuggestionsSlice();
     }
 
