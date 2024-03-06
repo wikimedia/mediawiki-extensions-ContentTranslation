@@ -28,6 +28,10 @@ class UnifiedDashboardPage extends Page {
 		return $$( ARTICLE_SUGGESTION_SELECTOR );
 	}
 
+	get sectionSuggestions() {
+		return $$( SECTION_SUGGESTION_SELECTOR );
+	}
+
 	get firstArticleSuggestion() {
 		return $( ARTICLE_SUGGESTION_SELECTOR );
 	}
@@ -130,6 +134,15 @@ class UnifiedDashboardPage extends Page {
 	}
 
 	async open() {
+		const dashboardQueryString =
+				'title=Special:ContentTranslation&unified-dashboard=true&campaign=specialcx&active-list=suggestions';
+		const dashboardURL = browser.config.baseUrl + '/index.php?' + dashboardQueryString;
+
+		const currentURL = await browser.getUrl();
+		if ( currentURL.includes( dashboardURL ) ) {
+			return;
+		}
+
 		await super.openTitle(
 			'Special:ContentTranslation',
 			{ 'unified-dashboard': true, campaign: 'specialcx', 'active-list': 'suggestions' }
@@ -177,48 +190,44 @@ class UnifiedDashboardPage extends Page {
 	 * @param {number} suggestionIndex
 	 * @return {Promise<string>}
 	 */
-	async dismissArticle( suggestionIndex ) {
+	async dismissPageSuggestion( suggestionIndex ) {
 		const suggestionToDismiss = await this.getArticleSuggestionByIndex( suggestionIndex );
-		const suggestionHeader = await this.getSuggestionSourceTitle( suggestionToDismiss );
-		const { sourceLanguage, targetLanguage } = await this.getLanguagePair();
+		const suggestionTitle = await this.getSuggestionSourceTitle( suggestionToDismiss );
 
-		browser.setupInterceptor();
 		await ElementAction.doClick( this.getDismissIconInSuggestion( suggestionToDismiss ) );
-		const recommendationRequest =
-			await InterceptorService.findAndWaitForRecommendationApiRequest( targetLanguage );
-		const recommendedPage = recommendationRequest.response.body.items[ 0 ];
-		await InterceptorService.findAndWaitForRemoteActionApiRequest(
-			sourceLanguage,
-			[
-				{ key: 'action', value: 'query' },
-				{ key: 'titles', value: recommendedPage.title }
-			],
-			'GET'
-		);
-		browser.disableInterceptor();
 
-		return suggestionHeader;
+		const checkIfArticleSuggestionsComplete =
+				async () => ( await this.articleSuggestions ).length === 3;
+
+		await browser.waitUntil( checkIfArticleSuggestionsComplete, { timeout: 10000 } );
+
+		return suggestionTitle;
+	}
+
+	getSourceTitlesBySuggestions( suggestions ) {
+		return Promise.all(
+			suggestions.map( ( suggestion ) => this.getSuggestionSourceTitle( suggestion ) )
+		);
 	}
 
 	async refreshSuggestions() {
 		const refreshButton = $( REFRESH_BUTTON_SELECTOR );
-		const { sourceLanguage, targetLanguage } = await this.getLanguagePair();
 
-		browser.setupInterceptor();
+		const waitForSuggestionsListToBeCompleted = () =>
+			browser.waitUntil( async () => {
+				const sectionSuggestionLength = ( await this.sectionSuggestions ).length;
+				const pageSuggestionLength = ( await this.articleSuggestions ).length;
+
+				return sectionSuggestionLength === 3 && pageSuggestionLength === 3;
+			}, { timeout: 10000 } );
+
+		await waitForSuggestionsListToBeCompleted();
+
+		// refresh pages
 		await ElementAction.doClick( refreshButton );
-		const recommendationRequest =
-			await InterceptorService.findAndWaitForRecommendationApiRequest( targetLanguage );
-		const titles = recommendationRequest.response.body.items.map( ( item ) => item.title )
-			.join( '|' );
-		await InterceptorService.findAndWaitForRemoteActionApiRequest(
-			sourceLanguage,
-			[
-				{ key: 'action', value: 'query' },
-				{ key: 'titles', value: titles }
-			],
-			'GET'
-		);
-		browser.disableInterceptor();
+
+		// check if suggestion lists are full after refresh
+		await waitForSuggestionsListToBeCompleted();
 	}
 
 	async publishNewTranslation( articleName ) {

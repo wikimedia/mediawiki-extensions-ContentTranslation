@@ -15,6 +15,17 @@ class InterceptorService {
 	}
 
 	/**
+	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} filterMethod
+	 * @param {boolean} includePending
+	 * @return {Promise<WdioInterceptorService.InterceptedRequest[]>}
+	 */
+	async filterRequests( filterMethod, includePending = true ) {
+		/** @type {WdioInterceptorService.InterceptedRequest[]} */
+		const requests = await browser.getRequests( { includePending } );
+		return requests.filter( filterMethod );
+	}
+
+	/**
 	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} findMethod
 	 * @param {Object} requestInfo Information about the request
 	 * @param {number} timeout Time to wait for the request to timeout
@@ -34,6 +45,35 @@ class InterceptorService {
 		};
 
 		return browser.waitUntil( () => this.findRequest( findMethod, false ), opts );
+	}
+
+	/**
+	 * @param {function(WdioInterceptorService.InterceptedRequest): boolean} filterMethod
+	 * @param {Object} requestInfo Information about the request
+	 * @param {number} timeout Time to wait for the request to timeout
+	 * @return {Promise<WdioInterceptorService.CompletedRequest[]>}
+	 */
+	async findAndWaitMultipleRequests( filterMethod, requestInfo, timeout = 5000 ) {
+		const requests = await this.filterRequests( filterMethod );
+		if ( !requests.length ) {
+			throw new Error( `Such request has not been sent. Details: ${ JSON.stringify( requestInfo ) }` );
+		} else if ( requests.every( ( request ) => !request.pending ) ) {
+			return requests;
+		}
+
+		const opts = {
+			timeoutMsg: `At least one request timed out in ${ timeout } ms. Details: ${ JSON.stringify( requestInfo ) }`,
+			timeout
+		};
+
+		return browser.waitUntil( async () => {
+			const updatedRequests = await this.filterRequests( filterMethod, false );
+			if ( requests.length === updatedRequests.length ) {
+				return updatedRequests;
+			}
+
+			return false;
+		}, opts );
 	}
 
 	/**
@@ -109,14 +149,14 @@ class InterceptorService {
 		);
 	}
 
-	async findAndWaitForRecommendationApiRequest( domain ) {
+	async findAndWaitForRecommendationApiRequests( domain ) {
 		const baseUrl = process.env.CX_RESTBASE_URL_TEMPLATE.replace( '{domain}', domain );
 		const partialUrl = baseUrl + '/data/recommendation/';
 
-		const findRequest = ( request ) => {
+		const filterMethod = ( request ) => {
 			return request.url.startsWith( partialUrl );
 		};
-		return this.findAndWaitRequest( findRequest, { url: partialUrl } );
+		return this.findAndWaitMultipleRequests( filterMethod, { url: partialUrl } );
 	}
 }
 

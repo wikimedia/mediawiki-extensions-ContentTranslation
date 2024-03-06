@@ -41,9 +41,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 	} );
 
 	it( 'should allow user to save/unsave a suggestion for later', async function () {
-		await LoginPage.loginAdmin();
 		await UnifiedDashboardPage.open();
-
 		// Save the article for later
 		const favoriteArticleHeading = await UnifiedDashboardPage.favoriteArticle( 0 );
 		let favoriteArticle = await UnifiedDashboardPage
@@ -59,8 +57,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 	it( 'should allow dismissing a suggestion', async function () {
 		await UnifiedDashboardPage.open();
-
-		const dismissedArticleTitle = await UnifiedDashboardPage.dismissArticle( 0 );
+		const dismissedArticleTitle = await UnifiedDashboardPage.dismissPageSuggestion( 0 );
 		const dismissedArticle = await UnifiedDashboardPage
 			.getArticleSuggestionByTitle( dismissedArticleTitle );
 		await expect( dismissedArticle ).toBeUndefined();
@@ -68,22 +65,45 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 	it( 'should allow refreshing suggestions', async function () {
 		await UnifiedDashboardPage.open();
-
-		const existingArticle1Title = await UnifiedDashboardPage.getSuggestionSourceTitle(
-			await UnifiedDashboardPage.getArticleSuggestionByIndex( 0 )
+		const sectionSuggestions = await UnifiedDashboardPage.sectionSuggestions;
+		// initial section suggestion source titles
+		const sectionSuggestionTitles = await UnifiedDashboardPage.getSourceTitlesBySuggestions(
+			sectionSuggestions
 		);
-		const existingArticle2Title = await UnifiedDashboardPage.getSuggestionSourceTitle(
-			await UnifiedDashboardPage.getArticleSuggestionByIndex( 1 )
+
+		const pageSuggestions = await UnifiedDashboardPage.articleSuggestions;
+		// initial page suggestion source titles
+		const pageSuggestionTitles = await UnifiedDashboardPage.getSourceTitlesBySuggestions(
+			pageSuggestions
 		);
 
 		await UnifiedDashboardPage.refreshSuggestions();
 
-		const oldArticle1 = await UnifiedDashboardPage
-			.getArticleSuggestionByTitle( existingArticle1Title );
-		const oldArticle2 = await UnifiedDashboardPage
-			.getArticleSuggestionByTitle( existingArticle2Title );
+		const updatedSectionSuggestions = await UnifiedDashboardPage.sectionSuggestions;
+		// updated section suggestion source titles
+		const newSectionSuggestionTitles = await UnifiedDashboardPage.getSourceTitlesBySuggestions(
+			updatedSectionSuggestions
+		);
 
-		await expect( oldArticle1 ).toBeUndefined();
-		await expect( oldArticle2 ).toBeUndefined();
+		const updatedArticleSuggestions = await UnifiedDashboardPage.articleSuggestions;
+		// updated page suggestion source titles
+		const newArticleSuggestionTitles = await UnifiedDashboardPage.getSourceTitlesBySuggestions(
+			updatedArticleSuggestions
+		);
+
+		// check that previous suggestions do not appear in the lists
+		for ( const suggestionTitle of pageSuggestionTitles ) {
+			const isMissing = newSectionSuggestionTitles.every(
+				( updatedTitle ) => updatedTitle !== suggestionTitle
+			);
+			await expect( isMissing ).toBe( true );
+		}
+
+		for ( const suggestionTitle of sectionSuggestionTitles ) {
+			const isMissing = newArticleSuggestionTitles.every(
+				( updatedTitle ) => updatedTitle !== suggestionTitle
+			);
+			await expect( isMissing ).toBe( true );
+		}
 	} );
 } );
