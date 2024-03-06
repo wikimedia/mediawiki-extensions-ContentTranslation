@@ -154,5 +154,7 @@
 	"apihelp-cxsplit-summary": "Create and save a section translation to database, for every translated section of the given article translation",
 	"apihelp-cxsplit-param-translationid": "The id of the translation, for which the section translations will be created.",
 	"apierror-cxsplit-anon-user": "\"cxsplit\" API action is not enabled for anonymous users",
-	"apierror-cxsplit-no-translation-found": "No translation found for the given id"
+	"apierror-cxsplit-no-translation-found": "No translation found for the given id",
+	"apihelp-cxcheckunreviewed-summary": "Check if any fast, unreviewed translation has been published recently for the current user.",
+	"apierror-cxcheckunreviewed-anon-user": "\"cxcheckunreviewed\" API action is not enabled for anonymous users"
 }

@@ -151,5 +151,7 @@
 	"apihelp-cxsplit-summary": "{{doc-apihelp-summary|cxsplit}}",
 	"apihelp-cxsplit-param-translationid": "{{doc-apihelp-param|cxsplit|translationid}}",
 	"apierror-cxsplit-anon-user": "{{doc-apierror}}",
-	"apierror-cxsplit-no-translation-found": "{{doc-apierror}}"
+	"apierror-cxsplit-no-translation-found": "{{doc-apierror}}",
+	"apihelp-cxcheckunreviewed-summary": "{{doc-apihelp-summary|cxcheckunreviewed}}",
+	"apierror-cxcheckunreviewed-anon-user": "{{doc-apierror}}"
 }

@@ -202,6 +202,14 @@
 				"ContentTranslation.SectionTranslationStore"
 			]
 		},
+		"cxcheckunreviewed": {
+			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationUnreviewedCheck",
+			"services": [
+				"ContentTranslation.TranslationStore",
+				"ContentTranslation.TranslationCorporaStore",
+				"ContentTranslation.UserService"
+			]
+		},
 		"cxsuggestionlist": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationSuggestionList",
 			"services": [

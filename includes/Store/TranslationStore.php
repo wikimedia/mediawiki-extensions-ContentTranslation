@@ -93,6 +93,35 @@ class TranslationStore {
 	}
 
 	/**
+	 * Given a user id, this method returns the last published translation for that translator,
+	 * which have been started within the last 10 minutes. If no published translation within
+	 * the last 10 minutes, null is returned.
+	 */
+	public function findRecentTranslationByUser( int $userId ): ?Translation {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$conditions = [
+			'translation_started_by' => $userId,
+			// Only fetch translations within 10 last minutes
+			// Translations older than 10 minutes, are not considered recent here
+			$dbr->expr( 'translation_start_timestamp', '>=', $dbr->timestamp( time() - ( 10 * 60 ) ) ),
+			// target URL is always not null for articles that have been published at some point
+			$dbr->expr( 'translation_target_url', '!=', null ),
+		];
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TRANSLATION_TABLE_NAME )
+			->where( $conditions )
+			->orderBy( 'translation_start_timestamp', SelectQueryBuilder::SORT_DESC )
+			->limit( 1 )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return $row ? Translation::newFromRow( $row ) : null;
+	}
+
+	/**
 	 * This method finds a translation inside "cx_translations" table, that corresponds to the
 	 * given id and the translator (user) of the translation, and returns it. If no such translation
 	 * exists, the method returns null.

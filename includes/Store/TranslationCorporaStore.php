@@ -200,6 +200,31 @@ class TranslationCorporaStore {
 	}
 
 	/**
+	 * Given a translation id, this method returns an integer, indicating
+	 * the count of the translated subsections (paragraphs) for that translation.
+	 *
+	 * @param int $translationId
+	 * @return int count of translated subsections
+	 */
+	public function countTranslatedSubSectionsByTranslationId( int $translationId ): int {
+		$dbr = $this->lb->getConnection( DB_REPLICA );
+
+		$row = $dbr->newSelectQueryBuilder()
+			->select( [
+				'cxc_translation_id',
+				'cxc_section_id',
+				'count' => 'COUNT(DISTINCT cxc_section_id)',
+			] )
+			->from( self::TABLE_NAME )
+			->where( [ 'cxc_translation_id' => $translationId ] )
+			->groupBy( [ 'cxc_translation_id' ] )
+			->caller( __METHOD__ )
+			->fetchRow();
+
+		return (int)$row->count;
+	}
+
+	/**
 	 * Saves the translation unit. If the record exists, updates it, otherwise creates it.
 	 *
 	 * @param TranslationUnit $translationUnit
