@@ -16,7 +16,7 @@ const UnifiedDashboardPage = require( '../pageobjects/UnifiedDashboard.page' );
 const DesktopEditor = require( '../componentobjects/DesktopEditor' );
 
 describe( 'Unified Dashboard - Desktop - New translation', function () {
-	it( 'should allow saving a new translation started through search', async function () {
+	it( 'should allow publishing a new translation started through search', async function () {
 		await LoginPage.loginAdmin();
 		await UnifiedDashboardPage.open();
 

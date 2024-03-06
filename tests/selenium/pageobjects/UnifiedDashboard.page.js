@@ -25,10 +25,14 @@ class UnifiedDashboardPage extends Page {
 	}
 
 	get articleSuggestions() {
+		return $$( ARTICLE_SUGGESTION_SELECTOR );
+	}
+
+	get firstArticleSuggestion() {
 		return $( ARTICLE_SUGGESTION_SELECTOR );
 	}
 
-	get sectionSuggestions() {
+	get firstSectionSuggestion() {
 		return $( SECTION_SUGGESTION_SELECTOR );
 	}
 
@@ -90,8 +94,7 @@ class UnifiedDashboardPage extends Page {
 	 * @return {Promise<WebdriverIOElementType>}
 	 */
 	async getArticleSuggestionByTitle( title ) {
-		const articleSuggestions = await $$( ARTICLE_SUGGESTION_SELECTOR );
-		return this.getSuggestionFromListByTitle( articleSuggestions, title );
+		return this.getSuggestionFromListByTitle( await this.articleSuggestions, title );
 	}
 
 	/**
@@ -129,7 +132,7 @@ class UnifiedDashboardPage extends Page {
 	async open() {
 		await super.openTitle(
 			'Special:ContentTranslation',
-			{ 'unified-dashboard': true, campaign: 'specialcx' }
+			{ 'unified-dashboard': true, campaign: 'specialcx', 'active-list': 'suggestions' }
 		);
 	}
 

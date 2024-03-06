@@ -34,9 +34,9 @@ describe( 'Unified Dashboard - Suggestions', function () {
 
 		const defaultOption = { wait: 6000 };
 		await expect( await UnifiedDashboardPage.suggestionButton ).toBeDisplayed( defaultOption );
-		await expect( await UnifiedDashboardPage.articleSuggestions )
+		await expect( await UnifiedDashboardPage.firstArticleSuggestion )
 			.toBeDisplayed( defaultOption );
-		await expect( await UnifiedDashboardPage.sectionSuggestions )
+		await expect( await UnifiedDashboardPage.firstSectionSuggestion )
 			.toBeDisplayed( defaultOption );
 	} );
 
@@ -50,7 +50,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 			.getFavoriteSuggestionByTitle( favoriteArticleHeading );
 		await expect( favoriteArticle ).toBeDefined();
 
-		// Un-save article
+		// Un-favorite article
 		await UnifiedDashboardPage.unFavoriteArticle( favoriteArticle );
 		favoriteArticle = await UnifiedDashboardPage
 			.getFavoriteSuggestionByTitle( favoriteArticleHeading );
@@ -60,9 +60,9 @@ describe( 'Unified Dashboard - Suggestions', function () {
 	it( 'should allow dismissing a suggestion', async function () {
 		await UnifiedDashboardPage.open();
 
-		const dismissedArticleHeading = await UnifiedDashboardPage.dismissArticle( 0 );
+		const dismissedArticleTitle = await UnifiedDashboardPage.dismissArticle( 0 );
 		const dismissedArticle = await UnifiedDashboardPage
-			.getArticleSuggestionByTitle( dismissedArticleHeading );
+			.getArticleSuggestionByTitle( dismissedArticleTitle );
 		await expect( dismissedArticle ).toBeUndefined();
 	} );
 
