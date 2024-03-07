@@ -1,17 +1,18 @@
 <script setup>
-import { MwButton, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import {
-  mwIconBookmark,
-  mwIconBookmarkOutline,
-  mwIconLanguage,
-  mwIconLinkExternal,
-} from "@/lib/mediawiki.ui/components/icons";
+import { MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { useStore } from "vuex";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
+import {
+  cdxIconBookmark,
+  cdxIconBookmarkOutline,
+  cdxIconLanguage,
+  cdxIconLinkExternal,
+} from "@wikimedia/codex-icons";
 
 const store = useStore();
 
@@ -49,7 +50,7 @@ const unmarkSuggestionAsFavorite = () =>
   );
 
 const bookmarkIcon = computed(() =>
-  isFavorite.value ? mwIconBookmark : mwIconBookmarkOutline
+  isFavorite.value ? cdxIconBookmark : cdxIconBookmarkOutline
 );
 
 const toggleFavorite = computed(() =>
@@ -92,26 +93,23 @@ const weeklyViews = computed(() =>
           target="_blank"
         >
           <h5 class="ma-0 me-1" v-text="sourceTitle"></h5>
-          <mw-icon
-            :icon="mwIconLinkExternal"
-            size="10"
-            :icon-color="$mwui.colors.gray500"
-          />
+          <cdx-icon size="x-small" :icon="cdxIconLinkExternal" />
         </mw-col>
         <mw-col shrink align="start">
-          <mw-button
-            class="pa-0"
-            type="icon"
-            :icon="bookmarkIcon"
-            :progressive="isFavorite"
+          <cdx-button
+            class="px-0"
+            weight="quiet"
+            :action="isFavorite ? 'progressive' : 'default'"
             @click="toggleFavorite"
-          />
+          >
+            <cdx-icon :icon="bookmarkIcon" />
+          </cdx-button>
         </mw-col>
       </mw-row>
       <p
         class="complementary sx-translation-confirmer__article-information__stats ma-0 flex"
       >
-        <mw-icon :icon="mwIconLanguage" size="16" class="me-1" />
+        <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
         <span class="pe-3" v-text="langLinksCount" />
         <span v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]" />
       </p>
@@ -129,9 +127,16 @@ const weeklyViews = computed(() =>
     align-items: baseline;
     text-decoration: none;
     color: inherit;
+    .cdx-icon {
+      color: @color-placeholder;
+    }
   }
   &__stats {
     color: @color-subtle;
+    .cdx-icon {
+      color: @color-subtle;
+      margin-block: auto;
+    }
   }
 }
 </style>
