@@ -526,6 +526,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Cette traduction a été commencée sur un autre appareil, et elle contient des contenus pour plusieurs sections de l’article.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Sur le mobile, vous ne pouvez travailler que sur une section à la fois. Ainsi, seule la section principale sera chargée pour le moment.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Où sont les autres sections ?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Pas de souci. Les sections restantes ne sont pas perdues. Elles deviendront disponibles une fois la traduction actuelle publiée comme un nouvel article. Après la publication, vous trouverez de nouvelles traductions en cours avec le contenu de chaque section.",
-	"sx-confirm-draft-translation-start-button-label": "Ok"
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Pas de souci. Les sections restantes ne sont pas perdues. Elles sont désormais disponibles dans la liste de vos traductions en cours et peuvent être utilisées pour étendre l'article existant. Vous trouverez une nouvelle traduction en cours avec le contenu de chaque section.",
+	"sx-confirm-draft-translation-start-button-label": "Ok",
+	"sx-published-translation-new-translation-button-label": "Nouvelle traduction"
 }
