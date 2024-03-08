@@ -6,12 +6,14 @@ const InterceptorService = require( '../utils/InterceptorService' );
 const ElementAction = require( '../utils/ElementAction' );
 const { Element: WebdriverIOElementType } = require( 'webdriverio' );
 const DesktopEditor = require( '../componentobjects/DesktopEditor' );
+const TranslationConfirmerStep = require( '../navigation-steps/TranslationConfirmer.step' );
+const DashboardSuggestionList = require( '../navigation-steps/DashboardSuggestion.list' );
+const SXArticleSearchStep = require( '../navigation-steps/SXArticleSearch.step' );
 
 const ARTICLE_SUGGESTION_SELECTOR = '.cx-translation-list--page-suggestions .cx-suggestion';
 const SECTION_SUGGESTION_SELECTOR = '.cx-translation-list--sx-suggestions .cx-suggestion';
 const FAVORITE_SELECTOR = '.cx-translation-list--favorites .cx-suggestion';
 const REFRESH_BUTTON_SELECTOR = '.cx-suggestion-list__refresh-button-container button';
-const FIRST_SEARCH_SUGGESTION_SELECTOR = '.sx-article-search .cx-search-suggestion';
 const SUGGESTION_LIST_LANGUAGE_BUTTONS_SELECTOR =
 		'div.cx-translation-list--suggestions .sx-translation-list-language-selector button span.mw-ui-autonym';
 
@@ -42,22 +44,6 @@ class UnifiedDashboardPage extends Page {
 
 	get favoriteSuggestions() {
 		return $( FAVORITE_SELECTOR );
-	}
-
-	get newTranslationButton() {
-		return $( '#dashboard-search-translation-button' );
-	}
-
-	get articleSearchTextbox() {
-		return $( 'input[type="search"]' );
-	}
-
-	get firstSearchSuggestion() {
-		return $( FIRST_SEARCH_SUGGESTION_SELECTOR );
-	}
-
-	get startTranslationButton() {
-		return $( '.sx-translation-confirmer__action button' );
 	}
 
 	async getLanguagePair() {
@@ -230,13 +216,11 @@ class UnifiedDashboardPage extends Page {
 		await waitForSuggestionsListToBeCompleted();
 	}
 
-	async publishNewTranslation( articleName ) {
-		await ElementAction.doClick( this.newTranslationButton );
-		await ElementAction.setInput( this.articleSearchTextbox, articleName );
+	async publishNewArticleBySearch( articleName ) {
+		await DashboardSuggestionList.goToSearch();
+		await SXArticleSearchStep.searchAndSelectArticleToTranslate( articleName );
 
-		await ElementAction.doClick( this.firstSearchSuggestion );
-
-		await ElementAction.doClick( this.startTranslationButton );
+		await TranslationConfirmerStep.startTranslation();
 
 		await DesktopEditor.waitForArticleToLoad();
 		await DesktopEditor.fillRandomTranslationData( 3 );

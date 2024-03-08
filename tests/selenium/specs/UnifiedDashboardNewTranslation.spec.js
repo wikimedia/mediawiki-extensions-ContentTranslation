@@ -21,7 +21,7 @@ describe( 'Unified Dashboard - Desktop - New translation', function () {
 		await UnifiedDashboardPage.open();
 
 		const articleHeading = await UnifiedDashboardPage.getArticleSuggestionTitle( 0 );
-		const publishedURL = await UnifiedDashboardPage.publishNewTranslation( articleHeading );
+		const publishedURL = await UnifiedDashboardPage.publishNewArticleBySearch( articleHeading );
 
 		const $publishedSuccessMessage = await DesktopEditor.getPublishSuccessMessage();
 
