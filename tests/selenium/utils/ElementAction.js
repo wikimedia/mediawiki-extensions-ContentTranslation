@@ -84,6 +84,19 @@ class ElementAction {
 	}
 
 	/**
+	 * Get the text from the selector
+	 *
+	 * @async
+	 * @param attribute
+	 * @param {Promise<WebdriverIOElementType>} selector
+	 * @return {Promise<string>}
+	 */
+	async getAttribute( selector, attribute ) {
+		await selector.waitForDisplayed();
+		return await selector.getAttribute( attribute );
+	}
+
+	/**
 	 * WebdriverIO docs mentions that setValue should first clear the input and then
 	 * set the input. However this does not happen.
 	 * The following is a temporarily solution to clear the input.
