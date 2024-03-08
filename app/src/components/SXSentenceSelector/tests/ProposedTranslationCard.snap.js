@@ -36,7 +36,7 @@ exports[`Test \`ProposedTranslationCard\` test Component output matches snapshot
     >
       <cdx-button-stub
         action="progressive"
-        class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
+        class="sx-sentence-selector__proposed-translation-edit-button mt-4 mx-2 mb-5"
         disabled="false"
         size="medium"
         weight="quiet"
@@ -72,7 +72,7 @@ exports[`Test \`ProposedTranslationCard\` test Should render Retry MT card insid
       class="sx-sentence-selector__proposed-translation__contents px-5"
       grow="false"
       shrink="false"
-      style="max-height: calc(100% - 0px);"
+      style=""
       tag="div"
     >
       <!--eslint-disable vue/no-v-html -->

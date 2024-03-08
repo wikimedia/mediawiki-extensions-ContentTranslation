@@ -5,7 +5,7 @@ import ProposedTranslationActionButtons from "./ProposedTranslationActionButtons
 import ProposedTranslationHeader from "./ProposedTranslationHeader.vue";
 import RetryMtCard from "./RetryMtCard.vue";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { ref, onMounted, computed, watch, nextTick } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed, nextTick } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
@@ -42,16 +42,20 @@ const setHeaderAndFooterHeight = () => {
     header.value.$el.clientHeight + footer.value.$el.clientHeight;
 };
 
-// Card title can take different number of text lines
-// depending on MT provider's name length in smaller screens.
-// Watch currentMTProvider to update headerAndFooterHeight when needed,
-// since Element.clientHeight property is not reactive
-watch(currentMTProvider, setHeaderAndFooterHeight);
-
 onMounted(async () => {
   await nextTick();
   setHeaderAndFooterHeight();
+
+  resizeObserver.observe(header.value.$el);
+  resizeObserver.observe(footer.value.$el);
 });
+
+onBeforeUnmount(() => {
+  resizeObserver.unobserve(header.value.$el);
+  resizeObserver.unobserve(footer.value.$el);
+});
+
+const resizeObserver = new ResizeObserver(() => setHeaderAndFooterHeight());
 </script>
 
 <template>
@@ -67,7 +71,7 @@ onMounted(async () => {
           'sx-sentence-selector__proposed-translation__contents--loading':
             !hasProposedTranslation && mtRequestPending,
         }"
-        :style="contentsStyle"
+        :style="hasProposedTranslation ? contentsStyle : null"
       >
         <!--eslint-disable vue/no-v-html -->
         <section
@@ -92,7 +96,7 @@ onMounted(async () => {
       >
         <cdx-button
           v-if="hasProposedTranslation || mtRequestPending"
-          class="sx-sentence-selector__proposed-translation-edit-button pa-5 pt-4"
+          class="sx-sentence-selector__proposed-translation-edit-button mt-4 mx-2 mb-5"
           weight="quiet"
           action="progressive"
           :disabled="!hasProposedTranslation"

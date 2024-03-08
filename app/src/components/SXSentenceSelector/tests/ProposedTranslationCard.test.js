@@ -34,6 +34,11 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
+global.ResizeObserver = jest.fn(function () {
+  this.observe = () => {};
+  this.unobserve = () => {};
+});
+
 describe("Test `ProposedTranslationCard` test", () => {
   const wrapper = mount(ProposedTranslationCard, {
     global: { plugins: [i18n, mockStore], renderStubDefaultSlot: true },
