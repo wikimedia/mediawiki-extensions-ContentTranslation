@@ -108,7 +108,7 @@ class SectionTitleFetcherTest extends \MediaWikiIntegrationTestCase {
 			]
 		];
 		$mockHttpRequestFactory->method( 'get' )
-			->with( $this->equalTo( $url ) )
+			->with( $url )
 			->willReturn( \FormatJson::encode( $response ) );
 
 		$sectionTitleFetcher = new SectionTitleFetcher( $mockHttpRequestFactory );

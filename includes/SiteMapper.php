@@ -33,7 +33,7 @@ class SiteMapper {
 	public static function getCurrentLanguageCode() {
 		global $wgConf, $wgDBname, $wgContentTranslationDomainCodeMapping;
 
-		list( , $domain ) = $wgConf->siteFromDB( $wgDBname );
+		[ , $domain ] = $wgConf->siteFromDB( $wgDBname );
 
 		// Fallback for non-wmf-style farms. $domain can be null or empty string in that case.
 		if ( ( $domain ?? '' ) === '' ) {

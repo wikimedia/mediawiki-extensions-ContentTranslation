@@ -638,7 +638,7 @@ class Hooks implements
 	 * @return ResourceLoaderFilePath
 	 */
 	public static function devModeCallback( ResourceLoaderContext $context, Config $config, array $paths ) {
-		list( $buildPath, $devPath ) = $paths;
+		[ $buildPath, $devPath ] = $paths;
 		$file = $buildPath;
 		if ( $config->get( 'ContentTranslationDevMode' ) ) {
 			$file = $devPath;

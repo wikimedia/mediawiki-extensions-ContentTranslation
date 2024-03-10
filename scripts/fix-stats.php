@@ -116,7 +116,7 @@ class CxFixStats extends Maintenance {
 		$this->output( "$count rows are tagged\n" );
 
 		foreach ( $items as $item ) {
-			list( $row, $revId ) = $item;
+			[ $row, $revId ] = $item;
 			ChangeTags::addTags( 'contenttranslation', null, $revId, null );
 		}
 	}

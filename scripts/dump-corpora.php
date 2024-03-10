@@ -106,7 +106,7 @@ class CXCorporaDump extends Maintenance {
 		if ( !isset( self::$sinkTypes[ $sinkType ] ) ) {
 			$this->fatalError( "Unknown compression format\n" );
 		}
-		list( $sinkClass, $sinkExtension ) = self::$sinkTypes[ $sinkType ];
+		[ $sinkClass, $sinkExtension ] = self::$sinkTypes[ $sinkType ];
 
 		// Figure out groups (which translation pairs go to which file)
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
@@ -204,7 +204,7 @@ class CXCorporaDump extends Maintenance {
 
 	private static function makeLanguageConditions( IDatabase $db, array $pairs ) {
 		$conds = [];
-		foreach ( $pairs as list( $sourceLanguage, $targetLanguage ) ) {
+		foreach ( $pairs as [ $sourceLanguage, $targetLanguage ] ) {
 			$languageCondition = [];
 			if ( $sourceLanguage ) {
 				$languageCondition['translation_source_language'] = $sourceLanguage;
@@ -304,7 +304,7 @@ class CXCorporaDump extends Maintenance {
 		if ( $format === 'json' ) {
 			return new JsonDumpFormatter();
 		} else {
-			list( $sourceLanguage, $targetLanguage ) = explode( '2', $pairName );
+			[ $sourceLanguage, $targetLanguage ] = explode( '2', $pairName );
 			return new TmxDumpFormatter( $sourceLanguage === '_' ? '*all*' : $sourceLanguage );
 		}
 	}
