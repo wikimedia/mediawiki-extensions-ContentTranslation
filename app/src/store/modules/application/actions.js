@@ -118,25 +118,6 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
 
 /**
  * @param {object} context
- * @param {function} context.dispatch
- * @param {FavoriteSuggestion} favorite
- * @return {Promise<void>}
- */
-async function startFavoriteSectionTranslation({ dispatch }, favorite) {
-  const suggestion = await dispatch(
-    "suggestions/loadSectionSuggestion",
-    {
-      sourceLanguage: favorite.sourceLanguage,
-      targetLanguage: favorite.targetLanguage,
-      sourceTitle: favorite.title,
-    },
-    { root: true }
-  );
-  dispatch("initializeSectionTranslation", suggestion);
-}
-
-/**
- * @param {object} context
  * @param {function} context.commit
  * @param {function} context.dispatch
  * @param {SectionSuggestion|ArticleSuggestion} suggestion
@@ -439,7 +420,6 @@ export default {
   selectNextTranslationUnit,
   selectPreviousTranslationUnit,
   selectTranslationUnitById,
-  startFavoriteSectionTranslation,
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,

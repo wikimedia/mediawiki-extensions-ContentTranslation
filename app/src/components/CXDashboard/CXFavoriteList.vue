@@ -26,6 +26,7 @@ import { computed } from "vue";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import useFavoriteTranslationStart from "./useFavoriteTranslationStart";
 
 export default {
   name: "CxFavoriteList",
@@ -38,12 +39,10 @@ export default {
     const store = useStore();
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
+    const doStartFavoriteTranslation = useFavoriteTranslationStart();
 
     const startFavoriteTranslation = async (suggestion) => {
-      await store.dispatch(
-        "application/startFavoriteSectionTranslation",
-        suggestion
-      );
+      await doStartFavoriteTranslation(suggestion);
       router.push({ name: "sx-translation-confirmer" });
     };
 
