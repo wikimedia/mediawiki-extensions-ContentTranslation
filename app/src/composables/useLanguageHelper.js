@@ -6,6 +6,7 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { replaceUrl } from "@/utils/urlHandler";
 import { useStore } from "vuex";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
+import useSuggestionLoad from "@/composables/useSuggestionLoad";
 
 /**
  * @param {string} sourceLanguage
@@ -172,6 +173,7 @@ const usePublishedTranslationLanguagePairUpdate = () => {
 
 const useArticleLanguagePairUpdate = () => {
   const store = useStore();
+  const loadSuggestion = useSuggestionLoad();
 
   return async (newSourceLanguage, newTargetLanguage) => {
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
@@ -205,9 +207,11 @@ const useArticleLanguagePairUpdate = () => {
       });
 
       if (languageTitleGroup.hasLanguage(targetLanguage.value)) {
-        suggestion = await store.dispatch(
-          "suggestions/loadSectionSuggestion",
-          suggestion
+        /** @type {SectionSuggestion|null} */
+        suggestion = await loadSuggestion(
+          suggestion.sourceLanguage,
+          suggestion.targetLanguage,
+          suggestion.sourceTitle
         );
       }
 

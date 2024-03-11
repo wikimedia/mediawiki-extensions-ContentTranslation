@@ -1,10 +1,12 @@
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import useSuggestionLoad from "@/composables/useSuggestionLoad";
 
 const useSectionTranslationStart = () => {
   const store = useStore();
   const router = useRouter();
+  const loadSuggestion = useSuggestionLoad();
 
   /**
    * @param {string} title
@@ -14,13 +16,10 @@ const useSectionTranslationStart = () => {
   return async (title, eventSource) => {
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
     /** @type {SectionSuggestion|null} */
-    const suggestion = await store.dispatch(
-      "suggestions/loadSectionSuggestion",
-      {
-        sourceLanguage: sourceLanguage.value,
-        targetLanguage: targetLanguage.value,
-        sourceTitle: title,
-      }
+    const suggestion = await loadSuggestion(
+      sourceLanguage.value,
+      targetLanguage.value,
+      title
     );
 
     if (!suggestion) {
