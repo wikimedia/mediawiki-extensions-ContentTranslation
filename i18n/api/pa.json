@@ -1,13 +1,31 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kuldeepburjbhalaike",
 			"Satdeep gill"
 		]
 	},
+	"apihelp-cxpublish-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxpublish-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslation-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslation-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslationsuggestions-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslationsuggestions-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+cxpublishedtranslations-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+cxpublishedtranslations-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslationlangtrend-param-source": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslationlangtrend-param-target": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-cxdelete-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-cxdelete-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।"
+	"apihelp-cxdelete-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxsuggestionlist-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxsuggestionlist-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxsave-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxsave-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
+	"apihelp-cxpublishsection-param-sourcelanguage": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxpublishsection-param-targetlanguage": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-cxpublishsection-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
+	"apihelp-sxsave-param-sourcelanguage": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-sxsave-param-targetlanguage": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-sxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।"
 }
