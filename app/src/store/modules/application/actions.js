@@ -157,15 +157,6 @@ function restoreSectionTranslation({ commit, dispatch }, translation) {
   commit("setCurrentTranslation", translation);
 }
 
-async function fetchCurrentSectionSuggestionLanguageTitles({
-  dispatch,
-  state,
-}) {
-  const { sourceLanguage, sourceTitle } = state.currentSectionSuggestion;
-  const payload = { language: sourceLanguage, title: sourceTitle };
-  await dispatch("mediawiki/fetchLanguageTitles", payload, { root: true });
-}
-
 /**
  * Given an id, this action selects a translation unit for translation.
  * Such translation units are the section title and the section sentences.
@@ -442,7 +433,6 @@ export default {
   applyProposedTranslationToSelectedTranslationUnit,
   clearCurrentSectionSuggestion,
   clearPendingSaveTranslationRequests,
-  fetchCurrentSectionSuggestionLanguageTitles,
   getCXServerToken,
   initializeSectionTranslation,
   restoreSectionTranslation,

@@ -35,20 +35,6 @@ function fetchPageMetadata({ getters, commit }, { language, titles }) {
   return Promise.all(promises);
 }
 
-function fetchLanguageTitles({ commit, getters }, { language, title }) {
-  if (getters.getLanguageTitleGroup(language, title)) {
-    // Already exist in store.
-    return;
-  }
-  pageApi
-    .fetchLanguageTitles(language, title)
-    .then(
-      (languageTitleGroup) =>
-        languageTitleGroup &&
-        commit("addLanguageTitleGroup", languageTitleGroup)
-    );
-}
-
 /**
  * This action fetches all language codes supported by cxserver,
  * that can be used as source/target languages.
@@ -93,7 +79,6 @@ async function fetchNearbyPages({ commit, rootState, state }) {
 }
 
 export default {
-  fetchLanguageTitles,
   fetchNearbyPages,
   fetchPageMetadata,
   fetchSupportedLanguageCodes,

@@ -14,6 +14,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "../../plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
+import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 
 const props = defineProps({
   eventSource: {
@@ -23,15 +24,23 @@ const props = defineProps({
 });
 
 const store = useStore();
-const { sourceLanguage, targetLanguage, currentSourcePage, previousRoute } =
-  useApplicationState(store);
+const {
+  sourceLanguage,
+  targetLanguage,
+  currentSourcePage,
+  previousRoute,
+  currentSectionSuggestion,
+} = useApplicationState(store);
 const articleImageSource = computed(
   () => currentSourcePage.value?.image?.source
 );
 const logEvent = useEventLogging();
-
+const fetchLanguageTitles = useLanguageTitlesFetch();
 onMounted(() => {
-  store.dispatch("application/fetchCurrentSectionSuggestionLanguageTitles");
+  fetchLanguageTitles(
+    currentSectionSuggestion.value.sourceLanguage,
+    currentSectionSuggestion.value.sourceTitle
+  );
   logEvent({
     event_type: "dashboard_translation_start",
     event_source: props.eventSource,
