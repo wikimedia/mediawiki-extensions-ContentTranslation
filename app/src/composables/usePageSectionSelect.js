@@ -1,6 +1,7 @@
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
+import usePageContentFetch from "@/composables/usePageContentFetch";
 
 const usePageSectionSelect = () => {
   const store = useStore();
@@ -9,12 +10,17 @@ const usePageSectionSelect = () => {
     useApplicationState(store);
 
   const resolvePageContentReferences = useContentReferencesResolve();
+  const fetchPageContent = usePageContentFetch();
 
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
     if (!getter()) {
       store.commit("application/increaseTranslationDataLoadingCounter");
-      await store.dispatch("mediawiki/fetchPageContent", suggestion.value);
+      await fetchPageContent(
+        suggestion.value.sourceLanguage,
+        suggestion.value.targetLanguage,
+        suggestion.value.sourceTitle
+      );
       // Resolve references and update page sections to include
       // these resolved references
       await resolvePageContentReferences(

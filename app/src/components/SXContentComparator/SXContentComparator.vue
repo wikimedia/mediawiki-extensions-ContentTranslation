@@ -65,6 +65,7 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
 import { isQuickTutorialForced } from "@/utils/urlHandler";
+import usePageContentFetch from "@/composables/usePageContentFetch";
 
 export default {
   name: "SxContentComparator",
@@ -113,16 +114,17 @@ export default {
 
     const targetTitle = computed(() => suggestion.value.targetTitle);
 
+    const fetchPageContent = usePageContentFetch();
     // watch for target title as it is not provided when the proxy suggestion object is created
     // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
     watch(
       targetTitle,
       () =>
-        store.dispatch("mediawiki/fetchPageContent", {
-          sourceLanguage: targetLanguage.value,
-          targetLanguage: sourceLanguage.value,
-          sourceTitle: targetTitle.value,
-        }),
+        fetchPageContent(
+          targetLanguage.value,
+          sourceLanguage.value,
+          targetTitle.value
+        ),
       { immediate: true }
     );
 

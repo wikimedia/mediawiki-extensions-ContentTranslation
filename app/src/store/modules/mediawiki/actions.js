@@ -70,51 +70,6 @@ async function fetchSupportedLanguageCodes({ commit, state }) {
 }
 
 /**
- * @param {object} context
- * @param {function} context.commit
- * @param {object} context.getters
- * @param {function} context.dispatch
- * @param {object} payload
- * @param {string} payload.sourceLanguage
- * @param {string} payload.targetLanguage
- * @param {string} payload.sourceTitle
- * @param {string|null} payload.revision
- * @return {Promise<void>}
- */
-async function fetchPageContent(
-  { commit, getters, dispatch },
-  { sourceLanguage, targetLanguage, sourceTitle, revision = null }
-) {
-  let existingPage = getters.getPage(sourceLanguage, sourceTitle);
-
-  if (existingPage && existingPage.content) {
-    return;
-  }
-
-  /** @type {Page} */
-  const fetchedPage = await pageApi.fetchPageContent(
-    sourceLanguage,
-    targetLanguage,
-    sourceTitle,
-    revision
-  );
-
-  // recheck for existing page, in case it has been saved elsewhere
-  // while pageApi.fetchPageContent was being executed
-  existingPage = getters.getPage(sourceLanguage, sourceTitle);
-
-  if (!existingPage) {
-    commit("addPage", fetchedPage);
-  } else if (!existingPage.content) {
-    existingPage.content = fetchedPage.content;
-    commit("setPageSections", {
-      page: existingPage,
-      sections: fetchedPage.sections,
-    });
-  }
-}
-
-/**
  * Fetch nearby suggestions for current source language
  * based on user location, and store them to state, so that they
  * can be reused when "Search for an article" screen is mounted again.
@@ -140,7 +95,6 @@ async function fetchNearbyPages({ commit, rootState, state }) {
 export default {
   fetchLanguageTitles,
   fetchNearbyPages,
-  fetchPageContent,
   fetchPageMetadata,
   fetchSupportedLanguageCodes,
 };

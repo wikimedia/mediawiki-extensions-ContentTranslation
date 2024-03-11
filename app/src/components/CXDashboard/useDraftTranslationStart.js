@@ -9,6 +9,7 @@ import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
+import usePageContentFetch from "@/composables/usePageContentFetch";
 
 /**
  * @return {(function(DraftTranslation): Promise<void>)}
@@ -28,6 +29,7 @@ const useDraftTranslationStart = () => {
 
   const { isDesktop } = useDevice();
   const redirectToCX = useCXRedirect();
+  const fetchPageContent = usePageContentFetch();
 
   /**
    * @param {DraftTranslation} translation
@@ -87,12 +89,12 @@ const useDraftTranslationStart = () => {
       translation_target_section: translation.targetSectionTitle,
     });
 
-    await store.dispatch("mediawiki/fetchPageContent", {
-      sourceLanguage: sourceLanguage.value,
-      targetLanguage: targetLanguage.value,
+    await fetchPageContent(
+      sourceLanguage.value,
+      targetLanguage.value,
       sourceTitle,
-      revision: pageRevision,
-    });
+      pageRevision
+    );
 
     // Asynchronously resolve references and update page sections to
     // include this resolved references
