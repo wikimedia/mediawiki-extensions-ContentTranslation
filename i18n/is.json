@@ -26,7 +26,7 @@
 	"cx-publish-page-success": "Síða birt á $1",
 	"cx-publish-error-empty": "Vefþjónninn svaraði með engum gögnum",
 	"cx-publish-error-readonly": "Engar skrifanir á wiki eru leyfðar.",
-	"cx-publish-error-spam-blacklist": "Mögulegur amapóstur fannst í þýðingunni þinni. Nánar: $1",
+	"cx-publish-error-spam-blacklist": "Mögulegt amasendingarefni greindist í þýðingunni þinni. Upplýsingar: $1",
 	"cx-publish-error-title-blacklist": "Titillinn sem þú skrifaðir er á svörtum lista. Vinsamlegast veldu annað nafn fyrir þýðinguna þína.",
 	"cx-publish-error-unknown": "Óþekkt óleysanleg villa átti sér stað. Nánar um villuna: $1",
 	"cx-publish-button": "Gefa út",
