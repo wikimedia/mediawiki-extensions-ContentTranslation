@@ -75,25 +75,6 @@ function restoreSectionTranslation({ commit, dispatch }, translation) {
 }
 
 /**
- * Given a valid MT provider, this action updates the
- * currently selected MT provider and translates the
- * currently selected translation unit (section title
- * or section sentence) using this MT provider.
- *
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {object} context.state
- * @param {string} provider
- */
-function updateMTProvider({ commit, dispatch, state }, provider) {
-  commit("setCurrentMTProvider", provider);
-  const { currentSourceSection } = state;
-  const { selectedTranslationUnitId: id } = currentSourceSection;
-  dispatch("translateTranslationUnitById", { id, provider });
-}
-
-/**
  * Given an id and a valid MT provider, this action
  * translates the original content of the corresponding
  * translation unit, and sets the proposed translation
@@ -212,5 +193,4 @@ export default {
   restoreSectionTranslation,
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
-  updateMTProvider,
 };

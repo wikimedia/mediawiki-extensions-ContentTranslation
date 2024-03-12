@@ -90,6 +90,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
+import useMTProviderUpdate from "./useMTProviderUpdate";
 
 export default {
   name: "SxTranslationSelector",
@@ -135,8 +136,10 @@ export default {
         : selectedContentTranslationUnit.value.proposedTranslations
     );
 
+    const updateMTProvider = useMTProviderUpdate();
+
     const selectProvider = (provider) => {
-      store.dispatch("application/updateMTProvider", provider);
+      updateMTProvider(provider);
       close();
     };
 
