@@ -20,6 +20,7 @@ import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvi
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useProposedTranslationApply from "./useProposedTranslationApply";
+import usePendingSaveRequestsClear from "@/components/SXSentenceSelector/usePendingSaveRequestsClear";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
@@ -121,12 +122,13 @@ const goToDashboard = () => {
 };
 
 const { fetchTranslationsByStatus } = useTranslationsFetch();
+const clearPendingSaveRequests = usePendingSaveRequestsClear();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");
   // Remove URL params so that section translation doesn't restart, leading to endless loop
   replaceUrl(null);
-  store.dispatch("application/clearPendingSaveTranslationRequests");
+  clearPendingSaveRequests();
   // wait for the redirection to dashboard before resetting variables needed in this route
   await router.push({ name: "dashboard" });
   currentPageSection.value.reset();

@@ -1,67 +1,6 @@
 import siteApi from "../../../wiki/mw/api/site";
-import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import SubSection from "../../../wiki/cx/models/subSection";
 import { renderTemplateFromCXServer } from "../../../utils/templateRenderer";
-import debounce from "../../../utils/debounce";
-import AssertUserError from "@/utils/errors/assertUserError";
-
-/**
- * In order to save the draft section translation and its parallel corpora,
- * during "Pick a sentence" step, we use the debounced "translator/saveTranslation"
- * action. This way, we avoid to send more than one "save" request every 3 seconds,
- * since each "save" request overrides the previous one. For this reason, the debounced
- * action is executed in the trailing edge of the waiting time, meaning that only the
- * last call for "save" is actually executed. This debounced action is used both when
- * the "Apply translation" button and when an edited translation is applied.
- *
- * @type {function}
- */
-let debouncedSaveTranslation;
-
-/**
- * @param {object} context
- * @param {function} context.dispatch
- * @param {function} context.commit
- * @return {function}
- */
-const getDebouncedSaveTranslation = ({ dispatch, commit }) => {
-  if (!debouncedSaveTranslation) {
-    let retryDelay = 1000;
-    let retry = 0;
-
-    const saveTranslationWithRetry = () => {
-      dispatch("translator/saveTranslation", {}, { root: true })
-        .then((saveResponse) => {
-          if (saveResponse instanceof PublishFeedbackMessage) {
-            retryDelay *= retry + 1;
-            retry++;
-
-            setTimeout(debouncedSaveTranslation, retryDelay);
-          } else {
-            retry = 0;
-            retryDelay = 1000;
-            commit("setAutoSavePending", false);
-          }
-        })
-        .catch((error) => {
-          if (error instanceof AssertUserError) {
-            commit("setIsLoginDialogOn", true);
-          } else {
-            throw error;
-          }
-        });
-    };
-    debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3000);
-  }
-
-  return debouncedSaveTranslation;
-};
-
-const clearPendingSaveTranslationRequests = ({ dispatch, commit }) => {
-  commit("setAutoSavePending", false);
-  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
-  debouncedSave.cancel();
-};
 
 /**
  * This asynchronous action returns the current cxserver jwt token as string.
@@ -336,7 +275,6 @@ function clearCurrentSectionSuggestion({ commit }) {
 
 export default {
   clearCurrentSectionSuggestion,
-  clearPendingSaveTranslationRequests,
   getCXServerToken,
   initializeSectionTranslation,
   restoreSectionTranslation,
@@ -346,5 +284,4 @@ export default {
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,
-  getDebouncedSaveTranslation,
 };

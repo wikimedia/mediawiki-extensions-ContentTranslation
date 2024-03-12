@@ -1,7 +1,6 @@
 import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
-import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
 import translator from "@/wiki/cx/api/translator";
 
 /**
@@ -69,70 +68,6 @@ function validateMT({ rootState }) {
 }
 
 /**
- * This action is called:
- * a. after each segment translation (either by clicking on the "Apply the translation" button
- * or by editing a segment in the Visual Editor),
- * b. just before publishing a section translation
- * It basically sends a request to the "sxsave" with the proper payload, to store the parallel
- * corpora and create/update the translation in the "cx_translations" and "cx_section_translations"
- * database tables.
- *
- * @param {object} context
- * @param {object} context.rootState
- * @param {object} context.rootGetters
- * @return {Promise<number|PublishFeedbackMessage|null>}
- */
-function saveTranslation({ rootState, rootGetters }) {
-  const sourcePage = rootGetters["application/getCurrentPage"];
-  const {
-    /** @type {PageSection} */
-    currentSourceSection,
-    /** @type {SectionSuggestion} */
-    sourceLanguage,
-    targetLanguage,
-  } = rootState.application;
-
-  const sourceTitle = sourcePage.title;
-  const targetTitle =
-    rootGetters["application/getTargetPageTitleForPublishing"];
-
-  const supportedMTProviders = rootGetters["mediawiki/getSupportedMTProviders"](
-    sourceLanguage,
-    targetLanguage
-  );
-
-  const baseSectionId = rootGetters["application/getParallelCorporaBaseId"];
-  const units = currentSourceSection.getParallelCorporaUnits(baseSectionId);
-  units.forEach((unit) =>
-    validateParallelCorporaPayload(unit, supportedMTProviders)
-  );
-
-  const progress = currentSourceSection.getTranslationProgress(targetLanguage);
-  const isSandbox = rootGetters["application/isSandboxTarget"];
-
-  /**
-   * saveTranslation api method returns null on success and a PublishFeedbackMessage upon failure
-   * @type {Promise<number|PublishFeedbackMessage>}
-   */
-  return cxTranslatorApi.saveTranslation({
-    sourceTitle,
-    targetTitle,
-    // pass a dummy string to be stored as "cxsx_source_section_title" inside "cx_section_translations" table for lead sections
-    sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
-    // pass a dummy string to be stored as "cxsx_target_section_title" inside "cx_section_translations" table for lead sections
-    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
-    sourceLanguage,
-    targetLanguage,
-    revision: rootGetters["application/getCurrentRevision"],
-    units: units.map((unit) => unit.payload),
-    // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
-    sectionId: baseSectionId,
-    isSandbox,
-    progress,
-  });
-}
-
-/**
  * Translates HTML content for a given MT provider and the
  * application's source/target language pair, and returns
  * a promise that resolves to a string containing the translation.
@@ -189,7 +124,6 @@ async function fetchTranslatorStats({ commit }) {
 
 export default {
   validateMT,
-  saveTranslation,
   translateContent,
   fetchTranslatorStats,
 };

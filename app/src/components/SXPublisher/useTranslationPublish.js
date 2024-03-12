@@ -4,6 +4,7 @@ import { useStore } from "vuex";
 import { cleanupHtml } from "@/utils/publishHelper";
 import translatorApi from "@/wiki/cx/api/translator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
+import useTranslationSave from "@/composables/useTranslationSave";
 
 const useTranslationPublish = () => {
   const store = useStore();
@@ -11,6 +12,7 @@ const useTranslationPublish = () => {
   const publishStatus = ref("pending");
 
   const closePublishDialog = () => (isPublishDialogActive.value = false);
+  const saveTranslation = useTranslationSave();
 
   /**
    * This method publishes the current section translation using translator API client,
@@ -28,7 +30,7 @@ const useTranslationPublish = () => {
     // the return value from the "saveTranslation" api method contains the id (cxsx_id)
     // of the section translation if the request was successful. If not, the return value
     // is an instance of PublishFeedbackMessage
-    const saveResponse = await store.dispatch("translator/saveTranslation");
+    const saveResponse = await saveTranslation();
 
     if (saveResponse instanceof PublishFeedbackMessage) {
       return { publishFeedbackMessage: saveResponse, targetUrl: null };

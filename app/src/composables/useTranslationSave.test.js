@@ -1,10 +1,12 @@
-import actions from "../../actions";
 import PageSection from "@/wiki/cx/models/pageSection";
 import SubSection from "@/wiki/cx/models/subSection";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
-import cxTranslatorApi from "@/wiki/cx/api/translator";
+import translatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import applicationGetters from "@/store/modules/application/getters";
+import { createStore } from "vuex";
+import { createApp } from "vue";
+import useTranslationSave from "@/composables/useTranslationSave";
 
 jest.mock("@/wiki/cx/api/translator", () => ({
   saveTranslation: jest.fn(() => Promise.resolve()),
@@ -15,57 +17,83 @@ jest.mock("@/utils/mtValidator", () => ({
   getMTScoreForPageSection: jest.fn(() => 20),
 }));
 
-describe("vuex store saveTranslation action", () => {
-  const createEl = (tagName) => document.createElement(tagName);
+const createEl = (tagName) => document.createElement(tagName);
 
-  const sectionSentence = new SectionSentence({
-    node: createEl("span"),
-    originalContent: "Target original sentence 1",
-    translatedContent: "Target translated sentence 1",
-  });
-  sectionSentence.mtProviderUsed = "empty";
+const sectionSentence = new SectionSentence({
+  node: createEl("span"),
+  originalContent: "Target original sentence 1",
+  translatedContent: "Target translated sentence 1",
+});
+sectionSentence.mtProviderUsed = "empty";
 
-  const sectionNode = createEl("section");
-  const applicationState = {
+const sectionNode = createEl("section");
+const currentSourceSection = new PageSection({
+  id: 1,
+  title: "Test section title 1",
+  subSections: [
+    new SubSection({ node: sectionNode, sentences: [sectionSentence] }),
+  ],
+});
+currentSourceSection.translatedTitle = "Test target section title 1";
+
+const applicationModule = {
+  namespaced: true,
+  state: {
     sourceLanguage: "en",
     targetLanguage: "es",
-    currentSourceSection: new PageSection({
-      id: 1,
-      title: "Test section title 1",
-      subSections: [
-        new SubSection({ node: sectionNode, sentences: [sectionSentence] }),
-      ],
-    }),
-  };
-  applicationState.currentSourceSection.translatedTitle =
-    "Test target section title 1";
+    currentSourceSection: currentSourceSection,
+  },
+  getters: {
+    getCurrentPage: () =>
+      new Page({
+        lastrevid: 11,
+        title: "Test source title 1",
+      }),
+    getTargetPageTitleForPublishing: () => "Test target article title 1",
+    isSandboxTarget: () => false,
+    getCurrentRevision: applicationGetters.getCurrentRevision,
+    getParallelCorporaBaseId: applicationGetters.getParallelCorporaBaseId,
+  },
+  mutations: {
+    setTargetPageTitleForPublishing: (state, title) => {
+      state.testTargetPageTitleForPublishing = title;
+    },
+  },
+};
 
-  const rootState = { application: applicationState };
+const mediawikiModule = {
+  namespaced: true,
+  getters: {
+    getSupportedMTProviders: () => () => ["Google", "MinT"],
+  },
+};
 
-  const rootGetters = {
-    "application/getCurrentPage": new Page({
-      lastrevid: 11,
-      title: "Test source title 1",
-    }),
-    "application/getTargetPageTitleForPublishing":
-      "Test target article title 1",
-    "mediawiki/getSupportedMTProviders": () => ["Google", "MinT"],
-    "application/isSandboxTarget": false,
-  };
+const store = createStore({
+  modules: {
+    application: applicationModule,
+    mediawiki: mediawikiModule,
+  },
+});
 
-  rootGetters["application/getCurrentRevision"] =
-    applicationGetters.getCurrentRevision.apply(null, [
-      applicationState,
-      { getCurrentPage: rootGetters["application/getCurrentPage"] },
-    ]);
+const mockLoadComposableInApp = (composable) => {
+  let result;
+  const app = createApp({
+    setup() {
+      result = composable();
 
-  rootGetters["application/getParallelCorporaBaseId"] =
-    applicationGetters.getParallelCorporaBaseId.apply(null, [
-      applicationState,
-      { getCurrentRevision: rootGetters["application/getCurrentRevision"] },
-    ]);
+      // suppress missing template warning
+      return () => {};
+    },
+  });
+  app.use(store);
+  app.mount(document.createElement("div"));
 
-  const commit = jest.fn();
+  return { result, app };
+};
+
+describe("vuex store saveTranslation action", () => {
+  const data = mockLoadComposableInApp(() => useTranslationSave());
+  const saveTranslation = data.result;
 
   it("should add the translation units to the payload", async () => {
     const blockTemplateWrapper = createEl("section");
@@ -90,14 +118,12 @@ describe("vuex store saveTranslation action", () => {
       node: blockTemplateWrapper,
       sentences: [],
     });
-    applicationState.currentSourceSection.subSections = [
-      subSection1,
-      subSection2,
-    ];
 
-    await actions.saveTranslation({ rootState, rootGetters, commit });
+    currentSourceSection.subSections = [subSection1, subSection2];
 
-    expect(cxTranslatorApi.saveTranslation).toHaveBeenCalledWith({
+    await saveTranslation();
+
+    expect(translatorApi.saveTranslation).toHaveBeenCalledWith({
       sourceTitle: "Test source title 1",
       targetTitle: "Test target article title 1",
       sourceSectionTitle: "Test section title 1",

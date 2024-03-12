@@ -7,7 +7,7 @@ import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import applicationGetters from "@/store/modules/application/getters";
 import { createStore } from "vuex";
 import { createApp } from "vue";
-import useTranslationPublish from "@/components/SXPublisher/useTranslationPublish";
+import useTranslationPublish from "./useTranslationPublish";
 
 const mockErrorResult = {
   publishFeedbackMessage: new PublishFeedbackMessage({
@@ -100,25 +100,23 @@ const applicationModule = {
   },
 };
 
-const translatorModule = {
-  namespaced: true,
-  actions: {
-    saveTranslation: jest.fn(() => {
-      if (
-        store.getters["application/getTargetPageTitleForPublishing"] ===
-        "Test target article title 3"
-      ) {
-        return mockErrorPublishFeedbackMessageForSaving;
-      } else {
-        return 1234;
-      }
-    }),
+const mockStore = createStore({
+  modules: {
+    application: applicationModule,
   },
-};
-
-const store = createStore({
-  modules: { application: applicationModule, translator: translatorModule },
 });
+
+const mockSaveTranslation = jest.fn(() => {
+  if (
+    mockStore.getters["application/getTargetPageTitleForPublishing"] ===
+    "Test target article title 3"
+  ) {
+    return mockErrorPublishFeedbackMessageForSaving;
+  } else {
+    return 1234;
+  }
+});
+jest.mock("@/composables/useTranslationSave", () => () => mockSaveTranslation);
 
 const mockLoadComposableInApp = (composable) => {
   let result;
@@ -130,7 +128,7 @@ const mockLoadComposableInApp = (composable) => {
       return () => {};
     },
   });
-  app.use(store);
+  app.use(mockStore);
   app.mount(document.createElement("div"));
 
   return { result, app };
@@ -143,7 +141,7 @@ describe(" test `useTranslationPublish` composable", () => {
   it("should dispatch 'saveTranslation' action", async () => {
     await doPublish();
 
-    expect(translatorModule.actions.saveTranslation).toHaveBeenCalledTimes(1);
+    expect(mockSaveTranslation).toHaveBeenCalledTimes(1);
   });
 
   it("should call api publishTranslation method with the proper payload", async () => {
@@ -173,7 +171,7 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty target URL, when publishing fails", async () => {
-    store.commit(
+    mockStore.commit(
       "application/setTargetPageTitleForPublishing",
       "Test target article title 2"
     );
@@ -188,13 +186,13 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    store.commit(
+    mockStore.commit(
       "application/setTargetPageTitleForPublishing",
       "Test target article title 3"
     );
     const result = await doPublish();
 
-    expect(translatorModule.actions.saveTranslation).toHaveReturnedWith(
+    expect(mockSaveTranslation).toHaveReturnedWith(
       mockErrorPublishFeedbackMessageForSaving
     );
     expect(result).toStrictEqual({

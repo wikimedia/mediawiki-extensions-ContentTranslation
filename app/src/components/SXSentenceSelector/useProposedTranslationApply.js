@@ -1,7 +1,9 @@
 import { useStore } from "vuex";
+import useDebouncedSave from "@/composables/useDebouncedSave";
 
 const useProposedTranslationApply = () => {
   const store = useStore();
+  const saveDebounced = useDebouncedSave();
 
   return async () => {
     const translation =
@@ -11,10 +13,8 @@ const useProposedTranslationApply = () => {
       translation,
       currentMTProvider
     );
-    const debouncedSave = await store.dispatch(
-      "application/getDebouncedSaveTranslation"
-    );
-    debouncedSave();
+
+    saveDebounced();
     store.commit("application/setAutoSavePending", true);
     store.dispatch("application/selectNextTranslationUnit");
   };
