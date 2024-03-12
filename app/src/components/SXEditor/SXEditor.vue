@@ -43,6 +43,7 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import mtValidator from "../../utils/mtValidator";
 import useApplicationState from "@/composables/useApplicationState";
+import useEditedTranslationApply from "@/components/SXEditor/useEditedTranslationApply";
 
 export default {
   name: "SxEditor",
@@ -85,6 +86,9 @@ export default {
       )
     );
 
+    const applyEditedTranslationToSelectedTranslationUnit =
+      useEditedTranslationApply();
+
     const onEditCompleted = async (translation) => {
       editedTranslation.value = translation;
       showFeedback.value = true;
@@ -108,10 +112,8 @@ export default {
             translation_target_language: targetLanguage.value,
           });
         }
-        applyTranslationPromise = store.dispatch(
-          "application/applyEditedTranslationToSelectedTranslationUnit",
-          translation
-        );
+        applyTranslationPromise =
+          applyEditedTranslationToSelectedTranslationUnit(translation);
       }
       await Promise.all([timeout, applyTranslationPromise]);
       showFeedback.value = false;

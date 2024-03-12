@@ -1,10 +1,7 @@
 import siteApi from "../../../wiki/mw/api/site";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import SubSection from "../../../wiki/cx/models/subSection";
-import {
-  renderTemplateFromCXServer,
-  renderTemplateFromVE,
-} from "../../../utils/templateRenderer";
+import { renderTemplateFromCXServer } from "../../../utils/templateRenderer";
 import debounce from "../../../utils/debounce";
 import AssertUserError from "@/utils/errors/assertUserError";
 
@@ -164,78 +161,6 @@ async function selectTranslationUnitById({ commit, dispatch, state }, id) {
       provider: currentMTProvider,
     });
   }
-}
-
-/**
- * @param {object} context
- * @param {function} context.dispatch
- * @param {object} context.getters
- * @param {function} context.commit
- * @param {object} context.state
- */
-function applyProposedTranslationToSelectedTranslationUnit({
-  dispatch,
-  getters,
-  commit,
-  state,
-}) {
-  const translation = getters.getCurrentProposedTranslation;
-  const { currentSourceSection, currentMTProvider } = state;
-  currentSourceSection.setTranslationForSelectedTranslationUnit(
-    translation,
-    currentMTProvider
-  );
-  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
-  debouncedSave();
-  commit("setAutoSavePending", true);
-  dispatch("selectNextTranslationUnit");
-}
-
-/**
- * Given an edited translation string, this action applies this
- * translation to the selected translation unit, and selects
- * the next sentence.
- *
- * @param context
- * @param {object} context.state
- * @param {function} context.dispatch
- * @param {function} context.commit
- * @param {object} context.getters
- * @param {string} translation
- */
-async function applyEditedTranslationToSelectedTranslationUnit(
-  { state, dispatch, commit, getters },
-  translation
-) {
-  const div = document.createElement("div");
-  div.innerHTML = translation;
-  // Remove dummy span node if exists. This node was only added so that VE doesn't add a new paragraph (which is done
-  // by default when VE initial content is empty).
-  div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
-  translation = div.innerHTML;
-
-  const { currentSourceSection, targetLanguage, currentMTProvider } = state;
-  const { selectedContentTranslationUnit } = currentSourceSection;
-
-  if (selectedContentTranslationUnit instanceof SubSection) {
-    const currentSourcePage = getters.getCurrentPage;
-    const currentTargetPage = getters.getCurrentTargetPage;
-    const templateTranslationHtml = await renderTemplateFromVE(
-      translation,
-      currentTargetPage?.title || currentSourcePage.title,
-      targetLanguage
-    );
-    translation = templateTranslationHtml || translation;
-  }
-  currentSourceSection.setTranslationForSelectedTranslationUnit(
-    translation,
-    currentMTProvider
-  );
-  const debouncedSave = getDebouncedSaveTranslation({ dispatch, commit });
-  debouncedSave();
-  commit("setAutoSavePending", true);
-
-  dispatch("selectNextTranslationUnit");
 }
 
 /**
@@ -410,8 +335,6 @@ function clearCurrentSectionSuggestion({ commit }) {
 }
 
 export default {
-  applyEditedTranslationToSelectedTranslationUnit,
-  applyProposedTranslationToSelectedTranslationUnit,
   clearCurrentSectionSuggestion,
   clearPendingSaveTranslationRequests,
   getCXServerToken,
@@ -423,4 +346,5 @@ export default {
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,
+  getDebouncedSaveTranslation,
 };

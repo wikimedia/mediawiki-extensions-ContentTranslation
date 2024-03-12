@@ -19,6 +19,7 @@ import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
+import useProposedTranslationApply from "./useProposedTranslationApply";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
@@ -87,15 +88,16 @@ const skipTranslation = () =>
 const selectPreviousTranslationUnit = () =>
   store.dispatch("application/selectPreviousTranslationUnit");
 
+const applyProposedTranslationToSelectedTranslationUnit =
+  useProposedTranslationApply();
+
 const applyTranslation = () => {
   logEvent({
     event_type: "editor_segment_add",
     translation_source_language: sourceLanguage.value,
     translation_target_language: targetLanguage.value,
   });
-  store.dispatch(
-    "application/applyProposedTranslationToSelectedTranslationUnit"
-  );
+  applyProposedTranslationToSelectedTranslationUnit();
 };
 
 const bounceTranslation = () => {
