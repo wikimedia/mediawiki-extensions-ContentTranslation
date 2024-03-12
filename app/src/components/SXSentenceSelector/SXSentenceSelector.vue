@@ -16,11 +16,12 @@ import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import { replaceUrl } from "@/utils/urlHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
-import useMTProvidersInitialize from "@/components/SXSentenceSelector/useMTProvidersInitialize";
+import useMTProvidersInitialize from "./useMTProvidersInitialize";
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useProposedTranslationApply from "./useProposedTranslationApply";
-import usePendingSaveRequestsClear from "@/components/SXSentenceSelector/usePendingSaveRequestsClear";
+import usePendingSaveRequestsClear from "./usePendingSaveRequestsClear";
+import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
@@ -84,10 +85,10 @@ onMounted(() => {
 
 watch(selectedContentTranslationUnit, scrollToTranslationUnit);
 
-const skipTranslation = () =>
-  store.dispatch("application/selectNextTranslationUnit");
-const selectPreviousTranslationUnit = () =>
-  store.dispatch("application/selectPreviousTranslationUnit");
+const {
+  selectNextTranslationUnit: skipTranslation,
+  selectPreviousTranslationUnit,
+} = useTranslationUnitSelect();
 
 const applyProposedTranslationToSelectedTranslationUnit =
   useProposedTranslationApply();

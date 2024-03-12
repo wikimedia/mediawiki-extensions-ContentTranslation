@@ -1,8 +1,11 @@
 import { useStore } from "vuex";
+import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useApplicationState from "@/composables/useApplicationState";
 
 const useInitializeSegmentSelection = () => {
   const store = useStore();
+  const { selectNextTranslationUnit, selectTranslationUnitById } =
+    useTranslationUnitSelect();
 
   return () => {
     const { currentTranslation } = store.state.application;
@@ -22,10 +25,10 @@ const useInitializeSegmentSelection = () => {
       currentSourceSection.value.selectTranslationUnitById(
         lastTranslatedContentTranslationUnit?.id || 0
       );
-      store.dispatch("application/selectNextTranslationUnit");
+      selectNextTranslationUnit();
     } else if (!selectedContentTranslationUnit.value) {
       // If no sentence is selected, select title
-      store.dispatch("application/selectTranslationUnitById", 0);
+      selectTranslationUnitById(0);
     }
   };
 };

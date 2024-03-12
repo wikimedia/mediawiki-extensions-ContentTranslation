@@ -24,8 +24,6 @@ const mockErrorPublishFeedbackMessageForSaving = new PublishFeedbackMessage({
 
 jest.mock("@/wiki/cx/api/translator", () => ({
   publishTranslation: jest.fn(({ targetTitle }) => {
-    console.log("target title", targetTitle);
-
     // successful publishing
     if (targetTitle === "Test target article title 1") {
       return Promise.resolve({

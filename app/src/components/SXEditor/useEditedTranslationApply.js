@@ -2,10 +2,12 @@ import { useStore } from "vuex";
 import SubSection from "@/wiki/cx/models/subSection";
 import { renderTemplateFromVE } from "@/utils/templateRenderer";
 import useDebouncedSave from "@/composables/useDebouncedSave";
+import useTranslationUnitSelect from "@/components/SXSentenceSelector/useTranslationUnitSelect";
 
 const useEditedTranslationApply = () => {
   const store = useStore();
   const saveDebounced = useDebouncedSave();
+  const { selectNextTranslationUnit } = useTranslationUnitSelect();
 
   /**
    * Given an edited translation string, this action applies this
@@ -45,7 +47,7 @@ const useEditedTranslationApply = () => {
     saveDebounced();
     store.commit("application/setAutoSavePending", true);
 
-    store.dispatch("application/selectNextTranslationUnit");
+    selectNextTranslationUnit();
   };
 };
 

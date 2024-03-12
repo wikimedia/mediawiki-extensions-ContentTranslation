@@ -75,74 +75,6 @@ function restoreSectionTranslation({ commit, dispatch }, translation) {
 }
 
 /**
- * Given an id, this action selects a translation unit for translation.
- * Such translation units are the section title and the section sentences.
- * If the given id is equal to 0, then the section title will be selected.
- *
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {object} context.state
- * @param {string} id
- */
-async function selectTranslationUnitById({ commit, dispatch, state }, id) {
-  const { currentSourceSection, currentMTProvider } = state;
-  currentSourceSection.selectTranslationUnitById(id);
-  await dispatch("translateTranslationUnitById", {
-    id,
-    provider: currentMTProvider,
-  });
-  const { followingTranslationUnit } = currentSourceSection;
-
-  if (followingTranslationUnit) {
-    await dispatch("translateTranslationUnitById", {
-      id: followingTranslationUnit.id,
-      provider: currentMTProvider,
-    });
-  }
-}
-
-/**
- * This action clear current selection and selects the following
- * sentence inside section contents.
- *
- * @param {object} context
- * @param {object} context.state
- * @param {function} context.dispatch
- */
-function selectNextTranslationUnit({ state, dispatch }) {
-  const { followingTranslationUnit } = state.currentSourceSection;
-
-  if (!followingTranslationUnit) {
-    return;
-  }
-  dispatch("selectTranslationUnitById", followingTranslationUnit.id);
-}
-
-/**
- * This action clears current selection and selects
- * the previous sentence inside section contents,
- * or the section title, in case the first section
- * sentence is currently selected.
- *
- * @param {object} context
- * @param {object} context.state
- * @param {function} context.dispatch
- */
-function selectPreviousTranslationUnit({ state, dispatch }) {
-  const { selectedContentTranslationUnitIndex, contentTranslationUnits } =
-    state.currentSourceSection;
-  const previousIndex = selectedContentTranslationUnitIndex - 1;
-  // Id for section title
-  let previousId = 0;
-
-  if (previousIndex > -1) {
-    previousId = contentTranslationUnits[previousIndex].id;
-  }
-  dispatch("selectTranslationUnitById", previousId);
-}
-
-/**
  * Given a valid MT provider, this action updates the
  * currently selected MT provider and translates the
  * currently selected translation unit (section title
@@ -278,9 +210,6 @@ export default {
   getCXServerToken,
   initializeSectionTranslation,
   restoreSectionTranslation,
-  selectNextTranslationUnit,
-  selectPreviousTranslationUnit,
-  selectTranslationUnitById,
   translateTranslationUnitById,
   translateSelectedTranslationUnitForAllProviders,
   updateMTProvider,

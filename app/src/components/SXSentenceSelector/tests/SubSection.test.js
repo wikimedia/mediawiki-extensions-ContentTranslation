@@ -47,41 +47,37 @@ jest.mock("@/utils/visualEditorHelper", () => ({
   getSubSectionNodes: jest.fn((html) => mockNodes),
 }));
 
-describe("SXSentenceSelector SubSection component", () => {
-  const htmlContent = "Dummy (unused) HTML Content";
-  const pageSections =
-    segmentedContentConverter.convertSegmentedContentToPageSections(
-      htmlContent
-    );
-  /** @type SubSection **/
-  const subSection = pageSections[0].subSections[0];
-  const applicationModule = {
-    namespaced: true,
-    actions: {
-      selectTranslationUnitById: ({}, id) => {
-        const sentence = subSection.getSentenceById(id);
-        sentence.selected = true;
-      },
-    },
-  };
-  const mediawikiModule = {
-    namespaced: true,
-    state: {},
-    getters: {
-      getSupportedMTProviders: (state) => () =>
-        [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY],
-    },
-  };
-  const store = createStore({
-    modules: {
-      mediawiki: mediawikiModule,
-      application: applicationModule,
-    },
-  });
+const htmlContent = "Dummy (unused) HTML Content";
+const pageSections =
+  segmentedContentConverter.convertSegmentedContentToPageSections(htmlContent);
 
+/** @type SubSection **/
+const mockSubSection = pageSections[0].subSections[0];
+const mediawikiModule = {
+  namespaced: true,
+  state: {},
+  getters: {
+    getSupportedMTProviders: (state) => () =>
+      [MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY],
+  },
+};
+const store = createStore({
+  modules: { mediawiki: mediawikiModule },
+});
+
+const mockSelectTranslationUnitById = jest.fn((id) => {
+  const sentence = mockSubSection.getSentenceById(id);
+  sentence.selected = true;
+});
+
+jest.mock("../useTranslationUnitSelect", () => () => ({
+  selectTranslationUnitById: mockSelectTranslationUnitById,
+}));
+
+describe("SXSentenceSelector SubSection component", () => {
   const wrapper = mount(SubSection, {
     global: { plugins: [store, i18n] },
-    props: { subSection },
+    props: { subSection: mockSubSection },
   });
 
   it("Component output matches snapshot", () => {
@@ -102,8 +98,8 @@ describe("SXSentenceSelector SubSection component", () => {
     store.dispatch = jest.fn();
     const sentence = wrapper.findAll(".cx-segment")[1];
     sentence.trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectTranslationUnitById",
+
+    expect(mockSelectTranslationUnitById).toHaveBeenCalledWith(
       sentence.element.dataset.segmentid
     );
   });
@@ -113,9 +109,8 @@ describe("SXSentenceSelector SubSection component", () => {
     // this <b> element is nested inside a .cx-segment element with data-segmentid equal to 111
     const boldEl = wrapper.find("#test-b");
     boldEl.trigger("click");
-    expect(store.dispatch).toHaveBeenCalledWith(
-      "application/selectTranslationUnitById",
-      "111" // this is the data-segment id of the sentence that contains the bold element
-    );
+
+    // the expected value is the data-segment id of the sentence that contains the bold element
+    expect(mockSelectTranslationUnitById).toHaveBeenCalledWith("111");
   });
 });

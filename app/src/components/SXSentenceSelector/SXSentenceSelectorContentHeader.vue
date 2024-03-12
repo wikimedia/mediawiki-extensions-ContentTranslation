@@ -26,6 +26,7 @@ import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import useTranslationUnitSelect from "./useTranslationUnitSelect";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
@@ -69,8 +70,8 @@ export default {
       return classes;
     });
 
-    const selectSectionTitle = () =>
-      store.dispatch("application/selectTranslationUnitById", 0);
+    const { selectTranslationUnitById } = useTranslationUnitSelect();
+    const selectSectionTitle = () => selectTranslationUnitById(0);
 
     return {
       mwIconLinkExternal,

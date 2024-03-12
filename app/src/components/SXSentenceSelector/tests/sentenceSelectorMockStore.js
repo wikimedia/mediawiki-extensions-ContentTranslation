@@ -14,6 +14,9 @@ const applicationModule = {
     },
     translationDataLoadingCounter: 0,
   },
+  mutations: {
+    setPreviousRoute: () => {}, // for Vue router navigation guard
+  },
 };
 
 const store = createStore({

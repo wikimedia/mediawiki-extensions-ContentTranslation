@@ -13,7 +13,7 @@
 import SubSection from "@/wiki/cx/models/subSection";
 import useSubSectionContent from "./useSubSectionContent";
 import { onMounted, ref, computed } from "vue";
-import { useStore } from "vuex";
+import useTranslationUnitSelect from "./useTranslationUnitSelect";
 
 export default {
   name: "SubSection",
@@ -55,7 +55,7 @@ export default {
         selectContentTranslationUnit(translationUnit);
       });
     });
-    const store = useStore();
+    const { selectTranslationUnitById } = useTranslationUnitSelect();
 
     /**
      * @param {SubSection|SectionSentence} translationUnit
@@ -66,10 +66,7 @@ export default {
 
         return;
       }
-      store.dispatch(
-        "application/selectTranslationUnitById",
-        translationUnit.id
-      );
+      selectTranslationUnitById(translationUnit.id);
     };
 
     const rootClasses = computed(() => ({
