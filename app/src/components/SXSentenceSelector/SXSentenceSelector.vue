@@ -22,6 +22,7 @@ import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useProposedTranslationApply from "./useProposedTranslationApply";
 import usePendingSaveRequestsClear from "./usePendingSaveRequestsClear";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
+import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 
@@ -148,6 +149,10 @@ const doGoToDashboard = async () => {
   // always clear current translation, if any, when going back to dashboard
   store.commit("application/setCurrentTranslation", null);
 };
+const {
+  translateTranslationUnitById,
+  translateSelectedTranslationUnitForAllProviders,
+} = useTranslationUnitTranslate();
 
 const configureTranslationOptions = () => {
   // Disable MT provider change when block template is selected
@@ -155,7 +160,7 @@ const configureTranslationOptions = () => {
     return;
   }
   isTranslationOptionsActive.value = true;
-  store.dispatch("application/translateSelectedTranslationUnitForAllProviders");
+  translateSelectedTranslationUnitForAllProviders();
 };
 
 const editTranslation = (content, isInitialEdit) => {
@@ -174,15 +179,12 @@ const previewTranslation = () => router.push({ name: "sx-publisher" });
 
 const retryTranslation = async () => {
   if (!selectedContentTranslationUnit.value) {
-    await store.dispatch("application/translateTranslationUnitById", {
-      id: 0,
-      provider: currentMTProvider.value,
-    });
+    await translateTranslationUnitById(0, currentMTProvider.value);
   } else {
-    await store.dispatch("application/translateTranslationUnitById", {
-      id: selectedContentTranslationUnit.value.id,
-      provider: currentMTProvider.value,
-    });
+    await translateTranslationUnitById(
+      selectedContentTranslationUnit.value.id,
+      currentMTProvider.value
+    );
   }
 };
 

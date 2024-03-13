@@ -1,7 +1,9 @@
 import { useStore } from "vuex";
+import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 
 const useMTProviderUpdate = () => {
   const store = useStore();
+  const { translateTranslationUnitById } = useTranslationUnitTranslate();
 
   /**
    * Given a valid MT provider, this action updates the
@@ -15,10 +17,7 @@ const useMTProviderUpdate = () => {
     store.commit("application/setCurrentMTProvider", provider);
     const { currentSourceSection } = store.state.application;
     const { selectedTranslationUnitId: id } = currentSourceSection;
-    store.dispatch("application/translateTranslationUnitById", {
-      id,
-      provider,
-    });
+    translateTranslationUnitById(id, provider);
   };
 };
 

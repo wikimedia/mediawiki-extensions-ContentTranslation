@@ -1,7 +1,9 @@
 import { useStore } from "vuex";
+import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 
 const useTranslationUnitSelect = () => {
   const store = useStore();
+  const { translateTranslationUnitById } = useTranslationUnitTranslate();
 
   /**
    * Given an id, this action selects a translation unit for translation.
@@ -15,17 +17,14 @@ const useTranslationUnitSelect = () => {
     const { currentSourceSection, currentMTProvider } = store.state.application;
 
     currentSourceSection.selectTranslationUnitById(id);
-    await store.dispatch("application/translateTranslationUnitById", {
-      id,
-      provider: currentMTProvider,
-    });
+    await translateTranslationUnitById(id, currentMTProvider);
     const { followingTranslationUnit } = currentSourceSection;
 
     if (followingTranslationUnit) {
-      await store.dispatch("application/translateTranslationUnitById", {
-        id: followingTranslationUnit.id,
-        provider: currentMTProvider,
-      });
+      await translateTranslationUnitById(
+        followingTranslationUnit.id,
+        currentMTProvider
+      );
     }
   };
 
