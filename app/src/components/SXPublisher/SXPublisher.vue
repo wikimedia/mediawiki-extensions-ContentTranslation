@@ -5,7 +5,7 @@ import SxPublisherAnimationDialog from "./SXPublisherAnimationDialog.vue";
 import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
 import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import usePublishTranslation from "./usePublishTranslation";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
@@ -13,6 +13,9 @@ import { useI18n } from "vue-banana-i18n";
 import useEditTranslation from "./useEditTranslation";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconSettings, cdxIconEdit } from "@wikimedia/codex-icons";
+import usePublishFeedbackMessages from "./usePublishFeedbackMessages";
+import usePublishingComplete from "./usePublishingComplete";
+import useCaptcha from "./useCaptcha";
 
 const store = useStore();
 const { currentSourceSection: currentPageSection } = useApplicationState(store);
@@ -39,32 +42,75 @@ const panelResult = computed(() => {
 const {
   captchaDetails,
   captchaDialogOn,
-  configureTranslationOptions,
-  doPublish,
-  isPublishDialogActive,
-  isPublishingDisabled,
+  handleCaptchaError,
   onCaptchaDialogClose,
-  publishOptionsOn,
+} = useCaptcha();
+
+const {
   publishFeedbackMessages,
-  publishStatus,
-} = usePublishTranslation(store);
+  isPublishingDisabled,
+  addPublishFeedbackMessage,
+  clearPublishFeedbackMessages,
+  initializePublishFeedbackMessages,
+} = usePublishFeedbackMessages();
 
-onMounted(async () => {
-  const mtValidationMessage = await store.dispatch("translator/validateMT");
+const completePublishing = usePublishingComplete();
 
-  if (mtValidationMessage) {
-    publishFeedbackMessages.value.push(mtValidationMessage);
+const { doPublish, isPublishDialogActive, publishStatus, closePublishDialog } =
+  usePublishTranslation();
+
+const publishTranslation = async (captchaAnswer = null) => {
+  const result = await doPublish(captchaAnswer, captchaDetails);
+
+  if (!result) {
+    return;
   }
-});
+
+  const { publishFeedbackMessage, targetUrl } = result;
+
+  const isCaptchaError = handleCaptchaError(publishFeedbackMessage);
+
+  if (isCaptchaError) {
+    closePublishDialog();
+
+    return;
+  } else if (!!publishFeedbackMessage) {
+    addPublishFeedbackMessage(publishFeedbackMessage);
+  }
+
+  publishStatus.value = isPublishingDisabled.value ? "failure" : "success";
+  /**
+   * Show feedback animation to user for 1 second
+   * before handling the publishing result
+   */
+  setTimeout(() => {
+    if (isPublishingDisabled.value) {
+      closePublishDialog();
+
+      return;
+    }
+    completePublishing(targetUrl);
+  }, 1000);
+};
+
+onMounted(() => initializePublishFeedbackMessages());
 
 const editTranslation = useEditTranslation();
+const publishOptionsOn = ref(false);
+const configureTranslationOptions = () => (publishOptionsOn.value = true);
+
+watch(publishOptionsOn, (newValue) => {
+  if (!newValue) {
+    clearPublishFeedbackMessages();
+  }
+});
 </script>
 
 <template>
   <section class="sx-publisher">
     <sx-publisher-header
       :is-publishing-disabled="isPublishingDisabled"
-      @publish-translation="doPublish"
+      @publish-translation="publishTranslation"
     />
     <div class="sx-publisher__publish-panel pa-4">
       <h5
@@ -110,7 +156,7 @@ const editTranslation = useEditTranslation();
       :active="captchaDialogOn"
       :captcha-details="captchaDetails"
       @close="onCaptchaDialogClose"
-      @publish="doPublish($event)"
+      @publish="publishTranslation($event)"
     />
     <sx-publisher-animation-dialog
       :active="isPublishDialogActive"

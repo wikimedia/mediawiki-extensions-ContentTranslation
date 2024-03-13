@@ -1,16 +1,11 @@
-import PageSection from "@/wiki/cx/models/pageSection";
-import Page from "@/wiki/mw/models/page";
-import { createStore } from "vuex";
-import usePublishTranslation from "./usePublishTranslation";
+import usePublishingComplete from "./usePublishingComplete";
 import siteApi from "@/wiki/mw/api/site";
+import { createApp } from "vue";
+import PageSection from "@/wiki/cx/models/pageSection";
+import { createStore } from "vuex";
+import Page from "@/wiki/mw/models/page";
 
-jest.mock("../../utils/mediawikiHelper", () => ({ getUrl: jest.fn() }));
-
-jest.mock("../../wiki/mw/api/site", () => ({
-  addWikibaseLink: jest.fn(),
-}));
 const testPage = new Page({ title: "Football" });
-
 const applicationModule = {
   namespaced: true,
   state: {
@@ -41,24 +36,34 @@ const store = createStore({
   modules: { application: applicationModule, translator: translatorModule },
 });
 
+const mockLoadComposableInApp = (composable) => {
+  let result;
+  const app = createApp({
+    setup() {
+      result = composable();
+
+      // suppress missing template warning
+      return () => {};
+    },
+  });
+  app.use(store);
+  app.mount(document.createElement("div"));
+
+  return { result, app };
+};
+
+jest.mock("@/wiki/mw/api/site", () => ({
+  addWikibaseLink: jest.fn(),
+}));
 Object.defineProperty(window, "location", { value: {}, writable: true });
 
-describe("usePublishTranslation test", () => {
-  beforeEach(() => {
-    jest.useFakeTimers("modern");
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
-  const { doPublish } = usePublishTranslation(store);
-
+describe("test `usePublishingComplete` composable", () => {
+  const data = mockLoadComposableInApp(() => usePublishingComplete());
+  const completePublishing = data.result;
+  const targetURL = "test_target_url";
   it("should call addWikibaseLink when source title is main namespace", async () => {
-    await doPublish();
+    await completePublishing(targetURL);
 
-    expect(siteApi.addWikibaseLink).toHaveBeenCalledTimes(0);
-    jest.advanceTimersByTime(1000);
     expect(siteApi.addWikibaseLink).toHaveBeenCalledTimes(1);
   });
 
@@ -66,10 +71,8 @@ describe("usePublishTranslation test", () => {
     siteApi.addWikibaseLink.mockClear();
     testPage.title = "User:Nikg/Football";
 
-    await doPublish();
+    await completePublishing(targetURL);
 
-    expect(siteApi.addWikibaseLink).toHaveBeenCalledTimes(0);
-    jest.advanceTimersByTime(1000);
     expect(siteApi.addWikibaseLink).toHaveBeenCalledTimes(0);
   });
 });
