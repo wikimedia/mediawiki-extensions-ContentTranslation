@@ -6,7 +6,7 @@ import SxPublisherCaptchaDialog from "./SXPublisherCaptchaDialog.vue";
 import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { computed, onMounted, ref, watch } from "vue";
-import usePublishTranslation from "./usePublishTranslation";
+import useTranslationPublish from "./useTranslationPublish";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
@@ -57,7 +57,7 @@ const {
 const completePublishing = usePublishingComplete();
 
 const { doPublish, isPublishDialogActive, publishStatus, closePublishDialog } =
-  usePublishTranslation();
+  useTranslationPublish();
 
 const publishTranslation = async (captchaAnswer = null) => {
   const result = await doPublish(captchaAnswer, captchaDetails);

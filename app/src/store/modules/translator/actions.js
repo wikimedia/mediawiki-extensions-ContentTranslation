@@ -2,7 +2,6 @@ import mtValidator from "../../../utils/mtValidator";
 import cxTranslatorApi from "../../../wiki/cx/api/translator";
 import PublishFeedbackMessage from "../../../wiki/cx/models/publishFeedbackMessage";
 import { validateParallelCorporaPayload } from "../../../utils/parallelCorporaValidator";
-import { cleanupHtml } from "../../../utils/publishHelper";
 import translator from "@/wiki/cx/api/translator";
 
 /**
@@ -81,7 +80,7 @@ function validateMT({ rootState }) {
  * @param {object} context
  * @param {object} context.rootState
  * @param {object} context.rootGetters
- * @return {Promise<PublishFeedbackMessage|null>}
+ * @return {Promise<number|PublishFeedbackMessage|null>}
  */
 function saveTranslation({ rootState, rootGetters }) {
   const sourcePage = rootGetters["application/getCurrentPage"];
@@ -131,75 +130,6 @@ function saveTranslation({ rootState, rootGetters }) {
     isSandbox,
     progress,
   });
-}
-
-/**
- * This action is only reachable when no publish error messages exist.
- * When dispatched, it publishes the current section using translator
- * api client, and it finally resolves to the return value from "publishTranslation"
- * api method, that can be either a PublishFeedbackMessage model or null.
- *
- * @param {object} context
- * @param {object} context.rootState
- * @param {object} context.rootGetters
- * @param {function} context.dispatch
- * @param {object} payload
- * @param {string|number} payload.captchaId
- * @param {string|number} payload.captchaAnswer
- * @return {Promise<{publishFeedbackMessage: (PublishFeedbackMessage|null), targetTitle: (string|null)}>}
- */
-async function publishTranslation(
-  { rootState, rootGetters, dispatch },
-  { captchaId, captchaAnswer } = {}
-) {
-  // the return value from the "saveTranslation" api method contains the id (cxsx_id)
-  // of the section translation if the request was successful. If not, the return value
-  // is an instance of PublishFeedbackMessage
-  const saveResponse = await dispatch("saveTranslation");
-
-  if (saveResponse instanceof PublishFeedbackMessage) {
-    return { publishFeedbackMessage: saveResponse, targetTitle: null };
-  }
-
-  // the section translation id (cxsx_id) as returned from the "sxsave" api action
-  const sectionTranslationId = saveResponse;
-  const sourcePage = rootGetters["application/getCurrentPage"];
-  const {
-    /** @type {PageSection} */
-    currentSourceSection,
-    sourceLanguage,
-    targetLanguage,
-  } = rootState.application;
-
-  const sourceTitle = sourcePage.title;
-  const targetTitle =
-    rootGetters["application/getTargetPageTitleForPublishing"];
-
-  const isSandbox = rootGetters["application/isSandboxTarget"];
-
-  const publishPayload = {
-    html: cleanupHtml(currentSourceSection.translationHtml),
-    sourceTitle,
-    targetTitle,
-    sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
-    targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
-    sourceLanguage,
-    targetLanguage,
-    revision: rootGetters["application/getCurrentRevision"],
-    isSandbox,
-    sectionTranslationId,
-  };
-
-  if (captchaId) {
-    publishPayload.captchaId = captchaId;
-    publishPayload.captchaWord = captchaAnswer;
-  }
-
-  /**
-   * Publish translation and get a publish feedback error message in case of
-   * failure, or null in case of successful publishing
-   */
-  return await cxTranslatorApi.publishTranslation(publishPayload);
 }
 
 /**
@@ -260,7 +190,6 @@ async function fetchTranslatorStats({ commit }) {
 export default {
   validateMT,
   saveTranslation,
-  publishTranslation,
   translateContent,
   fetchTranslatorStats,
 };
