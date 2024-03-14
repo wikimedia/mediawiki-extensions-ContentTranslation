@@ -29,6 +29,7 @@
 	"apihelp-query+contenttranslation-param-sourcesectiontitle": "Der Titel des Quellabschnitts (optional).",
 	"apihelp-query+contenttranslation-param-limit": "Die maximale Anzahl der abzurufenden Übersetzungen.",
 	"apihelp-query+contenttranslation-param-offset": "Versatz in den Ergebnissatz (optional).",
+	"apihelp-query+contenttranslation-param-usecase": "Der Anwendungsfall, für den die Übersetzungen abgerufen werden (optional).",
 	"apihelp-query+contenttranslation-param-type": "Status der Übersetzung.",
 	"apihelp-query+contenttranslation-example-1": "Übersetzungen abrufen, die von dem aktuellen Benutzer begonnen wurden.",
 	"apihelp-query+contenttranslation-example-2": "Übersetzungsentwurf nach Kennung abrufen.",
