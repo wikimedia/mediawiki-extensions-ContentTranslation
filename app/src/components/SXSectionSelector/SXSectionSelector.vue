@@ -118,7 +118,7 @@ export default {
 
     const router = useRouter();
 
-    const { clearURLParameters } = useURLHandler();
+    const { clearURLParameters, setSectionURLParam } = useURLHandler();
 
     const goToDashboard = () => {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
@@ -158,6 +158,7 @@ export default {
         startDraftTranslation(existingSectionTranslation);
       } else {
         selectPageSectionByTitle(sourceSectionTitle);
+        setSectionURLParam(sourceSectionTitle);
         router.push({ name: "sx-content-comparator" });
       }
     };

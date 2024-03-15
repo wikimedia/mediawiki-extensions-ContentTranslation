@@ -1,11 +1,13 @@
 import { useRouter } from "vue-router";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useSectionTranslationStart = () => {
   const store = useStore();
   const router = useRouter();
   const loadSuggestion = useSuggestionLoad();
+  const { setTranslationURLParams } = useURLHandler();
 
   /**
    * @param {string} title
@@ -27,6 +29,8 @@ const useSectionTranslationStart = () => {
     }
 
     store.dispatch("application/initializeSectionTranslation", suggestion);
+    setTranslationURLParams(suggestion);
+
     router.push({
       name: "sx-translation-confirmer",
       query: { eventSource },

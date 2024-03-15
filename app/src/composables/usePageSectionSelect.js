@@ -2,6 +2,7 @@ import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 import usePageContentFetch from "@/composables/usePageContentFetch";
+import useURLHandler from "@/composables/useURLHandler";
 
 const usePageSectionSelect = () => {
   const store = useStore();
@@ -11,6 +12,8 @@ const usePageSectionSelect = () => {
 
   const resolvePageContentReferences = useContentReferencesResolve();
   const fetchPageContent = usePageContentFetch();
+
+  const { setSectionURLParam } = useURLHandler();
 
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
@@ -45,8 +48,11 @@ const usePageSectionSelect = () => {
   const selectPageSectionByTitle = (sectionTitle) => {
     const getter = () =>
       currentSourcePage.value.getSectionByTitle(sectionTitle);
-    const setter = () =>
+
+    const setter = () => {
+      setSectionURLParam(sectionTitle);
       store.commit("application/setCurrentSourceSection", getter());
+    };
 
     return doSelectPageSection(getter, setter);
   };
@@ -69,6 +75,8 @@ const usePageSectionSelect = () => {
       // If this section is a lead section, set the source page title as original section title
       if (index === 0) {
         section.originalTitle = currentSourcePage.value.title;
+      } else {
+        setSectionURLParam(section.originalTitle);
       }
       store.commit("application/setCurrentSourceSection", section);
     };

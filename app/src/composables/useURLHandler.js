@@ -1,6 +1,6 @@
 import { getUrl } from "@/utils/mediawikiHelper";
 import { ref } from "vue";
-import Translation from "@/wiki/cx/models/translation";
+import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 
 const sourceLanguageURLParameter = ref(null);
 const targetLanguageURLParameter = ref(null);
@@ -9,10 +9,9 @@ const sectionURLParameter = ref(null);
 const draftURLParameter = ref(null);
 
 /**
- * @param {SectionSuggestion|Translation|null} translationToBeStarted
+ * @param {SectionSuggestion|DraftTranslation|null} translationToBeStarted
  */
 const setTranslationURLParams = (translationToBeStarted) => {
-  const isDraftTranslation = translationToBeStarted instanceof Translation;
   const params = new URLSearchParams(location.search);
   // both SectionSuggestion and Translation models have the below properties
   params.set("page", translationToBeStarted?.sourceTitle);
@@ -23,12 +22,22 @@ const setTranslationURLParams = (translationToBeStarted) => {
   sourceLanguageURLParameter.value = translationToBeStarted?.sourceLanguage;
   targetLanguageURLParameter.value = translationToBeStarted?.targetLanguage;
 
-  if (isDraftTranslation) {
+  if (translationToBeStarted instanceof DraftTranslation) {
     params.set("draft", true);
     draftURLParameter.value = true;
+
+    if (!translationToBeStarted.isLeadSectionTranslation) {
+      params.set("section", translationToBeStarted.sourceSectionTitle);
+      sectionURLParameter.value = translationToBeStarted.sourceSectionTitle;
+    }
   }
   params.delete("title");
   replaceUrl(Object.fromEntries(params));
+};
+
+const setSectionURLParam = (sectionTitle) => {
+  sectionURLParameter.value = sectionTitle;
+  setUrlParam("section", sectionTitle);
 };
 
 /**
@@ -63,6 +72,7 @@ const clearSectionURLParameter = () => {
 const setUrlParam = (param, value) => {
   const params = new URLSearchParams(location.search);
   params.set(param, value);
+  params.delete("title");
   replaceUrl(Object.fromEntries(params));
 };
 
@@ -95,6 +105,7 @@ const clearURLParameters = () => {
 const useURLHandler = () => {
   return {
     setLanguageURLParams,
+    setSectionURLParam,
     setTranslationURLParams,
     initializeURLState,
     clearURLParameters,

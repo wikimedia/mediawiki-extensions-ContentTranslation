@@ -10,6 +10,7 @@ import useCXRedirect from "@/composables/useCXRedirect";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 import usePageContentFetch from "@/composables/usePageContentFetch";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * @return {(function(DraftTranslation): Promise<void>)}
@@ -67,6 +68,8 @@ const useDraftTranslationStart = () => {
       sourceTitle
     );
 
+    const { setTranslationURLParams } = useURLHandler();
+    setTranslationURLParams(translation);
     router.push({ name: "sx-sentence-selector", query: { force: true } });
 
     if (

@@ -68,7 +68,6 @@ export default () => {
     } else {
       startNewTranslation();
     }
-    setTranslationURLParams(sectionSuggestion.value);
   };
 
   const startNewTranslation = async () => {
@@ -87,7 +86,6 @@ export default () => {
       } else {
         router.push({ name: "sx-sentence-selector", query: { force: true } });
       }
-      setTranslationURLParams(sectionSuggestion.value);
     }
   };
 

@@ -13,7 +13,6 @@ import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 
 const {
-  setTranslationURLParams,
   sectionURLParameter: preFilledSectionTitle,
   clearSectionURLParameter: clearPreFilledSection,
 } = useURLHandler();
@@ -46,10 +45,7 @@ const actionInformationMessage = computed(() =>
   bananaI18n.i18n(...actionInformationMessageArgs.value)
 );
 
-const onMoreSectionsClick = () => {
-  router.push({ name: "sx-section-selector" });
-  setTranslationURLParams(currentSectionSuggestion.value);
-};
+const onMoreSectionsClick = () => router.push({ name: "sx-section-selector" });
 
 onMounted(() => {
   const preFilledSection = preFilledSectionTitle.value;
