@@ -30,7 +30,12 @@ const usePageTranslationStart = () => {
     if (!!existingLeadTranslation) {
       return startDraftTranslation(existingLeadTranslation);
     } else {
-      return startSectionTranslation(pageTitle, eventSource);
+      return startSectionTranslation(
+        pageTitle,
+        sourceLanguage.value,
+        targetLanguage.value,
+        eventSource
+      );
     }
   };
   /**

@@ -40,7 +40,12 @@ const doStartSectionTranslation = useSectionTranslationStart();
  * @return {Promise<void>}
  */
 const startSectionTranslation = (suggestion) =>
-  doStartSectionTranslation(suggestion.sourceTitle, "suggestion_no_seed");
+  doStartSectionTranslation(
+    suggestion.sourceTitle,
+    suggestion.sourceLanguage,
+    suggestion.targetLanguage,
+    "suggestion_no_seed"
+  );
 
 const { startPageSuggestion } = usePageTranslationStart();
 

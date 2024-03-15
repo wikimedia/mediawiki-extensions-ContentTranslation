@@ -1,7 +1,6 @@
-import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
+import { useStore } from "vuex";
 
 const useSectionTranslationStart = () => {
   const store = useStore();
@@ -10,15 +9,16 @@ const useSectionTranslationStart = () => {
 
   /**
    * @param {string} title
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
    * @param {string} eventSource
    * @return {Promise<void>}
    */
-  return async (title, eventSource) => {
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  return async (title, sourceLanguage, targetLanguage, eventSource) => {
     /** @type {SectionSuggestion|null} */
     const suggestion = await loadSuggestion(
-      sourceLanguage.value,
-      targetLanguage.value,
+      sourceLanguage,
+      targetLanguage,
       title
     );
 
