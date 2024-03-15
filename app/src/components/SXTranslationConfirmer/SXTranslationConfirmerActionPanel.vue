@@ -1,7 +1,7 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { computed, inject, onMounted } from "vue";
-import { setTranslationURLParams } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
 import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
@@ -12,18 +12,19 @@ import useDevice from "@/composables/useDevice";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 
+const {
+  setTranslationURLParams,
+  sectionURLParameter: preFilledSectionTitle,
+  clearSectionURLParameter: clearPreFilledSection,
+} = useURLHandler();
 const router = useRouter();
 const store = useStore();
 const colors = inject("colors");
 const { targetLanguageAutonym, currentSectionSuggestion } =
   useApplicationState(store);
 
-const {
-  clearPreFilledSection,
-  startNewTranslation,
-  onSectionSelectorClick,
-  preFilledSectionTitle,
-} = useSectionSelectorClickHandler();
+const { startNewTranslation, onSectionSelectorClick } =
+  useSectionSelectorClickHandler();
 
 const {
   actionInformationMessageArgs,

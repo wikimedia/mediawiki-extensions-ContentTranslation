@@ -1,13 +1,13 @@
 import { computed, ref, watch, watchEffect } from "vue";
-import { setUrlParam } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
 
 const validLists = ["suggestions", "draft", "published"];
 
 const useActiveTabInitialize = () => {
   const store = useStore();
-  const urlParams = new URLSearchParams(location.search);
-  const urlActiveList = urlParams.get("active-list");
+  const { getUrlParam, setUrlParam } = useURLHandler();
+  const urlActiveList = getUrlParam("active-list");
 
   const activeTab = ref(null);
 

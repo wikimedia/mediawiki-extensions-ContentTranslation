@@ -1,4 +1,5 @@
 import { siteMapper } from "@/utils/mediawikiHelper";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * This method calculates the initial source and target languages for the current session.
@@ -32,9 +33,8 @@ const getInitialLanguagePair = (
   enabledTargetLanguages,
   supportedLanguageCodes
 ) => {
-  const urlParams = new URLSearchParams(location.search);
-  const urlSourceLanguage = urlParams.get("from");
-  const urlTargetLanguage = urlParams.get("to");
+  const { sourceLanguageURLParameter, targetLanguageURLParameter } =
+    useURLHandler();
 
   const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
 
@@ -54,11 +54,11 @@ const getInitialLanguagePair = (
   let targetLanguage;
 
   if (
-    urlTargetLanguage &&
-    isEnabledLanguage(urlTargetLanguage) &&
-    isSupportedLanguage(urlTargetLanguage)
+    targetLanguageURLParameter.value &&
+    isEnabledLanguage(targetLanguageURLParameter.value) &&
+    isSupportedLanguage(targetLanguageURLParameter.value)
   ) {
-    targetLanguage = urlTargetLanguage;
+    targetLanguage = targetLanguageURLParameter.value;
   } else if (
     isEnabledLanguage(wikiLanguage) &&
     isSupportedLanguage(wikiLanguage)
@@ -70,7 +70,7 @@ const getInitialLanguagePair = (
   }
 
   const defaultSourceLanguages = [
-    urlSourceLanguage,
+    sourceLanguageURLParameter.value,
     defaultLanguages.sourceLanguage,
     wikiLanguage,
     defaultLanguages.targetLanguage,

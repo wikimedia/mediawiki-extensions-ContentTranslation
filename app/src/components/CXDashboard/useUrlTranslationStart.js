@@ -4,6 +4,9 @@ import useApplicationState from "@/composables/useApplicationState";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
+import useURLHandler from "@/composables/useURLHandler";
+
+const { getUrlParam } = useURLHandler();
 
 /**
  * @return {string|undefined} the event source based on the "campaign" URL param
@@ -20,8 +23,7 @@ const getEventSourceFromUrlCampaign = () => {
     publishingfollowup: "followup_after_publishing",
     ulsaddlanguages: "language_selector_options",
   };
-  const urlParams = new URLSearchParams(location.search);
-  const campaign = urlParams.get("campaign");
+  const campaign = getUrlParam("campaign");
 
   return campaignEventSourcesMap[campaign];
 };

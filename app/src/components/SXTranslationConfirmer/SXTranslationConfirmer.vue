@@ -3,7 +3,7 @@ import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel.vue";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
-import { replaceUrl } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import {
   mwIconClose,
   mwIconArticle,
@@ -62,11 +62,12 @@ onMounted(() => {
 });
 
 const router = useRouter();
+const { clearURLParameters } = useURLHandler();
 
 const onClose = () => {
   store.dispatch("application/clearCurrentSectionSuggestion");
   // Remove URL params so that section translation doesn't restart, leading to endless loop
-  replaceUrl(null);
+  clearURLParameters();
 
   router.push({ name: previousRoute.value });
 };

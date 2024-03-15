@@ -1,23 +1,22 @@
-import {
-  setTranslationURLParams,
-  replaceUrl,
-  isQuickTutorialForced,
-} from "@/utils/urlHandler";
+import { isQuickTutorialForced } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
+import useURLHandler from "@/composables/useURLHandler";
 
 export default () => {
   const router = useRouter();
   const store = useStore();
   const { isDesktop } = useDevice();
 
-  const urlParams = new URLSearchParams(location.search);
-  const preFilledSectionTitle = ref(urlParams.get("section"));
+  const {
+    setTranslationURLParams,
+    sectionURLParameter: preFilledSectionTitle,
+  } = useURLHandler();
 
   const {
     currentSourceSection,
@@ -29,13 +28,6 @@ export default () => {
   const targetPageExists = computed(
     () => !!sectionSuggestion.value?.targetTitle
   );
-
-  const clearPreFilledSection = () => {
-    preFilledSectionTitle.value = null;
-    urlParams.delete("section");
-
-    replaceUrl(Object.fromEntries(urlParams));
-  };
 
   const { selectPageSectionByIndex, selectPageSectionByTitle } =
     usePageSectionSelect();
@@ -100,9 +92,7 @@ export default () => {
   };
 
   return {
-    clearPreFilledSection,
     startNewTranslation,
     onSectionSelectorClick,
-    preFilledSectionTitle,
   };
 };

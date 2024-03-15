@@ -3,7 +3,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { getInitialLanguagePair } from "@/utils/getInitialLanguagePair";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import { replaceUrl } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
@@ -47,19 +47,14 @@ const redirectToTargetWikiIfNeeded = (
 
   return false;
 };
+const { setLanguageURLParams, pageURLParameter, sectionURLParameter } =
+  useURLHandler();
 
 const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
   store.commit("application/setSourceLanguage", sourceLanguage);
   store.commit("application/setTargetLanguage", targetLanguage);
 
-  if (!history.pushState) {
-    return;
-  }
-  const params = new URLSearchParams(location.search);
-  params.set("from", sourceLanguage);
-  params.set("to", targetLanguage);
-  params.delete("title");
-  replaceUrl(Object.fromEntries(params));
+  setLanguageURLParams(sourceLanguage, targetLanguage);
 };
 
 /**
@@ -81,15 +76,11 @@ const useApplicationLanguagesInitialize = () => {
       supportedLanguageCodes.value
     );
 
-    const urlParams = new URLSearchParams(location.search);
-
-    const urlSourceArticleTitle = urlParams.get("page");
-    const urlSourceSectionTitle = urlParams.get("section");
     const redirectionNeeded = redirectToTargetWikiIfNeeded(
       sourceLanguage,
       targetLanguage,
-      urlSourceArticleTitle,
-      urlSourceSectionTitle
+      pageURLParameter.value,
+      sectionURLParameter.value
     );
 
     if (!redirectionNeeded) {

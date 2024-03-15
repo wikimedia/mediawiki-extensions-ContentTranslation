@@ -69,7 +69,7 @@ import SxSectionSelectorHeader from "./SXSectionSelectorHeader.vue";
 import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing.vue";
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent.vue";
 import { siteMapper } from "@/utils/mediawikiHelper";
-import { replaceUrl } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
@@ -118,9 +118,11 @@ export default {
 
     const router = useRouter();
 
+    const { clearURLParameters } = useURLHandler();
+
     const goToDashboard = () => {
       // Remove URL params so that section translation doesn't restart, leading to endless loop
-      replaceUrl(null);
+      clearURLParameters();
       router.push({ name: "dashboard" });
     };
 

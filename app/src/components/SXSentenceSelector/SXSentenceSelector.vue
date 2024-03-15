@@ -14,7 +14,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
-import { replaceUrl } from "@/utils/urlHandler";
+import useURLHandler from "@/composables/useURLHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "./useMTProvidersInitialize";
 import useSelectedContentTranslationUnitScroll from "./useSelectedContentTranslationUnitScroll";
@@ -125,11 +125,12 @@ const goToDashboard = () => {
 
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const clearPendingSaveRequests = usePendingSaveRequestsClear();
+const { clearURLParameters } = useURLHandler();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");
   // Remove URL params so that section translation doesn't restart, leading to endless loop
-  replaceUrl(null);
+  clearURLParameters();
   clearPendingSaveRequests();
   // wait for the redirection to dashboard before resetting variables needed in this route
   await router.push({ name: "dashboard" });

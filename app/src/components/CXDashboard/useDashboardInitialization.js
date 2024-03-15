@@ -8,23 +8,8 @@ import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
+import useURLHandler from "@/composables/useURLHandler";
 import useFavoritesFetch from "@/components/CXDashboard/useFavoritesFetch";
-
-/**
- * @return {{isDraftTranslation: boolean, pageTitle: string, sectionTitle: string|null}|null}
- */
-const getTranslationParamsFromUrl = () => {
-  const urlParams = new URLSearchParams(location.search);
-  const pageTitle = urlParams.get("page");
-
-  if (!pageTitle) {
-    return null;
-  }
-  const sectionTitle = urlParams.get("section");
-  const isDraftTranslation = !!urlParams.get("draft");
-
-  return { pageTitle, isDraftTranslation, sectionTitle };
-};
 
 const useDashboardInitialization = () => {
   const logEvent = useEventLogging();
@@ -33,15 +18,19 @@ const useDashboardInitialization = () => {
   const { fetchAllTranslations } = useTranslationsFetch();
   const initializeSuggestions = useSuggestionsInitialize();
   const fetchFavorites = useFavoritesFetch();
+  const { pageURLParameter, sectionURLParameter, draftURLParameter } =
+    useURLHandler();
 
   return async () => {
     const initializeLanguages = useApplicationLanguagesInitialize();
     await initializeLanguages();
 
-    const translationParams = getTranslationParamsFromUrl();
-
-    if (!!translationParams) {
-      startSectionTranslationFromUrl(translationParams);
+    if (!!pageURLParameter.value) {
+      startSectionTranslationFromUrl({
+        pageTitle: pageURLParameter.value,
+        isDraftTranslation: draftURLParameter.value,
+        sectionTitle: sectionURLParameter.value,
+      });
 
       return;
     }

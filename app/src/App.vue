@@ -5,6 +5,10 @@ import { computed, onMounted } from "vue";
 import userApi from "@/wiki/mw/api/user";
 import SxLoginDialog from "@/components/SXLoginDialog.vue";
 import AssertUserError from "@/utils/errors/assertUserError";
+import useURLHandler from "@/composables/useURLHandler";
+
+const { initializeURLState } = useURLHandler();
+initializeURLState();
 
 const store = useStore();
 const unsavedChangesExist = computed(
