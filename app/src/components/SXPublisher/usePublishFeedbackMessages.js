@@ -1,8 +1,8 @@
 import { ref, computed } from "vue";
-import { useStore } from "vuex";
+import useMtValidate from "./useMtValidate";
 
 const usePublishFeedbackMessages = () => {
-  const store = useStore();
+  const validateMT = useMtValidate();
   /**
    * Feedback messages that contain publishing-related warnings or errors. If only
    * warnings exist inside this array, publishing is enabled. If at least one error
@@ -28,7 +28,7 @@ const usePublishFeedbackMessages = () => {
   };
 
   const initializePublishFeedbackMessages = async () => {
-    const mtValidationMessage = await store.dispatch("translator/validateMT");
+    const mtValidationMessage = await validateMT();
 
     if (mtValidationMessage) {
       publishFeedbackMessages.value.push(mtValidationMessage);
