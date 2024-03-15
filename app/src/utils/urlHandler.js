@@ -15,7 +15,6 @@ const setTranslationURLParams = (translationToBeStarted) => {
   params.set("page", translationToBeStarted?.sourceTitle);
   params.set("from", translationToBeStarted?.sourceLanguage);
   params.set("to", translationToBeStarted?.targetLanguage);
-  params.set("sx", true);
 
   if (isDraftTranslation) {
     params.set("draft", true);

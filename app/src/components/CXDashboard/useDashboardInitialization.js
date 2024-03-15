@@ -15,10 +15,9 @@ import useFavoritesFetch from "@/components/CXDashboard/useFavoritesFetch";
  */
 const getTranslationParamsFromUrl = () => {
   const urlParams = new URLSearchParams(location.search);
-  const isSectionTranslation = urlParams.get("sx");
   const pageTitle = urlParams.get("page");
 
-  if (!isSectionTranslation || !pageTitle) {
+  if (!pageTitle) {
     return null;
   }
   const sectionTitle = urlParams.get("section");
