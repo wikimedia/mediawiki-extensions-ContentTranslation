@@ -3,6 +3,7 @@
 		"authors": [
 			"Dgstranz",
 			"DiegoAmbrocio",
+			"Eulalio",
 			"Fitoschido",
 			"Jakeukalane",
 			"Jduranboger",
@@ -101,5 +102,7 @@
 	"apihelp-cxpublishsection-param-targetsectiontitle": "El título de la sección de destino.",
 	"apihelp-cxpublishsection-param-sourcerevid": "El id de revisión de la página de origen.",
 	"apihelp-cxpublishsection-param-captchaword": "Respuesta al captcha (cuando se guarda con una respuesta al captcha).",
-	"apierror-cxpublishsection-translationnotfound": "No se encontró la traducción."
+	"apierror-cxpublishsection-translationnotfound": "No se encontró la traducción.",
+	"apihelp-cxcheckunreviewed-summary": "Compruebe si se ha publicado recientemente alguna traducción rápida y sin revisar para el usuario actual.",
+	"apierror-cxcheckunreviewed-anon-user": "La acción de la API \"cxcheckunreviewed\" no está habilitada para usuarios anónimos"
 }

@@ -148,5 +148,7 @@
 	"apihelp-cxsplit-summary": "יצירה ושמירה של תרגום של פרק למסד הנתונים, עבור כל פרק מתורגם בתרגום הערך הנתון",
 	"apihelp-cxsplit-param-translationid": "מזהה התרגום, שתרגומי הפרק ייווצרו עבורו.",
 	"apierror-cxsplit-anon-user": "פעולת ה־API בעלת המזהה \"cxsplit\" אינה מופעלת למשתמשים אלמוניים",
-	"apierror-cxsplit-no-translation-found": "לא נמצא תרגום עבור המזהה הנתון"
+	"apierror-cxsplit-no-translation-found": "לא נמצא תרגום עבור המזהה הנתון",
+	"apihelp-cxcheckunreviewed-summary": "לבדוק האם תרגומים מהירים ולא בדוקים כלשהם פורסמו לאחרונה על־ידי המשתמש הנוכחי.",
+	"apierror-cxcheckunreviewed-anon-user": "פעולת ה־API בעלת המזהה \"cxcheckunreviewed\" אינה מופעלת למשתמשים אלמוניים"
 }
