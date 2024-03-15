@@ -43,12 +43,6 @@ export default () => {
   const redirectToCX = useCXRedirect();
 
   const startPrefilledSectionTranslation = async () => {
-    if (!sectionSuggestion.value.hasSectionTitle(preFilledSectionTitle.value)) {
-      clearPreFilledSection();
-
-      return;
-    }
-
     if (isDesktop.value) {
       redirectToCX(
         sourceLanguage.value,
