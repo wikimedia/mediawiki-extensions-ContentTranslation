@@ -147,5 +147,7 @@
 	"apihelp-cxsplit-summary": "Создај и зачувај превод на оддел во базата, за секој преведен оддел на даден превод на статија",
 	"apihelp-cxsplit-param-translationid": "Назнака на преводот за кој ќе се создадат преводи на оддели.",
 	"apierror-cxsplit-anon-user": "Приложничкото дејство „cxsplit“ не е овозможено за анонимни корисници",
-	"apierror-cxsplit-no-translation-found": "Не најдов превод за дадената назнака"
+	"apierror-cxsplit-no-translation-found": "Не најдов превод за дадената назнака",
+	"apihelp-cxcheckunreviewed-summary": "Проверете дали тековниот корисник има скорешни преводи направени брзо и без проверка.",
+	"apierror-cxcheckunreviewed-anon-user": "Приложничкото дејство „cxcheckunreviewed“ не е овозможено за анонимни корисници"
 }

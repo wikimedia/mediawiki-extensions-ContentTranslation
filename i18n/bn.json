@@ -286,7 +286,7 @@
 	"cx-sx-section-selector-desc": "আপনি উভয় ভাষার সামগ্রীগুলি তুলনা করবেন",
 	"cx-sx-language-selector-dialog-title": "একটি ভাষা খুঁজুন",
 	"cx-sx-existing-translation-status": "$1 ভাষায় বিদ্যমান",
-	"cx-sx-existing-translation-additional-info": "$1{{PLURAL:$2|ও আরও $2টি অনুচ্ছেদ|0=}} সহকারে সম্প্রসারণ করুন",
+	"cx-sx-existing-translation-additional-info": "$1{{PLURAL:$2| ও আরও $2টি অনুচ্ছেদ|0=}} সহকারে সম্প্রসারণ করুন",
 	"cx-sx-start-translation-button-label": "অনুবাদ শুরু করুন",
 	"cx-sx-view-translation-anchor": "দেখুন",
 	"cx-sx-existing-translation-learn-more": "আরও জানুন",
@@ -325,7 +325,7 @@
 	"cx-sx-sentence-selector-skip-translation-button-label": "এড়ান",
 	"cx-sx-content-comparator-target-selector-full-article-title": "$1 ভাষায় সম্পূর্ণ নিবন্ধ",
 	"cx-sx-content-comparator-mapped-section-header-title": "$1 ভাষায় উপস্থিত",
-	"cx-sx-content-comparator-target-selector-target-section-title": "$1-র অনুচ্ছেদ",
+	"cx-sx-content-comparator-target-selector-target-section-title": "$1 ভাষায় অনুচ্ছেদ",
 	"cx-sx-content-comparator-mapped-section-clarifications": "আপনার অনুবাদ এই অনুচ্ছেদকে সম্প্রসারিত করবে। অনুচ্ছেদগুলির মধ্যে কোনো সম্পর্ক না থাকলে এটি বর্জন করতে পারেন।",
 	"cx-sx-translation-confirmer-title": "নতুন অনুবাদ",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
@@ -486,5 +486,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "চিন্তা করবেন না। বাকি অনুচ্ছেদগুলি হারিয়ে যায়নি। আপনি বর্তমান অনুবাদটি একটি নতুন নিবন্ধ হিসেবে প্রকাশ করার পর সেগুলি সেখানে পাওয়া যাবে। প্রকাশ করার পর, আপনি প্রতিটি অনুচ্ছেদের বিষয়বস্তুর জন্য নতুন অগ্রগতিতে থাকা অনুবাদ বোতাম পাবেন।",
 	"sx-confirm-draft-translation-start-button-label": "ঠিক আছে",
 	"sx-published-translation-new-translation-button-label": "নতুন অনুবাদ",
+	"sx-section-selector-close-button-aria-label": "নিশ্চিতকরণ ধাপের বোতামে যান",
 	"sx-quick-tutorial-next-button-aria-label": "পরবর্তী টিউটোরিয়াল পাতায় যান"
 }

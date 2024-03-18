@@ -143,5 +143,11 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Le identificator de traduction de section associate con le version provisori del traduction del section.",
 	"apihelp-sxdelete-param-translationid": "Le identificator de traduction associate con le version provisori del traduction del section.",
 	"apihelp-sxdelete-param-sectionid": "Le identificator de section del version provisori del traduction del section.",
-	"apihelp-sxdelete-example-1": "Deler un version provisori associate con le identificator de traduction e identificator de section date."
+	"apihelp-sxdelete-example-1": "Deler un version provisori associate con le identificator de traduction e identificator de section date.",
+	"apihelp-cxsplit-summary": "Crear e salveguardar le traduction de un section in le base de datos, pro cata section traducite del traduction de articulo fornite",
+	"apihelp-cxsplit-param-translationid": "Le ID del traduction pro le qual le traductiones de section essera create.",
+	"apierror-cxsplit-anon-user": "Le action API “cxsplit” non es activate pro usatores anonyme.",
+	"apierror-cxsplit-no-translation-found": "Necun traduction trovate pro le ID specificate",
+	"apihelp-cxcheckunreviewed-summary": "Controla si ha essite publicate recentemente alcun traduction rapide e non revidite pro le usator actual.",
+	"apierror-cxcheckunreviewed-anon-user": "Le action API “cxcheckunreviewed” non es activate pro usatores anonyme."
 }

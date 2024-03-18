@@ -479,5 +479,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Ubi es le altere sectiones?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Non inquieta te. Le sectiones restante non es perdite. Illos es ora disponibile le lista de tu traductiones in progresso e pote esser usate pro expander le articulo existente. Tu trovara un nove traduction in progresso con le contento pro cata section.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
-	"sx-published-translation-new-translation-button-label": "Nove traduction"
+	"sx-published-translation-new-translation-button-label": "Nove traduction",
+	"sx-section-selector-close-button-aria-label": "Button pro continuar al passo de confirmation",
+	"sx-quick-tutorial-next-button-aria-label": "Continuar al proxime pagina del tutorial"
 }
