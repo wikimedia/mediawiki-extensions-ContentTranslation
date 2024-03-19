@@ -1,7 +1,10 @@
 import { computed, ref } from "vue";
+import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 import useApplicationState from "@/composables/useApplicationState";
 
-const useCompareContents = (store) => {
+const useCompareContents = () => {
+  const store = useStore();
   const discardedSections = ref([]);
 
   const {
@@ -10,14 +13,12 @@ const useCompareContents = (store) => {
     currentTargetPage: targetPage,
   } = useApplicationState(store);
 
-  const sourceSectionTitle = computed(
-    () => store.getters["application/getCurrentSourceSectionTitle"]
-  );
+  const { sectionURLParameter } = useURLHandler();
 
   const activeSectionTargetTitle = computed(
     () =>
-      suggestion.value.missingSections[sourceSectionTitle.value] ||
-      suggestion.value.presentSections[sourceSectionTitle.value] ||
+      suggestion.value.missingSections[sectionURLParameter.value] ||
+      suggestion.value.presentSections[sectionURLParameter.value] ||
       ""
   );
 
@@ -32,13 +33,16 @@ const useCompareContents = (store) => {
   const sourceSectionContent = computed(() => sourceSection.value?.html);
   const targetSectionContent = computed(() => targetSection.value?.html);
 
+  const isCurrentSectionMissing = computed(() =>
+    suggestion.value?.missingSections.hasOwnProperty(sectionURLParameter.value)
+  );
   /**
    * A section is mapped if it's neither missing nor discarded
    * @type {ComputedRef<boolean>}
    */
   const isCurrentSectionMapped = computed(
     () =>
-      !store.getters["application/isCurrentSourceSectionMissing"] &&
+      !isCurrentSectionMissing.value &&
       !discardedSections.value.includes(activeSectionTargetTitle.value)
   );
 
@@ -47,7 +51,6 @@ const useCompareContents = (store) => {
     discardedSections,
     isCurrentSectionMapped,
     sourceSectionContent,
-    sourceSectionTitle,
     targetSectionAnchor,
     targetSectionContent,
   };

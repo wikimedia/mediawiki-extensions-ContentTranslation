@@ -77,6 +77,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 
 export default {
@@ -97,21 +98,21 @@ export default {
   },
   emits: ["close", "translation-button-clicked", "update:discardedSections"],
   setup() {
+    const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
     const store = useStore();
     const {
       currentSectionSuggestion: suggestion,
       currentSourceSection: sourceSection,
     } = useApplicationState(store);
 
-    const isCurrentSectionMissing = computed(
-      () => store.getters["application/isCurrentSourceSectionMissing"]
+    const isCurrentSectionMissing = computed(() =>
+      suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)
     );
-    const isCurrentSectionPresent = computed(
-      () => store.getters["application/isCurrentSourceSectionPresent"]
+    const isCurrentSectionPresent = computed(() =>
+      suggestion.value?.presentSections.hasOwnProperty(sourceSectionTitle.value)
     );
 
-    const { activeSectionTargetTitle, sourceSectionTitle } =
-      useCompareContents(store);
+    const { activeSectionTargetTitle } = useCompareContents();
 
     const sourceSectionContent = computed(() => sourceSection.value?.html);
     const sectionSourceTitles = computed(() => [

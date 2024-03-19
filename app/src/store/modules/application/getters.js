@@ -23,22 +23,6 @@ export default {
     return rootGetters["mediawiki/getPage"](state.targetLanguage, title);
   },
 
-  getCurrentSourceSectionTitle: (state) =>
-    state.currentSourceSection?.originalTitle || "",
-
-  getCurrentSourceSectionAnchor: (state, getters) =>
-    (getters.getCurrentSourceSectionTitle || "").replace(/ /g, "_"),
-
-  isCurrentSourceSectionMissing: (state, getters) =>
-    state.currentSectionSuggestion?.missingSections.hasOwnProperty(
-      getters.getCurrentSourceSectionTitle
-    ),
-
-  isCurrentSourceSectionPresent: (state, getters) =>
-    state.currentSectionSuggestion?.presentSections.hasOwnProperty(
-      getters.getCurrentSourceSectionTitle
-    ),
-
   /**
    * Machine translation of currently selected translation unit (title or sentence)
    * for currently selected MT provider

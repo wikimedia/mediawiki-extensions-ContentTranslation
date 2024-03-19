@@ -22,8 +22,8 @@ import {
   mwIconPrevious,
 } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
-import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
+import useURLHandler from "@/composables/useURLHandler";
 
 export default {
   name: "SxContentComparatorHeaderNavigation",
@@ -38,12 +38,10 @@ export default {
     },
   },
   setup(props) {
-    const store = useStore();
-    const sourceSectionTitle = computed(
-      () => store.getters["application/getCurrentSourceSectionTitle"]
-    );
+    const { sectionURLParameter } = useURLHandler();
+
     const currentTitleIndex = computed(() =>
-      props.sectionSourceTitles.indexOf(sourceSectionTitle.value)
+      props.sectionSourceTitles.indexOf(sectionURLParameter.value)
     );
 
     const { selectPageSectionByTitle } = usePageSectionSelect();

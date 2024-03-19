@@ -63,6 +63,7 @@ import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import useURLHandler from "@/composables/useURLHandler";
 
 export default {
   name: "SxContentComparatorContentHeader",
@@ -89,24 +90,22 @@ export default {
     const isSticky = ref(false);
     const { currentSectionSuggestion: suggestion } = useApplicationState(store);
 
-    const sourceSectionTitle = computed(
-      () => store.getters["application/getCurrentSourceSectionTitle"]
-    );
-    const sourceSectionAnchor = computed(
-      () => store.getters["application/getCurrentSourceSectionAnchor"]
+    const { sectionURLParameter } = useURLHandler();
+    const sourceSectionAnchor = computed(() =>
+      (sectionURLParameter.value || "").replace(/ /g, "_")
     );
 
     const updateSelection = (selection) =>
       context.emit("update:sourceVsTargetSelection", selection);
 
     const { activeSectionTargetTitle, targetSectionAnchor } =
-      useCompareContents(store);
+      useCompareContents();
 
     const activeContent = computed(() => {
       switch (props.sourceVsTargetSelection) {
         case "source_section":
           return {
-            title: sourceSectionTitle.value,
+            title: sectionURLParameter.value,
             path: `${siteMapper.getPageUrl(
               suggestion.value.sourceLanguage,
               suggestion.value.sourceTitle
@@ -174,8 +173,7 @@ export default {
   z-index: 1;
   &-title {
     // No border style defined in specifications
-    border-bottom: @border-style-base @border-width-base
-      @border-color-disabled;
+    border-bottom: @border-style-base @border-width-base @border-color-disabled;
     .mw-ui-button.sx-content-comparator__open-content-link-button {
       color: #72777d;
       pointer-events: auto;
