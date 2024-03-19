@@ -63,17 +63,6 @@ function initializeSectionTranslation({ commit, dispatch }, suggestion) {
   commit("setCurrentSectionSuggestion", suggestion);
 }
 
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {Translation} translation
- */
-function restoreSectionTranslation({ commit, dispatch }, translation) {
-  dispatch("getCXServerToken");
-  commit("setCurrentTranslation", translation);
-}
-
 function clearCurrentSectionSuggestion({ commit }) {
   commit("setCurrentSectionSuggestion", null);
 }
@@ -82,5 +71,4 @@ export default {
   clearCurrentSectionSuggestion,
   getCXServerToken,
   initializeSectionTranslation,
-  restoreSectionTranslation,
 };
