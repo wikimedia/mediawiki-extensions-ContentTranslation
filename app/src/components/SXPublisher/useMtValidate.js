@@ -10,9 +10,9 @@ const useMtValidate = () => {
   const { sourceSection } = useCurrentPageSection();
 
   /**
-   * This action initially clears all existing MT publish feedback
-   * messages. Then, it validates the application/currentSourceSection
-   * state variable for Machine Translation abuse, using mtValidator module.
+   * This method initially clears all existing MT publish feedback
+   * messages. Then, it validates the current source page section
+   * for Machine Translation abuse, using mtValidator module.
    * If the validation status is "success", it returns null. If not,
    * it returns the appropriate warning or error (depending on the validation
    * status) publish feedback message.

@@ -3,7 +3,7 @@ import { getAutonym } from "@wikimedia/language-data";
 
 /**
  * @param {Store} store
- * @return {{currentSectionSuggestion: ComputedRef<PageSection>, proposedTranslation: *, previousRoute: ComputedRef<string>, currentMTProvider: *, currentSourceSection: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, isSectionTitleSelected: *, selectedContentTranslationUnit: *, sourceLanguage: *, currentSourcePage: *}}
+ * @return {{currentSectionSuggestion: ComputedRef<SectionSuggestion>, previousRoute: ComputedRef<string>, currentMTProvider: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, sourceLanguage: *, currentSourcePage: *}}
  */
 export default function (store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);
@@ -16,28 +16,12 @@ export default function (store) {
     () => store.state.application.currentSectionSuggestion
   );
 
-  const currentSourceSection = computed(
-    () => store.state.application.currentSourceSection
-  );
-
   const sourceLanguageAutonym = computed(() =>
     getAutonym(sourceLanguage.value)
   );
 
   const targetLanguageAutonym = computed(() =>
     getAutonym(targetLanguage.value)
-  );
-
-  const isSectionTitleSelected = computed(
-    () => currentSourceSection.value?.isTitleSelected
-  );
-
-  const selectedContentTranslationUnit = computed(
-    () => currentSourceSection.value?.selectedContentTranslationUnit
-  );
-
-  const proposedTranslation = computed(
-    () => store.getters["application/getCurrentProposedTranslation"]
   );
 
   const currentSourcePage = computed(
@@ -54,12 +38,8 @@ export default function (store) {
     currentMTProvider,
     currentSectionSuggestion,
     currentSourcePage,
-    currentSourceSection,
     currentTargetPage,
-    isSectionTitleSelected,
     previousRoute,
-    proposedTranslation,
-    selectedContentTranslationUnit,
     sourceLanguage,
     sourceLanguageAutonym,
     targetLanguage,

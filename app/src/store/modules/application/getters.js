@@ -1,5 +1,3 @@
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
-
 export default {
   /**
    * @param {object} state
@@ -23,17 +21,6 @@ export default {
     return rootGetters["mediawiki/getPage"](state.targetLanguage, title);
   },
 
-  /**
-   * Machine translation of currently selected translation unit (title or sentence)
-   * for currently selected MT provider
-   */
-  getCurrentProposedTranslation: (state) => {
-    const { currentSourceSection, currentMTProvider } = state;
-
-    return currentSourceSection?.getProposedTranslationByMtProvider(
-      currentMTProvider
-    );
-  },
   /**
    * @return {LanguageTitleGroup|null}
    */
@@ -102,22 +89,4 @@ export default {
    */
   getCurrentRevision: (state, getters) =>
     state.currentTranslation?.pageRevision || getters.getCurrentPage.revision,
-
-  /**
-   * @param {object} state
-   * @param {object} getters
-   * @return {string}
-   */
-  getParallelCorporaBaseId: (state, getters) =>
-    `${getters.getCurrentRevision}_${state.currentSourceSection.id}`,
-
-  getTargetPageTitleForPublishing: (state, getters) => {
-    const { currentSourceSection } = state;
-
-    if (!currentSourceSection.isLeadSection) {
-      return getters.getCurrentTargetPage.title;
-    }
-
-    return currentSourceSection.title;
-  },
 };

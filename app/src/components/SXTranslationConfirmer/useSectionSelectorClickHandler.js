@@ -13,13 +13,9 @@ export default () => {
   const store = useStore();
   const { isDesktop } = useDevice();
 
-  const {
-    setTranslationURLParams,
-    sectionURLParameter: preFilledSectionTitle,
-  } = useURLHandler();
+  const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
   const {
-    currentSourceSection,
     currentSectionSuggestion: sectionSuggestion,
     sourceLanguage,
     targetLanguage,

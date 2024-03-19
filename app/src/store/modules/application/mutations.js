@@ -1,6 +1,4 @@
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import SectionSentence from "@/wiki/cx/models/sectionSentence";
-import SubSection from "@/wiki/cx/models/subSection";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 
 const mutations = {
@@ -55,49 +53,6 @@ const mutations = {
    */
   setCurrentTranslation(state, translation) {
     state.currentTranslation = translation;
-  },
-
-  /**
-   * @param state
-   * @param {PageSection} section
-   */
-  setCurrentSourceSection(state, section) {
-    state.currentSourceSection = section;
-  },
-
-  /**
-   * @param state
-   * @param {String} translation
-   */
-  setCurrentSourceSectionTitleTranslation(state, translation) {
-    state.currentSourceSection.translatedTitle = translation;
-  },
-
-  /**
-   * @param state
-   * @param {String} translation
-   */
-  setCurrentSourceSectionEditedTranslation(state, translation) {
-    state.currentSourceSection.editedTranslation = translation;
-  },
-
-  setProposedTranslationForTranslationUnitById(
-    state,
-    { id, provider, proposedTranslation }
-  ) {
-    if (id === 0) {
-      state.currentSourceSection.proposedTitleTranslations[provider] =
-        proposedTranslation;
-
-      return;
-    }
-    const unit = state.currentSourceSection.getContentTranslationUnitById(id);
-
-    if (unit instanceof SubSection) {
-      unit.blockTemplateProposedTranslations[provider] = proposedTranslation;
-    } else if (unit instanceof SectionSentence) {
-      unit.addProposedTranslation(provider, proposedTranslation);
-    }
   },
 
   /**

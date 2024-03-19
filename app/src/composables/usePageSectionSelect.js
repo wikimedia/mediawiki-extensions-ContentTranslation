@@ -51,7 +51,6 @@ const usePageSectionSelect = () => {
 
     const setter = () => {
       setSectionURLParam(sectionTitle);
-      store.commit("application/setCurrentSourceSection", getter());
     };
 
     return doSelectPageSection(getter, setter);
@@ -78,7 +77,6 @@ const usePageSectionSelect = () => {
       } else {
         setSectionURLParam(section.originalTitle);
       }
-      store.commit("application/setCurrentSourceSection", section);
     };
 
     return doSelectPageSection(getter, setter);

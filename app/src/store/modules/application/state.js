@@ -3,8 +3,6 @@ export default {
   mtRequestsPending: [],
   /** @type SectionSuggestion */
   currentSectionSuggestion: null,
-  /** @type PageSection */
-  currentSourceSection: null,
   /** @type Translation */
   currentTranslation: null,
   /** @type String */
