@@ -140,18 +140,20 @@ function fetchAppendixTargetSectionTitles(targetLanguage) {
 
 /**
  *
- * @param {SectionSuggestion|ArticleSuggestion} suggestion
+ * @param {string} sourceTitle
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
  * @return {Promise}
  */
-const markFavorite = (suggestion) => {
+const markFavorite = (sourceTitle, sourceLanguage, targetLanguage) => {
   const params = {
     assert: "user",
     action: "cxsuggestionlist",
     listname: "cx-suggestionlist-favorite",
     listaction: "add",
-    titles: suggestion.sourceTitle,
-    from: suggestion.sourceLanguage,
-    to: suggestion.targetLanguage,
+    titles: sourceTitle,
+    from: sourceLanguage,
+    to: targetLanguage,
   };
 
   const api = new mw.Api();

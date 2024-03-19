@@ -13,39 +13,43 @@ import {
   cdxIconLanguage,
   cdxIconLinkExternal,
 } from "@wikimedia/codex-icons";
+import useURLHandler from "@/composables/useURLHandler";
 
 const store = useStore();
 
+const { currentSourcePageFromURL: sourceArticle } = useApplicationState(store);
 const {
-  currentSectionSuggestion: sectionSuggestion,
-  currentSourcePage: sourceArticle,
-} = useApplicationState(store);
-
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  pageURLParameter: sourceTitle,
+} = useURLHandler();
 const favorites = computed(() => store.state.suggestions.favorites || []);
 
-const isFavorite = computed(
-  () =>
-    !!sectionSuggestion.value &&
-    favorites.value.some(
-      (favorite) =>
-        sectionSuggestion.value.sourceTitle === favorite.title &&
-        sectionSuggestion.value.sourceLanguage === favorite.sourceLanguage &&
-        sectionSuggestion.value.targetLanguage === favorite.targetLanguage
-    )
+const isFavorite = computed(() =>
+  favorites.value.some(
+    (favorite) =>
+      sourceTitle.value === favorite.title &&
+      sourceLanguage.value === favorite.sourceLanguage &&
+      targetLanguage.value === favorite.targetLanguage
+  )
 );
 
-const { markFavoriteSectionSuggestion, removeFavoriteSuggestion } =
+const { markFavoriteSuggestion, removeFavoriteSuggestion } =
   useSuggestionsBookmark();
 
 const markSuggestionAsFavorite = () =>
-  markFavoriteSectionSuggestion(sectionSuggestion.value);
+  markFavoriteSuggestion(
+    sourceTitle.value,
+    sourceLanguage.value,
+    targetLanguage.value
+  );
 
 const unmarkSuggestionAsFavorite = () =>
   removeFavoriteSuggestion(
     new FavoriteSuggestion({
-      title: sectionSuggestion.value.sourceTitle,
-      sourceLanguage: sectionSuggestion.value.sourceLanguage,
-      targetLanguage: sectionSuggestion.value.targetLanguage,
+      title: sourceTitle.value,
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
     })
   );
 
@@ -57,12 +61,8 @@ const toggleFavorite = computed(() =>
   isFavorite.value ? unmarkSuggestionAsFavorite : markSuggestionAsFavorite
 );
 
-const sourceTitle = computed(() => sectionSuggestion.value?.sourceTitle);
 const sourceArticlePath = computed(() =>
-  siteMapper.getPageUrl(
-    sectionSuggestion.value?.sourceLanguage || "",
-    sourceTitle.value || ""
-  )
+  siteMapper.getPageUrl(sourceLanguage.value || "", sourceTitle.value || "")
 );
 
 const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);

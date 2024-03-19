@@ -7,28 +7,32 @@ import useURLHandler from "@/composables/useURLHandler";
 const usePageSectionSelect = () => {
   const store = useStore();
 
-  const { currentSectionSuggestion: suggestion, currentSourcePage } =
-    useApplicationState(store);
+  const { currentSourcePage } = useApplicationState(store);
 
   const resolvePageContentReferences = useContentReferencesResolve();
   const fetchPageContent = usePageContentFetch();
 
-  const { setSectionURLParam } = useURLHandler();
+  const {
+    setSectionURLParam,
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    pageURLParameter: sourceTitle,
+  } = useURLHandler();
 
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
     if (!getter()) {
       store.commit("application/increaseTranslationDataLoadingCounter");
       await fetchPageContent(
-        suggestion.value.sourceLanguage,
-        suggestion.value.targetLanguage,
-        suggestion.value.sourceTitle
+        sourceLanguage.value,
+        targetLanguage.value,
+        sourceTitle.value
       );
       // Resolve references and update page sections to include
       // these resolved references
       await resolvePageContentReferences(
-        suggestion.value.sourceLanguage,
-        suggestion.value.sourceTitle
+        sourceLanguage.value,
+        sourceTitle.value
       );
       store.commit("application/decreaseTranslationDataLoadingCounter");
     }

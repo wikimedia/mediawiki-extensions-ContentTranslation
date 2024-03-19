@@ -2,12 +2,41 @@ import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPan
 import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
 import router from "../../router";
-import mockStore from "./actionPanelMockStore";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
 const i18n = createI18n();
 
-jest.mock("../../store", () => jest.requireActual("./actionPanelMockStore"));
+import { createStore } from "vuex";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+
+const mockSectionSuggestion = new SectionSuggestion({
+  targetLanguage: "en",
+  targetTitle: "Test target title",
+  missing: {
+    source2: "target2",
+    source1: "target1",
+    source3: "target3",
+  },
+  sourceSections: ["source1", "source2", "source3"],
+});
+
+jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
+  sectionSuggestion: {
+    value: mockSectionSuggestion,
+  },
+}));
+
+const mockStore = createStore({
+  modules: {
+    application: {
+      namespaced: true,
+      state: { sourceLanguage: "en", targetLanguage: "el" },
+      mutations: {
+        setPreviousRoute: () => {},
+      },
+    },
+  },
+});
 
 const breakpoints = { tabletAndUp: false };
 describe("SXTranslationConfirmer Action Panel test", () => {

@@ -11,6 +11,7 @@ import { useI18n } from "vue-banana-i18n";
 import useDevice from "@/composables/useDevice";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const {
   sectionURLParameter: preFilledSectionTitle,
@@ -19,8 +20,8 @@ const {
 const router = useRouter();
 const store = useStore();
 const colors = inject("colors");
-const { targetLanguageAutonym, currentSectionSuggestion } =
-  useApplicationState(store);
+const { sectionSuggestion } = useCurrentSectionSuggestion();
+const { targetLanguageAutonym } = useApplicationState(store);
 
 const { startNewTranslation, onSectionSelectorClick } =
   useSectionSelectorClickHandler();
@@ -31,7 +32,7 @@ const {
   isProgressiveButton,
   targetArticlePath,
   targetPageExists,
-} = useActionPanel(currentSectionSuggestion);
+} = useActionPanel(sectionSuggestion);
 
 const bananaI18n = useI18n();
 
@@ -52,7 +53,7 @@ onMounted(() => {
 
   if (
     !!preFilledSection &&
-    !currentSectionSuggestion.value.hasSectionTitle(preFilledSection)
+    !sectionSuggestion.value.hasSectionTitle(preFilledSection)
   ) {
     clearPreFilledSection();
   }

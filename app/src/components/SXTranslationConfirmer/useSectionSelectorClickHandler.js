@@ -7,6 +7,7 @@ import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default () => {
   const router = useRouter();
@@ -15,11 +16,8 @@ export default () => {
 
   const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
-  const {
-    currentSectionSuggestion: sectionSuggestion,
-    sourceLanguage,
-    targetLanguage,
-  } = useApplicationState(store);
+  const { sectionSuggestion } = useCurrentSectionSuggestion();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
   const targetPageExists = computed(
     () => !!sectionSuggestion.value?.targetTitle

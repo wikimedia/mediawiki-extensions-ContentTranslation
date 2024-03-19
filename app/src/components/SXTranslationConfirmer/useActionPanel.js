@@ -7,14 +7,14 @@ import { siteMapper } from "@/utils/mediawikiHelper";
  */
 const useActionPanel = (sectionSuggestion) => {
   const firstMissingSectionTitle = computed(
-    () => sectionSuggestion.value.orderedMissingSections?.[0]?.sourceTitle
+    () => sectionSuggestion.value?.orderedMissingSections?.[0]?.sourceTitle
   );
 
   const missingCount = computed(
-    () => sectionSuggestion.value.missingSectionsCount
+    () => sectionSuggestion.value?.missingSectionsCount
   );
   const presentCount = computed(
-    () => sectionSuggestion.value.presentSectionsCount
+    () => sectionSuggestion.value?.presentSectionsCount
   );
 
   const targetPageExists = computed(

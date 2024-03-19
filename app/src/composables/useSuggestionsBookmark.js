@@ -5,17 +5,31 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 
 const useSuggestionsBookmark = () => {
   const store = useStore();
-
   const { fetchNextSectionSuggestionsSlice, fetchNextPageSuggestionsSlice } =
     useSuggestionsFetch();
+
+  /**
+   *
+   * @param sourceLanguage
+   * @param targetLanguage
+   * @param sourceTitle
+   * @return {ArticleSuggestion|null}
+   */
+  const getPageSuggestion = (sourceLanguage, targetLanguage, sourceTitle) =>
+    store.state.suggestions.pageSuggestions.find(
+      (suggestionItem) =>
+        suggestionItem.sourceLanguage === sourceLanguage &&
+        suggestionItem.targetLanguage === targetLanguage &&
+        suggestionItem.sourceTitle === sourceTitle
+    );
 
   /**
    * @param {SectionSuggestion|ArticleSuggestion} suggestion
    * @return {Promise<void>}
    */
   const doMarkSuggestionAsFavorite = async (suggestion) => {
-    await suggestionsApi.markFavorite(suggestion);
     const { sourceTitle: title, sourceLanguage, targetLanguage } = suggestion;
+    await suggestionsApi.markFavorite(title, sourceLanguage, targetLanguage);
     const favoriteSuggestion = new FavoriteSuggestion({
       title,
       sourceLanguage,
@@ -52,9 +66,60 @@ const useSuggestionsBookmark = () => {
     return suggestionsApi.unmarkFavorite(suggestion);
   };
 
+  /**
+   * This method can be used to replace both "markFavoritePageSuggestion"
+   * and "markFavoriteSectionSuggestion" methods.
+   *
+   * @param {string} sourceTitle
+   * @param {string} sourceLanguage
+   * @param {string} targetLanguage
+   * @return {Promise<void>}
+   */
+  const markFavoriteSuggestion = async (
+    sourceTitle,
+    sourceLanguage,
+    targetLanguage
+  ) => {
+    const existingPageSuggestion = getPageSuggestion(
+      sourceLanguage,
+      targetLanguage,
+      sourceTitle
+    );
+
+    if (existingPageSuggestion) {
+      store.commit("suggestions/removePageSuggestion", existingPageSuggestion);
+      fetchNextPageSuggestionsSlice();
+    }
+
+    const existingSectionSuggestion = store.getters[
+      "suggestions/getSectionSuggestionsForArticle"
+    ](sourceLanguage, targetLanguage, sourceTitle);
+
+    if (existingSectionSuggestion) {
+      store.commit(
+        "suggestions/removeSectionSuggestion",
+        existingSectionSuggestion
+      );
+      fetchNextSectionSuggestionsSlice();
+    }
+
+    await suggestionsApi.markFavorite(
+      sourceTitle,
+      sourceLanguage,
+      targetLanguage
+    );
+    const favoriteSuggestion = new FavoriteSuggestion({
+      title: sourceTitle,
+      sourceLanguage,
+      targetLanguage,
+    });
+    store.commit("suggestions/addFavoriteSuggestion", favoriteSuggestion);
+  };
+
   return {
     markFavoritePageSuggestion,
     markFavoriteSectionSuggestion,
+    markFavoriteSuggestion,
     removeFavoriteSuggestion,
   };
 };

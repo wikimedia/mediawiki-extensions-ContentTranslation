@@ -15,7 +15,7 @@ exports[`SXTranslationConfirmerArticleInformation test Component output matches 
       
       <a
         class="col pa-0 pe-4 flex sx-translation-confirmer__article-information__title"
-        href="https://.wikipedia.org/wiki/Test Title"
+        href="https://en.wikipedia.org/wiki/Test Title"
         target="_blank"
       >
         

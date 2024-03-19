@@ -2,11 +2,45 @@ import SXTranslationConfirmerArticleInformation from "./SXTranslationConfirmerAr
 import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
 import colors from "../../lib/mediawiki.ui/plugins/colors";
-import mockStore from "./articleInformationMockStore";
+import Page from "@/wiki/mw/models/page";
+import { createStore } from "vuex";
+import { ref } from "vue";
 
-jest.mock("../../store", () =>
-  jest.requireActual("./articleInformationMockStore")
-);
+const mockSourceTitle = ref("Test Title");
+const mockSourceLanguage = ref("en");
+const mockTargetLanguage = ref("el");
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: mockSourceLanguage,
+  targetLanguageURLParameter: mockTargetLanguage,
+  pageURLParameter: mockSourceTitle,
+}));
+
+const mockStore = createStore({
+  modules: {
+    suggestions: {
+      namespaced: true,
+      state: { favorites: [] },
+    },
+    mediawiki: {
+      namespaced: true,
+      getters: {
+        getPage: () => (language, title) => {
+          if (
+            language === mockSourceLanguage.value &&
+            title === mockSourceTitle.value
+          ) {
+            return new Page({
+              thumbnail: { source: "test_thumbnail.png" },
+              langlinkscount: 100,
+              pageviews: { 1: 1, 2: 2 },
+            });
+          }
+        },
+      },
+    },
+  },
+});
 
 const i18n = createI18n();
 

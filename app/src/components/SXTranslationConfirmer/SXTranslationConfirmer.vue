@@ -24,7 +24,7 @@ const props = defineProps({
 });
 
 const store = useStore();
-const { currentSourcePage, previousRoute, currentSectionSuggestion } =
+const { currentSourcePageFromURL: currentSourcePage, previousRoute } =
   useApplicationState(store);
 const {
   sourceLanguageURLParameter: sourceLanguage,
