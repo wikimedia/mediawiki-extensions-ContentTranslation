@@ -24,23 +24,21 @@ const props = defineProps({
 });
 
 const store = useStore();
+const { currentSourcePage, previousRoute, currentSectionSuggestion } =
+  useApplicationState(store);
 const {
-  sourceLanguage,
-  targetLanguage,
-  currentSourcePage,
-  previousRoute,
-  currentSectionSuggestion,
-} = useApplicationState(store);
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  pageURLParameter: sourcePageTitle,
+  clearURLParameters,
+} = useURLHandler();
 const articleImageSource = computed(
   () => currentSourcePage.value?.image?.source
 );
 const logEvent = useEventLogging();
 const fetchLanguageTitles = useLanguageTitlesFetch();
 onMounted(() => {
-  fetchLanguageTitles(
-    currentSectionSuggestion.value.sourceLanguage,
-    currentSectionSuggestion.value.sourceTitle
-  );
+  fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
   logEvent({
     event_type: "dashboard_translation_start",
     event_source: props.eventSource,
@@ -62,7 +60,6 @@ onMounted(() => {
 });
 
 const router = useRouter();
-const { clearURLParameters } = useURLHandler();
 
 const onClose = () => {
   store.dispatch("application/clearCurrentSectionSuggestion");
