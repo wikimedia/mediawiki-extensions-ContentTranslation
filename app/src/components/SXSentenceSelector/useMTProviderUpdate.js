@@ -1,7 +1,9 @@
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import { useStore } from "vuex";
 import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 
 const useMTProviderUpdate = () => {
+  const { sourceSection } = useCurrentPageSection();
   const store = useStore();
   const { translateTranslationUnitById } = useTranslationUnitTranslate();
 
@@ -15,8 +17,7 @@ const useMTProviderUpdate = () => {
    */
   return (provider) => {
     store.commit("application/setCurrentMTProvider", provider);
-    const { currentSourceSection } = store.state.application;
-    const { selectedTranslationUnitId: id } = currentSourceSection;
+    const id = sourceSection.value.selectedTranslationUnitId;
     translateTranslationUnitById(id, provider);
   };
 };

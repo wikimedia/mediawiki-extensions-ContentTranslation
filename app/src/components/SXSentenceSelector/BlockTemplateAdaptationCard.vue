@@ -9,16 +9,16 @@ import { useI18n } from "vue-banana-i18n";
 import SxBlockTemplateStatusDialog from "./SXBlockTemplateStatusDialog.vue";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconPuzzle, cdxIconInfo } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineEmits(["edit-translation"]);
 
 const store = useStore();
+const { targetLanguageAutonym, currentMTProvider } = useApplicationState(store);
 const {
   selectedContentTranslationUnit: selectedSubSection,
-  targetLanguageAutonym,
-  currentMTProvider,
-  proposedTranslation: blockProposedTranslation,
-} = useApplicationState(store);
+  currentProposedTranslation: blockProposedTranslation,
+} = useCurrentPageSection();
 
 const blockEditableContent = computed(() => {
   const blockTranslation =

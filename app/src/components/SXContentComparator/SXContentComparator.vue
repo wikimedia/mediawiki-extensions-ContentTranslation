@@ -102,7 +102,7 @@ export default {
       isCurrentSectionMapped,
       sourceSectionContent,
       targetSectionContent,
-    } = useCompareContents(store);
+    } = useCompareContents();
 
     const targetPageContent = useTargetArticlePreview();
 

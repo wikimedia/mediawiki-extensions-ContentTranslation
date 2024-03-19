@@ -4,14 +4,12 @@ import { renderTemplateFromCXServer } from "@/utils/templateRenderer";
 import translatorApi from "@/wiki/cx/api/translator";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import useApplicationState from "@/composables/useApplicationState";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useTranslationUnitTranslate = () => {
   const store = useStore();
-  const {
-    currentSourceSection: sourceSection,
-    currentSourcePage,
-    currentTargetPage,
-  } = useApplicationState(store);
+  const { sourceSection } = useCurrentPageSection();
+  const { currentSourcePage, currentTargetPage } = useApplicationState(store);
 
   const setProposedTranslationForTranslationUnitById = (
     id,

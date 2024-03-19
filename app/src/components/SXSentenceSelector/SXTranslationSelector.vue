@@ -91,6 +91,7 @@ import { computed } from "vue";
 import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
 import useMTProviderUpdate from "./useMTProviderUpdate";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 export default {
   name: "SxTranslationSelector",
@@ -108,12 +109,11 @@ export default {
     const store = useStore();
 
     const {
-      sourceLanguage,
-      targetLanguage,
-      currentSourceSection: currentPageSection,
+      sourceSection,
       isSectionTitleSelected,
       selectedContentTranslationUnit,
-    } = useApplicationState(store);
+    } = useCurrentPageSection();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     const mtProviders = computed(() =>
       store.getters["mediawiki/getSupportedMTProviders"](
@@ -132,7 +132,7 @@ export default {
 
     const proposedTranslations = computed(() =>
       isSectionTitleSelected.value
-        ? currentPageSection.value.proposedTitleTranslations
+        ? sourceSection.value.proposedTitleTranslations
         : selectedContentTranslationUnit.value.proposedTranslations
     );
 

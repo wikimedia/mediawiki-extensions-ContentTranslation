@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SXSentenceSelector Proposed Translation Card Component output matches snapshot 1`] = `
+exports[`Test \`ProposedTranslationCard\` test Component output matches snapshot 1`] = `
 <mw-card-stub
   class="sx-sentence-selector__proposed-translation col shrink pa-0"
 >
@@ -25,9 +25,7 @@ exports[`SXSentenceSelector Proposed Translation Card Component output matches s
         dir="ltr"
         lang="es"
       >
-        <div>
-          Test translation
-        </div>
+        Test translation
       </section>
     </mw-col-stub>
     <mw-col-stub
@@ -57,7 +55,7 @@ exports[`SXSentenceSelector Proposed Translation Card Component output matches s
 </mw-card-stub>
 `;
 
-exports[`SXSentenceSelector Proposed Translation Card Should render Retry MT card inside proposed translation card output when no proposed translation exists 1`] = `
+exports[`Test \`ProposedTranslationCard\` test Should render Retry MT card inside proposed translation card output when no proposed translation exists 1`] = `
 <mw-card-stub
   class="sx-sentence-selector__proposed-translation col shrink pa-0"
 >
@@ -71,7 +69,7 @@ exports[`SXSentenceSelector Proposed Translation Card Should render Retry MT car
   >
     <proposed-translation-header-stub />
     <mw-col-stub
-      class="sx-sentence-selector__proposed-translation__contents px-5 sx-sentence-selector__proposed-translation__contents--loading"
+      class="sx-sentence-selector__proposed-translation__contents px-5"
       grow="false"
       shrink="false"
       style="max-height: calc(100% - 0px);"

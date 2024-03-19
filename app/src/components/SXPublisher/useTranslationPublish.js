@@ -5,9 +5,12 @@ import { cleanupHtml } from "@/utils/publishHelper";
 import translatorApi from "@/wiki/cx/api/translator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import useTranslationSave from "@/composables/useTranslationSave";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useTranslationPublish = () => {
   const store = useStore();
+  const { sourceSection, targetPageTitleForPublishing } =
+    useCurrentPageSection();
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
 
@@ -41,23 +44,21 @@ const useTranslationPublish = () => {
     const sourcePage = store.getters["application/getCurrentPage"];
     const {
       /** @type {PageSection} */
-      currentSourceSection,
       sourceLanguage,
       targetLanguage,
     } = store.state.application;
 
     const sourceTitle = sourcePage.title;
-    const targetTitle =
-      store.getters["application/getTargetPageTitleForPublishing"];
+    const targetTitle = targetPageTitleForPublishing.value;
 
     const isSandbox = store.getters["application/isSandboxTarget"];
 
     const publishPayload = {
-      html: cleanupHtml(currentSourceSection.translationHtml),
+      html: cleanupHtml(sourceSection.value.translationHtml),
       sourceTitle,
       targetTitle,
-      sourceSectionTitle: currentSourceSection.sourceSectionTitleForPublishing,
-      targetSectionTitle: currentSourceSection.targetSectionTitleForPublishing,
+      sourceSectionTitle: sourceSection.value.sourceSectionTitleForPublishing,
+      targetSectionTitle: sourceSection.value.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
       revision: store.getters["application/getCurrentRevision"],

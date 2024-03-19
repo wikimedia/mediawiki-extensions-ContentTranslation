@@ -7,7 +7,6 @@ import SxPublishOptionSelector from "./SXPublishOptionSelector.vue";
 import SxPublisherReviewInfo from "./SXPublisherReviewInfo.vue";
 import { computed, onMounted, ref, watch } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
-import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import useEditTranslation from "./useEditTranslation";
@@ -16,11 +15,12 @@ import { cdxIconSettings, cdxIconEdit } from "@wikimedia/codex-icons";
 import usePublishFeedbackMessages from "./usePublishFeedbackMessages";
 import usePublishingComplete from "./usePublishingComplete";
 import useCaptcha from "./useCaptcha";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const store = useStore();
-const { currentSourceSection: currentPageSection } = useApplicationState(store);
+const { sourceSection } = useCurrentPageSection();
 
-const translatedTitle = computed(() => currentPageSection.value?.title);
+const translatedTitle = computed(() => sourceSection.value?.title);
 const bananaI18n = useI18n();
 
 const panelResult = computed(() => {
@@ -32,7 +32,7 @@ const panelResult = computed(() => {
     return bananaI18n.i18n(
       "cx-sx-publisher-publish-panel-sandbox-section-result"
     );
-  } else if (currentPageSection.value.isLeadSection) {
+  } else if (sourceSection.value.isLeadSection) {
     return bananaI18n.i18n("cx-sx-publisher-publish-panel-lead-section-result");
   } else {
     return bananaI18n.i18n("cx-sx-publisher-publish-panel-new-section-result");
@@ -148,7 +148,7 @@ watch(publishOptionsOn, (newValue) => {
         </mw-col>
       </mw-row>
       <!--eslint-disable vue/no-v-html -->
-      <div v-html="currentPageSection.translationHtml" />
+      <div v-html="sourceSection.translationHtml" />
       <!--eslint-enable vue/no-v-html -->
     </section>
     <sx-publish-option-selector v-model:active="publishOptionsOn" />

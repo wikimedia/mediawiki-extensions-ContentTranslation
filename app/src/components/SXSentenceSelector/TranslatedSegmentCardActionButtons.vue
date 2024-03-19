@@ -1,19 +1,16 @@
 <script setup>
 import { MwRow } from "@/lib/mediawiki.ui";
-import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
-import { useStore } from "vuex";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext, cdxIconPrevious } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineEmits(["select-previous-segment", "skip-translation"]);
 
-const { currentSourceSection, isSectionTitleSelected } = useApplicationState(
-  useStore()
-);
+const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
 
 const isLastTranslationUnit = computed(
-  () => currentSourceSection.value.isSelectedTranslationUnitLast
+  () => sourceSection.value.isSelectedTranslationUnitLast
 );
 </script>
 

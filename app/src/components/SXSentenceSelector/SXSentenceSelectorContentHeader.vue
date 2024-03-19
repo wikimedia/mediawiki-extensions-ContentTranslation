@@ -27,25 +27,22 @@ import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
   components: { MwIcon, MwCol },
   setup() {
     const store = useStore();
-
+    const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
     const titleClass = "sx-sentence-selector__section-title";
 
-    const {
-      currentSourceSection: currentPageSection,
-      isSectionTitleSelected,
-      currentSourcePage: currentPage,
-      sourceLanguage,
-    } = useApplicationState(store);
+    const { currentSourcePage: currentPage, sourceLanguage } =
+      useApplicationState(store);
 
     const sourceArticleTitle = computed(() => currentPage.value?.title);
     const sourceSectionTitle = computed(
-      () => currentPageSection.value?.title || sourceArticleTitle.value
+      () => sourceSection.value?.title || sourceArticleTitle.value
     );
 
     const sourceArticlePath = computed(() =>
@@ -53,7 +50,7 @@ export default {
     );
 
     const isSectionTitleTranslated = computed(
-      () => !!currentPageSection.value?.translatedTitle
+      () => !!sourceSection.value?.translatedTitle
     );
 
     const highLightClassPostfix = computed(() =>

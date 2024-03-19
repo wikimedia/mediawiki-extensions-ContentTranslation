@@ -20,27 +20,36 @@ const createStoreWithSubSection = () => {
     "Test translated sentence"
   );
   const subSection = createSubSectionModel(sentence);
-  const sourcePage = new Page({ pagelanguage: "en", title: "Source title" });
+  const sourcePage = new Page({
+    pagelanguage: "en",
+    title: "Source title",
+    sections: [
+      new PageSection({
+        id: 101,
+        title: "My useEditTranslation section title",
+        subSections: [subSection],
+      }),
+    ],
+  });
   const targetPage = new Page({ pagelanguage: "el", title: "Target title" });
 
   return createStore({
     modules: {
       application: {
         namespaced: true,
-        state: {
-          currentSourceSection: new PageSection({
-            id: 101,
-            subSections: [subSection],
-          }),
-        },
         getters: {
           getCurrentPage: () => sourcePage,
           getCurrentTargetPage: () => targetPage,
         },
+        mutations: { setPreviousRoute: () => {} }, // for Vue router navigation guard
       },
     },
   });
 };
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sectionURLParameter: { value: "My useEditTranslation section title" },
+}));
 
 const mockLoadComposableInApp = (composable) => {
   let result;
@@ -98,7 +107,7 @@ const createSubSectionModel = (sentence) => {
   });
 };
 
-describe("useEditTranslation test", () => {
+describe("Test `useEditTranslation` composable", () => {
   it('should navigate to "sx-editor" route with the proper parameters', function () {
     const data = mockLoadComposableInApp(() => useEditTranslation());
     const editTranslation = data.result;

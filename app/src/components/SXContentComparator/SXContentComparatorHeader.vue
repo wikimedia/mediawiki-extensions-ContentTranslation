@@ -79,6 +79,7 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -100,10 +101,8 @@ export default {
   setup() {
     const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
     const store = useStore();
-    const {
-      currentSectionSuggestion: suggestion,
-      currentSourceSection: sourceSection,
-    } = useApplicationState(store);
+    const { sourceSection } = useCurrentPageSection();
+    const { currentSectionSuggestion: suggestion } = useApplicationState(store);
 
     const isCurrentSectionMissing = computed(() =>
       suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)

@@ -1,23 +1,21 @@
 import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const usePublishingComplete = () => {
   const store = useStore();
-  const {
-    currentSourceSection,
-    sourceLanguage,
-    targetLanguage,
-    currentSourcePage,
-  } = useApplicationState(store);
+  const { sourceLanguage, targetLanguage, currentSourcePage } =
+    useApplicationState(store);
+  const { sourceSection, targetPageTitleForPublishing } =
+    useCurrentPageSection();
 
   /**
    * @param {string|null} targetUrl
    * @return {Promise<void>}
    */
   return async (targetUrl) => {
-    const targetPageTitle =
-      store.getters["application/getTargetPageTitleForPublishing"];
+    const targetPageTitle = targetPageTitleForPublishing.value;
     const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
     const sourceTitle = currentSourcePage.value.title;
@@ -27,7 +25,7 @@ const usePublishingComplete = () => {
 
     // the rest of the code inside this method is only executed when publishing is successful
     if (
-      currentSourceSection.value.isLeadSection &&
+      sourceSection.value.isLeadSection &&
       !isSandboxTarget &&
       sourceMwTitle.getNamespaceId() !== namespaceIds.user
     ) {

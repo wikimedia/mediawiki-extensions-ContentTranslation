@@ -3,9 +3,9 @@ import { MwDialog, MwDivider, MwRadio, MwRadioGroup } from "@/lib/mediawiki.ui";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineProps({
   active: {
@@ -20,15 +20,15 @@ const store = useStore();
 const selectedOption = computed(() => store.state.application.publishTarget);
 const isAnon = computed(() => store.state.translator.isAnon);
 const bananaI18n = useI18n();
-const { currentSourceSection } = useApplicationState(store);
+const { sourceSection } = useCurrentPageSection();
 
 const optionLabel = computed(() =>
-  currentSourceSection.value.isLeadSection
+  sourceSection.value.isLeadSection
     ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-label")
     : bananaI18n.i18n("cx-sx-publisher-new-section-option-label")
 );
 const optionDetails = computed(() =>
-  currentSourceSection.value.isLeadSection
+  sourceSection.value.isLeadSection
     ? bananaI18n.i18n("cx-sx-publisher-lead-section-option-details")
     : bananaI18n.i18n("cx-sx-publisher-new-section-option-details")
 );

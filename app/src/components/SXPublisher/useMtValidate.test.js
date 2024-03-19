@@ -1,7 +1,7 @@
 import PageSection from "@/wiki/cx/models/pageSection";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createStore } from "vuex";
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import useMtValidate from "@/components/SXPublisher/useMtValidate";
 
 jest.mock("@/utils/publishHelper", () => {});
@@ -25,19 +25,19 @@ jest.mock("@/utils/mtValidator", () => {
   };
 });
 
-const currentSourceSection = new PageSection({ id: "test0" });
-
-const applicationModule = {
-  namespaced: true,
-  state: {
-    sourceLanguage: "en",
-    currentSourceSection,
-    publishFeedbackMessages: [new PublishFeedbackMessage({ type: "mt" })],
-  },
+const mockValues = {
+  sourceSection: ref(new PageSection({ id: "test0" })),
 };
 
+jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+
 const store = createStore({
-  modules: { application: applicationModule },
+  modules: {
+    application: {
+      namespaced: true,
+      state: { targetLanguage: "el" },
+    },
+  },
 });
 
 const mockLoadComposableInApp = (composable) => {
@@ -66,7 +66,7 @@ describe("vuex store validateMT action test", () => {
   });
 
   it("should add an MT warning publish feedback message when: 15 (warning threshold) > validation score (distance) > 5 (publishing threshold)", async () => {
-    currentSourceSection.id = "test1";
+    mockValues.sourceSection.value.id = "test1";
     const feedbackMessage = validateMT();
 
     expect(feedbackMessage).toStrictEqual(
@@ -82,7 +82,8 @@ describe("vuex store validateMT action test", () => {
   });
 
   it("should add an MT error publish feedback message when: 5 (publishing threshold) > validation score (distance)", async () => {
-    currentSourceSection.id = "test2";
+    mockValues.sourceSection.value.id = "test2";
+
     const feedbackMessage = validateMT();
 
     expect(feedbackMessage).toStrictEqual(

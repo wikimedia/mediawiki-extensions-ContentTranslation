@@ -2,6 +2,7 @@ import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 import useApplicationState from "@/composables/useApplicationState";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useCompareContents = () => {
   const store = useStore();
@@ -9,7 +10,6 @@ const useCompareContents = () => {
 
   const {
     currentSectionSuggestion: suggestion,
-    currentSourceSection: sourceSection,
     currentTargetPage: targetPage,
   } = useApplicationState(store);
 
@@ -30,6 +30,7 @@ const useCompareContents = () => {
     targetPage.value?.getSectionByTitle(activeSectionTargetTitle.value)
   );
 
+  const { sourceSection } = useCurrentPageSection();
   const sourceSectionContent = computed(() => sourceSection.value?.html);
   const targetSectionContent = computed(() => targetSection.value?.html);
 

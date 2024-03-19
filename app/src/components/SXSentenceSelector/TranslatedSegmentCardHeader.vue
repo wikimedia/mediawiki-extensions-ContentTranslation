@@ -10,10 +10,9 @@
 
 <script>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
-import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 export default {
   name: "TranslatedSegmentCardHeader",
@@ -27,7 +26,7 @@ export default {
   },
   emits: ["update:selection"],
   setup(props, { emit }) {
-    const { isSectionTitleSelected } = useApplicationState(useStore());
+    const { isSectionTitleSelected } = useCurrentPageSection();
     const bananaI18n = useI18n();
 
     const scopeOptions = computed(() => [

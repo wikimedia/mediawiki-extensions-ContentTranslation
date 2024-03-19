@@ -6,7 +6,7 @@ import Page from "@/wiki/mw/models/page";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import applicationGetters from "@/store/modules/application/getters";
 import { createStore } from "vuex";
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
 
 const mockErrorResult = {
@@ -72,13 +72,17 @@ const currentSourceSection = new PageSection({
 });
 currentSourceSection.translatedTitle = "Test target section title 1";
 
+const mockValues = {
+  sourceSection: ref(currentSourceSection),
+  targetPageTitleForPublishing: ref("Test target article title 1"),
+};
+
+jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 const applicationModule = {
   namespaced: true,
   state: {
     sourceLanguage: "en",
     targetLanguage: "es",
-    currentSourceSection,
-    testTargetPageTitleForPublishing: "Test target article title 1",
   },
   getters: {
     getCurrentPage: () =>
@@ -86,15 +90,8 @@ const applicationModule = {
         lastrevid: 11,
         title: "Test source title 1",
       }),
-    getTargetPageTitleForPublishing: (state) =>
-      state.testTargetPageTitleForPublishing,
     isSandboxTarget: () => false,
     getCurrentRevision: applicationGetters.getCurrentRevision,
-  },
-  mutations: {
-    setTargetPageTitleForPublishing: (state, title) => {
-      state.testTargetPageTitleForPublishing = title;
-    },
   },
 };
 
@@ -105,10 +102,10 @@ const mockStore = createStore({
 });
 
 const mockSaveTranslation = jest.fn(() => {
-  if (
-    mockStore.getters["application/getTargetPageTitleForPublishing"] ===
-    "Test target article title 3"
-  ) {
+  const targetTitleForPublishing =
+    mockValues.targetPageTitleForPublishing.value;
+
+  if (targetTitleForPublishing === "Test target article title 3") {
     return mockErrorPublishFeedbackMessageForSaving;
   } else {
     return 1234;
@@ -169,11 +166,9 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by publishTranslation api method and an empty target URL, when publishing fails", async () => {
-    mockStore.commit(
-      "application/setTargetPageTitleForPublishing",
-      "Test target article title 2"
-    );
-    currentSourceSection.subSections = [];
+    mockValues.targetPageTitleForPublishing.value =
+      "Test target article title 2";
+    mockValues.sourceSection.value.subSections = [];
 
     const result = await doPublish();
 
@@ -184,10 +179,8 @@ describe(" test `useTranslationPublish` composable", () => {
   });
 
   it("should resolve to an object containing the publish feedback message that is returned by saveTranslation api method and an empty targetTitle, when saving fails", async () => {
-    mockStore.commit(
-      "application/setTargetPageTitleForPublishing",
-      "Test target article title 3"
-    );
+    mockValues.targetPageTitleForPublishing.value =
+      "Test target article title 3";
     const result = await doPublish();
 
     expect(mockSaveTranslation).toHaveReturnedWith(

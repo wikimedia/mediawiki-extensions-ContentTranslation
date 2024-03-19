@@ -9,6 +9,7 @@ import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
 
@@ -31,6 +32,7 @@ const useDraftTranslationStart = () => {
   const { isDesktop } = useDevice();
   const redirectToCX = useCXRedirect();
   const fetchPageContent = usePageContentFetch();
+  const { sourceSection } = useCurrentPageSection();
 
   /**
    * @param {DraftTranslation} translation
@@ -116,28 +118,18 @@ const useDraftTranslationStart = () => {
         .then(() => (translation.restored = true));
     }
 
-    let section;
     let sectionTitleTranslation;
 
     if (translation.isLeadSectionTranslation) {
-      section = currentSourcePage.value.leadSection;
       // initialize the original title, so that we can restore the draft section/article title
-      // this is not needed for non-lead sections as the original title is already populated
-      section.originalTitle = translation.sourceTitle;
+      // this is NOT needed for non-lead sections as the original title is already populated
+      sourceSection.value.originalTitle = translation.sourceTitle;
       sectionTitleTranslation = translation.targetTitle;
     } else {
-      section = currentSourcePage.value.getSectionByTitle(
-        translation.sourceSectionTitle
-      );
       sectionTitleTranslation = translation.targetSectionTitle;
     }
+    sourceSection.value.translatedTitle = sectionTitleTranslation;
 
-    store.commit("application/setCurrentSourceSection", section);
-    // initialize the translated title, so that we can restore the draft section/article title
-    store.commit(
-      "application/setCurrentSourceSectionTitleTranslation",
-      sectionTitleTranslation
-    );
     store.commit("application/decreaseTranslationDataLoadingCounter");
   };
 };

@@ -1,39 +1,33 @@
 import usePublishingComplete from "./usePublishingComplete";
 import siteApi from "@/wiki/mw/api/site";
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import PageSection from "@/wiki/cx/models/pageSection";
 import { createStore } from "vuex";
 import Page from "@/wiki/mw/models/page";
 
-const testPage = new Page({ title: "Football" });
-const applicationModule = {
-  namespaced: true,
-  state: {
-    currentSourceSection: new PageSection({ isLeadSection: true }),
-    sourceLanguage: "en",
-    targetLanguage: "sw",
-  },
-  getters: {
-    getCurrentPage: () => testPage,
-    getTargetPageTitleForPublishing: () => "Target title for publishing",
-    isSandboxTarget: () => false,
-  },
+const mockValues = {
+  sourceSection: ref(new PageSection({ isLeadSection: true })),
+  targetPageTitleForPublishing: ref("Target title for publishing"),
 };
 
-const translatorModule = {
-  namespaced: true,
-  actions: {
-    publishTranslation: jest.fn(() =>
-      Promise.resolve({
-        publishFeedbackMessage: null,
-        targetUrl: "Test target URL",
-      })
-    ),
-  },
-};
+jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+
+const testPage = new Page({ title: "Football" });
 
 const store = createStore({
-  modules: { application: applicationModule, translator: translatorModule },
+  modules: {
+    application: {
+      namespaced: true,
+      state: {
+        sourceLanguage: "en",
+        targetLanguage: "sw",
+      },
+      getters: {
+        getCurrentPage: () => testPage,
+        isSandboxTarget: () => false,
+      },
+    },
+  },
 });
 
 const mockLoadComposableInApp = (composable) => {

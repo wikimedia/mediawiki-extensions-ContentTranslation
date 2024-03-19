@@ -14,9 +14,16 @@ jest.mock("@/store", () => jest.requireActual("./sentenceSelectorMockStore"));
 
 jest.mock("@/plugins/ve");
 jest.mock("../useInitializeSegmentSelection", () => () => jest.fn());
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sectionURLParameter: {
+    value: "My sentence selector section title",
+  },
+}));
+
 const eventLogging = createEventLogging();
 
-describe("SXSentenceSelector", () => {
+describe("Test SXSentenceSelector component", () => {
   const wrapper = mount(SXSentenceSelector, {
     global: {
       plugins: [i18n, mockStore, eventLogging, router],

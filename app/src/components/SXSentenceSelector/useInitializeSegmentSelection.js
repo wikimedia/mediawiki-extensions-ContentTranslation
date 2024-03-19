@@ -1,16 +1,18 @@
 import { useStore } from "vuex";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
-import useApplicationState from "@/composables/useApplicationState";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useInitializeSegmentSelection = () => {
+  const {
+    sourceSection: currentSourceSection,
+    selectedContentTranslationUnit,
+  } = useCurrentPageSection();
   const store = useStore();
   const { selectNextTranslationUnit, selectTranslationUnitById } =
     useTranslationUnitSelect();
 
   return () => {
     const { currentTranslation } = store.state.application;
-    const { currentSourceSection, selectedContentTranslationUnit } =
-      useApplicationState(store);
 
     if (!currentSourceSection.value) {
       return;

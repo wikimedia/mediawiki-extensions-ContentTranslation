@@ -1,10 +1,9 @@
 <script setup>
 import { MwRow } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconPrevious, cdxIconNext } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineEmits([
   "select-previous-segment",
@@ -12,11 +11,11 @@ defineEmits([
   "skip-translation",
 ]);
 
-const { currentSourceSection, proposedTranslation, isSectionTitleSelected } =
-  useApplicationState(useStore());
+const { sourceSection, isSectionTitleSelected, currentProposedTranslation } =
+  useCurrentPageSection();
 
 const isLastTranslationUnit = computed(
-  () => currentSourceSection.value.isSelectedTranslationUnitLast
+  () => sourceSection.value?.isSelectedTranslationUnitLast
 );
 </script>
 
@@ -33,7 +32,7 @@ const isLastTranslationUnit = computed(
     <cdx-button
       weight="quiet"
       class="sx-sentence-selector__apply-translation-button col grow pa-4"
-      :disabled="!proposedTranslation"
+      :disabled="!currentProposedTranslation"
       @click="$emit('apply-translation')"
     >
       {{ $i18n("cx-sx-sentence-selector-apply-translation-button-label") }}

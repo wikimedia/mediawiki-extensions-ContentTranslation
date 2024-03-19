@@ -1,7 +1,6 @@
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
 import { computed } from "vue";
 import SubSectionModel from "@/wiki/cx/models/subSection";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 /**
  * @param {Element} segment
@@ -37,9 +36,7 @@ const scrollToSegment = (segment) => {
 };
 
 const useSelectedContentTranslationUnitScroll = () => {
-  const store = useStore();
-
-  const { selectedContentTranslationUnit } = useApplicationState(store);
+  const { selectedContentTranslationUnit } = useCurrentPageSection();
   const isBlockTemplateSelected = computed(
     () => selectedContentTranslationUnit.value instanceof SubSectionModel
   );

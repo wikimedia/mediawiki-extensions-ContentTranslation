@@ -12,22 +12,23 @@ import {
   cdxIconUserActive,
   cdxIconRobot,
 } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineEmits(["edit-translation"]);
 
 const scopeSelection = ref("sentence");
 
 const {
-  isSectionTitleSelected,
-  currentSourceSection: currentPageSection,
+  sourceSection,
   selectedContentTranslationUnit,
-  targetLanguage,
-} = useApplicationState(useStore());
+  isSectionTitleSelected,
+} = useCurrentPageSection();
+const { targetLanguage } = useApplicationState(useStore());
 
 const showSentenceTab = computed(() => scopeSelection.value === "sentence");
 
 const currentSubSection = computed(() =>
-  currentPageSection.value.subSections.find((subSection) =>
+  sourceSection.value.subSections.find((subSection) =>
     subSection.sentences.some(
       (sentence) => sentence.id === selectedContentTranslationUnit.value?.id
     )
@@ -36,7 +37,7 @@ const currentSubSection = computed(() =>
 
 const proposedMTTranslation = computed(() => {
   if (isSectionTitleSelected.value) {
-    return currentPageSection.value.mtProposedTranslationUsedForTitle;
+    return sourceSection.value.mtProposedTranslationUsedForTitle;
   } else if (showSentenceTab.value) {
     return selectedContentTranslationUnit.value?.mtProposedTranslationUsed;
   }
@@ -51,7 +52,7 @@ const errorColor = colors.red600;
 
 const translation = computed(() => {
   if (isSectionTitleSelected.value) {
-    return currentPageSection.value.translatedTitle;
+    return sourceSection.value.translatedTitle;
   } else if (showSentenceTab.value) {
     return selectedContentTranslationUnit.value.translatedContent;
   }

@@ -1,19 +1,21 @@
 import { useStore } from "vuex";
 import useDebouncedSave from "@/composables/useDebouncedSave";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useApplicationState from "@/composables/useApplicationState";
 
 const useProposedTranslationApply = () => {
   const store = useStore();
   const saveDebounced = useDebouncedSave();
+  const { currentMTProvider } = useApplicationState(store);
+  const { sourceSection, currentProposedTranslation } = useCurrentPageSection();
+
   const { selectNextTranslationUnit } = useTranslationUnitSelect();
 
   return async () => {
-    const translation =
-      store.getters["application/getCurrentProposedTranslation"];
-    const { currentSourceSection, currentMTProvider } = store.state.application;
-    currentSourceSection.setTranslationForSelectedTranslationUnit(
-      translation,
-      currentMTProvider
+    sourceSection.value.setTranslationForSelectedTranslationUnit(
+      currentProposedTranslation.value,
+      currentMTProvider.value
     );
 
     saveDebounced();

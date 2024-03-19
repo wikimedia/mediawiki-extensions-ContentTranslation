@@ -4,15 +4,37 @@ import { createI18n } from "vue-banana-i18n";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import RetryMtCard from "../RetryMtCard.vue";
-import mockStore from "./proposedTranslationCardMockStore";
+import { ref } from "vue";
+import { createStore } from "vuex";
 
 const i18n = createI18n();
 
-jest.mock("@/store", () =>
-  jest.requireActual("./proposedTranslationCardMockStore")
-);
+const mockStore = createStore({
+  modules: {
+    application: {
+      namespaced: true,
+      state: {
+        currentMTProvider: "Apertium",
+        targetLanguage: "es",
+      },
+      mutations: {
+        setCurrentMTProvider: (state, provider) => {
+          state.currentMTProvider = provider;
+        },
+      },
+    },
+  },
+});
 
-describe("SXSentenceSelector Proposed Translation Card", () => {
+const mockValues = {
+  sourceSection: ref({ isSelectedTranslationUnitLast: false }),
+  isSectionTitleSelected: ref(false),
+  currentProposedTranslation: ref("Test translation"),
+};
+
+jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+
+describe("Test `ProposedTranslationCard` test", () => {
   const wrapper = mount(ProposedTranslationCard, {
     global: { plugins: [i18n, mockStore], renderStubDefaultSlot: true },
     shallow: true,
@@ -43,11 +65,6 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
   });
 
   it("Loading indicator is hidden when card has no translation", () => {
-    mockStore.commit(
-      "application/setCurrentMTProvider",
-      MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
-    );
-
     expect(mockStore.state.application.currentMTProvider).toBe(
       MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
     );
@@ -57,7 +74,7 @@ describe("SXSentenceSelector Proposed Translation Card", () => {
 
   it("Should render Retry MT card inside proposed translation card output when no proposed translation exists", async () => {
     mockStore.commit("application/setCurrentMTProvider", "Google");
-    mockStore.state.application.content = null;
+    mockValues.currentProposedTranslation.value = null;
 
     await wrapper.vm.$nextTick();
     expect(wrapper.element).toMatchSnapshot();

@@ -5,7 +5,7 @@ import translatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import applicationGetters from "@/store/modules/application/getters";
 import { createStore } from "vuex";
-import { createApp } from "vue";
+import { createApp, ref } from "vue";
 import useTranslationSave from "@/composables/useTranslationSave";
 
 jest.mock("@/wiki/cx/api/translator", () => ({
@@ -36,12 +36,20 @@ const currentSourceSection = new PageSection({
 });
 currentSourceSection.translatedTitle = "Test target section title 1";
 
+const mockValues = {
+  sourceSection: ref(currentSourceSection),
+  targetPageTitleForPublishing: ref(
+    "Test useTranslationSave target title for publishing"
+  ),
+};
+
+jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
+
 const applicationModule = {
   namespaced: true,
   state: {
     sourceLanguage: "en",
     targetLanguage: "es",
-    currentSourceSection: currentSourceSection,
   },
   getters: {
     getCurrentPage: () =>
@@ -49,15 +57,8 @@ const applicationModule = {
         lastrevid: 11,
         title: "Test source title 1",
       }),
-    getTargetPageTitleForPublishing: () => "Test target article title 1",
     isSandboxTarget: () => false,
     getCurrentRevision: applicationGetters.getCurrentRevision,
-    getParallelCorporaBaseId: applicationGetters.getParallelCorporaBaseId,
-  },
-  mutations: {
-    setTargetPageTitleForPublishing: (state, title) => {
-      state.testTargetPageTitleForPublishing = title;
-    },
   },
 };
 
@@ -125,7 +126,7 @@ describe("vuex store saveTranslation action", () => {
 
     expect(translatorApi.saveTranslation).toHaveBeenCalledWith({
       sourceTitle: "Test source title 1",
-      targetTitle: "Test target article title 1",
+      targetTitle: "Test useTranslationSave target title for publishing",
       sourceSectionTitle: "Test section title 1",
       targetSectionTitle: "Test target section title 1",
       sourceLanguage: "en",

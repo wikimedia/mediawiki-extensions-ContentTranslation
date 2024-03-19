@@ -4,10 +4,6 @@ import { createI18n } from "vue-banana-i18n";
 
 var i18n = createI18n();
 
-jest.mock("@/store", () =>
-  jest.requireActual("./proposedTranslationCardMockStore")
-);
-
 describe("SXSentenceSelector Retry MT Card", () => {
   const wrapper = mount(RetryMtCard, { global: { plugins: [i18n] } });
 

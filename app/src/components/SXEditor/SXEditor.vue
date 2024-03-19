@@ -44,6 +44,7 @@ import { useEventLogging } from "@/plugins/eventlogging";
 import mtValidator from "../../utils/mtValidator";
 import useApplicationState from "@/composables/useApplicationState";
 import useEditedTranslationApply from "@/components/SXEditor/useEditedTranslationApply";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 export default {
   name: "SxEditor",
@@ -78,6 +79,7 @@ export default {
     const logEvent = useEventLogging();
 
     const { targetLanguage, sourceLanguage } = useApplicationState(store);
+    const { sourceSection } = useCurrentPageSection();
     const mtScore = computed(() =>
       mtValidator.calculateScore(
         editedTranslation.value,
@@ -100,10 +102,7 @@ export default {
       let applyTranslationPromise = Promise.resolve();
 
       if (isFinalEdit) {
-        store.commit(
-          "application/setCurrentSourceSectionEditedTranslation",
-          translation
-        );
+        sourceSection.value.editedTranslation = translation;
       } else {
         if (mtScore.value === 0 && isInitialEdit) {
           logEvent({

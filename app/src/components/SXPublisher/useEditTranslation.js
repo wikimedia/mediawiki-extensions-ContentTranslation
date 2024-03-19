@@ -2,6 +2,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 /**
  * @return {function}
@@ -9,14 +10,11 @@ import { useRouter } from "vue-router";
 const useEditTranslation = () => {
   const store = useStore();
   const router = useRouter();
-  const {
-    currentSourcePage,
-    currentTargetPage,
-    currentSourceSection: pageSection,
-  } = useApplicationState(store);
+  const { sourceSection } = useCurrentPageSection();
+  const { currentSourcePage, currentTargetPage } = useApplicationState(store);
 
   const content = computed(() =>
-    pageSection.value.subSections.reduce(
+    sourceSection.value.subSections.reduce(
       (htmlContent, subSection) =>
         subSection.isTranslated
           ? `${htmlContent}<section rel="cx:Section" id="${subSection.targetSectionId}">${subSection.translatedContent}</section>`

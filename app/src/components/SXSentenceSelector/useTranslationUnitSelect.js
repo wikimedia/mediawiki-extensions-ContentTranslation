@@ -1,9 +1,13 @@
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import { useStore } from "vuex";
 import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
+import useApplicationState from "@/composables/useApplicationState";
 
 const useTranslationUnitSelect = () => {
+  const { sourceSection } = useCurrentPageSection();
   const store = useStore();
   const { translateTranslationUnitById } = useTranslationUnitTranslate();
+  const { currentMTProvider } = useApplicationState(store);
 
   /**
    * Given an id, this action selects a translation unit for translation.
@@ -14,11 +18,9 @@ const useTranslationUnitSelect = () => {
    * @return {Promise}
    */
   const selectTranslationUnitById = async (id) => {
-    const { currentSourceSection, currentMTProvider } = store.state.application;
-
-    currentSourceSection.selectTranslationUnitById(id);
-    await translateTranslationUnitById(id, currentMTProvider);
-    const { followingTranslationUnit } = currentSourceSection;
+    sourceSection.value.selectTranslationUnitById(id);
+    await translateTranslationUnitById(id, currentMTProvider.value);
+    const { followingTranslationUnit } = sourceSection.value;
 
     if (followingTranslationUnit) {
       await translateTranslationUnitById(
@@ -35,8 +37,7 @@ const useTranslationUnitSelect = () => {
    * @return {Promise}
    */
   const selectNextTranslationUnit = () => {
-    const { currentSourceSection } = store.state.application;
-    const { followingTranslationUnit } = currentSourceSection;
+    const { followingTranslationUnit } = sourceSection.value;
 
     if (!followingTranslationUnit) {
       return Promise.resolve();
@@ -53,7 +54,7 @@ const useTranslationUnitSelect = () => {
    */
   const selectPreviousTranslationUnit = () => {
     const { selectedContentTranslationUnitIndex, contentTranslationUnits } =
-      store.state.application.currentSourceSection;
+      sourceSection.value;
     const previousIndex = selectedContentTranslationUnitIndex - 1;
     // Id for section title
     let previousId = 0;

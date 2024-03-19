@@ -10,6 +10,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconEdit } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 defineEmits(["edit-translation", "configure-options", "retry-translation"]);
 
@@ -17,16 +18,12 @@ const headerAndFooterHeight = ref(0);
 const header = ref(null);
 const footer = ref(null);
 const store = useStore();
-const {
-  currentMTProvider,
-  targetLanguage,
-  proposedTranslation,
-  currentSourceSection,
-} = useApplicationState(store);
+const { currentMTProvider, targetLanguage } = useApplicationState(store);
+const { sourceSection, currentProposedTranslation } = useCurrentPageSection();
 
 const mtRequestPending = computed(() =>
   store.state.application.mtRequestsPending?.includes(
-    currentSourceSection.value.selectedTranslationUnitId
+    sourceSection.value?.selectedTranslationUnitId
   )
 );
 
@@ -36,7 +33,7 @@ const contentsStyle = computed(() => ({
 
 const hasProposedTranslation = computed(
   () =>
-    !!proposedTranslation.value ||
+    !!currentProposedTranslation.value ||
     currentMTProvider.value === MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY
 );
 
@@ -68,7 +65,7 @@ onMounted(async () => {
         class="sx-sentence-selector__proposed-translation__contents px-5"
         :class="{
           'sx-sentence-selector__proposed-translation__contents--loading':
-            !hasProposedTranslation,
+            !hasProposedTranslation && mtRequestPending,
         }"
         :style="contentsStyle"
       >
@@ -77,7 +74,7 @@ onMounted(async () => {
           v-if="hasProposedTranslation"
           :lang="targetLanguage"
           :dir="getDir(targetLanguage)"
-          v-html="proposedTranslation"
+          v-html="currentProposedTranslation"
         />
         <!--eslint-enable vue/no-v-html -->
         <mw-spinner v-else-if="mtRequestPending" />
@@ -99,7 +96,7 @@ onMounted(async () => {
           weight="quiet"
           action="progressive"
           :disabled="!hasProposedTranslation"
-          @click="$emit('edit-translation', proposedTranslation)"
+          @click="$emit('edit-translation', currentProposedTranslation)"
         >
           <cdx-icon class="me-1" :icon="cdxIconEdit" />
           {{ $i18n("cx-sx-sentence-selector-edit-translation-button-label") }}

@@ -1,9 +1,13 @@
 import mtValidator from "@/utils/mtValidator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { useStore } from "vuex";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useApplicationState from "@/composables/useApplicationState";
 
 const useMtValidate = () => {
   const store = useStore();
+  const { targetLanguage } = useApplicationState(store);
+  const { sourceSection } = useCurrentPageSection();
 
   /**
    * This action initially clears all existing MT publish feedback
@@ -16,17 +20,14 @@ const useMtValidate = () => {
    * @return {Promise<PublishFeedbackMessage|null>}
    */
   return () => {
-    /** @var {PageSection} */
-    const { currentSourceSection: section, targetLanguage } =
-      store.state.application;
     /**
      * Percentage of modified MT for current source section
      * as integer from 1 to 100
      * @type {number}
      */
     const mtValidationScore = mtValidator.getMTScoreForPageSection(
-      section,
-      targetLanguage
+      sourceSection.value,
+      targetLanguage.value
     );
 
     /**

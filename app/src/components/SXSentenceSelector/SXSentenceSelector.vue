@@ -25,6 +25,7 @@ import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -35,12 +36,13 @@ const store = useStore();
 const {
   currentSourcePage,
   currentTargetPage,
-  currentSourceSection: currentPageSection,
-  selectedContentTranslationUnit,
   currentMTProvider,
   sourceLanguage,
   targetLanguage,
 } = useApplicationState(store);
+
+const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
+  useCurrentPageSection();
 
 const translationDataReady = computed(
   () => store.state.application.translationDataLoadingCounter === 0

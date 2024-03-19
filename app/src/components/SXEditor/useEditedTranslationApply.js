@@ -3,11 +3,14 @@ import SubSection from "@/wiki/cx/models/subSection";
 import { renderTemplateFromVE } from "@/utils/templateRenderer";
 import useDebouncedSave from "@/composables/useDebouncedSave";
 import useTranslationUnitSelect from "@/components/SXSentenceSelector/useTranslationUnitSelect";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useEditedTranslationApply = () => {
   const store = useStore();
   const saveDebounced = useDebouncedSave();
   const { selectNextTranslationUnit } = useTranslationUnitSelect();
+  const { sourceSection, selectedContentTranslationUnit } =
+    useCurrentPageSection();
 
   /**
    * Given an edited translation string, this action applies this
@@ -24,11 +27,9 @@ const useEditedTranslationApply = () => {
     div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
     translation = div.innerHTML;
 
-    const { currentSourceSection, targetLanguage, currentMTProvider } =
-      store.state.application;
-    const { selectedContentTranslationUnit } = currentSourceSection;
+    const { targetLanguage, currentMTProvider } = store.state.application;
 
-    if (selectedContentTranslationUnit instanceof SubSection) {
+    if (selectedContentTranslationUnit.value instanceof SubSection) {
       const currentSourcePage = store.getters["application/getCurrentPage"];
       const currentTargetPage =
         store.getters["application/getCurrentTargetPage"];
@@ -40,7 +41,7 @@ const useEditedTranslationApply = () => {
       );
       translation = templateTranslationHtml || translation;
     }
-    currentSourceSection.setTranslationForSelectedTranslationUnit(
+    sourceSection.value.setTranslationForSelectedTranslationUnit(
       translation,
       currentMTProvider
     );

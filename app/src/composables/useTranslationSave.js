@@ -2,11 +2,13 @@ import { useStore } from "vuex";
 import { validateParallelCorporaPayload } from "@/utils/parallelCorporaValidator";
 import translatorApi from "@/wiki/cx/api/translator";
 import useApplicationState from "@/composables/useApplicationState";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
 
 const useTranslationSave = () => {
   const store = useStore();
+  const { sourceSection, targetPageTitleForPublishing } =
+    useCurrentPageSection();
   const {
-    currentSourceSection: sourceSection,
     sourceLanguage,
     targetLanguage,
     currentSourcePage: sourcePage,
@@ -25,14 +27,15 @@ const useTranslationSave = () => {
    */
   return () => {
     const sourceTitle = sourcePage.value.title;
-    const targetTitle =
-      store.getters["application/getTargetPageTitleForPublishing"];
+    const targetTitle = targetPageTitleForPublishing.value;
 
     const supportedMTProviders = store.getters[
       "mediawiki/getSupportedMTProviders"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const baseSectionId = store.getters["application/getParallelCorporaBaseId"];
+    const revision = store.getters["application/getCurrentRevision"];
+    const baseSectionId = `${revision}_${sourceSection.value.id}`;
+
     const units = sourceSection.value.getParallelCorporaUnits(baseSectionId);
     units.forEach((unit) =>
       validateParallelCorporaPayload(unit, supportedMTProviders)
@@ -54,7 +57,7 @@ const useTranslationSave = () => {
       targetSectionTitle: sourceSection.value.targetSectionTitleForPublishing,
       sourceLanguage: sourceLanguage.value,
       targetLanguage: targetLanguage.value,
-      revision: store.getters["application/getCurrentRevision"],
+      revision,
       units: units.map((unit) => unit.payload),
       // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
       sectionId: baseSectionId,
