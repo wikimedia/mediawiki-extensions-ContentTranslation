@@ -131,12 +131,12 @@ const { clearURLParameters } = useURLHandler();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");
+  currentPageSection.value.reset();
   // Remove URL params so that section translation doesn't restart, leading to endless loop
   clearURLParameters();
   clearPendingSaveRequests();
   // wait for the redirection to dashboard before resetting variables needed in this route
   await router.push({ name: "dashboard" });
-  currentPageSection.value.reset();
   // we also need to clear the current section suggestion, so that the current page getter
   // returns null
   store.commit("application/setCurrentSectionSuggestion", null);
