@@ -1,8 +1,6 @@
 import pageApi from "@/wiki/mw/api/page";
 import { useStore } from "vuex";
 
-// const { sourceLanguage, sourceTitle } = state.currentSectionSuggestion;
-// const payload = { language: sourceLanguage, title: sourceTitle };
 const useLanguageTitlesFetch = () => {
   const store = useStore();
 

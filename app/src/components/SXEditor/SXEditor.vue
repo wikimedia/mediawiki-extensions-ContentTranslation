@@ -38,7 +38,7 @@ import { MwSpinner, MwRow } from "@/lib/mediawiki.ui";
 import { getDir } from "@wikimedia/language-data";
 import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
 import EditCompleteFeedback from "./EditCompleteFeedback.vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import mtValidator from "../../utils/mtValidator";

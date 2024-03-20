@@ -1,13 +1,13 @@
 import { useStore } from "vuex";
 import SubSection from "@/wiki/cx/models/subSection";
 import { renderTemplateFromVE } from "@/utils/templateRenderer";
-import useDebouncedSave from "@/composables/useDebouncedSave";
 import useTranslationUnitSelect from "@/components/SXSentenceSelector/useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useTranslationSave from "@/composables/useTranslationSave";
 
 const useEditedTranslationApply = () => {
   const store = useStore();
-  const saveDebounced = useDebouncedSave();
+  const saveTranslation = useTranslationSave();
   const { selectNextTranslationUnit } = useTranslationUnitSelect();
   const { sourceSection, selectedContentTranslationUnit } =
     useCurrentPageSection();
@@ -45,8 +45,7 @@ const useEditedTranslationApply = () => {
       translation,
       currentMTProvider
     );
-    saveDebounced();
-    store.commit("application/setAutoSavePending", true);
+    saveTranslation();
 
     selectNextTranslationUnit();
   };

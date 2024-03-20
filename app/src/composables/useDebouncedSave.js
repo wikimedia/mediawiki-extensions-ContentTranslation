@@ -3,6 +3,7 @@ import useTranslationSave from "@/composables/useTranslationSave";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import AssertUserError from "@/utils/errors/assertUserError";
 import debounce from "@/utils/debounce";
+import createSharedComposable from "@/composables/createSharedComposable";
 
 /**
  * In order to save the draft section translation and its parallel corpora,
@@ -21,36 +22,35 @@ const useDebouncedSave = () => {
   const store = useStore();
   const saveTranslation = useTranslationSave();
 
-  if (!debouncedSaveTranslation) {
-    let retryDelay = 1000;
-    let retry = 0;
+  let retryDelay = 1000;
+  let retry = 0;
 
-    const saveTranslationWithRetry = () => {
-      saveTranslation()
-        .then((saveResponse) => {
-          if (saveResponse instanceof PublishFeedbackMessage) {
-            retryDelay *= retry + 1;
-            retry++;
+  const saveTranslationWithRetry = () =>
+    saveTranslation()
+      .then((saveResponse) => {
+        if (saveResponse instanceof PublishFeedbackMessage) {
+          retryDelay *= retry + 1;
+          retry++;
 
-            setTimeout(debouncedSaveTranslation, retryDelay);
-          } else {
-            retry = 0;
-            retryDelay = 1000;
-            store.commit("application/setAutoSavePending", false);
-          }
-        })
-        .catch((error) => {
-          if (error instanceof AssertUserError) {
-            store.commit("application/setIsLoginDialogOn", true);
-          } else {
-            throw error;
-          }
-        });
-    };
-    debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3000);
-  }
+          setTimeout(debouncedSaveTranslation, retryDelay);
+        } else {
+          retry = 0;
+          retryDelay = 1000;
+          store.commit("application/setAutoSavePending", false);
+        }
+      })
+      .catch((error) => {
+        if (error instanceof AssertUserError) {
+          store.commit("application/setIsLoginDialogOn", true);
+        } else {
+          throw error;
+        }
+      });
+  debouncedSaveTranslation = debounce(saveTranslationWithRetry, 3000);
 
   return debouncedSaveTranslation;
 };
 
-export default useDebouncedSave;
+const useSharedDebouncedSave = createSharedComposable(useDebouncedSave);
+
+export default useSharedDebouncedSave;
