@@ -51,25 +51,28 @@ const useSuggestionsFetch = () => {
    * @param {SectionSuggestion|null} sectionSuggestion
    * @return {boolean}
    */
-  const isSectionSuggestionValid = (sectionSuggestion) => {
-    if (!sectionSuggestion) {
-      return false;
-    }
-
-    const { sectionSuggestions } = store.state.suggestions;
-
-    const suggestionExists = sectionSuggestions.some(
+  const sectionSuggestionExists = (sectionSuggestion) =>
+    store.state.suggestions.sectionSuggestions.some(
       (suggestion) =>
         suggestion.sourceLanguage === sectionSuggestion.sourceLanguage &&
         suggestion.targetLanguage === sectionSuggestion.targetLanguage &&
         suggestion.sourceTitle === sectionSuggestion.sourceTitle
     );
 
+  /**
+   * @param {SectionSuggestion|null} sectionSuggestion
+   * @return {boolean}
+   */
+  const isSectionSuggestionValid = (sectionSuggestion) => {
+    if (!sectionSuggestion) {
+      return false;
+    }
+
     const appendixTargetTitles =
       store.state.suggestions.appendixSectionTitles[targetLanguage.value] || [];
 
     return (
-      !suggestionExists &&
+      !sectionSuggestionExists(sectionSuggestion) &&
       isSuggestionValid(sectionSuggestion) &&
       sectionSuggestion.isValid(appendixTargetTitles)
     );
@@ -201,11 +204,12 @@ const useSuggestionsFetch = () => {
         targetLanguage.value
       );
 
-      if (!isSectionSuggestionValid(suggestion)) {
-        continue;
+      if (isSectionSuggestionValid(suggestion)) {
+        fetchedSuggestions.push(suggestion);
+      } else if (!!suggestion && !sectionSuggestionExists(suggestion)) {
+        suggestion.isListable = false;
+        store.commit("suggestions/addSectionSuggestion", suggestion);
       }
-
-      fetchedSuggestions.push(suggestion);
     }
 
     fetchedSuggestions.forEach((suggestion) =>

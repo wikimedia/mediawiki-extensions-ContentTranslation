@@ -2,7 +2,7 @@ import suggestionsStoreModule from "@/store/modules/suggestions";
 import translatorStoreModule from "@/store/modules/translator";
 import appendixTitles from "@/utils/appendix/appendixTitles.json";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
-import { createStore } from "vuex";
+import { createStore, useStore } from "vuex";
 import useSuggestionsFetch from "./useSuggestionsFetch";
 import { createApp } from "vue";
 
@@ -90,7 +90,7 @@ const testSuggestionsStoreModule = {
   },
 };
 
-const store = createStore({
+const mockStore = createStore({
   modules: {
     application: {
       namespaced: true,
@@ -120,18 +120,20 @@ const store = createStore({
 
 const mockLoadComposableInApp = (composable) => {
   let result;
+  let store;
   const app = createApp({
     setup() {
       result = composable();
+      store = useStore();
 
       // suppress missing template warning
       return () => {};
     },
   });
-  app.use(store);
+  app.use(mockStore);
   app.mount(document.createElement("div"));
 
-  return { result, app };
+  return { result, app, store };
 };
 
 describe("useSuggestionsFetch composable test", () => {
@@ -140,9 +142,22 @@ describe("useSuggestionsFetch composable test", () => {
     const { fetchNextSectionSuggestionsSlice } = data.result;
 
     await fetchNextSectionSuggestionsSlice();
-    const suggestionTitles = store.state.suggestions.sectionSuggestions.map(
-      (sectionSuggestion) => sectionSuggestion.sourceTitle
+    const getSuggestionTitles = (suggestions) =>
+      suggestions.map((sectionSuggestion) => sectionSuggestion.sourceTitle);
+
+    const suggestionTitles = getSuggestionTitles(
+      data.store.state.suggestions.sectionSuggestions
     );
-    expect(suggestionTitles).toEqual(["testTitle2"]);
+    suggestionTitles.sort();
+    expect(suggestionTitles).toEqual([
+      "testTitle0",
+      "testTitle1",
+      "testTitle2",
+    ]);
+
+    const listableSuggestions = data.store.getters[
+      "suggestions/getSectionSuggestionsForPair"
+    ]("en", "es");
+    expect(getSuggestionTitles(listableSuggestions)).toEqual(["testTitle2"]);
   });
 });

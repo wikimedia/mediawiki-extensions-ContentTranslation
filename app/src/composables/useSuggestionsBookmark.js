@@ -42,7 +42,10 @@ const useSuggestionsBookmark = () => {
    * @param {SectionSuggestion} sectionSuggestion
    */
   const markFavoriteSectionSuggestion = (sectionSuggestion) => {
-    store.commit("suggestions/removeSectionSuggestion", sectionSuggestion);
+    store.commit(
+      "suggestions/removeSectionSuggestionFromList",
+      sectionSuggestion
+    );
     fetchNextSectionSuggestionsSlice();
     doMarkSuggestionAsFavorite(sectionSuggestion);
   };
@@ -95,9 +98,9 @@ const useSuggestionsBookmark = () => {
       "suggestions/getSectionSuggestionsForArticle"
     ](sourceLanguage, targetLanguage, sourceTitle);
 
-    if (existingSectionSuggestion) {
+    if (existingSectionSuggestion?.isListable) {
       store.commit(
-        "suggestions/removeSectionSuggestion",
+        "suggestions/removeSectionSuggestionFromList",
         existingSectionSuggestion
       );
       fetchNextSectionSuggestionsSlice();

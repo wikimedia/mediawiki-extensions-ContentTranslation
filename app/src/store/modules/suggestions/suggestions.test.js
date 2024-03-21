@@ -1,13 +1,13 @@
 import suggestionsModule from "./";
-import SectionSuggestion from "../../../wiki/cx/models/sectionSuggestion";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
-const { removeSectionSuggestion } = suggestionsModule.mutations;
+const { removeSectionSuggestionFromList } = suggestionsModule.mutations;
 
 const sourceLanguage = "en";
 const targetLanguage = "es";
 
 describe("test suggestion mutations", () => {
-  it("removeSectionSuggestion", () => {
+  it("'removeSectionSuggestionFromList' should set 'isListable' property to false", () => {
     const sourceTitle = "testTitle";
     const sectionSuggestion = new SectionSuggestion({
       sourceLanguage,
@@ -15,19 +15,10 @@ describe("test suggestion mutations", () => {
       sourceTitle,
     });
 
-    const sectionSuggestions = [sectionSuggestion];
-
-    const sectionSuggestionClone = new SectionSuggestion({
-      sourceLanguage,
-      targetLanguage,
-      sourceTitle,
-    });
-
-    // mock state
-    const state = { sectionSuggestions };
+    const state = {};
     // apply mutation
-    removeSectionSuggestion(state, sectionSuggestionClone);
+    removeSectionSuggestionFromList(state, sectionSuggestion);
     // assert result
-    expect(state.sectionSuggestions.length).toEqual(0);
+    expect(sectionSuggestion.isListable).toEqual(false);
   });
 });

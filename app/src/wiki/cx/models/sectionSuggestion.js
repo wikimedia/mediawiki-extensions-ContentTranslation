@@ -9,7 +9,8 @@ export default class SectionSuggestion {
    * @param {Object<string, string>} options.present Object that maps section titles in source article to already existing section titles in target article
    * @param {Object<string, string>} options.missing
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
-   * @param {string[]} options.targetSections  Array of all section titles in target article  ordered by their order of appearance in the article
+   * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
+   * @param {boolean} options.isListable A boolean indicating whether we should display this section suggestion inside dashboard suggestion list
    */
   constructor({
     sourceLanguage,
@@ -20,6 +21,7 @@ export default class SectionSuggestion {
     missing,
     sourceSections,
     targetSections,
+    isListable = true,
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -29,6 +31,7 @@ export default class SectionSuggestion {
     this.presentSections = present;
     this.sourceSections = sourceSections;
     this.targetSections = targetSections;
+    this.isListable = isListable;
   }
 
   /**

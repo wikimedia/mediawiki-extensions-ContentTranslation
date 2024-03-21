@@ -132,7 +132,7 @@ const useSuggestions = () => {
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
     });
-    store.commit("suggestions/removeSectionSuggestion", suggestion);
+    store.commit("suggestions/removeSectionSuggestionFromList", suggestion);
     fetchNextSectionSuggestionSlice();
   };
 

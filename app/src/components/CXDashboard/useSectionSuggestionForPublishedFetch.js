@@ -12,15 +12,9 @@ const useSectionSuggestionForPublishedFetch = () => {
    * @return {Promise<SectionSuggestion|null>}
    */
   return async (sourceLanguage, targetLanguage, sourceTitle) => {
-    const existingSuggestion = store.getters[
+    let suggestion = store.getters[
       "suggestions/getSectionSuggestionsForArticle"
     ](sourceLanguage, targetLanguage, sourceTitle);
-
-    const existingSuggestionForPublished = store.getters[
-      "suggestions/getSectionSuggestionsForPublishedArticle"
-    ](sourceLanguage, targetLanguage, sourceTitle);
-
-    let suggestion = existingSuggestion || existingSuggestionForPublished;
 
     if (!suggestion) {
       /** @type {SectionSuggestion|null} */
@@ -35,9 +29,10 @@ const useSectionSuggestionForPublishedFetch = () => {
           sourceLanguage,
           targetLanguage,
           sourceTitle,
+          isListable: false,
         });
       }
-      store.commit("suggestions/addSectionSuggestionForPublished", suggestion);
+      store.commit("suggestions/addSectionSuggestion", suggestion);
     }
 
     return suggestion;
