@@ -150,5 +150,7 @@
 	"apihelp-cxsplit-summary": "Opprett og lagre seksjonsoversettelser i databasen, for hver oversatte seksjon av den gitte artikkeloversettelsen",
 	"apihelp-cxsplit-param-translationid": "ID-en til oversettelsen som seksjonsoversettelsene blir opprettet for.",
 	"apierror-cxsplit-anon-user": "API-handlingen «cxsplit» er ikke aktivert for anonyme brukere",
-	"apierror-cxsplit-no-translation-found": "Ingen oversettelse funnet for den gitte ID-en"
+	"apierror-cxsplit-no-translation-found": "Ingen oversettelse funnet for den gitte ID-en",
+	"apihelp-cxcheckunreviewed-summary": "Sjekk om brukeren nylig har publisert raske, ugjennomgåtte oversettelser.",
+	"apierror-cxcheckunreviewed-anon-user": "API-handlingen «cxcheckunreviewed» er ikke slått på for anonyme brukere"
 }

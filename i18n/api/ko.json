@@ -105,5 +105,6 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "초안 문단 번역에 연결된 문단 번역 id입니다.",
 	"apihelp-sxdelete-param-translationid": "초안 문단 번역에 연결된 번역 id입니다.",
 	"apihelp-sxdelete-param-sectionid": "초안 문단 번역의 문단 id입니다.",
-	"apihelp-sxdelete-example-1": "지정된 번역 id와 문단 id와 연결된 초안을 삭제합니다."
+	"apihelp-sxdelete-example-1": "지정된 번역 id와 문단 id와 연결된 초안을 삭제합니다.",
+	"apihelp-cxsplit-summary": "주어진 문서 번역의 번역된 모든 문단에 대해 문단 번역을 생성하고 데이터베이스에 저장합니다"
 }
