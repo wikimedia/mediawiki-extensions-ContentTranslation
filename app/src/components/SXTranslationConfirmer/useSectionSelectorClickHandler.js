@@ -1,12 +1,12 @@
 import { isQuickTutorialForced } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default () => {
@@ -19,9 +19,7 @@ export default () => {
   const { sectionSuggestion } = useCurrentSectionSuggestion();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
-  const targetPageExists = computed(
-    () => !!sectionSuggestion.value?.targetTitle
-  );
+  const { targetPageExists } = useLanguageTitleGroup();
 
   const { selectPageSectionByIndex, selectPageSectionByTitle } =
     usePageSectionSelect();

@@ -1,13 +1,12 @@
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel";
 import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
-import router from "../../router";
 import { siteMapper } from "@/utils/mediawikiHelper";
-
-const i18n = createI18n();
-
+import mediawikiGetters from "@/store/modules/mediawiki/getters";
 import { createStore } from "vuex";
+import { ref } from "vue";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
 
 const mockSectionSuggestion = new SectionSuggestion({
   targetLanguage: "en",
@@ -26,6 +25,22 @@ jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   },
 }));
 
+const mockSectionTitle = ref(null);
+
+jest.mock("@/composables/useURLHandler", () => () => {
+  return {
+    sourceLanguageURLParameter: { value: "el" },
+    targetLanguageURLParameter: { value: "en" },
+    pageURLParameter: { value: "Test source title" },
+    sectionURLParameter: mockSectionTitle,
+  };
+});
+
+const languageTitleGroup = new LanguageTitleGroup("1", [
+  { lang: "en", title: "Test target title" },
+  { lang: "el", title: "Test source title" },
+]);
+
 const mockStore = createStore({
   modules: {
     application: {
@@ -35,15 +50,23 @@ const mockStore = createStore({
         setPreviousRoute: () => {},
       },
     },
+    mediawiki: {
+      namespaced: true,
+      state: { languageTitleGroups: [languageTitleGroup] },
+      getters: {
+        getLanguageTitleGroup: mediawikiGetters.getLanguageTitleGroup,
+      },
+    },
   },
 });
 
+const i18n = createI18n();
 const breakpoints = { tabletAndUp: false };
 describe("SXTranslationConfirmer Action Panel test", () => {
   const createWrapper = () =>
     mount(SxTranslationConfirmerActionPanel, {
       global: {
-        plugins: [mockStore, router, i18n],
+        plugins: [mockStore, i18n],
         provide: {
           colors: {},
           breakpoints: { value: breakpoints },
@@ -52,7 +75,6 @@ describe("SXTranslationConfirmer Action Panel test", () => {
       store: mockStore,
       beforeCreate() {
         this.$i18n = jest.fn((key) => key);
-        this.$mwui = { breakpoint: breakpoints };
       },
     });
 

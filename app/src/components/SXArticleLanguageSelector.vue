@@ -17,6 +17,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useArticleLanguagePairUpdate } from "@/composables/useLanguageHelper";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 export default {
   name: "SxArticleLanguageSelector",
@@ -28,9 +29,7 @@ export default {
       useMediaWikiState();
     const store = useStore();
     const { sourceLanguage, targetLanguage } = useApplicationState(store);
-    const currentLanguageTitleGroup = computed(
-      () => store.getters["application/getCurrentLanguageTitleGroup"]
-    );
+    const { currentLanguageTitleGroup } = useLanguageTitleGroup();
 
     /**
      * Titles are provided in the following format: { lang: "en", title: "Animal" }

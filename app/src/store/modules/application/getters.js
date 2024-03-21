@@ -22,15 +22,6 @@ export default {
   },
 
   /**
-   * @return {LanguageTitleGroup|null}
-   */
-  getCurrentLanguageTitleGroup: (state, getters, rootState, rootGetters) =>
-    rootGetters["mediawiki/getLanguageTitleGroup"](
-      state.currentSectionSuggestion?.sourceLanguage,
-      state.currentSectionSuggestion?.sourceTitle
-    ),
-
-  /**
    * @return {ArticleSuggestion[]}
    */
   getCurrentPageSuggestions: (state, getters, rootState, rootGetters) =>

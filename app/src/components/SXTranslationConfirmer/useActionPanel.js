@@ -1,9 +1,10 @@
 import { computed } from "vue";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import { siteMapper } from "@/utils/mediawikiHelper";
 
 /**
  * @param {ComputedRef<SectionSuggestion>} sectionSuggestion
- * @return {{targetPageExists: ComputedRef<boolean>, isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
+ * @return {{isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
  */
 const useActionPanel = (sectionSuggestion) => {
   const firstMissingSectionTitle = computed(
@@ -16,10 +17,7 @@ const useActionPanel = (sectionSuggestion) => {
   const presentCount = computed(
     () => sectionSuggestion.value?.presentSectionsCount
   );
-
-  const targetPageExists = computed(
-    () => !!sectionSuggestion.value?.targetTitle
-  );
+  const { targetPageExists } = useLanguageTitleGroup();
 
   const targetArticlePath = computed(() =>
     siteMapper.getPageUrl(
@@ -94,7 +92,6 @@ const useActionPanel = (sectionSuggestion) => {
     getActionButtonLabel,
     isProgressiveButton,
     targetArticlePath,
-    targetPageExists,
   };
 };
 

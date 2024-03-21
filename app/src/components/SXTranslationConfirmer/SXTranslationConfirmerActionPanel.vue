@@ -11,6 +11,7 @@ import { useI18n } from "vue-banana-i18n";
 import useDevice from "@/composables/useDevice";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const {
@@ -31,7 +32,6 @@ const {
   getActionButtonLabel,
   isProgressiveButton,
   targetArticlePath,
-  targetPageExists,
 } = useActionPanel(sectionSuggestion);
 
 const bananaI18n = useI18n();
@@ -58,6 +58,7 @@ onMounted(() => {
     clearPreFilledSection();
   }
 });
+const { targetPageExists } = useLanguageTitleGroup();
 </script>
 
 <template>
