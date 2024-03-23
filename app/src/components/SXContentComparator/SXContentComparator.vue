@@ -66,6 +66,7 @@ import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
 import { isQuickTutorialForced } from "@/utils/urlHandler";
 import usePageContentFetch from "@/composables/usePageContentFetch";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default {
   name: "SxContentComparator",
@@ -105,12 +106,8 @@ export default {
     } = useCompareContents();
 
     const targetPageContent = useTargetArticlePreview();
-
-    const {
-      currentSectionSuggestion: suggestion,
-      sourceLanguage,
-      targetLanguage,
-    } = useApplicationState(store);
+    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+    const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     const targetTitle = computed(() => suggestion.value.targetTitle);
 

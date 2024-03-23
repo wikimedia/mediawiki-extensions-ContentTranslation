@@ -78,6 +78,7 @@ import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslati
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useDevice from "@/composables/useDevice";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default {
   name: "SxSectionSelector",
@@ -93,8 +94,8 @@ export default {
   },
   setup() {
     const store = useStore();
+    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
     const {
-      currentSectionSuggestion: suggestion,
       sourceLanguage,
       targetLanguage,
       sourceLanguageAutonym,

@@ -58,12 +58,11 @@ import {
   mwIconLinkExternal,
 } from "@/lib/mediawiki.ui/components/icons";
 import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector.vue";
-import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, onMounted } from "vue";
-import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default {
   name: "SxContentComparatorContentHeader",
@@ -85,10 +84,8 @@ export default {
   },
   emits: ["update:sourceVsTargetSelection", "translation-button-clicked"],
   setup(props, context) {
-    const store = useStore();
-
     const isSticky = ref(false);
-    const { currentSectionSuggestion: suggestion } = useApplicationState(store);
+    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
     const { sectionURLParameter } = useURLHandler();
     const sourceSectionAnchor = computed(() =>

@@ -73,13 +73,12 @@ import {
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
-import useApplicationState from "@/composables/useApplicationState";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import { computed } from "vue";
-import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default {
   name: "SxContentComparatorHeader",
@@ -100,9 +99,8 @@ export default {
   emits: ["close", "translation-button-clicked", "update:discardedSections"],
   setup() {
     const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
-    const store = useStore();
     const { sourceSection } = useCurrentPageSection();
-    const { currentSectionSuggestion: suggestion } = useApplicationState(store);
+    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
     const isCurrentSectionMissing = computed(() =>
       suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)

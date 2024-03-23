@@ -3,16 +3,15 @@ import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vu
 import useApplicationState from "@/composables/useApplicationState";
 import { useI18n } from "vue-banana-i18n";
 import { useStore } from "vuex";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 /**
  * @return {ComputedRef<string>}
  */
 const useTargetArticlePreview = () => {
   const store = useStore();
-  const {
-    currentSectionSuggestion: suggestion,
-    currentTargetPage: targetPage,
-  } = useApplicationState(store);
+  const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+  const { currentTargetPage: targetPage } = useApplicationState(store);
 
   const bananaI18n = useI18n();
 
