@@ -17,10 +17,13 @@
 	"apihelp-query+cxpublishedtranslations-example-2": "انگریزی سے ترجمہ شدہ تمام تراجم حاصل کریں",
 	"apihelp-query+contenttranslationlangtrend-param-source": "ماخذ زبان کا کوڈ",
 	"apihelp-query+contenttranslationlangtrend-param-target": "ہدف زبان کا کوڈ",
+	"apihelp-cxtoken-summary": "cxserver سے تصدیق پانے کے لیے JWT کے ٹوکن حاصل کرتا ہے۔",
+	"apihelp-cxdelete-summary": "ترجمۂ مواد کی توسیع کی مدد سے لکھے جانے والے تراجم کے مسودہ کو حذف کرتا ہے۔",
 	"apihelp-cxdelete-param-from": "ماخذ زبان کا کوڈ",
 	"apihelp-cxdelete-param-to": "ہدف زبان کا کوڈ",
 	"apihelp-cxdelete-param-sourcetitle": "ماخذ صفحہ کا عنوان",
 	"apihelp-cxsuggestionlist-example-1": "انگریزی (en) سے ہسپانوی (es) میں ترجمہ کرنے کی تجویز کے طور پر فہرست میں عنوان کا اضافہ کریں۔ اگر فہرست پہلے سے موجود نہیں ہے تو ایک نئی فہرست بنائی جائے گی۔",
+	"apihelp-cxsuggestionlist-summary": "تجاویز کی فہرستوں کا نظم کرتا ہے۔ فہرستوں میں تجاویز شامل کرتا ہے اور انھیں ہٹاتا ہے۔",
 	"apihelp-cxsave-param-sourcerevision": "ماخذ صفحہ کی نظر ثانی",
 	"apihelp-query+langlinkscount-summary": "دوسری زبانوں کے ورژنز کے اعداد حاصل کریں۔"
 }
