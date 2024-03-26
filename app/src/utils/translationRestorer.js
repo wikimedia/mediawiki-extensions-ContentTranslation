@@ -91,11 +91,17 @@ const restoreDraftForSubSection = async (
 
 /**
  * @param {Page} sourcePage
- * @param {Page} targetPage
+ * @param {string} targetPageTitle
+ * @param {string} targetLanguage
  * @param {CorporaRestoredUnit[]} corporaUnits
  * @return {Promise}
  */
-const restoreCorporaDraft = (sourcePage, targetPage, corporaUnits) => {
+const restoreCorporaDraft = (
+  sourcePage,
+  targetPageTitle,
+  targetLanguage,
+  corporaUnits
+) => {
   const restorationPromises = [];
 
   for (const section of sourcePage.sections || []) {
@@ -119,8 +125,8 @@ const restoreCorporaDraft = (sourcePage, targetPage, corporaUnits) => {
       const restorationPromise = restoreDraftForSubSection(
         subSection,
         corporaUnit,
-        targetPage?.title || sourcePage.title,
-        targetPage.language
+        targetPageTitle || sourcePage.title,
+        targetLanguage
       );
 
       restorationPromises.push(restorationPromise);

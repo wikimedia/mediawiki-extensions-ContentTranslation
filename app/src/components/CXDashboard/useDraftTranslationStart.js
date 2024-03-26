@@ -21,12 +21,8 @@ const useDraftTranslationStart = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const router = useRouter();
-  const {
-    currentSourcePage,
-    currentTargetPage,
-    sourceLanguage,
-    targetLanguage,
-  } = useApplicationState(store);
+  const { currentSourcePage, sourceLanguage, targetLanguage } =
+    useApplicationState(store);
   const updateLanguagePair = useDraftTranslationLanguagePairUpdate();
   const resolvePageContentReferences = useContentReferencesResolve();
 
@@ -46,6 +42,7 @@ const useDraftTranslationStart = () => {
       sourceLanguage: translationSourceLanguage,
       targetLanguage: translationTargetLanguage,
       sourceTitle,
+      targetTitle,
       pageRevision,
       isLeadSectionTranslation,
     } = translation;
@@ -117,7 +114,8 @@ const useDraftTranslationStart = () => {
         .then((translationUnits) =>
           translationRestorer.restoreCorporaDraft(
             currentSourcePage.value,
-            currentTargetPage.value,
+            targetTitle,
+            targetLanguage,
             translationUnits
           )
         )
