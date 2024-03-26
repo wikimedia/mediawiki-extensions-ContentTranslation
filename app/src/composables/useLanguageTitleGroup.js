@@ -25,7 +25,15 @@ const useLanguageTitleGroup = () => {
     return currentLanguageTitleGroup.value.hasLanguage(targetLanguage.value);
   });
 
-  return { currentLanguageTitleGroup, targetPageExists };
+  const getCurrentTitleByLanguage = (language, fallback) =>
+    currentLanguageTitleGroup.value.getTitleForLanguage(language) ||
+    currentLanguageTitleGroup.value.getTitleForLanguage(fallback);
+
+  return {
+    currentLanguageTitleGroup,
+    targetPageExists,
+    getCurrentTitleByLanguage,
+  };
 };
 
 export default useLanguageTitleGroup;

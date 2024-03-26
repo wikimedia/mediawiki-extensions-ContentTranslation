@@ -4,6 +4,7 @@ import { renderTemplateFromVE } from "@/utils/templateRenderer";
 import useTranslationUnitSelect from "@/components/SXSentenceSelector/useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useTranslationSave from "@/composables/useTranslationSave";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 const useEditedTranslationApply = () => {
   const store = useStore();
@@ -11,6 +12,7 @@ const useEditedTranslationApply = () => {
   const { selectNextTranslationUnit } = useTranslationUnitSelect();
   const { sourceSection, selectedContentTranslationUnit } =
     useCurrentPageSection();
+  const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
 
   /**
    * Given an edited translation string, this action applies this
@@ -27,16 +29,13 @@ const useEditedTranslationApply = () => {
     div.querySelectorAll(".sx-edit-dummy-node").forEach((el) => el.remove());
     translation = div.innerHTML;
 
-    const { targetLanguage, currentMTProvider } = store.state.application;
+    const { sourceLanguage, targetLanguage, currentMTProvider } =
+      store.state.application;
 
     if (selectedContentTranslationUnit.value instanceof SubSection) {
-      const currentSourcePage = store.getters["application/getCurrentPage"];
-      const currentTargetPage =
-        store.getters["application/getCurrentTargetPage"];
-
       const templateTranslationHtml = await renderTemplateFromVE(
         translation,
-        currentTargetPage?.title || currentSourcePage.title,
+        getCurrentTitleByLanguage(targetLanguage, sourceLanguage),
         targetLanguage
       );
       translation = templateTranslationHtml || translation;

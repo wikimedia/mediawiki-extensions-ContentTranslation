@@ -26,6 +26,7 @@ import useTranslationUnitTranslate from "./useTranslationUnitTranslate";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -33,13 +34,8 @@ const screenHeight = ref("100%");
 
 const store = useStore();
 
-const {
-  currentSourcePage,
-  currentTargetPage,
-  currentMTProvider,
-  sourceLanguage,
-  targetLanguage,
-} = useApplicationState(store);
+const { currentMTProvider, sourceLanguage, targetLanguage } =
+  useApplicationState(store);
 
 const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
   useCurrentPageSection();
@@ -165,13 +161,18 @@ const configureTranslationOptions = () => {
   translateSelectedTranslationUnitForAllProviders();
 };
 
+const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
+
 const editTranslation = (content, isInitialEdit) => {
   router.push({
     name: "sx-editor",
     state: {
       content,
       originalContent: originalSegmentContent.value,
-      title: currentTargetPage.value?.title || currentSourcePage.value.title,
+      title: getCurrentTitleByLanguage(
+        targetLanguage.value,
+        sourceLanguage.value
+      ),
       isInitialEdit: isInitialEdit || null,
     },
   });

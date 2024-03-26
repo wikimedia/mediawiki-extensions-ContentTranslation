@@ -12,6 +12,7 @@ import useContentReferencesResolve from "@/composables/useContentReferencesResol
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
+import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 
 /**
  * @return {(function(DraftTranslation): Promise<void>)}
@@ -33,6 +34,7 @@ const useDraftTranslationStart = () => {
   const redirectToCX = useCXRedirect();
   const fetchPageContent = usePageContentFetch();
   const { sourceSection } = useCurrentPageSection();
+  const fetchLanguageTitles = useLanguageTitlesFetch();
 
   /**
    * @param {DraftTranslation} translation
@@ -105,6 +107,9 @@ const useDraftTranslationStart = () => {
     // Asynchronously resolve references and update page sections to
     // include this resolved references
     await resolvePageContentReferences(sourceLanguage.value, sourceTitle);
+
+    // TODO: Remove once confirmation step is introduced for draft translations
+    await fetchLanguageTitles(sourceLanguage.value, sourceTitle);
 
     if (!translation.restored) {
       await translatorApi

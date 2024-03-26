@@ -1,11 +1,13 @@
 import { createStore } from "vuex";
-import router from "../../router";
-import SectionSentence from "../../wiki/cx/models/sectionSentence";
-import SubSection from "../../wiki/cx/models/subSection";
-import PageSection from "../../wiki/cx/models/pageSection";
-import Page from "../../wiki/mw/models/page";
+import router from "@/router";
+import SectionSentence from "@/wiki/cx/models/sectionSentence";
+import SubSection from "@/wiki/cx/models/subSection";
+import PageSection from "@/wiki/cx/models/pageSection";
+import Page from "@/wiki/mw/models/page";
 import useEditTranslation from "./useEditTranslation";
 import { createApp } from "vue";
+import mediawikiGetters from "@/store/modules/mediawiki/getters";
+import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
 
 const routerPushSpy = jest.spyOn(router, "push").mockImplementation(() => {});
 
@@ -31,7 +33,6 @@ const createStoreWithSubSection = () => {
       }),
     ],
   });
-  const targetPage = new Page({ pagelanguage: "el", title: "Target title" });
 
   return createStore({
     modules: {
@@ -39,7 +40,21 @@ const createStoreWithSubSection = () => {
         namespaced: true,
         getters: {
           getCurrentPage: () => sourcePage,
-          getCurrentTargetPage: () => targetPage,
+        },
+        mutations: { setPreviousRoute: () => {} }, // for Vue router navigation guard
+      },
+      mediawiki: {
+        namespaced: true,
+        state: {
+          languageTitleGroups: [
+            new LanguageTitleGroup("Q123", [
+              { lang: "en", title: "My useEditTranslation section title" },
+              { lang: "el", title: "Target title" },
+            ]),
+          ],
+        },
+        getters: {
+          getLanguageTitleGroup: mediawikiGetters.getLanguageTitleGroup,
         },
         mutations: { setPreviousRoute: () => {} }, // for Vue router navigation guard
       },
@@ -48,6 +63,9 @@ const createStoreWithSubSection = () => {
 };
 
 jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+  targetLanguageURLParameter: { value: "el" },
+  pageURLParameter: { value: "My useEditTranslation section title" },
   sectionURLParameter: { value: "My useEditTranslation section title" },
 }));
 

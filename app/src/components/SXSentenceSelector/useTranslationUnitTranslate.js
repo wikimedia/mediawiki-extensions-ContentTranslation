@@ -3,13 +3,13 @@ import SubSection from "@/wiki/cx/models/subSection";
 import { renderTemplateFromCXServer } from "@/utils/templateRenderer";
 import translatorApi from "@/wiki/cx/api/translator";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
-import useApplicationState from "@/composables/useApplicationState";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 const useTranslationUnitTranslate = () => {
   const store = useStore();
   const { sourceSection } = useCurrentPageSection();
-  const { currentSourcePage, currentTargetPage } = useApplicationState(store);
+  const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
 
   const setProposedTranslationForTranslationUnitById = (
     id,
@@ -79,7 +79,7 @@ const useTranslationUnitTranslate = () => {
    * @param {string} provider
    */
   const translateTranslationUnitById = async (id, provider) => {
-    const { targetLanguage } = store.state.application;
+    const { sourceLanguage, targetLanguage } = store.state.application;
 
     if (
       sourceSection.value.hasProposedTranslationByTranslationUnitId(
@@ -123,7 +123,7 @@ const useTranslationUnitTranslate = () => {
 
       const translationHtml = await renderTemplateFromCXServer(
         proposedTranslation,
-        currentTargetPage.value?.title || currentSourcePage.value.title,
+        getCurrentTitleByLanguage(targetLanguage, sourceLanguage),
         targetLanguage
       );
       proposedTranslation = translationHtml || "";
