@@ -818,14 +818,15 @@ ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', false );
 };
 
-ve.init.mw.CXTarget.prototype.onPublishSuccess = function () {
+ve.init.mw.CXTarget.prototype.onPublishSuccess = function ( targetTitle, targetURL ) {
+	const messageAttributes = {
+		href: targetURL,
+		target: '_blank'
+	};
 	this.translationView.showMessage(
 		'success',
 		mw.message( 'cx-publish-page-success',
-			$( '<a>' ).attr( {
-				href: mw.util.getUrl( this.translation.getTargetTitle() ),
-				target: '_blank'
-			} ).text( this.translation.getTargetTitle() )
+			$( '<a>' ).attr( messageAttributes ).text( targetTitle )
 		)
 	);
 	this.publishButton.setDisabled( true ).setTitle( mw.msg( 'cx-publish-button' ) );

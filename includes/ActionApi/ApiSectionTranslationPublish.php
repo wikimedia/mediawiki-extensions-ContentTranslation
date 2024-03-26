@@ -234,8 +234,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			$result = [
 				'result' => 'success',
 				'edit' => $editResult,
-				// TODO: Remove when new CX build is created and target URL is properly handled by the UI
-				'targettitle' => $targetTitle->getPrefixedURL(),
+				'targettitle' => $targetTitle->getPrefixedDBkey(),
 				'targeturl' => $this->targetUrlCreator->createUrlForSXRedirection(
 					$targetTitle->getPrefixedDBkey(),
 					$targetLanguage,

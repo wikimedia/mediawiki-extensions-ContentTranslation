@@ -797,12 +797,14 @@ mw.cx.TranslationController.prototype.onPublishCancel = function () {
 };
 
 /**
+ * @param {string|null} apiTargetTitle
  * Publish success handler
  */
-mw.cx.TranslationController.prototype.onPublishSuccess = function () {
+mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTitle ) {
 	mw.log( '[CX] Publishing finished successfully' );
 
-	this.veTarget.onPublishSuccess( this.targetArticle.getTargetURL() );
+	const targetTitle = apiTargetTitle || this.translation.getTargetTitle();
+	this.veTarget.onPublishSuccess( targetTitle, this.translation.getTargetURL() );
 	this.enableEditing();
 
 	// Event logging and Wikibase linking

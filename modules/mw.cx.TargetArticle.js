@@ -211,7 +211,7 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 
 	if ( publishResult.result === 'success' ) {
 		this.translation.setTargetURL( publishResult.targeturl );
-		return this.publishComplete();
+		return this.publishComplete( publishResult.targettitle || null );
 	}
 
 	if ( publishResult.edit.captcha ) {
@@ -226,11 +226,12 @@ mw.cx.TargetArticle.prototype.publishSuccess = function ( response, jqXHR ) {
 };
 
 /**
+ * @param {string|null} apiTargetTitle
  * @fires publishSuccess
  */
-mw.cx.TargetArticle.prototype.publishComplete = function () {
+mw.cx.TargetArticle.prototype.publishComplete = function ( apiTargetTitle ) {
 	this.captcha = null;
-	this.emit( 'publishSuccess' );
+	this.emit( 'publishSuccess', apiTargetTitle );
 };
 
 /**
@@ -566,10 +567,6 @@ mw.cx.TargetArticle.prototype.showDialog = function ( title, message ) {
  */
 mw.cx.TargetArticle.prototype.getTargetTitle = function () {
 	return this.translation.getTargetTitle();
-};
-
-mw.cx.TargetArticle.prototype.getTargetURL = function () {
-	return this.translation.getTargetURL();
 };
 
 /**
