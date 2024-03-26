@@ -551,6 +551,7 @@ ve.init.mw.CXTarget.prototype.onChange = function () {
  * @param {number} namespaceId
  */
 ve.init.mw.CXTarget.prototype.onPublishNamespaceChange = function ( namespaceId ) {
+	this.publishNamespace = namespaceId;
 	const isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();
 
 	if ( !isSectionTranslation ) {
