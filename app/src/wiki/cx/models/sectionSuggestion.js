@@ -19,8 +19,8 @@ export default class SectionSuggestion {
     targetTitle,
     present,
     missing,
-    sourceSections,
-    targetSections,
+    sourceSections = [],
+    targetSections = [],
     isListable = true,
   }) {
     this.sourceLanguage = sourceLanguage;

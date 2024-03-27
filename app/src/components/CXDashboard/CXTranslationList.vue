@@ -3,12 +3,12 @@ import CxTranslationWorkDraft from "./CXTranslationWorkDraft.vue";
 import CxTranslationWorkPublished from "./CXTranslationWorkPublished.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
-import SxConfirmTranslationStartDialog from "./SXConfirmTranslationStartDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
+import useURLHandler from "@/composables/useURLHandler";
+import { useRouter } from "vue-router";
 
 const props = defineProps({
   activeStatus: {
@@ -41,9 +41,7 @@ const loaded = computed(
 const { enabledTargetLanguages } = useMediaWikiState();
 
 const deletionDialogOn = ref(false);
-const translationConfirmationDialogOn = ref(false);
 const translationToDelete = ref(null);
-const translationToStart = ref(null);
 const isDraftTranslationList = computed(
   () => props.translationStatus === "draft"
 );
@@ -105,18 +103,18 @@ const askDeletionConfirmation = (translation) => {
 
 const isActive = computed(() => props.activeStatus === props.translationStatus);
 
-const doStartDraftTranslation = useDraftTranslationStart();
+const router = useRouter();
+const { setTranslationURLParams } = useURLHandler();
 
 /**
  * @param {DraftTranslation} translation
  */
 const startDraftTranslation = (translation) => {
-  if (translation.isArticleTranslation) {
-    translationToStart.value = translation;
-    translationConfirmationDialogOn.value = true;
-  } else {
-    doStartDraftTranslation(translation);
-  }
+  setTranslationURLParams(translation);
+  // TODO: Add event source for event logging
+  router.push({
+    name: "sx-translation-confirmer",
+  });
 };
 </script>
 
@@ -157,10 +155,6 @@ const startDraftTranslation = (translation) => {
     <sx-confirm-translation-deletion-dialog
       v-model="deletionDialogOn"
       :translation="translationToDelete"
-    />
-    <sx-confirm-translation-start-dialog
-      v-model="translationConfirmationDialogOn"
-      :translation="translationToStart"
     />
   </mw-card>
 </template>

@@ -3,6 +3,7 @@ import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 
 /**
  * @return {{isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
@@ -10,6 +11,7 @@ import useURLHandler from "@/composables/useURLHandler";
 const useActionPanel = () => {
   const { sectionSuggestion } = useCurrentSectionSuggestion();
   const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+  const { currentTranslation } = useCurrentDraftTranslation();
   const firstMissingSectionTitle = computed(
     () => sectionSuggestion.value?.orderedMissingSections?.[0]?.sourceTitle
   );
@@ -36,6 +38,10 @@ const useActionPanel = () => {
   });
 
   const getActionButtonLabel = (isPrefilledSection) => {
+    if (!!currentTranslation.value) {
+      return "cx-sx-translation-confirmer-continue-translation-button-label";
+    }
+
     if (isPrefilledSection) {
       return "cx-sx-translation-confirmer-translate-prefilled-section-button-label";
     }

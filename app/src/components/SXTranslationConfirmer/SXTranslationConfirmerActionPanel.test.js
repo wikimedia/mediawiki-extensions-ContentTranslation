@@ -7,6 +7,8 @@ import { createStore } from "vuex";
 import { ref } from "vue";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
+import { createEventLogging } from "@/plugins/eventlogging";
+import router from "@/router";
 
 const mockSectionSuggestion = new SectionSuggestion({
   targetLanguage: "en",
@@ -25,7 +27,12 @@ jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   },
 }));
 
-const mockSectionTitle = ref(null);
+const mockCurrentTranslation = ref(null);
+jest.mock("@/composables/useCurrentDraftTranslation", () => () => ({
+  currentTranslation: mockCurrentTranslation,
+}));
+
+var mockSectionTitle = ref(null);
 
 jest.mock("@/composables/useURLHandler", () => () => {
   return {
@@ -62,17 +69,18 @@ const mockStore = createStore({
 
 const i18n = createI18n();
 const breakpoints = { tabletAndUp: false };
+const eventLogging = createEventLogging();
+
 describe("SXTranslationConfirmer Action Panel test", () => {
   const createWrapper = () =>
     mount(SxTranslationConfirmerActionPanel, {
       global: {
-        plugins: [mockStore, i18n],
+        plugins: [mockStore, i18n, router, eventLogging],
         provide: {
           colors: {},
           breakpoints: { value: breakpoints },
         },
       },
-      store: mockStore,
       beforeCreate() {
         this.$i18n = jest.fn((key) => key);
       },

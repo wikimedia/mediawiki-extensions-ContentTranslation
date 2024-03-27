@@ -9,13 +9,17 @@ import {
   mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, onMounted } from "vue";
+import { computed, onBeforeMount, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useCurrentPages from "@/composables/useCurrentPages";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
+import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
+import useSuggestionLoad from "@/composables/useSuggestionLoad";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 const props = defineProps({
   eventSource: {
@@ -31,34 +35,45 @@ const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
   pageURLParameter: sourcePageTitle,
+  sectionURLParameter: sectionTitle,
   clearURLParameters,
 } = useURLHandler();
 const articleImageSource = computed(
   () => currentSourcePage.value?.image?.source
 );
 const logEvent = useEventLogging();
+const { fetchTranslationsByStatus } = useTranslationsFetch();
 const fetchLanguageTitles = useLanguageTitlesFetch();
-onMounted(() => {
-  fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
-  logEvent({
-    event_type: "dashboard_translation_start",
-    event_source: props.eventSource,
-    translation_source_language: sourceLanguage.value,
-    translation_target_language: targetLanguage.value,
-  });
+const loadSuggestion = useSuggestionLoad();
 
-  // Start loading VE in background. Don't wait for it though.
-  // We anticipate that user is going to use editor in next step.
-  loadVEModules();
+// to support draft translation start
+fetchTranslationsByStatus("draft");
 
-  // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
-  // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
-  // step (for proper positioning of the new section placeholder inside target article preview)
-  store.dispatch(
-    "suggestions/fetchAppendixSectionTitles",
-    targetLanguage.value
+if (!!sectionTitle.value) {
+  loadSuggestion(
+    sourceLanguage.value,
+    targetLanguage.value,
+    sourcePageTitle.value,
+    false
   );
+}
+fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
+
+logEvent({
+  event_type: "dashboard_translation_start",
+  event_source: props.eventSource,
+  translation_source_language: sourceLanguage.value,
+  translation_target_language: targetLanguage.value,
 });
+
+// Start loading VE in background. Don't wait for it though.
+// We anticipate that user is going to use editor in next step.
+loadVEModules();
+
+// Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
+// page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
+// step (for proper positioning of the new section placeholder inside target article preview)
+store.dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage.value);
 
 const router = useRouter();
 
@@ -68,6 +83,8 @@ const onClose = () => {
 
   router.push({ name: previousRoute.value });
 };
+
+const translationConfirmationDialogOn = ref(false);
 </script>
 
 <template>
@@ -101,13 +118,20 @@ const onClose = () => {
     </div>
     <sx-translation-confirmer-article-information />
     <sx-article-language-selector />
-    <sx-translation-confirmer-action-panel />
+    <sx-translation-confirmer-action-panel
+      @open-translation-confirmation-dialog="
+        translationConfirmationDialogOn = true
+      "
+    />
     <mw-row justify="center" class="sx-translation-confirmer__license ma-0">
       <p class="ma-3">
         <!--          TODO: Fix font-size to be 12px. Probably needs UI Typography-->
         <small v-i18n-html:cx-license-agreement />
       </p>
     </mw-row>
+    <sx-confirm-translation-start-dialog
+      v-model="translationConfirmationDialogOn"
+    />
   </section>
 </template>
 

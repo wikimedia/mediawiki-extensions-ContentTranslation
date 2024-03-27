@@ -17,10 +17,10 @@ const props = defineProps({
 defineEmits(["select-section", "close"]);
 
 const targetLanguageAutonym = computed(() =>
-  getAutonym(props.suggestion.targetLanguage)
+  getAutonym(props.suggestion?.targetLanguage)
 );
 const noMissingSectionExists = computed(
-  () => Object.keys(props.suggestion.missingSections).length === 0
+  () => Object.keys(props.suggestion?.missingSections || {}).length === 0
 );
 </script>
 
@@ -40,8 +40,8 @@ const noMissingSectionExists = computed(
       <template #default="{ sourceSection }">
         <h5
           class="ma-0"
-          :lang="suggestion.sourceLanguage"
-          :dir="getDir(suggestion.sourceLanguage)"
+          :lang="suggestion?.sourceLanguage"
+          :dir="getDir(suggestion?.sourceLanguage)"
           v-text="sourceSection"
         />
       </template>

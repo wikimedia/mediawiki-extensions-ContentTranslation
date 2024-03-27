@@ -1,12 +1,10 @@
 import useSectionTranslationStart from "../../composables/useSectionTranslationStart";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import { useStore } from "vuex";
-import PageSection from "@/wiki/cx/models/pageSection";
 import useApplicationState from "@/composables/useApplicationState";
+import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 
 const usePageTranslationStart = () => {
   const startSectionTranslation = useSectionTranslationStart();
-  const startDraftTranslation = useDraftTranslationStart();
   const store = useStore();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
@@ -17,26 +15,12 @@ const usePageTranslationStart = () => {
    * @return {Promise<void>}
    */
   const doStartTranslation = (pageTitle, eventSource) => {
-    const existingLeadTranslation = store.getters[
-      "translator/getDraftTranslation"
-    ](
+    return startSectionTranslation(
       pageTitle,
-      PageSection.LEAD_SECTION_DUMMY_TITLE,
       sourceLanguage.value,
-      targetLanguage.value
+      targetLanguage.value,
+      eventSource
     );
-
-    // if a draft lead translation already exists for the given page, restore it
-    if (!!existingLeadTranslation) {
-      return startDraftTranslation(existingLeadTranslation);
-    } else {
-      return startSectionTranslation(
-        pageTitle,
-        sourceLanguage.value,
-        targetLanguage.value,
-        eventSource
-      );
-    }
   };
   /**
    * @param {Page} suggestedPage

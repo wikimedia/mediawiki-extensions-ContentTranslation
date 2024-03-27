@@ -1,6 +1,6 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { computed, inject, onMounted } from "vue";
+import { computed, inject, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
@@ -14,19 +14,26 @@ import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
-const {
-  sectionURLParameter: preFilledSectionTitle,
-  clearSectionURLParameter: clearPreFilledSection,
-} = useURLHandler();
 const router = useRouter();
 const store = useStore();
 const colors = inject("colors");
 const { sectionSuggestion } = useCurrentSectionSuggestion();
 const { targetLanguageAutonym } = useApplicationState(store);
+const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
-const { startNewTranslation, onSectionSelectorClick } =
-  useSectionSelectorClickHandler();
+const {
+  startNewTranslation,
+  onSectionSelectorClick,
+  translationConfirmationDialogOn,
+} = useSectionSelectorClickHandler();
 
+const emit = defineEmits(["open-translation-confirmation-dialog"]);
+watchEffect(() => {
+  if (translationConfirmationDialogOn.value) {
+    emit("open-translation-confirmation-dialog");
+    translationConfirmationDialogOn.value = false;
+  }
+});
 const {
   actionInformationMessageArgs,
   getActionButtonLabel,
@@ -48,15 +55,11 @@ const actionInformationMessage = computed(() =>
 
 const onMoreSectionsClick = () => router.push({ name: "sx-section-selector" });
 
-onMounted(() => {
-  const preFilledSection = preFilledSectionTitle.value;
-
-  if (
-    !!preFilledSection &&
-    !sectionSuggestion.value?.hasSectionTitle(preFilledSection)
-  ) {
-    clearPreFilledSection();
-  }
+const shouldDisplayMoreSectionsButton = computed(() => {
+  return (
+    preFilledSectionTitle.value &&
+    !!sectionSuggestion.value?.sourceSections?.length
+  );
 });
 const { targetPageExists } = useLanguageTitleGroup();
 </script>
@@ -100,7 +103,7 @@ const { targetPageExists } = useLanguageTitleGroup();
       class="sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4"
       justify="center"
     >
-      <mw-col v-if="preFilledSectionTitle" shrink class="me-4">
+      <mw-col v-if="shouldDisplayMoreSectionsButton" shrink class="me-4">
         <cdx-button
           size="large"
           weight="quiet"

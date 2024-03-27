@@ -1,8 +1,4 @@
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
-import useDraftTranslationStart from "./useDraftTranslationStart";
-import useApplicationState from "@/composables/useApplicationState";
-import useTranslationsFetch from "@/composables/useTranslationsFetch";
-import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useURLHandler from "@/composables/useURLHandler";
 
@@ -32,22 +28,19 @@ const getEventSourceFromUrlCampaign = () => {
  * @return {(function({pageTitle: string, isDraftTranslation: boolean, sectionTitle: string|null}): Promise<void>)}
  */
 const useUrlTranslationStart = () => {
-  const store = useStore();
   const startSectionTranslation = useSectionTranslationStart();
   const logEvent = useEventLogging();
-  const startDraftTranslation = useDraftTranslationStart();
-  const { fetchAllTranslations } = useTranslationsFetch();
 
-  /**
-   * @param {string} pageTitle
-   * @param {boolean} isDraftTranslation
-   * @param {string|null} sectionTitle
-   */
-  return async ({ pageTitle, isDraftTranslation, sectionTitle }) => {
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    pageURLParameter: pageTitle,
+  } = useURLHandler();
+
+  return async () => {
     // If no campaign exists inside the URL, then the user
     // have preselected the page title inside the URL himself
     const eventSource = getEventSourceFromUrlCampaign() || "direct_preselect";
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
     logEvent({
       event_type: "dashboard_open",
@@ -56,28 +49,12 @@ const useUrlTranslationStart = () => {
       translation_target_language: targetLanguage.value,
     });
 
-    if (isDraftTranslation) {
-      await fetchAllTranslations();
-
-      const translation = store.getters["translator/getDraftTranslation"](
-        pageTitle,
-        sectionTitle,
-        sourceLanguage.value,
-        targetLanguage.value
-      );
-
-      if (!translation) {
-        return;
-      }
-      startDraftTranslation(translation);
-    } else {
-      startSectionTranslation(
-        pageTitle,
-        sourceLanguage.value,
-        targetLanguage.value,
-        eventSource
-      );
-    }
+    return startSectionTranslation(
+      pageTitle.value,
+      sourceLanguage.value,
+      targetLanguage.value,
+      eventSource
+    );
   };
 };
 

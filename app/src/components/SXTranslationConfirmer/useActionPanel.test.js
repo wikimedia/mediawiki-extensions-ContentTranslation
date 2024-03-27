@@ -4,11 +4,17 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { createStore } from "vuex";
 import mediawikiGetters from "@/store/modules/mediawiki/getters";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
+import DraftTranslation from "@/wiki/cx/models/draftTranslation";
 
 jest.mock("@/composables/useURLHandler", () => () => ({
   sourceLanguageURLParameter: { value: "en" },
   targetLanguageURLParameter: { value: "el" },
   pageURLParameter: { value: "Test source title" },
+}));
+
+const mockCurrentTranslation = ref(null);
+jest.mock("@/composables/useCurrentDraftTranslation", () => () => ({
+  currentTranslation: mockCurrentTranslation,
 }));
 
 const languageTitleGroup = new LanguageTitleGroup("1", [
@@ -114,7 +120,7 @@ describe("actionInformationMessageArgs test", () => {
   });
 });
 
-describe("getActionButtonLabel test", () => {
+describe("Test 'getActionButtonLabel' method", () => {
   const data = mockLoadComposableInApp();
   const { getActionButtonLabel } = data.result;
   it("case: prefilled section", () => {
@@ -167,7 +173,7 @@ describe("getActionButtonLabel test", () => {
     );
   });
 
-  it("case: translation not exists (target page missing)", () => {
+  it("case: target page is missing", () => {
     // Remove "el" entry from language-title group
     mockStore.state.mediawiki.languageTitleGroups = [
       new LanguageTitleGroup("1", [{ lang: "en", title: "Test source title" }]),
@@ -175,6 +181,14 @@ describe("getActionButtonLabel test", () => {
 
     expect(getActionButtonLabel(false)).toBe(
       "cx-sx-start-translation-button-label"
+    );
+  });
+
+  it("case: draft translation exists for the given URL language pair and title", () => {
+    mockCurrentTranslation.value = new DraftTranslation({});
+
+    expect(getActionButtonLabel(false)).toBe(
+      "cx-sx-translation-confirmer-continue-translation-button-label"
     );
   });
 });

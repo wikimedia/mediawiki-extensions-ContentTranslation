@@ -65,7 +65,7 @@ const clearSectionURLParameter = () => {
 
   sectionURLParameter.value = null;
   urlParams.delete("section");
-
+  urlParams.delete("title");
   replaceUrl(Object.fromEntries(urlParams));
 };
 

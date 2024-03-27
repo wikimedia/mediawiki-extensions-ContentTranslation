@@ -8,6 +8,10 @@ import { useStore } from "vuex";
 const useTranslationsFetch = () => {
   const store = useStore();
 
+  /**
+   * @param {"draft"|"published"} status
+   * @return {Promise<void>}
+   */
   const fetchTranslationsByStatus = async (status) => {
     let translations = await cxTranslatorApi.fetchTranslations(status);
     store.commit("translator/clearTranslationsByStatus", status);

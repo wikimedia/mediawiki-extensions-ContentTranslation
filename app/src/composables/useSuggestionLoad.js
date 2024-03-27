@@ -24,9 +24,15 @@ const useSuggestionLoad = () => {
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
    * @param {string} sourceTitle
+   * @param {boolean} shouldStore
    * {Promise<SectionSuggestion|null>}
    */
-  return async (sourceLanguage, targetLanguage, sourceTitle) => {
+  return async (
+    sourceLanguage,
+    targetLanguage,
+    sourceTitle,
+    shouldStore = true
+  ) => {
     /** @type {SectionSuggestion|null} */
     let suggestion = store.getters[
       "suggestions/getSectionSuggestionsForArticle"
@@ -58,17 +64,21 @@ const useSuggestionLoad = () => {
             // directives in some SFCs), so use the normalized page title here
             sourceTitle: page.title,
           });
-          store.commit(
-            "suggestions/addPageSuggestion",
-            new ArticleSuggestion({
-              sourceLanguage,
-              targetLanguage,
-              sourceTitle,
-              langLinksCount: page.langLinksCount,
-              wikidataId: page.wikidataId,
-            })
-          );
+
+          if (shouldStore) {
+            store.commit(
+              "suggestions/addPageSuggestion",
+              new ArticleSuggestion({
+                sourceLanguage,
+                targetLanguage,
+                sourceTitle,
+                langLinksCount: page.langLinksCount,
+                wikidataId: page.wikidataId,
+              })
+            );
+          }
         } else {
+          suggestion.isListable = shouldStore;
           store.commit("suggestions/addSectionSuggestion", suggestion);
         }
       } catch (e) {

@@ -407,6 +407,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Translate section",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "New translation",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Section",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Continue translation",
 	"sx-editor-feedback-overlay-title": "Thanks!",
 	"sx-editor-feedback-overlay-clarification": "Learning from your corrections",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> edited by you",

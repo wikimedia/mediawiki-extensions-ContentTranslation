@@ -1,12 +1,15 @@
 import { isQuickTutorialForced } from "@/utils/urlHandler";
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
+import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
+import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 
 export default () => {
   const router = useRouter();
@@ -41,6 +44,10 @@ export default () => {
     }
   };
 
+  const startDraftTranslation = useDraftTranslationStart();
+  const translationConfirmationDialogOn = ref(false);
+  const { currentTranslation } = useCurrentDraftTranslation();
+
   /**
    * 1. If "section" URL parameter exists, then try to select this section
    * as current source section. If this section title is valid, navigate
@@ -51,10 +58,16 @@ export default () => {
    * be selected for translation, and user should be navigated to the Quick Tutorial
    * step.
    *
-   * @return {Promise<void>}
+   * @return {void}
    */
   const onSectionSelectorClick = () => {
-    if (!!preFilledSectionTitle.value) {
+    if (!!currentTranslation.value) {
+      if (currentTranslation.value.isArticleTranslation) {
+        translationConfirmationDialogOn.value = true;
+      } else {
+        startDraftTranslation(currentTranslation.value);
+      }
+    } else if (!!preFilledSectionTitle.value) {
       startPrefilledSectionTranslation();
     } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
@@ -88,5 +101,6 @@ export default () => {
   return {
     startNewTranslation,
     onSectionSelectorClick,
+    translationConfirmationDialogOn,
   };
 };

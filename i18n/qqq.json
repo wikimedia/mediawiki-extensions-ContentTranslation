@@ -425,6 +425,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Label for button that starts the translation of a prefilled section inside screen where the user confirms the start of a section translation",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Label for button that redirects to the Content Translation desktop editor to start the translation of a page, inside screen where the user confirms the start of a translation",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Heading of the prefilled section banner inside \"Confirm Translation\" screen, visible when a section has been preselected for translation through URL parameters\n{{identical|Section}}",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Label for button that navigates the user to the editor screen, to continue a draft translation.",
 	"sx-editor-feedback-overlay-title": "Title of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation\n\n{{identical|Thanks}}",
 	"sx-editor-feedback-overlay-clarification": "Clarification of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation",
 	"sx-editor-feedback-overlay-stats": "The modification percentage message of the overlay that provides feedback about translation update, inside screen where user can edit the proposed segment translation.\n\nParameters:\n* $1 - the percentage that was edited by the user",
