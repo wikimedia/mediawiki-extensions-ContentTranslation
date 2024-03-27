@@ -1,16 +1,13 @@
 import { computed, ref } from "vue";
-import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
-import useApplicationState from "@/composables/useApplicationState";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const useCompareContents = () => {
-  const store = useStore();
   const discardedSections = ref([]);
+  const { currentTargetPage: targetPage } = useCurrentPages();
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-
-  const { currentTargetPage: targetPage } = useApplicationState(store);
 
   const { sectionURLParameter } = useURLHandler();
 

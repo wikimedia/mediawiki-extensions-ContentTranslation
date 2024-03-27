@@ -2,17 +2,40 @@ import { mount } from "@vue/test-utils";
 import SXSentenceSelector from "../SXSentenceSelector";
 import { createI18n } from "vue-banana-i18n";
 import SubSection from "../SubSection";
-import mockStore from "./sentenceSelectorMockStore";
 import router from "@/router";
 import { createEventLogging } from "@/plugins/eventlogging";
+import { createStore } from "vuex";
+import SubSectionModel from "@/wiki/cx/models/subSection";
+import PageSection from "@/wiki/cx/models/pageSection";
+import { ref } from "vue";
 
 const i18n = createI18n();
 
 jest.mock("../useMTProvidersInitialize", () => () => jest.fn());
 
-jest.mock("@/store", () => jest.requireActual("./sentenceSelectorMockStore"));
-
 jest.mock("@/plugins/ve");
+
+const subSections = [
+  new SubSectionModel({
+    node: { id: "cxSourceSection1", children: [] },
+    sentences: [],
+  }),
+  new SubSectionModel({
+    node: { id: "cxSourceSection2", children: [] },
+    sentences: [],
+  }),
+];
+
+const mockPageSection = new PageSection({
+  title: "My sentence selector section title",
+  subSections,
+});
+
+const mockSelectedUnit = ref(subSections[0]);
+jest.mock("@/composables/useCurrentPageSection", () => () => ({
+  sourceSection: { value: mockPageSection },
+  selectedContentTranslationUnit: mockSelectedUnit,
+}));
 jest.mock("../useInitializeSegmentSelection", () => () => jest.fn());
 
 jest.mock("@/composables/useURLHandler", () => () => ({
@@ -22,6 +45,20 @@ jest.mock("@/composables/useURLHandler", () => () => ({
 }));
 
 const eventLogging = createEventLogging();
+
+const mockStore = createStore({
+  modules: {
+    application: {
+      namespaced: true,
+      state: {
+        translationDataLoadingCounter: 0,
+      },
+      mutations: {
+        setPreviousRoute: () => {}, // for Vue router navigation guard
+      },
+    },
+  },
+});
 
 describe("Test SXSentenceSelector component", () => {
   const wrapper = mount(SXSentenceSelector, {

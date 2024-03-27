@@ -2,11 +2,12 @@ import siteApi from "@/wiki/mw/api/site";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const usePublishingComplete = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage, currentSourcePage } =
-    useApplicationState(store);
+  const { currentSourcePage } = useCurrentPages();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
 

@@ -3,16 +3,14 @@ import { validateParallelCorporaPayload } from "@/utils/parallelCorporaValidator
 import translatorApi from "@/wiki/cx/api/translator";
 import useApplicationState from "@/composables/useApplicationState";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const useTranslationSave = () => {
   const store = useStore();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
-  const {
-    sourceLanguage,
-    targetLanguage,
-    currentSourcePage: sourcePage,
-  } = useApplicationState(store);
+  const { currentSourcePage: sourcePage } = useCurrentPages();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
   /**
    * This action is called:

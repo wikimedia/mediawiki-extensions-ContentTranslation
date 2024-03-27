@@ -4,7 +4,7 @@ import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * @param {Store} store
- * @return {{currentSectionSuggestion: ComputedRef<SectionSuggestion>, previousRoute: ComputedRef<string>, currentMTProvider: *, sourceLanguageAutonym: *, targetLanguage: *, currentTargetPage: *, targetLanguageAutonym: *, sourceLanguage: *, currentSourcePage: *}}
+ * @return {{currentSectionSuggestion: ComputedRef<SectionSuggestion>, previousRoute: ComputedRef<string>, currentMTProvider: *, sourceLanguageAutonym: *, targetLanguage: *, targetLanguageAutonym: *, sourceLanguage: *}}
  */
 export default function (store) {
   const { sourceLanguageURLParameter, pageURLParameter } = useURLHandler();
@@ -26,29 +26,11 @@ export default function (store) {
     getAutonym(targetLanguage.value)
   );
 
-  const currentSourcePage = computed(
-    () => store.getters["application/getCurrentPage"]
-  );
-
-  const currentSourcePageFromURL = computed(() =>
-    store.getters["mediawiki/getPage"](
-      sourceLanguageURLParameter.value,
-      pageURLParameter.value
-    )
-  );
-
-  const currentTargetPage = computed(
-    () => store.getters["application/getCurrentTargetPage"]
-  );
-
   const previousRoute = computed(() => store.state.application.previousRoute);
 
   return {
     currentMTProvider,
     currentSectionSuggestion,
-    currentSourcePage,
-    currentTargetPage,
-    currentSourcePageFromURL,
     previousRoute,
     sourceLanguage,
     sourceLanguageAutonym,

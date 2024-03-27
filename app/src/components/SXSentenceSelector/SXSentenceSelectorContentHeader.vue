@@ -28,6 +28,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 export default {
   name: "SxSentenceSelectorContentHeader",
@@ -36,9 +37,8 @@ export default {
     const store = useStore();
     const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
     const titleClass = "sx-sentence-selector__section-title";
-
-    const { currentSourcePage: currentPage, sourceLanguage } =
-      useApplicationState(store);
+    const { currentSourcePage: currentPage } = useCurrentPages();
+    const { sourceLanguage } = useApplicationState(store);
 
     const sourceArticleTitle = computed(() => currentPage.value?.title);
     const sourceSectionTitle = computed(

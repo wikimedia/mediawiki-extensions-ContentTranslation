@@ -16,14 +16,16 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
+const mockCurrentPage = new Page({ title: "Test source article title" });
+jest.mock("@/composables/useCurrentPages", () => () => ({
+  currentSourcePage: { value: mockCurrentPage },
+}));
+
 const mockStore = createStore({
   modules: {
     application: {
       namespaced: true,
       state: { sourceLanguage: "en" },
-      getters: {
-        getCurrentPage: () => new Page({ title: "Test source article title" }),
-      },
     },
   },
 });

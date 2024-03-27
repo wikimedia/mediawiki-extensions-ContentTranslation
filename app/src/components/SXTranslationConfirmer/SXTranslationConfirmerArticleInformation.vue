@@ -14,10 +14,11 @@ import {
   cdxIconLinkExternal,
 } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const store = useStore();
 
-const { currentSourcePageFromURL: sourceArticle } = useApplicationState(store);
+const { currentSourcePage: sourceArticle } = useCurrentPages();
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,

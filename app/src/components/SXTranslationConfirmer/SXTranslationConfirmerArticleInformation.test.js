@@ -1,7 +1,7 @@
 import SXTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation";
 import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
-import colors from "../../lib/mediawiki.ui/plugins/colors";
+import colors from "@/lib/mediawiki.ui/plugins/colors";
 import Page from "@/wiki/mw/models/page";
 import { createStore } from "vuex";
 import { ref } from "vue";
@@ -22,27 +22,20 @@ const mockStore = createStore({
       namespaced: true,
       state: { favorites: [] },
     },
-    mediawiki: {
-      namespaced: true,
-      getters: {
-        getPage: () => (language, title) => {
-          if (
-            language === mockSourceLanguage.value &&
-            title === mockSourceTitle.value
-          ) {
-            return new Page({
-              thumbnail: { source: "test_thumbnail.png" },
-              langlinkscount: 100,
-              pageviews: { 1: 1, 2: 2 },
-            });
-          }
-        },
-      },
-    },
   },
 });
 
 const i18n = createI18n();
+
+const mockCurrentPage = new Page({
+  thumbnail: { source: "test_thumbnail.png" },
+  langlinkscount: 100,
+  pageviews: { 1: 1, 2: 2 },
+});
+
+jest.mock("@/composables/useCurrentPages", () => () => ({
+  currentSourcePage: { value: mockCurrentPage },
+}));
 
 describe("SXTranslationConfirmerArticleInformation test", () => {
   const wrapper = mount(SXTranslationConfirmerArticleInformation, {

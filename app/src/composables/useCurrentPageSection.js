@@ -2,11 +2,12 @@ import { computed } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const useCurrentPageSection = () => {
   const store = useStore();
-  const { currentSourcePage, currentMTProvider, currentTargetPage } =
-    useApplicationState(store);
+  const { currentSourcePage, currentTargetPage } = useCurrentPages();
+  const { currentMTProvider } = useApplicationState(store);
 
   const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
 

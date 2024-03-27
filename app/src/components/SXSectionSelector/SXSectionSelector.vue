@@ -103,11 +103,11 @@ export default {
     } = useApplicationState(store);
 
     const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(sourceLanguage.value, suggestion.value.sourceTitle)
+      siteMapper.getPageUrl(sourceLanguage.value, suggestion.value?.sourceTitle)
     );
 
     const targetArticlePath = computed(() =>
-      siteMapper.getPageUrl(targetLanguage.value, suggestion.value.targetTitle)
+      siteMapper.getPageUrl(targetLanguage.value, suggestion.value?.targetTitle)
     );
     /**
      * @type {ComputedRef<[{path: string, autonym: string}, {path: string, autonym: string}]>}

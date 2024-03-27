@@ -45,6 +45,14 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
+const mockCurrentPage = new Page({
+  lastrevid: 11,
+  title: "Test source title 1",
+});
+jest.mock("@/composables/useCurrentPages", () => () => ({
+  currentSourcePage: { value: mockCurrentPage },
+}));
+
 const applicationModule = {
   namespaced: true,
   state: {
@@ -52,11 +60,7 @@ const applicationModule = {
     targetLanguage: "es",
   },
   getters: {
-    getCurrentPage: () =>
-      new Page({
-        lastrevid: 11,
-        title: "Test source title 1",
-      }),
+    getCurrentPage: () => mockCurrentPage,
     isSandboxTarget: () => false,
     getCurrentRevision: applicationGetters.getCurrentRevision,
   },
@@ -92,7 +96,7 @@ const mockLoadComposableInApp = (composable) => {
   return { result, app };
 };
 
-describe("vuex store saveTranslation action", () => {
+describe("Test 'useTranslationSave' composable", () => {
   const data = mockLoadComposableInApp(() => useTranslationSave());
   const saveTranslation = data.result;
 

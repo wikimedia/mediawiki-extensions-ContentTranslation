@@ -6,9 +6,11 @@ import translatorApi from "@/wiki/cx/api/translator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import useTranslationSave from "@/composables/useTranslationSave";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const useTranslationPublish = () => {
   const store = useStore();
+  const { currentSourcePage: sourcePage } = useCurrentPages();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
   const isPublishDialogActive = ref(false);
@@ -41,14 +43,13 @@ const useTranslationPublish = () => {
 
     // the section translation id (cxsx_id) as returned from the "sxsave" api action
     const sectionTranslationId = saveResponse;
-    const sourcePage = store.getters["application/getCurrentPage"];
     const {
       /** @type {PageSection} */
       sourceLanguage,
       targetLanguage,
     } = store.state.application;
 
-    const sourceTitle = sourcePage.title;
+    const sourceTitle = sourcePage.value.title;
     const targetTitle = targetPageTitleForPublishing.value;
 
     const isSandbox = store.getters["application/isSandboxTarget"];

@@ -13,13 +13,6 @@ export default {
 
     return rootGetters["mediawiki/getPage"](state.sourceLanguage, title);
   },
-  getCurrentTargetPage: (state, getters, rootState, rootGetters) => {
-    const title =
-      state.currentSectionSuggestion?.targetTitle ||
-      state.currentTranslation?.targetTitle;
-
-    return rootGetters["mediawiki/getPage"](state.targetLanguage, title);
-  },
 
   /**
    * @return {ArticleSuggestion[]}

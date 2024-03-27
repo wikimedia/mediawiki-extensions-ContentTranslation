@@ -13,6 +13,7 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 /**
  * @return {(function(DraftTranslation): Promise<void>)}
@@ -21,8 +22,8 @@ const useDraftTranslationStart = () => {
   const logEvent = useEventLogging();
   const store = useStore();
   const router = useRouter();
-  const { currentSourcePage, sourceLanguage, targetLanguage } =
-    useApplicationState(store);
+  const { currentSourcePage } = useCurrentPages();
+  const { sourceLanguage, targetLanguage } = useApplicationState(store);
   const updateLanguagePair = useDraftTranslationLanguagePairUpdate();
   const resolvePageContentReferences = useContentReferencesResolve();
 

@@ -12,7 +12,11 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
-const testPage = new Page({ title: "Football" });
+const mockCurrentPage = ref(new Page({ title: "Football" }));
+
+jest.mock("@/composables/useCurrentPages", () => () => ({
+  currentSourcePage: mockCurrentPage,
+}));
 
 const store = createStore({
   modules: {
@@ -23,7 +27,6 @@ const store = createStore({
         targetLanguage: "sw",
       },
       getters: {
-        getCurrentPage: () => testPage,
         isSandboxTarget: () => false,
       },
     },
@@ -63,7 +66,7 @@ describe("test `usePublishingComplete` composable", () => {
 
   it("Should NOT call addWikibaseLink when source title is user namespace", async () => {
     siteApi.addWikibaseLink.mockClear();
-    testPage.title = "User:Nikg/Football";
+    mockCurrentPage.value.title = "User:Nikg/Football";
 
     await completePublishing(targetURL);
 

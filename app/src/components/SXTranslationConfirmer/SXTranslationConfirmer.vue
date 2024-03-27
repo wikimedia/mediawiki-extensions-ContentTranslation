@@ -12,9 +12,10 @@ import { loadVEModules } from "@/plugins/ve";
 import { computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useEventLogging } from "../../plugins/eventlogging";
+import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const props = defineProps({
   eventSource: {
@@ -24,8 +25,8 @@ const props = defineProps({
 });
 
 const store = useStore();
-const { currentSourcePageFromURL: currentSourcePage, previousRoute } =
-  useApplicationState(store);
+const { currentSourcePage } = useCurrentPages();
+const { previousRoute } = useApplicationState(store);
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,

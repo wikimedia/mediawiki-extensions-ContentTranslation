@@ -1,9 +1,9 @@
 import { computed, createApp } from "vue";
 import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
-import useApplicationState from "@/composables/useApplicationState";
 import { useI18n } from "vue-banana-i18n";
 import { useStore } from "vuex";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 /**
  * @return {ComputedRef<string>}
@@ -11,7 +11,7 @@ import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggesti
 const useTargetArticlePreview = () => {
   const store = useStore();
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-  const { currentTargetPage: targetPage } = useApplicationState(store);
+  const { currentTargetPage: targetPage } = useCurrentPages();
 
   const bananaI18n = useI18n();
 

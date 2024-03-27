@@ -1,13 +1,13 @@
 import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentPages from "@/composables/useCurrentPages";
 
 const usePageSectionSelect = () => {
   const store = useStore();
 
-  const { currentSourcePage } = useApplicationState(store);
+  const { currentSourcePage } = useCurrentPages();
 
   const resolvePageContentReferences = useContentReferencesResolve();
   const fetchPageContent = usePageContentFetch();
