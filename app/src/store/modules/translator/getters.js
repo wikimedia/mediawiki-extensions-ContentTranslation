@@ -31,7 +31,7 @@ export default {
           /** @param {DraftTranslation} translation */
           (translation) =>
             translation.sourceTitle === pageTitle &&
-            translation.sourceSectionTitle === sectionTitle &&
+            translation.sectionTitleMatches(sectionTitle) &&
             translation.sourceLanguage === sourceLanguage &&
             translation.targetLanguage === targetLanguage
         ),

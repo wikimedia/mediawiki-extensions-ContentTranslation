@@ -89,9 +89,14 @@ export default class DraftTranslation extends Translation {
    * @return {boolean}
    */
   get isLeadSectionTranslation() {
-    return (
-      !this.sourceSectionTitle ||
-      this.sourceSectionTitle === PageSection.LEAD_SECTION_DUMMY_TITLE
-    );
+    return PageSection.isSectionLead(this.sourceSectionTitle);
+  }
+
+  sectionTitleMatches(sectionTitle) {
+    if (this.isLeadSectionTranslation) {
+      return PageSection.isSectionLead(sectionTitle);
+    }
+
+    return this.sourceSectionTitle === sectionTitle;
   }
 }

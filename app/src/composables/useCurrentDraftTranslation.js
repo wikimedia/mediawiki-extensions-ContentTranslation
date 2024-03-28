@@ -8,12 +8,9 @@ const useCurrentDraftTranslation = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
-    sectionURLParameter,
+    sectionURLParameter: sectionTitle,
     pageURLParameter: pageTitle,
   } = useURLHandler();
-
-  const sectionTitle =
-    sectionURLParameter.value || PageSection.LEAD_SECTION_DUMMY_TITLE;
 
   /**
    * @type {ComputedRef<DraftTranslation>}
@@ -21,7 +18,7 @@ const useCurrentDraftTranslation = () => {
   const currentTranslation = computed(() =>
     store.getters["translator/getDraftTranslation"](
       pageTitle.value,
-      sectionTitle,
+      sectionTitle.value,
       sourceLanguage.value,
       targetLanguage.value
     )

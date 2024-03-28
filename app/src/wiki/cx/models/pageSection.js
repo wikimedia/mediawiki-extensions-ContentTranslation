@@ -70,6 +70,10 @@ export default class PageSection {
     return LEAD_SECTION_DUMMY_TITLE;
   }
 
+  static isSectionLead(sectionTitle) {
+    return !sectionTitle || sectionTitle === LEAD_SECTION_DUMMY_TITLE;
+  }
+
   set originalTitle(title) {
     this.proposedTitleTranslations[MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY] =
       title;
