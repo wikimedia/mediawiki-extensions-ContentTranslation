@@ -16,7 +16,7 @@ const languageTitleGroup = new LanguageTitleGroup("1", [
   { lang: "el", title: "Test target title" },
 ]);
 
-const sectionSuggestion = ref(
+const mockSectionSuggestion = ref(
   new SectionSuggestion({
     targetLanguage: "en",
     targetTitle: "Test target title",
@@ -28,6 +28,10 @@ const sectionSuggestion = ref(
     sourceSections: ["source1", "source2", "source3"],
   })
 );
+
+jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
+  sectionSuggestion: mockSectionSuggestion,
+}));
 
 const mockStore = createStore({
   modules: {
@@ -45,7 +49,7 @@ const mockLoadComposableInApp = () => {
   let result;
   const app = createApp({
     setup() {
-      result = useActionPanel(sectionSuggestion);
+      result = useActionPanel();
 
       // suppress missing template warning
       return () => {};
@@ -69,11 +73,11 @@ describe("actionInformationMessageArgs test", () => {
   });
 
   it("case: missing = 1 & present > 0", () => {
-    sectionSuggestion.value.missingSections = {
+    mockSectionSuggestion.value.missingSections = {
       source1: "target1",
     };
 
-    sectionSuggestion.value.presentSections = {
+    mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
     expect(actionInformationMessageArgs.value).toStrictEqual([
@@ -83,7 +87,7 @@ describe("actionInformationMessageArgs test", () => {
   });
 
   it("case: missing = 1 & present = 0", () => {
-    sectionSuggestion.value.presentSections = {};
+    mockSectionSuggestion.value.presentSections = {};
 
     expect(actionInformationMessageArgs.value).toStrictEqual([
       "cx-sx-translation-confirmer-action-message-single-missing-none-present",
@@ -92,8 +96,8 @@ describe("actionInformationMessageArgs test", () => {
   });
 
   it("case: missing = 0 & present > 0", () => {
-    sectionSuggestion.value.missingSections = {};
-    sectionSuggestion.value.presentSections = {
+    mockSectionSuggestion.value.missingSections = {};
+    mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
     expect(actionInformationMessageArgs.value).toStrictEqual([
@@ -102,8 +106,8 @@ describe("actionInformationMessageArgs test", () => {
   });
 
   it("case: missing = 0 & present = 0", () => {
-    sectionSuggestion.value.missingSections = {};
-    sectionSuggestion.value.presentSections = {};
+    mockSectionSuggestion.value.missingSections = {};
+    mockSectionSuggestion.value.presentSections = {};
     expect(actionInformationMessageArgs.value).toStrictEqual([
       "cx-sx-translation-confirmer-action-message-none-missing-none-present",
     ]);
@@ -120,7 +124,7 @@ describe("getActionButtonLabel test", () => {
   });
 
   it("case: missing > 1", () => {
-    sectionSuggestion.value.missingSections = {
+    mockSectionSuggestion.value.missingSections = {
       source1: "target1",
       source2: "target2",
     };
@@ -128,17 +132,17 @@ describe("getActionButtonLabel test", () => {
   });
 
   it("case: missing = 1 & present > 0", () => {
-    sectionSuggestion.value.missingSections = {
+    mockSectionSuggestion.value.missingSections = {
       "Test missing section 1": "test",
     };
-    sectionSuggestion.value.presentSections = {
+    mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
     expect(getActionButtonLabel(false)).toBe("cx-sx-select-section");
   });
 
   it("case: missing = 1 & present = 0", () => {
-    sectionSuggestion.value.presentSections = {};
+    mockSectionSuggestion.value.presentSections = {};
 
     expect(getActionButtonLabel(false)).toBe(
       "cx-sx-translation-confirmer-action-view-section"
@@ -146,8 +150,8 @@ describe("getActionButtonLabel test", () => {
   });
 
   it("case: missing = 0 & present > 0", () => {
-    sectionSuggestion.value.missingSections = {};
-    sectionSuggestion.value.presentSections = {
+    mockSectionSuggestion.value.missingSections = {};
+    mockSectionSuggestion.value.presentSections = {
       "Test present section 1": "test",
     };
 
@@ -155,8 +159,8 @@ describe("getActionButtonLabel test", () => {
   });
 
   it("case: missing = 0 & present = 0", () => {
-    sectionSuggestion.value.missingSections = {};
-    sectionSuggestion.value.presentSections = {};
+    mockSectionSuggestion.value.missingSections = {};
+    mockSectionSuggestion.value.presentSections = {};
 
     expect(getActionButtonLabel(false)).toBe(
       "cx-sx-translation-confirmer-action-new-translation"

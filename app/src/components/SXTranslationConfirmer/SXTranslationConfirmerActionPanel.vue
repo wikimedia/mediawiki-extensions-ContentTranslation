@@ -32,7 +32,7 @@ const {
   getActionButtonLabel,
   isProgressiveButton,
   targetArticlePath,
-} = useActionPanel(sectionSuggestion);
+} = useActionPanel();
 
 const bananaI18n = useI18n();
 
@@ -53,7 +53,7 @@ onMounted(() => {
 
   if (
     !!preFilledSection &&
-    !sectionSuggestion.value.hasSectionTitle(preFilledSection)
+    !sectionSuggestion.value?.hasSectionTitle(preFilledSection)
   ) {
     clearPreFilledSection();
   }

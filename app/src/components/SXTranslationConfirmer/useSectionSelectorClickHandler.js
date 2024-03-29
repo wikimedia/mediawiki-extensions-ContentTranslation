@@ -7,16 +7,17 @@ import useDevice from "@/composables/useDevice";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default () => {
   const router = useRouter();
   const store = useStore();
   const { isDesktop } = useDevice();
 
-  const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
+  const {
+    pageURLParameter: sourceTitle,
+    sectionURLParameter: preFilledSectionTitle,
+  } = useURLHandler();
 
-  const { sectionSuggestion } = useCurrentSectionSuggestion();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
   const { targetPageExists } = useLanguageTitleGroup();
@@ -31,7 +32,7 @@ export default () => {
       redirectToCX(
         sourceLanguage.value,
         targetLanguage.value,
-        sectionSuggestion.value.sourceTitle,
+        sourceTitle.value,
         { sourcesection: preFilledSectionTitle.value }
       );
     } else {
@@ -64,8 +65,11 @@ export default () => {
 
   const startNewTranslation = async () => {
     if (isDesktop.value) {
-      const sourceTitle = sectionSuggestion.value?.sourceTitle;
-      redirectToCX(sourceLanguage.value, targetLanguage.value, sourceTitle);
+      redirectToCX(
+        sourceLanguage.value,
+        targetLanguage.value,
+        sourceTitle.value
+      );
     } else {
       selectPageSectionByIndex(0);
 

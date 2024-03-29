@@ -1,12 +1,15 @@
 import { computed } from "vue";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import { siteMapper } from "@/utils/mediawikiHelper";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
- * @param {ComputedRef<SectionSuggestion>} sectionSuggestion
  * @return {{isProgressiveButton: ComputedRef<boolean>, targetArticlePath: ComputedRef<string>, actionInformationMessageArgs: ComputedRef<string[]>, getActionButtonLabel: ((function(*): (string|undefined))|*)}}
  */
-const useActionPanel = (sectionSuggestion) => {
+const useActionPanel = () => {
+  const { sectionSuggestion } = useCurrentSectionSuggestion();
+  const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
   const firstMissingSectionTitle = computed(
     () => sectionSuggestion.value?.orderedMissingSections?.[0]?.sourceTitle
   );
@@ -17,14 +20,20 @@ const useActionPanel = (sectionSuggestion) => {
   const presentCount = computed(
     () => sectionSuggestion.value?.presentSectionsCount
   );
-  const { targetPageExists } = useLanguageTitleGroup();
+  const { targetPageExists, getCurrentTitleByLanguage } =
+    useLanguageTitleGroup();
 
-  const targetArticlePath = computed(() =>
-    siteMapper.getPageUrl(
-      sectionSuggestion.value?.targetLanguage || "",
-      sectionSuggestion.value?.targetTitle || ""
-    )
-  );
+  const targetArticlePath = computed(() => {
+    if (!targetPageExists) {
+      return null;
+    }
+
+    return siteMapper.getPageUrl(
+      targetLanguage.value || "",
+      // no need for fallback language, since we know that current target page exists
+      getCurrentTitleByLanguage(targetLanguage.value, null)
+    );
+  });
 
   const getActionButtonLabel = (isPrefilledSection) => {
     if (isPrefilledSection) {
