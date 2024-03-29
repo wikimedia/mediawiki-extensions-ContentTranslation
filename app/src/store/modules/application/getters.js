@@ -1,20 +1,5 @@
 export default {
   /**
-   * @param {object} state
-   * @param {object} getters
-   * @param {object} rootState
-   * @param {object} rootGetters
-   * @return {Page|null}
-   */
-  getCurrentPage: (state, getters, rootState, rootGetters) => {
-    const title =
-      state.currentSectionSuggestion?.sourceTitle ||
-      state.currentTranslation?.sourceTitle;
-
-    return rootGetters["mediawiki/getPage"](state.sourceLanguage, title);
-  },
-
-  /**
    * @return {ArticleSuggestion[]}
    */
   getCurrentPageSuggestions: (state, getters, rootState, rootGetters) =>
