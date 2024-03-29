@@ -1,26 +1,21 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxSectionSelectorSectionList from "./SXSectionSelectorSectionList.vue";
 import sadRobotSVG from "../../assets/sad-robot.svg?raw";
 import { computed } from "vue";
 import { CdxButton } from "@wikimedia/codex";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
-const props = defineProps({
-  suggestion: {
-    type: SectionSuggestion,
-    required: true,
-  },
-});
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
 defineEmits(["select-section", "close"]);
 
 const targetLanguageAutonym = computed(() =>
-  getAutonym(props.suggestion?.targetLanguage)
+  getAutonym(suggestion.value?.targetLanguage)
 );
 const noMissingSectionExists = computed(
-  () => Object.keys(props.suggestion?.missingSections || {}).length === 0
+  () => Object.keys(suggestion.value?.missingSections || {}).length === 0
 );
 </script>
 

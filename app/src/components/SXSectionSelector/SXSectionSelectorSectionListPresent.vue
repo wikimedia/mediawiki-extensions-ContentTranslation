@@ -7,21 +7,21 @@
       class="sx-section-selector__list-title mb-0 pb-0 py-3 px-4"
     />
     <sx-section-selector-section-list
-      :sections="suggestion.orderedPresentSections"
+      :sections="suggestion?.orderedPresentSections || []"
       @select-section="$emit('select-section', $event)"
     >
       <template #default="{ sourceSection, targetSection }">
         <div class="sx-section-selector__present-section-button-content">
           <h5
             class="sx-section-selector__present-section-button-source"
-            :lang="suggestion.sourceLanguage"
-            :dir="getDir(suggestion.sourceLanguage)"
+            :lang="suggestion?.sourceLanguage"
+            :dir="getDir(suggestion?.sourceLanguage)"
             v-text="sourceSection"
           />
           <h6
             class="sx-section-selector__present-section-button-target"
-            :lang="suggestion.targetLanguage"
-            :dir="getDir(suggestion.targetLanguage)"
+            :lang="suggestion?.targetLanguage"
+            :dir="getDir(suggestion?.targetLanguage)"
             v-text="targetSection"
           />
         </div>
@@ -34,27 +34,29 @@
 import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import { computed } from "vue";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList.vue";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 export default {
   name: "SxSectionSelectorSectionListPresent",
   components: {
     SxSectionSelectorSectionList,
   },
-  props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true,
-    },
-  },
   emits: ["select-section"],
-  setup(props) {
+  setup() {
+    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+
     const targetLanguageAutonym = computed(() =>
-      getAutonym(props.suggestion.targetLanguage)
+      getAutonym(suggestion.value?.targetLanguage)
     );
 
-    return { mwIconArrowForward, getAutonym, getDir, targetLanguageAutonym };
+    return {
+      mwIconArrowForward,
+      getAutonym,
+      getDir,
+      suggestion,
+      targetLanguageAutonym,
+    };
   },
 };
 </script>

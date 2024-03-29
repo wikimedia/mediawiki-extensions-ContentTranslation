@@ -2,9 +2,10 @@ import { mount } from "@vue/test-utils";
 import SXSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent";
 import SectionSuggestion from "../../wiki/cx/models/sectionSuggestion";
 import { createI18n } from "vue-banana-i18n";
+import { ref } from "vue";
 
-describe("SXSectionSelector Section List", () => {
-  const suggestion = new SectionSuggestion({
+const mockSectionSuggestion = ref(
+  new SectionSuggestion({
     targetLanguage: "en",
     present: {
       "source section 0": "target section 0",
@@ -18,16 +19,17 @@ describe("SXSectionSelector Section List", () => {
       "source section 2",
       "source section 3",
     ],
-  });
+  })
+);
 
-  const i18n = createI18n();
+jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
+  sectionSuggestion: mockSectionSuggestion,
+}));
 
+describe("SXSectionSelector Section List", () => {
   const wrapper = mount(SXSectionSelectorSectionListPresent, {
     global: {
-      plugins: [i18n],
-    },
-    props: {
-      suggestion,
+      plugins: [createI18n()],
     },
   });
 
@@ -42,6 +44,8 @@ describe("SXSectionSelector Section List", () => {
 
   it("Component has correct number of section items", () => {
     const items = wrapper.find(".sx-section-selector__sections-list > li");
-    expect(items.length).toBe(suggestion.presentSections.length);
+    expect(items.length).toBe(
+      mockSectionSuggestion.value.presentSections.length
+    );
   });
 });

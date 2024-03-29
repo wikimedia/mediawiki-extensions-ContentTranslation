@@ -1,18 +1,13 @@
 <template>
   <section class="sx-section-selector">
-    <sx-section-selector-header
-      :suggestion="suggestion"
-      @close="goToDashboard"
-    />
+    <sx-section-selector-header @close="goToDashboard" />
     <section class="sx-section-selector__body">
       <sx-article-language-selector />
       <sx-section-selector-section-list-missing
-        :suggestion="suggestion"
         @select-section="selectSection"
         @close="goToDashboard"
       />
       <sx-section-selector-section-list-present
-        :suggestion="suggestion"
         @select-section="selectSection"
       />
       <section class="py-2">

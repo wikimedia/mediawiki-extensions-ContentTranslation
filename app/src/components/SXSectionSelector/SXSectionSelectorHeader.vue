@@ -1,15 +1,10 @@
 <script setup>
 import { MwCol, MwRow } from "@/lib/mediawiki.ui";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
-defineProps({
-  suggestion: {
-    type: SectionSuggestion,
-    required: true,
-  },
-});
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 
 defineEmits(["close"]);
 </script>
@@ -24,7 +19,7 @@ defineEmits(["close"]);
         />
         <h2
           class="sx-section-selector__title ma-0 py-0"
-          v-text="suggestion.sourceTitle"
+          v-text="suggestion?.sourceTitle"
         />
       </mw-col>
       <mw-col shrink class="justify-end">
