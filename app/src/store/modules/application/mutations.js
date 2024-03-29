@@ -19,25 +19,6 @@ const mutations = {
       (item) => item !== value
     );
   },
-  /**
-   * This mutation is being called both for section suggestions and for
-   * page suggestions. However, "currentSectionSuggestion" state variable
-   * should be a instance of SectionSuggestion class. For that reason, we should
-   * cast the argument to SectionSuggestion object before setting it as
-   * "currentSectionSuggestion", for type integrity.
-   *
-   * @param {object} state
-   * @param {SectionSuggestion|ArticleSuggestion|null} suggestion
-   */
-  setCurrentSectionSuggestion(state, suggestion) {
-    state.currentSectionSuggestion =
-      suggestion &&
-      new SectionSuggestion({
-        ...suggestion,
-        missing: suggestion?.missingSections || {},
-        present: suggestion?.presentSections || {},
-      });
-  },
 
   /**
    * @param {object} state

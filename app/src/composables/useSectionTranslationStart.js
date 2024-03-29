@@ -28,7 +28,7 @@ const useSectionTranslationStart = () => {
       return;
     }
 
-    store.dispatch("application/initializeSectionTranslation", suggestion);
+    store.dispatch("application/getCXServerToken");
     setTranslationURLParams(suggestion);
 
     router.push({

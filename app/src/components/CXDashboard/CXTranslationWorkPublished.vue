@@ -46,7 +46,7 @@ const router = useRouter();
 const { isDesktop } = useDevice();
 
 const translateNewSection = () => {
-  store.dispatch("application/initializeSectionTranslation", suggestion.value);
+  store.dispatch("application/getCXServerToken");
   router.push({ name: "sx-section-selector", query: { force: true } });
 };
 

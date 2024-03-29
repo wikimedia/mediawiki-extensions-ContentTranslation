@@ -63,7 +63,6 @@ onMounted(() => {
 const router = useRouter();
 
 const onClose = () => {
-  store.dispatch("application/clearCurrentSectionSuggestion");
   // Remove URL params so that section translation doesn't restart, leading to endless loop
   clearURLParameters();
 

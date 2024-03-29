@@ -190,24 +190,17 @@ const useArticleLanguagePairUpdate = () => {
     if (!redirectionNeeded) {
       setLanguagePair(store, newSourceLanguage, newTargetLanguage);
 
-      let suggestion = new SectionSuggestion({
-        sourceLanguage: sourceLanguage.value,
-        targetLanguage: targetLanguage.value,
-        sourceTitle,
-        missing: {},
-      });
-
       // TODO: Use targetPageExists if possible (once targetLanguage is loaded from URL instead of Vuex state)
       if (currentLanguageTitleGroup.value.hasLanguage(targetLanguage.value)) {
         /** @type {SectionSuggestion|null} */
-        suggestion = await loadSuggestion(
-          suggestion.sourceLanguage,
-          suggestion.targetLanguage,
-          suggestion.sourceTitle
+        await loadSuggestion(
+          sourceLanguage.value,
+          targetLanguage.value,
+          sourceTitle
         );
       }
 
-      store.dispatch("application/initializeSectionTranslation", suggestion);
+      store.dispatch("application/getCXServerToken");
     }
   };
 };

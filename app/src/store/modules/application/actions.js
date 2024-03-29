@@ -52,23 +52,4 @@ const getCXServerToken = async ({ dispatch, state, commit }) => {
   return state.cxServerToken?.jwt;
 };
 
-/**
- * @param {object} context
- * @param {function} context.commit
- * @param {function} context.dispatch
- * @param {SectionSuggestion|ArticleSuggestion} suggestion
- */
-function initializeSectionTranslation({ commit, dispatch }, suggestion) {
-  dispatch("getCXServerToken");
-  commit("setCurrentSectionSuggestion", suggestion);
-}
-
-function clearCurrentSectionSuggestion({ commit }) {
-  commit("setCurrentSectionSuggestion", null);
-}
-
-export default {
-  clearCurrentSectionSuggestion,
-  getCXServerToken,
-  initializeSectionTranslation,
-};
+export default { getCXServerToken };

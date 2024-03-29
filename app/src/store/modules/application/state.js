@@ -1,8 +1,6 @@
 export default {
   /**@type Array */
   mtRequestsPending: [],
-  /** @type SectionSuggestion */
-  currentSectionSuggestion: null,
   /** @type Translation */
   currentTranslation: null,
   /** @type String */
