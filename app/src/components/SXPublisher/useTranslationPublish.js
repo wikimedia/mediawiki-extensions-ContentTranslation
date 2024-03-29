@@ -6,13 +6,15 @@ import translatorApi from "@/wiki/cx/api/translator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import useTranslationSave from "@/composables/useTranslationSave";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
-import useCurrentPages from "@/composables/useCurrentPages";
+import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useTranslationPublish = () => {
   const store = useStore();
-  const { currentSourcePage: sourcePage } = useCurrentPages();
+  const { pageURLParameter: sourceTitle } = useURLHandler();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
+  const revision = useCurrentPageRevision();
   const isPublishDialogActive = ref(false);
   const publishStatus = ref("pending");
 
@@ -49,20 +51,19 @@ const useTranslationPublish = () => {
       targetLanguage,
     } = store.state.application;
 
-    const sourceTitle = sourcePage.value.title;
     const targetTitle = targetPageTitleForPublishing.value;
 
     const isSandbox = store.getters["application/isSandboxTarget"];
 
     const publishPayload = {
       html: cleanupHtml(sourceSection.value.translationHtml),
-      sourceTitle,
+      sourceTitle: sourceTitle.value,
       targetTitle,
       sourceSectionTitle: sourceSection.value.sourceSectionTitleForPublishing,
       targetSectionTitle: sourceSection.value.targetSectionTitleForPublishing,
       sourceLanguage,
       targetLanguage,
-      revision: store.getters["application/getCurrentRevision"],
+      revision: revision.value,
       isSandbox,
       sectionTranslationId,
     };

@@ -65,12 +65,4 @@ export default {
    * @return {boolean}
    */
   isSandboxTarget: (state) => state.publishTarget === "SANDBOX_SECTION",
-
-  /**
-   * @param {object} state
-   * @param {object} getters
-   * @return {string}
-   */
-  getCurrentRevision: (state, getters) =>
-    state.currentTranslation?.pageRevision || getters.getCurrentPage.revision,
 };

@@ -3,14 +3,16 @@ import { validateParallelCorporaPayload } from "@/utils/parallelCorporaValidator
 import translatorApi from "@/wiki/cx/api/translator";
 import useApplicationState from "@/composables/useApplicationState";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
-import useCurrentPages from "@/composables/useCurrentPages";
+import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useTranslationSave = () => {
   const store = useStore();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
-  const { currentSourcePage: sourcePage } = useCurrentPages();
+  const { pageURLParameter: sourceTitle } = useURLHandler();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const revision = useCurrentPageRevision();
 
   /**
    * This action is called:
@@ -24,15 +26,13 @@ const useTranslationSave = () => {
    * @return {Promise<PublishFeedbackMessage|null>}
    */
   return () => {
-    const sourceTitle = sourcePage.value.title;
     const targetTitle = targetPageTitleForPublishing.value;
 
     const supportedMTProviders = store.getters[
       "mediawiki/getSupportedMTProviders"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const revision = store.getters["application/getCurrentRevision"];
-    const baseSectionId = `${revision}_${sourceSection.value.id}`;
+    const baseSectionId = `${revision.value}_${sourceSection.value.id}`;
 
     const units = sourceSection.value.getParallelCorporaUnits(baseSectionId);
     units.forEach((unit) =>
@@ -47,7 +47,7 @@ const useTranslationSave = () => {
      * @type {Promise<number|PublishFeedbackMessage>}
      */
     return translatorApi.saveTranslation({
-      sourceTitle,
+      sourceTitle: sourceTitle.value,
       targetTitle,
       // pass a dummy string to be stored as "cxsx_source_section_title" inside "cx_section_translations" table for lead sections
       sourceSectionTitle: sourceSection.value.sourceSectionTitleForPublishing,
@@ -55,7 +55,7 @@ const useTranslationSave = () => {
       targetSectionTitle: sourceSection.value.targetSectionTitleForPublishing,
       sourceLanguage: sourceLanguage.value,
       targetLanguage: targetLanguage.value,
-      revision,
+      revision: revision.value,
       units: units.map((unit) => unit.payload),
       // section id to be stored as "cxsx_section_id" inside "cx_section_translations"
       sectionId: baseSectionId,

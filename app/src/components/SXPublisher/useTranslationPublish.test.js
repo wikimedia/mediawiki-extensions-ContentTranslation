@@ -2,9 +2,7 @@ import PageSection from "@/wiki/cx/models/pageSection";
 import SubSection from "@/wiki/cx/models/subSection";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
-import Page from "@/wiki/mw/models/page";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
-import applicationGetters from "@/store/modules/application/getters";
 import { createStore } from "vuex";
 import { createApp, ref } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
@@ -79,14 +77,12 @@ const mockValues = {
 
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
-const mockCurrentPage = new Page({
-  lastrevid: 11,
-  title: "Test source title 1",
-});
-
-jest.mock("@/composables/useCurrentPages", () => () => ({
-  currentSourcePage: { value: mockCurrentPage },
+jest.mock("@/composables/useURLHandler", () => () => ({
+  pageURLParameter: { value: "Test source title 1" },
 }));
+
+const mockRevision = ref(11);
+jest.mock("@/composables/useCurrentPageRevision", () => () => mockRevision);
 
 const applicationModule = {
   namespaced: true,
@@ -95,9 +91,7 @@ const applicationModule = {
     targetLanguage: "es",
   },
   getters: {
-    getCurrentPage: () => mockCurrentPage,
     isSandboxTarget: () => false,
-    getCurrentRevision: applicationGetters.getCurrentRevision,
   },
 };
 
