@@ -1,6 +1,6 @@
 <script setup>
 import { MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { computed, inject, watchEffect } from "vue";
+import { computed, inject, ref, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
@@ -13,6 +13,8 @@ import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import translator from "@/wiki/cx/api/translator";
+import UnreviewedTranslationDialog from "./UnreviewedTranslationDialog.vue";
 
 const router = useRouter();
 const store = useStore();
@@ -26,6 +28,37 @@ const {
   handlePrimaryButtonClick,
   translationConfirmationDialogOn,
 } = useConfirmationButtonClickHandlers();
+
+const unreviewedTranslationDialogOn = ref(false);
+const unreviewedTranslationTargetURL = ref(null);
+
+const checkForUnreviewedTranslations = async () => {
+  const checkResult = await translator.checkUnreviewedTranslations();
+
+  if (checkResult === true) {
+    return;
+  }
+  unreviewedTranslationDialogOn.value = true;
+  unreviewedTranslationTargetURL.value = checkResult.targetUrl;
+};
+
+const onStartNewTranslationClick = async () => {
+  await checkForUnreviewedTranslations();
+
+  if (unreviewedTranslationDialogOn.value) {
+    return;
+  }
+  startNewTranslation();
+};
+
+const onPrimaryButtonClick = async () => {
+  await checkForUnreviewedTranslations();
+
+  if (unreviewedTranslationDialogOn.value) {
+    return;
+  }
+  handlePrimaryButtonClick();
+};
 
 const emit = defineEmits(["open-translation-confirmation-dialog"]);
 watchEffect(() => {
@@ -53,7 +86,14 @@ const actionInformationMessage = computed(() =>
   bananaI18n.i18n(...actionInformationMessageArgs.value)
 );
 
-const onMoreSectionsClick = () => router.push({ name: "sx-section-selector" });
+const onMoreSectionsClick = async () => {
+  await checkForUnreviewedTranslations();
+
+  if (unreviewedTranslationDialogOn.value) {
+    return;
+  }
+  router.push({ name: "sx-section-selector" });
+};
 
 const shouldDisplayMoreSectionsButton = computed(() => {
   return (
@@ -114,7 +154,7 @@ const { targetPageExists } = useLanguageTitleGroup();
         </cdx-button>
       </mw-col>
       <mw-col v-if="targetPageExists && isDesktop" shrink class="me-4">
-        <cdx-button size="large" @click="startNewTranslation">
+        <cdx-button size="large" @click="onStartNewTranslationClick">
           {{
             $i18n(
               "cx-sx-translation-confirmer-new-desktop-translation-button-label"
@@ -127,13 +167,17 @@ const { targetPageExists } = useLanguageTitleGroup();
           weight="primary"
           size="large"
           :action="isProgressiveButton ? 'progressive' : 'default'"
-          @click="handlePrimaryButtonClick"
+          @click="onPrimaryButtonClick"
         >
           {{ actionButtonLabel }}
         </cdx-button>
       </mw-col>
     </mw-row>
   </section>
+  <unreviewed-translation-dialog
+    v-model="unreviewedTranslationDialogOn"
+    :target-url="unreviewedTranslationTargetURL"
+  />
 </template>
 
 <style lang="less">

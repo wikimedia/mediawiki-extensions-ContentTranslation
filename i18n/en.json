@@ -503,5 +503,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Write a new translation",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Step-by-step translation process to create a new page in your language.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Read an automatic translation",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Automatic preview of contents in other languages for you to review and fix."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatic preview of contents in other languages for you to review and fix.",
+	"cx-unreviewed-translation-dialog-title": "Review your last translation",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Close",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Review translation",
+	"cx-unreviewed-translation-dialog-close-button-label": "Close",
+	"cx-unreviewed-translation-dialog-body": "After finishing a quick translation you need to wait 10 min before initiating a new one. Please review past work during this period, as high-quality content is valued by our editor community.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Learn more"
 }

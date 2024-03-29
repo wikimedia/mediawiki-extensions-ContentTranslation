@@ -139,7 +139,11 @@ async function fetchSegmentTranslation(
       if (!ok) {
         // in case of error cxserver typically returns an error with the following
         // fields: { detail: string, type: string, title: string, status: number }
-        const errorMessage = data.detail || data.type || data.title || 'fetchSegmentTranslation: Unknown error';
+        const errorMessage =
+          data.detail ||
+          data.type ||
+          data.title ||
+          "fetchSegmentTranslation: Unknown error";
         throw new Error(errorMessage);
       }
       // Remove root div that was added by cxserver
@@ -425,6 +429,32 @@ const splitTranslation = (translationId) => {
 };
 
 /**
+ * This method sends a request to the "cxcheckunreviewed" Action API endpoint,
+ * and returns a promise that resolves to:
+ * 1. a true boolean if no unreviewed translation is found,
+ * 2. or a PublishedTranslation instance, if such translation is found for the
+ * current user.
+ *
+ * @return {Promise<boolean|PublishedTranslation>}
+ */
+const checkUnreviewedTranslations = () => {
+  const params = {
+    assert: optionalUserAssertion,
+    action: "cxcheckunreviewed",
+  };
+
+  const api = new mw.Api();
+
+  return api
+    .get(params)
+    .then(
+      (response) =>
+        response.cxcheckunreviewed.result === "success" ||
+        new PublishedTranslation(response.cxcheckunreviewed.translation)
+    );
+};
+
+/**
  * Given the appropriate parameters (section translation id, translation id and section id), this method
  * deletes the translation from "cx_section_translations" database table, deletes all related corpora translation
  * units from "cx_corpora" table, and if no other corpora translation unit exists for the given
@@ -507,4 +537,5 @@ export default {
   fetchTranslatorStats,
   deleteCXTranslation,
   splitTranslation,
+  checkUnreviewedTranslations,
 };

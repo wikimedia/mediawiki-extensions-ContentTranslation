@@ -690,7 +690,8 @@
 			],
 			"codexComponents": [
 				"CdxButton",
-				"CdxIcon"
+				"CdxIcon",
+				"CdxDialog"
 			],
 			"messages": [
 				"cx-dashboard-header",
@@ -877,7 +878,13 @@
 				"sx-confirm-draft-translation-start-dialog-explanation-second-line",
 				"sx-confirm-draft-translation-start-dialog-explanation-third-line",
 				"sx-confirm-draft-translation-start-button-label",
-				"sx-published-translation-new-translation-button-label"
+				"sx-published-translation-new-translation-button-label",
+				"cx-unreviewed-translation-dialog-title",
+				"cx-unreviewed-translation-dialog-close-button-aria-label",
+				"cx-unreviewed-translation-dialog-review-translation-button-label",
+				"cx-unreviewed-translation-dialog-close-button-label",
+				"cx-unreviewed-translation-dialog-body",
+				"cx-unreviewed-translation-dialog-learn-more-link-label"
 			],
 			"noflip": true
 		},

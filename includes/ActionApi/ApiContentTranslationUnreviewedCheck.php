@@ -5,6 +5,7 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
+use ContentTranslation\DTO\PublishedTranslationDTO;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
@@ -51,9 +52,9 @@ class ApiContentTranslationUnreviewedCheck extends ApiBase {
 	public function execute() {
 		$this->validateRequest();
 
-		// This method returns the last published translation. Checking the most
-		// recent translation is enough here. Previous translations have already
-		// been checked before the most recent translation was published.
+		// This method returns the last published translation, in the last 10 minutes.
+		// Checking the most recent translation is enough here. Previous translations
+		// have already been checked before the most recent translation was published.
 		$recentTranslation = $this->translationStore->findRecentTranslationByUser(
 			$this->userService->getGlobalUserId( $this->getUser() )
 		);
@@ -68,13 +69,23 @@ class ApiContentTranslationUnreviewedCheck extends ApiBase {
 			$recentTranslation->getTranslationId()
 		);
 
-		if ( $translatedSubSectionsCount > 0 ) {
-			$startUnixTimestamp = (int)wfTimestamp( TS_UNIX, $recentTranslation->translation['startTimestamp'] );
-			$minutesPassed = ( time() - $startUnixTimestamp ) / 60;
-			if ( $translatedSubSectionsCount > $minutesPassed ) {
-				$result['result'] = 'failure';
-				$result['translation'] = $recentTranslation->translation;
-			}
+		$startUnixTimestamp = (int)wfTimestamp( TS_UNIX, $recentTranslation->translation['startTimestamp'] );
+		$minutesPassed = ( time() - $startUnixTimestamp ) / 60;
+		if ( $translatedSubSectionsCount > $minutesPassed ) {
+			$result['result'] = 'failure';
+			$translationDTO = new PublishedTranslationDTO(
+				$recentTranslation->getTranslationId(),
+				$recentTranslation->translation['sourceTitle'],
+				$recentTranslation->translation['sourceLanguage'],
+				$recentTranslation->translation['targetLanguage'],
+				$recentTranslation->translation['startTimestamp'],
+				$recentTranslation->translation['lastUpdateTimestamp'],
+				$recentTranslation->translation['sourceRevisionId'],
+				$recentTranslation->translation['targetTitle'],
+				$recentTranslation->translation['targetURL'],
+				[]
+			);
+			$result['translation'] = $translationDTO->toArray();
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
