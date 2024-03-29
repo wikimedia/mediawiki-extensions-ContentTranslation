@@ -60,7 +60,7 @@ export default () => {
    *
    * @return {void}
    */
-  const onSectionSelectorClick = () => {
+  const handlePrimaryButtonClick = () => {
     if (!!currentTranslation.value) {
       if (currentTranslation.value.isArticleTranslation) {
         translationConfirmationDialogOn.value = true;
@@ -100,7 +100,7 @@ export default () => {
 
   return {
     startNewTranslation,
-    onSectionSelectorClick,
+    handlePrimaryButtonClick,
     translationConfirmationDialogOn,
   };
 };

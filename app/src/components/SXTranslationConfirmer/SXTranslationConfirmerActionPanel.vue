@@ -4,7 +4,7 @@ import { computed, inject, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import useActionPanel from "./useActionPanel";
 import useApplicationState from "@/composables/useApplicationState";
-import useSectionSelectorClickHandler from "./useSectionSelectorClickHandler";
+import useConfirmationButtonClickHandlers from "./useConfirmationButtonClickHandlers";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
@@ -23,9 +23,9 @@ const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
 const {
   startNewTranslation,
-  onSectionSelectorClick,
+  handlePrimaryButtonClick,
   translationConfirmationDialogOn,
-} = useSectionSelectorClickHandler();
+} = useConfirmationButtonClickHandlers();
 
 const emit = defineEmits(["open-translation-confirmation-dialog"]);
 watchEffect(() => {
@@ -127,7 +127,7 @@ const { targetPageExists } = useLanguageTitleGroup();
           weight="primary"
           size="large"
           :action="isProgressiveButton ? 'progressive' : 'default'"
-          @click="onSectionSelectorClick"
+          @click="handlePrimaryButtonClick"
         >
           {{ actionButtonLabel }}
         </cdx-button>
