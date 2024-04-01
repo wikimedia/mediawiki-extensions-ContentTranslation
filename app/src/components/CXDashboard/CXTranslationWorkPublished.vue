@@ -12,6 +12,7 @@ import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLang
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   translation: {
@@ -44,10 +45,22 @@ fetchSectionSuggestionForPublished(
 const router = useRouter();
 
 const { isDesktop } = useDevice();
+const { setTranslationURLParams, setSectionURLParam } = useURLHandler();
 
-const translateNewSection = () => {
+/**
+ * @param {string|null} sectionTitle
+ */
+const translateNewSection = (sectionTitle) => {
   store.dispatch("application/getCXServerToken");
-  router.push({ name: "sx-section-selector", query: { force: true } });
+  setTranslationURLParams(suggestion.value);
+
+  if (sectionTitle) {
+    setSectionURLParam(sectionTitle);
+  }
+  // TODO: Add event source
+  router.push({
+    name: "sx-translation-confirmer",
+  });
 };
 
 const openTargetPage = () => {
@@ -90,7 +103,7 @@ const startNewTranslation = () => {
               class="cx-published-translation__start-new-translation-button flex items-center px-0"
               weight="quiet"
               action="progressive"
-              @click.stop="translateNewSection"
+              @click.stop="translateNewSection(firstMissingSection)"
             >
               <cdx-icon class="me-1" :icon="cdxIconAdd" />
               <span>
@@ -101,7 +114,7 @@ const startNewTranslation = () => {
               class="cx-published-translation__start-new-translation-button pa-0 ms-4"
               weight="quiet"
               action="progressive"
-              @click.stop="translateNewSection"
+              @click.stop="translateNewSection(null)"
             >
               <cdx-icon :icon="cdxIconEllipsis" />
             </cdx-button>
