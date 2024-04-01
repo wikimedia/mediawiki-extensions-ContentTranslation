@@ -53,7 +53,7 @@ OO.mixinClass( mw.cx.TargetArticle, OO.EventEmitter );
 /**
  * @event publishError
  *
- * Error occured during publishing.
+ * Error occurred during publishing.
  * @param {OO.ui.Error} error
  */
 
