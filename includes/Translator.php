@@ -28,15 +28,15 @@ class Translator {
 	public function addTranslation( $translationId ) {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
-		$dbw->replace(
-			'cx_translators',
-			[ [ 'translator_user_id', 'translator_translation_id' ] ],
-			[
+		$dbw->newReplaceQueryBuilder()
+			->replaceInto( 'cx_translators' )
+			->uniqueIndexFields( [ 'translator_user_id', 'translator_translation_id' ] )
+			->row( [
 				'translator_user_id' => $this->getGlobalUserId(),
 				'translator_translation_id' => $translationId,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function getLanguages( $type ) {
