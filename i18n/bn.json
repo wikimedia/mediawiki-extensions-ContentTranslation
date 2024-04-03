@@ -403,6 +403,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "অনুচ্ছেদ অনুবাদ করুন",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "নতুন অনুবাদ",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "অনুচ্ছেদ",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "অনুবাদ চালিয়ে যান",
 	"sx-editor-feedback-overlay-title": "ধন্যবাদ!",
 	"sx-editor-feedback-overlay-clarification": "আপনার সংশোধনী থেকে শিখছি",
 	"sx-editor-feedback-overlay-stats": "আপনার দ্বারা <span>$1%</span> সম্পাদিত",
