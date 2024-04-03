@@ -56,7 +56,8 @@
 			"Лилиә",
 			"Максим777",
 			"Петар Петковић",
-			"Умар"
+			"Умар",
+			"Fenixs-ru"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -431,6 +432,7 @@
 	"cx-sx-translation-confirmer-action-new-translation": "Новый перевод",
 	"cx-sx-translation-confirmer-more-sections-button-label": "Больше разделов",
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Перевести раздел",
+	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Новый перевод",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Раздел",
 	"sx-editor-feedback-overlay-title": "Спасибо!",
 	"sx-editor-feedback-overlay-clarification": "Учится на ваших исправлениях",
@@ -473,8 +475,21 @@
 	"cx-contributecard-entrypoint-cta": "Начать перевод",
 	"cx-sx-dashboard-help-panel-title": "Нужна помощь с переводом?",
 	"cx-sx-dashboard-help-panel-stats-label": "Статистика",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Этот месяц",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Всего",
-	"sx-confirm-back-navigation-dialog-body": "Все ваши изменения будут потеряны.",
+	"sx-confirm-back-navigation-dialog-body": "Изменения еще не сохранены и будут потеряны.\nВы можете продолжить редактирование, чтобы изменения были автоматически сохранены.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Отменить изменения",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжить редактирование"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжить редактирование",
+	"cx-sx-login-dialog-title": "Ваша сессия истекла",
+	"sx-confirm-translation-deletion-dialog-body": "Вы уверены, что хотите навсегда удалить этот перевод?",
+	"sx-translation-deletion-cancel-button-label": "Отменить",
+	"sx-translation-deletion-confirm-button-label": "Удалить перевод",
+	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 день|$1 дней|0=Сегодня}}",
+	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 месяц|$1 месяцев}}",
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 год|$1 лет}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Продолжение перевода на мобильном устройстве",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "Этот перевод был начат на другом устройстве и включает в себя содержимое нескольких разделов статьи.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мобильном устройстве вы можете работать только с одним разделом одновременно. Таким образом, пока будет загружен только основной раздел.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Где остальные разделы?",
+	"sx-confirm-draft-translation-start-button-label": "Ок"
 }

@@ -139,7 +139,7 @@
 	"cx-create-new-translation": "ترجمهٔ تازه",
 	"cx-translation-filter-label-all-languages": "همه",
 	"cx-translation-filter-uls-all-languages": "همهٔ زبان‌ها",
-	"cx-save-draft-save-success": "{{PLURAL:$1|یک دقیقه پیش|$1 دقیقه پیش|0=همین الآن}}",
+	"cx-save-draft-save-success": "{{PLURAL:$1|یک دقیقه پیش|$1 دقیقه پیش|0=همین الان}}",
 	"cx-save-draft-saving": "در حال ذخیره‌سازی...",
 	"cx-save-draft-shortcut-label": "ذخیره پیش‌نویس",
 	"cx-save-draft-tooltip": "پیش‌نویس‌های ترجمه به‌طور خودکار ذخیره شده‌اند",
