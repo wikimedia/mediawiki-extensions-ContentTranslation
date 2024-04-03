@@ -1,4 +1,18 @@
 <?php
+declare( strict_types = 1 );
+
+namespace ContentTranslation;
+
+use MediaWiki\Extension\AbuseFilter\Consequences\ConsequencesLookup;
+use MediaWiki\Extension\AbuseFilter\FilterLookup;
+use MediaWiki\Extension\AbuseFilter\FilterRunnerFactory;
+use MediaWiki\Extension\AbuseFilter\GlobalNameUtils;
+use MediaWiki\Extension\AbuseFilter\VariableGenerator\VariableGeneratorFactory;
+use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
+use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Title\Title;
+use MediaWiki\User\User;
+
 /**
  * Utility class for checking AbuseFilter rules before publishing.
  *
@@ -22,37 +36,18 @@
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-
-namespace ContentTranslation;
-
-use MediaWiki\Extension\AbuseFilter\Consequences\ConsequencesLookup;
-use MediaWiki\Extension\AbuseFilter\FilterLookup;
-use MediaWiki\Extension\AbuseFilter\FilterRunnerFactory;
-use MediaWiki\Extension\AbuseFilter\GlobalNameUtils;
-use MediaWiki\Extension\AbuseFilter\VariableGenerator\VariableGeneratorFactory;
-use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
-use MediaWiki\Page\WikiPageFactory;
-use MediaWiki\Title\Title;
-use User;
-
 class AbuseFilterChecker {
-	/** @var VariableGeneratorFactory|null */
-	private $variableGeneratorFactory;
+	private ?VariableGeneratorFactory $variableGeneratorFactory;
 
-	/** @var bool */
-	private $isAbuseFilterExtensionLoaded;
+	private bool $isAbuseFilterExtensionLoaded;
 
-	/** @var WikiPageFactory */
-	private $wikiPageFactory;
+	private WikiPageFactory $wikiPageFactory;
 
-	/** @var ConsequencesLookup|null */
-	private $consequencesLookup;
+	private ?ConsequencesLookup $consequencesLookup;
 
-	/** @var FilterLookup|null */
-	private $filterLookup;
+	private ?FilterLookup $filterLookup;
 
-	/** @var FilterRunnerFactory|null */
-	private $filterRunnerFactory;
+	private ?FilterRunnerFactory $filterRunnerFactory;
 
 	public function __construct(
 		$isAbuseFilterExtensionLoaded,
@@ -114,7 +109,7 @@ class AbuseFilterChecker {
 		}
 
 		// Add AbuseFilter variables. Note that we are adding the title
-		// here. That will cause filters about titles executed for every sections.
+		// here. That will cause filters about titles executed for every section.
 		// But not passing title will cause content filters with namespace rules
 		// not to produce results. We will attempt to filter out title errors
 		// away with array_diff_key.
@@ -133,13 +128,7 @@ class AbuseFilterChecker {
 		return array_diff_key( $results, $this->checkTitleForUser( $title, $user ) );
 	}
 
-	/**
-	 * @param User $user User performing the action
-	 * @param Title $title Title to check
-	 * @param VariableHolder $vars
-	 * @return array
-	 */
-	protected function getResults( User $user, Title $title, VariableHolder $vars ): array {
+	private function getResults( User $user, Title $title, VariableHolder $vars ): array {
 		static $seriousActions = [ 'warn', 'block', 'disallow', 'degroup' ];
 
 		$runner = $this->filterRunnerFactory->newRunner( $user, $title, $vars, 'default' );
