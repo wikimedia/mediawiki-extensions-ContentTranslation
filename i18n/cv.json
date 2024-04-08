@@ -69,6 +69,19 @@
 	"cx-publish-destination-namespace-main-description": "Тӗп ят уҫлӑхӗнче, пурте вулама пултарччӑр тесе",
 	"cx-publish-destination-namespace-main-exists": "Вырнаҫнӑ страницӑна улӑштармалла",
 	"cx-publish-destination-namespace-user": "Хӑвӑрӑн черновик",
+	"cx-sx-view-translation-anchor": "Пăх",
+	"cx-sx-existing-translation-learn-more": "Ытларах пӗл",
+	"cx-sx-section-selector-missing-sections-title": "$1 ҫинче сыпӑксем ҫук",
+	"cx-sx-section-selector-present-sections-title": "$1 ҫинче сыпӑксем пур",
+	"cx-sx-section-selector-more-details-title": "Тӗплӗнрех",
+	"cx-sx-section-selector-view-article-button-label": "Статьяпа паллаш (чӗлхе: $1)",
+	"cx-sx-section-selector-empty-missing-sections-title": "Сире валли куҫармалли страницӑсем тупаймарӑмӑр",
+	"cx-sx-section-selector-empty-missing-sections-desc": "Урӑх страницӑпа е чӗлхепе ӗҫлесе пӑхӑр",
+	"cx-sx-section-selector-pick-other-translation-button-label": "Урӑх страницӑна суйла",
+	"cx-sx-section-selector-automatic-section-matching-title": "Сыпӑксене хӑй тӗллӗн вырнаҫтарни",
+	"cx-sx-section-selector-automatic-section-matching-description": "Сыпӑксене хӑй тӗллӗн вырнаҫтарса тухнӑ, ку тӗлӗшпе йӑнӑшма та пултарнӑ.",
+	"cx-sx-section-selector-learn-more-anchor-label": "Ытларах пӗл",
+	"cx-sx-section-selector-unsupported-sections-title": "Ҫирӗплетмен сыпӑксем",
 	"cx-suggestion-list-new-pages-division": "Ҫӗнӗ страницӑсем хатӗрле",
 	"cx-translation-list-all-languages-option-label": "Пурте",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Мӗнпур пайсем патне таврӑн",
@@ -94,5 +107,6 @@
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Пай",
 	"sx-editor-feedback-overlay-title": "Тавтапуҫ!",
 	"sx-editor-feedback-overlay-clarification": "Эсир тӳрлетнипе вӗренет",
-	"sx-editor-feedback-overlay-stats": "эсир <span>$1%</span> тӳрлетнӗ"
+	"sx-editor-feedback-overlay-stats": "эсир <span>$1%</span> тӳрлетнӗ",
+	"cx-sx-publisher-captcha-dialog-publish-button": "Вырнаҫтар"
 }
