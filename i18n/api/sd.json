@@ -69,5 +69,19 @@
 	"apihelp-cxpublishsection-param-targetlanguage": "مقصود ٻوليءَ جو ڪوڊ.",
 	"apihelp-cxpublishsection-param-sourcetitle": "ذريعاتي صفحي جو عنوان.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "ذريعاتي ڀاڱي جو عنوان.",
-	"apihelp-cxpublishsection-param-targetsectiontitle": "مقصود ڀاڱي جو عنوان."
+	"apihelp-cxpublishsection-param-targetsectiontitle": "مقصود ڀاڱي جو عنوان.",
+	"apihelp-sxsave-param-sourcelanguage": "ذريعاتي ٻوليءَ جو ڪوڊ.",
+	"apihelp-sxsave-param-targetlanguage": "مقصود ٻولي جو ڪوڊ.",
+	"apihelp-sxsave-param-sourcetitle": "ذريعاتي صفحي جو عنوان.",
+	"apihelp-sxsave-param-targettitle": "مقصود صفحي جو عنوان.",
+	"apihelp-sxsave-param-content": "JSON-انڪوڊ ٿيل سيڪشن ڊيٽا. هر ڀاڱو هڪ شيءِ آهي ۽ هيٺيون ڪنجيون اٿس: مواد، sectionId، اصل، قابلِڪار",
+	"apihelp-sxsave-param-sourcesectiontitle": "ذريعاتي ڀاڱي جو عنوان.",
+	"apihelp-sxsave-param-targetsectiontitle": "مقصود ڀاڱي جو عنوان.",
+	"apihelp-sxsave-param-sectionnumber": "صفحي جي نئين ورجاءَ ۾ ڀاڱي جي جڳھ.",
+	"apihelp-sxsave-param-sectionid": "صفحي جي ڀاڱي جي id.",
+	"apihelp-sxsave-param-sourcerevision": "ذريعي واري صفحي جي ورجاءُ آئڊي.",
+	"apihelp-sxsave-param-issandbox": "ترجمي لاءِ مشق پٽي مان عنوان استعمال ڪريو.",
+	"apihelp-sxsave-param-progress": "ترجمي جي صورتحال.",
+	"apierror-sxsave-anon-user": "\"sxsave\" اَي پِي آءِ عمل فعال گمنام واپرائيندڙن لاءِ فعال ناھي",
+	"apierror-cxpublishsection-translationnotfound": "ترجمو نہ لڌو."
 }
