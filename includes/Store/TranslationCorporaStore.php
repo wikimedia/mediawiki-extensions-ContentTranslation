@@ -103,7 +103,11 @@ class TranslationCorporaStore {
 
 		$conditions = [ 'cxc_translation_id' => $translationId ];
 
-		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( self::TABLE_NAME )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -127,7 +131,11 @@ class TranslationCorporaStore {
 			'cxc_section_id' . $dbw->buildLike( $baseSectionId, '_', $dbw->anyString() )
 		];
 
-		$dbw->delete( self::TABLE_NAME, $conditions, __METHOD__ );
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( self::TABLE_NAME )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -165,7 +173,11 @@ class TranslationCorporaStore {
 				break;
 			}
 
-			$dbw->delete( self::TABLE_NAME, [ 'cxc_id' => $rowsToDelete ], __METHOD__ );
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( self::TABLE_NAME )
+				->where( [ 'cxc_id' => $rowsToDelete ] )
+				->caller( __METHOD__ )
+				->execute();
 			$this->lbFactory->waitForReplication();
 		}
 	}

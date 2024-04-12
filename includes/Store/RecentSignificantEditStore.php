@@ -107,7 +107,11 @@ class RecentSignificantEditStore {
 		}, array_slice( $edits, 10 ) );
 
 		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
-		$primaryDb->delete( self::TABLE_NAME, [ 'cxse_id' => $editIdsToDelete ], __METHOD__ );
+		$primaryDb->newDeleteQueryBuilder()
+			->deleteFrom( self::TABLE_NAME )
+			->where( [ 'cxse_id' => $editIdsToDelete ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

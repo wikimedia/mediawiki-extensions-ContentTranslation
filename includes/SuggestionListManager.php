@@ -38,20 +38,20 @@ class SuggestionListManager {
 	public function deleteList( $id ) {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
-		$dbw->delete(
-			'cx_suggestions',
-			[
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'cx_suggestions' )
+			->where( [
 				'cxs_list_id' => $id,
-			],
-			__METHOD__
-		);
-		$dbw->delete(
-			'cx_lists',
-			[
+			] )
+			->caller( __METHOD__ )
+			->execute();
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'cx_lists' )
+			->where( [
 				'cxl_id' => $id
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function removeTitles( $sourceLanguage, array $titles ) {
@@ -61,14 +61,14 @@ class SuggestionListManager {
 
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
-		$dbw->delete(
-			'cx_suggestions',
-			[
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( 'cx_suggestions' )
+			->where( [
 				'cxs_title' => $titles,
 				'cxs_source_language' => $sourceLanguage,
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	protected function getListByConds( array $conds ) {
@@ -238,11 +238,11 @@ class SuggestionListManager {
 				'cxs_source_language' => $suggestion->getSourceLanguage(),
 				'cxs_target_language' => $suggestion->getTargetLanguage(),
 			];
-			$dbw->delete(
-				'cx_suggestions',
-				$values,
-				__METHOD__
-			);
+			$dbw->newDeleteQueryBuilder()
+				->deleteFrom( 'cx_suggestions' )
+				->where( $values )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

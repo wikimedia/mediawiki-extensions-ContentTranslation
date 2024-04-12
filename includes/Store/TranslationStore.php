@@ -29,11 +29,11 @@ class TranslationStore {
 	public function unlinkTranslationFromTranslator( int $translationId ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$dbw->delete(
-			self::TRANSLATOR_TABLE_NAME,
-			[ 'translator_translation_id' => $translationId ],
-			__METHOD__
-		);
+		$dbw->newDeleteQueryBuilder()
+			->deleteFrom( self::TRANSLATOR_TABLE_NAME )
+			->where( [ 'translator_translation_id' => $translationId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function deleteTranslation( int $translationId ) {
