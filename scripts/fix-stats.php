@@ -91,12 +91,12 @@ class CxFixStats extends Maintenance {
 		$this->output( "$count rows ARE updated to set target_url to null\n" );
 
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
-		$dbw->update(
-			'cx_translations',
-			[ 'translation_target_url' => null ],
-			[ 'translation_id' => $resets ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( 'cx_translations' )
+			->set( [ 'translation_target_url' => null ] )
+			->where( [ 'translation_id' => $resets ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	protected function addTags( $items, $dry ) {

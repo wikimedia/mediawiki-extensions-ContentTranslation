@@ -46,7 +46,12 @@ class CategoriesStorageManager {
 			'cxc_origin' => $origin
 		] + self::$CATEGORIES_SECTION;
 
-		$db->update( 'cx_corpora', $values, $conditions, __METHOD__ );
+		$db->newUpdateQueryBuilder()
+			->update( 'cx_corpora' )
+			->set( $values )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -81,7 +86,11 @@ class CategoriesStorageManager {
 		}
 
 		if ( $values !== [] ) {
-			$db->insert( 'cx_corpora', $values, __METHOD__ );
+			$db->newInsertQueryBuilder()
+				->insertInto( 'cx_corpora' )
+				->rows( $values )
+				->caller( __METHOD__ )
+				->execute();
 		}
 	}
 

@@ -309,7 +309,11 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			'cxn_wiki_id' => WikiMap::getCurrentWikiId(),
 		];
 
-		$dbw->insert( 'cx_notification_log', $values, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'cx_notification_log' )
+			->row( $values )
+			->caller( __METHOD__ )
+			->execute();
 	}
 }
 

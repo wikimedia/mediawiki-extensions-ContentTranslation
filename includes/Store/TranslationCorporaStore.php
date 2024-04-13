@@ -62,7 +62,12 @@ class TranslationCorporaStore {
 			'cxc_timestamp' => $dbw->timestamp( $timestamp ),
 		];
 
-		$dbw->update( self::TABLE_NAME, $values, $conditions, __METHOD__ );
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TABLE_NAME )
+			->set( $values )
+			->where( $conditions )
+			->caller( __METHOD__ )
+			->execute();
 
 		if ( $dbw->affectedRows() < 1 ) {
 			// Possible reasons:
@@ -90,7 +95,11 @@ class TranslationCorporaStore {
 			'cxc_content' => $translationUnit->getContent()
 		];
 
-		$dbw->insert( self::TABLE_NAME, $values, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( self::TABLE_NAME )
+			->row( $values )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

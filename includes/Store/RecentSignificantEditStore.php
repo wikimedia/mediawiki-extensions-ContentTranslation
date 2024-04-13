@@ -54,7 +54,11 @@ class RecentSignificantEditStore {
 		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
 
-		$primaryDb->insert( self::TABLE_NAME, $values, __METHOD__ );
+		$primaryDb->newInsertQueryBuilder()
+			->insertInto( self::TABLE_NAME )
+			->row( $values )
+			->caller( __METHOD__ )
+			->execute();
 		$newId = $primaryDb->insertId();
 		$edit->setId( $newId );
 		// Keep only the 10 newest edits and delete the rest
@@ -79,12 +83,12 @@ class RecentSignificantEditStore {
 		$values = $this->normalizeEdit( $edit );
 		$values['cxse_timestamp'] = $primaryDb->timestamp();
 
-		$primaryDb->update(
-			self::TABLE_NAME,
-			$values,
-			[ 'cxse_id' => $edit->getId() ],
-			__METHOD__
-		);
+		$primaryDb->newUpdateQueryBuilder()
+			->update( self::TABLE_NAME )
+			->set( $values )
+			->where( [ 'cxse_id' => $edit->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

@@ -66,7 +66,11 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 			'af_user',
 			$this->getTestUser()->getUserIdentity()
 		);
-		$this->db->insert( 'abuse_filter', $row, __METHOD__ );
+		$this->db->newInsertQueryBuilder()
+			->insertInto( 'abuse_filter' )
+			->row( $row )
+			->caller( __METHOD__ )
+			->execute();
 		$actionsRows = [];
 		foreach ( $actions as $name => $params ) {
 			$actionsRows[] = [
@@ -75,7 +79,13 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 				'afa_parameters' => implode( "\n", $params )
 			];
 		}
-		$this->db->insert( 'abuse_filter_action', $actionsRows, __METHOD__ );
+		if ( $actionsRows ) {
+			$this->db->newInsertQueryBuilder()
+				->insertInto( 'abuse_filter_action' )
+				->rows( $actionsRows )
+				->caller( __METHOD__ )
+				->execute();
+		}
 	}
 
 	/**

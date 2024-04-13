@@ -30,7 +30,11 @@ class SuggestionListManager {
 			$values['cxl_end_time'] = $dbw->timestamp( $list->getEndTime() );
 		}
 
-		$dbw->insert( 'cx_lists', $values, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( 'cx_lists' )
+			->row( $values )
+			->caller( __METHOD__ )
+			->execute();
 
 		return $dbw->insertId();
 	}
@@ -209,12 +213,12 @@ class SuggestionListManager {
 				];
 			}
 
-			$dbw->insert(
-				'cx_suggestions',
-				$values,
-				__METHOD__,
-				[ 'IGNORE' ]
-			);
+			$dbw->newInsertQueryBuilder()
+				->insertInto( 'cx_suggestions' )
+				->ignore()
+				->rows( $values )
+				->caller( __METHOD__ )
+				->execute();
 
 			// TODO: This should really wait for replication on the
 			// Database returned by Database::getConnection( DB_PRIMARY );

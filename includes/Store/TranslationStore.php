@@ -39,12 +39,12 @@ class TranslationStore {
 	public function deleteTranslation( int $translationId ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$dbw->update(
-			self::TRANSLATION_TABLE_NAME,
-			[ 'translation_status' => self::TRANSLATION_STATUS_DELETED ],
-			[ 'translation_id' => $translationId ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TRANSLATION_TABLE_NAME )
+			->set( [ 'translation_status' => self::TRANSLATION_STATUS_DELETED ] )
+			->where( [ 'translation_id' => $translationId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**

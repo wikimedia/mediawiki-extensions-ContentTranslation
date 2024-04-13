@@ -46,7 +46,11 @@ class SectionTranslationStore {
 		$values['cxsx_translation_start_timestamp'] = $dbw->timestamp();
 		$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
 
-		$dbw->insert( self::TABLE_NAME, $values, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( self::TABLE_NAME )
+			->row( $values )
+			->caller( __METHOD__ )
+			->execute();
 		$translation->setId( $dbw->insertId() );
 	}
 
@@ -55,6 +59,10 @@ class SectionTranslationStore {
 	 * @return void
 	 */
 	public function insertMultipleTranslations( array $translations ): void {
+		if ( !$translations ) {
+			return;
+		}
+
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 		$rows = [];
 		foreach ( $translations as $translation ) {
@@ -65,7 +73,11 @@ class SectionTranslationStore {
 			$rows[] = $values;
 		}
 
-		$dbw->insert( self::TABLE_NAME, $rows, __METHOD__ );
+		$dbw->newInsertQueryBuilder()
+			->insertInto( self::TABLE_NAME )
+			->rows( $rows )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function updateTranslation( SectionTranslation $translation ) {
@@ -73,12 +85,12 @@ class SectionTranslationStore {
 		$values = $this->translationToDBRow( $translation );
 		$values['cxsx_translation_last_updated_timestamp'] = $dbw->timestamp();
 
-		$dbw->update(
-			self::TABLE_NAME,
-			$values,
-			[ 'cxsx_id' => $translation->getId() ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TABLE_NAME )
+			->set( $values )
+			->where( [ 'cxsx_id' => $translation->getId() ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	/**
@@ -87,12 +99,12 @@ class SectionTranslationStore {
 	 */
 	public function updateTranslationStatusById( ?int $id, ?int $translationStatus ) {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
-		$dbw->update(
-			self::TABLE_NAME,
-			[ 'cxsx_translation_status' => $translationStatus ],
-			[ 'cxsx_id' => $id ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TABLE_NAME )
+			->set( [ 'cxsx_translation_status' => $translationStatus ] )
+			->where( [ 'cxsx_id' => $id ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	public function findTranslation( int $translationId, string $sectionId ): ?SectionTranslation {
@@ -333,12 +345,12 @@ class SectionTranslationStore {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
 		$deletedStatusIndex = self::getStatusIndexByStatus( self::TRANSLATION_STATUS_DELETED );
-		$dbw->update(
-			self::TABLE_NAME,
-			[ 'cxsx_translation_status' => $deletedStatusIndex ],
-			[ 'cxsx_id' => $sectionTranslationId ],
-			__METHOD__
-		);
+		$dbw->newUpdateQueryBuilder()
+			->update( self::TABLE_NAME )
+			->set( [ 'cxsx_translation_status' => $deletedStatusIndex ] )
+			->where( [ 'cxsx_id' => $sectionTranslationId ] )
+			->caller( __METHOD__ )
+			->execute();
 	}
 
 	private function translationToDBRow( SectionTranslation $translation ): array {
