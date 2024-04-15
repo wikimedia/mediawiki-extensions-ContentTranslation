@@ -206,7 +206,7 @@
 	"cx-tools-linter-page-exists-message": "Síða með titilinn $1 er þegar til. Vistun þýðingarinnar þinnar mun yfirskrifa fyrra efni.\n\nAthugaðu hvort það sé í lagi að skipta út fyrra efni eða íhugaðu að endurnefna þýðinguna þína.",
 	"cx-tools-linter-template": "Snið ekki til",
 	"cx-tools-linter-template-block-message": "Upphaflega síðan notar snið sem er ekki til á þessum wiki.\n\nÞessu sniði hefur verið sleppt, en þú getur bætt við nýju efni til að halda því efni sem var sleppt.",
-	"cx-tools-linter-template-inline-message": "Upphaflega síðan notar snið til að sníða til efnið, en sumar þeirra eru ekki til á þessum wiki.\n\nEfnið frá sniðunum sem vantar hefur verið bætt við sem venjulegum texta. Sjáðu til þess að fara yfir útkomuna.",
+	"cx-tools-linter-template-inline-message": "Upprunalega síðan notar sniðmát til að skipuleggja efnið en sum þeirra eru ekki til á áfangastaðs-wiki.\n\nEfni frá sniðmátunum sem vantar hefur verið bætt við sem venjulegur texti. Vertu viss um að þú skoðir niðurstöðuna.",
 	"cx-tools-linter-template-add-new": "Bæta við nýju sniði",
 	"cx-tools-linter-old-revision-label": "Endurræsa þýðinguna",
 	"cx-tools-linter-reference": "Vantar tilvísun",
