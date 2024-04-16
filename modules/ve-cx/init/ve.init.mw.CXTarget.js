@@ -48,9 +48,9 @@ ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	 * An integer holding the value of the namespace,
 	 * into which the translation will be published
 	 *
-	 * @type {number|null}
+	 * @type {number}
 	 */
-	this.publishNamespace = null;
+	this.publishNamespace = mw.cx.getDefaultTargetNamespace();
 	// @var {ve.ui.CXSurface}
 	this.sourceSurface = null;
 	// @var {ve.ui.CXSurface}
