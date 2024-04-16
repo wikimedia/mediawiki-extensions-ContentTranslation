@@ -139,6 +139,7 @@
 				/**
 				 * This variable stores an array of language codes. These language codes are
 				 * the content languages of the "relevant" wikis, from which the current article is missing.
+				 *
 				 * @type {string[]}
 				 */
 				const missingRelevantLanguages = [];
@@ -158,6 +159,7 @@
 					 * language for this wiki is "nb".
 					 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
 					 * language for this wiki is also "nb".
+					 *
 					 * @type {string}
 					 */
 					const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
