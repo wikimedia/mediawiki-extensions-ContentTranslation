@@ -147,5 +147,6 @@
 	"cx-sx-language-selector-all-languages": "Totas las lengas",
 	"sx-translation-list-language-selector-dialog-title": "Lengas",
 	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir d'autras lengas",
-	"cx-sx-dashboard-stats-panel-title": "Vòstre impacte"
+	"cx-sx-dashboard-stats-panel-title": "Vòstre impacte",
+	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Aqueste mes"
 }

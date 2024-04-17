@@ -11,7 +11,8 @@
 			"Otokoume",
 			"Shirayuki",
 			"Sujiniku",
-			"Takot"
+			"Takot",
+			"Waki285"
 		]
 	},
 	"apihelp-cxpublish-summary": "コンテンツ翻訳機能を用いて作成されたページを保存",
@@ -108,6 +109,7 @@
 	"apierror-cx-mustbeloggedin-suggestions": "翻訳候補を提案するにはログインしてください。",
 	"apierror-cx-mustbeloggedin-get-suggestions": "翻訳候補を取得するにはログインしてください。",
 	"apierror-cx-mustbeloggedin-viewtranslations": "ご自分の翻訳を閲覧するには、ログインしてください。",
+	"apierror-cx-invalid-type-viewtranslations": "翻訳タイプが無効です。タイプを設定する必要があり、「削除済み」、「下書き」、または「公開済み」のいずれかである必要があります。",
 	"apierror-cx-samelanguages": "翻訳元と翻訳先に同じ言語は指定できません。",
 	"apierror-cx-suggestionsdisabled": "このウィキでは翻訳候補の提案は受け付けていません。",
 	"apierror-cx-translationnotfound": "翻訳が見つかりませんでした。",
@@ -129,6 +131,8 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "翻訳元ページの更新ID。",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha ID (captcha response で保存する場合)。",
 	"apihelp-cxpublishsection-param-captchaword": "Captchaへの応答 (Captchaで保存時)",
+	"apihelp-cxpublishsection-param-sectiontranslationid": "下書き節翻訳に関連付けられた節翻訳 ID。",
+	"apihelp-cxpublishsection-param-issandbox": "翻訳にはサンドボックス タイトルを使用します。",
 	"apihelp-sxsave-param-sectionid": "ページセクションID。",
 	"apierror-cxpublishsection-translationnotfound": "翻訳が見つかりませんでした。"
 }
