@@ -117,7 +117,7 @@ async function fetchSegmentTranslation(
   token
 ) {
   if (!sentence) {
-    return;
+    return "";
   }
   let relativeUrl = `/translate/${sourceLanguage}/${targetLanguage}`;
 
@@ -132,8 +132,16 @@ async function fetchSegmentTranslation(
     method: "POST",
     body: JSON.stringify({ html: `<div>${sentence}</div>` }),
   })
-    .then((response) => response.json())
-    .then((data) => {
+    .then((response) =>
+      Promise.all([response.json(), Promise.resolve(response.ok)])
+    )
+    .then(([data, ok]) => {
+      if (!ok) {
+        // in case of error cxserver typically returns an error with the following
+        // fields: { detail: string, type: string, title: string, status: number }
+        const errorMessage = data.detail || data.type || data.title || 'fetchSegmentTranslation: Unknown error';
+        throw new Error(errorMessage);
+      }
       // Remove root div that was added by cxserver
       const regExp = /<div>(?<content>(.|\s)*)<\/div>/;
 

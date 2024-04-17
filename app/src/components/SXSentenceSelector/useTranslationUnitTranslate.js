@@ -47,7 +47,7 @@ const useTranslationUnitTranslate = () => {
     ](sourceLanguage, targetLanguage, provider);
 
     if (!isValidProvider) {
-      return Promise.resolve();
+      return "";
     }
 
     try {
@@ -63,8 +63,8 @@ const useTranslationUnitTranslate = () => {
     } catch (error) {
       mw.log.error("Error while translating segment", error);
 
-      // Fall back to original content
-      return originalContent;
+      // no need for fallback here, let the RetryMtCard appear
+      return "";
     }
   };
 
