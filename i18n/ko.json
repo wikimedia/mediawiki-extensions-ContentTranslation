@@ -397,6 +397,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "문단 번역",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "새 번역",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "문단",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "번역 계속",
 	"sx-editor-feedback-overlay-title": "감사합니다!",
 	"cx-campaign-mflanguagesearcher-invite": "이 문서를 번역할 수 있습니다. 자신의 언어로 콘텐츠를 만들기 쉬운 방법입니다.",
 	"sx-recent-translation-entrypoint-banner-header": "이 페이지는 최근에 번역되었습니다.",
