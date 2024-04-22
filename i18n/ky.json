@@ -94,10 +94,12 @@
 	"cx-translator-total-translations-label": "Бардыгы",
 	"cx-continue-translation": "Которууну улантуу",
 	"cx-publish-destination-namespace-main": "Жаңы макала",
+	"cx-sx-content-comparator-content-header-translate-button-label": "Которуу",
 	"cx-dashboard-experimental-support-banner-learn-more-anchor": "Толук маалымат",
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Котормоңуз",
 	"cx-sx-followup-feedback-new-indicator": "жаңы",
 	"cx-sx-published-section-invitation-title": "Башка бөлүмдү которуу",
 	"sx-article-search-language-selector-dialog-title": "Тилдер",
+	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Бөлүмдү которуу",
 	"sx-recent-translation-entrypoint-dialog-add-section-switch-text": "Жаңы бөлүмдөрдү кошуу"
 }
