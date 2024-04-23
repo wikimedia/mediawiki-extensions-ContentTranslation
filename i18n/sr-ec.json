@@ -432,6 +432,8 @@
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Недостаје у <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Недостаје у <span>$1</span> и <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Недостаје у <span>$1</span>, <span>$2</span> и још неким",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Недостаје на <span>$1</span> и још",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Недостаје на <span>$1</span>, <span>$2</span> и још",
 	"cx-uls-relevant-languages-panel-header": "Преведите ову страницу",
 	"cx-sx-publisher-publish-panel-lead-section-result": "Преведени одељак ће бити <strong>уводни део новог чланка</strong>.",
 	"cx-uls-translate-page-quick-action-label": "Преведите ову страницу",

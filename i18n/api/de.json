@@ -7,7 +7,8 @@
 			"Ljonka",
 			"Metalhead64",
 			"ThisCarthing",
-			"Tiin"
+			"Tiin",
+			"TomatoCake"
 		]
 	},
 	"apihelp-cxpublish-description": "Speichert eine Seite, die mit der Inhaltsübersetzungs-Erweiterung erstellt wurde.",
@@ -127,6 +128,7 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "Der Titel des Quellabschnitts.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "Der Titel des Zielabschnitts.",
+	"apihelp-cxpublishsection-param-sourcerevid": "Die Versions-ID der Quellseite.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-sxsave-param-sourcelanguage": "Der Quell-Sprachcode.",
@@ -134,6 +136,7 @@
 	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
 	"apihelp-sxsave-param-targettitle": "Der Titel der Zielseite.",
 	"apihelp-sxsave-param-content": "JSON-codierte Abschnittsdaten. Jeder Abschnitt ist ein Objekt und verfügt über die folgenden Schlüssel: content, sectionId, origin, validate",
+	"apihelp-sxsave-param-sourcesectiontitle": "Der Titel des Quellabschnitts.",
 	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
 	"apihelp-sxsave-param-sectionid": "Die Seitenabschnitts-ID.",
 	"apihelp-sxsave-param-sourcerevision": "Die Versions-ID der Quellseite.",
