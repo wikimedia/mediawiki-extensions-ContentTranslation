@@ -8,5 +8,10 @@
 	"mint-home-input-placeholder": "The placeholder of the search input inside the MinT home page",
 	"mint-translation-list-all-languages-option-label": "The label of the option that selects all available language options of the MinT language selector",
 	"mint-home-info-panel-text": "The text inside the info panel of the MinT home page.\n\nParameters:\n* $1 - the target language code",
-	"mint-home-random-topic-button-label": "The label of the button that selects a random topic to translate, inside MinT home page."
+	"mint-home-random-topic-button-label": "The label of the button that selects a random topic to translate, inside MinT home page.",
+	"mint-language-selector-title": "Title of the MinT language selector dialog",
+	"mint-language-selector-suggestions-header": "Header text of the section inside MinT language selector, where suggested languages are displayed.",
+	"mint-language-selector-all-languages-header": "Header text of the section inside MinT language selector, where all languages are displayed.",
+	"mint-language-selector-input-placeholder": "Placeholder of the search input inside MinT language selector, where the user can search for a language to select.",
+	"mint-language-selector-no-search-results": "Text to display inside the MinT language selector when no results are found."
 }

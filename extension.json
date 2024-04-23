@@ -1748,6 +1748,49 @@
 			"styles": [
 				"styles/mint.less"
 			]
+		},
+		"mint.app": {
+			"localBasePath": "minT/src",
+			"remoteExtPath": "ContentTranslation/minT/src",
+			"packageFiles": [
+				"mintHome.js",
+				"constants.js",
+				"useMintLanguages.js",
+				"useWikipediaSites.js",
+				"wikiSite.js",
+				"debounce.js",
+				"useAutocompletion.js",
+				"useKeyboardNavigation.js",
+				"useLanguageSearch.js",
+				"useState.js",
+				"useApi.js",
+				"useRouter.js",
+				"MWLanguageSelector.vue",
+				{
+					"name": "icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconClose"
+					]
+				},
+				{
+					"name": "initialLanguages.json",
+					"callback": "ContentTranslation\\Special\\SpecialMinT::getInitialLanguagesData"
+				}
+			],
+			"dependencies": [
+				"vue",
+				"@wikimedia/codex",
+				"mediawiki.ForeignApi",
+				"jquery.uls.data"
+			],
+			"messages": [
+				"mint-language-selector-input-placeholder",
+				"mint-language-selector-title",
+				"mint-language-selector-suggestions-header",
+				"mint-language-selector-no-search-results",
+				"mint-translation-list-all-languages-option-label"
+			]
 		}
 	},
 	"QUnitTestModule": {

@@ -40,6 +40,17 @@ class SpecialMinT extends SpecialPage {
 		$out->addHTML( $this->getHtml( $targetLanguage ) );
 
 		$out->addModuleStyles( "mint.styles" );
+		$out->addModules( 'mint.app' );
+	}
+
+	/**
+	 * Callback used to share MinT initial languages JS code
+	 */
+	public static function getInitialLanguagesData(): array {
+		return [
+			'mintInitialSourceLanguageCode' => 'all',
+			'mintInitialTargetLanguageCode' => SiteMapper::getCurrentLanguageCode()
+		];
 	}
 
 	private function getHtml( string $targetLanguage ): string {
