@@ -1,0 +1,35 @@
+<div class="mint-home-header">
+  <span class="mint-home-header-icon--robot"></span>
+  <span class="mint-home-header-title">{{ headerTitle }}</span>
+</div>
+
+<div class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--has-end-icon">
+  <input id="mint-home-search-input" class="cdx-text-input__input" type="text" placeholder="{{ inputPlaceholder }}" />
+  <span
+      class="cdx-text-input__icon cdx-text-input__start-icon mint-home-input-icon--search"
+  ></span>
+</div>
+
+<div class='mint-home-language-selector-container'>
+  <button id='source-language-button' class='cdx-button' data-language="{{ sourceLanguageCode }}">{{ sourceLanguage }}</button>
+  <span class='mint-home-language-selector-container-icon--arrow-next'></span>
+  <button id='target-language-button' class='cdx-button' data-language="{{ targetLanguageCode }}">{{ targetLanguage }}</button>
+</div>
+
+<div class='mint-home-info-panel'>
+  <p class="mint-home-info-panel__text">
+    {{ infoPanelText }}
+  </p>
+  <div class="mint-home-info-panel__random-button-container">
+    <button class='cdx-button cdx-button--weight-quiet'>
+      <span
+        class="cdx-button__icon mint-home-info-panel-icon--dice"
+        aria-hidden="true"
+      ></span>
+      <span>{{ randomTopicButtonLabel }}</span>
+    </button>
+  </div>
+</div>
+
+<div id='mint-component-placeholder' class="mint-vue-placeholder"></div>
+<div id='mint-language-selector-placeholder' class="mint-vue-placeholder"></div>

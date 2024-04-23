@@ -1,7 +1,7 @@
 {
 	"extends": "stylelint-config-wikimedia",
 	"rules": {
-		"selector-class-pattern": "(^(mw|oo-ui|cx|sx|ve|skin|uls|client|card)-|printfooter|card|card__|new$)",
+		"selector-class-pattern": "(^(mw|oo-ui|cx|sx|mint|ve|skin|uls|client|card)-|printfooter|card|card__|new$)",
 		"no-unknown-animations": null,
 		"no-descending-specificity": null,
 		"declaration-property-unit-disallowed-list": null,

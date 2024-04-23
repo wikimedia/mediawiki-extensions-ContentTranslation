@@ -270,7 +270,8 @@
 	"MessagesDirs": {
 		"ContentTranslation": [
 			"i18n",
-			"i18n/api"
+			"i18n/api",
+			"i18n/minT"
 		]
 	},
 	"SpecialPages": {
@@ -285,6 +286,12 @@
 			"class": "ContentTranslation\\Special\\SpecialContentTranslationStats",
 			"services": [
 				"SkinFactory"
+			]
+		},
+		"MinT": {
+			"class": "ContentTranslation\\Special\\SpecialMinT",
+			"services": [
+				"LanguageNameUtils"
 			]
 		}
 	},
@@ -1734,6 +1741,13 @@
 			},
 			"localBasePath": "",
 			"remoteExtPath": "ContentTranslation"
+		},
+		"mint.styles": {
+			"localBasePath": "minT",
+			"remoteExtPath": "ContentTranslation/minT",
+			"styles": [
+				"styles/mint.less"
+			]
 		}
 	},
 	"QUnitTestModule": {
