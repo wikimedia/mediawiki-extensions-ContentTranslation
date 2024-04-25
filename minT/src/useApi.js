@@ -1,5 +1,92 @@
 'use strict';
 
+/**
+ * Example request: https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=sitelinks&ids=Q2537
+ *
+ * @param {string} ids
+ * @return {Promise<{ id: string, sitelinks: { site: string, title: string }[] }[]>}
+ */
+const getWikidataSitelinks = async ( ids ) => {
+	const params = {
+		action: 'wbgetentities',
+		props: 'sitelinks',
+		format: 'json',
+		ids,
+		type: 'item'
+	};
+
+	const api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php', { anonymous: true } );
+
+	const response = await api.get( params );
+
+	/**
+	 * @type {{ id: string, sitelinks: object }[]}
+	 */
+	const entities = Object.values( response.entities || {} );
+
+	return entities.map( ( entity ) => ( {
+		id: entity.id,
+		sitelinks: Object.values( entity.sitelinks )
+	} ) );
+};
+
+/**
+ * Example request: https://www.wikidata.org/w/api.php?action=wbsearchentities&search=Moon&format=json&language=el&type=item
+ *
+ * @param {string} query
+ * @param {string} targetLanguage target language code
+ * @return {Promise<{ id: string, order: number, matchLanguage: string }[]>}
+ */
+const searchEntities = async ( query, targetLanguage ) => {
+	const api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php', { anonymous: true } );
+	const params = {
+		action: 'wbsearchentities',
+		search: query,
+		format: 'json',
+		language: targetLanguage,
+		type: 'item'
+	};
+	const response = await api.get( params );
+
+	return response.search.map( ( result, index ) => ( {
+		id: result.id,
+		order: index + 1,
+		matchLanguage: result.match.language
+	} ) );
+};
+
+/**
+ * Example request: https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=120&redirects=true&titles=Moon&prop=info%7Cpageimages%7Cdescription%7Clanglinkscount
+ *
+ * @param {string} wikiURL
+ * @param {string} titles
+ * @param {boolean} includeLangLinks
+ * @return {jQuery.Promise}
+ */
+const fetchPageMetadata = ( wikiURL, titles, includeLangLinks = false ) => {
+	const api = new mw.ForeignApi( `${ wikiURL }/w/api.php`, { anonymous: true } );
+	let props = 'info|pageimages|description|langlinkscount';
+	const params = {
+		action: 'query',
+		format: 'json',
+		formatversion: 2,
+		piprop: 'thumbnail|name',
+		pithumbsize: 120,
+		origin: '*',
+		redirects: true,
+		titles
+	};
+
+	if ( includeLangLinks ) {
+		props += '|langlinks';
+		params.lllimit = 'max';
+	}
+
+	params.prop = props;
+
+	return api.get( params );
+};
+
 const fetchSiteMatrix = async () => {
 	const myApi = new mw.ForeignApi( 'https://en.wikipedia.org/w/api.php', { anonymous: true } );
 	const myParams = {
@@ -60,6 +147,9 @@ const fetchMintLanguages = async () => {
 };
 
 const useApi = () => ( {
+	fetchPageMetadata,
+	searchEntities,
+	getWikidataSitelinks,
 	fetchSiteMatrix,
 	fetchMintLanguages
 } );

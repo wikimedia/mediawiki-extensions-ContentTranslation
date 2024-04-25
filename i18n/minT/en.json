@@ -13,5 +13,9 @@
 	"mint-language-selector-suggestions-header": "Suggested",
 	"mint-language-selector-all-languages-header": "All languages",
 	"mint-language-selector-input-placeholder": "Select a language",
-	"mint-language-selector-no-search-results": "No results"
+	"mint-language-selector-no-search-results": "No results",
+	"mint-search-topic-page-header": "Search for a topic",
+	"mint-search-topic-page-input-placeholder": "Search for a topic",
+	"mint-search-topic-page-input-aria-label": "MinT search input",
+	"mint-search-topic-page-results-container-empty": "Search for any topic. Contents for a topic can be different on each language."
 }

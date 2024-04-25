@@ -17,7 +17,6 @@ const useWikipediaSites = () => {
 	const fetchWikipediaSites = async () => {
 		const wikiSites = await fetchSiteMatrix();
 		const fetchedSites = wikiSites.map( ( fetchedSite ) => {
-			// eslint-disable-next-line es-x/no-object-values
 			const site = Object.values( fetchedSite.site ).find( ( s ) => s.code === 'wiki' );
 			return new WikiSite( {
 				languageCode: fetchedSite.code,

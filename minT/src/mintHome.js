@@ -4,6 +4,7 @@ const Vue = require( 'vue' );
 const useState = require( './useState.js' );
 const useWikipediaSites = require( './useWikipediaSites.js' );
 const useMintLanguages = require( './useMintLanguages.js' );
+const useRouter = require( './useRouter.js' );
 const MWLanguageSelector = require( './MWLanguageSelector.vue' );
 const { languageSelectorPlaceholderId } = require( './constants.js' );
 
@@ -81,4 +82,10 @@ Vue.watch( targetLanguage, () => {
 
 Vue.watch( sourceLanguage, () => {
 	sourceLanguageButton.innerHTML = getAutonym( sourceLanguage.value );
+} );
+
+const homeSearchInput = document.getElementById( 'mint-home-search-input' );
+const { navigateToPage } = useRouter();
+homeSearchInput.addEventListener( 'click', function () {
+	navigateToPage( 'search' );
 } );
