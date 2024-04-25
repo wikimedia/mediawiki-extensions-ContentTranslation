@@ -7,7 +7,8 @@
 			"Serkanland",
 			"Toghrul Rahimli",
 			"Vesely35",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"cx": "Səhifə tərcümə et",
@@ -394,6 +395,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Bölməni tərcümə et",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Yeni tərcümə",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Bölmə",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Tərcüməyə davam et",
 	"sx-editor-feedback-overlay-title": "Təşəkkürlər!",
 	"sx-editor-feedback-overlay-clarification": "Düzəlişlərinizdən öyrənmək",
 	"sx-editor-feedback-overlay-stats": "Sizin redaktəniz <span>$1%</span>-dir",

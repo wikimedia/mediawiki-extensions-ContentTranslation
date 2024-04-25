@@ -441,6 +441,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "翻译章节",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "新翻译",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "章节",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "继续翻译",
 	"sx-editor-feedback-overlay-title": "谢谢！",
 	"sx-editor-feedback-overlay-clarification": "从你的更正中学习",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> 由你编辑",
@@ -522,5 +523,6 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1个月}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
 	"sx-confirm-draft-translation-start-dialog-title": "在手机上继续翻译",
-	"sx-confirm-draft-translation-start-button-label": "确定"
+	"sx-confirm-draft-translation-start-button-label": "确定",
+	"sx-published-translation-new-translation-button-label": "新翻译"
 }
