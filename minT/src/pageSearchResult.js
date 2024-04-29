@@ -47,6 +47,9 @@ class PageSearchResult {
 	 * @return {string|undefined}
 	 */
 	getTitleByLanguage( language ) {
+		if ( language === this.language ) {
+			return this.title;
+		}
 		const langLink = this.langLinks.find( ( ll ) => ll.language === language );
 
 		return langLink && langLink.title;

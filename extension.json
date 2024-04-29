@@ -1764,6 +1764,7 @@
 				"useLanguageSearch.js",
 				"useState.js",
 				"useApi.js",
+				"useCXServerToken.js",
 				"useRouter.js",
 				"useWikidataSearch.js",
 				"useMediawikiSearch.js",
@@ -1777,13 +1778,19 @@
 				"SearchTopicPage.vue",
 				"SearchResultItem.vue",
 				"MwSpinner.vue",
+				"ConfirmTopicPage.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
 					"callbackParam": [
 						"cdxIconClose",
 						"cdxIconArrowPrevious",
-						"cdxIconArticle"
+						"cdxIconArticle",
+						"cdxIconRobot",
+						"cdxIconSpecialPages",
+						"cdxIconArrowNext",
+						"cdxIconSearch",
+						"cdxIconUserGroup"
 					]
 				},
 				{
@@ -1807,7 +1814,14 @@
 				"mint-search-topic-page-header",
 				"mint-search-topic-page-input-placeholder",
 				"mint-search-topic-page-input-aria-label",
-				"mint-search-topic-page-results-container-empty"
+				"mint-search-topic-page-results-container-empty",
+				"mint-confirm-topic-page-header",
+				"mint-confirm-topic-page-automatic-translation-indicator-text",
+				"mint-confirm-topic-page-language-selector-explanation",
+				"mint-confirm-topic-page-go-to-search-button-label",
+				"mint-confirm-topic-page-target-article-link-container-header",
+				"mint-confirm-topic-page-target-article-link-container-details",
+				"mint-confirm-topic-page-target-article-card-read-article-label"
 			]
 		}
 	},

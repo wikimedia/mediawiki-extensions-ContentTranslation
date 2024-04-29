@@ -17,5 +17,12 @@
 	"mint-search-topic-page-header": "Header text of the page where user can search for an article to translate automatically using MinT translator",
 	"mint-search-topic-page-input-placeholder": "Placeholder of the search input inside MinT search page, where the user can search for an article to automatically translate.",
 	"mint-search-topic-page-input-aria-label": "Aria label of the search input inside MinT search page, where the user can search for an article to automatically translate.",
-	"mint-search-topic-page-results-container-empty": "Placeholder text that is displayed inside the container of the results, when no search query is provided, inside the MinT search page."
+	"mint-search-topic-page-results-container-empty": "Placeholder text that is displayed inside the container of the results, when no search query is provided, inside the MinT search page.",
+	"mint-confirm-topic-page-header": "Header text of the page where user can preview the automatic translation of the lead section of a selected article, and continue to full article automatic translation",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Text communicating to the user that the article preview card is clickable, and leads to the full article automatic translation page",
+	"mint-confirm-topic-page-language-selector-explanation": "Label of the container of the language selector inside MinT confirmation step.\n\nParameters:\n* $1 - the number of languages in which the article is available.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Label of the button that leads to the MinT search page step, inside MinT confirmation step",
+	"mint-confirm-topic-page-target-article-link-container-header": "Header text of the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
+	"mint-confirm-topic-page-target-article-link-container-details": "Explanatory text inside the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Label inside the target article card that indicates to the user that they can go to the target article page by clicking on the card, inside the MinT confirmation step."
 }

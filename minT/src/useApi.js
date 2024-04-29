@@ -148,12 +148,49 @@ const fetchMintLanguages = async () => {
 	return targetToSourceLanguages;
 };
 
+/**
+ * E.g. https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Moon&prop=text&section=0&disabletoc=1&formatversion=2
+ *
+ * @param {string} language
+ * @param {string} title
+ * @return {Promise<string>}
+ */
+const fetchLeadSectionContent = ( language, title ) => {
+	const api = new mw.ForeignApi( `https://${ language }.wikipedia.org/w/api.php`, { anonymous: true } );
+	const params = {
+		action: 'parse',
+		format: 'json',
+		page: title,
+		formatversion: 2,
+		origin: '*',
+		prop: 'text',
+		section: 0
+	};
+
+	return api.get( params ).then( ( response ) => response.parse.text );
+};
+
+const translate = ( content, sourceLanguage, targetLanguage, token ) => {
+	const relativeUrl = `https://cxserver.wikimedia.org/v2/translate/${ sourceLanguage }/${ targetLanguage }/MinT`;
+
+	return fetch( relativeUrl, {
+		headers: { 'Content-Type': 'application/json', Authorization: token },
+		method: 'POST',
+		body: JSON.stringify( { html: content } )
+	} )
+		.then( ( response ) => response.json() )
+		.then( ( data ) => data.contents )
+		.catch( ( error ) => Promise.reject( error ) );
+};
+
 const useApi = () => ( {
 	fetchPageMetadata,
 	searchEntities,
 	getWikidataSitelinks,
 	fetchSiteMatrix,
-	fetchMintLanguages
+	fetchMintLanguages,
+	fetchLeadSectionContent,
+	translate
 } );
 
 module.exports = useApi;

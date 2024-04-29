@@ -63,7 +63,7 @@ module.exports = defineComponent( {
 		const inputValue = ref( null );
 		const currentTab = ref( 'all' );
 		const searchInputRef = ref( null );
-		const { goToHomePage } = useRouter();
+		const { goToHomePage, navigateToPage } = useRouter();
 		const { sourceLanguage, targetLanguage } = useState();
 		const {
 			pageResults,
@@ -145,9 +145,10 @@ module.exports = defineComponent( {
 		const debouncedSearch = debounce( doSearch, 1000 );
 		watch( inputValue, () => debouncedSearch( inputValue.value ) );
 
-		const goToConfirm = () => {
-			// TODO: Implement this method, once the confirmation step is in place
-		};
+		/**
+		 * @param {PageSearchResult} pageResult
+		 */
+		const goToConfirm = ( pageResult ) => navigateToPage( 'confirm', { pageResult } );
 
 		return {
 			cdxIconArrowPrevious,

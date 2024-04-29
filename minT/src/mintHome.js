@@ -5,8 +5,8 @@ const useState = require( './useState.js' );
 const useWikipediaSites = require( './useWikipediaSites.js' );
 const useMintLanguages = require( './useMintLanguages.js' );
 const useRouter = require( './useRouter.js' );
-const MWLanguageSelector = require( './MWLanguageSelector.vue' );
-const { languageSelectorPlaceholderId } = require( './constants.js' );
+
+const { navigateToPage, openLanguageSelector } = useRouter();
 
 const getAutonym = $.uls.data.getAutonym;
 
@@ -26,16 +26,7 @@ const addLanguageButtonEventListener = (
 	allOptionEnabled = false
 ) => {
 	button.addEventListener( 'click', function () {
-		const props = {
-			placeholder: mw.msg( 'mint-language-selector-input-placeholder' ),
-			languages: languages.value,
-			allOptionEnabled: allOptionEnabled,
-			onSelect: onSelectCallback
-		};
-		Vue.createMwApp( MWLanguageSelector, props ).mount( `#${ languageSelectorPlaceholderId }` );
-
-		const componentPlaceholder = document.getElementById( languageSelectorPlaceholderId );
-		componentPlaceholder.style.display = 'block';
+		openLanguageSelector( allOptionEnabled, onSelectCallback, languages.value );
 	} );
 };
 
@@ -85,7 +76,6 @@ Vue.watch( sourceLanguage, () => {
 } );
 
 const homeSearchInput = document.getElementById( 'mint-home-search-input' );
-const { navigateToPage } = useRouter();
 homeSearchInput.addEventListener( 'click', function () {
 	navigateToPage( 'search' );
 } );
