@@ -7,7 +7,8 @@
 			"Gitartha.bordoloi",
 			"Onubadok",
 			"Paradox",
-			"Simbu123"
+			"Simbu123",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "পৃষ্ঠা অনুবাদ কৰক",
@@ -259,7 +260,7 @@
 	"cx-publish-destination-namespace-changed": "প্ৰকাশন গন্তব্য স্থান ব্যক্তিগত খচৰালৈ সলনি হৈছে। যিকোনো সময়তে প্ৰকাশন ছেটিংত অধিক সালসলনি কৰক",
 	"cx-linkcontextitem-missing-link-title": "লিংক অনুপস্থিত",
 	"cx-linkcontextitem-missing-title-description": "এই পৃষ্ঠাটো বৰ্তমানে নাই",
-	"cx-mt-abuse-publish-error": "আপোনাৰ অনুবাদ প্ৰকাশ কৰিব নোৱাৰি কিয়নো ইয়াত অত্যাধিক অপৰিৱৰ্তিত পাঠ্য আছে।",
+	"cx-mt-abuse-publish-error": "আপোনাৰ অনুবাদ প্ৰকাশ কৰিব নোৱাৰি কিয়নো ইয়াত অত্যধিক অপৰিৱৰ্তিত পাঠ্য আছে।",
 	"cx-auto-failed": "স্বয়ংক্ৰিয় অনুবাদ ব্যৰ্থ হৈছে",
 	"cx-mt-failed": "যন্ত্ৰিক অনুবাদ ব্যৰ্থ হৈছে",
 	"cx-unreviewed-translation-category": "অপৰ্যালোচিত অনুবাদসহ পৃষ্ঠা",
