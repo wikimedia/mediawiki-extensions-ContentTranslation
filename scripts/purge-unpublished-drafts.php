@@ -100,12 +100,12 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		if ( $notifyAgeInDays ) {
 			$remindersBefore = $this->getCutoffTime( $notifyAgeInDays );
 
-			$after = $dbr->selectField(
-				'cx_notification_log',
-				'MAX(cxn_newest)',
-				[ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ],
-				__METHOD__
-			);
+			$after = $dbr->newSelectQueryBuilder()
+				->select( 'MAX(cxn_newest)' )
+				->from( 'cx_notification_log' )
+				->where( [ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ] )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			if ( $after ) {
 				$remindersAfter = new DateTime( $after );
@@ -229,17 +229,15 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	 * @return IResultWrapper
 	 */
 	private function getOldDrafts( IDatabase $db, $before, $after = null, $language = null ) {
-		$table = 'cx_translations';
-		$fields = '*';
 		$conds = [
-			'translation_last_updated_timestamp < ' . $db->addQuotes( $db->timestamp( $before->format( 'YmdHis' ) ) ),
+			$db->expr( 'translation_last_updated_timestamp', '<', $db->timestamp( $before->format( 'YmdHis' ) ) ),
 			'translation_status' => 'draft',
 			'translation_target_url' => null,
 		];
 
 		if ( $after ) {
-			$conds[] = 'translation_last_updated_timestamp > ' .
-				$db->addQuotes( $db->timestamp( $after->format( 'YmdHis' ) ) );
+			$conds[] = $db->expr( 'translation_last_updated_timestamp', '>',
+				$db->timestamp( $after->format( 'YmdHis' ) ) );
 		}
 
 		// Unfortunately this query cannot use index with nor without this condition. If we
@@ -251,11 +249,13 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			$conds[ 'translation_target_language' ] = $language;
 		}
 
-		$options = [
-			'ORDER BY' => 'translation_last_updated_timestamp ASC'
-		];
-
-		return $db->select( $table, $fields, $conds, __METHOD__, $options );
+		return $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'cx_translations' )
+			->where( $conds )
+			->orderBy( 'translation_last_updated_timestamp' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 
 	public function notifyUsersAboutDrafts( $draftsPerUser, $notificationType ) {

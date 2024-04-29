@@ -122,16 +122,18 @@ class CxFixStats extends Maintenance {
 	}
 
 	protected function getRelevantTranslations( $db ) {
-		$fields = '*';
 		$conds = [];
 
 		if ( $GLOBALS['wgContentTranslationTranslateInTarget'] ) {
 			$conds['translation_target_language'] = $GLOBALS['wgLanguageCode'];
 		}
 
-		$res = $db->select( 'cx_translations', $fields, $conds, __METHOD__ );
-
-		return $res;
+		return $db->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'cx_translations' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 	}
 
 	protected function checkTargetUrl( $row ) {
@@ -203,11 +205,16 @@ class CxFixStats extends Maintenance {
 		$dbr = $mainLb->getConnection( DB_REPLICA );
 		$conds = [];
 		# Assuming timestamps are in the correct format already
-		$conds[] = 'log_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
+		$conds[] = $dbr->expr( 'log_timestamp', '>', $row->translation_start_timestamp );
 		$conds['log_namespace'] = $title->getNamespace();
 		$conds['log_title'] = $title->getDBkey();
 
-		$field = $dbr->selectField( 'logging', 'log_type', $conds, __METHOD__ );
+		$field = $dbr->newSelectQueryBuilder()
+			->select( 'log_type' )
+			->from( 'logging' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $field ) {
 			$this->output( "\\- E30 Page doesn't exist but has log entry: $field\n" );
 			return;
@@ -226,20 +233,23 @@ class CxFixStats extends Maintenance {
 		$dbr = $mainLb->getConnection( DB_REPLICA );
 		$conds = [];
 		# Apparently translation_start_timestamp has been incorrecly updated on changes in the past
-		# $conds[] = 'rev_timestamp > ' . $dbr->addQuotes( $row->translation_start_timestamp );
+		# $conds[] = $dbr->expr( 'rev_timestamp', '>', $row->translation_start_timestamp );
 		$conds['rev_page'] = $title->getArticleID();
-		$conds[] = 'rev_id = ct_rev_id';
 		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
 		try {
 			$conds['ct_tag_id'] = $changeTagDefStore->getId( 'contenttranslation' );
 		} catch ( NameTableAccessException $exception ) {
 			// It can't find any translation, the result should be null
-			$conds[] = false;
+			$conds[] = '1=0';
 		}
-		$var = 'ct_tag_id';
 
-		$field = $dbr->selectField( [ 'revision', 'change_tag' ], $var, $conds, __METHOD__ );
-		return (bool)$field;
+		return (bool)$dbr->newSelectQueryBuilder()
+			->select( 'ct_tag_id' )
+			->from( 'revision' )
+			->join( 'change_tag', null, 'rev_id = ct_rev_id' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
@@ -251,22 +261,21 @@ class CxFixStats extends Maintenance {
 		$actorWhere = ActorMigration::newMigration()
 			->getWhere( $dbr, 'rev_user', User::newFromName( $name, false ) );
 
-		$tables = [ 'revision' ] + $actorWhere['tables'];
-
 		$conds = [];
-		$conds[] = 'rev_timestamp < ' . $dbr->addQuotes( $dbr->timestamp( $ts ) );
+		$conds[] = $dbr->expr( 'rev_timestamp', '<', $dbr->timestamp( $ts ) );
 		$conds['rev_page'] = $title->getArticleID();
 		$conds[] = $actorWhere['conds'];
 
-		$joins = $actorWhere['joins'];
-
-		// Take the oldest timestamp by the author
-		$options = [
-			'ORDER BY' => 'rev_timestamp ASC'
-		];
-
-		$revId = $dbr->selectField( $tables, 'rev_id', $conds, __METHOD__, $options, $joins );
-		return $revId;
+		return $dbr->newSelectQueryBuilder()
+			->select( 'rev_id' )
+			->from( 'revision' )
+			->tables( $actorWhere['tables'] )
+			->where( $conds )
+			// Take the oldest timestamp by the author
+			->orderBy( 'rev_timestamp' )
+			->joinConds( $actorWhere['joins'] )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 }
 
