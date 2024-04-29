@@ -164,6 +164,7 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "查看建议（实验）",
 	"cx-suggestionlist-featured": "特色",
 	"cx-suggestionlist-view-source-page": "查看来源页面",
+	"cx-suggestionlist-discard": "移除建议",
 	"cx-create-new-translation": "新翻译",
 	"cx-translation-filter-label-all-languages": "所有",
 	"cx-translation-filter-uls-all-languages": "所有语言",
@@ -523,6 +524,9 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1个月}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
 	"sx-confirm-draft-translation-start-dialog-title": "在手机上继续翻译",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "其他章节在哪里？",
 	"sx-confirm-draft-translation-start-button-label": "确定",
-	"sx-published-translation-new-translation-button-label": "新翻译"
+	"sx-published-translation-new-translation-button-label": "新翻译",
+	"sx-section-selector-close-button-aria-label": "转到确认步骤按钮",
+	"sx-quick-tutorial-next-button-aria-label": "转到下一个教程页面"
 }
