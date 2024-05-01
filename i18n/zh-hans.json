@@ -524,5 +524,6 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1个月}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
 	"sx-confirm-draft-translation-start-dialog-title": "在手机上继续翻译",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "其他章节在哪里？",
 	"sx-confirm-draft-translation-start-button-label": "确定"
 }
