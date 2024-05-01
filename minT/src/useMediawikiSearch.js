@@ -1,7 +1,7 @@
 'use strict';
 
 const PageSearchResult = require( './pageSearchResult.js' );
-const useApi = require( './useApi.js' );
+const usePageMetadata = require( './usePageMetadata.js' );
 const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
 const useSearchResultLanguages = require( './useSearchResultLanguages.js' );
 
@@ -12,16 +12,12 @@ const useSearchResultLanguages = require( './useSearchResultLanguages.js' );
  * Mediawiki Action API.
  */
 const useMediawikiSearch = () => {
-	const { fetchPageMetadata } = useApi();
+	const { findOneOrFetchPage } = usePageMetadata();
 	const { prepareSiteLinks } = useSiteLinksHelper();
 	const { getSourceAndDisplayLanguages } = useSearchResultLanguages();
 
-	const getActionApiSearchResult = async ( url, query ) => {
-		const response = await fetchPageMetadata( url, query, true );
-		const queryResponse = response && response.query;
-		const pages = queryResponse && queryResponse.pages;
-
-		const page = pages.find( ( p ) => !p.missing );
+	const getActionApiSearchResult = async ( language, query ) => {
+		const page = await findOneOrFetchPage( language, query );
 
 		const siteLinks = prepareSiteLinks( page.langlinks );
 		const { sourceLanguage } = getSourceAndDisplayLanguages( page.pagelanguage, siteLinks );

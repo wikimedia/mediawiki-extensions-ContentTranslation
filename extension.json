@@ -1770,6 +1770,8 @@
 				"useSearchResultLanguages.js",
 				"useSiteLinksHelper.js",
 				"useSearch.js",
+				"usePageMetadata.js",
+				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",
 				"SearchTopicPage.vue",
@@ -1793,7 +1795,8 @@
 				"vue",
 				"@wikimedia/codex",
 				"mediawiki.ForeignApi",
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"mw.cx.SiteMapper"
 			],
 			"messages": [
 				"mint-language-selector-input-placeholder",

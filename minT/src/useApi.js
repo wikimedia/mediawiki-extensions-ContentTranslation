@@ -1,5 +1,7 @@
 'use strict';
 
+const siteMapper = new mw.cx.SiteMapper();
+
 /**
  * Example request: https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=sitelinks&ids=Q2537
  *
@@ -58,13 +60,13 @@ const searchEntities = async ( query, targetLanguage ) => {
 /**
  * Example request: https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=120&redirects=true&titles=Moon&prop=info%7Cpageimages%7Cdescription%7Clanglinkscount
  *
- * @param {string} wikiURL
+ * @param {string} language
  * @param {string} titles
  * @param {boolean} includeLangLinks
  * @return {jQuery.Promise}
  */
-const fetchPageMetadata = ( wikiURL, titles, includeLangLinks = false ) => {
-	const api = new mw.ForeignApi( `${ wikiURL }/w/api.php`, { anonymous: true } );
+const fetchPageMetadata = ( language, titles, includeLangLinks = false ) => {
+	const api = siteMapper.getApi( language );
 	let props = 'info|pageimages|description|langlinkscount';
 	const params = {
 		action: 'query',

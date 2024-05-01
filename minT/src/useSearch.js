@@ -1,6 +1,5 @@
 'use strict';
 
-const useWikipediaSites = require( './useWikipediaSites.js' );
 const useWikidataSearch = require( './useWikidataSearch.js' );
 const useMediawikiSearch = require( './useMediawikiSearch.js' );
 const useState = require( './useState.js' );
@@ -21,7 +20,6 @@ const pageResults = Vue.ref( [] );
  */
 const useSearch = () => {
 	const loadingSearch = Vue.ref( false );
-	const { sites } = useWikipediaSites();
 	const { targetLanguage } = useState();
 	const { getWikidataSearchResults, getSingleWikidataSearchResult } = useWikidataSearch();
 	const { getActionApiSearchResult } = useMediawikiSearch();
@@ -63,15 +61,13 @@ const useSearch = () => {
 		pageResults.value = [];
 		loadingSearch.value = true;
 
-		const site = sites.value.find( ( s ) => s.languageCode === language );
-
 		if ( language !== targetLanguage.value ) {
 			// TODO: translate query and use it
 			// const translatedQuery = null;
 			// query = [ query, translatedQuery ].join( '|' );
 		}
 
-		return getActionApiSearchResult( site.url, query )
+		return getActionApiSearchResult( language, query )
 			.then( ( result ) => ( pageResults.value = [ result ] ) )
 			.catch( ( error ) => {
 				mw.log.error( 'error while fetching search result by language', error );
@@ -114,16 +110,10 @@ const useSearch = () => {
 		}
 
 		try {
-			let result = await getActionApiSearchResult( url.origin, urlTitle );
+			let result = await getActionApiSearchResult( wikiDomainCode, urlTitle );
 			const titleInDisplayLanguage = result.getTitleByLanguage( displayLanguage );
 			if ( result.language !== displayLanguage && !!titleInDisplayLanguage ) {
-				const displayLanguageSite = sites.value.find(
-					( s ) => s.languageCode === displayLanguage
-				);
-				result = await getActionApiSearchResult(
-					displayLanguageSite.url,
-					titleInDisplayLanguage
-				);
+				result = await getActionApiSearchResult( displayLanguage, titleInDisplayLanguage );
 			}
 			pageResults.value = [ result ];
 		} catch ( error ) {

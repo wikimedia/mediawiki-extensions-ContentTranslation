@@ -2,7 +2,7 @@
 
 const useApi = require( './useApi.js' );
 const PageSearchResult = require( './pageSearchResult.js' );
-const useWikipediaSites = require( './useWikipediaSites.js' );
+const usePageMetadata = require( './usePageMetadata.js' );
 const useSearchResultLanguages = require( './useSearchResultLanguages.js' );
 const useState = require( './useState.js' );
 const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
@@ -14,35 +14,25 @@ const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
  * single result that corresponds to that Qid (if such result exists).
  */
 const useWikidataSearch = () => {
-	const { sites } = useWikipediaSites();
 	const { targetLanguage } = useState();
 	const { getSourceAndDisplayLanguages } = useSearchResultLanguages();
-	const { fetchPageMetadata, searchEntities, getWikidataSitelinks } = useApi();
+	const { searchEntities, getWikidataSitelinks } = useApi();
 	const { prepareSiteLinks } = useSiteLinksHelper();
-
-	/**
-	 * @param {string} language
-	 * @return {WikiSite}
-	 */
-	const getWikiSiteByLanguage = ( language ) => sites.value.find(
-		( site ) => site.languageCode === language
-	);
+	const { fetchPages } = usePageMetadata();
 
 	/**
 	 * @param {{ displayLanguage: string, displayTitle: string }[]} rawResults
 	 * @return {{}}
 	 */
-	const groupBySiteUrl = ( rawResults ) => {
-
+	const groupByLanguage = ( rawResults ) => {
 		const groups = {};
 
 		for ( const result of rawResults ) {
-			const site = getWikiSiteByLanguage( result.displayLanguage );
-			const url = site && site.url;
-			if ( !groups[ url ] ) {
-				groups[ url ] = [];
+			const { displayLanguage } = result;
+			if ( !groups[ displayLanguage ] ) {
+				groups[ displayLanguage ] = [];
 			}
-			groups[ url ] = [ ...groups[ url ], result.displayTitle ];
+			groups[ displayLanguage ] = [ ...groups[ displayLanguage ], result.displayTitle ];
 		}
 
 		return groups;
@@ -56,26 +46,19 @@ const useWikidataSearch = () => {
 	 * @return {Promise<PageSearchResult[]>}
 	 */
 	const getPageSearchResults2 = async ( rawResults ) => {
-		const wikiGroups = groupBySiteUrl( rawResults );
+		const languageGroups = groupByLanguage( rawResults );
 
 		const pageSearchResults = [];
-		for ( const wikiURL in wikiGroups ) {
-			const groupTitles = wikiGroups[ wikiURL ];
-			const response = await fetchPageMetadata( wikiURL, groupTitles.join( '|' ) );
-			const queryResponse = response && response.query;
-
+		for ( const language in languageGroups ) {
+			const groupTitles = languageGroups[ language ];
+			const pages = await fetchPages( language, groupTitles.join( '|' ) );
 			/** @type {PageSearchResult[]} */
 			const pageSubResults = [];
-			const redirects = queryResponse && queryResponse.redirects;
-			const pages = queryResponse && queryResponse.pages || [];
 
 			for ( const page of pages ) {
-				const searchResult = rawResults.find( ( result ) => {
-					const redirect = ( redirects || [] ).find( ( r ) => r.to === page.title );
-
-					const redirectFrom = redirect && redirect.from;
-					return result.displayTitle === ( redirectFrom || page.title );
-				} );
+				const searchResult = rawResults.find(
+					( result ) => page.isTitleEqual( result.displayTitle )
+				);
 
 				const pageResult = new PageSearchResult( {
 					thumbnail: page.thumbnail,

@@ -3,7 +3,7 @@
 class PageSearchResult {
 	/**
 	 * @param {Object} payload
-	 * @param {Object} payload.thumbnail
+	 * @param {{ source: string, height: number, width: number }} payload.thumbnail
 	 * @param {string} payload.pagelanguage
 	 * @param {string} payload.title
 	 * @param {string} payload.description
