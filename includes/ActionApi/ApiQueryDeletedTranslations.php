@@ -44,7 +44,12 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 
 		$this->addWhereFld(
 			'ar_actor',
-			$this->getDB()->selectField( 'actor', 'actor_id', [ 'actor_user' => $user->getId() ], __METHOD__ )
+			$this->getDB()->newSelectQueryBuilder()
+				->select( 'actor_id' )
+				->from( 'actor' )
+				->where( [ 'actor_user' => $user->getId() ] )
+				->caller( __METHOD__ )
+				->fetchField()
 		);
 		$this->addWhereFld( 'ar_namespace', $params[ 'namespace' ] ?? NS_MAIN );
 		if ( $after !== null ) {

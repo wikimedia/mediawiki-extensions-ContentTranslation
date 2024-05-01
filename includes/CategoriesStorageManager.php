@@ -140,11 +140,14 @@ class CategoriesStorageManager {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$db = $lb->getConnection( DB_PRIMARY );
 
-		$conditions = [ 'cxc_translation_id' => $translationId ] + self::$CATEGORIES_SECTION;
-
-		$result = $db->select(
-			'cx_corpora', 'cxc_content', $conditions, __METHOD__, [ 'FOR UPDATE' ]
-		);
+		$result = $db->newSelectQueryBuilder()
+			->select( 'cxc_content' )
+			->from( 'cx_corpora' )
+			->where( [ 'cxc_translation_id' => $translationId ] )
+			->andWhere( self::$CATEGORIES_SECTION )
+			->forUpdate()
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		return $result->numRows() > 0;
 	}

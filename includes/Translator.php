@@ -79,17 +79,17 @@ class Translator {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$count = $dbr->selectField(
-			[ 'cx_translators', 'cx_translations' ],
-			'count(*)',
-			[
+		$count = $dbr->newSelectQueryBuilder()
+			->select( 'COUNT(*)' )
+			->from( 'cx_translators' )
+			->join( 'cx_translations', null, 'translator_translation_id = translation_id' )
+			->where( [
 				'translator_user_id' => $this->getGlobalUserId(),
-				'translator_translation_id = translation_id',
 				// And it is published
 				Translation::getPublishedCondition( $dbr )
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 
 		return intval( $count );
 	}
@@ -120,17 +120,16 @@ class Translator {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$table = 'cx_translations';
-		$fields = [
-			'language' => $directionField[$direction],
-			'translators' => 'COUNT(DISTINCT translation_started_by)',
-		];
-		$conds = Translation::getPublishedCondition( $dbr );
-		$options = [
-			'GROUP BY' => $directionField[$direction],
-		];
-
-		$rows = $dbr->select( $table, $fields, $conds, __METHOD__, $options );
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [
+				'language' => $directionField[$direction],
+				'translators' => 'COUNT(DISTINCT translation_started_by)',
+			] )
+			->from( 'cx_translations' )
+			->where( Translation::getPublishedCondition( $dbr ) )
+			->groupBy( $directionField[$direction] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$result = [];
 
@@ -149,10 +148,11 @@ class Translator {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$table = 'cx_translations';
-		$field = 'COUNT(DISTINCT translation_started_by)';
-		$conds = Translation::getPublishedCondition( $dbr );
-
-		return $dbr->selectField( $table, $field, $conds, __METHOD__ );
+		return $dbr->newSelectQueryBuilder()
+			->select( 'COUNT(DISTINCT translation_started_by)' )
+			->from( 'cx_translations' )
+			->where( Translation::getPublishedCondition( $dbr ) )
+			->caller( __METHOD__ )
+			->fetchField();
 	}
 }

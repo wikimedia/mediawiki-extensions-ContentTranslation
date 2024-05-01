@@ -4,6 +4,7 @@ namespace ContentTranslation;
 
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class SuggestionListManager {
 	/**
@@ -78,7 +79,12 @@ class SuggestionListManager {
 	protected function getListByConds( array $conds ) {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
-		$row = $dbr->selectRow( 'cx_lists', '*', $conds, __METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'cx_lists' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		if ( $row ) {
 			return SuggestionList::newFromRow( $row );
@@ -164,7 +170,6 @@ class SuggestionListManager {
 		$conds = [
 			'cxl_name' => $listName,
 			'cxl_owner' => $owner,
-			'cxs_list_id = cxl_id',
 		];
 
 		if ( $from !== null ) {
@@ -174,12 +179,13 @@ class SuggestionListManager {
 			$conds[ 'cxs_target_language' ] = $to;
 		}
 
-		$res = $dbr->select(
-			[ 'cx_suggestions', 'cx_lists' ],
-			[ 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ],
-			$conds,
-			__METHOD__
-		);
+		$res = $dbr->newSelectQueryBuilder()
+			->select( [ 'cxs_list_id', 'cxs_title', 'cxs_source_language', 'cxs_target_language' ] )
+			->from( 'cx_suggestions' )
+			->join( 'cx_lists', null, 'cxs_list_id = cxl_id' )
+			->where( $conds )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$suggestions[] = Suggestion::newFromRow( $row );
@@ -260,15 +266,19 @@ class SuggestionListManager {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$conds = [
-			'cxs_list_id' => $suggestion->getListId(),
-			'cxs_title' => $suggestion->getTitle()->getPrefixedText(),
-			'cxs_source_language' => $suggestion->getSourceLanguage(),
-			'cxs_target_language' => $suggestion->getTargetLanguage(),
-		];
-		$row = $dbr->selectRow( 'cx_suggestions', '1', $conds, __METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( '1' )
+			->from( 'cx_suggestions' )
+			->where( [
+				'cxs_list_id' => $suggestion->getListId(),
+				'cxs_title' => $suggestion->getTitle()->getPrefixedText(),
+				'cxs_source_language' => $suggestion->getSourceLanguage(),
+				'cxs_target_language' => $suggestion->getTargetLanguage(),
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
-		// If there is no result, `selectRow` returns `false`
+		// If there is no result, `fetchRow` returns `false`
 		return $row !== false;
 	}
 
@@ -314,18 +324,16 @@ class SuggestionListManager {
 		$lists = [];
 		$suggestions = [];
 
-		$res = $dbr->select(
-			'cx_lists',
-			'*',
-			[
+		$res = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'cx_lists' )
+			->where( [
 				'cxl_type' => $type,
 				'cxl_public' => true,
-			],
-			__METHOD__,
-			[
-				'ORDER BY' => 'cxl_type desc'
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->orderBy( 'cxl_type', SelectQueryBuilder::SORT_DESC )
+			->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$list = SuggestionList::newFromRow( $row );
@@ -366,26 +374,23 @@ class SuggestionListManager {
 
 		$seed = (int)$seed;
 
-		$options = [
-			'LIMIT' => $limit,
-			'ORDER BY' => "RAND( $seed )"
-		];
-
-		if ( $offset ) {
-			$options['OFFSET'] = $offset;
-		}
-
-		$res = $dbr->select(
-			[ 'cx_suggestions' ],
-			'*',
-			[
+		$queryBuilder = $dbr->newSelectQueryBuilder()
+			->select( '*' )
+			->from( 'cx_suggestions' )
+			->where( [
 				'cxs_source_language' => $from,
 				'cxs_target_language' => $to,
 				'cxs_list_id' => $listId
-			],
-			__METHOD__,
-			$options
-		);
+			] )
+			->limit( $limit )
+			->orderBy( "RAND( $seed )" )
+			->caller( __METHOD__ );
+
+		if ( $offset ) {
+			$queryBuilder->offset( $offset );
+		}
+
+		$res = $queryBuilder->fetchResultSet();
 
 		foreach ( $res as $row ) {
 			$suggestions[] = Suggestion::newFromRow( $row );

@@ -127,14 +127,17 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsByUser( int $userId ): array {
-		$conditions = [
-			'cxse_global_user_id' => $userId,
-			'cxse_wiki_family' => $this->currentWikiFamilyKey
-		];
-		$options = [ 'ORDER BY' => 'cxse_timestamp asc' ];
-
 		$replicaDb = $this->lb->getConnection( DB_REPLICA );
-		$result = $replicaDb->select( self::TABLE_NAME, IDatabase::ALL_ROWS, $conditions, __METHOD__, $options );
+		$result = $replicaDb->newSelectQueryBuilder()
+			->select( IDatabase::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->where( [
+				'cxse_global_user_id' => $userId,
+				'cxse_wiki_family' => $this->currentWikiFamilyKey
+			] )
+			->orderBy( 'cxse_timestamp' )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$edits = [];
 		foreach ( $result as $row ) {
@@ -154,15 +157,18 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit|null
 	 */
 	public function findExistingEdit( int $userId, int $pageWikidataId, string $language ): ?RecentSignificantEdit {
-		$conditions = [
-			'cxse_global_user_id' => $userId,
-			"cxse_page_wikidata_id" => $pageWikidataId,
-			"cxse_language" => $language,
-			'cxse_wiki_family' => $this->currentWikiFamilyKey
-		];
-
 		$replicaDb = $this->lb->getConnection( DB_REPLICA );
-		$row = $replicaDb->selectRow( self::TABLE_NAME, IDatabase::ALL_ROWS, $conditions, __METHOD__ );
+		$row = $replicaDb->newSelectQueryBuilder()
+			->select( IDatabase::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->where( [
+				'cxse_global_user_id' => $userId,
+				'cxse_page_wikidata_id' => $pageWikidataId,
+				'cxse_language' => $language,
+				'cxse_wiki_family' => $this->currentWikiFamilyKey
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 
 		if ( !$row ) {
 			return null;

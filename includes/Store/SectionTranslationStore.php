@@ -110,9 +110,15 @@ class SectionTranslationStore {
 	public function findTranslation( int $translationId, string $sectionId ): ?SectionTranslation {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
-		$values = [ 'cxsx_translation_id' => $translationId, 'cxsx_section_id' => $sectionId ];
-
-		$row = $dbr->selectRow( self::TABLE_NAME, IDatabase::ALL_ROWS, $values, __METHOD__ );
+		$row = $dbr->newSelectQueryBuilder()
+			->select( IDatabase::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->where( [
+				'cxsx_translation_id' => $translationId,
+				'cxsx_section_id' => $sectionId
+			] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		return $row ? $this->createTranslationFromRow( $row ) : null;
 	}
 

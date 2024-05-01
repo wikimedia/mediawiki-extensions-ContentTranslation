@@ -46,27 +46,25 @@ class Translation {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$rows = $dbr->select(
-			'cx_translations',
-			[
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [
 				'sourceLanguage' => 'translation_source_language',
 				'targetLanguage' => 'translation_target_language',
 				'status' => 'translation_status',
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
-			],
-			[
+			] )
+			->from( 'cx_translations' )
+			->where( [
 				'translation_status' => 'draft',
 				'translation_target_url' => null,
-			],
-			__METHOD__,
-			[
-				'GROUP BY' => [
-					'translation_source_language',
-					'translation_target_language',
-				],
-			]
-		);
+			] )
+			->caller( __METHOD__ )
+			->groupBy( [
+				'translation_source_language',
+				'translation_target_language',
+			] )
+			->fetchResultSet();
 
 		$result = [];
 
@@ -87,9 +85,8 @@ class Translation {
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$rows = $dbr->select(
-			'cx_translations',
-			[
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [
 				'sourceLanguage' => 'translation_source_language',
 				'targetLanguage' => 'translation_target_language',
 				// A published translation can be in deleted state too. But for the purpose
@@ -99,16 +96,15 @@ class Translation {
 				"'published' as status",
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
-			],
-			self::getPublishedCondition( $dbr ),
-			__METHOD__,
-			[
-				'GROUP BY' => [
-					'translation_source_language',
-					'translation_target_language',
-				],
-			]
-		);
+			] )
+			->from( 'cx_translations' )
+			->where( self::getPublishedCondition( $dbr ) )
+			->groupBy( [
+				'translation_source_language',
+				'translation_target_language',
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$result = [];
 		foreach ( $rows as $row ) {
@@ -129,9 +125,7 @@ class Translation {
 		$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
 		$dbr = $lb->getConnection( DB_REPLICA );
 
-		$conditions = [
-			'ar_rev_id = ct_rev_id'
-		];
+		$conditions = [];
 
 		$changeTagDefStore = MediaWikiServices::getInstance()->getChangeTagDefStore();
 		try {
@@ -141,29 +135,26 @@ class Translation {
 			return [];
 		}
 
-		$options = [];
+		$groupBy = [];
 		if ( $interval === 'week' ) {
-			$options = [
-				'GROUP BY' => [
-					'YEARWEEK(ar_timestamp, 3)',
-				],
+			$groupBy = [
+				'YEARWEEK(ar_timestamp, 3)',
 			];
 		} elseif ( $interval === 'month' ) {
-			$options = [
-				'GROUP BY' => [
-					'YEAR(ar_timestamp)',
-					'MONTH(ar_timestamp)',
-				],
+			$groupBy = [
+				'YEAR(ar_timestamp)',
+				'MONTH(ar_timestamp)',
 			];
 		}
 
-		$rows = $dbr->select(
-			[ 'change_tag', 'archive' ],
-			[ 'ar_timestamp', 'count' => 'COUNT(ar_page_id)' ],
-			$conditions,
-			__METHOD__,
-			$options
-		);
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [ 'ar_timestamp', 'count' => 'COUNT(ar_page_id)' ] )
+			->from( 'change_tag' )
+			->join( 'archive', null, 'ar_rev_id = ct_rev_id' )
+			->where( $conditions )
+			->groupBy( $groupBy )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$count = 0;
 		$result = [];
@@ -219,29 +210,25 @@ class Translation {
 		if ( $translatorId !== null ) {
 			$conditions['translation_last_update_by'] = $translatorId;
 		}
-		$options = [];
+		$groupBy = [];
 		if ( $interval === 'week' ) {
-			$options = [
-				'GROUP BY' => [
-					'YEARWEEK(translation_last_updated_timestamp, 3)',
-				],
+			$groupBy = [
+				'YEARWEEK(translation_last_updated_timestamp, 3)',
 			];
 		} elseif ( $interval === 'month' ) {
-			$options = [
-				'GROUP BY' => [
-					'YEAR(translation_last_updated_timestamp)',
-					'MONTH(translation_last_updated_timestamp)',
-				],
+			$groupBy = [
+				'YEAR(translation_last_updated_timestamp)',
+				'MONTH(translation_last_updated_timestamp)',
 			];
 		}
 
-		$rows = $dbr->select(
-			[ 'cx_translations' ],
-			[ 'date' => 'translation_last_updated_timestamp', 'count' => 'COUNT(translation_id)' ],
-			$dbr->makeList( $conditions, LIST_AND ),
-			__METHOD__,
-			$options
-		);
+		$rows = $dbr->newSelectQueryBuilder()
+			->select( [ 'date' => 'translation_last_updated_timestamp', 'count' => 'COUNT(translation_id)' ] )
+			->from( 'cx_translations' )
+			->where( $conditions )
+			->groupBy( $groupBy )
+			->caller( __METHOD__ )
+			->fetchResultSet();
 
 		$count = 0;
 		$result = [];
@@ -316,15 +303,8 @@ class Translation {
 			$conditions['translation_target_language'] = $to;
 		}
 
-		$options = [ 'LIMIT' => $limit ];
-
-		if ( $offset ) {
-			$options['OFFSET'] = $offset;
-		}
-
-		$rows = $dbr->select(
-			'cx_translations',
-			[
+		$queryBuilder = $dbr->newSelectQueryBuilder()
+			->select( [
 				'translationId' => 'translation_id',
 				'sourceTitle' => 'translation_source_title',
 				'targetTitle' => 'translation_target_title',
@@ -336,11 +316,17 @@ class Translation {
 				'targetURL' => 'translation_target_url',
 				'publishedDate' => 'translation_last_updated_timestamp',
 				'stats' => 'translation_progress',
-			],
-			$conditions,
-			__METHOD__,
-			$options
-		);
+			] )
+			->from( 'cx_translations' )
+			->where( $conditions )
+			->limit( $limit )
+			->caller( __METHOD__ );
+
+		if ( $offset ) {
+			$queryBuilder->offset( $offset );
+		}
+
+		$rows = $queryBuilder->fetchResultSet();
 
 		$result = [];
 

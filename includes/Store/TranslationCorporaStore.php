@@ -156,9 +156,13 @@ class TranslationCorporaStore {
 	 */
 	public function countByTranslationId( int $translationId ): int {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
-		$conditions = [ 'cxc_translation_id' => $translationId ];
 
-		return $dbr->selectRowCount( self::TABLE_NAME, ISQLPlatform::ALL_ROWS, $conditions, __METHOD__ );
+		return $dbr->newSelectQueryBuilder()
+			->select( ISQLPlatform::ALL_ROWS )
+			->from( self::TABLE_NAME )
+			->where( [ 'cxc_translation_id' => $translationId ] )
+			->caller( __METHOD__ )
+			->fetchRowCount();
 	}
 
 	/**
@@ -171,12 +175,14 @@ class TranslationCorporaStore {
 	public function deleteTranslationDataGently( $ids, int $batchSize = 1000 ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$conditions = [ 'cxc_translation_id' => $ids ];
-		$options = [ 'LIMIT' => $batchSize ];
-
 		while ( true ) {
-			$rowsToDelete =
-				$dbw->selectFieldValues( self::TABLE_NAME, 'cxc_id', $conditions, __METHOD__, $options );
+			$rowsToDelete = $dbw->newSelectQueryBuilder()
+				->select( 'cxc_id' )
+				->from( self::TABLE_NAME )
+				->where( [ 'cxc_translation_id' => $ids ] )
+				->limit( $batchSize )
+				->caller( __METHOD__ )
+				->fetchFieldValues();
 
 			if ( !$rowsToDelete ) {
 				break;
