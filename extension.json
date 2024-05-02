@@ -1463,6 +1463,7 @@
 				"mw.cx.TargetArticle.js",
 				"mw.cx.TranslationController.js",
 				"mw.cx.TranslationTracker.js",
+				"mw.cx.UserPermissionChecker.js",
 				"dm/mw.cx.dm.SectionState.js",
 				"eventlogging/ext.cx.eventlogging.translation.js",
 				"dm/mw.cx.dm.WikiPage.js",
