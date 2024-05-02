@@ -330,7 +330,7 @@
 	"cx-sx-sentence-selector-header-title": "Przetłumacz sekcję",
 	"cx-sx-sentence-selector-done-button-label": "Gotowe",
 	"cx-sx-sentence-selector-suggested-translation-title": "Sugerowanie tłumaczenie z $1",
-	"cx-sx-proposed-translation-not-available-message": "Tłumaczenie maszynowe jest obecnie niedostępne",
+	"cx-sx-proposed-translation-not-available-message": "Obecnie niedostępne",
 	"cx-sx-proposed-translation-retry-button": "Ponów próbę",
 	"cx-sx-proposed-translation-other-options-button": "Inne opcje",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Edytuj tłumaczenie",
@@ -416,6 +416,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Przetłumacz sekcję",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Nowe tłumaczenie",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sekcja",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Kontynuuj tłumaczenie",
 	"sx-editor-feedback-overlay-title": "Dziękujemy!",
 	"sx-editor-feedback-overlay-clarification": "Uczenie się na swoich poprawkach",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> edytowane przez Ciebie",
@@ -500,7 +501,9 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "To tłumaczenie zostało rozpoczęte na innym urządzeniu i zawiera treść wielu sekcji artykułu.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Na urządzeniu mobilnym możesz pracować tylko z jedną sekcją na raz. Zatem na razie załadowana zostanie tylko sekcja główna.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Gdzie są pozostałe sekcje?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Nie martw się. Pozostałe sekcje nie zostały utracone. Staną się dostępne po opublikowaniu bieżącego tłumaczenia jako nowego artykułu. Po opublikowaniu znajdziesz nowe tłumaczenia w toku wraz z treścią każdej sekcji.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Nie martw się. Pozostałe sekcje nie zostały utracone. Są teraz dostępne na liście Twoich tłumaczeń będących w toku i mogą być wykorzystane do rozbudowy artykułu. Zobaczysz tam tłumaczenia w toku z treścią dla każdej sekcji.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
-	"sx-published-translation-new-translation-button-label": "Nowe tłumaczenie"
+	"sx-published-translation-new-translation-button-label": "Nowe tłumaczenie",
+	"sx-section-selector-close-button-aria-label": "Przycisk przejścia do kroku z potwierdzeniem",
+	"sx-quick-tutorial-next-button-aria-label": "Przejdź do następnej strony samouczka"
 }
