@@ -31,7 +31,6 @@ mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWik
 	this.config.targetSectionTitle = targetWikiPage.getSectionTitle();
 
 	this.mainNamespaceId = mw.config.get( 'wgNamespaceIds' )[ '' ];
-	this.userNamespaceId = mw.config.get( 'wgNamespaceIds' ).user;
 
 	// @var {ve.init.mw.CXTarget}
 	this.veTarget = null;
@@ -504,75 +503,13 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 	}.bind( this ) );
 };
 
-mw.cx.init.Translation.prototype.isUserAllowedToPublishToMainNamespace = function () {
-	let publishConfig = ( mw.config.get( 'wgContentTranslationPublishRequirements' ) || [] ).userGroups;
-
-	if ( typeof publishConfig === 'string' ) {
-		publishConfig = [ publishConfig ];
-	}
-
-	if ( !Array.isArray( publishConfig ) ) {
-		mw.log.error( 'Publish requirement config should be of type array or string' );
-		return true;
-	}
-
-	const userGroups = mw.config.get( 'wgUserGroups' ) || [];
-	return publishConfig.some( ( userGroup ) => userGroups.indexOf( userGroup ) > -1 );
-};
-
 mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {
-	if ( this.veTarget.getPublishNamespace() !== this.mainNamespaceId ) {
-		return;
-	}
-
-	if ( !this.isUserAllowedToPublishToMainNamespace() ) {
-		this.displayCannotPublishError();
-	}
-};
-
-/**
- * Display the error when user cannot publish into main namespace.
- */
-mw.cx.init.Translation.prototype.displayCannotPublishError = function () {
-	this.translationView.showViewIssuesMessage(
-		mw.msg( 'cx-infobar-cannot-publish' ), 'cannot-publish', 'error'
+	const userPermissionChecker = new mw.cx.UserPermissionChecker(
+		this.veTarget,
+		this.translationView,
+		this.translationModel
 	);
-
-	// User isn't allowed to publish, display the information in the issue card.
-	this.translationModel.resolveIssueByName( 'cannot-publish' );
-	this.translationModel.addUnattachedIssues( [
-		new mw.cx.dm.TranslationIssue(
-			'cannot-publish', // Issue name
-			mw.message( 'cx-tools-linter-cannot-publish-message' ), // message body
-			{
-				title: mw.msg( 'cx-tools-linter-cannot-publish-title' ),
-				type: 'error',
-				help: 'https://en.wikipedia.org/wiki/Wikipedia:Content_translation_tool',
-				resolvable: true,
-				actionIcon: 'article',
-				actionLabel: mw.msg( 'cx-tools-linter-cannot-publish-action-label' ),
-				action: this.switchToUserNamespace.bind( this )
-			}
-		)
-	] );
-};
-
-mw.cx.init.Translation.prototype.switchToUserNamespace = function () {
-	const popup = new OO.ui.PopupWidget( {
-		$content: $( '<p>' ).text( mw.msg( 'cx-publish-destination-namespace-changed' ) ),
-		padded: true,
-		autoClose: true
-	} );
-
-	this.veTarget.publishToolbar
-		.getToolGroupByName( 'publish' )
-		.findItemFromData( 'publishSettings' )
-		.$element.append( popup.$element );
-	popup.toggle( true );
-
-	this.translationModel.resolveIssueByName( 'cannot-publish' );
-	this.translationView.clearMessages();
-	this.veTarget.onPublishNamespaceChange( this.userNamespaceId );
+	userPermissionChecker.checkIfUserCanPublish();
 };
 
 mw.cx.init.Translation.prototype.onNamespaceChange = function ( namespaceId ) {

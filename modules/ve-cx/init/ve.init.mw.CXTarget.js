@@ -509,8 +509,6 @@ ve.init.mw.CXTarget.prototype.enablePublishButton = function () {
 
 /**
  * Translation restore event handler
- *
- * @param {mw.cx.dm.Translation} translationModel
  */
 ve.init.mw.CXTarget.prototype.onTranslationRestore = function () {
 	if ( mw.Title.newFromText( this.pageName ) ) {
@@ -610,6 +608,9 @@ ve.init.mw.CXTarget.prototype.getPublishNamespace = function () {
  * @fires publish
  */
 ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
+	if ( !this.checkIfUserCanPublish() ) {
+		return;
+	}
 	// Disable the trigger button
 	this.publishButton.setDisabled( true )
 		.setTitle( mw.msg( 'cx-publish-button-publishing' ) );
@@ -617,6 +618,19 @@ ve.init.mw.CXTarget.prototype.onPublishButtonClick = function () {
 	this.translationView.contentContainer.$element.toggleClass( 'oo-ui-widget-disabled', true );
 	this.emit( 'publish' );
 	this.updateNamespace();
+};
+
+/**
+ * @return {boolean}
+ */
+ve.init.mw.CXTarget.prototype.checkIfUserCanPublish = function () {
+	const userPermissionChecker = new mw.cx.UserPermissionChecker(
+		this,
+		this.translationView,
+		this.translation
+	);
+
+	return userPermissionChecker.checkIfUserCanPublish();
 };
 
 ve.init.mw.CXTarget.prototype.attachToolbar = function () {
