@@ -1779,6 +1779,7 @@
 				"SearchResultItem.vue",
 				"MwSpinner.vue",
 				"ConfirmTopicPage.vue",
+				"ViewTranslationPage.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
@@ -1790,7 +1791,9 @@
 						"cdxIconSpecialPages",
 						"cdxIconArrowNext",
 						"cdxIconSearch",
-						"cdxIconUserGroup"
+						"cdxIconUserGroup",
+						"cdxIconLinkExternal",
+						"cdxIconEdit"
 					]
 				},
 				{
@@ -1821,7 +1824,16 @@
 				"mint-confirm-topic-page-go-to-search-button-label",
 				"mint-confirm-topic-page-target-article-link-container-header",
 				"mint-confirm-topic-page-target-article-link-container-details",
-				"mint-confirm-topic-page-target-article-card-read-article-label"
+				"mint-confirm-topic-page-target-article-card-read-article-label",
+				"mint-view-translation-page-header",
+				"mint-view-translation-page-disclaimer-header",
+				"mint-view-translation-page-disclaimer-body",
+				"mint-view-translation-page-disclaimer-learn-more-link",
+				"mint-view-translation-page-target-article-container-header",
+				"mint-view-translation-page-target-article-container-details",
+				"mint-view-translation-page-source-article-link-label",
+				"mint-view-translation-content-translation-entrypoint-title",
+				"mint-view-translation-content-translation-entrypoint-description"
 			]
 		}
 	},

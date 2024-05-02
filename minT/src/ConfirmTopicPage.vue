@@ -217,9 +217,7 @@ module.exports = defineComponent( {
 
 		const { navigateToPage, openLanguageSelector } = useRouter();
 		const goToSearch = () => navigateToPage( 'search' );
-		const goToTranslation = () => {
-			// TODO: Implement
-		};
+		const goToTranslation = () => navigateToPage( 'translation', { pageResult: props.pageResult } );
 
 		const { mintLanguages } = useMintLanguages();
 

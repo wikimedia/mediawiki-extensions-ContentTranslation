@@ -24,5 +24,14 @@
 	"mint-confirm-topic-page-go-to-search-button-label": "Label of the button that leads to the MinT search page step, inside MinT confirmation step",
 	"mint-confirm-topic-page-target-article-link-container-header": "Header text of the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
 	"mint-confirm-topic-page-target-article-link-container-details": "Explanatory text inside the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
-	"mint-confirm-topic-page-target-article-card-read-article-label": "Label inside the target article card that indicates to the user that they can go to the target article page by clicking on the card, inside the MinT confirmation step."
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Label inside the target article card that indicates to the user that they can go to the target article page by clicking on the card, inside the MinT confirmation step.",
+	"mint-view-translation-page-header": "Header text of the page where user can view the full article automatic translation",
+	"mint-view-translation-page-disclaimer-header": "Header text of the card that informs the user about the article being automatically translated.",
+	"mint-view-translation-page-disclaimer-body": "Body of the card that informs the user about the article being automatically translated.\n\nParameters:\n* $1 - the source article language",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Label of the link that navigates the user to the MinT project page, inside of the card that informs the user about the article being automatically translated.",
+	"mint-view-translation-page-target-article-container-header": "Header text of the card that informs the user about the article being available in the target language wiki.",
+	"mint-view-translation-page-target-article-container-details": "Body of the card that informs the user about the article being available in the target language wiki.\n\nParameters:\n* $1 - the target article language",
+	"mint-view-translation-page-source-article-link-label": "Label of the link that redirects the user to the source article page, inside the MinT view translation page.\n\nParameters:\n* $1 - the source article language",
+	"mint-view-translation-content-translation-entrypoint-title": "Title of the card that informs the user about the possibility to review the automatic translation, and redirects the user to Content Translation application, inside the MinT view translation page.",
+	"mint-view-translation-content-translation-entrypoint-description": "Description of the card that informs the user about the possibility to review the automatic translation, and redirects the user to Content Translation application, inside the MinT view translation page."
 }

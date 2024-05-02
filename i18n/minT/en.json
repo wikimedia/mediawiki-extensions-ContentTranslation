@@ -24,5 +24,14 @@
 	"mint-confirm-topic-page-go-to-search-button-label": "Search for another topic",
 	"mint-confirm-topic-page-target-article-link-container-header": "Written by editors in $1",
 	"mint-confirm-topic-page-target-article-link-container-details": "This article has been written in $1 by human editors. You can join them to improve the contents.",
-	"mint-confirm-topic-page-target-article-card-read-article-label": "Read article"
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Read article",
+	"mint-view-translation-page-header": "Automatic translation",
+	"mint-view-translation-page-disclaimer-header": "Automatic contents may be inaccurate",
+	"mint-view-translation-page-disclaimer-body": "This page is an automatic translation of content originally written in $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Learn more",
+	"mint-view-translation-page-target-article-container-header": "Human-created content is also available about this topic",
+	"mint-view-translation-page-target-article-container-details": "Read the article from $1 Wikipedia editors to get more reliable information on the topic.",
+	"mint-view-translation-page-source-article-link-label": "Open in $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Review the automatic translation",
+	"mint-view-translation-content-translation-entrypoint-description": "Automatic contents may be inaccurate"
 }

@@ -183,6 +183,19 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
 		.catch( ( error ) => Promise.reject( error ) );
 };
 
+/**
+ * E.g. https://en.wikipedia.org/w/rest.php/v1/page/Moon/html
+ * @param {string} language
+ * @param {string} title
+ * @return {Promise<string>}
+ */
+const fetchPageContent = ( language, title ) => {
+	const mwApi = new mw.ForeignApi( `https://${ language }.wikipedia.org/w/api.php`, { anonymous: true } );
+	const api = new mw.ForeignRest( `https://${ language }.wikipedia.org/w/rest.php/v1`, mwApi, { anonymous: true } );
+
+	return api.get( `/page/${ encodeURIComponent( title ) }/html` );
+};
+
 const useApi = () => ( {
 	fetchPageMetadata,
 	searchEntities,
@@ -190,7 +203,8 @@ const useApi = () => ( {
 	fetchSiteMatrix,
 	fetchMintLanguages,
 	fetchLeadSectionContent,
-	translate
+	translate,
+	fetchPageContent
 } );
 
 module.exports = useApi;

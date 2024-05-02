@@ -5,7 +5,8 @@ const { languageSelectorPlaceholderId, componentPlaceholderId } = require( './co
 
 const routes = {
 	search: './SearchTopicPage.vue',
-	confirm: './ConfirmTopicPage.vue'
+	confirm: './ConfirmTopicPage.vue',
+	translation: './ViewTranslationPage.vue'
 };
 
 const useRouter = () => {
