@@ -17,7 +17,7 @@ class CategoriesStorageManager {
 	private const TYPE_SOURCE = 'source';
 	private const TYPE_USER = 'user';
 
-	private static $CATEGORIES_SECTION = [
+	private const CATEGORIES_SECTION = [
 		'cxc_section_id' => 'CX_CATEGORY_METADATA'
 	];
 
@@ -44,7 +44,7 @@ class CategoriesStorageManager {
 		$conditions = [
 			'cxc_translation_id' => $translationId,
 			'cxc_origin' => $origin
-		] + self::$CATEGORIES_SECTION;
+		] + self::CATEGORIES_SECTION;
 
 		$db->newUpdateQueryBuilder()
 			->update( 'cx_corpora' )
@@ -69,7 +69,7 @@ class CategoriesStorageManager {
 		$commonValues = [
 			'cxc_translation_id' => $translationId,
 			'cxc_timestamp' => $db->timestamp()
-		] + self::$CATEGORIES_SECTION;
+		] + self::CATEGORIES_SECTION;
 
 		if ( $targetCategories ) {
 			$values[] = [
@@ -144,7 +144,7 @@ class CategoriesStorageManager {
 			->select( 'cxc_content' )
 			->from( 'cx_corpora' )
 			->where( [ 'cxc_translation_id' => $translationId ] )
-			->andWhere( self::$CATEGORIES_SECTION )
+			->andWhere( self::CATEGORIES_SECTION )
 			->forUpdate()
 			->caller( __METHOD__ )
 			->fetchResultSet();
