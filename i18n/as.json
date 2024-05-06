@@ -213,7 +213,7 @@
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|এটা ত্ৰুটি|$1টা ত্ৰুটি}}",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|এটা সতৰ্কবাণী|$1টা সতৰ্কবাণী}}",
 	"cx-tools-linter-learn-more": "অধিক শিকক",
-	"cx-tools-linter-mark-as-resolved": "মিমাংসিত বুলি চিহ্নিত কৰক",
+	"cx-tools-linter-mark-as-resolved": "মীমাংসিত বুলি চিহ্নিত কৰক",
 	"cx-tools-linter-generic-title": "আপোনাৰ অনুবাদত এটা সমস্যা আছে",
 	"cx-tools-linter-abuse-filter": "অপব্যৱহাৰ ফিল্টাৰে আপোনাৰ অনুবাদত সমস্যাজনক সমল চিনাক্ত কৰিছে",
 	"cx-tools-linter-empty-title": "আপোনাৰ অনুবাদৰ এটা শিৰোনামৰ প্ৰয়োজন",

@@ -8,7 +8,9 @@
 			"Tranve",
 			"WhitePhosphorus",
 			"Yfdyh000",
-			"佛壁灯"
+			"佛壁灯",
+			"LittlePaw365",
+			"沈澄心"
 		]
 	},
 	"apihelp-cxpublish-description": "保存用内容翻译扩展创建的页面。",
@@ -139,5 +141,14 @@
 	"apihelp-cxpublishsection-param-targetsectiontitle": "目标章节的标题。",
 	"apihelp-cxpublishsection-param-sourcerevid": "源页面修订版本ID。",
 	"apihelp-cxpublishsection-param-captchaid": "验证码ID（使用验证码响应保存时）。",
-	"apihelp-cxpublishsection-param-captchaword": "回答验证码（使用验证码响应保存时）。"
+	"apihelp-cxpublishsection-param-captchaword": "回答验证码（使用验证码响应保存时）。",
+	"apihelp-sxsave-param-sourcelanguage": "源语言代码。",
+	"apihelp-sxsave-param-targetlanguage": "目标语言代码。",
+	"apihelp-sxsave-param-sourcetitle": "来源页面标题。",
+	"apihelp-sxsave-param-targettitle": "目标页面标题。",
+	"apihelp-sxsave-param-sourcesectiontitle": "来源章节标题。",
+	"apihelp-sxsave-param-targetsectiontitle": "目标章节标题。",
+	"apihelp-sxsave-param-sectionid": "页面章节ID。",
+	"apihelp-sxsave-param-sourcerevision": "来源页面修订ID。",
+	"apierror-cxpublishsection-translationnotfound": "找不到翻译。"
 }

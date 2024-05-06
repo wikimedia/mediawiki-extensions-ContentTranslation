@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"محک"
+		]
+	},
+	"apierror-cx-docserverexception": "سیستم نتونده HTML ره ویکی‌تکست هاکنه: $1",
+	"apierror-cx-inuse": "اتی کارور دیگه هم خانه همین صفحه ره ترجمه هاکنه.",
+	"apierror-cx-invalidlanguage": "زوون کُد اٮشتٮفاهه.",
+	"apierror-cx-invalidprogress": "پیشرفت نامعتبر",
+	"apierror-cx-invalidsectioncontent": "بخشِ محتوا اٮشتٮفاهه.",
+	"apierror-cx-invalidsourcelanguage": "مبدأ زوونِ کُد اٮشتٮفاهه.",
+	"apierror-cx-invalidtargetlanguage": "مقصد زوونِ کُد اٮشتٮفاهه.",
+	"apierror-cx-invalidtranslator": "مترجم نوم اٮشتٮفاهه",
+	"apierror-cx-jwtmissing": "JWT نصب نی‌یه.",
+	"apierror-cx-keynotconfigured": "کلید تنظیم نیّه.",
+	"apierror-cx-missingdraft": "پیش‌نویس نَکِته.",
+	"apierror-cx-samelanguages": "مبدأ و مقصد زوون نتونده اتا بوئن.",
+	"apierror-cx-suggestionsdisabled": "این ویکی وسّه هنتا پیشنهاد بخش ره فعال نکردنه.",
+	"apierror-cx-translationnotfound": "ترجمه پیدا نیّه."
+}
