@@ -93,6 +93,7 @@
 				:url="targetPageUrl"
 				force-thumbnail
 				:thumbnail="targetPage.thumbnailData"
+				@click="onTargetArticleClick"
 			>
 				<template #title>
 					{{ targetTitle }}
@@ -138,6 +139,7 @@ const useLeadSectionTranslationFetch = require( './useLeadSectionTranslationFetc
 const useMintLanguages = require( './useMintLanguages.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
+const useEventLogging = require( './useEventLogging.js' );
 const getAutonym = $.uls.data.getAutonym;
 
 // @vue/component
@@ -213,7 +215,13 @@ module.exports = defineComponent( {
 
 		const { navigateToPage, openLanguageSelector } = useRouter();
 		const goToSearch = () => navigateToPage( 'search' );
-		const goToTranslation = () => navigateToPage( 'translation', { pageResult: props.pageResult } );
+
+		const { logClickEvent } = useEventLogging();
+		const goToTranslation = () => {
+			const actionContext = `${ sourceLanguage.value };${ targetLanguage.value }`;
+			logClickEvent( 'open', 'auto_translation_card', actionContext );
+			navigateToPage( 'translation', { pageResult: props.pageResult } );
+		};
 
 		const { mintLanguages } = useMintLanguages();
 
@@ -235,6 +243,8 @@ module.exports = defineComponent( {
 				null;
 		} );
 
+		const onTargetArticleClick = () => logClickEvent( null, 'human_translation_card' );
+
 		return {
 			thumbnailStyle,
 			cdxIconRobot,
@@ -253,7 +263,8 @@ module.exports = defineComponent( {
 			openTargetLanguageSelector,
 			targetTitle,
 			targetPage,
-			targetPageUrl
+			targetPageUrl,
+			onTargetArticleClick
 		};
 	}
 } );

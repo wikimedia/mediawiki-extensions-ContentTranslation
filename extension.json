@@ -1796,6 +1796,7 @@
 				"useSectionTranslate.js",
 				"useTranslationInitialize.js",
 				"useSectionTitleTranslate.js",
+				"useEventLogging.js",
 				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",

@@ -9,6 +9,12 @@ const useUrlHelper = require( './useUrlHelper.js' );
 const PageSearchResult = require( './pageSearchResult.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
+const useEventLogging = require( './useEventLogging.js' );
+
+const { logEvent } = useEventLogging();
+
+// TODO: Use the proper action source for different entrypoints
+logEvent( 'session_init', null, 'mt_home', null );
 
 const { navigateToPage, openLanguageSelector } = useRouter();
 

@@ -53,6 +53,7 @@ const SearchResultItem = require( './SearchResultItem.vue' );
 const useState = require( './useState.js' );
 const useRouter = require( './useRouter.js' );
 const useSearch = require( './useSearch.js' );
+const useEventLogging = require( './useEventLogging.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 
 // @vue/component
@@ -114,10 +115,15 @@ module.exports = defineComponent( {
 			}
 		};
 
+		const { logEvent, logClickEvent } = useEventLogging();
+
 		const doSearch = ( query ) => {
 			if ( !query ) {
 				return;
 			}
+
+			logEvent( 'search', null, null, query );
+
 			const wikidataIdRegex = /^Q\d+$/;
 			if ( wikidataIdRegex.test( query ) ) {
 				const desiredDisplayLanguage = currentTab.value === 'all' ? targetLanguage.value : currentTab.value;
@@ -148,7 +154,10 @@ module.exports = defineComponent( {
 		/**
 		 * @param {PageSearchResult} pageResult
 		 */
-		const goToConfirm = ( pageResult ) => navigateToPage( 'confirm', { pageResult } );
+		const goToConfirm = ( pageResult ) => {
+			logClickEvent( null, 'search_result', pageResult.title );
+			navigateToPage( 'confirm', { pageResult } );
+		};
 
 		return {
 			cdxIconArrowPrevious,
