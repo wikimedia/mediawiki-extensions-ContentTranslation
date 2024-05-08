@@ -94,7 +94,7 @@
 	"cx-create-new-translation": "Novi prijevod",
 	"cx-translation-filter-label-all-languages": "Svi",
 	"cx-translation-filter-uls-all-languages": "Svi jezici",
-	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|prije jednog minuta|prije $1 minuta|0=upravo sad}}",
+	"cx-save-draft-save-success": "Sačuvano {{PLURAL:$1|prije jednog minuta|prije $1 minuta|0=upravo}}",
 	"cx-save-draft-saving": "Čuvam...",
 	"cx-save-draft-shortcut-label": "Sačuvaj skicu",
 	"cx-save-draft-tooltip": "Nacrti prijevoda se čuvaju automatski",
