@@ -342,7 +342,7 @@
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|Atal $1|$1 atal|0=Atalik ez}}",
 	"cx-sx-article-search-input-placeholder": "Itzultzeko orrialde bat bilatu",
 	"cx-sx-article-search-recently-edited-title": "Zuk azkenekoz aldatutakoak",
-	"cx-sx-article-search-nearby-title": "Gertukoak",
+	"cx-sx-article-search-nearby-title": "Hurbilekoak",
 	"sx-article-search-language-selector-dialog-title": "Hizkuntzak",
 	"cx-sx-language-selector-placeholder": "Hizkuntza bat bilatu",
 	"cx-sx-language-selector-all-languages": "Hizkuntza guztiak",
