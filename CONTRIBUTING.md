@@ -59,7 +59,7 @@ here, for consistency.
 * @class Name (optional, guessed)
 * @abstract
 * @extends ClassName
-* @mixins ClassName
+* @mixes ClassName
 * @constructor
 * @private
 * @static

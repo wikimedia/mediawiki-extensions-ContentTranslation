@@ -26,7 +26,7 @@
 			message = mw.message( 'cx-translation-already-in-progress-unknown' );
 		}
 
-		return OO.ui.getWindowManager().openWindow( 'message', {
+		OO.ui.getWindowManager().openWindow( 'message', {
 			message: message.parseDom(),
 			actions: [
 				{ action: 'cancel', label: mw.msg( 'cx-create-new-translation' ), flags: 'primary' }

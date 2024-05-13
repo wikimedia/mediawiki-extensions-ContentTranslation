@@ -3,8 +3,8 @@
  *
  * @class
  * @extends ve.dm.LeafNode
- * @mixins ve.dm.FocusableNode
- * @mixins ve.dm.CXTranslationUnitModel
+ * @mixes ve.dm.FocusableNode
+ * @mixes ve.dm.CXTranslationUnitModel
  * @constructor
  */
 ve.dm.CXPlaceholderNode = function VeDmCXPlaceholderNode() {

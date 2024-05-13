@@ -87,7 +87,7 @@ class ElementAction {
 	 * Get the text from the selector
 	 *
 	 * @async
-	 * @param attribute
+	 * @param {string} attribute
 	 * @param {Promise<WebdriverIOElementType>} selector
 	 * @return {Promise<string>}
 	 */

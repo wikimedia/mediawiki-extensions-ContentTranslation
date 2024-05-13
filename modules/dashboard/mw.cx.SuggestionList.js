@@ -115,7 +115,7 @@ mw.cx.CXSuggestionList.prototype.init = function () {
 
 /**
  * @param {Object} [list]
- * @return {jQuery.Promise}
+ * @return {jQuery.Promise|undefined}
  */
 mw.cx.CXSuggestionList.prototype.loadItems = function ( list ) {
 	let promise;

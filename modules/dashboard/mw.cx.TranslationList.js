@@ -12,7 +12,7 @@
  * @class
  * @constructor
  * @extends mw.cx.DashboardList
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @param {jQuery} $container
  * @param {mw.cx.SiteMapper} siteMapper

@@ -4,8 +4,8 @@
  * @class
  * @constructor
  * @extends ve.ce.SectionNode
- * @mixins ve.ce.CXPendingNode
- * @mixins ve.ce.CXLintableNode
+ * @mixes ve.ce.CXPendingNode
+ * @mixes ve.ce.CXLintableNode
  *
  * @param {ve.dm.CXSectionNode} model
  */

@@ -11,7 +11,6 @@
  *
  * @param {Object} [config] Configuration
  * @param {string} config.title The title of the article for the column
- * @param {string|null} config.sectionTitle The title of the section for the column
  * @param {string} config.language The language of the article for the column
  * @param {mw.cx.SiteMapper} config.siteMapper SiteMapper instance
  * @param {string} [config.sectionTitle] The section title of the article for the column

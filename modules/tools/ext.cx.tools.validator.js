@@ -11,9 +11,7 @@
 	 *
 	 * @param {string} language The language of the wiki to check
 	 * @param {string} title The title to look for
-	 * @return {jQuery.promise}
-	 * @return {Function} return.done If title exists
-	 * @return {string|boolean} return.done.title
+	 * @return {jQuery.Promise<string|boolean>} Title string or false
 	 */
 	ContentTranslationValidator.prototype.isTitleExistInLanguage = function ( language, title ) {
 		var api = this.siteMapper.getApi( language );

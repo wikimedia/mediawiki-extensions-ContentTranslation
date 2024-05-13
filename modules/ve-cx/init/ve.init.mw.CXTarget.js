@@ -584,8 +584,6 @@ ve.init.mw.CXTarget.prototype.setPublishNameSpaceByPageTitle = function () {
 /**
  * Called in several places to update the namespace based on the page title for article translations,
  * and also update the state of the tools of the "publish" toolbar
- *
- * @return void
  */
 ve.init.mw.CXTarget.prototype.updateNamespace = function () {
 	const isSectionTranslation = this.translationView.targetColumn.isSectionTranslation();

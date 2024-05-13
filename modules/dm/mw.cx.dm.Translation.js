@@ -4,7 +4,7 @@
  * CX Translation model
  *
  * @abstract
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {mw.cx.dm.WikiPage} sourceWikiPage Details of source wiki page

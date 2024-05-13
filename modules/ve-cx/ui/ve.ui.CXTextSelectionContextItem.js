@@ -3,7 +3,7 @@
  *
  * @class
  * @extends ve.ui.LinearContextItem
- * @mixins ve.ui.CXTranslationUnitContextItem
+ * @mixes ve.ui.CXTranslationUnitContextItem
  *
  * @constructor
  * @param {ve.ui.Context} context Context item is in

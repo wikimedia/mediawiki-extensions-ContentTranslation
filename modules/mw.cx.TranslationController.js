@@ -336,6 +336,7 @@ mw.cx.TranslationController.prototype.getSaveRequest = function ( content, isRet
  * Process the save queue. Save the changed translation units.
  *
  * @param {boolean} [isRetry] Whether this is a retry or not.
+ * @return {jQuery.Promise|undefined}
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
 	// Before save starts, make sure all changes are processed and section states are
@@ -685,7 +686,8 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
 mw.cx.TranslationController.prototype.publish = function () {
 
 	if ( this.translation.isSectionTranslation() ) {
-		return this.publishSection();
+		this.publishSection();
+		return;
 	}
 
 	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,

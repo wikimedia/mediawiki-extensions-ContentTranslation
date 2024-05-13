@@ -8,8 +8,8 @@
  *
  * @class
  * @extends ve.ce.LeafNode
- * @mixins ve.ce.FocusableNode
- * @mixins ve.ce.CXPendingNode
+ * @mixes ve.ce.FocusableNode
+ * @mixes ve.ce.CXPendingNode
  * @constructor
  */
 ve.ce.CXPlaceholderNode = function VeCeCXPlaceholderNode() {

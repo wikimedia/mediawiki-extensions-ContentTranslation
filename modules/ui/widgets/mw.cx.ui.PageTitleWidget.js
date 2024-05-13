@@ -6,7 +6,7 @@
  *
  * @class
  * @extends OO.ui.MultilineTextInputWidget
- * @mixins ve.ce.CXLintableNode
+ * @mixes ve.ce.CXLintableNode
  * @param {mw.cx.dm.PageTitleModel} model
  * @param {Object} [config] Configuration object
  */
@@ -155,7 +155,7 @@ mw.cx.ui.PageTitleWidget.prototype.fixTitle = function () {
  * @private
  * @param {jQuery.Event} e Key press event
  * @fires enter If enter key is pressed and input is not multiline
- * @return {boolean}
+ * @return {boolean|undefined}
  */
 mw.cx.ui.PageTitleWidget.prototype.onKeyPress = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {

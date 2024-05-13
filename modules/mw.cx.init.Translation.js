@@ -125,9 +125,15 @@ mw.cx.init.Translation.prototype.init = function () {
 };
 
 /**
+ * @typedef {Array} TranslationData
+ * @property {Object} 0 Data from fetchSourcePageContent
+ * @property {mw.cx.dm.DraftTranslationDTO|null} 1 Data from fetchDraftTranslation
+ */
+
+/**
  * Fetch all data necessary to start a translation.
  *
- * @return {Promise<[Object, mw.cx.dm.DraftTranslationDTO|null]>}
+ * @return {Promise<TranslationData>} Translation data tuple
  */
 mw.cx.init.Translation.prototype.fetchTranslationData = function () {
 	mw.log( '[CX] Fetching Source page...' );

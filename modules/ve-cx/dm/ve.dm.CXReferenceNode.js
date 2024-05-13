@@ -9,7 +9,7 @@
  * @class
  * @constructor
  * @extends ve.dm.MWReferenceNode
- * @mixins ve.dm.CXLintableNode
+ * @mixes ve.dm.CXLintableNode
  */
 ve.dm.CXReferenceNode = function VeDmCXReferenceNode() {
 	// Parent constructor

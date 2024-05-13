@@ -6,8 +6,8 @@
  *
  * @class
  * @constructor
- * @mixins OO.EventEmitter
- * @mixins ve.dm.CXLintableNode
+ * @mixes OO.EventEmitter
+ * @mixes ve.dm.CXLintableNode
  */
 mw.cx.dm.PageTitleModel = function MwCxDmPageTitleModel() {
 	// Mixin constructors

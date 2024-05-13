@@ -3,11 +3,11 @@
  *
  * @class
  * @extends mw.cx.ui.ArticleColumn
+ * @param {Object} [config] Configuration object
  * @param {mw.cx.SiteMapper} config.siteMapper
  * @param {string} config.language
  * @param {string} config.title
  * @param {string|null} config.sectionTitle
- * @param {Object} [config] Configuration object
  */
 mw.cx.ui.SourceColumn = function ( config ) {
 	// Parent constructor

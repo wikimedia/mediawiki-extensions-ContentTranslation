@@ -41,7 +41,7 @@ ve.ui.CXTranslationAction.static.methods = [ 'translate', 'savePreference' ];
  * Find the currently active section and request to change the source.
  *
  * @param {string} source Selected MT provider or `source` or `scratch`
- * @return {boolean} False if action is cancelled.
+ * @return {boolean|undefined} False if action is cancelled.
  */
 ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 	var target = ve.init.target,
@@ -87,7 +87,7 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 /**
  * Save the currently selected provider as the preferred provider for new sections.
  *
- * @return {boolean} False if action is cancelled.
+ * @return {boolean|undefined} False if action is cancelled.
  */
 ve.ui.CXTranslationAction.prototype.savePreference = function () {
 	var mtManager = ve.init.target.config.MTManager,
