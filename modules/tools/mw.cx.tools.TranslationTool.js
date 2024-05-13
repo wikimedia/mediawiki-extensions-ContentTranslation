@@ -102,14 +102,14 @@ mw.cx.tools.TranslationTool.prototype.getData = function () {
  * Refresh the card rendering.
  */
 mw.cx.tools.TranslationTool.prototype.refresh = function () {
-	var card = this.getCard();
+	const card = this.getCard();
 	if ( card ) {
 		card.render();
 	}
 };
 
 mw.cx.tools.TranslationTool.prototype.destroy = function () {
-	var card = this.getCard();
+	const card = this.getCard();
 	if ( card ) {
 		// Remove will not work, until this is attached to DOM
 		card.$element.remove();

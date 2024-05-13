@@ -6,7 +6,7 @@
  */
 ( function () {
 	'use strict';
-	var statsRequest;
+	let statsRequest;
 
 	mw.cx.widgets = mw.cx.widgets || {};
 
@@ -28,10 +28,10 @@
 	};
 
 	mw.cx.widgets.CXTranslator.prototype.render = function () {
-		var api = new mw.Api(),
+		const api = new mw.Api(),
 			self = this;
 
-		var $header = $( '<div>' ).addClass( 'cx-translator__header' );
+		const $header = $( '<div>' ).addClass( 'cx-translator__header' );
 		this.$lastMonthButton = $( '<div>' )
 			.addClass( 'cx-translator__month-stats-button' )
 			.append(
@@ -41,10 +41,10 @@
 					.addClass( 'cx-translator__month-stats-label' )
 					.text( mw.msg( 'cx-translator-month-stats-label' ) )
 			);
-		var $monthStats = $( '<div>' )
+		const $monthStats = $( '<div>' )
 			.addClass( 'cx-translator__month-stats' )
 			.append( this.$lastMonthButton );
-		var $total = $( '<div>' ).addClass( 'cx-translator__total-translations' ).append(
+		const $total = $( '<div>' ).addClass( 'cx-translator__total-translations' ).append(
 			$( '<div>' )
 				.addClass( 'cx-translator__total-translations-count' ),
 			$( '<div>' )
@@ -63,13 +63,13 @@
 			.addClass( 'cx-translator' )
 			.append( $header, $monthStats, $total, this.$canvas );
 		statsRequest.then( function ( stats ) {
-			var publishTrend = stats.cxtranslatorstats.publishTrend,
+			const publishTrend = stats.cxtranslatorstats.publishTrend,
 				// Sorted months for ordered display on bar chart
 				monthKeys = Object.keys( publishTrend ).sort(),
 				thisMonthKey = new Date().toISOString().slice( 0, 7 ) + '-01';
 
-			var total = publishTrend[ thisMonthKey ].count || 0;
-			var thisMonthStats = publishTrend[ thisMonthKey ].delta || 0;
+			const total = publishTrend[ thisMonthKey ].count || 0;
+			const thisMonthStats = publishTrend[ thisMonthKey ].delta || 0;
 
 			// Don't display statistics if there are no translations yet
 			if ( total === 0 ) {
@@ -100,24 +100,25 @@
 	};
 
 	mw.cx.widgets.CXTranslator.prototype.draw = function () {
-		var context = this.$canvas[ 0 ].getContext( '2d' ),
+		const context = this.$canvas[ 0 ].getContext( '2d' ),
 			barWidth = 6,
 			height = 50,
 			// Spacing between bars in bar chart
 			spacing = 4,
-			offsetX = spacing,
 			// One height unit relative to maximum number of contributions
 			segment = ( height - spacing ) / this.max,
-			data = this.data,
 			canvasWidth = this.$canvas.parent().width();
 
+		let offsetX = spacing;
+		let data = this.data;
+
 		// Limit the number of bars displayed
-		var numOfBars = Math.floor( ( canvasWidth - spacing ) / ( barWidth + spacing ) );
+		const numOfBars = Math.floor( ( canvasWidth - spacing ) / ( barWidth + spacing ) );
 		data = this.data.slice( Math.max( this.data.length - numOfBars, 0 ) );
 
-		var dataLength = data.length;
+		const dataLength = data.length;
 		context.fillStyle = '#a2a9b1';
-		for ( var i = 0; i < dataLength; i++ ) {
+		for ( let i = 0; i < dataLength; i++ ) {
 			// Last bar in chart is displayed using progressive color (Accent50) from WikimediaUI color palette
 			if ( i === dataLength - 1 ) {
 				context.fillStyle = '#36c';

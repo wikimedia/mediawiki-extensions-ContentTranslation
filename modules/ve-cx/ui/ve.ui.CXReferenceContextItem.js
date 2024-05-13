@@ -12,7 +12,7 @@
 	 * @return {jQuery} DOM rendering of reference
 	**/
 	ve.ui.MWReferenceContextItem.prototype.getRendering = function getReferenceRendering() {
-		var refNode = this.getReferenceNode();
+		const refNode = this.getReferenceNode();
 		if ( refNode ) {
 			this.view = new ve.ui.MWPreviewElement( refNode, {
 				useView: true
@@ -29,7 +29,7 @@
 	};
 
 	function addCxSubclass( parentContextItem ) {
-		var contextItem = function CXGeneratedMWCitationContextItem() {
+		const contextItem = function CXGeneratedMWCitationContextItem() {
 			// Parent constructor
 			parentContextItem.apply( this, arguments );
 		};
@@ -37,7 +37,7 @@
 		OO.inheritClass( contextItem, parentContextItem );
 
 		contextItem.prototype.getRendering = function () {
-			var cxData = this.model.getAttribute( 'cx' ) || {};
+			const cxData = this.model.getAttribute( 'cx' ) || {};
 
 			if ( cxData.adapted === false ) {
 				// Reference is not adapted. Use an empty div as content with the same
@@ -52,8 +52,8 @@
 	}
 
 	ve.ui.mwCitationTools.forEach( function ( tool ) {
-		var contextName = 'cite-' + tool.name;
-		var parentContextItem = ve.ui.contextItemFactory.lookup( contextName );
+		const contextName = 'cite-' + tool.name;
+		const parentContextItem = ve.ui.contextItemFactory.lookup( contextName );
 		addCxSubclass( parentContextItem );
 	} );
 

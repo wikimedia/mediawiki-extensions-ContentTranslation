@@ -35,17 +35,17 @@ ve.dm.CXTransclusionNode.static.blockType = 'cxTransclusionBlock';
 /* Static Methods */
 
 ve.dm.CXTransclusionNode.static.toDataElement = function ( domElements ) {
-	var cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' ),
+	const cxDataJSON = domElements[ 0 ].getAttribute( 'data-cx' ),
 		cxData = cxDataJSON ? JSON.parse( cxDataJSON ) : {};
 
 	// Parent method
-	var dataElement = ve.dm.CXTransclusionNode.super.static.toDataElement.apply( this, arguments );
+	const dataElement = ve.dm.CXTransclusionNode.super.static.toDataElement.apply( this, arguments );
 	dataElement.attributes.cx = cxData;
 	return dataElement;
 };
 
 ve.dm.CXTransclusionNode.static.toDomElements = function ( dataElement ) {
-	var elements = ve.dm.CXTransclusionNode.super.static.toDomElements.apply( this, arguments );
+	const elements = ve.dm.CXTransclusionNode.super.static.toDomElements.apply( this, arguments );
 	if ( Object.keys( dataElement.attributes.cx ).length ) {
 		// Do not add empty data for data-cx. For example, nodes in source page has no data for cx.
 		elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
@@ -71,7 +71,7 @@ ve.dm.CXTransclusionNode.prototype.isValid = function () {
  * @return {boolean} Whether the target template is missing or not.
  */
 ve.dm.CXTransclusionNode.prototype.missingInTargetLanguage = function () {
-	var cxData = this.getAttribute( 'cx' ) || {};
+	const cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'targetExists' ) === false;
 };
 
@@ -109,7 +109,7 @@ ve.dm.CXTransclusionBlockNode.static.matchTagNames = [];
 /* Methods */
 
 ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
-	var additionalButtons = [],
+	const additionalButtons = [],
 		sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
@@ -124,7 +124,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 		return;
 	}
 
-	var title, message;
+	let title, message;
 	if ( this.missingInTargetLanguage() ) {
 		// TODO: Add help link
 		title = mw.msg( 'cx-tools-linter-template' );
@@ -164,7 +164,7 @@ ve.dm.CXTransclusionBlockNode.prototype.onAttach = function () {
 };
 
 ve.dm.CXTransclusionBlockNode.prototype.addNewTemplate = function () {
-	var targetSurface = ve.init.target.targetSurface,
+	const targetSurface = ve.init.target.targetSurface,
 		command = targetSurface.commandRegistry.lookup( 'transclusion' );
 
 	command.execute( targetSurface );
@@ -183,7 +183,7 @@ ve.dm.CXTransclusionBlockNode.prototype.hasAdaptationInfo = function () {
 	if ( !this.isValid() ) {
 		return false;
 	}
-	var cxData = this.getAttribute( 'cx' ) || {};
+	const cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'adapted' ) !== undefined;
 };
 
@@ -197,7 +197,7 @@ ve.dm.CXTransclusionBlockNode.prototype.isAdapted = function () {
 	if ( !this.isValid() ) {
 		return false;
 	}
-	var cxData = this.getAttribute( 'cx' ) || {};
+	const cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'adapted' ) === true;
 };
 
@@ -207,7 +207,7 @@ ve.dm.CXTransclusionBlockNode.prototype.isAdapted = function () {
  * @return {boolean} Whether some mandatory parameters are not mapped
  */
 ve.dm.CXTransclusionBlockNode.prototype.isPartiallyAdapted = function () {
-	var cxData = this.getAttribute( 'cx' ) || {};
+	const cxData = this.getAttribute( 'cx' ) || {};
 	return ve.getProp( cxData, 0, 'partial' ) === true;
 };
 
@@ -247,7 +247,7 @@ ve.dm.CXTransclusionInlineNode.static.isContent = true;
 /* Methods */
 
 ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
-	var cxData = this.getAttribute( 'cx' ) || [],
+	const cxData = this.getAttribute( 'cx' ) || [],
 		sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
@@ -262,8 +262,8 @@ ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
 		return;
 	}
 
-	for ( var index = 0; index < cxData.length; index++ ) {
-		var part = cxData[ index ];
+	for ( let index = 0; index < cxData.length; index++ ) {
+		const part = cxData[ index ];
 
 		if ( part.adapted ) {
 			// Continue looping to check other parts
@@ -308,10 +308,10 @@ ve.dm.CXTransclusionInlineNode.prototype.onDetach = function ( parent ) {
 };
 
 ve.dm.CXTransclusionInlineNode.prototype.convertToPlainText = function () {
-	var surfaceModel = ve.init.target.targetSurface.getModel();
-	var originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
-	var fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
-	var textValue = originalDomElements.map( function ( elem ) {
+	const surfaceModel = ve.init.target.targetSurface.getModel();
+	const originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
+	const fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
+	const textValue = originalDomElements.map( function ( elem ) {
 		return elem.innerText || '';
 	} ).join( '' );
 	fragment.insertContent( textValue, true );

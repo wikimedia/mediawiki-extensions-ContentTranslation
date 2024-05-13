@@ -63,7 +63,7 @@ ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
  * @return {number} Index of issue or -1 if not found.
  */
 ve.dm.CXLintableNode.prototype.findIssueIndex = function ( name ) {
-	for ( var i = 0, length = this.translationIssues.length; i < length; i++ ) {
+	for ( let i = 0, length = this.translationIssues.length; i < length; i++ ) {
 		if ( this.translationIssues[ i ].getName() === name ) {
 			return i;
 		}
@@ -83,7 +83,7 @@ ve.dm.CXLintableNode.prototype.addTranslationIssues = function ( issues ) {
 	// Load the translation issue DM module, now that it's required.
 	// There is no use of adding this to the initial JS payload
 	issues.map( this.processTranslationIssues ).forEach( function ( issue ) {
-		var existingIssueIndex = this.findIssueIndex( issue.name );
+		const existingIssueIndex = this.findIssueIndex( issue.name );
 
 		// When issue is suppressed, emit events about the current state
 		issue.setSuppressCallback( this.notify.bind( this ) );
@@ -119,7 +119,7 @@ ve.dm.CXLintableNode.prototype.resolveTranslationIssues = function ( names ) {
 	}
 
 	names.forEach( function ( name ) {
-		var index = this.findIssueIndex( name );
+		const index = this.findIssueIndex( name );
 
 		if ( index > -1 ) {
 			this.translationIssues.splice( index, 1 );

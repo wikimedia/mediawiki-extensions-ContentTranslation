@@ -6,7 +6,7 @@
  */
 ( function () {
 	'use strict';
-	var CAMPAIGN = 'newarticle';
+	const CAMPAIGN = 'newarticle';
 
 	/**
 	 * @class
@@ -21,7 +21,7 @@
 	}
 
 	CXNewByTranslationInvitation.prototype.render = function () {
-		var content = this.getContent();
+		const content = this.getContent();
 		return new OO.ui.PopupWidget( {
 			$content: content.$element,
 			classes: [ 'cx-entrypoint-newbytranslation' ],
@@ -40,12 +40,12 @@
 	};
 
 	CXNewByTranslationInvitation.prototype.getContent = function () {
-		var container = new OO.ui.StackLayout( {
+		const container = new OO.ui.StackLayout( {
 			continuous: true,
 			expanded: false
 		} );
 
-		var settingsButton = new OO.ui.ButtonWidget( {
+		const settingsButton = new OO.ui.ButtonWidget( {
 			classes: [ 'cx-campaign-newbytranslation-settings' ],
 			icon: 'settings',
 			framed: false,
@@ -53,10 +53,10 @@
 			target: '_blank'
 		} );
 
-		var actions;
+		let actions;
 		if ( this.suggestion ) {
-			var $suggestionImage = $( '<div>' ).addClass( 'cx-suggestion-image oo-ui-icon-article' );
-			var $suggestionDetails = $( '<div>' ).addClass( 'cx-suggestion-details' );
+			const $suggestionImage = $( '<div>' ).addClass( 'cx-suggestion-image oo-ui-icon-article' );
+			const $suggestionDetails = $( '<div>' ).addClass( 'cx-suggestion-details' );
 
 			$suggestionDetails.append(
 				$( '<div>' ).addClass( 'cx-suggestion-title' ).text( this.suggestion.title ),
@@ -69,7 +69,7 @@
 				)
 			);
 
-			var $sourceSuggestionButton = $( '<a>' )
+			const $sourceSuggestionButton = $( '<a>' )
 				.addClass( 'cx-campaign-newbytranslation-source' )
 				.attr( 'href', this.getCXLink( {
 					campaign: CAMPAIGN,
@@ -87,7 +87,7 @@
 					.css( 'background-image', 'url("' + this.suggestion.thumbnail.source + '")' );
 			}
 
-			var searchButton = new OO.ui.ButtonWidget( {
+			const searchButton = new OO.ui.ButtonWidget( {
 				classes: [ 'cx-campaign-newbytranslation-search-source' ],
 				icon: 'search',
 				flags: [ 'progressive' ],
@@ -106,7 +106,7 @@
 			];
 		} else {
 			// Generic dialog
-			var startCXButton = new OO.ui.ButtonWidget( {
+			const startCXButton = new OO.ui.ButtonWidget( {
 				label: mw.msg( 'cx-campaign-newbytranslation-start' ),
 				flags: [ 'primary', 'progressive' ],
 				href: this.getCXLink( {
@@ -171,7 +171,7 @@
 	};
 
 	function getCandidateSourceLanguages( targetLanguage ) {
-		var candidates = [ navigator.language ];
+		let candidates = [ navigator.language ];
 		candidates = candidates.concat( navigator.languages );
 		if ( mw.uls ) {
 			candidates = candidates.concat( mw.uls.getPreviousLanguages() );
@@ -192,9 +192,9 @@
 	}
 
 	function getSourceSuggestions( siteMapper, targetTitle ) {
-		var targetLanguage = siteMapper.getCurrentWikiLanguageCode();
-		var candidateSourceLanguages = getCandidateSourceLanguages( targetLanguage );
-		var sourceSuggestionApi = siteMapper.getCXServerUrl(
+		const targetLanguage = siteMapper.getCurrentWikiLanguageCode();
+		const candidateSourceLanguages = getCandidateSourceLanguages( targetLanguage );
+		const sourceSuggestionApi = siteMapper.getCXServerUrl(
 			'/suggest/source/$title/$to?sourcelanguages=$from',
 			{
 				$title: targetTitle,
@@ -208,11 +208,11 @@
 	}
 
 	$( function () {
-		var siteMapper = new mw.cx.SiteMapper(),
+		const siteMapper = new mw.cx.SiteMapper(),
 			targetTitle = mw.config.get( 'wgTitle' );
 
 		getSourceSuggestions( siteMapper, targetTitle ).then( function ( suggestions ) {
-			var shownOnce = mw.config.get( 'wgContentTranslationNewByTranslationShown' ) === 'true';
+			const shownOnce = mw.config.get( 'wgContentTranslationNewByTranslationShown' ) === 'true';
 
 			if ( !suggestions.length &&
 				(
@@ -225,7 +225,7 @@
 				return;
 			}
 
-			var invitation = new CXNewByTranslationInvitation( {
+			const invitation = new CXNewByTranslationInvitation( {
 				siteMapper: siteMapper,
 				targetTitle: targetTitle,
 				suggestion: suggestions.length ? suggestions[ 0 ] : null
@@ -233,7 +233,7 @@
 			invitation.show();
 
 			if ( !shownOnce ) {
-				var api = new mw.Api();
+				const api = new mw.Api();
 				// Mark that the user saw invitation once
 				api.postWithToken( 'csrf', {
 					action: 'globalpreferences',

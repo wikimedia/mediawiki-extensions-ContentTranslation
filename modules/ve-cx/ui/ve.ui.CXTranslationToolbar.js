@@ -16,7 +16,7 @@ ve.ui.CXTranslationToolbar = function VeUiCXTranslationToolbar() {
 	// Parent constructor
 	ve.ui.CXTranslationToolbar.super.apply( this, arguments );
 
-	var $title = $( '<div>' )
+	const $title = $( '<div>' )
 		.addClass( 've-cx-toolbar-mt-title' )
 		.text( mw.msg( 'cx-tools-mt-title' ) );
 
@@ -46,8 +46,8 @@ OO.inheritClass( ve.ui.CXTranslationToolbar, ve.ui.Toolbar );
  * @return {jQuery.Promise}
  */
 ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
-	var createProviderItem = function ( provider, defaultProvider ) {
-		var toolClassName = provider + 'MTTool';
+	const createProviderItem = function ( provider, defaultProvider ) {
+		const toolClassName = provider + 'MTTool';
 		ve.ui[ toolClassName ] = function VeCXMTTool() {
 			ve.ui.Tool.apply( this, arguments );
 			this.MTManager = MTManager;
@@ -74,7 +74,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		};
 
 		ve.ui[ toolClassName ].prototype.onUpdateState = function () {
-			var surface = this.toolbar.getSurface(),
+			const surface = this.toolbar.getSurface(),
 				selection = surface.getModel().getSelection();
 
 			// Parent method
@@ -86,7 +86,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			}
 
 			// When changing provides, there is temporarily no parent section
-			var section = mw.cx.getParentSectionForSelection( surface, selection );
+			const section = mw.cx.getParentSectionForSelection( surface, selection );
 			if ( !section ) {
 				return;
 			}
@@ -94,7 +94,7 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			// Fall back to defaultProvider (should only happen for drafts stored with
 			// older version of CX.
 			// TODO: How to handle case that stored provider is no longer valid?
-			var source = section.getOriginalContentSource() || defaultProvider;
+			const source = section.getOriginalContentSource() || defaultProvider;
 			this.setActive( this.getName() === source );
 		};
 

@@ -64,12 +64,12 @@
 	} );
 
 	QUnit.test( 'getApi', function ( assert ) {
-		var api = this.siteMapper.getApi( 'he' );
+		const api = this.siteMapper.getApi( 'he' );
 		assert.strictEqual( api.apiUrl, 'https://he.wikipedia.org/w/api.php' );
 	} );
 
 	QUnit.test( 'getRestbaseUrl', function ( assert ) {
-		var url = this.siteMapper.getRestbaseUrl(
+		const url = this.siteMapper.getRestbaseUrl(
 			'he',
 			'/transform/wikitext/to/html/$title',
 			{ $title: 'User:KartikMistry/Who?_(movie)_ä&ö' }

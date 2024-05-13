@@ -64,12 +64,12 @@
 	 * Show the callout
 	 */
 	Callout.prototype.show = function () {
-		var content = maybeCall( this.options.content );
+		const content = maybeCall( this.options.content );
 		if ( !content ) {
 			return;
 		}
 
-		var $dialog = this.dialog();
+		const $dialog = this.dialog();
 		$dialog.find( '.cx-callout-content' ).empty().append( content );
 		$dialog.remove().css( {
 			top: 0,
@@ -103,13 +103,13 @@
 	 * Position the callout
 	 */
 	Callout.prototype.position = function () {
-		var pos = $.extend( {}, this.$element.offset(), {
+		const pos = $.extend( {}, this.$element.offset(), {
 			width: this.$element[ 0 ].offsetWidth,
 			height: this.$element[ 0 ].offsetHeight
 		} );
 
-		var $dialog = this.dialog();
-		var direction = maybeCall( this.options.direction, this.$element[ 0 ] );
+		const $dialog = this.dialog();
+		const direction = maybeCall( this.options.direction, this.$element[ 0 ] );
 		// Attach css classes before checking height/width so they
 		// can be applied.
 		// The following classes are used here:
@@ -122,9 +122,9 @@
 			// eslint-disable-next-line mediawiki/class-doc
 			$dialog.addClass( this.options.classes );
 		}
-		var actualWidth = $dialog[ 0 ].offsetWidth;
-		var actualHeight = $dialog[ 0 ].offsetHeight;
-		var position;
+		const actualWidth = $dialog[ 0 ].offsetWidth;
+		const actualHeight = $dialog[ 0 ].offsetHeight;
+		let position;
 		switch ( direction ) {
 			case '0':
 			case '12':
@@ -208,7 +208,7 @@
 	 * Listen for event
 	 */
 	Callout.prototype.listen = function () {
-		var self = this;
+		const self = this;
 
 		if ( this.options.trigger === 'auto' ) {
 			self.show();
@@ -235,7 +235,7 @@
 			} );
 		}
 
-		var timer;
+		let timer;
 		$( window ).on( 'resize', function () {
 			clearTimeout( timer );
 			timer = setTimeout( function () {
@@ -279,8 +279,8 @@
 	 */
 	$.fn.callout = function ( options ) {
 		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'callout' );
+			const $this = $( this );
+			let data = $this.data( 'callout' );
 
 			if ( !data ) {
 				data = new Callout( this, options );
@@ -302,26 +302,26 @@
 	 */
 	$.fn.callout.autoDirection = function ( prefer ) {
 		return function () {
-			var direction = prefer,
-				boundTop = window.pageYOffset + document.documentElement.clientHeight / 2,
+			let direction = prefer;
+			const boundTop = window.pageYOffset + document.documentElement.clientHeight / 2,
 				boundLeft = window.pageXOffset + document.documentElement.clientWidth / 2,
 				$this = $( this );
 
-			var leftFlips = {
+			const leftFlips = {
 				1: '11',
 				2: '10',
 				3: '9',
 				4: '8',
 				5: '7'
 			};
-			var rightFlips = {
+			const rightFlips = {
 				11: '1',
 				10: '2',
 				9: '3',
 				8: '4',
 				7: '5'
 			};
-			var topFlips = {
+			const topFlips = {
 				3: '2',
 				4: '2',
 				5: '1',
@@ -330,7 +330,7 @@
 				8: '10',
 				9: '10'
 			};
-			var bottomFlips = {
+			const bottomFlips = {
 				0: '6',
 				12: '6',
 				1: '5',

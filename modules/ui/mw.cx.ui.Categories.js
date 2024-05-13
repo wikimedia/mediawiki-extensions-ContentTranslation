@@ -34,7 +34,7 @@ mw.cx.ui.Categories = function ( translationModel, config ) {
  */
 mw.cx.ui.Categories.prototype.removeCategoryNamespace = function ( fullCategoryName ) {
 	// mw.Title cannot be used because of T106644
-	var match = fullCategoryName.match( /^.+?:(.*)$/ );
+	const match = fullCategoryName.match( /^.+?:(.*)$/ );
 	if ( !match ) {
 		mw.log.error( '[CX] Expected category page title, got ' + fullCategoryName );
 		return fullCategoryName;
@@ -46,7 +46,7 @@ mw.cx.ui.Categories.prototype.removeCategoryNamespace = function ( fullCategoryN
  * Create UI elements for category count buttons and category listings.
  */
 mw.cx.ui.Categories.prototype.render = function () {
-	var sourceCategories = this.translationModel.getSourceCategories(),
+	const sourceCategories = this.translationModel.getSourceCategories(),
 		targetCategories = this.translationModel.getTargetCategories();
 
 	this.sourceCategoryCount = this.createCategoryCount( sourceCategories.length );
@@ -124,7 +124,7 @@ mw.cx.ui.Categories.prototype.mapCategories = function ( categories ) {
  * @return {mw.cx.ui.CategoryMultiselectWidget}
  */
 mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, isSource, config ) {
-	var categoryItems = this.mapCategories( categories );
+	const categoryItems = this.mapCategories( categories );
 
 	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
 		icon: 'tag',
@@ -203,7 +203,7 @@ mw.cx.ui.Categories.prototype.listen = function () {
  * @param {mw.cx.ui.CategoryTagItemWidget} sourceTagItem
  */
 mw.cx.ui.Categories.prototype.onSourceCategoryClick = function ( sourceTagItem ) {
-	var sourceCategoryName = sourceTagItem.getData(),
+	const sourceCategoryName = sourceTagItem.getData(),
 		targetCategoryName = this.translationModel.getCorrespondingTargetCategory( sourceCategoryName );
 
 	this.targetCategoryListing.addTag(
@@ -218,12 +218,12 @@ mw.cx.ui.Categories.prototype.onSourceCategoryClick = function ( sourceTagItem )
  * @param {mw.cx.ui.CategoryTagItemWidget} tagItem
  */
 mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListing, toggle, tagItem ) {
-	var categoryName = tagItem.getData(),
+	const categoryName = tagItem.getData(),
 		correspondingCategoryName =
 			this.translationModel.getCorrespondingTargetCategory( categoryName ) ||
 			this.translationModel.getCorrespondingSourceCategory( categoryName );
 
-	var correspondingTagItem = categoryListing.findItemFromData( correspondingCategoryName );
+	const correspondingTagItem = categoryListing.findItemFromData( correspondingCategoryName );
 
 	if ( !correspondingTagItem ) {
 		return;
@@ -242,7 +242,7 @@ mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListi
  * @param {Array} selectedTargetCategories
  */
 mw.cx.ui.Categories.prototype.onTargetCategoriesChange = function ( selectedTargetCategories ) {
-	var targetCategories = selectedTargetCategories.map( function ( item ) {
+	const targetCategories = selectedTargetCategories.map( function ( item ) {
 		return item.data;
 	} );
 
@@ -288,7 +288,7 @@ mw.cx.ui.Categories.prototype.checkForEmptyTargetCategories = function () {
  * Used to populate "Add category" menu in target category listing when input query is empty.
  */
 mw.cx.ui.Categories.prototype.addMissingCategoriesToMenu = function () {
-	var missingCategories = this.translationModel.getRemovedCategories();
+	const missingCategories = this.translationModel.getRemovedCategories();
 
 	this.targetCategoryListing.menu.clearItems();
 	this.targetCategoryListing.addOptions( this.mapCategories( missingCategories ) );

@@ -56,7 +56,7 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
  * @param {OO.ui.ButtonWidget[]} buttons Additional buttons to add to the message widget.
  */
 mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details, data, buttons ) {
-	var messageWidget = new mw.cx.ui.MessageWidget( {
+	const messageWidget = new mw.cx.ui.MessageWidget( {
 		message: message,
 		details: details,
 		type: type,
@@ -86,7 +86,7 @@ mw.cx.ui.Infobar.prototype.clearMessages = function () {
  * @param {Mixed} messageData
  */
 mw.cx.ui.Infobar.prototype.removeMessage = function ( messageData ) {
-	var item = this.messageLayout.findItemFromData( messageData );
+	const item = this.messageLayout.findItemFromData( messageData );
 
 	if ( item ) {
 		this.messageLayout.removeItems( [ item ] );

@@ -119,7 +119,7 @@ mw.cx.ui.PageTitleWidget.prototype.getEmptyTitleError = function () {
 };
 
 mw.cx.ui.PageTitleWidget.prototype.getInvalidCharacterError = function () {
-	var titleObj = mw.Title.newFromUserInput( this.getValue() ),
+	const titleObj = mw.Title.newFromUserInput( this.getValue() ),
 		messageData = {
 			name: 'invalid-title',
 			message: mw.message( 'cx-tools-linter-invalid-character-message' ),

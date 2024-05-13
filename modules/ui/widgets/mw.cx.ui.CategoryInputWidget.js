@@ -20,7 +20,7 @@
  * @param {mw.cx.SiteMapper} [config.siteMapper]
  */
 mw.cx.ui.CategoryInputWidget = function CategoryInputWidget( categoryWidget, config ) {
-	var siteMapper = config.siteMapper || mw.cx.siteMapper,
+	const siteMapper = config.siteMapper || mw.cx.siteMapper,
 		targetLanguage = mw.cx.targetLanguage,
 		requestManager = config.requestManager || new mw.cx.MwApiRequestManager(
 			mw.cx.sourceLanguage, targetLanguage, siteMapper
@@ -52,10 +52,10 @@ OO.inheritClass( mw.cx.ui.CategoryInputWidget, ve.ui.MWCategoryInputWidget );
  * @inheritdoc
  */
 mw.cx.ui.CategoryInputWidget.prototype.getLookupCacheDataFromResponse = function () {
-	var result = mw.cx.ui.CategoryInputWidget.super.prototype.getLookupCacheDataFromResponse.apply( this, arguments );
+	const result = mw.cx.ui.CategoryInputWidget.super.prototype.getLookupCacheDataFromResponse.apply( this, arguments );
 
 	return result.map( function ( category ) {
-		var hasNamespacePrefix = category.indexOf( this.namespacePrefix ) === 0;
+		const hasNamespacePrefix = category.indexOf( this.namespacePrefix ) === 0;
 
 		return hasNamespacePrefix ? category.slice( this.namespacePrefix.length ) : category;
 	}, this );

@@ -7,7 +7,7 @@
 ( function () {
 	'use strict';
 
-	var CAMPAIGN = 'mflanguagesearcher';
+	const CAMPAIGN = 'mflanguagesearcher';
 
 	/**
 	 * Search the query string for a valid language
@@ -35,10 +35,10 @@
 	 * @param {HTMLElement} noResultsContainer
 	 */
 	function onLanguageMatch( results, noResultsContainer ) {
-		var languageButtons = [],
+		const languageButtons = [],
 			sitemapper = new mw.cx.SiteMapper();
 
-		var invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
+		let invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
 		if ( !invitationElement ) {
 			invitationElement = document.createElement( 'p' );
 			invitationElement.classList.add(
@@ -49,7 +49,7 @@
 			invitationElement.classList.remove( 'hidden' );
 		}
 
-		var actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
+		let actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
 		if ( !actionsElement ) {
 			actionsElement = document.createElement( 'div' );
 			actionsElement.classList.add( 'cx-entrypoint-mflanguagesearcher-actions' );
@@ -62,7 +62,7 @@
 			}
 		}
 
-		var cxUrl, languageIndex;
+		let cxUrl, languageIndex;
 		for ( languageIndex = 0; languageIndex < results.length; languageIndex++ ) {
 			cxUrl = sitemapper.getCXUrl(
 				mw.config.get( 'wgPageName' ),
@@ -85,7 +85,7 @@
 			}
 		}
 
-		var noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
+		const noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
 		noResultsMsgElement.classList.add( 'hidden' );
 
 		for ( languageIndex = 0; languageIndex < languageButtons.length; languageIndex++ ) {
@@ -98,7 +98,7 @@
 			page: mw.config.get( 'wgPageName' ),
 			sx: true
 		} );
-		var moreButton = new OO.ui.ButtonWidget( {
+		const moreButton = new OO.ui.ButtonWidget( {
 			icon: 'ellipsis',
 			href: cxUrl,
 			framed: false,
@@ -114,14 +114,14 @@
 	 * @param {HTMLElement} noResultsContainer
 	 */
 	function onNoLanguageMatch( noResultsContainer ) {
-		var invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
+		const invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
 		if ( invitationElement ) {
 			invitationElement.classList.add( 'hidden' );
 		}
-		var noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
+		const noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
 		noResultsMsgElement.classList.remove( 'hidden' );
 
-		var actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
+		const actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
 		if ( actionsElement ) {
 			actionsElement.classList.add( 'hidden' );
 		}
@@ -133,9 +133,9 @@
 	 */
 	function showTranslationCTA( searchQuery, noResultsContainer ) {
 		searchWithAPI( searchQuery ).then( function ( results ) {
-			var enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
+			const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
-			var matches = results.filter( function ( code ) {
+			const matches = results.filter( function ( code ) {
 				return enabledTargets.indexOf( code ) >= 0 &&
 					code !== mw.config.get( 'wgContentLanguage' );
 			} );

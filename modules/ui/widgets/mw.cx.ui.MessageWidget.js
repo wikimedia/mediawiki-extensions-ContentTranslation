@@ -34,8 +34,8 @@ OO.inheritClass( mw.cx.ui.MessageWidget, OO.ui.MessageWidget );
 /* Methods */
 
 mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) {
-	var $message = $( '<span>' ).addClass( 'cx-message-widget-message' );
-	var $details = $( '<span>' ).addClass( 'cx-message-widget-details' );
+	const $message = $( '<span>' ).addClass( 'cx-message-widget-message' );
+	const $details = $( '<span>' ).addClass( 'cx-message-widget-details' );
 	if ( message instanceof mw.Message ) {
 		$message.append( message.parseDom() );
 	} else {
@@ -56,7 +56,7 @@ mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) 
  * @param {OO.ui.ButtonWidget[]} buttons Array of additional buttons.
  */
 mw.cx.ui.MessageWidget.prototype.addButtons = function ( buttons ) {
-	var $buttons = $( '<div>' ).addClass( 'cx-message-widget-buttons' );
+	const $buttons = $( '<div>' ).addClass( 'cx-message-widget-buttons' );
 
 	if ( !buttons ) {
 		return;

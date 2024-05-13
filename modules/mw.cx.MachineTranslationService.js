@@ -50,14 +50,14 @@ mw.cx.MachineTranslationService.prototype.translate = function ( content, provid
  * @return {jQuery.Promise} Returns the suggested title
  */
 mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title ) {
-	var mtURL = this.siteMapper.getCXServerUrl( '/suggest/title/$title/$from/$to', {
+	const mtURL = this.siteMapper.getCXServerUrl( '/suggest/title/$title/$from/$to', {
 		$title: title,
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage
 	} );
 
-	var fetchTitleSuggestion = function ( token ) {
-		var request = {
+	const fetchTitleSuggestion = function ( token ) {
+		const request = {
 			type: 'get',
 			url: mtURL,
 			headers: { Authorization: token }
@@ -78,7 +78,7 @@ mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title )
  * @return {string} HTML
  */
 mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( content ) {
-	var $content = $( $.parseHTML( content ) );
+	const $content = $( $.parseHTML( content ) );
 	$content.children().each( function () {
 		if ( $( this ).is( 'p, h1, h2, h3, h4, h5, h6' ) ) {
 			$( this ).empty();
@@ -143,7 +143,7 @@ mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
 		return $.Deferred().resolve( [] );
 	}
 
-	var fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
+	const fetchProvidersUrl = this.siteMapper.getCXServerUrl( '/list/mt/$from/$to', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage
 	} );
@@ -169,7 +169,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 	this.tokenPromise = this.tokenPromise ||
 		this.fetchCXServerToken().then(
 			function ( token ) {
-				var now = Math.floor( Date.now() / 1000 );
+				const now = Math.floor( Date.now() / 1000 );
 				// We use `age` instead of `exp` because it is more reliable, as user's
 				// clocks might be set to wrong time.
 				token.refreshAt = now + token.age - 30;
@@ -189,7 +189,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 		);
 
 	return this.tokenPromise.then( function ( token ) {
-		var now = Math.floor( Date.now() / 1000 );
+		const now = Math.floor( Date.now() / 1000 );
 		if ( 'refreshAt' in token && token.refreshAt <= now ) {
 			this.tokenPromise = undefined;
 			return this.getCXServerToken();
@@ -211,13 +211,13 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
  * @return {jQuery.Promise} Returns the translated HTML as a string.
  */
 mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content, provider, token ) {
-	var mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
+	const mtURL = this.siteMapper.getCXServerUrl( '/translate/$from/$to/$provider', {
 		$from: this.sourceLanguage,
 		$to: this.targetLanguage,
 		$provider: provider || ''
 	} );
 
-	var request = {
+	const request = {
 		type: 'post',
 		url: mtURL,
 		data: {

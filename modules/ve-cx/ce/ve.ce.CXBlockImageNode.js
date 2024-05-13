@@ -11,7 +11,7 @@ ve.ce.CXBlockImageNode = function CXBlockImageNode() {
 	ve.ce.CXBlockImageNode.super.apply( this, arguments );
 	this.$element.addClass( 've-ce-cxBlockImageNode' );
 
-	var adaptationInfo = this.getAdaptationInfo();
+	const adaptationInfo = this.getAdaptationInfo();
 	if ( adaptationInfo && !adaptationInfo.adapted ) {
 		this.$element.addClass( 'cx-image-unadapted' );
 	}

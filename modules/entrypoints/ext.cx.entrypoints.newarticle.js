@@ -7,22 +7,22 @@
 ( function () {
 	'use strict';
 
-	var campaign = 'newarticle';
+	const campaign = 'newarticle';
 
 	function showInvitation() {
 		// Trigger for, in respective order: Vector 2022, Timeless and Vector legacy
-		var $trigger = $( '#vector-user-links-dropdown, #user-tools #personal, #pt-betafeatures' ).first();
-		var cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+		const $trigger = $( '#vector-user-links-dropdown, #user-tools #personal, #pt-betafeatures' ).first();
+		const cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
 			targettitle: mw.config.get( 'wgTitle' ),
 			to: mw.config.get( 'wgContentLanguage' )
 		} );
 
-		var $cancel = $( '<button>' )
+		const $cancel = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-quiet cancel' ).text( mw.msg( 'cx-campaign-no-thanks' ) );
-		var $tryCX = $( '<button>' )
+		const $tryCX = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive try' ).text( mw.msg( 'cx-campaign-try' ) );
-		var $banner = $( '<div>' )
+		const $banner = $( '<div>' )
 			.addClass( 'cx-campaign-newarticle' )
 			.append(
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__logo' ),

@@ -30,20 +30,20 @@ ve.dm.CXBlockImageNode.static.matchFunction = function ( node ) {
 ve.dm.CXBlockImageNode.static.childNodeTypes = [ 'cxImageCaption' ];
 
 ve.dm.CXBlockImageNode.static.toDataElement = function ( domElements, converter ) {
-	var figure = domElements[ 0 ];
+	const figure = domElements[ 0 ];
 
-	var dataElements = ve.dm.CXBlockImageNode.super.static.toDataElement.call( this, domElements, converter );
+	const dataElements = ve.dm.CXBlockImageNode.super.static.toDataElement.call( this, domElements, converter );
 
-	var rel = domElements[ 0 ].getAttribute( 'rel' );
+	const rel = domElements[ 0 ].getAttribute( 'rel' );
 	if ( rel ) {
 		figure.setAttribute( 'rel', rel );
 	}
-	var dataCX = figure.getAttribute( 'data-cx' );
+	const dataCX = figure.getAttribute( 'data-cx' );
 	if ( dataCX ) {
 		dataElements[ 0 ].attributes.cx = JSON.parse( domElements[ 0 ].getAttribute( 'data-cx' ) );
 	}
 
-	for ( var i = 0; i < dataElements.length; i++ ) {
+	for ( let i = 0; i < dataElements.length; i++ ) {
 		if ( dataElements[ i ].type === 'mwImageCaption' ) {
 			dataElements[ i ].type = 'cxImageCaption';
 		}
@@ -56,12 +56,12 @@ ve.dm.CXBlockImageNode.static.toDataElement = function ( domElements, converter 
 };
 
 ve.dm.CXBlockImageNode.static.toDomElements = function ( dataElements, doc, converter ) {
-	var domElements = ve.dm.CXBlockImageNode.super.static.toDomElements.call( this, dataElements, doc, converter );
+	const domElements = ve.dm.CXBlockImageNode.super.static.toDomElements.call( this, dataElements, doc, converter );
 	if ( dataElements[ 0 ].attributes.cx ) {
 		domElements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElements[ 0 ].attributes.cx ) );
 	}
 
-	var rel = dataElements[ 0 ].attributes.rel;
+	const rel = dataElements[ 0 ].attributes.rel;
 	if ( rel ) {
 		domElements[ 0 ].setAttribute( 'rel', dataElements[ 0 ].attributes.rel );
 	}
@@ -70,7 +70,7 @@ ve.dm.CXBlockImageNode.static.toDomElements = function ( dataElements, doc, conv
 
 ve.dm.CXBlockImageNode.static.getMatchRdfaTypes = function () {
 	// Parent method
-	var types = ve.dm.CXBlockImageNode.super.static.getMatchRdfaTypes();
+	const types = ve.dm.CXBlockImageNode.super.static.getMatchRdfaTypes();
 	return [ 'cx:Figure' ].concat( types );
 };
 
@@ -93,7 +93,7 @@ ve.dm.CXBlockImageNode.prototype.getScalable = function () {
  * @return {ve.dm.CXImageCaptionNode|null} Caption node, if present
  */
 ve.dm.CXBlockImageNode.prototype.getCaptionNode = function () {
-	var node = this.children[ 0 ];
+	const node = this.children[ 0 ];
 	return node instanceof ve.dm.CXImageCaptionNode ? node : null;
 };
 

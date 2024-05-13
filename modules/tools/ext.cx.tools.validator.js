@@ -14,7 +14,7 @@
 	 * @return {jQuery.Promise<string|boolean>} Title string or false
 	 */
 	ContentTranslationValidator.prototype.isTitleExistInLanguage = function ( language, title ) {
-		var api = this.siteMapper.getApi( language );
+		const api = this.siteMapper.getApi( language );
 
 		// Short circuit empty titles
 		if ( title === '' ) {
@@ -32,7 +32,7 @@
 			titles: title,
 			redirects: true
 		} ).then( function ( response ) {
-			var page = response.query.pages[ 0 ];
+			const page = response.query.pages[ 0 ];
 
 			if ( page.missing || page.invalid ) {
 				return false;
@@ -55,7 +55,7 @@
 		targetLanguage,
 		sourceTitle
 	) {
-		var api = this.siteMapper.getApi( sourceLanguage );
+		const api = this.siteMapper.getApi( sourceLanguage );
 
 		return api.get( {
 			action: 'query',
@@ -65,11 +65,11 @@
 			lllimit: 1,
 			redirects: true
 		} ).then( function ( response ) {
-			var equivalentTargetPage = false;
+			let equivalentTargetPage = false;
 
 			if ( response.query && response.query.pages ) {
 				Object.keys( response.query.pages ).forEach( function ( pageId ) {
-					var page = response.query.pages[ pageId ];
+					const page = response.query.pages[ pageId ];
 					if ( page.langlinks ) {
 						equivalentTargetPage = page.langlinks[ 0 ][ '*' ];
 					}

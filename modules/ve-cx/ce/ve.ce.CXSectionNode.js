@@ -60,7 +60,7 @@ ve.ce.CXSectionNode.prototype.onAfterTranslation = function () {
  * @inheritdoc
  */
 ve.ce.CXSectionNode.prototype.getFocusableElement = function () {
-	var firstChild = OO.getProp( this, 'children', 0 );
+	const firstChild = OO.getProp( this, 'children', 0 );
 
 	// Returning this.$element causes problems for block transclusion nodes. See T226247
 	if ( firstChild instanceof ve.ce.CXTransclusionBlockNode ) {

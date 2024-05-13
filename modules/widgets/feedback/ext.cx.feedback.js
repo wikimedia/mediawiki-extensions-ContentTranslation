@@ -22,7 +22,7 @@
 	}
 
 	ContentTranslationFeedback.prototype.render = function () {
-		var $feedbackLink = $( '<a>' )
+		const $feedbackLink = $( '<a>' )
 			.addClass( 'cx-feedback__link' )
 			.attr( {
 				href: '//www.mediawiki.org/wiki/Talk:Content_translation',
@@ -30,7 +30,7 @@
 			} )
 			.text( mw.msg( 'cx-feedback-link' ) );
 
-		var $feedbackContainer = $( '<div>' )
+		const $feedbackContainer = $( '<div>' )
 			.addClass( 'cx-feedback' )
 			.append( $feedbackLink );
 
@@ -39,8 +39,8 @@
 
 	$.fn.cxFeedback = function () {
 		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'cxFeedback' );
+			const $this = $( this );
+			let data = $this.data( 'cxFeedback' );
 
 			if ( !data ) {
 				$this.data( 'cxFeedback', ( data = new ContentTranslationFeedback( this ) ) );

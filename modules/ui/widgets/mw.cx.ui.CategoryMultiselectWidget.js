@@ -125,10 +125,10 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.setValue = function ( values ) {
  * @return {boolean} Item was added successfully
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.addTag = function ( data, label, config ) {
-	var isValid = this.isAllowedData( data );
+	const isValid = this.isAllowedData( data );
 
 	if ( isValid || this.allowDisplayInvalidTags ) {
-		var newItemWidget = this.createTagItemWidget( data, label, config );
+		const newItemWidget = this.createTagItemWidget( data, label, config );
 		newItemWidget.toggleValid( isValid );
 		this.addItems( [ newItemWidget ] );
 
@@ -153,7 +153,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.getCategories = function () {
  * @param {mw.cx.ui.CategoryInputWidget} item
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.onInputChoose = function ( item ) {
-	var title = item.getLabel(),
+	const title = item.getLabel(),
 		titleWithPrefix = item.getData();
 
 	if ( !title ) {

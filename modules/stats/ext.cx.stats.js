@@ -22,9 +22,9 @@
 	}
 
 	CXStats.prototype.init = function () {
-		var self = this;
+		const self = this;
 
-		var $spinner = mw.cx.widgets.spinner();
+		const $spinner = mw.cx.widgets.spinner();
 		this.$highlights = $( '<div>' ).addClass( 'cx-stats-highlights' );
 		this.$container.append( $spinner, this.$highlights );
 
@@ -71,7 +71,7 @@
 			tooltips: {
 				callbacks: {
 					label: function ( tooltipItem, data ) {
-						var convertedValue = mw.language.convertNumber( Number( tooltipItem.yLabel ) );
+						const convertedValue = mw.language.convertNumber( Number( tooltipItem.yLabel ) );
 						return data.datasets[ tooltipItem.datasetIndex ].label + ': ' + convertedValue;
 					}
 				}
@@ -83,21 +83,21 @@
 	 * Render the boxes at the top with the most interesting recent data.
 	 */
 	CXStats.prototype.renderHighlights = function () {
-		var fmt = mw.language.convertNumber; // Shortcut
+		const fmt = mw.language.convertNumber; // Shortcut
 
-		var getTrend = function ( data ) {
+		const getTrend = function ( data ) {
 			if ( data.length < 3 ) {
 				return;
 			}
 
-			var thisWeek = data.length - 1;
+			const thisWeek = data.length - 1;
 
-			var total = data[ thisWeek ].count;
+			const total = data[ thisWeek ].count;
 
-			var oneWeekAgoDelta = data[ thisWeek - 1 ].delta;
-			var twoWeeksAgoDelta = data[ thisWeek - 2 ].delta;
+			const oneWeekAgoDelta = data[ thisWeek - 1 ].delta;
+			const twoWeeksAgoDelta = data[ thisWeek - 2 ].delta;
 
-			var trend;
+			let trend;
 			if ( twoWeeksAgoDelta ) {
 				trend = Math.round( ( oneWeekAgoDelta - twoWeeksAgoDelta ) / twoWeeksAgoDelta * 100 );
 			} else {
@@ -111,15 +111,15 @@
 			};
 		};
 
-		var localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
-		var info = getTrend( this.totalTranslationTrend );
-		var infoLanguage = getTrend( this.languageTranslationTrend );
+		const localLanguage = $.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) );
+		const info = getTrend( this.totalTranslationTrend );
+		const infoLanguage = getTrend( this.languageTranslationTrend );
 
 		if ( !info || !infoLanguage ) {
 			return;
 		}
 
-		var $total = $( '<div>' )
+		const $total = $( '<div>' )
 			.addClass( 'cx-stats-box' )
 			.append(
 				$( '<div>' )
@@ -137,14 +137,14 @@
 					) )
 			);
 
-		var weekLangTrendText = mw.msg( 'percent', fmt( infoLanguage.trend ) );
+		let weekLangTrendText = mw.msg( 'percent', fmt( infoLanguage.trend ) );
 		if ( infoLanguage.trend >= 0 ) {
 			// Add the plus sign to make clear that it's an increase
 			weekLangTrendText = '+' + weekLangTrendText;
 		}
 
-		var weekTrendText = mw.msg( 'percent', fmt( info.trend ) );
-		var weekTrendClass;
+		let weekTrendText = mw.msg( 'percent', fmt( info.trend ) );
+		let weekTrendClass;
 		if ( info.trend >= 0 ) {
 			// Add the plus sign to make clear that it's an increase
 			weekTrendText = '+' + weekTrendText;
@@ -153,11 +153,11 @@
 			weekTrendClass = 'cx-stats-trend-decrease';
 		}
 
-		var $parenthesizedTrend = $( '<span>' )
+		const $parenthesizedTrend = $( '<span>' )
 			// This is needed to show the plus or minus sign on the correct side
 			.prop( 'dir', 'ltr' )
 			.text( weekLangTrendText );
-		var $trendInLanguage = $( '<div>' )
+		const $trendInLanguage = $( '<div>' )
 			.addClass( 'cx-stats-box__localtotal' )
 			.text( mw.msg(
 				'cx-stats-local-published',
@@ -170,7 +170,7 @@
 			$parenthesizedTrend.get( 0 ).outerHTML
 		) );
 
-		var $weeklyStats = $( '<div>' )
+		const $weeklyStats = $( '<div>' )
 			.addClass( 'cx-stats-box' )
 			.append(
 				$( '<div>' )
@@ -197,7 +197,7 @@
 	};
 
 	CXStats.prototype.render = function () {
-		var self = this;
+		const self = this;
 
 		this.$cumulativeGraph = $( '<canvas>' ).attr( {
 			id: 'cxcumulative',
@@ -338,12 +338,12 @@
 	 * @param {boolean} expandable
 	 */
 	CXStats.prototype.createTabs = function ( tabGroupId, items, expandable ) {
-		var $tabContainer = $( '<div>' ).addClass( 'cx-stats-tabs-container' );
-		var $tabs = $( '<ul>' ).addClass( 'cx-stats-tabs' );
+		const $tabContainer = $( '<div>' ).addClass( 'cx-stats-tabs-container' );
+		const $tabs = $( '<ul>' ).addClass( 'cx-stats-tabs' );
 		$tabContainer.append( $tabs );
 		this.$container.append( $tabContainer );
-		var tabToShow;
-		for ( var i = 0; i < items.length; i++ ) {
+		let tabToShow;
+		for ( let i = 0; i < items.length; i++ ) {
 			items[ i ].$tab = $( '<li>' )
 				.addClass( 'cx-stats-tabs-tabtitle' )
 				.attr( 'about', tabGroupId + 'tab-' + i )
@@ -374,8 +374,7 @@
 
 		// Click handler for tabs
 		$tabs.find( 'li' ).on( 'click', function () {
-			var onVisible,
-				$this = $( this ),
+			const $this = $( this ),
 				tabId = $( this ).attr( 'about' ),
 				itemId = $this.data( 'itemid' );
 
@@ -385,14 +384,14 @@
 			$( this ).addClass( 'cx-stats-tabs-current' );
 			$( '#' + tabId ).addClass( 'cx-stats-tabs-current' );
 
-			onVisible = items[ itemId ].onVisible;
+			const onVisible = items[ itemId ].onVisible;
 			if ( onVisible ) {
 				onVisible.apply( this );
 				items[ itemId ].onVisible = null;
 			}
 		} );
 		if ( expandable ) {
-			var $expand = $( '<a>' )
+			const $expand = $( '<a>' )
 				.addClass( 'cx-stats-tabs-toggle-all' )
 				.text( mw.msg( 'cx-stats-tabs-expand' ) )
 				.on( 'click', function () {
@@ -428,14 +427,14 @@
 	}
 
 	CXStats.prototype.drawTranslationsChart = function ( direction, status, property ) {
-		var max = 0,
-			tailWidth = 0,
-			rows = [],
+		let max = 0,
+			tailWidth = 0;
+		const rows = [],
 			fmt = mw.language.convertNumber;
 
-		var $chart = $( '<div>' ).addClass( 'cx-stats-chart' );
+		const $chart = $( '<div>' ).addClass( 'cx-stats-chart' );
 
-		var model = direction === 'to' ?
+		const model = direction === 'to' ?
 			this.targetSourceModel[ status ].sort(
 				property === 'count' ? sortByCount : sortByTranslators
 			) :
@@ -443,15 +442,15 @@
 				property === 'count' ? sortByCount : sortByTranslators
 			);
 
-		for ( var i = 0; i < model.length; i++ ) {
-			var $row = $( '<div>' ).addClass( 'cx-stats-chart__row' );
+		for ( let i = 0; i < model.length; i++ ) {
+			const $row = $( '<div>' ).addClass( 'cx-stats-chart__row' );
 
-			var $translations = $( '<span>' ).addClass( 'cx-stats-chart__bars' );
-			var translations = model[ i ].translations.sort(
+			const $translations = $( '<span>' ).addClass( 'cx-stats-chart__bars' );
+			const translations = model[ i ].translations.sort(
 				property === 'count' ? sortByCount : sortByTranslators
 			);
 
-			var tail = false;
+			let tail = false;
 			tailWidth = 0;
 			max = max || model[ 0 ][ property ];
 
@@ -465,14 +464,14 @@
 					.text( mw.msg( 'cx-stats-grouping-title', fmt( max ) ) ) );
 			}
 
-			var $callout = $( '<table>' ).addClass( 'cx-stats-chart__callout' );
-			for ( var j = 0; j < translations.length; j++ ) {
-				var width = ( translations[ j ][ property ] / max ) * 100;
-				var langCode = translations[ j ][ ( direction === 'to' ? 'sourceLanguage' : 'targetLanguage' ) ];
+			const $callout = $( '<table>' ).addClass( 'cx-stats-chart__callout' );
+			for ( let j = 0; j < translations.length; j++ ) {
+				const width = ( translations[ j ][ property ] / max ) * 100;
+				const langCode = translations[ j ][ ( direction === 'to' ? 'sourceLanguage' : 'targetLanguage' ) ];
 
 				if ( width > 2 || j === 0 ) {
 					// languages with more than 2% are represented in chart.
-					var $bar = $( '<span>' )
+					const $bar = $( '<span>' )
 						.addClass( 'cx-stats-chart__bar' )
 						.prop( {
 							lang: 'en',
@@ -502,7 +501,7 @@
 			}
 
 			if ( tail ) {
-				var $tail = $( '<span>' )
+				const $tail = $( '<span>' )
 					.addClass( 'cx-stats-chart__bar cx-stats-bar-tail' )
 					.text( '…' )
 					.css( 'width', tailWidth + '%' );
@@ -516,7 +515,7 @@
 				content: $callout
 			} );
 
-			var $langCode = $( '<span>' )
+			const $langCode = $( '<span>' )
 				.addClass( 'cx-stats-chart__langcode' )
 				// Always Latin (like English).
 				// Make sure it's aligned correctly on all screen sizes.
@@ -526,7 +525,7 @@
 				} )
 				.text( model[ i ].language );
 
-			var $autonym = $( '<span>' )
+			const $autonym = $( '<span>' )
 				.addClass( 'cx-stats-chart__autonym' )
 				.prop( {
 					lang: model[ i ].language,
@@ -534,7 +533,7 @@
 				} )
 				.text( $.uls.data.getAutonym( model[ i ].language ) );
 
-			var $total = $( '<span>' )
+			let $total = $( '<span>' )
 				.addClass( 'cx-stats-chart__total' )
 				.text( fmt( model[ i ][ property ] ) );
 
@@ -553,7 +552,7 @@
 					.text( fmt( model[ i ][ property ] ) );
 			}
 
-			var $rowLabelContainer = $( '<span>' )
+			const $rowLabelContainer = $( '<span>' )
 				.addClass( 'cx-stats-chart__row-label-container' )
 				.append( $langCode, $autonym, $total );
 
@@ -573,7 +572,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	CXStats.prototype.getCXStats = function () {
-		var api = new mw.Api();
+		const api = new mw.Api();
 
 		return api.get( {
 			action: 'query',
@@ -599,9 +598,9 @@
 	};
 
 	CXStats.prototype.drawCumulativeGraph = function ( type ) {
-		var ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
+		const ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
-		var data = {
+		const data = {
 			labels: this.totalTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
@@ -642,9 +641,9 @@
 	};
 
 	CXStats.prototype.drawLanguageCumulativeGraph = function ( type ) {
-		var ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
+		const ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
-		var data = {
+		const data = {
 			labels: this.languageTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
@@ -697,10 +696,10 @@
 	};
 
 	CXStats.prototype.drawTranslationTrend = function () {
-		var type = 'delta';
+		const type = 'delta';
 
-		var ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
-		var data = {
+		const ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
+		const data = {
 			labels: this.totalTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
@@ -735,10 +734,10 @@
 	};
 
 	CXStats.prototype.drawLangTranslationTrend = function () {
-		var type = 'delta';
+		const type = 'delta';
 
-		var ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
-		var data = {
+		const ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
+		const data = {
 			labels: this.languageTranslationTrend.map( function ( data ) {
 				return data.date;
 			} ),
@@ -782,28 +781,28 @@
 	};
 
 	CXStats.prototype.transformJsonToModel = function ( records ) {
-		var hasOwn = Object.prototype.hasOwnProperty;
+		const hasOwn = Object.prototype.hasOwnProperty;
 
 		this.sourceTargetModel.draft = {};
 		this.targetSourceModel.draft = {};
 		this.sourceTargetModel.published = {};
 		this.targetSourceModel.published = {};
 
-		var i, status;
+		let i, status;
 		for ( i = 0; i < records.pages.length; i++ ) {
-			var record = records.pages[ i ];
+			const record = records.pages[ i ];
 			status = record.status;
-			var sourceLanguage = record.sourceLanguage;
-			var targetLanguage = record.targetLanguage;
+			const sourceLanguage = record.sourceLanguage;
+			const targetLanguage = record.targetLanguage;
 			this.sourceTargetModel[ status ][ sourceLanguage ] = this.sourceTargetModel[ status ][ sourceLanguage ] || [];
 			this.targetSourceModel[ status ][ targetLanguage ] = this.targetSourceModel[ status ][ targetLanguage ] || [];
 			this.sourceTargetModel[ status ][ sourceLanguage ].push( record );
 			this.targetSourceModel[ status ][ targetLanguage ].push( record );
 		}
 
-		var language, count, translators;
+		let language, count, translators;
 		for ( status in this.sourceTargetModel ) {
-			var tempModel = this.sourceTargetModel[ status ];
+			let tempModel = this.sourceTargetModel[ status ];
 			this.sourceTargetModel[ status ] = [];
 			for ( language in tempModel ) {
 				if ( hasOwn.call( tempModel, language ) ) {
@@ -840,7 +839,7 @@
 	};
 
 	$( function () {
-		var $container = $( '<div>' ).addClass( 'cx-stats-container' );
+		const $container = $( '<div>' ).addClass( 'cx-stats-container' );
 
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
@@ -850,7 +849,7 @@
 			)
 		);
 
-		var cxstats = new CXStats( $container, {
+		const cxstats = new CXStats( $container, {
 			siteMapper: new mw.cx.SiteMapper()
 		} );
 		cxstats.init();
@@ -859,7 +858,7 @@
 			mw.config.get( 'wgContentTranslationCampaigns' ).cxstats &&
 			mw.user.options.get( 'cx' ) !== '1'
 		) {
-			var cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+			const cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 				campaign: 'cxstats',
 				to: mw.config.get( 'wgContentLanguage' )
 			} );

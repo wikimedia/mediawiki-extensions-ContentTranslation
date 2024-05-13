@@ -48,11 +48,11 @@
 		if ( config.numOfLanguages ) {
 			this.numOfLanguages = config.numOfLanguages;
 
-			var languageIcon = new OO.ui.IconWidget( {
+			const languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
 				title: mw.msg( 'cx-page-number-of-languages' )
 			} );
-			var languageLabel = new OO.ui.LabelWidget( {
+			const languageLabel = new OO.ui.LabelWidget( {
 				label: mw.language.convertNumber( config.numOfLanguages )
 			} );
 			this.$element.append(

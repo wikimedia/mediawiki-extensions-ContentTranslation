@@ -94,7 +94,7 @@ mw.cx.tools.IssueTrackingTool.static.label = OO.ui.deferMsg( 'cx-tools-linter-is
  * Initialize the card as collapsed or expanded and show the current panel, if possible.
  */
 mw.cx.tools.IssueTrackingTool.prototype.init = function () {
-	var currentPanel = this.getCurrentPanel();
+	const currentPanel = this.getCurrentPanel();
 
 	if ( !currentPanel ) {
 		this.showCollapsed();
@@ -109,7 +109,7 @@ mw.cx.tools.IssueTrackingTool.prototype.init = function () {
  * Highlight the current node with higher opacity marker.
  */
 mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
-	var id = this.allIssues[ this.currentIssue - 1 ].id;
+	const id = this.allIssues[ this.currentIssue - 1 ].id;
 
 	this.removeCurrentNodeHighlight();
 	this.currentNode = null;
@@ -118,12 +118,12 @@ mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
 		return;
 	}
 
-	var node = this.getNodeForId( id );
+	const node = this.getNodeForId( id );
 	if ( node ) {
 		this.currentNode = node;
-		var $highlightableElement = node.getHighlightableElement();
+		const $highlightableElement = node.getHighlightableElement();
 		// eslint-disable-next-line no-jquery/no-class-state
-		var hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
+		const hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
 		$highlightableElement.addClass( hasErrors ? 'mw-cx-current-issue-error' : 'mw-cx-current-issue-warning' );
 	}
 };
@@ -150,13 +150,13 @@ mw.cx.tools.IssueTrackingTool.prototype.getContent = function () {
  * @return {number|boolean} Index of current panel or false
  */
 mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
-	var id = this.getCurrentNodeId();
+	const id = this.getCurrentNodeId();
 
 	if ( !id ) {
 		return false;
 	}
 
-	var number;
+	let number;
 	if ( id === 'title' ) {
 		number = id;
 	} else {
@@ -174,8 +174,8 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 		return this.currentIssue;
 	}
 
-	for ( var i = 0, length = this.allIssues.length; i < length; i++ ) {
-		var issue = this.allIssues[ i ];
+	for ( let i = 0, length = this.allIssues.length; i < length; i++ ) {
+		const issue = this.allIssues[ i ];
 
 		if ( issue.id === number ) {
 			return i + 1;
@@ -191,7 +191,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
  * @return {string}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
-	var activeElement = document.activeElement;
+	let activeElement = document.activeElement;
 
 	while ( activeElement ) {
 		if ( activeElement.classList.contains( 've-ce-cxSectionNode' ) ) {
@@ -214,11 +214,11 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
  * @return {jQuery[]}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getHeader = function () {
-	var $title = $( '<div>' )
+	const $title = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-title' )
 		.append( new OO.ui.LabelWidget( { label: this.constructor.static.label } ).$element );
 
-	var $actions = $( '<div>' )
+	const $actions = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-actions' )
 		.append( this.actionButtons.$element );
 
@@ -252,7 +252,7 @@ mw.cx.tools.IssueTrackingTool.prototype.getBody = function () {
  * @param {ve.ce.CXSectionNode|mw.cx.ui.PageTitleWidget} node
  */
 mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
-	var onFocus = OO.ui.debounce( this.init.bind( this ) ),
+	const onFocus = OO.ui.debounce( this.init.bind( this ) ),
 		onBlur = OO.ui.debounce( this.onBlur.bind( this ) );
 
 	if ( node.isFocusListenerAttached() ) {
@@ -366,14 +366,14 @@ mw.cx.tools.IssueTrackingTool.prototype.onBlur = function () {
 };
 
 mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
-	var id = this.allIssues[ this.currentIssue - 1 ].id;
+	const id = this.allIssues[ this.currentIssue - 1 ].id;
 
 	// If issue is global, i.e. not attached to any DOM node, we have nothing to focus
 	if ( id === 'global' ) {
 		return;
 	}
 
-	var node = this.getNodeForId( id );
+	const node = this.getNodeForId( id );
 	if ( node ) {
 		node.getFocusableElement().focus();
 	}
@@ -390,7 +390,7 @@ mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
  * @param {number} increment +1 or -1 indicating what was the previous issue in navigation
  */
 mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
-	var previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
+	const previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
 		currentIssueId = this.allIssues[ this.currentIssue - 1 ].id;
 
 	// If current issue is global, we don't steal focus from the previous node, because
@@ -399,13 +399,13 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 		return;
 	}
 
-	var previousNode = this.getNodeForId( previousIssueId );
-	var currentNode = this.getNodeForId( currentIssueId );
+	const previousNode = this.getNodeForId( previousIssueId );
+	const currentNode = this.getNodeForId( currentIssueId );
 
 	// If previous issue was global, i.e. not attached to any DOM node, that is considerred
 	// as case of blurred context, so correction of focus might be needed.
-	var bluring = ( previousIssueId === 'global' ) || ( previousNode && previousNode.blursEditingSurface() );
-	var focusableElement = currentNode && currentNode.getFocusableElement();
+	const bluring = ( previousIssueId === 'global' ) || ( previousNode && previousNode.blursEditingSurface() );
+	const focusableElement = currentNode && currentNode.getFocusableElement();
 
 	if ( bluring && focusableElement ) {
 		OO.ui.debounce( function () {
@@ -421,7 +421,7 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
  * @return {ve.ce.CXSectionNode|mw.cx.ui.PageTitleWidget|mw.cx.dm.Translation|null}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getNodeForId = function ( id ) {
-	var node = this.getVeTarget().getTargetSectionElementFromSectionNumber( id );
+	let node = this.getVeTarget().getTargetSectionElementFromSectionNumber( id );
 
 	if ( !node && id === 'title' ) {
 		node = this.getVeTarget().translationView.targetColumn.getTitleWidget();
@@ -455,16 +455,16 @@ mw.cx.tools.IssueTrackingTool.prototype.getVeTarget = function () {
  * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
  */
 mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues ) {
-	var allIssues = [];
+	const allIssues = [];
 
 	this.numberOfIssues = 0;
 	this.numberOfErrors = 0;
 	this.numberOfWarnings = 0;
 
-	var issues;
-	for ( var i = 0, length = nodesWithIssues.length; i < length; i++ ) {
-		var id = nodesWithIssues[ i ];
-		var node = this.getNodeForId( id );
+	let issues;
+	for ( let i = 0, length = nodesWithIssues.length; i < length; i++ ) {
+		const id = nodesWithIssues[ i ];
+		const node = this.getNodeForId( id );
 
 		if ( !node ) {
 			continue;
@@ -478,11 +478,11 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 			issues = node.getModel().getTranslationIssues();
 		}
 
-		var numOfIssues = issues.length;
+		const numOfIssues = issues.length;
 		this.numberOfIssues += numOfIssues;
 
-		for ( var j = 0; j < numOfIssues; j++ ) {
-			var issue = issues[ j ];
+		for ( let j = 0; j < numOfIssues; j++ ) {
+			const issue = issues[ j ];
 
 			if ( issue.getType() === 'error' ) {
 				this.numberOfErrors++;
@@ -541,9 +541,9 @@ mw.cx.tools.IssueTrackingTool.prototype.openFirstOfType = function ( type ) {
  * @param {Function} checkCondition
  */
 mw.cx.tools.IssueTrackingTool.prototype.openIssue = function ( checkCondition ) {
-	var index;
-	for ( var i = 0, length = this.allIssues.length; i < length; i++ ) {
-		var issueObj = this.allIssues[ i ];
+	let index;
+	for ( let i = 0, length = this.allIssues.length; i < length; i++ ) {
+		const issueObj = this.allIssues[ i ];
 
 		if ( checkCondition( issueObj.issue ) ) {
 			index = i;

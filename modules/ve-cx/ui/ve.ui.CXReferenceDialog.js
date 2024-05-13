@@ -27,11 +27,11 @@ OO.inheritClass( ve.ui.CXReferenceDialog, ve.ui.MWReferenceDialog );
 ve.ui.CXReferenceDialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'done' ) {
 		if ( this.selectedNode instanceof ve.dm.MWReferenceNode ) {
-			var cxData = this.selectedNode.getAttribute( 'cx' ) || {};
+			const cxData = this.selectedNode.getAttribute( 'cx' ) || {};
 
 			if ( cxData.adapted === false ) {
-				var targetDoc = this.selectedNode.getDocument();
-				var attributeTx = ve.dm.TransactionBuilder.static.newFromAttributeChanges(
+				const targetDoc = this.selectedNode.getDocument();
+				const attributeTx = ve.dm.TransactionBuilder.static.newFromAttributeChanges(
 					targetDoc,
 					this.selectedNode.getOuterRange().start,
 					{ cx: {} }

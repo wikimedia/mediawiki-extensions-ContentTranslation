@@ -76,7 +76,7 @@ mw.cx.ui.ToolsColumn.prototype.setTranslation = function ( translation ) {
  * Show the instructions card when translation is loaded.
  */
 mw.cx.ui.ToolsColumn.prototype.showInstructions = function () {
-	var instructions = mw.cx.tools.translationToolFactory.create(
+	const instructions = mw.cx.tools.translationToolFactory.create(
 		'instructions', this, this.config
 	);
 
@@ -105,10 +105,8 @@ mw.cx.ui.ToolsColumn.prototype.hideIssues = function () {
  * @param {mw.cx.ui.TranslationUnit} translationUnit
  */
 mw.cx.ui.ToolsColumn.prototype.showTools = function ( translationUnit ) {
-	var i, tools;
-
-	tools = translationUnit.getTools();
-	for ( i = 0; i < tools.length; i++ ) {
+	const tools = translationUnit.getTools();
+	for ( let i = 0; i < tools.length; i++ ) {
 		this.toolContainer.addItems( [ tools[ i ].getCard() ] );
 	}
 };
@@ -131,7 +129,7 @@ mw.cx.ui.ToolsColumn.prototype.showTool = function ( tool ) {
  * @param {mw.cx.tools.TranslationTool} tool The translation tool instance
  */
 mw.cx.ui.ToolsColumn.prototype.hideTool = function ( tool ) {
-	var items = this.toolContainer.findItemsFromData( tool.getData() );
+	const items = this.toolContainer.findItemsFromData( tool.getData() );
 	this.toolContainer.removeItems( items );
 };
 

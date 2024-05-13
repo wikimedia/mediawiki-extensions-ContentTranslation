@@ -97,7 +97,7 @@ OO.inheritClass( mw.cx.ui.TranslationView, OO.ui.StackLayout );
  * @param {number} sectionNumber The number in the source/target section id attribute
  */
 mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
-	var sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
+	const sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
 		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
 
 	function isSubclass( x, y ) {
@@ -106,13 +106,13 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	if ( !sourceNode || !targetNode ) {
 		return;
 	}
-	var viewNode = $.data( targetNode, 'view' );
+	const viewNode = $.data( targetNode, 'view' );
 	sourceNode.style.marginTop = '';
 	targetNode.style.marginTop = '';
 	// Reset heights before we do calculations.
 	sourceNode.style.height = '';
 	targetNode.style.height = '';
-	var offsetTop = Math.max(
+	const offsetTop = Math.max(
 		sourceOffsetTop + sourceNode.offsetTop,
 		targetOffsetTop + targetNode.offsetTop
 	);
@@ -157,7 +157,7 @@ mw.cx.ui.TranslationView.prototype.showMessage = function ( type, message, detai
  * @param {string} type 'error' or 'warning'
  */
 mw.cx.ui.TranslationView.prototype.showViewIssuesMessage = function ( message, issueName, type ) {
-	var button = new OO.ui.ButtonWidget( {
+	const button = new OO.ui.ButtonWidget( {
 		framed: false,
 		flags: [ 'progressive' ],
 		label: mw.msg( 'cx-infobar-view-issues' )
@@ -172,7 +172,7 @@ mw.cx.ui.TranslationView.prototype.showViewIssuesMessage = function ( message, i
  * @param {string} issueName Name of the issue to be displayed when infobar message is closed
  */
 mw.cx.ui.TranslationView.prototype.displayIssueDetails = function ( issueName ) {
-	var issueCard = this.toolsColumn.issueCard;
+	const issueCard = this.toolsColumn.issueCard;
 
 	if ( !issueCard ) {
 		throw new Error( 'Issue card is not initialized' );
@@ -240,13 +240,13 @@ mw.cx.ui.TranslationView.prototype.onIssuesResolved = function ( nodesWithIssues
  * is the bigger height between source and target titles.
  */
 mw.cx.ui.TranslationView.prototype.alignTitles = function () {
-	var $sourceTitleWidget = this.sourceColumn.getTitleWidget().$element,
+	const $sourceTitleWidget = this.sourceColumn.getTitleWidget().$element,
 		$targetTitleWidget = this.targetColumn.getTitleWidget().$element;
 
 	$sourceTitleWidget.css( 'min-height', '' );
 	$targetTitleWidget.css( 'min-height', '' );
 
-	var height = Math.max(
+	const height = Math.max(
 		$sourceTitleWidget.outerHeight(),
 		$targetTitleWidget.outerHeight()
 	);

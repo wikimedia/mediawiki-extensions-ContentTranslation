@@ -24,7 +24,7 @@ ve.dm.CXLinkAnnotation.static.matchFunction = function ( domElement ) {
 };
 
 ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter ) {
-	var dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
+	let dataElement = ve.dm.CXLinkAnnotation.super.static.toDataElement.call( this, domElements, converter );
 
 	if ( !dataElement ) {
 		// ve.dm.CXLinkAnnotation.super.static.toDataElement has assumptions about document.baseURI.
@@ -33,7 +33,7 @@ ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter 
 		// totally be different when running on a local dev wiki.
 		// Because of this dataElement can be null as toDataElement fails to parse an internal link
 		// So make this dataElement calculation agnostic of all of the above mentioned factors.
-		var title = domElements[ 0 ].getAttribute( 'title' );
+		let title = domElements[ 0 ].getAttribute( 'title' );
 		if ( !title ) {
 			// No title present. This can happen if the link is to a section in the article
 			// Example: href=./Oxygen#Occurance in the Oxygen article.
@@ -47,7 +47,7 @@ ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter 
 
 	dataElement.attributes.linkid = domElements[ 0 ].getAttribute( 'data-linkid' );
 
-	var dataCX = domElements[ 0 ].getAttribute( 'data-cx' );
+	const dataCX = domElements[ 0 ].getAttribute( 'data-cx' );
 	if ( dataCX ) {
 		dataElement.attributes.cx = JSON.parse( domElements[ 0 ].getAttribute( 'data-cx' ) );
 	}
@@ -55,7 +55,7 @@ ve.dm.CXLinkAnnotation.static.toDataElement = function ( domElements, converter 
 };
 
 ve.dm.CXLinkAnnotation.static.toDomElements = function ( dataElement, doc ) {
-	var domElements = ve.dm.CXLinkAnnotation.super.static.toDomElements.call( this, dataElement, doc );
+	const domElements = ve.dm.CXLinkAnnotation.super.static.toDomElements.call( this, dataElement, doc );
 	domElements[ 0 ].setAttribute( 'data-linkid', dataElement.attributes.linkid );
 	if ( dataElement.attributes.cx ) {
 		domElements[ 0 ].setAttribute( 'data-cx', JSON.stringify( dataElement.attributes.cx ) );
@@ -68,7 +68,7 @@ ve.dm.CXLinkAnnotation.static.toDomElements = function ( dataElement, doc ) {
  * @return {ve.dm.CXLinkAnnotation} The annotation.
  */
 ve.dm.CXLinkAnnotation.static.newFromTitle = function ( title, rawTitle ) {
-	var element = this.dataElementFromTitle( title, rawTitle );
+	const element = this.dataElementFromTitle( title, rawTitle );
 
 	element.attributes.cx = {
 		userAdded: true,
@@ -81,7 +81,7 @@ ve.dm.CXLinkAnnotation.static.newFromTitle = function ( title, rawTitle ) {
 /* Methods */
 
 ve.dm.CXLinkAnnotation.prototype.getComparableObject = function () {
-	var comparableObject = ve.dm.CXLinkAnnotation.super.prototype.getComparableObject.call( this );
+	const comparableObject = ve.dm.CXLinkAnnotation.super.prototype.getComparableObject.call( this );
 	comparableObject.linkid = this.getAttribute( 'linkid' );
 
 	return comparableObject;

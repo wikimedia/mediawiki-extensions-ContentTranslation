@@ -66,7 +66,7 @@ OO.inheritClass( mw.cx.ui.TranslationIssueWidget, OO.ui.TabPanelLayout );
 /* Methods */
 
 mw.cx.ui.TranslationIssueWidget.prototype.getIconConfig = function () {
-	var isError = this.model.getType() === 'error';
+	const isError = this.model.getType() === 'error';
 
 	return {
 		flags: isError ? [ 'error' ] : [ 'warning' ],
@@ -76,7 +76,7 @@ mw.cx.ui.TranslationIssueWidget.prototype.getIconConfig = function () {
 };
 
 mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
-	var additionalButtons = this.model.getAdditionalButtons() || [];
+	const additionalButtons = this.model.getAdditionalButtons() || [];
 
 	if ( !additionalButtons.length ) {
 		return;
@@ -85,7 +85,7 @@ mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
 	this.$foot.addClass( 'cx-ui-translationIssue-foot-additional' );
 
 	additionalButtons.forEach( function ( buttonConfig ) {
-		var button = new OO.ui.ButtonWidget( {
+		const button = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: buttonConfig.icon,
 			label: buttonConfig.label

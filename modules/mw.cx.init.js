@@ -34,9 +34,9 @@
 	}
 
 	function initCX() {
-		var services = {};
+		let services = {};
 
-		var query = new mw.Uri().query;
+		const query = new mw.Uri().query;
 		if (
 			!query.page || !query.from || !query.to ||
 			( mw.Title.newFromText( query.page ) === null )
@@ -49,10 +49,10 @@
 		// All these configuration in mw.cx is just for supporting legacy code.
 		// New code should get them from config injected to classes.
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
-		var sourceTitle = query.page;
-		var sourceRevision = query.revision;
-		var sourceSectionTitle = query.sourcesection;
-		var targetSectionTitle = query.targetsection || query.sourcesection;
+		const sourceTitle = query.page;
+		const sourceRevision = query.revision;
+		const sourceSectionTitle = query.sourcesection;
+		const targetSectionTitle = query.targetsection || query.sourcesection;
 		mw.cx.targetLanguage = query.to;
 		mw.cx.sourceLanguage = query.from;
 		// Global services that every class can expect to have
@@ -65,9 +65,9 @@
 		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
 		getTargetTitle( query.targettitle, sourceTitle, services.MTService ).then( function ( targetTitle ) {
-			var sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
-			var targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
-			var translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
+			const sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
+			const targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
+			const translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );
 			translation.init();
 
 			if ( query.campaign ) {
@@ -81,7 +81,7 @@
 			// The default values for these options depend on PageImages and Wikibase Client
 			// being installed on this wiki. Because we are querying remote wikis, this makes
 			// no sense, and hence overwrite the values.
-			var VEConfig = mw.config.get( 'wgVisualEditorConfig' );
+			const VEConfig = mw.config.get( 'wgVisualEditorConfig' );
 			VEConfig.usePageImages = true;
 			VEConfig.usePageDescriptions = true;
 			mw.config.set( 'wgVisualEditorConfig', VEConfig );

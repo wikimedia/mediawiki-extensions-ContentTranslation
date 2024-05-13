@@ -55,7 +55,7 @@
 	};
 
 	ProgressBar.prototype.update = function ( weights, version ) {
-		var progress = weights.any * 100,
+		const progress = weights.any * 100,
 			mtProgress = weights.mt * 100,
 			mtPercentage = weights.mt / weights.any * 100 || 0,
 			mtText = version === 2 ? mtProgress : mtPercentage,
@@ -77,8 +77,8 @@
 
 	$.fn.cxProgressBar = function ( options ) {
 		return this.each( function () {
-			var $this = $( this ),
-				data = $this.data( 'cxProgressBar' );
+			const $this = $( this );
+			let data = $this.data( 'cxProgressBar' );
 
 			if ( !data ) {
 				$this.data( 'cxProgressBar', ( data = new ProgressBar( this, options ) ) );

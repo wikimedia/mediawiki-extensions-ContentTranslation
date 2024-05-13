@@ -4,10 +4,10 @@
 	 * @return {HTMLDivElement}
 	 */
 	function createPanelTextElement( sxMissingFrequentLanguages ) {
-		var missingLanguagesPanelTextElement = document.createElement( 'div' );
+		const missingLanguagesPanelTextElement = document.createElement( 'div' );
 		missingLanguagesPanelTextElement.className = 'cx-entrypoint-missing-frequent-languages__text';
 
-		var missingFrequentLanguagesCount = sxMissingFrequentLanguages.length;
+		const missingFrequentLanguagesCount = sxMissingFrequentLanguages.length;
 		// This method is only called when frequent, missing and SX-enabled languages DO exist,
 		// so the length is guaranteed to be greater than 0
 		if ( missingFrequentLanguagesCount === 1 ) {
@@ -31,8 +31,8 @@
 			).parse();
 		}
 
-		var languageSpans = missingLanguagesPanelTextElement.getElementsByTagName( 'span' );
-		for ( var i = 0; i < languageSpans.length; i++ ) {
+		const languageSpans = missingLanguagesPanelTextElement.getElementsByTagName( 'span' );
+		for ( let i = 0; i < languageSpans.length; i++ ) {
 			languageSpans[ i ].setAttribute( 'lang', sxMissingFrequentLanguages[ i ].lang );
 			languageSpans[ i ].setAttribute( 'dir', sxMissingFrequentLanguages[ i ].dir );
 		}
@@ -41,7 +41,7 @@
 	}
 
 	function createArrowIcon() {
-		var span = document.createElement( 'span' );
+		const span = document.createElement( 'span' );
 		span.className = 'cx-entrypoint-missing-frequent-languages__icon mw-ui-icon';
 		return span;
 	}
@@ -59,18 +59,18 @@
 	function createMissingLanguagesPanel( sxMissingFrequentLanguages ) {
 		// Wrap the banner inside an h3 element, so that it is hidden along with other h3 elements inside mobile
 		// Language Searcher, when a search query exists inside the Language Searcher search input.
-		var missingLanguagesPanelContainer = document.createElement( 'h3' );
+		const missingLanguagesPanelContainer = document.createElement( 'h3' );
 		missingLanguagesPanelContainer.className = 'cx-entrypoint-missing-frequent-languages-container';
 
-		var missingLanguagesPanel = document.createElement( 'a' );
+		const missingLanguagesPanel = document.createElement( 'a' );
 		missingLanguagesPanel.className = 'cx-entrypoint-missing-frequent-languages';
 
-		var missingLanguagesPanelText = createPanelTextElement( sxMissingFrequentLanguages );
-		var missingLanguagesPanelIcon = createArrowIcon();
+		const missingLanguagesPanelText = createPanelTextElement( sxMissingFrequentLanguages );
+		const missingLanguagesPanelIcon = createArrowIcon();
 		missingLanguagesPanel.appendChild( missingLanguagesPanelText );
 		missingLanguagesPanel.appendChild( missingLanguagesPanelIcon );
 
-		var siteMapper = new mw.cx.SiteMapper();
+		const siteMapper = new mw.cx.SiteMapper();
 		missingLanguagesPanel.href = siteMapper.getCXUrl(
 			mw.config.get( 'wgPageName' ),
 			null,
@@ -91,16 +91,16 @@
 	 */
 	function getMissingFrequentLanguages( frequentLanguages, deviceLanguage ) {
 		/** @type {{lang: string, frequency: number}[]} */
-		var targetedLanguages = Object.keys( frequentLanguages ).map( function ( languageCode ) {
+		let targetedLanguages = Object.keys( frequentLanguages ).map( function ( languageCode ) {
 			return { lang: languageCode, frequency: frequentLanguages[ languageCode ] };
 		} ).sort( function ( a, b ) {
 			return b.frequency - a.frequency;
 		} );
 
-		var deviceParentLanguage;
+		let deviceParentLanguage;
 		// add device language/variant and parent device language (if exist) on top of this list
 		if ( deviceLanguage ) {
-			var index = deviceLanguage.indexOf( '-' );
+			const index = deviceLanguage.indexOf( '-' );
 			if ( index !== -1 ) {
 				deviceParentLanguage = deviceLanguage.slice( 0, index );
 			}
@@ -121,7 +121,7 @@
 		 * @type {{lang: string, autonym: string, dir: string}[]} missingSXLanguages array containing the
 		 * enabled language codes for SX that are missing for the specific article
 		 */
-		var missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
+		const missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
 		return missingSXLanguages.filter( function ( missingSXLanguage ) {
 			return targetedLanguages.some( function ( targetLanguage ) {
 				return missingSXLanguage.lang === targetLanguage.lang;
@@ -136,7 +136,7 @@
 	 * mapped to their respective frequency (e.g. { en: 3, el: 5 })
 	 */
 	function getFrequentlyUsedLanguages() {
-		var languageMap = mw.storage.get( 'langMap' );
+		const languageMap = mw.storage.get( 'langMap' );
 
 		return languageMap ? JSON.parse( languageMap ) : {};
 	}
@@ -144,15 +144,15 @@
 	mw.hook( 'mobileFrontend.languageSearcher.onOpen' ).add(
 		/** @param {LanguageSearcher} languageSearcher */
 		function ( languageSearcher ) {
-			var frequentLanguages = getFrequentlyUsedLanguages(),
+			const frequentLanguages = getFrequentlyUsedLanguages(),
 				deviceLanguage = languageSearcher.options.deviceLanguage;
 
-			var sxMissingFrequentLanguages = getMissingFrequentLanguages( frequentLanguages, deviceLanguage );
+			const sxMissingFrequentLanguages = getMissingFrequentLanguages( frequentLanguages, deviceLanguage );
 			if ( !sxMissingFrequentLanguages.length ) {
 				return;
 			}
 
-			var missingLanguagesPanel = createMissingLanguagesPanel( sxMissingFrequentLanguages );
+			const missingLanguagesPanel = createMissingLanguagesPanel( sxMissingFrequentLanguages );
 			languageSearcher.addBanner( missingLanguagesPanel.outerHTML );
 		}
 	);

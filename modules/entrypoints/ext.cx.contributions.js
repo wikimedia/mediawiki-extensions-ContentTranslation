@@ -7,7 +7,7 @@
 ( function () {
 	'use strict';
 
-	var entrypointName = 'contributions-page';
+	const entrypointName = 'contributions-page';
 
 	/**
 	 * @class
@@ -26,10 +26,10 @@
 	};
 
 	CXContributions.prototype.render = function () {
-		var $sectionHeader = $( '<h1>' )
+		const $sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		var contributionButtons = this.getActivities().map( function ( item ) {
+		const contributionButtons = this.getActivities().map( function ( item ) {
 			// eslint-disable-next-line mediawiki/class-doc
 			return new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
@@ -39,7 +39,7 @@
 				href: item.url
 			} );
 		} );
-		var contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
+		const contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
 			classes: [ 'cx-contributions' ],
 			items: contributionButtons
 		} );
@@ -89,7 +89,7 @@
 	};
 
 	$( function () {
-		var contributionsItemsContainer = document.createElement( 'header' );
+		const contributionsItemsContainer = document.createElement( 'header' );
 		contributionsItemsContainer.classList.add( 'cx-contributions-header' );
 
 		// eslint-disable-next-line no-new

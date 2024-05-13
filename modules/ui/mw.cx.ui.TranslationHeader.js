@@ -30,7 +30,7 @@ mw.cx.ui.TranslationHeader = function ( config ) {
 OO.inheritClass( mw.cx.ui.TranslationHeader, OO.ui.PanelLayout );
 
 mw.cx.ui.TranslationHeader.prototype.getContent = function () {
-	var translationCenter = new OO.ui.ButtonWidget( {
+	const translationCenter = new OO.ui.ButtonWidget( {
 		framed: false,
 		icon: 'previous',
 		classes: [ 'cx-header__translation-center' ],

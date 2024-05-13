@@ -13,13 +13,13 @@ mw.cx.ui.FeatureDiscoveryWidget = function MwCxUiFeatureDiscoveryWidget( config 
 	config = config || {};
 	this.$element = config.$container;
 	this.onClose = config.onClose;
-	var popupCloseButton = new OO.ui.ButtonWidget( {
+	const popupCloseButton = new OO.ui.ButtonWidget( {
 		label: config.dismissLabel,
 		flags: [ 'progressive', 'primary' ],
 		classes: [ 'mw-cx-ui-featureDiscoveryPopup-dismiss' ]
 	} );
 	popupCloseButton.connect( this, { click: 'onPopupCloseButtonClick' } );
-	var $popupContent = $( '<div>' ).append(
+	const $popupContent = $( '<div>' ).append(
 		$( '<div>' ).addClass( 'mw-cx-ui-featureDiscoveryPopup-header' ),
 		$( '<h3>' ).text( config.title ),
 		$( '<p>' ).text( config.content ),

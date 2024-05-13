@@ -83,7 +83,7 @@
 		 * @param {string} context "saving" or "publishing"
 		 */
 		handleAbuseFilter: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, context ) {
-			var abuseFilterCodes = [ 'abusefilter-warning', 'abusefilter-disallowed' ];
+			const abuseFilterCodes = [ 'abusefilter-warning', 'abusefilter-disallowed' ];
 
 			if ( trace &&
 				trace.error &&

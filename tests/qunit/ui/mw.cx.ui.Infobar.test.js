@@ -10,9 +10,9 @@
 	QUnit.module( 'mw.cx.ui.Infobar', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'Show message with a string', function ( assert ) {
-		var $fixture = $( '#qunit-fixture' );
+		const $fixture = $( '#qunit-fixture' );
 
-		var infobar = new mw.cx.ui.Infobar();
+		const infobar = new mw.cx.ui.Infobar();
 		$fixture.append( infobar.$element );
 
 		infobar.showMessage( 'test-class', 'Test <b>message</b>' );
@@ -24,9 +24,9 @@
 	} );
 
 	QUnit.test( 'Show message with a Message object', function ( assert ) {
-		var $fixture = $( '#qunit-fixture' );
+		const $fixture = $( '#qunit-fixture' );
 
-		var infobar = new mw.cx.ui.Infobar();
+		const infobar = new mw.cx.ui.Infobar();
 		$fixture.append( infobar.$element );
 
 		mw.messages.set( 'cx-header-test', '[http://example.com $1] is <b>here</b>' );

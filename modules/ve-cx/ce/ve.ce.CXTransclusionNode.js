@@ -75,7 +75,7 @@ ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
  */
 ve.ce.CXTransclusionBlockNode.prototype.afterRender = function () {
 	ve.ce.CXTransclusionBlockNode.super.prototype.afterRender.apply( this, arguments );
-	var parentSection = this.model.findParent( ve.dm.CXSectionNode );
+	const parentSection = this.model.findParent( ve.dm.CXSectionNode );
 	// Emit an event so that the parent section can do visual re-alignment if needed.
 	parentSection.emit( 'afterRender' );
 	// Emit change for the parent section, so that saving is queued.
@@ -90,7 +90,7 @@ ve.ce.CXTransclusionBlockNode.prototype.onFocusableSetup = function () {
 		return;
 	}
 
-	var iconWhenInvisible = this.constructor.static.iconWhenInvisible;
+	const iconWhenInvisible = this.constructor.static.iconWhenInvisible;
 
 	if ( this.isUnadapted() ) {
 		// Temporarily set static property to null to avoid displaying icon
@@ -149,7 +149,7 @@ ve.ce.CXTransclusionInlineNode.static.tagName = 'span';
  */
 ve.ce.CXTransclusionInlineNode.prototype.afterRender = function () {
 	ve.ce.CXTransclusionInlineNode.super.prototype.afterRender.apply( this, arguments );
-	var parentSection = this.model.findParent( ve.dm.CXSectionNode );
+	const parentSection = this.model.findParent( ve.dm.CXSectionNode );
 	// For citations, the corresponding template is not rendered inside the section, but
 	// in the reference context item. So there is no parent section.
 	if ( parentSection ) {

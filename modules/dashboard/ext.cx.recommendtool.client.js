@@ -31,7 +31,7 @@
 	 * @return {jQuery.Promise}
 	 */
 	RecommendTool.prototype.getSeedPages = function () {
-		var self = this,
+		const self = this,
 			api = new mw.Api();
 
 		if ( this.seeds ) {
@@ -45,7 +45,7 @@
 		// Effectively, the following request is duplicate. But it does not look like a good idea
 		// to have dependency on translation list for this module. There are some complications as
 		// well with sharing data - we are not sure which module gets initated first.
-		var params = {
+		const params = {
 			assert: 'user',
 			list: 'contenttranslation',
 			from: this.sourceLanguage,
@@ -66,11 +66,11 @@
 	 * @return {jQuery.Promise}
 	 */
 	RecommendTool.prototype.getSuggestionList = function () {
-		var self = this;
+		const self = this;
 
 		return this.getSeedPages().then( function ( seedPages ) {
-			var algorithms = [ 'morelike', 'related_articles' ];
-			var algorithm = algorithms[ Math.floor( Math.random() * algorithms.length ) ];
+			const algorithms = [ 'morelike', 'related_articles' ];
+			const algorithm = algorithms[ Math.floor( Math.random() * algorithms.length ) ];
 			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
 				source: self.sourceLanguage,
 				target: self.targetLanguage,
@@ -91,10 +91,10 @@
 	 * @return {Object}
 	 */
 	RecommendTool.prototype.adapt = function ( articles, algorithm ) {
-		var suggestions = [];
+		const suggestions = [];
 
-		for ( var i = 0; i < articles.length; i++ ) {
-			var title = mw.Title.newFromText( articles[ i ].title );
+		for ( let i = 0; i < articles.length; i++ ) {
+			const title = mw.Title.newFromText( articles[ i ].title );
 			if ( !title ) {
 				continue;
 			}

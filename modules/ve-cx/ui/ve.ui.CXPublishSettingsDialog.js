@@ -71,7 +71,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getActionProcess = function ( action ) {
  * @param {OO.ui.OptionWidget|null} selectedItem
  */
 ve.ui.CXPublishSettingsDialog.prototype.updateActions = function ( selectedItem ) {
-	var namespace = selectedItem ? selectedItem.getData() : null;
+	const namespace = selectedItem ? selectedItem.getData() : null;
 	this.actions.setAbilities( { done: this.initialNamespace !== namespace } );
 };
 
@@ -79,24 +79,24 @@ ve.ui.CXPublishSettingsDialog.prototype.updateActions = function ( selectedItem 
  * @inheritdoc
  */
 ve.ui.CXPublishSettingsDialog.prototype.initialize = function () {
-	var namespaceIds = mw.config.get( 'wgNamespaceIds' );
+	const namespaceIds = mw.config.get( 'wgNamespaceIds' );
 
 	// Parent method
 	ve.ui.CXPublishSettingsDialog.super.prototype.initialize.apply( this, arguments );
 
-	var publishDestinationLabel = new OO.ui.LabelWidget( {
+	const publishDestinationLabel = new OO.ui.LabelWidget( {
 		label: mw.msg( 'cx-publish-destination-header' ),
 		classes: [ 've-ui-cxPublishSettings-destination' ]
 	} );
 
-	var helpIcon = new OO.ui.ButtonWidget( {
+	const helpIcon = new OO.ui.ButtonWidget( {
 		icon: 'helpNotice',
 		framed: false,
 		href: 'https://www.mediawiki.org/wiki/Help:Content_translation/Publishing',
 		target: '_blank'
 	} );
 
-	var $publishSettingsContainer = $( '<div>' )
+	const $publishSettingsContainer = $( '<div>' )
 		.addClass( 've-ui-cxPublishSettings-destination-container' )
 		.append( publishDestinationLabel.$element, helpIcon.$element );
 
@@ -166,7 +166,7 @@ ve.ui.CXPublishSettingsDialog.prototype.getTeardownProcess = function ( data ) {
  * @return {OO.ui.RadioOptionWidget}
  */
 ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( namespace, data ) {
-	var radioOption = new OO.ui.RadioOptionWidget( {
+	const radioOption = new OO.ui.RadioOptionWidget( {
 		// Messages used here:
 		// * cx-publish-destination-namespace-main
 		// * cx-publish-destination-namespace-user
@@ -174,7 +174,7 @@ ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( nam
 		label: mw.msg( 'cx-publish-destination-namespace-' + namespace ),
 		data: data
 	} );
-	var description = new OO.ui.LabelWidget( {
+	const description = new OO.ui.LabelWidget( {
 		// Messages used here:
 		// * cx-publish-destination-namespace-main-description
 		// * cx-publish-destination-namespace-user-description
@@ -192,7 +192,7 @@ ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( nam
  * @return {jQuery.Promise}
  */
 ve.ui.CXPublishSettingsDialog.prototype.doesTargetTitleExist = function () {
-	var pageTitle = mw.cx.getTitleForNamespace( ve.init.target.getPageName(), this.mainNamespaceId );
+	const pageTitle = mw.cx.getTitleForNamespace( ve.init.target.getPageName(), this.mainNamespaceId );
 
 	return ve.init.platform.linkCache.get( pageTitle ).then( function ( result ) {
 		return !result.missing;
@@ -203,7 +203,7 @@ ve.ui.CXPublishSettingsDialog.prototype.doesTargetTitleExist = function () {
  * @param {boolean} targetTitleExists True if target title exists in main namespace
  */
 ve.ui.CXPublishSettingsDialog.prototype.changeMainNamespaceLabel = function ( targetTitleExists ) {
-	var msgKey = 'cx-publish-destination-namespace-main';
+	let msgKey = 'cx-publish-destination-namespace-main';
 
 	if ( this.targetTitleExists === targetTitleExists ) {
 		return;

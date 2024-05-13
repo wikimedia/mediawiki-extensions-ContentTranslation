@@ -34,8 +34,8 @@ mw.cx.NamespaceCache.prototype.get = function ( canonicalNamespace ) {
 };
 
 mw.cx.NamespaceCache.prototype.processResponse = function ( response ) {
-	for ( var namespaceId in response.query.namespaces ) {
-		var namespaceObj = response.query.namespaces[ namespaceId ];
+	for ( const namespaceId in response.query.namespaces ) {
+		const namespaceObj = response.query.namespaces[ namespaceId ];
 		this.cacheValues[ namespaceObj.canonical ] = namespaceObj[ '*' ];
 	}
 };

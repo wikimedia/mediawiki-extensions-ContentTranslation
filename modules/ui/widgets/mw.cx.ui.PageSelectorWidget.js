@@ -62,7 +62,7 @@ mw.cx.ui.PageSelectorWidget.prototype.initializeLookupMenuSelection = function (
 		return this;
 	}
 
-	var matchingItem = this.lookupMenu.findItemFromData( this.getValue() );
+	const matchingItem = this.lookupMenu.findItemFromData( this.getValue() );
 	if ( matchingItem ) {
 		this.lookupMenu.chooseItem( matchingItem );
 		this.lookupChooseFirstItem = false; // Reset to the default value
@@ -139,7 +139,7 @@ mw.cx.ui.PageSelectorWidget.prototype.listen = function () {
  */
 mw.cx.ui.PageSelectorWidget.prototype.getOptionWidgetData = function ( title, data ) {
 	// Parent method
-	var optionWidgetData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionWidgetData.apply( this, arguments );
+	const optionWidgetData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionWidgetData.apply( this, arguments );
 
 	// Correct the URL so that it can point to the source language wiki.
 	optionWidgetData.url = this.siteMapper.getPageUrl( this.language, title );
@@ -157,7 +157,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionWidgetData = function ( title, da
  */
 mw.cx.ui.PageSelectorWidget.prototype.getApiParams = function () {
 	// Parent method
-	var params = mw.cx.ui.PageSelectorWidget.super.prototype.getApiParams.apply( this, arguments );
+	const params = mw.cx.ui.PageSelectorWidget.super.prototype.getApiParams.apply( this, arguments );
 
 	params.prop.push( 'langlinks', 'langlinkscount' );
 	params.lllang = this.siteMapper.getWikiDomainCode( this.targetLanguage );
@@ -180,14 +180,14 @@ mw.cx.ui.PageSelectorWidget.prototype.createOptionWidget = function ( data ) {
  * @return {Array} Array of OO.ui.OptionWidget menu items and mw.cx.ui.MenuLabelWidget labels
  */
 mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
-	var nearbyPages = pages.nearby,
+	const nearbyPages = pages.nearby,
 		recentEditPages = pages.recentEdits,
 		pageData = {},
 		items = [],
 		query = this.getQueryValue(),
 		self = this;
 
-	var hasResults;
+	let hasResults;
 	// If there is user input, we execute parent method, process possible no results case and return early
 	if ( query ) {
 		if ( query.indexOf( ':' ) >= 0 ) {
@@ -198,7 +198,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			// Reset to default namespace preference.
 			this.setNamespace( mw.config.get( 'wgNamespaceIds' )[ '' ] ); // Main namespace
 		}
-		var optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
+		const optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
 		hasResults = optionsData.length > 0;
 
 		if ( !hasResults ) {
@@ -223,8 +223,8 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			label: label
 		} ) );
 
-		for ( var index in pages ) {
-			var suggestionPage = pages[ index ];
+		for ( const index in pages ) {
+			const suggestionPage = pages[ index ];
 
 			pageData[ suggestionPage.title ] = {
 				disambiguation: OO.getProp( suggestionPage, 'pageprops', 'disambiguation' ) !== undefined,
@@ -236,7 +236,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			// Throw away pages from wrong namespaces. This can happen when 'showRedirectTargets' is true
 			// and we encounter a cross-namespace redirect.
 			if ( self.namespace === null || self.namespace === suggestionPage.ns ) {
-				var page = pageData[ suggestionPage.title ];
+				const page = pageData[ suggestionPage.title ];
 				items.push( self.createOptionWidget( self.getOptionWidgetData( suggestionPage.title, page ) ) );
 			}
 		}
@@ -280,7 +280,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getLookupRequest = function () {
  * Populates suggestions to display when search input field is empty.
  */
 mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
-	var self = this;
+	const self = this;
 
 	if ( !this.allowSuggestionsWhenEmpty ) {
 		return;
@@ -291,7 +291,7 @@ mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
 		this.getPageDetails(),
 		this.getNearbyPages()
 	).done( function ( recentEdits, nearby ) {
-		var recentEditPages = OO.getProp( recentEdits, 'query', 'pages' ),
+		const recentEditPages = OO.getProp( recentEdits, 'query', 'pages' ),
 			nearbyPages = OO.getProp( nearby, 'query', 'pages' );
 
 		self.requestCache[ '' ] = {
@@ -312,7 +312,7 @@ mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
  * @return {string|null}
  */
 mw.cx.ui.PageSelectorWidget.prototype.getUserCoordinates = function () {
-	var geoIP = mw.cookie.get( 'GeoIP', '' ), // GeoIP format: 'FI:Helsinki:60.1756:24.9342:v4'
+	const geoIP = mw.cookie.get( 'GeoIP', '' ), // GeoIP format: 'FI:Helsinki:60.1756:24.9342:v4'
 		geoIPCoordsMatch = geoIP && geoIP.match( /\d+\.?\d*:\d+\.?\d*/g ),
 		geoIPCoords = geoIPCoordsMatch && geoIPCoordsMatch[ 0 ].replace( ':', '|' ),
 		ulsGeo = JSON.parse( mw.cookie.get( 'ULSGeo' ) ), // Outside Wikimedia, ULS stores geolocation info in 'ULSGeo' cookie
@@ -328,7 +328,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getUserCoordinates = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
-	var coords = this.getUserCoordinates();
+	const coords = this.getUserCoordinates();
 
 	if ( !coords ) {
 		// If we can't get user coordinates, use `$.when()` to create and return resolved promise.
@@ -359,7 +359,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
-	var self = this;
+	const self = this;
 
 	return this.getRecentlyEditedArticleTitles().then( function ( titles ) {
 		return self.siteMapper.getApi( self.language ).get( {
@@ -384,10 +384,10 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function () {
-	var userName = mw.config.get( 'wgUserName' ),
+	const userName = mw.config.get( 'wgUserName' ),
 		api = this.siteMapper.getApi( this.language );
 
-	var params = {
+	const params = {
 		action: 'query',
 		list: [ 'usercontribs' ],
 		ucuser: userName,
@@ -397,7 +397,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function 
 	};
 
 	return api.get( params ).then( function ( data ) {
-		var articles = OO.getProp( data, 'query', 'usercontribs' );
+		const articles = OO.getProp( data, 'query', 'usercontribs' );
 
 		if ( !articles ) {
 			return $.Deferred().reject( 'No recent user contributions' ).promise();

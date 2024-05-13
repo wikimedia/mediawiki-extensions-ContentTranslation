@@ -50,7 +50,7 @@ mw.cx.MachineTranslationManager.prototype.getProviderLabel = function ( provider
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
-	var
+	const
 		key = this.getStorageKey(),
 		value = mw.storage.get( key );
 
@@ -66,7 +66,7 @@ mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
 };
 
 mw.cx.MachineTranslationManager.prototype.setPreferredProvider = function ( value ) {
-	var key = this.getStorageKey();
+	const key = this.getStorageKey();
 
 	mw.storage.set( key, value );
 };
@@ -95,7 +95,7 @@ mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
 mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () {
 	return mw.loader.using( 'jquery.uls.data' ).then(
 		function () {
-			var
+			const
 				sourceDir = $.uls.data.getDir( this.sourceLanguage ),
 				targetDir = $.uls.data.getDir( this.targetLanguage );
 

@@ -38,7 +38,7 @@ ve.ce.CXLinkAnnotation.prototype.getAdaptationInfo = function () {
  * @inheritdoc
  */
 ve.ce.CXLinkAnnotation.prototype.updateClasses = function () {
-	var adaptationInfo = this.getAdaptationInfo();
+	const adaptationInfo = this.getAdaptationInfo();
 	if ( adaptationInfo && !adaptationInfo.adapted ) {
 		if ( adaptationInfo.targetTitle ) {
 			this.$anchor.addClass( 'new' );

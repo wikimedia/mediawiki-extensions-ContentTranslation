@@ -68,7 +68,7 @@ ve.ui.CXTextSelectionContextItem.static.generateBody = ve.ui.CXLinkContextItem.s
 ve.ui.CXTextSelectionContextItem.static.generateSourceBody = ve.ui.CXLinkContextItem.static.generateSourceBody;
 
 ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes = function ( normalizedTitle ) {
-	var title = mw.Title.newFromText( normalizedTitle ),
+	const title = mw.Title.newFromText( normalizedTitle ),
 		annotation = ve.dm.CXLinkAnnotation.static.newFromTitle( title );
 
 	return annotation.element;
@@ -82,23 +82,23 @@ ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes = function ( nor
  * @param {Object} targetTitleData
  */
 ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleData ) {
-	var sourceLanguage = this.translation.sourceDoc.getLang(),
+	const sourceLanguage = this.translation.sourceDoc.getLang(),
 		targetLanguage = this.translation.targetDoc.getLang();
 
-	var targetLinkInfo = {
+	const targetLinkInfo = {
 		title: this.normalizedTitle,
 		pagelanguage: targetLanguage,
 		description: targetTitleData.description,
 		thumbnail: { source: targetTitleData.imageUrl }
 	};
 
-	var $targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
+	const $targetLink = this.constructor.static.generateBody( targetLinkInfo, this.context );
 	this.$body.append( $targetLink );
 
 	// Find source title for the selected text.
 	this.requestManager.getTitlePair( targetLanguage, this.normalizedTitle )
 		.then( function ( titlePairInfo ) {
-			var sourceTitle = titlePairInfo.targetTitle;
+			const sourceTitle = titlePairInfo.targetTitle;
 			if ( sourceTitle ) {
 				// Render the source title card for this title.
 				this.renderSourceTitle( sourceTitle, sourceLanguage );
@@ -114,14 +114,14 @@ ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( source
 			return;
 		}
 
-		var sourceLinkInfo = {
+		const sourceLinkInfo = {
 			title: sourceTitle,
 			pagelanguage: sourceLanguage,
 			description: linkData.description
 		};
 
 		// Source link
-		var $sourceLink = this.constructor.static.generateSourceBody(
+		const $sourceLink = this.constructor.static.generateSourceBody(
 			sourceLinkInfo, sourceLanguage
 		);
 		this.$sourceBody.show().empty().append( $sourceLink );
@@ -132,7 +132,7 @@ ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( source
  * @inheritdoc
  */
 ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
-	var fragment = this.getFragment(),
+	const fragment = this.getFragment(),
 		text = fragment.getText().trim();
 
 	if (
@@ -193,7 +193,7 @@ ve.ui.CXTextSelectionContextItem.prototype.teardown = function () {
  * @inheritdoc
  */
 ve.ui.CXTextSelectionContextItem.prototype.onEditButtonClick = function () {
-	var command = this.getCommand(),
+	const command = this.getCommand(),
 		// We need annotation attributes while annotating links,
 		// so that creation of href does not break.
 		attributes = ve.ui.CXTextSelectionContextItem.static.getAnnotationAttributes( this.normalizedTitle );

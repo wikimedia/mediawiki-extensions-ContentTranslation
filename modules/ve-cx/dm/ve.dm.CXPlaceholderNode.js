@@ -36,7 +36,7 @@ ve.dm.CXPlaceholderNode.static.toDataElement = function ( domElements ) {
 };
 
 ve.dm.CXPlaceholderNode.static.toDomElements = function ( dataElement, doc ) {
-	var sectionNode = doc.createElement( 'section' );
+	const sectionNode = doc.createElement( 'section' );
 	sectionNode.setAttribute( 'rel', 'cx:Placeholder' );
 	sectionNode.setAttribute( 'id', dataElement.attributes.cxid );
 	return [ sectionNode ];

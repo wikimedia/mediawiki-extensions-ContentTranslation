@@ -36,9 +36,9 @@ ve.ui.CXLinkContextItem.static.modelClasses = [ ve.dm.CXLinkAnnotation ];
 /* Static Methods */
 
 ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, language ) {
-	var $wrapper = $( '<div>' );
+	const $wrapper = $( '<div>' );
 
-	var $linkTitle = $( '<a>' )
+	const $linkTitle = $( '<a>' )
 		.addClass( 've-ui-cxLinkContextItem-title' )
 		.text( linkInfo.title )
 		.prop( {
@@ -46,7 +46,7 @@ ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, languag
 			title: linkInfo.description || linkInfo.title,
 			href: ve.init.target.config.siteMapper.getPageUrl( linkInfo.pagelanguage, linkInfo.title )
 		} );
-	var $languageLabel = $( '<span>' )
+	const $languageLabel = $( '<span>' )
 		.addClass( 've-ui-cxLinkContextItem-language' )
 		.text( ve.init.platform.getLanguageAutonym( language ) );
 	$wrapper.append( $linkTitle, $languageLabel );
@@ -62,11 +62,11 @@ ve.ui.CXLinkContextItem.static.generateSourceBody = function ( linkInfo, languag
  * @return {jQuery} The jQuery object of the link context item
  */
 ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
-	var $wrapper = $( '<div>' ),
+	const $wrapper = $( '<div>' ),
 		$linkTitle = $( '<a>' ),
 		siteMapper = ve.init.target.siteMapper;
 
-	var linkHref;
+	let linkHref;
 	if ( linkInfo.missing ) {
 		// Link to start a new translation
 		linkHref = siteMapper.getCXUrl(
@@ -89,7 +89,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 			href: linkHref
 		} );
 
-	var icon = new OO.ui.IconWidget( { icon: 'article' } );
+	const icon = new OO.ui.IconWidget( { icon: 'article' } );
 	$wrapper
 		.addClass( 've-ui-mwInternalLinkContextItem-withImage' )
 		.addClass( 've-ui-mwInternalLinkContextItem-withDescription' )
@@ -97,9 +97,9 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 
 	$wrapper.append( $linkTitle );
 
-	var description = linkInfo.description;
+	const description = linkInfo.description;
 	if ( description ) {
-		var $description = $( '<span>' )
+		const $description = $( '<span>' )
 			.addClass( 've-ui-mwInternalLinkContextItem-description' )
 			.text( description );
 		$wrapper.append( $description );
@@ -107,7 +107,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
 		context.updateDimensions();
 	}
 
-	var imageUrl = OO.getProp( linkInfo, 'thumbnail', 'source' );
+	const imageUrl = OO.getProp( linkInfo, 'thumbnail', 'source' );
 	if ( imageUrl ) {
 		icon.$element
 			.addClass( 've-ui-mwInternalLinkContextItem-hasImage mw-no-invert' )
@@ -124,7 +124,7 @@ ve.ui.CXLinkContextItem.static.generateBody = function ( linkInfo, context ) {
  */
 ve.ui.CXLinkContextItem.prototype.isEditable = function () {
 	// adaptationInfo will be empty in source surface
-	var adaptationInfo = this.model.getAttribute( 'cx' );
+	const adaptationInfo = this.model.getAttribute( 'cx' );
 	// Parent method
 	return ve.ui.CXLinkContextItem.super.prototype.isEditable.apply( this, arguments ) &&
 		( !adaptationInfo || adaptationInfo.adapted || adaptationInfo.targetTitle );
@@ -134,7 +134,7 @@ ve.ui.CXLinkContextItem.prototype.isEditable = function () {
  * @inheritdoc
  */
 ve.ui.CXLinkContextItem.prototype.renderBody = function () {
-	var adaptationInfo = this.model.getAttribute( 'cx' );
+	let adaptationInfo = this.model.getAttribute( 'cx' );
 
 	// Case 1: Server-side adapted blue or red link in the target column. Information
 	// is present on the link attributes, so additional requests or caching are not needed.
@@ -144,8 +144,8 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	}
 
 	// Case 2: Cached hit on a manually added link or a link in the source column.
-	var store = this.model.getStore();
-	var normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
+	const store = this.model.getStore();
+	const normalizedTitle = this.model.getAttribute( 'normalizedTitle' );
 	adaptationInfo = store.value( store.hashOfValue( null, OO.getHash( normalizedTitle ) ) );
 	if ( adaptationInfo ) {
 		this.$body.empty().append( this.generateBody( adaptationInfo ) );
@@ -175,14 +175,14 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
  * @return {jQuery.Promise}
  */
 ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
-	var thisTitle = this.model.getAttribute( 'normalizedTitle' ),
+	const thisTitle = this.model.getAttribute( 'normalizedTitle' ),
 		thisLanguage = this.inTargetSurface ? this.translation.getTargetLanguage() : this.translation.getSourceLanguage(),
 		otherLanguage = this.inTargetSurface ? this.translation.getSourceLanguage() : this.translation.getTargetLanguage(),
 		thisTitleKey = this.inTargetSurface ? 'targetTitle' : 'sourceTitle',
 		otherTitleKey = this.inTargetSurface ? 'sourceTitle' : 'targetTitle',
 		adaptationInfo = {};
 
-	var thisTitlePromise = this.thisLinkCache.get( thisTitle ).then( function ( thisLinkData ) {
+	const thisTitlePromise = this.thisLinkCache.get( thisTitle ).then( function ( thisLinkData ) {
 		adaptationInfo[ thisTitleKey ] = {
 			title: thisTitle,
 			pagelanguage: thisLanguage,
@@ -191,8 +191,8 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 		};
 	} );
 
-	var otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( function ( titlePairInfo ) {
-		var otherTitle = titlePairInfo.targetTitle;
+	const otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( function ( titlePairInfo ) {
+		const otherTitle = titlePairInfo.targetTitle;
 
 		adaptationInfo.adapted = true;
 
@@ -218,7 +218,7 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 };
 
 ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
-	var $sourceLink;
+	let $sourceLink;
 	if ( adaptationInfo.sourceTitle ) {
 		// Source link
 		$sourceLink = ve.ui.CXLinkContextItem.static.generateSourceBody(
@@ -233,7 +233,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 	}
 
 	// Target link
-	var $targetLinkCard;
+	let $targetLinkCard;
 	if ( adaptationInfo.targetTitle ) {
 		$targetLinkCard = ve.ui.CXLinkContextItem.static.generateBody(
 			adaptationInfo.targetTitle, this.context
@@ -242,12 +242,12 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
 		this.setLabel( mw.msg( 'cx-linkcontextitem-missing-link-title' ) );
 		// TODO: Support mark-as-missing button on source surface.
 		if ( this.inTargetSurface ) {
-			var markAsMissingButton = new OO.ui.ButtonWidget( {
+			const markAsMissingButton = new OO.ui.ButtonWidget( {
 				label: mw.msg( 'cx-tools-missing-link-mark-link' ),
 				classes: [ 've-ui-cxLinkContextItem-mark-missing-button' ],
 				flags: [ 'progressive' ]
 			} );
-			var $markAsMissingInfo = $( '<div>' )
+			const $markAsMissingInfo = $( '<div>' )
 				.addClass( 've-ui-cxLinkContextItem-mark-missing-text' )
 				.text( mw.msg( 'cx-tools-missing-link-text' ) );
 			$targetLinkCard = $( '<div>' )
@@ -267,7 +267,7 @@ ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
  * @param {Object} adaptationInfo
  */
 ve.ui.CXLinkContextItem.prototype.createRedLink = function ( adaptationInfo ) {
-	var targetLanguage = this.translation.getTargetLanguage(),
+	const targetLanguage = this.translation.getTargetLanguage(),
 		sourceLanguage = this.translation.getSourceLanguage();
 
 	// Handle a red link for which we have no idea what is the target page, as determined by
@@ -286,7 +286,7 @@ ve.ui.CXLinkContextItem.prototype.createRedLink = function ( adaptationInfo ) {
 		fragment.annotateContent( 'clear', annotation );
 
 		// Clone the old element data to avoid modifying the old state (T202440)
-		var newElement = ve.copy( annotation.element );
+		const newElement = ve.copy( annotation.element );
 		// Update the adaptation info.
 		newElement.attributes.cx.targetTitle = {
 			title: newElement.attributes.cx.sourceTitle.title,

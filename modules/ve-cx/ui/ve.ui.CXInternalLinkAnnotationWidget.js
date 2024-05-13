@@ -27,7 +27,7 @@ OO.inheritClass( ve.ui.CXInternalLinkAnnotationWidget, ve.ui.MWInternalLinkAnnot
  * @inheritdoc
  */
 ve.ui.CXInternalLinkAnnotationWidget.static.getAnnotationFromText = function ( value ) {
-	var trimmed = value.trim(),
+	const trimmed = value.trim(),
 		title = mw.Title.newFromText( trimmed );
 
 	if ( !title ) {

@@ -5,10 +5,10 @@
 	 *
 	 * @type {{ language: string, page: string, sections: string[]}[]}
 	 */
-	var recentEdits = mw.config.get( 'wgSectionTranslationRecentlyEditedSections' );
-	var isRecentEditInvitationSuppressed =
+	const recentEdits = mw.config.get( 'wgSectionTranslationRecentlyEditedSections' );
+	const isRecentEditInvitationSuppressed =
 		mw.config.get( 'wgCXSectionTranslationRecentEditInvitationSuppressed', false );
-	var hiddenInvitationStorageKey = 'sx_recent_edit_invitation_hidden';
+	const hiddenInvitationStorageKey = 'sx_recent_edit_invitation_hidden';
 	/**
 	 * Given a title and a source language, this method fetches section
 	 * suggestions from cxserver with current wiki language code as target
@@ -20,7 +20,7 @@
 	 * @return {Promise<Object|null>}
 	 */
 	function fetchSectionSuggestions( title, sourceLanguage ) {
-		var siteMapper = new mw.cx.SiteMapper(),
+		const siteMapper = new mw.cx.SiteMapper(),
 			targetLanguage = siteMapper.getCurrentWikiLanguageCode(),
 			cxServerParams = [
 				title,
@@ -57,10 +57,10 @@
 	 * @param {Object} missingSections
 	 */
 	function renderInvitation( recentEdit, missingSections ) {
-		var Vue = require( 'vue' ),
+		const Vue = require( 'vue' ),
 			InvitationComponent = require( './RecentEditEntrypointInvitation.vue' ),
-			panel = document.createElement( 'section' ),
-			container = document.getElementById( 'mw-mf-page-center' );
+			panel = document.createElement( 'section' );
+		let container = document.getElementById( 'mw-mf-page-center' );
 		panel.className = 'sx-recentedit-entrypoint-banners';
 		container = container || document.body;
 		container.appendChild( panel );
@@ -85,7 +85,7 @@
 	 * @return {Promise<boolean>}
 	 */
 	function handleSectionSuggestionsByEdit( recentEdit ) {
-		var sourceLanguage = recentEdit.language,
+		const sourceLanguage = recentEdit.language,
 			pageTitle = recentEdit.page,
 			sectionTitles = recentEdit.sections;
 
@@ -94,11 +94,11 @@
 				if ( !sections || !sections.missing ) {
 					return false;
 				}
-				var i;
-				var firstMissingEditedSection;
-				var sourceMissingSections = Object.keys( sections.missing );
+				let i;
+				let firstMissingEditedSection;
+				const sourceMissingSections = Object.keys( sections.missing );
 				for ( i = 0; i < sourceMissingSections.length; i++ ) {
-					var missingSection = sourceMissingSections[ i ];
+					const missingSection = sourceMissingSections[ i ];
 					if ( sectionTitles.indexOf( missingSection ) > -1 ) {
 						firstMissingEditedSection = missingSection;
 					}
@@ -108,8 +108,8 @@
 					return false;
 				}
 
-				var hiddenInvitations = mw.storage.getObject( hiddenInvitationStorageKey ) || [];
-				var isInvitationHidden = function ( hiddenInvitation ) {
+				const hiddenInvitations = mw.storage.getObject( hiddenInvitationStorageKey ) || [];
+				const isInvitationHidden = function ( hiddenInvitation ) {
 					return hiddenInvitation.language === sourceLanguage && hiddenInvitation.page === pageTitle && hiddenInvitation.section === firstMissingEditedSection;
 				};
 				for ( i = 0; i < hiddenInvitations.length; i++ ) {

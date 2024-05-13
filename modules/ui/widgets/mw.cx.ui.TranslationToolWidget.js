@@ -112,7 +112,7 @@ mw.cx.widgets.TranslationToolWidget.prototype.setActions = function ( actions ) 
 	if ( !actions || actions.length === 0 ) {
 		this.$actions.hide();
 	} else {
-		for ( var i = 0; i < actions.length; i++ ) {
+		for ( let i = 0; i < actions.length; i++ ) {
 			this.$actions.append( actions[ i ].$element );
 		}
 	}

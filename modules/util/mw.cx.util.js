@@ -11,14 +11,14 @@
  * @param {jQuery} $targetSection Target section
  */
 mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
-	var steps = 0;
+	let steps = 0;
 
 	// Remove min-heights
 	$sourceSection.css( 'min-height', '' );
 	$targetSection.css( 'min-height', '' );
 
-	var sourceHeight = +$sourceSection[ 0 ].scrollHeight;
-	var targetHeight = +$targetSection[ 0 ].scrollHeight;
+	let sourceHeight = +$sourceSection[ 0 ].scrollHeight;
+	let targetHeight = +$targetSection[ 0 ].scrollHeight;
 
 	while ( sourceHeight !== targetHeight ) {
 		if ( targetHeight > sourceHeight ) {
@@ -44,8 +44,8 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
  * @return {string} New title with changed namespace
  */
 mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
-	var currentTitleObj = new mw.Title( currentTitle );
-	var currentNamespace = currentTitleObj.getNamespaceId();
+	const currentTitleObj = new mw.Title( currentTitle );
+	const currentNamespace = currentTitleObj.getNamespaceId();
 	if ( newNamespaceId === currentNamespace ) {
 		// No change.
 		return currentTitle;
@@ -59,7 +59,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
 	}
 
 	if ( newNamespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
-		var username = mw.user.getName();
+		const username = mw.user.getName();
 		currentTitle = mw.Title.newFromText( username + '/' + currentTitle, newNamespaceId ).toText();
 	}
 	return mw.Title.newFromText( currentTitle, newNamespaceId ).toText();
@@ -71,8 +71,8 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
  * @return {number} Target namespace id
  */
 mw.cx.getDefaultTargetNamespace = function () {
-	var config = require( '../config.json' ),
-		targetNamespace = config.TargetNamespace;
+	const config = require( '../config.json' );
+	let targetNamespace = config.TargetNamespace;
 
 	// Validate the configuration.
 	if ( !( targetNamespace in mw.config.get( 'wgFormattedNamespaces' ) ) ) {
@@ -95,7 +95,7 @@ mw.cx.getSectionNumberFromSectionId = function ( sectionId ) {
 };
 
 mw.cx.getCXVersion = function () {
-	var config = require( '../config.json' );
+	const config = require( '../config.json' );
 	return Number( config.Version );
 };
 
@@ -107,10 +107,10 @@ mw.cx.getCXVersion = function () {
  * @return {ve.dm.CXSectionNode}
  */
 mw.cx.getParentSectionForSelection = function ( surface, selection ) {
-	var documentModel = surface.getModel().getDocument();
-	var parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
+	const documentModel = surface.getModel().getDocument();
+	let parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
 
-	var section;
+	let section;
 	while ( parentBranchNode ) {
 		if ( parentBranchNode.type === 'cxSection' ) {
 			section = parentBranchNode;
@@ -127,7 +127,7 @@ mw.cx.getParentSectionForSelection = function ( surface, selection ) {
  * @return {string} Login href.
  */
 mw.cx.getLoginHref = function () {
-	var currentUri = new mw.Uri();
+	const currentUri = new mw.Uri();
 
 	// Remove the title from return-to query parameters, so duplication is avoided
 	delete currentUri.query.title;

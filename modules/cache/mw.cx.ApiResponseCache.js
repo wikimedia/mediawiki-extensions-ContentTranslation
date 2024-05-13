@@ -59,7 +59,7 @@ mw.cx.ApiResponseCache.static.processPage = null;
  * @return {string} Normalized title
  */
 mw.cx.ApiResponseCache.static.normalizeTitle = function ( title ) {
-	var titleObj = mw.Title.newFromText( title );
+	const titleObj = mw.Title.newFromText( title );
 	if ( !titleObj ) {
 		return title;
 	}
@@ -119,7 +119,7 @@ mw.cx.ApiResponseCache.prototype.getCached = function ( name ) {
  * @fires add
  */
 mw.cx.ApiResponseCache.prototype.set = function ( entries ) {
-	for ( var name in entries ) {
+	for ( const name in entries ) {
 		if ( !Object.prototype.hasOwnProperty.call( this.deferreds, name ) ) {
 			this.deferreds[ name ] = $.Deferred();
 		}
@@ -148,27 +148,27 @@ mw.cx.ApiResponseCache.prototype.getRequestPromise = null;
  * @fires add
  */
 mw.cx.ApiResponseCache.prototype.processQueue = function () {
-	var cache = this;
+	const cache = this;
 
 	function rejectSubqueue( rejectQueue ) {
-		for ( var i = 0, len = rejectQueue.length; i < len; i++ ) {
+		for ( let i = 0, len = rejectQueue.length; i < len; i++ ) {
 			cache.deferreds[ rejectQueue[ i ] ].reject();
 		}
 	}
 
 	function processResult( data ) {
-		var pages = ( data.query && data.query.pages ) || data.pages,
+		const pages = ( data.query && data.query.pages ) || data.pages,
 			processed = {};
 
-		var redirects = data.query.redirects || {};
+		const redirects = data.query.redirects || {};
 		if ( pages ) {
-			for ( var pageid in pages ) {
-				var page = pages[ pageid ];
-				var processedPage = cache.constructor.static.processPage( page, redirects );
+			for ( const pageid in pages ) {
+				const page = pages[ pageid ];
+				const processedPage = cache.constructor.static.processPage( page, redirects );
 				if ( processedPage !== undefined ) {
 					processed[ page.title ] = processedPage;
 				}
-				for ( var i in redirects ) {
+				for ( const i in redirects ) {
 					// Locate the title in redirects, if any.
 					if ( redirects[ i ].to === page.title ) {
 						processed[ redirects[ i ].from ] = processedPage;
@@ -180,10 +180,10 @@ mw.cx.ApiResponseCache.prototype.processQueue = function () {
 		}
 	}
 
-	var queue = this.queue;
+	const queue = this.queue;
 	this.queue = [];
 	while ( queue.length ) {
-		var subqueue = queue.splice( 0, 50 ).map( this.constructor.static.normalizeTitle );
+		const subqueue = queue.splice( 0, 50 ).map( this.constructor.static.normalizeTitle );
 		this.getRequestPromise( subqueue )
 			.then( processResult )
 

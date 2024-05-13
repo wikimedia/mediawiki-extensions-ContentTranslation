@@ -28,13 +28,13 @@ mw.cx.ui.SourceColumn = function ( config ) {
 		.setReadOnly( true )
 		.setValidation( null );
 
-	var linkHref = this.siteMapper.getPageUrl(
+	const linkHref = this.siteMapper.getPageUrl(
 		this.language,
 		config.title,
 		null,
 		config.sectionTitle && mw.util.escapeIdForLink( config.sectionTitle )
 	);
-	var articleLink = new OO.ui.ButtonWidget( {
+	const articleLink = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-source-view-page' ),
 		href: linkHref,
 		target: '_blank',
@@ -61,7 +61,7 @@ mw.cx.ui.SourceColumn.prototype.add = function ( $translationUnit, position ) {
 };
 
 mw.cx.ui.SourceColumn.prototype.insertAt = function ( index, $element ) {
-	var lastIndex = this.$content.children().length;
+	const lastIndex = this.$content.children().length;
 
 	if ( index < 0 ) {
 		index = Math.max( 0, lastIndex + 1 + index );
@@ -86,15 +86,15 @@ mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
 	this.$loadingIndicator = $( '<div>' )
 		.addClass( 'cx-column__loading-indicator' );
 
-	var $title = $( '<span>' )
+	const $title = $( '<span>' )
 		.prop( {
 			lang: this.language,
 			dir: this.direction
 		} )
 		.text( this.getTitle() );
 
-	var userLanguage = mw.config.get( 'wgUserLanguage' );
-	var $loadingIndicatorContent = $( '<div>' )
+	const userLanguage = mw.config.get( 'wgUserLanguage' );
+	const $loadingIndicatorContent = $( '<div>' )
 		.prop( {
 			lang: userLanguage,
 			dir: $.uls.data.getDir( userLanguage )
@@ -102,7 +102,7 @@ mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
 		.addClass( 'cx-column__loading-indicator--text' )
 		.append( mw.message( 'cx-source-loading', $title ).parseDom() );
 
-	var $loadingIndicatorSpinner = mw.cx.widgets.spinner();
+	const $loadingIndicatorSpinner = mw.cx.widgets.spinner();
 	this.$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorContent );
 	this.$element.append( this.$loadingIndicator );
 };
