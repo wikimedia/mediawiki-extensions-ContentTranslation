@@ -288,8 +288,8 @@
 				"SkinFactory"
 			]
 		},
-		"MinT": {
-			"class": "ContentTranslation\\Special\\SpecialMinT",
+		"AutomaticTranslation": {
+			"class": "ContentTranslation\\Special\\SpecialAutomaticTranslation",
 			"services": [
 				"LanguageNameUtils"
 			]
@@ -1801,7 +1801,7 @@
 				},
 				{
 					"name": "initialLanguages.json",
-					"callback": "ContentTranslation\\Special\\SpecialMinT::getInitialLanguagesData"
+					"callback": "ContentTranslation\\Special\\SpecialAutomaticTranslation::getInitialLanguagesData"
 				}
 			],
 			"dependencies": [

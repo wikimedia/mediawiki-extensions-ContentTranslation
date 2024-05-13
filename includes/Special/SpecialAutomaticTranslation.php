@@ -19,22 +19,20 @@ use SpecialPage;
  * @author Nik Gkountas
  * @license GPL-2.0-or-later
  */
-class SpecialMinT extends SpecialPage {
+class SpecialAutomaticTranslation extends SpecialPage {
 
 	private LanguageNameUtils $languageNameUtils;
 
 	public function __construct( LanguageNameUtils $languageNameUtils ) {
-		parent::__construct( 'MinT' );
+		parent::__construct( 'AutomaticTranslation' );
 		$this->languageNameUtils = $languageNameUtils;
 	}
 
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
+		$this->setHeaders();
 		$out = $this->getOutput();
-		// Setting the page title to an empty string, leads to an empty title in the browser tab title.
-		// TODO: Check if this is acceptable and fix the page title if needed
-		$out->setPageTitle( '' );
 		$targetLanguageCode = SiteMapper::getCurrentLanguageCode();
 		$targetLanguage = $this->languageNameUtils->getLanguageName( $targetLanguageCode );
 		$out->addHTML( $this->getHtml( $targetLanguage ) );
@@ -73,6 +71,6 @@ class SpecialMinT extends SpecialPage {
 	}
 
 	public function getDescription() {
-		return $this->msg( 'mint' );
+		return $this->msg( 'automatic-translation-special-page-description' );
 	}
 }

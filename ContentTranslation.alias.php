@@ -12,7 +12,7 @@ $specialPageAliases = [];
 $specialPageAliases['en'] = [
 	'ContentTranslation' => [ 'ContentTranslation', 'CX' ],
 	'ContentTranslationStats' => [ 'ContentTranslationStats', 'CXStats' ],
-	'MinT' => [ 'MinT' ]
+	'AutomaticTranslation' => [ 'AutomaticTranslation', 'MinT' ]
 ];
 
 /** Arabic (العربية) */

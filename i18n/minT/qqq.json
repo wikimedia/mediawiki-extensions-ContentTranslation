@@ -4,6 +4,7 @@
 			"Nik Gkοuntas"
 		]
 	},
+	"automatic-translation-special-page-description": "{{doc-special|AutomaticTranslation}}",
 	"mint-home-header-title": "The title inside the header of the MinT home page",
 	"mint-home-input-placeholder": "The placeholder of the search input inside the MinT home page",
 	"mint-translation-list-all-languages-option-label": "The label of the option that selects all available language options of the MinT language selector",
