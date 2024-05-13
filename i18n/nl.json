@@ -117,6 +117,7 @@
 	"cx-selected-source-page-error-page-and-title-exist": "Deze paginanaam wordt al gebruikt in [$1 $2] voor [$3 een andere pagina]",
 	"cx-selected-source-page-error-page-exists": "De pagina [$1 bestaat al] in $2",
 	"cx-selected-source-page-error-title-in-use": "De naam van de nieuwe pagina [$1 wordt al gebruikt]",
+	"cx-favorite-add": "Toevoegen aan lijst met favorieten",
 	"cx-favorite-added-for-later": "Toegevoegd voor later!",
 	"cx-favorite-added-for-later-detail": "Toegevoegd voor later! Bekijk op elk gewenst moment de weergave Suggesties.",
 	"cx-favorite-removed": "Verwijderd uit de lijst met favorieten!",

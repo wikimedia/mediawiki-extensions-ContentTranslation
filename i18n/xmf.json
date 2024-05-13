@@ -10,7 +10,7 @@
 	"cx-dashboard-header": "ნოთანგუეფი",
 	"cx-javascript": "თე ხეჭკუდი JavaScript-იშ უმუშო ვამუშენს. JavaScript გოთიშილი რე, ვარ-და ვეიმუშჷ, დო ვარ-და თე ბრაუზერს ვა უღჷ აზარა.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|დინორეშ თანგუა]] რე თქვან ნინაშა ხასჷლაშ უწაიათ თანგუაშ ხეჭკუდი. [$1 ქოცადით!]",
-	"cx-license-agreement": "თანგუაშ გოგჷნძარაფაშ შვანს, თქვა დოჸუნთ [https://foundation.wikimedia.org/wiki/Terms_of_Use გჷმორინაფაშ პიჯალეფს] დო უდირთინუო დუთმოჸუნთ, ნამჷ-და გუთმაბჟინუანთ თქვან თიას [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 ლიცენზიაშ] დო [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] მეჯინათ.",
+	"cx-license-agreement": "თანგუაშ გოგჷნძარაფაშ შვანს, თქვა დოჸუნთ [https://foundation.wikimedia.org/wiki/Terms_of_Use გჷმორინაფაშ პიჯალეფს] დო უდურთინუო დუთმოჸუნთ, ნამჷ-და გუთმაბჟინუანთ თქვან თიას [https://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0 ლიცენზიაშ] დო [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] მეჯინათ.",
 	"cx-error-server-connection": "ჩილათა: სერვერწკჷმა მერსხუაფაქ ვემიხუჯინჷ.",
 	"cx-desc": "ალექინენს ხასჷლაშ დინორეშ [[Special:ContentTranslation|თანგუას]]",
 	"cx-header-progressbar-text": "{{PLURAL:$1|თანგილი რე}} $1%",
