@@ -119,8 +119,7 @@ mw.cx.ApiResponseCache.prototype.getCached = function ( name ) {
  * @fires add
  */
 mw.cx.ApiResponseCache.prototype.set = function ( entries ) {
-	var name;
-	for ( name in entries ) {
+	for ( var name in entries ) {
 		if ( !Object.prototype.hasOwnProperty.call( this.deferreds, name ) ) {
 			this.deferreds[ name ] = $.Deferred();
 		}
@@ -149,31 +148,27 @@ mw.cx.ApiResponseCache.prototype.getRequestPromise = null;
  * @fires add
  */
 mw.cx.ApiResponseCache.prototype.processQueue = function () {
-	var subqueue, queue,
-		cache = this;
+	var cache = this;
 
 	function rejectSubqueue( rejectQueue ) {
-		var i, len;
-		for ( i = 0, len = rejectQueue.length; i < len; i++ ) {
+		for ( var i = 0, len = rejectQueue.length; i < len; i++ ) {
 			cache.deferreds[ rejectQueue[ i ] ].reject();
 		}
 	}
 
 	function processResult( data ) {
-		var pageid, page, i, processedPage,
-			pages = ( data.query && data.query.pages ) || data.pages,
-			redirects,
+		var pages = ( data.query && data.query.pages ) || data.pages,
 			processed = {};
 
-		redirects = data.query.redirects || {};
+		var redirects = data.query.redirects || {};
 		if ( pages ) {
-			for ( pageid in pages ) {
-				page = pages[ pageid ];
-				processedPage = cache.constructor.static.processPage( page, redirects );
+			for ( var pageid in pages ) {
+				var page = pages[ pageid ];
+				var processedPage = cache.constructor.static.processPage( page, redirects );
 				if ( processedPage !== undefined ) {
 					processed[ page.title ] = processedPage;
 				}
-				for ( i in redirects ) {
+				for ( var i in redirects ) {
 					// Locate the title in redirects, if any.
 					if ( redirects[ i ].to === page.title ) {
 						processed[ redirects[ i ].from ] = processedPage;
@@ -185,10 +180,10 @@ mw.cx.ApiResponseCache.prototype.processQueue = function () {
 		}
 	}
 
-	queue = this.queue;
+	var queue = this.queue;
 	this.queue = [];
 	while ( queue.length ) {
-		subqueue = queue.splice( 0, 50 ).map( this.constructor.static.normalizeTitle );
+		var subqueue = queue.splice( 0, 50 ).map( this.constructor.static.normalizeTitle );
 		this.getRequestPromise( subqueue )
 			.then( processResult )
 

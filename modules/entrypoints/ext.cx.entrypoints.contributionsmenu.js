@@ -14,12 +14,12 @@
 	 * @return {jQuery.Object}
 	 */
 	function getTranslationsItem() {
-		var $link, cxUrlParams = {
+		var cxUrlParams = {
 			campaign: CAMPAIGN,
 			to: mw.config.get( 'wgContentLanguage' )
 		};
 
-		$link = $( '<a>' )
+		var $link = $( '<a>' )
 			.prop( 'href', mw.util.getUrl( 'Special:ContentTranslation', cxUrlParams ) )
 			.attr( 'title', mw.msg( 'cx-campaign-contributionsmenu-mytranslations-tooltip' ) )
 			.append(
@@ -40,9 +40,8 @@
 	 * @param {jQuery.Object} $myUploads list item element.
 	 */
 	function attachCallout( $trigger, $myContributions, $myTranslations, $myUploads ) {
-		var callout,
-			$menu = $( '<ul>' )
-				.append( $myContributions, $myTranslations, $myUploads );
+		var $menu = $( '<ul>' )
+			.append( $myContributions, $myTranslations, $myUploads );
 
 		$trigger.callout( {
 			trigger: 'hover',
@@ -51,7 +50,7 @@
 			content: $menu
 		} );
 
-		callout = $trigger.data( 'callout' );
+		var callout = $trigger.data( 'callout' );
 
 		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
 			// Show after a few milliseconds to get all position calculation correct
@@ -64,8 +63,7 @@
 	}
 
 	function attachMenu( $trigger ) {
-		var $myContributions, $myTranslations, $myUploads,
-			nextNode = document.getElementById( 'pt-mycontris' ),
+		var nextNode = document.getElementById( 'pt-mycontris' ),
 			useCallout = mw.config.get( 'skin' ) !== 'vector-2022';
 
 		nextNode = nextNode ? nextNode.nextSibling : null;
@@ -75,7 +73,7 @@
 		}
 		isMenuAttached = true;
 
-		$myContributions = $( '<li>' )
+		var $myContributions = $( '<li>' )
 			.addClass( 'cx-campaign-contributions' )
 			.append(
 				$( '<a>' )
@@ -87,13 +85,13 @@
 					)
 			);
 
-		$myTranslations = getTranslationsItem( !useCallout );
+		var $myTranslations = getTranslationsItem( !useCallout );
 
 		if ( $( '.mw-special-Preferences' ).length ) {
 			$myTranslations.addClass( 'cx-campaign-new-beta-feature' );
 		}
 
-		$myUploads = $( '<li>' )
+		var $myUploads = $( '<li>' )
 			.addClass( 'cx-campaign-uploads' )
 			.append( $( '<a>' )
 				.attr( 'href', '//commons.wikimedia.org/wiki/Special:MyUploads' )
@@ -152,10 +150,10 @@
 	}
 
 	function showFeatureDiscovery( $trigger ) {
-		var fd, $container = $( '<div>' ).addClass( 'cx-feature-discovery-container' );
+		var $container = $( '<div>' ).addClass( 'cx-feature-discovery-container' );
 
 		$trigger.append( $container );
-		fd = new mw.cx.ui.FeatureDiscoveryWidget( {
+		var fd = new mw.cx.ui.FeatureDiscoveryWidget( {
 			title: mw.msg( 'cx-feature-discovery-title' ),
 			content: mw.msg( 'cx-feature-discovery-content' ),
 			dismissLabel: mw.msg( 'cx-feature-discovery-dismiss' ),

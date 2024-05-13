@@ -33,14 +33,12 @@
 	 * @return {jQuery}
 	 */
 	function getDialogContent( targetLanguage ) {
-		var settingsButton, descriptionLabel, actionTranslate, $license, actions;
-
-		descriptionLabel = new OO.ui.LabelWidget( {
+		var descriptionLabel = new OO.ui.LabelWidget( {
 			classes: [ 'cx-entrypoint-dialog__desc' ],
 			label: mw.msg( 'cx-entrypoint-dialog-desc' )
 		} );
 
-		actionTranslate = new OO.ui.ButtonWidget( {
+		var actionTranslate = new OO.ui.ButtonWidget( {
 			label: mw.msg(
 				'cx-entrypoint-dialog-button-translate-from',
 				$.uls.data.getAutonym( mw.config.get( 'wgContentLanguage' ) )
@@ -52,17 +50,17 @@
 			startPageInCX( targetLanguage );
 		} );
 
-		$license = $( '<div>' )
+		var $license = $( '<div>' )
 			.addClass( 'cx-entrypoint-dialog__license' )
 			.append( mw.message( 'cx-license-agreement' ).parseDom() );
 
-		actions = new OO.ui.HorizontalLayout( {
+		var actions = new OO.ui.HorizontalLayout( {
 			classes: [ 'cx-entrypoint-dialog__actions' ],
 			items: [ actionTranslate ]
 		} );
 
 		if ( !mw.config.get( 'wgContentTranslationAsBetaFeature' ) ) {
-			settingsButton = new OO.ui.ButtonWidget( {
+			var settingsButton = new OO.ui.ButtonWidget( {
 				classes: [ 'cx-entrypoint-dialog__settings' ],
 				icon: 'settings',
 				framed: false,
@@ -75,9 +73,9 @@
 	}
 
 	function createCXInterlanguageItem( code ) {
-		var $languageLink, popup, autonym = $.uls.data.getAutonym( code );
+		var autonym = $.uls.data.getAutonym( code );
 
-		$languageLink = $( '<a>' )
+		var $languageLink = $( '<a>' )
 			.addClass( 'new' )
 			.prop( {
 				title: mw.msg( 'cx-entrypoint-title', autonym ),
@@ -90,7 +88,7 @@
 			} )
 			.text( autonym );
 
-		popup = new OO.ui.PopupWidget( {
+		var popup = new OO.ui.PopupWidget( {
 			label: mw.msg( 'cx-entrypoint-dialog-page-doesnt-exist-yet', autonym ),
 			classes: [ 'cx-entrypoint-dialog' ],
 			$content: getDialogContent( code ),
@@ -110,15 +108,14 @@
 		// position calculations and reset later. Also, check if that height is enough,
 		// since our gray interlanguage link is in absolutely positioned side panel.
 		popup.computePosition = function () {
-			var oldPositionObj,
-				$html = $( 'html' ),
+			var $html = $( 'html' ),
 				panelHeight = $( '#mw-panel' ).outerHeight();
 
 			$html.css( 'height', 'auto' );
 			if ( $html.outerHeight() < panelHeight ) {
 				$html.css( 'height', panelHeight );
 			}
-			oldPositionObj = OO.ui.PopupWidget.prototype.computePosition.call( popup );
+			var oldPositionObj = OO.ui.PopupWidget.prototype.computePosition.call( popup );
 			$html.css( 'height', '' );
 
 			return oldPositionObj;

@@ -10,20 +10,18 @@
 	var campaign = 'newarticle';
 
 	function showInvitation() {
-		var $banner, $trigger, cxLink, $cancel, $tryCX;
-
-		$trigger = $( '#pt-betafeatures' );
-		cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
+		var $trigger = $( '#pt-betafeatures' );
+		var cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
 			targettitle: mw.config.get( 'wgTitle' ),
 			to: mw.config.get( 'wgContentLanguage' )
 		} );
 
-		$cancel = $( '<button>' )
+		var $cancel = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-quiet cancel' ).text( mw.msg( 'cx-campaign-no-thanks' ) );
-		$tryCX = $( '<button>' )
+		var $tryCX = $( '<button>' )
 			.addClass( 'mw-ui-button mw-ui-progressive try' ).text( mw.msg( 'cx-campaign-try' ) );
-		$banner = $( '<div>' )
+		var $banner = $( '<div>' )
 			.addClass( 'cx-campaign-newarticle' )
 			.append(
 				$( '<div>' ).addClass( 'cx-campaign-newarticle__logo' ),

@@ -125,10 +125,10 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.setValue = function ( values ) {
  * @return {boolean} Item was added successfully
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.addTag = function ( data, label, config ) {
-	var newItemWidget, isValid = this.isAllowedData( data );
+	var isValid = this.isAllowedData( data );
 
 	if ( isValid || this.allowDisplayInvalidTags ) {
-		newItemWidget = this.createTagItemWidget( data, label, config );
+		var newItemWidget = this.createTagItemWidget( data, label, config );
 		newItemWidget.toggleValid( isValid );
 		this.addItems( [ newItemWidget ] );
 

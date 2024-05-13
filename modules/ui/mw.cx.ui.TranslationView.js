@@ -97,8 +97,7 @@ OO.inheritClass( mw.cx.ui.TranslationView, OO.ui.StackLayout );
  * @param {number} sectionNumber The number in the source/target section id attribute
  */
 mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, targetOffsetTop, sectionNumber ) {
-	var offsetTop, viewNode,
-		sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
+	var sourceNode = document.getElementById( 'cxSourceSection' + sectionNumber ),
 		targetNode = document.getElementById( 'cxTargetSection' + sectionNumber );
 
 	function isSubclass( x, y ) {
@@ -107,13 +106,13 @@ mw.cx.ui.TranslationView.static.alignSectionPair = function ( sourceOffsetTop, t
 	if ( !sourceNode || !targetNode ) {
 		return;
 	}
-	viewNode = $.data( targetNode, 'view' );
+	var viewNode = $.data( targetNode, 'view' );
 	sourceNode.style.marginTop = '';
 	targetNode.style.marginTop = '';
 	// Reset heights before we do calculations.
 	sourceNode.style.height = '';
 	targetNode.style.height = '';
-	offsetTop = Math.max(
+	var offsetTop = Math.max(
 		sourceOffsetTop + sourceNode.offsetTop,
 		targetOffsetTop + targetNode.offsetTop
 	);
@@ -241,14 +240,13 @@ mw.cx.ui.TranslationView.prototype.onIssuesResolved = function ( nodesWithIssues
  * is the bigger height between source and target titles.
  */
 mw.cx.ui.TranslationView.prototype.alignTitles = function () {
-	var height,
-		$sourceTitleWidget = this.sourceColumn.getTitleWidget().$element,
+	var $sourceTitleWidget = this.sourceColumn.getTitleWidget().$element,
 		$targetTitleWidget = this.targetColumn.getTitleWidget().$element;
 
 	$sourceTitleWidget.css( 'min-height', '' );
 	$targetTitleWidget.css( 'min-height', '' );
 
-	height = Math.max(
+	var height = Math.max(
 		$sourceTitleWidget.outerHeight(),
 		$targetTitleWidget.outerHeight()
 	);

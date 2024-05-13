@@ -72,7 +72,6 @@ mw.cx.SourcePageSelector.prototype.prefill = function () {
  * Listen for events.
  */
 mw.cx.SourcePageSelector.prototype.listen = function () {
-	var proxied;
 	// Open or close the dialog when clicking the trigger link.
 	// The dialog will be uninitialized until the first click.
 	this.triggerButton.connect( this, {
@@ -108,7 +107,7 @@ mw.cx.SourcePageSelector.prototype.listen = function () {
 		this.discardDialog();
 	}.bind( this ) );
 
-	proxied = this.pageSelector.lookupMenu.onDocumentKeyDownHandler;
+	var proxied = this.pageSelector.lookupMenu.onDocumentKeyDownHandler;
 	this.pageSelector.lookupMenu.onDocumentKeyDownHandler = function ( e ) {
 		if ( e.keyCode === OO.ui.Keys.TAB || e.keyCode === OO.ui.Keys.ESCAPE ) {
 			return;
@@ -218,18 +217,16 @@ mw.cx.SourcePageSelector.prototype.discardDialog = function () {
 };
 
 mw.cx.SourcePageSelector.prototype.render = function () {
-	var $searchResults, $noSuggestionsMessage;
-
 	this.$container.hide(); // Starts as hidden, shown on this.triggerButton click
 
-	$noSuggestionsMessage = $( '<div>' )
+	var $noSuggestionsMessage = $( '<div>' )
 		.addClass( 'cx-source-page-selector__no-suggestions-message' )
 		.text( mw.msg( 'cx-source-page-selector-no-suggestions' ) );
 
 	this.$noResultsMessage = $( '<div>' )
 		.addClass( 'cx-source-page-selector__search-message' );
 
-	$searchResults = $( '<div>' )
+	var $searchResults = $( '<div>' )
 		.addClass( 'cx-source-page-selector__search-results' )
 		.append( $noSuggestionsMessage, this.$noResultsMessage );
 
@@ -288,12 +285,12 @@ mw.cx.SourcePageSelector.prototype.getExcludedSourceNamespaces = function ( sour
 		meta: 'siteinfo',
 		siprop: 'namespaces'
 	} ).then( function ( response ) {
-		var isTalkPage, namespaceId, namespaceObj, excludedNamespaces = [];
+		var excludedNamespaces = [];
 
-		for ( namespaceId in response.query.namespaces ) {
-			namespaceObj = response.query.namespaces[ namespaceId ];
+		for ( var namespaceId in response.query.namespaces ) {
+			var namespaceObj = response.query.namespaces[ namespaceId ];
 			// Odd namespace ids are talk pages
-			isTalkPage = ( namespaceId > 0 && namespaceId % 2 === 1 );
+			var isTalkPage = ( namespaceId > 0 && namespaceId % 2 === 1 );
 			if ( isTalkPage ||
 				excludedNamespacesConfig.indexOf( namespaceObj.canonical ) >= 0
 			) {

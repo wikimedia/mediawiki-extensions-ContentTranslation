@@ -11,15 +11,14 @@
  * @param {jQuery} $targetSection Target section
  */
 mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
-	var sourceHeight, targetHeight,
-		steps = 0;
+	var steps = 0;
 
 	// Remove min-heights
 	$sourceSection.css( 'min-height', '' );
 	$targetSection.css( 'min-height', '' );
 
-	sourceHeight = +$sourceSection[ 0 ].scrollHeight;
-	targetHeight = +$targetSection[ 0 ].scrollHeight;
+	var sourceHeight = +$sourceSection[ 0 ].scrollHeight;
+	var targetHeight = +$targetSection[ 0 ].scrollHeight;
 
 	while ( sourceHeight !== targetHeight ) {
 		if ( targetHeight > sourceHeight ) {
@@ -45,10 +44,8 @@ mw.cx.alignSections = function ( $sourceSection, $targetSection ) {
  * @return {string} New title with changed namespace
  */
 mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
-	var currentTitleObj, currentNamespace, username;
-
-	currentTitleObj = new mw.Title( currentTitle );
-	currentNamespace = currentTitleObj.getNamespaceId();
+	var currentTitleObj = new mw.Title( currentTitle );
+	var currentNamespace = currentTitleObj.getNamespaceId();
 	if ( newNamespaceId === currentNamespace ) {
 		// No change.
 		return currentTitle;
@@ -62,7 +59,7 @@ mw.cx.getTitleForNamespace = function ( currentTitle, newNamespaceId ) {
 	}
 
 	if ( newNamespaceId === mw.config.get( 'wgNamespaceIds' ).user ) {
-		username = mw.user.getName();
+		var username = mw.user.getName();
 		currentTitle = mw.Title.newFromText( username + '/' + currentTitle, newNamespaceId ).toText();
 	}
 	return mw.Title.newFromText( currentTitle, newNamespaceId ).toText();
@@ -110,11 +107,10 @@ mw.cx.getCXVersion = function () {
  * @return {ve.dm.CXSectionNode}
  */
 mw.cx.getParentSectionForSelection = function ( surface, selection ) {
-	var section, parentBranchNode, documentModel;
+	var documentModel = surface.getModel().getDocument();
+	var parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
 
-	documentModel = surface.getModel().getDocument();
-	parentBranchNode = documentModel.getBranchNodeFromOffset( selection.getRange().start );
-
+	var section;
 	while ( parentBranchNode ) {
 		if ( parentBranchNode.type === 'cxSection' ) {
 			section = parentBranchNode;

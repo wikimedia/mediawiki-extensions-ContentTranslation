@@ -56,9 +56,7 @@ mw.cx.ui.Infobar.prototype.showWarning = function ( message, details ) {
  * @param {OO.ui.ButtonWidget[]} buttons Additional buttons to add to the message widget.
  */
 mw.cx.ui.Infobar.prototype.showMessage = function ( type, message, details, data, buttons ) {
-	var messageWidget;
-
-	messageWidget = new mw.cx.ui.MessageWidget( {
+	var messageWidget = new mw.cx.ui.MessageWidget( {
 		message: message,
 		details: details,
 		type: type,

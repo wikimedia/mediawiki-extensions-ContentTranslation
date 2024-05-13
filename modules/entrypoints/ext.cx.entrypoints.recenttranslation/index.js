@@ -1,6 +1,5 @@
 ( function () {
-	var mainContent,
-		entrypointContainer = document.createElement( 'div' ),
+	var entrypointContainer = document.createElement( 'div' ),
 		bannerContainer = document.createElement( 'div' ),
 		iconContainer = document.createElement( 'span' ),
 		contentContainer = document.createElement( 'div' ),
@@ -41,7 +40,7 @@
 	// that are considered to belong to "notice" elements.
 	// If not such elements exist, continue with adding the entrypoint banner
 	if ( !document.querySelector( '#mf-section-0 > .hatnote, #mf-section-0 > .ambox' ) ) {
-		mainContent = document.querySelector( '.mw-parser-output' );
+		var mainContent = document.querySelector( '.mw-parser-output' );
 		entrypointContainer.className = 'sx-recent-translation-entrypoint';
 
 		bannerContainer.className = 'sx-recent-translation-banner';

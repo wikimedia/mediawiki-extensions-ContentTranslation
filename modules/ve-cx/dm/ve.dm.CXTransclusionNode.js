@@ -247,8 +247,7 @@ ve.dm.CXTransclusionInlineNode.static.isContent = true;
 /* Methods */
 
 ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
-	var index, part,
-		cxData = this.getAttribute( 'cx' ) || [],
+	var cxData = this.getAttribute( 'cx' ) || [],
 		sectionNode = this.findParent( ve.dm.CXSectionNode );
 
 	// When section content is replaced, this happens:
@@ -263,8 +262,8 @@ ve.dm.CXTransclusionInlineNode.prototype.onAttach = function () {
 		return;
 	}
 
-	for ( index = 0; index < cxData.length; index++ ) {
-		part = cxData[ index ];
+	for ( var index = 0; index < cxData.length; index++ ) {
+		var part = cxData[ index ];
 
 		if ( part.adapted ) {
 			// Continue looping to check other parts
@@ -309,12 +308,10 @@ ve.dm.CXTransclusionInlineNode.prototype.onDetach = function ( parent ) {
 };
 
 ve.dm.CXTransclusionInlineNode.prototype.convertToPlainText = function () {
-	var fragment, originalDomElements, surfaceModel, textValue = '';
-
-	surfaceModel = ve.init.target.targetSurface.getModel();
-	originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
-	fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
-	textValue = originalDomElements.map( function ( elem ) {
+	var surfaceModel = ve.init.target.targetSurface.getModel();
+	var originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
+	var fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
+	var textValue = originalDomElements.map( function ( elem ) {
 		return elem.innerText || '';
 	} ).join( '' );
 	fragment.insertContent( textValue, true );

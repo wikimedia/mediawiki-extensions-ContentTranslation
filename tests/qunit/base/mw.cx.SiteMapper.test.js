@@ -69,9 +69,7 @@
 	} );
 
 	QUnit.test( 'getRestbaseUrl', function ( assert ) {
-		var url;
-
-		url = this.siteMapper.getRestbaseUrl(
+		var url = this.siteMapper.getRestbaseUrl(
 			'he',
 			'/transform/wikitext/to/html/$title',
 			{ $title: 'User:KartikMistry/Who?_(movie)_ä&ö' }

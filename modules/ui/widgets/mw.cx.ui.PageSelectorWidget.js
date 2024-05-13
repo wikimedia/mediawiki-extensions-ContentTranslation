@@ -56,15 +56,13 @@ OO.inheritClass( mw.cx.ui.PageSelectorWidget, mw.widgets.TitleInputWidget );
  * @inheritdoc
  */
 mw.cx.ui.PageSelectorWidget.prototype.initializeLookupMenuSelection = function () {
-	var matchingItem;
-
 	mw.cx.ui.PageSelectorWidget.super.prototype.initializeLookupMenuSelection.apply( this, arguments );
 
 	if ( !this.lookupChooseFirstItem ) {
 		return this;
 	}
 
-	matchingItem = this.lookupMenu.findItemFromData( this.getValue() );
+	var matchingItem = this.lookupMenu.findItemFromData( this.getValue() );
 	if ( matchingItem ) {
 		this.lookupMenu.chooseItem( matchingItem );
 		this.lookupChooseFirstItem = false; // Reset to the default value
@@ -182,14 +180,14 @@ mw.cx.ui.PageSelectorWidget.prototype.createOptionWidget = function ( data ) {
  * @return {Array} Array of OO.ui.OptionWidget menu items and mw.cx.ui.MenuLabelWidget labels
  */
 mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
-	var index, suggestionPage, page, optionsData, hasResults,
-		nearbyPages = pages.nearby,
+	var nearbyPages = pages.nearby,
 		recentEditPages = pages.recentEdits,
 		pageData = {},
 		items = [],
 		query = this.getQueryValue(),
 		self = this;
 
+	var hasResults;
 	// If there is user input, we execute parent method, process possible no results case and return early
 	if ( query ) {
 		if ( query.indexOf( ':' ) >= 0 ) {
@@ -200,7 +198,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			// Reset to default namespace preference.
 			this.setNamespace( mw.config.get( 'wgNamespaceIds' )[ '' ] ); // Main namespace
 		}
-		optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
+		var optionsData = mw.cx.ui.PageSelectorWidget.super.prototype.getOptionsFromData.apply( this, arguments );
 		hasResults = optionsData.length > 0;
 
 		if ( !hasResults ) {
@@ -225,8 +223,8 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			label: label
 		} ) );
 
-		for ( index in pages ) {
-			suggestionPage = pages[ index ];
+		for ( var index in pages ) {
+			var suggestionPage = pages[ index ];
 
 			pageData[ suggestionPage.title ] = {
 				disambiguation: OO.getProp( suggestionPage, 'pageprops', 'disambiguation' ) !== undefined,
@@ -238,7 +236,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
 			// Throw away pages from wrong namespaces. This can happen when 'showRedirectTargets' is true
 			// and we encounter a cross-namespace redirect.
 			if ( self.namespace === null || self.namespace === suggestionPage.ns ) {
-				page = pageData[ suggestionPage.title ];
+				var page = pageData[ suggestionPage.title ];
 				items.push( self.createOptionWidget( self.getOptionWidgetData( suggestionPage.title, page ) ) );
 			}
 		}
@@ -386,10 +384,10 @@ mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
  * @return {jQuery.Promise}
  */
 mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function () {
-	var params, userName = mw.config.get( 'wgUserName' ),
+	var userName = mw.config.get( 'wgUserName' ),
 		api = this.siteMapper.getApi( this.language );
 
-	params = {
+	var params = {
 		action: 'query',
 		list: [ 'usercontribs' ],
 		ucuser: userName,

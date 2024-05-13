@@ -90,20 +90,17 @@
 	 * @return {{autonym: string, lang: string, dir: string}[]} array of objects representing languages, ordered by their frequency
 	 */
 	function getMissingFrequentLanguages( frequentLanguages, deviceLanguage ) {
-		var targetedLanguages,
-			deviceParentLanguage,
-			index;
-
 		/** @type {{lang: string, frequency: number}[]} */
-		targetedLanguages = Object.keys( frequentLanguages ).map( function ( languageCode ) {
+		var targetedLanguages = Object.keys( frequentLanguages ).map( function ( languageCode ) {
 			return { lang: languageCode, frequency: frequentLanguages[ languageCode ] };
 		} ).sort( function ( a, b ) {
 			return b.frequency - a.frequency;
 		} );
 
+		var deviceParentLanguage;
 		// add device language/variant and parent device language (if exist) on top of this list
 		if ( deviceLanguage ) {
-			index = deviceLanguage.indexOf( '-' );
+			var index = deviceLanguage.indexOf( '-' );
 			if ( index !== -1 ) {
 				deviceParentLanguage = deviceLanguage.slice( 0, index );
 			}

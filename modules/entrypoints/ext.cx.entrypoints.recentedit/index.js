@@ -91,13 +91,14 @@
 
 		return fetchSectionSuggestions( pageTitle, sourceLanguage )
 			.then( function ( sections ) {
-				var firstMissingEditedSection, i, sourceMissingSections, missingSection;
 				if ( !sections || !sections.missing ) {
 					return false;
 				}
-				sourceMissingSections = Object.keys( sections.missing );
+				var i;
+				var firstMissingEditedSection;
+				var sourceMissingSections = Object.keys( sections.missing );
 				for ( i = 0; i < sourceMissingSections.length; i++ ) {
-					missingSection = sourceMissingSections[ i ];
+					var missingSection = sourceMissingSections[ i ];
 					if ( sectionTitles.indexOf( missingSection ) > -1 ) {
 						firstMissingEditedSection = missingSection;
 					}

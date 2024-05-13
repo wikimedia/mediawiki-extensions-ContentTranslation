@@ -148,9 +148,8 @@ ve.ce.CXTransclusionInlineNode.static.tagName = 'span';
  * @inheritdoc
  */
 ve.ce.CXTransclusionInlineNode.prototype.afterRender = function () {
-	var parentSection;
 	ve.ce.CXTransclusionInlineNode.super.prototype.afterRender.apply( this, arguments );
-	parentSection = this.model.findParent( ve.dm.CXSectionNode );
+	var parentSection = this.model.findParent( ve.dm.CXSectionNode );
 	// For citations, the corresponding template is not rendered inside the section, but
 	// in the reference context item. So there is no parent section.
 	if ( parentSection ) {

@@ -34,9 +34,7 @@ mw.cx.ui.Categories = function ( translationModel, config ) {
  */
 mw.cx.ui.Categories.prototype.removeCategoryNamespace = function ( fullCategoryName ) {
 	// mw.Title cannot be used because of T106644
-	var match;
-
-	match = fullCategoryName.match( /^.+?:(.*)$/ );
+	var match = fullCategoryName.match( /^.+?:(.*)$/ );
 	if ( !match ) {
 		mw.log.error( '[CX] Expected category page title, got ' + fullCategoryName );
 		return fullCategoryName;
@@ -220,13 +218,12 @@ mw.cx.ui.Categories.prototype.onSourceCategoryClick = function ( sourceTagItem )
  * @param {mw.cx.ui.CategoryTagItemWidget} tagItem
  */
 mw.cx.ui.Categories.prototype.toggleCategoryHighlight = function ( categoryListing, toggle, tagItem ) {
-	var correspondingTagItem,
-		categoryName = tagItem.getData(),
+	var categoryName = tagItem.getData(),
 		correspondingCategoryName =
 			this.translationModel.getCorrespondingTargetCategory( categoryName ) ||
 			this.translationModel.getCorrespondingSourceCategory( categoryName );
 
-	correspondingTagItem = categoryListing.findItemFromData( correspondingCategoryName );
+	var correspondingTagItem = categoryListing.findItemFromData( correspondingCategoryName );
 
 	if ( !correspondingTagItem ) {
 		return;

@@ -168,8 +168,6 @@ mw.cx.ui.LanguageFilter.prototype.getSourceLanguage = function () {
  * @param {string} language A language code
  */
 mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
-	var currentSource, i, length, quickListLanguages, quickListLang;
-
 	if ( language === 'x-all' ) {
 		language = null;
 	}
@@ -183,15 +181,15 @@ mw.cx.ui.LanguageFilter.prototype.setSourceLanguage = function ( language ) {
 	// Instead, do what the user probably means: either swap them if
 	// it's valid, or pick the first of the common languages in ULS.
 	if ( !this.canBeSame && language === this.getTargetLanguage() ) {
-		currentSource = this.getSourceLanguage();
+		var currentSource = this.getSourceLanguage();
 
 		if ( this.isValidTarget( currentSource ) ) {
 			this.sourceLanguage = language;
 			this.setTargetLanguage( currentSource );
 		} else {
-			quickListLanguages = this.targetLanguageButton.$button.data( 'uls' ).options.quickList();
-			for ( i = 0, length = quickListLanguages.length; i < length; i++ ) {
-				quickListLang = quickListLanguages[ i ];
+			var quickListLanguages = this.targetLanguageButton.$button.data( 'uls' ).options.quickList();
+			for ( var i = 0, length = quickListLanguages.length; i < length; i++ ) {
+				var quickListLang = quickListLanguages[ i ];
 
 				if ( this.isValidTarget( quickListLang ) && quickListLang !== language ) {
 					this.setTargetLanguage( quickListLang );
@@ -245,8 +243,6 @@ mw.cx.ui.LanguageFilter.prototype.getTargetLanguage = function () {
  * @param {string} language A language code
  */
 mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
-	var currentTarget, i, length, quickListLanguages, quickListLang;
-
 	if ( language === 'x-all' ) {
 		language = null;
 	}
@@ -259,7 +255,7 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
 	// Instead, do what the user probably means: either swap them if
 	// it's valid, or pick the first valid language of the common languages in ULS.
 	if ( !this.canBeSame && language === this.getSourceLanguage() ) {
-		currentTarget = this.getTargetLanguage();
+		var currentTarget = this.getTargetLanguage();
 
 		if ( this.isValidSource( currentTarget ) ) {
 			this.targetLanguage = language;
@@ -273,9 +269,9 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguage = function ( language ) {
 				return;
 			}
 
-			quickListLanguages = this.sourceLanguageButton.$button.data( 'uls' ).options.quickList();
-			for ( i = 0, length = quickListLanguages.length; i < length; i++ ) {
-				quickListLang = quickListLanguages[ i ];
+			var quickListLanguages = this.sourceLanguageButton.$button.data( 'uls' ).options.quickList();
+			for ( var i = 0, length = quickListLanguages.length; i < length; i++ ) {
+				var quickListLang = quickListLanguages[ i ];
 
 				if ( this.isValidSource( quickListLang ) && quickListLang !== language ) {
 					this.setSourceLanguage( quickListLang );
@@ -321,18 +317,16 @@ mw.cx.ui.LanguageFilter.prototype.setTargetLanguageNoChecks = function ( languag
  * @param {string} language
  */
 mw.cx.ui.LanguageFilter.prototype.setFilterLabel = function ( filterButton, language ) {
-	var langProps, label;
-
 	if ( this.canBeUndefined && !language ) {
 		filterButton.setLabel( mw.msg( 'cx-translation-filter-label-all-languages' ) );
 		return;
 	}
 
-	langProps = {
+	var langProps = {
 		lang: language,
 		dir: $.uls.data.getDir( language )
 	};
-	label = this.isNarrowScreenSize ?
+	var label = this.isNarrowScreenSize ?
 		mw.language.bcp47( language ) :
 		$.uls.data.getAutonym( language );
 

@@ -10,18 +10,16 @@
  * @param {Object} [config] Configuration options
  */
 mw.cx.ui.FeatureDiscoveryWidget = function MwCxUiFeatureDiscoveryWidget( config ) {
-	var popupCloseButton, $popupContent;
-
 	config = config || {};
 	this.$element = config.$container;
 	this.onClose = config.onClose;
-	popupCloseButton = new OO.ui.ButtonWidget( {
+	var popupCloseButton = new OO.ui.ButtonWidget( {
 		label: config.dismissLabel,
 		flags: [ 'progressive', 'primary' ],
 		classes: [ 'mw-cx-ui-featureDiscoveryPopup-dismiss' ]
 	} );
 	popupCloseButton.connect( this, { click: 'onPopupCloseButtonClick' } );
-	$popupContent = $( '<div>' ).append(
+	var $popupContent = $( '<div>' ).append(
 		$( '<div>' ).addClass( 'mw-cx-ui-featureDiscoveryPopup-header' ),
 		$( '<h3>' ).text( config.title ),
 		$( '<p>' ).text( config.content ),

@@ -34,9 +34,8 @@ OO.inheritClass( mw.cx.ui.MessageWidget, OO.ui.MessageWidget );
 /* Methods */
 
 mw.cx.ui.MessageWidget.prototype.composeMessage = function ( message, details ) {
-	var $message, $details;
-	$message = $( '<span>' ).addClass( 'cx-message-widget-message' );
-	$details = $( '<span>' ).addClass( 'cx-message-widget-details' );
+	var $message = $( '<span>' ).addClass( 'cx-message-widget-message' );
+	var $details = $( '<span>' ).addClass( 'cx-message-widget-details' );
 	if ( message instanceof mw.Message ) {
 		$message.append( message.parseDom() );
 	} else {

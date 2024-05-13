@@ -30,13 +30,13 @@ mw.cx.tools.InstructionsTool.prototype.getActions = function () {
  * @inheritDoc
  */
 mw.cx.tools.InstructionsTool.prototype.getContent = function () {
-	var i, count = 1,
+	var count = 1,
 		renderParams = {
 			href: mw.msg( 'cx-tools-view-guidelines-link' ),
 			text: mw.msg( 'cx-tools-view-guidelines' )
 		};
 
-	for ( i = 1; i <= 3; i++ ) {
+	for ( var i = 1; i <= 3; i++ ) {
 		renderParams[ 'count' + i ] = mw.language.convertNumber( i );
 		// The following messages are used here:
 		// * cx-tools-instructions-text1

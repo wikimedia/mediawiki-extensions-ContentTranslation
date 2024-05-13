@@ -26,12 +26,10 @@
 	};
 
 	CXContributions.prototype.render = function () {
-		var $sectionHeader, contributionButtons, contributionButtonsGroup;
-
-		$sectionHeader = $( '<h1>' )
+		var $sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		contributionButtons = this.getActivities().map( function ( item ) {
+		var contributionButtons = this.getActivities().map( function ( item ) {
 			// eslint-disable-next-line mediawiki/class-doc
 			return new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
@@ -41,7 +39,7 @@
 				href: item.url
 			} );
 		} );
-		contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
+		var contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
 			classes: [ 'cx-contributions' ],
 			items: contributionButtons
 		} );

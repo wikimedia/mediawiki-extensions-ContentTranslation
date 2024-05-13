@@ -32,8 +32,7 @@ function pageInLanguageExists( code ) {
 	* @return {string[]} Target languages
 	*/
 function getSuggestedTargetLanguages() {
-	var splitCode, splitCodes, specialCodeIndex,
-		possibleTargetLanguages = [],
+	var possibleTargetLanguages = [],
 		pageLanguage = mw.config.get( 'wgPageContentLanguage' ).split( '-' )[ 0 ];
 
 	possibleTargetLanguages.push( mw.config.get( 'wgUserLanguage' ) );
@@ -50,15 +49,15 @@ function getSuggestedTargetLanguages() {
 
 	// Replace possibly non-standard, macro and duplicate language codes
 	// with normalized counterparts
-	splitCodes = {
+	var splitCodes = {
 		// Suggest both varieties of Belarusian when requesting 'be'
 		be: [ 'be', 'be-tarask' ],
 		// Suggest both varieties of Norwegian when requesting 'no'
 		no: [ 'nb', 'nn' ]
 	};
 
-	for ( splitCode in splitCodes ) {
-		specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
+	for ( var splitCode in splitCodes ) {
+		var specialCodeIndex = possibleTargetLanguages.indexOf( splitCode );
 		if ( specialCodeIndex > -1 ) {
 			possibleTargetLanguages.splice( specialCodeIndex, 1 );
 			Array.prototype.push.apply( possibleTargetLanguages, splitCodes[ splitCode ] );
@@ -75,7 +74,7 @@ function getSuggestedTargetLanguages() {
 }
 
 function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
-	var $newItem, count = 0, maxListSize = 3;
+	var count = 0, maxListSize = 3;
 
 	// Remove duplicates
 	suggestedTargetLanguages = suggestedTargetLanguages.filter( function ( element, index ) {
@@ -83,7 +82,7 @@ function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
 	} );
 
 	suggestedTargetLanguages.some( function ( code ) {
-		$newItem = mw.cx.createCXInterlanguageItem( code );
+		var $newItem = mw.cx.createCXInterlanguageItem( code );
 		$pLangList.prepend( $newItem );
 		// Array.prototype.some breaks the iteration first time `true` is returned
 		return ++count === maxListSize;
@@ -91,14 +90,12 @@ function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
 }
 
 function init() {
-	var suggestedTargetLanguages;
-
 	// No language links on the page
 	if ( $pLangList.length === 0 ) {
 		return;
 	}
 
-	suggestedTargetLanguages = getSuggestedTargetLanguages();
+	var suggestedTargetLanguages = getSuggestedTargetLanguages();
 
 	if ( !suggestedTargetLanguages.length ) {
 		return;

@@ -21,8 +21,6 @@
 	 * @cfg {boolean} [missingInTargetLanguage] Article is missing in target language
 	 */
 	mw.cx.ui.TitleOptionWidget = function MwCxTitleOptionWidget( config ) {
-		var languageIcon, languageLabel;
-
 		// Parent constructor
 		mw.cx.ui.TitleOptionWidget.super.call( this, config );
 
@@ -50,11 +48,11 @@
 		if ( config.numOfLanguages ) {
 			this.numOfLanguages = config.numOfLanguages;
 
-			languageIcon = new OO.ui.IconWidget( {
+			var languageIcon = new OO.ui.IconWidget( {
 				icon: 'language',
 				title: mw.msg( 'cx-page-number-of-languages' )
 			} );
-			languageLabel = new OO.ui.LabelWidget( {
+			var languageLabel = new OO.ui.LabelWidget( {
 				label: mw.language.convertNumber( config.numOfLanguages )
 			} );
 			this.$element.append(

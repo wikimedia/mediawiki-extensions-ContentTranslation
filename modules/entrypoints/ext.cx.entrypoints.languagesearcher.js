@@ -35,14 +35,10 @@
 	 * @param {HTMLElement} noResultsContainer
 	 */
 	function onLanguageMatch( results, noResultsContainer ) {
-		var languageIndex, invitationElement, noResultsMsgElement,
-			languageButtons = [],
-			sitemapper = new mw.cx.SiteMapper(),
-			moreButton,
-			actionsElement,
-			cxUrl;
+		var languageButtons = [],
+			sitemapper = new mw.cx.SiteMapper();
 
-		invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
+		var invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
 		if ( !invitationElement ) {
 			invitationElement = document.createElement( 'p' );
 			invitationElement.classList.add(
@@ -53,7 +49,7 @@
 			invitationElement.classList.remove( 'hidden' );
 		}
 
-		actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
+		var actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
 		if ( !actionsElement ) {
 			actionsElement = document.createElement( 'div' );
 			actionsElement.classList.add( 'cx-entrypoint-mflanguagesearcher-actions' );
@@ -66,6 +62,7 @@
 			}
 		}
 
+		var cxUrl, languageIndex;
 		for ( languageIndex = 0; languageIndex < results.length; languageIndex++ ) {
 			cxUrl = sitemapper.getCXUrl(
 				mw.config.get( 'wgPageName' ),
@@ -88,7 +85,7 @@
 			}
 		}
 
-		noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
+		var noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
 		noResultsMsgElement.classList.add( 'hidden' );
 
 		for ( languageIndex = 0; languageIndex < languageButtons.length; languageIndex++ ) {
@@ -101,7 +98,7 @@
 			page: mw.config.get( 'wgPageName' ),
 			sx: true
 		} );
-		moreButton = new OO.ui.ButtonWidget( {
+		var moreButton = new OO.ui.ButtonWidget( {
 			icon: 'ellipsis',
 			href: cxUrl,
 			framed: false,
@@ -117,16 +114,14 @@
 	 * @param {HTMLElement} noResultsContainer
 	 */
 	function onNoLanguageMatch( noResultsContainer ) {
-		var noResultsMsgElement, invitationElement, actionsElement;
-
-		invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
+		var invitationElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-invite' );
 		if ( invitationElement ) {
 			invitationElement.classList.add( 'hidden' );
 		}
-		noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
+		var noResultsMsgElement = noResultsContainer.querySelector( '.empty-results-body' );
 		noResultsMsgElement.classList.remove( 'hidden' );
 
-		actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
+		var actionsElement = noResultsContainer.querySelector( '.cx-entrypoint-mflanguagesearcher-actions' );
 		if ( actionsElement ) {
 			actionsElement.classList.add( 'hidden' );
 		}
@@ -138,9 +133,9 @@
 	 */
 	function showTranslationCTA( searchQuery, noResultsContainer ) {
 		searchWithAPI( searchQuery ).then( function ( results ) {
-			var matches, enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
+			var enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
-			matches = results.filter( function ( code ) {
+			var matches = results.filter( function ( code ) {
 				return enabledTargets.indexOf( code ) >= 0 &&
 					code !== mw.config.get( 'wgContentLanguage' );
 			} );

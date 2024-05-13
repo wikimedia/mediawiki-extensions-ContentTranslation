@@ -109,7 +109,7 @@ mw.cx.tools.IssueTrackingTool.prototype.init = function () {
  * Highlight the current node with higher opacity marker.
  */
 mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
-	var node, $highlightableElement, hasErrors, id = this.allIssues[ this.currentIssue - 1 ].id;
+	var id = this.allIssues[ this.currentIssue - 1 ].id;
 
 	this.removeCurrentNodeHighlight();
 	this.currentNode = null;
@@ -118,12 +118,12 @@ mw.cx.tools.IssueTrackingTool.prototype.updateCurrentNode = function () {
 		return;
 	}
 
-	node = this.getNodeForId( id );
+	var node = this.getNodeForId( id );
 	if ( node ) {
 		this.currentNode = node;
-		$highlightableElement = node.getHighlightableElement();
+		var $highlightableElement = node.getHighlightableElement();
 		// eslint-disable-next-line no-jquery/no-class-state
-		hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
+		var hasErrors = $highlightableElement.hasClass( 'mw-cx-lintIssue-error' );
 		$highlightableElement.addClass( hasErrors ? 'mw-cx-current-issue-error' : 'mw-cx-current-issue-warning' );
 	}
 };
@@ -150,13 +150,13 @@ mw.cx.tools.IssueTrackingTool.prototype.getContent = function () {
  * @return {number|boolean} Index of current panel or false
  */
 mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
-	var i, length, issue, number,
-		id = this.getCurrentNodeId();
+	var id = this.getCurrentNodeId();
 
 	if ( !id ) {
 		return false;
 	}
 
+	var number;
 	if ( id === 'title' ) {
 		number = id;
 	} else {
@@ -174,8 +174,8 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentPanel = function () {
 		return this.currentIssue;
 	}
 
-	for ( i = 0, length = this.allIssues.length; i < length; i++ ) {
-		issue = this.allIssues[ i ];
+	for ( var i = 0, length = this.allIssues.length; i < length; i++ ) {
+		var issue = this.allIssues[ i ];
 
 		if ( issue.id === number ) {
 			return i + 1;
@@ -214,13 +214,11 @@ mw.cx.tools.IssueTrackingTool.prototype.getCurrentNodeId = function () {
  * @return {jQuery[]}
  */
 mw.cx.tools.IssueTrackingTool.prototype.getHeader = function () {
-	var $title, $actions;
-
-	$title = $( '<div>' )
+	var $title = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-title' )
 		.append( new OO.ui.LabelWidget( { label: this.constructor.static.label } ).$element );
 
-	$actions = $( '<div>' )
+	var $actions = $( '<div>' )
 		.addClass( 'mw-cx-tools-IssueTracking-actions' )
 		.append( this.actionButtons.$element );
 
@@ -368,14 +366,14 @@ mw.cx.tools.IssueTrackingTool.prototype.onBlur = function () {
 };
 
 mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
-	var node, id = this.allIssues[ this.currentIssue - 1 ].id;
+	var id = this.allIssues[ this.currentIssue - 1 ].id;
 
 	// If issue is global, i.e. not attached to any DOM node, we have nothing to focus
 	if ( id === 'global' ) {
 		return;
 	}
 
-	node = this.getNodeForId( id );
+	var node = this.getNodeForId( id );
 	if ( node ) {
 		node.getFocusableElement().focus();
 	}
@@ -392,8 +390,7 @@ mw.cx.tools.IssueTrackingTool.prototype.focusCurrentElement = function () {
  * @param {number} increment +1 or -1 indicating what was the previous issue in navigation
  */
 mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
-	var previousNode, currentNode, bluring, focusableElement,
-		previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
+	var previousIssueId = this.allIssues[ this.currentIssue - increment - 1 ].id,
 		currentIssueId = this.allIssues[ this.currentIssue - 1 ].id;
 
 	// If current issue is global, we don't steal focus from the previous node, because
@@ -402,13 +399,13 @@ mw.cx.tools.IssueTrackingTool.prototype.correctFocus = function ( increment ) {
 		return;
 	}
 
-	previousNode = this.getNodeForId( previousIssueId );
-	currentNode = this.getNodeForId( currentIssueId );
+	var previousNode = this.getNodeForId( previousIssueId );
+	var currentNode = this.getNodeForId( currentIssueId );
 
 	// If previous issue was global, i.e. not attached to any DOM node, that is considerred
 	// as case of blurred context, so correction of focus might be needed.
-	bluring = ( previousIssueId === 'global' ) || ( previousNode && previousNode.blursEditingSurface() );
-	focusableElement = currentNode && currentNode.getFocusableElement();
+	var bluring = ( previousIssueId === 'global' ) || ( previousNode && previousNode.blursEditingSurface() );
+	var focusableElement = currentNode && currentNode.getFocusableElement();
 
 	if ( bluring && focusableElement ) {
 		OO.ui.debounce( function () {
@@ -458,15 +455,16 @@ mw.cx.tools.IssueTrackingTool.prototype.getVeTarget = function () {
  * @param {Mixed[]} nodesWithIssues IDs of nodes with issues
  */
 mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues ) {
-	var i, length, j, numOfIssues, id, node, issue, issues, allIssues = [];
+	var allIssues = [];
 
 	this.numberOfIssues = 0;
 	this.numberOfErrors = 0;
 	this.numberOfWarnings = 0;
 
-	for ( i = 0, length = nodesWithIssues.length; i < length; i++ ) {
-		id = nodesWithIssues[ i ];
-		node = this.getNodeForId( id );
+	var issues;
+	for ( var i = 0, length = nodesWithIssues.length; i < length; i++ ) {
+		var id = nodesWithIssues[ i ];
+		var node = this.getNodeForId( id );
 
 		if ( !node ) {
 			continue;
@@ -480,11 +478,11 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 			issues = node.getModel().getTranslationIssues();
 		}
 
-		numOfIssues = issues.length;
+		var numOfIssues = issues.length;
 		this.numberOfIssues += numOfIssues;
 
-		for ( j = 0; j < numOfIssues; j++ ) {
-			issue = issues[ j ];
+		for ( var j = 0; j < numOfIssues; j++ ) {
+			var issue = issues[ j ];
 
 			if ( issue.getType() === 'error' ) {
 				this.numberOfErrors++;
@@ -543,10 +541,9 @@ mw.cx.tools.IssueTrackingTool.prototype.openFirstOfType = function ( type ) {
  * @param {Function} checkCondition
  */
 mw.cx.tools.IssueTrackingTool.prototype.openIssue = function ( checkCondition ) {
-	var i, length, issueObj, index;
-
-	for ( i = 0, length = this.allIssues.length; i < length; i++ ) {
-		issueObj = this.allIssues[ i ];
+	var index;
+	for ( var i = 0, length = this.allIssues.length; i < length; i++ ) {
+		var issueObj = this.allIssues[ i ];
 
 		if ( checkCondition( issueObj.issue ) ) {
 			index = i;

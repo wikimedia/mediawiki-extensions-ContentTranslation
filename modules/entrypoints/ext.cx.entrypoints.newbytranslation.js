@@ -40,16 +40,12 @@
 	};
 
 	CXNewByTranslationInvitation.prototype.getContent = function () {
-		var $sourceSuggestionButton, $suggestionImage, $suggestionDetails, container,
-			searchButton, settingsButton,
-			startCXButton, actions;
-
-		container = new OO.ui.StackLayout( {
+		var container = new OO.ui.StackLayout( {
 			continuous: true,
 			expanded: false
 		} );
 
-		settingsButton = new OO.ui.ButtonWidget( {
+		var settingsButton = new OO.ui.ButtonWidget( {
 			classes: [ 'cx-campaign-newbytranslation-settings' ],
 			icon: 'settings',
 			framed: false,
@@ -57,9 +53,10 @@
 			target: '_blank'
 		} );
 
+		var actions;
 		if ( this.suggestion ) {
-			$suggestionImage = $( '<div>' ).addClass( 'cx-suggestion-image oo-ui-icon-article' );
-			$suggestionDetails = $( '<div>' ).addClass( 'cx-suggestion-details' );
+			var $suggestionImage = $( '<div>' ).addClass( 'cx-suggestion-image oo-ui-icon-article' );
+			var $suggestionDetails = $( '<div>' ).addClass( 'cx-suggestion-details' );
 
 			$suggestionDetails.append(
 				$( '<div>' ).addClass( 'cx-suggestion-title' ).text( this.suggestion.title ),
@@ -72,7 +69,7 @@
 				)
 			);
 
-			$sourceSuggestionButton = $( '<a>' )
+			var $sourceSuggestionButton = $( '<a>' )
 				.addClass( 'cx-campaign-newbytranslation-source' )
 				.attr( 'href', this.getCXLink( {
 					campaign: CAMPAIGN,
@@ -90,7 +87,7 @@
 					.css( 'background-image', 'url("' + this.suggestion.thumbnail.source + '")' );
 			}
 
-			searchButton = new OO.ui.ButtonWidget( {
+			var searchButton = new OO.ui.ButtonWidget( {
 				classes: [ 'cx-campaign-newbytranslation-search-source' ],
 				icon: 'search',
 				flags: [ 'progressive' ],
@@ -109,7 +106,7 @@
 			];
 		} else {
 			// Generic dialog
-			startCXButton = new OO.ui.ButtonWidget( {
+			var startCXButton = new OO.ui.ButtonWidget( {
 				label: mw.msg( 'cx-campaign-newbytranslation-start' ),
 				flags: [ 'primary', 'progressive' ],
 				href: this.getCXLink( {
@@ -195,10 +192,9 @@
 	}
 
 	function getSourceSuggestions( siteMapper, targetTitle ) {
-		var targetLanguage, sourceSuggestionApi, candidateSourceLanguages;
-		targetLanguage = siteMapper.getCurrentWikiLanguageCode();
-		candidateSourceLanguages = getCandidateSourceLanguages( targetLanguage );
-		sourceSuggestionApi = siteMapper.getCXServerUrl(
+		var targetLanguage = siteMapper.getCurrentWikiLanguageCode();
+		var candidateSourceLanguages = getCandidateSourceLanguages( targetLanguage );
+		var sourceSuggestionApi = siteMapper.getCXServerUrl(
 			'/suggest/source/$title/$to?sourcelanguages=$from',
 			{
 				$title: targetTitle,
@@ -216,9 +212,7 @@
 			targetTitle = mw.config.get( 'wgTitle' );
 
 		getSourceSuggestions( siteMapper, targetTitle ).then( function ( suggestions ) {
-			var api, invitation, shownOnce;
-
-			shownOnce = mw.config.get( 'wgContentTranslationNewByTranslationShown' ) === 'true';
+			var shownOnce = mw.config.get( 'wgContentTranslationNewByTranslationShown' ) === 'true';
 
 			if ( !suggestions.length &&
 				(
@@ -231,7 +225,7 @@
 				return;
 			}
 
-			invitation = new CXNewByTranslationInvitation( {
+			var invitation = new CXNewByTranslationInvitation( {
 				siteMapper: siteMapper,
 				targetTitle: targetTitle,
 				suggestion: suggestions.length ? suggestions[ 0 ] : null
@@ -239,7 +233,7 @@
 			invitation.show();
 
 			if ( !shownOnce ) {
-				api = new mw.Api();
+				var api = new mw.Api();
 				// Mark that the user saw invitation once
 				api.postWithToken( 'csrf', {
 					action: 'globalpreferences',

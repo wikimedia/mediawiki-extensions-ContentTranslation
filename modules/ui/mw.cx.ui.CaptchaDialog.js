@@ -145,14 +145,13 @@ mw.cx.ui.CaptchaDialog.prototype.setCaptcha = function ( message, question, mime
  * @param {string} url URL to the image captcha.
  */
 mw.cx.ui.CaptchaDialog.prototype.setFancyCaptcha = function ( url ) {
-	var $captchaImg,
-		reloadButton = new OO.ui.ButtonWidget( {
-			framed: false,
-			classes: [ 'fancycaptcha-reload' ],
-			label: mw.msg( 'fancycaptcha-reload-text' ),
-			icon: 'reload',
-			flags: 'progressive'
-		} );
+	var reloadButton = new OO.ui.ButtonWidget( {
+		framed: false,
+		classes: [ 'fancycaptcha-reload' ],
+		label: mw.msg( 'fancycaptcha-reload-text' ),
+		icon: 'reload',
+		flags: 'progressive'
+	} );
 
 	this.initIntro();
 
@@ -161,7 +160,7 @@ mw.cx.ui.CaptchaDialog.prototype.setFancyCaptcha = function ( url ) {
 			.filter( 'a' ).prop( 'target', '_blank' ).end()
 	);
 
-	$captchaImg = $( '<img>' )
+	var $captchaImg = $( '<img>' )
 		.prop( 'src', url )
 		.addClass( 'fancycaptcha-image' )
 		.on( 'load', this.updateSize.bind( this ) );

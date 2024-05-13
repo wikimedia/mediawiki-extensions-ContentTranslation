@@ -9,7 +9,7 @@
 	QUnit.module( 'mw.cx.TargetArticle', QUnit.newMwEnvironment() );
 
 	QUnit.test( 'cleanupContent', function ( assert ) {
-		var i, inputDoc, tests = [ {
+		var tests = [ {
 			inputHtml: '<section re="cx:Section"><p id="mwaA"><span class="cx-segment" data-segmentid="10" id="34">sentence content</span></p><section>',
 			output: '<p id="mwaA">sentence content</p>',
 			desc: 'Sentence segment markup removed'
@@ -24,8 +24,8 @@
 			output: '',
 			desc: 'Pathological template removed'
 		} ];
-		for ( i = 0; i < tests.length; i++ ) {
-			inputDoc = ve.createDocumentFromHtml( tests[ i ].inputHtml );
+		for ( var i = 0; i < tests.length; i++ ) {
+			var inputDoc = ve.createDocumentFromHtml( tests[ i ].inputHtml );
 			assert.strictEqual(
 				mw.cx.TargetArticle.static.getCleanedupContent( inputDoc ).getElementsByTagName( 'body' )[ 0 ].innerHTML,
 				tests[ i ].output,

@@ -10,8 +10,6 @@
  * @param {Object} [config] Configuration object
  */
 mw.cx.ui.SourceColumn = function ( config ) {
-	var articleLink;
-
 	// Parent constructor
 	mw.cx.ui.SourceColumn.super.apply( this, arguments );
 
@@ -36,7 +34,7 @@ mw.cx.ui.SourceColumn = function ( config ) {
 		null,
 		config.sectionTitle && mw.util.escapeIdForLink( config.sectionTitle )
 	);
-	articleLink = new OO.ui.ButtonWidget( {
+	var articleLink = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'cx-source-view-page' ),
 		href: linkHref,
 		target: '_blank',
@@ -85,21 +83,18 @@ mw.cx.ui.SourceColumn.prototype.setTranslation = function () {
 };
 
 mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
-	var $title, userLanguage, $loadingIndicatorContent,
-		$loadingIndicatorSpinner;
-
 	this.$loadingIndicator = $( '<div>' )
 		.addClass( 'cx-column__loading-indicator' );
 
-	$title = $( '<span>' )
+	var $title = $( '<span>' )
 		.prop( {
 			lang: this.language,
 			dir: this.direction
 		} )
 		.text( this.getTitle() );
 
-	userLanguage = mw.config.get( 'wgUserLanguage' );
-	$loadingIndicatorContent = $( '<div>' )
+	var userLanguage = mw.config.get( 'wgUserLanguage' );
+	var $loadingIndicatorContent = $( '<div>' )
 		.prop( {
 			lang: userLanguage,
 			dir: $.uls.data.getDir( userLanguage )
@@ -107,7 +102,7 @@ mw.cx.ui.SourceColumn.prototype.showLoadingIndicator = function () {
 		.addClass( 'cx-column__loading-indicator--text' )
 		.append( mw.message( 'cx-source-loading', $title ).parseDom() );
 
-	$loadingIndicatorSpinner = mw.cx.widgets.spinner();
+	var $loadingIndicatorSpinner = mw.cx.widgets.spinner();
 	this.$loadingIndicator.append( $loadingIndicatorSpinner, $loadingIndicatorContent );
 	this.$element.append( this.$loadingIndicator );
 };

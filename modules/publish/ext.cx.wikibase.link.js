@@ -22,13 +22,12 @@
 		sourceTitle,
 		targetTitle
 	) {
-		var title, params, targetWikiId, api;
 		var namespaceIds = mw.config.get( 'wgNamespaceIds' );
 		// Do not link source pages in the user namespace
 		var sourceMwTitle = new mw.Title( sourceTitle );
 
 		// Link only pages in the main space
-		title = new mw.Title( targetTitle );
+		var title = new mw.Title( targetTitle );
 		if (
 			title.getNamespaceId() !== 0 ||
 			sourceMwTitle.getNamespaceId() === namespaceIds.user
@@ -37,15 +36,15 @@
 		}
 
 		// Current wiki is target wiki since publishing happens at target wiki
-		targetWikiId = mw.config.get( 'wgWikiID' );
-		params = {
+		var targetWikiId = mw.config.get( 'wgWikiID' );
+		var params = {
 			action: 'wblinktitles',
 			fromsite: targetWikiId.replace( targetLanguage, sourceLanguage ),
 			fromtitle: sourceTitle,
 			tosite: targetWikiId,
 			totitle: targetTitle
 		};
-		api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php' );
+		var api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php' );
 		return Promise.resolve( api.postWithToken( 'csrf', params )
 			.then( function ( response ) {
 				const revisionId = response.entity.sitelinks.lastrevid;
