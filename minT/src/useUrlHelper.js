@@ -2,6 +2,22 @@
 
 const useUrlHelper = () => {
 	/**
+	 * @return {{targetLanguage: string, step: string, page: string, displayLanguage: string, sourceLanguage: string}}
+	 */
+	const getURLParams = () => {
+		const currentUrl = new URL( location.href );
+		const searchParams = currentUrl.searchParams;
+
+		return {
+			page: searchParams.get( 'page' ),
+			sourceLanguage: searchParams.get( 'from' ),
+			targetLanguage: searchParams.get( 'to' ),
+			displayLanguage: searchParams.get( 'display' ),
+			step: searchParams.get( 'step' )
+		};
+	};
+
+	/**
 	 * @param {PageSearchResult} pageResult
 	 * @param {string} targetLanguage
 	 * @param {"confirm"|"translation"} step
@@ -22,7 +38,7 @@ const useUrlHelper = () => {
 		history.replaceState( null, '', currentUrl.toString() );
 	};
 
-	return { setURLParams };
+	return { setURLParams, getURLParams };
 };
 
 module.exports = useUrlHelper;

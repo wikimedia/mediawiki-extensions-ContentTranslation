@@ -41,6 +41,10 @@ class SpecialMinT extends SpecialPage {
 
 		$out->addModuleStyles( "mint.styles" );
 		$out->addModules( 'mint.app' );
+
+		// TODO: is there a way to get URL params in "getInitialLanguagesData" hook?
+		$out->addJsConfigVars( 'mintUrlSourceLanguageCode', $out->getRequest()->getVal( 'from' ) );
+		$out->addJsConfigVars( 'mintUrlTargetLanguageCode', $out->getRequest()->getVal( 'to' ) );
 	}
 
 	/**

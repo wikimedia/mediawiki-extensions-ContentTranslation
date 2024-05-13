@@ -5,6 +5,10 @@ const useState = require( './useState.js' );
 const useWikipediaSites = require( './useWikipediaSites.js' );
 const useMintLanguages = require( './useMintLanguages.js' );
 const useRouter = require( './useRouter.js' );
+const useUrlHelper = require( './useUrlHelper.js' );
+const PageSearchResult = require( './pageSearchResult.js' );
+const usePageMetadata = require( './usePageMetadata.js' );
+const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
 
 const { navigateToPage, openLanguageSelector } = useRouter();
 
@@ -78,4 +82,35 @@ Vue.watch( sourceLanguage, () => {
 const homeSearchInput = document.getElementById( 'mint-home-search-input' );
 homeSearchInput.addEventListener( 'click', function () {
 	navigateToPage( 'search' );
+} );
+
+const { getURLParams } = useUrlHelper();
+const {
+	page: title,
+	displayLanguage,
+	step
+} = getURLParams();
+
+// once sites are loaded, redirect if loaded
+Vue.watch( sites, () => {
+	if ( !!title && !!step ) {
+		const { findOneOrFetchPage } = usePageMetadata();
+		const { prepareSiteLinks } = useSiteLinksHelper();
+
+		findOneOrFetchPage( displayLanguage, title ).then( ( mediawikiPage ) => {
+			const siteLinks = prepareSiteLinks( mediawikiPage.langlinks );
+			const pageResult = new PageSearchResult( {
+				thumbnail: mediawikiPage.thumbnail,
+				pagelanguage: displayLanguage,
+				title,
+				description: mediawikiPage.description,
+				order: 1,
+				sourceLanguage: sourceLanguage.value,
+				langlinkscount: mediawikiPage.langlinkscount,
+				langlinks: siteLinks
+			} );
+
+			navigateToPage( step, { pageResult } );
+		} );
+	}
 } );

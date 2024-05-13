@@ -2,9 +2,15 @@
 
 const { ref } = require( 'vue' );
 const {
-	mintInitialSourceLanguageCode: initialSourceLanguage,
-	mintInitialTargetLanguageCode: initialTargetLanguage
+	mintInitialSourceLanguageCode,
+	mintInitialTargetLanguageCode
 } = require( './initialLanguages.json' );
+
+const mintUrlSourceLanguageCode = mw.config.get( 'mintUrlSourceLanguageCode' );
+const mintUrlTargetLanguageCode = mw.config.get( 'mintUrlTargetLanguageCode' );
+
+const initialSourceLanguage = mintUrlSourceLanguageCode || mintInitialSourceLanguageCode;
+const initialTargetLanguage = mintUrlTargetLanguageCode || mintInitialTargetLanguageCode;
 
 const sourceLanguage = ref( initialSourceLanguage );
 const targetLanguage = ref( initialTargetLanguage );
