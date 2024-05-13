@@ -1773,6 +1773,7 @@
 				"useSiteLinksHelper.js",
 				"useSearch.js",
 				"usePageMetadata.js",
+				"useUrlHelper.js",
 				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",

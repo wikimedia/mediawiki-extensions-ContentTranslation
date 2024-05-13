@@ -158,6 +158,7 @@ const useState = require( './useState.js' );
 const useRouter = require( './useRouter.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
+const useUrlHelper = require( './useUrlHelper.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const {
@@ -184,10 +185,14 @@ module.exports = defineComponent( {
 		}
 	},
 	setup( props ) {
+		const { sourceLanguage, targetLanguage } = useState();
+
+		const { setURLParams } = useUrlHelper();
+		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
+
 		const doc = ref( null );
 		const contents = ref( '' );
 		const { fetchPageContent, translate } = useApi();
-		const { sourceLanguage, targetLanguage } = useState();
 
 		const language = props.pageResult.sourceLanguage;
 		const title = props.pageResult.sourceTitle;

@@ -138,6 +138,7 @@ const useApi = require( './useApi.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const useMintLanguages = require( './useMintLanguages.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
+const useUrlHelper = require( './useUrlHelper.js' );
 const getAutonym = $.uls.data.getAutonym;
 
 // @vue/component
@@ -153,6 +154,10 @@ module.exports = defineComponent( {
 	setup( props ) {
 		const { sourceLanguage, targetLanguage, setSourceLanguage, setTargetLanguage } = useState();
 		setSourceLanguage( props.pageResult.sourceLanguage );
+
+		const { setURLParams } = useUrlHelper();
+		setURLParams( props.pageResult, targetLanguage.value, 'confirm' );
+
 		onMounted( () => {
 			const topicPreview = document.getElementsByClassName( 'confirm-topic-preview' )[ 0 ];
 			topicPreview.focus();
