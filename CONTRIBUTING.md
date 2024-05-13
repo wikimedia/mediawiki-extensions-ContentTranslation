@@ -24,51 +24,6 @@ $wgEnableJavaScriptTest = true;
 Then open `http://URL_OF_MEDIAWIKI/index.php/Special:JavaScriptTest/qunit`
 (for example, <http://localhost/w/index.php/Special:JavaScriptTest/qunit>).
 
-## Building documentation
-
-ContentTranslation uses [JSDuck](https://github.com/senchalabs/jsduck) to
-process documentation comments embedded in the code. To build the documentation,
-you will need `ruby`, `gem`, and `jsduck` installed.
-
-### Installing ruby and gem
-
-You're mostly on your own here, but we can give some hints for Mac OS X.
-
-##### Installing Gem in Mac OS X
-Ruby ships with OSX but may be outdated. Use [Homebrew](https://mxcl.github.com/homebrew/):
-```sh
-$ brew install ruby
-```
-
-If you've never used `gem` before, don't forget to add the gem's bin to your
-`PATH` ([howto](https://stackoverflow.com/a/14138490/319266)).
-
-### Installing jsduck
-
-Once you have gem, installing [JSDuck](https://github.com/senchalabs/jsduck) is easy:
-```sh
-$ gem install --user-install jsduck
-```
-
-### Running jsduck
-
-Creating the documentation is easy:
-```sh
-$ cd ContentTranslation
-$ jsduck <source> --output docs
-```
-
-You may need to set `MW_INSTALL_PATH` in your environment to the location of
-your mediawiki installation if ContentTranslation is not checked out directly
-in the mediawiki extensions folder (for example, if you're using a symlink).
-
-The generated documentation is in the `docs/` subdirectory.  View the
-documentation at
-`http://URL_OF_MEDIAWIKI/extensions/ContentTranslation/docs/`
-(for example, <http://localhost/w/extensions/ContentTranslation/docs>).
-
-Note that `jsduck` doesn't support browsing is the `file:` protocol.
-
 ## ContentTranslation Code Guidelines
 
 We inherit the code structure (about whitespace, naming and comments)
@@ -99,8 +54,7 @@ Document each hook that you add in the hooks.md file.
 ### Annotations
 
 We use the following annotations. They should be used in the order as they are described
-here, for consistency. See [JSDuck](https://github.com/senchalabs/jsduck/wiki)
-for more elaborate documentation.
+here, for consistency.
 
 * @class Name (optional, guessed)
 * @abstract
