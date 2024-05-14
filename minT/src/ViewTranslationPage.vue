@@ -62,24 +62,30 @@
 			v-if="!loadingTranslation && sections.length"
 			class="translation-viewer__sections-container"
 		>
-			<div v-for="( section, index ) in sections" :key="`section-container-${section.title}`">
-				<h2
-					:key="`section-title-${index}`"
-					class="section-heading collapsible-heading"
-					@click="toggleSection( index )"
+			<div v-if="!loadingSectionTitleTranslations">
+				<div
+					v-for="( sectionTitle, index ) in translatedSectionTitles"
+					:key="`section-container-${sectionTitle}`"
 				>
-					<span
-						class="mf-icon mf-icon-expand mf-icon--small indicator"
-						:class="{ 'mf-icon-rotate-flip': sectionExpandStatus[index] }"
-					></span>
-					<span class="mw-headline">{{ section.title }}</span>
-				</h2>
-				<div v-if="sectionExpandStatus[index]" class="translation-viewer__section-contents">
-					<mw-spinner v-if="!sectionTranslations[index]"></mw-spinner>
-					<div v-else v-html="sectionTranslations[index]">
+					<h2
+						:key="`section-title-${index}`"
+						class="section-heading collapsible-heading"
+						@click="toggleSection( index )"
+					>
+						<span
+							class="mf-icon mf-icon-expand mf-icon--small indicator"
+							:class="{ 'mf-icon-rotate-flip': sectionExpandStatus[index] }"
+						></span>
+						<span class="mw-headline">{{ sectionTitle }}</span>
+					</h2>
+					<div v-if="sectionExpandStatus[index]" class="translation-viewer__section-contents">
+						<mw-spinner v-if="!sectionTranslations[index]"></mw-spinner>
+						<div v-else v-html="sectionTranslations[index]">
+						</div>
 					</div>
 				</div>
 			</div>
+			<mw-spinner v-else></mw-spinner>
 		</div>
 		<div class="translation-viewer__footer">
 			<cdx-card class="translation-viewer__footer__flat-card" :icon="cdxIconRobot">
@@ -217,6 +223,32 @@ module.exports = defineComponent( {
 
 		const { cxServerToken } = useCXServerToken();
 
+		const translatedSectionTitles = ref( [] );
+		const loadingSectionTitleTranslations = ref( false );
+		watchEffect( () => {
+			const sectionTitleTranslationPromises = sections.value.map( ( section, index ) => {
+				const sourceSectionTitle = section.title;
+
+				return translate(
+					`<div>${ sourceSectionTitle }</div>`,
+					sourceLanguage.value,
+					targetLanguage.value,
+					cxServerToken.value
+				)
+					.then( ( translation ) => {
+						// eslint-disable-next-line es-x/no-regexp-named-capture-groups
+						const regExp = /<div>(?<translatedTitle>(.|\s)*)<\/div>/;
+						const matches = regExp.exec( translation );
+						translatedSectionTitles.value[ index ] = matches ? matches.groups.translatedTitle : '';
+					} )
+					.catch( ( error ) => mw.log.error( `Error while translating section title "${ sourceSectionTitle }"`, error ) );
+			} );
+			loadingSectionTitleTranslations.value = true;
+			Promise.all( sectionTitleTranslationPromises ).then(
+				() => ( loadingSectionTitleTranslations.value = false )
+			);
+		} );
+
 		fetchPageContent( language, title )
 			.then( ( text ) => {
 				const parser = new DOMParser();
@@ -268,7 +300,6 @@ module.exports = defineComponent( {
 					sectionTranslations.value[ index ] = translation;
 				} )
 				.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
-
 		};
 		const toggleSection = ( index ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];
@@ -332,7 +363,9 @@ module.exports = defineComponent( {
 			sourceTitle,
 			sourcePageUrl,
 			targetPageUrl,
-			targetPage
+			targetPage,
+			translatedSectionTitles,
+			loadingSectionTitleTranslations
 		};
 	}
 } );
