@@ -42,7 +42,7 @@
 					{{ targetTitle }}
 				</h3>
 				<p
-					v-if="translation"
+					v-if="translation && !loadingTranslation"
 					class="confirm-topic-preview__translation-container__translation"
 					v-html="translation"
 				></p>
@@ -120,7 +120,7 @@
 </template>
 
 <script>
-const { computed, defineComponent, ref, onMounted } = require( 'vue' );
+const { computed, defineComponent, ref, onMounted, watchEffect } = require( 'vue' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 const {
 	cdxIconRobot,
@@ -134,8 +134,7 @@ const MwSpinner = require( './MwSpinner.vue' );
 const PageSearchResult = require( './pageSearchResult.js' );
 const useState = require( './useState.js' );
 const useRouter = require( './useRouter.js' );
-const useApi = require( './useApi.js' );
-const useCXServerToken = require( './useCXServerToken.js' );
+const useLeadSectionTranslationFetch = require( './useLeadSectionTranslationFetch.js' );
 const useMintLanguages = require( './useMintLanguages.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
@@ -178,16 +177,6 @@ module.exports = defineComponent( {
 			return style;
 		} );
 
-		const translation = ref( null );
-		const loadingTranslation = ref( true );
-		const title = props.pageResult.sourceTitle;
-
-		const { cxServerToken, fetchToken } = useCXServerToken();
-		fetchToken();
-		const { fetchLeadSectionContent, translate } = useApi();
-
-		const promises = [ fetchLeadSectionContent( sourceLanguage.value, title ), fetchToken() ];
-
 		const { findOneOrFetchPage } = usePageMetadata();
 		const targetPage = ref( null );
 
@@ -201,23 +190,24 @@ module.exports = defineComponent( {
 			} );
 		}
 
-		Promise.all( promises ).then( ( [ text ] ) => {
-			const section = document.createElement( 'section' );
-			section.innerHTML = text;
-			const contentContainer = section.firstElementChild;
-			const sectionParagraphsNodeList = contentContainer.querySelectorAll( ':scope > p' );
-			const sectionParagraphs = [ ...sectionParagraphsNodeList ];
-			const firstParagraph = sectionParagraphs.find( ( p ) => p.textContent.trim() !== '' );
+		const translation = ref( null );
+		const loadingTranslation = ref( true );
+		const { translateLeadSection } = useLeadSectionTranslationFetch();
 
-			translate(
-				firstParagraph.outerHTML,
-				sourceLanguage.value,
-				targetLanguage.value,
-				cxServerToken.value
-			)
-				.then( ( result ) => ( translation.value = result ) )
-				.catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) )
-				.finally( () => ( loadingTranslation.value = false ) );
+		const doTranslateLeadSection = async ( pageTitle, sourceLang, targetLang ) => {
+			loadingTranslation.value = true;
+			try {
+				translation.value = await translateLeadSection( pageTitle, sourceLang, targetLang );
+			} catch ( error ) {
+				mw.log.error( 'Error while translating lead section contents', error );
+			} finally {
+				loadingTranslation.value = false;
+			}
+		};
+
+		watchEffect( () => {
+			const title = props.pageResult.sourceTitle;
+			doTranslateLeadSection( title, sourceLanguage.value, targetLanguage.value );
 		} );
 
 		const { navigateToPage, openLanguageSelector } = useRouter();

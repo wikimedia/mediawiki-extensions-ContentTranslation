@@ -1774,6 +1774,7 @@
 				"useSearch.js",
 				"usePageMetadata.js",
 				"useUrlHelper.js",
+				"useLeadSectionTranslationFetch.js",
 				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",
