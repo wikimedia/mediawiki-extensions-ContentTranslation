@@ -120,6 +120,7 @@
 	"cx-favorite-add": "Toevoegen aan lijst met favorieten",
 	"cx-favorite-added-for-later": "Toegevoegd voor later!",
 	"cx-favorite-added-for-later-detail": "Toegevoegd voor later! Bekijk op elk gewenst moment de weergave Suggesties.",
+	"cx-favorite-remove": "Verwijderen uit de lijst met favorieten",
 	"cx-favorite-removed": "Verwijderd uit de lijst met favorieten!",
 	"cx-page-missing-in-target-language": "ontbrekend in $1",
 	"cx-page-number-of-languages": "Aantal talen",
@@ -146,6 +147,7 @@
 	"cx-suggestionlist-empty-desc-recommend-link-text": "Suggesties weergeven (experimenteel)",
 	"cx-suggestionlist-featured": "Uitgelicht",
 	"cx-suggestionlist-view-source-page": "Bronpagina bekijken",
+	"cx-suggestionlist-discard": "Suggestie verwijderen",
 	"cx-create-new-translation": "Nieuwe vertaling",
 	"cx-translation-filter-label-all-languages": "Alle",
 	"cx-translation-filter-uls-all-languages": "Alle talen",
@@ -422,6 +424,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Vertaal deze sectie",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Nieuwe vertaling",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Sectie",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Vertaling voortzetten",
 	"sx-editor-feedback-overlay-title": "Bedankt!",
 	"sx-editor-feedback-overlay-clarification": "Van uw correcties leren",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> door u bewerkt",
@@ -508,5 +511,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Waar zijn de andere secties?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Geen zorgen. De overige secties gaan niet verloren. Ze zijn nu beschikbaar in de lijst van uw lopende vertalingen en kunnen worden gebruikt om het bestaande artikel uit te breiden. U vindt een nieuwe lopende vertaling met de inhoud voor elke sectie.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
-	"sx-published-translation-new-translation-button-label": "Nieuwe vertaling"
+	"sx-published-translation-new-translation-button-label": "Nieuwe vertaling",
+	"sx-section-selector-close-button-aria-label": "Knop om naar de bevestigingsstap te gaan",
+	"sx-quick-tutorial-next-button-aria-label": "Naar de volgende tutorialpagina gaan"
 }
