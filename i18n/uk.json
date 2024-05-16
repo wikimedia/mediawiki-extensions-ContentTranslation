@@ -326,7 +326,7 @@
 	"cx-sx-sentence-selector-header-title": "Перекласти розділ",
 	"cx-sx-sentence-selector-done-button-label": "Готово",
 	"cx-sx-sentence-selector-suggested-translation-title": "Пропонований переклад від $1",
-	"cx-sx-proposed-translation-not-available-message": "Машинний переклад наразі недоступний",
+	"cx-sx-proposed-translation-not-available-message": "Наразі недоступно",
 	"cx-sx-proposed-translation-retry-button": "Повторити спробу",
 	"cx-sx-proposed-translation-other-options-button": "Інші опції",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Редагувати переклад",
@@ -496,7 +496,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Цей переклад розпочато на іншому пристрої та включає вміст кількох розділів статті.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мобільному телефоні ви можете працювати лише з одним розділом одночасно. Таким чином, поки що буде завантажено лише основний розділ.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Де інші розділи?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвилюйтеся. Решта розділів не втрачені. Вони стануть доступними, коли ви опублікуєте поточний переклад як нову статтю. Після публікації ви знайдете нові незавершені переклади з вмістом кожного розділу.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвилюйтеся. Решта розділів не втрачені. Вони доступні у списку ваших поточних перекладів і їх можна використати для розширення наявної статті. Ви побачите нові незавершені переклади з вмістом кожного розділу.",
 	"sx-confirm-draft-translation-start-button-label": "Гаразд",
 	"sx-published-translation-new-translation-button-label": "Новий переклад"
 }
