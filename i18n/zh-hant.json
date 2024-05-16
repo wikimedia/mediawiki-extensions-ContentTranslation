@@ -25,7 +25,8 @@
 			"Wwycheuk",
 			"Xiplus",
 			"Петар Петковић",
-			"捍粵者"
+			"捍粵者",
+			"Cookai1205"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -49,7 +50,7 @@
 	"cx-publish-error-title-blacklist": "您所輸入的標題被列為黑名單。請為您的翻譯挑選其它名稱。",
 	"cx-publish-error-unknown": "發生未知且不可回復的錯誤。錯誤詳情：$1",
 	"cx-publish-button": "發布",
-	"cx-publish-button-publishing": "發佈中…",
+	"cx-publish-button-publishing": "發布中…",
 	"cx-lost-session": "您的 session 已逾期",
 	"cx-lost-session-draft": "您的連線階段已過期，除非您使用其他視窗再登入一次，否則無法儲存您的編輯。",
 	"cx-lost-session-publish": "您的連線階段已過期，除非您使用其他視窗再登入一次，否則無法發布您的翻譯。",

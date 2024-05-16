@@ -148,5 +148,11 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "De sectievertalings-ID die is gekoppeld aan de conceptsectievertaling.",
 	"apihelp-sxdelete-param-translationid": "De vertalings-ID die is gekoppeld aan de vertaling van de conceptsectie.",
 	"apihelp-sxdelete-param-sectionid": "De ID van de sectie van de vertaling van de conceptsectie.",
-	"apihelp-sxdelete-example-1": "Een concept verwijderen dat is gekoppeld aan de opgegeven vertaling-ID en sectie-ID."
+	"apihelp-sxdelete-example-1": "Een concept verwijderen dat is gekoppeld aan de opgegeven vertaling-ID en sectie-ID.",
+	"apihelp-cxsplit-summary": "Voor elke vertaalde sectie van de gegeven artikelvertaling een sectievertaling in de database aanmaken en opslaan",
+	"apihelp-cxsplit-param-translationid": "De ID van de vertaling waarvoor de sectievertalingen worden aangemaakt.",
+	"apierror-cxsplit-anon-user": "De API-handeling “cxsplit” is niet beschikbaar gemaakt voor anonieme gebruikers",
+	"apierror-cxsplit-no-translation-found": "Er is geen vertaling gevonden voor de opgegeven ID",
+	"apihelp-cxcheckunreviewed-summary": "Controleren of er onlangs een snelle, niet-beoordeelde vertaling van de huidige gebruiker is gepubliceerd.",
+	"apierror-cxcheckunreviewed-anon-user": "De API-handeling “cxcheckunreviewed” is niet beschikbaar gemaakt voor anonieme gebruikers"
 }
