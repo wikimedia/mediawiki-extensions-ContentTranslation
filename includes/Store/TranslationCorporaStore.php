@@ -12,7 +12,9 @@ use ContentTranslation\LoadBalancer;
 use LogicException;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LBFactory;
+use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\Rdbms\Platform\ISQLPlatform;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -47,25 +49,22 @@ class TranslationCorporaStore {
 	private function updateTranslationUnit( TranslationUnit $translationUnit, string $timestamp ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$values = [
-			'cxc_sequence_id' => $translationUnit->getSequenceId(),
-			'cxc_timestamp' => $dbw->timestamp(),
-			'cxc_content' => $translationUnit->getContent()
-		];
-		$conditions = [
-			'cxc_translation_id' => $translationUnit->getTranslationId(),
-			'cxc_section_id' => $translationUnit->getSectionId(),
-			'cxc_origin' => $translationUnit->getOrigin(),
-			// Sometimes we get "duplicates" entries which differ in timestamp.
-			// Then any updates to those sections would fail (duplicate key for
-			// a unique index), if we did not limit this call to only one of them.
-			'cxc_timestamp' => $dbw->timestamp( $timestamp ),
-		];
-
 		$dbw->newUpdateQueryBuilder()
 			->update( self::TABLE_NAME )
-			->set( $values )
-			->where( $conditions )
+			->set( [
+				'cxc_sequence_id' => $translationUnit->getSequenceId(),
+				'cxc_timestamp' => $dbw->timestamp(),
+				'cxc_content' => $translationUnit->getContent()
+			] )
+			->where( [
+				'cxc_translation_id' => $translationUnit->getTranslationId(),
+				'cxc_section_id' => $translationUnit->getSectionId(),
+				'cxc_origin' => $translationUnit->getOrigin(),
+				// Sometimes we get "duplicates" entries which differ in timestamp.
+				// Then any updates to those sections would fail (duplicate key for
+				// a unique index), if we did not limit this call to only one of them.
+				'cxc_timestamp' => $dbw->timestamp( $timestamp ),
+			] )
 			->caller( __METHOD__ )
 			->execute();
 
@@ -86,18 +85,16 @@ class TranslationCorporaStore {
 	private function insertTranslationUnit( TranslationUnit $translationUnit ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$values = [
-			'cxc_translation_id' => $translationUnit->getTranslationId(),
-			'cxc_section_id' => $translationUnit->getSectionId(),
-			'cxc_origin' => $translationUnit->getOrigin(),
-			'cxc_sequence_id' => $translationUnit->getSequenceId(),
-			'cxc_timestamp' => $dbw->timestamp(),
-			'cxc_content' => $translationUnit->getContent()
-		];
-
 		$dbw->newInsertQueryBuilder()
 			->insertInto( self::TABLE_NAME )
-			->row( $values )
+			->row( [
+				'cxc_translation_id' => $translationUnit->getTranslationId(),
+				'cxc_section_id' => $translationUnit->getSectionId(),
+				'cxc_origin' => $translationUnit->getOrigin(),
+				'cxc_sequence_id' => $translationUnit->getSequenceId(),
+				'cxc_timestamp' => $dbw->timestamp(),
+				'cxc_content' => $translationUnit->getContent()
+			] )
 			->caller( __METHOD__ )
 			->execute();
 	}
@@ -110,11 +107,9 @@ class TranslationCorporaStore {
 	public function deleteTranslationData( $translationId ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
-		$conditions = [ 'cxc_translation_id' => $translationId ];
-
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
-			->where( $conditions )
+			->where( [ 'cxc_translation_id' => $translationId ] )
 			->caller( __METHOD__ )
 			->execute();
 	}
@@ -127,7 +122,7 @@ class TranslationCorporaStore {
 	 * NOTE: The "cxc_section_id" field inside "cx_corpora" table is in the following form for
 	 * section translation parallel corpora units: "${baseSectionId}_${subSectionId}", where
 	 * "subSectionId" is given by the cxserver as the section HTML element id (e.g. "cxSourceSection4").
-	 * This is why we use a "LIKE" query in the following form, here: "${baseSectionId}%"
+	 * This is why we use a "LIKE" query in the following form, here: "${baseSectionId}_%"
 	 *
 	 * @param int $translationId the id of the "parent" translation inside "cx_translations" table
 	 * @param string $baseSectionId the "cxsx_section_id" as stored inside "cx_section_translations" table
@@ -135,14 +130,14 @@ class TranslationCorporaStore {
 	 */
 	public function deleteTranslationDataBySectionId( int $translationId, string $baseSectionId ): void {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
-		$conditions = [
-			'cxc_translation_id' => $translationId,
-			'cxc_section_id' . $dbw->buildLike( $baseSectionId, '_', $dbw->anyString() )
-		];
 
 		$dbw->newDeleteQueryBuilder()
 			->deleteFrom( self::TABLE_NAME )
-			->where( $conditions )
+			->where( [
+				'cxc_translation_id' => $translationId,
+				$dbw->expr( 'cxc_section_id', IExpression::LIKE,
+					new LikeValue( $baseSectionId, '_', $dbw->anyString() ) ),
+			] )
 			->caller( __METHOD__ )
 			->execute();
 	}
