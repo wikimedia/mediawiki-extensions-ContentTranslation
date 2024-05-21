@@ -95,7 +95,7 @@ function logEvent(event) {
 
   const translationSessionPosition = getTranslationSessionPosition();
   const eventDefaults = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.2.0",
+    $schema: "/analytics/mediawiki/content_translation_event/1.4.0",
     translation_type: "section",
     wiki_db: wikiDB,
     access_method: accessMethod,
