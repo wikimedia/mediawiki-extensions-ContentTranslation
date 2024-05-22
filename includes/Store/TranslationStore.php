@@ -159,21 +159,13 @@ class TranslationStore {
 	public function findByPublishedTitle( string $publishedTitle, string $targetLanguage ): ?Translation {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
-		$isPublishedCondition = $dbr->makeList(
-			[
-				'translation_status' => self::TRANSLATION_STATUS_PUBLISHED,
-				'translation_target_url IS NOT NULL',
-			],
-			LIST_OR
-		);
-
 		$row = $dbr->newSelectQueryBuilder()
 			->select( ISQLPlatform::ALL_ROWS )
 			->from( self::TRANSLATION_TABLE_NAME )
 			->where( [
 				'translation_target_language' => $targetLanguage,
 				'translation_target_title' => $publishedTitle,
-				$isPublishedCondition
+				Translation::getPublishedCondition( $dbr ),
 			] )
 			->caller( __METHOD__ )
 			->fetchRow();
