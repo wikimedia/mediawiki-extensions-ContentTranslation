@@ -443,6 +443,10 @@
 		"DraftMaxAge": {
 			"description": "Maximum age of unpublished drafts before they're purged from DB. Expressed in days and defaults to approximate value of 15 months.",
 			"value": 456
+		},
+		"AutomaticTranslationEnableEntrypoints": {
+			"description": "Whether entrypoints for Automatic Translation should be enabled",
+			"value": false
 		}
 	},
 	"ResourceModules": {
