@@ -51,7 +51,10 @@
 			"Zarisi",
 			"Петар Петковић",
 			"SleaY",
-			"Aqua"
+			"Aqua",
+			"Alien333",
+			"MacOS Weed",
+			"McDutchie"
 		]
 	},
 	"cx": "Traduire la page",
@@ -174,7 +177,7 @@
 	"cx-contributions-upload": "Téléverser des médias",
 	"cx-contributions-new-article-tooltip": "Commencer à rédiger une nouvelle page",
 	"cx-contributions-translation-tooltip": "Traduire des pages existantes",
-	"cx-contributions-upload-tooltip": "Téléverser des images ou fichiers audio et vidéo, à utiliser dans les pages",
+	"cx-contributions-upload-tooltip": "Téléverser des images ou des fichiers audio et vidéo à utiliser dans les pages",
 	"cx-publishing-dialog-publish-anyway-button": "Publier tout de même",
 	"cx-publishing-dialog-title": "Écraser la page existante ?",
 	"cx-publishing-dialog-sub-title": "Votre traduction écrasera la page existante. Veuillez vous assurer qu’il est correct de remplacer le contenu existant.",
@@ -219,9 +222,9 @@
 	"cx-stats-all-translations-title": "Traductions dans toutes les langues",
 	"cx-stats-published-translations-label": "Traductions publiées",
 	"cx-stats-published-target-source": "Traductions en",
-	"cx-stats-published-source-target": "Traductions d’originaux en",
+	"cx-stats-published-source-target": "Traductions de",
 	"cx-stats-draft-target-source": "Traductions en cours en",
-	"cx-stats-draft-source-target": "Traductions en cours d’originaux en",
+	"cx-stats-draft-source-target": "Traductions en cours de",
 	"cx-stats-tabs-expand": "Afficher toutes les langues",
 	"cx-stats-total-published": "Total des publications",
 	"cx-stats-weekly-published": "La semaine dernière",
