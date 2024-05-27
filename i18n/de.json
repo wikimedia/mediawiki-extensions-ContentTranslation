@@ -54,7 +54,7 @@
 	"tag-contenttranslation-description": "Der Inhalt wurde aus einer anderen Sprache mithilfe des Inhaltsübersetzungswerkzeugs übersetzt.",
 	"tag-contenttranslation-v2": "[{{MediaWiki:cx2-descriptionpagelink}}  Inhaltsübersetzung 2]",
 	"tag-contenttranslation-v2-description": "Der Inhalt, der aus einer anderen Sprache mit der Version 2 des Inhaltsübersetzungswerkzeugs übersetzt wurde.",
-	"tag-sectiontranslation": "[{{MediaWiki:sx-descriptionpagelink}} Abschnittsübersetzuung]",
+	"tag-sectiontranslation": "[{{MediaWiki:sx-descriptionpagelink}} Abschnittsübersetzung]",
 	"tag-sectiontranslation-description": "Der Inhalt wurde aus einem Abschnitt in einer anderen Sprache mit Hilfe der Funktion Abschnittsübersetzung des Tools Inhaltsübersetzung übersetzt.",
 	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality ContentTranslation: Hohe unveränderte maschinelle Übersetzungsnutzung]",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Mit ContentTranslation veröffentlichte Übersetzungen weisen einen hohen Anteil unveränderter maschineller Übersetzungen auf",
