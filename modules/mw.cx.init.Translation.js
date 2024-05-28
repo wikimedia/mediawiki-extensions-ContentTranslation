@@ -12,8 +12,8 @@ mw.cx.init = {};
  * @param {mw.cx.dm.WikiPage} sourceWikiPage
  * @param {mw.cx.dm.WikiPage} targetWikiPage
  * @param {Object} config Standard services TODO not optional so should not be called config
- * @cfg {mw.cx.SiteMapper} siteMapper
- * @cfg {string} [campaign] String indicating which CTA was used to start this translation
+ * @param {mw.cx.SiteMapper} config.siteMapper
+ * @param {string} [config.campaign] String indicating which CTA was used to start this translation
  */
 mw.cx.init.Translation = function MwCXInitTranslation( sourceWikiPage, targetWikiPage, config ) {
 	this.sourceWikiPage = sourceWikiPage;

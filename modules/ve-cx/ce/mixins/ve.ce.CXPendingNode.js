@@ -9,7 +9,7 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {jQuery} [$pending] Element to mark as pending, defaults to this.$element
+ * @param {jQuery} [config.$pending] Element to mark as pending, defaults to this.$element
  */
 ve.ce.CXPendingNode = function VeCeMixinsCxPendingNode( config ) {
 	// Configuration initialization

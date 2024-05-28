@@ -5,12 +5,12 @@
  * @class
  * @param {OO.ui.ButtonWidget} triggerButton
  * @param {Object} options
- * @cfg {mw.cx.SiteMapper} siteMapper
- * @cfg {jQuery} $container Container for source page selector
- * @cfg {string} sourceLanguage Source language
- * @cfg {string} targetLanguage Target language
- * @cfg {string} sourceTitle Source title
- * @cfg {string} targetTitle Target title
+ * @param {mw.cx.SiteMapper} options.siteMapper
+ * @param {jQuery} options.$container Container for source page selector
+ * @param {string} options.sourceLanguage Source language
+ * @param {string} options.targetLanguage Target language
+ * @param {string} options.sourceTitle Source title
+ * @param {string} options.targetTitle Target title
  */
 mw.cx.SourcePageSelector = function ( triggerButton, options ) {
 	this.options = options || {};

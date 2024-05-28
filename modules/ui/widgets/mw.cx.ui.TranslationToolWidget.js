@@ -8,7 +8,7 @@
  * @constructor
  * @param {mw.cx.tools.TranslationTool} translationTool
  * @param {Object} config Configuration options
- * @cfg {string} title The tool title
+ * @param {string} config.title The tool title
  */
 mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translationTool, config ) {
 	this.translationTool = translationTool;

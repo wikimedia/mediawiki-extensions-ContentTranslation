@@ -6,9 +6,9 @@
  *
  * @constructor
  * @param {Object} [config] Configuration options
- * @cfg {mw.Message|string} [message] Main message.
- * @cfg {mw.Message|string} [details] Additional details.
- * @cfg {OO.ui.ButtonWidget[]} [buttons] Array of additional buttons.
+ * @param {mw.Message|string} [config.message] Main message.
+ * @param {mw.Message|string} [config.details] Additional details.
+ * @param {OO.ui.ButtonWidget[]} [config.buttons] Array of additional buttons.
  */
 mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	// Configuration initialization

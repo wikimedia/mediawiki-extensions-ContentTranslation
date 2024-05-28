@@ -16,7 +16,7 @@
  * @param {Element} overlay Overlay element. Should have toolbar and surface
  *   containers.
  * @param {Object} [config] Configuration options
- * @cfg {string} [section] Number of the section target should scroll to
+ * @param {string} [config.section] Number of the section target should scroll to
  */
 
 function SectionTranslationTarget(overlay, config) {

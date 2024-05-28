@@ -6,14 +6,14 @@
  * Use mw.Message object for registered messages. For messages which are properly parsed,
  * string type can be used.
  * @param {Object} [messageInfo]
- * @cfg {string} [title]
- * @cfg {string} [type='warning'] 'warning' or 'error'
- * @cfg {string} [help]
- * @cfg {boolean} [resolvable=false]
- * @cfg {string} [actionIcon='check']
- * @cfg {string} [actionLabel]
- * @cfg {Function} [action]
- * @cfg {Object[]} [additionalButtons] Array of additional button configurations declaring icon, label and action.
+ * @param {string} [messageInfo.title]
+ * @param {string} [messageInfo.type='warning'] 'warning' or 'error'
+ * @param {string} [messageInfo.help]
+ * @param {boolean} [messageInfo.resolvable=false]
+ * @param {string} [messageInfo.actionIcon='check']
+ * @param {string} [messageInfo.actionLabel]
+ * @param {Function} [messageInfo.action]
+ * @param {Object[]} [messageInfo.additionalButtons] Array of additional button configurations declaring icon, label and action.
  */
 mw.cx.dm.TranslationIssue = function CXTranslationIssue( name, message, messageInfo ) {
 	this.name = name;

@@ -18,7 +18,7 @@
  * @class
  * @param {mw.cx.SiteMapper} siteMapper
  * @param {Object} config
- * @cfg {Function} [onDiscard] Callback triggered after selected source page is discarded
+ * @param {Function} [config.onDiscard] Callback triggered after selected source page is discarded
  */
 mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 	this.siteMapper = siteMapper;
@@ -327,12 +327,12 @@ mw.cx.SelectedSourcePage.prototype.setTargetTitle = function ( targetTitle ) {
  * @param {string} pageTitle
  * @param {string} href
  * @param {Object} config
- * @cfg {string} sourceLanguage Source language code
- * @cfg {string} targetLanguage Target language code
- * @cfg {Object} [params] Parameters used for API call to get page info
- * @cfg {string} [imageUrl] URL for selected source page image
- * @cfg {string} [imageIcon] OOUI class of selected page placeholder icon
- * @cfg {number} [numOfLanguages] Number of different language versions for selected source page
+ * @param {string} config.sourceLanguage Source language code
+ * @param {string} config.targetLanguage Target language code
+ * @param {Object} [config.params] Parameters used for API call to get page info
+ * @param {string} [config.imageUrl] URL for selected source page image
+ * @param {string} [config.imageIcon] OOUI class of selected page placeholder icon
+ * @param {number} [config.numOfLanguages] Number of different language versions for selected source page
  */
 mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config ) {
 	this.languageFilter.setSourceLanguageNoChecks( config.sourceLanguage );

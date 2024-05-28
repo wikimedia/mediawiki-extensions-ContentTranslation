@@ -6,9 +6,9 @@
  * @constructor
  * @param {mw.cx.dm.TranslationUnit} model
  * @param {Object} config
- * @cfg {string} title The title to be displayed for the tool card. If missing, header wont be displayed
- * @cfg {string} language The language name to be displayed in header of tool card
- * @cfg {number} order The position of the card in tools column. Cards will be arranged in this order.
+ * @param {string} config.title The title to be displayed for the tool card. If missing, header wont be displayed
+ * @param {string} config.language The language name to be displayed in header of tool card
+ * @param {number} config.order The position of the card in tools column. Cards will be arranged in this order.
  */
 mw.cx.tools.TranslationTool = function CXTranslationTool( model, config ) {
 	// Mixin constructor

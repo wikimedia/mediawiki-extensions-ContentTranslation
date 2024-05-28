@@ -16,8 +16,8 @@
  * @constructor
  * @param {mw.cx.ui.CategoryMultiselectWidget} categoryWidget
  * @param {Object} [config] Configuration options
- * @cfg {mw.cx.MwApiRequestManager} [requestManager]
- * @cfg {mw.cx.SiteMapper} [siteMapper]
+ * @param {mw.cx.MwApiRequestManager} [config.requestManager]
+ * @param {mw.cx.SiteMapper} [config.siteMapper]
  */
 mw.cx.ui.CategoryInputWidget = function CategoryInputWidget( categoryWidget, config ) {
 	var siteMapper = config.siteMapper || mw.cx.siteMapper,

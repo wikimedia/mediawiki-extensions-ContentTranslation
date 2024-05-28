@@ -14,12 +14,12 @@ $.uls.data.addLanguage( 'x-all', {
  * @class
  * @extends OO.ui.Widget
  * @param {Object} [config] Configuration object
- * @cfg {boolean} [canBeSame=false] True if source and target language can be the same language
- * @cfg {boolean} [canBeUndefined=false] True if source or target language can be unset
- * @cfg {boolean} [updateLocalStorage=false] True if this language selector can update local storage,
+ * @param {boolean} [config.canBeSame=false] True if source and target language can be the same language
+ * @param {boolean} [config.canBeUndefined=false] True if source or target language can be unset
+ * @param {boolean} [config.updateLocalStorage=false] True if this language selector can update local storage,
  * when source or target language changes
- * @cfg {Function} [onSourceLanguageChange] Callback invoked when source language changes
- * @cfg {Function} [onTargetLanguageChange] Callback invoked when target language changes
+ * @param {Function} [config.onSourceLanguageChange] Callback invoked when source language changes
+ * @param {Function} [config.onTargetLanguageChange] Callback invoked when target language changes
  */
 mw.cx.ui.LanguageFilter = function ( config ) {
 	// Configuration initialization

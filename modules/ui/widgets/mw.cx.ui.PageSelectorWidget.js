@@ -15,8 +15,8 @@
  *
  * @constructor
  * @param {Object} config Configuration options
- * @cfg {mw.cx.SiteMapper} siteMapper Site mapper
- * @cfg {string} [language] Source language
+ * @param {mw.cx.SiteMapper} config.siteMapper Site mapper
+ * @param {string} [config.language] Source language
  */
 mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
 	config = $.extend( {}, {

@@ -9,8 +9,8 @@
  * @class
  * @param {ve.init.mw.CXTarget} veTarget
  * @param {Object} config
- * @cfg {string} sourceLanguage
- * @cfg {string} targetLanguage
+ * @param {string} config.sourceLanguage
+ * @param {string} config.targetLanguage
  */
 mw.cx.TranslationTracker = function MwCXTranslationTracker( veTarget, config ) {
 	this.sourceLanguage = config.sourceLanguage;

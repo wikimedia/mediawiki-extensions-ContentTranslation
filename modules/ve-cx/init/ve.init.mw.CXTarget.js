@@ -10,9 +10,9 @@
  * @param {mw.cx.ui.TranslationView} translationView
  * @param {Object} [config] Configuration object
  * TODO: Only pass optional parameters in config
- * @cfg {mw.cx.SiteMapper} siteMapper
- * @cfg {mw.cx.MachineTranslationManager} MTManager
- * @cfg {mw.cx.MachineTranslationService} MTService
+ * @param {mw.cx.SiteMapper} config.siteMapper
+ * @param {mw.cx.MachineTranslationManager} config.MTManager
+ * @param {mw.cx.MachineTranslationService} config.MTService
  * TODO: toolbarConfig
  */
 ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
@@ -1069,7 +1069,7 @@ ve.init.mw.CXTarget.prototype.translateSection = function ( sectionId, provider,
  * @param {string|null} previousProvider
  * @param {string} newProvider
  * @param {Object} options
- * @cfg {boolean} noCache Do not use cached version
+ * @param {boolean} options.noCache Do not use cached version
  * @return {jQuery.promise}
  * @fires changeContentSource
  */

@@ -88,9 +88,9 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.allDisabled = function () {
  * @param {string} data Item data
  * @param {string} label The label text
  * @param {Object} [config] Configuration options
- * @cfg {boolean} [draggable]
- * @cfg {boolean} [hideRemoveButton]
- * @cfg {boolean} [disabled]
+ * @param {boolean} [config.draggable]
+ * @param {boolean} [config.hideRemoveButton]
+ * @param {boolean} [config.disabled]
  * @return {mw.cx.ui.CategoryTagItemWidget}
  */
 mw.cx.ui.CategoryMultiselectWidget.prototype.createTagItemWidget = function ( data, label, config ) {

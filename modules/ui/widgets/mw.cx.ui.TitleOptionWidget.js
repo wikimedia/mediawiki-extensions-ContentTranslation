@@ -17,8 +17,8 @@
 	 *
 	 * @constructor
 	 * @param {Object} [config] Configuration options
-	 * @cfg {number} [numOfLanguages] Number of languages matched article exists in.
-	 * @cfg {boolean} [missingInTargetLanguage] Article is missing in target language
+	 * @param {number} [config.numOfLanguages] Number of languages matched article exists in.
+	 * @param {boolean} [config.missingInTargetLanguage] Article is missing in target language
 	 */
 	mw.cx.ui.TitleOptionWidget = function MwCxTitleOptionWidget( config ) {
 		// Parent constructor
