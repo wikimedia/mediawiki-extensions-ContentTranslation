@@ -51,7 +51,6 @@ class Translation {
 			->select( [
 				'sourceLanguage' => 'translation_source_language',
 				'targetLanguage' => 'translation_target_language',
-				'status' => 'translation_status',
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			] )
@@ -70,6 +69,7 @@ class Translation {
 		$result = [];
 
 		foreach ( $rows as $row ) {
+			$row->status = 'draft';
 			$result[] = (array)$row;
 		}
 
@@ -95,7 +95,6 @@ class Translation {
 				// of stats, it should be counted as published. 'deleted' here just means
 				// the soft deletion of entry from CX tables. Not the article deletion.
 				// For this, use hard coded quoted value 'published' as status.
-				"'published' as status",
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			] )
@@ -110,6 +109,7 @@ class Translation {
 
 		$result = [];
 		foreach ( $rows as $row ) {
+			$row->status = 'published';
 			$result[] = (array)$row;
 		}
 
@@ -150,7 +150,10 @@ class Translation {
 		}
 
 		$rows = $dbr->newSelectQueryBuilder()
-			->select( [ 'ar_timestamp', 'count' => 'COUNT(ar_page_id)' ] )
+			->select( [
+				'date' => 'MAX(ar_timestamp)',
+				'count' => 'COUNT(ar_page_id)'
+			] )
 			->from( 'change_tag' )
 			->join( 'archive', null, 'ar_rev_id = ct_rev_id' )
 			->where( $conditions )
@@ -163,7 +166,7 @@ class Translation {
 		$dm = new DateManipulator( $interval );
 		foreach ( $rows as $row ) {
 			$count += (int)$row->count;
-			$time = $dm->getIntervalIdentifier( $row->ar_timestamp )->format( 'U' );
+			$time = $dm->getIntervalIdentifier( $row->date )->format( 'U' );
 			$result[$time] = [
 				'count' => $count,
 				'delta' => (int)$row->count,
@@ -226,7 +229,10 @@ class Translation {
 		}
 
 		$rows = $dbr->newSelectQueryBuilder()
-			->select( [ 'date' => 'translation_last_updated_timestamp', 'count' => 'COUNT(translation_id)' ] )
+			->select( [
+				'date' => 'MAX(translation_last_updated_timestamp)',
+				'count' => 'COUNT(translation_id)'
+			] )
 			->from( 'cx_translations' )
 			->where( $conditions )
 			->groupBy( $groupBy )
