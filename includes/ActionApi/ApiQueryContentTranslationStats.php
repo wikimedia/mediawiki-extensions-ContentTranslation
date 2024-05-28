@@ -11,6 +11,8 @@ namespace ContentTranslation\ActionApi;
 use ApiQueryBase;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\MediaWikiServices;
+use Wikimedia\LightweightObjectStore\ExpirationAwareness;
 
 /**
  * Api module for querying ContentTranslation stats.
@@ -22,16 +24,28 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 	}
 
 	public function execute() {
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$translationStats = $cache->getWithSetCallback(
+			$cache->makeGlobalKey( 'cx-api-stats-translation' ),
+			ExpirationAwareness::TTL_DAY,
+			fn () => Translation::getStats()
+		);
+		$translatorStats = $cache->getWithSetCallback(
+			$cache->makeGlobalKey( 'cx-api-stats-translator' ),
+			ExpirationAwareness::TTL_DAY,
+			fn () => Translator::getStats()
+		);
+
 		$result = $this->getResult();
 		$result->addValue(
 			[ 'query', 'contenttranslationstats' ],
 			'pages',
-			Translation::getStats()
+			$translationStats
 		);
 		$result->addValue(
 			[ 'query', 'contenttranslationstats' ],
 			'translators',
-			Translator::getStats()
+			$translatorStats
 		);
 	}
 
