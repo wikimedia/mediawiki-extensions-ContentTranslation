@@ -82,7 +82,7 @@
 	"apihelp-cxsave-summary": "此模块允许保存按章节的草稿翻译以节省带宽，并收集平行的语料库。",
 	"apihelp-cxsave-param-sourcerevision": "来源页面的修订版本。",
 	"apihelp-cxsave-param-progress": "有关翻译完成（进度）的信息。含有键<code>any</code>、<code>human</code>、<code>mt</code>和<code>mtSectionsCount</code>的JSON。键值均是百分比。",
-	"apihelp-cxsave-param-content": "JSON编码的段落数据。每个段落为一个目标，并拥有以下关键词：content、sectionId、sequenceId、sequenceId、origin",
+	"apihelp-cxsave-param-content": "JSON编码的段落数据。每个段落为一个对象，并拥有以下关键词：content、sectionId、sequenceId、sequenceId、origin",
 	"apihelp-cxsave-param-title": "要执行操作的页面标题。",
 	"apihelp-cxsave-param-from": "源语言代码。",
 	"apihelp-cxsave-param-to": "目标语言代码。",
