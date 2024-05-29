@@ -10,7 +10,7 @@
 	var campaign = 'newarticle';
 
 	function showInvitation() {
-		var $trigger = $( '#pt-betafeatures' );
+		var $trigger = $( '#vector-user-links-dropdown, #pt-betafeatures' ).first();
 		var cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
 			targettitle: mw.config.get( 'wgTitle' ),
