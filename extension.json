@@ -632,7 +632,6 @@
 				"cx-sx-published-section-invitation-title",
 				"cx-sx-published-section-invitation-missing-sections-info"
 			],
-			"es6": true,
 			"dependencies": [
 				"vue",
 				"mw.cx.SiteMapper",
@@ -939,7 +938,6 @@
 			]
 		},
 		"ext.cx.uls.quick.actions": {
-			"es6": true,
 			"packageFiles": [
 				"entrypoints/ext.cx.uls.quick.actions.js"
 			],
@@ -1061,7 +1059,6 @@
 			]
 		},
 		"ext.cx.entrypoints.recentedit": {
-			"es6": true,
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.recentedit/index.js",
 				"entrypoints/ext.cx.entrypoints.recentedit/RecentEditEntrypointInvitation.vue"
@@ -1118,7 +1115,6 @@
 			]
 		},
 		"ext.cx.entrypoints.newarticle": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newarticle.js"
 			],
@@ -1140,13 +1136,11 @@
 			]
 		},
 		"ext.cx.entrypoints.newarticle.veloader": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newarticle.veloader.js"
 			]
 		},
 		"ext.cx.entrypoints.languagesearcher.init": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.init.js"
 			]
@@ -1164,7 +1158,6 @@
 			]
 		},
 		"ext.cx.entrypoints.mffrequentlanguages": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.mffrequentlanguages.js"
 			],
@@ -1181,7 +1174,6 @@
 			]
 		},
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
-			"es6": true,
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue"
@@ -1203,7 +1195,6 @@
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newbytranslation.js"
 			],
@@ -1226,7 +1217,6 @@
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation.mobile": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.newbytranslation.mobile.js"
 			],
@@ -1245,7 +1235,6 @@
 			]
 		},
 		"ext.cx.entrypoints.contributionsmenu": {
-			"es6": true,
 			"scripts": [
 				"entrypoints/ext.cx.entrypoints.contributionsmenu.js"
 			],
