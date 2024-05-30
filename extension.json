@@ -72,6 +72,12 @@
 				"LanguageNameUtils"
 			]
 		},
+		"mfLanguageSearcherEntrypointsRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\MfLanguageSearcherEntrypointsRegistrationHandler",
+			"services": [
+				"ContentTranslation.PreferenceHelper"
+			]
+		},
 		"ulsRelevantLanguagesEntrypointRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler",
 			"services": [
@@ -111,6 +117,7 @@
 		"BeforePageDisplay": [
 			"main",
 			"mfFrequentLanguagesEntrypointRegistrar",
+			"mfLanguageSearcherEntrypointsRegistrar",
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
 			"recentEditEntrypointRegistrar",
@@ -1155,6 +1162,28 @@
 			],
 			"messages": [
 				"cx-campaign-mflanguagesearcher-invite"
+			]
+		},
+		"ext.cx.entrypoints.languagesearcher": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"codexStyleOnly": "true",
+			"codexComponents": [
+				"CdxCard"
+			],
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.js",
+				"entrypoints/ext.cx.entrypoints.languagesearcher/LanguageSearcherCardContainer.vue"
+			],
+			"dependencies": [
+				"vue",
+				"jquery.uls.data",
+				"mw.cx.SiteMapper"
+			],
+			"messages": [
+				"cx-mflanguagesearcher-entrypoint-card-title",
+				"cx-mflanguagesearcher-entrypoint-card-description",
+				"mint-mflanguagesearcher-entrypoint-card-title",
+				"mint-mflanguagesearcher-entrypoint-card-description"
 			]
 		},
 		"ext.cx.entrypoints.mffrequentlanguages": {

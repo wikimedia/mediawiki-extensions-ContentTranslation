@@ -187,8 +187,7 @@ class Hooks implements
 	 * @param Skin $skin
 	 */
 	public static function addModules( OutputPage $out, Skin $skin ) {
-		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns,
-			$wgSectionTranslationTargetLanguages;
+		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$title = $out->getTitle();
 		$user = $out->getUser();
@@ -205,12 +204,6 @@ class Hooks implements
 		) {
 			// Entry point modules need not be shown in CX special pages
 			return;
-		}
-
-		if ( self::isMobileView() && $wgSectionTranslationTargetLanguages ) {
-				$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
-				$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages',
-					$wgSectionTranslationTargetLanguages );
 		}
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();

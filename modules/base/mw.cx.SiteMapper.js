@@ -248,6 +248,42 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 	return mw.util.getUrl( cxPage, queryParams );
 };
 
+/**
+ * Get the URL for Special:AutomaticTranslation on the needed wiki
+ * according to given parameters.
+ *
+ * @param {string} sourceTitle
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string} displayLanguage
+ * @param {"confirm"|"translation"} step
+ */
+mw.cx.SiteMapper.prototype.getMintUrl = function (
+	sourceTitle,
+	sourceLanguage,
+	targetLanguage,
+	displayLanguage,
+	step
+) {
+	const queryParams = {
+		page: sourceTitle,
+		from: sourceLanguage,
+		to: targetLanguage,
+		display: displayLanguage,
+		step
+	};
+
+	const mintPage = 'Special:AutomaticTranslation';
+	if ( this.getCurrentWikiLanguageCode() !== targetLanguage ) {
+		const uri = new mw.Uri( this.getPageUrl( targetLanguage, mintPage ) );
+		uri.query = queryParams;
+
+		return uri.toString();
+	}
+
+	return mw.util.getUrl( mintPage, queryParams );
+};
+
 mw.cx.SiteMapper.prototype.setCXTokenValue = function ( sourceLanguage, targetLanguage, sourceTitle, value ) {
 	// base64 encode the name to get cookie name.
 	let name = 'cx_' + btoa( encodeURIComponent( [ sourceTitle, sourceLanguage, targetLanguage ].join( '_' ) ) );

@@ -10,7 +10,11 @@
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
 		function () {
-			mw.loader.load( 'ext.cx.entrypoints.languagesearcher.legacy' );
+			if ( mw.config.get( 'isLanguageSearcherMinTEntrypointEnabled' ) ) {
+				mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
+			} else {
+				mw.loader.load( 'ext.cx.entrypoints.languagesearcher.legacy' );
+			}
 		}
 	);
 }() );

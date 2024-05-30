@@ -518,5 +518,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Label of the 'ok' button that leads to the continuation of a draft translation, inside the dialog that informs the user about the continuation of a draft translation started on desktop",
 	"sx-published-translation-new-translation-button-label": "Label of the 'New translation' button inside a published translation work inside the dashboard list, that leads to the confirmation step for the user to restart a translation for the published article.",
 	"sx-section-selector-close-button-aria-label": "Aria label of the close button, inside the header of the 'Pick a section' step",
-	"sx-quick-tutorial-next-button-aria-label": "Aria label of the button, inside the first step of the quick tutorial of Section Translation, that leads to the second step of the tutorial"
+	"sx-quick-tutorial-next-button-aria-label": "Aria label of the button, inside the first step of the quick tutorial of Section Translation, that leads to the second step of the tutorial",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Title of the card of the Content Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Description of the card of the Content Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Title of the card of the Automatic Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Description of the card of the Automatic Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation."
 }
