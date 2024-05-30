@@ -10,7 +10,8 @@
 	var campaign = 'newarticle';
 
 	function showInvitation() {
-		var $trigger = $( '#vector-user-links-dropdown, #pt-betafeatures' ).first();
+		// Trigger for, in respective order: Vector 2022, Timeless and Vector legacy
+		var $trigger = $( '#vector-user-links-dropdown, #user-tools #personal, #pt-betafeatures' ).first();
 		var cxLink = mw.util.getUrl( 'Special:ContentTranslation', {
 			campaign: campaign,
 			targettitle: mw.config.get( 'wgTitle' ),
