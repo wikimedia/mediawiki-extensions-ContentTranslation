@@ -206,8 +206,7 @@ class SectionTranslationStore {
 			$whereConditions['translation_target_language'] = $to;
 		}
 		if ( $offset !== null ) {
-			$ts = $dbr->addQuotes( $dbr->timestamp( $offset ) );
-			$whereConditions[] = "translation_last_updated_timestamp < $ts";
+			$whereConditions[] = $dbr->expr( 'translation_last_updated_timestamp', '<', $dbr->timestamp( $offset ) );
 		}
 
 		return $dbr->newSelectQueryBuilder()

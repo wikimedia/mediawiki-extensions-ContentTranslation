@@ -271,13 +271,8 @@ class Translation {
 	}
 
 	public static function getPublishedCondition( IDatabase $db ) {
-		return $db->makeList(
-			[
-				'translation_status' => 'published',
-				'translation_target_url IS NOT NULL',
-			],
-			LIST_OR
-		);
+		return $db->expr( 'translation_status', '=', 'published' )
+			->or( 'translation_target_url', '!=', null );
 	}
 
 	/**
