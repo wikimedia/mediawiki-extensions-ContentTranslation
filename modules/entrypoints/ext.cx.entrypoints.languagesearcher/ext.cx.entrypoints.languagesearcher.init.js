@@ -10,7 +10,7 @@
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
 		function () {
-			mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
+			mw.loader.load( 'ext.cx.entrypoints.languagesearcher.legacy' );
 		}
 	);
 }() );

@@ -1148,13 +1148,12 @@
 		"ext.cx.entrypoints.languagesearcher.init": {
 			"es6": true,
 			"scripts": [
-				"entrypoints/ext.cx.entrypoints.languagesearcher.init.js"
+				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.init.js"
 			]
 		},
-		"ext.cx.entrypoints.languagesearcher": {
-			"es6": true,
+		"ext.cx.entrypoints.languagesearcher.legacy": {
 			"scripts": [
-				"entrypoints/ext.cx.entrypoints.languagesearcher.js"
+				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.legacy.js"
 			],
 			"dependencies": [
 				"jquery.uls.data",
