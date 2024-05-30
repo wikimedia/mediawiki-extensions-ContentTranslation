@@ -42,7 +42,7 @@
 
 	function createArrowIcon() {
 		const span = document.createElement( 'span' );
-		span.className = 'cx-entrypoint-missing-frequent-languages__icon mw-ui-icon';
+		span.className = 'cx-entrypoint-missing-frequent-languages__icon';
 		return span;
 	}
 
@@ -62,22 +62,13 @@
 		const missingLanguagesPanelContainer = document.createElement( 'h3' );
 		missingLanguagesPanelContainer.className = 'cx-entrypoint-missing-frequent-languages-container';
 
-		const missingLanguagesPanel = document.createElement( 'a' );
+		const missingLanguagesPanel = document.createElement( 'button' );
 		missingLanguagesPanel.className = 'cx-entrypoint-missing-frequent-languages';
 
 		const missingLanguagesPanelText = createPanelTextElement( sxMissingFrequentLanguages );
 		const missingLanguagesPanelIcon = createArrowIcon();
 		missingLanguagesPanel.appendChild( missingLanguagesPanelText );
 		missingLanguagesPanel.appendChild( missingLanguagesPanelIcon );
-
-		const siteMapper = new mw.cx.SiteMapper();
-		missingLanguagesPanel.href = siteMapper.getCXUrl(
-			mw.config.get( 'wgPageName' ),
-			null,
-			siteMapper.getCurrentWikiLanguageCode(),
-			sxMissingFrequentLanguages[ 0 ].lang,
-			{ campaign: 'mffrequentlanguages', sx: true }
-		);
 
 		missingLanguagesPanelContainer.appendChild( missingLanguagesPanel );
 		return missingLanguagesPanelContainer;
@@ -152,8 +143,10 @@
 				return;
 			}
 
+			const firstMissingLanguage = sxMissingFrequentLanguages[ 0 ];
+
 			const missingLanguagesPanel = createMissingLanguagesPanel( sxMissingFrequentLanguages );
-			languageSearcher.addBanner( missingLanguagesPanel.outerHTML );
+			languageSearcher.addBanner( missingLanguagesPanel.outerHTML, firstMissingLanguage.autonym );
 		}
 	);
 }() );
