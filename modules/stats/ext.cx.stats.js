@@ -546,10 +546,6 @@
 						}
 					) )
 					.text( fmt( model[ i ][ property ] ) );
-			} else {
-				$total = $( '<span>' )
-					.addClass( 'cx-stats-chart__total' )
-					.text( fmt( model[ i ][ property ] ) );
 			}
 
 			const $rowLabelContainer = $( '<span>' )

@@ -85,7 +85,7 @@
 					)
 			);
 
-		const $myTranslations = getTranslationsItem( !useCallout );
+		const $myTranslations = getTranslationsItem();
 
 		if ( $( '.mw-special-Preferences' ).length ) {
 			$myTranslations.addClass( 'cx-campaign-new-beta-feature' );
