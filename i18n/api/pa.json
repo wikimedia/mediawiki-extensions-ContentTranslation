@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cabal",
 			"Kuldeepburjbhalaike",
 			"Satdeep gill"
 		]
@@ -27,5 +28,6 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
 	"apihelp-sxsave-param-sourcelanguage": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-sxsave-param-targetlanguage": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-sxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।"
+	"apihelp-sxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
+	"apihelp-sxsave-param-progress": "ਤਰਜਮੇ ਦੀ ਪ੍ਰਗਤੀ।"
 }
