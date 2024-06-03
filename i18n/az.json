@@ -40,7 +40,7 @@
 	"cx-publish-summary": "\"$1\" tərcümə edilərək yaradıldı",
 	"cx-translation-add-translation": "Tərcümə əlavə et",
 	"cx-translation-target-page-exists": "[$1 $2] adlı səhifə bu vikidə mövcuddur. Başqa bir ad yoxlayın.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
+	"tag-contenttranslation": "[{{MediaWiki:cx-descriptionpagelink}} MəzmunTərcüməsi]",
 	"tag-contenttranslation-description": "Məzmun Content Translation aləti istifadə edilərək başqa dildən tərcümə edilib.",
 	"tag-contenttranslation-v2-description": "Məzmun Content Translation alətinin 2-ci versiyası istifadə edilərək başqa dildən tərcümə edilib.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|SectionTranslation]]",

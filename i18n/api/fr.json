@@ -10,6 +10,7 @@
 			"Momo50WM",
 			"Orlodrim",
 			"Thibaut120094",
+			"Trizek",
 			"Urhixidur",
 			"Verdy p",
 			"Weft",
@@ -158,6 +159,8 @@
 	"apihelp-sxdelete-example-1": "Supprimer une ébauche associée aux identifiants de traduction et de section donnés.",
 	"apihelp-cxsplit-summary": "Créez et enregistrez une traduction de section dans la base de données, pour chaque section traduite de la traduction d'un article donné",
 	"apihelp-cxsplit-param-translationid": "L'id de la traduction, pour lequel les traductions de sections seront crées.",
+	"apierror-cxsplit-anon-user": "L’action « cxsplit » de l’API n’est pas activée pour les utilisateurs anonymes.",
 	"apierror-cxsplit-no-translation-found": "Pas de traduction trouvée pour l'id donné",
-	"apihelp-cxcheckunreviewed-summary": "Vérifiez si une traduction rapide et non révisée a été publiée récemment pour l'utilisateur actuel."
+	"apihelp-cxcheckunreviewed-summary": "Vérifiez si une traduction rapide et non révisée a été publiée récemment pour l'utilisateur actuel.",
+	"apierror-cxcheckunreviewed-anon-user": "L’action « cxcheckunreviewed » de l’API n’est pas activée pour les utilisateurs anonymes."
 }
