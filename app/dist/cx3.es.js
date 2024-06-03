@@ -14204,7 +14204,7 @@ function My(e) {
   if (!mw.eventLog)
     return mw.log({ event: e }), Promise.resolve();
   const t = e.access_method || "mobile web", n = mw.config.get("wgDBname"), o = `cx_sx_${mw.user.sessionId()}_${t}_${n}`, s = "mediawiki.content_translation_event", a = mw.user.isAnon(), i = mw.user.getName(), c = Om(), l = {
-    $schema: "/analytics/mediawiki/content_translation_event/1.2.0",
+    $schema: "/analytics/mediawiki/content_translation_event/1.4.0",
     translation_type: "section",
     wiki_db: n,
     access_method: t,
