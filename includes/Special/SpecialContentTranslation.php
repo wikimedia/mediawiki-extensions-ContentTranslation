@@ -15,6 +15,7 @@ use DerivativeContext;
 use ExtensionRegistry;
 use Html;
 use MediaWiki\MediaWikiServices;
+use MobileContext;
 use MutableContext;
 use SkinFactory;
 use SpecialPage;
@@ -223,12 +224,13 @@ class SpecialContentTranslation extends SpecialPage {
 	 * @return bool
 	 */
 	private static function isMobileSite() {
-		$services = MediaWikiServices::getInstance();
-		return (
-			ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) &&
-			$services->getService( 'MobileFrontend.Context' )
-				->shouldDisplayMobileView()
-		);
+		$isMobileView = false;
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			/** @var MobileContext $mobileContext */
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+		return $isMobileView;
 	}
 
 	protected function isUnifiedDashboard(): bool {

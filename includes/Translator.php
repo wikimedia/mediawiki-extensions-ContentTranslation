@@ -26,6 +26,7 @@ class Translator {
 	}
 
 	public function addTranslation( $translationId ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->newReplaceQueryBuilder()
@@ -41,6 +42,7 @@ class Translator {
 
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -76,6 +78,7 @@ class Translator {
 	 * @return int
 	 */
 	public function getTranslationsCount() {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -117,6 +120,7 @@ class Translator {
 			'target' => 'translation_target_language',
 		];
 
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -145,6 +149,7 @@ class Translator {
 	 * @return int Number of translators
 	 */
 	public static function getTotalTranslatorsCount() {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 

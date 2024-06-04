@@ -36,6 +36,7 @@ use MediaWiki\Specials\Contribute\Hook\ContributeCardsHook;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
+use MobileContext;
 use OutputPage;
 use RequestContext;
 use Skin;
@@ -117,6 +118,7 @@ class Hooks implements
 		$isMobileView = false;
 
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			/** @var MobileContext $mobileContext */
 			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
 			$isMobileView = $mobileContext->shouldDisplayMobileView();
 		}
@@ -192,6 +194,7 @@ class Hooks implements
 		$title = $out->getTitle();
 		$user = $out->getUser();
 
+		/** @var PreferenceHelper $preferenceHelper */
 		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
 		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
@@ -286,6 +289,7 @@ class Hooks implements
 	 * @param SpecialPage $page
 	 */
 	public function onSpecialContributionsBeforeMainOutput( $id, $user, $page ) {
+		/** @var PreferenceHelper $preferenceHelper */
 		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
 		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;
@@ -387,6 +391,7 @@ class Hooks implements
 		global $wgContentTranslationAsBetaFeature, $wgContentTranslationCampaigns;
 
 		$user = $out->getUser();
+		/** @var PreferenceHelper $preferenceHelper */
 		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
 		if ( $preferenceHelper->isCXEntrypointDisabled( $user ) ) {
 			return;

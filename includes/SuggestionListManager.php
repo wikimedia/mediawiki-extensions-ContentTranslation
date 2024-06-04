@@ -12,6 +12,7 @@ class SuggestionListManager {
 	 * @return int Id of the list.
 	 */
 	public function insertList( SuggestionList $list ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 		$values = [
@@ -41,6 +42,7 @@ class SuggestionListManager {
 	}
 
 	public function deleteList( $id ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->newDeleteQueryBuilder()
@@ -64,6 +66,7 @@ class SuggestionListManager {
 			return;
 		}
 
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 		$dbw->newDeleteQueryBuilder()
@@ -77,6 +80,7 @@ class SuggestionListManager {
 	}
 
 	protected function getListByConds( array $conds ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 		$row = $dbr->newSelectQueryBuilder()
@@ -164,6 +168,7 @@ class SuggestionListManager {
 	 * @return Suggestion[] Suggestions
 	 */
 	private function getSuggestionsByListName( $owner, $listName, $from = null, $to = null ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 		$suggestions = [];
@@ -200,6 +205,7 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function addSuggestions( array $suggestions ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 
@@ -238,6 +244,7 @@ class SuggestionListManager {
 	 * @param Suggestion[] $suggestions
 	 */
 	public function removeSuggestions( array $suggestions ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 
@@ -263,6 +270,7 @@ class SuggestionListManager {
 	 * @return bool
 	 */
 	public function doesSuggestionExist( Suggestion $suggestion ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -318,6 +326,7 @@ class SuggestionListManager {
 	 * @return array Lists and suggestions
 	 */
 	public function getSuggestionsByType( $type, $from, $to, $limit, $offset = null, $seed = null ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -369,6 +378,7 @@ class SuggestionListManager {
 	 */
 	public function getSuggestionsInList( $listId, $from, $to, $limit, $offset, $seed ) {
 		$suggestions = [];
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 

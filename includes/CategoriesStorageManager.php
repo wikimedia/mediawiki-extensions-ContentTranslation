@@ -106,6 +106,7 @@ class CategoriesStorageManager {
 	public static function save(
 		$translationId, $sourceCategories, $targetCategories, $newTranslation
 	) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$db = $lb->getConnection( DB_PRIMARY );
 
@@ -137,6 +138,7 @@ class CategoriesStorageManager {
 	 * @return bool
 	 */
 	private static function exists( $translationId ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$db = $lb->getConnection( DB_PRIMARY );
 

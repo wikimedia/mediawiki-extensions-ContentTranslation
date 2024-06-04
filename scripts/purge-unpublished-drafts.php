@@ -7,8 +7,10 @@
 namespace ContentTranslation\Scripts;
 
 use ContentTranslation\Exception\InvalidNotificationTitleException;
+use ContentTranslation\LoadBalancer;
 use ContentTranslation\Notification;
 use ContentTranslation\SiteMapper;
+use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use DateTime;
 use InvalidArgumentException;
@@ -74,6 +76,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			throw new InvalidArgumentException( 'Purge days must be an integer' );
 		}
 
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 		$notifyAgeInDays = $this->getOption( 'notify-age-in-days' );
@@ -215,6 +218,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
 		$translationStore->unlinkTranslationFromTranslator( $draftId );
 		$translationStore->deleteTranslation( $draftId );
+		/** @var TranslationCorporaStore $corporaStore */
 		$corporaStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationCorporaStore' );
 		$corporaStore->deleteTranslationDataGently( $draftId, $this->mBatchSize );
 		$this->output( " — PURGED", $draftId );
@@ -298,6 +302,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	private function logLastNotifiedDraft( $lastDraft ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
 

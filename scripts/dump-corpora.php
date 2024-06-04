@@ -14,6 +14,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use ContentTranslation\JsonDumpFormatter;
+use ContentTranslation\LoadBalancer;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\TmxDumpFormatter;
 use ContentTranslation\Translation;
@@ -110,6 +111,7 @@ class CXCorporaDump extends Maintenance {
 		[ $sinkClass, $sinkExtension ] = self::$sinkTypes[ $sinkType ];
 
 		// Figure out groups (which translation pairs go to which file)
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$db = $lb->getConnection( DB_REPLICA );
 
@@ -121,10 +123,8 @@ class CXCorporaDump extends Maintenance {
 			$groups = self::groupLanguagePairs( $pairsWithCounts, $splitAt );
 		}
 
-		/**
-		 * Fetch data from corpora table and stream it to the sinks using an exporter
-		 * @type TranslationCorporaManager $corporaManager
-		 */
+		// Fetch data from corpora table and stream it to the sinks using an exporter
+		/** @var TranslationCorporaManager $corporaManager */
 		$corporaManager = MediaWikiServices::getInstance()->getService(
 			'ContentTranslation.TranslationCorporaManager'
 		);

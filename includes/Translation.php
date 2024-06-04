@@ -43,6 +43,7 @@ class Translation {
 	 * @return array
 	 */
 	public static function getDraftStats() {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -82,6 +83,7 @@ class Translation {
 	 * @return array
 	 */
 	public static function getPublishedStats() {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -185,6 +187,7 @@ class Translation {
 	public static function getTrendByStatus(
 		$source, $target, $status, $interval, $translatorId
 	) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 
@@ -285,6 +288,7 @@ class Translation {
 	 * @return array
 	 */
 	public static function getAllPublishedTranslations( $from, $to, $limit, $offset ) {
+		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
 		$conditions = [];
