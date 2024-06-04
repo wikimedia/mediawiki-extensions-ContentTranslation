@@ -55,7 +55,9 @@
 			"Aqua",
 			"LittlePaw365",
 			"Diskdance",
-			"Lakejason0"
+			"Lakejason0",
+			"Anterdc99",
+			"SunAfterRain"
 		]
 	},
 	"cx": "翻译页面",
@@ -80,7 +82,7 @@
 	"cx-publish-error-unknown": "发生未知且不可恢复的错误。错误详情：$1",
 	"cx-publish-button": "发布",
 	"cx-publish-button-publishing": "正在发布...",
-	"cx-lost-session": "您的会话已过期",
+	"cx-lost-session": "您的会话已到期",
 	"cx-lost-session-draft": "您的会话已过期。除非您在其他窗口再次登录，否则无法保存您的编辑。",
 	"cx-lost-session-publish": "您的会话已过期。除非您在其他窗口再次登录，否则您无法发布翻译。",
 	"cx-lost-session-dashboard": "要执行此操作，请重新登录。",
@@ -486,7 +488,7 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
 	"cx-sx-publisher-captcha-dialog-publish-button": "发布",
 	"cx-contributecard-entrypoint-title": "翻译",
-	"cx-contributecard-entrypoint-desc": "翻译一个章节或整个条目。让更多内容以更多语言提供。",
+	"cx-contributecard-entrypoint-desc": "翻译一个章节或整个条目。让更多内容支持更多语言。",
 	"cx-contributecard-entrypoint-cta": "开始翻译",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "未找到等效模板",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "此模板将添加为空模板",

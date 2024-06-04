@@ -29,7 +29,8 @@
 			"Ykhwong",
 			"Петар Петковић",
 			"아라",
-			"콩가루"
+			"콩가루",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "문서 번역",
@@ -44,6 +45,7 @@
 	"cx-header-translation-center": "번역 센터",
 	"cx-header-all-translations": "모든 번역",
 	"cx-source-view-page": "문서 보기",
+	"cx-target-view-page": "문서 보기",
 	"cx-publish-page-success": "$1에 문서가 게시되었습니다",
 	"cx-publish-error-abuse-filter": "자동 편집 필터가 당신의 번역에 문제가 있을 수 있는 내용을 식별했습니다. 필터된 부분: $1",
 	"cx-publish-error-empty": "서버가 데이터 없이 응답했습니다.",
