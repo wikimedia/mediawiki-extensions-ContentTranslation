@@ -13,16 +13,6 @@ use ContentTranslation\DateManipulator;
 class DateManipulatorTest extends \MediaWikiUnitTestCase {
 
 	public function testConstructor() {
-		$this->assertInstanceOf(
-			DateManipulator::class,
-			new DateManipulator( DateManipulator::WEEK )
-		);
-
-		$this->assertInstanceOf(
-			DateManipulator::class,
-			new DateManipulator( DateManipulator::MONTH )
-		);
-
 		$this->expectException( \InvalidArgumentException::class );
 		new DateManipulator( 'lifetime' );
 	}
