@@ -206,6 +206,7 @@ module.exports = defineComponent( {
 		};
 
 		watchEffect( () => {
+			props.pageResult.setSourceLanguage( sourceLanguage.value );
 			const title = props.pageResult.sourceTitle;
 			doTranslateLeadSection( title, sourceLanguage.value, targetLanguage.value );
 		} );

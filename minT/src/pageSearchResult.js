@@ -40,6 +40,10 @@ class PageSearchResult {
 		return this.langLinks.map( ( langLink ) => langLink.language );
 	}
 
+	setSourceLanguage( sourceLanguage ) {
+		this.sourceLanguage = sourceLanguage;
+	}
+
 	/**
 	 * @param {string} language
 	 * @return {string|undefined}
