@@ -57,7 +57,8 @@ const useWikidataSearch = () => {
 
 			for ( const page of pages ) {
 				const searchResult = rawResults.find(
-					( result ) => page.isTitleEqual( result.displayTitle )
+					( result ) => result.displayLanguage === language &&
+							page.isTitleEqual( result.displayTitle )
 				);
 
 				const pageResult = new PageSearchResult( {

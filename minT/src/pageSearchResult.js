@@ -33,9 +33,7 @@ class PageSearchResult {
 	}
 
 	get sourceTitle() {
-		const siteLink = this.langLinks.find( ( link ) => link.language === this.sourceLanguage );
-
-		return siteLink.title;
+		return this.getTitleByLanguage( this.sourceLanguage );
 	}
 
 	get languages() {
