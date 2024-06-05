@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Satdeep gill",
-			"Kuldeepburjbhalaike"
+			"Kuldeepburjbhalaike",
+			"Cabal"
 		]
 	},
 	"apihelp-cxpublish-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-cxpublish-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslation-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslation-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslation-example-2": "ਸ਼ਨਾਖ਼ਤ ਰਾਹੀਂ ਤਰਜਮਾ ਖਰੜਾ ਪ੍ਰਾਪਤ ਕਰੋ।",
 	"apihelp-query+contenttranslationsuggestions-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslationsuggestions-param-to": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+cxpublishedtranslations-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
@@ -27,5 +29,6 @@
 	"apihelp-cxpublishsection-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
 	"apihelp-sxsave-param-sourcelanguage": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-sxsave-param-targetlanguage": "ਨਿਸ਼ਾਨਾ ਭਾਸ਼ਾ ਕੋਡ।",
-	"apihelp-sxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।"
+	"apihelp-sxsave-param-sourcetitle": "ਸਰੋਤ ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ।",
+	"apihelp-sxsave-param-progress": "ਤਰਜਮੇ ਦੀ ਪ੍ਰਗਤੀ।"
 }
