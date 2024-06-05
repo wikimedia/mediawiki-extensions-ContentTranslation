@@ -87,7 +87,7 @@ homeSearchInput.addEventListener( 'click', function () {
 const { getURLParams } = useUrlHelper();
 const {
 	page: title,
-	displayLanguage,
+	sourceLanguage: urlSourceLanguage,
 	step
 } = getURLParams();
 
@@ -97,11 +97,11 @@ Vue.watch( sites, () => {
 		const { findOneOrFetchPage } = usePageMetadata();
 		const { prepareSiteLinks } = useSiteLinksHelper();
 
-		findOneOrFetchPage( displayLanguage, title ).then( ( mediawikiPage ) => {
+		findOneOrFetchPage( urlSourceLanguage, title ).then( ( mediawikiPage ) => {
 			const siteLinks = prepareSiteLinks( mediawikiPage.langlinks );
 			const pageResult = new PageSearchResult( {
 				thumbnail: mediawikiPage.thumbnail,
-				pagelanguage: displayLanguage,
+				pagelanguage: urlSourceLanguage,
 				title,
 				description: mediawikiPage.description,
 				order: 1,

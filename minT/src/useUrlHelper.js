@@ -2,7 +2,7 @@
 
 const useUrlHelper = () => {
 	/**
-	 * @return {{targetLanguage: string, step: string, page: string, displayLanguage: string, sourceLanguage: string}}
+	 * @return {{page: string, sourceLanguage: string, targetLanguage: string, step: string}}
 	 */
 	const getURLParams = () => {
 		const currentUrl = new URL( location.href );
@@ -12,7 +12,6 @@ const useUrlHelper = () => {
 			page: searchParams.get( 'page' ),
 			sourceLanguage: searchParams.get( 'from' ),
 			targetLanguage: searchParams.get( 'to' ),
-			displayLanguage: searchParams.get( 'display' ),
 			step: searchParams.get( 'step' )
 		};
 	};
@@ -27,10 +26,9 @@ const useUrlHelper = () => {
 		const searchParams = currentUrl.searchParams;
 
 		// Add the new parameter and its value
-		searchParams.set( 'page', pageResult.title );
+		searchParams.set( 'page', pageResult.sourceTitle );
 		searchParams.set( 'from', pageResult.sourceLanguage );
 		searchParams.set( 'to', targetLanguage );
-		searchParams.set( 'display', pageResult.language );
 		searchParams.set( 'step', step );
 
 		currentUrl.search = searchParams.toString();
