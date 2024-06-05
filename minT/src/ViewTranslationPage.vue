@@ -165,6 +165,7 @@ const useRouter = require( './useRouter.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
+const useSectionTranslate = require( './useSectionTranslate.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const {
@@ -279,32 +280,12 @@ module.exports = defineComponent( {
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
 
 		const sectionExpandStatus = ref( [] );
-		const sectionTranslations = ref( [] );
+		const { translateSection, sectionTranslations } = useSectionTranslate();
 
-		const translateSection = ( index ) => {
-			if ( sectionTranslations.value[ index ] ) {
-				return;
-			}
-			const section = sections.value[ index ];
-			const headerElement = section.node.querySelector( 'h2' );
-			if ( headerElement ) {
-				headerElement.remove();
-			}
-			translate(
-				section.node.outerHTML,
-				sourceLanguage.value,
-				targetLanguage.value,
-				cxServerToken.value
-			)
-				.then( ( translation ) => {
-					sectionTranslations.value[ index ] = translation;
-				} )
-				.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
-		};
 		const toggleSection = ( index ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];
 			if ( sectionExpandStatus.value[ index ] ) {
-				translateSection( index );
+				translateSection( sections, index );
 			}
 		};
 		const resetSectionExpandStatus = ( sectionValues ) => {
