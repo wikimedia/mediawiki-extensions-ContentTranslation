@@ -1795,6 +1795,7 @@
 				"useLeadSectionTranslationFetch.js",
 				"useSectionTranslate.js",
 				"useTranslationInitialize.js",
+				"useSectionTitleTranslate.js",
 				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",

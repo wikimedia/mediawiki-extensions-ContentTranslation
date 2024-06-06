@@ -159,14 +159,13 @@
 </template>
 
 <script>
-const useApi = require( './useApi.js' );
 const useState = require( './useState.js' );
 const useRouter = require( './useRouter.js' );
-const useCXServerToken = require( './useCXServerToken.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
 const useSectionTranslate = require( './useSectionTranslate.js' );
 const useTranslationInitialize = require( './useTranslationInitialize.js' );
+const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const {
@@ -198,8 +197,6 @@ module.exports = defineComponent( {
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
 
-		const { translate } = useApi();
-
 		const title = props.pageResult.sourceTitle;
 
 		const {
@@ -228,28 +225,11 @@ module.exports = defineComponent( {
 			} ) );
 		} );
 
-		const { cxServerToken } = useCXServerToken();
-
-		const translatedSectionTitles = ref( [] );
 		const loadingSectionTitleTranslations = ref( false );
-		watchEffect( () => {
-			const sectionTitleTranslationPromises = sections.value.map( ( section, index ) => {
-				const sourceSectionTitle = section.title;
+		const { translateSectionTitle, translatedSectionTitles } = useSectionTitleTranslate();
 
-				return translate(
-					`<div>${ sourceSectionTitle }</div>`,
-					sourceLanguage.value,
-					targetLanguage.value,
-					cxServerToken.value
-				)
-					.then( ( translation ) => {
-						// eslint-disable-next-line es-x/no-regexp-named-capture-groups
-						const regExp = /<div>(?<translatedTitle>(.|\s)*)<\/div>/;
-						const matches = regExp.exec( translation );
-						translatedSectionTitles.value[ index ] = matches ? matches.groups.translatedTitle : '';
-					} )
-					.catch( ( error ) => mw.log.error( `Error while translating section title "${ sourceSectionTitle }"`, error ) );
-			} );
+		watchEffect( () => {
+			const sectionTitleTranslationPromises = sections.value.map( translateSectionTitle );
 			loadingSectionTitleTranslations.value = true;
 			Promise.all( sectionTitleTranslationPromises ).then(
 				() => ( loadingSectionTitleTranslations.value = false )
