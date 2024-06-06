@@ -51,15 +51,15 @@
 				</template>
 			</cdx-card>
 		</div>
-		<mw-spinner v-if="loadingTranslation"></mw-spinner>
+		<mw-spinner v-if="loadingLeadSectionTranslation"></mw-spinner>
 		<div
 			v-else
 			class="translation-viewer__contents"
-			v-html="contents"
+			v-html="leadSectionContents"
 		>
 		</div>
 		<div
-			v-if="!loadingTranslation && sections.length"
+			v-if="!loadingLeadSectionTranslation && sections.length"
 			class="translation-viewer__sections-container"
 		>
 			<div v-if="!loadingSectionTitleTranslations">
@@ -166,6 +166,7 @@ const useCXServerToken = require( './useCXServerToken.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
 const useSectionTranslate = require( './useSectionTranslate.js' );
+const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const {
@@ -197,13 +198,18 @@ module.exports = defineComponent( {
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
 
-		const doc = ref( null );
-		const contents = ref( '' );
-		const { fetchPageContent, translate } = useApi();
+		const { translate } = useApi();
 
-		const language = props.pageResult.sourceLanguage;
 		const title = props.pageResult.sourceTitle;
-		const loadingTranslation = ref( true );
+
+		const {
+			doc,
+			leadSectionContents,
+			loadingLeadSectionTranslation,
+			initializeTranslation
+		} = useTranslationInitialize();
+
+		initializeTranslation( title );
 
 		const sections = computed( () => {
 			if ( !doc.value ) {
@@ -249,30 +255,6 @@ module.exports = defineComponent( {
 				() => ( loadingSectionTitleTranslations.value = false )
 			);
 		} );
-
-		fetchPageContent( language, title )
-			.then( ( text ) => {
-				const parser = new DOMParser();
-
-				// Parse the element string
-				doc.value = parser.parseFromString( text, 'text/html' );
-
-				const leadSection = doc.value.querySelector( '[data-mw-section-id="0"]' );
-				contents.value = leadSection.outerHTML;
-
-				translate(
-					contents.value,
-					sourceLanguage.value,
-					targetLanguage.value,
-					cxServerToken.value
-				)
-					.then( ( translation ) => {
-						contents.value = translation;
-					} )
-					.catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) )
-					.finally( () => ( loadingTranslation.value = false ) );
-			} )
-			.catch( ( error ) => mw.log.error( 'Error while fetching page contents', error ) );
 
 		const { goToHomePage } = useRouter();
 
@@ -324,7 +306,7 @@ module.exports = defineComponent( {
 		} );
 
 		return {
-			contents,
+			leadSectionContents,
 			cdxIconArrowNext,
 			cdxIconClose,
 			cdxIconRobot,
@@ -335,7 +317,7 @@ module.exports = defineComponent( {
 			goToHomePage,
 			sourceLanguageAutonym,
 			targetLanguageAutonym,
-			loadingTranslation,
+			loadingLeadSectionTranslation,
 			sections,
 			targetTitle,
 			toggleSection,
