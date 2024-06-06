@@ -55,7 +55,9 @@
 			"夢蝶葬花",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"Anterdc99",
+			"SunAfterRain"
 		]
 	},
 	"cx": "翻译页面",
@@ -355,7 +357,7 @@
 	"cx-sx-sentence-selector-header-title": "翻译章节",
 	"cx-sx-sentence-selector-done-button-label": "完成",
 	"cx-sx-sentence-selector-suggested-translation-title": "来自$1的建议翻译",
-	"cx-sx-proposed-translation-not-available-message": "机器翻译目前无法使用",
+	"cx-sx-proposed-translation-not-available-message": "目前不可用",
 	"cx-sx-proposed-translation-retry-button": "重试",
 	"cx-sx-proposed-translation-other-options-button": "其他选项",
 	"cx-sx-sentence-selector-edit-translation-button-label": "编辑翻译",
@@ -487,7 +489,7 @@
 	"cx-sx-publisher-captcha-dialog-header-title": "检查确保您不是机器人",
 	"cx-sx-publisher-captcha-dialog-publish-button": "发布",
 	"cx-contributecard-entrypoint-title": "翻译",
-	"cx-contributecard-entrypoint-desc": "翻译一个章节或整个条目。让更多内容以更多语言提供。",
+	"cx-contributecard-entrypoint-desc": "翻译一个章节或整个条目。让更多内容支持更多语言。",
 	"cx-contributecard-entrypoint-cta": "开始翻译",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "未找到等效模板",
 	"cx-sx-block-template-mapping-status-title-unadapted-template": "此模板将添加为空模板",
