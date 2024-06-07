@@ -36,7 +36,9 @@ const useSectionTitleTranslate = () => {
 			.catch( ( error ) => mw.log.error( `Error while translating section title "${ sourceSectionTitle }"`, error ) );
 	};
 
-	return { translateSectionTitle, translatedSectionTitles };
+	const resetTranslatedSectionTitles = () => ( translatedSectionTitles.value = [] );
+
+	return { translateSectionTitle, translatedSectionTitles, resetTranslatedSectionTitles };
 };
 
 module.exports = useSectionTitleTranslate;

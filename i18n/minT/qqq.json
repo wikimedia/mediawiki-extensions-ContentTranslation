@@ -21,7 +21,7 @@
 	"mint-search-topic-page-results-container-empty": "Placeholder text that is displayed inside the container of the results, when no search query is provided, inside the MinT search page.",
 	"mint-confirm-topic-page-header": "Header text of the page where user can preview the automatic translation of the lead section of a selected article, and continue to full article automatic translation",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Text communicating to the user that the article preview card is clickable, and leads to the full article automatic translation page",
-	"mint-confirm-topic-page-language-selector-explanation": "Label of the container of the language selector inside MinT confirmation step.\n\nParameters:\n* $1 - the number of languages in which the article is available.",
+	"mint-confirm-topic-page-language-selector-explanation": "Label of the container of the language selector inside MinT confirmation step.\n\nParameters:\n* $1 - source page URL.\n* $2 - source language autonym.\n* $3 - the number of languages in which the article is available.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Label of the button that leads to the MinT search page step, inside MinT confirmation step",
 	"mint-confirm-topic-page-target-article-link-container-header": "Header text of the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
 	"mint-confirm-topic-page-target-article-link-container-details": "Explanatory text inside the container of the link to the selected article in the target wiki, inside the MinT confirmation step.\n\nParameters:\n* $1 - the target article language",
@@ -34,5 +34,11 @@
 	"mint-view-translation-page-target-article-container-details": "Body of the card that informs the user about the article being available in the target language wiki.\n\nParameters:\n* $1 - the target article language",
 	"mint-view-translation-page-source-article-link-label": "Label of the link that redirects the user to the source article page, inside the MinT view translation page.\n\nParameters:\n* $1 - the source article language",
 	"mint-view-translation-content-translation-entrypoint-title": "Title of the card that informs the user about the possibility to review the automatic translation, and redirects the user to Content Translation application, inside the MinT view translation page.",
-	"mint-view-translation-content-translation-entrypoint-description": "Description of the card that informs the user about the possibility to review the automatic translation, and redirects the user to Content Translation application, inside the MinT view translation page."
+	"mint-view-translation-content-translation-entrypoint-description": "Description of the card that informs the user about the possibility to review the automatic translation, and redirects the user to Content Translation application, inside the MinT view translation page.",
+	"mint-view-translation-overlay-header": "Header text of the dialog that displays the different translation options to the user, inside the MinT view translation page.",
+	"mint-view-translation-overlay-source-article-link-label": "Label of the source article link, in the list of the different translation options, inside the MinT view translation page.\n\nParameters:\n* $1 - the source article language",
+	"mint-view-translation-overlay-target-article-link-label": "Label of the target article link, in the list of the different translation options, inside the MinT view translation page.\n\nParameters:\n* $1 - the target article language",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Label of the Content Translation entrypoint link, in the list of the different translation options, inside the MinT view translation page.",
+	"mint-view-translation-overlay-share-button-label": "Label of the share button, in the list of the different translation options, inside the MinT view translation page.",
+	"mint-view-translation-overlay-feedback-link-label": "Label of the button that directs the user to the feedback page, in the list of the different translation options, inside the MinT view translation page."
 }

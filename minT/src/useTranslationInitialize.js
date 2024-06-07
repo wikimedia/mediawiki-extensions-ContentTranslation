@@ -20,8 +20,11 @@ const useTranslationInitialize = () => {
 	const leadSectionContents = ref( '' );
 	const loadingLeadSectionTranslation = ref( true );
 
-	const initializeTranslation = ( title ) =>
-		fetchPageContent( sourceLanguage.value, title )
+	const initializeTranslation = ( title ) => {
+		leadSectionContents.value = '';
+		loadingLeadSectionTranslation.value = true;
+
+		return fetchPageContent( sourceLanguage.value, title )
 			.then( ( text ) => {
 				const parser = new DOMParser();
 
@@ -44,6 +47,7 @@ const useTranslationInitialize = () => {
 					.finally( () => ( loadingLeadSectionTranslation.value = false ) );
 			} )
 			.catch( ( error ) => mw.log.error( 'Error while fetching page contents', error ) );
+	};
 
 	return {
 		doc,

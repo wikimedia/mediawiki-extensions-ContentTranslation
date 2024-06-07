@@ -8,7 +8,10 @@
 				<cdx-icon :icon="cdxIconClose"></cdx-icon>
 			</cdx-button>
 		</div>
-		<div class="translation-viewer__machine-translation-indicator">
+		<div
+			class="translation-viewer__machine-translation-indicator"
+			@click="openTranslationOptions"
+		>
 			<cdx-icon :icon="cdxIconRobot"></cdx-icon>
 			<div class="translation-viewer__machine-translation-indicator__languages">
 				<span>{{ sourceLanguageAutonym }}</span>
@@ -23,7 +26,8 @@
 			<a
 				class="translation-viewer__source-page-link"
 				:href="sourcePageUrl"
-				target="_blank">
+				target="_blank"
+			>
 				<span>
 					{{
 						$i18n(
@@ -78,7 +82,10 @@
 						></span>
 						<span class="mw-headline">{{ sectionTitle }}</span>
 					</h2>
-					<div v-if="sectionExpandStatus[index]" class="translation-viewer__section-contents">
+					<div
+						v-if="sectionExpandStatus[index]"
+						class="translation-viewer__section-contents"
+					>
 						<mw-spinner v-if="!sectionTranslations[index]"></mw-spinner>
 						<div v-else v-html="sectionTranslations[index]">
 						</div>
@@ -155,6 +162,12 @@
 				</cdx-card>
 			</div>
 		</div>
+		<view-translation-page-options
+			v-model="optionsDialogOn"
+			:page-result="pageResult"
+			:source-page-url="sourcePageUrl"
+			:target-page-url="targetPageUrl"
+		></view-translation-page-options>
 	</div>
 </template>
 
@@ -168,6 +181,7 @@ const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
+const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
 const {
 	cdxIconClose,
 	cdxIconRobot,
@@ -179,12 +193,12 @@ const {
 } = require( './icons.json' );
 const getAutonym = $.uls.data.getAutonym;
 
-const { defineComponent, ref, computed, watchEffect } = require( 'vue' );
+const { defineComponent, ref, computed, watchEffect, watch } = require( 'vue' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 
 module.exports = defineComponent( {
 	name: 'ViewTranslation',
-	components: { CdxIcon, CdxButton, CdxCard, MwSpinner },
+	components: { CdxIcon, CdxButton, CdxCard, MwSpinner, ViewTranslationPageOptions },
 	props: {
 		pageResult: {
 			type: PageResult,
@@ -197,8 +211,6 @@ module.exports = defineComponent( {
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
 
-		const title = props.pageResult.sourceTitle;
-
 		const {
 			doc,
 			leadSectionContents,
@@ -206,7 +218,10 @@ module.exports = defineComponent( {
 			initializeTranslation
 		} = useTranslationInitialize();
 
-		initializeTranslation( title );
+		watchEffect( () => {
+			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
+			initializeTranslation( title );
+		} );
 
 		const sections = computed( () => {
 			if ( !doc.value ) {
@@ -226,17 +241,20 @@ module.exports = defineComponent( {
 		} );
 
 		const loadingSectionTitleTranslations = ref( false );
-		const { translateSectionTitle, translatedSectionTitles } = useSectionTitleTranslate();
+		const {
+			translateSectionTitle,
+			translatedSectionTitles,
+			resetTranslatedSectionTitles
+		} = useSectionTitleTranslate();
 
-		watchEffect( () => {
+		watch( sections, () => {
+			resetTranslatedSectionTitles();
 			const sectionTitleTranslationPromises = sections.value.map( translateSectionTitle );
 			loadingSectionTitleTranslations.value = true;
 			Promise.all( sectionTitleTranslationPromises ).then(
 				() => ( loadingSectionTitleTranslations.value = false )
 			);
-		} );
-
-		const { goToHomePage } = useRouter();
+		}, { immediate: true } );
 
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
@@ -285,6 +303,13 @@ module.exports = defineComponent( {
 			return siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title );
 		} );
 
+		const { goToHomePage } = useRouter();
+
+		const optionsDialogOn = ref( false );
+		const openTranslationOptions = () => {
+			optionsDialogOn.value = true;
+		};
+
 		return {
 			leadSectionContents,
 			cdxIconArrowNext,
@@ -308,7 +333,9 @@ module.exports = defineComponent( {
 			targetPageUrl,
 			targetPage,
 			translatedSectionTitles,
-			loadingSectionTitleTranslations
+			loadingSectionTitleTranslations,
+			openTranslationOptions,
+			optionsDialogOn
 		};
 	}
 } );

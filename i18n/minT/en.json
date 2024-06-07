@@ -34,5 +34,11 @@
 	"mint-view-translation-page-target-article-container-details": "Read the article from $1 Wikipedia editors to get more reliable information on the topic.",
 	"mint-view-translation-page-source-article-link-label": "Open in $1",
 	"mint-view-translation-content-translation-entrypoint-title": "Review the automatic translation",
-	"mint-view-translation-content-translation-entrypoint-description": "Automatic contents may be inaccurate"
+	"mint-view-translation-content-translation-entrypoint-description": "Automatic contents may be inaccurate",
+	"mint-view-translation-overlay-header": "Automatic translation",
+	"mint-view-translation-overlay-source-article-link-label": "Read on Wikipedia in $1",
+	"mint-view-translation-overlay-target-article-link-label": "Read on Wikipedia in $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Correct the translation",
+	"mint-view-translation-overlay-share-button-label": "Share automatic translation",
+	"mint-view-translation-overlay-feedback-link-label": "Send feedback"
 }
