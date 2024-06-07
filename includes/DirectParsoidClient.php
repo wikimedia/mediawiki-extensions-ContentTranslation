@@ -86,8 +86,6 @@ class DirectParsoidClient implements ParsoidClient {
 		PageIdentity $page,
 		string $html
 	): HtmlInputTransformHelper {
-		$helper = $this->helperFactory->newHtmlInputTransformHelper();
-
 		// Fake REST body
 		$body = [
 			'html' => [
@@ -95,7 +93,9 @@ class DirectParsoidClient implements ParsoidClient {
 			]
 		];
 
-		$helper->init( $page, $body, [], null, null );
+		$helper = $this->helperFactory->newHtmlInputTransformHelper(
+			[], $page, $body, [], null, null
+		);
 
 		return $helper;
 	}
