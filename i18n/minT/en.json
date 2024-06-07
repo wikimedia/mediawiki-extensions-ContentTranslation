@@ -21,7 +21,7 @@
 	"mint-search-topic-page-results-container-empty": "Search for any topic. Contents for a topic can be different on each language.",
 	"mint-confirm-topic-page-header": "Automatic translation",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "View automatic translation",
-	"mint-confirm-topic-page-language-selector-explanation": "Explore how this topic is covered in {{PLURAL:$1|one different language|$1 different languages}}.",
+	"mint-confirm-topic-page-language-selector-explanation": "Translation [$1 from Wikipedia in $2.] Explore how this topic is covered in {{PLURAL:$3|one different language|$3 different languages}}.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Search for another topic",
 	"mint-confirm-topic-page-target-article-link-container-header": "Written by editors in $1",
 	"mint-confirm-topic-page-target-article-link-container-details": "This article has been written in $1 by human editors. You can join them to improve the contents.",

@@ -5,9 +5,11 @@
 			<span v-i18n-html:mint-confirm-topic-page-header></span>
 		</div>
 		<div
+			ref="confirmTopicReviewRef"
 			class="confirm-topic-preview"
 			tabindex="0"
-			@click.stop="goToTranslation">
+			@click.stop="goToTranslation"
+		>
 			<div
 				class="confirm-topic-preview__thumbnail-container"
 				:class="{
@@ -57,7 +59,10 @@
 		</div>
 		<p
 			v-if="pageResult.langLinksCount > 1"
+			ref="languageSelectorExplanationRef"
 			v-i18n-html:mint-confirm-topic-page-language-selector-explanation="[
+				sourcePageUrl,
+				sourceLanguageAutonym,
 				pageResult.langLinksCount
 			]"
 		></p>
@@ -121,7 +126,7 @@
 </template>
 
 <script>
-const { computed, defineComponent, ref, onMounted, watchEffect } = require( 'vue' );
+const { computed, defineComponent, ref, onMounted, watchEffect, watch } = require( 'vue' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 const {
 	cdxIconRobot,
@@ -159,10 +164,19 @@ module.exports = defineComponent( {
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'confirm' );
 
+		const languageSelectorExplanationRef = ref( null );
+		const confirmTopicReviewRef = ref( null );
 		onMounted( () => {
-			const topicPreview = document.getElementsByClassName( 'confirm-topic-preview' )[ 0 ];
-			topicPreview.focus();
+			confirmTopicReviewRef.value.focus();
 		} );
+
+		watch( languageSelectorExplanationRef, () => {
+			if ( languageSelectorExplanationRef.value ) {
+				const sourceArticleLink = languageSelectorExplanationRef.value.querySelector( 'a' );
+				sourceArticleLink.setAttribute( 'target', '_blank' );
+				sourceArticleLink.classList.remove( 'external' );
+			}
+		}, { immediate: true } );
 
 		const thumbnailStyle = computed( () => {
 			const style = {
@@ -237,6 +251,9 @@ module.exports = defineComponent( {
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
 
 		const siteMapper = new mw.cx.SiteMapper();
+		const sourcePageUrl = computed(
+			() => siteMapper.getPageUrl( sourceLanguage.value, props.pageResult.sourceTitle )
+		);
 		const targetPageUrl = computed( () => {
 			return targetPage.value ?
 				siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title ) :
@@ -264,7 +281,10 @@ module.exports = defineComponent( {
 			targetTitle,
 			targetPage,
 			targetPageUrl,
-			onTargetArticleClick
+			onTargetArticleClick,
+			sourcePageUrl,
+			confirmTopicReviewRef,
+			languageSelectorExplanationRef
 		};
 	}
 } );
@@ -327,8 +347,12 @@ module.exports = defineComponent( {
       }
     }
     &__details {
-      color: @color-subtle;
-      font-size: @font-size-small;
+      .cdx-icon {
+        color: @color-progressive;
+      }
+      color: @color-progressive;
+      font-size: @font-size-medium;
+      font-weight: @font-weight-bold;
     }
   }
 }
