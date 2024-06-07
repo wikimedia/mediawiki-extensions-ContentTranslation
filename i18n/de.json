@@ -498,5 +498,9 @@
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Neue Übersetzung",
 	"sx-section-selector-close-button-aria-label": "Geh zur Schaltfläche Bestätigung.",
-	"sx-quick-tutorial-next-button-aria-label": "Gehe zur nächsten Tutorial-Seite"
+	"sx-quick-tutorial-next-button-aria-label": "Gehe zur nächsten Tutorial-Seite",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Eine neue Übersetzung verfassen",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Schrittweiser Übersetzungsprozess zum Erstellen einer neuen Seite in {{#FORMAL:deiner|Ihrer}} Sprache.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Eine automatische Übersetzung lesen",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatische Vorschau von Inhalten in anderen Sprachen, damit {{#FORMAL|du|Sie}} diese überprüfen und korrigieren {{#FORMAL|kannst|können}}."
 }

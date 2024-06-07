@@ -498,5 +498,9 @@
 	"sx-confirm-draft-translation-start-button-label": "בסדר",
 	"sx-published-translation-new-translation-button-label": "תרגום חדש",
 	"sx-section-selector-close-button-aria-label": "לעבור אל לחצן שלב האישור",
-	"sx-quick-tutorial-next-button-aria-label": "מעבר לדף ההדרכה הבא"
+	"sx-quick-tutorial-next-button-aria-label": "מעבר לדף ההדרכה הבא",
+	"cx-mflanguagesearcher-entrypoint-card-title": "לכתוב תרגום חדש",
+	"cx-mflanguagesearcher-entrypoint-card-description": "תהליך תרגום צעד־צעד ליצירת דף חדש בשפה שלך.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "לקרוא תרגום אוטומטי",
+	"mint-mflanguagesearcher-entrypoint-card-description": "תצוגה מקדימה אוטומטית של תוכן בשפות אחרות בשבילך לסקור ולתקן."
 }

@@ -485,5 +485,9 @@
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Nove traduction",
 	"sx-section-selector-close-button-aria-label": "Button pro continuar al passo de confirmation",
-	"sx-quick-tutorial-next-button-aria-label": "Continuar al proxime pagina del tutorial"
+	"sx-quick-tutorial-next-button-aria-label": "Continuar al proxime pagina del tutorial",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Scriber un nove traduction",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Processo de traduction passo post passo pro crear un nove pagina in tu lingua.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Leger un traduction automatic",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Previsualisation automatic de contento in altere linguas de maniera que tu pote revider e corriger lo."
 }
