@@ -8,10 +8,10 @@ use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
 use ExtensionRegistry;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MobileContext;
-use OutputPage;
 use Skin;
 
 class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {

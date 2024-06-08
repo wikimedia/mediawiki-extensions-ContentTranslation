@@ -2,7 +2,9 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Context\IContextSource;
 use MediaWiki\Language\RawMessage;
+use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
 
 class SuggestionList {
@@ -82,10 +84,10 @@ class SuggestionList {
 	}
 
 	/**
-	 * @param \IContextSource $context
-	 * @return \Message
+	 * @param IContextSource $context
+	 * @return Message
 	 */
-	public function getDisplayNameMessage( \IContextSource $context ) {
+	public function getDisplayNameMessage( IContextSource $context ) {
 		$message = $context->msg( $this->getName() );
 		if ( $message->exists() ) {
 			return $message;

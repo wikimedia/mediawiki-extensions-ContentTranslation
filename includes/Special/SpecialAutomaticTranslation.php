@@ -7,7 +7,7 @@ namespace ContentTranslation\Special;
 use ContentTranslation\SiteMapper;
 use MediaWiki\Html\TemplateParser;
 use MediaWiki\Languages\LanguageNameUtils;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * A special page for translating Wikipedia pages using MinT.

@@ -4,7 +4,7 @@ namespace ContentTranslation;
 
 use ContentTranslation\Service\UserService;
 use MediaWiki\MediaWikiServices;
-use User;
+use MediaWiki\User\User;
 
 class Translator {
 

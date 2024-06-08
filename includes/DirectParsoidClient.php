@@ -21,7 +21,7 @@ use MediaWiki\Rest\LocalizedHttpException;
 use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use User;
+use MediaWiki\User\User;
 use WikitextContent;
 
 class DirectParsoidClient implements ParsoidClient {

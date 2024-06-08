@@ -8,8 +8,8 @@
 
 namespace ContentTranslation\Special;
 
-use MutableContext;
-use SpecialPage;
+use MediaWiki\Context\MutableContext;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * Shows some metrics about ContentTranslation usage.

@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\PreferenceHelper;
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 
 class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 

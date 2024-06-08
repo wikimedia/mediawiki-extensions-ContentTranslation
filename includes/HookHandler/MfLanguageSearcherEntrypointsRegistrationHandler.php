@@ -5,8 +5,8 @@ namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\PreferenceHelper;
 use ExtensionRegistry;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 

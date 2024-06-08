@@ -14,7 +14,7 @@ use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use Exception;
 use MediaWiki\Title\Title;
-use User;
+use MediaWiki\User\User;
 
 class TranslationUnitValidator {
 	/** @var AbuseFilterChecker */

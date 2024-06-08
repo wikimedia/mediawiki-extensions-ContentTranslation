@@ -7,8 +7,8 @@ use ContentTranslation\AbuseFilterChecker;
 use Generator;
 use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
-use User;
 
 /**
  * @covers \ContentTranslation\AbuseFilterChecker

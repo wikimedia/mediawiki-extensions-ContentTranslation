@@ -24,12 +24,13 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use Exception;
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use User;
+use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
@@ -349,7 +350,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'contenttranslation',
 			'sectiontranslation'
 		];
-		\DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
+		DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
 			\ChangeTags::addTags( $tags, null, $newRevId, null );
 		} );
 	}

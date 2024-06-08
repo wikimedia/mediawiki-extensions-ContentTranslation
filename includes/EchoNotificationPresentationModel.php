@@ -2,13 +2,14 @@
 
 namespace ContentTranslation;
 
-use SpecialPage;
+use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * Class that returns structured data for the content translation echo events.
  * @see https://www.mediawiki.org/wiki/Notifications/New_formatter_system
  */
-class EchoNotificationPresentationModel extends \EchoEventPresentationModel {
+class EchoNotificationPresentationModel extends EchoEventPresentationModel {
 
 	public function getIconType() {
 		return 'cx';

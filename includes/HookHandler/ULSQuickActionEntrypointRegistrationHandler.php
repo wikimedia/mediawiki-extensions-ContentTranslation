@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\HookHandler;
 
 use MediaWiki\Actions\ActionFactory;
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 
 class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHook {
 

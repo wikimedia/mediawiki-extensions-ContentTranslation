@@ -5,7 +5,7 @@ namespace ContentTranslation\Service;
 
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
-use User;
+use MediaWiki\User\User;
 
 class SandboxTitleMaker {
 	private TitleFactory $titleFactory;

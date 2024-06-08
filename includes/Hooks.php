@@ -9,39 +9,39 @@ namespace ContentTranslation;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 
-use Config;
 use ContentTranslation\Service\TranslatorService;
-use EchoAttributeManager;
-use EchoEvent;
-use EchoUserLocator;
 use ExtensionRegistry;
 use MediaWiki\ChangeTags\Hook\ChangeTagsListActiveHook;
 use MediaWiki\ChangeTags\Hook\ListDefinedTagsHook;
+use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\CentralAuth\User\CentralAuthUser;
-use MediaWiki\Hook\BeforePageDisplayHook;
+use MediaWiki\Extension\Notifications\AttributeManager;
+use MediaWiki\Extension\Notifications\Model\Event;
+use MediaWiki\Extension\Notifications\UserLocator;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\SpecialContributionsBeforeMainOutputHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Context as ResourceLoaderContext;
 use MediaWiki\ResourceLoader\FilePath as ResourceLoaderFilePath;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Specials\Contribute\Card\ContributeCard;
 use MediaWiki\Specials\Contribute\Card\ContributeCardActionLink;
 use MediaWiki\Specials\Contribute\ContributeFactory;
 use MediaWiki\Specials\Contribute\Hook\ContributeCardsHook;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\WikiMap\WikiMap;
 use MobileContext;
-use OutputPage;
-use RequestContext;
 use Skin;
-use SpecialPage;
-use User;
 
 class Hooks implements
 	BeforePageDisplayHook,
@@ -516,9 +516,9 @@ class Hooks implements
 		];
 
 		$userLocator = [
-			EchoAttributeManager::ATTR_LOCATORS => [
+			AttributeManager::ATTR_LOCATORS => [
 				[
-					[ EchoUserLocator::class, 'locateFromEventExtra' ],
+					[ UserLocator::class, 'locateFromEventExtra' ],
 					[ 'recipient' ]
 				],
 			],
@@ -582,7 +582,7 @@ class Hooks implements
 	/**
 	 * Set bundle for message
 	 *
-	 * @param EchoEvent $event
+	 * @param Event $event
 	 * @param string &$bundleString
 	 */
 	public static function onEchoGetBundleRules( $event, &$bundleString ) {

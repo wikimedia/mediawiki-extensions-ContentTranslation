@@ -2,8 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Rest\Handler\Helper\PageRestHelperFactory;
-use RequestContext;
 
 class ParsoidClientFactory {
 

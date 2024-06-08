@@ -7,11 +7,11 @@ namespace ContentTranslation\HookHandler;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
 use ExtensionRegistry;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Output\OutputPage;
 use MediaWiki\Revision\RevisionStore;
 use MobileContext;
-use OutputPage;
 use Skin;
 use Wikimedia\Rdbms\ILoadBalancer;
 

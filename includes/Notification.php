@@ -3,16 +3,18 @@
 namespace ContentTranslation;
 
 use ContentTranslation\Exception\InvalidNotificationTitleException;
+use MediaWiki\Extension\Notifications\Model\Event;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 
 class Notification {
 
 	/**
 	 * Notify the user on the first published translation.
-	 * @param \User $recipient
+	 * @param User $recipient
 	 */
-	public static function firstTranslation( \User $recipient ) {
-		\EchoEvent::create( [
+	public static function firstTranslation( User $recipient ) {
+		Event::create( [
 			'type' => 'cx-first-translation',
 			'extra' => [
 				'recipient' => $recipient->getId(),
@@ -22,10 +24,10 @@ class Notification {
 
 	/**
 	 * Notify the user on the 10th published translation.
-	 * @param \User $recipient
+	 * @param User $recipient
 	 */
-	public static function tenthTranslation( \User $recipient ) {
-		\EchoEvent::create( [
+	public static function tenthTranslation( User $recipient ) {
+		Event::create( [
 			'type' => 'cx-tenth-translation',
 			'extra' => [
 				'recipient' => $recipient->getId(),
@@ -35,10 +37,10 @@ class Notification {
 
 	/**
 	 * Notify the user on the 100th published translation.
-	 * @param \User $recipient
+	 * @param User $recipient
 	 */
-	public static function hundredthTranslation( \User $recipient ) {
-		\EchoEvent::create( [
+	public static function hundredthTranslation( User $recipient ) {
+		Event::create( [
 			'type' => 'cx-hundredth-translation',
 			'extra' => [
 				'recipient' => $recipient->getId(),
@@ -48,11 +50,11 @@ class Notification {
 
 	/**
 	 * Notify the user about the availability of personalized suggestions.
-	 * @param \User $recipient
+	 * @param User $recipient
 	 * @param string $lastTranslationTitle
 	 */
-	public static function suggestionsAvailable( \User $recipient, $lastTranslationTitle ) {
-		\EchoEvent::create( [
+	public static function suggestionsAvailable( User $recipient, $lastTranslationTitle ) {
+		Event::create( [
 			'type' => 'cx-suggestions-available',
 			'extra' => [
 				'recipient' => $recipient->getId(),
@@ -84,7 +86,7 @@ class Notification {
 			throw new InvalidNotificationTitleException( $title );
 		}
 
-		\EchoEvent::create( [
+		Event::create( [
 			'type' => $type,
 			'title' => $titleObj,
 			'extra' => [

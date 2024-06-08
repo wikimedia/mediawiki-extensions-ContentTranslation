@@ -5,7 +5,7 @@ namespace ContentTranslation;
 
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Title\Title;
-use User;
+use MediaWiki\User\User;
 
 class ContentTranslationHookRunner implements SectionTranslationBeforePublishHook {
 	private HookContainer $hookContainer;

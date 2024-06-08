@@ -5,7 +5,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Service;
 
 use ContentTranslation\Store\TranslationStore;
-use User;
+use MediaWiki\User\User;
 
 class TranslatorService {
 

@@ -1,15 +1,15 @@
 <?php
 namespace ContentTranslation;
 
-use CommentStoreComment;
-use Config;
 use FormatJson;
+use MediaWiki\CommentStore\CommentStoreComment;
+use MediaWiki\Config\Config;
 use MediaWiki\Content\ContentHandlerFactory;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
-use User;
+use MediaWiki\User\User;
 
 class SectionTranslationBeforePublishHandler implements SectionTranslationBeforePublishHook {
 

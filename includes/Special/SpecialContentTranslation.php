@@ -10,15 +10,15 @@ namespace ContentTranslation\Special;
 
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
-use DeferredUpdates;
-use DerivativeContext;
 use ExtensionRegistry;
-use Html;
+use MediaWiki\Context\DerivativeContext;
+use MediaWiki\Context\MutableContext;
+use MediaWiki\Deferred\DeferredUpdates;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPage;
 use MobileContext;
-use MutableContext;
 use SkinFactory;
-use SpecialPage;
 
 /**
  * Implements the core of the Content Translation extension:

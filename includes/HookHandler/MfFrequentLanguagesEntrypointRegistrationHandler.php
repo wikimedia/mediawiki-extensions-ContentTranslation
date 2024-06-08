@@ -6,10 +6,10 @@ namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\SiteMapper;
 use ExtensionRegistry;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MobileContext;
 
 class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {

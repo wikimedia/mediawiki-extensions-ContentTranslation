@@ -20,7 +20,7 @@ use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Title\TitleFactory;
-use User;
+use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationSave extends ApiBase {

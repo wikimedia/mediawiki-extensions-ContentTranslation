@@ -4,7 +4,7 @@ declare( strict_types = 1 );
 namespace ContentTranslation\DTO;
 
 use InvalidArgumentException;
-use Sanitizer;
+use MediaWiki\Parser\Sanitizer;
 use UnexpectedValueException;
 
 class TranslationUnitDTO {

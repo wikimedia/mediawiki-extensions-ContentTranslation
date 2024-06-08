@@ -9,7 +9,7 @@ use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
-use DeferredUpdates;
+use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Page\Hook\RevisionFromEditCompleteHook;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStore;

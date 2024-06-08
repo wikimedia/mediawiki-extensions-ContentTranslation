@@ -3,9 +3,9 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
-use CentralIdLookup;
-use GenderCache;
 use InvalidArgumentException;
+use MediaWiki\Cache\GenderCache;
+use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\UserIdentity;
 
 /**

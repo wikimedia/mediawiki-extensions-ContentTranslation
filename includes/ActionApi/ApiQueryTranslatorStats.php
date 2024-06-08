@@ -13,6 +13,7 @@ use ContentTranslation\DateManipulator;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
 use Exception;
+use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryTranslatorStats extends ApiQueryBase {
@@ -29,7 +30,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$user = $this->getUser();
 
 		if ( isset( $params['translator'] ) ) {
-			$user = \User::newFromName( $params['translator'] );
+			$user = User::newFromName( $params['translator'] );
 		}
 
 		if ( !$user ) {

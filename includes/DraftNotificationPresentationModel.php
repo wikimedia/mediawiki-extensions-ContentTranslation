@@ -2,9 +2,9 @@
 
 namespace ContentTranslation;
 
-use EchoEventPresentationModel;
+use MediaWiki\Extension\Notifications\Formatters\EchoEventPresentationModel;
 use MediaWiki\Language\RawMessage;
-use SpecialPage;
+use MediaWiki\SpecialPage\SpecialPage;
 
 /**
  * Class that returns structured data for the Content Translation echo events

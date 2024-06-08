@@ -4,11 +4,15 @@
  * @license GPL-2.0-or-later
  */
 
-// Standard boilerplate to define $IP
 use ContentTranslation\LoadBalancer;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
+use MediaWiki\Title\Title;
+use MediaWiki\User\ActorMigration;
+use MediaWiki\User\CentralId\CentralIdLookup;
+use MediaWiki\User\User;
 
+// Standard boilerplate to define $IP
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
