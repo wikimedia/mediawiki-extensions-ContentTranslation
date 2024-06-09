@@ -5,7 +5,6 @@ namespace ContentTranslation\Tests;
 
 use ContentTranslation\AbuseFilterChecker;
 use Generator;
-use MediaWiki\Extension\AbuseFilter\AbuseFilterServices;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 use MediaWikiIntegrationTestCase;
@@ -60,12 +59,9 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 			'af_deleted' => 0,
 			'af_actions' => implode( ',', array_keys( $actions ) ),
 			'af_group' => 'default',
+			'af_actor' => $this->getServiceContainer()->getActorNormalization()
+				->acquireActorId( $this->getTestUser()->getUserIdentity(), $this->db ),
 		];
-		$row += AbuseFilterServices::getActorMigration()->getInsertValues(
-			$this->db,
-			'af_user',
-			$this->getTestUser()->getUserIdentity()
-		);
 		$this->db->newInsertQueryBuilder()
 			->insertInto( 'abuse_filter' )
 			->row( $row )
