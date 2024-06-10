@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Arystanbek",
+			"Casserium",
 			"СеніңШешең"
 		]
 	},
@@ -14,7 +15,7 @@
 	"apihelp-query+contenttranslation-param-translationid": "Аударма ID-і.",
 	"apihelp-query+contenttranslation-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Бастапқы беттің атауы.",
-	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез-келген аударманы берілген атаудан табу",
+	"apihelp-query+contenttranslation-example-3": "Берілген тіл жұбы арасынан кез келген аударманы берілген атаудан табу",
 	"apihelp-query+contenttranslationstats-example-1": "Барлық тілтердің Мазмұн аударма статистикаларын алу.",
 	"apihelp-query+contenttranslationsuggestions-param-from": "Бастапқы тіл коды.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Бастапқы тіл коды.",

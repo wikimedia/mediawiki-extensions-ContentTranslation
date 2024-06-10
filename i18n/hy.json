@@ -250,5 +250,6 @@
 	"cx-contributecard-entrypoint-cta": "Սկսել թարգմանությունը",
 	"cx-sx-dashboard-help-panel-stats-label": "Վիճակագրություն",
 	"sx-confirm-back-navigation-dialog-body": "Ձեր բոլոր փոփոխությունները կկորչեն:",
-	"sx-confirm-back-navigation-dialog-continue-button-label": "Շարունակել"
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Շարունակել",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Գրեք նոր թարգմանություն"
 }

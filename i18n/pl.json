@@ -508,5 +508,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-new-translation-button-label": "Nowe tłumaczenie",
 	"sx-section-selector-close-button-aria-label": "Przycisk przejścia do kroku z potwierdzeniem",
-	"sx-quick-tutorial-next-button-aria-label": "Przejdź do następnej strony samouczka"
+	"sx-quick-tutorial-next-button-aria-label": "Przejdź do następnej strony samouczka",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Napisz nowe tłumaczenie",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Proces tłumaczenia krok po kroku, aby utworzyć nową stronę w twoim języku.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Przeczytaj automatyczne tłumaczenie",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatyczny podgląd treści w innych językach, abyś {{GENDER:|mógł|mogła}} przejrzeć i poprawić."
 }

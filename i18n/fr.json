@@ -535,5 +535,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-new-translation-button-label": "Nouvelle traduction",
 	"sx-section-selector-close-button-aria-label": "Aller au bouton de l'étape de confirmation",
-	"sx-quick-tutorial-next-button-aria-label": "Allez à la page de tutoriel suivante"
+	"sx-quick-tutorial-next-button-aria-label": "Allez à la page de tutoriel suivante",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Rédiger une nouvelle traduction",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Processus de traduction étape par étape pour créer une nouvelle page dans votre langue.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Lire une traduction automatique",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Aperçu automatique du contenu dans d'autres langues pour que vous puissiez le consulter et le corriger."
 }
