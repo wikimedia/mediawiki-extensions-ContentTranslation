@@ -10,7 +10,7 @@
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
 		function () {
-			if ( mw.config.get( 'isLanguageSearcherMinTEntrypointEnabled' ) ) {
+			if ( mw.config.get( 'mintEntrypointLanguages' ) ) {
 				mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
 			} else {
 				mw.loader.load( 'ext.cx.entrypoints.languagesearcher.legacy' );

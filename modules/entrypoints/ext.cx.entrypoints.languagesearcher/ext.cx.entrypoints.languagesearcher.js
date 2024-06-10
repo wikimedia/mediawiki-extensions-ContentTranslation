@@ -83,11 +83,14 @@
 	};
 
 	const getMintURL = ( resultLanguages ) => {
-		if ( !mw.config.get( 'isLanguageSearcherMinTEntrypointEnabled' ) ) {
+		if ( !mw.config.get( 'mintEntrypointLanguages' ) ) {
 			return null;
 		}
 		const matches = resultLanguages.filter(
-			( code ) => mintLanguages.indexOf( code ) >= 0 && code !== mw.config.get( 'wgContentLanguage' )
+			( code ) =>
+				mintLanguages.indexOf( code ) >= 0 &&
+				mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
+				code !== mw.config.get( 'wgContentLanguage' )
 		);
 
 		if ( !matches.length ) {
@@ -136,17 +139,16 @@
 		const defaultEntrypoints = [
 			{
 				className: 'cx-entrypoint-card',
-				cardTitle: mw.message( 'mint-mflanguagesearcher-entrypoint-card-title' ).text(),
-				cardDescription: mw.message( 'mint-mflanguagesearcher-entrypoint-card-description' ).text(),
+				cardTitle: mw.message( 'cx-mflanguagesearcher-entrypoint-card-title' ).text(),
+				cardDescription: mw.message( 'cx-mflanguagesearcher-entrypoint-card-description' ).text(),
 				iconClass: 'entrypoint-card-icon--add'
 			},
 			{
 				className: 'mint-entrypoint-card',
-				cardTitle: mw.message( 'cx-mflanguagesearcher-entrypoint-card-title' ).text(),
-				cardDescription: mw.message( 'cx-mflanguagesearcher-entrypoint-card-description' ).text(),
+				cardTitle: mw.message( 'mint-mflanguagesearcher-entrypoint-card-title' ).text(),
+				cardDescription: mw.message( 'mint-mflanguagesearcher-entrypoint-card-description' ).text(),
 				iconClass: 'entrypoint-card-icon--robot'
 			}
-
 		];
 
 		Vue.createMwApp( LanguageSearcherCardContainerComponent, {
@@ -208,7 +210,7 @@
 	 */
 	function showTranslationCTA( searchQuery, noResultsContainer ) {
 		const promises = [ searchWithAPI( searchQuery ) ];
-		if ( mw.config.get( 'isLanguageSearcherMinTEntrypointEnabled' ) ) {
+		if ( mw.config.get( 'mintEntrypointLanguages' ) ) {
 			promises.push( setMinTLanguages() );
 		}
 		Promise.all( promises ).then( function ( [ results ] ) {

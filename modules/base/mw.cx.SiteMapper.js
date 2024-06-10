@@ -255,21 +255,18 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
  * @param {string} sourceTitle
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
- * @param {string} displayLanguage
  * @param {"confirm"|"translation"} step
  */
 mw.cx.SiteMapper.prototype.getMintUrl = function (
 	sourceTitle,
 	sourceLanguage,
 	targetLanguage,
-	displayLanguage,
 	step
 ) {
 	const queryParams = {
 		page: sourceTitle,
 		from: sourceLanguage,
 		to: targetLanguage,
-		display: displayLanguage,
 		step
 	};
 

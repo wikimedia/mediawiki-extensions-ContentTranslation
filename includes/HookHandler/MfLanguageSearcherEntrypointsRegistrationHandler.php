@@ -17,7 +17,7 @@ use MediaWiki\User\User;
  * set when the same conditions are met:
  * - wgSectionTranslationTargetLanguages
  * - isLanguageSearcherCXEntrypointEnabled
- * - isLanguageSearcherMinTEntrypointEnabled
+ * - mintEntrypointLanguages
  *
  * @author Nik Gkountas
  * @license GPL-2.0-or-later
@@ -84,13 +84,15 @@ class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisp
 			$sectionTranslationTargetLanguages
 		);
 
-		$isMinTEntrypointEnabled = $out->getConfig()->get( 'AutomaticTranslationEnableEntrypoints' );
+		$mintEntrypointLanguages = $out->getConfig()->get(
+			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
+		);
 
-		if ( $isCXEntrypointEnabled || $isMinTEntrypointEnabled ) {
+		if ( $isCXEntrypointEnabled || $mintEntrypointLanguages ) {
 			$out->addModules( 'ext.cx.entrypoints.languagesearcher.init' );
 			$out->addJsConfigVars( 'wgSectionTranslationTargetLanguages', $sectionTranslationTargetLanguages );
 			$out->addJsConfigVars( 'isLanguageSearcherCXEntrypointEnabled', $isCXEntrypointEnabled );
-			$out->addJsConfigVars( 'isLanguageSearcherMinTEntrypointEnabled', $isMinTEntrypointEnabled );
+			$out->addJsConfigVars( 'mintEntrypointLanguages', $mintEntrypointLanguages );
 		}
 	}
 }
