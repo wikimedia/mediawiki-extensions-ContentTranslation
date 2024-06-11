@@ -29,87 +29,40 @@ class Translation {
 
 	/**
 	 * Get the stats for all translations in draft or published status.
-	 * @return array
+	 * @return array[]
 	 */
-	public static function getStats() {
-		return array_merge( self::getDraftStats(), self::getPublishedStats() );
-	}
-
-	/**
-	 * Get the stats for all translations in draft status and not having
-	 * any published URL.
-	 * If the translation is with draft status and has a target_url it
-	 * was published atleast once.
-	 * @return array
-	 */
-	public static function getDraftStats() {
+	public static function getStats(): array {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbr = $lb->getConnection( DB_REPLICA );
+
+		$statusCase = $dbr->conditional(
+			self::getPublishedCondition( $dbr ),
+			$dbr->addQuotes( 'published' ),
+			$dbr->addQuotes( 'draft' )
+		);
 
 		$rows = $dbr->newSelectQueryBuilder()
 			->select( [
 				'sourceLanguage' => 'translation_source_language',
 				'targetLanguage' => 'translation_target_language',
+				'status' => $statusCase,
 				'count' => 'COUNT(*)',
 				'translators' => 'COUNT(DISTINCT translation_started_by)',
 			] )
 			->from( 'cx_translations' )
-			->where( [
-				'translation_status' => 'draft',
-				'translation_target_url' => null,
-			] )
-			->caller( __METHOD__ )
+			->where( [ 'translation_status' => [ 'draft', 'published' ] ] )
 			->groupBy( [
 				'translation_source_language',
 				'translation_target_language',
-			] )
-			->fetchResultSet();
-
-		$result = [];
-
-		foreach ( $rows as $row ) {
-			$row->status = 'draft';
-			$result[] = (array)$row;
-		}
-
-		return $result;
-	}
-
-	/**
-	 * Get the stats for all translations in published status or having
-	 * a published URL.
-	 * If the translation has a target_url it was published atleast once.
-	 * @return array
-	 */
-	public static function getPublishedStats() {
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$rows = $dbr->newSelectQueryBuilder()
-			->select( [
-				'sourceLanguage' => 'translation_source_language',
-				'targetLanguage' => 'translation_target_language',
-				// A published translation can be in deleted state too. But for the purpose
-				// of stats, it should be counted as published. 'deleted' here just means
-				// the soft deletion of entry from CX tables. Not the article deletion.
-				// For this, use hard coded quoted value 'published' as status.
-				'count' => 'COUNT(*)',
-				'translators' => 'COUNT(DISTINCT translation_started_by)',
-			] )
-			->from( 'cx_translations' )
-			->where( self::getPublishedCondition( $dbr ) )
-			->groupBy( [
-				'translation_source_language',
-				'translation_target_language',
+				'status',
 			] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 
 		$result = [];
+
 		foreach ( $rows as $row ) {
-			$row->status = 'published';
 			$result[] = (array)$row;
 		}
 
