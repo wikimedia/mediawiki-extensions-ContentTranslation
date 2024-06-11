@@ -64,7 +64,7 @@
 			uls.hide();
 
 			const panel = document.createElement( 'div' );
-			panel.className = 'cx-uls-entrypoint__panel-container';
+			panel.className = 'cx-uls-entrypoint__panel-container notheme';
 			// Copy the positioning from parent ULS Menu
 			Object.keys( position ).forEach( function ( property ) {
 				panel.style[ property ] = position[ property ] + 'px';
