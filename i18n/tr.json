@@ -520,5 +520,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Tamam",
 	"sx-published-translation-new-translation-button-label": "Yeni çeviri",
 	"sx-section-selector-close-button-aria-label": "Onay adımı düğmesine git",
-	"sx-quick-tutorial-next-button-aria-label": "Sonraki eğitim sayfasına git"
+	"sx-quick-tutorial-next-button-aria-label": "Sonraki eğitim sayfasına git",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Yeni bir çeviri yaz",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Dilinizde yeni bir sayfa oluşturmak için adım adım çeviri işlemi.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Otomatik bir çeviriyi okuyun",
+	"mint-mflanguagesearcher-entrypoint-card-description": "İnceleyip düzeltmeniz için diğer dillerdeki içeriğin otomatik önizlemesi."
 }
