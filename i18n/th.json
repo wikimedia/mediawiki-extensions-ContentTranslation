@@ -317,7 +317,7 @@
 	"cx-sx-sentence-selector-header-title": "แปลส่วน",
 	"cx-sx-sentence-selector-done-button-label": "เสร็จสิ้น",
 	"cx-sx-sentence-selector-suggested-translation-title": "การแนะนำการแปลจาก $1",
-	"cx-sx-proposed-translation-not-available-message": "การแปลด้วยเครื่องไม่สามารถใช้งานได้ในขณะนี้",
+	"cx-sx-proposed-translation-not-available-message": "ไม่สามารถใช้งานได้ในขณะนี้",
 	"cx-sx-proposed-translation-retry-button": "ลองใหม่",
 	"cx-sx-proposed-translation-other-options-button": "ตัวเลือกอื่น",
 	"cx-sx-sentence-selector-edit-translation-button-label": "แก้ไขการแปล",
