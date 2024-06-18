@@ -48,6 +48,7 @@
 	"cx-stats-weekly-published": "Sońǵı háptede",
 	"echo-category-title-cx": "Awdarmalar",
 	"cx-notification-first-translation": "Dáslepki awdarmańız benen qutlıqlaymız. Óz úleslerińizdi tekseriń hám awdarıw ushın jáne de kóbirek betler tabıń.",
+	"cx-suggestionlist-collapse": "Azıraq kóriw",
 	"cx-notification-suggestions-available": "{{GENDER:$2|Siziń}} aldınǵı '''$1''' boyınsha awdarmańızdan kelip shıǵıp, awdarıw ushın jańa betler usınıs etiledi.",
 	"cx-translator-header": "Siziń statistikańız",
 	"cx-translator-month-stats-label": "Usı ayda",
@@ -60,7 +61,7 @@
 	"sx-recent-edit-entrypoint-invitation-button-label": "«$1» bólimin awdarıw",
 	"sx-recent-edit-entrypoint-invitation-button-details": "$2 de {{PLURAL:$1|$1 bólim|$1 bólimler}} joq",
 	"cx-contributecard-entrypoint-title": "Awdarmalar",
-	"cx-contributecard-entrypoint-desc": "Bir bólimdi yáki pútkil maqalanı awdarmalańız. Kóbirek tillerde kóbirek kontentti túsinikli qılıp isleńiz.",
+	"cx-contributecard-entrypoint-desc": "Bir bólimdi yamasa pútkil maqalanı awdarıń. Kóbirek tillerde kóbirek kontent jaratıń.",
 	"cx-contributecard-entrypoint-cta": "Awdarmanı baslaw",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Ekvivalent úlgi tabılmadı"
 }
