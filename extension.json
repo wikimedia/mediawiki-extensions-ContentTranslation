@@ -266,6 +266,13 @@
 			"services": [
 				"ContentTranslation.UserService"
 			]
+		},
+		"automatictranslationdenselanguages": {
+			"class": "ContentTranslation\\ActionApi\\ApiQueryAutomaticTranslationDenseLanguages",
+			"services": [
+				"HttpRequestFactory",
+				"MainWANObjectCache"
+			]
 		}
 	},
 	"APIMetaModules": {
