@@ -65,6 +65,16 @@
 				"ContentTranslation.WikidataIdFetcher"
 			]
 		},
+		"axArticleFooterEntrypointRegistrar": {
+			"class": "ContentTranslation\\HookHandler\\AxArticleFooterEntrypointRegistrationHandler",
+			"services": [
+				"ConfigFactory",
+				"ContentLanguage"
+			],
+			"optional_services": [
+				"DisambiguatorLookup"
+			]
+		},
 		"mfFrequentLanguagesEntrypointRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\MfFrequentLanguagesEntrypointRegistrationHandler",
 			"services": [
@@ -121,7 +131,8 @@
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
 			"recentEditEntrypointRegistrar",
-			"recentTranslationEntrypointRegistrar"
+			"recentTranslationEntrypointRegistrar",
+			"axArticleFooterEntrypointRegistrar"
 		],
 		"GetPreferences": "main",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -135,7 +146,8 @@
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
 		"SectionTranslationBeforePublish": "sxbeforepublish",
 		"RevisionFromEditComplete": "significantEditCreator",
-		"ContributeCards": "main"
+		"ContributeCards": "main",
+		"SkinAfterContent": "axArticleFooterEntrypointRegistrar"
 	},
 	"APIModules": {
 		"cxdelete": {
@@ -1876,6 +1888,13 @@
 				"mint-view-translation-overlay-share-button-label",
 				"mint-view-translation-overlay-feedback-link-label"
 			]
+		},
+		"ext.ax.articlefooter.entrypoint": {
+			"localBasePath": "minT/entrypoints",
+			"remoteExtPath": "ContentTranslation/minT/entrypoints",
+			"packageFiles": [
+				"ext.ax.articlefooter.entrypoint.js"
+			]
 		}
 	},
 	"QUnitTestModule": {
@@ -1909,6 +1928,9 @@
 				"ContentTranslationAbuseFilter": "/analytics/legacy/contenttranslationabusefilter/1.0.0"
 			}
 		}
+	},
+	"ConfigRegistry": {
+		"ArticleFooterEntrypoint": "GlobalVarConfig::newInstance"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
