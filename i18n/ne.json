@@ -25,7 +25,7 @@
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|यन्त्र अनुवादित}})",
 	"cx-header-translation-center": "अनुवाद केन्द्र",
 	"cx-header-all-translations": "सबै अनुवादहरू",
-	"cx-source-view-page": "पृष्ठ हेर्ने",
+	"cx-source-view-page": "पृष्ठ हेर्नुहाेस्",
 	"cx-publish-page-success": "$1मा पृष्ठ प्रकाशीत भयो",
 	"cx-publish-error-abuse-filter": "स्वचालित सम्पादन फिल्टरहरूले तपाईंको अनुवादमा समस्याग्रस्त सामग्री पहिचान गरेको छ। जानकारी: $1",
 	"cx-publish-error-empty": "सर्भरले डेटा बिनाको प्रतिक्रिया दिएको छ।",
