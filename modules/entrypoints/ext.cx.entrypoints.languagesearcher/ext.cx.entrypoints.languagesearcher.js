@@ -101,7 +101,6 @@
 			mw.config.get( 'wgPageName' ),
 			mw.config.get( 'wgContentLanguage' ),
 			matches[ 0 ],
-			mw.config.get( 'wgContentLanguage' ),
 			'confirm'
 		);
 	};
