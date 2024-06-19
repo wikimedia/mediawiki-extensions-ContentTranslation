@@ -40,5 +40,7 @@
 	"mint-view-translation-overlay-target-article-link-label": "Read on Wikipedia in $1",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Correct the translation",
 	"mint-view-translation-overlay-share-button-label": "Share automatic translation",
-	"mint-view-translation-overlay-feedback-link-label": "Send feedback"
+	"mint-view-translation-overlay-feedback-link-label": "Send feedback",
+	"ax-article-footer-entrypoint-card-description": "More content in other languages",
+	"ax-article-footer-entrypoint-card-supporting-text": "Read automatic translation"
 }

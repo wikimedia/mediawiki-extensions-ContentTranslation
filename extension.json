@@ -1890,10 +1890,33 @@
 			]
 		},
 		"ext.ax.articlefooter.entrypoint": {
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"localBasePath": "minT/entrypoints",
 			"remoteExtPath": "ContentTranslation/minT/entrypoints",
 			"packageFiles": [
-				"ext.ax.articlefooter.entrypoint.js"
+				"ext.ax.articlefooter.entrypoint.js",
+				"ArticleFooterEntrypointCard.vue",
+				{
+					"name": "icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconArticle",
+						"cdxIconRobot"
+					]
+				}
+			],
+			"dependencies": [
+				"mediawiki.api",
+				"mw.cx.SiteMapper",
+				"vue"
+			],
+			"codexComponents": [
+				"CdxCard",
+				"CdxIcon"
+			],
+			"messages": [
+				"ax-article-footer-entrypoint-card-description",
+				"ax-article-footer-entrypoint-card-supporting-text"
 			]
 		}
 	},

@@ -40,5 +40,7 @@
 	"mint-view-translation-overlay-target-article-link-label": "Label of the target article link, in the list of the different translation options, inside the MinT view translation page.\n\nParameters:\n* $1 - the target article language",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Label of the Content Translation entrypoint link, in the list of the different translation options, inside the MinT view translation page.",
 	"mint-view-translation-overlay-share-button-label": "Label of the share button, in the list of the different translation options, inside the MinT view translation page.",
-	"mint-view-translation-overlay-feedback-link-label": "Label of the button that directs the user to the feedback page, in the list of the different translation options, inside the MinT view translation page."
+	"mint-view-translation-overlay-feedback-link-label": "Label of the button that directs the user to the feedback page, in the list of the different translation options, inside the MinT view translation page.",
+	"ax-article-footer-entrypoint-card-description": "Description of the entrypoint card that navigates the user to 'AutomaticTranslation' special page, inside the article footer.",
+	"ax-article-footer-entrypoint-card-supporting-text": "Supporting text of the entrypoint card that navigates the user to 'AutomaticTranslation' special page, inside the article footer."
 }
