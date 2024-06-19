@@ -21,7 +21,7 @@
 		</div>
 		<div class="translation-viewer__source-page-title-container">
 			<h1 class="firstHeading">
-				{{ sourceTitle }}
+				{{ targetTitle }}
 			</h1>
 			<a
 				class="translation-viewer__source-page-link"
@@ -328,7 +328,6 @@ module.exports = defineComponent( {
 			toggleSection,
 			sectionExpandStatus,
 			sectionTranslations,
-			sourceTitle,
 			sourcePageUrl,
 			targetPageUrl,
 			targetPage,
