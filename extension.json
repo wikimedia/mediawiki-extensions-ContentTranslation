@@ -1816,6 +1816,7 @@
 				"useTranslationInitialize.js",
 				"useSectionTitleTranslate.js",
 				"useEventLogging.js",
+				"useSkeletonLoader.js",
 				"mediawikiPage.js",
 				"pageSearchResult.js",
 				"MWLanguageSelector.vue",
@@ -1825,6 +1826,7 @@
 				"ConfirmTopicPage.vue",
 				"ViewTranslationPage.vue",
 				"ViewTranslationPageOptions.vue",
+				"SkeletonLoader.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
@@ -1840,7 +1842,8 @@
 						"cdxIconLinkExternal",
 						"cdxIconEdit",
 						"cdxIconShare",
-						"cdxIconFeedback"
+						"cdxIconFeedback",
+						"cdxIconEllipsis"
 					]
 				},
 				{

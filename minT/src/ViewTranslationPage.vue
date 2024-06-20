@@ -55,12 +55,14 @@
 				</template>
 			</cdx-card>
 		</div>
-		<mw-spinner v-if="loadingLeadSectionTranslation"></mw-spinner>
 		<div
-			v-else
 			class="translation-viewer__contents"
-			v-html="leadSectionContents"
+			v-html="structuredLeadSectionTranslation"
 		>
+		</div>
+		<div v-if="loadingLeadSectionTranslation" class="translation-viewer__loading-indicator">
+			<cdx-icon :icon="cdxIconRobot"></cdx-icon>
+			<cdx-icon :icon="cdxIconEllipsis"></cdx-icon>
 		</div>
 		<div
 			v-if="!loadingLeadSectionTranslation && sections.length"
@@ -179,6 +181,7 @@ const useUrlHelper = require( './useUrlHelper.js' );
 const useSectionTranslate = require( './useSectionTranslate.js' );
 const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
+const useSkeletonLoader = require( './useSkeletonLoader.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
@@ -189,7 +192,8 @@ const {
 	cdxIconUserGroup,
 	cdxIconLinkExternal,
 	cdxIconArticle,
-	cdxIconEdit
+	cdxIconEdit,
+	cdxIconEllipsis
 } = require( './icons.json' );
 const getAutonym = $.uls.data.getAutonym;
 
@@ -213,10 +217,28 @@ module.exports = defineComponent( {
 
 		const {
 			doc,
-			leadSectionContents,
+			leadSectionTranslation,
 			loadingLeadSectionTranslation,
 			initializeTranslation
 		} = useTranslationInitialize();
+
+		const { createSkeletonLoader } = useSkeletonLoader();
+		const structuredLeadSectionTranslation = computed( () => {
+			let contents = '';
+			for ( let i = 0; i < leadSectionTranslation.value.length; i++ ) {
+				let currentNodeTranslation = leadSectionTranslation.value[ i ];
+
+				if ( currentNodeTranslation === null ) {
+					break;
+				} else if ( currentNodeTranslation === -1 ) {
+					currentNodeTranslation = createSkeletonLoader();
+				}
+
+				contents = contents.concat( '\n', currentNodeTranslation );
+			}
+
+			return contents;
+		} );
 
 		watchEffect( () => {
 			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
@@ -311,7 +333,6 @@ module.exports = defineComponent( {
 		};
 
 		return {
-			leadSectionContents,
 			cdxIconArrowNext,
 			cdxIconClose,
 			cdxIconRobot,
@@ -319,6 +340,7 @@ module.exports = defineComponent( {
 			cdxIconLinkExternal,
 			cdxIconArticle,
 			cdxIconEdit,
+			cdxIconEllipsis,
 			goToHomePage,
 			sourceLanguageAutonym,
 			targetLanguageAutonym,
@@ -328,6 +350,7 @@ module.exports = defineComponent( {
 			toggleSection,
 			sectionExpandStatus,
 			sectionTranslations,
+			structuredLeadSectionTranslation,
 			sourcePageUrl,
 			targetPageUrl,
 			targetPage,
@@ -401,8 +424,31 @@ module.exports = defineComponent( {
     margin-bottom: @spacing-100;
     .cdx-card {
       background-color: @background-color-interactive-subtle;
+      border-color: @border-color-muted;
       .cdx-icon, .cdx-card__text .cdx-card__text__title {
         color: @color-progressive;
+      }
+    }
+  }
+
+  @keyframes loading-indicator-background-animation {
+    0% {
+      background-color: @background-color-interactive-subtle;
+    }
+    100% {
+      background-color: @background-color-disabled-subtle;
+    }
+  }
+
+  &__loading-indicator {
+    padding: @spacing-25 @spacing-50;
+    margin-block: @spacing-50;
+    animation: loading-indicator-background-animation 1s linear infinite alternate;
+
+    .cdx-icon {
+      color: @color-subtle;
+      &:first-of-type {
+        margin-right: @spacing-50;
       }
     }
   }
@@ -419,6 +465,44 @@ module.exports = defineComponent( {
     &__target-article-card {
       margin-inline: @spacing-100;
     }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: @background-color-interactive-subtle;
+  }
+  100% {
+    background-color: @background-color-disabled;
+  }
+}
+
+.infobox-skeleton-loader {
+  margin-block: @spacing-100;
+
+  .skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  &__image-placeholder {
+    height: 8rem;
+    width: @spacing-full;
+    border-radius: @spacing-25;
+    margin-bottom: @spacing-50;
+  }
+
+  &__text {
+    width: @spacing-full;
+    height: @spacing-75;
+    margin-bottom: @spacing-50;
+    border-radius: @spacing-25;
+  }
+
+  &__fat-text {
+    width: @spacing-full;
+    height: @spacing-125;
+    margin-top: @spacing-125;
+    border-radius: @spacing-25;
   }
 }
 </style>
