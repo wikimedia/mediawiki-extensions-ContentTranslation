@@ -393,7 +393,7 @@
 		},
 		"RecommendToolAPIURL": {
 			"description": "Web API URL for translation recommendation tool",
-			"value": "https://recommend.wmflabs.org/types/translation/v1/articles"
+			"value": "https://api.wikimedia.org/service/lw/recommendation/v1/api"
 		},
 		"ContentTranslationVersion": {
 			"value": "2"

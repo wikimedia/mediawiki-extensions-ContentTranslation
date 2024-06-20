@@ -72,9 +72,9 @@
 			const algorithms = [ 'morelike', 'related_articles' ];
 			const algorithm = algorithms[ Math.floor( Math.random() * algorithms.length ) ];
 			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
-				source: self.sourceLanguage,
-				target: self.targetLanguage,
-				seed: seedPages.join( '|' ),
+				s: self.sourceLanguage,
+				t: self.targetLanguage,
+				article: seedPages.join( '|' ),
 				search: algorithm,
 				application: 'CX'
 			} ).then( function ( articles ) {
