@@ -1,7 +1,7 @@
 'use strict';
 
 const useEventLogging = () => {
-	const streamName = 'mediawiki.mint_for_readers';
+	const streamName = 'mediawiki.product_metrics.mint_for_readers';
 	const schemaId = '/analytics/product_metrics/web/base/1.2.0';
 
 	/**
