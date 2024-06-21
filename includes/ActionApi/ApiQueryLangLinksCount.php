@@ -21,7 +21,7 @@ class ApiQueryLangLinksCount extends ApiQueryBase {
 			'll_from',
 			'll_count' => 'COUNT(*)'
 		] );
-		$this->addWhereFld( 'll_from', array_keys( $this->getPageSet()->getGoodTitles() ) );
+		$this->addWhereFld( 'll_from', array_keys( $this->getPageSet()->getGoodPages() ) );
 		$this->addOption( 'GROUP BY', [ 'll_from' ] );
 
 		// Generated SQL query example
