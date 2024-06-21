@@ -67,7 +67,7 @@
 	"tag-contenttranslation-v2-description": "Zawartość strony przetłumaczono z innego języka przy pomocy narzędzia Tłumaczenie Treści w wersji 2.",
 	"tag-sectiontranslation": "[{{MediaWiki:sx-descriptionpagelink}} Tłumaczenie sekcji]",
 	"tag-sectiontranslation-description": "Zawartość została przetłumaczona z sekcji w innym języku przy użyciu funkcji tłumaczenia sekcji narzędzia do tłumaczenia treści.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https\n://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Tłumaczenie treści: Duży udział niezmienionego tłumaczenia maszynowego]",
+	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Tłumaczenie treści: Duży udział niezmienionego tłumaczenia maszynowego]",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Tłumaczenie opublikowane przy użyciu narzędzia Tłumaczenie Treści, które ma wysoki udział niezmodyfikowanych tłumaczeń maszynowych.",
 	"cx-source-loading": "Pobieranie $1",
 	"cx-beta": "Tłumaczenie Treści",
