@@ -40,7 +40,8 @@
 			"翻訳者a",
 			"青子守歌",
 			"아라",
-			"Waki285"
+			"Waki285",
+			"Apple TD"
 		]
 	},
 	"cx": "ページの翻訳",
@@ -216,7 +217,7 @@
 	"cx-stats-tabs-expand": "すべての言語",
 	"cx-stats-total-published": "公開総数",
 	"cx-stats-weekly-published": "先週",
-	"cx-stats-local-published-number": "$2版の$1",
+	"cx-stats-local-published-number": "$2版には$1",
 	"cx-stats-local-published": "$2版には$1($3)",
 	"cx-stats-grouping-title": "$1件の翻訳",
 	"cx-tools-missing-link-text": "ページの改善が促進されていないものとしてページを{{GENDER:|マーク}}",
