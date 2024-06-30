@@ -49,7 +49,7 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 		$row = [
 			'af_id' => self::TEST_FILTER,
 			'af_pattern' => $rule,
-			'af_timestamp' => $this->db->timestamp(),
+			'af_timestamp' => $this->getDb()->timestamp(),
 			'af_enabled' => 1,
 			'af_comments' => '',
 			'af_public_comments' => 'Mock filter',
@@ -62,7 +62,7 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 			'af_actor' => $this->getServiceContainer()->getActorNormalization()
 				->acquireActorId( $this->getTestUser()->getUserIdentity(), $this->db ),
 		];
-		$this->db->newInsertQueryBuilder()
+		$this->getDb()->newInsertQueryBuilder()
 			->insertInto( 'abuse_filter' )
 			->row( $row )
 			->caller( __METHOD__ )
@@ -76,7 +76,7 @@ class AbuseFilterCheckerTest extends MediaWikiIntegrationTestCase {
 			];
 		}
 		if ( $actionsRows ) {
-			$this->db->newInsertQueryBuilder()
+			$this->getDb()->newInsertQueryBuilder()
 				->insertInto( 'abuse_filter_action' )
 				->rows( $actionsRows )
 				->caller( __METHOD__ )
