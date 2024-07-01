@@ -19,7 +19,8 @@
 			"Silvonen",
 			"Stryn",
 			"Valtlait",
-			"Yupik"
+			"Yupik",
+			"Samoasambia"
 		]
 	},
 	"cx": "Käännä sivu",
@@ -55,7 +56,7 @@
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Sisällön kääntäminen 2]]",
 	"tag-contenttranslation-v2-description": "Sisältö on käännetty toisesta kielestä Sisällön kääntäminen -työkalun versiolla 2.",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|Osion käännös]]",
-	"tag-sectiontranslation-description": "Sisältö on käännetty osio toisesta kielestä käyttäen Content Translationin osioiden käännös -ominaisuutta.",
+	"tag-sectiontranslation-description": "Sisältö on käännetty osio toisesta kielestä käyttäen Sisällön kääntäminen -työkalun osioiden käännös -ominaisuutta.",
 	"cx-source-loading": "Ladataan sivua $1",
 	"cx-beta": "Sisällön kääntäminen",
 	"cx-beta-desc": "Työkalu jolla voit nopeasti kääntää sivuja omalle kielellesi. Aloita [[Special:MyContributions|Muokkaukset-sivulta]] kääntääksesi sivuja tällä käännösmuokkaimella, joka näyttää alkutekstin ja käännöksen rinnakkain. Jotkin työkalut saattavat olla käytettävissä vain tietyillä kielillä.",
