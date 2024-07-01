@@ -13,7 +13,7 @@
 	"cx": "Lehekülje tõlkimine",
 	"cx-dashboard-header": "Tõlked",
 	"cx-javascript": "See tööriist ei toimi ilma JavaScriptita. JavaScript on keelatud, see ei toiminud või selle brauseri tugi puudub.",
-	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Content Sisutõlge] on vahend, mille abil leheküljed kiiresti enda keelde tõlkida. [$1 Proovi kohe!]",
+	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Sisutõlge] on vahend, mille abil leheküljed kiiresti enda keelde tõlkida. [$1 Proovi kohe!]",
 	"cx-license-agreement": "Kui jätkad, nõustud [https://foundation.wikimedia.org/wiki/Terms_of_Use kasutustingimustega] ja annad nõusoleku kaastöö pöördumatuks avaldamiseks litsentside [https://creativecommons.org/licences/by-sa/4.0/deed.et CC BY-SA 4.0] ja [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] alusel.",
 	"cx-error-server-connection": "Tõrge: Serveriga ei saa ühendust.",
 	"cx-desc": "Teeb sisulehekülgede [[Special:ContentTranslation|tõlkimise]] lihtsaks.",
@@ -274,6 +274,7 @@
 	"cx-feature-discovery-dismiss": "Hästi, sain aru",
 	"cx-suggestionlist-expand-sections-title": "Täienda uute alaosadega",
 	"cx-sx-select-section": "Vali tõlkimiseks alaosa",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Alaosa puudub|$1 alaosa puuduvad}} keeles $2",
 	"cx-sx-section-selector-title": "Alaosad",
 	"cx-sx-section-selector-subtitle": "Vali alaosa",
 	"cx-sx-section-selector-desc": "Võrdled sisu mõlemas keeles.",
@@ -438,6 +439,7 @@
 	"sx-recent-edit-entrypoint-top-banner-header": "Panusta teistest keeltest",
 	"sx-recent-edit-entrypoint-top-banner-content": "Alaosa, mida hiljuti lähtekeeles ($1) redigeerisid, puudub sihtkeeles ($2). Kaalu selle tõlkimist.",
 	"sx-recent-edit-entrypoint-invitation-button-label": "Tõlgi \"$1\"",
+	"sx-recent-edit-entrypoint-invitation-button-details": "{{PLURAL:$1|$1 alaosa puudub|$1 alaosa puuduvad}} keeles $2",
 	"cx-sx-publisher-captcha-dialog-header-title": "Kontrollime, et sa pole robot",
 	"cx-sx-publisher-captcha-dialog-publish-button": "Avalda",
 	"cx-contributecard-entrypoint-title": "Tõlked",
@@ -484,5 +486,9 @@
 	"sx-confirm-draft-translation-start-button-label": "Korras",
 	"sx-published-translation-new-translation-button-label": "Uus tõlge",
 	"sx-section-selector-close-button-aria-label": "Mine kinnitustegevuse nupule",
-	"sx-quick-tutorial-next-button-aria-label": "Mine õpetuse järgmisele leheküljele"
+	"sx-quick-tutorial-next-button-aria-label": "Mine õpetuse järgmisele leheküljele",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Kirjuta uus tõlge",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Tõlkeprotseduur sammhaaval uue lehekülje loomiseks sinu keeles.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Loe automaatset tõlget",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Teistes keeltes sisu automaatne eelvaade, mille saad üle vaadata ja parandada."
 }
