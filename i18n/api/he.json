@@ -150,5 +150,8 @@
 	"apierror-cxsplit-anon-user": "פעולת ה־API בעלת המזהה \"cxsplit\" אינה מופעלת למשתמשים אלמוניים",
 	"apierror-cxsplit-no-translation-found": "לא נמצא תרגום עבור המזהה הנתון",
 	"apihelp-cxcheckunreviewed-summary": "לבדוק האם תרגומים מהירים ולא בדוקים כלשהם פורסמו לאחרונה על־ידי המשתמש הנוכחי.",
-	"apierror-cxcheckunreviewed-anon-user": "פעולת ה־API בעלת המזהה \"cxcheckunreviewed\" אינה מופעלת למשתמשים אלמוניים"
+	"apierror-cxcheckunreviewed-anon-user": "פעולת ה־API בעלת המזהה \"cxcheckunreviewed\" אינה מופעלת למשתמשים אלמוניים",
+	"apihelp-query+automatictranslationdenselanguages-summary": "אחזור רשימת קישורי האתר עבור הערך שתואם למזהה נתון של ויקינתונים, לפי גודל הערך.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "מזהה ויקינתונים.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "אחזור רשימת קישורי האתר עבור הערך Moon בכל השפות הזמינות, ממוינים לפי גודל הערך."
 }
