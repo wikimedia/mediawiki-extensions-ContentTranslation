@@ -157,8 +157,11 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		$multiHttpClient = $this->httpRequestFactory->createMultiClient();
 		$responses = $multiHttpClient->runMulti( $requests );
 
+		$params = $this->extractRequestParams();
+		$sectionTitlesOn = $params['section-titles'];
+
 		$sizeInfos = array_map(
-			static function ( $response, $siteLink ) {
+			static function ( $response, $siteLink ) use ( $sectionTitlesOn ) {
 				$responseBody = json_decode( $response['response']['body'], true ) ?: [];
 				if ( !isset( $responseBody['parse'] ) ) {
 					return null;
@@ -175,13 +178,23 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 					return $section['toclevel'] === 1;
 				} );
 
-				return [
+				$infos = [
 					'siteUrl' => $siteLink['siteUrl'],
 					'language' => $siteLink['siteCode'],
 					'title' => $siteLink['title'],
 					'sections' => count( $sections ),
 					'size' => $size,
 				];
+
+				if ( $sectionTitlesOn ) {
+					$sectionTitles = array_values( array_map( static function ( $section ) {
+						return $section['line'];
+					}, $sections ) );
+
+					$infos['sectionTitles'] = $sectionTitles;
+				}
+
+				return $infos;
 			},
 			$responses,
 			$siteLinks
@@ -215,13 +228,24 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	}
 
 	public function getAllowedParams() {
-		return [ 'qid' => [ ParamValidator::PARAM_TYPE => 'string' ] ];
+		return [
+			'qid' => [
+				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
+			],
+			'section-titles' => [
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEFAULT => false
+			]
+		];
 	}
 
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=automatictranslationdenselanguages&qid=Q405' =>
-				'apihelp-query+automatictranslationdenselanguages-example-1'
+				'apihelp-query+automatictranslationdenselanguages-example-1',
+			'action=query&list=automatictranslationdenselanguages&qid=Q405&section-titles=true' =>
+				'apihelp-query+automatictranslationdenselanguages-example-2'
 		];
 	}
 }

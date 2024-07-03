@@ -156,5 +156,7 @@
 	"apierror-cxcheckunreviewed-anon-user": "{{doc-apierror}}",
 	"apihelp-query+automatictranslationdenselanguages-summary": "{{doc-apihelp-summary|query+automatictranslationdenselanguages}}",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "{{doc-apihelp-param|query+automatictranslationdenselanguages|qid}}",
-	"apihelp-query+automatictranslationdenselanguages-example-1": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}"
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "{{doc-apihelp-param|query+automatictranslationdenselanguages|section-titles}}",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}"
 }

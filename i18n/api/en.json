@@ -159,5 +159,7 @@
 	"apierror-cxcheckunreviewed-anon-user": "\"cxcheckunreviewed\" API action is not enabled for anonymous users",
 	"apihelp-query+automatictranslationdenselanguages-summary": "Fetch the list of sitelinks for the article that corresponds to a given Wikidata ID, ordered by article size.",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "The Wikidata ID.",
-	"apihelp-query+automatictranslationdenselanguages-example-1": "Fetch the list of sitelinks for the 'Moon' article in all available languages, sorted by article size."
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "A boolean value indicating whether the section titles should be included in the response.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Fetch the list of sitelinks for the 'Moon' article in all available languages, sorted by article size.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Fetch the list of sitelinks for the 'Moon' article, including the section titles, in all available languages, sorted by article size."
 }
