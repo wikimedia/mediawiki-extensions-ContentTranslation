@@ -102,5 +102,6 @@
 	"apierror-cxpublishsection-translationnotfound": "Traduzione non trovata.",
 	"apierror-cxsplit-no-translation-found": "Nessuna traduzione trovata per l'ID specificato",
 	"apihelp-cxcheckunreviewed-summary": "Controlla se di recente è stata pubblicata qualche traduzione veloce e non revisionata per l'utente attuale.",
-	"apierror-cxcheckunreviewed-anon-user": "L'azione API \"cxcheckunreviewed\" non è abilitata per gli utenti anonimi"
+	"apierror-cxcheckunreviewed-anon-user": "L'azione API \"cxcheckunreviewed\" non è abilitata per gli utenti anonimi",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "L'ID Wikidata."
 }

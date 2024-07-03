@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Robby",
-			"Soued031"
+			"Soued031",
+			"Volvox"
 		]
 	},
 	"apihelp-cxpublish-param-title": "Den Titel vun der Säit op där Aktioune gemaach solle ginn.",
@@ -58,5 +59,6 @@
 	"apihelp-sxsave-param-targettitle": "Den Titel vun der Zilsäit.",
 	"apihelp-sxsave-param-sourcesectiontitle": "Den Titel vum Quellabschnitt.",
 	"apihelp-sxsave-param-sectionid": "D'ID vum Abschnitt vun der Säit.",
-	"apierror-cxpublishsection-translationnotfound": "Iwwersetzung net fonnt."
+	"apierror-cxpublishsection-translationnotfound": "Iwwersetzung net fonnt.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "D'Wikidata-ID."
 }
