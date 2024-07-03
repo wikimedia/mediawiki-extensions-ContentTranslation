@@ -196,8 +196,33 @@ const fetchPageContent = ( language, title ) => {
 	return api.get( `/page/${ encodeURIComponent( title ) }/html` );
 };
 
+/**
+ * Used inside "ExploreLanguages" SFC to fetch the sitelinks for the selected articles, for all
+ * available languages, along with the section titles for each language.
+ *
+ * @param {string} qid
+ * @return {Promise<*>}
+ */
+const fetchDenseArticles = async ( qid ) => {
+	const params = {
+		action: 'query',
+		format: 'json',
+		formatversion: 2,
+		list: 'automatictranslationdenselanguages',
+		'section-titles': true,
+		qid
+	};
+
+	const api = new mw.Api();
+
+	return api.get( params ).then(
+		( response ) => response.query.automatictranslationdenselanguages.sizeInfo
+	);
+};
+
 const useApi = () => ( {
 	fetchPageMetadata,
+	fetchDenseArticles,
 	searchEntities,
 	getWikidataSitelinks,
 	fetchSiteMatrix,

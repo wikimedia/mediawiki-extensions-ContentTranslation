@@ -1854,6 +1854,7 @@
 			"dependencies": [
 				"vue",
 				"@wikimedia/codex",
+				"mediawiki.api",
 				"mediawiki.ForeignApi",
 				"jquery.uls.data",
 				"mw.cx.SiteMapper"
