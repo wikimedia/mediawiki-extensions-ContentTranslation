@@ -58,7 +58,7 @@ const searchEntities = async ( query, targetLanguage ) => {
 };
 
 /**
- * Example request: https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=120&redirects=true&titles=Moon&prop=info%7Cpageimages%7Cdescription%7Clanglinkscount
+ * Example request: https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&formatversion=2&piprop=thumbnail%7Cname&pithumbsize=120&redirects=true&titles=Moon&prop=info%7Cpageimages%7Cdescription%7Clanglinkscount%7Cpageprops
  *
  * @param {string} language
  * @param {string} titles
@@ -67,7 +67,7 @@ const searchEntities = async ( query, targetLanguage ) => {
  */
 const fetchPageMetadata = ( language, titles, includeLangLinks = false ) => {
 	const api = siteMapper.getApi( language );
-	let props = 'info|pageimages|description|langlinkscount';
+	let props = 'info|pageimages|description|langlinkscount|pageprops';
 	const params = {
 		action: 'query',
 		format: 'json',

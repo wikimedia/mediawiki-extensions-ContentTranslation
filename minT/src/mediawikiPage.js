@@ -6,8 +6,9 @@ class MediawikiPage {
 	 * @param {string} payload.description
 	 * @param {{ source: string, height: number, width: number }|undefined} payload.thumbnail
 	 * @param {number} payload.langlinkscount
+	 * @param {string} payload.qid
 	 * @param {string|null} payload.alias
-	 * @param {{ language: string, title: string }[]} payload.langlinks
+	 * @param {{ lang: string, title: string }[]} payload.langlinks
 	 */
 	constructor( {
 		pagelanguage,
@@ -15,6 +16,7 @@ class MediawikiPage {
 		description,
 		thumbnail,
 		langlinkscount,
+		qid,
 		alias = null,
 		langlinks = []
 	} ) {
@@ -23,6 +25,7 @@ class MediawikiPage {
 		this.description = description;
 		this.thumbnail = thumbnail;
 		this.langlinkscount = langlinkscount;
+		this.qid = qid;
 		this.alias = alias;
 		this.langlinks = langlinks;
 	}

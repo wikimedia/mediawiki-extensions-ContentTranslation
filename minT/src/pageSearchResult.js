@@ -9,6 +9,7 @@ class PageSearchResult {
 	 * @param {string} payload.description
 	 * @param {number} payload.order
 	 * @param {string} payload.sourceLanguage
+	 * @param {string} payload.qid
 	 * @param {number} payload.langlinkscount
 	 * @param {{ language: string, title: string }[]} payload.langlinks
 	 */
@@ -19,6 +20,7 @@ class PageSearchResult {
 		description,
 		order,
 		sourceLanguage,
+		qid,
 		langlinkscount,
 		langlinks
 	} ) {
@@ -28,6 +30,7 @@ class PageSearchResult {
 		this.description = description;
 		this.order = order;
 		this.sourceLanguage = sourceLanguage;
+		this.qid = qid;
 		this.langLinksCount = langlinkscount;
 		this.langLinks = langlinks;
 	}

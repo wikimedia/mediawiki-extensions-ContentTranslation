@@ -112,6 +112,7 @@ Vue.watch( sites, () => {
 				description: mediawikiPage.description,
 				order: 1,
 				sourceLanguage: sourceLanguage.value,
+				qid: mediawikiPage.qid,
 				langlinkscount: mediawikiPage.langlinkscount,
 				langlinks: siteLinks
 			} );

@@ -54,6 +54,7 @@ const usePageMetadata = () => {
 				description: page.description,
 				thumbnail: page.thumbnail,
 				langlinkscount: page.langlinkscount,
+				qid: page.pageprops && page.pageprops.wikibase_item,
 				langlinks: page.langlinks || [],
 				alias
 			} );

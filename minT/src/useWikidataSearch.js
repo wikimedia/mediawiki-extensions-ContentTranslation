@@ -69,6 +69,7 @@ const useWikidataSearch = () => {
 					langlinkscount: page.langlinkscount,
 					order: searchResult.order,
 					sourceLanguage: searchResult.sourceLanguage,
+					qid: page.qid,
 					langlinks: searchResult.siteLinks
 				} );
 				pageSubResults.push( pageResult );

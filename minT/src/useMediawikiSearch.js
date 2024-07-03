@@ -30,6 +30,7 @@ const useMediawikiSearch = () => {
 			langlinkscount: page.langlinkscount,
 			order: 1,
 			sourceLanguage: sourceLanguage,
+			qid: page.qid,
 			langlinks: siteLinks
 		} );
 	};
