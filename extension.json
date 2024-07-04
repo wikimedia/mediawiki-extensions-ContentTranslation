@@ -1876,6 +1876,7 @@
 				"ViewTranslationPage.vue",
 				"ViewTranslationPageOptions.vue",
 				"SkeletonLoader.vue",
+				"ExploreLanguagesPage.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
@@ -1939,7 +1940,14 @@
 				"mint-view-translation-overlay-target-article-link-label",
 				"mint-view-translation-overlay-cx-entrypoint-label",
 				"mint-view-translation-overlay-share-button-label",
-				"mint-view-translation-overlay-feedback-link-label"
+				"mint-view-translation-overlay-feedback-link-label",
+				"mint-explore-languages-header",
+				"mint-explore-languages-search-input-placeholder",
+				"mint-explore-languages-explanation-banner-title",
+				"mint-explore-languages-explanation-banner-text",
+				"mint-explore-languages-language-card-container-title",
+				"mint-explore-languages-language-card-sections-count",
+				"mint-explore-languages-language-card-most-detailed-chip-label"
 			]
 		},
 		"ext.ax.articlefooter.entrypoint": {

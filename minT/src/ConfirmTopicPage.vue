@@ -244,7 +244,7 @@ module.exports = defineComponent( {
 		const { mintLanguages } = useMintLanguages();
 
 		const openSourceLanguageSelector = () => {
-			openLanguageSelector( false, setSourceLanguage, props.pageResult.languages );
+			navigateToPage( 'exploreLanguages', { pageResult: props.pageResult }, 'flex' );
 		};
 		const openTargetLanguageSelector = () => {
 			const languages = mintLanguages.value[ sourceLanguage.value ];

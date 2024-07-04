@@ -114,16 +114,7 @@ const getAutonym = $.uls.data.getAutonym;
 const getDir = $.uls.data.getDir;
 const debounce = require( './debounce.js' );
 
-function getSearchApi() {
-	const apiURL = new URL( 'https://en.wikipedia.org/w/api.php' );
-	apiURL.searchParams.set( 'action', 'languagesearch' );
-	apiURL.searchParams.set( 'format', 'json' );
-	apiURL.searchParams.set( 'origin', '*' );
-	apiURL.searchParams.set( 'formatversion', 2 );
-
-	return apiURL.toString();
-}
-
+const { getSearchApi } = useLanguageSearch();
 const defaultSearchApi = getSearchApi();
 
 // @vue/component

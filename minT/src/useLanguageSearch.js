@@ -8,13 +8,23 @@ const getAutonym = $.uls.data.getAutonym;
 const getScript = $.uls.data.getScript;
 const sortByAutonym = $.uls.data.sortByAutonym;
 
+function getSearchApi() {
+	const apiURL = new URL( 'https://en.wikipedia.org/w/api.php' );
+	apiURL.searchParams.set( 'action', 'languagesearch' );
+	apiURL.searchParams.set( 'format', 'json' );
+	apiURL.searchParams.set( 'origin', '*' );
+	apiURL.searchParams.set( 'formatversion', 2 );
+
+	return apiURL.toString();
+}
+
 /**
  * @param {string[]} languages
  * @param {string} query
  * @param {string} searchApi
  * @return {Promise<string[]>}
  */
-async function search( languages, query, searchApi ) {
+async function doSearch( languages, query, searchApi ) {
 	if ( !query || query.trim().length === 0 ) {
 		return languages;
 	}
@@ -62,7 +72,7 @@ async function searchByQuery( languages, query, searchApi ) {
 	if ( !query || query.trim().length === 0 ) {
 		return languages.sort( sortByAutonym );
 	} else {
-		return ( await search( languages, query, searchApi ) ).sort( sortByAutonym );
+		return ( await doSearch( languages, query, searchApi ) ).sort( sortByAutonym );
 	}
 }
 
@@ -117,7 +127,8 @@ function getResultsDisplayClass( searchResults ) {
 const useLanguageSearch = () => ( {
 	searchByQuery,
 	getSearchResultsByScript,
-	getResultsDisplayClass
+	getResultsDisplayClass,
+	getSearchApi
 } );
 
 module.exports = useLanguageSearch;

@@ -6,6 +6,7 @@ const { languageSelectorPlaceholderId, componentPlaceholderId } = require( './co
 const routes = {
 	search: './SearchTopicPage.vue',
 	confirm: './ConfirmTopicPage.vue',
+	exploreLanguages: './ExploreLanguagesPage.vue',
 	translation: './ViewTranslationPage.vue'
 };
 
@@ -13,7 +14,7 @@ const useRouter = () => {
 	const currentVueInstance = getCurrentInstance();
 	const { app } = ( currentVueInstance && currentVueInstance.appContext ) || {};
 
-	const navigateToPage = ( route, props ) => {
+	const navigateToPage = ( route, props, displayValue = 'block' ) => {
 		// eslint-disable-next-line security/detect-non-literal-require
 		const routeComponent = require( routes[ route ] );
 		if ( app ) {
@@ -21,7 +22,7 @@ const useRouter = () => {
 		}
 		createMwApp( routeComponent, props ).mount( `#${ componentPlaceholderId }` );
 		const componentPlaceholder = document.getElementById( componentPlaceholderId );
-		componentPlaceholder.style.display = 'block';
+		componentPlaceholder.style.display = displayValue;
 	};
 
 	const goToHomePage = () => {

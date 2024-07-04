@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Share automatic translation",
 	"mint-view-translation-overlay-feedback-link-label": "Send feedback",
 	"ax-article-footer-entrypoint-card-description": "More content in other languages",
-	"ax-article-footer-entrypoint-card-supporting-text": "Read automatic translation"
+	"ax-article-footer-entrypoint-card-supporting-text": "Read automatic translation",
+	"mint-explore-languages-header": "Explore languages",
+	"mint-explore-languages-search-input-placeholder": "All languages for this topic",
+	"mint-explore-languages-explanation-banner-title": "Learn more from other languages",
+	"mint-explore-languages-explanation-banner-text": "Editors in different languages covered this topic in different ways.",
+	"mint-explore-languages-language-card-container-title": "Languages with the most coverage for \"$1\"",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 sections|0=No sections}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Most detailed"
 }
