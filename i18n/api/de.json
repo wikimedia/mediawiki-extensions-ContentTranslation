@@ -122,6 +122,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "Die Versions-ID der Quellseite.",
 	"apihelp-cxpublishsection-param-captchaid": "Captcha-Kennung (beim Speichern mit einer Captcha-Antwort).",
 	"apihelp-cxpublishsection-param-captchaword": "Antwort an das Captcha (beim Speichern mit einer Captcha-Antwort).",
+	"apihelp-cxpublishsection-param-issandbox": "Verwendung eines Sandkastentitels für die Übersetzung.",
 	"apihelp-sxsave-param-sourcelanguage": "Der Quell-Sprachcode.",
 	"apihelp-sxsave-param-targetlanguage": "Der Ziel-Sprachcode.",
 	"apihelp-sxsave-param-sourcetitle": "Der Titel der Quellseite.",
@@ -131,7 +132,19 @@
 	"apihelp-sxsave-param-targetsectiontitle": "Titel des Zielabschnitts",
 	"apihelp-sxsave-param-sectionid": "Die Seitenabschnitts-ID.",
 	"apihelp-sxsave-param-sourcerevision": "Die Versions-ID der Quellseite.",
+	"apihelp-sxsave-param-issandbox": "Verwendung eines Sandkastentitels für die Übersetzung.",
 	"apihelp-sxsave-param-progress": "Der Fortschritt der Übersetzung.",
 	"apierror-sxsave-anon-user": "Die API-Aktion „sxsave“ ist für anonyme Benutzer nicht aktiviert",
-	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden."
+	"apierror-cxpublishsection-translationnotfound": "Übersetzung nicht gefunden.",
+	"apihelp-sxdelete-summary": "Löscht den Entwurf der Abschnittsübersetzung und die dazugehörigen Parallelkorpora aus der Datenbank.",
+	"apihelp-sxdelete-param-sectiontranslationid": "Die ID der Abschnittsübersetzung, die mit dem Entwurf der Abschnittsübersetzung verknüpft ist.",
+	"apihelp-sxdelete-param-translationid": "Die mit der Abschnittsentwurfsübersetzung verknüpfte Übersetzungs-ID.",
+	"apihelp-sxdelete-param-sectionid": "Die ID des Abschnitts des Entwurfs der Abschnittsübersetzung.",
+	"apihelp-sxdelete-example-1": "Löschen eines Entwurfs mit der angegebenen Übersetzungs- und Abschnittsnummer.",
+	"apihelp-cxsplit-summary": "Erstellen und Speichern einer Abschnittsübersetzung in der Datenbank, für jeden übersetzten Abschnitt der gegebenen Artikelübersetzung",
+	"apihelp-cxsplit-param-translationid": "Die ID der Übersetzung, für die die Abschnittsübersetzungen erstellt werden.",
+	"apierror-cxsplit-anon-user": "Die API-Aktion „cxsplit“ ist für anonyme Benutzer nicht aktiviert",
+	"apierror-cxsplit-no-translation-found": "Für die angegebene ID wurde keine Übersetzung gefunden",
+	"apihelp-cxcheckunreviewed-summary": "Überprüfe, ob in letzter Zeit eine schnelle, nicht überprüfte Übersetzung für den aktuellen Benutzer veröffentlicht wurde.",
+	"apierror-cxcheckunreviewed-anon-user": "Die API-Aktion „cxcheckunreviewed“ ist für anonyme Benutzer nicht aktiviert"
 }
