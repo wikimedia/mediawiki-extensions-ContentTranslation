@@ -82,16 +82,20 @@
 		} );
 	};
 
-	const getMintURL = ( resultLanguages ) => {
+	const getMintLanguageMatches = ( resultLanguages ) => {
 		if ( !mw.config.get( 'mintEntrypointLanguages' ) ) {
-			return null;
+			return [];
 		}
-		const matches = resultLanguages.filter(
+		return resultLanguages.filter(
 			( code ) =>
 				mintLanguages.indexOf( code ) >= 0 &&
-				mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
-				code !== mw.config.get( 'wgContentLanguage' )
+						mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
+						code !== mw.config.get( 'wgContentLanguage' )
 		);
+	};
+
+	const getMintURL = ( resultLanguages ) => {
+		const matches = getMintLanguageMatches( resultLanguages );
 
 		if ( !matches.length ) {
 			return null;
@@ -105,15 +109,19 @@
 		);
 	};
 
-	const getCxURL = ( resultLanguages ) => {
+	const getCxLanguageMatches = ( resultLanguages ) => {
 		if ( !mw.config.get( 'isLanguageSearcherCXEntrypointEnabled' ) ) {
 			return null;
 		}
 		const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
-		const matches = resultLanguages.filter(
+		return resultLanguages.filter(
 			( code ) => enabledTargets.indexOf( code ) >= 0 && code !== mw.config.get( 'wgContentLanguage' )
 		);
+	};
+
+	const getCxURL = ( resultLanguages ) => {
+		const matches = getCxLanguageMatches( resultLanguages );
 
 		if ( !matches.length ) {
 			return null;
@@ -155,6 +163,52 @@
 		} ).mount( entrypointContainer );
 	};
 
+	function createLanguageAutonymListContainer() {
+		const container = document.createElement( 'div' );
+		container.classList.add( 'cx-language-autonym-list-container' );
+
+		return container;
+	}
+
+	function listMatchedLanguageAutonyms( noResultsContainer, resultLanguages ) {
+		const cxLanguageMatches = getCxLanguageMatches( resultLanguages );
+		const mintLanguageMatches = getMintLanguageMatches( resultLanguages );
+
+		let autonymListContainer = noResultsContainer.querySelector( '.cx-language-autonym-list-container' );
+
+		if ( !cxLanguageMatches.length && !mintLanguageMatches.length ) {
+			if ( autonymListContainer ) {
+				autonymListContainer.classList.add( 'hidden' );
+			}
+
+			return;
+		}
+
+		if ( !autonymListContainer ) {
+			const header = noResultsContainer.querySelector( 'h1, h2, h3, h4, h5, h6' );
+			autonymListContainer = createLanguageAutonymListContainer();
+			header.insertAdjacentElement( 'afterend', autonymListContainer );
+		}
+		autonymListContainer.classList.remove( 'hidden' );
+
+		const entrypointLanguages = [ ...new Set( [ ...cxLanguageMatches, ...mintLanguageMatches ] ) ];
+
+		const autonyms = entrypointLanguages.slice( 0, 2 ).map( $.uls.data.getAutonym );
+		const autonymElementHTMLs = autonyms.map( ( autonym ) => {
+			const el = document.createElement( 'bdi' );
+			el.innerText = autonym;
+
+			return el.outerHTML;
+		} );
+
+		let content = autonymElementHTMLs.join( ', ' );
+		if ( autonymElementHTMLs.length > 1 ) {
+			content += '<span>...<span>';
+		}
+
+		autonymListContainer.innerHTML = content;
+	}
+
 	/**
 	 * Handle the matches found for the search query.
 	 * Replace the default empty state of language searcher with custom one.
@@ -163,13 +217,14 @@
 	 * @param {string[]} resultLanguages
 	 */
 	function onLanguageMatch( noResultsContainer, resultLanguages ) {
+		listMatchedLanguageAutonyms( noResultsContainer, resultLanguages );
 		let entrypointContainer = noResultsContainer.querySelector( '.entrypoint-container' );
 		if ( !entrypointContainer ) {
 			entrypointContainer = document.createElement( 'div' );
 			entrypointContainer.classList.add( 'entrypoint-container' );
 			noResultsContainer.appendChild( entrypointContainer );
 		}
-		const cardContainer = noResultsContainer.querySelector( '.language-searcher-card-container' );
+		let cardContainer = noResultsContainer.querySelector( '.language-searcher-card-container' );
 		const activeEntrypointURLs = [
 			{ className: 'cx-entrypoint-card', href: getCxURL( resultLanguages ) },
 			{ className: 'mint-entrypoint-card', href: getMintURL( resultLanguages ) }
@@ -188,6 +243,9 @@
 			activeEntrypointCard.classList.remove( 'hidden' );
 			activeEntrypointCard.href = activeEntrypoint.href;
 		} );
+
+		cardContainer = noResultsContainer.querySelector( '.language-searcher-card-container' );
+		cardContainer.classList.remove( 'hidden' );
 	}
 
 	/**
@@ -201,6 +259,13 @@
 		if ( cardContainer ) {
 			cardContainer.classList.add( 'hidden' );
 		}
+
+		const autonymListContainer = noResultsContainer.querySelector( '.cx-language-autonym-list-container' );
+
+		if ( autonymListContainer ) {
+			autonymListContainer.classList.add( 'hidden' );
+		}
+
 	}
 
 	/**

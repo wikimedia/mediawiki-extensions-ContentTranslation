@@ -1193,6 +1193,9 @@
 				"entrypoints/ext.cx.entrypoints.languagesearcher/ext.cx.entrypoints.languagesearcher.js",
 				"entrypoints/ext.cx.entrypoints.languagesearcher/LanguageSearcherCardContainer.vue"
 			],
+			"styles": [
+				"entrypoints/styles/ext.cx.entrypoints.languagesearcher.less"
+			],
 			"dependencies": [
 				"vue",
 				"jquery.uls.data",
