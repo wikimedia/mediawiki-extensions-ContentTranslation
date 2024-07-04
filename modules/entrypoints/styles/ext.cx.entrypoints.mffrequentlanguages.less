@@ -3,32 +3,33 @@
 .cx-entrypoint-missing-frequent-languages-container {
 	font-size: unset;
 	font-weight: unset;
-}
 
-.cx-entrypoint-missing-frequent-languages {
-	text-decoration: none;
-	cursor: pointer;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 0.85em;
-	font-weight: normal;
-	padding: 1em;
-	background-color: #f8f9fa;
-	color: @color-subtle;
-
-	&:link,
-	&:visited {
+	.cx-entrypoint-missing-frequent-languages {
+		width: @size-full;
+		text-decoration: @text-decoration-none;
+		cursor: @cursor-base--hover;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: @font-size-small;
+		font-weight: @font-weight-normal;
+		padding: @spacing-100;
+		background-color: @background-color-neutral-subtle;
 		color: @color-subtle;
-	}
 
-	&__text {
-		span {
-			font-weight: bold;
+		&:link,
+		&:visited {
+			color: @color-subtle;
 		}
-	}
 
-	&__icon {
-		.cdx-mixin-css-icon( @cdx-icon-next, @param-size-icon: @size-icon-small );
+		&__text {
+			span {
+				font-weight: @font-weight-bold;
+			}
+		}
+
+		&__icon {
+			.cdx-mixin-css-icon( @cdx-icon-next, @param-size-icon: @size-icon-small );
+		}
 	}
 }
