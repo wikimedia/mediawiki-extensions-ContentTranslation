@@ -7,7 +7,6 @@
 ( function () {
 	'use strict';
 
-	const CAMPAIGN = 'mflanguagesearcher';
 	const siteMapper = new mw.cx.SiteMapper();
 	/**
 	 * Search the query string for a valid language
@@ -120,7 +119,25 @@
 		);
 	};
 
-	const getCxURL = ( resultLanguages ) => {
+	/**
+	 * @param {'entrypoint-banner'|'ui'} searchOrigin
+	 * @return {'mffrequentlanguages'|'mflanguagesearcher'}
+	 */
+	const getCxCampaign = ( searchOrigin ) => {
+		const campaignMap = {
+			ui: 'mflanguagesearcher',
+			'entrypoint-banner': 'mffrequentlanguages'
+		};
+
+		return campaignMap[ searchOrigin ];
+	};
+
+	/**
+	 * @param {string[]} resultLanguages
+	 * @param {'entrypoint-banner'|'ui'} searchOrigin
+	 * @return {string|null}
+	 */
+	const getCxURL = ( resultLanguages, searchOrigin ) => {
 		const matches = getCxLanguageMatches( resultLanguages );
 
 		if ( !matches.length ) {
@@ -132,7 +149,7 @@
 			null,
 			mw.config.get( 'wgContentLanguage' ),
 			matches[ 0 ],
-			{ campaign: CAMPAIGN, sx: true }
+			{ campaign: getCxCampaign( searchOrigin ), sx: true }
 		);
 	};
 
@@ -215,8 +232,9 @@
 	 *
 	 * @param {HTMLElement} noResultsContainer
 	 * @param {string[]} resultLanguages
+	 * @param {'entrypoint-banner'|'ui'} searchOrigin
 	 */
-	function onLanguageMatch( noResultsContainer, resultLanguages ) {
+	function onLanguageMatch( noResultsContainer, resultLanguages, searchOrigin ) {
 		listMatchedLanguageAutonyms( noResultsContainer, resultLanguages );
 		let entrypointContainer = noResultsContainer.querySelector( '.entrypoint-container' );
 		if ( !entrypointContainer ) {
@@ -226,7 +244,7 @@
 		}
 		let cardContainer = noResultsContainer.querySelector( '.language-searcher-card-container' );
 		const activeEntrypointURLs = [
-			{ className: 'cx-entrypoint-card', href: getCxURL( resultLanguages ) },
+			{ className: 'cx-entrypoint-card', href: getCxURL( resultLanguages, searchOrigin ) },
 			{ className: 'mint-entrypoint-card', href: getMintURL( resultLanguages ) }
 		].filter( ( entrypoint ) => !!entrypoint.href );
 
@@ -271,8 +289,9 @@
 	/**
 	 * @param {string} searchQuery
 	 * @param {HTMLElement} noResultsContainer
+	 * @param {'entrypoint-banner'|'ui'} searchOrigin
 	 */
-	function showTranslationCTA( searchQuery, noResultsContainer ) {
+	function showTranslationCTA( searchQuery, noResultsContainer, searchOrigin ) {
 		const promises = [ searchWithAPI( searchQuery ) ];
 		if ( mw.config.get( 'mintEntrypointLanguages' ) ) {
 			promises.push( setMinTLanguages() );
@@ -281,7 +300,7 @@
 			if ( !results.length ) {
 				onNoLanguageMatch( noResultsContainer );
 			} else {
-				onLanguageMatch( noResultsContainer, results );
+				onLanguageMatch( noResultsContainer, results, searchOrigin );
 			}
 		} );
 	}
