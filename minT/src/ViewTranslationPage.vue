@@ -240,10 +240,10 @@ module.exports = defineComponent( {
 			return contents;
 		} );
 
-		watchEffect( () => {
+		watch( [ sourceLanguage, targetLanguage ], () => {
 			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
 			initializeTranslation( title );
-		} );
+		}, { immediate: true } );
 
 		const sections = computed( () => {
 			if ( !doc.value ) {
