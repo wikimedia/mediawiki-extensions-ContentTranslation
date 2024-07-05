@@ -5,6 +5,7 @@
 		]
 	},
 	"automatic-translation-special-page-description": "Automatic translation",
+	"automatic-translation-desc": "Provides [[Special:AutomaticTranslation|automatic translation]] for content pages.",
 	"mint-home-header-title": "Automatic translation",
 	"mint-home-input-placeholder": "Search for a topic",
 	"mint-translation-list-all-languages-option-label": "All",

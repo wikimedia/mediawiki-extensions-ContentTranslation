@@ -5,6 +5,7 @@
 		]
 	},
 	"automatic-translation-special-page-description": "{{doc-special|AutomaticTranslation}}",
+	"automatic-translation-desc": "{{desc|name=AutomaticTranslation|url=https://www.mediawiki.org/wiki/MinT#MinT_for_wiki_readers}}",
 	"mint-home-header-title": "The title inside the header of the MinT home page",
 	"mint-home-input-placeholder": "The placeholder of the search input inside the MinT home page",
 	"mint-translation-list-all-languages-option-label": "The label of the option that selects all available language options of the MinT language selector",
