@@ -270,6 +270,7 @@
 	"cx-feature-discovery-dismiss": "Hästi, sain aru",
 	"cx-suggestionlist-expand-sections-title": "Täienda uute alaosadega",
 	"cx-sx-select-section": "Vali tõlkimiseks alaosa",
+	"cx-sx-missing-section-stats": "{{PLURAL:$1|Alaosa puudub|$1 alaosa puuduvad}} keeles $2",
 	"cx-sx-section-selector-title": "Alaosad",
 	"cx-sx-section-selector-subtitle": "Vali alaosa",
 	"cx-sx-section-selector-desc": "Võrdled sisu mõlemas keeles.",

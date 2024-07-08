@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"BadDog",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Prevođenje stranice",
@@ -154,9 +156,9 @@
 	"cx-campaign-try": "Isprobajte Prevoditelj sadržaja‏",
 	"cx-campaign-contributionsmenu-mycontributions": "Doprinosi",
 	"cx-campaign-contributionsmenu-mytranslations": "Prijevodi",
-	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Dodaj novi prijevod",
-	"cx-campaign-contributionsmenu-myuploads": "Otpremljene datoteke",
-	"cx-campaign-contributionsmenu-myuploads-tooltip": "Spisak vaših otpremljenih datoteka",
+	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Lista vaših prijevoda",
+	"cx-campaign-contributionsmenu-myuploads": "Otpremanja",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Lista vaših otpremljenih datoteka",
 	"cx-no-source-categories": "Nema kategorija",
 	"cx-no-target-categories": "Nema kategorija. Stavite neke da bi tema bila bolje klasificirana.",
 	"cx-no-adapted-categories": "Izvorne kategorije ne postoje u ovom jeziku. Istražite više kategorija u svrhu boljeg opisa teme.",
