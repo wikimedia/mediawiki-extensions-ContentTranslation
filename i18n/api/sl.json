@@ -149,5 +149,7 @@
 	"apihelp-cxsplit-summary": "Ustvaritev in shranitev prevoda razdelka v zbirko podatkov za vsak prevedeni del danega prevoda članka",
 	"apihelp-cxsplit-param-translationid": "ID prevoda, za katerega bodo ustvarjeni prevodi razdelka.",
 	"apierror-cxsplit-anon-user": "Dejanje API-ja »cxsplit« za anonimne uporabnike ni omogočeno",
-	"apierror-cxsplit-no-translation-found": "Za predloženi ID ni bilo mogoče najti prevoda"
+	"apierror-cxsplit-no-translation-found": "Za predloženi ID ni bilo mogoče najti prevoda",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Boolova vrednost, ki označuje, ali naj bodo v odgovor vključeni naslovi razdelkov.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Pridobitev seznama povezav do spletnih mest za članek »Luna«, vključno z naslovi razdelkov, v vseh razpoložljivih jezikih, razvrščenih po velikosti članka."
 }

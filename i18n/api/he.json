@@ -153,5 +153,7 @@
 	"apierror-cxcheckunreviewed-anon-user": "פעולת ה־API בעלת המזהה \"cxcheckunreviewed\" אינה מופעלת למשתמשים אלמוניים",
 	"apihelp-query+automatictranslationdenselanguages-summary": "אחזור רשימת קישורי האתר עבור הערך שתואם למזהה נתון של ויקינתונים, לפי גודל הערך.",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "מזהה ויקינתונים.",
-	"apihelp-query+automatictranslationdenselanguages-example-1": "אחזור רשימת קישורי האתר עבור הערך Moon בכל השפות הזמינות, ממוינים לפי גודל הערך."
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "ערך בוליאני שאומר אם לכלול את כותרות הפרקים בתגובה.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "אחזור רשימת קישורי האתר עבור הערך Moon בכל השפות הזמינות, ממוינים לפי גודל הערך.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "אחזור רשימת קישורי האתר עבור הערך Moon, כולל כותרות פרקים, בכל השפות הזמינות, ממוינים לפי גודל הערך."
 }

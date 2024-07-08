@@ -46,5 +46,6 @@
 	"apihelp-sxsave-param-targetlanguage": "Cod yr iaith darged.",
 	"apihelp-sxsave-param-sourcetitle": "Teitl y dudalen ffynhonnell.",
 	"apihelp-sxsave-param-targettitle": "Teitl y dudalen darged.",
-	"apierror-cxpublishsection-translationnotfound": "Ni chanfuwyd cyfieithiad."
+	"apierror-cxpublishsection-translationnotfound": "Ni chanfuwyd cyfieithiad.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "ID Wicidata."
 }

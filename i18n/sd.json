@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Aursani",
+			"Charoo",
 			"Dušan Kreheľ",
 			"Indus Asia",
 			"JogiAsad",
@@ -257,7 +258,7 @@
 	"cx-publish-destination-namespace-main-exists": "موجوده صفحي سان بدلايو",
 	"cx-publish-destination-namespace-user": "ذاتي مسودو",
 	"cx-publish-destination-namespace-user-description": "توھان جي واپرائيندڙ نانءَپولار ھيٺ توھان کي بھتر ڪرڻ لاءِ",
-	"cx-publish-destination-namespace-draft": "نياتي مسودو",
+	"cx-publish-destination-namespace-draft": "برادري مسودو",
 	"cx-publish-destination-namespace-draft-description": "ڪميونٽي جي نظرثاني ۽ بھتر ڪرڻ لاءِ مسودي واري نانءَپولار ۾",
 	"cx-publish-destination-namespace-changed": "ڇاپڻ جي منزل ذاتي مسودي ڏانهن تبديل ڪئي وئي. ڪنھن بہ وقت ڇاپڻ جي ترتيبن ۾ وڌيڪ تبديليون ڪريو",
 	"cx-linkcontextitem-missing-link-title": "کٽل ڳنڍڻو",

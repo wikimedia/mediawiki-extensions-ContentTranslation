@@ -152,5 +152,7 @@
 	"apierror-cxcheckunreviewed-anon-user": "Приложничкото дејство „cxcheckunreviewed“ не е овозможено за анонимни корисници",
 	"apihelp-query+automatictranslationdenselanguages-summary": "Дај го списокот на викиврски за статијата која одговара на дадена назнака на Википодатоците, подредени по големина на статијата.",
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "Назнака на Википодатоците.",
-	"apihelp-query+automatictranslationdenselanguages-example-1": "Дај го списокот на викиврски за статијата „Месечина“ на сите расположливи јазици, подредени по големина на статијата."
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Булова вредност која укажува дали насловите на одделите треба да се вклучени во одговорот.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Дај го списокот на викиврски за статијата „Месечина“ на сите расположливи јазици, подредени по големина на статијата.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Дај го списокот на сите викиврски за статијата „Месечина“, вклучувајќи наслови на оддели на сите расположиви јазици, подредени по големина на статија."
 }
