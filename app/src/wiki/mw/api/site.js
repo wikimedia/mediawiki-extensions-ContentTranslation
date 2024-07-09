@@ -57,9 +57,12 @@ function addWikibaseLink(
 
   // Current wiki is target wiki since publishing happens at target wiki
   const targetWikiId = mw.config.get("wgWikiID");
+  const sourceWikiDomainCode = siteMapper.getWikiDomainCode(sourceLanguage);
+  const targetWikiDomainCode = siteMapper.getWikiDomainCode(targetLanguage);
+
   const params = {
     action: "wblinktitles",
-    fromsite: targetWikiId.replace(targetLanguage, sourceLanguage),
+    fromsite: targetWikiId.replace(targetWikiDomainCode, sourceWikiDomainCode),
     fromtitle: sourceTitle,
     tosite: targetWikiId,
     totitle: targetTitle,
