@@ -149,5 +149,10 @@
 	"apierror-cxsplit-anon-user": "Le action API “cxsplit” non es activate pro usatores anonyme.",
 	"apierror-cxsplit-no-translation-found": "Necun traduction trovate pro le ID specificate",
 	"apihelp-cxcheckunreviewed-summary": "Controla si ha essite publicate recentemente alcun traduction rapide e non revidite pro le usator actual.",
-	"apierror-cxcheckunreviewed-anon-user": "Le action API “cxcheckunreviewed” non es activate pro usatores anonyme."
+	"apierror-cxcheckunreviewed-anon-user": "Le action API “cxcheckunreviewed” non es activate pro usatores anonyme.",
+	"apihelp-query+automatictranslationdenselanguages-summary": "Obtener le lista de ligamines de sito pro le articulo que corresponde a un ID de Wikidata fornite, ordinate per grandor de articulo.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "Le ID de Wikidata.",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Un valor boolean que indica si le titulos de section debe esser includite in le responsa.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Obtener le lista de ligamines de sito pro le articulo ‘Moon’ (Luna) in tote le linguas disponibile, ordinate per grandor de articulo.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Obtener le lista de ligamines de sito pro le articulo ‘Moon’ (Luna), incluse le titulos de section, in tote le linguas disponibile, ordinate per grandor de articulo."
 }

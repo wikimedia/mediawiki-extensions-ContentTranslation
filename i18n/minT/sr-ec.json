@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"mint-translation-list-all-languages-option-label": "Све",
+	"mint-home-info-panel-text": "Милиони тема на Википедији могу бити аутоматски (машински) преведени на $1.",
+	"mint-home-random-topic-button-label": "Случајна тема",
+	"mint-language-selector-title": "Језици",
+	"mint-language-selector-suggestions-header": "Предложено",
+	"mint-language-selector-all-languages-header": "Сви језици",
+	"mint-language-selector-input-placeholder": "Изаберите језик",
+	"mint-language-selector-no-search-results": "Нема резултата",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Види аутоматизован превод",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Прочитај чланак",
+	"mint-view-translation-page-header": "Аутоматизован превод",
+	"mint-view-translation-page-disclaimer-body": "Ова страница је аутоматизован превод садржаја оригинално написаног на $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Сазнајте више",
+	"mint-view-translation-page-source-article-link-label": "Отвори у $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Поправи превод"
+}
