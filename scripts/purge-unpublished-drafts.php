@@ -108,7 +108,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 				->from( 'cx_notification_log' )
 				->where( [ 'cxn_wiki_id' => WikiMap::getCurrentWikiId() ] )
 				->caller( __METHOD__ )
-				->fetchResultSet();
+				->fetchField();
 
 			if ( $after ) {
 				$remindersAfter = new DateTime( $after );
