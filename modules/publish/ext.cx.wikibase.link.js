@@ -37,9 +37,12 @@
 
 		// Current wiki is target wiki since publishing happens at target wiki
 		const targetWikiId = mw.config.get( 'wgWikiID' );
+		const sourceWikiDomainCode = mw.cx.siteMapper.getWikiDomainCode( sourceLanguage );
+		const targetWikiDomainCode = mw.cx.siteMapper.getWikiDomainCode( targetLanguage );
+
 		let params = {
 			action: 'wblinktitles',
-			fromsite: targetWikiId.replace( targetLanguage, sourceLanguage ),
+			fromsite: targetWikiId.replace( targetWikiDomainCode, sourceWikiDomainCode ),
 			fromtitle: sourceTitle,
 			tosite: targetWikiId,
 			totitle: targetTitle
