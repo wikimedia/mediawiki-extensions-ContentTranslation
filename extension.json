@@ -1243,18 +1243,36 @@
 			]
 		},
 		"ext.cx.entrypoints.newbytranslation": {
-			"scripts": [
-				"entrypoints/ext.cx.entrypoints.newbytranslation.js"
+			"class": "MediaWiki\\ResourceLoader\\CodexModule",
+			"packageFiles": [
+				"entrypoints/ext.cx.entrypoints.newbytranslation/index.js",
+				"entrypoints/ext.cx.entrypoints.newbytranslation/NewByTranslationPopup.vue",
+				{
+					"name": "icons.json",
+					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
+					"callbackParam": [
+						"cdxIconLanguage",
+						"cdxIconClose",
+						"cdxIconArticle",
+						"cdxIconArrowNext",
+						"cdxIconSearch",
+						"cdxIconSettings"
+					]
+				}
 			],
 			"styles": [
 				"entrypoints/styles/ext.cx.entrypoints.newbytranslation.less"
 			],
 			"dependencies": [
-				"oojs-ui-widgets",
-				"oojs-ui.styles.icons-content",
-				"oojs-ui.styles.icons-interactions",
+				"vue",
+				"jquery.uls.data",
 				"mw.cx.util",
 				"mw.cx.SiteMapper"
+			],
+			"codexComponents": [
+				"CdxCard",
+				"CdxIcon",
+				"CdxButton"
 			],
 			"messages": [
 				"cx-campaign-newbytranslation-title",
