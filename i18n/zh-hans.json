@@ -23,6 +23,7 @@
 			"GraceL",
 			"GuoPC",
 			"Hanyanbo98",
+			"Huajing",
 			"JerryLiu",
 			"Kuailong",
 			"LNDDYL",
@@ -537,7 +538,7 @@
 	"sx-section-selector-close-button-aria-label": "转到确认步骤按钮",
 	"sx-quick-tutorial-next-button-aria-label": "转到下一个教程页面",
 	"cx-mflanguagesearcher-entrypoint-card-title": "撰写新翻译",
-	"cx-mflanguagesearcher-entrypoint-card-description": "逐步的用以您的语言翻译新页面。",
+	"cx-mflanguagesearcher-entrypoint-card-description": "逐步进行翻译，以您的语言创建新页面。",
 	"mint-mflanguagesearcher-entrypoint-card-title": "阅读自动翻译结果",
 	"mint-mflanguagesearcher-entrypoint-card-description": "自动预览其他语言的内容以供您查看和修复。"
 }
