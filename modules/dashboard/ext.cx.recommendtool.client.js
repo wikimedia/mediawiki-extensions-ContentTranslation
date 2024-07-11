@@ -69,8 +69,7 @@
 		const self = this;
 
 		return this.getSeedPages().then( function ( seedPages ) {
-			const algorithms = [ 'morelike', 'related_articles' ];
-			const algorithm = algorithms[ Math.floor( Math.random() * algorithms.length ) ];
+			const algorithm = 'morelike';
 			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
 				s: self.sourceLanguage,
 				t: self.targetLanguage,
