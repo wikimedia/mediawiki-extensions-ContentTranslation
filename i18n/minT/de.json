@@ -20,7 +20,7 @@
 	"mint-search-topic-page-results-container-empty": "Suche nach einem beliebigen Thema. Der Inhalt für ein Thema kann in jeder Sprache anders sein.",
 	"mint-confirm-topic-page-header": "Automatische Übersetzung",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Automatische Übersetzung anzeigen",
-	"mint-confirm-topic-page-language-selector-explanation": "Übersetzung [$1 aus Wikipedia in $2]. Erkunde, wie dieses Thema in {{PLURAL:$3|einer anderen Sprache|$3 verschiedenen Sprachen}} behandelt wird.",
+	"mint-confirm-topic-page-language-selector-explanation": "Übersetzung [$1 aus Wikipedia in $2]. Erkunde, wie dieses Thema in {{PLURAL:$3|einer anderen Sprache|$3 anderen Sprachen}} behandelt wird.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Nach einem anderen Thema suchen",
 	"mint-confirm-topic-page-target-article-link-container-header": "Geschrieben von Benutzern in $1",
 	"mint-confirm-topic-page-target-article-link-container-details": "Dieser Artikel wurde in $1 von menschlichen Benutzern geschrieben. {{#FORMAL:Du kannst|Sie können}} sich ihnen anschließen, um den Inhalt zu verbessern.",

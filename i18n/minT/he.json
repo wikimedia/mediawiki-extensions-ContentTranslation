@@ -22,6 +22,7 @@
 	"mint-search-topic-page-results-container-empty": "ניתן לחפש כל נושא. התוכן של נושא מסוים יכול להיות שונה בכל שפה.",
 	"mint-confirm-topic-page-header": "תרגום אוטומטי",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "צפייה בתרגום אוטומטי",
+	"mint-confirm-topic-page-language-selector-explanation": "תרגום [$1 מוויקיפדיה ב{{GRAMMAR:תחילית|$2}}]. מומלץ לקרוא איך הנושא הזה מסוקר {{PLURAL:$3|בשפה אחרת|ב־$3 שפות אחרות}}.",
 	"mint-confirm-topic-page-go-to-search-button-label": "חיפוש נושא אחר",
 	"mint-confirm-topic-page-target-article-link-container-header": "נכתב על־ידי עורכים ב$1",
 	"mint-confirm-topic-page-target-article-link-container-details": "הערך הזה נכתב ב$1 על־ידי עורכים אנושיים. באפשרותך להצטרף אליהם כדי לשפר את התוכן.",
