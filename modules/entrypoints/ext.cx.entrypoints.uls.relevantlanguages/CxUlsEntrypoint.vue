@@ -6,19 +6,7 @@
 		<div class="cx-uls-entrypoint__header row">
 			<div class="col shrink">
 				<button class="cx-uls-entrypoint__close-button" @click.stop="close">
-					<span>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							:width="size"
-							:height="size"
-							viewBox="0 0 20 20"
-							aria-hidden="true"
-							role="presentation"
-						>
-							<g :fill="iconColor">
-								<path :d="previousIconPath" />
-							</g>
-						</svg>
+					<span class="cx-uls-entrypoint__close-button__icon">
 					</span>
 				</button>
 			</div>
@@ -140,7 +128,6 @@ module.exports = {
 			getAutonym: $.uls.data.getAutonym,
 			iconColor: 'currentColor',
 			plusIconPath: 'M11 9V4H9v5H4v2h5v5h2v-5h5V9z',
-			previousIconPath: 'M5.83 9l5.58-5.58L10 2l-8 8 8 8 1.41-1.41L5.83 11H18V9z',
 			getCXUrlByTargetLanguage,
 			showPanel,
 			size: 20,
@@ -201,6 +188,10 @@ module.exports = {
 		background: none;
 		border: none;
 		align-self: center;
+
+		&__icon {
+			.cdx-mixin-css-icon( @cdx-icon-arrow-previous );
+		}
 	}
 
 	&__body {
