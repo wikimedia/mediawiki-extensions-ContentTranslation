@@ -284,12 +284,14 @@ mw.cx.tools.IssueTrackingTool.prototype.showCollapsed = function () {
 	this.actionButtons.clearItems().addItems( [ this.expandButton ] );
 
 	this.issuesLayout.toggle( false );
+	const formattedWarningsCount = mw.language.convertNumber( this.numberOfWarnings );
 	this.warningsCount
 		.toggle( this.numberOfWarnings > 0 )
-		.setLabel( mw.msg( 'cx-tools-linter-warnings-count', this.numberOfWarnings ) );
+		.setLabel( mw.msg( 'cx-tools-linter-warnings-count', formattedWarningsCount ) );
+	const formattedErrorsCount = mw.language.convertNumber( this.numberOfErrors );
 	this.errorsCount
 		.toggle( this.numberOfErrors > 0 )
-		.setLabel( mw.msg( 'cx-tools-linter-errors-count', this.numberOfErrors ) );
+		.setLabel( mw.msg( 'cx-tools-linter-errors-count', formattedErrorsCount ) );
 	this.removeCurrentNodeHighlight();
 };
 
