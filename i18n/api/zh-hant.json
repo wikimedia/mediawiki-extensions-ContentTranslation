@@ -4,6 +4,7 @@
 			"Amire80",
 			"Cwlin0416",
 			"Kly",
+			"Winston Sung",
 			"捍粵者"
 		]
 	},
@@ -146,5 +147,6 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "與草稿章節翻譯關聯的章節翻譯 ID。",
 	"apihelp-sxdelete-param-translationid": "與草稿章節翻譯關聯的翻譯 ID。",
 	"apihelp-sxdelete-param-sectionid": "草稿章節翻譯的章節 ID。",
-	"apihelp-sxdelete-example-1": "以指定翻譯 ID 與章節 ID 來刪除關聯的草稿。"
+	"apihelp-sxdelete-example-1": "以指定翻譯 ID 與章節 ID 來刪除關聯的草稿。",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "維基數據ID。"
 }

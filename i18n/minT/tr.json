@@ -22,7 +22,7 @@
 	"mint-search-topic-page-results-container-empty": "Herhangi bir konuyu arayın. Bir konunun içeriği her dilde farklı olabilir.",
 	"mint-confirm-topic-page-header": "Otomatik çeviri",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Otomatik çeviriyi gör",
-	"mint-confirm-topic-page-language-selector-explanation": "[$1 $2 Vikipedi'den] çeviri. Bu konunun {{PLURAL:$3|farklı bir dilde|$3 farklı dilde}} nasıl ele alındığını keşfedin.",
+	"mint-confirm-topic-page-language-selector-explanation": "[$1 $2 Vikipedi'den] çeviri. Bu konunun {{PLURAL:$3|başka bir dilde|$3 başka dilde}} nasıl ele alındığını keşfedin.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Başka bir konu arayın",
 	"mint-confirm-topic-page-target-article-link-container-header": "Düzenleyiciler tarafından $1 yazıldı",
 	"mint-confirm-topic-page-target-article-link-container-details": "Bu madde düzenleyiciler tarafından $1 yazılmıştır. İçeriği geliştirmek için onlara katılabilirsiniz.",
