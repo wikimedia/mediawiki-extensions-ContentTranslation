@@ -1,3 +1,68 @@
+<script setup>
+import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import {
+  mwIconClose,
+  mwIconBookmark,
+  mwIconBookmarkOutline,
+  mwIconArrowNext,
+} from "@/lib/mediawiki.ui/components/icons";
+import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import { computed, inject } from "vue";
+import { getDir } from "@wikimedia/language-data";
+import { useStore } from "vuex";
+import useApplicationState from "../../composables/useApplicationState";
+
+const props = defineProps({
+  suggestion: {
+    type: [ArticleSuggestion, SectionSuggestion, FavoriteSuggestion],
+    required: true,
+  },
+});
+
+const store = useStore();
+const suggestion = computed(() => props.suggestion);
+const title = computed(
+  () => suggestion.value.sourceTitle || suggestion.value.title
+);
+
+const page = computed(() =>
+  store.getters["mediawiki/getPage"](
+    suggestion.value.sourceLanguage,
+    title.value
+  )
+);
+
+const missingSectionsCount = computed(
+  () => suggestion.value?.missingSectionsCount
+);
+
+const description = computed(() => page.value?.description);
+
+const isSectionSuggestion = computed(
+  () => suggestion.value instanceof SectionSuggestion
+);
+
+const isFavoriteSuggestion = computed(
+  () => suggestion.value instanceof FavoriteSuggestion
+);
+
+const { sourceLanguageAutonym, targetLanguageAutonym } =
+  useApplicationState(store);
+
+const bookmarkIcon = computed(() =>
+  isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline
+);
+
+const colors = inject("colors");
+const bookmarkIconColor = computed(() =>
+  isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
+);
+
+defineEmits(["close", "bookmark"]);
+</script>
+
 <template>
   <div v-if="suggestion" class="row cx-suggestion pa-4 ma-0">
     <div class="col shrink pe-4">
@@ -85,91 +150,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import {
-  mwIconClose,
-  mwIconBookmark,
-  mwIconBookmarkOutline,
-  mwIconArrowNext,
-} from "@/lib/mediawiki.ui/components/icons";
-import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
-import { computed, inject } from "vue";
-import { getDir } from "@wikimedia/language-data";
-import { useStore } from "vuex";
-import useApplicationState from "../../composables/useApplicationState";
-
-export default {
-  name: "CxTranslationSuggestion",
-  components: { MwThumbnail, MwIcon, MwRow, MwCol },
-  props: {
-    suggestion: {
-      type: [ArticleSuggestion, SectionSuggestion, FavoriteSuggestion],
-      required: true,
-    },
-  },
-  emits: ["close", "bookmark"],
-  setup(props) {
-    const store = useStore();
-    const suggestion = computed(() => props.suggestion);
-    const title = computed(
-      () => suggestion.value.sourceTitle || suggestion.value.title
-    );
-
-    const page = computed(() =>
-      store.getters["mediawiki/getPage"](
-        suggestion.value.sourceLanguage,
-        title.value
-      )
-    );
-
-    const missingSectionsCount = computed(
-      () => suggestion.value?.missingSectionsCount
-    );
-
-    const description = computed(() => page.value?.description);
-
-    const isSectionSuggestion = computed(
-      () => suggestion.value instanceof SectionSuggestion
-    );
-
-    const isFavoriteSuggestion = computed(
-      () => suggestion.value instanceof FavoriteSuggestion
-    );
-
-    const { sourceLanguageAutonym, targetLanguageAutonym } =
-      useApplicationState(store);
-
-    const bookmarkIcon = computed(() =>
-      isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline
-    );
-
-    const colors = inject("colors");
-    const bookmarkIconColor = computed(() =>
-      isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
-    );
-
-    return {
-      bookmarkIcon,
-      bookmarkIconColor,
-      description,
-      getDir,
-      isFavoriteSuggestion,
-      isSectionSuggestion,
-      missingSectionsCount,
-      mwIconArrowNext,
-      mwIconClose,
-      page,
-      sourceLanguageAutonym,
-      targetLanguageAutonym,
-      title,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
