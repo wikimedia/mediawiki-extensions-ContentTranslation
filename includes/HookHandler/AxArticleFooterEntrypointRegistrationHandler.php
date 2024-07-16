@@ -85,7 +85,7 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
 		) ?? [];
 
-		return in_array( $this->contentLanguage, $enabledLanguages ) &&
+		return in_array( $this->contentLanguage->getCode(), $enabledLanguages ) &&
 			$title->inNamespace( NS_MAIN ) &&
 			$action === 'view' &&
 			!$title->isMainPage() &&
