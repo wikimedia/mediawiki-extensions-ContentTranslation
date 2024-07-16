@@ -52,24 +52,26 @@
 
 		&-icon {
 			display: inline-flex;
-			background-image: url( images/user-avatar.svg );
-			background-position: center;
-			background-repeat: no-repeat;
-			width: 20px;
-			height: 20px;
 			opacity: 0.84;
 			padding: 0 4px;
+
+			&__user_avatar_icon {
+				.cdx-mixin-css-icon( @cdx-icon-user-avatar, @param-fill-color: #54595d );
+			}
 		}
 
 		&-indicator {
 			display: inline-flex;
-			background-image: url( images/arrow-down.svg );
-			background-position: center;
-			background-repeat: no-repeat;
 			width: 20px;
 			height: 20px;
 			padding: 0 4px;
 			opacity: 0.84;
+			justify-content: center;
+			align-items: center;
+
+			&__expand_icon {
+				.cdx-mixin-css-icon( @cdx-icon-expand, @param-fill-color: #202122, @param-size-icon: 12px );
+			}
 		}
 
 		&:hover,
