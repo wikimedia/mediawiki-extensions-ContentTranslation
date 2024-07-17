@@ -434,5 +434,6 @@
 	"cx-sx-publisher-captcha-dialog-publish-button": "प्रकाशन गर्नुहोस्",
 	"cx-contributecard-entrypoint-title": "अनुवादहरू",
 	"cx-contributecard-entrypoint-desc": "एउटा खण्ड वा सम्पूर्ण लेख अनुवाद गर्नुहोस्। थप सामग्री थप भाषाहरूमा उपलब्ध गराउनुहोस्।",
-	"cx-contributecard-entrypoint-cta": "अनुवाद सुरु गर्नुहोस्"
+	"cx-contributecard-entrypoint-cta": "अनुवाद सुरु गर्नुहोस्",
+	"sx-translation-deletion-cancel-button-label": "रद्द गर्नुहोस्"
 }
