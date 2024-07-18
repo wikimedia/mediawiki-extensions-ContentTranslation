@@ -443,6 +443,10 @@
 	"cx-contributecard-entrypoint-title": "Troidigezhioù",
 	"cx-contributecard-entrypoint-desc": "Treiñ ur rannbennad pe ur pennad en e bezh. Lakait muioc’h a endalc’had hegerz e muioc’h a yezhoù.",
 	"cx-contributecard-entrypoint-cta": "Kregiñ un droidigezh",
+	"cx-sx-block-template-mapping-status-title-no-target-template": "N’eus bet kavet patrom kevatal ebet",
+	"cx-sx-block-template-mapping-status-title-unadapted-template": "Ouzhpennet a vo ar patrom-mañ goullo",
+	"cx-sx-block-template-mapping-status-title-partially-template": "Gallout a ra ar patrom-mañ bezañ damdroet",
+	"cx-sx-block-template-mapping-status-title-fully-template": "Gallout a ra ar patrom-mañ bezañ troet ent emgefre",
 	"cx-sx-dashboard-help-panel-title": "Ezhomm sikour evit treiñ?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Gouzout hiroc’h diwar-benn ar benveg-mañ",
 	"cx-sx-dashboard-help-panel-stats-label": "Stadegoù",
@@ -461,6 +465,7 @@
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 deiz|0=Hiziv}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 miz}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 bloaz}}",
+	"sx-confirm-draft-translation-start-dialog-title": "Kenderc'hel un droidigezh gant an hezoug",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "E pelec’h emañ ar rannbennadoù all?",
 	"sx-confirm-draft-translation-start-button-label": "Mat eo",
 	"sx-published-translation-new-translation-button-label": "Troidigezh nevez"
