@@ -502,5 +502,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Eine neue Übersetzung verfassen",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Schrittweiser Übersetzungsprozess zum Erstellen einer neuen Seite in {{#FORMAL:deiner|Ihrer}} Sprache.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Eine automatische Übersetzung lesen",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Automatische Vorschau von Inhalten in anderen Sprachen, damit {{#FORMAL|du|Sie}} diese überprüfen und korrigieren {{#FORMAL|kannst|können}}."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatische Vorschau von Inhalten in anderen Sprachen, damit {{#FORMAL|du|Sie}} diese überprüfen und korrigieren {{#FORMAL|kannst|können}}.",
+	"cx-unreviewed-translation-dialog-title": "Überprüfe deine letzte Übersetzung",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Schließen",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Übersetzung überprüfen",
+	"cx-unreviewed-translation-dialog-close-button-label": "Schließen",
+	"cx-unreviewed-translation-dialog-body": "Nach Abschluss einer Schnellübersetzung musst du 10 Minuten warten, bevor du eine neue Übersetzung beginnen kannst. Bitte prüfe in dieser Zeit deiner bisherigen Arbeiten, denn unsere Benutzer legen Wert auf qualitativ hochwertige Inhalte.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Mehr erfahren"
 }

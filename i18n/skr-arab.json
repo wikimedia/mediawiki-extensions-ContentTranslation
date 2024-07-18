@@ -222,5 +222,8 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|مہینہ|$1 مہینے}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}",
 	"sx-confirm-draft-translation-start-button-label": "ٹھیک ہے",
-	"sx-published-translation-new-translation-button-label": "نواں ترجمہ"
+	"sx-published-translation-new-translation-button-label": "نواں ترجمہ",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "بند کرو",
+	"cx-unreviewed-translation-dialog-close-button-label": "بند کرو",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "ٻیا سِکھو"
 }
