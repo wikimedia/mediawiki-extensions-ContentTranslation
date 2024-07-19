@@ -539,5 +539,9 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Rédiger une nouvelle traduction",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Processus de traduction étape par étape pour créer une nouvelle page dans votre langue.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Lire une traduction automatique",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Aperçu automatique du contenu dans d'autres langues pour que vous puissiez le consulter et le corriger."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Aperçu automatique du contenu dans d'autres langues pour que vous puissiez le consulter et le corriger.",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Fermer",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Relire la traduction",
+	"cx-unreviewed-translation-dialog-close-button-label": "Fermer",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "En savoir plus"
 }

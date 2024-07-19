@@ -502,5 +502,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "לכתוב תרגום חדש",
 	"cx-mflanguagesearcher-entrypoint-card-description": "תהליך תרגום צעד־צעד ליצירת דף חדש בשפה שלך.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "לקרוא תרגום אוטומטי",
-	"mint-mflanguagesearcher-entrypoint-card-description": "תצוגה מקדימה אוטומטית של תוכן בשפות אחרות בשבילך לסקור ולתקן."
+	"mint-mflanguagesearcher-entrypoint-card-description": "תצוגה מקדימה אוטומטית של תוכן בשפות אחרות בשבילך לסקור ולתקן.",
+	"cx-unreviewed-translation-dialog-title": "נא לסקור את התרגום האחרון שלך",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "סגירה",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "לסקור את התרגום",
+	"cx-unreviewed-translation-dialog-close-button-label": "סגירה",
+	"cx-unreviewed-translation-dialog-body": "לאחר שסיימת תרגום מהיר, יש לחכות 10 דקות לפני התחלת תרגום חדש. נא לבדוק את העבודה הקודמת שלך בזמן הזה, שכן קהילת העורכים שלנו מעריכה תוכן איכותי.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "מידע נוסף"
 }

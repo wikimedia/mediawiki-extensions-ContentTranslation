@@ -11,6 +11,7 @@
 			"Eduardoaddad",
 			"Fasouzafreitas",
 			"Felipe L. Ewald",
+			"Flaviane da Silva",
 			"Fúlvio",
 			"He7d3r",
 			"Jefersonmoraes",
@@ -507,5 +508,7 @@
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-new-translation-button-label": "Nova tradução",
 	"sx-section-selector-close-button-aria-label": "Ir para o botão da etapa de confirmação",
-	"sx-quick-tutorial-next-button-aria-label": "Ir para a próxima página do tutorial"
+	"sx-quick-tutorial-next-button-aria-label": "Ir para a próxima página do tutorial",
+	"cx-unreviewed-translation-dialog-close-button-label": "Fechar",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Saiba mais"
 }
