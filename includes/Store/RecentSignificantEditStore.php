@@ -192,14 +192,14 @@ class RecentSignificantEditStore {
 	 * @return RecentSignificantEdit[]
 	 */
 	public function findEditsForPotentialSuggestions( int $userId, int $wikidataId, string $language ): array {
+		$replicaDb = $this->lb->getConnection( DB_REPLICA );
 		$conditions = [
 			'cxse_global_user_id' => $userId,
 			'cxse_page_wikidata_id' => $wikidataId,
-			"cxse_language != '$language'",
+			$replicaDb->expr( 'cxse_language', '!=', $language ),
 			"cxse_wiki_family" => $this->currentWikiFamilyKey
 		];
 
-		$replicaDb = $this->lb->getConnection( DB_REPLICA );
 		$result = $replicaDb->newSelectQueryBuilder()
 			->select( [
 				'cxse_id',
