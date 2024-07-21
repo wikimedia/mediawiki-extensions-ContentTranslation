@@ -190,14 +190,10 @@ class SectionTranslationStore {
 
 		if ( $status !== null ) {
 			$statusIndex = self::getStatusIndexByStatus( $status );
-			$isPublishedCondition = $dbr->makeList(
-				[
-					'translation_status' => $status,
-					'cxsx_translation_status' => $statusIndex
-				],
-				LIST_OR
-			);
-			$whereConditions[] = $isPublishedCondition;
+			$whereConditions[] = $dbr->orExpr( [
+				'translation_status' => $status,
+				'cxsx_translation_status' => $statusIndex
+			] );
 		}
 		if ( $from !== null ) {
 			$whereConditions['translation_source_language'] = $from;

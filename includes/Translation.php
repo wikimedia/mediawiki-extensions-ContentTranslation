@@ -151,13 +151,10 @@ class Translation {
 		if ( $status === 'published' ) {
 			$conditions[] = self::getPublishedCondition( $dbr );
 		} else {
-			$conditions[] = $dbr->makeList(
-				[
-					'translation_status' => 'draft',
-					'translation_target_url' => null,
-				],
-				LIST_AND
-			);
+			$conditions[] = $dbr->andExpr( [
+				'translation_status' => 'draft',
+				'translation_target_url' => null,
+			] );
 		}
 
 		if ( $source !== null ) {

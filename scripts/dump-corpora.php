@@ -189,10 +189,8 @@ class CXCorporaDump extends Maintenance {
 				'count' => 'COUNT(*)',
 			] )
 			->from( 'cx_translations' )
-			->where( [
-				$publishedCondition,
-				$languageCondition
-			] )
+			->where( $publishedCondition )
+			->andWhere( $languageCondition )
 			->groupBy( [ 'translation_source_language', 'translation_target_language' ] )
 			->orderBy( 'translation_target_language', SelectQueryBuilder::SORT_ASC )
 			->orderBy( 'count', SelectQueryBuilder::SORT_DESC )
@@ -213,16 +211,15 @@ class CXCorporaDump extends Maintenance {
 			}
 
 			if ( $languageCondition !== [] ) {
-				$conds[] = $db->makeList( $languageCondition, LIST_AND );
+				$conds[] = $db->andExpr( $languageCondition );
 			}
 		}
 
-		// Use dummy condition to keep rest of the code simpler
 		if ( $conds === [] ) {
-			return '1 = 1';
+			return [];
 		}
 
-		return $db->makeList( $conds, LIST_OR );
+		return $db->orExpr( $conds );
 	}
 
 	/**
@@ -288,10 +285,8 @@ class CXCorporaDump extends Maintenance {
 				'targetLanguage' => 'translation_target_language',
 			] )
 			->from( 'cx_translations' )
-			->where( [
-				$publishedCondition,
-				$languageCondition
-			] )
+			->where( $publishedCondition )
+			->andWhere( $languageCondition )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 	}
