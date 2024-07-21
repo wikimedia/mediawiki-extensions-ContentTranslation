@@ -148,6 +148,7 @@ $specialPageAliases['ms'] = [
 $specialPageAliases['nb'] = [
 	'ContentTranslation' => [ 'Innholdsoversettelse' ],
 	'ContentTranslationStats' => [ 'Innholdsoversettelsesstatistikk' ],
+	'AutomaticTranslation' => [ 'Maskinoversettelse', 'Automatisk_oversettelse' ],
 ];
 
 /** Dutch (Nederlands) */
@@ -160,6 +161,7 @@ $specialPageAliases['nl'] = [
 $specialPageAliases['nn'] = [
 	'ContentTranslation' => [ 'Innhaldsomsetjing' ],
 	'ContentTranslationStats' => [ 'Innhaldsomsetjingsstatistikk' ],
+	'AutomaticTranslation' => [ 'Maskinomsetjing', 'Maskinomsetting', 'Automatisk_omsetjing', 'Automatisk_omsetting' ],
 ];
 
 /** Polish (polski) */
