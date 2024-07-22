@@ -26,6 +26,7 @@
 	"cx-publish-error-empty": "Серверера жоьпан тӀехь хаамаш бац.",
 	"cx-publish-error-readonly": "Вики чохь дӀайаздар магийна дац.",
 	"cx-publish-error-spam-blacklist": "Хьан гочдар тӀехь карина потенциалан спам. Хьажа: $1",
+	"cx-publish-error-title-blacklist": "Ахьа йазйина цӀе цӀерийн Ӏаьржачу могӀамехь йу. Дехар до, хьайн гочдаран кхийолу цӀе харжа.",
 	"cx-publish-error-unknown": "Ца девзаш долу дӀадаккха йиш йоцу гӀалат хилла. Информаци: $1",
 	"cx-publish-button": "ДӀайазйан",
 	"cx-publish-button-publishing": "Ӏалашйар...",

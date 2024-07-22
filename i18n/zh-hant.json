@@ -26,7 +26,8 @@
 			"Aqua",
 			"Lakejason0",
 			"SunAfterRain",
-			"Cookai1205"
+			"Cookai1205",
+			"SCP-2000"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -135,7 +136,7 @@
 	"cx-suggestionlist-featured": "特色",
 	"cx-suggestionlist-view-source-page": "檢視來源頁面",
 	"cx-create-new-translation": "新增譯文",
-	"cx-translation-filter-label-all-languages": "所有",
+	"cx-translation-filter-label-all-languages": "全部",
 	"cx-translation-filter-uls-all-languages": "所有語言",
 	"cx-save-draft-save-success": "{{PLURAL:$1|1 分鐘前|$1 分鐘前|0=剛剛}}已儲存",
 	"cx-save-draft-saving": "儲存中...",
