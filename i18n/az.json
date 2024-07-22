@@ -491,5 +491,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Yeni tərcüməyə başla",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Dilinizdə yeni səhifə yaratmaq üçün addım-addım tərcümə prosesi.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Avtomatik tərcüməni oxuyun",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Nəzərdən keçirməyiniz və düzəltməyiniz üçün digər dillərdəki məzmuna avtomatik baxış."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Nəzərdən keçirməyiniz və düzəltməyiniz üçün digər dillərdəki məzmuna avtomatik baxış.",
+	"cx-unreviewed-translation-dialog-title": "Son tərcümənizi yoxlayın",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Bağla",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Tərcüməni yoxla",
+	"cx-unreviewed-translation-dialog-close-button-label": "Bağla",
+	"cx-unreviewed-translation-dialog-body": "Sürətli tərcüməni bitirdikdən sonra yenisinə başlamaq üçün 10 dəqiqə gözləməlisiniz. Zəhmət olmasa bu müddət ərzində əvvəlki tərcümənizi yoxlayın. Yüksək keyfiyyətli iş icmamız tərəfindən yüksək qiymətləndirilir.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Daha ətraflı"
 }

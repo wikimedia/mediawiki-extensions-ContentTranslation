@@ -476,5 +476,8 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Превод је започет на другом уређају и укључује садржај за више одељака чланка.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Где су други одељци?",
 	"sx-confirm-draft-translation-start-button-label": "У реду",
-	"sx-published-translation-new-translation-button-label": "Нови превод"
+	"sx-published-translation-new-translation-button-label": "Нови превод",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Затвори",
+	"cx-unreviewed-translation-dialog-close-button-label": "Затвори",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Сазнајте више"
 }

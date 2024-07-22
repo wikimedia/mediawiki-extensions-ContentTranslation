@@ -496,5 +496,8 @@
 	"sx-confirm-draft-translation-start-button-label": "Ок",
 	"sx-published-translation-new-translation-button-label": "Новый перевод",
 	"sx-section-selector-close-button-aria-label": "Кнопка перехода к шагу подтверждения",
-	"sx-quick-tutorial-next-button-aria-label": "Перейти на следующую страницу руководства"
+	"sx-quick-tutorial-next-button-aria-label": "Перейти на следующую страницу руководства",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Закрыть",
+	"cx-unreviewed-translation-dialog-close-button-label": "Закрыть",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Узнать больше"
 }

@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Samoasambia"
+		]
+	},
+	"automatic-translation-special-page-description": "Automaattinen käännös",
+	"automatic-translation-desc": "Tuottaa [[Special:AutomaticTranslation|automaattisia käännöksiä]] sisältösivuista.",
+	"mint-home-header-title": "Automaattinen käännös",
+	"mint-home-input-placeholder": "Hae aihetta",
+	"mint-translation-list-all-languages-option-label": "Kaikki",
+	"mint-home-info-panel-text": "Miljoonia aiheita Wikipediassa voidaan kääntää automaattisesti kielelle $1.",
+	"mint-home-random-topic-button-label": "Satunnainen aihe",
+	"mint-language-selector-title": "Kielet",
+	"mint-language-selector-suggestions-header": "Ehdotettu",
+	"mint-language-selector-all-languages-header": "Kaikki kielet",
+	"mint-language-selector-input-placeholder": "Valitse kieli",
+	"mint-language-selector-no-search-results": "Ei tuloksia",
+	"mint-search-topic-page-header": "Hae aihetta",
+	"mint-search-topic-page-input-placeholder": "Hae aihetta",
+	"mint-search-topic-page-results-container-empty": "Hae mitä tahansa aihetta. Aiheen sisältö voi vaihdella kielittäin.",
+	"mint-confirm-topic-page-header": "Automaattinen käännös",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Näytä automaattinen käännös",
+	"mint-confirm-topic-page-go-to-search-button-label": "Hae muuta aihetta",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Lue artikkeli",
+	"mint-view-translation-page-header": "Automaattinen käännös",
+	"mint-view-translation-page-disclaimer-header": "Automaattinen sisältö voi olla virheellistä",
+	"mint-view-translation-page-disclaimer-body": "Tämä sivu on automaattinen käännös sisällöstä, joka on alun perin kirjoittu kielellä $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Lisätietoja",
+	"mint-view-translation-page-target-article-container-header": "Tästä aiheesta on saatavilla myös ihmisten kirjoittamaa sisältöä",
+	"mint-view-translation-page-source-article-link-label": "Avaa kielellä $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Tarkasta automaattinen käännös",
+	"mint-view-translation-content-translation-entrypoint-description": "Automaattinen sisältö voi olla virheellistä",
+	"mint-view-translation-overlay-header": "Automaattinen käännös",
+	"mint-view-translation-overlay-source-article-link-label": "Lue Wikipediasta kielellä $1",
+	"mint-view-translation-overlay-target-article-link-label": "Lue Wikipediasta kielellä $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Korjaa käännös",
+	"mint-view-translation-overlay-share-button-label": "Jaa automaattinen käännös",
+	"mint-view-translation-overlay-feedback-link-label": "Lähetä palautetta",
+	"ax-article-footer-entrypoint-card-description": "Lisää sisältöä muilla kielillä",
+	"ax-article-footer-entrypoint-card-supporting-text": "Lue automaattinen käännös"
+}

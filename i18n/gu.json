@@ -396,5 +396,6 @@
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 વર્ષ|$1 વર્ષો}}",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "અન્ય વિભાગો ક્યાં છે?",
 	"sx-confirm-draft-translation-start-button-label": "બરાબર",
-	"sx-published-translation-new-translation-button-label": "નવું ભાષાંતર"
+	"sx-published-translation-new-translation-button-label": "નવું ભાષાંતર",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "વધુ જાણો"
 }

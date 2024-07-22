@@ -496,5 +496,9 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1個月}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
 	"sx-confirm-draft-translation-start-button-label": "確定",
-	"sx-published-translation-new-translation-button-label": "新增譯文"
+	"sx-published-translation-new-translation-button-label": "新增譯文",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "關閉",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "審核譯文",
+	"cx-unreviewed-translation-dialog-close-button-label": "關閉",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "了解更多"
 }

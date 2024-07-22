@@ -489,5 +489,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Напишете нов превод",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Преводен процес чекор по чекор за создавање на нова страница на вашиот јазик.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Прочитајте автоматски превод",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Автоматски преглед на содржините на други јазици што можете да ги проверувате и поправате."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Автоматски преглед на содржините на други јазици што можете да ги проверувате и поправате.",
+	"cx-unreviewed-translation-dialog-title": "Прегледајте го вашиот последен превод",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Затвори",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Провери превод",
+	"cx-unreviewed-translation-dialog-close-button-label": "Затвори",
+	"cx-unreviewed-translation-dialog-body": "Откако ќе го завршите брзиот превод може да треба да почекате 10 минути пред да отпочнете нов. Проверете си го досегашните преводи бидејќи нашата заедница цени квалитетни содржини.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Дознајте повеќе"
 }

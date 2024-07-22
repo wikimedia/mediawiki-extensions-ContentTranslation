@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajiniyaz",
 			"Ajiniyaz Nurniyazov",
+			"Inabat Allanova",
 			"Nurlan"
 		]
 	},
@@ -74,5 +75,6 @@
 	"cx-contributecard-entrypoint-desc": "Bir bólimdi yamasa pútkil maqalanı awdarıń. Kóbirek tillerde kóbirek kontent jaratıń.",
 	"cx-contributecard-entrypoint-cta": "Awdarmanı baslaw",
 	"cx-sx-block-template-mapping-status-title-no-target-template": "Ekvivalent úlgi tabılmadı",
-	"sx-translation-deletion-cancel-button-label": "Biykarlaw"
+	"sx-translation-deletion-cancel-button-label": "Biykarlaw",
+	"cx-unreviewed-translation-dialog-close-button-label": "Jabıw"
 }

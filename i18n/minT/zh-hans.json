@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"沈澄心"
+		]
+	},
+	"automatic-translation-special-page-description": "自动翻译",
+	"mint-home-header-title": "自动翻译",
+	"mint-translation-list-all-languages-option-label": "全部",
+	"mint-language-selector-title": "语言",
+	"mint-view-translation-page-disclaimer-learn-more-link": "了解更多",
+	"mint-view-translation-content-translation-entrypoint-description": "自动产生的内容可能不正确",
+	"mint-view-translation-overlay-header": "自动翻译",
+	"mint-view-translation-overlay-feedback-link-label": "发送反馈",
+	"ax-article-footer-entrypoint-card-description": "在其他语言的更多内容",
+	"ax-article-footer-entrypoint-card-supporting-text": "阅读自动翻译"
+}

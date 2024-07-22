@@ -152,5 +152,10 @@
 	"apierror-cxsplit-anon-user": "API-handlingen «cxsplit» er ikke aktivert for anonyme brukere",
 	"apierror-cxsplit-no-translation-found": "Ingen oversettelse funnet for den gitte ID-en",
 	"apihelp-cxcheckunreviewed-summary": "Sjekk om brukeren nylig har publisert raske, ugjennomgåtte oversettelser.",
-	"apierror-cxcheckunreviewed-anon-user": "API-handlingen «cxcheckunreviewed» er ikke slått på for anonyme brukere"
+	"apierror-cxcheckunreviewed-anon-user": "API-handlingen «cxcheckunreviewed» er ikke slått på for anonyme brukere",
+	"apihelp-query+automatictranslationdenselanguages-summary": "Hent lista over sidelenker for artikkelen som tilsvarer en gitt Wikidata-ID, rangert etter artikkelstørrelse.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "Wikidata-ID-en.",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "En boolsk verdi som angir hvorvidt seksjonstitlene skal inkluderes i responsen.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Hent lista over sidelenker for artikkelen «Moon» på alle tilgjengelige språk, sortert etter artikkelstørrelse.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Hent lista over sidelenker for artikkelen «Moon», inkludert seksjonstitler, på alle tilgjengelige språk, sortert etter artikkelstørrelse."
 }

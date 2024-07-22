@@ -242,5 +242,7 @@
 	"cx-sx-dashboard-stats-panel-total-stats-label": "कुल",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "जारी रखें",
 	"sx-translation-deletion-cancel-button-label": "रद्द करें",
-	"sx-translation-deletion-confirm-button-label": "अनुवाद हटायें"
+	"sx-translation-deletion-confirm-button-label": "अनुवाद हटायें",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "बंद करें",
+	"cx-unreviewed-translation-dialog-close-button-label": "बंद करें"
 }
