@@ -24,6 +24,8 @@
 	"mint-view-translation-page-header": "Traduction automatique",
 	"mint-view-translation-page-disclaimer-header": "Le contenu automatique peut être inexact",
 	"mint-view-translation-overlay-header": "Traduction automatique",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Corriger la traduction",
 	"mint-view-translation-overlay-feedback-link-label": "Envoyer un avis",
-	"ax-article-footer-entrypoint-card-description": "Plus de contenu dans d'autres langues"
+	"ax-article-footer-entrypoint-card-description": "Plus de contenu dans d'autres langues",
+	"ax-article-footer-entrypoint-card-supporting-text": "Lire la traduction automatique"
 }
