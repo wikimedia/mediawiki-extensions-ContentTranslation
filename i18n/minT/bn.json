@@ -5,7 +5,7 @@
 		]
 	},
 	"automatic-translation-special-page-description": "স্বয়ংক্রিয় অনুবাদ",
-	"automatic-translation-desc": "বিষয়বস্তু পাতাগুলির জন্য [[Special:Automatic Translation|স্বয়ংক্রিয় অনুবাদ]] প্রদান করে।",
+	"automatic-translation-desc": "বিষয়বস্তু পাতাগুলির জন্য [[Special:AutomaticTranslation|স্বয়ংক্রিয় অনুবাদ]] প্রদান করে।",
 	"mint-home-header-title": "স্বয়ংক্রিয় অনুবাদ",
 	"mint-translation-list-all-languages-option-label": "সব",
 	"mint-language-selector-title": "ভাষা",
