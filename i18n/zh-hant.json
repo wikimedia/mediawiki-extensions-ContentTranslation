@@ -26,14 +26,15 @@
 			"捍粵者",
 			"SunAfterRain",
 			"Lakejason0",
-			"Cookai1205"
+			"Cookai1205",
+			"SCP-2000"
 		]
 	},
 	"cx": "翻譯頁面",
 	"cx-dashboard-header": "譯文",
 	"cx-javascript": "此工具在沒有 JavaScript 時無法運作。JavaScript 已停用、運作失敗，或者不受此瀏覽器支援。",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|內容翻譯]]是一個讓您可快速翻譯頁面至您的語言的工具。[$1 馬上嘗試！]",
-	"cx-license-agreement": "繼續即代表您同意[https://foundation.wikimedia.org/wiki/Terms_of_Use 使用條款]且不反悔同意以[https://creativecommons.org/licenses/by-sa/4.0/deed.zh CC BY-SA 4.0 授權條款]以及[https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3]發布您的貢獻。",
+	"cx-license-agreement": "繼續即代表您同意[https://foundation.wikimedia.org/wiki/Terms_of_Use 使用條款]，且不反悔地同意以[https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant CC BY-SA 4.0]以及[https://zh.wikipedia.org/wiki/Wikipedia:GNU自由文档许可证文本 GFDL 1.3]授權條款發布您的貢獻。",
 	"cx-error-server-connection": "錯誤：無法與伺服器連線。",
 	"cx-desc": "使[[Special:ContentTranslation|翻譯]]內容頁面更加容易",
 	"cx-header-progressbar-text": "{{PLURAL:$1|已翻譯}} $1%",
