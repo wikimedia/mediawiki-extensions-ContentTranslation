@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"IJzeren Jan"
+		]
+	},
+	"cx": "Prěvesti stranicu",
+	"cx-dashboard-header": "Prěvody",
+	"cx-javascript": "Tuto orudje ne rabotaje bez JavaScript’a. JavaScript jest izključeny, ne rabotaje ili tutoj prěgledač ne poddrživaje se.",
+	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Prěvodženje sodržanja] jest orudje za brzo prěvodženje stranic na vaš jezyk. [$1 Izprobujte go!]",
+	"cx-desc": "Ulegčaje [[Special:ContentTranslation|prěvodženje]] sodržanje stranic",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|prěvedeno}}",
+	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|mašinnogo prěvoda}})",
+	"cx-header-translation-center": "Centr prěvodženja",
+	"cx-header-all-translations": "Vse prěvody",
+	"cx-source-view-page": "pokazati stranicu",
+	"cx-target-view-page": "pokazati stranicu",
+	"cx-publish-page-success": "Stranica publikovana na $1",
+	"cx-publish-error-abuse-filter": "Avtomatične filtry pravok izjavili problemy v sodržanju vašego prěvoda. Podrobnosti: $1",
+	"cx-publish-error-empty": "Server odgovoril bez danyh.",
+	"cx-publish-error-title-blacklist": "Vpisana vami nazva jest v črnom spisku. Prosimo, izberite drugu nazvu za vaš prěvod.",
+	"cx-publish-button": "Publikovati",
+	"cx-publish-button-publishing": "Publikacija...",
+	"cx-lost-session": "Vaša sesija iztekla",
+	"cx-publish-summary": "Stvorjeno prěvodženjem stranice «$1»",
+	"cx-translation-add-translation": "Dodati prěvod",
+	"cx-entrypoint-title": "Prěvesti tutu stranicu na $1",
+	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Tuta stranica ješče ne jestvuje na jezyku $1. Hočete li ju stvoriti?",
+	"cx-entrypoint-dialog-button-translate-from": "Prěvesti s jezyka $1",
+	"cx-entrypoint-dialog-desc": "Vy možete pomogti Vikipediji prěvedenjem tutoj stranice. Prěvodženje jest legky sposob za stvorjenje novogo sodržanja na vašem jezyku.",
+	"cx-contributions-new-contributions": "Novy vklad",
+	"cx-contributions-upload": "Dodati fajl",
+	"cx-contributions-new-article-tooltip": "Načnite pisati novy članok",
+	"cx-contributions-translation-tooltip": "Prěvodite jestvujuče stranice",
+	"cx-contributions-upload-tooltip": "Dodajte obrazky, audio i video za upotrěbu na stranicah",
+	"cx-campaign-contributionsmenu-myuploads": "Dodane fajly",
+	"cx-campaign-contributionsmenu-myuploads-tooltip": "Spisok dodanyh vami fajlov",
+	"cx-publish-destination-namespace-main": "Nova stranica"
+}
