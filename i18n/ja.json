@@ -37,6 +37,7 @@
 			"Yamagata Yusuke",
 			"Yusuke1109",
 			"Петар Петковић",
+			"ひまり",
 			"捍粵者",
 			"春春眠眠",
 			"翻訳者a",
@@ -517,5 +518,9 @@
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "新しい翻訳",
 	"sx-section-selector-close-button-aria-label": "確認手順に進むボタン",
-	"sx-quick-tutorial-next-button-aria-label": "次のチュートリアルページへ進む"
+	"sx-quick-tutorial-next-button-aria-label": "次のチュートリアルページへ進む",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "閉じる",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "翻訳を査読",
+	"cx-unreviewed-translation-dialog-close-button-label": "閉じる",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "詳細"
 }
