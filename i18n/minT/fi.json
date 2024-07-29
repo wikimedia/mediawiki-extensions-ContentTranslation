@@ -22,6 +22,8 @@
 	"mint-confirm-topic-page-header": "Automaattinen käännös",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Näytä automaattinen käännös",
 	"mint-confirm-topic-page-go-to-search-button-label": "Hae muuta aihetta",
+	"mint-confirm-topic-page-target-article-link-container-header": "Muokkaajien kirjoittama kielellä $1",
+	"mint-confirm-topic-page-target-article-link-container-details": "Tämä artikkelin ovat kirjoittaneet muokkaajat kielellä $1. Voit liittyä mukaan parantamaan sisältöä.",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Lue artikkeli",
 	"mint-view-translation-page-header": "Automaattinen käännös",
 	"mint-view-translation-page-disclaimer-header": "Automaattinen sisältö voi olla virheellistä",

@@ -493,5 +493,8 @@
 	"sx-section-selector-close-button-aria-label": "নিশ্চিতকরণ ধাপের বোতামে যান",
 	"sx-quick-tutorial-next-button-aria-label": "পরবর্তী টিউটোরিয়াল পাতায় যান",
 	"cx-mflanguagesearcher-entrypoint-card-title": "নতুন অনুবাদ শুরু করুন",
-	"mint-mflanguagesearcher-entrypoint-card-title": "একটি স্বয়ংক্রিয় অনুবাদ পড়ুন"
+	"mint-mflanguagesearcher-entrypoint-card-title": "একটি স্বয়ংক্রিয় অনুবাদ পড়ুন",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "অনুবাদ পর্যালোচনা করুন",
+	"cx-unreviewed-translation-dialog-close-button-label": "বন্ধ করুন",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "আরও জানুন"
 }

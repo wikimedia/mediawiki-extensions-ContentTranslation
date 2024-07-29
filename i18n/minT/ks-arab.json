@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"Iflaq"
+		]
+	},
+	"automatic-translation-special-page-description": "خۄدکار تَرجَمہٕ",
+	"automatic-translation-desc": "یہِ چھُ مَواد صَفَن ہُنٛد [[Special:AutomaticTranslation|خۄدکار تَرجَمہٕ]] دِوان.",
+	"mint-home-header-title": "خۄدکار تَرجَمہٕ",
+	"mint-home-input-placeholder": "موضوع کٔرِو تَلاش",
+	"mint-translation-list-all-languages-option-label": "تمام",
+	"mint-home-random-topic-button-label": "کانٛہہ تہِ موضوع",
+	"mint-language-selector-title": "زَبانہٕ",
+	"mint-language-selector-suggestions-header": "تَجویٖز دار",
+	"mint-language-selector-all-languages-header": "تَمام زَبانہٕ",
+	"mint-language-selector-input-placeholder": "زَبان ہُنٛد اِنتِخاب کٔرِو",
+	"mint-language-selector-no-search-results": "بے نٔتیٖجہٕ",
+	"mint-search-topic-page-header": "موضوع کٔرِو تَلاش",
+	"mint-search-topic-page-input-placeholder": "موضوع کٔرِو تَلاش",
+	"mint-confirm-topic-page-header": "خۄدکار تَرجَمہٕ",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "خۄدکار تَرجَمہٕ وُچھِو",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "مَضموٗن پٔرِو",
+	"mint-view-translation-page-header": "خۄدکار تَرجَمہٕ",
+	"mint-view-translation-page-disclaimer-header": "خۄدکار تَرجَمَس ہیٚکن غلظی ٲسِتھ",
+	"mint-view-translation-page-disclaimer-body": "یہٕ صَفہٕ چھُ موادُک اکھ خۄدکار تَرجَمہٕ یُس اصلی $1 منٛز لیکھنہٕ آمُت اوس۔",
+	"mint-view-translation-page-source-article-link-label": "$1 کھولِو",
+	"mint-view-translation-content-translation-entrypoint-title": "خۄدکار تَرجَمَس کٔرِو جانچ",
+	"mint-view-translation-content-translation-entrypoint-description": "خۄدکار مَوادَس ہیٚکن غلظی ٲسِتھ",
+	"mint-view-translation-overlay-header": "خۄدکار تَرجَمہٕ",
+	"ax-article-footer-entrypoint-card-description": "مزیٖد مواد باقٕے زَنانَن مَنٛز",
+	"ax-article-footer-entrypoint-card-supporting-text": "خۄدکار تَرجَمہٕ پٔرِو"
+}

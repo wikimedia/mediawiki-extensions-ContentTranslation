@@ -16,5 +16,7 @@
 	"cx-sx-language-selector-suggestions": "Önerĭlgen",
 	"cx-sx-language-selector-no-search-results": "Netice yoq",
 	"sx-translation-list-language-selector-dialog-title": "Tĭller",
-	"sx-editor-feedback-overlay-title": "Saw bol!"
+	"sx-editor-feedback-overlay-title": "Saw bol!",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Cap",
+	"cx-unreviewed-translation-dialog-close-button-label": "Cap"
 }

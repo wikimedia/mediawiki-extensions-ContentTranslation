@@ -244,5 +244,6 @@
 	"sx-translation-deletion-cancel-button-label": "रद्द करें",
 	"sx-translation-deletion-confirm-button-label": "अनुवाद हटायें",
 	"cx-unreviewed-translation-dialog-close-button-aria-label": "बंद करें",
-	"cx-unreviewed-translation-dialog-close-button-label": "बंद करें"
+	"cx-unreviewed-translation-dialog-close-button-label": "बंद करें",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "अधिक जानिए"
 }
