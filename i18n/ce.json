@@ -22,7 +22,7 @@
 	"cx-header-all-translations": "Массо а гочдарш",
 	"cx-source-view-page": "агӀоне хьажар",
 	"cx-publish-page-success": "АгӀо $1 чохь гайтина",
-	"cx-publish-error-abuse-filter": "Нисдарийн авто-литтарш хьан гочдаран чулацаман тӀехь гучуйаьхна проблемаш. Литтар чу йахар: $1",
+	"cx-publish-error-abuse-filter": "Нисдарийн авто-фильтрш хьан гочдаран чулацаман тӀехь гучуйаьхна проблемаш. Фильтр чу йахар: $1",
 	"cx-publish-error-empty": "Серверера жоьпан тӀехь хаамаш бац.",
 	"cx-publish-error-readonly": "Вики чохь дӀайаздар магийна дац.",
 	"cx-publish-error-spam-blacklist": "Хьан гочдар тӀехь карина потенциалан спам. Хьажа: $1",
