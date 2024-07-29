@@ -131,8 +131,7 @@
 			"ulsRelevantLanguagesEntrypointRegistrar",
 			"ulsQuickActionEntrypointRegistrar",
 			"recentEditEntrypointRegistrar",
-			"recentTranslationEntrypointRegistrar",
-			"axArticleFooterEntrypointRegistrar"
+			"recentTranslationEntrypointRegistrar"
 		],
 		"GetPreferences": "main",
 		"GetBetaFeaturePreferences": "ContentTranslation\\Hooks::onGetBetaFeaturePreferences",
@@ -146,8 +145,7 @@
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
 		"SectionTranslationBeforePublish": "sxbeforepublish",
 		"RevisionFromEditComplete": "significantEditCreator",
-		"ContributeCards": "main",
-		"SkinAfterContent": "axArticleFooterEntrypointRegistrar"
+		"ContributeCards": "main"
 	},
 	"APIModules": {
 		"cxdelete": {
