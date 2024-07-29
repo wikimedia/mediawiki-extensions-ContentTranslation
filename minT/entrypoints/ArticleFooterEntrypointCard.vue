@@ -53,7 +53,7 @@ module.exports = defineComponent( {
 			props.sourceTitle,
 			props.sourceLanguage,
 			mw.config.get( 'wgContentLanguage' ),
-			'translation'
+			'confirm'
 		);
 
 		return {
