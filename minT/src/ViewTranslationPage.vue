@@ -182,6 +182,7 @@ const useSectionTranslate = require( './useSectionTranslate.js' );
 const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const useSkeletonLoader = require( './useSkeletonLoader.js' );
+const useEventLogging = require( './useEventLogging.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
@@ -211,6 +212,11 @@ module.exports = defineComponent( {
 	},
 	setup( props ) {
 		const { sourceLanguage, targetLanguage } = useState();
+
+		const { logEvent } = useEventLogging();
+		const pageTitle = props.pageResult.getTitleByLanguage( sourceLanguage.value );
+		const eventContext = `${ sourceLanguage.value };${ targetLanguage.value };${ pageTitle }`;
+		logEvent( 'view', null, 'automatic_translation', eventContext );
 
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
