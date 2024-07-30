@@ -487,5 +487,8 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Onde están as outras seccións?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Non se preocupe. As seccións restantes non se perden. Estarán dispoñibles unha vez que publique a tradución actual como artigo novo. Despois da publicación, atopará novas traducións en curso cos contidos de cada sección.",
 	"sx-confirm-draft-translation-start-button-label": "Aceptar",
-	"sx-published-translation-new-translation-button-label": "Nova tradución"
+	"sx-published-translation-new-translation-button-label": "Nova tradución",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Pechar",
+	"cx-unreviewed-translation-dialog-close-button-label": "Pechar",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Máis información"
 }
