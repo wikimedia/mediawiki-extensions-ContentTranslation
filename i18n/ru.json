@@ -57,7 +57,10 @@
 			"Лилиә",
 			"Максим777",
 			"Петар Петковић",
-			"Умар"
+			"Умар",
+			"Dirruw'o",
+			"Jack who built the house",
+			"Yurina Tatiana"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -455,6 +458,7 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Перевести «$1» и «$2»",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-more-missing": "Перевести «$1», «$2» и другие",
 	"sx-block-template-adaptation-card-body-header-success": "Предлагаемый шаблон",
+	"sx-block-template-adaptation-card-title-placeholder": "Шаблон",
 	"sx-block-template-adaptation-card-edit-button-label": "Проверить и отредактировать перевод",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Править перевод",
 	"sx-block-template-adaptation-card-body-header-failure": "Эквивалент шаблона не доступен для $1",
