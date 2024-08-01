@@ -14,5 +14,7 @@
 	"mint-language-selector-input-placeholder": "Выберите язык",
 	"mint-language-selector-no-search-results": "Нет результатов",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Узнать больше",
+	"mint-view-translation-page-source-article-link-label": "Открыть на $1",
+	"mint-view-translation-overlay-header": "Автоматический перевод",
 	"mint-view-translation-overlay-feedback-link-label": "Отправить отзыв"
 }
