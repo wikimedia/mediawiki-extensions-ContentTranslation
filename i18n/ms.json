@@ -473,5 +473,7 @@
 	"sx-translation-deletion-confirm-button-label": "Hapus terjemahan",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 hari|0=Hari ini}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 bulan}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 tahun}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 tahun}}",
+	"sx-published-translation-new-translation-button-label": "Terjemahan baru",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Tutup"
 }
