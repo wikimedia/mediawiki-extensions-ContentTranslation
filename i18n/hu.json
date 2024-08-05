@@ -15,7 +15,9 @@
 			"Urbalazs",
 			"ViDam",
 			"Wolf Rex",
-			"Zizzerus"
+			"Zizzerus",
+			"Bean49",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Lap fordítása",
@@ -295,6 +297,7 @@
 	"cx-sx-published-section-confirmation-header": "Új szakasz hozzáadva",
 	"cx-sx-published-section-confirmation-content": "Fordításod publikálva. Folytathatod a szerkesztést vagy hozzáadhatsz új szakaszt.",
 	"cx-sx-published-section-invitation-title": "Újabb szakasz fordítása",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Hiányzik <span>$1</span>, <span>$2</span> és egyéb nyelveken",
 	"cx-uls-relevant-languages-panel-header": "A lap fordítása",
 	"cx-uls-translate-page-quick-action-label": "A lap fordítása"
 }
