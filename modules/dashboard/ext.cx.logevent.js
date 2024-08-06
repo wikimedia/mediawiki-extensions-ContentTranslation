@@ -94,7 +94,7 @@
 		const userName = mw.user.getName();
 
 		const eventDefaults = {
-			$schema: '/analytics/mediawiki/content_translation_event/1.2.0',
+			$schema: '/analytics/mediawiki/content_translation_event/1.4.0',
 			// eslint-disable-next-line camelcase
 			translation_type: 'section',
 			// eslint-disable-next-line camelcase
