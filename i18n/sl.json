@@ -195,7 +195,7 @@
 	"cx-notification-tenth-translation": "Čestitke ob vašem desetem prevodu! Počasi postajate že {{GENDER:|veteran|veteranka|veteran_ka}} v prevajanju. Le tako naprej!",
 	"cx-notification-hundredth-translation": "Pravkar ste opravili 100 prevodov! To je izjemen dosežek. Sporočite novico še drugim urejevalcem.",
 	"cx-notification-deleted-draft": "Vaš prevod članka <strong>$1</strong> je bil zavržen, saj je njegova vsebina ostala neposodobljena več kot eno leto. Kadar koli lahko začnete nov prevod z aktualno vsebino.",
-	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 prevod je bil zavržen|$1 prevoda sta bila zavržena|$1 prevodi so bili zavrženi|$1 prevodov je bilo zavrženih}}, saj je bila {{$1|njegova|njuna|njihova|njihova}} njihova vsebina neposodobljena že več kot eno leto. Kadar koli lahko začnete nov prevod z aktualno vsebino.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 prevod je bil zavržen|$1 prevoda sta bila zavržena|$1 prevodi so bili zavrženi|$1 prevodov je bilo zavrženih}}, saj je bila {{PLURAL:$1|njegova|njuna|njihova}} vsebina neposodobljena že več kot eno leto. Kadar koli lahko začnete nov prevod z aktualno vsebino.",
 	"cx-notification-continue-translation": "Odkar ste začeli prevajati stran <strong>$1</strong>, je minilo že nekaj mesecev. Poskusite jo objaviti, preden bo preteklo eno leto, ko bo samodejno zavržena.",
 	"cx-notification-continue-translation-bundle": "Odkar ste začeli {{PLURAL:$1|$1 prevodov}}, je minilo že nekaj mesecev. Poskusite jih objaviti, preden bo preteklo eno leto, ko bodo samodejno zavrženi.",
 	"cx-contributions-link": "Vaši prispevki",
