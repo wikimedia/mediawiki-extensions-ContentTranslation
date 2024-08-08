@@ -18,7 +18,8 @@
 			"Sfic",
 			"Siddhartha Ghai",
 			"Петар Петковић",
-			"संजीव कुमार"
+			"संजीव कुमार",
+			"Srishakatux"
 		]
 	},
 	"cx": "पृष्ठ का अनुवाद करें",
@@ -188,7 +189,7 @@
 	"cx-draft-restored": "सहेजा हुआ अनुवाद लोड हो गया।",
 	"cx-suggestionlist-expand": "सभी देखें",
 	"cx-suggestionlist-collapse": "कम देखें",
-	"cx-suggestionlist-refresh": "सुझाव टटका करौ",
+	"cx-suggestionlist-refresh": "सुझावों को ताज़ा करें",
 	"cx-notification-suggestions-available": "{{GENDER:$2|आपके}} द्वारा पहले किये गए '''$1''' के अनुवाद के आधार पर नये सुझाव उपलब्ध हैं।",
 	"cx-tools-linter-issues": "समस्याएँ",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 त्रुटि|$1 त्रुटियाँ}}",

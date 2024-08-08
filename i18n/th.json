@@ -401,6 +401,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "แปลส่วน",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "การแปลใหม่",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "ส่วน",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "ดำเนินการแปล",
 	"sx-editor-feedback-overlay-title": "ขอบคุณ!",
 	"sx-editor-feedback-overlay-clarification": "เรียนรู้จากการแก้ไขความผิดพลาดของคุณ",
 	"sx-editor-feedback-overlay-stats": "<span>$1</span> ถูกแก้ไขโดยคุณ",
