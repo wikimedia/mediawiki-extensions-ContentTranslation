@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"Woytecr"
+		]
+	},
+	"automatic-translation-special-page-description": "Tłumaczenie automatyczne",
+	"automatic-translation-desc": "Dostarcza [[Special:AutomaticTranslation|automatyczne tłumaczenie]] dla stron z treścią.",
+	"mint-home-header-title": "Tłumaczenie automatyczne",
+	"mint-home-input-placeholder": "Wyszukaj temat",
+	"mint-translation-list-all-languages-option-label": "Wszystkie",
+	"mint-home-info-panel-text": "Miliony tematów w Wikipedii można automatycznie przetłumaczyć na $1.",
+	"mint-home-random-topic-button-label": "Losowy temat",
+	"mint-language-selector-title": "Języki",
+	"mint-language-selector-suggestions-header": "Sugerowane",
+	"mint-language-selector-all-languages-header": "Wszystkie języki",
+	"mint-language-selector-input-placeholder": "Wybierz język",
+	"mint-language-selector-no-search-results": "Brak wyników",
+	"mint-search-topic-page-header": "Wyszukaj temat",
+	"mint-search-topic-page-input-placeholder": "Wyszukaj temat",
+	"mint-search-topic-page-results-container-empty": "Wyszukaj dowolny temat. Zawartość tematu może być inna w każdym języku.",
+	"mint-confirm-topic-page-header": "Tłumaczenie automatyczne",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Zobacz tłumaczenie automatyczne",
+	"mint-confirm-topic-page-go-to-search-button-label": "Szukaj innego tematu",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Przeczytaj artykuł",
+	"mint-view-translation-page-header": "Tłumaczenie automatyczne",
+	"mint-view-translation-page-disclaimer-header": "Automatyczna zawartość może być niedokładna",
+	"mint-view-translation-page-disclaimer-body": "Ta strona jest automatycznym tłumaczeniem treści oryginalnie napisanej w $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Dowiedz się więcej",
+	"mint-view-translation-page-target-article-container-header": "Dostępne są również treści tworzone przez ludzi na ten temat",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Popraw tłumaczenie",
+	"ax-article-footer-entrypoint-card-description": "Więcej treści w innych językach",
+	"ax-article-footer-entrypoint-card-supporting-text": "Przeczytaj tłumaczenie automatyczne"
+}

@@ -22,7 +22,7 @@
 	"mint-search-topic-page-results-container-empty": "Пребарјате било која тема. Содржините за темата можат да се разликуваат од јазик до јазик.",
 	"mint-confirm-topic-page-header": "Автоматски превод",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Погледајте го автоматскиот превод",
-	"mint-confirm-topic-page-language-selector-explanation": "Превод [$1 од Википеидја на $2.] Истражете како оваа тема е покриена на {{PLURAL:$3|еден друг јазик|$3 други јазици}}.",
+	"mint-confirm-topic-page-language-selector-explanation": "Превод [$1 од Википеидја на $2.] Истражете како оваа тема е покриена на {{PLURAL:$3|друг јазик|$3 други јазици}}.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Пребарај друга тема",
 	"mint-confirm-topic-page-target-article-link-container-header": "Напишано од уредници на $1",
 	"mint-confirm-topic-page-target-article-link-container-details": "Оваа статија е напишана на $1 од човечки уредници. Можете да им се приклучите за да ги подобрите содржините.",

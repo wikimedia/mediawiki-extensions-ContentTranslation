@@ -148,5 +148,15 @@
 	"apihelp-sxdelete-param-translationid": "與草稿章節翻譯關聯的翻譯 ID。",
 	"apihelp-sxdelete-param-sectionid": "草稿章節翻譯的章節 ID。",
 	"apihelp-sxdelete-example-1": "以指定翻譯 ID 與章節 ID 來刪除關聯的草稿。",
-	"apihelp-query+automatictranslationdenselanguages-param-qid": "維基數據ID。"
+	"apihelp-cxsplit-summary": "為指定條目翻譯的各已翻譯章節，建立章節翻譯並儲存到資料庫",
+	"apihelp-cxsplit-param-translationid": "翻譯的 ID，用於要建立的章節翻譯。",
+	"apierror-cxsplit-anon-user": "「cxsplit」API 操作未啟用給匿名使用者",
+	"apierror-cxsplit-no-translation-found": "未找到指定 ID 的翻譯",
+	"apihelp-cxcheckunreviewed-summary": "對目前使用者檢查近期是否有發布任何快速、未經審閱的翻譯。",
+	"apierror-cxcheckunreviewed-anon-user": "「cxcheckunreviewe」API 操作未啟用給匿名使用者",
+	"apihelp-query+automatictranslationdenselanguages-summary": "索取與指定維基數據 ID 相對應條目的外部連結清單，依按條目大小排序。",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "維基數據ID。",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "布林值，用來指示章節標題是否應包含在回應裡。",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "索取條目「Moon」所有可用語言的的外部連結清單，依照條目大小排序。",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "索取條目「Moon」（包含章節標題）所有可用語言的外部連結清單，依照條目大小排序。"
 }
