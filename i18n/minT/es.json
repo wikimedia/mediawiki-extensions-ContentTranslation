@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adamw"
+		]
+	},
+	"mint-translation-list-all-languages-option-label": "Todos",
+	"mint-home-info-panel-text": "Millones de temas en Wikipedia se pueden traducir automáticamente a $1.",
+	"mint-home-random-topic-button-label": "Tema aleatoria",
+	"mint-language-selector-title": "Idiomas",
+	"mint-language-selector-suggestions-header": "Sugeridos",
+	"mint-language-selector-all-languages-header": "Todos los idiomas",
+	"mint-language-selector-input-placeholder": "Selecciona un idioma",
+	"mint-language-selector-no-search-results": "No hay resultados",
+	"mint-search-topic-page-header": "Buscar un tema",
+	"mint-search-topic-page-input-placeholder": "Buscar un tema",
+	"mint-confirm-topic-page-header": "Traducción automática",
+	"mint-confirm-topic-page-target-article-link-container-header": "Escrito por los editores en $1",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Leer artículo",
+	"mint-view-translation-page-header": "Traducción automática",
+	"mint-view-translation-page-disclaimer-header": "El contenido automático puede ser inexacto",
+	"mint-view-translation-page-disclaimer-body": "Esta página es una traducción automática del contenido escrito originalmente en $1 .",
+	"mint-view-translation-page-source-article-link-label": "Abre en $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Revise la traducción automática",
+	"mint-view-translation-content-translation-entrypoint-description": "El contenido automático puede ser inexacto",
+	"mint-view-translation-overlay-header": "Traducción automática",
+	"mint-view-translation-overlay-source-article-link-label": "Lea en Wikipedia en $1",
+	"mint-view-translation-overlay-target-article-link-label": "Lea en Wikipedia en $1",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Corrija la traducción",
+	"mint-view-translation-overlay-share-button-label": "Compartir traducción automática",
+	"ax-article-footer-entrypoint-card-description": "Más contenido en otros idiomas",
+	"ax-article-footer-entrypoint-card-supporting-text": "Leer traducción automática"
+}

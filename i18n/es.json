@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"-sasha-",
+			"Adamw",
 			"Agent",
 			"AlimanRuna",
 			"Amire80",
@@ -52,7 +53,7 @@
 	"cx": "Traducir página",
 	"cx-dashboard-header": "Traducciones",
 	"cx-javascript": "Esta herramienta no funciona sin JavaScript. JavaScript está desactivado, no funciona o este navegador es incompatible.",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Traducción de Contenidos]] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
+	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Traducción de Contenidos] es una herramienta para traducir rápidamente las páginas a tu idioma. [$1 ¡Pruébalo ahora!]",
 	"cx-license-agreement": "Al continuar aceptarás las [https://foundation.wikimedia.org/wiki/Terms_of_Use condiciones de uso] y permitirás, de manera irrevocable, la distribución de tus contribuciones bajo la [https://creativecommons.org/licenses/by-sa/4.0/deed.es licencia Creative Commons Atribución Compartir Igual 4.0] y la [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License licencia GFDL 1.3].",
 	"cx-error-server-connection": "Error: Falló la conexión con el servidor.",
 	"cx-desc": "Facilita la [[Special:ContentTranslation|traducción]] de páginas de contenido",
@@ -84,7 +85,7 @@
 	"tag-contenttranslation-v2-description": "El contenido se tradujo de otro idioma usando la versión 2 de la herramienta de traducción de contenidos.",
 	"tag-sectiontranslation": "[{{MediaWiki:sx-descriptionpagelink}} Traducción de sección]",
 	"tag-sectiontranslation-description": "El contenido fue traducido desde otra sección en otro idioma usando la característica de Traducción de sección de la herramienta de traducción de contenidos.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|Traducción de contenido: Uso elevado de traducción automática sin modificar]]",
+	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Traducción de contenido: Uso elevado de traducción automática sin modificar]",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "La traducción publicada con la herramienta de traducción de contenidos contiene un alto porcentaje de traducción automática sin modificar",
 	"cx-source-loading": "Cargando $1",
 	"cx-beta": "Traducción de contenidos",
@@ -113,7 +114,7 @@
 	"cx-tools-mt-provider-title": "Usar $1",
 	"cx-tools-mt-dont-use": "Comenzar con un párrafo vacío",
 	"cx-tools-mt-set-default": "Guardar como predeterminada",
-	"cx-tools-mt-noservices": "Los servicios de traducción no se encuentran disponibles para los idiomas seleccionados. [[mw:Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation|¿Por qué?]]",
+	"cx-tools-mt-noservices": "Los servicios de traducción no se encuentran disponibles para los idiomas seleccionados. [https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Initial_machine_translation ¿Por qué?]",
 	"cx-tools-mt-preferred": "predeterminado",
 	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 categoría|$1 categorías|0=Sin categorías}}",
 	"cx-stats-title": "Estadísticas de traducción de contenidos",
@@ -350,7 +351,7 @@
 	"cx-sx-sentence-selector-header-title": "Traducir esta sección",
 	"cx-sx-sentence-selector-done-button-label": "Hecho",
 	"cx-sx-sentence-selector-suggested-translation-title": "Traducción sugerida de $1",
-	"cx-sx-proposed-translation-not-available-message": "La traducción automática no está disponible en este momento",
+	"cx-sx-proposed-translation-not-available-message": "No está disponible en este momento",
 	"cx-sx-proposed-translation-retry-button": "Intentar de nuevo",
 	"cx-sx-proposed-translation-other-options-button": "Más opciones",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Editar traducción",
@@ -523,5 +524,12 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "¿Dónde están las otras secciones?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "No te preocupes. No se perdieron las secciones restantes. Estarán disponibles una vez cuando ya publiques la traducción actual como un artículo nuevo. Después de la publicación, encontrarás nuevas traducciones en progreso con los contenidos para cada sección.",
 	"sx-confirm-draft-translation-start-button-label": "Aceptar",
-	"sx-published-translation-new-translation-button-label": "Traducción nueva"
+	"sx-published-translation-new-translation-button-label": "Traducción nueva",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Añadir una nueva traducción",
+	"cx-unreviewed-translation-dialog-title": "Revise su última traducción",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Cerrar",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Revisar traducciones",
+	"cx-unreviewed-translation-dialog-close-button-label": "Cerrar",
+	"cx-unreviewed-translation-dialog-body": "Después de terminar una traducción rápida, debe esperar 10 minutos antes de iniciar otra. Revise los trabajos anteriores durante este período, ya que nuestra comunidad de editores valora el contenido de alta calidad.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Aprende más"
 }

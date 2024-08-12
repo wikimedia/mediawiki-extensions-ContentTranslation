@@ -500,5 +500,12 @@
 	"sx-quick-tutorial-next-button-aria-label": "Gå til neste side i veiledningen",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Skriv en ny oversettelse",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Trinnvis oversettelsesprosess for å opprette en ny side på ditt språk.",
-	"mint-mflanguagesearcher-entrypoint-card-title": "Les en automatisk oversettelse"
+	"mint-mflanguagesearcher-entrypoint-card-title": "Les en automatisk oversettelse",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatisk forhåndsvisning av innhold på andre språk som du kan gå gjennom og fikse.",
+	"cx-unreviewed-translation-dialog-title": "Gå gjennom den siste oversettelsen din",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Lukk",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Gå gjennom oversettelse",
+	"cx-unreviewed-translation-dialog-close-button-label": "Lukk",
+	"cx-unreviewed-translation-dialog-body": "Etter å ha fullført en oversettelse raskt må du vente 10 minutter før du starter på en ny en. Bruk gjerne denne tiden til å gå gjennom den forrige oversettelsen din, siden innhold av høy kvalitet verdsettes av bidragsyterne våre.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Lær mer"
 }
