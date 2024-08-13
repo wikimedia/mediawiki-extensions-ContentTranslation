@@ -512,5 +512,11 @@
 	"cx-mflanguagesearcher-entrypoint-card-title": "Napisz nowe tłumaczenie",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Proces tłumaczenia krok po kroku, aby utworzyć nową stronę w twoim języku.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Przeczytaj automatyczne tłumaczenie",
-	"mint-mflanguagesearcher-entrypoint-card-description": "Automatyczny podgląd treści w innych językach, abyś {{GENDER:|mógł|mogła}} przejrzeć i poprawić."
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatyczny podgląd treści w innych językach, abyś {{GENDER:|mógł|mogła}} przejrzeć i poprawić.",
+	"cx-unreviewed-translation-dialog-title": "Sprawdź swoje ostatnie tłumaczenie",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Zamknij",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Sprawdź tłumaczenie",
+	"cx-unreviewed-translation-dialog-close-button-label": "Zamknij",
+	"cx-unreviewed-translation-dialog-body": "Po zakończeniu szybkiego tłumaczenia musisz odczekać 10 minut przed rozpoczęciem nowego. Prosimy o spojrzenie w tym czasie na poprzedni wkład, ponieważ wysokiej jakości treść jest ceniona przez naszą społeczność edytorów.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Dowiedz się więcej"
 }

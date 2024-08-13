@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Msz2001",
 			"Woytecr"
 		]
 	},
@@ -18,17 +19,30 @@
 	"mint-language-selector-no-search-results": "Brak wyników",
 	"mint-search-topic-page-header": "Wyszukaj temat",
 	"mint-search-topic-page-input-placeholder": "Wyszukaj temat",
+	"mint-search-topic-page-input-aria-label": "Pole wyszukiwania MinT",
 	"mint-search-topic-page-results-container-empty": "Wyszukaj dowolny temat. Zawartość tematu może być inna w każdym języku.",
 	"mint-confirm-topic-page-header": "Tłumaczenie automatyczne",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Zobacz tłumaczenie automatyczne",
+	"mint-confirm-topic-page-language-selector-explanation": "Tłumaczenie [$1 z Wikipedii w języku $2]. Zobacz, jak ten temat jest opisany w {{PLURAL:$3|innym języku|$3 innych językach}}.",
 	"mint-confirm-topic-page-go-to-search-button-label": "Szukaj innego tematu",
+	"mint-confirm-topic-page-target-article-link-container-header": "Napisany przez edytorów w języku $1",
+	"mint-confirm-topic-page-target-article-link-container-details": "Ten artykuł w języku $1 został napisany przez ludzi. Możesz do nich dołączyć, aby poprawić jakość treści.",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Przeczytaj artykuł",
 	"mint-view-translation-page-header": "Tłumaczenie automatyczne",
 	"mint-view-translation-page-disclaimer-header": "Automatyczna zawartość może być niedokładna",
 	"mint-view-translation-page-disclaimer-body": "Ta strona jest automatycznym tłumaczeniem treści oryginalnie napisanej w $1.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Dowiedz się więcej",
 	"mint-view-translation-page-target-article-container-header": "Dostępne są również treści tworzone przez ludzi na ten temat",
+	"mint-view-translation-page-target-article-container-details": "Przeczytaj artykuł autorstwa edytorów z Wikipedii w języku $1, aby przeczytać więcej wiarygodnych informacji na ten temat.",
+	"mint-view-translation-page-source-article-link-label": "Otwórz w języku $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Sprawdź automatyczne tłumaczenie",
+	"mint-view-translation-content-translation-entrypoint-description": "Automatyczna zawartość może być niedokładna",
+	"mint-view-translation-overlay-header": "Tłumaczenie automatyczne",
+	"mint-view-translation-overlay-source-article-link-label": "Przeczytaj na Wikipedii w języku $1",
+	"mint-view-translation-overlay-target-article-link-label": "Przeczytaj na Wikipedii w języku $1",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Popraw tłumaczenie",
+	"mint-view-translation-overlay-share-button-label": "Udostępnij automatyczne tłumaczenie",
+	"mint-view-translation-overlay-feedback-link-label": "Prześlij opinię",
 	"ax-article-footer-entrypoint-card-description": "Więcej treści w innych językach",
 	"ax-article-footer-entrypoint-card-supporting-text": "Przeczytaj tłumaczenie automatyczne"
 }
