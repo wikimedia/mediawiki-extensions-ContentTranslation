@@ -109,10 +109,13 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		$apiUrl = wfAppendQuery( self::WIKIDATA_API_URL, $queryParams );
 
 		$response = $this->httpRequestFactory->get( $apiUrl );
+		if ( !$response ) {
+			$this->dieWithError( 'apierror-query+automatictranslationdenselanguages-sitelink-request-failure' );
+		}
 
 		$responseBody = json_decode( $response, true ) ?: [];
 
-		$siteLinks = $responseBody['entities'][$qid]['sitelinks'];
+		$siteLinks = $responseBody['entities'][$qid]['sitelinks'] ?? [];
 
 		$sites = $this->getWikipediaSites();
 		$results = [];
@@ -140,6 +143,10 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	 */
 	private function getArticleSizeInformation( string $qid ): array {
 		$siteLinks = $this->getArticleSiteLinks( $qid );
+		if ( !$siteLinks ) {
+			return [];
+		}
+
 		$requests = array_map( static function ( $siteLink ) {
 			$queryParams = [
 				'action' => 'parse',
