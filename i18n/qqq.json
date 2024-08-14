@@ -33,7 +33,8 @@
 			"Umherirrender",
 			"Whym",
 			"سامي الرحيلي",
-			"Msz2001"
+			"Msz2001",
+			"Winston Sung"
 		]
 	},
 	"cx": "{{doc-special|ContentTranslation}}",
@@ -158,8 +159,8 @@
 	"cx-save-draft-tooltip": "Tooltip text shown for the save status indicator text in the header of [[Special:ContentTranslation]].\n\nParameters: \n* $1 - the number of minutes ago the translation was saved.",
 	"cx-save-draft-error": "Error message shown if saving page draft failed.",
 	"cx-contributions-new-contributions": "Header text shown in [[Special:Contributions]], followed by ways to do more new contributions.",
-	"cx-contributions-new-article": "Button label tooltip\n{{Identical|New page}}",
-	"cx-contributions-translation": "Button label tooltip\n{{Identical|Translation}}",
+	"cx-contributions-new-article": "Button label tooltip to encourge users to create new pages. Appeared on [[Special:Contributions]].\n{{Identical|New page}}",
+	"cx-contributions-translation": "Button label tooltip to encourge users to translate pages. Appeared on [[Special:Contributions]].\n{{Identical|Translation}}",
 	"cx-contributions-upload": "Used as a button label on <code>Special:Contributions/Username</code> if the user has enabled Content Translation. \"Upload\" is an action, as it leads to the [[:commons:Special:UploadWizard|Commons Upload Wizard]]; do not translate it as \"Uploaded media\".",
 	"cx-contributions-new-article-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
 	"cx-contributions-translation-tooltip": "A tooltip for a button that appears on the top of Special:Contributions.",
