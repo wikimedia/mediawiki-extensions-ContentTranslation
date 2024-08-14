@@ -71,16 +71,12 @@
 		return this.getSeedPages().then( function ( seedPages ) {
 			const algorithm = 'morelike';
 			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
-				s: self.sourceLanguage,
 				source: self.sourceLanguage,
-				t: self.targetLanguage,
 				target: self.targetLanguage,
 				article: seedPages.join( '|' ),
 				seed: seedPages.join( '|' ),
-				search: algorithm,
 				// eslint-disable-next-line camelcase
-				search_algorithm: algorithm,
-				application: 'CX'
+				search_algorithm: algorithm
 			} ).then( function ( articles ) {
 				return self.adapt( articles, algorithm );
 			} );
