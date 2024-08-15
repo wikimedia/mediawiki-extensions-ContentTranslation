@@ -34,7 +34,7 @@
 			"phpcbf"
 		],
 		"test": [
-			"parallel-lint . --exclude vendor --exclude node_modules",
+			"parallel-lint . --exclude vendor --exclude node_modules --exclude app",
 			"@phpcs",
 			"minus-x check ."
 		],

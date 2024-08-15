@@ -18,4 +18,5 @@
 	<file>.</file>
 	<arg name="extensions" value="php" />
 	<arg name="encoding" value="UTF-8" />
+	<exclude-pattern type="relative">^app/*</exclude-pattern>
 </ruleset>

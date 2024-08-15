@@ -1,0 +1,5 @@
+{
+	"ignoreDirectories": [
+		"./app/node_modules"
+	]
+}
