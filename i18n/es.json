@@ -45,7 +45,9 @@
 			"VegaDark",
 			"Vi00000051",
 			"Wifidel",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Adamw",
+			"Qwrop"
 		]
 	},
 	"cx": "Traducir página",
@@ -346,7 +348,7 @@
 	"cx-sx-sentence-selector-header-title": "Traducir esta sección",
 	"cx-sx-sentence-selector-done-button-label": "Hecho",
 	"cx-sx-sentence-selector-suggested-translation-title": "Traducción sugerida de $1",
-	"cx-sx-proposed-translation-not-available-message": "La traducción automática no está disponible en este momento",
+	"cx-sx-proposed-translation-not-available-message": "No está disponible en este momento",
 	"cx-sx-proposed-translation-retry-button": "Intentar de nuevo",
 	"cx-sx-proposed-translation-other-options-button": "Más opciones",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Editar traducción",

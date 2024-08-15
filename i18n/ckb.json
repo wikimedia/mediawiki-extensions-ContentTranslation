@@ -298,7 +298,7 @@
 	"cx-sx-sentence-selector-header-title": "بەشەکە وەربگێڕە",
 	"cx-sx-sentence-selector-done-button-label": "کرا",
 	"cx-sx-sentence-selector-suggested-translation-title": "وەرگێڕانی پێشنیارکراوی $1",
-	"cx-sx-proposed-translation-not-available-message": "وەرگێڕانی مەکینە لە ئێستادا بەردەست نییە",
+	"cx-sx-proposed-translation-not-available-message": "لە ئێستادا بەردەست نییە",
 	"cx-sx-proposed-translation-retry-button": "ھەوڵدانەوە",
 	"cx-sx-proposed-translation-other-options-button": "بژاردەی تر",
 	"cx-sx-sentence-selector-edit-translation-button-label": "دەستکاریی وەرگێڕان بکە",
@@ -369,6 +369,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "بەشەکە وەربگێڕە",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "وەرگێڕانی نوێ",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "بەش",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "بەردەوام بە لە وەرگێڕان",
 	"sx-editor-feedback-overlay-title": "سوپاس!",
 	"cx-campaign-mflanguagesearcher-invite": "دەتوانیت ئەم پەڕە وەربگێڕیت. ڕێگەیەکی ئاسانە تا ناوەڕۆک بە زمانی خۆت دروست بکەیت.",
 	"cx-suggestion-list-favorites-division": "بۆ دواتر",
@@ -424,5 +425,8 @@
 	"sx-translation-deletion-confirm-button-label": "وەرگێڕانەکە بسڕەوە",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ڕۆژ|0=ئەمڕۆ}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 مانگ}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ساڵ}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ساڵ}}",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "بەشەکانی تر لە کوێن؟",
+	"sx-confirm-draft-translation-start-button-label": "باشە",
+	"sx-published-translation-new-translation-button-label": "وەرگێڕانی نوێ"
 }
