@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MRidhaAJ"
+			"MRidhaAJ",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "ترجمة الصفحه",
@@ -33,5 +34,5 @@
 	"cx-tools-instructions-text4": "الترجمه الآليه مفيده بس يمكن {{GENDER:|تسوي|تسوين}} أغلاط محتمله",
 	"cx-tools-instructions-text5": "انشر{{GENDER:||ي}} الترجمه",
 	"cx-tools-instructions-text6": "من {{GENDER:|توصل|توصلين}} لنتيجه مرضيه, {{GENDER:|دوس|دوسي}} \"{{int:cx-publish-button}}\".",
-	"cx-translation-filter-label-all-languages": "كل"
+	"cx-translation-filter-label-all-languages": "كلشي"
 }
