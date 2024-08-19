@@ -71,47 +71,27 @@ defineEmits(["close", "bookmark"]);
         :thumbnail="page && page.thumbnail"
       />
     </div>
-    <div class="col cx-suggestion__information-panel">
-      <mw-row direction="column" align="start" class="ma-0 no-wrap fill-height">
-        <mw-col shrink class="cx-suggestion__information-panel__top pb-2">
-          <mw-row class="ma-0" align="start" justify="between">
-            <mw-col grow class="pe-2">
-              <mw-row direction="column" class="ma-0" align="start">
-                <mw-col shrink class="mb-2">
-                  <h5
-                    class="my-0 cx-suggestion__source-title"
-                    :lang="suggestion.sourceLanguage"
-                    :dir="getDir(suggestion.sourceLanguage)"
-                    v-text="title"
-                  />
-                </mw-col>
-                <mw-col shrink>
-                  <p
-                    class="ma-0 cx-suggestion__source-description complementary"
-                    :lang="suggestion.sourceLanguage"
-                    :dir="getDir(suggestion.sourceLanguage)"
-                    v-text="description"
-                  />
-                </mw-col>
-              </mw-row>
-            </mw-col>
-            <mw-col shrink>
-              <mw-icon
-                v-if="!isFavoriteSuggestion"
-                :icon="mwIconClose"
-                size="24"
-                class="cx-suggestion__discard-button mb-4"
-                @click.stop="$emit('close')"
-              />
-              <mw-icon
-                class="cx-suggestion__favorite-button"
-                :icon="bookmarkIcon"
-                size="24"
-                :icon-color="bookmarkIconColor"
-                @click.stop="$emit('bookmark')"
-              />
-            </mw-col>
-          </mw-row>
+    <mw-row class="col cx-suggestion__information-panel ma-0" align="start">
+      <mw-row
+        direction="column"
+        class="ma-0 col cx-suggestion__information-panel__main-body pe-2"
+        align="start"
+      >
+        <mw-col shrink class="mb-2">
+          <h5
+            class="my-0 cx-suggestion__source-title"
+            :lang="suggestion.sourceLanguage"
+            :dir="getDir(suggestion.sourceLanguage)"
+            v-text="title"
+          />
+        </mw-col>
+        <mw-col shrink>
+          <p
+            class="ma-0 cx-suggestion__source-description complementary"
+            :lang="suggestion.sourceLanguage"
+            :dir="getDir(suggestion.sourceLanguage)"
+            v-text="description"
+          />
         </mw-col>
         <mw-col
           v-if="isSectionSuggestion"
@@ -147,7 +127,23 @@ defineEmits(["close", "bookmark"]);
           </mw-row>
         </mw-col>
       </mw-row>
-    </div>
+      <mw-col shrink>
+        <mw-icon
+          v-if="!isFavoriteSuggestion"
+          :icon="mwIconClose"
+          size="24"
+          class="cx-suggestion__discard-button mb-4"
+          @click.stop="$emit('close')"
+        />
+        <mw-icon
+          class="cx-suggestion__favorite-button"
+          :icon="bookmarkIcon"
+          size="24"
+          :icon-color="bookmarkIconColor"
+          @click.stop="$emit('bookmark')"
+        />
+      </mw-col>
+    </mw-row>
   </div>
 </template>
 
@@ -166,8 +162,8 @@ defineEmits(["close", "bookmark"]);
   }
 
   &__information-panel {
-    &__top {
-      width: 100%;
+    &__main-body {
+      height: @size-full;
     }
   }
   &__source-description {
