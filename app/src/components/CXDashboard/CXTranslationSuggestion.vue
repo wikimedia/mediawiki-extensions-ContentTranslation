@@ -13,6 +13,7 @@ import { computed, inject } from "vue";
 import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
 import useApplicationState from "../../composables/useApplicationState";
+import useTranslationSize from "@/composables/useTranslationSize";
 
 const props = defineProps({
   suggestion: {
@@ -22,6 +23,7 @@ const props = defineProps({
 });
 
 const store = useStore();
+const { bytesToMinutes } = useTranslationSize();
 const suggestion = computed(() => props.suggestion);
 const title = computed(
   () => suggestion.value.sourceTitle || suggestion.value.title
@@ -60,6 +62,11 @@ const bookmarkIconColor = computed(() =>
   isFavoriteSuggestion.value ? colors.blue600 : "currentColor"
 );
 
+const isQuickTranslation = computed(() => {
+  // according to the specifications, a translation is considered  quick, if it takes less than 15 minutes (T360570)
+  return bytesToMinutes(page.value?.articleSize) < 15;
+});
+
 defineEmits(["close", "bookmark"]);
 </script>
 
@@ -92,6 +99,13 @@ defineEmits(["close", "bookmark"]);
             :dir="getDir(suggestion.sourceLanguage)"
             v-text="description"
           />
+        </mw-col>
+        <mw-col
+          v-if="isQuickTranslation && !isSectionSuggestion"
+          shrink
+          class="cx-suggestion__information-panel__quick-translation mt-auto"
+        >
+          <small v-i18n:cx-sx-translation-suggestion-quick />
         </mw-col>
         <mw-col
           v-if="isSectionSuggestion"
@@ -164,6 +178,9 @@ defineEmits(["close", "bookmark"]);
   &__information-panel {
     &__main-body {
       height: @size-full;
+    }
+    &__quick-translation {
+      color: @color-success;
     }
   }
   &__source-description {

@@ -3,6 +3,7 @@ import { mount } from "@vue/test-utils";
 import { createI18n } from "vue-banana-i18n";
 import colors from "@/lib/mediawiki.ui/plugins/colors";
 import Page from "@/wiki/mw/models/page";
+import suggestionsGetters from "@/store/modules/suggestions/getters";
 import { createStore } from "vuex";
 import { ref } from "vue";
 
@@ -20,7 +21,11 @@ const mockStore = createStore({
   modules: {
     suggestions: {
       namespaced: true,
-      state: { favorites: [] },
+      state: { favorites: [], sectionSuggestions: [] },
+      getters: {
+        getSectionSuggestionsForArticle:
+          suggestionsGetters.getSectionSuggestionsForArticle,
+      },
     },
   },
 });
@@ -31,6 +36,7 @@ const mockCurrentPage = new Page({
   thumbnail: { source: "test_thumbnail.png" },
   langlinkscount: 100,
   pageviews: { 1: 1, 2: 2 },
+  articlesize: 1000,
 });
 
 jest.mock("@/composables/useCurrentPages", () => () => ({

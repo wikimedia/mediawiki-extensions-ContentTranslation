@@ -11,6 +11,7 @@ export default class Page {
    * @param {string} [options.pageviews]
    * @param {string} [options.thumbnail]
    * @param {string} [options.title]
+   * @param {{size}[]} [options.revisions]
    * @param {string|null} [options._alias] The normalized page title or the title from which this page is a redirection, if any. See mw/api/page.js#fetchMetadata
    * @param {string|null} [options.content]
    * @param {PageSection[]} [options.sections]
@@ -26,6 +27,7 @@ export default class Page {
     pageviews,
     thumbnail,
     title,
+    revisions,
     _alias,
     content = null,
     sections = [],
@@ -39,6 +41,7 @@ export default class Page {
     this.pageviews = pageviews;
     this.thumbnail = thumbnail;
     this.langLinksCount = langlinkscount;
+    this.articleSize = revisions?.[0]?.size;
     this.revision = lastrevid;
     this.alias = _alias;
     this.wikidataId = pageprops?.wikibase_item;

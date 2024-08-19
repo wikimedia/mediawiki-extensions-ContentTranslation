@@ -109,6 +109,28 @@ async function fetchSuggestionSeeds(sourceLanguage, targetLanguage) {
   }
 }
 
+async function fetchSuggestionSourceSections(language, title) {
+  const query = {
+    action: "parse",
+    format: "json",
+    formatversion: 2,
+    prop: "sections",
+    page: title,
+  };
+
+  const mwApi = siteMapper.getApi(language);
+
+  try {
+    const response = await mwApi.get(query);
+
+    return response.parse;
+  } catch (error) {
+    mw.log.error("Error while fetching suggestion sections size", error);
+
+    return [];
+  }
+}
+
 /**
  * This api action fetches and returns appendix section titles
  * for the given target language. In case of failure, errors
@@ -217,6 +239,7 @@ export default {
   fetchSectionSuggestions,
   fetchSuggestionSeeds,
   fetchAppendixTargetSectionTitles,
+  fetchSuggestionSourceSections,
   markFavorite,
   unmarkFavorite,
 };

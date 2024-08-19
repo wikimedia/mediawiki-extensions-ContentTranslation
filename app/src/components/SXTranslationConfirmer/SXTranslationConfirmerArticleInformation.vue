@@ -3,20 +3,23 @@ import { MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 import { useStore } from "vuex";
+import { useI18n } from "vue-banana-i18n";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
+import useTranslationSize from "@/composables/useTranslationSize";
 import {
   cdxIconBookmark,
   cdxIconBookmarkOutline,
   cdxIconLanguage,
+  cdxIconClock,
   cdxIconLinkExternal,
 } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
 
 const store = useStore();
+const bananaI18n = useI18n();
 
 const { currentSourcePage: sourceArticle } = useCurrentPages();
 const {
@@ -37,6 +40,8 @@ const isFavorite = computed(() =>
 
 const { markFavoriteSuggestion, removeFavoriteSuggestion } =
   useSuggestionsBookmark();
+
+const { translationSizeMessageArgs } = useTranslationSize();
 
 const markSuggestionAsFavorite = () =>
   markFavoriteSuggestion(
@@ -74,6 +79,20 @@ const weeklyViews = computed(() =>
     0
   )
 );
+
+const timeEstimateMessage = computed(() => {
+  if (translationSizeMessageArgs.value) {
+    return bananaI18n.i18n(...translationSizeMessageArgs.value);
+  }
+});
+
+const isQuickTranslation = computed(() => {
+  // according to the specifications, a translation is considered  quick, if it takes less than 15 minutes (T360570)
+  if (translationSizeMessageArgs.value) {
+    const calculatedMinutesEstimate = translationSizeMessageArgs.value[2];
+    return calculatedMinutesEstimate < 15;
+  }
+});
 </script>
 
 <template>
@@ -107,13 +126,28 @@ const weeklyViews = computed(() =>
           </cdx-button>
         </mw-col>
       </mw-row>
-      <p
+      <div
         class="complementary sx-translation-confirmer__article-information__stats ma-0 flex"
       >
-        <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
-        <span class="pe-3" v-text="langLinksCount" />
-        <span v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]" />
-      </p>
+        <div>
+          <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
+          <span class="pe-3" v-text="langLinksCount" />
+          <span
+            v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]"
+            class="pe-3"
+          />
+        </div>
+        <span
+          class="sx-translation-confirmer__article-information__stats__time-estimate"
+          :class="{
+            'sx-translation-confirmer__article-information__stats__time-estimate--quick':
+              isQuickTranslation,
+          }"
+        >
+          <cdx-icon :icon="cdxIconClock" size="small" class="me-1" />
+          <span v-text="timeEstimateMessage" />
+        </span>
+      </div>
     </mw-col>
   </mw-row>
 </template>
@@ -134,9 +168,20 @@ const weeklyViews = computed(() =>
   }
   &__stats {
     color: @color-subtle;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: @spacing-50;
     .cdx-icon {
       color: @color-subtle;
       margin-block: auto;
+    }
+
+    &__time-estimate--quick {
+      color: @color-success;
+      .cdx-icon {
+        color: @color-success;
+        margin-block: auto;
+      }
     }
   }
 }

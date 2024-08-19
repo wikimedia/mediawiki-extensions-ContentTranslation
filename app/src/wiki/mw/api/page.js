@@ -21,9 +21,10 @@ const fetchPages = (language, titles) => {
     action: "query",
     format: "json",
     formatversion: 2,
-    prop: "info|pageprops|pageimages|description|pageviews|langlinkscount",
+    prop: "info|pageprops|pageimages|description|pageviews|langlinkscount|revisions",
     pvipdays: 7, // Last 7 days page views
     piprop: "thumbnail|name|original",
+    rvprop: "size",
     pithumbsize: defaultThumbnailSize,
     titles: titles.join("|"),
     origin: "*",
