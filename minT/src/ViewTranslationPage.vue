@@ -4,7 +4,7 @@
 			<span>
 				{{ $i18n( 'mint-view-translation-page-header' ).text() }}
 			</span>
-			<cdx-button weight="quiet" @click="goToHomePage">
+			<cdx-button weight="quiet" @click="closeViewTranslationPage">
 				<cdx-icon :icon="cdxIconClose"></cdx-icon>
 			</cdx-button>
 		</div>
@@ -213,7 +213,7 @@ module.exports = defineComponent( {
 	setup( props ) {
 		const { sourceLanguage, targetLanguage } = useState();
 
-		const { logEvent } = useEventLogging();
+		const { logEvent, logClickEvent } = useEventLogging();
 		const pageTitle = props.pageResult.getTitleByLanguage( sourceLanguage.value );
 		const eventContext = `${ sourceLanguage.value };${ targetLanguage.value };${ pageTitle }`;
 
@@ -338,6 +338,10 @@ module.exports = defineComponent( {
 
 		const { goToHomePage } = useRouter();
 
+		const closeViewTranslationPage = () => {
+			logClickEvent( 'close', 'automatic_translation_header', null );
+			goToHomePage();
+		};
 		const optionsDialogOn = ref( false );
 		const openTranslationOptions = () => {
 			optionsDialogOn.value = true;
@@ -352,7 +356,7 @@ module.exports = defineComponent( {
 			cdxIconArticle,
 			cdxIconEdit,
 			cdxIconEllipsis,
-			goToHomePage,
+			closeViewTranslationPage,
 			sourceLanguageAutonym,
 			targetLanguageAutonym,
 			loadingLeadSectionTranslation,
