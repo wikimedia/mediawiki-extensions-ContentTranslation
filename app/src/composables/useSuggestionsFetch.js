@@ -197,19 +197,34 @@ const useSuggestionsFetch = () => {
       if (!seed) {
         break;
       }
-      /** @type {SectionSuggestion|null} */
-      const suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+      /** @type {SectionSuggestion[]|null} */
+      const suggestions = await cxSuggestionsApi.fetchSectionSuggestions(
         sourceLanguage.value,
-        seed,
-        targetLanguage.value
+        targetLanguage.value,
+        seed
       );
 
-      if (isSectionSuggestionValid(suggestion)) {
-        fetchedSuggestions.push(suggestion);
-      } else if (!!suggestion && !sectionSuggestionExists(suggestion)) {
-        suggestion.isListable = false;
-        store.commit("suggestions/addSectionSuggestion", suggestion);
+      if (!suggestions) {
+        continue;
       }
+
+      let validSuggestions = suggestions.filter((suggestion) =>
+        isSectionSuggestionValid(suggestion)
+      );
+      const invalidSuggestions = suggestions.filter(
+        (suggestion) => !isSectionSuggestionValid(suggestion)
+      );
+
+      // only keep the needed number of suggestions, to avoid having suggestions of only one seed
+      validSuggestions = validSuggestions.slice(0, numberOfSuggestionsToFetch);
+      fetchedSuggestions.push(...validSuggestions);
+
+      invalidSuggestions.forEach((suggestion) => {
+        if (!!suggestion && !sectionSuggestionExists(suggestion)) {
+          suggestion.isListable = false;
+          store.commit("suggestions/addSectionSuggestion", suggestion);
+        }
+      });
     }
 
     fetchedSuggestions.forEach((suggestion) =>

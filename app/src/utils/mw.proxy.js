@@ -87,6 +87,8 @@ const mw = {
           return 2021;
         case "wgUserEditCountBucket":
           return "1000+ edits";
+        case "wgRecommendToolAPIURL":
+          return "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation";
         case "wgNamespaceIds":
           return namespaceIds;
         default:

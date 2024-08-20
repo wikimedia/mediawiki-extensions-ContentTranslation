@@ -53,7 +53,7 @@ async function fetchPageSuggestions(
  * @param {String} targetLanguage
  * @returns {Promise<SectionSuggestion>|null}
  */
-async function fetchSectionSuggestions(
+async function fetchSectionSuggestion(
   sourceLanguage,
   sourceTitle,
   targetLanguage
@@ -77,6 +77,55 @@ async function fetchSectionSuggestions(
   return suggestedSectionResult
     ? new SectionSuggestion(suggestedSectionResult)
     : null;
+}
+
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String} seed
+ * @returns {Promise<SectionSuggestion>|null}
+ */
+async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    seed,
+  };
+  const baseRecommendToolApiUrl = mw.config.get("wgRecommendToolAPIURL");
+  const recommendToolApiUrl = new URL(`${baseRecommendToolApiUrl}/sections`);
+  Object.keys(params).forEach((key) => {
+    if (params[key]) {
+      recommendToolApiUrl.searchParams.append(key, params[key]);
+    }
+  });
+
+  let recommendations;
+
+  try {
+    const response = await fetch(recommendToolApiUrl);
+    recommendations = response.ok ? await response.json() : null;
+  } catch (error) {
+    mw.log.error("Error while fetching section suggestions", error);
+
+    recommendations = null;
+  }
+
+  return (
+    recommendations &&
+    recommendations.map(
+      (recommendation) =>
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: recommendation.source_title,
+          targetTitle: recommendation.target_title,
+          sourceSections: recommendation.source_sections,
+          targetSections: recommendation.target_sections,
+          present: recommendation.present,
+          missing: recommendation.missing,
+        })
+    )
+  );
 }
 
 /**
@@ -236,6 +285,7 @@ const fetchFavorites = () => {
 export default {
   fetchFavorites,
   fetchPageSuggestions,
+  fetchSectionSuggestion,
   fetchSectionSuggestions,
   fetchSuggestionSeeds,
   fetchAppendixTargetSectionTitles,

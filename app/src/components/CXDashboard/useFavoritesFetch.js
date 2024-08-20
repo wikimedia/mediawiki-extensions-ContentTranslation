@@ -23,7 +23,7 @@ const useFavoritesFetch = () => {
 
       /** @type {SectionSuggestion|null} */
       suggestionsApi
-        .fetchSectionSuggestions(
+        .fetchSectionSuggestion(
           favorite.sourceLanguage,
           favorite.title,
           favorite.targetLanguage

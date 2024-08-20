@@ -6,45 +6,63 @@ import { createStore, useStore } from "vuex";
 import useSuggestionsFetch from "./useSuggestionsFetch";
 import { createApp } from "vue";
 
-const dummySeedArticles = {
-  testTitle0: {
-    References: "Referencias",
-    "See also": "Véase también",
-    Notes: "Notas",
-  },
-  testTitle1: {},
-  testTitle2: {
-    References: "Referencias",
-    "Early life": "",
-  },
-  invalidSeedTitle: {},
-};
-
 global.fetch = jest.fn((url) => {
-  const urlParams = url.replace("/suggest/sections/", "");
-  const [sourceTitle, sourceLanguage, targetLanguage] = urlParams.split("/");
-  const ok = sourceTitle !== "invalidSeedTitle";
+  const parsedUrl = new URL(url);
+  const seed = parsedUrl.searchParams.get("seed");
+  const ok = seed !== "invalidSeedTitle";
 
   return Promise.resolve({
     ok,
     json: () =>
-      Promise.resolve({
-        sections: {
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle,
-          targetTitle: "",
+      Promise.resolve([
+        {
+          source_title: "testTitle0",
+          target_title: "",
           present: [],
-          missing: dummySeedArticles[sourceTitle],
-          sourceSections: [],
-          targetSections: [],
+          missing: {
+            References: "Referencias",
+            "See also": "Véase también",
+            Notes: "Notas",
+          },
+          source_sections: [],
+          target_sections: [],
         },
-      }),
+        {
+          source_title: "testTitle1",
+          target_title: "",
+          present: [],
+          missing: {
+            Valid1: "Valid1",
+            Valid2: "Valid2",
+          },
+          source_sections: [],
+          target_sections: [],
+        },
+        {
+          source_title: "testTitle2",
+          target_title: "",
+          present: [],
+          missing: {
+            References: "Referencias",
+            "Early life": "",
+          },
+          source_sections: [],
+          target_sections: [],
+        },
+        {
+          source_title: "testTitle3",
+          target_title: "",
+          present: [],
+          missing: {
+            Valid3: "Valid3",
+            Valid4: "Valid4",
+          },
+          source_sections: [],
+          target_sections: [],
+        },
+      ]),
   });
 });
-
-/** @type {string[]} */
-const seeds = Object.keys(dummySeedArticles);
 
 const {
   getSectionSuggestionsForPair,
@@ -69,7 +87,7 @@ const state = {
     new SuggestionSeedCollection({
       sourceLanguage: "en",
       targetLanguage: "es",
-      seeds,
+      seeds: ["seed0"],
     }),
   ],
 };
@@ -153,11 +171,17 @@ describe("useSuggestionsFetch composable test", () => {
       "testTitle0",
       "testTitle1",
       "testTitle2",
+      "testTitle3",
     ]);
 
     const listableSuggestions = data.store.getters[
       "suggestions/getSectionSuggestionsForPair"
     ]("en", "es");
-    expect(getSuggestionTitles(listableSuggestions)).toEqual(["testTitle2"]);
+
+    expect(getSuggestionTitles(listableSuggestions)).toEqual([
+      "testTitle1",
+      "testTitle2",
+      "testTitle3",
+    ]);
   });
 });

@@ -18,7 +18,7 @@ const useSectionSuggestionForPublishedFetch = () => {
 
     if (!suggestion) {
       /** @type {SectionSuggestion|null} */
-      suggestion = await cxSuggestionsApi.fetchSectionSuggestions(
+      suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
         sourceLanguage,
         sourceTitle,
         targetLanguage
