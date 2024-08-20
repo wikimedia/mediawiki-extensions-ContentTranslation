@@ -105,7 +105,7 @@ module.exports = {
 
 		const thumbnailSize = 160;
 		let thumbnail = null;
-		if ( props.suggestion ) {
+		if ( props.suggestion && props.suggestion.thumbnail ) {
 			thumbnail = {
 				height: thumbnailSize,
 				width: thumbnailSize,
