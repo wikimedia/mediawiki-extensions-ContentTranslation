@@ -37,13 +37,6 @@ export default {
   decreasePageSuggestionsLoadingCount(state) {
     state.pageSuggestionsLoadingCount--;
   },
-  /**
-   * @param state
-   * @param {SuggestionSeedCollection} collection
-   */
-  addSuggestionSeedCollection(state, collection) {
-    state.suggestionSeedCollections.push(collection);
-  },
   addAppendixSectionTitlesForLanguage(state, { language, titles }) {
     state.appendixSectionTitles[language] = titles;
   },

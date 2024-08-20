@@ -9,13 +9,12 @@ export default class SuggestionSeedCollection {
    * @param {Object} options
    * @param {string} options.sourceLanguage
    * @param {string} options.targetLanguage
-   * @param {string[]} options.seeds
    */
-  constructor({ sourceLanguage, targetLanguage, seeds = [] }) {
+  constructor({ sourceLanguage, targetLanguage }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
     // shuffle seeds array to avoid having using the same seeds after every refresh
-    this.seeds = seeds.sort(() => Math.random() - 0.5);
+    this.seeds = [];
   }
 
   /**

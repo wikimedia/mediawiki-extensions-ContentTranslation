@@ -1,18 +1,13 @@
 import suggestionsStoreModule from "@/store/modules/suggestions";
 import translatorStoreModule from "@/store/modules/translator";
 import appendixTitles from "@/utils/appendix/appendixTitles.json";
-import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
 import { createStore, useStore } from "vuex";
 import useSuggestionsFetch from "./useSuggestionsFetch";
 import { createApp } from "vue";
 
-global.fetch = jest.fn((url) => {
-  const parsedUrl = new URL(url);
-  const seed = parsedUrl.searchParams.get("seed");
-  const ok = seed !== "invalidSeedTitle";
-
-  return Promise.resolve({
-    ok,
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    ok: true,
     json: () =>
       Promise.resolve([
         {
@@ -61,16 +56,18 @@ global.fetch = jest.fn((url) => {
           target_sections: [],
         },
       ]),
-  });
-});
+  })
+);
 
-const {
-  getSectionSuggestionsForPair,
-  findSuggestionSeedCollection,
-  getFavoriteTitlesByLanguagePair,
-} = suggestionsStoreModule.getters;
+jest.mock("@/composables/useSuggestionSeeds", () => () => ({
+  getSuggestionSeed: jest.fn(() => Promise.resolve("seed0")),
+}));
 
-const { getTranslationsForLanguagePair } = translatorStoreModule.getters;
+const { getSectionSuggestionsForPair, getFavoriteTitlesByLanguagePair } =
+  suggestionsStoreModule.getters;
+
+const { getTranslationsForLanguagePair, getTranslationsByStatus } =
+  translatorStoreModule.getters;
 
 const {
   addSectionSuggestion,
@@ -83,13 +80,6 @@ const state = {
   sectionSuggestions: [],
   appendixSectionTitles: appendixTitles,
   favorites: [],
-  suggestionSeedCollections: [
-    new SuggestionSeedCollection({
-      sourceLanguage: "en",
-      targetLanguage: "es",
-      seeds: ["seed0"],
-    }),
-  ],
 };
 
 const testSuggestionsStoreModule = {
@@ -98,7 +88,6 @@ const testSuggestionsStoreModule = {
   getters: {
     getFavoriteTitlesByLanguagePair,
     getSectionSuggestionsForPair,
-    findSuggestionSeedCollection,
     getNumberOfSectionSuggestionsToFetch: () => () => 3,
   },
   mutations: {
@@ -128,9 +117,12 @@ const mockStore = createStore({
       namespaced: true,
       getters: {
         getTranslationsForLanguagePair,
+        getTranslationsByStatus,
       },
       state: {
-        translations: [],
+        translations: [
+          { sourceTitle: "seed0", status: "published", sourceLanguage: "en" },
+        ],
       },
     },
   },

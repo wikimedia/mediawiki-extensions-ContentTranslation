@@ -128,6 +128,41 @@ async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
   );
 }
 
+async function fetchUserEdits(language) {
+  if (mw.user.isAnon()) {
+    return [];
+  }
+
+  const query = {
+    action: "query",
+    format: "json",
+    list: "usercontribs",
+    ucuser: mw.user.getName(),
+    ucnamespace: mw.config.get("wgNamespaceIds")[""], // Main namespace
+    // we need at maximum 12 (maxSuggestionsSlices*maxSuggestionsPerSlice) suggestion seeds
+    // 100 user contributions should be enough to produce at least 12 of them.
+    uclimit: 100,
+    formatversion: 2,
+  };
+
+  const mwApi = siteMapper.getApi(language);
+
+  try {
+    const response = await mwApi.get(query);
+
+    const edits = response.query.usercontribs;
+
+    const titles = edits.map((edit) => edit.title);
+
+    // return unique titles
+    return [...new Set(titles)];
+  } catch (error) {
+    mw.log.error("Error while fetching suggestion seeds", error);
+
+    return [];
+  }
+}
+
 /**
  * Given a language pair, this api action returns an array of published translation
  * source titles, to be used as suggestion seeds.
@@ -292,4 +327,5 @@ export default {
   fetchSuggestionSourceSections,
   markFavorite,
   unmarkFavorite,
+  fetchUserEdits,
 };

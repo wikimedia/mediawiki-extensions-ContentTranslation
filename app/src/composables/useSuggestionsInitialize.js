@@ -1,5 +1,4 @@
 import { useStore } from "vuex";
-import useSuggestionSeedsInitialize from "@/composables/useSuggestionSeedsInitialize";
 import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 
@@ -20,13 +19,10 @@ import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
  */
 const useSuggestionsInitialize = () => {
   const store = useStore();
-  const initializeSuggestionSeeds = useSuggestionSeedsInitialize();
   const { fetchNextSectionSuggestionsSlice, fetchNextPageSuggestionsSlice } =
     useSuggestionsFetch();
 
   return async () => {
-    await initializeSuggestionSeeds();
-
     const { targetLanguage } = useApplicationState(store);
 
     /** @type {SectionSuggestion[]} */

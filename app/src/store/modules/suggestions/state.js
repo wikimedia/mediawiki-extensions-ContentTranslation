@@ -24,15 +24,6 @@ export default {
    */
   maxSuggestionsPerSlice: 3,
   /**
-   * Stores collections of seeds for different language pairs
-   * Each seed collection corresponds to a specific language pair
-   * and contains all available seeds to be used for suggestion fetching.
-   * Having this information stored prevents unnecessary requests to fetch
-   * seeds every time they are needed
-   * @type {SuggestionSeedCollection[]}
-   */
-  suggestionSeedCollections: [],
-  /**
    * Stores appendix section titles, grouped by language
    * @type Object - { language1: [titles1], ... }
    */

@@ -8,13 +8,6 @@ export default {
             favorite.targetLanguage === targetLanguage
         )
         .map((favorite) => favorite.title),
-  /**
-   * @return {SuggestionSeedCollection|undefined}
-   */
-  findSuggestionSeedCollection: (state) => (sourceLanguage, targetLanguage) =>
-    state.suggestionSeedCollections.find((collection) =>
-      collection.matchesLanguagePair(sourceLanguage, targetLanguage)
-    ),
   getPageSuggestionsForPair: (state) => (sourceLanguage, targetLanguage) =>
     state.pageSuggestions.filter(
       (suggestionItem) =>

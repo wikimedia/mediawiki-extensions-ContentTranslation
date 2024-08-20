@@ -84,7 +84,7 @@ const fetchLanguageTitles = (language, title) => {
   };
   const mwApi = siteMapper.getApi(language);
 
-  return mwApi.get(params).then(async (response) => {
+  return mwApi.get(params).then((response) => {
     const pages = response.query.pages;
 
     // When invalid title is provided a dummy page is return with "missing"
@@ -102,6 +102,42 @@ const fetchLanguageTitles = (language, title) => {
     }
 
     return Object.freeze(new LanguageTitleGroup(wikidataId, titles));
+  });
+};
+
+/**
+ * Given a source language, a target language and an array of titles in the source language,
+ * this method fetches the langlinks for the titles from the Wikipedia Action API, and
+ * returns an array of titles in the target language. If a title doesn't exist in the
+ * target language, it is not included in the returned array.
+ *
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string[]} sourceTitles
+ * @returns {string[]}
+ */
+const fetchLanguageLinksForLanguage = (
+  sourceLanguage,
+  targetLanguage,
+  sourceTitles
+) => {
+  // e.g. https://en.wikipedia.org/w/api.php?action=query&format=json&titles=Apple|Sun|Moon&prop=langlinks&lllang=el
+  const params = {
+    action: "query",
+    format: "json",
+    formatversion: 2,
+    prop: "langlinks",
+    titles: sourceTitles.join("|"),
+    lllang: targetLanguage,
+    origin: "*",
+    redirects: true,
+  };
+  const mwApi = siteMapper.getApi(sourceLanguage);
+
+  return mwApi.get(params).then((response) => {
+    const pages = Object.values(response.query.pages);
+
+    return pages.map((page) => page.langlinks?.[0]?.["*"]).filter((title) => !!title);
   });
 };
 
@@ -268,4 +304,5 @@ export default {
   fetchSegmentedContent,
   fetchNearbyPages,
   searchPagesByTitlePrefix,
+  fetchLanguageLinksForLanguage,
 };
