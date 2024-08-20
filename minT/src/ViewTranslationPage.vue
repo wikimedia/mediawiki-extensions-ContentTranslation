@@ -216,7 +216,6 @@ module.exports = defineComponent( {
 		const { logEvent } = useEventLogging();
 		const pageTitle = props.pageResult.getTitleByLanguage( sourceLanguage.value );
 		const eventContext = `${ sourceLanguage.value };${ targetLanguage.value };${ pageTitle }`;
-		logEvent( 'view', null, 'automatic_translation', eventContext );
 
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
@@ -227,6 +226,12 @@ module.exports = defineComponent( {
 			loadingLeadSectionTranslation,
 			initializeTranslation
 		} = useTranslationInitialize();
+
+		watch( leadSectionTranslation, () => {
+			if ( leadSectionTranslation.value.length ) {
+				logEvent( 'view', null, 'automatic_translation', eventContext );
+			}
+		}, { once: true } );
 
 		const { createSkeletonLoader } = useSkeletonLoader();
 		const structuredLeadSectionTranslation = computed( () => {
