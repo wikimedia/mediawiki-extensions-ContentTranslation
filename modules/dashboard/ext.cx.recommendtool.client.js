@@ -3,7 +3,7 @@
  *
  * The recommendation tool is also known as trex in this code.
  *
- * See https://recommend.wmflabs.org/ and research/recommendation-api at Gerrit.
+ * See https://recommend.wmcloud.org/ and research/recommendation-api at Gerrit.
  *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
