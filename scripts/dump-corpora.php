@@ -24,6 +24,7 @@ use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class CXCorporaDump extends Maintenance {
+	/** @var string[][] */
 	private static $sinkTypes = [
 		'file' => [ 'DumpFileOutput', '' ],
 		'gzip' => [ 'DumpGZipOutput', '.gz' ],

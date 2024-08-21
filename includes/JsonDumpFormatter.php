@@ -3,6 +3,7 @@
 namespace ContentTranslation;
 
 class JsonDumpFormatter {
+	/** @var bool */
 	private $isStarted = false;
 
 	public function format( array $entry ) {

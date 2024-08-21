@@ -33,6 +33,7 @@ if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 class PurgeUnpublishedDrafts extends Maintenance {
+	/** @var bool */
 	private $dryRun = true;
 
 	public function __construct() {

@@ -5,9 +5,13 @@ namespace ContentTranslation;
 use MediaWiki\Title\Title;
 
 class Suggestion {
+	/** @var int */
 	protected $listId;
+	/** @var string */
 	protected $title;
+	/** @var string */
 	protected $sourceLanguage;
+	/** @var string */
 	protected $targetLanguage;
 
 	public function __construct( array $params ) {

@@ -16,13 +16,21 @@ class SuggestionList {
 	public const TYPE_FAVORITE = 3;
 	public const TYPE_CATEGORY = 4;
 
+	/** @var int|null */
 	protected $id;
+	/** @var string */
 	protected $name;
+	/** @var string|null */
 	protected $info;
+	/** @var int|null */
 	protected $owner;
+	/** @var string|null */
 	protected $startTime;
+	/** @var string|null */
 	protected $endTime;
+	/** @var int|null */
 	protected $type;
+	/** @var bool|null */
 	protected $public;
 
 	public function __construct( array $params ) {

@@ -17,6 +17,7 @@ use MediaWiki\Title\TitleFactory;
  */
 class TranslationTargetUrlCreator {
 	private TitleFactory $titleFactory;
+	/** @var bool */
 	private $contentTranslationTranslateInTarget;
 
 	/**
