@@ -31,7 +31,7 @@
 	"cx-publish-error-readonly": "N’eo ket aotreet skrivañ er wiki.",
 	"cx-publish-error-spam-blacklist": "Kavet eo bet endalc’had a c’hellfe bezañ strob en ho troidigezh. Munudoù: $1",
 	"cx-publish-error-title-blacklist": "Emañ an titl roet merket ganeoc’h el listenn zu. Dibabit un anv all evit ho troidigezh mar plij.",
-	"cx-publish-error-unknown": "Ur fazi dianav dirapar ez eus bet. Munudoù ar fazi: $1",
+	"cx-publish-error-unknown": "Ur fazi dianav dirapar zo bet. Munudoù ar fazi: $1",
 	"cx-publish-button": "Embann",
 	"cx-publish-button-publishing": "Oc'h embann...",
 	"cx-lost-session": "Aet eo an estez d'he zermen",

@@ -425,5 +425,7 @@
 	"sx-translation-deletion-confirm-button-label": "وەرگێڕانەکە بسڕەوە",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 ڕۆژ|0=ئەمڕۆ}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 مانگ}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ساڵ}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 ساڵ}}",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "بەشەکانی تر لە کوێن؟",
+	"sx-confirm-draft-translation-start-button-label": "باشە"
 }
