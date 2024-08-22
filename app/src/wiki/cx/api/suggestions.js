@@ -18,22 +18,26 @@ async function fetchPageSuggestions(
   seedArticleTitle,
   count = 24
 ) {
-  const sourceWikiCode = siteMapper.getWikiDomainCode(sourceLanguage);
-  let apiModule = `/data/recommendation/article/creation/translation/${sourceWikiCode}`;
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    seed: seedArticleTitle,
+    count,
+  };
+  const recommendToolApiUrl = new URL(mw.config.get("wgRecommendToolAPIURL"));
+  Object.keys(params).forEach((key) => {
+    if (params[key]) {
+      recommendToolApiUrl.searchParams.append(key, params[key]);
+    }
+  });
 
-  if (seedArticleTitle) {
-    apiModule += `/${seedArticleTitle}`;
-  }
-  const apiURL = siteMapper.getRestbaseUrl(targetLanguage, apiModule);
-  const params = new URLSearchParams({ count: `${count}` });
-
-  const response = await fetch(`${apiURL}?${params}`);
+  const response = await fetch(recommendToolApiUrl);
 
   if (!response.ok) {
     throw new Error("Failed to load data from server");
   }
 
-  const suggestedResults = (await response.json())?.items || [];
+  const suggestedResults = (await response.json()) || [];
 
   return suggestedResults.map(
     (item) =>
