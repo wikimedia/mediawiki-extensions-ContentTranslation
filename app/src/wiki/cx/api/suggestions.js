@@ -6,6 +6,59 @@ import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
 const appendixSectionTitlesInEnglish = en;
 
 /**
+ * @param {string} source
+ * @param {string} target
+ * @param {string|null} seed
+ * @param {boolean} includeSections
+ * @param {"mostpopular"|null} searchAlgorithm
+ * @param {number} count
+ */
+const requestToRecommendationApi = async ({
+  source,
+  target,
+  seed = null,
+  includeSections = false,
+  searchAlgorithm = null,
+  count = 24,
+}) => {
+  const params = {
+    source,
+    target,
+    seed,
+    count,
+    search_algorithm: searchAlgorithm,
+  };
+  let stringUrl = mw.config.get("wgRecommendToolAPIURL");
+
+  if (includeSections) {
+    stringUrl += "/sections";
+  }
+  const recommendToolApiUrl = new URL(stringUrl);
+  Object.keys(params).forEach((key) => {
+    if (params[key]) {
+      recommendToolApiUrl.searchParams.append(key, params[key]);
+    }
+  });
+
+  try {
+    const response = await fetch(recommendToolApiUrl);
+
+    if (!response.ok) {
+      throw new Error("Failed to load data from server");
+    }
+
+    return response.json();
+  } catch (error) {
+    mw.log.error(
+      "Error while fetching suggestions from Recommendation API",
+      error
+    );
+
+    return null;
+  }
+};
+
+/**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String} seedArticleTitle
@@ -24,20 +77,7 @@ async function fetchPageSuggestions(
     seed: seedArticleTitle,
     count,
   };
-  const recommendToolApiUrl = new URL(mw.config.get("wgRecommendToolAPIURL"));
-  Object.keys(params).forEach((key) => {
-    if (params[key]) {
-      recommendToolApiUrl.searchParams.append(key, params[key]);
-    }
-  });
-
-  const response = await fetch(recommendToolApiUrl);
-
-  if (!response.ok) {
-    throw new Error("Failed to load data from server");
-  }
-
-  const suggestedResults = (await response.json()) || [];
+  const suggestedResults = (await requestToRecommendationApi(params)) || [];
 
   return suggestedResults.map(
     (item) =>
@@ -50,6 +90,69 @@ async function fetchPageSuggestions(
       })
   );
 }
+
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @return {Promise<ArticleSuggestion[]>}
+ */
+const fetchMostPopularPageSuggestions = async (
+  sourceLanguage,
+  targetLanguage
+) => {
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    searchAlgorithm: "mostpopular",
+  };
+  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  return recommendations.map(
+    (item) =>
+      new ArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        langLinksCount: parseInt(item.langlinks_count),
+      })
+  );
+};
+
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @return {Promise<SectionSuggestion[]>}
+ */
+const fetchMostPopularSectionSuggestions = async (
+  sourceLanguage,
+  targetLanguage
+) => {
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    includeSections: true,
+    searchAlgorithm: "mostpopular",
+  };
+  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  return (
+    recommendations &&
+    recommendations.map(
+      (recommendation) =>
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: recommendation.source_title,
+          targetTitle: recommendation.target_title,
+          sourceSections: recommendation.source_sections,
+          targetSections: recommendation.target_sections,
+          present: recommendation.present,
+          missing: recommendation.missing,
+        })
+    )
+  );
+};
 
 /**
  * @param {String} sourceLanguage
@@ -87,32 +190,16 @@ async function fetchSectionSuggestion(
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String} seed
- * @returns {Promise<SectionSuggestion>|null}
+ * @returns {Promise<SectionSuggestion[]>}
  */
 async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
   const params = {
     source: sourceLanguage,
     target: targetLanguage,
     seed,
+    includeSections: true,
   };
-  const baseRecommendToolApiUrl = mw.config.get("wgRecommendToolAPIURL");
-  const recommendToolApiUrl = new URL(`${baseRecommendToolApiUrl}/sections`);
-  Object.keys(params).forEach((key) => {
-    if (params[key]) {
-      recommendToolApiUrl.searchParams.append(key, params[key]);
-    }
-  });
-
-  let recommendations;
-
-  try {
-    const response = await fetch(recommendToolApiUrl);
-    recommendations = response.ok ? await response.json() : null;
-  } catch (error) {
-    mw.log.error("Error while fetching section suggestions", error);
-
-    recommendations = null;
-  }
+  const recommendations = (await requestToRecommendationApi(params)) || [];
 
   return (
     recommendations &&
@@ -332,4 +419,6 @@ export default {
   markFavorite,
   unmarkFavorite,
   fetchUserEdits,
+  fetchMostPopularPageSuggestions,
+  fetchMostPopularSectionSuggestions,
 };
