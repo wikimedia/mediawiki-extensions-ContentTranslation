@@ -1,16 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lifeway"
+			"Lifeway",
+			"Mxalexandrov86"
 		]
 	},
 	"cx": "Велыж-влакым кусарымаш",
 	"cx-dashboard-header": "Кусарымаш-влак",
+	"cx-error-server-connection": "Йоҥылыш: Сервер ден кылым ышташ лийын огыл.",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|кусарыме}}",
 	"cx-header-translation-center": "Кусарыме рӱдер",
 	"cx-header-all-translations": "Чыла кусарымаш",
 	"cx-source-view-page": "велыжым ончымаш",
 	"cx-target-view-page": "велыжым ончымаш",
 	"cx-publish-page-success": "Велыж $1 семын савыкталтын",
+	"cx-publish-error-empty": "Сервер данный укелык ден вашештен.",
+	"cx-publish-error-readonly": "Викиште возаш чарыме.",
+	"cx-publish-error-spam-blacklist": "Тыйын кусартыштет лийын кертшаш спам шекланыме. Рашрак:$1",
 	"cx-publish-button": "Савыкташ",
 	"cx-publish-button-publishing": "Савыктымаш…",
 	"cx-translation-add-translation": "Кусарымашым ешараш",
