@@ -513,5 +513,15 @@
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Nieuwe vertaling",
 	"sx-section-selector-close-button-aria-label": "Knop om naar de bevestigingsstap te gaan",
-	"sx-quick-tutorial-next-button-aria-label": "Naar de volgende tutorialpagina gaan"
+	"sx-quick-tutorial-next-button-aria-label": "Naar de volgende tutorialpagina gaan",
+	"cx-mflanguagesearcher-entrypoint-card-title": "Een nieuwe vertaling schrijven",
+	"cx-mflanguagesearcher-entrypoint-card-description": "Stapsgewijs vertaalproces om een nieuwe pagina in uw taal te maken.",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Automatische vertaling lezen",
+	"mint-mflanguagesearcher-entrypoint-card-description": "Automatische voorvertoning van inhoud in andere talen, zodat u deze kunt bekijken en aanpassen.",
+	"cx-unreviewed-translation-dialog-title": "Controleer uw laatste vertaling",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "Sluiten",
+	"cx-unreviewed-translation-dialog-review-translation-button-label": "Vertaling controleren",
+	"cx-unreviewed-translation-dialog-close-button-label": "Sluiten",
+	"cx-unreviewed-translation-dialog-body": "Na het voltooien van een snelle vertaling moet u 10 minuten wachten voordat u een nieuwe kunt beginnen. Gebruik die tijd om eerdere vertalingen te controleren, want kwaliteit wordt hoog gewaardeerd.",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Meer lezen"
 }
