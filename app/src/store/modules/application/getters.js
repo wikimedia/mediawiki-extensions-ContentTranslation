@@ -1,47 +1,43 @@
 export default {
   /**
-   * @return {ArticleSuggestion[]}
-   */
-  getCurrentPageSuggestions: (state, getters, rootState, rootGetters) =>
-    rootGetters["suggestions/getPageSuggestionsForPair"](
-      state.sourceLanguage,
-      state.targetLanguage
-    ),
-
-  /**
-   * @return {SectionSuggestion[]}
-   */
-  getCurrentSectionSuggestions: (state, getters, rootState, rootGetters) =>
-    rootGetters["suggestions/getSectionSuggestionsForPair"](
-      state.sourceLanguage,
-      state.targetLanguage
-    ),
-
-  /**
-   * @param state
-   * @param getters
-   * @param rootState
    * @return {function(number): SectionSuggestion[]}
    */
   getSectionSuggestionsSliceByIndex:
-    (state, getters, rootState) => (sliceIndex) =>
-      getters.getCurrentSectionSuggestions.slice(
+    (state, getters, rootState, rootGetters) => (sliceIndex) => {
+      const sectionSuggestionsForPair = rootGetters[
+        "suggestions/getSectionSuggestionsForPair"
+      ](state.sourceLanguage, state.targetLanguage);
+
+      const currentSectionSuggestions = sectionSuggestionsForPair.filter(
+        (suggestion) =>
+          suggestion.suggestionProvider === state.currentSuggestionProvider
+      );
+
+      return currentSectionSuggestions.slice(
         rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
         rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
-      ),
+      );
+    },
 
   /**
-   * @param state
-   * @param getters
-   * @param rootState
    * @return {function(number): ArticleSuggestion[]}
    */
-  getPageSuggestionsSliceByIndex: (state, getters, rootState) => (sliceIndex) =>
-    getters.getCurrentPageSuggestions.slice(
-      rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
-      rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
-    ),
+  getPageSuggestionsSliceByIndex:
+    (state, getters, rootState, rootGetters) => (sliceIndex) => {
+      const pageSuggestionsForPair = rootGetters[
+        "suggestions/getPageSuggestionsForPair"
+      ](state.sourceLanguage, state.targetLanguage);
 
+      const currentPageSuggestions = pageSuggestionsForPair.filter(
+        (suggestion) =>
+          suggestion.suggestionProvider === state.currentSuggestionProvider
+      );
+
+      return currentPageSuggestions.slice(
+        rootState.suggestions.maxSuggestionsPerSlice * sliceIndex,
+        rootState.suggestions.maxSuggestionsPerSlice * (sliceIndex + 1)
+      );
+    },
   /**
    * Returns a boolean indicating whether the current publishing target
    * is the user's sandbox

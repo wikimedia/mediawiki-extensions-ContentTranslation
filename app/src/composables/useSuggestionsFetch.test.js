@@ -104,6 +104,7 @@ const mockStore = createStore({
       state: {
         sourceLanguage: "en",
         targetLanguage: "es",
+        currentSuggestionProvider: "previous-edits",
       },
     },
     mediawiki: {

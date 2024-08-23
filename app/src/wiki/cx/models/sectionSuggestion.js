@@ -11,6 +11,7 @@ export default class SectionSuggestion {
    * @param {string[]} options.sourceSections Array of all section titles in source article ordered by their order of appearance in the article
    * @param {string[]} options.targetSections Array of all section titles in target article ordered by their order of appearance in the article
    * @param {boolean} options.isListable A boolean indicating whether we should display this section suggestion inside dashboard suggestion list
+   * @param {string|null} options.suggestionProvider
    */
   constructor({
     sourceLanguage,
@@ -22,6 +23,7 @@ export default class SectionSuggestion {
     sourceSections = [],
     targetSections = [],
     isListable = true,
+    suggestionProvider = null,
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -32,6 +34,7 @@ export default class SectionSuggestion {
     this.sourceSections = sourceSections;
     this.targetSections = targetSections;
     this.isListable = isListable;
+    this.suggestionProvider = suggestionProvider;
   }
 
   /**

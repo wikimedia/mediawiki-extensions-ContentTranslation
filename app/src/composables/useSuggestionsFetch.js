@@ -1,14 +1,14 @@
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
-import useSuggestionsFetchByEdits from "./useSuggestionsFetchByEdits";
+import useSuggestionProvider from "./useSuggestionProvider";
 
 const useSuggestionsFetch = () => {
   const store = useStore();
   const { sourceLanguage, targetLanguage } = useApplicationState(store);
   const {
-    fetchPageSuggestionsBasedOnEdits,
-    fetchSectionSuggestionsBasedOnEdits,
-  } = useSuggestionsFetchByEdits();
+    getCurrentPageSuggestionProvider,
+    getCurrentSectionSuggestionProvider,
+  } = useSuggestionProvider();
 
   /**
    * @param {ArticleSuggestion[]|SectionSuggestion[]} suggestions
@@ -43,7 +43,8 @@ const useSuggestionsFetch = () => {
       "suggestions/getNumberOfPageSuggestionsToFetch"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const fetchedSuggestions = await fetchPageSuggestionsBasedOnEdits(
+    const fetchPageSuggestions = getCurrentPageSuggestionProvider();
+    const fetchedSuggestions = await fetchPageSuggestions(
       numberOfSuggestionsToFetch
     );
 
@@ -69,7 +70,8 @@ const useSuggestionsFetch = () => {
       "suggestions/getNumberOfSectionSuggestionsToFetch"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const fetchedSuggestions = await fetchSectionSuggestionsBasedOnEdits(
+    const fetchSectionSuggestions = getCurrentSectionSuggestionProvider();
+    const fetchedSuggestions = await fetchSectionSuggestions(
       numberOfSuggestionsToFetch
     );
 

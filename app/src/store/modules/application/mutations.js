@@ -52,6 +52,14 @@ const mutations = {
     mw.storage.set(storageKey, provider);
   },
 
+  /**
+   * @param state
+   * @param provider
+   */
+  setCurrentSuggestionProvider: (state, provider) => {
+    state.currentSuggestionProvider = provider;
+  },
+
   setSourceLanguage: (state, language) => {
     state.sourceLanguage = language;
   },

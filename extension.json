@@ -689,7 +689,8 @@
 			"codexComponents": [
 				"CdxButton",
 				"CdxIcon",
-				"CdxDialog"
+				"CdxDialog",
+				"CdxInfoChip"
 			],
 			"messages": [
 				"cx-dashboard-header",

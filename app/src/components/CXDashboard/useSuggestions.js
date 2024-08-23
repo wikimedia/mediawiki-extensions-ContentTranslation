@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
 import useApplicationState from "@/composables/useApplicationState";
@@ -172,6 +172,16 @@ const useSuggestions = () => {
   const increaseCurrentPageSuggestionsSliceIndex = () =>
     (currentPageSuggestionsSliceIndex.value =
       (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
+
+  const currentSuggestionProvider = computed(
+    () => store.state.application.currentSuggestionProvider
+  );
+  watch(currentSuggestionProvider, () => {
+    currentPageSuggestionsSliceIndex.value = 0;
+    fetchNextPageSuggestionSlice();
+    currentSectionSuggestionsSliceIndex.value = 0;
+    fetchNextSectionSuggestionSlice();
+  });
 
   return {
     currentPageSuggestionsSlice,

@@ -10,6 +10,7 @@ export default class ArticleSuggestion {
    * @param {string} [options.targetTitle]
    * @param {number} options.langLinksCount
    * @param {string} options.wikidataId
+   * @param {string|null} options.suggestionProvider
    */
   constructor({
     sourceLanguage,
@@ -18,6 +19,7 @@ export default class ArticleSuggestion {
     targetTitle,
     langLinksCount,
     wikidataId,
+    suggestionProvider = null,
   }) {
     this.sourceLanguage = sourceLanguage;
     this.targetLanguage = targetLanguage;
@@ -25,6 +27,7 @@ export default class ArticleSuggestion {
     this.targetTitle = targetTitle;
     this.wikidataId = wikidataId;
     this.langLinksCount = langLinksCount;
+    this.suggestionProvider = suggestionProvider;
   }
 
   /**

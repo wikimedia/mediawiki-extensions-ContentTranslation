@@ -2,6 +2,7 @@
 import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
+import CxSuggestionListFilters from "./CXSuggestionListFilters.vue";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { useStore } from "vuex";
@@ -85,6 +86,7 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
           class="mw-ui-card__title pa-4 pt-5 mb-0"
           v-text="$i18n('cx-suggestionlist-title')"
         />
+        <cx-suggestion-list-filters />
       </template>
       <sx-translation-list-language-selector
         :source-languages="supportedLanguageCodes"

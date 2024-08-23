@@ -1,5 +1,5 @@
 if (import.meta.env.PROD) {
-  const { CdxButton, CdxIcon, CdxDialog } = require("../codex.js");
+  const { CdxButton, CdxIcon, CdxDialog, CdxInfoChip } = require("../codex.js");
 
-  window.Codex = { CdxButton, CdxIcon, CdxDialog };
+  window.Codex = { CdxButton, CdxIcon, CdxDialog, CdxInfoChip };
 }
