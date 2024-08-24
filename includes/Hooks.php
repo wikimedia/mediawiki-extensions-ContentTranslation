@@ -154,9 +154,6 @@ class Hooks implements
 
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'CentralAuth' ) ) {
 			$centralUser = CentralAuthUser::getInstance( $user );
-			if ( !$centralUser ) {
-				return false;
-			}
 
 			// Check if the user has edited in more than one wiki.
 			$editedWikiCount = 0;
