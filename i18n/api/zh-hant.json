@@ -158,5 +158,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "維基數據ID。",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "布林值，用來指示章節標題是否應包含在回應裡。",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "索取條目「Moon」所有可用語言的的外部連結清單，依照條目大小排序。",
-	"apihelp-query+automatictranslationdenselanguages-example-2": "索取條目「Moon」（包含章節標題）所有可用語言的外部連結清單，依照條目大小排序。"
+	"apihelp-query+automatictranslationdenselanguages-example-2": "索取條目「Moon」（包含章節標題）所有可用語言的外部連結清單，依照條目大小排序。",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "從維基數據取得站台連結的請求失敗"
 }

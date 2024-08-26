@@ -7,7 +7,8 @@
 			"Lantuszka",
 			"Rail",
 			"Tar Lócesilion",
-			"The Polish"
+			"The Polish",
+			"Woytecr"
 		]
 	},
 	"apihelp-cxpublish-param-title": "Tytuł strony, na której będą dokonywane dalsze działania.",
@@ -85,5 +86,6 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "ID wersji na stronie źródłowej.",
 	"apihelp-cxpublishsection-param-captchaid": "CAPTCHA ID (przy zapisywaniu odpowiedzi CAPTCHA).",
 	"apihelp-cxpublishsection-param-captchaword": "Odpowiedź na CAPTCHA (przy zapisywaniu odpowiedzi CAPTCHA).",
-	"apihelp-sxsave-param-sourcerevision": "ID wersji na stronie źródłowej."
+	"apihelp-sxsave-param-sourcerevision": "ID wersji na stronie źródłowej.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Nie udało się pobrać linków interwiki z Wikidanych"
 }

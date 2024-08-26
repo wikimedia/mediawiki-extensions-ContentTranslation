@@ -59,7 +59,7 @@
 	"cx-special-login-error": "АгӀо гочйан [$1 чугӀо]",
 	"cx-tools-instructions-text1": "{{GENDER:|ТӀетаӀайе}} абзацашна, уьш гочйархьама",
 	"cx-tools-instructions-text2": "{{GENDER:|Ахьа}} уьш массо а тӀетоха ца оьшу",
-	"cx-tools-instructions-text3": "Де иштта, текст нийса деша луш хилийта",
+	"cx-tools-instructions-text3": "Текст хила ма-йезза {{GENDER:|нисйе}}, атта йеша луш хилийтархьама",
 	"cx-tools-instructions-text4": "Автогочдар дика йу, делахь {{GENDER:|ахьа}} гӀалаташ нисдан дезара ду.",
 	"cx-tools-instructions-text5": "Гочдар {{GENDER:|дӀайаздан}}",
 	"cx-tools-instructions-text6": "{{GENDER:|Хьой}} жамӀана реза хилча тӀетаӀайе {{int:cx-publish-button}}.",
@@ -426,8 +426,10 @@
 	"cx-sx-dashboard-help-panel-title": "Гочдеш гӀо оьшу?",
 	"cx-sx-dashboard-help-panel-more-info-label": "Ӏамархой ларамаза дӀасабоькъу хьехамчашна, церан аккаунташ кхоьллинчул тӀаьхьа. Хьан йиш йу маса Ӏамархо тӀелоцу харжа, хьайна луъург харжа йиш йу хьан. Тидам бе, цхьаболчу Ӏамархоша кхечаьрга хьаьжча, кест-кеста хаттарш дала тарло хьоьга.",
 	"cx-sx-dashboard-help-panel-stats-label": "Статистика",
+	"cx-sx-dashboard-help-panel-feedback-label": "Йазде хьайна хетарг",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "ХӀара бутт",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Йерриге",
+	"sx-confirm-back-navigation-dialog-title": "Хьайн гочдар дита?",
 	"sx-confirm-back-navigation-dialog-body": "Хийцамаш хӀинца а Ӏалашбина бац, дӀабовр бу.\nХьайн хийцамаш авто Ӏалашбархьама кхидӀа а хийцамаш бан йиш йу хьан.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Йухабаха хийцамаш",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Кхин дӀа тайе",
@@ -447,5 +449,8 @@
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Керла гочдар",
 	"sx-section-selector-close-button-aria-label": "ТӀечӀагӀдаран гӀулч тӀе нуьйда",
-	"sx-quick-tutorial-next-button-aria-label": "ДӀагӀо рогӀерчу куьйгаллин агӀоне"
+	"sx-quick-tutorial-next-button-aria-label": "ДӀагӀо рогӀерчу куьйгаллин агӀоне",
+	"cx-unreviewed-translation-dialog-close-button-aria-label": "ДӀачӀагӀа",
+	"cx-unreviewed-translation-dialog-close-button-label": "ДӀачӀагӀа",
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Цул совнаха хаа"
 }

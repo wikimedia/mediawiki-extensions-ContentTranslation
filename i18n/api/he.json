@@ -155,5 +155,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "מזהה ויקינתונים.",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "ערך בוליאני שאומר אם לכלול את כותרות הפרקים בתגובה.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "אחזור רשימת קישורי האתר עבור הערך Moon בכל השפות הזמינות, ממוינים לפי גודל הערך.",
-	"apihelp-query+automatictranslationdenselanguages-example-2": "אחזור רשימת קישורי האתר עבור הערך Moon, כולל כותרות פרקים, בכל השפות הזמינות, ממוינים לפי גודל הערך."
+	"apihelp-query+automatictranslationdenselanguages-example-2": "אחזור רשימת קישורי האתר עבור הערך Moon, כולל כותרות פרקים, בכל השפות הזמינות, ממוינים לפי גודל הערך.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "בקשה לאחזר קישורי־אתר מוויקינתונים נכשלה"
 }

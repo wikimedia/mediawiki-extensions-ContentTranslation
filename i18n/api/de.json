@@ -155,5 +155,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "Die Wikidata-ID.",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Ein Boolescher Wert, der angibt, ob die Abschnittstitel in die Antwort aufgenommen werden sollen.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Holt die Liste der Sitelinks für den Artikel „Moon“ in allen verfügbaren Sprachen, sortiert nach Artikelgröße.",
-	"apihelp-query+automatictranslationdenselanguages-example-2": "Holt die Liste der Sitelinks für den Artikel „moon“, einschließlich der Titel der Abschnitte, in allen verfügbaren Sprachen, sortiert nach Artikelgröße."
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Holt die Liste der Sitelinks für den Artikel „moon“, einschließlich der Titel der Abschnitte, in allen verfügbaren Sprachen, sortiert nach Artikelgröße.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Anforderung zum Abrufen von Sitelinks von Wikidata ist fehlgeschlagen"
 }
