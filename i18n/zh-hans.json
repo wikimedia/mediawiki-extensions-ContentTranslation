@@ -529,6 +529,8 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1个月}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1年}}",
 	"sx-confirm-draft-translation-start-dialog-title": "在手机上继续翻译",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "此翻译是在不同的设备上开始的，含有条目里多个章节内容。",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "在移动设备上，您一次只能更改一个章节。因此，目前仅加载主要章节。",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "其他章节在哪里？",
 	"sx-confirm-draft-translation-start-button-label": "确定"
 }

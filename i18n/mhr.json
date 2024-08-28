@@ -16,6 +16,7 @@
 	"cx-publish-page-success": "Велыж $1 семын савыкталтын",
 	"cx-publish-error-empty": "Сервер данный укелык ден вашештен.",
 	"cx-publish-error-readonly": "Викиште возаш чарыме.",
+	"cx-publish-error-spam-blacklist": "Тыйын кусартыштет лийын кертшаш спам шекланыме. Рашрак:$1",
 	"cx-publish-button": "Савыкташ",
 	"cx-publish-button-publishing": "Савыктымаш…",
 	"cx-translation-add-translation": "Кусарымашым ешараш",
