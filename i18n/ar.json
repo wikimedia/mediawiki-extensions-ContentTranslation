@@ -30,7 +30,8 @@
 			"زكريا",
 			"سامي الرحيلي",
 			"علاء",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Mohammed Qays"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -331,7 +332,7 @@
 	"cx-sx-sentence-selector-header-title": "قسم الترجمة",
 	"cx-sx-sentence-selector-done-button-label": "تم",
 	"cx-sx-sentence-selector-suggested-translation-title": "الترجمة المقترحة من $1",
-	"cx-sx-proposed-translation-not-available-message": "الترجمة الآلية غير متوفرة في الوقت الحالي",
+	"cx-sx-proposed-translation-not-available-message": "غير متاح حالياً",
 	"cx-sx-proposed-translation-retry-button": "أعد المحاولة",
 	"cx-sx-proposed-translation-other-options-button": "خيارات أخرى",
 	"cx-sx-sentence-selector-edit-translation-button-label": "عدل الترجمة",
@@ -417,6 +418,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "قسم الترجمة",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "قسم",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "واصل الترجمة",
 	"sx-editor-feedback-overlay-title": "شكرًا!",
 	"sx-editor-feedback-overlay-clarification": "التعلم من تصحيحاتك",
 	"sx-editor-feedback-overlay-stats": "تم تحرير <span>$1 ٪</span> بواسطتك",
@@ -491,8 +493,13 @@
 	"cx-sx-login-dialog-title": "انتهت صلاحية جلسة العمل الخاصة بك",
 	"cx-sx-login-dialog-body": "لا يمكن حفظ تعديلاتك وإسنادها إلى حسابك ما لم تقم بتسجيل الدخول مرة أخرى في نافذة أخرى",
 	"cx-sx-login-dialog-button-label": "تسجيل الدخول",
+	"sx-confirm-translation-deletion-dialog-body": "هل أنت متأكد أنك تريد حذف هذه الترجمة نهائياً؟",
+	"sx-translation-deletion-cancel-button-label": "إلغاء",
+	"sx-translation-deletion-confirm-button-label": "احذف الترجمة",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1||يوم واحد|يومين|$1 أيام|$1 يومًا|$1 يوم|0=يوم}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1||شهر واحد|شهرين|$1 شهور|$1 شهرا|$1 شهر}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1||سنة واحدة|سنتين|$1 سنين|$1 سنة}}",
+	"sx-confirm-draft-translation-start-dialog-title": "استمر في الترجمة على الهاتف المحمول",
+	"sx-confirm-draft-translation-start-button-label": "حسنا",
 	"sx-published-translation-new-translation-button-label": "ترجمة جديدة"
 }
