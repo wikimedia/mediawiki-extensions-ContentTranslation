@@ -58,7 +58,7 @@
 	"cx-special-login-error": "АгӀо гочйан [$1 чугӀо]",
 	"cx-tools-instructions-text1": "{{GENDER:|ТӀетаӀайе}} абзацашна, уьш гочйархьама",
 	"cx-tools-instructions-text2": "{{GENDER:|Ахьа}} уьш массо а тӀетоха ца оьшу",
-	"cx-tools-instructions-text3": "Де иштта, текст нийса деша луш хилийта",
+	"cx-tools-instructions-text3": "Текст хила ма-йезза {{GENDER:|нисйе}}, атта йеша луш хилийтархьама",
 	"cx-tools-instructions-text4": "Автогочдар дика йу, делахь {{GENDER:|ахьа}} гӀалаташ нисдан дезара ду.",
 	"cx-tools-instructions-text5": "Гочдар {{GENDER:|дӀайаздан}}",
 	"cx-tools-instructions-text6": "{{GENDER:|Хьой}} жамӀана реза хилча тӀетаӀайе {{int:cx-publish-button}}.",
