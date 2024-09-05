@@ -47,7 +47,7 @@ const listSelector = useDashboardListOptions();
         action="progressive"
         weight="primary"
         size="large"
-        class="col-desktop-3 col-offset-desktop-2 col-offset-tablet-3 col-mobile-12"
+        class="col-offset-desktop-2 col-offset-tablet-3"
         @click="searchTranslation"
       >
         <cdx-icon class="me-1" :icon="cdxIconAdd" />
