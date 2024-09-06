@@ -241,6 +241,8 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Present op $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt op $1",
 	"cx-sx-translation-confirmer-title": "Nei Iwwersetzung",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0=$2 Minutte}} fir z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0=$2 Minutte}} fir $3 Abschnitter z'iwwersetzen",
 	"cx-sx-content-comparator-discarded-section-label": "(net zréckbehalen)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Fänkt mat enger anerer Iwwersetzung un",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Original",
