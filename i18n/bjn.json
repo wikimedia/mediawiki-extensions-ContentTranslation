@@ -154,6 +154,8 @@
 	"cx-tools-missing-link-text": "{{GENDER:|Tandai}} laman sabagai kada tasadia gasan mahandar paulahan laman.",
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Tandai}} sabagai kada tasadia",
 	"echo-pref-tooltip-cx": "Padahi ulun pasal tarjamahan ulun nang diulah mamakai pakakas Tarjamahan Kontén.",
+	"cx-contributions-link": "Sumbangan Pian",
+	"cx-your-translations-link": "{{GENDER:$1|Sumbangan Pian}}",
 	"cx-suggestionlist-expand": "Tampaiakan samunyaan",
 	"cx-suggestionlist-collapse": "Tampaiakan saparlunya",
 	"cx-tools-linter-warnings-count": "{{PLURAL:$1|$1 paringatan}}",
