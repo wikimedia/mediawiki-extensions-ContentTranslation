@@ -356,7 +356,7 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "Content of clarifications for mapped section on the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-translation-confirmer-title": "Title for 'Confirm Translation' step",
 	"cx-sx-translation-confirmer-views-count": "Content of views count stat for specific article inside translation confirmer screen. \n\nParameters:\n* $1 - Number of weekly views for this specific article",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "Content of estimated translation time for a whole article inside translation confirmer screen. \n\nParameters:\n* $1 - Number of minutes for this specific article",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "Content of estimated translation time for a whole article inside translation confirmer screen. \n\nParameters:\n* $1 - Number of hours for this specific article\n* $2 - Number of minutes for this specific article",
 	"cx-sx-translation-confirmer-translation-time-sections": "Content of estimated translation time for a number of sections inside translation confirmer screen. \n\nParameters:\n* $1 - Number of minutes for this specific article\n* $2 - the number of sections",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Content of clarifications for a discarded section on the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-content-comparator-discarded-section-label": "Label for discarded mapped section on the screen where translators compare source and target section contents for an article existing in both languages.",
