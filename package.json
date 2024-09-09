@@ -23,7 +23,7 @@
 		"@wdio/spec-reporter": "7.16.3",
 		"dotenv": "^16.3.1",
 		"eslint-config-wikimedia": "0.27.0",
-		"grunt-banana-checker": "0.11.1",
+		"grunt-banana-checker": "0.13.0",
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.16.1",
 		"wdio-intercept-service": "^4.4.0",
