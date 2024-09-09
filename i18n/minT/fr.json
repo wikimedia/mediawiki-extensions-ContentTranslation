@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Goombiis",
 			"SleaY"
 		]
 	},
@@ -20,11 +21,15 @@
 	"mint-search-topic-page-input-aria-label": "Entrée de recherche MinT",
 	"mint-confirm-topic-page-header": "Traduction automatique",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Afficher la traduction automatique",
+	"mint-confirm-topic-page-go-to-search-button-label": "Rechercher un autre sujet",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Lire l’article",
 	"mint-view-translation-page-header": "Traduction automatique",
 	"mint-view-translation-page-disclaimer-header": "Le contenu automatique peut être inexact",
+	"mint-view-translation-page-disclaimer-learn-more-link": "En savoir plus",
+	"mint-view-translation-content-translation-entrypoint-description": "Le contenu automatique peut être inexact",
 	"mint-view-translation-overlay-header": "Traduction automatique",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Corriger la traduction",
+	"mint-view-translation-overlay-share-button-label": "Partager la traduction automatique",
 	"mint-view-translation-overlay-feedback-link-label": "Envoyer un avis",
 	"ax-article-footer-entrypoint-card-description": "Plus de contenu dans d'autres langues",
 	"ax-article-footer-entrypoint-card-supporting-text": "Lire la traduction automatique"

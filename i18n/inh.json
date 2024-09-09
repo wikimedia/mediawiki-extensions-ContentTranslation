@@ -19,6 +19,7 @@
 	"cx-beta-desc": "Шун меттал оагIонашта сиха таржам деш йола кечал я. ДIадоладе таржам [[Special:MyContributions|шоай къахьегама]] оагIон тIара. Цхьайола кечалаш болх беш хила мег алхха лаьрххIа долча метташца.",
 	"cx-tools-instructions-text5": "{{GENDER:|ДӀаязде}} таржам",
 	"cx-tools-link-title": "Тӏатовжам",
+	"cx-tools-categories-count-message": "{{PLURAL:$1|$1 оагӀат|0=ОагӀаташ яц}}",
 	"cx-create-new-translation": "Керда таржам",
 	"cx-contributions-new-contributions": "Керда къахьегам",
 	"cx-contributions-new-article": "Керда оагӀув",

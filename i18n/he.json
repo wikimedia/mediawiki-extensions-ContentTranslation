@@ -335,6 +335,8 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים. אפשר להתעלם מזה אם הפרקים אינם קשורים.",
 	"cx-sx-translation-confirmer-title": "תרגום חדש",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|ביקור אחד לשבוע|$1 ביקורים לשבוע|0=ללא ביקורים השבוע}}",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0=$2 דק׳}} לתרגום",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0=$2 דק׳}} לתרגום $3 פרקים",
 	"cx-sx-content-comparator-discarded-section-clarifications": "התרגום שלך יתפרסם בתור פרק עצמאי חדש.",
 	"cx-sx-content-comparator-discarded-section-label": "(נזרקה)",
 	"cx-sx-sentence-selector-translation-options-header-title": "להתחיל עם תרגום שונה",
