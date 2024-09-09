@@ -14,6 +14,7 @@ import {
   cdxIconLanguage,
   cdxIconClock,
   cdxIconLinkExternal,
+  cdxIconChart,
 } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
@@ -73,12 +74,37 @@ const sourceArticlePath = computed(() =>
 
 const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);
 
-const weeklyViews = computed(() =>
-  Object.values(sourceArticle.value?.pageviews || {}).reduce(
+const formatPageViews = (views) => {
+  // Define thresholds and corresponding units
+  const units = [
+    { value: 1e9, suffix: "B" }, // 1 billion
+    { value: 1e6, suffix: "M" }, // 1 million
+    { value: 1e3, suffix: "K" }, // 1 thousand
+  ];
+
+  // Loop through the units to find the appropriate one
+  for (let i = 0; i < units.length; i++) {
+    if (views >= units[i].value) {
+      // Divide by the unit's value and format the result
+      return (
+        (views / units[i].value).toFixed(1).replace(/\.0$/, "") +
+        units[i].suffix
+      );
+    }
+  }
+
+  // If no units match, return the number as a string
+  return views.toString();
+};
+
+const weeklyViews = computed(() => {
+  const views = Object.values(sourceArticle.value?.pageviews || {}).reduce(
     (sum, dayViews) => sum + dayViews,
     0
-  )
-);
+  );
+
+  return formatPageViews(views);
+});
 
 const timeEstimateMessage = computed(() => {
   if (translationSizeMessageArgs.value) {
@@ -130,12 +156,17 @@ const isQuickTranslation = computed(() => {
         class="complementary sx-translation-confirmer__article-information__stats ma-0 flex"
       >
         <div>
-          <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
-          <span class="pe-3" v-text="langLinksCount" />
-          <span
-            v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]"
-            class="pe-3"
-          />
+          <span>
+            <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
+            <span class="pe-3" v-text="langLinksCount" />
+          </span>
+          <span>
+            <cdx-icon :icon="cdxIconChart" size="small" class="me-1" />
+            <span
+                v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]"
+                class="pe-3"
+            />
+          </span>
         </div>
         <span
           class="sx-translation-confirmer__article-information__stats__time-estimate"

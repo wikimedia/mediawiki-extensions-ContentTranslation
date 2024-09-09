@@ -335,7 +335,7 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "Section in $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Your translation will expand the existing section. Discard this if the sections are not related.",
 	"cx-sx-translation-confirmer-title": "New translation",
-	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visit per|$1 visits per|0=No visits this}} week",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 view/|$1 views/|0=No views this }}week",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hour|$1 hours|0=$2min}} to translate",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 hour|$1 hours|0=$2min}} to translate $3 sections",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Your translation will be published as an independent new section.",
