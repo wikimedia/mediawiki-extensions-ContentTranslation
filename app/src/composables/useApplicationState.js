@@ -3,7 +3,7 @@ import { getAutonym } from "@wikimedia/language-data";
 
 /**
  * @param {Store} store
- * @return {{previousRoute: ComputedRef<string>, currentMTProvider: *, sourceLanguageAutonym: *, targetLanguage: *, targetLanguageAutonym: *, sourceLanguage: *}}
+ * @return {{previousRoute: ComputedRef<string>, currentMTProvider: *, sourceLanguageAutonym: *, targetLanguage: *, targetLanguageAutonym: *, sourceLanguage: *, currentSuggestionFilters: *}}
  */
 export default function (store) {
   const sourceLanguage = computed(() => store.state.application.sourceLanguage);
@@ -22,6 +22,10 @@ export default function (store) {
 
   const previousRoute = computed(() => store.state.application.previousRoute);
 
+  const currentSuggestionFilters = computed(
+    () => store.state.application.currentSuggestionFilters
+  );
+
   return {
     currentMTProvider,
     previousRoute,
@@ -29,5 +33,6 @@ export default function (store) {
     sourceLanguageAutonym,
     targetLanguage,
     targetLanguageAutonym,
+    currentSuggestionFilters,
   };
 }

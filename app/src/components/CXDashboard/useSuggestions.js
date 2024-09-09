@@ -6,7 +6,8 @@ import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 
 const useSuggestions = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const { sourceLanguage, targetLanguage, currentSuggestionFilters } =
+    useApplicationState(store);
 
   const logEvent = useEventLogging();
 
@@ -173,15 +174,16 @@ const useSuggestions = () => {
     (currentPageSuggestionsSliceIndex.value =
       (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices);
 
-  const currentSuggestionProvider = computed(
-    () => store.state.application.currentSuggestionProvider
+  watch(
+    currentSuggestionFilters,
+    () => {
+      currentPageSuggestionsSliceIndex.value = 0;
+      fetchNextPageSuggestionSlice();
+      currentSectionSuggestionsSliceIndex.value = 0;
+      fetchNextSectionSuggestionSlice();
+    },
+    { deep: true }
   );
-  watch(currentSuggestionProvider, () => {
-    currentPageSuggestionsSliceIndex.value = 0;
-    fetchNextPageSuggestionSlice();
-    currentSectionSuggestionsSliceIndex.value = 0;
-    fetchNextSectionSuggestionSlice();
-  });
 
   return {
     currentPageSuggestionsSlice,

@@ -10,7 +10,9 @@ export default {
 
       const currentSectionSuggestions = sectionSuggestionsForPair.filter(
         (suggestion) =>
-          suggestion.suggestionProvider === state.currentSuggestionProvider
+          suggestion.suggestionProvider.type ===
+            state.currentSuggestionFilters.type &&
+          suggestion.suggestionProvider.id === state.currentSuggestionFilters.id
       );
 
       return currentSectionSuggestions.slice(
@@ -30,7 +32,9 @@ export default {
 
       const currentPageSuggestions = pageSuggestionsForPair.filter(
         (suggestion) =>
-          suggestion.suggestionProvider === state.currentSuggestionProvider
+          suggestion.suggestionProvider.type ===
+            state.currentSuggestionFilters.type &&
+          suggestion.suggestionProvider.id === state.currentSuggestionFilters.id
       );
 
       return currentPageSuggestions.slice(

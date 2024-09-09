@@ -4,6 +4,7 @@ import appendixTitles from "@/utils/appendix/appendixTitles.json";
 import { createStore, useStore } from "vuex";
 import useSuggestionsFetch from "./useSuggestionsFetch";
 import { createApp } from "vue";
+import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -63,6 +64,12 @@ jest.mock("@/composables/useSuggestionSeeds", () => () => ({
   getSuggestionSeed: jest.fn(() => Promise.resolve("seed0")),
 }));
 
+jest.mock("vue-banana-i18n", () => ({
+  useI18n: () => ({
+    i18n: (key) => key,
+  }),
+}));
+
 const { getSectionSuggestionsForPair, getFavoriteTitlesByLanguagePair } =
   suggestionsStoreModule.getters;
 
@@ -104,7 +111,10 @@ const mockStore = createStore({
       state: {
         sourceLanguage: "en",
         targetLanguage: "es",
-        currentSuggestionProvider: "previous-edits",
+        currentSuggestionFilters: {
+          type: EDITS_SUGGESTION_PROVIDER,
+          id: EDITS_SUGGESTION_PROVIDER,
+        },
       },
     },
     mediawiki: {

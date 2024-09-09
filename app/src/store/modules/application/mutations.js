@@ -54,10 +54,10 @@ const mutations = {
 
   /**
    * @param state
-   * @param provider
+   * @param {{ type: String, id: String|null }} filters
    */
-  setCurrentSuggestionProvider: (state, provider) => {
-    state.currentSuggestionProvider = provider;
+  setCurrentSuggestionFilters: (state, filters) => {
+    state.currentSuggestionFilters = filters;
   },
 
   setSourceLanguage: (state, language) => {

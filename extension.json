@@ -662,6 +662,15 @@
 				"mw.cx.util"
 			]
 		},
+		"ext.cx.articletopics": {
+			"packageFiles": [
+				"articletopics/ext.cx.articletopics.js",
+				{
+					"name": "articletopics.json",
+					"callback": "ContentTranslation\\ArticleTopicsDefinition::getTopics"
+				}
+			]
+		},
 		"mw.cx3": {
 			"class": "MediaWiki\\ResourceLoader\\CodexModule",
 			"localBasePath": "app",
@@ -684,7 +693,8 @@
 				"vuex",
 				"mediawiki.user",
 				"mw.cx.SiteMapper",
-				"mw.cx.util"
+				"mw.cx.util",
+				"ext.cx.articletopics"
 			],
 			"codexComponents": [
 				"CdxButton",
@@ -888,7 +898,13 @@
 				"cx-unreviewed-translation-dialog-review-translation-button-label",
 				"cx-unreviewed-translation-dialog-close-button-label",
 				"cx-unreviewed-translation-dialog-body",
-				"cx-unreviewed-translation-dialog-learn-more-link-label"
+				"cx-unreviewed-translation-dialog-learn-more-link-label",
+				"cx-sx-suggestions-filters-header",
+				"cx-sx-suggestions-filters-close-button-aria-label",
+				"cx-sx-suggestions-filters-done-button-label",
+				"cx-sx-suggestions-filter-user-edit-label",
+				"cx-sx-suggestions-filter-most-popular-label",
+				"cx-sx-suggestions-filter-default-group-label"
 			],
 			"noflip": true
 		},

@@ -8,7 +8,8 @@ export const EDITS_SUGGESTION_PROVIDER = "previous-edits";
 
 const useSuggestionsFetchByEdits = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const { sourceLanguage, targetLanguage, currentSuggestionFilters } =
+    useApplicationState(store);
 
   const { getSuggestionSeed } = useSuggestionSeeds();
   const {
@@ -53,7 +54,7 @@ const useSuggestionsFetchByEdits = () => {
 
     fetchedSuggestions.forEach(
       (suggestion) =>
-        (suggestion.suggestionProvider = EDITS_SUGGESTION_PROVIDER)
+        (suggestion.suggestionProvider = currentSuggestionFilters.value)
     );
 
     return fetchedSuggestions;
@@ -108,7 +109,7 @@ const useSuggestionsFetchByEdits = () => {
 
     fetchedSuggestions.forEach(
       (suggestion) =>
-        (suggestion.suggestionProvider = EDITS_SUGGESTION_PROVIDER)
+        (suggestion.suggestionProvider = currentSuggestionFilters.value)
     );
 
     return fetchedSuggestions;

@@ -123,6 +123,13 @@ const mw = {
       return this.namespace;
     };
   },
+  loader: {
+    require: (filename) => {
+      if (filename === "ext.cx.articletopics") {
+        return []
+      }
+    },
+  },
 };
 
 global.mw = mw;

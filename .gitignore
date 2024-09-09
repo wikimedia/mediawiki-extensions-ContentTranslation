@@ -12,3 +12,4 @@ node_modules/
 *.js.map
 .DS_Store
 tests/selenium/log
+app/vite.config.local.js

@@ -9,6 +9,7 @@ const appendixSectionTitlesInEnglish = en;
  * @param {string} source
  * @param {string} target
  * @param {string|null} seed
+ * @param {string|null} topic
  * @param {boolean} includeSections
  * @param {"mostpopular"|null} searchAlgorithm
  * @param {number} count
@@ -17,6 +18,7 @@ const requestToRecommendationApi = async ({
   source,
   target,
   seed = null,
+  topic = null,
   includeSections = false,
   searchAlgorithm = null,
   count = 24,
@@ -25,6 +27,7 @@ const requestToRecommendationApi = async ({
     source,
     target,
     seed,
+    topic,
     count,
     search_algorithm: searchAlgorithm,
   };
@@ -197,6 +200,79 @@ async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
     source: sourceLanguage,
     target: targetLanguage,
     seed,
+    includeSections: true,
+  };
+  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  return (
+    recommendations &&
+    recommendations.map(
+      (recommendation) =>
+        new SectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: recommendation.source_title,
+          targetTitle: recommendation.target_title,
+          sourceSections: recommendation.source_sections,
+          targetSections: recommendation.target_sections,
+          present: recommendation.present,
+          missing: recommendation.missing,
+        })
+    )
+  );
+}
+
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String[]} topics
+ * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @return {Promise<ArticleSuggestion[]>}
+ */
+async function fetchPageSuggestionsByTopics(
+  sourceLanguage,
+  targetLanguage,
+  topics,
+  count = 24
+) {
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    topic: topics.join("|"),
+    count,
+  };
+
+  const suggestedResults = (await requestToRecommendationApi(params)) || [];
+
+  return suggestedResults.map(
+    (item) =>
+      new ArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        langLinksCount: parseInt(item.sitelink_count),
+      })
+  );
+}
+
+/**
+ * @param {String} sourceLanguage
+ * @param {String} targetLanguage
+ * @param {String[]} topics
+ * @param {Number} count - How many suggestions to fetch. 24 is default.
+ * @return {Promise<SectionSuggestion[]>}
+ */
+async function fetchSectionSuggestionsByTopics(
+  sourceLanguage,
+  targetLanguage,
+  topics,
+  count = 24
+) {
+  const params = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    topic: topics.join("|"),
     includeSections: true,
   };
   const recommendations = (await requestToRecommendationApi(params)) || [];
@@ -421,4 +497,6 @@ export default {
   fetchUserEdits,
   fetchMostPopularPageSuggestions,
   fetchMostPopularSectionSuggestions,
+  fetchPageSuggestionsByTopics,
+  fetchSectionSuggestionsByTopics,
 };
