@@ -500,6 +500,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Where are the other sections?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Don't worry. The remaining sections are not lost. They are now available in the list of your in-progress translations and can be used to expand the existing article. You'll find a new in-progress translation with the contents for each section.",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
+	"sx-published-translation-start-section-translation-button-aria-label": "Start section translation",
 	"sx-published-translation-new-translation-button-label": "New translation",
 	"sx-section-selector-close-button-aria-label": "Go to confirmation step button",
 	"sx-quick-tutorial-next-button-aria-label": "Go to next tutorial page",

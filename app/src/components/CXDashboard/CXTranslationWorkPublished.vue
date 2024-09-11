@@ -114,6 +114,11 @@ const startNewTranslation = () => {
               class="cx-published-translation__start-new-translation-button pa-0 ms-4"
               weight="quiet"
               action="progressive"
+              :aria-label="
+                $i18n(
+                  'sx-published-translation-start-section-translation-button-aria-label'
+                )
+              "
               @click.stop="translateNewSection(null)"
             >
               <cdx-icon :icon="cdxIconEllipsis" />
