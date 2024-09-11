@@ -32,6 +32,7 @@
 	"mint-view-translation-page-disclaimer-body": "Tämä sivu on automaattinen käännös sisällöstä, joka on alun perin kirjoittu kielellä $1.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Lisätietoja",
 	"mint-view-translation-page-target-article-container-header": "Tästä aiheesta on saatavilla myös ihmisten kirjoittamaa sisältöä",
+	"mint-view-translation-page-target-article-container-details": "Lue Wikipedian muokkaajien kirjoittama artikkeli kielellä $1 saadaksesi luotettavampaa tietoa aiheesta.",
 	"mint-view-translation-page-source-article-link-label": "Avaa kielellä $1",
 	"mint-view-translation-content-translation-entrypoint-title": "Tarkasta automaattinen käännös",
 	"mint-view-translation-content-translation-entrypoint-description": "Automaattinen sisältö voi olla virheellistä",
