@@ -5,14 +5,15 @@
 			"Ernác",
 			"Iltever",
 			"Къарачайлы",
-			"Dušan Kreheľ"
+			"Dušan Kreheľ",
+			"Pppery"
 		]
 	},
 	"cx": "Бетни кёчюрюу",
 	"cx-dashboard-header": "Кёчюрюуле",
 	"cx-javascript": "Бу адыр JavaScript'сиз ишлемейди. JavaScript джукъланыбды, ишлемейди, неда бу браузер дагъан болмайды.",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Контент кёчюрюу]], бетлени терк кеси тилигизге кёчюрюр ючюн хайырланнган адырды. [$1 Бусагъатда огъунакъ сынагъыз!]",
-	"cx-license-agreement": "Андан ары бардырыб, [https://meta.wikimedia.org/wiki/Terms_of_Use/tr Хайырланыу Шартланы] къабыл этесиз эмда къошумларыгъызны [https://creativecommons.org/licenses/by-sa/4.0/deed.tr CC BY-SA 4.0] эм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] лицензияланы тамалында басмаланыуна, кери алынмаз шекелде къабыл этериксиз.",
+	"cx-license-agreement": "Андан ары бардырыб, [https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/tr Хайырланыу Шартланы] къабыл этесиз эмда къошумларыгъызны [https://creativecommons.org/licenses/by-sa/4.0/deed.tr CC BY-SA 4.0] эм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] лицензияланы тамалында басмаланыуна, кери алынмаз шекелде къабыл этериксиз.",
 	"cx-error-server-connection": "Халат: Серверге бла байланалмады.",
 	"cx-desc": "Бетни ичиндегисин тынч [[Special:ContentTranslation|кёчюрюрге]] амал береди",
 	"cx-header-progressbar-text": "Кёчюрмени $1%'и {{PLURAL:$1|этилибди}}",
