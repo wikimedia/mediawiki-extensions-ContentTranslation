@@ -2,6 +2,26 @@ import { useStore } from "vuex";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 
+/**
+ * Holds all the source language, target language, source title combinations that
+ * have been fetched until now.
+ * @type {{sourceLanguage: string, targetLanguage: string, sourceTitle: string}[]}
+ */
+const archive = [];
+
+const existsInArchive = (sourceLanguage, targetLanguage, sourceTitle) =>
+  archive.some(
+    (item) =>
+      item.sourceLanguage === sourceLanguage &&
+      item.targetLanguage === targetLanguage &&
+      item.sourceTitle === sourceTitle
+  );
+
+const addToArchive = (sourceLanguage, targetLanguage, sourceTitle) => {
+  const entry = { sourceLanguage, targetLanguage, sourceTitle };
+  archive.push(entry);
+};
+
 const useSectionSuggestionForPublishedFetch = () => {
   const store = useStore();
 
@@ -16,7 +36,10 @@ const useSectionSuggestionForPublishedFetch = () => {
       "suggestions/getSectionSuggestionsForArticle"
     ](sourceLanguage, targetLanguage, sourceTitle);
 
-    if (!suggestion) {
+    if (
+      !suggestion &&
+      !existsInArchive(sourceLanguage, targetLanguage, sourceTitle)
+    ) {
       /** @type {SectionSuggestion|null} */
       suggestion = await cxSuggestionsApi.fetchSectionSuggestion(
         sourceLanguage,
@@ -24,15 +47,12 @@ const useSectionSuggestionForPublishedFetch = () => {
         targetLanguage
       );
 
-      if (!suggestion) {
-        suggestion = new SectionSuggestion({
-          sourceLanguage,
-          targetLanguage,
-          sourceTitle,
-          isListable: false,
-        });
+      addToArchive(sourceLanguage, targetLanguage, sourceTitle);
+
+      if (suggestion) {
+        suggestion.isListable = false;
+        store.commit("suggestions/addSectionSuggestion", suggestion);
       }
-      store.commit("suggestions/addSectionSuggestion", suggestion);
     }
 
     return suggestion;
