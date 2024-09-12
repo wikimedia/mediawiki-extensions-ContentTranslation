@@ -37,7 +37,7 @@ class SpecialAutomaticTranslation extends SpecialPage {
 		$targetLanguage = $this->languageNameUtils->getLanguageName( $targetLanguageCode );
 		$out->addHTML( $this->getHtml( $targetLanguage ) );
 
-		$out->addModuleStyles( "mint.styles" );
+		$out->addModuleStyles( 'mint.styles' );
 		$out->addModules( 'mint.app' );
 
 		// TODO: is there a way to get URL params in "getInitialLanguagesData" hook?
@@ -58,13 +58,13 @@ class SpecialAutomaticTranslation extends SpecialPage {
 	private function getHtml( string $targetLanguage ): string {
 		$templateParser = new TemplateParser( __DIR__ . '/../templates/minT' );
 		$data = [
-			'headerTitle' => $this->msg( 'mint-home-header-title' ),
-			'inputPlaceholder' => $this->msg( 'mint-home-input-placeholder' ),
-			'sourceLanguage' => $this->msg( 'mint-translation-list-all-languages-option-label' ),
+			'headerTitle' => $this->msg( 'mint-home-header-title' )->text(),
+			'inputPlaceholder' => $this->msg( 'mint-home-input-placeholder' )->text(),
+			'sourceLanguage' => $this->msg( 'mint-translation-list-all-languages-option-label' )->text(),
 			'sourceLanguageCode' => 'all',
 			'targetLanguage' => $targetLanguage,
-			'infoPanelText' => $this->msg( 'mint-home-info-panel-text', $targetLanguage ),
-			'randomTopicButtonLabel' => $this->msg( 'mint-home-random-topic-button-label' )
+			'infoPanelText' => $this->msg( 'mint-home-info-panel-text', $targetLanguage )->text(),
+			'randomTopicButtonLabel' => $this->msg( 'mint-home-random-topic-button-label' )->text(),
 		];
 
 		return $templateParser->processTemplate( 'Home', $data );
