@@ -276,6 +276,7 @@
 	"cx-sx-sentence-selector-apply-translation-button-label": "Applica",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Salta",
 	"cx-sx-translation-confirmer-title": "Nuova traduzione",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visualizzazione/|$1 visualizzazioni/|0=Nessuna visualizzazione questa }}settimana",
 	"cx-sx-sentence-selector-translation-options-original-card-title": "Originale",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduci",
 	"cx-sx-editor-original-panel-label": "Originale",

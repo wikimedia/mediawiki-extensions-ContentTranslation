@@ -357,7 +357,7 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 dilinde bölüm",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Çeviriniz mevcut bölümü genişletecektir. Bölümler ilgili değilse bunu kaydetmeyin.",
 	"cx-sx-translation-confirmer-title": "Yeni çeviri",
-	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Haftada $1 ziyaret|0=Bu hafta hiç ziyaret edilmedi}}",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 görüntüleme/hafta|0=Bu hafta hiç görüntülenmedi}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "Çevirmek için {{PLURAL:$1|$1 saat|0=$2dak}}",
 	"cx-sx-translation-confirmer-translation-time-sections": "$3 bölümü çevirmek için {{PLURAL:$1|$1 saat|0=$2dak}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Çeviriniz bağımsız yeni bir bölüm olarak yayımlanacaktır.",

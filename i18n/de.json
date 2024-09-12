@@ -336,7 +336,7 @@
 	"cx-sx-translation-confirmer-title": "Neue Übersetzung",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Ein Aufruf pro|$1 Aufrufe pro|0=Keine Aufrufe in dieser}} Woche",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0=$2 Min}} zum Übersetzen",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0=$2 Min}} um $3 Abschnitte zu übersetzen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0=$2 Min}}, um $3 Abschnitte zu übersetzen",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Deine Übersetzung wird als eigenständiger neuer Absatz veröffentlicht.",
 	"cx-sx-content-comparator-discarded-section-label": "(verworfen)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Mit einer anderen Übersetzung beginnen",
