@@ -148,5 +148,11 @@
 	"apihelp-sxdelete-param-sectiontranslationid": "Avsnittets översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
 	"apihelp-sxdelete-param-translationid": "Översättnings-ID som är associerat med översättningen av utkastsavsnittet.",
 	"apihelp-sxdelete-param-sectionid": "ID för avsnittet i utkastet till avsnittsöversättning.",
-	"apihelp-sxdelete-example-1": "Radera ett utkast som är associerat med ett angivet översättnings-ID och avsnitts-ID."
+	"apihelp-sxdelete-example-1": "Radera ett utkast som är associerat med ett angivet översättnings-ID och avsnitts-ID.",
+	"apihelp-cxsplit-summary": "Skapa och spara en avsnittsöversättning till databasen för varje översatt avsnitt i den angivna artikelöversättningen",
+	"apihelp-cxsplit-param-translationid": "Översättningens ID som avsnittsöversättningarna kommer att skapas för.",
+	"apierror-cxsplit-anon-user": "API-åtgärden \"cxsplit\" har inte aktiverats för anonyma användare",
+	"apierror-cxsplit-no-translation-found": "Ingen översättning hittades för angivet ID",
+	"apihelp-cxcheckunreviewed-summary": "Kontrollera om en snabb ogranskad översättning nyligen har publicerats för den aktuella användaren.",
+	"apierror-cxcheckunreviewed-anon-user": "API-åtgärden \"cxcheckunreviewed\" har inte aktiverats för anonyma användare"
 }

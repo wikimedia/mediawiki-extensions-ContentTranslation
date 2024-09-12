@@ -322,7 +322,7 @@
 	"cx-sx-sentence-selector-header-title": "Översätt avsnitt",
 	"cx-sx-sentence-selector-done-button-label": "Klar",
 	"cx-sx-sentence-selector-suggested-translation-title": "Föreslagen översättning från $1",
-	"cx-sx-proposed-translation-not-available-message": "Maskinöversättning är inte tillgänglig för tillfället",
+	"cx-sx-proposed-translation-not-available-message": "Inte tillgänglig just nu",
 	"cx-sx-proposed-translation-retry-button": "Försök igen",
 	"cx-sx-proposed-translation-other-options-button": "Andra alternativ",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Redigera översättning",
@@ -408,6 +408,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Översätt avsnitt",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Ny översättning",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Avsnitt",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Fortsätt översätta",
 	"sx-editor-feedback-overlay-title": "Tack!",
 	"sx-editor-feedback-overlay-clarification": "Lär dig från dina rättelser",
 	"sx-editor-feedback-overlay-stats": "<span>$1 %</span> har redigerats av dig",
@@ -492,7 +493,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Denna översättning startades på en annan enhet och innehåller innehåll för flera avsnitt av artikeln.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "På mobilen kan du bara arbeta med ett avsnitt åt gången. Därför kommer bara huvudavsnittet läsas in för närvarande.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Var finns de andra avsnitten?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Oroa dig inte. De återstående avsnitten går inte förlorade. De blir tillgängliga när du publicerar den aktuella översättningen som en ny artikel. Efter publiceringen hittar du nya pågående översättningar med innehållet för varje avsnitt.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ingen fara. De återstående avsnitten går inte förlorade. De finns nu tillgängliga i listan över dina pågående översättningar och kan användas för att utöka den befintliga artikeln. Det finns en ny pågående översättning med innehållet för varje avsnitt.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
 	"sx-published-translation-new-translation-button-label": "Ny översättning"
 }
