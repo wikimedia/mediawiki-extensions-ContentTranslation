@@ -22,8 +22,10 @@
 	"apihelp-query+contenttranslation-param-from": "O código do idioma de orixe.",
 	"apihelp-query+contenttranslation-param-to": "O código do idioma de destino.",
 	"apihelp-query+contenttranslation-param-sourcetitle": "Título da páxina orixinal.",
+	"apihelp-query+contenttranslation-param-sourcesectiontitle": "O título da sección fonte (opcional).",
 	"apihelp-query+contenttranslation-param-limit": "Número máximo de traducións a obter.",
 	"apihelp-query+contenttranslation-param-offset": "Posición dentro do conxunto de resultados (opcional).",
+	"apihelp-query+contenttranslation-param-usecase": "O caso de uso para o que se están a buscar as traducións (opcional).",
 	"apihelp-query+contenttranslation-param-type": "Estado da tradución.",
 	"apihelp-query+contenttranslation-example-1": "Obter as traducións iniciadas polo usuario actual.",
 	"apihelp-query+contenttranslation-example-2": "Obter os borradores de tradución por identificador.",
@@ -95,11 +97,12 @@
 	"apierror-cx-invalidtargetlanguage": "Lingua obxectivo non válida.",
 	"apierror-cx-invalidtranslator": "Nome de tradutor incorrecto",
 	"apierror-cx-jwtmissing": "JWT non está instalado.",
-	"apierror-cx-keynotconfigured": "A clave non foi configurada.",
+	"apierror-cx-keynotconfigured": "A clave non está configurada.",
 	"apierror-cx-missingdraft": "O borrador non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debe estar autenticado para xestionar as súas suxestións.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Para recibir suxestións de tradución ten que ter unha sesión iniciada.",
 	"apierror-cx-mustbeloggedin-viewtranslations": "Para ver as súas traducións debe estar autenticado.",
+	"apierror-cx-invalid-type-viewtranslations": "Tipo de tradución non válido. Cómpre definir o tipo e debe ser \"eliminado\", \"borrador\" ou \"publicado\"",
 	"apierror-cx-samelanguages": "As linguas fonte e obxectivo non poden ser a mesma.",
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
@@ -108,5 +111,5 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das súas traducións publicadas que foron borradas.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Data e hora para obter só os borrados máis recentes.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espazo de nomes no que foron publicadas as traducións eliminadas. Por defecto, no espazo de nomes principal.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das súas traducións borradas, que foron publicadas no espazo de nomes principal e borradas despois de 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das súas traducións borradas, que foron publicadas no espazo de nomes principal e borradas despois do 07-04-2019 ás 16:24:44"
 }

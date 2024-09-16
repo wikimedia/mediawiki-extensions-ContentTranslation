@@ -357,6 +357,7 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Questa traduzione è stata avviata su un dispositivo diverso e include contenuti per più sezioni della voce.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Dove sono le altre sezioni?",
 	"sx-confirm-draft-translation-start-button-label": "Ok",
+	"sx-published-translation-start-section-translation-button-aria-label": "Inizia traduzione della sezione",
 	"sx-published-translation-new-translation-button-label": "Nuova traduzione",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Scrivi una nuova traduzione",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Processo di traduzione passo dopo passo per creare una nuova pagina nella tua lingua.",
