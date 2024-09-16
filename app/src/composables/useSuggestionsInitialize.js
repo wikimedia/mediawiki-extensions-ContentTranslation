@@ -1,6 +1,7 @@
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
+import useSuggestionsStore from "@/composables/useSuggestionsStore";
 
 /**
  * This action initialize the page and section suggestions
@@ -22,16 +23,17 @@ const useSuggestionsInitialize = () => {
   const { fetchNextSectionSuggestionsSlice, fetchNextPageSuggestionsSlice } =
     useSuggestionsFetch();
 
+  const { getPageSuggestionsSliceByIndex, getSectionSuggestionsSliceByIndex } =
+    useSuggestionsStore();
+
   return async () => {
     const { targetLanguage } = useApplicationState(store);
 
     /** @type {SectionSuggestion[]} */
-    const firstSectionSuggestionsSlice =
-      store.getters["application/getSectionSuggestionsSliceByIndex"](0);
+    const firstSectionSuggestionsSlice = getSectionSuggestionsSliceByIndex(0);
 
     /** @type {ArticleSuggestion[]} */
-    const firstPageSuggestionsSlice =
-      store.getters["application/getPageSuggestionsSliceByIndex"](0);
+    const firstPageSuggestionsSlice = getPageSuggestionsSliceByIndex(0);
 
     const { maxSuggestionsPerSlice } = store.state.suggestions;
     const isFirstSectionSuggestionsSliceFull =

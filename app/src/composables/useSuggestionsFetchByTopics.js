@@ -1,16 +1,19 @@
 import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useSuggestionsFilters from "./useSuggestionsFilters";
 import retry from "@/utils/retry";
+import useURLHandler from "@/composables/useURLHandler";
 
 export const TOPIC_SUGGESTION_PROVIDER = "topic";
 
 const useSuggestionsFetchByTopics = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage, currentSuggestionFilters } =
-    useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    currentSuggestionFilters,
+  } = useURLHandler();
 
   const {
     isSectionSuggestionValid,
@@ -25,7 +28,7 @@ const useSuggestionsFetchByTopics = () => {
    * @return {Promise<ArticleSuggestion[]>}
    */
   const fetchPageSuggestionsByTopics = async (numberOfSuggestionsToFetch) => {
-    const topic = store.state.application.currentSuggestionFilters.id;
+    const topic = currentSuggestionFilters.value.id;
     const oresTopics = getOresTopics(topic);
 
     /** @type {ArticleSuggestion[]} */
@@ -56,7 +59,7 @@ const useSuggestionsFetchByTopics = () => {
   const fetchSectionSuggestionsByTopics = async (
     numberOfSuggestionsToFetch
   ) => {
-    const topic = store.state.application.currentSuggestionFilters.id;
+    const topic = currentSuggestionFilters.value.id;
     const oresTopics = getOresTopics(topic);
 
     const fetchedSuggestions = [];

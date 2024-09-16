@@ -1,12 +1,37 @@
 import { getUrl } from "@/utils/mediawikiHelper";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
+import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
 
 const sourceLanguageURLParameter = ref(null);
 const targetLanguageURLParameter = ref(null);
 const pageURLParameter = ref(null);
 const sectionURLParameter = ref(null);
 const draftURLParameter = ref(null);
+const filterTypeURLParameter = ref(EDITS_SUGGESTION_PROVIDER);
+const filterIdURLParameter = ref(null);
+
+/**
+ * @type {ComputedRef<{id: string, type: string}>}
+ */
+const currentSuggestionFilters = computed(() => ({
+  type: filterTypeURLParameter.value,
+  id: filterIdURLParameter.value || filterTypeURLParameter.value,
+}));
+
+/**
+ * @param {string} filterType
+ * @param {string|null} filterId
+ */
+const setFilterURLParams = (filterType, filterId) => {
+  filterTypeURLParameter.value = filterType;
+  filterIdURLParameter.value = filterId;
+  setUrlParam("filter-type", filterType);
+
+  if (filterId) {
+    setUrlParam("filter-id", filterId);
+  }
+};
 
 /**
  * @param {SectionSuggestion|DraftTranslation|null} translationToBeStarted
@@ -63,6 +88,14 @@ const initializeURLState = () => {
   sourceLanguageURLParameter.value = urlParams.get("from");
   targetLanguageURLParameter.value = urlParams.get("to");
   sectionURLParameter.value = urlParams.get("section");
+
+  if (urlParams.get("filter-type")) {
+    filterTypeURLParameter.value = urlParams.get("filter-type");
+  }
+
+  if (urlParams.get("filter-id")) {
+    filterIdURLParameter.value = urlParams.get("filter-id");
+  }
 };
 
 const clearSectionURLParameter = () => {
@@ -123,6 +156,8 @@ const useURLHandler = () => {
     sectionURLParameter,
     draftURLParameter,
     setPageURLParam,
+    currentSuggestionFilters,
+    setFilterURLParams,
   };
 };
 

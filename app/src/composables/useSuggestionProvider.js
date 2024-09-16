@@ -1,4 +1,3 @@
-import { useStore } from "vuex";
 import useSuggestionsFetchByEdits, {
   EDITS_SUGGESTION_PROVIDER,
 } from "@/composables/useSuggestionsFetchByEdits";
@@ -8,11 +7,10 @@ import useSuggestionFetchByMostPopular, {
 import useSuggestionFetchByTopics, {
   TOPIC_SUGGESTION_PROVIDER,
 } from "@/composables/useSuggestionsFetchByTopics";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useSuggestionProvider = () => {
-  const store = useStore();
-  const { currentSuggestionFilters } = useApplicationState(store);
+  const { currentSuggestionFilters } = useURLHandler();
   const {
     fetchPageSuggestionsBasedOnEdits,
     fetchSectionSuggestionsBasedOnEdits,

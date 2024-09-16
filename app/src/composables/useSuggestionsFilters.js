@@ -1,11 +1,10 @@
 import { ref } from "vue";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
 
 import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
 import { POPULAR_SUGGESTION_PROVIDER } from "@/composables/useSuggestionFetchByMostPopular";
 import { TOPIC_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByTopics";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "./useURLHandler";
 
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
@@ -22,10 +21,9 @@ const topicsToFilters = (topicGroup) => {
 };
 
 const useSuggestionsFilters = () => {
-  const store = useStore();
   const bananaI18n = useI18n();
-  const { currentSuggestionFilters: currentFilter } =
-    useApplicationState(store);
+  const { currentSuggestionFilters: currentFilter, setFilterURLParams } =
+    useURLHandler();
 
   const editsFilter = {
     id: EDITS_SUGGESTION_PROVIDER,
@@ -59,8 +57,11 @@ const useSuggestionsFilters = () => {
     return [editsFilter, popularFilter];
   };
 
+  /**
+   * @param {{type: string, id: string|null}} filter
+   */
   const selectFilter = (filter) => {
-    store.commit("application/setCurrentSuggestionFilters", filter);
+    setFilterURLParams(filter.type, filter.id);
   };
 
   const findSelectedFilter = () =>

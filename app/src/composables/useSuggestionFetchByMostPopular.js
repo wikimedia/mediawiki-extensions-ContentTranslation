@@ -1,15 +1,18 @@
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import retry from "@/utils/retry";
+import useURLHandler from "@/composables/useURLHandler";
 
 export const POPULAR_SUGGESTION_PROVIDER = "popular";
 
 const useSuggestionFetchByMostPopular = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage, currentSuggestionFilters } =
-    useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    currentSuggestionFilters,
+  } = useURLHandler();
 
   const {
     isSectionSuggestionValid,

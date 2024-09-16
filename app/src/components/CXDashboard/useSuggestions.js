@@ -1,14 +1,20 @@
 import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { useEventLogging } from "@/plugins/eventlogging";
-import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
+import useURLHandler from "@/composables/useURLHandler";
+import useSuggestionsStore from "@/composables/useSuggestionsStore";
 
 const useSuggestions = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage, currentSuggestionFilters } =
-    useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    currentSuggestionFilters,
+  } = useURLHandler();
 
+  const { getPageSuggestionsSliceByIndex, getSectionSuggestionsSliceByIndex } =
+    useSuggestionsStore();
   const logEvent = useEventLogging();
 
   const sectionSuggestionsLoading = computed(
@@ -48,18 +54,14 @@ const useSuggestions = () => {
    * @type {ComputedRef<SectionSuggestion[]>}
    */
   const currentSectionSuggestionsSlice = computed(() =>
-    store.getters["application/getSectionSuggestionsSliceByIndex"](
-      currentSectionSuggestionsSliceIndex.value
-    )
+    getSectionSuggestionsSliceByIndex(currentSectionSuggestionsSliceIndex.value)
   );
 
   /**
    * @type {ComputedRef<ArticleSuggestion[]>}
    */
   const currentPageSuggestionsSlice = computed(() =>
-    store.getters["application/getPageSuggestionsSliceByIndex"](
-      currentPageSuggestionsSliceIndex.value
-    )
+    getPageSuggestionsSliceByIndex(currentPageSuggestionsSliceIndex.value)
   );
 
   /**
@@ -96,7 +98,7 @@ const useSuggestions = () => {
       (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
     const isNextSliceFull = isSuggestionListSliceComplete(
-      store.getters["application/getSectionSuggestionsSliceByIndex"](nextIndex)
+      getSectionSuggestionsSliceByIndex(nextIndex)
     );
 
     if (!isCurrentSliceFull || !isNextSliceFull) {
@@ -114,7 +116,7 @@ const useSuggestions = () => {
       (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
     const isNextSliceFull = isSuggestionListSliceComplete(
-      store.getters["application/getPageSuggestionsSliceByIndex"](nextIndex)
+      getPageSuggestionsSliceByIndex(nextIndex)
     );
 
     if (!isCurrentSliceFull || !isNextSliceFull) {
@@ -194,6 +196,8 @@ const useSuggestions = () => {
     pageSuggestionsLoading,
     sectionSuggestionsLoading,
     showRefreshButton,
+    getSectionSuggestionsSliceByIndex,
+    getPageSuggestionsSliceByIndex,
   };
 };
 

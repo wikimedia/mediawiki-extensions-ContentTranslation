@@ -6,6 +6,7 @@ import useSuggestionsFetch from "./useSuggestionsFetch";
 import { createApp } from "vue";
 import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
 
+const mockProvider = EDITS_SUGGESTION_PROVIDER;
 global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
@@ -64,6 +65,21 @@ jest.mock("@/composables/useSuggestionSeeds", () => () => ({
   getSuggestionSeed: jest.fn(() => Promise.resolve("seed0")),
 }));
 
+jest.mock("@/composables/useSuggestionSeeds", () => () => ({
+  getSuggestionSeed: jest.fn(() => Promise.resolve("seed0")),
+}));
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+  targetLanguageURLParameter: { value: "es" },
+  currentSuggestionFilters: {
+    value: {
+      type: mockProvider,
+      id: mockProvider,
+    },
+  },
+}));
+
 jest.mock("vue-banana-i18n", () => ({
   useI18n: () => ({
     i18n: (key) => key,
@@ -111,10 +127,6 @@ const mockStore = createStore({
       state: {
         sourceLanguage: "en",
         targetLanguage: "es",
-        currentSuggestionFilters: {
-          type: EDITS_SUGGESTION_PROVIDER,
-          id: EDITS_SUGGESTION_PROVIDER,
-        },
       },
     },
     mediawiki: {

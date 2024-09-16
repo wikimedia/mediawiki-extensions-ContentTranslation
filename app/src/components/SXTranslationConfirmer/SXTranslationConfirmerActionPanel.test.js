@@ -21,6 +21,7 @@ const mockSectionSuggestion = new SectionSuggestion({
   sourceSections: ["source1", "source2", "source3"],
 });
 
+jest.mock("@/composables/useSuggestionsInitialize");
 jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
   sectionSuggestion: {
     value: mockSectionSuggestion,
