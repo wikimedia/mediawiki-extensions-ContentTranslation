@@ -47,6 +47,9 @@ const mtOptionLabel = computed(
         <cdx-button
           class="sx-sentence-selector__proposed-translation__header-settings-button"
           weight="quiet"
+          :aria-label="
+            $i18n('cx-sx-sentence-selector-mt-settings-button-aria-label')
+          "
           @click="$emit('configure-options')"
         >
           <cdx-icon class="pa-0" :icon="cdxIconEllipsis" />

@@ -754,6 +754,7 @@
 				"cx-sx-sentence-selector-header-title",
 				"cx-sx-sentence-selector-done-button-label",
 				"cx-sx-sentence-selector-suggested-translation-title",
+				"cx-sx-sentence-selector-mt-settings-button-aria-label",
 				"cx-sx-sentence-selector-edit-translation-button-label",
 				"cx-sx-sentence-selector-previous-translation-button-aria-label",
 				"cx-sx-sentence-selector-apply-translation-button-label",

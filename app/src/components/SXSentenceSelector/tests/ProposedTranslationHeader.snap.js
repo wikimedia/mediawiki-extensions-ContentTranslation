@@ -19,6 +19,7 @@ exports[`SXSentenceSelector Proposed Translation Header Component output matches
     >
       
       <button
+        aria-label="cx-sx-sentence-selector-mt-settings-button-aria-label"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only sx-sentence-selector__proposed-translation__header-settings-button"
       >
         

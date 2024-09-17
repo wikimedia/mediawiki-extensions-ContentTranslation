@@ -325,6 +325,7 @@
 	"cx-sx-sentence-selector-header-title": "Translate section",
 	"cx-sx-sentence-selector-done-button-label": "Done",
 	"cx-sx-sentence-selector-suggested-translation-title": "Suggested translation from $1",
+	"cx-sx-sentence-selector-mt-settings-button-aria-label": "Open machine translation options dialog",
 	"cx-sx-proposed-translation-not-available-message": "Not available right now",
 	"cx-sx-proposed-translation-retry-button": "Retry",
 	"cx-sx-proposed-translation-other-options-button": "Other options",
