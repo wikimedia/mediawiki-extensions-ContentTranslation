@@ -321,6 +321,7 @@
 	"sx-quick-tutorial-secondary-point-step-1": "Translate and publish one section at a time. It's easy, quick, and fun!",
 	"sx-quick-tutorial-secondary-point-step-2": "Suggested translations need your review to read naturally.",
 	"sx-quick-tutorial-translate-button-label": "Start translating",
+	"cx-sx-sentence-selector-header-close-button-aria-label": "Go to Dashboard",
 	"cx-sx-sentence-selector-header-title": "Translate section",
 	"cx-sx-sentence-selector-done-button-label": "Done",
 	"cx-sx-sentence-selector-suggested-translation-title": "Suggested translation from $1",

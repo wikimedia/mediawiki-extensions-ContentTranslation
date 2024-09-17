@@ -202,7 +202,14 @@ const verifyBackNavigationDialogOn = ref(false);
   >
     <mw-row class="sx-sentence-selector__header ma-0 py-2">
       <mw-col shrink>
-        <cdx-button weight="quiet" class="px-3" @click="goToDashboard">
+        <cdx-button
+          weight="quiet"
+          class="px-3"
+          :aria-label="
+            $i18n('cx-sx-sentence-selector-header-close-button-aria-label')
+          "
+          @click="goToDashboard"
+        >
           <cdx-icon :icon="cdxIconArrowPrevious" />
         </cdx-button>
       </mw-col>

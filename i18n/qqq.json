@@ -341,6 +341,7 @@
 	"sx-quick-tutorial-secondary-point-step-1": "Content of the secondary point in first step of the quick tutorial.",
 	"sx-quick-tutorial-secondary-point-step-2": "Content of the secondary point in second step of the quick tutorial.\n\nThe part inside <nowiki><mark></nowiki> tags will be shown as highlighted.",
 	"sx-quick-tutorial-translate-button-label": "Label for start translation button in second step of the quick tutorial",
+	"cx-sx-sentence-selector-header-close-button-aria-label": "Aria label of the close button, inside sentence selector header, that navigates the user back to the dashboard screen",
 	"cx-sx-sentence-selector-header-title": "Title for header inside sentence selector.\n\nThis is a title and ''not'' an action, so it shouldn't be translated with an imperative or an infinitive.",
 	"cx-sx-sentence-selector-done-button-label": "Label for done button inside sentence selector header\n\n{{Identical|Done}}",
 	"cx-sx-sentence-selector-suggested-translation-title": "Title for suggested sentence translation section inside sentence selector. \n\nParameters:\n* $1 - Name of selected MT provider",
