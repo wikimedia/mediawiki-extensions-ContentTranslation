@@ -428,6 +428,7 @@
 	"cx-sx-publisher-mt-abuse-message-body": "机器翻译只是一个起点。您仍然可以发布，但请确保您的翻译用您的语言读起来流畅自然。",
 	"cx-sx-publisher-mt-abuse-error-body": "机器翻译只是一个起点。请确保您的翻译用您的语言读起来流畅自然。",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1个章节|0=无章节}}",
+	"cx-sx-translation-suggestion-quick": "快速翻译",
 	"cx-sx-article-search-input-placeholder": "搜索要翻译的页面",
 	"cx-sx-article-search-recently-edited-title": "最近由你编辑",
 	"cx-sx-article-search-nearby-title": "附件",
