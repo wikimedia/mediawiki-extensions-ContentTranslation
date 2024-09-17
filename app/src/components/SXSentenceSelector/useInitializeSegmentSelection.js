@@ -1,19 +1,18 @@
-import { useStore } from "vuex";
 import useTranslationUnitSelect from "./useTranslationUnitSelect";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 
 const useInitializeSegmentSelection = () => {
   const {
     sourceSection: currentSourceSection,
     selectedContentTranslationUnit,
   } = useCurrentPageSection();
-  const store = useStore();
   const { selectNextTranslationUnit, selectTranslationUnitById } =
     useTranslationUnitSelect();
 
-  return () => {
-    const { currentTranslation } = store.state.application;
+  const { currentTranslation } = useCurrentDraftTranslation();
 
+  return () => {
     if (!currentSourceSection.value) {
       return;
     }
@@ -21,7 +20,7 @@ const useInitializeSegmentSelection = () => {
     // if this is a restored draft translation and there is no currently
     // selected translation unit (which happens when the translation inside
     // "Pick a sentence" step starts)
-    if (!!currentTranslation && !selectedContentTranslationUnit.value) {
+    if (!!currentTranslation.value && !selectedContentTranslationUnit.value) {
       const { lastTranslatedContentTranslationUnit } =
         currentSourceSection.value;
       currentSourceSection.value.selectTranslationUnitById(

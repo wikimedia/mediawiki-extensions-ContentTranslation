@@ -27,6 +27,7 @@ import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
+import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -127,25 +128,21 @@ const goToDashboard = () => {
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const clearPendingSaveRequests = usePendingSaveRequestsClear();
 const { clearURLParameters } = useURLHandler();
+const { currentTranslation } = useCurrentDraftTranslation();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");
   currentPageSection.value.reset();
+
+  if (currentTranslation.value) {
+    // reset "restored" status for draft translation
+    currentTranslation.value.restored = false;
+  }
   // Remove URL params so that section translation doesn't restart, leading to endless loop
   clearURLParameters();
   clearPendingSaveRequests();
   // wait for the redirection to dashboard before resetting variables needed in this route
   await router.push({ name: "dashboard" });
-
-  const { currentTranslation } = store.state.application;
-
-  if (!currentTranslation) {
-    return;
-  }
-
-  store.commit("application/setCurrentTranslationRestored", false);
-  // always clear current translation, if any, when going back to dashboard
-  store.commit("application/setCurrentTranslation", null);
 };
 const {
   translateTranslationUnitById,

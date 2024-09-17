@@ -82,7 +82,6 @@ const useDraftTranslationStart = () => {
     }
 
     store.dispatch("application/getCXServerToken");
-    store.commit("application/setCurrentTranslation", translation);
 
     logEvent({
       event_type: "dashboard_translation_continue",

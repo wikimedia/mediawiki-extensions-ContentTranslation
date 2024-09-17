@@ -3,8 +3,6 @@ import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEd
 export default {
   /**@type Array */
   mtRequestsPending: [],
-  /** @type Translation */
-  currentTranslation: null,
   /** @type String */
   currentMTProvider: "",
   /**
