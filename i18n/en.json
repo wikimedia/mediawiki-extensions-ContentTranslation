@@ -328,6 +328,7 @@
 	"cx-sx-proposed-translation-retry-button": "Retry",
 	"cx-sx-proposed-translation-other-options-button": "Other options",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Edit translation",
+	"cx-sx-sentence-selector-previous-translation-button-aria-label": "Select previous translation segment",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Apply",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Skip",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Full article in $1",

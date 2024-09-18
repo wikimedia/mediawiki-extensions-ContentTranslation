@@ -348,6 +348,7 @@
 	"cx-sx-proposed-translation-retry-button": "Button label for retrying machine translation displayed inside retry MT card",
 	"cx-sx-proposed-translation-other-options-button": "Button label to select other options for MT displayed inside retry MT card",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Label for edit sentence translation button inside sentence selector",
+	"cx-sx-sentence-selector-previous-translation-button-aria-label": "Aria label for the icon button that selects the previous translation segment, inside sentence selector",
 	"cx-sx-sentence-selector-apply-translation-button-label": "Label for apply sentence translation button inside sentence selector",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Label for skip sentence translation button inside sentence selector",
 	"cx-sx-content-comparator-target-selector-full-article-title": "Title for target article option in source/target selector on the screen where translators compare source and target section contents for an article existing in both languages. \n\nParameters:\n* $1 - Autonym of the target language",

@@ -24,6 +24,9 @@ const isLastTranslationUnit = computed(
     <cdx-button
       weight="quiet"
       class="sx-sentence-selector__previous-sentence-button col shrink pa-4"
+      :aria-label="
+        $i18n('cx-sx-sentence-selector-previous-translation-button-aria-label')
+      "
       :disabled="isSectionTitleSelected"
       @click="$emit('select-previous-segment')"
     >

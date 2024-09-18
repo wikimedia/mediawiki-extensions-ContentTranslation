@@ -6,6 +6,7 @@ exports[`Test ProposedTranslationActionButtons SFC Component output should match
 >
   
   <button
+    aria-label="cx-sx-sentence-selector-previous-translation-button-aria-label"
     class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only sx-sentence-selector__previous-sentence-button col shrink pa-4"
   >
     
