@@ -317,7 +317,7 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "$1 тилдеги бёлюм",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Кёчюрюуюгюз болгъан бёлюмню кенгертирикди. Бёлюмле байламлы тюл эселе, буну унама.",
 	"cx-sx-translation-confirmer-title": "Джангы кёчюрюу",
-	"cx-sx-translation-confirmer-views-count": "Ыйыкъ узунуна {{PLURAL:$1|$1 кириу|0=кирилмеди}}",
+	"cx-sx-translation-confirmer-views-count": "Ыйыкъ узунуна {{PLURAL:$1|$1 кёргюзюу|0=кёргюзюлмеди}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Кёчюрюуюгюз энчи джангы бёлюм болуб кёчюрюллюкдю.",
 	"cx-sx-content-comparator-discarded-section-label": "(унамады)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Башха кёчюрюуню башла",
