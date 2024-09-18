@@ -286,6 +286,11 @@ class Hooks implements
 	 * @param SpecialPage $page
 	 */
 	public function onSpecialContributionsBeforeMainOutput( $id, $user, $page ) {
+		$user = MediaWikiServices::getInstance()->getUserFactory()->newFromUserIdentity( $user );
+		if ( !$user->isNamed() ) {
+			return;
+		}
+
 		/** @var PreferenceHelper $preferenceHelper */
 		$preferenceHelper = MediaWikiServices::getInstance()->getService( 'ContentTranslation.PreferenceHelper' );
 
