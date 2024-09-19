@@ -156,7 +156,7 @@ class SectionPositionCalculator {
 		$params = [ 'titles' => implode( '|', self::APPENDIX_TITLES['en'] ) ];
 		$cxServerUrl = SiteMapper::getCXServerUrl( $baseUrl, $params );
 		try {
-			$response = $this->httpRequestFactory->get( $cxServerUrl );
+			$response = $this->httpRequestFactory->get( $cxServerUrl, [], __METHOD__ );
 		} catch ( \Exception $exception ) {
 			return [];
 		}

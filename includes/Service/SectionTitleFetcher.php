@@ -61,7 +61,7 @@ class SectionTitleFetcher {
 		$url = SiteMapper::getApiURL( $targetLanguage, $params );
 
 		try {
-			$response = $this->httpRequestFactory->get( $url );
+			$response = $this->httpRequestFactory->get( $url, [], __METHOD__ );
 		} catch ( \Exception $exception ) {
 			return [];
 		}

@@ -53,7 +53,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 
 		$apiUrl = wfAppendQuery( self::WIKIPEDIA_API_URL, $queryParams );
 
-		$response = $this->httpRequestFactory->get( $apiUrl );
+		$response = $this->httpRequestFactory->get( $apiUrl, [], __METHOD__ );
 
 		$responseBody = json_decode( $response, true ) ?: [];
 
@@ -108,7 +108,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 
 		$apiUrl = wfAppendQuery( self::WIKIDATA_API_URL, $queryParams );
 
-		$response = $this->httpRequestFactory->get( $apiUrl );
+		$response = $this->httpRequestFactory->get( $apiUrl, [], __METHOD__ );
 		if ( !$response ) {
 			$this->dieWithError( 'apierror-query+automatictranslationdenselanguages-sitelink-request-failure' );
 		}
