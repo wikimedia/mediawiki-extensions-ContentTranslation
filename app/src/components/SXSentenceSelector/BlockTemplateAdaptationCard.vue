@@ -60,7 +60,7 @@ const sourceTemplateName = computed(
 
 const adaptationInfo = computed(
   () =>
-    selectedSubSection.value.blockTemplateAdaptationInfo?.[
+    selectedSubSection.value?.blockTemplateAdaptationInfo?.[
       currentMTProvider.value
     ]
 );

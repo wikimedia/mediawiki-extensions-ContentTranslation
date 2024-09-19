@@ -34,8 +34,11 @@ const screenHeight = ref("100%");
 
 const store = useStore();
 
-const { currentMTProvider, sourceLanguage, targetLanguage } =
-  useApplicationState(store);
+const { currentMTProvider } = useApplicationState(store);
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+} = useURLHandler();
 
 const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
   useCurrentPageSection();
