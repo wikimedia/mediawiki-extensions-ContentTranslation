@@ -40,7 +40,7 @@ import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
 import EditCompleteFeedback from "./EditCompleteFeedback.vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import mtValidator from "../../utils/mtValidator";
 import useApplicationState from "@/composables/useApplicationState";
 import useEditedTranslationApply from "@/components/SXEditor/useEditedTranslationApply";

@@ -6,7 +6,6 @@ import store from "./store";
 import router from "./router";
 import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin, ColorsPlugin } from "@/lib/mediawiki.ui/plugins";
-import { createEventLogging } from "./plugins/eventlogging";
 
 const locale = mw.config.get("wgUserLanguage");
 const finalFallback = "en";
@@ -18,8 +17,6 @@ const app = createApp(App);
  */
 app.config.globalProperties.$incompleteVersion = true;
 
-const eventLoggingPlugin = createEventLogging();
-app.use(eventLoggingPlugin);
 app.use(router);
 app.use(store);
 app.use(ColorsPlugin);

@@ -7,7 +7,7 @@ import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { useStore } from "vuex";
 import { ref } from "vue";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";

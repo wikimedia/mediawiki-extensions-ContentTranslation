@@ -1,5 +1,5 @@
 import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useURLHandler from "@/composables/useURLHandler";
 
 const { getUrlParam } = useURLHandler();

@@ -1,6 +1,6 @@
 import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 import useURLHandler from "@/composables/useURLHandler";
 import useSuggestionsStore from "@/composables/useSuggestionsStore";

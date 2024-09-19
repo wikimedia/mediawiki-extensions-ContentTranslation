@@ -3,7 +3,6 @@ import SXSentenceSelector from "../SXSentenceSelector";
 import { createI18n } from "vue-banana-i18n";
 import SubSection from "../SubSection";
 import router from "@/router";
-import { createEventLogging } from "@/plugins/eventlogging";
 import { createStore } from "vuex";
 import SubSectionModel from "@/wiki/cx/models/subSection";
 import PageSection from "@/wiki/cx/models/pageSection";
@@ -44,8 +43,6 @@ jest.mock("@/composables/useURLHandler", () => () => ({
   },
 }));
 
-const eventLogging = createEventLogging();
-
 const mockStore = createStore({
   modules: {
     application: {
@@ -63,7 +60,7 @@ const mockStore = createStore({
 describe("Test SXSentenceSelector component", () => {
   const wrapper = mount(SXSentenceSelector, {
     global: {
-      plugins: [i18n, mockStore, eventLogging, router],
+      plugins: [i18n, mockStore, router],
       renderStubDefaultSlot: true,
     },
     shallow: true,

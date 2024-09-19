@@ -12,7 +12,7 @@ import { loadVEModules } from "@/plugins/ve";
 import { computed, onBeforeMount, onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useApplicationState from "@/composables/useApplicationState";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useCurrentPages from "@/composables/useCurrentPages";

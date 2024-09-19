@@ -1,7 +1,7 @@
 import { useDraftTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import { useRouter } from "vue-router";
 import useApplicationState from "@/composables/useApplicationState";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import { useStore } from "vuex";
 import translatorApi from "@/wiki/cx/api/translator";
 import translationRestorer from "@/utils/translationRestorer";

@@ -2,7 +2,6 @@ import { mount } from "@vue/test-utils";
 import SXArticleSearch from "./SXArticleSearch";
 import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins/";
-import { createEventLogging } from "../../plugins/eventlogging";
 import mockStore from "./articleSearchMockStore";
 import router from "../../router";
 import { computed } from "vue";
@@ -70,12 +69,11 @@ const mockUseSuggestedSourceLanguages = (
 useSuggestedSourceLanguages.mockImplementation(mockUseSuggestedSourceLanguages);
 
 const i18n = createI18n();
-const eventLogging = createEventLogging();
 
 describe("SXArticleSearch component test", () => {
   const wrapper = mount(SXArticleSearch, {
     global: {
-      plugins: [mockStore, router, i18n, eventLogging, BreakpointsPlugin],
+      plugins: [mockStore, router, i18n, BreakpointsPlugin],
     },
   });
 

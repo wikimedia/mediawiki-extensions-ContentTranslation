@@ -6,7 +6,7 @@ import {
 import useApplicationState from "@/composables/useApplicationState";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { useStore } from "vuex";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 import useURLHandler from "@/composables/useURLHandler";
 import useFavoritesFetch from "@/components/CXDashboard/useFavoritesFetch";

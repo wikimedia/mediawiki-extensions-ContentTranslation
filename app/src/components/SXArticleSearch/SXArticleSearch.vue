@@ -18,7 +18,7 @@ import usePageTranslationStart from "./usePageTranslationStart";
 import useMediaWikiState from "../../composables/useMediaWikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useEventLogging } from "../../plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import {
   useSuggestionListLanguagePairUpdate,
   useApplicationLanguagesInitialize,

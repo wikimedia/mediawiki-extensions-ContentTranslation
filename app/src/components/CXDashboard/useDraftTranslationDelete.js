@@ -1,4 +1,4 @@
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import cxTranslatorApi from "@/wiki/cx/api/translator";

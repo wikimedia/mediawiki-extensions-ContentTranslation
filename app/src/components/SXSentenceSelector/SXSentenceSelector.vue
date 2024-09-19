@@ -13,7 +13,7 @@ import { computed, nextTick, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { useEventLogging } from "@/plugins/eventlogging";
+import useEventLogging from "@/composables/useEventLogging";
 import useURLHandler from "@/composables/useURLHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "./useMTProvidersInitialize";
