@@ -110,14 +110,19 @@ const timeEstimateMessage = computed(() => {
   if (translationSizeMessageArgs.value) {
     return bananaI18n.i18n(...translationSizeMessageArgs.value);
   }
+
+  return "";
 });
 
 const isQuickTranslation = computed(() => {
   // according to the specifications, a translation is considered  quick, if it takes less than 15 minutes (T360570)
   if (translationSizeMessageArgs.value) {
     const calculatedMinutesEstimate = translationSizeMessageArgs.value[2];
+
     return calculatedMinutesEstimate < 15;
   }
+
+  return false;
 });
 </script>
 
@@ -163,8 +168,8 @@ const isQuickTranslation = computed(() => {
           <span>
             <cdx-icon :icon="cdxIconChart" size="small" class="me-1" />
             <span
-                v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]"
-                class="pe-3"
+              v-i18n:cx-sx-translation-confirmer-views-count="[weeklyViews]"
+              class="pe-3"
             />
           </span>
         </div>

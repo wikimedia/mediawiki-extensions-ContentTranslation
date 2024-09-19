@@ -1,6 +1,5 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
-import PageSection from "@/wiki/cx/models/pageSection";
 import useURLHandler from "@/composables/useURLHandler";
 
 const useCurrentDraftTranslation = () => {
