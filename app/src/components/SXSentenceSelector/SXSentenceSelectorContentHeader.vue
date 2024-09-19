@@ -1,3 +1,55 @@
+<script setup>
+import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
+import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
+import { siteMapper } from "@/utils/mediawikiHelper";
+import { computed } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { useStore } from "vuex";
+import useTranslationUnitSelect from "./useTranslationUnitSelect";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentPages from "@/composables/useCurrentPages";
+
+const store = useStore();
+const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
+const titleClass = "sx-sentence-selector__section-title";
+const { currentSourcePage: currentPage } = useCurrentPages();
+const { sourceLanguage } = useApplicationState(store);
+
+const sourceArticleTitle = computed(() => currentPage.value?.title);
+
+// This can be the page title for page translations, or the section title for
+// section translations. If the title is translated, this computed variable
+// returns this translation.
+const translationTitle = computed(
+  () => sourceSection.value?.title || sourceArticleTitle.value
+);
+
+const sourceArticlePath = computed(() =>
+  siteMapper.getPageUrl(sourceLanguage.value, sourceArticleTitle.value)
+);
+
+const isSectionTitleTranslated = computed(
+  () => !!sourceSection.value?.translatedTitle
+);
+
+const highLightClassPostfix = computed(() =>
+  isSectionTitleTranslated.value ? "translated" : "selected"
+);
+
+const titleClasses = computed(() => {
+  const classes = [titleClass];
+
+  if (isSectionTitleSelected.value) {
+    classes.push(`${titleClass}--${highLightClassPostfix.value}`);
+  }
+
+  return classes;
+});
+
+const { selectTranslationUnitById } = useTranslationUnitSelect();
+const selectSectionTitle = () => selectTranslationUnitById(0);
+</script>
+
 <template>
   <mw-col shrink class="sx-sentence-selector__section-header pa-5">
     <a
@@ -13,74 +65,11 @@
       class="pa-0 ma-0"
       :class="titleClasses"
       @click="selectSectionTitle"
-      v-html="sourceSectionTitle"
+      v-html="translationTitle"
     />
     <!--eslint-enable vue/no-v-html -->
   </mw-col>
 </template>
-
-<script>
-import { mwIconLinkExternal } from "@/lib/mediawiki.ui/components/icons";
-import { MwIcon, MwCol } from "@/lib/mediawiki.ui";
-import { siteMapper } from "@/utils/mediawikiHelper";
-import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
-import useTranslationUnitSelect from "./useTranslationUnitSelect";
-import useCurrentPageSection from "@/composables/useCurrentPageSection";
-import useCurrentPages from "@/composables/useCurrentPages";
-
-export default {
-  name: "SxSentenceSelectorContentHeader",
-  components: { MwIcon, MwCol },
-  setup() {
-    const store = useStore();
-    const { sourceSection, isSectionTitleSelected } = useCurrentPageSection();
-    const titleClass = "sx-sentence-selector__section-title";
-    const { currentSourcePage: currentPage } = useCurrentPages();
-    const { sourceLanguage } = useApplicationState(store);
-
-    const sourceArticleTitle = computed(() => currentPage.value?.title);
-    const sourceSectionTitle = computed(
-      () => sourceSection.value?.title || sourceArticleTitle.value
-    );
-
-    const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(sourceLanguage.value, sourceArticleTitle.value)
-    );
-
-    const isSectionTitleTranslated = computed(
-      () => !!sourceSection.value?.translatedTitle
-    );
-
-    const highLightClassPostfix = computed(() =>
-      isSectionTitleTranslated.value ? "translated" : "selected"
-    );
-
-    const titleClasses = computed(() => {
-      const classes = [titleClass];
-
-      if (isSectionTitleSelected.value) {
-        classes.push(`${titleClass}--${highLightClassPostfix.value}`);
-      }
-
-      return classes;
-    });
-
-    const { selectTranslationUnitById } = useTranslationUnitSelect();
-    const selectSectionTitle = () => selectTranslationUnitById(0);
-
-    return {
-      mwIconLinkExternal,
-      selectSectionTitle,
-      sourceArticlePath,
-      sourceArticleTitle,
-      sourceSectionTitle,
-      titleClasses,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
