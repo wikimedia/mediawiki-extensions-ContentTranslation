@@ -6,13 +6,13 @@ import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import { useRouter } from "vue-router";
 import useDevice from "@/composables/useDevice";
-import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
 import useApplicationState from "@/composables/useApplicationState";
 import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
 import useURLHandler from "@/composables/useURLHandler";
+import useTranslationStart from "@/composables/useTranslationStart";
 
 const props = defineProps({
   translation: {
@@ -47,34 +47,31 @@ const router = useRouter();
 const { isDesktop } = useDevice();
 const { setTranslationURLParams, setSectionURLParam } = useURLHandler();
 
-/**
- * @param {string|null} sectionTitle
- */
-const translateNewSection = (sectionTitle) => {
-  store.dispatch("application/getCXServerToken");
-  setTranslationURLParams(suggestion.value);
-
-  if (sectionTitle) {
-    setSectionURLParam(sectionTitle);
-  }
-  // TODO: Add event source
-  router.push({
-    name: "sx-translation-confirmer",
-  });
-};
-
 const openTargetPage = () => {
   window.open(props.translation.targetUrl, "_blank");
 };
 
-const { startPublishedTranslation } = usePageTranslationStart();
+const doStartTranslation = useTranslationStart();
+
 const { sourceLanguage, targetLanguage } = useApplicationState(store);
 const updateLanguagePairByPublishedTranslation =
   usePublishedTranslationLanguagePairUpdate();
 
-const startNewTranslation = () => {
+/**
+ * @param {string|null} sectionTitle
+ */
+const startTranslation = (sectionTitle) => {
   updateLanguagePairByPublishedTranslation(props.translation);
-  startPublishedTranslation(props.translation);
+  doStartTranslation(
+    props.translation.sourceTitle,
+    sourceLanguage.value,
+    targetLanguage.value,
+    "continue_published"
+  );
+
+  if (sectionTitle) {
+    setSectionURLParam(sectionTitle);
+  }
 };
 </script>
 
@@ -103,7 +100,7 @@ const startNewTranslation = () => {
               class="cx-published-translation__start-new-translation-button flex items-center px-0"
               weight="quiet"
               action="progressive"
-              @click.stop="translateNewSection(firstMissingSection)"
+              @click.stop="startTranslation(firstMissingSection)"
             >
               <cdx-icon class="me-1" :icon="cdxIconAdd" />
               <span>
@@ -119,7 +116,7 @@ const startNewTranslation = () => {
                   'sx-published-translation-start-section-translation-button-aria-label'
                 )
               "
-              @click.stop="translateNewSection(null)"
+              @click.stop="startTranslation(null)"
             >
               <cdx-icon :icon="cdxIconEllipsis" />
             </cdx-button>
@@ -129,7 +126,7 @@ const startNewTranslation = () => {
               class="cx-published-translation__start-new-translation-button flex items-center pa-0"
               weight="quiet"
               action="progressive"
-              @click.stop="startNewTranslation"
+              @click.stop="startTranslation(null)"
             >
               <cdx-icon class="me-1" :icon="cdxIconAdd" />
               <span>

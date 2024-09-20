@@ -31,6 +31,7 @@ const applicationModule = {
   mutations: {
     setSourceLanguage: () => {},
     setTargetLanguage: () => {},
+    setPreviousRoute: () => {},
   },
 };
 
@@ -56,6 +57,10 @@ export default createStore({
     translator: {
       namespaced: true,
       state: { translations: [] },
+      mutations: {
+        clearTranslationsByStatus: jest.fn(),
+        setTranslationsLoaded: jest.fn(),
+      },
     },
   },
 });

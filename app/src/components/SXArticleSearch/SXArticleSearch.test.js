@@ -6,9 +6,6 @@ import mockStore from "./articleSearchMockStore";
 import router from "../../router";
 import { computed } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
-import usePageTranslationStart from "./usePageTranslationStart";
-
-import Page from "@/wiki/mw/models/page";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 
 // Mock matchMedia as per
@@ -44,16 +41,12 @@ jest.mock("../../composables/useLanguageHelper", () => {
   };
 });
 
-jest.mock("./usePageTranslationStart", () => jest.fn());
+const mockStartTranslation = jest.fn();
+jest.mock(
+  "../../composables/useTranslationStart",
+  () => () => mockStartTranslation
+);
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
-
-const mockStartRecentlyEditedSectionTranslation = jest.fn();
-usePageTranslationStart.mockImplementation(() => ({
-  startRecentlyEditedSectionTranslation:
-    mockStartRecentlyEditedSectionTranslation,
-  startNearbySectionTranslation: jest.fn(),
-  startSearchResultSectionTranslation: jest.fn(),
-}));
 
 const getLocalStorageItem = jest.fn((item) => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
@@ -100,13 +93,11 @@ describe("SXArticleSearch component test", () => {
 
     await suggestionWrapper.trigger("click");
     expect(suggestionsCard.emitted("suggestion-clicked")).toBeTruthy();
-    expect(mockStartRecentlyEditedSectionTranslation).toHaveBeenCalledWith(
-      new Page({
-        thumbnail: { source: "/thumbnail1.jpg" },
-        title: "Test page1",
-        description: "Test description1",
-        langLinksCount: 5,
-      })
+    expect(mockStartTranslation).toHaveBeenCalledWith(
+      "Test page1",
+      "en",
+      "es",
+      "suggestion_recent_edit"
     );
   });
 });

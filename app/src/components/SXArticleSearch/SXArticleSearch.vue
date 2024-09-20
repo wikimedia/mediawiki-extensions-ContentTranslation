@@ -14,7 +14,6 @@ import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useApplicationState from "@/composables/useApplicationState";
-import usePageTranslationStart from "./usePageTranslationStart";
 import useMediaWikiState from "../../composables/useMediaWikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -26,6 +25,7 @@ import {
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
+import useTranslationStart from "@/composables/useTranslationStart";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -141,12 +141,20 @@ const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
 
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.tabletAndDown);
+const doStartTranslation = useTranslationStart();
 
-const {
-  startRecentlyEditedSectionTranslation,
-  startNearbySectionTranslation,
-  startSearchResultSectionTranslation,
-} = usePageTranslationStart();
+/**
+ * @param {Page} page
+ * @param {string} eventSource
+ * @returns {Promise<void>}
+ */
+const startTranslation = (page, eventSource) =>
+  doStartTranslation(
+    page.title,
+    sourceLanguage.value,
+    targetLanguage.value,
+    eventSource
+  );
 </script>
 
 <template>
@@ -185,13 +193,13 @@ const {
         v-if="recentlyEditedPages && recentlyEditedPages.length"
         :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
         :suggestions="recentlyEditedPages"
-        @suggestion-clicked="startRecentlyEditedSectionTranslation"
+        @suggestion-clicked="startTranslation($event, 'suggestion_recent_edit')"
       />
       <article-suggestions-card
         v-else-if="nearbyPages && nearbyPages.length"
         :card-title="$i18n('cx-sx-article-search-nearby-title')"
         :suggestions="nearbyPages"
-        @suggestion-clicked="startNearbySectionTranslation"
+        @suggestion-clicked="startTranslation($event, 'suggestion_nearby')"
       />
       <p
         v-else
@@ -202,7 +210,7 @@ const {
     <search-results-card
       v-show="!!searchInput"
       :search-input="searchInput"
-      @suggestion-clicked="startSearchResultSectionTranslation"
+      @suggestion-clicked="startTranslation($event, 'search_result')"
     />
     <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
     <mw-dialog

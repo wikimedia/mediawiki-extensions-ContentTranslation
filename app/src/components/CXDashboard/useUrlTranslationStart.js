@@ -1,4 +1,4 @@
-import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
+import useTranslationStart from "@/composables/useTranslationStart";
 import useEventLogging from "@/composables/useEventLogging";
 import useURLHandler from "@/composables/useURLHandler";
 
@@ -28,7 +28,7 @@ const getEventSourceFromUrlCampaign = () => {
  * @return {(function({pageTitle: string, isDraftTranslation: boolean, sectionTitle: string|null}): Promise<void>)}
  */
 const useUrlTranslationStart = () => {
-  const startSectionTranslation = useSectionTranslationStart();
+  const startTranslation = useTranslationStart();
   const logEvent = useEventLogging();
 
   const {
@@ -49,7 +49,7 @@ const useUrlTranslationStart = () => {
       translation_target_language: targetLanguage.value,
     });
 
-    return startSectionTranslation(
+    return startTranslation(
       pageTitle.value,
       sourceLanguage.value,
       targetLanguage.value,

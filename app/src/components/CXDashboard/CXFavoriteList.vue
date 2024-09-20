@@ -24,9 +24,8 @@ import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwCard } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
-import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
+import useTranslationStart from "@/composables/useTranslationStart";
 
 export default {
   name: "CxFavoriteList",
@@ -35,17 +34,16 @@ export default {
     MwCard,
   },
   setup() {
-    const router = useRouter();
     const store = useStore();
 
     const favorites = computed(() => store.state.suggestions.favorites || []);
-    const startSectionTranslation = useSectionTranslationStart();
+    const startTranslation = useTranslationStart();
 
     /**
      * @param {FavoriteSuggestion} suggestion
      */
     const startFavoriteTranslation = (suggestion) =>
-      startSectionTranslation(
+      startTranslation(
         suggestion.title,
         suggestion.sourceLanguage,
         suggestion.targetLanguage,

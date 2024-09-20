@@ -10,8 +10,7 @@ import { ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
 import useApplicationState from "@/composables/useApplicationState";
 import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
-import useSectionTranslationStart from "@/composables/useSectionTranslationStart";
-import usePageTranslationStart from "@/components/SXArticleSearch/usePageTranslationStart";
+import useTranslationStart from "@/composables/useTranslationStart";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconReload } from "@wikimedia/codex-icons";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
@@ -35,20 +34,18 @@ const updateSourceLanguage = (newSourceLanguage) =>
 const updateTargetLanguage = (newTargetLanguage) =>
   updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
-const doStartSectionTranslation = useSectionTranslationStart();
+const doStartTranslation = useTranslationStart();
 /**
- * @param {SectionSuggestion} suggestion
+ * @param {SectionSuggestion|ArticleSuggestion} suggestion
  * @return {Promise<void>}
  */
-const startSectionTranslation = (suggestion) =>
-  doStartSectionTranslation(
+const startTranslation = (suggestion) =>
+  doStartTranslation(
     suggestion.sourceTitle,
     suggestion.sourceLanguage,
     suggestion.targetLanguage,
     "suggestion_no_seed"
   );
-
-const { startPageSuggestion } = usePageTranslationStart();
 
 const {
   currentPageSuggestionsSlice,
@@ -110,7 +107,7 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
         :key="`page-suggestion-${index}`"
         :suggestion="suggestion"
         @close="discardPageSuggestion(suggestion)"
-        @click="startPageSuggestion(suggestion)"
+        @click="startTranslation(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
       <mw-spinner v-if="pageSuggestionsLoading" />
@@ -126,7 +123,7 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
         class="ma-0"
         :suggestion="suggestion"
         @close="discardSectionSuggestion(suggestion)"
-        @click="startSectionTranslation(suggestion)"
+        @click="startTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
       <mw-spinner v-if="sectionSuggestionsLoading" />
