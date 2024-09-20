@@ -63,7 +63,8 @@ const sentenceSelectorStyle = computed(() =>
   isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
 );
 const logEvent = useEventLogging();
-const { logEditorOpenEvent } = useSentenceSelectorInstrument();
+const { logEditorOpenEvent, logEditorCloseEvent, logEditorCloseWarnEvent } =
+  useSentenceSelectorInstrument();
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
 initializeMTProviders().then(logEditorOpenEvent);
@@ -120,6 +121,7 @@ const goToDashboard = () => {
 
   if (autoSavePending) {
     verifyBackNavigationDialogOn.value = true;
+    logEditorCloseWarnEvent();
 
     return;
   }
@@ -140,10 +142,11 @@ const doGoToDashboard = async () => {
     // reset "restored" status for draft translation
     currentTranslation.value.restored = false;
   }
+  // Log the "editor_close" event before clearing URL params
+  logEditorCloseEvent();
   // Remove URL params so that section translation doesn't restart, leading to endless loop
   clearURLParameters();
   clearPendingSaveRequests();
-  // wait for the redirection to dashboard before resetting variables needed in this route
   await router.push({ name: "dashboard" });
 };
 const {

@@ -69,7 +69,8 @@ export default class MTProviderGroup {
     } else if (mtProvider === ORIGINAL_TEXT_PROVIDER_KEY) {
       return "source";
     } else {
-      return mtProvider;
+      // event logging schema expects lowercase MT providers (e.g. "google" for "Google" MT provider)
+      return mtProvider.toLowerCase();
     }
   }
 }
