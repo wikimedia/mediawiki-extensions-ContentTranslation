@@ -7,8 +7,6 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import { ref, computed } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
-import useURLHandler from "@/composables/useURLHandler";
-import { useRouter } from "vue-router";
 
 const props = defineProps({
   activeStatus: {
@@ -102,20 +100,6 @@ const askDeletionConfirmation = (translation) => {
 };
 
 const isActive = computed(() => props.activeStatus === props.translationStatus);
-
-const router = useRouter();
-const { setTranslationURLParams } = useURLHandler();
-
-/**
- * @param {DraftTranslation} translation
- */
-const startDraftTranslation = (translation) => {
-  setTranslationURLParams(translation);
-  // TODO: Add event source for event logging
-  router.push({
-    name: "sx-translation-confirmer",
-  });
-};
 </script>
 
 <template>
@@ -139,7 +123,6 @@ const startDraftTranslation = (translation) => {
         v-for="translation in activeTranslations"
         :key="`${translationStatus}-${translation.key}`"
         :translation="translation"
-        @click="startDraftTranslation(translation)"
         @delete-translation="askDeletionConfirmation(translation)"
       />
     </div>

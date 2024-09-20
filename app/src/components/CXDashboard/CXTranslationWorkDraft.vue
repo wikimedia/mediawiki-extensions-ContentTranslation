@@ -4,6 +4,8 @@ import { mwIconTrash } from "@/lib/mediawiki.ui/components/icons";
 import { MwCol, MwProgressBar, MwRow } from "@/lib/mediawiki.ui";
 import { computed, inject } from "vue";
 import DraftTranslation from "@/wiki/cx/models/draftTranslation";
+import useURLHandler from "@/composables/useURLHandler";
+import { useRouter } from "vue-router";
 
 const props = defineProps({
   translation: {
@@ -19,6 +21,14 @@ const progressBarBackgroundColor = colors.gray200;
 const translationProgress = computed(
   () => props.translation.progress?.any * 100 || 0
 );
+
+const router = useRouter();
+const { setTranslationURLParams } = useURLHandler();
+
+const goToConfirmationStep = () => {
+  setTranslationURLParams(props.translation);
+  router.push({ name: "sx-translation-confirmer" });
+};
 </script>
 
 <template>
@@ -27,6 +37,7 @@ const translationProgress = computed(
     :translation="translation"
     :action-icon="mwIconTrash"
     @action-icon-clicked="$emit('delete-translation')"
+    @click="goToConfirmationStep"
   >
     <template #title>
       <h5

@@ -31,9 +31,6 @@ const routes = [
     path: "/sx",
     name: "sx-translation-confirmer",
     component: SXTranslationConfirmer,
-    props: (route) => ({
-      eventSource: route.query.eventSource,
-    }),
     meta: { workflowStep: 1 },
   },
   {

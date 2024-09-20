@@ -9,7 +9,7 @@ import {
   mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, onBeforeMount, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useEventLogging from "@/composables/useEventLogging";
@@ -19,14 +19,6 @@ import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
-import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
-
-const props = defineProps({
-  eventSource: {
-    type: String,
-    default: null,
-  },
-});
 
 const store = useStore();
 const { currentSourcePage } = useCurrentPages();
@@ -60,13 +52,6 @@ if (!!sectionTitle.value) {
   );
 }
 fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
-
-logEvent({
-  event_type: "dashboard_translation_start",
-  event_source: props.eventSource,
-  translation_source_language: sourceLanguage.value,
-  translation_target_language: targetLanguage.value,
-});
 
 // Start loading VE in background. Don't wait for it though.
 // We anticipate that user is going to use editor in next step.

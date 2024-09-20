@@ -1,6 +1,6 @@
 <template>
   <main class="sx-translation-confirmer-view" :class="classes">
-    <sx-translation-confirmer :event-source="eventSource" />
+    <sx-translation-confirmer />
   </main>
 </template>
 
@@ -11,12 +11,6 @@ export default {
   name: "SxTranslationConfirmerView",
   components: {
     SxTranslationConfirmer,
-  },
-  props: {
-    eventSource: {
-      type: String,
-      default: null,
-    },
   },
   computed: {
     classes() {

@@ -10,12 +10,14 @@ import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
+import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 
 export default () => {
   const router = useRouter();
   const store = useStore();
   const { isDesktop } = useDevice();
-
+  const { logDashboardTranslationStartEvent } =
+    useDashboardTranslationStartInstrument();
   const {
     pageURLParameter: sourceTitle,
     sectionURLParameter: preFilledSectionTitle,
@@ -32,6 +34,7 @@ export default () => {
 
   const startPrefilledSectionTranslation = async () => {
     if (isDesktop.value) {
+      logDashboardTranslationStartEvent();
       redirectToCX(
         sourceLanguage.value,
         targetLanguage.value,
@@ -77,6 +80,8 @@ export default () => {
   };
 
   const startNewTranslation = async () => {
+    logDashboardTranslationStartEvent();
+
     if (isDesktop.value) {
       redirectToCX(
         sourceLanguage.value,

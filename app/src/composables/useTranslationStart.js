@@ -2,6 +2,7 @@ import { useRouter } from "vue-router";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
+import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 
 /**
  * This composable returns a function that, based on the provided parameters, loads
@@ -19,6 +20,8 @@ const useTranslationStart = () => {
   const router = useRouter();
   const loadSuggestion = useSuggestionLoad();
   const { setTranslationURLParams } = useURLHandler();
+  const { setStartTranslationEventSource } =
+    useDashboardTranslationStartInstrument();
 
   /**
    * @param {string} title
@@ -41,10 +44,10 @@ const useTranslationStart = () => {
 
     store.dispatch("application/getCXServerToken");
     setTranslationURLParams(suggestion);
+    setStartTranslationEventSource(eventSource);
 
     router.push({
       name: "sx-translation-confirmer",
-      query: { eventSource },
     });
   };
 };

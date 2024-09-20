@@ -67,6 +67,7 @@ import useTargetArticlePreview from "./useTargetArticlePreview";
 import { isQuickTutorialForced } from "@/utils/urlHandler";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 
 export default {
   name: "SxContentComparator",
@@ -82,10 +83,14 @@ export default {
 
     const sourceVsTargetSelection = ref("source_section");
 
+    const { logDashboardTranslationStartEvent } =
+      useDashboardTranslationStartInstrument();
     const goToSectionSelector = () =>
       router.push({ name: "sx-section-selector" });
 
     const translateSection = () => {
+      logDashboardTranslationStartEvent();
+
       const shouldDisplayQuickTutorial =
         isQuickTutorialForced() ||
         !store.getters["translator/userHasSectionTranslations"];
