@@ -1,12 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Adamw"
+			"Adamw",
+			"Dgstranz"
 		]
 	},
+	"automatic-translation-special-page-description": "Traducción automática",
+	"automatic-translation-desc": "Proporciona [[Special:AutomaticTranslation|traducción automática]] para páginas de contenido.",
+	"mint-home-header-title": "Traducción automática",
+	"mint-home-input-placeholder": "Buscar un tema",
 	"mint-translation-list-all-languages-option-label": "Todos",
 	"mint-home-info-panel-text": "Millones de temas en Wikipedia se pueden traducir automáticamente a $1.",
-	"mint-home-random-topic-button-label": "Tema aleatoria",
+	"mint-home-random-topic-button-label": "Tema aleatorio",
 	"mint-language-selector-title": "Idiomas",
 	"mint-language-selector-suggestions-header": "Sugeridos",
 	"mint-language-selector-all-languages-header": "Todos los idiomas",
@@ -14,12 +19,21 @@
 	"mint-language-selector-no-search-results": "No hay resultados",
 	"mint-search-topic-page-header": "Buscar un tema",
 	"mint-search-topic-page-input-placeholder": "Buscar un tema",
+	"mint-search-topic-page-input-aria-label": "Entrada de búsqueda MinT",
+	"mint-search-topic-page-results-container-empty": "Busca cualquier tema. El contenido de un tema dado puede variar según el idioma.",
 	"mint-confirm-topic-page-header": "Traducción automática",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Ver traducción automática",
+	"mint-confirm-topic-page-language-selector-explanation": "Traducción [$1 de Wikipedia en $2]. Observa cómo se trata el tema en {{PLURAL:$3|otro idioma|otros $3 idiomas}}.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Buscar otro tema",
 	"mint-confirm-topic-page-target-article-link-container-header": "Escrito por los editores en $1",
+	"mint-confirm-topic-page-target-article-link-container-details": "Este artículo ha sido escrito en $1 por editores humanos. Puedes unirte a ellos para mejorar el contenido.",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Leer artículo",
 	"mint-view-translation-page-header": "Traducción automática",
 	"mint-view-translation-page-disclaimer-header": "El contenido automático puede ser inexacto",
 	"mint-view-translation-page-disclaimer-body": "Esta página es una traducción automática del contenido escrito originalmente en $1 .",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Más información",
+	"mint-view-translation-page-target-article-container-header": "También se dispone de contenido creado por personas sobre este tema",
+	"mint-view-translation-page-target-article-container-details": "Lee el artículo escrito por editores de Wikipedia en $1 para obtener información más relevante sobre el tema.",
 	"mint-view-translation-page-source-article-link-label": "Abre en $1",
 	"mint-view-translation-content-translation-entrypoint-title": "Revise la traducción automática",
 	"mint-view-translation-content-translation-entrypoint-description": "El contenido automático puede ser inexacto",
@@ -28,6 +42,7 @@
 	"mint-view-translation-overlay-target-article-link-label": "Lea en Wikipedia en $1",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Corrija la traducción",
 	"mint-view-translation-overlay-share-button-label": "Compartir traducción automática",
+	"mint-view-translation-overlay-feedback-link-label": "Enviar comentarios",
 	"ax-article-footer-entrypoint-card-description": "Más contenido en otros idiomas",
 	"ax-article-footer-entrypoint-card-supporting-text": "Leer traducción automática"
 }
