@@ -62,4 +62,14 @@ export default class MTProviderGroup {
       mtProvider
     );
   }
+
+  static getProviderForInstrumentation(mtProvider) {
+    if (mtProvider === EMPTY_TEXT_PROVIDER_KEY) {
+      return "blank";
+    } else if (mtProvider === ORIGINAL_TEXT_PROVIDER_KEY) {
+      return "source";
+    } else {
+      return mtProvider;
+    }
+  }
 }

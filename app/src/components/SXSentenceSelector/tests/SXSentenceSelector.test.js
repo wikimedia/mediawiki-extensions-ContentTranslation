@@ -10,7 +10,10 @@ import { ref } from "vue";
 
 const i18n = createI18n();
 
-jest.mock("../useMTProvidersInitialize", () => () => jest.fn());
+jest.mock(
+  "../useMTProvidersInitialize",
+  () => () => jest.fn(() => Promise.resolve())
+);
 
 jest.mock("@/plugins/ve");
 

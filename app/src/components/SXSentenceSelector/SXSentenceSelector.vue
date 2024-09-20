@@ -28,6 +28,7 @@ import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
+import useSentenceSelectorInstrument from "@/components/SXSentenceSelector/useSentenceSelectorInstrument";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -62,9 +63,10 @@ const sentenceSelectorStyle = computed(() =>
   isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
 );
 const logEvent = useEventLogging();
+const { logEditorOpenEvent } = useSentenceSelectorInstrument();
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
-initializeMTProviders();
+initializeMTProviders().then(logEditorOpenEvent);
 
 const scrollToTranslationUnit = useSelectedContentTranslationUnitScroll();
 
