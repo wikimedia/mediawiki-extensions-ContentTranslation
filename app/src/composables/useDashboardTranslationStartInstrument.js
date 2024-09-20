@@ -79,8 +79,12 @@ const useDashboardTranslationStartInstrument = () => {
       // 		yet required, translation_target_exists
     };
 
+    // if section title URL param is set, this is a section translation
     if (sourceSectionTitle.value) {
       payload.translation_source_section = sourceSectionTitle.value;
+      payload.translation_type = "section";
+    } else {
+      payload.translation_type = "article";
     }
 
     return logEvent(payload);
