@@ -80,6 +80,7 @@ export default {
       required: true,
     },
   },
+  emits: ["update:discardedSections"],
   data: () => ({
     mwIconTrash,
     mwIconUndo,
@@ -125,8 +126,7 @@ export default {
   background-color: @background-color-disabled-subtle;
   border-radius: @border-radius-base;
   .sx-content-comparator-header__mapped-section-header {
-    border-bottom: @border-width-base @border-style-base
-      @border-color-disabled;
+    border-bottom: @border-width-base @border-style-base @border-color-disabled;
     .sx-content-comparator-header__mapped-section-header-title {
       // No typography style for this font-size in UI library
       font-size: 14px;

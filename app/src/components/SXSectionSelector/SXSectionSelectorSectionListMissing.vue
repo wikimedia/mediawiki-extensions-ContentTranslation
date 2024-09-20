@@ -45,9 +45,9 @@ const noMissingSectionExists = computed(
       v-else
       class="sx-section-selector__empty-missing-sections px-4 my-0"
     >
-      <!--eslint-disable vue/no-v-html -->
+      <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
       <mw-col class="py-6 justify-center" v-html="sadRobotSVG" />
-      <!--eslint-enable vue/no-v-html -->
+      <!--eslint-enable vue/no-v-text-v-html-on-component -->
       <mw-col
         cols="12"
         class="sx-section-selector__empty-missing-sections-details pa-0"

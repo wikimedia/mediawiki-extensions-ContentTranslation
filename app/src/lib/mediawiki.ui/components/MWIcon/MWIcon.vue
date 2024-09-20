@@ -48,6 +48,7 @@ export default {
       default: 20,
     },
   },
+  emits: ["click"],
   computed: {
     classes: (vm) => ({
       "mw-ui-icon--noflip": !vm.flip,

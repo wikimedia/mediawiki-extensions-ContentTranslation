@@ -30,7 +30,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
         reverse="false"
         tag="div"
       >
-        <!-- eslint-disable vue/no-v-html -->
+        <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col-stub
           class="items-center mw-ui-dialog__header-title justify-start"
           grow="true"
@@ -39,7 +39,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
         >
           Dialog Title
         </mw-col-stub>
-        <!--eslint-enable vue/no-v-html -->
+        <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col-stub
           class="justify-center"
           grow="false"

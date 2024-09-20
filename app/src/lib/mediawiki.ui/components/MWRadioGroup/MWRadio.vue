@@ -77,6 +77,7 @@ export default {
       default: null,
     },
   },
+  emits: ["change"],
   computed: {
     isSelected: (vm) =>
       vm.value

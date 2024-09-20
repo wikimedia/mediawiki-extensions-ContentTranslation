@@ -36,5 +36,8 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: ["*.vue"],
+    },
   ],
 };

@@ -5,6 +5,7 @@ exports[`SXSentenceSelector Proposed Translation Header Component output matches
   class="col sx-sentence-selector__proposed-translation__header pt-5 shrink"
 >
   
+  <!--eslint-disable vue/no-v-text-v-html-on-component -->
   <div
     class="row items-center justify-start ma-0 ps-5 pb-4"
   >
@@ -14,6 +15,7 @@ exports[`SXSentenceSelector Proposed Translation Header Component output matches
     >
       cx-sx-sentence-selector-suggested-translation-title
     </h6>
+    <!--eslint-enable vue/no-v-text-v-html-on-component -->
     <div
       class="col shrink pe-5"
     >

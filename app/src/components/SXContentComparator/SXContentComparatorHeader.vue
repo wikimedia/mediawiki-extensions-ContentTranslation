@@ -59,7 +59,7 @@
       :suggestion="suggestion"
       :target-section-title="activeSectionTargetTitle"
       :discarded-sections="discardedSections"
-      @update:discardedSections="$emit('update:discardedSections', $event)"
+      @update:discarded-sections="$emit('update:discardedSections', $event)"
     />
   </div>
 </template>

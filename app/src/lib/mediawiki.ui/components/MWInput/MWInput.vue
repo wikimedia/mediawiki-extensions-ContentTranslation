@@ -9,6 +9,7 @@
           class="mw-ui-input__icon"
         ></mw-icon>
       </slot>
+      <!--eslint-disable vue/no-v-text-v-html-on-component -->
       <component
         :is="type === 'textarea' ? type : 'input'"
         ref="input"
@@ -25,6 +26,7 @@
         @click="onClick"
         v-text="value"
       />
+      <!--eslint-enable vue/no-v-text-v-html-on-component -->
       <slot name="indicator">
         <mw-icon
           v-if="indicator"
@@ -86,7 +88,7 @@ export default {
       },
     },
   },
-  emits: ["click", "focus", "blur", "indicator-clicked"],
+  emits: ["click", "focus", "blur", "indicator-clicked", "update:value"],
   data: () => ({
     focused: false,
   }),

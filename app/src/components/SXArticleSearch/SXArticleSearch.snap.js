@@ -85,11 +85,13 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
         </svg>
       </span>
       
+      <!--eslint-disable vue/no-v-text-v-html-on-component -->
       <input
         class="mw-ui-input__input"
         placeholder="cx-sx-article-search-input-placeholder"
         type="search"
       />
+      <!--eslint-enable vue/no-v-text-v-html-on-component -->
       
       <!--v-if-->
       

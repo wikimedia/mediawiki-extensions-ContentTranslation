@@ -1,7 +1,7 @@
 import Page from "../models/page";
 import LanguageTitleGroup from "../models/languageTitleGroup";
 import segmentedContentConverter from "../../../utils/segmentedContentConverter";
-import { siteMapper, getUserCoordinates } from "../../../utils/mediawikiHelper";
+import { siteMapper, getUserCoordinates } from "@/utils/mediawikiHelper";
 
 /**
  * Default size for thumbnail images in pixels
@@ -137,7 +137,9 @@ const fetchLanguageLinksForLanguage = (
   return mwApi.get(params).then((response) => {
     const pages = Object.values(response.query.pages);
 
-    return pages.map((page) => page.langlinks?.[0]?.["*"]).filter((title) => !!title);
+    return pages
+      .map((page) => page.langlinks?.[0]?.["*"])
+      .filter((title) => !!title);
   });
 };
 

@@ -5,3 +5,4 @@ package-lock.json
 .vscode/
 storybook-static/
 tests/e2e
+**/*.snap.js

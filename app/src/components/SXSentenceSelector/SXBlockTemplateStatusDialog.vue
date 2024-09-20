@@ -33,7 +33,9 @@
         <mw-col shrink>
           <mw-icon class="me-2" :icon="note.icon" :icon-color="note.color" />
         </mw-col>
+        <!--eslint-disable vue/no-v-text-v-html-on-component -->
         <mw-col v-text="note.text" />
+        <!--eslint-enable vue/no-v-text-v-html-on-component -->
       </mw-row>
     </div>
   </mw-dialog>
@@ -49,17 +51,7 @@ import {
   mwIconLink,
   mwIconClose,
 } from "@/lib/mediawiki.ui/components/icons";
-import {
-  MwButton,
-  MwDialog,
-  MwDivider,
-  MwIcon,
-  MwRadio,
-  MwRadioGroup,
-  MwRow,
-  MwCol,
-  MwCircleProgressBar,
-} from "@/lib/mediawiki.ui";
+import { MwDialog, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import colors from "@/lib/mediawiki.ui/variables/colors";
 
 import { useStore } from "vuex";
@@ -73,13 +65,8 @@ export default {
   components: {
     MwCol,
     MwRow,
-    MwButton,
     MwIcon,
-    MwRadioGroup,
-    MwRadio,
-    MwDivider,
     MwDialog,
-    MwCircleProgressBar,
     BlockTemplateStatusIndicator,
   },
   props: {

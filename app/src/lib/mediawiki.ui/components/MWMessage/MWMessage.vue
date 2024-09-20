@@ -29,7 +29,7 @@
     <!-- @slot Use this slot for custom action for the message -->
     <!--    Add hideMessage method as slot prop, so that message can be hidden even when -->
     <!--    action slot is being overridden -->
-    <slot name="action" :hideMessage="hideMessage">
+    <slot name="action" :hide-message="hideMessage">
       <mw-button
         v-if="dismissable"
         class="col shrink items-start mw-ui-message__action py-1"

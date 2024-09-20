@@ -133,14 +133,14 @@ watch(publishOptionsOn, (newValue) => {
     />
     <section class="sx-publisher__section-preview pa-5">
       <mw-row class="pb-5 ma-0">
-        <!--eslint-disable vue/no-v-html -->
+        <!--eslint-disable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col
           tag="h2"
           grow
           class="sx-publisher__section-preview__title ma-0"
           v-html="translatedTitle"
         />
-        <!--eslint-enable vue/no-v-html -->
+        <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col shrink>
           <cdx-button weight="quiet" @click="editTranslation">
             <cdx-icon :icon="cdxIconEdit" />

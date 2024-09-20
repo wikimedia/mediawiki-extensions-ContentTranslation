@@ -10,11 +10,13 @@ exports[`MWInput.vue renders <textarea> tag when type is passed so 1`] = `
     
     <!--v-if-->
     
+    <!--eslint-disable vue/no-v-text-v-html-on-component -->
     <textarea
       class="mw-ui-input__input"
       placeholder="Enter some text"
       type="textarea"
     />
+    <!--eslint-enable vue/no-v-text-v-html-on-component -->
     
     <!--v-if-->
     
@@ -37,10 +39,12 @@ exports[`MWInput.vue renders icons and indicator when passed 1`] = `
       size="24"
     />
     
+    <!--eslint-disable vue/no-v-text-v-html-on-component -->
     <input
       class="mw-ui-input__input"
       type="input"
     />
+    <!--eslint-enable vue/no-v-text-v-html-on-component -->
     
     <mw-icon-stub
       class="mw-ui-input__indicator"

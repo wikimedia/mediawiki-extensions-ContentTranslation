@@ -67,10 +67,8 @@ export default {
     background: @background-color-interactive-subtle;
     color: @color-base;
     // Border color should be Gray200 `#eaecf0`
-    border-top: @border-style-base @border-width-base
-      @border-color-disabled;
-    border-bottom: @border-style-base @border-width-base
-      @border-color-disabled;
+    border-top: @border-style-base @border-width-base @border-color-disabled;
+    border-bottom: @border-style-base @border-width-base @border-color-disabled;
   }
 }
 </style>
