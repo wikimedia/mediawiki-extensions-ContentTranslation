@@ -64,9 +64,7 @@ const useSuggestionsFilters = () => {
   };
 
   const findSelectedFilter = () =>
-    allFilters.value
-      .flatMap((group) => group.filters)
-      .find(isFilterSelected);
+    allFilters.value.flatMap((group) => group.filters).find(isFilterSelected);
 
   const isFilterSelected = (filter) =>
     currentFilter.value.type === filter.type &&
@@ -75,6 +73,7 @@ const useSuggestionsFilters = () => {
   const getOresTopics = (topicId) => {
     const allTopics = topicGroups.flatMap((group) => group.topics);
     const topic = allTopics.find((t) => t.topicId === topicId);
+
     return topic ? topic.orestopics : [];
   };
 

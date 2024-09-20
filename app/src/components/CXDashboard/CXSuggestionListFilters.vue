@@ -6,7 +6,7 @@ import {
   cdxIconEllipsis,
 } from "@wikimedia/codex-icons";
 import { MwDialog } from "@/lib/mediawiki.ui";
-import { ref, inject, computed, watch  } from "vue";
+import { ref, inject, computed, watch } from "vue";
 import SxSuggestionsFilters from "@/components/SXSuggestionsFilters";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 
@@ -17,8 +17,8 @@ const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
 
 const dialogVisible = ref(false);
-const openFiltersDialog = () => dialogVisible.value = true;
-const closeFiltersDialog = () => dialogVisible.value = false;
+const openFiltersDialog = () => (dialogVisible.value = true);
+const closeFiltersDialog = () => (dialogVisible.value = false);
 
 const filterTypeToIconMap = {
   "previous-edits": cdxIconUserAvatar,
@@ -73,7 +73,8 @@ const chips = computed(() => [
       animation="slide-up"
       :fullscreen="fullscreen"
       :header="false"
-      :overlay-opacity="0">
+      :overlay-opacity="0"
+    >
       <sx-suggestions-filters @close="closeFiltersDialog" />
     </mw-dialog>
   </div>

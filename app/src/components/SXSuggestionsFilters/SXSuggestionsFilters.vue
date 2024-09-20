@@ -9,7 +9,7 @@ import {
 } from "@wikimedia/codex-icons";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 
-const emit = defineEmits(["close"])
+const emit = defineEmits(["close"]);
 
 const filterTypeToIconMap = {
   "previous-edits": cdxIconUserAvatar,
@@ -61,7 +61,9 @@ const isSelected = (filter) => {
         <cdx-button
           class="pa-0 ms-4"
           weight="quiet"
-          :aria-label="$i18n('cx-sx-suggestions-filters-close-button-aria-label')"
+          :aria-label="
+            $i18n('cx-sx-suggestions-filters-close-button-aria-label')
+          "
           @click="close"
         >
           <cdx-icon :icon="cdxIconClose" />
