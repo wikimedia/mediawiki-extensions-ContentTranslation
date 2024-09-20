@@ -4,6 +4,9 @@ import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
 import useURLHandler from "@/composables/useURLHandler";
+import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
+import { TOPIC_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByTopics";
+import { POPULAR_SUGGESTION_PROVIDER } from "@/composables/useSuggestionFetchByMostPopular";
 
 /**
  * @type {Ref<SuggestionSeedCollection[]>}
@@ -27,13 +30,14 @@ const seedCollections = {
  * seeds can be fetched (e.g. current user has no edits), a seed based
  * on published translations with CX, is returned.
  *
- * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>)}}
+ * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), getEventSourceForDashboardSuggestion: (function(): string)}}
  */
 const useSuggestionSeeds = () => {
   const store = useStore();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
+    currentSuggestionFilters: currentFilter,
   } = useURLHandler();
 
   /**
@@ -190,7 +194,26 @@ const useSuggestionSeeds = () => {
     return seed;
   };
 
-  return { getSuggestionSeed };
+  const getEventSourceForDashboardSuggestion = () => {
+    const { type } = currentFilter.value;
+
+    if (type === EDITS_SUGGESTION_PROVIDER) {
+      return defaultSeedsFetched
+        ? "suggestion_no_seed"
+        : "suggestion_recent_edit";
+    } else if (type === TOPIC_SUGGESTION_PROVIDER) {
+      return "suggestion_topic_area";
+    } else if (type === POPULAR_SUGGESTION_PROVIDER) {
+      // we don't have a proper event source for most popular suggestions,
+      // let's use 'suggestion_featured' for now
+      // TODO: Add a new event source or renamed 'suggestion_featured' for most popular suggestions
+      return "suggestion_featured";
+    }
+
+    return "";
+  };
+
+  return { getSuggestionSeed, getEventSourceForDashboardSuggestion };
 };
 
 export default useSuggestionSeeds;
