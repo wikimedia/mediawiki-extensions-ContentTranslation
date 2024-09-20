@@ -1,9 +1,9 @@
 import { useStore } from "vuex";
 import { ref } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * @type {Ref<SuggestionSeedCollection[]>}
@@ -31,7 +31,10 @@ const seedCollections = {
  */
 const useSuggestionSeeds = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
 
   /**
    * This method fetches seeds based on the following order:
