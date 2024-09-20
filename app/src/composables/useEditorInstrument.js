@@ -8,7 +8,7 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import useEventLogging from "@/composables/useEventLogging";
 import { computed } from "vue";
 
-const useSentenceSelectorInstrument = () => {
+const useEditorInstrument = () => {
   const store = useStore();
   const router = useRouter();
 
@@ -178,7 +178,18 @@ const useSentenceSelectorInstrument = () => {
       ...sharedPayload.value,
     });
 
-  return { logEditorOpenEvent, logEditorCloseEvent, logEditorCloseWarnEvent };
+  const logEditorSegmentAddEvent = () =>
+    logEvent({
+      event_type: "editor_segment_add",
+      ...sharedPayload.value,
+    });
+
+  return {
+    logEditorOpenEvent,
+    logEditorCloseEvent,
+    logEditorCloseWarnEvent,
+    logEditorSegmentAddEvent,
+  };
 };
 
-export default useSentenceSelectorInstrument;
+export default useEditorInstrument;

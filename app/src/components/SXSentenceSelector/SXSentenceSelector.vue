@@ -13,7 +13,6 @@ import { computed, nextTick, onMounted, ref, watch } from "vue";
 import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import useEventLogging from "@/composables/useEventLogging";
 import useURLHandler from "@/composables/useURLHandler";
 import useInitializeSegmentSelection from "./useInitializeSegmentSelection";
 import useMTProvidersInitialize from "./useMTProvidersInitialize";
@@ -28,7 +27,7 @@ import { cdxIconArrowPrevious } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
-import useSentenceSelectorInstrument from "@/components/SXSentenceSelector/useSentenceSelectorInstrument";
+import useEditorInstrument from "@/composables/useEditorInstrument";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -62,9 +61,13 @@ const originalSegmentContent = computed(
 const sentenceSelectorStyle = computed(() =>
   isNaN(screenHeight.value) ? screenHeight.value : `${screenHeight.value}px`
 );
-const logEvent = useEventLogging();
-const { logEditorOpenEvent, logEditorCloseEvent, logEditorCloseWarnEvent } =
-  useSentenceSelectorInstrument();
+
+const {
+  logEditorOpenEvent,
+  logEditorCloseEvent,
+  logEditorCloseWarnEvent,
+  logEditorSegmentAddEvent,
+} = useEditorInstrument();
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
 initializeMTProviders().then(logEditorOpenEvent);
@@ -100,11 +103,7 @@ const applyProposedTranslationToSelectedTranslationUnit =
   useProposedTranslationApply();
 
 const applyTranslation = () => {
-  logEvent({
-    event_type: "editor_segment_add",
-    translation_source_language: sourceLanguage.value,
-    translation_target_language: targetLanguage.value,
-  });
+  logEditorSegmentAddEvent();
   applyProposedTranslationToSelectedTranslationUnit();
 };
 

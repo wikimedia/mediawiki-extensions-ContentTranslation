@@ -40,11 +40,11 @@ import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
 import EditCompleteFeedback from "./EditCompleteFeedback.vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import useEventLogging from "@/composables/useEventLogging";
 import mtValidator from "../../utils/mtValidator";
 import useApplicationState from "@/composables/useApplicationState";
 import useEditedTranslationApply from "@/components/SXEditor/useEditedTranslationApply";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useEditorInstrument from "@/composables/useEditorInstrument";
 
 export default {
   name: "SxEditor",
@@ -76,7 +76,7 @@ export default {
 
     const editedTranslation = ref(null);
     const showFeedback = ref(false);
-    const logEvent = useEventLogging();
+    const { logEditorSegmentAddEvent } = useEditorInstrument();
 
     const { targetLanguage, sourceLanguage } = useApplicationState(store);
     const { sourceSection } = useCurrentPageSection();
@@ -105,11 +105,7 @@ export default {
         sourceSection.value.editedTranslation = translation;
       } else {
         if (mtScore.value === 0 && isInitialEdit) {
-          logEvent({
-            event_type: "editor_segment_add",
-            translation_source_language: sourceLanguage.value,
-            translation_target_language: targetLanguage.value,
-          });
+          logEditorSegmentAddEvent();
         }
         applyTranslationPromise =
           applyEditedTranslationToSelectedTranslationUnit(translation);
