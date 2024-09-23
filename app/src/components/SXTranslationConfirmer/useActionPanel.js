@@ -61,6 +61,11 @@ const useActionPanel = () => {
       return "cx-sx-select-section";
     } else if (missingCount.value === 0 && presentCount.value === 0) {
       return "cx-sx-translation-confirmer-action-new-translation";
+    } else {
+      // missing and present sections count can be undefined for a while, for example
+      // when the user updates the source language for a section translation, inside
+      // "Confirm a translation" step
+      return "";
     }
   };
 

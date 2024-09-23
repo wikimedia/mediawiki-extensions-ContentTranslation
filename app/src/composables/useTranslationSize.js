@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
@@ -100,26 +100,29 @@ const useTranslationSize = () => {
   const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
   const translationSizeMessageArgs = ref(null);
 
-  if (suggestion.value) {
-    // Return the translation time estimate for the missing sections
-    calculateSuggestionSectionsSize(sourceArticle.value, suggestion.value).then(
-      (size) => {
+  watchEffect(() => {
+    if (suggestion.value) {
+      // Return the translation time estimate for the missing sections
+      calculateSuggestionSectionsSize(
+        sourceArticle.value,
+        suggestion.value
+      ).then((size) => {
         translationSizeMessageArgs.value =
           getTranslationTimeMessagesArgsForSectionSuggestions(
             bytesToMinutes(size),
             Object.keys(suggestion.value.missingSections).length
           );
-      }
-    );
-  } else if (sourceArticle.value) {
-    const minutes = bytesToMinutes(sourceArticle.value.articleSize);
-    // Return the translation time estimate for the whole article
-    /**
-     * @type {[string,number,number]}
-     */
-    translationSizeMessageArgs.value =
-      getTranslationTimeMessagesArgsForPageSuggestions(minutes);
-  }
+      });
+    } else if (sourceArticle.value) {
+      const minutes = bytesToMinutes(sourceArticle.value.articleSize);
+      // Return the translation time estimate for the whole article
+      /**
+       * @type {[string,number,number]}
+       */
+      translationSizeMessageArgs.value =
+        getTranslationTimeMessagesArgsForPageSuggestions(minutes);
+    }
+  });
 
   return { translationSizeMessageArgs, bytesToMinutes };
 };

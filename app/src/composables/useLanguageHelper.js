@@ -2,7 +2,6 @@ import useMediaWikiState from "@/composables/useMediaWikiState";
 import useApplicationState from "@/composables/useApplicationState";
 import { getInitialLanguagePair } from "@/utils/getInitialLanguagePair";
 import { siteMapper } from "@/utils/mediawikiHelper";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
@@ -166,10 +165,16 @@ const usePublishedTranslationLanguagePairUpdate = () => {
 const useArticleLanguagePairUpdate = () => {
   const store = useStore();
   const loadSuggestion = useSuggestionLoad();
-  const { currentLanguageTitleGroup } = useLanguageTitleGroup();
+  const { currentLanguageTitleGroup, targetPageExists } =
+    useLanguageTitleGroup();
 
   return async (newSourceLanguage, newTargetLanguage) => {
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
+    const {
+      sourceLanguageURLParameter: sourceLanguage,
+      targetLanguageURLParameter: targetLanguage,
+      setPageURLParam,
+      clearSectionURLParameter,
+    } = useURLHandler();
 
     // If newly selected target language is same as source language, swap languages
     if (newSourceLanguage === newTargetLanguage) {
@@ -177,26 +182,32 @@ const useArticleLanguagePairUpdate = () => {
       newTargetLanguage = sourceLanguage.value;
     }
 
-    const sourceTitle =
+    const newSourceTitle =
       currentLanguageTitleGroup.value.getTitleForLanguage(newSourceLanguage);
 
     const redirectionNeeded = redirectToTargetWikiIfNeeded(
       newSourceLanguage,
       newTargetLanguage,
-      sourceTitle,
+      newSourceTitle,
       null
     );
 
     if (!redirectionNeeded) {
       setLanguagePair(store, newSourceLanguage, newTargetLanguage);
+      setPageURLParam(newSourceTitle);
 
-      // TODO: Use targetPageExists if possible (once targetLanguage is loaded from URL instead of Vuex state)
-      if (currentLanguageTitleGroup.value.hasLanguage(targetLanguage.value)) {
+      if (targetPageExists.value) {
+        // if section title is already selected, clear it, as we
+        // cannot map the old section titles to the new ones.
+        // The user should select the section manually, in the
+        // following steps
+        clearSectionURLParameter();
+
         /** @type {SectionSuggestion|null} */
         await loadSuggestion(
           sourceLanguage.value,
           targetLanguage.value,
-          sourceTitle
+          newSourceTitle
         );
       }
 

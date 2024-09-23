@@ -40,6 +40,11 @@ const setSectionURLParam = (sectionTitle) => {
   setUrlParam("section", sectionTitle);
 };
 
+const setPageURLParam = (pageTitle) => {
+  pageURLParameter.value = pageTitle;
+  setUrlParam("page", pageTitle);
+};
+
 /**
  * @param {object} params A mapping of query parameter names to values,
  *  e.g. `{ action: 'edit' }`
@@ -117,6 +122,7 @@ const useURLHandler = () => {
     targetLanguageURLParameter,
     sectionURLParameter,
     draftURLParameter,
+    setPageURLParam,
   };
 };
 
