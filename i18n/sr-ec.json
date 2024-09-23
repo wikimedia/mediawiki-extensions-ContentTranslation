@@ -485,5 +485,20 @@
 	"sx-published-translation-new-translation-button-label": "Нови превод",
 	"cx-unreviewed-translation-dialog-close-button-aria-label": "Затвори",
 	"cx-unreviewed-translation-dialog-close-button-label": "Затвори",
-	"cx-unreviewed-translation-dialog-learn-more-link-label": "Сазнајте више"
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "Сазнајте више",
+	"cx-sx-suggestions-filters-done-button-label": "Готово",
+	"cx-articletopics-topic-asia": "Азија",
+	"cx-articletopics-topic-north-america": "Северна Америка",
+	"cx-articletopics-topic-oceania": "Океанија",
+	"cx-articletopics-topic-entertainment": "Забава",
+	"cx-articletopics-topic-sports": "Спорт",
+	"cx-articletopics-topic-education": "Образовање",
+	"cx-articletopics-topic-women": "Жена",
+	"cx-articletopics-topic-chemistry": "Хемија",
+	"cx-articletopics-topic-computers-and-internet": "Рачунари и интернет",
+	"cx-articletopics-topic-earth-and-environment": "Земља и животна средина",
+	"cx-articletopics-topic-mathematics": "Математика",
+	"cx-articletopics-topic-medicine-and-health": "Медицина и здравље",
+	"cx-articletopics-topic-physics": "Физика",
+	"cx-articletopics-topic-technology": "Технологија"
 }

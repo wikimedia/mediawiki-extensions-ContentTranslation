@@ -541,7 +541,7 @@
 	"cx-sx-suggestions-filters-close-button-aria-label": "Aria label of the close button, inside the header of the view that shows all the available filters for the translation suggestions in the unified dashboard",
 	"cx-sx-suggestions-filters-done-button-label": "Label of the 'Done' button that closes the filters view in the unified dashboard",
 	"cx-sx-suggestions-filter-user-edit-label": "Label of the filter that shows the translation suggestions based on the user's recent edits in the unified dashboard",
-	"cx-sx-suggestions-filter-most-popular-label": "Label of the filter that shows the translation suggestions based on the most popular articles in the unified dashboard",
+	"cx-sx-suggestions-filter-most-popular-label": "Label of the filter that shows the translation suggestions based on the most popular articles in the unified dashboard. A plural adjective that describes articles.",
 	"cx-sx-suggestions-filter-default-group-label": "Label of the filter group that contains the 'edits' and 'popular' filters in the unified dashboard",
 	"cx-articletopics-group-geography": "Label of the 'geography' topics group on the suggestions filters view in the unified dashboard",
 	"cx-articletopics-group-culture": "Label of the 'culture' topics group on the suggestions filters view in the unified dashboard",

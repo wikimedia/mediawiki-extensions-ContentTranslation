@@ -476,5 +476,17 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Yaɣ' shɛŋa ŋan balanima maa be ya?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Di che ka di muɣisi a. Yaɣ' shɛŋa din kpalim maa bi barigi. Di ni yi palo a yi zaŋ a tuma maa wuhi salo. A yi zaŋ wuhi salo naai, a ni nyɛ zaɣ' palli lɛbigibu ni piligiria  ni lahabaya din yiri di yaɣa zaa na",
 	"sx-confirm-draft-translation-start-button-label": "Di saɣiya",
-	"sx-published-translation-new-translation-button-label": "lɛbigiri palli"
+	"sx-published-translation-new-translation-button-label": "lɛbigiri palli",
+	"cx-sx-suggestions-filter-user-edit-label": "N ti a",
+	"cx-sx-suggestions-filter-most-popular-label": "Bayana",
+	"cx-articletopics-group-culture": "Kali",
+	"cx-articletopics-topic-asia": "Asia",
+	"cx-articletopics-topic-north-america": "America wulinpuhili",
+	"cx-articletopics-topic-central-america": "America sunsuuni",
+	"cx-articletopics-topic-food-and-drink": "Bindirigu ni binyurili",
+	"cx-articletopics-topic-history": "Taarihi",
+	"cx-articletopics-topic-transportation": "Gɔmma",
+	"cx-articletopics-topic-women": "Dema",
+	"cx-articletopics-topic-mathematics": "Laasabu malibu",
+	"cx-articletopics-topic-medicine-and-health": "Tima ni alaafee"
 }

@@ -13,6 +13,7 @@
 			"NGC 54",
 			"Paloi Sciurala",
 			"Strainu",
+			"Trotinel Iftode",
 			"Wintereu",
 			"XXN"
 		]
@@ -373,5 +374,6 @@
 	"cx-uls-translate-page-quick-action-label": "Tradu această pagină",
 	"cx-contributecard-entrypoint-title": "Traduceri",
 	"cx-contributecard-entrypoint-desc": "Traduceți o secțiune sau un articol întreg. Faceți ca mai mult conținut să fie disponibil în mai multe limbi.",
-	"cx-contributecard-entrypoint-cta": "Începeți o traducere"
+	"cx-contributecard-entrypoint-cta": "Începeți o traducere",
+	"cx-sx-suggestions-filters-header": "Ajustați sugestiile"
 }
