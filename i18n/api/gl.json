@@ -107,7 +107,7 @@
 	"apierror-cx-invalidtargetlanguage": "Lingua obxectivo non válida.",
 	"apierror-cx-invalidtranslator": "Nome de tradutor incorrecto",
 	"apierror-cx-jwtmissing": "JWT non está instalado.",
-	"apierror-cx-keynotconfigured": "A clave non foi configurada.",
+	"apierror-cx-keynotconfigured": "A clave non está configurada.",
 	"apierror-cx-missingdraft": "O borrador non existe.",
 	"apierror-cx-mustbeloggedin-suggestions": "Debe estar autenticado para xestionar as súas suxestións.",
 	"apierror-cx-mustbeloggedin-get-suggestions": "Para recibir suxestións de tradución ten que ter unha sesión iniciada.",
@@ -122,5 +122,5 @@
 	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das súas traducións publicadas que foron borradas.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Data e hora para obter só os borrados máis recentes.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espazo de nomes no que foron publicadas as traducións eliminadas. Por defecto, no espazo de nomes principal.",
-	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das súas traducións borradas, que foron publicadas no espazo de nomes principal e borradas despois de 2019-04-07 16:24:44"
+	"apihelp-query+cxdeletedtranslations-example-1": "Obter o número das súas traducións borradas, que foron publicadas no espazo de nomes principal e borradas despois do 07-04-2019 ás 16:24:44"
 }
