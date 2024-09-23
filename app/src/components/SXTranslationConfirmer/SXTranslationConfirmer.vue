@@ -49,12 +49,14 @@ const loadSuggestion = useSuggestionLoad();
 // to support draft translation start
 fetchTranslationsByStatus("draft");
 
+// This call doesn't seem to have any impact, as the suggestion is already loaded at this point,
+// even when section title exists (i.e. for section translations).
+// TODO: Remove this call
 if (!!sectionTitle.value) {
   loadSuggestion(
     sourceLanguage.value,
     targetLanguage.value,
-    sourcePageTitle.value,
-    false
+    sourcePageTitle.value
   );
 }
 fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
