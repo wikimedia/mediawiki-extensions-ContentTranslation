@@ -246,5 +246,13 @@
 	"sx-translation-deletion-confirm-button-label": "अनुवाद हटायें",
 	"cx-unreviewed-translation-dialog-close-button-aria-label": "बंद करें",
 	"cx-unreviewed-translation-dialog-close-button-label": "बंद करें",
-	"cx-unreviewed-translation-dialog-learn-more-link-label": "अधिक जानिए"
+	"cx-unreviewed-translation-dialog-learn-more-link-label": "अधिक जानिए",
+	"cx-sx-suggestions-filters-done-button-label": "पूर्ण हुआ",
+	"cx-articletopics-topic-africa": "अफ़्रीका",
+	"cx-articletopics-topic-europe": "यूरोप",
+	"cx-articletopics-topic-sports": "खेल",
+	"cx-articletopics-topic-women": "महिलाएं",
+	"cx-articletopics-topic-biology": "जीवविज्ञान",
+	"cx-articletopics-topic-chemistry": "रसायन विज्ञान",
+	"cx-articletopics-topic-technology": "प्रौद्योगिकी"
 }
