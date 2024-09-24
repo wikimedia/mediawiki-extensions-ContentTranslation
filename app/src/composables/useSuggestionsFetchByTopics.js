@@ -3,6 +3,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useSuggestionsFilters from "./useSuggestionsFilters";
+import retry from "@/utils/retry";
 
 export const TOPIC_SUGGESTION_PROVIDER = "topic";
 
@@ -60,7 +61,7 @@ const useSuggestionsFetchByTopics = () => {
 
     const fetchedSuggestions = [];
 
-    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+    await retry(async () => {
       /** @type {SectionSuggestion[]} */
       const suggestions =
         await cxSuggestionsApi.fetchSectionSuggestionsByTopics(
@@ -76,7 +77,6 @@ const useSuggestionsFetchByTopics = () => {
         (suggestion) => !isSectionSuggestionValid(suggestion)
       );
 
-      // only keep the needed number of suggestions, to avoid having suggestions of only one seed
       validSuggestions = validSuggestions.slice(0, numberOfSuggestionsToFetch);
       fetchedSuggestions.push(...validSuggestions);
 
@@ -86,7 +86,9 @@ const useSuggestionsFetchByTopics = () => {
           store.commit("suggestions/addSectionSuggestion", suggestion);
         }
       });
-    }
+
+      return fetchedSuggestions.length >= numberOfSuggestionsToFetch;
+    });
 
     fetchedSuggestions.forEach(
       (suggestion) =>

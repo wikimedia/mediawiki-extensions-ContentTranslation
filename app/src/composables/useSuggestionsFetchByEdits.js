@@ -3,6 +3,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useSuggestionSeeds from "@/composables/useSuggestionSeeds";
+import retry from "@/utils/retry";
 
 export const EDITS_SUGGESTION_PROVIDER = "previous-edits";
 
@@ -27,13 +28,13 @@ const useSuggestionsFetchByEdits = () => {
   ) => {
     const fetchedSuggestions = [];
 
-    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+    await retry(async () => {
       const seed = await getSuggestionSeed("page");
 
       // Seed should always be provided as we cannot fetch a section suggestion
       // without using one. Thus, if no seed provided, suggestion fetching should stop
       if (!seed) {
-        break;
+        return true;
       }
 
       /** @type {ArticleSuggestion[]} */
@@ -50,7 +51,9 @@ const useSuggestionsFetchByEdits = () => {
       // only keep the needed number of suggestions, to avoid having suggestions of only one seed
       suggestions = suggestions.slice(0, numberOfSuggestionsToFetch);
       fetchedSuggestions.push(...suggestions);
-    }
+
+      return fetchedSuggestions.length >= numberOfSuggestionsToFetch;
+    });
 
     fetchedSuggestions.forEach(
       (suggestion) =>
@@ -69,13 +72,13 @@ const useSuggestionsFetchByEdits = () => {
   ) => {
     const fetchedSuggestions = [];
 
-    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+    await retry(async () => {
       const seed = await getSuggestionSeed("section");
 
       // Seed should always be provided as we cannot fetch a section suggestion
       // without using one. Thus, if no seed provided, suggestion fetching should stop
       if (!seed) {
-        break;
+        return true;
       }
       /** @type {SectionSuggestion[]|null} */
       const suggestions = await cxSuggestionsApi.fetchSectionSuggestions(
@@ -84,8 +87,9 @@ const useSuggestionsFetchByEdits = () => {
         seed
       );
 
+      // Try again with the next seed
       if (!suggestions) {
-        continue;
+        return false;
       }
 
       let validSuggestions = suggestions.filter((suggestion) =>
@@ -105,7 +109,9 @@ const useSuggestionsFetchByEdits = () => {
           store.commit("suggestions/addSectionSuggestion", suggestion);
         }
       });
-    }
+
+      return fetchedSuggestions.length >= numberOfSuggestionsToFetch;
+    });
 
     fetchedSuggestions.forEach(
       (suggestion) =>

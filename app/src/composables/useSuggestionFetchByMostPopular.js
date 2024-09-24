@@ -2,6 +2,7 @@ import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
+import retry from "@/utils/retry";
 
 export const POPULAR_SUGGESTION_PROVIDER = "popular";
 
@@ -19,7 +20,7 @@ const useSuggestionFetchByMostPopular = () => {
   const fetchPageSuggestionsPopular = async (numberOfSuggestionsToFetch) => {
     const fetchedSuggestions = [];
 
-    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+    await retry(async () => {
       /** @type {ArticleSuggestion[]} */
       let suggestions = await cxSuggestionsApi.fetchMostPopularPageSuggestions(
         sourceLanguage.value,
@@ -33,7 +34,9 @@ const useSuggestionFetchByMostPopular = () => {
       // only keep the needed number of suggestions, to avoid having suggestions of only one seed
       suggestions = suggestions.slice(0, numberOfSuggestionsToFetch);
       fetchedSuggestions.push(...suggestions);
-    }
+
+      return fetchedSuggestions.length >= numberOfSuggestionsToFetch;
+    });
 
     fetchedSuggestions.forEach(
       (suggestion) =>
@@ -46,7 +49,7 @@ const useSuggestionFetchByMostPopular = () => {
   const fetchSectionSuggestionsPopular = async (numberOfSuggestionsToFetch) => {
     const fetchedSuggestions = [];
 
-    while (fetchedSuggestions.length < numberOfSuggestionsToFetch) {
+    await retry(async () => {
       /** @type {SectionSuggestion[]} */
       const suggestions =
         await cxSuggestionsApi.fetchMostPopularSectionSuggestions(
@@ -71,7 +74,9 @@ const useSuggestionFetchByMostPopular = () => {
           store.commit("suggestions/addSectionSuggestion", suggestion);
         }
       });
-    }
+
+      return fetchedSuggestions.length >= numberOfSuggestionsToFetch;
+    });
 
     fetchedSuggestions.forEach(
       (suggestion) =>
