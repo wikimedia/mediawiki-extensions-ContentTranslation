@@ -27,7 +27,8 @@
 			"SunAfterRain",
 			"Lakejason0",
 			"Cookai1205",
-			"SCP-2000"
+			"SCP-2000",
+			"列维劳德"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -444,10 +445,10 @@
 	"sx-block-template-adaptation-card-edit-button-label": "檢視與編輯翻譯",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "編輯翻譯",
 	"sx-block-template-adaptation-card-body-header-failure": "等效模板對於$1不適用",
-	"sx-missing-languages-entrypoint-panel-text-one-missing": "在<span>$1</span>缺少",
+	"sx-missing-languages-entrypoint-panel-text-one-missing": "缺少 <span>$1</span> 版本",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "在<span>$1</span>與<span>$2</span>缺少",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "在<span>$1</span>、<span>$2</span>，和更多語言裡缺少",
-	"cx-uls-relevant-languages-banner-text-single-missing": "在<span>$1</span>和更多語言裡缺少",
+	"cx-uls-relevant-languages-banner-text-single-missing": "缺少 <span>$1</span> 等版本",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "在<span>$1</span>、<span>$2</span>，和更多語言裡缺少",
 	"cx-uls-relevant-languages-panel-header": "翻譯此頁面",
 	"cx-uls-relevant-languages-panel-message": "您有可能掌握的幾種語言中缺少相應的頁面，抽些時間來翻譯吧！",
