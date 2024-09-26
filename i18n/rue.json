@@ -19,5 +19,6 @@
 	"sx-recent-translation-entrypoint-banner-header": "Тота сторінка была недавно перекладена",
 	"sx-recent-translation-entrypoint-dialog-header": "Полїпшыти переклад",
 	"sx-recent-translation-entrypoint-dialog-review-switch-text": "Зобразити обсяг",
-	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Переклады повторно хосновають роботу редакторів з іншых языків. Некотры аспекты ся можуть погубити почас перекладу. Можете:"
+	"sx-recent-translation-entrypoint-dialog-review-lead-text": "Переклады повторно хосновають роботу редакторів з іншых языків. Некотры аспекты ся можуть погубити почас перекладу. Можете:",
+	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Одкрыти оріґіналну сторінку на $1"
 }
