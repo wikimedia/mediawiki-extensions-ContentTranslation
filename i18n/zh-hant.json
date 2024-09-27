@@ -338,6 +338,7 @@
 	"cx-sx-proposed-translation-retry-button": "重試",
 	"cx-sx-proposed-translation-other-options-button": "其他選項",
 	"cx-sx-sentence-selector-edit-translation-button-label": "編輯譯文",
+	"cx-sx-sentence-selector-previous-translation-button-aria-label": "選擇上一個翻譯片段",
 	"cx-sx-sentence-selector-apply-translation-button-label": "套用",
 	"cx-sx-sentence-selector-skip-translation-button-label": "跳過",
 	"cx-sx-content-comparator-target-selector-full-article-title": "在$1的完整條目",
