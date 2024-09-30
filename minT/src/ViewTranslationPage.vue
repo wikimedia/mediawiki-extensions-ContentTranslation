@@ -148,6 +148,7 @@
 					:url="targetPageUrl"
 					force-thumbnail
 					:thumbnail="targetPage.thumbnailData"
+					@click="onTargetArticleClick"
 				>
 					<template #title>
 						{{ targetTitle }}
@@ -358,6 +359,17 @@ module.exports = defineComponent( {
 			optionsDialogOn.value = true;
 		};
 
+		const onTargetArticleClick = () => {
+			const translationContext = computed( () => ( {
+				// eslint-disable-next-line camelcase
+				source_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: targetPage.value.title
+			} ) );
+
+			logEvent( 'click', null, 'human_translation_card', 'translation_view', translationContext );
+		};
+
 		return {
 			cdxIconArrowNext,
 			cdxIconClose,
@@ -383,7 +395,8 @@ module.exports = defineComponent( {
 			translatedSectionTitles,
 			loadingSectionTitleTranslations,
 			openTranslationOptions,
-			optionsDialogOn
+			optionsDialogOn,
+			onTargetArticleClick
 		};
 	}
 } );

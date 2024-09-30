@@ -277,7 +277,7 @@ module.exports = defineComponent( {
 				source_title: targetPage.value.title
 			} ) );
 
-			logEvent( 'click', null, 'human_translation_card', null, translationContext );
+			logEvent( 'click', null, 'human_translation_card', 'article_confirmation_view', translationContext );
 		};
 
 		return {
