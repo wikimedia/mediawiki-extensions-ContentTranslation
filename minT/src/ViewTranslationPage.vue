@@ -231,8 +231,8 @@ module.exports = defineComponent( {
 			initializeTranslation
 		} = useTranslationInitialize();
 
-		watch( leadSectionTranslation, () => {
-			if ( leadSectionTranslation.value.length ) {
+		const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
+			if ( leadSectionTranslation.value.some( ( item ) => item && typeof item === 'string' ) ) {
 				const translationData = {
 					// eslint-disable-next-line camelcase
 					source_language: sourceLanguage.value,
@@ -242,8 +242,9 @@ module.exports = defineComponent( {
 					source_title: pageTitle
 				};
 				logEvent( 'view', null, 'automatic_translation', null, translationData );
+				unwatchLeadSectionTranslation();
 			}
-		}, { once: true } );
+		}, { deep: true } );
 
 		const { createSkeletonLoader } = useSkeletonLoader();
 		const structuredLeadSectionTranslation = computed( () => {

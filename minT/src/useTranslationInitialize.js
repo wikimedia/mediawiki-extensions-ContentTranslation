@@ -49,7 +49,7 @@ const useTranslationInitialize = () => {
 	const { sourceLanguage, targetLanguage } = useState();
 	const { cxServerToken } = useCXServerToken();
 	const doc = ref( null );
-	const leadSectionTranslation = ref( '' );
+	const leadSectionTranslation = ref( [] );
 	const loadingLeadSectionTranslation = ref( true );
 
 	const initializeTranslation = ( title ) => {
