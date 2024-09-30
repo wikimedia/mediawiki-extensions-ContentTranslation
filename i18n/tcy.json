@@ -6,7 +6,8 @@
 			"Chidananda Kampa",
 			"Pragathi. BH",
 			"Ravi Mundkur",
-			"Soundarya shetty s"
+			"Soundarya shetty s",
+			"Vinoda mamatharai"
 		]
 	},
 	"cx-suggestionlist-favorite": "ಬೊಕ್ಕಗ್",
@@ -20,6 +21,7 @@
 	"cx-sx-sentence-selector-header-close-button-aria-label": "ಡ್ಯಾಶ್ ಬೋರ್ಡ್ ಗ್ ಪೋಲೆ",
 	"cx-sx-sentence-selector-mt-settings-button-aria-label": "ಯಂತ್ರ ಅನುವಾದ ಆಯ್ಕೆಲೆನ ಸಂವಾದೊನು ತೆರೆಲೆ",
 	"cx-sx-sentence-selector-previous-translation-button-aria-label": "ದುಂಬುದ ಅನುವಾದ ವಿಭಾಗೊನು ಆಯ್ಕೆ ಮಲ್ಪುಲೆ",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1| $1 ವೀಕ್ಷಣೆ/| $1 ವೀಕ್ಷಣೆಲು/|0=ಈ }}ವಾರೊಡು ವೀಕ್ಷಣೆಲು ಇಜ್ಜಿ",
 	"sx-editor-feedback-overlay-title": "ಸೊಲ್ಮೆಲೋ!",
 	"cx-sx-suggestions-filters-header": "ಸಲಹೆಲೆನ್ ಸರಿ ಮಲ್ಪುಲೆ",
 	"cx-sx-suggestions-filters-close-button-aria-label": "ಸಲಹೆಲೆನ ಫಿಲ್ಟರ್ ಲೆನ್ ಮುಚ್ಚುಲೆ",
@@ -40,6 +42,7 @@
 	"cx-articletopics-topic-oceania": "ಓಷಿಯಾನಿಯಾ",
 	"cx-articletopics-topic-architecture": "ವಾಸ್ತುಶಿಲ್ಪ",
 	"cx-articletopics-topic-art": "ಕಲೆಗಾರಿಕೆ",
+	"cx-articletopics-topic-literature": "ಲೆಕ್ಚರರ್",
 	"cx-articletopics-topic-music": "ಸಂಗೀತೊ",
 	"cx-articletopics-topic-comics-and-anime": "ಕಾಮಿಕ್ಸ್ ಬೊಕ್ಕ ಅನಿಮೆ",
 	"cx-articletopics-topic-entertainment": "ಗಮ್ಮತ್ತ್",
