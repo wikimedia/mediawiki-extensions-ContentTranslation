@@ -115,7 +115,7 @@ module.exports = defineComponent( {
 			}
 		};
 
-		const { logEvent, logClickEvent } = useEventLogging();
+		const { logEvent } = useEventLogging();
 
 		const doSearch = ( query ) => {
 			if ( !query ) {
@@ -155,7 +155,13 @@ module.exports = defineComponent( {
 		 * @param {PageSearchResult} pageResult
 		 */
 		const goToConfirm = ( pageResult ) => {
-			logClickEvent( null, 'search_result', pageResult.title );
+			const translationContext = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: pageResult.title
+			};
+			logEvent( 'click', null, 'search_result', null, translationContext );
 			navigateToPage( 'confirm', { pageResult } );
 		};
 

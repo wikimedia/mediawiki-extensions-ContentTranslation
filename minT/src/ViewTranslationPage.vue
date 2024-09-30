@@ -217,9 +217,8 @@ module.exports = defineComponent( {
 	setup( props ) {
 		const { sourceLanguage, targetLanguage } = useState();
 
-		const { logEvent, logClickEvent } = useEventLogging();
+		const { logEvent } = useEventLogging();
 		const pageTitle = props.pageResult.getTitleByLanguage( sourceLanguage.value );
-		const eventContext = `${ sourceLanguage.value };${ targetLanguage.value };${ pageTitle }`;
 
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
@@ -233,7 +232,15 @@ module.exports = defineComponent( {
 
 		watch( leadSectionTranslation, () => {
 			if ( leadSectionTranslation.value.length ) {
-				logEvent( 'view', null, 'automatic_translation', eventContext );
+				const translationData = {
+					// eslint-disable-next-line camelcase
+					source_language: sourceLanguage.value,
+					// eslint-disable-next-line camelcase
+					target_language: targetLanguage.value,
+					// eslint-disable-next-line camelcase
+					source_title: pageTitle
+				};
+				logEvent( 'view', null, 'automatic_translation', null, translationData );
 			}
 		}, { once: true } );
 
@@ -343,7 +350,7 @@ module.exports = defineComponent( {
 		const { goToHomePage } = useRouter();
 
 		const closeViewTranslationPage = () => {
-			logClickEvent( 'close', 'automatic_translation_header', null );
+			logEvent( 'click', 'close', 'automatic_translation_header' );
 			goToHomePage();
 		};
 		const optionsDialogOn = ref( false );

@@ -234,10 +234,16 @@ module.exports = defineComponent( {
 		const { navigateToPage, openLanguageSelector } = useRouter();
 		const goToSearch = () => navigateToPage( 'search' );
 
-		const { logClickEvent } = useEventLogging();
+		const { logEvent } = useEventLogging();
 		const goToTranslation = () => {
-			const actionContext = `${ sourceLanguage.value };${ targetLanguage.value }`;
-			logClickEvent( 'open', 'auto_translation_card', actionContext );
+			const translationContext = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_language: targetLanguage.value
+			};
+			logEvent( 'click', 'open', 'auto_translation_card', null, translationContext );
+
 			navigateToPage( 'translation', { pageResult: props.pageResult } );
 		};
 
@@ -264,7 +270,16 @@ module.exports = defineComponent( {
 				null;
 		} );
 
-		const onTargetArticleClick = () => logClickEvent( null, 'human_translation_card' );
+		const onTargetArticleClick = () => {
+			const translationContext = computed( () => ( {
+				// eslint-disable-next-line camelcase
+				source_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: targetPage.value.title
+			} ) );
+
+			logEvent( 'click', null, 'human_translation_card', null, translationContext );
+		};
 
 		return {
 			thumbnailStyle,
