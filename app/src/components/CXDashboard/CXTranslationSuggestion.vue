@@ -1,11 +1,12 @@
 <script setup>
-import { MwIcon, MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwThumbnail, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { CdxIcon } from "@wikimedia/codex";
 import {
-  mwIconClose,
-  mwIconBookmark,
-  mwIconBookmarkOutline,
-  mwIconArrowNext,
-} from "@/lib/mediawiki.ui/components/icons";
+  cdxIconClose,
+  cdxIconBookmark,
+  cdxIconBookmarkOutline,
+  cdxIconArrowNext,
+} from "@wikimedia/codex-icons";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
@@ -54,7 +55,7 @@ const { sourceLanguageAutonym, targetLanguageAutonym } =
   useApplicationState(store);
 
 const bookmarkIcon = computed(() =>
-  isFavoriteSuggestion.value ? mwIconBookmark : mwIconBookmarkOutline
+  isFavoriteSuggestion.value ? cdxIconBookmark : cdxIconBookmarkOutline
 );
 
 const colors = inject("colors");
@@ -124,7 +125,7 @@ defineEmits(["close", "bookmark"]);
           <mw-row justify="between" class="ma-0">
             <mw-col grow>
               <small v-text="sourceLanguageAutonym" />
-              <mw-icon :icon="mwIconArrowNext" size="14" class="mx-1" />
+              <cdx-icon :icon="cdxIconArrowNext" size="small" class="mx-1" />
               <small v-text="targetLanguageAutonym" />
             </mw-col>
             <mw-col
@@ -142,17 +143,15 @@ defineEmits(["close", "bookmark"]);
         </mw-col>
       </mw-row>
       <mw-col shrink>
-        <mw-icon
+        <cdx-icon
           v-if="!isFavoriteSuggestion"
-          :icon="mwIconClose"
-          size="24"
+          :icon="cdxIconClose"
           class="cx-suggestion__discard-button mb-4"
           @click.stop="$emit('close')"
         />
-        <mw-icon
+        <cdx-icon
           class="cx-suggestion__favorite-button"
           :icon="bookmarkIcon"
-          size="24"
           :icon-color="bookmarkIconColor"
           @click.stop="$emit('bookmark')"
         />
