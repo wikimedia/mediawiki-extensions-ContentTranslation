@@ -7,8 +7,11 @@ import {
 } from "@wikimedia/codex-icons";
 import { MwDialog } from "@/lib/mediawiki.ui";
 import { ref, inject, computed, watch } from "vue";
+import { useI18n } from "vue-banana-i18n";
 import SxSuggestionsFilters from "@/components/SXSuggestionsFilters";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
+
+const bananaI18n = useI18n();
 
 const { getFiltersSummary, selectFilter, isFilterSelected } =
   useSuggestionsFilters();
@@ -50,7 +53,7 @@ const chips = computed(() => [
   {
     id: "more",
     icon: cdxIconEllipsis,
-    label: "More",
+    label: bananaI18n.i18n("cx-sx-suggestions-filter-more-label"),
     action: openFiltersDialog,
   },
 ]);

@@ -906,6 +906,7 @@
 				"cx-sx-suggestions-filters-done-button-label",
 				"cx-sx-suggestions-filter-user-edit-label",
 				"cx-sx-suggestions-filter-most-popular-label",
+				"cx-sx-suggestions-filter-more-label",
 				"cx-sx-suggestions-filter-default-group-label"
 			],
 			"noflip": true
