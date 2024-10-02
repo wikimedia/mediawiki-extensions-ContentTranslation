@@ -94,6 +94,7 @@ const useCXServerToken = require( './useCXServerToken.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const useState = require( './useState.js' );
 const useLanguageSearch = require( './useLanguageSearch.js' );
+const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const PageSearchResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const debounce = require( './debounce.js' );
@@ -115,6 +116,7 @@ module.exports = defineComponent( {
 		const { navigateToPage } = useRouter();
 		const { fetchToken } = useCXServerToken();
 		const { searchByQuery, getSearchApi } = useLanguageSearch();
+		const { onSourceLanguageUpdate } = useLanguagesUpdate();
 
 		const editableResult = ref( props.pageResult );
 
@@ -124,7 +126,7 @@ module.exports = defineComponent( {
 
 		const { fetchDenseArticles } = useApi();
 		const { doTranslateSectionTitle } = useSectionTitleTranslate();
-		const { sourceLanguage, setSourceLanguage, targetLanguage } = useState();
+		const { sourceLanguage, targetLanguage } = useState();
 		const sourceArticleInfos = ref( [] );
 
 		const availableSourceLanguages = computed(
@@ -203,7 +205,7 @@ module.exports = defineComponent( {
 		};
 
 		const selectLanguage = ( language ) => {
-			setSourceLanguage( language );
+			onSourceLanguageUpdate( 'article_confirmation_view', language );
 			editableResult.value.setSourceLanguage( language );
 		};
 

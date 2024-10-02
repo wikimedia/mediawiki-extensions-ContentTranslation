@@ -159,6 +159,7 @@ module.exports = defineComponent( {
 			type: String,
 			default: defaultSearchApi
 		},
+		// eslint-disable-next-line vue/no-unused-properties
 		onSelect: {
 			type: Function,
 			default: null
@@ -188,7 +189,8 @@ module.exports = defineComponent( {
 		};
 
 		const select = ( language ) => {
-			props.onSelect( language );
+			// emitting the "select" event, will automatically trigger the "onSelect"
+			// prop method to be executed
 			context.emit( 'select', language );
 			close();
 		};

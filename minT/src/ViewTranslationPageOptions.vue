@@ -90,6 +90,7 @@
 const useMintLanguages = require( './useMintLanguages.js' );
 const useRouter = require( './useRouter.js' );
 const useState = require( './useState.js' );
+const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const PageResult = require( './pageSearchResult.js' );
 const { CdxIcon, CdxButton } = require( '@wikimedia/codex' );
 const { defineComponent, computed } = require( 'vue' );
@@ -128,7 +129,8 @@ module.exports = defineComponent( {
 	},
 	emits: [ 'update:modelValue' ],
 	setup( props, context ) {
-		const { sourceLanguage, targetLanguage, setSourceLanguage, setTargetLanguage } = useState();
+		const { sourceLanguage, targetLanguage } = useState();
+		const { onSourceLanguageUpdate, onTargetLanguageUpdate } = useLanguagesUpdate();
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
 
@@ -138,13 +140,13 @@ module.exports = defineComponent( {
 
 		const { mintLanguages } = useMintLanguages();
 		const openSourceLanguageSelector = () => {
-			openLanguageSelector( false, setSourceLanguage, props.pageResult.languages );
+			openLanguageSelector( false, onSourceLanguageUpdate.bind( null, 'translation_view_menu' ), props.pageResult.languages );
 			closeOverlay();
 		};
 
 		const openTargetLanguageSelector = () => {
 			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, setTargetLanguage, languages );
+			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'translation_view_menu' ), languages );
 			closeOverlay();
 		};
 

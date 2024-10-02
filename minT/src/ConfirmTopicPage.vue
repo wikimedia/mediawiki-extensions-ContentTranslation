@@ -149,6 +149,7 @@ const useMintLanguages = require( './useMintLanguages.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
 const useEventLogging = require( './useEventLogging.js' );
+const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const getAutonym = $.uls.data.getAutonym;
 
 // @vue/component
@@ -162,7 +163,8 @@ module.exports = defineComponent( {
 		}
 	},
 	setup( props ) {
-		const { sourceLanguage, targetLanguage, setSourceLanguage, setTargetLanguage } = useState();
+		const { sourceLanguage, targetLanguage, setSourceLanguage } = useState();
+		const { onTargetLanguageUpdate } = useLanguagesUpdate();
 		setSourceLanguage( props.pageResult.sourceLanguage );
 
 		const { setURLParams } = useUrlHelper();
@@ -254,7 +256,7 @@ module.exports = defineComponent( {
 		};
 		const openTargetLanguageSelector = () => {
 			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, setTargetLanguage, languages );
+			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'article_confirmation_view' ), languages );
 		};
 
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );

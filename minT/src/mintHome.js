@@ -10,6 +10,7 @@ const PageSearchResult = require( './pageSearchResult.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
 const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
 const useEventLogging = require( './useEventLogging.js' );
+const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 
 const { logEvent } = useEventLogging();
 
@@ -40,12 +41,8 @@ const addLanguageButtonEventListener = (
 	} );
 };
 
-const {
-	setSourceLanguage,
-	setTargetLanguage,
-	sourceLanguage,
-	targetLanguage
-} = useState();
+const { sourceLanguage, targetLanguage } = useState();
+const { onSourceLanguageUpdate, onTargetLanguageUpdate } = useLanguagesUpdate();
 
 const { sites, fetchWikipediaSites } = useWikipediaSites();
 const { mintLanguages, fetchMintTargetLanguages } = useMintLanguages();
@@ -66,7 +63,7 @@ Promise.all( promises ).then( () => {
 	addLanguageButtonEventListener(
 		sourceLanguageButton,
 		sourceLanguages,
-		setSourceLanguage,
+		onSourceLanguageUpdate.bind( null, 'mt_home' ),
 		true
 	);
 } );
@@ -74,7 +71,7 @@ Promise.all( promises ).then( () => {
 addLanguageButtonEventListener(
 	targetLanguageButton,
 	targetLanguages,
-	setTargetLanguage,
+	onTargetLanguageUpdate.bind( null, 'mt_home' ),
 	false
 );
 

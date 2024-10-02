@@ -1878,6 +1878,7 @@
 				"mintHome.js",
 				"constants.js",
 				"useMintLanguages.js",
+				"useLanguagesUpdate.js",
 				"useWikipediaSites.js",
 				"wikiSite.js",
 				"debounce.js",
