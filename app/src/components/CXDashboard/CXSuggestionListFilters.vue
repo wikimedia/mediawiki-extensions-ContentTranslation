@@ -5,10 +5,9 @@ import {
   cdxIconHeart,
   cdxIconEllipsis,
 } from "@wikimedia/codex-icons";
-import { MwDialog } from "@/lib/mediawiki.ui";
-import { ref, inject, computed, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import { useI18n } from "vue-banana-i18n";
-import SxSuggestionsFilters from "@/components/SXSuggestionsFilters";
+import SxSuggestionsFilters from "./SXSuggestionsFiltersDialog.vue";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 
 const bananaI18n = useI18n();
@@ -16,12 +15,8 @@ const bananaI18n = useI18n();
 const { getFiltersSummary, selectFilter, isFilterSelected } =
   useSuggestionsFilters();
 
-const breakpoints = inject("breakpoints");
-const fullscreen = computed(() => breakpoints.value.mobile);
-
 const dialogVisible = ref(false);
 const openFiltersDialog = () => (dialogVisible.value = true);
-const closeFiltersDialog = () => (dialogVisible.value = false);
 
 const filterTypeToIconMap = {
   "previous-edits": cdxIconUserAvatar,
@@ -71,15 +66,7 @@ const chips = computed(() => [
     >
       {{ chip.label }}
     </cdx-info-chip>
-    <mw-dialog
-      v-model:value="dialogVisible"
-      animation="slide-up"
-      :fullscreen="fullscreen"
-      :header="false"
-      :overlay-opacity="0"
-    >
-      <sx-suggestions-filters @close="closeFiltersDialog" />
-    </mw-dialog>
+    <sx-suggestions-filters v-model="dialogVisible" />
   </div>
 </template>
 
