@@ -79,7 +79,7 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 
 	private function shouldDisplayFooterEntrypoint( Skin $skin ): bool {
 		$title = $skin->getTitle();
-		$action = $skin->getRequest()->getRawVal( 'action', 'view' );
+		$action = $skin->getRequest()->getRawVal( 'action' ) ?? 'view';
 
 		$enabledLanguages = $this->contentTranslationConfig->get(
 			'AutomaticTranslationLanguageSearcherEntrypointEnabledLanguages'
