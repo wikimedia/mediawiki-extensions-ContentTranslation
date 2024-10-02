@@ -2,6 +2,7 @@
 
 const { getCurrentInstance, createMwApp } = require( 'vue' );
 const { languageSelectorPlaceholderId, componentPlaceholderId } = require( './constants.js' );
+const useUrlHelper = require( './useUrlHelper.js' );
 
 const routes = {
 	search: './SearchTopicPage.vue',
@@ -11,6 +12,8 @@ const routes = {
 };
 
 const useRouter = () => {
+	const { clearURLParams } = useUrlHelper();
+
 	const currentVueInstance = getCurrentInstance();
 	const { app } = ( currentVueInstance && currentVueInstance.appContext ) || {};
 
@@ -29,6 +32,7 @@ const useRouter = () => {
 		const componentPlaceholder = document.getElementById( componentPlaceholderId );
 
 		componentPlaceholder.style.display = 'none';
+		clearURLParams();
 		app.unmount();
 	};
 

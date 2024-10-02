@@ -18,6 +18,12 @@ const useUrlHelper = () => {
 		};
 	};
 
+	const clearURLParams = () => {
+		const currentUrl = new URL( location.href );
+		currentUrl.search = '';
+		history.replaceState( null, '', currentUrl.toString() );
+	};
+
 	/**
 	 * @param {PageSearchResult} pageResult
 	 * @param {string} targetLanguage
@@ -38,7 +44,7 @@ const useUrlHelper = () => {
 		history.replaceState( null, '', currentUrl.toString() );
 	};
 
-	return { setURLParams, getURLParams };
+	return { setURLParams, getURLParams, clearURLParams };
 };
 
 module.exports = useUrlHelper;
