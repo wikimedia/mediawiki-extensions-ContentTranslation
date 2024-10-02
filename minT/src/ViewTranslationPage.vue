@@ -310,8 +310,18 @@ module.exports = defineComponent( {
 
 		const toggleSection = ( index ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];
+			const sectionTitle = sections.value[ index ].title;
+			const translationContext = {
+				// eslint-disable-next-line camelcase
+				source_type: 'section',
+				// eslint-disable-next-line camelcase
+				source_title: sectionTitle
+			};
 			if ( sectionExpandStatus.value[ index ] ) {
+				logEvent( 'click', 'section_expand', null, null, translationContext );
 				translateSection( sections, index );
+			} else {
+				logEvent( 'click', 'section_collapse', null, null, translationContext );
 			}
 		};
 		const resetSectionExpandStatus = ( sectionValues ) => {
