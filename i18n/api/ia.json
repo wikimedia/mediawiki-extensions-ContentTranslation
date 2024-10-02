@@ -154,5 +154,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "Le ID de Wikidata.",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Un valor boolean que indica si le titulos de section debe esser includite in le responsa.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Obtener le lista de ligamines de sito pro le articulo ‘Moon’ (Luna) in tote le linguas disponibile, ordinate per grandor de articulo.",
-	"apihelp-query+automatictranslationdenselanguages-example-2": "Obtener le lista de ligamines de sito pro le articulo ‘Moon’ (Luna), incluse le titulos de section, in tote le linguas disponibile, ordinate per grandor de articulo."
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Obtener le lista de ligamines de sito pro le articulo ‘Moon’ (Luna), incluse le titulos de section, in tote le linguas disponibile, ordinate per grandor de articulo.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Le requesta de recuperar ligamines de sito de Wikidata ha fallite"
 }

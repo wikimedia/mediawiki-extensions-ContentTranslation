@@ -180,7 +180,7 @@
 	"cx-tools-linter-empty-title-message": "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਸਾਰੇ ਸਫ਼ਿਆਂ ਨੂੰ ਲੱਭਣ ਲਈ ਇੱਕ ਨਾਂ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਤਰਜਮੇ ਨੂੰ ਛਾਪਣ ਲਈ ਇੱਕ ਨਾਂ ਦਿਓ।",
 	"cx-tools-linter-invalid-character": "ਤੁਹਾਡੇ ਤਰਜਮੇ ਦੇ ਸਿਰਲੇਖ ਵਿੱਚ ਗਲਤ ਅੱਖਰ ਹਨ",
 	"cx-tools-linter-page-exists": "ਸਫ਼ਾ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ",
-	"cx-tools-linter-cannot-publish-action-label": "ਖਰੜੇ ਵਜੋਂ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਨ ਲਈ ਰੱਖੋ",
+	"cx-tools-linter-cannot-publish-action-label": "ਖਰੜੇ ਵਜੋਂ ਛਾਪਣ ਲਈ ਰੱਖੋ",
 	"cx-tools-linter-template": "ਫਰਮਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
 	"cx-tools-linter-template-add-new": "ਨਵਾਂ ਫਰਮਾ ਜੋੜੋ",
 	"cx-tools-linter-incomplete-template": "ਅਧੂਰਾ ਫਰਮਾ",
