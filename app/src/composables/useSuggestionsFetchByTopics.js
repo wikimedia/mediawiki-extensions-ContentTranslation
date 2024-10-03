@@ -29,6 +29,11 @@ const useSuggestionsFetchByTopics = () => {
    */
   const fetchPageSuggestionsByTopics = async (numberOfSuggestionsToFetch) => {
     const topic = currentSuggestionFilters.value.id;
+
+    const topicFilter = {
+      id: topic,
+      type: TOPIC_SUGGESTION_PROVIDER,
+    };
     const oresTopics = getOresTopics(topic);
 
     /** @type {ArticleSuggestion[]} */
@@ -45,8 +50,7 @@ const useSuggestionsFetchByTopics = () => {
     suggestions = suggestions.slice(0, numberOfSuggestionsToFetch);
 
     suggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = topicFilter)
     );
 
     return suggestions;
@@ -60,6 +64,11 @@ const useSuggestionsFetchByTopics = () => {
     numberOfSuggestionsToFetch
   ) => {
     const topic = currentSuggestionFilters.value.id;
+
+    const topicFilter = {
+      id: topic,
+      type: TOPIC_SUGGESTION_PROVIDER,
+    };
     const oresTopics = getOresTopics(topic);
 
     const fetchedSuggestions = [];
@@ -94,8 +103,7 @@ const useSuggestionsFetchByTopics = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = topicFilter)
     );
 
     return fetchedSuggestions;

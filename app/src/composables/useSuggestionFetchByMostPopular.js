@@ -11,8 +11,12 @@ const useSuggestionFetchByMostPopular = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
-    currentSuggestionFilters,
   } = useURLHandler();
+
+  const popularSuggestionFilter = {
+    id: POPULAR_SUGGESTION_PROVIDER,
+    type: POPULAR_SUGGESTION_PROVIDER,
+  };
 
   const {
     isSectionSuggestionValid,
@@ -42,8 +46,7 @@ const useSuggestionFetchByMostPopular = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = popularSuggestionFilter)
     );
 
     return fetchedSuggestions;
@@ -82,8 +85,7 @@ const useSuggestionFetchByMostPopular = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = popularSuggestionFilter)
     );
 
     return fetchedSuggestions;

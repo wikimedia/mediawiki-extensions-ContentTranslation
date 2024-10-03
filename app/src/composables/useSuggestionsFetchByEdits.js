@@ -12,7 +12,6 @@ const useSuggestionsFetchByEdits = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
-    currentSuggestionFilters,
   } = useURLHandler();
 
   const { getSuggestionSeed } = useSuggestionSeeds();
@@ -21,6 +20,11 @@ const useSuggestionsFetchByEdits = () => {
     isPageSuggestionValid,
     sectionSuggestionExists,
   } = useSuggestionValidator();
+
+  const editsSuggestionFilter = {
+    id: EDITS_SUGGESTION_PROVIDER,
+    type: EDITS_SUGGESTION_PROVIDER,
+  };
 
   /**
    * @param {number} numberOfSuggestionsToFetch the number of suggestions to fetch
@@ -59,8 +63,7 @@ const useSuggestionsFetchByEdits = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = editsSuggestionFilter)
     );
 
     return fetchedSuggestions;
@@ -117,8 +120,7 @@ const useSuggestionsFetchByEdits = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = currentSuggestionFilters.value)
+      (suggestion) => (suggestion.suggestionProvider = editsSuggestionFilter)
     );
 
     return fetchedSuggestions;
