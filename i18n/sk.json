@@ -178,5 +178,7 @@
 	"cx-publish-destination-namespace-main": "Nový článok",
 	"cx-publish-destination-namespace-user": "Osobný koncept",
 	"cx-publish-destination-namespace-draft": "Verejný koncept",
-	"cx-unreviewed-translation-category": "Stránky s neskontrolovanými prekladmi"
+	"cx-unreviewed-translation-category": "Stránky s neskontrolovanými prekladmi",
+	"cx-uls-relevant-languages-panel-header": "Preložiť túto stránku",
+	"cx-uls-translate-page-quick-action-label": "Preložiť túto stránku"
 }
