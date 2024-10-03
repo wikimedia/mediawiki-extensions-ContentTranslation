@@ -185,6 +185,7 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
 
 /**
  * E.g. https://en.wikipedia.org/w/rest.php/v1/page/Moon/html
+ *
  * @param {string} language
  * @param {string} title
  * @return {Promise<string>}

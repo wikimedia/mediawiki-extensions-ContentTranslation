@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text -->
 <template>
 	<div
 		v-show="showPanel"

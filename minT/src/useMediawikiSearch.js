@@ -10,6 +10,8 @@ const useSearchResultLanguages = require( './useSearchResultLanguages.js' );
  * and a query string, it returns a PageSearchResult object that contains the metadata
  * and the site links for the first matched page from the "query" action of the related
  * Mediawiki Action API.
+ *
+ * @return {{ getActionApiSearchResult: Function }}
  */
 const useMediawikiSearch = () => {
 	const { findOneOrFetchPage } = usePageMetadata();

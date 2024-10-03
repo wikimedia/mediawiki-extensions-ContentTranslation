@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text -->
 <template>
 	<section v-if="showPanel" class="sx-recent-edit-entrypoint">
 		<div class="sx-recent-edit-entrypoint__top-banner row pa-4">

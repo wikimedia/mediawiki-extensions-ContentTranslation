@@ -28,6 +28,7 @@
 
 	/**
 	 * Copied from "minT/useApi.js" file
+	 *
 	 * @return {Promise<{}>} target language to source languages map: { "en": ["de", "el"] }
 	 */
 	const fetchMintLanguages = () => {

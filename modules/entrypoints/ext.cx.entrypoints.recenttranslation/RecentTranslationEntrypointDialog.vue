@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-text -->
 <template>
 	<div v-if="showDialog" class="sx-recent-translation-dialog">
 		<div class="sx-recent-translation-dialog__overlay"></div>

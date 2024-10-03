@@ -17,6 +17,11 @@ const fetchCXServerToken = () => new mw.Api().postWithToken( 'csrf', {
  * is being sent. If the api request fails, then an empty string is returned.
  *
  * A ref variable holding the value of the fetched JWT token is also exposed.
+ *
+ * @return {{
+ *  fetchToken: Function,
+ *  cxServerToken: Ref<string>
+ * }}
  */
 const useCXServerToken = () => {
 	const fetchToken = async () => {

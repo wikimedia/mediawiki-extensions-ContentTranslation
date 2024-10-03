@@ -43,6 +43,8 @@ class DesktopEditor {
 	/**
 	 * Make all the placeholder nodes opaque. Elements that have 0 opacity
 	 * are considered un-clickable.
+	 *
+	 * @return {Promise<any>}
 	 */
 	makePlaceholderSectionsVisible() {
 		return browser.executeAsync( function ( done ) {

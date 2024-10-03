@@ -14,6 +14,8 @@ const useWikipediaSites = require( './useWikipediaSites.js' );
  *
  * To provide a universal way of handling site links, this method adds the missing properties,
  * based on the Wikipedia site matrix.
+ *
+ * @return {{ prepareSiteLinks: Function }}
  */
 const useSiteLinksHelper = () => {
 	const { sites } = useWikipediaSites();

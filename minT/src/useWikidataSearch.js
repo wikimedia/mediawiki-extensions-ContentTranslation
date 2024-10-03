@@ -8,10 +8,16 @@ const useState = require( './useState.js' );
 const useSiteLinksHelper = require( './useSiteLinksHelper.js' );
 
 /**
- * This composable returns two methods ("getWikidataSearchResults", "getSingleWikidataSearchResult") to support
- * searching in Wikidata API. "getWikidataSearchResults" expects a query string, and returns multiple results
- * that match this string, while "getSingleWikidataSearchResult" expects a Wikidata Qid and returns only a
+ * This composable returns two methods ("getWikidataSearchResults",
+ * "getSingleWikidataSearchResult") to support searching in Wikidata API.
+ * "getWikidataSearchResults" expects a query string, and returns multiple results that match
+ * this string, while "getSingleWikidataSearchResult" expects a Wikidata Qid and returns only a
  * single result that corresponds to that Qid (if such result exists).
+ *
+ * @return {{
+ *   getWikidataSearchResults: Function,
+ *   getSingleWikidataSearchResult: Function
+ * }}
  */
 const useWikidataSearch = () => {
 	const { targetLanguage } = useState();
@@ -42,7 +48,14 @@ const useWikidataSearch = () => {
 	 * For some mysterious reason, setting the function name to "getPageSearchResults"
 	 * leads to a SyntaxError: "Uncaught SyntaxError: Malformed arrow function parameter list".
 	 * TODO: Rename this method.
-	 * @param {{ displayLanguage: string, displayTitle: string, order: number, sourceLanguage: string, siteLinks }[]} rawResults
+	 *
+	 * @param {{
+	 *   displayLanguage: string,
+	 *   displayTitle: string,
+	 *   order: number,
+	 *   sourceLanguage: string,
+	 *   siteLinks
+	 * }[]} rawResults
 	 * @return {Promise<PageSearchResult[]>}
 	 */
 	const getPageSearchResults2 = async ( rawResults ) => {
@@ -104,7 +117,13 @@ const useWikidataSearch = () => {
 		const displayTitle = displaySiteLink && displaySiteLink.title;
 
 		/**
-		 * @type {{ displayLanguage: string, displayTitle: string, order: number, sourceLanguage: string, siteLinks }}
+		 * @type {{
+		 *   displayLanguage: string,
+		 *   displayTitle: string,
+		 *   order: number,
+		 *   sourceLanguage: string,
+		 *   siteLinks
+		 * }}
 		 */
 		const rawResult = {
 			displayLanguage,
@@ -136,7 +155,16 @@ const useWikidataSearch = () => {
 		const entities = await getWikidataSitelinks( idsString );
 
 		/**
-		 * @type {{id: string, order: number, matchLanguage: string, siteLinks: { site: string, title: string, language: string }[]}[]}
+		 * @type {{
+		 *   id: string,
+		 *   order: number,
+		 *   matchLanguage: string,
+		 *   siteLinks: {
+		 *     site: string,
+		 *     title: string,
+		 *     language: string
+		 *  }[]
+		 * }[]}
 		 */
 		const resultsWithLinks = searchResults.map( ( result ) => {
 			const entitySiteLinks = entities.find( ( e ) => e.id === result.id ).sitelinks;
@@ -151,7 +179,13 @@ const useWikidataSearch = () => {
 		} );
 
 		/**
-		 * @type {{ displayLanguage: string, displayTitle: string, order: number, sourceLanguage: string, siteLinks }[]}
+		 * @type {{
+		 *   displayLanguage: string,
+		 *   displayTitle: string,
+		 *   order: number,
+		 *   sourceLanguage: string,
+		 *   siteLinks
+		 * }[]}
 		 */
 		const rawResults = [];
 		for ( const result of resultsWithLinks ) {

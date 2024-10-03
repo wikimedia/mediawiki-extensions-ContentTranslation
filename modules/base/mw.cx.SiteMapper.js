@@ -256,6 +256,7 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
  * @param {"confirm"|"translation"} step
+ * @return {string}
  */
 mw.cx.SiteMapper.prototype.getMintUrl = function (
 	sourceTitle,

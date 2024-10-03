@@ -6,12 +6,15 @@ const { computed } = require( 'vue' );
 const useState = require( './useState.js' );
 
 /**
- * This composable exposes the "getSourceAndDisplayLanguages" method that given a language and an array of
- * site link objects of a search result, returns the source and the display language for the corresponding
- * search result.
+ * This composable exposes the "getSourceAndDisplayLanguages" method that given a language and an
+ * array of site link objects of a search result, returns the source and the display language for
+ * the corresponding search result.
  *
- * The source language and the display language of a result are being calculated based on some non-trivial
- * logic, and are used by all different search cases, and this composable is created to support these cases.
+ * The source language and the display language of a result are being calculated based on some
+ * non-trivial logic, and are used by all different search cases, and this composable is created
+ * to support these cases.
+ *
+ * @return {{ getSourceAndDisplayLanguages: Function }}
  */
 const useSearchResultLanguages = () => {
 	const { sites } = useWikipediaSites();

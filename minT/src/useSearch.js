@@ -8,15 +8,24 @@ const Vue = require( 'vue' );
 const pageResults = Vue.ref( [] );
 
 /**
- * This composable returns all the needed methods and ref variables to support the "Search for a topic"
- * functionality inside MinT search page.
+ * This composable returns all the needed methods and ref variables to support the
+ * "Search for a topic" functionality inside MinT search page.
  *
- * More specifically, it returns 4 methods to handle all different search cases - search by Wikidata ID,
- * search in Wikidata by text and search in MediaWiki Action API either by giving a query string
- * or a Wikipedia article URL.
+ * More specifically, it returns 4 methods to handle all different search cases - search by
+ * Wikidata ID, search in Wikidata by text and search in MediaWiki Action API either by giving
+ * a query string or a Wikipedia article URL.
  *
- * Additionally, it returns the "loadingSearch" and the "pageResults" ref variables, that contain the
- * search loading status and results respectively, to be used inside the search page Vue SFC.
+ * Additionally, it returns the "loadingSearch" and the "pageResults" ref variables, that contain
+ * the search loading status and results respectively, to be used inside the search page Vue SFC.
+ *
+ * @return {{
+ *   loadingSearch: Function,
+ *   searchAll: Function,
+ *   pageResults: Function,
+ *   searchByLanguage: Function,
+ *   searchByQid: Function,
+ *   searchByURL: Function
+ * }}
  */
 const useSearch = () => {
 	const loadingSearch = Vue.ref( false );

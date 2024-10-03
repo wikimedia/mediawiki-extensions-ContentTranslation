@@ -8,7 +8,12 @@
 	"globals": {
 		"ve": "readonly",
 		"moment": "readonly",
-		"Promise": "readonly"
+		"Promise": "readonly",
+		"LanguageSearcher": true,
+		"publishErrorCaptcha": true,
+		"mouseenter": true,
+		"mouseleave": true,
+		"enter": true
 	},
 	"rules": {
 		"max-len": "off",

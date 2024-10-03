@@ -42,7 +42,12 @@ const filterHiddenAndTransclusionNodes = ( nodes ) => {
  * whether the translation request is pending, and the "doc" ref variable that holds
  * the HTML document representing the source page.
  *
- * @return {{loadingLeadSectionTranslation: Ref<boolean>, initializeTranslation: Function, doc: Ref<Document | null>, leadSectionTranslation: Ref<string[]>}}
+ * @return {{
+ *   loadingLeadSectionTranslation: Ref<boolean>,
+ *   initializeTranslation: Function,
+ *   doc: Ref<Document | null>,
+ *   leadSectionTranslation: Ref<string[]>
+ * }}
  */
 const useTranslationInitialize = () => {
 	const { fetchPageContent, translate } = useApi();

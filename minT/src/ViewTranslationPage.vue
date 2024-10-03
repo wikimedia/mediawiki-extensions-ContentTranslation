@@ -55,11 +55,13 @@
 				</template>
 			</cdx-card>
 		</div>
+		<!-- eslint-disable vue/no-v-html -->
 		<div
 			class="translation-viewer__contents"
 			v-html="structuredLeadSectionTranslation"
 		>
 		</div>
+		<!-- eslint-enable -->
 		<div v-if="loadingLeadSectionTranslation" class="translation-viewer__loading-indicator">
 			<cdx-icon :icon="cdxIconRobot"></cdx-icon>
 			<cdx-icon :icon="cdxIconEllipsis"></cdx-icon>
@@ -88,9 +90,11 @@
 						v-if="sectionExpandStatus[index]"
 						class="translation-viewer__section-contents"
 					>
+						<!-- eslint-disable vue/no-v-html -->
 						<mw-spinner v-if="!sectionTranslations[index]"></mw-spinner>
 						<div v-else v-html="sectionTranslations[index]">
 						</div>
+						<!-- eslint-enable -->
 					</div>
 				</div>
 			</div>

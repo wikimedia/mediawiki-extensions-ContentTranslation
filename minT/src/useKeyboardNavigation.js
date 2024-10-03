@@ -4,6 +4,11 @@ const { ref, watch, computed } = require( 'vue' );
 
 /**
  * Copied from ContentTranslation/app/src/components/MWLanguageSelector/keyboardnav.js file
+ *
+ * @param {Ref} searchQuery
+ * @param {Ref} searchResults
+ * @param {string[]}suggestions
+ * @return {{ next: Function, prev: Function, langSelectorContainer: Ref, selectedLanguage: Ref }}
  */
 function useKeyboardNavigation( searchQuery, searchResults, suggestions ) {
 	const selectedLanguage = ref( '' );

@@ -12,5 +12,9 @@
 		"es-x/no-async-functions": "off",
 		"es-x/no-object-values": "off",
 		"es-x/no-promise-prototype-finally": "off"
+	},
+	"globals": {
+		"Ref": true,
+		"ComputedRef": true
 	}
 }

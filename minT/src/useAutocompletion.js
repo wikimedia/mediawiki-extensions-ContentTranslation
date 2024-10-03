@@ -1,5 +1,6 @@
 /**
- * This file is a copy of ContentTranslation/app/src/components/MWLanguageSelector/autocompletion.js file
+ * This file is a copy of
+ * ContentTranslation/app/src/components/MWLanguageSelector/autocompletion.js
  */
 'use strict';
 

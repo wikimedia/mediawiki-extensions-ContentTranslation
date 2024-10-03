@@ -10,7 +10,12 @@ const useCXServerToken = require( './useCXServerToken.js' );
  * "translatedSectionTitles" to be used inside the same page, and the "resetTranslatedSectionTitles"
  * method to clear the saved section title translations, when needed.
  *
- * @return {{doTranslateSectionTitle: Function, translateSectionTitle: Function, translatedSectionTitles: Ref<string[]>, resetTranslatedSectionTitles: Function}}
+ * @return {{
+ *   doTranslateSectionTitle: Function,
+ *   translateSectionTitle: Function,
+ *   translatedSectionTitles: Ref<string[]>,
+ *   resetTranslatedSectionTitles: Function
+ * }}
  */
 const useSectionTitleTranslate = () => {
 	const { translate } = useApi();

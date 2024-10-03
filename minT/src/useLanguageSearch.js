@@ -1,5 +1,6 @@
 /**
- * This file is a copy of ContentTranslation/app/src/components/MWLanguageSelector/languagesearch.js file
+ * This file is a copy of
+ * ContentTranslation/app/src/components/MWLanguageSelector/languagesearch.js
  */
 'use strict';
 

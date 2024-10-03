@@ -43,11 +43,13 @@
 				>
 					{{ targetTitle }}
 				</h3>
+				<!-- eslint-disable vue/no-v-html -->
 				<p
 					v-if="translation && !loadingTranslation"
 					class="confirm-topic-preview__translation-container__translation"
 					v-html="translation"
 				></p>
+				<!--eslint-enable-->
 				<mw-spinner v-else-if="loadingTranslation"></mw-spinner>
 				<p class="confirm-topic-preview__translation-container__details">
 					<cdx-icon :icon="cdxIconSpecialPages"></cdx-icon>
@@ -109,7 +111,9 @@
 				<template #supporting-text>
 					<cdx-icon :icon="cdxIconArticle" size="small"></cdx-icon>
 					<span>
+						<!-- eslint-disable max-len -->
 						{{ $i18n( 'mint-confirm-topic-page-target-article-card-read-article-label' ).text() }}
+						<!--eslint-enable-->
 					</span>
 				</template>
 			</cdx-card>
