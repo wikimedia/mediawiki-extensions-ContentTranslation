@@ -1,10 +1,51 @@
-import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
+import useSuggestionsStore from "./useSuggestionsStore";
 import useSuggestionProvider from "./useSuggestionProvider";
+import useURLHandler from "./useURLHandler";
 
 const useSuggestionsFetch = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const { getFilteredSectionSuggestions, getFilteredPageSuggestions } =
+    useSuggestionsStore();
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
+
+  /**
+   * This method calculates and returns the number of section suggestions to fetch,
+   * with maxSuggestionsPerSlice state variable being the maximum. When
+   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
+   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
+   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
+   *
+   * @return {number} an integer indicating the number of section suggestions to be fetched
+   */
+  const getNumberOfSectionSuggestionsToFetch = () => {
+    const existingSuggestionsForFilters = getFilteredSectionSuggestions();
+
+    const pageSize = store.state.suggestions.maxSuggestionsPerSlice;
+
+    return pageSize - (existingSuggestionsForFilters.length % pageSize);
+  };
+
+  /**
+   * This method calculates and returns the number of page suggestions to fetch,
+   * with maxSuggestionsPerSlice state variable being the maximum. When
+   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
+   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
+   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
+   *
+   * @return {number} an integer indicating the number of page suggestions to be fetched
+   */
+  const getNumberOfPageSuggestionsToFetch = () => {
+    const existingSuggestionsForFilters = getFilteredPageSuggestions();
+
+    const pageSize = store.state.suggestions.maxSuggestionsPerSlice;
+
+    return pageSize - (existingSuggestionsForFilters.length % pageSize);
+  };
+
   const {
     getCurrentPageSuggestionProvider,
     getCurrentSectionSuggestionProvider,
@@ -39,9 +80,7 @@ const useSuggestionsFetch = () => {
   const fetchNextPageSuggestionsSlice = async () => {
     store.commit("suggestions/increasePageSuggestionsLoadingCount");
 
-    const numberOfSuggestionsToFetch = store.getters[
-      "suggestions/getNumberOfPageSuggestionsToFetch"
-    ](sourceLanguage.value, targetLanguage.value);
+    const numberOfSuggestionsToFetch = getNumberOfPageSuggestionsToFetch();
 
     const fetchPageSuggestions = getCurrentPageSuggestionProvider();
     const fetchedSuggestions = await fetchPageSuggestions(
@@ -66,9 +105,7 @@ const useSuggestionsFetch = () => {
   const fetchNextSectionSuggestionsSlice = async () => {
     store.commit("suggestions/increaseSectionSuggestionsLoadingCount");
 
-    const numberOfSuggestionsToFetch = store.getters[
-      "suggestions/getNumberOfSectionSuggestionsToFetch"
-    ](sourceLanguage.value, targetLanguage.value);
+    const numberOfSuggestionsToFetch = getNumberOfSectionSuggestionsToFetch();
 
     const fetchSectionSuggestions = getCurrentSectionSuggestionProvider();
     const fetchedSuggestions = await fetchSectionSuggestions(

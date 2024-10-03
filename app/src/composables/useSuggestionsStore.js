@@ -12,20 +12,27 @@ const useSuggestionsStore = () => {
   const { maxSuggestionsPerSlice } = store.state.suggestions;
 
   /**
-   * @param {number} sliceIndex
    * @returns {SectionSuggestion[]}
    */
-  const getSectionSuggestionsSliceByIndex = (sliceIndex) => {
+  const getFilteredSectionSuggestions = () => {
     const sectionSuggestionsForPair = store.getters[
       "suggestions/getSectionSuggestionsForPair"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const currentSectionSuggestions = sectionSuggestionsForPair.filter(
+    return sectionSuggestionsForPair.filter(
       (suggestion) =>
         suggestion.suggestionProvider.type ===
           currentSuggestionFilters.value.type &&
         suggestion.suggestionProvider.id === currentSuggestionFilters.value.id
     );
+  };
+
+  /**
+   * @param {number} sliceIndex
+   * @returns {SectionSuggestion[]}
+   */
+  const getSectionSuggestionsSliceByIndex = (sliceIndex) => {
+    const currentSectionSuggestions = getFilteredSectionSuggestions();
 
     return currentSectionSuggestions.slice(
       maxSuggestionsPerSlice * sliceIndex,
@@ -34,20 +41,27 @@ const useSuggestionsStore = () => {
   };
 
   /**
-   * @param {number} sliceIndex
    * @returns {ArticleSuggestion[]}
    */
-  const getPageSuggestionsSliceByIndex = (sliceIndex) => {
+  const getFilteredPageSuggestions = () => {
     const pageSuggestionsForPair = store.getters[
       "suggestions/getPageSuggestionsForPair"
     ](sourceLanguage.value, targetLanguage.value);
 
-    const currentPageSuggestions = pageSuggestionsForPair.filter(
+    return pageSuggestionsForPair.filter(
       (suggestion) =>
         suggestion.suggestionProvider.type ===
           currentSuggestionFilters.value.type &&
         suggestion.suggestionProvider.id === currentSuggestionFilters.value.id
     );
+  };
+
+  /**
+   * @param {number} sliceIndex
+   * @returns {ArticleSuggestion[]}
+   */
+  const getPageSuggestionsSliceByIndex = (sliceIndex) => {
+    const currentPageSuggestions = getFilteredPageSuggestions();
 
     return currentPageSuggestions.slice(
       maxSuggestionsPerSlice * sliceIndex,
@@ -56,6 +70,8 @@ const useSuggestionsStore = () => {
   };
 
   return {
+    getFilteredPageSuggestions,
+    getFilteredSectionSuggestions,
     getPageSuggestionsSliceByIndex,
     getSectionSuggestionsSliceByIndex,
   };

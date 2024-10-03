@@ -59,44 +59,4 @@ export default {
     },
   appendixTitlesExistForLanguage: (state) => (language) =>
     (state.appendixSectionTitles?.[language] || []).length > 0,
-  /**
-   * This getter calculates and returns the number of section suggestions to fetch,
-   * with maxSuggestionsPerSlice state variable being the maximum. When
-   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
-   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
-   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
-   *
-   * @param {Object} state
-   * @param {Object} getters
-   * @return {function(sourceLanguage: string, targetLanguage: string): number}
-   */
-  getNumberOfSectionSuggestionsToFetch:
-    (state, getters) => (sourceLanguage, targetLanguage) => {
-      const existingSuggestionsForLanguagePair =
-        getters.getSectionSuggestionsForPair(sourceLanguage, targetLanguage);
-
-      const pageSize = state.maxSuggestionsPerSlice;
-
-      return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
-    },
-  /**
-   * This getter calculates and returns the number of page suggestions to fetch,
-   * with maxSuggestionsPerSlice state variable being the maximum. When
-   * already fetched suggestions do not produce full slices of maxSuggestionsPerSlice
-   * size (i.e. length % maxSuggestionsPerSlice !== 0), fetch remaining suggestions
-   * to complete the slice. If suggestions slice is already full, fetch maxSuggestionsPerSlice new.
-   *
-   * @param {Object} state
-   * @param {Object} getters
-   * @return {function(sourceLanguage: string, targetLanguage: string): number}
-   */
-  getNumberOfPageSuggestionsToFetch:
-    (state, getters) => (sourceLanguage, targetLanguage) => {
-      const existingSuggestionsForLanguagePair =
-        getters.getPageSuggestionsForPair(sourceLanguage, targetLanguage);
-
-      const pageSize = state.maxSuggestionsPerSlice;
-
-      return pageSize - (existingSuggestionsForLanguagePair.length % pageSize);
-    },
 };
