@@ -10,5 +10,12 @@
 	"cx-feedback-link": "Կարծիք յայտնել",
 	"cx-campaign-no-thanks": "Ոչ, շնորհակալութիւն",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Սկսիլ դատարկ նախադասութեամբ մը",
-	"cx-sx-content-comparator-content-header-translate-button-label": "Թարգմանէ"
+	"cx-sx-content-comparator-content-header-translate-button-label": "Թարգմանէ",
+	"cx-sx-suggestions-filters-done-button-label": "Եղած է",
+	"cx-sx-suggestions-filter-default-group-label": "Ինքնագործ",
+	"cx-articletopics-topic-africa": "Ափրիկէ",
+	"cx-articletopics-topic-asia": "Ասիա",
+	"cx-articletopics-topic-music": "Երաժշտութիւն",
+	"cx-articletopics-topic-history": "Պատմութիւն",
+	"cx-articletopics-topic-biology": "Կենսաբանութիւն"
 }
