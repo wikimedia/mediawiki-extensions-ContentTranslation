@@ -13,7 +13,7 @@
 	"cx": "ਸਫ਼ੇ ਦਾ ਤਰਜਮਾ ਕਰੋ",
 	"cx-dashboard-header": "ਤਰਜਮੇ",
 	"cx-javascript": "ਇਹ ਟੂਲ ਜਾਵਾ ਸਕ੍ਰਿਪਟ ਤੋਂ ਬਿਨਾਂ ਕੰਮ ਨਹੀਂ ਕਰਦਾ। ਜਾਵਾ ਸਕ੍ਰਿਪਟ ਅਸਮਰਥਿਤ ਹੈ, ਕੰਮ ਕਰਨ ਵਿੱਚ ਅਸਫਲ ਹੈ, ਜਾਂ ਇਹ ਬ੍ਰਾਊਜ਼ਰ ਅਸਮਰਥਿਤ ਹੈ।",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]] ਇੱਕ ਸੰਦ ਹੈ ਜੋ ਵਰਕੇਆਂ ਨੂੰ ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਵਿੱਚ ਤੇਜ਼ੀ ਨਾਲ ਤਰਜਮਾ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ। [$1 ਹੁਣੇ ਅਜ਼ਮਾਓ!]",
+	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation ਸਮੱਗਰੀ ਤਰਜਮਾ] ਇੱਕ ਸੰਦ ਹੈ ਜੋ ਵਰਕਿਆਂ ਨੂੰ ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਵਿੱਚ ਛੇਤੀ ਨਾਲ ਤਰਜਮਾ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ। [$1 ਹੁਣੇ ਅਜ਼ਮਾਓ!]",
 	"cx-license-agreement": "ਜਾਰੀ ਰੱਖ ਕੇ ਤੁਸੀਂ [https://foundation.wikimedia.org/wiki/Terms_of_Use ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ] ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ ਅਤੇ ਤੁਸੀਂ [https://creativecommons.org/licenses/by-sa/4.0 ਦੇ ਅਧੀਨ ਆਪਣੇ ਯੋਗਦਾਨਾਂ ਨੂੰ ਜਾਰੀ ਕਰਨ ਲਈ ਅਟੱਲ ਸਹਿਮਤੀ ਦਿੰਦੇ ਹੋ। / CC BY-SA 4.0] ਅਤੇ [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] ਲਾਇਸੰਸ।",
 	"cx-error-server-connection": "ਗ਼ਲਤੀ: ਸਰਵਰ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।",
 	"cx-desc": "ਸਮੱਗਰੀ ਸਫ਼ਿਆਂ ਦਾ [[Special:ContentTranslation|ਤਰਜਮਾ]] ਕਰਨਾ ਆਸਾਨ ਬਣਾਉਂਦਾ ਹੈ",

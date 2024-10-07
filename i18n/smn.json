@@ -17,7 +17,7 @@
 	"cx-publish-button": "Almostit",
 	"cx-publish-summary": "Rahtum jurgâlmáin sijđo \"$1\"",
 	"cx-translation-add-translation": "Lasseet jurgâlus",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Siskáldâs jurgâlem]]",
+	"tag-contenttranslation": "[{{MediaWiki:cx-descriptionpagelink}} Jurgâlum siskáldâs]",
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|Siskáldâs jurgâlem 2]]",
 	"cx-beta": "Siskáldâs jurgâlem",
 	"cx-entrypoint-title": "Jurgâl taam siijđo kielân $1",

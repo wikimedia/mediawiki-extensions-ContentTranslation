@@ -482,5 +482,6 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Kje so drugi razdelki?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ne skrbi. Preostali deli niso izgubljeni. Na voljo bodo, ko objavite trenutni prevod kot nov članek. Po objavi boste našli nove tekoče prevode z vsebino vsakega razdelka.",
 	"sx-confirm-draft-translation-start-button-label": "V redu",
-	"sx-published-translation-new-translation-button-label": "Nov prevod"
+	"sx-published-translation-new-translation-button-label": "Nov prevod",
+	"cx-sx-suggestions-filter-more-label": "Več"
 }
