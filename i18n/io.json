@@ -144,6 +144,8 @@
 	"cx-translation-list-all-languages-option-label": "Omni",
 	"cx-sx-content-comparator-translation-section-button-label": "Tradukar ca segmento",
 	"cx-sx-content-comparator-source-selector-title": "Seciono en $1",
+	"cx-sx-publish-summary": "Kreita per traduko di la seciono \"$1\" de la pagino \"$2\"",
+	"cx-sx-publish-lead-section-summary": "Kreita per traduko dil aperto-seciono di la pagino \"$1\"",
 	"cx-campaign-mflanguagesearcher-invite": "Vu povas tradukar ca pagino. To esas facila maniero por krear nova kontenajo en vua idiomo.",
 	"sx-recent-translation-entrypoint-banner-details": "Helpez plubonigar kontenaji",
 	"sx-recent-translation-entrypoint-dialog-header": "Plubonigar la tradukuro",
