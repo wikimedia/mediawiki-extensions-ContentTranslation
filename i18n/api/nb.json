@@ -157,5 +157,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-qid": "Wikidata-ID-en.",
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "En boolsk verdi som angir hvorvidt seksjonstitlene skal inkluderes i responsen.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Hent lista over sidelenker for artikkelen «Moon» på alle tilgjengelige språk, sortert etter artikkelstørrelse.",
-	"apihelp-query+automatictranslationdenselanguages-example-2": "Hent lista over sidelenker for artikkelen «Moon», inkludert seksjonstitler, på alle tilgjengelige språk, sortert etter artikkelstørrelse."
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Hent lista over sidelenker for artikkelen «Moon», inkludert seksjonstitler, på alle tilgjengelige språk, sortert etter artikkelstørrelse.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Forespørsel om å hente sidelenker fra Wikidata feilet"
 }

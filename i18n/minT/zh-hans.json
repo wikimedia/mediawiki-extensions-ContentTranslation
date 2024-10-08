@@ -5,9 +5,11 @@
 		]
 	},
 	"automatic-translation-special-page-description": "自动翻译",
+	"automatic-translation-desc": "提供内容页面的[[Special:AutomaticTranslation|自动翻译]]。",
 	"mint-home-header-title": "自动翻译",
 	"mint-home-input-placeholder": "搜索主题",
 	"mint-translation-list-all-languages-option-label": "全部",
+	"mint-home-info-panel-text": "维基百科上的数百万个主题可以自动翻译成$1。",
 	"mint-home-random-topic-button-label": "随机主题",
 	"mint-language-selector-title": "语言",
 	"mint-language-selector-suggestions-header": "建议",
