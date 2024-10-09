@@ -59,6 +59,11 @@ const getMTScoreForPageSection = (pageSection, language) =>
     language
   );
 
+/**
+ * @return {number} Minimum percentage of modified MT text for publication. Between 0 and 1
+ */
+const getMtModificationThreshold = () => (100 - publishingThreshold) / 100;
+
 const htmlToElement = (html) => {
   const template = document.createElement("div");
   template.innerHTML = html;
@@ -66,4 +71,9 @@ const htmlToElement = (html) => {
   return template;
 };
 
-export default { calculateScore, getScoreStatus, getMTScoreForPageSection };
+export default {
+  calculateScore,
+  getScoreStatus,
+  getMTScoreForPageSection,
+  getMtModificationThreshold,
+};

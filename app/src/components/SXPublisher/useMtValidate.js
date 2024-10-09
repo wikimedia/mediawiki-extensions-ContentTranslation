@@ -17,7 +17,7 @@ const useMtValidate = () => {
    * it returns the appropriate warning or error (depending on the validation
    * status) publish feedback message.
    *
-   * @return {Promise<PublishFeedbackMessage|null>}
+   * @return {PublishFeedbackMessage|null}
    */
   return () => {
     /**

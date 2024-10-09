@@ -247,7 +247,12 @@ const getSectionContents = async (pageTitle, language, sectionNumber) => {
  * @param {String} publishParams.captchaWord
  * @param {boolean} publishParams.isSandbox
  * @param {Number|null} publishParams.sectionTranslationId
- * @return {Promise<{publishFeedbackMessage: PublishFeedbackMessage|null, targetUrl: string|null}>}
+ * @return {Promise<{
+ *   publishFeedbackMessage: PublishFeedbackMessage|null,
+ *   targetUrl: string|null,
+ *   pageId: number|undefined,
+ *   revisionId: number|undefined,
+ * }>}
  * @throws {AssertUserError}
  */
 const publishTranslation = ({
@@ -309,6 +314,8 @@ const publishTranslation = ({
       return {
         publishFeedbackMessage: null,
         targetUrl: response.targeturl,
+        pageId: response.edit.pageid,
+        revisionId: response.edit.newrevid,
       };
     })
     .catch((error, details) => {

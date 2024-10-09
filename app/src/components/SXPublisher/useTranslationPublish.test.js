@@ -27,11 +27,19 @@ jest.mock("@/wiki/cx/api/translator", () => ({
       return Promise.resolve({
         publishFeedbackMessage: null,
         targetUrl: "success_url",
+        pageId: 1,
+        revisionId: 2,
       });
     } else if (targetTitle === "Test target article title 2") {
       return Promise.resolve(mockErrorResult);
     }
   }),
+}));
+
+jest.mock("@/composables/usePublishInstrument", () => () => ({
+  logPublishAttemptEvent: jest.fn(),
+  logPublishSuccessEvent: jest.fn(),
+  logPublishFailureEvent: jest.fn(),
 }));
 
 const createSentenceNode = () => {
@@ -156,12 +164,14 @@ describe(" test `useTranslationPublish` composable", () => {
     });
   });
 
-  it("should return an object with filled target URL and null publishFeedbackMessage on successful publishing", async () => {
+  it("should return an object with filled target URL, pageId, revisionId, and null publishFeedbackMessage on successful publishing", async () => {
     const feedbackMessage = await doPublish();
 
     expect(feedbackMessage).toStrictEqual({
       publishFeedbackMessage: null,
       targetUrl: "success_url",
+      pageId: 1,
+      revisionId: 2,
     });
   });
 

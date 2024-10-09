@@ -27,8 +27,8 @@ const usePublishFeedbackMessages = () => {
     publishFeedbackMessages.value = [];
   };
 
-  const initializePublishFeedbackMessages = async () => {
-    const mtValidationMessage = await validateMT();
+  const initializePublishFeedbackMessages = () => {
+    const mtValidationMessage = validateMT();
 
     if (mtValidationMessage) {
       publishFeedbackMessages.value.push(mtValidationMessage);

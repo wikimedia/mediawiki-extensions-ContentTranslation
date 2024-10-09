@@ -135,9 +135,9 @@ const { currentTranslation } = useCurrentDraftTranslation();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");
-  currentPageSection.value.reset();
 
   if (currentTranslation.value) {
+    currentPageSection.value.reset();
     // reset "restored" status for draft translation
     currentTranslation.value.restored = false;
   }
