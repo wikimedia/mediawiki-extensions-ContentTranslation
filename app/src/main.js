@@ -12,10 +12,6 @@ const finalFallback = "en";
 const messages = mw.messages.values || {};
 
 const app = createApp(App);
-/**
- * Indicates that application is still under development and mobile support is experimental
- */
-app.config.globalProperties.$incompleteVersion = true;
 
 app.use(router);
 app.use(store);

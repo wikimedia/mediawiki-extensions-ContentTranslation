@@ -11,7 +11,6 @@ import {
   MwRow,
   MwCol,
 } from "@/lib/mediawiki.ui";
-import ExperimentalSupportBanner from "./ExperimentalSupportBanner.vue";
 import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -37,10 +36,6 @@ const listSelector = useDashboardListOptions();
 
 <template>
   <div>
-    <experimental-support-banner
-      v-if="$incompleteVersion"
-      class="col-mobile-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2 mb-4"
-    />
     <mw-row class="ma-0 py-4">
       <cdx-button
         id="dashboard-search-translation-button"
