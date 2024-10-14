@@ -28,7 +28,10 @@
 			"محمد أحمد عبد الفتاح",
 			"FShbib",
 			"Helmoony",
-			"Alshamiri1"
+			"Alshamiri1",
+			"Dušan Kreheľ",
+			"Mohammed Qays",
+			"أيوب"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -75,6 +78,7 @@
 	"cx-campaign-newbytranslation-title": "البدء بترجمة بدلا من ذلك؟",
 	"cx-campaign-newbytranslation-notice": "أنشئ مقالة جديدة عن طريق الترجمة من لغة أخرى تعرفها.",
 	"cx-campaign-newbytranslation-search": "ابحث عن صفحة أخرى للترجمة",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "ابدأ الترجمة",
 	"cx-special-login-error": "يلزمك تسجيل الدخول لتترجم هذه الصفحة. [$1 سجل ادخل]",
 	"cx-tools-instructions-text1": "{{GENDER:|انقر|انقري}} على الفقرات للترجمة",
