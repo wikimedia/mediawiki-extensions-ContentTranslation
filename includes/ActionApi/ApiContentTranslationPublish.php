@@ -20,7 +20,6 @@ namespace ContentTranslation\ActionApi;
 
 use ApiBase;
 use ApiMain;
-use ChangeTags;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
@@ -36,6 +35,7 @@ use IBufferingStatsdDataFactory;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -126,7 +126,10 @@ class ApiContentTranslationPublish extends ApiBase {
 			$tags[] = 'contenttranslation-v2'; // Tag for CX2: contenttranslation-v2
 		}
 		// Remove any tags that are not registered.
-		return array_intersect( $tags, ChangeTags::listSoftwareActivatedTags() );
+		return array_intersect(
+			$tags,
+			MediaWikiServices::getInstance()->getChangeTagsStore()->listSoftwareActivatedTags()
+		);
 	}
 
 	protected function getCategories( array $params ) {
@@ -256,7 +259,8 @@ class ApiContentTranslationPublish extends ApiBase {
 				// Add the tags post-send, after RC row insertion
 				$revId = intval( $saveresult['edit']['newrevid'] );
 				DeferredUpdates::addCallableUpdate( static function () use ( $revId, $tags ) {
-					ChangeTags::addTags( $tags, null, $revId, null );
+					MediaWikiServices::getInstance()->getChangeTagsStore()
+						->addTags( $tags, null, $revId, null );
 				} );
 			}
 

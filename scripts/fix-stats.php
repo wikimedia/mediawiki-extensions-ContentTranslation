@@ -119,9 +119,12 @@ class CxFixStats extends Maintenance {
 
 		$this->output( "$count rows are tagged\n" );
 
+		$changeTagsStore = $this->getServiceContainer()->getChangeTagsStore();
+
 		foreach ( $items as $item ) {
 			[ $row, $revId ] = $item;
-			ChangeTags::addTags( 'contenttranslation', null, $revId, null );
+
+			$changeTagsStore->addTags( 'contenttranslation', null, $revId, null );
 		}
 	}
 

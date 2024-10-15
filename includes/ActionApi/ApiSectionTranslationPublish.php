@@ -27,6 +27,7 @@ use Exception;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
@@ -351,7 +352,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'sectiontranslation'
 		];
 		DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
-			\ChangeTags::addTags( $tags, null, $newRevId, null );
+			MediaWikiServices::getInstance()->getChangeTagsStore()
+				->addTags( $tags, null, $newRevId, null );
 		} );
 	}
 
