@@ -31,7 +31,8 @@
 			"علاء",
 			"محمد أحمد عبد الفتاح",
 			"Dušan Kreheľ",
-			"Mohammed Qays"
+			"Mohammed Qays",
+			"5glup"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -80,6 +81,7 @@
 	"cx-campaign-newbytranslation-title": "البدء بترجمة بدلا من ذلك؟",
 	"cx-campaign-newbytranslation-notice": "أنشئ مقالة جديدة عن طريق الترجمة من لغة أخرى تعرفها.",
 	"cx-campaign-newbytranslation-search": "ابحث عن صفحة أخرى للترجمة",
+	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "ابدأ الترجمة",
 	"cx-special-login-error": "يلزمك تسجيل الدخول لتترجم هذه الصفحة. [$1 سجل ادخل]",
 	"cx-tools-instructions-text1": "{{GENDER:|انقر|انقري}} على الفقرات للترجمة",
@@ -474,7 +476,7 @@
 	"cx-sx-block-template-mapping-status-explanation-no-mapping": "تختلف بنية القالب في كلتا اللغتين كثيرًا ، ولا يمكن نقل أي بيانات تلقائيًا",
 	"cx-sx-block-template-mapping-status-explanation-partial-mapping": "تتشابه بنية القالب في كلتا اللغتين ، ويمكن نقل بعض البيانات تلقائيًا",
 	"cx-sx-block-template-mapping-status-explanation-full-mapping": "تتشابه بنية القالب في كلتا اللغتين ، ويمكن نقل جميع البيانات تلقائيًا",
-	"cx-sx-block-template-no-equivalent-template-suggestion": "إذا كنت تعرف قالبا مكافئًا في $1 ، فيمكنك توصيله على Wikidata للسماح للأدوات بالعثور عليه",
+	"cx-sx-block-template-no-equivalent-template-suggestion": "إذا كنت تعرف قالبا مكافئًا في $1 ، فيمكنك توصيله على ويكي بيانات للسماح للأدوات بالعثور عليه",
 	"cx-sx-block-template-none-mapped-param-text": "لم تتم إضافة أي معلمات من أصل $1 من القالب الأصلي",
 	"cx-sx-block-template-mapped-params-text": "$1 من {{PLURAL:$2| معلمة $2 | تمت إضافة $2 parameters}} من النموذج الأصلي",
 	"cx-sx-block-template-no-source-params-text": "القالب الأصلي لا يحتوي على معلمات لنقلها",
