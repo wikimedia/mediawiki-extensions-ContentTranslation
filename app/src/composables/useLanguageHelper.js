@@ -209,6 +209,11 @@ const useArticleLanguagePairUpdate = () => {
           targetLanguage.value,
           newSourceTitle
         );
+      } else {
+        await store.dispatch("mediawiki/fetchPageMetadata", {
+          language: sourceLanguage.value,
+          titles: [newSourceTitle],
+        });
       }
 
       store.dispatch("application/getCXServerToken");
