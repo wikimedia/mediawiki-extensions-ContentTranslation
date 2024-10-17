@@ -25,10 +25,10 @@ use Exception;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
+use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
@@ -46,6 +46,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private SectionTranslationStore $sectionTranslationStore;
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
+	private ChangeTagsStore $changeTagsStore;
 
 	/**
 	 * @param ApiMain $main
@@ -59,6 +60,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param SectionTranslationStore $sectionTranslationStore
 	 * @param TranslationStore $translationStore
 	 * @param TranslationTargetUrlCreator $targetUrlCreator
+	 * @param ChangeTagsStore $changeTagsStore
 	 */
 	public function __construct(
 		ApiMain $main,
@@ -71,7 +73,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 		SandboxTitleMaker $sandboxTitleMaker,
 		SectionTranslationStore $sectionTranslationStore,
 		TranslationStore $translationStore,
-		TranslationTargetUrlCreator $targetUrlCreator
+		TranslationTargetUrlCreator $targetUrlCreator,
+		ChangeTagsStore $changeTagsStore
 	) {
 		parent::__construct( $main, $action );
 		$this->titleFactory = $titleFactory;
@@ -83,6 +86,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->sectionTranslationStore = $sectionTranslationStore;
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
+		$this->changeTagsStore = $changeTagsStore;
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -352,9 +356,8 @@ class ApiSectionTranslationPublish extends ApiBase {
 			'contenttranslation',
 			'sectiontranslation'
 		];
-		DeferredUpdates::addCallableUpdate( static function () use ( $newRevId, $tags ) {
-			MediaWikiServices::getInstance()->getChangeTagsStore()
-				->addTags( $tags, null, $newRevId, null );
+		DeferredUpdates::addCallableUpdate( function () use ( $newRevId, $tags ) {
+			$this->changeTagsStore->addTags( $tags, null, $newRevId, null );
 		} );
 	}
 

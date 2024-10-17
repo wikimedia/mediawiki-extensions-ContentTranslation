@@ -171,7 +171,8 @@
 				"StatsdDataFactory",
 				"LanguageNameUtils",
 				"ContentTranslation.TranslationStore",
-				"ContentTranslation.TranslationTargetUrlCreator"
+				"ContentTranslation.TranslationTargetUrlCreator",
+				"ChangeTagsStore"
 			]
 		},
 		"cxpublishsection": {
@@ -185,7 +186,8 @@
 				"ContentTranslation.SandboxTitleMaker",
 				"ContentTranslation.SectionTranslationStore",
 				"ContentTranslation.TranslationStore",
-				"ContentTranslation.TranslationTargetUrlCreator"
+				"ContentTranslation.TranslationTargetUrlCreator",
+				"ChangeTagsStore"
 			]
 		},
 		"cxsave": {
