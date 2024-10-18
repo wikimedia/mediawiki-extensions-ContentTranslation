@@ -48,7 +48,7 @@
 	"cx-publish-summary": "Készült a(z) „$1” oldal lefordításával",
 	"cx-translation-add-translation": "Fordítás hozzáadása",
 	"cx-translation-target-page-exists": "Egy [$1 $2] című lap már létezik a célwikin. Fontold meg, hogy egy másik címet adsz neki.",
-	"tag-contenttranslation": "[{{MediaWiki:cx-descriptionpagelink}} Tartalomfordítás]",
+	"tag-contenttranslation": "Tartalomfordítás",
 	"tag-contenttranslation-description": "A tartalmat egy másik nyelvről fordították le a Tartalomfordító eszközzel.",
 	"tag-contenttranslation-v2-description": "A tartalmat egy másik nyelvről fordították le a Tartalomfordító eszköz második verzióját használva.",
 	"cx-source-loading": "$1 betöltése",

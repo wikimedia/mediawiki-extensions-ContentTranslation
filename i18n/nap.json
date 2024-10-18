@@ -29,7 +29,7 @@
 	"cx-publish-summary": "Criata d' 'a traduzione d' 'a paggena \"$1\"",
 	"cx-translation-add-translation": "Azzecca traduzione",
 	"cx-translation-target-page-exists": "Na paggena c' 'o titulo [$1 $2] esiste già dint' 'o wiki destinazione. Penzate ncopp' 'a possibbilità 'e dà 'a paggena nu titolo diverzo.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TraduzioneCuntenute]]",
+	"tag-contenttranslation": "TraduzioneCuntenute",
 	"tag-contenttranslation-description": "'O cuntenuto è stato tradotto 'a nata llengua ausanno 'o strumiento Traduzione 'e Cuntenute.",
 	"cx-source-loading": "Carrecanno $1",
 	"cx-beta": "Traduzione 'e Cuntenute",

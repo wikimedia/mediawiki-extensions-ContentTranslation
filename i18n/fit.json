@@ -25,7 +25,7 @@
 	"cx-lost-session": "Istuntosi oon vanhentunut",
 	"cx-translation-add-translation": "Lissää käänös",
 	"cx-translation-target-page-exists": "Sivu [$1 $2] oon jo olemassa kohewikissä. Anna käänökselle toinen nimi.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Käänetty sisältö]]",
+	"tag-contenttranslation": "Käänetty sisältö",
 	"tag-contenttranslation-description": "Sisältö oon käänetty toisesta kielestä Sisällön kääntäminen -työneuvolla.",
 	"tag-contenttranslation-v2-description": "Sisältö oon käänetty toisesta kielestä Sisällön kääntäminen -työneuvon versuunilla 2.",
 	"cx-source-loading": "Ladathaan sivua $1",

@@ -31,7 +31,7 @@
 	"cx-publish-summary": "Ugeluecht duerch d'Iwwersetze vun der Säit \"$1\"",
 	"cx-translation-add-translation": "Iwwersetzung dobäisetzen",
 	"cx-translation-target-page-exists": "Eng Säit mam Titel [$1 $2] gëtt et an der Zil-Wiki. Iwwerleet ob Dir der säit keen aneren Titel kënnt ginn.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Iwwersetzung vum Inhalt]]",
+	"tag-contenttranslation": "Iwwersetzung vum Inhalt",
 	"tag-contenttranslation-description": "Den Inhalt gouf vun enger anerer Sprooch mat Hëllef vum 'Content Translation Tool' iwwersat.",
 	"cx-source-loading": "$1 lueden",
 	"cx-beta": "Iwwersetzung vum Inhalt",

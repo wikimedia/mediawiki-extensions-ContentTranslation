@@ -50,7 +50,7 @@
 	"cx-publish-summary": "\"$1\" पृष्ठ का अनुवाद करके निर्मित किया गया",
 	"cx-translation-add-translation": "अनुवाद जोड़ें",
 	"cx-translation-target-page-exists": "लक्ष्य विकि पर [$1 $2] शीर्षक के साथ पृष्ठ उपलब्ध है। पृष्ठ को भिन्न शीर्षक देने का प्रयास करें।",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|सामग्री अनुवाद]]",
+	"tag-contenttranslation": "सामग्री अनुवाद",
 	"tag-contenttranslation-description": "सामग्री को सामग्री अनुवाद उपकरण की सहायता से अन्य भाषा से अनुवाद किया गया है।",
 	"tag-contenttranslation-v2-description": "सामग्री अनुवाद उपकरण के दूसरे संस्करण की सहायता से सामग्री का अन्य भाषा से अनुवाद किया गया था।",
 	"cx-source-loading": "$1 लोड हो रहा है",

@@ -32,7 +32,7 @@
 	"cx-publish-summary": "Napravljeno prevođenjem stranice \"$1\"",
 	"cx-translation-add-translation": "Dodaj prijevod",
 	"cx-translation-target-page-exists": "Stranica sa naslovom [$1 $2] već postoji na odredišnom wikiju. Pokušajte dati stranici drugi naziv.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|prijevod sadržaja]]",
+	"tag-contenttranslation": "prijevod sadržaja",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prijevod sadržaja.",
 	"cx-source-loading": "Učitavam $1",
 	"cx-beta": "Prijevod sadržaja",

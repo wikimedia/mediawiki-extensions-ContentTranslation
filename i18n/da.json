@@ -44,7 +44,7 @@
 	"cx-publish-summary": "Skabt ved at oversætte siden \"$1\"",
 	"cx-translation-add-translation": "Tilføj oversættelse",
 	"cx-translation-target-page-exists": "Der findes en side med titlen [$1 $2] på målwikien. Overvej at give siden en anden titel.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Indholdsoversættelse]]",
+	"tag-contenttranslation": "Indholdsoversættelse",
 	"tag-contenttranslation-description": "Indholdet blev oversat fra et andet sprog ved hjælp af indholdsoversættelsesværktøjet.",
 	"tag-contenttranslation-v2-description": "Indholdet blev oversat fra et andet sprog ved hjælp af version 2 af indholdsoversættelsesværktøjet.",
 	"cx-source-loading": "Indlæser $1",

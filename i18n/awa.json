@@ -21,7 +21,7 @@
 	"cx-publish-summary": "\"$1\" पन्ना कै अनुवाद कइके बनवा गा",
 	"cx-translation-add-translation": "अनुवाद जोड़ैं",
 	"cx-translation-target-page-exists": "उद्देस विकि पय [$1 $2] शीर्षक के साथ पन्ना मौजूद है। पन्ना का अलग शीर्षक दियै कै कोसिस करैं।",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|सामग्री अनुवाद]]",
+	"tag-contenttranslation": "सामग्री अनुवाद",
 	"tag-contenttranslation-description": "सामग्री का सामग्री अनुवाद उपकरण की मदद से दुसरे भाषा से अनुवाद करा गवा है ।",
 	"tag-contenttranslation-v2-description": "सामग्री अनुवाद उपकरण के दूसरे संस्करण की मदद से सामग्री कै दूसर भाषा से अनुवाद करा गा रहा।",
 	"cx-source-loading": "$1 लोड होत अहै",

@@ -26,7 +26,7 @@
 	"cx-publish-summary": "«$1» бетінен аударылып түзілді",
 	"cx-translation-add-translation": "Аударманы қосыңыз",
 	"cx-translation-target-page-exists": "[$1 $2] атауымен бет осы уикиде бар. Бетке басқа атау беріңіз.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Мазмұн аудару]]",
+	"tag-contenttranslation": "Мазмұн аудару",
 	"tag-contenttranslation-description": "Мазмұн басқа тілден Мазмұн аудару құралын қолданып аударылды.",
 	"cx-source-loading": "Жүктелуде $1",
 	"cx-beta": "Мазмұн аудару",

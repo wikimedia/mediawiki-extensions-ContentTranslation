@@ -32,7 +32,7 @@
 	"cx-publish-summary": "Á̱ ku khwuk di̱n vak bwan wat \"$1\" hu hwa",
 	"cx-translation-add-translation": "Mbeang bwan",
 	"cx-translation-target-page-exists": "Wat ghyang ma̱ng a̱lyoot ka [$1 $2] nshyia̱ mi̱ wuki fa hu. Nyia̱ a̱di̱dam di̱ nwuak wat hu a̱lyoot vwuon.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|BwanNkyangmami]]",
+	"tag-contenttranslation": "BwanNkyangmami",
 	"tag-contenttranslation-description": "Á̱ bwuak kyangmami hu neet a̱lyem a̱ghyang mbwak kyangta̱m Bwan Kyangmami huhwa.",
 	"tag-contenttranslation-v2-description": "Á̱ bwuak kyangmami hu neet a̱lyem a̱ghyang mbwak kpak 2 si̱ kyangta̱m Bwan Kyangmami huhwa.",
 	"cx-source-loading": "Á̱ nyia̱ lodi $1",

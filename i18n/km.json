@@ -25,7 +25,7 @@
 	"cx-publish-summary": "បង្កើតដោយការបកប្រែទំព័រ \"$1\"",
 	"cx-translation-add-translation": "បន្ថែម​ការ​បក​ប្រែ",
 	"cx-translation-target-page-exists": "ទំព័រដែលមានចំណងជើង [$1 $2] មានហើយនៅក្នុងវិគីគោលដៅ។ សូមពិចារណាដាក់ចំណងជើងផ្សេងមួយដល់ទំព័រនេះ។",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ការបកប្រែខ្លឹមសារ]]",
+	"tag-contenttranslation": "ការបកប្រែខ្លឹមសារ",
 	"tag-contenttranslation-description": "ខ្លឹមសារនេះត្រូវបានបកប្រែពីភាសាមួយផ្សេងទៀតដោយប្រើប្រាស់ឧបករណ៍បកប្រែខ្លឹមសារ។",
 	"cx-source-loading": "កំពុងផ្ទុក $1",
 	"cx-beta": "ការបកប្រែខ្លឹមសារអត្ថបទ",

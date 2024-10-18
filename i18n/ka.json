@@ -41,7 +41,7 @@
 	"cx-publish-summary": "შექმნილია გვერდის თარგმნით „$1“",
 	"cx-translation-add-translation": "თარგმანის დამატება",
 	"cx-translation-target-page-exists": "გვერდი სათაურით [$1 $2] უკვე არსებობს სამიზნე ვიკიში. შეეცადეთ გვერდს მისცეთ სხვა სათაური.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|შიგთავსის თარგმნა]]",
+	"tag-contenttranslation": "შიგთავსის თარგმნა",
 	"tag-contenttranslation-description": "შემცვლელობა იყო თარგმნილი სხვა ენიდან Content Translation tool-ის მეშვეობით.",
 	"tag-contenttranslation-v2-description": "შინაარსი თარგმნილია სხვა ენიდან, შიგთავსის თარგმნის ხელსაწყოს მე-2 ვერსიის გამოყენებით.",
 	"cx-source-loading": "იტვირთება $1",

@@ -33,7 +33,7 @@
 	"cx-publish-summary": "Geskep deur die bladsy \"$1\" te vertaal",
 	"cx-translation-add-translation": "Dra 'n vertaling by",
 	"cx-translation-target-page-exists": "'n Bladsy met die titel [$1 $2] bestaan reeds in die teikenwiki. Oorweeg dit om 'n ander titel te kies.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Inhoudvertaling]]",
+	"tag-contenttranslation": "Inhoudvertaling",
 	"tag-contenttranslation-description": "Die inhoud is met die Inhoudsvertaling-program vanuit 'n ander taal vertaal.",
 	"cx-source-loading": "Laai $1",
 	"cx-beta": "Inhoudsvertaling",

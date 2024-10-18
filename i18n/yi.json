@@ -33,7 +33,7 @@
 	"cx-publish-summary": "געשאפן דורך איבערזעצן דעם בלאט \"$1\"",
 	"cx-translation-add-translation": "צולייגן איבערזעצונג",
 	"cx-translation-target-page-exists": "א בלאַט מיטן נאָמען [$1 $2] עקזיסטירט אין דער ציל וויקי. באַטראַכט געבן דעם בלאַט אן אַנדער טיטל.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|אינהאלט־איבערזעצונג]]",
+	"tag-contenttranslation": "אינהאלט־איבערזעצונג",
 	"tag-contenttranslation-description": "דער אינהאלט איז געווארן איבערגעזעצט פון אן אנדער שפראך מיטן אינהאלט־איבערזעצונג געצייג.",
 	"cx-source-loading": "לאדן $1",
 	"cx-beta": "לויפיקע איבערזעצונג",

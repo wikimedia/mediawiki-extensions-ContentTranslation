@@ -36,7 +36,7 @@
 	"cx-publish-summary": "Inilikha sa pagsalin ng pahinang \"$1\"",
 	"cx-translation-add-translation": "Magdagdag ng salinwika",
 	"cx-translation-target-page-exists": "May umiiral nang pahinang may pamagat na [$1 $2] sa wiking patutunguhan.  Mangyaring isiping bigyan ng ibang pamagat ang pahina.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|ContentTranslation]]",
+	"tag-contenttranslation": "ContentTranslation",
 	"tag-contenttranslation-description": "Isinalin ang nilalaman mula sa ibang wika gamit ang kagamitan Pangsalinwika ng Nilalaman.",
 	"cx-source-loading": "Ikinakarga ang $1",
 	"cx-beta": "Pagsasalin ng Nilalaman",

@@ -28,7 +28,7 @@
 	"cx-publish-summary": "\"$1\" पानाचे भाषांतर करुन तयार झाले",
 	"cx-translation-add-translation": "भाषांतर जोडा",
 	"cx-translation-target-page-exists": "लक्ष्य विकित [$1 $2] या शिर्षकाचे पान अस्तित्वात आहे. या पानास दुसरे शिर्षक देण्याबद्दल विचार करा.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|आशयभाषांतर]]",
+	"tag-contenttranslation": "आशयभाषांतर",
 	"tag-contenttranslation-description": "आशय भाषांतर उपकरण वापरून,दुसऱ्या भाषेतुन आशयाचे भाषांतर केल्या गेले.",
 	"cx-source-loading": "$1 चे प्रभारण करीत आहे",
 	"cx-beta": "आशय भाषांतर",

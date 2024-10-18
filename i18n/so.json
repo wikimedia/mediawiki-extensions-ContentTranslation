@@ -24,7 +24,7 @@
 	"cx-publish-summary": "Samee turjumidda bogga \"$1\"",
 	"cx-translation-add-translation": "Ku dar turjumid",
 	"cx-translation-target-page-exists": "Bog wata ciwaankaan [$1 $2] waa uu ku jiraa eikiga. U dooro bogga ciwaan ka gadisan.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|nuxurka turjumaadda]]",
+	"tag-contenttranslation": "nuxurka turjumaadda",
 	"tag-contenttranslation-description": "Waxa ku jira waxaa lagu turjumay luqad kale iyadoo la adeegsaday qalabka turjumaadda.",
 	"cx-source-loading": "Galin $1",
 	"cx-beta": "Wax turjumid",

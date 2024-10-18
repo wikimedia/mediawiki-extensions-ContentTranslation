@@ -23,7 +23,7 @@
 	"cx-publish-summary": "Maked döär et oaversetten van de syde \"$1\"",
 	"cx-translation-add-translation": "Oaversetting tovogen",
 	"cx-translation-target-page-exists": "n Zied mit de titel [$1 $2] besteet al in de doelwiki. Overweeg de zied n aandere titel te geven.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Inholdoaversetting]]",
+	"tag-contenttranslation": "Inholdoaversetting",
 	"tag-contenttranslation-description": "De inhoud is vertaald uut n aandere taal mit behulp van t inhoudsvertalinghulpmiddel.",
 	"tag-contenttranslation-v2-description": "De inhold is uut en andere språke oaversetted mid behülp van de tweyde versy van et inholdsoaversettingswarktüüg.",
 	"cx-source-loading": "Laadt $1",

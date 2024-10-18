@@ -48,7 +48,7 @@
 	"cx-publish-summary": "Creada per traducció de la pàgina «$1»",
 	"cx-translation-add-translation": "Afegeix una traducció",
 	"cx-translation-target-page-exists": "Una pàgina amb el títol [$1 $2] existeix en el wiki de destinació. Considereu donar a la pàgina un títol diferent.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|traducció de contingut]]",
+	"tag-contenttranslation": "traducció de contingut",
 	"tag-contenttranslation-description": "El contingut va ser traduït des d'un altre idioma amb l'eina de Traducció de contingut.",
 	"cx-source-loading": "S'està carregant $1",
 	"cx-beta": "Traducció de contingut",

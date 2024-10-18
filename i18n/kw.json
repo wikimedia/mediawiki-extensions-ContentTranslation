@@ -34,7 +34,7 @@
 	"cx-publish-summary": "Gwrys dre dreylya an folen \"$1\"",
 	"cx-translation-add-translation": "Keworra treylyans",
 	"cx-translation-target-page-exists": "Yma folen gans titel [$1 $2] hwath y'n bys y'n wiki kosten. Mir war ri hanow dyffrans dhe'n folen.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TreylyansDalgh]]",
+	"tag-contenttranslation": "TreylyansDalgh",
 	"tag-contenttranslation-description": "An dalgh ma a veu treylys a yeth aral gans an toul Treylyans Dalgh.",
 	"tag-contenttranslation-v2-description": "An dalgh ma a veu treylys a yeth aral gans versyon 2 a'n toul Treylyans Dalgh.",
 	"cx-source-loading": "Ow karga $1",

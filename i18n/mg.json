@@ -22,7 +22,7 @@
 	"cx-publish-summary": "Noforonina tamin'ny alalan'ny fandikana an'i \"$1\"",
 	"cx-translation-add-translation": "Hanampy dikan-teny",
 	"cx-translation-target-page-exists": "Efa misy eo amin'ny wiki tanjona ny pejy mitondra ny lohateny [$1 $2]. Manomeza lohateny hafa.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|Fandikam-botoatiny]]",
+	"tag-contenttranslation": "Fandikam-botoatiny",
 	"tag-contenttranslation-description": "Nadika avy tamin'ny fiteny hafa ity pejy ity tamin'ny alalan'ny fitaovam-pandikam-botoatiny.",
 	"cx-source-loading": "Maka an'i $1",
 	"cx-beta": "Fandikam-botoatiny",

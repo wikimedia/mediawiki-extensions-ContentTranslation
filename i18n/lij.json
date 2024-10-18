@@ -34,7 +34,7 @@
 	"cx-publish-summary": "Creâ da-a tradussion da paggina \"$1\"",
 	"cx-translation-add-translation": "Azonzi tradussion",
 	"cx-translation-target-page-exists": "A gh'è zà 'na paggina intitolâ [$1 $2] inta wiki de destinassion. Foscia l'è o caxo de dâ a-a paggina un tittolo diferente.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|TradussionContegnui]]",
+	"tag-contenttranslation": "TradussionContegnui",
 	"tag-contenttranslation-description": "O contegnuo o l'è stæto traduto da 'n'atra lengua doeuviando o strumento Tradussion Voxe.",
 	"tag-contenttranslation-v2-description": "O contegnuo o l'è stæto traduto da 'n'atra lengua doeuviando a segonda verscion do strumento Tradussion Voxe.",
 	"cx-source-loading": "Caregamento $1",

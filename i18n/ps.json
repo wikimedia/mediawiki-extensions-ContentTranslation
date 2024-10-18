@@ -25,7 +25,7 @@
 	"cx-publish-summary": "د \"$1\" مخ د ژباړلو له مخې جوړ شوی",
 	"cx-translation-add-translation": "ژباړه ورگډول",
 	"cx-translation-target-page-exists": "په دې ويکي کې د [$1 $2] په سرليک يو مخ شته. مخ ته مو په يو بېل سرليک ټاکلو باندې غور وکړئ.",
-	"tag-contenttranslation": "[[{{MediaWiki:cx-descriptionpagelink}}|د مېنځپانگې ژباړه]]",
+	"tag-contenttranslation": "د مېنځپانگې ژباړه",
 	"cx-source-loading": "$1 رابرسېرېږي",
 	"cx-beta": "د مېنځپانگې ژباړه",
 	"cx-beta-desc": "ستاسې په ژبه کې د مخونو د ژباړې چټک اوزار. د [[Special:MyContributions|خپلو ونډو]] له مخونو څخه مو ژباړې پيل کړئ او بيا يې د ژباړې لپاره زموږ د ځانگړي سکښتل شوي څنگ - په - څنگ سمونگر په مرسته سمونې ترسره کړئ. کېدای شي ځينې اوزارونه يوازې په ځينو ځانگړو ژبو کې وي.",
