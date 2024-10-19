@@ -6,6 +6,7 @@ namespace ContentTranslation\Tests;
 
 use ContentTranslation\Service\SectionTitleFetcher;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
 
 /**
@@ -109,7 +110,7 @@ class SectionTitleFetcherTest extends \MediaWikiIntegrationTestCase {
 		];
 		$mockHttpRequestFactory->method( 'get' )
 			->with( $url )
-			->willReturn( \FormatJson::encode( $response ) );
+			->willReturn( FormatJson::encode( $response ) );
 
 		$sectionTitleFetcher = new SectionTitleFetcher( $mockHttpRequestFactory );
 		$actualSectionTitles = $sectionTitleFetcher->fetchSectionTitles( $targetLanguage, $title );

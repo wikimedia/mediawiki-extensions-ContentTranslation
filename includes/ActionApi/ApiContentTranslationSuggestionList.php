@@ -6,12 +6,12 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Suggestion;
 use ContentTranslation\SuggestionList;
 use ContentTranslation\SuggestionListManager;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 

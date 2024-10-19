@@ -7,7 +7,7 @@ use ContentTranslation\ParsoidClientFactory;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Rest\Handler\Helper\PageRestHelperFactory;
 use MediaWikiIntegrationTestCase;
-use MultiHttpClient;
+use Wikimedia\Http\MultiHttpClient;
 
 /**
  * @covers \ContentTranslation\ParsoidClientFactory

@@ -5,11 +5,11 @@ declare( strict_types = 1 );
 namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\SiteMapper;
-use ExtensionRegistry;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MobileContext;
 
 class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {

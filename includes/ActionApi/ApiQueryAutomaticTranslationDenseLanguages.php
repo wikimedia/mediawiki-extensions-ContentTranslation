@@ -3,10 +3,10 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQueryGeneratorBase;
+use MediaWiki\Api\ApiQueryGeneratorBase;
 use MediaWiki\Http\HttpRequestFactory;
-use WANObjectCache;
 use Wikimedia\LightweightObjectStore\ExpirationAwareness;
+use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

@@ -12,9 +12,9 @@ namespace ContentTranslation\ActionApi;
  * Api module for querying ContentTranslation stats.
  */
 
-use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Translation;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 

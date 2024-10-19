@@ -8,7 +8,7 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQueryBase;
+use MediaWiki\Api\ApiQueryBase;
 
 class ApiQueryLangLinksCount extends ApiQueryBase {
 	public function execute() {

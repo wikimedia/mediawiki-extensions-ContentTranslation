@@ -6,8 +6,6 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
@@ -18,7 +16,9 @@ use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use Deflate;
-use FormatJson;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;

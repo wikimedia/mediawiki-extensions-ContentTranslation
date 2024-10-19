@@ -18,8 +18,6 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
@@ -30,16 +28,18 @@ use ContentTranslation\Translation;
 use ContentTranslation\Translator;
 use Deflate;
 use Exception;
-use ExtensionRegistry;
-use IBufferingStatsdDataFactory;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
+use Wikimedia\Stats\IBufferingStatsdDataFactory;
 
 class ApiContentTranslationPublish extends ApiBase {
 

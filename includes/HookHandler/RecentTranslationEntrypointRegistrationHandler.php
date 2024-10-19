@@ -6,10 +6,10 @@ namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
-use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionStore;
 use MobileContext;
 use Skin;

@@ -8,9 +8,9 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQueryBase;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\LightweightObjectStore\ExpirationAwareness;
 

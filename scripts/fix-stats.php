@@ -5,6 +5,7 @@
  */
 
 use ContentTranslation\LoadBalancer;
+use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use MediaWiki\Title\Title;

@@ -9,8 +9,8 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQuery;
-use ApiQueryBase;
+use MediaWiki\Api\ApiQuery;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\ParamValidator\ParamValidator;

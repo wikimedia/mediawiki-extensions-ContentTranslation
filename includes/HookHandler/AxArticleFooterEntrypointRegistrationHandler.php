@@ -3,13 +3,13 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\HookHandler;
 
-use Language;
 use MediaWiki\Config\Config;
 use MediaWiki\Config\ConfigFactory;
 use MediaWiki\Context\IContextSource;
 use MediaWiki\Extension\Disambiguator\Lookup;
 use MediaWiki\Hook\SkinAfterContentHook;
 use MediaWiki\Html\Html;
+use MediaWiki\Language\Language;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Title\Title;
 use Skin;

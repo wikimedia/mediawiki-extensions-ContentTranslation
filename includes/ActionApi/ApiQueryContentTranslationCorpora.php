@@ -8,9 +8,9 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQuery;
-use ApiQueryBase;
 use ContentTranslation\Manager\TranslationCorporaManager;
+use MediaWiki\Api\ApiQuery;
+use MediaWiki\Api\ApiQueryBase;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

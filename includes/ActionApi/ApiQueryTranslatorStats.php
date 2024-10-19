@@ -8,11 +8,11 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiQueryBase;
 use ContentTranslation\DateManipulator;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
 use Exception;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
 

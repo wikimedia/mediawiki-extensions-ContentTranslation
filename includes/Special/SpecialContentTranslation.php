@@ -10,12 +10,12 @@ namespace ContentTranslation\Special;
 
 use ContentTranslation\PreferenceHelper;
 use ContentTranslation\SiteMapper;
-use ExtensionRegistry;
 use MediaWiki\Context\DerivativeContext;
 use MediaWiki\Context\MutableContext;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\SpecialPage\SpecialPage;
 use MobileContext;
 use SkinFactory;

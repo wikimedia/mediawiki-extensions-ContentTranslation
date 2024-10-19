@@ -8,7 +8,7 @@ use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Translation;
-use FormatJson;
+use MediaWiki\Json\FormatJson;
 
 /**
  * @author Nik Gkountas

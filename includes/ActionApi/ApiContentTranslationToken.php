@@ -2,8 +2,8 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
 use Firebase\JWT\JWT;
+use MediaWiki\Api\ApiBase;
 
 /**
  * Module that provides JWT tokens to authenticate with cxserver.

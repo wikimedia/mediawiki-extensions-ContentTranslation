@@ -3,12 +3,13 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\Service\TranslationSplitter;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -42,7 +43,7 @@ class ApiContentTranslationSplit extends ApiBase {
 
 	/**
 	 * @return void
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	private function validateRequest(): void {
 		if ( $this->loadBalancer->getConnection( DB_PRIMARY )->isReadOnly() ) {
@@ -62,7 +63,7 @@ class ApiContentTranslationSplit extends ApiBase {
 	}
 
 	/**
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	public function execute() {
 		$this->validateRequest();

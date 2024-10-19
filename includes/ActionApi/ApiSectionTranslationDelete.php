@@ -8,11 +8,11 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationDelete extends ApiBase {

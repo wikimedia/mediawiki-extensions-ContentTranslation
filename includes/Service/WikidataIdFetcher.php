@@ -4,8 +4,8 @@ declare( strict_types = 1 );
 namespace ContentTranslation\Service;
 
 use ContentTranslation\SiteMapper;
-use FormatJson;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Json\FormatJson;
 
 class WikidataIdFetcher {
 	private HttpRequestFactory $httpRequestFactory;

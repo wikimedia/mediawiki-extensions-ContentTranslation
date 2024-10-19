@@ -2,6 +2,8 @@
 
 namespace ContentTranslation;
 
+use MediaWiki\Json\FormatJson;
+
 class JsonDumpFormatter {
 	/** @var bool */
 	private $isStarted = false;
@@ -61,7 +63,7 @@ class JsonDumpFormatter {
 				'target' => $unit['user'],
 			];
 
-			$json = \FormatJson::encode( $section, $indent, \FormatJson::ALL_OK );
+			$json = FormatJson::encode( $section, $indent, FormatJson::ALL_OK );
 			$output .= self::indent( $indent, $json ) . ",\n";
 		}
 

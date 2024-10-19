@@ -3,12 +3,12 @@ declare( strict_types=1 );
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\DTO\PublishedTranslationDTO;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
 
 /**
  * Action API module that is used to check if any "unreviewed" translation

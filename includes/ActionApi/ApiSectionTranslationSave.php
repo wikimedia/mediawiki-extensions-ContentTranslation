@@ -6,8 +6,6 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
 use ContentTranslation\LoadBalancer;
@@ -18,6 +16,9 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Languages\LanguageNameUtils;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
@@ -88,7 +89,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	public function execute() {
 		$this->validateRequest();

@@ -8,10 +8,6 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiPageSet;
-use ApiQuery;
-use ApiQueryGeneratorBase;
 use ContentTranslation\DTO\CXDraftTranslationDTO;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Service\UserService;
@@ -19,6 +15,10 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiPageSet;
+use MediaWiki\Api\ApiQuery;
+use MediaWiki\Api\ApiQueryGeneratorBase;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 

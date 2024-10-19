@@ -5,7 +5,7 @@ declare( strict_types=1 );
 namespace ContentTranslation\Tests;
 
 use ContentTranslation\Service\EditedSectionFinder;
-use TextContent;
+use MediaWiki\Content\TextContent;
 
 /**
  * @covers \ContentTranslation\Service\EditedSectionFinder

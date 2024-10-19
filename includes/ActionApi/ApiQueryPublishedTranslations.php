@@ -8,9 +8,9 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiQueryBase;
 use ContentTranslation\Translation;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;

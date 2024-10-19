@@ -10,6 +10,7 @@ namespace ContentTranslation;
 
 use Exception;
 use LocalizedException;
+use MediaWiki\Content\WikitextContent;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Permissions\Authority;
@@ -22,7 +23,6 @@ use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\User;
-use WikitextContent;
 
 class DirectParsoidClient implements ParsoidClient {
 

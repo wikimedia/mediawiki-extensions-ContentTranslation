@@ -3,9 +3,9 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\Service;
 
+use MediaWiki\Content\TextContent;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
-use TextContent;
 use Wikimedia\Diff\DiffOp;
 
 class EditedSectionFinder {

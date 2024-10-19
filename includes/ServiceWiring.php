@@ -23,6 +23,7 @@ use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\WikiMap\WikiMap;
 use Wikimedia\Services\NoSuchServiceException;
 

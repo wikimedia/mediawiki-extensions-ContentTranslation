@@ -4,9 +4,9 @@ declare( strict_types = 1 );
 namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\PreferenceHelper;
-use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
 

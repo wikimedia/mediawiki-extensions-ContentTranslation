@@ -5,9 +5,9 @@ declare( strict_types=1 );
 namespace ContentTranslation\Service;
 
 use ContentTranslation\SiteMapper;
-use FormatJson;
 use InvalidArgumentException;
 use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Title\Title;
 
 class SectionTitleFetcher {

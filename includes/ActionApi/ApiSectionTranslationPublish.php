@@ -12,8 +12,6 @@
 
 namespace ContentTranslation\ActionApi;
 
-use ApiBase;
-use ApiMain;
 use ContentTranslation\ContentTranslationHookRunner;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
@@ -24,6 +22,9 @@ use ContentTranslation\Store\SectionTranslationStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Translation;
 use Exception;
+use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
@@ -126,7 +127,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param string $wikitext The wikitext to write
 	 * @param int|string $sectionNumber
 	 * @return mixed The result of the save attempt
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	protected function submitEditAction( Title $title, string $wikitext, $sectionNumber ) {
 		$params = $this->extractRequestParams();
@@ -175,7 +176,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	}
 
 	/**
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
@@ -301,7 +302,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	 * @param int|string $sectionNumber
 	 * @param string $targetSectionTitle
 	 * @return mixed
-	 * @throws \ApiUsageException
+	 * @throws ApiUsageException
 	 */
 	private function saveWikitext( string $html, Title $targetTitle, $sectionNumber, string $targetSectionTitle ) {
 		// When the section number is a positive integer, it means that the section needs to be positioned
