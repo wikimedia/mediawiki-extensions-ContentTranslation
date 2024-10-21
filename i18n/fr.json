@@ -360,6 +360,7 @@
 	"sx-quick-tutorial-secondary-point-step-1": "Traduisez et publiez une section à la fois. C’est facile, rapide et amusant !",
 	"sx-quick-tutorial-secondary-point-step-2": "Les traductions suggérées nécessitent votre relecture pour être lues de façon naturelle.",
 	"sx-quick-tutorial-translate-button-label": "Commencer à traduire",
+	"cx-sx-sentence-selector-header-close-button-aria-label": "Aller au tableau de bord",
 	"cx-sx-sentence-selector-header-title": "Traduire la section",
 	"cx-sx-sentence-selector-done-button-label": "Terminé",
 	"cx-sx-sentence-selector-suggested-translation-title": "Traduction suggérée depuis $1",

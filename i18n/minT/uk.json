@@ -34,6 +34,7 @@
 	"mint-view-translation-page-target-article-container-header": "На цю тему також доступний контент, створений людьми.",
 	"mint-view-translation-page-target-article-container-details": "Читайте статтю редакторів Вікіпедії мовою «$1», щоб отримати більш достовірну інформацію на цю тему.",
 	"mint-view-translation-page-source-article-link-label": "Відкрити мовою «$1»",
+	"mint-view-translation-content-translation-entrypoint-title": "Переглянути автоматичний переклад",
 	"mint-view-translation-content-translation-entrypoint-description": "Автоматичний зміст може бути неточним",
 	"mint-view-translation-overlay-header": "Автоматичний переклад",
 	"mint-view-translation-overlay-source-article-link-label": "Читати у Вікіпедії мовою «$1»",
