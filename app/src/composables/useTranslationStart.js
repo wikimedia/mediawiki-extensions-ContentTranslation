@@ -20,7 +20,7 @@ const useTranslationStart = () => {
   const router = useRouter();
   const loadSuggestion = useSuggestionLoad();
   const { setTranslationURLParams } = useURLHandler();
-  const { setStartTranslationEventSource } =
+  const { setStartTranslationEventSource, setStartTranslationEventContext } =
     useDashboardTranslationStartInstrument();
 
   /**
@@ -28,9 +28,16 @@ const useTranslationStart = () => {
    * @param {string} sourceLanguage
    * @param {string} targetLanguage
    * @param {string} eventSource
+   * @param {string|null} eventContext
    * @return {Promise<void>}
    */
-  return async (title, sourceLanguage, targetLanguage, eventSource) => {
+  return async (
+    title,
+    sourceLanguage,
+    targetLanguage,
+    eventSource,
+    eventContext = null
+  ) => {
     /** @type {SectionSuggestion|ArticleSuggestion|null} */
     const suggestion = await loadSuggestion(
       sourceLanguage,
@@ -45,6 +52,7 @@ const useTranslationStart = () => {
     store.dispatch("application/getCXServerToken");
     setTranslationURLParams(suggestion);
     setStartTranslationEventSource(eventSource);
+    setStartTranslationEventContext(eventContext);
 
     router.push({
       name: "sx-translation-confirmer",

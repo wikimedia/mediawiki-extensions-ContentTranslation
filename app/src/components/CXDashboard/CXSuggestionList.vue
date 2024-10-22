@@ -5,16 +5,15 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import CxSuggestionListFilters from "./CXSuggestionListFilters.vue";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
-import { useStore } from "vuex";
 import { ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
-import useApplicationState from "@/composables/useApplicationState";
 import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useTranslationStart from "@/composables/useTranslationStart";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconReload } from "@wikimedia/codex-icons";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 import useDashboardSuggestionEventSource from "@/composables/useDashboardSuggestionEventSource";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   active: {
@@ -23,8 +22,11 @@ const props = defineProps({
   },
 });
 
-const store = useStore();
-const { sourceLanguage, targetLanguage } = useApplicationState(store);
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  currentSuggestionFilters,
+} = useURLHandler();
 
 const { supportedLanguageCodes, availableTargetLanguages } =
   useSuggestionListLanguages();
@@ -39,17 +41,20 @@ const getEventSourceForDashboardSuggestion =
   useDashboardSuggestionEventSource();
 
 const doStartTranslation = useTranslationStart();
+
 /**
  * @param {SectionSuggestion|ArticleSuggestion} suggestion
  * @return {Promise<void>}
  */
-const startTranslation = (suggestion) =>
+const startTranslation = (suggestion) => {
   doStartTranslation(
     suggestion.sourceTitle,
     suggestion.sourceLanguage,
     suggestion.targetLanguage,
-    getEventSourceForDashboardSuggestion()
+    getEventSourceForDashboardSuggestion(),
+    currentSuggestionFilters.value.id
   );
+};
 
 const {
   currentPageSuggestionsSlice,

@@ -30,7 +30,7 @@ const useDashboardSuggestionEventSource = () => {
       type === COLLECTIONS_SUGGESTION_PROVIDER
     ) {
       // here we handle both "All collections" and single collection filters
-      return "suggestion_collections";
+      return "suggestion_filter_collections";
     }
 
     throw new Error("Event source cannot be empty");

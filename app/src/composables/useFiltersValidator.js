@@ -79,7 +79,14 @@ const useFiltersValidator = () => {
     return DEFAULT_FILTERS;
   };
 
-  return { filtersValidatorError, validateFilters };
+  /**
+   * @param {string} type
+   * @param {string} id
+   */
+  const isDefaultFilter = ({ type, id }) =>
+    type === DEFAULT_FILTERS.type && id === DEFAULT_FILTERS.id;
+
+  return { filtersValidatorError, validateFilters, isDefaultFilter };
 };
 
 export default useFiltersValidator;

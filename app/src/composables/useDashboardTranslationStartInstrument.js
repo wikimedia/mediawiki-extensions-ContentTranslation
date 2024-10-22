@@ -42,9 +42,14 @@ import useEventLogging from "@/composables/useEventLogging";
 // 		status: SUPPORTED. Used when a search result suggestion is selected, inside "Search for an article" screen.
 
 const startTranslationEventSource = ref(null);
+const startTranslationEventContext = ref(null);
 
 const setStartTranslationEventSource = (eventSource) => {
   startTranslationEventSource.value = eventSource;
+};
+
+const setStartTranslationEventContext = (eventContext) => {
+  startTranslationEventContext.value = eventContext;
 };
 
 const useDashboardTranslationStartInstrument = () => {
@@ -79,6 +84,10 @@ const useDashboardTranslationStartInstrument = () => {
       // 		yet required, translation_target_exists
     };
 
+    if (startTranslationEventContext.value) {
+      payload.event_context = startTranslationEventContext.value;
+    }
+
     // if section title URL param is set, this is a section translation
     if (sourceSectionTitle.value) {
       payload.translation_source_section = sourceSectionTitle.value;
@@ -90,7 +99,11 @@ const useDashboardTranslationStartInstrument = () => {
     return logEvent(payload);
   };
 
-  return { logDashboardTranslationStartEvent, setStartTranslationEventSource };
+  return {
+    logDashboardTranslationStartEvent,
+    setStartTranslationEventSource,
+    setStartTranslationEventContext,
+  };
 };
 
 export default useDashboardTranslationStartInstrument;

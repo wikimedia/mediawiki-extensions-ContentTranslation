@@ -15,7 +15,9 @@ import {
   TOPIC_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
+import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
 import useSuggestionProvider from "@/composables/useSuggestionProvider";
+import useEventLogging from "@/composables/useEventLogging";
 
 const props = defineProps({
   modelValue: {
@@ -34,11 +36,17 @@ const filterTypeToIconMap = {
 };
 
 const { allFilters, isFilterSelected, selectFilter } = useSuggestionsFilters();
+const logEvent = useEventLogging();
 
 const closeDialog = () => emit("update:modelValue", false);
 
 const done = () => {
   if (tentativelySelectedFilter.value) {
+    logEvent({
+      event_type: "suggestion_filters_confirm",
+      event_subtype: "suggestion_filters_single_select_confirm",
+      event_context: tentativelySelectedFilter.value.id,
+    });
     selectFilter(tentativelySelectedFilter.value);
   }
   closeDialog();
@@ -48,6 +56,16 @@ const selectionHasChanged = ref(false);
 const tentativelySelectedFilter = ref(null);
 
 const tentativelySelectFilter = (filter) => {
+  const eventPayload = {
+    event_type: "suggestion_filters_select",
+    event_subtype: "suggestion_filters_single_select",
+    event_source: getSuggestionFilterEventSource(filter),
+  };
+
+  if (filter.type === TOPIC_SUGGESTION_PROVIDER) {
+    eventPayload.event_context = filter.id;
+  }
+  logEvent(eventPayload);
   tentativelySelectedFilter.value = filter;
   selectionHasChanged.value = true;
 };

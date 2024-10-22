@@ -17,9 +17,12 @@ import {
   TOPIC_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
+import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
 import { MwSpinner } from "@/lib/mediawiki.ui";
+import useEventLogging from "@/composables/useEventLogging";
 
 const bananaI18n = useI18n();
+const logEvent = useEventLogging();
 
 const {
   getFiltersSummary,
@@ -29,7 +32,25 @@ const {
 } = useSuggestionsFilters();
 
 const dialogVisible = ref(false);
-const openFiltersDialog = () => (dialogVisible.value = true);
+
+const openFiltersDialog = () => {
+  logEvent({ event_type: "dashboard_suggestion_filters_view_more" });
+  dialogVisible.value = true;
+};
+
+const logAndSelectFilter = (filter) => {
+  const payload = {
+    event_type: "dashboard_suggestion_filters_quick_select",
+    event_source: getSuggestionFilterEventSource(filter),
+  };
+
+  if (filter.type === TOPIC_SUGGESTION_PROVIDER) {
+    payload.event_context = filter.id;
+  }
+
+  logEvent(payload);
+  selectFilter(filter);
+};
 
 const filterTypeToIconMap = {
   [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
@@ -44,7 +65,7 @@ const filterToChip = (filter) => ({
   type: filter.type,
   icon: filterTypeToIconMap[getFilterProvider(filter)],
   label: filter.label,
-  action: selectFilter,
+  action: logAndSelectFilter,
 });
 
 const filtersSummary = ref(getFiltersSummary());
