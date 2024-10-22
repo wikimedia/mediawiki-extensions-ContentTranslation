@@ -8,6 +8,7 @@
 	},
 	"apihelp-cxpublish-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-cxpublish-param-to": "ਟੀਚਾ ਭਾਸ਼ਾ ਕੋਡ।",
+	"apihelp-query+contenttranslation-param-translationid": "ਤਰਜਮਾ ਸ਼ਿਨਾਖਤ",
 	"apihelp-query+contenttranslation-param-from": "ਸਰੋਤ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslation-param-to": "ਟੀਚਾ ਭਾਸ਼ਾ ਕੋਡ।",
 	"apihelp-query+contenttranslation-example-2": "ਸ਼ਨਾਖ਼ਤ ਰਾਹੀਂ ਤਰਜਮਾ ਖਰੜਾ ਪ੍ਰਾਪਤ ਕਰੋ।",
