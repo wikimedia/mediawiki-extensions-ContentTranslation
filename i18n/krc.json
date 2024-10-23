@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Ernác",
 			"Iltever",
 			"Къарачайлы",
@@ -16,10 +15,10 @@
 	"cx-license-agreement": "Андан ары бардырыб, [https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/tr Хайырланыу Шартланы] къабыл этесиз эмда къошумларыгъызны [https://creativecommons.org/licenses/by-sa/4.0/deed.tr CC BY-SA 4.0] эм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] лицензияланы тамалында басмаланыуна, кери алынмаз шекелде къабыл этериксиз.",
 	"cx-error-server-connection": "Халат: Серверге бла байланалмады.",
 	"cx-desc": "Бетни ичиндегисин тынч [[Special:ContentTranslation|кёчюрюрге]] амал береди",
-	"cx-header-progressbar-text": "Кёчюрмени $1%'и {{PLURAL:$1|этилибди}}",
-	"cx-header-progressbar-text-mt": "($1%'и машина {{PLURAL:$1|кёчюрмеди}})",
-	"cx-header-translation-center": "Кёчюрме аралыкъ",
-	"cx-header-all-translations": "Бютеу кёчюрмеле",
+	"cx-header-progressbar-text": "Кёчюрюуню $1% {{PLURAL:$1|этилибди}}",
+	"cx-header-progressbar-text-mt": "($1% машина {{PLURAL:$1|кёчюрмеди}})",
+	"cx-header-translation-center": "Кёчюрюу аралыкъ",
+	"cx-header-all-translations": "Бютеу кёчюрюуле",
 	"cx-source-view-page": "бетни кёр",
 	"cx-target-view-page": "бетни кёр",
 	"cx-publish-page-success": "Бет публикация этилгенди $1",
@@ -46,7 +45,7 @@
 	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ИчиндегиниКёчюрюу: Уллу ёлчемде тюрлендирилмеген машина кёчюрюуню хайырланыуу]]",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "ИчиндегиниКёчюрюуню хайырланыб басмалагъан кёчюрюуде уллу ёлчемде тюрлендирилмеген машина кёчюрюу барды",
 	"cx-source-loading": "$1 джюкленеди",
-	"cx-beta": "Ичиндегисин кёчюрюу",
+	"cx-beta": "Ичиндегисин Кёчюрюу",
 	"cx-beta-desc": "Бетлени сизни тилге терк кёчюрюрге адыр. [[Special:MyContributions|Сизни къошумугъузну]] бетинден кёчюрюуню башлагъыз эмда бизни кёчюрюуле ючюн энчи этилегн редакторда «бир-бири къатында» тюрлендиригиз. Бир-бир адырла хар бары тилге да ачыкъ тюлдюле.",
 	"cx-entrypoint-title": "Бетни бу тилге кёчюр: $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бет $1 тилде алкъын джокъду. {{GENDER:|Сиз}} аны къураргъа излеймисиз?",
