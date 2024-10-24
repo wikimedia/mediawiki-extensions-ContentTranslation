@@ -184,7 +184,7 @@
 	"cx-notification-tenth-translation": "Lihkku iežat logat jorgalemiin! Leat dál šaddagoahtime ekspeartajorgaleaddjin. Joatkke fal dainna buriin bargguin!",
 	"cx-notification-hundredth-translation": "Don leat dál juste bargan 100 jorgalanbarggu! Dat lea árvvus adnojuvvon bargu. Juoge ođđasa eará čálliiguin.",
 	"cx-notification-deleted-draft": "Du jorgalus <strong>$1</strong> healbaduvvui, danne go sisdoallu lei boarásnuvván badjel jagi dassái. Álggat goas ihkinassii ođđa jorgalusa ođđa sisdoaluin.",
-	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|Okta jorgalus healbaduvvui|$1 jorgalusa healbaduvvojedje}}, danne go {{PLURAL:$1|dan|daid}}sisdoallu lei boarásnuvván badjel jagi dassái. Álggat goas ihkinassii ođđa jorgalusa ođđa sisdoaluin.",
+	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|Okta jorgalus healbaduvvui|$1 jorgalusa healbaduvvojedje}}, danne go {{PLURAL:$1|dan|daid}} sisdoallu lei boarásnuvván badjel jagi dassái. Álggat goas ihkinassii ođđa jorgalusa ođđa sisdoaluin.",
 	"cx-notification-continue-translation": "Don álget <strong>$1 jorgalemiin</strong> moadde mánu áigi. Árvvoštala dan almmuhit ovdal go dat automáhtalaččat sihkkojuvvo jagi maŋŋel.",
 	"cx-notification-continue-translation-bundle": "Don álget {{PLURAL:$1|$1 jorgalemiin}} moadde mánu áigi. Árvvoštala daid almmuhit ovdal go dat automáhtalaččat sihkkojuvvojit jagi maŋŋel.",
 	"cx-contributions-link": "Du rievdadusat",
