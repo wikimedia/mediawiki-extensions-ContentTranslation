@@ -1,3 +1,27 @@
+<script setup>
+import MwButtonGroup from "../MWButtonGroup";
+
+const props = defineProps({
+  /**
+   * Array of objects that are options for building a button.
+   * Example: { value: "ButtonLabel", props: { button props}}
+   **/
+  items: {
+    type: Array,
+    default: () => [],
+  },
+  /**
+   * Value of the button that should be active
+   **/
+  active: {
+    type: String,
+    default: null,
+  },
+});
+
+defineEmits(["update:active"]);
+</script>
+
 <template>
   <footer class="mw-ui-bottom-navigation row ma-0 justify-center">
     <div class="col-12 ma-0 pa-0">
@@ -13,32 +37,6 @@
     </div>
   </footer>
 </template>
-
-<script>
-import MwButtonGroup from "../MWButtonGroup";
-export default {
-  name: "MwUiBottomNavigation",
-  components: { MwButtonGroup },
-  props: {
-    /**
-     * Array of objects that are options for building a button.
-     * Example: { value: "ButtonLabel", props: { button props}}
-     **/
-    items: {
-      type: Array,
-      default: () => [],
-    },
-    /**
-     * Value of the button that should be active
-     **/
-    active: {
-      type: String,
-      default: null,
-    },
-  },
-  emits: ["update:active"],
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
