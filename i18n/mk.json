@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Bjankuloski06",
 			"Prevodim",
 			"Vlad5250",
@@ -39,7 +38,7 @@
 	"cx-translation-target-page-exists": "На целното вики веќе постои страница насловена како [$1 $2]. Дајте ѝ друг наслов.",
 	"tag-contenttranslation": "Превод на содржини",
 	"tag-contenttranslation-description": "Содржината е преведена од друг јазик користејќи ја алатката „Превод на содржини“",
-	"tag-contenttranslation-v2": " Превод на содржини 2",
+	"tag-contenttranslation-v2": "Превод на содржини 2",
 	"tag-contenttranslation-v2-description": "Содржината е преведена од друг јазик користејќи ја верзијата 2 на алатката „Превод на содржини“",
 	"tag-sectiontranslation": "Превод на оддели",
 	"tag-sectiontranslation-description": "Содржината е преведена од оддел на друг јазик со помош на можноста „Превод на оддели“ на алатката „Превод на содржини“.",

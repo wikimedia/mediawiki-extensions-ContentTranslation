@@ -59,7 +59,8 @@
 			"夢蝶葬花",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"魔琴"
 		]
 	},
 	"cx": "翻译页面",
@@ -93,7 +94,7 @@
 	"cx-translation-target-page-exists": "标题为[$1 $2]的页面已存在于目标wiki。请考虑为页面提供不同的标题。",
 	"tag-contenttranslation": "内容翻译",
 	"tag-contenttranslation-description": "此内容通过内容翻译工具从另一语言翻译而来。",
-	"tag-contenttranslation-v2": " 内容翻译2",
+	"tag-contenttranslation-v2": "内容翻译2",
 	"tag-contenttranslation-v2-description": "此内容通过第2版内容翻译工具从另一语言翻译而来。",
 	"tag-sectiontranslation": "章节翻译",
 	"tag-sectiontranslation-description": "本内容是通过内容翻译工具的章节翻译功能从其他语言的某个章节翻译而来的。",

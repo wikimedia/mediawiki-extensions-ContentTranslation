@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Споделете го автоматскиот превод",
 	"mint-view-translation-overlay-feedback-link-label": "Испратете мислење",
 	"ax-article-footer-entrypoint-card-description": "Повеќе содржини на други јазици",
-	"ax-article-footer-entrypoint-card-supporting-text": "Прочитајте го автоматскиот превод"
+	"ax-article-footer-entrypoint-card-supporting-text": "Прочитајте го автоматскиот превод",
+	"mint-explore-languages-header": "Истражете ги јазиците",
+	"mint-explore-languages-search-input-placeholder": "Сите јазици за оваа тема",
+	"mint-explore-languages-explanation-banner-title": "Дознајте повеќе од другите јазици",
+	"mint-explore-languages-explanation-banner-text": "Уредниците на различни јазици ја обработија темава на различни начини.",
+	"mint-explore-languages-language-card-container-title": "Јазици со најмногу покриеност на „$1“",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 оддел|$1 оддели|0=Нема оддели}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Најопфатно"
 }

@@ -58,6 +58,7 @@
 	"cx-stats-weekly-published": "Sońǵı háptede",
 	"echo-category-title-cx": "Awdarmalar",
 	"cx-notification-first-translation": "Dáslepki awdarmańız benen qutlıqlaymız. Óz úleslerińizdi tekseriń hám awdarıw ushın jáne de kóbirek betler tabıń.",
+	"cx-your-translations-link": "{{GENDER:$1|Siziń awdarmalarıńız}}",
 	"cx-suggestionlist-collapse": "Azıraq kóriw",
 	"cx-suggestionlist-refresh": "Usınıslardı jańalaw",
 	"cx-notification-suggestions-available": "{{GENDER:$2|Siziń}} aldınǵı '''$1''' boyınsha awdarmańızdan kelip shıǵıp, awdarıw ushın jańa betler usınıs etiledi.",

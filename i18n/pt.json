@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Athena in Wonderland",
 			"CaiusSPQR",
 			"Cosmo Skerry",
@@ -22,6 +21,7 @@
 			"Vitorvicentevalente",
 			"Waldir",
 			"Waldyrious",
+			"Whym",
 			"Петар Петковић"
 		]
 	},
@@ -56,7 +56,7 @@
 	"cx-translation-target-page-exists": "Já existe na wiki uma página com o título [$1 $2]. Considere dar um título diferente à página.",
 	"tag-contenttranslation": "Tradução de Conteúdo",
 	"tag-contenttranslation-description": "O conteúdo foi traduzido de outra língua com a ferramenta Tradução de Conteúdo.",
-	"tag-contenttranslation-v2": " Tradução de Conteúdo 2",
+	"tag-contenttranslation-v2": "Tradução de Conteúdo 2",
 	"tag-contenttranslation-v2-description": "O conteúdo foi traduzido de outra língua usando a versão 2 da ferramenta Tradução de Conteúdo.",
 	"tag-sectiontranslation": "Tradução de secção",
 	"tag-sectiontranslation-description": "O conteúdo foi traduzido de uma secção noutra língua, usando a funcionalidade \"Tradução de secção\" da ferramenta Tradução de Conteúdo.",

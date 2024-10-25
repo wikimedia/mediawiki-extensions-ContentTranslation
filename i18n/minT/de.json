@@ -41,5 +41,12 @@
 	"mint-view-translation-overlay-share-button-label": "Automatische Übersetzung teilen",
 	"mint-view-translation-overlay-feedback-link-label": "Rückmeldung senden",
 	"ax-article-footer-entrypoint-card-description": "Weitere Inhalte in anderen Sprachen",
-	"ax-article-footer-entrypoint-card-supporting-text": "Automatische Übersetzung lesen"
+	"ax-article-footer-entrypoint-card-supporting-text": "Automatische Übersetzung lesen",
+	"mint-explore-languages-header": "Sprachen entdecken",
+	"mint-explore-languages-search-input-placeholder": "Alle Sprachen für dieses Thema",
+	"mint-explore-languages-explanation-banner-title": "Lerne mehr aus anderen Sprachen",
+	"mint-explore-languages-explanation-banner-text": "Benutzer in verschiedenen Sprachen haben dieses Thema auf unterschiedliche Weise behandelt.",
+	"mint-explore-languages-language-card-container-title": "Sprachen mit der größten Abdeckung für „$1“",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|1 Abschnitt|$1 Abschnitte|0=Kein Abschnitt}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Am ausführlichsten"
 }
