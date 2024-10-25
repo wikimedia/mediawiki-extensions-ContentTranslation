@@ -19,7 +19,11 @@ use Wikimedia\ParamValidator\ParamValidator;
 class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 	private TranslationCorporaManager $corporaManager;
 
-	public function __construct( ApiQuery $queryModule, $moduleName, TranslationCorporaManager $corporaManager ) {
+	public function __construct(
+		ApiQuery $queryModule,
+		string $moduleName,
+		TranslationCorporaManager $corporaManager
+	) {
 		parent::__construct( $queryModule, $moduleName );
 
 		$this->corporaManager = $corporaManager;

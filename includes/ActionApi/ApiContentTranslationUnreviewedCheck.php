@@ -30,7 +30,7 @@ class ApiContentTranslationUnreviewedCheck extends ApiBase {
 
 	public function __construct(
 		ApiMain $mainModule,
-		$action,
+		string $action,
 		TranslationStore $translationStore,
 		TranslationCorporaStore $corporaStore,
 		UserService $userService

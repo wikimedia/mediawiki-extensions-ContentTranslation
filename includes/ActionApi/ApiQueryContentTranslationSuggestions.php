@@ -29,13 +29,12 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 	private UserService $userService;
 	private TranslationStore $translationStore;
 
-	/**
-	 * @param ApiQuery $query
-	 * @param string $moduleName
-	 * @param UserService $userService
-	 * @param TranslationStore $translationStore
-	 */
-	public function __construct( $query, $moduleName, UserService $userService, TranslationStore $translationStore ) {
+	public function __construct(
+		ApiQuery $query,
+		string $moduleName,
+		UserService $userService,
+		TranslationStore $translationStore
+	) {
 		parent::__construct( $query, $moduleName );
 		$this->userService = $userService;
 		$this->translationStore = $translationStore;

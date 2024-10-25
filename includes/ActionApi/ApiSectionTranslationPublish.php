@@ -48,23 +48,9 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private TranslationTargetUrlCreator $targetUrlCreator;
 	private ChangeTagsStore $changeTagsStore;
 
-	/**
-	 * @param ApiMain $main
-	 * @param string $action
-	 * @param TitleFactory $titleFactory
-	 * @param HookContainer $hookContainer
-	 * @param LanguageNameUtils $languageNameUtils
-	 * @param ParsoidClientFactory $parsoidClientFactory
-	 * @param SectionPositionCalculator $sectionPositionCalculator
-	 * @param SandboxTitleMaker $sandboxTitleMaker
-	 * @param SectionTranslationStore $sectionTranslationStore
-	 * @param TranslationStore $translationStore
-	 * @param TranslationTargetUrlCreator $targetUrlCreator
-	 * @param ChangeTagsStore $changeTagsStore
-	 */
 	public function __construct(
 		ApiMain $main,
-		$action,
+		string $action,
 		TitleFactory $titleFactory,
 		HookContainer $hookContainer,
 		LanguageNameUtils $languageNameUtils,

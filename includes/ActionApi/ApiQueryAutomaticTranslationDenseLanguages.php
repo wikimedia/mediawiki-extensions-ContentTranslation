@@ -3,6 +3,7 @@ declare( strict_types = 1 );
 
 namespace ContentTranslation\ActionApi;
 
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryGeneratorBase;
 use MediaWiki\Http\HttpRequestFactory;
 use Wikimedia\LightweightObjectStore\ExpirationAwareness;
@@ -27,8 +28,8 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	private WANObjectCache $cache;
 
 	public function __construct(
-		$query,
-		$moduleName,
+		ApiQuery $query,
+		string $moduleName,
 		HttpRequestFactory $httpRequestFactory,
 		WANObjectCache $cache
 	) {

@@ -12,6 +12,7 @@ use ContentTranslation\DateManipulator;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
 use Exception;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\User\User;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -20,7 +21,11 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 
 	private UserService $userService;
 
-	public function __construct( $query, $moduleName, UserService $userService ) {
+	public function __construct(
+		ApiQuery $query,
+		string $moduleName,
+		UserService $userService
+	) {
 		parent::__construct( $query, $moduleName );
 		$this->userService = $userService;
 	}

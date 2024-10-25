@@ -54,7 +54,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 	public function __construct(
 		ApiMain $main,
-		$name,
+		string $name,
 		ParsoidClientFactory $parsoidClientFactory,
 		LanguageFactory $languageFactory,
 		IBufferingStatsdDataFactory $statsdDataFactory,

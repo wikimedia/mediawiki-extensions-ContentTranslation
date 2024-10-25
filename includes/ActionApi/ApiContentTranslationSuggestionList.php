@@ -19,7 +19,11 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 
 	private UserService $userService;
 
-	public function __construct( ApiMain $mainModule, $action, UserService $userService ) {
+	public function __construct(
+		ApiMain $mainModule,
+		string $action,
+		UserService $userService
+	) {
 		parent::__construct( $mainModule, $action );
 		$this->userService = $userService;
 	}

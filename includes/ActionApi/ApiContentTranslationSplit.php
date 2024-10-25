@@ -28,7 +28,7 @@ class ApiContentTranslationSplit extends ApiBase {
 
 	public function __construct(
 		ApiMain $mainModule,
-		$action,
+		string $action,
 		LoadBalancer $loadBalancer,
 		TranslationSplitter $translationSplitter,
 		TranslationStore $translationStore,

@@ -10,6 +10,7 @@ namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\Translation;
 use ContentTranslation\Translator;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\LightweightObjectStore\ExpirationAwareness;
@@ -19,7 +20,7 @@ use Wikimedia\LightweightObjectStore\ExpirationAwareness;
  */
 class ApiQueryContentTranslationStats extends ApiQueryBase {
 
-	public function __construct( $query, $moduleName ) {
+	public function __construct( ApiQuery $query, string $moduleName ) {
 		parent::__construct( $query, $moduleName );
 	}
 

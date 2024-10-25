@@ -10,6 +10,7 @@ namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\Translation;
 use MediaWiki\Api\ApiBase;
+use MediaWiki\Api\ApiQuery;
 use MediaWiki\Api\ApiQueryBase;
 use MediaWiki\Languages\LanguageNameUtils;
 use Wikimedia\ParamValidator\ParamValidator;
@@ -17,12 +18,11 @@ use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 
 class ApiQueryPublishedTranslations extends ApiQueryBase {
 
-	/** @var LanguageNameUtils */
-	private $languageNameUtils;
+	private LanguageNameUtils $languageNameUtils;
 
 	public function __construct(
-		$query,
-		$moduleName,
+		ApiQuery $query,
+		string $moduleName,
 		LanguageNameUtils $languageNameUtils
 	) {
 		parent::__construct( $query, $moduleName );

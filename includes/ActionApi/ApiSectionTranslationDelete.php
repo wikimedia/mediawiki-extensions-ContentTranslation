@@ -16,17 +16,13 @@ use MediaWiki\Api\ApiMain;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationDelete extends ApiBase {
-	/** @var TranslationCorporaStore */
-	private $corporaStore;
-
-	/** @var TranslationStore */
+	private TranslationCorporaStore $corporaStore;
 	private TranslationStore $translationStore;
-
-	/** @var SectionTranslationStore */
 	private SectionTranslationStore $sectionTranslationStore;
 
 	public function __construct(
-		ApiMain $mainModule, $action,
+		ApiMain $mainModule,
+		string $action,
 		TranslationCorporaStore $corporaStore,
 		SectionTranslationStore $sectionTranslationStore,
 		TranslationStore $translationStore

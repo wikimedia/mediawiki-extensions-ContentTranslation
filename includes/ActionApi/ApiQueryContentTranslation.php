@@ -32,17 +32,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 	private UserService $userService;
 	private TranslationStore $translationStore;
 
-	/**
-	 * @param ApiQuery $query
-	 * @param string $moduleName
-	 * @param SectionTranslationStore $sectionTranslationStore
-	 * @param TranslationCorporaManager $corporaManager
-	 * @param UserService $userService
-	 * @param TranslationStore $translationStore
-	 */
 	public function __construct(
-		$query,
-		$moduleName,
+		ApiQuery $query,
+		string $moduleName,
 		SectionTranslationStore $sectionTranslationStore,
 		TranslationCorporaManager $corporaManager,
 		UserService $userService,

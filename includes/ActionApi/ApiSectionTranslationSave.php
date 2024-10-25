@@ -35,7 +35,7 @@ class ApiSectionTranslationSave extends ApiBase {
 
 	public function __construct(
 		ApiMain $mainModule,
-		$action,
+		string $action,
 		TranslationCorporaManager $corporaManager,
 		LoadBalancer $loadBalancer,
 		SectionTranslationStore $sectionTranslationStore,

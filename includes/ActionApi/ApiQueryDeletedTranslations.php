@@ -16,7 +16,7 @@ use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryDeletedTranslations extends ApiQueryBase {
-	public function __construct( ApiQuery $query, $moduleName ) {
+	public function __construct( ApiQuery $query, string $moduleName ) {
 		parent::__construct( $query, $moduleName, 'dt' );
 	}
 
