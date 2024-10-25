@@ -231,19 +231,12 @@ class TranslationCorporaStore {
 	public function countTranslatedSubSectionsByTranslationId( int $translationId ): int {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 
-		$row = $dbr->newSelectQueryBuilder()
-			->select( [
-				'cxc_translation_id',
-				'cxc_section_id',
-				'count' => 'COUNT(DISTINCT cxc_section_id)',
-			] )
+		return (int)$dbr->newSelectQueryBuilder()
+			->select( 'COUNT(DISTINCT cxc_section_id)' )
 			->from( self::TABLE_NAME )
 			->where( [ 'cxc_translation_id' => $translationId ] )
-			->groupBy( [ 'cxc_translation_id' ] )
 			->caller( __METHOD__ )
-			->fetchRow();
-
-		return (int)$row->count;
+			->fetchField();
 	}
 
 	/**
