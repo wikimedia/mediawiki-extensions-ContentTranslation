@@ -61,7 +61,7 @@ class TranslationUnitDTO {
 		// in the database. In this case, the one with the latest timestamp is used.
 		// Note: TS_ISO_8601 is suitable for string comparison if timezone is Z.
 		/** @phan-suppress-next-line PhanTypeArraySuspiciousNullable */
-		if ( !isset( $existingBlob ) || $blob['timestamp'] > $existingBlob['timestamp'] ) {
+		if ( $existingBlob === null || $blob['timestamp'] > $existingBlob['timestamp'] ) {
 			$this->$type = $blob;
 		}
 	}
@@ -92,7 +92,7 @@ class TranslationUnitDTO {
 	 * @return bool
 	 */
 	public function hasUserBlob(): bool {
-		return isset( $this->user );
+		return $this->user !== null;
 	}
 
 	/**
@@ -100,7 +100,7 @@ class TranslationUnitDTO {
 	 * @return bool
 	 */
 	public function hasSourceBlob(): bool {
-		return isset( $this->source );
+		return $this->source !== null;
 	}
 
 	/**
