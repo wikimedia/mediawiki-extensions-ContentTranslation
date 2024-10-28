@@ -56,7 +56,7 @@
 	"cx-translation-target-page-exists": "Сторінка з назвою [$1 $2] вже існує в цільовій вікі. Подумайте, може підійде інакша назва?",
 	"tag-contenttranslation": "Переклад вмісту",
 	"tag-contenttranslation-description": "Вміст було перекладено з іншої мови за допомогою інструменту Переклад вмісту.",
-	"tag-contenttranslation-v2": " Переклад вмісту 2",
+	"tag-contenttranslation-v2": "Переклад вмісту 2",
 	"tag-contenttranslation-v2-description": "Вміст було перекладено з іншої мови за допомогою версії 2 інструменту «Переклад вмісту».",
 	"tag-sectiontranslation": "Переклад розділів",
 	"tag-sectiontranslation-description": "Вміст було перекладено з розділу іншою мовою через використання функції перекладу розділів інструменту Переклад вмісту.",

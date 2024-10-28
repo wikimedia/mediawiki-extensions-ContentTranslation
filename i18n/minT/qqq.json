@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Nik Gkοuntas"
 		]
 	},
@@ -49,6 +50,6 @@
 	"mint-explore-languages-explanation-banner-title": "Title of the explanation banner, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-explanation-banner-text": "Main text of the explanation banner, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-language-card-container-title": "Title of the container of the cards containing information for each language, inside the page where the user can view the available languages for the given article and the sections for each language",
-	"mint-explore-languages-language-card-sections-count": "Text that displays the number of section for a given language, inside the page where the user can view the available languages for the given article and the sections for each language",
+	"mint-explore-languages-language-card-sections-count": "Text that displays the number of sections for a given language, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Label of the chip that denotes the language in which the current article is most detailed, inside the page where the user can view the available languages for the given article and the sections for each language"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Siebrand"
 		]
 	},
@@ -43,5 +44,12 @@
 	"mint-view-translation-overlay-share-button-label": "Automatische vertaling delen",
 	"mint-view-translation-overlay-feedback-link-label": "Terugkoppeling verzenden",
 	"ax-article-footer-entrypoint-card-description": "Meer inhoud in andere talen",
-	"ax-article-footer-entrypoint-card-supporting-text": "Automatische vertaling lezen"
+	"ax-article-footer-entrypoint-card-supporting-text": "Automatische vertaling lezen",
+	"mint-explore-languages-header": "Talen verkennen",
+	"mint-explore-languages-search-input-placeholder": "Alle talen voor dit onderwerp",
+	"mint-explore-languages-explanation-banner-title": "Meer bekijken van andere talen",
+	"mint-explore-languages-explanation-banner-text": "Redacteuren in verschillende talen hebben dit onderwerp op verschillende manieren behandeld.",
+	"mint-explore-languages-language-card-container-title": "Talen met de meeste dekking voor “$1”",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Eén sectie|$1 secties|0=Geen secties}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Meest gedetailleerd"
 }

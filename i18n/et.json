@@ -41,7 +41,7 @@
 	"cx-translation-target-page-exists": "Lehekülg pealkirjaga [$1 $2] on sihtvikis juba olemas. Kaalu teistsuguse pealkirja kasutamist.",
 	"tag-contenttranslation": "Sisutõlge",
 	"tag-contenttranslation-description": "Sisu tõlgiti teisest keelest sisutõlke tööriista kasutades.",
-	"tag-contenttranslation-v2": " Sisutõlge2",
+	"tag-contenttranslation-v2": "Sisutõlge2",
 	"tag-contenttranslation-v2-description": "Sisu tõlgiti teisest keelest kasutades sisutõlke tööriista versiooni 2.",
 	"tag-sectiontranslation": "Alaosatõlge",
 	"tag-sectiontranslation-description": "Sisu tõlgiti teises keeles artikli alaosast, kasutades sisutõlke tööriista alaosatõlke vahendit.",

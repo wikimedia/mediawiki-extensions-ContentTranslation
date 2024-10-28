@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Jaa automaattinen käännös",
 	"mint-view-translation-overlay-feedback-link-label": "Lähetä palautetta",
 	"ax-article-footer-entrypoint-card-description": "Lisää sisältöä muilla kielillä",
-	"ax-article-footer-entrypoint-card-supporting-text": "Lue automaattinen käännös"
+	"ax-article-footer-entrypoint-card-supporting-text": "Lue automaattinen käännös",
+	"mint-explore-languages-header": "Lisää kieliä",
+	"mint-explore-languages-search-input-placeholder": "Kaikki tämän aiheen kieliversiot",
+	"mint-explore-languages-explanation-banner-title": "Lue lisää muilla kielillä",
+	"mint-explore-languages-explanation-banner-text": "Muokkaajat eri kielillä ovat käsitelleet tätä aihetta eri tavoin.",
+	"mint-explore-languages-language-card-container-title": "Kielet, joissa aihetta ”$1” on käsitelty laajimmmin",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 osio|$1 osiota|0=Ei osioita}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Yksityiskohtaisin"
 }

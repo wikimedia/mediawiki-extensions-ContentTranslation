@@ -39,5 +39,8 @@
 	"mint-view-translation-overlay-share-button-label": "Automatesch Iwwersetzung deelen",
 	"mint-view-translation-overlay-feedback-link-label": "Feedback schécken",
 	"ax-article-footer-entrypoint-card-description": "Méi Contenu op anere Sproochen",
-	"ax-article-footer-entrypoint-card-supporting-text": "Automatesch Iwwersetzung liesen"
+	"ax-article-footer-entrypoint-card-supporting-text": "Automatesch Iwwersetzung liesen",
+	"mint-explore-languages-search-input-placeholder": "All Sprooche fir dëst Theema",
+	"mint-explore-languages-language-card-container-title": "Sprooche mat der gréisster Ofdeckung fir „$1“",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 Abschnitt|$1 Abschnitter|0=Keen Abschnitt}}"
 }

@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Avtomatik tərcüməni paylaş",
 	"mint-view-translation-overlay-feedback-link-label": "Rəy bildir",
 	"ax-article-footer-entrypoint-card-description": "Digər dillərdə daha çox məzmun",
-	"ax-article-footer-entrypoint-card-supporting-text": "Avtomatik tərcüməni oxu"
+	"ax-article-footer-entrypoint-card-supporting-text": "Avtomatik tərcüməni oxu",
+	"mint-explore-languages-header": "Dilləri kəşf et",
+	"mint-explore-languages-search-input-placeholder": "Bu mövzu üçün bütün dillər",
+	"mint-explore-languages-explanation-banner-title": "Digər dillərdən daha çox öyrənin",
+	"mint-explore-languages-explanation-banner-text": "Müxtəlif dillərdə olan redaktorlar bu mövzunu müxtəlif yollarla işıqlandırıblar.",
+	"mint-explore-languages-language-card-container-title": "\"$1\" üçün ən çox əhatə dairəsi olan dillər",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 bölmə|0=Bölmə yoxdur}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Ən detallı"
 }

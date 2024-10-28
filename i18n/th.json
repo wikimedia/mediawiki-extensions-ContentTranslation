@@ -51,7 +51,7 @@
 	"cx-translation-target-page-exists": "หน้าที่มีชื่อเรื่อง [$1 $2] มีอยู่แล้วในวิกิปลายทาง พิจารณาตั้งชื่อหน้าเป็นอย่างอื่น",
 	"tag-contenttranslation": "การแปลเนื้อหา",
 	"tag-contenttranslation-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหา",
-	"tag-contenttranslation-v2": " การแปลเนื้อหา2",
+	"tag-contenttranslation-v2": "การแปลเนื้อหา2",
 	"tag-contenttranslation-v2-description": "เนื้อหาแปลมาจากภาษาอื่นโดยใช้เครื่องมือการแปลเนื้อหารุ่นที่ 2",
 	"tag-sectiontranslation": "การแปลส่วน",
 	"tag-sectiontranslation-description": "เนื้อหาส่วนนี้ถูกแปลจากภาษาอื่นผ่านการฟีเจอร์การแปลส่วนของเครื่องมือแปลเนื้อหา",

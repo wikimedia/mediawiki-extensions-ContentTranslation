@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Otomatik çeviriyi paylaş",
 	"mint-view-translation-overlay-feedback-link-label": "Geri bildirim gönder",
 	"ax-article-footer-entrypoint-card-description": "Diğer dillerde daha fazla içerik",
-	"ax-article-footer-entrypoint-card-supporting-text": "Otomatik çeviriyi oku"
+	"ax-article-footer-entrypoint-card-supporting-text": "Otomatik çeviriyi oku",
+	"mint-explore-languages-header": "Dilleri keşfedin",
+	"mint-explore-languages-search-input-placeholder": "Bu konu için tüm diller",
+	"mint-explore-languages-explanation-banner-title": "Diğer dillerde daha fazlasını öğrenin",
+	"mint-explore-languages-explanation-banner-text": "Farklı dillerdeki düzenleyiciler bu konuyu farklı şekillerde ele aldılar.",
+	"mint-explore-languages-language-card-container-title": "\"$1\" için en fazla ele alınan diller",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 bölüm|0=Bölüm yok}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "En ayrıntılı"
 }

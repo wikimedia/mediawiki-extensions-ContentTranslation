@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Compartir a tradución automática",
 	"mint-view-translation-overlay-feedback-link-label": "Enviar comentarios",
 	"ax-article-footer-entrypoint-card-description": "Máis contido noutras linguas",
-	"ax-article-footer-entrypoint-card-supporting-text": "Ler a tradución automática"
+	"ax-article-footer-entrypoint-card-supporting-text": "Ler a tradución automática",
+	"mint-explore-languages-header": "Explorar as linguas",
+	"mint-explore-languages-search-input-placeholder": "Todas as linguas para este tema",
+	"mint-explore-languages-explanation-banner-title": "Aprende máis noutras linguas",
+	"mint-explore-languages-explanation-banner-text": "Editores en diferentes linguas trataron este tema de diferentes xeitos.",
+	"mint-explore-languages-language-card-container-title": "Linguas con máis cobertura para \"$1\"",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 sección|$1 seccións|0=Ningunha sección}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "A máis detallada"
 }

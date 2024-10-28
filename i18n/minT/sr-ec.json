@@ -18,5 +18,12 @@
 	"mint-view-translation-page-disclaimer-body": "Ова страница је аутоматизован превод садржаја оригинално написаног на $1.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Сазнајте више",
 	"mint-view-translation-page-source-article-link-label": "Отвори у $1",
-	"mint-view-translation-overlay-cx-entrypoint-label": "Поправи превод"
+	"mint-view-translation-overlay-cx-entrypoint-label": "Поправи превод",
+	"mint-explore-languages-header": "Истражи језике",
+	"mint-explore-languages-search-input-placeholder": "Сви језици за ову тему",
+	"mint-explore-languages-explanation-banner-title": "Научите више са других језика",
+	"mint-explore-languages-explanation-banner-text": "Уредници на различитим језицима су различито обрадили ову тему.",
+	"mint-explore-languages-language-card-container-title": "Језици на којима је највише обрађена „$1”",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 одељак|$1 одељка|0=Нема одељака}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Најдетаљњије"
 }
