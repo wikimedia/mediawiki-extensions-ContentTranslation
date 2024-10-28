@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Ernác",
 			"Iltever",
 			"Къарачайлы",
-			"Dušan Kreheľ"
+			"Dušan Kreheľ",
+			"Pppery"
 		]
 	},
 	"cx": "Бетни кёчюрюу",
@@ -15,10 +15,10 @@
 	"cx-license-agreement": "«$1» тиекден басханлай сиз [https://foundation.wikimedia.org/wiki/Terms_of_Use Хайырланыу шартла] бла разы боласыз эмда адыр бла этилген къошумугъузну сёзсюз [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0] эм [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL] лицензиялагъа кёре публикациясына разылыгъыгъызны бересиз, эмда гиперджибериу неда URL бериу — CC BY-SA 3.0 лицензия бла атрибуциягъа джетерлай болгъанын ангылайсыз.",
 	"cx-error-server-connection": "Халат: Серверге бла байланалмады.",
 	"cx-desc": "Бетни ичиндегисин тынч [[Special:ContentTranslation|кёчюрюрге]] амал береди",
-	"cx-header-progressbar-text": "Кёчюрмени $1%'и {{PLURAL:$1|этилибди}}",
-	"cx-header-progressbar-text-mt": "($1%'и машина {{PLURAL:$1|кёчюрмеди}})",
-	"cx-header-translation-center": "Кёчюрме аралыкъ",
-	"cx-header-all-translations": "Бютеу кёчюрмеле",
+	"cx-header-progressbar-text": "Кёчюрюуню $1% {{PLURAL:$1|этилибди}}",
+	"cx-header-progressbar-text-mt": "($1% машина {{PLURAL:$1|кёчюрмеди}})",
+	"cx-header-translation-center": "Кёчюрюу аралыкъ",
+	"cx-header-all-translations": "Бютеу кёчюрюуле",
 	"cx-source-view-page": "бетни кёр",
 	"cx-publish-page-success": "Бет публикация этилгенди $1",
 	"cx-publish-error-abuse-filter": "Автомат тюзетиу фильтрле кёчююуюгюзде проблемалы контент эследи. Фильтр саны: $1",
@@ -42,7 +42,7 @@
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|БёлюмКёчюрюу]]",
 	"tag-sectiontranslation-description": "Контент, башха тилдеги бёлюмнден, Ичиндегини Кёчюрюу адырны Бёлюм Кёчюрюу энчилиги бла кёчюрюлгенди.",
 	"cx-source-loading": "$1 джюкленеди",
-	"cx-beta": "Ичиндегисин кёчюрюу",
+	"cx-beta": "Ичиндегисин Кёчюрюу",
 	"cx-beta-desc": "Бетлени сизни тилге терк кёчюрюрге адыр. [[Special:MyContributions|Сизни къошумугъузну]] бетинден кёчюрюуню башлагъыз эмда бизни кёчюрюуле ючюн энчи этилегн редакторда «бир-бири къатында» тюрлендиригиз. Бир-бир адырла хар бары тилге да ачыкъ тюлдюле.",
 	"cx-entrypoint-title": "Бетни бу тилге кёчюр: $1",
 	"cx-entrypoint-dialog-page-doesnt-exist-yet": "Бу бет $1 тилде алкъын джокъду. {{GENDER:|Сиз}} аны къураргъа излеймисиз?",
@@ -179,7 +179,7 @@
 	"cx-stats-weekly-published": "Ол бир ыйыкъда",
 	"cx-stats-local-published-number": "$2 тилде $1",
 	"cx-stats-local-published": "$1 ($3) — $2",
-	"cx-stats-grouping-title": "{{PLURAL:$1|$1 кёчюрме}}",
+	"cx-stats-grouping-title": "{{PLURAL:$1|$1 кёчюрюу}}",
 	"cx-tools-missing-link-text": "Къуралырларын джол бирир ючюн алкъын болмагъан бетлени {{GENDER:|белгиле}}.",
 	"cx-tools-missing-link-mark-link": "Ычхындырылгъан джибериуча {{GENDER:|белгиле}}",
 	"echo-category-title-cx": "Кёчюрюуле",

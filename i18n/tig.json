@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bbeshir"
+			"Bbeshir",
+			"Osman Omera"
 		]
 	},
 	"cx-source-view-page": "ገጽ ርኤ",
 	"cx-publish-button": "ንሽሮ",
 	"cx-publish-button-publishing": "ልትነሽር ህላ",
-	"cx-source-loading": "ልትጸዓን ህላ"
+	"cx-source-loading": "ክርየት $1"
 }
