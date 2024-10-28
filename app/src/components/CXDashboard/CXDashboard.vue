@@ -4,24 +4,28 @@ import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
 import CxHelpPanel from "./CXHelpPanel.vue";
 import CxStatsPanel from "./CXStatsPanel.vue";
+import MwBottomNavigation from "./MWBottomNavigation.vue";
 import { computed } from "vue";
-import {
-  MwButtonGroup,
-  MwBottomNavigation,
-  MwRow,
-  MwCol,
-} from "@/lib/mediawiki.ui";
+import { MwButtonGroup, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import useDashboardInitialization from "./useDashboardInitialization";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useActiveTabInitialize from "./useActiveTabInitialize";
 import useDashboardListOptions from "./useDashboardListOptions";
+import useEventLogging from "@/composables/useEventLogging";
+import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd } from "@wikimedia/codex-icons";
 
 const router = useRouter();
+const logEvent = useEventLogging();
 
-const searchTranslation = () => router.push({ name: "sx-article-search" });
+const searchTranslation = () => {
+  logEvent({
+    event_type: "dashboard_new_translation_search",
+  });
+  router.push({ name: "sx-article-search" });
+};
 
 const initializeDashboard = useDashboardInitialization();
 initializeDashboard();
@@ -32,6 +36,12 @@ const translatorStats = computed(() => store.state.translator.translatorStats);
 
 const activeTab = useActiveTabInitialize();
 const listSelector = useDashboardListOptions();
+const logDashboardTabSelectEvent = useDashboardTabSelectInstrument();
+
+const listSelect = (event) => {
+  logDashboardTabSelectEvent(event);
+  activeTab.value = event;
+};
 </script>
 
 <template>
@@ -60,7 +70,7 @@ const listSelector = useDashboardListOptions();
           id="dashboard-list-selector--desktop"
           :items="listSelector"
           :active="activeTab"
-          @select="activeTab = $event"
+          @select="listSelect"
         />
       </mw-col>
       <mw-col

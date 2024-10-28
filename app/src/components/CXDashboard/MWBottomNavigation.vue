@@ -1,5 +1,6 @@
 <script setup>
-import MwButtonGroup from "../MWButtonGroup";
+import MwButtonGroup from "@/lib/mediawiki.ui/components/MWButtonGroup";
+import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
 
 const props = defineProps({
   /**
@@ -19,7 +20,14 @@ const props = defineProps({
   },
 });
 
-defineEmits(["update:active"]);
+const emit = defineEmits(["update:active"]);
+
+const logDashboardTabSelectEvent = useDashboardTabSelectInstrument();
+
+const onSelect = (event) => {
+  logDashboardTabSelectEvent(event);
+  emit("update:active", event);
+};
 </script>
 
 <template>
@@ -31,7 +39,7 @@ defineEmits(["update:active"]);
           class="mw-ui-bottom-navigation__button-group justify-around"
           :active="active"
           :items="items"
-          @select="$emit('update:active', $event)"
+          @select="onSelect"
         />
       </slot>
     </div>

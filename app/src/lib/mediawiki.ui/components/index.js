@@ -1,4 +1,3 @@
-import MwBottomNavigation from "./MWBottomNavigation";
 import MwButton from "./MWButton";
 import MwButtonGroup from "./MWButtonGroup";
 import MwCard from "./MWCard";
@@ -22,7 +21,6 @@ export {
   MwExpandableContent,
   MwInput,
   MwCard,
-  MwBottomNavigation,
   MwSelect,
   MwSpinner,
   MwMessage,

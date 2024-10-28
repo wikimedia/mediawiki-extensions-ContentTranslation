@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import { MwBottomNavigation } from "..";
+import MwBottomNavigation from "./MWBottomNavigation";
 
 describe("MwBottomNavigation.vue", () => {
   test("is a Vue instance", () => {
