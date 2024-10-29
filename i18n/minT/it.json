@@ -13,5 +13,6 @@
 	"mint-view-translation-overlay-header": "Traduzione automatica",
 	"mint-view-translation-overlay-target-article-link-label": "Leggi su Wikipedia in $1",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Correggi la traduzione",
-	"mint-view-translation-overlay-share-button-label": "Condividi traduzione automatica"
+	"mint-view-translation-overlay-share-button-label": "Condividi traduzione automatica",
+	"mint-explore-languages-search-input-placeholder": "Tutte le lingue per questo argomento"
 }
