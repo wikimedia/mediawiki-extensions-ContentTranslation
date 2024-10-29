@@ -59,7 +59,7 @@ class DirectParsoidClient implements ParsoidClient {
 	 */
 	private function getHtmlOutputRendererHelper(
 		PageIdentity $page,
-		RevisionRecord $revision = null
+		?RevisionRecord $revision = null
 	): HtmlOutputRendererHelper {
 		// TODO: remove this once we no longer need a User object for rate limiting (T310476).
 		if ( $this->performer instanceof User ) {

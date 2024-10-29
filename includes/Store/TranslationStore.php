@@ -66,7 +66,7 @@ class TranslationStore {
 		string $sourceTitle,
 		string $sourceLanguage,
 		string $targetLanguage,
-		string $status = null
+		?string $status = null
 	): ?Translation {
 		$dbr = $this->lb->getConnection( DB_REPLICA );
 		$globalUserId = $this->userService->getGlobalUserId( $user );
