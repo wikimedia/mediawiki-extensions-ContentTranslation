@@ -177,11 +177,11 @@ class SectionTranslationStore {
 	 */
 	private function doFindTranslationsByUser(
 		int $userId,
-		string $from = null,
-		string $to = null,
-		string $status = null,
+		?string $from = null,
+		?string $to = null,
+		?string $status = null,
 		int $limit = 100,
-		string $offset = null
+		?string $offset = null
 	): IResultWrapper {
 		// Note: there is no index on translation_last_updated_timestamp
 		$dbr = $this->lb->getConnection( DB_REPLICA );
@@ -226,10 +226,10 @@ class SectionTranslationStore {
 	 */
 	public function findDraftSectionTranslationsByUser(
 		int $userId,
-		string $from = null,
-		string $to = null,
+		?string $from = null,
+		?string $to = null,
 		int $limit = 100,
-		string $offset = null
+		?string $offset = null
 	): array {
 		$resultSet = $this->doFindTranslationsByUser(
 			$userId,
@@ -273,10 +273,10 @@ class SectionTranslationStore {
 	 */
 	public function findPublishedSectionTranslationsByUser(
 		int $userId,
-		string $from = null,
-		string $to = null,
+		?string $from = null,
+		?string $to = null,
 		int $limit = 100,
-		string $offset = null
+		?string $offset = null
 	): array {
 		$resultSet = $this->doFindTranslationsByUser(
 			$userId,
