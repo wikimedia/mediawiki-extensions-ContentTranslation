@@ -36,7 +36,7 @@ exports[`SXSentenceSelector Proposed Translation Header Component output matches
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <!---->
+            <!--v-if-->
             <g>
               <circle
                 cx="10"

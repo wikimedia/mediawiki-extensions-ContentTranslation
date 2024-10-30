@@ -26,7 +26,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -59,7 +59,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -92,7 +92,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -125,7 +125,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -167,7 +167,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -200,7 +200,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -233,7 +233,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"
@@ -266,7 +266,7 @@ exports[`SXSectionSelector Section List Component output matches snapshot for sp
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
         >
-          <!---->
+          <!--v-if-->
           <g>
             <path
               d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"

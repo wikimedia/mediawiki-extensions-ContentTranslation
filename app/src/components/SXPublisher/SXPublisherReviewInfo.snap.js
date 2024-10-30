@@ -20,7 +20,7 @@ exports[`SXPublisher review info panel test should match snapshot when no publis
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
-      <!---->
+      <!--v-if-->
       <g>
         <path
           d="M10 14.5a4.5 4.5 0 114.5-4.5 4.5 4.5 0 01-4.5 4.5M10 3C3 3 0 10 0 10s3 7 10 7 10-7 10-7-3-7-10-7"
@@ -83,7 +83,7 @@ exports[`SXPublisher review info panel test should match snapshot when the activ
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
-      <!---->
+      <!--v-if-->
       <g>
         <path
           d="M11.53 2.3A1.85 1.85 0 0010 1.21 1.85 1.85 0 008.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z"

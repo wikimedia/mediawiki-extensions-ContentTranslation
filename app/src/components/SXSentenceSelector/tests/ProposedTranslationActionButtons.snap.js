@@ -21,7 +21,7 @@ exports[`Test ProposedTranslationActionButtons SFC Component output should match
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <!---->
+        <!--v-if-->
         <g>
           <path
             d="m4 10 9 9 1.4-1.5L7 10l7.4-7.5L13 1z"
@@ -54,7 +54,7 @@ exports[`Test ProposedTranslationActionButtons SFC Component output should match
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
       >
-        <!---->
+        <!--v-if-->
         <g>
           <path
             d="M7 1 5.6 2.5 13 10l-7.4 7.5L7 19l9-9z"

@@ -38,7 +38,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <!---->
+            <!--v-if-->
             <g>
               <path
                 d="m4.34 2.93 12.73 12.73-1.41 1.41L2.93 4.35z"
