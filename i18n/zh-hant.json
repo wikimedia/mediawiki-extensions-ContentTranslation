@@ -28,7 +28,8 @@
 			"Lakejason0",
 			"Cookai1205",
 			"SCP-2000",
-			"列维劳德"
+			"列维劳德",
+			"魔琴"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -39,7 +40,7 @@
 	"cx-error-server-connection": "錯誤：無法與伺服器連線。",
 	"cx-desc": "使[[Special:ContentTranslation|翻譯]]內容頁面更加容易",
 	"cx-header-progressbar-text": "{{PLURAL:$1|已翻譯}} $1%",
-	"cx-header-progressbar-text-mt": "($1% 使用{{PLURAL:$1|機器翻譯}})",
+	"cx-header-progressbar-text-mt": "（$1% 使用{{PLURAL:$1|機器翻譯}}）",
 	"cx-header-translation-center": "翻譯中心",
 	"cx-header-all-translations": "所有譯文",
 	"cx-source-view-page": "檢視頁面",
