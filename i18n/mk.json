@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Bjankuloski06",
 			"Prevodim",
 			"Vlad5250",
@@ -55,7 +54,6 @@
 	"cx-campaign-newbytranslation-title": "Би сакале да почнете со превод место ова?",
 	"cx-campaign-newbytranslation-notice": "Создајте нова статија преведувајќи ја од друг јазик.",
 	"cx-campaign-newbytranslation-search": "Најди друга страница за преведување",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Почни со преведување",
 	"cx-special-login-error": "Мора да сте најавени за да ја преведете страницава. [$1 Најавете се]",
 	"cx-tools-instructions-text1": "{{GENDER:|Стиснете на}} пасусите за да ги преведете",

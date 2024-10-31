@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Andriy.v",
 			"Andriykopanytsia",
 			"Base",
@@ -73,7 +72,6 @@
 	"cx-campaign-newbytranslation-title": "Почати натомість з перекладу?",
 	"cx-campaign-newbytranslation-notice": "Створіть нову статтю, переклавши з іншої мови, яку ви знаєте.",
 	"cx-campaign-newbytranslation-search": "Знайти іншу сторінку для перекладу",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Почати переклад",
 	"cx-special-login-error": "Ви повинні увійти в систему, щоб перекласти цю сторінку. [$1 Увійти]",
 	"cx-tools-instructions-text1": "{{GENDER:|Клацніть}} абзаци для перекладу",
