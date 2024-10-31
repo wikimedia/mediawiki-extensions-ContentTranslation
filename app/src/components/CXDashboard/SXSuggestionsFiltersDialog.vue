@@ -133,13 +133,23 @@ const fullscreen = computed(() => breakpoints.value.mobile);
 
 .sx-suggestions-filters {
   &__filter {
-    cursor: pointer;
+    cursor: @cursor-base--hover;
+    background-color: @background-color-base;
+    border-color: @border-color-subtle;
+
+    .cdx-icon {
+      color: @color-base;
+    }
+
+    .cdx-info-chip__text {
+      color: @color-subtle;
+    }
 
     &--active {
       &.cdx-info-chip {
         background-color: @background-color-progressive;
 
-        .cdx-info-chip--text {
+        .cdx-info-chip__text {
           color: @color-inverted;
         }
 

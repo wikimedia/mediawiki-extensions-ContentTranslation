@@ -76,14 +76,28 @@ const chips = computed(() => [
 .cx-suggestion-list__filters {
   flex-wrap: wrap;
   row-gap: @spacing-25;
+
   .cx-suggestion-list__filter {
     cursor: @cursor-base--hover;
+    background-color: @background-color-base;
+    border-color: @border-color-subtle;
+
+    .cdx-icon {
+      color: @color-base;
+    }
+
+    .cdx-info-chip__text {
+      color: @color-subtle;
+    }
+
     &--active {
       background-color: @background-color-progressive;
+
       .cdx-icon {
         color: @color-inverted;
       }
-      .cdx-info-chip--text {
+
+      .cdx-info-chip__text {
         color: @color-inverted;
       }
     }
