@@ -1,0 +1,10 @@
+[
+	{
+		"resourceModule": "ext.cx.uls.quick.actions",
+		"maxSize": "0.8 kB"
+	},
+	{
+		"resourceModule": "ext.cx.eventlogging.campaigns",
+		"maxSize": "0.2 kB"
+	}
+]
