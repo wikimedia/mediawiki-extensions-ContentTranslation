@@ -513,6 +513,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Close",
 	"cx-unreviewed-translation-dialog-body": "After finishing a quick translation you need to wait 10 min before initiating a new one. Please review past work during this period, as high-quality content is valued by our editor community.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Learn more",
+	"cx-sx-suggestions-filters-invalid-url": "Filters from the link are not valid. Check the options to filter the list of suggestions.",
 	"cx-sx-suggestions-filters-header": "Adjust suggestions",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Close suggestions filters",
 	"cx-sx-suggestions-filters-done-button-label": "Done",

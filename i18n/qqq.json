@@ -533,6 +533,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Label of the close button, inside the dialog that informs the user about an existing unreviewed translation.",
 	"cx-unreviewed-translation-dialog-body": "Body of the dialog that informs the user that they have a recent fast/unreviewed translation, that they need to review, before starting a new one.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Label of the link that navigates the user to the related documentation page, inside the dialog that informs the user about an existing unreviewed translation.",
+	"cx-sx-suggestions-filters-invalid-url": "Notice informing the user that filters specified in the URL are invalid.",
 	"cx-sx-suggestions-filters-header": "Title of the view that shows all the available filters for the translation suggestions in the unified dashboard",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Aria label of the close button, inside the header of the view that shows all the available filters for the translation suggestions in the unified dashboard",
 	"cx-sx-suggestions-filters-done-button-label": "Label of the 'Done' button that closes the filters view in the unified dashboard",
