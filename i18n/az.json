@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Mavrikant",
 			"NMW03",
 			"Serkanland",
@@ -55,7 +54,6 @@
 	"cx-campaign-newbytranslation-title": "Bəlkə tərcümə ilə başlayasan?",
 	"cx-campaign-newbytranslation-notice": "Bildiyiniz bir dildən tərcümə edərək yeni məqalə yaradın.",
 	"cx-campaign-newbytranslation-search": "Tərcümə etmək üçün başqa səhifə axtarın",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Tərcümə etməyə başla",
 	"cx-special-login-error": "Tərcümə etmək üçün giriş etməlisiniz. [$1 Giriş et]",
 	"cx-tools-instructions-text1": "Paraqrafları tərcümə etmək üçün {{GENDER:|kliklə}}",

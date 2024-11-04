@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Artificial123",
 			"Artsiom91",
 			"Chadyka",
@@ -61,7 +60,6 @@
 	"cx-campaign-newbytranslation-title": "Пачаць замест гэтага з перакладу?",
 	"cx-campaign-newbytranslation-notice": "Стварыце новы артыкул, перакладам з іншай мовы, якую вы ведаеце.",
 	"cx-campaign-newbytranslation-search": "Знайдзіце іншую старонку для перакладу",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Пачаць пераклад",
 	"cx-special-login-error": "Вы павінны ўвайсці, каб перакласці гэтую старонку. [$1 Увайсці]",
 	"cx-tools-instructions-text1": "{{GENDER:|Націскайце}} на абзацы, каб перакладаць",

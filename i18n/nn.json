@@ -7,7 +7,8 @@
 			"Njardarlogar",
 			"Prevodim",
 			"Ranveig",
-			"Trondtr"
+			"Trondtr",
+			"Dušan Kreheľ"
 		]
 	},
 	"cx": "Set om side",
@@ -54,7 +55,6 @@
 	"cx-campaign-newbytranslation-title": "Start med ei omsetjing i staden?",
 	"cx-campaign-newbytranslation-notice": "Opprett ein ny artikkel ved å setja om frå eit anna språk du kan.",
 	"cx-campaign-newbytranslation-search": "Finn ei anna side å setja om",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Start omsetjing",
 	"cx-special-login-error": "Du må vere logga inn for å omsetje på denne sida. [$1 Logg inn]",
 	"cx-tools-instructions-text1": "Trykk på avsnitt for å omsetje",

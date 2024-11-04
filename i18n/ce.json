@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Pacha Tchernof",
 			"Tgr",
 			"Исмаил Садуев",
@@ -53,7 +52,6 @@
 	"cx-campaign-newbytranslation-title": "ХӀокху гочдар метта доладе?",
 	"cx-campaign-newbytranslation-notice": "Хьайна хуучу кхечу маттара гочдарца керла йаззам кхолла.",
 	"cx-campaign-newbytranslation-search": "Карайе кхий агӀо, гочйан",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "ДӀадоладе гочдар",
 	"cx-special-login-error": "АгӀо гочйан [$1 чугӀо]",
 	"cx-tools-instructions-text1": "{{GENDER:|ТӀетаӀайе}} абзацашна, уьш гочйархьама",

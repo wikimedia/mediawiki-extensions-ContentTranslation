@@ -8,7 +8,9 @@
 			"Leeheonjin",
 			"Rodney Araujo",
 			"Sky Harbor",
-			"Xyr11"
+			"Xyr11",
+			"Dušan Kreheľ",
+			"Qwrop"
 		]
 	},
 	"cx": "Isalin ang pahina",
@@ -44,7 +46,6 @@
 	"cx-entrypoint-dialog-button-translate-from": "Magsalin mula sa $1",
 	"cx-campaign-newbytranslation-title": "Magsimula na sa pagsalin wika?",
 	"cx-campaign-newbytranslation-search": "Maghanap ng ibang pahinang isasalinwika",
-	"cx-campaign-newbytranslation-languages": "$1 → $2",
 	"cx-campaign-newbytranslation-start": "Magsimulang magsalinwika!",
 	"cx-special-login-error": "Dapat na naka log in bago makapagsalin sa pahinang ito. [$1 Log in]",
 	"cx-tools-instructions-text1": "{{GENDER:|I-klik}} ang mga talata upang maisalin",
