@@ -1,11 +1,14 @@
 import { ref } from "vue";
-import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
-import { POPULAR_SUGGESTION_PROVIDER } from "@/composables/useSuggestionFetchByMostPopular";
-import { TOPIC_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByTopics";
+import {
+  EDITS_SUGGESTION_PROVIDER,
+  POPULAR_SUGGESTION_PROVIDER,
+  TOPIC_SUGGESTION_PROVIDER,
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+} from "@/utils/suggestionFilterProviders";
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
 const DEFAULT_FILTERS = {
-  type: EDITS_SUGGESTION_PROVIDER,
+  type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   id: EDITS_SUGGESTION_PROVIDER,
 };
 
@@ -35,21 +38,18 @@ const useFiltersValidator = () => {
       }
     }
 
-    // For 'edits' and 'popular' filters, only one of 'type' or 'id' is needed
+    // For 'edits' and 'popular' filters, only 'id' is needed,
     // but we set both to the same value
-    if (
-      type === EDITS_SUGGESTION_PROVIDER ||
-      id === EDITS_SUGGESTION_PROVIDER
-    ) {
-      return { type: EDITS_SUGGESTION_PROVIDER, id: EDITS_SUGGESTION_PROVIDER };
+    if (id === EDITS_SUGGESTION_PROVIDER) {
+      return {
+        type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+        id: EDITS_SUGGESTION_PROVIDER,
+      };
     }
 
-    if (
-      type === POPULAR_SUGGESTION_PROVIDER ||
-      id === POPULAR_SUGGESTION_PROVIDER
-    ) {
+    if (id === POPULAR_SUGGESTION_PROVIDER) {
       return {
-        type: POPULAR_SUGGESTION_PROVIDER,
+        type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
         id: POPULAR_SUGGESTION_PROVIDER,
       };
     }

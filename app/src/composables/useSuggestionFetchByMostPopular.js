@@ -3,8 +3,10 @@ import { useStore } from "vuex";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
-
-export const POPULAR_SUGGESTION_PROVIDER = "popular";
+import {
+  POPULAR_SUGGESTION_PROVIDER,
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+} from "@/utils/suggestionFilterProviders";
 
 const useSuggestionFetchByMostPopular = () => {
   const store = useStore();
@@ -15,7 +17,7 @@ const useSuggestionFetchByMostPopular = () => {
 
   const popularSuggestionFilter = {
     id: POPULAR_SUGGESTION_PROVIDER,
-    type: POPULAR_SUGGESTION_PROVIDER,
+    type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   };
 
   const {

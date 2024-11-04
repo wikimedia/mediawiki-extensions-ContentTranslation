@@ -9,6 +9,12 @@ import { ref, computed, watch } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import SxSuggestionsFilters from "./SXSuggestionsFiltersDialog.vue";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
+import useSuggestionProvider from "@/composables/useSuggestionProvider";
+import {
+  EDITS_SUGGESTION_PROVIDER,
+  POPULAR_SUGGESTION_PROVIDER,
+  TOPIC_SUGGESTION_PROVIDER,
+} from "@/utils/suggestionFilterProviders";
 
 const bananaI18n = useI18n();
 
@@ -19,15 +25,16 @@ const dialogVisible = ref(false);
 const openFiltersDialog = () => (dialogVisible.value = true);
 
 const filterTypeToIconMap = {
-  "previous-edits": cdxIconUserAvatar,
-  popular: cdxIconHeart,
-  topic: null,
+  [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
+  [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
+  [TOPIC_SUGGESTION_PROVIDER]: null,
 };
 
+const { getFilterProvider } = useSuggestionProvider();
 const filterToChip = (filter) => ({
   id: filter.id,
   type: filter.type,
-  icon: filterTypeToIconMap[filter.type],
+  icon: filterTypeToIconMap[getFilterProvider(filter)],
   label: filter.label,
   action: selectFilter,
 });

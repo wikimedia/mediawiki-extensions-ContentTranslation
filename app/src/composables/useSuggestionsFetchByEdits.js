@@ -4,8 +4,10 @@ import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useSuggestionSeeds from "@/composables/useSuggestionSeeds";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
-
-export const EDITS_SUGGESTION_PROVIDER = "previous-edits";
+import {
+  EDITS_SUGGESTION_PROVIDER,
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+} from "@/utils/suggestionFilterProviders";
 
 const useSuggestionsFetchByEdits = () => {
   const store = useStore();
@@ -23,7 +25,7 @@ const useSuggestionsFetchByEdits = () => {
 
   const editsSuggestionFilter = {
     id: EDITS_SUGGESTION_PROVIDER,
-    type: EDITS_SUGGESTION_PROVIDER,
+    type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
   };
 
   /**

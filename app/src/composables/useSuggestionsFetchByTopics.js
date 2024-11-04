@@ -4,8 +4,7 @@ import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useSuggestionsFilters from "./useSuggestionsFilters";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
-
-export const TOPIC_SUGGESTION_PROVIDER = "topic";
+import { TOPIC_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
 
 const useSuggestionsFetchByTopics = () => {
   const store = useStore();

@@ -1,5 +1,3 @@
-import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
-
 export default {
   /**@type Array */
   mtRequestsPending: [],

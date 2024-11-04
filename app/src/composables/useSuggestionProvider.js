@@ -1,13 +1,14 @@
-import useSuggestionsFetchByEdits, {
+import useSuggestionsFetchByEdits from "@/composables/useSuggestionsFetchByEdits";
+import useSuggestionFetchByMostPopular from "@/composables/useSuggestionFetchByMostPopular";
+import useSuggestionFetchByTopics from "@/composables/useSuggestionsFetchByTopics";
+import {
   EDITS_SUGGESTION_PROVIDER,
-} from "@/composables/useSuggestionsFetchByEdits";
-import useSuggestionFetchByMostPopular, {
   POPULAR_SUGGESTION_PROVIDER,
-} from "@/composables/useSuggestionFetchByMostPopular";
-import useSuggestionFetchByTopics, {
   TOPIC_SUGGESTION_PROVIDER,
-} from "@/composables/useSuggestionsFetchByTopics";
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+} from "@/utils/suggestionFilterProviders";
 import useURLHandler from "@/composables/useURLHandler";
+import { computed } from "vue";
 
 const useSuggestionProvider = () => {
   const { currentSuggestionFilters } = useURLHandler();
@@ -34,13 +35,25 @@ const useSuggestionProvider = () => {
     [TOPIC_SUGGESTION_PROVIDER]: fetchSectionSuggestionsByTopics,
   };
 
+  /**
+   * @param {{ type: string, id: string }} filter
+   * @returns {string}
+   */
+  const getFilterProvider = (filter) =>
+    filter.type === AUTOMATIC_SUGGESTION_PROVIDER_GROUP
+      ? filter.id
+      : filter.type;
+
   const getCurrentPageSuggestionProvider = () =>
-    pageSuggestionProviders[currentSuggestionFilters.value.type];
+    pageSuggestionProviders[getFilterProvider(currentSuggestionFilters.value)];
 
   const getCurrentSectionSuggestionProvider = () =>
-    sectionSuggestionProviders[currentSuggestionFilters.value.type];
+    sectionSuggestionProviders[
+      getFilterProvider(currentSuggestionFilters.value)
+    ];
 
   return {
+    getFilterProvider,
     getCurrentPageSuggestionProvider,
     getCurrentSectionSuggestionProvider,
   };

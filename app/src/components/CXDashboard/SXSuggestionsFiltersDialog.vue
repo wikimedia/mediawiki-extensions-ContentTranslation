@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits, computed, inject } from "vue";
+import { ref, computed, inject } from "vue";
 import { MwRow, MwCol, MwDialog } from "@/lib/mediawiki.ui";
 import { CdxButton, CdxIcon, CdxInfoChip } from "@wikimedia/codex";
 import {
@@ -8,6 +8,12 @@ import {
   cdxIconHeart,
 } from "@wikimedia/codex-icons";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
+import {
+  EDITS_SUGGESTION_PROVIDER,
+  POPULAR_SUGGESTION_PROVIDER,
+  TOPIC_SUGGESTION_PROVIDER,
+} from "@/utils/suggestionFilterProviders";
+import useSuggestionProvider from "@/composables/useSuggestionProvider";
 
 const props = defineProps({
   modelValue: {
@@ -19,9 +25,9 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const filterTypeToIconMap = {
-  "previous-edits": cdxIconUserAvatar,
-  popular: cdxIconHeart,
-  topic: null,
+  [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
+  [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
+  [TOPIC_SUGGESTION_PROVIDER]: null,
 };
 
 const { allFilters, isFilterSelected, selectFilter } = useSuggestionsFilters();
@@ -56,6 +62,8 @@ const isSelected = (filter) => {
 
 const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
+
+const { getFilterProvider } = useSuggestionProvider();
 </script>
 
 <template>
@@ -116,7 +124,7 @@ const fullscreen = computed(() => breakpoints.value.mobile);
               :class="{
                 'sx-suggestions-filters__filter--active': isSelected(filter),
               }"
-              :icon="filterTypeToIconMap[filter.type]"
+              :icon="filterTypeToIconMap[getFilterProvider(filter)]"
               @click="tentativelySelectFilter(filter)"
             >
               {{ filter.label }}

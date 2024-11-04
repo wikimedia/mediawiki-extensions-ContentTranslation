@@ -4,9 +4,11 @@ import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
 import useURLHandler from "@/composables/useURLHandler";
-import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
-import { TOPIC_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByTopics";
-import { POPULAR_SUGGESTION_PROVIDER } from "@/composables/useSuggestionFetchByMostPopular";
+import {
+  EDITS_SUGGESTION_PROVIDER,
+  POPULAR_SUGGESTION_PROVIDER,
+  TOPIC_SUGGESTION_PROVIDER,
+} from "@/utils/suggestionFilterProviders";
 
 /**
  * @type {Ref<SuggestionSeedCollection[]>}
@@ -195,18 +197,18 @@ const useSuggestionSeeds = () => {
   };
 
   const getEventSourceForDashboardSuggestion = () => {
-    const { type } = currentFilter.value;
+    const { type, id } = currentFilter.value;
 
-    if (type === EDITS_SUGGESTION_PROVIDER) {
+    if (id === EDITS_SUGGESTION_PROVIDER) {
       return defaultSeedsFetched
         ? "suggestion_no_seed"
         : "suggestion_recent_edit";
     } else if (type === TOPIC_SUGGESTION_PROVIDER) {
       return "suggestion_topic_area";
-    } else if (type === POPULAR_SUGGESTION_PROVIDER) {
+    } else if (id === POPULAR_SUGGESTION_PROVIDER) {
       // we don't have a proper event source for most popular suggestions,
       // let's use 'suggestion_featured' for now
-      // TODO: Add a new event source or renamed 'suggestion_featured' for most popular suggestions
+      // TODO: Add a new event source or rename 'suggestion_featured' for most popular suggestions
       return "suggestion_featured";
     }
 

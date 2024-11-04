@@ -1,15 +1,22 @@
 import { ref } from "vue";
 import { useI18n } from "vue-banana-i18n";
-
-import { EDITS_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByEdits";
-import { POPULAR_SUGGESTION_PROVIDER } from "@/composables/useSuggestionFetchByMostPopular";
-import { TOPIC_SUGGESTION_PROVIDER } from "@/composables/useSuggestionsFetchByTopics";
+import {
+  TOPIC_SUGGESTION_PROVIDER,
+  EDITS_SUGGESTION_PROVIDER,
+  POPULAR_SUGGESTION_PROVIDER,
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+} from "@/utils/suggestionFilterProviders";
 import useURLHandler from "./useURLHandler";
+import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
-const topicsToFilters = (topicGroup) => {
-  return {
+/**
+ * @param {{ groupId: string, label: string, topics: { topicId: string, label: string }[] }} topicGroup
+ * @returns {{ id: string, label: string, filters: { id: string, label: string, type: string }[] }}
+ */
+const topicGroupToFilterGroup = (topicGroup) =>
+  new SuggestionFilterGroup({
     id: topicGroup.groupId,
     label: topicGroup.label,
     filters: topicGroup.topics.map((topic) => ({
@@ -17,8 +24,7 @@ const topicsToFilters = (topicGroup) => {
       label: topic.label,
       type: TOPIC_SUGGESTION_PROVIDER,
     })),
-  };
-};
+  });
 
 const useSuggestionsFilters = () => {
   const bananaI18n = useI18n();
@@ -27,24 +33,24 @@ const useSuggestionsFilters = () => {
 
   const editsFilter = {
     id: EDITS_SUGGESTION_PROVIDER,
-    type: EDITS_SUGGESTION_PROVIDER,
+    type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-user-edit-label"),
   };
   const popularFilter = {
     id: POPULAR_SUGGESTION_PROVIDER,
-    type: POPULAR_SUGGESTION_PROVIDER,
+    type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-most-popular-label"),
   };
 
-  const automaticFiltersGroup = {
-    id: "automatic",
+  const automaticFiltersGroup = new SuggestionFilterGroup({
+    id: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-default-group-label"),
     filters: [editsFilter, popularFilter],
-  };
+  });
 
   const allFilters = ref([
     automaticFiltersGroup,
-    ...topicGroups.map(topicsToFilters),
+    ...topicGroups.map(topicGroupToFilterGroup),
   ]);
 
   const getFiltersSummary = () => {
