@@ -151,6 +151,9 @@ const isQuickTranslation = computed(() => {
             class="px-0"
             weight="quiet"
             :action="isFavorite ? 'progressive' : 'default'"
+            :aria-label="
+              $i18n('cx-sx-translation-confirmer-bookmark-button-aria-label')
+            "
             @click="toggleFavorite"
           >
             <cdx-icon :icon="bookmarkIcon" />

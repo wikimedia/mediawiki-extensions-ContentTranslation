@@ -50,6 +50,7 @@ exports[`SXTranslationConfirmerArticleInformation test Component output matches 
       >
         
         <button
+          aria-label="cx-sx-translation-confirmer-bookmark-button-aria-label"
           class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only px-0"
         >
           
