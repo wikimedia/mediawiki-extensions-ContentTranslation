@@ -13,7 +13,7 @@ const topicGroups = mw.loader.require("ext.cx.articletopics");
 
 /**
  * @param {{ groupId: string, label: string, topics: { topicId: string, label: string }[] }} topicGroup
- * @returns {{ id: string, label: string, filters: { id: string, label: string, type: string }[] }}
+ * @return {SuggestionFilterGroup}
  */
 const topicGroupToFilterGroup = (topicGroup) =>
   new SuggestionFilterGroup({
