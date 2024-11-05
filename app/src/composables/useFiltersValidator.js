@@ -13,7 +13,9 @@ const DEFAULT_FILTERS = {
 };
 
 const useFiltersValidator = () => {
-  const topics = ref(topicGroups.flatMap((group) => group.topics));
+  const topicIds = ref(
+    topicGroups.flatMap((g) => g.topics).map((t) => t.topicId.toLowerCase())
+  );
 
   const filtersValidatorError = ref(false);
 
@@ -27,9 +29,13 @@ const useFiltersValidator = () => {
     // Reset error
     filtersValidatorError.value = false;
 
+    // Case-insensitive comparison
+    type = type?.toLowerCase();
+    id = id?.toLowerCase();
+
     // Topic must be valid or we use the default filter
     if (type === TOPIC_SUGGESTION_PROVIDER) {
-      if (topics.value.some((topic) => topic.topicId === id)) {
+      if (topicIds.value.some((topicId) => topicId === id)) {
         return { type, id };
       } else {
         filtersValidatorError.value = true;
