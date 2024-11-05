@@ -24,6 +24,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     >
       
       <button
+        aria-label="sx-article-search-close-button-aria-label"
         class="cdx-button cdx-button--action-default cdx-button--weight-quiet cdx-button--size-medium cdx-button--icon-only pa-0 ms-4"
       >
         

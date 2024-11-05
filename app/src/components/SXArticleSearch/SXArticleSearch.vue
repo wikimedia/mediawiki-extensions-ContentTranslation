@@ -168,7 +168,12 @@ const startTranslation = (page, eventSource) =>
         <h5 v-i18n:cx-sx-article-search-header class="mb-0" />
       </mw-col>
       <mw-col shrink align="start" class="pe-4">
-        <cdx-button class="pa-0 ms-4" weight="quiet" @click="close">
+        <cdx-button
+          class="pa-0 ms-4"
+          weight="quiet"
+          :aria-label="$i18n('sx-article-search-close-button-aria-label')"
+          @click="close"
+        >
           <cdx-icon :icon="cdxIconClose" />
         </cdx-button>
       </mw-col>
