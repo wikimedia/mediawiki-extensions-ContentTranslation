@@ -500,6 +500,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Bağla",
 	"cx-unreviewed-translation-dialog-body": "Sürətli tərcüməni bitirdikdən sonra yenisinə başlamaq üçün 10 dəqiqə gözləməlisiniz. Zəhmət olmasa, bu müddət ərzində əvvəlki tərcümənizi yoxlayın. Yüksək keyfiyyətli iş icmamız tərəfindən yüksək qiymətləndirilir.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Daha ətraflı",
+	"cx-sx-suggestions-filters-invalid-url": "Linkdəki filtrlər etibarlı deyil. Təkliflər siyahısını filtrləmək üçün seçimləri yoxlayın.",
 	"cx-sx-suggestions-filters-header": "Təklifləri tənzimlə",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Təklif filtrlərini bağla",
 	"cx-sx-suggestions-filters-done-button-label": "Oldu",

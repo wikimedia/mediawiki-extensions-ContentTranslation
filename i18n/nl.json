@@ -526,6 +526,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Sluiten",
 	"cx-unreviewed-translation-dialog-body": "Na het voltooien van een snelle vertaling moet u 10 minuten wachten voordat u een nieuwe kunt beginnen. Gebruik die tijd om eerdere vertalingen te controleren, want kwaliteit wordt hoog gewaardeerd.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Meer lezen",
+	"cx-sx-suggestions-filters-invalid-url": "De filters van de koppeling zijn niet geldig. Controleer de opties om de lijst met suggesties te filteren.",
 	"cx-sx-suggestions-filters-header": "Suggesties aanpassen",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Suggestiefilters sluiten",
 	"cx-sx-suggestions-filters-done-button-label": "Klaar",

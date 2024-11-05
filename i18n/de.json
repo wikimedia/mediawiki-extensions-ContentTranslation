@@ -511,6 +511,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Schließen",
 	"cx-unreviewed-translation-dialog-body": "Nach Abschluss einer Schnellübersetzung musst du 10 Minuten warten, bevor du eine neue Übersetzung beginnen kannst. Bitte prüfe in dieser Zeit deiner bisherigen Arbeiten, denn unsere Benutzer legen Wert auf qualitativ hochwertige Inhalte.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Mehr erfahren",
+	"cx-sx-suggestions-filters-invalid-url": "Die Filter des Links sind nicht gültig. Prüfe die Optionen, um die Liste der Vorschläge zu filtern.",
 	"cx-sx-suggestions-filters-header": "Vorschläge anpassen",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Vorschlagsfilter schließen",
 	"cx-sx-suggestions-filters-done-button-label": "Fertig",
