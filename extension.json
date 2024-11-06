@@ -783,6 +783,8 @@
 				"cx-sx-content-comparator-missing-section-placeholder-title",
 				"cx-sx-editor-original-panel-label",
 				"cx-sx-publisher-header-title",
+				"cx-sx-publisher-header-close-button-aria-label",
+				"cx-sx-publisher-header-check-button-aria-label",
 				"cx-sx-publisher-publish-panel-new-section-status",
 				"cx-sx-publisher-publish-panel-new-section-result",
 				"cx-sx-publisher-review-info",

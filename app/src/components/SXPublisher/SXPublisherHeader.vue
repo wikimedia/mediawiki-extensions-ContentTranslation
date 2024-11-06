@@ -19,7 +19,12 @@ const onClose = () => router.push({ name: "sx-sentence-selector" });
 <template>
   <mw-row class="ma-0 sx-publisher__header">
     <mw-col shrink class="me-2">
-      <cdx-button class="px-3" weight="quiet" @click="onClose">
+      <cdx-button
+        class="px-3"
+        weight="quiet"
+        :aria-label="$i18n('cx-sx-publisher-header-close-button-aria-label')"
+        @click="onClose"
+      >
         <cdx-icon :icon="cdxIconClose" />
       </cdx-button>
     </mw-col>
@@ -30,6 +35,7 @@ const onClose = () => router.push({ name: "sx-sentence-selector" });
         :disabled="isPublishingDisabled"
         action="progressive"
         weight="primary"
+        :aria-label="$i18n('cx-sx-publisher-header-check-button-aria-label')"
         @click="$emit('publish-translation')"
       >
         <cdx-icon :icon="cdxIconCheck" />

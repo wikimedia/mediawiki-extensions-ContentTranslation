@@ -374,6 +374,8 @@
 	"cx-sx-content-comparator-missing-section-placeholder-title": "Title for the placeholder where the new section will be added inside full article in target language, on the screen where translators compare source and target section contents for an article existing in both languages.",
 	"cx-sx-editor-original-panel-label": "Title for original sentence panel, where user can navigates between lines of the original sentence, inside sentence translation editor screen.",
 	"cx-sx-publisher-header-title": "Title for header of 'Preview and publish section translation' screen",
+	"cx-sx-publisher-header-close-button-aria-label": "Aria label for the close button, inside the header of 'Preview and publish' step, that navigates the user back to the editor step",
+	"cx-sx-publisher-header-check-button-aria-label": "Aria label for the check button, inside the header of 'Preview and publish' step, that publishes the current translation",
 	"cx-sx-publisher-publish-panel-new-section-status": "Status for publish panel inside 'Preview and publish' screen for new section",
 	"cx-sx-publisher-publish-panel-new-section-result": "Description of expected result of publishing new section inside 'Preview and publish' screen",
 	"cx-sx-publisher-review-info": "Additional information to review before publishing a section translation",
