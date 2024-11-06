@@ -388,6 +388,7 @@
 	"cx-sx-publish-summary": "This is an automatic edit summary for pages where a new section was added by [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source section title\n* $2 - the source page name",
 	"cx-sx-publish-lead-section-summary": "This is an automatic edit summary for pages that were created by translating the lead section by using [[Special:ContentTranslation]].\n\nParameters:\n* $1 - the source page name",
 	"cx-sx-publisher-preview-options-title": "Title of dialog where user can select where the translation will be published. This is a noun phrase \"options for publishing\", there is no verb.",
+	"cx-sx-publisher-preview-options-back-button-aria-label": "Aria label for back button inside dialog where user can select where the translation will be published",
 	"cx-sx-publisher-new-section-option-label": "Label for publish a new section option inside the dialog where user can select among publish section translation options",
 	"cx-sx-publisher-lead-section-option-label": "Label for \"publish as a new page\" option inside the dialog where user can select among publish section translation options",
 	"cx-sx-publisher-new-section-option-details": "Details for \"publish a new section\" option.",

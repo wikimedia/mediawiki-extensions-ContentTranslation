@@ -80,6 +80,9 @@ const updateOption = (event) => {
             <cdx-button
               class="pa-0"
               weight="quiet"
+              :aria-label="
+                $i18n('cx-sx-publisher-preview-options-back-button-aria-label')
+              "
               @click="onPublishOptionsClose"
             >
               <cdx-icon :icon="cdxIconArrowPrevious" />
