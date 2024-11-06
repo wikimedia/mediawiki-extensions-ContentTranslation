@@ -805,6 +805,8 @@
 				"cx-sx-publisher-review-info-error",
 				"cx-sx-publisher-review-info-learn-more",
 				"cx-sx-publisher-review-info-learn-more",
+				"cx-sx-publisher-configure-button-aria-label",
+				"cx-sx-publisher-edit-button-aria-label",
 				"cx-sx-sentence-selector-translated-segment-no-edits-label",
 				"cx-sx-sentence-selector-translated-segment-modification-percentage",
 				"cx-sx-sentence-selector-translated-segment-modification-percentage-header",

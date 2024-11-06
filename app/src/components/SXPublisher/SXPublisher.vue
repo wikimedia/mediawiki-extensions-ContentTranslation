@@ -122,7 +122,11 @@ watch(publishOptionsOn, (newValue) => {
       <!-- eslint-enable vue/no-v-html -->
       <mw-row justify="end" class="ma-0">
         <mw-col shrink>
-          <cdx-button weight="quiet" @click="configureTranslationOptions">
+          <cdx-button
+            weight="quiet"
+            :aria-label="$i18n('cx-sx-publisher-configure-button-aria-label')"
+            @click="configureTranslationOptions"
+          >
             <cdx-icon :icon="cdxIconSettings" />
           </cdx-button>
         </mw-col>
@@ -142,7 +146,11 @@ watch(publishOptionsOn, (newValue) => {
         />
         <!--eslint-enable vue/no-v-text-v-html-on-component vue/no-v-html -->
         <mw-col shrink>
-          <cdx-button weight="quiet" @click="editTranslation">
+          <cdx-button
+            weight="quiet"
+            :aria-label="$i18n('cx-sx-publisher-edit-button-aria-label')"
+            @click="editTranslation"
+          >
             <cdx-icon :icon="cdxIconEdit" />
           </cdx-button>
         </mw-col>
