@@ -512,6 +512,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "סגירה",
 	"cx-unreviewed-translation-dialog-body": "לאחר שסיימת תרגום מהיר, יש לחכות 10 דקות לפני התחלת תרגום חדש. נא לבדוק את העבודה הקודמת שלך בזמן הזה, שכן קהילת העורכים שלנו מעריכה תוכן איכותי.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "מידע נוסף",
+	"cx-sx-suggestions-filters-invalid-url": "מסננים מהקישור אינם תקינים. נא לסמן את האפשרויות לסינון רשימת ההצעות.",
 	"cx-sx-suggestions-filters-header": "כוונון הצעות",
 	"cx-sx-suggestions-filters-close-button-aria-label": "סגירת מסנני הצעות",
 	"cx-sx-suggestions-filters-done-button-label": "בוצע",

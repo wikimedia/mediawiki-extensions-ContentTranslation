@@ -506,6 +506,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Pechar",
 	"cx-unreviewed-translation-dialog-body": "Despois de rematares unha tradución rápida tes que agardar 10 minutos antes de iniciares unha nova. Revisa o traballo anterior durante ese tempo, xa que a nosa comunidade de editores valora o contido de alta calidade.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Máis información",
+	"cx-sx-suggestions-filters-invalid-url": "Os filtros da ligazón non son válidos. Marca as opcións para filtrar a lista de suxestións.",
 	"cx-sx-suggestions-filters-header": "Axustar as suxestións",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Pechar os filtros de suxestións",
 	"cx-sx-suggestions-filters-done-button-label": "Feito",

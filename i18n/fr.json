@@ -553,6 +553,7 @@
 	"cx-unreviewed-translation-dialog-close-button-label": "Fermer",
 	"cx-unreviewed-translation-dialog-body": "Après avoir terminé une traduction rapide, vous devez attendre 10 minutes avant de commencer une nouvelle traduction. Veuillez revoir les travaux passés au cours de cette période, car notre communauté d'éditeurs apprécie le contenu de haute qualité.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "En savoir plus",
+	"cx-sx-suggestions-filters-invalid-url": "Les filtres du lien ne sont pas valides. Cochez les options pour filtrer la liste des suggestions.",
 	"cx-sx-suggestions-filters-header": "Ajuster les suggestions",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Fermer les filtres de suggestions",
 	"cx-sx-suggestions-filters-done-button-label": "Terminé",
