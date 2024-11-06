@@ -5,9 +5,11 @@
 			"Osman Omera"
 		]
 	},
+	"cx-dashboard-header": "ተርጀሞታት",
 	"cx-source-view-page": "ገጽ ርኤ",
 	"cx-target-view-page": "ገጽ ርኤ",
 	"cx-publish-button": "ንሽሮ",
 	"cx-publish-button-publishing": "ልትነሽር ህላ",
+	"cx-translation-add-translation": "ኩሉ ተርጀመት",
 	"cx-source-loading": "ክርየት $1"
 }
