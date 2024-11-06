@@ -398,6 +398,8 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Description of expected result of publishing section to user's sandbox, inside 'Preview and publish' screen",
 	"cx-sx-publisher-review-info-error": "Title for review information for publishing errors inside screen where user can publish the section translation",
 	"cx-sx-publisher-review-info-learn-more": "Label for anchor that displays more information about warnings and errors inside review info panel, on the screen where user can publish the section translation",
+	"cx-sx-publisher-review-info-previous-button-aria-label": "Aria label for the button that navigates the user back to the previous message, inside review info panel, on the screen where user can publish the section translation",
+	"cx-sx-publisher-review-info-next-button-aria-label": "Aria label for the button that navigates the user to the next message, inside review info panel, on the screen where user can publish the section translation",
 	"cx-sx-publisher-configure-button-aria-label": "Aria label for the button that opens the dialog where the user can configure the publishing options, inside the screen where user can publish their section translation",
 	"cx-sx-publisher-edit-button-aria-label": "Arial label for the button that opens the editor, inside the screen where user can publish their section translation",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "Label for modification stats when machine translation has not been modified by the user",

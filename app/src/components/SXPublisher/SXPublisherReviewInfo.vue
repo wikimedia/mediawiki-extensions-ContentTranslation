@@ -109,6 +109,9 @@ const goToNextMessage = () => {
             <cdx-button
               weight="quiet"
               class="pa-0 me-1"
+              :aria-label="
+                $i18n('cx-sx-publisher-review-info-previous-button-aria-label')
+              "
               @click="goToPreviousMessage"
             >
               <cdx-icon :icon="cdxIconPrevious" />
@@ -116,6 +119,9 @@ const goToNextMessage = () => {
             <cdx-button
               weight="quiet"
               class="pa-0 ms-1"
+              :aria-label="
+                $i18n('cx-sx-publisher-review-info-next-button-aria-label')
+              "
               @click="goToNextMessage"
             >
               <cdx-icon :icon="cdxIconNext" />

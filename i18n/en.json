@@ -378,6 +378,8 @@
 	"cx-sx-publisher-publish-panel-sandbox-section-result": "Your translation will be <strong>added to your sandbox.</strong>",
 	"cx-sx-publisher-review-info-error": "Your translation cannot be published:",
 	"cx-sx-publisher-review-info-learn-more": "[https://mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Learn more]",
+	"cx-sx-publisher-review-info-previous-button-aria-label": "Previous",
+	"cx-sx-publisher-review-info-next-button-aria-label": "Next",
 	"cx-sx-publisher-configure-button-aria-label": "Configure",
 	"cx-sx-publisher-edit-button-aria-label": "Edit",
 	"cx-sx-sentence-selector-translated-segment-no-edits-label": "No edits by you",
