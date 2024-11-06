@@ -34,7 +34,15 @@ const fullscreen = computed(() => breakpoints.value.mobile);
     <template #header>
       <mw-row class="mw-ui-dialog__header ma-0" align="stretch">
         <mw-col class="ms-3 me-1" shrink>
-          <cdx-button class="my-1" weight="quiet" size="large" @click="close">
+          <cdx-button
+            class="my-1"
+            weight="quiet"
+            size="large"
+            :aria-label="
+              $i18n('cx-sx-publisher-captcha-dialog-close-button-aria-label')
+            "
+            @click="close"
+          >
             <cdx-icon :icon="cdxIconClose" />
           </cdx-button>
         </mw-col>
