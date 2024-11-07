@@ -23,7 +23,8 @@
 			"Tuanminh01",
 			"Vinhtantran",
 			"Withoutaname",
-			"Петар Петковић"
+			"Петар Петковић",
+			"NguyenHung"
 		]
 	},
 	"cx": "Dịch trang",
@@ -207,7 +208,7 @@
 	"cx-notification-deleted-draft": "Bản dịch <strong>$1</strong> của bạn đã bị xóa bỏ vì nội dung cũ hơn một năm. Bạn có thể tạo bản dịch từ nội dung mới bất cứ lúc nào.",
 	"cx-notification-deleted-draft-bundle": "{{PLURAL:$1|$1 bản dịch}} đã bị xóa bỏ vì nội dung cũ hơn một năm. Bạn có thể tạo bản dịch từ nội dung mới bất cứ lúc nào.",
 	"cx-notification-continue-translation": "Vài tháng trước bạn đã bắt đầu dịch <strong>$1</strong>. Hãy cân nhắc việc xuất bản nó trước khi nó bị tự động xóa đi sau một năm.",
-	"cx-notification-continue-translation-bundle": "Bạn đã bắt đầu các bản dịch vài tháng trước. Hãy cân nhắc việc xuất bản chúng trước khi chúng tự động bị xóa đi sau một năm.",
+	"cx-notification-continue-translation-bundle": "Bạn đã bắt đầu {{PLURAL:$1|$1 bản dịch}} vài tháng trước. Hãy cân nhắc việc xuất bản chúng trước khi chúng tự động bị xóa đi sau một năm.",
 	"cx-contributions-link": "Những đóng góp của tôi",
 	"cx-your-translations-link": "Những đóng góp của {{GENDER:$1}}bạn",
 	"cx-translationlist-empty-title": "Không còn gì để dịch?",
@@ -283,7 +284,7 @@
 	"cx-sx-section-selector-desc": "Bạn sẽ so sánh nội dung ở cả hai ngôn ngữ",
 	"cx-sx-language-selector-dialog-title": "Tìm một ngôn ngữ",
 	"cx-sx-existing-translation-status": "Đã có sẵn trong $1",
-	"cx-sx-existing-translation-additional-info": "Mở rộng nội dung có sẵn bằng cách biên dịch các đoạn mới.",
+	"cx-sx-existing-translation-additional-info": "Mở rộng bằng $1{{PLURAL:$2|$2 đoạn mới|0=}}.",
 	"cx-sx-start-translation-button-label": "Bắt đầu dịch",
 	"cx-sx-view-translation-anchor": "Xem",
 	"cx-sx-existing-translation-learn-more": "Tìm hiểu thêm",
@@ -301,7 +302,7 @@
 	"cx-translation-list-all-languages-option-label": "Tất cả",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Quay lại tất cả các đoạn",
 	"cx-sx-content-comparator-translation-section-button-label": "Biên dịch đoạn này",
-	"cx-sx-content-comparator-review-contents-title": "Xem lại nội dung ở cả hai ngôn ngữ.",
+	"cx-sx-content-comparator-review-contents-title": "Kiểm tra lại nội dung chồng chéo",
 	"cx-sx-content-comparator-source-selector-title": "Đoạn trong $1",
 	"sx-quick-tutorial-main-point-step-2": "Bản dịch gợi ý",
 	"sx-quick-tutorial-secondary-point-step-1": "Dịch và xuất bản từng phần một. Thật dễ dàng, nhanh chóng và thú vị!",
