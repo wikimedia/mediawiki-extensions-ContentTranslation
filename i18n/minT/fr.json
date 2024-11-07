@@ -3,6 +3,7 @@
 		"authors": [
 			"Escargot bleu",
 			"Goombiis",
+			"Mahabarata",
 			"SleaY"
 		]
 	},
@@ -36,6 +37,7 @@
 	"mint-view-translation-page-target-article-container-header": "Des contenus créés par des humains sont également disponibles sur ce sujet",
 	"mint-view-translation-page-target-article-container-details": "Lisez l'article par des éditeurs de Wikipédia en $1 pour obtenir des informations plus fiables sur le sujet.",
 	"mint-view-translation-page-source-article-link-label": "Lire en $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Réviser la traduction automatique",
 	"mint-view-translation-content-translation-entrypoint-description": "Le contenu automatique peut être inexact",
 	"mint-view-translation-overlay-header": "Traduction automatique",
 	"mint-view-translation-overlay-source-article-link-label": "Lire sur Wikipédia en $1",
@@ -44,5 +46,12 @@
 	"mint-view-translation-overlay-share-button-label": "Partager la traduction automatique",
 	"mint-view-translation-overlay-feedback-link-label": "Envoyer un avis",
 	"ax-article-footer-entrypoint-card-description": "Plus de contenu dans d'autres langues",
-	"ax-article-footer-entrypoint-card-supporting-text": "Lire la traduction automatique"
+	"ax-article-footer-entrypoint-card-supporting-text": "Lire la traduction automatique",
+	"mint-explore-languages-header": "Explorer les langues",
+	"mint-explore-languages-search-input-placeholder": "Toutes les langues pour ce sujet",
+	"mint-explore-languages-explanation-banner-title": "En savoir plus sur d'autres langues",
+	"mint-explore-languages-explanation-banner-text": "Les éditeurs de différentes langues ont traité ce sujet de différentes manières.",
+	"mint-explore-languages-language-card-container-title": "Langues avec la plus grande couverture pour « $1 »",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Une section|$1 sections|0=Aucune section}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus détaillé"
 }

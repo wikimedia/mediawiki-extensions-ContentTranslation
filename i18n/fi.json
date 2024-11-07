@@ -393,6 +393,7 @@
 	"cx-sx-article-search-recently-edited-title": "Viime aikoina muokkaamiasi",
 	"cx-sx-article-search-nearby-title": "Lähistöllä",
 	"sx-article-search-language-selector-dialog-title": "Kielet",
+	"sx-article-search-close-button-aria-label": "Sulje",
 	"cx-sx-language-selector-placeholder": "Etsi kieltä",
 	"cx-sx-language-selector-all-languages": "Kaikki kielet",
 	"cx-sx-language-selector-suggestions": "Ehdotettu",
