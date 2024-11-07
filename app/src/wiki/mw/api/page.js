@@ -69,7 +69,7 @@ const fetchPages = (language, titles) => {
  * and returns a promise that resolves to an immutable LanguageTitleGroup object
  * @param {String} language
  * @param {String} title
- * @returns {Promise<LanguageTitleGroup>}
+ * @returns {Promise<LanguageTitleGroup|null>}
  */
 const fetchLanguageTitles = (language, title) => {
   const params = {

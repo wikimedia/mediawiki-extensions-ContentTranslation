@@ -1,6 +1,8 @@
 import useTranslationStart from "@/composables/useTranslationStart";
 import useEventLogging from "@/composables/useEventLogging";
 import useURLHandler from "@/composables/useURLHandler";
+import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
+import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 
 const { getUrlParam } = useURLHandler();
 
@@ -30,6 +32,8 @@ const getEventSourceFromUrlCampaign = () => {
 const useUrlTranslationStart = () => {
   const startTranslation = useTranslationStart();
   const logEvent = useEventLogging();
+  const fetchLanguageTitles = useLanguageTitlesFetch();
+  const { targetPageExists } = useLanguageTitleGroup();
 
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -42,12 +46,15 @@ const useUrlTranslationStart = () => {
     // have preselected the page title inside the URL himself
     const eventSource = getEventSourceFromUrlCampaign() || "direct_preselect";
 
-    logEvent({
-      event_type: "dashboard_open",
-      event_source: eventSource,
-      translation_source_language: sourceLanguage.value,
-      translation_target_language: targetLanguage.value,
-    });
+    fetchLanguageTitles(sourceLanguage.value, pageTitle.value).then(() =>
+      logEvent({
+        event_type: "dashboard_open",
+        event_source: eventSource,
+        translation_source_language: sourceLanguage.value,
+        translation_target_language: targetLanguage.value,
+        translation_type: targetPageExists.value ? "section" : "article",
+      })
+    );
 
     return startTranslation(
       pageTitle.value,

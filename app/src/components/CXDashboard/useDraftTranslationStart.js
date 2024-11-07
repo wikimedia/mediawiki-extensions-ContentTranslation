@@ -88,8 +88,9 @@ const useDraftTranslationStart = () => {
       translation_source_title: sourceTitle,
       translation_source_section: translation.sourceSectionTitle,
       translation_target_language: targetLanguage.value,
-      translation_target_title: translation.targetTitle,
+      translation_target_title: targetTitle,
       translation_target_section: translation.targetSectionTitle,
+      translation_type: isLeadSectionTranslation ? "article" : "section",
     });
 
     await fetchPageContent(
@@ -119,11 +120,11 @@ const useDraftTranslationStart = () => {
 
     let sectionTitleTranslation;
 
-    if (translation.isLeadSectionTranslation) {
+    if (isLeadSectionTranslation) {
       // initialize the original title, so that we can restore the draft section/article title
       // this is NOT needed for non-lead sections as the original title is already populated
-      sourceSection.value.originalTitle = translation.sourceTitle;
-      sectionTitleTranslation = translation.targetTitle;
+      sourceSection.value.originalTitle = sourceTitle;
+      sectionTitleTranslation = targetTitle;
     } else {
       sectionTitleTranslation = translation.targetSectionTitle;
     }

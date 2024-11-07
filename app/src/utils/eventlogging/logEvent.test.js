@@ -22,7 +22,6 @@ describe("Event logging", () => {
     await logEvent(event);
     const eventPayload = {
       $schema: "/analytics/mediawiki/content_translation_event/1.6.0",
-      translation_type: "section",
       wiki_db: "test-db",
       access_method: "mobile web",
       user_name: "test-username",
