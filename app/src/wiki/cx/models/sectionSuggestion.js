@@ -1,3 +1,8 @@
+import {
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+  COLLECTIONS_SUGGESTION_PROVIDER,
+} from "@/utils/suggestionFilterProviders";
+
 export default class SectionSuggestion {
   /**
    * Creates an instance of SectionSuggestion.
@@ -120,10 +125,19 @@ export default class SectionSuggestion {
   }
 
   /**
-   * @param {string} sectionTitle
-   * @return {boolean}
+   * @param {{ id: string, type: string }} filter
    */
-  hasSectionTitle(sectionTitle) {
-    return this.sourceSections.includes(sectionTitle);
+  matchesFilter(filter) {
+    if (
+      filter.type === AUTOMATIC_SUGGESTION_PROVIDER_GROUP &&
+      filter.id === COLLECTIONS_SUGGESTION_PROVIDER
+    ) {
+      return this.suggestionProvider?.type === COLLECTIONS_SUGGESTION_PROVIDER;
+    }
+
+    return (
+      this.suggestionProvider?.type === filter.type &&
+      this.suggestionProvider?.id === filter.id
+    );
   }
 }

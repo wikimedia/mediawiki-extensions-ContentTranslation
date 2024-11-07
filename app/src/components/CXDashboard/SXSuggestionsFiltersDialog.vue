@@ -6,12 +6,14 @@ import {
   cdxIconClose,
   cdxIconUserAvatar,
   cdxIconHeart,
+  cdxIconArticles,
 } from "@wikimedia/codex-icons";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 import {
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
+  COLLECTIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import useSuggestionProvider from "@/composables/useSuggestionProvider";
 
@@ -27,6 +29,7 @@ const emit = defineEmits(["update:modelValue"]);
 const filterTypeToIconMap = {
   [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
   [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
+  [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconArticles,
   [TOPIC_SUGGESTION_PROVIDER]: null,
 };
 

@@ -533,8 +533,10 @@
 	"cx-sx-suggestions-filters-done-button-label": "Done",
 	"cx-sx-suggestions-filter-user-edit-label": "For you",
 	"cx-sx-suggestions-filter-most-popular-label": "Popular",
+	"cx-sx-suggestions-filter-page-collection-label": "All collections",
 	"cx-sx-suggestions-filter-more-label": "More",
 	"cx-sx-suggestions-filter-default-group-label": "Automatic",
+	"cx-sx-suggestions-filter-page-collections-group-label": "Collections",
 	"cx-articletopics-group-geography": "Geography",
 	"cx-articletopics-group-culture": "Culture",
 	"cx-articletopics-group-history-and-society": "History and society",
@@ -577,5 +579,10 @@
 	"cx-articletopics-topic-mathematics": "Mathematics",
 	"cx-articletopics-topic-medicine-and-health": "Medicine and health",
 	"cx-articletopics-topic-physics": "Physics",
-	"cx-articletopics-topic-technology": "Technology"
+	"cx-articletopics-topic-technology": "Technology",
+	"cx-page-collection-dialog-close-button-aria-label": "Go back to dashboard",
+	"cx-page-collection-dialog-existing-target-count": "$1/$2 articles exist in $3",
+	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 day|$1 days|0=No days}} left",
+	"cx-page-collection-dialog-page-suggestions-header": "New pages",
+	"cx-page-collection-dialog-section-suggestions-header": "New sections"
 }

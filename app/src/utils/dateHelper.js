@@ -54,4 +54,20 @@ const timeago = (timeStamp) => {
   }
 };
 
-export { timeago };
+/**
+ * @param {string} dateString in "yyyy-mm-dd" format
+ * @returns {number} an integer indicating the days left to the given date
+ */
+const daysLeftFromNow = (dateString) => {
+  const currentDate = new Date(); // Get the current date
+  const targetDate = new Date(dateString); // Parse the input date string
+
+  // Calculate the difference in time (in milliseconds)
+  const timeDifference = targetDate - currentDate;
+
+  // Convert time difference from milliseconds to days
+  return Math.max(Math.ceil(timeDifference / (1000 * 60 * 60 * 24)), 0);
+};
+
+// Example usage
+export { timeago, daysLeftFromNow };

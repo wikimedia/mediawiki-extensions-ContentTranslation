@@ -19,11 +19,8 @@ const useSuggestionsStore = () => {
       "suggestions/getSectionSuggestionsForPair"
     ](sourceLanguage.value, targetLanguage.value);
 
-    return sectionSuggestionsForPair.filter(
-      (suggestion) =>
-        suggestion.suggestionProvider.type ===
-          currentSuggestionFilters.value.type &&
-        suggestion.suggestionProvider.id === currentSuggestionFilters.value.id
+    return sectionSuggestionsForPair.filter((suggestion) =>
+      suggestion.matchesFilter(currentSuggestionFilters.value)
     );
   };
 
@@ -48,11 +45,8 @@ const useSuggestionsStore = () => {
       "suggestions/getPageSuggestionsForPair"
     ](sourceLanguage.value, targetLanguage.value);
 
-    return pageSuggestionsForPair.filter(
-      (suggestion) =>
-        suggestion.suggestionProvider.type ===
-          currentSuggestionFilters.value.type &&
-        suggestion.suggestionProvider.id === currentSuggestionFilters.value.id
+    return pageSuggestionsForPair.filter((suggestion) =>
+      suggestion.matchesFilter(currentSuggestionFilters.value)
     );
   };
 

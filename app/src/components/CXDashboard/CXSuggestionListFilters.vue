@@ -4,6 +4,7 @@ import {
   cdxIconUserAvatar,
   cdxIconHeart,
   cdxIconEllipsis,
+  cdxIconArticles,
 } from "@wikimedia/codex-icons";
 import { ref, computed, watch } from "vue";
 import { useI18n } from "vue-banana-i18n";
@@ -14,12 +15,18 @@ import {
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
+  COLLECTIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
+import { MwSpinner } from "@/lib/mediawiki.ui";
 
 const bananaI18n = useI18n();
 
-const { getFiltersSummary, selectFilter, isFilterSelected } =
-  useSuggestionsFilters();
+const {
+  getFiltersSummary,
+  selectFilter,
+  isFilterSelected,
+  waitingForPageCollectionsFetch,
+} = useSuggestionsFilters();
 
 const dialogVisible = ref(false);
 const openFiltersDialog = () => (dialogVisible.value = true);
@@ -27,6 +34,7 @@ const openFiltersDialog = () => (dialogVisible.value = true);
 const filterTypeToIconMap = {
   [EDITS_SUGGESTION_PROVIDER]: cdxIconUserAvatar,
   [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
+  [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconArticles,
   [TOPIC_SUGGESTION_PROVIDER]: null,
 };
 
@@ -50,6 +58,12 @@ watch(dialogVisible, (newValue) => {
   }
 });
 
+watch(waitingForPageCollectionsFetch, (newValue) => {
+  if (!newValue) {
+    filtersSummary.value = getFiltersSummary();
+  }
+});
+
 const chips = computed(() => [
   ...filtersSummary.value.map(filterToChip),
   {
@@ -62,7 +76,8 @@ const chips = computed(() => [
 </script>
 
 <template>
-  <div class="cx-suggestion-list__filters flex px-4 pb-2">
+  <mw-spinner v-if="waitingForPageCollectionsFetch" />
+  <div v-else class="cx-suggestion-list__filters flex px-4 pb-2">
     <cdx-info-chip
       v-for="chip in chips"
       :key="chip.label"

@@ -1,45 +1,33 @@
 import ArticleSuggestion from "../models/articleSuggestion";
 import SectionSuggestion from "../models/sectionSuggestion";
-import { siteMapper } from "../../../utils/mediawikiHelper";
-import { en } from "../../../utils/appendix/appendixTitles.json";
+import { siteMapper } from "@/utils/mediawikiHelper";
+import { en } from "@/utils/appendix/appendixTitles.json";
 import FavoriteSuggestion from "@/wiki/cx/models/favoriteSuggestion";
+import PageCollection from "@/wiki/cx/models/pageCollection";
+import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
+import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
 const appendixSectionTitlesInEnglish = en;
 
 /**
- * @param {string} source
- * @param {string} target
- * @param {string|null} seed
- * @param {string|null} topic
- * @param {boolean} includeSections
- * @param {"mostpopular"|null} searchAlgorithm
- * @param {number} count
+ * @param {string|null} urlPostfix
+ * @param {object} urlParams
+ * @param {string|undefined} urlParams.source
+ * @param {string|undefined} urlParams.target
+ * @param {string|undefined} urlParams.seed
+ * @param {string|undefined} urlParams.topic
+ * @param {"mostpopular"|undefined} urlParams.search_algorithm
+ * @param {number|undefined} urlParams.count
  */
-const requestToRecommendationApi = async ({
-  source,
-  target,
-  seed = null,
-  topic = null,
-  includeSections = false,
-  searchAlgorithm = null,
-  count = 24,
-}) => {
-  const params = {
-    source,
-    target,
-    seed,
-    topic,
-    count,
-    search_algorithm: searchAlgorithm,
-  };
+const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
   let stringUrl = mw.config.get("wgRecommendToolAPIURL");
 
-  if (includeSections) {
-    stringUrl += "/sections";
+  if (urlPostfix) {
+    stringUrl += urlPostfix;
   }
   const recommendToolApiUrl = new URL(stringUrl);
-  Object.keys(params).forEach((key) => {
-    if (params[key]) {
-      recommendToolApiUrl.searchParams.append(key, params[key]);
+  Object.keys(urlParams).forEach((key) => {
+    if (urlParams[key]) {
+      recommendToolApiUrl.searchParams.append(key, urlParams[key]);
     }
   });
 
@@ -62,6 +50,18 @@ const requestToRecommendationApi = async ({
 };
 
 /**
+ * @returns {Promise<PageCollection[]>}
+ */
+async function fetchPageCollections() {
+  const urlParams = {};
+  const urlPostfix = "/page-collections";
+  const collectionResults =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+
+  return collectionResults.map((item) => new PageCollection(item));
+}
+
+/**
  * @param {String} sourceLanguage
  * @param {String} targetLanguage
  * @param {String} seedArticleTitle
@@ -74,13 +74,15 @@ async function fetchPageSuggestions(
   seedArticleTitle,
   count = 24
 ) {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     seed: seedArticleTitle,
     count,
   };
-  const suggestedResults = (await requestToRecommendationApi(params)) || [];
+
+  const suggestedResults =
+    (await requestToRecommendationApi({ urlParams })) || [];
 
   return suggestedResults.map(
     (item) =>
@@ -103,12 +105,14 @@ const fetchMostPopularPageSuggestions = async (
   sourceLanguage,
   targetLanguage
 ) => {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    searchAlgorithm: "mostpopular",
+    count: 24,
+    search_algorithm: "mostpopular",
   };
-  const recommendations = (await requestToRecommendationApi(params)) || [];
+  const recommendations =
+    (await requestToRecommendationApi({ urlParams })) || [];
 
   return recommendations.map(
     (item) =>
@@ -131,13 +135,16 @@ const fetchMostPopularSectionSuggestions = async (
   sourceLanguage,
   targetLanguage
 ) => {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
-    includeSections: true,
-    searchAlgorithm: "mostpopular",
+    count: 24,
+    search_algorithm: "mostpopular",
   };
-  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  const urlPostfix = "/sections";
+  const recommendations =
+    (await requestToRecommendationApi({ urlParams, urlPostfix })) || [];
 
   return (
     recommendations &&
@@ -152,6 +159,77 @@ const fetchMostPopularSectionSuggestions = async (
           targetSections: recommendation.target_sections,
           present: recommendation.present,
           missing: recommendation.missing,
+        })
+    )
+  );
+};
+
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @return {Promise<CollectionArticleSuggestion[]>}
+ */
+const fetchPageSuggestionsByCollections = async (
+  sourceLanguage,
+  targetLanguage
+) => {
+  const urlParams = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    count: 24,
+    collections: true,
+  };
+  const recommendations =
+    (await requestToRecommendationApi({ urlParams })) || [];
+
+  return recommendations.map(
+    (item) =>
+      new CollectionArticleSuggestion({
+        sourceTitle: item.title.replace(/_/g, " "),
+        sourceLanguage,
+        targetLanguage,
+        wikidataId: item.wikidata_id,
+        langLinksCount: parseInt(item.langlinks_count),
+        collection: item.collection,
+      })
+  );
+};
+
+/**
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @return {Promise<CollectionSectionSuggestion[]>}
+ */
+const fetchSectionSuggestionsByCollections = async (
+  sourceLanguage,
+  targetLanguage
+) => {
+  const urlParams = {
+    source: sourceLanguage,
+    target: targetLanguage,
+    count: 24,
+    collections: true,
+  };
+
+  const urlPostfix = "/sections";
+
+  const recommendations =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+
+  return (
+    recommendations &&
+    recommendations.map(
+      (recommendation) =>
+        new CollectionSectionSuggestion({
+          sourceLanguage,
+          targetLanguage,
+          sourceTitle: recommendation.source_title,
+          targetTitle: recommendation.target_title,
+          sourceSections: recommendation.source_sections,
+          targetSections: recommendation.target_sections,
+          present: recommendation.present,
+          missing: recommendation.missing,
+          collection: recommendation.collection,
         })
     )
   );
@@ -196,13 +274,17 @@ async function fetchSectionSuggestion(
  * @returns {Promise<SectionSuggestion[]>}
  */
 async function fetchSectionSuggestions(sourceLanguage, targetLanguage, seed) {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     seed,
-    includeSections: true,
+    count: 24,
   };
-  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  const urlPostfix = "/sections";
+
+  const recommendations =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
 
   return (
     recommendations &&
@@ -235,14 +317,15 @@ async function fetchPageSuggestionsByTopics(
   topics,
   count = 24
 ) {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     topic: topics.join("|"),
     count,
   };
 
-  const suggestedResults = (await requestToRecommendationApi(params)) || [];
+  const suggestedResults =
+    (await requestToRecommendationApi({ urlParams })) || [];
 
   return suggestedResults.map(
     (item) =>
@@ -269,13 +352,16 @@ async function fetchSectionSuggestionsByTopics(
   topics,
   count = 24
 ) {
-  const params = {
+  const urlParams = {
     source: sourceLanguage,
     target: targetLanguage,
     topic: topics.join("|"),
-    includeSections: true,
+    count,
   };
-  const recommendations = (await requestToRecommendationApi(params)) || [];
+
+  const urlPostfix = "/sections";
+  const recommendations =
+    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
 
   return (
     recommendations &&
@@ -499,4 +585,7 @@ export default {
   fetchMostPopularSectionSuggestions,
   fetchPageSuggestionsByTopics,
   fetchSectionSuggestionsByTopics,
+  fetchPageCollections,
+  fetchPageSuggestionsByCollections,
+  fetchSectionSuggestionsByCollections,
 };

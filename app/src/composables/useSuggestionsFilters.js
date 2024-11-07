@@ -1,12 +1,14 @@
-import { ref } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import {
   TOPIC_SUGGESTION_PROVIDER,
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
+  COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
 } from "@/utils/suggestionFilterProviders";
 import useURLHandler from "./useURLHandler";
+import usePageCollections from "@/components/CXDashboard/usePageCollections";
 import SuggestionFilterGroup from "@/wiki/cx/models/suggestionFilterGroup";
 
 const topicGroups = mw.loader.require("ext.cx.articletopics");
@@ -41,22 +43,67 @@ const useSuggestionsFilters = () => {
     type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-most-popular-label"),
   };
+  const collectionsFilter = {
+    id: COLLECTIONS_SUGGESTION_PROVIDER,
+    type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+    label: bananaI18n.i18n("cx-sx-suggestions-filter-page-collection-label"),
+  };
 
   const automaticFiltersGroup = new SuggestionFilterGroup({
     id: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
     label: bananaI18n.i18n("cx-sx-suggestions-filter-default-group-label"),
-    filters: [editsFilter, popularFilter],
+    filters: [editsFilter, popularFilter, collectionsFilter],
   });
 
-  const allFilters = ref([
+  const { pageCollections, pageCollectionsFetched } = usePageCollections();
+
+  /**
+   * @param {PageCollection} collection
+   * @returns {{id: string, label: string, type: string}}
+   */
+  const collectionToFilter = (collection) => ({
+    id: collection.name,
+    label: collection.name,
+    type: COLLECTIONS_SUGGESTION_PROVIDER,
+  });
+
+  const collectionFiltersGroup = computed(
+    () =>
+      new SuggestionFilterGroup({
+        id: "collections",
+        label: bananaI18n.i18n(
+          "cx-sx-suggestions-filter-page-collections-group-label"
+        ),
+        filters: pageCollections.value.map((collection) =>
+          collectionToFilter(collection)
+        ),
+      })
+  );
+
+  const allFilters = computed(() => [
     automaticFiltersGroup,
+    collectionFiltersGroup.value,
     ...topicGroups.map(topicGroupToFilterGroup),
   ]);
 
+  const waitingForPageCollectionsFetch = computed(
+    () =>
+      currentFilter.value.type === COLLECTIONS_SUGGESTION_PROVIDER &&
+      !pageCollectionsFetched.value
+  );
+
   const getFiltersSummary = () => {
+    if (waitingForPageCollectionsFetch.value) {
+      return [];
+    }
+
     const selectedFilter = findSelectedFilter();
 
-    if (selectedFilter.type === TOPIC_SUGGESTION_PROVIDER) {
+    if (
+      selectedFilter.type === TOPIC_SUGGESTION_PROVIDER ||
+      selectedFilter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
+      selectedFilter.id === COLLECTIONS_SUGGESTION_PROVIDER
+    ) {
       return [selectedFilter, editsFilter];
     }
 
@@ -90,6 +137,7 @@ const useSuggestionsFilters = () => {
     selectFilter,
     isFilterSelected,
     getOresTopics,
+    waitingForPageCollectionsFetch,
   };
 };
 

@@ -18,7 +18,7 @@ const sectionSuggestionSeedCollections = ref([]);
 let publishedTranslationsReturned = false;
 let previousEditsInSourceLoaded = false;
 let previousEditsInTargetLoaded = false;
-let defaultSeedsFetched = false;
+let defaultSeedsFetched = ref(false);
 let ongoingStoreEditSeedsPromise = null;
 
 const seedCollections = {
@@ -32,14 +32,13 @@ const seedCollections = {
  * seeds can be fetched (e.g. current user has no edits), a seed based
  * on published translations with CX, is returned.
  *
- * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), getEventSourceForDashboardSuggestion: (function(): string)}}
+ * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), defaultSeedsFetched: Ref<boolean>}}
  */
 const useSuggestionSeeds = () => {
   const store = useStore();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
-    currentSuggestionFilters: currentFilter,
   } = useURLHandler();
 
   /**
@@ -187,35 +186,16 @@ const useSuggestionSeeds = () => {
 
     let seed = currentSeedCollection.shiftSeeds();
 
-    if (!seed && !defaultSeedsFetched) {
+    if (!seed && !defaultSeedsFetched.value) {
       await storeDefaultSeeds();
       seed = currentSeedCollection.shiftSeeds();
-      defaultSeedsFetched = true;
+      defaultSeedsFetched.value = true;
     }
 
     return seed;
   };
 
-  const getEventSourceForDashboardSuggestion = () => {
-    const { type, id } = currentFilter.value;
-
-    if (id === EDITS_SUGGESTION_PROVIDER) {
-      return defaultSeedsFetched
-        ? "suggestion_no_seed"
-        : "suggestion_recent_edit";
-    } else if (type === TOPIC_SUGGESTION_PROVIDER) {
-      return "suggestion_topic_area";
-    } else if (id === POPULAR_SUGGESTION_PROVIDER) {
-      // we don't have a proper event source for most popular suggestions,
-      // let's use 'suggestion_featured' for now
-      // TODO: Add a new event source or rename 'suggestion_featured' for most popular suggestions
-      return "suggestion_featured";
-    }
-
-    return "";
-  };
-
-  return { getSuggestionSeed, getEventSourceForDashboardSuggestion };
+  return { getSuggestionSeed, defaultSeedsFetched };
 };
 
 export default useSuggestionSeeds;
