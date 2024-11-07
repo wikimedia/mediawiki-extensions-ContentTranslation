@@ -9,7 +9,8 @@ import { useStore } from "vuex";
 import useEventLogging from "@/composables/useEventLogging";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 import useURLHandler from "@/composables/useURLHandler";
-import useFavoritesFetch from "@/components/CXDashboard/useFavoritesFetch";
+import useFavoritesFetch from "./useFavoritesFetch";
+import usePageCollections from "./usePageCollections";
 
 const useDashboardInitialization = () => {
   const logEvent = useEventLogging();
@@ -20,8 +21,11 @@ const useDashboardInitialization = () => {
   const fetchFavorites = useFavoritesFetch();
   const { pageURLParameter, sectionURLParameter, draftURLParameter } =
     useURLHandler();
+  const { fetchPageCollections } = usePageCollections();
 
   return async () => {
+    fetchPageCollections();
+
     const initializeLanguages = useApplicationLanguagesInitialize();
     await initializeLanguages();
 

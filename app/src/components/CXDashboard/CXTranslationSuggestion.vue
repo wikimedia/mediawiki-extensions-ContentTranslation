@@ -6,6 +6,7 @@ import {
   cdxIconBookmark,
   cdxIconBookmarkOutline,
   cdxIconArrowNext,
+  cdxIconArticles,
 } from "@wikimedia/codex-icons";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
@@ -15,6 +16,9 @@ import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
 import useApplicationState from "../../composables/useApplicationState";
 import useTranslationSize from "@/composables/useTranslationSize";
+import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
+import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
+import { CdxInfoChip } from "@wikimedia/codex";
 
 const props = defineProps({
   suggestion: {
@@ -68,6 +72,12 @@ const isQuickTranslation = computed(() => {
   return bytesToMinutes(page.value?.articleSize) < 15;
 });
 
+const isCollectionSuggestion = computed(
+  () =>
+    suggestion.value instanceof CollectionArticleSuggestion ||
+    suggestion.value instanceof CollectionSectionSuggestion
+);
+
 defineEmits(["close", "bookmark"]);
 </script>
 
@@ -95,14 +105,18 @@ defineEmits(["close", "bookmark"]);
         </mw-col>
         <mw-col shrink>
           <p
-            class="ma-0 cx-suggestion__source-description complementary"
+            class="ma-0 cx-suggestion__source-description"
             :lang="suggestion.sourceLanguage"
             :dir="getDir(suggestion.sourceLanguage)"
             v-text="description"
           />
         </mw-col>
         <mw-col
-          v-if="isQuickTranslation && !isSectionSuggestion"
+          v-if="
+            isQuickTranslation &&
+            !isSectionSuggestion &&
+            !isCollectionSuggestion
+          "
           shrink
           class="cx-suggestion__information-panel__quick-translation mt-auto"
         >
@@ -141,6 +155,15 @@ defineEmits(["close", "bookmark"]);
             </mw-col>
           </mw-row>
         </mw-col>
+        <mw-col
+          v-if="isCollectionSuggestion"
+          shrink
+          class="cx-suggestion__information-panel__collection mt-auto"
+        >
+          <cdx-info-chip :icon="cdxIconArticles">
+            {{ suggestion.collection.name }}
+          </cdx-info-chip>
+        </mw-col>
       </mw-row>
       <mw-col shrink>
         <cdx-icon
@@ -174,16 +197,31 @@ defineEmits(["close", "bookmark"]);
     background-color: @background-color-progressive-subtle;
   }
 
-  &__information-panel {
+  & &__information-panel {
     &__main-body {
       height: @size-full;
+
+      .cx-suggestion__source-description {
+        color: @color-subtle;
+        font-size: @font-size-small;
+      }
     }
     &__quick-translation {
       color: @color-success;
     }
-  }
-  &__source-description {
-    color: @color-subtle;
+    &__collection {
+      .cdx-info-chip {
+        background-color: @background-color-progressive-subtle;
+        border-color: @border-color-progressive;
+        .cdx-icon {
+          color: @color-progressive;
+        }
+
+        .cdx-info-chip--text {
+          color: @color-progressive;
+        }
+      }
+    }
   }
   &__missing-sections {
     margin-top: auto;

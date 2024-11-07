@@ -1,3 +1,8 @@
+import {
+  AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+  COLLECTIONS_SUGGESTION_PROVIDER,
+} from "@/utils/suggestionFilterProviders";
+
 /**
  * Model representing an article suggestion for translation.
  */
@@ -36,5 +41,22 @@ export default class ArticleSuggestion {
    */
   get id() {
     return `${this.sourceLanguage}/${this.targetLanguage}/${this.sourceTitle}`;
+  }
+
+  /**
+   * @param {{ id: string, type: string }} filter
+   */
+  matchesFilter(filter) {
+    if (
+      filter.type === AUTOMATIC_SUGGESTION_PROVIDER_GROUP &&
+      filter.id === COLLECTIONS_SUGGESTION_PROVIDER
+    ) {
+      return this.suggestionProvider?.type === COLLECTIONS_SUGGESTION_PROVIDER;
+    }
+
+    return (
+      this.suggestionProvider?.type === filter.type &&
+      this.suggestionProvider?.id === filter.id
+    );
   }
 }

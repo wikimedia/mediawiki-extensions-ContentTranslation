@@ -14,7 +14,7 @@ import useTranslationStart from "@/composables/useTranslationStart";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconReload } from "@wikimedia/codex-icons";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
-import useSuggestionSeeds from "@/composables/useSuggestionSeeds";
+import useDashboardSuggestionEventSource from "@/composables/useDashboardSuggestionEventSource";
 
 const props = defineProps({
   active: {
@@ -35,7 +35,8 @@ const updateSourceLanguage = (newSourceLanguage) =>
 const updateTargetLanguage = (newTargetLanguage) =>
   updateLanguagePair(sourceLanguage.value, newTargetLanguage);
 
-const { getEventSourceForDashboardSuggestion } = useSuggestionSeeds();
+const getEventSourceForDashboardSuggestion =
+  useDashboardSuggestionEventSource();
 
 const doStartTranslation = useTranslationStart();
 /**
