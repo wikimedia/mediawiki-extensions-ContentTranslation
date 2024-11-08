@@ -387,6 +387,8 @@
 	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "Your translation",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Sentence",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragraph",
+	"cx-sx-sentence-selector-translated-segment-next-button-aria-label": "Next",
+	"cx-sx-sentence-selector-translated-segment-previous-button-aria-label": "Previous",
 	"cx-sx-followup-feedback-new-indicator": "new",
 	"cx-sx-published-section-confirmation-header": "New section added",
 	"cx-sx-published-section-confirmation-content": "Your translation was published. Consider editing the contents further, or adding another section.",

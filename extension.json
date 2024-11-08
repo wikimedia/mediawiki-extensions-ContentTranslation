@@ -814,6 +814,8 @@
 				"cx-sx-sentence-selector-translated-segment-modification-percentage-header",
 				"cx-sx-sentence-selector-translated-segment-sentence-option",
 				"cx-sx-sentence-selector-translated-segment-paragraph-option",
+				"cx-sx-sentence-selector-translated-segment-next-button-aria-label",
+				"cx-sx-sentence-selector-translated-segment-previous-button-aria-label",
 				"cx-sx-publisher-mt-abuse-message-title",
 				"cx-sx-publisher-mt-abuse-error-title",
 				"cx-sx-publisher-mt-abuse-message-body",

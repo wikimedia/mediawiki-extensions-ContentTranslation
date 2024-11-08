@@ -22,6 +22,7 @@ const isLastTranslationUnit = computed(
       class="sx-sentence-selector__translated-segment-card__previous-button col pa-4"
       weight="quiet"
       :disabled="isSectionTitleSelected"
+      :aria-label="$i18n('cx-sx-sentence-selector-translated-segment-previous-button-aria-label')"
       @click="$emit('select-previous-segment')"
     >
       <cdx-icon :icon="cdxIconPrevious" />
@@ -30,6 +31,7 @@ const isLastTranslationUnit = computed(
       class="sx-sentence-selector__translated-segment-card__next-button col pa-4"
       weight="quiet"
       :disabled="isLastTranslationUnit"
+      :aria-label="$i18n('cx-sx-sentence-selector-translated-segment-next-button-aria-label')"
       @click="$emit('skip-translation')"
     >
       <cdx-icon :icon="cdxIconNext" />
