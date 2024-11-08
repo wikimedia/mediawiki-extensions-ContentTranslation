@@ -4,6 +4,7 @@
 			"Ykhwong"
 		]
 	},
+	"mint-explore-languages-header": "언어 둘러보기",
 	"mint-explore-languages-search-input-placeholder": "이 주제에 대한 모든 언어",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1개 문단|0=문단 없음}}"
 }
