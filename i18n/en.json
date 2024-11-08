@@ -451,6 +451,7 @@
 	"sx-block-template-adaptation-card-edit-button-label": "Review and edit the translation",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Edit the translation",
 	"sx-block-template-adaptation-card-body-header-failure": "Equivalent template not available for $1",
+	"sx-block-template-adaptation-card-status-button-aria-label": "Status",
 	"sx-missing-languages-entrypoint-panel-text-one-missing": "Missing in <span>$1</span>",
 	"sx-missing-languages-entrypoint-panel-text-two-missing": "Missing in <span>$1</span> and <span>$2</span>",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Missing in <span>$1</span>, <span>$2</span> and more",

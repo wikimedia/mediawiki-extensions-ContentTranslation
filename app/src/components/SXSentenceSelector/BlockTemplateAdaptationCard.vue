@@ -200,7 +200,14 @@ const optionalMissingTargetParamsCount = computed(() => {
             tag="h5"
           />
           <mw-col shrink>
-            <cdx-button weight="quiet">
+            <cdx-button
+              weight="quiet"
+              :aria-label="
+                $i18n(
+                  'sx-block-template-adaptation-card-status-button-aria-label'
+                )
+              "
+            >
               <cdx-icon :icon="cdxIconInfo" @click="showTemplateStatus" />
             </cdx-button>
           </mw-col>
