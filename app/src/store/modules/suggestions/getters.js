@@ -12,7 +12,8 @@ export default {
     state.pageSuggestions.filter(
       (suggestionItem) =>
         suggestionItem.sourceLanguage === sourceLanguage &&
-        suggestionItem.targetLanguage === targetLanguage
+        suggestionItem.targetLanguage === targetLanguage &&
+        suggestionItem.isListable
     ),
   getSectionSuggestionsForPair: (state) => (sourceLanguage, targetLanguage) =>
     state.sectionSuggestions.filter(

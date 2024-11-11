@@ -20,10 +20,8 @@ export default {
    * @param {Object} state
    * @param {ArticleSuggestion} suggestionToRemove
    */
-  removePageSuggestion(state, suggestionToRemove) {
-    state.pageSuggestions = state.pageSuggestions.filter(
-      (suggestion) => suggestion.id !== suggestionToRemove.id
-    );
+  removePageSuggestionFromList(state, suggestionToRemove) {
+    suggestionToRemove.isListable = false;
   },
   increaseSectionSuggestionsLoadingCount(state) {
     state.sectionSuggestionsLoadingCount++;

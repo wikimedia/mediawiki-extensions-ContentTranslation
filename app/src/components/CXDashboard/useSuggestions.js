@@ -148,7 +148,7 @@ const useSuggestions = () => {
       translation_source_language: sourceLanguage.value,
       translation_target_language: targetLanguage.value,
     });
-    store.commit("suggestions/removePageSuggestion", suggestion);
+    store.commit("suggestions/removePageSuggestionFromList", suggestion);
     fetchNextPageSuggestionSlice();
   };
 

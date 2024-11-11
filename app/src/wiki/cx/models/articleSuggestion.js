@@ -34,6 +34,7 @@ export default class ArticleSuggestion {
     this.langLinksCount = langLinksCount;
     /** @type {{type: String, id: String}|null} */
     this.suggestionProvider = suggestionProvider;
+    this.isListable = true;
   }
 
   /**
