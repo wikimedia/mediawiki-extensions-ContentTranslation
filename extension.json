@@ -1272,7 +1272,11 @@
 		"ext.cx.entrypoints.ulsrelevantlanguages": {
 			"packageFiles": [
 				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages.js",
-				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue"
+				"entrypoints/ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue",
+				{
+					"name": "entrypoints/sitematrix.json",
+					"callback": "ContentTranslation\\HookHandler\\ULSRelevantLanguagesEntrypointRegistrationHandler::getWikipediaList"
+				}
 			],
 			"dependencies": [
 				"vue",

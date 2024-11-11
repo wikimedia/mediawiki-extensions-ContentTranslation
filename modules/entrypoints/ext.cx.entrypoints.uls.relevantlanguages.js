@@ -1,7 +1,9 @@
+const sitematrix = require( './sitematrix.json' );
+
 ( function () {
 	let entrypointRendered = false;
 	const siteMapper = new mw.cx.SiteMapper();
-	const wikiLanguageCodes = [];
+
 	/**
 	 * @param {string[]} missingRelevantLanguages array of missing frequent language autonyms
 	 * @return {string|null}
@@ -83,120 +85,85 @@
 		return missingLanguagesPanel;
 	};
 
-	/**
-	 * Given a domain code, this method returns a boolean indicating,
-	 * whether the code belongs to the domain codes returned by the
-	 * "sitematrix" Action Api.
-	 *
-	 * @param {string} domainCode the domain code of a wiki, e.g. "bn", "en", "no", "simple" etc
-	 * @return {boolean}
-	 */
-	const isValidWikiDomainCode = ( domainCode ) => wikiLanguageCodes.indexOf( domainCode ) > -1;
-
-	/**
-	 * @return {Promise}
-	 */
-	const fetchSiteMatrix = () => {
-		if ( wikiLanguageCodes.length ) {
-			return Promise.resolve( wikiLanguageCodes );
-		}
-		return siteMapper.getApi( siteMapper.getCurrentWikiLanguageCode() ).get( {
-			formatversion: 2,
-			action: 'sitematrix'
-		} ).then( function ( response ) {
-			const siteMatrix = response.sitematrix;
-
-			for ( const key in siteMatrix ) {
-				wikiLanguageCodes.push( siteMatrix[ key ].code );
-			}
-
-			return wikiLanguageCodes;
-		} );
-	};
-
 	mw.hook( 'mw.uls.compact_language_links.open' ).add(
 		function ( $trigger ) {
 			if ( entrypointRendered ) {
 				return;
 			}
 			const uls = $trigger.data( 'uls' );
-			// Remove variants, Remove current language
-			let frequentLanguages = mw.uls.getFrequentLanguageList().map(
-				( language ) => language.split( '-' )[ 0 ]
-			);
-			frequentLanguages = [ ...new Set( frequentLanguages ) ];
+			// Remove duplicates.
+			let frequentLanguages = [ ...new Set( mw.uls.getFrequentLanguageList() ) ];
+			// Remove current language.
 			frequentLanguages = frequentLanguages.filter(
 				( language ) => language !== mw.config.get( 'wgContentLanguage' )
 			);
-
 			const existingLanguages = Object.keys( uls.languages );
 
 			if ( !existingLanguages.length ) {
 				return;
 			}
 
-			fetchSiteMatrix().then( () => {
+			/**
+			 * This variable stores an array of language codes. These language codes are
+			 * the content languages of the "relevant" wikis, from which the current article is missing.
+			 *
+			 * @type {string[]}
+			 */
+			const missingRelevantLanguages = [];
+
+			for ( const frequentLanguage of frequentLanguages ) {
+				const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
+
+				if ( sitematrix.indexOf( wikiDomainCode ) < 0 ) {
+					continue;
+				}
+
 				/**
-				 * This variable stores an array of language codes. These language codes are
-				 * the content languages of the "relevant" wikis, from which the current article is missing.
+				 * The content language of the corresponding wiki for the current "relevant" language
+				 * This can be different from the "relevant" language.
+				 * E.g.
+				 * - for "no" language code, "wikiDomainCode" will also be "no", but the content
+				 * language for this wiki is "nb".
+				 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
+				 * language for this wiki is also "nb".
 				 *
-				 * @type {string[]}
+				 * @type {string}
 				 */
-				const missingRelevantLanguages = [];
+				const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
 
-				for ( const frequentLanguage of frequentLanguages ) {
-					const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
-					// skip if the domain code for this language is not returned by the "sitematrix" Action API
-					if ( !isValidWikiDomainCode( wikiDomainCode ) ) {
-						continue;
-					}
-
-					/**
-					 * The content language of the corresponding wiki for the current "relevant" language
-					 * This can be different from the "relevant" language.
-					 * E.g.
-					 * - for "no" language code, "wikiDomainCode" will also be "no", but the content
-					 * language for this wiki is "nb".
-					 * - for "nb" language code, "wikiDomainCode" will be "no", and the content
-					 * language for this wiki is also "nb".
-					 *
-					 * @type {string}
-					 */
-					const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
-
-					// skip if the current article already exists for the corresponding content language
-					if ( existingLanguages.indexOf( wikiContentLanguage ) > -1 ) {
-						continue;
-					}
-
-					// skip if the content language already exists inside "missingRelevantLanguages" array
-					if ( missingRelevantLanguages.indexOf( wikiContentLanguage ) > -1 ) {
-						continue;
-					}
-
-					missingRelevantLanguages.push( wikiContentLanguage );
+				// skip if the current article already exists for the corresponding content language
+				if ( existingLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+					continue;
 				}
 
-				if ( !missingRelevantLanguages.length ) {
-					return;
+				// skip if the content language already exists inside "missingRelevantLanguages" array
+				if ( missingRelevantLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+					continue;
 				}
-				// CX ULS relevant missing languages entrypoint:
-				const missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
-				uls.$resultsView.before( missingLanguagesPanel );
-				uls.$languageFilter.on( 'input', function ( event ) {
-					// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
-					// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
-					// lives inside CxUlsEntrypoint.vue file
-					if ( event.currentTarget.value ) {
-						missingLanguagesPanel.classList.add( 'cx-uls-entrypoint--hidden' );
-					} else {
-						// when user empties the search input, remove the ".cx-uls-entrypoint--hidden" class (if exists),
-						// so that the entrypoint is visible again.
-						missingLanguagesPanel.classList.remove( 'cx-uls-entrypoint--hidden' );
-					}
-				} );
-				entrypointRendered = true;
+
+				missingRelevantLanguages.push( wikiContentLanguage );
+			}
+
+			if ( !missingRelevantLanguages.length ) {
+				return;
+			}
+			// CX ULS relevant missing languages entrypoint:
+			const missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
+			uls.$resultsView.before( missingLanguagesPanel );
+			uls.$languageFilter.on( 'input', function ( event ) {
+				// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
+				// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
+				// lives inside CxUlsEntrypoint.vue file
+				if ( event.currentTarget.value ) {
+					missingLanguagesPanel.classList.add( 'cx-uls-entrypoint--hidden' );
+				} else {
+					// when user empties the search input, remove the ".cx-uls-entrypoint--hidden" class (if exists),
+					// so that the entrypoint is visible again.
+					missingLanguagesPanel.classList.remove( 'cx-uls-entrypoint--hidden' );
+				}
 			} );
+			entrypointRendered = true;
 		}
 	);
+
 }() );
