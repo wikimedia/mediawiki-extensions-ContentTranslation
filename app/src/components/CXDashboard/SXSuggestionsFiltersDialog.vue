@@ -140,7 +140,7 @@ const { getFilterProvider } = useSuggestionProvider();
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-suggestions-filters {
-  &__filter {
+  & &__filter {
     cursor: @cursor-base--hover;
     background-color: @background-color-base;
     border-color: @border-color-subtle;
