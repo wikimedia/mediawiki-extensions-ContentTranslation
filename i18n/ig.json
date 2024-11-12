@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Dušan Kreheľ",
 			"Olugold",
 			"Ralu",
@@ -46,7 +45,7 @@
 	"cx-translation-target-page-exists": "Ihụakwụkwọ nke nwere aha [$1 $2] nọ na wiki nke elekwasịrị anya. Tụlee ma i ga-enye ya aha ọzọ di iche.",
 	"tag-contenttranslation": "NtụgharịNkebi",
 	"tag-contenttranslation-description": "Eji ngwá Ntụgharị Ọdinaya wee tugharịa ihe a site na asụsụ ọzọ.",
-	"tag-contenttranslation-v2": "{{MediaWiki:cx-nkowapagelink}}|NtugharịỌdịnaya",
+	"tag-contenttranslation-v2": "NtugharịỌdịnaya2",
 	"tag-contenttranslation-v2-description": "Eji ngwá ọrụ Ntụgharị Ọdinaya mbipụta nke 2 wee tụgharịa ihe a site na asụsụ ọzọ.",
 	"tag-sectiontranslation": "NtụgharịNkebi",
 	"tag-sectiontranslation-description": "Eji Ntụgharị na Nkebi, nke si na ngwá ọrụ Ntụghari Ọdịnaya wee tụgharịa nkebi ọdịnaya a site na ntụgharị asụsụ ọzọ.",

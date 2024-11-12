@@ -28,7 +28,8 @@
 			"Xiplus",
 			"Петар Петковић",
 			"列维劳德",
-			"捍粵者"
+			"捍粵者",
+			"魔琴"
 		]
 	},
 	"cx": "翻譯頁面",
@@ -39,7 +40,7 @@
 	"cx-error-server-connection": "錯誤：無法與伺服器連線。",
 	"cx-desc": "使[[Special:ContentTranslation|翻譯]]內容頁面更加容易",
 	"cx-header-progressbar-text": "{{PLURAL:$1|已翻譯}} $1%",
-	"cx-header-progressbar-text-mt": "($1% 使用{{PLURAL:$1|機器翻譯}})",
+	"cx-header-progressbar-text-mt": "（$1% 使用{{PLURAL:$1|機器翻譯}}）",
 	"cx-header-translation-center": "翻譯中心",
 	"cx-header-all-translations": "所有譯文",
 	"cx-source-view-page": "檢視頁面",
@@ -62,7 +63,7 @@
 	"cx-translation-target-page-exists": "使用標題 [$1 $2] 的頁面已存在於目標 wiki。 請使用不同的頁面標題。",
 	"tag-contenttranslation": "內容翻譯",
 	"tag-contenttranslation-description": "已使用內容翻譯工具從其他語言翻譯內容。",
-	"tag-contenttranslation-v2": " 內容翻譯2",
+	"tag-contenttranslation-v2": "內容翻譯2",
 	"tag-contenttranslation-v2-description": "內容已透過使用內容翻譯工具第2版從其它語言翻譯過來。",
 	"tag-sectiontranslation": "章節翻譯",
 	"tag-sectiontranslation-description": "透過內容翻譯工具的章節翻譯功能從其他語言段落翻譯的內容",

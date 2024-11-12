@@ -14,7 +14,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Weft",
-			"Wladek92"
+			"Wladek92",
+			"Mahabarata"
 		]
 	},
 	"apihelp-cxpublish-summary": "Enregistrer une page créée en utilisant l’extension de Traduction de contenu.",
@@ -162,5 +163,11 @@
 	"apierror-cxsplit-anon-user": "L’action « cxsplit » de l’API n’est pas activée pour les utilisateurs anonymes.",
 	"apierror-cxsplit-no-translation-found": "Pas de traduction trouvée pour l'id donné",
 	"apihelp-cxcheckunreviewed-summary": "Vérifiez si une traduction rapide et non révisée a été publiée récemment pour l'utilisateur actuel.",
-	"apierror-cxcheckunreviewed-anon-user": "L’action « cxcheckunreviewed » de l’API n’est pas activée pour les utilisateurs anonymes."
+	"apierror-cxcheckunreviewed-anon-user": "L’action « cxcheckunreviewed » de l’API n’est pas activée pour les utilisateurs anonymes.",
+	"apihelp-query+automatictranslationdenselanguages-summary": "Récupère la liste des liens de site pour l'article qui correspond à un identifiant Wikidata donné, triée par taille d'article.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "L'identifiant Wikidata.",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Une valeur booléenne indiquant si les titres de section doivent être inclus dans la réponse.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Récupère la liste des liens de site pour l'article « Lune » dans toutes les langues disponibles, triée par taille d'article.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Récupère la liste des liens de site pour l'article « Lune », y compris les titres des sections, dans toutes les langues disponibles, triée par taille d'article.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "La demande de récupération des liens de site à partir de Wikidata a échoué"
 }

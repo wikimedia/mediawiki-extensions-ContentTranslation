@@ -59,7 +59,9 @@
 			"夢蝶葬花",
 			"沈澄心",
 			"神樂坂秀吉",
-			"科劳"
+			"科劳",
+			"Anarkiisto",
+			"魔琴"
 		]
 	},
 	"cx": "翻译页面",
@@ -93,7 +95,7 @@
 	"cx-translation-target-page-exists": "标题为[$1 $2]的页面已存在于目标wiki。请考虑为页面提供不同的标题。",
 	"tag-contenttranslation": "内容翻译",
 	"tag-contenttranslation-description": "此内容通过内容翻译工具从另一语言翻译而来。",
-	"tag-contenttranslation-v2": " 内容翻译2",
+	"tag-contenttranslation-v2": "内容翻译2",
 	"tag-contenttranslation-v2-description": "此内容通过第2版内容翻译工具从另一语言翻译而来。",
 	"tag-sectiontranslation": "章节翻译",
 	"tag-sectiontranslation-description": "本内容是通过内容翻译工具的章节翻译功能从其他语言的某个章节翻译而来的。",
@@ -282,7 +284,7 @@
 	"cx-tools-linter-cannot-publish-title": "仅限更有经验的编者发布翻译",
 	"cx-tools-linter-cannot-publish-message": "此社群已决定限制有经验的编者发布翻译。您需要在此Wiki上获得更多经验才能发布翻译，但您可以：<ul><li>发布您的译文为草稿，然后使用编辑工具修改。</li><li>在无此限制的情况下翻译此条目至其他语言。</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "设置发布为草稿",
-	"cx-tools-linter-template": "模版不可用",
+	"cx-tools-linter-template": "模板不可用",
 	"cx-tools-linter-template-block-message": "原始页面使用在目的地wiki中不可用的模板。\n这个模板已经被跳过，但是您可以添加新的内容来捕获丢失的信息。",
 	"cx-tools-linter-template-inline-message": "原页面使用模板以构建内容，但部分模板在模板 Wiki 中不存在。\n\n来自缺失模板的内容已添加为纯文本，请审阅添加结果。",
 	"cx-tools-linter-template-add-new": "添加新模板",

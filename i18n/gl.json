@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"ArenaL5",
 			"Athena in Wonderland",
 			"Banjo",
@@ -48,7 +47,7 @@
 	"cx-translation-target-page-exists": "Xa existe unha páxina titulada \"[$1 $2]\" no wiki de destino. Considera cambiar o nome da páxina.",
 	"tag-contenttranslation": "Tradución de contido",
 	"tag-contenttranslation-description": "O contido traduciuse doutra lingua usando a ferramenta de tradución de contido.",
-	"tag-contenttranslation-v2": " Tradución de contido (versión 2)",
+	"tag-contenttranslation-v2": "Tradución de contido (versión 2)",
 	"tag-contenttranslation-v2-description": "O contido traduciuse doutra lingua usando a versión 2 da ferramenta de tradución de contido.",
 	"tag-sectiontranslation": "Tradución de sección",
 	"tag-sectiontranslation-description": "O contido traduciuse dunha sección noutra lingua mediante a función de tradución de seccións da ferramenta de tradución de contido.",

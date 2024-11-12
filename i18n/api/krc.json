@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ernác"
+			"Ernác",
+			"Къарачайлы"
 		]
 	},
 	"apihelp-cxpublish-param-title": "Этимле этилинник бетни башлыгъы.",
 	"apihelp-cxpublish-param-html": "Сакъланыллыкъ контент.",
 	"apihelp-cxpublish-param-from": "Къайнакъ тилни коду.",
-	"apihelp-cxpublish-param-to": "Ышан тилни коду.",
+	"apihelp-cxpublish-param-to": "Нюзюр тилни коду.",
 	"apihelp-cxpublish-param-sourcetitle": "Къайнакъ бетни башлыгъы.",
 	"apihelp-cxpublish-param-categories": "Публикация этилген бетни къошуллукъ категориялары.",
 	"apihelp-cxpublish-param-wpCaptchaId": "ID капча (капча кёрюнюу бла сакъланыуда).",
@@ -18,17 +19,17 @@
 	"apihelp-query+contenttranslation-example-3": "Бу ат ючюн бу эки тилни арасында къайсы болса да бир кёюрмени",
 	"apihelp-query+contenttranslationstats-example-1": "Бютеу тиллеге да контент кёчюрмени стаитстикасын ал.",
 	"apihelp-query+cxpublishedtranslations-param-from": "Къайнакъ тилни коду.",
-	"apihelp-query+cxpublishedtranslations-param-to": "Ышан тилни коду.",
+	"apihelp-query+cxpublishedtranslations-param-to": "Нюзюр тилни коду.",
 	"apihelp-query+cxpublishedtranslations-example-1": "Бютеу публикация этилген кёюрмелени алыуу",
 	"apihelp-query+cxpublishedtranslations-example-2": "Ингилиз тилден этилген бютеу публикация этилген кёчюрмелени алыуу",
 	"apihelp-query+cxpublishedtranslations-example-3": "Ингилиз тилден испан тилге этилген бютеу публикация этилген кёчюрмелени алыуу",
 	"apihelp-query+contenttranslationlangtrend-param-source": "Къайнакъ тилни коду.",
-	"apihelp-query+contenttranslationlangtrend-param-target": "Ышан тилни коду.",
+	"apihelp-query+contenttranslationlangtrend-param-target": "Нюзюр тилни коду.",
 	"apihelp-query+contenttranslationlangtrend-param-interval": "Тенденцияны тергеуню интервалы. Не <kbd>week</kbd> неда <kbd>month</kbd> болургъа боллукъду.",
 	"apihelp-query+contenttranslationlangtrend-example-1": "Es-ca тил экили ючюн публикацияны ыйыкъ инервал бла тенденциясыны алыуу",
 	"apihelp-query+contenttranslationlangtrend-example-2": "Бютеу тилле ючюн публикация тенденцияны алыу",
 	"apihelp-cxdelete-param-from": "Къайнакъ тилни коду.",
-	"apihelp-cxdelete-param-to": "Ышан тилни коду.",
+	"apihelp-cxdelete-param-to": "Нюзюр тилни коду.",
 	"apihelp-cxdelete-param-sourcetitle": "Къайнакъ бетни башлыгъы.",
 	"apihelp-cxdelete-example-1": "Бу эки тил бла эмда башлыкъ бла байламлы черновикни кетер.",
 	"apihelp-cxsave-param-sourcerevision": "Къайнакъ бетни версиясы.",

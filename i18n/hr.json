@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80",
 			"Anarhistička Maca",
 			"Aqua",
 			"Bugoslav",
@@ -49,7 +48,7 @@
 	"cx-translation-target-page-exists": "Stranica pod naslovom [$1 $2] postoji u ciljnom wikiju. Izaberite drugi naslov.",
 	"tag-contenttranslation": "prijevod sadržaja",
 	"tag-contenttranslation-description": "Sadržaj je preveden sa drugog jezika pomoću alata za prijevod sadržaja.",
-	"tag-contenttranslation-v2": " Prevoditelj sadržaja 2",
+	"tag-contenttranslation-v2": "Prevoditelj sadržaja 2",
 	"tag-contenttranslation-v2-description": "Sadržaj je preveden s drugog jezika uz pomoć druge inačice alata za prijevod sadržaja.",
 	"tag-sectiontranslation": "prijevod odlomka",
 	"tag-sectiontranslation-description": "Sadržaj je prevedeni odlomak s drugog jezika uz pomoć mogućnosti prijevoda odlomaka Prevoditelja sadržaja.",

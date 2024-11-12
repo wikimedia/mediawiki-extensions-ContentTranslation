@@ -3,7 +3,8 @@
 		"authors": [
 			"Escargot bleu",
 			"Goombiis",
-			"SleaY"
+			"SleaY",
+			"Mahabarata"
 		]
 	},
 	"automatic-translation-special-page-description": "Traduction automatique",
@@ -36,6 +37,7 @@
 	"mint-view-translation-page-target-article-container-header": "Des contenus créés par des humains sont également disponibles sur ce sujet",
 	"mint-view-translation-page-target-article-container-details": "Lisez l'article par des éditeurs de Wikipédia en $1 pour obtenir des informations plus fiables sur le sujet.",
 	"mint-view-translation-page-source-article-link-label": "Lire en $1",
+	"mint-view-translation-content-translation-entrypoint-title": "Réviser la traduction automatique",
 	"mint-view-translation-content-translation-entrypoint-description": "Le contenu automatique peut être inexact",
 	"mint-view-translation-overlay-header": "Traduction automatique",
 	"mint-view-translation-overlay-source-article-link-label": "Lire sur Wikipédia en $1",
