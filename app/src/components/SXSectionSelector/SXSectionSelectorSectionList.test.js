@@ -1,5 +1,8 @@
 import { mount } from "@vue/test-utils";
+import { createI18n } from "vue-banana-i18n";
 import SXSectionSelectorSectionList from "./SXSectionSelectorSectionList";
+
+const i18n = createI18n();
 
 const sections = [
   { sourceTitle: "source section 0", targetTitle: "target section 0" },
@@ -10,6 +13,7 @@ const sections = [
 
 const createWrapper = (options = {}) =>
   mount(SXSectionSelectorSectionList, {
+    global: { plugins: [i18n] },
     props: {
       sections,
     },

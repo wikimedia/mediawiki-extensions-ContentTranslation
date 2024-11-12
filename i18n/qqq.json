@@ -535,6 +535,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "Aria label of the ellipsis button, inside a published translation work inside the dashboard list, that leads to the confirmation step for the user to start a section translation for the published article.",
 	"sx-published-translation-new-translation-button-label": "Label of the 'New translation' button inside a published translation work inside the dashboard list, that leads to the confirmation step for the user to restart a translation for the published article.",
 	"sx-section-selector-close-button-aria-label": "Aria label of the close button, inside the header of the 'Pick a section' step",
+	"sx-section-selector-next-button-aria-label": "Aria label of the button that selects the section and goes to content comparator, inside the 'Pick a section' step",
 	"sx-quick-tutorial-next-button-aria-label": "Aria label of the button, inside the first step of the quick tutorial of Section Translation, that leads to the second step of the tutorial",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Title of the card of the Content Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Description of the card of the Content Translation entrypoint, shown in language selector when no language is found for search and when it is possible to create article in that language by translation.",

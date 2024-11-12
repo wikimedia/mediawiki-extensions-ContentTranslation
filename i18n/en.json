@@ -515,6 +515,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "Start section translation",
 	"sx-published-translation-new-translation-button-label": "New translation",
 	"sx-section-selector-close-button-aria-label": "Go to confirmation step button",
+	"sx-section-selector-next-button-aria-label": "Go to content comparator next step",
 	"sx-quick-tutorial-next-button-aria-label": "Go to next tutorial page",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Write a new translation",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Step-by-step translation process to create a new page in your language.",

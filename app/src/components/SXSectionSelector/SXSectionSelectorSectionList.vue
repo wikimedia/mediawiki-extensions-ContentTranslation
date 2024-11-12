@@ -27,6 +27,7 @@ defineEmits(["select-section"]);
       <cdx-button
         weight="quiet"
         class="col justify-between items-center py-3 px-4"
+        :aria-label="$i18n('sx-section-selector-next-button-aria-label')"
         @click="$emit('select-section', section.sourceTitle)"
       >
         <slot
