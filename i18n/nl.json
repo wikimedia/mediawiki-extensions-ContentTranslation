@@ -528,6 +528,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "Sectievertaling beginnen",
 	"sx-published-translation-new-translation-button-label": "Nieuwe vertaling",
 	"sx-section-selector-close-button-aria-label": "Knop om naar de bevestigingsstap te gaan",
+	"sx-section-selector-next-button-aria-label": "Naar de volgende stap van de inhoudsvergelijker",
 	"sx-quick-tutorial-next-button-aria-label": "Naar de volgende tutorialpagina gaan",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Een nieuwe vertaling schrijven",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Stapsgewijs vertaalproces om een nieuwe pagina in uw taal te maken.",

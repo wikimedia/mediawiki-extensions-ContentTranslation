@@ -44,5 +44,12 @@
 	"mint-view-translation-overlay-share-button-label": "Dela automatisk översättning",
 	"mint-view-translation-overlay-feedback-link-label": "Skicka återkoppling",
 	"ax-article-footer-entrypoint-card-description": "Mer innehåll på andra språk",
-	"ax-article-footer-entrypoint-card-supporting-text": "Läs automatisk översättning"
+	"ax-article-footer-entrypoint-card-supporting-text": "Läs automatisk översättning",
+	"mint-explore-languages-header": "Utforska språk",
+	"mint-explore-languages-search-input-placeholder": "Alla språk för detta ämne",
+	"mint-explore-languages-explanation-banner-title": "Lär dig mer från andra språk",
+	"mint-explore-languages-explanation-banner-text": "Redigerare på olika språk behandlar detta ämne på olika sätt.",
+	"mint-explore-languages-language-card-container-title": "Språk med mest innehåll om \"$1\"",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 avsnitt|0=Inga avsnitt}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljerad"
 }

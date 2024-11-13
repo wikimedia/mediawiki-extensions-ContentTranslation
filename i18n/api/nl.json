@@ -154,5 +154,11 @@
 	"apierror-cxsplit-anon-user": "De API-handeling “cxsplit” is niet beschikbaar gemaakt voor anonieme gebruikers",
 	"apierror-cxsplit-no-translation-found": "Er is geen vertaling gevonden voor de opgegeven ID",
 	"apihelp-cxcheckunreviewed-summary": "Controleren of er onlangs een snelle, niet-beoordeelde vertaling van de huidige gebruiker is gepubliceerd.",
-	"apierror-cxcheckunreviewed-anon-user": "De API-handeling “cxcheckunreviewed” is niet beschikbaar gemaakt voor anonieme gebruikers"
+	"apierror-cxcheckunreviewed-anon-user": "De API-handeling “cxcheckunreviewed” is niet beschikbaar gemaakt voor anonieme gebruikers",
+	"apihelp-query+automatictranslationdenselanguages-summary": "Haal de lijst op met sitelinks voor het artikel dat overeenkomt met een bepaalde Wikidata-ID, gesorteerd op artikelgrootte.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "De Wikidata-ID.",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Een booleaanse waarde die aangeeft of de sectietitels in het antwoord moeten worden opgenomen.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Haal de lijst met sitelinks voor het artikel ‘Moon’ op in alle beschikbare talen, gesorteerd op artikelgrootte.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Haal de lijst met sitelinks voor het artikel ‘Moon’ op, met inbegrip van de sectietitels, in alle beschikbare talen, gesorteerd op artikelgrootte.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Verzoek om sitelinks van Wikidata op te halen mislukt"
 }

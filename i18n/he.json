@@ -514,6 +514,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "להתחיל תרגום פרק",
 	"sx-published-translation-new-translation-button-label": "תרגום חדש",
 	"sx-section-selector-close-button-aria-label": "לעבור אל לחצן שלב האישור",
+	"sx-section-selector-next-button-aria-label": "לעבור לצעד הבא של השוואת תוכן",
 	"sx-quick-tutorial-next-button-aria-label": "מעבר לדף ההדרכה הבא",
 	"cx-mflanguagesearcher-entrypoint-card-title": "לכתוב תרגום חדש",
 	"cx-mflanguagesearcher-entrypoint-card-description": "תהליך תרגום צעד־צעד ליצירת דף חדש בשפה שלך.",

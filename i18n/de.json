@@ -513,6 +513,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "Abschnittsübersetzung beginnen",
 	"sx-published-translation-new-translation-button-label": "Neue Übersetzung",
 	"sx-section-selector-close-button-aria-label": "Geh zur Schaltfläche Bestätigung.",
+	"sx-section-selector-next-button-aria-label": "Weiter zum nächsten Schritt des Inhaltsvergleichs",
 	"sx-quick-tutorial-next-button-aria-label": "Gehe zur nächsten Tutorial-Seite",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Eine neue Übersetzung verfassen",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Schrittweiser Übersetzungsprozess zum Erstellen einer neuen Seite in {{#FORMAL:deiner|Ihrer}} Sprache.",
