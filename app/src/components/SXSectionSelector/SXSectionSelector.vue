@@ -1,3 +1,98 @@
+<script setup>
+import { MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import {
+  mwIconRobot,
+  mwIconLabFlask,
+} from "@/lib/mediawiki.ui/components/icons";
+import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
+import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem.vue";
+import SxSectionSelectorHeader from "./SXSectionSelectorHeader.vue";
+import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing.vue";
+import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent.vue";
+import { siteMapper } from "@/utils/mediawikiHelper";
+import useURLHandler from "@/composables/useURLHandler";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
+import usePageSectionSelect from "@/composables/usePageSectionSelect";
+import useCXRedirect from "@/composables/useCXRedirect";
+import useDevice from "@/composables/useDevice";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+
+const store = useStore();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const {
+  sourceLanguage,
+  targetLanguage,
+  sourceLanguageAutonym,
+  targetLanguageAutonym,
+} = useApplicationState(store);
+
+const sourceArticlePath = computed(() =>
+  siteMapper.getPageUrl(sourceLanguage.value, suggestion.value?.sourceTitle)
+);
+
+const targetArticlePath = computed(() =>
+  siteMapper.getPageUrl(targetLanguage.value, suggestion.value?.targetTitle)
+);
+/**
+ * @type {ComputedRef<[{path: string, autonym: string}, {path: string, autonym: string}]>}
+ */
+const viewArticleItems = computed(() => [
+  { path: sourceArticlePath.value, autonym: sourceLanguageAutonym.value },
+  { path: targetArticlePath.value, autonym: targetLanguageAutonym.value },
+]);
+
+const router = useRouter();
+
+const { clearURLParameters, setSectionURLParam } = useURLHandler();
+
+const goToDashboard = () => {
+  // Remove URL params so that section translation doesn't restart, leading to endless loop
+  clearURLParameters();
+  router.push({ name: "dashboard" });
+};
+
+const startDraftTranslation = useDraftTranslationStart();
+const { selectPageSectionByTitle } = usePageSectionSelect();
+
+const { isDesktop } = useDevice();
+const redirectToCX = useCXRedirect();
+
+const selectSection = (sourceSectionTitle) => {
+  if (isDesktop.value) {
+    redirectToCX(
+      sourceLanguage.value,
+      targetLanguage.value,
+      suggestion.value.sourceTitle,
+      { sourcesection: sourceSectionTitle }
+    );
+
+    return;
+  }
+
+  const existingSectionTranslation = store.getters[
+    "translator/getDraftTranslation"
+  ](
+    suggestion.value.sourceTitle,
+    sourceSectionTitle,
+    sourceLanguage.value,
+    targetLanguage.value
+  );
+
+  // if a draft translation exists for the current selected page and section, restore it
+  if (!!existingSectionTranslation) {
+    startDraftTranslation(existingSectionTranslation);
+  } else {
+    selectPageSectionByTitle(sourceSectionTitle);
+    setSectionURLParam(sourceSectionTitle);
+    router.push({ name: "sx-content-comparator" });
+  }
+};
+</script>
+
 <template>
   <section class="sx-section-selector">
     <sx-section-selector-header @close="goToDashboard" />
@@ -51,126 +146,6 @@
     </section>
   </section>
 </template>
-
-<script>
-import { MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import {
-  mwIconRobot,
-  mwIconLabFlask,
-} from "@/lib/mediawiki.ui/components/icons";
-import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
-import SxSectionSelectorViewArticleItem from "./SXSectionSelectorViewArticleItem.vue";
-import SxSectionSelectorHeader from "./SXSectionSelectorHeader.vue";
-import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListMissing.vue";
-import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent.vue";
-import { siteMapper } from "@/utils/mediawikiHelper";
-import useURLHandler from "@/composables/useURLHandler";
-import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "vue";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
-import usePageSectionSelect from "@/composables/usePageSectionSelect";
-import useCXRedirect from "@/composables/useCXRedirect";
-import useDevice from "@/composables/useDevice";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
-
-export default {
-  name: "SxSectionSelector",
-  components: {
-    SxSectionSelectorSectionListPresent,
-    SxSectionSelectorSectionListMissing,
-    SxSectionSelectorHeader,
-    SxSectionSelectorViewArticleItem,
-    MwRow,
-    MwCol,
-    MwIcon,
-    SxArticleLanguageSelector,
-  },
-  setup() {
-    const store = useStore();
-    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-    const {
-      sourceLanguage,
-      targetLanguage,
-      sourceLanguageAutonym,
-      targetLanguageAutonym,
-    } = useApplicationState(store);
-
-    const sourceArticlePath = computed(() =>
-      siteMapper.getPageUrl(sourceLanguage.value, suggestion.value?.sourceTitle)
-    );
-
-    const targetArticlePath = computed(() =>
-      siteMapper.getPageUrl(targetLanguage.value, suggestion.value?.targetTitle)
-    );
-    /**
-     * @type {ComputedRef<[{path: string, autonym: string}, {path: string, autonym: string}]>}
-     */
-    const viewArticleItems = computed(() => [
-      { path: sourceArticlePath.value, autonym: sourceLanguageAutonym.value },
-      { path: targetArticlePath.value, autonym: targetLanguageAutonym.value },
-    ]);
-
-    const router = useRouter();
-
-    const { clearURLParameters, setSectionURLParam } = useURLHandler();
-
-    const goToDashboard = () => {
-      // Remove URL params so that section translation doesn't restart, leading to endless loop
-      clearURLParameters();
-      router.push({ name: "dashboard" });
-    };
-
-    const startDraftTranslation = useDraftTranslationStart();
-    const { selectPageSectionByTitle } = usePageSectionSelect();
-
-    const { isDesktop } = useDevice();
-    const redirectToCX = useCXRedirect();
-
-    const selectSection = (sourceSectionTitle) => {
-      if (isDesktop.value) {
-        redirectToCX(
-          sourceLanguage.value,
-          targetLanguage.value,
-          suggestion.value.sourceTitle,
-          { sourcesection: sourceSectionTitle }
-        );
-
-        return;
-      }
-
-      const existingSectionTranslation = store.getters[
-        "translator/getDraftTranslation"
-      ](
-        suggestion.value.sourceTitle,
-        sourceSectionTitle,
-        sourceLanguage.value,
-        targetLanguage.value
-      );
-
-      // if a draft translation exists for the current selected page and section, restore it
-      if (!!existingSectionTranslation) {
-        startDraftTranslation(existingSectionTranslation);
-      } else {
-        selectPageSectionByTitle(sourceSectionTitle);
-        setSectionURLParam(sourceSectionTitle);
-        router.push({ name: "sx-content-comparator" });
-      }
-    };
-
-    return {
-      goToDashboard,
-      mwIconRobot,
-      mwIconLabFlask,
-      selectSection,
-      suggestion,
-      targetLanguageAutonym,
-      viewArticleItems,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
