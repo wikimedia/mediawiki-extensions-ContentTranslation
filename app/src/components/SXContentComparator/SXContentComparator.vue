@@ -1,3 +1,72 @@
+<script setup>
+import { MwSpinner } from "@/lib/mediawiki.ui";
+import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader.vue";
+import SxContentComparatorHeader from "./SXContentComparatorHeader.vue";
+import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
+import useCompareContents from "./useCompareContents";
+import { getDir } from "@wikimedia/language-data";
+import { ref, computed, watch } from "vue";
+import useApplicationState from "@/composables/useApplicationState";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import useTargetArticlePreview from "./useTargetArticlePreview";
+import { isQuickTutorialForced } from "@/utils/urlHandler";
+import usePageContentFetch from "@/composables/usePageContentFetch";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
+
+const store = useStore();
+const router = useRouter();
+
+const sourceVsTargetSelection = ref("source_section");
+
+const { logDashboardTranslationStartEvent } =
+  useDashboardTranslationStartInstrument();
+const goToSectionSelector = () => router.push({ name: "sx-section-selector" });
+
+const translateSection = () => {
+  logDashboardTranslationStartEvent();
+
+  const shouldDisplayQuickTutorial =
+    isQuickTutorialForced() ||
+    !store.getters["translator/userHasSectionTranslations"];
+
+  if (shouldDisplayQuickTutorial) {
+    router.push({ name: "sx-quick-tutorial" });
+  } else {
+    router.push({ name: "sx-sentence-selector" });
+  }
+};
+
+const {
+  activeSectionTargetTitle,
+  discardedSections,
+  isCurrentSectionMapped,
+  sourceSectionContent,
+  targetSectionContent,
+} = useCompareContents();
+
+const targetPageContent = useTargetArticlePreview();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
+const targetTitle = computed(() => suggestion.value.targetTitle);
+
+const fetchPageContent = usePageContentFetch();
+// watch for target title as it is not provided when the proxy suggestion object is created
+// (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
+watch(
+  targetTitle,
+  () =>
+    fetchPageContent(
+      targetLanguage.value,
+      sourceLanguage.value,
+      targetTitle.value
+    ),
+  { immediate: true }
+);
+</script>
+
 <template>
   <section class="sx-content-comparator">
     <sx-content-comparator-header
@@ -51,102 +120,6 @@
     </section>
   </section>
 </template>
-
-<script>
-import { MwSpinner } from "@/lib/mediawiki.ui";
-import SxContentComparatorContentHeader from "./SXContentComparatorContentHeader.vue";
-import SxContentComparatorHeader from "./SXContentComparatorHeader.vue";
-import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vue";
-import useCompareContents from "./useCompareContents";
-import { getDir } from "@wikimedia/language-data";
-import { ref, computed, watch } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
-import useTargetArticlePreview from "./useTargetArticlePreview";
-import { isQuickTutorialForced } from "@/utils/urlHandler";
-import usePageContentFetch from "@/composables/usePageContentFetch";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
-import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
-
-export default {
-  name: "SxContentComparator",
-  components: {
-    SxContentComparatorNewSectionPlaceholder,
-    SxContentComparatorHeader,
-    SxContentComparatorContentHeader,
-    MwSpinner,
-  },
-  setup() {
-    const store = useStore();
-    const router = useRouter();
-
-    const sourceVsTargetSelection = ref("source_section");
-
-    const { logDashboardTranslationStartEvent } =
-      useDashboardTranslationStartInstrument();
-    const goToSectionSelector = () =>
-      router.push({ name: "sx-section-selector" });
-
-    const translateSection = () => {
-      logDashboardTranslationStartEvent();
-
-      const shouldDisplayQuickTutorial =
-        isQuickTutorialForced() ||
-        !store.getters["translator/userHasSectionTranslations"];
-
-      if (shouldDisplayQuickTutorial) {
-        router.push({ name: "sx-quick-tutorial" });
-      } else {
-        router.push({ name: "sx-sentence-selector" });
-      }
-    };
-
-    const {
-      activeSectionTargetTitle,
-      discardedSections,
-      isCurrentSectionMapped,
-      sourceSectionContent,
-      targetSectionContent,
-    } = useCompareContents();
-
-    const targetPageContent = useTargetArticlePreview();
-    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
-
-    const targetTitle = computed(() => suggestion.value.targetTitle);
-
-    const fetchPageContent = usePageContentFetch();
-    // watch for target title as it is not provided when the proxy suggestion object is created
-    // (inside CXSuggestionList), so we'll have to wait until it is loaded from api request
-    watch(
-      targetTitle,
-      () =>
-        fetchPageContent(
-          targetLanguage.value,
-          sourceLanguage.value,
-          targetTitle.value
-        ),
-      { immediate: true }
-    );
-
-    return {
-      getDir,
-      activeSectionTargetTitle,
-      discardedSections,
-      goToSectionSelector,
-      isCurrentSectionMapped,
-      sourceSectionContent,
-      sourceVsTargetSelection,
-      targetPageContent,
-      targetSectionContent,
-      translateSection,
-      sourceLanguage,
-      targetLanguage,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import "@/styles/page.less";
