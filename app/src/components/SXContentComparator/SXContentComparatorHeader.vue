@@ -1,3 +1,52 @@
+<script setup>
+import {
+  mwIconArrowPrevious,
+  mwIconEdit,
+  mwIconEye,
+} from "@/lib/mediawiki.ui/components/icons";
+import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
+import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
+import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
+import useCompareContents from "@/components/SXContentComparator/useCompareContents";
+import { computed } from "vue";
+import useURLHandler from "@/composables/useURLHandler";
+import { getDir } from "@wikimedia/language-data";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+
+defineEmits([
+  "close",
+  "translation-button-clicked",
+  "update:discardedSections",
+]);
+
+const props = defineProps({
+  discardedSections: {
+    type: Array,
+    required: true,
+  },
+});
+
+const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
+const { sourceSection } = useCurrentPageSection();
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+
+const isCurrentSectionMissing = computed(() =>
+  suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)
+);
+const isCurrentSectionPresent = computed(() =>
+  suggestion.value?.presentSections.hasOwnProperty(sourceSectionTitle.value)
+);
+
+const { activeSectionTargetTitle } = useCompareContents();
+
+const sourceSectionContent = computed(() => sourceSection.value?.html);
+const sectionSourceTitles = computed(() => [
+  ...Object.keys(suggestion.value.missingSections),
+  ...Object.keys(suggestion.value.presentSections),
+]);
+</script>
+
 <template>
   <div class="sx-content-comparator__header pa-4">
     <mw-button
@@ -63,76 +112,6 @@
     />
   </div>
 </template>
-
-<script>
-import {
-  mwIconArrowPrevious,
-  mwIconEdit,
-  mwIconEye,
-} from "@/lib/mediawiki.ui/components/icons";
-import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
-import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
-import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
-import useCompareContents from "@/components/SXContentComparator/useCompareContents";
-import { computed } from "vue";
-import useURLHandler from "@/composables/useURLHandler";
-import { getDir } from "@wikimedia/language-data";
-import useCurrentPageSection from "@/composables/useCurrentPageSection";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
-
-export default {
-  name: "SxContentComparatorHeader",
-  components: {
-    SxContentComparatorHeaderMappedSection,
-    SxContentComparatorHeaderNavigation,
-    MwButton,
-    MwCol,
-    MwRow,
-    MwIcon,
-  },
-  props: {
-    discardedSections: {
-      type: Array,
-      required: true,
-    },
-  },
-  emits: ["close", "translation-button-clicked", "update:discardedSections"],
-  setup() {
-    const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
-    const { sourceSection } = useCurrentPageSection();
-    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-
-    const isCurrentSectionMissing = computed(() =>
-      suggestion.value?.missingSections.hasOwnProperty(sourceSectionTitle.value)
-    );
-    const isCurrentSectionPresent = computed(() =>
-      suggestion.value?.presentSections.hasOwnProperty(sourceSectionTitle.value)
-    );
-
-    const { activeSectionTargetTitle } = useCompareContents();
-
-    const sourceSectionContent = computed(() => sourceSection.value?.html);
-    const sectionSourceTitles = computed(() => [
-      ...Object.keys(suggestion.value.missingSections),
-      ...Object.keys(suggestion.value.presentSections),
-    ]);
-
-    return {
-      activeSectionTargetTitle,
-      isCurrentSectionMissing,
-      isCurrentSectionPresent,
-      mwIconArrowPrevious,
-      mwIconEdit,
-      mwIconEye,
-      sectionSourceTitles,
-      sourceSectionContent,
-      sourceSectionTitle,
-      suggestion,
-      getDir,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
