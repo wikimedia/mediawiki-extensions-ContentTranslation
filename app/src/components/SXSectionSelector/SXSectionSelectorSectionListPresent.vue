@@ -1,3 +1,19 @@
+<script setup>
+import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import { computed } from "vue";
+import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList.vue";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+
+defineEmits(["select-section"]);
+
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+
+const targetLanguageAutonym = computed(() =>
+  getAutonym(suggestion.value?.targetLanguage)
+);
+</script>
+
 <template>
   <section class="sx-section-selector__present-sections py-2">
     <h4
@@ -29,37 +45,6 @@
     </sx-section-selector-section-list>
   </section>
 </template>
-
-<script>
-import { mwIconArrowForward } from "@/lib/mediawiki.ui/components/icons";
-import { getAutonym, getDir } from "@wikimedia/language-data";
-import { computed } from "vue";
-import SxSectionSelectorSectionList from "@/components/SXSectionSelector/SXSectionSelectorSectionList.vue";
-import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
-
-export default {
-  name: "SxSectionSelectorSectionListPresent",
-  components: {
-    SxSectionSelectorSectionList,
-  },
-  emits: ["select-section"],
-  setup() {
-    const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-
-    const targetLanguageAutonym = computed(() =>
-      getAutonym(suggestion.value?.targetLanguage)
-    );
-
-    return {
-      mwIconArrowForward,
-      getAutonym,
-      getDir,
-      suggestion,
-      targetLanguageAutonym,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
