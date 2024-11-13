@@ -6,6 +6,7 @@ import {
   POPULAR_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+  SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import useURLHandler from "./useURLHandler";
 import usePageCollections from "@/components/CXDashboard/usePageCollections";
@@ -109,6 +110,9 @@ const useSuggestionsFilters = () => {
       ) && !pageCollectionsFetched.value
   );
 
+  /**
+   * @return {[{id: string, label: string, type: string}], {id: string, label: string, type: string}]}
+   */
   const getFiltersSummary = () => {
     if (waitingForPageCollectionsFetch.value) {
       return [];
@@ -118,6 +122,7 @@ const useSuggestionsFilters = () => {
 
     if (
       selectedFilter.type === TOPIC_SUGGESTION_PROVIDER ||
+      selectedFilter.type === SEED_SUGGESTION_PROVIDER ||
       selectedFilter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
       selectedFilter.id === COLLECTIONS_SUGGESTION_PROVIDER
     ) {
@@ -134,8 +139,22 @@ const useSuggestionsFilters = () => {
     setFilterURLParams(filter.type, filter.id);
   };
 
-  const findSelectedFilter = () =>
-    allFilters.value.flatMap((group) => group.filters).find(isFilterSelected);
+  /**
+   * @return {{id: string, label: string, type: string}}
+   */
+  const findSelectedFilter = () => {
+    if (currentFilter.value.type === SEED_SUGGESTION_PROVIDER) {
+      return {
+        id: currentFilter.value.id,
+        label: currentFilter.value.id,
+        type: currentFilter.value.type,
+      };
+    }
+
+    return allFilters.value
+      .flatMap((group) => group.filters)
+      .find(isFilterSelected);
+  };
 
   const isFilterSelected = (filter) =>
     currentFilter.value.type === filter.type &&
@@ -155,6 +174,7 @@ const useSuggestionsFilters = () => {
     isFilterSelected,
     getOresTopics,
     waitingForPageCollectionsFetch,
+    findSelectedFilter,
   };
 };
 

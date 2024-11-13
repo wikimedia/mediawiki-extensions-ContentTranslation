@@ -4,11 +4,6 @@ import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
 import useURLHandler from "@/composables/useURLHandler";
-import {
-  EDITS_SUGGESTION_PROVIDER,
-  POPULAR_SUGGESTION_PROVIDER,
-  TOPIC_SUGGESTION_PROVIDER,
-} from "@/utils/suggestionFilterProviders";
 
 /**
  * @type {Ref<SuggestionSeedCollection[]>}
@@ -34,7 +29,7 @@ const seedCollections = {
  *
  * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), defaultSeedsFetched: Ref<boolean>}}
  */
-const useSuggestionSeeds = () => {
+const useSuggestionPreviousEditsSeeds = () => {
   const store = useStore();
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -198,4 +193,4 @@ const useSuggestionSeeds = () => {
   return { getSuggestionSeed, defaultSeedsFetched };
 };
 
-export default useSuggestionSeeds;
+export default useSuggestionPreviousEditsSeeds;

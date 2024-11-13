@@ -1,7 +1,7 @@
 import { useStore } from "vuex";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
-import useSuggestionSeeds from "@/composables/useSuggestionSeeds";
+import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
 import retry from "@/utils/retry";
 import useURLHandler from "@/composables/useURLHandler";
 import {
@@ -16,7 +16,7 @@ const useSuggestionsFetchByEdits = () => {
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
 
-  const { getSuggestionSeed } = useSuggestionSeeds();
+  const { getSuggestionSeed } = useSuggestionPreviousEditsSeeds();
   const {
     isSectionSuggestionValid,
     isPageSuggestionValid,

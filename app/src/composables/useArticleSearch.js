@@ -4,7 +4,7 @@ import debounce from "@/utils/debounce";
 
 /**
  * @param {ComputedRef<string>} sourceLanguage
- * @param {ComputedRef<string>} searchInput
+ * @param {ComputedRef<string>|Ref<string>} searchInput
  * @return {{searchResultsSlice: ComputedRef<Page[]>, searchResultsLoading: ComputedRef<boolean>}}
  */
 const useSearchArticles = (sourceLanguage, searchInput) => {

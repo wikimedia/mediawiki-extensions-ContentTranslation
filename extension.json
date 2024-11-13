@@ -704,7 +704,9 @@
 				"CdxButton",
 				"CdxIcon",
 				"CdxDialog",
-				"CdxInfoChip"
+				"CdxInfoChip",
+				"CdxTextInput",
+				"CdxMenu"
 			],
 			"messages": [
 				"cx-dashboard-header",
@@ -923,8 +925,13 @@
 				"cx-sx-suggestions-filter-most-popular-label",
 				"cx-sx-suggestions-filter-page-collection-label",
 				"cx-sx-suggestions-filter-more-label",
+				"cx-sx-suggestions-filter-active-group-label",
 				"cx-sx-suggestions-filter-default-group-label",
 				"cx-sx-suggestions-filter-page-collections-group-label",
+				"cx-sx-suggestions-filter-search-input-placeholder",
+				"cx-sx-suggestions-filter-search-results-topics-label",
+				"cx-sx-suggestions-filter-search-results-areas-label",
+				"cx-sx-suggestions-filter-search-results-topics-default-description",
 				"cx-page-collection-dialog-close-button-aria-label",
 				"cx-page-collection-dialog-existing-target-count",
 				"cx-page-collection-dialog-days-left",

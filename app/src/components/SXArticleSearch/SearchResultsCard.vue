@@ -2,7 +2,7 @@
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed } from "vue";
-import useSearchArticles from "./useArticleSearch";
+import useSearchArticles from "@/composables/useArticleSearch";
 import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 

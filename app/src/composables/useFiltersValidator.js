@@ -5,6 +5,7 @@ import {
   TOPIC_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+  SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 const topicGroups = mw.loader.require("ext.cx.articletopics");
 
@@ -48,7 +49,10 @@ const useFiltersValidator = () => {
     // we cannot properly validate the suggestion filter for a specific collection, since the
     // page collections have not yet been fetched, when filter validation is performed. To avoid,
     // making this an asynchronous method, we are just accepting any value as valid collection name
-    if (typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+    if (
+      typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER ||
+      typeLowerCase === SEED_SUGGESTION_PROVIDER
+    ) {
       return { type: typeLowerCase, id };
     }
 

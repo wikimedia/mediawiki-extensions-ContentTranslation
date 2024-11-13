@@ -1,12 +1,13 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import { MwRow, MwCol, MwDialog } from "@/lib/mediawiki.ui";
-import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { CdxButton, CdxIcon, CdxTextInput, CdxMenu } from "@wikimedia/codex";
 import {
   cdxIconClose,
   cdxIconUserAvatar,
   cdxIconHeart,
   cdxIconArticles,
+  cdxIconSearch,
 } from "@wikimedia/codex-icons";
 import useSuggestionsFilters from "@/composables/useSuggestionsFilters";
 import {
@@ -14,12 +15,14 @@ import {
   POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
+  SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
 import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
 import useSuggestionProvider from "@/composables/useSuggestionProvider";
 import useEventLogging from "@/composables/useEventLogging";
 import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
+import useSuggestionsFilterSearch from "./useSuggestionsFilterSearch";
 
 const props = defineProps({
   modelValue: {
@@ -35,12 +38,17 @@ const filterTypeToIconMap = {
   [POPULAR_SUGGESTION_PROVIDER]: cdxIconHeart,
   [COLLECTIONS_SUGGESTION_PROVIDER]: cdxIconArticles,
   [TOPIC_SUGGESTION_PROVIDER]: null,
+  [SEED_SUGGESTION_PROVIDER]: null,
 };
 
-const { allFilters, isFilterSelected, selectFilter } = useSuggestionsFilters();
+const { allFilters, isFilterSelected, selectFilter, findSelectedFilter } =
+  useSuggestionsFilters();
 const logEvent = useEventLogging();
 
-const closeDialog = () => emit("update:modelValue", false);
+const closeDialog = () => {
+  reset();
+  emit("update:modelValue", false);
+};
 
 const logThenCloseDialog = () => {
   logEvent({ event_type: "suggestion_filters_close" });
@@ -64,6 +72,13 @@ const done = () => {
 const selectionHasChanged = ref(false);
 const tentativelySelectedFilter = ref(null);
 
+const reset = () => {
+  tentativelySelectedFilter.value = null;
+};
+
+/**
+ * @param {{ type: string, id: string, label: string }} filter
+ */
 const tentativelySelectFilter = (filter) => {
   const eventPayload = {
     event_type: "suggestion_filters_select",
@@ -92,10 +107,42 @@ const breakpoints = inject("breakpoints");
 const fullscreen = computed(() => breakpoints.value.mobile);
 
 const { getFilterProvider } = useSuggestionProvider();
+
+const { searchInput, searchResults } = useSuggestionsFilterSearch();
+const selectedFilter = computed(
+  () => tentativelySelectedFilter.value || findSelectedFilter()
+);
+
+const selection = ref(null);
+
+/**
+ * @param {{ label: string }} selectedTopic
+ */
+const tentativelySelectSearchTopic = (selectedTopic) => {
+  tentativelySelectFilter({
+    type: SEED_SUGGESTION_PROVIDER,
+    id: selectedTopic.label,
+    label: selectedTopic.label,
+  });
+  searchInput.value = "";
+};
+
+/**
+ * @param {{ filterType: string, filterId: string, label: string}} selectedArea
+ */
+const tentativelySelectSearchArea = (selectedArea) => {
+  tentativelySelectFilter({
+    type: selectedArea.filterType,
+    id: selectedArea.filterId,
+    label: selectedArea.label,
+  });
+  searchInput.value = "";
+};
 </script>
 
 <template>
   <mw-dialog
+    class="sx-suggestions-filters-dialog"
     :value="modelValue"
     animation="fade"
     :fullscreen="fullscreen"
@@ -103,13 +150,13 @@ const { getFilterProvider } = useSuggestionProvider();
   >
     <section class="sx-suggestions-filters">
       <mw-row
-        class="sx-suggestions-filters__header ma-0 py-3"
+        class="sx-suggestions-filters__header ma-0 py-3 px-4"
         align="stretch"
         justify="start"
       >
         <mw-col shrink align="start" class="pe-4">
           <cdx-button
-            class="pa-0 ms-4"
+            class="pa-0"
             weight="quiet"
             :aria-label="
               $i18n('cx-sx-suggestions-filters-close-button-aria-label')
@@ -122,7 +169,7 @@ const { getFilterProvider } = useSuggestionProvider();
         <mw-col grow align="center">
           <h5 v-i18n:cx-sx-suggestions-filters-header class="mb-0" />
         </mw-col>
-        <mw-col shrink align="start" class="pe-4">
+        <mw-col shrink align="start">
           <cdx-button
             v-show="selectionHasChanged"
             class="ms-4"
@@ -134,7 +181,31 @@ const { getFilterProvider } = useSuggestionProvider();
           </cdx-button>
         </mw-col>
       </mw-row>
-      <mw-col class="px-4 py-4">
+      <div class="sx-suggestions-filters__active-filters px-4 py-3">
+        <h5 v-i18n:cx-sx-suggestions-filter-active-group-label class="mb-3" />
+        <div>
+          <custom-info-chip
+            class="sx-suggestions-filters__filter sx-suggestions-filters__filter--active my-1 mx-1 py-1"
+            :content="selectedFilter.label"
+            :icon="filterTypeToIconMap[getFilterProvider(selectedFilter)]"
+          ></custom-info-chip>
+        </div>
+      </div>
+      <div class="px-4 pb-4 pt-7">
+        <cdx-text-input
+          v-model="searchInput"
+          :placeholder="
+            $i18n('cx-sx-suggestions-filter-search-input-placeholder')
+          "
+          input-type="search"
+          :start-icon="cdxIconSearch"
+          :clearable="!!searchInput"
+        />
+      </div>
+      <div
+        v-if="!searchInput"
+        class="sx-suggestions-filters__filter-options pt-3 px-4"
+      >
         <div
           v-for="filterGroup in allFilters"
           :key="filterGroup.id"
@@ -158,7 +229,28 @@ const { getFilterProvider } = useSuggestionProvider();
             </custom-info-chip>
           </div>
         </div>
-      </mw-col>
+      </div>
+      <div v-else class="sx-suggestions-filters__search-results px-4 pt-3">
+        <div v-if="searchResults.topics.length">
+          <h5 v-i18n:cx-sx-suggestions-filter-search-results-topics-label></h5>
+          <cdx-menu
+            v-model:selected="selection"
+            :expanded="true"
+            :menu-items="searchResults.topics"
+            show-thumbnail
+            @menu-item-click="tentativelySelectSearchTopic"
+          ></cdx-menu>
+        </div>
+        <div v-if="searchResults.areas.length">
+          <h5 v-i18n:cx-sx-suggestions-filter-search-results-areas-label></h5>
+          <cdx-menu
+            v-model:selected="selection"
+            :expanded="true"
+            :menu-items="searchResults.areas"
+            @menu-item-click="tentativelySelectSearchArea"
+          ></cdx-menu>
+        </div>
+      </div>
     </section>
   </mw-dialog>
 </template>
@@ -166,12 +258,27 @@ const { getFilterProvider } = useSuggestionProvider();
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
+.sx-suggestions-filters-dialog.mw-ui-dialog--dialog {
+  .mw-ui-dialog__shell {
+    min-width: 32rem;
+    min-height: calc(100vh - 100px);
+  }
+}
+
 .sx-suggestions-filters {
   &__header {
     position: sticky;
     top: 0;
     background-color: @background-color-base;
-    border-bottom: solid @border-width-base @border-color-subtle;
+    border-bottom: @border-base;
+    z-index: @z-index-above-content;
+  }
+
+  &__active-filters {
+    h5 {
+      color: @color-subtle;
+    }
+    border-bottom: @border-style-base @border-width-base @border-color-subtle;
   }
 
   & &__filter {
@@ -207,6 +314,18 @@ const { getFilterProvider } = useSuggestionProvider();
     &-label {
       font-weight: @font-weight-bold;
       color: @color-subtle;
+    }
+  }
+  &__search-results {
+    .cdx-menu {
+      position: relative;
+      border: none;
+      box-shadow: none;
+
+      .cdx-menu-item {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }
