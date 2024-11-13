@@ -148,7 +148,7 @@
 	"cx-favorite-removed": "已从收藏列表删除！",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "语言数",
-	"cx-mt-abuse-error-title": "您的翻译总共{{PLURAL:$1|有}}1％的未经修改的文字",
+	"cx-mt-abuse-error-title": "您的翻译包含$1％未经修改的文字",
 	"cx-mt-abuse-error-sections": "您的译文中含有大量未经编修的文本。",
 	"cx-mt-abuse-error-text": "自动翻译只能作为翻译的起点。请确保这些内容在您的语言中准确且流畅自然。\n\n在没有更多修编前，您的翻译不能发布。",
 	"cx-mt-abuse-warning-title": "您的部分译文{{PLURAL:$1|包含}}$1%未校订文本",
