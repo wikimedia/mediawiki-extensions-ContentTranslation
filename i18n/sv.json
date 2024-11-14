@@ -495,5 +495,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Var finns de andra avsnitten?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Ingen fara. De återstående avsnitten går inte förlorade. De finns nu tillgängliga i listan över dina pågående översättningar och kan användas för att utöka den befintliga artikeln. Det finns en ny pågående översättning med innehållet för varje avsnitt.",
 	"sx-confirm-draft-translation-start-button-label": "OK",
-	"sx-published-translation-new-translation-button-label": "Ny översättning"
+	"sx-published-translation-new-translation-button-label": "Ny översättning",
+	"sx-section-selector-close-button-aria-label": "Gå till knappen för bekräftelsesteg",
+	"sx-quick-tutorial-next-button-aria-label": "Gå till nästa handledningssida"
 }

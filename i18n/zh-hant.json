@@ -116,7 +116,7 @@
 	"cx-favorite-removed": "已從個人最愛清單裡移除！",
 	"cx-page-missing-in-target-language": "缺少$1版本",
 	"cx-page-number-of-languages": "語言數量",
-	"cx-mt-abuse-error-title": "您的翻譯{{PLURAL:$1|包含著}}共 $1% 未修改內容",
+	"cx-mt-abuse-error-title": "您的翻譯{{PLURAL:$1|包含}}$1％未經修改的文字",
 	"cx-mt-abuse-error-sections": "您的翻譯裡包含大量未經修飾的文字",
 	"cx-mt-abuse-error-text": "自動翻譯僅提供作為起始，請確保內容在您的語言讀起來準確及通順。\n\n未有後續編輯前無法發佈翻譯。",
 	"cx-mt-abuse-warning-title": "您的翻譯部分{{PLURAL:$1|包含著}} $1% 未修改內容",
