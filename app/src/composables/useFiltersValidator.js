@@ -31,13 +31,13 @@ const useFiltersValidator = () => {
     filtersValidatorError.value = false;
 
     // Case-insensitive comparison
-    type = type?.toLowerCase();
-    id = id?.toLowerCase();
+    const typeLowerCase = type?.toLowerCase();
+    const idLowerCase = id?.toLowerCase();
 
     // Topic must be valid or we use the default filter
-    if (type === TOPIC_SUGGESTION_PROVIDER) {
+    if (typeLowerCase === TOPIC_SUGGESTION_PROVIDER) {
       if (topicIds.value.some((topicId) => topicId === id)) {
-        return { type, id };
+        return { type: typeLowerCase, id: idLowerCase };
       } else {
         filtersValidatorError.value = true;
 
@@ -48,27 +48,27 @@ const useFiltersValidator = () => {
     // we cannot properly validate the suggestion filter for a specific collection, since the
     // page collections have not yet been fetched, when filter validation is performed. To avoid,
     // making this an asynchronous method, we are just accepting any value as valid collection name
-    if (type === COLLECTIONS_SUGGESTION_PROVIDER) {
-      return { type, id };
+    if (typeLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
+      return { type: typeLowerCase, id };
     }
 
     // For 'edits' and 'popular' filters, only 'id' is needed,
     // but we set both to the same value
-    if (id === EDITS_SUGGESTION_PROVIDER) {
+    if (idLowerCase === EDITS_SUGGESTION_PROVIDER) {
       return {
         type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
         id: EDITS_SUGGESTION_PROVIDER,
       };
     }
 
-    if (id === POPULAR_SUGGESTION_PROVIDER) {
+    if (idLowerCase === POPULAR_SUGGESTION_PROVIDER) {
       return {
         type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
         id: POPULAR_SUGGESTION_PROVIDER,
       };
     }
 
-    if (id === COLLECTIONS_SUGGESTION_PROVIDER) {
+    if (idLowerCase === COLLECTIONS_SUGGESTION_PROVIDER) {
       return {
         type: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
         id: COLLECTIONS_SUGGESTION_PROVIDER,
