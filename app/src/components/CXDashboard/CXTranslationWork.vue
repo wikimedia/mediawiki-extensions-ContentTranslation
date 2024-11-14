@@ -1,3 +1,54 @@
+<script setup>
+import { MwThumbnail, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import Translation from "@/wiki/cx/models/translation";
+import {
+  mwIconArrowForward,
+  mwIconArrowNext,
+} from "@/lib/mediawiki.ui/components/icons";
+import { useStore } from "vuex";
+import { computed } from "vue";
+import { timeago } from "@/utils/dateHelper";
+import { useI18n } from "vue-banana-i18n";
+
+const props = defineProps({
+  translation: {
+    type: Translation,
+    required: true,
+  },
+  actionIcon: {
+    type: String,
+    default: null,
+  },
+});
+
+const emit = defineEmits(["click", "action-icon-clicked"]);
+
+const store = useStore();
+
+const getImage = (language, title) => {
+  const page = store.getters["mediawiki/getPage"](language, title);
+
+  return page?.thumbnail;
+};
+
+const bananaI18n = useI18n();
+const timeagoMessage = computed(() => {
+  const timeagoMessages = {
+    days: "cx-sx-translation-work-days-since-started",
+    months: "cx-sx-translation-work-months-since-started",
+    years: "cx-sx-translation-work-years-since-started",
+  };
+
+  const timeagoObject = timeago(props.translation.startTimestamp);
+
+  return bananaI18n.i18n(
+    timeagoMessages[timeagoObject.postfix],
+    timeagoObject.value
+  );
+});
+</script>
+
 <template>
   <div
     v-if="translation"
@@ -51,70 +102,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { MwThumbnail, MwIcon, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { getAutonym, getDir } from "@wikimedia/language-data";
-import Translation from "@/wiki/cx/models/translation";
-import {
-  mwIconArrowForward,
-  mwIconArrowNext,
-} from "@/lib/mediawiki.ui/components/icons";
-import { useStore } from "vuex";
-import { computed } from "vue";
-import { timeago } from "@/utils/dateHelper";
-import { useI18n } from "vue-banana-i18n";
-
-export default {
-  name: "CxTranslationWork",
-  components: { MwRow, MwCol, MwThumbnail, MwIcon },
-  props: {
-    translation: {
-      type: Translation,
-      required: true,
-    },
-    actionIcon: {
-      type: String,
-      default: null,
-    },
-  },
-  emits: ["click", "action-icon-clicked"],
-  setup(props) {
-    const store = useStore();
-
-    const getImage = (language, title) => {
-      const page = store.getters["mediawiki/getPage"](language, title);
-
-      return page?.thumbnail;
-    };
-
-    const bananaI18n = useI18n();
-    const timeagoMessage = computed(() => {
-      const timeagoMessages = {
-        days: "cx-sx-translation-work-days-since-started",
-        months: "cx-sx-translation-work-months-since-started",
-        years: "cx-sx-translation-work-years-since-started",
-      };
-
-      const timeagoObject = timeago(props.translation.startTimestamp);
-
-      return bananaI18n.i18n(
-        timeagoMessages[timeagoObject.postfix],
-        timeagoObject.value
-      );
-    });
-
-    return {
-      timeagoMessage,
-      getAutonym,
-      getDir,
-      getImage,
-      mwIconArrowForward,
-      mwIconArrowNext,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
