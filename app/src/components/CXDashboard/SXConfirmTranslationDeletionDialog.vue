@@ -1,3 +1,35 @@
+<script setup>
+import { MwButton, MwDialog } from "@/lib/mediawiki.ui";
+import Translation from "@/wiki/cx/models/translation";
+import useDraftTranslationDelete from "./useDraftTranslationDelete";
+
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true,
+  },
+  translation: {
+    type: Translation,
+    default: null,
+  },
+});
+
+const emit = defineEmits([
+  "update:modelValue",
+  "continue-translation",
+  "discard-translation",
+]);
+
+const closeDialog = () => emit("update:modelValue", false);
+
+const doDeleteTranslation = useDraftTranslationDelete();
+
+const deleteTranslation = () => {
+  doDeleteTranslation(props.translation);
+  closeDialog();
+};
+</script>
+
 <template>
   <mw-dialog
     :value="modelValue"
@@ -29,43 +61,6 @@
     </template>
   </mw-dialog>
 </template>
-
-<script>
-import { MwButton, MwDialog } from "@/lib/mediawiki.ui";
-import Translation from "@/wiki/cx/models/translation";
-import useDraftTranslationDelete from "./useDraftTranslationDelete";
-
-export default {
-  name: "SxConfirmTranslationDeletionDialog",
-  components: {
-    MwButton,
-    MwDialog,
-  },
-  props: {
-    modelValue: {
-      type: Boolean,
-      required: true,
-    },
-    translation: {
-      type: Translation,
-      default: null,
-    },
-  },
-  emits: ["update:modelValue", "continue-translation", "discard-translation"],
-  setup(props, { emit }) {
-    const closeDialog = () => emit("update:modelValue", false);
-
-    const doDeleteTranslation = useDraftTranslationDelete();
-
-    const deleteTranslation = () => {
-      doDeleteTranslation(props.translation);
-      closeDialog();
-    };
-
-    return { closeDialog, deleteTranslation };
-  },
-};
-</script>
 
 <style lang="less">
 .sx-confirm-delete-dialog__footer {
