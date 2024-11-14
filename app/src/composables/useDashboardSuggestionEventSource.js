@@ -25,7 +25,11 @@ const useDashboardSuggestionEventSource = () => {
       // let's use 'suggestion_featured' for now
       // TODO: Add a new event source or rename 'suggestion_featured' for most popular suggestions
       return "suggestion_featured";
-    } else if (id === COLLECTIONS_SUGGESTION_PROVIDER) {
+    } else if (
+      id === COLLECTIONS_SUGGESTION_PROVIDER ||
+      type === COLLECTIONS_SUGGESTION_PROVIDER
+    ) {
+      // here we handle both "All collections" and single collection filters
       return "suggestion_collections";
     }
 
