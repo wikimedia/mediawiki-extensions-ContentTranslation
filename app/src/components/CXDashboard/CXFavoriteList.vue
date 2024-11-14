@@ -1,3 +1,29 @@
+<script setup>
+import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
+import { MwCard } from "@/lib/mediawiki.ui";
+import { computed } from "vue";
+import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
+import { useStore } from "vuex";
+import useTranslationStart from "@/composables/useTranslationStart";
+
+const store = useStore();
+const favorites = computed(() => store.state.suggestions.favorites || []);
+const startTranslation = useTranslationStart();
+
+/**
+ * @param {FavoriteSuggestion} suggestion
+ */
+const startFavoriteTranslation = (suggestion) =>
+  startTranslation(
+    suggestion.title,
+    suggestion.sourceLanguage,
+    suggestion.targetLanguage,
+    "for_later"
+  );
+
+const { removeFavoriteSuggestion } = useSuggestionsBookmark();
+</script>
+
 <template>
   <mw-card
     v-if="!!favorites.length"
@@ -18,45 +44,3 @@
     />
   </mw-card>
 </template>
-
-<script>
-import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
-import { MwCard } from "@/lib/mediawiki.ui";
-import { computed } from "vue";
-import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
-import { useStore } from "vuex";
-import useTranslationStart from "@/composables/useTranslationStart";
-
-export default {
-  name: "CxFavoriteList",
-  components: {
-    CxTranslationSuggestion,
-    MwCard,
-  },
-  setup() {
-    const store = useStore();
-
-    const favorites = computed(() => store.state.suggestions.favorites || []);
-    const startTranslation = useTranslationStart();
-
-    /**
-     * @param {FavoriteSuggestion} suggestion
-     */
-    const startFavoriteTranslation = (suggestion) =>
-      startTranslation(
-        suggestion.title,
-        suggestion.sourceLanguage,
-        suggestion.targetLanguage,
-        "for_later"
-      );
-
-    const { removeFavoriteSuggestion } = useSuggestionsBookmark();
-
-    return {
-      favorites,
-      startFavoriteTranslation,
-      removeFavoriteSuggestion,
-    };
-  },
-};
-</script>
