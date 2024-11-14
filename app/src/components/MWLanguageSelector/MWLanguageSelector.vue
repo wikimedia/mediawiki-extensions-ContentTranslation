@@ -1,3 +1,126 @@
+<script setup>
+import { ref, watch, onMounted, computed } from "vue";
+import {
+  searchByQuery,
+  getSearchApi,
+  getSearchResultsByScript,
+  getResultsDisplayClass,
+} from "./languagesearch";
+import autocomplete from "./autocompletion";
+import keyboardNavigation from "./keyboardnav";
+import { mwIconSearch } from "@/lib/mediawiki.ui/components/icons";
+import { MwInput } from "../../lib/mediawiki.ui";
+import { getAutonym, getDir } from "@wikimedia/language-data";
+import debounce from "@/utils/debounce";
+
+const props = defineProps({
+  placeholder: {
+    type: String,
+    default: "",
+  },
+  autofocus: {
+    type: Boolean,
+    default: true,
+  },
+  languages: {
+    type: Array,
+    default: () => [],
+    validator: (languages) =>
+      languages.every((language) => typeof language === "string"),
+  },
+  allOptionEnabled: {
+    type: Boolean,
+    default: false,
+  },
+  /**
+   * Suggested languages
+   **/
+  suggestions: {
+    type: Array,
+    default: () => [],
+    validator: (languages) =>
+      languages.every((language) => typeof language === "string"),
+  },
+  /**
+   * Search API URL for language search.
+   */
+  searchAPI: {
+    type: String,
+    default: getSearchApi,
+  },
+});
+
+const emit = defineEmits(["select", "close"]);
+
+const searchInputElement = ref(null);
+const searchQuery = ref("");
+const searchResults = ref([]);
+const searchResultsByScript = computed(() =>
+  getSearchResultsByScript(searchResults.value)
+);
+
+const resultsDisplayClass = computed(() =>
+  getResultsDisplayClass(searchResults.value)
+);
+
+const select = (language) => emit("select", language);
+const close = () => emit("close");
+
+const { autocompletion, onTabSelect } = autocomplete(
+  searchQuery,
+  searchResults
+);
+const { next, prev, langSelectorContainer, selectedLanguage } =
+  keyboardNavigation(searchQuery, searchResults, props.suggestions);
+
+const onEnter = () => {
+  // If the search value is a known language, select it
+  if (searchQuery.value && props.languages.includes(searchQuery.value)) {
+    select(searchQuery.value);
+
+    return;
+  }
+
+  // If there is an actively selected language, select it
+  if (selectedLanguage.value) {
+    select(selectedLanguage.value);
+
+    return;
+  }
+
+  // If there is only one search result, select it
+  if (searchResults.value.length === 1) {
+    select(searchResults.value[0]);
+
+    return;
+  }
+};
+
+const onQueryChange = async () => {
+  searchResults.value = await searchByQuery(
+    props.languages,
+    searchQuery.value,
+    props.searchAPI
+  );
+};
+
+watch(searchQuery, debounce(onQueryChange, 300));
+
+onMounted(async () => {
+  if (props.autofocus) {
+    // Focus the search input field, but use a small timeout
+    // to take care of transitions and other competing focus fields in container
+    setTimeout(() => searchInputElement.value.focus(), 500);
+  }
+  // Initialize with an empty search
+  searchResults.value = await searchByQuery(
+    props.languages,
+    "",
+    props.searchAPI
+  );
+});
+</script>
+
 <template>
   <div ref="langSelectorContainer" class="mw-ui-language-selector">
     <slot name="search">
@@ -98,159 +221,6 @@
     </section>
   </div>
 </template>
-
-<script>
-import { ref, watch, onMounted, computed } from "vue";
-import {
-  searchByQuery,
-  getSearchApi,
-  getSearchResultsByScript,
-  getResultsDisplayClass,
-} from "./languagesearch";
-import autocomplete from "./autocompletion";
-import keyboardNavigation from "./keyboardnav";
-import { mwIconSearch, mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import { MwInput } from "../../lib/mediawiki.ui";
-import { getAutonym, getDir } from "@wikimedia/language-data";
-import debounce from "@/utils/debounce";
-
-export default {
-  name: "MwLanguageSelector",
-
-  components: {
-    MwInput,
-  },
-
-  props: {
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    autofocus: {
-      type: Boolean,
-      default: true,
-    },
-    languages: {
-      type: Array,
-      default: () => [],
-      validator: (languages) =>
-        languages.every((language) => typeof language === "string"),
-    },
-    allOptionEnabled: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * Suggested languages
-     **/
-    suggestions: {
-      type: Array,
-      default: () => [],
-      validator: (languages) =>
-        languages.every((language) => typeof language === "string"),
-    },
-    /**
-     * Search API URL for language search.
-     */
-    searchAPI: {
-      type: String,
-      default: getSearchApi,
-    },
-  },
-
-  emits: ["select", "close"],
-
-  setup(props, context) {
-    const searchInputElement = ref(null);
-    const searchQuery = ref("");
-    const searchResults = ref([]);
-    const searchResultsByScript = computed(() =>
-      getSearchResultsByScript(searchResults.value)
-    );
-
-    const resultsDisplayClass = computed(() =>
-      getResultsDisplayClass(searchResults.value)
-    );
-
-    const select = (language) => context.emit("select", language);
-    const close = () => context.emit("close");
-
-    const { autocompletion, onTabSelect } = autocomplete(
-      searchQuery,
-      searchResults
-    );
-    const { next, prev, langSelectorContainer, selectedLanguage } =
-      keyboardNavigation(searchQuery, searchResults, props.suggestions);
-
-    const onEnter = () => {
-      // If the search value is a known language, select it
-      if (searchQuery.value && props.languages.includes(searchQuery.value)) {
-        select(searchQuery.value);
-
-        return;
-      }
-
-      // If there is an actively selected language, select it
-      if (selectedLanguage.value) {
-        select(selectedLanguage.value);
-
-        return;
-      }
-
-      // If there is only one search result, select it
-      if (searchResults.value.length === 1) {
-        select(searchResults.value[0]);
-
-        return;
-      }
-    };
-
-    const onQueryChange = async () => {
-      searchResults.value = await searchByQuery(
-        props.languages,
-        searchQuery.value,
-        props.searchAPI
-      );
-    };
-
-    watch(searchQuery, debounce(onQueryChange, 300));
-
-    onMounted(async () => {
-      if (props.autofocus) {
-        // Focus the search input field, but use a small timeout
-        // to take care of transitions and other competing focus fields in container
-        setTimeout(() => searchInputElement.value.focus(), 500);
-      }
-      // Initialize with an empty search
-      searchResults.value = await searchByQuery(
-        props.languages,
-        "",
-        props.searchAPI
-      );
-    });
-
-    return {
-      autocompletion,
-      close,
-      getAutonym,
-      getDir,
-      langSelectorContainer,
-      mwIconClose,
-      mwIconSearch,
-      next,
-      onEnter,
-      onTabSelect,
-      prev,
-      resultsDisplayClass,
-      searchInputElement,
-      searchQuery,
-      searchResultsByScript,
-      select,
-      selectedLanguage,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
