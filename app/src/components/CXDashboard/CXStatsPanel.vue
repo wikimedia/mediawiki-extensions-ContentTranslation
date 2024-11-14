@@ -1,3 +1,67 @@
+<script setup>
+import { MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { ref, computed, watch } from "vue";
+
+const props = defineProps({
+  stats: {
+    type: Object,
+    default: null,
+  },
+});
+
+const thisMonthKey = new Date().toISOString().slice(0, 7) + "-01";
+const total = computed(() => props.stats?.[thisMonthKey]?.count || 0);
+const thisMonthStats = computed(() => props.stats?.[thisMonthKey]?.delta || 0);
+
+const canvasRef = ref(null);
+
+watch(
+  () => props.stats,
+  () => {
+    const stats = props.stats;
+    const context = canvasRef.value.getContext("2d");
+    const monthKeys = Object.keys(props.stats || {}).sort();
+
+    const maxValue = monthKeys.reduce(
+      (max, month) => Math.max(max, stats[month].delta),
+      0
+    );
+    const monthData = monthKeys.map((month) => stats[month].delta);
+
+    const canvasWidth = canvasRef.value.getBoundingClientRect().width;
+    const canvasHeight = canvasRef.value.getBoundingClientRect().height;
+
+    canvasRef.value.width = canvasWidth;
+    canvasRef.value.height = canvasHeight;
+
+    const spacing = 4;
+    const barWidth = 6;
+    const height = 50;
+    const segment = (height - spacing) / maxValue;
+    let offsetX = spacing;
+    // Limit the number of bars displayed
+    const numOfBars = Math.floor(
+      (canvasWidth - spacing) / (barWidth + spacing)
+    );
+
+    const slicedData = monthData.slice(
+      Math.max(monthData.length - numOfBars, 0)
+    );
+
+    slicedData.forEach((element, index) => {
+      // Last bar in chart is displayed using progressive color (Accent50) from WikimediaUI color palette
+      if (index === slicedData.length - 1) {
+        context.fillStyle = "#36c";
+      }
+
+      const offsetY = height - element * segment;
+      context.fillRect(offsetX, offsetY, barWidth, element * segment);
+      offsetX += barWidth + spacing;
+    });
+  }
+);
+</script>
+
 <template>
   <div class="cx-stats-panel pa-4">
     <h5 v-i18n:cx-sx-dashboard-stats-panel-title />
@@ -20,79 +84,6 @@
     <canvas ref="canvasRef" class="cx-stats-panel__canvas" />
   </div>
 </template>
-
-<script>
-import { MwRow, MwCol } from "@/lib/mediawiki.ui";
-import { ref, computed, watch } from "vue";
-
-export default {
-  name: "CxStatsPanel",
-  components: { MwCol, MwRow },
-  props: {
-    stats: {
-      type: Object,
-      default: null,
-    },
-  },
-  setup(props) {
-    const thisMonthKey = new Date().toISOString().slice(0, 7) + "-01";
-    const total = computed(() => props.stats?.[thisMonthKey]?.count || 0);
-    const thisMonthStats = computed(
-      () => props.stats?.[thisMonthKey]?.delta || 0
-    );
-
-    const canvasRef = ref(null);
-
-    watch(
-      () => props.stats,
-      () => {
-        const stats = props.stats;
-        const context = canvasRef.value.getContext("2d");
-        const monthKeys = Object.keys(props.stats || {}).sort();
-
-        const maxValue = monthKeys.reduce(
-          (max, month) => Math.max(max, stats[month].delta),
-          0
-        );
-        const monthData = monthKeys.map((month) => stats[month].delta);
-
-        const canvasWidth = canvasRef.value.getBoundingClientRect().width;
-        const canvasHeight = canvasRef.value.getBoundingClientRect().height;
-
-        canvasRef.value.width = canvasWidth;
-        canvasRef.value.height = canvasHeight;
-
-        const spacing = 4;
-        const barWidth = 6;
-        const height = 50;
-        const segment = (height - spacing) / maxValue;
-        let offsetX = spacing;
-        // Limit the number of bars displayed
-        const numOfBars = Math.floor(
-          (canvasWidth - spacing) / (barWidth + spacing)
-        );
-
-        const slicedData = monthData.slice(
-          Math.max(monthData.length - numOfBars, 0)
-        );
-
-        slicedData.forEach((element, index) => {
-          // Last bar in chart is displayed using progressive color (Accent50) from WikimediaUI color palette
-          if (index === slicedData.length - 1) {
-            context.fillStyle = "#36c";
-          }
-
-          const offsetY = height - element * segment;
-          context.fillRect(offsetX, offsetY, barWidth, element * segment);
-          offsetX += barWidth + spacing;
-        });
-      }
-    );
-
-    return { canvasRef, thisMonthStats, total };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
