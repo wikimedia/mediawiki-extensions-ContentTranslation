@@ -1,3 +1,62 @@
+<script setup>
+import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
+import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
+import { getAutonym } from "@wikimedia/language-data";
+import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
+import { computed } from "vue";
+import { useI18n } from "vue-banana-i18n";
+
+const bananaI18n = useI18n();
+
+const props = defineProps({
+  suggestion: {
+    type: SectionSuggestion,
+    required: true,
+  },
+  targetSectionTitle: {
+    type: String,
+    required: true,
+  },
+  discardedSections: {
+    type: Array,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["update:discardedSections"]);
+
+const isDiscardedSection = computed(() =>
+  props.discardedSections.includes(props.targetSectionTitle)
+);
+
+const mappedSectionHeaderTitle = computed(() =>
+  bananaI18n.i18n(
+    "cx-sx-content-comparator-mapped-section-header-title",
+    getAutonym(props.suggestion.targetLanguage)
+  )
+);
+
+const discardMapping = () => {
+  if (!isDiscardedSection.value) {
+    emit("update:discardedSections", [
+      ...props.discardedSections,
+      props.targetSectionTitle,
+    ]);
+  }
+};
+
+const undoDiscard = () => {
+  if (isDiscardedSection.value) {
+    emit(
+      "update:discardedSections",
+      props.discardedSections.filter(
+        (sectionTitle) => sectionTitle !== props.targetSectionTitle
+      )
+    );
+  }
+};
+</script>
+
 <template>
   <div class="sx-content-comparator-header__mapped-section">
     <mw-row
@@ -52,72 +111,6 @@
     />
   </div>
 </template>
-
-<script>
-import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
-import { getAutonym } from "@wikimedia/language-data";
-import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
-
-export default {
-  name: "SxContentComparatorHeaderMappedSection",
-  components: {
-    MwRow,
-    MwCol,
-    MwButton,
-  },
-  props: {
-    suggestion: {
-      type: SectionSuggestion,
-      required: true,
-    },
-    targetSectionTitle: {
-      type: String,
-      required: true,
-    },
-    discardedSections: {
-      type: Array,
-      required: true,
-    },
-  },
-  emits: ["update:discardedSections"],
-  data: () => ({
-    mwIconTrash,
-    mwIconUndo,
-  }),
-  computed: {
-    isDiscardedSection() {
-      return this.discardedSections.includes(this.targetSectionTitle);
-    },
-    mappedSectionHeaderTitle() {
-      return this.$i18n(
-        "cx-sx-content-comparator-mapped-section-header-title",
-        getAutonym(this.suggestion.targetLanguage)
-      );
-    },
-  },
-  methods: {
-    discardMapping() {
-      if (!this.isDiscardedSection) {
-        this.$emit("update:discardedSections", [
-          ...this.discardedSections,
-          this.targetSectionTitle,
-        ]);
-      }
-    },
-    undoDiscard() {
-      if (this.isDiscardedSection) {
-        this.$emit(
-          "update:discardedSections",
-          this.discardedSections.filter(
-            (sectionTitle) => sectionTitle !== this.targetSectionTitle
-          )
-        );
-      }
-    },
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
