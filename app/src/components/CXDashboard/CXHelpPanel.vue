@@ -1,3 +1,33 @@
+<script setup>
+import {
+  mwIconInfoFilled,
+  mwIconChart,
+  mwIconFeedback,
+} from "@/lib/mediawiki.ui/components/icons";
+import { MwIcon } from "@/lib/mediawiki.ui";
+import { useI18n } from "vue-banana-i18n";
+
+const bananaI18n = useI18n();
+
+const listItems = [
+  {
+    icon: mwIconInfoFilled,
+    label: bananaI18n.i18n("cx-sx-dashboard-help-panel-more-info-label"),
+    href: "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
+  },
+  {
+    icon: mwIconChart,
+    label: bananaI18n.i18n("cx-sx-dashboard-help-panel-stats-label"),
+    href: mw.util.getUrl("Special:ContentTranslationStats"),
+  },
+  {
+    icon: mwIconFeedback,
+    label: bananaI18n.i18n("cx-sx-dashboard-help-panel-feedback-label"),
+    href: "https://www.mediawiki.org/wiki/Talk:Content_translation",
+  },
+];
+</script>
+
 <template>
   <div class="cx-help-panel pa-4">
     <h5 v-i18n:cx-sx-dashboard-help-panel-title />
@@ -11,44 +41,6 @@
     </ul>
   </div>
 </template>
-
-<script>
-import {
-  mwIconInfoFilled,
-  mwIconChart,
-  mwIconFeedback,
-} from "@/lib/mediawiki.ui/components/icons";
-import { MwIcon } from "@/lib/mediawiki.ui";
-import { useI18n } from "vue-banana-i18n";
-
-export default {
-  name: "CxHelpPanel",
-  components: { MwIcon },
-  setup() {
-    const bananaI18n = useI18n();
-
-    const listItems = [
-      {
-        icon: mwIconInfoFilled,
-        label: bananaI18n.i18n("cx-sx-dashboard-help-panel-more-info-label"),
-        href: "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
-      },
-      {
-        icon: mwIconChart,
-        label: bananaI18n.i18n("cx-sx-dashboard-help-panel-stats-label"),
-        href: mw.util.getUrl("Special:ContentTranslationStats"),
-      },
-      {
-        icon: mwIconFeedback,
-        label: bananaI18n.i18n("cx-sx-dashboard-help-panel-feedback-label"),
-        href: "https://www.mediawiki.org/wiki/Talk:Content_translation",
-      },
-    ];
-
-    return { listItems };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
