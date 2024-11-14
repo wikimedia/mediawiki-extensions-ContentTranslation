@@ -39,14 +39,14 @@ use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
-use Wikimedia\Stats\IBufferingStatsdDataFactory;
+use Wikimedia\Stats\StatsFactory;
 
 class ApiContentTranslationPublish extends ApiBase {
 
 	protected ParsoidClientFactory $parsoidClientFactory;
 	protected ?Translation $translation;
 	private LanguageFactory $languageFactory;
-	private IBufferingStatsdDataFactory $statsdDataFactory;
+	private StatsFactory $statsFactory;
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
@@ -57,7 +57,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		string $name,
 		ParsoidClientFactory $parsoidClientFactory,
 		LanguageFactory $languageFactory,
-		IBufferingStatsdDataFactory $statsdDataFactory,
+		StatsFactory $statsFactory,
 		LanguageNameUtils $languageNameUtils,
 		TranslationStore $translationStore,
 		TranslationTargetUrlCreator $targetUrlCreator,
@@ -66,7 +66,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		parent::__construct( $main, $name );
 		$this->parsoidClientFactory = $parsoidClientFactory;
 		$this->languageFactory = $languageFactory;
-		$this->statsdDataFactory = $statsdDataFactory;
+		$this->statsFactory = $statsFactory;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
@@ -150,8 +150,11 @@ class ApiContentTranslationPublish extends ApiBase {
 			if ( $cat !== '-' && $containerCategory ) {
 				// Title without namespace prefix
 				$categories[$trackingCategoryKey] = $containerCategory->getText();
-				// Record using Graphite that the published translation is marked for review
-				$this->statsdDataFactory->increment( 'cx.publish.highmt.' . $params['to'] );
+				// Record using Prometheus that the published translation is marked for review
+				$this->statsFactory->getCounter( 'ContentTranslation_publish_highmt_total' )
+					->setLabel( 'langCode', $params['to'] )
+					->copyToStatsdAt( 'cx.publish.highmt.' . $params['to'] )
+					->increment();
 			} else {
 				wfDebug( __METHOD__ . ": [[MediaWiki:$trackingCategoryMsg]] is not a valid title!\n" );
 				unset( $categories[$trackingCategoryKey] );
