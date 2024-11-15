@@ -537,6 +537,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "Bölüm çevirisine başla",
 	"sx-published-translation-new-translation-button-label": "Yeni çeviri",
 	"sx-section-selector-close-button-aria-label": "Onay adımı düğmesine git",
+	"sx-section-selector-next-button-aria-label": "Sonraki adımda içerik karşılaştırıcısına git",
 	"sx-quick-tutorial-next-button-aria-label": "Sonraki eğitim sayfasına git",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Yeni bir çeviri yaz",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Dilinizde yeni bir sayfa oluşturmak için adım adım çeviri işlemi.",
