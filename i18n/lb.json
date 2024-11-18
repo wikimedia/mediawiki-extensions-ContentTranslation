@@ -240,8 +240,8 @@
 	"cx-sx-content-comparator-mapped-section-header-title": "Present op $1",
 	"cx-sx-content-comparator-target-selector-target-section-title": "Abschnitt op $1",
 	"cx-sx-translation-confirmer-title": "Nei Iwwersetzung",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0=$2 Minutte}} fir z'iwwersetzen",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0=$2 Minutte}} fir $3 Abschnitter z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|{{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir $3 Abschnitter z'iwwersetzen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Lieszeechen",
 	"cx-sx-content-comparator-discarded-section-label": "(net zréckbehalen)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Fänkt mat enger anerer Iwwersetzung un",
@@ -389,5 +389,6 @@
 	"cx-articletopics-topic-mathematics": "Mathematik",
 	"cx-articletopics-topic-medicine-and-health": "Medezin a Gesondheet",
 	"cx-articletopics-topic-physics": "Physik",
-	"cx-articletopics-topic-technology": "Technologie"
+	"cx-articletopics-topic-technology": "Technologie",
+	"cx-page-collection-dialog-page-suggestions-header": "Nei Säiten"
 }

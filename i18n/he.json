@@ -338,8 +338,8 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "התרגום שלך ירחיב פרק קיים. אפשר להתעלם מזה אם הפרקים אינם קשורים.",
 	"cx-sx-translation-confirmer-title": "תרגום חדש",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|צפייה אחת בשבוע|$1 צפיות בשבוע|0=ללא צפיות השבוע}}",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0=$2 דק׳}} לתרגום",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0=$2 דק׳}} לתרגום $3 פרקים",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0={{PLURAL:$2|דקה אחת|$2 דקות}}}} לתרגום",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|שעה|שעתיים|$1 שעות|0={{PLURAL:$2|דקה אחת|$2 דקות}}}} לתרגום $3 פרקים",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "הוספת סימנייה",
 	"cx-sx-content-comparator-discarded-section-clarifications": "התרגום שלך יתפרסם בתור פרק עצמאי חדש.",
 	"cx-sx-content-comparator-discarded-section-label": "(נזרקה)",
@@ -514,7 +514,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "להתחיל תרגום פרק",
 	"sx-published-translation-new-translation-button-label": "תרגום חדש",
 	"sx-section-selector-close-button-aria-label": "לעבור אל לחצן שלב האישור",
-	"sx-section-selector-next-button-aria-label": "לעבור לצעד הבא של השוואת תוכן",
+	"sx-section-selector-next-button-aria-label": "לעבור להשוואת תוכן",
 	"sx-quick-tutorial-next-button-aria-label": "מעבר לדף ההדרכה הבא",
 	"cx-mflanguagesearcher-entrypoint-card-title": "לכתוב תרגום חדש",
 	"cx-mflanguagesearcher-entrypoint-card-description": "תהליך תרגום צעד־צעד ליצירת דף חדש בשפה שלך.",
@@ -532,8 +532,10 @@
 	"cx-sx-suggestions-filters-done-button-label": "בוצע",
 	"cx-sx-suggestions-filter-user-edit-label": "בשבילך",
 	"cx-sx-suggestions-filter-most-popular-label": "מבוקשים",
+	"cx-sx-suggestions-filter-page-collection-label": "כל האוספים",
 	"cx-sx-suggestions-filter-more-label": "עוד",
 	"cx-sx-suggestions-filter-default-group-label": "אוטומטי",
+	"cx-sx-suggestions-filter-page-collections-group-label": "אוספים",
 	"cx-articletopics-group-geography": "גאוגרפיה",
 	"cx-articletopics-group-culture": "תרבות",
 	"cx-articletopics-group-history-and-society": "היסטוריה וחברה",
@@ -576,5 +578,6 @@
 	"cx-articletopics-topic-mathematics": "מתמטיקה",
 	"cx-articletopics-topic-medicine-and-health": "רפואה ובריאות",
 	"cx-articletopics-topic-physics": "פיזיקה",
-	"cx-articletopics-topic-technology": "טכנולוגיה"
+	"cx-articletopics-topic-technology": "טכנולוגיה",
+	"cx-page-collection-dialog-close-button-aria-label": "חזרה ללוח הבקרה"
 }

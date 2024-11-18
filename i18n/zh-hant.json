@@ -348,8 +348,8 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "您的翻譯將會擴充現有的章節。若章節各不相關，則放棄此操作。",
 	"cx-sx-translation-confirmer-title": "新增譯文",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|每週有 $1 次訪問|0=本週沒有訪問}}",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "需花費{{PLURAL:$1|$1小時|0=$2分鐘}}來翻譯",
-	"cx-sx-translation-confirmer-translation-time-sections": "需花費{{PLURAL:$1|$1小時|0=$2分鐘}}來翻譯$3個章節",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "需花費{{PLURAL:$1|$1小時|0={{PLURAL:$2|$2分鐘}}}}來翻譯",
+	"cx-sx-translation-confirmer-translation-time-sections": "需花費{{PLURAL:$1|$1小時|0={{PLURAL:$2|$2分鐘}}}}來翻譯$3個章節",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "書籤",
 	"cx-sx-content-comparator-discarded-section-clarifications": "您的翻譯將會以獨立的新章節發布。",
 	"cx-sx-content-comparator-discarded-section-label": "（捨棄）",
@@ -524,6 +524,7 @@
 	"sx-published-translation-start-section-translation-button-aria-label": "開始章節翻譯",
 	"sx-published-translation-new-translation-button-label": "新增譯文",
 	"sx-section-selector-close-button-aria-label": "跳到確認步驟按鈕",
+	"sx-section-selector-next-button-aria-label": "前往內容比較工具",
 	"sx-quick-tutorial-next-button-aria-label": "跳到下一個教學頁面",
 	"cx-mflanguagesearcher-entrypoint-card-title": "編寫一個新翻譯",
 	"cx-mflanguagesearcher-entrypoint-card-description": "逐步進行翻譯，以您的語言建立新頁面。",
@@ -584,5 +585,8 @@
 	"cx-articletopics-topic-mathematics": "數學",
 	"cx-articletopics-topic-medicine-and-health": "醫藥衛生",
 	"cx-articletopics-topic-physics": "物理",
-	"cx-articletopics-topic-technology": "科技"
+	"cx-articletopics-topic-technology": "科技",
+	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|還剩$1天|0=沒有剩餘天數}}",
+	"cx-page-collection-dialog-page-suggestions-header": "新頁面",
+	"cx-page-collection-dialog-section-suggestions-header": "新章節"
 }

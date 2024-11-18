@@ -369,6 +369,7 @@
 	"sx-confirm-draft-translation-start-button-label": "Ok",
 	"sx-published-translation-start-section-translation-button-aria-label": "Inizia traduzione della sezione",
 	"sx-published-translation-new-translation-button-label": "Nuova traduzione",
+	"sx-section-selector-next-button-aria-label": "Vai al comparatore di contenuti",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Scrivi una nuova traduzione",
 	"cx-mflanguagesearcher-entrypoint-card-description": "Processo di traduzione passo dopo passo per creare una nuova pagina nella tua lingua.",
 	"mint-mflanguagesearcher-entrypoint-card-title": "Leggi una traduzione automatica",
@@ -379,8 +380,10 @@
 	"cx-sx-suggestions-filters-done-button-label": "Fatto",
 	"cx-sx-suggestions-filter-user-edit-label": "Per te",
 	"cx-sx-suggestions-filter-most-popular-label": "Popolare",
+	"cx-sx-suggestions-filter-page-collection-label": "Tutte le collezioni",
 	"cx-sx-suggestions-filter-more-label": "Altro",
 	"cx-sx-suggestions-filter-default-group-label": "Automatico",
+	"cx-sx-suggestions-filter-page-collections-group-label": "Collezioni",
 	"cx-articletopics-group-geography": "Geografia",
 	"cx-articletopics-group-culture": "Cultura",
 	"cx-articletopics-group-history-and-society": "Storia e società",
@@ -423,5 +426,10 @@
 	"cx-articletopics-topic-mathematics": "Matematica",
 	"cx-articletopics-topic-medicine-and-health": "Medicina e salute",
 	"cx-articletopics-topic-physics": "Fisica",
-	"cx-articletopics-topic-technology": "Tecnologia"
+	"cx-articletopics-topic-technology": "Tecnologia",
+	"cx-page-collection-dialog-close-button-aria-label": "Torna al cruscotto",
+	"cx-page-collection-dialog-existing-target-count": "$1/$2 voci esistono in $3",
+	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 giorno mancante|$1 giorni mancanti|0=Nessun giorno mancante}}",
+	"cx-page-collection-dialog-page-suggestions-header": "Nuove pagine",
+	"cx-page-collection-dialog-section-suggestions-header": "Nuove sezioni"
 }
