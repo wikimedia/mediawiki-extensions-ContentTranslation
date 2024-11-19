@@ -156,5 +156,9 @@
 	"apihelp-cxcheckunreviewed-summary": "Kontrollera om en snabb ogranskad översättning nyligen har publicerats för den aktuella användaren.",
 	"apierror-cxcheckunreviewed-anon-user": "API-åtgärden \"cxcheckunreviewed\" har inte aktiverats för anonyma användare",
 	"apihelp-query+automatictranslationdenselanguages-summary": "Hämta listan med webbplatslänkar för artikeln som motsvarar ett angivet Wikidata-ID, sorterad efter artikelstorlek.",
-	"apihelp-query+automatictranslationdenselanguages-param-qid": "Wikidata-ID."
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "Wikidata-ID.",
+	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Ett booleskt värde som indikerar om avsnittsrubrikerna ska inkluderas i svaret.",
+	"apihelp-query+automatictranslationdenselanguages-example-1": "Hämta listan med webbplatslänkar för artikeln om månen på alla tillgängliga språk och sorterade efter artikelstorlek.",
+	"apihelp-query+automatictranslationdenselanguages-example-2": "Hämta listan med webbplatslänkar för artikeln om månen, inklusive avsnittsrubriker, på alla tillgängliga språk och sorterade efter artikelstorlek.",
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Begäran om att hämta webbplatslänkar från Wikidata misslyckades"
 }
