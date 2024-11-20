@@ -207,8 +207,8 @@ class DirectParsoidClient implements ParsoidClient {
 
 		return [
 			'error' => [
-				'message' => $msg->getKey() ?? '',
-				'params' => $msg->getParams() ?? []
+				'message' => $msg->getKey(),
+				'params' => $msg->getParams(),
 			],
 			'headers' => [],
 			'body' => $ex->getMessage(),
