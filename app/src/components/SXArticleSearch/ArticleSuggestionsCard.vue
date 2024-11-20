@@ -1,3 +1,21 @@
+<script setup>
+import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
+import { MwCard } from "../../lib/mediawiki.ui";
+
+defineProps({
+  cardTitle: {
+    type: String,
+    required: true,
+  },
+  suggestions: {
+    type: Array,
+    required: true,
+  },
+});
+
+defineEmits(["suggestion-clicked"]);
+</script>
+
 <template>
   <mw-card class="sx-article-search__suggestions mb-0 pa-4">
     <template #header>
@@ -14,33 +32,6 @@
     />
   </mw-card>
 </template>
-
-<script>
-import { mapState } from "vuex";
-import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
-import { MwCard } from "../../lib/mediawiki.ui";
-
-export default {
-  name: "ArticleSuggestionsCard",
-  components: { SxSearchArticleSuggestion, MwCard },
-  props: {
-    cardTitle: {
-      type: String,
-      required: true,
-    },
-    suggestions: {
-      type: Array,
-      required: true,
-    },
-  },
-  emits: ["suggestion-clicked"],
-  computed: {
-    ...mapState({
-      sourceLanguage: (state) => state.application.sourceLanguage,
-    }),
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
