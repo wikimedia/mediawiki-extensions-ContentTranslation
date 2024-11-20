@@ -60,17 +60,21 @@ export default {
   props: {
     /**
      * Animation
-     * @values slide-right, slide-left, slide-up, slide-down
+     * @values slide-end, slide-start, slide-up, slide-down, fade
      **/
     animation: {
       type: String,
-      default: "slide-left",
+      default: "slide-start",
       validator: (value) => {
         // The value must match one of these strings
         return (
-          ["slide-right", "slide-left", "slide-up", "slide-down"].indexOf(
-            value
-          ) !== -1
+          [
+            "slide-end",
+            "slide-start",
+            "slide-up",
+            "slide-down",
+            "fade",
+          ].indexOf(value) !== -1
         );
       },
     },

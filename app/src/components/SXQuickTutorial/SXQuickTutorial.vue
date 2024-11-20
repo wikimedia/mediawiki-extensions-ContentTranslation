@@ -42,7 +42,7 @@ const completeTutorial = () => router.push({ name: "sx-sentence-selector" });
         </transition>
       </section>
       <section class="sx-quick-tutorial__illustration">
-        <transition name="mw-ui-animation-slide-left">
+        <transition name="mw-ui-animation-slide-start">
           <!--eslint-disable vue/no-v-html -->
           <div
             v-if="isActiveStep(1)"

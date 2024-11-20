@@ -1,7 +1,7 @@
 import { MwButton, MwDialog } from "../..";
 import { mwIconPrevious } from "../icons";
 
-const animations = ["slide-right", "slide-left", "slide-up", "slide-down"];
+const animations = ["slide-end", "slide-start", "slide-up", "slide-down"];
 const argTypes = {
   animation: {
     type: "string",

@@ -14,7 +14,9 @@
   &blind-up-enter-active,
   &blind-up-leave-active,
   &blind-down-enter-active,
-  &blind-down-leave-active {
+  &blind-down-leave-active,
+  &fade-enter-active,
+  &fade-leave-active {
     transition-duration: 0.3s;
     transition-property: height, opacity, transform;
     transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
@@ -22,25 +24,25 @@
   }
 
   &slide-start-enter-from,
-  &slide-end-leave-to {
+  &slide-start-leave-to {
     opacity: 0;
     transform: translateX(100vw);
   }
 
   &slide-end-enter-from,
-  &slide-start-leave-to {
+  &slide-end-leave-to {
     opacity: 0;
     transform: translateX(-100vw);
   }
 
   &slide-up-enter-from,
-  &slide-down-leave-to {
+  &slide-up-leave-to {
     opacity: 0;
     transform: translateY(100vh);
   }
 
   &slide-down-enter-from,
-  &slide-up-leave-to {
+  &slide-down-leave-to {
     opacity: 0;
     transform: translateY(-100vh);
   }
@@ -68,16 +70,21 @@
     opacity: 0;
     transform: translateY(-100vh);
   }
+
+  &fade-enter-from,
+  &fade-leave-to {
+    opacity: 0;
+  }
 }
 
 [dir="rtl"] .mw-ui-animation- {
   &slide-start-enter-from,
-  &slide-end-leave-to {
+  &slide-start-leave-to {
     transform: translateX(-100vw);
   }
 
   &slide-end-enter-from,
-  &slide-start-leave-to {
+  &slide-end-leave-to {
     transform: translateX(100vw);
   }
 

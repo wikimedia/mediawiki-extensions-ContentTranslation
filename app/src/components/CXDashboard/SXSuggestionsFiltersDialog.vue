@@ -91,7 +91,7 @@ const { getFilterProvider } = useSuggestionProvider();
 <template>
   <mw-dialog
     :value="modelValue"
-    animation="slide-up"
+    animation="fade"
     :fullscreen="fullscreen"
     :header="false"
     :overlay-opacity="0"
