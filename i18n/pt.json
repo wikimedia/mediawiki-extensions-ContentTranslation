@@ -22,7 +22,8 @@
 			"Waldyrious",
 			"Петар Петковић",
 			"Cosmo Skerry",
-			"Whym"
+			"Whym",
+			"Mbs262"
 		]
 	},
 	"cx": "Traduzir página",
@@ -323,7 +324,7 @@
 	"cx-sx-sentence-selector-header-title": "Traduzir secção",
 	"cx-sx-sentence-selector-done-button-label": "Concluído",
 	"cx-sx-sentence-selector-suggested-translation-title": "Tradução sugerida por $1",
-	"cx-sx-proposed-translation-not-available-message": "Tradução automática indisponível neste momento",
+	"cx-sx-proposed-translation-not-available-message": "Indisponível neste momento",
 	"cx-sx-proposed-translation-retry-button": "Tentar novamente",
 	"cx-sx-proposed-translation-other-options-button": "Outras opções",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Editar a tradução",
