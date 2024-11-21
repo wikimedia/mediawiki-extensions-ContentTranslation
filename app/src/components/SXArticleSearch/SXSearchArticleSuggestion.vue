@@ -1,3 +1,17 @@
+<script setup>
+import { MwRow, MwCol, MwIcon, MwThumbnail } from "@/lib/mediawiki.ui";
+import { getDir } from "@wikimedia/language-data";
+import Page from "@/wiki/mw/models/page";
+import { mwIconLanguage } from "@/lib/mediawiki.ui/components/icons";
+
+defineProps({
+  suggestion: {
+    type: Page,
+    required: true,
+  },
+});
+</script>
+
 <template>
   <mw-row
     class="cx-search-suggestion pt-3 ma-0"
@@ -35,32 +49,6 @@
     </mw-col>
   </mw-row>
 </template>
-
-<script>
-import { MwRow, MwCol, MwIcon, MwThumbnail } from "../../lib/mediawiki.ui";
-import { getDir } from "@wikimedia/language-data";
-import Page from "../../wiki/mw/models/page";
-
-import {
-  mwIconStar,
-  mwIconLanguage,
-  mwIconArticle,
-} from "../../lib/mediawiki.ui/components/icons";
-
-export default {
-  name: "SxSearchArticleSuggestion",
-  components: { MwThumbnail, MwIcon, MwRow, MwCol },
-  props: {
-    suggestion: {
-      type: Page,
-      required: true,
-    },
-  },
-  setup(props) {
-    return { mwIconStar, mwIconLanguage, mwIconArticle, getDir };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
