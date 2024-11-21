@@ -587,7 +587,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue, d
 		return Promise.resolve( content );
 	}
 
-	return Promise.resolve( mw.loader.using( 'mediawiki.deflate' ).then( () => mw.deflate( content ) ) );
+	return Promise.resolve( mw.loader.using( 'mediawiki.deflate' ).then( () => mw.deflateAsync( content ) ) );
 };
 
 /**

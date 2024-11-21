@@ -485,9 +485,7 @@ mw.cx.TargetArticle.prototype.getContent = function ( deflate ) {
 	const cleanupHtml = mw.libs.ve.targetSaver.getHtml( this.constructor.static.getCleanedupContent( doc ) );
 
 	if ( deflate ) {
-		return mw.loader.using( 'mediawiki.deflate' ).then( function () {
-			return mw.deflate( cleanupHtml );
-		} );
+		return mw.loader.using( 'mediawiki.deflate' ).then( () => mw.deflateAsync( cleanupHtml ) );
 	} else {
 		return $.Deferred().resolve( cleanupHtml ).promise();
 	}
