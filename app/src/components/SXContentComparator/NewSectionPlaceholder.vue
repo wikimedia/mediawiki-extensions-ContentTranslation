@@ -1,3 +1,17 @@
+<script setup>
+defineProps({
+  placeholderTitle: {
+    type: String,
+    required: true,
+  },
+  placeholderSubtitle: {
+    type: String,
+    required: false,
+    default: null,
+  },
+});
+</script>
+
 <template>
   <section
     class="sx-content-comparator__new-section-placeholder--present mt-4 py-4 px-7"
@@ -6,23 +20,6 @@
     <p v-if="placeholderSubtitle" v-text="placeholderSubtitle" />
   </section>
 </template>
-
-<script>
-export default {
-  name: "SxContentComparatorNewSectionPlaceholder",
-  props: {
-    placeholderTitle: {
-      type: String,
-      required: true,
-    },
-    placeholderSubtitle: {
-      type: String,
-      required: false,
-      default: null,
-    },
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
