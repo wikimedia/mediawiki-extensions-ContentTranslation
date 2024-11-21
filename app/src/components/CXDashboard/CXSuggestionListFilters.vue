@@ -134,7 +134,8 @@ const chips = computed(() => [
     }
 
     &--active {
-      background-color: @background-color-progressive;
+      background-color: @background-color-progressive--active;
+      border-color: @border-color-progressive--active;
 
       .cdx-icon {
         color: @color-inverted;

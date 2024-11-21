@@ -176,7 +176,8 @@ const { getFilterProvider } = useSuggestionProvider();
 
     &--active {
       &.cdx-info-chip {
-        background-color: @background-color-progressive;
+        background-color: @background-color-progressive--active;
+        border-color: @border-color-progressive--active;
 
         .cdx-info-chip__text {
           color: @color-inverted;
