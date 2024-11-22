@@ -6,7 +6,7 @@ import {
   mwIconArrowNext,
   mwIconExpand,
 } from "@/lib/mediawiki.ui/components/icons";
-import { computed, inject, ref, defineProps, defineEmits } from "vue";
+import { computed, inject, ref } from "vue";
 
 const props = defineProps({
   /** @type string[] array of language codes */
