@@ -1,3 +1,48 @@
+<script setup>
+import { computed } from "vue";
+import mtValidator from "../../utils/mtValidator";
+import happyRobotSVG from "../../assets/happy-robot.svg?raw";
+import { useStore } from "vuex";
+import useApplicationState from "@/composables/useApplicationState";
+
+const props = defineProps({
+  showFeedback: {
+    type: Boolean,
+    required: true,
+  },
+  editedTranslation: {
+    type: String,
+    default: null,
+  },
+  proposedTranslation: {
+    type: String,
+    default: null,
+  },
+});
+
+const { targetLanguage } = useApplicationState(useStore());
+const mtScore = computed(() =>
+  mtValidator.calculateScore(
+    props.editedTranslation,
+    props.proposedTranslation,
+    targetLanguage.value
+  )
+);
+const modificationStatus = computed(() => {
+  const status = mtValidator.getScoreStatus(mtScore.value);
+
+  if (status === "failure") {
+    return mtScore.value === 0 ? "failure" : "warning";
+  }
+
+  return status;
+});
+const modificationPercentageClass = computed(
+  () =>
+    `sx-editor__feedback-overlay-content__stats--${modificationStatus.value}`
+);
+</script>
+
 <template>
   <div v-if="showFeedback" class="sx-editor__feedback-overlay fill-height">
     <div class="sx-editor__feedback-overlay-content px-4">
@@ -23,61 +68,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { computed } from "vue";
-import mtValidator from "../../utils/mtValidator";
-import happyRobotSVG from "../../assets/happy-robot.svg?raw";
-import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
-
-export default {
-  name: "EditCompleteFeedback",
-  props: {
-    showFeedback: {
-      type: Boolean,
-      required: true,
-    },
-    editedTranslation: {
-      type: String,
-      default: null,
-    },
-    proposedTranslation: {
-      type: String,
-      default: null,
-    },
-  },
-  setup(props) {
-    const { targetLanguage } = useApplicationState(useStore());
-    const mtScore = computed(() =>
-      mtValidator.calculateScore(
-        props.editedTranslation,
-        props.proposedTranslation,
-        targetLanguage.value
-      )
-    );
-    const modificationStatus = computed(() => {
-      const status = mtValidator.getScoreStatus(mtScore.value);
-
-      if (status === "failure") {
-        return mtScore.value === 0 ? "failure" : "warning";
-      }
-
-      return status;
-    });
-    const modificationPercentageClass = computed(
-      () =>
-        `sx-editor__feedback-overlay-content__stats--${modificationStatus.value}`
-    );
-
-    return {
-      happyRobotSVG,
-      modificationPercentageClass,
-      mtScore,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
