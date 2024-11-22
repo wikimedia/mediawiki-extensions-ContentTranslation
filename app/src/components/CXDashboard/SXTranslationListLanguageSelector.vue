@@ -25,11 +25,11 @@ const props = defineProps({
   },
   selectedSourceLanguage: {
     type: String,
-    required: true,
+    default: null,
   },
   selectedTargetLanguage: {
     type: String,
-    required: true,
+    default: null,
   },
   allOptionEnabled: {
     type: Boolean,
