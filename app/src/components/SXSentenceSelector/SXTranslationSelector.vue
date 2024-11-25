@@ -1,3 +1,67 @@
+<script setup>
+import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
+import useApplicationState from "@/composables/useApplicationState";
+import { computed } from "vue";
+import { getDir } from "@wikimedia/language-data";
+import { useStore } from "vuex";
+import useMTProviderUpdate from "./useMTProviderUpdate";
+import useCurrentPageSection from "@/composables/useCurrentPageSection";
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    required: true,
+  },
+});
+
+const emit = defineEmits(["update:active"]);
+
+const emptyTextProviderKey = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
+const originalTextProviderKey = MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
+const store = useStore();
+
+const {
+  sourceSection,
+  isSectionTitleSelected,
+  selectedContentTranslationUnit,
+} = useCurrentPageSection();
+const { sourceLanguage, targetLanguage } = useApplicationState(store);
+
+const mtProviders = computed(() =>
+  store.getters["mediawiki/getSupportedMTProviders"](
+    sourceLanguage.value,
+    targetLanguage.value
+  )
+);
+
+const apiMtProviders = computed(() => {
+  const ignoredProviders = [originalTextProviderKey, emptyTextProviderKey];
+
+  return mtProviders.value.filter(
+    (provider) => !ignoredProviders.includes(provider)
+  );
+});
+
+const proposedTranslations = computed(() =>
+  isSectionTitleSelected.value
+    ? sourceSection.value.proposedTitleTranslations
+    : selectedContentTranslationUnit.value.proposedTranslations
+);
+
+const updateMTProvider = useMTProviderUpdate();
+
+const selectProvider = (provider) => {
+  updateMTProvider(provider);
+  close();
+};
+
+const getMTProviderLabel = MTProviderGroup.getMTProviderLabel;
+
+const close = () => emit("update:active", false);
+</script>
+
 <template>
   <mw-dialog
     v-if="active"
@@ -81,87 +145,6 @@
     </mw-card>
   </mw-dialog>
 </template>
-
-<script>
-import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
-import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
-import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import useApplicationState from "@/composables/useApplicationState";
-import { computed } from "vue";
-import { getDir } from "@wikimedia/language-data";
-import { useStore } from "vuex";
-import useMTProviderUpdate from "./useMTProviderUpdate";
-import useCurrentPageSection from "@/composables/useCurrentPageSection";
-
-export default {
-  name: "SxTranslationSelector",
-  components: { MwCard, MwButton, MwDialog },
-  props: {
-    active: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: ["update:active"],
-  setup(props, context) {
-    const emptyTextProviderKey = MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY;
-    const originalTextProviderKey = MTProviderGroup.ORIGINAL_TEXT_PROVIDER_KEY;
-    const store = useStore();
-
-    const {
-      sourceSection,
-      isSectionTitleSelected,
-      selectedContentTranslationUnit,
-    } = useCurrentPageSection();
-    const { sourceLanguage, targetLanguage } = useApplicationState(store);
-
-    const mtProviders = computed(() =>
-      store.getters["mediawiki/getSupportedMTProviders"](
-        sourceLanguage.value,
-        targetLanguage.value
-      )
-    );
-
-    const apiMtProviders = computed(() => {
-      const ignoredProviders = [originalTextProviderKey, emptyTextProviderKey];
-
-      return mtProviders.value.filter(
-        (provider) => !ignoredProviders.includes(provider)
-      );
-    });
-
-    const proposedTranslations = computed(() =>
-      isSectionTitleSelected.value
-        ? sourceSection.value.proposedTitleTranslations
-        : selectedContentTranslationUnit.value.proposedTranslations
-    );
-
-    const updateMTProvider = useMTProviderUpdate();
-
-    const selectProvider = (provider) => {
-      updateMTProvider(provider);
-      close();
-    };
-
-    const getMTProviderLabel = MTProviderGroup.getMTProviderLabel;
-
-    const close = () => context.emit("update:active", false);
-
-    return {
-      apiMtProviders,
-      close,
-      emptyTextProviderKey,
-      getDir,
-      getMTProviderLabel,
-      mwIconClose,
-      originalTextProviderKey,
-      proposedTranslations,
-      selectProvider,
-      sourceLanguage,
-    };
-  },
-};
-</script>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
