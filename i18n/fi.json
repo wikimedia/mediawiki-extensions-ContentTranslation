@@ -338,8 +338,8 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "Käännöksesi lisätään olemassa olevaan osioon. Hylkää tämä huomautus, jos osiot eivät liity toisiinsa.",
 	"cx-sx-translation-confirmer-title": "Uusi käännös",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 katselu viikossa|$1 katselua viikossa|0=Ei katseluja tällä viikolla}}",
-	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 tunti|$1 tuntia|0=$2 min}} kääntämiseen",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 tunti|$1 tuntia|0=$2 min}} $3 osion kääntämiseen",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 tunti|$1 tuntia|0={{PLURAL:$1|$2 minuuttti|$2 minuuttia}}}} kääntämiseen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 tunti|$1 tuntia|0={{PLURAL:$1|$2 minuuttti|$2 minuuttia}}}} $3 osion kääntämiseen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Kirjanmerkki",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Käännöksesi julkaistaan omana osionaan.",
 	"cx-sx-content-comparator-discarded-section-label": "(hylätty)",
@@ -529,8 +529,10 @@
 	"cx-sx-suggestions-filters-done-button-label": "Valmis",
 	"cx-sx-suggestions-filter-user-edit-label": "Sinulle",
 	"cx-sx-suggestions-filter-most-popular-label": "Suositut",
+	"cx-sx-suggestions-filter-page-collection-label": "Kaikki kokoelmat",
 	"cx-sx-suggestions-filter-more-label": "Lisää",
 	"cx-sx-suggestions-filter-default-group-label": "Automaattinen",
+	"cx-sx-suggestions-filter-page-collections-group-label": "Kokoelmat",
 	"cx-articletopics-group-geography": "Maantiede",
 	"cx-articletopics-group-culture": "Kulttuuri",
 	"cx-articletopics-group-history-and-society": "Historia ja yhteiskunta",
@@ -573,5 +575,9 @@
 	"cx-articletopics-topic-mathematics": "Matematiikka",
 	"cx-articletopics-topic-medicine-and-health": "Lääketiede ja terveys",
 	"cx-articletopics-topic-physics": "Fysiikka",
-	"cx-articletopics-topic-technology": "Teknologia"
+	"cx-articletopics-topic-technology": "Teknologia",
+	"cx-page-collection-dialog-existing-target-count": "$1/$2 artikkelia olemassa kielellä $3",
+	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 päivä|$1 päivää|0=Ei päiviä}} jäljellä",
+	"cx-page-collection-dialog-page-suggestions-header": "Uudet sivut",
+	"cx-page-collection-dialog-section-suggestions-header": "Uudet osiot"
 }
