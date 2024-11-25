@@ -10,7 +10,11 @@ export const getSuggestionFilterEventSource = (filter) => {
     return "suggestion_filter_topic_area";
   }
 
-  if (filter.id === COLLECTIONS_SUGGESTION_PROVIDER) {
+  if (
+    filter.id === COLLECTIONS_SUGGESTION_PROVIDER ||
+    filter.type === COLLECTIONS_SUGGESTION_PROVIDER
+  ) {
+    // Here we handle both "All collections" and single collection filters
     return "suggestion_filter_collections";
   }
 
