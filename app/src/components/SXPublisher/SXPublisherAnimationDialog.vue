@@ -1,3 +1,64 @@
+<script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-banana-i18n";
+import { MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import publishingLaunchingSVG from "../../assets/publishing-launching.svg?raw";
+import publishingSuccessSVG from "../../assets/publishing-success.svg?raw";
+import publishingFailureSVG from "../../assets/publishing-failure.svg?raw";
+
+const bananaI18n = useI18n();
+
+const props = defineProps({
+  active: {
+    type: Boolean,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+    validator: (value) =>
+      ["pending", "success", "failure", "warning"].includes(value),
+  },
+});
+
+const animations = {
+  pending: {
+    svg: publishingLaunchingSVG,
+    title: bananaI18n.i18n(
+      "cx-sx-publisher-animation-publishing-indicator-title"
+    ),
+    subtitle: bananaI18n.i18n(
+      "cx-sx-publisher-animation-publishing-indicator-subtitle"
+    ),
+  },
+  success: {
+    svg: publishingSuccessSVG,
+    title: bananaI18n.i18n("cx-sx-publisher-animation-success-message-title"),
+    subtitle: bananaI18n.i18n(
+      "cx-sx-publisher-animation-success-message-subtitle"
+    ),
+  },
+  failure: {
+    svg: publishingFailureSVG,
+    title: bananaI18n.i18n("cx-sx-publisher-animation-failure-message-title"),
+    subtitle: bananaI18n.i18n(
+      "cx-sx-publisher-animation-failure-message-subtitle"
+    ),
+  },
+  warning: {
+    svg: publishingFailureSVG,
+    title: bananaI18n.i18n("cx-sx-publisher-animation-failure-message-title"),
+    subtitle: bananaI18n.i18n(
+      "cx-sx-publisher-animation-failure-message-subtitle"
+    ),
+  },
+};
+
+const animationSvg = computed(() => animations[props.status].svg);
+const animationTitle = computed(() => animations[props.status].title);
+const animationSubtitle = computed(() => animations[props.status].subtitle);
+</script>
+
 <template>
   <mw-dialog
     v-if="active"
@@ -19,67 +80,6 @@
     </mw-row>
   </mw-dialog>
 </template>
-
-<script>
-import { MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
-import publishingLaunchingSVG from "../../assets/publishing-launching.svg?raw";
-import publishingSuccessSVG from "../../assets/publishing-success.svg?raw";
-import publishingFailureSVG from "../../assets/publishing-failure.svg?raw";
-
-export default {
-  name: "SxPublisherAnimationDialog",
-  components: { MwDialog, MwRow, MwCol },
-  props: {
-    active: {
-      type: Boolean,
-      required: true,
-    },
-    status: {
-      type: String,
-      required: true,
-      validator: (value) =>
-        ["pending", "success", "failure", "warning"].includes(value),
-    },
-  },
-  data: (vm) => ({
-    animations: {
-      pending: {
-        svg: publishingLaunchingSVG,
-        title: vm.$i18n("cx-sx-publisher-animation-publishing-indicator-title"),
-        subtitle: vm.$i18n(
-          "cx-sx-publisher-animation-publishing-indicator-subtitle"
-        ),
-      },
-      success: {
-        svg: publishingSuccessSVG,
-        title: vm.$i18n("cx-sx-publisher-animation-success-message-title"),
-        subtitle: vm.$i18n(
-          "cx-sx-publisher-animation-success-message-subtitle"
-        ),
-      },
-      failure: {
-        svg: publishingFailureSVG,
-        title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
-        subtitle: vm.$i18n(
-          "cx-sx-publisher-animation-failure-message-subtitle"
-        ),
-      },
-      warning: {
-        svg: publishingFailureSVG,
-        title: vm.$i18n("cx-sx-publisher-animation-failure-message-title"),
-        subtitle: vm.$i18n(
-          "cx-sx-publisher-animation-failure-message-subtitle"
-        ),
-      },
-    },
-  }),
-  computed: {
-    animationSvg: (vm) => vm.animations[vm.status].svg,
-    animationTitle: (vm) => vm.animations[vm.status].title,
-    animationSubtitle: (vm) => vm.animations[vm.status].subtitle,
-  },
-};
-</script>
 
 <style lang="less">
 .sx-publisher {
