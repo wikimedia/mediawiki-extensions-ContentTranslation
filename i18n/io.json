@@ -154,5 +154,8 @@
 	"sx-recent-translation-entrypoint-dialog-original-page-anchor": "Apertar originala pagino che $1",
 	"sx-recent-translation-entrypoint-dialog-translate-button-label": "Tradukar nova seciono",
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-one-missing": "Tradukar \"$1\"",
-	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\""
+	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\"",
+	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
+	"cx-uls-relevant-languages-banner-text-single-missing": "Mankanta en <span>$1</span> e pluse",
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse"
 }
