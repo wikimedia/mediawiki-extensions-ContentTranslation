@@ -29,12 +29,7 @@ const discardTranslation = () => {
 </script>
 
 <template>
-  <mw-dialog
-    :value="modelValue"
-    class="sx-confirm-back-navigation-dialog"
-    :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.gray700"
-  >
+  <mw-dialog :value="modelValue" class="sx-confirm-back-navigation-dialog">
     <template #header>
       <div class="mw-ui-dialog__header px-4 py-3">
         <span

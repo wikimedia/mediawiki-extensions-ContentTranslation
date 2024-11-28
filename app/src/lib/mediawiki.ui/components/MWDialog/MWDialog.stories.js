@@ -185,7 +185,6 @@ export const DialogWithCustomOverlay = (args, { argTypes }) => ({
         v-model="showDialog"
         :fullscreen="fullscreen"
         :title="title"
-        :overlay-color="overlayColor"
         :overlay-opacity="overlayOpacity"
     >
       {{bodyText}}
@@ -199,8 +198,7 @@ export const DialogWithCustomOverlay = (args, { argTypes }) => ({
 });
 
 DialogWithCustomOverlay.args = {
-  overlayColor: "#202122",
-  overlayOpacity: 0.7,
+  overlayOpacity: "medium",
   fullscreen: false,
   title: "Did you know",
   bodyText: "The moai heads of Easter Island have bodies.",

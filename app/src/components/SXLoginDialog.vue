@@ -1,8 +1,6 @@
 <template>
   <mw-dialog
     v-if="isDialogOn"
-    :overlay-opacity="0.25"
-    overlay-color="#000"
     :close-on-escape-key="false"
     persistent
     class="sx-login-dialog"

@@ -224,7 +224,6 @@ const startTranslation = (page, eventSource) =>
       animation="slide-up"
       :fullscreen="fullscreen"
       :header="fullscreen"
-      :overlay-opacity="0"
       :title="$i18n('sx-article-search-language-selector-dialog-title')"
       @close="onSourceLanguageDialogClose"
     >

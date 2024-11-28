@@ -174,8 +174,6 @@ const notes = computed(() => {
     :value="active"
     class="sx-block-template-status-dialog"
     :title="$i18n('cx-sx-publisher-preview-options-title')"
-    :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.gray700"
     @input="$emit('update:active', $event)"
   >
     <template #header>

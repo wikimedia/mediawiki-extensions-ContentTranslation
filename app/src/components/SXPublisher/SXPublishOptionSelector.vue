@@ -68,8 +68,6 @@ const updateOption = (event) => {
     :value="active"
     class="sx-publisher__publish-options"
     :title="$i18n('cx-sx-publisher-preview-options-title')"
-    :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.gray700"
     @input="$emit('update:active', $event)"
     @close="onPublishOptionsClose"
   >

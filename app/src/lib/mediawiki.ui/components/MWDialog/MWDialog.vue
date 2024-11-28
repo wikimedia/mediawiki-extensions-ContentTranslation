@@ -12,7 +12,7 @@
     >
       <div
         class="mw-ui-dialog__overlay"
-        :style="overlayStyles"
+        :class="overlayClasses"
         @click="!persistent && close"
       />
       <div class="mw-ui-dialog__shell items-stretch">
@@ -115,18 +115,15 @@ export default {
       default: true,
     },
     /**
-     * Color of the overlay
-     **/
-    overlayColor: {
-      type: String,
-      default: "#fff",
-    },
-    /**
      * Opacity of the overlay
+     * @values medium (0.65), high (0.95)
      **/
     overlayOpacity: {
-      type: Number,
-      default: 1.0,
+      type: String,
+      default: "medium",
+      validator: (value) => {
+        return ["medium", "high"].indexOf(value) !== -1;
+      },
     },
     value: {
       type: Boolean,
@@ -144,10 +141,8 @@ export default {
       "mw-ui-dialog--fullscreen": props.fullscreen,
       "mw-ui-dialog--dialog": !props.fullscreen,
     }));
-
-    const overlayStyles = computed(() => ({
-      "background-color": props.overlayColor,
-      opacity: props.overlayOpacity,
+    const overlayClasses = computed(() => ({
+      "mw-ui-dialog__overlay--high_opacity": props.overlayOpacity === "high",
     }));
 
     const close = () => {
@@ -181,7 +176,7 @@ export default {
       close,
       classes,
       cssVars,
-      overlayStyles,
+      overlayClasses,
       mwIconClose,
       root,
     };
@@ -222,6 +217,13 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: @background-color-base;
+    opacity: @opacity-medium;
+
+    &--high_opacity {
+      /* todo: @opacity-high */
+      opacity: 0.95;
+    }
   }
 
   .mw-ui-dialog__shell {
@@ -230,7 +232,7 @@ export default {
     border: @border-base;
     border-radius: @border-radius-base;
     position: relative;
-    max-width: calc(100vw - 100px);
+    max-width: @size-3200;
     min-width: 300px;
     max-height: calc(100vh - 100px);
     min-height: var(--dialog-min-height);

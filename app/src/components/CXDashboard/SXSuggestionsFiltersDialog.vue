@@ -94,7 +94,6 @@ const { getFilterProvider } = useSuggestionProvider();
     animation="fade"
     :fullscreen="fullscreen"
     :header="false"
-    :overlay-opacity="0"
   >
     <section class="sx-suggestions-filters">
       <mw-row

@@ -27,7 +27,6 @@ const fullscreen = computed(() => breakpoints.value.mobile);
 <template>
   <mw-dialog
     v-if="active && captchaDetails"
-    :overlay-opacity="0.65"
     :fullscreen="fullscreen"
     class="sx-publisher__captcha-dialog"
   >

@@ -50,8 +50,6 @@ const startTranslation = async () => {
     :value="modelValue"
     :persistent="loading"
     class="sx-confirm-translation-start-dialog"
-    :overlay-opacity="0.7"
-    :overlay-color="$mwui.colors.gray700"
     min-height="unset"
     :title="$i18n('sx-confirm-draft-translation-start-dialog-title')"
     @close="closeDialog"

@@ -62,7 +62,7 @@ const animationSubtitle = computed(() => animations[props.status].subtitle);
 <template>
   <mw-dialog
     v-if="active"
-    :overlay-opacity="0.85"
+    overlay-opacity="high"
     :header="false"
     class="sx-publisher__publish-animation"
   >
