@@ -3,13 +3,23 @@ import { useStore } from "vuex";
 import useSuggestionValidator from "@/composables/useSuggestionValidator";
 import useURLHandler from "@/composables/useURLHandler";
 import { COLLECTIONS_SUGGESTION_PROVIDER } from "@/utils/suggestionFilterProviders";
+import { computed } from "vue";
 
 const useSuggestionFetchByCollections = () => {
   const store = useStore();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
+    currentSuggestionFilters: currentFilter,
   } = useURLHandler();
+
+  const currentCollectionName = computed(() => {
+    if (currentFilter.value?.type !== COLLECTIONS_SUGGESTION_PROVIDER) {
+      return null;
+    }
+
+    return currentFilter.value.id;
+  });
 
   const {
     isSectionSuggestionValid,
@@ -23,7 +33,8 @@ const useSuggestionFetchByCollections = () => {
     /** @type {CollectionArticleSuggestion[]} */
     let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByCollections(
       sourceLanguage.value,
-      targetLanguage.value
+      targetLanguage.value,
+      currentCollectionName.value
     );
 
     suggestions = suggestions.filter((suggestion) =>
@@ -33,11 +44,7 @@ const useSuggestionFetchByCollections = () => {
     fetchedSuggestions.push(...suggestions);
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = {
-          id: suggestion.collection.name,
-          type: COLLECTIONS_SUGGESTION_PROVIDER,
-        })
+      (suggestion) => (suggestion.suggestionProvider = currentFilter.value)
     );
 
     return fetchedSuggestions;
@@ -49,7 +56,8 @@ const useSuggestionFetchByCollections = () => {
     const suggestions =
       await cxSuggestionsApi.fetchSectionSuggestionsByCollections(
         sourceLanguage.value,
-        targetLanguage.value
+        targetLanguage.value,
+        currentCollectionName.value
       );
 
     let validSuggestions = suggestions.filter((suggestion) =>
@@ -69,11 +77,7 @@ const useSuggestionFetchByCollections = () => {
     });
 
     fetchedSuggestions.forEach(
-      (suggestion) =>
-        (suggestion.suggestionProvider = {
-          id: suggestion.collection.name,
-          type: COLLECTIONS_SUGGESTION_PROVIDER,
-        })
+      (suggestion) => (suggestion.suggestionProvider = currentFilter.value)
     );
 
     return fetchedSuggestions;

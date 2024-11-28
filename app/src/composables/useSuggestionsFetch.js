@@ -7,10 +7,7 @@ const useSuggestionsFetch = () => {
   const store = useStore();
   const { getFilteredSectionSuggestions, getFilteredPageSuggestions } =
     useSuggestionsStore();
-  const {
-    sourceLanguageURLParameter: sourceLanguage,
-    targetLanguageURLParameter: targetLanguage,
-  } = useURLHandler();
+  const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 
   /**
    * This method calculates and returns the number of section suggestions to fetch,

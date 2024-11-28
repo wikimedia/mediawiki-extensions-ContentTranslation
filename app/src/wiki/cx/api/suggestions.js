@@ -177,11 +177,13 @@ const fetchMostPopularSectionSuggestions = async (
 /**
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
+ * @param {string|null} collectionName
  * @return {Promise<CollectionArticleSuggestion[]>}
  */
 const fetchPageSuggestionsByCollections = async (
   sourceLanguage,
-  targetLanguage
+  targetLanguage,
+  collectionName = null
 ) => {
   const urlParams = {
     source: sourceLanguage,
@@ -189,6 +191,11 @@ const fetchPageSuggestionsByCollections = async (
     count: 24,
     collections: true,
   };
+
+  if (collectionName) {
+    urlParams.seed = collectionName;
+  }
+
   const recommendations =
     (await requestToRecommendationApi({ urlParams })) || [];
 
@@ -208,11 +215,13 @@ const fetchPageSuggestionsByCollections = async (
 /**
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
+ * @param {string|null} collectionName
  * @return {Promise<CollectionSectionSuggestion[]>}
  */
 const fetchSectionSuggestionsByCollections = async (
   sourceLanguage,
-  targetLanguage
+  targetLanguage,
+  collectionName = null
 ) => {
   const urlParams = {
     source: sourceLanguage,
@@ -220,6 +229,10 @@ const fetchSectionSuggestionsByCollections = async (
     count: 24,
     collections: true,
   };
+
+  if (collectionName) {
+    urlParams.seed = collectionName;
+  }
 
   const urlPostfix = "/sections";
 

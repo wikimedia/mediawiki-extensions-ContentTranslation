@@ -128,13 +128,6 @@ export default class SectionSuggestion {
    * @param {{ id: string, type: string }} filter
    */
   matchesFilter(filter) {
-    if (
-      filter.type === AUTOMATIC_SUGGESTION_PROVIDER_GROUP &&
-      filter.id === COLLECTIONS_SUGGESTION_PROVIDER
-    ) {
-      return this.suggestionProvider?.type === COLLECTIONS_SUGGESTION_PROVIDER;
-    }
-
     return (
       this.suggestionProvider?.type === filter.type &&
       this.suggestionProvider?.id === filter.id

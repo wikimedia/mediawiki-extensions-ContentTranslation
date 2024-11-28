@@ -1,6 +1,9 @@
 import { ref } from "vue";
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 
+/**
+ * @type {Ref<PageCollection[]>}
+ */
 const pageCollections = ref([]);
 const pageCollectionsFetched = ref(false);
 
