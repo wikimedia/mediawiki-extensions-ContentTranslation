@@ -17,9 +17,7 @@ const useSuggestionFetchByCollections = () => {
     sectionSuggestionExists,
   } = useSuggestionValidator();
 
-  const fetchPageSuggestionsByCollections = async (
-    numberOfSuggestionsToFetch
-  ) => {
+  const fetchPageSuggestionsByCollections = async () => {
     const fetchedSuggestions = [];
 
     /** @type {CollectionArticleSuggestion[]} */
@@ -32,8 +30,6 @@ const useSuggestionFetchByCollections = () => {
       isPageSuggestionValid(suggestion)
     );
 
-    // only keep the needed number of suggestions, to avoid having suggestions of only one seed
-    suggestions = suggestions.slice(0, numberOfSuggestionsToFetch);
     fetchedSuggestions.push(...suggestions);
 
     fetchedSuggestions.forEach(
@@ -47,9 +43,7 @@ const useSuggestionFetchByCollections = () => {
     return fetchedSuggestions;
   };
 
-  const fetchSectionSuggestionsByCollections = async (
-    numberOfSuggestionsToFetch
-  ) => {
+  const fetchSectionSuggestionsByCollections = async () => {
     const fetchedSuggestions = [];
     /** @type {CollectionSectionSuggestion[]} */
     const suggestions =
@@ -65,8 +59,6 @@ const useSuggestionFetchByCollections = () => {
       (suggestion) => !isSectionSuggestionValid(suggestion)
     );
 
-    // only keep the needed number of suggestions, to avoid having suggestions of only one seed
-    validSuggestions = validSuggestions.slice(0, numberOfSuggestionsToFetch);
     fetchedSuggestions.push(...validSuggestions);
 
     invalidSuggestions.forEach((suggestion) => {
