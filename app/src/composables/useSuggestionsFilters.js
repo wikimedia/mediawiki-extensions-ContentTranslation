@@ -49,13 +49,21 @@ const useSuggestionsFilters = () => {
     label: bananaI18n.i18n("cx-sx-suggestions-filter-page-collection-label"),
   };
 
-  const automaticFiltersGroup = new SuggestionFilterGroup({
-    id: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
-    label: bananaI18n.i18n("cx-sx-suggestions-filter-default-group-label"),
-    filters: [editsFilter, popularFilter, collectionsFilter],
-  });
-
   const { pageCollections, pageCollectionsFetched } = usePageCollections();
+
+  const automaticFiltersGroup = computed(() => {
+    const filterGroup = new SuggestionFilterGroup({
+      id: AUTOMATIC_SUGGESTION_PROVIDER_GROUP,
+      label: bananaI18n.i18n("cx-sx-suggestions-filter-default-group-label"),
+      filters: [editsFilter, popularFilter],
+    });
+
+    if (pageCollections.value.length) {
+      filterGroup.filters.push(collectionsFilter);
+    }
+
+    return filterGroup;
+  });
 
   /**
    * @param {PageCollection} collection
@@ -80,11 +88,19 @@ const useSuggestionsFilters = () => {
       })
   );
 
-  const allFilters = computed(() => [
-    automaticFiltersGroup,
-    collectionFiltersGroup.value,
-    ...topicGroups.map(topicGroupToFilterGroup),
-  ]);
+  const allFilters = computed(() => {
+    const filters = [
+      automaticFiltersGroup.value,
+      ...topicGroups.map(topicGroupToFilterGroup),
+    ];
+
+    if (pageCollections.value.length) {
+      // push the collection filters group, just after the automatic group
+      filters.splice(1, 0, collectionFiltersGroup.value);
+    }
+
+    return filters;
+  });
 
   const waitingForPageCollectionsFetch = computed(
     () =>

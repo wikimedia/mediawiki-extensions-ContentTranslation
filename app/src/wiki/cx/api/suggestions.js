@@ -55,10 +55,20 @@ const requestToRecommendationApi = async ({ urlPostfix = null, urlParams }) => {
 async function fetchPageCollections() {
   const urlParams = {};
   const urlPostfix = "/page-collections";
-  const collectionResults =
-    (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
 
-  return collectionResults.map((item) => new PageCollection(item));
+  try {
+    const collectionResults =
+      (await requestToRecommendationApi({ urlPostfix, urlParams })) || [];
+
+    return collectionResults.map((item) => new PageCollection(item));
+  } catch (error) {
+    mw.log.error(
+      "Error while fetching the page collections from Recommendation API",
+      error
+    );
+
+    return [];
+  }
 }
 
 /**
