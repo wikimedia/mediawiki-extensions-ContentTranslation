@@ -11,7 +11,10 @@
 		"es-x/no-array-prototype-includes": "off",
 		"es-x/no-async-functions": "off",
 		"es-x/no-object-values": "off",
-		"es-x/no-promise-prototype-finally": "off"
+		"es-x/no-promise-prototype-finally": "off",
+		"prefer-arrow-callback": "error",
+		"implicit-arrow-linebreak": "warn",
+		"arrow-body-style": "error"
 	},
 	"globals": {
 		"Ref": true,

@@ -455,7 +455,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-save-success', 0 ) );
 
 	let minutes = 0;
-	this.saveStatusTimer = setInterval( function () {
+	this.saveStatusTimer = setInterval( () => {
 		if ( this.failCounter > 0 ) {
 			// Don't overwrite error message of failure with this timer controlled message.
 			return;
@@ -465,7 +465,7 @@ mw.cx.TranslationController.prototype.onSaveComplete = function ( savedSections,
 		this.translationView.setStatusMessage(
 			mw.msg( 'cx-save-draft-save-success', mw.language.convertNumber( minutes ) )
 		);
-	}.bind( this ), 60 * 1000 );
+	}, 60 * 1000 );
 };
 
 mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
@@ -477,7 +477,7 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 };
 
 mw.cx.TranslationController.prototype.showLoginDialog = function () {
-	mw.loader.using( 'mw.cx.ui.LoginDialog' ).then( function () {
+	mw.loader.using( 'mw.cx.ui.LoginDialog' ).then( () => {
 		const windowManager = OO.ui.getWindowManager();
 
 		if ( !this.loginDialog ) {
@@ -491,7 +491,7 @@ mw.cx.TranslationController.prototype.showLoginDialog = function () {
 		windowManager
 			.openWindow( this.loginDialog.constructor.static.name )
 			.closed.then( this.processSaveQueue.bind( this ) );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -576,7 +576,7 @@ mw.cx.TranslationController.prototype.getContentToSave = function ( saveQueue, d
 	const records = [];
 
 	saveQueue.forEach( function ( sectionNumber ) {
-		this.getSectionRecords( sectionNumber ).forEach( function ( data ) {
+		this.getSectionRecords( sectionNumber ).forEach( ( data ) => {
 			records.push( data );
 		} );
 	}, this );
@@ -764,9 +764,7 @@ mw.cx.TranslationController.prototype.publishArticle = function ( numOfHighMTSec
  */
 mw.cx.TranslationController.prototype.translationHasIssues = function ( ignore ) {
 	return this.translation.getTranslationIssues().length > 0 ||
-		this.translationTracker.getNodesWithIssues().some( function ( node ) {
-			return ignore.indexOf( node ) === -1;
-		} );
+		this.translationTracker.getNodesWithIssues().some( ( node ) => ignore.indexOf( node ) === -1 );
 };
 
 mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function ( numOfHighMTSections ) {
@@ -888,9 +886,9 @@ mw.cx.TranslationController.prototype.onSurfaceReady = function () {
 		action: 'query',
 		meta: 'cxdeletedtranslations',
 		dtafter: this.getTimestamp()
-	} ).then( function ( result ) {
+	} ).then( ( result ) => {
 		this.hasDeletedTranslations = OO.getProp( result, 'query', 'cxdeletedtranslations', 'deleted' ) > 0;
-	}.bind( this ) );
+	} );
 };
 
 /**

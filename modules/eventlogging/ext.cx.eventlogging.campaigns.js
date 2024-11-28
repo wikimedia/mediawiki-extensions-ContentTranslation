@@ -8,8 +8,8 @@
 ( function () {
 	'use strict';
 
-	$( function () {
-		mw.hook( 'mw.cx.cta.accept' ).add( function ( campaign ) {
+	$( () => {
+		mw.hook( 'mw.cx.cta.accept' ).add( ( campaign ) => {
 			mw.track( 'counter.MediaWiki.cx.campaign.' + campaign + '.accept', 1 );
 		} );
 	} );

@@ -482,7 +482,7 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 			{ action: 'restart', label: mw.msg( 'cx-tools-linter-old-revision-label' ), flags: [ 'primary', 'destructive' ] },
 			{ action: 'cancel', label: mw.msg( 'cx-tools-linter-restart-translation-cancel' ), flags: 'safe' }
 		]
-	} ).closed.then( function ( data ) {
+	} ).closed.then( ( data ) => {
 		if ( !data || data.action !== 'restart' ) {
 			return;
 		}
@@ -498,15 +498,15 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 			sourcetitle: sourceTitle
 		};
 
-		return new mw.Api().postWithToken( 'csrf', apiParams ).done( function () {
+		return new mw.Api().postWithToken( 'csrf', apiParams ).done( () => {
 			const uri = new mw.Uri();
 			delete uri.query.revision;
 
 			this.config.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
 
 			location.href = uri.getRelativePath();
-		}.bind( this ) );
-	}.bind( this ) );
+		} );
+	} );
 };
 
 mw.cx.init.Translation.prototype.checkIfUserCanPublish = function () {

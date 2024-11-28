@@ -62,7 +62,7 @@
 		this.$widget = $( '<div>' )
 			.addClass( 'cx-translator' )
 			.append( $header, $monthStats, $total, this.$canvas );
-		statsRequest.then( function ( stats ) {
+		statsRequest.then( ( stats ) => {
 			const publishTrend = stats.cxtranslatorstats.publishTrend,
 				// Sorted months for ordered display on bar chart
 				monthKeys = Object.keys( publishTrend ).sort(),
@@ -83,7 +83,7 @@
 			$monthStats.find( '.cx-translator__month-stats-count' )
 				.text( mw.language.convertNumber( thisMonthStats ) );
 
-			monthKeys.forEach( function ( month ) {
+			monthKeys.forEach( ( month ) => {
 				self.max = Math.max( self.max, publishTrend[ month ].delta );
 				self.data.push( publishTrend[ month ].delta );
 			} );
@@ -94,7 +94,7 @@
 			// Make statistics visible in dashboard sidebar,
 			// after all data is fetched and drawn on canvas
 			self.$widget.addClass( 'cx-translator--visible' );
-		} ).fail( function () {
+		} ).fail( () => {
 			self.$widget.remove();
 		} );
 	};

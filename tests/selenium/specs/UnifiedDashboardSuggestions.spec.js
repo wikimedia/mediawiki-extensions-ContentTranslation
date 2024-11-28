@@ -27,8 +27,8 @@
 
 const LoginPage = require( 'wdio-mediawiki/LoginPage' );
 const UnifiedDashboardPage = require( '../pageobjects/UnifiedDashboard.page' );
-describe( 'Unified Dashboard - Suggestions', function () {
-	it( 'should show suggestions tab', async function () {
+describe( 'Unified Dashboard - Suggestions', () => {
+	it( 'should show suggestions tab', async () => {
 		await LoginPage.loginAdmin();
 		await UnifiedDashboardPage.open();
 
@@ -40,7 +40,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 			.toBeDisplayed( defaultOption );
 	} );
 
-	it( 'should allow user to save/unsave a suggestion for later', async function () {
+	it( 'should allow user to save/unsave a suggestion for later', async () => {
 		await UnifiedDashboardPage.open();
 		// Save the article for later
 		const favoriteArticleHeading = await UnifiedDashboardPage.favoriteArticle( 0 );
@@ -55,7 +55,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		await expect( favoriteArticle ).toBeUndefined();
 	} );
 
-	it( 'should allow dismissing a suggestion', async function () {
+	it( 'should allow dismissing a suggestion', async () => {
 		await UnifiedDashboardPage.open();
 		const dismissedArticleTitle = await UnifiedDashboardPage.dismissPageSuggestion( 0 );
 		const dismissedArticle = await UnifiedDashboardPage
@@ -63,7 +63,7 @@ describe( 'Unified Dashboard - Suggestions', function () {
 		await expect( dismissedArticle ).toBeUndefined();
 	} );
 
-	it( 'should allow refreshing suggestions', async function () {
+	it( 'should allow refreshing suggestions', async () => {
 		await UnifiedDashboardPage.open();
 		const sectionSuggestions = await UnifiedDashboardPage.sectionSuggestions;
 		// initial section suggestion source titles

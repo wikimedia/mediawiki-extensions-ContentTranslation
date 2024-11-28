@@ -8,7 +8,7 @@
 
 	QUnit.module( 'mw.cx.TargetArticle', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'cleanupContent', function ( assert ) {
+	QUnit.test( 'cleanupContent', ( assert ) => {
 		const tests = [ {
 			inputHtml: '<section re="cx:Section"><p id="mwaA"><span class="cx-segment" data-segmentid="10" id="34">sentence content</span></p><section>',
 			output: '<p id="mwaA">sentence content</p>',

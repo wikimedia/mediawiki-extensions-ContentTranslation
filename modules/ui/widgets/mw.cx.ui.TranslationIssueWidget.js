@@ -84,7 +84,7 @@ mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
 
 	this.$foot.addClass( 'cx-ui-translationIssue-foot-additional' );
 
-	additionalButtons.forEach( function ( buttonConfig ) {
+	additionalButtons.forEach( ( buttonConfig ) => {
 		const button = new OO.ui.ButtonWidget( {
 			framed: false,
 			icon: buttonConfig.icon,
@@ -94,5 +94,5 @@ mw.cx.ui.TranslationIssueWidget.prototype.buildAdditionalButtons = function () {
 		button.connect( this, { click: buttonConfig.action } );
 
 		this.$foot.prepend( button.$element );
-	}.bind( this ) );
+	} );
 };

@@ -145,9 +145,7 @@
 		}
 
 		const sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
-		const commonLanguages = mw.uls.getFrequentLanguageList().filter( function ( lang ) {
-			return sourceLanguages.indexOf( lang ) !== -1;
-		} );
+		const commonLanguages = mw.uls.getFrequentLanguageList().filter( ( lang ) => sourceLanguages.indexOf( lang ) !== -1 );
 
 		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
 			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {
@@ -382,9 +380,9 @@
 			this.setActiveList( item.getData() );
 		} } );
 
-		this.$publishedTranslationsButton.on( 'click', function () {
+		this.$publishedTranslationsButton.on( 'click', () => {
 			this.filter.selectItemByData( 'published' );
-		}.bind( this ) );
+		} );
 
 		this.initSourceSelector();
 		this.newTranslationButton.connect( this, {
@@ -454,7 +452,7 @@
 		this.isNarrowScreenSize = narrowScreenSize;
 	};
 
-	$( function () {
+	$( () => {
 		// Set the global siteMapper for code which we cannot inject it
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
 		const dashboard = new CXDashboard( document.body, mw.cx.siteMapper );

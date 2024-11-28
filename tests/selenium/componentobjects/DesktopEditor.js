@@ -47,11 +47,11 @@ class DesktopEditor {
 	 * @return {Promise<any>}
 	 */
 	makePlaceholderSectionsVisible() {
-		return browser.executeAsync( function ( done ) {
+		return browser.executeAsync( ( done ) => {
 			const placeholderNodes = document
 				.querySelectorAll( '.cx-column--translation section.ve-ce-cxPlaceholderNode' );
 
-			placeholderNodes.forEach( function ( node ) {
+			placeholderNodes.forEach( ( node ) => {
 				node.style.opacity = 1;
 			} );
 

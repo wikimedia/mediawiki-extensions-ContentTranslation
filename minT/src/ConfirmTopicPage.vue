@@ -264,11 +264,9 @@ module.exports = defineComponent( {
 		const sourcePageUrl = computed(
 			() => siteMapper.getPageUrl( sourceLanguage.value, props.pageResult.sourceTitle )
 		);
-		const targetPageUrl = computed( () => {
-			return targetPage.value ?
-				siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title ) :
-				null;
-		} );
+		const targetPageUrl = computed( () => targetPage.value ?
+			siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title ) :
+			null );
 
 		const onTargetArticleClick = () => {
 			const translationContext = computed( () => ( {

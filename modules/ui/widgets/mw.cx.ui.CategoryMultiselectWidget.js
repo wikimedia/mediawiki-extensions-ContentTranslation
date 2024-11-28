@@ -61,7 +61,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.setDisabled = function ( isDisabled
 
 	// When widget is (re)enabled, restore tag item's original disabled state
 	if ( !isDisabled && this.items ) {
-		this.getItems().forEach( function ( item ) {
+		this.getItems().forEach( ( item ) => {
 			item.restoreOriginalDisabledState();
 		} );
 	}
@@ -77,9 +77,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.allDisabled = function () {
 		return false;
 	}
 
-	return this.getItems().every( function ( item ) {
-		return item.isDisabled();
-	} );
+	return this.getItems().every( ( item ) => item.isDisabled() );
 };
 
 /**

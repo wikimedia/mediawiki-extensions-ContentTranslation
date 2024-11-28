@@ -31,11 +31,11 @@ mw.cx.ui.CategoryInputWidget = function CategoryInputWidget( categoryWidget, con
 		api: siteMapper.getApi( targetLanguage, { parameters: { formatversion: 2 } } )
 	}, config.input ) );
 
-	requestManager.getNamespaceAlias( targetLanguage, 'Category' ).done( function ( prefix ) {
+	requestManager.getNamespaceAlias( targetLanguage, 'Category' ).done( ( prefix ) => {
 		// This is likely to be resolved before first usage of variable,
 		// but we may want some error handling
 		this.namespacePrefix = prefix + ':';
-	}.bind( this ) );
+	} );
 
 	// Initialization
 	this.$element.addClass( 'mw-cx-ui-CategoryInputWidget' );

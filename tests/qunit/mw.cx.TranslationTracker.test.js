@@ -8,7 +8,7 @@
 
 	QUnit.module( 'mw.cx.TranslationTracker', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'calculateUnmodifiedContent', function ( assert ) {
+	QUnit.test( 'calculateUnmodifiedContent', ( assert ) => {
 		const tests = [
 			{
 				string1: 'a b c d',
@@ -77,7 +77,7 @@
 		}
 	} );
 
-	QUnit.test( 'getSectionNodeValidationTokens', function ( assert ) {
+	QUnit.test( 'getSectionNodeValidationTokens', ( assert ) => {
 		// The sample HTML below matches ve.dm.SectionNode instead of ve.dm.CXSectionNode,
 		// because the latter is not loaded in unit tests. T303298#7816113
 		// (If it was loaded, it would crash because it relies on ve.init.target being set.)

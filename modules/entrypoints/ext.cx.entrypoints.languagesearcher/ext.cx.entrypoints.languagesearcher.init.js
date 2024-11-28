@@ -9,7 +9,7 @@
 	'use strict';
 
 	mw.hook( 'mobileFrontend.languageSearcher.noresults' ).add(
-		function () {
+		() => {
 			if ( mw.config.get( 'mintEntrypointLanguages' ) ) {
 				mw.loader.load( 'ext.cx.entrypoints.languagesearcher' );
 			} else {

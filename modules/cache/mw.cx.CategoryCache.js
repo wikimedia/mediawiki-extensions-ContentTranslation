@@ -30,9 +30,7 @@ OO.inheritClass( mw.cx.CategoryCache, mw.cx.ApiResponseCache );
  */
 mw.cx.CategoryCache.static.processPage = function ( page ) {
 	return {
-		categories: ( page.categories || [] ).map( function ( item ) {
-			return item.title;
-		} )
+		categories: ( page.categories || [] ).map( ( item ) => item.title )
 	};
 };
 

@@ -118,7 +118,7 @@
 				mw.eventLog.submit( streamName, Object.assign( {}, eventDefaults, event ) )
 			);
 		} else {
-			return getGlobalEditCount( userName ).then( function ( editCount ) {
+			return getGlobalEditCount( userName ).then( ( editCount ) => {
 				cachedEditCount = editCount;
 				// eslint-disable-next-line camelcase
 				event.user_global_edit_count = editCount;

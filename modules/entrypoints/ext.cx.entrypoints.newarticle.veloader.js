@@ -7,8 +7,8 @@
 ( function () {
 	'use strict';
 
-	$( function () {
-		mw.hook( 've.activationComplete' ).add( function () {
+	$( () => {
+		mw.hook( 've.activationComplete' ).add( () => {
 			mw.loader.load( 'ext.cx.entrypoints.newarticle' );
 		} );
 	} );

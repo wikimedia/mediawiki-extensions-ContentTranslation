@@ -11,16 +11,16 @@
 		if ( mw.uls ) {
 			candidates = candidates.concat( mw.uls.getPreviousLanguages() );
 		}
-		candidates = candidates.map( function ( lang ) {
+		candidates = candidates.map( ( lang ) => {
 			if ( lang ) {
 				// Remove country codes
 				return lang.split( '-' )[ 0 ];
 			}
 			return null;
-		} ).filter( function ( lang, index, self ) {
+		} ).filter( ( lang, index, self ) =>
 			// Remove target language and duplicates
-			return lang && lang !== targetLanguage && self.indexOf( lang ) === index;
-		} );
+			lang && lang !== targetLanguage && self.indexOf( lang ) === index
+		);
 		return candidates.splice( 0, 5 );
 	}
 
@@ -36,12 +36,8 @@
 			} );
 
 		return fetch( sourceSuggestionApi )
-			.then( function ( response ) {
-				return response.json();
-			} )
-			.then( function ( response ) {
-				return response.suggestions || [];
-			} );
+			.then( ( response ) => response.json() )
+			.then( ( response ) => response.suggestions || [] );
 	}
 
 	function removeInvite( invitePanel ) {
@@ -110,7 +106,7 @@
 
 		const closeIcon = document.createElement( 'span' );
 		closeIcon.className = 'sx-suggestion__action-container__close-icon';
-		closeIcon.addEventListener( 'click', function ( event ) {
+		closeIcon.addEventListener( 'click', ( event ) => {
 			removeInvite( invitePanel );
 			event.stopPropagation();
 		} );
@@ -124,8 +120,8 @@
 	// Here we need to detect the editor open event in MobileFrontend.
 	// VE provides "ve.activationComplete" hook but that is only for VisualEdit mode.
 	// To cover both wikitext and VisualEdit mode, we are using "mobileFrontend.editorOpened" hook
-	mw.hook( 'mobileFrontend.editorOpened' ).add( function () {
-		getSourceSuggestions().then( function ( suggestions ) {
+	mw.hook( 'mobileFrontend.editorOpened' ).add( () => {
+		getSourceSuggestions().then( ( suggestions ) => {
 			if ( !suggestions.length ) {
 				// No suggestions. Nothing to do.
 				return;
@@ -135,12 +131,12 @@
 			const sxInvite = createNewByTranslationPanel( suggestion );
 			document.body.appendChild( sxInvite );
 
-			mw.hook( 'mobileFrontend.editorClosed' ).add( function () {
+			mw.hook( 'mobileFrontend.editorClosed' ).add( () => {
 				removeInvite( sxInvite );
 			} );
 
 			const wikitextEditor = document.getElementById( 'wikitext-editor' );
-			wikitextEditor.addEventListener( 'input', function () {
+			wikitextEditor.addEventListener( 'input', () => {
 				removeInvite( sxInvite );
 			} );
 		} );

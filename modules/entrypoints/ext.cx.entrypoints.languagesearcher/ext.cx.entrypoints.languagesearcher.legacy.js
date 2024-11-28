@@ -22,9 +22,7 @@
 			origin: '*',
 			search: query,
 			formatversion: 2
-		} ).then( function ( result ) {
-			return Object.keys( result.languagesearch || {} );
-		} );
+		} ).then( ( result ) => Object.keys( result.languagesearch || {} ) );
 	}
 
 	/**
@@ -132,13 +130,11 @@
 	 * @param {HTMLElement} noResultsContainer
 	 */
 	function showTranslationCTA( searchQuery, noResultsContainer ) {
-		searchWithAPI( searchQuery ).then( function ( results ) {
+		searchWithAPI( searchQuery ).then( ( results ) => {
 			const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
-			const matches = results.filter( function ( code ) {
-				return enabledTargets.indexOf( code ) >= 0 &&
-					code !== mw.config.get( 'wgContentLanguage' );
-			} );
+			const matches = results.filter( ( code ) => enabledTargets.indexOf( code ) >= 0 &&
+					code !== mw.config.get( 'wgContentLanguage' ) );
 			if ( !matches.length ) {
 				onNoLanguageMatch( noResultsContainer );
 			} else {

@@ -21,9 +21,7 @@
 			origin: '*',
 			search: query,
 			formatversion: 2
-		} ).then( function ( result ) {
-			return Object.keys( result.languagesearch || {} );
-		} );
+		} ).then( ( result ) => Object.keys( result.languagesearch || {} ) );
 	}
 
 	/**
@@ -87,8 +85,7 @@
 			return [];
 		}
 		return resultLanguages.filter(
-			( code ) =>
-				mintLanguages.indexOf( code ) >= 0 &&
+			( code ) => mintLanguages.indexOf( code ) >= 0 &&
 						mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
 						code !== mw.config.get( 'wgContentLanguage' )
 		);
@@ -297,7 +294,7 @@
 		if ( mw.config.get( 'mintEntrypointLanguages' ) ) {
 			promises.push( setMinTLanguages() );
 		}
-		Promise.all( promises ).then( function ( [ results ] ) {
+		Promise.all( promises ).then( ( [ results ] ) => {
 			if ( !results.length ) {
 				onNoLanguageMatch( noResultsContainer );
 			} else {

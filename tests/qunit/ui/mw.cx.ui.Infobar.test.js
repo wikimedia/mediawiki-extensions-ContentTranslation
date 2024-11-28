@@ -9,7 +9,7 @@
 
 	QUnit.module( 'mw.cx.ui.Infobar', QUnit.newMwEnvironment() );
 
-	QUnit.test( 'Show message with a string', function ( assert ) {
+	QUnit.test( 'Show message with a string', ( assert ) => {
 		const $fixture = $( '#qunit-fixture' );
 
 		const infobar = new mw.cx.ui.Infobar();
@@ -23,7 +23,7 @@
 		assert.true( infobar.$element.text().indexOf( 'New message' ) !== -1, 'Message is updated' );
 	} );
 
-	QUnit.test( 'Show message with a Message object', function ( assert ) {
+	QUnit.test( 'Show message with a Message object', ( assert ) => {
 		const $fixture = $( '#qunit-fixture' );
 
 		const infobar = new mw.cx.ui.Infobar();

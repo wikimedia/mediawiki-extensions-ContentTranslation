@@ -49,7 +49,7 @@ mw.cx.DashboardList.static.showLoginDialog = function () {
 		actions: [
 			{ action: 'login', label: mw.msg( 'login' ), flags: [ 'primary', 'progressive' ] }
 		]
-	} ).closed.then( function () {
+	} ).closed.then( () => {
 		location.href = mw.cx.getLoginHref();
 	} );
 };
@@ -140,7 +140,7 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
 			return;
 		}
 
-		map[ page.title ].forEach( function ( item ) {
+		map[ page.title ].forEach( ( item ) => {
 			if ( page.thumbnail ) {
 				item.$image
 					.removeClass( 'oo-ui-icon-article' )
@@ -159,7 +159,7 @@ mw.cx.DashboardList.prototype.showTitleDetails = function ( list ) {
 			redirectsTo = {},
 			pages = response.query.pages;
 
-		redirects.forEach( function ( redirect ) {
+		redirects.forEach( ( redirect ) => {
 			redirectsTo[ redirect.to ] = redirect.from;
 		} );
 

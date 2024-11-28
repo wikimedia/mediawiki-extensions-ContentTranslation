@@ -32,13 +32,11 @@ const setTargetLanguage = ( language ) => {
 	targetLanguage.value = language;
 };
 
-const useState = () => {
-	return {
-		sourceLanguage,
-		targetLanguage,
-		setSourceLanguage,
-		setTargetLanguage
-	};
-};
+const useState = () => ( {
+	sourceLanguage,
+	targetLanguage,
+	setSourceLanguage,
+	setTargetLanguage
+} );
 
 module.exports = useState;

@@ -259,7 +259,7 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 	}, list.queryContinue );
 
 	const api = new mw.Api();
-	list.promise = api.get( params ).then( function ( response ) {
+	list.promise = api.get( params ).then( ( response ) => {
 		list.promise = undefined;
 		list.queryContinue = response.continue;
 		list.hasMore = !!response.continue;
@@ -360,12 +360,10 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		} else {
 			this.$publicCollectionContainer.show();
 			this.$publicCollection.append( list.$list );
-			this.$publicCollection.find( '.cx-suggestionlist' ).sort( ( a, b ) => {
-				return this.constructor.static.listCompare(
-					this.lists[ $( a ).data( 'listid' ) ],
-					this.lists[ $( b ).data( 'listid' ) ]
-				);
-			} ).appendTo( this.$publicCollection );
+			this.$publicCollection.find( '.cx-suggestionlist' ).sort( ( a, b ) => this.constructor.static.listCompare(
+				this.lists[ $( a ).data( 'listid' ) ],
+				this.lists[ $( b ).data( 'listid' ) ]
+			) ).appendTo( this.$publicCollection );
 		}
 	} else {
 		// The list might be hidden if it became empty due to item removals.
@@ -451,7 +449,7 @@ mw.cx.CXSuggestionList.prototype.buildSuggestionItem = function ( suggestion ) {
 			target: '_blank',
 			title: mw.msg( 'cx-suggestionlist-view-source-page' )
 		} )
-		.on( 'click', function ( e ) {
+		.on( 'click', ( e ) => {
 			// Do not propagate to the parent suggestion item. Prevent opening selected source page dialog
 			e.stopPropagation();
 		} )
@@ -577,7 +575,7 @@ mw.cx.CXSuggestionList.prototype.discardSuggestion = function ( suggestion ) {
 	};
 
 	const api = new mw.Api();
-	api.postWithToken( 'csrf', params ).done( function ( response ) {
+	api.postWithToken( 'csrf', params ).done( ( response ) => {
 		if ( response.cxsuggestionlist.result === 'success' ) {
 			mw.hook( 'mw.cx.suggestion.action' ).fire(
 				'discard',
@@ -649,9 +647,7 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 			this.lists[ favoriteListId ].suggestions.push( suggestion );
 			this.insertSuggestionList( favoriteListId, [ suggestion ], true );
 			// Remove favorited article from the list of suggestions
-			this.lists.trex.suggestions = this.lists.trex.suggestions.filter( function ( item ) {
-				return item.title !== suggestion.title;
-			} );
+			this.lists.trex.suggestions = this.lists.trex.suggestions.filter( ( item ) => item.title !== suggestion.title );
 		}
 	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.
@@ -858,7 +854,7 @@ mw.cx.CXSuggestionList.prototype.onScroll = function () {
 		this.lists[ expandedListId ].hasMore !== false &&
 		visibleArea >= triggerPos && scrollTop <= triggerPos
 	) {
-		this.loadItems( this.lists[ expandedListId ] ).fail( function ( error ) {
+		this.loadItems( this.lists[ expandedListId ] ).fail( ( error ) => {
 			if ( error === 'assertuserfailed' ) {
 				$( window ).off( 'scroll' );
 				mw.cx.CXSuggestionList.static.showLoginDialog();
@@ -1003,11 +999,11 @@ mw.cx.CXSuggestionList.prototype.refreshList = function ( listId ) {
 	list.queryContinue = undefined;
 	list.hasMore = true;
 	// Remove the old items.
-	this.loadItems( list ).then( function () {
+	this.loadItems( list ).then( () => {
 		for ( let i = 0; i < itemsToRemove.length; i++ ) {
 			itemsToRemove[ i ].$element.remove();
 		}
-	}, function ( error ) {
+	}, ( error ) => {
 		if ( error === 'assertuserfailed' ) {
 			mw.cx.CXSuggestionList.static.showLoginDialog();
 		}

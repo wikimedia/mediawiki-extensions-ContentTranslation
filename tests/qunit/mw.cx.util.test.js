@@ -40,7 +40,7 @@ QUnit.test.each( '.getTitleForNamespace()', {
 		namespace: 1,
 		targetTitle: 'Talk:Oxygen'
 	}
-}, function ( assert, data ) {
+}, ( assert, data ) => {
 	assert.deepEqual(
 		mw.cx.getTitleForNamespace( data.title, data.namespace ),
 		data.targetTitle

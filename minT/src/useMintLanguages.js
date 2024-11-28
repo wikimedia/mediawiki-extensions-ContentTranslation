@@ -13,11 +13,9 @@ const setMintLanguages = ( targetToSourceLanguages ) => {
 };
 
 const useMintLanguages = () => {
-	const fetchMintTargetLanguages = () => {
-		return fetchMintLanguages().then( ( targetToSourceLanguages ) => {
-			setMintLanguages( targetToSourceLanguages );
-		} );
-	};
+	const fetchMintTargetLanguages = () => fetchMintLanguages().then( ( targetToSourceLanguages ) => {
+		setMintLanguages( targetToSourceLanguages );
+	} );
 
 	return { fetchMintTargetLanguages, mintLanguages };
 };

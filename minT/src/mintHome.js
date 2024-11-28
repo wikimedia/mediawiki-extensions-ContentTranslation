@@ -35,7 +35,7 @@ const addLanguageButtonEventListener = (
 	onSelectCallback,
 	allOptionEnabled = false
 ) => {
-	button.addEventListener( 'click', function () {
+	button.addEventListener( 'click', () => {
 		openLanguageSelector( allOptionEnabled, onSelectCallback, languages.value );
 	} );
 };
@@ -54,8 +54,7 @@ const sourceLanguages = Vue.computed( () => {
 	const mintSourceLanguages = mintLanguages.value[ targetLanguage.value ];
 
 	return mintSourceLanguages.filter(
-		( mintSourceLanguage ) =>
-			sites.value.some( ( site ) => site.languageCode === mintSourceLanguage )
+		( mintSourceLanguage ) => sites.value.some( ( site ) => site.languageCode === mintSourceLanguage )
 	);
 } );
 const targetLanguages = Vue.computed( () => Object.keys( mintLanguages.value ) );
@@ -86,7 +85,7 @@ Vue.watch( sourceLanguage, () => {
 } );
 
 const homeSearchInput = document.getElementById( 'mint-home-search-input' );
-homeSearchInput.addEventListener( 'click', function () {
+homeSearchInput.addEventListener( 'click', () => {
 	navigateToPage( 'search' );
 } );
 

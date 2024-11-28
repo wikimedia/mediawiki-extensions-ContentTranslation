@@ -51,7 +51,7 @@
 		ve.ui.contextItemFactory.register( contextItem );
 	}
 
-	ve.ui.mwCitationTools.forEach( function ( tool ) {
+	ve.ui.mwCitationTools.forEach( ( tool ) => {
 		const contextName = 'cite-' + tool.name;
 		const parentContextItem = ve.ui.contextItemFactory.lookup( contextName );
 		addCxSubclass( parentContextItem );

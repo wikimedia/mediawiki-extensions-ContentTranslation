@@ -53,10 +53,8 @@
 			limit: 50
 		};
 
-		return api.get( params ).then( function ( response ) {
-			self.seeds = response.query.contenttranslation.translations.map( function ( value ) {
-				return value.translation.sourceTitle;
-			} );
+		return api.get( params ).then( ( response ) => {
+			self.seeds = response.query.contenttranslation.translations.map( ( value ) => value.translation.sourceTitle );
 
 			return self.seeds.splice( 0, 3 );
 		} );
@@ -68,7 +66,7 @@
 	RecommendTool.prototype.getSuggestionList = function () {
 		const self = this;
 
-		return this.getSeedPages().then( function ( seedPages ) {
+		return this.getSeedPages().then( ( seedPages ) => {
 			const algorithm = 'morelike';
 			return $.get( mw.config.get( 'wgRecommendToolAPIURL' ), {
 				source: self.sourceLanguage,
@@ -77,9 +75,7 @@
 				seed: seedPages.join( '|' ),
 				// eslint-disable-next-line camelcase
 				search_algorithm: algorithm
-			} ).then( function ( articles ) {
-				return self.adapt( articles, algorithm );
-			} );
+			} ).then( ( articles ) => self.adapt( articles, algorithm ) );
 		} );
 	};
 

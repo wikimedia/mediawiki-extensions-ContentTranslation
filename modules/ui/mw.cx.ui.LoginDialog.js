@@ -89,10 +89,10 @@ mw.cx.ui.LoginDialog.prototype.onDocumentVisibilityChange = function ( action ) 
 mw.cx.ui.LoginDialog.prototype.closeIfLoggedIn = function ( action ) {
 	return new mw.Api()
 		.get( { assert: 'user' } )
-		.then( function () {
+		.then( () => {
 			this.close( { action: action } );
 			this.removeExistingListeners();
-		}.bind( this ) );
+		} );
 };
 
 /**

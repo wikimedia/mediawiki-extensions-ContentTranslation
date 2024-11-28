@@ -298,7 +298,7 @@ mw.cx.dm.Translation.static.getSavedSection = function (
  * @return {boolean}
  */
 mw.cx.dm.Translation.static.hasTransclusionNode = function ( rootNode ) {
-	return [].slice.call( rootNode.children ).some( function ( node ) {
+	return [].slice.call( rootNode.children ).some( ( node ) => {
 		const hasTransclusionTypeOf =
 			node.attributes.typeof && node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ );
 
@@ -787,16 +787,12 @@ mw.cx.dm.Translation.prototype.findIssueIndex = function ( name ) {
  * @return {boolean}
  */
 mw.cx.dm.Translation.prototype.hasErrors = function () {
-	return this.getTranslationIssues().some( function ( issue ) {
-		return issue.type === 'error';
-	} );
+	return this.getTranslationIssues().some( ( issue ) => issue.type === 'error' );
 };
 
 /**
  * @return {mw.cx.dm.TranslationIssue[]}
  */
 mw.cx.dm.Translation.prototype.getTranslationIssues = function () {
-	return this.translationIssues.filter( function ( issue ) {
-		return !issue.isSuppressed();
-	} );
+	return this.translationIssues.filter( ( issue ) => !issue.isSuppressed() );
 };

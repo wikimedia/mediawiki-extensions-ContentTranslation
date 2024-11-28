@@ -15,10 +15,9 @@ function useKeyboardNavigation( searchQuery, searchResults, suggestions ) {
 	const selectedIndex = ref( -1 );
 	const langSelectorContainer = ref( null );
 
-	const shownLanguages = computed( () =>
-		searchQuery.value ?
-			searchResults.value :
-			[ ...suggestions, ...searchResults.value ]
+	const shownLanguages = computed( () => searchQuery.value ?
+		searchResults.value :
+		[ ...suggestions, ...searchResults.value ]
 	);
 
 	const next = () => {

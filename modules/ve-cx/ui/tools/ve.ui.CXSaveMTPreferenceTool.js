@@ -57,12 +57,12 @@ ve.ui.CXSaveMTPreferenceTool.prototype.onUpdateState = function () {
 		return;
 	}
 
-	this.MTManager.getDefaultProvider().then( function ( defaultProvider ) {
+	this.MTManager.getDefaultProvider().then( ( defaultProvider ) => {
 		const source = section.getOriginalContentSource() || defaultProvider;
-		this.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+		this.MTManager.getPreferredProvider().then( ( preferredProvider ) => {
 			this.toggle( source !== preferredProvider );
-		}.bind( this ) );
-	}.bind( this ) );
+		} );
+	} );
 
 };
 

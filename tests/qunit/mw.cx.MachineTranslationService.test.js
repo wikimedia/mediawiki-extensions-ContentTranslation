@@ -17,7 +17,7 @@ QUnit.test( 'fetchProviders [Success with results]', function ( assert ) {
 
 	return new mw.cx.MachineTranslationService( 'es', 'ca', this.siteMapper )
 		.fetchProviders()
-		.then( function ( providers ) {
+		.then( ( providers ) => {
 			assert.deepEqual( providers, [ 'Provider1', 'Provider2' ], 'Correct providers are returned' );
 		} );
 } );
@@ -31,7 +31,7 @@ QUnit.test( 'fetchProviders [Success without results]', function ( assert ) {
 
 	return new mw.cx.MachineTranslationService( 'se', 'ja', this.siteMapper )
 		.fetchProviders()
-		.then( function ( providers ) {
+		.then( ( providers ) => {
 			assert.deepEqual( providers, [], 'Case of no providers is handled.' );
 		} );
 } );
@@ -59,7 +59,7 @@ QUnit.test( 'getSuggestedDefaultProvider [Success with results]', function ( ass
 
 	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
-		.then( function ( provider ) {
+		.then( ( provider ) => {
 			assert.strictEqual( provider, 'Provider1', 'The first provider is suggested.' );
 		} );
 } );
@@ -73,7 +73,7 @@ QUnit.test( 'getSuggestedDefaultProvider [Success without results]', function ( 
 
 	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
-		.then( function ( provider ) {
+		.then( ( provider ) => {
 			assert.strictEqual( provider, null, 'If no providers, no suggested provider.' );
 		} );
 } );
@@ -87,7 +87,7 @@ QUnit.test( 'getSuggestedDefaultProvider [Success without source-mt in result]',
 
 	return new mw.cx.MachineTranslationService( 'source', 'target', this.siteMapper )
 		.getSuggestedDefaultProvider()
-		.then( function ( provider ) {
+		.then( ( provider ) => {
 			assert.strictEqual( provider, null, 'Source mt suggested by the server respected' );
 		} );
 } );

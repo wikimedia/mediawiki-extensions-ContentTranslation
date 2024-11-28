@@ -49,9 +49,9 @@ ve.ce.CXPendingNode.prototype.setPending = function ( pending ) {
 
 		// Highlight the resulting paragraph for a second.
 		this.$pending.addClass( 've-ce-cxPendingNode-flash' );
-		setTimeout( function () {
+		setTimeout( () => {
 			this.$pending.removeClass( 've-ce-cxPendingNode-flash' );
-		}.bind( this ), 2000 ); // More than 1s to wait for finish animation
+		}, 2000 ); // More than 1s to wait for finish animation
 	}
 };
 

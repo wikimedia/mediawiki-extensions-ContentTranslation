@@ -62,7 +62,7 @@ mw.cx.ui.MessageWidget.prototype.addButtons = function ( buttons ) {
 		return;
 	}
 
-	buttons.forEach( function ( button ) {
+	buttons.forEach( ( button ) => {
 		$buttons.append( button.$element );
 	} );
 

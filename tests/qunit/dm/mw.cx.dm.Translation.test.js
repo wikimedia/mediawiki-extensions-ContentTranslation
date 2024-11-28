@@ -11,11 +11,11 @@
 
 	QUnit.module( 'mw.cx.dm.Translation', QUnit.newMwEnvironment() );
 
-	QUnit.skip( 'Source and target dom build test', function ( assert ) {
+	QUnit.skip( 'Source and target dom build test', ( assert ) => {
 		const $fixture = $( '#qunit-fixture' ),
 			done = assert.async();
 
-		$fixture.load( testDataPath, function () {
+		$fixture.load( testDataPath, () => {
 			const sourceHTML = $fixture.find( '#source-page-content' ).html();
 
 			const sourceDom = mw.cx.dm.Translation.static.getSourceDom( sourceHTML, false );
@@ -205,7 +205,7 @@
 		}
 	};
 
-	QUnit.test( 'Saved translation restore test', function ( assert ) {
+	QUnit.test( 'Saved translation restore test', ( assert ) => {
 		for ( const sectionNumber in restoreTestData.sourceSections ) {
 			const sourceSection = restoreTestData.sourceSections[ sectionNumber ];
 			const sourceSectionDom = $( sourceSection.source )[ 0 ];

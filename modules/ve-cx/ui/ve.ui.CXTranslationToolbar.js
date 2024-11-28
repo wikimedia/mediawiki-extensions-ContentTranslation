@@ -52,9 +52,9 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 			ve.ui.Tool.apply( this, arguments );
 			this.MTManager = MTManager;
 			this.setActive( defaultProvider === this.getName() );
-			this.MTManager.getPreferredProvider().then( function ( preferredProvider ) {
+			this.MTManager.getPreferredProvider().then( ( preferredProvider ) => {
 				this.setIsPreferred( preferredProvider === this.getName() );
-			}.bind( this ) );
+			} );
 		};
 
 		OO.inheritClass( ve.ui[ toolClassName ], ve.ui.Tool );
@@ -125,13 +125,11 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		);
 	};
 
-	return MTManager.getDefaultProvider().then( function ( defaultProvider ) {
-		return MTManager.getAvailableProviders().then( function ( providers ) {
-			providers.forEach( function ( provider ) {
-				createProviderItem( provider, defaultProvider );
-			} );
+	return MTManager.getDefaultProvider().then( ( defaultProvider ) => MTManager.getAvailableProviders().then( ( providers ) => {
+		providers.forEach( ( provider ) => {
+			createProviderItem( provider, defaultProvider );
 		} );
-	} );
+	} ) );
 };
 
 /* Methods */
@@ -156,11 +154,7 @@ ve.ui.CXTranslationToolbar.prototype.setup = function () {
  * @return {boolean} True if there is MT provider available.
  */
 ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
-	return this.getToolGroupByName( 'cx-mt' ).getItems().map( function ( item ) {
-		return item.getName();
-	} ).some( function ( name ) {
-		return [ 'ResetSection', 'source', 'scratch' ].indexOf( name ) < 0;
-	} );
+	return this.getToolGroupByName( 'cx-mt' ).getItems().map( ( item ) => item.getName() ).some( ( name ) => [ 'ResetSection', 'source', 'scratch' ].indexOf( name ) < 0 );
 };
 
 /**

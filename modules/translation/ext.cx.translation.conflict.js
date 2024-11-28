@@ -31,7 +31,7 @@
 			actions: [
 				{ action: 'cancel', label: mw.msg( 'cx-create-new-translation' ), flags: 'primary' }
 			]
-		} ).closed.then( function ( data ) {
+		} ).closed.then( ( data ) => {
 			if ( !data || data.action === 'cancel' ) {
 				// Go to dashboard
 				const uri = new mw.Uri();
@@ -42,8 +42,8 @@
 		} );
 	}
 
-	$( function () {
-		mw.hook( 'mw.cx.translation.conflict' ).add( function ( translatorName, translatorGender ) {
+	$( () => {
+		mw.hook( 'mw.cx.translation.conflict' ).add( ( translatorName, translatorGender ) => {
 			showConflictHandler( translatorName, translatorGender );
 		} );
 	} );

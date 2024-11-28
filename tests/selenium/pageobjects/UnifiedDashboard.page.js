@@ -199,13 +199,12 @@ class UnifiedDashboardPage extends Page {
 	async refreshSuggestions() {
 		const refreshButton = $( REFRESH_BUTTON_SELECTOR );
 
-		const waitForSuggestionsListToBeCompleted = () =>
-			browser.waitUntil( async () => {
-				const sectionSuggestionLength = ( await this.sectionSuggestions ).length;
-				const pageSuggestionLength = ( await this.articleSuggestions ).length;
+		const waitForSuggestionsListToBeCompleted = () => browser.waitUntil( async () => {
+			const sectionSuggestionLength = ( await this.sectionSuggestions ).length;
+			const pageSuggestionLength = ( await this.articleSuggestions ).length;
 
-				return sectionSuggestionLength === 3 && pageSuggestionLength === 3;
-			}, { timeout: 10000 } );
+			return sectionSuggestionLength === 3 && pageSuggestionLength === 3;
+		}, { timeout: 10000 } );
 
 		await waitForSuggestionsListToBeCompleted();
 

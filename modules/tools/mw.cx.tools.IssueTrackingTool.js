@@ -505,9 +505,7 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 	}
 
 	this.allIssues = allIssues;
-	issues = allIssues.map( function ( element, index ) {
-		return new mw.cx.ui.TranslationIssueWidget( index, element.issue );
-	} );
+	issues = allIssues.map( ( element, index ) => new mw.cx.ui.TranslationIssueWidget( index, element.issue ) );
 	this.issuesLayout.clearTabPanels().addTabPanels( issues );
 	this.numberOfIssuesLabel.setLabel(
 		mw.msg( 'cx-tools-linter-issues-count', this.currentIssue, this.numberOfIssues )
@@ -521,9 +519,7 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
  * @param {string} name
  */
 mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
-	this.openIssue( function ( issue ) {
-		return issue.getName() === name;
-	} );
+	this.openIssue( ( issue ) => issue.getName() === name );
 };
 
 /**
@@ -532,9 +528,7 @@ mw.cx.tools.IssueTrackingTool.prototype.openIssueByName = function ( name ) {
  * @param {string} type
  */
 mw.cx.tools.IssueTrackingTool.prototype.openFirstOfType = function ( type ) {
-	this.openIssue( function ( issue ) {
-		return issue.getType() === type;
-	} );
+	this.openIssue( ( issue ) => issue.getType() === type );
 };
 
 /**

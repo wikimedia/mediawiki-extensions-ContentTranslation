@@ -32,7 +32,7 @@
 			this.getCXTrends(),
 			this.getCXTrends( mw.config.get( 'wgContentLanguage' ) ),
 			this.getCXStats()
-		).done( function ( totalTrend, languageTrend, stats ) {
+		).done( ( totalTrend, languageTrend, stats ) => {
 			// Remove spinner
 			$spinner.remove();
 
@@ -588,18 +588,14 @@
 			action: 'query',
 			list: 'contenttranslationlangtrend',
 			target: targetLanguage
-		} ).then( function ( response ) {
-			return response.query.contenttranslationlangtrend;
-		} );
+		} ).then( ( response ) => response.query.contenttranslationlangtrend );
 	};
 
 	CXStats.prototype.drawCumulativeGraph = function ( type ) {
 		const ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
 		const data = {
-			labels: this.totalTranslationTrend.map( function ( data ) {
-				return data.date;
-			} ),
+			labels: this.totalTranslationTrend.map( ( data ) => data.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
@@ -609,9 +605,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: this.totalTranslationTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.totalTranslationTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
@@ -621,9 +615,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: this.totalDraftTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.totalDraftTrend.map( ( data ) => data[ type ] )
 				}
 			]
 		};
@@ -640,9 +632,7 @@
 		const ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
 		const data = {
-			labels: this.languageTranslationTrend.map( function ( data ) {
-				return data.date;
-			} ),
+			labels: this.languageTranslationTrend.map( ( data ) => data.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
@@ -652,9 +642,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: this.languageTranslationTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageTranslationTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
@@ -664,9 +652,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: this.languageDraftTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageDraftTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
@@ -676,9 +662,7 @@
 					pointBackgroundColor: '#FF0000',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#FF0000',
-					data: this.languageDeletionTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageDeletionTrend.map( ( data ) => data[ type ] )
 				}
 			]
 		};
@@ -696,27 +680,21 @@
 
 		const ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
 		const data = {
-			labels: this.totalTranslationTrend.map( function ( data ) {
-				return data.date;
-			} ),
+			labels: this.totalTranslationTrend.map( ( data ) => data.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: this.totalTranslationTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.totalTranslationTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: this.totalDraftTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.totalDraftTrend.map( ( data ) => data[ type ] )
 				}
 			]
 		};
@@ -734,36 +712,28 @@
 
 		const ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
 		const data = {
-			labels: this.languageTranslationTrend.map( function ( data ) {
-				return data.date;
-			} ),
+			labels: this.languageTranslationTrend.map( ( data ) => data.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: this.languageTranslationTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageTranslationTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: this.languageDraftTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageDraftTrend.map( ( data ) => data[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
 					borderColor: '#FF0000',
 					backgroundColor: '#FF0000',
 					borderWidth: 1,
-					data: this.languageDeletionTrend.map( function ( data ) {
-						return data[ type ];
-					} )
+					data: this.languageDeletionTrend.map( ( data ) => data[ type ] )
 				}
 			]
 		};
@@ -834,7 +804,7 @@
 		}
 	};
 
-	$( function () {
+	$( () => {
 		const $container = $( '<div>' ).addClass( 'cx-stats-container' );
 
 		// Set the global siteMapper for code which we cannot inject it

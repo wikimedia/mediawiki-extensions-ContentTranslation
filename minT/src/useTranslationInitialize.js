@@ -7,14 +7,12 @@ const isInfobox = ( node ) => node.classList.contains( 'infobox' );
 
 const hiddenTags = [ 'style', 'meta', 'link' ];
 
-const isTransclusionNode = ( node ) =>
-	!!( node.attributes.typeof &&
+const isTransclusionNode = ( node ) => !!( node.attributes.typeof &&
 			node
 				.getAttribute( 'typeof' )
 				.match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ ) );
 
-const isHiddenNode = ( node ) =>
-	hiddenTags.includes( node.tagName.toLowerCase() ) ||
+const isHiddenNode = ( node ) => hiddenTags.includes( node.tagName.toLowerCase() ) ||
 		node.style.display === 'none' ||
 		isTransclusionNode( node );
 
@@ -26,13 +24,10 @@ const isHiddenNode = ( node ) =>
  * @param {HTMLElement[]} nodes
  * @return {HTMLElement[]}
  */
-const filterHiddenAndTransclusionNodes = ( nodes ) => {
-	return nodes.filter(
-		( node ) =>
-			!isHiddenNode( node ) &&
+const filterHiddenAndTransclusionNodes = ( nodes ) => nodes.filter(
+	( node ) => !isHiddenNode( node ) &&
 			!( Array.from( node.children ).every( ( child ) => isHiddenNode( child ) ) )
-	);
-};
+);
 
 /**
  * This composable returns the "initializeTranslation" method that is used inside the MinT view
@@ -83,18 +78,16 @@ const useTranslationInitialize = () => {
 					}
 				}
 
-				const translationPromises = nodes.map( ( node, index ) => {
-					return translate(
-						node.outerHTML,
-						sourceLanguage.value,
-						targetLanguage.value,
-						cxServerToken.value
-					)
-						.then( ( translation ) => {
-							leadSectionTranslation.value[ index ] = translation;
-						} )
-						.catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) );
-				} );
+				const translationPromises = nodes.map( ( node, index ) => translate(
+					node.outerHTML,
+					sourceLanguage.value,
+					targetLanguage.value,
+					cxServerToken.value
+				)
+					.then( ( translation ) => {
+						leadSectionTranslation.value[ index ] = translation;
+					} )
+					.catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) ) );
 
 				// We already display a skeleton loader for the infoboxes, so no need to wait
 				// for them to load, in order to hide the loading indicator.

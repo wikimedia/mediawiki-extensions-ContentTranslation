@@ -96,9 +96,7 @@ mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1,
 	}
 
 	// Find the intersection(tokens that did not change) two token sets
-	const unmodifiedTokens = bigSet.filter( function ( token ) {
-		return smallSet.indexOf( token ) >= 0;
-	} );
+	const unmodifiedTokens = bigSet.filter( ( token ) => smallSet.indexOf( token ) >= 0 );
 
 	// If string1 has 10 tokens and we see that 2 tokens are different or not present in string2,
 	// we are saying that string2 is 80% (ie. 10-2/10) of unmodified version fo string1.
@@ -319,9 +317,7 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
  */
 mw.cx.TranslationTracker.prototype.attachEventListeners = function ( sections ) {
 	// Register event listeners for 'focus' and 'update' events on restored sections
-	sections.map( function ( sectionModel ) {
-		return sectionModel.getId();
-	} ).forEach( this.registerEventListenersForSection.bind( this ) );
+	sections.map( ( sectionModel ) => sectionModel.getId() ).forEach( this.registerEventListenersForSection.bind( this ) );
 
 	// Register event listeners for 'focus' event for every newly added section
 	this.veTarget.connect( this, { changeContentSource: 'registerEventListenersForSection' } );
@@ -340,12 +336,12 @@ mw.cx.TranslationTracker.prototype.adjustSectionStateForSourceTranslations = fun
 		throw new Error( 'Must provide IDs of sections translated from source as array' );
 	}
 
-	sectionIds.forEach( function ( sectionId ) {
+	sectionIds.forEach( ( sectionId ) => {
 		const sectionState = this.sections[ sectionId ];
 
 		sectionState.setCurrentMTProvider( 'source' );
 		sectionState.setUnmodifiedMT( sectionState.getSource().html );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -355,11 +351,7 @@ mw.cx.TranslationTracker.prototype.adjustSectionStateForSourceTranslations = fun
 mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( translationModel ) {
 	const targetSections = translationModel.targetDoc.getNodesByType( 'cxSection' );
 
-	return targetSections.filter( function ( sectionModel ) {
-		return sectionModel.getOriginalContentSource() === 'source';
-	} ).map( function ( sectionModel ) {
-		return sectionModel.getId();
-	} );
+	return targetSections.filter( ( sectionModel ) => sectionModel.getOriginalContentSource() === 'source' ).map( ( sectionModel ) => sectionModel.getId() );
 };
 
 /**
@@ -652,9 +644,7 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 			);
 
 		totalTokens += userTranslationTokens.length;
-		unmodifiedTokens += userTranslationTokens.filter( function ( token ) {
-			return unmodifiedMTTokens.indexOf( token ) >= 0;
-		} ).length;
+		unmodifiedTokens += userTranslationTokens.filter( ( token ) => unmodifiedMTTokens.indexOf( token ) >= 0 ).length;
 	}, this );
 
 	// Avoid division by zero

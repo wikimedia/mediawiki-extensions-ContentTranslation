@@ -46,7 +46,7 @@
 			flags: [ 'primary', 'progressive' ]
 		} );
 
-		actionTranslate.on( 'click', function () {
+		actionTranslate.on( 'click', () => {
 			startPageInCX( targetLanguage );
 		} );
 
@@ -121,7 +121,7 @@
 			return oldPositionObj;
 		};
 
-		$languageLink.on( 'click', function () {
+		$languageLink.on( 'click', () => {
 			popup.toggle( true );
 			return false;
 		} );

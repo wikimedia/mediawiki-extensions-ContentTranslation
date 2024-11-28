@@ -45,9 +45,7 @@
 
 		// Language codes can have country extensions like en-US.
 		// Remove them so that it is like domain code format.
-		possibleTargetLanguages = possibleTargetLanguages.map( function ( language ) {
-			return language.split( '-' )[ 0 ];
-		} );
+		possibleTargetLanguages = possibleTargetLanguages.map( ( language ) => language.split( '-' )[ 0 ] );
 
 		// Replace possibly non-standard, macro and duplicate language codes
 		// with normalized counterparts
@@ -66,13 +64,13 @@
 			}
 		}
 
-		possibleTargetLanguages = possibleTargetLanguages.filter( function ( language ) {
+		possibleTargetLanguages = possibleTargetLanguages.filter( ( language ) =>
 			// Code should not be a language in which page exists.
 			// Also it should be a known language for ULS
-			return language !== pageLanguage &&
+			language !== pageLanguage &&
 					!pageInLanguageExists( language ) &&
-					language !== $.uls.data.getAutonym( language );
-		} );
+					language !== $.uls.data.getAutonym( language )
+		);
 
 		return possibleTargetLanguages.length ? possibleTargetLanguages[ 0 ] : null;
 	}

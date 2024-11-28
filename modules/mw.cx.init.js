@@ -24,12 +24,8 @@
 		}
 
 		return mtService.getSuggestedTitle( sourceTitle ).then(
-			function ( suggestedTitle ) {
-				return mw.cx.getTitleForNamespace( suggestedTitle, mw.cx.getDefaultTargetNamespace() );
-			},
-			function () {
-				return sourceTitle;
-			}
+			( suggestedTitle ) => mw.cx.getTitleForNamespace( suggestedTitle, mw.cx.getDefaultTargetNamespace() ),
+			() => sourceTitle
 		);
 	}
 
@@ -64,7 +60,7 @@
 		services.MTService = new mw.cx.MachineTranslationService( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.siteMapper );
 		services.MTManager = new mw.cx.MachineTranslationManager( mw.cx.sourceLanguage, mw.cx.targetLanguage, services.MTService );
 
-		getTargetTitle( query.targettitle, sourceTitle, services.MTService ).then( function ( targetTitle ) {
+		getTargetTitle( query.targettitle, sourceTitle, services.MTService ).then( ( targetTitle ) => {
 			const sourceWikiPage = new mw.cx.dm.WikiPage( sourceTitle, mw.cx.sourceLanguage, sourceRevision, sourceSectionTitle );
 			const targetWikiPage = new mw.cx.dm.WikiPage( targetTitle, mw.cx.targetLanguage, null, targetSectionTitle );
 			const translation = new mw.cx.init.Translation( sourceWikiPage, targetWikiPage, services );

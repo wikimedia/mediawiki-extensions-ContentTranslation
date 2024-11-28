@@ -63,9 +63,7 @@ mw.cx.MachineTranslationService.prototype.getSuggestedTitle = function ( title )
 			headers: { Authorization: token }
 		};
 
-		return $.ajax( request ).then( function ( response ) {
-			return response.targetTitle;
-		} );
+		return $.ajax( request ).then( ( response ) => response.targetTitle );
 	};
 
 	return this.getCXServerToken().then( fetchTitleSuggestion );
@@ -100,15 +98,11 @@ mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( 
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationService.prototype.getProviders = function () {
-	return this.getProvidersCached().then( function ( providers ) {
-		return providers.filter( function ( item ) {
-			return item !== 'source-mt';
-		} );
-	} );
+	return this.getProvidersCached().then( ( providers ) => providers.filter( ( item ) => item !== 'source-mt' ) );
 };
 
 mw.cx.MachineTranslationService.prototype.getSuggestedDefaultProvider = function () {
-	return this.getProvidersCached().then( function ( providers ) {
+	return this.getProvidersCached().then( ( providers ) => {
 		if ( providers.length === 0 || providers[ 0 ] === 'source-mt' ) {
 			return null;
 		}
@@ -126,9 +120,9 @@ mw.cx.MachineTranslationService.prototype.getProvidersCached = function () {
 
 	return this.fetchProviders()
 		.fail( this.fetchProvidersError.bind( this ) )
-		.done( function ( providers ) {
+		.done( ( providers ) => {
 			this.providers = providers;
-		}.bind( this ) );
+		} );
 };
 
 /**
@@ -148,9 +142,7 @@ mw.cx.MachineTranslationService.prototype.fetchProviders = function () {
 		$to: this.targetLanguage
 	} );
 
-	return $.get( fetchProvidersUrl ).then( function ( response ) {
-		return response.mt || [];
-	} );
+	return $.get( fetchProvidersUrl ).then( ( response ) => response.mt || [] );
 };
 
 mw.cx.MachineTranslationService.prototype.fetchProvidersError = function () {
@@ -168,14 +160,14 @@ mw.cx.MachineTranslationService.prototype.fetchCXServerToken = function () {
 mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 	this.tokenPromise = this.tokenPromise ||
 		this.fetchCXServerToken().then(
-			function ( token ) {
+			( token ) => {
 				const now = Math.floor( Date.now() / 1000 );
 				// We use `age` instead of `exp` because it is more reliable, as user's
 				// clocks might be set to wrong time.
 				token.refreshAt = now + token.age - 30;
 				return token;
 			},
-			function ( errorCode, errorObj ) {
+			( errorCode, errorObj ) => {
 				if ( errorCode === 'token-impossible' ) {
 					// Likely CX extension has not been configured properly.
 					// To make development and testing easier, assume that
@@ -188,7 +180,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 			}
 		);
 
-	return this.tokenPromise.then( function ( token ) {
+	return this.tokenPromise.then( ( token ) => {
 		const now = Math.floor( Date.now() / 1000 );
 		if ( 'refreshAt' in token && token.refreshAt <= now ) {
 			this.tokenPromise = undefined;
@@ -197,7 +189,7 @@ mw.cx.MachineTranslationService.prototype.getCXServerToken = function () {
 
 		// Return the cached token
 		return token.jwt || '';
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -228,7 +220,5 @@ mw.cx.MachineTranslationService.prototype.fetchTranslation = function ( content,
 		}
 	};
 
-	return $.ajax( request ).then( function ( response ) {
-		return response.contents;
-	} );
+	return $.ajax( request ).then( ( response ) => response.contents );
 };

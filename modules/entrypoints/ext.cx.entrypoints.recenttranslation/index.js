@@ -53,7 +53,7 @@
 
 		dialogContainer.className = 'sx-recent-translation-dialog-container';
 
-		bannerContainer.addEventListener( 'click', function () {
+		bannerContainer.addEventListener( 'click', () => {
 			if ( !dialogInitialized ) {
 				dialogInstance = createDialogInstance();
 				dialogInitialized = true;

@@ -206,7 +206,7 @@ mw.cx.SelectedSourcePage.prototype.onBookmarkButtonClick = function () {
 		to: this.languageFilter.targetLanguage
 	};
 
-	api.postWithToken( 'csrf', params ).done( function ( response ) {
+	api.postWithToken( 'csrf', params ).done( ( response ) => {
 		if ( response.cxsuggestionlist.result !== 'success' ) {
 			return;
 		}
@@ -219,7 +219,7 @@ mw.cx.SelectedSourcePage.prototype.onBookmarkButtonClick = function () {
 			this.toggleFilledIcon();
 		}
 		this.alreadyFavorite = !this.alreadyFavorite;
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -246,9 +246,7 @@ mw.cx.SelectedSourcePage.prototype.discardDialog = function () {
 	this.$image
 		.removeAttr( 'style' )
 		.removeClass( 'oo-ui-iconElement-icon' )
-		.attr( 'class', function ( i, className ) {
-			return className.replace( /oo-ui-icon-\S+/, '' );
-		} );
+		.attr( 'class', ( i, className ) => className.replace( /oo-ui-icon-\S+/, '' ) );
 
 	this.alreadyFavorite = false;
 	this.bookmarkButton.toggle( true );
@@ -293,11 +291,11 @@ mw.cx.SelectedSourcePage.prototype.changeSelectedSourceTitle = function ( langua
  */
 mw.cx.SelectedSourcePage.prototype.sourceLanguageChangeHandler = function ( language ) {
 	this.changeSelectedSourceTitle( language );
-	this.getPageInfo( this.sourcePageTitles[ language ] ).done( function ( data ) {
+	this.getPageInfo( this.sourcePageTitles[ language ] ).done( ( data ) => {
 		this.renderPageViews( data.pageviews );
-	}.bind( this ) ).fail( function ( error ) {
+	} ).fail( ( error ) => {
 		mw.log( 'Error getting page info for ' + this.sourcePageTitles[ language ] + '. ' + error );
-	}.bind( this ) );
+	} );
 
 	this.initBookmark();
 	this.check();
@@ -361,7 +359,7 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 	} );
 	this.$link.toggleClass( 'cx-selected-source-page__link--long', pageTitle.length >= 60 );
 
-	this.getPageInfo( pageTitle, params ).done( function ( data ) {
+	this.getPageInfo( pageTitle, params ).done( ( data ) => {
 		this.renderPageViews( data.pageviews );
 
 		const numOfLanguages =
@@ -398,7 +396,7 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 			languageDecorator: languageDecorator
 		} );
 		this.languageFilter.setValidSourceLanguages( languagesPageExistsIn );
-	}.bind( this ) ).fail( function ( error ) {
+	} ).fail( ( error ) => {
 		mw.log( 'Error getting page info for ' + pageTitle + '. ' + error );
 	} );
 
@@ -431,7 +429,7 @@ mw.cx.SelectedSourcePage.prototype.getPageInfo = function ( title, params ) {
 		pvipdays: 7
 	}, params );
 
-	return api.get( params ).then( function ( data ) {
+	return api.get( params ).then( ( data ) => {
 		const page = OO.getProp( data, 'query', 'pages' );
 
 		if ( !page ) {
@@ -446,14 +444,14 @@ mw.cx.SelectedSourcePage.prototype.getPageInfo = function ( title, params ) {
 		}
 
 		return page[ pageId ];
-	}, function ( response ) {
+	}, ( response ) => {
 		// In case of failure, fallback to all source and target languages
 		this.sourcePageTitles = {};
 		this.languageFilter.fillSourceLanguages( null, true );
 		this.languageFilter.fillTargetLanguages( null, true );
 
 		return $.Deferred().reject( 'Reason: ' + response ).promise();
-	}.bind( this ) );
+	} );
 };
 
 mw.cx.SelectedSourcePage.prototype.renderPageViews = function ( pageViewData ) {
@@ -481,7 +479,7 @@ mw.cx.SelectedSourcePage.prototype.initBookmark = function () {
 		this.languageFilter.getSourceLanguage(),
 		this.languageFilter.getTargetLanguage(),
 		this.sourceTitle
-	).then( function ( alreadyFavorite ) {
+	).then( ( alreadyFavorite ) => {
 		this.alreadyFavorite = alreadyFavorite;
 
 		if ( alreadyFavorite ) {
@@ -489,7 +487,7 @@ mw.cx.SelectedSourcePage.prototype.initBookmark = function () {
 		} else {
 			this.toggleOutlineIcon();
 		}
-	}.bind( this ) );
+	} );
 };
 
 mw.cx.SelectedSourcePage.prototype.isAlreadyFavorite = function ( sourceLanguage, targetLanguage, title ) {
@@ -506,9 +504,7 @@ mw.cx.SelectedSourcePage.prototype.isAlreadyFavorite = function ( sourceLanguage
 		to: targetLanguage
 	};
 
-	return api.postWithToken( 'csrf', params ).then( function ( response ) {
-		return response.cxsuggestionlist.listaction;
-	} );
+	return api.postWithToken( 'csrf', params ).then( ( response ) => response.cxsuggestionlist.listaction );
 };
 
 /**
@@ -524,7 +520,7 @@ mw.cx.SelectedSourcePage.prototype.startPageInCX = function () {
 	this.validator.isTitleExistInLanguage(
 		sourceLanguage,
 		originalSourceTitle
-	).done( function ( sourceTitle ) {
+	).done( ( sourceTitle ) => {
 		// Set CX token as cookie.
 		siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
 
@@ -535,7 +531,7 @@ mw.cx.SelectedSourcePage.prototype.startPageInCX = function () {
 			targetLanguage,
 			{ campaign: this.config.campaign }
 		);
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -560,7 +556,7 @@ mw.cx.SelectedSourcePage.prototype.check = function () {
 	$.when(
 		translationCheck,
 		titleCheck
-	).done( function ( existingTranslation, existingTargetTitle ) {
+	).done( ( existingTranslation, existingTargetTitle ) => {
 		// If there is an existing translation and
 		// the specified target title is in use
 		if ( existingTranslation && existingTargetTitle ) {
@@ -583,7 +579,7 @@ mw.cx.SelectedSourcePage.prototype.check = function () {
 			this.bookmarkButton.toggle( false );
 			this.setTargetTitle( existingTranslation );
 		}
-	}.bind( this ) );
+	} );
 };
 
 /**

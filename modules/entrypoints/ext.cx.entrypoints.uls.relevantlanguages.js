@@ -59,7 +59,7 @@ const sitematrix = require( './sitematrix.json' );
 		missingLanguagesPanel.appendChild( missingLanguagesPanelText );
 		missingLanguagesPanel.appendChild( missingLanguagesPanelIcon );
 
-		missingLanguagesPanel.addEventListener( 'click', function () {
+		missingLanguagesPanel.addEventListener( 'click', () => {
 			const Vue = require( 'vue' );
 			const CxUlsEntrypoint = require( './ext.cx.entrypoints.uls.relevantlanguages/CxUlsEntrypoint.vue' );
 			const position = uls.position(), width = uls.$menu.width();
@@ -68,7 +68,7 @@ const sitematrix = require( './sitematrix.json' );
 			const panel = document.createElement( 'div' );
 			panel.className = 'cx-uls-entrypoint__panel-container notheme skin-invert';
 			// Copy the positioning from parent ULS Menu
-			Object.keys( position ).forEach( function ( property ) {
+			Object.keys( position ).forEach( ( property ) => {
 				panel.style[ property ] = position[ property ] + 'px';
 			} );
 			panel.style.width = width + 'px';
@@ -86,7 +86,7 @@ const sitematrix = require( './sitematrix.json' );
 	};
 
 	mw.hook( 'mw.uls.compact_language_links.open' ).add(
-		function ( $trigger ) {
+		( $trigger ) => {
 			if ( entrypointRendered ) {
 				return;
 			}
@@ -150,7 +150,7 @@ const sitematrix = require( './sitematrix.json' );
 			// CX ULS relevant missing languages entrypoint:
 			const missingLanguagesPanel = createMissingLanguagesPanel( missingRelevantLanguages, uls );
 			uls.$resultsView.before( missingLanguagesPanel );
-			uls.$languageFilter.on( 'input', function ( event ) {
+			uls.$languageFilter.on( 'input', ( event ) => {
 				// when user types inside the search input, add ".cx-uls-entrypoint--hidden" class to the
 				// entrypoint banner element the CSS rule that hides the entrypoint when this class is applied,
 				// lives inside CxUlsEntrypoint.vue file

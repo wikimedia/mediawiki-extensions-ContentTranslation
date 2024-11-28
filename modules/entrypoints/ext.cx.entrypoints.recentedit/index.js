@@ -26,20 +26,16 @@
 				title,
 				sourceLanguage,
 				targetLanguage
-			].map( function ( param ) {
-				return encodeURIComponent( param );
-			} ),
+			].map( ( param ) => encodeURIComponent( param ) ),
 			cxServerSectionSuggestionApiUrl = siteMapper.getCXServerUrl(
 				'/suggest/sections/' + cxServerParams.join( '/' )
 			);
 
 		return fetch( cxServerSectionSuggestionApiUrl )
-			.then( function ( response ) {
-				return response.ok ?
-					response.json() :
-					null;
-			} )
-			.then( function ( suggestionResult ) {
+			.then( ( response ) => response.ok ?
+				response.json() :
+				null )
+			.then( ( suggestionResult ) => {
 				if ( suggestionResult && suggestionResult.sections ) {
 					return suggestionResult.sections;
 				}
@@ -90,7 +86,7 @@
 			sectionTitles = recentEdit.sections;
 
 		return fetchSectionSuggestions( pageTitle, sourceLanguage )
-			.then( function ( sections ) {
+			.then( ( sections ) => {
 				if ( !sections || !sections.missing ) {
 					return false;
 				}
@@ -138,7 +134,7 @@
 			return;
 		}
 
-		handleSectionSuggestionsByEdit( recentEdits[ editIndex ] ).then( function ( success ) {
+		handleSectionSuggestionsByEdit( recentEdits[ editIndex ] ).then( ( success ) => {
 			if ( success ) {
 				return;
 			}

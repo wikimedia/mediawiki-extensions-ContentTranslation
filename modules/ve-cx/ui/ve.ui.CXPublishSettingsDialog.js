@@ -194,9 +194,7 @@ ve.ui.CXPublishSettingsDialog.prototype.createRadioOptionWidget = function ( nam
 ve.ui.CXPublishSettingsDialog.prototype.doesTargetTitleExist = function () {
 	const pageTitle = mw.cx.getTitleForNamespace( ve.init.target.getPageName(), this.mainNamespaceId );
 
-	return ve.init.platform.linkCache.get( pageTitle ).then( function ( result ) {
-		return !result.missing;
-	} );
+	return ve.init.platform.linkCache.get( pageTitle ).then( ( result ) => !result.missing );
 };
 
 /**

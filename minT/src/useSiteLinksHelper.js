@@ -27,8 +27,7 @@ const useSiteLinksHelper = () => {
 	const prepareSiteLinks = ( siteLinks ) => {
 		const completeSiteLinks = siteLinks.map( ( siteLink ) => {
 			const currentSite = sites.value.find(
-				( site ) =>
-					( siteLink.site && site.dbname === siteLink.site ) ||
+				( site ) => ( siteLink.site && site.dbname === siteLink.site ) ||
 						( siteLink.lang && site.languageCode === siteLink.lang )
 			);
 

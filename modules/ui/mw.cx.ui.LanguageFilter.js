@@ -88,7 +88,7 @@ mw.cx.ui.LanguageFilter.prototype.init = function () {
  * @return {Object} autonyms indexed by language code.
  */
 mw.cx.ui.LanguageFilter.prototype.getAutonyms = function ( languages ) {
-	return languages.reduce( function ( prevObject, element ) {
+	return languages.reduce( ( prevObject, element ) => {
 		prevObject[ element ] = $.uls.data.getAutonym( element );
 
 		return prevObject;
@@ -369,9 +369,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 		},
 		onVisible: this.calculateUlsPosition,
 		quickList: function () {
-			return mw.uls.getFrequentLanguageList().filter( function ( n ) {
-				return sourceLanguages.indexOf( n ) !== -1;
-			} );
+			return mw.uls.getFrequentLanguageList().filter( ( n ) => sourceLanguages.indexOf( n ) !== -1 );
 		}
 	}, ulsOptions ) );
 };
@@ -410,9 +408,7 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 		},
 		onVisible: this.calculateUlsPosition,
 		quickList: function () {
-			return mw.uls.getFrequentLanguageList().filter( function ( n ) {
-				return targetLanguages.indexOf( n ) !== -1;
-			} );
+			return mw.uls.getFrequentLanguageList().filter( ( n ) => targetLanguages.indexOf( n ) !== -1 );
 		},
 		languageDecorator: this.config.languageDecorator
 	}, ulsOptions ) );

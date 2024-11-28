@@ -38,7 +38,7 @@
 			content: $banner
 		} );
 
-		$cancel.on( 'click', function () {
+		$cancel.on( 'click', () => {
 			$trigger.callout( 'hide' );
 			$.cookie(
 				'cx_campaign_' + campaign + '_hide', 1, {
@@ -49,7 +49,7 @@
 			// Campaign or call to action was rejected by the user.
 			mw.hook( 'mw.cx.cta.reject' ).fire( campaign );
 		} );
-		$tryCX.on( 'click', function () {
+		$tryCX.on( 'click', () => {
 			location.href = cxLink;
 			// We need to log this using eventlogging, but since we are navigating away
 			// we cannot do it reliably here(See https://phabricator.wikimedia.org/T44815).

@@ -153,9 +153,7 @@ class InterceptorService {
 		const baseUrl = process.env.CX_RESTBASE_URL_TEMPLATE.replace( '{domain}', domain );
 		const partialUrl = baseUrl + '/data/recommendation/';
 
-		const filterMethod = ( request ) => {
-			return request.url.startsWith( partialUrl );
-		};
+		const filterMethod = ( request ) => request.url.startsWith( partialUrl );
 		return this.findAndWaitMultipleRequests( filterMethod, { url: partialUrl } );
 	}
 }

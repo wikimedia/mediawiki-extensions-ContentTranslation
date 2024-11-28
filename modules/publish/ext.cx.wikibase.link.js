@@ -49,7 +49,7 @@
 		};
 		const api = new mw.ForeignApi( 'https://www.wikidata.org/w/api.php' );
 		return Promise.resolve( api.postWithToken( 'csrf', params )
-			.then( function ( response ) {
+			.then( ( response ) => {
 				const revisionId = response.entity.sitelinks.lastrevid;
 				params = {
 					action: 'tag',
@@ -58,7 +58,7 @@
 				};
 				return Promise.resolve( api.postWithToken( 'csrf', params ) );
 			} )
-			.then( function () {
+			.then( () => {
 				const mwApi = new mw.Api();
 
 				// Purge the newly-created page after adding the link,
@@ -71,7 +71,7 @@
 		);
 	}
 
-	$( function () {
+	$( () => {
 		mw.hook( 'mw.cx.translation.published' ).add( addWikibaseLink );
 	} );
 }() );

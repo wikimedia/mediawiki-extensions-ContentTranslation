@@ -52,9 +52,9 @@
 
 		const callout = $trigger.data( 'callout' );
 
-		mw.hook( 'mw.cx.betafeature.enabled' ).add( function () {
+		mw.hook( 'mw.cx.betafeature.enabled' ).add( () => {
 			// Show after a few milliseconds to get all position calculation correct
-			setTimeout( function () {
+			setTimeout( () => {
 				callout.show();
 			}, 500 );
 			mw.hook( 'mw.cx.cta.shown' ).fire( CAMPAIGN );
@@ -165,7 +165,7 @@
 			}
 		} );
 		$container.append( fd.$element );
-		$trigger.one( 'click', function () {
+		$trigger.one( 'click', () => {
 			const api = new mw.Api();
 			// Prevent default click action.
 			fd.show();
@@ -174,7 +174,7 @@
 				action: 'globalpreferences',
 				optionname: 'cx-entrypoint-fd-status',
 				optionvalue: 'shown'
-			} ).then( function ( res ) {
+			} ).then( ( res ) => {
 				if ( res.error ) {
 					mw.log.error( res.error );
 				}
@@ -183,11 +183,11 @@
 		} );
 	}
 
-	$( function () {
+	$( () => {
 		const $trigger = $( '#pt-mycontris' );
 
 		if ( mw.config.get( 'wgContentTranslationEntryPointFD' ) ) {
-			mw.loader.using( 'mw.cx.ui.FeatureDiscoveryWidget' ).then( function () {
+			mw.loader.using( 'mw.cx.ui.FeatureDiscoveryWidget' ).then( () => {
 				showFeatureDiscovery( $trigger );
 			} );
 		} else {
@@ -195,7 +195,7 @@
 		}
 
 		// Change the menu when creating a new article using VE
-		mw.hook( 've.activationComplete' ).add( function () {
+		mw.hook( 've.activationComplete' ).add( () => {
 			// Rebuild menu
 			$trigger.removeData( 'callout' );
 			attachMenu( $trigger );

@@ -160,9 +160,9 @@ ve.ui.CXLinkContextItem.prototype.renderBody = function () {
 	// Case 3: First click on a link in the source column, or a first click on
 	// a link in the target column added manually by the translator. This will
 	// cache the results so that case 2 is hit on subsequent hits.
-	this.getLinkInfo().then( function ( linkAdaptationInfo ) {
+	this.getLinkInfo().then( ( linkAdaptationInfo ) => {
 		this.$body.empty().append( this.generateBody( linkAdaptationInfo ) );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -182,7 +182,7 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 		otherTitleKey = this.inTargetSurface ? 'sourceTitle' : 'targetTitle',
 		adaptationInfo = {};
 
-	const thisTitlePromise = this.thisLinkCache.get( thisTitle ).then( function ( thisLinkData ) {
+	const thisTitlePromise = this.thisLinkCache.get( thisTitle ).then( ( thisLinkData ) => {
 		adaptationInfo[ thisTitleKey ] = {
 			title: thisTitle,
 			pagelanguage: thisLanguage,
@@ -191,7 +191,7 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 		};
 	} );
 
-	const otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( function ( titlePairInfo ) {
+	const otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( ( titlePairInfo ) => {
 		const otherTitle = titlePairInfo.targetTitle;
 
 		adaptationInfo.adapted = true;
@@ -200,7 +200,7 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 			return;
 		}
 
-		return this.otherLinkCache.get( otherTitle ).then( function ( otherLinkData ) {
+		return this.otherLinkCache.get( otherTitle ).then( ( otherLinkData ) => {
 			adaptationInfo[ otherTitleKey ] = {
 				title: otherTitle,
 				pagelanguage: otherLanguage,
@@ -208,13 +208,13 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 				thumbnail: { source: otherLinkData.imageUrl }
 			};
 		} );
-	}.bind( this ) );
+	} );
 
-	return $.when( thisTitlePromise, otherTitlePromise ).then( function () {
+	return $.when( thisTitlePromise, otherTitlePromise ).then( () => {
 		this.model.getStore().hash( adaptationInfo, OO.getHash( thisTitle ) );
 
 		return adaptationInfo;
-	}.bind( this ) );
+	} );
 };
 
 ve.ui.CXLinkContextItem.prototype.generateBody = function ( adaptationInfo ) {
@@ -281,7 +281,7 @@ ve.ui.CXLinkContextItem.prototype.createRedLink = function ( adaptationInfo ) {
 	}
 
 	// See ve.ui.AnnotationContextItem#applyToAnnotations
-	this.applyToAnnotations( function ( fragment, annotation ) {
+	this.applyToAnnotations( ( fragment, annotation ) => {
 		// Clear the annotation from fragment
 		fragment.annotateContent( 'clear', annotation );
 

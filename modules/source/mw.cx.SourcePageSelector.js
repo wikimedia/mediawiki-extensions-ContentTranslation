@@ -99,13 +99,13 @@ mw.cx.SourcePageSelector.prototype.listen = function () {
 		this.selectedSourcePage.focusStartTranslationButton();
 	}.bind( this );
 
-	this.$container.on( 'keydown', function ( e ) {
+	this.$container.on( 'keydown', ( e ) => {
 		if ( e.keyCode !== OO.ui.Keys.ESCAPE ) {
 			return;
 		}
 
 		this.discardDialog();
-	}.bind( this ) );
+	} );
 
 	const proxied = this.pageSelector.lookupMenu.onDocumentKeyDownHandler;
 	this.pageSelector.lookupMenu.onDocumentKeyDownHandler = function ( e ) {
@@ -284,7 +284,7 @@ mw.cx.SourcePageSelector.prototype.getExcludedSourceNamespaces = function ( sour
 		action: 'query',
 		meta: 'siteinfo',
 		siprop: 'namespaces'
-	} ).then( function ( response ) {
+	} ).then( ( response ) => {
 		const excludedNamespaces = [];
 
 		for ( const namespaceId in response.query.namespaces ) {

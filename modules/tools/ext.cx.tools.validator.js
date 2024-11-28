@@ -31,7 +31,7 @@
 			action: 'query',
 			titles: title,
 			redirects: true
-		} ).then( function ( response ) {
+		} ).then( ( response ) => {
 			const page = response.query.pages[ 0 ];
 
 			if ( page.missing || page.invalid ) {
@@ -64,11 +64,11 @@
 			lllang: mw.cx.siteMapper.getWikiDomainCode( targetLanguage ),
 			lllimit: 1,
 			redirects: true
-		} ).then( function ( response ) {
+		} ).then( ( response ) => {
 			let equivalentTargetPage = false;
 
 			if ( response.query && response.query.pages ) {
-				Object.keys( response.query.pages ).forEach( function ( pageId ) {
+				Object.keys( response.query.pages ).forEach( ( pageId ) => {
 					const page = response.query.pages[ pageId ];
 					if ( page.langlinks ) {
 						equivalentTargetPage = page.langlinks[ 0 ][ '*' ];

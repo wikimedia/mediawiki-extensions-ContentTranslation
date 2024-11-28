@@ -70,7 +70,7 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 		limit: 15
 	}, this.queryContinue );
 
-	this.promise = api.get( params ).then( function ( response ) {
+	this.promise = api.get( params ).then( ( response ) => {
 		self.promise = null;
 		self.queryContinue = response.continue;
 		self.hasMore = !!response.continue;
@@ -80,9 +80,7 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 		}
 
 		// Remove unnecessary object wrapping to get plain list of objects
-		return response.query.contenttranslation.translations.map( function ( e ) {
-			return e.translation;
-		} );
+		return response.query.contenttranslation.translations.map( ( e ) => e.translation );
 	} );
 
 	return this.promise;
@@ -128,7 +126,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 	this.pendingRequests++;
 
 	const promise = this.getTranslations();
-	promise.done( function ( translations ) {
+	promise.done( ( translations ) => {
 		self.translations = self.translations.concat( translations );
 
 		if ( !self.translations.length ) {
@@ -138,7 +136,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 			return;
 		}
 
-		translations.forEach( function ( translation ) {
+		translations.forEach( ( translation ) => {
 			insertUnique( self.sourceLanguages, translation.sourceLanguage );
 			insertUnique( self.targetLanguages, translation.targetLanguage );
 		} );
@@ -146,14 +144,14 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 		self.fillULS();
 
 		self.renderTranslations( translations );
-	} ).fail( function ( error ) {
+	} ).fail( ( error ) => {
 		self.promise = null;
 
 		if ( error === 'assertuserfailed' ) {
 			$( window ).off( 'scroll' );
 			self.constructor.static.showLoginDialog();
 		}
-	} ).always( function () {
+	} ).always( () => {
 		self.pendingRequests--;
 
 		if ( self.pendingRequests === 0 ) {
@@ -402,9 +400,9 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 				{ action: 'discard', label: mw.msg( 'cx-draft-discard-button-label' ), flags: [ 'primary', 'destructive' ] },
 				{ action: 'cancel', label: mw.msg( 'cx-draft-cancel-button-label' ), flags: 'safe' }
 			]
-		} ) ).closed.then( function ( data ) {
+		} ) ).closed.then( ( data ) => {
 			if ( data && data.action === 'discard' ) {
-				self.discardTranslation( translation ).done( function ( response ) {
+				self.discardTranslation( translation ).done( ( response ) => {
 					if ( response.cxdelete.result !== 'success' ) {
 						return;
 					}
@@ -416,7 +414,7 @@ mw.cx.CXTranslationList.prototype.listen = function () {
 						translation.sourceTitle,
 						translation.targetTitle
 					);
-				} ).fail( function ( error ) {
+				} ).fail( ( error ) => {
 					if ( error === 'assertuserfailed' ) {
 						self.constructor.static.showLoginDialog();
 					}

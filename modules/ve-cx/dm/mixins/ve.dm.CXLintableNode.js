@@ -30,9 +30,7 @@ ve.dm.CXLintableNode.prototype.getTranslation = function () {
  * @return {mw.cx.dm.TranslationIssue[]}
  */
 ve.dm.CXLintableNode.prototype.getTranslationIssues = function () {
-	return this.translationIssues.filter( function ( issue ) {
-		return !issue.isSuppressed();
-	} );
+	return this.translationIssues.filter( ( issue ) => !issue.isSuppressed() );
 };
 
 /**
@@ -48,12 +46,10 @@ ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
 	}
 
 	// If nothing is found, empty array is returned
-	return this.translationIssues.filter( function ( issue ) {
+	return this.translationIssues.filter( ( issue ) =>
 		// eslint-disable-next-line security/detect-non-literal-regexp
-		return ( new RegExp( name ) ).test( issue.getName() );
-	} ).map( function ( issue ) {
-		return issue.getName();
-	} );
+		( new RegExp( name ) ).test( issue.getName() )
+	).map( ( issue ) => issue.getName() );
 };
 
 /**
@@ -172,9 +168,7 @@ ve.dm.CXLintableNode.prototype.processTranslationIssues = function ( issue ) {
  * @return {boolean}
  */
 ve.dm.CXLintableNode.prototype.hasErrors = function () {
-	return this.getTranslationIssues().some( function ( issue ) {
-		return issue.type === 'error';
-	} );
+	return this.getTranslationIssues().some( ( issue ) => issue.type === 'error' );
 };
 
 /**

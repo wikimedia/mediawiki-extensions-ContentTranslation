@@ -15,8 +15,8 @@ const LoginPage = require( 'wdio-mediawiki/LoginPage' );
 const UnifiedDashboardPage = require( '../pageobjects/UnifiedDashboard.page' );
 const DesktopEditor = require( '../componentobjects/DesktopEditor' );
 
-describe( 'Unified Dashboard - Desktop - New translation', function () {
-	it( 'should allow publishing a new translation started through search', async function () {
+describe( 'Unified Dashboard - Desktop - New translation', () => {
+	it( 'should allow publishing a new translation started through search', async () => {
 		await LoginPage.loginAdmin();
 		await UnifiedDashboardPage.open();
 

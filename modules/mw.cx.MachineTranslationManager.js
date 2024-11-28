@@ -54,14 +54,14 @@ mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
 		key = this.getStorageKey(),
 		value = mw.storage.get( key );
 
-	return this.getAvailableProviders().then( function ( providers ) {
+	return this.getAvailableProviders().then( ( providers ) => {
 		if ( value && providers.indexOf( value ) >= 0 ) {
 			return value;
 		}
 
 		// Stored provider is invalid or not available right now
 		return this.getDefaultProvider();
-	}.bind( this ) );
+	} );
 
 };
 
@@ -73,13 +73,11 @@ mw.cx.MachineTranslationManager.prototype.setPreferredProvider = function ( valu
 
 mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
 	return this.MT.getProviders().then(
-		function ( providers ) {
-			return providers.concat( [ 'source', 'scratch' ] );
-		},
-		function () {
+		( providers ) => providers.concat( [ 'source', 'scratch' ] ),
+		() =>
 			// Allow to continue translation even if this fails
-			return $.Deferred().resolve( [ 'source', 'scratch' ] );
-		}
+			$.Deferred().resolve( [ 'source', 'scratch' ] )
+
 	);
 };
 
@@ -94,17 +92,17 @@ mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
  */
 mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () {
 	return mw.loader.using( 'jquery.uls.data' ).then(
-		function () {
+		() => {
 			const
 				sourceDir = $.uls.data.getDir( this.sourceLanguage ),
 				targetDir = $.uls.data.getDir( this.targetLanguage );
 
 			return sourceDir === targetDir ? 'source' : 'scratch';
-		}.bind( this ),
-		function () {
+		},
+		() =>
 			// Convert failure to success
-			return $.Deferred().resolve( 'source' ).promise();
-		}
+			$.Deferred().resolve( 'source' ).promise()
+
 	);
 };
 
@@ -115,12 +113,8 @@ mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () 
  */
 mw.cx.MachineTranslationManager.prototype.getDefaultProvider = function () {
 	return this.MT.getSuggestedDefaultProvider().then(
-		function ( provider ) {
-			return provider || this.getDefaultNonMTProvider();
-		}.bind( this ),
-		function () {
-			return this.getDefaultNonMTProvider();
-		}.bind( this )
+		( provider ) => provider || this.getDefaultNonMTProvider(),
+		() => this.getDefaultNonMTProvider()
 	);
 };
 

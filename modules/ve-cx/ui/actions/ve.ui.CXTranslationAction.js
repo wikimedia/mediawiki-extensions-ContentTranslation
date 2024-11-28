@@ -71,17 +71,17 @@ ve.ui.CXTranslationAction.prototype.translate = function ( source ) {
 	}
 
 	promise
-		.always( function () {
+		.always( () => {
 			// Recalculate the section, since the instance got destroyed in content change
 			section = target.getTargetSectionNode( section.getSectionId() );
 			if ( section ) {
 				// Emit Post-translate event
 				section.emit( 'afterTranslation' );
 			}
-		} ).fail( function () {
+		} ).fail( () => {
 			mw.notify( mw.msg( 'cx-mt-failed' ) );
 			this.surface.getModel().emit( 'contextChange' );
-		}.bind( this ) );
+		} );
 };
 
 /**

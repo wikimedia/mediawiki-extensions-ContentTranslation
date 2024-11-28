@@ -82,11 +82,7 @@
 	 */
 	function getMissingFrequentLanguages( frequentLanguages, deviceLanguage ) {
 		/** @type {{lang: string, frequency: number}[]} */
-		let targetedLanguages = Object.keys( frequentLanguages ).map( function ( languageCode ) {
-			return { lang: languageCode, frequency: frequentLanguages[ languageCode ] };
-		} ).sort( function ( a, b ) {
-			return b.frequency - a.frequency;
-		} );
+		let targetedLanguages = Object.keys( frequentLanguages ).map( ( languageCode ) => ( { lang: languageCode, frequency: frequentLanguages[ languageCode ] } ) ).sort( ( a, b ) => b.frequency - a.frequency );
 
 		let deviceParentLanguage;
 		// add device language/variant and parent device language (if exist) on top of this list
@@ -96,28 +92,20 @@
 				deviceParentLanguage = deviceLanguage.slice( 0, index );
 			}
 
-			targetedLanguages = targetedLanguages.filter( function ( language ) {
-				return language.lang !== deviceLanguage && language.lang !== deviceParentLanguage;
-			} );
+			targetedLanguages = targetedLanguages.filter( ( language ) => language.lang !== deviceLanguage && language.lang !== deviceParentLanguage );
 			if ( deviceParentLanguage ) {
 				targetedLanguages.unshift( { lang: deviceParentLanguage } );
 			}
 			targetedLanguages.unshift( { lang: deviceLanguage } );
 		}
 		// Remove current wiki language from targetedLanguages
-		targetedLanguages = targetedLanguages.filter( function ( language ) {
-			return language.lang !== mw.config.get( 'wgContentLanguage' );
-		} );
+		targetedLanguages = targetedLanguages.filter( ( language ) => language.lang !== mw.config.get( 'wgContentLanguage' ) );
 		/**
 		 * @type {{lang: string, autonym: string, dir: string}[]} missingSXLanguages array containing the
 		 * enabled language codes for SX that are missing for the specific article
 		 */
 		const missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
-		return missingSXLanguages.filter( function ( missingSXLanguage ) {
-			return targetedLanguages.some( function ( targetLanguage ) {
-				return missingSXLanguage.lang === targetLanguage.lang;
-			} );
-		} );
+		return missingSXLanguages.filter( ( missingSXLanguage ) => targetedLanguages.some( ( targetLanguage ) => missingSXLanguage.lang === targetLanguage.lang ) );
 	}
 
 	/**
@@ -134,7 +122,7 @@
 
 	mw.hook( 'mobileFrontend.languageSearcher.onOpen' ).add(
 		/** @param {LanguageSearcher} languageSearcher */
-		function ( languageSearcher ) {
+		( languageSearcher ) => {
 			const frequentLanguages = getFrequentlyUsedLanguages(),
 				deviceLanguage = languageSearcher.options.deviceLanguage;
 

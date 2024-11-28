@@ -39,10 +39,10 @@ const useSearchResultLanguages = () => {
 			matchLanguage,
 			defaultSourceLanguage,
 			firstExistingLanguage
-		].filter( ( language ) => {
+		].filter( ( language ) =>
 			// only items for which there is a Wikipedia article in at least one language
-			return !!language && language !== targetLanguage.value && language !== 'all' && siteLinkLanguages.includes( language );
-		} );
+			!!language && language !== targetLanguage.value && language !== 'all' && siteLinkLanguages.includes( language )
+		);
 		const resultSourceLanguage = candidateSourceLanguages[ 0 ];
 
 		const candidateDisplayLanguages = [

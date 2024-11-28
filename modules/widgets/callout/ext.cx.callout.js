@@ -215,7 +215,7 @@
 		}
 
 		if ( this.options.trigger === 'hover' ) {
-			this.$element.on( 'mouseenter', function () {
+			this.$element.on( 'mouseenter', () => {
 				// Hide all other cx-callouts
 				$( '.cx-callout' ).hide();
 				self.show();
@@ -226,7 +226,7 @@
 			} );
 		}
 		if ( this.options.trigger === 'click' ) {
-			this.$element.on( 'click', function () {
+			this.$element.on( 'click', () => {
 				if ( self.shown ) {
 					self.hide();
 				} else {
@@ -236,9 +236,9 @@
 		}
 
 		let timer;
-		$( window ).on( 'resize', function () {
+		$( window ).on( 'resize', () => {
 			clearTimeout( timer );
-			timer = setTimeout( function () {
+			timer = setTimeout( () => {
 				self.position();
 			}, 200 );
 		} );

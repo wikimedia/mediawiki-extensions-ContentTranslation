@@ -311,9 +311,7 @@ ve.dm.CXTransclusionInlineNode.prototype.convertToPlainText = function () {
 	const surfaceModel = ve.init.target.targetSurface.getModel();
 	const originalDomElements = this.getOriginalDomElements( this.doc.store ) || [];
 	const fragment = surfaceModel.getLinearFragment( this.getOuterRange(), true );
-	const textValue = originalDomElements.map( function ( elem ) {
-		return elem.innerText || '';
-	} ).join( '' );
+	const textValue = originalDomElements.map( ( elem ) => elem.innerText || '' ).join( '' );
 	fragment.insertContent( textValue, true );
 };
 

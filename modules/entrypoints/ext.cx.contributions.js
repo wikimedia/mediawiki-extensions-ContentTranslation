@@ -29,16 +29,16 @@
 		const $sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		const contributionButtons = this.getActivities().map( function ( item ) {
+		const contributionButtons = this.getActivities().map( ( item ) =>
 			// eslint-disable-next-line mediawiki/class-doc
-			return new OO.ui.ButtonWidget( {
+			new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
 				label: item.text,
 				icon: item.icon,
 				title: item.tooltip,
 				href: item.url
-			} );
-		} );
+			} )
+		);
 		const contributionButtonsGroup = new OO.ui.ButtonGroupWidget( {
 			classes: [ 'cx-contributions' ],
 			items: contributionButtons
@@ -88,7 +88,7 @@
 		];
 	};
 
-	$( function () {
+	$( () => {
 		const contributionsItemsContainer = document.createElement( 'header' );
 		contributionsItemsContainer.classList.add( 'cx-contributions-header' );
 

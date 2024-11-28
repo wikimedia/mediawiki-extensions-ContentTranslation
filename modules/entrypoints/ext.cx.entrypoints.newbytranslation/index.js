@@ -22,10 +22,10 @@ const getCandidateSourceLanguages = () => {
 			}
 			return null;
 		} )
-		.filter( ( lang, index, self ) => {
+		.filter( ( lang, index, self ) =>
 			// Remove target language and duplicates
-			return lang && lang !== targetLanguage && self.indexOf( lang ) === index;
-		} );
+			lang && lang !== targetLanguage && self.indexOf( lang ) === index
+		);
 
 	return candidates.splice( 0, 5 );
 };
@@ -42,9 +42,7 @@ const getSourceSuggestions = () => {
 			$from: candidateSourceLanguages.join( ',' )
 		} );
 
-	return $.get( sourceSuggestionApi ).then( function ( response ) {
-		return response.suggestions || [];
-	} );
+	return $.get( sourceSuggestionApi ).then( ( response ) => response.suggestions || [] );
 };
 
 getSourceSuggestions().then( ( suggestions ) => {
@@ -72,7 +70,7 @@ getSourceSuggestions().then( ( suggestions ) => {
 			action: 'globalpreferences',
 			optionname: 'cx_campaign_newarticle_shown',
 			optionvalue: 'true'
-		} ).then( function ( res ) {
+		} ).then( ( res ) => {
 			// Should we care?
 			if ( res.error ) {
 				mw.log.error( res.error );

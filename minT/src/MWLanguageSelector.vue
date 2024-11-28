@@ -138,8 +138,7 @@ module.exports = defineComponent( {
 		languages: {
 			type: Array,
 			default: () => [],
-			validator: ( languages ) =>
-				languages.every( ( language ) => typeof language === 'string' )
+			validator: ( languages ) => languages.every( ( language ) => typeof language === 'string' )
 		},
 		allOptionEnabled: {
 			type: Boolean,
@@ -151,8 +150,7 @@ module.exports = defineComponent( {
 		suggestions: {
 			type: Array,
 			default: () => [],
-			validator: ( languages ) =>
-				languages.every( ( language ) => typeof language === 'string' )
+			validator: ( languages ) => languages.every( ( language ) => typeof language === 'string' )
 		},
 		/**
 		 * Search API URL for language search.
@@ -177,12 +175,10 @@ module.exports = defineComponent( {
 		const searchInputElement = ref( null );
 		const searchQuery = ref( '' );
 		const searchResults = ref( [] );
-		const searchResultsByScript = computed( () =>
-			getSearchResultsByScript( searchResults.value )
+		const searchResultsByScript = computed( () => getSearchResultsByScript( searchResults.value )
 		);
 
-		const resultsDisplayClass = computed( () =>
-			getResultsDisplayClass( searchResults.value )
+		const resultsDisplayClass = computed( () => getResultsDisplayClass( searchResults.value )
 		);
 
 		const { closeLanguageSelector } = useRouter();

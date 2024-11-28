@@ -201,7 +201,7 @@ mw.cx.ui.TranslationView.prototype.setStatusMessage = function ( message ) {
 };
 
 mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translatorName, translatorGender ) {
-	mw.loader.using( 'ext.cx.translation.conflict' ).then( function () {
+	mw.loader.using( 'ext.cx.translation.conflict' ).then( () => {
 		mw.hook( 'mw.cx.translation.conflict' ).fire( translatorName, translatorGender );
 	} );
 };

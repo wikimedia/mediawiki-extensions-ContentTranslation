@@ -290,7 +290,7 @@ mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
 	$.when(
 		this.getPageDetails(),
 		this.getNearbyPages()
-	).done( function ( recentEdits, nearby ) {
+	).done( ( recentEdits, nearby ) => {
 		const recentEditPages = OO.getProp( recentEdits, 'query', 'pages' ),
 			nearbyPages = OO.getProp( nearby, 'query', 'pages' );
 
@@ -298,9 +298,9 @@ mw.cx.ui.PageSelectorWidget.prototype.populateSuggestions = function () {
 			nearby: nearbyPages,
 			recentEdits: recentEditPages
 		};
-	} ).fail( function ( error ) {
+	} ).fail( ( error ) => {
 		mw.log( 'Error getting page data. ' + error );
-	} ).always( function () {
+	} ).always( () => {
 		self.populateLookupMenu();
 		self.popPending();
 	} );
@@ -348,9 +348,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
 		ggsradius: 1000, // Search radius in meters
 		ggslimit: 3,
 		ggsnamespace: mw.config.get( 'wgNamespaceIds' )[ '' ] // Main namespace
-	} ).then( function ( data ) {
-		return data;
-	} );
+	} ).then( ( data ) => data );
 };
 
 /**
@@ -361,19 +359,15 @@ mw.cx.ui.PageSelectorWidget.prototype.getNearbyPages = function () {
 mw.cx.ui.PageSelectorWidget.prototype.getPageDetails = function () {
 	const self = this;
 
-	return this.getRecentlyEditedArticleTitles().then( function ( titles ) {
-		return self.siteMapper.getApi( self.language ).get( {
-			action: 'query',
-			titles: titles,
-			prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
-			piprop: 'thumbnail',
-			pilimit: 10,
-			pithumbsize: 120,
-			lllang: self.targetLanguage
-		} ).then( function ( data ) {
-			return data;
-		} );
-	}, function ( error ) {
+	return this.getRecentlyEditedArticleTitles().then( ( titles ) => self.siteMapper.getApi( self.language ).get( {
+		action: 'query',
+		titles: titles,
+		prop: [ 'pageimages', 'description', 'langlinks', 'langlinkscount' ],
+		piprop: 'thumbnail',
+		pilimit: 10,
+		pithumbsize: 120,
+		lllang: self.targetLanguage
+	} ).then( ( data ) => data ), ( error ) => {
 		mw.log( 'Error getting recent edit titles. ' + error );
 	} );
 };
@@ -396,17 +390,15 @@ mw.cx.ui.PageSelectorWidget.prototype.getRecentlyEditedArticleTitles = function 
 		ucprop: 'title'
 	};
 
-	return api.get( params ).then( function ( data ) {
+	return api.get( params ).then( ( data ) => {
 		const articles = OO.getProp( data, 'query', 'usercontribs' );
 
 		if ( !articles ) {
 			return $.Deferred().reject( 'No recent user contributions' ).promise();
 		}
 
-		return articles.map( function ( article ) {
-			return article.title;
-		} );
-	}, function ( error ) {
+		return articles.map( ( article ) => article.title );
+	}, ( error ) => {
 		mw.log( 'Error getting recent edits for ' + userName + '. ' + error );
 	} );
 };
@@ -423,8 +415,6 @@ mw.cx.ui.PageSelectorWidget.prototype.setExcludedNamespaces = function ( exclude
  */
 mw.cx.ui.PageSelectorWidget.prototype.isValidNamespace = function ( query ) {
 	return query.indexOf( ':' ) < 0 ||
-		this.excludedNamespaces.every( function ( namespace ) {
-			return query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !==
-			namespace.toLocaleLowerCase();
-		} );
+		this.excludedNamespaces.every( ( namespace ) => query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !==
+			namespace.toLocaleLowerCase() );
 };

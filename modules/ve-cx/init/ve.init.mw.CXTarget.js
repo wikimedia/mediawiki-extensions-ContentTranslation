@@ -227,9 +227,9 @@ ve.init.mw.CXTarget.prototype.setupToolbar = function ( surface ) {
 	this.publishToolbar.setup( this.constructor.static.publishToolbarGroups, surface );
 
 	this.publishButton = this.publishToolbar.getToolGroupByName( 'publish' ).findItemFromData( 'publish' );
-	mw.hook( 'mw.cx.progress' ).add( function ( weights ) {
+	mw.hook( 'mw.cx.progress' ).add( ( weights ) => {
 		this.publishButton.setDisabled( weights.any === 0 );
-	}.bind( this ) );
+	} );
 
 	this.translationView.translationHeader.$toolbar.append( this.publishToolbar.$element );
 };
@@ -382,9 +382,9 @@ ve.init.mw.CXTarget.prototype.surfaceReady = function () {
 	// Wait for 300ms because of debounced section alignment and then mark target surface as ready.
 	// This CSS class is used in order to avoid showing initial placeholder
 	// until it is sized to match corresponding source section.
-	setTimeout( function () {
+	setTimeout( () => {
 		this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--ready' );
-	}.bind( this ), 300 );
+	}, 300 );
 };
 
 /**
@@ -458,7 +458,7 @@ ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
 	const lastItem = this.contextStack.length - 1;
 
 	// Iterate all context(s) in a stack
-	this.contextStack.forEach( function ( context, index ) {
+	this.contextStack.forEach( ( context, index ) => {
 		// Whether items for second to last context in a stack should be disabled.
 		// Used when dialog is closing.
 		const disableSecondToLast = !disabled && index === ( lastItem - 1 );
@@ -470,7 +470,7 @@ ve.init.mw.CXTarget.prototype.processContextItems = function ( disabled ) {
 				item.toggle( true );
 				item.setDisabled( disabled || disableSecondToLast );
 				// Set disabled state for action buttons
-				item.actionButtons.getItems().forEach( function ( button ) {
+				item.actionButtons.getItems().forEach( ( button ) => {
 					button.setDisabled( disabled || disableSecondToLast );
 				} );
 			};
@@ -637,13 +637,13 @@ ve.init.mw.CXTarget.prototype.attachToolbar = function () {
 			.addClass( 'oo-ui-toolbar-narrow' ) // Quick fix to avoid overflowing toolbar.
 	);
 
-	ve.ui.CXTranslationToolbar.static.registerTools( this.MTManager ).then( function () {
+	ve.ui.CXTranslationToolbar.static.registerTools( this.MTManager ).then( () => {
 		const mtToolbar = new ve.ui.CXTranslationToolbar();
 		mtToolbar.setup( this.constructor.static.translationToolbarGroups, this.targetSurface );
 		this.translationView.toolsColumn.mtToolbarContainer.$element.append( mtToolbar.$element );
 		mtToolbar.initialize();
 		this.mtToolbar = mtToolbar;
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -671,7 +671,7 @@ ve.init.mw.CXTarget.prototype.onDocumentTransact = function ( transaction ) {
 		// In case of references, the node affected is internal list item.
 		// It is possible that the reference is used in multiple sections too.
 		// Register change to all sections.
-		docModel.getNodesByType( 'cxSection' ).forEach( function ( section ) {
+		docModel.getNodesByType( 'cxSection' ).forEach( ( section ) => {
 			section.emitSectionChange();
 		} );
 	}
@@ -715,7 +715,7 @@ ve.init.mw.CXTarget.prototype.alignSectionPairs = function () {
 	// during that time, we will have a different scroll position at the end
 	// of this alignment. So we lock the scroll position.
 	const scrollPosition = $( this.getElementWindow() ).scrollTop();
-	articleNode.getChildren().forEach( function ( node ) {
+	articleNode.getChildren().forEach( ( node ) => {
 		let sectionNumber;
 		const element = node.$element[ 0 ];
 		const id = element && element.id;
@@ -803,14 +803,10 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
-	this.MTManager.getPreferredProvider().then( function ( provider ) {
-		return this.changeContentSource( model, null, provider );
-	}.bind( this ) ).fail( function () {
+	this.MTManager.getPreferredProvider().then( ( provider ) => this.changeContentSource( model, null, provider ) ).fail( () => {
 		mw.notify( mw.msg( 'cx-auto-failed' ) );
-		return this.MTManager.getDefaultNonMTProvider().then( function ( provider ) {
-			return this.changeContentSource( model, null, provider );
-		}.bind( this ) );
-	}.bind( this ) ).always( function () {
+		return this.MTManager.getDefaultNonMTProvider().then( ( provider ) => this.changeContentSource( model, null, provider ) );
+	} ).always( () => {
 		const $sourceElement = this.getSourceSectionElement( cxid );
 		$sourceElement.removeClass( 'cx-section-highlight' );
 		const sectionNode = this.getTargetSectionNode( cxid );
@@ -820,7 +816,7 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 		} else {
 			mw.log.error( '[CX] No model found after translation for ' + cxid );
 		}
-	}.bind( this ) );
+	} );
 };
 
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
@@ -979,14 +975,13 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  * @param {HTMLElement} node
  * @return {boolean}
  */
-const isTransclusionNode = ( node ) =>
-	!!(
-		node.attributes.about ||
+const isTransclusionNode = ( node ) => !!(
+	node.attributes.about ||
 				( node.attributes.typeof &&
 						node
 							.getAttribute( 'typeof' )
 							.match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ ) )
-	);
+);
 
 /**
  * Copied and adjusted from SX code: /app/src/wiki/cx/models/subSection.js
@@ -994,11 +989,8 @@ const isTransclusionNode = ( node ) =>
  * @param {HTMLElement} subSectionNode
  * @return {HTMLElement}
  */
-const getTransclusionNode = ( subSectionNode ) => {
-	return Array.from( subSectionNode.children ).find( ( node ) =>
-		isTransclusionNode( node )
-	);
-};
+const getTransclusionNode = ( subSectionNode ) => Array.from( subSectionNode.children ).find( ( node ) => isTransclusionNode( node )
+);
 
 /**
  * Translate and adapt the source section for the given section id.
@@ -1098,10 +1090,10 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 		}
 	}
 
-	return this.translateSection( cxid, newProvider, options.noCache ).then( function ( content ) {
+	return this.translateSection( cxid, newProvider, options.noCache ).then( ( content ) => {
 		this.setSectionContent( section, content, newProvider );
 		this.emit( 'changeContentSource', mw.cx.getSectionNumberFromSectionId( cxid ) );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -1113,9 +1105,9 @@ ve.init.mw.CXTarget.prototype.changeContentSource = function (
 ve.init.mw.CXTarget.prototype.prefetchTranslationForSection = function ( sectionNumber ) {
 	const $section = this.sourceSurface.$element.find( '#cxSourceSection' + sectionNumber );
 	if ( $section.length ) {
-		this.MTManager.getPreferredProvider().then( function ( provider ) {
+		this.MTManager.getPreferredProvider().then( ( provider ) => {
 			this.translateSection( $section.prop( 'id' ), provider );
-		}.bind( this ) );
+		} );
 	}
 };
 

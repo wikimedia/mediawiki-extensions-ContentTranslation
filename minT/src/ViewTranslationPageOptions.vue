@@ -149,13 +149,12 @@ module.exports = defineComponent( {
 		};
 
 		const siteMapper = new mw.cx.SiteMapper();
-		const cxUrl = computed( () =>
-			siteMapper.getCXUrl(
-				props.pageResult.sourceTitle,
-				null,
-				sourceLanguage.value,
-				targetLanguage.value
-			)
+		const cxUrl = computed( () => siteMapper.getCXUrl(
+			props.pageResult.sourceTitle,
+			null,
+			sourceLanguage.value,
+			targetLanguage.value
+		)
 		);
 
 		const isShareSupported = navigator.canShare && navigator.canShare( { url: location.href } );

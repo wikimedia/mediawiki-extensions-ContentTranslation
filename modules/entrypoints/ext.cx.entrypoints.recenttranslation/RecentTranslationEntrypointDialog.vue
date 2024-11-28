@@ -176,10 +176,9 @@ module.exports = {
 			);
 
 			fetch( cxServerSectionSuggestionApiUrl )
-				.then( ( response ) =>
-					response.ok ?
-						response.json() :
-						Promise.reject( new Error( 'Failed to load data from server' ) )
+				.then( ( response ) => response.ok ?
+					response.json() :
+					Promise.reject( new Error( 'Failed to load data from server' ) )
 				)
 				.then( ( suggestionResult ) => {
 					if ( suggestionResult.sections ) {

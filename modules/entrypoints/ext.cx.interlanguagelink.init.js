@@ -43,9 +43,7 @@ function getSuggestedTargetLanguages() {
 
 	// Language codes can have country extensions like en-US.
 	// Remove them so that it is like domain code format.
-	possibleTargetLanguages = possibleTargetLanguages.map( function ( language ) {
-		return language.split( '-' )[ 0 ];
-	} );
+	possibleTargetLanguages = possibleTargetLanguages.map( ( language ) => language.split( '-' )[ 0 ] );
 
 	// Replace possibly non-standard, macro and duplicate language codes
 	// with normalized counterparts
@@ -64,13 +62,13 @@ function getSuggestedTargetLanguages() {
 		}
 	}
 
-	return possibleTargetLanguages.filter( function ( language ) {
+	return possibleTargetLanguages.filter( ( language ) =>
 		// Code should not be a language in which page exists.
 		// Also it should be a known language for ULS
-		return language !== pageLanguage &&
+		language !== pageLanguage &&
 			!pageInLanguageExists( language ) &&
-			language !== $.uls.data.getAutonym( language );
-	} );
+			language !== $.uls.data.getAutonym( language )
+	);
 }
 
 function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
@@ -78,11 +76,9 @@ function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
 	const maxListSize = 3;
 
 	// Remove duplicates
-	suggestedTargetLanguages = suggestedTargetLanguages.filter( function ( element, index ) {
-		return suggestedTargetLanguages.indexOf( element ) === index;
-	} );
+	suggestedTargetLanguages = suggestedTargetLanguages.filter( ( element, index ) => suggestedTargetLanguages.indexOf( element ) === index );
 
-	suggestedTargetLanguages.some( function ( code ) {
+	suggestedTargetLanguages.some( ( code ) => {
 		const $newItem = mw.cx.createCXInterlanguageItem( code );
 		$pLangList.prepend( $newItem );
 		// Array.prototype.some breaks the iteration first time `true` is returned
@@ -102,7 +98,7 @@ function init() {
 		return;
 	}
 
-	mw.loader.using( 'ext.cx.interlanguagelink' ).then( function () {
+	mw.loader.using( 'ext.cx.interlanguagelink' ).then( () => {
 		mw.cx.siteMapper = new mw.cx.SiteMapper();
 		prepareCXInterLanguageLinks( suggestedTargetLanguages );
 	} );

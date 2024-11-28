@@ -97,17 +97,17 @@ ve.ui.CXTextSelectionContextItem.prototype.renderBody = function ( targetTitleDa
 
 	// Find source title for the selected text.
 	this.requestManager.getTitlePair( targetLanguage, this.normalizedTitle )
-		.then( function ( titlePairInfo ) {
+		.then( ( titlePairInfo ) => {
 			const sourceTitle = titlePairInfo.targetTitle;
 			if ( sourceTitle ) {
 				// Render the source title card for this title.
 				this.renderSourceTitle( sourceTitle, sourceLanguage );
 			}
-		}.bind( this ) );
+		} );
 };
 
 ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( sourceTitle, sourceLanguage ) {
-	this.sourceLinkCache.get( sourceTitle ).then( function ( linkData ) {
+	this.sourceLinkCache.get( sourceTitle ).then( ( linkData ) => {
 		if ( linkData.missing ) {
 			// Source title data missing.
 			// This is almost impossible since we already found that the source title exist.
@@ -125,7 +125,7 @@ ve.ui.CXTextSelectionContextItem.prototype.renderSourceTitle = function ( source
 			sourceLinkInfo, sourceLanguage
 		);
 		this.$sourceBody.show().empty().append( $sourceLink );
-	}.bind( this ) );
+	} );
 };
 
 /**
@@ -150,7 +150,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 	this.$sourceBody.hide();
 	this.normalizedTitle = ve.init.mw.ApiResponseCache.static.normalizeTitle( text );
 	// Try to find the selected text as a title in target wiki
-	this.targetLinkCache.get( this.normalizedTitle ).then( function ( linkData ) {
+	this.targetLinkCache.get( this.normalizedTitle ).then( ( linkData ) => {
 		if ( linkData.missing ) {
 			// Title does not exist in target language for the selected text. Do not show the card
 			this.$element.remove();
@@ -158,7 +158,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
 		}
 		this.toggle( true );
 		this.renderBody( linkData );
-	}.bind( this ) );
+	} );
 	return this;
 };
 
@@ -166,9 +166,7 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
  * @return {boolean} True if selected text contains a link.
  */
 ve.ui.CXTextSelectionContextItem.prototype.hasLink = function () {
-	return !this.getFragment().getAnnotations( true ).filter( function ( ann ) {
-		return ann instanceof ve.dm.LinkAnnotation;
-	} ).isEmpty();
+	return !this.getFragment().getAnnotations( true ).filter( ( ann ) => ann instanceof ve.dm.LinkAnnotation ).isEmpty();
 };
 
 ve.ui.CXTextSelectionContextItem.prototype.onSurfaceModelSelect = function ( selection ) {
@@ -202,9 +200,7 @@ ve.ui.CXTextSelectionContextItem.prototype.onEditButtonClick = function () {
 		command.execute( this.context.getSurface(), [ 'cxLink', attributes ] );
 		this.emit( 'command' );
 		// Force selection inside the link, as in ve.ui.AnnotationInspector#getTeardownProcess
-		this.context.getSurface().getView().selectAnnotation( function ( annView ) {
-			return annView.getModel() instanceof ve.dm.LinkAnnotation;
-		} );
+		this.context.getSurface().getView().selectAnnotation( ( annView ) => annView.getModel() instanceof ve.dm.LinkAnnotation );
 	}
 };
 

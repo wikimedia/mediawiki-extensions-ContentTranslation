@@ -185,8 +185,7 @@ module.exports = defineComponent( {
 
 		const isSelected = ( language ) => sourceLanguage.value === language;
 
-		const areSectionsLoaded = ( language ) =>
-			Object.values( sectionsLoaded.value[ language ] ).every( ( isLoaded ) => !!isLoaded );
+		const areSectionsLoaded = ( language ) => Object.values( sectionsLoaded.value[ language ] ).every( ( isLoaded ) => !!isLoaded );
 
 		const getTranslatedSections = ( language ) => {
 			const translatedSectionTitles = [];

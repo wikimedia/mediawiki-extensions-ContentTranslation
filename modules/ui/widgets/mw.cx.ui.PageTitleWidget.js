@@ -80,13 +80,13 @@ mw.cx.ui.PageTitleWidget.prototype.validateTitle = function ( value ) {
 		return;
 	}
 
-	ve.init.platform.linkCache.get( this.getValue() ).then( function ( result ) {
+	ve.init.platform.linkCache.get( this.getValue() ).then( ( result ) => {
 		if ( result.missing ) {
 			return;
 		}
 
 		this.model.addTranslationIssues( [ this.getExistingTitleWarning() ] );
-	}.bind( this ) );
+	} );
 };
 
 mw.cx.ui.PageTitleWidget.prototype.getExistingTitleWarning = function () {

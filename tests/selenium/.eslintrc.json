@@ -5,5 +5,10 @@
 	],
 	"globals": {
 		"document": "readonly"
+	},
+	"rules": {
+		"prefer-arrow-callback": "error",
+		"implicit-arrow-linebreak": "warn",
+		"arrow-body-style": "error"
 	}
 }
