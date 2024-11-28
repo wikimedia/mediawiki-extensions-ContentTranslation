@@ -12,7 +12,7 @@
  */
 mw.cx.ui.SectionTitleWidget = function ( model, config ) {
 	// Configuration initialization
-	config = $.extend( config, {
+	config = Object.assign( {}, config, {
 		classes: [ 'cx-pagetitle cx-sectiontitle' ],
 		type: 'text',
 		autosize: true

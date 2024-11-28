@@ -55,7 +55,7 @@
 	 */
 	function Callout( element, options ) {
 		this.$element = $( element );
-		this.options = $.extend( {}, $.fn.callout.defaults, options );
+		this.options = Object.assign( {}, $.fn.callout.defaults, options );
 		this.shown = false;
 		this.listen();
 	}
@@ -103,7 +103,7 @@
 	 * Position the callout
 	 */
 	Callout.prototype.position = function () {
-		const pos = $.extend( {}, this.$element.offset(), {
+		const pos = Object.assign( {}, this.$element.offset(), {
 			width: this.$element[ 0 ].offsetWidth,
 			height: this.$element[ 0 ].offsetHeight
 		} );

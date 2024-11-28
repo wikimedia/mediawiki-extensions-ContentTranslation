@@ -17,13 +17,13 @@
  */
 ve.init.mw.CXTarget = function VeInitMwCXTarget( translationView, config ) {
 	// Configuration initialization
-	this.config = config = $.extend( {}, config, {
+	this.config = config = Object.assign( {}, config, {
 		continuous: true,
 		expanded: false,
 		scrollable: false,
 		padded: false
 	} );
-	config.toolbarConfig = $.extend(
+	config.toolbarConfig = Object.assign(
 		{ shadow: true, actions: true, floatable: false, $overlay: true },
 		config.toolbarConfig
 	);

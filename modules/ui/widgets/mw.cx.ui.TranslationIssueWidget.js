@@ -10,7 +10,7 @@
  * @param {Object} [config] Configuration options
  */
 mw.cx.ui.TranslationIssueWidget = function TranslationIssueWidget( name, model, config ) {
-	config = $.extend( {
+	config = Object.assign( {
 		expanded: false,
 		scrollable: false
 	}, config );

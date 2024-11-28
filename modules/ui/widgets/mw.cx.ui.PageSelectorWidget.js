@@ -19,7 +19,7 @@
  * @param {string} [config.language] Source language
  */
 mw.cx.ui.PageSelectorWidget = function PageSelectorWidget( config ) {
-	config = $.extend( {}, {
+	config = Object.assign( {
 		namespace: mw.config.get( 'wgNamespaceIds' )[ '' ], // Main namespace
 		limit: 5,
 		showDescriptions: true,

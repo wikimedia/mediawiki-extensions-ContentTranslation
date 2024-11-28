@@ -22,7 +22,7 @@
  */
 mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 	this.siteMapper = siteMapper;
-	this.config = $.extend( {
+	this.config = Object.assign( {
 		campaign: new mw.Uri().query.campaign
 	}, config );
 
@@ -336,7 +336,7 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 	this.languageFilter.setSourceLanguageNoChecks( config.sourceLanguage );
 	this.languageFilter.setTargetLanguageNoChecks( config.targetLanguage );
 
-	const params = $.extend( {
+	const params = Object.assign( {
 		prop: [ 'langlinks', 'pageviews' ],
 		redirects: true,
 		lllimit: 'max'
@@ -421,7 +421,7 @@ mw.cx.SelectedSourcePage.prototype.getPageInfo = function ( title, params ) {
 	}
 
 	const api = this.siteMapper.getApi( this.languageFilter.getSourceLanguage() );
-	params = $.extend( {
+	params = Object.assign( {
 		action: 'query',
 		// If new prop array is provided in params, this one is overridden
 		prop: [ 'pageviews' ],

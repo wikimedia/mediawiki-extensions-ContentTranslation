@@ -6,7 +6,7 @@
  */
 mw.cx.ui.Infobar = function ( config ) {
 	// Configuration initialization
-	this.config = $.extend( {}, config, {
+	this.config = Object.assign( {}, config, {
 		continuous: true,
 		expanded: false,
 		$content: this.getContent(),

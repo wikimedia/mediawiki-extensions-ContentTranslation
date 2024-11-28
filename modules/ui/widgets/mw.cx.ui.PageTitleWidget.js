@@ -12,7 +12,7 @@
  */
 mw.cx.ui.PageTitleWidget = function ( model, config ) {
 	// Configuration initialization
-	config = $.extend( config, {
+	config = Object.assign( {}, config, {
 		classes: [ 'cx-pagetitle' ],
 		type: 'text',
 		autosize: true
@@ -134,7 +134,7 @@ mw.cx.ui.PageTitleWidget.prototype.getInvalidCharacterError = function () {
 	if ( titleObj ) {
 		this.validTitle = titleObj.title.replace( /_/g, ' ' );
 
-		messageData.messageInfo = $.extend( messageData.messageInfo, {
+		messageData.messageInfo = Object.assign( {}, messageData.messageInfo, {
 			resolvable: true,
 			actionIcon: 'trash',
 			actionLabel: mw.msg( 'cx-tools-linter-invalid-character-action' ),

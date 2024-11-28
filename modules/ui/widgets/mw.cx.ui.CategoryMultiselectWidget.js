@@ -94,7 +94,7 @@ mw.cx.ui.CategoryMultiselectWidget.prototype.allDisabled = function () {
 mw.cx.ui.CategoryMultiselectWidget.prototype.createTagItemWidget = function ( data, label, config ) {
 	label = label || data;
 
-	return new mw.cx.ui.CategoryTagItemWidget( $.extend( {
+	return new mw.cx.ui.CategoryTagItemWidget( Object.assign( {
 		data: data,
 		label: label
 	}, config ) );

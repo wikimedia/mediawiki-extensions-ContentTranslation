@@ -32,14 +32,14 @@ mw.cx.ui.TranslationView = function ( config ) {
 	this.categoryUI = null;
 
 	this.pageName = this.targetColumn.getTitle();
-	this.contentContainer = new OO.ui.HorizontalLayout( $.extend( {}, config, {
+	this.contentContainer = new OO.ui.HorizontalLayout( Object.assign( {}, config, {
 		continuous: true,
 		expanded: true,
 		classes: [ 'cx-content-container' ],
 		items: [ this.sourceColumn, this.targetColumn ]
 	} ) );
 
-	this.translationViewContainer = new OO.ui.StackLayout( $.extend( {}, config, {
+	this.translationViewContainer = new OO.ui.StackLayout( Object.assign( {}, config, {
 		continuous: true,
 		expanded: false,
 		classes: [ 'cx-translation-view-container' ],
@@ -48,7 +48,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 		items: [ this.translationHeader, this.infobar, this.contentContainer ]
 	} ) );
 
-	this.columns = new OO.ui.HorizontalLayout( $.extend( {}, config, {
+	this.columns = new OO.ui.HorizontalLayout( Object.assign( {}, config, {
 		continuous: true,
 		expanded: true,
 		classes: [ 'cx-widget__columns' ],
@@ -56,7 +56,7 @@ mw.cx.ui.TranslationView = function ( config ) {
 	} ) );
 
 	// Configuration initialization
-	this.config = $.extend( {}, config, {
+	this.config = Object.assign( {}, config, {
 		continuous: true,
 		expanded: false,
 		items: [ this.columns ],

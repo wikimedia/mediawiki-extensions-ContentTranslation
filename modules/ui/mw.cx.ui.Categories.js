@@ -126,7 +126,7 @@ mw.cx.ui.Categories.prototype.mapCategories = function ( categories ) {
 mw.cx.ui.Categories.prototype.createCategoryListing = function ( categories, isSource, config ) {
 	const categoryItems = this.mapCategories( categories );
 
-	return new mw.cx.ui.CategoryMultiselectWidget( $.extend( {
+	return new mw.cx.ui.CategoryMultiselectWidget( Object.assign( {
 		icon: 'tag',
 		options: isSource ? categoryItems : [],
 		selected: categoryItems.map( function ( item ) {

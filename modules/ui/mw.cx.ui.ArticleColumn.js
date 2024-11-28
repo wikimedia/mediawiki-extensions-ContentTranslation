@@ -17,7 +17,7 @@
  */
 mw.cx.ui.ArticleColumn = function ( config ) {
 	// Configuration initialization
-	config = $.extend( {}, config, {
+	config = Object.assign( {}, config, {
 		continuous: true,
 		classes: [ 'cx-column' ],
 		expanded: false,

@@ -12,7 +12,7 @@
  */
 mw.cx.ui.MessageWidget = function CXMessageWidget( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		showClose: true
 	}, config );
 

@@ -63,7 +63,7 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 		return $.Deferred().resolve( [] );
 	}
 
-	const params = $.extend( {
+	const params = Object.assign( {
 		assert: 'user',
 		list: 'contenttranslation',
 		type: this.type,

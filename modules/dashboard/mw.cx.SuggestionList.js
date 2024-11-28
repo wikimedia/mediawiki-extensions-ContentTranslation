@@ -247,7 +247,7 @@ mw.cx.CXSuggestionList.prototype.loadSuggestionsForList = function ( list ) {
 		};
 	}
 
-	const params = $.extend( {
+	const params = Object.assign( {
 		assert: 'user',
 		action: 'query',
 		list: 'contenttranslationsuggestions',

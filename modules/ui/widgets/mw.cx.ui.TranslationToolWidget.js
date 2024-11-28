@@ -12,7 +12,7 @@
  */
 mw.cx.widgets.TranslationToolWidget = function CXTranslationToolWidget( translationTool, config ) {
 	this.translationTool = translationTool;
-	config = $.extend( {}, config, {
+	config = Object.assign( {}, config, {
 		// The following classes are used here:
 		// * cx-card-instructions
 		// * cx-card-issues

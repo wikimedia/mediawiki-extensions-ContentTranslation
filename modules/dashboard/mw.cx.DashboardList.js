@@ -67,7 +67,7 @@ mw.cx.DashboardList.prototype.hide = function () {
 };
 
 mw.cx.DashboardList.prototype.init = function ( languageFilterConfig ) {
-	this.languageFilter = new mw.cx.ui.LanguageFilter( $.extend( {
+	this.languageFilter = new mw.cx.ui.LanguageFilter( Object.assign( {
 		onSourceLanguageChange: this.applyFilters.bind( this ),
 		onTargetLanguageChange: this.applyFilters.bind( this )
 	}, languageFilterConfig ) );

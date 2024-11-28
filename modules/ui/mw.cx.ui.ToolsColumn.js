@@ -35,7 +35,7 @@ mw.cx.ui.ToolsColumn = function ( config ) {
 	this.issueCard = mw.cx.tools.translationToolFactory.create( 'issues' );
 
 	// Configuration initialization
-	this.config = $.extend( {}, config, {
+	this.config = Object.assign( {}, config, {
 		continuous: true,
 		classes: [ 'cx-column', 'cx-column-tools' ],
 		expanded: false,

@@ -357,7 +357,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 		this.sourceLanguageButton.$button.off( 'click' );
 	}
 
-	this.sourceLanguageButton.$button.uls( $.extend( {
+	this.sourceLanguageButton.$button.uls( Object.assign( {
 		languages: this.getAutonyms( sourceLanguages ),
 		ulsPurpose: 'cx-languagefilter-source',
 		onSelect: function ( language ) {
@@ -396,7 +396,7 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 		this.targetLanguageButton.$button.off( 'click' );
 	}
 
-	this.targetLanguageButton.$button.uls( $.extend( {
+	this.targetLanguageButton.$button.uls( Object.assign( {
 		languages: this.getAutonyms( targetLanguages ),
 		ulsPurpose: 'cx-languagefilter-target',
 		onSelect: function ( language ) {
