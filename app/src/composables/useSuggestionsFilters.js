@@ -104,8 +104,9 @@ const useSuggestionsFilters = () => {
 
   const waitingForPageCollectionsFetch = computed(
     () =>
-      currentFilter.value.type === COLLECTIONS_SUGGESTION_PROVIDER &&
-      !pageCollectionsFetched.value
+      [currentFilter.value.type, currentFilter.value.id].includes(
+        COLLECTIONS_SUGGESTION_PROVIDER
+      ) && !pageCollectionsFetched.value
   );
 
   const getFiltersSummary = () => {
