@@ -54,7 +54,7 @@ const useSuggestionsBookmark = () => {
    * @param {ArticleSuggestion} pageSuggestion
    */
   const markFavoritePageSuggestion = (pageSuggestion) => {
-    store.commit("suggestions/removePageSuggestion", pageSuggestion);
+    store.commit("suggestions/removePageSuggestionFromList", pageSuggestion);
     fetchNextPageSuggestionsSlice();
     doMarkSuggestionAsFavorite(pageSuggestion);
   };
@@ -90,7 +90,10 @@ const useSuggestionsBookmark = () => {
     );
 
     if (existingPageSuggestion) {
-      store.commit("suggestions/removePageSuggestion", existingPageSuggestion);
+      store.commit(
+        "suggestions/removePageSuggestionFromList",
+        existingPageSuggestion
+      );
       fetchNextPageSuggestionsSlice();
     }
 
