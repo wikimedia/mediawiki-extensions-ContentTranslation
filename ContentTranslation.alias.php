@@ -27,6 +27,13 @@ $specialPageAliases['arz'] = [
 	'ContentTranslationStats' => [ 'احصاءات_ترجمه_المحتوى' ],
 ];
 
+/** Azerbaijani (Azərbaycanca) */
+$specialPageAliases['az'] = [
+	'ContentTranslation' => [ 'MəzmunTərcüməsi' ],
+	'ContentTranslationStats' => [ 'MəzmunTərcüməsiStatistikası' ],
+	'AutomaticTranslation' => [ 'AvtomatikTərcümə' ]
+];
+
 /** Western Balochi (بلوچی رخشانی) */
 $specialPageAliases['bgn'] = [
 	'ContentTranslation' => [ 'مهتوایی_ترجمه' ],
