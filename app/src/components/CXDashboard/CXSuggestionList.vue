@@ -65,6 +65,8 @@ const {
   pageSuggestionsLoading,
   sectionSuggestionsLoading,
   showRefreshButton,
+  isCurrentPageSuggestionsSliceFull,
+  isCurrentSectionSuggestionsSliceFull,
 } = useSuggestions();
 
 const pageSuggestionsList = ref(null);
@@ -119,7 +121,9 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
         @click="startTranslation(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
-      <mw-spinner v-if="pageSuggestionsLoading" />
+      <mw-spinner
+        v-if="pageSuggestionsLoading && !isCurrentPageSuggestionsSliceFull"
+      />
     </mw-card>
     <mw-card class="cx-translation-list--sx-suggestions pa-0 mb-0">
       <h5
@@ -135,7 +139,11 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
         @click="startTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
-      <mw-spinner v-if="sectionSuggestionsLoading" />
+      <mw-spinner
+        v-if="
+          sectionSuggestionsLoading && !isCurrentSectionSuggestionsSliceFull
+        "
+      />
     </mw-card>
     <div class="cx-suggestion-list__refresh-button-container justify-center">
       <cdx-button

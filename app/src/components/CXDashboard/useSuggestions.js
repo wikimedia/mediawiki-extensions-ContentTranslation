@@ -75,7 +75,9 @@ const useSuggestions = () => {
   const onSuggestionRefresh = () => {
     // If next slice has not been fetched yet, and max slices not reached, fetch it now
     fetchNextSectionSuggestionSlice();
+    increaseCurrentSectionSuggestionsSliceIndex();
     fetchNextPageSuggestionSlice();
+    increaseCurrentPageSuggestionsSliceIndex();
   };
 
   const {
@@ -89,11 +91,15 @@ const useSuggestions = () => {
   const isSuggestionListSliceComplete = (slice) =>
     slice.length === maxSuggestionsPerSlice;
 
-  const fetchNextSectionSuggestionSlice = () => {
-    const isCurrentSliceFull = isSuggestionListSliceComplete(
-      currentSectionSuggestionsSlice.value
-    );
+  const isCurrentPageSuggestionsSliceFull = computed(() =>
+    isSuggestionListSliceComplete(currentPageSuggestionsSlice.value)
+  );
 
+  const isCurrentSectionSuggestionsSliceFull = computed(() =>
+    isSuggestionListSliceComplete(currentSectionSuggestionsSlice.value)
+  );
+
+  const fetchNextSectionSuggestionSlice = () => {
     const nextIndex =
       (currentSectionSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
@@ -101,17 +107,12 @@ const useSuggestions = () => {
       getSectionSuggestionsSliceByIndex(nextIndex)
     );
 
-    if (!isCurrentSliceFull || !isNextSliceFull) {
+    if (!isCurrentSectionSuggestionsSliceFull.value || !isNextSliceFull) {
       doFetchSectionSuggestionsSlice();
     }
-    isCurrentSliceFull && increaseCurrentSectionSuggestionsSliceIndex();
   };
 
   const fetchNextPageSuggestionSlice = () => {
-    const isCurrentSliceFull = isSuggestionListSliceComplete(
-      currentPageSuggestionsSlice.value
-    );
-
     const nextIndex =
       (currentPageSuggestionsSliceIndex.value + 1) % maxSuggestionsSlices;
 
@@ -119,11 +120,9 @@ const useSuggestions = () => {
       getPageSuggestionsSliceByIndex(nextIndex)
     );
 
-    if (!isCurrentSliceFull || !isNextSliceFull) {
+    if (!isCurrentPageSuggestionsSliceFull.value || !isNextSliceFull) {
       doFetchPageSuggestionsSlice();
     }
-
-    isCurrentSliceFull && increaseCurrentPageSuggestionsSliceIndex();
   };
 
   /**
@@ -198,6 +197,8 @@ const useSuggestions = () => {
     showRefreshButton,
     getSectionSuggestionsSliceByIndex,
     getPageSuggestionsSliceByIndex,
+    isCurrentPageSuggestionsSliceFull,
+    isCurrentSectionSuggestionsSliceFull,
   };
 };
 
