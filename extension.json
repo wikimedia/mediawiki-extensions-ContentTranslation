@@ -56,15 +56,6 @@
 				"MainConfig"
 			]
 		},
-		"significantEditCreator": {
-			"class": "ContentTranslation\\HookHandler\\SignificantEditCreationHandler",
-			"services": [
-				"RevisionStore",
-				"ContentTranslation.RecentSignificantEditStore",
-				"ContentTranslation.EditedSectionFinder",
-				"ContentTranslation.WikidataIdFetcher"
-			]
-		},
 		"axArticleFooterEntrypointRegistrar": {
 			"class": "ContentTranslation\\HookHandler\\AxArticleFooterEntrypointRegistrationHandler",
 			"services": [
@@ -144,9 +135,22 @@
 		"BeforeCreateEchoEvent": "ContentTranslation\\Hooks::onBeforeCreateEchoEvent",
 		"EchoGetBundleRules": "ContentTranslation\\Hooks::onEchoGetBundleRules",
 		"SectionTranslationBeforePublish": "sxbeforepublish",
-		"RevisionFromEditComplete": "significantEditCreator",
 		"ContributeCards": "main"
 	},
+	"DomainEventSubscribers": [
+		{
+			"events": [
+				"PageUpdated"
+			],
+			"class": "ContentTranslation\\Events\\SignificantEditSubscriber",
+			"services": [
+				"RevisionStore",
+				"ContentTranslation.RecentSignificantEditStore",
+				"ContentTranslation.EditedSectionFinder",
+				"ContentTranslation.WikidataIdFetcher"
+			]
+		}
+	],
 	"APIModules": {
 		"cxdelete": {
 			"class": "ContentTranslation\\ActionApi\\ApiContentTranslationDelete",
