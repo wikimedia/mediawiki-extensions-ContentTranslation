@@ -18,6 +18,7 @@ import {
   COLLECTIONS_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
 import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEventSource";
+import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import useEventLogging from "@/composables/useEventLogging";
 
@@ -42,11 +43,8 @@ const logAndSelectFilter = (filter) => {
   const payload = {
     event_type: "dashboard_suggestion_filters_quick_select",
     event_source: getSuggestionFilterEventSource(filter),
+    event_context: getSuggestionFilterEventContext(filter),
   };
-
-  if (filter.type === TOPIC_SUGGESTION_PROVIDER) {
-    payload.event_context = filter.id;
-  }
 
   logEvent(payload);
   selectFilter(filter);
