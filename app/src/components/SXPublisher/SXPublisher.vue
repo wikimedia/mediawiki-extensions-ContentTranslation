@@ -26,7 +26,7 @@ const bananaI18n = useI18n();
 const panelResult = computed(() => {
   const isSandboxTarget = store.getters["application/isSandboxTarget"];
 
-  // if the publish target is the user sandbox, always show
+  // if the publishing target is the user sandbox, always show
   // the sandbox publishing result message
   if (isSandboxTarget) {
     return bananaI18n.i18n(
@@ -60,6 +60,9 @@ const { doPublish, isPublishDialogActive, publishStatus, closePublishDialog } =
   useTranslationPublish();
 
 const publishTranslation = async (captchaAnswer = null) => {
+  if (isPublishingDisabled.value) {
+    return;
+  }
   const result = await doPublish(captchaAnswer, captchaDetails);
 
   if (!result) {
@@ -102,6 +105,7 @@ const configureTranslationOptions = () => (publishOptionsOn.value = true);
 watch(publishOptionsOn, (newValue) => {
   if (!newValue) {
     clearPublishFeedbackMessages();
+    initializePublishFeedbackMessages();
   }
 });
 </script>
