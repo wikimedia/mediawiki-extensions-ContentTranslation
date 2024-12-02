@@ -41,6 +41,11 @@ const logEvent = useEventLogging();
 
 const closeDialog = () => emit("update:modelValue", false);
 
+const logThenCloseDialog = () => {
+  logEvent({ event_type: "suggestion_filters_close" });
+  closeDialog();
+};
+
 const done = () => {
   if (tentativelySelectedFilter.value) {
     logEvent({
@@ -108,7 +113,7 @@ const { getFilterProvider } = useSuggestionProvider();
             :aria-label="
               $i18n('cx-sx-suggestions-filters-close-button-aria-label')
             "
-            @click="closeDialog"
+            @click="logThenCloseDialog"
           >
             <cdx-icon :icon="cdxIconClose" />
           </cdx-button>

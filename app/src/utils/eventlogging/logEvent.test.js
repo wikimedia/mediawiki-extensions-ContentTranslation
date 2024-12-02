@@ -21,7 +21,7 @@ describe("Event logging", () => {
     const event = { foo: "bar" };
     await logEvent(event);
     const eventPayload = {
-      $schema: "/analytics/mediawiki/content_translation_event/1.7.0",
+      $schema: "/analytics/mediawiki/content_translation_event/1.8.0",
       wiki_db: "test-db",
       access_method: "mobile web",
       user_name: "test-username",
