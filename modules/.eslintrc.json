@@ -22,8 +22,6 @@
 		"compat/compat": "warn",
 		"vue/no-v-text": "warn",
 		"es-x/no-resizable-and-growable-arraybuffers": "off",
-		"prefer-arrow-callback": "error",
-		"implicit-arrow-linebreak": "error",
-		"arrow-body-style": "error"
+		"no-jquery/no-extend": "off"
 	}
 }
