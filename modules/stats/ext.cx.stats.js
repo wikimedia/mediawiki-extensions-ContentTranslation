@@ -595,7 +595,7 @@
 		const ctx = this.$cumulativeGraph[ 0 ].getContext( '2d' );
 
 		const data = {
-			labels: this.totalTranslationTrend.map( ( data ) => data.date ),
+			labels: this.totalTranslationTrend.map( ( trendData ) => trendData.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
@@ -605,7 +605,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: this.totalTranslationTrend.map( ( data ) => data[ type ] )
+					data: this.totalTranslationTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
@@ -615,7 +615,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: this.totalDraftTrend.map( ( data ) => data[ type ] )
+					data: this.totalDraftTrend.map( ( trendData ) => trendData[ type ] )
 				}
 			]
 		};
@@ -632,7 +632,7 @@
 		const ctx = this.$languageCumulativeGraph[ 0 ].getContext( '2d' );
 
 		const data = {
-			labels: this.languageTranslationTrend.map( ( data ) => data.date ),
+			labels: this.languageTranslationTrend.map( ( trendData ) => trendData.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
@@ -642,7 +642,7 @@
 					pointBackgroundColor: '#36c',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#36c',
-					data: this.languageTranslationTrend.map( ( data ) => data[ type ] )
+					data: this.languageTranslationTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-draft-translations-label' ),
@@ -652,7 +652,7 @@
 					pointBackgroundColor: '#72777d',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#72777d',
-					data: this.languageDraftTrend.map( ( data ) => data[ type ] )
+					data: this.languageDraftTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
@@ -662,7 +662,7 @@
 					pointBackgroundColor: '#FF0000',
 					pointHoverBackgroundColor: '#FFFFFF',
 					pointHoverBorderColor: '#FF0000',
-					data: this.languageDeletionTrend.map( ( data ) => data[ type ] )
+					data: this.languageDeletionTrend.map( ( trendData ) => trendData[ type ] )
 				}
 			]
 		};
@@ -680,21 +680,21 @@
 
 		const ctx = this.$translationTrendBarChart[ 0 ].getContext( '2d' );
 		const data = {
-			labels: this.totalTranslationTrend.map( ( data ) => data.date ),
+			labels: this.totalTranslationTrend.map( ( trendData ) => trendData.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: this.totalTranslationTrend.map( ( data ) => data[ type ] )
+					data: this.totalTranslationTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: this.totalDraftTrend.map( ( data ) => data[ type ] )
+					data: this.totalDraftTrend.map( ( trendData ) => trendData[ type ] )
 				}
 			]
 		};
@@ -712,28 +712,28 @@
 
 		const ctx = this.$langTranslationTrendBarChart[ 0 ].getContext( '2d' );
 		const data = {
-			labels: this.languageTranslationTrend.map( ( data ) => data.date ),
+			labels: this.languageTranslationTrend.map( ( trendData ) => trendData.date ),
 			datasets: [
 				{
 					label: mw.msg( 'cx-stats-published-translations-label' ),
 					borderColor: '#36c',
 					backgroundColor: '#36c',
 					borderWidth: 1,
-					data: this.languageTranslationTrend.map( ( data ) => data[ type ] )
+					data: this.languageTranslationTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-stats-new-draft-translations-label' ),
 					borderColor: '#72777d',
 					backgroundColor: '#72777d',
 					borderWidth: 1,
-					data: this.languageDraftTrend.map( ( data ) => data[ type ] )
+					data: this.languageDraftTrend.map( ( trendData ) => trendData[ type ] )
 				},
 				{
 					label: mw.msg( 'cx-trend-deletions' ),
 					borderColor: '#FF0000',
 					backgroundColor: '#FF0000',
 					borderWidth: 1,
-					data: this.languageDeletionTrend.map( ( data ) => data[ type ] )
+					data: this.languageDeletionTrend.map( ( trendData ) => trendData[ type ] )
 				}
 			]
 		};
