@@ -40,7 +40,9 @@
 		if ( !invitationElement ) {
 			invitationElement = document.createElement( 'p' );
 			invitationElement.classList.add(
-				'cx-entrypoint-mflanguagesearcher-invite', 'empty-results-body' );
+				'cx-entrypoint-mflanguagesearcher-invite',
+				'empty-results-body'
+			);
 			invitationElement.textContent = mw.msg( 'cx-campaign-mflanguagesearcher-invite' );
 			noResultsContainer.appendChild( invitationElement );
 		} else {
@@ -133,8 +135,10 @@
 		searchWithAPI( searchQuery ).then( ( results ) => {
 			const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
-			const matches = results.filter( ( code ) => enabledTargets.indexOf( code ) >= 0 &&
-					code !== mw.config.get( 'wgContentLanguage' ) );
+			const matches = results.filter(
+				( code ) => enabledTargets.indexOf( code ) >= 0 &&
+					code !== mw.config.get( 'wgContentLanguage' )
+			);
 			if ( !matches.length ) {
 				onNoLanguageMatch( noResultsContainer );
 			} else {

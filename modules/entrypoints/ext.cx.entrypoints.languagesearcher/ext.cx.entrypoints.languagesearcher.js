@@ -86,8 +86,8 @@
 		}
 		return resultLanguages.filter(
 			( code ) => mintLanguages.indexOf( code ) >= 0 &&
-						mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
-						code !== mw.config.get( 'wgContentLanguage' )
+				mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
+				code !== mw.config.get( 'wgContentLanguage' )
 		);
 	};
 

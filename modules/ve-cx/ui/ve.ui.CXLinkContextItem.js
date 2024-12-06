@@ -191,24 +191,25 @@ ve.ui.CXLinkContextItem.prototype.getLinkInfo = function () {
 		};
 	} );
 
-	const otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle ).then( ( titlePairInfo ) => {
-		const otherTitle = titlePairInfo.targetTitle;
+	const otherTitlePromise = this.requestManager.getTitlePair( thisLanguage, thisTitle )
+		.then( ( titlePairInfo ) => {
+			const otherTitle = titlePairInfo.targetTitle;
 
-		adaptationInfo.adapted = true;
+			adaptationInfo.adapted = true;
 
-		if ( titlePairInfo.missing ) {
-			return;
-		}
+			if ( titlePairInfo.missing ) {
+				return;
+			}
 
-		return this.otherLinkCache.get( otherTitle ).then( ( otherLinkData ) => {
-			adaptationInfo[ otherTitleKey ] = {
-				title: otherTitle,
-				pagelanguage: otherLanguage,
-				description: otherLinkData.description,
-				thumbnail: { source: otherLinkData.imageUrl }
-			};
+			return this.otherLinkCache.get( otherTitle ).then( ( otherLinkData ) => {
+				adaptationInfo[ otherTitleKey ] = {
+					title: otherTitle,
+					pagelanguage: otherLanguage,
+					description: otherLinkData.description,
+					thumbnail: { source: otherLinkData.imageUrl }
+				};
+			} );
 		} );
-	} );
 
 	return $.when( thisTitlePromise, otherTitlePromise ).then( () => {
 		this.model.getStore().hash( adaptationInfo, OO.getHash( thisTitle ) );

@@ -32,9 +32,7 @@
 			);
 
 		return fetch( cxServerSectionSuggestionApiUrl )
-			.then( ( response ) => response.ok ?
-				response.json() :
-				null )
+			.then( ( response ) => response.ok ? response.json() : null )
 			.then( ( suggestionResult ) => {
 				if ( suggestionResult && suggestionResult.sections ) {
 					return suggestionResult.sections;

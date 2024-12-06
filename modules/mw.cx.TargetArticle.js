@@ -153,13 +153,23 @@ mw.cx.TargetArticle.prototype.publish = function ( hasIssues, hasTooMuchUnmodifi
 		};
 
 		// Check for title conflicts
-		this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then( () => new mw.Api().postWithToken( 'csrf', apiParams, {
-			// A bigger timeout since publishing after converting html to wikitext
-			// parsoid is not a fast operation.
-			timeout: 100 * 1000 // in milliseconds
-		} ).then( this.publishSuccess.bind( this ), this.publishFail.bind( this ) ), () => {
-			this.emit( 'publishCancel' );
-		} );
+		this.checkForPublishAnyway( this.getTargetTitle(), hasIssues ).then(
+			() => new mw.Api().postWithToken(
+				'csrf',
+				apiParams,
+				{
+					// A bigger timeout since publishing after converting html to wikitext
+					// parsoid is not a fast operation.
+					timeout: 100 * 1000 // in milliseconds
+				}
+			).then(
+				this.publishSuccess.bind( this ),
+				this.publishFail.bind( this )
+			),
+			() => {
+				this.emit( 'publishCancel' );
+			}
+		);
 	} );
 };
 

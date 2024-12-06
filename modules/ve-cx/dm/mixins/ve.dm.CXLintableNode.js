@@ -46,9 +46,8 @@ ve.dm.CXLintableNode.prototype.findMatchingIssues = function ( name ) {
 	}
 
 	// If nothing is found, empty array is returned
-	return this.translationIssues.filter( ( issue ) =>
-		// eslint-disable-next-line security/detect-non-literal-regexp
-		( new RegExp( name ) ).test( issue.getName() )
+	return this.translationIssues.filter(
+		( issue ) => ( new RegExp( name ) ).test( issue.getName() )
 	).map( ( issue ) => issue.getName() );
 };
 

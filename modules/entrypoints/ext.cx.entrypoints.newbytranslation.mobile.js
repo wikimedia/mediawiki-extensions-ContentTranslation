@@ -11,16 +11,11 @@
 		if ( mw.uls ) {
 			candidates = candidates.concat( mw.uls.getPreviousLanguages() );
 		}
-		candidates = candidates.map( ( lang ) => {
-			if ( lang ) {
-				// Remove country codes
-				return lang.split( '-' )[ 0 ];
-			}
-			return null;
-		} ).filter( ( lang, index, self ) =>
+		candidates = candidates
+			// Remove country codes
+			.map( ( lang ) => ( lang && lang.split( '-' )[ 0 ] ) || null )
 			// Remove target language and duplicates
-			lang && lang !== targetLanguage && self.indexOf( lang ) === index
-		);
+			.filter( ( lang, index, self ) => lang && lang !== targetLanguage && self.indexOf( lang ) === index );
 		return candidates.splice( 0, 5 );
 	}
 

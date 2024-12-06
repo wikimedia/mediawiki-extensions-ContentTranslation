@@ -29,9 +29,9 @@
 		const $sectionHeader = $( '<h1>' )
 			.text( mw.msg( 'cx-contributions-new-contributions' ) );
 
-		const contributionButtons = this.getActivities().map( ( item ) =>
+		const contributionButtons = this.getActivities().map(
 			// eslint-disable-next-line mediawiki/class-doc
-			new OO.ui.ButtonWidget( {
+			( item ) => new OO.ui.ButtonWidget( {
 				classes: [ 'cx-contributions-item' ].concat( item.classes ),
 				label: item.text,
 				icon: item.icon,

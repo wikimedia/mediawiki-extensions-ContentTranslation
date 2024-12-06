@@ -351,7 +351,9 @@ mw.cx.TranslationTracker.prototype.adjustSectionStateForSourceTranslations = fun
 mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( translationModel ) {
 	const targetSections = translationModel.targetDoc.getNodesByType( 'cxSection' );
 
-	return targetSections.filter( ( sectionModel ) => sectionModel.getOriginalContentSource() === 'source' ).map( ( sectionModel ) => sectionModel.getId() );
+	return targetSections.filter(
+		( sectionModel ) => sectionModel.getOriginalContentSource() === 'source'
+	).map( ( sectionModel ) => sectionModel.getId() );
 };
 
 /**

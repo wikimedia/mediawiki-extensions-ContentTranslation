@@ -98,7 +98,9 @@ mw.cx.MachineTranslationService.prototype.prepareContentForScratch = function ( 
  * @return {jQuery.Promise}
  */
 mw.cx.MachineTranslationService.prototype.getProviders = function () {
-	return this.getProvidersCached().then( ( providers ) => providers.filter( ( item ) => item !== 'source-mt' ) );
+	return this.getProvidersCached().then(
+		( providers ) => providers.filter( ( item ) => item !== 'source-mt' )
+	);
 };
 
 mw.cx.MachineTranslationService.prototype.getSuggestedDefaultProvider = function () {

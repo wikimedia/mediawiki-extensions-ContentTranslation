@@ -360,10 +360,12 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		} else {
 			this.$publicCollectionContainer.show();
 			this.$publicCollection.append( list.$list );
-			this.$publicCollection.find( '.cx-suggestionlist' ).sort( ( a, b ) => this.constructor.static.listCompare(
-				this.lists[ $( a ).data( 'listid' ) ],
-				this.lists[ $( b ).data( 'listid' ) ]
-			) ).appendTo( this.$publicCollection );
+			this.$publicCollection.find( '.cx-suggestionlist' ).sort(
+				( a, b ) => this.constructor.static.listCompare(
+					this.lists[ $( a ).data( 'listid' ) ],
+					this.lists[ $( b ).data( 'listid' ) ]
+				)
+			).appendTo( this.$publicCollection );
 		}
 	} else {
 		// The list might be hidden if it became empty due to item removals.
@@ -377,9 +379,15 @@ mw.cx.CXSuggestionList.prototype.insertSuggestionList = function ( listId, sugge
 		suggestions[ i ].typeExtra = list.algorithm || '';
 		const $suggestion = this.buildSuggestionItem( suggestions[ i ] );
 		$suggestions.push( $suggestion );
-		mw.hook( 'mw.cx.suggestion.action' ).fire( 'shown', suggestions[ i ].rank,
-			this.constructor.static.friendlyListTypeName( suggestions[ i ].type ), suggestions[ i ].typeExtra,
-			suggestions[ i ].sourceLanguage, suggestions[ i ].targetLanguage, suggestions[ i ].title );
+		mw.hook( 'mw.cx.suggestion.action' ).fire(
+			'shown',
+			suggestions[ i ].rank,
+			this.constructor.static.friendlyListTypeName( suggestions[ i ].type ),
+			suggestions[ i ].typeExtra,
+			suggestions[ i ].sourceLanguage,
+			suggestions[ i ].targetLanguage,
+			suggestions[ i ].title
+		);
 	}
 	this.showTitleDetails( suggestions );
 
@@ -647,7 +655,9 @@ mw.cx.CXSuggestionList.prototype.markFavorite = function ( suggestion ) {
 			this.lists[ favoriteListId ].suggestions.push( suggestion );
 			this.insertSuggestionList( favoriteListId, [ suggestion ], true );
 			// Remove favorited article from the list of suggestions
-			this.lists.trex.suggestions = this.lists.trex.suggestions.filter( ( item ) => item.title !== suggestion.title );
+			this.lists.trex.suggestions = this.lists.trex.suggestions.filter(
+				( item ) => item.title !== suggestion.title
+			);
 		}
 	} ).fail( this.suggestionListFailHandler );
 	// Avoid event propagation.

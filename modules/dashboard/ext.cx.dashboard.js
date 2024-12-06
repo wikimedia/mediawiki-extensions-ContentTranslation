@@ -145,7 +145,9 @@
 		}
 
 		const sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
-		const commonLanguages = mw.uls.getFrequentLanguageList().filter( ( lang ) => sourceLanguages.indexOf( lang ) !== -1 );
+		const commonLanguages = mw.uls.getFrequentLanguageList().filter(
+			( lang ) => sourceLanguages.indexOf( lang ) !== -1
+		);
 
 		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
 			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {

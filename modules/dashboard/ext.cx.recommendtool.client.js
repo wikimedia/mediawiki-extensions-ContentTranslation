@@ -54,7 +54,9 @@
 		};
 
 		return api.get( params ).then( ( response ) => {
-			self.seeds = response.query.contenttranslation.translations.map( ( value ) => value.translation.sourceTitle );
+			self.seeds = response.query.contenttranslation.translations.map(
+				( value ) => value.translation.sourceTitle
+			);
 
 			return self.seeds.splice( 0, 3 );
 		} );

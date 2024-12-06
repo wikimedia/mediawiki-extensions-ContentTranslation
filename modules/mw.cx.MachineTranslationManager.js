@@ -74,10 +74,8 @@ mw.cx.MachineTranslationManager.prototype.setPreferredProvider = function ( valu
 mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
 	return this.MT.getProviders().then(
 		( providers ) => providers.concat( [ 'source', 'scratch' ] ),
-		() =>
-			// Allow to continue translation even if this fails
-			$.Deferred().resolve( [ 'source', 'scratch' ] )
-
+		// Allow to continue translation even if this fails
+		() => $.Deferred().resolve( [ 'source', 'scratch' ] )
 	);
 };
 
@@ -93,16 +91,13 @@ mw.cx.MachineTranslationManager.prototype.getAvailableProviders = function () {
 mw.cx.MachineTranslationManager.prototype.getDefaultNonMTProvider = function () {
 	return mw.loader.using( 'jquery.uls.data' ).then(
 		() => {
-			const
-				sourceDir = $.uls.data.getDir( this.sourceLanguage ),
-				targetDir = $.uls.data.getDir( this.targetLanguage );
+			const sourceDir = $.uls.data.getDir( this.sourceLanguage );
+			const targetDir = $.uls.data.getDir( this.targetLanguage );
 
 			return sourceDir === targetDir ? 'source' : 'scratch';
 		},
-		() =>
-			// Convert failure to success
-			$.Deferred().resolve( 'source' ).promise()
-
+		// Convert failure to success
+		() => $.Deferred().resolve( 'source' ).promise()
 	);
 };
 

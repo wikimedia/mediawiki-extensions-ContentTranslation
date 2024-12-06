@@ -125,11 +125,13 @@ ve.ui.CXTranslationToolbar.static.registerTools = function ( MTManager ) {
 		);
 	};
 
-	return MTManager.getDefaultProvider().then( ( defaultProvider ) => MTManager.getAvailableProviders().then( ( providers ) => {
-		providers.forEach( ( provider ) => {
-			createProviderItem( provider, defaultProvider );
-		} );
-	} ) );
+	return MTManager.getDefaultProvider().then(
+		( defaultProvider ) => MTManager.getAvailableProviders().then( ( providers ) => {
+			providers.forEach( ( provider ) => {
+				createProviderItem( provider, defaultProvider );
+			} );
+		} )
+	);
 };
 
 /* Methods */

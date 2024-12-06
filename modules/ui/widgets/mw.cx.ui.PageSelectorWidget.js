@@ -176,12 +176,12 @@ mw.cx.ui.PageSelectorWidget.prototype.createOptionWidget = function ( data ) {
  * This method creates option widgets from suggested pages (when there is no user input) or
  * from search results (when there is user input).
  *
- * @param {Object} pages Query result
+ * @param {Object} resultPages Query result
  * @return {Array} Array of OO.ui.OptionWidget menu items and mw.cx.ui.MenuLabelWidget labels
  */
-mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( pages ) {
-	const nearbyPages = pages.nearby,
-		recentEditPages = pages.recentEdits,
+mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( resultPages ) {
+	const nearbyPages = resultPages.nearby,
+		recentEditPages = resultPages.recentEdits,
 		pageData = {},
 		items = [],
 		query = this.getQueryValue(),
@@ -414,7 +414,7 @@ mw.cx.ui.PageSelectorWidget.prototype.setExcludedNamespaces = function ( exclude
  * @return {boolean} True if validation passes. False otherwise.
  */
 mw.cx.ui.PageSelectorWidget.prototype.isValidNamespace = function ( query ) {
-	return query.indexOf( ':' ) < 0 ||
-		this.excludedNamespaces.every( ( namespace ) => query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !==
-			namespace.toLocaleLowerCase() );
+	return query.indexOf( ':' ) < 0 || this.excludedNamespaces.every(
+		( namespace ) => query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !== namespace.toLocaleLowerCase()
+	);
 };

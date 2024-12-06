@@ -803,20 +803,24 @@ ve.init.mw.CXTarget.prototype.onDocumentActivatePlaceholder = function ( placeho
 	this.targetSurface.$element.addClass( 've-ui-cxTargetSurface--non-empty' );
 
 	model.emit( 'beforeTranslation' );
-	this.MTManager.getPreferredProvider().then( ( provider ) => this.changeContentSource( model, null, provider ) ).fail( () => {
-		mw.notify( mw.msg( 'cx-auto-failed' ) );
-		return this.MTManager.getDefaultNonMTProvider().then( ( provider ) => this.changeContentSource( model, null, provider ) );
-	} ).always( () => {
-		const $sourceElement = this.getSourceSectionElement( cxid );
-		$sourceElement.removeClass( 'cx-section-highlight' );
-		const sectionNode = this.getTargetSectionNode( cxid );
-		if ( sectionNode ) {
-			sectionNode.emit( 'afterTranslation' );
-			this.prefetchTranslationForSection( sectionNode.getSectionNumber() + 1 );
-		} else {
-			mw.log.error( '[CX] No model found after translation for ' + cxid );
-		}
-	} );
+	this.MTManager.getPreferredProvider()
+		.then( ( provider ) => this.changeContentSource( model, null, provider ) )
+		.fail( () => {
+			mw.notify( mw.msg( 'cx-auto-failed' ) );
+			return this.MTManager.getDefaultNonMTProvider().then(
+				( provider ) => this.changeContentSource( model, null, provider )
+			);
+		} ).always( () => {
+			const $sourceElement = this.getSourceSectionElement( cxid );
+			$sourceElement.removeClass( 'cx-section-highlight' );
+			const sectionNode = this.getTargetSectionNode( cxid );
+			if ( sectionNode ) {
+				sectionNode.emit( 'afterTranslation' );
+				this.prefetchTranslationForSection( sectionNode.getSectionNumber() + 1 );
+			} else {
+				mw.log.error( '[CX] No model found after translation for ' + cxid );
+			}
+		} );
 };
 
 ve.init.mw.CXTarget.prototype.onPublishCancel = function () {
@@ -977,10 +981,10 @@ ve.init.mw.CXTarget.prototype.getPageName = function ( doc ) {
  */
 const isTransclusionNode = ( node ) => !!(
 	node.attributes.about ||
-				( node.attributes.typeof &&
-						node
-							.getAttribute( 'typeof' )
-							.match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ ) )
+		(
+			node.attributes.typeof &&
+			node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ )
+		)
 );
 
 /**
@@ -989,7 +993,8 @@ const isTransclusionNode = ( node ) => !!(
  * @param {HTMLElement} subSectionNode
  * @return {HTMLElement}
  */
-const getTransclusionNode = ( subSectionNode ) => Array.from( subSectionNode.children ).find( ( node ) => isTransclusionNode( node )
+const getTransclusionNode = ( subSectionNode ) => Array.from( subSectionNode.children ).find(
+	( node ) => isTransclusionNode( node )
 );
 
 /**

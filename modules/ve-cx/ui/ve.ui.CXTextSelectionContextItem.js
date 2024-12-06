@@ -166,7 +166,9 @@ ve.ui.CXTextSelectionContextItem.prototype.setup = function () {
  * @return {boolean} True if selected text contains a link.
  */
 ve.ui.CXTextSelectionContextItem.prototype.hasLink = function () {
-	return !this.getFragment().getAnnotations( true ).filter( ( ann ) => ann instanceof ve.dm.LinkAnnotation ).isEmpty();
+	return !this.getFragment().getAnnotations( true ).filter(
+		( ann ) => ann instanceof ve.dm.LinkAnnotation
+	).isEmpty();
 };
 
 ve.ui.CXTextSelectionContextItem.prototype.onSurfaceModelSelect = function ( selection ) {
@@ -200,7 +202,9 @@ ve.ui.CXTextSelectionContextItem.prototype.onEditButtonClick = function () {
 		command.execute( this.context.getSurface(), [ 'cxLink', attributes ] );
 		this.emit( 'command' );
 		// Force selection inside the link, as in ve.ui.AnnotationInspector#getTeardownProcess
-		this.context.getSurface().getView().selectAnnotation( ( annView ) => annView.getModel() instanceof ve.dm.LinkAnnotation );
+		this.context.getSurface().getView().selectAnnotation(
+			( annView ) => annView.getModel() instanceof ve.dm.LinkAnnotation
+		);
 	}
 };
 

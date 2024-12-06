@@ -15,16 +15,11 @@ const getCandidateSourceLanguages = () => {
 		candidates = candidates.concat( mw.uls.getPreviousLanguages() );
 	}
 	candidates = candidates
-		.map( ( lang ) => {
-			if ( lang ) {
-				// Remove country codes
-				return lang.split( '-' )[ 0 ];
-			}
-			return null;
-		} )
-		.filter( ( lang, index, self ) =>
-			// Remove target language and duplicates
-			lang && lang !== targetLanguage && self.indexOf( lang ) === index
+		// Remove country codes
+		.map( ( lang ) => lang && lang.split( '-' )[ 0 ] || null )
+		// Remove target language and duplicates
+		.filter(
+			( lang, index, self ) => lang && lang !== targetLanguage && self.indexOf( lang ) === index
 		);
 
 	return candidates.splice( 0, 5 );

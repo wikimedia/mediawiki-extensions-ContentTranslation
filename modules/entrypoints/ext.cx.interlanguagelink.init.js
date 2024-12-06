@@ -62,10 +62,10 @@ function getSuggestedTargetLanguages() {
 		}
 	}
 
-	return possibleTargetLanguages.filter( ( language ) =>
+	return possibleTargetLanguages.filter(
 		// Code should not be a language in which page exists.
-		// Also it should be a known language for ULS
-		language !== pageLanguage &&
+		// Also, it should be a known language for ULS.
+		( language ) => language !== pageLanguage &&
 			!pageInLanguageExists( language ) &&
 			language !== $.uls.data.getAutonym( language )
 	);
@@ -76,7 +76,9 @@ function prepareCXInterLanguageLinks( suggestedTargetLanguages ) {
 	const maxListSize = 3;
 
 	// Remove duplicates
-	suggestedTargetLanguages = suggestedTargetLanguages.filter( ( element, index ) => suggestedTargetLanguages.indexOf( element ) === index );
+	suggestedTargetLanguages = suggestedTargetLanguages.filter(
+		( element, index ) => suggestedTargetLanguages.indexOf( element ) === index
+	);
 
 	suggestedTargetLanguages.some( ( code ) => {
 		const $newItem = mw.cx.createCXInterlanguageItem( code );
