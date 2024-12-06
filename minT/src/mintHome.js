@@ -54,7 +54,9 @@ const sourceLanguages = Vue.computed( () => {
 	const mintSourceLanguages = mintLanguages.value[ targetLanguage.value ];
 
 	return mintSourceLanguages.filter(
-		( mintSourceLanguage ) => sites.value.some( ( site ) => site.languageCode === mintSourceLanguage )
+		( mintSourceLanguage ) => sites.value.some(
+			( site ) => site.languageCode === mintSourceLanguage
+		)
 	);
 } );
 const targetLanguages = Vue.computed( () => Object.keys( mintLanguages.value ) );

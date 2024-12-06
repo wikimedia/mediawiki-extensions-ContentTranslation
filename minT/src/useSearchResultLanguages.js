@@ -41,7 +41,10 @@ const useSearchResultLanguages = () => {
 			firstExistingLanguage
 		].filter( ( language ) =>
 			// only items for which there is a Wikipedia article in at least one language
-			!!language && language !== targetLanguage.value && language !== 'all' && siteLinkLanguages.includes( language )
+			// eslint-disable-next-line implicit-arrow-linebreak
+			!!language && language !== targetLanguage.value &&
+			language !== 'all' &&
+			siteLinkLanguages.includes( language )
 		);
 		const resultSourceLanguage = candidateSourceLanguages[ 0 ];
 

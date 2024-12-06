@@ -266,7 +266,8 @@ module.exports = defineComponent( {
 		);
 		const targetPageUrl = computed( () => targetPage.value ?
 			siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title ) :
-			null );
+			null
+		);
 
 		const onTargetArticleClick = () => {
 			const translationContext = computed( () => ( {

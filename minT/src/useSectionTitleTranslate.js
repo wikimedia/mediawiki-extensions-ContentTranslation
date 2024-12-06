@@ -29,23 +29,20 @@ const useSectionTitleTranslate = () => {
 		sourceLang,
 		targetLanguage.value,
 		cxServerToken.value
-	)
-		.then( ( translation ) => {
-			// eslint-disable-next-line es-x/no-regexp-named-capture-groups
-			const regExp = /<div>(?<translatedTitle>(.|\s)*)<\/div>/;
-			const matches = regExp.exec( translation );
+	).then( ( translation ) => {
+		// eslint-disable-next-line es-x/no-regexp-named-capture-groups
+		const regExp = /<div>(?<translatedTitle>(.|\s)*)<\/div>/;
+		const matches = regExp.exec( translation );
 
-			return matches ? matches.groups.translatedTitle : '';
-		} )
-		.catch( ( error ) => mw.log.error( `Error while translating section title "${ sectionTitle }"`, error ) );
+		return matches ? matches.groups.translatedTitle : '';
+	} ).catch( ( error ) => mw.log.error( `Error while translating section title "${ sectionTitle }"`, error ) );
 
 	const translateSectionTitle = ( section, index ) => doTranslateSectionTitle(
 		section.title,
 		sourceLanguage.value
-	)
-		.then( ( translation ) => {
-			translatedSectionTitles.value[ index ] = translation;
-		} );
+	).then( ( translation ) => {
+		translatedSectionTitles.value[ index ] = translation;
+	} );
 
 	const resetTranslatedSectionTitles = () => ( translatedSectionTitles.value = [] );
 

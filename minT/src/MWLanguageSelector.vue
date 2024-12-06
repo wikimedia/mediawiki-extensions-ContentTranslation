@@ -175,11 +175,10 @@ module.exports = defineComponent( {
 		const searchInputElement = ref( null );
 		const searchQuery = ref( '' );
 		const searchResults = ref( [] );
-		const searchResultsByScript = computed( () => getSearchResultsByScript( searchResults.value )
-		);
 
-		const resultsDisplayClass = computed( () => getResultsDisplayClass( searchResults.value )
-		);
+		const searchResultsByScript =
+			computed( () => getSearchResultsByScript( searchResults.value ) );
+		const resultsDisplayClass = computed( () => getResultsDisplayClass( searchResults.value ) );
 
 		const { closeLanguageSelector } = useRouter();
 

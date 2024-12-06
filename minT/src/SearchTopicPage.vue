@@ -103,7 +103,11 @@ module.exports = defineComponent( {
 		];
 
 		// remove duplicate "all" tab, if present
-		tabsData = tabsData.filter( ( tabData, index, self ) => self.map( ( data ) => data.name ).indexOf( tabData.name ) === index );
+		tabsData = tabsData.filter(
+			( tabData, index, self ) => self.map(
+				( data ) => data.name
+			).indexOf( tabData.name ) === index
+		);
 
 		const isValidUrl = ( urlString ) => {
 			try {

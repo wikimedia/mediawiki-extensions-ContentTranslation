@@ -13,7 +13,7 @@
 		"es-x/no-object-values": "off",
 		"es-x/no-promise-prototype-finally": "off",
 		"prefer-arrow-callback": "error",
-		"implicit-arrow-linebreak": "warn",
+		"implicit-arrow-linebreak": "error",
 		"arrow-body-style": "error"
 	},
 	"globals": {

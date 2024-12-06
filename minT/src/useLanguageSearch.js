@@ -39,11 +39,10 @@ async function doSearch( languages, query, searchApi ) {
 	}
 
 	const filterResults = languages.filter(
-		( code ) =>
 		// Search using autonym
-			getAutonym( code ).toLowerCase().includes( query.toLowerCase() ) ||
-      // Search using script name
-      getScript( code ).toLowerCase().includes( query.toLowerCase() )
+		( code ) => getAutonym( code ).toLowerCase().includes( query.toLowerCase() ) ||
+			// Search using script name
+			getScript( code ).toLowerCase().includes( query.toLowerCase() )
 	);
 
 	if ( filterResults.length ) {

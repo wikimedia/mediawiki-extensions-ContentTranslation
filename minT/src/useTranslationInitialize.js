@@ -7,14 +7,14 @@ const isInfobox = ( node ) => node.classList.contains( 'infobox' );
 
 const hiddenTags = [ 'style', 'meta', 'link' ];
 
-const isTransclusionNode = ( node ) => !!( node.attributes.typeof &&
-			node
-				.getAttribute( 'typeof' )
-				.match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ ) );
+const isTransclusionNode = ( node ) => !!(
+	node.attributes.typeof &&
+	node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ )
+);
 
 const isHiddenNode = ( node ) => hiddenTags.includes( node.tagName.toLowerCase() ) ||
-		node.style.display === 'none' ||
-		isTransclusionNode( node );
+	node.style.display === 'none' ||
+	isTransclusionNode( node );
 
 /**
  * This method expects an array of HTML elements and filters out all elements that
@@ -26,7 +26,7 @@ const isHiddenNode = ( node ) => hiddenTags.includes( node.tagName.toLowerCase()
  */
 const filterHiddenAndTransclusionNodes = ( nodes ) => nodes.filter(
 	( node ) => !isHiddenNode( node ) &&
-			!( Array.from( node.children ).every( ( child ) => isHiddenNode( child ) ) )
+		!( Array.from( node.children ).every( ( child ) => isHiddenNode( child ) ) )
 );
 
 /**
@@ -83,16 +83,15 @@ const useTranslationInitialize = () => {
 					sourceLanguage.value,
 					targetLanguage.value,
 					cxServerToken.value
-				)
-					.then( ( translation ) => {
-						leadSectionTranslation.value[ index ] = translation;
-					} )
-					.catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) ) );
+				).then( ( translation ) => {
+					leadSectionTranslation.value[ index ] = translation;
+				} ).catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) ) );
 
 				// We already display a skeleton loader for the infoboxes, so no need to wait
 				// for them to load, in order to hide the loading indicator.
-				const nonInfoboxPromises =
-						translationPromises.filter( ( promise, i ) => !isInfobox( nodes[ i ] ) );
+				const nonInfoboxPromises = translationPromises.filter(
+					( promise, i ) => !isInfobox( nodes[ i ] )
+				);
 
 				Promise.all( nonInfoboxPromises ).finally(
 					() => ( loadingLeadSectionTranslation.value = false )
