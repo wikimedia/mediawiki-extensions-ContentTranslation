@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Поділитися автоматичним перекладом",
 	"mint-view-translation-overlay-feedback-link-label": "Надіслати відгук",
 	"ax-article-footer-entrypoint-card-description": "Більше вмісту іншими мовами",
-	"ax-article-footer-entrypoint-card-supporting-text": "Читати автоматичний переклад"
+	"ax-article-footer-entrypoint-card-supporting-text": "Читати автоматичний переклад",
+	"mint-explore-languages-header": "Дослідити мови",
+	"mint-explore-languages-search-input-placeholder": "Усі мови для цієї теми",
+	"mint-explore-languages-explanation-banner-title": "Дізнайтеся більше з інших мов",
+	"mint-explore-languages-explanation-banner-text": "Редактори різними мовами висвітлювали цю тему по-різному.",
+	"mint-explore-languages-language-card-container-title": "Мови з найбільшим покриттям теми «$1»",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 розділ|$1 розділи|$1 розділів|0=Немає розділів}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Найбільш детально"
 }
