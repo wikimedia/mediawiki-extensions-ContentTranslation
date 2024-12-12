@@ -410,6 +410,7 @@
 	"cx-sx-translation-confirmer-translate-prefilled-section-button-label": "Перекласти розділ",
 	"cx-sx-translation-confirmer-new-desktop-translation-button-label": "Новий переклад",
 	"cx-sx-translation-confirmer-prefilled-section-heading": "Розділ",
+	"cx-sx-translation-confirmer-continue-translation-button-label": "Продовжити переклад",
 	"sx-editor-feedback-overlay-title": "Дякуємо!",
 	"sx-editor-feedback-overlay-clarification": "Навчання з ваших виправлень",
 	"sx-editor-feedback-overlay-stats": "<span>$1%</span> відредаговано вами",
@@ -496,5 +497,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Де інші розділи?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвилюйтеся. Решта розділів не втрачені. Вони доступні у списку ваших поточних перекладів і їх можна використати для розширення наявної статті. Ви побачите нові незавершені переклади з вмістом кожного розділу.",
 	"sx-confirm-draft-translation-start-button-label": "Гаразд",
-	"sx-published-translation-new-translation-button-label": "Новий переклад"
+	"sx-published-translation-new-translation-button-label": "Новий переклад",
+	"sx-section-selector-close-button-aria-label": "Перейти до кнопки підтвердження",
+	"sx-quick-tutorial-next-button-aria-label": "Перейти до наступної сторінки посібника"
 }
