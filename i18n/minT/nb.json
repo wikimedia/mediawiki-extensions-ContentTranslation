@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Del maskinoversettelse",
 	"mint-view-translation-overlay-feedback-link-label": "Send tilbakemelding",
 	"ax-article-footer-entrypoint-card-description": "Mer innhold på andre språk",
-	"ax-article-footer-entrypoint-card-supporting-text": "Les maskinoversettelse"
+	"ax-article-footer-entrypoint-card-supporting-text": "Les maskinoversettelse",
+	"mint-explore-languages-header": "Utforsk språk",
+	"mint-explore-languages-search-input-placeholder": "Alle språk for dette emnet",
+	"mint-explore-languages-explanation-banner-title": "Lær mer fra andre språk",
+	"mint-explore-languages-explanation-banner-text": "Bidragsytere på forskjellige språk har dekket dette emnet på forskjellige måter.",
+	"mint-explore-languages-language-card-container-title": "Språk med størst dekning av «$1»",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Én seksjon|$1 seksjoner|0=Ingen seksjoner}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljert"
 }
