@@ -118,7 +118,7 @@ const { getFilterProvider } = useSuggestionProvider();
             <cdx-icon :icon="cdxIconClose" />
           </cdx-button>
         </mw-col>
-        <mw-col grow class="px-4" align="center">
+        <mw-col grow align="center">
           <h5 v-i18n:cx-sx-suggestions-filters-header class="mb-0" />
         </mw-col>
         <mw-col shrink align="start" class="pe-4">
@@ -133,7 +133,7 @@ const { getFilterProvider } = useSuggestionProvider();
           </cdx-button>
         </mw-col>
       </mw-row>
-      <mw-col class="px-4">
+      <mw-col class="px-4 py-4">
         <div
           v-for="filterGroup in allFilters"
           :key="filterGroup.id"
@@ -166,6 +166,13 @@ const { getFilterProvider } = useSuggestionProvider();
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-suggestions-filters {
+  &__header {
+    position: sticky;
+    top: 0;
+    background-color: @background-color-base;
+    border-bottom: solid @border-width-base @border-color-subtle;
+  }
+
   & &__filter {
     cursor: @cursor-base--hover;
     background-color: @background-color-base;
