@@ -1,0 +1,40 @@
+{
+	"@metadata": {
+		"authors": [
+			"Pikne"
+		]
+	},
+	"automatic-translation-special-page-description": "Automaattõlge",
+	"mint-home-header-title": "Automaattõlge",
+	"mint-home-input-placeholder": "Otsi teemat",
+	"mint-translation-list-all-languages-option-label": "Kõik",
+	"mint-home-info-panel-text": "Miljoneid teemasid Vikipeedias saab tõlkida automaatselt sellesse sihtkeelde ($1).",
+	"mint-home-random-topic-button-label": "Juhuslik teema",
+	"mint-language-selector-title": "Keeled",
+	"mint-language-selector-input-placeholder": "Vali keel",
+	"mint-language-selector-no-search-results": "Tulemused puuduvad",
+	"mint-search-topic-page-header": "Teema otsimine",
+	"mint-search-topic-page-input-placeholder": "Otsi teemat",
+	"mint-search-topic-page-results-container-empty": "Otsi mis tahes teemat. Igal teemal kirjutatud sisu võib keeleti erineda.",
+	"mint-confirm-topic-page-header": "Automaattõlge",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Vaata automaattõlget",
+	"mint-confirm-topic-page-language-selector-explanation": "Tõlge [$1 Vikipeediast ($2)]. Uuri, kuidas on seda teemat käsitletud {{PLURAL:$3|teises keeles|ülejäänud $3 keeles}}.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Otsi teist teemat",
+	"mint-confirm-topic-page-target-article-link-container-header": "Kirjutanud toimetajad sihtkeeles ($1)",
+	"mint-confirm-topic-page-target-article-link-container-details": "Inimesest toimetajad on sihtkeeles ($1) selle artikli kirjutanud. Saad nendega ühineda, et sisu täiendada.",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Loe artiklit",
+	"mint-view-translation-page-header": "Automaattõlge",
+	"mint-view-translation-page-disclaimer-header": "Automaatne sisu võib olla ebatäpne.",
+	"mint-view-translation-page-disclaimer-body": "Sellel leheküljel on algselt teises keeles ($1) kirjutatud sisu automaattõlge.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Loe veel",
+	"mint-view-translation-page-target-article-container-header": "Sellel teemal on saadaval ka inimeste kirjutatud sisu.",
+	"mint-view-translation-page-target-article-container-details": "Loe Vikipeedia ($1) toimetajate kirjutatud artiklit, et leida teema kohta usaldusväärsemat teavet.",
+	"mint-view-translation-page-source-article-link-label": "Ava lähtekeeles ($1)",
+	"mint-view-translation-content-translation-entrypoint-title": "Vaata automaattõlge üle",
+	"mint-view-translation-content-translation-entrypoint-description": "Automaatne sisu võib olla ebatäpne.",
+	"mint-view-translation-overlay-header": "Automaattõlge",
+	"mint-view-translation-overlay-source-article-link-label": "Loe Vikipeedias ($1)",
+	"mint-view-translation-overlay-target-article-link-label": "Loe Vikipeedias ($1)",
+	"mint-view-translation-overlay-cx-entrypoint-label": "Paranda tõlget",
+	"mint-view-translation-overlay-feedback-link-label": "Saada tagasisidet"
+}

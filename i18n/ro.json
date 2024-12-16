@@ -335,6 +335,7 @@
 	"cx-sx-content-comparator-target-selector-target-section-title": "Secțiune în $1",
 	"cx-sx-content-comparator-mapped-section-clarifications": "Traducerea dvs. va extinde secțiunea existentă. Respingeți asta dacă secțiunile nu au legătură.",
 	"cx-sx-translation-confirmer-title": "Traducere nouă",
+	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 vizualizare/|$1 vizualizări/|$1 de vizualizări/|0=Nici o vizualizare în această }}săptămână",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Semne de carte",
 	"cx-sx-content-comparator-discarded-section-label": "(respins)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Începeți cu o traducere diferită",
