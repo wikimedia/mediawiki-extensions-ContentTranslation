@@ -16,9 +16,9 @@
 			"Dušan Kreheľ"
 		]
 	},
-	"cx": "صفحہ کا ترجمہ کریں",
+	"cx": "صفحہ کا ترجمہ کیجیے",
 	"cx-dashboard-header": "تراجم",
-	"cx-javascript": "یہ آلہ جاوا اسکرپٹ کے بغیر کام نہیں کرتا۔ اگر آپ کوئی پرانا ویب براؤز استعمال کر رہے ہیں یا آپ کے پاس جاوا اسکرپٹ غیر فعال (ڈس ایبل) ہے، تو یہ کام نہیں کرے گا۔",
+	"cx-javascript": "یہ آلہ جاوا اسکرپٹ کے بغیر کام نہیں کرتا۔ اگر آپ کوئی پرانا ویب براؤزر استعمال کر رہے ہیں یا آپ کے پاس جاوا اسکرپٹ غیر فعال (ڈس ایبل) ہے، تو یہ کام نہیں کرے گا۔",
 	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|مواد کا ترجمہ]] ایک آلہ جس کے ذریعے صفحات کا آپ کی زبان میں جلدی سے ترجمہ کیا جاسکتا ہے۔ [$1 آزما کے دیکھیے!]",
 	"cx-license-agreement": "کلک کرنے کا مطلب ہے کہ آپ [https://foundation.wikimedia.org/wiki/Terms_of_Use استعمال کی شرائط] سے اتفاق کرتے ہیں، نیز اس سے بھی آپ کو قطعاً متفق تصور کیا جائے گا کہ آپ کی شراکتیں [https://creativecommons.org/licenses/by-sa/3.0/ CC BY-SA 3.0 اجازت نامہ] اور [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License جی ایف ڈی ایل] کے تحت شائع کی جا رہی ہیں۔",
 	"cx-error-server-connection": "نقص: سرور سے رابطہ نہیں ہو پارہا ہے",
@@ -49,6 +49,7 @@
 	"tag-contenttranslation-v2": "[[{{MediaWiki:cx2-descriptionpagelink}}|ترجمہ‌مواد2]]",
 	"tag-contenttranslation-v2-description": "اس مواد کو ترجمہ مواد کے نسخہ دوم کی مدد سے کسی دوسری زبان سے ترجمہ کیا گیا تھا۔",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|قطعہ کا ترجمہ]]",
+	"tag-sectiontranslation-description": "آلہ ترجمۂ مواد کے ترجمۂ قطعہ فیچر کا استعمال کرتے ہوئے ایک قطعہ سے مواد کا ترجمہ دوسری زبان میں کیا۔",
 	"cx-source-loading": "$1 لوڈ ہو رہا ہے",
 	"cx-beta": "\nترجمہ مواد",
 	"cx-beta-desc": "صفحات کو آپ کی زبان میں جلدی ترجمہ کرنے کیلئے ایک اوزار۔ اپنے [[Special:MyContributions|صفحۂ مساہمات]] سے ترجمے کی اِبتداء کریں، اور پھر طرف بہ طرف ترمیم کار کے ذریعے تدوین کریں۔کچھ اوزار صرف مخصوص زبانوں کیلئے دستیاب ہونگے۔",
