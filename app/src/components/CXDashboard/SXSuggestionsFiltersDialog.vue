@@ -177,6 +177,7 @@ const { getFilterProvider } = useSuggestionProvider();
     cursor: @cursor-base--hover;
     background-color: @background-color-base;
     border-color: @border-color-subtle;
+    max-width: calc(100% - @spacing-150);
 
     .cdx-icon {
       color: @color-base;

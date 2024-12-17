@@ -122,6 +122,7 @@ const chips = computed(() => [
     cursor: @cursor-base--hover;
     background-color: @background-color-base;
     border-color: @border-color-subtle;
+    max-width: calc(100% - @spacing-125);
 
     .cdx-icon {
       color: @color-base;
