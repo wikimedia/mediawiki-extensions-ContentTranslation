@@ -213,6 +213,7 @@ defineEmits(["close", "bookmark"]);
       .cdx-info-chip {
         background-color: @background-color-progressive-subtle;
         border-color: @border-color-progressive;
+        max-width: 200px;
         .cdx-icon {
           color: @color-progressive;
         }
