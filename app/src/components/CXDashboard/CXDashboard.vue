@@ -79,7 +79,7 @@ const listSelect = (event) => {
         tablet="9"
         desktop="7"
       >
-        <cx-favorite-list />
+        <cx-favorite-list v-show="activeTab === 'suggestions'" />
         <cx-suggestion-list :active="activeTab === 'suggestions'" />
         <cx-translation-list
           translation-status="draft"
