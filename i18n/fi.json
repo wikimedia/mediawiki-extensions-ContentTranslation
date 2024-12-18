@@ -302,7 +302,7 @@
 	"cx-sx-section-selector-empty-missing-sections-desc": "Kokeile toista sivua tai eri kieltä",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Valitse toinen sivu",
 	"cx-sx-section-selector-automatic-section-matching-title": "Osioiden automaattinen yhteensovitus",
-	"cx-sx-section-selector-automatic-section-matching-description": "Osiot on tunnistettu automaattisesti, eikä tulokset ole aina tarkkoja.",
+	"cx-sx-section-selector-automatic-section-matching-description": "Osiot on tunnistettu automaattisesti, eivätkä tulokset ole aina tarkkoja.",
 	"cx-sx-section-selector-learn-more-anchor-label": "Lisätietoja",
 	"cx-sx-section-selector-unsupported-sections-title": "Ei-tuetut osiot",
 	"cx-sx-section-selector-unsupported-sections-description": "Jotkin osiot eivät näy tässä listassa, koska niiden sisältöjä ei vielä tueta.",

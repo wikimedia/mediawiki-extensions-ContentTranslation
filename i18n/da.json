@@ -246,6 +246,7 @@
 	"cx-publish-destination-namespace-draft": "Fælles kladde",
 	"cx-linkcontextitem-missing-title-description": "Denne side findes ikke endnu",
 	"cx-unreviewed-translation-category": "Sider uden gennemgået oversættelser",
+	"cx-preference-enable-entrypoints": "Adgang til at [[$1|starte en oversættelse]] fra bidragssiden, sproglisten eller ved oprettelse af en ny side.",
 	"cx-feature-discovery-dismiss": "OK, modtaget",
 	"cx-sx-section-selector-title": "Sektioner",
 	"cx-sx-section-selector-subtitle": "Vælg en sektion",
