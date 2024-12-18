@@ -11,6 +11,7 @@ const usePageCollections = () => {
   const fetchPageCollections = async () => {
     try {
       pageCollections.value = await suggestionsApi.fetchPageCollections();
+      pageCollections.value.sort((a, b) => a.name.localeCompare(b.name));
       pageCollectionsFetched.value = true;
     } catch (error) {
       mw.log.error("Failed to fetch page collections", error);
