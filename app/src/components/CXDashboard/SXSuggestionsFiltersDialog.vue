@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, inject } from "vue";
 import { MwRow, MwCol, MwDialog } from "@/lib/mediawiki.ui";
-import { CdxButton, CdxIcon, CdxInfoChip } from "@wikimedia/codex";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import {
   cdxIconClose,
   cdxIconUserAvatar,
@@ -19,6 +19,7 @@ import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEvent
 import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
 import useSuggestionProvider from "@/composables/useSuggestionProvider";
 import useEventLogging from "@/composables/useEventLogging";
+import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 
 const props = defineProps({
   modelValue: {
@@ -143,7 +144,7 @@ const { getFilterProvider } = useSuggestionProvider();
             {{ filterGroup.label }}
           </div>
           <div class="sx-suggestions-filters__group-filters mb-3">
-            <cdx-info-chip
+            <custom-info-chip
               v-for="filter in filterGroup.filters"
               :key="filter.id"
               class="sx-suggestions-filters__filter my-1 mx-1 py-1"
@@ -151,10 +152,10 @@ const { getFilterProvider } = useSuggestionProvider();
                 'sx-suggestions-filters__filter--active': isSelected(filter),
               }"
               :icon="filterTypeToIconMap[getFilterProvider(filter)]"
+              :content="filter.label"
               @click="tentativelySelectFilter(filter)"
             >
-              {{ filter.label }}
-            </cdx-info-chip>
+            </custom-info-chip>
           </div>
         </div>
       </mw-col>

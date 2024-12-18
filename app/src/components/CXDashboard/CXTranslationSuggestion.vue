@@ -18,7 +18,7 @@ import useApplicationState from "../../composables/useApplicationState";
 import useTranslationSize from "@/composables/useTranslationSize";
 import CollectionArticleSuggestion from "@/wiki/cx/models/collectionArticleSuggestion";
 import CollectionSectionSuggestion from "@/wiki/cx/models/collectionSectionSuggestion";
-import { CdxInfoChip } from "@wikimedia/codex";
+import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 
 const props = defineProps({
   suggestion: {
@@ -68,7 +68,7 @@ const bookmarkIconColor = computed(() =>
 );
 
 const isQuickTranslation = computed(() => {
-  // according to the specifications, a translation is considered  quick, if it takes less than 15 minutes (T360570)
+  // according to the specifications, a translation is considered quick, if it takes less than 15 minutes (T360570)
   return bytesToMinutes(page.value?.articleSize) < 15;
 });
 
@@ -160,9 +160,11 @@ defineEmits(["close", "bookmark"]);
           shrink
           class="cx-suggestion__information-panel__collection mt-auto"
         >
-          <cdx-info-chip :icon="cdxIconArticles">
-            {{ suggestion.collection.name }}
-          </cdx-info-chip>
+          <custom-info-chip
+            :icon="cdxIconArticles"
+            :content="suggestion.collection.name"
+          >
+          </custom-info-chip>
         </mw-col>
       </mw-row>
       <mw-col shrink>
@@ -198,8 +200,15 @@ defineEmits(["close", "bookmark"]);
   }
 
   & &__information-panel {
-    &__main-body {
+    width: auto;
+    flex-wrap: nowrap;
+    &.row.col {
+      max-width: calc(@size-full - 100px);
+    }
+
+    &__main-body.column.col {
       height: @size-full;
+      max-width: calc(@size-full - @spacing-125);
 
       .cx-suggestion__source-description {
         color: @color-subtle;
@@ -213,7 +222,6 @@ defineEmits(["close", "bookmark"]);
       .cdx-info-chip {
         background-color: @background-color-progressive-subtle;
         border-color: @border-color-progressive;
-        max-width: 150px;
         .cdx-icon {
           color: @color-progressive;
         }

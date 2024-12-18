@@ -1,5 +1,4 @@
 <script setup>
-import { CdxInfoChip } from "@wikimedia/codex";
 import {
   cdxIconUserAvatar,
   cdxIconHeart,
@@ -21,6 +20,7 @@ import { getSuggestionFilterEventSource } from "@/utils/getSuggestionFilterEvent
 import { getSuggestionFilterEventContext } from "@/utils/getSuggestionFilterEventContext";
 import { MwSpinner } from "@/lib/mediawiki.ui";
 import useEventLogging from "@/composables/useEventLogging";
+import CustomInfoChip from "@/components/CXDashboard/CustomInfoChip.vue";
 
 const bananaI18n = useI18n();
 const logEvent = useEventLogging();
@@ -97,16 +97,16 @@ const chips = computed(() => [
 <template>
   <mw-spinner v-if="waitingForPageCollectionsFetch" />
   <div v-else class="cx-suggestion-list__filters flex px-4 pb-2">
-    <cdx-info-chip
+    <custom-info-chip
       v-for="chip in chips"
       :key="chip.label"
       class="cx-suggestion-list__filter py-1 me-1"
       :class="{ 'cx-suggestion-list__filter--active': isFilterSelected(chip) }"
       :icon="chip.icon"
+      :content="chip.label"
       @click="chip.action(chip)"
     >
-      {{ chip.label }}
-    </cdx-info-chip>
+    </custom-info-chip>
     <sx-suggestions-filters v-model="dialogVisible" />
   </div>
 </template>
