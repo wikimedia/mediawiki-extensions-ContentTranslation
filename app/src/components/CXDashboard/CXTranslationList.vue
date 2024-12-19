@@ -7,6 +7,8 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import { ref, computed } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
+import { CdxIcon } from "@wikimedia/codex";
+import { cdxIconLanguage } from "@wikimedia/codex-icons";
 
 const props = defineProps({
   activeStatus: {
@@ -111,12 +113,31 @@ const isActive = computed(() => props.activeStatus === props.translationStatus);
       />
     </template>
     <sx-translation-list-language-selector
+      v-if="activeTranslations.length"
       v-model:selected-source-language="selectedSourceLanguage"
       v-model:selected-target-language="selectedTargetLanguage"
       :source-languages="availableSourceLanguages"
       :target-languages="availableTargetLanguages"
       all-option-enabled
     />
+    <div
+      v-if="loaded && !activeTranslations.length"
+      class="cx-translation-list-empty-placeholder pa-4"
+    >
+      <div class="cx-translation-list-empty-placeholder__icon-container">
+        <div class="cx-translation-list-empty-placeholder__icon">
+          <cdx-icon :icon="cdxIconLanguage" />
+        </div>
+      </div>
+      <p
+        v-i18n:cx-sx-translation-list-empty-title
+        class="cx-translation-list-empty-placeholder__title mt-5"
+      ></p>
+      <p
+        v-i18n:cx-sx-translation-list-empty-description
+        class="cx-translation-list-empty-placeholder__description mt-2"
+      ></p>
+    </div>
     <mw-spinner v-if="!loaded" />
     <div v-if="isDraftTranslationList" class="cx-translation-list-wrapper">
       <cx-translation-work-draft
@@ -134,10 +155,39 @@ const isActive = computed(() => props.activeStatus === props.translationStatus);
         @delete-translation="askDeletionConfirmation(translation)"
       />
     </div>
-
     <sx-confirm-translation-deletion-dialog
       v-model="deletionDialogOn"
       :translation="translationToDelete"
     />
   </mw-card>
 </template>
+
+<style lang="less">
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
+.cx-translation-list-empty-placeholder {
+  text-align: center;
+  color: @color-subtle;
+
+  &__icon-container {
+    display: flex;
+    justify-content: center;
+  }
+  &__icon {
+    padding: @spacing-100;
+    background-color: @background-color-disabled;
+    border-radius: @border-radius-circle;
+    line-height: 1;
+    .cdx-icon {
+      height: @size-300;
+      width: @size-300;
+      color: @color-inverted;
+    }
+  }
+  &__title {
+    font-weight: @font-weight-bold;
+    font-size: @size-125;
+    color: @color-subtle;
+  }
+}
+</style>

@@ -311,6 +311,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Some sections may not appear in the list because their contents are not supported yet.",
 	"cx-suggestion-list-new-pages-division": "Create new pages",
 	"cx-translation-list-all-languages-option-label": "All",
+	"cx-sx-translation-list-empty-title": "Nothing to translate?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|Start}} your translation now and continue it anytime.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Back to all sections",
 	"cx-sx-content-comparator-translation-section-button-label": "Translate this section",
 	"cx-sx-content-comparator-review-contents-title": "Check for overlap",

@@ -747,6 +747,8 @@
 				"sx-section-selector-next-button-aria-label",
 				"cx-suggestion-list-new-pages-division",
 				"cx-translation-list-all-languages-option-label",
+				"cx-sx-translation-list-empty-title",
+				"cx-sx-translation-list-empty-description",
 				"cx-sx-content-comparator-back-to-sections-button-label",
 				"cx-sx-content-comparator-translation-section-button-label",
 				"cx-sx-content-comparator-review-contents-title",

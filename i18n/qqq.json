@@ -331,6 +331,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Content of unsupported section consideration of section selector",
 	"cx-suggestion-list-new-pages-division": "Title for new pages division in content translation suggestion list.\n\nAppears in the same context as {{msg-mw|Cx-suggestionlist-expand-sections-title}}, and should be translated similarly.",
 	"cx-translation-list-all-languages-option-label": "Label for all languages option for language selector inside translation list\n{{identical|All}}",
+	"cx-sx-translation-list-empty-title": "Title text shown when there are no translations by the current user",
+	"cx-sx-translation-list-empty-description": "A brief description shown when there are no translations by current user",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Label for button at top of content comparator that leads back to section selector",
 	"cx-sx-content-comparator-translation-section-button-label": "Label for button inside content comparator that starts translation for selected section.\n\nIt should be clear that this is an '''action''' that will be done by the human (with possible help from the software), and not a title. So consider using an action verb or an imperative.",
 	"cx-sx-content-comparator-review-contents-title": "First sentence of considerations regarding content review on the screen where translators compare source and target section contents for an article existing in both languages. \"Review\" is an imperative verb, an action that the user has to do and it is used in the meaning of \"To survey; to look broadly over\".",
