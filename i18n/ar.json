@@ -70,6 +70,7 @@
 	"tag-sectiontranslation": "[[{{MediaWiki: sx-descriptionpagelink}} | ترجمة القسم]]",
 	"tag-sectiontranslation-description": "تُرجم المحتوى من قسم بلغة أخرى باستخدام ميزة ترجمة القسم في أداة ترجمة المحتوى.",
 	"tag-contenttranslation-high-unmodified-mt-text": "[[mw:Special:MyLanguage/Help:Content_translation/Translating/Translation_quality|ترجمة المحتوى: استخدام عال للترجمة الآلية غير المعدلة]]",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "تحتوي الترجمة المنشورة باستخدام ContentTranslation على نسبة عالية من الترجمة الآلية غير المعدلة",
 	"cx-source-loading": "تحميل $1",
 	"cx-beta": "ترجمة المحتوى",
 	"cx-beta-desc": "أداة لترجمة المواد بلغتك سريعا. ابدأ الترجمة من صفحة [[Special:MyContributions|مساهماتك]] باستعمال محرر الترجمة الذي يظهر الترجمة بجانب الأصل. بعض الأدوات متاحة لبعض اللغات فقط.",
@@ -501,6 +502,12 @@
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1||شهر واحد|شهرين|$1 شهور|$1 شهرا|$1 شهر}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1||سنة واحدة|سنتين|$1 سنين|$1 سنة}}",
 	"sx-confirm-draft-translation-start-dialog-title": "استمر في الترجمة على الهاتف المحمول",
+	"sx-confirm-draft-translation-start-dialog-subtitle": "لقد بدأت هذه الترجمة على جهاز مختلف، وهي تتضمن محتويات لأقسام متعددة من المقالة.",
+	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "على الهاتف المحمول، يمكنك العمل على قسم واحد فقط في كل مرة. وبالتالي، سيتم تحميل القسم الرئيسي فقط في الوقت الحالي.",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "أين الأقسام الأخرى؟",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "لا تقلق، فالأقسام المتبقية لم تُفقَد، فهي متاحة الآن في قائمة الترجمات الجارية ويمكن استخدامها لتوسيع المقالة الحالية. ستجد ترجمة جديدة جارية تتضمن محتويات كل قسم.",
 	"sx-confirm-draft-translation-start-button-label": "حسنا",
-	"sx-published-translation-new-translation-button-label": "ترجمة جديدة"
+	"sx-published-translation-new-translation-button-label": "ترجمة جديدة",
+	"sx-section-selector-close-button-aria-label": "زر الانتقال إلى خطوة التأكيد",
+	"sx-quick-tutorial-next-button-aria-label": "انتقل إلى صفحة البرنامج التعليمي التالية"
 }
