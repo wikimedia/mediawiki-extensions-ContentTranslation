@@ -352,6 +352,8 @@
 	"cx-sx-content-comparator-mapped-section-clarifications": "ستعمل ترجمتك على توسيع القسم الحالي. تجاهل هذا إذا كانت الأقسام غير مرتبطة.",
 	"cx-sx-translation-confirmer-title": "ترجمة جديدة",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 زيارة هذا|$1 زيارات هذا|0=لا زيارات هذا}} الأسبوع",
+	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} للترجمة",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 ساعة|$1 ساعات|0={{PLURAL:$2|$2 دقيقة|$2 دقائق}}}} لترجمة $3 أقسام",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "العلامات",
 	"cx-sx-content-comparator-discarded-section-clarifications": "سيتم نشر ترجمتك كقسم جديد مستقل.",
 	"cx-sx-content-comparator-discarded-section-label": "(مهملة)",
@@ -593,6 +595,7 @@
 	"cx-articletopics-topic-technology": "تقانة",
 	"cx-page-collection-dialog-close-button-aria-label": "العودة إلى لوحة القيادة",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 مقالات موجودة في $3",
+	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 يوم|$1 أيام|0=لا يوجد أيام متبقية}}",
 	"cx-page-collection-dialog-page-suggestions-header": "الصفحات الجديدة",
 	"cx-page-collection-dialog-section-suggestions-header": "أقسام جديدة"
 }

@@ -7,6 +7,7 @@
 		]
 	},
 	"automatic-translation-special-page-description": "ترجمة تلقائية",
+	"automatic-translation-desc": "يوفر [[Special:AutomaticTranslation|ترجمة آلية]] لصفحات المحتوى.",
 	"mint-home-header-title": "الترجمة الآلية",
 	"mint-home-input-placeholder": "ابحث عن موضوع",
 	"mint-translation-list-all-languages-option-label": "الكل",
@@ -49,5 +50,6 @@
 	"mint-explore-languages-explanation-banner-title": "تعلم المزيد من اللغات الأخرى",
 	"mint-explore-languages-explanation-banner-text": "وقد تناول المحررون في لغات مختلفة هذا الموضوع بطرق مختلفة.",
 	"mint-explore-languages-language-card-container-title": "اللغات ذات التغطية الأكبر لـ \"$1\"",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 قسم|$1 أقسام|0=لا توجد أقسام}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "الأكثر تفصيلا"
 }

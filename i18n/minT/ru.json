@@ -13,6 +13,7 @@
 	"mint-language-selector-all-languages-header": "Все языки",
 	"mint-language-selector-input-placeholder": "Выберите язык",
 	"mint-language-selector-no-search-results": "Нет результатов",
+	"mint-confirm-topic-page-language-selector-explanation": "Перевод [$1 из Википедии на языке $2]. Узнайте, как эта тема освещается на {{PLURAL:$3|другом языке|$3 других языках}}.",
 	"mint-view-translation-page-disclaimer-learn-more-link": "Узнать больше",
 	"mint-view-translation-page-source-article-link-label": "Открыть на $1",
 	"mint-view-translation-overlay-header": "Автоматический перевод",
