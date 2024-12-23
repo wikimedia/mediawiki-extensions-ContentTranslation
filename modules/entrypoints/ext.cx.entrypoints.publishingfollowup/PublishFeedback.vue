@@ -160,12 +160,15 @@ module.exports = defineComponent( {
 		fetch( cxServerSectionSuggestionApiUrl )
 			.then( ( response ) => response.ok ?
 				response.json() :
-				Promise.reject( new Error( 'Failed to load data from server' ) )
+				Promise.reject( new Error( `HTTP request failed with status ${ response.status }` ) )
 			)
 			.then( ( suggestionResult ) => {
 				if ( suggestionResult.sections ) {
 					this.missingSections = Object.keys( suggestionResult.sections.missing );
 				}
+			} )
+			.catch( ( error ) => {
+				mw.log.error( 'Error while fetching section suggestions for this article: ', error );
 			} );
 	}
 } );
