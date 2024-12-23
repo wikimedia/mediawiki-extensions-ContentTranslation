@@ -647,13 +647,11 @@
 			]
 		},
 		"sx.publishing.followup": {
-			"localBasePath": "app",
-			"remoteExtPath": "ContentTranslation/app",
 			"packageFiles": [
-				"modules/index.js",
-				"modules/sx.publishing.followup.highlight.js",
-				"modules/sx.publishing.followup.confirmation.js",
-				"modules/PublishFeedback.vue"
+				"entrypoints/ext.cx.entrypoints.publishingfollowup/index.js",
+				"entrypoints/ext.cx.entrypoints.publishingfollowup/sx.publishing.followup.highlight.js",
+				"entrypoints/ext.cx.entrypoints.publishingfollowup/sx.publishing.followup.confirmation.js",
+				"entrypoints/ext.cx.entrypoints.publishingfollowup/PublishFeedback.vue"
 			],
 			"messages": [
 				"cx-sx-followup-feedback-new-indicator",
