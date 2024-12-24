@@ -24,6 +24,7 @@
 	"mint-search-topic-page-results-container-empty": "ابحث عن أي موضوع. قد يختلف محتوى الموضوع في كل لغة.",
 	"mint-confirm-topic-page-header": "الترجمة الآلية",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "عرض الترجمة الآلية",
+	"mint-confirm-topic-page-language-selector-explanation": "الترجمة [$1 من ويكيبيديا في $2]. اكتشف كيف تمت تغطية هذا الموضوع في {{PLURAL:$3|لغة أخرى|$3 لغات أخرى}}.",
 	"mint-confirm-topic-page-go-to-search-button-label": "ابحث عن موضوع آخر",
 	"mint-confirm-topic-page-target-article-link-container-header": "تمت كتابته بواسطة المحررين في $1",
 	"mint-confirm-topic-page-target-article-link-container-details": "لقد تم كتابة هذه المقالة بمبلغ $1 بواسطة محررين بشريين. يمكنك الانضمام إليهم لتحسين المحتوى.",
