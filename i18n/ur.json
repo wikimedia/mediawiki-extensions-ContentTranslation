@@ -93,7 +93,7 @@
 	"cx-source-page-selector-no-suggestions": "اپنی دلچسپی کے کسی بھی موضوع کے بارے میں سوچیں۔ آپ کو ایک عظیم ترجمہ بنانے کے لیے ایک ماہر بننے کی ضرورت نہیں ہے۔",
 	"cx-source-page-selector-no-search-results": "$2 میں «$1» کے عنوان سے کوئی صفحہ نہیں ملا",
 	"cx-selected-source-page-start-translation-button": "ترجمہ شروع کریں",
-	"cx-selected-source-page-view-count": "{{PLURAL:$1|$1 آمد فی ہفتہ|$1 آمدیں فی ہفتہ|0=اس ہفتے کوئی آمدیں نہیں}}",
+	"cx-selected-source-page-view-count": "{{PLURAL:$1|ہفتے میں $1 فرد کی آمد|ہفتے میں $1 افراد کی آمد|0=اس ہفتے کوئی وارد نہیں ہوا}}",
 	"cx-selected-source-page-error-page-and-title-exist": "یہ عنوان پہلے ہی  [$1 $2] [$3 ایک دوسرے صفحہ کے لیے ] استعمال کر چکے ہیں",
 	"cx-selected-source-page-error-page-exists": "صفحہ  [$1 پہلے سے] $2 میں موجود ہے",
 	"cx-selected-source-page-error-title-in-use": "نئے صفحہ کا عنوان [$1 پہلے ہی مستعمل ہے]",
