@@ -266,8 +266,8 @@ module.exports = {
 	&__action-switches {
 		padding: 0 16px;
 		background-color: @background-color-interactive-subtle;
-		border-top: @border-style-base @border-width-base #eaecf0;
-		border-bottom: @border-style-base @border-width-base #eaecf0;
+		border-top: @border-style-base @border-width-base @border-color-muted;
+		border-bottom: @border-style-base @border-width-base @border-color-muted;
 	}
 
 	&__action-switch {
