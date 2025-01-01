@@ -43,5 +43,12 @@
 	"mint-view-translation-overlay-share-button-label": "Condivider traduction automatic",
 	"mint-view-translation-overlay-feedback-link-label": "Inviar opinion",
 	"ax-article-footer-entrypoint-card-description": "Plus contento in altere linguas",
-	"ax-article-footer-entrypoint-card-supporting-text": "Leger traduction automatic"
+	"ax-article-footer-entrypoint-card-supporting-text": "Leger traduction automatic",
+	"mint-explore-languages-header": "Explorar linguas",
+	"mint-explore-languages-search-input-placeholder": "Tote le linguas pro iste topico",
+	"mint-explore-languages-explanation-banner-title": "Leger plus in altere linguas",
+	"mint-explore-languages-explanation-banner-text": "Le redactores de linguas differente ha tractate iste topico de manieras differente.",
+	"mint-explore-languages-language-card-container-title": "Linguas con le plus grande copertura pro “$1”",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 sectiones|0=Nulle section}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus detaliate"
 }
