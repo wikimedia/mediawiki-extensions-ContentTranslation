@@ -159,13 +159,26 @@ const setLanguageURLParams = (sourceLanguage, targetLanguage) => {
   replaceUrl(Object.fromEntries(params));
 };
 
-const clearURLParameters = () => {
-  sourceLanguageURLParameter.value = null;
-  targetLanguageURLParameter.value = null;
-  pageURLParameter.value = null;
-  sectionURLParameter.value = null;
+/**
+ * @param {string[]} excludedParams
+ */
+const clearURLParameters = (excludedParams = ["active-list"]) => {
+  for (const parameterName in parametersMap) {
+    if (excludedParams.includes(parameterName)) {
+      continue;
+    }
+    parametersMap[parameterName].value = null;
+  }
 
-  replaceUrl(null);
+  const params = excludedParams.reduce(
+    (tempParams, paramName) => ({
+      ...tempParams,
+      [paramName]: parametersMap[paramName].value,
+    }),
+    {}
+  );
+
+  replaceUrl(params);
 };
 
 const useURLHandler = () => {
