@@ -42,7 +42,9 @@
 	"cx-mt-abuse-warning-title": "Vua tradukuro {{PLURAL:$1|kontenas}} $1% di texto sen modifiko",
 	"cx-mt-abuse-warning-text": "Automatala tradukuro furnisesas quale komenco-punto. Verifikez se la kontenajo esas preciza, e la gramatiko esas korekta en vua linguo.\n\nVua tradukuro povos efacesor kande altra redakteri revizos ol.",
 	"cx-captcha-dialog-cancel": "Nuligar",
+	"cx-dashboard-sidebar-title": "Ka vu deziras helpo pri quale tradukar?",
 	"cx-dashboard-sidebar-information": "Savez pluse pri ca utensilo",
+	"cx-dashboard-sidebar-stats": "Statistiki",
 	"cx-dashboard-sidebar-feedback": "Sendez vua opiniono",
 	"cx-translation-filter-draft-translations": "En progreso",
 	"cx-translation-filter-suggested-translations": "Propozaji",
@@ -157,5 +159,6 @@
 	"sx-recent-translation-entrypoint-dialog-translate-notice-text-two-missing": "Tradukar \"$1\" e \"$2\"",
 	"sx-missing-languages-entrypoint-panel-text-more-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
 	"cx-uls-relevant-languages-banner-text-single-missing": "Mankanta en <span>$1</span> e pluse",
-	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse"
+	"cx-uls-relevant-languages-banner-text-multiple-missing": "Mankanta en <span>$1</span>, <span>$2</span> e pluse",
+	"cx-sx-dashboard-help-panel-stats-label": "Statistiki"
 }
