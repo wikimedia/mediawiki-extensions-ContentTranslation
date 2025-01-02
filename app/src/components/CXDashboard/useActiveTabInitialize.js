@@ -6,13 +6,13 @@ const validLists = ["suggestions", "draft", "published"];
 
 const useActiveTabInitialize = () => {
   const store = useStore();
-  const { getUrlParam, setUrlParam } = useURLHandler();
-  const urlActiveList = getUrlParam("active-list");
+  const { activeDashboardTabParameter, setActiveDashboardTabParameter } =
+    useURLHandler();
 
   const activeTab = ref(null);
 
-  if (validLists.includes(urlActiveList)) {
-    activeTab.value = urlActiveList;
+  if (validLists.includes(activeDashboardTabParameter.value)) {
+    activeTab.value = activeDashboardTabParameter.value;
   } else {
     const draftTranslationsLoaded = computed(
       () => store.state.translator.translationsLoaded.draft
@@ -36,7 +36,7 @@ const useActiveTabInitialize = () => {
   }
 
   watchEffect(() => {
-    setUrlParam("active-list", activeTab.value);
+    setActiveDashboardTabParameter(activeTab.value);
     window.scrollTo(0, 0);
   });
 

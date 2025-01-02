@@ -11,9 +11,18 @@ const sectionURLParameter = ref(null);
 const draftURLParameter = ref(null);
 const filterTypeURLParameter = ref(null);
 const filterIdURLParameter = ref(null);
+const activeDashboardTabParameter = ref(null);
 
 const { validateFilters, filtersValidatorError } = useFiltersValidator();
 
+const parametersMap = {
+  from: sourceLanguageURLParameter,
+  to: targetLanguageURLParameter,
+  section: sectionURLParameter,
+  draft: draftURLParameter,
+  page: pageURLParameter,
+  "active-list": activeDashboardTabParameter,
+};
 /**
  * @type {ComputedRef<{id: string, type: string}>}
  */
@@ -42,13 +51,18 @@ const setFilterURLParams = (filterType, filterId) => {
 const setTranslationURLParams = (translationToBeStarted) => {
   const params = new URLSearchParams(location.search);
   // both SectionSuggestion and Translation models have the below properties
-  params.set("page", translationToBeStarted?.sourceTitle);
-  params.set("from", translationToBeStarted?.sourceLanguage);
-  params.set("to", translationToBeStarted?.targetLanguage);
 
-  pageURLParameter.value = translationToBeStarted?.sourceTitle;
-  sourceLanguageURLParameter.value = translationToBeStarted?.sourceLanguage;
-  targetLanguageURLParameter.value = translationToBeStarted?.targetLanguage;
+  const parameterValues = {
+    page: translationToBeStarted?.sourceTitle,
+    from: translationToBeStarted?.sourceLanguage,
+    to: translationToBeStarted?.targetLanguage,
+  };
+
+  for (const parameterName in parameterValues) {
+    const value = parameterValues[parameterName];
+    params.set(parameterName, value);
+    parametersMap[parameterName].value = value;
+  }
 
   if (translationToBeStarted instanceof DraftTranslation) {
     params.set("draft", true);
@@ -63,14 +77,21 @@ const setTranslationURLParams = (translationToBeStarted) => {
   replaceUrl(Object.fromEntries(params));
 };
 
+const setURLParamAndRef = (parameterName, value) => {
+  parametersMap[parameterName].value = value;
+  setUrlParam(parameterName, value);
+};
+
 const setSectionURLParam = (sectionTitle) => {
-  sectionURLParameter.value = sectionTitle;
-  setUrlParam("section", sectionTitle);
+  setURLParamAndRef("section", sectionTitle);
 };
 
 const setPageURLParam = (pageTitle) => {
-  pageURLParameter.value = pageTitle;
-  setUrlParam("page", pageTitle);
+  setURLParamAndRef("page", pageTitle);
+};
+
+const setActiveDashboardTabParameter = (activeDashboardTab) => {
+  setURLParamAndRef("active-list", activeDashboardTab);
 };
 
 /**
@@ -165,6 +186,8 @@ const useURLHandler = () => {
     setPageURLParam,
     currentSuggestionFilters,
     setFilterURLParams,
+    activeDashboardTabParameter,
+    setActiveDashboardTabParameter,
   };
 };
 
