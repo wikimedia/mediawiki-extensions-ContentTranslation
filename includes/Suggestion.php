@@ -36,18 +36,30 @@ class Suggestion {
 		return new Suggestion( $params );
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getListId() {
 		return $this->listId;
 	}
 
+	/**
+	 * @return Title|null
+	 */
 	public function getTitle() {
 		return Title::newFromText( $this->title );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getSourceLanguage() {
 		return $this->sourceLanguage;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getTargetLanguage() {
 		return $this->targetLanguage;
 	}

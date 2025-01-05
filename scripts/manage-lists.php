@@ -103,6 +103,12 @@ class CXManageLists extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param string $apiUrl
+	 * @param string $category
+	 * @param string $targetDomain
+	 * @return array
+	 */
 	protected function getUntranslatedPages( $apiUrl, $category, $targetDomain ) {
 		$this->output( "Fetching pages from $category not present in $targetDomain ..." );
 
@@ -155,18 +161,30 @@ class CXManageLists extends Maintenance {
 		return $pages;
 	}
 
+	/**
+	 * @param string[] $pages
+	 */
 	protected function createFeaturedSuggestions( $pages ) {
 		$featureListName = 'cx-suggestionlist-featured';
 		$type = SuggestionList::TYPE_FEATURED;
 		$this->createPublicList( $featureListName, $type, $pages );
 	}
 
+	/**
+	 * @param string $category
+	 * @param string[] $pages
+	 */
 	protected function createCategoryList( $category, $pages ) {
 		$name = $category;
 		$type = SuggestionList::TYPE_CATEGORY;
 		$this->createPublicList( $name, $type, $pages );
 	}
 
+	/**
+	 * @param string $name
+	 * @param int $type
+	 * @param string[] $pages
+	 */
 	protected function createPublicList( $name, $type, $pages ) {
 		if ( !count( $pages ) ) {
 			return;

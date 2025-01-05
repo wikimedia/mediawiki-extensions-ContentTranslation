@@ -5,6 +5,7 @@ namespace ContentTranslation;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Storage\NameTableAccessException;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
 
 class Translation {
 	private bool $isNew = false;
@@ -12,6 +13,9 @@ class Translation {
 	/** @var array */
 	public $translation;
 
+	/**
+	 * @param array $translation
+	 */
 	public function __construct( $translation ) {
 		$this->translation = $translation;
 	}
@@ -204,6 +208,9 @@ class Translation {
 		return $result;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getTranslationId() {
 		return $this->translation['id'];
 	}
@@ -229,6 +236,9 @@ class Translation {
 		return $this->translation;
 	}
 
+	/**
+	 * @return IExpression
+	 */
 	public static function getPublishedCondition( IDatabase $db ) {
 		return $db->expr( 'translation_status', '=', 'published' )
 			->or( 'translation_target_url', '!=', null );

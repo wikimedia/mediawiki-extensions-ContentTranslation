@@ -205,6 +205,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param int $days
+	 * @return DateTime
+	 */
 	public function getCutoffTime( $days ) {
 		$dt = new DateTime();
 		$dt->setTimezone( new \DateTimeZone( 'UTC' ) );
@@ -214,6 +218,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		return $dt;
 	}
 
+	/**
+	 * @param int $draftId
+	 */
 	public function purgeDraft( $draftId ) {
 		/** @var TranslationStore $translationStore */
 		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
@@ -263,6 +270,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 			->fetchResultSet();
 	}
 
+	/**
+	 * @param array $draftsPerUser
+	 * @param string $notificationType
+	 */
 	public function notifyUsersAboutDrafts( $draftsPerUser, $notificationType ) {
 		$services = MediaWikiServices::getInstance();
 		$centralIdLookup = $services->getCentralIdLookup();
@@ -302,6 +313,9 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param stdClass $lastDraft
+	 */
 	private function logLastNotifiedDraft( $lastDraft ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );

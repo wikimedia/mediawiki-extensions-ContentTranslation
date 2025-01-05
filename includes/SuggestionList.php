@@ -83,10 +83,16 @@ class SuggestionList {
 		return new SuggestionList( $params );
 	}
 
+	/**
+	 * @return int|null
+	 */
 	public function getId() {
 		return $this->id;
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getName() {
 		return $this->name;
 	}
@@ -104,10 +110,16 @@ class SuggestionList {
 		}
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getInfo() {
 		return $this->info;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getOwner() {
 		if ( $this->owner ) {
 			return $this->owner;
@@ -116,18 +128,30 @@ class SuggestionList {
 		return 0;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function isPublic() {
 		return (bool)$this->public;
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getStartTime() {
 		return $this->startTime;
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getEndTime() {
 		return $this->endTime;
 	}
 
+	/**
+	 * @return int
+	 */
 	public function getType() {
 		if ( $this->type === null ) {
 			return self::TYPE_DEFAULT;

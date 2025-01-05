@@ -78,6 +78,11 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/**
+	 * @param int $translatorUserId
+	 * @param string $listName
+	 * @return int
+	 */
 	private function createList( $translatorUserId, $listName ) {
 		$manager = new SuggestionListManager();
 		$type = SuggestionList::TYPE_DEFAULT;

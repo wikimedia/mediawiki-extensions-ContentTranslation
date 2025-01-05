@@ -100,6 +100,10 @@ class SpecialContentTranslation extends SpecialPage {
 		} );
 	}
 
+	/**
+	 * @param string|null $campaign
+	 * @return bool
+	 */
 	public function isValidCampaign( $campaign ) {
 		$contentTranslationCampaigns = $this->getConfig()->get( 'ContentTranslationCampaigns' );
 

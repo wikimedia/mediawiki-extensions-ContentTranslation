@@ -14,6 +14,9 @@ class TmxDumpFormatter {
 	/** @var string */
 	private $sourceLanguage;
 
+	/**
+	 * @param string $sourceLanguage
+	 */
 	public function __construct( $sourceLanguage ) {
 		$this->sourceLanguage = $sourceLanguage;
 
@@ -24,6 +27,10 @@ class TmxDumpFormatter {
 		$this->xml->startDocument( '1.0', 'UTF-8' );
 	}
 
+	/**
+	 * @param array $entry
+	 * @return string|int
+	 */
 	public function format( array $entry ) {
 		if ( !$this->isStarted ) {
 			$this->isStarted = true;

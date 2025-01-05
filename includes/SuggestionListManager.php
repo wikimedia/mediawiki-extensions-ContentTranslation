@@ -41,6 +41,9 @@ class SuggestionListManager {
 		return $dbw->insertId();
 	}
 
+	/**
+	 * @param int $id
+	 */
 	public function deleteList( $id ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
@@ -61,6 +64,10 @@ class SuggestionListManager {
 			->execute();
 	}
 
+	/**
+	 * @param string $sourceLanguage
+	 * @param array $titles
+	 */
 	public function removeTitles( $sourceLanguage, array $titles ) {
 		if ( $titles === [] ) {
 			return;
@@ -79,6 +86,10 @@ class SuggestionListManager {
 			->execute();
 	}
 
+	/**
+	 * @param array $conds
+	 * @return SuggestionList|null
+	 */
 	protected function getListByConds( array $conds ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
@@ -97,6 +108,11 @@ class SuggestionListManager {
 		return null;
 	}
 
+	/**
+	 * @param string $name
+	 * @param int $owner
+	 * @return SuggestionList|null
+	 */
 	public function getListByName( $name, $owner = 0 ) {
 		$conds = [
 			'cxl_name' => $name,
@@ -106,6 +122,10 @@ class SuggestionListManager {
 		return $this->getListByConds( $conds );
 	}
 
+	/**
+	 * @param int $id
+	 * @return SuggestionList|null
+	 */
 	public function getListById( $id ) {
 		$conds = [
 			'cxl_id' => $id,

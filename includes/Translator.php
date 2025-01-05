@@ -25,6 +25,9 @@ class Translator {
 		return $this->user;
 	}
 
+	/**
+	 * @param int $translationId
+	 */
 	public function addTranslation( $translationId ) {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
@@ -40,6 +43,10 @@ class Translator {
 			->execute();
 	}
 
+	/**
+	 * @param string|null $type
+	 * @return string[]
+	 */
 	public function getLanguages( $type ) {
 		// Note: there is no index on translation_last_updated_timestamp
 		/** @var LoadBalancer $lb */

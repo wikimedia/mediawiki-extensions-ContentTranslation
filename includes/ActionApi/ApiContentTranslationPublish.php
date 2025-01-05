@@ -77,6 +77,12 @@ class ApiContentTranslationPublish extends ApiBase {
 		return $this->parsoidClientFactory->createParsoidClient();
 	}
 
+	/**
+	 * @param Title $title
+	 * @param string $wikitext
+	 * @param array $params
+	 * @return array
+	 */
 	protected function saveWikitext( $title, $wikitext, $params ) {
 		$categories = $this->getCategories( $params );
 		if ( count( $categories ) ) {
@@ -256,6 +262,7 @@ class ApiContentTranslationPublish extends ApiBase {
 			);
 		}
 
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
 		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
 		$editStatus = $saveresult['edit']['result'];
 

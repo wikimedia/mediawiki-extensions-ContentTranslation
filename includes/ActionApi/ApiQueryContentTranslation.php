@@ -260,6 +260,9 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	/**
+	 * @param int $translationId
+	 */
 	private function serveTranslationCorporaUnits( $translationId ) {
 		$translation = $this->translationStore->findByUserAndId( $this->getUser(), $translationId );
 		if ( $translation !== null ) {

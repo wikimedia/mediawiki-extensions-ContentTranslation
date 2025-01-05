@@ -12,6 +12,8 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\ActorMigration;
 use MediaWiki\User\CentralId\CentralIdLookup;
 use MediaWiki\User\User;
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IResultWrapper;
 
 // Standard boilerplate to define $IP
 if ( getenv( 'MW_INSTALL_PATH' ) !== false ) {
@@ -79,6 +81,10 @@ class CxFixStats extends Maintenance {
 		$this->addTags( $this->tags, $dryrun );
 	}
 
+	/**
+	 * @param array $resets
+	 * @param bool $dry
+	 */
 	protected function changeStatus( $resets, $dry ) {
 		$count = count( $resets );
 		if ( !$count ) {
@@ -104,6 +110,10 @@ class CxFixStats extends Maintenance {
 			->execute();
 	}
 
+	/**
+	 * @param array $items
+	 * @param bool $dry
+	 */
 	protected function addTags( $items, $dry ) {
 		$count = count( $items );
 		if ( !$count ) {
@@ -129,6 +139,10 @@ class CxFixStats extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param IDatabase $db
+	 * @return IResultWrapper
+	 */
 	protected function getRelevantTranslations( $db ) {
 		$conds = [];
 
@@ -144,6 +158,9 @@ class CxFixStats extends Maintenance {
 			->fetchResultSet();
 	}
 
+	/**
+	 * @param stdClass $row
+	 */
 	protected function checkTargetUrl( $row ) {
 		if ( $row->translation_status === 'deleted' ) {
 			return;
@@ -236,6 +253,11 @@ class CxFixStats extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param Title $title
+	 * @param stdClass $row
+	 * @return bool
+	 */
 	protected function hasCxTag( Title $title, $row ) {
 		$mainLb = MediaWikiServices::getInstance()->getDBLoadBalancer();
 		$dbr = $mainLb->getConnection( DB_REPLICA );
@@ -260,6 +282,12 @@ class CxFixStats extends Maintenance {
 			->fetchField();
 	}
 
+	/**
+	 * @param Title $title
+	 * @param string $name
+	 * @param string $timestamp
+	 * @return string|false
+	 */
 	protected function findRevisionToTag( Title $title, $name, $timestamp ) {
 		$mainLb = MediaWikiServices::getInstance()->getDBLoadBalancer();
 		$dbr = $mainLb->getConnection( DB_REPLICA );

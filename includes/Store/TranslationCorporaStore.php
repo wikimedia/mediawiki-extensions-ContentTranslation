@@ -291,6 +291,13 @@ class TranslationCorporaStore {
 		}
 	}
 
+	/**
+	 * @param IDatabase $db
+	 * @param array $conditions
+	 * @param array $options
+	 * @param string $method
+	 * @return TranslationUnit|null
+	 */
 	private function doFind( IDatabase $db, $conditions, $options, $method ): ?TranslationUnit {
 		$row = $db->newSelectQueryBuilder()
 			->select( [

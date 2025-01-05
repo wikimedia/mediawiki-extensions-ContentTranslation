@@ -21,6 +21,7 @@ use ContentTranslation\Translation;
 use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\SelectQueryBuilder;
 
@@ -164,6 +165,11 @@ class CXCorporaDump extends Maintenance {
 		}
 	}
 
+	/**
+	 * @param string|false $source
+	 * @param string|false $target
+	 * @return string
+	 */
 	private static function makePairName( $source, $target ) {
 		$source = $source ?: '_';
 		$target = $target ?: '_';
@@ -199,6 +205,11 @@ class CXCorporaDump extends Maintenance {
 			->fetchResultSet();
 	}
 
+	/**
+	 * @param IDatabase $db
+	 * @param array $pairs
+	 * @return array|IExpression
+	 */
 	private static function makeLanguageConditions( IDatabase $db, array $pairs ) {
 		$conds = [];
 		foreach ( $pairs as [ $sourceLanguage, $targetLanguage ] ) {
@@ -275,6 +286,11 @@ class CXCorporaDump extends Maintenance {
 		return $groups;
 	}
 
+	/**
+	 * @param IDatabase $db
+	 * @param array $pairs
+	 * @return IResultWrapper
+	 */
 	private static function getTranslations( $db, $pairs ) {
 		$publishedCondition = Translation::getPublishedCondition( $db );
 		$languageCondition = self::makeLanguageConditions( $db, $pairs );
@@ -292,6 +308,11 @@ class CXCorporaDump extends Maintenance {
 			->fetchResultSet();
 	}
 
+	/**
+	 * @param string $format
+	 * @param string $pairName
+	 * @return JsonDumpFormatter|TmxDumpFormatter
+	 */
 	private static function getFormatter( $format, $pairName ) {
 		if ( $format === 'json' ) {
 			return new JsonDumpFormatter();
