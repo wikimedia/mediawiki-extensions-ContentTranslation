@@ -14,7 +14,7 @@ class DateManipulator {
 	/** @var string */
 	private $interval;
 
-	public function __construct( $interval ) {
+	public function __construct( string $interval ) {
 		if ( $interval === self::WEEK || $interval === self::MONTH ) {
 			$this->interval = $interval;
 		} else {
@@ -50,7 +50,7 @@ class DateManipulator {
 		return $datetime;
 	}
 
-	public function getSteps( \DateTime $min, \DateTime $max ) {
+	public function getSteps( \DateTime $min, \DateTime $max ): array {
 		// Avoid modifying passed objects
 		$current = clone $min;
 		$interval = new \DateInterval( 'P1D' );

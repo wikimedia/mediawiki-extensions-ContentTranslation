@@ -199,7 +199,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		return $ongoingTranslationTitles;
 	}
 
-	private function getExistingTitles( array $suggestions ) {
+	private function getExistingTitles( array $suggestions ): array {
 		$titles = [];
 		if ( !count( $suggestions ) ) {
 			return $titles;
@@ -241,7 +241,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		return $existingTitles;
 	}
 
-	private function filterSuggestions( array $suggestions, array $titlesToFilter ) {
+	private function filterSuggestions( array $suggestions, array $titlesToFilter ): array {
 		return array_filter( $suggestions,
 			static function ( $suggestion ) use( $titlesToFilter ) {
 				return !in_array(
@@ -252,7 +252,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		);
 	}
 
-	private function removeInvalidSuggestions( $sourceLanguage, array $existingTitles ) {
+	private function removeInvalidSuggestions( string $sourceLanguage, array $existingTitles ) {
 		DeferredUpdates::addCallableUpdate( static function () use ( $sourceLanguage, $existingTitles ) {
 			// Remove the already existing links from cx_suggestion table
 			$manager = new SuggestionListManager();

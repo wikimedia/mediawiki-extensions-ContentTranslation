@@ -156,7 +156,7 @@ class SectionTranslationStore {
 		);
 	}
 
-	public static function getStatusIndexByStatus( string $status ) {
+	public static function getStatusIndexByStatus( string $status ): int {
 		$index = array_search( $status, self::TRANSLATION_STATUSES );
 
 		if ( $index === false ) {

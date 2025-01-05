@@ -75,7 +75,7 @@ class DraftNotificationPresentationModel extends EchoEventPresentationModel {
 		return [ $this->getYourTranslationsLink() ];
 	}
 
-	private function getYourTranslationsLink() {
+	private function getYourTranslationsLink(): array {
 		return [
 			'url' => SpecialPage::getTitleFor( 'ContentTranslation' )->getLocalURL(),
 			'icon' => 'article',

@@ -62,7 +62,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
-	private function addMissingMonths( $data ) {
+	private function addMissingMonths( array $data ): array {
 		$dates = array_keys( $data );
 
 		$dm = new DateManipulator( 'month' );

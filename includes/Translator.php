@@ -14,7 +14,7 @@ class Translator {
 		$this->user = $user;
 	}
 
-	private function getGlobalUserId() {
+	private function getGlobalUserId(): int {
 		/** @var UserService $userService */
 		$userService = MediaWikiServices::getInstance()->getService( 'ContentTranslation.UserService' );
 

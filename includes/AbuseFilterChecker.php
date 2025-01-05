@@ -50,7 +50,7 @@ class AbuseFilterChecker {
 	private ?FilterRunnerFactory $filterRunnerFactory;
 
 	public function __construct(
-		$isAbuseFilterExtensionLoaded,
+		bool $isAbuseFilterExtensionLoaded,
 		WikiPageFactory $wikiPageFactory,
 		?VariableGeneratorFactory $variableGeneratorFactory,
 		?ConsequencesLookup $consequencesLookup,

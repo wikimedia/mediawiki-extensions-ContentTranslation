@@ -8,7 +8,7 @@ class JsonDumpFormatter {
 	/** @var bool */
 	private $isStarted = false;
 
-	public function format( array $entry ) {
+	public function format( array $entry ): string {
 		$output = '';
 
 		if ( !$this->isStarted ) {
@@ -23,7 +23,7 @@ class JsonDumpFormatter {
 		return $output;
 	}
 
-	public function close() {
+	public function close(): string {
 		if ( !$this->isStarted ) {
 			return '[]';
 		}
@@ -34,11 +34,11 @@ class JsonDumpFormatter {
 		return $output;
 	}
 
-	private function getHeader() {
+	private function getHeader(): string {
 		return "[\n";
 	}
 
-	private function getFooter() {
+	private function getFooter(): string {
 		return "]\n";
 	}
 
@@ -46,7 +46,7 @@ class JsonDumpFormatter {
 	 * @param array $entry
 	 * @return string
 	 */
-	private function formatEntry( array $entry ) {
+	private function formatEntry( array $entry ): string {
 		$output = '';
 		$indent = '    ';
 
@@ -71,7 +71,7 @@ class JsonDumpFormatter {
 		return $output;
 	}
 
-	private static function indent( $indent, $text ) {
+	private static function indent( string $indent, string $text ): string {
 		// Assuming literal newlines do not occur within strings
 		$text = $indent . str_replace( "\n", "\n$indent", $text );
 		return $text;

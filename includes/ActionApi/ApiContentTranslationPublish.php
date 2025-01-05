@@ -122,7 +122,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		return $api->getResult()->getResultData();
 	}
 
-	protected function getTags( array $params ) {
+	protected function getTags( array $params ): array {
 		$tags = $params['publishtags'];
 		$tags[] = 'contenttranslation';
 		if ( $params['cxversion'] === 2 ) {
@@ -135,7 +135,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		);
 	}
 
-	protected function getCategories( array $params ) {
+	protected function getCategories( array $params ): array {
 		$trackingCategoryMsg = 'cx-unreviewed-translation-category';
 		$categories = [];
 
