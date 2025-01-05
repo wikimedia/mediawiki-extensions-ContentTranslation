@@ -55,6 +55,7 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		$result->addValue( [ 'result' ], 'translations', $translations );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'from' => [
@@ -78,6 +79,7 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=cxpublishedtranslations' =>

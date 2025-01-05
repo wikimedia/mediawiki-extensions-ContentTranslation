@@ -19,6 +19,7 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 		$this->preferenceHelper = $preferenceHelper;
 	}
 
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$user = $out->getUser();
 		// Enable entrypoint only on Wikipedias where Content Translation is enabled and only for users

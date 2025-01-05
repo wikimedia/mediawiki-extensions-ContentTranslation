@@ -107,6 +107,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		return $out;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		$allowedParams = [
 			'source' => [
@@ -125,6 +126,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 		return $allowedParams;
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=contenttranslationlangtrend&source=es&target=ca&interval=week' =>

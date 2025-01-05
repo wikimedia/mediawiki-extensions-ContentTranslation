@@ -16,6 +16,7 @@ class ULSQuickActionEntrypointRegistrationHandler implements BeforePageDisplayHo
 		$this->actionFactory = $actionFactory;
 	}
 
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$title = $out->getTitle();
 		$action = $this->actionFactory->getActionName( $out->getContext() );

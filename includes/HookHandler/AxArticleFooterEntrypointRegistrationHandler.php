@@ -95,12 +95,14 @@ class AxArticleFooterEntrypointRegistrationHandler implements BeforePageDisplayH
 			$this->isEntrypointAllowedOnSkin( $skin );
 	}
 
+	/** @inheritDoc */
 	public function onSkinAfterContent( &$data, $skin ) {
 		if ( $this->shouldDisplayFooterEntrypoint( $skin ) ) {
 			$data .= Html::element( 'div', [ 'class' => 'automatic-translation-entrypoint-container' ] );
 		}
 	}
 
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		if ( $this->shouldDisplayFooterEntrypoint( $skin ) ) {
 			$out->addModules( [ 'ext.ax.articlefooter.entrypoint' ] );

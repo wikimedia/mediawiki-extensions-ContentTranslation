@@ -60,10 +60,12 @@ class ApiContentTranslationToken extends ApiBase {
 		$this->getResult()->addValue( null, 'age', $age );
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=cxtoken&token=123ABC' => 'apihelp-cxtoken-example-1'

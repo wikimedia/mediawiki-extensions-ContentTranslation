@@ -102,6 +102,7 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		return $manager->insertList( $list );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'listname' => [
@@ -131,14 +132,17 @@ class ApiContentTranslationSuggestionList extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=cxsuggestionlist&listname=List&listaction=add&' .

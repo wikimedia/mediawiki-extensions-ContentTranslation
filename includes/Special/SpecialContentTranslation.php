@@ -45,10 +45,12 @@ class SpecialContentTranslation extends SpecialPage {
 		$this->preferenceHelper = $preferenceHelper;
 	}
 
+	/** @inheritDoc */
 	public function getDescription() {
 		return $this->msg( 'cx' );
 	}
 
+	/** @inheritDoc */
 	public function execute( $parameters ) {
 		parent::execute( $parameters );
 
@@ -82,6 +84,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$this->addJsConfigVars();
 	}
 
+	/** @inheritDoc */
 	public function isListed() {
 		return $this->preferenceHelper->isEnabledForUser( $this->getUser() );
 	}

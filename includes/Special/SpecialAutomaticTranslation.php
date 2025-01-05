@@ -28,6 +28,7 @@ class SpecialAutomaticTranslation extends SpecialPage {
 		$this->languageNameUtils = $languageNameUtils;
 	}
 
+	/** @inheritDoc */
 	public function execute( $subPage ) {
 		parent::execute( $subPage );
 
@@ -70,6 +71,7 @@ class SpecialAutomaticTranslation extends SpecialPage {
 		return $templateParser->processTemplate( 'Home', $data );
 	}
 
+	/** @inheritDoc */
 	public function getDescription() {
 		return $this->msg( 'automatic-translation-special-page-description' );
 	}

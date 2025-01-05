@@ -73,6 +73,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		);
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'after' => [
@@ -84,6 +85,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		$url = 'action=query&meta=cxdeletedtranslations' .
 			'&dtafter=2019-04-07T16%3A24%3A44.000Z&dtnamespace=0';
@@ -93,6 +95,7 @@ class ApiQueryDeletedTranslations extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function isInternal() {
 		return true;
 	}

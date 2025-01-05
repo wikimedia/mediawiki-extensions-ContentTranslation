@@ -17,6 +17,7 @@ use MediaWiki\SpecialPage\SpecialPage;
  * @see https://www.mediawiki.org/wiki/Notifications/New_formatter_system
  */
 class DraftNotificationPresentationModel extends EchoEventPresentationModel {
+	/** @inheritDoc */
 	public function getIconType() {
 		if ( $this->getType() === 'cx-deleted-draft' ) {
 			return 'outdated';
@@ -27,6 +28,7 @@ class DraftNotificationPresentationModel extends EchoEventPresentationModel {
 		return 'cx';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		if ( $this->isBundled() ) {
 			return [
@@ -45,6 +47,7 @@ class DraftNotificationPresentationModel extends EchoEventPresentationModel {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		if ( $this->getType() === 'cx-deleted-draft' ) {
 			$msg = 'cx-notification-deleted-draft';
@@ -61,12 +64,14 @@ class DraftNotificationPresentationModel extends EchoEventPresentationModel {
 		return $this->msg( $msg, wfEscapeWikiText( $this->event->getTitle()->getText() ) );
 	}
 
+	/** @inheritDoc */
 	public function getCompactHeaderMessage() {
 		$msg = new RawMessage( '$1' );
 		$msg->plaintextParams( $this->event->getTitle()->getText() );
 		return $msg;
 	}
 
+	/** @inheritDoc */
 	public function getSecondaryLinks() {
 		if ( $this->isBundled() ) {
 			return [];

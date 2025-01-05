@@ -50,6 +50,7 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 		);
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=contenttranslationstats' =>

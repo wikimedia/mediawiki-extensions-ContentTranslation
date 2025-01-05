@@ -26,6 +26,7 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 		$this->languageNameUtils = $languageNameUtils;
 	}
 
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$isMobileView = false;
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {

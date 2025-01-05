@@ -52,6 +52,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$this->run();
 	}
 
+	/** @inheritDoc */
 	public function executeGenerator( $resultPageSet ) {
 		$this->run( $resultPageSet );
 	}
@@ -274,6 +275,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		$allowedParams = [
 			'translationid' => [
@@ -318,6 +320,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		return $allowedParams;
 	}
 
+	/** @inheritDoc */
 	private function addUnitsAndCategoriesToTranslation( Translation $translation ): void {
 		// Translation units and target categories. Only target categories are fetched
 		// when translation draft is restored. Source categories are saved into cx_corpora table for
@@ -330,6 +333,7 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		$translation->translation['targetCategories'] = $unitsAndCategories['categories'];
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=contenttranslation' =>

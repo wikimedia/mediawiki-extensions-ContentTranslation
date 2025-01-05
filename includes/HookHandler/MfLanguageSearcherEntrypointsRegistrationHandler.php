@@ -69,6 +69,7 @@ class MfLanguageSearcherEntrypointsRegistrationHandler implements BeforePageDisp
 		return (bool)$sectionTranslationTargetLanguages;
 	}
 
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$title = $out->getTitle();
 		$user = $out->getUser();

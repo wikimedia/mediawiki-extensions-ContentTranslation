@@ -91,6 +91,7 @@ class ApiContentTranslationUnreviewedCheck extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/** @inheritDoc */
 	public function isInternal() {
 		return true;
 	}

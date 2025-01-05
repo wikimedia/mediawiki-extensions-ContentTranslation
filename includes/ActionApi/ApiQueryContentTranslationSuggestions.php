@@ -44,6 +44,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$this->run();
 	}
 
+	/** @inheritDoc */
 	public function executeGenerator( $resultPageSet ) {
 		$this->run( $resultPageSet );
 	}
@@ -260,6 +261,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		} );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		$allowedParams = [
 			'from' => [
@@ -290,6 +292,7 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		return $allowedParams;
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=contenttranslationsuggestions&from=en&to=es' =>

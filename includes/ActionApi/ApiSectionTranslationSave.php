@@ -258,6 +258,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		return $sectionTranslation->getId();
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'sourcelanguage' => [
@@ -301,14 +302,17 @@ class ApiSectionTranslationSave extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function isInternal() {
 		return true;
 	}

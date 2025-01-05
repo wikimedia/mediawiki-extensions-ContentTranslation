@@ -94,6 +94,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		return $out;
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'translator' => [
@@ -102,6 +103,7 @@ class ApiQueryTranslatorStats extends ApiQueryBase {
 		];
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=cxtranslatorstats&translator=TranslatorName' =>

@@ -62,6 +62,7 @@ class ApiContentTranslationDelete extends ApiBase {
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'from' => [
@@ -76,10 +77,12 @@ class ApiContentTranslationDelete extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}

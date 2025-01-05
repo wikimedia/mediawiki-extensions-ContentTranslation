@@ -222,6 +222,7 @@ class ApiContentTranslationSave extends ApiBase {
 		);
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'from' => [
@@ -275,14 +276,17 @@ class ApiContentTranslationSave extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function needsToken() {
 		return 'csrf';
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function isInternal() {
 		return true;
 	}

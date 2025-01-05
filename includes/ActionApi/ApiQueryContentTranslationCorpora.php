@@ -41,6 +41,7 @@ class ApiQueryContentTranslationCorpora extends ApiQueryBase {
 		$result->addValue( [ 'query', $this->getModuleName() ], 'sections', $sections );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		$params = [
 			'translationid' => [

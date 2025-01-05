@@ -221,6 +221,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		$this->run();
 	}
 
+	/** @inheritDoc */
 	public function executeGenerator( $resultPageSet ) {
 		$this->run();
 	}
@@ -235,6 +236,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		$result->addValue( [ 'query', $this->getModuleName() ], 'sizeInfo', $sizeInformationArray );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'qid' => [
@@ -248,6 +250,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		];
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&list=automatictranslationdenselanguages&qid=Q405' =>

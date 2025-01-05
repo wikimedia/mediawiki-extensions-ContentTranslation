@@ -38,6 +38,7 @@ class ApiQueryLangLinksCount extends ApiQueryBase {
 		}
 	}
 
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=query&prop=langlinkscount&titles=Dog&redirects=1'

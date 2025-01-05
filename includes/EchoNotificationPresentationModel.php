@@ -11,10 +11,12 @@ use MediaWiki\SpecialPage\SpecialPage;
  */
 class EchoNotificationPresentationModel extends EchoEventPresentationModel {
 
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'cx';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		if ( $this->type === 'cx-first-translation' ) {
 			$user = $this->getViewingUserForGender();
@@ -53,6 +55,7 @@ class EchoNotificationPresentationModel extends EchoEventPresentationModel {
 		return $map[ $this->type ];
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$key = $this->getHeaderMessageKey();
 		$msg = $this->msg( $key );

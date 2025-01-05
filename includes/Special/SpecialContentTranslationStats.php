@@ -31,6 +31,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$this->skinFactory = $skinFactory;
 	}
 
+	/** @inheritDoc */
 	final public function execute( $parameters ) {
 		parent::execute( $parameters );
 		// Use custom 'contenttranslation' skin
@@ -45,6 +46,7 @@ class SpecialContentTranslationStats extends SpecialPage {
 		$this->addJsConfigVars();
 	}
 
+	/** @inheritDoc */
 	public function getDescription() {
 		return $this->msg( 'cx-stats-title' );
 	}
