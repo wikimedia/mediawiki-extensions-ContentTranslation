@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Alshamiri1",
+			"Cigaryno",
 			"FiberAhmed",
 			"Hiba Alshawi",
 			"Maroen1990",
@@ -127,6 +128,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "معرف مراجعة الصفحة المصدر.",
 	"apihelp-cxpublishsection-param-captchaid": "معرف Captcha (عند الحفظ باستجابة captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "الرد على captcha (عند الحفظ باستجابة captcha).",
+	"apihelp-cxpublishsection-param-issandbox": "استخدم عنوان صندوق الرمال لترجمة.",
 	"apihelp-sxsave-summary": "احفظ ترجمة قسم المسودة وقم بتخزين النص الكتابي الموازي",
 	"apihelp-sxsave-param-sourcelanguage": "رمز لغة المصدر.",
 	"apihelp-sxsave-param-targetlanguage": "رمز اللغة الهدف.",
@@ -138,10 +140,12 @@
 	"apihelp-sxsave-param-sectionnumber": "موقف القسم المطلوب أن يكون في المراجعة الجديدة للصفحة.",
 	"apihelp-sxsave-param-sectionid": "معرف قسم الصفحة.",
 	"apihelp-sxsave-param-sourcerevision": "معرف مراجعة الصفحة المصدر.",
+	"apihelp-sxsave-param-issandbox": "استخدم عنوان صندوق الرمال لترجمة.",
 	"apierror-sxsave-anon-user": "لم يتم تمكين إجراء واجهة برمجة التطبيقات \"sxsave\" للمستخدمين المجهولين",
 	"apierror-cxpublishsection-translationnotfound": "لم يتم العثور على الترجمة.",
 	"apihelp-sxdelete-summary": "حذف مشروع ترجمة القسم ومجموعته الموازية من قاعدة البيانات.",
 	"apihelp-sxdelete-param-translationid": "معرّف الترجمة المرتبط بترجمة مسودة القسم.",
 	"apihelp-sxdelete-param-sectionid": "معرّف قسم ترجمة قسم المسودة.",
-	"apihelp-sxdelete-example-1": "احذف مسودة مرتبطة بمعرف الترجمة ومعرف القسم المحدد."
+	"apihelp-sxdelete-example-1": "احذف مسودة مرتبطة بمعرف الترجمة ومعرف القسم المحدد.",
+	"apihelp-query+automatictranslationdenselanguages-param-qid": "معرف ويكي بيانات."
 }
