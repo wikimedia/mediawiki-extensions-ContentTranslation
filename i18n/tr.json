@@ -43,7 +43,9 @@
 			"Watermelon juice",
 			"Yikipedi",
 			"Ömer Berkay",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Leo",
+			"Sadrettin"
 		]
 	},
 	"cx": "Sayfayı çevir",
@@ -77,6 +79,7 @@
 	"cx-translation-target-page-exists": "Hedef wiki'de  [$1 $2] başlıklı bir sayfa zaten var. Sayfaya farklı bir başlık vermeyi düşünebilirsiniz.",
 	"tag-contenttranslation": "İçerikÇevirisi",
 	"tag-contenttranslation-description": "İçerik, İçerik Çevirmeni aracı kullanılarak başka bir dilden çevrilmiştir.",
+	"tag-contenttranslation-v2": "İçerikÇevirisi2",
 	"tag-contenttranslation-v2-description": "İçerik, İçerik Çevirmeni aracının 2. sürümü kullanılarak başka bir dilden çevrilmiştir.",
 	"tag-sectiontranslation": "BölümÇevirisi",
 	"tag-sectiontranslation-description": "Bu içerik, başka bir dildeki bölümden İçerik Çeviri aracının Bölüm Çevirisi özelliği kullanılarak çevrilmiştir.",
