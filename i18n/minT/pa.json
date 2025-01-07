@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cabal"
+		]
+	},
+	"mint-home-input-placeholder": "ਕਿਸੇ ਵਿਸ਼ੇ ਲਈ ਖੋਜ ਕਰੋ",
+	"mint-translation-list-all-languages-option-label": "ਸਾਰੇ",
+	"mint-home-info-panel-text": "ਵਿਕੀਪੀਡੀਆ ਉੱਤੇ ਲੱਖਾਂ ਵਿਸ਼ਿਆਂ ਦਾ ਆਪਣੇ ਆਪ $1 ਵਿੱਚ ਉਲਥਾ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।",
+	"mint-home-random-topic-button-label": "ਬੇਤਰਤੀਬ ਵਿਸ਼ਾ",
+	"mint-language-selector-title": "ਬੋਲੀਆਂ",
+	"mint-language-selector-suggestions-header": "ਸੁਝਾਏ ਗਏ",
+	"mint-language-selector-all-languages-header": "ਸਾਰੀਆਂ ਬੋਲੀਆਂ",
+	"mint-language-selector-input-placeholder": "ਭਾਸ਼ਾ ਚੁਣੋ",
+	"mint-language-selector-no-search-results": "ਕੋਈ ਨਤੀਜਾ ਨਹੀਂ",
+	"mint-search-topic-page-header": "ਕਿਸੇ ਵਿਸ਼ੇ ਲਈ ਖੋਜ ਕਰੋ",
+	"mint-search-topic-page-input-placeholder": "ਕਿਸੇ ਵਿਸ਼ੇ ਲਈ ਖੋਜ ਕਰੋ",
+	"mint-confirm-topic-page-go-to-search-button-label": "ਕਿਸੇ ਹੋਰ ਵਿਸ਼ੇ ਲਈ ਖੋਜ ਕਰੋ",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "ਲੇਖ ਪੜ੍ਹੋ",
+	"mint-view-translation-page-disclaimer-learn-more-link": "ਹੋਰ ਸਿੱਖੋ",
+	"mint-view-translation-page-source-article-link-label": "$1 ਵਿੱਚ ਖੋਲ੍ਹੋ",
+	"mint-view-translation-overlay-source-article-link-label": "ਵਿਕੀਪੀਡੀਆ ਉੱਤੇ $1 ਵਿੱਚ ਪਡ਼੍ਹੋ",
+	"mint-view-translation-overlay-target-article-link-label": "ਵਿਕੀਪੀਡੀਆ ਉੱਤੇ $1 ਵਿੱਚ ਪਡ਼੍ਹੋ",
+	"mint-view-translation-overlay-cx-entrypoint-label": "ਉਲਥਾ ਠੀਕ ਕਰੋ",
+	"mint-view-translation-overlay-feedback-link-label": "ਸੁਝਾਅ ਭੇਜੋ",
+	"ax-article-footer-entrypoint-card-description": "ਹੋਰ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ ਹੋਰ ਸਮੱਗਰੀ",
+	"mint-explore-languages-header": "ਭਾਸ਼ਾਵਾਂ ਦੀ ਪੜਚੋਲ ਕਰੋ",
+	"mint-explore-languages-search-input-placeholder": "ਇਸ ਵਿਸ਼ੇ ਲਈ ਸਾਰੀਆਂ ਭਾਸ਼ਾਵਾਂ",
+	"mint-explore-languages-explanation-banner-title": "ਹੋਰ ਭਾਸ਼ਾਵਾਂ ਤੋਂ ਹੋਰ ਸਿੱਖੋ"
+}
