@@ -24,13 +24,13 @@
   }
 
   &slide-start-enter-from,
-  &slide-start-leave-to {
+  &slide-end-leave-to {
     opacity: 0;
     transform: translateX(100vw);
   }
 
   &slide-end-enter-from,
-  &slide-end-leave-to {
+  &slide-start-leave-to {
     opacity: 0;
     transform: translateX(-100vw);
   }
@@ -79,12 +79,12 @@
 
 [dir="rtl"] .mw-ui-animation- {
   &slide-start-enter-from,
-  &slide-start-leave-to {
+  &slide-end-leave-to {
     transform: translateX(-100vw);
   }
 
   &slide-end-enter-from,
-  &slide-end-leave-to {
+  &slide-start-leave-to {
     transform: translateX(100vw);
   }
 
