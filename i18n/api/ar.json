@@ -9,7 +9,8 @@
 			"أَحمد",
 			"ديفيد",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Cigaryno"
 		]
 	},
 	"apihelp-cxpublish-summary": "حفظ صفحة تم إنشاؤها باستخدام امتداد ترجمة المحتوى.",
@@ -127,6 +128,7 @@
 	"apihelp-cxpublishsection-param-sourcerevid": "معرف مراجعة الصفحة المصدر.",
 	"apihelp-cxpublishsection-param-captchaid": "معرف Captcha (عند الحفظ باستجابة captcha).",
 	"apihelp-cxpublishsection-param-captchaword": "الرد على captcha (عند الحفظ باستجابة captcha).",
+	"apihelp-cxpublishsection-param-issandbox": "استخدم عنوان صندوق الرمال لترجمة.",
 	"apihelp-sxsave-summary": "احفظ ترجمة قسم المسودة وقم بتخزين النص الكتابي الموازي",
 	"apihelp-sxsave-param-sourcelanguage": "رمز لغة المصدر.",
 	"apihelp-sxsave-param-targetlanguage": "رمز اللغة الهدف.",
@@ -138,6 +140,7 @@
 	"apihelp-sxsave-param-sectionnumber": "موقف القسم المطلوب أن يكون في المراجعة الجديدة للصفحة.",
 	"apihelp-sxsave-param-sectionid": "معرف قسم الصفحة.",
 	"apihelp-sxsave-param-sourcerevision": "معرف مراجعة الصفحة المصدر.",
+	"apihelp-sxsave-param-issandbox": "استخدم عنوان صندوق الرمال لترجمة.",
 	"apierror-sxsave-anon-user": "لم يتم تمكين إجراء واجهة برمجة التطبيقات \"sxsave\" للمستخدمين المجهولين",
 	"apierror-cxpublishsection-translationnotfound": "لم يتم العثور على الترجمة.",
 	"apihelp-sxdelete-summary": "حذف مشروع ترجمة القسم ومجموعته الموازية من قاعدة البيانات.",
