@@ -304,6 +304,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "É posible que algunhas seccións non aparezan na lista porque os seus contidos aínda non son compatibles.",
 	"cx-suggestion-list-new-pages-division": "Crear páxinas novas",
 	"cx-translation-list-all-languages-option-label": "Todas",
+	"cx-sx-translation-list-empty-title": "Non hai nada que traducir?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|Comeza}} a túa tradución agora e continúa en calquera momento.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Volver a todas as seccións",
 	"cx-sx-content-comparator-translation-section-button-label": "Traducir esta sección",
 	"cx-sx-content-comparator-review-contents-title": "Comprobar se hai superposición",

@@ -336,6 +336,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Bazı bölümler, içerikleri henüz desteklenmediği için listede görünmeyebilir.",
 	"cx-suggestion-list-new-pages-division": "Yeni sayfa oluştur",
 	"cx-translation-list-all-languages-option-label": "Hepsi",
+	"cx-sx-translation-list-empty-title": "Çevirecek bir şey yok mu?",
+	"cx-sx-translation-list-empty-description": "Şimdi çevirmeye {{GENDER:|başlayın}} ve dilediğiniz zaman devam edin.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Tüm bölümlere geri dönün",
 	"cx-sx-content-comparator-translation-section-button-label": "Bu bölümü çevirin",
 	"cx-sx-content-comparator-review-contents-title": "Çakışmayı kontrol edin",

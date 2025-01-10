@@ -310,6 +310,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "ייתכן שחלק מהפרקים לא יופיעו ברשימה כי התוכן שלהם עדיין לא נתמך.",
 	"cx-suggestion-list-new-pages-division": "ליצור דפים חדשים",
 	"cx-translation-list-all-languages-option-label": "הכול",
+	"cx-sx-translation-list-empty-title": "אין מה לתרגם?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|התחל|התחילי}} את התרגום שלך עכשיו {{GENDER:|והמשך|והמשיכי}} אותו בכל זמן.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "חזרה לכל הפרקים",
 	"cx-sx-content-comparator-translation-section-button-label": "לתרגם את הפרק הזה",
 	"cx-sx-content-comparator-review-contents-title": "{{GENDER:|בדוק|בדקי}} מה משותף",

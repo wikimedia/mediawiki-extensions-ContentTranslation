@@ -309,6 +309,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Einige Abschnitte erscheinen möglicherweise nicht in der Liste, weil ihr Inhalt noch nicht unterstützt wird.",
 	"cx-suggestion-list-new-pages-division": "Neue Seiten erstellen",
 	"cx-translation-list-all-languages-option-label": "Alle",
+	"cx-sx-translation-list-empty-title": "Nichts zu übersetzen?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|Beginne}} jetzt deine Übersetzung und mache jederzeit weiter.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Zurück zu den Abschnitten",
 	"cx-sx-content-comparator-translation-section-button-label": "Diesen Abschnitt übersetzen",
 	"cx-sx-content-comparator-review-contents-title": "Auf Überschneidung prüfen",
