@@ -271,16 +271,14 @@ module.exports = {
 	}
 
 	&__action-switch {
-		padding: 12px 0;
-		font-weight: bold;
+		padding: @spacing-75 @spacing-0;
+		font-weight: @font-weight-bold;
+		background-color: @background-color-interactive-subtle;
+		border: none;
+		font-size: @font-size-small;
 
-		border-bottom: solid 3px;
 		&--enabled {
-			border-bottom-color: @color-base;
-		}
-
-		&:not(&--enabled) {
-			border-bottom-color: transparent;
+			border-bottom: @border-style-base 3px @border-color-interactive--active;
 		}
 
 		&:not( :last-of-type ) {
@@ -350,7 +348,7 @@ module.exports = {
 		}
 	}
 
-	& &__edit-button {
+	& &__edit-button.cdx-button:enabled {
 		margin-top: 20px;
 
 		[ dir='ltr' ] & {
@@ -360,20 +358,22 @@ module.exports = {
 		[ dir='rtl' ] & {
 			margin-right: 12px;
 		}
+
+		span.sx-recent-translation-dialog__edit-icon {
+			.cdx-mixin-css-icon( @cdx-icon-edit, @param-is-button-icon: true );
+			background-color: @background-color-base-fixed;
+			margin-right: @spacing-25;
+		}
 	}
 
 	& &__translate-button {
 		margin-top: 24px;
-	}
 
-	&__edit-icon {
-		.cdx-mixin-css-icon( @cdx-icon-edit, @param-is-button-icon: true );
-		margin-right: 8px;
-	}
-
-	&__language-icon {
-		.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
-		margin-right: 8px;
+		span.sx-recent-translation-dialog__language-icon.cdx-button__icon {
+			.cdx-mixin-css-icon( @cdx-icon-language, @param-is-button-icon: true );
+			background-color: @background-color-base-fixed;
+			margin-right: @spacing-25;
+		}
 	}
 
 	&__original-page {
