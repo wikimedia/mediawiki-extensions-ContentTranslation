@@ -318,6 +318,7 @@
 	"cx-sx-section-selector-unsupported-sections-description": "일부 문단은 내용이 아직 지원되지 않아 목록에 표시되지 않을 수 있습니다.",
 	"cx-suggestion-list-new-pages-division": "새 문서 만들기",
 	"cx-translation-list-all-languages-option-label": "모두",
+	"cx-sx-translation-list-empty-title": "번역할 것이 없습니까?",
 	"cx-sx-content-comparator-back-to-sections-button-label": "모든 문단으로 돌아가기",
 	"cx-sx-content-comparator-translation-section-button-label": "이 문단 번역하기",
 	"cx-sx-content-comparator-source-selector-title": "$1의 문단",

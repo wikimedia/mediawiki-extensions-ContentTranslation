@@ -307,6 +307,7 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Поједини одељци се можда неће појавити на списку јер њихова садржина још није подржана.",
 	"cx-suggestion-list-new-pages-division": "Израда нових страница",
 	"cx-translation-list-all-languages-option-label": "Сви",
+	"cx-sx-translation-list-empty-title": "Ништа за превођење?",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Назад на све одељке",
 	"cx-sx-content-comparator-translation-section-button-label": "Превод одељка",
 	"cx-sx-content-comparator-review-contents-title": "Провера поклапања",

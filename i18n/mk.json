@@ -296,6 +296,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Некои оддели може да не стојат на списокот бидеќи нивната содржина засега не е поддржана.",
 	"cx-suggestion-list-new-pages-division": "Создавање на нови страници",
 	"cx-translation-list-all-languages-option-label": "Сите",
+	"cx-sx-translation-list-empty-title": "Немате ништо за преведување?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|Започнете}} со преводот сега и продолжете во било кое време",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Назад кон сите оддели",
 	"cx-sx-content-comparator-translation-section-button-label": "Преведи го поднасловов",
 	"cx-sx-content-comparator-review-contents-title": "Проверете дали има преколопувања",

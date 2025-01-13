@@ -297,6 +297,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Alcun sectiones pote non apparer in le lista perque lor contento non es ancora supportate.",
 	"cx-suggestion-list-new-pages-division": "Crear nove paginas",
 	"cx-translation-list-all-languages-option-label": "Totes",
+	"cx-sx-translation-list-empty-title": "Nihil a traducer?",
+	"cx-sx-translation-list-empty-description": "{{GENDER:|Comencia}} ora un traduction tue e continua lo quando tu vole.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Retornar a tote le sectiones",
 	"cx-sx-content-comparator-translation-section-button-label": "Traducer iste section",
 	"cx-sx-content-comparator-review-contents-title": "Verificar contra imbrication",

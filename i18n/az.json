@@ -299,6 +299,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "Bəzi hissələr siyahıda görünə bilməz, çünki məzmunları hələ dəstəklənmir.",
 	"cx-suggestion-list-new-pages-division": "Yeni səhifələr yaradın",
 	"cx-translation-list-all-languages-option-label": "Hamısı",
+	"cx-sx-translation-list-empty-title": "Tərcümə etməyə heç nə yoxdur?",
+	"cx-sx-translation-list-empty-description": "Tərcüməyə indi {{GENDER:|başla}} və istədiyin zaman davam et.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "Bütün bölmələrə geri qayıt",
 	"cx-sx-content-comparator-translation-section-button-label": "Bu bölməni tərcümə et",
 	"cx-sx-content-comparator-review-contents-title": "Toqquşmanı yoxlayın",
