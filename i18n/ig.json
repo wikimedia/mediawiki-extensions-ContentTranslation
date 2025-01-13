@@ -104,6 +104,7 @@
 	"cx-dashboard-sidebar-feedback": "Gwa anyị ebu m n'obi gị",
 	"cx-translation-filter-published-translations": "E bipụtara",
 	"cx-translation-filter-draft-translations": "Na-aga n'ihu",
+	"cx-translation-filter-suggested-translations": "Nturu aro",
 	"cx-suggestionlist-favorite": "Maka mgbe ọzọ",
 	"cx-create-new-translation": "Ntụgharị ọhụrụ",
 	"cx-translation-filter-label-all-languages": "Niile",
@@ -148,6 +149,7 @@
 	"cx-contributions-link": "Ịhe ị mètàrà",
 	"cx-translationlist-empty-title": "O nweghị ihe a ga-atụgharị?",
 	"cx-suggestionlist-expand": "Lee ihe niile",
+	"cx-suggestionlist-refresh": "Megharia ncheputa",
 	"cx-infobar-view-issues": "Lee nsogbu",
 	"cx-tools-linter-issues": "Nsogbu",
 	"cx-tools-linter-learn-more": "Matakwuo",
@@ -160,10 +162,13 @@
 	"cx-publish-destination-namespace-main": "Ihu ọhụrụ",
 	"cx-linkcontextitem-missing-title-description": "Peeji a adịghị",
 	"cx-feature-discovery-dismiss": "Ọ dị mma, aghọtaram ya",
+	"cx-suggestionlist-expand-sections-title": "Jiri sekshonsụ ọhụrụ gbasaa ya",
+	"cx-sx-start-translation-button-label": "Bido ntụgharị",
 	"cx-sx-view-translation-anchor": "Lee",
 	"cx-sx-existing-translation-learn-more": "Matakwuo",
 	"cx-sx-section-selector-pick-other-translation-button-label": "Họrọ peeji ọzọ",
 	"cx-sx-section-selector-learn-more-anchor-label": "Matakwuo",
+	"cx-suggestion-list-new-pages-division": "Mepụta ihuakwụkwọ ọhụrụ",
 	"cx-translation-list-all-languages-option-label": "Ihe niile",
 	"sx-quick-tutorial-main-point-step-2": "Ntụgharị ndị ahọpụtara",
 	"sx-quick-tutorial-translate-button-label": "Bido ntụgharị",
@@ -175,5 +180,6 @@
 	"cx-sx-content-comparator-present-section-placeholder-title": "A ga-etinye ntụgharị gị ebe a",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Tụgharịa",
 	"cx-sx-publisher-header-title": "Ị kwere mbipụta a",
-	"cx-sx-publisher-publish-panel-new-section-status": "Ị dịla njikere ime mbipụta?"
+	"cx-sx-publisher-publish-panel-new-section-status": "Ị dịla njikere ime mbipụta?",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 ngalaba|$1 ngalaba|0=Enweghị ngalaba}}"
 }
