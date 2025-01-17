@@ -353,6 +353,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "某些章节可能不会出现在列表中，因为它们的内容尚不受支持。",
 	"cx-suggestion-list-new-pages-division": "创建新页面",
 	"cx-translation-list-all-languages-option-label": "全部",
+	"cx-sx-translation-list-empty-title": "没什么可翻译的吗？",
+	"cx-sx-translation-list-empty-description": "现在{{GENDER:|开始}}您的翻译并随时继续。",
 	"cx-sx-content-comparator-back-to-sections-button-label": "返回全部章节",
 	"cx-sx-content-comparator-translation-section-button-label": "翻译本节",
 	"cx-sx-content-comparator-review-contents-title": "检查重叠",
@@ -615,6 +617,7 @@
 	"cx-articletopics-topic-medicine-and-health": "医药卫生",
 	"cx-articletopics-topic-physics": "物理",
 	"cx-articletopics-topic-technology": "技术",
+	"cx-page-collection-dialog-close-button-aria-label": "返回面板",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|还剩$1天|0=没有剩余天数}}",
 	"cx-page-collection-dialog-page-suggestions-header": "新页面",
 	"cx-page-collection-dialog-section-suggestions-header": "新章节"

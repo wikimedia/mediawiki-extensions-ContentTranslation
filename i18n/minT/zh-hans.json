@@ -38,7 +38,11 @@
 	"mint-view-translation-overlay-feedback-link-label": "发送反馈",
 	"ax-article-footer-entrypoint-card-description": "在其他语言的更多内容",
 	"ax-article-footer-entrypoint-card-supporting-text": "阅读自动翻译",
+	"mint-explore-languages-header": "浏览语言",
 	"mint-explore-languages-search-input-placeholder": "此主题的所有语言",
 	"mint-explore-languages-explanation-banner-title": "通过其他语言了解更多",
+	"mint-explore-languages-explanation-banner-text": "不同语言的编辑者以不同方式编写此主题。",
+	"mint-explore-languages-language-card-container-title": "“$1”覆盖率最高的语言",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1个章节|0=没有章节}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "最详细"
 }

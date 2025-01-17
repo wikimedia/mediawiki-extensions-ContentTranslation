@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"Winston Sung"
+			"Winston Sung",
+			"沈澄心"
 		]
 	},
 	"automatic-translation-special-page-description": "自動翻譯",
@@ -49,7 +50,7 @@
 	"mint-explore-languages-search-input-placeholder": "該主題的所有語言",
 	"mint-explore-languages-explanation-banner-title": "從其他語言來了解更多",
 	"mint-explore-languages-explanation-banner-text": "不同語言的編輯者以不同方式編寫此主題。",
-	"mint-explore-languages-language-card-container-title": "覆蓋率最多的語言「$1」",
+	"mint-explore-languages-language-card-container-title": "「$1」覆蓋率最高的語言",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 個章節|0=沒有章節}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "最詳細"
 }
