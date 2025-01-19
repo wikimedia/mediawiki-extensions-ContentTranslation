@@ -27,6 +27,6 @@
 		"pre-commit": "^1.2.2",
 		"stylelint-config-wikimedia": "0.17.2",
 		"wdio-intercept-service": "^4.4.0",
-		"wdio-mediawiki": "2.3.0"
+		"wdio-mediawiki": "2.6.0"
 	}
 }
