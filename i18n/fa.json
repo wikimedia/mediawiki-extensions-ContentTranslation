@@ -314,6 +314,8 @@
 	"cx-sx-section-selector-unsupported-sections-description": "بعضی بخش‌ها ممکن است در فهرست پدیدار نشوند؛ زیرا محتوای آن‌ها هنوز پشتیبانی نمی‌شود.",
 	"cx-suggestion-list-new-pages-division": "ایجاد صفحه‌های تازه",
 	"cx-translation-list-all-languages-option-label": "همه",
+	"cx-sx-translation-list-empty-title": "چیزی برای ترجمه وجود ندارد؟",
+	"cx-sx-translation-list-empty-description": "ترجمهٔ خود را همین حالا {{GENDER:|آغاز کنید}} و در هر زمان دیگری آن را ادامه دهید.",
 	"cx-sx-content-comparator-back-to-sections-button-label": "بازگشت به همهٔ بخش‌ها",
 	"cx-sx-content-comparator-translation-section-button-label": "ترجمهٔ این بخش",
 	"cx-sx-content-comparator-review-contents-title": "بررسی هم‌پوشانی",

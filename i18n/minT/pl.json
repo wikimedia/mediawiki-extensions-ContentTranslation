@@ -44,5 +44,8 @@
 	"mint-view-translation-overlay-share-button-label": "Udostępnij automatyczne tłumaczenie",
 	"mint-view-translation-overlay-feedback-link-label": "Prześlij opinię",
 	"ax-article-footer-entrypoint-card-description": "Więcej treści w innych językach",
-	"ax-article-footer-entrypoint-card-supporting-text": "Przeczytaj tłumaczenie automatyczne"
+	"ax-article-footer-entrypoint-card-supporting-text": "Przeczytaj tłumaczenie automatyczne",
+	"mint-explore-languages-header": "Przeglądaj języki",
+	"mint-explore-languages-search-input-placeholder": "Wszystkie języki dla tego tematu",
+	"mint-explore-languages-explanation-banner-title": "Dowiedz się więcej z innych języków"
 }
