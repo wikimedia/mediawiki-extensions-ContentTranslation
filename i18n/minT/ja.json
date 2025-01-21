@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kokage si",
 			"ひまり"
 		]
 	},
 	"automatic-translation-special-page-description": "自動翻訳",
+	"automatic-translation-desc": "コンテンツページの[[Special:AutomaticTranslation|自動翻訳]]を提供します。",
 	"mint-home-header-title": "自動翻訳",
 	"mint-home-input-placeholder": "トピックの検索",
 	"mint-translation-list-all-languages-option-label": "すべて",
@@ -22,14 +24,19 @@
 	"mint-confirm-topic-page-go-to-search-button-label": "他のトピックを検索",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "記事を読む",
 	"mint-view-translation-page-header": "自動翻訳",
+	"mint-view-translation-page-disclaimer-header": "自動コンテンツは不正確な場合があります",
+	"mint-view-translation-page-disclaimer-body": "このページは元々 $1 で書かれたコンテンツの自動翻訳です。",
 	"mint-view-translation-page-disclaimer-learn-more-link": "詳細",
 	"mint-view-translation-page-source-article-link-label": "$1で開く",
 	"mint-view-translation-content-translation-entrypoint-title": "自動翻訳を確認",
+	"mint-view-translation-content-translation-entrypoint-description": "自動コンテンツは不正確な場合があります",
 	"mint-view-translation-overlay-header": "自動翻訳",
 	"mint-view-translation-overlay-source-article-link-label": "ウィキペディアで$1で読む",
 	"mint-view-translation-overlay-target-article-link-label": "ウィキペディアで$1で読む",
 	"mint-view-translation-overlay-cx-entrypoint-label": "翻訳を修正する",
 	"mint-view-translation-overlay-share-button-label": "自動翻訳を共有",
 	"mint-view-translation-overlay-feedback-link-label": "フィードバックを送信",
-	"ax-article-footer-entrypoint-card-supporting-text": "自動翻訳で読む"
+	"ax-article-footer-entrypoint-card-description": "他言語でコンテンツをもっと見る",
+	"ax-article-footer-entrypoint-card-supporting-text": "自動翻訳で読む",
+	"mint-explore-languages-header": "言語を探す"
 }
