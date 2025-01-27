@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"BOKOBA VEROLY"
+		]
+	},
+	"cx": "Bobongola lokasa",
+	"cx-dashboard-header": "Mabongoli",
+	"cx-javascript": "Esaleli oyo esalaka te soki JavaScript ezali te. JavaScript ekangami, elongi te, to navigateur oyo esimbami te.",
+	"cx-error-server-connection": "Libunga: Ekoki te kozala na boyokani na serveur.",
+	"cx-desc": "Ezali kosala ete ezala pete mpo na [[Special:ContentTranslation|kobongola]] nkasa ya makambo",
+	"cx-header-progressbar-text": "$1 % {{PLURAL:$1| ebongolami}}",
+	"cx-header-progressbar-text-mt": "( $1 % uta na {{PLURAL:$1| libongoli ya masini}})",
+	"cx-header-translation-center": "Esika ya kobongola",
+	"cx-header-all-translations": "Mabongoli nyonso",
+	"cx-source-view-page": "Lonkásá la sika",
+	"cx-publish-page-success": "Lokasa ebimisami na $1",
+	"cx-publish-error-abuse-filter": "Ba filtres ya édition automatique emoni contenus ya problème na traduction na yo. Filtre oyo ebɛtaki: $1",
+	"cx-publish-error-empty": "Serveur a répondre na ba données te.",
+	"cx-publish-error-readonly": "Kokoma na wiki epesami nzela te.",
+	"cx-publish-error-spam-blacklist": "Makambo oyo ekoki kozala ya spam emonanaki na libongoli na yo. Makambo ya mikemike: $1",
+	"cx-publish-error-title-blacklist": "Titre oyo o typer ezali na liste noire. Tosɛngi yo opona nkombo mosusu mpo na libongoli na yo.",
+	"cx-publish-error-unknown": "Libunga oyo eyebani te oyo ekoki kozongisama te esalemi. Makambo ya mabunga: $1",
+	"cx-publish-button": "Kobimisa",
+	"cx-publish-button-publishing": "Kobimisa mikanda...",
+	"cx-lost-session": "Session na yo esili",
+	"cx-lost-session-draft": "Session na yo esili. Ba éditions na yo ekoki kobombama te soki okoti lisusu na fenêtre mosusu te.",
+	"cx-lost-session-publish": "Session na yo esili. Okoki kobimisa libongoli yango te tii ntango okokɔta lisusu na lininisa mosusu.",
+	"cx-lost-session-dashboard": "Pona kosala action oyo, svp kota lisusu.",
+	"cx-publish-summary": "Esalemi na kobongola lokasa \" $1 \".",
+	"cx-translation-add-translation": "Mabongoli nyonso",
+	"cx-translation-target-page-exists": "Lokasa oyo ezali na motó ya likambo [ $1 $2 ] ezali na wiki ya cible. Kanisá kopesa lokasa yango motó ya likambo mosusu.",
+	"tag-contenttranslation-description": "Makambo oyo ezalaki na kati ebongolamaki na monɔkɔ mosusu na lisalisi ya esaleli ya Bobongoli makambo.",
+	"tag-contenttranslation-v2-description": "Makambo oyo ezalaki na kati ebongolamaki na monɔkɔ mosusu na lisalisi ya version 2 ya esaleli ya Bobongoli ya makambo.",
+	"tag-sectiontranslation-description": "Makambo oyo ezali na kati ebongolamaki uta na eteni moko na monɔkɔ mosusu na kosaleláká eloko ya Bobongoli ya Eteni ya esaleli ya Bobongoli ya Makambo."
+}
