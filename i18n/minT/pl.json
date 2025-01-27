@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Msz2001",
+			"PanWor",
 			"Woytecr"
 		]
 	},
@@ -47,5 +48,9 @@
 	"ax-article-footer-entrypoint-card-supporting-text": "Przeczytaj tłumaczenie automatyczne",
 	"mint-explore-languages-header": "Przeglądaj języki",
 	"mint-explore-languages-search-input-placeholder": "Wszystkie języki dla tego tematu",
-	"mint-explore-languages-explanation-banner-title": "Dowiedz się więcej z innych języków"
+	"mint-explore-languages-explanation-banner-title": "Dowiedz się więcej z innych języków",
+	"mint-explore-languages-explanation-banner-text": "Redaktorzy w różnych językach poruszyli ten temat na różne sposoby.",
+	"mint-explore-languages-language-card-container-title": "Języki o największym zasięgu dla „$1”",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 sekcja|$1 sekcje|$1 sekcji|0=Brak sekcji}}",
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Najbardziej szczegółowo"
 }
