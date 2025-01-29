@@ -31,7 +31,8 @@
 			"محمد أحمد عبد الفتاح",
 			"Dušan Kreheľ",
 			"Mohammed Qays",
-			"5glup"
+			"5glup",
+			"XIDME"
 		]
 	},
 	"cx": "ترجمة الصفحة",
@@ -181,7 +182,7 @@
 	"cx-stats-cumulative-tab-title": "الإجمالي",
 	"cx-stats-weekly-trend-tab-title": "لكل أسبوع",
 	"cx-draft-discard-confirmation-message": "هل أنت متأكد أنك تريد حذف هذه الترجمة نهائيا؟",
-	"cx-draft-cancel-button-label": "ألغ",
+	"cx-draft-cancel-button-label": "إلغاء",
 	"cx-draft-discard-button-label": "احذف الترجمة",
 	"cx-beta-feature-enabled-notification": "فُعلت ترجمة المحتوى على هذا الويكي.",
 	"cx-init-critical-error": "خطأ فادح: فشل تحميل ترجمة المحتوى بسبب خطأ داخلي.",
