@@ -34,7 +34,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Wikiklaas",
-			"Петар Петковић"
+			"Петар Петковић",
+			"Jeroen N"
 		]
 	},
 	"cx": "Pagina vertalen",
@@ -248,7 +249,7 @@
 	"cx-tools-linter-invalid-character-action": "Repareer problematische tekens",
 	"cx-tools-linter-invalid-character-message": "Sommige tekens kunnen niet in de titel gebruikt worden vanwege technische redenen.\n\nBewerk alstublieft de titel om problematische tekens te voorkomen.",
 	"cx-tools-linter-page-exists": "De pagina bestaat al",
-	"cx-tools-linter-page-exists-message": "Een pagina met de titel $1 bestaat al. De bestaande inhoud zal worden overschreven wanneer u uw vertaling publiceert.\n\nControleer of de bestaande pagina vervangen kan worden, of overweeg de title van uw vertaling te wijzigen.",
+	"cx-tools-linter-page-exists-message": "Een pagina met de titel $1 bestaat al. De bestaande inhoud zal worden overschreven wanneer u uw vertaling publiceert.\n\nControleer of de bestaande pagina vervangen kan worden, of overweeg de titel van uw vertaling te wijzigen.",
 	"cx-tools-linter-cannot-publish-title": "Publicatie is alleen toegestaan voor ervaren gebruikers",
 	"cx-tools-linter-cannot-publish-message": "Deze gemeenschap heeft besloten om de publicatie van vertalingen te beperken tot ervaren redacteuren.\nU kunt deze vertaling pas publiceren wanneer u meer ervaring hebt met het bewerken op deze wiki, maar u kunt wel:<ul><li>Uw vertaling als concept publiceren en later reguliere bewerkingstools gebruiken voor het maken van het artikel.</li><li>Dit artikel zonder deze beperking in een andere taal vertalen.</li></ul>",
 	"cx-tools-linter-cannot-publish-action-label": "Instellen om te publiceren als concept",
