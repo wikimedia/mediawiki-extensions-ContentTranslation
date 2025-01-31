@@ -188,7 +188,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 			if ( !$this->dryRun ) {
 				if ( $actionCallback ) {
-					call_user_func( $actionCallback, $draft->translation_id );
+					$actionCallback( $draft->translation_id );
 				}
 
 				$draftsPerUser[ $draft->translation_last_update_by ][] = $draft;
