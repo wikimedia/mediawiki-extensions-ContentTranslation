@@ -113,6 +113,7 @@ const initializeURLState = () => {
   sourceLanguageURLParameter.value = urlParams.get("from");
   targetLanguageURLParameter.value = urlParams.get("to");
   sectionURLParameter.value = urlParams.get("section");
+  activeDashboardTabParameter.value = urlParams.get("active-list");
 
   const suggestionFilter = validateFilters({
     type: urlParams.get("filter-type"),
