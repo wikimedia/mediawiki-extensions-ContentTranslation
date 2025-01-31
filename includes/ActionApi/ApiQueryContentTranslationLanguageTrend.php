@@ -67,7 +67,7 @@ class ApiQueryContentTranslationLanguageTrend extends ApiQueryBase {
 	 * @return array
 	 */
 	public function addMissingDates( $data, $interval ) {
-		$dates = array_merge( ...array_map( 'array_keys', $data ) );
+		$dates = array_merge( ...array_values( array_map( 'array_keys', $data ) ) );
 		if ( $dates === [] ) {
 			return [];
 		}
