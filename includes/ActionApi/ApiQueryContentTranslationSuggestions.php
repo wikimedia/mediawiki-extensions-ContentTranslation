@@ -267,10 +267,12 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 			'from' => [
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_DEFAULT => '',
 			],
 			'to' => [
 				ParamValidator::PARAM_TYPE => 'string',
 				ParamValidator::PARAM_REQUIRED => false,
+				ParamValidator::PARAM_DEFAULT => '',
 			],
 			'listid' => [
 				ParamValidator::PARAM_TYPE => 'string',
