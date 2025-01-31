@@ -14,11 +14,7 @@ class SiteMapper {
 	public static function getDomainCode( $language ) {
 		global $wgContentTranslationDomainCodeMapping;
 
-		if ( isset( $wgContentTranslationDomainCodeMapping[$language] ) ) {
-			return $wgContentTranslationDomainCodeMapping[$language];
-		}
-
-		return $language;
+		return $wgContentTranslationDomainCodeMapping[$language] ?? $language;
 	}
 
 	/**
