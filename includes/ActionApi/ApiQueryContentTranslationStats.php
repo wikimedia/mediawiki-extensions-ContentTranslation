@@ -29,12 +29,12 @@ class ApiQueryContentTranslationStats extends ApiQueryBase {
 		$translationStats = $cache->getWithSetCallback(
 			$cache->makeGlobalKey( 'cx-api-stats-translation' ),
 			ExpirationAwareness::TTL_DAY,
-			fn () => Translation::getStats()
+			static fn () => Translation::getStats()
 		);
 		$translatorStats = $cache->getWithSetCallback(
 			$cache->makeGlobalKey( 'cx-api-stats-translator' ),
 			ExpirationAwareness::TTL_DAY,
-			fn () => Translator::getStats()
+			static fn () => Translator::getStats()
 		);
 
 		$result = $this->getResult();
