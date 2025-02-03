@@ -482,5 +482,10 @@
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 روز|0=امروز}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 ماه}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 سال}}",
-	"sx-quick-tutorial-next-button-aria-label": "رفتن به صفحهٔ آموزش بعدی"
+	"sx-quick-tutorial-next-button-aria-label": "رفتن به صفحهٔ آموزش بعدی",
+	"cx-sx-suggestions-filter-active-group-label": "پالایه‌های فعال",
+	"cx-sx-suggestions-filter-search-input-placeholder": "جستجو برای یک موضوع",
+	"cx-sx-suggestions-filter-search-results-topics-label": "موضوعات",
+	"cx-sx-suggestions-filter-search-results-areas-label": "محدوده‌ها",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "محدوده موضوعی"
 }
