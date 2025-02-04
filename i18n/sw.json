@@ -7,12 +7,17 @@
 			"MaryMunyoki",
 			"Rance",
 			"Wangombe",
-			"Yasen igra"
+			"Yasen igra",
+			"Pwaigi"
 		]
 	},
 	"cx": "Tafsiri kurasa",
 	"cx-dashboard-header": "Tafsiri",
-	"cx-specialpage-enable-betafeature": "[[mw:Special:MyLanguage/Content_translation|Content Translation]]ni zana ya kutafsiri haraka kurasa katika lugha yako [$1 Jaribu Tena]",
+	"cx-specialpage-enable-betafeature": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation Tafsiri ya Maudhui] ni zana ya kutafsiri haraka kurasa katika lugha yako [$1 Jaribu Tena]",
+	"cx-header-progressbar-text": "$1% {{PLURAL:$1|iliyotafsiriwa}}",
+	"cx-header-progressbar-text-mt": "($1% kutoka kwa {{PLURAL:$1|tafsiri ya kompyuta}})",
+	"cx-header-translation-center": "Kituo cha Tafsiri",
+	"cx-header-all-translations": "Tafsiri zote",
 	"cx-tools-instructions-text4": "Tafsiri ya kompyuta kwa kawaida haina matokeo mazuri kwa Kiswahili, unahitaji kupitia tena matini yote na kusahihisha.",
 	"cx-tools-link-add": "Ongeza kiungo",
 	"cx-dashboard-sidebar-stats": "Takwimu",
