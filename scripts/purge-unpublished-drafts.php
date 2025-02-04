@@ -19,7 +19,7 @@ use MediaWiki\Maintenance\Maintenance;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\WikiMap\WikiMap;
 use stdClass;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Timestamp\ConvertibleTimestamp;
 
@@ -128,9 +128,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 				"Selecting drafts with last modified timestamp between $afterTs and $beforeTs\n"
 			);
 			$draftsIterator = $this->getOldDrafts( $dbr, $remindersBefore, $remindersAfter, $language );
-			$lastDraft = $this->processDrafts(
-				$draftsIterator, [ $this, 'notifyUsersAboutDrafts', 'cx-continue-translation' ]
-			);
+			$lastDraft = $this->processDrafts( $draftsIterator, 'cx-continue-translation' );
 
 			if ( $lastDraft ) {
 				$this->logLastNotifiedDraft( $lastDraft );
@@ -148,7 +146,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		$draftsIterator = $this->getOldDrafts( $dbr, $purgeCutoff, null, $language );
 		$this->processDrafts(
 			$draftsIterator,
-			[ $this, 'notifyUsersAboutDrafts', 'cx-deleted-draft' ],
+			'cx-deleted-draft',
 			[ $this, 'purgeDraft' ]
 		);
 
@@ -157,11 +155,11 @@ class PurgeUnpublishedDrafts extends Maintenance {
 
 	/**
 	 * @param IResultWrapper $drafts Drafts to be processed
-	 * @param array $notifierCallback Callback for notifying users
+	 * @param string $notificationType
 	 * @param callable|null $actionCallback Callback for performing operations on drafts
 	 * @return stdClass|null
 	 */
-	public function processDrafts( $drafts, $notifierCallback, $actionCallback = null ) {
+	private function processDrafts( $drafts, string $notificationType, ?callable $actionCallback = null ): ?stdClass {
 		// The database result iterator does not implement countable, so converting to an array.
 		$count = count( iterator_to_array( $drafts ) );
 		$countMessage = new RawMessage( "Found $count old {{PLURAL:$count|draft|drafts}}\n" );
@@ -196,13 +194,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		}
 
 		if ( !$this->dryRun ) {
-			call_user_func(
-				array_slice( $notifierCallback, 0, 2 ),
-				$draftsPerUser,
-				$notifierCallback[ 2 ]
-			);
+			$this->notifyUsersAboutDrafts( $draftsPerUser, $notificationType );
 			return $draft;
 		}
+		return null;
 	}
 
 	/**
@@ -218,10 +213,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		return $dt;
 	}
 
-	/**
-	 * @param int $draftId
-	 */
-	public function purgeDraft( $draftId ) {
+	public function purgeDraft( int $draftId ): void {
 		/** @var TranslationStore $translationStore */
 		$translationStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationStore' );
 		$translationStore->unlinkTranslationFromTranslator( $draftId );
@@ -234,13 +226,13 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	/**
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param DateTime $before Before timestamp
 	 * @param DateTime|null $after After timestamp
 	 * @param string|string[]|null $language Language code, list of them or null for all languages
 	 * @return IResultWrapper
 	 */
-	private function getOldDrafts( IDatabase $db, $before, $after = null, $language = null ) {
+	private function getOldDrafts( IReadableDatabase $db, $before, $after = null, $language = null ): IResultWrapper {
 		$conds = [
 			$db->expr( 'translation_last_updated_timestamp', '<', $db->timestamp( $before->format( 'YmdHis' ) ) ),
 			'translation_status' => 'draft',
@@ -271,10 +263,10 @@ class PurgeUnpublishedDrafts extends Maintenance {
 	}
 
 	/**
-	 * @param array $draftsPerUser
+	 * @param array<int,stdClass[]> $draftsPerUser
 	 * @param string $notificationType
 	 */
-	public function notifyUsersAboutDrafts( $draftsPerUser, $notificationType ) {
+	public function notifyUsersAboutDrafts( array $draftsPerUser, string $notificationType ): void {
 		$services = MediaWikiServices::getInstance();
 		$centralIdLookup = $services->getCentralIdLookup();
 
@@ -313,10 +305,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		}
 	}
 
-	/**
-	 * @param stdClass $lastDraft
-	 */
-	private function logLastNotifiedDraft( $lastDraft ) {
+	private function logLastNotifiedDraft( stdClass $lastDraft ): void {
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
 		$dbw = $lb->getConnection( DB_PRIMARY );
