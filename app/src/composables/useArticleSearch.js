@@ -33,12 +33,15 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
     }
   }, 500);
 
-  watch(searchInput, () => {
+  const refreshSearch = () => {
     searchResultsLoading.value = true;
     searchResults.value = [];
 
     debouncedSearchForArticles();
-  });
+  };
+
+  watch(searchInput, refreshSearch);
+  watch(sourceLanguage, refreshSearch);
 
   return {
     searchResultsLoading,
