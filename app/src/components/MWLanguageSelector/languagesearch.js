@@ -1,4 +1,4 @@
-import { getAutonym, getScript, sortByAutonym } from "@wikimedia/language-data";
+import { sortByAutonym } from "@wikimedia/language-data";
 
 /**
  * @param {string[]} languages
@@ -9,27 +9,6 @@ import { getAutonym, getScript, sortByAutonym } from "@wikimedia/language-data";
 async function search(languages, query, searchApi) {
   if (!query || query.trim().length === 0) {
     return languages;
-  }
-
-  // See if the search query is a language code
-  const exactMatch = languages.filter(
-    (code) => query.toLowerCase() === code.toLowerCase()
-  );
-
-  if (exactMatch.length) {
-    return exactMatch;
-  }
-
-  const filterResults = languages.filter(
-    (code) =>
-      // Search using autonym
-      getAutonym(code).toLowerCase().includes(query.toLowerCase()) ||
-      // Search using script name
-      getScript(code).toLowerCase().includes(query.toLowerCase())
-  );
-
-  if (filterResults.length) {
-    return filterResults;
   }
 
   // We did not find any results from client side search.
