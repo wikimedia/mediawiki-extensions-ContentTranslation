@@ -125,7 +125,7 @@ const listSelect = (event) => {
 </template>
 
 <style lang="less">
-@import "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 #dashboard-list-selector--desktop {
   background-color: transparent;
