@@ -1,12 +1,10 @@
 <script setup>
 import CxTranslationWork from "./CXTranslationWork.vue";
 import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
-import { useStore } from "vuex";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import { useRouter } from "vue-router";
 import useDevice from "@/composables/useDevice";
-import useApplicationState from "@/composables/useApplicationState";
 import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
@@ -21,7 +19,6 @@ const props = defineProps({
   },
 });
 
-const store = useStore();
 const suggestionLoading = ref(true);
 const suggestion = ref(null);
 
@@ -45,7 +42,12 @@ fetchSectionSuggestionForPublished(
 const router = useRouter();
 
 const { isDesktop } = useDevice();
-const { setTranslationURLParams, setSectionURLParam } = useURLHandler();
+const {
+  setTranslationURLParams,
+  setSectionURLParam,
+  sourceLanguageURLParam: sourceLanguage,
+  targetLanguageURLParam: targetLanguage,
+} = useURLHandler();
 
 const openTargetPage = () => {
   window.open(props.translation.targetUrl, "_blank");
@@ -53,7 +55,6 @@ const openTargetPage = () => {
 
 const doStartTranslation = useTranslationStart();
 
-const { sourceLanguage, targetLanguage } = useApplicationState(store);
 const updateLanguagePairByPublishedTranslation =
   usePublishedTranslationLanguagePairUpdate();
 
