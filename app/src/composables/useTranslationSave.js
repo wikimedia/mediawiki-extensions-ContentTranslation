@@ -1,7 +1,6 @@
 import { useStore } from "vuex";
 import { validateParallelCorporaPayload } from "@/utils/parallelCorporaValidator";
 import translatorApi from "@/wiki/cx/api/translator";
-import useApplicationState from "@/composables/useApplicationState";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentPageRevision from "@/composables/useCurrentPageRevision";
 import useURLHandler from "@/composables/useURLHandler";
@@ -10,8 +9,11 @@ const useTranslationSave = () => {
   const store = useStore();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
-  const { pageURLParameter: sourceTitle } = useURLHandler();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const {
+    pageURLParameter: sourceTitle,
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
   const revision = useCurrentPageRevision();
 
   /**
