@@ -566,8 +566,6 @@
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Default description for the topic areas that are listed as search results to the user's suggestion filter search",
 	"cx-articletopics-group-geography": "Label of the 'geography' topics group on the suggestions filters view in the unified dashboard",
 	"cx-articletopics-group-culture": "Label of the 'culture' topics group on the suggestions filters view in the unified dashboard",
-	"cx-articletopics-group-history-and-society": "Label of the 'history and society' topics group on the suggestions filters view in the unified dashboard",
-	"cx-articletopics-group-science-technology-and-math": "Label of the 'science, technology and math' topics group on the suggestions filters view in the unified dashboard",
 	"cx-articletopics-topic-africa": "Label of the 'africa' topic on the suggestions filters view in the unified dashboard",
 	"cx-articletopics-topic-asia": "Label of the 'asia' topic on the suggestions filters view in the unified dashboard",
 	"cx-articletopics-topic-europe": "Label of the 'europe' topic on the suggestions filters view in the unified dashboard",
