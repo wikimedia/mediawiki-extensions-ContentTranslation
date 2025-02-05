@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"TechnicalLOL"
+		]
+	},
+	"cx-sx-suggestions-filter-active-group-label": "Dagiti aktibo nga tagasina",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Agbirok iti topiko",
+	"cx-sx-suggestions-filter-search-results-topics-label": "Dagiti topiko",
+	"cx-sx-suggestions-filter-search-results-areas-label": "Dagiti lugar",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "Lugar ti topiko"
+}
