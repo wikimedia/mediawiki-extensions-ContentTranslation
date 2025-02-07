@@ -336,6 +336,7 @@ onMounted(async () => {
     text-decoration: none;
     cursor: pointer;
     padding: @spacing-50 @spacing-50 @spacing-50 @spacing-200;
+    break-inside: avoid;
   }
 }
 </style>
