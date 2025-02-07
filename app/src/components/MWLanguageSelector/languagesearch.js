@@ -77,17 +77,4 @@ function getSearchResultsByScript(searchResults) {
   return chunks;
 }
 
-function getResultsDisplayClass(searchResults) {
-  const resultsCount = searchResults.length;
-  if (resultsCount < 10) return "few-results";
-  if (resultsCount < 30) return "some-results";
-
-  return "many-results";
-}
-
-export {
-  getSearchApi,
-  searchByQuery,
-  getSearchResultsByScript,
-  getResultsDisplayClass,
-};
+export { getSearchApi, searchByQuery, getSearchResultsByScript };

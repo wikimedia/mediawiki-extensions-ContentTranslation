@@ -4,7 +4,6 @@ import {
   searchByQuery,
   getSearchApi,
   getSearchResultsByScript,
-  getResultsDisplayClass,
 } from "./languagesearch";
 import autocomplete from "./autocompletion";
 import keyboardNavigation from "./keyboardnav";
@@ -59,9 +58,17 @@ const searchResultsByScript = computed(() =>
   getSearchResultsByScript(searchResults.value)
 );
 
-const resultsDisplayClass = computed(() =>
-  getResultsDisplayClass(searchResults.value)
-);
+const resultsDisplayClass = computed(() => {
+  const resultsCount = searchResults.value.length;
+
+  if (resultsCount < 10) {
+    return "few-results";
+  } else if (resultsCount < 30) {
+    return "some-results";
+  } else {
+    return "many-results";
+  }
+});
 
 const select = (language) => emit("select", language);
 const close = () => emit("close");
