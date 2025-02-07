@@ -285,13 +285,16 @@ onMounted(async () => {
     }
     &.some-results {
       column-count: 2;
+      .language {
+        max-width: 160px;
+      }
     }
     &.many-results {
       column-count: 3;
+      .language {
+        max-width: 160px;
+      }
     }
-  }
-  .results-languages--suggestions {
-    column-count: 3;
   }
 
   h3 {
@@ -331,7 +334,6 @@ onMounted(async () => {
     display: block;
     font-size: 1em;
     text-decoration: none;
-    max-width: 160px;
     cursor: pointer;
     padding: @spacing-50 @spacing-50 @spacing-50 @spacing-200;
   }
