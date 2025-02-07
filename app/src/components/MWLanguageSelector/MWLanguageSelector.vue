@@ -157,6 +157,7 @@ onMounted(async () => {
         />
       </div>
     </slot>
+    <!-- Slot for suggestions. Currently only used inside "Search for an article" page -->
     <section class="mw-ui-language-selector__resultscontainer pa-0 ma-0">
       <slot v-if="suggestions.length && !searchQuery" name="suggestions">
         <section class="results px-3 pt-4">
@@ -168,7 +169,7 @@ onMounted(async () => {
             <li
               v-for="language in suggestions"
               :key="language"
-              class="language pa-2 ps-8 ma-0"
+              class="language ma-0"
               :lang="language"
               :dir="getDir(language)"
               :aria-selected="language === selectedLanguage || null"
@@ -197,7 +198,7 @@ onMounted(async () => {
             <li
               v-for="language in chunk"
               :key="language"
-              class="language pa-2 ps-8 ma-0"
+              class="language ma-0"
               :lang="language"
               :dir="getDir(language)"
               role="option"
@@ -210,7 +211,7 @@ onMounted(async () => {
             <li
               v-if="allOptionEnabled && !searchQuery"
               v-i18n:cx-translation-list-all-languages-option-label
-              class="language pa-2 ps-8 ma-0"
+              class="language ma-0"
               role="option"
               :aria-selected="selectedLanguage === 'all' || null"
               tabindex="-1"
@@ -332,6 +333,7 @@ onMounted(async () => {
     text-decoration: none;
     max-width: 160px;
     cursor: pointer;
+    padding: @spacing-50 @spacing-50 @spacing-50 @spacing-200;
   }
 }
 </style>
