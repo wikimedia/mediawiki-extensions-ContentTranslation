@@ -328,7 +328,7 @@
 	"cx-sx-translation-confirmer-title": "Nove traduction",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 visita per|$1 visitas per|0=Nulle visita iste}} septimana",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hora|$1 horas|0=$2 minuta{{PLURAL:$2||s}}}} pro traducer",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 hora|$1 horas|0=$2 minuta{{PLURAL:$2||s}}}} pro traducer $3 sectiones",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 hora|$1 horas|0=$2 minuta{{PLURAL:$2||s}}}} pro traducer $3 section{{PLURAL:$3||es}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Marcapagina",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Tu traduction essera publicate in forma de un nove section independente.",
 	"cx-sx-content-comparator-discarded-section-label": "(discartate)",

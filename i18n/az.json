@@ -330,7 +330,7 @@
 	"cx-sx-translation-confirmer-title": "Yeni tərcümə",
 	"cx-sx-translation-confirmer-views-count": "Bu həftə {{PLURAL:$1|$1 baxış|0=heç baxış olmayıb}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "Tərcümə etmək üçün sərf ediləcək vaxt: {{PLURAL:$1|$2 dəqiqə}}",
-	"cx-sx-translation-confirmer-translation-time-sections": "$3 bölməni tərcümə etmək üçün sərf ediləcək vaxt: {{PLURAL:$1|$2 dəqiqə}}",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$3|$3}} bölməni tərcümə etmək üçün sərf ediləcək vaxt: {{PLURAL:$1|$1 saat|0={{PLURAL:$2|$2 dəqiqə}}}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Əlfəcin qoy",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Tərcüməniz ayrıca yeni bir bölmə olaraq yayımlanacaq.",
 	"cx-sx-content-comparator-discarded-section-label": "(rədd edildi)",

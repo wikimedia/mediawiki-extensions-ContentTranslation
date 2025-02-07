@@ -336,7 +336,7 @@
 	"cx-sx-translation-confirmer-title": "নতুন অনুবাদ",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|সপ্তাহ প্রতি $1টি পরিদর্শন|0=এই সপ্তাহে কোন পরিদর্শন নেই}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "অনুবাদ করতে {{PLURAL:$1|$1 ঘণ্টা|0=$2 মিনিট}} লাগবে",
-	"cx-sx-translation-confirmer-translation-time-sections": "$3টি অনুচ্ছেদ অনুবাদ করতে {{PLURAL:$1|$1 ঘণ্টা|0=$2 মিনিট}} লাগবে",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$3|$3টি অনুচ্ছেদ}} অনুবাদ করতে {{PLURAL:$1|$1 ঘণ্টা|0={{PLURAL:$2|$2 মিনিট}}}} লাগবে",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "বুকমার্ক",
 	"cx-sx-content-comparator-discarded-section-clarifications": "আপনার অনুবাদ করা তথ্য, নতুন একটি অনুচ্ছেদ রূপে প্রকাশিত হবে।",
 	"cx-sx-content-comparator-discarded-section-label": "(বর্জিত)",

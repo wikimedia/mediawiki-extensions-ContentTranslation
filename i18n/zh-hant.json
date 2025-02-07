@@ -351,7 +351,7 @@
 	"cx-sx-translation-confirmer-title": "新增譯文",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|每週有 $1 次訪問|0=本週沒有訪問}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "需花費{{PLURAL:$1|$1小時|0={{PLURAL:$2|$2分鐘}}}}來翻譯",
-	"cx-sx-translation-confirmer-translation-time-sections": "需花費{{PLURAL:$1|$1小時|0={{PLURAL:$2|$2分鐘}}}}來翻譯$3個章節",
+	"cx-sx-translation-confirmer-translation-time-sections": "需花費{{PLURAL:$1|$1小時|0={{PLURAL:$2|$2分鐘}}}}來翻譯{{PLURAL:$3|$3個章節}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "書籤",
 	"cx-sx-content-comparator-discarded-section-clarifications": "您的翻譯將會以獨立的新章節發布。",
 	"cx-sx-content-comparator-discarded-section-label": "（捨棄）",
