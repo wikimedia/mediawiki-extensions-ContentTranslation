@@ -320,6 +320,9 @@ onMounted(async () => {
       &.some-results,
       &.many-results {
         column-count: 1;
+        .language {
+          max-width: unset;
+        }
       }
     }
     .results-languages--suggestions {
