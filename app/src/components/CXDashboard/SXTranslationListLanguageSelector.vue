@@ -170,6 +170,17 @@ const allLanguagesSelectedAsTarget = computed(
 .sx-translation-list-language-selector {
   border-top: @border-width-base @border-style-base #eaecf0;
   border-bottom: @border-width-base @border-style-base #eaecf0;
+
+  &__button {
+    line-height: normal;
+    max-width: @size-full;
+    .mw-ui-autonym {
+      margin-right: @spacing-50;
+      overflow: hidden;
+      text-overflow: @text-overflow-ellipsis;
+    }
+  }
+
   .mw-ui-dialog.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__header {
       margin: @spacing-75 @spacing-100;
