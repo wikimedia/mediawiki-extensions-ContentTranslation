@@ -161,6 +161,10 @@
 	"cx-suggestionlist-refresh": "Muat baru sadang",
 	"cx-tools-linter-template-add-new": "Templat baru",
 	"cx-tools-linter-incomplete-template": "Templat enda tembu",
+	"cx-tools-linter-reference": "Penyanding lenyau",
+	"cx-tools-linter-reference-message": "Penyanding enda ulih dikalihka ngagai salin ketegal iya ngena templat enggau struktur ti bebida.\n\nMinta edit penyanding dalam salin kena ngisi informasyen ke lenyau.",
+	"cx-tools-linter-incomplete-reference": "Penyanding enda chukup",
+	"cx-tools-linter-incomplete-reference-message": "Penyanding ti udah ditambah nadai sekeda informasyen ti beguna.\n\nPekara ti lenyau enda ulih dibulih enggau automatik ari penyanding asal laban struktur iya bebida mimit.\n\nMinta edit penyanding dalam salin kena ngisi informasyen ti lenyau.",
 	"cx-feature-discovery-title": "Nyalin sebarang maya",
 	"cx-feature-discovery-dismiss": "Ok, udah nemu",
 	"sx-quick-tutorial-translate-button-label": "Berengkah nyalin",
@@ -174,6 +178,8 @@
 	"cx-sx-article-search-header": "Salin baru",
 	"sx-editor-feedback-overlay-title": "Terima kasih!",
 	"sx-editor-feedback-overlay-clarification": "Belajar ari pemendar nuan",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-header": "Pansik penyanding",
+	"sx-recent-translation-entrypoint-dialog-references-list-item-details": "Pemacha nyapai penyanding kena mansik fakta. Mansik format penyanding lalu tambah penyanding ti bekaul dalam jaku nuan.",
 	"sx-block-template-adaptation-card-edit-button-label-no-adapted-params": "Edit salin",
 	"cx-uls-translate-page-quick-action-label": "Salin lambar tu"
 }
