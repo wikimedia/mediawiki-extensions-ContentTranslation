@@ -4,7 +4,7 @@ import CxTranslationWorkPublished from "./CXTranslationWorkPublished.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
-import { ref, computed } from "vue";
+import { ref, computed, inject } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
 import { CdxIcon } from "@wikimedia/codex";
@@ -102,24 +102,38 @@ const askDeletionConfirmation = (translation) => {
 };
 
 const isActive = computed(() => props.activeStatus === props.translationStatus);
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
+
+const headerWrapperClass = computed(() =>
+  isMobile.value ? "pt-3" : "pb-2 flex justify-between items-center"
+);
 </script>
 
 <template>
-  <mw-card v-if="isActive" :class="`cx-translation-list--${translationStatus}`">
+  <mw-card
+    v-if="isActive"
+    class="px-0"
+    :class="`cx-translation-list--${translationStatus}`"
+  >
     <template #header>
-      <h3
-        class="mw-ui-card__title pa-4 pt-5 mb-0"
-        v-text="$i18n(`cx-translation-label-${translationStatus}`)"
-      />
+      <div class="cx-translation-list__header" :class="headerWrapperClass">
+        <h3
+          class="px-4 mw-ui-card__title mb-0"
+          :class="{ 'pb-4': isMobile }"
+          v-text="$i18n(`cx-translation-label-${translationStatus}`)"
+        />
+        <sx-translation-list-language-selector
+          v-if="activeTranslations.length"
+          v-model:selected-source-language="selectedSourceLanguage"
+          v-model:selected-target-language="selectedTargetLanguage"
+          :source-languages="availableSourceLanguages"
+          :target-languages="availableTargetLanguages"
+          all-option-enabled
+        />
+      </div>
     </template>
-    <sx-translation-list-language-selector
-      v-if="activeTranslations.length"
-      v-model:selected-source-language="selectedSourceLanguage"
-      v-model:selected-target-language="selectedTargetLanguage"
-      :source-languages="availableSourceLanguages"
-      :target-languages="availableTargetLanguages"
-      all-option-enabled
-    />
     <div
       v-if="loaded && !activeTranslations.length"
       class="cx-translation-list-empty-placeholder pa-4"
@@ -164,6 +178,11 @@ const isActive = computed(() => props.activeStatus === props.translationStatus);
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
+
+.cx-translation-list__header {
+  border-bottom: @border-style-base @border-width-base @border-color-subtle;
+  border-radius: @border-radius-sharp;
+}
 
 .cx-translation-list-empty-placeholder {
   text-align: center;

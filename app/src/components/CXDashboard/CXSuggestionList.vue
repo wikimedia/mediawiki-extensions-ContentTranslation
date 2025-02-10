@@ -5,7 +5,7 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import CxSuggestionListFilters from "./CXSuggestionListFilters.vue";
 import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
-import { ref } from "vue";
+import { computed, inject, ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
 import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useTranslationStart from "@/composables/useTranslationStart";
@@ -84,19 +84,41 @@ const refreshSuggestions = () => {
 
 const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
   useSuggestionsBookmark();
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
+const headerWrapperClass = computed(() =>
+  isMobile.value ? null : "pb-2 flex justify-between items-center"
+);
 </script>
 
 <template>
-  <div v-show="active">
-    <mw-card class="cx-translation-list--suggestions pa-0 mb-0">
+  <div v-show="active" class="cx-suggestion-list">
+    <mw-card class="cx-suggestion-list__header-card px-0 pt-2 pb-0 mb-0">
       <template #header>
-        <h3
-          class="mw-ui-card__title pa-4 pt-5 mb-0"
-          v-text="$i18n('cx-suggestionlist-title')"
-        />
+        <div
+          class="cx-suggestion-list__header-card__header px-4"
+          :class="headerWrapperClass"
+        >
+          <h3
+            v-i18n:cx-suggestionlist-title
+            class="mw-ui-card__title mb-0"
+            :class="{ 'py-3': isMobile }"
+          />
+          <sx-translation-list-language-selector
+            v-if="!isMobile"
+            :source-languages="supportedLanguageCodes"
+            :target-languages="availableTargetLanguages"
+            :selected-source-language="sourceLanguage"
+            :selected-target-language="targetLanguage"
+            @update:selected-source-language="updateSourceLanguage"
+            @update:selected-target-language="updateTargetLanguage"
+          />
+        </div>
         <cx-suggestion-list-filters />
       </template>
       <sx-translation-list-language-selector
+        v-if="isMobile"
         :source-languages="supportedLanguageCodes"
         :target-languages="availableTargetLanguages"
         :selected-source-language="sourceLanguage"
@@ -107,11 +129,11 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
     </mw-card>
     <mw-card
       ref="pageSuggestionsList"
-      class="cx-translation-list--page-suggestions pa-0 mb-0"
+      class="cx-suggestion-list__page-suggestions pa-0 mb-0"
     >
       <h5
         v-i18n:cx-suggestion-list-new-pages-division
-        class="cx-translation-list__division-title ma-0 pa-4"
+        class="cx-suggestion-list__division-title ma-0 pa-4"
       />
       <cx-translation-suggestion
         v-for="(suggestion, index) in currentPageSuggestionsSlice"
@@ -125,10 +147,10 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
         v-if="pageSuggestionsLoading && !isCurrentPageSuggestionsSliceFull"
       />
     </mw-card>
-    <mw-card class="cx-translation-list--sx-suggestions pa-0 mb-0">
+    <mw-card class="cx-suggestion-list__section-suggestions pa-0 mb-0">
       <h5
         v-i18n:cx-suggestionlist-expand-sections-title
-        class="cx-translation-list__division-title ma-0 pa-4"
+        class="cx-suggestion-list__division-title ma-0 pa-4"
       />
       <cx-translation-suggestion
         v-for="(suggestion, index) in currentSectionSuggestionsSlice"
@@ -164,12 +186,28 @@ const { markFavoriteSectionSuggestion, markFavoritePageSuggestion } =
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
-.cx-translation-list__division-title {
-  background: @background-color-interactive-subtle;
-  color: @color-subtle;
-}
-.cx-suggestion-list__refresh-button-container {
-  background: @background-color-base;
-  border-top: @border-width-base @border-style-base #eaecf0;
+.cx-suggestion-list {
+  .mw-ui-card {
+    border-radius: @border-radius-sharp;
+  }
+  .sx-translation-list-language-selector {
+    &:not(.sx-translation-list-language-selector--mobile) {
+      margin-top: @spacing-35; // used for better alignment with "Suggestions" title
+    }
+  }
+  &__header-card {
+    border-bottom: @border-style-base @border-width-base @border-color-subtle;
+    &__header {
+      flex-wrap: wrap;
+    }
+  }
+  &__division-title {
+    background: @background-color-interactive-subtle;
+    color: @color-subtle;
+  }
+  &__refresh-button-container {
+    background: @background-color-base;
+    border-top: @border-width-base @border-style-base #eaecf0;
+  }
 }
 </style>

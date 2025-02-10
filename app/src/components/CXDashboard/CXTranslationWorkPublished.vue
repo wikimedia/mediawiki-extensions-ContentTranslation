@@ -4,7 +4,6 @@ import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import { useRouter } from "vue-router";
-import useDevice from "@/composables/useDevice";
 import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
@@ -41,7 +40,6 @@ fetchSectionSuggestionForPublished(
 
 const router = useRouter();
 
-const { isDesktop } = useDevice();
 const {
   setTranslationURLParams,
   setSectionURLParam,

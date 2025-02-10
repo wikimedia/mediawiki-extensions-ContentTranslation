@@ -1,12 +1,10 @@
 <script setup>
-import { MwIcon, MwButton, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
+import { MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
 import MwLanguageSelector from "../MWLanguageSelector";
-import {
-  mwIconArrowNext,
-  mwIconExpand,
-} from "@/lib/mediawiki.ui/components/icons";
 import { computed, inject, ref } from "vue";
+import { cdxIconArrowNext, cdxIconExpand } from "@wikimedia/codex-icons";
+import { CdxButton, CdxIcon } from "@wikimedia/codex";
 
 const props = defineProps({
   /** @type string[] array of language codes */
@@ -43,7 +41,7 @@ const emit = defineEmits([
 ]);
 
 const breakpoints = inject("breakpoints");
-const fullscreen = computed(() => breakpoints.value.mobile);
+const isMobile = computed(() => breakpoints.value.mobile);
 
 /**
  * Three possible values: "source", "target" or null
@@ -92,13 +90,15 @@ const allLanguagesSelectedAsTarget = computed(
 </script>
 
 <template>
-  <div class="sx-translation-list-language-selector">
+  <div
+    class="sx-translation-list-language-selector py-1"
+    :class="{ 'sx-translation-list-language-selector--mobile': isMobile }"
+  >
     <mw-row justify="center" align="center" class="ma-0">
-      <mw-col class="flex justify-end" cols="5">
-        <mw-button
-          :indicator="mwIconExpand"
-          class="pa-3 sx-translation-list-language-selector__button"
-          type="text"
+      <mw-col class="flex justify-end px-0" :cols="isMobile ? 5 : null">
+        <cdx-button
+          class="sx-translation-list-language-selector__button"
+          weight="quiet"
           @click.stop="openSourceLanguageDialog"
         >
           <span
@@ -113,19 +113,19 @@ const allLanguagesSelectedAsTarget = computed(
             :dir="getDir(selectedSourceLanguage)"
             v-text="getAutonym(selectedSourceLanguage)"
           />
-        </mw-button>
+          <cdx-icon size="x-small" :icon="cdxIconExpand" />
+        </cdx-button>
       </mw-col>
       <mw-col
-        class="sx-translation-list-language-selector__arrow flex justify-center"
-        cols="2"
+        class="sx-translation-list-language-selector__arrow flex justify-center px-0"
+        :cols="isMobile ? 2 : null"
       >
-        <mw-icon :icon="mwIconArrowNext" />
+        <cdx-icon :icon="cdxIconArrowNext" />
       </mw-col>
-      <mw-col cols="5">
-        <mw-button
-          :indicator="mwIconExpand"
-          class="pa-3 sx-translation-list-language-selector__button"
-          type="text"
+      <mw-col class="px-0" :cols="isMobile ? 5 : null">
+        <cdx-button
+          class="sx-translation-list-language-selector__button"
+          weight="quiet"
           :disabled="targetLanguages.length < 2"
           @click.stop="openTargetLanguageDialog"
         >
@@ -141,15 +141,16 @@ const allLanguagesSelectedAsTarget = computed(
             :dir="getDir(selectedTargetLanguage)"
             v-text="getAutonym(selectedTargetLanguage)"
           />
-        </mw-button>
+          <cdx-icon size="x-small" :icon="cdxIconExpand" />
+        </cdx-button>
       </mw-col>
     </mw-row>
     <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
     <mw-dialog
       v-model:value="dialogOn"
       :title="$i18n('sx-translation-list-language-selector-dialog-title')"
-      :fullscreen="fullscreen"
-      :header="fullscreen"
+      :fullscreen="isMobile"
+      :header="isMobile"
       @close="closeDialog"
     >
       <mw-language-selector
@@ -168,8 +169,10 @@ const allLanguagesSelectedAsTarget = computed(
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-list-language-selector {
-  border-top: @border-width-base @border-style-base #eaecf0;
-  border-bottom: @border-width-base @border-style-base #eaecf0;
+  &--mobile {
+    border-top: @border-width-base @border-style-base #eaecf0;
+    border-bottom: @border-width-base @border-style-base #eaecf0;
+  }
 
   &__button {
     line-height: normal;
