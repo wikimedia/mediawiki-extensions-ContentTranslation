@@ -173,14 +173,14 @@ const allLanguagesSelectedAsTarget = computed(
   border-bottom: @border-width-base @border-style-base #eaecf0;
   .mw-ui-dialog.mw-ui-dialog--fullscreen {
     .mw-ui-dialog__header {
-      margin: 12px 16px;
+      margin: @spacing-75 @spacing-100;
       button {
-        padding: 0;
+        padding: @spacing-0;
       }
     }
 
     .mw-ui-language-selector__resultscontainer {
-      height: calc(100vh - 8em);
+      height: calc(@size-viewport-height-full - @size-800);
     }
   }
 
