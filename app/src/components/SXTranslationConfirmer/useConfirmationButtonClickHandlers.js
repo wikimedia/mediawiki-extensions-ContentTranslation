@@ -65,7 +65,7 @@ export default () => {
    */
   const handlePrimaryButtonClick = () => {
     if (!!currentTranslation.value) {
-      if (currentTranslation.value.isArticleTranslation) {
+      if (currentTranslation.value.isArticleTranslation && !isDesktop.value) {
         translationConfirmationDialogOn.value = true;
       } else {
         startDraftTranslation(currentTranslation.value);

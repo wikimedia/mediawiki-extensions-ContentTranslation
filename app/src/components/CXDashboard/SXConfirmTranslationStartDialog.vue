@@ -88,6 +88,7 @@ const startTranslation = async () => {
 .sx-confirm-translation-start-dialog {
   button&__confirm-button {
     border: none;
+    max-width: 100%;
   }
 }
 </style>
