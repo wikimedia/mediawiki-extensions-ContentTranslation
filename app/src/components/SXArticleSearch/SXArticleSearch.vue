@@ -13,7 +13,7 @@ import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
 import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 import useMediaWikiState from "../../composables/useMediaWikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
@@ -43,7 +43,10 @@ const sourceLanguageSelectOn = ref(false);
 const previousLanguages = ref([]);
 
 const store = useStore();
-const { sourceLanguage, targetLanguage } = useApplicationState(store);
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+} = useURLHandler();
 const { supportedLanguageCodes } = useMediaWikiState();
 
 /**
@@ -129,7 +132,7 @@ const onSourceLanguageDialogClose = () => {
  */
 const onSourceLanguageSelected = (updatedSourceLanguage) => {
   sourceLanguageSelectOn.value = false;
-  previousLanguages.value.push(updatedSourceLanguage);
+  previousLanguages.value.push(sourceLanguage.value);
   updateSelection(updatedSourceLanguage);
 };
 

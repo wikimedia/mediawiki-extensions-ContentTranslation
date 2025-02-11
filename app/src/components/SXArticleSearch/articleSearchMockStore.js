@@ -27,7 +27,6 @@ const mockPages = [
 
 const applicationModule = {
   namespaced: true,
-  state: { sourceLanguage, targetLanguage },
   mutations: {
     setSourceLanguage: () => {},
     setTargetLanguage: () => {},

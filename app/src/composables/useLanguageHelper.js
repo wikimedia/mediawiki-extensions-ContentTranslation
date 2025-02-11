@@ -55,6 +55,9 @@ const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
   store.commit("application/setTargetLanguage", targetLanguage);
 
   setLanguageURLParams(sourceLanguage, targetLanguage);
+
+  mw.storage.set("cxSourceLanguage", sourceLanguage);
+  mw.storage.set("cxTargetLanguage", targetLanguage);
 };
 
 /**

@@ -2,13 +2,11 @@
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector.vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { computed } from "vue";
-import { useStore } from "vuex";
 import { useArticleLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useURLHandler from "@/composables/useURLHandler";
 
 const { supportedLanguageCodes, enabledTargetLanguages } = useMediaWikiState();
-const store = useStore();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,

@@ -4,7 +4,7 @@ import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins/";
 import mockStore from "./articleSearchMockStore";
 import router from "../../router";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
 
@@ -47,6 +47,13 @@ jest.mock(
   () => () => mockStartTranslation
 );
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
+
+const mockSourceLanguage = ref("en");
+const mockTargetLanguage = ref("es");
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: mockSourceLanguage,
+  targetLanguageURLParameter: mockTargetLanguage,
+}));
 
 const getLocalStorageItem = jest.fn((item) => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
