@@ -144,7 +144,6 @@ const tentativelySelectSearchArea = (selectedArea) => {
   <mw-dialog
     class="sx-suggestions-filters-dialog"
     :value="modelValue"
-    animation="fade"
     :fullscreen="fullscreen"
     :header="false"
   >

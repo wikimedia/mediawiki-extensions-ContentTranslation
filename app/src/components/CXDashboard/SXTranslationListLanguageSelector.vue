@@ -147,7 +147,6 @@ const allLanguagesSelectedAsTarget = computed(
     <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
     <mw-dialog
       v-model:value="dialogOn"
-      animation="slide-up"
       :title="$i18n('sx-translation-list-language-selector-dialog-title')"
       :fullscreen="fullscreen"
       :header="fullscreen"

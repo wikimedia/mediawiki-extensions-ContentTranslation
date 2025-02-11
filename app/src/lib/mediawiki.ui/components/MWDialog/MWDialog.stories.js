@@ -203,25 +203,3 @@ DialogWithCustomOverlay.args = {
   title: "Did you know",
   bodyText: "The moai heads of Easter Island have bodies.",
 };
-
-export const Animations = (args, { argTypes }) => ({
-  components: { MwDialog, MwButton },
-  data: () => ({
-    showDialog: false,
-    bodyImage:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Pskov_asv07-2018_Kremlin_before_sunset.jpg/800px-Pskov_asv07-2018_Kremlin_before_sunset.jpg",
-  }),
-  props: Object.keys(argTypes),
-  template: `
-    <div class="container">
-      <mw-button label="Launch" v-on:click="openDialog()"></mw-button>
-      <mw-dialog :fullscreen="fullscreen" v-model="showDialog" :animation="animation">
-        <template v-slot:default><img  :src="bodyImage"/></template>
-      </mw-dialog>
-    </div>`,
-  methods: {
-    openDialog() {
-      this.showDialog = true;
-    },
-  },
-});

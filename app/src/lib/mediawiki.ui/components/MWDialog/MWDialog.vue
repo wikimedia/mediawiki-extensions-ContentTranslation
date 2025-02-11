@@ -1,5 +1,5 @@
 <template>
-  <transition :name="`mw-ui-animation-${animation}`" :style="cssVars">
+  <transition name="mw-ui-animation-fade" :style="cssVars">
     <div
       v-if="value"
       ref="root"
@@ -58,26 +58,6 @@ export default {
     MwDivider,
   },
   props: {
-    /**
-     * Animation
-     * @values slide-end, slide-start, slide-up, slide-down, fade
-     **/
-    animation: {
-      type: String,
-      default: "slide-start",
-      validator: (value) => {
-        // The value must match one of these strings
-        return (
-          [
-            "slide-end",
-            "slide-start",
-            "slide-up",
-            "slide-down",
-            "fade",
-          ].indexOf(value) !== -1
-        );
-      },
-    },
     /**
      * Whether the dialog should be shown fullscreen or not.
      **/

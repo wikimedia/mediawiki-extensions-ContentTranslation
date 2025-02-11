@@ -221,7 +221,6 @@ const startTranslation = (page, eventSource) =>
     <mw-dialog
       v-model:value="sourceLanguageSelectOn"
       class="sx-article-search-language-selector"
-      animation="slide-up"
       :fullscreen="fullscreen"
       :header="fullscreen"
       :title="$i18n('sx-article-search-language-selector-dialog-title')"

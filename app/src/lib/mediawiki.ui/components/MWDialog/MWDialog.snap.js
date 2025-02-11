@@ -4,7 +4,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
 <transition-stub
   appear="false"
   css="true"
-  name="mw-ui-animation-slide-start"
+  name="mw-ui-animation-fade"
   persisted="false"
   style="--dialog-min-height: 200px;"
 >

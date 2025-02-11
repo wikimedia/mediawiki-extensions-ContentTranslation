@@ -403,7 +403,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     appear="false"
     class="sx-article-search-language-selector"
     css="true"
-    name="mw-ui-animation-slide-up"
+    name="mw-ui-animation-fade"
     persisted="false"
     style="--dialog-min-height: 200px;"
   >
