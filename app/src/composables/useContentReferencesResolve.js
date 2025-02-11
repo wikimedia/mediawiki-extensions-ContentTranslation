@@ -10,6 +10,8 @@ import { loadVEModules } from "@/plugins/ve";
  * operation, it is wrapped inside a setTimeout callback with zero waiting time,
  * so that it is executed once the JS call stack is empty.
  *
+ * WARNING: Should only be called from mobile context
+ *
  * @return {function(string, string): Promise}
  */
 const useContentReferencesResolve = () => {

@@ -6,6 +6,9 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext } from "@wikimedia/codex-icons";
+import useDevice from "@/composables/useDevice";
+import useCXRedirect from "@/composables/useCXRedirect";
+import useURLHandler from "@/composables/useURLHandler";
 
 const totalSteps = ref(2);
 const activeStep = ref(1);
@@ -19,7 +22,30 @@ const goToNextStep = () => {
 const isActiveStep = (step) => step === activeStep.value;
 
 const router = useRouter();
-const completeTutorial = () => router.push({ name: "sx-sentence-selector" });
+const { isDesktop } = useDevice();
+const redirectToCX = useCXRedirect();
+
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  pageURLParameter: pageTitle,
+  sectionURLParameter: sectionTitle,
+} = useURLHandler();
+
+const completeTutorial = () => {
+  if (isDesktop.value) {
+    const extra = { sourcesection: sectionTitle.value };
+
+    redirectToCX(
+      sourceLanguage.value,
+      targetLanguage.value,
+      pageTitle.value,
+      extra
+    );
+  } else {
+    router.push({ name: "sx-sentence-selector" });
+  }
+};
 </script>
 
 <template>

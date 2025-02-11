@@ -17,7 +17,6 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
-import useCXRedirect from "@/composables/useCXRedirect";
 import useDevice from "@/composables/useDevice";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
@@ -59,20 +58,8 @@ const startDraftTranslation = useDraftTranslationStart();
 const { selectPageSectionByTitle } = usePageSectionSelect();
 
 const { isDesktop } = useDevice();
-const redirectToCX = useCXRedirect();
 
 const selectSection = (sourceSectionTitle) => {
-  if (isDesktop.value) {
-    redirectToCX(
-      sourceLanguage.value,
-      targetLanguage.value,
-      suggestion.value.sourceTitle,
-      { sourcesection: sourceSectionTitle }
-    );
-
-    return;
-  }
-
   const existingSectionTranslation = store.getters[
     "translator/getDraftTranslation"
   ](

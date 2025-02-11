@@ -6,7 +6,6 @@ import SxContentComparatorNewSectionPlaceholder from "./NewSectionPlaceholder.vu
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, watch } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
@@ -14,6 +13,9 @@ import { isQuickTutorialForced } from "@/utils/urlHandler";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
+import useURLHandler from "@/composables/useURLHandler";
+import useDevice from "@/composables/useDevice";
+import useCXRedirect from "@/composables/useCXRedirect";
 
 const store = useStore();
 const router = useRouter();
@@ -23,6 +25,15 @@ const sourceVsTargetSelection = ref("source_section");
 const { logDashboardTranslationStartEvent } =
   useDashboardTranslationStartInstrument();
 const goToSectionSelector = () => router.push({ name: "sx-section-selector" });
+const { isDesktop } = useDevice();
+const redirectToCX = useCXRedirect();
+
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  pageURLParameter: pageTitle,
+  sectionURLParameter: sectionTitle,
+} = useURLHandler();
 
 const translateSection = () => {
   logDashboardTranslationStartEvent();
@@ -33,6 +44,15 @@ const translateSection = () => {
 
   if (shouldDisplayQuickTutorial) {
     router.push({ name: "sx-quick-tutorial" });
+  } else if (isDesktop.value) {
+    const extra = { sourcesection: sectionTitle.value };
+
+    redirectToCX(
+      sourceLanguage.value,
+      targetLanguage.value,
+      pageTitle.value,
+      extra
+    );
   } else {
     router.push({ name: "sx-sentence-selector" });
   }
@@ -48,7 +68,6 @@ const {
 
 const targetPageContent = useTargetArticlePreview();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
-const { sourceLanguage, targetLanguage } = useApplicationState(store);
 
 const targetTitle = computed(() => suggestion.value.targetTitle);
 

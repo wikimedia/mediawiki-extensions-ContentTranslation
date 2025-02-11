@@ -3,6 +3,7 @@ import useContentReferencesResolve from "@/composables/useContentReferencesResol
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
+import useDevice from "@/composables/useDevice";
 
 const usePageSectionSelect = () => {
   const store = useStore();
@@ -11,6 +12,7 @@ const usePageSectionSelect = () => {
 
   const resolvePageContentReferences = useContentReferencesResolve();
   const fetchPageContent = usePageContentFetch();
+  const { isDesktop } = useDevice();
 
   const {
     setSectionURLParam,
@@ -28,12 +30,15 @@ const usePageSectionSelect = () => {
         targetLanguage.value,
         sourceTitle.value
       );
-      // Resolve references and update page sections to include
-      // these resolved references
-      await resolvePageContentReferences(
-        sourceLanguage.value,
-        sourceTitle.value
-      );
+
+      // Resolve references and update page sections to include these resolved references.
+      // Only needed for mobile editor.
+      if (!isDesktop.value) {
+        await resolvePageContentReferences(
+          sourceLanguage.value,
+          sourceTitle.value
+        );
+      }
       store.commit("application/decreaseTranslationDataLoadingCounter");
     }
     setter();
