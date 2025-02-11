@@ -9,7 +9,19 @@ const useEventLogging = () => {
 	 * @param {string|null|undefined} actionSubtype
 	 * @param {string|null|undefined} actionSource
 	 * @param {string|null|undefined} actionContext
-	 * @param {{source_id, source_title, source_type, source_language, target_id, target_title, target_language, translatable_count, translated_count, modification_rate, is_mint_available}} translationContext
+	 * @param {{
+	 *  source_id,
+	 *  source_title,
+	 *  source_type,
+	 *  source_language,
+	 *  target_id,
+	 *  target_title,
+	 *  target_language,
+	 *  translatable_count,
+	 *  translated_count,
+	 *  modification_rate,
+	 *  is_mint_available
+	 * }} translationContext
 	 */
 	const logEvent = (
 		action,

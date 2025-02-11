@@ -55,6 +55,7 @@ const useRouter = require( './useRouter.js' );
 const useSearch = require( './useSearch.js' );
 const useEventLogging = require( './useEventLogging.js' );
 const MwSpinner = require( './MwSpinner.vue' );
+const PageSearchResult = require( './pageSearchResult.js' );
 
 // @vue/component
 module.exports = defineComponent( {

@@ -1,5 +1,7 @@
 'use strict';
 
+const PageSearchResult = require( './pageSearchResult.js' );
+
 const useUrlHelper = () => {
 	/**
 	 * @return {{page: string, sourceLanguage: string, targetLanguage: string, step: string}}
