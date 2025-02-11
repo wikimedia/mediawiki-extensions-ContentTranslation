@@ -138,7 +138,12 @@ const clearSectionURLParameter = () => {
 
 const setUrlParam = (param, value) => {
   const params = new URLSearchParams(location.search);
-  params.set(param, value);
+
+  if (value === null || value === undefined) {
+    params.delete(param);
+  } else {
+    params.set(param, value);
+  }
   params.delete("title");
   replaceUrl(Object.fromEntries(params));
 };
