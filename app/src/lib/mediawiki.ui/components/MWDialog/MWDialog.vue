@@ -8,12 +8,12 @@
       tabindex="0"
       role="dialog"
       aria-modal="true"
-      @keyup.esc="closeOnEscapeKey && close"
+      @keyup.esc="closeOnEscapeKey && close()"
     >
       <div
         class="mw-ui-dialog__overlay"
         :class="overlayClasses"
-        @click="!persistent && close"
+        @click="!persistent && close()"
       />
       <div class="mw-ui-dialog__shell items-stretch">
         <slot v-if="header" name="header">
