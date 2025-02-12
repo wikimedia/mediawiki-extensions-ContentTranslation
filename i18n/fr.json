@@ -76,7 +76,7 @@
 	"cx-source-view-page": "afficher la page",
 	"cx-target-view-page": "afficher la page",
 	"cx-publish-page-success": "Page publiée sur $1",
-	"cx-publish-error-abuse-filter": "Les filtres de modification automatique ont identifié un contenu problématique dans votre traduction. Filtre  concerné : $1",
+	"cx-publish-error-abuse-filter": "Les filtres de modification automatique ont identifié un contenu problématique dans votre traduction. Filtre concerné : $1",
 	"cx-publish-error-empty": "Le serveur a répondu avec aucune donnée.",
 	"cx-publish-error-readonly": "Aucune écriture n’est autorisée dans le wiki.",
 	"cx-publish-error-spam-blacklist": "Un contenu potentiellement de pourriel a été détecté dans votre traduction. Détails : $1",
