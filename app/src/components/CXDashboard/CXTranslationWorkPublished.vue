@@ -45,8 +45,8 @@ const { isDesktop } = useDevice();
 const {
   setTranslationURLParams,
   setSectionURLParam,
-  sourceLanguageURLParam: sourceLanguage,
-  targetLanguageURLParam: targetLanguage,
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
 
 const openTargetPage = () => {
