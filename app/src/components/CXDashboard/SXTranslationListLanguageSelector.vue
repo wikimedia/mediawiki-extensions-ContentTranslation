@@ -200,8 +200,9 @@ const allLanguagesSelectedAsTarget = computed(
   .mw-ui-dialog.mw-ui-dialog--dialog {
     .mw-ui-dialog__shell {
       position: absolute;
-      top: 10vh;
-      left: 25vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       min-width: ~"min(50vw, 600px)";
       min-height: 50vh;
       max-height: 75vh;
