@@ -1,6 +1,5 @@
 import { useDraftTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import { useRouter } from "vue-router";
-import useApplicationState from "@/composables/useApplicationState";
 import useEventLogging from "@/composables/useEventLogging";
 import { useStore } from "vuex";
 import translatorApi from "@/wiki/cx/api/translator";
@@ -22,7 +21,10 @@ const useDraftTranslationStart = () => {
   const store = useStore();
   const router = useRouter();
   const { currentSourcePage } = useCurrentPages();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
   const updateLanguagePair = useDraftTranslationLanguagePairUpdate();
   const resolvePageContentReferences = useContentReferencesResolve();
 
