@@ -130,7 +130,7 @@ const goToDashboard = () => {
 
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const clearPendingSaveRequests = usePendingSaveRequestsClear();
-const { clearURLParameters } = useURLHandler();
+const { clearTranslationURLParameters } = useURLHandler();
 const { currentTranslation } = useCurrentDraftTranslation();
 
 const doGoToDashboard = async () => {
@@ -144,7 +144,7 @@ const doGoToDashboard = async () => {
   // Log the "editor_close" event before clearing URL params
   logEditorCloseEvent();
   // Remove URL params so that section translation doesn't restart, leading to endless loop
-  clearURLParameters();
+  clearTranslationURLParameters();
   clearPendingSaveRequests();
   await router.push({ name: "dashboard" });
 };

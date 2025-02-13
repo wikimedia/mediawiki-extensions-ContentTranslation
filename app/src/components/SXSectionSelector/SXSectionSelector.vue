@@ -46,11 +46,11 @@ const viewArticleItems = computed(() => [
 
 const router = useRouter();
 
-const { clearURLParameters, setSectionURLParam } = useURLHandler();
+const { clearTranslationURLParameters, setSectionURLParam } = useURLHandler();
 
 const goToDashboard = () => {
   // Remove URL params so that section translation doesn't restart, leading to endless loop
-  clearURLParameters();
+  clearTranslationURLParameters();
   router.push({ name: "dashboard" });
 };
 

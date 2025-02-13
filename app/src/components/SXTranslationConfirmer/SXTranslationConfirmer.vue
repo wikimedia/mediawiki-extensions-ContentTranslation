@@ -28,7 +28,7 @@ const {
   targetLanguageURLParameter: targetLanguage,
   pageURLParameter: sourcePageTitle,
   sectionURLParameter: sectionTitle,
-  setPageURLParam,
+  clearTranslationURLParameters,
 } = useURLHandler();
 const articleImageSource = computed(
   () => currentSourcePage.value?.image?.source
@@ -65,9 +65,8 @@ store.dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage.value);
 const router = useRouter();
 
 const onClose = () => {
-  // Remove 'page' URL params so that section translation doesn't restart, leading to endless loop
-  setPageURLParam(null);
-
+  // Remove translation URL params so that section translation doesn't restart, leading to endless loop
+  clearTranslationURLParameters();
   router.push({ name: previousRoute.value });
 };
 

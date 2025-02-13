@@ -165,26 +165,17 @@ const setLanguageURLParams = (sourceLanguage, targetLanguage) => {
   replaceUrl(Object.fromEntries(params));
 };
 
-/**
- * @param {string[]} excludedParams
- */
-const clearURLParameters = (excludedParams = ["active-list"]) => {
-  for (const parameterName in parametersMap) {
-    if (excludedParams.includes(parameterName)) {
-      continue;
-    }
-    parametersMap[parameterName].value = null;
-  }
+const clearTranslationURLParameters = () => {
+  const urlParams = new URLSearchParams(location.search);
 
-  const params = excludedParams.reduce(
-    (tempParams, paramName) => ({
-      ...tempParams,
-      [paramName]: parametersMap[paramName].value,
-    }),
-    {}
-  );
-
-  replaceUrl(params);
+  pageURLParameter.value = null;
+  sectionURLParameter.value = null;
+  draftURLParameter.value = null;
+  urlParams.delete("page");
+  urlParams.delete("section");
+  urlParams.delete("draft");
+  urlParams.delete("title");
+  replaceUrl(Object.fromEntries(urlParams));
 };
 
 const useURLHandler = () => {
@@ -193,7 +184,7 @@ const useURLHandler = () => {
     setSectionURLParam,
     setTranslationURLParams,
     initializeURLState,
-    clearURLParameters,
+    clearTranslationURLParameters,
     clearSectionURLParameter,
     setUrlParam,
     getUrlParam,
