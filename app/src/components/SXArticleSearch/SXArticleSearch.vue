@@ -49,6 +49,7 @@ const {
 } = useURLHandler();
 const { supportedLanguageCodes } = useMediaWikiState();
 
+const { getSuggestedSourceLanguages } = useSuggestedSourceLanguages();
 /**
  * Array of suggested language codes based on a list of criteria.
  * Based on mw.uls.getFrequentLanguageList
@@ -56,11 +57,7 @@ const { supportedLanguageCodes } = useMediaWikiState();
  *
  * @type {ComputedRef<string[]>}
  */
-const suggestedSourceLanguages = useSuggestedSourceLanguages(
-  sourceLanguage,
-  targetLanguage,
-  previousLanguages
-);
+const suggestedSourceLanguages = getSuggestedSourceLanguages(previousLanguages);
 /**
  * Quick list of languages to select from based on previous selections.
  * This is a computed property since the list should be updated when a new

@@ -24,17 +24,17 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-jest.mock("../../wiki/mw/api/page", () => {
+jest.mock("@/wiki/mw/api/page", () => {
   return {
     searchPagesByTitlePrefix: jest.fn(() => Promise.resolve(mockResults)),
   };
 });
 
-jest.mock("../../wiki/cx/api/translator", () => ({
+jest.mock("@/wiki/cx/api/translator", () => ({
   fetchTranslations: jest.fn(() => Promise.resolve([])),
 }));
 
-jest.mock("../../composables/useLanguageHelper", () => {
+jest.mock("@/composables/useLanguageHelper", () => {
   return {
     useSuggestionListLanguagePairUpdate: jest.fn(),
     useApplicationLanguagesInitialize: jest.fn(() => () => Promise.resolve()),
@@ -43,7 +43,7 @@ jest.mock("../../composables/useLanguageHelper", () => {
 
 const mockStartTranslation = jest.fn();
 jest.mock(
-  "../../composables/useTranslationStart",
+  "@/composables/useTranslationStart",
   () => () => mockStartTranslation
 );
 jest.mock("./useSuggestedSourceLanguages", () => jest.fn());
@@ -55,16 +55,15 @@ jest.mock("@/composables/useURLHandler", () => () => ({
   targetLanguageURLParameter: mockTargetLanguage,
 }));
 
-const getLocalStorageItem = jest.fn((item) => JSON.stringify(["bn"]));
+const getLocalStorageItem = jest.fn(() => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
 getItemSpy.mockImplementation(getLocalStorageItem);
-jest.mock("../../store", () => jest.requireActual("./articleSearchMockStore"));
+jest.mock("@/store", () => jest.requireActual("./articleSearchMockStore"));
 
-const mockUseSuggestedSourceLanguages = (
-  sourceLanguage,
-  targetLanguage,
-  previousLanguages
-) => computed(() => [...previousLanguages.value, "ar", "ko"]);
+const mockUseSuggestedSourceLanguages = () => ({
+  getSuggestedSourceLanguages: (previousLanguages) =>
+    computed(() => [...previousLanguages.value, "ar", "ko"]),
+});
 
 useSuggestedSourceLanguages.mockImplementation(mockUseSuggestedSourceLanguages);
 

@@ -1,5 +1,21 @@
-import { ref } from "vue";
+import { createApp, ref } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
+import { createStore } from "vuex";
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+  targetLanguageURLParameter: { value: "es" },
+}));
+
+const store = createStore({
+  modules: {
+    mediawiki: {
+      state: {
+        supportedLanguageCodes: ["aa", "ab", "ar", "ig", "fr", "it", "ja"],
+      },
+    },
+  },
+});
 
 Object.defineProperty(global.navigator, "language", {
   value: "ar-dz",
@@ -19,17 +35,32 @@ mw.config.get = (name) => {
     return ["it-ch", "ja"];
   }
 };
+
+const mockLoadComposableInApp = (composable) => {
+  let result;
+  const app = createApp({
+    setup() {
+      result = composable();
+
+      // suppress missing template warning
+      return () => {};
+    },
+  });
+  app.use(store);
+  app.mount(document.createElement("div"));
+
+  return { result, app };
+};
+
 describe("useSuggestedSourceLanguages test", () => {
+  const data = mockLoadComposableInApp(() => useSuggestedSourceLanguages());
+  const { getSuggestedSourceLanguages } = data.result;
+
   it(`should return a computed property containing wgUserLanguage, wgContentLanguage, browser language, previous
     languages and browser accept-languages except for current source and target languages`, () => {
     const previousLanguages = ref(["ig", "fr"]);
-    const sourceLanguage = ref("en");
-    const targetLanguage = ref("es");
-    const suggestedSourceLanguages = useSuggestedSourceLanguages(
-      sourceLanguage,
-      targetLanguage,
-      previousLanguages
-    );
+    const suggestedSourceLanguages =
+      getSuggestedSourceLanguages(previousLanguages);
     expect(suggestedSourceLanguages.value).toStrictEqual([
       "aa",
       "ab",
