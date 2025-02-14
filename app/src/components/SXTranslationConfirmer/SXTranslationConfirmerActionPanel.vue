@@ -101,7 +101,14 @@ const shouldDisplayMoreSectionsButton = computed(() => {
     !!sectionSuggestion.value?.sourceSections?.length
   );
 });
+
 const { targetPageExists } = useLanguageTitleGroup();
+
+const shouldDisplayNewTranslationButton = computed(() => {
+  return (
+    !preFilledSectionTitle.value && targetPageExists.value && isDesktop.value
+  );
+});
 </script>
 
 <template>
@@ -153,7 +160,7 @@ const { targetPageExists } = useLanguageTitleGroup();
           {{ $i18n("cx-sx-translation-confirmer-more-sections-button-label") }}
         </cdx-button>
       </mw-col>
-      <mw-col v-if="targetPageExists && isDesktop" shrink class="me-4">
+      <mw-col v-if="shouldDisplayNewTranslationButton" shrink class="me-4">
         <cdx-button size="large" @click="onStartNewTranslationClick">
           {{
             $i18n(
