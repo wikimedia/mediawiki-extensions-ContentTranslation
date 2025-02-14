@@ -2,6 +2,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import siteApi from "@/wiki/mw/api/site";
 import { useStore } from "vuex";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * This method returns a function which checks for already existing MT providers
@@ -12,7 +13,10 @@ import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
  */
 const useMTProvidersFetch = () => {
   const store = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
 
   return async () => {
     if (
@@ -42,8 +46,11 @@ const useMTProvidersFetch = () => {
  */
 const useMTProvidersInitialize = () => {
   const store = useStore();
-  const { currentMTProvider, sourceLanguage, targetLanguage } =
-    useApplicationState(store);
+  const { currentMTProvider } = useApplicationState(store);
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
   const fetchMTProviders = useMTProvidersFetch();
 
   return async () => {
