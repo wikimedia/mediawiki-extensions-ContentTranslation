@@ -15,7 +15,6 @@ const mockStore = createStore({
       namespaced: true,
       state: {
         currentMTProvider: "Apertium",
-        targetLanguage: "es",
       },
       mutations: {
         setCurrentMTProvider: (state, provider) => {
@@ -25,6 +24,12 @@ const mockStore = createStore({
     },
   },
 });
+
+const mockTargetLanguage = ref("es");
+
+jest.mock("@/composables/useURLHandler", () => () => ({
+  targetLanguageURLParameter: mockTargetLanguage,
+}));
 
 const mockValues = {
   sourceSection: ref({ isSelectedTranslationUnitLast: false }),

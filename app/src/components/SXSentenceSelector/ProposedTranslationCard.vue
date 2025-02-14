@@ -11,6 +11,7 @@ import { useStore } from "vuex";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconEdit } from "@wikimedia/codex-icons";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useURLHandler from "@/composables/useURLHandler";
 
 defineEmits(["edit-translation", "configure-options", "retry-translation"]);
 
@@ -18,7 +19,9 @@ const headerAndFooterHeight = ref(0);
 const header = ref(null);
 const footer = ref(null);
 const store = useStore();
-const { currentMTProvider, targetLanguage } = useApplicationState(store);
+const { currentMTProvider } = useApplicationState(store);
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+
 const { sourceSection, currentProposedTranslation } = useCurrentPageSection();
 
 const mtRequestPending = computed(() =>
