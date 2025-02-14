@@ -22,6 +22,12 @@ const useSearchArticles = (sourceLanguage, searchInput) => {
   );
 
   const debouncedSearchForArticles = debounce(async () => {
+    if (!searchInput.value) {
+      searchResultsLoading.value = false;
+
+      return;
+    }
+
     try {
       /** @type {Page[]} */
       searchResults.value = await pageApi.searchPagesByTitlePrefix(
