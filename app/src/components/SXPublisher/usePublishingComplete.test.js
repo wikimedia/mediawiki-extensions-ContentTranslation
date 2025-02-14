@@ -1,9 +1,10 @@
 import usePublishingComplete from "./usePublishingComplete";
 import siteApi from "@/wiki/mw/api/site";
-import { createApp, ref } from "vue";
+import { ref } from "vue";
 import PageSection from "@/wiki/cx/models/pageSection";
 import { createStore } from "vuex";
 import Page from "@/wiki/mw/models/page";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 const mockValues = {
   sourceSection: ref(new PageSection({ isLeadSection: true })),
@@ -33,29 +34,13 @@ const store = createStore({
   },
 });
 
-const mockLoadComposableInApp = (composable) => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = composable();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(store);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
-};
-
 jest.mock("@/wiki/mw/api/site", () => ({
   addWikibaseLink: jest.fn(),
 }));
 Object.defineProperty(window, "location", { value: {}, writable: true });
 
 describe("test `usePublishingComplete` composable", () => {
-  const data = mockLoadComposableInApp(() => usePublishingComplete());
+  const data = loadTestComposable(() => usePublishingComplete(), [store]);
   const completePublishing = data.result;
   const targetURL = "test_target_url";
   it("should call addWikibaseLink when source title is main namespace", async () => {

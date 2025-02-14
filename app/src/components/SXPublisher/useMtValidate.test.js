@@ -1,8 +1,9 @@
 import PageSection from "@/wiki/cx/models/pageSection";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createStore } from "vuex";
-import { createApp, ref } from "vue";
+import { ref } from "vue";
 import useMtValidate from "@/components/SXPublisher/useMtValidate";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 jest.mock("@/utils/publishHelper", () => {});
 
@@ -40,24 +41,8 @@ const store = createStore({
   },
 });
 
-const mockLoadComposableInApp = (composable) => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = composable();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(store);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
-};
-
 describe("vuex store validateMT action test", () => {
-  const data = mockLoadComposableInApp(() => useMtValidate());
+  const data = loadTestComposable(() => useMtValidate(), [store]);
   const validateMT = data.result;
 
   it("should not add any publish feedback messages when: validation score (distance) > 15 (publishing threshold)", async () => {

@@ -3,8 +3,9 @@ import SubSection from "@/wiki/cx/models/subSection";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import translatorApi from "@/wiki/cx/api/translator";
 import { createStore } from "vuex";
-import { createApp, ref } from "vue";
+import { ref } from "vue";
 import useTranslationSave from "@/composables/useTranslationSave";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 jest.mock("@/wiki/cx/api/translator", () => ({
   saveTranslation: jest.fn(() => Promise.resolve()),
@@ -73,24 +74,8 @@ const store = createStore({
   },
 });
 
-const mockLoadComposableInApp = (composable) => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = composable();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(store);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
-};
-
 describe("Test 'useTranslationSave' composable", () => {
-  const data = mockLoadComposableInApp(() => useTranslationSave());
+  const data = loadTestComposable(() => useTranslationSave(), [store]);
   const saveTranslation = data.result;
 
   it("should add the translation units to the payload", async () => {

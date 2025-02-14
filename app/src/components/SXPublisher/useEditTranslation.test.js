@@ -5,9 +5,9 @@ import SubSection from "@/wiki/cx/models/subSection";
 import PageSection from "@/wiki/cx/models/pageSection";
 import Page from "@/wiki/mw/models/page";
 import useEditTranslation from "./useEditTranslation";
-import { createApp } from "vue";
 import mediawikiGetters from "@/store/modules/mediawiki/getters";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 const routerPushSpy = jest.spyOn(router, "push").mockImplementation(() => {});
 
@@ -111,26 +111,12 @@ jest.mock("@/composables/useURLHandler", () => () => ({
   sectionURLParameter: { value: "My useEditTranslation section title" },
 }));
 
-const mockLoadComposableInApp = (composable) => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = composable();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(router);
-  app.use(mockStore);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
-};
-
 describe("Test `useEditTranslation` composable", () => {
   it('should navigate to "sx-editor" route with the proper parameters', function () {
-    const data = mockLoadComposableInApp(() => useEditTranslation());
+    const data = loadTestComposable(
+      () => useEditTranslation(),
+      [router, mockStore]
+    );
     const editTranslation = data.result;
     editTranslation();
 

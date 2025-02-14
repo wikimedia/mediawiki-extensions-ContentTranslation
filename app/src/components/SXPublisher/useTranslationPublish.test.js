@@ -4,8 +4,9 @@ import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
 import { createStore } from "vuex";
-import { createApp, ref } from "vue";
+import { ref } from "vue";
 import useTranslationPublish from "./useTranslationPublish";
+import { loadTestComposable } from "@/utils/loadTestComposable";
 
 const mockErrorResult = {
   publishFeedbackMessage: new PublishFeedbackMessage({
@@ -121,24 +122,8 @@ const mockSaveTranslation = jest.fn(() => {
 });
 jest.mock("@/composables/useTranslationSave", () => () => mockSaveTranslation);
 
-const mockLoadComposableInApp = (composable) => {
-  let result;
-  const app = createApp({
-    setup() {
-      result = composable();
-
-      // suppress missing template warning
-      return () => {};
-    },
-  });
-  app.use(mockStore);
-  app.mount(document.createElement("div"));
-
-  return { result, app };
-};
-
 describe(" test `useTranslationPublish` composable", () => {
-  const data = mockLoadComposableInApp(() => useTranslationPublish());
+  const data = loadTestComposable(() => useTranslationPublish(), [mockStore]);
   const { doPublish } = data.result;
 
   it("should dispatch 'saveTranslation' action", async () => {
