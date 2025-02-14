@@ -14,6 +14,8 @@ import { cdxIconReload } from "@wikimedia/codex-icons";
 import useSuggestionsBookmark from "@/composables/useSuggestionsBookmark";
 import useDashboardSuggestionEventSource from "@/composables/useDashboardSuggestionEventSource";
 import useURLHandler from "@/composables/useURLHandler";
+import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
+import { useStore } from "vuex";
 
 const props = defineProps({
   active: {
@@ -64,7 +66,6 @@ const {
   onSuggestionRefresh,
   pageSuggestionsLoading,
   sectionSuggestionsLoading,
-  showRefreshButton,
   isCurrentPageSuggestionsSliceFull,
   isCurrentSectionSuggestionsSliceFull,
 } = useSuggestions();
@@ -89,6 +90,54 @@ const breakpoints = inject("breakpoints");
 const isMobile = computed(() => breakpoints.value.mobile);
 const headerWrapperClass = computed(() =>
   isMobile.value ? null : "pb-2 flex justify-between items-center"
+);
+
+const store = useStore();
+
+const isPageSuggestionsFetchPending = computed(
+  () => store.state.suggestions.isPageSuggestionsFetchPending
+);
+const isSectionSuggestionsFetchPending = computed(
+  () => store.state.suggestions.isSectionSuggestionsFetchPending
+);
+
+const showPageSuggestionLoadingIndicator = computed(
+  () =>
+    isPageSuggestionsFetchPending.value ||
+    (pageSuggestionsLoading.value && !isCurrentPageSuggestionsSliceFull.value)
+);
+
+const showSectionSuggestionLoadingIndicator = computed(
+  () =>
+    isSectionSuggestionsFetchPending.value ||
+    (sectionSuggestionsLoading.value &&
+      !isCurrentSectionSuggestionsSliceFull.value)
+);
+
+const showPageSuggestionsList = computed(
+  () =>
+    isPageSuggestionsFetchPending.value ||
+    pageSuggestionsLoading.value ||
+    currentPageSuggestionsSlice.value.length > 0
+);
+const showSectionSuggestionsList = computed(
+  () =>
+    isSectionSuggestionsFetchPending.value ||
+    sectionSuggestionsLoading.value ||
+    currentSectionSuggestionsSlice.value.length > 0
+);
+
+const showEmptyPlaceholder = computed(
+  () => !showPageSuggestionsList.value && !showSectionSuggestionsList.value
+);
+
+const showRefreshButton = computed(
+  () =>
+    !sectionSuggestionsLoading.value &&
+    !pageSuggestionsLoading.value &&
+    !isPageSuggestionsFetchPending.value &&
+    !isSectionSuggestionsFetchPending.value &&
+    !showEmptyPlaceholder.value
 );
 </script>
 
@@ -128,6 +177,7 @@ const headerWrapperClass = computed(() =>
       />
     </mw-card>
     <mw-card
+      v-if="showPageSuggestionsList"
       ref="pageSuggestionsList"
       class="cx-suggestion-list__page-suggestions pa-0 mb-0"
     >
@@ -143,11 +193,12 @@ const headerWrapperClass = computed(() =>
         @click="startTranslation(suggestion)"
         @bookmark="markFavoritePageSuggestion(suggestion)"
       />
-      <mw-spinner
-        v-if="pageSuggestionsLoading && !isCurrentPageSuggestionsSliceFull"
-      />
+      <mw-spinner v-if="showPageSuggestionLoadingIndicator" />
     </mw-card>
-    <mw-card class="cx-suggestion-list__section-suggestions pa-0 mb-0">
+    <mw-card
+      v-if="showSectionSuggestionsList"
+      class="cx-suggestion-list__section-suggestions pa-0 mb-0"
+    >
       <h5
         v-i18n:cx-suggestionlist-expand-sections-title
         class="cx-suggestion-list__division-title ma-0 pa-4"
@@ -161,12 +212,13 @@ const headerWrapperClass = computed(() =>
         @click="startTranslation(suggestion)"
         @bookmark="markFavoriteSectionSuggestion(suggestion)"
       />
-      <mw-spinner
-        v-if="
-          sectionSuggestionsLoading && !isCurrentSectionSuggestionsSliceFull
-        "
-      />
+      <mw-spinner v-if="showSectionSuggestionLoadingIndicator" />
     </mw-card>
+    <cx-list-empty-placeholder
+      v-if="showEmptyPlaceholder"
+      :title="$i18n('cx-sx-suggestion-list-empty-title')"
+      :description="$i18n('cx-sx-suggestion-list-empty-description')"
+    />
     <div class="cx-suggestion-list__refresh-button-container justify-center">
       <cdx-button
         v-if="showRefreshButton"
@@ -204,6 +256,9 @@ const headerWrapperClass = computed(() =>
   &__division-title {
     background: @background-color-interactive-subtle;
     color: @color-subtle;
+  }
+  .cx-list-empty-placeholder {
+    background-color: @background-color-base;
   }
   &__refresh-button-container {
     background: @background-color-base;

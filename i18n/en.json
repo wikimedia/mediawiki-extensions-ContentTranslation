@@ -589,5 +589,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 articles exist in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 day|$1 days|0=No days}} left",
 	"cx-page-collection-dialog-page-suggestions-header": "New pages",
-	"cx-page-collection-dialog-section-suggestions-header": "New sections"
+	"cx-page-collection-dialog-section-suggestions-header": "New sections",
+	"cx-sx-suggestion-list-empty-title": "No suggestions for now",
+	"cx-sx-suggestion-list-empty-description": "We found no suggestions for this filter. You can try a different filter or search for a specific article to translate."
 }

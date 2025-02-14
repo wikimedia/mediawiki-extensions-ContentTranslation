@@ -609,5 +609,7 @@
 	"cx-page-collection-dialog-existing-target-count": "Text that displays the number of the collection pages present in the target language, in the dialog, that displays information and suggestions for a page collection.\n\nParameters:\n* $1 - the number of the collection pages that exist in the target language \n* $2 - the number of all the collection pages \n* $3 - the target language autonym",
 	"cx-page-collection-dialog-days-left": "Text that displays the number of days left for the event that is related to the page collection, in the dialog, that displays information and suggestions for a page collection.",
 	"cx-page-collection-dialog-page-suggestions-header": "Header text for the section that lists the page suggestions of the page collection, in the dialog, that displays information and suggestions for a page collection.",
-	"cx-page-collection-dialog-section-suggestions-header": "Header text for the section that lists the section suggestions of the page collection, in the dialog, that displays information and suggestions for a page collection."
+	"cx-page-collection-dialog-section-suggestions-header": "Header text for the section that lists the section suggestions of the page collection, in the dialog, that displays information and suggestions for a page collection.",
+	"cx-sx-suggestion-list-empty-title": "Title text shown when there is no suggestion to show for the current filter",
+	"cx-sx-suggestion-list-empty-description": "A brief description shown when there is no suggestion to show for the current filter"
 }

@@ -29,6 +29,8 @@ const useSuggestionsInitialize = () => {
   const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
   return async () => {
+    store.commit("suggestions/setIsSectionSuggestionsFetchPending", true);
+
     /** @type {SectionSuggestion[]} */
     const firstSectionSuggestionsSlice = getSectionSuggestionsSliceByIndex(0);
 

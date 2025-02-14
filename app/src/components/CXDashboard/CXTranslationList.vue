@@ -7,8 +7,7 @@ import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelect
 import { ref, computed, inject } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
-import { CdxIcon } from "@wikimedia/codex";
-import { cdxIconLanguage } from "@wikimedia/codex-icons";
+import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
 
 const props = defineProps({
   activeStatus: {
@@ -134,24 +133,11 @@ const headerWrapperClass = computed(() =>
         />
       </div>
     </template>
-    <div
+    <cx-list-empty-placeholder
       v-if="loaded && !activeTranslations.length"
-      class="cx-translation-list-empty-placeholder pa-4"
-    >
-      <div class="cx-translation-list-empty-placeholder__icon-container">
-        <div class="cx-translation-list-empty-placeholder__icon">
-          <cdx-icon :icon="cdxIconLanguage" />
-        </div>
-      </div>
-      <p
-        v-i18n:cx-sx-translation-list-empty-title
-        class="cx-translation-list-empty-placeholder__title mt-5"
-      ></p>
-      <p
-        v-i18n:cx-sx-translation-list-empty-description
-        class="cx-translation-list-empty-placeholder__description mt-2"
-      ></p>
-    </div>
+      :title="$i18n('cx-sx-translation-list-empty-title')"
+      :description="$i18n('cx-sx-translation-list-empty-description')"
+    />
     <mw-spinner v-if="!loaded" />
     <div v-if="isDraftTranslationList" class="cx-translation-list-wrapper">
       <cx-translation-work-draft
@@ -182,31 +168,5 @@ const headerWrapperClass = computed(() =>
 .cx-translation-list__header {
   border-bottom: @border-style-base @border-width-base @border-color-subtle;
   border-radius: @border-radius-sharp;
-}
-
-.cx-translation-list-empty-placeholder {
-  text-align: center;
-  color: @color-subtle;
-
-  &__icon-container {
-    display: flex;
-    justify-content: center;
-  }
-  &__icon {
-    padding: @spacing-100;
-    background-color: @background-color-disabled;
-    border-radius: @border-radius-circle;
-    line-height: 1;
-    .cdx-icon {
-      height: @size-300;
-      width: @size-300;
-      color: @color-inverted;
-    }
-  }
-  &__title {
-    font-weight: @font-weight-bold;
-    font-size: @size-125;
-    color: @color-subtle;
-  }
 }
 </style>

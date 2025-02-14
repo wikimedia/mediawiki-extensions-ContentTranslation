@@ -24,10 +24,6 @@ const useSuggestions = () => {
     () => store.state.suggestions.pageSuggestionsLoadingCount > 0
   );
 
-  const showRefreshButton = computed(
-    () => !sectionSuggestionsLoading.value && !pageSuggestionsLoading.value
-  );
-
   /**
    * Current index of section suggestions slice to be displayed inside the Dashboard
    * @type {Ref<number>}
@@ -194,7 +190,6 @@ const useSuggestions = () => {
     onSuggestionRefresh,
     pageSuggestionsLoading,
     sectionSuggestionsLoading,
-    showRefreshButton,
     getSectionSuggestionsSliceByIndex,
     getPageSuggestionsSliceByIndex,
     isCurrentPageSuggestionsSliceFull,

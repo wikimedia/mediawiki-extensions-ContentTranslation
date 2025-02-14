@@ -58,4 +58,10 @@ export default {
         favorite.targetLanguage !== targetLanguage
     );
   },
+  setIsPageSuggestionsFetchPending(state, value) {
+    state.isPageSuggestionsFetchPending = value;
+  },
+  setIsSectionSuggestionsFetchPending(state, value) {
+    state.isSectionSuggestionsFetchPending = value;
+  },
 };

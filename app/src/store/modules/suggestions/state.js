@@ -7,6 +7,24 @@ export default {
   /** @type FavoriteSuggestion[] */
   favorites: [],
   /**
+   * Boolean indicating that the page suggestions fetching is pending.
+   * This means we expect the fetching process to begin shortly, but
+   * it has not started yet.
+   *
+   * Useful during dashboard initialization or language pair update.
+   * @type {boolean}
+   */
+  isPageSuggestionsFetchPending: true,
+  /**
+   * Boolean indicating that the section suggestions fetching is pending.
+   * This means we expect the fetching process to begin shortly, but
+   * it has not started yet.
+   *
+   * Useful during dashboard initialization or language pair update.
+   * @type {boolean}
+   */
+  isSectionSuggestionsFetchPending: true,
+  /**
    * Counter that indicates how many section suggestion fetching
    * requests are currently in progress
    * @type {number}

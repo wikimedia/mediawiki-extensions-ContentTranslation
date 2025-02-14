@@ -75,6 +75,7 @@ const useSuggestionsFetch = () => {
    * @returns {Promise<void>}
    */
   const fetchNextPageSuggestionsSlice = async () => {
+    store.commit("suggestions/setIsPageSuggestionsFetchPending", false);
     store.commit("suggestions/increasePageSuggestionsLoadingCount");
 
     const numberOfSuggestionsToFetch = getNumberOfPageSuggestionsToFetch();
@@ -100,6 +101,7 @@ const useSuggestionsFetch = () => {
    * @return {Promise<void>}
    */
   const fetchNextSectionSuggestionsSlice = async () => {
+    store.commit("suggestions/setIsSectionSuggestionsFetchPending", false);
     store.commit("suggestions/increaseSectionSuggestionsLoadingCount");
 
     const numberOfSuggestionsToFetch = getNumberOfSectionSuggestionsToFetch();
