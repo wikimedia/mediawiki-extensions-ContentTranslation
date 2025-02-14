@@ -5,11 +5,16 @@ import translatorApi from "@/wiki/cx/api/translator";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useTranslationUnitTranslate = () => {
   const store = useStore();
   const { sourceSection } = useCurrentPageSection();
   const { getCurrentTitleByLanguage } = useLanguageTitleGroup();
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
 
   const setProposedTranslationForTranslationUnitById = (
     id,
@@ -41,10 +46,9 @@ const useTranslationUnitTranslate = () => {
    * @return {Promise<String>}
    */
   const translateContent = async (provider, originalContent) => {
-    const { sourceLanguage, targetLanguage } = store.state.application;
     const isValidProvider = store.getters[
       "mediawiki/isValidProviderForTranslation"
-    ](sourceLanguage, targetLanguage, provider);
+    ](sourceLanguage.value, targetLanguage.value, provider);
 
     if (!isValidProvider) {
       return "";
@@ -54,8 +58,8 @@ const useTranslationUnitTranslate = () => {
       const token = await store.dispatch("application/getCXServerToken");
 
       return await translatorApi.fetchSegmentTranslation(
-        sourceLanguage,
-        targetLanguage,
+        sourceLanguage.value,
+        targetLanguage.value,
         provider,
         originalContent,
         token
@@ -79,8 +83,6 @@ const useTranslationUnitTranslate = () => {
    * @param {string} provider
    */
   const translateTranslationUnitById = async (id, provider) => {
-    const { sourceLanguage, targetLanguage } = store.state.application;
-
     if (
       sourceSection.value.hasProposedTranslationByTranslationUnitId(
         id,
@@ -123,8 +125,8 @@ const useTranslationUnitTranslate = () => {
 
       const translationHtml = await renderTemplateFromCXServer(
         proposedTranslation,
-        getCurrentTitleByLanguage(targetLanguage, sourceLanguage),
-        targetLanguage
+        getCurrentTitleByLanguage(targetLanguage.value, sourceLanguage.value),
+        targetLanguage.value
       );
       proposedTranslation = translationHtml || "";
     }
@@ -147,10 +149,9 @@ const useTranslationUnitTranslate = () => {
    * action.
    */
   const translateSelectedTranslationUnitForAllProviders = () => {
-    const { sourceLanguage, targetLanguage } = store.state.application;
     const mtProviders = store.getters["mediawiki/getSupportedMTProviders"](
-      sourceLanguage,
-      targetLanguage
+      sourceLanguage.value,
+      targetLanguage.value
     );
     const { selectedTranslationUnitId: id } = sourceSection.value;
 
