@@ -1,5 +1,5 @@
 import { useStore } from "vuex";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import pageApi from "@/wiki/mw/api/page";
 import SuggestionSeedCollection from "@/wiki/cx/models/suggestionSeedCollection";
@@ -13,7 +13,21 @@ const sectionSuggestionSeedCollections = ref([]);
 let publishedTranslationsReturned = false;
 let previousEditsInSourceLoaded = false;
 let previousEditsInTargetLoaded = false;
-let defaultSeedsFetched = ref(false);
+/**
+ * An array of language pairs, for which the default seeds have been fetched
+ * @type {Ref<{ sourceLanguage: string, targetLanguage: string}[]>}
+ */
+let defaultSeedsFetchedByLanguages = ref([]);
+
+const addLanguagePairToDefaultSeedsFetched = (
+  sourceLanguage,
+  targetLanguage
+) => {
+  defaultSeedsFetchedByLanguages.value.push({
+    sourceLanguage,
+    targetLanguage,
+  });
+};
 let ongoingStoreEditSeedsPromise = null;
 
 const seedCollections = {
@@ -27,7 +41,7 @@ const seedCollections = {
  * seeds can be fetched (e.g. current user has no edits), a seed based
  * on published translations with CX, is returned.
  *
- * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), defaultSeedsFetched: Ref<boolean>}}
+ * @return {{getSuggestionSeed: (function(string): Promise<string|undefined>), defaultSeedsFetched: ComputedRef<boolean>}}
  */
 const useSuggestionPreviousEditsSeeds = () => {
   const store = useStore();
@@ -35,6 +49,17 @@ const useSuggestionPreviousEditsSeeds = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
+
+  /**
+   * @type {ComputedRef<boolean>}
+   */
+  const defaultSeedsFetched = computed(() =>
+    defaultSeedsFetchedByLanguages.value.some(
+      (languagePair) =>
+        languagePair.sourceLanguage === sourceLanguage.value &&
+        languagePair.targetLanguage === targetLanguage.value
+    )
+  );
 
   /**
    * This method fetches seeds based on the following order:
@@ -99,6 +124,10 @@ const useSuggestionPreviousEditsSeeds = () => {
     return null;
   };
 
+  /**
+   * @param {"page"|"section"} type
+   * @return {SuggestionSeedCollection}
+   */
   const getSeedCollection = (type) => {
     let currentSeedCollection = seedCollections[type].value.find((collection) =>
       collection.matchesLanguagePair(sourceLanguage.value, targetLanguage.value)
@@ -184,7 +213,10 @@ const useSuggestionPreviousEditsSeeds = () => {
     if (!seed && !defaultSeedsFetched.value) {
       await storeDefaultSeeds();
       seed = currentSeedCollection.shiftSeeds();
-      defaultSeedsFetched.value = true;
+      addLanguagePairToDefaultSeedsFetched(
+        sourceLanguage.value,
+        targetLanguage.value
+      );
     }
 
     return seed;
