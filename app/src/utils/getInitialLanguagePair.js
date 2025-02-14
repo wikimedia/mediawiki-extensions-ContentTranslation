@@ -51,34 +51,27 @@ const getInitialLanguagePair = (
     targetLanguage: "es",
   };
 
-  let targetLanguage;
+  const candidateTargetLanguages = [
+    targetLanguageURLParameter.value,
+    mw.storage.get("cxTargetLanguage"),
+    wikiLanguage,
+    enabledTargetLanguages?.[0] || defaultLanguages.targetLanguage,
+  ];
 
-  if (
-    targetLanguageURLParameter.value &&
-    isEnabledLanguage(targetLanguageURLParameter.value) &&
-    isSupportedLanguage(targetLanguageURLParameter.value)
-  ) {
-    targetLanguage = targetLanguageURLParameter.value;
-  } else if (
-    isEnabledLanguage(wikiLanguage) &&
-    isSupportedLanguage(wikiLanguage)
-  ) {
-    targetLanguage = wikiLanguage;
-  } else {
-    targetLanguage =
-      enabledTargetLanguages?.[0] || defaultLanguages.targetLanguage;
-  }
-
-  const defaultSourceLanguages = [
+  const candidateSourceLanguages = [
     sourceLanguageURLParameter.value,
+    mw.storage.get("cxSourceLanguage"),
     defaultLanguages.sourceLanguage,
     wikiLanguage,
     defaultLanguages.targetLanguage,
   ];
 
-  let sourceLanguage = defaultSourceLanguages
-    .filter((language) => isSupportedLanguage(language))
-    .find((language) => language !== targetLanguage);
+  const targetLanguage = candidateTargetLanguages.find(
+    (language) => isEnabledLanguage(language) && isSupportedLanguage(language)
+  );
+  const sourceLanguage = candidateSourceLanguages.find(
+    (language) => isSupportedLanguage(language) && language !== targetLanguage
+  );
 
   return { sourceLanguage, targetLanguage };
 };
