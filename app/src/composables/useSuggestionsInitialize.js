@@ -6,7 +6,7 @@ import useURLHandler from "@/composables/useURLHandler";
 /**
  * This action initialize the page and section suggestions
  * inside SX Dashboard. This action is dispatched whenever
- * the user visits the dashboard, regardless if its the first
+ * the user visits the dashboard, regardless if it's the first
  * time for this session or not. If suggestions are properly
  * already initialized, then both page and section suggestion
  * slices should be full. In this case (if both suggestion
@@ -16,7 +16,7 @@ import useURLHandler from "@/composables/useURLHandler";
  * needed during suggestion fetching) and the next slices for
  * both section and page suggestions are fetched.
  *
- * @return {Promise<void>}
+ * @return {function: Promise<void>}
  */
 const useSuggestionsInitialize = () => {
   const store = useStore();
