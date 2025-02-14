@@ -33,18 +33,8 @@ export default () => {
   const redirectToCX = useCXRedirect();
 
   const startPrefilledSectionTranslation = async () => {
-    if (isDesktop.value) {
-      logDashboardTranslationStartEvent();
-      redirectToCX(
-        sourceLanguage.value,
-        targetLanguage.value,
-        sourceTitle.value,
-        { sourcesection: preFilledSectionTitle.value }
-      );
-    } else {
-      await selectPageSectionByTitle(preFilledSectionTitle.value);
-      router.push({ name: "sx-content-comparator", query: { force: true } });
-    }
+    await selectPageSectionByTitle(preFilledSectionTitle.value);
+    router.push({ name: "sx-content-comparator", query: { force: true } });
   };
 
   const startDraftTranslation = useDraftTranslationStart();
