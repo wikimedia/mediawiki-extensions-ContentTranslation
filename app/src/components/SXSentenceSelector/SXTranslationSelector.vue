@@ -2,12 +2,12 @@
 import { MwDialog, MwButton, MwCard } from "@/lib/mediawiki.ui";
 import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
 import { mwIconClose } from "@/lib/mediawiki.ui/components/icons";
-import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { getDir } from "@wikimedia/language-data";
 import { useStore } from "vuex";
 import useMTProviderUpdate from "./useMTProviderUpdate";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   active: {
@@ -27,7 +27,10 @@ const {
   isSectionTitleSelected,
   selectedContentTranslationUnit,
 } = useCurrentPageSection();
-const { sourceLanguage, targetLanguage } = useApplicationState(store);
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+} = useURLHandler();
 
 const mtProviders = computed(() =>
   store.getters["mediawiki/getSupportedMTProviders"](
