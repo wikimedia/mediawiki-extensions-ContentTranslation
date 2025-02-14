@@ -1,7 +1,7 @@
 import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 import useSuggestionsStore from "@/composables/useSuggestionsStore";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * This action initialize the page and section suggestions
@@ -26,9 +26,9 @@ const useSuggestionsInitialize = () => {
   const { getPageSuggestionsSliceByIndex, getSectionSuggestionsSliceByIndex } =
     useSuggestionsStore();
 
-  return async () => {
-    const { targetLanguage } = useApplicationState(store);
+  const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 
+  return async () => {
     /** @type {SectionSuggestion[]} */
     const firstSectionSuggestionsSlice = getSectionSuggestionsSliceByIndex(0);
 
