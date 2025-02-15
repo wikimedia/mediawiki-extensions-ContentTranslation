@@ -114,18 +114,6 @@
 		line-height: 1.2;
 		text-align: justify;
 
-		+ .cx-slitem__meta {
-			.target-ie( {
-				margin-top: 20px;
-			} );
-		}
-
-		&:empty + .cx-slitem__meta {
-			.target-ie( {
-				margin-top: 35px;
-			} );
-		}
-
 		&::before {
 			// This is needed so we can use localized 'ellipsis'
 			content: attr( data-ellipsis );

@@ -1,4 +1,4 @@
-@import 'mediawiki.mixins';
+@import 'mediawiki.mixins.less';
 @import 'mediawiki.skin.variables.less';
 @import 'grid/agora-grid.less';
 
@@ -30,17 +30,13 @@
 
 // Centers flex items vertically
 .flex-center() {
-	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
-	-webkit-box-align: center; // Support 2011 syntax
-	-webkit-align-items: center; // Vendor specific
 	align-items: center; // Modern syntax
 }
 
 // Center vertically and applies justify-content: space-between
 .flex-center-justify() {
 	.flex-center;
-	-webkit-justify-content: space-between; // Safari 6.1-8, iOS Safari 7.1-8.4, Opera 15-16
 	.flex;
 }
 
@@ -48,20 +44,13 @@
 // FIXME: Appears to be unused. Drop?
 /* stylelint-disable-next-line selector-class-pattern */
 .flex-around( @direction: column ) {
-	.flex-display( box );
 	.flex-display;
 	flex-direction: @direction;
-	// Support 2009/2012 syntax that does not support space-around
-	-webkit-box-pack: justify; // iOS 6-, Safari 3.1-6
-	-moz-box-pack: justify; // Firefox 21-
 	justify-content: space-around;
 }
 
 .flex-item() {
-	-webkit-box-flex: 1; // iOS 6-, Safari 3.1-6
-	-moz-box-flex: 1; // Firefox 21-
 	width: auto; // Fallback for flex-basis
-	-webkit-flex: 0 1 auto; // Safari 6.2 - 8
 	flex: 0 1 auto;
 }
 
@@ -83,14 +72,6 @@
 .break-overflowing-word() {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-}
-
-// Target IE11 with @rules
-// Note: This targets IE10 as well, but IE10 isn't supported
-.target-ie( @rules ) {
-	@media screen and ( -ms-high-contrast: active ), ( -ms-high-contrast: none ) {
-		@rules();
-	}
 }
 
 .clearfix() {
