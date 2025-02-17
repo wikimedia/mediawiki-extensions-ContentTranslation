@@ -46,9 +46,4 @@ export default {
    * @type Object - { language1: [titles1], ... }
    */
   appendixSectionTitles: appendixTitles,
-  /**
-   * Maximum number of suggestions based on user's recently edited translations,
-   * to be displayed inside "search for an article" view
-   */
-  maxRecentlyEditedSuggestions: 3,
 };

@@ -43,34 +43,7 @@ export default {
         .getSupportedMTProviders(sourceLanguage, targetLanguage)
         .includes(provider) &&
       provider !== MTProviderGroup.EMPTY_TEXT_PROVIDER_KEY,
-  /**
-   * Get recently edited cx translations by current user if any,
-   * for the current language pair.
-   *
-   * @param {Object} state
-   * @param {Object} rootGetters
-   * @param {Object} getters
-   * @param {Object} rootState
-   * @return {Page[]}
-   */
-  getRecentlyEditedPages: (state, getters, rootState, rootGetters) => {
-    const sourceLanguage = rootState.application.sourceLanguage;
-    const targetLanguage = rootState.application.targetLanguage;
-    /** @type Translation[] */
-    const translations = rootGetters[
-      "translator/getTranslationsForLanguagePair"
-    ](sourceLanguage, targetLanguage);
-    const translationsSlice = translations.slice(
-      0,
-      rootState.suggestions.maxRecentlyEditedSuggestions
-    );
 
-    return translationsSlice
-      .map((translation) =>
-        getters.getPage(sourceLanguage, translation.sourceTitle)
-      )
-      .filter((page) => !!page);
-  },
   /**
    * Get nearby articles (based on user location) in current source language
    *

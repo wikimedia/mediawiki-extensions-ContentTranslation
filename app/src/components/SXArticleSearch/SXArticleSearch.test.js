@@ -6,6 +6,7 @@ import mockStore from "./articleSearchMockStore";
 import { computed, ref } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
+import Page from "@/wiki/mw/models/page";
 
 // Mock matchMedia as per
 // https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
@@ -37,6 +38,42 @@ jest.mock("@/composables/useLanguageHelper", () => {
   return {
     useSuggestionListLanguagePairUpdate: jest.fn(),
     useApplicationLanguagesInitialize: jest.fn(() => () => Promise.resolve()),
+  };
+});
+
+const mockPreviousEditsInSource = ref(["Test page1", "Test page2"]);
+jest.mock("@/composables/useSuggestionPreviousEditsSeeds", () => () => ({
+  fetchPreviousEditsInSource: jest.fn(() => Promise.resolve()),
+  previousEditsInSource: mockPreviousEditsInSource,
+}));
+
+const mockPages = [
+  new Page({
+    thumbnail: { source: "/thumbnail1.jpg" },
+    title: "Test page1",
+    description: "Test description1",
+    langLinksCount: 5,
+  }),
+  new Page({
+    thumbnail: { source: "/thumbnail2.jpg" },
+    title: "Test page2",
+    description: "Test description2",
+    langLinksCount: 10,
+  }),
+];
+
+jest.mock("@/wiki/mw/api/page", () => {
+  return {
+    fetchPages: jest.fn((language, titles) => {
+      if (
+        language === "en" &&
+        JSON.stringify(titles) === JSON.stringify(["Test page1", "Test page2"])
+      ) {
+        return Promise.resolve(mockPages);
+      }
+
+      return Promise.resolve([]);
+    }),
   };
 });
 

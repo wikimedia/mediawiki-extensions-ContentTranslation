@@ -18,6 +18,7 @@ let previousEditsInTargetLoaded = false;
  * @type {Ref<{ sourceLanguage: string, targetLanguage: string}[]>}
  */
 let defaultSeedsFetchedByLanguages = ref([]);
+const previousEditsInSource = ref([]);
 
 const addLanguagePairToDefaultSeedsFetched = (
   sourceLanguage,
@@ -61,6 +62,19 @@ const useSuggestionPreviousEditsSeeds = () => {
     )
   );
 
+  const fetchPreviousEditsInSource = async () => {
+    if (!previousEditsInSourceLoaded) {
+      /** @type {string[]} */
+      previousEditsInSource.value = await cxSuggestionsApi
+        .fetchUserEdits(sourceLanguage.value)
+        .then((titles) => {
+          previousEditsInSourceLoaded = true;
+
+          return titles;
+        });
+    }
+  };
+
   /**
    * This method fetches seeds based on the following order:
    * 1. if user has published translations using CX/SX, use them as seeds
@@ -88,17 +102,10 @@ const useSuggestionPreviousEditsSeeds = () => {
     publishedTranslationsReturned = true;
 
     if (!previousEditsInSourceLoaded) {
-      /** @type {string[]} */
-      const previousEditsInSource = await cxSuggestionsApi
-        .fetchUserEdits(sourceLanguage.value)
-        .then((titles) => {
-          previousEditsInSourceLoaded = true;
+      await fetchPreviousEditsInSource();
 
-          return titles;
-        });
-
-      if (previousEditsInSource.length) {
-        return previousEditsInSource;
+      if (previousEditsInSource.value.length > 0) {
+        return previousEditsInSource.value;
       }
     }
 
@@ -222,7 +229,12 @@ const useSuggestionPreviousEditsSeeds = () => {
     return seed;
   };
 
-  return { getSuggestionSeed, defaultSeedsFetched };
+  return {
+    getSuggestionSeed,
+    defaultSeedsFetched,
+    fetchPreviousEditsInSource,
+    previousEditsInSource,
+  };
 };
 
 export default useSuggestionPreviousEditsSeeds;

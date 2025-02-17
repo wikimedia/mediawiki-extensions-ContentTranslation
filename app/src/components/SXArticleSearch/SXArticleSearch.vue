@@ -16,6 +16,8 @@ import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { CdxButton, CdxIcon, CdxSearchInput } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
 import useTranslationStart from "@/composables/useTranslationStart";
+import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
+import pageApi from "@/wiki/mw/api/page";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -120,9 +122,36 @@ const onSourceLanguageSelected = (updatedSourceLanguage) => {
   updateSelection(updatedSourceLanguage);
 };
 
-const recentlyEditedPages = computed(
-  () => store.getters["mediawiki/getRecentlyEditedPages"]
-);
+const { fetchPreviousEditsInSource, previousEditsInSource } =
+  useSuggestionPreviousEditsSeeds();
+
+const previouslyEditedPages = ref([]);
+
+/** Maximum number of suggestions based on user's recently edited translations */
+const maxRecentlyEditedSuggestions = 3;
+const fetchPagesFromPreviousEditsInSource = () =>
+  fetchPreviousEditsInSource()
+    .then(() => {
+      if (previousEditsInSource.value.length > 0) {
+        return pageApi.fetchPages(
+          sourceLanguage.value,
+          previousEditsInSource.value
+        );
+      }
+
+      return [];
+    })
+    .then((pages) => {
+      pages = pages.slice(0, maxRecentlyEditedSuggestions);
+      // "previousEditsInSource" is sorted with the most recently edited titles first
+      pages = pages.sort(
+        (a, b) =>
+          previousEditsInSource.value.indexOf(a.title) -
+          previousEditsInSource.value.indexOf(b.title)
+      );
+      previouslyEditedPages.value = pages;
+    });
+fetchPagesFromPreviousEditsInSource();
 
 const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
 
@@ -180,9 +209,9 @@ const startTranslation = (page, eventSource) =>
     />
     <template v-if="!searchInput">
       <article-suggestions-card
-        v-if="recentlyEditedPages && recentlyEditedPages.length"
+        v-if="previouslyEditedPages && previouslyEditedPages.length"
         :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
-        :suggestions="recentlyEditedPages"
+        :suggestions="previouslyEditedPages"
         @suggestion-clicked="startTranslation($event, 'suggestion_recent_edit')"
       />
       <article-suggestions-card
