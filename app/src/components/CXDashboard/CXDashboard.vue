@@ -1,4 +1,5 @@
 <script setup>
+import CxDashboardBanner from "./CXDashboardBanner.vue";
 import CxTranslationList from "./CXTranslationList.vue";
 import CxSuggestionList from "./CXSuggestionList.vue";
 import CxFavoriteList from "./CXFavoriteList.vue";
@@ -16,9 +17,12 @@ import useEventLogging from "@/composables/useEventLogging";
 import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd } from "@wikimedia/codex-icons";
+import useDevice from "@/composables/useDevice";
 
 const router = useRouter();
 const logEvent = useEventLogging();
+
+const { isDesktop } = useDevice();
 
 const searchTranslation = () => {
   logEvent({
@@ -33,6 +37,12 @@ initializeDashboard();
 const store = useStore();
 store.dispatch("translator/fetchTranslatorStats");
 const translatorStats = computed(() => store.state.translator.translatorStats);
+
+const bannerDismissed = computed(() => store.state.application.bannerDismissed);
+
+const dismissBanner = () => {
+  store.commit("application/dismissBanner");
+};
 
 const activeTab = useActiveTabInitialize();
 const listSelector = useDashboardListOptions();
@@ -58,6 +68,13 @@ const listSelect = (event) => {
         <cdx-icon class="me-1" :icon="cdxIconAdd" />
         {{ $i18n("cx-create-new-translation") }}
       </cdx-button>
+    </mw-row>
+    <mw-row v-if="isDesktop && !bannerDismissed" class="ma-0" align="start">
+      <mw-col
+        class="col-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2"
+      >
+        <cx-dashboard-banner class="mb-4" @user-dismissed="dismissBanner()" />
+      </mw-col>
     </mw-row>
     <mw-row class="ma-0" align="start">
       <mw-col

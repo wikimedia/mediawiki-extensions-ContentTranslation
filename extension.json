@@ -592,6 +592,7 @@
 				"cx-dashboard-sidebar-information",
 				"cx-dashboard-sidebar-stats",
 				"cx-dashboard-sidebar-title",
+				"cx-dashboard-banner-message",
 				"cx-discard-translation",
 				"cx-draft-discard-confirmation-message",
 				"cx-draft-cancel-button-label",
@@ -707,7 +708,8 @@
 				"CdxInfoChip",
 				"CdxSearchInput",
 				"CdxTextInput",
-				"CdxMenu"
+				"CdxMenu",
+				"CdxMessage"
 			],
 			"messages": [
 				"cx-dashboard-header",
@@ -817,6 +819,10 @@
 				"cx-sx-publisher-review-info-next-button-aria-label",
 				"cx-sx-publisher-configure-button-aria-label",
 				"cx-sx-publisher-edit-button-aria-label",
+				"cx-sx-dashboard-banner-title",
+				"cx-sx-dashboard-banner-description",
+				"cx-sx-dashboard-banner-learn-more",
+				"cx-sx-dashboard-banner-access-previous",
 				"cx-sx-sentence-selector-translated-segment-no-edits-label",
 				"cx-sx-sentence-selector-translated-segment-modification-percentage",
 				"cx-sx-sentence-selector-translated-segment-modification-percentage-header",

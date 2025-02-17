@@ -353,12 +353,25 @@
 			this.filter.$element
 		);
 
+		const unifiedDashboardEnabled = mw.config.get( 'wgContentTranslationEnableUnifiedDashboard' );
+		this.$banner = unifiedDashboardEnabled ? new OO.ui.MessageWidget( {
+			type: 'warning',
+			showClose: true,
+			label: $( '<span>' ).append(
+				mw.message(
+					'cx-dashboard-banner-message',
+					mw.util.getUrl( 'Special:CX', { 'cx-dashboard': 'unified' } )
+				).parse()
+			),
+			classes: [ 'cx-translation-banner' ]
+		} ).$element : '';
+
 		this.$sourcePageSelector = $( '<div>' )
 			.addClass( 'cx-source-page-selector' );
 
 		return $( '<div>' )
 			.addClass( 'cx-translationlist-container' )
-			.append( this.$listHeader, this.$sourcePageSelector );
+			.append( this.$listHeader, this.$banner, this.$sourcePageSelector );
 	};
 
 	CXDashboard.prototype.setActiveList = function ( type ) {

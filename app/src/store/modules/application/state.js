@@ -41,4 +41,8 @@ export default {
    * @type String
    */
   previousRoute: null,
+  /**
+   * Whether the dashboard banner has been dismissed by the user
+   */
+  bannerDismissed: false,
 };

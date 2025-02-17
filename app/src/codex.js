@@ -7,6 +7,7 @@ if (import.meta.env.PROD) {
     CdxSearchInput,
     CdxTextInput,
     CdxMenu,
+    CdxMessage,
   } = require("../codex.js");
 
   window.Codex = {
@@ -17,5 +18,6 @@ if (import.meta.env.PROD) {
     CdxSearchInput,
     CdxTextInput,
     CdxMenu,
+    CdxMessage,
   };
 }

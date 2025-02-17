@@ -628,6 +628,10 @@ class Hooks implements
 		$preferences['cx_campaign_newarticle_shown'] = [
 			'type' => 'api',
 		];
+
+		$preferences['cx-dashboard'] = [
+			'type' => 'api',
+		];
 	}
 
 	/**

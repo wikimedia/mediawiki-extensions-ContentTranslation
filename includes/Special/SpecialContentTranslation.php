@@ -240,15 +240,67 @@ class SpecialContentTranslation extends SpecialPage {
 		return $isMobileView;
 	}
 
+	/**
+	 * @return string|null The user's prefered dashboard or null if not set or has expired
+	 */
+	private function getUserPreferedDashboard() {
+		$value = $this->preferenceHelper->getGlobalPreference( $this->getUser(), 'cx-dashboard' );
+		if ( $value === null ) {
+			return null;
+		}
+
+		[ $dashboard, $time ] = explode( '-', $value );
+		if ( $time < time() - 3600 ) {
+			// The preference is older than an hour
+			return null;
+		}
+
+		return $dashboard;
+	}
+
+	/**
+	 * Set the user's prefered dashboard with the current time
+	 */
+	private function setUserPreferedDashboard( string $dashboard ): void {
+		$time = time();
+		$this->preferenceHelper->setGlobalPreference(
+			$this->getUser(), 'cx-dashboard', "{$dashboard}-{$time}"
+		);
+	}
+
 	protected function isUnifiedDashboard(): bool {
-		$forceUnifiedDashboard = $this->getConfig()->get( 'ContentTranslationEnableUnifiedDashboard' ) ||
-			$this->getRequest()->getFuzzyBool( 'unified-dashboard' );
+		if ( $this->onTranslationView() ) {
+			// Not on a dashboard
+			return false;
+		}
 
-		$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
+		$unifiedDashboardEnabled = $this->getConfig()->get( 'ContentTranslationEnableUnifiedDashboard' );
 
-		$vueDashboardShouldBeEnabled = $isSXEnabled && self::isMobileSite();
+		if ( $unifiedDashboardEnabled ) {
+			// transition to unified dashboard
+			$dashboardParam = $this->getRequest()->getText( 'cx-dashboard' );
 
-		return ( $vueDashboardShouldBeEnabled || $forceUnifiedDashboard ) && !$this->onTranslationView();
+			// The unified or desktop dashboard is explicitly requested by the user
+			if ( in_array( $dashboardParam, [ 'unified', 'desktop' ] ) ) {
+				// record explicit choice in global preference
+				$this->setUserPreferedDashboard( $dashboardParam );
+				return $dashboardParam === 'unified';
+			}
+
+			// check global preference
+			$dashboard = $this->getUserPreferedDashboard();
+			if ( $dashboard !== null ) {
+				return $dashboard === 'unified';
+			}
+
+			return true;
+		} else {
+			// desktop dashboard with some wikis on SX with unified dashboard (pre-transition state)
+			$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
+			$unifiedDashboardParam = $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
+
+			return $unifiedDashboardParam || ( $isSXEnabled && self::isMobileSite() );
+		}
 	}
 
 	protected function initModules() {
@@ -298,7 +350,9 @@ class SpecialContentTranslation extends SpecialPage {
 			$out->addJsConfigVars( [
 				'wgContentTranslationEnableSuggestions' => $config->get( 'ContentTranslationEnableSuggestions' ),
 				'wgRecommendToolAPIURL' => $config->get( 'RecommendToolAPIURL' ),
-				'wgContentTranslationExcludedNamespaces' => $config->get( 'ContentTranslationExcludedNamespaces' )
+				'wgContentTranslationExcludedNamespaces' => $config->get( 'ContentTranslationExcludedNamespaces' ),
+				'wgContentTranslationEnableUnifiedDashboard' =>
+					$config->get( 'ContentTranslationEnableUnifiedDashboard' ),
 			] );
 		}
 	}
