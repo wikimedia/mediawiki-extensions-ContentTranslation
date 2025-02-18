@@ -158,7 +158,7 @@ const startTranslation = (page, eventSource) =>
 </script>
 
 <template>
-  <section class="sx-article-search">
+  <section class="sx-article-search col-12 col-tablet-9 col-desktop-7 mx-auto">
     <mw-row
       class="sx-article-search__header ma-0 py-3"
       align="stretch"
@@ -242,6 +242,8 @@ const startTranslation = (page, eventSource) =>
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-search {
+  background-color: @background-color-base;
+
   &__language-button-group {
     &.mw-ui-button-group {
       background-color: @background-color-interactive;

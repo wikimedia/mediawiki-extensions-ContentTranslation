@@ -13,7 +13,7 @@ export default {
     SxArticleSearch,
   },
   computed: {
-    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.tabletAndDown }),
+    classes: (vm) => ({ fullscreen: vm.$mwui.breakpoint.mobile }),
   },
 };
 </script>
@@ -22,6 +22,9 @@ export default {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-search-view {
-  background-color: @background-color-base;
+  background-color: @background-color-neutral;
+  &.fullscreen {
+    background-color: @background-color-base;
+  }
 }
 </style>

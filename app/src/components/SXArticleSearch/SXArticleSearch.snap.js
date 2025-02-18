@@ -2,7 +2,7 @@
 
 exports[`SXArticleSearch component test Component output matches snapshot 1`] = `
 <section
-  class="sx-article-search"
+  class="sx-article-search col-12 col-tablet-9 col-desktop-7 mx-auto"
 >
   <div
     class="row items-stretch justify-start sx-article-search__header ma-0 py-3"
