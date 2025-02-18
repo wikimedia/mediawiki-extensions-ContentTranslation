@@ -74,7 +74,9 @@ const translationConfirmationDialogOn = ref(false);
 </script>
 
 <template>
-  <section class="sx-translation-confirmer">
+  <section
+    class="sx-translation-confirmer col-12 col-tablet-9 col-desktop-7 mx-auto"
+  >
     <mw-row
       class="sx-translation-confirmer__header ma-0 py-3"
       align="stretch"
@@ -125,6 +127,8 @@ const translationConfirmationDialogOn = ref(false);
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer {
+  background-color: @background-color-base;
+
   &__article-image {
     background-color: @background-color-progressive-subtle;
     height: 192px;

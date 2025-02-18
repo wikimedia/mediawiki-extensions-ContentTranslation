@@ -15,7 +15,7 @@ export default {
   computed: {
     classes() {
       return {
-        fullscreen: this.$mwui.breakpoint.tabletAndDown,
+        fullscreen: this.$mwui.breakpoint.mobile,
       };
     },
   },
@@ -26,6 +26,6 @@ export default {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer-view {
-  background-color: @background-color-base;
+  background-color: @background-color-neutral;
 }
 </style>
