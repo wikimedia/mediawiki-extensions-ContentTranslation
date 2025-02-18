@@ -8,7 +8,7 @@ import { getAutonym } from "@wikimedia/language-data";
 
 const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
 
-const sourceLanguageAutonym = computed(() => getAutonym(sourceLanguage));
+const sourceLanguageAutonym = computed(() => getAutonym(sourceLanguage.value));
 
 const props = defineProps({
   searchInput: {
