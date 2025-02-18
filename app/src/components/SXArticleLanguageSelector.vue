@@ -56,6 +56,8 @@ const onTargetLanguageSelected = (newTargetLanguage) =>
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-language-selector {
-  border-bottom: @border-width-base @border-style-base #eaecf0;
+  // TODO: Should we use a border-color design token here?
+  border-top: @border-width-base @border-style-base @background-color-neutral;
+  border-bottom: @border-width-base @border-style-base @background-color-neutral;
 }
 </style>
