@@ -58,45 +58,46 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
   </div>
   <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
   <div
-    class="mw-ui-input container"
+    class="cdx-search-input sx-article-search__search-input"
   >
     <div
-      class="mw-ui-input__content"
+      class="cdx-search-input__input-wrapper"
     >
-      
-      <span
-        class="mw-ui-icon notranslate mw-ui-input__icon"
+      <div
+        class="cdx-text-input cdx-text-input--has-start-icon cdx-text-input--status-default cdx-search-input__text-input"
       >
-        <svg
-          aria-hidden="true"
-          height="20"
-          role="presentation"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <input
+          class="cdx-text-input__input"
+          placeholder="cx-sx-article-search-input-placeholder"
+          size="1"
+          type="search"
+        />
+        <span
+          class="cdx-icon cdx-icon--medium cdx-text-input__icon-vue cdx-text-input__start-icon"
         >
-          <!--v-if-->
-          <g
-            fill="currentColor"
+          <svg
+            aria-hidden="true"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <path
-              d="M7.5 13c3.04 0 5.5-2.46 5.5-5.5S10.54 2 7.5 2 2 4.46 2 7.5 4.46 13 7.5 13zm4.55.46A7.432 7.432 0 0 1 7.5 15C3.36 15 0 11.64 0 7.5S3.36 0 7.5 0C11.64 0 15 3.36 15 7.5c0 1.71-.57 3.29-1.54 4.55l6.49 6.49-1.41 1.41-6.49-6.49z"
-            />
-          </g>
-        </svg>
-      </span>
+            <!--v-if-->
+            <g>
+              <path
+                d="M12.2 13.6a7 7 0 111.4-1.4l5.4 5.4-1.4 1.4zM3 8a5 5 0 1010 0A5 5 0 003 8"
+              />
+            </g>
+          </svg>
+        </span>
+        <!--v-if-->
+        <!--v-if-->
+      </div>
       
-      <!--eslint-disable vue/no-v-text-v-html-on-component -->
-      <input
-        class="mw-ui-input__input"
-        placeholder="cx-sx-article-search-input-placeholder"
-        type="search"
-      />
-      <!--eslint-enable vue/no-v-text-v-html-on-component -->
-      
-      <!--v-if-->
       
     </div>
+    <!--v-if-->
   </div>
   <div
     class="row mw-ui-button-group ma-0 pa-0 sx-article-search__language-button-group"

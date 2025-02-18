@@ -1,12 +1,5 @@
 <script setup>
-import {
-  MwButtonGroup,
-  MwDialog,
-  MwInput,
-  MwRow,
-  MwCol,
-} from "@/lib/mediawiki.ui";
-import { mwIconSearch } from "@/lib/mediawiki.ui/components/icons";
+import { MwButtonGroup, MwDialog, MwRow, MwCol } from "@/lib/mediawiki.ui";
 import SearchResultsCard from "./SearchResultsCard.vue";
 import MwLanguageSelector from "../MWLanguageSelector";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard.vue";
@@ -23,7 +16,7 @@ import {
   useApplicationLanguagesInitialize,
 } from "@/composables/useLanguageHelper";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
-import { CdxButton, CdxIcon } from "@wikimedia/codex";
+import { CdxButton, CdxIcon, CdxSearchInput } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
 import useTranslationStart from "@/composables/useTranslationStart";
 
@@ -179,13 +172,11 @@ const startTranslation = (page, eventSource) =>
       </mw-col>
     </mw-row>
     <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
-    <mw-input
+    <cdx-search-input
       ref="searchInputRef"
-      v-model:value="searchInput"
-      :icon-size="20"
-      :icon="mwIconSearch"
+      v-model="searchInput"
+      class="sx-article-search__search-input"
       :placeholder="$i18n('cx-sx-article-search-input-placeholder')"
-      type="search"
     />
     <mw-button-group
       class="sx-article-search__language-button-group"
@@ -243,13 +234,25 @@ const startTranslation = (page, eventSource) =>
 
 .sx-article-search {
   background-color: @background-color-base;
+  & &__search-input {
+    .cdx-text-input__input {
+      padding-block: @spacing-75;
+
+      &:not(:enabled:focus) {
+        border: none;
+        border-top: @border-style-base @border-width-base
+          @background-color-neutral;
+      }
+    }
+  }
 
   &__language-button-group {
     &.mw-ui-button-group {
-      background-color: @background-color-interactive;
+      background-color: @background-color-neutral-subtle;
     }
-    border-top: @border-style-base @border-width-base #eaecf0;
-    border-bottom: @border-style-base @border-width-base #eaecf0;
+    border-top: @border-style-base @border-width-base @background-color-neutral;
+    border-bottom: @border-style-base @border-width-base
+      @background-color-neutral;
   }
   &__recently-edited,
   &__nearby {
