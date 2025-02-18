@@ -340,7 +340,7 @@
 	"cx-sx-translation-confirmer-title": "Neue Übersetzung",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|Ein Aufruf pro|$1 Aufrufe pro|0=Keine Aufrufe in dieser}} Woche",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0={{PLURAL:$2|$2 Minute|$2 Minuten}}}} zum Übersetzen",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0={{PLURAL:$2|$2 Minute|$2 Minuten}}}}, um {PLURAL:$3|einen Abschnitt|$3 Abschnitte}} zu übersetzen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stunde|$1 Stunden|0={{PLURAL:$2|$2 Minute|$2 Minuten}}}}, um {{PLURAL:$3|einen Abschnitt|$3 Abschnitte}} zu übersetzen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Lesezeichen",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Deine Übersetzung wird als eigenständiger neuer Absatz veröffentlicht.",
 	"cx-sx-content-comparator-discarded-section-label": "(verworfen)",
@@ -587,5 +587,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 Artikel existieren in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 Tag|$1 Tage|0=Kein Tag}} übrig",
 	"cx-page-collection-dialog-page-suggestions-header": "Neue Seiten",
-	"cx-page-collection-dialog-section-suggestions-header": "Neuer Abschnitt"
+	"cx-page-collection-dialog-section-suggestions-header": "Neuer Abschnitt",
+	"cx-sx-suggestion-list-empty-title": "Derzeit keine Vorschläge",
+	"cx-sx-suggestion-list-empty-description": "Für diesen Filter haben wir keine Vorschläge gefunden. Du kannst einen anderen Filter ausprobieren oder nach einem bestimmten Artikel zum Übersetzen suchen."
 }

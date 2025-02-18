@@ -545,5 +545,6 @@
 	"cx-articletopics-topic-physics": "Физика",
 	"cx-articletopics-topic-technology": "Технологија",
 	"cx-page-collection-dialog-page-suggestions-header": "Нове странице",
-	"cx-page-collection-dialog-section-suggestions-header": "Нови одељци"
+	"cx-page-collection-dialog-section-suggestions-header": "Нови одељци",
+	"cx-sx-suggestion-list-empty-title": "Тренутно нема предлога"
 }

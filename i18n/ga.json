@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Halle",
 			"Moilleadóir"
 		]
 	},
@@ -9,5 +10,7 @@
 	"cx-translation-status-published": "Foilsithe",
 	"cx-stats-published-translations-title": "Aistriúcháin foilsithe",
 	"cx-stats-published-translations-label": "Aistriúcháin foilsithe",
-	"cx-stats-total-published": "Iomlán foilsithe"
+	"cx-stats-total-published": "Iomlán foilsithe",
+	"cx-sx-suggestion-list-empty-title": "Níl aon mholtaí ann faoi láthair",
+	"cx-sx-suggestion-list-empty-description": "Ní bhfuaireamar aon mholadh don scagaire seo. Is féidir leat triail a bhaint as scagaire eile nó cuardach a dhéanamh le haghaidh alt ar leith le haistriú."
 }
