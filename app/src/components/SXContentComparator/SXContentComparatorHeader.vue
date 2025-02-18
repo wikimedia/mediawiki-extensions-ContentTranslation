@@ -8,7 +8,7 @@ import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
 import useCompareContents from "@/components/SXContentComparator/useCompareContents";
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
@@ -45,6 +45,9 @@ const sectionSourceTitles = computed(() => [
   ...Object.keys(suggestion.value.missingSections),
   ...Object.keys(suggestion.value.presentSections),
 ]);
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
 </script>
 
 <template>
@@ -56,28 +59,29 @@ const sectionSourceTitles = computed(() => [
       type="text"
       @click="$emit('close')"
     />
-    <mw-row class="my-1 py-2 mx-0">
-      <mw-col grow>
-        <h4
-          class="pa-0 sx-content-comparator-header__article-title"
-          :lang="suggestion.sourceLanguage"
-          :dir="getDir(suggestion.sourceLanguage)"
-        >
-          {{ suggestion.sourceTitle }}
-        </h4>
-        <h2
-          class="sx-content-comparator-header__section-title pa-0 ma-0"
-          :lang="suggestion.sourceLanguage"
-          :dir="getDir(suggestion.sourceLanguage)"
-        >
-          {{ sourceSectionTitle }}
-        </h2>
-      </mw-col>
-      <sx-content-comparator-header-navigation
-        cols="2"
-        :section-source-titles="sectionSourceTitles"
-      />
-      <mw-col cols="12" mobile="12" tablet="4" class="py-2 mb-1">
+    <div class="row my-1 py-2 mx-0">
+      <div class="flex grow" :class="isMobile ? 'col-12' : 'me-6'">
+        <div class="sx-content-comparator-header__titles grow">
+          <h4
+            class="pa-0 sx-content-comparator-header__article-title"
+            :lang="suggestion.sourceLanguage"
+            :dir="getDir(suggestion.sourceLanguage)"
+          >
+            {{ suggestion.sourceTitle }}
+          </h4>
+          <h2
+            class="sx-content-comparator-header__section-title pa-0 ma-0"
+            :lang="suggestion.sourceLanguage"
+            :dir="getDir(suggestion.sourceLanguage)"
+          >
+            {{ sourceSectionTitle }}
+          </h2>
+        </div>
+        <sx-content-comparator-header-navigation
+          :section-source-titles="sectionSourceTitles"
+        />
+      </div>
+      <div class="py-2 mb-1">
         <mw-button
           :icon="mwIconEdit"
           progressive
@@ -87,8 +91,8 @@ const sectionSourceTitles = computed(() => [
           :disabled="!sourceSectionContent"
           @click="$emit('translation-button-clicked')"
         />
-      </mw-col>
-    </mw-row>
+      </div>
+    </div>
     <mw-row
       v-if="isCurrentSectionMissing"
       align="start"

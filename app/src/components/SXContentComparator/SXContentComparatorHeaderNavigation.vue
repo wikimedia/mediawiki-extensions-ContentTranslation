@@ -42,7 +42,7 @@ const goToNextSection = () => {
 </script>
 
 <template>
-  <mw-col class="justify-end" align="center">
+  <div class="sx-content-comparator__header-navigation flex items-center">
     <mw-button
       class="pa-0 pe-1"
       type="icon"
@@ -55,5 +55,5 @@ const goToNextSection = () => {
       :icon="mwIconArrowForward"
       @click="goToNextSection"
     />
-  </mw-col>
+  </div>
 </template>
