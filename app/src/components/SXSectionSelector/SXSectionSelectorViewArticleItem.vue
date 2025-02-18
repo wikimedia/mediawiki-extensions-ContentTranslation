@@ -31,6 +31,7 @@ defineProps({
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-section-selector-view-article-item {
+  list-style-type: none;
   a {
     color: @color-base;
     font-weight: @font-weight-bold;
