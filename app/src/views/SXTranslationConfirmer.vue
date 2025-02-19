@@ -27,5 +27,8 @@ export default {
 
 .sx-translation-confirmer-view {
   background-color: @background-color-neutral;
+  &.fullscreen {
+    background-color: @background-color-base;
+  }
 }
 </style>
