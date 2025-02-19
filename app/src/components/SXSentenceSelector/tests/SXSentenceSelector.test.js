@@ -46,6 +46,8 @@ jest.mock("@/composables/useURLHandler", () => () => ({
   },
 }));
 
+jest.mock("@/composables/useEventLogging", () => () => jest.fn());
+
 const mockStore = createStore({
   modules: {
     application: {
