@@ -33,7 +33,16 @@ const unreviewedTranslationDialogOn = ref(false);
 const unreviewedTranslationTargetURL = ref(null);
 
 const checkForUnreviewedTranslations = async () => {
-  const checkResult = await translator.checkUnreviewedTranslations();
+  let checkResult = true;
+
+  try {
+    checkResult = await translator.checkUnreviewedTranslations();
+  } catch (error) {
+    mw.log.error(
+      "Error while checking for user's unreviewed translations ",
+      error
+    );
+  }
 
   if (checkResult === true) {
     return;
