@@ -95,14 +95,14 @@ const setActiveDashboardTabParameter = (activeDashboardTab) => {
 };
 
 /**
- * @param {object} params A mapping of query parameter names to values,
- *  e.g. `{ action: 'edit' }`
+ * @param {object} params A mapping of query parameter names to values, e.g. `{ action: 'edit' }`
+ * @param {string} hash The URL hash. Including "#". Defaults to the current hash
  */
-const replaceUrl = (params) => {
+const replaceUrl = (params, hash = location.hash) => {
   history.replaceState(
     {},
     document.title,
-    getUrl("Special:ContentTranslation", params)
+    getUrl(`Special:ContentTranslation${hash}`, params)
   );
 };
 
