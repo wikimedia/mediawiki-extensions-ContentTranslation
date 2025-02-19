@@ -1,14 +1,22 @@
 import { computed } from "vue";
-import useApplicationState from "@/composables/useApplicationState";
-import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
+import { getAutonym } from "@wikimedia/language-data";
+import useURLHandler from "@/composables/useURLHandler";
 
 /**
  * @return {ComputedRef<{value: string, props: object}[]>}
  */
 const useListSelector = (props) => {
-  const { sourceLanguageAutonym, targetLanguageAutonym } = useApplicationState(
-    useStore()
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
+
+  const sourceLanguageAutonym = computed(() =>
+    getAutonym(sourceLanguage.value)
+  );
+  const targetLanguageAutonym = computed(() =>
+    getAutonym(targetLanguage.value)
   );
 
   const bananaI18n = useI18n();
