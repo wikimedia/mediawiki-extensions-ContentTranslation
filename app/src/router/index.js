@@ -134,6 +134,10 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to, from) => {
+  if (!from.name) {
+    // don't transition on initial load
+    return;
+  }
   const toStep = to.meta.workflowStep;
   const fromStep = from.meta.workflowStep;
   to.meta.transitionName =
