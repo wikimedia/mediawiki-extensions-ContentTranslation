@@ -2,6 +2,7 @@ import { useStore } from "vuex";
 import useSuggestionsFetch from "@/composables/useSuggestionsFetch";
 import useSuggestionsStore from "@/composables/useSuggestionsStore";
 import useURLHandler from "@/composables/useURLHandler";
+import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
 
 /**
  * This action initialize the page and section suggestions
@@ -27,6 +28,7 @@ const useSuggestionsInitialize = () => {
     useSuggestionsStore();
 
   const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
+  const fetchAppendixSectionTitles = useAppendixSectionTitlesFetch();
 
   return async () => {
     /** @type {SectionSuggestion[]} */
@@ -47,10 +49,7 @@ const useSuggestionsInitialize = () => {
       return;
     }
     // Fetch now so that appendix section titles are available during suggestion fetching
-    await store.dispatch(
-      "suggestions/fetchAppendixSectionTitles",
-      targetLanguage.value
-    );
+    await fetchAppendixSectionTitles(targetLanguage.value);
 
     fetchNextSectionSuggestionsSlice();
     fetchNextPageSuggestionsSlice();

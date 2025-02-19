@@ -19,6 +19,7 @@ import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
+import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
 
 const store = useStore();
 const { currentSourcePage } = useCurrentPages();
@@ -60,7 +61,8 @@ loadVEModules();
 // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
 // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"
 // step (for proper positioning of the new section placeholder inside target article preview)
-store.dispatch("suggestions/fetchAppendixSectionTitles", targetLanguage.value);
+const fetchAppendixSectionTitles = useAppendixSectionTitlesFetch();
+fetchAppendixSectionTitles(targetLanguage.value);
 
 const router = useRouter();
 
