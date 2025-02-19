@@ -705,6 +705,7 @@
 				"CdxIcon",
 				"CdxDialog",
 				"CdxInfoChip",
+				"CdxSearchInput",
 				"CdxTextInput",
 				"CdxMenu"
 			],

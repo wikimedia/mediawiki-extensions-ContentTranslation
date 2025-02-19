@@ -4,6 +4,7 @@ if (import.meta.env.PROD) {
     CdxIcon,
     CdxDialog,
     CdxInfoChip,
+    CdxSearchInput,
     CdxTextInput,
     CdxMenu,
   } = require("../codex.js");
@@ -13,6 +14,7 @@ if (import.meta.env.PROD) {
     CdxIcon,
     CdxDialog,
     CdxInfoChip,
+    CdxSearchInput,
     CdxTextInput,
     CdxMenu,
   };
