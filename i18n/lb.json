@@ -270,6 +270,7 @@
 	"cx-sx-published-section-invitation-missing-sections-info": "\"$1\" {{PLURAL:$2|an $2 méi feelen|0=feelt}}",
 	"cx-sx-publisher-mt-abuse-message-title": "Är Iwwersetzung huet $1% net verännerten Text",
 	"cx-sx-publisher-mt-abuse-error-title": "Är Iwwersetzung kann net publizéiert ginn: si huet méi wéi $1% net verännerten Text",
+	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 Abschnitt|$1 Abschnitter|0=Keen Abschnitt}}",
 	"cx-sx-article-search-input-placeholder": "Sicht no enger Säit fir z'iwwersetzen",
 	"cx-sx-article-search-recently-edited-title": "Rezent vun Iech geännert",
 	"cx-sx-article-search-nearby-title": "Nobäi",
@@ -321,13 +322,19 @@
 	"cx-sx-block-template-mapping-status-title-partially-template": "Dës Schabloun kann deelweis iwwersat ginn",
 	"cx-sx-dashboard-help-panel-title": "Braucht Dir Hëllef beim Iwwersetzen?",
 	"cx-sx-dashboard-help-panel-stats-label": "Statistiken",
+	"cx-sx-dashboard-help-panel-feedback-label": "Gitt eis Feedback",
+	"cx-sx-dashboard-stats-panel-title": "Ären Impakt",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Dëse Mount",
+	"cx-sx-dashboard-stats-panel-total-stats-label": "Total",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Ännerungen annuléieren",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Virufuere mat Änneren",
+	"cx-sx-login-dialog-title": "Är Sitzung ass ofgelaf",
 	"cx-sx-login-dialog-button-label": "Aloggen",
 	"sx-confirm-translation-deletion-dialog-body": "Sidd Dir sécher, datt Dir dës Iwwersetzung definitiv läsche wëllt?",
 	"sx-translation-deletion-cancel-button-label": "Ofbriechen",
 	"sx-translation-deletion-confirm-button-label": "Iwwersetzung läschen",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 Dag|$1 Deeg|0=haut}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|1 Mount|$1 Méint}}",
-	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|1 Joer|$1 Joer}}"
+	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|1 Joer|$1 Joer}}",
+	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Wou sinn déi aner Abschnitter?"
 }
