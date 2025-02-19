@@ -487,5 +487,7 @@
 	"cx-sx-suggestions-filter-search-input-placeholder": "جستجو برای یک موضوع",
 	"cx-sx-suggestions-filter-search-results-topics-label": "موضوعات",
 	"cx-sx-suggestions-filter-search-results-areas-label": "محدوده‌ها",
-	"cx-sx-suggestions-filter-search-results-topics-default-description": "محدوده موضوعی"
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "محدوده موضوعی",
+	"cx-sx-suggestion-list-empty-title": "در حال حاضر هیچ پیشنهادی موجود نیست",
+	"cx-sx-suggestion-list-empty-description": "هیچ پیشنهادی برای این پالایه نیافتیم. می‌توانید یک پالایهٔ متفاوت را بیازمایید یا این که برای یافتن یک مقالهٔ خاص و ترجمه کردن آن جستجو کنید."
 }

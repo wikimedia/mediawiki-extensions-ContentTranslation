@@ -614,5 +614,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$3 için $1/$2 madde var",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 gün kaldı|0=Hiçbir gün kalmadı}}",
 	"cx-page-collection-dialog-page-suggestions-header": "Yeni sayfalar",
-	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölümler"
+	"cx-page-collection-dialog-section-suggestions-header": "Yeni bölümler",
+	"cx-sx-suggestion-list-empty-title": "Şimdilik öneri yok",
+	"cx-sx-suggestion-list-empty-description": "Bu süzgeç için hiçbir öneri bulamadık. Başka bir süzgeç deneyebilir ya da çevirmek için belirli bir madde arayabilirsiniz."
 }

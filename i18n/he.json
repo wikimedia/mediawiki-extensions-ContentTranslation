@@ -588,5 +588,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1 מתוך $2 ערכים קיימים ב{{GRAMMAR:תחילית|$3}}",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|נותר יום אחד|נותרו יומיים|נותרו $1 ימים}}",
 	"cx-page-collection-dialog-page-suggestions-header": "דפים חדשים",
-	"cx-page-collection-dialog-section-suggestions-header": "פרקטים חדשים"
+	"cx-page-collection-dialog-section-suggestions-header": "פרקטים חדשים",
+	"cx-sx-suggestion-list-empty-title": "אין הצעות לעת־עתה",
+	"cx-sx-suggestion-list-empty-description": "לא מצאנו הצעות שמתאימות למסנן הזה. האפשרויות שלך הן לנסות מסנן אחר או לחפש ערך לתרגום בעצמך."
 }

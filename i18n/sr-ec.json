@@ -494,6 +494,7 @@
 	"sx-confirm-draft-translation-start-button-label": "У реду",
 	"sx-published-translation-start-section-translation-button-aria-label": "Започни превођење одељка",
 	"sx-published-translation-new-translation-button-label": "Нови превод",
+	"mint-mflanguagesearcher-entrypoint-card-title": "Прочитај аутоматизован превод",
 	"cx-unreviewed-translation-dialog-close-button-aria-label": "Затвори",
 	"cx-unreviewed-translation-dialog-close-button-label": "Затвори",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "Сазнајте више",
@@ -544,6 +545,7 @@
 	"cx-articletopics-topic-medicine-and-health": "Медицина и здравље",
 	"cx-articletopics-topic-physics": "Физика",
 	"cx-articletopics-topic-technology": "Технологија",
+	"cx-page-collection-dialog-existing-target-count": "$1/$2 чланка постоји у $3",
 	"cx-page-collection-dialog-page-suggestions-header": "Нове странице",
 	"cx-page-collection-dialog-section-suggestions-header": "Нови одељци",
 	"cx-sx-suggestion-list-empty-title": "Тренутно нема предлога"

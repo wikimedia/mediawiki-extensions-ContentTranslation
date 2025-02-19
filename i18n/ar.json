@@ -137,6 +137,7 @@
 	"cx-dashboard-sidebar-information": "المزيد حول هذه الأداة",
 	"cx-dashboard-sidebar-stats": "إحصائيات",
 	"cx-dashboard-sidebar-feedback": "زودنا بتغذيتك الراجعة",
+	"cx-dashboard-banner-message": "<strong>سيتم إيقاف العمل بإصدار لوحة التحكم الحالي قريبًا.</strong> يُرجى [ $1 استخدام الإصدار الجديد] و[https://www.mediawiki.org/wiki/Talk:Content_translation] للإبلاغ عن أي مشكلات قد تجدها.",
 	"cx-translation-filter-published-translations": "المنشورة",
 	"cx-translation-filter-draft-translations": "الحالية",
 	"cx-translation-filter-suggested-translations": "اقتراحات",
@@ -510,6 +511,10 @@
 	"cx-sx-dashboard-stats-panel-title": "تأثيرك",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "هذا الشهر",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "الإجمالي",
+	"cx-sx-dashboard-banner-title": "إمكانيات جديدة متاحة",
+	"cx-sx-dashboard-banner-description": "قم بترجمة الأقسام الفردية، وضبط الاقتراحات بما يتناسب مع موضوعاتك التي تهمك، والمزيد. كانت هذه الميزة متاحة في السابق على الأجهزة المحمولة فقط، ولكنها الآن متاحة عبر جميع الأجهزة.",
+	"cx-sx-dashboard-banner-learn-more": "معرفة المزيد",
+	"cx-sx-dashboard-banner-access-previous": "الوصول إلى الإصدار السابق",
 	"sx-confirm-back-navigation-dialog-title": "اترك ترجمتك؟",
 	"sx-confirm-back-navigation-dialog-body": "لم يتم حفظ التغييرات بعد وستفقد.\nيمكنك متابعة التعديل ليتم حفظ التغييرات تلقائيًا.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "تجاهل التغييرات",
@@ -604,5 +609,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 مقالات موجودة في $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 يوم|$1 أيام|0=لا يوجد أيام متبقية}}",
 	"cx-page-collection-dialog-page-suggestions-header": "الصفحات الجديدة",
-	"cx-page-collection-dialog-section-suggestions-header": "أقسام جديدة"
+	"cx-page-collection-dialog-section-suggestions-header": "أقسام جديدة",
+	"cx-sx-suggestion-list-empty-title": "لا توجد اقتراحات في الوقت الحالي",
+	"cx-sx-suggestion-list-empty-description": "لم نعثر على أي اقتراحات لهذا الفلتر. يمكنك تجربة فلتر آخر أو البحث عن مقال محدد لترجمته."
 }

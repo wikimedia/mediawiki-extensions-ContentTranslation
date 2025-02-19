@@ -575,5 +575,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 articulos existe in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 die|$1 dies|0=Necun die}} restante",
 	"cx-page-collection-dialog-page-suggestions-header": "Nove paginas",
-	"cx-page-collection-dialog-section-suggestions-header": "Nove sectiones"
+	"cx-page-collection-dialog-section-suggestions-header": "Nove sectiones",
+	"cx-sx-suggestion-list-empty-title": "Nulle suggestion pro le momento",
+	"cx-sx-suggestion-list-empty-description": "Nos non ha trovate alcun suggestion pro iste filtro. Tu pote tentar un altere filtro o cercar un articulo specific a traducer."
 }

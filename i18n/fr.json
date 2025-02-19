@@ -59,7 +59,8 @@
 			"Wyz",
 			"Yodaspirine",
 			"Zarisi",
-			"Петар Петковић"
+			"Петар Петковић",
+			"ꠢꠣꠍꠘ ꠞꠣꠎꠣ"
 		]
 	},
 	"cx": "Traduire la page",
@@ -630,5 +631,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 article{{PLURAL:$1| est|s sont}} en $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|Un jour|$1 jours|0=Aucun jour}} restant{{PLURAL:$1||s|0=}}",
 	"cx-page-collection-dialog-page-suggestions-header": "Nouvelles pages",
-	"cx-page-collection-dialog-section-suggestions-header": "Nouvelles sections"
+	"cx-page-collection-dialog-section-suggestions-header": "Nouvelles sections",
+	"cx-sx-suggestion-list-empty-title": "Aucune suggestion pour le moment",
+	"cx-sx-suggestion-list-empty-description": "Nous n'avons trouvé aucune suggestion pour ce filtre. Vous pouvez essayer un autre filtre ou rechercher un article spécifique à traduire."
 }
