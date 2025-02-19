@@ -15,6 +15,7 @@ import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import translator from "@/wiki/cx/api/translator";
 import UnreviewedTranslationDialog from "./UnreviewedTranslationDialog.vue";
+import useTranslationConfirm from "@/composables/useTranslationConfirm";
 
 const router = useRouter();
 const store = useStore();
@@ -22,12 +23,10 @@ const colors = inject("colors");
 const { sectionSuggestion } = useCurrentSectionSuggestion();
 const { targetLanguageAutonym } = useApplicationState(store);
 const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
+const confirmTranslation = useTranslationConfirm();
 
-const {
-  startNewTranslation,
-  handlePrimaryButtonClick,
-  translationConfirmationDialogOn,
-} = useConfirmationButtonClickHandlers();
+const { handlePrimaryButtonClick, translationConfirmationDialogOn } =
+  useConfirmationButtonClickHandlers();
 
 const unreviewedTranslationDialogOn = ref(false);
 const unreviewedTranslationTargetURL = ref(null);
@@ -57,7 +56,7 @@ const onStartNewTranslationClick = async () => {
   if (unreviewedTranslationDialogOn.value) {
     return;
   }
-  startNewTranslation();
+  confirmTranslation();
 };
 
 const onPrimaryButtonClick = async () => {

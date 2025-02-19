@@ -17,7 +17,6 @@ import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
-import useDevice from "@/composables/useDevice";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const store = useStore();
@@ -56,8 +55,6 @@ const goToDashboard = () => {
 
 const startDraftTranslation = useDraftTranslationStart();
 const { selectPageSectionByTitle } = usePageSectionSelect();
-
-const { isDesktop } = useDevice();
 
 const selectSection = (sourceSectionTitle) => {
   const existingSectionTranslation = store.getters[

@@ -9,13 +9,11 @@ import { ref, computed, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useTargetArticlePreview from "./useTargetArticlePreview";
-import { isQuickTutorialForced } from "@/utils/urlHandler";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 import useURLHandler from "@/composables/useURLHandler";
-import useDevice from "@/composables/useDevice";
-import useCXRedirect from "@/composables/useCXRedirect";
+import useTranslationConfirm from "@/composables/useTranslationConfirm";
 
 const store = useStore();
 const router = useRouter();
@@ -25,8 +23,7 @@ const sourceVsTargetSelection = ref("source_section");
 const { logDashboardTranslationStartEvent } =
   useDashboardTranslationStartInstrument();
 const goToSectionSelector = () => router.push({ name: "sx-section-selector" });
-const { isDesktop } = useDevice();
-const redirectToCX = useCXRedirect();
+const confirmTranslation = useTranslationConfirm();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -34,29 +31,6 @@ const {
   pageURLParameter: pageTitle,
   sectionURLParameter: sectionTitle,
 } = useURLHandler();
-
-const translateSection = () => {
-  logDashboardTranslationStartEvent();
-
-  const shouldDisplayQuickTutorial =
-    isQuickTutorialForced() ||
-    !store.getters["translator/userHasSectionTranslations"];
-
-  if (shouldDisplayQuickTutorial) {
-    router.push({ name: "sx-quick-tutorial" });
-  } else if (isDesktop.value) {
-    const extra = { sourcesection: sectionTitle.value };
-
-    redirectToCX(
-      sourceLanguage.value,
-      targetLanguage.value,
-      pageTitle.value,
-      extra
-    );
-  } else {
-    router.push({ name: "sx-sentence-selector" });
-  }
-};
 
 const {
   activeSectionTargetTitle,
@@ -90,13 +64,13 @@ watch(
   <section class="sx-content-comparator">
     <sx-content-comparator-header
       v-model:discarded-sections="discardedSections"
-      @translation-button-clicked="translateSection"
+      @translation-button-clicked="confirmTranslation"
       @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
       v-model:source-vs-target-selection="sourceVsTargetSelection"
       :is-mapped-section="isCurrentSectionMapped"
-      @translation-button-clicked="translateSection"
+      @translation-button-clicked="confirmTranslation"
     />
     <section class="sx-content-comparator__source-content">
       <template v-if="sourceVsTargetSelection === 'source_section'">

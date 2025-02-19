@@ -1,36 +1,22 @@
-import { isQuickTutorialForced } from "@/utils/urlHandler";
-import useApplicationState from "@/composables/useApplicationState";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useDevice from "@/composables/useDevice";
-import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
-import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
+import useTranslationConfirm from "@/composables/useTranslationConfirm";
 
 export default () => {
   const router = useRouter();
-  const store = useStore();
+  const confirmTranslation = useTranslationConfirm();
   const { isDesktop } = useDevice();
-  const { logDashboardTranslationStartEvent } =
-    useDashboardTranslationStartInstrument();
-  const {
-    pageURLParameter: sourceTitle,
-    sectionURLParameter: preFilledSectionTitle,
-  } = useURLHandler();
-
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
+  const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
   const { targetPageExists } = useLanguageTitleGroup();
 
-  const { selectPageSectionByIndex, selectPageSectionByTitle } =
-    usePageSectionSelect();
-
-  const redirectToCX = useCXRedirect();
+  const { selectPageSectionByTitle } = usePageSectionSelect();
 
   const startPrefilledSectionTranslation = async () => {
     await selectPageSectionByTitle(preFilledSectionTitle.value);
@@ -65,36 +51,11 @@ export default () => {
     } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
-      startNewTranslation();
-    }
-  };
-
-  const startNewTranslation = async () => {
-    logDashboardTranslationStartEvent();
-
-    if (isDesktop.value) {
-      redirectToCX(
-        sourceLanguage.value,
-        targetLanguage.value,
-        sourceTitle.value
-      );
-    } else {
-      selectPageSectionByIndex(0);
-
-      const shouldDisplayQuickTutorial =
-        isQuickTutorialForced() ||
-        !store.getters["translator/userHasSectionTranslations"];
-
-      if (shouldDisplayQuickTutorial) {
-        router.push({ name: "sx-quick-tutorial", query: { force: true } });
-      } else {
-        router.push({ name: "sx-sentence-selector", query: { force: true } });
-      }
+      confirmTranslation();
     }
   };
 
   return {
-    startNewTranslation,
     handlePrimaryButtonClick,
     translationConfirmationDialogOn,
   };
