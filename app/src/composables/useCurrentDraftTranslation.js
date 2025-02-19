@@ -15,11 +15,14 @@ const useCurrentDraftTranslation = () => {
    * @type {ComputedRef<DraftTranslation>}
    */
   const currentTranslation = computed(() =>
-    store.getters["translator/getDraftTranslation"](
-      pageTitle.value,
-      sectionTitle.value,
-      sourceLanguage.value,
-      targetLanguage.value
+    store.state.translator.translations.find(
+      /** @param {DraftTranslation} translation */
+      (translation) =>
+        translation.status === "draft" &&
+        translation.sourceTitle === pageTitle.value &&
+        translation.sectionTitleMatches(sectionTitle.value) &&
+        translation.sourceLanguage === sourceLanguage.value &&
+        translation.targetLanguage === targetLanguage.value
     )
   );
 
