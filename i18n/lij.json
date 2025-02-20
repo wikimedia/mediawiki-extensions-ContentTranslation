@@ -108,6 +108,7 @@
 	"cx-dashboard-sidebar-information": "De âtre informaçioìn in sce sto struménto chi",
 	"cx-dashboard-sidebar-stats": "Statìstiche",
 	"cx-dashboard-sidebar-feedback": "Dànne a tò òpinión",
+	"cx-dashboard-banner-message": "<strong>A versción prezénte do dashboard a vegniâ fêua d'ûzo tra no goæi .</strong> Pe piâxéi, [$1 deuviâ a nêuva versción] e [https://www.mediawiki.org/wiki/Talk:Content_translation segnalâ ògni problêma] ch'o l'é stæto atrovòu.",
 	"cx-translation-filter-published-translations": "Pubricæ",
 	"cx-translation-filter-draft-translations": "In córso",
 	"cx-translation-filter-suggested-translations": "Conséggi",
@@ -481,6 +482,10 @@
 	"cx-sx-dashboard-stats-panel-title": "O tò inpàtto",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Quésto méize",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Totâle",
+	"cx-sx-dashboard-banner-title": "Nêuve capaçitæ disponìbili",
+	"cx-sx-dashboard-banner-description": "Tradûe de séncie seçioìn, adatâ i conséggi a-i pròppi argoménti d'interèsse e ancón de ciù. Into pasòu sôlo da mòbile, òua disponìbile pe tùtti i dispoxitîvi.",
+	"cx-sx-dashboard-banner-learn-more": "Pe savéine de ciù",
+	"cx-sx-dashboard-banner-access-previous": "Acêde a-a versción de prìmma",
 	"sx-confirm-back-navigation-dialog-title": "Lasciâ a tò traduçión?",
 	"sx-confirm-back-navigation-dialog-body": "E modìfiche no són stæte ancón sarvæ e saiàn pèrse. Ti peu anâ avànti a modificâ pò-u sarvatàggio outomàtico di cangiaménti.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Scàrta e modìfiche",
@@ -575,5 +580,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 pàgina exìstan in $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|Mànca $1 giórno|Màncan $1 giórni|0=No màncan di giórni}}",
 	"cx-page-collection-dialog-page-suggestions-header": "Nêuve pàgine",
-	"cx-page-collection-dialog-section-suggestions-header": "Nêuve seçioìn"
+	"cx-page-collection-dialog-section-suggestions-header": "Nêuve seçioìn",
+	"cx-sx-suggestion-list-empty-title": "Nisciùn conséggio pe òua",
+	"cx-sx-suggestion-list-empty-description": "No l'é stæto atrovòu de conséggi pe sto fìltro chi. Se peu provâ co-in fìltro despægio ò çercâ 'n artìcolo specìfico da tradûe."
 }
