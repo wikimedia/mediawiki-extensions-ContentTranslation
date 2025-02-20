@@ -40,7 +40,7 @@
 			</a>
 		</div>
 		<div class="translation-viewer__content-translation-entrypoint">
-			<cdx-card :icon="cdxIconEdit">
+			<cdx-card :icon="cdxIconEdit" @click="onFixTranslation">
 				<template #title>
 					{{
 						$i18n( 'mint-view-translation-content-translation-entrypoint-title' ).text()
@@ -174,7 +174,12 @@
 			:page-result="pageResult"
 			:source-page-url="sourcePageUrl"
 			:target-page-url="targetPageUrl"
+			@fix-translation="onFixTranslation"
 		></view-translation-page-options>
+		<cx-introduction-dialog
+			v-model="fixTranslationDialogOn"
+			:cx-url="cxUrl"
+		></cx-introduction-dialog>
 	</div>
 </template>
 
@@ -191,6 +196,7 @@ const useEventLogging = require( './useEventLogging.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
+const CxIntroductionDialog = require( './CxIntroductionDialog.vue' );
 const {
 	cdxIconClose,
 	cdxIconRobot,
@@ -208,7 +214,14 @@ const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 
 module.exports = defineComponent( {
 	name: 'ViewTranslation',
-	components: { CdxIcon, CdxButton, CdxCard, MwSpinner, ViewTranslationPageOptions },
+	components: {
+		CdxIcon,
+		CdxButton,
+		CdxCard,
+		MwSpinner,
+		ViewTranslationPageOptions,
+		CxIntroductionDialog
+	},
 	props: {
 		pageResult: {
 			type: PageResult,
@@ -359,6 +372,13 @@ module.exports = defineComponent( {
 			return siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title );
 		} );
 
+		const cxUrl = computed( () => siteMapper.getCXUrl(
+			props.pageResult.sourceTitle,
+			null,
+			sourceLanguage.value,
+			targetLanguage.value
+		) );
+
 		const { goToHomePage } = useRouter();
 
 		const closeViewTranslationPage = () => {
@@ -379,6 +399,11 @@ module.exports = defineComponent( {
 			} ) );
 
 			logEvent( 'click', null, 'human_translation_card', 'translation_view', translationContext );
+		};
+
+		const fixTranslationDialogOn = ref( false );
+		const onFixTranslation = () => {
+			fixTranslationDialogOn.value = true;
 		};
 
 		return {
@@ -403,11 +428,14 @@ module.exports = defineComponent( {
 			sourcePageUrl,
 			targetPageUrl,
 			targetPage,
+			cxUrl,
 			translatedSectionTitles,
 			loadingSectionTitleTranslations,
 			openTranslationOptions,
 			optionsDialogOn,
-			onTargetArticleClick
+			onTargetArticleClick,
+			fixTranslationDialogOn,
+			onFixTranslation
 		};
 	}
 } );

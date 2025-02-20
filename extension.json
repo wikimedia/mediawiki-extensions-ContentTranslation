@@ -1923,6 +1923,7 @@
 				"ConfirmTopicPage.vue",
 				"ViewTranslationPage.vue",
 				"ViewTranslationPageOptions.vue",
+				"CxIntroductionDialog.vue",
 				"SkeletonLoader.vue",
 				"ExploreLanguagesPage.vue",
 				{
@@ -1995,7 +1996,13 @@
 				"mint-explore-languages-explanation-banner-text",
 				"mint-explore-languages-language-card-container-title",
 				"mint-explore-languages-language-card-sections-count",
-				"mint-explore-languages-language-card-most-detailed-chip-label"
+				"mint-explore-languages-language-card-most-detailed-chip-label",
+				"ax-cx-introduction-dialog-title",
+				"ax-cx-introduction-summary",
+				"ax-cx-introduction-information-accuracy",
+				"ax-cx-introduction-information-expand",
+				"ax-cx-introduction-information-correct",
+				"ax-cx-introduction-dialog-action"
 			]
 		},
 		"ext.ax.articlefooter.entrypoint": {

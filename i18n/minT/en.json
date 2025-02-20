@@ -52,5 +52,11 @@
 	"mint-explore-languages-explanation-banner-text": "Editors in different languages covered this topic in different ways.",
 	"mint-explore-languages-language-card-container-title": "Languages with the most coverage for \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 sections|0=No sections}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Most detailed"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Most detailed",
+	"ax-cx-introduction-dialog-title": "Review and fix translations",
+	"ax-cx-introduction-summary": "Improve the content available in your language. Write a better translation, and publish it on Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Automatic translation provides a useful overview, but it is not always accurate.",
+	"ax-cx-introduction-information-expand": "Contents written by humans are more reliable, and you can help expanding them!",
+	"ax-cx-introduction-information-correct": "Follow a simple step by step process to review and correct automatic translations for each sentence.",
+	"ax-cx-introduction-dialog-action": "Correct and add to the article"
 }

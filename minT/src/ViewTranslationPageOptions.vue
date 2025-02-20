@@ -56,7 +56,7 @@
 							}}
 						</span>
 					</a>
-					<a :href="cxUrl" target="_blank">
+					<a @click="onFixTranslationClick">
 						<cdx-icon :icon="cdxIconEdit"></cdx-icon>
 						<span>
 							{{
@@ -127,7 +127,7 @@ module.exports = defineComponent( {
 			default: null
 		}
 	},
-	emits: [ 'update:modelValue' ],
+	emits: [ 'update:modelValue', 'fix-translation' ],
 	setup( props, context ) {
 		const { sourceLanguage, targetLanguage } = useState();
 		const { onSourceLanguageUpdate, onTargetLanguageUpdate } = useLanguagesUpdate();
@@ -150,13 +150,10 @@ module.exports = defineComponent( {
 			closeOverlay();
 		};
 
-		const siteMapper = new mw.cx.SiteMapper();
-		const cxUrl = computed( () => siteMapper.getCXUrl(
-			props.pageResult.sourceTitle,
-			null,
-			sourceLanguage.value,
-			targetLanguage.value
-		) );
+		const onFixTranslationClick = () => {
+			context.emit( 'fix-translation' );
+			closeOverlay();
+		};
 
 		const isShareSupported = navigator.canShare && navigator.canShare( { url: location.href } );
 		const shareTranslation = () => navigator.share( { url: location.href } );
@@ -172,11 +169,11 @@ module.exports = defineComponent( {
 			cdxIconShare,
 			cdxIconFeedback,
 			closeOverlay,
-			cxUrl,
 			shareTranslation,
 			isShareSupported,
 			sourceLanguageAutonym,
-			targetLanguageAutonym
+			targetLanguageAutonym,
+			onFixTranslationClick
 		};
 	}
 } );

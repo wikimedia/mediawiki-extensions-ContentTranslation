@@ -53,5 +53,11 @@
 	"mint-explore-languages-explanation-banner-text": "Main text of the explanation banner, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-language-card-container-title": "Title of the container of the cards containing information for each language, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-language-card-sections-count": "Text that displays the number of sections for a given language, inside the page where the user can view the available languages for the given article and the sections for each language",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Label of the chip that denotes the language in which the current article is most detailed, inside the page where the user can view the available languages for the given article and the sections for each language"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Label of the chip that denotes the language in which the current article is most detailed, inside the page where the user can view the available languages for the given article and the sections for each language",
+	"ax-cx-introduction-dialog-title": "Title of the dialog that introduces the Content Translation tool. It appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
+	"ax-cx-introduction-summary": "Text that appears in the dialog introducing the Content Translation tool. It appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
+	"ax-cx-introduction-information-accuracy": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
+	"ax-cx-introduction-information-expand": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
+	"ax-cx-introduction-information-correct": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
+	"ax-cx-introduction-dialog-action": "Label for the primary button in the dialog that introduces the Content Translation tool. Clicking it redirects the user to the Content Translation tool."
 }
