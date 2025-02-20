@@ -16,18 +16,15 @@
 		line-height: 1.6;
 	}
 
-	.cx-skin-menu-content {
+	// Menu items outside of dropdown (notifications)
+	&:not( .cx-skin-menu-dropdown ) .cx-skin-menu-content {
+		margin-right: 1em;
 		padding: 0;
 
 		li {
 			display: inline-flex;
 			padding-top: 0;
 		}
-	}
-
-	// Menu items outside of dropdown (notifications)
-	&:not( .cx-skin-menu-dropdown ) .cx-skin-menu-content {
-		margin-right: 1em;
 	}
 }
 
