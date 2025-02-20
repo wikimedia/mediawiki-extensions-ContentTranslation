@@ -113,7 +113,11 @@ const initializeURLState = () => {
   sourceLanguageURLParameter.value = urlParams.get("from");
   targetLanguageURLParameter.value = urlParams.get("to");
   sectionURLParameter.value = urlParams.get("section");
-  activeDashboardTabParameter.value = urlParams.get("active-list");
+
+  // For backward compatibility with desktop dashboard URLs,
+  // fallback to the hash minus the '#/' prefix
+  activeDashboardTabParameter.value =
+    urlParams.get("active-list") || location.hash.slice(2).toLowerCase();
 
   const suggestionFilter = validateFilters({
     type: urlParams.get("filter-type"),
