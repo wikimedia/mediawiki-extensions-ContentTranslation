@@ -9,10 +9,9 @@ import {
   mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import useEventLogging from "@/composables/useEventLogging";
 import useApplicationState from "@/composables/useApplicationState";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useCurrentPages from "@/composables/useCurrentPages";
@@ -33,7 +32,6 @@ const {
 const articleImageSource = computed(
   () => currentSourcePage.value?.image?.source
 );
-const logEvent = useEventLogging();
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const fetchLanguageTitles = useLanguageTitlesFetch();
 
@@ -55,10 +53,17 @@ fetchAppendixSectionTitles(targetLanguage.value);
 const router = useRouter();
 
 const onClose = () => {
-  // Remove translation URL params so that section translation doesn't restart, leading to endless loop
-  clearTranslationURLParameters();
-  router.push({ name: previousRoute.value || "dashboard" });
+  router.push({ name: previousRoute.value });
 };
+
+onBeforeUnmount(() => {
+  const navigatingTo = router.currentRoute.value.name;
+
+  if (navigatingTo === "dashboard" || navigatingTo === "sx-article-search") {
+    // Remove translation URL params so that section translation doesn't restart, leading to endless loop
+    clearTranslationURLParameters();
+  }
+});
 
 const translationConfirmationDialogOn = ref(false);
 </script>
