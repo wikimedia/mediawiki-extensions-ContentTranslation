@@ -1,6 +1,4 @@
-import useMediaWikiState from "@/composables/useMediaWikiState";
 import useApplicationState from "@/composables/useApplicationState";
-import { getInitialLanguagePair } from "@/utils/getInitialLanguagePair";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
@@ -47,8 +45,7 @@ const redirectToTargetWikiIfNeeded = (
 
   return false;
 };
-const { setLanguageURLParams, pageURLParameter, sectionURLParameter } =
-  useURLHandler();
+const { setLanguageURLParams } = useURLHandler();
 
 const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
   store.commit("application/setSourceLanguage", sourceLanguage);
@@ -58,38 +55,6 @@ const setLanguagePair = (store, sourceLanguage, targetLanguage) => {
 
   mw.storage.set("cxSourceLanguage", sourceLanguage);
   mw.storage.set("cxTargetLanguage", targetLanguage);
-};
-
-/**
- * This composable returns a method that initializes the application languages
- * inside Vuex "application" state, and sets the "from" and "to" URL parameters.
- *
- * @return {(function(): Promise<void>)}
- */
-const useApplicationLanguagesInitialize = () => {
-  const store = useStore();
-  const { enabledTargetLanguages, supportedLanguageCodes } =
-    useMediaWikiState();
-
-  return async () => {
-    await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
-
-    const { sourceLanguage, targetLanguage } = getInitialLanguagePair(
-      enabledTargetLanguages.value,
-      supportedLanguageCodes.value
-    );
-
-    const redirectionNeeded = redirectToTargetWikiIfNeeded(
-      sourceLanguage,
-      targetLanguage,
-      pageURLParameter.value,
-      sectionURLParameter.value
-    );
-
-    if (!redirectionNeeded) {
-      setLanguagePair(store, sourceLanguage, targetLanguage);
-    }
-  };
 };
 
 const useSuggestionListLanguagePairUpdate = () => {
@@ -225,7 +190,8 @@ const useArticleLanguagePairUpdate = () => {
 };
 
 export {
-  useApplicationLanguagesInitialize,
+  redirectToTargetWikiIfNeeded,
+  setLanguagePair,
   useArticleLanguagePairUpdate,
   useSuggestionListLanguagePairUpdate,
   useDraftTranslationLanguagePairUpdate,

@@ -11,10 +11,7 @@ import useMediaWikiState from "../../composables/useMediaWikiState";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useEventLogging from "@/composables/useEventLogging";
-import {
-  useSuggestionListLanguagePairUpdate,
-  useApplicationLanguagesInitialize,
-} from "@/composables/useLanguageHelper";
+import { useSuggestionListLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import { CdxButton, CdxIcon, CdxSearchInput } from "@wikimedia/codex";
 import { cdxIconClose } from "@wikimedia/codex-icons";
@@ -65,9 +62,6 @@ const router = useRouter();
 
 const { fetchAllTranslations } = useTranslationsFetch();
 onMounted(async () => {
-  const initializeLanguages = useApplicationLanguagesInitialize();
-  await initializeLanguages();
-
   fetchAllTranslations();
 
   try {

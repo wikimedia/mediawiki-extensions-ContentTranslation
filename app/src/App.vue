@@ -6,9 +6,12 @@ import userApi from "@/wiki/mw/api/user";
 import SxLoginDialog from "@/components/SXLoginDialog.vue";
 import AssertUserError from "@/utils/errors/assertUserError";
 import useURLHandler from "@/composables/useURLHandler";
+import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
 
 const { initializeURLState } = useURLHandler();
+const { initializeApplicationLanguages } = useApplicationLanguagesInitialize();
 initializeURLState();
+initializeApplicationLanguages();
 
 const store = useStore();
 const unsavedChangesExist = computed(

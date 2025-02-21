@@ -1,4 +1,4 @@
-import { useApplicationLanguagesInitialize } from "@/composables/useLanguageHelper";
+import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
 import { useUrlTranslationStart } from "./useUrlTranslationStart";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
@@ -6,6 +6,7 @@ import useURLHandler from "@/composables/useURLHandler";
 import useFavoritesFetch from "./useFavoritesFetch";
 import usePageCollections from "./usePageCollections";
 import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
+import { watch } from "vue";
 
 const useDashboardInitialization = () => {
   const startSectionTranslationFromUrl = useUrlTranslationStart();
@@ -16,12 +17,11 @@ const useDashboardInitialization = () => {
   const { pageURLParameter, sectionURLParameter, draftURLParameter } =
     useURLHandler();
   const { logDashboardOpenEvent } = useDashboardOpenInstrument();
+  const { applicationLanguagesInitialized } =
+    useApplicationLanguagesInitialize();
 
   return async () => {
     fetchPageCollections();
-
-    const initializeLanguages = useApplicationLanguagesInitialize();
-    await initializeLanguages();
 
     if (!!pageURLParameter.value) {
       startSectionTranslationFromUrl({
@@ -32,8 +32,6 @@ const useDashboardInitialization = () => {
 
       return;
     }
-
-    logDashboardOpenEvent();
 
     // Catch any possible errors during fetching favorite suggestions and
     // translations, to make sure that "initializeSuggestions" actions is dispatched,
@@ -48,7 +46,16 @@ const useDashboardInitialization = () => {
     }
 
     await fetchAllTranslations();
-    initializeSuggestions();
+    watch(
+      applicationLanguagesInitialized,
+      () => {
+        if (applicationLanguagesInitialized.value) {
+          logDashboardOpenEvent();
+          initializeSuggestions();
+        }
+      },
+      { immediate: true }
+    );
   };
 };
 
