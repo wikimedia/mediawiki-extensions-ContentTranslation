@@ -18,7 +18,6 @@ import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
-import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
 
 const store = useStore();
@@ -37,21 +36,10 @@ const articleImageSource = computed(
 const logEvent = useEventLogging();
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const fetchLanguageTitles = useLanguageTitlesFetch();
-const loadSuggestion = useSuggestionLoad();
 
 // to support draft translation start
 fetchTranslationsByStatus("draft");
 
-// This call doesn't seem to have any impact, as the suggestion is already loaded at this point,
-// even when section title exists (i.e. for section translations).
-// TODO: Remove this call
-if (!!sectionTitle.value) {
-  loadSuggestion(
-    sourceLanguage.value,
-    targetLanguage.value,
-    sourcePageTitle.value
-  );
-}
 fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
 
 // Start loading VE in background. Don't wait for it though.
