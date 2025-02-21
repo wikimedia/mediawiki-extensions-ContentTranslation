@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import router from "@/router";
+import { useRouter } from "vue-router";
 import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import SubSection from "@/wiki/cx/models/subSection";
 import PageSection from "@/wiki/cx/models/pageSection";
@@ -9,7 +9,7 @@ import mediawikiGetters from "@/store/modules/mediawiki/getters";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
 import { loadTestComposable } from "@/utils/loadTestComposable";
 
-const routerPushSpy = jest.spyOn(router, "push").mockImplementation(() => {});
+jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 
 const createPageWithSubSection = () => {
   /**
@@ -113,14 +113,13 @@ jest.mock("@/composables/useURLHandler", () => () => ({
 
 describe("Test `useEditTranslation` composable", () => {
   it('should navigate to "sx-editor" route with the proper parameters', function () {
-    const data = loadTestComposable(
-      () => useEditTranslation(),
-      [router, mockStore]
-    );
+    const pushMock = jest.fn();
+    useRouter.mockReturnValue({ push: pushMock });
+    const data = loadTestComposable(() => useEditTranslation(), [mockStore]);
     const editTranslation = data.result;
     editTranslation();
 
-    expect(routerPushSpy).toHaveBeenCalledWith({
+    expect(pushMock).toHaveBeenCalledWith({
       name: "sx-editor",
       state: {
         content:

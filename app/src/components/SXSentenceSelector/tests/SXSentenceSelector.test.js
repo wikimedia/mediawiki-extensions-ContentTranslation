@@ -2,7 +2,6 @@ import { mount } from "@vue/test-utils";
 import SXSentenceSelector from "../SXSentenceSelector";
 import { createI18n } from "vue-banana-i18n";
 import SubSection from "../SubSection";
-import router from "@/router";
 import { createStore } from "vuex";
 import SubSectionModel from "@/wiki/cx/models/subSection";
 import PageSection from "@/wiki/cx/models/pageSection";
@@ -15,7 +14,15 @@ jest.mock(
   () => () => jest.fn(() => Promise.resolve())
 );
 
+jest.mock("@/composables/useEditorInstrument", () => () => ({
+  logEditorOpenEvent: jest.fn(),
+  logEditorCloseEvent: jest.fn(),
+  logEditorCloseWarnEvent: jest.fn(),
+  logEditorSegmentAddEvent: jest.fn(),
+}));
+
 jest.mock("@/plugins/ve");
+jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 
 const subSections = [
   new SubSectionModel({
@@ -55,9 +62,6 @@ const mockStore = createStore({
       state: {
         translationDataLoadingCounter: 0,
       },
-      mutations: {
-        setPreviousRoute: () => {}, // for Vue router navigation guard
-      },
     },
   },
 });
@@ -65,7 +69,7 @@ const mockStore = createStore({
 describe("Test SXSentenceSelector component", () => {
   const wrapper = mount(SXSentenceSelector, {
     global: {
-      plugins: [i18n, mockStore, router],
+      plugins: [i18n, mockStore],
       renderStubDefaultSlot: true,
     },
     shallow: true,

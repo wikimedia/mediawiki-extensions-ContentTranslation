@@ -7,7 +7,6 @@ import { createStore } from "vuex";
 import { ref } from "vue";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
-import router from "@/router";
 
 const mockSectionSuggestion = new SectionSuggestion({
   targetLanguage: "en",
@@ -19,6 +18,7 @@ const mockSectionSuggestion = new SectionSuggestion({
   },
   sourceSections: ["source1", "source2", "source3"],
 });
+jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 
 jest.mock("@/composables/useSuggestionsInitialize");
 jest.mock("@/composables/useCurrentSectionSuggestion", () => () => ({
@@ -74,7 +74,7 @@ describe("SXTranslationConfirmer Action Panel test", () => {
   const createWrapper = () =>
     mount(SxTranslationConfirmerActionPanel, {
       global: {
-        plugins: [mockStore, i18n, router],
+        plugins: [mockStore, i18n],
         provide: {
           colors: {},
           breakpoints: { value: breakpoints },

@@ -3,7 +3,6 @@ import SXArticleSearch from "./SXArticleSearch";
 import { createI18n } from "vue-banana-i18n";
 import { BreakpointsPlugin } from "../../lib/mediawiki.ui/plugins/";
 import mockStore from "./articleSearchMockStore";
-import router from "../../router";
 import { computed, ref } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import ArticleSuggestionsCard from "./ArticleSuggestionsCard";
@@ -59,6 +58,7 @@ const getLocalStorageItem = jest.fn(() => JSON.stringify(["bn"]));
 const getItemSpy = jest.spyOn(window.localStorage.__proto__, "getItem");
 getItemSpy.mockImplementation(getLocalStorageItem);
 jest.mock("@/store", () => jest.requireActual("./articleSearchMockStore"));
+jest.mock("vue-router", () => ({ useRouter: jest.fn() }));
 
 const mockUseSuggestedSourceLanguages = () => ({
   getSuggestedSourceLanguages: (previousLanguages) =>
@@ -72,13 +72,8 @@ const i18n = createI18n();
 describe("SXArticleSearch component test", () => {
   const wrapper = mount(SXArticleSearch, {
     global: {
-      plugins: [mockStore, router, i18n, BreakpointsPlugin],
+      plugins: [mockStore, i18n, BreakpointsPlugin],
     },
-  });
-
-  beforeEach(async () => {
-    router.push("/");
-    await router.isReady();
   });
 
   it("Component output matches snapshot", async () => {

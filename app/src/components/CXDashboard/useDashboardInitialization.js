@@ -1,37 +1,22 @@
 import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
-import { useUrlTranslationStart } from "./useUrlTranslationStart";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
-import useURLHandler from "@/composables/useURLHandler";
 import useFavoritesFetch from "./useFavoritesFetch";
 import usePageCollections from "./usePageCollections";
 import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
 import { watch } from "vue";
 
 const useDashboardInitialization = () => {
-  const startSectionTranslationFromUrl = useUrlTranslationStart();
   const { fetchAllTranslations } = useTranslationsFetch();
   const initializeSuggestions = useSuggestionsInitialize();
   const fetchFavorites = useFavoritesFetch();
   const { fetchPageCollections } = usePageCollections();
-  const { pageURLParameter, sectionURLParameter, draftURLParameter } =
-    useURLHandler();
   const { logDashboardOpenEvent } = useDashboardOpenInstrument();
   const { applicationLanguagesInitialized } =
     useApplicationLanguagesInitialize();
 
   return async () => {
     fetchPageCollections();
-
-    if (!!pageURLParameter.value) {
-      startSectionTranslationFromUrl({
-        pageTitle: pageURLParameter.value,
-        isDraftTranslation: draftURLParameter.value,
-        sectionTitle: sectionURLParameter.value,
-      });
-
-      return;
-    }
 
     // Catch any possible errors during fetching favorite suggestions and
     // translations, to make sure that "initializeSuggestions" actions is dispatched,

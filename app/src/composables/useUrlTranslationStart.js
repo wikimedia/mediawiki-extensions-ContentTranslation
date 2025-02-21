@@ -1,10 +1,10 @@
 import useTranslationStart from "@/composables/useTranslationStart";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
-import useDashboardOpenInstrument from "./useDashboardOpenInstrument";
+import useDashboardOpenInstrument from "@/components/CXDashboard/useDashboardOpenInstrument";
 
 /**
- * @return {(function({pageTitle: string, isDraftTranslation: boolean, sectionTitle: string|null}): Promise<void>)}
+ * @return {(function(): Promise<void>)}
  */
 const useUrlTranslationStart = () => {
   const startTranslation = useTranslationStart();
@@ -22,13 +22,17 @@ const useUrlTranslationStart = () => {
       logDashboardOpenEvent()
     );
 
+    // do not navigate to "sx-translation-confirmer". useUrlTranslationStart is only called inside
+    // router navigation guard, which will also handle the navigation to the confirmation step
     return startTranslation(
       pageTitle.value,
       sourceLanguage.value,
       targetLanguage.value,
-      getEventSource()
+      getEventSource(),
+      null,
+      false
     );
   };
 };
 
-export { useUrlTranslationStart };
+export default useUrlTranslationStart;

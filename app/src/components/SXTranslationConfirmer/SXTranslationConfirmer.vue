@@ -57,7 +57,7 @@ const router = useRouter();
 const onClose = () => {
   // Remove translation URL params so that section translation doesn't restart, leading to endless loop
   clearTranslationURLParameters();
-  router.push({ name: previousRoute.value });
+  router.push({ name: previousRoute.value || "dashboard" });
 };
 
 const translationConfirmationDialogOn = ref(false);

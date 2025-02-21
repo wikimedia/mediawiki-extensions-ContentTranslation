@@ -13,6 +13,8 @@ import {
 import { useStore } from "vuex";
 import userApi from "@/wiki/mw/api/user";
 import AssertUserError from "@/utils/errors/assertUserError";
+import useURLHandler from "@/composables/useURLHandler";
+import useUrlTranslationStart from "@/composables/useUrlTranslationStart";
 
 const routes = [
   {
@@ -89,6 +91,14 @@ const router = createRouter({
  */
 router.beforeEach((to, from, next) => {
   const store = useStore();
+  const startSectionTranslationFromUrl = useUrlTranslationStart();
+
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    pageURLParameter: pageTitle,
+  } = useURLHandler();
+
   store.commit("application/setPreviousRoute", from.name);
 
   if (!mw.user.isAnon()) {
@@ -104,6 +114,26 @@ router.beforeEach((to, from, next) => {
 
     return;
   }
+
+  const areTranslationParamsSet = !!(
+    sourceLanguage.value &&
+    targetLanguage.value &&
+    pageTitle.value
+  );
+
+  // first landing on the application, directly to the confirmation step
+  if (!from.name && areTranslationParamsSet) {
+    startSectionTranslationFromUrl();
+
+    if (to.name === "sx-translation-confirmer") {
+      next();
+    } else {
+      next({ name: "sx-translation-confirmer" });
+    }
+
+    return;
+  }
+
   const fromStep = from.meta.workflowStep;
   const toStep = to.meta.workflowStep;
 
