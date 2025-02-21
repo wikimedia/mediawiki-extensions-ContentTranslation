@@ -1,7 +1,7 @@
 <script setup>
 import { MwGrid, MwCol, MwRow } from "./lib/mediawiki.ui";
 import { useStore } from "vuex";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, inject } from "vue";
 import userApi from "@/wiki/mw/api/user";
 import SxLoginDialog from "@/components/SXLoginDialog.vue";
 import AssertUserError from "@/utils/errors/assertUserError";
@@ -12,6 +12,9 @@ const { initializeURLState } = useURLHandler();
 const { initializeApplicationLanguages } = useApplicationLanguagesInitialize();
 initializeURLState();
 initializeApplicationLanguages();
+
+const breakpoints = inject("breakpoints");
+const isMobile = computed(() => breakpoints.value.mobile);
 
 const store = useStore();
 const unsavedChangesExist = computed(
@@ -51,7 +54,7 @@ onMounted(() => {
     <mw-row class="cx-container">
       <mw-col cols="12">
         <router-view v-slot="{ Component, route }">
-          <transition :name="route.meta.transitionName">
+          <transition :name="isMobile ? route.meta.transitionName : ''">
             <component :is="Component" />
           </transition>
           <sx-login-dialog />
