@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Kaleem Bhatti",
-			"Saraiki"
+			"Saraiki",
+			"Umar Shahid"
 		]
 	},
 	"cx": "ترجمے دا ورقہ",
@@ -62,6 +63,7 @@
 	"cx-contributions-new-article-tooltip": "نواں ورقہ لکھݨ شروع کرو",
 	"cx-contributions-translation-tooltip": "پہلے توں موجود ورقیاں دا ترجمہ کرو",
 	"cx-publishing-dialog-publish-anyway-button": "ول وی شائع کرو",
+	"cx-publishing-with-issues-dialog-message": "تہاݙے ترجمے وچ ہݨ وی ممکنہ مسائل ہِن۔  مہربانی کر تے اشاعت توں پہلے مسائل دی جانچ پڑتال تے غور کرو۔\n\n تہاݙے تعاون دا جائزہ گھنݨ آلے ایڈیٹرز بہتری دی تعریف کریسن۔",
 	"cx-discard-translation": "ترجمہ مسترد کرو",
 	"cx-translation-status-draft": "تھیندا پئے",
 	"cx-translation-status-published": "شائع تھی ڳئے",
@@ -117,6 +119,7 @@
 	"cx-tools-linter-template": "سانچہ دستیاب کائنی",
 	"cx-tools-linter-template-add-new": "نواں سانچہ شامل کرو",
 	"cx-tools-linter-incomplete-template": "نامکمل سانچہ",
+	"cx-tools-linter-template-missing-mandatory": "کجھ مطلوبہ معلومات دے بغیر ہک ٹیمپلیٹ شامل کیا ڳیا ہا۔\n گمشدہ تفصیلات اصل سانچے توں آپ حاصل کائنی کیتیاں ونڄ سڳدیاں کیوں جو انہاں دی  ساخت کجھ وکھری ہے۔\n\n گمشدہ معلومات پُر کرݨ سانگے برائے مہربانی ترجمے وچ سانچے وچ ترمیم کرو۔",
 	"cx-tools-linter-old-revision-label": "ترجمہ ولدا شروع کرو",
 	"cx-tools-linter-reference": "غائب حوالہ",
 	"cx-tools-linter-incomplete-reference": "ادھورا حوالہ",
