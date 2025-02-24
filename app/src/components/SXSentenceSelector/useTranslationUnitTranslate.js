@@ -6,6 +6,7 @@ import SectionSentence from "@/wiki/cx/models/sectionSentence";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useURLHandler from "@/composables/useURLHandler";
+import useCXServerToken from "@/composables/useCXServerToken";
 
 const useTranslationUnitTranslate = () => {
   const store = useStore();
@@ -15,6 +16,7 @@ const useTranslationUnitTranslate = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
   } = useURLHandler();
+  const getCXServerToken = useCXServerToken();
 
   const setProposedTranslationForTranslationUnitById = (
     id,
@@ -55,7 +57,7 @@ const useTranslationUnitTranslate = () => {
     }
 
     try {
-      const token = await store.dispatch("application/getCXServerToken");
+      const token = await getCXServerToken();
 
       return await translatorApi.fetchSegmentTranslation(
         sourceLanguage.value,

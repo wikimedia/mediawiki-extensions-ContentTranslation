@@ -29,11 +29,6 @@ export default {
    * @type Boolean
    */
   autoSavePending: false,
-  /**
-   * The cxserver token, mainly used for accessing external machine translation services.
-   * @type String
-   */
-  cxServerToken: null,
   translationDataLoadingCounter: 0,
   isLoginDialogOn: false,
   /**

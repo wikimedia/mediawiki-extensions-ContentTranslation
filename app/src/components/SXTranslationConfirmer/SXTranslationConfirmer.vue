@@ -18,6 +18,7 @@ import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
 import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
 import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
+import useCXServerToken from "@/composables/useCXServerToken";
 
 const store = useStore();
 const { currentSourcePage } = useCurrentPages();
@@ -43,6 +44,11 @@ fetchLanguageTitles(sourceLanguage.value, sourcePageTitle.value);
 // Start loading VE in background. Don't wait for it though.
 // We anticipate that user is going to use editor in next step.
 loadVEModules();
+
+// Start fetching CXServer token. Don't wait for it though.
+// We anticipate that user is going to use editor in next step.
+const getCXServerToken = useCXServerToken();
+getCXServerToken();
 
 // Fetch appendix section titles, if they have not been fetched during suggestion initialization (e.g. if
 // page title is pre-filled as URL parameter), so that they are always available in "Compare contents"

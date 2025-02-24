@@ -50,7 +50,6 @@ const useTranslationStart = () => {
       return;
     }
 
-    store.dispatch("application/getCXServerToken");
     setTranslationURLParams(suggestion);
     setStartTranslationEventSource(eventSource);
     setStartTranslationEventContext(eventContext);

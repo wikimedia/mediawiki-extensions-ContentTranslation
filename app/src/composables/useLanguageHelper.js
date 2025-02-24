@@ -182,7 +182,6 @@ const useArticleLanguagePairUpdate = () => {
       } else {
         await fetchPageMetadata(sourceLanguage.value, [newSourceTitle]);
       }
-      store.dispatch("application/getCXServerToken");
     }
   };
 };

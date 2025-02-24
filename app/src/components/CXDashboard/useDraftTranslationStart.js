@@ -81,8 +81,6 @@ const useDraftTranslationStart = () => {
       updateLanguagePair(translation);
     }
 
-    store.dispatch("application/getCXServerToken");
-
     logEvent({
       event_type: "dashboard_translation_continue",
       translation_id: translation.sectionTranslationId,
