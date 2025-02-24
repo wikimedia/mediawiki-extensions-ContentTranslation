@@ -384,7 +384,7 @@
 	"cx-sx-translation-confirmer-title": "新翻译",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|每周$1次访问|0=本周无访问}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "需花费{{PLURAL:$1|$1小时|0={{PLURAL:$2|$2分钟}}}}来翻译",
-	"cx-sx-translation-confirmer-translation-time-sections": "需花费{{PLURAL:$1|$1小时|0={{PLURAL:$2|$2分钟}}}}来翻译$3个章节",
+	"cx-sx-translation-confirmer-translation-time-sections": "需花费{{PLURAL:$1|$1小时|0={{PLURAL:$2|$2分钟}}}}来翻译{{PLURAL:$3|$3个章节}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "书签",
 	"cx-sx-content-comparator-discarded-section-clarifications": "您的翻译将作为一个独立的新章节发布。",
 	"cx-sx-content-comparator-discarded-section-label": "（丢弃）",
