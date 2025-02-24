@@ -33,7 +33,7 @@ class SiteMapper {
 
 		// Fallback for non-wmf-style farms. $domain can be null or empty string in that case.
 		if ( ( $domain ?? '' ) === '' ) {
-			return MediaWikiServices::getInstance()->getContentLanguage()->getCode();
+			return MediaWikiServices::getInstance()->getContentLanguageCode()->toString();
 		}
 
 		// Do a reverse lookup in our code map, falling back to the domain as key if not
