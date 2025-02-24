@@ -221,7 +221,7 @@ class PurgeUnpublishedDrafts extends Maintenance {
 		/** @var TranslationCorporaStore $corporaStore */
 		$corporaStore = MediaWikiServices::getInstance()->getService( 'ContentTranslation.TranslationCorporaStore' );
 		$corporaStore->deleteTranslationDataGently( $draftId, $this->mBatchSize );
-		$this->output( " — PURGED", $draftId );
+		$this->output( " — PURGED", (string)$draftId );
 		$this->waitForReplication();
 	}
 
