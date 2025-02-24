@@ -2,6 +2,7 @@ import useApplicationState from "@/composables/useApplicationState";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 import useSuggestionsInitialize from "@/composables/useSuggestionsInitialize";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
@@ -135,6 +136,7 @@ const useArticleLanguagePairUpdate = () => {
   const loadSuggestion = useSuggestionLoad();
   const { currentLanguageTitleGroup, targetPageExists } =
     useLanguageTitleGroup();
+  const fetchPageMetadata = usePageMetadataFetch();
 
   return async (newSourceLanguage, newTargetLanguage) => {
     const {
@@ -178,12 +180,8 @@ const useArticleLanguagePairUpdate = () => {
           newSourceTitle
         );
       } else {
-        await store.dispatch("mediawiki/fetchPageMetadata", {
-          language: sourceLanguage.value,
-          titles: [newSourceTitle],
-        });
+        await fetchPageMetadata(sourceLanguage.value, [newSourceTitle]);
       }
-
       store.dispatch("application/getCXServerToken");
     }
   };

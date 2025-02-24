@@ -1,9 +1,11 @@
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import ArticleSuggestion from "@/wiki/cx/models/articleSuggestion";
 import { useStore } from "vuex";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 const useSuggestionLoad = () => {
   const store = useStore();
+  const fetchPageMetadata = usePageMetadataFetch();
 
   /**
    * Given a language pair and an article title this method:
@@ -40,10 +42,7 @@ const useSuggestionLoad = () => {
       );
 
       try {
-        await store.dispatch("mediawiki/fetchPageMetadata", {
-          language: sourceLanguage,
-          titles: [sourceTitle],
-        });
+        await fetchPageMetadata(sourceLanguage, [sourceTitle]);
 
         if (!suggestion) {
           const page = store.getters["mediawiki/getPage"](

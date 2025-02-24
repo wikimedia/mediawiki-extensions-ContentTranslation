@@ -6,6 +6,7 @@ import { useStore } from "vuex";
 
 // Mock necessary modules
 jest.mock("./useSuggestionsStore");
+jest.mock("./usePageMetadataFetch", () => () => jest.fn());
 jest.mock("./useSuggestionProvider");
 jest.mock("./useURLHandler");
 jest.mock("vuex");

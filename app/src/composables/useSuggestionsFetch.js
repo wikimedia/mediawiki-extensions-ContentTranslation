@@ -2,12 +2,14 @@ import { useStore } from "vuex";
 import useSuggestionsStore from "./useSuggestionsStore";
 import useSuggestionProvider from "./useSuggestionProvider";
 import useURLHandler from "./useURLHandler";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 const useSuggestionsFetch = () => {
   const store = useStore();
   const { getFilteredSectionSuggestions, getFilteredPageSuggestions } =
     useSuggestionsStore();
   const { sourceLanguageURLParameter: sourceLanguage } = useURLHandler();
+  const fetchPageMetadata = usePageMetadataFetch();
 
   /**
    * This method calculates and returns the number of section suggestions to fetch,
@@ -58,10 +60,7 @@ const useSuggestionsFetch = () => {
       const titles = suggestions.map((suggestion) => suggestion.sourceTitle);
 
       if (titles.length) {
-        return store.dispatch("mediawiki/fetchPageMetadata", {
-          language: sourceLanguage.value,
-          titles,
-        });
+        return fetchPageMetadata(sourceLanguage.value, titles);
       }
     } catch (error) {
       mw.log.error("Page suggestions fetching failed!");

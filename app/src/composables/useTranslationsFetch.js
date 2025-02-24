@@ -1,12 +1,14 @@
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import { useStore } from "vuex";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 /**
  * @return {{fetchTranslationsByStatus: (function(string): Promise<void>), fetchAllTranslations: (function(): Promise<void>)}}
  */
 const useTranslationsFetch = () => {
   const store = useStore();
+  const fetchPageMetadata = usePageMetadataFetch();
 
   /**
    * @param {"draft"|"published"} status
@@ -31,10 +33,10 @@ const useTranslationsFetch = () => {
     store.commit("translator/setTranslationsLoaded", { status, value: true });
 
     for (const [sourceLanguage, translations] of Object.entries(queue)) {
-      store.dispatch("mediawiki/fetchPageMetadata", {
-        language: sourceLanguage,
-        titles: translations.map((translation) => translation.sourceTitle),
-      });
+      fetchPageMetadata(
+        sourceLanguage,
+        translations.map((translation) => translation.sourceTitle)
+      );
 
       translations.forEach((translation) => {
         const { targetLanguage, targetTitle } = translation;

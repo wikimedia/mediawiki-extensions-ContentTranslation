@@ -1,39 +1,5 @@
 import pageApi from "../../../wiki/mw/api/page";
 import siteApi from "../../../wiki/mw/api/site";
-import segmentedContentConverter from "../../../utils/segmentedContentConverter";
-
-/**
- * Given a language and an array of titles, this action fetches
- * page metadata for each title and returns a promise that is being
- * resolved when all metadata have been fetched and stored in the state
- *
- * @param {object} context
- * @param {object} context.getters
- * @param {function} context.commit
- * @param {object} payload
- * @param {string} payload.language
- * @param {string[]} payload.titles
- * @returns {Promise<void>}
- */
-function fetchPageMetadata({ getters, commit }, { language, titles }) {
-  titles = titles.filter((title) => !getters.getPage(language, title));
-
-  const chunkSize = 50;
-
-  const promises = [];
-
-  for (let i = 0; i < titles.length; i += chunkSize) {
-    const titlesSubset = titles.slice(i, i + chunkSize);
-    const promise = pageApi
-      .fetchPages(language, titlesSubset)
-      .then((metadataList) =>
-        metadataList.forEach((page) => commit("addPage", page))
-      );
-    promises.push(promise);
-  }
-
-  return Promise.all(promises);
-}
 
 /**
  * This action fetches all language codes supported by cxserver,
@@ -80,6 +46,5 @@ async function fetchNearbyPages({ commit, rootState, state }) {
 
 export default {
   fetchNearbyPages,
-  fetchPageMetadata,
   fetchSupportedLanguageCodes,
 };

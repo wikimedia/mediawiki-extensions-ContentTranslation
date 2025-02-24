@@ -1,8 +1,10 @@
 import suggestionsApi from "@/wiki/cx/api/suggestions";
 import { useStore } from "vuex";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 const useFavoritesFetch = () => {
   const store = useStore();
+  const fetchPageMetadata = usePageMetadataFetch();
 
   return async () => {
     if (!!store.state.suggestions.favorites.length) {
@@ -43,10 +45,10 @@ const useFavoritesFetch = () => {
     for (const [sourceLanguage, favorites] of Object.entries(
       favoritesGroupedByLanguage
     )) {
-      store.dispatch("mediawiki/fetchPageMetadata", {
-        language: sourceLanguage,
-        titles: favorites.map((favorite) => favorite.title),
-      });
+      fetchPageMetadata(
+        sourceLanguage,
+        favorites.map((favorite) => favorite.title)
+      );
     }
   };
 };
