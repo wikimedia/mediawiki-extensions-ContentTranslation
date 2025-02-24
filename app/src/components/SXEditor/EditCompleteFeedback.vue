@@ -2,8 +2,7 @@
 import { computed } from "vue";
 import mtValidator from "../../utils/mtValidator";
 import happyRobotSVG from "../../assets/happy-robot.svg?raw";
-import { useStore } from "vuex";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   showFeedback: {
@@ -20,7 +19,7 @@ const props = defineProps({
   },
 });
 
-const { targetLanguage } = useApplicationState(useStore());
+const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
 const mtScore = computed(() =>
   mtValidator.calculateScore(
     props.editedTranslation,
