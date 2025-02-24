@@ -1,12 +1,9 @@
 import useEventLogging from "@/composables/useEventLogging";
-import useApplicationState from "@/composables/useApplicationState";
 import { useStore } from "vuex";
 import cxTranslatorApi from "@/wiki/cx/api/translator";
 
 const useDraftTranslationDelete = () => {
-  const store = useStore();
   const { commit } = useStore();
-  const { sourceLanguage, targetLanguage } = useApplicationState(store);
   const logEvent = useEventLogging();
 
   return async (translation) => {
@@ -45,10 +42,10 @@ const useDraftTranslationDelete = () => {
     logEvent({
       event_type: "dashboard_translation_discard",
       translation_id: translation.sectionTranslationId,
-      translation_source_language: sourceLanguage.value,
+      translation_source_language: translation.sourceLanguage,
       translation_source_title: translation.sourceTitle,
       translation_source_section: translation.sourceSectionTitle,
-      translation_target_language: targetLanguage.value,
+      translation_target_language: translation.targetLanguage,
       translation_target_title: translation.targetTitle,
       translation_target_section: translation.targetSectionTitle,
     });
