@@ -3,6 +3,7 @@ import { MwRow, MwCol, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxTranslationConfirmerActionPanel from "./SXTranslationConfirmerActionPanel.vue";
 import SxArticleLanguageSelector from "../SXArticleLanguageSelector.vue";
 import SxTranslationConfirmerArticleInformation from "./SXTranslationConfirmerArticleInformation.vue";
+import SxConfirmTranslationStartDialog from "./SXConfirmTranslationStartDialog.vue";
 import useURLHandler from "@/composables/useURLHandler";
 import {
   mwIconClose,
@@ -16,7 +17,6 @@ import useApplicationState from "@/composables/useApplicationState";
 import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
-import SxConfirmTranslationStartDialog from "@/components/CXDashboard/SXConfirmTranslationStartDialog.vue";
 import useAppendixSectionTitlesFetch from "@/composables/useAppendixSectionTitlesFetch";
 import useCXServerToken from "@/composables/useCXServerToken";
 
