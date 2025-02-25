@@ -15,6 +15,8 @@
 	 * @param {mw.cx.SiteMapper} siteMapper
 	 */
 	function CXDashboard( element, siteMapper ) {
+		this.unifiedDashboardEnabled = mw.config.get( 'wgContentTranslationEnableUnifiedDashboard' );
+
 		this.$container = $( element );
 		this.siteMapper = siteMapper;
 
@@ -243,26 +245,41 @@
 	};
 
 	CXDashboard.prototype.getSidebarItems = function () {
-		return [
+		const items = [
 			{
 				icon: 'infoFilled',
 				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--information' ],
 				href: 'https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation',
-				label: mw.msg( 'cx-dashboard-sidebar-information' )
+				label: mw.msg( 'cx-dashboard-sidebar-information' ),
+				target: '_blank'
 			},
 			{
 				icon: 'chart',
 				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--stats' ],
 				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
-				label: mw.msg( 'cx-dashboard-sidebar-stats' )
+				label: mw.msg( 'cx-dashboard-sidebar-stats' ),
+				target: '_blank'
 			},
 			{
 				icon: 'speechBubbles',
 				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--feedback' ],
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
-				label: mw.msg( 'cx-dashboard-sidebar-feedback' )
+				label: mw.msg( 'cx-dashboard-sidebar-feedback' ),
+				target: '_blank'
 			}
 		];
+
+		if ( this.unifiedDashboardEnabled ) {
+			items.push( {
+				icon: 'specialPages',
+				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--unified' ],
+				href: mw.util.getUrl( 'Special:ContentTranslation', { 'cx-dashboard': 'unified' } ),
+				label: mw.msg( 'cx-dashboard-sidebar-unifieddashboard' ),
+				target: '_self'
+			} );
+		}
+
+		return items;
 	};
 
 	CXDashboard.prototype.buildSidebar = function () {
@@ -285,7 +302,7 @@
 					flags: [ 'progressive' ],
 					label: item.label,
 					href: item.href,
-					target: '_blank'
+					target: item.target
 				} ).$element )
 			);
 		}
@@ -353,8 +370,7 @@
 			this.filter.$element
 		);
 
-		const unifiedDashboardEnabled = mw.config.get( 'wgContentTranslationEnableUnifiedDashboard' );
-		this.$banner = unifiedDashboardEnabled ? new OO.ui.MessageWidget( {
+		this.$banner = this.unifiedDashboardEnabled ? new OO.ui.MessageWidget( {
 			type: 'warning',
 			showClose: true,
 			label: $( '<span>' ).append(

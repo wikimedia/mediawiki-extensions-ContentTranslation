@@ -122,6 +122,7 @@
 	"cx-dashboard-sidebar-information": "More about this tool",
 	"cx-dashboard-sidebar-stats": "Statistics",
 	"cx-dashboard-sidebar-feedback": "Give us feedback",
+	"cx-dashboard-sidebar-unifieddashboard": "Access the new version",
 	"cx-dashboard-banner-message": "<strong>The current dashboard version will be deprecated soon.</strong> Please [$1 use the new version] and [https://www.mediawiki.org/wiki/Talk:Content_translation report any issues] you may find.",
 	"cx-translation-filter-published-translations": "Published",
 	"cx-translation-filter-draft-translations": "In progress",
