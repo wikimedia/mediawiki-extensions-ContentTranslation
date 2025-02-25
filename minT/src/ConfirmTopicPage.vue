@@ -326,6 +326,7 @@ module.exports = defineComponent( {
   margin-block-end: @spacing-100;
 
   && {
+    outline: @border-width-base @border-style-base @border-color-base;
     &:focus {
       outline: @border-width-thick @border-style-base @color-progressive;
     }
