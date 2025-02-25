@@ -59,7 +59,12 @@ fetchAppendixSectionTitles(targetLanguage.value);
 const router = useRouter();
 
 const onClose = () => {
-  router.push({ name: previousRoute.value });
+  if (!previousRoute.value) {
+    // If coming to confirmer from an external link, go to dashboard directly
+    router.push({ name: "dashboard" });
+  } else {
+    router.push({ name: previousRoute.value });
+  }
 };
 
 onBeforeUnmount(() => {
