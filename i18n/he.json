@@ -320,7 +320,7 @@
 	"sx-quick-tutorial-secondary-point-step-1": "{{GENDER:|תרגם ופרסם|תרגמי ופרסמי}} פרק אחד בכל פעם. זה קל, מהיר, וכיף!",
 	"sx-quick-tutorial-secondary-point-step-2": "תרגומים מוצעים זקוקים לסקירה שלך כדי להיות קריאים בטבעיות.",
 	"sx-quick-tutorial-translate-button-label": "להתחיל לתרגם",
-	"cx-sx-sentence-selector-header-close-button-aria-label": "לעבור אל לוח המחוונים",
+	"cx-sx-sentence-selector-header-close-button-aria-label": "לעבור אל לוח הבקרה",
 	"cx-sx-sentence-selector-header-title": "תרגום פרק",
 	"cx-sx-sentence-selector-done-button-label": "בוצע",
 	"cx-sx-sentence-selector-suggested-translation-title": "תרגום מוצע מ{{GRAMMAR:תחילית|$1}}",

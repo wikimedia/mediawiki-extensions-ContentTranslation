@@ -63,7 +63,8 @@
 			"Петар Петковић",
 			"Умар",
 			"Whym",
-			"Mitte27"
+			"Mitte27",
+			"Cabadeck"
 		]
 	},
 	"cx": "Перевод страницы",
@@ -417,6 +418,7 @@
 	"cx-sx-publisher-mt-abuse-message-body": "Машинный перевод — это всего лишь отправная точка. Вы всё ещё можете совершать публикации, но проверяйте каждый раз, что ваш перевод звучит естественно на вашем языке, как речь человека.",
 	"cx-sx-publisher-mt-abuse-error-body": "Машинный перевод — это всего лишь отправная точка. Проверяйте каждый раз, что ваш перевод звучит естественно на вашем языке, как речь человека.",
 	"cx-sx-translation-suggestion-info": "{{PLURAL:$1|$1 раздел|$1 раздела|$1 разделов|0=Нет разделов}}",
+	"cx-sx-translation-suggestion-quick": "Быстрый перевод",
 	"cx-sx-article-search-input-placeholder": "Искать страницу для перевода",
 	"cx-sx-article-search-recently-edited-title": "Недавно отредактированный вами",
 	"cx-sx-article-search-nearby-title": "Поблизости",
@@ -508,6 +510,7 @@
 	"cx-sx-suggestions-filters-done-button-label": "Готово",
 	"cx-sx-suggestions-filter-user-edit-label": "Для вас",
 	"cx-sx-suggestions-filter-most-popular-label": "Популярные",
+	"cx-sx-suggestions-filter-more-label": "Ещё",
 	"cx-sx-suggestions-filter-default-group-label": "Автоматически",
 	"cx-articletopics-group-geography": "География",
 	"cx-articletopics-group-culture": "Культура",
@@ -530,6 +533,7 @@
 	"cx-articletopics-topic-sports": "Спорт",
 	"cx-articletopics-topic-fashion": "Мода",
 	"cx-articletopics-topic-performing-arts": "Исполнительское искусство",
+	"cx-articletopics-topic-video-games": "Видеоигры",
 	"cx-articletopics-topic-biography": "Биография",
 	"cx-articletopics-topic-business-and-economics": "Бизнес и экономика",
 	"cx-articletopics-topic-education": "Образование",
