@@ -1,12 +1,10 @@
 import logEvent from "@/utils/eventlogging/logEvent";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const useEventLogging = () => {
-  const { isDesktop } = useDevice();
-
   return (event) => {
     if (!event.access_method) {
-      event.access_method = isDesktop.value ? "desktop" : "mobile web";
+      event.access_method = isDesktopSite ? "desktop" : "mobile web";
     }
 
     return logEvent(event);

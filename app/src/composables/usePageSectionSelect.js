@@ -3,7 +3,7 @@ import useContentReferencesResolve from "@/composables/useContentReferencesResol
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
 import useCurrentPages from "@/composables/useCurrentPages";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const usePageSectionSelect = () => {
   const store = useStore();
@@ -12,7 +12,6 @@ const usePageSectionSelect = () => {
 
   const resolvePageContentReferences = useContentReferencesResolve();
   const fetchPageContent = usePageContentFetch();
-  const { isDesktop } = useDevice();
 
   const {
     setSectionURLParam,
@@ -33,7 +32,7 @@ const usePageSectionSelect = () => {
 
       // Resolve references and update page sections to include these resolved references.
       // Only needed for mobile editor.
-      if (!isDesktop.value) {
+      if (!isDesktopSite) {
         await resolvePageContentReferences(
           sourceLanguage.value,
           sourceTitle.value

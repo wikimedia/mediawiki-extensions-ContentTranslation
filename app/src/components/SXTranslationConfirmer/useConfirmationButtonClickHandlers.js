@@ -1,7 +1,7 @@
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
@@ -11,7 +11,6 @@ import useTranslationConfirm from "@/composables/useTranslationConfirm";
 export default () => {
   const router = useRouter();
   const confirmTranslation = useTranslationConfirm();
-  const { isDesktop } = useDevice();
   const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
   const { targetPageExists } = useLanguageTitleGroup();
@@ -41,7 +40,7 @@ export default () => {
    */
   const handlePrimaryButtonClick = () => {
     if (!!currentTranslation.value) {
-      if (currentTranslation.value.isArticleTranslation && !isDesktop.value) {
+      if (currentTranslation.value.isArticleTranslation && !isDesktopSite) {
         translationConfirmationDialogOn.value = true;
       } else {
         startDraftTranslation(currentTranslation.value);

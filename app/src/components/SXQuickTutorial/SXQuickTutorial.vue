@@ -6,7 +6,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext } from "@wikimedia/codex-icons";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
 
@@ -22,7 +22,6 @@ const goToNextStep = () => {
 const isActiveStep = (step) => step === activeStep.value;
 
 const router = useRouter();
-const { isDesktop } = useDevice();
 const redirectToCX = useCXRedirect();
 
 const {
@@ -33,7 +32,7 @@ const {
 } = useURLHandler();
 
 const completeTutorial = () => {
-  if (isDesktop.value) {
+  if (isDesktopSite) {
     const extra = { sourcesection: sectionTitle.value };
 
     redirectToCX(

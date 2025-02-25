@@ -21,4 +21,6 @@ const getUserCoordinates = () => {
   return ulsGeo && ulsGeo.latitude + "|" + ulsGeo.longitude;
 };
 
-export { siteMapper, getUrl, getUserCoordinates };
+const isDesktopSite = !mw.config.get("wgMFMode");
+
+export { siteMapper, getUrl, getUserCoordinates, isDesktopSite };

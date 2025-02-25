@@ -2,7 +2,7 @@ import { isQuickTutorialForced } from "@/utils/urlHandler";
 import useDashboardTranslationStartInstrument from "./useDashboardTranslationStartInstrument";
 import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
@@ -17,7 +17,6 @@ const useTranslationConfirm = () => {
     pageURLParameter: sourceTitle,
     sectionURLParameter: sectionTitle,
   } = useURLHandler();
-  const { isDesktop } = useDevice();
 
   const store = useStore();
   const router = useRouter();
@@ -26,7 +25,7 @@ const useTranslationConfirm = () => {
   return () => {
     logDashboardTranslationStartEvent();
 
-    if (isDesktop.value) {
+    if (isDesktopSite) {
       redirectToCX(
         sourceLanguage.value,
         targetLanguage.value,

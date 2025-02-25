@@ -8,7 +8,7 @@ import useConfirmationButtonClickHandlers from "./useConfirmationButtonClickHand
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useI18n } from "vue-banana-i18n";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconLinkExternal } from "@wikimedia/codex-icons";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
@@ -88,8 +88,6 @@ const actionButtonLabel = computed(() =>
   bananaI18n.i18n(getActionButtonLabel(!!preFilledSectionTitle.value))
 );
 
-const { isDesktop } = useDevice();
-
 const actionInformationMessage = computed(() =>
   bananaI18n.i18n(...actionInformationMessageArgs.value)
 );
@@ -114,7 +112,7 @@ const { targetPageExists } = useLanguageTitleGroup();
 
 const shouldDisplayNewTranslationButton = computed(() => {
   return (
-    !preFilledSectionTitle.value && targetPageExists.value && isDesktop.value
+    !preFilledSectionTitle.value && targetPageExists.value && isDesktopSite
   );
 });
 </script>

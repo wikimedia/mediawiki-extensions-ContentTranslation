@@ -4,7 +4,7 @@ import useEventLogging from "@/composables/useEventLogging";
 import { useStore } from "vuex";
 import translatorApi from "@/wiki/cx/api/translator";
 import translationRestorer from "@/utils/translationRestorer";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 import useCXRedirect from "@/composables/useCXRedirect";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
@@ -28,7 +28,6 @@ const useDraftTranslationStart = () => {
   const updateLanguagePair = useDraftTranslationLanguagePairUpdate();
   const resolvePageContentReferences = useContentReferencesResolve();
 
-  const { isDesktop } = useDevice();
   const redirectToCX = useCXRedirect();
   const fetchPageContent = usePageContentFetch();
   const { sourceSection } = useCurrentPageSection();
@@ -48,7 +47,7 @@ const useDraftTranslationStart = () => {
       isLeadSectionTranslation,
     } = translation;
 
-    if (isDesktop.value) {
+    if (isDesktopSite) {
       const extra = {};
 
       if (!isLeadSectionTranslation) {

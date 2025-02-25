@@ -17,12 +17,10 @@ import useEventLogging from "@/composables/useEventLogging";
 import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd } from "@wikimedia/codex-icons";
-import useDevice from "@/composables/useDevice";
+import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const router = useRouter();
 const logEvent = useEventLogging();
-
-const { isDesktop } = useDevice();
 
 const searchTranslation = () => {
   logEvent({
@@ -69,7 +67,7 @@ const listSelect = (event) => {
         {{ $i18n("cx-create-new-translation") }}
       </cdx-button>
     </mw-row>
-    <mw-row v-if="isDesktop && !bannerDismissed" class="ma-0" align="start">
+    <mw-row v-if="isDesktopSite && !bannerDismissed" class="ma-0" align="start">
       <mw-col
         class="col-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2"
       >

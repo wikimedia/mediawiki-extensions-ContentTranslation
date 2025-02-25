@@ -28,8 +28,6 @@ Api.prototype.ajax = function (params) {
 };
 
 class SiteMapper {
-  static isMobileDomainVar = true;
-
   getPageUrl(language, title) {
     return `https://${language}.wikipedia.org/wiki/${title}`;
   }
@@ -40,10 +38,6 @@ class SiteMapper {
 
   getCurrentWikiLanguageCode() {
     return "en";
-  }
-
-  isMobileDomain() {
-    return this.isMobileDomainVar;
   }
 }
 

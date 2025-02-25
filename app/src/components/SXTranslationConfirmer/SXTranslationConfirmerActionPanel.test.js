@@ -8,6 +8,14 @@ import { ref } from "vue";
 import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import LanguageTitleGroup from "@/wiki/mw/models/languageTitleGroup";
 
+let mockIsDesktopSite = false;
+jest.mock("@/utils/mediawikiHelper", () => ({
+  siteMapper: jest.requireActual("@/utils/mediawikiHelper").siteMapper,
+  get isDesktopSite() {
+    return mockIsDesktopSite;
+  },
+}));
+
 const mockSectionSuggestion = new SectionSuggestion({
   targetLanguage: "en",
   targetTitle: "Test target title",
@@ -85,21 +93,13 @@ describe("SXTranslationConfirmer Action Panel test", () => {
       },
     });
 
-  it("Component output matches snapshot", () => {
+  it("Component output matches snapshot for the mobile site", () => {
     const wrapper = createWrapper();
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("Component output matches snapshot for tablet or larger screens", () => {
-    siteMapper.isMobileDomainVar = false;
-    breakpoints.tabletAndUp = true;
-    const wrapper = createWrapper();
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it("Component output matches snapshot for tablet or larger screens with .m. in the url", () => {
-    siteMapper.isMobileDomainVar = true;
-    breakpoints.tabletAndUp = true;
+  it("Component output matches snapshot for the desktop site", () => {
+    mockIsDesktopSite = true;
     const wrapper = createWrapper();
     expect(wrapper.element).toMatchSnapshot();
   });
