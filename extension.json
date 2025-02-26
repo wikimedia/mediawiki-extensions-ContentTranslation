@@ -22,7 +22,8 @@
 		"extensions": {
 			"Cite": "*",
 			"UniversalLanguageSelector": "*",
-			"VisualEditor": "*"
+			"VisualEditor": "*",
+			"WikimediaMessages": "*"
 		}
 	},
 	"ExtensionMessagesFiles": {

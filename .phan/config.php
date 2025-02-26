@@ -14,6 +14,7 @@ $cfg['directory_list'] = array_merge(
 		'../../extensions/Echo',
 		'../../extensions/EventLogging',
 		'../../extensions/GlobalPreferences',
+		'../../extensions/WikimediaMessages',
 	]
 );
 
@@ -26,6 +27,7 @@ $cfg['exclude_analysis_directory_list'] = array_merge(
 		'../../extensions/Echo',
 		'../../extensions/EventLogging',
 		'../../extensions/GlobalPreferences',
+		'../../extensions/WikimediaMessages',
 	]
 );
 
