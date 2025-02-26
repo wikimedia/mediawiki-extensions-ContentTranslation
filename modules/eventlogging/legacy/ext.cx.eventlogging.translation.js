@@ -35,6 +35,7 @@
 		 */
 		published: function () {
 			mw.track( 'counter.MediaWiki.cx.publish.success', 1 );
+			mw.track( 'stats.mediawiki_cx_publish_success_total', 1 );
 		},
 
 		/**
@@ -48,6 +49,7 @@
 		 */
 		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
 			mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
+			mw.track( 'stats.mediawiki_cx_publish_fail_total', 1 );
 			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );
 		},
 
@@ -56,6 +58,7 @@
 		 */
 		saveFailed: function () {
 			mw.track( 'counter.MediaWiki.cx.save.fail', 1 );
+			mw.track( 'stats.mediawiki_cx_save_fail_total', 1 );
 		},
 
 		/**
@@ -63,6 +66,7 @@
 		 */
 		restoreFailed: function () {
 			mw.track( 'counter.MediaWiki.cx.restore.fail', 1 );
+			mw.track( 'stats.mediawiki_cx_restore_fail_total', 1 );
 		},
 
 		/**
@@ -74,6 +78,7 @@
 			}
 			saveCount++;
 			mw.track( 'counter.MediaWiki.cx.save.success', 1 );
+			mw.track( 'stats.mediawiki_cx_save_success_total', 1 );
 		},
 
 		/**
@@ -81,6 +86,7 @@
 		 */
 		continued: function () {
 			mw.track( 'counter.MediaWiki.cx.restore.success', 1 );
+			mw.track( 'stats.mediawiki_cx_restore_success_total', 1 );
 		},
 
 		/**
