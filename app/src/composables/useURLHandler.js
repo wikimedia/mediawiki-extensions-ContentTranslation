@@ -186,8 +186,15 @@ const clearTranslationURLParameters = () => {
   replaceUrl(Object.fromEntries(urlParams));
 };
 
+const isQuickTutorialForced = () => {
+  const urlParams = new URLSearchParams(location.search);
+
+  return urlParams.get("force-quick-tutorial");
+};
+
 const useURLHandler = () => {
   return {
+    isQuickTutorialForced,
     setLanguageURLParams,
     setSectionURLParam,
     setTranslationURLParams,

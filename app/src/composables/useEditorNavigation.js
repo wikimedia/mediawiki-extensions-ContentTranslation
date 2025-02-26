@@ -1,7 +1,6 @@
 import { siteMapper, isDesktopSite } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import { useRouter } from "vue-router";
-import { isQuickTutorialForced } from "@/utils/urlHandler";
 import { useStore } from "vuex";
 
 /**
@@ -21,6 +20,7 @@ const useEditorNavigation = () => {
     targetLanguageURLParameter: targetLanguage,
     pageURLParameter: pageTitle,
     sectionURLParameter: sectionTitle,
+    isQuickTutorialForced,
   } = useURLHandler();
   const store = useStore();
   const router = useRouter();
