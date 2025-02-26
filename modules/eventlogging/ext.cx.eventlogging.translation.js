@@ -31,6 +31,7 @@
 		 */
 		published: function () {
 			mw.track( 'counter.MediaWiki.cx.publish.success', 1 );
+			mw.track( 'stats.mediawiki_cx_publish_success_total', 1 );
 		},
 
 		/**
@@ -44,6 +45,7 @@
 		 */
 		publishFailed: function ( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace ) {
 			mw.track( 'counter.MediaWiki.cx.publish.fail', 1 );
+			mw.track( 'stats.mediawiki_cx_publish_fail_total', 1 );
 			this.handleAbuseFilter( sourceLanguage, targetLanguage, sourceTitle, targetTitle, trace, 'publishing' );
 		},
 
