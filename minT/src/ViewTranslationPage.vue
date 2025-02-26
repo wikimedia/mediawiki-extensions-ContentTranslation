@@ -286,6 +286,7 @@ module.exports = defineComponent( {
 		};
 
 		const { createSkeletonLoader } = useSkeletonLoader();
+		const { translateSection, hideUnadaptedLinks, sectionTranslations } = useSectionTranslate();
 		const structuredLeadSectionTranslation = computed( () => {
 			let contents = '';
 			for ( let i = 0; i < leadSectionTranslation.value.length; i++ ) {
@@ -296,6 +297,7 @@ module.exports = defineComponent( {
 				} else if ( currentNodeTranslation === -1 ) {
 					currentNodeTranslation = createSkeletonLoader();
 				}
+				currentNodeTranslation = hideUnadaptedLinks( currentNodeTranslation );
 
 				contents = contents.concat( '\n', currentNodeTranslation );
 			}
@@ -346,7 +348,6 @@ module.exports = defineComponent( {
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
 
 		const sectionExpandStatus = ref( [] );
-		const { translateSection, sectionTranslations } = useSectionTranslate();
 
 		const toggleSection = ( index ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];

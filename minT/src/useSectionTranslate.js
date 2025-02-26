@@ -18,6 +18,20 @@ const useSectionTranslate = () => {
 	const { sourceLanguage, targetLanguage } = useState();
 	const { translate } = useApi();
 
+	const hideUnadaptedLinks = ( translation ) => {
+		const doc = new DOMParser().parseFromString( translation, 'text/html' );
+		Array.prototype.forEach.call( doc.querySelectorAll( 'a' ), ( link ) => {
+			const dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
+
+			if ( dataCX && dataCX.adapted === false ) {
+				link.replaceWith( ...link.childNodes );
+			}
+
+		} );
+
+		return doc.body.innerHTML;
+	};
+
 	const translateSection = ( sections, index ) => {
 		if ( sectionTranslations.value[ index ] ) {
 			return;
@@ -34,12 +48,12 @@ const useSectionTranslate = () => {
 			cxServerToken.value
 		)
 			.then( ( translation ) => {
-				sectionTranslations.value[ index ] = translation;
+				sectionTranslations.value[ index ] = hideUnadaptedLinks( translation );
 			} )
 			.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
 	};
 
-	return { translateSection, sectionTranslations };
+	return { translateSection, hideUnadaptedLinks, sectionTranslations };
 };
 
 module.exports = useSectionTranslate;
