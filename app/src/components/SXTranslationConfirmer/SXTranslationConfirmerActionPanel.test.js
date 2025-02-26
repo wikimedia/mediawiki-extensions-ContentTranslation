@@ -76,17 +76,13 @@ const mockStore = createStore({
 });
 
 const i18n = createI18n();
-const breakpoints = { tabletAndUp: false };
 
 describe("SXTranslationConfirmer Action Panel test", () => {
   const createWrapper = () =>
     mount(SxTranslationConfirmerActionPanel, {
       global: {
         plugins: [mockStore, i18n],
-        provide: {
-          colors: {},
-          breakpoints: { value: breakpoints },
-        },
+        provide: { colors: {} },
       },
       beforeCreate() {
         this.$i18n = jest.fn((key) => key);
