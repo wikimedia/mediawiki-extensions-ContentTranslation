@@ -5,7 +5,7 @@ import { cdxIconSpecialPages } from "@wikimedia/codex-icons";
 
 const learnMoreUrl =
   "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation";
-const previousDashboardUrl = getUrl("Special:CX", {
+const previousDashboardUrl = getUrl("Special:ContentTranslation", {
   "cx-dashboard": "desktop",
 });
 </script>

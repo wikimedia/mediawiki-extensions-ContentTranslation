@@ -376,7 +376,7 @@
 			label: $( '<span>' ).append(
 				mw.message(
 					'cx-dashboard-banner-message',
-					mw.util.getUrl( 'Special:CX', { 'cx-dashboard': 'unified' } )
+					mw.util.getUrl( 'Special:ContentTranslation', { 'cx-dashboard': 'unified' } )
 				).parse()
 			),
 			classes: [ 'cx-translation-banner' ]
