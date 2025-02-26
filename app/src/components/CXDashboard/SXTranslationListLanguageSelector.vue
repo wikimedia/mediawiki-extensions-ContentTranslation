@@ -174,7 +174,7 @@ const allLanguagesSelectedAsTarget = computed(
     border-bottom: @border-width-base @border-style-base #eaecf0;
   }
 
-  &__button {
+  & &__button {
     line-height: normal;
     max-width: @size-full;
     .mw-ui-autonym {
