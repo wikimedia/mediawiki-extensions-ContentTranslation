@@ -14,7 +14,7 @@ import { useStore } from "vuex";
 import useActiveTabInitialize from "./useActiveTabInitialize";
 import useDashboardListOptions from "./useDashboardListOptions";
 import useEventLogging from "@/composables/useEventLogging";
-import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
+import useDashboardTabSelectInstrument from "./useDashboardTabSelectInstrument";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd } from "@wikimedia/codex-icons";
 import { isDesktopSite } from "@/utils/mediawikiHelper";

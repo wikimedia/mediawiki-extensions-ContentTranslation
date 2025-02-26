@@ -1,6 +1,6 @@
 <script setup>
 import MwButtonGroup from "@/lib/mediawiki.ui/components/MWButtonGroup";
-import useDashboardTabSelectInstrument from "@/composables/useDashboardTabSelectInstrument";
+import useDashboardTabSelectInstrument from "./useDashboardTabSelectInstrument";
 
 const props = defineProps({
   /**
