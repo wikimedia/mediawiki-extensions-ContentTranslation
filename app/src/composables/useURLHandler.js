@@ -9,6 +9,7 @@ const targetLanguageURLParameter = ref(null);
 const pageURLParameter = ref(null);
 const sectionURLParameter = ref(null);
 const draftURLParameter = ref(null);
+const revisionURLParameter = ref(null);
 const filterTypeURLParameter = ref(null);
 const filterIdURLParameter = ref(null);
 const activeDashboardTabParameter = ref(null);
@@ -21,6 +22,7 @@ const parametersMap = {
   section: sectionURLParameter,
   draft: draftURLParameter,
   page: pageURLParameter,
+  revision: revisionURLParameter,
   "active-list": activeDashboardTabParameter,
 };
 /**
@@ -58,20 +60,19 @@ const setTranslationURLParams = (translationToBeStarted) => {
     to: translationToBeStarted?.targetLanguage,
   };
 
+  if (translationToBeStarted instanceof DraftTranslation) {
+    parameterValues.draft = true;
+    parameterValues.revision = translationToBeStarted.pageRevision;
+
+    if (!translationToBeStarted.isLeadSectionTranslation) {
+      parameterValues.section = translationToBeStarted.sourceSectionTitle;
+    }
+  }
+
   for (const parameterName in parameterValues) {
     const value = parameterValues[parameterName];
     params.set(parameterName, value);
     parametersMap[parameterName].value = value;
-  }
-
-  if (translationToBeStarted instanceof DraftTranslation) {
-    params.set("draft", true);
-    draftURLParameter.value = true;
-
-    if (!translationToBeStarted.isLeadSectionTranslation) {
-      params.set("section", translationToBeStarted.sourceSectionTitle);
-      sectionURLParameter.value = translationToBeStarted.sourceSectionTitle;
-    }
   }
   params.delete("title");
   replaceUrl(Object.fromEntries(params));
@@ -113,6 +114,7 @@ const initializeURLState = () => {
   sourceLanguageURLParameter.value = urlParams.get("from");
   targetLanguageURLParameter.value = urlParams.get("to");
   sectionURLParameter.value = urlParams.get("section");
+  revisionURLParameter.value = urlParams.get("revision");
 
   // For backward compatibility with desktop dashboard URLs,
   // fallback to the hash minus the '#/' prefix
@@ -175,9 +177,11 @@ const clearTranslationURLParameters = () => {
   pageURLParameter.value = null;
   sectionURLParameter.value = null;
   draftURLParameter.value = null;
+  revisionURLParameter.value = null;
   urlParams.delete("page");
   urlParams.delete("section");
   urlParams.delete("draft");
+  urlParams.delete("revision");
   urlParams.delete("title");
   replaceUrl(Object.fromEntries(urlParams));
 };
@@ -197,6 +201,7 @@ const useURLHandler = () => {
     targetLanguageURLParameter,
     sectionURLParameter,
     draftURLParameter,
+    revisionURLParameter,
     setPageURLParam,
     currentSuggestionFilters,
     setFilterURLParams,
