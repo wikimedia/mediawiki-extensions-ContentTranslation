@@ -160,11 +160,11 @@ const useSuggestionsFilters = () => {
     currentFilter.value.type === filter.type &&
     currentFilter.value.id === filter.id;
 
-  const getOresTopics = (topicId) => {
+  const getArticleTopics = (topicId) => {
     const allTopics = topicGroups.flatMap((group) => group.topics);
     const topic = allTopics.find((t) => t.topicId === topicId);
 
-    return topic ? topic.orestopics : [];
+    return topic ? topic.articletopics : [];
   };
 
   return {
@@ -172,7 +172,7 @@ const useSuggestionsFilters = () => {
     getFiltersSummary,
     selectFilter,
     isFilterSelected,
-    getOresTopics,
+    getArticleTopics,
     waitingForPageCollectionsFetch,
     findSelectedFilter,
   };

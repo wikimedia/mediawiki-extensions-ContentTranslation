@@ -20,7 +20,7 @@ const useSuggestionsFetchByTopics = () => {
     sectionSuggestionExists,
   } = useSuggestionValidator();
 
-  const { getOresTopics } = useSuggestionsFilters();
+  const { getArticleTopics } = useSuggestionsFilters();
 
   /**
    * @param {number} numberOfSuggestionsToFetch the number of suggestions to fetch
@@ -33,13 +33,13 @@ const useSuggestionsFetchByTopics = () => {
       id: topic,
       type: TOPIC_SUGGESTION_PROVIDER,
     };
-    const oresTopics = getOresTopics(topic);
+    const articleTopics = getArticleTopics(topic);
 
     /** @type {ArticleSuggestion[]} */
     let suggestions = await cxSuggestionsApi.fetchPageSuggestionsByTopics(
       sourceLanguage.value,
       targetLanguage.value,
-      oresTopics
+      articleTopics
     );
 
     suggestions = suggestions.filter((suggestion) =>
@@ -68,7 +68,7 @@ const useSuggestionsFetchByTopics = () => {
       id: topic,
       type: TOPIC_SUGGESTION_PROVIDER,
     };
-    const oresTopics = getOresTopics(topic);
+    const articleTopics = getArticleTopics(topic);
 
     const fetchedSuggestions = [];
 
@@ -78,7 +78,7 @@ const useSuggestionsFetchByTopics = () => {
         await cxSuggestionsApi.fetchSectionSuggestionsByTopics(
           sourceLanguage.value,
           targetLanguage.value,
-          oresTopics
+          articleTopics
         );
 
       let validSuggestions = suggestions.filter((suggestion) =>

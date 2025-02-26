@@ -23,7 +23,7 @@ class ArticleTopicsDefinition {
 	 *       [
 	 *         'topicId' => string,
 	 *         'label' => string,
-	 *         'orestopics' => string[]
+	 *         'articletopics' => string[]
 	 *       ],
 	 *     ]
 	 *   ],
@@ -41,7 +41,7 @@ class ArticleTopicsDefinition {
 				$topicsDefinitions[] = [
 					'topicId' => $topicData['topicId'],
 					'label' => $context->msg( $topicData['msgKey'] )->text(),
-					'orestopics' => $topicData['articleTopics'],
+					'articletopics' => $topicData['articleTopics'],
 				];
 			}
 
