@@ -356,7 +356,7 @@
 	"cx-sx-translation-confirmer-title": "Nieuwe vertaling",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 bezoek per|$1 bezoeken per|0=Geen bezoeken deze}} week",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 uur|0={{PLURAL:$2|$2 minuut|$2 minuten}}}} om te vertalen",
-	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 uur|0={{PLURAL:$2|$2 minuut|$2 minuten}}}} om $3 secties te vertalen",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 uur|0={{PLURAL:$2|$2 minuut|$2 minuten}}}} om $3 sectie{{PLURAL:$3||s}} te vertalen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Bladwijzer",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Uw vertaling wordt gepubliceerd als een onafhankelijke nieuwe sectie.",
 	"cx-sx-content-comparator-discarded-section-label": "(weggegooid)",
