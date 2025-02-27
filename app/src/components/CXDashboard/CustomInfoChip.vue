@@ -20,13 +20,17 @@ const secondPart = computed(() => props.content.slice(slashIndex.value + 1));
 
 <template>
   <cdx-info-chip :icon="icon" class="custom-info-chip">
-    <div v-if="slashIndex === -1" class="custom-info-chip__without-slash">
+    <div v-if="slashIndex === -1" class="cdx-info-chip__text">
       {{ content }}
     </div>
-    <div v-else class="custom-info-chip__with-slash">
-      <span class="custom-info-chip__with-slash__first">{{ firstPart }}</span>
+    <div v-else class="cdx-info-chip__text custom-info-chip__with-slash">
+      <span class="cdx-info-chip__text custom-info-chip__with-slash__first">{{
+        firstPart
+      }}</span>
       <span>/</span>
-      <span class="custom-info-chip__with-slash__second">{{ secondPart }}</span>
+      <span class="cdx-info-chip__text custom-info-chip__with-slash__second">{{
+        secondPart
+      }}</span>
     </div>
   </cdx-info-chip>
 </template>
@@ -34,24 +38,22 @@ const secondPart = computed(() => props.content.slice(slashIndex.value + 1));
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
-.custom-info-chip {
-  max-width: 95%;
-  width: auto;
+.cdx-info-chip {
+  &.custom-info-chip {
+    max-width: 95%;
+    width: auto;
 
-  &__without-slash {
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  &__with-slash {
-    display: flex;
-
-    &__first,
-    &__second {
-      text-overflow: ellipsis;
-      flex: auto;
-      width: auto;
-      overflow: hidden;
+    .cdx-info-chip__text {
+      &.custom-info-chip__with-slash {
+        display: flex;
+      }
+      &.custom-info-chip__with-slash__first,
+      &.custom-info-chip__with-slash__second {
+        text-overflow: ellipsis;
+        flex: auto;
+        width: auto;
+        overflow: hidden;
+      }
     }
   }
 }
