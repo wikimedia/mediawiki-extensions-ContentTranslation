@@ -6,22 +6,5 @@
 	},
 	"cx-sx-suggestions-filters-header": "Jji a̱huhwa",
 	"cx-sx-suggestions-filters-close-button-aria-label": "Yyik nawat nwwai a̱huhwa ba̱yanyet",
-	"cx-sx-suggestions-filter-most-popular-label": "Tyyi du̱yrek",
-	"cx-articletopics-group-geography": "Du̱twang yya bu̱ na̱bvwa swat",
-	"cx-articletopics-group-culture": "Jujju",
-	"cx-articletopics-topic-africa": "Afrika",
-	"cx-articletopics-topic-north-america": "America A̱gbang-a̱za",
-	"cx-articletopics-topic-art": "Yya-yya",
-	"cx-articletopics-topic-literature": "Jang baryat",
-	"cx-articletopics-topic-music": "Tsot-a̱bvom .",
-	"cx-articletopics-topic-entertainment": "San banyetcen",
-	"cx-articletopics-topic-fashion": "Gugwai nkyang tsuup",
-	"cx-articletopics-topic-video-games": "a̱mbvwo A̱nzzup",
-	"cx-articletopics-topic-biography": "Nkkang swatka̱sa wan",
-	"cx-articletopics-topic-business-and-economics": "A̱bvwan bu̱ tssa kyang yya",
-	"cx-articletopics-topic-military-and-warfare": "Ba̱nyet nzwang yya kwanzwang",
-	"cx-articletopics-topic-philosophy-and-religion": "Adu̱dit A̱huhwa bu̱ yya tsuup",
-	"cx-articletopics-topic-women": "Banyring",
-	"cx-articletopics-topic-biology": "Du̱twang yya nkyang byyi sswo",
-	"cx-articletopics-topic-technology": "Yya Pffu nkyang"
+	"cx-sx-suggestions-filter-most-popular-label": "Tyyi du̱yrek"
 }
