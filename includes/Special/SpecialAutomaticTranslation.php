@@ -66,6 +66,8 @@ class SpecialAutomaticTranslation extends SpecialPage {
 			'targetLanguage' => $targetLanguage,
 			'infoPanelText' => $this->msg( 'mint-home-info-panel-text', $targetLanguage )->text(),
 			'randomTopicButtonLabel' => $this->msg( 'mint-home-random-topic-button-label' )->text(),
+			'experimentalNote' =>
+				$this->msg( 'mint-home-experimental-note' )->params( 'https://www.mediawiki.org/wiki/MinT' )->parse()
 		];
 
 		return $templateParser->processTemplate( 'Home', $data );

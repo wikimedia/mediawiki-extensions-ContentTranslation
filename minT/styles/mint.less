@@ -76,3 +76,16 @@
 	padding: @spacing-100;
 	z-index: @z-index-top;
 }
+
+.mint-home-experimental-note {
+	display: flex;
+	align-items: flex-start;
+	color: @color-subtle;
+	font-size: @font-size-small;
+	margin-top: @spacing-200;
+
+	&-icon--lab {
+		margin-right: @spacing-50;
+		.cdx-mixin-css-icon( @cdx-icon-lab-flask );
+	}
+}
