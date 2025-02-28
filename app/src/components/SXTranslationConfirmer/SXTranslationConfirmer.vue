@@ -10,7 +10,7 @@ import {
   mwIconArticle,
 } from "@/lib/mediawiki.ui/components/icons";
 import { loadVEModules } from "@/plugins/ve";
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, inject, onBeforeUnmount, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useApplicationState from "@/composables/useApplicationState";
@@ -30,8 +30,12 @@ const {
   sectionURLParameter: sectionTitle,
   clearTranslationURLParameters,
 } = useURLHandler();
-const articleImageSource = computed(
-  () => currentSourcePage.value?.image?.source
+
+const breakpoints = inject("breakpoints");
+const nextBreakpoint = computed(() => breakpoints.value.nextBreakpoint);
+
+const articleImageSource = computed(() =>
+  currentSourcePage.value?.getImage(nextBreakpoint.value)
 );
 const { fetchTranslationsByStatus } = useTranslationsFetch();
 const fetchLanguageTitles = useLanguageTitlesFetch();

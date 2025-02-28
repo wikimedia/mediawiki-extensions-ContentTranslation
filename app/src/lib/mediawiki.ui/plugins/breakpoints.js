@@ -26,7 +26,7 @@ const viewports = {
   }px)`,
   "tablet-and-up": `only screen and (min-width: ${breakpoints.tablet}px)`,
   "desktop-and-down": `only screen and (max-width: ${
-    breakpoints.desktopwide - 1
+    breakpoints["desktop-wide"] - 1
   }px)`,
   "desktop-and-up": `only screen and (min-width: ${breakpoints.desktop}px)`,
   "desktop-wide": `only screen and (min-width: ${breakpoints["desktop-wide"]}px)`,
@@ -43,17 +43,35 @@ const handlers = {
   desktopAndDown: () => matchMedia(viewports["desktop-and-down"]).matches,
 };
 
+const getNextBreakpoint = (width) => {
+  const breakpointValues = Object.values(breakpoints);
+
+  for (let i = 0; i < breakpointValues.length; i++) {
+    if (width < breakpointValues[i]) {
+      return breakpointValues[i];
+    }
+  }
+
+  return null; // No next breakpoint
+};
+
 export default {
   install: (app) => {
+    const properties = ref({
+      nextBreakpoint: null,
+    });
+
     const resizeHandler = () => {
+      const width = window.innerWidth;
+
       for (let property in handlers) {
         if (handlers.hasOwnProperty(property)) {
           properties.value[property] = handlers[property]();
         }
       }
+      properties.value.nextBreakpoint = getNextBreakpoint(width);
     };
 
-    const properties = ref({});
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
 

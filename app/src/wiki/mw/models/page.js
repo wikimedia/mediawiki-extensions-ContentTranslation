@@ -21,6 +21,7 @@ export default class Page {
     langlinkscount,
     lastrevid,
     original,
+    pageimage,
     pageid,
     pagelanguage,
     pageprops,
@@ -36,9 +37,19 @@ export default class Page {
     this.title = title;
     this.pageId = pageid;
     this.description = description;
+    /**
+     * @type {{ source: string, width: number, height: number }}
+     */
     this.image = original;
+    /**
+     * @type {string}
+     */
+    this.imageName = pageimage;
     this.pageprops = pageprops;
     this.pageviews = pageviews;
+    /**
+     * @type {{ source: string, width: number, height: number }}
+     */
     this.thumbnail = thumbnail;
     this.langLinksCount = langlinkscount;
     this.articleSize = revisions?.[0]?.size;
@@ -88,5 +99,28 @@ export default class Page {
 
       pageSection.updateSubSections(updatedSection.subSections);
     }
+  }
+
+  /**
+   * @param {number} width
+   * @returns {string}
+   */
+  getImage(width) {
+    if (!width) {
+      return this.image.source;
+    }
+
+    // the thumbnail source is in this format:
+    // https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/50px-FullMoon2010.jpg
+    const thumbnailSource = this.thumbnail.source;
+
+    // Keep the part before last slash:
+    // e.g. https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg
+    const baseUrl = thumbnailSource.substring(
+      0,
+      thumbnailSource.lastIndexOf("/")
+    ); // Get everything before the last '/'
+
+    return `${baseUrl}/${width}px-${this.imageName}`;
   }
 }
