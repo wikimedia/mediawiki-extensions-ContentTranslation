@@ -137,6 +137,8 @@
 	"cx-dashboard-sidebar-information": "Meer informatie over dit hulpmiddel",
 	"cx-dashboard-sidebar-stats": "Statistieken",
 	"cx-dashboard-sidebar-feedback": "Terugkoppeling geven",
+	"cx-dashboard-sidebar-unifieddashboard": "Naar de nieuwe versie",
+	"cx-dashboard-banner-message": "<strong>De huidige versie van het dashboard zal binnenkort verouderd zijn.</strong> Gebruik [$1 de nieuwe versie] en [https://www.mediawiki.org/wiki/Talk:Content_translation meld eventuele problemen] die u tegenkomt.",
 	"cx-translation-filter-published-translations": "Gepubliceerd",
 	"cx-translation-filter-draft-translations": "In bewerking",
 	"cx-translation-filter-suggested-translations": "Suggesties",
@@ -509,6 +511,10 @@
 	"cx-sx-dashboard-stats-panel-title": "Uw bijdrage",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Deze maand",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Totaal",
+	"cx-sx-dashboard-banner-title": "Nieuwe mogelijkheden beschikbaar",
+	"cx-sx-dashboard-banner-description": "Individuele secties vertalen, suggesties aanpassen aan uw interessegebieden, en nog meer. Voorheen alleen op mobiel, nu beschikbaar op alle apparaten.",
+	"cx-sx-dashboard-banner-learn-more": "Meer lezen",
+	"cx-sx-dashboard-banner-access-previous": "Naar de vorige versie",
 	"sx-confirm-back-navigation-dialog-title": "Uw vertaling afbreken?",
 	"sx-confirm-back-navigation-dialog-body": "De wijzigingen zijn nog niet opgeslagen en gaan verloren.\nU kunt doorgaan met bewerken zodat de wijzigingen automatisch worden opgeslagen.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Wijzigingen weggooien",
@@ -562,5 +568,7 @@
 	"cx-page-collection-dialog-existing-target-count": "$1 van de $2 artikelen zijn in het $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 dag|$1 dagen|0=Geen dagen}} over",
 	"cx-page-collection-dialog-page-suggestions-header": "Nieuwe pagina’s",
-	"cx-page-collection-dialog-section-suggestions-header": "Nieuwe secties"
+	"cx-page-collection-dialog-section-suggestions-header": "Nieuwe secties",
+	"cx-sx-suggestion-list-empty-title": "Er zijn op dit moment geen suggesties",
+	"cx-sx-suggestion-list-empty-description": "We hebben geen suggesties gevonden voor dit filter. U kunt een ander filter proberen of zoeken naar een specifiek artikel om te vertalen."
 }

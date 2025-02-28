@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "Kaikki",
 	"mint-home-info-panel-text": "Miljoonia aiheita Wikipediassa voidaan kääntää automaattisesti kielelle $1.",
 	"mint-home-random-topic-button-label": "Satunnainen aihe",
+	"mint-home-experimental-note": "Automaattinen käännösominaisuus on kokeellinen. [$1 Lisätietoja]",
 	"mint-language-selector-title": "Kielet",
 	"mint-language-selector-suggestions-header": "Ehdotettu",
 	"mint-language-selector-all-languages-header": "Kaikki kielet",

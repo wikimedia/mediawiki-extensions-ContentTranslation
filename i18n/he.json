@@ -121,6 +121,7 @@
 	"cx-dashboard-sidebar-information": "מידע נוסף על הכלי הזה",
 	"cx-dashboard-sidebar-stats": "סטטיסטיקות",
 	"cx-dashboard-sidebar-feedback": "שליחת משוב",
+	"cx-dashboard-sidebar-unifieddashboard": "לגשת לגרסה החדשה",
 	"cx-dashboard-banner-message": "<strong>הגרסה הנוכחית של לוח הבקרה תוצא משימוש בקרוב.</strong> נא [$1 להשתמש בגרסה החדשה] ו[https://www.mediawiki.org/wiki/Talk:Content_translation לדווח על כל בעיה] {{GENDER:|שתמצא|שתמצאי}}.",
 	"cx-translation-filter-published-translations": "התפרסמו",
 	"cx-translation-filter-draft-translations": "בעבודה",

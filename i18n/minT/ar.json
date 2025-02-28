@@ -13,6 +13,7 @@
 	"mint-translation-list-all-languages-option-label": "الكل",
 	"mint-home-info-panel-text": "يمكن ترجمة ملايين المواضيع الموجودة على ويكيبيديا تلقائيًا إلى $1.",
 	"mint-home-random-topic-button-label": "موضوع عشوائي",
+	"mint-home-experimental-note": "دعم الترجمة الآلية تجريبي. [ $1 تعرف على المزيد]",
 	"mint-language-selector-title": "اللغات",
 	"mint-language-selector-suggestions-header": "مقترح",
 	"mint-language-selector-all-languages-header": "كل اللغات",

@@ -137,6 +137,7 @@
 	"cx-dashboard-sidebar-information": "المزيد حول هذه الأداة",
 	"cx-dashboard-sidebar-stats": "إحصائيات",
 	"cx-dashboard-sidebar-feedback": "زودنا بتغذيتك الراجعة",
+	"cx-dashboard-sidebar-unifieddashboard": "الوصول إلى الإصدار الجديد",
 	"cx-dashboard-banner-message": "<strong>سيتم إيقاف العمل بإصدار لوحة التحكم الحالي قريبًا.</strong> يُرجى [ $1 استخدام الإصدار الجديد] و[https://www.mediawiki.org/wiki/Talk:Content_translation] للإبلاغ عن أي مشكلات قد تجدها.",
 	"cx-translation-filter-published-translations": "المنشورة",
 	"cx-translation-filter-draft-translations": "الحالية",

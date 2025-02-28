@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "모두",
 	"mint-home-info-panel-text": "위키백과의 수백만 개의 주제는 $1로 자동 번역이 가능합니다.",
 	"mint-home-random-topic-button-label": "임의의 주제",
+	"mint-home-experimental-note": "자동 번역 지원은 실험 기능입니다. [$1 더 알아보기]",
 	"mint-language-selector-title": "언어",
 	"mint-language-selector-suggestions-header": "권장",
 	"mint-language-selector-all-languages-header": "모든 언어",

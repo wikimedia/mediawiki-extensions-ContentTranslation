@@ -148,6 +148,7 @@
 	"cx-dashboard-sidebar-information": "Bu araç hakkında daha fazla bilgi",
 	"cx-dashboard-sidebar-stats": "İstatistikler",
 	"cx-dashboard-sidebar-feedback": "Bize geri bildirimde bulunun",
+	"cx-dashboard-sidebar-unifieddashboard": "Yeni sürüme erişin",
 	"cx-dashboard-banner-message": "<strong>Mevcut gösterge paneli sürümü yakında kullanımdan kaldırılacak.</strong> Lütfen [$1 yeni sürümü kullanın] ve bulabileceğiniz [https://www.mediawiki.org/wiki/Talk:Content_translation sorunları bildirin].",
 	"cx-translation-filter-published-translations": "Yayımlandı",
 	"cx-translation-filter-draft-translations": "Devam edenler",
