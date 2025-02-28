@@ -59,5 +59,20 @@
 	"ax-cx-introduction-information-accuracy": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
 	"ax-cx-introduction-information-expand": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
 	"ax-cx-introduction-information-correct": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
-	"ax-cx-introduction-dialog-action": "Label for the primary button in the dialog that introduces the Content Translation tool. Clicking it redirects the user to the Content Translation tool."
+	"ax-cx-introduction-dialog-action": "Label for the primary button in the dialog that introduces the Content Translation tool. Clicking it redirects the user to the Content Translation tool.",
+	"ax-translation-view-feedback-title": "Title of the feedback survey inviting users to submit feedback for the automatic translation page",
+	"ax-translation-view-feedback-positive": "Label for button in the feedback entrypoint card",
+	"ax-translation-view-feedback-negative": "Label for button in the feedback entrypoint card",
+	"ax-translation-view-feedback-privacy-statement": "Subtext in the feedback entrypoint card with a link to the privacy statement.",
+	"ax-translation-view-feedback-details-question": "Question for users inviting them to provide more detailed feedback.",
+	"ax-translation-view-feedback-positive-missing-information": "Positive option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-positive-translation-quality": "Positive option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-positive-quick-overview": "Positive option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Positive option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-negative-missing-information": "Negative option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-negative-translation-quality": "Negative option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-negative-quick-overview": "Negative option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Negative option in the feedback survey for automatic translation page.",
+	"ax-translation-view-feedback-confirm-title": "Title message displayed to the user after they have submitted the feedback for automatic translation page.",
+	"ax-translation-view-feedback-confirm-description": "Description message displayed to the user after they have submitted the feedback for automatic translation page."
 }

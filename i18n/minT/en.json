@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "Automatic translation provides a useful overview, but it is not always accurate.",
 	"ax-cx-introduction-information-expand": "Content written by humans is more reliable, and you can help expanding it!",
 	"ax-cx-introduction-information-correct": "Follow a simple step by step process to review and correct automatic translations for each sentence.",
-	"ax-cx-introduction-dialog-action": "Correct and add to the article"
+	"ax-cx-introduction-dialog-action": "Correct and add to the article",
+	"ax-translation-view-feedback-title": "Does this automatic translation help you learn more?",
+	"ax-translation-view-feedback-positive": "Yes",
+	"ax-translation-view-feedback-negative": "No",
+	"ax-translation-view-feedback-privacy-statement": "For more information see this survey's [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy privacy statement].",
+	"ax-translation-view-feedback-details-question": "Which of the following do you agree with?",
+	"ax-translation-view-feedback-positive-missing-information": "Gave me access to information difficult to find elsewhere.",
+	"ax-translation-view-feedback-positive-translation-quality": "Translation quality is good enough to confidently understand the contents.",
+	"ax-translation-view-feedback-positive-quick-overview": "I can quickly get a general sense for the topic.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Technical aspects such as loading time did not get in the way of learning.",
+	"ax-translation-view-feedback-negative-missing-information": "I can get better information elsewhere.",
+	"ax-translation-view-feedback-negative-translation-quality": "Translation quality is not good enough to confidently understand the contents.",
+	"ax-translation-view-feedback-negative-quick-overview": "I cannot quickly get a general sense for the topic.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Technical aspects such as loading time were getting in the way of learning.",
+	"ax-translation-view-feedback-confirm-title": "Feedback",
+	"ax-translation-view-feedback-confirm-description": "Thanks for helping! You can share any other thoughts on this experiment [https://www.mediawiki.org/wiki/Talk:MinT at the project talk page]."
 }

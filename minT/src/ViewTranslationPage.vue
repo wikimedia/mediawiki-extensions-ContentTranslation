@@ -68,6 +68,7 @@
 		</div>
 		<div
 			v-if="!loadingLeadSectionTranslation && sections.length"
+			id="ax-translation-viewer-section-container"
 			class="translation-viewer__sections-container"
 		>
 			<div v-if="!loadingSectionTitleTranslations">
@@ -201,6 +202,7 @@ const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
 const CxIntroductionDialog = require( './CxIntroductionDialog.vue' );
+const { axSurveyFeedbackName } = require( './constants.js' );
 const {
 	cdxIconClose,
 	cdxIconRobot,
@@ -478,6 +480,42 @@ module.exports = defineComponent( {
 			logEvent( 'click', actionSubtype, 'review_translation_dialog', 'translation_view', translationData );
 		};
 
+		watch( loadingLeadSectionTranslation, () => {
+			if ( loadingLeadSectionTranslation.value === false ) {
+				mw.loader.using( 'ext.quicksurveys.init' )
+					.then( () => {
+						if ( mw.extQuickSurveys ) {
+							// This approach of loading QuickSurveys is soft deprecated and maybe
+							// removed. See: https://phabricator.wikimedia.org/T387846#10604715 for
+							// why we went with it anyway.
+							mw.extQuickSurveys.showSurvey( axSurveyFeedbackName );
+						}
+					} );
+			}
+		} );
+
+		mw.trackSubscribe( 'event.QuickSurveysResponses', ( eventName, eventData ) => {
+			if (
+				eventData.surveyCodeName === axSurveyFeedbackName &&
+				// We only want to log after the user has answered the complete survey
+				// so log when the last question is answered
+				eventData.surveyQuestionLabel === 'ax-translation-view-feedback-details-question'
+			) {
+				const quickSurveySessionToken = eventData.surveySessionToken;
+				const translationData = {
+					// eslint-disable-next-line camelcase
+					source_language: sourceLanguage.value,
+					// eslint-disable-next-line camelcase
+					target_language: targetLanguage.value,
+					// eslint-disable-next-line camelcase
+					source_title: pageTitle,
+					// eslint-disable-next-line camelcase
+					target_title: targetTitle.value
+				};
+				logEvent( 'survey_response', null, 'translation_view', quickSurveySessionToken, translationData );
+			}
+		} );
+
 		const onTranslationShare = () => {
 			const translationData = {
 				// eslint-disable-next-line camelcase
@@ -630,6 +668,19 @@ module.exports = defineComponent( {
     }
     &__target-article-card {
       margin-inline: @spacing-100;
+    }
+  }
+
+  /** Feedback survey **/
+  .ext-quick-survey-panel {
+    margin: @spacing-100 0;
+    width: auto;
+    clear: unset;
+    float: unset;
+
+    /** Hide the "Back" button in the survey */
+    .survey-action-buttons .cdx-button--action-default {
+      display: none;
     }
   }
 }
