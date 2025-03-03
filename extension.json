@@ -2024,7 +2024,8 @@
 			],
 			"messages": [
 				"ax-article-footer-entrypoint-card-description",
-				"ax-article-footer-entrypoint-card-supporting-text"
+				"ax-article-footer-entrypoint-card-supporting-text",
+				"ax-article-footer-entrypoint-card-heading"
 			]
 		}
 	},

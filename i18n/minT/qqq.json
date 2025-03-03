@@ -46,6 +46,7 @@
 	"mint-view-translation-overlay-feedback-link-label": "Label of the button that directs the user to the feedback page, in the list of the different translation options, inside the MinT view translation page.",
 	"ax-article-footer-entrypoint-card-description": "Description of the entrypoint card that navigates the user to 'AutomaticTranslation' special page, inside the article footer.",
 	"ax-article-footer-entrypoint-card-supporting-text": "Supporting text of the entrypoint card that navigates the user to 'AutomaticTranslation' special page, inside the article footer.",
+	"ax-article-footer-entrypoint-card-heading": "The heading of a section added at the end of the page, that lists automatic translation pages.",
 	"mint-explore-languages-header": "Header text of the page where user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-search-input-placeholder": "Placeholder of input where the user can search for a language, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-explanation-banner-title": "Title of the explanation banner, inside the page where the user can view the available languages for the given article and the sections for each language",
