@@ -6,11 +6,15 @@
 			"Շահէն"
 		]
 	},
+	"cx-dashboard-header": "Թարգմանութիւններ",
 	"cx-publish-button": "Հրապարակել",
 	"cx-captcha-dialog-cancel": "Չեղարկել",
 	"cx-feedback-link": "Կարծիք յայտնել",
 	"cx-draft-cancel-button-label": "Չեղարկել",
 	"cx-campaign-no-thanks": "Ոչ, շնորհակալութիւն",
+	"cx-campaign-contributionsmenu-mytranslations": "Թարգմանութիւններ",
+	"cx-stats-published-target-source": "Թարգմանութիւններ",
+	"echo-category-title-cx": "Թարգմանութիւններ",
 	"cx-tools-linter-restart-translation-cancel": "Չեղարկել",
 	"cx-sx-sentence-selector-translation-options-empty-card-title": "Սկսիլ դատարկ նախադասութեամբ մը",
 	"cx-sx-content-comparator-content-header-translate-button-label": "Թարգմանէ"
