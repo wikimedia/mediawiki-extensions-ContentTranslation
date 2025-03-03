@@ -288,8 +288,12 @@ module.exports = defineComponent( {
   flex-direction: column;
 
   &-header {
+    position: sticky;
+    top: @spacing-0;
+    background-color: @background-color-base;
+    z-index: @z-index-top;
     margin: 0 -@spacing-100;
-    padding: 0 @spacing-100 @spacing-100;
+    padding: @spacing-100 @spacing-100 @spacing-100;
     box-shadow: @box-shadow-drop-medium;
 
     .explore-languages-title {
