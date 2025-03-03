@@ -107,6 +107,7 @@
 	"cx-dashboard-sidebar-information": "Дознајте повеќе за алаткава",
 	"cx-dashboard-sidebar-stats": "Статистика",
 	"cx-dashboard-sidebar-feedback": "Дајте ваше мислење",
+	"cx-dashboard-sidebar-unifieddashboard": "Отворете ја новата верзија",
 	"cx-dashboard-banner-message": "<strong>Тековната верзија на управувачницата наскоро ќе биде исфрлена од употреба.</strong> [$1 Користете ја новата верзија] и [https://www.mediawiki.org/wiki/Talk:Content_translation пријавувајте проблеми], ако ги има.",
 	"cx-translation-filter-published-translations": "Објавени",
 	"cx-translation-filter-draft-translations": "Во тек",

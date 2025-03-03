@@ -116,6 +116,7 @@
 	"cx-dashboard-sidebar-information": "Máis información sobre esta ferramenta",
 	"cx-dashboard-sidebar-stats": "Estatísticas",
 	"cx-dashboard-sidebar-feedback": "Déixanos comentarios",
+	"cx-dashboard-sidebar-unifieddashboard": "Acceder á versión nova",
 	"cx-dashboard-banner-message": "<strong>A versión actual do panel quedará obsoleta en breve.</strong> [$1 Utiliza a nova versión] e [https://www.mediawiki.org/wiki/Talk:Content_translation informa de calquera problema] que atopes.",
 	"cx-translation-filter-published-translations": "Publicadas",
 	"cx-translation-filter-draft-translations": "En progreso",

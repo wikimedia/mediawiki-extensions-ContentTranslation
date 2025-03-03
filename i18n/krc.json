@@ -324,7 +324,7 @@
 	"cx-sx-translation-confirmer-title": "Джангы кёчюрюу",
 	"cx-sx-translation-confirmer-views-count": "Ыйыкъ узунуна {{PLURAL:$1|$1 кёргюзюу|0=кёргюзюлмеди}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "Кёчюрюр ючюн {{PLURAL:$1|$1 сагъат|0={{PLURAL:$2|$2 минут}}}}",
-	"cx-sx-translation-confirmer-translation-time-sections": "$3 бёлюмню кёчюрюр ючюн {{PLURAL:$1|$1 сагъат|0={{PLURAL:$2|$2 минут}}}}",
+	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$3|$3 бёлюмню}} кёчюрюр ючюн {{PLURAL:$1|$1 сагъат|0={{PLURAL:$2|$2 минут}}}}",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Кёчюрюуюгюз энчи джангы бёлюм болуб кёчюрюллюкдю.",
 	"cx-sx-content-comparator-discarded-section-label": "(унамады)",
 	"cx-sx-sentence-selector-translation-options-header-title": "Башха кёчюрюуню башла",
