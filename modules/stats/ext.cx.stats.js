@@ -342,7 +342,7 @@
 		const $tabs = $( '<ul>' ).addClass( 'cx-stats-tabs' );
 		$tabContainer.append( $tabs );
 		this.$container.append( $tabContainer );
-		let tabToShow;
+		let tabToShow = 0;
 		for ( let i = 0; i < items.length; i++ ) {
 			items[ i ].$tab = $( '<li>' )
 				.addClass( 'cx-stats-tabs-tabtitle' )
