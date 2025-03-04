@@ -30,12 +30,11 @@ mw.cx.TargetArticle - Prepare translation for publishing.
 User Interface
 --------------
 ve.init.mw.CXTarget constructed using
-1. mw.cx.ui.Header
- 1. mw.cx.ui.Infobar
+1. mw.cx.ui.Infobar
 2. mw.cx.ui.Columns
- 1. mw.cx.ui.SourceColumn
- 2. mw.cx.ui.TranslationColumn
- 3. mw.cx.ui.ToolsColumn
+3. mw.cx.ui.SourceColumn
+4. mw.cx.ui.TranslationColumn
+5. mw.cx.ui.ToolsColumn
 
 Translation data models
 -----------------------
