@@ -1,13 +1,12 @@
 <script setup>
-import { getUrl } from "@/utils/mediawikiHelper";
+import useDesktopDashboardURL from "./useDesktopDashboardURL";
 import { CdxMessage } from "@wikimedia/codex";
 import { cdxIconSpecialPages } from "@wikimedia/codex-icons";
 
+const { desktopDashboardUrl } = useDesktopDashboardURL();
+
 const learnMoreUrl =
   "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation";
-const previousDashboardUrl = getUrl("Special:ContentTranslation", {
-  "cx-dashboard": "desktop",
-});
 </script>
 
 <template>
@@ -28,7 +27,7 @@ const previousDashboardUrl = getUrl("Special:ContentTranslation", {
     <p class="complementary">
       <a
         v-i18n:cx-sx-dashboard-banner-access-previous
-        :href="previousDashboardUrl"
+        :href="desktopDashboardUrl"
       />
     </p>
   </cdx-message>
