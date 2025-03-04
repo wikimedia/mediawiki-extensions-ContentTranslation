@@ -52,7 +52,7 @@ onMounted(() => {
 <template>
   <mw-grid id="contenttranslation">
     <mw-row class="cx-container">
-      <mw-col cols="12">
+      <mw-col class="cx-container__wrapper-col" cols="12">
         <router-view v-slot="{ Component, route }">
           <transition :name="isMobile ? route.meta.transitionName : ''">
             <component :is="Component" />
@@ -65,11 +65,30 @@ onMounted(() => {
 </template>
 
 <style lang="less">
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 @import "@/lib/mediawiki.ui/styles/common.less";
 
-body {
+body.skin-contenttranslation {
   margin: 0;
   padding: 0;
+
+  .cx-header {
+    // for mobile screens, set "inline" padding for header to 12px
+    padding: @spacing-50 @spacing-75 @spacing-100;
+
+    // for mobile screens, set "inline" padding for header to 40px (same as previous)
+    @media only screen and (min-width: @min-width-breakpoint-tablet) {
+      padding: @spacing-50 @spacing-250 @spacing-100;
+    }
+  }
+
+  .cx-container.row {
+    margin: @spacing-0;
+
+    .cx-container__wrapper-col {
+      padding-inline: @spacing-0;
+    }
+  }
 }
 
 .fullscreen {

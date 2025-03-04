@@ -2,11 +2,16 @@
 @import '../../ui/styles/mw.cx.mixins.less';
 @import '../../ui/styles/mw.cx.variables.less';
 
+.cx-header {
+	// set "inline" padding for header equal to dashboard main body padding
+	padding: @spacing-50 @spacing-250 @spacing-100;
+}
+
 .cx-dashboard {
 	color: @color-base;
 	max-width: @max-dashboard-width;
 	margin: 0 auto;
-	padding: 10px 40px 20px;
+	padding: @spacing-0 @spacing-250 @spacing-125;
 
 	@media only screen and ( max-width: ( @max-width-breakpoint-mobile ) ) {
 		padding: 10px 24px 20px;

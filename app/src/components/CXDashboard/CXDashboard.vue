@@ -54,7 +54,8 @@ const listSelect = (event) => {
 
 <template>
   <div>
-    <mw-row class="ma-0 py-4">
+    <!-- Set only bottom padding here. Spacing from header will be handled by header itself -->
+    <mw-row class="ma-0 pb-4">
       <cdx-button
         id="dashboard-search-translation-button"
         action="progressive"

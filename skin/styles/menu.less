@@ -39,6 +39,8 @@
 	background-color: @background-color-base;
 	border: @border-width-base @border-style-base @border-color-base;
 	border-radius: @border-radius-base;
+	// set inline-end padding to 0, to avoid the undesired padding in header's user widget that breaks the spacing
+	margin-inline-end: @spacing-0;
 
 	.cx-skin-menu {
 		position: relative;

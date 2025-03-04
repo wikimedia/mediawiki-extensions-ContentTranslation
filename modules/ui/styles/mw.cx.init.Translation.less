@@ -1,8 +1,15 @@
+@import 'mediawiki.skin.variables.less';
+
 body.skin-contenttranslation {
 	// Override defaults for the skin to get maximum width.
-	margin: 0;
-	padding: 0;
-	max-width: none;
+	margin: @spacing-0;
+	padding: @spacing-0;
+}
+
+.cx-header {
+	// set "inline" padding equal to the translation view main panel padding (as set in mw.cx.ui.Columns.less)
+	// set bottom padding to 16px to avoid header and main panel being collapsed
+	padding: @spacing-50 @spacing-75 @spacing-100;
 }
 
 .mw-body-content {
