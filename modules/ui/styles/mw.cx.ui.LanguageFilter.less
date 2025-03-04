@@ -12,7 +12,7 @@
 	.flex-display( box ); // Support 2009 syntax
 	.flex-display;
 
-	@media only screen and ( min-width: @narrow ) {
+	@media only screen and ( min-width: @min-width-breakpoint-tablet ) {
 		max-width: 40%;
 	}
 
@@ -22,7 +22,7 @@
 		font-size: 16px;
 		.flex-item;
 
-		@media only screen and ( min-width: @narrow ) {
+		@media only screen and ( min-width: @min-width-breakpoint-tablet ) {
 			overflow: hidden;
 		}
 
@@ -46,7 +46,7 @@
 			line-height: 1 !important; /* stylelint-disable-line declaration-no-important */
 		}
 
-		@media only screen and ( min-width: @narrow ) {
+		@media only screen and ( min-width: @min-width-breakpoint-tablet ) {
 			.text-ellipsis;
 		}
 	}

@@ -1,3 +1,4 @@
+@import 'mediawiki.skin.variables.less';
 @import '../../ui/styles/mw.cx.mixins.less';
 @import '../../ui/styles/mw.cx.variables.less';
 
@@ -7,11 +8,11 @@
 	margin: 0 auto;
 	padding: 10px 40px 20px;
 
-	@media only screen and ( max-width: ( @narrow - 1px ) ) {
+	@media only screen and ( max-width: ( @max-width-breakpoint-mobile ) ) {
 		padding: 10px 24px 20px;
 	}
 
-	@media only screen and ( max-width: ( @very-narrow - 1px ) ) {
+	@media only screen and ( max-width: ( @min-width-breakpoint-mobile ) ) {
 		padding: 10px 12px 20px;
 	}
 
@@ -29,7 +30,7 @@
 	margin-bottom: 28px;
 	line-height: 1;
 
-	@media only screen and ( min-width: @wide ) {
+	@media only screen and ( min-width: @min-width-breakpoint-desktop ) {
 		.mw-ui-one-third;
 		padding: 0 0 0 30px;
 		position: -webkit-sticky;
@@ -73,7 +74,7 @@
 		font-size: 1em;
 
 		.cx-translator--visible ~ & {
-			@media only screen and ( min-width: @narrow ) and ( max-width: ( @wide - 1px ) ) {
+			@media only screen and ( min-width: @min-width-breakpoint-tablet ) and ( max-width: @max-width-breakpoint-tablet ) {
 				display: inline-block;
 				width: 47.5%;
 				margin-left: 5%;
@@ -94,7 +95,7 @@
 	margin-bottom: 48px;
 	padding: 0;
 
-	@media only screen and ( min-width: @wide ) {
+	@media only screen and ( min-width: @min-width-breakpoint-desktop ) {
 		.mw-ui-two-thirds;
 		padding: 0;
 		// This is needed so sidebar doesn't wiggle
@@ -119,7 +120,7 @@
 		height: 2.34375em;
 		padding-right: 0.46875em;
 
-		@media only screen and ( min-width: 380px ) {
+		@media only screen and ( min-width: @min-width-breakpoint-mobile ) {
 			height: auto;
 			padding-right: 0.9375em;
 		}
@@ -129,7 +130,7 @@
 			display: none;
 			line-height: 1.375em;
 
-			@media only screen and ( min-width: 380px ) {
+			@media only screen and ( min-width: @min-width-breakpoint-mobile ) {
 				display: inline;
 			}
 		}
@@ -147,11 +148,11 @@
 	margin: 0 auto;
 	padding: 0 40px;
 
-	@media only screen and ( max-width: ( @narrow - 1px ) ) {
+	@media only screen and ( max-width: @max-width-breakpoint-mobile ) {
 		padding: 0 24px;
 	}
 
-	@media only screen and ( max-width: ( @very-narrow - 1px ) ) {
+	@media only screen and ( max-width: @min-width-breakpoint-mobile ) {
 		padding: 0 12px;
 	}
 }

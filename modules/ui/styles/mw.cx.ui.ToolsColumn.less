@@ -1,3 +1,4 @@
+@import 'mediawiki.skin.variables.less';
 @import 'mw.cx.mixins.less';
 @import 'mw.cx.variables.less';
 
@@ -18,7 +19,7 @@
 		.stick-to-bottom;
 	}
 
-	@media only screen and ( min-width: ( @wide + 0.25 * @max-tools-column-width ) ) {
+	@media only screen and ( min-width: @min-width-breakpoint-desktop ) {
 		width: @max-tools-column-width;
 	}
 

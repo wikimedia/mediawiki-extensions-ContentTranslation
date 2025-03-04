@@ -1,3 +1,4 @@
+@import 'mediawiki.skin.variables.less';
 @import '../../ui/styles/mw.cx.mixins.less';
 @import '../../ui/styles/mw.cx.variables.less';
 
@@ -107,7 +108,7 @@
 	.cx-language-filter {
 		margin-right: 10px;
 
-		@media only screen and ( min-width: @very-narrow ) {
+		@media only screen and ( min-width: @min-width-breakpoint-mobile ) {
 			margin-right: 0;
 		}
 	}
@@ -115,7 +116,7 @@
 	&__discard {
 		display: none;
 
-		@media only screen and ( min-width: @very-narrow ) {
+		@media only screen and ( min-width: @min-width-breakpoint-mobile ) {
 			display: inline;
 			margin-left: 8px;
 		}
