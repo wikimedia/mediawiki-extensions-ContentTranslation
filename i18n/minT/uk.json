@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "Усі",
 	"mint-home-info-panel-text": "Мільйони тем у Вікіпедії можуть бути автоматично перекладені мовою $1.",
 	"mint-home-random-topic-button-label": "Випадкова тема",
+	"mint-home-experimental-note": "Підтримка автоматичного перекладу є експериментальною. [$1 Докладніше]",
 	"mint-language-selector-title": "Мови",
 	"mint-language-selector-suggestions-header": "Пропоновані",
 	"mint-language-selector-all-languages-header": "Усі мови",

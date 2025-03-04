@@ -3,6 +3,7 @@
 		"authors": [
 			"Escargot bleu",
 			"Goombiis",
+			"JLTRY",
 			"Mahabarata",
 			"SleaY"
 		]
@@ -14,6 +15,7 @@
 	"mint-translation-list-all-languages-option-label": "Tous",
 	"mint-home-info-panel-text": "Des millions de sujets sur Wikipédia peuvent être automatiquement traduits en $1.",
 	"mint-home-random-topic-button-label": "Sujet aléatoire",
+	"mint-home-experimental-note": "La prise en charge de la traduction automatique est expérimentale. [ $1 En savoir plus]",
 	"mint-language-selector-title": "Langues",
 	"mint-language-selector-suggestions-header": "Suggéré",
 	"mint-language-selector-all-languages-header": "Toutes les langues",
@@ -47,6 +49,7 @@
 	"mint-view-translation-overlay-feedback-link-label": "Envoyer un avis",
 	"ax-article-footer-entrypoint-card-description": "Plus de contenu dans d'autres langues",
 	"ax-article-footer-entrypoint-card-supporting-text": "Lire la traduction automatique",
+	"ax-article-footer-entrypoint-card-heading": "Traductions automatiques",
 	"mint-explore-languages-header": "Explorer les langues",
 	"mint-explore-languages-search-input-placeholder": "Toutes les langues pour ce sujet",
 	"mint-explore-languages-explanation-banner-title": "En savoir plus sur d'autres langues",
