@@ -1,11 +1,11 @@
 @import '../../../ui/styles/mw.cx.variables.less';
 
 .ve-cx-ui-overlay-global > .oo-ui-windowManager-modal > .oo-ui-dialog.oo-ui-window-active {
-	left: @personal-header-padding;
+	left: @spacing-75;
 	padding: 0;
-	width: calc( 66.667% ~'-' 7 / 3 * @personal-header-padding );
+	width: calc( 66.667% ~'-' 4 / 3 * @spacing-75 );
 
 	@media only screen and ( min-width: @min-width-breakpoint-desktop ) {
-		width: calc( 100% ~'-' @max-tools-column-width ~'-' 2.5em );
+		width: calc( 100% ~'-' @max-tools-column-width ~'-' 2 * @spacing-75 );
 	}
 }
