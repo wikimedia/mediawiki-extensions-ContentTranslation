@@ -6,7 +6,7 @@ import {
   getSearchResultsByScript,
 } from "./languagesearch";
 import autocomplete from "./autocompletion";
-import keyboardNavigation from "./keyboardnav";
+import useKeyboardNavigation from "@/composables/useKeyboardNavigation";
 import { mwIconSearch } from "@/lib/mediawiki.ui/components/icons";
 import { MwInput } from "../../lib/mediawiki.ui";
 import { getAutonym, getDir } from "@wikimedia/language-data";
@@ -54,6 +54,7 @@ const emit = defineEmits(["select", "close"]);
 const searchInputElement = ref(null);
 const searchQuery = ref("");
 const searchResults = ref([]);
+const suggestionsRef = ref(props.suggestions);
 const searchResultsByScript = computed(() =>
   getSearchResultsByScript(searchResults.value)
 );
@@ -77,8 +78,8 @@ const { autocompletion, onTabSelect } = autocomplete(
   searchQuery,
   searchResults
 );
-const { next, prev, langSelectorContainer, selectedLanguage } =
-  keyboardNavigation(searchQuery, searchResults, props.suggestions);
+const { next, prev, keyboardNavigationContainer, selectedItem } =
+  useKeyboardNavigation(searchQuery, searchResults, suggestionsRef);
 
 const onEnter = () => {
   // If the search value is a known language, select it
@@ -89,8 +90,8 @@ const onEnter = () => {
   }
 
   // If there is an actively selected language, select it
-  if (selectedLanguage.value) {
-    select(selectedLanguage.value);
+  if (selectedItem.value) {
+    select(selectedItem.value);
 
     return;
   }
@@ -129,7 +130,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div ref="langSelectorContainer" class="mw-ui-language-selector">
+  <div ref="keyboardNavigationContainer" class="mw-ui-language-selector">
     <slot name="search">
       <div class="mw-ui-language-selector__inputcontainer pa-4 mb-4">
         <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
@@ -172,8 +173,8 @@ onMounted(async () => {
               class="language ma-0"
               :lang="language"
               :dir="getDir(language)"
-              :aria-selected="language === selectedLanguage || null"
-              :class="language === selectedLanguage ? 'language--selected' : ''"
+              :aria-selected="language === selectedItem || null"
+              :class="{ 'language--selected': language === selectedItem }"
               tabindex="-1"
               role="option"
               @click="select(language)"
@@ -202,9 +203,9 @@ onMounted(async () => {
               :lang="language"
               :dir="getDir(language)"
               role="option"
-              :aria-selected="language === selectedLanguage || null"
+              :aria-selected="language === selectedItem || null"
               tabindex="-1"
-              :class="language === selectedLanguage ? 'language--selected' : ''"
+              :class="{ 'language--selected': language === selectedItem }"
               @click="select(language)"
               v-text="getAutonym(language)"
             />
@@ -213,9 +214,9 @@ onMounted(async () => {
               v-i18n:cx-translation-list-all-languages-option-label
               class="language ma-0"
               role="option"
-              :aria-selected="selectedLanguage === 'all' || null"
+              :aria-selected="selectedItem === 'all' || null"
               tabindex="-1"
-              :class="selectedLanguage === 'all' ? 'language--selected' : ''"
+              :class="{ 'language--selected': selectedItem === 'all' }"
               @click="select('all')"
             />
           </ul>

@@ -14,7 +14,7 @@ defineProps({
 
 <template>
   <mw-row
-    class="cx-search-suggestion pt-3 ma-0"
+    class="cx-search-suggestion pa-3 ma-0"
     align="normal"
     :lang="suggestion.language"
     :dir="getDir(suggestion.language)"

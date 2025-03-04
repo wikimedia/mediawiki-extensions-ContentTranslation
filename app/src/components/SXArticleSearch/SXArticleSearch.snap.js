@@ -214,7 +214,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
       
       
       <div
-        class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+        class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
         dir="ltr"
       >
         
@@ -293,7 +293,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
         
       </div>
       <div
-        class="row items-normal justify-start cx-search-suggestion pt-3 ma-0"
+        class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
         dir="ltr"
       >
         

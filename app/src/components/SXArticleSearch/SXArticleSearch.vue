@@ -18,6 +18,8 @@ import { cdxIconClose } from "@wikimedia/codex-icons";
 import useTranslationStart from "@/composables/useTranslationStart";
 import useSuggestionPreviousEditsSeeds from "@/composables/useSuggestionPreviousEditsSeeds";
 import pageApi from "@/wiki/mw/api/page";
+import useKeyboardNavigation from "@/composables/useKeyboardNavigation";
+import useSearchArticles from "@/composables/useArticleSearch";
 
 const searchInput = ref("");
 const searchInputUsed = ref(false);
@@ -40,6 +42,8 @@ const {
   targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
 const { supportedLanguageCodes } = useMediaWikiState();
+
+const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
 const { getSuggestedSourceLanguages } = useSuggestedSourceLanguages();
 /**
@@ -91,9 +95,14 @@ const updateSelection = (updatedLanguage) => {
   updateSourceLanguage(updatedLanguage);
 };
 
-watch(sourceLanguage, () => store.dispatch("mediawiki/fetchNearbyPages"), {
-  immediate: true,
-});
+watch(
+  sourceLanguage,
+  () => {
+    store.dispatch("mediawiki/fetchNearbyPages");
+    searchInputRef.value?.focus();
+  },
+  { immediate: true }
+);
 
 const logEvent = useEventLogging();
 // Log "dashboard_search" event only for the first time user types a search query.
@@ -158,23 +167,51 @@ const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
 const breakpoints = inject("breakpoints");
 const isMobile = computed(() => breakpoints.value.mobile);
 const doStartTranslation = useTranslationStart();
+const prevEditedPagesAvailable = computed(
+  () => previouslyEditedPages.value && previouslyEditedPages.value.length
+);
+const nearbyPagesAvailable = computed(
+  () => nearbyPages.value && nearbyPages.value.length
+);
+
+const { next, prev, keyboardNavigationContainer, selectedItem } =
+  useKeyboardNavigation(searchInput, searchResultsSlice, previouslyEditedPages);
 
 /**
  * @param {Page} page
- * @param {string} eventSource
  * @returns {Promise<void>}
  */
-const startTranslation = (page, eventSource) =>
+const startTranslation = (page) =>
   doStartTranslation(
     page.title,
     sourceLanguage.value,
     targetLanguage.value,
-    eventSource
+    eventSource.value
   );
+
+const eventSource = computed(() => {
+  if (!!searchInput.value) {
+    return "search_result";
+  } else if (prevEditedPagesAvailable.value) {
+    return "suggestion_recent_edit";
+  } else if (nearbyPagesAvailable.value) {
+    return "suggestion_nearby";
+  }
+
+  return "";
+});
 </script>
 
 <template>
-  <section class="sx-article-search col-12 col-tablet-9 col-desktop-7 mx-auto">
+  <section
+    ref="keyboardNavigationContainer"
+    class="sx-article-search col-12 col-tablet-9 col-desktop-7 mx-auto"
+    @keydown.tab.stop.prevent="next"
+    @keydown.down.stop.prevent="next"
+    @keydown.up.stop.prevent="prev"
+    @keydown.esc.stop.prevent="close"
+    @keydown.enter.stop.prevent="startTranslation(selectedItem)"
+  >
     <mw-row
       class="sx-article-search__header ma-0 py-3"
       align="stretch"
@@ -209,16 +246,17 @@ const startTranslation = (page, eventSource) =>
     />
     <template v-if="!searchInput">
       <article-suggestions-card
-        v-if="previouslyEditedPages && previouslyEditedPages.length"
+        v-if="prevEditedPagesAvailable"
         :card-title="$i18n('cx-sx-article-search-recently-edited-title')"
         :suggestions="previouslyEditedPages"
-        @suggestion-clicked="startTranslation($event, 'suggestion_recent_edit')"
+        :selected-item="selectedItem"
+        @suggestion-clicked="startTranslation($event)"
       />
       <article-suggestions-card
-        v-else-if="nearbyPages && nearbyPages.length"
+        v-else-if="nearbyPagesAvailable"
         :card-title="$i18n('cx-sx-article-search-nearby-title')"
         :suggestions="nearbyPages"
-        @suggestion-clicked="startTranslation($event, 'suggestion_nearby')"
+        @suggestion-clicked="startTranslation($event)"
       />
       <p
         v-else
@@ -229,7 +267,8 @@ const startTranslation = (page, eventSource) =>
     <search-results-card
       v-show="!!searchInput"
       :search-input="searchInput"
-      @suggestion-clicked="startTranslation($event, 'search_result')"
+      :selected-item="selectedItem"
+      @suggestion-clicked="startTranslation($event)"
     />
     <!--      TODO: Use modelValue inside mw-dialog and use v-model="" directly-->
     <mw-dialog

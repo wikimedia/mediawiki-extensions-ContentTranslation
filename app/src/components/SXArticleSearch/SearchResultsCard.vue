@@ -1,7 +1,7 @@
 <script setup>
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard, MwSpinner } from "@/lib/mediawiki.ui";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import useSearchArticles from "@/composables/useArticleSearch";
 import useURLHandler from "@/composables/useURLHandler";
 import { getAutonym } from "@wikimedia/language-data";
@@ -15,7 +15,22 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  selectedItem: {
+    type: [Object, String],
+    required: false,
+  },
 });
+
+const hoveredItemId = ref(null);
+const onMouseEnter = (pageId) => (hoveredItemId.value = pageId);
+const onMouseLeave = () => (hoveredItemId.value = null);
+
+const isSelected = (suggestion) => {
+  return (
+    (props.selectedItem?.title === suggestion.title && !hoveredItemId.value) ||
+    hoveredItemId.value === suggestion.pageId
+  );
+};
 
 defineEmits(["suggestion-clicked"]);
 
@@ -40,15 +55,25 @@ const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
     />
     <sx-search-article-suggestion
       v-for="suggestion in searchResultsSlice"
-      :key="suggestion.pageid"
+      :key="suggestion.pageId"
       :suggestion="suggestion"
+      :class="{
+        'sx-article-search__results-selected': isSelected(suggestion),
+      }"
+      @mouseenter="onMouseEnter(suggestion.pageId)"
+      @mouseleave="onMouseLeave"
       @click="$emit('suggestion-clicked', suggestion)"
     />
   </mw-card>
 </template>
 
-<style>
+<style lang="less">
+@import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 .sx-article-search__empty-search-results-message {
   text-align: center;
+}
+
+.sx-article-search__results-selected {
+  background-color: @background-color-neutral-subtle;
 }
 </style>

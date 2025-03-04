@@ -1,8 +1,9 @@
 <script setup>
 import SxSearchArticleSuggestion from "./SXSearchArticleSuggestion.vue";
 import { MwCard } from "../../lib/mediawiki.ui";
+import { ref } from "vue";
 
-defineProps({
+const props = defineProps({
   cardTitle: {
     type: String,
     required: true,
@@ -11,9 +12,24 @@ defineProps({
     type: Array,
     required: true,
   },
+  selectedItem: {
+    type: [Object, String],
+    required: false,
+  },
 });
 
-defineEmits(["suggestion-clicked"]);
+const hoveredItemId = ref(null);
+const onMouseEnter = (pageId) => (hoveredItemId.value = pageId);
+const onMouseLeave = () => (hoveredItemId.value = null);
+
+const isSelected = (suggestion) => {
+  return (
+    (props.selectedItem?.title === suggestion.title && !hoveredItemId.value) ||
+    hoveredItemId.value === suggestion.pageId
+  );
+};
+
+const emit = defineEmits(["suggestion-clicked"]);
 </script>
 
 <template>
@@ -26,8 +42,13 @@ defineEmits(["suggestion-clicked"]);
     </template>
     <sx-search-article-suggestion
       v-for="suggestion in suggestions"
-      :key="suggestion.pageid"
+      :key="suggestion.pageId"
       :suggestion="suggestion"
+      :class="{
+        'sx-article-search__suggestions-selected': isSelected(suggestion),
+      }"
+      @mouseenter="onMouseEnter(suggestion.pageId)"
+      @mouseleave="onMouseLeave"
       @click="$emit('suggestion-clicked', suggestion)"
     />
   </mw-card>
@@ -42,6 +63,9 @@ defineEmits(["suggestion-clicked"]);
   }
   &-header {
     color: #72777d;
+  }
+  &-selected {
+    background-color: @background-color-neutral-subtle;
   }
 }
 </style>
