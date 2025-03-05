@@ -43,7 +43,7 @@
 					@click="selectLanguage( sourceArticleInfo.language )"
 				>
 					<div class="explore-languages-body__language-card__header">
-						<h4>{{ getAutonym( sourceArticleInfo.language ) }}</h4>
+						<h4>{{ sourceArticleInfo.languageName }}</h4>
 						<cdx-radio
 							v-model="sourceLanguage"
 							name="article-language-radios"
@@ -98,7 +98,6 @@ const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const PageSearchResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const debounce = require( './debounce.js' );
-const getAutonym = $.uls.data.getAutonym;
 
 // @vue/component
 module.exports = defineComponent( {
@@ -271,7 +270,6 @@ module.exports = defineComponent( {
 			isSelected,
 			loading,
 			activeSourceArticleInfos,
-			getAutonym,
 			sourceLanguage,
 			selectLanguage,
 			createCardElementRef

@@ -47,7 +47,8 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 			'format' => 'json',
 			'formatversion' => 2,
 			'smtype' => 'language',
-			'smlangprop' => 'site|code',
+			'uselang' => $this->getContext()->getLanguage()->getCode(),
+			'smlangprop' => 'site|code|localname',
 			'smsiteprop' => 'dbname|url',
 			'origin' => '*'
 		];
@@ -66,6 +67,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		foreach ( $siteMatrix as $site ) {
 			$code = $site['code'];
 			$subSites = $site['site'];
+			$localname = $site['localname'];
 			$wikipediaSiteUrl = null;
 			$wikipediaSiteDb = null;
 			foreach ( $subSites as $subSite ) {
@@ -79,7 +81,8 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 			if ( $wikipediaSiteUrl ) {
 				$results[ $wikipediaSiteDb ] = [
 					'code' => $code,
-					'url' => $wikipediaSiteUrl
+					'url' => $wikipediaSiteUrl,
+					'localname' => $localname
 				];
 			}
 		}
@@ -130,6 +133,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 			$results[] = [
 				'site' => $siteDb,
 				'title' => $siteLink['title'],
+				'localname' => $currentSite['localname'],
 				'siteUrl' => $currentSite['url'],
 				'siteCode' => $currentSite['code']
 			];
@@ -189,6 +193,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 				$infos = [
 					'siteUrl' => $siteLink['siteUrl'],
 					'language' => $siteLink['siteCode'],
+					'languageName' => $siteLink['localname'],
 					'title' => $siteLink['title'],
 					'sections' => count( $sections ),
 					'size' => $size,
