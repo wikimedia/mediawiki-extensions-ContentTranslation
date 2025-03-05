@@ -361,7 +361,7 @@ mw.cx.TranslationTracker.prototype.getSectionsTranslatedFromSource = function ( 
  * excluded from MT abuse validation should be left out.
  * @return {ve.dm.CXSectionNode[]} Target section models which are validated for MT abuse
  */
-mw.cx.TranslationTracker.prototype.getTargetSectionModels = function ( includeAll ) {
+mw.cx.TranslationTracker.prototype.getTargetSectionModels = function ( includeAll = false ) {
 	return this.veTarget.translation.targetDoc.getNodesByType( 'article' )[ 0 ].getChildren()
 		.filter( function ( node ) {
 			return node.getType() === 'cxSection' && ( includeAll || !this.constructor.static.isExcludedFromValidation( node ) );

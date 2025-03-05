@@ -684,12 +684,6 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
-
-	if ( this.translation.isSectionTranslation() ) {
-		this.publishSection();
-		return;
-	}
-
 	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
 		mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
@@ -705,6 +699,11 @@ mw.cx.TranslationController.prototype.publish = function () {
 		this.showMTAbusePublishError( mtAbuseMsg.toString() );
 		this.onPublishCancel();
 		this.mtAbusePublishingStopped = true;
+		return;
+	}
+
+	if ( this.translation.isSectionTranslation() ) {
+		this.publishSection();
 		return;
 	}
 
