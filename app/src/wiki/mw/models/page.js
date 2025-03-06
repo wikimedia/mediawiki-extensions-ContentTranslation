@@ -103,9 +103,13 @@ export default class Page {
 
   /**
    * @param {number} width
-   * @returns {string}
+   * @returns {string|null}
    */
   getImage(width) {
+    if (!this.image) {
+      return null;
+    }
+
     if (!width) {
       return this.image.source;
     }
