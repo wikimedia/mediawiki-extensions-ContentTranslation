@@ -2,17 +2,18 @@ export default class Page {
   /**
    * @param {Object} options
    * @param {string} [options.description]
-   * @param {string|number} [options.langlinkscount]
-   * @param {string} [options.lastrevid]
-   * @param {string} [options.original]
-   * @param {string} [options.pageid]
+   * @param {number} [options.langlinkscount]
+   * @param {number} [options.lastrevid]
+   * @param {{ source: string, width: number, height: number }|null} [options.original]
+   * @param {string|null} [options.pageimage]
+   * @param {number} [options.pageid]
    * @param {string} [options.pagelanguage]
    * @param {{wikibase_item: string}} [options.pageprops]
-   * @param {string} [options.pageviews]
-   * @param {string} [options.thumbnail]
+   * @param {object} [options.pageviews]
+   * @param {{ source: string, width: number, height: number }|null} [options.thumbnail]
    * @param {string} [options.title]
    * @param {{size}[]} [options.revisions]
-   * @param {string|null} [options._alias] The normalized page title or the title from which this page is a redirection, if any. See mw/api/page.js#fetchMetadata
+   * @param {string|undefined} [options._alias] The normalized page title or the title from which this page is a redirection, if any. See mw/api/page.js#fetchMetadata
    * @param {string|null} [options.content]
    * @param {PageSection[]} [options.sections]
    */
@@ -20,13 +21,13 @@ export default class Page {
     description,
     langlinkscount,
     lastrevid,
-    original,
-    pageimage,
+    original = null,
+    pageimage = null,
     pageid,
     pagelanguage,
     pageprops,
     pageviews,
-    thumbnail,
+    thumbnail = null,
     title,
     revisions,
     _alias,
@@ -37,19 +38,13 @@ export default class Page {
     this.title = title;
     this.pageId = pageid;
     this.description = description;
-    /**
-     * @type {{ source: string, width: number, height: number }}
-     */
+    /** @type {{ source: string, width: number, height: number }|null} */
     this.image = original;
-    /**
-     * @type {string}
-     */
+    /** @type {string|null} */
     this.imageName = pageimage;
     this.pageprops = pageprops;
     this.pageviews = pageviews;
-    /**
-     * @type {{ source: string, width: number, height: number }}
-     */
+    /** @type {{ source: string, width: number, height: number }|null} */
     this.thumbnail = thumbnail;
     this.langLinksCount = langlinkscount;
     this.articleSize = revisions?.[0]?.size;
