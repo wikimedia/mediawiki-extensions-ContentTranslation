@@ -113,13 +113,13 @@ export default class Page {
     // https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/50px-FullMoon2010.jpg
     const thumbnailSource = this.thumbnail.source;
 
-    // Keep the part before last slash:
-    // e.g. https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg
-    const baseUrl = thumbnailSource.substring(
-      0,
-      thumbnailSource.lastIndexOf("/")
-    ); // Get everything before the last '/'
+    // Build a regex to find the "<width>px-" part before the exact image name
+    // Escape special regex characters in the image name to safely use it in the regex
+    const pattern = new RegExp(
+      `/\\d+px-${this.imageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`
+    );
 
-    return `${baseUrl}/${width}px-${this.imageName}`;
+    // Replace the original thumbnail width with the new width while keeping the thumbnail path intact
+    return thumbnailSource.replace(pattern, `/${width}px-${this.imageName}`);
   }
 }
