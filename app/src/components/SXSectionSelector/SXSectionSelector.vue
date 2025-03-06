@@ -15,10 +15,11 @@ import useApplicationState from "@/composables/useApplicationState";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
+import useEditorNavigation from "@/composables/useEditorNavigation";
+import useDashboardTranslationContinueInstrument from "@/composables/useDashboardTranslationContinueInstrument";
 
 const store = useStore();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
@@ -56,7 +57,9 @@ const goToDashboard = () => {
 
 const { currentTranslation: currentDraftTranslation } =
   useCurrentDraftTranslation();
-const startDraftTranslation = useDraftTranslationStart();
+const navigateToEditor = useEditorNavigation();
+const logDashboardTranslationContinueEvent =
+  useDashboardTranslationContinueInstrument();
 const { selectPageSectionByTitle } = usePageSectionSelect();
 
 const selectSection = (sourceSectionTitle) => {
@@ -64,7 +67,8 @@ const selectSection = (sourceSectionTitle) => {
 
   // if a draft translation exists for the current selected page and section, restore it
   if (!!currentDraftTranslation.value) {
-    startDraftTranslation(currentDraftTranslation.value);
+    logDashboardTranslationContinueEvent();
+    navigateToEditor();
   } else {
     selectPageSectionByTitle(sourceSectionTitle);
     router.push({ name: "sx-content-comparator" });

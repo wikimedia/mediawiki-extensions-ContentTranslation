@@ -85,21 +85,44 @@ const router = createRouter({
 });
 
 /**
+ * @param {string} toRoute
+ * @param {string} desiredRoute
+ * @param {NavigationGuardNext} next
+ */
+const redirectToRouteIfNeeded = (toRoute, desiredRoute, next) => {
+  if (toRoute === desiredRoute) {
+    next();
+  } else {
+    next({ name: desiredRoute });
+  }
+};
+
+/**
+ *
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string} pageTitle
+ * @return {string|null}
+ */
+const getTranslationCookie = (sourceLanguage, targetLanguage, pageTitle) => {
+  let name =
+    "cx_" +
+    btoa(
+      encodeURIComponent([pageTitle, sourceLanguage, targetLanguage].join("_"))
+    );
+  // Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
+  name = name.replace(/[()<>@,;\\[\]?={}]/g, "");
+
+  return mw.cookie.get(name, "");
+};
+
+/**
  * Checks before each redirect that redirect is coming
  * from last required step. When no previous step exists
  * it redirects user to the beginning of the workflow (dashboard)
  */
 router.beforeEach((to, from, next) => {
   const store = useStore();
-  const startSectionTranslationFromUrl = useUrlTranslationStart();
-
-  const {
-    sourceLanguageURLParameter: sourceLanguage,
-    targetLanguageURLParameter: targetLanguage,
-    pageURLParameter: pageTitle,
-  } = useURLHandler();
-
-  store.commit("application/setPreviousRoute", from.name);
 
   if (!mw.user.isAnon()) {
     userApi.assertUser().catch((error) => {
@@ -109,11 +132,23 @@ router.beforeEach((to, from, next) => {
     });
   }
 
-  if (!!to.query.force) {
+  // If this is not the first navigation within the application, continue as usual
+  if (!!from.name) {
     next();
 
     return;
   }
+
+  const startSectionTranslationFromUrl = useUrlTranslationStart();
+
+  const {
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+    pageURLParameter: pageTitle,
+    clearTranslationURLParameters,
+  } = useURLHandler();
+
+  store.commit("application/setPreviousRoute", from.name);
 
   const areTranslationParamsSet = !!(
     sourceLanguage.value &&
@@ -122,45 +157,29 @@ router.beforeEach((to, from, next) => {
   );
 
   // first landing on the application, directly to the confirmation step
-  if (!from.name && areTranslationParamsSet) {
-    startSectionTranslationFromUrl();
+  if (areTranslationParamsSet) {
+    // base64 encode the name to get cookie name.
+    const translationCookie = getTranslationCookie(
+      sourceLanguage.value,
+      targetLanguage.value,
+      pageTitle.value
+    );
 
-    if (to.name === "sx-translation-confirmer") {
-      next();
+    if (!!translationCookie) {
+      const desiredRouteName =
+        to.name === "sx-quick-tutorial"
+          ? "sx-quick-tutorial"
+          : "sx-sentence-selector";
+      redirectToRouteIfNeeded(to.name, desiredRouteName, next);
     } else {
-      next({ name: "sx-translation-confirmer" });
+      startSectionTranslationFromUrl();
+      redirectToRouteIfNeeded(to.name, "sx-translation-confirmer", next);
     }
 
     return;
   }
-
-  const fromStep = from.meta.workflowStep;
-  const toStep = to.meta.workflowStep;
-
-  if (isNaN(fromStep) && toStep >= 1) {
-    next({ name: "dashboard" });
-
-    return;
-  }
-
-  /**
-   * Optional intermediate steps (e.g. SXQuickTutorial) can have decimal values
-   * to indicate that there are not required for workflow. This way we only need
-   * to check if previous required step (which should have an integer value) has
-   * already been visited
-   */
-  const stepsDifference = Math.ceil(toStep) - Math.floor(fromStep);
-
-  if (stepsDifference > 1) {
-    const previousRequiredStep = Math.ceil(toStep) - 1;
-    const previousRequiredRoute = routes.find(
-      (route) => route.meta.workflowStep === previousRequiredStep
-    );
-    next({ name: previousRequiredRoute.name });
-
-    return;
-  }
-  next();
+  clearTranslationURLParameters();
+  redirectToRouteIfNeeded(to.name, "dashboard", next);
 });
 
 router.afterEach((to, from) => {

@@ -28,6 +28,10 @@ import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 import useEditorInstrument from "@/composables/useEditorInstrument";
+import usePageSectionSelect from "@/composables/usePageSectionSelect";
+import useDraftTranslationStart from "./useDraftTranslationStart";
+import useLanguageTitlesFetch from "@/composables/useLanguageTitlesFetch";
+import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
 
 const isTranslationOptionsActive = ref(false);
 const shouldProposedTranslationBounce = ref(false);
@@ -39,13 +43,22 @@ const { currentMTProvider } = useApplicationState(store);
 const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
+  pageURLParameter: sourceTitle,
+  sectionURLParameter: sectionTitle,
 } = useURLHandler();
 
 const { sourceSection: currentPageSection, selectedContentTranslationUnit } =
   useCurrentPageSection();
 
-const translationDataReady = computed(
-  () => store.state.application.translationDataLoadingCounter === 0
+const translationDataStatus = ref({
+  pageContent: false,
+  pageMetadata: false,
+  draftRestored: false,
+  mtProviders: false,
+});
+
+const translationDataReady = computed(() =>
+  Object.values(translationDataStatus.value).every(Boolean)
 );
 
 const isSelectedTranslationUnitTranslated = computed(
@@ -70,11 +83,50 @@ const {
 } = useEditorInstrument();
 const initializeSegmentSelection = useInitializeSegmentSelection();
 const initializeMTProviders = useMTProvidersInitialize();
-initializeMTProviders().then(logEditorOpenEvent);
+initializeMTProviders().then(() => {
+  logEditorOpenEvent();
+  translationDataStatus.value.mtProviders = true;
+});
 
 const scrollToTranslationUnit = useSelectedContentTranslationUnitScroll();
+const { fetchTranslationsByStatus, translationsFetched } =
+  useTranslationsFetch();
+const startDraftTranslation = useDraftTranslationStart();
 
-onMounted(() => {
+const { currentTranslation } = useCurrentDraftTranslation();
+const { selectPageSectionByTitle, selectPageSectionByIndex } =
+  usePageSectionSelect();
+const fetchLanguageTitles = useLanguageTitlesFetch();
+const fetchPageMetadata = usePageMetadataFetch();
+
+onMounted(async () => {
+  // if user has just been redirected to the target mobile editor from a different wiki
+  if (!translationsFetched.value.draft) {
+    const promises = [
+      // required to get current draft translation (if exists)
+      fetchTranslationsByStatus("draft"),
+      // required to get target page title for template adaptation (useTranslationUnitTranslate)
+      fetchLanguageTitles(sourceLanguage.value, sourceTitle.value),
+      // user has just been redirected here from another wiki, and page metadata have not yet been fetched
+      fetchPageMetadata(sourceLanguage.value, [sourceTitle.value]),
+    ];
+
+    await Promise.all(promises);
+  }
+  translationDataStatus.value.pageMetadata = true;
+
+  if (sectionTitle.value) {
+    await selectPageSectionByTitle(sectionTitle.value);
+  } else {
+    await selectPageSectionByIndex(0);
+  }
+  translationDataStatus.value.pageContent = true;
+
+  if (!!currentTranslation.value) {
+    await startDraftTranslation(currentTranslation.value);
+  }
+  translationDataStatus.value.draftRestored = true;
+
   watch(
     translationDataReady,
     async () => {
@@ -128,10 +180,8 @@ const goToDashboard = () => {
   doGoToDashboard();
 };
 
-const { fetchTranslationsByStatus } = useTranslationsFetch();
 const clearPendingSaveRequests = usePendingSaveRequestsClear();
 const { clearTranslationURLParameters } = useURLHandler();
-const { currentTranslation } = useCurrentDraftTranslation();
 
 const doGoToDashboard = async () => {
   fetchTranslationsByStatus("draft");

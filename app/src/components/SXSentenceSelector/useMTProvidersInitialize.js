@@ -54,8 +54,6 @@ const useMTProvidersInitialize = () => {
   const fetchMTProviders = useMTProvidersFetch();
 
   return async () => {
-    store.commit("application/increaseTranslationDataLoadingCounter");
-
     await fetchMTProviders();
 
     const supportedProviders = store.getters[
@@ -74,7 +72,6 @@ const useMTProvidersInitialize = () => {
         mw.storage.get(storageKey) || supportedProviders[0];
       store.commit("application/setCurrentMTProvider", defaultProvider);
     }
-    store.commit("application/decreaseTranslationDataLoadingCounter");
   };
 };
 

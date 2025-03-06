@@ -1,6 +1,5 @@
 import { useRouter } from "vue-router";
 import useSuggestionLoad from "@/composables/useSuggestionLoad";
-import { useStore } from "vuex";
 import useURLHandler from "@/composables/useURLHandler";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 
@@ -16,7 +15,6 @@ import useDashboardTranslationStartInstrument from "@/composables/useDashboardTr
  * await startTranslation('Hello World', 'en', 'es', 'no_suggestion_seed');
  */
 const useTranslationStart = () => {
-  const store = useStore();
   const router = useRouter();
   const loadSuggestion = useSuggestionLoad();
   const { setTranslationURLParams } = useURLHandler();

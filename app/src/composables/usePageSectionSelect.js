@@ -1,4 +1,3 @@
-import { useStore } from "vuex";
 import useContentReferencesResolve from "@/composables/useContentReferencesResolve";
 import usePageContentFetch from "@/composables/usePageContentFetch";
 import useURLHandler from "@/composables/useURLHandler";
@@ -6,8 +5,6 @@ import useCurrentPages from "@/composables/useCurrentPages";
 import { isDesktopSite } from "@/utils/mediawikiHelper";
 
 const usePageSectionSelect = () => {
-  const store = useStore();
-
   const { currentSourcePage } = useCurrentPages();
 
   const resolvePageContentReferences = useContentReferencesResolve();
@@ -18,16 +15,17 @@ const usePageSectionSelect = () => {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
     pageURLParameter: sourceTitle,
+    revisionURLParameter: revision,
   } = useURLHandler();
 
   const doSelectPageSection = async (getter, setter) => {
     // if section doesn't exist, fetch page content and resolve references
     if (!getter()) {
-      store.commit("application/increaseTranslationDataLoadingCounter");
       await fetchPageContent(
         sourceLanguage.value,
         targetLanguage.value,
-        sourceTitle.value
+        sourceTitle.value,
+        revision.value
       );
 
       // Resolve references and update page sections to include these resolved references.
@@ -38,7 +36,6 @@ const usePageSectionSelect = () => {
           sourceTitle.value
         );
       }
-      store.commit("application/decreaseTranslationDataLoadingCounter");
     }
     setter();
   };

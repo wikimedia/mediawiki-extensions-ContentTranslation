@@ -218,13 +218,11 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	/**
-	 * Returns true if user requested to open the translation view,
-	 * false if CX dashboard is requested.
-	 *
-	 * @return bool
+	 * Returns true if user requested to open the desktop translation view,
+	 * false if CX dashboard or mobile editor is requested.
 	 */
-	protected function onTranslationView() {
-		return $this->hasValidToken();
+	protected function onDesktopTranslationView(): bool {
+		return $this->hasValidToken() && !self::isMobileSite();
 	}
 
 	/**
@@ -275,8 +273,8 @@ class SpecialContentTranslation extends SpecialPage {
 	}
 
 	protected function isUnifiedDashboard(): bool {
-		if ( $this->onTranslationView() ) {
-			// Not on a dashboard
+		if ( $this->onDesktopTranslationView() ) {
+			// Not on a dashboard or mobile editor
 			return false;
 		}
 
@@ -319,7 +317,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$out = $this->getOutput();
 
 		$contentTranslationTranslateInTarget = $config->get( 'ContentTranslationTranslateInTarget' );
-		if ( $this->onTranslationView() && !self::isMobileSite() ) {
+		if ( $this->onDesktopTranslationView() ) {
 			$out->addModules( 'mw.cx.init' );
 			// If Wikibase is installed, load the module for linking
 			// the published article with the source article
@@ -345,7 +343,7 @@ class SpecialContentTranslation extends SpecialPage {
 		$config = $this->getConfig();
 		$out = $this->getOutput();
 
-		if ( $this->onTranslationView() ) {
+		if ( $this->onDesktopTranslationView() ) {
 			$version = 2;
 
 			$out->addJsConfigVars( [

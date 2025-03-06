@@ -328,6 +328,7 @@ mw.cx.SiteMapper.prototype.setCXToken = function ( sourceLanguage, targetLanguag
 
 /**
  * Unset the CX Token cookie.
+ * Currently unused.
  *
  * @param {string} sourceLanguage Source language
  * @param {string} targetLanguage Target language

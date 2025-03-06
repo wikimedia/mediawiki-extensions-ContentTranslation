@@ -6,9 +6,8 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconNext } from "@wikimedia/codex-icons";
-import { isDesktopSite } from "@/utils/mediawikiHelper";
-import useCXRedirect from "@/composables/useCXRedirect";
 import useURLHandler from "@/composables/useURLHandler";
+import useEditorNavigation from "@/composables/useEditorNavigation";
 
 const totalSteps = ref(2);
 const activeStep = ref(1);
@@ -22,7 +21,6 @@ const goToNextStep = () => {
 const isActiveStep = (step) => step === activeStep.value;
 
 const router = useRouter();
-const redirectToCX = useCXRedirect();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -31,20 +29,7 @@ const {
   sectionURLParameter: sectionTitle,
 } = useURLHandler();
 
-const completeTutorial = () => {
-  if (isDesktopSite) {
-    const extra = { sourcesection: sectionTitle.value };
-
-    redirectToCX(
-      sourceLanguage.value,
-      targetLanguage.value,
-      pageTitle.value,
-      extra
-    );
-  } else {
-    router.push({ name: "sx-sentence-selector" });
-  }
-};
+const navigateToEditor = useEditorNavigation();
 </script>
 
 <template>
@@ -127,7 +112,7 @@ const completeTutorial = () => {
             class="mx-4"
             action="progressive"
             weight="primary"
-            @click="completeTutorial"
+            @click="navigateToEditor"
           >
             {{ $i18n("sx-quick-tutorial-translate-button-label") }}
           </cdx-button>

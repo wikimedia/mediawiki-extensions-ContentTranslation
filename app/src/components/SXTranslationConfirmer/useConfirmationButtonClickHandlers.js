@@ -5,12 +5,18 @@ import { isDesktopSite } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
-import useTranslationConfirm from "@/composables/useTranslationConfirm";
+import useEditorNavigation from "@/composables/useEditorNavigation";
+import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
+import useDashboardTranslationContinueInstrument from "@/composables/useDashboardTranslationContinueInstrument";
 
 export default () => {
   const router = useRouter();
-  const confirmTranslation = useTranslationConfirm();
+  const { logDashboardTranslationStartEvent } =
+    useDashboardTranslationStartInstrument();
+  const logDashboardTranslationContinueEvent =
+    useDashboardTranslationContinueInstrument();
+  const navigateToEditor = useEditorNavigation();
+
   const { sectionURLParameter: preFilledSectionTitle } = useURLHandler();
 
   const { targetPageExists } = useLanguageTitleGroup();
@@ -19,10 +25,9 @@ export default () => {
 
   const startPrefilledSectionTranslation = async () => {
     await selectPageSectionByTitle(preFilledSectionTitle.value);
-    router.push({ name: "sx-content-comparator", query: { force: true } });
+    router.push({ name: "sx-content-comparator" });
   };
 
-  const startDraftTranslation = useDraftTranslationStart();
   const translationConfirmationDialogOn = ref(false);
   const { currentTranslation } = useCurrentDraftTranslation();
 
@@ -43,14 +48,16 @@ export default () => {
       if (currentTranslation.value.isArticleTranslation && !isDesktopSite) {
         translationConfirmationDialogOn.value = true;
       } else {
-        startDraftTranslation(currentTranslation.value);
+        logDashboardTranslationContinueEvent();
+        navigateToEditor();
       }
     } else if (!!preFilledSectionTitle.value) {
       startPrefilledSectionTranslation();
     } else if (targetPageExists.value) {
       router.push({ name: "sx-section-selector" });
     } else {
-      confirmTranslation();
+      logDashboardTranslationStartEvent();
+      navigateToEditor();
     }
   };
 

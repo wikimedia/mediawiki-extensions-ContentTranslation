@@ -48,23 +48,30 @@ jest.mock("@/composables/useCurrentPageSection", () => () => ({
 jest.mock("../useInitializeSegmentSelection", () => () => jest.fn());
 
 jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+  targetLanguageURLParameter: { value: "el" },
+  pageURLParameter: { value: "Moon" },
   sectionURLParameter: {
     value: "My sentence selector section title",
   },
 }));
 
 jest.mock("@/composables/useEventLogging", () => () => jest.fn());
+jest.mock("@/composables/useLanguageTitlesFetch", () => () => jest.fn());
+jest.mock("@/composables/usePageMetadataFetch", () => () => jest.fn());
+jest.mock("@/composables/usePageSectionSelect", () => () => ({
+  selectPageSectionByTitle: jest.fn(),
+  selectPageSectionByIndex: jest.fn(),
+}));
+jest.mock("@/composables/useCurrentDraftTranslation", () => () => ({
+  currentTranslation: { value: null },
+}));
+jest.mock("@/composables/useTranslationsFetch", () => () => ({
+  fetchTranslationsByStatus: jest.fn(),
+  translationsFetched: { value: { draft: false } },
+}));
 
-const mockStore = createStore({
-  modules: {
-    application: {
-      namespaced: true,
-      state: {
-        translationDataLoadingCounter: 0,
-      },
-    },
-  },
-});
+const mockStore = createStore({});
 
 describe("Test SXSentenceSelector component", () => {
   const wrapper = mount(SXSentenceSelector, {

@@ -1,9 +1,6 @@
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
-import {
-  redirectToTargetWikiIfNeeded,
-  setLanguagePair,
-} from "@/composables/useLanguageHelper";
+import { setLanguagePair } from "@/composables/useLanguageHelper";
 import useURLHandler from "@/composables/useURLHandler";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import { ref } from "vue";
@@ -21,12 +18,8 @@ const useApplicationLanguagesInitialize = () => {
   const { enabledTargetLanguages, supportedLanguageCodes } =
     useMediaWikiState();
 
-  const {
-    sourceLanguageURLParameter,
-    targetLanguageURLParameter,
-    pageURLParameter,
-    sectionURLParameter,
-  } = useURLHandler();
+  const { sourceLanguageURLParameter, targetLanguageURLParameter } =
+    useURLHandler();
 
   /**
    * This method calculates the initial source and target languages for the current session.
@@ -103,16 +96,7 @@ const useApplicationLanguagesInitialize = () => {
       supportedLanguageCodes.value
     );
 
-    const redirectionNeeded = redirectToTargetWikiIfNeeded(
-      sourceLanguage,
-      targetLanguage,
-      pageURLParameter.value,
-      sectionURLParameter.value
-    );
-
-    if (!redirectionNeeded) {
-      setLanguagePair(store, sourceLanguage, targetLanguage);
-    }
+    setLanguagePair(store, sourceLanguage, targetLanguage);
     applicationLanguagesInitialized.value = true;
   };
 

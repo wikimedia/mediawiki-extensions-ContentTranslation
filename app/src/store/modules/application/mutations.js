@@ -71,20 +71,6 @@ const mutations = {
 
   /**
    * @param {object} state
-   */
-  increaseTranslationDataLoadingCounter(state) {
-    state.translationDataLoadingCounter++;
-  },
-
-  /**
-   * @param {object} state
-   */
-  decreaseTranslationDataLoadingCounter(state) {
-    state.translationDataLoadingCounter--;
-  },
-
-  /**
-   * @param {object} state
    * @param {boolean} value
    */
   setIsLoginDialogOn: (state, value) => {

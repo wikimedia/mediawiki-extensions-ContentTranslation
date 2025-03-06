@@ -1,10 +1,11 @@
 <script setup>
 import { MwDialog, MwSpinner } from "@/lib/mediawiki.ui";
 import { CdxButton } from "@wikimedia/codex";
-import useDraftTranslationStart from "@/components/CXDashboard/useDraftTranslationStart";
 import translatorApi from "@/wiki/cx/api/translator";
 import { ref } from "vue";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
+import useEditorNavigation from "@/composables/useEditorNavigation";
+import useDashboardTranslationContinueInstrument from "@/composables/useDashboardTranslationContinueInstrument";
 
 const props = defineProps({
   modelValue: {
@@ -15,7 +16,9 @@ const props = defineProps({
 
 const emit = defineEmits(["update:modelValue"]);
 const closeDialog = () => emit("update:modelValue", false);
-const doStartTranslation = useDraftTranslationStart();
+const navigateToEditor = useEditorNavigation();
+const logDashboardTranslationContinueEvent =
+  useDashboardTranslationContinueInstrument();
 const loading = ref(false);
 const { currentTranslation: translation } = useCurrentDraftTranslation();
 
@@ -39,8 +42,8 @@ const startTranslation = async () => {
   if (!success) {
     return;
   }
-
-  doStartTranslation(translation.value);
+  logDashboardTranslationContinueEvent();
+  navigateToEditor();
   closeDialog();
 };
 </script>

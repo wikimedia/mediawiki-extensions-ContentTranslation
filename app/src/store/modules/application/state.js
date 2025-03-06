@@ -29,7 +29,6 @@ export default {
    * @type Boolean
    */
   autoSavePending: false,
-  translationDataLoadingCounter: 0,
   isLoginDialogOn: false,
   /**
    * The name of the previous route (as defined in vue-router config)

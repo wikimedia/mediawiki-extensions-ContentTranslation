@@ -4,7 +4,6 @@ import { MwCol, MwRow, MwSpinner } from "@/lib/mediawiki.ui";
 import { computed, ref } from "vue";
 import PublishedTranslation from "@/wiki/cx/models/publishedTranslation";
 import { useRouter } from "vue-router";
-import { usePublishedTranslationLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useSectionSuggestionForPublishedFetch from "./useSectionSuggestionForPublishedFetch";
 import { CdxButton, CdxIcon } from "@wikimedia/codex";
 import { cdxIconAdd, cdxIconEllipsis } from "@wikimedia/codex-icons";
@@ -40,12 +39,7 @@ fetchSectionSuggestionForPublished(
 
 const router = useRouter();
 
-const {
-  setTranslationURLParams,
-  setSectionURLParam,
-  sourceLanguageURLParameter: sourceLanguage,
-  targetLanguageURLParameter: targetLanguage,
-} = useURLHandler();
+const { setSectionURLParam } = useURLHandler();
 
 const openTargetPage = () => {
   window.open(props.translation.targetUrl, "_blank");
@@ -53,18 +47,14 @@ const openTargetPage = () => {
 
 const doStartTranslation = useTranslationStart();
 
-const updateLanguagePairByPublishedTranslation =
-  usePublishedTranslationLanguagePairUpdate();
-
 /**
  * @param {string|null} sectionTitle
  */
 const startTranslation = (sectionTitle) => {
-  updateLanguagePairByPublishedTranslation(props.translation);
   doStartTranslation(
     props.translation.sourceTitle,
-    sourceLanguage.value,
-    targetLanguage.value,
+    props.translation.sourceLanguage,
+    props.translation.targetLanguage,
     "continue_published"
   );
 

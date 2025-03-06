@@ -13,7 +13,7 @@ import usePageContentFetch from "@/composables/usePageContentFetch";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useDashboardTranslationStartInstrument from "@/composables/useDashboardTranslationStartInstrument";
 import useURLHandler from "@/composables/useURLHandler";
-import useTranslationConfirm from "@/composables/useTranslationConfirm";
+import useEditorNavigation from "@/composables/useEditorNavigation";
 
 const store = useStore();
 const router = useRouter();
@@ -22,8 +22,13 @@ const sourceVsTargetSelection = ref("source_section");
 
 const { logDashboardTranslationStartEvent } =
   useDashboardTranslationStartInstrument();
+const navigateToEditor = useEditorNavigation();
 const goToSectionSelector = () => router.push({ name: "sx-section-selector" });
-const confirmTranslation = useTranslationConfirm();
+
+const confirmTranslation = () => {
+  logDashboardTranslationStartEvent();
+  navigateToEditor();
+};
 
 const {
   sourceLanguageURLParameter: sourceLanguage,

@@ -30,8 +30,8 @@ jest.mock("@/wiki/mw/api/page", () => {
   };
 });
 
-jest.mock("@/wiki/cx/api/translator", () => ({
-  fetchTranslations: jest.fn(() => Promise.resolve([])),
+jest.mock("@/composables/useTranslationsFetch", () => () => ({
+  fetchAllTranslations: jest.fn(),
 }));
 
 jest.mock("@/composables/useLanguageHelper", () => {
