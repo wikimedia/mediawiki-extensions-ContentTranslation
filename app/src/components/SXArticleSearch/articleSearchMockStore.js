@@ -39,7 +39,6 @@ export default createStore({
       state: { translations: [] },
       mutations: {
         clearTranslationsByStatus: jest.fn(),
-        setTranslationsLoaded: jest.fn(),
       },
     },
   },

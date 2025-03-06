@@ -8,6 +8,7 @@ import { ref, computed, inject } from "vue";
 import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
 import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 
 const props = defineProps({
   activeStatus: {
@@ -32,9 +33,9 @@ const selectedSourceLanguage = ref("all");
 const selectedTargetLanguage = ref("all");
 
 const store = useStore();
-
+const { translationsFetched } = useTranslationsFetch();
 const loaded = computed(
-  () => store.state.translator.translationsLoaded[props.translationStatus]
+  () => translationsFetched.value[props.translationStatus]
 );
 
 const { enabledTargetLanguages } = useMediaWikiState();

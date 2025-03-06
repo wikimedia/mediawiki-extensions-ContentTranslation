@@ -17,14 +17,6 @@ export default {
       (translation) => translation.translationId !== idToBeRemoved
     );
   },
-  /**
-   * @param state
-   * @param {"draft"|"published"} status
-   * @param {boolean} value
-   */
-  setTranslationsLoaded: (state, { status, value }) => {
-    state.translationsLoaded[status] = value;
-  },
   setTranslatorStats: (state, value) => {
     state.translatorStats = value;
   },

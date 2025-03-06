@@ -1,6 +1,7 @@
 import { computed, ref, watch, watchEffect } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import { useStore } from "vuex";
+import useTranslationsFetch from "@/composables/useTranslationsFetch";
 
 const validLists = ["suggestions", "draft", "published"];
 
@@ -8,6 +9,7 @@ const useActiveTabInitialize = () => {
   const store = useStore();
   const { activeDashboardTabParameter, setActiveDashboardTabParameter } =
     useURLHandler();
+  const { translationsFetched } = useTranslationsFetch();
 
   const activeTab = ref(null);
 
@@ -15,7 +17,7 @@ const useActiveTabInitialize = () => {
     activeTab.value = activeDashboardTabParameter.value;
   } else {
     const draftTranslationsLoaded = computed(
-      () => store.state.translator.translationsLoaded.draft
+      () => translationsFetched.value.draft
     );
 
     const translations = computed(() =>
