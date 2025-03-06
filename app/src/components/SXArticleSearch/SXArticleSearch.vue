@@ -156,7 +156,7 @@ fetchPagesFromPreviousEditsInSource();
 const nearbyPages = computed(() => store.getters["mediawiki/getNearbyPages"]);
 
 const breakpoints = inject("breakpoints");
-const fullscreen = computed(() => breakpoints.value.tabletAndDown);
+const isMobile = computed(() => breakpoints.value.mobile);
 const doStartTranslation = useTranslationStart();
 
 /**
@@ -235,8 +235,8 @@ const startTranslation = (page, eventSource) =>
     <mw-dialog
       v-model:value="sourceLanguageSelectOn"
       class="sx-article-search-language-selector"
-      :fullscreen="fullscreen"
-      :header="fullscreen"
+      :fullscreen="isMobile"
+      :header="isMobile"
       :title="$i18n('sx-article-search-language-selector-dialog-title')"
       @close="onSourceLanguageDialogClose"
     >
@@ -311,8 +311,9 @@ const startTranslation = (page, eventSource) =>
   &.mw-ui-dialog.mw-ui-dialog--dialog {
     .mw-ui-dialog__shell {
       position: absolute;
-      top: 10vh;
-      left: 25vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       min-width: ~"min(50vw, 600px)";
       min-height: 50vh;
       max-height: 75vh;
