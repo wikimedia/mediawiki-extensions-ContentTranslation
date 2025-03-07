@@ -16,7 +16,7 @@ const onSourceLanguageUpdate = ( actionContext, language ) => {
 		// eslint-disable-next-line camelcase
 		target_language: language
 	};
-	logEvent( 'click', '', null, actionContext, translationContext );
+	logEvent( 'click', 'change_source_lang', null, actionContext, translationContext );
 
 	setSourceLanguage( language );
 };
