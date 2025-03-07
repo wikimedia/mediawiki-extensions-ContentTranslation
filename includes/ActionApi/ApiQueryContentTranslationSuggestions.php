@@ -225,9 +225,15 @@ class ApiQueryContentTranslationSuggestions extends ApiQueryGeneratorBase {
 		$apiUrl = SiteMapper::getApiURL( $sourceLanguage, $params );
 		$json = MediaWikiServices::getInstance()->getHttpRequestFactory()
 			->get( $apiUrl, [], __METHOD__ );
+		if ( $json === null ) {
+			// Something wrong with the response.
+			// TODO: Should we throw exception?
+			return $existingTitles;
+		}
 		$response = FormatJson::decode( $json, true );
 		if ( !isset( $response['query'] ) || !isset( $response['query']['pages'] ) ) {
-			// Something wrong with response. Should we throw exception?
+			// Something wrong with the response.
+			// TODO: Should we throw exception?
 			return $existingTitles;
 		}
 
