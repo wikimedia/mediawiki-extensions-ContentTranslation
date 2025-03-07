@@ -244,20 +244,22 @@ module.exports = defineComponent( {
 			initializeTranslation
 		} = useTranslationInitialize();
 
-		const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
-			if ( leadSectionTranslation.value.some( ( item ) => item && typeof item === 'string' ) ) {
-				const translationData = {
-					// eslint-disable-next-line camelcase
-					source_language: sourceLanguage.value,
-					// eslint-disable-next-line camelcase
-					target_language: targetLanguage.value,
-					// eslint-disable-next-line camelcase
-					source_title: pageTitle
-				};
-				logEvent( 'view', null, 'automatic_translation', null, translationData );
-				unwatchLeadSectionTranslation();
-			}
-		}, { deep: true } );
+		const logViewEvent = () => {
+			const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
+				if ( leadSectionTranslation.value.some( ( item ) => item && typeof item === 'string' ) ) {
+					const translationData = {
+						// eslint-disable-next-line camelcase
+						source_language: sourceLanguage.value,
+						// eslint-disable-next-line camelcase
+						target_language: targetLanguage.value,
+						// eslint-disable-next-line camelcase
+						source_title: pageTitle
+					};
+					logEvent( 'view', null, 'automatic_translation', null, translationData );
+					unwatchLeadSectionTranslation();
+				}
+			}, { deep: true } );
+		};
 
 		const { createSkeletonLoader } = useSkeletonLoader();
 		const structuredLeadSectionTranslation = computed( () => {
@@ -280,6 +282,7 @@ module.exports = defineComponent( {
 		watch( [ sourceLanguage, targetLanguage ], () => {
 			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
 			initializeTranslation( title );
+			logViewEvent();
 		}, { immediate: true } );
 
 		const sections = computed( () => {
