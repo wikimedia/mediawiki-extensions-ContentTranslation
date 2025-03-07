@@ -415,12 +415,12 @@ module.exports = defineComponent( {
 		};
 
 		const onTargetArticleClick = () => {
-			const translationContext = computed( () => ( {
+			const translationContext = {
 				// eslint-disable-next-line camelcase
 				source_language: targetLanguage.value,
 				// eslint-disable-next-line camelcase
 				source_title: targetPage.value.title
-			} ) );
+			};
 
 			logEvent( 'click', null, 'human_translation_card', 'translation_view', translationContext );
 		};
