@@ -223,7 +223,7 @@ const startTranslation = (page, eventSource) =>
       <p
         v-else
         v-i18n:cx-sx-article-search-no-suggestions-message
-        class="sx-article-search__empty-suggestions-message mt-12 pa-4 mb-0"
+        class="sx-article-search__empty-suggestions-message my-0 px-4 py-16"
       />
     </template>
     <search-results-card
