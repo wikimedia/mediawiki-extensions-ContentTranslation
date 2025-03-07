@@ -1,73 +1,72 @@
-@use "variables" as *;
 @use "breakpoints" as *;
 
+$spacings: 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 16;
+
 // Generate margin and padding style for different breakpoints.
-@mixin generateSpacing($counter, $media) {
-  @for $counter from 0 through $cols {
-    $width: $counter * 4;
+@mixin generateSpacing($media) {
+  $mediaKey: if($media == "", "", "#{$media}-");
+  .ms-#{$mediaKey}auto {
+    margin-inline-start: auto;
+  }
+  .me-#{$mediaKey}auto {
+    margin-inline-end: auto;
+  }
+  .mx-#{$mediaKey}auto {
+    margin-inline: auto;
+  }
+  .mt-#{$mediaKey}auto {
+    margin-block-start: auto;
+  }
+  .mb-#{$mediaKey}auto {
+    margin-block-end: auto;
+  }
+  .my-#{$mediaKey}auto {
+    margin-block: auto;
+  }
 
-    $mediaKey: if($media == "", "", "#{$media}-");
+  @each $space in $spacings {
+    $width: $space * 4;
 
-    .ps-#{$mediaKey}#{$counter} {
+    .ps-#{$mediaKey}#{$space} {
       padding-inline-start: #{$width}px;
     }
-    .ms-#{$mediaKey}#{$counter} {
+    .ms-#{$mediaKey}#{$space} {
       margin-inline-start: #{$width}px;
     }
-    .ms-#{$mediaKey}auto {
-      margin-inline-start: auto;
-    }
-    .pe-#{$mediaKey}#{$counter} {
+    .pe-#{$mediaKey}#{$space} {
       padding-inline-end: #{$width}px;
     }
-    .me-#{$mediaKey}auto {
-      margin-inline-end: auto;
-    }
-    .me-#{$mediaKey}#{$counter} {
+    .me-#{$mediaKey}#{$space} {
       margin-inline-end: #{$width}px;
     }
-
-    .px-#{$mediaKey}#{$counter} {
+    .px-#{$mediaKey}#{$space} {
       padding-inline: #{$width}px;
     }
-    .py-#{$mediaKey}#{$counter} {
+    .py-#{$mediaKey}#{$space} {
       padding-block: #{$width}px;
     }
-    .mx-#{$mediaKey}auto {
-      margin-inline: auto;
-    }
-    .mx-#{$mediaKey}#{$counter} {
+    .mx-#{$mediaKey}#{$space} {
       margin-inline: #{$width}px;
     }
-    .my-#{$mediaKey}auto {
-      margin-block: auto;
-    }
-    .my-#{$mediaKey}#{$counter} {
+    .my-#{$mediaKey}#{$space} {
       margin-block: #{$width}px;
     }
-
-    .pt-#{$mediaKey}#{$counter} {
+    .pt-#{$mediaKey}#{$space} {
       padding-block-start: #{$width}px;
     }
-    .mt-#{$mediaKey}auto {
-      margin-block-start: auto;
-    }
-    .mt-#{$mediaKey}#{$counter} {
+    .mt-#{$mediaKey}#{$space} {
       margin-block-start: #{$width}px;
     }
-    .pb-#{$mediaKey}#{$counter} {
+    .pb-#{$mediaKey}#{$space} {
       padding-block-end: #{$width}px;
     }
-    .mb-#{$mediaKey}auto {
-      margin-block-end: auto;
-    }
-    .mb-#{$mediaKey}#{$counter} {
+    .mb-#{$mediaKey}#{$space} {
       margin-block-end: #{$width}px;
     }
-    .pa-#{$mediaKey}#{$counter} {
+    .pa-#{$mediaKey}#{$space} {
       padding: #{$width}px;
     }
-    .ma-#{$mediaKey}#{$counter} {
+    .ma-#{$mediaKey}#{$space} {
       margin: #{$width}px;
     }
   }
@@ -76,11 +75,11 @@
 .container {
   .row,
   .column {
-    @include generateSpacing($cols, "");
+    @include generateSpacing("");
 
     @each $breakpoint, $value in $breakpoints {
       @include mediaQuery($breakpoint) {
-        @include generateSpacing($cols, $breakpoint);
+        @include generateSpacing($breakpoint);
       }
     }
   }
