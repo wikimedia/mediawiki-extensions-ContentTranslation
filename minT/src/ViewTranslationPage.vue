@@ -212,6 +212,27 @@ const getAutonym = $.uls.data.getAutonym;
 const { defineComponent, ref, computed, watchEffect, watch } = require( 'vue' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 
+/**
+ * Returns true if "parts" has at least "x" number of strings.
+ *
+ * @param {Array} parts
+ * @param {number} x
+ * @return {boolean}
+ */
+function hasAtLeastXStrings( parts, x ) {
+	if ( !Array.isArray( parts ) || !parts.length ) {
+		return false;
+	}
+
+	if ( parts.length < x ) {
+		return parts.every( ( item ) => typeof item === 'string' );
+	}
+
+	const stringCount = parts.filter( ( item ) => typeof item === 'string' ).length;
+
+	return stringCount >= x;
+}
+
 module.exports = defineComponent( {
 	name: 'ViewTranslation',
 	components: {
@@ -246,7 +267,7 @@ module.exports = defineComponent( {
 
 		const logViewEvent = () => {
 			const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
-				if ( leadSectionTranslation.value.some( ( item ) => item && typeof item === 'string' ) ) {
+				if ( hasAtLeastXStrings( leadSectionTranslation.value, 3 ) ) {
 					const translationData = {
 						// eslint-disable-next-line camelcase
 						source_language: sourceLanguage.value,
