@@ -99,7 +99,7 @@
 	"tag-contenttranslation-v2-description": "Le contenu a été traduit d’une autre langue en utilisant la version 2 de l’outil de Traduction de contenu.",
 	"tag-sectiontranslation": "Traduction de section",
 	"tag-sectiontranslation-description": "Le contenu a été traduit depuis une section écrite dans une autre langue en utilisant la fonctionnalité Traduction de section de l’outil Traduction de contenu.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Traduction de contenu : Forte utilisation de la traduction automatique sans relecture]",
+	"tag-contenttranslation-high-unmodified-mt-text": "Traduction de contenu : Forte utilisation de la traduction automatique sans relecture",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "La traduction publiée en utilisant ContentTranslation a un pourcentage élevé de traduction machine non modifiée",
 	"cx-source-loading": "Chargement de $1",
 	"cx-beta": "Traduction de contenu",

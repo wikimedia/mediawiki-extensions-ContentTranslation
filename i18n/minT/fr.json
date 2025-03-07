@@ -56,5 +56,11 @@
 	"mint-explore-languages-explanation-banner-text": "Les éditeurs de différentes langues ont traité ce sujet de différentes manières.",
 	"mint-explore-languages-language-card-container-title": "Langues avec la plus grande couverture pour « $1 »",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Une section|$1 sections|0=Aucune section}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus détaillé"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus détaillé",
+	"ax-cx-introduction-dialog-title": "Réviser et corriger les traductions",
+	"ax-cx-introduction-summary": "Améliorez le contenu disponible dans votre langue. Rédigez une meilleure traduction et publiez-la sur Wikipédia.",
+	"ax-cx-introduction-information-accuracy": "La traduction automatique fournit un aperçu utile, mais elle n’est pas toujours précise.",
+	"ax-cx-introduction-information-expand": "Les contenus rédigés par des humains sont plus fiables et vous pouvez contribuer à les développer !",
+	"ax-cx-introduction-information-correct": "Suivez un processus simple étape par étape pour réviser et corriger les traductions automatiques de chaque phrase.",
+	"ax-cx-introduction-dialog-action": "Corriger et compléter l'article"
 }

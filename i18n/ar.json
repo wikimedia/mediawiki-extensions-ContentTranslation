@@ -71,7 +71,7 @@
 	"tag-contenttranslation-v2-description": "تمت ترجمة المحتوى من لغة أخرى باستخدام الإصدار 2 من أداة ترجمة المحتوى.",
 	"tag-sectiontranslation": "ترجمة قسم",
 	"tag-sectiontranslation-description": "تُرجم المحتوى من قسم بلغة أخرى باستخدام ميزة ترجمة القسم في أداة ترجمة المحتوى.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality ContentTranslation: استخدام مرتفع للترجمة الآلية غير المعدلة]",
+	"tag-contenttranslation-high-unmodified-mt-text": "ContentTranslation: استخدام مرتفع للترجمة الآلية غير المعدلة",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "تحتوي الترجمة المنشورة باستخدام ContentTranslation على نسبة عالية من الترجمة الآلية غير المعدلة",
 	"cx-source-loading": "تحميل $1",
 	"cx-beta": "ترجمة المحتوى",

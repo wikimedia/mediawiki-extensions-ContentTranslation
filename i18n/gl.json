@@ -51,7 +51,7 @@
 	"tag-contenttranslation-v2-description": "O contido traduciuse doutra lingua usando a versión 2 da ferramenta de tradución de contido.",
 	"tag-sectiontranslation": "Tradución de sección",
 	"tag-sectiontranslation-description": "O contido traduciuse dunha sección noutra lingua mediante a función de tradución de seccións da ferramenta de tradución de contido.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Tradución de contido: Alto uso de tradución automática sen modificar]",
+	"tag-contenttranslation-high-unmodified-mt-text": "Tradución de contido: Alto uso de tradución automática sen modificar",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "A tradución publicada mediante a tradución de contido ten unha alta porcentaxe de tradución automática sen modificar",
 	"cx-source-loading": "Cargando \"$1\"",
 	"cx-beta": "Tradución de contido",

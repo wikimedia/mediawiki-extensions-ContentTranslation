@@ -72,7 +72,7 @@
 	"tag-contenttranslation-v2-description": "De inhoud is uit een andere taal vertaald met behulp van versie 2 van de Content Translation-tool.",
 	"tag-sectiontranslation": "Sectievertaling",
 	"tag-sectiontranslation-description": "De inhoud is vertaald uit een sectie in een andere taal met behulp van de functie Sectievertaling van de Content Translation-tool.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality ContentTranslation: veelvuldig gebruik van ongewijzigde automatische vertalingen]",
+	"tag-contenttranslation-high-unmodified-mt-text": "ContentTranslation: veelvuldig gebruik van ongewijzigde automatische vertalingen",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Met ContentTranslation gepubliceerde vertalingen hebben een hoog percentage ongewijzigde automatische vertalingen",
 	"cx-source-loading": "Bezig met laden van $1",
 	"cx-beta": "Vertaling van inhoud",

@@ -58,7 +58,7 @@
 	"tag-contenttranslation-v2-description": "Sisältö on käännetty toisesta kielestä Sisällön kääntäminen -työkalun versiolla 2.",
 	"tag-sectiontranslation": "Osion käännös",
 	"tag-sectiontranslation-description": "Sisältö on toisesta kielestä käännetty osio käyttäen Sisällön kääntäminen -työkalun osioiden käännös -ominaisuutta.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Sisällön kääntäminen: muokkaamattoman konekäännöksen käyttö]",
+	"tag-contenttranslation-high-unmodified-mt-text": "Sisällön kääntäminen: muokkaamattoman konekäännöksen käyttö",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Sisällön kääntäminen -toiminnolla julkaistusta käännöksestä suuri osuus on muokkaamatonta konekäännöstä.",
 	"cx-source-loading": "Ladataan sivua $1",
 	"cx-beta": "Sisällön kääntäminen",

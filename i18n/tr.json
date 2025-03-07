@@ -83,7 +83,7 @@
 	"tag-contenttranslation-v2-description": "İçerik, İçerik Çeviri aracının 2. sürümü kullanılarak başka bir dilden çevrilmiştir.",
 	"tag-sectiontranslation": "BölümÇevirisi",
 	"tag-sectiontranslation-description": "İçerik Çeviri aracının Bölüm Çevirisi özelliği kullanılarak başka bir dildeki bir bölümden içerik çevrilmiştir.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality İçerikÇevirisi: Yüksek oranda değiştirilmemiş makine çevirisi kullanımı]",
+	"tag-contenttranslation-high-unmodified-mt-text": "İçerikÇevirisi: Yüksek oranda değiştirilmemiş makine çevirisi kullanımı",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "İçerikÇevirisi kullanılarak yayımlanan çeviride yüksek oranda değiştirilmemiş makine çevirisi var",
 	"cx-source-loading": "$1 yükleniyor",
 	"cx-beta": "İçerik Çevirmeni",

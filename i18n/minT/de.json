@@ -50,5 +50,11 @@
 	"mint-explore-languages-explanation-banner-text": "Benutzer in verschiedenen Sprachen haben dieses Thema auf unterschiedliche Weise behandelt.",
 	"mint-explore-languages-language-card-container-title": "Sprachen mit der größten Abdeckung für „$1“",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|1 Abschnitt|$1 Abschnitte|0=Kein Abschnitt}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Am ausführlichsten"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Am ausführlichsten",
+	"ax-cx-introduction-dialog-title": "Übersetzungen überprüfen und korrigieren",
+	"ax-cx-introduction-summary": "Verbessere die in deiner Sprache verfügbaren Inhalte. Schreibe eine bessere Übersetzung und veröffentliche sie auf Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Die automatische Übersetzung bietet einen nützlichen Überblick, ist aber nicht immer genau.",
+	"ax-cx-introduction-information-expand": "Von Menschen geschriebene Inhalte sind zuverlässiger, und du kannst helfen, sie zu erweitern!",
+	"ax-cx-introduction-information-correct": "Folge einem einfachen Schritt-für-Schritt-Verfahren, um die automatischen Übersetzungen für jeden Satz zu überprüfen und zu korrigieren.",
+	"ax-cx-introduction-dialog-action": "Korrigiere und ergänze den Artikel"
 }
