@@ -40,7 +40,7 @@
 			</a>
 		</div>
 		<div class="translation-viewer__content-translation-entrypoint">
-			<cdx-card :icon="cdxIconEdit" @click="onFixTranslation">
+			<cdx-card :icon="cdxIconEdit" @click="onFixTranslation( 'review_translation_card' )">
 				<template #title>
 					{{
 						$i18n( 'mint-view-translation-content-translation-entrypoint-title' ).text()
@@ -174,11 +174,13 @@
 			:page-result="pageResult"
 			:source-page-url="sourcePageUrl"
 			:target-page-url="targetPageUrl"
-			@fix-translation="onFixTranslation"
+			@fix-translation="onFixTranslation( 'automatic_translation_menu' )"
 		></view-translation-page-options>
 		<cx-introduction-dialog
 			v-model="fixTranslationDialogOn"
 			:cx-url="cxUrl"
+			@accept="logCxTranslationDialogEvent( 'accept_review_translation' )"
+			@reject="logCxTranslationDialogEvent( 'reject_review_translation' )"
 		></cx-introduction-dialog>
 	</div>
 </template>
@@ -426,8 +428,29 @@ module.exports = defineComponent( {
 		};
 
 		const fixTranslationDialogOn = ref( false );
-		const onFixTranslation = () => {
+		const onFixTranslation = ( eventSource ) => {
+			const translationData = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: pageTitle
+			};
+			logEvent( 'click', 'review_translation', eventSource, 'translation_view', translationData );
 			fixTranslationDialogOn.value = true;
+		};
+
+		const logCxTranslationDialogEvent = ( actionSubtype ) => {
+			const translationData = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: pageTitle
+			};
+			logEvent( 'click', actionSubtype, 'review_translation_dialog', 'translation_view', translationData );
 		};
 
 		return {
@@ -459,7 +482,8 @@ module.exports = defineComponent( {
 			optionsDialogOn,
 			onTargetArticleClick,
 			fixTranslationDialogOn,
-			onFixTranslation
+			onFixTranslation,
+			logCxTranslationDialogEvent
 		};
 	}
 } );

@@ -5,7 +5,7 @@
 		:title="$i18n( 'ax-cx-introduction-dialog-title' ).text()"
 		:primary-action="primaryAction"
 		:use-close-button="true"
-		@update:open="updateOpen( $event )"
+		@update:open="close"
 		@primary="onPrimaryAction"
 	>
 		<p>
@@ -51,7 +51,7 @@ module.exports = defineComponent( {
 			default: null
 		}
 	},
-	emits: [ 'update:modelValue' ],
+	emits: [ 'update:modelValue', 'accept', 'reject' ],
 	setup( props, context ) {
 		const updateOpen = ( value ) => context.emit( 'update:modelValue', value );
 		const primaryAction = {
@@ -59,7 +59,13 @@ module.exports = defineComponent( {
 			actionType: 'progressive'
 		};
 
+		const close = () => {
+			context.emit( 'reject' );
+			updateOpen( false );
+		};
+
 		const onPrimaryAction = () => {
+			context.emit( 'accept' );
 			updateOpen( false );
 			location.href = props.cxUrl;
 		};
@@ -68,8 +74,8 @@ module.exports = defineComponent( {
 			cdxIconRobot,
 			cdxIconEdit,
 			cdxIconUserGroup,
-			updateOpen,
 			primaryAction,
+			close,
 			onPrimaryAction
 		};
 	}
