@@ -402,7 +402,8 @@ module.exports = defineComponent( {
 			props.pageResult.sourceTitle,
 			null,
 			sourceLanguage.value,
-			targetLanguage.value
+			targetLanguage.value,
+			{ campaign: 'mintforreaders' }
 		) );
 
 		const { goToHomePage } = useRouter();

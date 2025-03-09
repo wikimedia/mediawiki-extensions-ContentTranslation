@@ -31,6 +31,7 @@ const useDashboardOpenInstrument = () => {
       specialcontribute: "contributions_page",
       publishingfollowup: "followup_after_publishing",
       ulsaddlanguages: "language_selector_options",
+      mintforreaders: "preselect_mint_for_readers",
     };
     const campaign = getUrlParam("campaign");
 
