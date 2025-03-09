@@ -131,6 +131,7 @@
 
 <script>
 const { computed, defineComponent, ref, onMounted, watchEffect, watch } = require( 'vue' );
+const { wpProvParam } = require( './constants.js' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 const {
 	cdxIconRobot,
@@ -267,8 +268,11 @@ module.exports = defineComponent( {
 			() => siteMapper.getPageUrl( sourceLanguage.value, props.pageResult.sourceTitle )
 		);
 		const targetPageUrl = computed( () => targetPage.value ?
-			siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title ) :
-			null
+			siteMapper.getPageUrl(
+				targetLanguage.value,
+				targetPage.value.title,
+				{ wprov: wpProvParam }
+			) : null
 		);
 
 		const onTargetArticleClick = () => {

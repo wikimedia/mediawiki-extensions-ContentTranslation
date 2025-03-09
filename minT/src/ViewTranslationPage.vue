@@ -186,6 +186,7 @@
 </template>
 
 <script>
+const { wpProvParam } = require( './constants.js' );
 const useState = require( './useState.js' );
 const useRouter = require( './useRouter.js' );
 const usePageMetadata = require( './usePageMetadata.js' );
@@ -390,13 +391,13 @@ module.exports = defineComponent( {
 			} );
 		}
 
-		const targetPageUrl = computed( () => {
-			if ( !targetPage.value ) {
-				return null;
-			}
-
-			return siteMapper.getPageUrl( targetLanguage.value, targetPage.value.title );
-		} );
+		const targetPageUrl = computed( () => targetPage.value ?
+			siteMapper.getPageUrl(
+				targetLanguage.value,
+				targetPage.value.title,
+				{ wprov: wpProvParam }
+			) : null
+		);
 
 		const cxUrl = computed( () => siteMapper.getCXUrl(
 			props.pageResult.sourceTitle,
