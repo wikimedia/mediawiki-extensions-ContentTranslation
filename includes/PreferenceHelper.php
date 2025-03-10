@@ -101,6 +101,9 @@ class PreferenceHelper {
 		$globalPref = $this->preferencesFactory;
 		'@phan-var GlobalPreferencesFactory $globalPref';
 		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
+		if ( $prefs === false ) {
+			$prefs = [];
+		}
 		$prefs[$preference] = $value;
 		$user = $user->getInstanceForUpdate();
 		$globalPref->setGlobalPreferences( $user, $prefs, RequestContext::getMain() );
@@ -122,6 +125,9 @@ class PreferenceHelper {
 		$globalPref = $this->preferencesFactory;
 		'@phan-var GlobalPreferencesFactory $globalPref';
 		$prefs = $globalPref->getGlobalPreferencesValues( $user, Storage::SKIP_CACHE );
+		if ( $prefs === false ) {
+			$prefs = [];
+		}
 		return $prefs[ $preference ] ?? null;
 	}
 
