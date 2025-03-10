@@ -42,7 +42,7 @@
 	"tag-contenttranslation-v2-description": "Содржината е преведена од друг јазик користејќи ја верзијата 2 на алатката „Превод на содржини“",
 	"tag-sectiontranslation": "Превод на оддели",
 	"tag-sectiontranslation-description": "Содржината е преведена од оддел на друг јазик со помош на можноста „Превод на оддели“ на алатката „Превод на содржини“.",
-	"tag-contenttranslation-high-unmodified-mt-text": "[https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Content_translation/Translating/Translation_quality Превод на содржини: Голема употреба на неизменет машински превод]",
+	"tag-contenttranslation-high-unmodified-mt-text": "Превод на содржини: Голема употреба на неизменет машински превод",
 	"tag-contenttranslation-high-unmodified-mt-text-description": "Преводот објавен со Превод на содржини има голем удел на неизменет машински преведен текст",
 	"cx-source-loading": "Го вчитувам $1",
 	"cx-beta": "Превод на содржини",

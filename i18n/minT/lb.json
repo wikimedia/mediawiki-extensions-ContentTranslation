@@ -43,5 +43,6 @@
 	"ax-article-footer-entrypoint-card-heading": "Automatesch Iwwersetzungen",
 	"mint-explore-languages-search-input-placeholder": "All Sprooche fir dëst Theema",
 	"mint-explore-languages-language-card-container-title": "Sprooche mat der gréisster Ofdeckung fir „$1“",
-	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 Abschnitt|$1 Abschnitter|0=Keen Abschnitt}}"
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 Abschnitt|$1 Abschnitter|0=Keen Abschnitt}}",
+	"ax-cx-introduction-information-expand": "Inhalter, déi vu Mënsche geschriwwe goufen, si méi zouverléisseg an Dir kënnt hëllefen se weider auszebauen!"
 }

@@ -53,5 +53,11 @@
 	"mint-explore-languages-explanation-banner-text": "Redacteuren in verschillende talen hebben dit onderwerp op verschillende manieren behandeld.",
 	"mint-explore-languages-language-card-container-title": "Talen met de meeste dekking voor “$1”",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Eén sectie|$1 secties|0=Geen secties}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Meest gedetailleerd"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Meest gedetailleerd",
+	"ax-cx-introduction-dialog-title": "Vertalingen controleren en corrigeren",
+	"ax-cx-introduction-summary": "Verbeter de tekst die in uw taal beschikbaar is. Schrijf een betere vertaling en publiceer deze op Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Automatische vertaling geeft een nuttig overzicht, maar is niet altijd nauwkeurig.",
+	"ax-cx-introduction-information-expand": "Door mensen geschreven tekst is betrouwbaarder, en u kunt helpen bij het uitbreiden ervan!",
+	"ax-cx-introduction-information-correct": "Volg een eenvoudig, stapsgewijs proces om automatische vertalingen voor elke zin te controleren en te verbeteren.",
+	"ax-cx-introduction-dialog-action": "Verbeteren en aan het artikel toevoegen"
 }

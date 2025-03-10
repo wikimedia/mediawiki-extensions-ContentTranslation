@@ -52,5 +52,11 @@
 	"mint-explore-languages-explanation-banner-text": "Müxtəlif dillərdə olan redaktorlar bu mövzunu müxtəlif yollarla işıqlandırıblar.",
 	"mint-explore-languages-language-card-container-title": "\"$1\" üçün ən çox əhatə dairəsi olan dillər",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 bölmə|0=Bölmə yoxdur}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Ən detallı"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Ən detallı",
+	"ax-cx-introduction-dialog-title": "Tərcümələri yoxla və düzəlt",
+	"ax-cx-introduction-summary": "Dilinizdə mövcud olan məzmunu təkmilləşdirin. Daha yaxşı tərcümə edin və onu Vikipediyada yayımlayın.",
+	"ax-cx-introduction-information-accuracy": "Avtomatik tərcümə faydalı icmal təmin edir, lakin həmişə dəqiq olmur.",
+	"ax-cx-introduction-information-expand": "İnsanlar tərəfindən yazılmış məzmun daha etibarlıdır və siz onu genişləndirməyə kömək edə bilərsiniz!",
+	"ax-cx-introduction-information-correct": "Hər cümlə üçün avtomatik tərcümələri yoxlamaq və düzəltmək üçün sadə, addım-addım olan prosesi izləyin.",
+	"ax-cx-introduction-dialog-action": "Düzəliş et və məqaləyə əlavə et"
 }

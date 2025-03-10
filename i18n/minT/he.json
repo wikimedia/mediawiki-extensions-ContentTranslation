@@ -52,5 +52,11 @@
 	"mint-explore-languages-explanation-banner-text": "עורכים בשפות אחרות סקרו את הנושא הזה בדרכים אחרות.",
 	"mint-explore-languages-language-card-container-title": "שפות עם הסיקור הרחב ביותר של \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|פרק אחד|$1 פרקים|0=אין אף פרק אחד}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "הכי מפורט"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "הכי מפורט",
+	"ax-cx-introduction-dialog-title": "סקירה ותיקון של תרגומים",
+	"ax-cx-introduction-summary": "{{GENDER:|שפר|שפרי}} את התוכן הזמין בשפה שלך. {{GENDER:|כתוב|כתבי}} תרגום טוב יותר, {{GENDER:|ופרסם|ופרסמי}} אותו בוויקיפדיה.",
+	"ax-cx-introduction-information-accuracy": "תרגום אוטומטי מספק סקירה כללית שימושית, אבל הוא לא תמיד נכון.",
+	"ax-cx-introduction-information-expand": "תוכן שנכתב על־ידי בני אדם אמין יותר, {{GENDER:|ואתה יכול|ואת יכולה}} לעזור להרחיב אותו!",
+	"ax-cx-introduction-information-correct": "{{GENDER:|עשה|עשי}} תהליך פשוט צעד אחר צעד כדי לבדוק ולתקן תרגומי מכונה בכל משפט.",
+	"ax-cx-introduction-dialog-action": "לתקן ולהוסיף לערך"
 }

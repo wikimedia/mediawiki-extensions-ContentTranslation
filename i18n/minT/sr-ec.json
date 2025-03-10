@@ -32,5 +32,9 @@
 	"mint-explore-languages-explanation-banner-text": "Уредници на различитим језицима су различито обрадили ову тему.",
 	"mint-explore-languages-language-card-container-title": "Језици на којима је највише обрађена „$1”",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 одељак|$1 одељка|0=Нема одељака}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Најдетаљњије"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Најдетаљњије",
+	"ax-cx-introduction-dialog-title": "Пронађите и исправите преводе",
+	"ax-cx-introduction-information-accuracy": "Аутоматски превод пружа користан преглед, али није увек тачан.",
+	"ax-cx-introduction-information-expand": "Садржај који пишу људи је поузданији и Ви можете помоћи у допуни истог!",
+	"ax-cx-introduction-dialog-action": "Исправи и додај у чланак"
 }

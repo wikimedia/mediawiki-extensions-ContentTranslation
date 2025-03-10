@@ -52,5 +52,9 @@
 	"mint-explore-languages-explanation-banner-text": "Muokkaajat eri kielillä ovat käsitelleet tätä aihetta eri tavoin.",
 	"mint-explore-languages-language-card-container-title": "Kielet, joissa aihetta ”$1” on käsitelty laajimmmin",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 osio|$1 osiota|0=Ei osioita}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Yksityiskohtaisin"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Yksityiskohtaisin",
+	"ax-cx-introduction-dialog-title": "Arvioi ja korjaa käännöksiä",
+	"ax-cx-introduction-summary": "Paranna omalla kielelläsi saatavilla olevaa sisältöä. Kirjoita parempi käännös ja julkaise se Wikipediassa.",
+	"ax-cx-introduction-information-accuracy": "Automaattinen käännös tarjoaa hyödyllisen yleiskuvan, mutta se ei aina ole tarkka.",
+	"ax-cx-introduction-information-expand": "Ihmisten kirjoittama sisältö on luotettavampaa, ja sinä voit auttaa sen laajentamisessa!"
 }
