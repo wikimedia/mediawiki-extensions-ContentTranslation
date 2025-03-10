@@ -43,10 +43,6 @@ export default defineConfig({
       name: packageDef.name,
     },
   },
-  esbuild: {
-    // Avoid ResourceLoader minification
-    banner: "/*@nomin*/",
-  },
   define: {
     // Vite had stopped exporting process
     // https://github.com/vitejs/vite/commit/8ad7ecd1029bdc0b47e55877db10ac630829c7e5
