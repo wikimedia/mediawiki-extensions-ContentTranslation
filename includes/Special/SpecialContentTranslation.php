@@ -244,6 +244,9 @@ class SpecialContentTranslation extends SpecialPage {
 	 * @return string|null The user's prefered dashboard or null if not set or has expired
 	 */
 	private function getUserPreferedDashboard() {
+		if ( $this->getUser()->isAnon() ) {
+			return null;
+		}
 		$value = $this->preferenceHelper->getGlobalPreference( $this->getUser(), 'cx-dashboard' );
 		if ( $value === null ) {
 			return null;
@@ -262,6 +265,9 @@ class SpecialContentTranslation extends SpecialPage {
 	 * Set the user's prefered dashboard with the current time
 	 */
 	private function setUserPreferedDashboard( string $dashboard ): void {
+		if ( $this->getUser()->isAnon() ) {
+			return;
+		}
 		$time = time();
 		$this->preferenceHelper->setGlobalPreference(
 			$this->getUser(), 'cx-dashboard', "{$dashboard}-{$time}"
