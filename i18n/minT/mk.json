@@ -52,5 +52,11 @@
 	"mint-explore-languages-explanation-banner-text": "Уредниците на различни јазици ја обработија темава на различни начини.",
 	"mint-explore-languages-language-card-container-title": "Јазици со најмногу покриеност на „$1“",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 оддел|$1 оддели|0=Нема оддели}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Најопфатно"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Најопфатно",
+	"ax-cx-introduction-dialog-title": "Преглед и исправка на преводи",
+	"ax-cx-introduction-summary": "Подобрете ја содржината достапна на вашиот јазик. Направете подобар превод и објавете го на Википедија.",
+	"ax-cx-introduction-information-accuracy": "Автоматскиот превод дава корисна претстава, но не е секогаш точен.",
+	"ax-cx-introduction-information-expand": "Содржината напишана од луѓе е поверодостојна. Можете да ни помогнете да ја прошириме!",
+	"ax-cx-introduction-information-correct": "Проследете едноставен процес чекор-по-чекор за да ги прегледате и исправите автоматските преводи за секоја реченица.",
+	"ax-cx-introduction-dialog-action": "Исправи и стави во статијата"
 }

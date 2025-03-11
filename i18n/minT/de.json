@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Brettchenweber"
+		]
 	},
 	"automatic-translation-special-page-description": "Automatische Übersetzung",
 	"automatic-translation-desc": "Bietet [[Special:AutomaticTranslation|automatische Übersetzungen]] für Inhaltsseiten.",
@@ -54,7 +56,7 @@
 	"ax-cx-introduction-dialog-title": "Übersetzungen überprüfen und korrigieren",
 	"ax-cx-introduction-summary": "Verbessere die in deiner Sprache verfügbaren Inhalte. Schreibe eine bessere Übersetzung und veröffentliche sie auf Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Die automatische Übersetzung bietet einen nützlichen Überblick, ist aber nicht immer genau.",
-	"ax-cx-introduction-information-expand": "Von Menschen geschriebener Inhalt ist zuverlässiger, und du kannst helfen, es zu erweitern!",
+	"ax-cx-introduction-information-expand": "Von Menschen geschriebener Inhalt ist zuverlässiger, und du kannst helfen, ihn zu erweitern!",
 	"ax-cx-introduction-information-correct": "Folge einem einfachen Schritt-für-Schritt-Verfahren, um die automatischen Übersetzungen für jeden Satz zu überprüfen und zu korrigieren.",
 	"ax-cx-introduction-dialog-action": "Korrigiere und ergänze den Artikel"
 }
