@@ -6,15 +6,7 @@
 section {
   table,
   figure[typeof~="mw:File/Thumb"],
-  figure[typeof~="mw:File/Frame"],
-  // TODO: Remove "Image|Video|Audio" when version 2.4.0 of Parsoid content is
-  //no longer supported
-  figure[typeof~="mw:Image/Thumb"],
-  figure[typeof~="mw:Video/Thumb"],
-  figure[typeof~="mw:Audio/Thumb"],
-  figure[typeof~="mw:Image/Frame"],
-  figure[typeof~="mw:Video/Frame"],
-  figure[typeof~="mw:Audio/Frame"] {
+  figure[typeof~="mw:File/Frame"] {
     // !important is required here because the figures sometimes has classes
     // like mw-halign-right to force floating with margins.
     float: none !important;
