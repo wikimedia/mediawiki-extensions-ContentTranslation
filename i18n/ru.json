@@ -490,6 +490,7 @@
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Отменить изменения",
 	"sx-confirm-back-navigation-dialog-continue-button-label": "Продолжить редактирование",
 	"cx-sx-login-dialog-title": "Ваша сессия истекла",
+	"cx-sx-login-dialog-button-label": "Войти",
 	"sx-confirm-translation-deletion-dialog-body": "Вы уверены, что хотите навсегда удалить этот перевод?",
 	"sx-translation-deletion-cancel-button-label": "Отменить",
 	"sx-translation-deletion-confirm-button-label": "Удалить перевод",
