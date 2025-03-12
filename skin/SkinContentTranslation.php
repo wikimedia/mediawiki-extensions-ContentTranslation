@@ -28,11 +28,8 @@ class SkinContentTranslation extends SkinMustache {
 	public function getTemplateData(): array {
 		$config = $this->getConfig();
 
-		// is-vue parameter seems unused project-wide
-		// TODO: Consider removing it
 		return parent::getTemplateData() + [
 			'cx-version' => $config->get( 'ContentTranslationVersion' ),
-			'is-vue' => $config->get( 'ContentTranslationEnableSectionTranslation' ),
 			'main-page-href' => Title::newMainPage()->getLinkURL(),
 			'user-name' => $this->getUser()->getName(),
 		] + $this->getNavigationTemplateData();
