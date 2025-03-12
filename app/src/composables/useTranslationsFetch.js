@@ -2,7 +2,7 @@ import cxTranslatorApi from "@/wiki/cx/api/translator";
 import Page from "@/wiki/mw/models/page";
 import { useStore } from "vuex";
 import usePageMetadataFetch from "@/composables/usePageMetadataFetch";
-import { ref, Ref, UnwrapRef } from "vue";
+import { ref } from "vue";
 
 /** @type {Ref<UnwrapRef<{draft: boolean, published: boolean}>>} */
 const translationsFetched = ref({ draft: false, published: false });
