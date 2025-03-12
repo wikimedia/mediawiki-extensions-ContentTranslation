@@ -268,6 +268,27 @@ module.exports = defineComponent( {
 			initializeTranslation
 		} = useTranslationInitialize();
 
+		const targetTitle = computed(
+			() => props.pageResult.getTitleByLanguage( targetLanguage.value )
+		);
+
+		const onVisibilityChange = () => {
+			const translationData = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_title: targetTitle.value
+			};
+
+			let actionSubtype = 'visible_state';
+			if ( document.hidden ) {
+				actionSubtype = 'hidden_state';
+			}
+			logEvent( 'visibility_change', actionSubtype, 'translation_view', null, translationData );
+		};
+
 		const logViewEvent = () => {
 			const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
 				if ( hasAtLeastXStrings( leadSectionTranslation.value, 3 ) ) {
@@ -281,6 +302,8 @@ module.exports = defineComponent( {
 					};
 					logEvent( 'view', null, 'automatic_translation', null, translationData );
 					unwatchLeadSectionTranslation();
+					// Start tracking session length.
+					document.addEventListener( 'visibilitychange', onVisibilityChange );
 				}
 			}, { deep: true } );
 		};
@@ -382,9 +405,6 @@ module.exports = defineComponent( {
 
 		const { findOneOrFetchPage } = usePageMetadata();
 		const targetPage = ref( null );
-		const targetTitle = computed(
-			() => props.pageResult.getTitleByLanguage( targetLanguage.value )
-		);
 
 		if ( targetTitle.value ) {
 			findOneOrFetchPage( targetLanguage.value, targetTitle.value ).then( ( page ) => {
@@ -412,6 +432,7 @@ module.exports = defineComponent( {
 
 		const closeViewTranslationPage = () => {
 			logEvent( 'click', 'close', 'automatic_translation_header' );
+			document.removeEventListener( 'visibilitychange', onVisibilityChange );
 			goToHomePage();
 		};
 		const optionsDialogOn = ref( false );
