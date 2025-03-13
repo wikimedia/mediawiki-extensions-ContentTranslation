@@ -15,7 +15,12 @@ const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const { logEvent } = useEventLogging();
 
 // TODO: Use the proper action source for different entrypoints
-logEvent( 'session_init', null, 'mt_home', null );
+const urlParams = new URLSearchParams( location.search );
+let actionSource = 'mt_home';
+if ( urlParams.has( 'shared' ) ) {
+	actionSource = 'external_shared_automatic_translation';
+}
+logEvent( 'session_init', null, actionSource, null );
 
 const { navigateToPage, openLanguageSelector } = useRouter();
 

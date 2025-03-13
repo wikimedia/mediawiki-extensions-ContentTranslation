@@ -175,6 +175,7 @@
 			:source-page-url="sourcePageUrl"
 			:target-page-url="targetPageUrl"
 			@fix-translation="onFixTranslation( 'automatic_translation_menu' )"
+			@share-translation="onTranslationShare"
 		></view-translation-page-options>
 		<cx-introduction-dialog
 			v-model="fixTranslationDialogOn"
@@ -477,6 +478,20 @@ module.exports = defineComponent( {
 			logEvent( 'click', actionSubtype, 'review_translation_dialog', 'translation_view', translationData );
 		};
 
+		const onTranslationShare = () => {
+			const translationData = {
+				// eslint-disable-next-line camelcase
+				source_language: sourceLanguage.value,
+				// eslint-disable-next-line camelcase
+				target_language: targetLanguage.value,
+				// eslint-disable-next-line camelcase
+				source_title: pageTitle,
+				// eslint-disable-next-line camelcase
+				target_title: targetTitle.value
+			};
+			logEvent( 'click', 'share_automatic_translation_external', 'automatic_translation_menu', 'translation_view', translationData );
+		};
+
 		return {
 			cdxIconArrowNext,
 			cdxIconClose,
@@ -507,7 +522,8 @@ module.exports = defineComponent( {
 			onTargetArticleClick,
 			fixTranslationDialogOn,
 			onFixTranslation,
-			logCxTranslationDialogEvent
+			logCxTranslationDialogEvent,
+			onTranslationShare
 		};
 	}
 } );

@@ -127,7 +127,7 @@ module.exports = defineComponent( {
 			default: null
 		}
 	},
-	emits: [ 'update:modelValue', 'fix-translation' ],
+	emits: [ 'update:modelValue', 'fix-translation', 'share-translation' ],
 	setup( props, context ) {
 		const { sourceLanguage, targetLanguage } = useState();
 		const { onSourceLanguageUpdate, onTargetLanguageUpdate } = useLanguagesUpdate();
@@ -156,7 +156,13 @@ module.exports = defineComponent( {
 		};
 
 		const isShareSupported = navigator.canShare && navigator.canShare( { url: location.href } );
-		const shareTranslation = () => navigator.share( { url: location.href } );
+		const shareTranslation = () => {
+			const url = new URL( location.href );
+			url.searchParams.set( 'shared', true );
+			context.emit( 'share-translation' );
+
+			navigator.share( { url: url.href } );
+		};
 
 		return {
 			openSourceLanguageSelector,
