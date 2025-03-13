@@ -67,7 +67,7 @@
 	"tag-contenttranslation-v2-description": "內容已透過使用內容翻譯工具第2版從其它語言翻譯過來。",
 	"tag-sectiontranslation": "[[{{MediaWiki:sx-descriptionpagelink}}|章節翻譯]]",
 	"tag-sectiontranslation-description": "透過內容翻譯工具的章節翻譯功能從其他語言段落翻譯的內容",
-	"tag-contenttranslation-high-unmodified-mt-text-description": "使用 ContentTranslation 發布的翻譯內容裡許多是未修飾過的機器翻譯",
+	"tag-contenttranslation-high-unmodified-mt-text-description": "使用內容翻譯發布的翻譯內容裡有高比例未修飾過的機器翻譯",
 	"cx-source-loading": "正在載入$1",
 	"cx-beta": "內容翻譯",
 	"cx-beta-desc": "一套工具可迅速翻譯頁面至您使用的語言。 從[[Special:MyContributions|您的貢獻頁面]]開始翻譯，並使用特別為翻譯所設計的並排方式編輯內容。 部份功能可能僅供特定語言使用。",
