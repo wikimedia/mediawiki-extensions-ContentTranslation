@@ -176,11 +176,25 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
 	return fetch( relativeUrl, {
 		headers: { 'Content-Type': 'application/json', Authorization: token },
 		method: 'POST',
-		body: JSON.stringify( { html: content } )
+		body: JSON.stringify( { html: content } ),
+		// eslint-disable-next-line compat/compat
+		signal: AbortSignal.timeout( 45000 )
 	} )
-		.then( ( response ) => response.json() )
-		.then( ( data ) => data.contents )
-		.catch( ( error ) => Promise.reject( error ) );
+		.then( ( response ) => {
+			// Handle non-2xx responses
+			if ( !response.ok ) {
+				return response.json()
+					.then( ( errorData ) => {
+						const errorMessage = errorData.error && errorData.error.message || `HTTP Error: ${ response.status }`;
+						throw new Error( errorMessage );
+					} )
+					.catch( () => {
+						throw new Error( `HTTP Error: ${ response.status }` );
+					} );
+			}
+
+			return response.json().then( ( data ) => data.contents );
+		} );
 };
 
 /**
