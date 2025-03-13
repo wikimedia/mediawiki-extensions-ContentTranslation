@@ -277,6 +277,11 @@ class SpecialContentTranslation extends SpecialPage {
 		$unifiedDashboardEnabled = $this->getConfig()->get( 'ContentTranslationEnableUnifiedDashboard' );
 
 		if ( $unifiedDashboardEnabled ) {
+			if ( $this->isMobileSite() ) {
+				// mobile site gets unified dashboard
+				return true;
+			}
+
 			// transition to unified dashboard
 			$dashboardParam = $this->getRequest()->getText( 'cx-dashboard' );
 
