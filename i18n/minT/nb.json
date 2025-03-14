@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "Alle",
 	"mint-home-info-panel-text": "Millioner av emner på Wikipedia kan maskinoversettes til $1.",
 	"mint-home-random-topic-button-label": "Tilfeldig emne",
+	"mint-home-experimental-note": "Maskinoversettelse er eksperimentelt. [$1 Lær mer]",
 	"mint-language-selector-title": "Språk",
 	"mint-language-selector-suggestions-header": "Foreslått",
 	"mint-language-selector-all-languages-header": "Alle språk",
@@ -44,11 +45,18 @@
 	"mint-view-translation-overlay-feedback-link-label": "Send tilbakemelding",
 	"ax-article-footer-entrypoint-card-description": "Mer innhold på andre språk",
 	"ax-article-footer-entrypoint-card-supporting-text": "Les maskinoversettelse",
+	"ax-article-footer-entrypoint-card-heading": "Maskinoversettelser",
 	"mint-explore-languages-header": "Utforsk språk",
 	"mint-explore-languages-search-input-placeholder": "Alle språk for dette emnet",
 	"mint-explore-languages-explanation-banner-title": "Lær mer fra andre språk",
 	"mint-explore-languages-explanation-banner-text": "Bidragsytere på forskjellige språk har dekket dette emnet på forskjellige måter.",
 	"mint-explore-languages-language-card-container-title": "Språk med størst dekning av «$1»",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|Én seksjon|$1 seksjoner|0=Ingen seksjoner}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljert"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Mest detaljert",
+	"ax-cx-introduction-dialog-title": "Gå gjennom og fiks oversettelser",
+	"ax-cx-introduction-summary": "Forbedre innholdet som er tilgjengelig på ditt språk. Skriv en bedre oversettelse og publiser den på Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Maskinoversettelse gir en nyttig oversikt, men er ikke alltid nøyaktig.",
+	"ax-cx-introduction-information-expand": "Innhold som er skrevet av mennesker er mer pålitelig, og du kan hjelpe til med å utvide det!",
+	"ax-cx-introduction-information-correct": "Følg en enkel trinnvis prosess for å gå gjennom og rette maskinoversettelser setningsvis.",
+	"ax-cx-introduction-dialog-action": "Korriger og legg til i artikkelen"
 }
