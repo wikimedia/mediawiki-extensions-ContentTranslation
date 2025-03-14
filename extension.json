@@ -1926,6 +1926,7 @@
 				"CxIntroductionDialog.vue",
 				"SkeletonLoader.vue",
 				"ExploreLanguagesPage.vue",
+				"TranslationLoadingIndicator.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",

@@ -62,10 +62,9 @@
 		>
 		</div>
 		<!-- eslint-enable -->
-		<div v-if="loadingLeadSectionTranslation" class="translation-viewer__loading-indicator">
-			<cdx-icon :icon="cdxIconRobot"></cdx-icon>
-			<cdx-icon :icon="cdxIconEllipsis"></cdx-icon>
-		</div>
+		<translation-loading-indicator
+			v-if="loadingLeadSectionTranslation"
+		></translation-loading-indicator>
 		<div
 			v-if="!loadingLeadSectionTranslation && sections.length"
 			id="ax-translation-viewer-section-container"
@@ -203,6 +202,7 @@ const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
 const CxIntroductionDialog = require( './CxIntroductionDialog.vue' );
 const { axSurveyFeedbackName } = require( './constants.js' );
+const TranslationLoadingIndicator = require( './TranslationLoadingIndicator.vue' );
 const {
 	cdxIconClose,
 	cdxIconRobot,
@@ -210,8 +210,7 @@ const {
 	cdxIconUserGroup,
 	cdxIconLinkExternal,
 	cdxIconArticle,
-	cdxIconEdit,
-	cdxIconEllipsis
+	cdxIconEdit
 } = require( './icons.json' );
 const getAutonym = $.uls.data.getAutonym;
 
@@ -247,7 +246,8 @@ module.exports = defineComponent( {
 		CdxCard,
 		MwSpinner,
 		ViewTranslationPageOptions,
-		CxIntroductionDialog
+		CxIntroductionDialog,
+		TranslationLoadingIndicator
 	},
 	props: {
 		pageResult: {
@@ -546,7 +546,6 @@ module.exports = defineComponent( {
 			cdxIconLinkExternal,
 			cdxIconArticle,
 			cdxIconEdit,
-			cdxIconEllipsis,
 			closeViewTranslationPage,
 			sourceLanguageAutonym,
 			targetLanguageAutonym,
@@ -639,28 +638,6 @@ module.exports = defineComponent( {
       border-color: @border-color-muted;
       .cdx-icon, .cdx-card__text .cdx-card__text__title {
         color: @color-progressive;
-      }
-    }
-  }
-
-  @keyframes loading-indicator-background-animation {
-    0% {
-      background-color: @background-color-interactive-subtle;
-    }
-    100% {
-      background-color: @background-color-disabled-subtle;
-    }
-  }
-
-  &__loading-indicator {
-    padding: @spacing-25 @spacing-50;
-    margin-block: @spacing-50;
-    animation: loading-indicator-background-animation 1s linear infinite alternate;
-
-    .cdx-icon {
-      color: @color-subtle;
-      &:first-of-type {
-        margin-right: @spacing-50;
       }
     }
   }
