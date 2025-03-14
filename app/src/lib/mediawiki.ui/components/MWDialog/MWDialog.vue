@@ -186,8 +186,8 @@ export default {
       left: 0;
       max-width: 100vw;
       min-width: calc(100vw - 2px);
-      min-height: calc(100vh - 2px);
-      max-height: 100vh;
+      min-height: calc(100dvh - 2px);
+      max-height: 100dvh;
     }
   }
 
