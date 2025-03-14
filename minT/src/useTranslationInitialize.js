@@ -1,118 +1,132 @@
 const { ref } = require( 'vue' );
-const useApi = require( './useApi.js' );
+const PageSection = require( './pageSection.js' );
 const useState = require( './useState.js' );
-const useCXServerToken = require( './useCXServerToken.js' );
-
-const isInfobox = ( node ) => node.classList.contains( 'infobox' );
-
-const hiddenTags = [ 'style', 'meta', 'link' ];
-
-const isTransclusionNode = ( node ) => !!(
-	node.attributes.typeof &&
-	node.getAttribute( 'typeof' ).match( /(^|\s)(mw:Transclusion|mw:Placeholder)\b/ )
-);
-
-const isHiddenNode = ( node ) => hiddenTags.includes( node.tagName.toLowerCase() ) ||
-	node.style.display === 'none' ||
-	isTransclusionNode( node );
+const { isHiddenNode } = require( './htmlHelper.js' );
+const useSectionTranslate = require( './useSectionTranslate.js' );
 
 /**
  * This method expects an array of HTML elements and filters out all elements that
  * are not visible inside an article. Such nodes are template definitions, style tags,
  * meta tags and links tags. The tag list is not exhaustive and can be expanded in the future.
  *
- * @param {HTMLElement[]} nodes
- * @return {HTMLElement[]}
+ * @param {HTMLElement} sectionElement
  */
-const filterHiddenAndTransclusionNodes = ( nodes ) => nodes.filter(
-	( node ) => !isHiddenNode( node ) &&
-		!( Array.from( node.children ).every( ( child ) => isHiddenNode( child ) ) )
-);
+const cleanUpSectionNodes = ( sectionElement ) => {
+	Array.from( sectionElement.children ).forEach( ( child ) => {
+		if ( isHiddenNode( child ) ) {
+			child.remove();
+		}
+	} );
+};
+/**
+ * E.g. https://cxserver.wikimedia.org/v2/page/en/el/Moon
+ *
+ * @param {string} sourceLanguage
+ * @param {string} targetLanguage
+ * @param {string} title
+ * @return {Promise<string>}
+ */
+const fetchPageContent = ( sourceLanguage, targetLanguage, title ) => {
+	const relativeUrl = `https://cxserver.wikimedia.org/v2/page/${ sourceLanguage }/${ targetLanguage }/${ title }`;
+
+	return fetch( relativeUrl )
+		.then( ( response ) => response.json() )
+		.then( ( data ) => data.segmentedContent )
+		.catch( ( error ) => Promise.reject( error ) );
+};
+
+/**
+ * @param {HTMLElement[]} sectionElements
+ * @return {PageSection[]}
+ */
+const getNonLeadSubSections = ( sectionElements ) => {
+	const pageSections = [];
+	for ( const sectionElement of sectionElements ) {
+		const sectionNumber = sectionElement.dataset.mwSectionNumber;
+		let pageSection = pageSections.find( ( section ) => section.id === sectionNumber );
+
+		if ( !pageSection ) {
+			pageSection = new PageSection( { id: sectionNumber } );
+			pageSections.push( pageSection );
+		}
+
+		if ( sectionElement.firstElementChild && sectionElement.firstElementChild.tagName === 'H2' ) {
+			pageSection.title = sectionElement.firstElementChild.textContent.trim();
+		} else {
+			cleanUpSectionNodes( sectionElement );
+			pageSection.addSubSection( sectionElement );
+		}
+	}
+
+	pageSections.forEach( ( pageSection ) => pageSection.groupSubSections() );
+
+	return pageSections;
+};
+
+/**
+ * @param {Document} doc
+ */
+const applyPageStyles = ( doc ) => {
+	// Combine and append all style elements from the document
+	const styleElements = Array.from( doc.querySelectorAll( 'style' ) );
+	const combinedStyle = styleElements.map(
+		( element ) => element.textContent
+	).join( '' );
+	const styleTag = document.createElement( 'style' );
+	styleTag.textContent = combinedStyle;
+	document.head.appendChild( styleTag );
+};
 
 /**
  * This composable returns the "initializeTranslation" method that is used inside the MinT view
- * translation page, to fetch the page contents, translate the lead section and store the
- * translation inside the "leadSectionTranslation" ref variable, which is also returned. This
- * composable also returns the "loadingLeadSectionTranslation" boolean ref variable that indicates
- * whether the translation request is pending, and the "doc" ref variable that holds
- * the HTML document representing the source page.
+ * translation page, to fetch the page contents and translate the lead section. This
+ * composable also returns a ref variable holding the lead PageSection model and a ref variable
+ * holding an array containing the non-lead PageSection models for this page.
  *
  * @return {{
- *   loadingLeadSectionTranslation: Ref<boolean>,
  *   initializeTranslation: Function,
- *   doc: Ref<Document | null>,
- *   leadSectionTranslation: Ref<string[]>
+ *   nonLeadSections: Ref<PageSection[]>,
+ *   leadSection: Ref<PageSection|null>
  * }}
  */
 const useTranslationInitialize = () => {
-	const { fetchPageContent, translate } = useApi();
+	const { translateSection } = useSectionTranslate();
 	const { sourceLanguage, targetLanguage } = useState();
-	const { cxServerToken } = useCXServerToken();
-	const doc = ref( null );
-	const leadSectionTranslation = ref( [] );
-	const loadingLeadSectionTranslation = ref( true );
+	const nonLeadSections = ref( [] );
+	const leadSection = ref( null );
 
-	const initializeTranslation = ( title ) => {
-		leadSectionTranslation.value = [];
-		loadingLeadSectionTranslation.value = true;
+	const initializeTranslation = ( title ) => fetchPageContent(
+		sourceLanguage.value,
+		targetLanguage.value,
+		title
+	).then( ( text ) => {
+		const parser = new DOMParser();
 
-		return fetchPageContent( sourceLanguage.value, title )
-			.then( ( text ) => {
-				const parser = new DOMParser();
+		// Parse the element string
+		const doc = parser.parseFromString( text, 'text/html' );
+		applyPageStyles( doc );
 
-				// Parse the element string
-				doc.value = parser.parseFromString( text, 'text/html' );
+		const allSubSections = Array.from( doc.querySelectorAll( '[data-mw-section-number]' ) );
 
-				const leadSection = doc.value.querySelector( '[data-mw-section-id="0"]' );
-				const leadSectionChildren = Array.from( leadSection.children );
-				const nodes = filterHiddenAndTransclusionNodes( leadSectionChildren );
+		leadSection.value = new PageSection( { id: 0 } );
+		const leadSectionElements = allSubSections.filter( ( node ) => node.dataset.mwSectionNumber === '0' );
+		leadSectionElements.forEach( ( subSectionElement ) => {
+			cleanUpSectionNodes( subSectionElement );
+			leadSection.value.addSubSection( subSectionElement );
+		} );
 
-				// Combine and append all style elements from the document
-				const styleElements = Array.from( doc.value.querySelectorAll( 'style' ) );
-				const combinedStyle = styleElements.map(
-					( element ) => element.textContent
-				).join( '' );
-				const styleTag = document.createElement( 'style' );
-				styleTag.textContent = combinedStyle;
-				document.head.appendChild( styleTag );
+		leadSection.value.title = 'LEAD_SECTION';
+		leadSection.value.groupSubSections();
 
-				for ( let i = 0; i < nodes.length; i++ ) {
-					leadSectionTranslation.value[ i ] = null;
+		translateSection( leadSection.value );
 
-					// set the initial (empty) translation for infoboxes to -1, so that we
-					// differentiate them from text paragraphs, as we want to display a skeleton
-					// loader in their position while they are loading.
-					if ( isInfobox( nodes[ i ] ) ) {
-						leadSectionTranslation.value[ i ] = -1;
-					}
-				}
-
-				const translationPromises = nodes.map( ( node, index ) => translate(
-					node.outerHTML,
-					sourceLanguage.value,
-					targetLanguage.value,
-					cxServerToken.value
-				).then( ( translation ) => {
-					leadSectionTranslation.value[ index ] = translation;
-				} ).catch( ( error ) => mw.log.error( 'Error while translating lead section contents', error ) ) );
-
-				// We already display a skeleton loader for the infoboxes, so no need to wait
-				// for them to load, in order to hide the loading indicator.
-				const nonInfoboxPromises = translationPromises.filter(
-					( promise, i ) => !isInfobox( nodes[ i ] )
-				);
-
-				Promise.all( nonInfoboxPromises ).finally(
-					() => ( loadingLeadSectionTranslation.value = false )
-				);
-			} )
-			.catch( ( error ) => mw.log.error( 'Error while fetching page contents', error ) );
-	};
+		const nonLeadSectionElements = allSubSections.filter( ( node ) => node.dataset.mwSectionNumber !== '0' );
+		nonLeadSections.value = getNonLeadSubSections( nonLeadSectionElements );
+	} ).catch( ( error ) => mw.log.error( 'Error while fetching page contents', error ) );
 
 	return {
-		doc,
-		leadSectionTranslation,
-		loadingLeadSectionTranslation,
+		nonLeadSections,
+		leadSection,
 		initializeTranslation
 	};
 };

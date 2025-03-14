@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "I cannot quickly get a general sense for the topic.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Technical aspects such as loading time were getting in the way of learning.",
 	"ax-translation-view-feedback-confirm-title": "Feedback",
-	"ax-translation-view-feedback-confirm-description": "Thanks for helping! You can share any other thoughts on this experiment [https://www.mediawiki.org/wiki/Talk:MinT at the project talk page]."
+	"ax-translation-view-feedback-confirm-description": "Thanks for helping! You can share any other thoughts on this experiment [https://www.mediawiki.org/wiki/Talk:MinT at the project talk page].",
+	"ax-cx-failed-translation-label": "Translation failed"
 }

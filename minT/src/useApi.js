@@ -198,20 +198,6 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
 };
 
 /**
- * E.g. https://en.wikipedia.org/w/rest.php/v1/page/Moon/html
- *
- * @param {string} language
- * @param {string} title
- * @return {Promise<string>}
- */
-const fetchPageContent = ( language, title ) => {
-	const mwApi = new mw.ForeignApi( `https://${ language }.wikipedia.org/w/api.php`, { anonymous: true } );
-	const api = new mw.ForeignRest( `https://${ language }.wikipedia.org/w/rest.php/v1`, mwApi, { anonymous: true } );
-
-	return api.get( `/page/${ encodeURIComponent( title ) }/html` );
-};
-
-/**
  * Used inside "ExploreLanguages" SFC to fetch the sitelinks for the selected articles, for all
  * available languages, along with the section titles for each language.
  *
@@ -243,8 +229,7 @@ const useApi = () => ( {
 	fetchSiteMatrix,
 	fetchMintLanguages,
 	fetchLeadSectionContent,
-	translate,
-	fetchPageContent
+	translate
 } );
 
 module.exports = useApi;

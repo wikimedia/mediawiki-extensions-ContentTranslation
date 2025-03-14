@@ -1,19 +1,17 @@
-const { ref } = require( 'vue' );
+const PageSection = require( './pageSection.js' );
 const useApi = require( './useApi.js' );
 const useState = require( './useState.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 
 /**
  * This composable returns the "translateSectionTitle" function that is used inside the
- * AutomaticTranslation "view translation" page, to translate the titles of the given section and
- * store it inside the "translatedSectionTitles" ref variable. It also returns the
- * "translatedSectionTitles" to be used inside the same page, and the "resetTranslatedSectionTitles"
- * method to clear the saved section title translations, when needed.
+ * AutomaticTranslation "view translation" page, to translate the titles of the given section.
+ * It also returns the "resetTranslatedSectionTitles" method to clear the section title
+ * translations, when needed.
  *
  * @return {{
  *   doTranslateSectionTitle: Function,
  *   translateSectionTitle: Function,
- *   translatedSectionTitles: Ref<string[]>,
  *   resetTranslatedSectionTitles: Function
  * }}
  */
@@ -22,8 +20,11 @@ const useSectionTitleTranslate = () => {
 	const { sourceLanguage, targetLanguage } = useState();
 	const { cxServerToken } = useCXServerToken();
 
-	const translatedSectionTitles = ref( [] );
-
+	/**
+	 * @param {string} sectionTitle
+	 * @param {string} sourceLang
+	 * @return {Promise<string>}
+	 */
 	const doTranslateSectionTitle = ( sectionTitle, sourceLang ) => translate(
 		`<div>${ sectionTitle }</div>`,
 		sourceLang,
@@ -37,19 +38,29 @@ const useSectionTitleTranslate = () => {
 		return matches ? matches.groups.translatedTitle : '';
 	} ).catch( ( error ) => mw.log.error( `Error while translating section title "${ sectionTitle }"`, error ) );
 
-	const translateSectionTitle = ( section, index ) => doTranslateSectionTitle(
+	/**
+	 * @param {PageSection} section
+	 * @return {Promise}
+	 */
+	const translateSectionTitle = ( section ) => doTranslateSectionTitle(
 		section.title,
 		sourceLanguage.value
 	).then( ( translation ) => {
-		translatedSectionTitles.value[ index ] = translation;
+		section.titleTranslation = translation;
 	} );
 
-	const resetTranslatedSectionTitles = () => ( translatedSectionTitles.value = [] );
+	/**
+	 * @param {Ref<PageSection[]>} sections
+	 */
+	const resetTranslatedSectionTitles = ( sections ) => {
+		for ( const section of sections.value ) {
+			section.titleTranslation = null;
+		}
+	};
 
 	return {
 		doTranslateSectionTitle,
 		translateSectionTitle,
-		translatedSectionTitles,
 		resetTranslatedSectionTitles
 	};
 };

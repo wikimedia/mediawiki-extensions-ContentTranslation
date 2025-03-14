@@ -1913,9 +1913,10 @@
 				"useTranslationInitialize.js",
 				"useSectionTitleTranslate.js",
 				"useEventLogging.js",
-				"useSkeletonLoader.js",
 				"mediawikiPage.js",
+				"pageSection.js",
 				"pageSearchResult.js",
+				"htmlHelper.js",
 				"MWLanguageSelector.vue",
 				"SearchTopicPage.vue",
 				"SearchResultItem.vue",
@@ -1927,6 +1928,7 @@
 				"SkeletonLoader.vue",
 				"ExploreLanguagesPage.vue",
 				"TranslationLoadingIndicator.vue",
+				"SectionContentTranslation.vue",
 				{
 					"name": "icons.json",
 					"callback": "MediaWiki\\ResourceLoader\\CodexModule::getIcons",
@@ -1943,7 +1945,8 @@
 						"cdxIconEdit",
 						"cdxIconShare",
 						"cdxIconFeedback",
-						"cdxIconEllipsis"
+						"cdxIconEllipsis",
+						"cdxIconReload"
 					]
 				},
 				{
@@ -2003,7 +2006,8 @@
 				"ax-cx-introduction-information-accuracy",
 				"ax-cx-introduction-information-expand",
 				"ax-cx-introduction-information-correct",
-				"ax-cx-introduction-dialog-action"
+				"ax-cx-introduction-dialog-action",
+				"ax-cx-failed-translation-label"
 			]
 		},
 		"ext.ax.articlefooter.entrypoint": {

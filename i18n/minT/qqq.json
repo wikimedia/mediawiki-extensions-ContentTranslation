@@ -74,5 +74,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Negative option in the feedback survey for automatic translation page.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Negative option in the feedback survey for automatic translation page.",
 	"ax-translation-view-feedback-confirm-title": "Title message displayed to the user after they have submitted the feedback for automatic translation page.",
-	"ax-translation-view-feedback-confirm-description": "Description message displayed to the user after they have submitted the feedback for automatic translation page."
+	"ax-translation-view-feedback-confirm-description": "Description message displayed to the user after they have submitted the feedback for automatic translation page.",
+	"ax-cx-failed-translation-label": "Label for the banner that indicates that the machine translation for a subsection has failed"
 }

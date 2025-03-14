@@ -55,25 +55,23 @@
 				</template>
 			</cdx-card>
 		</div>
-		<!-- eslint-disable vue/no-v-html -->
+	</div>
+	<div class="translation-viewer__contents mw-parser-output">
+		<translation-loading-indicator v-if="!leadSection">
+		</translation-loading-indicator>
+		<section-content-translation
+			v-else
+			:section="leadSection"
+		></section-content-translation>
 		<div
-			class="translation-viewer__contents mw-parser-output"
-			v-html="structuredLeadSectionTranslation"
-		>
-		</div>
-		<!-- eslint-enable -->
-		<translation-loading-indicator
-			v-if="loadingLeadSectionTranslation"
-		></translation-loading-indicator>
-		<div
-			v-if="!loadingLeadSectionTranslation && sections.length"
+			v-if="textLeadSubSectionsTranslated"
 			id="ax-translation-viewer-section-container"
-			class="translation-viewer__sections-container mw-parser-output"
+			class="translation-viewer__sections-container"
 		>
 			<div v-if="!loadingSectionTitleTranslations">
 				<div
-					v-for="( sectionTitle, index ) in translatedSectionTitles"
-					:key="`section-container-${sectionTitle}`"
+					v-for="( section, index ) in nonLeadSections"
+					:key="`section-container-${section.title}`"
 				>
 					<h2
 						:key="`section-title-${index}`"
@@ -84,21 +82,18 @@
 							class="mf-icon mf-icon-expand mf-icon--small indicator"
 							:class="{ 'mf-icon-rotate-flip': sectionExpandStatus[index] }"
 						></span>
-						<span class="mw-headline">{{ sectionTitle }}</span>
+						<span v-if="!!section.titleTranslation" class="mw-headline">
+							{{ section.titleTranslation }}
+						</span>
+						<mw-spinner v-else></mw-spinner>
 					</h2>
-					<div
+					<section-content-translation
 						v-if="sectionExpandStatus[index]"
-						class="translation-viewer__section-contents"
-					>
-						<!-- eslint-disable vue/no-v-html -->
-						<mw-spinner v-if="!sectionTranslations[index]"></mw-spinner>
-						<div v-else v-html="sectionTranslations[index]">
-						</div>
-						<!-- eslint-enable -->
-					</div>
+						:section="section"
+					></section-content-translation>
 				</div>
 			</div>
-			<mw-spinner v-else></mw-spinner>
+			<translation-loading-indicator v-else></translation-loading-indicator>
 		</div>
 		<div class="translation-viewer__footer">
 			<cdx-card class="translation-viewer__footer__flat-card" :icon="cdxIconRobot">
@@ -195,7 +190,6 @@ const useUrlHelper = require( './useUrlHelper.js' );
 const useSectionTranslate = require( './useSectionTranslate.js' );
 const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
-const useSkeletonLoader = require( './useSkeletonLoader.js' );
 const useEventLogging = require( './useEventLogging.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
@@ -203,6 +197,7 @@ const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' )
 const CxIntroductionDialog = require( './CxIntroductionDialog.vue' );
 const { axSurveyFeedbackName } = require( './constants.js' );
 const TranslationLoadingIndicator = require( './TranslationLoadingIndicator.vue' );
+const SectionContentTranslation = require( './SectionContentTranslation.vue' );
 const {
 	cdxIconClose,
 	cdxIconRobot,
@@ -217,27 +212,6 @@ const getAutonym = $.uls.data.getAutonym;
 const { defineComponent, ref, computed, watchEffect, watch } = require( 'vue' );
 const { CdxIcon, CdxButton, CdxCard } = require( '@wikimedia/codex' );
 
-/**
- * Returns true if "parts" has at least "x" number of strings.
- *
- * @param {Array} parts
- * @param {number} x
- * @return {boolean}
- */
-function hasAtLeastXStrings( parts, x ) {
-	if ( !Array.isArray( parts ) || !parts.length ) {
-		return false;
-	}
-
-	if ( parts.length < x ) {
-		return parts.every( ( item ) => typeof item === 'string' );
-	}
-
-	const stringCount = parts.filter( ( item ) => typeof item === 'string' ).length;
-
-	return stringCount >= x;
-}
-
 module.exports = defineComponent( {
 	name: 'ViewTranslation',
 	components: {
@@ -247,7 +221,8 @@ module.exports = defineComponent( {
 		MwSpinner,
 		ViewTranslationPageOptions,
 		CxIntroductionDialog,
-		TranslationLoadingIndicator
+		TranslationLoadingIndicator,
+		SectionContentTranslation
 	},
 	props: {
 		pageResult: {
@@ -265,9 +240,8 @@ module.exports = defineComponent( {
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
 
 		const {
-			doc,
-			leadSectionTranslation,
-			loadingLeadSectionTranslation,
+			nonLeadSections,
+			leadSection,
 			initializeTranslation
 		} = useTranslationInitialize();
 
@@ -292,9 +266,32 @@ module.exports = defineComponent( {
 			logEvent( 'visibility_change', actionSubtype, 'translation_view', null, translationData );
 		};
 
+		const isAnyLeadSubsectionGroupTranslated = computed( () => !!leadSection.value &&
+			leadSection.value.subSectionGroups.some(
+				( group, index ) => leadSection.value.isSubSectionGroupTranslationDone( index )
+			)
+		);
+
+		const textLeadSubSectionsTranslated = computed( () => {
+			if ( !leadSection.value ) {
+				return false;
+			}
+
+			const textGroupIndexes = [];
+			for ( const index in leadSection.value.subSectionGroups ) {
+				if ( !leadSection.value.hasSubSectionGroupInfobox( index ) ) {
+					textGroupIndexes.push( index );
+				}
+			}
+
+			return textGroupIndexes.every(
+				( index ) => leadSection.value.isSubSectionGroupTranslationDone( index )
+			);
+		} );
+
 		const logViewEvent = () => {
-			const unwatchLeadSectionTranslation = watch( leadSectionTranslation, () => {
-				if ( hasAtLeastXStrings( leadSectionTranslation.value, 3 ) ) {
+			const unwatchLeadSectionTranslation = watch( isAnyLeadSubsectionGroupTranslated, () => {
+				if ( isAnyLeadSubsectionGroupTranslated.value ) {
 					const translationData = {
 						// eslint-disable-next-line camelcase
 						source_language: sourceLanguage.value,
@@ -311,72 +308,27 @@ module.exports = defineComponent( {
 			}, { deep: true } );
 		};
 
-		const { createSkeletonLoader } = useSkeletonLoader();
-		const { translateSection, adaptLinks, sectionTranslations } = useSectionTranslate();
-		const structuredLeadSectionTranslation = computed( () => {
-			let contents = '';
-			for ( let i = 0; i < leadSectionTranslation.value.length; i++ ) {
-				let currentNodeTranslation = leadSectionTranslation.value[ i ];
-
-				if ( currentNodeTranslation === null ) {
-					break;
-				} else if ( currentNodeTranslation === -1 ) {
-					currentNodeTranslation = createSkeletonLoader();
-				}
-
-				contents = contents.concat( '\n', currentNodeTranslation );
-			}
-
-			return adaptLinks( contents );
-		} );
-
 		watch( [ sourceLanguage, targetLanguage ], () => {
 			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
 			initializeTranslation( title );
 			logViewEvent();
 		}, { immediate: true } );
 
-		const sections = computed( () => {
-			if ( !doc.value ) {
-				return [];
-			}
-
-			const sectionsNodeList = doc.value.querySelectorAll( 'section[data-mw-section-id]:has(> h2:first-child)' );
-			const sectionElements = Array.from( sectionsNodeList );
-
-			const headerElements = sectionElements.map( ( sectionElement ) => sectionElement.querySelector( 'h2' ) );
-			const sectionTitles = headerElements.map( ( header ) => header.textContent );
-
-			return sectionElements.map( ( sectionElement, index ) => ( {
-				node: sectionElement,
-				title: sectionTitles[ index ]
-			} ) );
-		} );
-
 		const loadingSectionTitleTranslations = ref( false );
 		const {
 			translateSectionTitle,
-			translatedSectionTitles,
 			resetTranslatedSectionTitles
 		} = useSectionTitleTranslate();
-
-		watch( sections, () => {
-			resetTranslatedSectionTitles();
-			const sectionTitleTranslationPromises = sections.value.map( translateSectionTitle );
-			loadingSectionTitleTranslations.value = true;
-			Promise.all( sectionTitleTranslationPromises ).then(
-				() => ( loadingSectionTitleTranslations.value = false )
-			);
-		}, { immediate: true } );
 
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
 
 		const sectionExpandStatus = ref( [] );
+		const { translateSection } = useSectionTranslate();
 
 		const toggleSection = ( index ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];
-			const sectionTitle = sections.value[ index ].title;
+			const sectionTitle = nonLeadSections.value[ index ].title;
 			const translationContext = {
 				// eslint-disable-next-line camelcase
 				source_type: 'section',
@@ -385,7 +337,7 @@ module.exports = defineComponent( {
 			};
 			if ( sectionExpandStatus.value[ index ] ) {
 				logEvent( 'click', 'section_expand', null, null, translationContext );
-				translateSection( sections, index );
+				translateSection( nonLeadSections.value[ index ] );
 			} else {
 				logEvent( 'click', 'section_collapse', null, null, translationContext );
 			}
@@ -394,7 +346,7 @@ module.exports = defineComponent( {
 			sectionExpandStatus.value = sectionValues.map( () => false );
 		};
 
-		watchEffect( () => resetSectionExpandStatus( sections.value ) );
+		watchEffect( () => resetSectionExpandStatus( nonLeadSections.value ) );
 
 		const sourceTitle = computed(
 			() => props.pageResult.getTitleByLanguage( sourceLanguage.value )
@@ -480,18 +432,33 @@ module.exports = defineComponent( {
 		};
 
 		let isQuickSurveyLoaded = false;
-		watch( loadingLeadSectionTranslation, () => {
-			if ( loadingLeadSectionTranslation.value === false && !isQuickSurveyLoaded ) {
-				mw.loader.using( 'ext.quicksurveys.init' )
-					.then( () => {
-						if ( mw.extQuickSurveys ) {
-							// This approach of loading QuickSurveys is soft deprecated and maybe
-							// removed. See: https://phabricator.wikimedia.org/T387846#10604715 for
-							// why we went with it anyway.
-							mw.extQuickSurveys.showSurvey( axSurveyFeedbackName );
-							isQuickSurveyLoaded = true;
-						}
-					} );
+		watch( textLeadSubSectionsTranslated, () => {
+
+			if ( textLeadSubSectionsTranslated.value === true ) {
+				// section title translation should start after all the non-infobox subsections
+				// of the lead section have been translated
+				resetTranslatedSectionTitles( nonLeadSections );
+				const sectionTitleTranslationPromises = nonLeadSections.value.map(
+					translateSectionTitle
+				);
+				loadingSectionTitleTranslations.value = true;
+				Promise.all( sectionTitleTranslationPromises ).then(
+					() => ( loadingSectionTitleTranslations.value = false )
+				);
+
+				if ( !isQuickSurveyLoaded ) {
+					mw.loader.using( 'ext.quicksurveys.init' )
+						.then( () => {
+							if ( mw.extQuickSurveys ) {
+								// This approach of loading QuickSurveys is soft deprecated and
+								// maybe removed. See: https://phabricator.wikimedia.org/T387846#10604715
+								// for why we went with it anyway.
+								mw.extQuickSurveys.showSurvey( axSurveyFeedbackName );
+								isQuickSurveyLoaded = true;
+							}
+						} );
+
+				}
 			} else if ( isQuickSurveyLoaded ) {
 				// Remove the QuickSurvey while the lead section is loading
 				isQuickSurveyLoaded = false;
@@ -549,18 +516,15 @@ module.exports = defineComponent( {
 			closeViewTranslationPage,
 			sourceLanguageAutonym,
 			targetLanguageAutonym,
-			loadingLeadSectionTranslation,
-			sections,
+			leadSection,
+			nonLeadSections,
 			targetTitle,
 			toggleSection,
 			sectionExpandStatus,
-			sectionTranslations,
-			structuredLeadSectionTranslation,
 			sourcePageUrl,
 			targetPageUrl,
 			targetPage,
 			cxUrl,
-			translatedSectionTitles,
 			loadingSectionTitleTranslations,
 			openTranslationOptions,
 			optionsDialogOn,
@@ -568,7 +532,8 @@ module.exports = defineComponent( {
 			fixTranslationDialogOn,
 			onFixTranslation,
 			logCxTranslationDialogEvent,
-			onTranslationShare
+			onTranslationShare,
+			textLeadSubSectionsTranslated
 		};
 	}
 } );
@@ -642,6 +607,21 @@ module.exports = defineComponent( {
     }
   }
 
+  &__contents {
+    /** Feedback survey **/
+    .ext-quick-survey-panel {
+      margin: @spacing-100 0;
+      width: auto;
+      clear: unset;
+      float: unset;
+
+      /** Hide the "Back" button in the survey */
+      .survey-action-buttons .cdx-button--action-default {
+        display: none;
+      }
+    }
+  }
+
   &__footer {
     background-color: @background-color-interactive;
     margin: 0 -@spacing-100;
@@ -653,19 +633,6 @@ module.exports = defineComponent( {
     }
     &__target-article-card {
       margin-inline: @spacing-100;
-    }
-  }
-
-  /** Feedback survey **/
-  .ext-quick-survey-panel {
-    margin: @spacing-100 0;
-    width: auto;
-    clear: unset;
-    float: unset;
-
-    /** Hide the "Back" button in the survey */
-    .survey-action-buttons .cdx-button--action-default {
-      display: none;
     }
   }
 }

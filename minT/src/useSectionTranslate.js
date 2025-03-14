@@ -1,17 +1,15 @@
-const { ref, watch } = require( 'vue' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const useState = require( './useState.js' );
 const useApi = require( './useApi.js' );
-
-const sectionTranslations = ref( [] );
+const PageSection = require( './pageSection.js' );
 
 /**
- * This composable returns the "translateSection" method and the "sectionTranslations" ref
- * variable. This method is used inside MinT view translation page, to translate the given
- * non-lead section and fill the "sectionTranslations" array with the section translation
- * for the given index.
+ * This composable returns the "translateSection" and "translateSubSectionGroup" method.
+ * The first method is used inside MinT view translation page, to translate and set the
+ * translation for the given section, while the latter is used to retry the failed
+ * translation for a given subsection.
  *
- * @return {{sectionTranslations: Ref<string[]>, translateSection: Function, adaptLinks: Function}}
+ * @return {{ translateSection: Function, translateSubSectionGroup: Function }}
  */
 const useSectionTranslate = () => {
 	const { cxServerToken } = useCXServerToken();
@@ -58,32 +56,59 @@ const useSectionTranslate = () => {
 		return doc.body.innerHTML;
 	};
 
-	const translateSection = ( sections, index ) => {
-		if ( sectionTranslations.value[ index ] ) {
-			return;
-		}
-		const section = sections.value[ index ];
-		const headerElement = section.node.querySelector( 'h2' );
-		if ( headerElement ) {
-			headerElement.remove();
-		}
-		translate(
-			section.node.outerHTML,
+	/**
+	 * @param {PageSection} section
+	 * @param {number} index
+	 * @return {Promise}
+	 */
+	const translateSubSectionGroup = ( section, index ) => {
+		section.clearSubSectionGroupTranslationByIndex( index );
+
+		return translate(
+			section.getSubSectionGroupHTML( index ),
 			sourceLanguage.value,
 			targetLanguage.value,
 			cxServerToken.value
-		)
-			.then( ( translation ) => {
-				sectionTranslations.value[ index ] = adaptLinks( translation );
-			} )
-			.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
+		).then( ( translation ) => {
+			section.setSubSectionGroupTranslationByIndex( index, adaptLinks( translation ) );
+		} ).catch( ( error ) => {
+			section.setSubSectionGroupTranslationByIndex( index, null );
+
+			mw.log.error( `Error while translating section '${ section.title }' and subsection with index ${ index }`, error );
+		} );
 	};
 
-	watch( [ sourceLanguage, targetLanguage ], () => {
-		sectionTranslations.value = [];
-	} );
+	/**
+	 * @param {PageSection} section
+	 * @return {Promise}
+	 */
+	const translateSection = ( section ) => {
+		const infoboxGroups = [];
+		const textGroups = [];
 
-	return { translateSection, sectionTranslations, adaptLinks };
+		for ( const index in section.subSectionGroups ) {
+			const subSectionGroup = section.subSectionGroups[ index ];
+			if ( section.hasSubSectionGroupInfobox( index ) ) {
+				infoboxGroups[ index ] = subSectionGroup;
+			} else {
+				textGroups[ index ] = subSectionGroup;
+			}
+		}
+
+		let infoboxPromise = Promise.resolve(); // Start with a resolved promise
+		infoboxGroups.forEach( ( subSectionGroup, i ) => {
+			infoboxPromise = infoboxPromise.then( () => translateSubSectionGroup( section, i ) );
+		} );
+
+		let textPromise = Promise.resolve(); // Start with a resolved promise
+		textGroups.forEach( ( subSectionGroup, i ) => {
+			textPromise = textPromise.then( () => translateSubSectionGroup( section, i ) );
+		} );
+
+		return Promise.all( [ infoboxPromise, textPromise ] );
+	};
+
+	return { translateSection, translateSubSectionGroup };
 };
 
 module.exports = useSectionTranslate;
