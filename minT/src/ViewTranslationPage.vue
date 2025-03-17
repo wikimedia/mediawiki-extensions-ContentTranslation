@@ -480,8 +480,9 @@ module.exports = defineComponent( {
 			logEvent( 'click', actionSubtype, 'review_translation_dialog', 'translation_view', translationData );
 		};
 
+		let isQuickSurveyLoaded = false;
 		watch( loadingLeadSectionTranslation, () => {
-			if ( loadingLeadSectionTranslation.value === false ) {
+			if ( loadingLeadSectionTranslation.value === false && !isQuickSurveyLoaded ) {
 				mw.loader.using( 'ext.quicksurveys.init' )
 					.then( () => {
 						if ( mw.extQuickSurveys ) {
@@ -489,8 +490,16 @@ module.exports = defineComponent( {
 							// removed. See: https://phabricator.wikimedia.org/T387846#10604715 for
 							// why we went with it anyway.
 							mw.extQuickSurveys.showSurvey( axSurveyFeedbackName );
+							isQuickSurveyLoaded = true;
 						}
 					} );
+			} else if ( isQuickSurveyLoaded ) {
+				// Remove the QuickSurvey while the lead section is loading
+				isQuickSurveyLoaded = false;
+				const quickSurveyElement = document.querySelector( '.ext-quick-survey-panel' );
+				if ( quickSurveyElement ) {
+					quickSurveyElement.parentElement.remove();
+				}
 			}
 		} );
 
