@@ -67,7 +67,12 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		foreach ( $siteMatrix as $site ) {
 			$code = $site['code'];
 			$subSites = $site['site'];
-			$localname = $site['localname'];
+			$localname = $site['localname'] ?? null;
+			if ( $localname === null ) {
+				// If a site doesn't have a proper localname, skip it
+				// as it's probably not properly configured or disabled.
+				continue;
+			}
 			$wikipediaSiteUrl = null;
 			$wikipediaSiteDb = null;
 			foreach ( $subSites as $subSite ) {
