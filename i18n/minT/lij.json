@@ -45,11 +45,18 @@
 	"mint-view-translation-overlay-feedback-link-label": "Mànda 'n feedback",
 	"ax-article-footer-entrypoint-card-description": "Ciù contegnûo inte de âtre léngoe",
 	"ax-article-footer-entrypoint-card-supporting-text": "Lêzi traduçión outomàtica",
+	"ax-article-footer-entrypoint-card-heading": "Traduçioìn outomàtiche",
 	"mint-explore-languages-header": "In âtre léngoe",
 	"mint-explore-languages-search-input-placeholder": "Tùtte e léngoe pe st'argoménto chi",
 	"mint-explore-languages-explanation-banner-title": "Inpréndi de ciù da-e âtre léngoe",
 	"mint-explore-languages-explanation-banner-text": "I editoî inte de léngoe despæge àn tratòu st'argoménto chi inte de mainêe despæge.",
 	"mint-explore-languages-language-card-container-title": "Léngoe con ciù covertûa pe \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 seçión|$1 seçioìn|0=Nisciùnn-a seçión}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Ciù detagiòu"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Ciù detagiòu",
+	"ax-cx-introduction-dialog-title": "Revédde e corêze e traduçioìn",
+	"ax-cx-introduction-summary": "Megioâ i contegnûi a dispoxiçión inta tò léngoa. Scrîvi 'na mêgio traduçión e pùbricala in sce Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "A traduçión outomàtica a dà 'na panoràmica ùtile, ma a no l'é goæi precîza.",
+	"ax-cx-introduction-information-expand": "I contegnûi scrîti da persónn-e són ciù precîxi e ti peu contriboî a ingrandîli!",
+	"ax-cx-introduction-information-correct": "Vànni aprêuvo a 'na fàçile proçedûa pàsso pe pàsso pe rivédde e corêze e traduçioìn outomàtiche de ògni frâze.",
+	"ax-cx-introduction-dialog-action": "Corêzi e azónzi a-a pàgina"
 }

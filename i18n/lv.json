@@ -102,6 +102,7 @@
 	"cx-dashboard-sidebar-information": "Vairāk par šo funkcionalitāti",
 	"cx-dashboard-sidebar-stats": "Statistika",
 	"cx-dashboard-sidebar-feedback": "Sūtīt mums atsauksmes",
+	"cx-dashboard-sidebar-unifieddashboard": "Piekļūt jaunajai versijai",
 	"cx-translation-filter-published-translations": "Publicēti",
 	"cx-translation-filter-draft-translations": "Iesākti",
 	"cx-translation-filter-suggested-translations": "Ieteikumi",
@@ -469,6 +470,7 @@
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Šomēnes",
 	"cx-sx-dashboard-stats-panel-total-stats-label": "Kopā",
 	"cx-sx-dashboard-banner-learn-more": "Uzzināt vairāk",
+	"cx-sx-dashboard-banner-access-previous": "Piekļūt iepriekšējai versijai",
 	"sx-confirm-back-navigation-dialog-title": "Vai pamest tulkojumu?",
 	"sx-confirm-back-navigation-dialog-body": "Visas veiktās izmaiņas tiks zaudētas.",
 	"sx-confirm-back-navigation-dialog-discard-button-label": "Atmest izmaiņas",
@@ -504,5 +506,7 @@
 	"cx-sx-suggestions-filter-search-input-placeholder": "Meklēt tēmu",
 	"cx-sx-suggestions-filter-search-results-topics-label": "Tēmas",
 	"cx-page-collection-dialog-page-suggestions-header": "Jaunas lapas",
-	"cx-page-collection-dialog-section-suggestions-header": "Jaunas sadaļas"
+	"cx-page-collection-dialog-section-suggestions-header": "Jaunas sadaļas",
+	"cx-sx-suggestion-list-empty-title": "Šobrīd nav ieteikumu",
+	"cx-sx-suggestion-list-empty-description": "Šim filtram mēs neatradām ieteikumus. Varat izmēģināt citu filtru vai meklēt konkrētu rakstu, ko tulkot."
 }

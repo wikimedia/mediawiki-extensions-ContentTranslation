@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "Totes",
 	"mint-home-info-panel-text": "Milliones de topicos sur Wikipedia pote esser traducite automaticamente in $1.",
 	"mint-home-random-topic-button-label": "Topico aleatori",
+	"mint-home-experimental-note": "Le supporto de traduction automatic es experimental. [$1 Saper plus]",
 	"mint-language-selector-title": "Linguas",
 	"mint-language-selector-suggestions-header": "Suggerite",
 	"mint-language-selector-all-languages-header": "Tote le linguas",
@@ -44,11 +45,18 @@
 	"mint-view-translation-overlay-feedback-link-label": "Inviar opinion",
 	"ax-article-footer-entrypoint-card-description": "Plus contento in altere linguas",
 	"ax-article-footer-entrypoint-card-supporting-text": "Leger traduction automatic",
+	"ax-article-footer-entrypoint-card-heading": "Traductiones automatic",
 	"mint-explore-languages-header": "Explorar linguas",
 	"mint-explore-languages-search-input-placeholder": "Tote le linguas pro iste topico",
 	"mint-explore-languages-explanation-banner-title": "Leger plus in altere linguas",
 	"mint-explore-languages-explanation-banner-text": "Le redactores de linguas differente ha tractate iste topico de manieras differente.",
 	"mint-explore-languages-language-card-container-title": "Linguas con le plus grande copertura pro “$1”",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 sectiones|0=Nulle section}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus detaliate"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus detaliate",
+	"ax-cx-introduction-dialog-title": "Revider e corriger traductiones",
+	"ax-cx-introduction-summary": "Meliora le contento disponibile in tu lingua! Scribe un melior traduction e publica lo sur Wikipedia.",
+	"ax-cx-introduction-information-accuracy": "Le traduction automatic forni un vista general utile, ma non es sempre precise.",
+	"ax-cx-introduction-information-expand": "Le contento scribite per humanos es plus digne de fide, e tu pote adjutar a ampliar lo!",
+	"ax-cx-introduction-information-correct": "Seque un simple processo passo a passo pro revider e corriger le traduction automatic de cata phrase.",
+	"ax-cx-introduction-dialog-action": "Corriger e adder al articulo"
 }

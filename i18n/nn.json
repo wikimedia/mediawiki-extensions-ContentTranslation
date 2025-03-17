@@ -46,6 +46,7 @@
 	"tag-contenttranslation-v2-description": "Innhaldet er vorte omsett frå eit anna språk ved hjelp av versjon 2 av innhaldsomsetjingsverktøyet.",
 	"tag-sectiontranslation": "Seksjonsomsetjing",
 	"tag-sectiontranslation-description": "Innhaldet vart omsett frå ein seksjon på eit anna språk med seksjonsomsetjingsverktøyet til innhaldsomsetjaren.",
+	"tag-contenttranslation-high-unmodified-mt-text": "Innhaldsomsetjing: Høg bruk av uendra maskinomsetjing",
 	"cx-source-loading": "Lastar $1",
 	"cx-beta": "Innhaldsomsetjing",
 	"cx-beta-desc": "Eit verktøy til å raskt omsetje sider til ditt språk. Du kan byrje omsetjinga frå [[Special:MyContributions|di bidragsside]] og endre dei med vår side-ved-side-verktøy som er særskild utvikla for omsetjing. I nokre høver kan verktøya berre vera tilgjengelege for særskildre språk.",
