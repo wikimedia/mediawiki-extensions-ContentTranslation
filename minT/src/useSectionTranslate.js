@@ -11,12 +11,44 @@ const sectionTranslations = ref( [] );
  * non-lead section and fill the "sectionTranslations" array with the section translation
  * for the given index.
  *
- * @return {{sectionTranslations: Ref<string[]>, translateSection: Function}}
+ * @return {{sectionTranslations: Ref<string[]>, translateSection: Function, adaptLinks: Function}}
  */
 const useSectionTranslate = () => {
 	const { cxServerToken } = useCXServerToken();
 	const { sourceLanguage, targetLanguage } = useState();
 	const { translate } = useApi();
+	const siteMapper = new mw.cx.SiteMapper();
+
+	const adaptLinks = ( translation ) => {
+		const doc = new DOMParser().parseFromString( translation, 'text/html' );
+		const wikiLanguageCode = siteMapper.getCurrentWikiLanguageCode();
+		Array.prototype.forEach.call( doc.querySelectorAll( 'a[data-cx]' ), ( link ) => {
+			const dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
+			if ( Object.keys( dataCX ).length === 0 ) {
+				return;
+			}
+
+			let hrefPageTitle, linkLanguageCode;
+			if ( dataCX.adapted ) {
+				// Expand the URL completely since the user may not be accessing the content
+				// in the same wiki as the target language
+				hrefPageTitle = dataCX.targetTitle.title;
+				linkLanguageCode = dataCX.targetTitle.pagelanguage;
+			} else {
+				// Link is not adapted. Add the expanded URL to the link.
+				hrefPageTitle = dataCX.sourceTitle.title;
+				linkLanguageCode = dataCX.sourceTitle.pagelanguage;
+			}
+
+			if ( wikiLanguageCode === linkLanguageCode ) {
+				link.setAttribute( 'href', './' + hrefPageTitle );
+			} else {
+				link.setAttribute( 'href', siteMapper.getPageUrl( linkLanguageCode, hrefPageTitle ) );
+			}
+		} );
+
+		return doc.body.innerHTML;
+	};
 
 	const translateSection = ( sections, index ) => {
 		if ( sectionTranslations.value[ index ] ) {
@@ -34,7 +66,7 @@ const useSectionTranslate = () => {
 			cxServerToken.value
 		)
 			.then( ( translation ) => {
-				sectionTranslations.value[ index ] = translation;
+				sectionTranslations.value[ index ] = adaptLinks( translation );
 			} )
 			.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
 	};
@@ -43,7 +75,7 @@ const useSectionTranslate = () => {
 		sectionTranslations.value = [];
 	} );
 
-	return { translateSection, sectionTranslations };
+	return { translateSection, sectionTranslations, adaptLinks };
 };
 
 module.exports = useSectionTranslate;
