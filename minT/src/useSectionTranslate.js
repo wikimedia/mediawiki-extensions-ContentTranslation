@@ -1,4 +1,4 @@
-const { ref } = require( 'vue' );
+const { ref, watch } = require( 'vue' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const useState = require( './useState.js' );
 const useApi = require( './useApi.js' );
@@ -52,6 +52,10 @@ const useSectionTranslate = () => {
 			} )
 			.catch( ( error ) => mw.log.error( `Error while translating section '${ section.title }'`, error ) );
 	};
+
+	watch( [ sourceLanguage, targetLanguage ], () => {
+		sectionTranslations.value = [];
+	} );
 
 	return { translateSection, hideUnadaptedLinks, sectionTranslations };
 };
