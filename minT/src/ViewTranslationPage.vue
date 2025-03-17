@@ -57,7 +57,7 @@
 		</div>
 		<!-- eslint-disable vue/no-v-html -->
 		<div
-			class="translation-viewer__contents"
+			class="translation-viewer__contents mw-parser-output"
 			v-html="structuredLeadSectionTranslation"
 		>
 		</div>
@@ -69,7 +69,7 @@
 		<div
 			v-if="!loadingLeadSectionTranslation && sections.length"
 			id="ax-translation-viewer-section-container"
-			class="translation-viewer__sections-container"
+			class="translation-viewer__sections-container mw-parser-output"
 		>
 			<div v-if="!loadingSectionTitleTranslations">
 				<div

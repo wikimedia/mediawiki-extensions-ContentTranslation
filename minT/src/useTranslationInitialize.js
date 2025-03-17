@@ -67,6 +67,15 @@ const useTranslationInitialize = () => {
 				const leadSectionChildren = Array.from( leadSection.children );
 				const nodes = filterHiddenAndTransclusionNodes( leadSectionChildren );
 
+				// Combine and append all style elements from the document
+				const styleElements = Array.from( doc.value.querySelectorAll( 'style' ) );
+				const combinedStyle = styleElements.map(
+					( element ) => element.textContent
+				).join( '' );
+				const styleTag = document.createElement( 'style' );
+				styleTag.textContent = combinedStyle;
+				document.head.appendChild( styleTag );
+
 				for ( let i = 0; i < nodes.length; i++ ) {
 					leadSectionTranslation.value[ i ] = null;
 
