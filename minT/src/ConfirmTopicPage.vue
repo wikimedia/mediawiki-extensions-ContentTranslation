@@ -257,7 +257,7 @@ module.exports = defineComponent( {
 		};
 		const openTargetLanguageSelector = () => {
 			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'article_confirmation_view' ), languages );
+			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'article_confirmation_view' ), languages, 'confirm' );
 		};
 
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );

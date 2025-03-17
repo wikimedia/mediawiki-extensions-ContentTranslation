@@ -140,13 +140,13 @@ module.exports = defineComponent( {
 
 		const { mintLanguages } = useMintLanguages();
 		const openSourceLanguageSelector = () => {
-			openLanguageSelector( false, onSourceLanguageUpdate.bind( null, 'translation_view_menu' ), props.pageResult.languages );
+			openLanguageSelector( false, onSourceLanguageUpdate.bind( null, 'translation_view_menu' ), props.pageResult.languages, 'translation' );
 			closeOverlay();
 		};
 
 		const openTargetLanguageSelector = () => {
 			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'translation_view_menu' ), languages );
+			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'translation_view_menu' ), languages, 'translation' );
 			closeOverlay();
 		};
 

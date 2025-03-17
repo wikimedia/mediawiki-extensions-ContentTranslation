@@ -42,7 +42,7 @@ const addLanguageButtonEventListener = (
 	allOptionEnabled = false
 ) => {
 	button.addEventListener( 'click', () => {
-		openLanguageSelector( allOptionEnabled, onSelectCallback, languages.value );
+		openLanguageSelector( allOptionEnabled, onSelectCallback, languages.value, 'home' );
 	} );
 };
 

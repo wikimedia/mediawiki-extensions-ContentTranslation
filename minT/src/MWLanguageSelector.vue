@@ -163,6 +163,10 @@ module.exports = defineComponent( {
 		onSelect: {
 			type: Function,
 			default: null
+		},
+		previousStep: {
+			type: String,
+			required: true
 		}
 	},
 	emits: [ 'select', 'close' ],
@@ -185,7 +189,7 @@ module.exports = defineComponent( {
 
 		const close = () => {
 			context.emit( 'close' );
-			closeLanguageSelector();
+			closeLanguageSelector( props.previousStep );
 		};
 
 		const select = ( language ) => {

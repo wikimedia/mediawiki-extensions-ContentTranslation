@@ -1,7 +1,7 @@
 'use strict';
 
 const { getCurrentInstance, createMwApp } = require( 'vue' );
-const { languageSelectorPlaceholderId, componentPlaceholderId } = require( './constants.js' );
+const { homeContainerId, languageSelectorPlaceholderId, componentPlaceholderId } = require( './constants.js' );
 const useUrlHelper = require( './useUrlHelper.js' );
 
 const routes = {
@@ -9,6 +9,11 @@ const routes = {
 	confirm: './ConfirmTopicPage.vue',
 	exploreLanguages: './ExploreLanguagesPage.vue',
 	translation: './ViewTranslationPage.vue'
+};
+
+const setElementDisplay = ( id, value ) => {
+	const homeContainer = document.getElementById( id );
+	homeContainer.style.display = value;
 };
 
 const useRouter = () => {
@@ -24,38 +29,43 @@ const useRouter = () => {
 			app.unmount();
 		}
 		createMwApp( routeComponent, props ).mount( `#${ componentPlaceholderId }` );
-		const componentPlaceholder = document.getElementById( componentPlaceholderId );
-		componentPlaceholder.style.display = displayValue;
+
+		setElementDisplay( homeContainerId, 'none' );
+		setElementDisplay( componentPlaceholderId, displayValue );
 	};
 
 	const goToHomePage = () => {
-		const componentPlaceholder = document.getElementById( componentPlaceholderId );
+		setElementDisplay( homeContainerId, 'block' );
+		setElementDisplay( componentPlaceholderId, 'none' );
 
-		componentPlaceholder.style.display = 'none';
 		clearURLParams();
 		app.unmount();
 	};
 
-	const openLanguageSelector = ( allOptionEnabled, onSelectCallback, languages ) => {
+	const openLanguageSelector = ( allOptionEnabled, onSelectCallback, languages, step ) => {
 		const MWLanguageSelector = require( './MWLanguageSelector.vue' );
 
 		const props = {
 			placeholder: mw.msg( 'mint-language-selector-input-placeholder' ),
 			languages,
 			allOptionEnabled: allOptionEnabled,
-			onSelect: onSelectCallback
+			onSelect: onSelectCallback,
+			previousStep: step
 		};
 		createMwApp( MWLanguageSelector, props ).mount( `#${ languageSelectorPlaceholderId }` );
 
-		const componentPlaceholder = document.getElementById( languageSelectorPlaceholderId );
-		componentPlaceholder.style.display = 'block';
+		setElementDisplay( homeContainerId, 'none' );
+		setElementDisplay( componentPlaceholderId, 'none' );
+		setElementDisplay( languageSelectorPlaceholderId, 'block' );
 	};
 
-	const closeLanguageSelector = () => {
-		const languageSelectorPlaceholder = document.getElementById(
-			languageSelectorPlaceholderId
-		);
-		languageSelectorPlaceholder.style.display = 'none';
+	const closeLanguageSelector = ( previousStep ) => {
+		if ( previousStep === 'home' ) {
+			setElementDisplay( homeContainerId, 'block' );
+		} else {
+			setElementDisplay( componentPlaceholderId, 'block' );
+		}
+		setElementDisplay( languageSelectorPlaceholderId, 'none' );
 
 		app.unmount();
 	};
