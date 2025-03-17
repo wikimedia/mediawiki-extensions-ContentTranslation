@@ -90,6 +90,10 @@ module.exports = defineComponent( {
 }
 
 .ax-cx-introduction-summary {
+	.cdx-dialog__body > p {
+		margin-bottom: @spacing-50;
+	}
+
 	&__information {
 		display: flex;
 		gap: 10px;
@@ -97,10 +101,6 @@ module.exports = defineComponent( {
 		p {
 			margin-top: 0;
 		}
-	}
-
-	p {
-		margin-bottom: 1em;
 	}
 }
 </style>
