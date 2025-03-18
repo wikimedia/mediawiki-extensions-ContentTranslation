@@ -58,5 +58,8 @@
 	"ax-cx-introduction-information-accuracy": "Die automatische Übersetzung bietet einen nützlichen Überblick, ist aber nicht immer genau.",
 	"ax-cx-introduction-information-expand": "Von Menschen geschriebener Inhalt ist zuverlässiger, und du kannst helfen, ihn zu erweitern!",
 	"ax-cx-introduction-information-correct": "Folge einem einfachen Schritt-für-Schritt-Verfahren, um die automatischen Übersetzungen für jeden Satz zu überprüfen und zu korrigieren.",
-	"ax-cx-introduction-dialog-action": "Korrigiere und ergänze den Artikel"
+	"ax-cx-introduction-dialog-action": "Korrigiere und ergänze den Artikel",
+	"ax-translation-view-feedback-title": "Hilft dir diese automatische Übersetzung, mehr zu erfahren?",
+	"ax-translation-view-feedback-positive": "Ja",
+	"ax-translation-view-feedback-negative": "Nein"
 }

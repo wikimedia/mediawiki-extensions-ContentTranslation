@@ -56,5 +56,20 @@
 	"ax-cx-introduction-dialog-title": "Arvioi ja korjaa käännöksiä",
 	"ax-cx-introduction-summary": "Paranna omalla kielelläsi saatavilla olevaa sisältöä. Kirjoita parempi käännös ja julkaise se Wikipediassa.",
 	"ax-cx-introduction-information-accuracy": "Automaattinen käännös tarjoaa hyödyllisen yleiskuvan, mutta se ei aina ole tarkka.",
-	"ax-cx-introduction-information-expand": "Ihmisten kirjoittama sisältö on luotettavampaa, ja sinä voit auttaa sen laajentamisessa!"
+	"ax-cx-introduction-information-expand": "Ihmisten kirjoittama sisältö on luotettavampaa, ja sinä voit auttaa sen laajentamisessa!",
+	"ax-translation-view-feedback-title": "Auttaako tämä automaattinen käännös sinua oppimaan lisää?",
+	"ax-translation-view-feedback-positive": "Kyllä",
+	"ax-translation-view-feedback-negative": "Ei",
+	"ax-translation-view-feedback-privacy-statement": "Lisätätietoja löytyy tämän kyselyn  [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy tietosuojakäytännöstä].",
+	"ax-translation-view-feedback-details-question": "Minkä seuraavien vaihtoehtojen kanssa olet samaa mieltä?",
+	"ax-translation-view-feedback-positive-missing-information": "Sain pääsyn tietoihin, joita on vaikea löytää muualta.",
+	"ax-translation-view-feedback-positive-translation-quality": "Käännöksen laatu on riittävän hyvä sisällön ymmärtämiseen.",
+	"ax-translation-view-feedback-positive-quick-overview": "Saan nopeasti yleiskäsityksen aiheesta.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Tekniset seikat, kuten latausaika, eivät hankaloittaneet oppimista.",
+	"ax-translation-view-feedback-negative-missing-information": "Saan parempaa tietoa muualta.",
+	"ax-translation-view-feedback-negative-translation-quality": "Käännöksen laatu ei ole riittävän hyvä sisällön ymmärtämiseen.",
+	"ax-translation-view-feedback-negative-quick-overview": "En voi saada nopeasti yleiskäsitystä aiheesta.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Tekniset seikat, kuten latausaika, hankaloittivat oppimista.",
+	"ax-translation-view-feedback-confirm-title": "Palaute",
+	"ax-translation-view-feedback-confirm-description": "Kiitos avustasi! Voit jakaa lisää ajatuksia tästä kokeilusta [https://www.mediawiki.org/wiki/Talk:MinT projektin keskustelusivulla]."
 }
