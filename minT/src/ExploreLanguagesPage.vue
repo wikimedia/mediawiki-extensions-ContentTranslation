@@ -6,10 +6,10 @@
 				<span> {{ $i18n( 'mint-explore-languages-header' ).text() }} </span>
 			</div>
 			<cdx-search-input
-				v-model="searchQuery"
+				v-model="editableResult"
 				class="explore-languages-input"
 				:placeholder="$i18n( 'mint-explore-languages-search-input-placeholder' )"
-				:disabled="loading"
+				@click="openMWLanguageSelector"
 			></cdx-search-input>
 		</div>
 		<div class="explore-languages-body">
@@ -85,6 +85,17 @@
 						</div>
 					</div>
 				</div>
+				<cdx-button
+					v-if="pageResult.langLinksCount > sourceArticleLimit && !loading && !error"
+					size="large"
+					@click="openMWLanguageSelector">
+					{{
+						$i18n(
+							'mint-explore-languages-more-results', ( pageResult.langLinksCount - sourceArticleLimit
+							) )
+					}}
+					<cdx-icon :icon="cdxIconNext"></cdx-icon>
+				</cdx-button>
 			</div>
 		</div>
 	</div>
@@ -92,18 +103,16 @@
 
 <script>
 const { defineComponent, ref, watch, computed } = require( 'vue' );
-const { cdxIconArrowPrevious, cdxIconRobot, cdxIconEllipsis } = require( './icons.json' );
+const { cdxIconArrowPrevious, cdxIconRobot, cdxIconEllipsis, cdxIconNext } = require( './icons.json' );
 const { CdxIcon, CdxButton, CdxMessage, CdxInfoChip, CdxSearchInput, CdxCard, CdxRadio } = require( '@wikimedia/codex' );
 const useRouter = require( './useRouter.js' );
 const useApi = require( './useApi.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const useState = require( './useState.js' );
-const useLanguageSearch = require( './useLanguageSearch.js' );
 const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 const PageSearchResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
-const debounce = require( './debounce.js' );
 
 // @vue/component
 module.exports = defineComponent( {
@@ -118,11 +127,10 @@ module.exports = defineComponent( {
 		}
 	},
 	setup( props ) {
-		const searchQuery = ref( null );
+		const sourceArticleLimit = 15;
 
 		const { navigateToPage, openLanguageSelector } = useRouter();
 		const { fetchToken } = useCXServerToken();
-		const { searchByQuery, getSearchApi } = useLanguageSearch();
 		const { onSourceLanguageUpdate } = useLanguagesUpdate();
 
 		const editableResult = ref( props.pageResult );
@@ -137,32 +145,7 @@ module.exports = defineComponent( {
 		const { sourceLanguage, targetLanguage } = useState();
 		const sourceArticleInfos = ref( [] );
 
-		const availableSourceLanguages = computed(
-			() => sourceArticleInfos.value.map( ( info ) => info.language )
-		);
-
-		const defaultSearchApi = getSearchApi();
-
-		const searchResults = ref( [] );
-		const onQueryChange = async () => {
-			searchResults.value = await searchByQuery(
-				availableSourceLanguages.value,
-				searchQuery.value,
-				defaultSearchApi
-			);
-		};
-
-		watch( searchQuery, debounce( onQueryChange, 600 ) );
-
-		const activeSourceArticleInfos = computed( () => {
-			if ( !searchQuery.value ) {
-				return sourceArticleInfos.value;
-			}
-
-			return sourceArticleInfos.value.filter(
-				( articleInfo ) => searchResults.value.includes( articleInfo.language )
-			);
-		} );
+		const activeSourceArticleInfos = computed( () => sourceArticleInfos.value );
 
 		const selectLanguage = ( language ) => {
 			onSourceLanguageUpdate( 'article_confirmation_view', language );
@@ -184,10 +167,16 @@ module.exports = defineComponent( {
 		const sectionsLoaded = ref( {} );
 		const sectionTranslations = ref( {} );
 
-		const initialPromises = [ fetchDenseArticles( props.pageResult.qid ), fetchToken() ];
+		const initialPromises = [
+			fetchDenseArticles(
+				props.pageResult.qid,
+				sourceArticleLimit
+			),
+			fetchToken()
+		];
 
-		Promise.all( initialPromises ).then( ( [ sizeInfo ] ) => {
-			sourceArticleInfos.value = sizeInfo.filter(
+		Promise.all( initialPromises ).then( ( [ languages ] ) => {
+			sourceArticleInfos.value = languages.filter(
 				( sourceArticleInfo ) => sourceArticleInfo.sectionTitles.length > 0 ||
               sourceArticleInfo.language === sourceLanguage.value
 			);
@@ -290,14 +279,15 @@ module.exports = defineComponent( {
 			cdxIconArrowPrevious,
 			cdxIconRobot,
 			cdxIconEllipsis,
+			cdxIconNext,
 			getTranslatedSections,
 			goToConfirm,
-			searchQuery,
 			isSelected,
 			loading,
 			error,
 			activeSourceArticleInfos,
 			sourceLanguage,
+			sourceArticleLimit,
 			selectLanguage,
 			createCardElementRef,
 			openMWLanguageSelector
@@ -356,6 +346,17 @@ module.exports = defineComponent( {
 
     &__language-card-container {
       margin-top: @spacing-100;
+
+      .cdx-button {
+        width: 100%;
+        justify-content: normal;
+        display: flex;
+        cursor: pointer;
+      }
+
+      .cdx-icon {
+        margin-inline-start: auto;
+      }
     }
 
     &__language-card {

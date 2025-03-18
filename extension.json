@@ -1949,7 +1949,8 @@
 						"cdxIconShare",
 						"cdxIconFeedback",
 						"cdxIconEllipsis",
-						"cdxIconReload"
+						"cdxIconReload",
+						"cdxIconNext"
 					]
 				},
 				{
@@ -2009,6 +2010,7 @@
 				"mint-explore-languages-language-card-most-detailed-chip-label",
 				"mint-explore-languages-loading-error",
 				"mint-explore-languages-open-language-selector",
+				"mint-explore-languages-more-results",
 				"ax-cx-introduction-dialog-title",
 				"ax-cx-introduction-summary",
 				"ax-cx-introduction-information-accuracy",

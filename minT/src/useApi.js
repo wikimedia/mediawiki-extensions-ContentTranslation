@@ -202,22 +202,24 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
  * available languages, along with the section titles for each language.
  *
  * @param {string} qid
+ * @param {integer} limit
  * @return {Promise<*>}
  */
-const fetchDenseArticles = async ( qid ) => {
+const fetchDenseArticles = async ( qid, limit ) => {
 	const params = {
 		action: 'query',
 		format: 'json',
 		formatversion: 2,
 		list: 'automatictranslationdenselanguages',
 		'section-titles': true,
-		qid
+		qid,
+		limit: limit
 	};
 
 	const api = new mw.Api();
 
 	return api.get( params ).then(
-		( response ) => response.query.automatictranslationdenselanguages.sizeInfo
+		( response ) => response.query.automatictranslationdenselanguages.languages
 	);
 };
 

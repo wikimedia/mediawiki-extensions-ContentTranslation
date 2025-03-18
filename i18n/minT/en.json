@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Most detailed",
 	"mint-explore-languages-loading-error": "Failed to preview the contents available in each language. Select a language to use as the source for the automatic translation.",
 	"mint-explore-languages-open-language-selector": "Select language",
+	"mint-explore-languages-more-results": "$1 more {{PLURAL:$1|language|languages}} available",
 	"ax-cx-introduction-dialog-title": "Review and fix translations",
 	"ax-cx-introduction-summary": "Improve the content available in your language. Write a better translation, and publish it on Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Automatic translation provides a useful overview, but it is not always accurate.",

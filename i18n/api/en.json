@@ -162,5 +162,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "A boolean value indicating whether the section titles should be included in the response.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Fetch the list of sitelinks for the 'Moon' article in all available languages, sorted by article size.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Fetch the list of sitelinks for the 'Moon' article, including the section titles, in all available languages, sorted by article size.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Request to fetch sitelinks from Wikidata failed"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Request to fetch sitelinks from Wikidata failed",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "The maximum number of sitelinks to fetch."
 }

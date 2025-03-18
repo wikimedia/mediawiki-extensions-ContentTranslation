@@ -12,7 +12,7 @@ use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * Api module for fetching the list of sitelinks for the article that corresponds
- * to the Wikidata ID that is given as request parameter, ordered by article size.
+ * to the Wikidata ID, ordered by article size, with server-side limiting and searching.
  *
  * @author Nik Gkountas
  * @license GPL-2.0-or-later
@@ -23,6 +23,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	private const WIKIPEDIA_API_URL = 'https://en.wikipedia.org/w/api.php';
 	private const WIKIDATA_API_URL = 'https://www.wikidata.org/w/api.php';
 	private const WIKIPEDIA_URL_FRAGMENT = 'wikipedia';
+	private const ARTICLE_SITE_LINK_LIMIT = 15;
 
 	private HttpRequestFactory $httpRequestFactory;
 	private WANObjectCache $cache;
@@ -39,7 +40,13 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	}
 
 	/**
-	 * @return array e.g. [ 'aawiki' => [ 'code' => 'aa', 'url' => 'https://aa.wikipedia.org/w/api.php' ]
+	 * Fetch Wikipedia sites from the sitematrix API.
+	 * @return array
+	 * e.g. [
+	 *  'aawiki' => [
+	 *    'code' => 'aa', 'url' => 'https://aa.wikipedia.org/w/api.php', 'localname' => 'Afar'
+	 *    ]
+	 *  ]
 	 */
 	private function fetchWikipediaSites(): array {
 		$queryParams = [
@@ -104,8 +111,15 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	}
 
 	/**
+	 * Fetch site links for a given Wikidata ID.
 	 * @param string $qid
-	 * @return array ['site' => string, 'title' => string, 'siteUrl' => string, 'siteCode' => string]
+	 * @return array [
+	 *  'site' => string,
+	 *  'title' => string,
+	 *  'siteUrl' => string,
+	 *  'siteCode' => string,
+	 *  'localname' => string
+	 * ]
 	 */
 	private function getArticleSiteLinks( string $qid ): array {
 		$queryParams = [
@@ -148,14 +162,20 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	}
 
 	/**
+	 * Get size information for articles, with server-side filtering and limiting.
 	 * @param string $qid
-	 * @return array ['site', 'title', 'siteUrl', 'siteCode', 'sections' => int, 'size' => int ]
+	 * @return array ['languages' => array, 'total' => int]
 	 */
 	private function getArticleSizeInformation( string $qid ): array {
+		$params = $this->extractRequestParams();
+		$limit = $params['limit'] ?? self::ARTICLE_SITE_LINK_LIMIT;
+
 		$siteLinks = $this->getArticleSiteLinks( $qid );
 		if ( !$siteLinks ) {
-			return [];
+			return [ 'languages' => [], 'total' => 0 ];
 		}
+
+		$total = count( $siteLinks );
 
 		$requests = array_map( static function ( $siteLink ) {
 			$queryParams = [
@@ -224,7 +244,14 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 			return $b['size'] <=> $a['size'];
 		} );
 
-		return $sizeInfos;
+		$limitedSizeInfos = ( count( $sizeInfos ) >= $limit )
+			? array_slice( $sizeInfos, 0, 10 )
+			: $sizeInfos;
+
+		return [
+			'languages' => $limitedSizeInfos,
+			'total' => $total
+		];
 	}
 
 	public function execute() {
@@ -240,10 +267,10 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 		$params = $this->extractRequestParams();
 		$qid = $params['qid'];
 
-		$sizeInformationArray = $this->getArticleSizeInformation( $qid );
-
+		$resultData = $this->getArticleSizeInformation( $qid );
 		$result = $this->getResult();
-		$result->addValue( [ 'query', $this->getModuleName() ], 'sizeInfo', $sizeInformationArray );
+		$result->addValue( [ 'query', $this->getModuleName() ], 'languages', $resultData['languages'] );
+		$result->addValue( [ 'query', $this->getModuleName() ], 'total', $resultData['total'] );
 	}
 
 	/** @inheritDoc */
@@ -256,6 +283,10 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 			'section-titles' => [
 				ParamValidator::PARAM_TYPE => 'boolean',
 				ParamValidator::PARAM_DEFAULT => false
+			],
+			'limit' => [
+				ParamValidator::PARAM_TYPE => 'integer',
+				ParamValidator::PARAM_DEFAULT => self::ARTICLE_SITE_LINK_LIMIT
 			]
 		];
 	}
@@ -263,7 +294,7 @@ class ApiQueryAutomaticTranslationDenseLanguages extends ApiQueryGeneratorBase {
 	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
-			'action=query&list=automatictranslationdenselanguages&qid=Q405' =>
+			'action=query&list=automatictranslationdenselanguages&qid=Q405&limit=15' =>
 				'apihelp-query+automatictranslationdenselanguages-example-1',
 			'action=query&list=automatictranslationdenselanguages&qid=Q405&section-titles=true' =>
 				'apihelp-query+automatictranslationdenselanguages-example-2'

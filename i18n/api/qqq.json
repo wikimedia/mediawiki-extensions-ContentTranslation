@@ -159,5 +159,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "{{doc-apihelp-param|query+automatictranslationdenselanguages|section-titles}}",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "{{doc-apihelp-example|query+automatictranslationdenselanguages}}",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "{{doc-apierror}}"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "{{doc-apierror}}",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "{{doc-apihelp-param|query+automatictranslationdenselanguages|limit}}"
 }
