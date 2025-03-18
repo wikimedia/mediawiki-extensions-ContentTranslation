@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Ajeje Brazorf",
-			"Sarvaturi"
+			"Sarvaturi",
+			"GianAntonucci"
 		]
 	},
 	"cx": "Traduci pàggina",
@@ -42,7 +43,7 @@
 	"cx-stats-local-published": "$1 ($3) n $2",
 	"cx-stats-grouping-title": "{{PLURAL:$1|$1 traduzzioni}}",
 	"echo-category-title-cx": "Traduzzioni",
-	"cx-contributions-link": "Li tò cuntribbuti",
+	"cx-contributions-link": "Li to cuntribbuti",
 	"cx-your-translations-link": "{{GENDER:$1|Li tò traduzzioni}}",
 	"cx-suggestionlist-expand": "Talìa tuttu",
 	"cx-tools-linter-errors-count": "{{PLURAL:$1|$1 erruri|$1 errura}}",
@@ -51,7 +52,7 @@
 	"cx-tools-linter-template-add-new": "Agghiunci novu template",
 	"cx-tools-linter-incomplete-template": "Template nun cumpretu",
 	"cx-tools-linter-restart-translation-cancel": "Annulla",
-	"cx-translator-header": "Li tò statìstichi",
+	"cx-translator-header": "Li to statìstichi",
 	"cx-translator-month-stats-label": "Stu misi",
 	"cx-translator-total-translations-label": "Tutali",
 	"cx-publish-destination-namespace-main": "Pàggina nova",
@@ -73,7 +74,7 @@
 	"cx-sx-content-comparator-content-header-translate-button-label": "Traduci",
 	"cx-sx-editor-original-panel-label": "Orìgginali",
 	"cx-sx-publisher-review-info-learn-more": "Àutri nfurmazzioni",
-	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "La tò traduzzioni",
+	"cx-sx-sentence-selector-translated-segment-modification-percentage-header": "La to traduzzioni",
 	"cx-sx-sentence-selector-translated-segment-sentence-option": "Frasi",
 	"cx-sx-sentence-selector-translated-segment-paragraph-option": "Paragrafu",
 	"cx-sx-followup-feedback-new-indicator": "novu",
