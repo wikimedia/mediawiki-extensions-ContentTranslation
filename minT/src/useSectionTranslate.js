@@ -23,6 +23,7 @@ const useSectionTranslate = () => {
 		const doc = new DOMParser().parseFromString( translation, 'text/html' );
 		const wikiLanguageCode = siteMapper.getCurrentWikiLanguageCode();
 		Array.prototype.forEach.call( doc.querySelectorAll( 'a[data-cx]' ), ( link ) => {
+			link.setAttribute( 'target', '_blank' );
 			const dataCX = JSON.parse( link.getAttribute( 'data-cx' ) || '{}' );
 			if ( Object.keys( dataCX ).length === 0 ) {
 				return;
