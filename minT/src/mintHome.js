@@ -14,12 +14,14 @@ const useLanguagesUpdate = require( './useLanguagesUpdate.js' );
 
 const { logEvent } = useEventLogging();
 
-// TODO: Use the proper action source for different entrypoints
+const actionSourceMap = {
+	shared: 'external_shared_automatic_translation',
+	languageselector: 'language_selector',
+	articlefooter: 'article_footer'
+};
 const urlParams = new URLSearchParams( location.search );
-let actionSource = 'mt_home';
-if ( urlParams.has( 'shared' ) ) {
-	actionSource = 'external_shared_automatic_translation';
-}
+const actionSourceParam = urlParams.get( 'source' ) || 'direct';
+const actionSource = actionSourceMap[ actionSourceParam ] || 'direct';
 logEvent( 'session_init', null, actionSource, null );
 
 const { navigateToPage, openLanguageSelector } = useRouter();

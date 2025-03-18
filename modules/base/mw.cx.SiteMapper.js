@@ -256,20 +256,22 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
  * @param {string} sourceLanguage
  * @param {string} targetLanguage
  * @param {"confirm"|"translation"} step
+ * @param {Object} [extra]
  * @return {string}
  */
 mw.cx.SiteMapper.prototype.getMintUrl = function (
 	sourceTitle,
 	sourceLanguage,
 	targetLanguage,
-	step
+	step,
+	extra = {}
 ) {
-	const queryParams = {
+	const queryParams = Object.assign( {
 		page: sourceTitle,
 		from: sourceLanguage,
 		to: targetLanguage,
 		step
-	};
+	}, extra );
 
 	const mintPage = 'Special:AutomaticTranslation';
 	if ( this.getCurrentWikiLanguageCode() !== targetLanguage ) {

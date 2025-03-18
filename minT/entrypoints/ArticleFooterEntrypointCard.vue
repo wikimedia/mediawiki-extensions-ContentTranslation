@@ -58,7 +58,8 @@ module.exports = defineComponent( {
 			props.sourceTitle,
 			props.sourceLanguage,
 			mw.config.get( 'wgContentLanguage' ),
-			'confirm'
+			'confirm',
+			{ source: 'articlefooter' }
 		);
 
 		return {

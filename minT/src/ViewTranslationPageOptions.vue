@@ -158,7 +158,7 @@ module.exports = defineComponent( {
 		const isShareSupported = navigator.canShare && navigator.canShare( { url: location.href } );
 		const shareTranslation = () => {
 			const url = new URL( location.href );
-			url.searchParams.set( 'shared', true );
+			url.searchParams.set( 'source', 'shared' );
 			context.emit( 'share-translation' );
 
 			navigator.share( { url: url.href } );
