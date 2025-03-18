@@ -28,22 +28,25 @@ const useSectionTranslate = () => {
 				return;
 			}
 
-			let hrefPageTitle, linkLanguageCode;
 			if ( dataCX.adapted ) {
 				// Expand the URL completely since the user may not be accessing the content
 				// in the same wiki as the target language
-				hrefPageTitle = dataCX.targetTitle.title;
-				linkLanguageCode = dataCX.targetTitle.pagelanguage;
+				const hrefPageTitle = dataCX.targetTitle.title;
+				const linkLanguageCode = dataCX.targetTitle.pagelanguage;
+				if ( wikiLanguageCode === linkLanguageCode ) {
+					link.setAttribute( 'href', './' + hrefPageTitle );
+				} else {
+					link.setAttribute( 'href', siteMapper.getPageUrl( linkLanguageCode, hrefPageTitle ) );
+				}
 			} else {
-				// Link is not adapted. Add the expanded URL to the link.
-				hrefPageTitle = dataCX.sourceTitle.title;
-				linkLanguageCode = dataCX.sourceTitle.pagelanguage;
-			}
-
-			if ( wikiLanguageCode === linkLanguageCode ) {
-				link.setAttribute( 'href', './' + hrefPageTitle );
-			} else {
-				link.setAttribute( 'href', siteMapper.getPageUrl( linkLanguageCode, hrefPageTitle ) );
+				// Link is not adapted. Add link to Special:AutomaticTranslation
+				const linkURL = siteMapper.getMintUrl(
+					dataCX.sourceTitle.title,
+					dataCX.sourceTitle.pagelanguage,
+					targetLanguage.value,
+					'translation'
+				);
+				link.setAttribute( 'href', linkURL );
 			}
 		} );
 
