@@ -279,6 +279,7 @@
 	"cx-mt-failed": "Konekäännös epäonnistui",
 	"cx-unreviewed-translation-category": "Sivut, joissa on tarkistamattomia käännöksiä",
 	"cx-unreviewed-translation-category-desc": "Sisällön kääntäminen -työkalulla käännetyt sivut, joissa on paljon tarkastamatonta sisältöä",
+	"cx-preference-enable-entrypoints": "Näytä linkki [[$1|käännöksen aloittamiseksi]] Muokkaukset-sivulla, kielilistassa ja uusia sivuja aloittaessa.",
 	"cx-feature-discovery-title": "Käännä koska tahansa",
 	"cx-feature-discovery-content": "Voit aloittaa tai jatkaa kääntämistä milloin tahansa sivulla {{int:mycontris}}",
 	"cx-feature-discovery-dismiss": "Ok, selvä",
