@@ -46,9 +46,13 @@
 	"mint-view-translation-overlay-feedback-link-label": "フィードバックを送信",
 	"ax-article-footer-entrypoint-card-description": "他言語でコンテンツをもっと見る",
 	"ax-article-footer-entrypoint-card-supporting-text": "自動翻訳で読む",
+	"ax-article-footer-entrypoint-card-heading": "自動翻訳",
 	"mint-explore-languages-header": "言語を探す",
 	"mint-explore-languages-search-input-placeholder": "このトピックのすべての言語",
 	"mint-explore-languages-explanation-banner-title": "他の言語からさらに学ぶ",
 	"mint-explore-languages-explanation-banner-text": "様々な言語の編集者がこのトピックを様々な方法で取り扱っています。",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "最も詳細"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "最も詳細",
+	"ax-translation-view-feedback-positive": "はい",
+	"ax-translation-view-feedback-negative": "いいえ",
+	"ax-translation-view-feedback-confirm-title": "フィードバック"
 }

@@ -59,5 +59,20 @@
 	"ax-cx-introduction-information-accuracy": "Automatische vertaling geeft een nuttig overzicht, maar is niet altijd nauwkeurig.",
 	"ax-cx-introduction-information-expand": "Door mensen geschreven tekst is betrouwbaarder, en u kunt helpen bij het uitbreiden ervan!",
 	"ax-cx-introduction-information-correct": "Volg een eenvoudig, stapsgewijs proces om automatische vertalingen voor elke zin te controleren en te verbeteren.",
-	"ax-cx-introduction-dialog-action": "Verbeteren en aan het artikel toevoegen"
+	"ax-cx-introduction-dialog-action": "Verbeteren en aan het artikel toevoegen",
+	"ax-translation-view-feedback-title": "Helpt deze automatische vertaling u om meer te leren?",
+	"ax-translation-view-feedback-positive": "Ja",
+	"ax-translation-view-feedback-negative": "Nee",
+	"ax-translation-view-feedback-privacy-statement": "Voor meer informatie kunt u de [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy privacyverklaring] van deze enquête raadplegen.",
+	"ax-translation-view-feedback-details-question": "Met welke van de volgende stellingen bent u het eens?",
+	"ax-translation-view-feedback-positive-missing-information": "Heeft mij toegang gegeven tot informatie die elders moeilijk te vinden is.",
+	"ax-translation-view-feedback-positive-translation-quality": "De kwaliteit van de vertaling is goed genoeg om de inhoud met zekerheid te kunnen begrijpen.",
+	"ax-translation-view-feedback-positive-quick-overview": "Ik kan me snel een algemeen beeld vormen van het onderwerp.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Technische aspecten zoals laadtijd vormden geen belemmering voor het leren.",
+	"ax-translation-view-feedback-negative-missing-information": "Ik kan elders betere informatie krijgen.",
+	"ax-translation-view-feedback-negative-translation-quality": "De kwaliteit van de vertaling is niet goed genoeg om de inhoud met zekerheid te kunnen begrijpen.",
+	"ax-translation-view-feedback-negative-quick-overview": "Ik kan me niet snel een algemeen beeld vormen van het onderwerp.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Technische aspecten zoals laadtijd stonden het leren in de weg.",
+	"ax-translation-view-feedback-confirm-title": "Terugkoppeling",
+	"ax-translation-view-feedback-confirm-description": "Bedankt voor de hulp! U kunt andere gedachten over dit experiment delen op [https://www.mediawiki.org/wiki/Talk:MinT de overlegpagina van het project]."
 }

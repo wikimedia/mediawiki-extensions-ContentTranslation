@@ -36,5 +36,7 @@
 	"ax-cx-introduction-dialog-title": "Пронађите и исправите преводе",
 	"ax-cx-introduction-information-accuracy": "Аутоматски превод пружа користан преглед, али није увек тачан.",
 	"ax-cx-introduction-information-expand": "Садржај који пишу људи је поузданији и Ви можете помоћи у допуни истог!",
-	"ax-cx-introduction-dialog-action": "Исправи и додај у чланак"
+	"ax-cx-introduction-dialog-action": "Исправи и додај у чланак",
+	"ax-translation-view-feedback-positive": "Да",
+	"ax-translation-view-feedback-negative": "Не"
 }

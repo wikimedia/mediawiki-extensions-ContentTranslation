@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "תרגום אוטומטי מספק סקירה כללית שימושית, אבל הוא לא תמיד נכון.",
 	"ax-cx-introduction-information-expand": "תוכן שנכתב על־ידי בני אדם אמין יותר, {{GENDER:|ואתה יכול|ואת יכולה}} לעזור להרחיב אותו!",
 	"ax-cx-introduction-information-correct": "{{GENDER:|עשה|עשי}} תהליך פשוט צעד אחר צעד כדי לבדוק ולתקן תרגומי מכונה בכל משפט.",
-	"ax-cx-introduction-dialog-action": "לתקן ולהוסיף לערך"
+	"ax-cx-introduction-dialog-action": "לתקן ולהוסיף לערך",
+	"ax-translation-view-feedback-title": "האם התרגום האוטומטי הזה עוזר לך ללמוד עוד?",
+	"ax-translation-view-feedback-positive": "כן",
+	"ax-translation-view-feedback-negative": "לא",
+	"ax-translation-view-feedback-privacy-statement": "למידע נוסף, ר' את [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy הצהרת הפרטיות] של הסקר הזה.",
+	"ax-translation-view-feedback-details-question": "עם אילו מהבאים {{GENDER:|אתה מסכים|את מסכימה}}?",
+	"ax-translation-view-feedback-positive-missing-information": "נתן לי גישה למידע שקשה למצוא במקומות אחרים.",
+	"ax-translation-view-feedback-positive-translation-quality": "איכות התרגום טובה מספיק כדי להבין בביטחון את התוכן.",
+	"ax-translation-view-feedback-positive-quick-overview": "אני {{GENDER:|יכול|יכולה}} לקבל במהירות סקירה כללית של הנושא.",
+	"ax-translation-view-feedback-positive-technical-aspect": "היבטים טכניים כגון זמן טעינה לא הפריעו ללמידה.",
+	"ax-translation-view-feedback-negative-missing-information": "אני {{GENDER:|יכול|יכולה}} לקבל מידע טוב יותר במקום אחר.",
+	"ax-translation-view-feedback-negative-translation-quality": "איכות התרגום לא טובה מספיק כדי להבין בביטחון את התוכן.",
+	"ax-translation-view-feedback-negative-quick-overview": "אני לא {{GENDER:|יכול|יכולה}} לקבל במהירות סקירה כללית של הנושא.",
+	"ax-translation-view-feedback-negative-technical-aspect": "היבטים טכניים כגון זמן טעינה הפריעו ללמידה.",
+	"ax-translation-view-feedback-confirm-title": "משוב",
+	"ax-translation-view-feedback-confirm-description": "תודה על העזרה! אפשר לשתף כל מחשבה אחרת על הניסוי הזה [https://www.mediawiki.org/wiki/Talk:MinT בדף השיחה של הפרויקט]."
 }

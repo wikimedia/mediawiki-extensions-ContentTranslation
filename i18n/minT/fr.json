@@ -62,5 +62,20 @@
 	"ax-cx-introduction-information-accuracy": "La traduction automatique fournit un aperçu utile, mais elle n’est pas toujours précise.",
 	"ax-cx-introduction-information-expand": "Le contenu écrit par des humains est plus fiable et vous pouvez contribuer à le développer !",
 	"ax-cx-introduction-information-correct": "Suivez un processus simple étape par étape pour réviser et corriger les traductions automatiques de chaque phrase.",
-	"ax-cx-introduction-dialog-action": "Corriger et compléter l'article"
+	"ax-cx-introduction-dialog-action": "Corriger et compléter l'article",
+	"ax-translation-view-feedback-title": "Cette traduction automatique vous aide- t- elle à en apprendre davantage?",
+	"ax-translation-view-feedback-positive": "Oui",
+	"ax-translation-view-feedback-negative": "Non",
+	"ax-translation-view-feedback-privacy-statement": "Pour plus d’information, voyez la [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy déclaration de confidentialité] de ce sondage.",
+	"ax-translation-view-feedback-details-question": "Avec laquelle des affirmations suivantes êtes-vous d’accord ?",
+	"ax-translation-view-feedback-positive-missing-information": "Il m'a donné accès à des informations difficiles à trouver ailleurs.",
+	"ax-translation-view-feedback-positive-translation-quality": "La qualité de la traduction est suffisamment bonne pour comprendre le contenu en toute confiance.",
+	"ax-translation-view-feedback-positive-quick-overview": "Je peux rapidement avoir une idée générale du sujet.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Les aspects techniques tels que le temps de chargement n’ont pas entravé l’apprentissage.",
+	"ax-translation-view-feedback-negative-missing-information": "Je peux obtenir de meilleures informations ailleurs.",
+	"ax-translation-view-feedback-negative-translation-quality": "La qualité de la traduction n’est pas suffisante pour comprendre le contenu en toute confiance.",
+	"ax-translation-view-feedback-negative-quick-overview": "Je n’arrive pas à avoir rapidement une idée générale du sujet.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Les aspects techniques tels que le temps de chargement ont entravé l’apprentissage.",
+	"ax-translation-view-feedback-confirm-title": "Avis",
+	"ax-translation-view-feedback-confirm-description": "Merci pour votre aide ! N'hésitez pas à partager vos réflexions sur cette expérience [https://www.mediawiki.org/wiki/Talk:MinT sur la page de discussion du projet]."
 }

@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "Otomatik çeviri yararlı bir genel bakış sağlar, ancak her zaman doğru değildir.",
 	"ax-cx-introduction-information-expand": "İnsanların yazdığı içerik daha güvenilirdir ve siz de bunun yaygınlaşmasına yardımcı olabilirsiniz!",
 	"ax-cx-introduction-information-correct": "Her cümle için otomatik çevirileri gözden geçirmek ve düzeltmek için basit bir aşama aşama sürecini izleyin.",
-	"ax-cx-introduction-dialog-action": "Düzeltin ve maddeye ekleyin"
+	"ax-cx-introduction-dialog-action": "Düzeltin ve maddeye ekleyin",
+	"ax-translation-view-feedback-title": "Bu otomatik çeviri daha fazla şey öğrenmenize yardımcı oluyor mu?",
+	"ax-translation-view-feedback-positive": "Evet",
+	"ax-translation-view-feedback-negative": "Hayır",
+	"ax-translation-view-feedback-privacy-statement": "Daha fazla bilgi için bu anketin [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy gizlilik bildirimine] bakın.",
+	"ax-translation-view-feedback-details-question": "Aşağıdakilerden hangisine katılıyorsunuz?",
+	"ax-translation-view-feedback-positive-missing-information": "Başka yerlerde bulmam zor olan bilgiye ulaşmamı sağladı.",
+	"ax-translation-view-feedback-positive-translation-quality": "Çeviri niteliği, içeriği güvenle anlayabilecek kadar iyidir.",
+	"ax-translation-view-feedback-positive-quick-overview": "Konuyla ilgili genel bir düşünce edinebiliyorum.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Yükleme süresi gibi teknik konular öğrenmenin önüne geçmedi.",
+	"ax-translation-view-feedback-negative-missing-information": "Başka yerden daha iyi bilgi alabilirim.",
+	"ax-translation-view-feedback-negative-translation-quality": "Çeviri niteliği içeriği güvenle anlayabilmek için yeterli değil.",
+	"ax-translation-view-feedback-negative-quick-overview": "Konuyla ilgili genel bir düşünceye hemen ulaşamıyorum.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Yükleme süresi gibi teknik konular öğrenmenin önünde geçiyordu.",
+	"ax-translation-view-feedback-confirm-title": "Geri bildirim",
+	"ax-translation-view-feedback-confirm-description": "Yardımınız için teşekkürler! Bu deneyle ilgili başka düşüncelerinizi [https://www.mediawiki.org/wiki/Talk:MinT proje tartışma sayfasında] paylaşabilirsiniz."
 }

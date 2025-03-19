@@ -61,5 +61,17 @@
 	"ax-cx-introduction-dialog-action": "Korrigiere und ergänze den Artikel",
 	"ax-translation-view-feedback-title": "Hilft dir diese automatische Übersetzung, mehr zu erfahren?",
 	"ax-translation-view-feedback-positive": "Ja",
-	"ax-translation-view-feedback-negative": "Nein"
+	"ax-translation-view-feedback-negative": "Nein",
+	"ax-translation-view-feedback-privacy-statement": "Weitere Informationen findest du in der [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy Erklärung zum Datenschutz].",
+	"ax-translation-view-feedback-details-question": "Welcher der folgenden Aussagen stimmst du zu?",
+	"ax-translation-view-feedback-positive-missing-information": "Ermöglichte mir den Zugriff auf Informationen, die anderswo nur schwer zu finden waren.",
+	"ax-translation-view-feedback-positive-translation-quality": "Die Übersetzungsqualität ist gut genug, um den Inhalt sicher zu verstehen.",
+	"ax-translation-view-feedback-positive-quick-overview": "Ich kann mir schnell einen Überblick über das Thema verschaffen.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Technische Aspekte wie Ladezeiten standen dem Lernen nicht im Wege.",
+	"ax-translation-view-feedback-negative-missing-information": "Ich kann woanders bessere Informationen bekommen.",
+	"ax-translation-view-feedback-negative-translation-quality": "Die Qualität der Übersetzung reicht nicht aus, um den Inhalt sicher zu verstehen.",
+	"ax-translation-view-feedback-negative-quick-overview": "Ich kann mir auf die Schnelle keinen Überblick über das Thema verschaffen.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Technische Aspekte wie Ladezeiten behinderten das Lernen.",
+	"ax-translation-view-feedback-confirm-title": "Rückmeldung",
+	"ax-translation-view-feedback-confirm-description": "Vielen Dank für deine Hilfe! Weitere Gedanken zu diesem Experiment kannst du [https://www.mediawiki.org/wiki/Talk:MinT auf der Diskussionsseite des Projekts] teilen."
 }

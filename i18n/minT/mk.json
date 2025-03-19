@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "Автоматскиот превод дава корисна претстава, но не е секогаш точен.",
 	"ax-cx-introduction-information-expand": "Содржината напишана од луѓе е поверодостојна. Можете да ни помогнете да ја прошириме!",
 	"ax-cx-introduction-information-correct": "Проследете едноставен процес чекор-по-чекор за да ги прегледате и исправите автоматските преводи за секоја реченица.",
-	"ax-cx-introduction-dialog-action": "Исправи и стави во статијата"
+	"ax-cx-introduction-dialog-action": "Исправи и стави во статијата",
+	"ax-translation-view-feedback-title": "Дали овој автоматски превод ви помага да дознете повеќе?",
+	"ax-translation-view-feedback-positive": "Да",
+	"ax-translation-view-feedback-negative": "Не",
+	"ax-translation-view-feedback-privacy-statement": "За повеќе информации, погледајте ја [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy изјавата за личните податоци] на оваа анкета.",
+	"ax-translation-view-feedback-details-question": "Со кое од следниве се согласувате?",
+	"ax-translation-view-feedback-positive-missing-information": "Ми даде пристап до информации кои тешко се наоѓаат на други места.",
+	"ax-translation-view-feedback-positive-translation-quality": "Преводот е доволно квалитетен за да ја разберам содржината без двоумење.",
+	"ax-translation-view-feedback-positive-quick-overview": "Брзо добивам општа претстава за смислата на темата.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Техничките аспекти како времето на вчитување не ми правеа пречка.",
+	"ax-translation-view-feedback-negative-missing-information": "Можам да добијам подобри информации на други места.",
+	"ax-translation-view-feedback-negative-translation-quality": "Преводот е недоволно квалитетен за да ја разберам содржината без двоумење.",
+	"ax-translation-view-feedback-negative-quick-overview": "Не можам брзо да добијам општа претстава за смислата на темата.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Техничките аспекти како времето на вчитување ми пречеа.",
+	"ax-translation-view-feedback-confirm-title": "Мислења",
+	"ax-translation-view-feedback-confirm-description": "Ви блгодариме на помошта! Можете да споделите други мислења за овој експеримент на [https://www.mediawiki.org/wiki/Talk:MinT at проектната разговорна страница]."
 }

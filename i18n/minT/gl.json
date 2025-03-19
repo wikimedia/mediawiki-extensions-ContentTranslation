@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "A tradución automática ofrece unha visión xeral útil, pero non sempre é precisa.",
 	"ax-cx-introduction-information-expand": "O contido escrito por humanos é máis fiables e podes contribuír a amplialo!",
 	"ax-cx-introduction-information-correct": "Sigue un sinxelo proceso paso a paso para revisar e corrixir as traducións automáticas de cada frase.",
-	"ax-cx-introduction-dialog-action": "Corrixir e engadir ao artigo"
+	"ax-cx-introduction-dialog-action": "Corrixir e engadir ao artigo",
+	"ax-translation-view-feedback-title": "Esta tradución automática foi de axuda para aprenderes máis?",
+	"ax-translation-view-feedback-positive": "Si",
+	"ax-translation-view-feedback-negative": "Non",
+	"ax-translation-view-feedback-privacy-statement": "Para obter máis información, consulta a [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy declaración de protección de datos] desta enquisa.",
+	"ax-translation-view-feedback-details-question": "Con cal das seguintes afirmacións estás de acordo?",
+	"ax-translation-view-feedback-positive-missing-information": "Deume acceso a información difícil de atopar noutro lugar.",
+	"ax-translation-view-feedback-positive-translation-quality": "A calidade da tradución é suficientemente boa para comprender os contidos.",
+	"ax-translation-view-feedback-positive-quick-overview": "Podo obter rapidamente unha idea xeral do tema.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Os aspectos técnicos, como o tempo de carga, non obstaculizaron a aprendizaxe.",
+	"ax-translation-view-feedback-negative-missing-information": "Podo obter mellor información noutro lugar.",
+	"ax-translation-view-feedback-negative-translation-quality": "A calidade da tradución non é suficientemente boa para comprender os contidos.",
+	"ax-translation-view-feedback-negative-quick-overview": "Non podo obter rapidamente unha idea xeral do tema.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Os aspectos técnicos, como o tempo de carga, obstaculizaron a aprendizaxe.",
+	"ax-translation-view-feedback-confirm-title": "Comentarios",
+	"ax-translation-view-feedback-confirm-description": "Grazas por axudares! Podes compartir calquera outra reflexión sobre este experimento [https://www.mediawiki.org/wiki/Talk:MinT na páxina de conversa do proxecto]."
 }

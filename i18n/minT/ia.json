@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "Le traduction automatic forni un vista general utile, ma non es sempre precise.",
 	"ax-cx-introduction-information-expand": "Le contento scribite per humanos es plus digne de fide, e tu pote adjutar a ampliar lo!",
 	"ax-cx-introduction-information-correct": "Seque un simple processo passo a passo pro revider e corriger le traduction automatic de cata phrase.",
-	"ax-cx-introduction-dialog-action": "Corriger e adder al articulo"
+	"ax-cx-introduction-dialog-action": "Corriger e adder al articulo",
+	"ax-translation-view-feedback-title": "Te adjuta iste traduction automatic a saper plus?",
+	"ax-translation-view-feedback-positive": "Si",
+	"ax-translation-view-feedback-negative": "No",
+	"ax-translation-view-feedback-privacy-statement": "Pro plus information, vide le [https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy declaration de confidentialitate] de iste sondage.",
+	"ax-translation-view-feedback-details-question": "Con quales del sequentes es tu de accordo?",
+	"ax-translation-view-feedback-positive-missing-information": "Me dava accesso a information difficile a trovar alterubi.",
+	"ax-translation-view-feedback-positive-translation-quality": "Le qualitate del traduction suffice pro comprender le contento con confidentia.",
+	"ax-translation-view-feedback-positive-quick-overview": "Io pote facer me rapidemente un idea general del topico.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Aspectos technic, como le tempore de cargamento, non impediva le apprendimento.",
+	"ax-translation-view-feedback-negative-missing-information": "Io pote obtener melior information alterubi.",
+	"ax-translation-view-feedback-negative-translation-quality": "Le qualitate del traduction non suffice pro comprender le contento con confidentia.",
+	"ax-translation-view-feedback-negative-quick-overview": "Io non pote facer me rapidemente un idea general del topico.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Aspectos technic, como le tempore de cargamento, impediva le apprendimento.",
+	"ax-translation-view-feedback-confirm-title": "Commentario",
+	"ax-translation-view-feedback-confirm-description": "Gratias pro adjutar! Tu pote condivider altere pensamentos sur iste experimento sur [https://www.mediawiki.org/wiki/Talk:MinT le pagina de discussion del projecto]."
 }

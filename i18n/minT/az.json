@@ -58,5 +58,20 @@
 	"ax-cx-introduction-information-accuracy": "Avtomatik tərcümə faydalı icmal təmin edir, lakin həmişə dəqiq olmur.",
 	"ax-cx-introduction-information-expand": "İnsanlar tərəfindən yazılmış məzmun daha etibarlıdır və siz onu genişləndirməyə kömək edə bilərsiniz!",
 	"ax-cx-introduction-information-correct": "Hər cümlə üçün avtomatik tərcümələri yoxlamaq və düzəltmək üçün sadə, addım-addım olan prosesi izləyin.",
-	"ax-cx-introduction-dialog-action": "Düzəliş et və məqaləyə əlavə et"
+	"ax-cx-introduction-dialog-action": "Düzəliş et və məqaləyə əlavə et",
+	"ax-translation-view-feedback-title": "Bu avtomatik tərcümə sizə daha çox məlumat əldə etməyə kömək etdi?",
+	"ax-translation-view-feedback-positive": "Bəli",
+	"ax-translation-view-feedback-negative": "Xeyr",
+	"ax-translation-view-feedback-privacy-statement": "Əlavə məlumat üçün bu sorğunun [https://foundation.wikimedia.org/wiki/Legal:SimilarEditors_QuickSurvey_Privacy_Statement məxfilik siyasətinə] baxın.",
+	"ax-translation-view-feedback-details-question": "Aşağıdakılardan hansı ilə razısınız?",
+	"ax-translation-view-feedback-positive-missing-information": "Mənə başqa yerdə tapmaq çətin olan məlumatlara çıxış imkanı verdi.",
+	"ax-translation-view-feedback-positive-translation-quality": "Tərcümə keyfiyyəti məzmunu başa düşmək üçün kifayət qədər yaxşıdır.",
+	"ax-translation-view-feedback-positive-quick-overview": "Mövzu ilə bağlı ümumi anlayışı tez əldə edə bildim.",
+	"ax-translation-view-feedback-positive-technical-aspect": "Yükləmə vaxtı kimi texniki cəhətlər öyrənməyə mane olmadı.",
+	"ax-translation-view-feedback-negative-missing-information": "Başqa yerdən daha yaxşı məlumat ala bilərəm.",
+	"ax-translation-view-feedback-negative-translation-quality": "Tərcümə keyfiyyəti məzmunu başa düşmək üçün kifayət qədər yaxşı deyil.",
+	"ax-translation-view-feedback-negative-quick-overview": "Mövzu ilə bağlı ümumi anlayışı tez əldə edə bilmədim.",
+	"ax-translation-view-feedback-negative-technical-aspect": "Yükləmə vaxtı kimi texniki cəhətlər öyrənməyə mane olurdu.",
+	"ax-translation-view-feedback-confirm-title": "Rəy",
+	"ax-translation-view-feedback-confirm-description": "Kömək etdiyiniz üçün təşəkkür edirik! Bu eksperimentlə bağlı hər hansı digər fikirlərinizi [https://www.mediawiki.org/wiki/Talk:MinT layihənin müzakirə səhifəsində] bölüşə bilərsiniz."
 }
