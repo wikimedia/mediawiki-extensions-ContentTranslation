@@ -29,6 +29,10 @@ const useSectionTranslate = () => {
 				return;
 			}
 
+			if ( !dataCX.sourceTitle ) {
+				return;
+			}
+
 			if ( dataCX.adapted ) {
 				// Expand the URL completely since the user may not be accessing the content
 				// in the same wiki as the target language
