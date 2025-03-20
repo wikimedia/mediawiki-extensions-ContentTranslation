@@ -9,7 +9,8 @@
 			"Lhanars",
 			"Nicolas Eynaud",
 			"Prevodim",
-			"Quentí"
+			"Quentí",
+			"Paucabot"
 		]
 	},
 	"cx": "Traduire la pagina",
@@ -122,6 +123,7 @@
 	"cx-tools-missing-link-mark-link": "{{GENDER:|Marcar}} coma mancant",
 	"echo-category-title-cx": "Traduccions",
 	"echo-pref-tooltip-cx": "Me notificar sus mas traduccions creadas en utilizant l'aisina de traduccion de contengut.",
+	"cx-notification-deleted-draft": "Vòstre traduccion <strong>$1</strong> es estada suprimida perque son contengut èra obsolèt dempuèi mai d'un an. Començatz de tot moment una nòva traduccion amb un contengut actualizat.",
 	"cx-contributions-link": "Vòstras contribucions",
 	"cx-your-translations-link": "{{GENDER:$1|Vòstras traduccions}}",
 	"cx-translationlist-empty-title": "Pas res a traduire ?",
@@ -145,7 +147,12 @@
 	"sx-article-search-language-selector-dialog-title": "Lengas",
 	"cx-sx-language-selector-all-languages": "Totas las lengas",
 	"sx-translation-list-language-selector-dialog-title": "Lengas",
+	"cx-uls-relevant-languages-panel-header": "Traduire aquesta pagina",
+	"cx-uls-translate-page-quick-action-label": "Traduire aquesta pagina",
 	"sx-recent-edit-entrypoint-top-banner-header": "Contribuir a partir d'autras lengas",
+	"cx-contributecard-entrypoint-title": "Traduccions",
+	"cx-contributecard-entrypoint-desc": "Tradusètz una seccion o un article complèt. Ajustatz mai de contengut disponible dins mai de lengas.",
+	"cx-contributecard-entrypoint-cta": "Començar una traduccion",
 	"cx-sx-dashboard-stats-panel-title": "Vòstre impacte",
 	"cx-sx-dashboard-stats-panel-monthly-stats-label": "Aqueste mes"
 }
