@@ -139,8 +139,13 @@ module.exports = defineComponent( {
 		const { openLanguageSelector } = useRouter();
 
 		const { mintLanguages } = useMintLanguages();
+
+		const updateSourceLanguage = ( language ) => {
+			props.pageResult.setSourceLanguage( language );
+			onSourceLanguageUpdate( 'translation_view_menu', language );
+		};
 		const openSourceLanguageSelector = () => {
-			openLanguageSelector( false, onSourceLanguageUpdate.bind( null, 'translation_view_menu' ), props.pageResult.languages, 'translation' );
+			openLanguageSelector( false, updateSourceLanguage, props.pageResult.languages, 'translation' );
 			closeOverlay();
 		};
 

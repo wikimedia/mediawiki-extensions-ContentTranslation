@@ -234,8 +234,6 @@ module.exports = defineComponent( {
 		const { sourceLanguage, targetLanguage } = useState();
 
 		const { logEvent } = useEventLogging();
-		const pageTitle = props.pageResult.getTitleByLanguage( sourceLanguage.value );
-
 		const { setURLParams } = useUrlHelper();
 		setURLParams( props.pageResult, targetLanguage.value, 'translation' );
 
@@ -298,7 +296,7 @@ module.exports = defineComponent( {
 						// eslint-disable-next-line camelcase
 						target_language: targetLanguage.value,
 						// eslint-disable-next-line camelcase
-						source_title: pageTitle
+						source_title: props.pageResult.sourceTitle
 					};
 					logEvent( 'view', null, 'automatic_translation', null, translationData );
 					unwatchLeadSectionTranslation();
@@ -309,8 +307,7 @@ module.exports = defineComponent( {
 		};
 
 		watch( [ sourceLanguage, targetLanguage ], () => {
-			const title = props.pageResult.getTitleByLanguage( sourceLanguage.value );
-			initializeTranslation( title );
+			initializeTranslation( props.pageResult.sourceTitle );
 			logViewEvent();
 		}, { immediate: true } );
 
@@ -348,13 +345,9 @@ module.exports = defineComponent( {
 
 		watchEffect( () => resetSectionExpandStatus( nonLeadSections.value ) );
 
-		const sourceTitle = computed(
-			() => props.pageResult.getTitleByLanguage( sourceLanguage.value )
-		);
-
 		const siteMapper = new mw.cx.SiteMapper();
 		const sourcePageUrl = computed(
-			() => siteMapper.getPageUrl( sourceLanguage.value, sourceTitle.value )
+			() => siteMapper.getPageUrl( sourceLanguage.value, props.pageResult.sourceTitle )
 		);
 
 		const { findOneOrFetchPage } = usePageMetadata();
@@ -413,7 +406,7 @@ module.exports = defineComponent( {
 				// eslint-disable-next-line camelcase
 				target_language: targetLanguage.value,
 				// eslint-disable-next-line camelcase
-				source_title: pageTitle
+				source_title: props.pageResult.sourceTitle
 			};
 			logEvent( 'click', 'review_translation', eventSource, 'translation_view', translationData );
 			fixTranslationDialogOn.value = true;
@@ -426,7 +419,7 @@ module.exports = defineComponent( {
 				// eslint-disable-next-line camelcase
 				target_language: targetLanguage.value,
 				// eslint-disable-next-line camelcase
-				source_title: pageTitle
+				source_title: props.pageResult.sourceTitle
 			};
 			logEvent( 'click', actionSubtype, 'review_translation_dialog', 'translation_view', translationData );
 		};
@@ -483,7 +476,7 @@ module.exports = defineComponent( {
 					// eslint-disable-next-line camelcase
 					target_language: targetLanguage.value,
 					// eslint-disable-next-line camelcase
-					source_title: pageTitle,
+					source_title: props.pageResult.sourceTitle,
 					// eslint-disable-next-line camelcase
 					target_title: targetTitle.value
 				};
@@ -498,7 +491,7 @@ module.exports = defineComponent( {
 				// eslint-disable-next-line camelcase
 				target_language: targetLanguage.value,
 				// eslint-disable-next-line camelcase
-				source_title: pageTitle,
+				source_title: props.pageResult.sourceTitle,
 				// eslint-disable-next-line camelcase
 				target_title: targetTitle.value
 			};
