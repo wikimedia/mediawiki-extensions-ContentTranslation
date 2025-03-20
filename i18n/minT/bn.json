@@ -46,5 +46,9 @@
 	"ax-article-footer-entrypoint-card-supporting-text": "স্বয়ংক্রিয় অনুবাদ পড়ুন",
 	"mint-explore-languages-search-input-placeholder": "এই প্রসঙ্গের জন্য সমস্ত ভাষা",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1টি অনুচ্ছেদ|0=কোনও অনুচ্ছেদ নেই}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "সবচেয়ে বিস্তারিত"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "সবচেয়ে বিস্তারিত",
+	"ax-translation-view-feedback-positive": "হ্যাঁ",
+	"ax-translation-view-feedback-negative": "না",
+	"ax-translation-view-feedback-negative-missing-information": "আমি অন্যত্র থেকে আরও ভালো তথ্য পেতে পারি।",
+	"ax-translation-view-feedback-confirm-title": "প্রতিক্রিয়া"
 }
