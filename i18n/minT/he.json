@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "אני לא {{GENDER:|יכול|יכולה}} לקבל במהירות סקירה כללית של הנושא.",
 	"ax-translation-view-feedback-negative-technical-aspect": "היבטים טכניים כגון זמן טעינה הפריעו ללמידה.",
 	"ax-translation-view-feedback-confirm-title": "משוב",
-	"ax-translation-view-feedback-confirm-description": "תודה על העזרה! אפשר לשתף כל מחשבה אחרת על הניסוי הזה [https://www.mediawiki.org/wiki/Talk:MinT בדף השיחה של הפרויקט]."
+	"ax-translation-view-feedback-confirm-description": "תודה על העזרה! אפשר לשתף כל מחשבה אחרת על הניסוי הזה [https://www.mediawiki.org/wiki/Talk:MinT בדף השיחה של הפרויקט].",
+	"ax-cx-failed-translation-label": "התרגום נכשל"
 }

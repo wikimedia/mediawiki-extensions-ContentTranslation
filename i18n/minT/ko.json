@@ -52,5 +52,15 @@
 	"mint-explore-languages-explanation-banner-text": "다양한 언어의 편집자들이 이 주제를 다양한 방식으로 다루었습니다.",
 	"mint-explore-languages-language-card-container-title": "\"$1\"에 대한 가장 많은 적용 범위를 가진 언어",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1개 문단|0=문단 없음}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "가장 자세한 부분"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "가장 자세한 부분",
+	"ax-translation-view-feedback-positive": "예",
+	"ax-translation-view-feedback-negative": "아니요",
+	"ax-translation-view-feedback-details-question": "다음 중 어느 것에 동의하시나요?",
+	"ax-translation-view-feedback-positive-translation-quality": "번역 품질이 내용을 자신 있게 이해할 수 있을 만큼 좋습니다.",
+	"ax-translation-view-feedback-positive-quick-overview": "이 주제를 전반적으로 빠르게 이해할 수 있습니다.",
+	"ax-translation-view-feedback-negative-missing-information": "다른 곳에서 더 나은 정보를 구할 수 있습니다.",
+	"ax-translation-view-feedback-negative-translation-quality": "번역 품질이 내용을 자신 있게 이해하기에 충분하지 않습니다.",
+	"ax-translation-view-feedback-negative-quick-overview": "이 주제를 전반적으로 빠르게 이해할 수 없습니다.",
+	"ax-translation-view-feedback-confirm-title": "피드백",
+	"ax-cx-failed-translation-label": "번역 실패"
 }

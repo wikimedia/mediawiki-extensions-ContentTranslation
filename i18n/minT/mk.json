@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Не можам брзо да добијам општа претстава за смислата на темата.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Техничките аспекти како времето на вчитување ми пречеа.",
 	"ax-translation-view-feedback-confirm-title": "Мислења",
-	"ax-translation-view-feedback-confirm-description": "Ви блгодариме на помошта! Можете да споделите други мислења за овој експеримент на [https://www.mediawiki.org/wiki/Talk:MinT at проектната разговорна страница]."
+	"ax-translation-view-feedback-confirm-description": "Ви блгодариме на помошта! Можете да споделите други мислења за овој експеримент на [https://www.mediawiki.org/wiki/Talk:MinT at проектната разговорна страница].",
+	"ax-cx-failed-translation-label": "Преведувањето не успеа"
 }

@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Non podo obter rapidamente unha idea xeral do tema.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Os aspectos técnicos, como o tempo de carga, obstaculizaron a aprendizaxe.",
 	"ax-translation-view-feedback-confirm-title": "Comentarios",
-	"ax-translation-view-feedback-confirm-description": "Grazas por axudares! Podes compartir calquera outra reflexión sobre este experimento [https://www.mediawiki.org/wiki/Talk:MinT na páxina de conversa do proxecto]."
+	"ax-translation-view-feedback-confirm-description": "Grazas por axudares! Podes compartir calquera outra reflexión sobre este experimento [https://www.mediawiki.org/wiki/Talk:MinT na páxina de conversa do proxecto].",
+	"ax-cx-failed-translation-label": "A tradución fallou"
 }
