@@ -11,6 +11,8 @@
 	"mint-translation-list-all-languages-option-label": "All",
 	"mint-home-info-panel-text": "Millions of topics on Wikipedia can be automatically translated into $1.",
 	"mint-home-random-topic-button-label": "Random topic",
+	"ax-home-random-topic-loading-label": "Loading…",
+	"ax-home-random-topic-error": "Error encountered while fetching a random topic",
 	"mint-home-experimental-note": "Automatic translation support is experimental. [$1 Learn more]",
 	"mint-language-selector-title": "Languages",
 	"mint-language-selector-suggestions-header": "Suggested",

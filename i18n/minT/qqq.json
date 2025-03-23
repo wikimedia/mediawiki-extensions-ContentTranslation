@@ -12,6 +12,8 @@
 	"mint-translation-list-all-languages-option-label": "The label of the option that selects all available language options of the MinT language selector",
 	"mint-home-info-panel-text": "The text inside the info panel of the MinT home page.\n\nParameters:\n* $1 - the target language code",
 	"mint-home-random-topic-button-label": "The label of the button that selects a random topic to translate, inside MinT home page.",
+	"ax-home-random-topic-loading-label": "The label of the button that selects a random topic to translate, inside MinT home page while it's fetching a random page.",
+	"ax-home-random-topic-error": "Message displayed to user if fetching of random topic failed.",
 	"mint-home-experimental-note": "The text inside the experimental note of the MinT home page.\n\nParameters:\n* $1 - MinT Project Page link",
 	"mint-language-selector-title": "Title of the MinT language selector dialog",
 	"mint-language-selector-suggestions-header": "Header text of the section inside MinT language selector, where suggested languages are displayed.",

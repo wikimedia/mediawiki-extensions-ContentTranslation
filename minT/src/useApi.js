@@ -248,6 +248,31 @@ const getSuggestedTargetTitle = ( sourceTitle, sourceLanguage, targetLanguage, t
 		.then( ( data ) => data.targetTitle );
 };
 
+/**
+ * Fetch a random topic from the given site
+ *
+ * @param {string} language
+ * @return {Promise<Array>}
+ */
+const fetchRandomTopic = ( language ) => {
+	const params = {
+		action: 'query',
+		format: 'json',
+		formatversion: 2,
+		list: 'random',
+		rnnamespace: 0,
+		rnfilterredir: 'nonredirects',
+		// Minimum article size
+		rnminsize: 1000,
+		rncontentmodel: 'wikitext',
+		rnlimit: 1
+	};
+
+	const api = new mw.ForeignApi( `https://${ language }.wikipedia.org/w/api.php`, { anonymous: true } );
+
+	return api.get( params ).then( ( response ) => response.query.random );
+};
+
 const useApi = () => ( {
 	fetchPageMetadata,
 	fetchDenseArticles,
@@ -257,7 +282,8 @@ const useApi = () => ( {
 	fetchSiteMatrix,
 	fetchMintLanguages,
 	fetchLeadSectionContent,
-	translate
+	translate,
+	fetchRandomTopic
 } );
 
 module.exports = useApi;
