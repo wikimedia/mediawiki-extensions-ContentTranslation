@@ -53,6 +53,8 @@
 	"mint-explore-languages-language-card-container-title": "Languages with the most coverage for \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 section|$1 sections|0=No sections}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Most detailed",
+	"mint-explore-languages-loading-error": "Failed to fetch coverage for languages",
+	"mint-explore-languages-open-language-selector": "Open language selector",
 	"ax-cx-introduction-dialog-title": "Review and fix translations",
 	"ax-cx-introduction-summary": "Improve the content available in your language. Write a better translation, and publish it on Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Automatic translation provides a useful overview, but it is not always accurate.",

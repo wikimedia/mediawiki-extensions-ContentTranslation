@@ -27,6 +27,12 @@
 				<!--eslint-enable-->
 			</h4>
 			<mw-spinner v-if="loading"></mw-spinner>
+			<cdx-message v-if="error" type="warning">
+				{{ $i18n( 'mint-explore-languages-loading-error' ) }}<br>
+				<cdx-button class="explore-languages-body__language-selector" @click="openMWLanguageSelector">
+					{{ $i18n( 'mint-explore-languages-open-language-selector' ) }}
+				</cdx-button>
+			</cdx-message>
 			<div
 				v-else
 				class="explore-languages-body__language-card-container"
@@ -87,7 +93,7 @@
 <script>
 const { defineComponent, ref, watch, computed } = require( 'vue' );
 const { cdxIconArrowPrevious, cdxIconRobot, cdxIconEllipsis } = require( './icons.json' );
-const { CdxIcon, CdxInfoChip, CdxSearchInput, CdxCard, CdxRadio } = require( '@wikimedia/codex' );
+const { CdxIcon, CdxButton, CdxMessage, CdxInfoChip, CdxSearchInput, CdxCard, CdxRadio } = require( '@wikimedia/codex' );
 const useRouter = require( './useRouter.js' );
 const useApi = require( './useApi.js' );
 const useCXServerToken = require( './useCXServerToken.js' );
@@ -102,7 +108,9 @@ const debounce = require( './debounce.js' );
 // @vue/component
 module.exports = defineComponent( {
 	name: 'ExploreLanguagesPage',
-	components: { CdxCard, CdxIcon, CdxInfoChip, CdxRadio, CdxSearchInput, MwSpinner },
+	components: {
+		CdxMessage, CdxButton, CdxCard, CdxIcon, CdxInfoChip, CdxRadio, CdxSearchInput, MwSpinner
+	},
 	props: {
 		pageResult: {
 			type: PageSearchResult,
@@ -112,7 +120,7 @@ module.exports = defineComponent( {
 	setup( props ) {
 		const searchQuery = ref( null );
 
-		const { navigateToPage } = useRouter();
+		const { navigateToPage, openLanguageSelector } = useRouter();
 		const { fetchToken } = useCXServerToken();
 		const { searchByQuery, getSearchApi } = useLanguageSearch();
 		const { onSourceLanguageUpdate } = useLanguagesUpdate();
@@ -122,6 +130,7 @@ module.exports = defineComponent( {
 		const goToConfirm = () => navigateToPage( 'confirm', { pageResult: editableResult.value } );
 
 		const loading = ref( true );
+		const error = ref( false );
 
 		const { fetchDenseArticles } = useApi();
 		const { doTranslateSectionTitle } = useSectionTitleTranslate();
@@ -155,6 +164,21 @@ module.exports = defineComponent( {
 			);
 		} );
 
+		const selectLanguage = ( language ) => {
+			onSourceLanguageUpdate( 'article_confirmation_view', language );
+			editableResult.value.setSourceLanguage( language );
+		};
+
+		// Open the language selector with the available languages
+		// by updating the source language and navigating to the confirmation page
+		const openMWLanguageSelector = () => {
+			openLanguageSelector( false, ( selectedLanguage ) => {
+				selectLanguage( selectedLanguage );
+				goToConfirm();
+			},
+			props.pageResult.languages, 'confirm' );
+		};
+
 		const sectionsLoaded = ref( {} );
 		const sectionTranslations = ref( {} );
 
@@ -182,7 +206,12 @@ module.exports = defineComponent( {
 					}
 				}
 			}
-		} );
+		} )
+			.catch( ( err ) => {
+				error.value = true;
+				loading.value = false;
+				mw.log.error( '[AX] Failed to fetch coverage for languages', err );
+			} );
 
 		const isSelected = ( language ) => sourceLanguage.value === language;
 
@@ -201,11 +230,6 @@ module.exports = defineComponent( {
 			}
 
 			return translatedSectionTitles;
-		};
-
-		const selectLanguage = ( language ) => {
-			onSourceLanguageUpdate( 'article_confirmation_view', language );
-			editableResult.value.setSourceLanguage( language );
 		};
 
 		const languageToCardElementMap = ref( {} );
@@ -269,10 +293,12 @@ module.exports = defineComponent( {
 			searchQuery,
 			isSelected,
 			loading,
+			error,
 			activeSourceArticleInfos,
 			sourceLanguage,
 			selectLanguage,
-			createCardElementRef
+			createCardElementRef,
+			openMWLanguageSelector
 		};
 	}
 } );
@@ -380,6 +406,10 @@ module.exports = defineComponent( {
           margin-right: @spacing-50;
         }
       }
+    }
+
+    &__language-selector {
+      margin-top: @spacing-50;
     }
   }
 }
