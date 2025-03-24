@@ -171,13 +171,15 @@ module.exports = defineComponent( {
 
 		// Open the language selector with the available languages
 		// by updating the source language and navigating to the confirmation page
-		const openMWLanguageSelector = () => {
-			openLanguageSelector( false, ( selectedLanguage ) => {
+		const openMWLanguageSelector = () => openLanguageSelector(
+			false,
+			( selectedLanguage ) => {
 				selectLanguage( selectedLanguage );
 				goToConfirm();
 			},
-			props.pageResult.languages, 'confirm' );
-		};
+			props.pageResult.languages,
+			'confirm'
+		);
 
 		const sectionsLoaded = ref( {} );
 		const sectionTranslations = ref( {} );
