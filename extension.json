@@ -436,10 +436,6 @@
 				"Translations": true
 			}
 		},
-		"ContentTranslationEnableSectionTranslation": {
-			"description": "Whether section translation is enabled",
-			"value": false
-		},
 		"ContentTranslationEnableAnonSectionTranslation": {
 			"description": "Whether section translation is enabled for anonymous users",
 			"value": false

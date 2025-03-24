@@ -327,13 +327,9 @@ class SpecialContentTranslation extends SpecialPage {
 			}
 
 			return true;
-		} else {
-			// desktop dashboard with some wikis on SX with unified dashboard (pre-transition state)
-			$isSXEnabled = $this->getConfig()->get( 'ContentTranslationEnableSectionTranslation' );
-			$unifiedDashboardParam = $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
-
-			return $unifiedDashboardParam || ( $isSXEnabled && self::isMobileSite() );
 		}
+
+		return $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
 	}
 
 	protected function initModules() {
