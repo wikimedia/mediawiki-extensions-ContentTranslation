@@ -4,8 +4,6 @@
  */
 'use strict';
 
-const getAutonym = $.uls.data.getAutonym;
-const getScript = $.uls.data.getScript;
 const sortByAutonym = $.uls.data.sortByAutonym;
 
 function getSearchApi() {
@@ -27,26 +25,6 @@ function getSearchApi() {
 async function doSearch( languages, query, searchApi ) {
 	if ( !query || query.trim().length === 0 ) {
 		return languages;
-	}
-
-	// See if the search query is a language code
-	const exactMatch = languages.filter(
-		( code ) => query.toLowerCase() === code.toLowerCase()
-	);
-
-	if ( exactMatch.length ) {
-		return exactMatch;
-	}
-
-	const filterResults = languages.filter(
-		// Search using autonym
-		( code ) => getAutonym( code ).toLowerCase().includes( query.toLowerCase() ) ||
-			// Search using script name
-			getScript( code ).toLowerCase().includes( query.toLowerCase() )
-	);
-
-	if ( filterResults.length ) {
-		return filterResults;
 	}
 
 	// We did not find any results from client side search.
