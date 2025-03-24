@@ -19,5 +19,8 @@
 	"mint-view-translation-page-disclaimer-learn-more-link": "ٻیا سِکھو",
 	"mint-view-translation-page-source-article-link-label": "$1 وچ کھولو",
 	"mint-view-translation-overlay-cx-entrypoint-label": "ترجمہ درست کرو",
-	"mint-view-translation-overlay-feedback-link-label": "فیڈبیک بھیڄو"
+	"mint-view-translation-overlay-feedback-link-label": "فیڈبیک بھیڄو",
+	"ax-translation-view-feedback-positive": "جیا",
+	"ax-translation-view-feedback-negative": "کو",
+	"ax-translation-view-feedback-confirm-title": "فیڈ بیک"
 }

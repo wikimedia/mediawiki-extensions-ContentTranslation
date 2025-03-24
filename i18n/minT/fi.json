@@ -71,5 +71,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "En voi saada nopeasti yleiskäsitystä aiheesta.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Tekniset seikat, kuten latausaika, hankaloittivat oppimista.",
 	"ax-translation-view-feedback-confirm-title": "Palaute",
-	"ax-translation-view-feedback-confirm-description": "Kiitos avustasi! Voit jakaa lisää ajatuksia tästä kokeilusta [https://www.mediawiki.org/wiki/Talk:MinT projektin keskustelusivulla]."
+	"ax-translation-view-feedback-confirm-description": "Kiitos avustasi! Voit jakaa lisää ajatuksia tästä kokeilusta [https://www.mediawiki.org/wiki/Talk:MinT projektin keskustelusivulla].",
+	"ax-cx-failed-translation-label": "Kääntäminen epäonnistui"
 }

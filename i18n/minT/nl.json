@@ -74,5 +74,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Ik kan me niet snel een algemeen beeld vormen van het onderwerp.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Technische aspecten zoals laadtijd stonden het leren in de weg.",
 	"ax-translation-view-feedback-confirm-title": "Terugkoppeling",
-	"ax-translation-view-feedback-confirm-description": "Bedankt voor de hulp! U kunt andere gedachten over dit experiment delen op [https://www.mediawiki.org/wiki/Talk:MinT de overlegpagina van het project]."
+	"ax-translation-view-feedback-confirm-description": "Bedankt voor de hulp! U kunt andere gedachten over dit experiment delen op [https://www.mediawiki.org/wiki/Talk:MinT de overlegpagina van het project].",
+	"ax-cx-failed-translation-label": "Vertaling mislukt"
 }

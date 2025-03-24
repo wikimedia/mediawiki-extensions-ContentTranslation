@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Konuyla ilgili genel bir düşünceye hemen ulaşamıyorum.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Yükleme süresi gibi teknik konular öğrenmenin önünde geçiyordu.",
 	"ax-translation-view-feedback-confirm-title": "Geri bildirim",
-	"ax-translation-view-feedback-confirm-description": "Yardımınız için teşekkürler! Bu deneyle ilgili başka düşüncelerinizi [https://www.mediawiki.org/wiki/Talk:MinT proje tartışma sayfasında] paylaşabilirsiniz."
+	"ax-translation-view-feedback-confirm-description": "Yardımınız için teşekkürler! Bu deneyle ilgili başka düşüncelerinizi [https://www.mediawiki.org/wiki/Talk:MinT proje tartışma sayfasında] paylaşabilirsiniz.",
+	"ax-cx-failed-translation-label": "Çeviri başarısız oldu"
 }

@@ -73,5 +73,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Mövzu ilə bağlı ümumi anlayışı tez əldə edə bilmədim.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Yükləmə vaxtı kimi texniki cəhətlər öyrənməyə mane olurdu.",
 	"ax-translation-view-feedback-confirm-title": "Rəy",
-	"ax-translation-view-feedback-confirm-description": "Kömək etdiyiniz üçün təşəkkür edirik! Bu eksperimentlə bağlı hər hansı digər fikirlərinizi [https://www.mediawiki.org/wiki/Talk:MinT layihənin müzakirə səhifəsində] bölüşə bilərsiniz."
+	"ax-translation-view-feedback-confirm-description": "Kömək etdiyiniz üçün təşəkkür edirik! Bu eksperimentlə bağlı hər hansı digər fikirlərinizi [https://www.mediawiki.org/wiki/Talk:MinT layihənin müzakirə səhifəsində] bölüşə bilərsiniz.",
+	"ax-cx-failed-translation-label": "Tərcümə uğursuz oldu"
 }
