@@ -40,7 +40,12 @@ class PageSearchResult {
 	}
 
 	get languages() {
-		return [ this.language, ...this.langLinks.map( ( langLink ) => langLink.language ) ];
+		const languages = [
+			this.language,
+			...this.langLinks.map( ( langLink ) => langLink.language )
+		];
+		// return unique languages
+		return [ ...new Set( languages ) ];
 	}
 
 	setSourceLanguage( sourceLanguage ) {
