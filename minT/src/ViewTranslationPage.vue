@@ -20,9 +20,10 @@
 			</div>
 		</div>
 		<div class="translation-viewer__source-page-title-container">
-			<h1 class="firstHeading">
+			<h1 v-if="targetTitle !== null" class="firstHeading">
 				{{ targetTitle }}
 			</h1>
+			<translation-loading-indicator v-else></translation-loading-indicator>
 			<a
 				class="translation-viewer__source-page-link"
 				:href="sourcePageUrl"
@@ -191,6 +192,7 @@ const useSectionTranslate = require( './useSectionTranslate.js' );
 const useTranslationInitialize = require( './useTranslationInitialize.js' );
 const useSectionTitleTranslate = require( './useSectionTitleTranslate.js' );
 const useEventLogging = require( './useEventLogging.js' );
+const useTargetTitle = require( './useTargetTitle.js' );
 const PageResult = require( './pageSearchResult.js' );
 const MwSpinner = require( './MwSpinner.vue' );
 const ViewTranslationPageOptions = require( './ViewTranslationPageOptions.vue' );
@@ -243,9 +245,8 @@ module.exports = defineComponent( {
 			initializeTranslation
 		} = useTranslationInitialize();
 
-		const targetTitle = computed(
-			() => props.pageResult.getTitleByLanguage( targetLanguage.value )
-		);
+		const { targetTitle, initializeTargetTitle } = useTargetTitle();
+		initializeTargetTitle( props.pageResult );
 
 		const onVisibilityChange = () => {
 			const translationData = {
@@ -308,6 +309,7 @@ module.exports = defineComponent( {
 
 		watch( [ sourceLanguage, targetLanguage ], () => {
 			initializeTranslation( props.pageResult.sourceTitle );
+			initializeTargetTitle( props.pageResult );
 			logViewEvent();
 		}, { immediate: true } );
 

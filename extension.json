@@ -1911,6 +1911,7 @@
 				"useLeadSectionTranslationFetch.js",
 				"useSectionTranslate.js",
 				"useTranslationInitialize.js",
+				"useTargetTitle.js",
 				"useSectionTitleTranslate.js",
 				"useEventLogging.js",
 				"mediawikiPage.js",

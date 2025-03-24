@@ -221,10 +221,38 @@ const fetchDenseArticles = async ( qid ) => {
 	);
 };
 
+/**
+ * Given a source page title, a source language, a target language,
+ * and a valid CXserver token this method sends a request to the
+ * /suggest/title CXserver endpoint, and it returns the "targetTitle"
+ * property of the response as suggested target title.
+ *
+ * @param {string} sourceTitle Title to translate.
+ * @param {string} sourceLanguage Translation source language.
+ * @param {string} targetLanguage Translation target language.
+ * @param {string} token
+ * @return {Promise<string>} Returns the suggested target title
+ */
+const getSuggestedTargetTitle = ( sourceTitle, sourceLanguage, targetLanguage, token ) => {
+	const cxServerUrl = `https://cxserver.wikimedia.org/v2/suggest/title/${ sourceTitle }/${ sourceLanguage }/${ targetLanguage }`;
+
+	return fetch( cxServerUrl, { headers: { 'Content-Type': 'application/json', Authorization: token } } )
+		.then( ( response ) => {
+			// Handle non-2xx responses
+			if ( !response.ok ) {
+				throw new Error( 'Error when getting suggested target title' );
+			}
+
+			return response.json();
+		} )
+		.then( ( data ) => data.targetTitle );
+};
+
 const useApi = () => ( {
 	fetchPageMetadata,
 	fetchDenseArticles,
 	searchEntities,
+	getSuggestedTargetTitle,
 	getWikidataSitelinks,
 	fetchSiteMatrix,
 	fetchMintLanguages,
