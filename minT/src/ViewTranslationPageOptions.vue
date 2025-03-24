@@ -138,7 +138,7 @@ module.exports = defineComponent( {
 
 		const { openLanguageSelector } = useRouter();
 
-		const { mintLanguages } = useMintLanguages();
+		const { mintSourceToTargetLanguages } = useMintLanguages();
 
 		const updateSourceLanguage = ( language ) => {
 			props.pageResult.setSourceLanguage( language );
@@ -150,8 +150,13 @@ module.exports = defineComponent( {
 		};
 
 		const openTargetLanguageSelector = () => {
-			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'translation_view_menu' ), languages, 'translation' );
+			openLanguageSelector(
+				false,
+				onTargetLanguageUpdate.bind( null, 'translation_view_menu' ),
+				// allow user to only select target languages supported for current source language
+				mintSourceToTargetLanguages.value[ sourceLanguage.value ],
+				'translation'
+			);
 			closeOverlay();
 		};
 

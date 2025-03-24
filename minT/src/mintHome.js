@@ -52,10 +52,14 @@ const { sourceLanguage, targetLanguage } = useState();
 const { onSourceLanguageUpdate, onTargetLanguageUpdate } = useLanguagesUpdate();
 
 const { sites, fetchWikipediaSites } = useWikipediaSites();
-const { mintLanguages, fetchMintTargetLanguages } = useMintLanguages();
+const {
+	mintTargetToSourceLanguages,
+	mintTargetLanguages,
+	fetchMintTargetLanguages
+} = useMintLanguages();
 
 const sourceLanguages = Vue.computed( () => {
-	const mintSourceLanguages = mintLanguages.value[ targetLanguage.value ];
+	const mintSourceLanguages = mintTargetToSourceLanguages.value[ targetLanguage.value ];
 
 	return mintSourceLanguages.filter(
 		( mintSourceLanguage ) => sites.value.some(
@@ -63,7 +67,6 @@ const sourceLanguages = Vue.computed( () => {
 		)
 	);
 } );
-const targetLanguages = Vue.computed( () => Object.keys( mintLanguages.value ) );
 const promises = [ fetchWikipediaSites(), fetchMintTargetLanguages() ];
 
 Promise.all( promises ).then( () => {
@@ -77,7 +80,7 @@ Promise.all( promises ).then( () => {
 
 addLanguageButtonEventListener(
 	targetLanguageButton,
-	targetLanguages,
+	mintTargetLanguages,
 	onTargetLanguageUpdate.bind( null, 'mt_home' ),
 	false
 );

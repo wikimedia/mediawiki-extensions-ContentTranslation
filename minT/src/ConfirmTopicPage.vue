@@ -250,15 +250,19 @@ module.exports = defineComponent( {
 			navigateToPage( 'translation', { pageResult: props.pageResult } );
 		};
 
-		const { mintLanguages } = useMintLanguages();
+		const { mintSourceToTargetLanguages } = useMintLanguages();
 
 		const openSourceLanguageSelector = () => {
 			navigateToPage( 'exploreLanguages', { pageResult: props.pageResult }, 'flex' );
 		};
-		const openTargetLanguageSelector = () => {
-			const languages = mintLanguages.value[ sourceLanguage.value ];
-			openLanguageSelector( false, onTargetLanguageUpdate.bind( null, 'article_confirmation_view' ), languages, 'confirm' );
-		};
+
+		const openTargetLanguageSelector = () => openLanguageSelector(
+			false,
+			onTargetLanguageUpdate.bind( null, 'article_confirmation_view' ),
+			// allow user to only select target languages supported for the current source language
+			mintSourceToTargetLanguages.value[ sourceLanguage.value ],
+			'confirm'
+		);
 
 		const sourceLanguageAutonym = computed( () => getAutonym( sourceLanguage.value ) );
 		const targetLanguageAutonym = computed( () => getAutonym( targetLanguage.value ) );
