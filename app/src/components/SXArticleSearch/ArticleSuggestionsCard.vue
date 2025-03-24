@@ -15,6 +15,7 @@ const props = defineProps({
   selectedItem: {
     type: [Object, String],
     required: false,
+    default: null,
   },
 });
 
