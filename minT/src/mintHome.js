@@ -41,6 +41,15 @@ const openPageTitle = ( pageTitle, sourceLanguageCode, axStep ) => {
 	const { prepareSiteLinks } = useSiteLinksHelper();
 
 	findOneOrFetchPage( sourceLanguageCode, pageTitle ).then( ( mediawikiPage ) => {
+
+		// Handle the case where the mediawikiPage object is not available
+		// example: /wiki/Special:AutomaticTranslation?page=tokyooooo&from=af&to=en&step=confirm
+		if ( !mediawikiPage ) {
+			mw.log.error( 'Error while fetching article ' + pageTitle );
+			mw.notify( mw.msg( 'ax-home-error-title', pageTitle ), { type: 'error' } );
+			return;
+		}
+
 		const siteLinks = prepareSiteLinks( mediawikiPage.langlinks );
 		const pageResult = new PageSearchResult( {
 			thumbnail: mediawikiPage.thumbnail,
