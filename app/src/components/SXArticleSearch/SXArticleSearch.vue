@@ -7,7 +7,7 @@ import { ref, onMounted, computed, watch, inject } from "vue";
 import getSourceLanguageOptions from "./sourceLanguageOptions";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
 import useURLHandler from "@/composables/useURLHandler";
-import useMediaWikiState from "../../composables/useMediaWikiState";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import useEventLogging from "@/composables/useEventLogging";
@@ -41,7 +41,7 @@ const {
   sourceLanguageURLParameter: sourceLanguage,
   targetLanguageURLParameter: targetLanguage,
 } = useURLHandler();
-const { supportedLanguageCodes } = useMediaWikiState();
+const { supportedSourceLanguageCodes } = useSupportedLanguageCodes();
 
 const { searchResultsSlice } = useSearchArticles(sourceLanguage, searchInput);
 
@@ -281,7 +281,7 @@ const eventSource = computed(() => {
     >
       <mw-language-selector
         class="sx-article-search-language-selector__widget col-12"
-        :languages="supportedLanguageCodes"
+        :languages="supportedSourceLanguageCodes"
         :suggestions="suggestedSourceLanguages"
         :placeholder="$i18n('cx-sx-language-selector-placeholder')"
         @select="onSourceLanguageSelected"

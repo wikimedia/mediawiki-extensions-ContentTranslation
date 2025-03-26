@@ -1,4 +1,4 @@
-import useMediaWikiState from "@/composables/useMediaWikiState";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import { useStore } from "vuex";
 import { setLanguagePair } from "@/composables/useLanguageHelper";
 import useURLHandler from "@/composables/useURLHandler";
@@ -15,8 +15,11 @@ const applicationLanguagesInitialized = ref(false);
  */
 const useApplicationLanguagesInitialize = () => {
   const store = useStore();
-  const { enabledTargetLanguages, supportedLanguageCodes } =
-    useMediaWikiState();
+  const {
+    supportedSourceLanguageCodes,
+    supportedTargetLanguageCodes,
+    fetchSupportedLanguageCodes,
+  } = useSupportedLanguageCodes();
 
   const { sourceLanguageURLParameter, targetLanguageURLParameter } =
     useURLHandler();
@@ -50,13 +53,11 @@ const useApplicationLanguagesInitialize = () => {
   const getInitialLanguagePair = () => {
     const wikiLanguage = siteMapper.getCurrentWikiLanguageCode();
 
-    const isEnabledLanguage = (language) =>
-      !enabledTargetLanguages.value ||
-      (Array.isArray(enabledTargetLanguages.value) &&
-        enabledTargetLanguages.value.includes(language));
+    const isSupportedSourceLanguage = (language) =>
+      supportedSourceLanguageCodes.value.includes(language);
 
-    const isSupportedLanguage = (language) =>
-      supportedLanguageCodes.value.includes(language);
+    const isSupportedTargetLanguage = (language) =>
+      supportedTargetLanguageCodes.value.includes(language);
 
     const defaultLanguages = {
       sourceLanguage: "en",
@@ -67,7 +68,7 @@ const useApplicationLanguagesInitialize = () => {
       targetLanguageURLParameter.value,
       mw.storage.get("cxTargetLanguage"),
       wikiLanguage,
-      enabledTargetLanguages.value?.[0] || defaultLanguages.targetLanguage,
+      defaultLanguages.targetLanguage,
     ];
 
     const candidateSourceLanguages = [
@@ -78,23 +79,21 @@ const useApplicationLanguagesInitialize = () => {
       defaultLanguages.targetLanguage,
     ];
 
-    const targetLanguage = candidateTargetLanguages.find(
-      (language) => isEnabledLanguage(language) && isSupportedLanguage(language)
+    const targetLanguage = candidateTargetLanguages.find((language) =>
+      isSupportedTargetLanguage(language)
     );
     const sourceLanguage = candidateSourceLanguages.find(
-      (language) => isSupportedLanguage(language) && language !== targetLanguage
+      (language) =>
+        isSupportedSourceLanguage(language) && language !== targetLanguage
     );
 
     return { sourceLanguage, targetLanguage };
   };
 
   const initializeApplicationLanguages = async () => {
-    await store.dispatch("mediawiki/fetchSupportedLanguageCodes");
+    await fetchSupportedLanguageCodes();
 
-    const { sourceLanguage, targetLanguage } = getInitialLanguagePair(
-      enabledTargetLanguages.value,
-      supportedLanguageCodes.value
-    );
+    const { sourceLanguage, targetLanguage } = getInitialLanguagePair();
 
     setLanguagePair(store, sourceLanguage, targetLanguage);
     applicationLanguagesInitialized.value = true;

@@ -1,21 +1,15 @@
 import { createApp, ref } from "vue";
 import useSuggestedSourceLanguages from "./useSuggestedSourceLanguages";
-import { createStore } from "vuex";
+
+const supportedLanguageCodes = ["aa", "ab", "ar", "ig", "fr", "it", "ja"];
+jest.mock("@/composables/useSupportedLanguageCodes", () => () => ({
+  supportedSourceLanguageCodes: { value: supportedLanguageCodes },
+}));
 
 jest.mock("@/composables/useURLHandler", () => () => ({
   sourceLanguageURLParameter: { value: "en" },
   targetLanguageURLParameter: { value: "es" },
 }));
-
-const store = createStore({
-  modules: {
-    mediawiki: {
-      state: {
-        supportedLanguageCodes: ["aa", "ab", "ar", "ig", "fr", "it", "ja"],
-      },
-    },
-  },
-});
 
 Object.defineProperty(global.navigator, "language", {
   value: "ar-dz",
@@ -46,7 +40,6 @@ const mockLoadComposableInApp = (composable) => {
       return () => {};
     },
   });
-  app.use(store);
   app.mount(document.createElement("div"));
 
   return { result, app };

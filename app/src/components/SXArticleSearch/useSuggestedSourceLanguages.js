@@ -1,5 +1,5 @@
 import { computed } from "vue";
-import useMediaWikiState from "@/composables/useMediaWikiState";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import useURLHandler from "@/composables/useURLHandler";
 
 /**
@@ -10,7 +10,7 @@ import useURLHandler from "@/composables/useURLHandler";
  * @return {function(ComputedRef<string[]>):ComputedRef<string[]>}
  */
 const useSuggestedSourceLanguages = () => {
-  const { supportedLanguageCodes } = useMediaWikiState();
+  const { supportedSourceLanguageCodes } = useSupportedLanguageCodes();
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
@@ -53,7 +53,7 @@ const useSuggestedSourceLanguages = () => {
         (language) =>
           language !== sourceLanguage.value &&
           language !== targetLanguage.value &&
-          supportedLanguageCodes.value.includes(language)
+          supportedSourceLanguageCodes.value.includes(language)
       );
     });
 

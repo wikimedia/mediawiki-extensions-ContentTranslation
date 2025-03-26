@@ -7,10 +7,6 @@ export default {
     state.languageTitleGroups.push(group);
   },
 
-  setSupportedLanguageCodes(state, languageCodes) {
-    state.supportedLanguageCodes = languageCodes;
-  },
-
   /**
    * @param {Object} state
    * @param {MTProviderGroup} mtProviderGroup
@@ -26,14 +22,6 @@ export default {
    */
   setPageSections(state, { page, sections }) {
     page.sections = sections;
-  },
-
-  setLanguagesRequested(state, value) {
-    state.languagesRequested = value;
-  },
-
-  setSupportedLanguageCodesRequested(state, value) {
-    state.supportedLanguageCodesRequested = value;
   },
 
   /**

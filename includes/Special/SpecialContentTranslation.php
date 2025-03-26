@@ -353,7 +353,6 @@ class SpecialContentTranslation extends SpecialPage {
 			if ( $this->isUnifiedDashboard() ) {
 				$out->addModules( 'mw.cx3' );
 				$out->addJsConfigVars( [
-					'wgSectionTranslationTargetLanguages' => $config->get( 'SectionTranslationTargetLanguages' ),
 					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
 				] );
 			} else {

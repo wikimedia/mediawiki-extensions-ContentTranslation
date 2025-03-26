@@ -1,25 +1,4 @@
 import pageApi from "../../../wiki/mw/api/page";
-import siteApi from "../../../wiki/mw/api/site";
-
-/**
- * This action fetches all language codes supported by cxserver,
- * that can be used as source/target languages.
- *
- * @param {object} context
- * @param {function} context.commit
- * @param {object} context.state
- */
-async function fetchSupportedLanguageCodes({ commit, state }) {
-  // If supported language codes have already been fetched, then skip
-  if (
-    !state.supportedLanguageCodes.length &&
-    !state.supportedLanguageCodesRequested
-  ) {
-    commit("setSupportedLanguageCodesRequested", true);
-    const languageCodes = await siteApi.fetchSupportedLanguageCodes();
-    commit("setSupportedLanguageCodes", languageCodes);
-  }
-}
 
 /**
  * Fetch nearby suggestions for current source language
@@ -44,7 +23,4 @@ async function fetchNearbyPages({ commit, rootState, state }) {
   commit("addNearbyPages", { language: sourceLanguage, pages });
 }
 
-export default {
-  fetchNearbyPages,
-  fetchSupportedLanguageCodes,
-};
+export default { fetchNearbyPages };

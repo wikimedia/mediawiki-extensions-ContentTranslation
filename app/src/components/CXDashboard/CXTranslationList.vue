@@ -5,7 +5,6 @@ import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxConfirmTranslationDeletionDialog from "./SXConfirmTranslationDeletionDialog.vue";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import { ref, computed, inject } from "vue";
-import useMediaWikiState from "@/composables/useMediaWikiState";
 import { useStore } from "vuex";
 import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
 import useTranslationsFetch from "@/composables/useTranslationsFetch";
@@ -38,8 +37,6 @@ const loaded = computed(
   () => translationsFetched.value[props.translationStatus]
 );
 
-const { enabledTargetLanguages } = useMediaWikiState();
-
 const deletionDialogOn = ref(false);
 const translationToDelete = ref(null);
 const isDraftTranslationList = computed(
@@ -70,17 +67,9 @@ const activeTranslations = computed(() =>
 );
 
 const availableTargetLanguages = computed(() => {
-  let translationTargetLanguages = translations.value.map(
+  const translationTargetLanguages = translations.value.map(
     (translation) => translation.targetLanguage
   );
-
-  // If SectionTranslationTargetLanguages configuration parameter is set,
-  // target language selection is limited to these languages
-  if (!!enabledTargetLanguages.value) {
-    translationTargetLanguages = translationTargetLanguages.filter((language) =>
-      enabledTargetLanguages.value.includes(language)
-    );
-  }
 
   return [...new Set(translationTargetLanguages)];
 });

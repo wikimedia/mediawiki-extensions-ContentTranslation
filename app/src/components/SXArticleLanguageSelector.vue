@@ -1,12 +1,12 @@
 <script setup>
 import SxTranslationListLanguageSelector from "./CXDashboard/SXTranslationListLanguageSelector.vue";
-import useMediaWikiState from "@/composables/useMediaWikiState";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import { computed } from "vue";
 import { useArticleLanguagePairUpdate } from "@/composables/useLanguageHelper";
 import useLanguageTitleGroup from "@/composables/useLanguageTitleGroup";
 import useURLHandler from "@/composables/useURLHandler";
 
-const { supportedLanguageCodes, enabledTargetLanguages } = useMediaWikiState();
+const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
 
 const {
   sourceLanguageURLParameter: sourceLanguage,
@@ -23,15 +23,6 @@ const { currentLanguageTitleGroup } = useLanguageTitleGroup();
 const availableSourceLanguages = computed(
   () => currentLanguageTitleGroup.value?.titles.map((title) => title.lang) || []
 );
-/**
- * If enabledTargetLanguages are set,
- * target language selection is limited to these languages
- *
- * @return {ComputedRef<string[]>} - Array of available target language codes
- */
-const targetLanguages = computed(
-  () => enabledTargetLanguages.value || supportedLanguageCodes.value
-);
 
 const updateLanguagePair = useArticleLanguagePairUpdate();
 const onSourceLanguageSelected = (newSourceLanguage) =>
@@ -44,7 +35,7 @@ const onTargetLanguageSelected = (newTargetLanguage) =>
   <sx-translation-list-language-selector
     class="sx-article-language-selector"
     :source-languages="availableSourceLanguages"
-    :target-languages="targetLanguages"
+    :target-languages="supportedTargetLanguageCodes"
     :selected-source-language="sourceLanguage"
     :selected-target-language="targetLanguage"
     @update:selected-source-language="onSourceLanguageSelected"

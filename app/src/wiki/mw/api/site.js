@@ -1,11 +1,10 @@
-import MTProviderGroup from "../models/mtProviderGroup";
-import { siteMapper } from "../../../utils/mediawikiHelper";
+import MTProviderGroup from "@/wiki/mw/models/mtProviderGroup";
+import { siteMapper } from "@/utils/mediawikiHelper";
 
-function fetchSupportedLanguageCodes() {
-  return siteMapper
-    .getLanguagePairs()
-    .then((response) => response.sourceLanguages);
-}
+/**
+ * @returns {Promise<{ sourceLanguages: string[], targetLanguages: string[]}>}
+ */
+const fetchSupportedLanguageCodes = () => siteMapper.getLanguagePairs();
 
 /**
  * Fetches supported MT providers for a given language pair

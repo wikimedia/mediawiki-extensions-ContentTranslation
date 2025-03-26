@@ -3,7 +3,6 @@ import CxTranslationSuggestion from "./CXTranslationSuggestion.vue";
 import { MwSpinner, MwCard } from "@/lib/mediawiki.ui";
 import SxTranslationListLanguageSelector from "./SXTranslationListLanguageSelector.vue";
 import CxSuggestionListFilters from "./CXSuggestionListFilters.vue";
-import useSuggestionListLanguages from "./useSuggestionListLanguages";
 import useSuggestions from "./useSuggestions";
 import { computed, inject, ref } from "vue";
 import useEventLogging from "@/composables/useEventLogging";
@@ -16,6 +15,7 @@ import useDashboardSuggestionEventSource from "@/composables/useDashboardSuggest
 import useURLHandler from "@/composables/useURLHandler";
 import CxListEmptyPlaceholder from "@/components/CXDashboard/CXListEmptyPlaceholder.vue";
 import { useStore } from "vuex";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 
 const props = defineProps({
   active: {
@@ -30,9 +30,8 @@ const {
   currentSuggestionFilters,
 } = useURLHandler();
 
-const { supportedLanguageCodes, availableTargetLanguages } =
-  useSuggestionListLanguages();
-
+const { supportedSourceLanguageCodes, supportedTargetLanguageCodes } =
+  useSupportedLanguageCodes();
 const updateLanguagePair = useSuggestionListLanguagePairUpdate();
 const updateSourceLanguage = (newSourceLanguage) =>
   updateLanguagePair(newSourceLanguage, targetLanguage.value);
@@ -156,8 +155,8 @@ const showRefreshButton = computed(
           />
           <sx-translation-list-language-selector
             v-if="!isMobile"
-            :source-languages="supportedLanguageCodes"
-            :target-languages="availableTargetLanguages"
+            :source-languages="supportedSourceLanguageCodes"
+            :target-languages="supportedTargetLanguageCodes"
             :selected-source-language="sourceLanguage"
             :selected-target-language="targetLanguage"
             @update:selected-source-language="updateSourceLanguage"
@@ -168,8 +167,8 @@ const showRefreshButton = computed(
       </template>
       <sx-translation-list-language-selector
         v-if="isMobile"
-        :source-languages="supportedLanguageCodes"
-        :target-languages="availableTargetLanguages"
+        :source-languages="supportedSourceLanguageCodes"
+        :target-languages="supportedTargetLanguageCodes"
         :selected-source-language="sourceLanguage"
         :selected-target-language="targetLanguage"
         @update:selected-source-language="updateSourceLanguage"

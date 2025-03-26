@@ -1,19 +1,25 @@
 import { createStore } from "vuex";
 import { loadTestComposable } from "@/utils/loadTestComposable";
 import useURLHandler from "@/composables/useURLHandler";
+import useSupportedLanguageCodes from "@/composables/useSupportedLanguageCodes";
 import useApplicationLanguagesInitialize from "@/composables/useApplicationLanguagesInitialize";
 
 let mockWikiLanguage = "bn";
+const supportedLanguageCodes = ["en", "el"];
+
 jest.mock("@/utils/mediawikiHelper", () => ({
-  siteMapper: { getCurrentWikiLanguageCode: () => mockWikiLanguage },
+  siteMapper: {
+    getCurrentWikiLanguageCode: () => mockWikiLanguage,
+    getLanguagePairs: () =>
+      Promise.resolve({
+        sourceLanguages: supportedLanguageCodes,
+        targetLanguages: supportedLanguageCodes,
+      }),
+  },
   getUrl: jest.fn(),
 }));
 
-const mediawikiState = {
-  enabledTargetLanguages: null,
-  supportedLanguageCodes: [],
-};
-const supportedLanguageCodes = ["en", "es", "el", "de", "bn", "ig", "ha", "sq"];
+const { supportedTargetLanguageCodes } = useSupportedLanguageCodes();
 
 const store = createStore({
   modules: {
@@ -23,19 +29,6 @@ const store = createStore({
       mutations: {
         setSourceLanguage: jest.fn(),
         setTargetLanguage: jest.fn(),
-      },
-    },
-    mediawiki: {
-      namespaced: true,
-      state: mediawikiState,
-      actions: {
-        fetchSupportedLanguageCodes: () =>
-          (mediawikiState.supportedLanguageCodes = supportedLanguageCodes),
-      },
-      mutations: {
-        setEnabledTargetLanguages(state, languages) {
-          state.enabledTargetLanguages = languages;
-        },
       },
     },
   },
@@ -84,19 +77,16 @@ describe("useApplicationLanguagesInitialize composable test", () => {
 
   // supportedLanguages refer to all languages that are supported by cxserver
 
-  it("should respect URL params when they are properly supported/enabled", async () => {
+  it("should respect URL params when they are properly supported", async () => {
     mockURLParams.from = "en";
     mockURLParams.to = "el";
     // both source and target languages have to be supported by cxserver
-    // target language should also be enabled for Section Translation if enabledTargetLanguages
-    // (in configuration parameter SectionTranslationTargetLanguages) are defined
     initializeURLState();
     await initializeApplicationLanguages();
 
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("el");
 
-    store.commit("mediawiki/setEnabledTargetLanguages", ["el"]);
     initializeURLState();
     await initializeApplicationLanguages();
 
@@ -105,45 +95,26 @@ describe("useApplicationLanguagesInitialize composable test", () => {
     expect(targetLanguage.value).toBe("el");
   });
 
-  it("should fallback to wiki language (bn) as target language if URL param 'to' not supported or not enabled", async () => {
-    // sq not enabled here
+  it("should fallback to wiki language (bn) as target language if URL param 'to' is not supported", async () => {
+    supportedTargetLanguageCodes.value = ["bn", "en", "es"];
+    // sq not supported here
     mockURLParams.to = "sq";
-    store.commit("mediawiki/setEnabledTargetLanguages", ["bn", "ig", "ha"]);
 
     initializeURLState();
-    await initializeApplicationLanguages();
-    expect(sourceLanguage.value).toBe("en");
-    expect(targetLanguage.value).toBe("bn");
-
-    // fr not supported here
-    mockURLParams.to = "fr";
-    initializeURLState();
-
     await initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("bn");
   });
 
-  it("should fallback to default (es) as target language if no URL param 'to', not supported current wiki language and no enabled languages", async () => {
+  it("should fallback to default (es) as target language if 'to' URL param is not set, and current wiki language is not supported", async () => {
     mockURLParams.to = null;
-    store.commit("mediawiki/setEnabledTargetLanguages", null);
     mw.storage.set("cxTargetLanguage", null);
 
-    // fr not supported here
+    // fr not supported here. Supported target languages are: ["bn", "en", "es"]
     mockWikiLanguage = "fr";
     initializeURLState();
     await initializeApplicationLanguages();
     expect(sourceLanguage.value).toBe("en");
     expect(targetLanguage.value).toBe("es");
-  });
-
-  it("should fallback to first enabled language as target language if no URL param 'to' and not supported/enabled current wiki language (fr)", async () => {
-    mockURLParams.to = null;
-    initializeURLState();
-    store.commit("mediawiki/setEnabledTargetLanguages", ["ig", "ha"]);
-
-    await initializeApplicationLanguages();
-    expect(sourceLanguage.value).toBe("en");
-    expect(targetLanguage.value).toBe("ig");
   });
 });
