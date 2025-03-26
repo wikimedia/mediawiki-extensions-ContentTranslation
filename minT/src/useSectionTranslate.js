@@ -17,7 +17,7 @@ const useSectionTranslate = () => {
 	const { translate } = useApi();
 	const siteMapper = new mw.cx.SiteMapper();
 
-	const adaptLinks = ( translation ) => {
+	const adaptLinksAndReferences = ( translation ) => {
 		const doc = new DOMParser().parseFromString( translation, 'text/html' );
 		const wikiLanguageCode = siteMapper.getCurrentWikiLanguageCode();
 		Array.prototype.forEach.call( doc.querySelectorAll( 'a[data-cx]' ), ( link ) => {
@@ -53,6 +53,17 @@ const useSectionTranslate = () => {
 			}
 		} );
 
+		Array.prototype.forEach.call( doc.querySelectorAll( 'sup[data-mw]' ), ( ref ) => {
+			const dataMw = JSON.parse( ref.getAttribute( 'data-mw' ) || '{}' );
+			if ( Object.keys( dataMw ).length === 0 ) {
+				return;
+			}
+
+			const referenceAnchor = ref.querySelector( 'a' );
+			const referenceLink = new URL( referenceAnchor.href );
+			referenceAnchor.href = referenceLink.hash;
+		} );
+
 		return doc.body.innerHTML;
 	};
 
@@ -70,7 +81,10 @@ const useSectionTranslate = () => {
 			targetLanguage.value,
 			cxServerToken.value
 		).then( ( translation ) => {
-			section.setSubSectionGroupTranslationByIndex( index, adaptLinks( translation ) );
+			section.setSubSectionGroupTranslationByIndex(
+				index,
+				adaptLinksAndReferences( translation )
+			);
 		} ).catch( ( error ) => {
 			section.setSubSectionGroupTranslationByIndex( index, null );
 

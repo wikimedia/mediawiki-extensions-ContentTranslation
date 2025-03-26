@@ -242,7 +242,8 @@ module.exports = defineComponent( {
 		const {
 			nonLeadSections,
 			leadSection,
-			initializeTranslation
+			initializeTranslation,
+			referenceSectionIndex
 		} = useTranslationInitialize();
 
 		const { targetTitle, initializeTargetTitle } = useTargetTitle();
@@ -325,7 +326,7 @@ module.exports = defineComponent( {
 		const sectionExpandStatus = ref( [] );
 		const { translateSection } = useSectionTranslate();
 
-		const toggleSection = ( index ) => {
+		const toggleSection = ( index, skipLogging = false ) => {
 			sectionExpandStatus.value[ index ] = !sectionExpandStatus.value[ index ];
 			const sectionTitle = nonLeadSections.value[ index ].title;
 			const translationContext = {
@@ -334,13 +335,20 @@ module.exports = defineComponent( {
 				// eslint-disable-next-line camelcase
 				source_title: sectionTitle
 			};
+
+			let actionSubtype = 'section_collapse';
 			if ( sectionExpandStatus.value[ index ] ) {
-				logEvent( 'click', 'section_expand', null, null, translationContext );
 				translateSection( nonLeadSections.value[ index ] );
-			} else {
-				logEvent( 'click', 'section_collapse', null, null, translationContext );
+				actionSubtype = 'section_expand';
 			}
+
+			if ( skipLogging ) {
+				return;
+			}
+
+			logEvent( 'click', actionSubtype, null, null, translationContext );
 		};
+
 		const resetSectionExpandStatus = ( sectionValues ) => {
 			sectionExpandStatus.value = sectionValues.map( () => false );
 		};
@@ -438,7 +446,14 @@ module.exports = defineComponent( {
 				);
 				loadingSectionTitleTranslations.value = true;
 				Promise.all( sectionTitleTranslationPromises ).then(
-					() => ( loadingSectionTitleTranslations.value = false )
+					() => {
+						loadingSectionTitleTranslations.value = false;
+
+						// Load the references
+						if ( referenceSectionIndex.value !== -1 ) {
+							toggleSection( referenceSectionIndex.value, true );
+						}
+					}
 				);
 
 				if ( !isQuickSurveyLoaded ) {
@@ -614,6 +629,13 @@ module.exports = defineComponent( {
       .survey-action-buttons .cdx-button--action-default {
         display: none;
       }
+    }
+
+    /* Highlight clicked reference in blue to help navigation */
+    /* The Cite extension CSS does not load on this special page */
+    ol.references li:target,
+    sup.reference:target {
+      background-color: @background-color-progressive-subtle;
     }
   }
 
