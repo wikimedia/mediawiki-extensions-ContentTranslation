@@ -11,6 +11,9 @@
 	"mint-translation-list-all-languages-option-label": "Усі",
 	"mint-home-info-panel-text": "Мільйони тем у Вікіпедії можуть бути автоматично перекладені мовою $1.",
 	"mint-home-random-topic-button-label": "Випадкова тема",
+	"ax-home-random-topic-loading-label": "Завантаження…",
+	"ax-home-random-topic-error": "Під час отримання випадкової теми сталася помилка",
+	"ax-home-error-title": "Під час отримання статті $1 сталася помилка.",
 	"mint-home-experimental-note": "Підтримка автоматичного перекладу є експериментальною. [$1 Докладніше]",
 	"mint-language-selector-title": "Мови",
 	"mint-language-selector-suggestions-header": "Пропоновані",
@@ -53,6 +56,8 @@
 	"mint-explore-languages-language-card-container-title": "Мови з найбільшим покриттям теми «$1»",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 розділ|$1 розділи|$1 розділів|0=Немає розділів}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Найбільш детально",
+	"mint-explore-languages-loading-error": "Не вдалося переглянути вміст, доступний кожною мовою. Виберіть мову для використання як джерела для автоматичного перекладу.",
+	"mint-explore-languages-open-language-selector": "Вибрати мову",
 	"ax-cx-introduction-dialog-title": "Переглянути та виправити переклади",
 	"ax-cx-introduction-summary": "Покращуйте вміст, доступний вашою мовою. Напишіть кращий переклад й опублікуйте його у Вікіпедії.",
 	"ax-cx-introduction-information-accuracy": "Автоматичний переклад забезпечує корисний загальний огляд, але він не завжди є точним.",
@@ -73,5 +78,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "Я не можу швидко отримати загальне розуміння теми.",
 	"ax-translation-view-feedback-negative-technical-aspect": "Технічні аспекти, такі як час завантаження, заважали навчанню.",
 	"ax-translation-view-feedback-confirm-title": "Зворотний зв'язок",
-	"ax-translation-view-feedback-confirm-description": "Дякуємо за допомогу! Ви можете поділитися іншими думками щодо цього експерименту [https://www.mediawiki.org/wiki/Talk:MinT на сторінці обговорення проєкту]."
+	"ax-translation-view-feedback-confirm-description": "Дякуємо за допомогу! Ви можете поділитися іншими думками щодо цього експерименту [https://www.mediawiki.org/wiki/Talk:MinT на сторінці обговорення проєкту].",
+	"ax-cx-failed-translation-label": "Помилка перекладу"
 }

@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "تمام",
 	"mint-home-info-panel-text": "وِکیٖپیٖڈیاہَس پؠٹھ لچھِ بٔدؠ موضوعات ہیٚکو پٲنؠ پانے $1 منٛز تَرجَمہٕ کٔرِتھ۔",
 	"mint-home-random-topic-button-label": "کانٛہہ تہِ موضوع",
+	"ax-home-random-topic-loading-label": "لوڑ چھُ گژھن...",
 	"mint-language-selector-title": "زَبانہٕ",
 	"mint-language-selector-suggestions-header": "تَجویٖز دار",
 	"mint-language-selector-all-languages-header": "تَمام زَبانہٕ",
@@ -35,5 +36,10 @@
 	"mint-view-translation-overlay-source-article-link-label": "وِکیٖپیٖڈیاہَس پؠٹھ پٔرِو $1 منٛز",
 	"mint-view-translation-overlay-target-article-link-label": "وِکیٖپیٖڈیاہَس پؠٹھ پٔرِو $1 منٛز",
 	"ax-article-footer-entrypoint-card-description": "مزیٖد مواد باقٕے زَنانَن مَنٛز",
-	"ax-article-footer-entrypoint-card-supporting-text": "خۄدکار تَرجَمہٕ پٔرِو"
+	"ax-article-footer-entrypoint-card-supporting-text": "خۄدکار تَرجَمہٕ پٔرِو",
+	"mint-explore-languages-open-language-selector": "زَبان ہُنٛد اِنتِخاب کٔرِو",
+	"ax-cx-introduction-information-accuracy": "خودکار تَرجَمہٕ چھُ اکھ اَہَم خلاسہ دِوان مگر یہ چھُ نہٕ ہمیشہ صحیح آسان.",
+	"ax-translation-view-feedback-positive": "آ",
+	"ax-translation-view-feedback-negative": "نہَ",
+	"ax-cx-failed-translation-label": "تَرجَمہٕ گو نہٕ کامیاب"
 }

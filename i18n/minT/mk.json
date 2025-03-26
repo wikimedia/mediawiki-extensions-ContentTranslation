@@ -53,6 +53,8 @@
 	"mint-explore-languages-language-card-container-title": "Јазици со најмногу покриеност на „$1“",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 оддел|$1 оддели|0=Нема оддели}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Најопфатно",
+	"mint-explore-languages-loading-error": "Не успеав да ја добијам покриеноста на јазици",
+	"mint-explore-languages-open-language-selector": "Отвори го избирачот на јазици",
 	"ax-cx-introduction-dialog-title": "Преглед и исправка на преводи",
 	"ax-cx-introduction-summary": "Подобрете ја содржината достапна на вашиот јазик. Направете подобар превод и објавете го на Википедија.",
 	"ax-cx-introduction-information-accuracy": "Автоматскиот превод дава корисна претстава, но не е секогаш точен.",
