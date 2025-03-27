@@ -160,7 +160,7 @@ const shouldDisplayNewTranslationButton = computed(() => {
       class="sx-translation-confirmer__action pt-5 pb-2 ma-0 px-4"
       justify="center"
     >
-      <mw-col v-if="shouldDisplayMoreSectionsButton" shrink class="me-4">
+      <mw-col v-if="shouldDisplayMoreSectionsButton" shrink>
         <cdx-button
           size="large"
           weight="quiet"
@@ -170,7 +170,7 @@ const shouldDisplayNewTranslationButton = computed(() => {
           {{ $i18n("cx-sx-translation-confirmer-more-sections-button-label") }}
         </cdx-button>
       </mw-col>
-      <mw-col v-if="shouldDisplayNewTranslationButton" shrink class="me-4">
+      <mw-col v-if="shouldDisplayNewTranslationButton" shrink>
         <cdx-button size="large" @click="onStartNewTranslationClick">
           {{
             $i18n(
@@ -201,6 +201,10 @@ const shouldDisplayNewTranslationButton = computed(() => {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-translation-confirmer {
+  &__action {
+    gap: @spacing-100;
+  }
+
   &-body__pre-filled-banner {
     background-color: @background-color-progressive-subtle;
     h6 {

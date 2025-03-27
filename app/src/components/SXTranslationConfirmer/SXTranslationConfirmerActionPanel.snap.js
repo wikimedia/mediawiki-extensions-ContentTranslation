@@ -74,7 +74,7 @@ exports[`SXTranslationConfirmer Action Panel test Component output matches snaps
       
       <!--v-if-->
       <div
-        class="col shrink me-4"
+        class="col shrink"
       >
         
         <button
