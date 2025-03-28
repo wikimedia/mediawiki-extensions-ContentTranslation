@@ -40,30 +40,32 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 			return;
 		}
 
-		$isContentPage = $out->getTitle()->isContentPage();
-
-		if ( !$isContentPage ) {
+		if ( !$out->getTitle()->isContentPage() || !$out->getTitle()->exists() ) {
 			return;
 		}
 
-		$availableLanguages = array_map( static function ( $languageLink ) {
-			return explode( ":", $languageLink )[0];
+		$availableDomainCodes = array_map( static function ( $languageLink ) {
+			$language = explode( ":", $languageLink )[0];
+			return SiteMapper::getDomainCode( $language );
 		}, $out->getLanguageLinks() );
 
-		// The languageLinks in the current page will not include the current language.
-		// Add that also to the availableLanguages array.
-		$availableLanguages[] = SiteMapper::getCurrentLanguageCode();
-		$enabledLanguages = $out->getConfig()->get( 'SectionTranslationTargetLanguages' ) ?? [];
-		$missingLanguageCodes = array_diff( $enabledLanguages, $availableLanguages );
+		$enabledDomainCodes = array_map(
+			static fn ( $language ) => SiteMapper::getDomainCode( $language ),
+			$out->getConfig()->get( 'SectionTranslationTargetLanguages' ) ?? []
+		);
 
-		$missingLanguages = array_map( function ( $code ) {
-			$language = $this->languageFactory->getLanguage( $code );
+		$missingDomainCodes = array_diff( $enabledDomainCodes, $availableDomainCodes );
+
+		$missingLanguages = array_map( function ( $domainCode ) {
+			$languageCode = SiteMapper::getLanguageCodeFromDomain( $domainCode );
+			$language = $this->languageFactory->getLanguage( $languageCode );
 			return [
-				'lang' => $code,
-				'autonym' => $this->languageNameUtils->getLanguageName( $code ),
+				'lang' => $languageCode,
+				'domain' => $domainCode,
+				'autonym' => $this->languageNameUtils->getLanguageName( $languageCode ),
 				'dir' => $language->getDir()
 			];
-		}, $missingLanguageCodes );
+		}, $missingDomainCodes );
 
 		if ( !$missingLanguages ) {
 			return;

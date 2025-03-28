@@ -1,6 +1,6 @@
 ( function () {
 	/**
-	 * @param {{ lang: string, autonym: string, dir: string }[]} sxMissingFrequentLanguages array of missing frequent languages
+	 * @param {{ lang: string, domain: string, autonym: string, dir: string }[]} sxMissingFrequentLanguages array of missing frequent languages
 	 * @return {HTMLDivElement}
 	 */
 	function createPanelTextElement( sxMissingFrequentLanguages ) {
@@ -53,7 +53,7 @@
 	 * exists inside the mobile Language Searcher search input. This is required so that we avoid to
 	 * display multiple SX entrypoints at the same time (https://phabricator.wikimedia.org/T298032#7844926).
 	 *
-	 * @param {{ lang: string, autonym: string, dir: string }[]} sxMissingFrequentLanguages array of missing frequent languages
+	 * @param {{ lang: string, domain: string, autonym: string, dir: string }[]} sxMissingFrequentLanguages array of missing frequent languages
 	 * @return {HTMLHeadingElement}
 	 */
 	function createMissingLanguagesPanel( sxMissingFrequentLanguages ) {
@@ -77,43 +77,30 @@
 	/**
 	 * @param {Object} frequentLanguages object containing the frequently used languages (codes)
 	 * mapped to their respective frequency
-	 * @param {string|undefined} deviceLanguage the device language (can be a variant too, e.g. en-gb)
-	 * @return {{autonym: string, lang: string, dir: string}[]} array of objects representing languages, ordered by their frequency
+	 * @param {string|undefined} deviceLanguage the device language
+	 * @return {{autonym: string, domain: string, lang: string, dir: string}[]} array of objects representing languages, ordered by their frequency
 	 */
 	function getMissingFrequentLanguages( frequentLanguages, deviceLanguage ) {
 		/** @type {{lang: string, frequency: number}[]} */
-		let targetedLanguages = Object.keys( frequentLanguages )
+		const targetedLanguages = Object.keys( frequentLanguages )
 			.map( ( languageCode ) => ( { lang: languageCode, frequency: frequentLanguages[ languageCode ] } ) )
 			.sort( ( a, b ) => b.frequency - a.frequency );
 
-		let deviceParentLanguage;
-		// add device language/variant and parent device language (if exist) on top of this list
+		// if device language exists, add it to the end of the array
 		if ( deviceLanguage ) {
-			const index = deviceLanguage.indexOf( '-' );
-			if ( index !== -1 ) {
-				deviceParentLanguage = deviceLanguage.slice( 0, index );
-			}
-
-			targetedLanguages = targetedLanguages.filter(
-				( language ) => language.lang !== deviceLanguage &&
-					language.lang !== deviceParentLanguage
-			);
-			if ( deviceParentLanguage ) {
-				targetedLanguages.unshift( { lang: deviceParentLanguage } );
-			}
-			targetedLanguages.unshift( { lang: deviceLanguage } );
+			targetedLanguages.push( { lang: deviceLanguage, frequency: -1 } );
 		}
-		// Remove current wiki language from targetedLanguages
-		targetedLanguages = targetedLanguages.filter(
-			( language ) => language.lang !== mw.config.get( 'wgContentLanguage' )
-		);
+
+		const siteMapper = new mw.cx.SiteMapper();
+		const targetedDomainCodes = targetedLanguages.map( ( language ) => siteMapper.getWikiDomainCode( language.lang ) );
+
 		/**
-		 * @type {{lang: string, autonym: string, dir: string}[]} missingSXLanguages array containing the
-		 * enabled language codes for SX that are missing for the specific article
+		 * @type {{lang: string, domain: string, autonym: string, dir: string}[]} missingSXLanguages array containing
+		 * the SX-supported language codes that are missing for the specific article
 		 */
 		const missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
 		return missingSXLanguages.filter(
-			( missingSXLanguage ) => targetedLanguages.some( ( targetLanguage ) => missingSXLanguage.lang === targetLanguage.lang )
+			( missingSXLanguage ) => targetedDomainCodes.some( ( domainCode ) => missingSXLanguage.domain === domainCode )
 		);
 	}
 
@@ -132,10 +119,12 @@
 	mw.hook( 'mobileFrontend.languageSearcher.onOpen' ).add(
 		/** @param {LanguageSearcher} languageSearcher */
 		( languageSearcher ) => {
-			const frequentLanguages = getFrequentlyUsedLanguages(),
-				deviceLanguage = languageSearcher.options.deviceLanguage;
+			const frequentLanguages = getFrequentlyUsedLanguages();
+			const deviceLanguage = languageSearcher.options.deviceLanguage;
+			// the device language can be a variant (e.g. en-gb). Keep only the language code (e.g. en).
+			const deviceLanguageCode = deviceLanguage && deviceLanguage.split( '-' )[ 0 ];
 
-			const sxMissingFrequentLanguages = getMissingFrequentLanguages( frequentLanguages, deviceLanguage );
+			const sxMissingFrequentLanguages = getMissingFrequentLanguages( frequentLanguages, deviceLanguageCode );
 			if ( !sxMissingFrequentLanguages.length ) {
 				return;
 			}
