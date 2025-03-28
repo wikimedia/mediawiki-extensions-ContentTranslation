@@ -62,6 +62,7 @@ class PageSection {
 		/** @type {HTMLElement[][]} */
 		this.subSectionGroups = [];
 		this.subSectionGroupTranslations = [];
+		this.isReference = false;
 	}
 
 	get isTranslated() {

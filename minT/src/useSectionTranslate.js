@@ -75,6 +75,17 @@ const useSectionTranslate = () => {
 	const translateSubSectionGroup = ( section, index ) => {
 		section.clearSubSectionGroupTranslationByIndex( index );
 
+		// For references, skip translation
+		if ( section.isReference ) {
+			section.setSubSectionGroupTranslationByIndex(
+				index,
+				adaptLinksAndReferences(
+					section.getSubSectionGroupHTML( index )
+				)
+			);
+			return Promise.resolve();
+		}
+
 		return translate(
 			section.getSubSectionGroupHTML( index ),
 			sourceLanguage.value,

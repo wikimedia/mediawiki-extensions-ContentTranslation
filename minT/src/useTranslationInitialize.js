@@ -55,6 +55,9 @@ const getNonLeadSubSections = ( sectionElements ) => {
 		} else {
 			cleanUpSectionNodes( sectionElement );
 			pageSection.addSubSection( sectionElement );
+			if ( sectionElement.querySelector( '.reflist' ) ) {
+				pageSection.isReference = true;
+			}
 		}
 	}
 
@@ -94,7 +97,6 @@ const useTranslationInitialize = () => {
 	const { sourceLanguage, targetLanguage } = useState();
 	const nonLeadSections = ref( [] );
 	const leadSection = ref( null );
-	const referenceSectionIndex = ref( -1 );
 
 	const initializeTranslation = ( title ) => fetchPageContent(
 		sourceLanguage.value,
@@ -123,21 +125,12 @@ const useTranslationInitialize = () => {
 
 		const nonLeadSectionElements = allSubSections.filter( ( node ) => node.dataset.mwSectionNumber !== '0' );
 		nonLeadSections.value = getNonLeadSubSections( nonLeadSectionElements );
-
-		const referenceSectionElement = allSubSections
-			.find( ( node ) => node.querySelector( '.reflist' ) );
-		if ( referenceSectionElement ) {
-			// -1 because the lead section is removed from the nonLeadSections
-			const referenceSectionNumber = referenceSectionElement.dataset.mwSectionNumber;
-			referenceSectionIndex.value = Number( referenceSectionNumber ) - 1;
-		}
 	} ).catch( ( error ) => mw.log.error( 'Error while fetching page contents', error ) );
 
 	return {
 		nonLeadSections,
 		leadSection,
-		initializeTranslation,
-		referenceSectionIndex
+		initializeTranslation
 	};
 };
 

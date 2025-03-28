@@ -242,8 +242,7 @@ module.exports = defineComponent( {
 		const {
 			nonLeadSections,
 			leadSection,
-			initializeTranslation,
-			referenceSectionIndex
+			initializeTranslation
 		} = useTranslationInitialize();
 
 		const { targetTitle, initializeTargetTitle } = useTargetTitle();
@@ -449,10 +448,12 @@ module.exports = defineComponent( {
 					() => {
 						loadingSectionTitleTranslations.value = false;
 
-						// Load the references
-						if ( referenceSectionIndex.value !== -1 ) {
-							toggleSection( referenceSectionIndex.value, true );
-						}
+						// Load all the references so that they can be clicked on
+						nonLeadSections.value.forEach( ( section, index ) => {
+							if ( section.isReference ) {
+								toggleSection( index, true );
+							}
+						} );
 					}
 				);
 
