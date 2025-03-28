@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Adamw",
-			"Dgstranz"
+			"Dgstranz",
+			"Fitoschido"
 		]
 	},
 	"automatic-translation-special-page-description": "Traducción automática",
@@ -44,5 +45,6 @@
 	"mint-view-translation-overlay-share-button-label": "Compartir traducción automática",
 	"mint-view-translation-overlay-feedback-link-label": "Enviar comentarios",
 	"ax-article-footer-entrypoint-card-description": "Más contenido en otros idiomas",
-	"ax-article-footer-entrypoint-card-supporting-text": "Leer traducción automática"
+	"ax-article-footer-entrypoint-card-supporting-text": "Leer traducción automática",
+	"mint-explore-languages-open-language-selector": "Seleccionar idioma"
 }
