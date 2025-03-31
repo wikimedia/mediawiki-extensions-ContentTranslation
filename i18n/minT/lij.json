@@ -11,6 +11,9 @@
 	"mint-translation-list-all-languages-option-label": "Tùtte",
 	"mint-home-info-panel-text": "Milioìn d'argoménti in sce Wikipedia pêuan êse tradûti in outomàtico in $1.",
 	"mint-home-random-topic-button-label": "Argoménto abrétio",
+	"ax-home-random-topic-loading-label": "Caregaménto in córso…",
+	"ax-home-random-topic-error": "Erô incontròu into repìggio de 'n argoménto abrétio",
+	"ax-home-error-title": "Erô incontròu into repìggio da pàgina $1.",
 	"mint-home-experimental-note": "O supòrto a-a traduçión outomàtica o l'é sperimentâle. [$1 Pe savéine de ciù]",
 	"mint-language-selector-title": "Léngoe",
 	"mint-language-selector-suggestions-header": "Consegiòu",
@@ -53,6 +56,9 @@
 	"mint-explore-languages-language-card-container-title": "Léngoe con ciù covertûa pe \"$1\"",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 seçión|$1 seçioìn|0=Nisciùnn-a seçión}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Ciù detagiòu",
+	"mint-explore-languages-loading-error": "No l'é stæto poscìbile fâ 'n'anteprìmma di contegnûi a dispoxiçión inte tùtte e léngoe. Çèrne 'na léngoa da dêuviâ cómme vivàgna pi-â traduçión outomàtica.",
+	"mint-explore-languages-open-language-selector": "Seleçiónn-a a léngoa",
+	"mint-explore-languages-more-results": "$1 {{PLURAL:$1|léngoa|léngoa}} de ciù a dispoxiçión",
 	"ax-cx-introduction-dialog-title": "Revédde e corêze e traduçioìn",
 	"ax-cx-introduction-summary": "Megioâ i contegnûi a dispoxiçión inta tò léngoa. Scrîvi 'na mêgio traduçión e pùbricala in sce Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "A traduçión outomàtica a dà 'na panoràmica ùtile, ma a no l'é goæi precîza.",
@@ -73,5 +79,6 @@
 	"ax-translation-view-feedback-negative-quick-overview": "No pòsso òtegnî a-a spedîa 'n'idêa generâle in sce l'argoménto.",
 	"ax-translation-view-feedback-negative-technical-aspect": "I aspètti ténichi cómme o ténpo de caregaménto s'én mìssi de travèrso in sciô camìn pe l'inprendiménto.",
 	"ax-translation-view-feedback-confirm-title": "Opinión",
-	"ax-translation-view-feedback-confirm-description": "Gràçie pe l'agiùtto! Ti peu sconpartî quæ se ségge âtro penscêo in sce st'esperiménto chi inta [https://www.mediawiki.org/wiki/Talk:MinT pàgina de discusción do progètto]."
+	"ax-translation-view-feedback-confirm-description": "Gràçie pe l'agiùtto! Ti peu sconpartî quæ se ségge âtro penscêo in sce st'esperiménto chi inta [https://www.mediawiki.org/wiki/Talk:MinT pàgina de discusción do progètto].",
+	"ax-cx-failed-translation-label": "Traduçión falîa"
 }

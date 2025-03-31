@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Le plus detaliate",
 	"mint-explore-languages-loading-error": "Non poteva previsualisar le contento disponibile in cata lingua. Selige un lingua a usar como le fonte pro le traduction automatic.",
 	"mint-explore-languages-open-language-selector": "Selige lingua",
+	"mint-explore-languages-more-results": "$1 altere {{PLURAL:$1|lingua|linguas}} disponibile",
 	"ax-cx-introduction-dialog-title": "Revider e corriger traductiones",
 	"ax-cx-introduction-summary": "Meliora le contento disponibile in tu lingua! Scribe un melior traduction e publica lo sur Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Le traduction automatic forni un vista general utile, ma non es sempre precise.",

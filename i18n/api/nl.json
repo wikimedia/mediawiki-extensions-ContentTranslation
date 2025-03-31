@@ -160,5 +160,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Een booleaanse waarde die aangeeft of de sectietitels in het antwoord moeten worden opgenomen.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Haal de lijst met sitelinks voor het artikel ‘Moon’ op in alle beschikbare talen, gesorteerd op artikelgrootte.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Haal de lijst met sitelinks voor het artikel ‘Moon’ op, met inbegrip van de sectietitels, in alle beschikbare talen, gesorteerd op artikelgrootte.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Verzoek om sitelinks van Wikidata op te halen mislukt"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Verzoek om sitelinks van Wikidata op te halen mislukt",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Het maximale aantal op te vragen sitekoppelingen."
 }

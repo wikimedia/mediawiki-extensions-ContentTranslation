@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Am ausführlichsten",
 	"mint-explore-languages-loading-error": "Die Vorschau der in den einzelnen Sprachen verfügbaren Inhalte konnte nicht angezeigt werden. Wähle eine Sprache, die als Quelle für die automatische Übersetzung verwendet werden soll.",
 	"mint-explore-languages-open-language-selector": "Sprache auswählen",
+	"mint-explore-languages-more-results": "{{PLURAL:$1|Eine weitere Sprache|$1 weitere Sprachen}} verfügbar",
 	"ax-cx-introduction-dialog-title": "Übersetzungen überprüfen und korrigieren",
 	"ax-cx-introduction-summary": "Verbessere die in deiner Sprache verfügbaren Inhalte. Schreibe eine bessere Übersetzung und veröffentliche sie auf Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Die automatische Übersetzung bietet einen nützlichen Überblick, ist aber nicht immer genau.",

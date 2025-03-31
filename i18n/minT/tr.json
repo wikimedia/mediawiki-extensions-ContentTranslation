@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "En ayrıntılı",
 	"mint-explore-languages-loading-error": "Her dil için var olan içeriğin önizlemesi başarısız oldu. Otomatik çeviri için kaynak olarak kullanılacak bir dil seçin.",
 	"mint-explore-languages-open-language-selector": "Dil seçin",
+	"mint-explore-languages-more-results": "$1 {{PLURAL:$1|dil}} daha var",
 	"ax-cx-introduction-dialog-title": "Çevirileri gözden geçir ve düzelt",
 	"ax-cx-introduction-summary": "Dilinizde var olan içeriği geliştirin. Daha iyi bir çeviri yazın ve bunu Vikipedi'de yayımlayın.",
 	"ax-cx-introduction-information-accuracy": "Otomatik çeviri yararlı bir genel bakış sağlar, ancak her zaman doğru değildir.",

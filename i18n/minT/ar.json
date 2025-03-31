@@ -60,6 +60,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "الأكثر تفصيلا",
 	"mint-explore-languages-loading-error": "تعذّرت معاينة المحتوى المتوفر بكل لغة. اختر لغةً لاستخدامها كمصدر للترجمة التلقائية.",
 	"mint-explore-languages-open-language-selector": "اختر اللغة",
+	"mint-explore-languages-more-results": "$1 إضافي {{PLURAL:$1|لغة|لغات}} متاحة",
 	"ax-cx-introduction-dialog-title": "مراجعة وإصلاح الترجمات",
 	"ax-cx-introduction-summary": "حسّن المحتوى المتوفر بلغتك. اكتب ترجمة أفضل، وانشرها على ويكيبيديا.",
 	"ax-cx-introduction-information-accuracy": "توفر الترجمة الآلية نظرة عامة مفيدة، ولكنها ليست دقيقة دائمًا.",

@@ -155,5 +155,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "In valô booleàn ch'o l'ìndica se i tìtoli de seçión gh'àn da êse conpréixi inta rispòsta.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Repìggia a lìsta di ligàmmi pi-â pàgina 'Lùnn-a' inte tùtte e léngoe disponìbili, ordinâ pe dimensción da pàgina.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Repìggia a lìsta di ligàmmi pi-â pàgina 'Lùnn-a', inclûzo i tìtoli de seçión, inte tùtte e léngoe disponìbili, ordinâ pe dimensción da pàgina.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Domànda de repigiâ i ligàmmi da Wikidata falîa"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Domànda de repigiâ i ligàmmi da Wikidata falîa",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "O nùmero màscimo de sitelink da repigiâ."
 }

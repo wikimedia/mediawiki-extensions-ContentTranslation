@@ -33,5 +33,6 @@
 	"apihelp-cxdelete-param-sourcetitle": "Lohatenim-pejy loharano.",
 	"apihelp-cxdelete-example-1": "Mamafa ny drafitra miaraka amin'ny lomisin-teny ary lohateny.",
 	"apihelp-cxsave-param-sourcerevision": "Reviziônan'ny pejy loharano.",
-	"apihelp-cxsave-param-progress": "Fampahalalana mikasika ny fahafenoan'ny dikanteny (fandrosoana). JSON miaraka min'ny lakile <code>any</code>, <code>human</code>, <code>mt</code> ary <code>mtSectionsCount</code>. Isa isan-jato ny sandan'ny lakile."
+	"apihelp-cxsave-param-progress": "Fampahalalana mikasika ny fahafenoan'ny dikanteny (fandrosoana). JSON miaraka min'ny lakile <code>any</code>, <code>human</code>, <code>mt</code> ary <code>mtSectionsCount</code>. Isa isan-jato ny sandan'ny lakile.",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Ny isa ambony indrindra amin'ireo rohy mankany amin'ny tranonkala tokony hoentina."
 }

@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "A máis detallada",
 	"mint-explore-languages-loading-error": "Produciuse un erro ao previsualizar os contidos dispoñibles en cada lingua. Selecciona unha lingua para utilizala como fonte da tradución automática.",
 	"mint-explore-languages-open-language-selector": "Seleccionar unha lingua",
+	"mint-explore-languages-more-results": "$1 {{PLURAL:$1|lingua|linguas}} máis",
 	"ax-cx-introduction-dialog-title": "Revisa e corrixe traducións",
 	"ax-cx-introduction-summary": "Mellora o contido dispoñible na túa lingua. Escribe unha tradución mellor e publícaa na Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "A tradución automática ofrece unha visión xeral útil, pero non sempre é precisa.",

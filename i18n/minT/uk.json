@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Найбільш детально",
 	"mint-explore-languages-loading-error": "Не вдалося переглянути вміст, доступний кожною мовою. Виберіть мову для використання як джерела для автоматичного перекладу.",
 	"mint-explore-languages-open-language-selector": "Вибрати мову",
+	"mint-explore-languages-more-results": "{{PLURAL:$1|Доступна ще $1 мова|Доступні ще $1 мови|Доступні ще $1 мов}}",
 	"ax-cx-introduction-dialog-title": "Переглянути та виправити переклади",
 	"ax-cx-introduction-summary": "Покращуйте вміст, доступний вашою мовою. Напишіть кращий переклад й опублікуйте його у Вікіпедії.",
 	"ax-cx-introduction-information-accuracy": "Автоматичний переклад забезпечує корисний загальний огляд, але він не завжди є точним.",

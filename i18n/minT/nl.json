@@ -59,6 +59,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Meest gedetailleerd",
 	"mint-explore-languages-loading-error": "Het is niet gelukt om van de beschikbare inhoud in elke taal een voorvertoning weer te geven. Kies een taal om als bron voor de automatische vertaling te gebruiken.",
 	"mint-explore-languages-open-language-selector": "Kies een taal",
+	"mint-explore-languages-more-results": "{{PLURAL:$1|Er is nog een taal|Er zijn nog $1 talen}} beschikbaar",
 	"ax-cx-introduction-dialog-title": "Vertalingen controleren en corrigeren",
 	"ax-cx-introduction-summary": "Verbeter de tekst die in uw taal beschikbaar is. Schrijf een betere vertaling en publiceer deze op Wikipedia.",
 	"ax-cx-introduction-information-accuracy": "Automatische vertaling geeft een nuttig overzicht, maar is niet altijd nauwkeurig.",

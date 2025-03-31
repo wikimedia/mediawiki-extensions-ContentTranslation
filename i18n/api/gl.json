@@ -107,7 +107,7 @@
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
 	"apihelp-query+langlinkscount-summary": "Obter o número doutras versións lingüísticas.",
-	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina 'Can'",
+	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina \"Dog\"",
 	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das súas traducións publicadas que foron borradas.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Data e hora para obter só os borrados máis recentes.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espazo de nomes no que foron publicadas as traducións eliminadas. Por defecto, no espazo de nomes principal.",
@@ -157,5 +157,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Valor booleano que indica se os títulos das seccións deben incluírse na resposta.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Obter a lista de ligazóns de sitio para o artigo \"Lúa\" en todas as linguas dispoñibles, ordenadas por tamaño do artigo.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Obter a lista de ligazóns de sitio para o artigo \"Lúa\", incluídos os títulos das seccións, en todas as linguas dispoñibles, ordenadas por tamaño do artigo.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Produciuse un erro na solicitude para obter as ligazóns de sitio de Wikidata"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "Produciuse un erro na solicitude para obter as ligazóns de sitio de Wikidata",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Número máximo de ligazóns de sitio a obter."
 }

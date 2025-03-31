@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Ən detallı",
 	"mint-explore-languages-loading-error": "Hər dildə mövcud olan məzmunu önizləmək alınmadı. Avtomatik tərcümə üçün mənbə kimi istifadə ediləcək dil seçin.",
 	"mint-explore-languages-open-language-selector": "Dili seç",
+	"mint-explore-languages-more-results": "$1 daha çox {{PLURAL:$1|dil}} mövcuddur",
 	"ax-cx-introduction-dialog-title": "Tərcümələri yoxla və düzəlt",
 	"ax-cx-introduction-summary": "Dilinizdə mövcud olan məzmunu təkmilləşdirin. Daha yaxşı tərcümə edin və onu Vikipediyada yayımlayın.",
 	"ax-cx-introduction-information-accuracy": "Avtomatik tərcümə faydalı icmal təmin edir, lakin həmişə dəqiq olmur.",

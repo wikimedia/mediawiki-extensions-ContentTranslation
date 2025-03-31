@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "הכי מפורט",
 	"mint-explore-languages-loading-error": "התצוגה המקדימה של התוכן הזמין בכל שפה נכשלה. נא לבחור שפה שתשמש כמקור לתרגום האוטומטי.",
 	"mint-explore-languages-open-language-selector": "נא לבחור שפה",
+	"mint-explore-languages-more-results": "{{PLURAL:$1|זמינה עוד שפה אחת|זמינות עוד $1 שפות}}",
 	"ax-cx-introduction-dialog-title": "סקירה ותיקון של תרגומים",
 	"ax-cx-introduction-summary": "{{GENDER:|שפר|שפרי}} את התוכן הזמין בשפה שלך. {{GENDER:|כתוב|כתבי}} תרגום טוב יותר, {{GENDER:|ופרסם|ופרסמי}} אותו בוויקיפדיה.",
 	"ax-cx-introduction-information-accuracy": "תרגום אוטומטי מספק סקירה כללית שימושית, אבל הוא לא תמיד נכון.",
