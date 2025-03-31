@@ -341,6 +341,7 @@
 	"cx-sx-publisher-animation-failure-message-title": "ప్రచురణ విఫలమైంది",
 	"cx-sx-publisher-animation-failure-message-subtitle": "లోప సందేశాలను చూడండి",
 	"cx-sx-publish-summary": "\"$2\" పేజీ లోని \"$1\" విభాగాన్ని అనువదించి సృష్టించారు",
+	"cx-sx-publish-lead-section-summary": "\"$1\" పేజీ లోని తొలి విభాగాన్ని అనువదించి సృష్టించారు",
 	"cx-sx-publisher-preview-options-title": "ప్రచురణ వికల్పాలు",
 	"cx-sx-publisher-new-section-option-label": "కొత్త విభాగంగా ప్రచురించు",
 	"cx-sx-publisher-lead-section-option-label": "కొత్త పేజీగా ప్రచురించండి",
