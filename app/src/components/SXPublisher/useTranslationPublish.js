@@ -12,7 +12,11 @@ import usePublishInstrument from "@/composables/usePublishInstrument";
 
 const useTranslationPublish = () => {
   const store = useStore();
-  const { pageURLParameter: sourceTitle } = useURLHandler();
+  const {
+    pageURLParameter: sourceTitle,
+    sourceLanguageURLParameter: sourceLanguage,
+    targetLanguageURLParameter: targetLanguage,
+  } = useURLHandler();
   const { sourceSection, targetPageTitleForPublishing } =
     useCurrentPageSection();
   const revision = useCurrentPageRevision();
@@ -65,11 +69,6 @@ const useTranslationPublish = () => {
 
     // the section translation id (cxsx_id) as returned from the "sxsave" api action
     const sectionTranslationId = saveResponse;
-    const {
-      /** @type {PageSection} */
-      sourceLanguage,
-      targetLanguage,
-    } = store.state.application;
 
     const targetTitle = targetPageTitleForPublishing.value;
 
@@ -81,8 +80,8 @@ const useTranslationPublish = () => {
       targetTitle,
       sourceSectionTitle: sourceSection.value.sourceSectionTitleForPublishing,
       targetSectionTitle: sourceSection.value.targetSectionTitleForPublishing,
-      sourceLanguage,
-      targetLanguage,
+      sourceLanguage: sourceLanguage.value,
+      targetLanguage: targetLanguage.value,
       revision: revision.value,
       isSandbox,
       sectionTranslationId,

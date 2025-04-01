@@ -87,6 +87,8 @@ const mockValues = {
 jest.mock("@/composables/useCurrentPageSection", () => () => mockValues);
 
 jest.mock("@/composables/useURLHandler", () => () => ({
+  sourceLanguageURLParameter: { value: "en" },
+  targetLanguageURLParameter: { value: "es" },
   pageURLParameter: { value: "Test source title 1" },
 }));
 
@@ -95,13 +97,7 @@ jest.mock("@/composables/useCurrentPageRevision", () => () => mockRevision);
 
 const applicationModule = {
   namespaced: true,
-  state: {
-    sourceLanguage: "en",
-    targetLanguage: "es",
-  },
-  getters: {
-    isSandboxTarget: () => false,
-  },
+  getters: { isSandboxTarget: () => false },
 };
 
 const mockStore = createStore({
