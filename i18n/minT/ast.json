@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"YoaR"
+		]
+	},
+	"automatic-translation-special-page-description": "Traducción automática",
+	"automatic-translation-desc": "Ofrez [[Special:AutomaticTranslation|traducción automática]] para páxines de conteníu.",
+	"mint-home-header-title": "Traducción automática",
+	"mint-home-input-placeholder": "Buscar un tema",
+	"mint-translation-list-all-languages-option-label": "Toes",
+	"mint-home-info-panel-text": "Millones de temes en Wikipedia pueden traducise automáticamente a $1.",
+	"mint-home-random-topic-button-label": "Tema al debalu",
+	"ax-home-random-topic-loading-label": "Cargando...",
+	"ax-home-random-topic-error": "Ocurrió un error al buscar un tema al debalu",
+	"ax-home-error-title": "Ocurrió un error al cargar l'artículu $1.",
+	"mint-home-experimental-note": "La traducción automática ye esperimental. [$1 Más información]",
+	"mint-language-selector-title": "Llingües",
+	"mint-language-selector-suggestions-header": "Suxeríu",
+	"mint-language-selector-all-languages-header": "Toles llingües",
+	"mint-language-selector-input-placeholder": "Seleiciona una llingua",
+	"mint-language-selector-no-search-results": "Nun hai resultaos",
+	"mint-search-topic-page-header": "Buscar un tema",
+	"mint-search-topic-page-input-placeholder": "Buscar un tema",
+	"mint-search-topic-page-input-aria-label": "Entrada de busca MinT",
+	"mint-search-topic-page-results-container-empty": "Busca cualquier tema. El conteníu d'un tema puede variar según l'idioma.",
+	"mint-confirm-topic-page-header": "Traducción automática",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Ver traducción automática",
+	"mint-confirm-topic-page-language-selector-explanation": "Traducción [$1 de Wikipedia en $2]. Observa cómo se trata'l tema en {{PLURAL:$3|otru idioma|otros $3 idiomes}}.",
+	"mint-confirm-topic-page-go-to-search-button-label": "Buscar otru tema",
+	"mint-confirm-topic-page-target-article-link-container-header": "Escritu polos editores en $1",
+	"mint-confirm-topic-page-target-article-link-container-details": "Esti artículu escribióse en $1 por editores humanos. Puedes xunite a ellos para ameyorar el conteníu.",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Lleer artículu",
+	"mint-view-translation-page-header": "Traducción automática",
+	"mint-view-translation-page-disclaimer-header": "El conteníu automáticu pue ser inexautu",
+	"mint-view-translation-page-disclaimer-body": "Esta páxina ye una traducción automática del conteníu escritu orixinalmente en $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Más información",
+	"ax-article-footer-entrypoint-card-supporting-text": "Lleer traducción automática",
+	"ax-translation-view-feedback-positive": "Sí",
+	"ax-translation-view-feedback-negative": "Non"
+}

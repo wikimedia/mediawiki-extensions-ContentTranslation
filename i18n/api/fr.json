@@ -7,6 +7,7 @@
 			"Element303",
 			"Framawiki",
 			"Gomoko",
+			"JLTRY",
 			"Mahabarata",
 			"Momo50WM",
 			"Orlodrim",
@@ -169,5 +170,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "Une valeur booléenne indiquant si les titres de section doivent être inclus dans la réponse.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "Récupère la liste des liens de site pour l'article « Lune » dans toutes les langues disponibles, triée par taille d'article.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "Récupère la liste des liens de site pour l'article « Lune », y compris les titres des sections, dans toutes les langues disponibles, triée par taille d'article.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "La demande de récupération des liens de site à partir de Wikidata a échoué"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "La demande de récupération des liens de site à partir de Wikidata a échoué",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "Le nombre maximal de liens de site à récupérer."
 }
