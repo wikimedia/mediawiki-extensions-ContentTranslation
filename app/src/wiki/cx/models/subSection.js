@@ -95,13 +95,6 @@ export default class SubSection {
     }
   }
 
-  /**
-   * @return {boolean}
-   */
-  get isHeadingSection() {
-    return this.node.firstElementChild instanceof HTMLHeadingElement;
-  }
-
   get originalHtml() {
     return this.node.outerHTML;
   }
