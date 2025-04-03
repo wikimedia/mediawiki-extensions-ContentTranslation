@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Nik Gkοuntas"
+			"Nik Gkοuntas",
+			"YoaR"
 		]
 	},
 	"automatic-translation-special-page-description": "{{doc-special|AutomaticTranslation}}",
@@ -59,7 +60,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Label of the chip that denotes the language in which the current article is most detailed, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-loading-error": "Error message displayed when it fails to fetch the coverage information for languages, inside the page where the user can view the available languages for the given article and the sections for each language",
 	"mint-explore-languages-open-language-selector": "Label of the button that opens the MW language selector, inside the page where the user can view the available languages for the given article and the sections for each language",
-	"mint-explore-languages-more-results": "Text that displays the number of additional languages available, under 'exlore languates' section, inside the page where the user can view the available languages for the given article and the sections for each language\n\nParameters:\n* $1 - the number of additional languages",
+	"mint-explore-languages-more-results": "Text that displays the number of additional languages available, under 'explore languages' section, inside the page where the user can view the available languages for the given article and the sections for each language\n\nParameters:\n* $1 - the number of additional languages",
 	"ax-cx-introduction-dialog-title": "Title of the dialog that introduces the Content Translation tool. It appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
 	"ax-cx-introduction-summary": "Text that appears in the dialog introducing the Content Translation tool. It appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",
 	"ax-cx-introduction-information-accuracy": "Text introducing the purpose of the Content Translation tool in the dialog that appears when the Content Translation entrypoint link is clicked on the MinT view translation page.",

@@ -164,5 +164,6 @@
 	"apihelp-query+automatictranslationdenselanguages-param-section-titles": "قيمة منطقية تشير إلى ما إذا كان ينبغي تضمين عناوين الأقسام في الاستجابة.",
 	"apihelp-query+automatictranslationdenselanguages-example-1": "احصل على قائمة روابط الموقع الخاصة بمقالة \"القمر\" بجميع اللغات المتاحة، مرتبة حسب حجم المقالة.",
 	"apihelp-query+automatictranslationdenselanguages-example-2": "احصل على قائمة الروابط الخارجية لمقالة \"القمر\"، بما في ذلك عناوين الأقسام، بكل اللغات المتاحة، مرتبة حسب حجم المقالة.",
-	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "فشل طلب جلب الروابط من Wikidata"
+	"apierror-query+automatictranslationdenselanguages-sitelink-request-failure": "فشل طلب جلب الروابط من Wikidata",
+	"apihelp-query+automatictranslationdenselanguages-param-limit": "الحد الأقصى لعدد الروابط التي سيتم جلبها."
 }

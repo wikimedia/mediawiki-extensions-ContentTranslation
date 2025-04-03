@@ -8,6 +8,7 @@
 	},
 	"cx": "Saifeni tercime etüv",
 	"cx-dashboard-header": "Tercimeler",
+	"cx-license-agreement": "Devam eterken  [https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use/en Qullanuv Şartlarını] qabul etersiñiz ve isseleriñizni [https://creativecommons.org/licenses/by-sa/4.0/deed.tr CC BY-SA 4.0] ve [https://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License GFDL 1.3] litsenziyaları mücibi yayınlamanı keri qaytarılmaz şekilde qabul etersiñiz.",
 	"cx-header-progressbar-text": "$1% {{PLURAL:$1|tercime etilgen}}",
 	"cx-header-progressbar-text-mt": "($1% {{PLURAL:$1|maşna tercimesi}})",
 	"cx-header-translation-center": "Tercime merkezi",
