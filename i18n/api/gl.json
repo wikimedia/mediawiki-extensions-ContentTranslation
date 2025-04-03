@@ -107,7 +107,7 @@
 	"apierror-cx-suggestionsdisabled": "As suxestións non están activadas neste wiki.",
 	"apierror-cx-translationnotfound": "Non se atopou a tradución.",
 	"apihelp-query+langlinkscount-summary": "Obter o número doutras versións lingüísticas.",
-	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina 'Can'",
+	"apihelp-query+langlinkscount-example-1": "Obter o número doutras versións lingüísticas da páxina \"Dog\"",
 	"apihelp-query+cxdeletedtranslations-summary": "Obter o número das súas traducións publicadas que foron borradas.",
 	"apihelp-query+cxdeletedtranslations-param-after": "Data e hora para obter só os borrados máis recentes.",
 	"apihelp-query+cxdeletedtranslations-param-namespace": "Espazo de nomes no que foron publicadas as traducións eliminadas. Por defecto, no espazo de nomes principal.",
