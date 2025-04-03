@@ -176,7 +176,7 @@ class SpecialContentTranslation extends SpecialPage {
 		return $hasToken;
 	}
 
-	protected function canUserProceed() {
+	protected function canUserProceed(): bool {
 		$allowAnonSX = $this->getConfig()->get( 'ContentTranslationEnableAnonSectionTranslation' );
 		$hasValidToken = $this->hasValidToken();
 		$campaign = $this->getRequest()->getVal( 'campaign' );
