@@ -125,6 +125,7 @@
 	"cx-publish-destination-namespace-user": "Şahsiy taslaq",
 	"cx-publish-destination-namespace-user-description": "Soñ yahşılaştirmaq içün siziñ qullanıcı isim fezası astında",
 	"cx-publish-destination-namespace-draft": "Toplulıq taslağı",
+	"cx-preference-enable-entrypoints": "İsseler saifesinden, til cedvelinden ve yañı saife yaratuv qısmından [[$1|tercime başlatuv]] funktsiyasına irişim.",
 	"cx-sx-start-translation-button-label": "Tercime etmege başla",
 	"cx-sx-sentence-selector-apply-translation-button-label": "İşlet",
 	"cx-sx-sentence-selector-skip-translation-button-label": "Qaçır",
