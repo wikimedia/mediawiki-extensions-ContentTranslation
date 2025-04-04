@@ -68,6 +68,12 @@ class SpecialContentTranslation extends SpecialPage {
 			$this->skinFactory->makeSkin( 'contenttranslation' )
 		);
 
+		if ( $this->hasValidToken() && !$this->isTargetEqualToCurrentDomain() ) {
+			$this->redirectToTargetCX();
+
+			return;
+		}
+
 		if ( !$this->canUserProceed() ) {
 			return;
 		}
@@ -103,11 +109,7 @@ class SpecialContentTranslation extends SpecialPage {
 		} );
 	}
 
-	/**
-	 * @param string|null $campaign
-	 * @return bool
-	 */
-	public function isValidCampaign( $campaign ) {
+	private function isValidCampaign( ?string $campaign ): bool {
 		$contentTranslationCampaigns = $this->getConfig()->get( 'ContentTranslationCampaigns' );
 
 		if ( !$this->getUser()->isNamed() ) {
@@ -122,20 +124,57 @@ class SpecialContentTranslation extends SpecialPage {
 	/**
 	 * JS-compatible encodeURIComponent function
 	 * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
-	 * @param string $string
-	 * @return string
 	 */
-	public static function encodeURIComponent( $string ) {
+	private static function encodeURIComponent( string $string ): string {
 		$revert = [ '%21' => '!', '%2A' => '*', '%27' => "'", '%28' => '(', '%29' => ')' ];
 		return strtr( rawurlencode( $string ), $revert );
+	}
+
+	private function isTargetEqualToCurrentDomain(): bool {
+		$request = $this->getRequest();
+		$to = $request->getVal( 'to' );
+
+		// Since we can only publish to the current wiki, enforce that the target language matches
+		// the wiki we are currently on. If not, redirect the user back to dashboard, where he can
+		// start again with parameters filled (and redirected to the correct wiki).
+		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
+		if ( $contentTranslationTranslateInTarget ) {
+			$currentLangCode = SiteMapper::getCurrentLanguageCode();
+			$currentDomainCode = SiteMapper::getDomainCode( $currentLangCode );
+			return $to === $currentLangCode || $to === $currentDomainCode;
+		}
+
+		// For development (single instance) use, there is no need to check the target domain,
+		// because we don't redirect.
+		return true;
+	}
+
+	private function redirectToTargetCX() {
+		$request = $this->getRequest();
+		$sourceLanguage = $request->getVal( 'from' );
+		$targetLanguage = $request->getVal( 'to' );
+		$sourceTitle = $request->getVal( 'page' );
+		$targetTitle = $request->getVal( 'targettitle' );
+		$extra = $request->getQueryValuesOnly();
+		unset( $extra['title'] );
+
+		$cxUrl = SiteMapper::getCXUrl(
+			$sourceLanguage,
+			$targetLanguage,
+			$sourceTitle,
+			$targetTitle,
+			$extra
+		);
+
+		$out = $this->getOutput();
+		$out->redirect( $cxUrl );
 	}
 
 	/**
 	 * Check if the request has a token to use CX.
 	 * With a valid cx token override beta feature settings.
-	 * @return bool
 	 */
-	private function hasValidToken() {
+	private function hasValidToken(): bool {
 		$request = $this->getRequest();
 
 		if ( !$this->getUser()->isRegistered() ) {
@@ -158,22 +197,7 @@ class SpecialContentTranslation extends SpecialPage {
 		// Remove all characters that are not allowed in cookie name: ( ) < > @ , ; : \ " / [ ] ? = { }.
 		$cookieName = preg_replace( '/[()<>@,;:\\"\/\[\]?={}]/', '', $cookieName );
 
-		$hasToken = $request->getCookie( $cookieName, '' ) !== null;
-
-		// Since we can only publish to the current wiki, enforce that the target language matches
-		// the wiki we are currently on. If not, redirect the user back to dashboard, where he can
-		// start again with parameters filled (and redirected to the correct wiki).
-		$contentTranslationTranslateInTarget = $this->getConfig()->get( 'ContentTranslationTranslateInTarget' );
-		if ( $contentTranslationTranslateInTarget ) {
-			$currLangCode = SiteMapper::getCurrentLanguageCode();
-			$currDomainCode = SiteMapper::getDomainCode( $to );
-			$tokenIsValid = $to === $currLangCode || $to === $currDomainCode;
-			return $hasToken && $tokenIsValid;
-		}
-
-		// For development (single instance) use, there is no need to validate the token, because
-		// we don't redirect.
-		return $hasToken;
+		return $request->getCookie( $cookieName, '' ) !== null;
 	}
 
 	protected function canUserProceed() {

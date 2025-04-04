@@ -70,6 +70,43 @@ class SiteMapper {
 	}
 
 	/**
+	 * Get the URL for Special:CX on the needed wiki
+	 * according to given source and target title and the target language.
+	 *
+	 * @param string $sourceLanguage
+	 * @param string $targetLanguage
+	 * @param string|null $sourceTitle
+	 * @param string|null $targetTitle
+	 * @param array $extra Additional query parameters
+	 * @return string URL
+	 */
+	public static function getCXUrl(
+		string $sourceLanguage,
+		string $targetLanguage,
+		?string $sourceTitle,
+		?string $targetTitle,
+		array $extra = []
+	): string {
+		// Initialize query parameters
+		$queryParams = array_merge( [ 'from' => $sourceLanguage, 'to' => $targetLanguage ], $extra );
+
+		// Add source title if provided
+		if ( $sourceTitle ) {
+			$queryParams['page'] = $sourceTitle;
+		}
+
+		// Add target title if provided
+		if ( $targetTitle ) {
+			$queryParams['targettitle'] = $targetTitle;
+		}
+
+		$cxPage = 'Special:ContentTranslation';
+
+		$targetCXUrl = self::getPageURL( $targetLanguage, $cxPage );
+		return wfAppendQuery( $targetCXUrl, $queryParams );
+	}
+
+	/**
 	 * @param string $language
 	 * @param string $module
 	 * @param array $params
@@ -93,11 +130,8 @@ class SiteMapper {
 
 	/**
 	 * Get the API URL constructed from the domain template of sites
-	 * @param string $language
-	 * @param array|null $params
-	 * @return string
 	 */
-	public static function getApiURL( $language, $params = null ) {
+	public static function getApiURL( string $language, array $params = [] ): string {
 		global $wgContentTranslationSiteTemplates;
 
 		$domain = self::getDomainCode( $language );
@@ -108,11 +142,8 @@ class SiteMapper {
 
 	/**
 	 * Get the page URL constructed from the domain template of sites
-	 * @param string $language
-	 * @param string $title
-	 * @return string
 	 */
-	public static function getPageURL( $language, $title ) {
+	public static function getPageURL( string $language, string $title ): string {
 		global $wgContentTranslationSiteTemplates;
 
 		$domain = self::getDomainCode( $language );
