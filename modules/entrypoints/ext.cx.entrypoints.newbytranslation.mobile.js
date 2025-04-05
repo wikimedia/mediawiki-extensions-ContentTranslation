@@ -104,6 +104,7 @@
 		closeIcon.addEventListener( 'click', ( event ) => {
 			removeInvite( invitePanel );
 			event.stopPropagation();
+			event.preventDefault();
 		} );
 
 		actionContainer.appendChild( closeIcon );
