@@ -58,6 +58,7 @@
 	"mint-explore-languages-language-card-most-detailed-chip-label": "Најопфатно",
 	"mint-explore-languages-loading-error": "Не успеав да добијам преглед на содржината достапна на секој јазик. Изберете јазик кој ќе ви биде извор за автоматскиот превод.",
 	"mint-explore-languages-open-language-selector": "Избери јазик",
+	"mint-explore-languages-more-results": "{{PLURAL:$1|Достапен е уште $1 јазик|Достапни се уште $1 јазици}}",
 	"ax-cx-introduction-dialog-title": "Преглед и исправка на преводи",
 	"ax-cx-introduction-summary": "Подобрете ја содржината достапна на вашиот јазик. Направете подобар превод и објавете го на Википедија.",
 	"ax-cx-introduction-information-accuracy": "Автоматскиот превод дава корисна претстава, но не е секогаш точен.",

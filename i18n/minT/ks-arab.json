@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ayaat123",
 			"Iflaq"
 		]
 	},
@@ -19,8 +20,10 @@
 	"mint-language-selector-no-search-results": "بے نٔتیٖجہٕ",
 	"mint-search-topic-page-header": "موضوع کٔرِو تَلاش",
 	"mint-search-topic-page-input-placeholder": "موضوع کٔرِو تَلاش",
+	"mint-search-topic-page-input-aria-label": "MinT تلاش اِنپُٹ",
 	"mint-confirm-topic-page-header": "خۄدکار تَرجَمہٕ",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "خۄدکار تَرجَمہٕ وُچھِو",
+	"mint-confirm-topic-page-target-article-link-container-header": "ایڈیٹرن ذٔریعہٕ لؠکھنہٕ آمُت $1 منٛز",
 	"mint-confirm-topic-page-target-article-link-container-details": "یہٕ مَضموٗن چھُ انسٲنی اؠڈِٹرو $1 منٛز لیوکھمُت۔ تُہؠ ہیٚکِو مواد بہتر بناونہٕ خٲطرٕ تِمن سٟتؠ شٲمِل گژھِتھ۔",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "مَضموٗن پٔرِو",
 	"mint-view-translation-page-header": "خۄدکار تَرجَمہٕ",
@@ -35,6 +38,8 @@
 	"mint-view-translation-overlay-header": "خۄدکار تَرجَمہٕ",
 	"mint-view-translation-overlay-source-article-link-label": "وِکیٖپیٖڈیاہَس پؠٹھ پٔرِو $1 منٛز",
 	"mint-view-translation-overlay-target-article-link-label": "وِکیٖپیٖڈیاہَس پؠٹھ پٔرِو $1 منٛز",
+	"mint-view-translation-overlay-cx-entrypoint-label": "دُرُسٛت کٔرِو تَرجَمہٕ",
+	"mint-view-translation-overlay-share-button-label": "خۄدکار تَرجَمہٕ سوٗزِو",
 	"mint-view-translation-overlay-feedback-link-label": "راے دِیو",
 	"ax-article-footer-entrypoint-card-description": "مزیٖد مواد باقٕے زَنانَن مَنٛز",
 	"ax-article-footer-entrypoint-card-supporting-text": "خۄدکار تَرجَمہٕ پٔرِو",
@@ -44,12 +49,14 @@
 	"mint-explore-languages-explanation-banner-title": "مزید ہیچھیو باقٕے زبانو پیٹھ",
 	"mint-explore-languages-explanation-banner-text": "مُختٔلِف زبانَن ہٕنٛدؠو ایڈیٹرَو کوٚر اتھ موضوعَس مُختٔلِف طٔریٖقَو سٟتؠ۔",
 	"mint-explore-languages-language-card-container-title": "زبانہٕ یمن سارِوٕے کھوتہٕ زیادٕ کوریج چِھ \"$1\" باپتھ",
+	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1 حِصہٕ|0=کانٛہہ تہِ حِصہٕ نہٕ}}",
 	"mint-explore-languages-language-card-most-detailed-chip-label": "سارِوٕے کھوتہٕ تَفصیٖلی",
 	"mint-explore-languages-open-language-selector": "زَبان ہُنٛد اِنتِخاب کٔرِو",
 	"ax-cx-introduction-dialog-title": "ترجمن کٔرِو جٲیزٕ تہٕ ٹھیک",
 	"ax-cx-introduction-summary": "پننِہ زبانہِ منز کٔرِو مَواد بہتر۔ اکھ بہتر تَرجَمہٕ لیٚکھِو، تہٕ یہِ کٔرِو وِکیٖپیٖڈیاہَس پؠٹھ شایع۔",
 	"ax-cx-introduction-information-accuracy": "خودکار تَرجَمہٕ چھُ اکھ اَہَم خلاسہ دِوان مگر یہ چھُ نہٕ ہمیشہ صحیح آسان.",
 	"ax-cx-introduction-information-expand": "اِنسانن ہُنٛد لیکھنہٕ آمُت مَواد چُھ زِیٛادٕ بَھروسہٕ مَنٛد، تہٕ تُہؠ ہیٚکِو یہِ بڑاونس منٛز مَدَتد کٔرِتھ!",
+	"ax-cx-introduction-dialog-action": "صحیح کٔرِو تہٕ کٔرِو جمع مضموٗنس منٛز",
 	"ax-translation-view-feedback-positive": "آ",
 	"ax-translation-view-feedback-negative": "نہَ",
 	"ax-translation-view-feedback-positive-quick-overview": "بہٕ ہیکہٕ جلدی موضوع خٲطرٕ اکھ عام احساس حٲصل کٔرتھ۔",
