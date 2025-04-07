@@ -141,12 +141,12 @@
 		"ContributeCards": "main",
 		"SkinAfterContent": "axArticleFooterEntrypointRegistrar"
 	},
-	"DomainEventSubscribers": [
+	"DomainEventIngresses": [
 		{
 			"events": [
-				"PageUpdated"
+				"PageRevisionUpdated"
 			],
-			"class": "ContentTranslation\\Events\\SignificantEditSubscriber",
+			"class": "ContentTranslation\\Events\\SignificantEditEventIngress",
 			"services": [
 				"RevisionStore",
 				"ContentTranslation.RecentSignificantEditStore",

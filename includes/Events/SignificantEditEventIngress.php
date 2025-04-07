@@ -9,20 +9,20 @@ use ContentTranslation\Service\EditedSectionFinder;
 use ContentTranslation\Service\WikidataIdFetcher;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\RecentSignificantEditStore;
-use MediaWiki\DomainEvent\EventSubscriberBase;
+use MediaWiki\DomainEvent\DomainEventIngress;
+use MediaWiki\Page\Event\PageRevisionUpdatedEvent;
 use MediaWiki\Revision\RevisionStore;
-use MediaWiki\Storage\PageUpdatedEvent;
 
 /**
  * Event subscriber for significant edits.
  *
- * Subscribes to PageUpdatedEventAfterCommit events and stores significant edits
+ * Subscribes to PageRevisionUpdatedEventAfterCommit events and stores significant edits
  * in the cx_significant_edits table.
  *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
-class SignificantEditSubscriber extends EventSubscriberBase {
+class SignificantEditEventIngress extends DomainEventIngress {
 	private RevisionStore $revisionStore;
 	private RecentSignificantEditStore $significantEditStore;
 	private EditedSectionFinder $editedSectionFinder;
@@ -42,7 +42,7 @@ class SignificantEditSubscriber extends EventSubscriberBase {
 	}
 
 	/**
-	 * Handler for "PageUpdatedEventAfterCommit" events.
+	 * Handler for "PageRevisionUpdatedEventAfterCommit" events.
 	 * It adds a new row to the "cx_significant_edits" table, if the
 	 * current revision fulfils some requirements.
 	 *
@@ -51,12 +51,12 @@ class SignificantEditSubscriber extends EventSubscriberBase {
 	 * 2. This change should affect at least one non-lead section
 	 *
 	 * @noinspection PhpUnused
-	 * @param PageUpdatedEvent $event
+	 * @param PageRevisionUpdatedEvent $event
 	 * @return void
 	 */
-	public function handlePageUpdatedEventAfterCommit( PageUpdatedEvent $event ): void {
+	public function handlePageRevisionUpdatedEvent( PageRevisionUpdatedEvent $event ): void {
 		$pageIdentity = $event->getPage();
-		$rev = $event->getNewRevision();
+		$rev = $event->getLatestRevisionAfter();
 		$user = $event->getAuthor();
 
 		$isSignificantEdit = $rev->getSize() > self::MINIMUM_MODIFIED_BYTES;
