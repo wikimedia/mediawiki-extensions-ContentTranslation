@@ -87,23 +87,6 @@ mw.cx.SiteMapper.prototype.getApi = function ( language, options ) {
 };
 
 /**
- * This method returns a boolean indicating whether
- * the current domain is a mobile production wiki domain.
- *
- * Mobile versions of production wiki domains contain the
- * ".m." part. The method checks if the ".m." part
- * is present inside the domain of the current URL.
- * This method doesn't affect development environments
- * or MediaWiki installations that use a different
- * mobile URL template than the default.
- *
- * @return {boolean}
- */
-mw.cx.SiteMapper.prototype.isMobileDomain = function () {
-	return location.hostname.indexOf( '.m.' ) > 0;
-};
-
-/**
  * Get a URL to an article in a wiki for a given language.
  *
  * @param {string} [language] Language code
@@ -117,11 +100,8 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash
 	language = language || mw.config.get( 'wgContentLanguage' );
 
 	const domain = this.getWikiDomainCode( language );
-	let prefix = domain.replace( /\$/g, '$$$$' );
+	const prefix = domain.replace( /\$/g, '$$$$' );
 
-	if ( this.isMobileDomain() ) {
-		prefix += '.m';
-	}
 	let base = this.siteTemplates.view;
 	if ( params && Object.keys( params ).length > 0 ) {
 		base = this.siteTemplates.action || this.siteTemplates.view;
