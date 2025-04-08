@@ -28,7 +28,7 @@
 
 <script>
 const { defineComponent } = require( 'vue' );
-const { CdxCard, CdxIcon } = require( '../codex.js' );
+const { CdxCard, CdxIcon } = require( '@wikimedia/codex' );
 const { cdxIconArticle, cdxIconRobot } = require( './icons.json' );
 
 // @vue/component
