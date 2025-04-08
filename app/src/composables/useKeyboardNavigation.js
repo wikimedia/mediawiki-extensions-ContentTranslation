@@ -47,6 +47,12 @@ function useKeyboardNavigation(searchQuery, searchResults, suggestions) {
     selectedIndex.value = -1;
   });
 
+  watch(searchResults, () => {
+    if (!!searchResults.value && shownItems.value.length > 0) {
+      selectedIndex.value = 0;
+    }
+  });
+
   watch(selectedIndex, async () => {
     if (selectedIndex.value < 0) {
       // Reset
