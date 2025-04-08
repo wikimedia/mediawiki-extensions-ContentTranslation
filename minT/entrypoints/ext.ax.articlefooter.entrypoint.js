@@ -15,8 +15,8 @@ if ( qid ) {
 	let api = new mw.Api();
 
 	api.get( params ).then( ( response ) => {
-		const sizeInfoArray = response.query[ listName ].sizeInfo;
-		const sourceArticleInfo = sizeInfoArray[ 0 ];
+		const languagesInfo = response.query[ listName ].languages;
+		const sourceArticleInfo = languagesInfo[ 0 ];
 		if ( sourceArticleInfo.language === mw.config.get( 'wgContentLanguage' ) ) {
 			return;
 		}
