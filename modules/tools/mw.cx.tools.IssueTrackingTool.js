@@ -477,7 +477,21 @@ mw.cx.tools.IssueTrackingTool.prototype.showIssues = function ( nodesWithIssues 
 		if ( id === 'global' ) {
 			issues = node.getTranslationIssues();
 		} else {
-			issues = node.getModel().getTranslationIssues();
+			const nodeModel = node.getModel();
+			if ( nodeModel && typeof nodeModel.getTranslationIssues === 'function' ) {
+				issues = nodeModel.getTranslationIssues();
+			} else {
+				const nodeModelName = nodeModel ? nodeModel.constructor.name : 'undefined';
+				mw.errorLogger.logError(
+					new Error(
+						'Expected method "getTranslationIssues" to be present in node model.' +
+						`(Node model: ${ nodeModelName }; type: ${ node.constructor.name }; ` +
+						`Section id: ${ id }`
+					),
+					'error.contenttranslation'
+				);
+				issues = [];
+			}
 		}
 
 		const numOfIssues = issues.length;
