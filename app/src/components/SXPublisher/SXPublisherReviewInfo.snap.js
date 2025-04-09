@@ -44,11 +44,9 @@ exports[`SXPublisher review info panel test should match snapshot when no publis
     <div
       class="sx-publisher__review-info__content"
     >
-      <p
-        class="complementary ma-0"
-      >
+      <h5>
         cx-sx-publisher-review-info
-      </p>
+      </h5>
     </div>
     
     

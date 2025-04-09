@@ -363,7 +363,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Confirm",
 	"cx-sx-publisher-publish-panel-new-section-status": "Ready to publish?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Your translation will be <strong>added to the article as a new section.</strong>",
-	"cx-sx-publisher-review-info": "<strong>Check that your translation reads naturally and follows proper grammar</strong>",
+	"cx-sx-publisher-review-info": "Check that your translation reads naturally and follows proper grammar",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Publish translation...",
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Thanks for expanding the content available in your language",
 	"cx-sx-publisher-animation-success-message-title": "Published!",
