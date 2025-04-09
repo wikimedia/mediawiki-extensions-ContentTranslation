@@ -132,6 +132,8 @@ router.beforeEach((to, from, next) => {
     });
   }
 
+  store.commit("application/setPreviousRoute", from.name);
+
   // If this is not the first navigation within the application, continue as usual
   if (!!from.name) {
     next();
@@ -147,8 +149,6 @@ router.beforeEach((to, from, next) => {
     pageURLParameter: pageTitle,
     clearTranslationURLParameters,
   } = useURLHandler();
-
-  store.commit("application/setPreviousRoute", from.name);
 
   const areTranslationParamsSet = !!(
     sourceLanguage.value &&
