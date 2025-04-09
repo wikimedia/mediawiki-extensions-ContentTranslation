@@ -89,5 +89,12 @@
 	"apihelp-cxpublishsection-param-sourcesectiontitle": "మూల విభాగపు శీర్షిక.",
 	"apihelp-cxpublishsection-param-targetsectiontitle": "గమ్య విభాగపు శీర్షిక.",
 	"apihelp-cxpublishsection-param-sectionnumber": "కొత్త కూర్పులో విభాగం ఉండాల్సిన స్థానం.",
-	"apihelp-cxpublishsection-param-sourcerevid": "మూల పేజీ కూర్పు ఐడీ."
+	"apihelp-cxpublishsection-param-sourcerevid": "మూల పేజీ కూర్పు ఐడీ.",
+	"apihelp-sxsave-param-sourcelanguage": "మూలభాష కోడ్.",
+	"apihelp-sxsave-param-targetlanguage": "గమ్యభాష కోడ్.",
+	"apihelp-sxsave-param-sourcetitle": "మూలపేజీ శీర్షిక.",
+	"apihelp-sxsave-param-targettitle": "గమ్యపేజీ శీర్షిక.",
+	"apihelp-sxsave-param-sourcesectiontitle": "మూల విభాగపు శీర్షిక.",
+	"apihelp-sxsave-param-targetsectiontitle": "గమ్య విభాగపు శీర్షిక.",
+	"apierror-cxpublishsection-translationnotfound": "అనువాదం కంబడలేదు."
 }
