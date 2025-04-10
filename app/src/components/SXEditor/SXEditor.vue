@@ -6,12 +6,11 @@ import { getDir } from "@wikimedia/language-data";
 import SxEditorOriginalContent from "./SXEditorOriginalContent.vue";
 import EditCompleteFeedback from "./EditCompleteFeedback.vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 import mtValidator from "../../utils/mtValidator";
-import useApplicationState from "@/composables/useApplicationState";
 import useEditedTranslationApply from "@/components/SXEditor/useEditedTranslationApply";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useEditorInstrument from "@/composables/useEditorInstrument";
+import useURLHandler from "@/composables/useURLHandler";
 
 const props = defineProps({
   fromRoute: {
@@ -22,7 +21,6 @@ const props = defineProps({
 
 const editorReady = ref(false);
 const router = useRouter();
-const store = useStore();
 
 const onEditorReady = () => (editorReady.value = true);
 const closeEditor = () => router.replace({ name: props.fromRoute });
@@ -33,7 +31,10 @@ const editedTranslation = ref(null);
 const showFeedback = ref(false);
 const { logEditorSegmentAddEvent } = useEditorInstrument();
 
-const { targetLanguage, sourceLanguage } = useApplicationState(store);
+const {
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+} = useURLHandler();
 const { sourceSection } = useCurrentPageSection();
 const mtScore = computed(() =>
   mtValidator.calculateScore(
