@@ -135,13 +135,6 @@ ve.dm.CXSectionNode.prototype.getOriginalContentSource = function () {
 	return this.getAttribute( 'cxsource' );
 };
 
-/**
- * @param {string} source One of 'source', 'scratch' or name of MT engine.
- */
-ve.dm.CXSectionNode.prototype.setOriginalContentSource = function ( source ) {
-	this.element.attributes.cxsource = source;
-};
-
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.CXSectionNode );
