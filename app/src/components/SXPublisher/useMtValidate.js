@@ -1,12 +1,10 @@
 import mtValidator from "@/utils/mtValidator";
 import PublishFeedbackMessage from "@/wiki/cx/models/publishFeedbackMessage";
-import { useStore } from "vuex";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
-import useApplicationState from "@/composables/useApplicationState";
+import useURLHandler from "@/composables/useURLHandler";
 
 const useMtValidate = () => {
-  const store = useStore();
-  const { targetLanguage } = useApplicationState(store);
+  const { targetLanguageURLParameter: targetLanguage } = useURLHandler();
   const { sourceSection } = useCurrentPageSection();
 
   /**
