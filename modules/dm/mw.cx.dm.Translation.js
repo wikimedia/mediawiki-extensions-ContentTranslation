@@ -395,27 +395,6 @@ mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
 	return false;
 };
 
-/**
- * Get HTML content of a translation unit to restore.
- *
- * @param {Object} translationUnit
- * @return {Element} Document element corresponding to the saved HTML of the section.
- */
-mw.cx.dm.Translation.static.getSavedTranslation = function ( translationUnit ) {
-	let translation;
-
-	// If the translator has manual translation from scratch or on top of MT use that.
-	if ( translationUnit.user && translationUnit.user.content ) {
-		translation = translationUnit.user.content;
-	} else if ( translationUnit.mt ) { // Machine translation, unmodified.
-		translation = translationUnit.mt.content;
-	} else if ( translationUnit.source ) { // Unmodified source copy.
-		translation = translationUnit.source.content;
-	}
-
-	return $.parseHTML( translation )[ 0 ];
-};
-
 /* Methods */
 
 /**
@@ -425,10 +404,6 @@ mw.cx.dm.Translation.prototype.getMwSectionNumber = function () {
 	const sectionTitle = this.sourceWikiPage.getSectionTitle();
 
 	return mw.cx.dm.Translation.static.getMwSectionNumberBySectionTitle( this.sourceDoc.htmlDocument, sectionTitle );
-};
-
-mw.cx.dm.Translation.prototype.getTargetPage = function () {
-	return this.targetPage;
 };
 
 /**
@@ -536,15 +511,6 @@ mw.cx.dm.Translation.prototype.getRemovedCategories = function () {
 };
 
 /**
- * Get Translation id
- *
- * @return {string} Translation Id
- */
-mw.cx.dm.Translation.prototype.getId = function () {
-	return this.id;
-};
-
-/**
  * Set Translation id
  *
  * @param {string} id Translation Id
@@ -562,15 +528,6 @@ mw.cx.dm.Translation.prototype.setTargetURL = function ( targetURL ) {
  */
 mw.cx.dm.Translation.prototype.getTargetURL = function () {
 	return this.targetURL;
-};
-
-/**
- * Set revision id
- *
- * @param {string} revisionId revision Id
- */
-mw.cx.dm.Translation.prototype.setSourceRevisionId = function ( revisionId ) {
-	this.sourceRevisionId = revisionId;
 };
 
 /**
@@ -669,10 +626,6 @@ mw.cx.dm.Translation.prototype.isSectionTranslation = function () {
 
 mw.cx.dm.Translation.prototype.setStatus = function ( status ) {
 	this.status = status;
-};
-
-mw.cx.dm.Translation.prototype.getProgress = function () {
-	return this.progress;
 };
 
 mw.cx.dm.Translation.prototype.setProgress = function ( progress ) {
