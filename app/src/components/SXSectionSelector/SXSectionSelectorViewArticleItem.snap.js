@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SXSectionSelector View Article Item Component output matches snapshot for specified props 1`] = `
-<li
-  class="sx-section-selector-view-article-item ma-0"
+<span
+  class="sx-section-selector-view-article-item"
 >
   <a
     class="justify-between items-center py-3 px-4"
@@ -30,5 +30,5 @@ exports[`SXSectionSelector View Article Item Component output matches snapshot f
       </svg>
     </span>
   </a>
-</li>
+</span>
 `;

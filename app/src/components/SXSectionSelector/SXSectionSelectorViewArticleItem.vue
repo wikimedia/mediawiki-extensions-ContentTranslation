@@ -15,7 +15,7 @@ defineProps({
 </script>
 
 <template>
-  <li class="sx-section-selector-view-article-item ma-0">
+  <span class="sx-section-selector-view-article-item">
     <a
       :href="path"
       target="_blank"
@@ -24,14 +24,13 @@ defineProps({
       {{ $i18n("cx-sx-section-selector-view-article-button-label", autonym) }}
       <cdx-icon size="x-small" :icon="cdxIconLinkExternal" />
     </a>
-  </li>
+  </span>
 </template>
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-section-selector-view-article-item {
-  list-style-type: none;
   a {
     color: @color-base;
     font-weight: @font-weight-bold;
