@@ -6,7 +6,7 @@ import {
   mwIconEdit,
   mwIconLinkExternal,
 } from "@/lib/mediawiki.ui/components/icons";
-import SxContentComparatorSourceVsTargetSelector from "./SourceVsTargetSelector.vue";
+import ContentTypeSelector from "./ContentTypeSelector.vue";
 import useCompareContents from "./useCompareContents";
 import { getDir } from "@wikimedia/language-data";
 import { ref, computed, onMounted } from "vue";
@@ -14,14 +14,14 @@ import useURLHandler from "@/composables/useURLHandler";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
 const props = defineProps({
-  sourceVsTargetSelection: {
+  contentTypeSelection: {
     type: String,
     required: true,
   },
 });
 
 const emit = defineEmits([
-  "update:sourceVsTargetSelection",
+  "update:contentTypeSelection",
   "translation-button-clicked",
 ]);
 
@@ -34,12 +34,12 @@ const sourceSectionAnchor = computed(() =>
 );
 
 const updateSelection = (selection) =>
-  emit("update:sourceVsTargetSelection", selection);
+  emit("update:contentTypeSelection", selection);
 
 const { activeSectionTargetTitle, targetSectionAnchor } = useCompareContents();
 
 const activeContent = computed(() => {
-  switch (props.sourceVsTargetSelection) {
+  switch (props.contentTypeSelection) {
     case "source_section":
       return {
         title: sectionURLParameter.value,
@@ -100,8 +100,8 @@ onMounted(() => {
     :class="{ sticky: isSticky }"
     :reverse="isSticky"
   >
-    <sx-content-comparator-source-vs-target-selector
-      :selection="sourceVsTargetSelection"
+    <content-type-selector
+      :selection="contentTypeSelection"
       @update:selection="updateSelection"
     />
     <mw-row

@@ -1,7 +1,7 @@
 <script setup>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
 import { watchEffect } from "vue";
-import useListSelector from "@/components/SXContentComparator/useListSelector";
+import useContentHeaderOptions from "./useContentHeaderOptions";
 
 const props = defineProps({
   selection: {
@@ -14,23 +14,23 @@ const emit = defineEmits(["update:selection"]);
 
 const updateSelection = (selection) => emit("update:selection", selection);
 
-const listSelector = useListSelector();
+const contentHeaderOptions = useContentHeaderOptions();
 
 // If content options are updated, and currently selected option is not included,
 // select the first available option
 watchEffect(() => {
-  const optionValues = listSelector.value.map((item) => item.value);
+  const optionValues = contentHeaderOptions.value.map((item) => item.value);
 
   if (!optionValues.includes(props.selection)) {
-    updateSelection(listSelector.value[0].value);
+    updateSelection(contentHeaderOptions.value[0].value);
   }
 });
 </script>
 
 <template>
-  <div class="sx-content-comparator__source-target-selector">
+  <div class="sx-content-comparator__content-type-selector">
     <mw-button-group
-      :items="listSelector"
+      :items="contentHeaderOptions"
       :active="selection"
       @select="updateSelection"
     />
@@ -41,7 +41,7 @@ watchEffect(() => {
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-content-comparator__content-header {
-  .sx-content-comparator__source-target-selector {
+  .sx-content-comparator__content-type-selector {
     background: @background-color-interactive-subtle;
     color: @color-base;
     // Border color should be Gray200 `#eaecf0`

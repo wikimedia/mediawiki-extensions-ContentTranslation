@@ -8,7 +8,7 @@ import useExistingSectionPublishOption from "@/composables/useExistingSectionPub
 /**
  * @return {ComputedRef<{value: string, props: object}[]>}
  */
-const useListSelector = () => {
+const useContentHeaderOptions = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
@@ -84,4 +84,4 @@ const useListSelector = () => {
   });
 };
 
-export default useListSelector;
+export default useContentHeaderOptions;

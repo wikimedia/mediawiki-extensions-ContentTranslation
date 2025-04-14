@@ -18,7 +18,7 @@ import useEditorNavigation from "@/composables/useEditorNavigation";
 const store = useStore();
 const router = useRouter();
 
-const sourceVsTargetSelection = ref("source_section");
+const contentTypeSelection = ref("source_section");
 
 const { logDashboardTranslationStartEvent } =
   useDashboardTranslationStartInstrument();
@@ -67,11 +67,11 @@ watch(
       @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
-      v-model:source-vs-target-selection="sourceVsTargetSelection"
+      v-model:content-type-selection="contentTypeSelection"
       @translation-button-clicked="confirmTranslation"
     />
     <section class="sx-content-comparator__source-content">
-      <template v-if="sourceVsTargetSelection === 'source_section'">
+      <template v-if="contentTypeSelection === 'source_section'">
         <mw-spinner v-if="!sourceSectionContent" />
         <!-- eslint-disable vue/no-v-html -->
         <section
@@ -82,7 +82,7 @@ watch(
         />
         <!-- eslint-enable vue/no-v-html -->
       </template>
-      <template v-else-if="sourceVsTargetSelection === 'target_article'">
+      <template v-else-if="contentTypeSelection === 'target_article'">
         <mw-spinner v-if="!targetPageContent" />
         <!-- eslint-disable vue/no-v-html -->
         <article
