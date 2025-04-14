@@ -217,10 +217,23 @@ module.exports = defineComponent( {
 		const loadingTranslation = ref( true );
 		const { translateLeadSection } = useLeadSectionTranslationFetch();
 
+		const removeLinks = ( html ) => {
+			const parser = new DOMParser();
+
+			const doc = parser.parseFromString( html, 'text/html' );
+			Array.prototype.forEach.call( doc.querySelectorAll( 'a' ), ( link ) => {
+				const text = document.createTextNode( link.textContent );
+				link.parentNode.replaceChild( text, link );
+			} );
+			return doc.body.innerHTML;
+		};
+
 		const doTranslateLeadSection = async ( pageTitle, sourceLang, targetLang ) => {
 			loadingTranslation.value = true;
 			try {
-				translation.value = await translateLeadSection( pageTitle, sourceLang, targetLang );
+				translation.value = removeLinks(
+					await translateLeadSection( pageTitle, sourceLang, targetLang )
+				);
 			} catch ( error ) {
 				mw.log.error( 'Error while translating lead section contents', error );
 			} finally {
@@ -332,6 +345,7 @@ module.exports = defineComponent( {
 .confirm-topic-preview {
   padding: @spacing-100;
   margin-block-end: @spacing-100;
+  cursor: pointer;
 
   && {
     outline: @border-width-base @border-style-base @border-color-base;
@@ -370,6 +384,7 @@ module.exports = defineComponent( {
       -webkit-box-orient: vertical;
       background: @background-color-base;
       padding: @spacing-0;
+      color: @color-subtle;
       p {
         padding: @spacing-0;
         margin: @spacing-0;
