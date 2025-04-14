@@ -40,7 +40,6 @@ const secondPart = computed(() => props.content.slice(slashIndex.value + 1));
 
 .cdx-info-chip {
   &.custom-info-chip {
-    max-width: 95%;
     width: auto;
 
     .cdx-info-chip__text {
