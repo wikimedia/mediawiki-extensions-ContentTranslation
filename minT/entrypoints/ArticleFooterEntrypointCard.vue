@@ -50,7 +50,7 @@ module.exports = defineComponent( {
 		}
 	},
 	setup( props ) {
-		const pageTitle = mw.config.get( 'wgPageName' );
+		const pageTitle = ( new mw.Title( mw.config.get( 'wgPageName' ) ) ).getMainText();
 
 		const siteMapper = new mw.cx.SiteMapper();
 
