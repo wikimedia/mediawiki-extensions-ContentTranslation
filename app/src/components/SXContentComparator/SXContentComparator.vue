@@ -98,6 +98,7 @@ watch(
         <section class="pa-4" v-html="targetSectionContent" />
         <!-- eslint-enable vue/no-v-html -->
         <sx-content-comparator-new-section-placeholder
+          class="sx-content-comparator__new-section-placeholder--present"
           :placeholder-title="
             $i18n('cx-sx-content-comparator-present-section-placeholder-title')
           "
