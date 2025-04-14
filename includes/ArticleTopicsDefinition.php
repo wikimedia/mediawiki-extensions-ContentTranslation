@@ -45,6 +45,11 @@ class ArticleTopicsDefinition {
 				];
 			}
 
+			usort(
+				$topicsDefinitions,
+				static fn ( array $a, array $b ) => strnatcasecmp( $a['label'], $b['label'] )
+			);
+
 			$groupsDefinitions[] = [
 				'groupId' => $topicGroup['groupId'],
 				'label' => $context->msg( $topicGroup['msgKey'] )->text(),
