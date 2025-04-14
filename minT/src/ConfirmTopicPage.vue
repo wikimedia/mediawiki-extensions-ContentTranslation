@@ -217,7 +217,7 @@ module.exports = defineComponent( {
 		const loadingTranslation = ref( true );
 		const { translateLeadSection } = useLeadSectionTranslationFetch();
 
-		const removeLinks = ( html ) => {
+		const formatLeadSectionHtml = ( html ) => {
 			const parser = new DOMParser();
 
 			const doc = parser.parseFromString( html, 'text/html' );
@@ -225,13 +225,15 @@ module.exports = defineComponent( {
 				const text = document.createTextNode( link.textContent );
 				link.parentNode.replaceChild( text, link );
 			} );
-			return doc.body.innerHTML;
+
+			// Return the contents of the first paragraph
+			return doc.querySelector( 'p' ).innerHTML;
 		};
 
 		const doTranslateLeadSection = async ( pageTitle, sourceLang, targetLang ) => {
 			loadingTranslation.value = true;
 			try {
-				translation.value = removeLinks(
+				translation.value = formatLeadSectionHtml(
 					await translateLeadSection( pageTitle, sourceLang, targetLang )
 				);
 			} catch ( error ) {
@@ -385,10 +387,6 @@ module.exports = defineComponent( {
       background: @background-color-base;
       padding: @spacing-0;
       color: @color-subtle;
-      p {
-        padding: @spacing-0;
-        margin: @spacing-0;
-      }
     }
     &__details {
       .cdx-icon {
