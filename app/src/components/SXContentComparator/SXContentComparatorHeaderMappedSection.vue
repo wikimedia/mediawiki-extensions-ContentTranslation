@@ -1,24 +1,17 @@
 <script setup>
 import { MwButton, MwCol, MwRow } from "@/lib/mediawiki.ui";
-import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { getAutonym } from "@wikimedia/language-data";
 import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
 import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 import { useI18n } from "vue-banana-i18n";
+import useCompareContents from "@/components/SXContentComparator/useCompareContents";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+
+const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+const { activeSectionTargetTitle: targetSectionTitle } = useCompareContents();
 
 const bananaI18n = useI18n();
-
-const props = defineProps({
-  suggestion: {
-    type: SectionSuggestion,
-    required: true,
-  },
-  targetSectionTitle: {
-    type: String,
-    required: true,
-  },
-});
 
 const { existingSectionPublishOption, setExistingSectionPublishOption } =
   useExistingSectionPublishOption();
@@ -27,10 +20,10 @@ const shouldBePublishedAsNew = computed(
   () => existingSectionPublishOption.value === "new"
 );
 
-const mappedSectionHeaderTitle = computed(() =>
+const mappedSectionHeaderText = computed(() =>
   bananaI18n.i18n(
     "cx-sx-content-comparator-mapped-section-header-title",
-    getAutonym(props.suggestion.targetLanguage)
+    getAutonym(suggestion.value.targetLanguage)
   )
 );
 </script>
@@ -44,7 +37,7 @@ const mappedSectionHeaderTitle = computed(() =>
         <h6
           class="sx-content-comparator-header__mapped-section-header-title pa-0 mb-1 ms-1"
         >
-          {{ mappedSectionHeaderTitle }}
+          {{ mappedSectionHeaderText }}
           <span
             v-if="shouldBePublishedAsNew"
             v-i18n:cx-sx-content-comparator-discarded-section-label
@@ -93,26 +86,31 @@ const mappedSectionHeaderTitle = computed(() =>
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
-.sx-content-comparator-header__mapped-section {
-  background-color: @background-color-disabled-subtle;
-  border-radius: @border-radius-base;
-  .sx-content-comparator-header__mapped-section-header {
-    border-bottom: @border-width-base @border-style-base @border-color-disabled;
-    .sx-content-comparator-header__mapped-section-header-title {
-      // No typography style for this font-size in UI library
-      font-size: 14px;
-      color: @color-subtle;
-    }
-    .sx-content-comparator-header__mapped-section-target-title {
-      color: @color-base;
-      &.sx-content-comparator-header__mapped-section-target-title--discarded {
-        text-decoration: line-through;
+.sx-content-comparator {
+  .sx-content-comparator-header__mapped-section {
+    background-color: @background-color-disabled-subtle;
+    border-radius: @border-radius-base;
+    .sx-content-comparator-header__mapped-section-header {
+      border-bottom: @border-width-base @border-style-base
+        @border-color-disabled;
+      .sx-content-comparator-header__mapped-section-header-title {
+        font-size: @font-size-small;
+        font-weight: @font-weight-bold;
+        color: @color-subtle;
+      }
+      .sx-content-comparator-header__mapped-section-target-title {
+        font-weight: @font-weight-bold;
+        color: @color-base;
+        &.sx-content-comparator-header__mapped-section-target-title--discarded {
+          text-decoration: line-through;
+        }
       }
     }
-  }
-  .sx-content-comparator-header__mapped-section-clarifications {
-    color: @color-base;
-    line-height: 1.3;
+    .sx-content-comparator-header__mapped-section-clarifications {
+      font-size: @font-size-small;
+      color: @color-base;
+      line-height: @line-height-xx-small;
+    }
   }
 }
 </style>

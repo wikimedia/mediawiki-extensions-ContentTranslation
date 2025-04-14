@@ -7,7 +7,6 @@ import {
 import { MwCol, MwRow, MwButton, MwIcon } from "@/lib/mediawiki.ui";
 import SxContentComparatorHeaderNavigation from "@/components/SXContentComparator/SXContentComparatorHeaderNavigation.vue";
 import SxContentComparatorHeaderMappedSection from "@/components/SXContentComparator/SXContentComparatorHeaderMappedSection.vue";
-import useCompareContents from "@/components/SXContentComparator/useCompareContents";
 import { computed, inject } from "vue";
 import useURLHandler from "@/composables/useURLHandler";
 import { getDir } from "@wikimedia/language-data";
@@ -26,8 +25,6 @@ const isCurrentSectionMissing = computed(() =>
 const isCurrentSectionPresent = computed(() =>
   suggestion.value?.presentSections.hasOwnProperty(sourceSectionTitle.value)
 );
-
-const { activeSectionTargetTitle } = useCompareContents();
 
 const sourceSectionContent = computed(() => sourceSection.value?.html);
 const sectionSourceTitles = computed(() => [
@@ -98,8 +95,6 @@ const isMobile = computed(() => breakpoints.value.mobile);
     </mw-row>
     <sx-content-comparator-header-mapped-section
       v-if="isCurrentSectionPresent"
-      :suggestion="suggestion"
-      :target-section-title="activeSectionTargetTitle"
     />
   </div>
 </template>
