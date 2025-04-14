@@ -37,13 +37,8 @@ const {
   sectionURLParameter: sectionTitle,
 } = useURLHandler();
 
-const {
-  activeSectionTargetTitle,
-  discardedSections,
-  isCurrentSectionMapped,
-  sourceSectionContent,
-  targetSectionContent,
-} = useCompareContents();
+const { activeSectionTargetTitle, sourceSectionContent, targetSectionContent } =
+  useCompareContents();
 
 const targetPageContent = useTargetArticlePreview();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
@@ -68,13 +63,11 @@ watch(
 <template>
   <section class="sx-content-comparator">
     <sx-content-comparator-header
-      v-model:discarded-sections="discardedSections"
       @translation-button-clicked="confirmTranslation"
       @close="goToSectionSelector"
     />
     <sx-content-comparator-content-header
       v-model:source-vs-target-selection="sourceVsTargetSelection"
-      :is-mapped-section="isCurrentSectionMapped"
       @translation-button-clicked="confirmTranslation"
     />
     <section class="sx-content-comparator__source-content">

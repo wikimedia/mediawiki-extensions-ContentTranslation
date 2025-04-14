@@ -2,14 +2,17 @@ import { computed } from "vue";
 import { useI18n } from "vue-banana-i18n";
 import { getAutonym } from "@wikimedia/language-data";
 import useURLHandler from "@/composables/useURLHandler";
+import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 
 /**
  * @return {ComputedRef<{value: string, props: object}[]>}
  */
-const useListSelector = (props) => {
+const useListSelector = () => {
   const {
     sourceLanguageURLParameter: sourceLanguage,
     targetLanguageURLParameter: targetLanguage,
+    sectionURLParameter: sectionTitle,
   } = useURLHandler();
 
   const sourceLanguageAutonym = computed(() =>
@@ -17,6 +20,19 @@ const useListSelector = (props) => {
   );
   const targetLanguageAutonym = computed(() =>
     getAutonym(targetLanguage.value)
+  );
+
+  const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
+
+  const { existingSectionPublishOption } = useExistingSectionPublishOption();
+  const isCurrentSectionPresent = computed(
+    () => !!suggestion.value?.presentSections.hasOwnProperty(sectionTitle.value)
+  );
+
+  const isSectionForExpansion = computed(
+    () =>
+      isCurrentSectionPresent.value &&
+      existingSectionPublishOption.value === "expand"
   );
 
   const bananaI18n = useI18n();
@@ -37,7 +53,7 @@ const useListSelector = (props) => {
     let targetSelectorItem;
 
     switch (true) {
-      case props.isMappedSection:
+      case isSectionForExpansion.value:
         targetSelectorItem = {
           value: "target_section",
           props: {

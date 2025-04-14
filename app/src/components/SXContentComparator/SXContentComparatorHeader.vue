@@ -14,18 +14,7 @@ import { getDir } from "@wikimedia/language-data";
 import useCurrentPageSection from "@/composables/useCurrentPageSection";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 
-defineEmits([
-  "close",
-  "translation-button-clicked",
-  "update:discardedSections",
-]);
-
-const props = defineProps({
-  discardedSections: {
-    type: Array,
-    required: true,
-  },
-});
+defineEmits(["close", "translation-button-clicked"]);
 
 const { sectionURLParameter: sourceSectionTitle } = useURLHandler();
 const { sourceSection } = useCurrentPageSection();
@@ -111,8 +100,6 @@ const isMobile = computed(() => breakpoints.value.mobile);
       v-if="isCurrentSectionPresent"
       :suggestion="suggestion"
       :target-section-title="activeSectionTargetTitle"
-      :discarded-sections="discardedSections"
-      @update:discarded-sections="$emit('update:discardedSections', $event)"
     />
   </div>
 </template>

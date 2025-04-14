@@ -18,10 +18,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  isMappedSection: {
-    type: Boolean,
-    required: true,
-  },
 });
 
 const emit = defineEmits([
@@ -105,7 +101,6 @@ onMounted(() => {
     :reverse="isSticky"
   >
     <sx-content-comparator-source-vs-target-selector
-      :is-mapped-section="isMappedSection"
       :selection="sourceVsTargetSelection"
       @update:selection="updateSelection"
     />

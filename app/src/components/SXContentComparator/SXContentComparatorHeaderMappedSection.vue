@@ -4,6 +4,7 @@ import SectionSuggestion from "@/wiki/cx/models/sectionSuggestion";
 import { getAutonym } from "@wikimedia/language-data";
 import { mwIconTrash, mwIconUndo } from "@/lib/mediawiki.ui/components/icons";
 import { computed } from "vue";
+import useExistingSectionPublishOption from "@/composables/useExistingSectionPublishOption";
 import { useI18n } from "vue-banana-i18n";
 
 const bananaI18n = useI18n();
@@ -17,16 +18,13 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  discardedSections: {
-    type: Array,
-    required: true,
-  },
 });
 
-const emit = defineEmits(["update:discardedSections"]);
+const { existingSectionPublishOption, setExistingSectionPublishOption } =
+  useExistingSectionPublishOption();
 
-const isDiscardedSection = computed(() =>
-  props.discardedSections.includes(props.targetSectionTitle)
+const shouldBePublishedAsNew = computed(
+  () => existingSectionPublishOption.value === "new"
 );
 
 const mappedSectionHeaderTitle = computed(() =>
@@ -35,26 +33,6 @@ const mappedSectionHeaderTitle = computed(() =>
     getAutonym(props.suggestion.targetLanguage)
   )
 );
-
-const discardMapping = () => {
-  if (!isDiscardedSection.value) {
-    emit("update:discardedSections", [
-      ...props.discardedSections,
-      props.targetSectionTitle,
-    ]);
-  }
-};
-
-const undoDiscard = () => {
-  if (isDiscardedSection.value) {
-    emit(
-      "update:discardedSections",
-      props.discardedSections.filter(
-        (sectionTitle) => sectionTitle !== props.targetSectionTitle
-      )
-    );
-  }
-};
 </script>
 
 <template>
@@ -68,7 +46,7 @@ const undoDiscard = () => {
         >
           {{ mappedSectionHeaderTitle }}
           <span
-            v-if="isDiscardedSection"
+            v-if="shouldBePublishedAsNew"
             v-i18n:cx-sx-content-comparator-discarded-section-label
           />
         </h6>
@@ -76,7 +54,7 @@ const undoDiscard = () => {
           class="sx-content-comparator-header__mapped-section-target-title pa-0 ms-1"
           :class="{
             'sx-content-comparator-header__mapped-section-target-title--discarded':
-              isDiscardedSection,
+              shouldBePublishedAsNew,
           }"
         >
           {{ targetSectionTitle }}
@@ -84,23 +62,23 @@ const undoDiscard = () => {
       </mw-col>
       <mw-col shrink>
         <mw-button
-          v-if="!isDiscardedSection"
+          v-if="!shouldBePublishedAsNew"
           class="pa-0"
           :icon="mwIconTrash"
           type="icon"
-          @click="discardMapping"
+          @click="setExistingSectionPublishOption('new')"
         />
         <mw-button
           v-else
           class="pa-0"
           :icon="mwIconUndo"
           type="icon"
-          @click="undoDiscard"
+          @click="setExistingSectionPublishOption('expand')"
         />
       </mw-col>
     </mw-row>
     <p
-      v-if="!isDiscardedSection"
+      v-if="!shouldBePublishedAsNew"
       v-i18n:cx-sx-content-comparator-mapped-section-clarifications
       class="sx-content-comparator-header__mapped-section-clarifications pa-3 ma-0 complementary"
     />

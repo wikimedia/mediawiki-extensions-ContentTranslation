@@ -1,15 +1,11 @@
 <script setup>
 import { MwButtonGroup } from "@/lib/mediawiki.ui";
-import { watch } from "vue";
+import { watchEffect } from "vue";
 import useListSelector from "@/components/SXContentComparator/useListSelector";
 
 const props = defineProps({
   selection: {
     type: String,
-    required: true,
-  },
-  isMappedSection: {
-    type: Boolean,
     required: true,
   },
 });
@@ -18,24 +14,17 @@ const emit = defineEmits(["update:selection"]);
 
 const updateSelection = (selection) => emit("update:selection", selection);
 
-const listSelector = useListSelector(props);
+const listSelector = useListSelector();
 
-/**
- * Watch for isMappedSection prop so that we can update
- * sourceVsTarget selection accordingly, when isMappedSection
- * is updated and previous sourceVsTarget selection is no
- * longer a valid option.
- */
-watch(
-  () => props.isMappedSection,
-  () => {
-    if (
-      !listSelector.value.map((item) => item.value).includes(props.selection)
-    ) {
-      updateSelection(listSelector.value[0].value);
-    }
+// If content options are updated, and currently selected option is not included,
+// select the first available option
+watchEffect(() => {
+  const optionValues = listSelector.value.map((item) => item.value);
+
+  if (!optionValues.includes(props.selection)) {
+    updateSelection(listSelector.value[0].value);
   }
-);
+});
 </script>
 
 <template>
