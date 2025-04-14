@@ -361,7 +361,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "אישור",
 	"cx-sx-publisher-publish-panel-new-section-status": "{{GENDER:|מוכן|מוכנה}} לפרסם?",
 	"cx-sx-publisher-publish-panel-new-section-result": "התרגום שלך <strong>יתווסף לערך בתור פרק חדש.</strong>",
-	"cx-sx-publisher-review-info": "<strong>{{GENDER:|בדוק|בדקי}} שהתרגום שלך קריא וטבעי ומקפיד על דקדוק נכון</strong>",
+	"cx-sx-publisher-review-info": "{{GENDER:|בדוק|בדקי}} שהתרגום שלך קריא וטבעי ומקפיד על דקדוק נכון",
 	"cx-sx-publisher-animation-publishing-indicator-title": "פרסום התרגום...",
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "תודה שהרחבת את התוכן הזמין בשפה שלך",
 	"cx-sx-publisher-animation-success-message-title": "פורסם!",

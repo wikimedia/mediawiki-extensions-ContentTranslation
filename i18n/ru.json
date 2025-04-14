@@ -392,7 +392,7 @@
 	"cx-sx-publisher-header-check-button-aria-label": "Подтвердить",
 	"cx-sx-publisher-publish-panel-new-section-status": "Готовы к публикации?",
 	"cx-sx-publisher-publish-panel-new-section-result": "Ваш перевод будет <strong>добавлен в$nbsp;статью в&nbsp;качестве нового раздела.</strong>",
-	"cx-sx-publisher-review-info": "<strong>Проверьте, что ваш перевод «звучит» естественно и следует грамматическим правилам языка</strong>",
+	"cx-sx-publisher-review-info": "Проверьте, что ваш перевод «звучит» естественно и следует грамматическим правилам языка",
 	"cx-sx-publisher-animation-publishing-indicator-title": "Публикация перевода…",
 	"cx-sx-publisher-animation-publishing-indicator-subtitle": "Спасибо за расширение доступного содержания на вашем языке",
 	"cx-sx-publisher-animation-success-message-title": "Опубликовано!",
