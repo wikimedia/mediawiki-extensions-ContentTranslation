@@ -15,7 +15,7 @@ exports[`MWDialog.vue renders dialog with given properties 1`] = `
     tabindex="0"
   >
     <div
-      class="mw-ui-dialog__overlay"
+      class="mw-ui-dialog__overlay mw-ui-dialog__overlay--light"
     />
     <div
       class="mw-ui-dialog__shell items-stretch"

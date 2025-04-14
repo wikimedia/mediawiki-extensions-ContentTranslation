@@ -62,7 +62,6 @@ const animationSubtitle = computed(() => animations[props.status].subtitle);
 <template>
   <mw-dialog
     v-if="active"
-    overlay-opacity="high"
     :header="false"
     class="sx-publisher__publish-animation"
   >
@@ -85,6 +84,10 @@ const animationSubtitle = computed(() => animations[props.status].subtitle);
 .sx-publisher {
   .sx-publisher__publish-animation {
     text-align: center;
+    .mw-ui-dialog__overlay {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+
     .mw-ui-dialog__shell {
       max-width: 100%;
       width: 100%;

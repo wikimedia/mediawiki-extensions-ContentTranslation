@@ -151,6 +151,7 @@ const allLanguagesSelectedAsTarget = computed(
       :title="$i18n('sx-translation-list-language-selector-dialog-title')"
       :fullscreen="isMobile"
       :header="isMobile"
+      overlay-mode="dark"
       @close="closeDialog"
     >
       <mw-language-selector

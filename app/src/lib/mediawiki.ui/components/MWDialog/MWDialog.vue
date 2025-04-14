@@ -12,7 +12,7 @@
     >
       <div
         class="mw-ui-dialog__overlay"
-        :class="overlayClasses"
+        :class="overlayClass"
         @click="!persistent && close()"
       />
       <div class="mw-ui-dialog__shell items-stretch">
@@ -95,15 +95,13 @@ export default {
       default: true,
     },
     /**
-     * Opacity of the overlay
-     * @values medium (0.65), high (0.95)
+     * Color mode of the overlay
+     * @values light, dark
      **/
-    overlayOpacity: {
+    overlayMode: {
       type: String,
-      default: "medium",
-      validator: (value) => {
-        return ["medium", "high"].indexOf(value) !== -1;
-      },
+      default: "light",
+      validator: (value) => ["light", "dark"].includes(value),
     },
     value: {
       type: Boolean,
@@ -121,9 +119,9 @@ export default {
       "mw-ui-dialog--fullscreen": props.fullscreen,
       "mw-ui-dialog--dialog": !props.fullscreen,
     }));
-    const overlayClasses = computed(() => ({
-      "mw-ui-dialog__overlay--high_opacity": props.overlayOpacity === "high",
-    }));
+    const overlayClass = computed(
+      () => `mw-ui-dialog__overlay--${props.overlayMode}`
+    );
 
     const close = () => {
       document.body.classList.remove("mw-ui-dialog--open");
@@ -156,7 +154,7 @@ export default {
       close,
       classes,
       cssVars,
-      overlayClasses,
+      overlayClass,
       mwIconClose,
       root,
     };
@@ -197,12 +195,13 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: @background-color-base;
-    opacity: @opacity-medium;
 
-    &--high_opacity {
-      /* todo: @opacity-high */
-      opacity: 0.95;
+    &--light {
+      background-color: @background-color-backdrop-light;
+    }
+
+    &--dark {
+      background-color: @background-color-backdrop-dark;
     }
   }
 
