@@ -39,6 +39,7 @@
 	"tag-contenttranslation-v2-description": "Saturs ir tulkots no citas valodas, izmantojot Satura tulkošanas rīka 2. versiju.",
 	"tag-sectiontranslation": "Sadaļu tulkošana",
 	"tag-sectiontranslation-description": "Saturs tika iztulkots no sadaļas citā valodā, izmantojot sadaļu tulkošanas iespēju Satura tulkošanas rīkā.",
+	"tag-contenttranslation-high-unmodified-mt-text": "Satura tulkošana: Augsts nemodificētas mašīntulkošanas lietojums",
 	"cx-source-loading": "Ielādē $1",
 	"cx-beta": "Satura tulkošana",
 	"cx-beta-desc": "Rīks ātrai lapu tulkošanai tavā valodā. Sāc tulkošanu no [[Special:MyContributions|sava devuma lapas]] un labo tās mūsu speciāli tulkošanai pielāgotajā redaktorā. Daži no rīkiem vai būt pieejami tikai atsevišķās valodās.",
