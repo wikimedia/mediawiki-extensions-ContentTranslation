@@ -54,6 +54,7 @@ mw.cx.ui.TranslationHeader.prototype.listen = function () {
 	);
 };
 
-mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message ) {
+mw.cx.ui.TranslationHeader.prototype.setStatusMessage = function ( message, hasError ) {
 	this.statusbar.setLabel( message );
+	this.$element.toggleClass( 'cx-has-error', !!hasError );
 };

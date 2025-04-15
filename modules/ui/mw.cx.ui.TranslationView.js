@@ -206,6 +206,10 @@ mw.cx.ui.TranslationView.prototype.showConflictWarning = function ( translatorNa
 	} );
 };
 
+mw.cx.ui.TranslationView.prototype.setErrorStatusMessage = function ( message ) {
+	this.translationHeader.setStatusMessage( message, true );
+};
+
 /**
  * @param {Mixed[]} nodesWithIssues
  * @param {boolean} hasErrors

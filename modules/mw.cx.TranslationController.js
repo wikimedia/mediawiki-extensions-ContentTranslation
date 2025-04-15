@@ -473,7 +473,9 @@ mw.cx.TranslationController.prototype.onSaveFailure = function ( errorCode ) {
 		this.showLoginDialog();
 	}
 
-	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-error' ) );
+	const message = this.failCounter > 5 ? 'cx-save-draft-error' : 'cx-save-draft-error-retry';
+	// eslint-disable-next-line mediawiki/msg-doc
+	this.translationView.setErrorStatusMessage( mw.msg( message ) );
 };
 
 mw.cx.TranslationController.prototype.showLoginDialog = function () {

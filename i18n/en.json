@@ -144,6 +144,7 @@
 	"cx-save-draft-shortcut-label": "Save draft",
 	"cx-save-draft-tooltip": "Translation drafts are saved automatically",
 	"cx-save-draft-error": "An error occurred while saving the page.",
+	"cx-save-draft-error-retry": "Unable to save. Retrying in a moment...",
 	"cx-contributions-new-contributions": "New contribution",
 	"cx-contributions-new-article": "New page",
 	"cx-contributions-translation": "Translation",
