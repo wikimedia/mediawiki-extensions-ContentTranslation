@@ -5,17 +5,19 @@ import colors from "@/lib/mediawiki.ui/plugins/colors";
 import Page from "@/wiki/mw/models/page";
 import suggestionsGetters from "@/store/modules/suggestions/getters";
 import { createStore } from "vuex";
-import { ref } from "vue";
 
-const mockSourceTitle = ref("Test Title");
-const mockSourceLanguage = ref("en");
-const mockTargetLanguage = ref("el");
+jest.mock("@/composables/useURLHandler", () => {
+  const { ref } = require("vue");
+  const mockSourceLanguage = ref("en");
+  const mockTargetLanguage = ref("el");
+  const mockSourceTitle = ref("Test Title");
 
-jest.mock("@/composables/useURLHandler", () => () => ({
-  sourceLanguageURLParameter: mockSourceLanguage,
-  targetLanguageURLParameter: mockTargetLanguage,
-  pageURLParameter: mockSourceTitle,
-}));
+  return () => ({
+    sourceLanguageURLParameter: mockSourceLanguage,
+    targetLanguageURLParameter: mockTargetLanguage,
+    pageURLParameter: mockSourceTitle,
+  });
+});
 
 const mockStore = createStore({
   modules: {

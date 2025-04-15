@@ -768,6 +768,8 @@
 				"cx-sx-translation-confirmer-title",
 				"cx-sx-translation-confirmer-views-count",
 				"cx-sx-translation-confirmer-translation-time-whole-article",
+				"cx-sx-translation-confirmer-translation-time-single-section-minute",
+				"cx-sx-translation-confirmer-translation-time-single-section-hour",
 				"cx-sx-translation-confirmer-translation-time-sections",
 				"cx-sx-translation-confirmer-bookmark-button-aria-label",
 				"cx-sx-content-comparator-discarded-section-clarifications",

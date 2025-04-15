@@ -2,6 +2,9 @@ import { ref, watchEffect } from "vue";
 import cxSuggestionsApi from "@/wiki/cx/api/suggestions";
 import useCurrentPages from "@/composables/useCurrentPages";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
+import useURLHandler from "@/composables/useURLHandler";
+
+const { sectionURLParameter: sectionTitle } = useURLHandler();
 
 /**
  * @param {Page} sourceArticle
@@ -32,9 +35,13 @@ const calculateSuggestionSectionsSize = async (
       return acc;
     }, {});
 
+  if (sectionTitle.value) {
+    return sectionsSize[sectionTitle.value];
+  }
+
   return Object.keys(sectionsSize)
-    .filter((sectionTitle) => missingSections[sectionTitle])
-    .reduce((sum, sectionTitle) => sum + sectionsSize[sectionTitle], 0);
+    .filter((section) => missingSections[section])
+    .reduce((sum, section) => sum + sectionsSize[section], 0);
 };
 
 /**
@@ -80,6 +87,20 @@ const getTranslationTimeMessagesArgsForSectionSuggestions = (
   const hours = minutes >= 60 ? minutes / 60 : 0;
   const roundedHours = Math.round(hours * 2) / 2; // Round to nearest 0.5 hours
 
+  if (sectionTitle.value && roundedHours === 0) {
+    return [
+      "cx-sx-translation-confirmer-translation-time-single-section-minute",
+      minutes,
+    ];
+  }
+
+  if (sectionTitle.value && roundedHours > 0) {
+    return [
+      "cx-sx-translation-confirmer-translation-time-single-section-hour",
+      roundedHours,
+    ];
+  }
+
   return [
     "cx-sx-translation-confirmer-translation-time-sections",
     roundedHours,
@@ -107,10 +128,13 @@ const useTranslationSize = () => {
         sourceArticle.value,
         suggestion.value
       ).then((size) => {
+        const numberOfSections = sectionTitle.value
+          ? 1
+          : Object.keys(suggestion.value.missingSections).length;
         translationSizeMessageArgs.value =
           getTranslationTimeMessagesArgsForSectionSuggestions(
             bytesToMinutes(size),
-            Object.keys(suggestion.value.missingSections).length
+            numberOfSections
           );
       });
     } else if (sourceArticle.value) {

@@ -345,6 +345,8 @@
 	"cx-sx-translation-confirmer-title": "New translation",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 view/|$1 views/|0=No views this }}week",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 hour|$1 hours|0={{PLURAL:$2|$2 minute|$2 minutes}}}} to translate",
+	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 minute|$1 minutes}} to translate this section",
+	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 hour|$1 hours}} to translate this section",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 hour|$1 hours|0={{PLURAL:$2|$2 minute|$2 minutes}}}} to translate {{PLURAL:$3|$3 section|$3 sections}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Bookmark",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Your translation will be published as an independent new section.",
