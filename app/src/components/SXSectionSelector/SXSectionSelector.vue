@@ -11,27 +11,27 @@ import SxSectionSelectorSectionListMissing from "./SXSectionSelectorSectionListM
 import SxSectionSelectorSectionListPresent from "./SXSectionSelectorSectionListPresent.vue";
 import { siteMapper } from "@/utils/mediawikiHelper";
 import useURLHandler from "@/composables/useURLHandler";
-import useApplicationState from "@/composables/useApplicationState";
 import { computed, inject } from "vue";
 import { useRouter } from "vue-router";
-import { useStore } from "vuex";
 import usePageSectionSelect from "@/composables/usePageSectionSelect";
 import useCurrentSectionSuggestion from "@/composables/useCurrentSectionSuggestion";
 import useCurrentDraftTranslation from "@/composables/useCurrentDraftTranslation";
 import useEditorNavigation from "@/composables/useEditorNavigation";
 import useDashboardTranslationContinueInstrument from "@/composables/useDashboardTranslationContinueInstrument";
+import { getAutonym } from "@wikimedia/language-data";
 
 const breakpoints = inject("breakpoints");
 const isDesktop = computed(() => breakpoints.value.desktopAndUp);
 
-const store = useStore();
 const { sectionSuggestion: suggestion } = useCurrentSectionSuggestion();
 const {
-  sourceLanguage,
-  targetLanguage,
-  sourceLanguageAutonym,
-  targetLanguageAutonym,
-} = useApplicationState(store);
+  sourceLanguageURLParameter: sourceLanguage,
+  targetLanguageURLParameter: targetLanguage,
+  clearTranslationURLParameters,
+  setSectionURLParam,
+} = useURLHandler();
+const sourceLanguageAutonym = computed(() => getAutonym(sourceLanguage.value));
+const targetLanguageAutonym = computed(() => getAutonym(targetLanguage.value));
 
 const sourceArticlePath = computed(() =>
   siteMapper.getPageUrl(sourceLanguage.value, suggestion.value?.sourceTitle)
@@ -42,8 +42,6 @@ const targetArticlePath = computed(() =>
 );
 
 const router = useRouter();
-
-const { clearTranslationURLParameters, setSectionURLParam } = useURLHandler();
 
 const goToDashboard = () => {
   // Remove URL params so that section translation doesn't restart, leading to endless loop
