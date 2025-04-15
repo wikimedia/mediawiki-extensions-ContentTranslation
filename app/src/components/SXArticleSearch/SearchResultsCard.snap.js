@@ -2,7 +2,7 @@
 
 exports[`SearchResultsCard Component output matches snapshot 1`] = `
 <div
-  class="mw-ui-card sx-article-search__results mb-0 pa-4"
+  class="mw-ui-card sx-article-search__results mb-0 pa-0"
 >
   <!-- @slot Card header -->
   
@@ -16,7 +16,7 @@ exports[`SearchResultsCard Component output matches snapshot 1`] = `
     <!--v-if-->
     
     <div
-      class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
+      class="row items-normal justify-start cx-search-suggestion px-4 py-3 ma-0"
       dir="ltr"
     >
       
@@ -95,7 +95,7 @@ exports[`SearchResultsCard Component output matches snapshot 1`] = `
       
     </div>
     <div
-      class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
+      class="row items-normal justify-start cx-search-suggestion px-4 py-3 ma-0"
       dir="ltr"
     >
       

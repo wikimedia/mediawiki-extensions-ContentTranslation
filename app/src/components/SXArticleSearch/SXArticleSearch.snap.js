@@ -197,12 +197,12 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
   </div>
   
   <div
-    class="mw-ui-card sx-article-search__suggestions mb-0 pa-4"
+    class="mw-ui-card sx-article-search__suggestions pa-0"
   >
     <!-- @slot Card header -->
     
     <h5
-      class="ma-0 pb-1 sx-article-search__suggestions-header"
+      class="ma-0 px-4 pb-1 sx-article-search__suggestions-header"
     >
       cx-sx-article-search-recently-edited-title
     </h5>
@@ -214,7 +214,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
       
       
       <div
-        class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
+        class="row items-normal justify-start cx-search-suggestion px-4 py-3 ma-0"
         dir="ltr"
       >
         
@@ -293,7 +293,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
         
       </div>
       <div
-        class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
+        class="row items-normal justify-start cx-search-suggestion px-4 py-3 ma-0"
         dir="ltr"
       >
         
@@ -377,7 +377,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
   </div>
   
   <div
-    class="mw-ui-card sx-article-search__results mb-0 pa-4"
+    class="mw-ui-card sx-article-search__results mb-0 pa-0"
     style="display: none;"
   >
     <!-- @slot Card header -->
@@ -390,7 +390,7 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
       <!-- @slot Card content -->
       
       <p
-        class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
+        class="sx-article-search__empty-state"
       >
         cx-sx-article-search-no-search-results-message
       </p>

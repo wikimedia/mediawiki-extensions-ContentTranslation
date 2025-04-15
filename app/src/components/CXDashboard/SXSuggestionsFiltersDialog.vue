@@ -74,7 +74,7 @@ const tentativelySelectedFilter = ref(null);
 
 const reset = () => {
   tentativelySelectedFilter.value = null;
-  selectionHasChanged.value=false
+  selectionHasChanged.value = false;
 };
 
 /**

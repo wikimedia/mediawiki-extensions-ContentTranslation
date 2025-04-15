@@ -34,10 +34,10 @@ const emit = defineEmits(["suggestion-clicked"]);
 </script>
 
 <template>
-  <mw-card class="sx-article-search__suggestions mb-0 pa-4">
+  <mw-card class="sx-article-search__suggestions pa-0">
     <template #header>
       <h5
-        class="ma-0 pb-1 sx-article-search__suggestions-header"
+        class="ma-0 px-4 pb-1 sx-article-search__suggestions-header"
         v-text="cardTitle"
       />
     </template>
@@ -59,6 +59,14 @@ const emit = defineEmits(["suggestion-clicked"]);
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
 
 .sx-article-search__suggestions {
+  margin-top: @spacing-100;
+  margin-bottom: @spacing-50;
+
+  // As described in T241590, the second suggestions card should only have a margin-top of 8px
+  & ~ .sx-article-search__suggestions {
+    margin-top: @spacing-50;
+  }
+
   &.mw-ui-card {
     box-shadow: none;
   }

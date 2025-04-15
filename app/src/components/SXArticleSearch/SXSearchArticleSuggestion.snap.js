@@ -2,7 +2,7 @@
 
 exports[`SXSearchArticleSuggestion Component output matches snapshot 1`] = `
 <div
-  class="row items-normal justify-start cx-search-suggestion pa-3 ma-0"
+  class="row items-normal justify-start cx-search-suggestion px-4 py-3 ma-0"
   dir="ltr"
 >
   

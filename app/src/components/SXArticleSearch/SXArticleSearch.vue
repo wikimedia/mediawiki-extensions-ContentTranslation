@@ -261,7 +261,7 @@ const eventSource = computed(() => {
       <p
         v-else
         v-i18n:cx-sx-article-search-no-suggestions-message
-        class="sx-article-search__empty-suggestions-message my-0 px-4 py-16"
+        class="sx-article-search__empty-state"
       />
     </template>
     <search-results-card
@@ -325,9 +325,16 @@ const eventSource = computed(() => {
       color: #72777d;
     }
   }
-  &__empty-suggestions-message {
+  &__empty-state {
     text-align: center;
-    color: #72777d;
+    color: @color-placeholder;
+    margin-block: @spacing-0;
+    padding: @spacing-100;
+    box-sizing: content-box;
+    min-height: @size-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .sx-article-search-language-selector {

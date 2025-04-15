@@ -44,15 +44,18 @@ const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
 </script>
 
 <template>
-  <mw-card class="sx-article-search__results mb-0 pa-4">
-    <mw-spinner v-if="searchResultsLoading" />
+  <mw-card class="sx-article-search__results mb-0 pa-0">
+    <mw-spinner
+      v-if="searchResultsLoading"
+      class="sx-article-search__empty-state"
+    />
     <p
       v-else-if="searchResultsSlice.length === 0"
       v-i18n:cx-sx-article-search-no-search-results-message="[
         searchInput,
         sourceLanguageAutonym,
       ]"
-      class="sx-article-search__empty-search-results-message mt-4 pa-4 mb-0"
+      class="sx-article-search__empty-state"
     />
     <sx-search-article-suggestion
       v-for="suggestion in searchResultsSlice"
@@ -70,10 +73,6 @@ const { searchResultsLoading, searchResultsSlice } = useSearchArticles(
 
 <style lang="less">
 @import (reference) "~@wikimedia/codex-design-tokens/theme-wikimedia-ui.less";
-.sx-article-search__empty-search-results-message {
-  text-align: center;
-}
-
 .sx-article-search__results-selected {
   background-color: @background-color-neutral-subtle;
 }
