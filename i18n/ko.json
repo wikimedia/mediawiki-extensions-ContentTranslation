@@ -491,6 +491,7 @@
 	"cx-unreviewed-translation-dialog-close-button-aria-label": "닫기",
 	"cx-unreviewed-translation-dialog-review-translation-button-label": "번역 검토",
 	"cx-unreviewed-translation-dialog-close-button-label": "닫기",
+	"cx-unreviewed-translation-dialog-body": "빠른 번역을 마친 뒤 새로운 번역을 시작하려면 10분 정도 기다려 주세요. 저희 편집자 커뮤니티는 좋은 품질의 번역을 중시하고 있으므로, 이 시간 동안 기존 번역을 검토해 주시면 감사하겠습니다.",
 	"cx-unreviewed-translation-dialog-learn-more-link-label": "더 알아보기",
 	"cx-sx-suggestions-filters-header": "제안 수정",
 	"cx-sx-suggestions-filters-close-button-aria-label": "제안 필터 닫기",

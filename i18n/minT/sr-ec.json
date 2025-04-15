@@ -19,6 +19,7 @@
 	"mint-search-topic-page-results-container-empty": "Пронађите било коју тему. Садржај теме може се разликовати од језика до језика.",
 	"mint-confirm-topic-page-automatic-translation-indicator-text": "Види аутоматизован превод",
 	"mint-confirm-topic-page-go-to-search-button-label": "Пронађите другу тему",
+	"mint-confirm-topic-page-target-article-link-container-header": "Написали уредници на $1",
 	"mint-confirm-topic-page-target-article-card-read-article-label": "Прочитај чланак",
 	"mint-view-translation-page-header": "Аутоматизован превод",
 	"mint-view-translation-page-disclaimer-header": "Аутоматизован садржај може бити нетачан",
