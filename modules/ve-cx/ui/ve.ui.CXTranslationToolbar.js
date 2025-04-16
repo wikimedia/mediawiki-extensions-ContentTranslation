@@ -165,6 +165,9 @@ ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
  * @param {boolean} disabled
  */
 ve.ui.CXTranslationToolbar.prototype.onGroupDisable = function ( disabled ) {
+	if ( this.$element.get( 0 ).contains( document.activeElement ) ) {
+		return;
+	}
 	// If the toolgroup is disabled, hide the toolbar
 	this.$element.toggle( !disabled );
 };
