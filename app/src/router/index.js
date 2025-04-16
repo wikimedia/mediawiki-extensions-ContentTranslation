@@ -141,7 +141,7 @@ router.beforeEach((to, from, next) => {
     return;
   }
 
-  const startSectionTranslationFromUrl = useUrlTranslationStart();
+  const startTranslationFromUrl = useUrlTranslationStart();
 
   const {
     sourceLanguageURLParameter: sourceLanguage,
@@ -172,7 +172,11 @@ router.beforeEach((to, from, next) => {
           : "sx-sentence-selector";
       redirectToRouteIfNeeded(to.name, desiredRouteName, next);
     } else {
-      startSectionTranslationFromUrl();
+      // When the requested step in the URL is different from "sx-translation-confirmer", this code runs twice.
+      // Call the method to handle translation start from url, only before actually navigating to the Confirmation step.
+      if (to.name === "sx-translation-confirmer") {
+        startTranslationFromUrl();
+      }
       redirectToRouteIfNeeded(to.name, "sx-translation-confirmer", next);
     }
 
