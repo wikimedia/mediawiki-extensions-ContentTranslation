@@ -1,5 +1,5 @@
 import { ref, watch } from "vue";
-import { cdxIconArticles } from "@wikimedia/codex-icons";
+import { cdxIconArticles, cdxIconSearch } from "@wikimedia/codex-icons";
 import usePageCollections from "./usePageCollections";
 import useSearchArticles from "@/composables/useArticleSearch";
 import useURLHandler from "@/composables/useURLHandler";
@@ -15,8 +15,7 @@ const allTopics = topicGroups.flatMap((group) => group.topics);
 
 const useSuggestionsFilterSearch = () => {
   const searchInput = ref("");
-  const searchLoading = ref(false);
-  const searchResults = ref({ topics: [], areas: [] });
+  const searchResults = ref({ topics: [], topic_areas: [], collections: [] });
   const bananaI18n = useI18n();
 
   const { pageCollections } = usePageCollections();
@@ -60,33 +59,35 @@ const useSuggestionsFilterSearch = () => {
   });
 
   watch(searchInput, async () => {
-    searchLoading.value = true;
-
-    searchResults.value.areas = [
-      ...searchCollections(searchInput.value).map((collection) => ({
-        label: collection.name,
-        value: collection.name,
-        description: collection.description,
-        icon: cdxIconArticles,
-        filterType: COLLECTIONS_SUGGESTION_PROVIDER,
-        filterId: collection.name,
-      })),
-      ...searchTopics(searchInput.value).map((topic) => ({
+    searchResults.value.topic_areas = searchTopics(searchInput.value).map(
+      (topic) => ({
         label: topic.label,
         value: topic.label,
         description: bananaI18n.i18n(
           "cx-sx-suggestions-filter-search-results-topics-default-description"
         ),
-        icon: cdxIconArticles,
+        icon: cdxIconSearch,
         filterType: TOPIC_SUGGESTION_PROVIDER,
         filterId: topic.topicId,
-      })),
-    ];
+      })
+    );
 
-    searchLoading.value = false;
+    searchResults.value.collections = searchCollections(searchInput.value).map(
+      (collection) => ({
+        label: collection.name,
+        value: collection.name,
+        description: bananaI18n.i18n(
+          "cx-sx-suggestions-filter-search-results-collections-default-description",
+          collection.articlesCount
+        ),
+        icon: cdxIconArticles,
+        filterType: COLLECTIONS_SUGGESTION_PROVIDER,
+        filterId: collection.name,
+      })
+    );
   });
 
-  return { searchInput, searchLoading, searchResults };
+  return { searchInput, searchResults };
 };
 
 export default useSuggestionsFilterSearch;

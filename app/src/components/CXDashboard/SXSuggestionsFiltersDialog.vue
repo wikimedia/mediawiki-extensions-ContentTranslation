@@ -232,7 +232,6 @@ const tentativelySelectSearchArea = (selectedArea) => {
       </div>
       <div v-else class="sx-suggestions-filters__search-results px-4 pt-3">
         <div v-if="searchResults.topics.length">
-          <h5 v-i18n:cx-sx-suggestions-filter-search-results-topics-label></h5>
           <cdx-menu
             v-model:selected="selection"
             :expanded="true"
@@ -241,12 +240,19 @@ const tentativelySelectSearchArea = (selectedArea) => {
             @menu-item-click="tentativelySelectSearchTopic"
           ></cdx-menu>
         </div>
-        <div v-if="searchResults.areas.length">
-          <h5 v-i18n:cx-sx-suggestions-filter-search-results-areas-label></h5>
+        <div v-if="searchResults.topic_areas.length">
           <cdx-menu
             v-model:selected="selection"
             :expanded="true"
-            :menu-items="searchResults.areas"
+            :menu-items="searchResults.topic_areas"
+            @menu-item-click="tentativelySelectSearchArea"
+          ></cdx-menu>
+        </div>
+        <div v-if="searchResults.collections.length">
+          <cdx-menu
+            v-model:selected="selection"
+            :expanded="true"
+            :menu-items="searchResults.collections"
             @menu-item-click="tentativelySelectSearchArea"
           ></cdx-menu>
         </div>
