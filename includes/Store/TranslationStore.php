@@ -2,6 +2,7 @@
 
 namespace ContentTranslation\Store;
 
+use ContentTranslation\Exception\TranslationSaveException;
 use ContentTranslation\LoadBalancer;
 use ContentTranslation\Service\UserService;
 use ContentTranslation\Translation;
@@ -59,6 +60,7 @@ class TranslationStore {
 	 * @param string $sourceLanguage
 	 * @param string $targetLanguage
 	 * @param string|null $status possible status values: "published"|"draft"|"deleted"
+	 * @param int $dbType
 	 * @return Translation|null
 	 */
 	public function findTranslationByUser(
@@ -66,9 +68,10 @@ class TranslationStore {
 		string $sourceTitle,
 		string $sourceLanguage,
 		string $targetLanguage,
-		?string $status = null
+		?string $status = null,
+		int $dbType = DB_REPLICA
 	): ?Translation {
-		$dbr = $this->lb->getConnection( DB_REPLICA );
+		$dbr = $this->lb->getConnection( $dbType );
 		$globalUserId = $this->userService->getGlobalUserId( $user );
 
 		$conditions = [
@@ -322,7 +325,7 @@ class TranslationStore {
 		return $result;
 	}
 
-	public function insertTranslation( Translation $translation, UserIdentity $user ): void {
+	public function insertTranslation( Translation $translation, UserIdentity $user ): bool {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
 		$row = [
@@ -349,11 +352,17 @@ class TranslationStore {
 		$dbw->newInsertQueryBuilder()
 			->insertInto( self::TRANSLATION_TABLE_NAME )
 			->row( $row )
+			->ignore()
 			->caller( __METHOD__ )
 			->execute();
 
-		$translation->translation['id'] = (int)$dbw->insertId();
-		$translation->setIsNew( true );
+		$affectedRows = $dbw->affectedRows();
+		if ( $affectedRows > 0 ) {
+			$translation->translation['id'] = $dbw->insertId();
+			$translation->setIsNew( true );
+		}
+
+		return $affectedRows > 0;
 	}
 
 	public function updateTranslation( Translation $translation, array $options = [] ): void {
@@ -405,16 +414,42 @@ class TranslationStore {
 		);
 
 		if ( $existingTranslation === null ) {
-			$this->insertTranslation( $translation, $user );
-		} else {
-			$options = [];
-			if ( $existingTranslation->translation['status'] === self::TRANSLATION_STATUS_DELETED ) {
-				// Existing translation is deleted, so this is a fresh start of same
-				// language pair and source title.
-				$options['freshTranslation'] = true;
+			$rowInserted = $this->insertTranslation( $translation, $user );
+			if ( $rowInserted ) {
+				return;
 			}
-			$translation->translation['id'] = $existingTranslation->getTranslationId();
-			$this->updateTranslation( $translation, $options );
+
+			// Nothing was inserted, the row probably exists. Let's try fetching it with DB_PRIMARY
+			$existingTranslation = $this->findTranslationByUser(
+				$user,
+				$translation->getSourceTitle(),
+				$translation->getSourceLanguage(),
+				$translation->getTargetLanguage(),
+				null,
+				DB_PRIMARY
+			);
 		}
+
+		if ( !$existingTranslation ) {
+			// We've tried enough, lets give up.
+			throw new TranslationSaveException(
+				'Translation save failed: could not insert a new translation or locate an existing one.'
+			);
+		}
+
+		/**
+		 * TODO: The existing translation that we fetched might or might not be the newer one.
+		 * To fix this CX could send some kind of "revision numbers" that lets us know which version
+		 * should be saved.
+		 */
+
+		$options = [];
+		if ( $existingTranslation->translation['status'] === self::TRANSLATION_STATUS_DELETED ) {
+			// Existing translation is deleted, so this is a fresh start of same
+			// language pair and source title.
+			$options['freshTranslation'] = true;
+		}
+		$translation->translation['id'] = $existingTranslation->getTranslationId();
+		$this->updateTranslation( $translation, $options );
 	}
 }

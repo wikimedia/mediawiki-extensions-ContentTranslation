@@ -8,7 +8,9 @@ namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\CategoriesStorageManager;
 use ContentTranslation\Exception\InvalidSectionDataException;
+use ContentTranslation\Exception\TranslationSaveException;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\SiteMapper;
 use ContentTranslation\Store\TranslationStore;
@@ -20,6 +22,9 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\User\User;
+use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\ParamValidator\TypeDef\StringDef;
@@ -30,7 +35,7 @@ class ApiContentTranslationSave extends ApiBase {
 	private TranslationUnitValidator $translationUnitValidator;
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
-
+	private LoggerInterface $logger;
 	/**
 	 * 64KB
 	 */
@@ -51,6 +56,7 @@ class ApiContentTranslationSave extends ApiBase {
 		$this->translationUnitValidator = $translationUnitValidator;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
+		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 
 	public function execute() {
@@ -93,7 +99,17 @@ class ApiContentTranslationSave extends ApiBase {
 		}
 
 		$translator = new Translator( $user );
-		$translation = $this->saveTranslation( $params, $translator );
+		try {
+			$translation = $this->saveTranslation( $params, $translator );
+		} catch ( TranslationSaveException $e ) {
+			$this->logger->info(
+				'Error saving translation: {sourcelanguage} -> {targetlanguage}, ' .
+				'{sourcetitle} -> {targettitle} by {user}: {exception}',
+				$this->getLogParams( $params, $user ) + [ 'exception' => $e->getMessage() ]
+			);
+			$this->dieWithException( $e );
+		}
+
 		$translationId = $translation->getTranslationId();
 
 		$content = Deflate::inflate( $params['content'] );
@@ -128,11 +144,9 @@ class ApiContentTranslationSave extends ApiBase {
 	}
 
 	/**
-	 * @param array $params
-	 * @param Translator $translator
-	 * @return Translation
+	 * @throws TranslationSaveException
 	 */
-	protected function saveTranslation( array $params, Translator $translator ) {
+	private function saveTranslation( array $params, Translator $translator ): Translation {
 		[ 'sourcetitle' => $sourceTitle, 'from' => $sourceLanguage, 'to' => $targetLanguage ] = $params;
 		$existingTranslation = $this->translationStore->findTranslationByUser(
 			$translator->getUser(),
@@ -289,5 +303,15 @@ class ApiContentTranslationSave extends ApiBase {
 	/** @inheritDoc */
 	public function isInternal() {
 		return true;
+	}
+
+	private function getLogParams( array $params, User $user ): array {
+		return [
+			'sourcelanguage' => $params['from'],
+			'targetlanguage' => $params['to'],
+			'sourcetitle' => $params['sourcetitle'],
+			'targettitle' => $params['title'],
+			'user' => $user->getId()
+		];
 	}
 }

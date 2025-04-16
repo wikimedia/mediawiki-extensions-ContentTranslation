@@ -8,7 +8,9 @@ namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\Entity\SectionTranslation;
 use ContentTranslation\Exception\InvalidSectionDataException;
+use ContentTranslation\Exception\TranslationSaveException;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\Service\SandboxTitleMaker;
 use ContentTranslation\SiteMapper;
@@ -20,8 +22,10 @@ use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiUsageException;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
+use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationSave extends ApiBase {
@@ -32,6 +36,7 @@ class ApiSectionTranslationSave extends ApiBase {
 	private TitleFactory $titleFactory;
 	private LanguageNameUtils $languageNameUtils;
 	private TranslationStore $translationStore;
+	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $mainModule,
@@ -52,6 +57,7 @@ class ApiSectionTranslationSave extends ApiBase {
 		$this->titleFactory = $titleFactory;
 		$this->languageNameUtils = $languageNameUtils;
 		$this->translationStore = $translationStore;
+		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 
 	private function validateRequest() {
@@ -107,14 +113,31 @@ class ApiSectionTranslationSave extends ApiBase {
 			$this->dieWithError( [ 'apierror-invalidtitle', wfEscapeWikiText( $targetTitleRaw ) ] );
 		}
 
-		$translation = $this->saveTranslation(
-			$user,
-			$params['sourcelanguage'],
-			$params['targetlanguage'],
-			$params['sourcetitle'],
-			$targetTitle->getPrefixedText(),
-			$params['sourcerevision']
-		);
+		try {
+			$translation = $this->saveTranslation(
+				$user,
+				$params['sourcelanguage'],
+				$params['targetlanguage'],
+				$params['sourcetitle'],
+				$targetTitle->getPrefixedText(),
+				$params['sourcerevision']
+			);
+		} catch ( TranslationSaveException $e ) {
+			$this->logger->info(
+				'Error saving translation {sourcelanguage} -> {targetlanguage}, ' .
+				'{sourcetitle} -> {targettitle} by {user}: {exception}',
+				[
+					'sourcelanguage' => $params['sourcelanguage'],
+					'targetlanguage' => $params['targetlanguage'],
+					'sourcetitle' => $params['sourcetitle'],
+					'targettitle' => $targetTitle->getPrefixedText(),
+					'user' => $user->getId(),
+					'exception' => $e->getMessage()
+				]
+			);
+			$this->dieWithException( $e );
+		}
+
 		$translationId = $translation->getTranslationId();
 
 		try {
@@ -169,7 +192,10 @@ class ApiSectionTranslationSave extends ApiBase {
 		return new Translation( $translationData );
 	}
 
-	protected function saveTranslation(
+	/**
+	 * @throws TranslationSaveException
+	 */
+	private function saveTranslation(
 		User $user,
 		string $sourceLanguage,
 		string $targetLanguage,
