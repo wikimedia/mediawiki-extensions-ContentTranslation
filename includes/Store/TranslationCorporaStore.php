@@ -10,6 +10,7 @@ namespace ContentTranslation\Store;
 use ContentTranslation\Entity\TranslationUnit;
 use ContentTranslation\LoadBalancer;
 use LogicException;
+use Psr\Log\LoggerInterface;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
@@ -33,11 +34,17 @@ class TranslationCorporaStore {
 
 	/** @var LBFactory */
 	private $lbFactory;
+	private LoggerInterface $logger;
 	public const TABLE_NAME = 'cx_corpora';
 
-	public function __construct( LoadBalancer $lb, LBFactory $lbFactory ) {
+	public function __construct(
+		LoadBalancer $lb,
+		LBFactory $lbFactory,
+		LoggerInterface $logger
+	) {
 		$this->lb = $lb;
 		$this->lbFactory = $lbFactory;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -78,11 +85,12 @@ class TranslationCorporaStore {
 	}
 
 	/**
-	 * Insert a translation unit.
+	 * Insert a translation unit if it doesn't already exist.
 	 *
 	 * @param TranslationUnit $translationUnit
+	 * @return int Number of rows inserted
 	 */
-	private function insertTranslationUnit( TranslationUnit $translationUnit ): void {
+	private function insertTranslationUnit( TranslationUnit $translationUnit ): int {
 		$dbw = $this->lb->getConnection( DB_PRIMARY );
 
 		$dbw->newInsertQueryBuilder()
@@ -96,7 +104,10 @@ class TranslationCorporaStore {
 				'cxc_content' => $translationUnit->getContent()
 			] )
 			->caller( __METHOD__ )
+			->ignore()
 			->execute();
+
+		return $dbw->affectedRows();
 	}
 
 	/**
@@ -287,7 +298,15 @@ class TranslationCorporaStore {
 				}
 			);
 		} else {
-			$this->insertTranslationUnit( $translationUnit );
+			$logParams = $conditions + [
+				'contentHash' => crc32( $translationUnit->getContent() ),
+				'contentLength' => strlen( $translationUnit->getContent() )
+			];
+			$this->logger->info( 'Inserting translation unit', $logParams );
+			$affectedRows = $this->insertTranslationUnit( $translationUnit );
+			if ( $affectedRows === 0 ) {
+				$this->logger->info( 'No translation unit inserted due to unique key conflict.', $logParams );
+			}
 		}
 	}
 

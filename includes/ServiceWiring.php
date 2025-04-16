@@ -4,6 +4,7 @@ declare( strict_types=1 );
 
 use ContentTranslation\AbuseFilterChecker;
 use ContentTranslation\LoadBalancer;
+use ContentTranslation\LogNames;
 use ContentTranslation\Manager\TranslationCorporaManager;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\PreferenceHelper;
@@ -22,6 +23,7 @@ use ContentTranslation\Store\TranslationCorporaStore;
 use ContentTranslation\Store\TranslationStore;
 use ContentTranslation\Validator\TranslationUnitValidator;
 use MediaWiki\Config\ServiceOptions;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\WikiMap\WikiMap;
@@ -125,7 +127,8 @@ return [
 		static function ( MediaWikiServices $services ): TranslationCorporaStore {
 			return new TranslationCorporaStore(
 				$services->getService( 'ContentTranslation.LoadBalancer' ),
-				$services->getDBLoadBalancerFactory()
+				$services->getDBLoadBalancerFactory(),
+				LoggerFactory::getInstance( LogNames::MAIN )
 			);
 		},
 	'ContentTranslation.TranslationSplitter' =>
