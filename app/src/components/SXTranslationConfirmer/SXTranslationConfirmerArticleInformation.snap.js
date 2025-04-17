@@ -106,7 +106,7 @@ exports[`SXTranslationConfirmerArticleInformation test Component output matches 
           <span
             class="pe-3"
           >
-            100
+            101
           </span>
         </span>
         <span>

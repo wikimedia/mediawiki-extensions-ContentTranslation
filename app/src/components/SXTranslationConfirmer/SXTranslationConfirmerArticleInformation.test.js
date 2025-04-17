@@ -55,6 +55,6 @@ describe("SXTranslationConfirmerArticleInformation test", () => {
   it("Properties are computed properly", () => {
     expect(wrapper.vm.weeklyViews).toEqual("3");
     expect(wrapper.vm.sourceTitle).toEqual("Test Title");
-    expect(wrapper.vm.langLinksCount).toEqual(100);
+    expect(wrapper.vm.articleLanguageCount).toEqual(101);
   });
 });

@@ -72,7 +72,9 @@ const sourceArticlePath = computed(() =>
   siteMapper.getPageUrl(sourceLanguage.value || "", sourceTitle.value || "")
 );
 
-const langLinksCount = computed(() => sourceArticle.value?.langLinksCount);
+const articleLanguageCount = computed(
+  () => (sourceArticle.value?.langLinksCount || 0) + 1
+);
 
 const formatPageViews = (views) => {
   // Define thresholds and corresponding units
@@ -166,7 +168,7 @@ const isQuickTranslation = computed(() => {
         <div>
           <span>
             <cdx-icon :icon="cdxIconLanguage" size="small" class="me-1" />
-            <span class="pe-3" v-text="langLinksCount" />
+            <span class="pe-3" v-text="articleLanguageCount" />
           </span>
           <span>
             <cdx-icon :icon="cdxIconChart" size="small" class="me-1" />
