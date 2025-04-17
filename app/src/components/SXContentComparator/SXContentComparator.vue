@@ -61,7 +61,9 @@ watch(
 </script>
 
 <template>
-  <section class="sx-content-comparator">
+  <section
+    class="sx-content-comparator col-12 col-tablet-9 col-desktop-7 mx-auto"
+  >
     <sx-content-comparator-header
       @translation-button-clicked="confirmTranslation"
       @close="goToSectionSelector"
@@ -117,6 +119,7 @@ watch(
 @import "@/styles/page.less";
 
 .sx-content-comparator {
+  background-color: @background-color-base;
   a {
     pointer-events: none;
   }
