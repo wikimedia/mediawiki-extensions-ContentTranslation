@@ -4,6 +4,7 @@ const useWikipediaSites = require( './useWikipediaSites.js' );
 const { defaultSourceLanguage } = require( './constants.js' );
 const { computed } = require( 'vue' );
 const useState = require( './useState.js' );
+const useMintLanguages = require( './useMintLanguages.js' );
 
 /**
  * This composable exposes the "getSourceAndDisplayLanguages" method that given a language and an
@@ -20,6 +21,8 @@ const useSearchResultLanguages = () => {
 	const { sites } = useWikipediaSites();
 	const wikipediaLanguages = computed( () => sites.value.map( ( site ) => site.languageCode ) );
 	const { sourceLanguage, targetLanguage } = useState();
+	const { mintTargetToSourceLanguages } = useMintLanguages();
+	const possibleMintTargetLanguages = mintTargetToSourceLanguages.value[ targetLanguage.value ];
 
 	/**
 	 * @param {string} matchLanguage
@@ -30,7 +33,8 @@ const useSearchResultLanguages = () => {
 		const siteLinkLanguages = siteLinks.map( ( siteLink ) => siteLink.language );
 
 		const firstExistingSiteLink = siteLinks.find(
-			( siteLink ) => wikipediaLanguages.value.includes( siteLink.language )
+			( siteLink ) => wikipediaLanguages.value.includes( siteLink.language ) &&
+				possibleMintTargetLanguages.includes( siteLink.language )
 		);
 		const firstExistingLanguage = firstExistingSiteLink && firstExistingSiteLink.language;
 
