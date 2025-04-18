@@ -28,15 +28,22 @@ class SiteMapper {
 	 */
 	public static function getCurrentLanguageCode() {
 		global $wgConf, $wgDBname;
+		$mwInstance = MediaWikiServices::getInstance();
 
 		[ , $domain ] = $wgConf->siteFromDB( $wgDBname );
 
 		// Fallback for non-wmf-style farms. $domain can be null or empty string in that case.
 		if ( ( $domain ?? '' ) === '' ) {
-			return MediaWikiServices::getInstance()->getContentLanguageCode()->toString();
+			return $mwInstance->getContentLanguageCode()->toString();
 		}
 
-		return self::getLanguageCodeFromDomain( $domain );
+		$languageCode = self::getLanguageCodeFromDomain( $domain );
+		// If an invalid language code is fetched, return the wiki's content language code
+		if ( !$mwInstance->getLanguageNameUtils()->isKnownLanguageTag( $languageCode ) ) {
+			$languageCode = $mwInstance->getContentLanguageCode()->toString();
+		}
+
+		return $languageCode;
 	}
 
 	/**
