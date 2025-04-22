@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fúlvio"
+		]
+	},
+	"automatic-translation-special-page-description": "Tradução automática",
+	"automatic-translation-desc": "Fornece [[Special:AutomaticTranslation|tradução automática]] para páginas de conteúdo.",
+	"mint-home-header-title": "Tradução automática",
+	"mint-home-input-placeholder": "Pesquisar um tópico",
+	"mint-translation-list-all-languages-option-label": "Todas",
+	"mint-home-info-panel-text": "Milhões de tópicos na Wikipédia podem ser traduzidos automaticamente para $1.",
+	"mint-home-random-topic-button-label": "Tópico aleatório",
+	"ax-home-random-topic-loading-label": "Carregando…",
+	"ax-home-random-topic-error": "Erro encontrado ao buscar um tópico aleatório",
+	"ax-home-error-title": "Erro encontrado ao buscar o artigo $1.",
+	"mint-home-experimental-note": "O suporte à tradução automática é experimental. [$1 Saiba mais]",
+	"mint-language-selector-title": "Idiomas",
+	"mint-language-selector-suggestions-header": "Sugerido",
+	"mint-language-selector-all-languages-header": "Todos os idiomas",
+	"mint-language-selector-input-placeholder": "Selecione um idioma",
+	"mint-language-selector-no-search-results": "Sem resultados",
+	"mint-search-topic-page-header": "Pesquisar um tópico",
+	"mint-search-topic-page-input-placeholder": "Pesquisar um tópico",
+	"mint-search-topic-page-input-aria-label": "Entrada de pesquisa MinT",
+	"mint-search-topic-page-results-container-empty": "Pesquise qualquer tópico. O conteúdo de um tópico pode ser diferente em cada idioma.",
+	"mint-confirm-topic-page-header": "Tradução automática"
+}
