@@ -1,0 +1,47 @@
+{
+	"comment": "Add unique index to translator_translation_id",
+	"before": {
+		"name": "cx_translators",
+		"columns": [
+			{
+				"name": "translator_user_id",
+				"comment": "Translators id - global user id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "translator_translation_id",
+				"comment": "Translation id - foreign key to translations.translation_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [],
+		"pk": [ "translator_user_id", "translator_translation_id" ]
+	},
+	"after": {
+		"name": "cx_translators",
+		"columns": [
+			{
+				"name": "translator_user_id",
+				"comment": "Translators id - global user id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "translator_translation_id",
+				"comment": "Translation id - foreign key to translations.translation_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_translators_translation_id",
+				"columns": [ "translator_translation_id" ],
+				"unique": false
+			}
+		],
+		"pk": [ "translator_user_id", "translator_translation_id" ]
+	}
+}

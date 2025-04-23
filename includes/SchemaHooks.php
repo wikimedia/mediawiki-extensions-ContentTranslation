@@ -94,6 +94,11 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 			'cx_translation_target_title',
 			"$dir/sql/$dbType/patch-cx_translations-target-title-index.sql"
 		);
+		$updater->addExtensionIndex(
+			'cx_translators',
+			'cx_translators_translation_id',
+			"$dir/sql/$dbType/patch-cx_translators-index-translator_translation_id.sql"
+		);
 	}
 
 }

@@ -139,7 +139,13 @@
 				"options": { "notnull": true }
 			}
 		],
-		"indexes": [],
+		"indexes": [
+			{
+				"name": "cx_translators_translation_id",
+				"columns": [ "translator_translation_id" ],
+				"unique": false
+			}
+		],
 		"pk": [ "translator_user_id", "translator_translation_id" ]
 	},
 	{
