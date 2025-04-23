@@ -10,8 +10,8 @@ const maxGroupSize = 20480; // 20KB
  *   it is placed in its own bucket.
  * - Otherwise, subsections are grouped until they reach the size limit.
  *
- * @param {HTMLElement[]} sectionElements - An array of subsection <section> HTML elements to be grouped.
- * @return {HTMLElement[][]} - A nested array where each sub-array represents a group of subsections.
+ * @param {HTMLElement[]} sectionElements Array of subsection <section> HTML elements to be grouped
+ * @return {HTMLElement[][]} Nested array where each sub-array represents a group of subsections
  */
 const groupSubSectionsIntoBuckets = ( sectionElements ) => {
 	const buckets = [];

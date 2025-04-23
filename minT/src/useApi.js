@@ -202,7 +202,7 @@ const translate = ( content, sourceLanguage, targetLanguage, token ) => {
  * available languages, along with the section titles for each language.
  *
  * @param {string} qid
- * @param {integer} limit
+ * @param {number} limit
  * @return {Promise<*>}
  */
 const fetchDenseArticles = async ( qid, limit ) => {
