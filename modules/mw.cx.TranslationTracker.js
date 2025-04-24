@@ -298,8 +298,11 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 	if ( restoredSections > 0 ) {
 		const progress = this.getTranslationProgress();
 		if ( !OO.compare( translationModel.progress, progress ) ) {
-			mw.log.error( '[CX] Mismatch in restored translation has progress. Saved progress was: ' +
-				JSON.stringify( translationModel.progress ) );
+			mw.log.error(
+				'[CX] Mismatch in restored translation progress. Saved progress was: ' +
+				JSON.stringify( translationModel.progress ) + '. ' +
+				'Restored translation progress is: ' + JSON.stringify( progress ) + '.'
+			);
 		}
 		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
 		// Do the change processing and validations on the restored sections without any delay.
