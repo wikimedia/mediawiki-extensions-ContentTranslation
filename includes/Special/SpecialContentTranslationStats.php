@@ -9,6 +9,7 @@
 namespace ContentTranslation\Special;
 
 use MediaWiki\Context\MutableContext;
+use MediaWiki\Skin\SkinFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 
 /**
@@ -19,14 +20,14 @@ use MediaWiki\SpecialPage\SpecialPage;
 class SpecialContentTranslationStats extends SpecialPage {
 
 	/**
-	 * @var \SkinFactory
+	 * @var SkinFactory
 	 */
 	private $skinFactory;
 
 	/**
-	 * @param \SkinFactory $skinFactory
+	 * @param SkinFactory $skinFactory
 	 */
-	public function __construct( \SkinFactory $skinFactory ) {
+	public function __construct( SkinFactory $skinFactory ) {
 		parent::__construct( 'ContentTranslationStats' );
 		$this->skinFactory = $skinFactory;
 	}

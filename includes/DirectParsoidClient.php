@@ -9,8 +9,8 @@
 namespace ContentTranslation;
 
 use Exception;
-use LocalizedException;
 use MediaWiki\Content\WikitextContent;
+use MediaWiki\Exception\LocalizedException;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\Page\PageIdentity;
 use MediaWiki\Permissions\Authority;

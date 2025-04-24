@@ -11,8 +11,8 @@ use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Revision\RevisionStore;
+use MediaWiki\Skin\Skin;
 use MobileContext;
-use Skin;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class RecentTranslationEntrypointRegistrationHandler implements BeforePageDisplayHook {

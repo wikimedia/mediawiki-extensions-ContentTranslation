@@ -11,8 +11,8 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Skin\Skin;
 use MobileContext;
-use Skin;
 
 class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 	/** @var RecentSignificantEditStore */

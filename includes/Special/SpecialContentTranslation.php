@@ -16,9 +16,9 @@ use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Registration\ExtensionRegistry;
+use MediaWiki\Skin\SkinFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 use MobileContext;
-use SkinFactory;
 
 /**
  * Implements the core of the Content Translation extension:
@@ -39,7 +39,7 @@ class SpecialContentTranslation extends SpecialPage {
 	 * @param SkinFactory $skinFactory
 	 * @param PreferenceHelper $preferenceHelper
 	 */
-	public function __construct( \SkinFactory $skinFactory, PreferenceHelper $preferenceHelper ) {
+	public function __construct( SkinFactory $skinFactory, PreferenceHelper $preferenceHelper ) {
 		parent::__construct( 'ContentTranslation' );
 		$this->skinFactory = $skinFactory;
 		$this->preferenceHelper = $preferenceHelper;

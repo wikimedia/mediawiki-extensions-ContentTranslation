@@ -4,8 +4,8 @@ namespace ContentTranslation\Skin;
 
 use MediaWiki\Linker\Linker;
 use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Skin\SkinMustache;
 use MediaWiki\Title\Title;
-use SkinMustache;
 
 /**
  * Skin subclass for Content Translation

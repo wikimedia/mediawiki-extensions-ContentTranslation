@@ -11,8 +11,8 @@ use MediaWiki\Hook\SkinAfterContentHook;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
+use MediaWiki\Skin\Skin;
 use MediaWiki\Title\Title;
-use Skin;
 
 /**
  * Hook handler that registers the "ext.ax.articlefooter.entrypoint" RL module, when the
