@@ -129,28 +129,6 @@ class SiteMapper {
 	}
 
 	/**
-	 * @param string $language
-	 * @param string $module
-	 * @param array $params
-	 * @return string
-	 */
-	public static function getRestApiURL( string $language, string $module, array $params = [] ): string {
-		global $wgContentTranslationSiteTemplates;
-
-		$domain = self::getDomainCode( $language );
-		$restbaseUrl = $wgContentTranslationSiteTemplates['restbase'] . $module;
-		$parsedUrl = parse_url( $restbaseUrl );
-
-		if ( !isset( $parsedUrl['scheme'] ) ) {
-			// $wgContentTranslationSiteTemplates['restbase'] is protocol relative path
-			$restbaseUrl = 'https:' . $restbaseUrl;
-		}
-
-		$url = str_replace( '$1', $domain, $restbaseUrl );
-		return wfAppendQuery( $url, $params );
-	}
-
-	/**
 	 * Get the API URL constructed from the domain template of sites
 	 */
 	public static function getApiURL( string $language, array $params = [] ): string {
