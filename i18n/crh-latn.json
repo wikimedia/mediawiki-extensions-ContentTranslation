@@ -209,6 +209,13 @@
 	"cx-sx-dashboard-banner-description": "Ayrı-ayrı bölüklerni tercime etiñiz, tekliflerni meraqlanğan mevzularıñızğa uyğunlaştırıñız ve saire. Evelleri tek mobil cihazlarda, endi ise bütün cihazlarda bar.",
 	"cx-sx-dashboard-banner-learn-more": "Daa ziyade bilgi",
 	"cx-sx-dashboard-banner-access-previous": "Evelki versiyağa keç",
+	"sx-confirm-back-navigation-dialog-title": "Tercime taşlansınmı?",
+	"sx-confirm-back-navigation-dialog-body": "Deñişmeler daa saqlanmadı ve coyulacaq.\nDeñişmelerniñ avtomatik saqlanuvı içün deñiştirmege devam ete bilesiñiz.",
+	"sx-confirm-back-navigation-dialog-discard-button-label": "Deñiştirmelerni lâğu et",
+	"sx-confirm-back-navigation-dialog-continue-button-label": "Deñiştirmege devam et",
+	"sx-confirm-translation-deletion-dialog-body": "Bu tercimeni bütünley yoq etmege istegeniñizden eminsiñizmi?",
+	"sx-translation-deletion-cancel-button-label": "Lâğu",
+	"sx-translation-deletion-confirm-button-label": "Tercimeni yoq et",
 	"cx-sx-translation-work-days-since-started": "{{PLURAL:$1|$1 kün|0=Bugün}}",
 	"cx-sx-translation-work-months-since-started": "{{PLURAL:$1|$1 ay}}",
 	"cx-sx-translation-work-years-since-started": "{{PLURAL:$1|$1 yıl}}",
@@ -217,6 +224,7 @@
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "Mobil cihazlarda aynı vaqıtta tek bir bölüknen çalışıp olasıñız. Bu sebepten şimdilik tek esas bölük yüklenecek.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Başqa bölükler qayda?",
 	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Nervalanmañız. Qalğan bölükler coyulmaz. Olar endi işlenip turğan tercimeler cedvelinde buluna ve bar olğan maqaleni toldurmaq içün qullanılıp ola. Er bölükniñ mündericesinen yañı devam etken bir tercime tapa bilirsiñiz.",
+	"sx-confirm-draft-translation-start-button-label": "Tamam",
 	"sx-published-translation-new-translation-button-label": "Yañı tercime",
 	"sx-quick-tutorial-next-button-aria-label": "Soñraki talimat saifesine keç",
 	"cx-mflanguagesearcher-entrypoint-card-title": "Yañı bir tercime yaz",
@@ -234,5 +242,7 @@
 	"cx-sx-suggestions-filter-search-input-placeholder": "Bir mevzu qıdır",
 	"cx-sx-suggestions-filter-search-results-topics-label": "Mevzular",
 	"cx-sx-suggestions-filter-search-results-areas-label": "Saalar",
-	"cx-sx-suggestions-filter-search-results-topics-default-description": "Mevzu saası"
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "Mevzu saası",
+	"cx-sx-suggestion-list-empty-title": "Şimdilik teklif yoq",
+	"cx-sx-suggestion-list-empty-description": "Bu süzgüç içün iç bir teklif tapıp olamadıq. Başqa bir süzgüç deñey bilesiñiz ya da tercime etmek içün konkret bir maqale qıdıra bilesiñiz."
 }
