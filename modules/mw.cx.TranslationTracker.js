@@ -270,7 +270,13 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 		const sectionNumber = sectionModel.getSectionNumber();
 		const mwSectionNumber = sectionModel.getMwSectionNumber();
 		const sectionState = new mw.cx.dm.SectionState( sectionNumber, mwSectionNumber );
-		sectionState.setSource( ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML );
+		try {
+			sectionState.setSource( ve.dm.converter.getDomFromNode( sectionModel ).body.innerHTML );
+		} catch ( e ) {
+			mw.errorLogger.logError( e, 'error.contenttranslation' );
+			sectionState.setSource( '' );
+		}
+
 		const savedTranslationUnit = adaptedTranslationUnits[ sectionNumber ];
 		if ( savedTranslationUnit ) {
 			if ( savedTranslationUnit.user ) {

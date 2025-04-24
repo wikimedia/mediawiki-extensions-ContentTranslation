@@ -57,14 +57,20 @@ ve.dm.CXReferenceNode.static.toDataElement = function ( domElements ) {
  * @inheritdoc
  */
 ve.dm.CXReferenceNode.static.toDomElements = function ( dataElement ) {
-	const elements = ve.dm.CXReferenceNode.super.static.toDomElements.apply( this, arguments ),
-		cxData = OO.getProp( dataElement, 'attributes', 'cx' );
+	try {
+		const elements = ve.dm.CXReferenceNode.super.static.toDomElements.apply( this, arguments );
+		const cxData = OO.getProp( dataElement, 'attributes', 'cx' );
 
-	if ( cxData ) {
-		elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( cxData ) );
+		if ( cxData ) {
+			elements[ 0 ].setAttribute( 'data-cx', JSON.stringify( cxData ) );
+		}
+
+		return elements;
+	} catch ( error ) {
+		mw.errorLogger.logError( error, 'error.contenttranslation' );
+
+		return [];
 	}
-
-	return elements;
 };
 
 /* Methods */
