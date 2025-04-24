@@ -32,6 +32,7 @@ const useDashboardOpenInstrument = () => {
       publishingfollowup: "followup_after_publishing",
       ulsaddlanguages: "language_selector_options",
       mintforreaders: "preselect_mint_for_readers",
+      articleplaceholder: "article_placeholder",
     };
     const campaign = getUrlParam("campaign");
 
