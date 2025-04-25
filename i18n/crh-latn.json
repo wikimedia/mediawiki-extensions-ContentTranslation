@@ -115,6 +115,7 @@
 	"cx-stats-draft-target-source": "Şu tilge bitirilmegen tercimeler",
 	"cx-stats-draft-source-target": "Şu tilden bitirilmegen tercimeler",
 	"echo-category-title-cx": "Tercimeler",
+	"echo-pref-tooltip-cx": "Tercime aleti ile yaratılğan tercimelerim aqqında maña bildir.",
 	"cx-translationlist-empty-title": "Tercime etilecek bir şey yoqmı?",
 	"cx-translationlist-empty-desc": "Şimdi tercime etmege {{GENDER:|başlañız}} ve istegen vaqtıñızda devam etiñiz.",
 	"cx-draft-restored": "Saqlanğan tercime yüklendi.",
