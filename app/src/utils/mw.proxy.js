@@ -85,6 +85,8 @@ const mw = {
           return "https://api.wikimedia.org/service/lw/recommendation/api/v1/translation";
         case "wgNamespaceIds":
           return namespaceIds;
+        case "wgContentTranslationUnmodifiedMTThresholdForPublish":
+          return 95;
         default:
           return null;
       }

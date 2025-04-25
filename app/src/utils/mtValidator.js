@@ -1,13 +1,11 @@
 import { calculateUnmodifiedContent } from "./mtHelper";
 
-/**
- * Default general MT threshold
- * Should be open to overwrite by the specific thresholds configured for
- * each wiki. In current case publishing is not permitted for translations
- * with MT used for over 95% of the translation
- */
-const publishingThreshold = 95;
-const warningThreshold = 85;
+/** Default general MT threshold */
+const publishingThreshold = mw.config.get(
+  "wgContentTranslationUnmodifiedMTThresholdForPublish",
+  95
+);
+const warningThreshold = publishingThreshold - 10;
 
 const thresholds = [
   { status: "failure", value: 100 - publishingThreshold },

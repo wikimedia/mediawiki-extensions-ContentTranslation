@@ -366,12 +366,14 @@ class SpecialContentTranslation extends SpecialPage {
 		$config = $this->getConfig();
 		$out = $this->getOutput();
 
+		$out->addJsConfigVars( [
+			'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
+				$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' )
+		] );
+
 		if ( $this->onDesktopTranslationView() ) {
 			$version = 2;
-
 			$out->addJsConfigVars( [
-				'wgContentTranslationUnmodifiedMTThresholdForPublish' =>
-					$config->get( 'ContentTranslationUnmodifiedMTThresholdForPublish' ),
 				'wgContentTranslationCampaigns' => $config->get( 'ContentTranslationCampaigns' ),
 				'wgContentTranslationPublishRequirements' => $config->get( 'ContentTranslationPublishRequirements' ),
 				'wgContentTranslationVersion' => $version,
@@ -384,7 +386,7 @@ class SpecialContentTranslation extends SpecialPage {
 				'wgRecommendToolAPIURL' => $config->get( 'RecommendToolAPIURL' ),
 				'wgContentTranslationExcludedNamespaces' => $config->get( 'ContentTranslationExcludedNamespaces' ),
 				'wgContentTranslationEnableUnifiedDashboard' =>
-					$config->get( 'ContentTranslationEnableUnifiedDashboard' ),
+					$config->get( 'ContentTranslationEnableUnifiedDashboard' )
 			] );
 		}
 	}
