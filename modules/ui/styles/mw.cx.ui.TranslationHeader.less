@@ -1,4 +1,5 @@
 @import 'mediawiki.skin.variables.less';
+@import 'mediawiki.mixins';
 @import 'mw.cx.variables.less';
 @import 'mw.cx.mixins.less';
 
@@ -10,8 +11,16 @@
 	border-radius: @border-radius-base @border-radius-base 0 0;
 	z-index: 2;
 
-	&.cx-has-error .cx-header-draft-status {
-		color: @color-error;
+	&.cx-has-error {
+		.cx-header-draft-status {
+			color: @color-error;
+		}
+
+		.cx-header-draft-status::before {
+			content: '';
+			.cdx-mixin-css-icon( @cdx-icon-error, @color-error );
+			padding-inline-end: @spacing-50;
+		}
 	}
 
 	// Adding additional class only to beat OOUI specificity
