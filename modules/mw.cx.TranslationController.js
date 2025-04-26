@@ -227,7 +227,7 @@ mw.cx.TranslationController.prototype.saveFailureHandler = function ( error ) {
 		mw.log.error( '[CX] Saving failed repeatedly. Stopping retries.' );
 	} else {
 		// Delay in seconds, failCounter is [1,5]
-		const delay = 60 * this.failCounter;
+		const delay = 30 * this.failCounter;
 		// Schedule retry.
 		this.retryTimer = setTimeout( this.processSaveQueue.bind( this, true ), delay * 1000 );
 		mw.log( '[CX] Retry scheduled in ' + delay / 60 + ' minutes.' );
