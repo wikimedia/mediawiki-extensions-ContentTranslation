@@ -84,7 +84,6 @@ class SiteMapper {
 		}
 		$parsedUrl = parse_url( $cxserverURL );
 		if ( !isset( $parsedUrl['scheme'] ) ) {
-			// $wgContentTranslationSiteTemplates['cx'] is protocol relative path
 			$cxserverURL = 'https:' . $cxserverURL;
 		}
 
@@ -135,8 +134,11 @@ class SiteMapper {
 		global $wgContentTranslationSiteTemplates;
 
 		$domain = self::getDomainCode( $language );
-		// $wgContentTranslationSiteTemplates['api'] is protocol relative path
-		$url = 'https:' . str_replace( '$1', $domain, $wgContentTranslationSiteTemplates['api'] );
+		$url = str_replace( '$1', $domain, $wgContentTranslationSiteTemplates['api'] );
+		$parsedUrl = parse_url( $url );
+		if ( !isset( $parsedUrl['scheme'] ) ) {
+			$url = 'https:' . $url;
+		}
 		return wfAppendQuery( $url, $params );
 	}
 

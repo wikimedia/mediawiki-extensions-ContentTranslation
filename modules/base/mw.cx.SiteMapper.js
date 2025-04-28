@@ -112,14 +112,16 @@ mw.cx.SiteMapper.prototype.getPageUrl = function ( language, title, params, hash
 	// use location object as base URL, in order to handle protocol relative paths
 	// when base includes an absolute path, the location object won't be taken into account
 	const url = new URL( base, location );
+
+	const urlSearchParams = new URLSearchParams( url.search );
 	for ( const key in params ) {
-		url.searchParams.append( key, params[ key ] );
+		urlSearchParams.append( key, params[ key ] );
 	}
 
 	if ( hash ) {
 		url.hash = hash;
 	}
-
+	url.search = urlSearchParams.toString();
 	return url.toString();
 };
 
@@ -174,8 +176,8 @@ mw.cx.SiteMapper.prototype.getLanguagePairs = function () {
 			.catch( ( response ) => {
 				mw.log(
 					'Error getting language pairs from ' + languagePairsAPIUrl + ' . ' +
-								response.statusText + ' (' + response.status + '). ' +
-								response.responseText
+					response.statusText + ' (' + response.status + '). ' +
+					response.responseText
 				);
 				this.languagePairsPromise = null;
 				return Promise.reject();
@@ -217,10 +219,13 @@ mw.cx.SiteMapper.prototype.getCXUrl = function (
 
 	const cxPage = 'Special:ContentTranslation';
 	if ( this.translateInTarget ) {
-		const uri = new mw.Uri( this.getPageUrl( targetLanguage, cxPage ) );
-		// Use mw.Uri().query for current URL also to retain any non-CX params
-		// in URL. A good example is debug=true param.
-		uri.query = Object.assign( {}, mw.Uri().query, uri.query, queryParams );
+		const uri = new URL( this.getPageUrl( targetLanguage, cxPage ), location );
+		const urlSearchParams = new URLSearchParams( uri.search );
+		for ( const key in queryParams ) {
+			urlSearchParams.set( key, queryParams[ key ] );
+		}
+		// Construct the new URL with the updated search params
+		uri.search = urlSearchParams.toString();
 
 		return uri.toString();
 	}
@@ -255,8 +260,14 @@ mw.cx.SiteMapper.prototype.getMintUrl = function (
 
 	const mintPage = 'Special:AutomaticTranslation';
 	if ( this.getCurrentWikiLanguageCode() !== targetLanguage ) {
-		const uri = new mw.Uri( this.getPageUrl( targetLanguage, mintPage ) );
-		uri.query = queryParams;
+		const uri = new URL( this.getPageUrl( targetLanguage, mintPage ), location );
+		const urlSearchParams = new URLSearchParams( uri.search );
+
+		for ( const key in queryParams ) {
+			urlSearchParams.set( key, queryParams[ key ] );
+		}
+		// Construct the new URL with the updated search params
+		uri.search = urlSearchParams.toString();
 
 		return uri.toString();
 	}
