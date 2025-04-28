@@ -228,12 +228,12 @@ mw.cx.CXTranslationList.prototype.continueTranslation = function ( translation )
 		translation.targetLanguage,
 		translation.sourceTitle
 	);
-	location.href = new mw.Uri( mw.cx.siteMapper.getCXUrl(
+	location.href = new URL( mw.cx.siteMapper.getCXUrl(
 		translation.sourceTitle,
 		translation.targetTitle,
 		translation.sourceLanguage,
 		translation.targetLanguage,
-		{ campaign: new mw.Uri().query.campaign }
+		{ campaign: new URL( location.href ).searchParams.get( 'campaign' ) }
 	) ).toString();
 };
 

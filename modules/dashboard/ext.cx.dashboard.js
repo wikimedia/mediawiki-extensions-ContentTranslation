@@ -107,14 +107,14 @@
 			ulsmissinglanguages: 'content_language_selector',
 			ulsaddlanguages: 'language_selector_options'
 		};
-		const query = new mw.Uri().query;
+		const campaign = new URL( location.href ).searchParams.get( 'campaign' );
 
-		if ( query.campaign && !!validCampaigns[ query.campaign ] ) {
+		if ( campaign && !!validCampaigns[ campaign ] ) {
 			mw.cx.logEvent( {
 				// eslint-disable-next-line camelcase
 				event_type: 'dashboard_open',
 				// eslint-disable-next-line camelcase
-				event_source: validCampaigns[ query.campaign ],
+				event_source: validCampaigns[ campaign ],
 				// eslint-disable-next-line camelcase
 				content_translation_session_position: 0,
 				// eslint-disable-next-line camelcase
@@ -135,9 +135,9 @@
 	 * @return {Object} languages Valid and different source and target languages
 	 */
 	CXDashboard.prototype.findValidDefaultLanguagePair = function () {
-		const query = new mw.Uri().query;
-		let sourceLanguage = query.from || mw.storage.get( 'cxSourceLanguage' );
-		let targetLanguage = query.to || mw.storage.get( 'cxTargetLanguage' );
+		const query = new URL( location.href ).searchParams;
+		let sourceLanguage = query.get( 'from' ) || mw.storage.get( 'cxSourceLanguage' );
+		let targetLanguage = query.get( 'to' ) || mw.storage.get( 'cxTargetLanguage' );
 
 		const targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 		// If query.to and local storage have no target language code,
@@ -438,7 +438,7 @@
 	};
 
 	CXDashboard.prototype.initSourceSelector = function () {
-		const query = new mw.Uri().query;
+		const query = Object.fromEntries( new URL( location.href ).searchParams );
 
 		// eslint-disable-next-line no-new
 		new mw.cx.SourcePageSelector( this.newTranslationButton, {

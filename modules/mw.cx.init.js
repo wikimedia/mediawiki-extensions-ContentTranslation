@@ -32,7 +32,7 @@
 	function initCX() {
 		let services = {};
 
-		const query = new mw.Uri().query;
+		const query = Object.fromEntries( new URL( location.href ).searchParams );
 		if (
 			!query.page || !query.from || !query.to ||
 			( mw.Title.newFromText( query.page ) === null )

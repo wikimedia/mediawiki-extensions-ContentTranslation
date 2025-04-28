@@ -23,7 +23,7 @@
 mw.cx.SelectedSourcePage = function ( siteMapper, config ) {
 	this.siteMapper = siteMapper;
 	this.config = Object.assign( {
-		campaign: new mw.Uri().query.campaign
+		campaign: new URL( location.href ).searchParams.get( 'campaign' )
 	}, config );
 
 	this.onDiscard = this.config.onDiscard;

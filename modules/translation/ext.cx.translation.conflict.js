@@ -34,9 +34,8 @@
 		} ).closed.then( ( data ) => {
 			if ( !data || data.action === 'cancel' ) {
 				// Go to dashboard
-				const uri = new mw.Uri();
-
-				delete uri.query.page;
+				const uri = new URL( location.href );
+				uri.searchParams.delete( 'page' );
 				location.href = uri.toString();
 			}
 		} );

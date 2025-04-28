@@ -612,9 +612,9 @@ mw.cx.TargetArticle.prototype.getTargetCategories = function ( hasTooMuchUnmodif
  * @return {string}
  */
 mw.cx.TargetArticle.prototype.getTags = function ( hasTooMuchUnmodifiedText ) {
-	const query = new mw.Uri().query,
-		campaignConfig = mw.config.get( 'wgContentTranslationCampaigns' );
-	let tagString = OO.getProp( campaignConfig, query.campaign, 'edittag' ) || '';
+	const campaign = new URL( location.href ).searchParams.get( 'campaign' );
+	const campaignConfig = mw.config.get( 'wgContentTranslationCampaigns' );
+	let tagString = OO.getProp( campaignConfig, campaign, 'edittag' ) || '';
 
 	if ( hasTooMuchUnmodifiedText ) {
 		if ( tagString ) {

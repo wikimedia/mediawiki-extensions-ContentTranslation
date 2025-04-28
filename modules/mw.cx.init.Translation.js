@@ -218,9 +218,8 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 			const updatedTranslationModel = new mw.cx.dm.Translation( this.sourceWikiPage, this.targetWikiPage, updatedSourceDom, updatedTargetDom );
 			updatedTranslationModel.setChangedSignificantly( true );
 
-			let uri = new mw.Uri();
-			// Append revision number to URL
-			uri = uri.extend( { revision: draft.sourceRevisionId } );
+			const uri = new URL( location.href ); // Append revision number to URL
+			uri.searchParams.set( 'revision', draft.sourceRevisionId );
 			window.history.pushState( null, document.title, uri.toString() );
 
 			return updatedTranslationModel;
@@ -499,12 +498,11 @@ mw.cx.init.Translation.prototype.restartTranslation = function () {
 		};
 
 		return new mw.Api().postWithToken( 'csrf', apiParams ).done( () => {
-			const uri = new mw.Uri();
-			delete uri.query.revision;
-
+			const uri = new URL( location.href );
+			uri.searchParams.delete( 'revision' );
 			this.config.siteMapper.setCXToken( sourceLanguage, targetLanguage, sourceTitle );
 
-			location.href = uri.getRelativePath();
+			location.href = uri.toString();
 		} );
 	} );
 };

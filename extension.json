@@ -567,7 +567,6 @@
 				"mediawiki.storage",
 				"mediawiki.user",
 				"mediawiki.widgets",
-				"mediawiki.Uri",
 				"moment",
 				"mw.cx.SiteMapper",
 				"mw.cx.ui",
@@ -1002,7 +1001,6 @@
 				"mediawiki.cookie",
 				"mediawiki.ForeignApi",
 				"mediawiki.Title",
-				"mediawiki.Uri",
 				"mediawiki.user"
 			]
 		},

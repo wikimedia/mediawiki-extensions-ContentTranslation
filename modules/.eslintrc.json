@@ -16,6 +16,7 @@
 		"enter": true
 	},
 	"rules": {
+		"es-x/no-object-fromentries": "off",
 		"max-len": "off",
 		"no-jquery/no-global-selector": "off",
 		"no-shadow": "warn",
