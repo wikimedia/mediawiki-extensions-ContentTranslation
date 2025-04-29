@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Hooks for ContentTranslation extension.
  *
  * @copyright See AUTHORS.txt
  * @license GPL-2.0-or-later
  */
+
 namespace ContentTranslation;
 
 // phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
@@ -54,7 +56,6 @@ class Hooks implements
 	EditPage__showEditForm_initialHook,
 	ContributeCardsHook
 {
-
 	/**
 	 * @param OutputPage $out
 	 * @param Skin $skin
@@ -239,14 +240,9 @@ class Hooks implements
 			$out->addModules( 'ext.cx.interlanguagelink.init' );
 		}
 
-		// Add a hover menu for the contributions link in personal toolbar
-		if ( !self::isMobileView() ) {
+		// Add translations entry for the personal menu
+		if ( !self::isMobileView() && in_array( $skin->getSkinName(), [ 'vector-2022' ] ) ) {
 			$out->addModules( 'ext.cx.entrypoints.contributionsmenu' );
-		}
-
-		if ( $preferenceHelper->getGlobalPreference( $user, 'cx-entrypoint-fd-status' ) === 'pending' ) {
-			// A translation was initialized based on a campaign. Show the feature discovery
-			$out->addJsConfigVars( 'wgContentTranslationEntryPointFD', true );
 		}
 	}
 
@@ -436,7 +432,8 @@ class Hooks implements
 
 			$out->addModules( $modules );
 			$invitationShown = $preferenceHelper->getGlobalPreference(
-				$user, 'cx_campaign_newarticle_shown'
+				$user,
+				'cx_campaign_newarticle_shown'
 			);
 			/** @var TranslatorService $translatorService */
 			$translatorService = MediaWikiServices::getInstance()->get( 'ContentTranslation.TranslatorService' );
@@ -511,7 +508,9 @@ class Hooks implements
 	 * @param array &$icons array of icon details
 	 */
 	public static function onBeforeCreateEchoEvent(
-		&$notifications, &$notificationCategories, &$icons
+		&$notifications,
+		&$notificationCategories,
+		&$icons
 	) {
 		$notificationCategories['cx'] = [
 			'priority' => 3,

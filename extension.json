@@ -1367,21 +1367,14 @@
 				"entrypoints/styles/ext.cx.entrypoints.contributionsmenu.less"
 			],
 			"dependencies": [
-				"ext.cx.widgets.callout",
 				"mediawiki.jqueryMsg",
 				"mediawiki.util"
 			],
 			"messages": [
-				"cx-campaign-contributionsmenu-mycontributions",
 				"cx-campaign-contributionsmenu-mytranslations",
 				"cx-campaign-contributionsmenu-mytranslations-tooltip",
 				"cx-campaign-contributionsmenu-myuploads",
-				"cx-campaign-contributionsmenu-myuploads-tooltip",
-				"cx-feature-discovery-title",
-				"cx-feature-discovery-content",
-				"cx-feature-discovery-dismiss",
-				"mycontris",
-				"quotation-marks"
+				"cx-campaign-contributionsmenu-myuploads-tooltip"
 			]
 		},
 		"ext.cx.widgets.spinner": {
