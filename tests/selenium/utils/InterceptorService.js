@@ -148,14 +148,6 @@ class InterceptorService {
 			{ url, urlParams, method }
 		);
 	}
-
-	async findAndWaitForRecommendationApiRequests( domain ) {
-		const baseUrl = process.env.CX_RESTBASE_URL_TEMPLATE.replace( '{domain}', domain );
-		const partialUrl = baseUrl + '/data/recommendation/';
-
-		const filterMethod = ( request ) => request.url.startsWith( partialUrl );
-		return this.findAndWaitMultipleRequests( filterMethod, { url: partialUrl } );
-	}
 }
 
 module.exports = new InterceptorService();

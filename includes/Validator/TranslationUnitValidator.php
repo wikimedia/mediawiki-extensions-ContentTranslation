@@ -76,7 +76,7 @@ class TranslationUnitValidator {
 	 */
 	protected function validateContent( string $sectionHTML, Title $title, User $user ): array {
 		$results = [];
-		// We need to catch any exceptions here - For example, if restbase is down
+		// We need to catch any exceptions here - For example, if Parsoid is down
 		// it should not affect the saving of translations.
 		try {
 			// The section content is HTML. AbuseFilter need wikitext.

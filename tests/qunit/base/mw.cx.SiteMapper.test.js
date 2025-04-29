@@ -13,8 +13,7 @@
 					action: '//$1.wikipedia.org/w/index.php?title=$2',
 					view: 'https://$1.wikipedia.org/wiki/$2',
 					api: 'https://$1.wikipedia.org/w/api.php',
-					cx: 'http://localhost:8080/page/$1/$2',
-					restbase: '//$1.wikipedia.org/api/rest_v1'
+					cx: 'http://localhost:8080/page/$1/$2'
 				},
 				DomainCodeMapping: {
 					nb: 'no'
@@ -66,14 +65,5 @@
 	QUnit.test( 'getApi', function ( assert ) {
 		const api = this.siteMapper.getApi( 'he' );
 		assert.strictEqual( api.apiUrl, 'https://he.wikipedia.org/w/api.php' );
-	} );
-
-	QUnit.test( 'getRestbaseUrl', function ( assert ) {
-		const url = this.siteMapper.getRestbaseUrl(
-			'he',
-			'/transform/wikitext/to/html/$title',
-			{ $title: 'User:KartikMistry/Who?_(movie)_ä&ö' }
-		);
-		assert.strictEqual( url, '//he.wikipedia.org/api/rest_v1/transform/wikitext/to/html/User%3AKartikMistry%2FWho%3F_(movie)_%C3%A4%26%C3%B6' );
 	} );
 }() );

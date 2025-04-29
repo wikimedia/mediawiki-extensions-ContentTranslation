@@ -284,7 +284,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 
 	/**
 	 * Given the HTML of the published translation and the target page title (as a Title instance),
-	 * this method uses the RestbaseClient service to convert the HTML to wikitext and calls
+	 * this method uses the ParsoidClient service to convert the HTML to wikitext and calls
 	 * the "submitEditAction" method to save the wikitext to MediaWiki's storage layer via its API.
 	 *
 	 * @param string $html

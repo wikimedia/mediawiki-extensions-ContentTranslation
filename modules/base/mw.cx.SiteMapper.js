@@ -147,18 +147,6 @@ mw.cx.SiteMapper = class {
 		return cxserverURL + module;
 	}
 
-	getRestbaseUrl( language, module, params ) {
-		const domain = this.getWikiDomainCode( language );
-		const url = this.siteTemplates.restbase.replace( '$1', domain );
-
-		if ( params ) {
-			for ( const paramKey in params ) {
-				module = module.replace( paramKey, encodeURIComponent( params[ paramKey ] ) );
-			}
-		}
-		return url + module;
-	}
-
 	/**
 	 * Get all the source and target languages.
 	 *
