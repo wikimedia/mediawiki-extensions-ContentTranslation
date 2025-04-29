@@ -156,9 +156,7 @@ const useSuggestionsFilters = () => {
       .find(isFilterSelected);
   };
 
-  const isFilterSelected = (filter) =>
-    currentFilter.value.type === filter.type &&
-    currentFilter.value.id === filter.id;
+  const isFilterSelected = (filter) => currentFilter.value.id === filter.id;
 
   const getArticleTopics = (topicId) => {
     const allTopics = topicGroups.flatMap((group) => group.topics);

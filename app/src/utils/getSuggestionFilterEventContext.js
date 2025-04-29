@@ -1,5 +1,6 @@
 import {
   TOPIC_SUGGESTION_PROVIDER,
+  REGIONS_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
@@ -7,6 +8,7 @@ import {
 export const getSuggestionFilterEventContext = (filter) => {
   if (
     filter.type === TOPIC_SUGGESTION_PROVIDER ||
+    filter.type === REGIONS_SUGGESTION_PROVIDER ||
     filter.type === COLLECTIONS_SUGGESTION_PROVIDER ||
     filter.type === SEED_SUGGESTION_PROVIDER
   ) {

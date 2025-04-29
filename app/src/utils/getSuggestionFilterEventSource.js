@@ -2,6 +2,7 @@ import {
   EDITS_SUGGESTION_PROVIDER,
   POPULAR_SUGGESTION_PROVIDER,
   TOPIC_SUGGESTION_PROVIDER,
+  REGIONS_SUGGESTION_PROVIDER,
   COLLECTIONS_SUGGESTION_PROVIDER,
   SEED_SUGGESTION_PROVIDER,
 } from "@/utils/suggestionFilterProviders";
@@ -14,7 +15,10 @@ const SUGGESTION_FILTER_PREVIOUS_EDITS = "suggestion_filter_previous_edits";
 const SUGGESTION_FILTER_POPULAR_ARTICLES = "suggestion_filter_popular_articles";
 
 export const getSuggestionFilterEventSource = (filter) => {
-  if (filter.type === TOPIC_SUGGESTION_PROVIDER) {
+  if (
+    filter.type === TOPIC_SUGGESTION_PROVIDER ||
+    filter.type === REGIONS_SUGGESTION_PROVIDER
+  ) {
     return SUGGESTION_FILTER_TOPIC_AREA;
   }
 
