@@ -533,8 +533,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Outomàtico",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Coleçioìn",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Çèrca 'n argoménto",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Argoménti",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Àree",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Àrea d'argoménto",
 	"cx-page-collection-dialog-close-button-aria-label": "Tórna a-a dashboard",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 pàgina exìstan in $3",

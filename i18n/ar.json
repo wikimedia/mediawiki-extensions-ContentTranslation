@@ -562,8 +562,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "تلقائي",
 	"cx-sx-suggestions-filter-page-collections-group-label": "المجموعات",
 	"cx-sx-suggestions-filter-search-input-placeholder": "ابحث عن موضوع",
-	"cx-sx-suggestions-filter-search-results-topics-label": "المواضيع",
-	"cx-sx-suggestions-filter-search-results-areas-label": "المناطق",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "مجال الموضوع",
 	"cx-page-collection-dialog-close-button-aria-label": "العودة إلى لوحة القيادة",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 مقالات موجودة في $3",

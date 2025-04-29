@@ -552,8 +552,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatycznie",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kolekcje",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Wyszukaj temat",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Tematy",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Obszary",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Obszar tematyczny",
 	"cx-page-collection-dialog-close-button-aria-label": "Wróć do kokpitu",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 {{PLURAL:$2|artykuł|artykuły|artykułów}} {{PLURAL:$1|istnieje|istnieją|istnieje}} w: $3.",

@@ -532,8 +532,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "خپلکاره",
 	"cx-sx-suggestions-filter-page-collections-group-label": "ټولگې",
 	"cx-sx-suggestions-filter-search-input-placeholder": "د يوې سکالو لټون",
-	"cx-sx-suggestions-filter-search-results-topics-label": "سکالوگانې",
-	"cx-sx-suggestions-filter-search-results-areas-label": "سيمې",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "سکالو سيمه",
 	"cx-page-collection-dialog-close-button-aria-label": "بېرته ډشبورډ ته ورتگ",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 ليکنې په $3 کې شته",

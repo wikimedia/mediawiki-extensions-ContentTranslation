@@ -578,8 +578,6 @@
 	"cx-sx-suggestions-filter-more-label": "更多",
 	"cx-sx-suggestions-filter-default-group-label": "自动",
 	"cx-sx-suggestions-filter-search-input-placeholder": "搜索主题",
-	"cx-sx-suggestions-filter-search-results-topics-label": "主题",
-	"cx-sx-suggestions-filter-search-results-areas-label": "区域",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "主题领域",
 	"cx-page-collection-dialog-close-button-aria-label": "返回面板",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|还剩$1天|0=没有剩余天数}}",

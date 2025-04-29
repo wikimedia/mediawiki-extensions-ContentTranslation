@@ -535,8 +535,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Emgefre",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Dastumadoù",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Klask un danvez",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Danvezioù",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Tachenn",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Tachenn danvez",
 	"cx-page-collection-dialog-close-button-aria-label": "Distreiñ d'an daolenn-stur",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 pennad zo e $3",

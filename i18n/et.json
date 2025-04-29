@@ -507,8 +507,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automaatne",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kogud",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Otsi teemasid",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Teemad",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Piirkonnad",
 	"cx-sx-suggestion-list-empty-title": "Soovitused puuduvad praegu",
 	"cx-sx-suggestion-list-empty-description": "Sellele filtrile vastavaid tulemusi ei leidu. Võid proovida teistsugust filtrit või otsida kindlat artiklit, mida tõlkida."
 }

@@ -488,8 +488,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatik",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Koleksyen",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Giga topik",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Topik",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Bidang",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Bidang topik",
 	"cx-page-collection-dialog-close-button-aria-label": "Pulai ngagai Papan Mua",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artikel bisi dalam $3",

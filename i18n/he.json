@@ -546,8 +546,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "אוטומטי",
 	"cx-sx-suggestions-filter-page-collections-group-label": "אוספים",
 	"cx-sx-suggestions-filter-search-input-placeholder": "חיפוש נושא",
-	"cx-sx-suggestions-filter-search-results-topics-label": "נושאים",
-	"cx-sx-suggestions-filter-search-results-areas-label": "תחומים",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "תחום נושא",
 	"cx-page-collection-dialog-close-button-aria-label": "חזרה ללוח הבקרה",
 	"cx-page-collection-dialog-existing-target-count": "$1 מתוך $2 ערכים קיימים ב{{GRAMMAR:תחילית|$3}}",

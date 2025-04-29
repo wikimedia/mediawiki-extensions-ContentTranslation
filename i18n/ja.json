@@ -572,8 +572,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "自動",
 	"cx-sx-suggestions-filter-page-collections-group-label": "コレクション",
 	"cx-sx-suggestions-filter-search-input-placeholder": "トピックを検索",
-	"cx-sx-suggestions-filter-search-results-topics-label": "トピック",
-	"cx-sx-suggestions-filter-search-results-areas-label": "エリア",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "トピックエリア",
 	"cx-page-collection-dialog-close-button-aria-label": "ダッシュボードに戻る",
 	"cx-page-collection-dialog-existing-target-count": "$3 には $1/$2 記事が存在します",

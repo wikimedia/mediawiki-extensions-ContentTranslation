@@ -556,8 +556,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automático",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Coleções",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Pesquisar um tópico",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Tópicos",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Áreas",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Área do tópico",
 	"cx-page-collection-dialog-close-button-aria-label": "Voltar ao painel",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artigos existem em $3",

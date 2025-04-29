@@ -546,8 +546,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automaattinen",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kokoelmat",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Hae aihetta",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Aiheet",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Alueet",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Aihealue",
 	"cx-page-collection-dialog-close-button-aria-label": "Siirry takaisin hallintapaneeliin",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 artikkelia olemassa kielellä $3",

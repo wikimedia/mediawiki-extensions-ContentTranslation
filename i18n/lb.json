@@ -395,8 +395,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatesch",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Sammlungen",
 	"cx-sx-suggestions-filter-search-input-placeholder": "No engem Theema sichen",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Theemen",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Beräicher",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 Dag|$1 Deeg|0=Keen Dag}} iwwreg",
 	"cx-page-collection-dialog-page-suggestions-header": "Nei Säiten",
 	"cx-page-collection-dialog-section-suggestions-header": "Nei Abschnitter",

@@ -544,8 +544,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatisk",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Samlinger",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Søk etter et emne",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Emner",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Områder",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Tematiske områder",
 	"cx-page-collection-dialog-close-button-aria-label": "Tilbake til kontrollpanelet",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 {{PLURAL:$2|artikkel|artikler}} finnes på $3",

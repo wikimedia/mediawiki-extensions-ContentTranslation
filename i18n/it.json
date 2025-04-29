@@ -387,8 +387,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatico",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Collezioni",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Cerca un argomento",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Argomenti",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Aree",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Area tematica",
 	"cx-page-collection-dialog-close-button-aria-label": "Torna al cruscotto",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 voci esistono in $3",

@@ -532,8 +532,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Автоматски",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Збирки",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Пребарајте тема",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Теми",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Области",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Тематска област",
 	"cx-page-collection-dialog-close-button-aria-label": "Назад на управувачницата",
 	"cx-page-collection-dialog-existing-target-count": "Постојат $1/$2 статии на $3",

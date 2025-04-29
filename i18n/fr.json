@@ -590,8 +590,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatique",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Collections",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Recherche d’un sujet",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Sujets",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Domaines",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Domaine du sujet",
 	"cx-page-collection-dialog-close-button-aria-label": "Retourner au tableau de bord",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 article{{PLURAL:$1| est|s sont}} en $3",

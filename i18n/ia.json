@@ -533,8 +533,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatic",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Collectiones",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Cercar un topico",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Topicos",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Areas",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Areas topical",
 	"cx-page-collection-dialog-close-button-aria-label": "Retornar al tabuliero de instrumentos",
 	"cx-page-collection-dialog-existing-target-count": "$1/$2 articulos existe in $3",

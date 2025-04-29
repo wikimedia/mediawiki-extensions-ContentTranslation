@@ -561,8 +561,6 @@
 	"cx-sx-suggestions-filter-default-group-label": "Automatisch",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Verzamelingen",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Zoeken naar een onderwerp",
-	"cx-sx-suggestions-filter-search-results-topics-label": "Onderwerpen",
-	"cx-sx-suggestions-filter-search-results-areas-label": "Thema’s",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Thema",
 	"cx-page-collection-dialog-close-button-aria-label": "Terug naar het dashboard",
 	"cx-page-collection-dialog-existing-target-count": "$1 van de $2 artikelen zijn in het $3",
