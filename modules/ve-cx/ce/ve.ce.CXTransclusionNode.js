@@ -68,6 +68,31 @@ ve.ce.CXTransclusionBlockNode.static.name = 'cxTransclusionBlock';
 
 ve.ce.CXTransclusionBlockNode.static.tagName = 'div';
 
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionBlockNode.static.getDescriptionDom = function ( model ) {
+	// Only the source surface will reach here, the target surface won't
+	// Call the parent implementation to get the formatted description of the template
+	const span = ve.ce.CXTransclusionBlockNode.super.static.getDescriptionDom.apply( this, arguments );
+
+	// Update the href when it is on the source surface
+	const surfaceLanguage = model.getDocument().getLang();
+	const links = span.querySelectorAll( 'a' );
+	links.forEach( ( link ) => {
+		const title = link.getAttribute( 'href' ).split( '/wiki/' ).pop();
+
+		if ( title ) {
+			const url = ve.init.target.config.siteMapper.getPageUrl( surfaceLanguage, title );
+			link.setAttribute( 'href', url );
+		}
+	} );
+
+	return span;
+};
+
 /* Methods */
 
 /**
@@ -141,6 +166,13 @@ OO.inheritClass( ve.ce.CXTransclusionInlineNode, ve.ce.CXTransclusionNode );
 ve.ce.CXTransclusionInlineNode.static.name = 'cxTransclusionInline';
 
 ve.ce.CXTransclusionInlineNode.static.tagName = 'span';
+
+/* Static Methods */
+
+/**
+ * @inheritdoc
+ */
+ve.ce.CXTransclusionInlineNode.static.getDescriptionDom = ve.ce.CXTransclusionBlockNode.static.getDescriptionDom;
 
 /* Methods */
 
