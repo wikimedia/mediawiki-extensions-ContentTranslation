@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			")8",
+			"22593",
 			"94rain",
 			"A Chinese Wikipedian",
 			"A Retired User",
@@ -183,7 +184,8 @@
 	"cx-save-draft-saving": "正在保存...",
 	"cx-save-draft-shortcut-label": "保存草稿",
 	"cx-save-draft-tooltip": "翻译草稿会自动保存",
-	"cx-save-draft-error": "保存页面时出错。",
+	"cx-save-draft-error": "保存草稿页面时出错。",
+	"cx-save-draft-error-retry": "无法保存。稍后重试……",
 	"cx-contributions-new-contributions": "新增贡献",
 	"cx-contributions-new-article": "创建页面",
 	"cx-contributions-translation": "翻译页面",
@@ -577,8 +579,8 @@
 	"cx-sx-suggestions-filter-most-popular-label": "热门",
 	"cx-sx-suggestions-filter-more-label": "更多",
 	"cx-sx-suggestions-filter-default-group-label": "自动",
-	"cx-sx-suggestions-filter-search-input-placeholder": "搜索主题",
-	"cx-sx-suggestions-filter-search-results-topics-default-description": "主题领域",
+	"cx-sx-suggestions-filter-search-input-placeholder": "搜索主题和集合",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "主题 ⋅ 浏览文章",
 	"cx-page-collection-dialog-close-button-aria-label": "返回面板",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|还剩$1天|0=没有剩余天数}}",
 	"cx-page-collection-dialog-page-suggestions-header": "新页面",

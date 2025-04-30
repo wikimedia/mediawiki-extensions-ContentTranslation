@@ -140,7 +140,7 @@
 	"cx-save-draft-saving": "Speichere …",
 	"cx-save-draft-shortcut-label": "Entwurf speichern",
 	"cx-save-draft-tooltip": "Übersetzungsentwürfe werden automatisch gespeichert",
-	"cx-save-draft-error": "Beim Speichern der Seite ist ein Fehler aufgetreten.",
+	"cx-save-draft-error": "Beim Speichern des Entwurfs ist ein Fehler aufgetreten.",
 	"cx-save-draft-error-retry": "Speichern nicht möglich. Wiederholung erfolgt in Kürze …",
 	"cx-contributions-new-contributions": "Neuer Beitrag",
 	"cx-contributions-new-article": "Neue Seite",
