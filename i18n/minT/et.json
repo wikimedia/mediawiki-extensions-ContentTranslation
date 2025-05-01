@@ -5,11 +5,13 @@
 		]
 	},
 	"automatic-translation-special-page-description": "Automaattõlge",
+	"automatic-translation-desc": "Võimaldab sisulehekülgede [[Special:AutomaticTranslation|automaattõlget]].",
 	"mint-home-header-title": "Automaattõlge",
 	"mint-home-input-placeholder": "Otsi teemat",
 	"mint-translation-list-all-languages-option-label": "Kõik",
 	"mint-home-info-panel-text": "Miljoneid teemasid Vikipeedias saab tõlkida automaatselt sellesse sihtkeelde ($1).",
 	"mint-home-random-topic-button-label": "Juhuslik teema",
+	"mint-home-experimental-note": "Automaattõlke tugi on katseline. [$1 Loe veel]",
 	"mint-language-selector-title": "Keeled",
 	"mint-language-selector-input-placeholder": "Vali keel",
 	"mint-language-selector-no-search-results": "Tulemused puuduvad",
@@ -36,5 +38,11 @@
 	"mint-view-translation-overlay-source-article-link-label": "Loe Vikipeedias ($1)",
 	"mint-view-translation-overlay-target-article-link-label": "Loe Vikipeedias ($1)",
 	"mint-view-translation-overlay-cx-entrypoint-label": "Paranda tõlget",
-	"mint-view-translation-overlay-feedback-link-label": "Saada tagasisidet"
+	"mint-view-translation-overlay-feedback-link-label": "Saada tagasisidet",
+	"ax-cx-introduction-dialog-title": "Vaata üle ja paranda tõlkeid",
+	"ax-cx-introduction-summary": "Täienda sisu, mis on sinu keeles saadaval. Kirjuta parem tõlge ja avalda see Vikipeedias.",
+	"ax-cx-introduction-information-accuracy": "Automaattõlge võimaldab kasulikku ülevaadet, aga see ei ole alati täpne.",
+	"ax-cx-introduction-information-expand": "Inimeste kirjutatud sisu on usaldusväärsem. Saad aidada seda täiendada!",
+	"ax-cx-introduction-information-correct": "Järgi sammsammulist protseduuri, et automaattõlgetes iga lause üle vaadata ja parandada.",
+	"ax-cx-introduction-dialog-action": "Paranda ja lisa artiklisse"
 }

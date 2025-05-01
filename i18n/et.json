@@ -129,7 +129,7 @@
 	"cx-save-draft-saving": "Salvestamine...",
 	"cx-save-draft-shortcut-label": "Salvesta mustand",
 	"cx-save-draft-tooltip": "Tõlkemustandid salvestatakse automaatselt",
-	"cx-save-draft-error": "Lehekülje salvestamisel esines tõrge.",
+	"cx-save-draft-error": "Mustandi salvestamisel esines tõrge.",
 	"cx-contributions-new-contributions": "Uus kaastöö",
 	"cx-contributions-new-article": "Uus lehekülg",
 	"cx-contributions-translation": "Tõlkimine",
@@ -506,7 +506,7 @@
 	"cx-sx-suggestions-filter-active-group-label": "Aktiivsed filtrid",
 	"cx-sx-suggestions-filter-default-group-label": "Automaatne",
 	"cx-sx-suggestions-filter-page-collections-group-label": "Kogud",
-	"cx-sx-suggestions-filter-search-input-placeholder": "Otsi teemasid",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Otsi teemasid ja kogusid",
 	"cx-sx-suggestion-list-empty-title": "Soovitused puuduvad praegu",
 	"cx-sx-suggestion-list-empty-description": "Sellele filtrile vastavaid tulemusi ei leidu. Võid proovida teistsugust filtrit või otsida kindlat artiklit, mida tõlkida."
 }

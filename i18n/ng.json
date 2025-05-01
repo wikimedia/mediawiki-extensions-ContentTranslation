@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"!!asa,njgh"
+		]
+	},
+	"cx-save-draft-error": "oPonya pethimbo hupitha odrafti.",
+	"cx-save-draft-error-retry": "Ita hupitha. Tunyadhala ishewe mokathimbo...",
+	"cx-sx-suggestions-filter-search-input-placeholder": "Konga ootopiku noongalo",
+	"cx-sx-suggestions-filter-search-results-topics-default-description": "oTopiku ⋅ Lengalenga iinima",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Ongalo ⋅ {{PLURAL:$1|$1 oshinima|$1 iinima|0=Ita iinima}}"
+}
