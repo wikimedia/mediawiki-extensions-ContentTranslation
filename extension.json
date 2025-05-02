@@ -1287,6 +1287,9 @@
 			"styles": [
 				"entrypoints/styles/ext.cx.entrypoints.mffrequentlanguages.less"
 			],
+			"dependencies": [
+				"mw.cx.SiteMapper"
+			],
 			"messages": [
 				"sx-missing-languages-entrypoint-panel-text-one-missing",
 				"sx-missing-languages-entrypoint-panel-text-two-missing",
