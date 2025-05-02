@@ -81,8 +81,6 @@ class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 			return;
 		}
 
-		$recentUserEdits = [];
-
 		// If current wiki family is not supported for this entrypoint, return
 		if ( !$this->significantEditStore->isCurrentWikiFamilySupported() ) {
 			return;
@@ -111,12 +109,17 @@ class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 			SiteMapper::getCurrentLanguageCode()
 		);
 
+		if ( !$edits ) {
+			return;
+		}
+
 		// We want to group the edited sections by language. For that reason, group the above
 		// RecentSignificantEdit instances to an associative array, that follow the below form:
 		// [
 		//    "en" => [ "language" => "en", "page" => "Moon", "sections" => ["Formation"] ],
 		//    "es" => [ "language" => "es", "page" => "Luna", "sections" => ["Formación"] ]
 		// ]
+		$recentUserEdits = [];
 		foreach ( $edits as $edit ) {
 			$editLanguage = $edit->getLanguage();
 			$recentUserEdits[$editLanguage]['language'] = $editLanguage;
