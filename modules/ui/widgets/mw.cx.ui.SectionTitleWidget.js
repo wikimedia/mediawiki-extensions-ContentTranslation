@@ -80,6 +80,11 @@ mw.cx.ui.SectionTitleWidget.prototype.validateTitle = function ( value ) {
 	}
 };
 
+mw.cx.ui.SectionTitleWidget.prototype.getErrors = function () {
+	const issues = this.model.getTranslationIssues();
+	return issues.filter( ( issue ) => issue.type === 'error' );
+};
+
 mw.cx.ui.SectionTitleWidget.prototype.getEmptyTitleError = function () {
 	return {
 		name: 'empty-title',

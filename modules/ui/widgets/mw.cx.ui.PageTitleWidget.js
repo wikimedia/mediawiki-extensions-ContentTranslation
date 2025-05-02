@@ -89,6 +89,11 @@ mw.cx.ui.PageTitleWidget.prototype.validateTitle = function ( value ) {
 	} );
 };
 
+mw.cx.ui.PageTitleWidget.prototype.getErrors = function () {
+	const issues = this.model.getTranslationIssues();
+	return issues.filter( ( issue ) => issue.type === 'error' );
+};
+
 mw.cx.ui.PageTitleWidget.prototype.getExistingTitleWarning = function () {
 	return {
 		name: 'existing-title',

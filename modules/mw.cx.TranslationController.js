@@ -29,6 +29,7 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	this.failCounter = 0;
 	this.isFailedUnrecoverably = false; // TODO: This is still unused
 	this.mtAbusePublishingStopped = false;
+	this.titlePublishError = null;
 	this.saveStatusTimer = null;
 	this.retryTimer = null;
 	this.loginDialog = null;
@@ -686,8 +687,8 @@ mw.cx.TranslationController.prototype.isSourceSavedForSection = function ( secti
  * Publish the translation
  */
 mw.cx.TranslationController.prototype.publish = function () {
-	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length,
-		mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
+	const numOfHighMTSections = this.translationTracker.sectionsWithMTAbuse().length;
+	const mtAbuseMsg = this.getMTAbuseMsg( numOfHighMTSections );
 
 	mw.log( '[CX] Publishing translation...' );
 
@@ -702,6 +703,16 @@ mw.cx.TranslationController.prototype.publish = function () {
 			this.showMTAbusePublishError( mtAbuseMsg.toString() );
 			this.onPublishCancel();
 			this.mtAbusePublishingStopped = true;
+			return;
+		}
+
+		const titleWidget = this.translationView.targetColumn.getTitleWidget();
+		const titleErrors = titleWidget.getErrors();
+		if ( titleErrors.length ) {
+			const firstError = titleErrors[ 0 ];
+			this.titlePublishError = firstError.name;
+			this.translationView.showViewIssuesMessage( firstError.title, firstError.name, 'error' );
+			this.onPublishCancel();
 			return;
 		}
 
@@ -852,6 +863,11 @@ mw.cx.TranslationController.prototype.onTargetTitleChange = function () {
 	// if nothing changed return without doing anything
 	if ( currentTitle === newTitle ) {
 		return;
+	}
+
+	if ( this.titlePublishError ) {
+		this.translationView.removeMessage( this.titlePublishError );
+		this.titlePublishError = null;
 	}
 
 	this.translation.setTargetTitle( newTitle );
