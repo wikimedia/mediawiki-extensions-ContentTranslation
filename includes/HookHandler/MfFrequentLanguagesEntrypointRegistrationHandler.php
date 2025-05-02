@@ -49,6 +49,11 @@ class MfFrequentLanguagesEntrypointRegistrationHandler implements BeforePageDisp
 			return SiteMapper::getDomainCode( $language );
 		}, $out->getLanguageLinks() );
 
+		// Add current domain code to the available ones.
+		$currentLangCode = SiteMapper::getCurrentLanguageCode();
+		$currentDomainCode = SiteMapper::getDomainCode( $currentLangCode );
+		$availableDomainCodes[] = $currentDomainCode;
+
 		$enabledDomainCodes = array_map(
 			static fn ( $language ) => SiteMapper::getDomainCode( $language ),
 			$out->getConfig()->get( 'SectionTranslationTargetLanguages' ) ?? []
