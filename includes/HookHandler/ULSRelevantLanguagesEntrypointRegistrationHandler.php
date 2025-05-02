@@ -6,9 +6,11 @@ namespace ContentTranslation\HookHandler;
 
 use ContentTranslation\PreferenceHelper;
 use MediaWiki\Extension\SiteMatrix\SiteMatrix;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Context;
+use MobileContext;
 
 class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDisplayHook {
 
@@ -21,6 +23,18 @@ class ULSRelevantLanguagesEntrypointRegistrationHandler implements BeforePageDis
 
 	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
+		$isMobileView = false;
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			/** @var MobileContext $mobileContext */
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			$isMobileView = $mobileContext->shouldDisplayMobileView();
+		}
+
+		// The entrypoint module should only be registered for desktop devices
+		if ( $isMobileView ) {
+			return;
+		}
+
 		$user = $out->getUser();
 		// Enable entrypoint only on Wikipedias where Content Translation is enabled and only for users
 		// that have not disabled CX entrypoints
