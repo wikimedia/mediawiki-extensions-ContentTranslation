@@ -1205,7 +1205,7 @@
 				"mw.cx.SiteMapper",
 				"mw.cx.util",
 				"jquery.uls.data",
-				"codex-search-styles",
+				"@wikimedia/codex",
 				"mediawiki.router"
 			]
 		},
