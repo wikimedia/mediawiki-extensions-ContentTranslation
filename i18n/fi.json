@@ -143,7 +143,7 @@
 	"cx-save-draft-saving": "Tallennetaan...",
 	"cx-save-draft-shortcut-label": "Tallenna luonnos",
 	"cx-save-draft-tooltip": "Käännösluonnokset tallennetaan automaattisesti",
-	"cx-save-draft-error": "Sivun tallennuksessa tapahtui virhe.",
+	"cx-save-draft-error": "Luonnoksen tallennuksessa tapahtui virhe.",
 	"cx-save-draft-error-retry": "Tallentaminen ei onnistunut. Yritetään uudelleen hetken kuluttua...",
 	"cx-contributions-new-contributions": "Uusi sisältö",
 	"cx-contributions-new-article": "Uusi sivu",
