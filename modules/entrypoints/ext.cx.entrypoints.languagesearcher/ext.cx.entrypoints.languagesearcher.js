@@ -144,7 +144,7 @@
 		}
 
 		return siteMapper.getCXUrl(
-			mw.config.get( 'wgPageName' ),
+			mw.config.get( 'wgTitle' ),
 			null,
 			mw.config.get( 'wgContentLanguage' ),
 			matches[ 0 ],
