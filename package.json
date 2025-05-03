@@ -25,7 +25,7 @@
 		"eslint-config-wikimedia": "0.28.2",
 		"grunt-banana-checker": "0.13.0",
 		"pre-commit": "^1.2.2",
-		"stylelint-config-wikimedia": "0.17.2",
+		"stylelint-config-wikimedia": "0.18.0",
 		"wdio-intercept-service": "^4.4.0",
 		"wdio-mediawiki": "2.6.0"
 	}
