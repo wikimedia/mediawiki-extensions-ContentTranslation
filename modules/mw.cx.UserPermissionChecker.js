@@ -29,7 +29,7 @@ mw.cx.UserPermissionChecker.prototype.isUserAllowedToPublishToMainNamespace = fu
 	}
 
 	const userGroups = mw.config.get( 'wgUserGroups' ) || [];
-	return publishConfig.some( ( userGroup ) => userGroups.indexOf( userGroup ) > -1 );
+	return publishConfig.some( ( userGroup ) => userGroups.includes( userGroup ) );
 };
 
 /**

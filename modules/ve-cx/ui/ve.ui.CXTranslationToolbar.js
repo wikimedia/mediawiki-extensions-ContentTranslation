@@ -156,7 +156,7 @@ ve.ui.CXTranslationToolbar.prototype.setup = function () {
  * @return {boolean} True if there is MT provider available.
  */
 ve.ui.CXTranslationToolbar.prototype.isMTAvailable = function () {
-	return this.getToolGroupByName( 'cx-mt' ).getItems().map( ( item ) => item.getName() ).some( ( name ) => [ 'ResetSection', 'source', 'scratch' ].indexOf( name ) < 0 );
+	return this.getToolGroupByName( 'cx-mt' ).getItems().map( ( item ) => item.getName() ).some( ( name ) => ![ 'ResetSection', 'source', 'scratch' ].includes( name ) );
 };
 
 /**

@@ -279,7 +279,7 @@ mw.cx.init.Translation.prototype.fetchSourcePageContent = function ( wikiPage, t
 
 	return fetch( fetchPageUrl ).then( ( response ) => {
 		if ( !response.ok ) {
-			return Promise.reject( response );
+			throw response;
 		}
 
 		return response.json();

@@ -190,7 +190,7 @@ mw.cx.ui.PageSelectorWidget.prototype.getOptionsFromData = function ( resultPage
 	let hasResults;
 	// If there is user input, we execute parent method, process possible no results case and return early
 	if ( query ) {
-		if ( query.indexOf( ':' ) >= 0 ) {
+		if ( query.includes( ':' ) ) {
 			// If query is from a non-default namespace, accept results from those namespaces.
 			// Remove namespace preference.
 			this.setNamespace( null );
@@ -414,7 +414,7 @@ mw.cx.ui.PageSelectorWidget.prototype.setExcludedNamespaces = function ( exclude
  * @return {boolean} True if validation passes. False otherwise.
  */
 mw.cx.ui.PageSelectorWidget.prototype.isValidNamespace = function ( query ) {
-	return query.indexOf( ':' ) < 0 || this.excludedNamespaces.every(
+	return !query.includes( ':' ) || this.excludedNamespaces.every(
 		( namespace ) => query.split( ':' )[ 0 ].replace( '_', ' ' ).toLocaleLowerCase() !== namespace.toLocaleLowerCase()
 	);
 };

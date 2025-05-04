@@ -389,7 +389,7 @@ mw.cx.dm.Translation.static.hasIncludedContent = function ( string1, string2 ) {
 
 	if ( bigString.length >= smallString.length * 2 ) {
 		return bigString.toLowerCase().replace( /[^\w\s]/g, '' )
-			.indexOf( smallString.toLowerCase().replace( /[^\w\s]/g, '' ) ) >= 0;
+			.includes( smallString.toLowerCase().replace( /[^\w\s]/g, '' ) );
 	}
 
 	return false;

@@ -292,7 +292,7 @@ mw.cx.SourcePageSelector.prototype.getExcludedSourceNamespaces = function ( sour
 			// Odd namespace ids are talk pages
 			const isTalkPage = ( namespaceId > 0 && namespaceId % 2 === 1 );
 			if ( isTalkPage ||
-				excludedNamespacesConfig.indexOf( namespaceObj.canonical ) >= 0
+				excludedNamespacesConfig.includes( namespaceObj.canonical )
 			) {
 				// Exclude both the canonical name and localized name.
 				excludedNamespaces.push( namespaceObj.canonical );

@@ -85,8 +85,8 @@
 			return [];
 		}
 		return resultLanguages.filter(
-			( code ) => mintLanguages.indexOf( code ) >= 0 &&
-				mw.config.get( 'mintEntrypointLanguages' ).indexOf( code ) >= 0 &&
+			( code ) => mintLanguages.includes( code ) &&
+				mw.config.get( 'mintEntrypointLanguages' ).includes( code ) &&
 				code !== mw.config.get( 'wgContentLanguage' )
 		);
 	};
@@ -114,7 +114,7 @@
 		const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
 		return resultLanguages.filter(
-			( code ) => enabledTargets.indexOf( code ) >= 0 && code !== mw.config.get( 'wgContentLanguage' )
+			( code ) => enabledTargets.includes( code ) && code !== mw.config.get( 'wgContentLanguage' )
 		);
 	};
 

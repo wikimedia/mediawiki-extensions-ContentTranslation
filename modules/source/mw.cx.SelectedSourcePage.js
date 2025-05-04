@@ -383,7 +383,7 @@ mw.cx.SelectedSourcePage.prototype.setData = function ( pageTitle, href, config 
 
 		const languagesPageExistsIn = Object.keys( this.sourcePageTitles );
 		const languageDecorator = function ( $language, languageCode ) {
-			if ( languagesPageExistsIn.indexOf( languageCode ) < 0 ) {
+			if ( !languagesPageExistsIn.includes( languageCode ) ) {
 				$language.css( 'font-weight', 'bold' );
 			}
 		};

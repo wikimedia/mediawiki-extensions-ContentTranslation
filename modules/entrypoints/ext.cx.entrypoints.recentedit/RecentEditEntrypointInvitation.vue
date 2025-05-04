@@ -119,7 +119,7 @@ module.exports = {
 
 			for ( let i = 0; i < sourceMissingSections.length; i++ ) {
 				const missingSection = sourceMissingSections[ i ];
-				if ( editedSections.indexOf( missingSection ) > -1 ) {
+				if ( editedSections.includes( missingSection ) ) {
 					return missingSection;
 				}
 			}

@@ -22,7 +22,7 @@
 		}
 
 		// Reject titles with pipe in the name, as it has special meaning in the api
-		if ( title.indexOf( '|' ) !== -1 ) {
+		if ( title.includes( '|' ) ) {
 			return $.Deferred().resolve( false ).promise();
 		}
 

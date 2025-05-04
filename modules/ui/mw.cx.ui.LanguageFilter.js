@@ -135,7 +135,7 @@ mw.cx.ui.LanguageFilter.prototype.calculateUlsPosition = function () {
  * @return {boolean} true if the target language is valid for the source language.
  */
 mw.cx.ui.LanguageFilter.prototype.isValidTarget = function ( targetLanguage ) {
-	return this.targetLanguages.indexOf( targetLanguage ) !== -1;
+	return this.targetLanguages.includes( targetLanguage );
 };
 
 /**
@@ -146,7 +146,7 @@ mw.cx.ui.LanguageFilter.prototype.isValidTarget = function ( targetLanguage ) {
  * @return {boolean} true if the target language is valid for the source language.
  */
 mw.cx.ui.LanguageFilter.prototype.isValidSource = function ( sourceLanguage ) {
-	return this.sourceLanguages.indexOf( sourceLanguage ) !== -1;
+	return this.sourceLanguages.includes( sourceLanguage );
 };
 
 mw.cx.ui.LanguageFilter.prototype.setValidSourceLanguages = function ( sourceLanguages ) {
@@ -369,7 +369,7 @@ mw.cx.ui.LanguageFilter.prototype.fillSourceLanguages = function ( sourceLanguag
 		},
 		onVisible: this.calculateUlsPosition,
 		quickList: function () {
-			return mw.uls.getFrequentLanguageList().filter( ( n ) => sourceLanguages.indexOf( n ) !== -1 );
+			return mw.uls.getFrequentLanguageList().filter( ( n ) => sourceLanguages.includes( n ) );
 		}
 	}, ulsOptions ) );
 };
@@ -408,7 +408,7 @@ mw.cx.ui.LanguageFilter.prototype.fillTargetLanguages = function ( targetLanguag
 		},
 		onVisible: this.calculateUlsPosition,
 		quickList: function () {
-			return mw.uls.getFrequentLanguageList().filter( ( n ) => targetLanguages.indexOf( n ) !== -1 );
+			return mw.uls.getFrequentLanguageList().filter( ( n ) => targetLanguages.includes( n ) );
 		},
 		languageDecorator: this.config.languageDecorator
 	}, ulsOptions ) );

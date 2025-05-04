@@ -93,7 +93,7 @@
 				const sourceMissingSections = Object.keys( sections.missing );
 				for ( i = 0; i < sourceMissingSections.length; i++ ) {
 					const missingSection = sourceMissingSections[ i ];
-					if ( sectionTitles.indexOf( missingSection ) > -1 ) {
+					if ( sectionTitles.includes( missingSection ) ) {
 						firstMissingEditedSection = missingSection;
 					}
 				}

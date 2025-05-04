@@ -55,7 +55,7 @@ mw.cx.MachineTranslationManager.prototype.getPreferredProvider = function () {
 		value = mw.storage.get( key );
 
 	return this.getAvailableProviders().then( ( providers ) => {
-		if ( value && providers.indexOf( value ) >= 0 ) {
+		if ( value && providers.includes( value ) ) {
 			return value;
 		}
 

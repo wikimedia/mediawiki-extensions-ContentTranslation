@@ -168,7 +168,7 @@ mw.cx.SiteMapper = class {
 						response.responseText
 					);
 					this.languagePairsPromise = null;
-					return Promise.reject();
+					throw undefined;
 				} );
 		}
 		return this.languagePairsPromise;

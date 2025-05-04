@@ -4,7 +4,6 @@
  */
 
 'use strict';
-/* eslint-disable no-implicit-globals */
 
 const $pLangList = $( '#p-lang ul' );
 

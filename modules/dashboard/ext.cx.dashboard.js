@@ -142,16 +142,16 @@
 		const targetLanguages = mw.cx.ui.LanguageFilter.static.targetLanguages;
 		// If query.to and local storage have no target language code,
 		// or language code is invalid, fall back to current wiki language code as target.
-		if ( targetLanguages.indexOf( targetLanguage ) < 0 ) {
+		if ( !targetLanguages.includes( targetLanguage ) ) {
 			targetLanguage = this.siteMapper.getCurrentWikiLanguageCode();
 		}
 
 		const sourceLanguages = mw.cx.ui.LanguageFilter.static.sourceLanguages;
 		const commonLanguages = mw.uls.getFrequentLanguageList().filter(
-			( lang ) => sourceLanguages.indexOf( lang ) !== -1
+			( lang ) => sourceLanguages.includes( lang )
 		);
 
-		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
+		if ( !sourceLanguages.includes( sourceLanguage ) || sourceLanguage === targetLanguage ) {
 			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {
 				const currentLang = commonLanguages[ i ];
 				if ( currentLang !== targetLanguage ) {
@@ -163,10 +163,10 @@
 
 		// If wgContentLanguage has invalid language code for any reason, we try to find
 		// some valid language from the list of common languages.
-		if ( targetLanguages.indexOf( targetLanguage ) < 0 || sourceLanguage === targetLanguage ) {
+		if ( !targetLanguages.includes( targetLanguage ) || sourceLanguage === targetLanguage ) {
 			for ( let i = 0, length = commonLanguages.length; i < length; i++ ) {
 				const currentLang = commonLanguages[ i ];
-				if ( currentLang !== sourceLanguage && targetLanguages.indexOf( currentLang ) !== -1 ) {
+				if ( currentLang !== sourceLanguage && targetLanguages.includes( currentLang ) ) {
 					targetLanguage = currentLang;
 					break;
 				}
@@ -182,7 +182,7 @@
 		// Also, if local storage data is corrupted, either due to bug previously existing
 		// in the code, or some manual change of local storage data, apply the same principle.
 		// See T202286#4530740
-		if ( sourceLanguages.indexOf( sourceLanguage ) < 0 || sourceLanguage === targetLanguage ) {
+		if ( !sourceLanguages.includes( sourceLanguage ) || sourceLanguage === targetLanguage ) {
 			if ( targetLanguage === 'en' ) {
 				sourceLanguage = 'es';
 			} else {
@@ -209,7 +209,7 @@
 			lists.push( 'suggestions' );
 		}
 
-		if ( lists.indexOf( locationHash ) > -1 ) {
+		if ( lists.includes( locationHash ) ) {
 			this.setActiveList( locationHash );
 		} else {
 			this.setActiveList( 'draft' );

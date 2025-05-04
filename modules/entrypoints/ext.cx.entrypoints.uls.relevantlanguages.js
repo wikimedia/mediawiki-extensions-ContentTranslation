@@ -114,7 +114,7 @@ const sitematrix = require( './sitematrix.json' );
 			for ( const frequentLanguage of frequentLanguages ) {
 				const wikiDomainCode = siteMapper.getWikiDomainCode( frequentLanguage );
 
-				if ( sitematrix.indexOf( wikiDomainCode ) < 0 ) {
+				if ( !sitematrix.includes( wikiDomainCode ) ) {
 					continue;
 				}
 
@@ -132,12 +132,12 @@ const sitematrix = require( './sitematrix.json' );
 				const wikiContentLanguage = siteMapper.getLanguageCodeForWikiDomain( wikiDomainCode );
 
 				// skip if the current article already exists for the corresponding content language
-				if ( existingLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+				if ( existingLanguages.includes( wikiContentLanguage ) ) {
 					continue;
 				}
 
 				// skip if the content language already exists inside "missingRelevantLanguages" array
-				if ( missingRelevantLanguages.indexOf( wikiContentLanguage ) > -1 ) {
+				if ( missingRelevantLanguages.includes( wikiContentLanguage ) ) {
 					continue;
 				}
 

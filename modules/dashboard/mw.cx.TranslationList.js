@@ -113,7 +113,7 @@ mw.cx.CXTranslationList.prototype.loadItems = function () {
 	}
 
 	function insertUnique( array, value ) {
-		if ( array.indexOf( value ) < 0 ) {
+		if ( !array.includes( value ) ) {
 			array.push( value );
 		}
 	}

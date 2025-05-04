@@ -56,7 +56,7 @@
 					revid: revisionId,
 					tags: [ 'contenttranslation', 'contenttranslation-v2' ]
 				};
-				return Promise.resolve( api.postWithToken( 'csrf', params ) );
+				return api.postWithToken( 'csrf', params );
 			} )
 			.then( () => {
 				const mwApi = new mw.Api();

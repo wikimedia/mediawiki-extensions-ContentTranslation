@@ -96,7 +96,7 @@ mw.cx.TranslationTracker.static.calculateUnmodifiedContent = function ( string1,
 	}
 
 	// Find the intersection(tokens that did not change) two token sets
-	const unmodifiedTokens = bigSet.filter( ( token ) => smallSet.indexOf( token ) >= 0 );
+	const unmodifiedTokens = bigSet.filter( ( token ) => smallSet.includes( token ) );
 
 	// If string1 has 10 tokens and we see that 2 tokens are different or not present in string2,
 	// we are saying that string2 is 80% (ie. 10-2/10) of unmodified version fo string1.
@@ -115,7 +115,7 @@ mw.cx.TranslationTracker.static.tokenise = function ( string, language ) {
 	if ( !string ) {
 		return [];
 	}
-	if ( $.uls.data.scriptgroups.CJK.indexOf( $.uls.data.getScript( language ) ) >= 0 ) {
+	if ( $.uls.data.scriptgroups.CJK.includes( $.uls.data.getScript( language ) ) ) {
 		return string.split( '' );
 	}
 
@@ -141,7 +141,7 @@ mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel 
 	];
 
 	// check if node itself is excluded before check it
-	if ( nodeModel && nodeModel.getType && excludedTypes.indexOf( nodeModel.getType() ) >= 0 ) {
+	if ( nodeModel && nodeModel.getType && excludedTypes.includes( nodeModel.getType() ) ) {
 		return true;
 	}
 
@@ -155,7 +155,7 @@ mw.cx.TranslationTracker.static.isExcludedFromValidation = function ( nodeModel 
 	if ( children && children.length === 1 ) {
 		// Get the type of one and only one child of the nodeModel
 		const childType = children[ 0 ].getType();
-		if ( excludedTypes.indexOf( childType ) >= 0 ) {
+		if ( excludedTypes.includes( childType ) ) {
 			return true;
 		} else {
 			// Recurse through the single child path in the node tree.
@@ -655,7 +655,7 @@ mw.cx.TranslationTracker.prototype.getUnmodifiedMTPercentageInTranslation = func
 			);
 
 		totalTokens += userTranslationTokens.length;
-		unmodifiedTokens += userTranslationTokens.filter( ( token ) => unmodifiedMTTokens.indexOf( token ) >= 0 ).length;
+		unmodifiedTokens += userTranslationTokens.filter( ( token ) => unmodifiedMTTokens.includes( token ) ).length;
 	}, this );
 
 	// Avoid division by zero
@@ -779,7 +779,7 @@ mw.cx.TranslationTracker.prototype.getNodesWithIssues = function () {
  * @return {boolean}
  */
 mw.cx.TranslationTracker.prototype.isSectionInChangeQueue = function ( sectionNumber ) {
-	return this.changeQueue.indexOf( sectionNumber ) >= 0;
+	return this.changeQueue.includes( sectionNumber );
 };
 
 mw.cx.TranslationTracker.prototype.pushToChangeQueue = function ( sectionNumber ) {
@@ -795,7 +795,7 @@ mw.cx.TranslationTracker.prototype.pushToChangeQueue = function ( sectionNumber 
  * @return {boolean}
  */
 mw.cx.TranslationTracker.prototype.isSectionInSaveQueue = function ( sectionNumber ) {
-	return this.saveQueue.indexOf( sectionNumber ) >= 0;
+	return this.saveQueue.includes( sectionNumber );
 };
 
 mw.cx.TranslationTracker.prototype.pushToSaveQueue = function ( sectionNumber ) {
@@ -805,7 +805,7 @@ mw.cx.TranslationTracker.prototype.pushToSaveQueue = function ( sectionNumber ) 
 };
 
 mw.cx.TranslationTracker.prototype.pushToValidationQueue = function ( sectionNumber ) {
-	if ( this.validationDelayQueue.indexOf( sectionNumber ) < 0 ) {
+	if ( !this.validationDelayQueue.includes( sectionNumber ) ) {
 		this.validationDelayQueue.push( sectionNumber );
 	}
 };

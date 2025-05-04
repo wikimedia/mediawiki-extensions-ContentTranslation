@@ -136,7 +136,7 @@
 			const enabledTargets = mw.config.get( 'wgSectionTranslationTargetLanguages' );
 
 			const matches = results.filter(
-				( code ) => enabledTargets.indexOf( code ) >= 0 &&
+				( code ) => enabledTargets.includes( code ) &&
 					code !== mw.config.get( 'wgContentLanguage' )
 			);
 			if ( !matches.length ) {

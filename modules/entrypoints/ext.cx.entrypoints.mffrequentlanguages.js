@@ -100,7 +100,7 @@
 		 */
 		const missingSXLanguages = mw.config.get( 'wgSectionTranslationMissingLanguages', [] );
 		return missingSXLanguages.filter(
-			( missingSXLanguage ) => targetedDomainCodes.some( ( domainCode ) => missingSXLanguage.domain === domainCode )
+			( missingSXLanguage ) => targetedDomainCodes.includes( missingSXLanguage.domain )
 		);
 	}
 

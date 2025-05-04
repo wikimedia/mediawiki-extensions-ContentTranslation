@@ -130,7 +130,7 @@
 			if ( trace &&
 				trace.error &&
 				trace.error.code &&
-				abuseFilterCodes.indexOf( trace.error.code ) > -1 &&
+				abuseFilterCodes.includes( trace.error.code ) &&
 				trace.error.abusefilter
 			) {
 				this.logAbuseFilter(

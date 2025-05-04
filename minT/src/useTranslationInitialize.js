@@ -32,7 +32,9 @@ const fetchPageContent = ( sourceLanguage, targetLanguage, title ) => {
 	return fetch( relativeUrl )
 		.then( ( response ) => response.json() )
 		.then( ( data ) => data.segmentedContent )
-		.catch( ( error ) => Promise.reject( error ) );
+		.catch( ( error ) => {
+			throw error;
+		} );
 };
 
 /**

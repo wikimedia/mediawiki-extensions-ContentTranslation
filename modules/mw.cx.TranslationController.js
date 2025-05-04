@@ -781,7 +781,7 @@ mw.cx.TranslationController.prototype.publishArticle = function ( numOfHighMTSec
  */
 mw.cx.TranslationController.prototype.translationHasIssues = function ( ignore ) {
 	return this.translation.getTranslationIssues().length > 0 ||
-		this.translationTracker.getNodesWithIssues().some( ( node ) => ignore.indexOf( node ) === -1 );
+		this.translationTracker.getNodesWithIssues().some( ( node ) => !ignore.includes( node ) );
 };
 
 mw.cx.TranslationController.prototype.saveBeforePublishingSucceeded = function ( numOfHighMTSections ) {
