@@ -24,6 +24,12 @@ const listItems = computed(() => {
       target: "_blank",
     },
     {
+      icon: cdxIconChart,
+      label: bananaI18n.i18n("cx-sx-dashboard-help-panel-stats-label"),
+      href: mw.util.getUrl("Special:ContentTranslationStats"),
+      target: "_blank",
+    },
+    {
       icon: cdxIconFeedback,
       label: bananaI18n.i18n("cx-sx-dashboard-help-panel-feedback-label"),
       href: "https://www.mediawiki.org/wiki/Talk:Content_translation",

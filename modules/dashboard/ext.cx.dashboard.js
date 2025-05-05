@@ -254,6 +254,13 @@
 				target: '_blank'
 			},
 			{
+				icon: 'chart',
+				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--stats' ],
+				href: mw.util.getUrl( 'Special:ContentTranslationStats' ),
+				label: mw.msg( 'cx-dashboard-sidebar-stats' ),
+				target: '_blank'
+			},
+			{
 				icon: 'speechBubbles',
 				classes: [ 'cx-dashboard-sidebar__link', 'cx-dashboard-sidebar__link--feedback' ],
 				href: 'https://www.mediawiki.org/wiki/Talk:Content_translation',
