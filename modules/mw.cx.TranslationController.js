@@ -27,7 +27,6 @@ mw.cx.TranslationController = function MwCxTranslationController(
 	// Properties
 	this.saveRequest = null;
 	this.failCounter = 0;
-	this.isFailedUnrecoverably = false; // TODO: This is still unused
 	this.mtAbusePublishingStopped = false;
 	this.titlePublishError = null;
 	this.saveStatusTimer = null;
@@ -840,7 +839,6 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTit
  * @param {OO.ui.Error} error
  */
 mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
-	this.isFailedUnrecoverably = !error.isRecoverable();
 	this.veTarget.onPublishFailure( error.getMessageText() );
 	this.enableEditing();
 };
