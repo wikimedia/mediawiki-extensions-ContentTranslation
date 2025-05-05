@@ -261,13 +261,6 @@
 				"ContentTranslation.TranslationCorporaManager"
 			]
 		},
-		"contenttranslationlangtrend": {
-			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationLanguageTrend",
-			"services": [
-				"LanguageNameUtils"
-			]
-		},
-		"contenttranslationstats": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationStats",
 		"contenttranslationsuggestions": {
 			"class": "ContentTranslation\\ActionApi\\ApiQueryContentTranslationSuggestions",
 			"services": [
