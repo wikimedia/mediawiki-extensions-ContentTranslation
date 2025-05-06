@@ -119,7 +119,7 @@ mw.cx.init.Translation.prototype.init = function () {
 				mw.log( '[CX] Translation initialized successfully' );
 			} );
 		} )
-		.catch( () => this.initializationError() );
+		.catch( ( error ) => this.initializationError( error ) );
 
 	this.addFeedbackLink();
 };
@@ -230,12 +230,14 @@ mw.cx.init.Translation.prototype.initTranslationModel = function ( sourceHtml, d
 
 /**
  * Initialization error handler
+ *
+ * @param error
  */
-mw.cx.init.Translation.prototype.initializationError = function () {
+mw.cx.init.Translation.prototype.initializationError = function ( error ) {
 	// Any error in the above deferreds is critical
 	this.translationView.showMessage( 'error', mw.msg( 'cx-init-critical-error' ) );
 	// Nothing happens beyond this. Some internal error happened.
-	mw.log.error( '[CX] Translation initialization failed.' );
+	mw.log.error( '[CX] Translation initialization failed.', error );
 };
 
 /**
