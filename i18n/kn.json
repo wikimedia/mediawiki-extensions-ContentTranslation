@@ -65,7 +65,6 @@
 	"cx-mt-abuse-warning-title": "ನಿಮ್ಮ ಅನುವಾದ $1% ರಷ್ಟು ಬದಲಾವಣೆ ಮಾಡಲಾರದ ಯಾಂತ್ರಿಕ-ಅನುವಾದದ ಪಠ್ಯ {{PLURAL:$1|ಹೊಂದಿದೆ}}",
 	"cx-mt-abuse-warning-text": "ಯಾಂತ್ರಿಕ ಅನುವಾದಗಳನ್ನು ಕೇವಲ ಟೆಂಪ್ಲೇಟ್‌ ಆಗಿ ನೀಡಲಾಗಿದೆ. ನೀವು ವಿಷಯವು ನಿಖರವಾಗಿದೆ ಮತ್ತು ನಿಮ್ಮ ಭಾಷೆಯಲ್ಲಿ ಸಹಜವಾಗಿ ಓದಲ್ಪಡುತ್ತದೆಂದು ಖಾತ್ರಿ ಪಡಿಸಿಕೊಳ್ಳಬೇಕು.",
 	"cx-publish-captcha-title": "ಸುರಕ್ಷತೆ ಪ್ರಶ್ನೆ",
-	"cx-dashboard-sidebar-stats": "ಅಂಕಿಅಂಶಗಳು",
 	"cx-translation-filter-published-translations": "ಪ್ರಕಟಿತಗೊಂಡವು",
 	"cx-translation-filter-draft-translations": "ಕಾರ್ಯ ಪ್ರಗತಿಯಲ್ಲಿರುವವು",
 	"cx-create-new-translation": "ಹೊಸ ಅನುವಾದ",
