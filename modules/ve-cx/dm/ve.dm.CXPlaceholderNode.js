@@ -52,6 +52,11 @@ ve.dm.CXPlaceholderNode.prototype.canHaveSlugAfter = function () {
 	return false;
 };
 
+/** Placeholder node will not have any issues. */
+ve.dm.CXPlaceholderNode.prototype.getTranslationIssues = function () {
+	return [];
+};
+
 /* Registration */
 
 ve.dm.modelRegistry.register( ve.dm.CXPlaceholderNode );
