@@ -97,8 +97,7 @@ class RecentEditEntrypointRegistrationHandler implements BeforePageDisplayHook {
 		$wikidataId = (int)filter_var( $qid, FILTER_SANITIZE_NUMBER_INT );
 
 		/**
-		 * Fetch at most 10 objects representing rows inside "cx_significant_edits" table,
-		 * that satisfy the below conditions:
+		 * Fetch recent edits that satisfy the below conditions:
 		 * 1. Were made by the current user
 		 * 2. Were done to an article with the current wikidata page id
 		 * 3. Were done in a language different from the current one

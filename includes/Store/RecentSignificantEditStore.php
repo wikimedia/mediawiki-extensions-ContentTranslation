@@ -7,7 +7,6 @@ namespace ContentTranslation\Store;
 use ContentTranslation\Entity\RecentSignificantEdit;
 use ContentTranslation\LoadBalancer;
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\SelectQueryBuilder;
 
 class RecentSignificantEditStore {
 	// Array of supported wiki families for the 'recent significant edit' entrypoint
@@ -18,6 +17,7 @@ class RecentSignificantEditStore {
 	];
 	private const TABLE_NAME = 'cx_significant_edits';
 	private const DEFAULT_WIKI_FAMILY = 'wikipedia';
+	private const RECENT_EDITS_LIMIT = 10;
 
 	/**
 	 * The index of the wiki family of the current wiki inside SUPPORTED_WIKI_FAMILIES array.
@@ -42,9 +42,8 @@ class RecentSignificantEditStore {
 
 	/**
 	 * Given a RecentSignificantEdit instance, this method
-	 * stores its fields, as a row inside the table.
-	 * To make sure that at most 10 edits per user will exist,
-	 * this method keeps only the 10 newest edits and deletes the rest.
+	 * stores its fields, as a row inside the table. It will purge
+	 * older ones if we reach the limit.
 	 *
 	 * @param RecentSignificantEdit $edit
 	 * @return int
@@ -61,7 +60,7 @@ class RecentSignificantEditStore {
 			->execute();
 		$newId = $primaryDb->insertId();
 		$edit->setId( $newId );
-		// Keep only the 10 newest edits and delete the rest
+		// Keep only the newest edits and delete the rest
 		$this->deleteOldEditsByUser( $edit->getUserId() );
 		return $newId;
 	}
@@ -92,23 +91,22 @@ class RecentSignificantEditStore {
 	}
 
 	/**
-	 * Given a user id, this method deletes all the edits done by
-	 * this user, that are older than the 10 first edits. This way
+	 * Given a user id, this method deletes all the edit records done by
+	 * this user, if there are more than the limit. This way
 	 * we ensure that the "cx_significant_edits" table will not
-	 * store more than 10 edits per user. If less than 10 edits exist,
-	 * it returns without doing anything.
+	 * store more than specified number of edit records per user.
 	 *
 	 * @param int $userId
 	 */
 	private function deleteOldEditsByUser( int $userId ) {
 		$edits = $this->findEditsByUser( $userId );
-		if ( count( $edits ) <= 10 ) {
+		if ( count( $edits ) <= self::RECENT_EDITS_LIMIT ) {
 			return;
 		}
 
 		$editIdsToDelete = array_map( static function ( RecentSignificantEdit $edit ) {
 			return $edit->getId();
-		}, array_slice( $edits, 10 ) );
+		}, array_slice( $edits, self::RECENT_EDITS_LIMIT ) );
 
 		$primaryDb = $this->lb->getConnection( DB_PRIMARY );
 		$primaryDb->newDeleteQueryBuilder()
@@ -179,9 +177,7 @@ class RecentSignificantEditStore {
 
 	/**
 	 * Given a user id, a page wikidata id and a language code,
-	 * this static method returns an array containing at most
-	 * 10 instances of this class. These objects represent
-	 * edits stored inside the table that:
+	 * get objects that represent edits stored inside the table that:
 	 * 1. were done by the given user,
 	 * 2. were done to an article with the given wikidata page id
 	 * 3. were done in a language different that the given one
@@ -213,8 +209,6 @@ class RecentSignificantEditStore {
 			] )
 			->from( self::TABLE_NAME )
 			->where( $conditions )
-			->orderBy( 'cxse_timestamp', SelectQueryBuilder::SORT_DESC )
-			->limit( 10 )
 			->caller( __METHOD__ )
 			->fetchResultSet();
 
