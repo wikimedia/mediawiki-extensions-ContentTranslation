@@ -694,33 +694,39 @@ mw.cx.TranslationController.prototype.publish = function () {
 	// Scroll to the top of the page, so success/fail messages become visible
 	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 
-	if ( mtAbuseMsg instanceof mw.Message ) {
-		this.translationView.showViewIssuesMessage(
-			mw.msg( 'cx-mt-abuse-publish-error' ), 'mt-abuse-publish', 'error'
-		);
-		this.showMTAbusePublishError( mtAbuseMsg.toString() );
-		this.onPublishCancel();
-		this.mtAbusePublishingStopped = true;
-		return;
+	try {
+		if ( mtAbuseMsg instanceof mw.Message ) {
+			this.translationView.showViewIssuesMessage(
+				mw.msg( 'cx-mt-abuse-publish-error' ), 'mt-abuse-publish', 'error'
+			);
+			this.showMTAbusePublishError( mtAbuseMsg.toString() );
+			this.onPublishCancel();
+			this.mtAbusePublishingStopped = true;
+			return;
+		}
+
+		if ( this.translation.isSectionTranslation() ) {
+			this.publishSection();
+			return;
+		}
+
+		// Disable categories to prevent editing
+		this.translationView.categoryUI.disableCategoryUI( true );
+
+		if ( !this.hasUnsavedChanges() ) {
+			this.publishArticle( numOfHighMTSections );
+			return;
+		}
+
+		// At this point, there is certainly a scheduled saving about to happen.
+		// We wait for successful saving, before proceeding with publishing.
+		this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this, numOfHighMTSections ) );
+		this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
+	} catch ( e ) {
+		this.emit( 'publishFailure', e );
+		mw.errorLogger.logError( e, 'error.contenttranslation' );
 	}
 
-	if ( this.translation.isSectionTranslation() ) {
-		this.publishSection();
-		return;
-	}
-
-	// Disable categories to prevent editing
-	this.translationView.categoryUI.disableCategoryUI( true );
-
-	if ( !this.hasUnsavedChanges() ) {
-		this.publishArticle( numOfHighMTSections );
-		return;
-	}
-
-	// At this point, there is certainly a scheduled saving about to happen.
-	// We wait for successful saving, before proceeding with publishing.
-	this.once( 'saveSuccess', this.saveBeforePublishingSucceeded.bind( this, numOfHighMTSections ) );
-	this.once( 'saveFailure', this.saveBeforePublishingFailed.bind( this ) );
 };
 
 /**
