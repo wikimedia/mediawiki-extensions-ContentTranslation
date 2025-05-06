@@ -11,9 +11,8 @@ On section content change, the relative amount of content that got modified comp
 1. Convert content to plain text: All calculations are based on the plain text content of a paragraph. All paragraphs are HTML rich content-we convert this to plain text. Both source paragraph and translated content is converted to plain text.
 2. If both plain text contents are same, return the score as `1`. This is the highest value and indicates, content was not at all modified by translator. If not, proceed.
 3. Tokenize the plain text to words. Using `space` as delimiter, convert the plain text content to array of tokens. Note that this array may contain duplicate tokens. For CJK languages which do not use spaces, each character is a token.
-4. Among the token set for source language and target language, find the biggest set. We call it `bigset`, and smaller set is called `smallset`
-5. Find the intersection two token sets. This is set of tokens that did not change. We call it `unmodifiedTokens`
-6. Calculate the ratio: `size(unmodiedTokens)/size(bigset)`. This is the score indicating the relative value of unmodified content. The value will be between 0 and 1. For example, If source has 10 tokens and we see that 2 tokens are different or not present in translation, we are saying that translation is 80% (ie. 10-2/10) of unmodified version of source.
+4. Find the longest common subsequence (LCS): Instead of comparing the sizes of the token sets, the algorithm calculates the length of the longest common subsequence between the two token arrays. This LCS represents the tokens that are in the same order in both the source and translated content.
+5. Calculate the ratio: The score is calculated as `LCS length / total number of tokens in the larger set`. This score indicates the relative value of unmodified content. The value will be between 0 and 1. For example, If source has 10 tokens and we see that 2 tokens are different or not present in translation, we are saying that translation is 80% (ie. 10-2/10) of unmodified version of source.
 
 ## Notes
 
