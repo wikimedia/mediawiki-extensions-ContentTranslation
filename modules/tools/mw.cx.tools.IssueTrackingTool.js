@@ -255,6 +255,10 @@ mw.cx.tools.IssueTrackingTool.prototype.registerEvents = function ( node ) {
 	const onFocus = OO.ui.debounce( this.init.bind( this ) ),
 		onBlur = OO.ui.debounce( this.onBlur.bind( this ) );
 
+	if ( typeof node.isFocusListenerAttached !== 'function' ) {
+		return;
+	}
+
 	if ( node.isFocusListenerAttached() ) {
 		return;
 	}
