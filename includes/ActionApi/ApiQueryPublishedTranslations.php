@@ -60,9 +60,11 @@ class ApiQueryPublishedTranslations extends ApiQueryBase {
 		return [
 			'from' => [
 				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'to' => [
 				ParamValidator::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_REQUIRED => true,
 			],
 			'limit' => [
 				ParamValidator::PARAM_DEFAULT => 500,
