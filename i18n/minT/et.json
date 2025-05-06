@@ -5,6 +5,7 @@
 		]
 	},
 	"automatic-translation-special-page-description": "Automaattõlge",
+	"automatic-translation-desc": "Võimaldab sisulehekülgede [[Special:AutomaticTranslation|automaattõlget]].",
 	"mint-home-header-title": "Automaattõlge",
 	"mint-home-input-placeholder": "Otsi teemat",
 	"mint-translation-list-all-languages-option-label": "Kõik",
