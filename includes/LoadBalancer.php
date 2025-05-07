@@ -45,14 +45,15 @@ class LoadBalancer {
 	/**
 	 * Gets a database connection to the ContentTranslation database
 	 * @param int $type Either DB_REPLICA or DB_PRIMARY
+	 * @param string|string[] $group
 	 * @return IDatabase
 	 */
-	public function getConnection( int $type ): IDatabase {
+	public function getConnection( int $type, $group = [] ): IDatabase {
 		$lb = $this->contentTranslationCluster
 			? $this->lbFactory->getExternalLB( $this->contentTranslationCluster )
 			: $this->lbFactory->getMainLB( $this->contentTranslationDatabase );
 
-		return $lb->getConnection( $type, [], $this->contentTranslationDatabase );
+		return $lb->getConnection( $type, $group, $this->contentTranslationDatabase );
 	}
 
 }

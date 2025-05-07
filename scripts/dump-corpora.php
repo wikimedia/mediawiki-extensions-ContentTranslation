@@ -116,7 +116,7 @@ class CXCorporaDump extends Maintenance {
 		// Figure out groups (which translation pairs go to which file)
 		/** @var LoadBalancer $lb */
 		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$db = $lb->getConnection( DB_REPLICA );
+		$db = $lb->getConnection( DB_REPLICA, 'vslow' );
 
 		if ( !$splitAt ) {
 			$name = self::makePairName( $sourceLanguage, $targetLanguage );
