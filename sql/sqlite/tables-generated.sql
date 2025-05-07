@@ -62,6 +62,8 @@ CREATE UNIQUE INDEX cx_lists_relevant ON /*_*/cx_lists (
   cxl_end_time
 );
 
+CREATE INDEX cx_lists_owner ON /*_*/cx_lists (cxl_owner);
+
 
 CREATE TABLE /*_*/cx_suggestions (
   cxs_list_id INTEGER NOT NULL, cxs_source_language BLOB NOT NULL,

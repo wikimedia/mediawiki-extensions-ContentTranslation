@@ -58,6 +58,7 @@ CREATE TABLE /*_*/cx_lists (
     cxl_type, cxl_public, cxl_start_time,
     cxl_end_time
   ),
+  INDEX cx_lists_owner (cxl_owner),
   PRIMARY KEY(cxl_id)
 ) /*$wgDBTableOptions*/;
 

@@ -1,0 +1,130 @@
+{
+	"comment": "Add index to cx_lists to make user suggestion fetching faster. See: T392839#10773840",
+	"before": {
+		"name": "cx_lists",
+		"comment": "Content translation suggestion related tables",
+		"columns": [
+			{
+				"name": "cxl_id",
+				"comment": "List id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "cxl_type",
+				"comment": "Type of the list such as features, popular, etc.",
+				"type": "integer",
+				"options": { "notnull": false, "default": 0 }
+			},
+			{
+				"name": "cxl_owner",
+				"comment": "Owner of the list",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cxl_public",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			},
+			{
+				"name": "cxl_start_time",
+				"comment": "Optional validity period for the list",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "cxl_end_time",
+				"comment": "Optional validity period for the list",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "cxl_name",
+				"comment": "Name for the suggestion list",
+				"type": "binary",
+				"options": { "notnull": true, "length": 512 }
+			},
+			{
+				"name": "cxl_info",
+				"comment": "Url to page with additional info about the list",
+				"type": "blob",
+				"options": { "notnull": false, "length": 16777215 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_lists_relevant",
+				"columns": [ "cxl_type", "cxl_public", "cxl_start_time", "cxl_end_time" ],
+				"unique": true
+			}
+		],
+		"pk": [ "cxl_id" ]
+	},
+	"after": {
+		"name": "cx_lists",
+		"comment": "Content translation suggestion related tables",
+		"columns": [
+			{
+				"name": "cxl_id",
+				"comment": "List id",
+				"type": "integer",
+				"options": { "autoincrement": true, "notnull": true }
+			},
+			{
+				"name": "cxl_type",
+				"comment": "Type of the list such as features, popular, etc.",
+				"type": "integer",
+				"options": { "notnull": false, "default": 0 }
+			},
+			{
+				"name": "cxl_owner",
+				"comment": "Owner of the list",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cxl_public",
+				"type": "mwtinyint",
+				"options": { "notnull": true, "length": 1 }
+			},
+			{
+				"name": "cxl_start_time",
+				"comment": "Optional validity period for the list",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "cxl_end_time",
+				"comment": "Optional validity period for the list",
+				"type": "mwtimestamp",
+				"options": { "notnull": false }
+			},
+			{
+				"name": "cxl_name",
+				"comment": "Name for the suggestion list",
+				"type": "binary",
+				"options": { "notnull": true, "length": 512 }
+			},
+			{
+				"name": "cxl_info",
+				"comment": "Url to page with additional info about the list",
+				"type": "blob",
+				"options": { "notnull": false, "length": 16777215 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_lists_relevant",
+				"columns": [ "cxl_type", "cxl_public", "cxl_start_time", "cxl_end_time" ],
+				"unique": true
+			},
+			{
+				"name": "cx_lists_owner",
+				"columns": [ "cxl_owner" ],
+				"unique": false
+			}
+		],
+		"pk": [ "cxl_id" ]
+	}
+}

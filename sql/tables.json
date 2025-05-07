@@ -210,6 +210,11 @@
 				"name": "cx_lists_relevant",
 				"columns": [ "cxl_type", "cxl_public", "cxl_start_time", "cxl_end_time" ],
 				"unique": true
+			},
+			{
+				"name": "cx_lists_owner",
+				"columns": [ "cxl_owner" ],
+				"unique": false
 			}
 		],
 		"pk": [ "cxl_id" ]

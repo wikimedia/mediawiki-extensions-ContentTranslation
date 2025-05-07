@@ -67,6 +67,8 @@ CREATE UNIQUE INDEX cx_lists_relevant ON cx_lists (
   cxl_end_time
 );
 
+CREATE INDEX cx_lists_owner ON cx_lists (cxl_owner);
+
 
 CREATE TABLE cx_suggestions (
   cxs_list_id INT NOT NULL, cxs_source_language TEXT NOT NULL,
