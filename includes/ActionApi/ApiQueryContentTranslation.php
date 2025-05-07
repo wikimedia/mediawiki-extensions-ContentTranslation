@@ -131,15 +131,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 		}
 
 		$result->addValue( [ 'query', 'contenttranslation' ], 'translations', $translations );
-
-		// Simple optimization
-		if ( $params['offset'] === null ) {
-			$result->addValue(
-				[ 'query', 'contenttranslation' ],
-				'languages',
-				$translator->getLanguages( $params['type'] )
-			);
-		}
 	}
 
 	private function serveUnifiedDashboardTranslations( array $params ): void {
@@ -188,13 +179,6 @@ class ApiQueryContentTranslation extends ApiQueryGeneratorBase {
 
 		$result = $this->getResult();
 		$result->addValue( [ 'query', 'contenttranslation' ], 'translations', $translations );
-
-		// Simple optimization
-		if ( $params['offset'] === null ) {
-			$translator = new Translator( $user );
-			$translatorLanguages = $translator->getLanguages( $params['type'] );
-			$result->addValue( [ 'query', 'contenttranslation' ], 'languages', $translatorLanguages );
-		}
 	}
 
 	private function serveDesktopEditorDraft( array $params ): void {

@@ -75,10 +75,6 @@ mw.cx.CXTranslationList.prototype.getTranslations = function () {
 		self.queryContinue = response.continue;
 		self.hasMore = !!response.continue;
 
-		if ( response.query.contenttranslation.languages ) {
-			self.languages = response.query.contenttranslation.languages;
-		}
-
 		// Remove unnecessary object wrapping to get plain list of objects
 		return response.query.contenttranslation.translations.map( ( e ) => e.translation );
 	} );

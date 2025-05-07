@@ -44,43 +44,6 @@ class Translator {
 	}
 
 	/**
-	 * @param string|null $type
-	 * @return string[]
-	 */
-	public function getLanguages( $type ) {
-		// Note: there is no index on translation_last_updated_timestamp
-		/** @var LoadBalancer $lb */
-		$lb = MediaWikiServices::getInstance()->getService( 'ContentTranslation.LoadBalancer' );
-		$dbr = $lb->getConnection( DB_REPLICA );
-
-		$baseQuery = $dbr->newSelectQueryBuilder()
-			// ->select() below
-			->from( 'cx_translations' )
-			->join( 'cx_translators', null, 'translator_translation_id = translation_id' )
-			->where( [ 'translator_user_id' => $this->getGlobalUserId() ] );
-		if ( $type !== null ) {
-			$baseQuery->andWhere( [ 'translation_status' => $type ] );
-		}
-		$unionQueryBuilder = $dbr->newUnionQueryBuilder();
-
-		$sourceQuery = clone $baseQuery;
-		$sourceQuery->select( [ 'code' => 'translation_source_language' ] );
-		$unionQueryBuilder->add( $sourceQuery );
-		$targetQuery = clone $baseQuery;
-		$targetQuery->select( [ 'code' => 'translation_target_language' ] );
-		$unionQueryBuilder->add( $targetQuery );
-
-		$res = $unionQueryBuilder->caller( __METHOD__ )->fetchResultSet();
-
-		$result = [];
-		foreach ( $res as $row ) {
-			$result[] = $row->code;
-		}
-
-		return $result;
-	}
-
-	/**
 	 * Get the number of published translation by current translator.
 	 * @return int
 	 */
