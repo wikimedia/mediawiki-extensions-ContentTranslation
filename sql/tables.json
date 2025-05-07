@@ -248,6 +248,11 @@
 				"name": "cx_suggestions_by_lang",
 				"columns": [ "cxs_list_id", "cxs_source_language", "cxs_target_language" ],
 				"unique": false
+			},
+			{
+				"name": "cx_suggestions_source_language_title",
+				"columns": [ "cxs_source_language", "cxs_title" ],
+				"unique": false
 			}
 		],
 		"pk": []

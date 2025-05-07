@@ -70,7 +70,8 @@ CREATE TABLE /*_*/cx_suggestions (
   INDEX cx_suggestions_by_lang (
     cxs_list_id, cxs_source_language,
     cxs_target_language
-  )
+  ),
+  INDEX cx_suggestions_source_language_title (cxs_source_language, cxs_title)
 ) /*$wgDBTableOptions*/;
 
 

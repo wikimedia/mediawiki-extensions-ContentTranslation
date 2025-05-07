@@ -74,6 +74,8 @@ CREATE INDEX cx_suggestions_by_lang ON /*_*/cx_suggestions (
   cxs_target_language
 );
 
+CREATE INDEX cx_suggestions_source_language_title ON /*_*/cx_suggestions (cxs_source_language, cxs_title);
+
 
 CREATE TABLE /*_*/cx_corpora (
   cxc_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,

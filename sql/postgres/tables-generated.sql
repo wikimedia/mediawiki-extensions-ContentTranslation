@@ -79,6 +79,8 @@ CREATE INDEX cx_suggestions_by_lang ON cx_suggestions (
   cxs_target_language
 );
 
+CREATE INDEX cx_suggestions_source_language_title ON cx_suggestions (cxs_source_language, cxs_title);
+
 
 CREATE TABLE cx_corpora (
   cxc_id SERIAL NOT NULL,

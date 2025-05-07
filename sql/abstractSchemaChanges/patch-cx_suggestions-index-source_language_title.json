@@ -1,0 +1,84 @@
+{
+	"comment": "Add index to cx_suggestions to make suggestion deletion faster. See: T390510#10772936",
+	"before": {
+		"name": "cx_suggestions",
+		"comment": "",
+		"columns": [
+			{
+				"name": "cxs_list_id",
+				"comment": "Foreign key to cxl_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cxs_source_language",
+				"comment": "Source language code",
+				"type": "binary",
+				"options": { "notnull": true, "length": 36 }
+			},
+			{
+				"name": "cxs_target_language",
+				"comment": "Target language code",
+				"type": "binary",
+				"options": { "notnull": false, "length": 36 }
+			},
+			{
+				"name": "cxs_title",
+				"comment": "Title of the suggestion",
+				"type": "binary",
+				"options": { "notnull": true, "length": 512 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_suggestions_by_lang",
+				"columns": [ "cxs_list_id", "cxs_source_language", "cxs_target_language" ],
+				"unique": false
+			}
+		],
+		"pk": []
+	},
+	"after": {
+		"name": "cx_suggestions",
+		"comment": "",
+		"columns": [
+			{
+				"name": "cxs_list_id",
+				"comment": "Foreign key to cxl_id",
+				"type": "integer",
+				"options": { "notnull": true }
+			},
+			{
+				"name": "cxs_source_language",
+				"comment": "Source language code",
+				"type": "binary",
+				"options": { "notnull": true, "length": 36 }
+			},
+			{
+				"name": "cxs_target_language",
+				"comment": "Target language code",
+				"type": "binary",
+				"options": { "notnull": false, "length": 36 }
+			},
+			{
+				"name": "cxs_title",
+				"comment": "Title of the suggestion",
+				"type": "binary",
+				"options": { "notnull": true, "length": 512 }
+			}
+		],
+		"indexes": [
+			{
+				"name": "cx_suggestions_by_lang",
+				"columns": [ "cxs_list_id", "cxs_source_language", "cxs_target_language" ],
+				"unique": false
+			},
+			{
+				"name": "cx_suggestions_source_language_title",
+				"columns": [ "cxs_source_language", "cxs_title" ],
+				"unique": false
+			}
+		],
+		"pk": []
+	}
+}
