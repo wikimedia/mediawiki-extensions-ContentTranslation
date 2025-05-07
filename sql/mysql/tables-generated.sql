@@ -31,6 +31,9 @@ CREATE TABLE /*_*/cx_translations (
   INDEX cx_translations_started_by_last_updated_timestamp (
     translation_started_by, translation_last_updated_timestamp
   ),
+  INDEX cx_translations_last_update_by_last_updated_timestamp (
+    translation_last_update_by, translation_last_updated_timestamp
+  ),
   PRIMARY KEY(translation_id)
 ) /*$wgDBTableOptions*/;
 

@@ -38,6 +38,10 @@ CREATE INDEX cx_translations_started_by_last_updated_timestamp ON cx_translation
   translation_started_by, translation_last_updated_timestamp
 );
 
+CREATE INDEX cx_translations_last_update_by_last_updated_timestamp ON cx_translations (
+  translation_last_update_by, translation_last_updated_timestamp
+);
+
 
 CREATE TABLE cx_translators (
   translator_user_id INT NOT NULL,
