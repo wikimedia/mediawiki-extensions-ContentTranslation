@@ -369,6 +369,8 @@
 	"cx-sx-translation-confirmer-title": "Yeni çeviri",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 görüntüleme/hafta|0=Bu hafta hiç görüntülenmedi}}",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "Çevirmek için {{PLURAL:$1|$1 saat|0={{PLURAL:$2|$2 dakika}}}}",
+	"cx-sx-translation-confirmer-translation-time-single-section-minute": "Bu bölümü çevirmek {{PLURAL:$1|$1 dakika}}",
+	"cx-sx-translation-confirmer-translation-time-single-section-hour": "Bu bölümü çevirmek {{PLURAL:$1|$1 saat}}",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$3|$3 bölümü}} çevirmek için {{PLURAL:$1|$1 saat|0={{PLURAL:$2|$2 dakika}}}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Yer imi",
 	"cx-sx-content-comparator-discarded-section-clarifications": "Çeviriniz bağımsız yeni bir bölüm olarak yayımlanacaktır.",
