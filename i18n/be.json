@@ -313,7 +313,7 @@
 	"cx-sx-sentence-selector-header-title": "Перакласці раздзел",
 	"cx-sx-sentence-selector-done-button-label": "Гатова",
 	"cx-sx-sentence-selector-suggested-translation-title": "Прапанаваны пераклад з «$1»",
-	"cx-sx-proposed-translation-not-available-message": "Машынны пераклад зараз недаступны",
+	"cx-sx-proposed-translation-not-available-message": "Цяпер недаступны",
 	"cx-sx-proposed-translation-retry-button": "Паўтарыць",
 	"cx-sx-proposed-translation-other-options-button": "Іншыя настройкі",
 	"cx-sx-sentence-selector-edit-translation-button-label": "Правіць пераклад",
@@ -483,6 +483,6 @@
 	"sx-confirm-draft-translation-start-dialog-subtitle": "Гэты пераклад быў пачаты на іншай прыладзе, і ён уключае змесціва для некалькіх раздзелаў артыкула.",
 	"sx-confirm-draft-translation-start-dialog-explanation-first-line": "На мабільным тэлефоне вы можаце працаваць толькі з адным раздзелам адначасова. Такім чынам, пакуль будзе загружаны толькі асноўны раздзел.",
 	"sx-confirm-draft-translation-start-dialog-explanation-second-line": "Дзе іншыя раздзелы?",
-	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвалюйцеся. Астатнія раздзелы не страчаны. Яны стануць даступнымі, калі вы апублікуеце цяперашні пераклад у якасці новага артыкула. Пасля публікацыі вы знойдзеце новыя незавершаныя пераклады са зместам кожнага раздзела.",
+	"sx-confirm-draft-translation-start-dialog-explanation-third-line": "Не хвалюйцеся. Астатнія раздзелы не страчаны. Яны цяпер даступныя ў спісе вашых перакладаў, якія знаходзяцца ў працы, і іх можна выкарыстоўваць для пашырэння існуючага артыкула. ​​Вы знойдзеце новы пераклад, які знаходзіцца ў працы, з зместам кожнага раздзела.",
 	"sx-confirm-draft-translation-start-button-label": "Добра"
 }
