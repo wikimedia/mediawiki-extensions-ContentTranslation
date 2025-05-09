@@ -56,7 +56,6 @@ exports[`SXArticleSearch component test Component output matches snapshot 1`] = 
     </div>
     
   </div>
-  <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
   <div
     class="cdx-search-input sx-article-search__search-input"
   >

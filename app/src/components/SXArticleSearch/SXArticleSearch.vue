@@ -231,7 +231,6 @@ const eventSource = computed(() => {
         </cdx-button>
       </mw-col>
     </mw-row>
-    <!--      TODO: Use modelValue inside mw-input and use v-model="" directly-->
     <cdx-search-input
       ref="searchInputRef"
       v-model="searchInput"
