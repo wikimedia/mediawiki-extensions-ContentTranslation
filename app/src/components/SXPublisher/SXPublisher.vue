@@ -63,7 +63,7 @@ const publishTranslation = async (captchaAnswer = null) => {
   if (isPublishingDisabled.value) {
     return;
   }
-  const result = await doPublish(captchaAnswer, captchaDetails);
+  const result = await doPublish(captchaAnswer, captchaDetails.value);
 
   if (!result) {
     return;
