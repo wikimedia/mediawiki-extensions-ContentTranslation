@@ -691,8 +691,7 @@ mw.cx.TranslationController.prototype.publish = function () {
 
 	mw.log( '[CX] Publishing translation...' );
 
-	// Scroll to the top of the page, so success/fail messages become visible
-	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+	this.scrollToInfobar();
 
 	try {
 		if ( mtAbuseMsg instanceof mw.Message ) {
@@ -820,6 +819,7 @@ mw.cx.TranslationController.prototype.onPublishCancel = function () {
 mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTitle ) {
 	mw.log( '[CX] Publishing finished successfully' );
 
+	this.scrollToInfobar();
 	const targetTitle = apiTargetTitle || this.translation.getTargetTitle();
 	this.veTarget.onPublishSuccess( targetTitle, this.translation.getTargetURL() );
 	this.enableEditing();
@@ -840,6 +840,7 @@ mw.cx.TranslationController.prototype.onPublishSuccess = function ( apiTargetTit
  */
 mw.cx.TranslationController.prototype.onPublishFailure = function ( error ) {
 	this.veTarget.onPublishFailure( error.getMessageText() );
+	this.scrollToInfobar();
 	this.enableEditing();
 };
 
@@ -970,6 +971,13 @@ mw.cx.TranslationController.prototype.onIssuesResolved = function ( id ) {
 mw.cx.TranslationController.prototype.onTranslationIssues = function ( id, hasErrors ) {
 	this.translationTracker.setTranslationIssues( id, true );
 	this.translationView.onTranslationIssues( this.translationTracker.getNodesWithIssues(), hasErrors );
+};
+
+/**
+ * Scroll to the infobar, so success/fail messages become visible
+ */
+mw.cx.TranslationController.prototype.scrollToInfobar = function () {
+	$( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
 };
 
 /* Registration */
