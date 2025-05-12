@@ -85,7 +85,9 @@ exports[`SearchResultsCard Component output matches snapshot 1`] = `
                 </g>
               </svg>
             </span>
-            <small />
+            <small>
+              1
+            </small>
             
           </div>
           
@@ -164,7 +166,9 @@ exports[`SearchResultsCard Component output matches snapshot 1`] = `
                 </g>
               </svg>
             </span>
-            <small />
+            <small>
+              1
+            </small>
             
           </div>
           

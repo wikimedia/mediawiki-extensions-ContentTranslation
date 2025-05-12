@@ -72,7 +72,7 @@ exports[`SXSearchArticleSuggestion Component output matches snapshot 1`] = `
           </svg>
         </span>
         <small>
-          5
+          6
         </small>
         
       </div>

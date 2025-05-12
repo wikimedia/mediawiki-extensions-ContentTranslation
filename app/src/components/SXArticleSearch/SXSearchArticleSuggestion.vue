@@ -43,7 +43,7 @@ defineProps({
         </mw-col>
         <mw-col class="cx-search-suggestion__languages" shrink align="center">
           <mw-icon :icon="mwIconLanguage" :size="16" class="me-2" />
-          <small v-text="suggestion.langLinksCount" />
+          <small v-text="(suggestion.langLinksCount || 0) + 1" />
         </mw-col>
       </mw-row>
     </mw-col>
