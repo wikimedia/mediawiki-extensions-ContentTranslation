@@ -304,11 +304,28 @@ mw.cx.TranslationTracker.prototype.init = function ( translationModel ) {
 	if ( restoredSections > 0 ) {
 		const progress = this.getTranslationProgress();
 		if ( !OO.compare( translationModel.progress, progress ) ) {
-			mw.log.error(
-				'[CX] Mismatch in restored translation progress. Saved progress was: ' +
-				JSON.stringify( translationModel.progress ) + '. ' +
-				'Restored translation progress is: ' + JSON.stringify( progress ) + '.'
-			);
+			const threshold = 0.08; // 8%
+			let significantVariance = false;
+
+			for ( const key in translationModel.progress ) {
+				const a = translationModel.progress[ key ];
+				const b = progress[ key ];
+				const variance = Math.abs( a - b ) / ( ( a + b ) / 2 );
+				if ( variance > threshold ) {
+					significantVariance = true;
+					break;
+				}
+			}
+
+			// Check if there is significant variance, and if so, log it.
+			if ( significantVariance ) {
+				const mismatchError = '[CX] Mismatch in restored translation progress. Saved progress was: ' +
+					JSON.stringify( translationModel.progress ) + '. ' +
+					'Restored translation progress is: ' + JSON.stringify( progress ) + '.';
+
+				mw.errorLogger.logError( new Error( mismatchError ), 'error.contenttranslation' );
+				mw.log.error( mismatchError );
+			}
 		}
 		mw.log( '[CX] Restored translation has progress: ' + JSON.stringify( progress ) );
 		// Do the change processing and validations on the restored sections without any delay.
