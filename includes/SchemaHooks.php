@@ -119,6 +119,11 @@ class SchemaHooks implements LoadExtensionSchemaUpdatesHook {
 			'cx_translations_last_update_by_last_updated_timestamp',
 			"$dir/sql/$dbType/patch-cx_translations-index-translation_last_update_by_last_updated_timestamp.sql"
 		);
+		$updater->addExtensionIndex(
+			'cx_translations',
+			'cx_translations_last_updated_timestamp',
+			"$dir/sql/$dbType/patch-cx_translations-index-translation_last_updated_timestamp.sql"
+		);
 	}
 
 }
