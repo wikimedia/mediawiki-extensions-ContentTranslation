@@ -582,5 +582,6 @@
 	"cx-page-collection-dialog-close-button-aria-label": "返回面板",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|还剩$1天|0=没有剩余天数}}",
 	"cx-page-collection-dialog-page-suggestions-header": "新页面",
-	"cx-page-collection-dialog-section-suggestions-header": "新章节"
+	"cx-page-collection-dialog-section-suggestions-header": "新章节",
+	"cx-sx-suggestion-list-empty-title": "目前没有建议"
 }

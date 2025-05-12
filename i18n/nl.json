@@ -561,7 +561,7 @@
 	"cx-sx-suggestions-filter-page-collections-group-label": "Verzamelingen",
 	"cx-sx-suggestions-filter-search-input-placeholder": "Onderwerpen en verzamelingen zoeken",
 	"cx-sx-suggestions-filter-search-results-topics-default-description": "Onderwerp ⋅ Door pagina's bladeren",
-	"cx-sx-suggestions-filter-search-results-collections-default-description": "Verzameling ⋅ {{PLURAL:$1|Één pagina| $1 pagina's|0=Geen pagina's}}",
+	"cx-sx-suggestions-filter-search-results-collections-default-description": "Verzameling ⋅ {{PLURAL:$1|Eén artikel| $1 artikelen|0=Geen artikelen}}",
 	"cx-page-collection-dialog-close-button-aria-label": "Terug naar het dashboard",
 	"cx-page-collection-dialog-existing-target-count": "$1 van de $2 artikelen zijn in het $3",
 	"cx-page-collection-dialog-days-left": "{{PLURAL:$1|$1 dag|$1 dagen|0=Geen dagen}} over",

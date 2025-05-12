@@ -11,6 +11,7 @@
 	"mint-translation-list-all-languages-option-label": "全部",
 	"mint-home-info-panel-text": "维基百科上的数百万个主题可以自动翻译成$1。",
 	"mint-home-random-topic-button-label": "随机主题",
+	"ax-home-random-topic-loading-label": "正在加载…",
 	"mint-language-selector-title": "语言",
 	"mint-language-selector-suggestions-header": "建议",
 	"mint-language-selector-all-languages-header": "所有语言",
@@ -38,11 +39,18 @@
 	"mint-view-translation-overlay-feedback-link-label": "发送反馈",
 	"ax-article-footer-entrypoint-card-description": "在其他语言的更多内容",
 	"ax-article-footer-entrypoint-card-supporting-text": "阅读自动翻译",
+	"ax-article-footer-entrypoint-card-heading": "自动翻译",
 	"mint-explore-languages-header": "浏览语言",
 	"mint-explore-languages-search-input-placeholder": "此主题的所有语言",
 	"mint-explore-languages-explanation-banner-title": "通过其他语言了解更多",
 	"mint-explore-languages-explanation-banner-text": "不同语言的编辑者以不同方式编写此主题。",
 	"mint-explore-languages-language-card-container-title": "“$1”覆盖率最高的语言",
 	"mint-explore-languages-language-card-sections-count": "{{PLURAL:$1|$1个章节|0=没有章节}}",
-	"mint-explore-languages-language-card-most-detailed-chip-label": "最详细"
+	"mint-explore-languages-language-card-most-detailed-chip-label": "最详细",
+	"mint-explore-languages-open-language-selector": "选择语言",
+	"mint-explore-languages-more-results": "还有$1种{{PLURAL:$1|语言}}可用",
+	"ax-translation-view-feedback-positive": "是",
+	"ax-translation-view-feedback-negative": "否",
+	"ax-translation-view-feedback-confirm-title": "反馈",
+	"ax-cx-failed-translation-label": "翻译失败"
 }
