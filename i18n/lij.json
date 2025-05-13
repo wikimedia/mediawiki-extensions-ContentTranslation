@@ -330,6 +330,8 @@
 	"cx-sx-translation-confirmer-title": "Nêuva traduçión",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 vizoalizaçión/|$1 vizoalizaçioìn/|0=Nisciùnn-a vizoalizaçión sta }}setemànn-a",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 ôa|$1 ôe|0={{PLURAL:$2|$2 menûto|$2 menûti}}}} pe tradûe",
+	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 menûto|$1 menûti}} pe tradûe sta seçión chi",
+	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 ôa|$1 ôe}} pe tradûe sta seçión chi",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 ôa|$1 ôe|0={{PLURAL:$2|$2 menûto|$2 menûti}}}} pe tradûe {{PLURAL:$3|$3 seçión|$3 seçioìn}}",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Segnalìbbro",
 	"cx-sx-content-comparator-discarded-section-clarifications": "A tò traduçión a saiâ pubricâ cómme 'na nêuva seçión pe sò cónto",
