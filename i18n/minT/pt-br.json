@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fúlvio"
+			"Fúlvio",
+			"Eduardoaddad"
 		]
 	},
 	"automatic-translation-special-page-description": "Tradução automática",
@@ -20,5 +21,13 @@
 	"mint-search-topic-page-input-placeholder": "Pesquisar um tópico",
 	"mint-search-topic-page-input-aria-label": "Entrada de pesquisa MinT",
 	"mint-search-topic-page-results-container-empty": "Pesquise qualquer tópico. O conteúdo de um tópico pode ser diferente em cada idioma.",
-	"mint-confirm-topic-page-header": "Tradução automática"
+	"mint-confirm-topic-page-header": "Tradução automática",
+	"mint-confirm-topic-page-automatic-translation-indicator-text": "Ver tradução automática",
+	"mint-confirm-topic-page-target-article-card-read-article-label": "Ler artigo",
+	"mint-view-translation-page-header": "Tradução automática",
+	"mint-view-translation-page-disclaimer-header": "O conteúdo automático pode ser impreciso",
+	"mint-view-translation-page-disclaimer-body": "Esta página é uma tradução automática do conteúdo originalmente escrito em $1.",
+	"mint-view-translation-page-disclaimer-learn-more-link": "Saiba mais",
+	"mint-view-translation-page-target-article-container-header": "Conteúdo criado por humanos também está disponível sobre este tópico",
+	"mint-view-translation-overlay-feedback-link-label": "Enviar comentário"
 }
