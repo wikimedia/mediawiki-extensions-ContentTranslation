@@ -13,6 +13,7 @@
 namespace ContentTranslation\ActionApi;
 
 use ContentTranslation\ContentTranslationHookRunner;
+use ContentTranslation\LogNames;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
 use ContentTranslation\Service\SandboxTitleMaker;
@@ -29,10 +30,12 @@ use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleFactory;
 use MediaWiki\User\User;
+use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiSectionTranslationPublish extends ApiBase {
@@ -47,6 +50,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
 	private ChangeTagsStore $changeTagsStore;
+	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $main,
@@ -73,6 +77,7 @@ class ApiSectionTranslationPublish extends ApiBase {
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
 		$this->changeTagsStore = $changeTagsStore;
+		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -219,7 +224,20 @@ class ApiSectionTranslationPublish extends ApiBase {
 		);
 
 		$targetSectionTitle = $params['targetsectiontitle'];
-		$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber, $targetSectionTitle );
+		try {
+			$editResult = $this->saveWikitext( $params['html'], $targetTitle, $sectionNumber, $targetSectionTitle );
+		} catch ( ApiUsageException $e ) {
+			$this->logger->error(
+				'Error when publishing section {targetTitle}, {apiException}',
+				[
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+					'apiException' => $e->getMessage(),
+				]
+			);
+
+			throw $e;
+		}
+
 		$editStatus = $editResult['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -277,6 +295,14 @@ class ApiSectionTranslationPublish extends ApiBase {
 				'result' => 'error',
 				'edit' => $editResult
 			];
+
+			$this->logger->error(
+				'Error when publishing section {targetTitle}, {editResultCode}',
+				[
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+					'editResult' => json_encode( $editResult, JSON_PRETTY_PRINT ),
+				]
+			);
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
@@ -308,6 +334,13 @@ class ApiSectionTranslationPublish extends ApiBase {
 				$html
 			)['body'];
 		} catch ( Exception $e ) {
+			$this->logger->error(
+				'Error when converting section HTML to Wikitext using ParsoidClient for {targetTitle}, {errorMessage}',
+				[
+					'errorMessage' => $e->getMessage(),
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+				]
+			);
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);

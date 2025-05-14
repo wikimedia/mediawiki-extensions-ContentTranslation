@@ -18,6 +18,7 @@
 
 namespace ContentTranslation\ActionApi;
 
+use ContentTranslation\LogNames;
 use ContentTranslation\Notification;
 use ContentTranslation\ParsoidClient;
 use ContentTranslation\ParsoidClientFactory;
@@ -30,13 +31,16 @@ use Deflate;
 use Exception;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
+use MediaWiki\Api\ApiUsageException;
 use MediaWiki\ChangeTags\ChangeTagsStore;
 use MediaWiki\Deferred\DeferredUpdates;
 use MediaWiki\Languages\LanguageFactory;
 use MediaWiki\Languages\LanguageNameUtils;
+use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Request\DerivativeRequest;
 use MediaWiki\Title\Title;
+use Psr\Log\LoggerInterface;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\TypeDef\IntegerDef;
 use Wikimedia\Stats\StatsFactory;
@@ -51,6 +55,7 @@ class ApiContentTranslationPublish extends ApiBase {
 	private TranslationStore $translationStore;
 	private TranslationTargetUrlCreator $targetUrlCreator;
 	private ChangeTagsStore $changeTagsStore;
+	private LoggerInterface $logger;
 
 	public function __construct(
 		ApiMain $main,
@@ -71,6 +76,7 @@ class ApiContentTranslationPublish extends ApiBase {
 		$this->translationStore = $translationStore;
 		$this->targetUrlCreator = $targetUrlCreator;
 		$this->changeTagsStore = $changeTagsStore;
+		$this->logger = LoggerFactory::getInstance( LogNames::MAIN );
 	}
 
 	protected function getParsoidClient(): ParsoidClient {
@@ -257,13 +263,33 @@ class ApiContentTranslationPublish extends ApiBase {
 				$html->getValue()
 			)['body'];
 		} catch ( Exception $e ) {
+			$this->logger->error(
+				'Error when converting content HTML to Wikitext using ParsoidClient for {targetTitle}, {errorMessage}',
+				[
+					'errorMessage' => $e->getMessage(),
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+				]
+			);
 			$this->dieWithError(
 				[ 'apierror-cx-docserverexception', wfEscapeWikiText( $e->getMessage() ) ], 'docserver'
 			);
 		}
 
-		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
-		$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
+		try {
+			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
+			$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
+		} catch ( ApiUsageException $e ) {
+			$this->logger->error(
+				'Error when publishing content for {targetTitle}, {apiException}',
+				[
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+					'apiException' => $e->getMessage(),
+				]
+			);
+
+			throw $e;
+		}
+
 		$editStatus = $saveresult['edit']['result'];
 
 		if ( $editStatus === 'Success' ) {
@@ -300,6 +326,14 @@ class ApiContentTranslationPublish extends ApiBase {
 				'result' => 'error',
 				'edit' => $saveresult['edit']
 			];
+
+			$this->logger->error(
+				'Error when publishing content for {targetTitle}, {editResult}',
+				[
+					'targetTitle' => $targetTitle->getPrefixedDBkey(),
+					'editResult' => json_encode( $saveresult['edit'], JSON_PRETTY_PRINT ),
+				]
+			);
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $result );
