@@ -13,3 +13,4 @@ node_modules/
 .DS_Store
 tests/selenium/log
 app/vite.config.local.js
+/.stylelintcache
