@@ -248,6 +248,8 @@
 	"cx-sx-translation-confirmer-title": "Nei Iwwersetzung",
 	"cx-sx-translation-confirmer-views-count": "{{PLURAL:$1|$1 Opruff pro|$1 Opriff pro|0=Keen Opruff dës}} Woch",
 	"cx-sx-translation-confirmer-translation-time-whole-article": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-single-section-minute": "{{PLURAL:$1|$1 Minutt|$1 Minutte}} fir dësen Abschnitt z'iwwersetzen",
+	"cx-sx-translation-confirmer-translation-time-single-section-hour": "{{PLURAL:$1|$1 Stonn|$1 Stonne}} fir dësen Abschnitt z'iwwersetzen",
 	"cx-sx-translation-confirmer-translation-time-sections": "{{PLURAL:$1|$1 Stonn|$1 Stonnen|0={{PLURAL:$2|$2 Minutt|$2 Minutte}}}} fir {{PLURAL:$3|$3 Abschnitt|$3 Abschnitter}} z'iwwersetzen",
 	"cx-sx-translation-confirmer-bookmark-button-aria-label": "Lieszeechen",
 	"cx-sx-content-comparator-discarded-section-label": "(net zréckbehalen)",
