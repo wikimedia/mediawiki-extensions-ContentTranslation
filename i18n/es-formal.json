@@ -10,7 +10,6 @@
 	"cx-publish-summary": "Se creó al traducir la página «$1»",
 	"cx-publishing-dialog-sub-title": "La traducción sobrescribirá la página existente. Cerciórese de que sea apropiado sustituir el contenido existente.",
 	"cx-tools-linter-template-missing-mandatory": "Se añadió una plantilla sin algunos datos obligatorios.\nNo se pudieron recuperar automáticamente los datos faltantes de la plantilla original porque su estructura es algo diferente.\n\nDebe editar la plantilla en la traducción para completar la información que falta.",
-	"cx-feature-discovery-title": "Traduzca en cualquier momento",
 	"cx-sx-select-section": "Selecciona una sección para traducir",
 	"cx-sx-missing-section-stats": "{{PLURAL:$1|Una sección falta|$1 secciones faltan}} en $2",
 	"cx-sx-section-selector-subtitle": "Selecione una sección para traducir",

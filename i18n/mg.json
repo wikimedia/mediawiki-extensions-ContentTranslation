@@ -114,7 +114,6 @@
 	"cx-campaign-newarticle-notice": "Mora kokoa izao ny famoronana pejy vaovao amin'ny <strong>fandikana</strong>! Te hanandrana ny fitaovana beta fandikam-bontoatiny ve ianao?",
 	"cx-campaign-no-thanks": "Aoka fa misaotra",
 	"cx-campaign-try": "Hanandrana ny Fandikam-botoatiny",
-	"cx-campaign-contributionsmenu-mycontributions": "Fandraisan'anjara",
 	"cx-campaign-contributionsmenu-mytranslations": "Dikanteny",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Hanampy dikanteny vaovao",
 	"cx-campaign-contributionsmenu-myuploads": "Hainoamanjery nampidirina",
@@ -183,6 +182,5 @@
 	"cx-publish-destination-namespace-draft-description": "Ao amin'ny anaran-tsehatry ny drafitra hahafahan'ny fikambanana manatsara ary manamarina azy",
 	"cx-publish-destination-namespace-changed": "Niova ho drafitra manokana ny toerana hamoahana. Manaova fanitsiana fanampiny amin'ny parametatry ny famoahana amin'ny fotoana izay mety aminao",
 	"cx-linkcontextitem-missing-link-title": "Tsy ampy rohy",
-	"cx-linkcontextitem-missing-title-description": "Tsy mbola misy ity pejy ity",
-	"cx-feature-discovery-dismiss": "Eny, azoko"
+	"cx-linkcontextitem-missing-title-description": "Tsy mbola misy ity pejy ity"
 }

@@ -19,7 +19,6 @@
 	"cx-contributions-translation": "Onnkar",
 	"cx-contributions-upload": "Madhyom upload kor",
 	"cx-campaign-no-thanks": "Naka, Dev borem korum",
-	"cx-campaign-contributionsmenu-mycontributions": "Yogdanam",
 	"cx-campaign-contributionsmenu-mytranslations": "Onnkaram",
 	"cx-campaign-contributionsmenu-mytranslations-tooltip": "Novo onnkar zodd",
 	"cx-campaign-contributionsmenu-myuploads": "Upload kel'le madhyom",
@@ -29,7 +28,6 @@
 	"echo-category-title-cx": "Onnkaram",
 	"cx-notification-tenth-translation": "Tujea dhavi onnkarakhatir porbim! Tum ek boro onnkarpi zatai.\nHem borem kam oxench chalu dovor!",
 	"cx-translationlist-empty-title": "Onnkar korpak kai na?",
-	"cx-feature-discovery-dismiss": "Borem asa, {{GENDER:|somzolom|somzolim|somzolom/somzolim}}",
 	"cx-uls-relevant-languages-banner-text-multiple-missing": "<span>$1</span>, <span>$2</span> ani heranim mellona",
 	"cx-uls-relevant-languages-panel-message": "Tuka kollta oxea kaim bhasani hem pan mellona. Tuven tacho onnkar mintani korunk ieta!",
 	"cx-uls-translate-page-quick-action-label": "Hea panachem onnkar kor"

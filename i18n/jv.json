@@ -140,7 +140,6 @@
 	"cx-campaign-newarticle-notice": "Nggawé kaca anyar sarana <strong>mertal</strong> saiki wis mayar! Péngin njajal piranti béta Pertalan Kontèn?",
 	"cx-campaign-no-thanks": "Ora, suwun",
 	"cx-campaign-try": "Jajal Pertalan Kontèn",
-	"cx-campaign-contributionsmenu-mycontributions": "Pasumbang",
 	"cx-campaign-contributionsmenu-mytranslations": "Pertalan",
 	"cx-campaign-contributionsmenu-myuploads": "Médhia unggahan",
 	"cx-no-source-categories": "Ora ana kategori",
@@ -212,6 +211,5 @@
 	"cx-publish-destination-namespace-draft": "Rèngrèngan paguyuban",
 	"cx-linkcontextitem-missing-link-title": "Pranala ora ana",
 	"cx-linkcontextitem-missing-title-description": "Kaca iki durung ana",
-	"cx-unreviewed-translation-category": "Kaca mawa pertalan kang durung kapriksa",
-	"cx-feature-discovery-title": "Pertal kapan-kapan"
+	"cx-unreviewed-translation-category": "Kaca mawa pertalan kang durung kapriksa"
 }

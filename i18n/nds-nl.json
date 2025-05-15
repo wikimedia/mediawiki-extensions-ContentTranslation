@@ -111,7 +111,6 @@
 	"cx-campaign-newarticle-notice": "Nye syden maken döär <strong>oaver te setten</strong> is nu eynvoldiger! Wil jy de et beta-warktüüg vöär inholdoaversetting uutproberen?",
 	"cx-campaign-no-thanks": "Nee, bedankt",
 	"cx-campaign-try": "Probeer inhoudsvertaling",
-	"cx-campaign-contributionsmenu-mycontributions": "Myn bydragen",
 	"cx-campaign-contributionsmenu-mytranslations": "Oaversettingen",
 	"cx-campaign-contributionsmenu-myuploads": "Upladen media",
 	"cx-trend-translations-to": "Oaversettingen nå et $1",
@@ -138,6 +137,5 @@
 	"cx-translator-month-stats-label": "Disse månd",
 	"cx-translator-total-translations-label": "Totaal",
 	"cx-publish-destination-namespace-main": "Nye syde",
-	"cx-linkcontextitem-missing-link-title": "Untbreakende verwysing",
-	"cx-feature-discovery-dismiss": "Okee, ik begrype et"
+	"cx-linkcontextitem-missing-link-title": "Untbreakende verwysing"
 }
