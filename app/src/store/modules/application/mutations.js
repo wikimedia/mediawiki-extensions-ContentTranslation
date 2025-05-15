@@ -80,10 +80,6 @@ const mutations = {
   setPreviousRoute: (state, route) => {
     state.previousRoute = route;
   },
-
-  dismissBanner: (state) => {
-    state.bannerDismissed = true;
-  },
 };
 
 export default mutations;

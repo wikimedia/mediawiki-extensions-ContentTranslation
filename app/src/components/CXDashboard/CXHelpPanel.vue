@@ -1,47 +1,24 @@
 <script setup>
-import { computed } from "vue";
-import {
-  cdxIconInfoFilled,
-  cdxIconChart,
-  cdxIconFeedback,
-  cdxIconSpecialPages,
-} from "@wikimedia/codex-icons";
+import { cdxIconInfoFilled, cdxIconFeedback } from "@wikimedia/codex-icons";
 import { CdxIcon } from "@wikimedia/codex";
 import { useI18n } from "vue-banana-i18n";
-import { isDesktopSite } from "@/utils/mediawikiHelper";
-import useDesktopDashboardURL from "./useDesktopDashboardURL";
-
-const { desktopDashboardUrl } = useDesktopDashboardURL();
 
 const bananaI18n = useI18n();
 
-const listItems = computed(() => {
-  const items = [
-    {
-      icon: cdxIconInfoFilled,
-      label: bananaI18n.i18n("cx-sx-dashboard-help-panel-more-info-label"),
-      href: "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
-      target: "_blank",
-    },
-    {
-      icon: cdxIconFeedback,
-      label: bananaI18n.i18n("cx-sx-dashboard-help-panel-feedback-label"),
-      href: "https://www.mediawiki.org/wiki/Talk:Content_translation",
-      target: "_blank",
-    },
-  ];
-
-  if (isDesktopSite) {
-    items.push({
-      icon: cdxIconSpecialPages,
-      label: bananaI18n.i18n("cx-sx-dashboard-banner-access-previous"),
-      href: desktopDashboardUrl.value,
-      target: "_self",
-    });
-  }
-
-  return items;
-});
+const listItems = [
+  {
+    icon: cdxIconInfoFilled,
+    label: bananaI18n.i18n("cx-sx-dashboard-help-panel-more-info-label"),
+    href: "https://www.mediawiki.org/wiki/Special:MyLanguage/Content_translation",
+    target: "_blank",
+  },
+  {
+    icon: cdxIconFeedback,
+    label: bananaI18n.i18n("cx-sx-dashboard-help-panel-feedback-label"),
+    href: "https://www.mediawiki.org/wiki/Talk:Content_translation",
+    target: "_blank",
+  },
+];
 </script>
 
 <template>

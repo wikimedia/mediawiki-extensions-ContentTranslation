@@ -36,12 +36,6 @@ const store = useStore();
 store.dispatch("translator/fetchTranslatorStats");
 const translatorStats = computed(() => store.state.translator.translatorStats);
 
-const bannerDismissed = computed(() => store.state.application.bannerDismissed);
-
-const dismissBanner = () => {
-  store.commit("application/dismissBanner");
-};
-
 const activeTab = useActiveTabInitialize();
 const listSelector = useDashboardListOptions();
 const logDashboardTabSelectEvent = useDashboardTabSelectInstrument();
@@ -67,13 +61,6 @@ const listSelect = (event) => {
         <cdx-icon class="me-1" :icon="cdxIconAdd" />
         {{ $i18n("cx-create-new-translation") }}
       </cdx-button>
-    </mw-row>
-    <mw-row v-if="isDesktopSite && !bannerDismissed" class="ma-0" align="start">
-      <mw-col
-        class="col-12 col-tablet-9 col-offset-tablet-3 col-desktop-7 col-offset-desktop-2"
-      >
-        <cx-dashboard-banner class="mb-4" @user-dismissed="dismissBanner()" />
-      </mw-col>
     </mw-row>
     <mw-row class="ma-0" align="start">
       <mw-col

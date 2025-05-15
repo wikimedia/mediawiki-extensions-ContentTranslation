@@ -78,14 +78,14 @@ class SpecialContentTranslation extends SpecialPage {
 			return;
 		}
 
-		if ( $this->isUnifiedDashboard() ) {
+		if ( !$this->onDesktopTranslationView() ) {
 			$out = $this->getOutput();
 			$out->addHTML( Html::element(
 				'div',
 				[ 'id' => 'contenttranslation' ]
 			) );
 		}
-		// Run the extendable chunks from the sub class.
+		// Run the extendable chunks from the subclass.
 		$this->initModules();
 		$this->addJsConfigVars();
 	}
@@ -208,7 +208,7 @@ class SpecialContentTranslation extends SpecialPage {
 
 		// Allow access to SX for everyone, when unified dashboard should be displayed
 		// and "ContentTranslationEnableAnonSectionTranslation" is set to true.
-		if ( $this->isUnifiedDashboard() && $allowAnonSX ) {
+		if ( !$this->onDesktopTranslationView() && $allowAnonSX ) {
 			return true;
 		}
 
@@ -249,10 +249,7 @@ class SpecialContentTranslation extends SpecialPage {
 		return $this->hasValidToken() && !self::isMobileSite();
 	}
 
-	/**
-	 * @return bool
-	 */
-	private static function isMobileSite() {
+	private static function isMobileSite(): bool {
 		$isMobileView = false;
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			/** @var MobileContext $mobileContext */
@@ -260,76 +257,6 @@ class SpecialContentTranslation extends SpecialPage {
 			$isMobileView = $mobileContext->shouldDisplayMobileView();
 		}
 		return $isMobileView;
-	}
-
-	/**
-	 * @return string|null The user's prefered dashboard or null if not set or has expired
-	 */
-	private function getUserPreferedDashboard() {
-		if ( $this->getUser()->isAnon() ) {
-			return null;
-		}
-		$value = $this->preferenceHelper->getGlobalPreference( $this->getUser(), 'cx-dashboard' );
-		if ( $value === null ) {
-			return null;
-		}
-
-		[ $dashboard, $time ] = explode( '-', $value );
-		if ( $time < time() - 3600 ) {
-			// The preference is older than an hour
-			return null;
-		}
-
-		return $dashboard;
-	}
-
-	/**
-	 * Set the user's prefered dashboard with the current time
-	 */
-	private function setUserPreferedDashboard( string $dashboard ): void {
-		if ( $this->getUser()->isAnon() ) {
-			return;
-		}
-		$time = time();
-		$this->preferenceHelper->setGlobalPreference(
-			$this->getUser(), 'cx-dashboard', "{$dashboard}-{$time}"
-		);
-	}
-
-	protected function isUnifiedDashboard(): bool {
-		if ( $this->onDesktopTranslationView() ) {
-			// Not on a dashboard or mobile editor
-			return false;
-		}
-
-		$unifiedDashboardEnabled = $this->getConfig()->get( 'ContentTranslationEnableUnifiedDashboard' );
-
-		if ( $unifiedDashboardEnabled ) {
-			if ( $this->isMobileSite() ) {
-				// mobile site gets unified dashboard
-				return true;
-			}
-
-			// transition to unified dashboard
-			$dashboardParam = $this->getRequest()->getText( 'cx-dashboard' );
-
-			// The unified or desktop dashboard is explicitly requested by the user
-			if ( in_array( $dashboardParam, [ 'unified', 'desktop' ] ) ) {
-				// record explicit choice in global preference
-				$this->setUserPreferedDashboard( $dashboardParam );
-				return $dashboardParam === 'unified';
-			}
-
-			// check global preference
-			$dashboard = $this->getUserPreferedDashboard();
-			if ( $dashboard !== null ) {
-				return $dashboard === 'unified';
-			}
-
-			return true;
-		}
-
-		return $this->getRequest()->getFuzzyBool( 'unified-dashboard' );
 	}
 
 	protected function initModules() {
@@ -346,15 +273,10 @@ class SpecialContentTranslation extends SpecialPage {
 				$out->addModules( 'ext.cx.wikibase.link' );
 			}
 		} else {
-			if ( $this->isUnifiedDashboard() ) {
-				$out->addModules( 'mw.cx3' );
-				$out->addJsConfigVars( [
-					'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
-				] );
-			} else {
-				$out->addModules( 'ext.cx.dashboard' );
-				$out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
-			}
+			$out->addModules( 'mw.cx3' );
+			$out->addJsConfigVars( [
+				'wgContentTranslationTranslateInTarget' => $contentTranslationTranslateInTarget
+			] );
 		}
 	}
 
