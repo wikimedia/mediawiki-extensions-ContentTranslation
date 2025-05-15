@@ -277,7 +277,7 @@ class ApiContentTranslationPublish extends ApiBase {
 
 		try {
 			// @phan-suppress-next-line PhanTypeMismatchArgumentNullable T240141
-			$saveresult = $this->saveWikitext( $targetTitle, $wikitext, $params );
+			$saveResult = $this->saveWikitext( $targetTitle, $wikitext, $params );
 		} catch ( ApiUsageException $e ) {
 			$this->logger->error(
 				'Error when publishing content for {targetTitle}, {apiException}',
@@ -290,13 +290,13 @@ class ApiContentTranslationPublish extends ApiBase {
 			throw $e;
 		}
 
-		$editStatus = $saveresult['edit']['result'];
+		$editStatus = $saveResult['edit']['result'];
 
 		if ( $editStatus === 'Success' ) {
-			if ( isset( $saveresult['edit']['newrevid'] ) ) {
+			if ( isset( $saveResult['edit']['newrevid'] ) ) {
 				$tags = $this->getTags( $params );
 				// Add the tags post-send, after RC row insertion
-				$revId = intval( $saveresult['edit']['newrevid'] );
+				$revId = intval( $saveResult['edit']['newrevid'] );
 				DeferredUpdates::addCallableUpdate( function () use ( $revId, $tags ) {
 					$this->changeTagsStore->addTags( $tags, null, $revId, null );
 				} );
@@ -311,8 +311,8 @@ class ApiContentTranslationPublish extends ApiBase {
 			$this->translation->translation['status'] = TranslationStore::TRANSLATION_STATUS_PUBLISHED;
 			$this->translation->translation['targetURL'] = $targetURL;
 
-			if ( isset( $saveresult['edit']['newrevid'] ) ) {
-				$result['newrevid'] = intval( $saveresult['edit']['newrevid'] );
+			if ( isset( $saveResult['edit']['newrevid'] ) ) {
+				$result['newrevid'] = intval( $saveResult['edit']['newrevid'] );
 				$this->translation->translation['targetRevisionId'] = $result['newrevid'];
 			}
 
@@ -324,14 +324,14 @@ class ApiContentTranslationPublish extends ApiBase {
 		} else {
 			$result = [
 				'result' => 'error',
-				'edit' => $saveresult['edit']
+				'edit' => $saveResult['edit']
 			];
 
 			$this->logger->error(
 				'Error when publishing content for {targetTitle}, {editResult}',
 				[
 					'targetTitle' => $targetTitle->getPrefixedDBkey(),
-					'editResult' => json_encode( $saveresult['edit'], JSON_PRETTY_PRINT ),
+					'editResult' => json_encode( $saveResult['edit'], JSON_PRETTY_PRINT ),
 				]
 			);
 		}
