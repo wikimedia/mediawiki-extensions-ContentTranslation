@@ -214,7 +214,8 @@ mw.cx.TranslationController.prototype.saveFailureHandler = function ( error ) {
 	this.failCounter++;
 
 	mw.log.warn( '[CX] Saving Failed. Error code: ' + error.errorCode );
-	if ( error.details && error.details.exception !== 'abort' ) {
+	const isAbort = error.details && error.details.exception === 'abort';
+	if ( !isAbort ) {
 		this.onSaveFailure( error.errorCode );
 	}
 
@@ -339,48 +340,53 @@ mw.cx.TranslationController.prototype.getSaveRequest = function ( content, isRet
  * @return {jQuery.Promise|undefined}
  */
 mw.cx.TranslationController.prototype.processSaveQueue = function ( isRetry ) {
-	// Before save starts, make sure all changes are processed and section states are
-	// up to date with latest content.
-	this.processChangeQueue();
+	try {
+		// Before save starts, make sure all changes are processed and section states are
+		// up to date with latest content.
+		this.processChangeQueue();
 
-	if ( !this.hasUnsavedChanges() ) {
-		return;
+		if ( !this.hasUnsavedChanges() ) {
+			return;
+		}
+
+		if ( this.failCounter > 0 && isRetry !== true ) {
+			// Last save failed, and a retry has been scheduled. Don't allow starting new
+			// save requests to avoid overloading the servers, unless this is the retry.
+			mw.log( '[CX] Save request skipped because a retry has been scheduled' );
+			return;
+		}
+
+		// Starting the real save API call.
+		this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
+
+		if ( this.saveRequest ) {
+			mw.log( '[CX] Aborted active save request' );
+			// This causes failCounter to increase because the in-flight request fails.
+			// The new request we do below will reset the fail counter on success.
+			// If it does not succeed, the retry timer that was set by the failed request
+			// prevents further saves before the retry has completed successfully or given up.
+			this.saveRequest.abort();
+		}
+
+		// Copy the current save queue by value.
+		const savedSections = this.translationTracker.getSaveQueue().slice();
+
+		// in "sxsave" we do not use deflated content, just regular JSON string
+		const deflate = !this.translation.isSectionTranslation();
+		return this.getContentToSave( savedSections, deflate ).then( ( content ) => {
+			this.saveRequest = this.getSaveRequest( content, isRetry );
+			return this.saveRequest
+				.then( ( response ) => this.saveSuccessHandler( response ) )
+				.catch( ( error ) => this.saveFailureHandler( error ) )
+				// use "then" instead of "finally", since "finally" is ES2018 syntax
+				.then( () => {
+					this.saveRequest = null;
+				} );
+		} );
+	} catch ( e ) {
+		this.saveFailureHandler( e );
 	}
 
-	if ( this.failCounter > 0 && isRetry !== true ) {
-		// Last save failed, and a retry has been scheduled. Don't allow starting new
-		// save requests to avoid overloading the servers, unless this is the retry.
-		mw.log( '[CX] Save request skipped because a retry has been scheduled' );
-		return;
-	}
-
-	// Starting the real save API call.
-	this.translationView.setStatusMessage( mw.msg( 'cx-save-draft-saving' ) );
-
-	if ( this.saveRequest ) {
-		mw.log( '[CX] Aborted active save request' );
-		// This causes failCounter to increase because the in-flight request fails.
-		// The new request we do below will reset the fail counter on success.
-		// If it does not succeed, the retry timer that was set by the failed request
-		// prevents further saves before the retry has completed successfully or given up.
-		this.saveRequest.abort();
-	}
-
-	// Copy the current save queue by value.
-	const savedSections = this.translationTracker.getSaveQueue().slice();
-
-	// in "sxsave" we do not use deflated content, just regular JSON string
-	const deflate = !this.translation.isSectionTranslation();
-	return this.getContentToSave( savedSections, deflate ).then( ( content ) => {
-		this.saveRequest = this.getSaveRequest( content, isRetry );
-		return this.saveRequest
-			.then( ( response ) => this.saveSuccessHandler( response ) )
-			.catch( ( error ) => this.saveFailureHandler( error ) )
-		// use "then" instead of "finally", since "finally" is ES2018 syntax
-			.then( () => {
-				this.saveRequest = null;
-			} );
-	} );
 };
 
 /**
