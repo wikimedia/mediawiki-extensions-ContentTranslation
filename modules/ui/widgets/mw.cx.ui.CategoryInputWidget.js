@@ -55,7 +55,7 @@ mw.cx.ui.CategoryInputWidget.prototype.getLookupCacheDataFromResponse = function
 	const result = mw.cx.ui.CategoryInputWidget.super.prototype.getLookupCacheDataFromResponse.apply( this, arguments );
 
 	return result.map( function ( category ) {
-		const hasNamespacePrefix = category.indexOf( this.namespacePrefix ) === 0;
+		const hasNamespacePrefix = category.startsWith( this.namespacePrefix );
 
 		return hasNamespacePrefix ? category.slice( this.namespacePrefix.length ) : category;
 	}, this );

@@ -285,7 +285,7 @@ mw.cx.TargetArticle.prototype.publishFail = function ( errorCode, messageOrFailO
 				editError.info
 			);
 			return;
-		} else if ( editError.code.indexOf( 'abusefilter' ) === 0 ) {
+		} else if ( editError.code.startsWith( 'abusefilter' ) ) {
 			// Handle Abuse Filter errors.
 			this.showPublishError(
 				mw.msg( 'cx-publish-error-abuse-filter', editError.abusefilter.description ),
